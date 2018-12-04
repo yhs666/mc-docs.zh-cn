@@ -13,11 +13,11 @@ ms.date: 10/09/2018
 ms.author: v-junlch
 ms.reviewer: jeffsta
 ms.openlocfilehash: 79f319daaaf68486d3bbb5a6b578bc11d88c2413
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913903"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648228"
 ---
 # <a name="how-to-add-or-update-a-users-profile-information-using-azure-active-directory"></a>如何：使用 Azure Active Directory 添加或更新用户的个人资料信息
 使用 Azure Active Directory (Azure AD) 添加用户个人资料信息，包括个人资料图片、工作特定信息以及某些设置。 有关添加新用户的详细信息，请参阅[如何在 Azure Active Directory 中添加或删除用户](add-users-azure-active-directory.md)。
@@ -55,7 +55,7 @@ ms.locfileid: "48913903"
     为用户保存所做的所有更改。
 
     >[!Note]
-    >必须使用 Windows Server Active Directory 更新其授权来源为 Windows Server Active Directory 的用户的标识、联系信息或工作信息。 完成更新后，必须等待下一个同步循环完成，然后才能看到所做的更改。
+    >必须使用 Windows Server Active Directory 更新其授权来源为 Windows Server Active Directory 的用户的标识、联系信息或工作信息。 完成更新后，必须等待下一个同步周期完成才能看到更改。
 
 ## <a name="next-steps"></a>后续步骤
 更新用户的个人资料后，可以执行以下基本流程：

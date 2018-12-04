@@ -10,11 +10,11 @@ origin.date: 05/18/2018
 ms.date: 07/30/2018
 ms.author: v-jay
 ms.openlocfilehash: 76a36fa3f080daa8f56d4421204c9ae3e4121d02
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295869"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645670"
 ---
 # <a name="authorizing-access-to-azure-storage"></a>授权访问 Azure 存储
 

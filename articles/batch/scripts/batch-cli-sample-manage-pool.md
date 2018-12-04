@@ -16,11 +16,11 @@ origin.date: 05/02/2017
 ms.date: 07/04/2017
 ms.author: v-junlch
 ms.openlocfilehash: 853ec4f49e6099eaaed1760181bb19f437f8000e
-ms.sourcegitcommit: 01b8f9a7e857463f49531e70dbb911c6f0286d76
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2017
-ms.locfileid: "23993654"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646554"
 ---
 # <a name="managing-azure-batch-pools-with-azure-cli"></a>使用 Azure CLI 管理 Azure Batch 池
 
@@ -132,7 +132,7 @@ az batch pool delete --pool-id mypool-linux
 此脚本使用以下命令创建和操作批处理池。
 表中的每条命令链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [az batch account login](/cli/batch/account#login) | 针对批处理帐户进行身份验证。  |
 | [az batch application summary list](/cli/batch/application/summary#list) | 列出批处理帐户中可用的应用程序。  |

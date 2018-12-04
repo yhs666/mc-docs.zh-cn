@@ -17,11 +17,11 @@ origin.date: 03/29/2016
 ms.date: 06/04/2018
 ms.author: v-yeche
 ms.openlocfilehash: 963e48c66670058128f2c7f6658228a0d0b1a0b6
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702906"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645245"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Azure Windows VM 扩展故障排除
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]

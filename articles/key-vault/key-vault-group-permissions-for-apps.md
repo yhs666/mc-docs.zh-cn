@@ -16,11 +16,11 @@ origin.date: 12/01/2016
 ms.date: 11/05/2018
 ms.author: v-biyu
 ms.openlocfilehash: 5b97a401b40535d7768caf746e7a4273b1d49846
-ms.sourcegitcommit: 8a68d9275ddb92ea45601fed96e21559999d9579
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026938"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648393"
 ---
 # <a name="grant-several-applications-access-to-a-key-vault"></a>授予多个应用程序访问密钥保管库的权限
 

@@ -13,15 +13,15 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-origin.date: 05/07/2018
-ms.date: 05/07/2018
+origin.date: 03/20/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 83669d3dde3eeb6e0bbc08371c5dcb193c836f32
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: 26880dfe05f7ad64620f5bdbc8f5d89eb22788e9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405372"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648624"
 ---
 # <a name="peer-two-virtual-networks-script-sample"></a>将两个虚拟网络脚本示例对等互连
 
@@ -110,8 +110,9 @@ az group delete --name myResourceGroup --yes
 | [az group delete](https://docs.azure.cn/zh-cn/cli/vm/extension?view=azure-cli-latest#az-vm-extension-set) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/zh-cn/cli/overview?view=azure-cli-latest)。
+
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/zh-cn/cli/index?view=azure-cli-latest)。
+
 可在[虚拟网络 CLI 示例](../cli-samples.md)中查找其他虚拟网络 CLI 脚本示例。
 
-<!-- Update_Description: new articles on virtual network cli sample peer two virtual networks script -->
-<!--ms.date: 05/07/2018-->
+<!-- Update_Description: update meta properties, wording update -->

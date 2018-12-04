@@ -10,11 +10,11 @@ origin.date: 07/19/2018
 ms.date: 09/10/2018
 ms.author: v-yiso
 ms.openlocfilehash: 0986d6957fd3ae91695a98ebc4a63eaa645c6cf0
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43330455"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644543"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>检测和排查 Azure IoT 中心的连接断开问题
 

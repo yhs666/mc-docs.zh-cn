@@ -11,11 +11,11 @@ ms.date: 03/26/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: 79571283c8b8498982b06c9b43296d0ebf8c3112
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940598"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646236"
 ---
 将资源部署到 Azure 时，可以灵活选择想要部署的资源类型、资源的位置以及对它们的设置方式。 但是，除了你想要在组织中允许的选项，这种灵活性可能还会开放更多其他选项。 在考虑将资源部署到 Azure 时，你可能想知道以下问题：
 

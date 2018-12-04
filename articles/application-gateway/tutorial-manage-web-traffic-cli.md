@@ -12,11 +12,11 @@ ms.date: 10/17/2018
 ms.author: v-junlch
 ms.custom: mvc
 ms.openlocfilehash: e8dcebd4cb7144e0f3f65535da40766e8abb89ba
-ms.sourcegitcommit: 4ead6b1d3527373b63c90680b6400a2e95b4064e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49374955"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647834"
 ---
 # <a name="tutorial-manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>教程：通过 Azure CLI 使用应用程序网关管理 Web 流量
 

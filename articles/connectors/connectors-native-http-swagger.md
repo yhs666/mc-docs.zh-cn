@@ -17,11 +17,11 @@ origin.date: 07/18/2016
 ms.author: v-yiso
 ms.date: 10/15/2018
 ms.openlocfilehash: 79cdb09ed748bc70d801d21a421b7d67ec771f7c
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455126"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645115"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>在 Azure 逻辑应用中使用 HTTP + Swagger 连接器调用 REST 终结点
 
@@ -57,7 +57,7 @@ HTTP + Swagger 触发器和操作与 [HTTP 操作](connectors-native-http.md)功
 
 下面是在 Azure 存储中创建、配置和存储 Swagger 文档的步骤：
 
-1. [使用 Azure Blob 存储中创建 Azure 存储帐户](../storage/common/storage-create-storage-account.md)。 要执行此步骤，请将权限设置为**公共访问**。
+1. [创建具有 Azure Blob 存储的 Azure 存储帐户](../storage/common/storage-create-storage-account.md)。 要执行此步骤，请将权限设置为**公共访问**。
 
 2. 在 blob 上启用 CORS。 
 

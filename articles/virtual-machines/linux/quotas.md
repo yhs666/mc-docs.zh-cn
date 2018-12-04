@@ -17,11 +17,11 @@ origin.date: 05/31/2018
 ms.date: 09/24/2018
 ms.author: v-yeche
 ms.openlocfilehash: bf37fe06dd7853220ded0b6d5fefdc0cfa1c805d
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527140"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648224"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>虚拟机 vCPU 配额
 

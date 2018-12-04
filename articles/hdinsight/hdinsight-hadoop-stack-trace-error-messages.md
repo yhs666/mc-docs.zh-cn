@@ -18,11 +18,11 @@ origin.date: 05/14/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
 ms.openlocfilehash: b33e43519ca54970a5ac9b21af82762e0a6f695a
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747433"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647688"
 ---
 # <a name="index-of-hadoop-in-hdinsight-troubleshooting-articles"></a>HDInsight 中的 Hadoop 索引疑难解答文章
 这些文章已按错误类型进行组织。

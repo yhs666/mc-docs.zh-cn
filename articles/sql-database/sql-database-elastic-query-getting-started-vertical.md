@@ -11,11 +11,11 @@ origin.date: 07/03/2018
 ms.date: 08/06/2018
 ms.author: v-johch
 ms.openlocfilehash: 0fa332b1b457b5246651f2e0f1f4a53e0a4349bc
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486668"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645105"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>跨数据库查询（纵向分区）入门（预览）
 

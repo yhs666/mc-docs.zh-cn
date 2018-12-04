@@ -10,11 +10,11 @@ ms.service: mysql
 ms.topic: article
 ms.date: 06/16/2018
 ms.openlocfilehash: d40e84641585b5a660219c2cc22da6f32cbd6053
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723043"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647546"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>使用 Azure 门户创建和管理 Azure Database for MySQL 防火墙规则
 

@@ -19,11 +19,11 @@ origin.date: 04/23/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
 ms.openlocfilehash: 6fa64232e7e43c7c4e425be6bf77be0861642472
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747459"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648107"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>什么是 Azure HDInsight 中的 Apache Hive 和 HiveQL？
 

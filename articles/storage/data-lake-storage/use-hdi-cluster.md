@@ -13,11 +13,11 @@ origin.date: 06/27/2018
 ms.date: 08/27/2018
 ms.author: v-jay
 ms.openlocfilehash: 37a7611889494953e45b0a787ed096ecc72fd6f3
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872402"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643746"
 ---
 # <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>在 Azure HDInsight 群集上使用 Azure Data Lake Storage Gen2 预览版
 
@@ -60,7 +60,7 @@ HDInsight 提供对在本地附加到计算节点的分布式文件系统的访�
 
 创建过程中定义的存储帐户及其密钥存储在群集节点上的 %HADOOP_HOME%/conf/core-site.xml 中。 HDInsight 的默认行为是使用 core-site.xml 文件中定义的存储帐户。 可以使用 [Ambari](../../hdinsight/hdinsight-hadoop-manage-ambari.md) 修改此设置
 
-多个 WebHCat 作业，包括 Hive、MapReduce、Hadoop 流和 Pig，都可以带有存储帐户和元数据的说明。 （此方法目前对带有存储帐户的 Pig 有效，但对元数据无效。）有关详细信息，请参阅[将 HDInsight 群集与备用存储帐户和元存储配合使用](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx)。
+多个 WebHCat 作业，包括 Hive、MapReduce、Hadoop 流和 Pig，都可以带有存储帐户和元数据的说明。 （此方法目前对带有存储帐户的 Pig 有效，但对元数据无效。）有关详细信息，请参阅 [将 HDInsight 群集与备用存储帐户和元存储配合使用](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx)。
 
 ## <a id="benefits"></a>Azure 存储的优点
 

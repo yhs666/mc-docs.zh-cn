@@ -18,11 +18,11 @@ origin.date: 05/16/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
 ms.openlocfilehash: b0f451e1dac0443e10606a2e00edd3de48a6a28b
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873372"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648917"
 ---
 # <a name="connect-excel-to-hadoop-by-using-power-query"></a>使用 Power Query 将 Excel 连接到 Hadoop
 
@@ -66,7 +66,7 @@ Power Query 可以导入已输出的数据，或者导入已由在 HDInsight 群
         注意：如果未看到“Power Query”菜单，请转到“文件” > “选项” > “加载项”，从页面底部的下拉“管理器”框中选择“COM 加载项”。  。
 
         注意：Power Query 还允许通过单击“来自其他源”从 HDFS 中导入数据。
-4. 对于“帐户名称”，请输入与群集相关联的 Azure Blob 存储帐户名称，然后单击“确定”。 （对于 Azure 中国，**帐户名称**必须是完整的 URL，如：https://\<你的帐户名称\>.blob.core.chinacloudapi.cn/）[此帐户可以是默认存储帐户](hdinsight-administer-use-management-portal.md#find-the-default-storage-account)，也可以是关联的存储帐户。 格式是 https://&lt;StorageAccountName\>.blob.core.chinacloudapi.cn/。
+4. 对于“帐户名称”，请输入与群集相关联的 Azure Blob 存储帐户名称，然后单击“确定”。 （对于 Azure 中国，**帐户名称**必须是完整的 URL，如： https://\<你的帐户名称\>.blob.core.chinacloudapi.cn/）[此帐户可以是默认存储帐户](hdinsight-administer-use-management-portal.md#find-the-default-storage-account)，也可以是关联的存储帐户。 格式是 https://&lt;StorageAccountName\>.blob.core.chinacloudapi.cn/。
 5. 对于“帐户密钥”，请输入 Blob 存储帐户的密钥，然后单击“保存”。 （只需要在首次访问此存储时输入帐户信息。）
 6. 在“查询编辑器”左侧的“导航器”窗格中，双击 Blob 存储容器名称  。 默认情况下，该容器名称与群集名称相同。
 7. 在“名称”列中找到 HiveSampleData.txt（文件夹路径是 ../hive/warehouse/hivesampletable/），然后单击 HiveSampleData.txt 左侧的“二进制”。 HiveSampleData.txt 随所有群集提供。 （可选）可使用自己的文件。

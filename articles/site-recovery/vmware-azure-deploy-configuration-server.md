@@ -10,11 +10,11 @@ origin.date: 07/06/2018
 ms.date: 09/24/2018
 ms.author: v-yeche
 ms.openlocfilehash: fd0034f9043c19fb53dcfbaa02fd81e6f3adffc3
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201351"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645331"
 ---
 # <a name="deploy-a-configuration-server"></a>部署配置服务器
 

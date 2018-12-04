@@ -18,11 +18,11 @@ origin.date: 04/30/2018
 ms.date: 08/27/2018
 ms.author: v-yiso
 ms.openlocfilehash: 9c0954fc23dcfc118e148ca7c4e95d596a26d082
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41705089"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648185"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>在 HDInsight 上使用 Python 开发 Apache Storm 拓扑
 

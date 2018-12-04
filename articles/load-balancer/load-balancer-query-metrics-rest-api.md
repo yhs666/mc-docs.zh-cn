@@ -12,11 +12,11 @@ origin.date: 06/06/2017
 ms.date: 11/05/2018
 ms.author: v-jay
 ms.openlocfilehash: dd8596789e7e699dff7f54234eaca10e97eb9061
-ms.sourcegitcommit: 9be84d4dc546d66a0d9d1d2be67dd79c84b2c210
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50408857"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648868"
 ---
 # <a name="get-load-balancer-utilization-metrics-using-the-rest-api"></a>使用 REST API 获取负载均衡器利用率指标
 

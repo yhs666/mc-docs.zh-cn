@@ -17,11 +17,11 @@ origin.date: 03/12/2018
 ms.author: v-yiso
 ms.date: 11/12/2018
 ms.openlocfilehash: 6c081e15da0926d7718c3c164076a87e0dfce6b6
-ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50919104"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646556"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>创建和修改 ExpressRoute 线路的对等互连
 

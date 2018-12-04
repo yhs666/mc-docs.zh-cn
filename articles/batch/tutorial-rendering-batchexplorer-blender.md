@@ -8,11 +8,11 @@ ms.date: 10/19/2018
 ms.author: v-lingwu
 ms.topic: tutorial
 ms.openlocfilehash: f6b2041a53167605e532289f05d27af415dfe263
-ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477773"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646561"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>教程：使用 Batch Explorer 渲染 Blender 场景
 

@@ -17,11 +17,11 @@ origin.date: 08/08/2018
 ms.date: 09/10/2018
 ms.author: v-yeche
 ms.openlocfilehash: 741825b1dfe2cea1190edf955804b82273b245a4
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515593"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647628"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-powershell"></a>使用 PowerShell 创建具有静态公用 IP 地址的虚拟机
 

@@ -16,11 +16,11 @@ origin.date: 08/17/2017
 ms.date: 06/11/2018
 ms.author: v-yiso
 ms.openlocfilehash: 0df31100206481e21b01d9b710074aa1b44cd2b8
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695108"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643476"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>生成 Node.js 应用程序并将其部署到 Azure 云服务
 
@@ -43,7 +43,7 @@ ms.locfileid: "34695108"
 > 本教程使用 Azure PowerShell，因此需要在 Windows 上运行。
 
 - 安装和配置 [Azure PowerShell]。
-- 下载并安装 [Azure SDK for .NET 2.7]。 在安装设置中，选择：
+- 下载并安装 [用于 .NET 2.7 的 Azure SDK]。 在安装设置中，选择：
     - MicrosoftAzureAuthoringTools
     - MicrosoftAzureComputeEmulator
 
@@ -53,7 +53,7 @@ ms.locfileid: "34695108"
 
 1. 以管理员身份运行 Windows PowerShell；在“开始”菜单或“开始”屏幕中，搜索 Windows PowerShell。
 
-2. [将 PowerShell 连接]到订阅。
+2. [连接 PowerShell]到订阅。
 
 3. 输入以下 PowerShell cmdlet 来创建项目：
 
@@ -63,8 +63,7 @@ ms.locfileid: "34695108"
 
     ![New-AzureService helloworld 命令的结果][The result of the New-AzureService helloworld command]
 
-    
-            **New-AzureServiceProject** cmdlet 会生成一个基本结构用于将 Node.js 应用程序发布到云服务。 该结构包含向 Azure 发布应用程序所需的配置文件。 该 cmdlet 还会将工作目录更改为服务的目录。
+    **New-AzureServiceProject** cmdlet 会生成一个基本结构用于将 Node.js 应用程序发布到云服务。 该结构包含向 Azure 发布应用程序所需的配置文件。 该 cmdlet 还会将工作目录更改为服务的目录。
 
     该 cmdlet 会创建以下文件：
 
@@ -80,8 +79,7 @@ ms.locfileid: "34695108"
 
     ![Add-AzureNodeWebRole 命令的输出][The output of the Add-AzureNodeWebRole command]
 
-    
-            **Add-azurenodewebrole** cmdlet 会创建一个基本 Node.js 应用程序。 它还会修改 .csfg 和 .csdef 文件，以添加新角色的配置条目。
+    **Add-azurenodewebrole** cmdlet 会创建一个基本 Node.js 应用程序。 它还会修改 .csfg 和 .csdef 文件，以添加新角色的配置条目。
 
     > [!NOTE]
     > 如果不指定角色名称，则使用默认名称。 可以提供一个名称作为第一个 cmdlet 参数： `Add-AzureNodeWebRole MyRole`
@@ -203,8 +201,8 @@ Publish-AzureServiceProject -ServiceName $ServiceName  -Location "China East" -L
 [Azure 网站、云服务和虚拟机的比较]: ../app-service/choose-web-site-cloud-service-vm.md
 [使用轻型 Web 应用]: ../app-service/app-service-web-get-started-nodejs.md
 [Azure PowerShell]:../powershell-install-configure.md
-[Azure SDK for .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
-[将 PowerShell 连接]:../powershell-install-configure.md#how-to-connect-to-your-subscription
+[用于 .NET 2.7 的 Azure SDK]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
+[连接 PowerShell]:../powershell-install-configure.md#how-to-connect-to-your-subscription
 [nodejs.org]: http://nodejs.org/
 [创建 Azure 托管服务概述]: /cloud-services/
 [Node.js 开发人员中心]: https://www.azure.cn/develop/nodejs/

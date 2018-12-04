@@ -11,11 +11,11 @@ origin.date: 08/13/2018
 ms.date: 09/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: 1561f1ae7968ded70c20f251c86c5741d24d6f02
-ms.sourcegitcommit: 399060a8d46534abd370693f6282e7343b371634
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455575"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646759"
 ---
 # <a name="event-hubs-net-standard-api-overview"></a>事件中心 .NET Standard API 概述
 

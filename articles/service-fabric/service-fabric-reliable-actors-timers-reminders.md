@@ -16,11 +16,11 @@ origin.date: 11/02/2017
 ms.date: 05/28/2018
 ms.author: v-yeche
 ms.openlocfilehash: 50de7db19b3542bb802db357372632d50bea72fa
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554086"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646604"
 ---
 # <a name="actor-timers-and-reminders"></a>执行组件计时器和提醒
 执行组件可通过注册计时器或提醒来计划自身的定期工作。 本文演示如何使用计时器和提醒，并说明它们之间的差异。

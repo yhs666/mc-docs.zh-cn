@@ -17,17 +17,15 @@ origin.date: 01/11/2018
 ms.date: 07/18/2018
 ms.author: v-junlch
 ms.openlocfilehash: 47a00fe292da8b399a0968f6db57d9f77e2d0632
-ms.sourcegitcommit: cce18df2de12353f0d8f01c649307a5789d59cd4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39246144"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646998"
 ---
 # <a name="get-started-with-power-bi-embedded"></a>Power BI Embedded 入门
 
-
-  **
-  **使用 Power BI Embedded，独立软件供应商 (ISV) 和开发人员可以通过基于容量的按小时计算流量模型将令人惊叹的视觉对象、报告和仪表板快速添加到应用程序中。
+使用 Power BI Embedded，独立软件供应商 (ISV) 和开发人员可以通过基于容量的按小时计算流量模型将令人惊叹的视觉对象、报告和仪表板快速添加到应用程序中。
 
 ![嵌入流关系图](./media/get-started/introduction.png)
 

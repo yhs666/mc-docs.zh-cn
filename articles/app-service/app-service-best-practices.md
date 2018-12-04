@@ -16,11 +16,11 @@ origin.date: 07/01/2016
 ms.date: 03/12/2018
 ms.author: v-yiso
 ms.openlocfilehash: c8bedd368b050296647c652850254ed4fd929b15
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29730674"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646199"
 ---
 # <a name="best-practices-for-azure-app-service"></a>有关 Azure 应用服务的最佳实践
 本文汇总了有关使用 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 的最佳实践。 

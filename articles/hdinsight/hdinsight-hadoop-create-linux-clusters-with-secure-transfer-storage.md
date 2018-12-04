@@ -18,11 +18,11 @@ origin.date: 07/24/2018
 ms.date: 10/22/2018
 ms.author: v-yiso
 ms.openlocfilehash: 66e4f763cdab8601fdab691ae07d94d0e3615361
-ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121523"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648392"
 ---
 # <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>在 Azure HDInsight 中使用安全传输存储帐户创建 Hadoop 群集
 

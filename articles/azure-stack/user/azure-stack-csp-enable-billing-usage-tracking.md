@@ -16,11 +16,11 @@ ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: alfredop
 ms.openlocfilehash: 728af8ab897081cf79d360002db3fa55e5183c55
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869378"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645713"
 ---
 # <a name="enable-a-cloud-service-provider-to-manage-your-azure-stack-subscription"></a>允许云服务提供商管理 Azure Stack 订阅
 

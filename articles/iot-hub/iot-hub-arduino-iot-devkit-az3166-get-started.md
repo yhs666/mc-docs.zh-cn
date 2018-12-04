@@ -11,11 +11,11 @@ origin.date: 08/27/2018
 ms.author: v-yiso
 ms.date: 10/08/2018
 ms.openlocfilehash: 9e1b9753e6f035a625d3af15e95e6a0dc4f18898
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523893"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648744"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>将 IoT DevKit AZ3166 连接到 Azure IoT 中心
 

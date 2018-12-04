@@ -10,11 +10,11 @@ origin.date: 07/06/2018
 ms.date: 09/24/2018
 ms.author: v-yeche
 ms.openlocfilehash: 268a604cb7e36ca689c0754a40a84d06ecd1fd87
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201284"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646838"
 ---
 # <a name="support-matrix-for-replication-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>将 VMware VM 或物理服务器复制到辅助站点时的支持矩阵
 

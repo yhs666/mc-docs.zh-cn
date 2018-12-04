@@ -18,11 +18,11 @@ origin.date: 05/14/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
 ms.openlocfilehash: bd79e9d5acd51165fdb53228a19a10e599895be9
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747395"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647701"
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>优化 Azure HDInsight 中的 Hive 查询
 
@@ -91,8 +91,7 @@ Hive 分区的实现方法是将原始数据刷新成新的目录，而每个分
 
 创建分区表后，可以创建静态分区或动态分区。
 
-* 
-            **静态分区** 表示已在相应目录中创建了分片数据，可以请求根据目录位置在 Hive 中手动分区。 以下代码片段是一个示例。
+* **静态分区** 表示已在相应目录中创建了分片数据，可以请求根据目录位置在 Hive 中手动分区。 以下代码片段是一个示例。
 
         INSERT OVERWRITE TABLE lineitem_part
         PARTITION (L_SHIPDATE = '5/23/1996 12:00:00 AM')
@@ -101,8 +100,7 @@ Hive 分区的实现方法是将原始数据刷新成新的目录，而每个分
 
         ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = '5/23/1996 12:00:00 AM'))
         LOCATION 'wasb://sampledata@ignitedemo.blob.core.chinacloudapi.cn/partitions/5_23_1996/'
-* 
-            **动态分区** 表示希望 Hive 自动创建分区。 由于已基于暂存表创建了分区表，因此需要做的就是将数据插入分区表：
+* **动态分区** 表示希望 Hive 自动创建分区。 由于已基于暂存表创建了分区表，因此需要做的就是将数据插入分区表：
 
         SET hive.exec.dynamic.partition = true;
         SET hive.exec.dynamic.partition.mode = nonstrict;
@@ -176,7 +174,7 @@ ORC（优化行纵栏式）格式是存储 Hive 数据的高效方式。 与其�
 ## <a name="other-optimization-methods"></a>其他优化方法
 还可以考虑使用其他一些高级优化方法，例如：
 
-* **Hive 存储桶：** 将大型数据集群集化或分段以优化查询性能的技术。
+* **Hive 装桶：** 将大型数据集群集化或分段以优化查询性能的技术。
 * **联接优化：** Hive 的查询执行计划优化，可改善联接的效率并减少用户提示的需要。 有关详细信息，请参阅 [联接优化](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization)。
 * **增加化简器**。
 

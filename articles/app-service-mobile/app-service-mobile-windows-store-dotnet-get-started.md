@@ -16,11 +16,11 @@ origin.date: 08/17/2018
 ms.date: 09/03/2018
 ms.author: v-yiso
 ms.openlocfilehash: 9c1d6e3c44ae75a48742c58499c28c72fbd2054c
-ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871036"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643965"
 ---
 #<a name="create-a-windows-app"></a>创建 Windows 应用
 

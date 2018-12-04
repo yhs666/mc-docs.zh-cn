@@ -16,11 +16,11 @@ origin.date: 01/23/2018
 ms.author: v-yiso
 ms.date: 03/12/2018
 ms.openlocfilehash: be022705d603ab67431fa428afadf58a514063f9
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29731331"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648420"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>中继混合连接 Node API 概述
 

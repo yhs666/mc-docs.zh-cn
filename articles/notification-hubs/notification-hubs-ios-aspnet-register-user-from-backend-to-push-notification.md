@@ -16,11 +16,11 @@ origin.date: 04/14/2018
 ms.date: 09/10/2018
 ms.author: v-junlch
 ms.openlocfilehash: ee3f1b2f2283884617a3a42d31010176030e660c
-ms.sourcegitcommit: 1471663f5f5a1c4e1fbead7c4d351610cb0086bb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44363586"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645724"
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>通过使用 ASP.NET 注册推送通知的当前用户
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "44363586"
 > 
 
 ## <a name="overview"></a>概述
-本主题演示在 ASP.NET Web API 执行注册时如何请求向 Azure 通知中心注册推送通知。 本主题是教程[使用通知中心通知用户]的延伸。 必须在该教程中已完成创建经过身份验证的移动服务所需的步骤。 有关通知用户方案的详细信息，请参阅[使用通知中心通知用户]。
+本主题演示在 ASP.NET Web API 执行注册时如何请求向 Azure 通知中心注册推送通知。 本主题是对教程 [使用通知中心通知用户]的扩展。 必须在该教程中已完成创建经过身份验证的移动服务所需的步骤。 有关通知用户方案的详细信息，请参阅 [使用通知中心通知用户]。
 
 ## <a name="update-your-app"></a>更新应用程序
 1. 在 MainStoryboard_iPhone.storyboard 中，从对象库添加以下组件：
@@ -108,14 +108,14 @@ ms.locfileid: "44363586"
     这为请求设置设备标记。
    
    > [!NOTE]
-   > 此时，此方法中不应有任何其他代码。 如果已调用在完成[通知中心入门](notification-hubs-ios-apple-push-notification-apns-get-started.md)教程的学习时添加的 **registerNativeWithDeviceToken** 方法，必须注释掉或删除该调用。
+   > 此时，此方法中不应有任何其他代码。 如果已调用在完成 **通知中心入门** 教程的学习时添加的 [registerNativeWithDeviceToken](notification-hubs-ios-apple-push-notification-apns-get-started.md) 方法，必须注释掉或删除该调用。
    > 
    > 
 8. 在 PushToUserAppDelegate.m 文件中，添加以下处理程序方法：
    
    - (void) application:(UIApplication *) application didReceiveRemoteNotification:(NSDictionary *)userInfo {     NSLog(@"%@", userInfo);     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:                           [userInfo objectForKey:@"inAppMessage"] delegate:nil cancelButtonTitle:                           @"OK" otherButtonTitles:nil, nil];     [alert show];   }
    
-   当应用程序接收到它正在运行的通知时，此方法会在 UI 中显示一个警报。
+   当你的应用程序接收到它正在运行的通知时，此方法会在 UI 中显示一个警报。
 9. 打开 PushToUserViewController.m 文件，并在以下实现中返回键盘：
    
         - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
@@ -208,7 +208,7 @@ ms.locfileid: "44363586"
                 }
             }];
     
-    此方法获取一个安装 ID 和用于推送通知的通道并将它与设备类型一起发送到在通知中心创建注册的已经身份验证的 Web API 方法。 此 Web API 已在[使用通知中心通知用户]中定义。
+    此方法获取一个安装 ID 和用于推送通知的通道并将它与设备类型一起发送到在通知中心创建注册的已经身份验证的 Web API 方法。 此 Web API 已在 [使用通知中心通知用户]中定义。
 
 现在客户端应用程序已更新，请返回到 [使用通知中心通知用户] 并更新移动服务以使用通知中心发送通知。
 

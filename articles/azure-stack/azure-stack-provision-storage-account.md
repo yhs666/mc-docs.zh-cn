@@ -15,11 +15,11 @@ origin.date: 09/12/2018
 ms.date: 10/15/2018
 ms.author: v-jay
 ms.openlocfilehash: d1a44b43e906ca6ab72cf45d845b4abd00856c5b
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848745"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648680"
 ---
 # <a name="storage-accounts-in-azure-stack"></a>Azure Stack 中的存储帐户
 存储帐户包含 Blob 和表服务，以及存储数据对象的唯一命名空间。 默认情况下，只有你，即存储帐户所有者，才能使用帐户中的数据。

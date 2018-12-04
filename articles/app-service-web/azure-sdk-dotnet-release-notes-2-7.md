@@ -15,11 +15,11 @@ origin.date: 02/24/2017
 ms.date: 06/20/2017
 ms.author: v-dazen
 ms.openlocfilehash: b5f27191535f979a16dc2436976e849bdffddf27
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
-ms.locfileid: "20463947"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644041"
 ---
 # <a name="azure-sdk-for-net-27-and-net-271-release-notes"></a>Azure SDK for .NET 2.7 和 .NET 2.7.1 发行说明
 ## <a name="overview"></a>概述
@@ -63,7 +63,7 @@ ms.locfileid: "20463947"
 * 在[云资源管理器](#cloud_explorer)中添加了对 Azure 应用服务的支持
 
 #### <a name="known-issues"></a>已知问题
-服务器资源管理器的“槽”节点下面不会出现 Web 应用部署槽节点，而云资源管理器下面不会加载 Web 应用部署槽的子节点。 此问题已解决，下一个 SDK 版本将不再发生。 
+服务器资源管理器的“槽”节点下面不会出现 Web 应用部署槽节点，而云资源管理器下面不会加载 Web 应用部署槽的子节点。 此问题已解决，下一个 SDK 版本已采取应对措施。 
 
 ### <a name="cloud_explorer"></a>适用于 Visual Studio 2015 的云资源管理器
 Azure SDK 2.7 包含适用于 Visual Studio 2015 的云资源管理器，可让你从 Visual Studio 中查看 Azure 资源、检查其属性，以及执行重要的开发人员操作。 
@@ -82,7 +82,7 @@ Azure SDK 2.7 包含适用于 Visual Studio 2015 的云资源管理器，可让�
 ### <a name="azure-resource-manager-tools"></a>Azure Resource Manager 工具
 Azure Resource Manager 工具已更新为使用基于角色的访问控制 (RBAC) 和新的订阅类型。  除了经典存储之外，这些更改还附带了使用新存储帐户在部署期间存储项目的功能。  
 
-如果在 SDK 2.7 中使用旧版 SDK 中的 Azure 资源组，则需要使用新的存储帐户而不是经典存储帐户来部署新的部署脚本。  在你更改项目以添加新的脚本之前，系统会发出提示。  旧脚本将重命名，你需要手动修改新的脚本。
+如果在 SDK 2.7 中使用旧版 SDK 中的 Azure 资源组，则需要使用新的存储帐户而不是经典存储帐户来部署新的部署脚本。  在更改项目以添加新的脚本之前，系统会发出提示。  旧脚本将重命名，需要手动修改新的脚本。
 
 ### <a name="storage-explorer-tools"></a>存储资源管理器工具
 * 支持查看附加 Blob。 有关详细信息，请参阅[此博客文章](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/04/13/introducing-azure-storage-append-blob.aspx)。 
@@ -107,16 +107,16 @@ Azure Resource Manager 工具已更新为使用基于角色的访问控制 (RBAC
 
 * Hive 作业运算符视图（新功能）
 
-    为了帮助你更好地了解 Hive 查询，我们添加了 Hive 运算符视图功能。 若要查看某个顶点中的所有运算符，可双击作业图的相应顶点。 若要查看特定运算符的更多详细信息，可将鼠标悬停在该运算符上方。
+    为了帮助你更好地了解 Hive 查询，我们添加了 Hive 运算符视图功能。 若要查看某个顶点中的所有运算符，可双击作业图的相应顶点。 要查看特定运算符的更多详细信息，可将鼠标悬停在该运算符上方。
 * Hive 错误标记（新功能）
 
-    为了让你能够即时查看语法错误，我们添加了 Hive 错误标记功能。 此外，我们还增强了错误消息功能，你现在可以即时查看详细的语法错误（在此版本发布之前，你需要将 Hive 脚本提交给群集，然后再等待一段时间才能获得详细的错误消息）。  
+    为了让你能够即时查看语法错误，我们添加了 Hive 错误标记功能。 此外，我们还增强了错误消息功能，你现在可以即时查看详细的语法错误（在此版本发布之前，你需要将 Hive 脚本提交给群集，此后再等待一段时间才能获得详细的错误消息）。  
 * Storm 拓扑图（新功能）
 
-    当你想要了解你的拓扑是否正常工作时，可视化十分重要。 在此版本中，我们添加了 Storm 图的可视化功能。 可以将拓扑的重要度量值可视化（例如，可以用颜色来表示某个 Bolt 是否“忙碌”）。 也可双击“Bolt/Spout”来查看更多详细信息。
+    想要了解拓扑是否正常工作时，可视化十分重要。 在此版本中，我们添加了 Storm 图的可视化功能。 可以将拓扑的重要度量值可视化（例如，可以用颜色来表示某个 Bolt 是否“忙碌”）。 也可双击“Bolt/Spout”来查看更多详细信息。
 * 对 Azure 门户中创建的 HDInsight 群集的支持（Bug 修复）
 
-    现在，你可以使用 Visual Studio 来查看作业并将其提交给所有 HDInsight 群集，不管群集是在哪里创建的。
+    现在，可以使用 Visual Studio 来查看作业并将其提交给所有 HDInsight 群集，不管群集是在哪里创建的。
 * 更多 IntelliSense 支持，更快的 Hive 元数据加载速度（改进）
 
     我们改进了 IntelliSense，添加了更多用户友好建议。 例如，现在还可以在 IntelliSense 中提供表别名建议，方便你撰写查询。 此外，我们还改进了 Hive 元数据加载，只需数秒即可列出 Hive 源存储中的所有数据库、表和列。

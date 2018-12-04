@@ -16,17 +16,17 @@ origin.date: 10/20/2017
 ms.date: 3/20/2018
 ms.author: v-nany
 ms.openlocfilehash: e309c93ba8cff0695cd49ff7bcd2b06851c8bb64
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295849"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648027"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-azure-storage"></a>Azure 存储的客户端加密和 Azure Key Vault
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>概述
-[用于 .NET Nuget 包的 Azure 存储客户端库](https://www.nuget.org/packages/WindowsAzure.Storage) 支持在上传到 Azure 存储之前加密客户端应用程序中的数据，以及在下载到客户端时解密数据。 此库还支持与 [Azure 密钥保管库](https://www.azure.cn/home/features/key-vault/)集成，以便管理存储帐户密钥。
+[用于 .NET Nuget 包的 Azure 存储客户端库](https://www.nuget.org/packages/WindowsAzure.Storage) 支持在上传到 Azure 存储之前加密客户端应用程序中的数据，以及在下载到客户端时解密数据。 此库还支持与 [Azure 密钥保管库](https://www.azure.cn/home/features/key-vault/) 集成，以便管理存储帐户密钥。
 
 有关使用客户端的加密和 Azure Key Vault 引导完成加密 Blob 的过程的分步教程，请参阅[使用 Azure Key Vault 在 Azure 存储中加密和解密 Blob](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)。
 

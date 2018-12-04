@@ -16,11 +16,11 @@ origin.date: 05/26/2017
 ms.date: 10/15/2018
 ms.author: v-yiso
 ms.openlocfilehash: f35729d86a1aa860b567b3b31a6c7cfd6467d9ba
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455254"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647776"
 ---
 # <a name="deploy-and-call-custom-apis-from-workflows-in-azure-logic-apps"></a>从 Azure 逻辑应用中的工作流部署和调用自定义 API
 

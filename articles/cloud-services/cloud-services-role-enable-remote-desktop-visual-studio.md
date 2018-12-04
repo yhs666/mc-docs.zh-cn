@@ -15,11 +15,11 @@ origin.date: 03/06/2018
 ms.date: 10/22/2018
 ms.author: v-yiso
 ms.openlocfilehash: fd92e17ba76b3b2b8966cc3bfda054b0e4744cf5
-ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121522"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643604"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>使用 Visual Studio 为 Azure 云服务中的角色启用远程桌面连接
 

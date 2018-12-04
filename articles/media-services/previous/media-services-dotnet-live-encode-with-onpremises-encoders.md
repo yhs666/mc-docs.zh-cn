@@ -16,11 +16,11 @@ origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
 ms.openlocfilehash: 2232fe71689044241469d617a3b6f7085bbeb595
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426440"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648365"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>如何使用 .NET 通过本地编码器执行实时传送视频流
 > [!div class="op_single_selector"]

@@ -18,11 +18,11 @@ ms.author: v-junlch
 ms.reviewer: arvinh
 ms.custom: it-pro
 ms.openlocfilehash: 5692146e0f4058de14df8ace869eb84625a7ba69
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164765"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645912"
 ---
 # <a name="view-your-azure-active-directory-tenant-applications"></a>查看 Azure Active Directory 租户应用程序
 

@@ -8,11 +8,11 @@ ms.date: 10/19/2018
 ms.author: v-lingwu
 ms.topic: conceptual
 ms.openlocfilehash: 7fb05f914e5ba6d260ec71782a7d1f5694ed4579
-ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477791"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647237"
 ---
 # <a name="checking-for-pool-and-node-errors"></a>检查池和节点错误
 

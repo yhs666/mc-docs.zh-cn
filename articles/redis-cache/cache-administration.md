@@ -16,11 +16,11 @@ origin.date: 07/05/2017
 ms.date: 07/10/2018
 ms.author: v-junlch
 ms.openlocfilehash: ab71daefeddabb99f815f27c04021cf76a9458c2
-ms.sourcegitcommit: a22129c95c9f877a04c6b5b428edf7f4e953fd97
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37937382"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644754"
 ---
 # <a name="how-to-administer-azure-redis-cache"></a>如何管理 Azure Redis 缓存
 本主题介绍如何为 Azure Redis 缓存实例执行管理任务，如[重启](#reboot)和[计划更新](#schedule-updates)。
@@ -38,7 +38,7 @@ ms.locfileid: "37937382"
 
 ![重新启动](./media/cache-administration/redis-cache-reboot-cluster.png)
 
-要重新启动缓存的一个或多个节点，请选择所需节点，并单击“重新启动”。 如果高级缓存启用了群集功能，请选择要重新启动的所需分片，然后单击“重新启动”。 几分钟后，所选节点将重新启动，再过几分钟后，又会回到联机状态。
+如果要重新启动缓存的一个或多个节点，请选择所需节点，并单击“重新启动”。 如果高级缓存启用了群集功能，请选择要重新启动的所需分片，然后单击“重新启动”。 几分钟后，所选节点将重新启动，再过几分钟后，又会回到联机状态。
 
 对客户端应用程序的影响因用户重新启动的节点而有所不同。
 

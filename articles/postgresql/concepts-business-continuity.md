@@ -11,11 +11,11 @@ ms.topic: article
 origin.date: 02/28/2018
 ms.date: 10/01/2018
 ms.openlocfilehash: d342aa3eca824a7ffa9beb1567aafd4486fce777
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426299"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644845"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>有关使用 Azure Database for PostgreSQL 确保业务连续性的概述
 

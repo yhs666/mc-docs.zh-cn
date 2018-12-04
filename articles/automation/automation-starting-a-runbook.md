@@ -11,11 +11,11 @@ ms.date: 10/01/2018
 ms.topic: conceptual
 manager: digimobile
 ms.openlocfilehash: 6b796316f7cb1b282fcb9718b5950a203417307b
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426288"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648774"
 ---
 # <a name="starting-a-runbook-in-azure-automation"></a>在 Azure 自动化中启动 Runbook
 下表将帮助你确定如何在 Azure 自动化中以最适合你方案的方法启动 Runbook。 本文包含有关使用 Azure 门户和 Windows PowerShell 启动 Runbook 的详细信息。 有关其他方法的详细信息会在其他文档中提供，可以通过以下链接来访问。
@@ -150,7 +150,7 @@ Smith
 ```
 
 ### <a name="credentials"></a>凭据
-如果参数的数据类型为 PSCredential，则可以提供 Azure 自动化[凭据资产](automation-credentials.md)的名称。 Runbook 将检索具有指定名称的凭据。
+如果参数的数据类型为 **PSCredential**，则可以提供 Azure 自动化 [凭据资产](automation-credentials.md)的名称。 Runbook 将检索具有指定名称的凭据。
 
 请考虑以下接受名为 credential 的参数的测试 Runbook。
 

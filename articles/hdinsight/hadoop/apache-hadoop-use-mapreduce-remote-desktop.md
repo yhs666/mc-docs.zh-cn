@@ -18,11 +18,11 @@ ms.date: 12/18/2017
 ms.author: v-yiso
 ROBOTS: NOINDEX
 ms.openlocfilehash: 60f52fb1c89c3e8818908bcaacb1952b9701c60a
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873541"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645248"
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight-with-remote-desktop"></a>通过远程桌面在 HDInsight 上的 Hadoop 中使用 MapReduce
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
@@ -104,6 +104,6 @@ Hadoop 命令提供了一种简单方法，可在 HDInsight 群集上运行 MapR
 
 有关 HDInsight 上 Hadoop 的其他使用方法的信息：
 
-* [将 Hive 与 Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
-* [将 Pig 与 Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
+* [将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)
+* [将 Pig 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-pig.md)
 <!--Update_Description: change 'wasbs' into 'wasb'-->

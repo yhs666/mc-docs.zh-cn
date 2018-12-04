@@ -15,11 +15,11 @@ ms.author: v-dazen
 origin.date: 06/13/2017
 ms.date: 06/13/2017
 ms.openlocfilehash: 93f83e81c5bbbdd939476e6054cc62bbec8426b6
-ms.sourcegitcommit: 01b8f9a7e857463f49531e70dbb911c6f0286d76
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2017
-ms.locfileid: "23993653"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648448"
 ---
 # <a name="tools-and-api-references"></a>工具和 API 参考
 
@@ -181,7 +181,7 @@ ms.locfileid: "23993653"
                         <li style="list-style-type:none !important">
                             <a class="barLink" href="https://docs.microsoft.com/powershell/module/azurerm.backup/#backup" data-linktype="relative-path">
                                 <img alt = "" src="media/index/Backup.svg" data-linktype="relative-path">
-                                <p>备份</p>
+                                <p>Backup</p>
                             </a>
                         </li>
                         <li style="list-style-type:none !important">
@@ -388,7 +388,7 @@ ms.locfileid: "23993653"
                         <li style="list-style-type:none !important">
                             <a class="barLink" href="https://docs.microsoft.com/powershell/module/azure/#backup" data-linktype="relative-path">
                                 <img alt = "" src="media/index/Backup.svg" data-linktype="relative-path">
-                                <p>备份</p>
+                                <p>Backup</p>
                             </a>
                         </li>
                     </ul>
@@ -812,7 +812,7 @@ ms.locfileid: "23993653"
                         <li style="list-style-type:none !important">
                             <a class="barLink" href="https://docs.microsoft.com/dotnet/api/overview/azure/backup" data-linktype="relative-path">
                                 <img alt = "" src="media/index/Backup.svg" data-linktype="relative-path">
-                                <p>备份</p>
+                                <p>Backup</p>
                             </a>
                         </li>
                         <li style="list-style-type:none !important">
@@ -1925,7 +1925,7 @@ ms.locfileid: "23993653"
                         <li style="list-style-type:none !important">
                             <a class="barLink" href="https://github.com/Microsoft/PowerBI-JavaScript" data-linktype="relative-path">
                                 <img alt = "" src="media/index/PowerBIEmbedded.svg" data-linktype="relative-path">
-                                <p>JavaScript</p>
+                                <p>Javascript</p>
                             </a>
                         </li>
                     </ul>

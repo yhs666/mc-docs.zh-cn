@@ -16,11 +16,11 @@ origin.date: 10/15/2017
 ms.date: 10/15/2018
 ms.author: v-yeche
 ms.openlocfilehash: 180f331302f6e6c25fcaf9629fe5b004f4573df9
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089228"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644260"
 ---
 # <a name="upgrade-your-standalone-azure-service-fabric-cluster-on-windows-server"></a>升级 Windows Server 上的独立 Azure Service Fabric 群集 
 > [!div class="op_single_selector"]

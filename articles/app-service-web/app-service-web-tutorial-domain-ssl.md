@@ -16,17 +16,17 @@ origin.date: 03/29/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
 ms.openlocfilehash: 194f5430e76bad264f8f16dc9243e50eaa886d8e
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
-ms.locfileid: "21134765"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646000"
 ---
-# <a name="add-custom-domain-and-ssl-to-an-azure-web-app"></a>将自定义域和 SSL 添加到 Azure Web 应用
+# <a name="add-custom-domain-and-ssl-to-an-azure-web-app"></a>向 Azure Web 应用中添加自定义域和 SSL
 
 本教程介绍如何快速将自定义域名映射到 Azure Web 应用并使用自定义 SSL 证书保护其安全。 
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 在运行此示例之前，请在本地安装 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。
 

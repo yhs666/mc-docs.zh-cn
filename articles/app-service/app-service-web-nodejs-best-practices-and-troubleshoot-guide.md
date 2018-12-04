@@ -16,11 +16,11 @@ origin.date: 11/09/2017
 ms.date: 06/04/2018
 ms.author: v-yiso
 ms.openlocfilehash: b860b708db7038bdf8ac896483dc918d6f7575bb
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554485"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647895"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-web-apps"></a>Azure Web 应用上节点应用程序的最佳做法和故障排除指南
 

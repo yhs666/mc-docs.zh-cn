@@ -10,11 +10,11 @@ origin.date: 07/06/2018
 ms.date: 07/23/2018
 ms.author: v-yeche
 ms.openlocfilehash: e9e626cee7d171bdb27cd177e662e13e3caa0abb
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168330"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644450"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>准备目标（VMware 到 Azure）
 
@@ -24,7 +24,7 @@ ms.locfileid: "39168330"
 
 本文假设：
 - 已创建恢复服务保管库来保护物理服务器。 可通过 [Azure 门户](http://portal.azure.cn "Azure 门户")创建恢复服务保管库。
-- 已[设置本地环境](physical-azure-disaster-recovery.md)，用于将物理服务器复制到 Azure。
+- 已[设置本地环境](physical-azure-disaster-recovery.md)用于将物理服务器复制到 Azure。
 
 ## <a name="prepare-target"></a>准备目标
 

@@ -17,11 +17,11 @@ origin.date: 02/12/2018
 ms.date: 03/12/2018
 ms.author: v-junlch
 ms.openlocfilehash: 40795498691bc7853a16fcc47553584e8fd55f38
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29925223"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645368"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>使用证书身份验证配置与 VNet 的点到站点连接（经典）：Azure 门户
 
@@ -64,8 +64,7 @@ ms.locfileid: "29925223"
 - **地址空间：192.168.0.0/16**<br>对于此示例，我们只使用一个地址空间。 可以在 VNet 中使用多个地址空间，如图所示。
 - **子网名称：FrontEnd**
 - **子网地址范围：192.168.1.0/24**
-- 
-            **订阅：** 如果有多个订阅，请确保使用正确的订阅。
+- **订阅：** 如果有多个订阅，请确保使用正确的订阅。
 - **资源组：TestRG**
 - **位置：中国北部**
 - **连接类型：点到站点**

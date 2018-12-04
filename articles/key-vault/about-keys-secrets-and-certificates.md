@@ -16,11 +16,11 @@ origin.date: 05/09/2018
 ms.date: 11/05/2018
 ms.author: v-biyu
 ms.openlocfilehash: 5cc80aa72393963693534d6b4671295faeb05fef
-ms.sourcegitcommit: 8a68d9275ddb92ea45601fed96e21559999d9579
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026947"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643792"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>关于密钥、机密和证书
 

@@ -12,11 +12,11 @@ ms.date: 11/05/2018
 ms.topic: conceptual
 manager: digimobile
 ms.openlocfilehash: da8aac4c817a06a98822c77b8bcc989bca50850e
-ms.sourcegitcommit: d26e5d0d625a61d6b130800d10c81f47c83fb1e0
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50745513"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646122"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure 自动化中基于角色的访问控制
 

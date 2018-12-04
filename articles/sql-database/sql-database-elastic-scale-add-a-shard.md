@@ -11,11 +11,11 @@ origin.date: 04/01/2018
 ms.date: 09/02/2018
 ms.author: v-jay
 ms.openlocfilehash: 34bbcd06e35cd96e735f98e431385b800c418de5
-ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43249527"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647223"
 ---
 # <a name="adding-a-shard-using-elastic-database-tools"></a>使用弹性数据库工具添加分片
 ## <a name="to-add-a-shard-for-a-new-range-or-key"></a>添加新范围或键的分片

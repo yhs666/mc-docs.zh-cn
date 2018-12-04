@@ -16,15 +16,15 @@ origin.date: 06/08/2016
 ms.date: 09/10/2018
 ms.author: v-junlch
 ms.openlocfilehash: f3168cd3ca9a03fd89c9920bc374d519c617f32d
-ms.sourcegitcommit: 40456700212200e707d6cb3147cf96ad161d3ff2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44269501"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645318"
 ---
 # <a name="configure-a-docker-host-with-virtualbox"></a>使用 VirtualBox 配置 Docker 主机
 ## <a name="overview"></a>概述
-本文将引导完成使用 Docker Machine 和 VirtualBox 配置默认 Docker 实例的过程。 如果使用的是[用于 Windows 的 Docker](https://www.docker.com/products/docker-desktop)，则无需进行此配置。
+本文将引导你完成使用 Docker Machine 和 VirtualBox 配置默认 Docker 实例的过程。 如果使用的是[用于 Windows 的 Docker](https://www.docker.com/products/docker-desktop)，则无需进行此配置。
 
 ## <a name="prerequisites"></a>先决条件
 需要安装以下工具。

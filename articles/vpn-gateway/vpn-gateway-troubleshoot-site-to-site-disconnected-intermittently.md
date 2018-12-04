@@ -16,11 +16,11 @@ origin.date: 05/11/2018
 ms.date: 06/13/2018
 ms.author: v-junlch
 ms.openlocfilehash: 06910551ba95c963a73973d7a57b8677495fa7b0
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568286"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644217"
 ---
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>故障排除：Azure 站点到站点 VPN 间歇性断开连接
 

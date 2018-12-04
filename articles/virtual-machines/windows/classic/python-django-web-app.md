@@ -17,11 +17,11 @@ origin.date: 05/31/2017
 ms.date: 12/18/2017
 ms.author: v-yeche
 ms.openlocfilehash: f32aa22c587d50cc69babdcf70af4a9a650d0afd
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
-ms.locfileid: "26727642"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645703"
 ---
 # <a name="django-hello-world-web-app-on-a-windows-server-vm"></a>Windows Server VM 上的 Django Hello World Web 应用
 

@@ -9,11 +9,11 @@ origin.date: 04/23/2018
 ms.date: 11/12/2018
 ms.author: v-yeche
 ms.openlocfilehash: 1f7721eeeb79f17ea8c1bc63dea37588d8afe14d
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195379"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644913"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>使用服务主体的 Azure 容器注册表身份验证
 

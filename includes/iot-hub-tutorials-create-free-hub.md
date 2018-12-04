@@ -9,11 +9,11 @@ ms.date: 04/19/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: eadf9255c189031bdfd08aa880a80c1a62f64fb5
-ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103589"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645489"
 ---
 若要使用 Azure 门户创建 IoT 中心，请执行以下操作：
 

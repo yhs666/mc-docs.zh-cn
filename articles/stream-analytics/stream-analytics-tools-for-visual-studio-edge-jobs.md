@@ -11,11 +11,11 @@ ms.topic: conceptual
 origin.date: 03/13/2018
 ms.date: 09/30/2018
 ms.openlocfilehash: f8eb812dbb2b5053ec15581382f46bfb825cab46
-ms.sourcegitcommit: 432984d85afe6f3da8f211bae0fa98a556785ee8
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455381"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648153"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>使用 Visual Studio 工具开发流分析 Edge 作业
 

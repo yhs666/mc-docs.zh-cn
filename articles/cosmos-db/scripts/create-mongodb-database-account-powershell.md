@@ -16,11 +16,11 @@ origin.date: 05/29/2018
 ms.date: 09/03/2018
 ms.author: v-yeche
 ms.openlocfilehash: 525bc9a7982efffea01e56d7585ff662fb0620b6
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164855"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644675"
 ---
 # <a name="azure-cosmos-db-create-a-mongodb-api-account-using-powershell"></a>Azure Cosmos DB：使用 PowerShell 创建 MongoDB API 帐户
 

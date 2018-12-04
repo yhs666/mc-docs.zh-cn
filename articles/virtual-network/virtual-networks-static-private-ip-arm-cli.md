@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/16/2017
-ms.date: 05/07/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 488748c90f7f0832aa4734478f2a8a072cd4b555
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 94498270ef0c6fab7169d56c612ed33779ab2b0d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939281"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645085"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>使用 Azure CLI 为虚拟机配置专用 IP 地址
 
@@ -32,7 +32,7 @@ ms.locfileid: "38939281"
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-本文介绍 Resource Manager 部署模型。 还可以[管理经典部署模型中的静态专用 IP 地址](virtual-networks-static-private-ip-classic-cli.md)。
+本文介绍 Resource Manager 部署模型。 还可以 [管理经典部署模型中的静态专用 IP 地址](virtual-networks-static-private-ip-classic-cli.md)。
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
@@ -43,7 +43,7 @@ ms.locfileid: "38939281"
 
 若要在名为 *TestVNet* 的 VNet 的 *FrontEnd* 子网中使用静态专用 IP *192.168.1.101* 创建名为 *DNS01* 的 VM，请完成以下步骤：
 
-1. 如果尚未这样做，请安装并配置最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az_login) 登录 Azure 帐户。 
+1. 如果尚未这样做，请安装并配置最新的 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录 Azure 帐户。
 
     [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -74,11 +74,9 @@ ms.locfileid: "38939281"
     }
     ```
 
-   * 
-            `--resource-group`：要在其中创建公共 IP 的资源组的名称。
+   * `--resource-group`：要在其中创建公共 IP 的资源组的名称。
    * `--name`：公共 IP 的名称。
-   * 
-            `--location`：在其中创建公共 IP 的 Azure 区域。
+   * `--location`：在其中创建公共 IP 的 Azure 区域。
 
 3. 运行 [az network nic create](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az-network-nic-create) 命令，创建具有静态专用 IP 的 NIC。 在输出后显示的列表说明了所用的参数。 
 
@@ -278,4 +276,5 @@ rivateIpAllocationMethod,PublicAddress:publicIpAddress}'
 ## <a name="next-steps"></a>后续步骤
 
 了解如何管理 [IP 地址设置](virtual-network-network-interface-addresses.md)。
-<!-- Update_Description: wording update, update link, update meta properties -->
+
+<!-- Update_Description: wording update -->

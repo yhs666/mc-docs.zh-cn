@@ -15,11 +15,11 @@ origin.date: 08/14/2017
 ms.date: 10/16/2017
 ms.author: v-yeche
 ms.openlocfilehash: 396f3d0e41f4695fe6597c9f40112b54cf3d2603
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
-ms.locfileid: "23407632"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644120"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>在 Azure 中保护和使用虚拟机上的策略
 

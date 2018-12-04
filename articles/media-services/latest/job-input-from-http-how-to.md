@@ -13,11 +13,11 @@ origin.date: 03/19/2018
 ms.date: 05/28/2018
 ms.author: v-nany
 ms.openlocfilehash: 9ddb7b73ddcf7f1229294990a0bc04472590d8de
-ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35324301"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645953"
 ---
 # <a name="create-a-job-input-from-an-https-url"></a>从 HTTP URL 创建作业输入
 

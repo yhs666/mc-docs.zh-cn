@@ -17,11 +17,11 @@ origin.date: 05/30/2018
 ms.date: 06/25/2018
 ms.author: v-yeche
 ms.openlocfilehash: a0ac704b6898625e13440f2fa9bc6dbca2d448a0
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315470"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645779"
 ---
 # <a name="resize-a-windows-vm"></a>调整 Windows VM 的大小
 

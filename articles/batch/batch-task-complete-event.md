@@ -14,11 +14,11 @@ origin.date: 04/20/2017
 ms.date: 05/14/2018
 ms.author: v-junlch
 ms.openlocfilehash: e5b169554c23b4baec7c53de9f55927aca2c1957
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173272"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648625"
 ---
 # <a name="task-complete-event"></a>任务完成事件
 

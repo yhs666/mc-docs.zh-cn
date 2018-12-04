@@ -18,11 +18,11 @@ origin.date: 07/29/2016
 ms.author: v-yiso
 ms.date: 07/30/2018
 ms.openlocfilehash: 1f914c555220c308ecfbe4e8ea63c181ac6ae531
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167823"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643720"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>方案：逻辑应用的异常处理和错误日志记录
 

@@ -18,11 +18,11 @@ ms.date: 06/25/2018
 ms.author: v-yiso
 ROBOTS: NOINDEX
 ms.openlocfilehash: dcfe42371f56e95cb211c659db3faabdf465ecf6
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747384"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645573"
 ---
 # <a name="install-and-use-giraph-on-windows-based-hdinsight-clusters"></a>在基于 Windows 的 HDInsight 群集上安装并使用 Giraph
 
@@ -80,7 +80,7 @@ ms.locfileid: "36747384"
 
     将 tiny_graph.txt 文件上传到 HDInsight 群集的主存储。 有关如何上传数据的说明，请参阅[在 HDInsight 中上传 Hadoop 作业的数据](hdinsight-upload-data.md)。
 
-    此数据使用 [source\_id, source\_value,[[dest\_id], [edge\_value],...]] 格式，描述有向图中对象之间的关系。每一行代表 source\_id 对象与一个或多个 dest\_id 对象之间的关系。 edge\_value（或权重）可被视为 source_id 和 dest\_id 之间的连接强度或距离。
+    此数据使用 [source\_id, source\_value,[[dest\_id], [edge\_value],...]] 格式，描述有向图中对象之间的关系。每一行代表 sourceid 对象与一个或多个 dest\_id 对象之间的关系**。 edge\_value（或权重）可被视为 source_id 和 dest\_id 之间的连接强度或距离。
 
     使用表示对象间距离的值（或权重）绘制图形后，上述数据可能与下面类似。
 

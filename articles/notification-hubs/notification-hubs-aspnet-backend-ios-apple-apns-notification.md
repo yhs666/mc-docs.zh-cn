@@ -16,11 +16,11 @@ origin.date: 04/13/2018
 ms.date: 09/26/2018
 ms.author: v-junlch
 ms.openlocfilehash: 0c116258721482eff20f2d8aaf6c4f3a1a2deeb2
-ms.sourcegitcommit: 7c6ff130adaa67bc90094846f81295ef0719d072
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47191378"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644026"
 ---
 # <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向特定用户推送通知
 

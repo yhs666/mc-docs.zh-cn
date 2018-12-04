@@ -17,11 +17,11 @@ ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 11796c3e6981fc4dc7a9557c4fa9147c892a7c0b
-ms.sourcegitcommit: c938756f3be94dbbf574c31620ddf911b427fc21
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49634800"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647055"
 ---
 # <a name="custom-roles-in-azure"></a>Azure 中的自定义角色
 

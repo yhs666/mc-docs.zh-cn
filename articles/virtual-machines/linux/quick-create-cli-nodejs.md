@@ -16,11 +16,11 @@ origin.date: 12/15/2016
 ms.date: 10/22/2018
 ms.author: v-yeche
 ms.openlocfilehash: 8743c77f4501a1f35d47b410ce6b3a2fecaaadad
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034856"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644288"
 ---
 # <a name="create-a-linux-vm-using-the-azure-classic-cli"></a>使用 Azure 经典 CLI 创建 Linux VM
 

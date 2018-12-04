@@ -15,11 +15,11 @@ origin.date: 04/16/2018
 ms.date: 06/11/2018
 ms.author: v-yiso
 ms.openlocfilehash: 372767f9c6fd024b81e652c879f39abb1f0a16e3
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695281"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646146"
 ---
 # <a name="develop-for-mobile-devices-using-azure-iot-sdks"></a>使用 Azure IoT SDK 针对移动设备进行开发
 

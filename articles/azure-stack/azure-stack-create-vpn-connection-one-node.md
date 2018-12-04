@@ -18,11 +18,11 @@ ms.author: v-jay
 ms.reviewer: scottnap
 ROBOTS: NOINDEX
 ms.openlocfilehash: d2745f02d2a1bc59241b807509c306c1cb0b6331
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195572"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646571"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>在不同 Azure Stack 开发工具包环境中的两个虚拟网络之间创建站点到站点 VPN 连接
 ## <a name="overview"></a>概述

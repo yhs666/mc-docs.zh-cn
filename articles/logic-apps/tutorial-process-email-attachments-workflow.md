@@ -12,11 +12,11 @@ origin.date: 07/20/2018
 ms.author: v-yiso
 ms.date: 10/15/2018
 ms.openlocfilehash: 3a90e66fb36264189a4a274464bb74f83925ab55
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455252"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643793"
 ---
 # <a name="process-emails-and-attachments-with-azure-logic-apps"></a>使用 Azure 逻辑应用处理电子邮件和附件
 

@@ -16,11 +16,11 @@ origin.date: 08/09/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
 ms.openlocfilehash: 86475a05172d4f17e6c02c5999d028e5bf28b038
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426252"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647395"
 ---
 # <a name="publish-azure-media-services-content-using-net"></a>使用 .NET 发布 Azure 媒体服务内容
 > [!div class="op_single_selector"]

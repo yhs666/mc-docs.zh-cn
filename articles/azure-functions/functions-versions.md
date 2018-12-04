@@ -11,11 +11,11 @@ origin.date: 10/03/2018
 ms.date: 10/19/2018
 ms.author: v-junlch
 ms.openlocfilehash: 81af6d971d7bb012b900c12e47dfc6e229077b60
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453697"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647832"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions 运行时版本概述
 

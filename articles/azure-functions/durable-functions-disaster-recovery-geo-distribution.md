@@ -16,11 +16,11 @@ origin.date: 04/25/2018
 ms.date: 08/31/2018
 ms.author: v-junlch
 ms.openlocfilehash: e78b1eea38b5e41aaa68a7253ad3649388ba3c59
-ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43330791"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645225"
 ---
 # <a name="disaster-recovery-and-geo-distribution"></a>灾难恢复和异地分发
 

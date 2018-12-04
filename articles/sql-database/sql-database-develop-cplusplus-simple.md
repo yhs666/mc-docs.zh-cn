@@ -12,11 +12,11 @@ origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
 ms.openlocfilehash: 66a6a7376dee8d998b57d456bc676e3db209c17b
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913855"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647907"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>使用 C 和 C++ 连接到 SQL 数据库
 本文面向尝试连接到 Azure SQL DB 的 C 和 C++ 开发人员， 它分为多个部分，方便大家选择最感兴趣的部分进行查看。 
@@ -126,7 +126,7 @@ Azure 目前有两个用于托管 SQL Server 工作负荷的选项：Azure SQL �
 
 ## <a name="next-steps"></a>后续步骤
 * 参阅 [SQL 数据库开发概述](sql-database-develop-overview.md)
-* [ODBC API 参考](https://docs.microsoft.com/sql/odbc/reference/syntax/odbc-api-reference/)
+*  [ODBC API 参考](https://docs.microsoft.com/sql/odbc/reference/syntax/odbc-api-reference/)
 
 ## <a name="additional-resources"></a>其他资源
 * 浏览所有 [SQL 数据库功能](https://www.azure.cn/home/features/sql-database/)

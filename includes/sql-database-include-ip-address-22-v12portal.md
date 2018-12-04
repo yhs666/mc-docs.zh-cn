@@ -12,11 +12,11 @@ origin.date: 07/13/2018
 ms.date: 09/02/2018
 ms.author: v-jay
 ms.openlocfilehash: c2dfb283a765b72a62ab6568de162781fce3d1cb
-ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43249721"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52665509"
 ---
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 

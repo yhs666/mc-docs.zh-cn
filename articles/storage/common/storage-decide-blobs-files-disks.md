@@ -10,11 +10,11 @@ ms.date: 11/05/2018
 ms.author: v-nany
 ms.component: common
 ms.openlocfilehash: 174c1a3cf9914d0598399703c579961151799a8d
-ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50743539"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647696"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>确定何时使用 Azure Blob、Azure 文件或 Azure 磁盘
 

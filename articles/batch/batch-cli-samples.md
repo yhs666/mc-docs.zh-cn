@@ -16,11 +16,11 @@ origin.date: 05/01/2017
 ms.date: 07/03/2017
 ms.author: v-junlch
 ms.openlocfilehash: 56b42ac5cae1c7b3ba29e470264d7e5b57e38796
-ms.sourcegitcommit: 01b8f9a7e857463f49531e70dbb911c6f0286d76
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2017
-ms.locfileid: "23993642"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645420"
 ---
 # <a name="azure-batch-cli-samples"></a>Azure Batch CLI 示例
 
@@ -28,7 +28,7 @@ ms.locfileid: "23993642"
 
 下表包含指向使用 Azure CLI 生成的 bash 脚本的链接，以演示如何使用批处理服务。
 
-| 脚本 | 说明 |
+| 脚本 | 注释 |
 |---|---|
 | [创建批处理帐户](./scripts/batch-cli-sample-create-account.md) | 创建批处理帐户。 |
 | [添加应用程序](./scripts/batch-cli-sample-add-application.md) | 添加应用程序，并上传打包的二进制文件。|

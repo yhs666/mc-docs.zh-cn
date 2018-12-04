@@ -16,11 +16,11 @@ origin.date: 06/26/2018
 ms.author: v-yiso
 ms.date: 08/06/2018
 ms.openlocfilehash: b40e78a4f31129d044deef296080b33750487486
-ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306593"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647179"
 ---
 # <a name="azure-relay-port-settings"></a>Azure 中继端口设置
 

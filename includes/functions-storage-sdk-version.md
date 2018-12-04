@@ -11,11 +11,11 @@ ms.date: 05/30/2018
 ms.author: v-junlch
 ms.custom: include file
 ms.openlocfilehash: 804b5814b7470cac6a5d81e711ea094ec7be949f
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34567325"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647640"
 ---
 ### <a name="azure-storage-sdk-version-in-functions-1x"></a>Functions 1.x 中的 Azure 存储 SDK 版本
 

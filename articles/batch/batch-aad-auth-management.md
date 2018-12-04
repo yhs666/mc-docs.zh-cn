@@ -17,11 +17,11 @@ origin.date: 04/27/2017
 ms.date: 09/07/2018
 ms.author: v-junlch
 ms.openlocfilehash: 9b40d7cb51ffbac673639d6bebebfb945ccaf80d
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068041"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648337"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>使用 Active Directory 对 Batch 管理解决方案进行身份验证
 

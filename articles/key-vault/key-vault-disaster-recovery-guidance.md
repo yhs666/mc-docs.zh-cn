@@ -16,11 +16,11 @@ origin.date: 01/07/2017
 ms.date: 10/22/2018
 ms.author: v-biyu
 ms.openlocfilehash: bf2c46d8ca096d7ebb11466efb6bfa1f4f828ae5
-ms.sourcegitcommit: 2fdf25eb4b978855ff2832bcdcca093c141be261
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49120625"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643496"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Azure 密钥保管库可用性和冗余
 Azure 密钥保管库具有多层冗余功能，确保密钥和机密持续可供应用程序使用，即使服务的单个组件发生故障也是如此。

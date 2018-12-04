@@ -16,11 +16,11 @@ origin.date: 12/15/2015
 ms.date: 08/27/2018
 ms.author: v-yeche
 ms.openlocfilehash: 5bd5b05774370badb31034080182526650527afa
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871669"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644468"
 ---
 # <a name="use-the-linux-diagnostic-extension-to-monitor-the-performance-and-diagnostic-data-of-a-linux-vm"></a>使用 Linux 诊断扩展监视 Linux VM 的性能和诊断数据
 

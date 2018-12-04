@@ -14,11 +14,11 @@ origin.date: 08/24/2017
 ms.date: 09/10/2018
 ms.author: v-junlch
 ms.openlocfilehash: be06a6c9ad847ddcd562ec38eaa2fc5126aef7d6
-ms.sourcegitcommit: 40456700212200e707d6cb3147cf96ad161d3ff2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44269539"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644927"
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>使用服务器资源管理器浏览和管理存储资源
 
@@ -140,7 +140,7 @@ Blob 数据在本地缓存，并且对照 Azure Blob 存储中 Blob 的最后修
 
 选择 Blob，并选择“打开 Blob”按钮。
 
-文件将下载到临时位置，在本地计算机上打开。 进行更改之后，再次上传 Blob。
+文件下载到临时位置，在本地计算机上打开。 进行更改之后，再次上传 Blob。
 
 ## <a name="work-with-queue-resources"></a>处理队列资源
 
@@ -181,7 +181,7 @@ Azure 表存储可存储大量结构化数据。 该服务是一个 NoSQL 数据
 
     ![解决方案资源管理器中的 Azure 表](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744165.png)
 
-按实体（在行中所示）和属性（在列中所示）组织的表。 例如，下图显示了“表设计器”中列出的实体。
+按实体（在行中所示）和属性（在列中所示）组织表。 例如，下图显示了“表设计器”中列出的实体。
 
 ### <a name="to-edit-table-data"></a>编辑表数据
 
@@ -189,7 +189,7 @@ Azure 表存储可存储大量结构化数据。 该服务是一个 NoSQL 数据
 
     ![Add or edit a table entity](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC656238.png)
 
-单个表中不同实体不需要具有相同的属性集（列）。 在查看和编辑表数据时，请记住以下限制：
+单个表中的实体不需要具有相同的属性集（列）。 在查看和编辑表数据时，请记住以下限制：
 
 - 不能查看或编辑二进制数据 (`type byte[]`)，但可将它们存储在表中。
 - 无法编辑 PartitionKey 或 RowKey 值，因为 Azure 中的表存储不支持该操作。
@@ -221,15 +221,15 @@ Azure 表存储可存储大量结构化数据。 该服务是一个 NoSQL 数据
 1. 查询生成完毕后，关闭该对话框。 所生成文本格式的查询以 WCF 数据服务筛选器的形式显示在文本框中。
 1. 若要运行查询，请选择绿色三角形图标。
 
-如果在筛选文本框中直接输入 WCF Data Services 筛选器字符串，还可以筛选“表设计器”中显示的实体数据。 此类字符串类似 SQL WHERE 语句，但它以 HTTP 请求的形式发送到服务器。 有关如何构造筛选器字符串的信息，请参阅[构造表设计器的筛选器字符串](/vs-azure-tools-table-designer-construct-filter-strings)。
+如果在筛选文本框中直接输入 WCF Data Services 筛选器字符串，还可以筛选“表设计器”中显示的实体数据。 此类字符串类似 SQL WHERE 语句，但以 HTTP 请求的形式发送到服务器。 有关如何构造筛选器字符串的信息，请参阅[构造表设计器的筛选器字符串](/vs-azure-tools-table-designer-construct-filter-strings)。
 
-下图显示了有效筛选字符串的示例：
+下图显示了有效筛选器字符串的示例：
 
 ![筛选器字符串](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC655337.png)
 
 ## <a name="refresh-storage-data"></a>刷新存储数据
 
-当服务器资源管理器连接到存储帐户或从存储帐户获取数据时，可能需要长达一分钟的时间才能完成操作。 如果服务器资源管理器无法连接，则操作可能会超时。在检索数据的同时，可以继续在 Visual Studio 的其他部分工作。 如果花费了太长时间想要取消操作，请选择服务器资源管理器工具栏上的“停止刷新”按钮。
+当服务器资源管理器连接到存储帐户或从存储帐户获取数据时，可能需要长达一分钟的时间才能完成操作。 如果服务器资源管理器无法连接，则操作可能会超时。在检索数据的同时，可以继续在 Visual Studio 的其他部分操作。 如果花费了太长时间想要取消操作，请选择服务器资源管理器工具栏上的“停止刷新”按钮。
 
 ### <a name="to-refresh-blob-container-data"></a>刷新 Blob 容器数据
 
@@ -259,14 +259,14 @@ Azure 表存储可存储大量结构化数据。 该服务是一个 NoSQL 数据
 
 1. 在“创建存储帐户”对话框中，选择或输入以下信息：
 
-   - 要将存储帐户添加到的 Azure 订阅。
+   - 要添加存储帐户的 Azure 订阅。
    - 要用于新存储帐户的名称。
    - 区域或地缘组（例如中国北部）。
    - 要用于存储帐户的复制类型，如本地冗余。
 
    ![创建 Azure 存储帐户](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744166.png)
 
-1. 选择**创建**。
+1. 选择“创建” 。
 
 新的存储帐户随即出现在解决方案资源管理器的“存储”列表中。
 
@@ -278,7 +278,7 @@ Azure 表存储可存储大量结构化数据。 该服务是一个 NoSQL 数据
 1. 在“创建存储帐户”对话框中，选择或输入以下信息：
 
    - 要附加的现有存储帐户的名称。
-   - 所选存储帐户的密钥。 选择存储帐户时，通常会提供此值。 如果想要 Visual Studio 记住存储帐户密钥，请选中“记住帐户密钥”复选框。
+   - 所选存储帐户的密钥。 此选择存储帐户时，通常会提供此值。 如果想要 Visual Studio 记住存储帐户密钥，请选中“记住帐户密钥”复选框。
    - 将用于连接到存储帐户的协议，如 HTTP、HTTPS 或自定义终结点。 有关自定义终结点的详细信息，请参阅[如何配置连接字符串](https://msdn.microsoft.com/library/azure/ee758697.aspx)。
 
 ### <a name="to-view-the-secondary-endpoints"></a>查看辅助终结点
@@ -291,7 +291,7 @@ Azure 表存储可存储大量结构化数据。 该服务是一个 NoSQL 数据
 
 在服务器资源管理器中，打开帐户名称的快捷菜单，并选择“删除”。 
 
-如果删除某个存储帐户，则也会删除该帐户的所有已保存密钥信息。
+如果删除某个存储帐户，则也会删除该帐户所有已保存的密钥信息。
 
 从服务器资源管理器中删除存储帐户不会影响到存储帐户或其所包含的任何数据。 它只是将引用从服务器资源管理器中删除。 若要永久删除存储帐户，请使用 [Azure 门户](https://portal.azure.cn/)。
 

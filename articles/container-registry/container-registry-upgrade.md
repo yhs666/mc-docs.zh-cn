@@ -9,11 +9,11 @@ origin.date: 08/28/2018
 ms.date: 11/12/2018
 ms.author: v-yeche
 ms.openlocfilehash: b1a5f53dab362f2826eaeace6ca3d4f3f46ab10d
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195396"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644706"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>升级经典容器注册表
 

@@ -14,11 +14,11 @@ manager: digimobile
 origin.date: 10/05/2018
 ms.date: 10/29/2018
 ms.openlocfilehash: 92ae69336e22280bd5414ec50f87b685bc505a34
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135731"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645121"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>使用数据依赖型路由可将查询路由到相应的数据库
 

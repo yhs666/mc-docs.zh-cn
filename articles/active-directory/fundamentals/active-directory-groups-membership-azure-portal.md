@@ -14,11 +14,11 @@ ms.author: v-junlch
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.openlocfilehash: 51535943ec62fbef3d248fcc08d5718ac5ee551e
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913869"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648163"
 ---
 # <a name="how-to-add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>如何：使用 Azure Active Directory 在组中添加或删除其他组
 本文帮助你使用 Azure Active Directory 在组中添加和删除其他组。
@@ -29,11 +29,11 @@ ms.locfileid: "48913869"
 ## <a name="add-a-group-as-a-member-to-another-group"></a>将一个组作为成员添加到另一个组
 可以将现有组添加到另一个组，从而创建成员组（子组）和父组。 成员组继承父组的特性和属性，节省了配置时间。
 
-### <a name="to-add-a-group-as-a-member-to-another-group"></a>将一个组作为成员添加到另一个组
+### <a name="to-add-a-group-as-a-member-to-another-group"></a>要将组作为成员添加到其他组
 
 1. 使用目录的全局管理员帐户登录到 [Azure 门户](https://portal.azure.cn)。
 
-2. 依次选择“Azure Active Directory”、“组”。
+2. 选择“Azure Active Directory”，然后选择“组”。
 
 3. 在“组 - 所有组”页面上，搜索并选择要成为另一个组的成员的组。 对于本练习，我们将使用“MDM 策略 - 西部”组。
 
@@ -68,7 +68,7 @@ ms.locfileid: "48913869"
 
 3. 从“MDM 策略 - 西部 - 组成员身份”页面上选择“MDM 策略 - 所有组织”，然后从“MDM 策略 - 西部”页面详细信息中选择“删除”。
 
-    ![组成员身份页面，其中显示了成员和组详细信息](./media/active-directory-groups-membership-azure-portal/group-membership-remove.png)
+    ![显示成员和组详细信息的“组成员身份”页](./media/active-directory-groups-membership-azure-portal/group-membership-remove.png)
 
 
 ## <a name="additional-information"></a>其他信息

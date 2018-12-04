@@ -17,11 +17,11 @@ origin.date: 07/13/2016
 ms.date: 02/14/2017
 ms.author: v-junlch
 ms.openlocfilehash: 96a4b595ec036d5fa83c02051ee985c80cb31421
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939597"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646676"
 ---
 # <a name="monitoring-and-diagnostics-guidance"></a>监视和诊断指南
 [!INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]

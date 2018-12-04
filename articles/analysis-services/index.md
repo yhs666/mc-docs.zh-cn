@@ -14,11 +14,11 @@ origin.date: 02/14/2018
 ms.date: 07/16/2018
 ms.author: v-yeche
 ms.openlocfilehash: 6b93f3bc7df34520c6df0e25a1873909840a5271
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167706"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647520"
 ---
 # <a name="analysis-services-documentation"></a>Analysis Services 文档
 

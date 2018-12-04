@@ -17,11 +17,11 @@ origin.date: 08/15/2018
 ms.date: 11/12/2018
 ms.author: v-jay
 ms.openlocfilehash: e721be7c10314e5fc22e19b59e42da923ff911df
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195568"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648530"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>为 Azure Stack 准备基于 Red Hat 的虚拟机
 

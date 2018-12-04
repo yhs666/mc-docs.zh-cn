@@ -12,11 +12,11 @@ ms.date: 07/06/2018
 ms.author: v-junlch
 ms.custom: mvc
 ms.openlocfilehash: c14126b73f9557cf87c5836d34428b724d2cc8cc
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873299"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643513"
 ---
 # <a name="back-up-azure-virtual-machines-in-azure-at-scale"></a>在 Azure 中大规模备份 Azure 虚拟机
 

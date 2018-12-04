@@ -3,7 +3,7 @@ title: 将其他 Azure 存储帐户添加到 HDInsight | Azure
 description: 了解如何将其他 Azure 存储帐户添加到现有 HDInsight 群集。
 services: hdinsight
 documentationCenter: ''
-author: Blackmist
+author: jasonwhowell
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 04/23/2018
-ms.date: 06/25/2018
+ms.date: 11/19/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 1c4c076c4bca466a5c48e91e07a7c88d37f0d9a5
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: 7fa15ece5b01a0e244443835b602f96f9c5933e8
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747322"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646684"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>将其他存储帐户添加到 HDInsight
 
@@ -65,7 +65,7 @@ __要求__：
 
 ## <a name="to-use-the-script"></a>使用脚本
 
-可以通过 Azure 门户、Azure PowerShell 或 Azure CLI 1.0 使用此脚本。 有关详细信息，请参阅[使用脚本操作自定义基于 Linux 的 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)文档。
+可以通过 Azure 门户、Azure PowerShell 或 Azure Classic CLI 使用此脚本。 有关详细信息，请参阅[使用脚本操作自定义基于 Linux 的 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)文档。
 
 > [!IMPORTANT]
 > 当使用自定义文档中所提供的步骤时，请使用以下信息来应用此脚本：
@@ -78,7 +78,7 @@ __要求__：
 
 ### <a name="storage-accounts-not-displayed-in-azure-portal-or-tools"></a>存储帐户未显示在 Azure 门户或工具中
 
-在 Azure 门户中查看 HDInsight 群集时，选择“属性”下的“存储帐户”项，则不会显示通过此脚本操作添加的存储帐户。 Azure PowerShell 和 Azure CLI 也不会显示其他存储帐户。
+在 Azure 门户中查看 HDInsight 群集时，选择“属性”下的“存储帐户”项，则不会显示通过此脚本操作添加的存储帐户。 Azure PowerShell 和 Azure Classic CLI 也不会显示其他存储帐户。
 
 之所以未显示存储信息是因为该脚本只修改群集的 core-site.xml 配置。 使用 Azure 管理 API 检索群集信息时，未使用此信息。
 

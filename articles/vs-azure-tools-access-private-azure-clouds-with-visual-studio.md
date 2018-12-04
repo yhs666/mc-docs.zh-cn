@@ -14,11 +14,11 @@ origin.date: 11/13/2017
 ms.date: 09/10/2018
 ms.author: v-junlch
 ms.openlocfilehash: 3a5fd8fdd4111e93a873467e3836605def2322c5
-ms.sourcegitcommit: 40456700212200e707d6cb3147cf96ad161d3ff2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44269507"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645878"
 ---
 # <a name="accessing-private-azure-clouds-with-visual-studio"></a>使用 Visual Studio 访问私有 Azure 云
 
@@ -38,7 +38,7 @@ ms.locfileid: "44269507"
 
     ![“导入 Azure 订阅”对话框中的“浏览”按钮](./media/vs-azure-tools-access-private-azure-clouds-with-visual-studio/browse-button.png)
 
-1. 在“打开”对话框中，浏览到保存发布设置文件的目录，选择文件，然后选择“打开”。
+1. 在“打开”对话框中，浏览到保存发布设置文件的目录，再选择文件，然后选择“打开”。
 
     ![选择发布设置文件](./media/vs-azure-tools-access-private-azure-clouds-with-visual-studio/select-publish-settings-file.png)
 

@@ -13,11 +13,11 @@ origin.date: 03/19/2018
 ms.date: 06/29/2018
 ms.author: v-junlch
 ms.openlocfilehash: afb6e32b5ffd352739094c8e4c3bb5eaae475999
-ms.sourcegitcommit: c587cc1c53b1f92b45fae0d1ff8e1f7bd544bc55
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103247"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644312"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>将低优先级 VM 与 Batch 配合使用
 

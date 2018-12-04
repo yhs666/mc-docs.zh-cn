@@ -19,11 +19,11 @@ ms.author: v-junlch
 ms.reviewer: bryanla
 ms.custom: aaddev
 ms.openlocfilehash: 434abaae88c32d7de37f44b08967084480abbf5c
-ms.sourcegitcommit: 562cde32fc2271238f3d1ef5d2cc5ed037bdec2d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43531552"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644571"
 ---
 # <a name="integrating-with-azure-active-directory"></a>与 Azure Active Directory 集成
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -41,7 +41,7 @@ Azure Active Directory 为组织的云应用程序提供企业级标识管理。
 ### <a name="browse-for-users-manage-user-provisioning-and-control-access-to-your-application"></a>浏览用户，管理用户设置，以及控制对应用程序的访问
 **浏览目录中的用户。**  在邀请其他人或授予访问权限时，可以使用图形 API 来帮助用户搜索和浏览其组织中的其他人员，而无需键入电子邮件地址。 用户可以使用熟悉的通讯簿样式界面进行浏览，包括查看组织层次结构的详细信息。 深入了解[图形 API](active-directory-graph-api.md)。
 
-**重复使用客户正在管理的 Active Directory 组和通讯组列表。**  Azure AD 包含客户已用于电子邮件分发和管理访问权限的组。 使用图形 API 时，可以重复使用这些组，而无需要求客户在应用程序中创建并管理一系列不同的组。 还可以在登录令牌中向应用程序发送组信息。 深入了解[图形 API](active-directory-graph-api.md)。
+**重复使用客户正在管理的 Active Directory 组和通讯组列表。**  Azure AD 包含客户已用于电子邮件分发和管理访问权限的组。 使用图形 API 时，可以重复使用这些组，而无需要求客户在应用程序中创建并管理一系列不同的组。 还可以在登录令牌中向应用程序发送组信息。 了解有关 [图形 API](active-directory-graph-api.md)的详细信息。
 
 **使用 Azure AD 控制谁有权访问应用程序。**  Azure AD 中的管理员和应用程序所有者可以将应用程序访问权限分配给特定的用户和组。 使用图形 API，可以读取此列表并使用它来控制资源的设置和取消设置，以及应用程序中的访问权限。
 

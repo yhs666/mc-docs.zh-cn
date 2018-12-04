@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.topic: conceptual
 manager: digimobile
 ms.openlocfilehash: b5704c5240f14487f8a8c1f6e91ee029aed3f67f
-ms.sourcegitcommit: 1b60848d25bbd897498958738644a4eb9cf3a302
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43731192"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646090"
 ---
 # <a name="managing-azure-automation-data"></a>管理 Azure 自动化数据
 本文包含有关管理 Azure 自动化环境的多个主题。
@@ -35,7 +35,7 @@ Azure 自动化会自动删除并永久移除 90 天之前的作业。
 | Runbook |在资源被用户删除 90 天后或者在包含该资源的帐户被用户删除 90 天后将其永久移除。 |
 | 作业 |在上次修改 90 天后删除并永久移除。 这可能发生在作业已完成、已停止或已暂停之后。 |
 | 节点配置/MOF 文件 |生成新节点配置 90 天后，会永久删除旧节点配置。 |
-| DSC 节点 |在使用 Azure 门户或 Windows PowerShell 中的 [Unregister-AzureRMAutomationDscNode cmdlet](https://docs.microsoft.com/powershell/module/azurerm.automation/unregister-azurermautomationdscnode) 从自动化帐户中取消注册节点 90 天后，将永久删除该节点。 在用户删除保存节点的帐户 90 天后，也会永久删除该节点。 |
+| DSC 节点 |在使用 Azure 门户或 Windows PowerShell 中的 [Unregister-AzureRMAutomationDscNode](https://docs.microsoft.com/powershell/module/azurerm.automation/unregister-azurermautomationdscnode) cmdlet 从自动化帐户中取消注册节点 90 天后，永久删除该节点。 在用户删除保存节点的帐户 90 天后，也会永久删除该节点。 |
 | 节点报告 |在生成该节点的新报告 90 天后永久删除 |
 
 保留策略应用于所有用户并且当前无法自定义。
@@ -50,7 +50,7 @@ Azure 自动化会自动删除并永久移除 90 天之前的作业。
 无法从 Azure 自动化导出集成模块。  必须确保这些模块可在自动化帐户外部使用。
 
 ### <a name="assets"></a>资产
-无法从 Azure 自动化中导出[资产](https://msdn.microsoft.com/library/dn939988.aspx)。  使用 Azure 门户时，必须记下变量、凭据、证书、连接和计划的详细信息。  然后，必须手动创建用户导入到另一个自动化中的 Runbook 使用的任何资产。
+无法从 Azure 自动化导出 [资产](https://msdn.microsoft.com/library/dn939988.aspx)。  使用 Azure 门户时，必须记下变量、凭据、证书、连接和计划的详细信息。  然后，必须手动创建用户导入到另一个自动化中的 Runbook 使用的任何资产。
 
 但可以使用 [Azure cmdlet](https://docs.microsoft.com/powershell/module/azurerm.automation#automation) 检索未加密资产的详细信息，然后保存这些资产供将来参考，或在另一个自动化帐户中创建等效的资产。
 

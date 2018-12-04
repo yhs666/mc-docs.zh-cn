@@ -18,11 +18,11 @@ origin.date: 02/27/2018
 ms.date: 05/28/2018
 ms.author: v-yiso
 ms.openlocfilehash: 7517c4522ccbc1a8bb09631341157824a0daf191
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34449947"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644750"
 ---
 # <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight"></a>在基于 Linux 的 HDInsight 上为 Hadoop 服务启用堆转储
 

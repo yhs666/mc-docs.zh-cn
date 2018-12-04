@@ -16,11 +16,11 @@ origin.date: 05/05/2017
 ms.author: v-yiso
 ms.date: 10/16/2017
 ms.openlocfilehash: 197d26470f27e34328390a7dd9e029c963141b44
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939275"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646443"
 ---
 # <a name="create-a-nodejs-web-app-in-a-linux-container-in-azure"></a>在 Azure 的 Linux 容器中创建 Node.js Web 应用
 

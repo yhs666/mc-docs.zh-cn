@@ -16,11 +16,11 @@ origin.date: 12/07/2017
 ms.date: 07/30/2018
 ms.author: v-nany
 ms.openlocfilehash: d1a40a4b85e7b057ccdbcfc556d0902a58c14210
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426375"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646355"
 ---
 # <a name="create-content-keys-with-rest"></a>使用 REST 创建内容密钥
 > [!div class="op_single_selector"]

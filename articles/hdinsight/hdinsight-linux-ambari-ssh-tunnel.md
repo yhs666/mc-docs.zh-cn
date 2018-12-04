@@ -17,11 +17,11 @@ origin.date: 04/30/2018
 ms.date: 10/22/2018
 ms.author: v-yiso
 ms.openlocfilehash: 3f7c1dc7cb1ba9d62dcf38ef9486f72d469f82bc
-ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121547"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645868"
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>使用 SSH 隧道访问 Ambari Web UI、JobHistory、NameNode、Oozie 和其他 Web UI
 

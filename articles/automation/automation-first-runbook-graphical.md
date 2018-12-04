@@ -11,11 +11,11 @@ origin.date: 04/13/2018
 ms.date: 07/23/2018
 ms.author: v-nany
 ms.openlocfilehash: 7cc20e237defbcf184edff09adaeda4e7fe47875
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41703885"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647971"
 ---
 # <a name="my-first-graphical-runbook"></a>我的第一个图形 Runbook
 

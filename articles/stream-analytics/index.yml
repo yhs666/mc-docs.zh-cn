@@ -1,23 +1,23 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 35a9ebb8087801ef8d583845c8d59b1b0e282275
-ms.sourcegitcommit: 432984d85afe6f3da8f211bae0fa98a556785ee8
+ms.openlocfilehash: a9d2019e7ed9e71b2f0ab8abadf6953cc7c5f313
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455375"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645811"
 documentType: LandingData
 title: 流分析文档
 metadata:
   title: Azure 流分析文档 - 教程和 API 参考
   meta.description: Learn how to run IoT analytics in the cloud with fully-managed event processing. Analyze data in real time from applications, sensors, devices, and more.
   services: stream-analytics
-  author: rockboyfor
-  ms.author: v-yeche
+  author: lingliw
+  ms.author: v-lingwu
   manager: digimobile
   ms.service: stream-analytics
   ms.topic: landing-page
   origin.date: 04/25/2018
-  ms.date: 09/30/2018
+  ms.date: 11/06/18
 abstract:
   description: 了解如何使用流分析（完全托管的事件处理引擎）在云中运行物联网 (IoT) 分析。 教程和其他文档介绍了如何实时分析来自应用程序、传感器、设备、社交媒体等的数据。
 sections:

@@ -16,11 +16,11 @@ origin.date: 07/29/2016
 ms.date: 10/22/2018
 ms.author: v-biyu
 ms.openlocfilehash: 03846f500c27fb4b319c9d6aa9832e964f14a0f6
-ms.sourcegitcommit: 2fdf25eb4b978855ff2832bcdcca093c141be261
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49120612"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646928"
 ---
 # <a name="managing-azure-key-vault-using-azure-automation"></a>使用 Azure 自动化管理 Azure 密钥保管库
 本指南介绍 Azure 自动化服务，以及如何使用它来简化 Azure 密钥保管库的管理。

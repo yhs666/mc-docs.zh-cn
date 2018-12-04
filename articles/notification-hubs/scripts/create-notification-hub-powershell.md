@@ -14,11 +14,11 @@ origin.date: 04/14/2018
 ms.date: 07/06/2018
 ms.author: v-junlch
 ms.openlocfilehash: f6198dcc42be5bd38806b600b999d33d6bdb0187
-ms.sourcegitcommit: e950fe5260c519e05f8c5bbf193a8ef733a6a2d2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37936362"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646997"
 ---
 # <a name="use-powershell-to-create-an-azure-notification-hub"></a>使用 PowerShell 创建 Azure 通知中心
 

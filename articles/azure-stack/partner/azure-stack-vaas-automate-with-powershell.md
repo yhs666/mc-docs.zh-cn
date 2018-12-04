@@ -15,11 +15,11 @@ ms.date: 08/27/2018
 ms.author: v-jay
 ms.reviewer: johnhas
 ms.openlocfilehash: 7fd8f7dfe7d7a1ee4785617e5b096b1cb73bac6c
-ms.sourcegitcommit: bc7679a5ad24ea9120c44fc771e88a08b5d8b207
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42998374"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647456"
 ---
 # <a name="automate-azure-stack-validation-with-powershell"></a>使用 PowerShell 自动执行 Azure Stack 验证 
 

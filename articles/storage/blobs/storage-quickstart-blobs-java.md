@@ -10,11 +10,11 @@ origin.date: 04/09/2018
 ms.date: 11/05/2018
 ms.author: v-jay
 ms.openlocfilehash: cd4a25eeedab9dff5f58f47e76cf9c556ac84fd3
-ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50743533"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643510"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-java-sdk-v7"></a>快速入门：使用 Java SDK V7 上传、下载和列出 Blob
 

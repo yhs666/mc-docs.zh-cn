@@ -10,11 +10,11 @@ ms.date: 09/17/2018
 ms.author: v-yeche
 ms.custom: MVC
 ms.openlocfilehash: d546d810389609038005884a9da65146feac540f
-ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586829"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648425"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>设置 VMM 云中的本地 Hyper-V VM 到 Azure 的灾难恢复
 
@@ -43,7 +43,7 @@ ms.locfileid: "45586829"
 3. 在“保护目标” > “计算机所在位置”中，选择“本地”。
 4. 在“要将计算机复制到何处?”中，选择“复制到 Azure”。
 5. 在“计算机是否已虚拟化”中，选择“是，带有 Hyper-V”。
-6. 在“是否使用 System Center VMM”中，选择“是”。 然后单击“确定”。
+6. 在“是否使用 System Center VMM”中，选择“是”。 。
 
     ![复制目标](./media/hyper-v-vmm-azure-tutorial/replication-goal.png)
 
@@ -59,7 +59,7 @@ ms.locfileid: "45586829"
 
     ![下载](./media/hyper-v-vmm-azure-tutorial/download-vmm.png)
 
-### <a name="install-the-provider-on-the-vmm-server"></a>安装 VMM 服务器上的提供程序
+### <a name="install-the-provider-on-the-vmm-server"></a>在 VMM 服务器上安装提供程序
 
 1. 在“Azure Site Recovery 提供程序安装程序向导”>“Microsoft 更新”中，选择使用 Microsoft 更新检查提供程序更新。
 2. 在“安装”中接受提供程序的默认安装位置，然后单击“安装”。 
@@ -67,7 +67,7 @@ ms.locfileid: "45586829"
 4. 指定 Azure Site Recovery 订阅和保管库名称 (ContosoVMVault)。 为 VMM 服务器指定友好名称以在保管库中标识此 VMM。
 5. 在“代理设置”中，选择“在不使用代理的情况下直接连接到 Azure Site Recovery”。
 6. 接受用于加密数据的证书的默认位置。 故障转移时，会解密已加密的数据。
-7. 在“同步云元数据”中，选择“将云元数据同步到 Site Recovery 门户”。 此操作在每个服务器上只需执行一次。 然后单击“注册”。
+7. 在“同步云元数据”中，选择“将云元数据同步到 Site Recovery 门户”。 此操作在每台服务器上只需执行一次。 然后单击“注册”。
 8. 服务器在保管库中注册后，单击“完成”。
 
 完成注册后，Azure Site Recovery 将检索服务器中的元数据，该 VMM 服务器显示在“Site Recovery 基础结构”中。
@@ -77,7 +77,7 @@ ms.locfileid: "45586829"
 在包含要复制的 VM 的每个 Hyper-V 主机上安装代理。
 
 1. 在“Azure 恢复服务代理安装向导”>“必备组件检查”中，单击“下一步”。 可自动安装任何缺少的必备组件。
-2. 在“安装设置”中，接受安装位置和缓存位置。 缓存驱动器需要至少 5 GB 的存储空间。 我们建议使用 600 GB 或更多可用空间的驱动器。 然后单击“安装”。
+2. 在“安装设置”中，接受安装位置和缓存位置。 缓存驱动器需要至少 5 GB 的存储空间。 我们建议使用 600 GB 或更多可用空间的驱动器。  然后单击“安装” 。
 3. 在“安装”中，当安装完成后，单击“关闭”以完成向导。
 
     ![安装代理](./media/hyper-v-vmm-azure-tutorial/mars-install.png)
@@ -88,7 +88,7 @@ ms.locfileid: "45586829"
 2. 选择在故障转移后要在其中创建 Azure VM 的订阅和资源组 (ContosoRG)。
 3. 选择“资源管理器”部署模型。
 
-Site Recovery 会检查是否有一个或多个兼容的 Azure 存储帐户和网络。
+Site Recovery 检查是否有一个或多个兼容的 Azure 存储帐户和网络。
 
 ## <a name="configure-network-mapping"></a>配置网络映射
 
@@ -96,14 +96,14 @@ Site Recovery 会检查是否有一个或多个兼容的 Azure 存储帐户和�
 2. 在“添加网络映射”中，选择源 VMM 服务器。 选择 Azure 作为目标。
 3. 在故障转移后，验证订阅和部署模型。
 4. 在“源网络”中，选择源本地虚拟机网络。
-5. 在“目标网络”中，选择在故障转移后副本 Azure VM 创建时所在的 Azure 网络。 然后单击“确定”。
+5. 在“目标网络”中，选择在故障转移后副本 Azure VM 创建时所在的 Azure 网络。 。
 
     ![网络映射](./media/hyper-v-vmm-azure-tutorial/network-mapping-vmm.png)
 
 ## <a name="set-up-a-replication-policy"></a>设置复制策略
 
 1. 单击“准备基础结构” > “复制设置” > “+创建和关联”。
-2. 在“创建和关联策略”中指定策略名称“ContosoReplicationPolicy”。
+2. 在“创建和关联策略”中指定策略名称 **ContosoReplicationPolicy**。
 3. 保留默认设置，并单击“确定”。
     - **复制频率**指示增量数据（初始复制之后）每五分钟复制一次。
     - **恢复点保留期**指示每个恢复点的保留时长为两个小时。
@@ -115,10 +115,10 @@ Site Recovery 会检查是否有一个或多个兼容的 Azure 存储帐户和�
 ## <a name="enable-replication"></a>启用复制
 
 1. 在“复制应用程序”中，单击“源”。 
-2. 在“源”中，选择 VMM 云。 然后单击“确定”。
+2. 在“源”中，选择 VMM 云。 。
 3. 在“目标”中，将 Azure 作为目标验证，并验证保管库订阅，然后选择“资源管理器”模型。
-4. 选择“contosovmsacct1910171607”存储帐户和“ContosoASRnet” Azure 网络。
-5. 在“虚拟机” > “选择”中，选择想要复制的 VM。 然后单击“确定”。
+4. 选择“contosovmsacct1910171607”存储帐户和“ContosoASRnet”Azure 网络。
+5. 在“虚拟机” > “选择”中，选择想要复制的 VM。 。
 
  可以在“作业” > “Site Recovery 作业”中，跟踪“启用保护”操作的进度。 “最后完成保护”作业完毕后，初始复制即已完成，VM 可执行故障转移。
 

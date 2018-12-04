@@ -16,11 +16,11 @@ origin.date: 04/18/2018
 ms.date: 10/08/2018
 ms.author: v-yiso
 ms.openlocfilehash: c771b3cd4e3339f59a1b3d9f8a85c82a8eceda16
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523886"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645965"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-web-apps"></a>排查 Azure Web 应用中的域和 SSL 证书问题
 

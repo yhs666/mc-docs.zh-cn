@@ -17,11 +17,11 @@ origin.date: 07/20/2016
 ms.author: v-yiso
 ms.date: 03/26/2018
 ms.openlocfilehash: b76320d029ce2e624556a099430d75345edb5045
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30072529"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645098"
 ---
 # <a name="get-started-with-the-query-action"></a>查询操作入门
 通过使用查询操作，可使用批处理和数组完成工作流，以便：

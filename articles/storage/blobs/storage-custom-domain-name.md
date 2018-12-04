@@ -10,11 +10,11 @@ origin.date: 06/26/2018
 ms.date: 07/30/2018
 ms.author: v-johch
 ms.openlocfilehash: 5474c824ec0b2f2d9e8153673e03fd4ec37749f4
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295626"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644087"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>为 Azure 存储帐户配置自定义域名
 

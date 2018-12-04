@@ -16,11 +16,11 @@ origin.date: 04/11/2018
 ms.date: 06/04/2018
 ms.author: v-yeche
 ms.openlocfilehash: dc1a2dcda08596adeed89701e51cdb84d263766d
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702796"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643610"
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>如何在使用经典部署模型创建的虚拟机上运行 Java 应用程序服务器
 > [!IMPORTANT]
@@ -126,7 +126,7 @@ Tomcat 运行后，可通过在虚拟机浏览器中输入 URL <http://localhost
 <!-- URL cloudapp.net Convert to chinacloudapp.cn -->
 
 ## <a name="application-lifecycle-considerations"></a>应用程序生命周期注意事项
-* 可以创建自己的 Web 应用程序存档 (WAR) 并将其添加到 **webapps** 文件夹。 例如，创建基本的 Java 服务页 (JSP) 动态 Web 项目并将其作为 WAR 文件导出。 然后，将 WAR 复制到虚拟机上的 Apache Tomcat **webapps** 文件夹中，然后在浏览器中运行它。
+* 可以创建自己的 Web 应用程序存档 (WAR) 并将其添加到 **webapps** 文件夹。 例如，创建基本的 Java 服务页 (JSP) 动态 Web 项目并将其作为 WAR 文件导出。 然后，将 WAR 复制到虚拟机上的 Apache Tomcat **webapps** 文件夹中，并在浏览器中运行它。
 * 默认情况下，Tomcat 服务在安装后会设置为手动启动。 可以使用“服务”管理单元将其切换为自动启动。 可通过依次单击 Windows 的“开始”、“管理工具”、“服务”来启动“服务”管理单元。 双击“Apache Tomcat”服务，并将“启动类型”设置为“自动”。
 
     ![将服务设置为自动启动][service_automatic_startup]

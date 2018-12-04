@@ -16,11 +16,11 @@ origin.date: 02/23/2017
 ms.date: 06/11/2018
 ms.author: v-yeche
 ms.openlocfilehash: 952e3cae947cb0ab68c61f5f8730e0212f2e6139
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34869284"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646019"
 ---
 # <a name="use-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>使用动态 DNS 在自己的 DNS 服务器中注册主机名
 

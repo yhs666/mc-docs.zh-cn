@@ -19,11 +19,11 @@ ms.date: 06/11/2018
 ms.author: v-yeche
 ms.custom: ''
 ms.openlocfilehash: 7c3484afaf3bfe29b983155d2a1f94e3b1544da8
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405291"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644194"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>使用 PowerShell 通过路由表路由网络流量
 
@@ -286,7 +286,7 @@ New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
 tracert myVmPrivate
 ```
 
-其响应类似于如下示例：
+响应类似于以下示例：
 
 ```
 Tracing route to myVmPrivate.vpgub4nqnocezhjgurw44dnxrc.bx.internal.chinacloudapp.cn [10.0.1.4]
@@ -308,7 +308,7 @@ Trace complete.
 tracert myVmPublic
 ```
 
-其响应类似于如下示例：
+响应类似于以下示例：
 
 ```
 Tracing route to myVmPublic.vpgub4nqnocezhjgurw44dnxrc.bx.internal.chinacloudapp.cn [10.0.0.4]

@@ -12,11 +12,11 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.date: 11/12/2018
 ms.openlocfilehash: c5801d7fe0949d883dbf42d54deef6018655e1fc
-ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50919103"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646219"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>基于组状态，在 Azure 逻辑应用中的范围内运行操作
 

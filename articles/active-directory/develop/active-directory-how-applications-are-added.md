@@ -19,11 +19,11 @@ ms.author: v-junlch
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
 ms.openlocfilehash: e69cd9ee64903a9a847a99020f6ce130ac8d38f2
-ms.sourcegitcommit: 562cde32fc2271238f3d1ef5d2cc5ed037bdec2d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43531571"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647264"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>如何以及为何将应用程序添加到 Azure AD
 

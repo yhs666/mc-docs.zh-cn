@@ -13,11 +13,11 @@ origin.date: 04/24/2018
 ms.date: 05/28/2018
 ms.author: v-nany
 ms.openlocfilehash: 160d727a55781acdb0bbbef09402f19c9d280ae5
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475127"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645964"
 ---
 # <a name="media-intelligence"></a>媒体智能
 

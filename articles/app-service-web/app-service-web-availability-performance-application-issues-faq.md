@@ -17,11 +17,11 @@ origin.date: 07/10/2017
 ms.date: 10/09/2017
 ms.author: v-yiso
 ms.openlocfilehash: 5b927f6c5e2661cd4775f0a9b93b89b7c719146e
-ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
-ms.locfileid: "25949508"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643926"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure 中 Web 应用的应用程序性能常见问题解答
 
@@ -35,11 +35,11 @@ ms.locfileid: "25949508"
 
 ## <a name="how-do-i-troubleshoot-a-high-cpu-consumption-scenario"></a>如何解决 CPU 占用高的问题？
 
-在某些 CPU 占用高的情况下，应用可能真的需要更多计算资源。 在这种情况下，请考虑缩放到更高的服务层，以便应用程序获取所需的所有资源。 其他情况下，高 CPU 占用可能是由错误循环或编码实践导致的。 深入了解 CPU 占用升高的触发因素这一过程分为两部分。 首先，创建进程转储，然后分析此进程转储。 有关详细信息，请参阅[捕获和分析 Web 应用高 CPU 占用的转储文件](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/)。
+在某些 CPU 占用高的情况下，应用可能真的需要更多计算资源。 在这种情况下，请考虑缩放到更高的服务层，以便应用程序获取所需的所有资源。 其他情况下，高 CPU 占用可能是由错误循环或编码实践导致的。 深入了解 CPU 占用升高的触发因素这一过程分为两部分。 首先，创建一个进程转储，然后分析该进程转储。 有关详细信息，请参阅[捕获和分析 Web 应用高 CPU 占用的转储文件](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/)。
 
 ## <a name="how-do-i-troubleshoot-a-high-memory-consumption-scenario"></a>如何解决内存占用高的问题？
 
-在某些内存占用高的情况下，应用可能真的需要更多计算资源。 在这种情况下，请考虑缩放到更高的服务层，以便应用程序获取所需的所有资源。 在其他情况下，代码中存在的 bug 可能会导致内存泄漏。 此外，编码实践也可能会增大内存占用。 深入了解内存占用高的触发因素这一过程分为两部分。 首先，创建进程转储，然后分析此进程转储。 Azure 站点扩展库中的故障诊断程序可高效执行这两个步骤。 有关详细信息，请参阅[捕获和分析 Web 应用间歇性高内存的转储文件](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/)。
+在某些内存占用高的情况下，应用可能真的需要更多计算资源。 在这种情况下，请考虑缩放到更高的服务层，以便应用程序获取所需的所有资源。 在其他情况下，代码中存在的 bug 可能会导致内存泄漏。 此外，编码实践也可能会增大内存占用。 深入了解内存占用高的触发因素这一过程分为两部分。 首先，创建进程转储，然后分析此进程转储。 Azure 站点扩展库中的故障诊断程序可高效执行这两个步骤。 有关详细信息，请参阅[捕获和分析 Web 应用间歇性高内存的转储文件](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/)。
 
 ## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>如何使用 PowerShell 实现应用服务 Web 应用的自动化？
 
@@ -49,7 +49,7 @@ ms.locfileid: "25949508"
 
 若要查看 Web 应用的事件日志，请执行以下操作：
 
-1. 登录到 Kudu 网站：https://*yourwebsitename*.scm.chinacloudsites.cn。
+1. 登录到 Kudu 网站： https://*yourwebsitename*.scm.chinacloudsites.cn。
 2. 在菜单中，选择“调试控制台” > “CMD”。
 3. 选择“LogFiles”文件夹。
 4. 若要查看事件日志，请选择“eventlog.xml”旁边的铅笔图标。
@@ -59,7 +59,7 @@ ms.locfileid: "25949508"
 
 若要捕获 Web 应用的用户模式内存转储，请执行以下操作：
 
-1. 登录到 Kudu 网站：https://*yourwebsitename*.scm.chinacloudsites.cn。
+1. 登录到 Kudu 网站： https://*yourwebsitename*.scm.chinacloudsites.cn。
 2. 选择“进程资源管理器”菜单。
 3. 右键单击“w3wp.exe”进程或 WebJob 进程。
 4. 选择“下载内存转储” > “完全转储”。
@@ -72,7 +72,7 @@ ms.locfileid: "25949508"
     1. 打开 Web 应用的“进程资源管理器”。
     2. 若要查看详细信息，请选择“w3wp.exe”进程。
 *   在 Kudu 控制台中：
-    1. 登录到 Kudu 网站：https://*yourwebsitename*.scm.chinacloudsites.cn。
+    1. 登录到 Kudu 网站： https://*yourwebsitename*.scm.chinacloudsites.cn。
     2. 选择“进程资源管理器”菜单。
     3. 对于“w3wp.exe”进程，选择“属性”。
 
@@ -101,7 +101,7 @@ ms.locfileid: "25949508"
 1. 在 Azure 门户中，转到自己的 Web 应用。
 3. 选择“所有设置” > “诊断日志”。
 4. 对于“失败的请求跟踪”，选择“打开”。
-5. 选择“保存”。
+5. 选择“其他安全性验证” 。
 6. 在 Web 应用边栏选项卡，选择“工具”。
 7. 选择“Visual Studio Online”。
 8. 如果设置不是“打开”，则选择“打开”。

@@ -17,11 +17,11 @@ origin.date: 04/11/2018
 ms.author: v-yiso
 ms.date: 05/07/2018
 ms.openlocfilehash: 50bbb79fdffd4d86766f941f4da7a0ee3f57c953
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121307"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647233"
 ---
 # <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>使用 iothub-explorer 进行 Azure IoT 中心设备管理
 

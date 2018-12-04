@@ -16,11 +16,11 @@ origin.date: 06/07/2017
 ms.date: 10/15/2018
 ms.author: v-yeche
 ms.openlocfilehash: e059967b290667ab81c67991bd7cfb82c7533f44
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089065"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645572"
 ---
 # <a name="testability-scenarios"></a>可测试性方案
 大型分布式系统，例如云基础结构，在本质上都是不可靠的。 Azure Service Fabric 使开发人员能够编写出可以在不可靠基础结构上运行的服务。 若要编写高质量的服务，开发人员需要能够引入这种不可靠的基础结构来测试其服务的稳定性。

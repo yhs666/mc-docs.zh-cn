@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 04/07/2017
 ms.author: v-junlch
 ms.openlocfilehash: ab107b0b4bc11dee492fe0c59dfd1b11c38c7d28
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
-ms.locfileid: "20188379"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643955"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>了解 Microsoft Azure 帐单
 若要了解 Azure 帐单，请查看包含费用摘要的发票和单独的每日详细使用情况文件。 本文对发票和每日使用情况文件中显示的大部分条款进行说明。 如果使用的是免费试用订阅，则可以获得每日使用情况信息，但没有发票。
@@ -54,7 +54,7 @@ Microsoft Azure 订阅的费用因资费套餐而异。 某些资费套餐（如
 | --- | --- |
 | 使用费 |使用费是订阅的总月度费用。 我们会根据你过去一个月的使用量向你收取费用。 |
 | 折扣 |应用到当前帐单的服务折扣。 |
-| 调整 |应用于当前帐单的其他信用额度或未清费用。 例如，如果你享有 Visual Studio Enterprise with MSDN 优惠，就会看到每月信用额度。 如果取消订阅，你会看到超出通过订阅产品/服务获得的每月信用额度的所有每月使用费用。 费用从当前计费周期的开始计算，直到订阅取消日期。 |
+| 调整 |应用于当前帐单的其他信用额度或未清费用。 例如，如果你享有 Visual Studio Enterprise with MSDN 优惠，就会看到每月信用额度。 如果取消订阅，你会看到超出通过订阅套餐获得的每月信用额度的所有每月使用费用。 费用从当前计费周期的开始计算，直到订阅取消日期。 |
 
 ## <a name="csv"></a>了解详细的使用费 (.csv)
 使用情况文件显示在当前计费周期内每个资源使用了多少。 它以逗号分隔值 (.csv) 文件格式提供，你可以在电子表格应用程序中打开它。 如果看到两个版本可用，请下载版本 2。 这是最新的文件格式。
@@ -102,17 +102,17 @@ Microsoft Azure 订阅的费用因资费套餐而异。 某些资费套餐（如
 |资源位置 |指明资源正在其中运行的数据中心。 |
 |已耗用的服务 |你使用的 Azure 平台服务。 |
 |资源组 |部署的资源正在其中运行的资源组。 有关详细信息，请参阅 [Azure Resource Manager 概述](azure-resource-manager/resource-group-overview.md)。 |
-|实例 ID |资源的标识符。 此标识符包含您在资源创建时为其指定的名称。 它是资源的名称或完全限定的资源 ID。 有关详细信息，请参阅 [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources)。 |
+|实例 ID |资源的标识符。 此标识符包含在资源创建时为其指定的名称。 它是资源的名称或完全限定的资源 ID。 有关详细信息，请参阅 [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources)。 |
 |标记 |分配给资源的标记。 使用标记对计费记录进行分组。 例如，可以使用标记按使用资源的部门分配费用。 支持发出标记的服务包括虚拟机、存储和使用 [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources) 预配的网络服务。 有关详细信息，请参阅[使用标记来组织 Azure 资源](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/)。 |
 |其他信息 |服务特定的元数据。 例如，虚拟机的映像类型。 |
 |服务信息 1 |订阅上服务所属的项目名称。 |
 |服务信息 2 |旧字段，用于捕获可选的服务特定元数据。 |
 
 ## <a name="how-do-i-make-a-payment"></a>如何付款？
-如果已将信用卡或借记卡设置为付款方式，则将自动进行付款。 在信用卡对帐单上，行项会显示 **MSFT Azure**。
+如果已将信用卡或借记卡设置为付款方式，则会自动进行付款。 在信用卡对帐单上，行项会显示 **MSFT Azure**。
 
-## <a name="what-about-marketplace-orders-or-external-service-charges"></a>应用商店订单或外部服务收取多少费用？
-外部服务过去被称为应用商店订单。 外部服务由独立服务供应商提供，但已集成到 Azure 中。 
+## <a name="what-about-marketplace-orders-or-external-service-charges"></a>市场订单或外部服务收取多少费用？
+外部服务过去称为市场订单。 外部服务由独立服务供应商提供，但已集成到 Azure 中。 
 
 ## <a name="need-help-contact-support"></a>需要帮助？ 请联系支持人员。 
 如果仍需要帮助，可 [联系支持人员](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 来快速解决问题。

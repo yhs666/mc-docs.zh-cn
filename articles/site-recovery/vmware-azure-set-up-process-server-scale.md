@@ -5,16 +5,16 @@ services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-ms.topic: article
-origin.date: 07/06/2018
-ms.date: 09/17/2018
+ms.topic: conceptual
+origin.date: 10/10/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 37af6f3d91eff5adf7f9aedb6d72940b77720bb9
-ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
+ms.openlocfilehash: 6245d00772cca91b2a1b868e07a189f220d7623b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586827"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646601"
 ---
 # <a name="set-up-additional-process-servers-for-scalability"></a>设置额外的进程服务器以实现可伸缩性
 
@@ -53,7 +53,7 @@ ms.locfileid: "45586827"
 3. 选择配置服务器以向下钻取到配置服务器详细信息。 然后单击“+ 进程服务器”。
 4. 在“添加进程服务器” >  “选择要部署进程服务器的位置”中，选择“在本地部署横向扩展进程服务器”。
 
-    ![添加服务器页](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
+    ![“添加服务器”页](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
 5. 单击“下载 Azure Site Recovery 统一安装程序”。 这会下载最新版本的安装文件。
 
     > [!WARNING]
@@ -99,4 +99,5 @@ UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "PS" /InstallLocation "D:\" /
 
 ## <a name="next-steps"></a>后续步骤
 了解如何[管理进程服务器设置](vmware-azure-manage-process-server.md)
-<!-- Update_Description: update meta properties, wording update -->
+
+<!-- Update_Description: update meta properties -->

@@ -18,11 +18,11 @@ origin.date: 09/14/2018
 ms.author: v-yiso
 ms.date: 10/22/2018
 ms.openlocfilehash: bed71a39e4fe1be6cd2cd78c06058034dc68d21b
-ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121540"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643953"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>使用外部元数据存储 - Azure HDInsight
 

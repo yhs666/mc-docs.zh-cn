@@ -16,11 +16,11 @@ ms.date: 07/02/2018
 ms.author: v-junlch
 ms.custom: mvc
 ms.openlocfilehash: ac790ba8f09060fdbabe46021d4e2251bcaa7fcb
-ms.sourcegitcommit: f0bfa3f8dca94099a2181492952e6a575fbdbcc8
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37142660"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647661"
 ---
 # <a name="azure-application-gateway-azure-cli-samples"></a>Azure 应用程序网关 Azure CLI 示例
 

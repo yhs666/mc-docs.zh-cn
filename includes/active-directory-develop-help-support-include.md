@@ -7,11 +7,11 @@ origin.date: 08/06/2018
 ms.date: 09/06/2018
 ms.author: v-junlch
 ms.openlocfilehash: 097ed469b45b9584c94cea63783f619067e75d32
-ms.sourcegitcommit: fd49281c58f34de20cc310d6cefb4568992cd675
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43858499"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646261"
 ---
 ## <a name="help-and-support"></a>帮助和支持
 

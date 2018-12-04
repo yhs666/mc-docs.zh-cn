@@ -12,11 +12,11 @@ ms.date: 10/24/2018
 ms.author: v-junlch
 ROBOTS: NOINDEX
 ms.openlocfilehash: 563a8541090aa88ddeb36a5d5cec0873431e3135
-ms.sourcegitcommit: 44ce337717bb948f5ac08217a156935f663c0f46
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034625"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646835"
 ---
 # <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>快速入门：构建应用以识别图像中人脸的情感。
 

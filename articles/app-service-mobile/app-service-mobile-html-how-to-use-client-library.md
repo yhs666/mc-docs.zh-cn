@@ -16,11 +16,11 @@ origin.date: 10/30/2016
 ms.date: 01/29/2018
 ms.author: v-yiso
 ms.openlocfilehash: 102b8f067c4e21bc3f246b36a8da515a36cf1d5c
-ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2018
-ms.locfileid: "27984770"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645525"
 ---
 # <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>如何使用适用于 Azure 移动应用的 JavaScript 客户端库
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -91,7 +91,7 @@ Azure 应用服务支持使用各种外部标识提供者对应用用户进行�
      ],
     ```
 
-    将数组中的 URL 替换为服务的 URL，在本示例中为本地 Node.js 示例服务的 `http://localhost:3000`。 对于 Ripple 服务，也可以根据应用的配置方式，使用 `http://localhost:4400` 或其他某个 URL。
+    将数组中的 URL 替换为服务的 URL，在本示例中为本地 Node.js 示例服务的 `http://localhost:3000` 。 对于 Ripple 服务，也可以根据应用的配置方式，使用 `http://localhost:4400` 或其他某个 URL。
 
 8. 在页面顶部，单击“读/写”，然后单击“PUT”保存更新。
 

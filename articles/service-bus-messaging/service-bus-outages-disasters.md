@@ -10,11 +10,11 @@ origin.date: 09/14/2018
 ms.date: 10/31/2018
 ms.author: v-lingwu
 ms.openlocfilehash: 56cd474c8ad4a9741d6aafa1a9ab2831415871bf
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409364"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646318"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>使应用程序免受服务总线中断和灾难影响的最佳实践
 

@@ -17,11 +17,11 @@ ms.date: 03/19/2018
 ms.author: v-yeche
 experimental_id: d51f3cc6-753b-4e
 ms.openlocfilehash: 7469c671f7d513442d71bf051e46f0ef8d5865c8
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939368"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645354"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>连接到 Azure 上的 SQL Server 虚拟机（经典部署）
 > [!div class="op_single_selector"]
@@ -67,7 +67,7 @@ ms.locfileid: "38939368"
 尽管客户端可通过 Internet 进行连接，但这并不意味着任何人都可以连接到 SQL Server。 外部客户端必须有正确的用户名和密码。 为了提高安全性，请不要对公共虚拟机终结点使用常用的 1433 端口。 如果可能，请考虑在终结点上添加 ACL 以将流量限制到允许的客户端。 有关在终结点上使用 ACL 的说明，请参阅[管理终结点上的 ACL](../classic/setup-endpoints.md#manage-the-acl-on-an-endpoint)。
 
 > [!NOTE]
-> 务必注意，使用此方法与 SQL Server 通信时，Azure 数据中心的所有传出数据都将服从一般[出站数据传输定价](https://www.azure.cn/pricing/details/data-transfer/)。
+> 务必注意，使用此方法与 SQL Server 通信时，Azure 数据中心的所有传出数据都服从一般[出站数据传输定价](https://www.azure.cn/pricing/details/data-transfer/)。
 > 
 > 
 
@@ -108,5 +108,5 @@ ms.locfileid: "38939368"
 
 请务必查看 Azure 虚拟机上运行的 SQL Server 的所有安全最佳实践。 有关详细信息，请参阅 [Azure 虚拟机中 SQL Server 的安全注意事项](../sql/virtual-machines-windows-sql-security.md)。
 
-有关其他与在 Azure VM 中运行 SQL Server 相关的主题，请参阅 [SQL Server on Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md)（Azure 虚拟机上的 SQL Server）。
+有关其他与在 Azure VM 中运行 SQL Server 相关的主题，请参阅 [Azure 虚拟机上的 SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)。
 <!-- Update_Description: update meta properties, wording update, update link -->

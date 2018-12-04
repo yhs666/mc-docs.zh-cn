@@ -16,11 +16,11 @@ origin.date: 09/19/2017
 ms.date: 07/02/2018
 ms.author: v-johch
 ms.openlocfilehash: 82697274e6f2ae0f0d89d00e764a1efdb52e9856
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103054"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644124"
 ---
 # <a name="develop-for-azure-files-with-python"></a>使用 Python 针对 Azure 文件进行开发
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]

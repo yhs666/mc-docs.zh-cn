@@ -17,11 +17,11 @@ origin.date: 08/22/2017
 ms.date: 12/11/2017
 ms.author: v-yiso
 ms.openlocfilehash: 48c9a8fc0943d3a672f36f21e43a50b33d70c360
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
-ms.locfileid: "26044856"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643619"
 ---
 # <a name="set-up-a-hybrid-high-performance-computing-hpc-cluster-with-microsoft-hpc-pack-and-on-demand-azure-compute-nodes"></a>使用 Microsoft HPC Pack 和按需 Azure 计算节点设置混合高性能计算 (HPC) 群集
 使用 Microsoft HPC Pack 2012 R2 和 Azure 设置小型混合高性能计算 (HPC) 群集。 本文中所示的群集包含一个本地 HPC Pack 头节点和一些在 Azure 云服务中按需部署的计算节点。 可以在混合群集上运行计算作业。
@@ -153,7 +153,7 @@ HPC Pack 将在头节点上安装名为“默认 Microsoft HPC Azure 管理证�
 
     ![节点模板][config_hpc13]
 
-    e.在“新建 MySQL 数据库”边栏选项卡中，接受法律条款，并单击“确定”。 单击“下一步”以接受其余向导页上的默认值  。 然后，在“审查”选项卡上，单击“创建”，创建节点模板。
+    e. 单击“**下一步**”，接受向导其余页上的默认值。 然后，在“审查”选项卡上，单击“创建”，创建节点模板。
 
     >[!NOTE]
     >默认情况下，Azure 节点模板包括用于通过 HPC 群集管理器手动启动（设置）和停止节点的设置。 可以选择配置计划以便自动启动和停止 Azure 节点。
@@ -190,7 +190,7 @@ HPC Pack 将在头节点上安装名为“默认 Microsoft HPC Azure 管理证�
    
    ![启动节点][add_node4]
    
-    该节点将转换到“**正在预配**”状态。 查看设置日志可跟踪设置进度。
+    节点会转换到“正在设置”状态 。 查看预配日志可跟踪预配进度。
 
     ![设置节点][add_node6]
 
@@ -257,7 +257,7 @@ HPC Pack 将在头节点上安装名为“默认 Microsoft HPC Azure 管理证�
 ## <a name="next-steps"></a>后续步骤
 * 浏览 [HPC Pack](https://technet.microsoft.com/library/cc514029)的文档。
 * 若要以更大的规模设置混合 HPC Pack 群集部署，请参阅 [Burst to Azure Worker Role Instances with Microsoft HPC Pack](http://go.microsoft.com/fwlink/p/?LinkID=200493)（使用 Microsoft HPC Pack 迸发到 Azure 辅助角色实例）。
-* 有关在 Azure 中创建 HPC Pack 群集的其他方法，包括使用 Azure Resource Manager 模板，请参阅[在 Azure 中使用 Microsoft HPC Pack 时的 HPC 群集选项](../virtual-machines/windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+* 有关在 Azure 中创建 HPC Pack 群集的其他方法，包括使用 Azure Resource Manager 模板，请参阅 [在 Azure 中使用 Microsoft HPC Pack 时的 HPC 群集选项](../virtual-machines/windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 
 [Overview]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/hybrid_cluster_overview.png

@@ -16,11 +16,11 @@ origin.date: 02/22/2017
 ms.date: 11/20/2017
 ms.author: v-yeche
 ms.openlocfilehash: fed39cb5405ca018706c126b2e51f07c9888d3ab
-ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2017
-ms.locfileid: "24519544"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648877"
 ---
 # <a name="view-network-watcher-topology-with-powershell"></a>使用 PowerShell 查看网络观察程序拓扑
 
@@ -48,7 +48,7 @@ ms.locfileid: "24519544"
     * **resourceId** - resourceId 是关联中引用的资源的 URI。
     * **associationType** - 此值引用子对象和父级之间的关系。 有效值为 **Contains** 或 **Associated**。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 在此方案中，使用 `Get-AzureRmNetworkWatcherTopology` cmdlet 检索拓扑信息。 还有一篇关于如何[使用 REST API 检索网络拓扑](network-watcher-topology-rest.md)的文章。
 

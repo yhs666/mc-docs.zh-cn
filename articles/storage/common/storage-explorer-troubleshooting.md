@@ -10,11 +10,11 @@ ms.date: 09/10/2017
 ms.author: v-jay
 ms.component: common
 ms.openlocfilehash: 94a65d89ce2e446949ec0e1c8a22fa8c8d68dcb3
-ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43650767"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645289"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 存储资源管理器故障排除指南
 

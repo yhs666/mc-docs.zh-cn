@@ -18,11 +18,11 @@ ms.author: v-junlch
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.openlocfilehash: e4803fdeadf59590e495c2941e2ef45cd6736b3a
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164977"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648720"
 ---
 # <a name="hide-an-application-from-users-experience-in-azure-active-directory"></a>使应用程序不出现在用户在 Azure Active Directory 中的体验中
 
@@ -53,8 +53,8 @@ ms.locfileid: "43164977"
 
 ## <a name="next-steps"></a>后续步骤
 - [查看所有组](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [向企业应用分配用户或组](assign-user-or-group-access-portal.md)
-- [删除企业应用的用户或组分配](remove-user-or-group-access-portal.md)
+- [Assign a user or group to an enterprise app](assign-user-or-group-access-portal.md)
+- [Remove a user or group assignment from an enterprise app](remove-user-or-group-access-portal.md)
 - [更改企业应用的名称或徽标](change-name-or-logo-portal.md)
 
 

@@ -16,11 +16,11 @@ origin.date: 10/24/2016
 ms.date: 07/10/2017
 ms.author: v-dazen
 ms.openlocfilehash: 32d1ac1201603e63a373bf11aa8a69abad7b411e
-ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
-ms.locfileid: "22146620"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647752"
 ---
 # <a name="enterprise-class-wordpress-on-azure"></a>Azure 上的企业级 WordPress
 Azure 应用服务为大规模任务关键型 [WordPress][wordpress] 站点提供了一个可缩放、安全且易用的环境。 Microsoft 自身在运营 [Office][officeblog] 和[必应][bingblog]博客等企业级站点。 本文说明如何使用 Azure 应用服务的 Web 应用功能，建立和维护一个可处理大量访客、基于云的企业级 WordPress 站点。
@@ -59,19 +59,19 @@ Azure 应用服务为大规模任务关键型 [WordPress][wordpress] 站点提�
 ### <a name="multi-region-deployment-with-media-storage-and-caching"></a>使用媒体存储和缓存的多区域部署
 如果该站点接受上传或主机媒体文件，请使用 Azure Blob 存储。 如果需要进行缓存，可考虑 [Redis 缓存][rediscache]。
 
-![使用 MySQL 群集 CGE，带有托管缓存、Blob 存储和内容传送网络，在多个区域中托管的 Azure Web 应用][performance-diagram]
+![使用 MySQL 群集 CGE，带有托管缓存、Blob 存储和内容分发网络，在多个区域中托管的 Azure Web 应用][performance-diagram]
 
-在默认情况下 Blob 存储分散在各个地区，因此无需担心跨所有站点复制文件的问题。 也可为 Blob 存储启用 Azure [内容传送网络][cdn]，这样可将文件分发至距离访客更近的终端节点。
+在默认情况下 Blob 存储分散在各个地区，因此无需担心跨所有站点复制文件的问题。 也可为 Blob 存储启用 Azure [内容分发网络][cdn] ，这样可将文件分发至距离访客更近的终端节点。
 
 ### <a name="planning"></a>规划
 #### <a name="additional-requirements"></a>其他要求
-| 为此，请执行以下操作... | 使用此方法... |
+| 为此，请执行以下操作... | 请使用以下方法... |
 | --- | --- |
 | **上传或存储大型文件** |[适用于使用 Blob 存储的 WordPress 插件][storageplugin] |
 | **发送电子邮件** | [适用于使用 SendGrid 的 WordPress 插件][sendgridplugin] |
 | **自定义域名** |[在 Azure 应用服务中配置自定义域名][customdomain] |
 | **HTTPS** |[在 Azure 应用服务中启用 Web 应用的 HTTPS][httpscustomdomain] |
-| **预生产验证** |[为 Azure 应用服务中的 Web 应用设置过渡环境][staging] <p>将 Web 应用从过渡移到生产时，还将移动 WordPress 配置。 将过渡应用移动到生产之前，请确保所有设置均针对生产应用的要求进行了更新。</p> |
+| **预生产验证** |[为 Azure 应用服务中的 Web 应用设置过渡环境][staging] <p>将 Web 应用从过渡移到生产时，还会移动 WordPress 配置。 将过渡应用移动到生产之前，请确保所有设置均针对生产应用的要求进行了更新。</p> |
 | **监视和故障排除** |[在 Azure 应用服务中启用 Web 应用的诊断日志][log]和[在 Azure 应用服务中监视 Web 应用][monitor] |
 | **部署站点** |[在 Azure 应用服务中部署 Web 应用][deploy] |
 
@@ -84,7 +84,7 @@ Azure 应用服务为大规模任务关键型 [WordPress][wordpress] 站点提�
 #### <a name="performance"></a>性能
 云中的性能主要通过缓存和横向扩展实现。但是，还应考虑托管 Web 应用的内存、带宽和其他属性。
 
-| 为此，请执行以下操作... | 使用此方法... |
+| 为此，请执行以下操作... | 请使用以下方法... |
 | --- | --- |
 | **了解应用服务实例功能** |[定价详细信息，其中包括应用服务层的功能][websitepricing] |
 | **缓存资源** |[Redis 缓存][rediscache] |
@@ -93,13 +93,13 @@ Azure 应用服务为大规模任务关键型 [WordPress][wordpress] 站点提�
 #### <a name="migration"></a>迁移
 要将现有 WordPress 站点迁移到 Azure 应用服务，可使用两种方法：
 
-* **[WordPress 导出][export]**：此方法可导出你的博客内容。 然后可使用 [WordPress 导入程序插件][import]，将该内容导入到 Azure 应用服务上的新 WordPress 站点。
+* **[WordPress 导出][export]**：此方法可导出你的博客内容。 然后可使用 [WordPress 导入程序插件][import]，将内容导入到 Azure 应用服务上的新 WordPress 站点。
 
   > [!NOTE]
   > 尽管此过程允许迁移内容，但不会迁移任何插件、主题或其他自定义内容。 必须再次手动安装这些组件。
   >
   >
-* **手动迁移**：[备份站点][wordpressbackup]和[数据库][wordpressdbbackup]，然后手动将其还原到 Azure 应用服务中的 Web 应用和关联的 MySQL 数据库。 此方法可用于迁移高度自定义的站点，因为它可避免一些麻烦，如手动安装插件、主题和其他自定义内容。
+* **手动迁移**：[备份站点][wordpressbackup]和[数据库][wordpressdbbackup]，并手动将其还原到 Azure 应用服务中的 Web 应用和关联的 MySQL 数据库。 此方法可用于迁移高度自定义的站点，因为它可避免一些麻烦，如手动安装插件、主题和其他自定义内容。
 
 ## <a name="step-by-step-instructions"></a>分步说明
 ### <a name="create-a-wordpress-site"></a>创建 WordPress 站点
@@ -118,8 +118,8 @@ Azure 应用服务为大规模任务关键型 [WordPress][wordpress] 站点提�
 使用下述部分之一迁移网站。
 
 #### <a name="the-export-and-import-method"></a>导出和导入方法
-1. 使用 [WordPress 导出][export]导出现有网站。
-2. 使用 [创建 WordPress 站点](#create-a-wordpress-site) 部分的步骤，创建 Web 应用。
+1. 使用 [WordPress 导出][export]导出现有站点。
+2. 使用[创建 WordPress 站点](#create-a-wordpress-site)部分的步骤，创建 Web 应用。
 3. 在 [Azure 门户][mgmtportal]上登录 WordPress 站点，然后单击“插件” > “新增”。 搜索并安装 **WordPress 导入程序**插件。
 4. 安装 WordPress 导入程序插件后，单击“工具” > “导入”，并单击“WordPress”使用 WordPress 导入程序插件。
 5. 在“导入 WordPress”页面上，单击“选择文件”。 查找从现有 WordPress 站点导出的 WXR 文件，并单击“上传文件和导入” 。
@@ -159,7 +159,7 @@ Azure 应用服务为大规模任务关键型 [WordPress][wordpress] 站点提�
 ### <a name="configure-your-site"></a>配置网站
 创建 WordPress 网站或将其迁移之后，可以使用以下信息来改进性能或启用其他功能。
 
-| 为此，请执行以下操作... | 使用此方法... |
+| 为此，请执行以下操作... | 请使用以下方法... |
 | --- | --- |
 | **设置应用服务计划模式、大小和启用缩放** |[在 Azure 应用服务中缩放 Web 应用][websitescale]。 |
 | **启用持久的数据库连接** |默认情况下，WordPress 不使用持久的数据库连接，这可能导致数据库的连接在多次连接后受到限制。 若要启用持久连接，请安装 [持久连接适配器插件](https://wordpress.org/plugins/persistent-database-connection-updater/installation/)。 |

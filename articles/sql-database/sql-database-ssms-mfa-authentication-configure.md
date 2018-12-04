@@ -11,11 +11,11 @@ origin.date: 06/13/2018
 ms.date: 07/02/2018
 ms.author: v-johch
 ms.openlocfilehash: 21ac18fd724c052daad0dfc24c10484fb601d480
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913922"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648006"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>为 SQL Server Management Studio 和 Azure AD 配置多重身份验证
 

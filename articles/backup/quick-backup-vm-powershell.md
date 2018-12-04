@@ -13,11 +13,11 @@ ms.date: 07/06/2018
 ms.author: v-junlch
 ms.custom: mvc
 ms.openlocfilehash: a82c0984e097ac04ab015d0926cf34e56fb5e4d6
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873646"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646119"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>使用 PowerShell 在 Azure 中备份虚拟机
 Azure PowerShell 模块用于从命令行或脚本创建和管理 Azure 资源。 可以通过定期创建备份来保护数据。 Azure 备份可创建恢复点，这些恢复点可存储在异地冗余的恢复保管库中。 本文详细介绍如何使用 Azure PowerShell 模块备份虚拟机 (VM)。 也可以使用 [Azure CLI](quick-backup-vm-cli.md) 或 [Azure 门户](quick-backup-vm-portal.md)执行这些步骤。
@@ -81,7 +81,7 @@ Enable-AzureRmRecoveryServicesBackupProtection `
 
 
 ## <a name="start-a-backup-job"></a>启动备份作业
-若要立即开始备份而不是等待默认策略根据计划的时间运行作业，请使用 [Backup-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/backup-azurermrecoveryservicesbackupitem)。 这第一个备份作业会创建完整恢复点。 此初始备份后的每个备份作业会创建增量恢复点。 增量恢复点有利于存储并具有时效性，因为它们仅传输自上次备份以来所做的更改。
+若要立即开始备份而不是等待默认策略根据计划的时间运行作业，请使用 [Backup-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/backup-azurermrecoveryservicesbackupitem)。 第一个备份作业会创建一个完整恢复点。 此初始备份后的每个备份作业会创建增量恢复点。 增量恢复点有利于存储并具有时效性，因为它们仅传输自上次备份以来所做的更改。
 
 在下面一组命令中，使用 [Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer) 在恢复服务保管库中指定了一个用于保存备份数据的容器。 要备份的每个 VM 被视为一个项。 若要启动备份作业，请使用 [Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.Backup/Get-AzureRmRecoveryServicesBackupItem) 获取有关 VM 项的信息。
 

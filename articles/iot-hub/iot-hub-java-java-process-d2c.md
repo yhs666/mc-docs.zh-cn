@@ -16,11 +16,11 @@ origin.date: 06/29/2017
 ms.author: v-yiso
 ms.date: 06/11/2018
 ms.openlocfilehash: c651be794478e3968e91b5c6c78d409f8fc1e7ae
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695067"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645149"
 ---
 # <a name="routing-messages-with-iot-hub-java"></a>使用 IoT 中心路由消息 (Java)
 
@@ -53,7 +53,7 @@ Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一�
 ## <a name="send-interactive-messages-from-a-device-app"></a>从设备应用发送交互式消息
 在本部分中，会修改在 [IoT 中心入门]教程中创建的设备应用，不定期发送需要立即处理的消息。
 
-1. 使用文本编辑器打开 simulated-device\src\main\java\com\mycompany\app\App.java 文件。 本文件包含用于 [IoT 中心入门] 教程中创建的 **simulated-device** 应用的代码。
+1. 使用文本编辑器打开 simulated-device\src\main\java\com\mycompany\app\App.java 文件。 本文件包含用于 **IoT 中心入门** 教程中创建的 [IoT 中心入门] 应用的代码。
 2. 使用以下代码替换 **MessageSender** 类：
 
     ```java

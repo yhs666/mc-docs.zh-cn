@@ -13,11 +13,11 @@ ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: carlrab
 ms.openlocfilehash: 73358a6bdd12d49edf7c237341e06884cc87bfc8
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913810"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645143"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>使用 Azure SQL 数据库设计全球可用的服务
 
@@ -30,7 +30,7 @@ ms.locfileid: "48913810"
 *   必须并置 Web 层和数据层以减少延迟和流量成本 
 *   从根本上讲，相比数据丢失，停机时间对于那些应用程序来说是更高的业务风险
 
-在这种情况下，当所有应用程序组件需要一同故障转移时，将针对处理区域灾难对应用程序部署拓扑进行优化。 下图展示了此拓扑。 为了实现地理冗余，应用程序的资源会部署到区域 A 和 B。但是，只有当区域 A 故障后才会利用区域 B 中的资源。 两个区域之间会配置故障转移组，用于管理数据库连接、复制和故障转移。 两个区域中的 Web 服务配置为通过读写侦听器 **&lt;failover-group-name&gt;.database.chinacloudapi.cn** 访问数据库 (1)。 设置流量管理器以使用[优先级路由方法](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2)。  
+在这种情况下，当所有应用程序组件需要一同故障转移时，将针对处理区域灾难对应用程序部署拓扑进行优化。 下图展示了此拓扑。 为了实现地理冗余，应用程序的资源会部署到区域 A 和 B。但是，只有当区域 A 故障后才会利用区域 B 中的资源。 两个区域之间会配置故障转移组，用于管理数据库连接、复制和故障转移。 两个区域中的 Web 服务配置为通过读写侦听器 **&lt;failover-group-name&gt;.database.chinacloudapi.cn** 访问数据库 (1)。 设置流量管理器以使用[优先级路由方法](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2)。  
 
 > [!NOTE]
 > [Azure 流量管理器](../traffic-manager/traffic-manager-overview.md)在这篇文章中仅供说明之用。 可以使用任何支持优先级路由方法的负载均衡解决方案。    

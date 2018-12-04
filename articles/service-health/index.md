@@ -14,11 +14,11 @@ origin.date: 03/27/2018
 ms.date: 04/30/2018
 ms.author: v-yiso
 ms.openlocfilehash: 0d2c569922adeda47d882e48ca8508a27b431c8d
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782060"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645879"
 ---
 # <a name="azure-service-health-documentation"></a>Azure 服务运行状况文档
 

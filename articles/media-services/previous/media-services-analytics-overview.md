@@ -16,11 +16,11 @@ origin.date: 06/29/2017
 ms.date: 10/29/2017
 ms.author: v-jay
 ms.openlocfilehash: 5881a32e560c6b1973a34b56eac9ebbe286caefc
-ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50919101"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644951"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>媒体服务平台上的媒体分析
 ## <a name="overview"></a>概述

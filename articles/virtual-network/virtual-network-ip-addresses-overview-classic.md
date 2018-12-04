@@ -17,11 +17,11 @@ origin.date: 02/11/2016
 ms.date: 06/11/2018
 ms.author: v-yeche
 ms.openlocfilehash: ae269c9574e4e297e195fcd11cdd26cc265455e6
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34868663"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647244"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Azure 中的 IP 地址类型和分配方法（经典）
 可以将 IP 地址分配到与其他 Azure 资源通信的 Azure 资源，也可以将其分配到本地网络和 Internet。 可以在 Azure 中使用两种类型的 IP 地址：公共地址和专用地址。

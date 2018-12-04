@@ -13,11 +13,11 @@ origin.date: 03/19/2018
 ms.date: 06/25/2018
 ms.author: v-nany
 ms.openlocfilehash: 79abf0c1573e5cf366599723c711c0eccfd305ef
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748410"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645961"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Azure 媒体服务 v3 中的配额和限制
 

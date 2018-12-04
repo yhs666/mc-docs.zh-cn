@@ -17,11 +17,11 @@ origin.date: 08/23/2018
 ms.author: v-yiso
 ms.date: 11/12/2018
 ms.openlocfilehash: a9d5eb4fdf861a4d3a45dd965f0c3b492199079b
-ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50919105"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646562"
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 云服务的连接和网络问题：常见问题解答 (FAQ)
 

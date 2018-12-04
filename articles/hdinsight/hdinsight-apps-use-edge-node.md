@@ -18,11 +18,11 @@ origin.date: 04/23/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
 ms.openlocfilehash: 51232c544276bd60407844d818f0186973f097db
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747440"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644162"
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>在 HDInsight 中的 Hadoop 群集上使用空边缘节点
 
@@ -166,8 +166,8 @@ ms.locfileid: "36747440"
 ## <a name="next-steps"></a>后续步骤
 本文介绍了如何添加边缘节点以及如何访问边缘节点。 要了解更多信息，请参阅下列文章：
 
-* [安装 HDInsight 应用程序](hdinsight-apps-install-applications.md)：了解如何将 HDInsight 应用程序安装到群集。
-* [安装自定义 HDInsight 应用程序](hdinsight-apps-install-custom-applications.md)：了解如何将未发布的 HDInsight 应用程序部署到 HDInsight。
+* [Install HDInsight applications](hdinsight-apps-install-applications.md)（安装 HDInsight 应用程序）：了解如何将 HDInsight 应用程序安装到群集。
+* [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md)（安装自定义 HDInsight 应用程序）：了解如何将未发布的 HDInsight 应用程序部署到 HDInsight。
 * [MSDN：安装 HDInsight 应用程序](https://msdn.microsoft.com/library/mt706515.aspx)：了解如何定义 HDInsight 应用程序。
 * [使用脚本操作自定义基于 Linux 的 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)：了解如何使用脚本操作安装其他应用程序。
 * [使用 Resource Manager 模板在 HDInsight 中创建基于 Linux 的 Hadoop 群集](hdinsight-hadoop-create-linux-clusters-arm-templates.md)：了解如何调用 Resource Manager 模板创建 HDInsight 群集。

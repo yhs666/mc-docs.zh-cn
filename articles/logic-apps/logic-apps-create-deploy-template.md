@@ -17,11 +17,11 @@ origin.date: 10/18/2016
 ms.date: 10/15/2018
 ms.author: v-yiso
 ms.openlocfilehash: 8186b9bf2a76ea292497d8a08d7de1e61dbe9efa
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455234"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644953"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>使用 Azure 资源管理器模板部署逻辑应用
 

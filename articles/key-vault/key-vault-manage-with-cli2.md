@@ -16,11 +16,11 @@ origin.date: 06/22/2018
 ms.date: 11/05/2018
 ms.author: v-biyu
 ms.openlocfilehash: d8d99ab16f2f6bd77ae23c3e73517d38df18afdb
-ms.sourcegitcommit: 8a68d9275ddb92ea45601fed96e21559999d9579
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026956"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645522"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>使用 Azure CLI 管理密钥保管库 
 

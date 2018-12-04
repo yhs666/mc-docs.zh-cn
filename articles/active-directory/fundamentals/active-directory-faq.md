@@ -10,14 +10,14 @@ ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 12/14/2017
-ms.date: 10/09/2018
+ms.date: 11/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: bf349b779fbc72c344bf415246eb6fb7e87c268b
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.openlocfilehash: 5a07c46f5fad69ef23094e90643329bf9d7e9486
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913821"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645570"
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory 常见问题
 Azure Active Directory (Azure AD) 是综合性的标识即服务 (IDaaS) 解决方案，涉及到标识、访问管理和安全的方方面面。
@@ -28,7 +28,7 @@ Azure Active Directory (Azure AD) 是综合性的标识即服务 (IDaaS) 解决�
 ## <a name="access-azure-and-azure-active-directory"></a>访问 Azure 和 Azure Active Directory
 **问：尝试在 Azure 门户中访问 Azure AD 时，为何出现“找不到订阅”错误？**
 
-**答：** 若要访问 Azure 门户，每个用户都需要 Azure 订阅的权限。 上获取。 否则需要激活 [Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/) 或付费型订阅。
+**答：** 若要访问 Azure 门户，每个用户都需要 Azure 订阅的权限。 否则需要激活 [Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/) 或付费型订阅。
 
 - - -
 **问：Azure AD、Office 365 与 Azure 之间是什么关系？**
@@ -69,7 +69,7 @@ Azure AD 付费型服务（例如企业移动性 + 安全性）可通过综合�
 
 **答：** 可以使用 Azure AD Connect 将本地目录连接到 Azure AD。
 
-有关详细信息，请参阅[将本地标识与 Azure Active Directory 集成](../connect/active-directory-aadconnect.md)。
+有关详细信息，请参阅[将本地标识与 Azure Active Directory 集成](../hybrid/whatis-hybrid-identity.md)。
 
 - - -
 **问：如何在本地目录与云应用程序之间设置 SSO？**
@@ -78,7 +78,7 @@ Azure AD 付费型服务（例如企业移动性 + 安全性）可通过综合�
 
 可以通过联合身份验证解决方案（例如 Active Directory 联合身份验证服务 (AD FS)）或通过配置密码哈希同步，轻松地从本地实现 SSO。可以使用 Azure AD Connect 配置向导轻松部署这两个选项。
 
-有关详细信息，请参阅[将本地标识与 Azure Active Directory 集成](../connect/active-directory-aadconnect.md)。
+有关详细信息，请参阅[将本地标识与 Azure Active Directory 集成](../hybrid/whatis-hybrid-identity.md)。
 
 - - -
 ## <a name="password-management"></a>密码管理
@@ -159,4 +159,4 @@ Azure AD 付费型服务（例如企业移动性 + 安全性）可通过综合�
 
 **答：** 不可以。 Azure AD 不支持 LDAP 协议。
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: link update -->

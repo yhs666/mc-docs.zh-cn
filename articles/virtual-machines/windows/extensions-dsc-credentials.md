@@ -18,11 +18,11 @@ origin.date: 01/17/2018
 ms.date: 05/21/2018
 ms.author: v-yeche
 ms.openlocfilehash: 52a850cfb738cae451a98de943ad389484417811
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34256036"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644995"
 ---
 # <a name="pass-credentials-to-the-azure-dscextension-handler"></a>将凭据传递给 Azure DSC 扩展处理程序
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]

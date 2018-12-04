@@ -16,11 +16,11 @@ origin.date: 05/10/2018
 ms.date: 09/17/2018
 ms.author: v-biyu
 ms.openlocfilehash: bc07ad737d2ba5d81b7d3f5315cf3e9d80370a30
-ms.sourcegitcommit: d649060b55bac3ad9f4fc2bd2962748a4b5bf715
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44066145"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646412"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>快速入门：使用 Azure CLI 在 Azure Key Vault 中设置和检索机密
 

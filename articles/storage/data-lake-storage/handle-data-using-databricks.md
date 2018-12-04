@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.openlocfilehash: afe74702778b4b9ef82b13c0b704b7eb2c48c0d6
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872396"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643745"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>教程：使用 Azure Databricks 提取、转换和加载数据
 

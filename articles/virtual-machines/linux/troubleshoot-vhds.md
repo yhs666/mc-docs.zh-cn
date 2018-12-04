@@ -13,11 +13,11 @@ origin.date: 02/28/2018
 ms.date: 05/14/2018
 ms.author: v-yeche
 ms.openlocfilehash: ede29ca0bac98806535b6f6a5d02382400817664
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34568799"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643777"
 ---
 # <a name="troubleshoot-attached-vhds-on-azure-linux-virtual-machines"></a>Azure Linux 虚拟机上的附加 VHD 故障排除
 

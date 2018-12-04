@@ -16,11 +16,11 @@ origin.date: 01/23/2017
 ms.date: 02/28/2018
 ms.author: v-junlch
 ms.openlocfilehash: f10a3acd316b69d1032cadfea957efc4c1224bb1
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29730851"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647486"
 ---
 # <a name="azure-redis-cache-samples"></a>Azure Redis 缓存示例
 本主题提供了 Azure Redis 缓存示例的列表，涵盖了诸如连接到缓存、从缓存中读取数据以及向其中写入数据、以及使用 ASP.NET Redis 缓存提供程序之类的方案。 有些示例是可下载的项目，有些示例提供了分步指南并包含代码片段但没有链接到可下载的项目。
@@ -48,7 +48,7 @@ ms.locfileid: "29730851"
 [在缓存中处理 .NET 对象 ](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache)演示了如何对 .NET 对象进行序列化以便可以将其写入到 Azure Redis 缓存实例以及从中进行读取。 
 
 ## <a name="use-redis-cache-as-a-scale-out-backplane-for-aspnet-signalr"></a>将 Redis 缓存用作 ASP.NET SignalR 的扩展基架
-[将 Redis 缓存用作 ASP.NET SignalR 的扩展基架](https://github.com/rustd/RedisSamples/tree/master/RedisAsSignalRBackplane)示例演示了如何将 Azure Redis 缓存用作 SignalR 基架。 有关基架的更多信息，请参阅 [采用 Redis 的 SignalR 扩展](http://www.asp.net/signalr/overview/performance/scaleout-with-redis)。
+[将 Redis 缓存用作 ASP.NET SignalR 的扩展基架](https://github.com/rustd/RedisSamples/tree/master/RedisAsSignalRBackplane) 示例演示了如何将 Azure Redis 缓存用作 SignalR 基架。 有关基架的更多信息，请参阅 [采用 Redis 的 SignalR 扩展](http://www.asp.net/signalr/overview/performance/scaleout-with-redis)。
 
 ## <a name="redis-cache-customer-query-sample"></a>Redis 缓存客户查询示例
 此示例对从缓存访问数据与从持久存储访问数据时的性能进行了比较。 此示例有两个项目。
@@ -69,7 +69,6 @@ ms.locfileid: "29730851"
 [Retwis](https://github.com/SyntaxC4-MSFT/retwis) 示例是 Redis Hello World。 它是最小的 Twitter 样式的社交网络克隆使用 Redis 和 PHP 编写使用 [Predis](https://github.com/nrk/predis) 客户端。 源代码旨在是非常简单，并且在同一时间以显示其他 Redis 数据结构。
 
 ## <a name="bandwidth-monitor"></a>带宽监视器
-
-            [带宽监视器](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) 示例允许监视客户端上使用的带宽。 要测量带宽、请在缓存客户端计算机上运行该示例，对缓存执行调用，并观察带宽监视器示例报告的带宽。
+[带宽监视器](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) 示例允许监视客户端上使用的带宽。 要测量带宽、请在缓存客户端计算机上运行该示例，对缓存执行调用，并观察带宽监视器示例报告的带宽。
 
 <!--Update_Description: update metedata properties -->

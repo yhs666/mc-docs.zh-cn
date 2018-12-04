@@ -9,11 +9,11 @@ ms.date: 07/23/2018
 ms.topic: conceptual
 ms.author: v-yeche
 ms.openlocfilehash: 4a7ea07a86d45069acb9e4cef65549f3de348f41
-ms.sourcegitcommit: f7ff09be9f3be5e3eb795e383c0c670f480f233d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39169062"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647724"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>为 VMware VM 启用到 Azure 的复制
 

@@ -12,11 +12,11 @@ origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-haiqya
 ms.openlocfilehash: 9871f12d2f55a4a0305109cb18ed97d937705c34
-ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43249875"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648810"
 ---
 # <a name="extended-events-in-sql-database"></a>SQL 数据库中的扩展事件
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -58,7 +58,7 @@ ms.locfileid: "43249875"
 
 - [SQL 数据库中扩展事件的环形缓冲区目标代码](sql-database-xevent-code-ring-buffer.md)
     - 简短的 Transact-SQL 脚本。
-    - 代码示例主题中强调，用完环形缓冲区目标时，应通过执行 alter-drop `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` 语句释放其资源。 然后可以通过 `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...` 添加环形缓冲区的另一个实例。
+    - 代码示例主题中强调，用完环形缓冲区目标时，应通过执行 alter-drop `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` 语句释放其资源。 然后可以通过 `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`添加环形缓冲区的另一个实例。
 
 
 - [SQL 数据库中扩展事件的事件文件目标代码](sql-database-xevent-code-event-file.md)

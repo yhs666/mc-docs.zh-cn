@@ -17,11 +17,11 @@ origin.date: 02/14/2018
 ms.date: 10/01/2018
 ms.author: v-jay
 ms.openlocfilehash: 80319cbbba750fa11876d2d4fcde786eb30a5643
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426374"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646072"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>使用 PowerShell 配置 VNet 到 VNet VPN 网关连接
 

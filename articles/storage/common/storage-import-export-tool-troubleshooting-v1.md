@@ -16,11 +16,11 @@ origin.date: 01/15/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
 ms.openlocfilehash: cd7f1f5161c782e26cc066f5ac87e085c56a3c47
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295563"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648765"
 ---
 # <a name="troubleshooting-the-azure-importexport-tool"></a>排查 Azure 导入/导出工具问题
 在遇到问题时，Azure 导入/导出工具会返回错误消息。 本主题列出用户可能会遇到的一些常见问题。  

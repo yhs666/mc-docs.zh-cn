@@ -9,11 +9,11 @@ ms.date: 08/10/2018
 ms.author: kgremban
 ms.custom: include file
 ms.openlocfilehash: cdb60ffb3ba3c31c336c8b74c46621792c707f74
-ms.sourcegitcommit: bae4e9e500e3e988ef8fa0371777ca9cc49b4e94
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45584896"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645744"
 ---
 ### <a name="delete-local-resources"></a>删除本地资源
 

@@ -16,11 +16,11 @@ origin.date: 08/25/2018
 ms.author: v-yiso
 ms.date: 10/15/2018
 ms.openlocfilehash: f0512bd7f6350a44615e4407c065928c79c12b80
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455111"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647096"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>使用 Azure 逻辑应用连接到本地文件系统
 

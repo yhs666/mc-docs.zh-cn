@@ -11,11 +11,11 @@ ms.topic: conceptual
 origin.date: 08/08/2018
 ms.date: 10/01/2018
 ms.openlocfilehash: 58b033594617342e471172304e905614f1935f55
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426423"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646093"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>将服务器配置到所需状态并管理偏移
 

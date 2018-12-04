@@ -16,11 +16,11 @@ origin.date: 10/15/2018
 ms.date: 11/12/2018
 ms.author: v-jay
 ms.openlocfilehash: d94ccaed3f1d7fedd9a7fe79427d5225bfbb1efb
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195556"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643956"
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack 管理基础知识
 如果不熟悉 Azure Stack 管理，则需要了解几项事情。 本指南概述了 Azure Stack 操作员角色，以及需要告知用户哪些东西才能让他们快速提高工作效率。

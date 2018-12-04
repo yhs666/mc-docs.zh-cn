@@ -17,11 +17,11 @@ origin.date: 04/17/2018
 ms.date: 06/18/2018
 ms.author: v-yeche
 ms.openlocfilehash: 80a6c54a64f14d4730277b5d7a740fd42ba73ced
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416903"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647742"
 ---
 # <a name="azure-powershell-samples-for-load-balancer"></a>适用于负载均衡器的 Azure PowerShell 示例
 

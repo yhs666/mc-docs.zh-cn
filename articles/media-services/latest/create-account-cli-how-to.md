@@ -14,11 +14,11 @@ origin.date: 03/27/2018
 ms.date: 06/25/2018
 ms.author: v-nany
 ms.openlocfilehash: 9b51a06763c6f08cc1c6a1f8b71e8a30da498655
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405386"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648275"
 ---
 # <a name="create-an-azure-media-services-account"></a>创建 Azure 媒体服务帐户
 

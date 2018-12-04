@@ -17,11 +17,11 @@ ms.date: 08/20/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 6fe0a9df82a4ec75d1915fa06a558db1cef81fa8
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41703927"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647758"
 ---
 # <a name="deploy-an-application-to-a-service-fabric-cluster"></a>将应用程序部署到 Service Fabric 群集
 

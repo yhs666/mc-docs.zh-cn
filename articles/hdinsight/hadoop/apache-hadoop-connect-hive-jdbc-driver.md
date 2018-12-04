@@ -18,11 +18,11 @@ origin.date: 04/02/2018
 ms.date: 05/21/2018
 ms.author: v-yiso
 ms.openlocfilehash: bc7497a9a73306ba4877420a74318c8b73a840bf
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873318"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648923"
 ---
 # <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>在 HDInsight 中通过 JDBC 驱动程序查询 Hive
 
@@ -117,7 +117,7 @@ SQuirreL SQL 是一个 JDBC 客户端，可用于通过 HDInsight 群集远程�
 
     * **URL**：jdbc:hive2://CLUSTERNAME.azurehdinsight.cn:443/default;transportMode=http;ssl=true;httpPath=/hive2
 
-        将 **CLUSTERNAME** 替换为 HDInsight 群集名。
+        将 **CLUSTERNAME** 替换为 HDInsight 群集的名称。
 
     * **用户名**：HDInsight 群集的群集登录帐户名。 默认为 `admin`。
 

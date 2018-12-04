@@ -16,11 +16,11 @@ origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
 ms.openlocfilehash: 1072586a72c35ccdcc2e7e2728d7d0eef0340821
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426295"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646721"
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>使用 Azure 媒体分析检测面部和情绪
 ## <a name="overview"></a>概述

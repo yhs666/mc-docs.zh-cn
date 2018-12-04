@@ -18,11 +18,11 @@ origin.date: 07/28/2016
 ms.date: 05/21/2018
 ms.author: v-yeche
 ms.openlocfilehash: 09ed3a11e5c05f7efbc9523ff93a5ae7475a2f8b
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173261"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645041"
 ---
 # <a name="frequently-asked-question-about-azure-windows-virtual-machines-created-with-the-classic-deployment-model"></a>有关使用经典部署模型创建的 Azure Windows 虚拟机的常见问题解答
 > [!IMPORTANT] 

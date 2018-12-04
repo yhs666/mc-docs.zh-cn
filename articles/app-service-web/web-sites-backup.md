@@ -16,11 +16,11 @@ origin.date: 07/06/2016
 ms.date: 10/09/2017
 ms.author: v-yiso
 ms.openlocfilehash: 25dcd56ba95125478c43ae33613a3b445a417ad3
-ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
-ms.locfileid: "22146585"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647032"
 ---
 # <a name="back-up-your-app-in-azure"></a>在 Azure 中备份应用
 利用 [Azure 应用服务](../app-service/app-service-value-prop-what-is.md)中的备份和还原功能，可以轻松地手动或按计划创建应用备份。 通过覆盖现有应用或还原为另一应用可将应用还原为先前状态的快照。 
@@ -106,7 +106,7 @@ ms.locfileid: "22146585"
 ## <a name="configure-partial-backups"></a>配置部分备份
 有时你不想备份应用中的所有内容。 以下是一些示例：
 
-* [设置每周备份](web-sites-backup.md#configure-automated-backups)应用，其中包含永远不会更改的静态内容，例如旧的博客文章或图像。
+* [设置每周备份](web-sites-backup.md#configure-automated-backups) 应用，其中包含永远不会更改的静态内容，例如旧的博客文章或图映像。
 * 应用的内容超过 10 GB（这是一次性可以备份的最大量）。
 * 你不希望备份日志文件。
 

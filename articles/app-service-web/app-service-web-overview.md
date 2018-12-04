@@ -17,11 +17,11 @@ ms.date: 10/09/2017
 ms.author: v-yiso
 ms.custom: mvc
 ms.openlocfilehash: 669018e8c67e3b9a21b330ccb31a35cd31f772dc
-ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
-ms.locfileid: "22146533"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644588"
 ---
 # <a name="web-apps-overview"></a>Web 应用概述
 *应用服务 Web 应用* 是一个完全托管的计算平台，非常适合用来托管网站和 Web 应用程序。 使用 Azure 提供的这一[平台即服务](https://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS) 产品，可以在 Azure 维护用于运行和缩放应用的基础结构时，重点关注业务逻辑。

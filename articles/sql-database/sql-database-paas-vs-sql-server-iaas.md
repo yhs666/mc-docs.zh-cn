@@ -15,11 +15,11 @@ manager: digimobile
 origin.date: 10/15/2018
 ms.date: 10/29/2018
 ms.openlocfilehash: c67b2ec39e5660e32fb56f4ef2e4cf9d4948ea86
-ms.sourcegitcommit: 3e4e199e1a9938465496408f66153a58d75d1154
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "50982927"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647935"
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>选择云 SQL Server 选项：Azure SQL (PaaS) 数据库或 Azure VM 上的 SQL Server (IaaS)
 

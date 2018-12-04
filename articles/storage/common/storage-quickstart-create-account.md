@@ -11,11 +11,11 @@ ms.date: 11/05/2018
 ms.author: v-jay
 ms.component: common
 ms.openlocfilehash: 1fa366cf4df5a0ea28e83a16a0fde75227d7352c
-ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50743528"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645639"
 ---
 # <a name="create-a-storage-account"></a>创建存储帐户
 

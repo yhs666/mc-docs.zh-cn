@@ -16,11 +16,11 @@ origin.date: 06/07/2017
 ms.date: 05/28/2018
 ms.author: v-yeche
 ms.openlocfilehash: ed2804c51f1307c1852efe56bf53c5a0cae06ce6
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554542"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644069"
 ---
 # <a name="testability-actions"></a>可测试性操作
 为了模拟一个不可靠的基础结构，Azure Service Fabric 向开发人员提供了众多方式来模拟各种现实世界故障和状态转换。 这些方式被称为可测试性操作。 这些操作属于低级别 API，会导致具体的故障注入、状态转换或验证。 结合使用这些操作，可为服务编写全面的测试方案。

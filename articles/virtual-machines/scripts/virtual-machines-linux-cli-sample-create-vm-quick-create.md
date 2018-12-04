@@ -18,11 +18,11 @@ ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 56d0f9e5e9ad9d7178383164f8e2a6301e370288
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295771"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648734"
 ---
 # <a name="create-a-virtual-machine"></a>创建虚拟机
 

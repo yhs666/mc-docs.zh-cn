@@ -17,11 +17,11 @@ origin.date: 02/14/2018
 ms.date: 03/12/2018
 ms.author: v-junlch
 ms.openlocfilehash: 909ce2ba8bc81d8f92645b9de85262fbebbd3152
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29925228"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646076"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>使用 Azure CLI 配置 VNet 到 VNet 的 VPN 网关连接
 
@@ -135,7 +135,7 @@ ms.locfileid: "29925228"
 1. 创建资源组。
 
     ```azurecli
-    az group create -n TestRG1  -l chinanorth
+    az group create -n TestRG1  -l chinanorth
     ```
 
 2. 创建 TestVNet1 及其子网。 以下示例创建名为“TestVNet1”的虚拟网络和名为“FrontEnd”的子网。
@@ -151,11 +151,11 @@ ms.locfileid: "29925228"
 4. 创建后端子网。
   
     ```azurecli
-    az network vnet subnet create --vnet-name TestVNet1 -n BackEnd -g TestRG1 --address-prefix 10.12.0.0/24 
+    az network vnet subnet create --vnet-name TestVNet1 -n BackEnd -g TestRG1 --address-prefix 10.12.0.0/24 
     ```
 5. 创建网关子网。 请注意，网关子网命名为“GatewaySubnet”。 此名称是必需的。 在本示例中，网关子网使用 /27。 尽管创建的网关子网最小可为 /29，但建议至少选择 /28 或 /27，创建包含更多地址的更大子网。 这样便可以留出足够的地址，满足将来可能需要使用的其他配置。
 
-    ```azurecli 
+    ```azurecli 
     az network vnet subnet create --vnet-name TestVNet1 -n GatewaySubnet -g TestRG1 --address-prefix 10.12.255.0/27
     ```
 6. 请求一个公共 IP 地址，以分配给要为 VNet 创建的网关。 请注意，AllocationMethod 为 Dynamic。 无法指定要使用的 IP 地址。 它会动态分配到网关。
@@ -174,7 +174,7 @@ ms.locfileid: "29925228"
 1. 创建资源组。
 
     ```azurecli
-    az group create -n TestRG4  -l chinanorth
+    az group create -n TestRG4  -l chinanorth
     ```
 2. 创建 TestVNet4。
 
@@ -185,8 +185,8 @@ ms.locfileid: "29925228"
 3. 为 TestVNet4 创建额外的子网。
 
     ```azurecli
-    az network vnet update -n TestVNet4 --address-prefixes 10.41.0.0/16 10.42.0.0/16 -g TestRG4 
-    az network vnet subnet create --vnet-name TestVNet4 -n BackEnd -g TestRG4 --address-prefix 10.42.0.0/24 
+    az network vnet update -n TestVNet4 --address-prefixes 10.41.0.0/16 10.42.0.0/16 -g TestRG4 
+    az network vnet subnet create --vnet-name TestVNet4 -n BackEnd -g TestRG4 --address-prefix 10.42.0.0/24 
     ```
 4. 创建网关子网。
 
@@ -222,18 +222,18 @@ ms.locfileid: "29925228"
     示例输出：
 
       ``` 
-      "activeActive": false, 
-      "bgpSettings": { 
-        "asn": 65515, 
-        "bgpPeeringAddress": "10.12.255.30", 
-        "peerWeight": 0 
-       }, 
-      "enableBgp": false, 
-      "etag": "W/\"ecb42bc5-c176-44e1-802f-b0ce2962ac04\"", 
-      "gatewayDefaultSite": null, 
-      "gatewayType": "Vpn", 
-      "id": "/subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW", 
-      "ipConfigurations":
+      "activeActive": false, 
+      "bgpSettings": { 
+        "asn": 65515, 
+        "bgpPeeringAddress": "10.12.255.30", 
+        "peerWeight": 0 
+       }, 
+      "enableBgp": false, 
+      "etag": "W/\"ecb42bc5-c176-44e1-802f-b0ce2962ac04\"", 
+      "gatewayDefaultSite": null, 
+      "gatewayType": "Vpn", 
+      "id": "/subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW", 
+      "ipConfigurations":
       ```
 
     复制引号中 "id": 后面的值。
@@ -251,7 +251,7 @@ ms.locfileid: "29925228"
 3. 创建 TestVNet1 到 TestVNet4 的连接。 本步骤创建从 TestVNet1 到 TestVNet4 的连接。 示例中引用了一个共享密钥。 可以对共享密钥使用自己的值。 共享密钥必须与两个连接匹配，这一点非常重要。 创建连接短时间即可完成。
 
     ```azurecli
-    az network vpn-connection create -n VNet1ToVNet4 -g TestRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW -l chinanorth --shared-key "aabbcc" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG4/providers/Microsoft.Network/virtualNetworkGateways/VNet4GW 
+    az network vpn-connection create -n VNet1ToVNet4 -g TestRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW -l chinanorth --shared-key "aabbcc" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG4/providers/Microsoft.Network/virtualNetworkGateways/VNet4GW 
     ```
 4. 创建 TestVNet4 到 TestVNet1 的连接。 此步骤类似上面的步骤，只不过是创建 TestVNet4 到 TestVNet1 的连接。 确保共享密钥匹配。 建立连接需要数分钟的时间。
 
@@ -308,7 +308,7 @@ ms.locfileid: "29925228"
 1. 请确保连接到订阅 5，然后创建资源组。
 
     ```azurecli
-    az group create -n TestRG5  -l chinanorth
+    az group create -n TestRG5  -l chinanorth
     ```
 2. 创建 TestVNet5。
 
@@ -366,7 +366,7 @@ ms.locfileid: "29925228"
 
     复制 "id:" 的输出。 通过电子邮件或其他方法将 VNet 网关 (VNet5GW) 的 ID 和名称发送到订阅 1 的管理员。
 
-3. **[订阅 1]** 在此步骤中，创建 TestVNet1 到 TestVNet5 的连接。 可以对共享密钥使用你自己的值，但两个连接的共享密钥必须匹配。 创建连接可能需要简短的一段时间才能完成。 请确保连接到订阅 1。
+3. **[订阅 1]** 在此步骤中，创建 TestVNet1 到 TestVNet5 的连接。 可以对共享密钥使用你自己的值，但两个连接的共享密钥必须匹配。 创建连接可能需要简短的一段时间才能完成。 请确保连接到订阅 1。
 
     ```azurecli
     az network vpn-connection create -n VNet1ToVNet5 -g TestRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW -l chinanorth --shared-key "eeffgg" --vnet-gateway2 /subscriptions/e7e33b39-fe28-4822-b65c-a4db8bbff7cb/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW

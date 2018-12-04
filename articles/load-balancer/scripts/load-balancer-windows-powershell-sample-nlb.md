@@ -17,11 +17,11 @@ origin.date: 04/20/2018
 ms.date: 06/18/2018
 ms.author: v-yeche
 ms.openlocfilehash: b7031e1e5cc6c5d98da89a1069cba35d28dc9459
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167870"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644641"
 ---
 # <a name="azure-powershell-script-example-load-balance-traffic-to-vms-for-high-availability"></a>Azure PowerShell 脚本示例：对传入 VM 的流量进行负载均衡以实现高可用性
 

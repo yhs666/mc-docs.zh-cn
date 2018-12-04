@@ -17,11 +17,11 @@ ms.date: 07/20/2018
 ms.author: v-junlch
 ms.reviewer: anwestg
 ms.openlocfilehash: 3f1f990ed5076b6948fd0be93a1f84fb6c3ac656
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168233"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645569"
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>针对 Azure Stack 中的 Azure 应用服务服务器角色的容量计划
 

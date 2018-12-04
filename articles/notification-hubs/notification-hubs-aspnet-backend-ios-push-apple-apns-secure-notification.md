@@ -16,11 +16,11 @@ origin.date: 04/25/2018
 ms.date: 07/09/2018
 ms.author: v-junlch
 ms.openlocfilehash: 56d6449c653c9cd2a2cc3c9f9d7499dc7eeb65a3
-ms.sourcegitcommit: e950fe5260c519e05f8c5bbf193a8ef733a6a2d2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37936298"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646647"
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Azure 通知中心安全推送
 > [!div class="op_single_selector"]
@@ -59,7 +59,7 @@ ms.locfileid: "37936298"
 
 若要实现此目标，我们必须编写逻辑来从应用后端检索安全内容。
 
-1. 在 **AppDelegate.m** 中，请确保该应用将注册无提示通知，以便它可以处理从后端发送的通知 ID。 添加 didFinishLaunchingWithOptions 中的 **UIRemoteNotificationTypeNewsstandContentAvailability** 选项：
+1. 在 **AppDelegate.m**中，请确保该应用将注册无提示通知，以便它可以处理从后端发送的通知 ID。 添加 didFinishLaunchingWithOptions 中的 **UIRemoteNotificationTypeNewsstandContentAvailability** 选项：
 
     ```
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeNewsstandContentAvailability];
@@ -158,7 +158,7 @@ ms.locfileid: "37936298"
 
 1. 在 XCode 中，在物理 iOS 设备上运行此应用（推送通知将无法在模拟器中正常工作）。
 2. 在 iOS 应用 UI 中，输入用户名和密码。 这些信息可以是任意字符串，但必须是相同的值。
-3. 在 iOS 应用 UI 中，单击“登录” 。 然后单击“发送推送”。 应该能看到通知中心中所显示的安全通知。
+3. 在 iOS 应用 UI 中，单击“登录” 。 然后单击“发送推送” 。 应该能看到通知中心中所显示的安全通知。
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
 

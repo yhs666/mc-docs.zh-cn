@@ -14,11 +14,11 @@ origin.date: 04/20/2017
 ms.date: 05/14/2018
 ms.author: v-junlch
 ms.openlocfilehash: 6f42f4d0ce77f49cd0117982b7f06afbb83f9106
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173263"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648883"
 ---
 # <a name="pool-delete-start-event"></a>池删除开始事件
 

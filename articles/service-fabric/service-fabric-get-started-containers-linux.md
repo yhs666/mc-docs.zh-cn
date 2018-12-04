@@ -16,11 +16,11 @@ origin.date: 01/09/2018
 ms.date: 10/15/2018
 ms.author: v-yeche
 ms.openlocfilehash: ab0902b9163f545bc39418cc10efde6e406a5a63
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089091"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648801"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>在 Linux 上创建第一个 Service Fabric 容器应用程序
 > [!div class="op_single_selector"]

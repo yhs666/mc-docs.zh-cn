@@ -15,11 +15,11 @@ origin.date: 10/09/2018
 ms.date: 11/12/2018
 ms.author: v-jay
 ms.openlocfilehash: ae91c9819c1f87b06158bc89f619ddf6f13470c5
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195383"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648739"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure Stack 基础结构安全局势
 

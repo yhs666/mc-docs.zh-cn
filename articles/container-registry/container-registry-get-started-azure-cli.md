@@ -9,12 +9,12 @@ origin.date: 03/03/2018
 ms.date: 11/12/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 1c9d771f7635d48551352b63976911bcc07b1d18
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.openlocfilehash: ca3065da2033be9d4c35c421962aa962e165ad7f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195365"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648115"
 ---
 # <a name="quickstart-create-a-container-registry-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建容器注册表
 
@@ -161,7 +161,7 @@ az group delete --name myResourceGroup
 <!-- Not Available on  > [Azure Container Instances tutorial][container-instances-tutorial-prepare-app]-->
 
 <!-- IMAGES> -->
-[aci-app-browser]: ../container-instances/media/container-instances-quickstart/aci-app-browser.png
+<!-- Not Available on [aci-app-browser]: ../container-instances/media/container-instances-quickstart/aci-app-browser.png-->
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms

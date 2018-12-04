@@ -11,11 +11,11 @@ ms.date: 08/14/2017
 wacn.date: ''
 ms.author: v-yeche
 ms.openlocfilehash: b49a176d1e5da95f48cb8baf48bdd5db51b47fb9
-ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
-ms.locfileid: "20822699"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648841"
 ---
 # <a name="azure-service-fabric-and-azure-cli-20"></a>Azure Service Fabric 和 Azure CLI 2.0
 

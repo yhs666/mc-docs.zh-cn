@@ -18,11 +18,11 @@ origin.date: 02/23/2018
 ms.date: 05/28/2018
 ms.author: v-yiso
 ms.openlocfilehash: ed7f1862b27e0b2dbee84c3ba7a5629623aa7ab8
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450094"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648328"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-kafka-on-hdinsight"></a>Kafka on HDInsight 的 Apache Spark 流式处理 (DStream) 示例
 
@@ -42,7 +42,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 ![Azure 虚拟网络中的 Spark 和 Kafka 群集的关系图](./media/hdinsight-apache-spark-with-kafka/spark-kafka-vnet.png)
 
 > [!NOTE]
-> 虽然 Kafka 本身的通信限于虚拟网络中，但可以通过 Internet 访问群集上的其他服务（如 SSH 和 Ambari）。 有关可用于 HDInsight 的公共端口的详细信息，请参阅 [HDInsight 使用的端口和 URI](hdinsight-hadoop-port-settings-for-services.md)。
+> 虽然 Kafka 本身的通信限于虚拟网络中，但可以通过 Internet 访问群集上的其他服务（如 SSH 和 Ambari）。 有关 HDInsight 所提供的公共端口的详细信息，请参阅 [HDInsight 使用的端口和 URI](hdinsight-hadoop-port-settings-for-services.md)。
 
 虽然可以手动创建 Azure 虚拟网络、Kafka 和 Spark 群集，但是使用 Azure Resource Manager 模板会更容易。 使用以下步骤将 Azure 虚拟网络、Kafka 和 Spark 群集部署到 Azure 订阅。
 
@@ -102,7 +102,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
 在本示例中，了解如何使用 Spark 对 Kafka 进行读取和写入。 请使用以下链接探索 Kafka 的其他用法：
 
-* [Apache Kafka on HDInsight 入门](kafka/apache-kafka-get-started.md)
-* [使用 MirrorMaker 创建 Kafka on HDInsight 的副本](kafka/apache-kafka-mirroring.md)
-* [将 Apache Storm 与 Kafka on HDInsight 结合使用](hdinsight-apache-storm-with-kafka.md)
+* [HDInsight 上的 Apache Kafka 入门](kafka/apache-kafka-get-started.md)
+* [使用 MirrorMaker 在 HDInsight 上创建 Kafka 的副本](kafka/apache-kafka-mirroring.md)
+* [在 HDInsight 上将 Apache Storm 与 Kafka 配合使用](hdinsight-apache-storm-with-kafka.md)
 

@@ -17,11 +17,11 @@ ms.date: 07/30/2018
 ms.author: v-junlch
 robots: noindex
 ms.openlocfilehash: d14cb27acf8690faa4360edcc69bdd39cad92153
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486961"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646317"
 ---
 # <a name="azure-ad-and-applications-require-user-assignment"></a>Azure AD 和应用程序：要求进行用户分配
 ## <a name="requiring-user-assignment"></a>要求进行用户分配

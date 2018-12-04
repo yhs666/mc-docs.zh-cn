@@ -16,11 +16,11 @@ origin.date: 09/26/2018
 ms.date: 10/31/2018
 ms.author: v-lingwu
 ms.openlocfilehash: 89004ca1ae6c0bc51b7a8f5c277c580437f4dcc7
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409300"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643895"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>服务总线死信队列概述
 

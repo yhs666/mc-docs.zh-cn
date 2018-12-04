@@ -11,11 +11,11 @@ origin.date: 04/01/2018
 ms.date: 10/15/2018
 ms.author: v-jay
 ms.openlocfilehash: 89cd51064ec14219953f62ebe4a0ff5600716e46
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913930"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647164"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>用于 ADO.NET 4.5 的非 1433 端口
 本主题介绍使用 ADO.NET 4.5 或更高版本的客户端的 Azure SQL 数据库连接行为。 

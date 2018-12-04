@@ -17,11 +17,11 @@ origin.date: 08/08/2018
 ms.date: 09/10/2018
 ms.author: v-yeche
 ms.openlocfilehash: f28eb0739193ca292e5724f2561ea9a2f77afb30
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515642"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644053"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-portal"></a>使用 Azure 门户创建具有静态公共 IP 地址的虚拟机
 

@@ -17,11 +17,11 @@ ms.date: 01/01/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: d8daee6e2a33d5a4313f5fcd70358078eb89d3e8
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
-ms.locfileid: "27548725"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647753"
 ---
 # <a name="add-an-inbound-network-security-group-rule"></a>添加入站网络安全组规则
 

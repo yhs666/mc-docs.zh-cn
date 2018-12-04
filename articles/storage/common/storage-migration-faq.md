@@ -9,11 +9,11 @@ origin.date: 05/11/2018
 ms.date: 09/24/2018
 ms.author: v-jay
 ms.openlocfilehash: 2c523c580115b8ca57fb285a5067a66932b3818c
-ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523715"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647309"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>有关 Azure 存储迁移的常见问题
 

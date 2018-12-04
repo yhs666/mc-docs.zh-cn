@@ -9,11 +9,11 @@ origin.date: 09/11/2018
 ms.date: 09/24/2018
 ms.author: v-jay
 ms.openlocfilehash: 8a1e87943fec94bf83485a1a08eeb04454b31535
-ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523743"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648760"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>在 Azure 门户中管理存储帐户设置
 

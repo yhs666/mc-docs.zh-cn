@@ -9,15 +9,15 @@ ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
 origin.date: 09/11/2018
-ms.date: 10/09/2018
+ms.date: 11/12/2018
 ms.author: v-junlch
 ms.custom: it-pro
-ms.openlocfilehash: 65c40a525dacdeda49c6854fc20d90d21ddd1df3
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.openlocfilehash: 66b5c006674b2acce14e7560d4e1deea1ed1ecf0
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913749"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647735"
 ---
 # <a name="how-to-add-or-remove-group-owners-in-azure-active-directory"></a>如何：在 Azure Active Directory 中添加或删除组所有者
 Azure Active Directory (Azure AD) 组由组所有者拥有和管理。 组所有者是由资源所有者（管理员）分配的，用来管理组及其成员。 组所有者并非必须是组的成员。 在分配组所有者后，只有资源所有者可以添加或删除这些所有者。
@@ -30,7 +30,7 @@ Azure Active Directory (Azure AD) 组由组所有者拥有和管理。 组所有
 ### <a name="to-add-a-group-owner"></a>添加组所有者
 1. 使用目录的全局管理员帐户登录到 [Azure 门户](https://portal.azure.cn)。
 
-2. 选择“Azure Active Directory”，选择“组”，然后选择要为其添加所有者的组（在本例中为“MDM 策略 - 西部”）。
+2. 依次选择“Azure Active Directory”、“组”以及要添加所有者的组（例如此示例为“MDM 策略 - 西部”）。
 
 3. 在“MDM 策略 - 西部概述”页面上选择“所有者”。
 
@@ -48,7 +48,7 @@ Azure Active Directory (Azure AD) 组由组所有者拥有和管理。 组所有
 ### <a name="to-remove-an-owner"></a>删除所有者
 1. 使用目录的全局管理员帐户登录到 [Azure 门户](https://portal.azure.cn)。
 
-2. 选择“Azure Active Directory”，选择“组”，然后选择要为其添加所有者的组（在本例中为“MDM 策略 - 西部”）。
+2. 依次选择“Azure Active Directory”、“组”以及要添加所有者的组（例如此示例为“MDM 策略 - 西部”）。
 
 3. 在“MDM 策略 - 西部概述”页面上选择“所有者”。
 
@@ -63,8 +63,8 @@ Azure Active Directory (Azure AD) 组由组所有者拥有和管理。 组所有
 ## <a name="next-steps"></a>后续步骤
 - [使用 Azure Active Directory 组管理对资源的访问](active-directory-manage-groups.md)
 
-- [将本地标识与 Azure Active Directory 集成](../connect/active-directory-aadconnect.md)
+- [将本地标识与 Azure Active Directory 集成](../hybrid/whatis-hybrid-identity.md)
 
 - [用于配置组设置的 Azure Active Directory cmdlet](../users-groups-roles/groups-settings-v2-cmdlets.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

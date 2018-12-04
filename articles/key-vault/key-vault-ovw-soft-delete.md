@@ -9,11 +9,11 @@ manager: mbaldwin
 origin.date: 09/25/2017
 ms.date: 11/05/2018
 ms.openlocfilehash: 9ced02a0e2396c427be7adab12b3763335f6c879
-ms.sourcegitcommit: 8a68d9275ddb92ea45601fed96e21559999d9579
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026967"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647653"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Azure Key Vault 软删除概述
 

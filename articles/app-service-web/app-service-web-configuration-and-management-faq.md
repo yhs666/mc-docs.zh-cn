@@ -17,11 +17,11 @@ origin.date: 07/10/2017
 ms.date: 07/24/2017
 ms.author: v-dazen
 ms.openlocfilehash: 4cc96767af3f417125a4bf6cde3a5867c5581d6c
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
-ms.locfileid: "20634060"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648424"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure Web 应用配置及管理常见问题解答
 
@@ -53,7 +53,7 @@ ms.locfileid: "20634060"
 2. 在“应用设置”下，添加此设置：
     * 键 = WEBSITE_TIME_ZONE
     * 值 = *所需时区*
-3. 选择“保存”。
+3. 选择“其他安全性验证” 。
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>为什么连续 Web 作业有时会失败？
 
@@ -100,7 +100,7 @@ PCI DSS 3.1 版证书要求禁用传输层安全性 (TLS) 1.0。 目前，大多
 
 查看 Web 作业日志：
 
-1. 登录到 Kudu 网站：https://*yourwebsitename*.scm.chinacloudsites.cn。
+1. 登录到 Kudu 网站： https://*yourwebsitename*.scm.chinacloudsites.cn。
 2. 选择 Web 作业。
 3. 选择“切换输出”按钮。
 4. 若要下载输出文件，请选择“下载”链接。
@@ -159,7 +159,7 @@ PCI DSS 3.1 版证书要求禁用传输层安全性 (TLS) 1.0。 目前，大多
 
 ## <a name="how-do-i-connect-an-app-service-web-app-to-a-virtual-network-that-has-a-static-routing-policy-based-gateway"></a>如何将应用服务 Web 应用连接到具有静态路由（基于策略）网关的虚拟网络？
 
-当前，不支持将应用服务 Web 应用连接到具有静态路由（基于策略）网关的虚拟网络。 如果你的目标虚拟网络已经存在，必须在连接到应用之前借助动态路由网关使网络处于点到站点 VPN 启用状态。 如果网关设置为静态路由，则无法启用点到站点 VPN。 
+当前，不支持将应用服务 Web 应用连接到具有静态路由（基于策略）网关的虚拟网络。 如果目标虚拟网络已经存在，必须在连接到应用之前借助动态路由网关使网络处于点到站点 VPN 启用状态。 如果网关设置为静态路由，则无法启用点到站点 VPN。 
 
 有关详细信息，请参阅[将应用与 Azure 虚拟网络进行集成](web-sites-integrate-with-vnet.md#getting-started)。
 ## <a name="why-cant-i-delete-my-app-service-plan"></a>为什么无法删除应用服务计划？
@@ -196,7 +196,7 @@ PCI DSS 3.1 版证书要求禁用传输层安全性 (TLS) 1.0。 目前，大多
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>如何确定应用服务中安装的 .NET 版本？
 
-若要查找应用服务中安装的 Microsoft.NET 版本，最快的方法是使用 Kudu 控制台。 可以从门户或使用应用服务应用的 URL 访问 Kudu 控制台。 有关详细说明，请参阅[确定应用服务中安装的 .NET 版本](https://blogs.msdn.microsoft.com/waws/2016/11/02/how-to-determine-the-installed-net-version-in-azure-app-services/)。
+若要查找应用服务中安装的 Microsoft.NET 版本，最快的方法是使用 Kudu 控制台。 可以从门户或使用应用服务应用的 URL，来访问 Kudu 控制台。 有关详细说明，请参阅[确定应用服务中安装的 .NET 版本](https://blogs.msdn.microsoft.com/waws/2016/11/02/how-to-determine-the-installed-net-version-in-azure-app-services/)。
 
 ## <a name="why-isnt-autoscale-working-as-expected"></a>为什么自动缩放不按预期方式工作？
 
@@ -206,7 +206,7 @@ PCI DSS 3.1 版证书要求禁用传输层安全性 (TLS) 1.0。 目前，大多
 
 当指标超过预配置的限值时，将触发自动缩放。 有时可能会发现，与预期相比，仅填充了部分容量。 当所需的实例数无法实现时，则可能会发生这种情况。 在这种情况下，自动缩放使用可用的实例数进行部分填充。 然后，自动缩放运行重新平衡逻辑，以获取更多容量。 它会分配剩余实例。 请注意，这可能需要几分钟的时间。
 
-如果在几分钟后看不到预期的实例数，则可能是因为部分重填已足以将指标拉回到限值以内。 或者，可能自动缩放已执行缩小操作，因为已达到度量值的下限。
+如果在几分钟后未看到预期数量的实例，则可能是因为部分重填已足以使指标处于边界内。 或者，可能自动缩放已执行缩小操作，因为已达到度量值的下限。
 
 如果以上情况都不存在而问题仍然存在，请提交支持请求。
 

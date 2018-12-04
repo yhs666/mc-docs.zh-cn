@@ -18,11 +18,11 @@ ms.date: 04/11/2018
 ms.author: v-junlch
 ms.custom: mvc
 ms.openlocfilehash: 48e4e3ee007867630bac82db77c0381ab1d430a1
-ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523985"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645064"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>通过 Azure 门户创建 Function App
 

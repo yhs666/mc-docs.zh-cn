@@ -17,11 +17,11 @@ origin.date: 09/05/2018
 ms.date: 10/31/2018
 ms.author: v-lingwu
 ms.openlocfilehash: d92b22f80c03fe06a9359798eec7643b192cceae
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409346"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645287"
 ---
 # <a name="service-bus-diagnostic-logs"></a>服务总线诊断日志
 

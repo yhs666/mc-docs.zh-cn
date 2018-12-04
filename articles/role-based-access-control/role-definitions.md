@@ -17,11 +17,11 @@ ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: e2de262650230fd14d69d6ed781f648e36bb5c32
-ms.sourcegitcommit: 64af85591634684abc62e7f79d8270705c95c109
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42866366"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645264"
 ---
 # <a name="understand-role-definitions"></a>了解角色定义
 

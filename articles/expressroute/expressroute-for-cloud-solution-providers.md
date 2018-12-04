@@ -16,11 +16,11 @@ origin.date: 10/10/2016
 ms.author: v-yiso
 ms.date: 05/14/2018
 ms.openlocfilehash: b9acd1068bcd33d587f323e8b60d7c2efebcc5cc
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815260"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646362"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>适用于云解决方案提供商 (CSP) 的 ExpressRoute
 
@@ -126,9 +126,9 @@ ExpressRoute 通过 Azure 虚拟网络网关连接到 Azure 网络。 网络网�
 ## <a name="security"></a>安全性
 根据所用的模型（Connect-To 或 Connect-Through），客户可在其 vNet 中定义安全策略，或者向 CSP 提供针对其 vNet 进行定义时的安全策略要求。 可以定义以下安全标准：
 
-1. **客户隔离** — Azure 平台通过将客户 ID 和 vNet 信息存储在安全的数据库中，将每个客户的流量封装在 GRE 隧道中，从而实现客户隔离。
+1. **客户隔离** - Azure 平台将客户 ID 和 vNet 信息存储在安全的数据库中，以便将每个客户的流量封装在 GRE 隧道中，从而实现客户隔离。
 2. 网络安全组 (NSG) 规则用于在 Azure 的 Vnet 中定义允许进出子网的流量。 默认情况下，NSG 包含的“阻止”规则阻止从 Internet 到 vNet 的流量，包含的“允许”规则允许 vNet 内部的流量。 有关网络安全组的详细信息，请单击 [此处](https://azure.microsoft.com/blog/network-security-groups/)。
-3. **强制隧道** — 此选项可将源自 Azure 的面向 Internet 的流量通过 ExpressRoute 连接重定向到本地数据中心。 有关强制隧道的更多详细信息，请查看[此处](./expressroute-routing.md#advertising-default-routes)。  
+3. **强制隧道** - 此选项可将源自 Azure 的面向 Internet 的流量通过 ExpressRoute 连接重定向到本地数据中心。 有关强制隧道的更多详细信息，请查看[此处](./expressroute-routing.md#advertising-default-routes)。  
 
 4. **加密** - 虽然 ExpressRoute 线路是特定客户专用的，但也存在网络提供商被攻破的可能，这会让入侵者可以查看数据包流量。 若要解决这种可能性，客户或 CSP 可以通过定义 IPSec 隧道模式策略对连接进行加密，该策略针对本地资源和 Azure 资源的所有流量（请参阅图 5 中的客户 1 的可选隧道模式 IPSec：ExpressRoute 安全性）。 第二个选项是在 ExpressRoute 线路的每个终结点处使用防火墙设备。 这需要在两端安装其他的第三方防火墙 VM/设备，以便加密 ExpressRoute 线路上的流量。
 

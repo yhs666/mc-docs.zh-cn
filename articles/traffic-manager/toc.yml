@@ -13,23 +13,22 @@ items:
   items:
   - name: 路由流量以降低延迟
     href: tutorial-traffic-manager-improve-website-response.md
-  - name: 根据终结点的地理位置路由流量
-    href: traffic-manager-configure-geographic-routing-method.md
   - name: 将流量分配到一组终结点
     href: traffic-manager-configure-weighted-routing-method.md
   - name: 将流量路由到优先终结点
     href: traffic-manager-configure-priority-routing-method.md
+  - name: 根据用户的子网路由流量
+    href: tutorial-traffic-manager-subnet-routing.md
 - name: 示例
   items:
+  - name: Azure CLl
+    href: cli-samples.md
   - name: Azure PowerShell
     href: powershell-samples.md
 - name: 概念
   items:
   - name: 路由方法
     href: traffic-manager-routing-methods.md
-    items:
-    - name: 流量管理器使用的国家/地区层次结构
-      href: traffic-manager-geographic-regions.md
   - name: 嵌套式流量管理器配置文件
     href: traffic-manager-nested-profiles.md
   - name: 终结点类型
@@ -44,6 +43,12 @@ items:
     href: traffic-manager-FAQs.md
 - name: 如何
   items:
+  - name: 在流量管理器中配置性能路由
+    href: traffic-manager-configure-performance-routing-method.md
+  - name: 在流量管理器中配置多值路由
+    href: traffic-manager-configure-multivalue-routing-method.md
+  - name: 在流量管理器中配置子网
+    href: traffic-manager-configure-subnet-routing-method.md
   - name: 管理终结点
     href: traffic-manager-manage-endpoints.md
   - name: 管理配置文件
@@ -100,9 +105,9 @@ items:
     href: https://www.azure.cn/support/sla/traffic-manager/
   - name: 视频
     href: https://www.azure.cn/video-center/
-ms.openlocfilehash: e913ded9e2bb763d1bf7fb26c2efed41a0a7415d
-ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
+ms.openlocfilehash: f13075cd96652fa7c70718ea188fc6e32535a47a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586821"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644328"

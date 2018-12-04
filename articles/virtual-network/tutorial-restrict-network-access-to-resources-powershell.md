@@ -19,11 +19,11 @@ ms.date: 06/11/2018
 ms.author: v-yeche
 ms.custom: ''
 ms.openlocfilehash: 3cbc32d2b759ae56d47ebf5f3d674bc23f511e63
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939094"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645761"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-powershell"></a>使用 PowerShell 通过虚拟网络服务终结点限制对 PaaS 资源的网络访问
 

@@ -12,11 +12,11 @@ ms.date: 10/25/2018
 ms.author: v-junlch
 ms.reviewer: ''
 ms.openlocfilehash: c3f0f99c4dee91e922d67a94df3dbac031cfb076
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034908"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645099"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Azure 认知服务的自然语言支持
 

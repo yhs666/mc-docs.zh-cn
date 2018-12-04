@@ -18,15 +18,15 @@ ms.date: 06/13/2018
 ms.author: v-junlch
 ms.custom: mvc
 ms.openlocfilehash: 16e9c00aebc4a953cd32e7c81ecf81a5c6d6ced1
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568486"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646532"
 ---
 # <a name="create-and-manage-s2s-vpn-connections-with-the-azure-powershell-module"></a>使用 Azure PowerShell 模块创建和管理 S2S VPN 连接
 
-Azure S2S VPN 连接提供客户本地和 Azure 间的安全跨界连接。 本教程详细介绍 IPsec S2S VPN 连接的生命周期，例如创建和管理 S2S VPN 连接。 你将学习如何执行以下操作：
+Azure S2S VPN 连接提供客户本地和 Azure 间的安全跨界连接。 本教程介绍 IPsec S2S VPN 连接的生命周期，例如创建和管理 S2S VPN 连接。 学习如何：
 
 > [!div class="checklist"]
 > * 创建 S2S VPN 连接
@@ -38,7 +38,7 @@ Azure S2S VPN 连接提供客户本地和 Azure 间的安全跨界连接。 本�
 
 ![站点到站点 VPN 连接图](./media/vpn-gateway-tutorial-vpnconnection-powershell/site-to-site-diagram.png)
 
-如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.3 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
+如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.3 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
 
 ## <a name="requirements"></a>要求
 
@@ -77,7 +77,7 @@ $Connection1 = "VNet1ToSite1"
 1. 创建用来代表本地网络的本地网关
 2. 在 Azure VPN 网关与本地网关之间创建连接
 
-## <a name="create-a-local-network-gateway"></a>创建本地网关
+## <a name="create-a-local-network-gateway"></a>创建本地网络网关
 
 本地网关代表本地网络。 可以在本地网关中指定本地网络的属性，其中包括：
 
@@ -114,7 +114,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection1 -ResourceGroupName
 Azure S2S VPN 连接使用预共享密钥（机密）在本地 VPN 设备和 Azure VPN 网关之间进行身份验证。 可以使用 [Get-AzureRmVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworkgatewayconnectionsharedkey) 和 [Set-AzureRmVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgatewayconnectionsharedkey) 查看和更新连接的预共享密钥。
 
 > [!IMPORTANT]
-> 预共享密钥是一个字符串，其中包含的**可打印 ASCII 字符**在长度上不得超出 128 个字符。
+> 预共享密钥是一个由**可打印 ASCII 字符**组成的字符串，长度不得超出 128 个字符。
 
 以下命令显示连接的预共享密钥：
 

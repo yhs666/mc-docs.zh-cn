@@ -16,11 +16,11 @@ origin.date: 08/17/2018
 ms.date: 08/27/2018
 ms.author: v-junlch
 ms.openlocfilehash: 26837841fde6289f8cf010e45e86a1b9cb2cf208
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869385"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644379"
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>使用特权终结点监视 Azure Stack 中的更新
 

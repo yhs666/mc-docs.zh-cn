@@ -12,7 +12,7 @@
 
    ![防火墙设置](./media/site-recovery-prepare-push-install-mob-svc-win/mobility1.png)
 
-1. 添加在 CSPSConfigtool 中创建的帐户。 执行以下步骤:
+1. 添加在 CSPSConfigtool 中创建的帐户。 执行以下步骤：
 
     a. 登录到配置服务器。
 

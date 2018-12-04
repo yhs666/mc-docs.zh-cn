@@ -18,11 +18,11 @@ origin.date: 01/09/2018
 ms.date: 03/26/2018
 ms.author: v-yiso
 ms.openlocfilehash: 998768053ae27d115f37bb6ae34f8b5966f6aeaa
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873571"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643961"
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>在 HDInsight 上的 Apache Spark 群集中将外部包与 Jupyter 笔记本配合使用
 > [!div class="op_single_selector"]

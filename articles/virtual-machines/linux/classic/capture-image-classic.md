@@ -18,11 +18,11 @@ origin.date: 03/14/2017
 ms.date: 07/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: 1e7f378f3881a9a2bb760c4af3a47437823173be
-ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39261829"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643734"
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>如何捕获经典 Linux 虚拟机以用作映像
 > [!IMPORTANT]

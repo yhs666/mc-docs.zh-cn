@@ -16,11 +16,11 @@ origin.date: 04/25/2017
 ms.date: 10/09/2017
 ms.author: v-yiso
 ms.openlocfilehash: 4ae50cdfb40f0687c200f702dd0022702a26aafb
-ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
-ms.locfileid: "22146569"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645866"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>在 Azure 应用服务中配置 Web 应用
 本主题介绍如何使用 [Azure 门户]配置 Web 应用。
@@ -119,7 +119,7 @@ Web 应用可能会使用根据 URL 路由的模块，而不是提供静态内�
 1. 在 Web 应用边栏选项卡上，单击“所有设置” 。
 2. 单击“部署凭据” 。
 3. 输入用户名和密码。
-4. 单击“保存” 。
+4. 单击“保存”。
 
 ![设置部署凭据][configure03]
 
@@ -150,7 +150,7 @@ Web 应用可能会使用根据 URL 路由的模块，而不是提供静态内�
 有关详细信息，请参阅 [如何监视 Web 终结点状态]。
 ## <a name="next-steps"></a>后续步骤
 * [在 Azure 应用服务中配置自定义域名]
-* [Enable HTTPS for an app in Azure Web App（为 Azure 应用服务中的应用启用 HTTPS）]
+* [为 Azure 应用服务中的应用启用 HTTPS]
 * [在 Azure 应用服务中缩放 Web 应用]
 * [Azure 应用服务中 Web 应用的监视基础知识]
 

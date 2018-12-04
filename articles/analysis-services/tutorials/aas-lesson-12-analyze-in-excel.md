@@ -10,11 +10,11 @@ ms.date: 08/06/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
 ms.openlocfilehash: 2578ac7194362b848e6eef1e60dee31e167df29d
-ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487799"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644638"
 ---
 # <a name="analyze-in-excel"></a>在 Excel 中分析
 

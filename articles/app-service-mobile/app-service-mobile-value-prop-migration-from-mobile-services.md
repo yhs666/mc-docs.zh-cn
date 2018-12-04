@@ -16,11 +16,11 @@ origin.date: 10/01/2016
 ms.author: v-yiso
 ms.date: 03/12/2018
 ms.openlocfilehash: 0e3c3890c8f7f74cd4aabddddaa477390b4f338e
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29730629"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645529"
 ---
 # <a name="getting-started"> </a>使用移动服务时，应用服务有何作用？
 

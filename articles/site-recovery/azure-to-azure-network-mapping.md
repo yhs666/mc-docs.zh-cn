@@ -1,6 +1,6 @@
 ---
 title: 在 Azure Site Recovery 中的两个 Azure 区域之间映射虚拟网络 | Azure
-description: Azure Site Recovery 可以协调虚拟机和物理服务器的复制、故障转移与恢复。 了解有关故障转移到 Azure 或辅助数据中心的信息。
+description: Azure Site Recovery 可协调虚拟机和物理服务器的复制、故障转移与恢复。 了解有关故障转移到 Azure 或辅助数据中心的信息。
 services: site-recovery
 documentationcenter: ''
 author: rockboyfor
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 07/06/2018
-ms.date: 09/17/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: b61075c4f81031963fbf0f5e520a036359eda234
-ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
+ms.openlocfilehash: 11766786f7cd7bf7c41b86c4d657f2581511f09f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586823"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645322"
 ---
 <!-- Notice: Change Source Location East Azure map China East,  Sourth East Asia map China North --> 
 # <a name="map-virtual-networks-in-different-azure-regions"></a>可在不同 Azure 区域中的虚拟网络之间建立对等互连。
@@ -37,15 +37,15 @@ ms.locfileid: "45586823"
 ![网络映射窗口 - 创建网络映射](./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png)
 
 在以下示例中，虚拟机在“中国东部”区域中运行。 虚拟机正在复制到“中国北部”区域。
-<!-- Notice: Change China East TO China North-->
+<!-- Notice: Change as replicated to China North region -->
 
 若要创建从“中国东部”区域到“中国北部”区域的网络映射，请选择源网络的位置和目标网络的位置。 选择“确定”。
-<!-- Notice: Change China East TO China North-->
+<!-- Notice: Change as from China East TO China North region-->
 
 ![添加网络映射窗口-选择源网络的源和目标位置](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
 
 重复前面的过程，以创建从“中国北部”区域到“中国东部”区域的网络映射。
-<!-- Notice: Change China North TO China East-->
+<!-- Notice: Change as from China North region TO China East region-->
 
 ![添加网络映射窗格 - 选择目标网络的源和目标位置](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
 
@@ -104,7 +104,7 @@ ms.locfileid: "45586823"
 则向故障转移 VM 分配从子网地址范围末尾算起的下一个可用 IP（即 10.0.0.254） </br>
 
 **注意：** 术语“生产 vNet”是指灾难恢复配置期间映射的“目标网络”。
-####<a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2.如果选择的目标网络不是生产 vNet，但具有与生产网络相同的子网范围 
+#### <a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2.如果选择的目标网络不是生产 vNet，但具有与生产网络相同的子网范围 
 
 - 恢复 IP（目标 IP）将是静态 IP，与保留用于故障转移的 IP 地址（即配置的静态 IP 地址）相同。 前提是相同的 IP 地址可用。
 - 如果所配置的静态 IP 已分配给其他某个 VM/设备，则恢复 IP 将是从子网地址范围末尾算起的下一个可用 IP。
@@ -118,4 +118,5 @@ ms.locfileid: "45586823"
 ## <a name="next-steps"></a>后续步骤
 
 * 查看[有关复制 Azure 虚拟机的网络指南](site-recovery-azure-to-azure-networking-guidance.md)。
+
 <!--Update_Description: update meta properties, wording update -->

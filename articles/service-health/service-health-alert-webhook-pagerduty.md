@@ -16,11 +16,11 @@ origin.date: 11/14/2017
 ms.date: 03/19/2018
 ms.author: v-yiso
 ms.openlocfilehash: 40d0ce0a7a3d0fa36d5d95266fe43950ed9684d8
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870570"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645889"
 ---
 # <a name="configure-service-health-alerts-with-pagerduty"></a>使用 PagerDuty 配置服务运行状况警报
 

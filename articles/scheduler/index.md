@@ -1,23 +1,24 @@
 ---
 title: Azure 计划程序文档 - 教程、API 参考 | Microsoft 文档
-description: 了解如何使用计划程序计划和调用作业，例如定期应用程序操作和日常维护。 教程、API 参考和更多内容。
+description: 了解如何使用计划程序计划和调用作业，例如定期应用程序操作和日常维护。 教程、API 参考和其他资源。
 services: scheduler
-author: carolz
-manager: carolz
+author: WenJason
+manager: digimobile
 layout: LandingPage
 ms.assetid: ''
 ms.service: scheduler
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
-ms.author: v-johch
-ms.openlocfilehash: f9c3c93f06e0b4629dd0e7541b2bab277e2aa699
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 01/23/2017
+ms.date: 11/12/2018
+ms.author: v-jay
+ms.openlocfilehash: 1d69365bcf145035b9f81440260645749e9c9fde
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20182195"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648935"
 ---
 # <a name="scheduler-documentation"></a>计划程序文档
 
@@ -61,3 +62,35 @@ ms.locfileid: "20182195"
         </a>
     </li>
 </ul>
+
+---
+
+<h2>参考</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>命令行</h3>
+                        <p><a href="https://docs.microsoft.com/powershell/module/azurerm.scheduler">PowerShell</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="https://docs.microsoft.com/rest/api/scheduler">REST API 参考</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+
+

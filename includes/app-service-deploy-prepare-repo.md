@@ -9,11 +9,11 @@ ms.date: 06/05/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: c987bc10506d523dbd29bc8667b545ee748c03e0
-ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46566734"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52665675"
 ---
 ## <a name="prepare-your-repository"></a>准备存储库
 

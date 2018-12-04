@@ -17,11 +17,11 @@ origin.date: 04/17/2017
 ms.author: v-yiso
 ms.date: ''
 ms.openlocfilehash: 2a340935a2257b7b88cd286c66a796efed2aa03b
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
-ms.locfileid: "20472164"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647593"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>使用 PowerShell 配置 ExpressRoute 的虚拟网络网关
 > [!div class="op_single_selector"]

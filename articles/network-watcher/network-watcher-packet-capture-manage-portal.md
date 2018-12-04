@@ -16,11 +16,11 @@ origin.date: 09/10/2018
 ms.date: 09/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: a604bd3d6d48ceae0ea06146f838e0007e406407
-ms.sourcegitcommit: 432984d85afe6f3da8f211bae0fa98a556785ee8
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455377"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648150"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>在门户中使用 Azure 网络观察程序管理数据包捕获
 

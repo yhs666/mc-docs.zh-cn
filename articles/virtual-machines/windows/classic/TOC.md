@@ -39,8 +39,7 @@
 #### [自动缩放资源](hpcpack-cluster-node-autogrowshrink.md)
 #### [管理计算节点](hpcpack-cluster-node-manage.md)
 #### [创建群集](hpcpack-cluster-powershell-script.md)
-#### 
-  [使用市场映像创建头节点](../../virtual-machines-windows-hpcpack-cluster-headnode.md)
+#### [使用市场映像创建头节点](../../virtual-machines-windows-hpcpack-cluster-headnode.md)
 #### [将作业从本地提交到 Azure](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
 ### [MySQL](mysql-2008r2.md)
 ### [Tomcat](java-run-tomcat-app-server.md)

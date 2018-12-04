@@ -12,11 +12,11 @@ origin.date: 08/29/2018
 ms.date: 10/30/2018
 ms.author: v-junlch
 ms.openlocfilehash: a0850b94beb42366f77f5ea0cd683fbb25ec81c8
-ms.sourcegitcommit: b8e99939a5493a15b78c32e87bfbf76a8c96a84a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409048"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646588"
 ---
 # <a name="detecting-domain-specific-content"></a>检测特定领域的内容
 

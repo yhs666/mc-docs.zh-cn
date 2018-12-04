@@ -17,11 +17,11 @@ origin.date: 04/26/2017
 ms.date: 06/07/2018
 ms.author: v-junlch
 ms.openlocfilehash: e3981f2a283460059ce43803b6c53b9eb2152720
-ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855768"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644699"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>使用 PowerShell 创建 Azure 应用程序网关（经典）的自定义探测
 
@@ -153,7 +153,7 @@ Get-AzureApplicationGateway AppGwTest
 |---|---|
 |**名称** |自定义探测的引用名称。 |
 * **Protocol** | 使用的协议（可能的值为 HTTP 或 HTTPS）。|
-| **Host** 和 **Path** | 应用程序网关为了确定实例运行状况而调用的完整 URL 路径。 例如，如果网站为 http://contoso.com/，则可以为“http://contoso.com/path/custompath.htm”配置自定义探测，使探测检查能够获得成功的 HTTP 响应。|
+| **Host** 和 **Path** | 应用程序网关为了确定实例运行状况而调用的完整 URL 路径。 例如，如果网站为 http://contoso.com/ ， 则可以为“ http://contoso.com/path/custompath.htm ”配置自定义探测，使探测检查能够获得成功的 HTTP 响应。|
 | **时间间隔** | 配置探测检查间隔（以秒为单位）。|
 | **超时** | 定义 HTTP 响应检查的探测超时。|
 | **UnhealthyThreshold** | 将后端实例标记为“不正常”所需的失败 HTTP 响应数目。|

@@ -17,11 +17,11 @@ origin.date: 05/11/2018
 ms.author: v-yiso
 ms.date: 06/11/2018
 ms.openlocfilehash: 09a290579ec6c09eef7a5928ebcf74d50784f5d3
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695006"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646553"
 ---
 # <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 云服务的应用程序和服务可用性问题：常见问题解答 (FAQ)
 

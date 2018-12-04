@@ -16,11 +16,11 @@ origin.date: 06/29/2017
 ms.date: 09/25/2017
 ms.author: v-johch
 ms.openlocfilehash: 6d419db64256b0ea642fc4b3aeb373eae936c8c3
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426369"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647788"
 ---
 # <a name="azure-media-services-telemetry"></a>Azure 媒体服务遥测
 

@@ -14,11 +14,11 @@ ms.date: 09/03/2018
 ms.author: v-junlch
 ms.custom: aaddev, vs-azure
 ms.openlocfilehash: 623d79e783aa4a7709621be51c3b13a644202985
-ms.sourcegitcommit: 562cde32fc2271238f3d1ef5d2cc5ed037bdec2d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43531560"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647256"
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>我的 WebAPI 项目（Visual Studio Azure Active Directory 连接服务）发生了什么情况
 

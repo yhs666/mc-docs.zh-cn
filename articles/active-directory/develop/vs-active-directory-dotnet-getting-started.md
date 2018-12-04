@@ -14,11 +14,11 @@ ms.date: 09/03/2018
 ms.author: v-junlch
 ms.custom: aaddev, vs-azure
 ms.openlocfilehash: 27e571f03fec4833bc00367d8a04e8afd8cff5b8
-ms.sourcegitcommit: 562cde32fc2271238f3d1ef5d2cc5ed037bdec2d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43531549"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648044"
 ---
 # <a name="getting-started-with-azure-active-directory-aspnet-mvc-projects"></a>Azure Active Directory（ASP.NET MVC 项目）入门
 

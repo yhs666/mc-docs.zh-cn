@@ -10,11 +10,11 @@ origin.date: 11/24/2017
 ms.date: 07/06/2018
 ms.author: v-junlch
 ms.openlocfilehash: d0800e39098bfdeaf5e8e6433f18195a1d087d01
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873286"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645945"
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>排查 System Center Data Protection Manager 问题
 

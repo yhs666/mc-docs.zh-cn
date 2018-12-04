@@ -12,11 +12,11 @@ ms.service: azure-stack
 ms.reviewer: thoroet
 manager: digimobile
 ms.openlocfilehash: 04186e022b9325783cf3241e23028be29fe6880a
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195569"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644383"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>为 Azure Stack 准备扩展主机
 

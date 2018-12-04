@@ -17,11 +17,11 @@ origin.date: 09/25/2017
 ms.author: v-yiso
 ms.date: 10/15/2018
 ms.openlocfilehash: fa12e96f78752f6667bb0d7e4d3593b25878fe1c
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455208"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646391"
 ---
 # <a name="create-and-run-recurring-tasks-and-workflows-with-azure-logic-apps"></a>使用 Azure 逻辑应用创建和运行重复任务和工作流
 

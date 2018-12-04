@@ -16,11 +16,11 @@ origin.date: 02/22/2017
 ms.date: 08/13/2018
 ms.author: v-yeche
 ms.openlocfilehash: 9aef4ce5b718d5304039e2de46dca612c3793615
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41705164"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648882"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>使用 REST API 通过安全组视图分析虚拟机安全性
 

@@ -12,11 +12,11 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
 ms.openlocfilehash: 4e23eb064b482de3315d261763a9dca06756d856
-ms.sourcegitcommit: c237baac64f847301ba7f67082ffffcd81c00142
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43850827"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647292"
 ---
 # <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>教程：完成 Azure AD 自助密码重置试点推广
 

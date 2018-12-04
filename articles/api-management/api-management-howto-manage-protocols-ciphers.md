@@ -15,11 +15,11 @@ origin.date: 06/15/2018
 ms.date: 07/16/2018
 ms.author: v-yiso
 ms.openlocfilehash: 00c1e606062f3ed5a15d2bfad3945dd147e5e5d4
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873747"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648721"
 ---
 # <a name="manage-protocols-and-ciphers-in-azure-api-management"></a>在 Azure API 管理中管理协议和密码
 

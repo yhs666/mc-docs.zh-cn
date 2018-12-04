@@ -16,11 +16,11 @@ origin.date: 06/05/2018
 ms.date: 08/08/2018
 ms.author: v-junlch
 ms.openlocfilehash: 6644e167cef49a5a8944f24ef96aa7d061682688
-ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625551"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644364"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>在 Azure Stack 上安装 Azure 备份服务器
 
@@ -337,7 +337,7 @@ Azure 备份服务器需要连接到 Azure 备份服务才能成功运行。 若
 
 ### <a name="recovering-from-loss-of-connectivity"></a>连接断开后进行恢复
 
-如果防火墙或代理阻止访问 Azure，请将防火墙/代理配置文件中的以下域地址加入白名单：
+如果防火墙或代理阻止访问 Azure，请将防火墙/代理配置文件中的以下域地址加入允许列表：
 
 - `http://www.msftncsi.com/ncsi.txt`
 - \*.Microsoft.com

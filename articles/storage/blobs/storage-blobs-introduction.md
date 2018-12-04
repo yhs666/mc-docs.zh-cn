@@ -10,11 +10,11 @@ origin.date: 03/27/2018
 ms.date: 06/11/2018
 ms.author: v-johch
 ms.openlocfilehash: 0632e17cd2aae1d33c4bd9b90b36a8f69a1f1b9b
-ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523668"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644061"
 ---
 # <a name="introduction-to-object-storage-in-azure"></a>Azure 中的对象存储简介
 

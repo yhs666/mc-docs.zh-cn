@@ -10,11 +10,11 @@ origin.date: 03/05/2018
 ms.date: 04/02/2018
 ms.author: v-yeche
 ms.openlocfilehash: 8bf435a1472598846f6c77d9af4b1db728f3d81a
-ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31510977"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645910"
 ---
 # <a name="deploy-the-mobility-service-with-azure-automation-dsc"></a>使用 Azure Automation DSC 部署移动服务
 

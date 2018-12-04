@@ -11,11 +11,11 @@ ms.date: 04/10/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: df52d275857bfeee8432cef6c0cc34b005c2f8ee
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940681"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648681"
 ---
 若要为资源组添加两个标记，请使用 [az group update](https://docs.microsoft.com/cli/azure/group#az_group_update) 命令：
 

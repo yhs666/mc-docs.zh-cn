@@ -10,14 +10,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 08/03/2018
-ms.date: 09/03/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: dacbf4377cafe770bad8e8e6052623e98d2cd2e7
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: 86b215c612bad904464c103033d7f7c7529d0bd9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164965"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648616"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>使用 Resource Manager 模板和 Azure 门户部署资源
 
@@ -138,6 +138,6 @@ ms.locfileid: "43164965"
 * 若要查看审核日志，请参阅[使用 Resource Manager 进行审核操作](resource-group-audit.md)。
 * 若要排查部署错误，请参阅[查看部署操作](resource-manager-deployment-operations.md)。
 * 若要从部署或资源组中检索模板，请参阅[从现有资源导出 Azure Resource Manager 模板](resource-manager-export-template.md)。
-<!-- Not Available on [Azure enterprise scaffold - prescriptive subscription governance](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/subscription-governance)-->
+<!-- Not Available on [Azure Deployment Manager](deployment-manager-overview.md)-->
 
 <!--Update_Description: update meta properties, update link -->

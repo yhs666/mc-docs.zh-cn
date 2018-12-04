@@ -15,11 +15,11 @@ origin.date: 04/23/2018
 ms.date: 07/02/2018
 ms.author: sngun
 ms.openlocfilehash: 449e3b1341b51baf1510611b5be668eac6b7816a
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103138"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643987"
 ---
 # <a name="guidelines-for-table-design"></a>表设计准则
 

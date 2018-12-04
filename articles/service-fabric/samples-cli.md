@@ -18,11 +18,11 @@ ms.date: 08/20/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 7d840a8e8de96af320bf8c706599c99138fe39b0
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41704905"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647756"
 ---
 # <a name="azure-cli-az-and-azure-service-fabric-cli-sfctl-samples"></a>Azure CLI (az) 和 Azure Service Fabric CLI (sfctl) 示例
 

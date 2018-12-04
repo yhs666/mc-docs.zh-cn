@@ -5,16 +5,16 @@ services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+origin.date: 10/10/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 392af4cd3472241e6ac1b4f1c82585d792623c4d
-ms.sourcegitcommit: f7ff09be9f3be5e3eb795e383c0c670f480f233d
+ms.openlocfilehash: 60b41d5d16191dfcc7a884b0dc259479a55343e5
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39169017"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643729"
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>准备 Azure 资源以进行本地计算机复制
 
@@ -58,7 +58,7 @@ ms.locfileid: "39169017"
 4. 在“帐户类型”中，选择“存储(常规用途 v1)”。 请不要选择 blob 存储。
 5. 在“复制”中，选择默认的“读取访问异地冗余存储”作为存储冗余。 我们将“需要安全传输”保留为“已禁用”。
 6. 在“性能”中，选择“标准”。
-<!-- Not Available on and in **Access tier** choose the default option of **Hot**-->
+    <!-- Not Available on and in **Access tier** choose the default option of **Hot**-->
 7. 在“订阅”中，选择要在其中创建新存储帐户的订阅。
 8. 在“资源组”中，输入新的资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 对于这些教程，我们使用 **ContosoRG**。
 9. 在“位置”中，选择存储帐户的地理位置。 
@@ -90,7 +90,7 @@ ms.locfileid: "39169017"
 5. 在“地址范围”中，输入网络范围 **10.0.0.0/24**。 在此网络中，我们不使用子网。
 6. 在“订阅”中，选择要在其中创建网络的订阅。
 7. 在“位置”中，选择“中国北部”。 该网络必须位于与恢复服务保管库相同的区域中。
-<!-- Not Available on basic DDoS protection -->
+    <!-- Not Available on basic DDoS protection -->
 8. 单击**创建**。
 
    ![创建虚拟网络](media/tutorial-prepare-azure/create-network.png)
@@ -108,4 +108,4 @@ ms.locfileid: "39169017"
 > [!div class="nextstepaction"]
 > [准备本地 VMware基础结构以对 Azure 进行灾难恢复](tutorial-prepare-on-premises-vmware.md)
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

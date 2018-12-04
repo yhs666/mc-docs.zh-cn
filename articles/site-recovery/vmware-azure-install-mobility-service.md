@@ -8,11 +8,11 @@ origin.date: 07/06/2018
 ms.date: 09/17/2018
 ms.author: v-yeche
 ms.openlocfilehash: 33b36325dd20b9421a82d7febd9d173c8d01a872
-ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586842"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643772"
 ---
 # <a name="install-the-mobility-service"></a>安装移动服务 
 
@@ -25,11 +25,11 @@ Azure Site Recovery 移动服务安装在要复制到 Azure 的 VMware VM 和物
 * [使用 Site Recovery 推送安装进行安装](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery)
 
 >[!IMPORTANT]
-> 从版本 9.7.0.0 开始，在 Windows VM 上，移动服务安装程序还会安装最新可用的 [Azure VM 代理](../virtual-machines/extensions/features-windows.md#azure-vm-agent)。 当计算机故障转移到 Azure 时，该计算机满足使用任何 VM 扩展所需的代理安装先决条件。
+> 从版本 9.7.0.0 开始，在 Windows VM 上，移动服务安装程序还会安装最新可用的 [Azure VM 代理](../virtual-machines/extensions/features-windows.md#azure-vm-agent)。 这可确保当计算机故障转移到 Azure 时，它满足使用任何 VM 扩展的代理安装先决条件。
 > </br>在 Linux VM 上，必须手动安装 WALinuxAgent。
 
 ## <a name="prerequisites"></a>先决条件
-在服务器上手动安装移动服务之前，请完成以下先决条件步骤：
+在服务器上手动安装移动服务之前，请先完成以下必要步骤：
 1. 登录配置服务器，并以管理员身份打开“命令提示符”窗口。
 2. 将目录更改到 bin 文件夹，然后创建一个密码文件。
 
@@ -68,10 +68,10 @@ Azure Site Recovery 移动服务安装在要复制到 Azure 的 VMware VM 和物
 ### <a name="command-line-installation-on-a-windows-computer"></a>Windows 计算机上的命令行安装
 [!INCLUDE [site-recovery-install-mob-svc-win-cmd](../../includes/site-recovery-install-mob-svc-win-cmd.md)]
 
-### <a name="command-line-installation-on-a-linux-computer"></a>Linux 计算机上的命令行安装
+### <a name="command-line-installation-on-a-linux-computer"></a>Linux 计算机上基于命令行的安装
 [!INCLUDE [site-recovery-install-mob-svc-lin-cmd](../../includes/site-recovery-install-mob-svc-lin-cmd.md)]
 
-## <a name="install-mobility-service-by-push-installation-from-azure-site-recovery"></a>通过推送安装从 Azure Site Recovery 安装移动服务
+## <a name="install-mobility-service-by-push-installation-from-azure-site-recovery"></a>在 Azure Site Recovery 中使用推送安装安装移动服务
 可以使用 Site Recovery 执行移动服务的推送安装。 所有目标计算机都必须满足以下先决条件。
 
 [!INCLUDE [site-recovery-prepare-push-install-mob-svc-win](../../includes/site-recovery-prepare-push-install-mob-svc-win.md)]
@@ -86,7 +86,7 @@ Azure Site Recovery 移动服务安装在要复制到 Azure 的 VMware VM 和物
 > [!WARNING]
 > 开始在受保护的服务器上更新移动服务之前，请确保部署中的配置服务器、横向扩展进程服务器及所有主目标服务器均已更新。
 
-1. 在 Azure 门户中，浏览到 *你的保管库的名称* > >“复制的项”视图。
+1. 在 Azure 门户中，浏览到 *你的保管库的名称* > “复制的项”视图。
 2. 如果配置服务器已更新到最新版本，则会看到一条通知，指出“新的 Site Recovery 复制代理更新已可用。 单击可安装。”
 
      ![“复制的项”窗口](.\media\vmware-azure-install-mobility-service\replicated-item-notif.png)
@@ -101,10 +101,10 @@ Azure Site Recovery 移动服务安装在要复制到 Azure 的 VMware VM 和物
 > [详细了解](vmware-azure-manage-configuration-server.md)如何为用于安装移动服务的帐户更新密码。
 
 ## <a name="uninstall-mobility-service-on-a-windows-server-computer"></a>卸载 Windows Server 计算机上的移动服务
-使用以下方法之一卸载 Windows Server 计算机上的移动服务。
+通过以下方法之一卸载 Windows Server 计算机上的移动服务。
 
 ### <a name="uninstall-by-using-the-gui"></a>使用 GUI 卸载
-1. 在“控制面板”中，选择“程序”。
+1. 在控制面板中，选择“程序” 。
 2. 选择“Azure Site Recovery 移动服务/主目标服务器”，并单击“卸载”。
 
 ### <a name="uninstall-at-a-command-prompt"></a>在命令提示符下卸载
@@ -116,7 +116,7 @@ Azure Site Recovery 移动服务安装在要复制到 Azure 的 VMware VM 和物
     ```
 
 ## <a name="uninstall-mobility-service-on-a-linux-computer"></a>卸载 Linux 计算机上的移动服务
-1. 在 Linux 服务器上，以**根**用户身份登录。
+1. 以 **root** 用户身份在 Linux 服务器上登录。
 2. 在终端中转到 /user/local/ASR。
 3. 若要卸载移动服务，请运行以下命令：
 

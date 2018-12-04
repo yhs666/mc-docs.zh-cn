@@ -16,11 +16,11 @@ origin.date: 05/09/2018
 ms.date: 10/22/2018
 ms.author: v-biyu
 ms.openlocfilehash: bf01aeeea71d329a4673f6803f907475c074496d
-ms.sourcegitcommit: 2fdf25eb4b978855ff2832bcdcca093c141be261
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49120599"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645498"
 ---
 # <a name="common-parameters-and-headers"></a>常见参数和标头
 

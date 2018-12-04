@@ -10,11 +10,11 @@ origin.date: 08/03/2018
 ms.date: 09/10/2018
 ms.author: v-yiso
 ms.openlocfilehash: bd6d987c5d73191beacc19814a3883cc22be0caa
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43330458"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647945"
 ---
 # <a name="use-azure-iot-toolkit-extension-for-visual-studio-code-for-azure-iot-hub-device-management"></a>使用用于 Visual Studio Code 的 Azure IoT 工具包扩展进行 Azure IoT 中心管理
 

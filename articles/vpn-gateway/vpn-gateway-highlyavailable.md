@@ -17,11 +17,11 @@ origin.date: 09/24/2016
 ms.date: 09/02/2018
 ms.author: v-jay
 ms.openlocfilehash: 48e2180771bf6c17df19b6c21a0a0065bf9133b4
-ms.sourcegitcommit: e17577aca6df1a41d3ec164f33189f0435c5e060
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43252755"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644712"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>高可用性跨界连接与 VNet 到 VNet 连接
 本文概述使用 Azure VPN 网关的跨界连接和 VNet 到 VNet 连接的高可用性配置选项。

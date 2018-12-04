@@ -16,15 +16,15 @@ origin.date: 06/13/2016
 ms.date: 10/09/2017
 ms.author: v-yiso
 ms.openlocfilehash: 19af9480bd8685d907749745fa48df7a73a6505a
-ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
-ms.locfileid: "22146577"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644039"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>从本地 Git 部署到 Azure 应用服务
 本教程说明如何将应用从本地计算机上的 Git 存储库部署到 [Azure Web 应用](app-service-web-overview.md)。 应用服务支持结合 [Azure 门户]中的“本地 Git”部署选项使用此方法。  
-在根据[此处](app-service-web-get-started-dotnet.md)所述使用 [Azure 命令行接口]创建应用服务应用时，会自动执行本文中所述的许多 Git 命令。
+在根据[此处](app-service-web-get-started-dotnet.md)所述使用 [Azure 命令行界面]创建应用服务应用时，会自动执行本文中所述的许多 Git 命令。
 
 ## <a name="prerequisites"></a>先决条件
 要完成本教程，需要：
@@ -120,8 +120,7 @@ git init
 - - -
 **症状**：无通用引用且未指定任何引用；不采取任何措施。 或许你应指定一个分支，例如“master”。
 
-
-            **原因**：如果在执行 Git 推送操作时未指定分支且未设置 Git 使用的 push.default 值，则会发生该错误。
+**原因**：如果在执行 Git 推送操作时未指定分支且未设置 Git 使用的 push.default 值，则会发生该错误。
 
 **解决方法**：请再次执行推送操作，并指定 master 分支。 例如：
 
@@ -160,7 +159,7 @@ git config --global http.postBuffer 524288000
 
   * npm ERR! \`cmd "/c" "node-gyp rebuild"\` 失败，1
 
-      或
+      OR
   * npm ERR! [modulename@version] 预安装：\`make || gmake\`
 
 ## <a name="additional-resources"></a>其他资源

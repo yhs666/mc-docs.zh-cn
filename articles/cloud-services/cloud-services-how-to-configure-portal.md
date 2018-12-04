@@ -16,11 +16,11 @@ origin.date: 12/07/2016
 ms.date: 04/09/2018
 ms.author: v-yiso
 ms.openlocfilehash: 6309e30f7d65a19beef1702ff18bfeb66c77f8e8
-ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30293804"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643566"
 ---
 # <a name="how-to-configure-cloud-services"></a>如何配置云服务
 可以在 Azure 门户中配置最常使用的云服务设置。 或者，如果希望直接更新配置文件，可下载要更新的服务配置文件，并上传更新文件并通过配置更改更新云服务。 无论使用哪种方法，配置更新都会应用于所有角色实例。
@@ -106,7 +106,7 @@ ms.locfileid: "30293804"
 
 ## <a name="next-steps"></a>后续步骤
 
-* 了解如何[部署云服务](./cloud-services-how-to-create-deploy-portal.md)。
-* 配置[自定义域名](./cloud-services-custom-domain-name-portal.md)。
+* 了解如何 [部署云服务](./cloud-services-how-to-create-deploy-portal.md)。
+* 配置 [自定义域名](./cloud-services-custom-domain-name-portal.md)。
 * [管理云服务](./cloud-services-how-to-manage-portal.md)。
 * 配置 [SSL 证书](./cloud-services-configure-ssl-certificate-portal.md)。

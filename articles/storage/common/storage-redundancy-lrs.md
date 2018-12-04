@@ -10,11 +10,11 @@ origin.date: 03/20/2018
 ms.date: 06/11/2018
 ms.author: v-nany
 ms.openlocfilehash: 19e908d1d9ac56b1e4b430972983af8ae5971caf
-ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43651237"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644890"
 ---
 # <a name="locally-redundant-storage-lrs-low-cost-data-redundancy-for-azure-storage"></a>本地冗余存储 (LRS)：Azure 存储的低成本数据冗余
 

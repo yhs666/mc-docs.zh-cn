@@ -16,11 +16,11 @@ ms.date: 08/13/2018
 ms.author: v-junlch
 ms.custom: mvc
 ms.openlocfilehash: 61fd0e3848fc55a1891ac940b620ebdc472ad371
-ms.sourcegitcommit: 56ed1b03d83f222db6118fe1e2f2485a9488507f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41705329"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648361"
 ---
 # <a name="what-is-azure-redis-cache"></a>什么是 Azure Redis 缓存
 

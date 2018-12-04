@@ -16,11 +16,11 @@ origin.date: 09/07/2016
 ms.date: 01/05/2017
 ms.author: v-dazen
 ms.openlocfilehash: fb7ca41f3d5fa4eb3d43bf127a6796a187a931e1
-ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
-ms.locfileid: "25949575"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645358"
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>如何：在 Azure 应用服务中监视 Web 应用
 [应用服务](/app-service-web/app-service-changes-existing-services)在 [Azure 门户](https://portal.azure.cn)中提供了内置监视功能。
@@ -152,7 +152,7 @@ ms.locfileid: "25949575"
 托管在基本、标准或高级应用服务计划中的应用服务应用支持 **自动缩放**。 这样便可以配置监视应用服务计划度量值的规则，还能增加或减少根据需要提供其他资源或在过度预配时节约资金的实例计数。
 
 ## <a name="whats-changed"></a>发生的更改
-* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为 应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 [fzilla]:http://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:/cloud-services/cloud-services-sizes-specs

@@ -15,11 +15,11 @@ ms.date: 06/04/2018
 ms.author: v-junlch
 ms.custom: mvc
 ms.openlocfilehash: afd2a33b6509c35f6d6c514eafb9d0c964d96c37
-ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855785"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646173"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-powershell"></a>快速入门：使用 Azure 应用程序网关定向 Web 流量 - Azure PowerShell
 

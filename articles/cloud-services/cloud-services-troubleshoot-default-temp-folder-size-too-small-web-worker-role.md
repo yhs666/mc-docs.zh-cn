@@ -17,11 +17,11 @@ origin.date: 06/15/2018
 ms.date: 07/16/2018
 ms.author: v-yiso
 ms.openlocfilehash: b5fb2d9bbedf762218110f215ac11a468b50c5f0
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873280"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644769"
 ---
 # <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-webworker-role"></a>云服务 Web 角色/辅助角色的默认 TEMP 文件夹大小太小
 

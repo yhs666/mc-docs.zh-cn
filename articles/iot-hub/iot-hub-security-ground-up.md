@@ -16,11 +16,11 @@ origin.date: 01/17/2018
 ms.author: v-yiso
 ms.date: 03/19/2018
 ms.openlocfilehash: 1884eb9cfb21a36bef91ccefe63a110112144081
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939799"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646407"
 ---
 [!INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
 
@@ -30,8 +30,7 @@ ms.locfileid: "38939799"
 
 - [IoT 安全最佳实践][lnk-security-best-practices]
 - [IoT 安全体系结构][lnk-security-architecture]
-- 
-            [保护 IoT 部署][lnk-security-deployment]
+- [保护 IoT 部署][lnk-security-deployment]
 
 若要进一步探索 IoT 中心的功能，请参阅：
 

@@ -17,11 +17,11 @@ origin.date: 10/19/2017
 ms.date: 01/29/2018
 ms.author: v-junlch
 ms.openlocfilehash: 2bdd750c567ad161384c4894ca084f4c8303b80d
-ms.sourcegitcommit: 17369f8efdf3ec80c2448412e3425ee10042a31a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32598961"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644259"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>使用 Azure PowerShell 自动缩放虚拟机规模集
 创建规模集时，可定义想运行的 VM 实例数。 若应用程序需要更改，可自动增加或减少 VM 实例数。 通过自动缩放功能，可随客户需求的改变而进行调整，或在应用的整个生命周期内响应应用程序性能更改。

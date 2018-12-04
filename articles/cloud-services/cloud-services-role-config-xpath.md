@@ -14,11 +14,11 @@ origin.date: 04/19/2017
 ms.date: 12/11/2017
 ms.author: v-yiso
 ms.openlocfilehash: 6114928c8f3d127c045b148c2ad34cec0cea322f
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
-ms.locfileid: "26044718"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646710"
 ---
 # <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>使用 XPath 将角色配置设置公共为环境变量
 

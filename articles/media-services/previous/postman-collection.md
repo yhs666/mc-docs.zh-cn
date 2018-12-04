@@ -15,11 +15,11 @@ origin.date: 01/04/2017
 ms.date: 10/01/2018
 ms.author: v-jay
 ms.openlocfilehash: 1c770b73b65c916b2b06c136c0d104214f1c9cd6
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426359"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648472"
 ---
 # <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>使用按需流式处理操作导入一个 Postman 集合
 

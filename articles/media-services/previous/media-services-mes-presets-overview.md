@@ -16,11 +16,11 @@ origin.date: 10/01/2017
 ms.date: 11/06/2017
 ms.author: v-johch
 ms.openlocfilehash: 157a6ae32f087408fef592d532acafbea186c28f
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426180"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646649"
 ---
 # <a name="sample-presets-for-media-encoder-standard-mes"></a>Media Encoder Standard (MES) 的示例预设
 

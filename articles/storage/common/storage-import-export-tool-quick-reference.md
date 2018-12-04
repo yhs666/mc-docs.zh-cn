@@ -16,11 +16,11 @@ origin.date: 01/15/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
 ms.openlocfilehash: fffac642ec1a12e89080bfd4ad8199e07381dc5f
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295683"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645624"
 ---
 # <a name="quick-reference-for-frequently-used-commands-for-import-jobs"></a>导入作业的常用命令快速参考
 

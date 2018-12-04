@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/11/2017
-ms.date: 01/15/2018
+ms.date: 11/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: d7e07442fc4fd79e60ae3b46dfccd78f82d354f4
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: 64bb4f9cdd66bc80867bc473b9a7f5aaf2c4ae2a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
-ms.locfileid: "27781423"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646682"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 群集上安装并使用 Hue
 
@@ -50,12 +50,12 @@ Hue 是一组 Web 应用程序，用来与 Hadoop 群集交互。 可以使用 H
 
 ## <a name="install-hue-using-script-actions"></a>使用脚本操作安装 Hue
 
-有关用于在基于 Linux 的 HDInsight 群集上安装 Hue 的脚本，可访问 https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh。可使用此脚本在群集上安装 Hue，其中可将 Azure 存储 Blob (WASB) 用作默认存储。
+https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh 可提供在基于 Linux 的 HDInsight 群集上安装色调的脚本。可使用此脚本在群集上安装 Hue，其中可将 Azure 存储 Blob (WASB) 用作默认存储。
 
 本部分说明如何在使用 Azure 门户预配群集时使用脚本。
 
 > [!NOTE]
-> Azure PowerShell、Azure CLI、HDInsight .NET SDK 或 Azure Resource Manager 模板也可用于应用脚本操作。 也可以将脚本操作应用于已在运行的群集。 有关详细信息，请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。
+> Azure PowerShell、Azure 经典 CLI、HDInsight .NET SDK 或 Azure 资源管理器模板也可用于应用脚本操作。 也可以将脚本操作应用于已在运行的群集。 有关详细信息，请参阅 [使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。
 >
 >
 
@@ -70,10 +70,10 @@ Hue 是一组 Web 应用程序，用来与 Hadoop 群集交互。 可以使用 H
     ![为 Hue 提供脚本操作参数](./media/hdinsight-hadoop-hue-linux/hue-script-action.png "为 Hue 提供脚本操作参数")
 
    * **名称**：输入脚本操作的友好名称。
-   * **脚本 URI**：https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
+   * **脚本 URI**： https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
    * **标头**：选中此选项
    * **辅助角色**：将此选项留空。
-   * **ZOOKEEPER**：将此选项留空。
+   * **ZOOKEEPER**：将此项留空。
    * **参数**：将此选项留空。
 3. 在“脚本操作”的底部，使用“选择”按钮保存配置。 最后，使用“可选配置”边栏选项卡底部的“选择”按钮保存可选配置信息。
 4. 继续按[预配 Linux 上的 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)中所述预配群集。
@@ -91,7 +91,7 @@ Hue 是一组 Web 应用程序，用来与 Hadoop 群集交互。 可以使用 H
 
 2. 在创建 SSH 隧道并将浏览器配置为通过它代理发送流量后，必须查找主头节点的主机名。 为此，可以在端口 22 上使用 SSH 连接到群集。 例如 `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn`，其中 **USERNAME** 是 SSH 用户名，**CLUSTERNAME** 是群集的名称。
 
-    有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
+    有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 3. 连接后，使用以下命令获取主头节点的完全限定域名：
 
@@ -102,7 +102,7 @@ Hue 是一组 Web 应用程序，用来与 Hadoop 群集交互。 可以使用 H
         hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.chinacloudapp.cn
 
     这是 Hue 网站所在的主头节点的主机名。
-4. 使用浏览器打开 Hue 门户 http://HOSTNAME:8888 。 将 HOSTNAME 替换为在上一步骤中获取的名称。
+4. 使用浏览器打开 Hue 门户 ( http://HOSTNAME:8888 )。 将 HOSTNAME 替换为在上一步骤中获取的名称。
 
    > [!NOTE]
    > 第一次登录时，系统会提示创建帐户来登录 Hue 门户。 在此处指定的凭据只能用于该门户，并且与预配群集时指定的管理员或 SSH 用户凭据不相关。

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/08/2017
-ms.date: 09/03/2018
+ms.date: 11/08/2018
 ms.author: v-junlch
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: f70385c35548acc5287c06bbc068fc796d28ca78
-ms.sourcegitcommit: 562cde32fc2271238f3d1ef5d2cc5ed037bdec2d
+ms.openlocfilehash: 9ef4007e2e6f03ff7cae3edd23c9f71392ce8cd6
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43531658"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645537"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>使用客户端凭据（共享密钥或证书）进行服务到服务调用
 OAuth 2.0 客户端凭据授权流允许 Web 服务（机密客户端）在调用其他 Web 服务时使用它自己的凭据（而不是模拟用户）进行身份验证。 在这种情况下，客户端通常是中间层 Web 服务、后台程序服务或网站。 为了更高级别的保证，Azure AD 还允许调用服务以将证书（而不是共享密钥）用作凭据。
@@ -62,7 +62,7 @@ https://login.partner.microsoftonline.cn/<tenant id>/oauth2/token
 | resource |必填 |输入接收 Web 服务的应用 ID URI。 要查找应用 ID URI，请在 Azure 门户中，依次单击“Azure Active Directory”和“应用注册”，并单击服务应用程序，然后依次单击“设置”和“属性”。 |
 
 #### <a name="example"></a>示例
-以下 HTTP POST 请求 https://service.contoso.com/ Web 服务的访问令牌。 `client_id` 标识请求访问令牌的 Web 服务。
+以下 HTTP POST 请求 https://service.contoso.com/ Web 服务的[访问令牌](access-tokens.md)。 `client_id` 标识请求访问令牌的 Web 服务。
 
 ```
 POST /contoso.com/oauth2/token HTTP/1.1
@@ -126,3 +126,4 @@ resource=https%3A%2F%contoso.partner.onmschina.cn%2Ffc7664b4-cdd6-43e1-9365-c2e1
 - [Azure AD 中的 OAuth 2.0](v1-protocols-oauth-code.md)
 - [使用共享密钥的服务到服务调用的 C# 示例](https://github.com/Azure-Samples/active-directory-dotnet-daemon)和[使用证书的服务到服务调用的 C# 示例](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
 
+<!-- Update_Description: link update -->

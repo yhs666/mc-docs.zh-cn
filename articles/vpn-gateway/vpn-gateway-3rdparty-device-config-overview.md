@@ -17,11 +17,11 @@ origin.date: 06/20/2017
 ms.date: 06/14/2018
 ms.author: v-junlch
 ms.openlocfilehash: 04a4dd5a7655bfd027ce6783b30a96eddb0b064c
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568307"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646811"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>合作伙伴 VPN 设备配置概述
 本文提供有关配置用于连接到 Azure VPN 网关的本地 VPN 设备的概述。 示例 Azure 虚拟网络和 VPN 网关设置用于演示如何使用相同参数连接到不同的本地 VPN 设备配置。

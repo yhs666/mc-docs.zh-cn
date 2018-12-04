@@ -16,11 +16,11 @@ origin.date: 07/01/2018
 ms.date: 10/01/2018
 ms.author: v-jay
 ms.openlocfilehash: fb846635c413e8d5e1c2a3fc3c09f0b2bf89cc98
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426243"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648881"
 ---
 # <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>利用 Azure 门户创建 Azure 媒体服务帐户
 > [!div class="op_single_selector"]

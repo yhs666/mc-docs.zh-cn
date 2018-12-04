@@ -18,11 +18,11 @@ origin.date: 05/14/2018
 ms.date: 09/24/2018
 ms.author: v-yiso
 ms.openlocfilehash: 302533c36c822740c6d130ebc55e897085198c1b
-ms.sourcegitcommit: bae4e9e500e3e988ef8fa0371777ca9cc49b4e94
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45584844"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646672"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>使用 Bootstrap 自定义 HDInsight 群集
 
@@ -47,11 +47,11 @@ ms.locfileid: "45584844"
 * yarn-site.xml
 * server.properties（kafka-broker 配置）
 
-Bootstrap 的使用方式有三种：
+bootstrap 的使用方式有 3 种：
 
 * 使用 Azure PowerShell
 * 使用 .NET SDK
-* 使用 Azure 资源管理器模板
+* 使用 Azure Resource Manager 模板
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
@@ -60,7 +60,7 @@ Bootstrap 的使用方式有三种：
 * [使用脚本操作自定义 HDInsight 群集 (Linux)](hdinsight-hadoop-customize-cluster-linux.md)
 
 ## <a name="use-azure-powershell"></a>使用 Azure PowerShell
-以下 PowerShell 代码将自定义 Hive 配置：
+以下 PowerShell 代码自定义 Hive 配置：
 
 ```powershell
 # hive-site.xml configuration
@@ -87,19 +87,19 @@ $hiveConfigValues = @{ "hive.metastore.client.socket.timeout"="90" }
 
 可在[附录](#appendix-powershell-sample)中找到完整的有效 PowerShell 脚本。
 
-**验证更改：**
+**若要验证更改，请执行以下操作：**
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 单击左侧菜单中的“HDInsight 群集”。 如果看不到该群集，请先单击“所有服务”。
-3. 单击刚使用 PowerShell 脚本创建的群集。
-4. 在边栏选项卡的顶部单击“仪表板”以打开 Ambari UI。
+2. 在左侧菜单中，单击“HDInsight 群集” 。 如果看不到该群集，请先单击“所有服务”。
+3. 单击刚刚使用 PowerShell 脚本创建的群集。
+4. 单击边栏选项卡顶部的“仪表板”  打开 Ambari UI。
 5. 在左侧菜单中，单击“Hive”。
 6. 在“摘要”中单击“HiveServer2”。
 7. 单击“配置”选项卡。
 8. 在左侧菜单中，单击“Hive”。
-9. 单击“高级”选项卡。
-10. 向下滚动，并展开“高级 hive-site”。
-11. 在本部分中查找 **hive.metastore.client.socket.timeout**。
+9. 单击“高级”选项卡  。
+10. 向下滚动，并展开“高级 hive 站点” 。
+11. 在此部分中查找 **hive.metastore.client.socket.timeout** 。
 
 下面是有关自定义其他配置文件的更多示例：
 
@@ -116,13 +116,13 @@ $MapRedConfigValues = @{ "mapreduce.task.timeout"="1200000" } #default 600000
 # oozie-site.xml configuration
 $OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # default 120
 ```
-有关详细信息，请参阅 Azim Uddin 的标题为[自定义 HDInsight 群集创建](http://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx)的博客。
+有关详细信息，请参阅 Azim Uddin 的标题为 [自定义 HDInsight 群集创建](http://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx)的博客。
 
 ## <a name="use-net-sdk"></a>使用 .NET SDK
 请参阅[使用 .NET SDK 在 HDInsight 中创建基于 Linux 的群集](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-bootstrap)。
 
 ## <a name="use-resource-manager-template"></a>使用 Resource Manager 模板
-可在 Resource Manager 模板中使用 Bootstrap：
+可以在 Resource Manager 模板中使用 bootstrap：
 
 ```json
 "configurations": {
@@ -135,10 +135,10 @@ $OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # 
 }
 ```
 
-![HDInsight Hadoop 自定义群集 Bootstrap Azure 资源管理器模板](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
+![HDInsight Hadoop, 自定义群集, bootstrap, Azure Resource Manager 模板](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
 ## <a name="see-also"></a>另请参阅
-* [在 HDInsight 中创建 Hadoop 群集][hdinsight-provision-cluster]提供了有关如何使用其他自定义选项创建 HDInsight 群集的说明。
+* [在 HDInsight 中创建 Hadoop 群集][hdinsight-provision-cluster] 说明了如何使用其他自定义选项创建 HDInsight 群集。
 * [为 HDInsight 开发脚本操作脚本][hdinsight-write-script]
 * [在 HDInsight 群集上安装并使用 Spark][hdinsight-install-spark]
 * [在 HDInsight 群集上安装并使用 Solr](hdinsight-hadoop-solr-install.md)。
@@ -152,7 +152,7 @@ $OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "群集创建期间的阶段"
 
 ## <a name="appendix-powershell-sample"></a>附录：PowerShell 示例
-此 PowerShell 脚本将创建一个 HDInsight 群集并自定义 Hive 设置：
+此 PowerShell 脚本创建一个 HDInsight 群集并自定义 Hive 设置：
 
 ```powershell
 ####################################

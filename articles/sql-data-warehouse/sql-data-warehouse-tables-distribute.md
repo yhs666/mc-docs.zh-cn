@@ -11,16 +11,16 @@ origin.date: 04/17/2018
 ms.date: 09/17/2018
 ms.author: v-yeche
 ms.openlocfilehash: 4fa6c86d37dc04e12ffbcc81bb0e7d6377a3b378
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089090"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647054"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>有关如何在 Azure SQL 数据仓库中设计分布式表的指南
 有关如何在 Azure SQL 数据仓库中设计哈希分布式表和轮循机制分布式表的一些建议。
 
-本文假定你熟悉 SQL 数据仓库中的数据分发和数据移动概念。  有关详细信息，请参阅 [Azure SQL 数据仓库 - 大规模并行处理 (MPP) 体系结构](massively-parallel-processing-mpp-architecture.md)。 
+本文假定你熟悉 SQL 数据仓库中的数据分发和数据移动概念。  有关详细信息，请参阅 [Azure SQL 数据仓库 - 大规模并行处理 (MPP) 体系结构](massively-parallel-processing-mpp-architecture.md)。 
 
 ## <a name="what-is-a-distributed-table"></a>什么是分布式表？
 分布式表显示为单个表，但表中的行实际存储在 60 个分布区中。 这些行使用哈希或轮循机制算法进行分布。  
@@ -29,11 +29,11 @@ ms.locfileid: "49089090"
 
 另一个表存储选项是跨所有计算节点复制一个小型表。 有关详细信息，请参阅[复制表的设计准则](design-guidance-for-replicated-tables.md)。 若要在这三个选项之间快速选择其一，请参阅[表概述](sql-data-warehouse-tables-overview.md)中的分布式表。 
 
-作为表设计的一部分，请尽可能多地去了解你的数据及其查询方式。  例如，请考虑以下问题：
+作为表设计的一部分，请尽可能多地去了解你的数据及其查询方式。  例如，请考虑以下问题：
 
-- 表有多大？   
-- 表的刷新频率是多少？   
-- 数据仓库中是否有事实数据表和维度表？   
+- 表有多大？   
+- 表的刷新频率是多少？   
+- 数据仓库中是否有事实数据表和维度表？   
 
 
 ### <a name="hash-distributed"></a>哈希分布

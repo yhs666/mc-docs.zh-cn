@@ -16,11 +16,11 @@ origin.date: 06/11/2018
 ms.date: 07/09/2018
 ms.author: v-yeche
 ms.openlocfilehash: ad21ca93d8c6f0e47c1d2362447d14d1e7a97327
-ms.sourcegitcommit: 292f22020e00c607229c1693229f25fb2837d8af
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37910605"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645824"
 ---
 # <a name="service-fabric-application-and-service-manifest-examples"></a>Service Fabric 应用程序和服务清单示例
 此部分包含应用程序和服务清单的示例。 这些示例不是要演示重要的方案，而是演示可以使用的不同设置以及如何使用它们。 

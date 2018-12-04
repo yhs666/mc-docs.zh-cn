@@ -18,11 +18,11 @@ origin.date: 11/28/2017
 ms.date: 04/16/2018
 ms.author: v-yiso
 ms.openlocfilehash: 456e53f1476562a07ebb118074fc39134f8eff57
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
-ms.locfileid: "30941485"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644291"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-spark-applications-remotely-in-hdinsight-through-vpn"></a>使用用于 IntelliJ 的 Azure 工具包通过 VPN 在 HDInsight 中远程调试 Spark 应用程序
 

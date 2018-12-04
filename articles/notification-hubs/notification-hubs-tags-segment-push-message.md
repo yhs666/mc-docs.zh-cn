@@ -16,11 +16,11 @@ origin.date: 04/14/2018
 ms.date: 07/09/2018
 ms.author: v-junlch
 ms.openlocfilehash: 752701663e24e392d257cedf2be8f1022e75d587
-ms.sourcegitcommit: e950fe5260c519e05f8c5bbf193a8ef733a6a2d2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37936299"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644534"
 ---
 # <a name="routing-and-tag-expressions"></a>路由和标记表达式
 ## <a name="overview"></a>概述
@@ -30,10 +30,8 @@ ms.locfileid: "37936299"
 定向到特定注册的唯一方法是将这些注册与标记相关联，并定向到这些标记。 如[注册管理](notification-hubs-push-notification-registration-management.md)中所述，应用要接收推送通知，必须在通知中心内注册设备句柄。 在通知中心内创建注册后，应用程序后端便可向它发送推送通知。
 应用程序后端可以通过以下方式选择要将特定通知定向到的注册：
 
-1. 
-            **广播**：通知中心内的所有注册均会收到通知。
-2. 
-            **标记**：包含指定标记的所有注册会收到通知。
+1. **广播**：通知中心内的所有注册均会收到通知。
+2. **标记**：包含指定标记的所有注册会收到通知。
 3. **标记表达式**：其标记集匹配指定表达式的所有注册将收到通知。
 
 ## <a name="tags"></a>标记

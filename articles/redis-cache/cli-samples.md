@@ -3,8 +3,8 @@ title: Azure CLI Redis 缓存示例 | Microsoft Docs
 description: Azure Redis 缓存的 Azure CLI 示例。
 services: redis-cache
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: wesmc7777
+manager: cfowler
 editor: ''
 ms.assetid: 8d2de145-50c0-4f76-bf8f-fdf679f03698
 ms.service: cache
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 04/14/2017
-ms.date: 12/11/2017
+ms.date: 11/14/2018
 ms.author: v-junlch
-ms.openlocfilehash: 72ed01f88f0edc6a0b7c3b6638a19a28da7a4c75
-ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
+ms.openlocfilehash: a192894e2999106c8e837be5096573f4ffc76425
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "26652686"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648352"
 ---
 # <a name="azure-cli-samples-for-azure-redis-cache"></a>适用于 Azure Redis 缓存的 Azure CLI 示例
 
@@ -39,6 +39,6 @@ ms.locfileid: "26652686"
 | [删除缓存](./scripts/delete-cache.md) | 删除 Azure Redis 缓存实例  |
 | | |
 
-有关 Azure CLI 2.0 的详细信息，请参阅 [Install Azure CLI 2.0](/cli/install-azure-cli)（安装 Azure CLI 2.0）和 [Get started with Azure CLI 2.0](/cli/get-started-with-azure-cli)（Azure CLI 2.0 入门）。
+有关 Azure CLI 的详细信息，请参阅[安装 Azure CLI](/cli/install-azure-cli) 和 [Azure CLI 入门](/cli/get-started-with-azure-cli)。
 
 <!--Update_Description: link update-->

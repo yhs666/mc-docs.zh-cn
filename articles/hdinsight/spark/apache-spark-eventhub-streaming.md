@@ -15,11 +15,11 @@ origin.date: 06/14/2018
 ms.date: 07/23/2018
 ms.author: v-yiso
 ms.openlocfilehash: c74aa1904c796f25022507ee87a582ed0468df63
-ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39031776"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648828"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-spark-in-hdinsight"></a>教程：使用 HDInsight 中的 Azure 事件中心和 Spark 处理推文
 

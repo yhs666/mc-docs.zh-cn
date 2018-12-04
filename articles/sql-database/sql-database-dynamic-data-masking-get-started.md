@@ -11,11 +11,11 @@ origin.date: 04/01/2018
 ms.date: 09/02/2018
 ms.author: v-jay
 ms.openlocfilehash: 56390d28a9f01e7fd856a108ce603a6e39655c50
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913879"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644539"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>SQL 数据库动态数据掩码
 

@@ -17,11 +17,11 @@ ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: hectorl
 ms.openlocfilehash: 248349f02dfb355a6b0a19b227267e068ab42783
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869537"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644384"
 ---
 # <a name="infrastructure-backup-service-reference"></a>基础结构备份服务参考
 

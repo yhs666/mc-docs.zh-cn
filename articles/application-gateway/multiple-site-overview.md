@@ -16,11 +16,11 @@ origin.date: 05/09/2017
 ms.date: 06/04/2018
 ms.author: v-junlch
 ms.openlocfilehash: da6a38fdffc7415efd26152763388b6bc82d02b7
-ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855802"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646925"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>应用程序网关的多站点托管功能
 

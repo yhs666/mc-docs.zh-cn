@@ -8,11 +8,11 @@ origin.date: 08/02/2018
 ms.date: 09/07/2018
 ms.topic: conceptual
 ms.openlocfilehash: aa52bd75a19efb311a7eca4c97994b7bb0696074
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068254"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648621"
 ---
 # <a name="using-azure-batch-rendering"></a>使用 Azure Batch 渲染
 

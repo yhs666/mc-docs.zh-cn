@@ -16,11 +16,11 @@ origin.date: 05/09/2016
 ms.date: 05/21/2018
 ms.author: v-yeche
 ms.openlocfilehash: 82099e1bcadc59653d63c4004b90ef2739f1368c
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257327"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647056"
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>在 Azure VM 上创建 MATLAB 分布式计算服务器群集
 使用 Microsoft Azure 虚拟机可以创建一个或多个 MATLAB 分布式计算服务器群集，以运行计算密集型并行 MATLAB 工作负荷。 在 VM 上安装 MATLAB 分布式计算服务器软件以用作基本映像，并使用 Azure 快速入门模板或 Azure PowerShell 脚本（可在 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster) 上获取）来部署和管理群集。 部署之后，可连接到群集来运行工作负荷。
@@ -36,8 +36,7 @@ ms.locfileid: "34257327"
 * **Azure 订阅** - 如果没有订阅，只需要花费几分钟就能创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。 对于较大的群集，请考虑即用即付订阅或其他购买选项。
 * **vCPU 配额** - 可能需要增大 vCPU 配额才能部署大型群集或多个 MATLAB 分布式计算服务器群集。 若要增加配额，可免费 [建立联机客户支持请求](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) 。
 * **MATLAB、并行计算工具箱和 MATLAB 分布式计算服务器许可证** - 脚本假设所有许可证都使用 [MathWorks Hosted License Manager](http://www.mathworks.com/products/parallel-computing/mathworks-hosted-license-manager/) 。  
-* 
-            **MATLAB 分布式计算服务器软件** - 会安装在用作群集 VM 基本 VM 映像的 VM 上。
+* **MATLAB 分布式计算服务器软件** - 会安装在用作群集 VM 基本 VM 映像的 VM 上。
 
 ## <a name="high-level-steps"></a>大致步骤
 若要对 MATLAB 分布式计算服务器群集使用 Azure 虚拟机，必须执行以下概要步骤。 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)上的快速入门模板和脚本随附的文档中提供了详细说明。

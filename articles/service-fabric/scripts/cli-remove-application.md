@@ -17,11 +17,11 @@ ms.date: 08/20/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: f1b15b3be0c10a8165a95d9668d92902c73d8c76
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41703928"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644966"
 ---
 # <a name="remove-an-application-from-a-service-fabric-cluster"></a>从 Service Fabric 群集中删除应用程序
 

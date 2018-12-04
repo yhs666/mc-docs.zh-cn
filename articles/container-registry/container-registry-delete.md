@@ -9,11 +9,11 @@ origin.date: 07/27/2018
 ms.date: 11/12/2018
 ms.author: v-yeche
 ms.openlocfilehash: be42a2fa09c3c7472ce4a6f82c948a08c8ffaefa
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195460"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643723"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>删除 Azure 容器注册表中的容器映像
 

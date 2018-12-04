@@ -17,11 +17,11 @@ ms.date: 10/08/2018
 ms.author: v-junlch
 ms.reviewer: asteen
 ms.openlocfilehash: 6dfae3e57cc26b1335883f675664b7b04ce83456
-ms.sourcegitcommit: b8f424fbff10034c55851618f6564d52257a5e92
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48876444"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644882"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>对应用程序执行许可时发生的意外错误
 

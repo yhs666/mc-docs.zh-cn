@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: v-junlch
 ms.openlocfilehash: 33f8e6505d3d03265fad843b0f7591ba2049456a
-ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2017
-ms.locfileid: "22094834"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644812"
 ---
 # <a name="installing-python-and-the-sdk"></a>安装 Python 和 SDK
 
@@ -92,11 +92,11 @@ Azure SDK for Python 包括允许针对 Azure 开发、部署和管理 Python �
 
 ## <a name="getting-more-packages"></a>获取多个软件包
 
-[Python 包索引][] (PyPI) 提供丰富的 Python 库。  如果选择安装发行版本，表明重点关注的是从 Web 开发到技术计算的各种方案。
+[Python 包索引][] (PyPI) 提供丰富的 Python 库。  如果选择安装发行版本，表明你重点关注的是从 Web 开发到技术计算的各种方案。
 
 ## <a name="python-tools-for-visual-studio"></a>Python Tools for Visual Studio
 
-[针对 Visual Studio 的 Python 工具][] (PTVS) 是 Microsoft 提供的免费/OSS 插件，可将 VS 转换为完备的 Python IDE：
+[Python Tools for Visual Studio][] (PTVS) 是 Microsoft 提供的免费/OSS 插件，可将 VS 转换为完备的 Python IDE：
 
 ![how-to-install-python-ptvs](./media/python-how-to-install/how-to-install-python-ptvs.png)
 
@@ -124,7 +124,7 @@ PTVS 适用于现有的 Visual Studio 2013 或 2015 版本的安装。  有关�
 
 使用 Git 部署，可以从任何操作系统开发 Python web 应用程序并将其发布到 Azure 网站。  当将存储库推送到 Azure 时，它会自动创建虚拟环境和 pip 安装所需的包。
 
-有关开发和发布 Azure 网站的详细信息，请参阅有关教程：[Creating Websites with Django][]（使用 Django 创建网站）、[Creating Websites with Bottle][]（使用 Bottle 创建网站）和 [Creating Websites with Flask][]（使用 Flask 创建网站）。 有关使用任何 WSGI 合规框架的更多常规信息，请参阅 [使用 Azure 网站配置 Python][]。
+有关开发和发布 Azure 网站的详细信息，请参阅有关教程：[使用 Django 创建网站][]（使用 Django 创建网站）、[使用 Bottle 创建网站][]（使用 Bottle 创建网站）和 [使用 Flask 创建网站][]（使用 Flask 创建网站）。 有关使用任何 WSGI 合规框架的更多常规信息，请参阅 [配置 Azure 网站的 Python][]。
 
 ## <a name="additional-software-and-resources"></a>其他软件和资源：
 

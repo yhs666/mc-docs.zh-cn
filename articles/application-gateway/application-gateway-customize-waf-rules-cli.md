@@ -16,11 +16,11 @@ origin.date: 07/26/2017
 ms.date: 10/17/2018
 ms.author: v-junlch
 ms.openlocfilehash: 66bc2dc1df03c394ce2a378ae554097c33335534
-ms.sourcegitcommit: 4ead6b1d3527373b63c90680b6400a2e95b4064e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49374961"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643658"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-cli"></a>通过 Azure CLI 自定义 Web 应用程序防火墙规则
 

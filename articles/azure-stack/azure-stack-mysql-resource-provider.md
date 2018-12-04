@@ -16,11 +16,11 @@ ms.date: 07/20/2018
 ms.author: v-junlch
 ms.reviewer: jeffgo
 ms.openlocfilehash: 8eafaa3a8e56f69c76a777738aadc17997cf8bd2
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168301"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647396"
 ---
 # <a name="use-mysql-databases-on-azure-stack"></a>在 Azure Stack 上使用 MySQL 数据库
 

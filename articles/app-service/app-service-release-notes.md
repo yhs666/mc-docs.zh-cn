@@ -16,11 +16,11 @@ origin.date: 10/10/2016
 ms.date: 12/04/2017
 ms.author: v-yiso
 ms.openlocfilehash: 3fd305eb665f8fe156e9159dc92e152fa9dd5a3c
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
-ms.locfileid: "25591898"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646198"
 ---
 # <a name="azure-sdk-for-net-251-release-notes"></a>用于 .NET 2.5.1 的 Azure SDK 发行说明
 本文档包含用于 .NET 2.5.1 的 Azure SDK 版本的发行说明。 
@@ -46,7 +46,7 @@ ms.locfileid: "25591898"
   * （公共预览版）针对 Hive 的关键字自动完成功能和 IntelliSense 支持。 用于 Visual Studio 的 HDInsight 工具增加了针对 Hive 的关键字自动完成功能和 IntelliSense 支持，方便用户创作 Hive 脚本。
   * Storm 支持。 现可通过用于 Visual Studio 的 HDInsight 工具在 C# 中开发 Storm 拓扑/Spout/Bolt。 然后即可将已开发拓扑提交到 Storm 群集，并查看拓扑/bolt/spout 状态。 可以通过系统日志和客户日志对 Storm 拓扑/Bolt/Spout 进行故障排除。 也可使用 Storm on HDInsight 中的现有 JAVA 资产。
 
-    有关详细信息，请参阅[用于 Visual Studio 的 HDInsight Hadoop 工具入门](../hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md)。
+    有关详细信息，请参阅 [用于 Visual Studio 的 HDInsight Hadoop 工具入门](../hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md)。
 
 ## <a id="known_issues_2_5_1"></a>用于 .NET 2.5.1 的 Azure SDK 的已知问题和限制
 * Azure API 应用以移动应用部署目标的方式呈现。 在后续版本发布之前，Web 应用应该是移动应用的唯一目标。 

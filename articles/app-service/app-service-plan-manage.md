@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: v-biyu
 ms.openlocfilehash: bd2a616ea2b68cabc8cb104b0f75a05e3c7ee1dd
-ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49451604"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646643"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>在 Azure 中管理应用服务计划
 

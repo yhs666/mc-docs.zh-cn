@@ -11,11 +11,11 @@ origin.date: 06/27/2018
 ms.date: 11/05/2018
 ms.author: v-jay
 ms.openlocfilehash: 4ea25da821f238869516b35757bf58336ff29c07
-ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50743532"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643738"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-preview-storage-account"></a>快速入门：创建 Azure Data Lake Storage Gen2 预览版存储帐户
 

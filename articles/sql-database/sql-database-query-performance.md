@@ -11,11 +11,11 @@ origin.date: 04/01/2018
 ms.date: 09/02/2018
 ms.author: v-jay
 ms.openlocfilehash: 85e9f7d6935d71a9c252e86c1ee83315003aa78f
-ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43249656"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647928"
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>Azure SQL 数据库 Query Performance Insight
 管理和优化关系数据库性能是一项颇具挑战性的操作，需要投入大量的专业知识和时间。 查询性能见解通过提供以下功能使排查数据库性能问题花费的时间更少：

@@ -17,11 +17,11 @@ origin.date: 04/14/2018
 ms.date: 09/26/2018
 ms.author: v-junlch
 ms.openlocfilehash: 4389c11b2a8aeb9d9058a97533b58f98753e14bc
-ms.sourcegitcommit: 7c6ff130adaa67bc90094846f81295ef0719d072
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47191368"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646484"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>使用 Azure 通知中心和 Node.js 发送推送通知
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -63,7 +63,7 @@ Azure 通知中心提供用于向移动设备发送推送通知的易于使用�
 > 
 
 ### <a name="import-the-module"></a>导入模块
-使用文本编辑器将以下内容添加到应用程序的 **server.js** 文件的顶部：
+使用某一文本编辑器将以下内容添加到应用程序的 **server.js** 文件的顶部：
 
     var azure = require('azure');
 
@@ -87,7 +87,7 @@ Azure 通知中心提供用于向移动设备发送推送通知的易于使用�
 > 
 
 ## <a name="general-architecture"></a>一般体系结构
-**NotificationHubService** 对象公开以下对象实例，以便向特定设备和应用程序发送推送通知：
+**NotificationHubService** 对象将公开用于向特定设备和应用程序发送推送通知的以下对象实例：
 
 - iOS - 使用 ApnsService 对象，该对象可在 notificationHubService.apns 中访问
 - Windows Phone - 使用 MpnsService 对象，该对象可从 notificationHubService.mpns 中获取

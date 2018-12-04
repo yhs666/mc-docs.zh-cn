@@ -16,11 +16,11 @@ origin.date: 05/11/2018
 ms.date: 05/28/2018
 ms.author: v-nany
 ms.openlocfilehash: be9849ac0e7a8421ef9e4f24bf719fd72f8e05bc
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405161"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647015"
 ---
 # <a name="cli-example-publish-an-asset"></a>CLI 示例：发布资产
 

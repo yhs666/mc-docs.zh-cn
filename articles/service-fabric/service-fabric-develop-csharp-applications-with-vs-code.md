@@ -16,11 +16,11 @@ origin.date: 06/29/2018
 ms.date: 08/20/2018
 ms.author: v-yeche
 ms.openlocfilehash: 146024565850755354102174e1cab9abd3172919
-ms.sourcegitcommit: 744a0de811483c47bc1e88dd73084874376eb01c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40184776"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645795"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>使用 Visual Studio Code 开发 C# Service Fabric 应用程序
 

@@ -16,11 +16,11 @@ origin.date: 05/11/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
 ms.openlocfilehash: a63407d735f894ed95707c9a4c56d3b8cc188b9f
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295682"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644969"
 ---
 # <a name="managing-concurrency-in-azure-storage"></a>在 Azure 存储中管理并发
 ## <a name="overview"></a>概述

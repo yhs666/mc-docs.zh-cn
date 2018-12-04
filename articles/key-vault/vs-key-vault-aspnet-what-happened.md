@@ -12,11 +12,11 @@ origin.date: 04/15/2018
 ms.date: 10/22/2018
 ms.author: v-biyu
 ms.openlocfilehash: dd35e82e727839ba1fa365e8d5f855e716ba40a2
-ms.sourcegitcommit: 2fdf25eb4b978855ff2832bcdcca093c141be261
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49120596"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643523"
 ---
 # <a name="what-happened-to-my-aspnet-project-visual-studio-key-vault-connected-service"></a>我的 ASP.NET 项目（Visual Studio Key Vault 连接服务）发生了什么情况？
 

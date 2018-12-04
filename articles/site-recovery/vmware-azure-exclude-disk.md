@@ -4,15 +4,15 @@ description: 介绍在从 VMware 复制到 Azure 时，为何需要从复制中�
 author: rockboyfor
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+origin.date: 10/11/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 472db8ab832863e820d3d32dd97264829bd18279
-ms.sourcegitcommit: f7ff09be9f3be5e3eb795e383c0c670f480f233d
+ms.openlocfilehash: 2424426a7b3556fcdc02c5381461fcde1badfd50
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39169042"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643732"
 ---
 # <a name="exclude-disks-from-replication-for-vmware-to-azure-scenario"></a>在从 VMware 到 Azure 方案的复制中排除磁盘
 

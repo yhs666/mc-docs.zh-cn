@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.topic: quickstart
 origin.date: 02/28/2018
 ms.date: 08/13/2018
-ms.openlocfilehash: dfaa0f484e4ece94bdfc03929144e89c4ddd3b92
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.openlocfilehash: 873690e916561b9685dc963937cb18d56bcb9188
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723137"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646651"
 ---
 # <a name="azure-database-for-mysql-use-mysql-workbench-to-connect-and-query-data"></a>Azure Database for MySQL：使用 MySQL Workbench 进行连接并查询数据
 
@@ -36,7 +36,7 @@ ms.locfileid: "39723137"
 ## <a name="get-connection-information"></a>获取连接信息
 获取连接到 Azure Database for MySQL 所需的连接信息。 需要完全限定的服务器名称和登录凭据。
 
-1. 登录到 [Azure 门户](https://portal.azure.com/)。
+1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 
 2. 在 Azure 门户的左侧菜单中，单击“所有资源”，然后搜索已创建的服务器（例如 mydemoserver）。
 
@@ -54,7 +54,7 @@ ms.locfileid: "39723137"
 
     ![设置新连接](./media/connect-workbench/2-setup-new-connection.png)
 
-    | **设置** | 建议的值 | 字段说明 |
+    | **设置** | **建议的值** | **字段说明** |
     |---|---|---|
     |   连接名称 | 演示连接 | 指定此连接的标签。 |
     | 连接方法 | 标准 (TCP/IP) | 标准 (TCP/IP) 就足够了。 |

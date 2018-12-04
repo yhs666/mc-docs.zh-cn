@@ -17,11 +17,11 @@ origin.date: 09/14/2017
 ms.date: 10/22/2018
 ms.author: v-yeche
 ms.openlocfilehash: 649daa87a269c8434b5264f922c0b87991219f0a
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034934"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646765"
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>在 Azure 中使用 Terraform 创建完整的 Linux 虚拟机基础结构
 

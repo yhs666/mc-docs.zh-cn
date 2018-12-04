@@ -10,11 +10,11 @@ ms.date: 08/27/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
 ms.openlocfilehash: 8dbf02b4cf8c261c757237b4e26feae3c528794d
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872381"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648230"
 ---
 # <a name="create-a-tabular-model-project"></a>创建表格模型项目
 

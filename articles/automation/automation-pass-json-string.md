@@ -12,11 +12,11 @@ ms.topic: conceptual
 manager: digimobile
 keywords: powershell, runbook, json, azure 自动化
 ms.openlocfilehash: 6c271fa344f8bebf10b13ac7c1a2e95e8a0353e6
-ms.sourcegitcommit: 1b60848d25bbd897498958738644a4eb9cf3a302
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43731193"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646088"
 ---
 # <a name="pass-a-json-object-to-an-azure-automation-runbook"></a>将 JSON 对象传递到 Azure 自动化 Runbook
 
@@ -91,7 +91,7 @@ Start-AzureRmVM -Name $json.VMName -ResourceGroupName $json.ResourceGroup
 
 1. 获取 JSON 文件的内容并将其转换为字符串：
     ```powershell
-    $json =  (Get-content -path 'JsonPath\test.json' -Raw) | Out-string
+    $json =  (Get-content -path 'JsonPath\test.json' -Raw) | Out-string
     ```
     `JsonPath` 是保存 JSON 文件的位置路径。
 1. 将 `$json` 的字符串内容转换为 PowerShell 对象：

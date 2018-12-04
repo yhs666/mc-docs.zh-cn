@@ -14,11 +14,11 @@ manager: digimobile
 origin.date: 10/05/2018
 ms.date: 10/29/2018
 ms.openlocfilehash: 35fa48024a3b0c248ee210167d885817ca7a1a1d
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135779"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644460"
 ---
 # <a name="copy-an-azure-sql-database"></a>复制 Azure SQL 数据库
 

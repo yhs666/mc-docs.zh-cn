@@ -17,11 +17,11 @@ origin.date: 04/14/2018
 ms.date: 08/09/2018
 ms.author: v-junlch
 ms.openlocfilehash: 3f50996f2df243c81759306ef895d20a96f41baf
-ms.sourcegitcommit: 2d44abf2c428316c5e60cc701bafe8c40356c8eb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722767"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646645"
 ---
 # <a name="get-started-with-notification-hubs-for-kindle-apps"></a>通知中心入门（Kindle 应用）
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -55,7 +55,7 @@ ms.locfileid: "39722767"
 3. 在门户中单击应用的名称，然后单击“设备消息”选项卡。
    
     ![][2]
-4. 单击“创建新的安全配置文件”，然后创建一个新的安全配置文件（例如 TestAdm security profile）。 。
+4. 单击“创建新的安全配置文件”，然后创建一个新的安全配置文件（例如 TestAdm security profile）。 然后单击“保存” 。
    
     ![][3]
 5. 单击“安全配置文件”，查看刚创建的安全配置文件。 复制“客户端 ID”和“客户端密码”值以供稍后使用。

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/21/2018
-ms.date: 09/24/2018
+ms.date: 11/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: bbecadfeacbd22fac624daed89759fda7fff6a6a
-ms.sourcegitcommit: bae4e9e500e3e988ef8fa0371777ca9cc49b4e94
+ms.openlocfilehash: 1b232b91ca3f55b7381656048ee14f916e37f2a2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45584853"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648195"
 ---
 # <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 群集上安装并使用 Presto
 
@@ -66,7 +66,7 @@ ms.locfileid: "45584853"
 4. 根据[预配基于 Linux 的 HDInsight 群集](hdinsight-hadoop-create-linux-clusters-portal.md)中所述继续预配群集。
 
     > [!NOTE]
-    > Azure PowerShell、Azure CLI、HDInsight .NET SDK 或 Azure 资源管理器模板也可用于应用脚本操作。 也可以将脚本操作应用于已在运行的群集。 有关详细信息，请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。
+    > Azure PowerShell、Azure 经典 CLI、HDInsight .NET SDK 或 Azure 资源管理器模板也可用于应用脚本操作。 也可以将脚本操作应用于已在运行的群集。 有关详细信息，请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。
     > 
     > 
 
@@ -78,7 +78,7 @@ ms.locfileid: "45584853"
 
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
 
-    有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
+    有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 2. 使用以下命令启动 Presto shell。
 
@@ -88,7 +88,7 @@ ms.locfileid: "45584853"
 
         select count (*) from hivesampletable;
 
-    默认情况下，已配置适用于 Presto 的 [Hive](https://prestodb.io/docs/current/connector/hive.html) 和 [TPCH](https://prestodb.io/docs/current/connector/tpch.html) 连接器。 Hive 连接器配置为使用默认安装的 Hive 安装，因此 Hive 中的所有表会自动在 Presto 中显示。
+    默认情况下，已配置适用于 Presto 的 [Hive](https://prestodb.io/docs/current/connector/hive.html) 和 [TPCH](https://prestodb.io/docs/current/connector/tpch.html) 连接器。 Hive 连接器配置为使用默认安装的 Hive 安装，因此 Hive 中的所有表将自动在 Presto 中显示。
 
     有关详细信息，请参阅 [Presto 文档](https://prestodb.io/docs/current/index.html)。
 
@@ -102,7 +102,7 @@ ms.locfileid: "45584853"
 
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
 
-    有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
+    有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 2. 连接后，运行以下命令。
 
@@ -123,7 +123,7 @@ ms.locfileid: "45584853"
 
     ![HDInsight 在 Presto 群集上安装 Airpal](./media/hdinsight-hadoop-install-presto/hdinsight-install-airpal.png)
 
-5. 单击“购买”。
+5. 单击“购买” 。
 
 6. 将更改应用到群集配置后，可以使用以下步骤访问 Airpal Web 接口。
 
@@ -145,7 +145,7 @@ ms.locfileid: "45584853"
 
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
 
-    有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
+    有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 2. 在 `/var/lib/presto/presto-hdinsight-master/appConfig-default.json` 文件中进行配置更改。 有关 Presto 配置的详细信息，请参阅[基于 YARN 的群集的 Presto 配置](https://prestodb.io/presto-yarn/installation-yarn-configuration-options.html)。
 

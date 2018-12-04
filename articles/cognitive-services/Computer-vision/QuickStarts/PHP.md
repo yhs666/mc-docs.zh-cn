@@ -11,11 +11,11 @@ origin.date: 05/22/2017
 ms.date: 10/13/2017
 ms.author: v-junlch
 ms.openlocfilehash: d4a5b96ea689f975b6e3feb13cad218599d04a8b
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
-ms.locfileid: "23407596"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647875"
 ---
 # <a name="computer-vision-php-quick-starts"></a>计算机视觉 PHP 快速入门
 

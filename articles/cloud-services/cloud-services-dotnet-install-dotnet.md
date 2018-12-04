@@ -16,11 +16,11 @@ origin.date: 06/22/2018
 ms.author: v-yiso
 ms.date: 09/17/2018
 ms.openlocfilehash: 59043c3b8a3e0b95929bcb63ebd81fd3c19ce7f8
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068143"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643603"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>在 Azure 云服务角色上安装 .NET
 本文介绍如何安装不随 Azure 来宾 OS 一起提供的 .NET Framework 版本。 可使用来宾 OS 上的 .NET 配置云服务 web 角色和辅助角色。

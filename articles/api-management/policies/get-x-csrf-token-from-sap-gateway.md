@@ -15,11 +15,11 @@ origin.date: 10/13/2017
 ms.date: 02/26/2018
 ms.author: v-yiso
 ms.openlocfilehash: e2b874290fe62f4b6b0ca4465e4015c0794d1957
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29286053"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644425"
 ---
 # <a name="implement-x-csrf-pattern"></a>实现 X-CSRF 模式
 

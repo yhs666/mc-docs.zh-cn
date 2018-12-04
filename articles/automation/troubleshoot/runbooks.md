@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.service: automation
 manager: digimobile
 ms.openlocfilehash: 40d52fcc24c9da29ea596309af9e7ee474b23340
-ms.sourcegitcommit: d26e5d0d625a61d6b130800d10c81f47c83fb1e0
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50745514"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645069"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook 错误故障排除
 

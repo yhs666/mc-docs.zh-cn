@@ -18,11 +18,11 @@ origin.date: 10/31/2016
 ms.date: 05/21/2018
 ms.author: v-yiso
 ms.openlocfilehash: 10ce8505b06aaa34359ebe8f76f598d500a7ae90
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34449945"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644125"
 ---
 # <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters"></a>已加入域的 HDInsight 群集的 Hadoop 安全性简介
 
@@ -57,7 +57,7 @@ HDInsight 中的外围安全性是使用虚拟网络和网关服务实现的。 
 保护数据对于满足组织安全性和合规性要求很重要，除了阻止未经授权的员工对数据进行访问外，还应通过对数据进行加密来保护数据。 HDInsight 群集的数据存储、Azure 存储 Blob 和 Azure Data Lake Storage 都支持在服务器端以透明方式进行静态[数据加密](../../storage/common/storage-service-encryption.md)。 HDInsight 安全群集能够与这种服务器端静态数据加密功能无缝协作。
 
 ## <a name="next-steps"></a>后续步骤
-* 若要配置已加入域的 HDInsight 群集，请参阅 [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md)（配置已加入域的 HDInsight 群集）。
-* 若要管理已加入域的 HDInsight 群集，请参阅 [Configure Domain-joined HDInsight clusters](apache-domain-joined-manage.md)（管理已加入域的 HDInsight 群集）。
-* 若要配置 Hive 策略和运行 Hive 查询，请参阅 [Configure Hive policies for Domain-joined HDInsight clusters](apache-domain-joined-run-hive.md)（为已加入域的 HDInsight 群集配置 Hive 策略）。
+* 有关配置已加入域的 HDInsight 群集，请参阅 [配置已加入域的 HDInsight 群集](apache-domain-joined-configure.md)。
+* 有关管理已加入域的 HDInsight 群集，请参阅 [管理已加入域的 HDInsight 群集](apache-domain-joined-manage.md)。
+* 有关如何配置 Hive 策略和运行 Hive 查询，请参阅 [Configure Hive policies for Domain-joined HDInsight clusters](apache-domain-joined-run-hive.md)（为已加入域的 HDInsight 群集配置 Hive 策略）。
 * 有关在已加入域的 HDInsight 群集上使用 SSH 运行 Hive 查询，请参阅[将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)。

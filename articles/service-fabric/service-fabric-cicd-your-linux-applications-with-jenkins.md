@@ -14,11 +14,11 @@ origin.date: 07/31/2018
 ms.date: 09/10/2018
 ms.author: v-yeche
 ms.openlocfilehash: d766cbfe326dacc6d0032ec37fdcefb533d986d4
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515710"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643656"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>使用 Jenkins 生成和部署 Linux 应用程序
 Jenkins 是流行的应用持续集成和部署工具。 本文介绍如何使用 Jenkins 生成和部署 Azure Service Fabric 应用程序。
@@ -219,7 +219,7 @@ Jenkins 是流行的应用持续集成和部署工具。 本文介绍如何使�
 
    a. 在 GitHub 存储库页上，转到“设置” > “集成和服务”。
 
-   b. 选择“添加服务”，键入 **Jenkins**，并选择“Jenkins-GitHub 插件”。
+   b. 选择“添加服务”，键入 Jenkins，并选择“Jenkins-GitHub 插件”。
 
    c. 输入 Jenkins Webhook URL（默认为 `http://<PublicIPorFQDN>:8081/github-webhook/`）。 单击“添加/更新服务”。
 

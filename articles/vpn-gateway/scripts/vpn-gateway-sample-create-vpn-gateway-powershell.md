@@ -17,11 +17,11 @@ origin.date: 04/17/2018
 ms.date: 06/12/2018
 ms.author: v-junlch
 ms.openlocfilehash: f7a951eff6c1c1b950e7d3c98c82e75fc2f288d8
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568489"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645657"
 ---
 # <a name="create-a-vpn-gateway-with-powershell"></a>使用 PowerShell 创建 VPN 网关
 

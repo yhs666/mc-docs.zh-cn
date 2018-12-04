@@ -17,11 +17,11 @@ origin.date: 03/13/2018
 ms.date: 06/14/2018
 ms.author: v-junlch
 ms.openlocfilehash: 9928730711048e331739853e86a1ba8943b783eb
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940181"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646127"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>使用门户从不同的部署模型连接虚拟网络
 
@@ -288,7 +288,7 @@ Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 
 - 在此示例中，**-VNetName** 是在网络配置文件中找到的经典 VNet 的名称。 
 - **-LocalNetworkSiteName** 是为本地站点指定的名称，与在网络配置文件中找到的一样。
-- **-SharedKey** 是生成并指定的值。 在此示例中，我们使用的是 *abc123*，但可以生成更复杂的内容。 重要的是，在此处指定的值必须与创建从 Resource Manager 虚拟网络到经典虚拟网络的连接时指定的值相同。
+- **-SharedKey** 是你生成并指定的值。 在此示例中，我们使用的是 *abc123*，但可以生成更复杂的内容。 重要的是，在此处指定的值必须与创建从 Resource Manager 虚拟网络到经典虚拟网络的连接时指定的值相同。
 
 ```powershell
 Set-AzureVNetGatewayKey -VNetName "Group ClassicRG ClassicVNet" `

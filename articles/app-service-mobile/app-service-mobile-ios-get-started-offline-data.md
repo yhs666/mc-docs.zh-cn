@@ -16,11 +16,11 @@ origin.date: 10/01/2016
 ms.date: 01/29/2018
 ms.author: v-yiso
 ms.openlocfilehash: b9d9d8b955b04a6b123942a2e7e923a107341dc1
-ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2018
-ms.locfileid: "27984766"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645574"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>启用与 iOS 移动应用进行脱机同步
 
@@ -61,7 +61,7 @@ ms.locfileid: "27984766"
 
 现在，让我们执行实际的同步操作，从远程后端获取数据：
 
-* **Objective-C**。 `syncData` 首先推送新更改，然后调用 **pullData** 从远程后端获取数据。 接下来， **pullData** 方法获取符合查询的新数据：
+* **Objective-C**。 `syncData` 先推送新的更改，然后调用 **pullData** 以便从远程后端获取数据。 接下来， **pullData** 方法获取符合查询的新数据：
 
    ```objc
    -(void)syncData:(QSCompletionBlock)completion
@@ -217,7 +217,7 @@ MS_TableOperationErrors
        dispatch_async(dispatch_get_main_queue(), completion);
    }
    ```
-3. 修改前面提到的 `completeItem` 的定义。 删除 `self syncData` 的块并将它替换为以下内容：
+3. 修改前面提到的 `completeItem` 的定义。 删除 `self syncData` 块并将它替换为以下内容：
    ```objc
    if (completion != nil) {
        dispatch_async(dispatch_get_main_queue(), completion);
@@ -273,7 +273,7 @@ MS_TableOperationErrors
 
 移动应用的常规创建、读取、更新和删除 (CRUD) 操作执行起来就像此应用仍处于连接状态一样，但所有操作都针对本地存储进行。
 
-将本地存储与服务器同步时，我们使用了 **MSSyncTable.pullWithQuery** 方法。
+将本地存储与服务器进行同步时，使用 **MSSyncTable.pullWithQuery** 方法。
 
 ## <a name="additional-resources"></a>其他资源
 * [移动应用中的脱机数据同步]

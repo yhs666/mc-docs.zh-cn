@@ -15,11 +15,11 @@ origin.date: 08/16/2018
 ms.date: 11/05/2018
 ms.author: v-biyu
 ms.openlocfilehash: 291081e8dea8fcd7fff10727077be7a9a6b1bb09
-ms.sourcegitcommit: 8a68d9275ddb92ea45601fed96e21559999d9579
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026951"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648297"
 ---
 # <a name="azure-event-hubs-event-processor-host-overview"></a>Azure 事件中心事件处理程序主机概述
 

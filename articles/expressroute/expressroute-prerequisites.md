@@ -16,11 +16,11 @@ origin.date: 03/28/2018
 ms.date: ''
 ms.author: v-yiso
 ms.openlocfilehash: d3d5306977a5866b2b6fda40d4c68eee05f98099
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486971"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643755"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>ExpressRoute 先决条件和清单  
 

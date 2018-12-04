@@ -15,11 +15,11 @@ origin.date: 10/17/2016
 ms.date: 12/30/2016
 ms.author: v-dazen
 ms.openlocfilehash: 7d53fb71ecf65fed03c847892ba992f61da386b0
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20184283"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644024"
 ---
 # <a name="azure-sdk-for-net-release-notes"></a>Azure SDK for .NET 发行说明
 本主题包含 Azure SDK for .NET 发行说明的链接。 

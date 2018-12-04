@@ -10,11 +10,11 @@ ms.date: 11/05/2018
 ms.author: v-yeche
 ms.reviewer: sngun
 ms.openlocfilehash: cda275b74af02e8d2da013b884698285142b8d31
-ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50204862"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648118"
 ---
 # <a name="using-azure-cosmos-db-multi-master-with-open-source-nosql-databases"></a>将 Azure Cosmos DB 多主数据库与开放源代码 NoSQL 数据库结合使用
 

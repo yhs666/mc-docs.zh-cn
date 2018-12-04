@@ -18,11 +18,11 @@ ms.date: 07/03/2017
 ms.author: v-dazen
 experimental_id: a641df96-f27d-40
 ms.openlocfilehash: 0f5c26a09a0ab8a677cd18969ec59dca8c91d2b2
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940078"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644361"
 ---
 # <a name="provision-a-sql-server-virtual-machine-in-the-azure-portal"></a>在 Azure 门户中预配 SQL Server 虚拟机
 > [!div class="op_single_selector"]
@@ -266,7 +266,7 @@ Azure 虚拟机 (VM) 库包括几种内含 Microsoft SQL Server 的映像。 只
 ## <a name="open-the-vm-with-remote-desktop"></a>使用远程桌面打开 VM
 使用以下步骤通过远程桌面连接到虚拟机：
 
-1. 构建 Azure VM 后，该 VM 的图标会显示在 Azure 仪表板上。 也可以通过浏览现有虚拟机找到该 VM。 单击新的 SQL 虚拟机。 显示虚拟机详细信息的“虚拟机”  边栏选项卡。
+1. 构建 Azure VM 后，该 VM 的图标会显示在 Azure 仪表板上。 也可以通过浏览现有虚拟机找到该 VM。 单击新的 SQL 虚拟机。 一个“虚拟机  ”边栏选项卡会显示你的虚拟机详细信息。
 2. 在“虚拟机”边栏选项卡的顶部，单击“连接”。
 3. 浏览器会为 VM 下载 RDP 文件。 打开该 RDP 文件。
     ![通过远程桌面连接到 SQL VM](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-remote-desktop.png)

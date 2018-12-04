@@ -12,19 +12,19 @@ ms.service: active-directory
 ms.component: user-help
 ms.topic: conceptual
 origin.date: 05/15/2017
-ms.date: 08/27/2018
+ms.date: 11/13/2018
 ms.author: v-junlch
-ms.openlocfilehash: 12c229f4642b09b4e806775f73ddf862ec05c2de
-ms.sourcegitcommit: 75c2b5cdaf25ede92e080f6c48ca17d2f4ded4fb
+ms.openlocfilehash: 4cbc388b5deaa3ba42c4c9ef1b0b88be133b025f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43115494"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645665"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>为帐户设置双重验证
 双重验证是一种额外的安全步骤，可使帐户更难被其他人攻破，从而帮助保护帐户。 如果正在阅读本文，可能会收到来自工作或学校管理员的有关多重身份验证的电子邮件。 或者，也许会在尝试登录时收到消息，要求设置其他安全性验证。 如果是这种情况， **在完成自动注册过程之前无法登录**。
 
-本文可帮助你设置工作或学校帐户。 如果想为自己的个人 Microsoft 帐户启用双重验证，请参阅 [关于双重验证](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification)。
+本文可帮助你设置 **工作或学校帐户**。 如果想为自己的个人 Microsoft 帐户启用双重验证，请参阅 [关于双重验证](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification)。
 
 ## <a name="set-up-your-account"></a>设置帐户
 
@@ -48,6 +48,9 @@ ms.locfileid: "43115494"
 
 ## <a name="use-a-mobile-app-as-the-contact-method"></a>使用移动应用作为联系方法
 使用此方法要求在手机或平板电脑上安装验证器应用。 本文中介绍的步骤基于 Microsoft Authenticator 应用，可用于 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)、[Android](http://go.microsoft.com/fwlink/?Linkid=825072) 和 [iOS](http://go.microsoft.com/fwlink/?Linkid=825073)。
+
+>[!NOTE]
+>你不必使用 Microsoft Authenticator 应用。 如果你已经在使用另一个身份验证器应用，可以继续使用它。
 
 1. 从下拉列表中选择“移动应用”。
 2. 选择“接收验证通知”或“使用验证码”，并选择“设置”。
@@ -99,4 +102,4 @@ ms.locfileid: "43115494"
 - 更改首选项和[管理双重验证设置](multi-factor-authentication-end-user-manage-settings.md)
 - 使用 [Microsoft Authenticator 应用](microsoft-authenticator-app-how-to.md)完成快速、安全的身份验证（即使没有手机网络服务）。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

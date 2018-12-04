@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 07/21/2018
-ms.date: 09/17/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6df59cc1768a3a9fa0666ba7a517a621ee008c85
-ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
+ms.openlocfilehash: d493f56e0bfe2c64ba46c17e1a2aae8c2e537961
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586824"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645877"
 ---
 # <a name="manage-process-servers"></a>管理进程服务器
 
@@ -55,23 +55,23 @@ ms.locfileid: "45586824"
 
 1. 登录到进程服务器计算机。 
 2. 打开管理员 PowerShell 命令窗口并运行以下命令：
-  ```
-  $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-  Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber -ProxyUserName domain\username -ProxyPassword $pwd
-  net stop obengine
-  net start obengine
-  ```
+    ```powershell
+    $pwd = ConvertTo-SecureString -String MyProxyUserPassword
+    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber -ProxyUserName domain\username -ProxyPassword $pwd
+    net stop obengine
+    net start obengine
+    ```
 2. 浏览到文件夹 **%PROGRAMDATA%\ASR\Agent**，并运行以下命令：
-  ```
-  cmd
-  cdpcli.exe --registermt
+    ```
+    cmd
+    cdpcli.exe --registermt
 
-  net stop obengine
+    net stop obengine
 
-  net start obengine
+    net start obengine
 
-  exit
-  ```
+    exit
+    ```
 
 ## <a name="remove-a-process-server"></a>删除进程服务器
 

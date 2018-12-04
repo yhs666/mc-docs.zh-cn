@@ -12,11 +12,11 @@ origin.date: 09/20/2017
 ms.date: 09/26/2018
 ms.author: v-junlch
 ms.openlocfilehash: 3f28df31680f34d25719a7cfbaae02d60d5b5d24
-ms.sourcegitcommit: 7c6ff130adaa67bc90094846f81295ef0719d072
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47191366"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644768"
 ---
 # <a name="whats-new-in-power-bi-workspace-collections"></a>Power BI 工作区集合中的新增功能
 
@@ -72,7 +72,7 @@ ms.locfileid: "47191366"
 - 对应用令牌和嵌入的报表的行级别安全性 (RLS) 支持。 若要了解详细信息，请参阅[将行级别安全性用于 Power BI 工作区集合](row-level-security.md)。
 - 为所有 **v1.0** API 调用更新了示例应用程序。
 - 提供了对 Azure SDK、PowerShell 和 CLI 的 Power BI 工作区集合支持。
-- 用户可以将可视化数据导出到 **.csv** 文件。
+- 用户可以将可视化数据导出到 **.csv**文件。
 - 现在，所有支持 Azure 的语言/区域都支持 Power BI 工作区集合。 若要了解详细信息，请参阅 [Azure - 语言](http://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx)。
 
 

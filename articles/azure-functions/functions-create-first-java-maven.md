@@ -14,11 +14,11 @@ ms.date: 10/18/2018
 ms.author: v-junlch
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 6d5a5d60e58b649b5f2abefbdabb5d3287345c3a
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453716"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644744"
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>通过 Java 和 Maven 创建你的第一个函数（预览版）
 

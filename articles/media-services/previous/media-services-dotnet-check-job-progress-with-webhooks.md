@@ -16,11 +16,11 @@ origin.date: 12/09/2017
 ms.date: 07/30/2018
 ms.author: v-jay
 ms.openlocfilehash: 2b6c59abab4deeb385496529771d665c1d6747f7
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426216"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647769"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>使用 Azure Webhook 通过 .NET 监视媒体服务作业通知
 运行作业时，通常需要采用某种方式跟踪作业进度。 可以使用 Azure Webhook 或 [Azure 队列存储](media-services-dotnet-check-job-progress-with-queues.md)监视媒体服务作业通知。 本文介绍如何使用 Webhook。
@@ -49,7 +49,7 @@ ms.locfileid: "47426216"
 
 ## <a name="create-a-function-app"></a>创建函数应用
 
-1. 转到 [Azure 门户](http://portal.azure.cn)，并使用 Azure 帐户登录。
+1. 转到 [Azure 门户](http://portal.azure.cn)，然后使用 Azure 帐户登录。
 2. 根据[此文](../../azure-functions/functions-create-function-app-portal.md)中所述创建 Function App。
 
 ## <a name="configure-function-app-settings"></a>配置 Function App 设置

@@ -15,11 +15,11 @@ origin.date: 09/25/2018
 ms.date: 10/31/2018
 ms.author: v-lingwu
 ms.openlocfilehash: 37b6c33700af6f4a20d3a3ba25114a7775cfec06
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409356"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643891"
 ---
 # <a name="message-sequencing-and-timestamps"></a>消息序列化和时间戳
 

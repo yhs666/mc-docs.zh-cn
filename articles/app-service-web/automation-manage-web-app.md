@@ -16,19 +16,19 @@ origin.date: 07/29/2016
 ms.date: 01/05/2017
 ms.author: v-dazen
 ms.openlocfilehash: 8c333f058bed9fc972ac4edfd5b622c8543acba7
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20184268"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644581"
 ---
 # <a name="managing-azure-web-app-using-azure-automation"></a>使用 Azure 自动化管理 Azure Web 应用程序
-本指南将介绍 Azure 自动化服务，以及如何使用它来简化 Azure Web 应用程序的管理。
+本指南介绍 Azure 自动化服务，以及如何使用它来简化 Azure Web 应用程序的管理。
 
 ## <a name="what-is-azure-automation"></a>什么是 Azure 自动化？
 [Azure 自动化](../automation/automation-intro.md)是用于通过流程自动化简化云管理的一项 Azure 服务。 使用 Azure 自动化可以自动完成那些人工操作、重复、长时间运行且易出错的任务，从而改善组织的可靠性、效率和价值生成时间。
 
-Azure 自动化提供了具有高可靠性和高可用性的工作流执行引擎，该引擎可以根据你的需求进行扩展。 在 Azure 自动化中，流程可以手动、通过第三方系统或按计划的间隔启动，使任务能够完全根据需求进行。
+Azure 自动化提供了具有高可靠性和高可用性的工作流执行引擎，该引擎可以根据需求进行扩展。 在 Azure 自动化中，流程可以手动、通过第三方系统或按计划的间隔启动，使任务能够完全根据需求进行。
 
 通过将云管理任务改为由 Azure 自动化自动运行，可以降低运营开销，解放 IT 和开发运营人员，让他们将精力集中在增加企业价值的工作上。
 

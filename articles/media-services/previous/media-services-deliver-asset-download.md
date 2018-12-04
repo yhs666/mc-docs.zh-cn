@@ -16,11 +16,11 @@ origin.date: 08/09/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
 ms.openlocfilehash: 7641e1fc086262ff9824d5b332b9386c451856fe
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426109"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644733"
 ---
 # <a name="how-to-deliver-an-asset-by-download"></a>如何：通过下载交付资产
 本文介绍已上传到媒体服务的媒体资产的交付选项。 可以采用众多的应用程序方案来交付媒体服务内容。 编码后，下载生成的媒体资产，或使用流式处理定位符访问这些资产。 为了提高性能和伸缩性，用户还可以使用内容分发网络 (CDN) 来传送内容。

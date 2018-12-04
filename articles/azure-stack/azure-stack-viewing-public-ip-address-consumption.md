@@ -15,11 +15,11 @@ origin.date: 09/10/2018
 ms.date: 10/15/2018
 ms.author: v-jay
 ms.openlocfilehash: 757c138e6fcba7dd0238eca17c9aaef32f5777f3
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848878"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646168"
 ---
 # <a name="view-public-ip-address-consumption-in-azure-stack"></a>查看 Azure Stack 中的公共 IP 地址使用情况
 

@@ -10,11 +10,11 @@ ms.date: 07/03/2017
 ms.topic: article
 ms.service: app-service-web
 ms.openlocfilehash: addddec44caf76ba02eb4f907afd3e4a78afea83
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
-ms.locfileid: "20186895"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648522"
 ---
 # <a name="monitor-app-service"></a>监视应用服务
 本教程逐步讲解如何监视应用，以及在出现问题时如何使用内置的平台工具解决问题。
@@ -25,7 +25,7 @@ ms.locfileid: "20186895"
 - 在代码中缩小问题的起源范围。
 - 调试并解决问题。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 - 需要使用一个 Web 应用来监视活动和遵循所述的步骤。
     - 可以遵循 [Create an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)（在 Azure 中创建包含 SQL 数据库的 ASP.NET 应用）教程中所述的步骤创建一个应用程序。
 
@@ -52,7 +52,7 @@ ms.locfileid: "20186895"
 > * 规模计数：一个、两个、三个实例，等等。
 > * SKU：免费、共享、基本、标准、高级，等等。
 
-若要查看 Web 应用的指标，请转到要监视的应用的“概述”边栏选项卡。 在此处，可以**监视磁贴**的形式查看应用的指标图表。 单击该磁贴可以编辑和配置要查看哪些指标，以及要显示哪个时间范围。
+若要查看 Web 应用的指标，请转到要监视的应用的“概述”边栏选项卡。 在此处，可以**监视磁贴**的形式查看应用的指标图表。 单击磁贴，对要查看的指标和要显示的时间范围进行编辑和配置。
 
 默认情况下，资源边栏选项卡提供过去一个小时的应用程序请求和错误视图。
 ![监视应用](media/app-service-web-tutorial-monitoring/app-service-monitor.png)
@@ -60,7 +60,7 @@ ms.locfileid: "20186895"
 在示例中可以看到，某个应用程序正在生成大量的 **HTTP 服务器错误**。 出现大量错误，就是需要调查此应用程序的第一个迹象。
 
 > [!TIP]
-> 使用以下链接了解有关 Azure Monitor 的详细信息：
+> 要了解关于 Azure Monitor 的详细信息，请访问以下链接：
 > - [Azure Monitor 入门](..\monitoring-and-diagnostics\monitoring-overview.md)
 > - [Azure 仪表板](..\azure-portal\azure-portal-dashboards.md)
 
@@ -98,14 +98,14 @@ ms.locfileid: "20186895"
 ## <a name="logging"></a>步骤 3 - 日志记录
 将故障原因的范围缩小到应用程序问题后，可以查看应用程序和服务器日志来获取详细信息。
 
-使用日志记录可以收集 Web 应用的**应用程序诊断**日志和 **Web 服务器诊断**日志。
+通过日志记录，可以为 Web 应用收集**应用程序诊断**和 **Web 服务器诊断**日志。
 
 ### <a name="application-diagnostics"></a>应用程序诊断
 使用应用程序诊断可以捕获应用程序在运行时生成的跟踪。
 
 将跟踪添加到应用程序可以大大提高调试和查明问题的能力。
 
-在 ASP.NET 中，可以使用 [System.Diagnostics.Trace 类](https://msdn.microsoft.com/library/system.diagnostics.trace.aspx)记录应用程序跟踪，生成可由日志基础结构捕获的事件。 还可以指定跟踪的严重性以方便筛选。
+在 ASP.NET 中可以使用 [System.Diagnostics.Trace 类](https://msdn.microsoft.com/library/system.diagnostics.trace.aspx)记录应用程序跟踪，以生成由日志基础结构捕获的事件。 还可以指定跟踪的严重性以方便筛选。
 
 ```csharp
 public ActionResult Delete(Guid? id)
@@ -130,7 +130,7 @@ public ActionResult Delete(Guid? id)
 
 ![监视应用](media/app-service-web-tutorial-monitoring/app-service-monitor-applogs.png)
 
-可将应用程序日志存储到 Web 应用的文件系统，或推送到 Blob 存储。 对于生产方案，我们建议使用 Blob 存储。
+应用程序日志可以存储在 Web 应用的文件系统中，或被推送到 Blob 存储。 对于生产方案，我们建议使用 Blob 存储。
 
 > [!IMPORTANT]
 > 启用日志记录会对应用程序的性能和资源利用率造成影响。 对于生产方案，建议使用错误日志。 仅当需要调查问题时，才启用更详细的日志记录。
@@ -190,7 +190,7 @@ public ActionResult Delete(Guid? id)
 
 使用远程调试可将调试程序附加到云中运行的 Web 应用。 可以设置断点、直接操作内存、逐行执行代码，甚至更改代码路径，就像在本地运行应用一样。
 
-若要将调试器附加到云中运行的应用，请执行以下操作：
+要将调试器附加到云中运行的应用，请执行以下操作：
 
 - 使用 Visual Studio 2017 打开要调试的应用的解决方案
 - 像本地开发时一样，设置一些断点。
@@ -201,7 +201,7 @@ public ActionResult Delete(Guid? id)
 
 ![远程调试](media/app-service-web-tutorial-monitoring/app-service-monitor-vsdebug.png)
 
-Visual Studio 将为应用程序配置远程调试，并启动一个浏览器窗口用于导航到你的应用。 请浏览你的应用以触发断点并逐行执行代码。
+Visual Studio 为应用程序配置远程调试，并启动一个导航至应用的浏览器窗口。 浏览应用，以触发断点并逐步执行代码。
 
 > [!WARNING]
 > 不建议在生产环境中以调试模式运行。 如果生产应用未扩展，无法容纳多个服务器实例，则调试会阻止 Web 服务器响应其他请求。 对于如何解决生产问题，最佳资源是[配置日志记录](#logging)和 [Application Insights](#insights)。
@@ -209,7 +209,7 @@ Visual Studio 将为应用程序配置远程调试，并启动一个浏览器窗
 ## <a name="explorer"></a>步骤 6 - 进程资源管理器
 将应用程序扩展到多个实例后，**进程资源管理器**可帮助你识别实例特定的问题。
 
-使用**进程资源管理器**可以：
+使用**进程资源管理器**来：
 
 - 枚举应用服务计划的不同实例中的所有进程。
 - 钻取和查看与每个进程关联的句柄与模块。

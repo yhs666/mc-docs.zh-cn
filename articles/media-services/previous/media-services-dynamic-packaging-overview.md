@@ -16,11 +16,11 @@ origin.date: 06/29/2017
 ms.date: 08/07/2017
 ms.author: v-haiqya
 ms.openlocfilehash: 59b9360fa8f8655f2ab0f37ec27ab7042702a0b4
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426158"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643763"
 ---
 # <a name="dynamic-packaging"></a>动态打包
 ## <a name="overview"></a>概述

@@ -16,11 +16,11 @@ origin.date: 01/03/2017
 ms.date: 02/10/2017
 ms.author: v-dazen
 ms.openlocfilehash: 2a150a001aee5c25135e0ee0769fb426fc1863dd
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20186391"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645652"
 ---
 # <a name="sample-application-for-use-with-dmzs"></a>适用于外围网络的示例应用程序
 
@@ -40,13 +40,13 @@ New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
 如果使用以下脚本，则第一个语句是添加这一防火墙规则。
 
 ## <a name="iis01---web-application-installation-script"></a>IIS01 - Web 应用程序安装脚本
-此脚本将执行以下操作：
+此脚本执行以下操作：
 
 1. 打开本地服务器 Windows 防火墙上的 IMCPv4 (Ping) 以简化测试
 2. 安装 IIS 和 .Net Framework v4.5
 3. 创建 ASP.NET 网页和 Web.config 文件
 4. 更改默认应用程序池以方便访问文件
-5. 将匿名用户设置为你的管理员帐户和密码
+5. 将匿名用户设置为管理员帐户和密码
 
 通过 RDP 访问 IIS01 时，此 PowerShell 脚本应在本地运行。
 
@@ -147,7 +147,7 @@ New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
 ```
 
 ## <a name="appvm01---file-server-installation-script"></a>AppVM01 - 文件服务器安装脚本
-此脚本设置此简单应用程序的后端。 此脚本将执行以下操作：
+此脚本设置此简单应用程序的后端。 此脚本执行以下操作：
 
 1. 打开防火墙上的 IMCPv4 (Ping) 以简化测试
 2. 为网站创建目录
@@ -199,6 +199,6 @@ New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
 ## <a name="next-steps"></a>后续步骤
 * 在 IIS 服务器上运行 IIS01 脚本
 * 在 AppVM01 上运行文件服务器脚本
-* 浏览到 IIS01 上的公共 IP，验证你的生成
+* 浏览到 IIS01 上的公共 IP 来验证生成
 
 <!--Link References-->

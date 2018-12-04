@@ -14,11 +14,11 @@ origin.date: 07/31/2018
 ms.date: 09/24/2018
 ms.author: v-yeche
 ms.openlocfilehash: 632df4dfd97f3b5126c5601a7d9a36be68aaf3cb
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527038"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647453"
 ---
 <!--Verify successfully-->
 # <a name="manage-your-resources-with-management-groups"></a>使用管理组管理资源

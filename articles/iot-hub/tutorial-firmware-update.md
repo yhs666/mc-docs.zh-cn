@@ -14,11 +14,11 @@ ms.date: 09/10/2018
 ms.author: v-yiso
 ms.custom: mvc
 ms.openlocfilehash: 0e231a6d45c022526615d3751ab766cc7d346e17
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43330446"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646425"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>教程：实施设备固件更新过程
 

@@ -14,11 +14,11 @@ origin.date: 04/16/2018
 ms.date: 06/07/2018
 ms.author: v-junlch
 ms.openlocfilehash: 1896a1ad5e5c0f3779cacd7a89aa32a80ada3d0e
-ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855740"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648310"
 ---
 # <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>提供的 Web 应用程序防火墙 CRS 规则组和规则列表
 

@@ -10,11 +10,11 @@ origin.date: 07/06/2018
 ms.date: 09/17/2018
 ms.author: v-yeche
 ms.openlocfilehash: 2759c208a7b24a1247964ada96a520b013fdd8a7
-ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586830"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648916"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>解决 VMware VM 和物理服务器的复制问题
 
@@ -86,8 +86,8 @@ ms.locfileid: "45586830"
 
 将其打开，再单击“操作”>“更改属性”。 “代理配置”选项卡下应显示代理地址，其应与注册表设置中显示的代理地址相同。 如果不同，请将其更改为相同的地址。
 
-* **检查进程服务器上的限制带宽是否不受约束**：增加带宽，然后检查问题是否仍然存在。
+* **检查进程服务器上的限制带宽是否不受约束**：增加带宽，并检查问题是否仍然存在。
 
 ## <a name="next-steps"></a>后续步骤
-如需更多帮助，请在 [Azure Site Recovery 论坛](https://www.azure.cn/support/contact/)提出疑问。 我们的社区非常活跃，我们的工程师将为你提供帮助。
+如需更多帮助，请在 [Azure Site Recovery 论坛](https://www.azure.cn/support/contact/)提出疑问。 我们的社区非常活跃，工程师会提供帮助。
 <!--Update_Description: update meta properties, wording update, update link -->

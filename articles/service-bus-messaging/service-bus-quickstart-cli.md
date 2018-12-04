@@ -11,11 +11,11 @@ origin.date: 09/22/2018
 ms.date: 10/31/2018
 ms.author: v-lingwu
 ms.openlocfilehash: 20a37c1135cbccdd5ebcc00d7b5ae07047a9a9ae
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409375"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643665"
 ---
 # <a name="quickstart-send-and-receive-messages-using-azure-cli-and-java"></a>快速入门：使用 Azure CLI 和 Java 发送和接收消息
 

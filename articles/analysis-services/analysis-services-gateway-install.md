@@ -9,12 +9,12 @@ origin.date: 09/10/2018
 ms.date: 11/22/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3a8a0b18a8d4ce5cf15baa2e95e7fba45955f78b
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.openlocfilehash: 25085568e037b5892c0a7ea4b86697961b877114
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195353"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647761"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>安装并配置本地数据网关
 当同一区域中的一个或多个 Azure Analysis Services 服务器连接到本地数据源时，需要本地数据网关。 若要了解有关网关的详细信息，请参阅[本地数据网关](analysis-services-gateway.md)。
@@ -45,7 +45,7 @@ ms.locfileid: "51195353"
 
 <a name="download"></a>
 ## <a name="download"></a>下载
- [下载网关](https://aka.ms/azureasgateway-mc)
+ [下载网关](https://aka.ms/azureasgateway)
 
 <a name="install"></a>
 ## <a name="install"></a>安装

@@ -16,11 +16,11 @@ origin.date: 05/18/2018
 ms.date: 09/24/2018
 ms.author: v-yeche
 ms.openlocfilehash: c727ccad7745dbdd4714704ae1eb33731adbb2aa
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46526961"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648192"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>在脱机模式下安装 Azure 虚拟机代理 
 

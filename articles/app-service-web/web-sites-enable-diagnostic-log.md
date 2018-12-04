@@ -16,15 +16,15 @@ origin.date: 06/06/2016
 ms.date: 03/17/2017
 ms.author: v-dazen
 ms.openlocfilehash: 9027a97019087fae2c48353c33aef134c04706e2
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20184308"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645887"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>在 Azure 应用服务中启用 Web 应用的诊断日志记录
 ## <a name="overview"></a>概述
-Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](/app-service-web/app-service-changes-existing-services)。 在本文中，你将了解如何启用诊断日志记录并将检测添加到应用程序，以及如何访问由 Azure 记录的信息。
+Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](/app-service-web/app-service-changes-existing-services)。 在本文中，将了解如何启用诊断日志记录并将检测添加到应用程序，以及如何访问由 Azure 记录的信息。
 
 本文通过 [Azure 门户](https://portal.azure.cn)、Azure PowerShell 和 Azure 命令行接口 (Azure CLI) 使用诊断日志。 有关通过 Visual Studio 使用诊断日志的信息，请参阅[在 Visual Studio 中对 Azure 进行故障排除](web-sites-dotnet-troubleshoot-visual-studio.md)。
 
@@ -34,7 +34,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](/app-s
 应用服务 Web 应用为 Web 服务器和 Web 应用程序中的日志记录信息提供诊断功能。 这些诊断功能按逻辑分为 **Web 服务器诊断**和**应用程序诊断**。
 
 ### <a name="web-server-diagnostics"></a>Web 服务器诊断
-你可以启用或禁用以下种类的日志：
+可以启用或禁用以下种类的日志：
 
 * **详细错误日志记录** - 指示故障的 HTTP 状态代码（状态代码 400 或更大数字）的详细错误消息。 其中可能包含有助于确定服务器返回错误代码的原因的信息。
 * **失败请求跟踪** - 有关失败请求的详细信息，包括对用于处理请求的 IIS 组件和每个组件所用时间的跟踪。 在尝试提高站点性能或隔离导致要返回特定 HTTP 错误的内容时，此信息很有用。
@@ -47,7 +47,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](/app-s
 
 在运行时，可以检索这些日志帮助进行故障排除。 有关详细信息，请参阅[在 Visual Studio 中对 Azure Web 应用进行故障排除](web-sites-dotnet-troubleshoot-visual-studio.md)。
 
-将内容发布到某个 Web 应用时，应用服务 Web 应用还记录部署信息。 此操作自动执行，不会对部署日志记录进行配置设置。 部署日志记录允许你确定部署失败的原因。 例如，如果使用自定义部署脚本，可能会使用部署日志记录确定该脚本失败的原因。
+将内容发布到某个 Web 应用时，应用服务 Web 应用还记录部署信息。 此操作自动执行，不会对部署日志记录进行配置设置。 部署日志记录允许确定部署失败的原因。 例如，如果使用自定义部署脚本，可能会使用部署日志记录确定该脚本失败的原因。
 
 ## <a name="enablediag"></a>如何启用诊断
 若要在 [Azure 门户](https://portal.azure.cn)中启用诊断，请转到 Web 应用的边栏选项卡，然后依次单击“设置”>“诊断日志”。
@@ -62,7 +62,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](/app-s
 >
 >
 
-在[经典管理门户](https://manage.windowsazure.cn) Web 应用的“配置”选项卡中，可选择“存储”或“文件系统”**记录 Web 服务器日志**。 选择“存储”可选择存储帐户，然后将日志写入 Blob 容器。 仅将“站点诊断”的所有其他日志写入文件系统。
+在[经典管理门户](https://manage.windowsazure.cn) Web 应用的“配置”选项卡中，可选择“存储”或“文件系统”**记录 Web 服务器日志**。 选择“存储”可选择存储帐户，并将日志写入 Blob 容器。 仅将“站点诊断”的所有其他日志写入文件系统。
 
 [经典管理门户](https://manage.windowsazure.cn) Web 应用的“配置”选项卡还包含用于应用程序诊断的其他设置：
 
@@ -141,7 +141,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](/app-s
 > 某些类型的日志记录缓冲区会对日志文件执行写入操作，这可能会导致流中的事件变成混乱。 例如，用户访问页面时出现的应用程序日志项可能显示在该页面请求所对应的 HTTP 日志项的前面。
 >
 > [!NOTE]
-> 日志流式传输还将对写入存储在 **D:\\home\\LogFiles\\** 文件夹中的任何文本文件的信息进行流式传输。
+> 日志流式传输还会对写入存储在 **D:\\home\\LogFiles\\** 文件夹中的任何文本文件的信息进行流式传输。
 >
 >
 
@@ -172,7 +172,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](/app-s
 
     azure site log tail webappname
 
-这将连接到名为“webappname”的 Web 应用，并在该 Web 应用上出现日志事件时开始将信息流式传输到窗口。 写入以 .txt、.log 或 .htm 结尾并存储在 /LogFiles 目录 (d:/home/logfiles) 中文件的所有信息将流式传输至本地控制台。
+这将连接到名为“webappname”的 Web 应用，并在该 Web 应用上出现日志事件时开始将信息流式传输到窗口。 写入以 .txt、.log 或 .htm 结尾并存储在 /LogFiles 目录 (d:/home/logfiles) 中文件的所有信息会流式传输至本地控制台。
 
 若要筛选特定事件（如错误），请使用 **--Filter** 参数。 例如：
 
@@ -193,7 +193,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](/app-s
 
 **文件系统**
 
-记录到文件系统或使用流式传输收到的每行都将采用以下格式：
+记录到文件系统或使用流式传输收到的每行都会采用以下格式：
 
     {Date}  PID[{process id}] {event type/level} {message}
 
@@ -215,7 +215,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](/app-s
 | EventTickCount |事件发生的日期和时间，刻度格式（精度更高） |
 | ApplicationName |Web 应用名称 |
 | 级别 |事件级别（例如错误、警告、信息） |
-| EventId |此事件的事件 ID<p><p>如果未指定，默认为 0 |
+| EventId |此事件的事件 ID<p><p>如果未指定，则默认为 0 |
 | InstanceId |发生事件的 Web 应用实例 |
 | Pid |进程 ID |
 | Tid |生成事件的线程的线程 ID |
@@ -263,11 +263,11 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](/app-s
 >
 >
 
-## <a name="nextsteps"></a>后续步骤
+## <a name="nextsteps"></a> 后续步骤
 * [如何监视 Web 应用](/app-service-web/web-sites-monitor)
 * [在 Visual Studio 中对 Azure Web 应用进行故障排除](web-sites-dotnet-troubleshoot-visual-studio.md)
 * [在 HDInsight 中分析 Web 应用日志](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
-## <a name="whats-changed"></a>更改内容
+## <a name="whats-changed"></a>发生的更改
 * 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 * 有关从旧门户更改为新门户的指南，请参阅：[有关在 Azure 门户中导航的参考](/app-service-web/app-service-web-app-azure-portal)

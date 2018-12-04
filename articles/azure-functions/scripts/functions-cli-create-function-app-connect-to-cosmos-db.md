@@ -14,11 +14,11 @@ ms.date: 10/18/2018
 ms.author: v-junlch
 ms.custom: mvc
 ms.openlocfilehash: db348cb0aaf9811765d9523e2aa32a5bd0114acc
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453647"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648072"
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>创建用于连接到 Azure Cosmos DB 的 Azure Function
 

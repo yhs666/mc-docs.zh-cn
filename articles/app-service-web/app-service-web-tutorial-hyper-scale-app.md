@@ -16,11 +16,11 @@ origin.date: 03/23/2017
 ms.date: 10/09/2017
 ms.author: v-yiso
 ms.openlocfilehash: d2923dd8e274f50f1393cfa1a60d8270d1315c8d
-ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
-ms.locfileid: "22146605"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644886"
 ---
 # <a name="build-a-hyper-scale-web-app-in-azure"></a>在 Azure 中构建超大规模 Web 应用
 
@@ -29,7 +29,7 @@ ms.locfileid: "22146605"
 开始学习本教程之前，请确保在计算机上[安装 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。 此外，需要在本地计算机安装 [Visual Studio](https://www.visualstudio.com/vs/) 来运行示例应用程序。
 
 ## <a name="step-1---get-sample-application"></a>步骤 1 - 获取示例应用程序
-在此步骤中，将设置本地 ASP.NET 项目。
+在此步骤中，你将设置本地 ASP.NET 项目。
 
 ### <a name="clone-the-application-repository"></a>克隆应用程序存储库
 
@@ -84,7 +84,7 @@ az group create --location "China North" --name myResourceGroup
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1
 ```
 
-应用服务计划是一个缩放单位，可以包含要通过示例应用服务体系结构统一纵向扩展或横向扩展的任意数目的应用。 每个计划还分配有[定价层](https://www.azure.cn/pricing/details/app-service/)。 更高的层包含更好的硬件和更多的功能，例如更多的横向扩展实例。
+应用服务计划是一个缩放单元，可以包含要通过示例应用服务体系结构统一纵向扩展或横向扩展的任意数目的应用。 每个计划还分配有[定价层](https://www.azure.cn/pricing/details/app-service/)。 更高的层包含更好的硬件和更多的功能，例如更多的横向扩展实例。
 
 在本教程中，B1 是允许横向扩展到三个实例的最小层。 以后，随时可以运行 [az appservice plan update](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_update) 来上下调整应用的定价层。 
 
@@ -181,7 +181,7 @@ mycachename.redis.cache.chinacloudapi.cn:6380,password=/rQP/TLz1mrEPpmh9b/gnfns/
 
 ![](./media/app-service-web-tutorial-hyper-scale-app/redisproviders.png)
 
-此代码将查找 `RedisConnection` 中定义的 Redis 连接字符串。 
+此代码查找 `RedisConnection` 中定义的 Redis 连接字符串。 
 
 现在，你的应用程序使用 Redis 来管理会话和缓存。 键入 `F5` 运行应用程序。 如果需要，可以下载 Redis 管理客户端来可视化现已保存到缓存中的数据。
 
@@ -214,7 +214,7 @@ az appservice web browse --name $appName --resource-group myResourceGroup
 ```
 
 ## <a name="step-4---scale-to-multiple-instances"></a>步骤 4 - 扩展到多个实例
-应用服务计划是 Azure Web 应用的缩放单位。 若要横向扩展 Web 应用，可以扩展应用服务计划。
+应用服务计划是 Azure Web 应用的缩放单元。 若要横向扩展 Web 应用，可以扩展应用服务计划。
 
 使用 [az appservice plan update](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_update) 将应用服务计划横向扩展到三个实例，这是 B1 定价层允许的最大数目。 请记住，B1 是之前创建应用服务计划时选择的定价层。 
 
@@ -225,7 +225,7 @@ az appservice plan update --name myAppServicePlan --resource-group myResourceGro
 ## <a name="step-5---scale-geographically"></a>步骤 5 - 按地理位置扩展
 按地理位置扩展时，需在 Azure 云的多个区域中运行应用。 这种设置可以根据地理位置进一步对应用进行负载均衡，并通过将应用放置在更靠近客户端浏览器的位置来减小响应时间。
 
-在此步骤中，将使用 [Azure 流量管理器](/traffic-manager/)将 ASP.NET Web 应用扩展到另一个区域。 结束此步骤后，中国北部会运行一个 Web 应用（已创建），中国东部会运行另一个 Web 应用（尚未创建）。 应该从同一个流量管理器 URL 提供这两个应用。
+此步骤涉及使用 [Azure 流量管理器](/traffic-manager/)将 ASP.NET Web 应用扩展到另一个区域。 结束此步骤后，中国北部会运行一个 Web 应用（已创建），中国东部会运行另一个 Web 应用（尚未创建）。 应该从同一个流量管理器 URL 提供这两个应用。
 
 ### <a name="scale-up-the-china-north-app-to-standard-tier"></a>将中国北部的应用纵向扩展到标准层
 在应用服务中，与 Azure 流量管理器的集成需要使用标准定价层。 使用 [az appservice plan update](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_update) 将应用服务计划纵向扩展到 S1。 

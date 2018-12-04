@@ -16,11 +16,11 @@ origin.date: 09/07/2017
 ms.date: 10/16/2017
 ms.author: v-yiso
 ms.openlocfilehash: b1c6527a72ad9dddbedf164b4a0336769ac4d995
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939116"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647966"
 ---
 # <a name="use-desired-properties-to-configure-devices-node"></a>使用所需属性配置设备 (Node)
 

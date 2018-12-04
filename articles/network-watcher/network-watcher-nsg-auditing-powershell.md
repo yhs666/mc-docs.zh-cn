@@ -16,11 +16,11 @@ origin.date: 02/22/2017
 ms.date: 04/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: 9c51aae0eca5c62dd3a2f8326e71e852b119b992
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121400"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645715"
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>使用 Azure 网络观察程序安全组视图自动进行 NSG 审核
 

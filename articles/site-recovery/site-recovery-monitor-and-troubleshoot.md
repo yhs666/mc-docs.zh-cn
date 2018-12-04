@@ -10,11 +10,11 @@ origin.date: 07/19/2018
 ms.date: 09/24/2018
 ms.author: v-yeche
 ms.openlocfilehash: dca8df3175188dc1045f76be42a2ba8e6a833f1d
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201412"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643769"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>监视和排查 Site Recovery 问题
 

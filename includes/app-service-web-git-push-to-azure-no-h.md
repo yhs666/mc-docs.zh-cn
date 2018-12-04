@@ -9,11 +9,11 @@ origin.date: 02/02/2018
 ms.author: v-yiso
 ms.custom: include file
 ms.openlocfilehash: a7b4363c64026c7febc3f24884f9eabe450ef750
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167998"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645830"
 ---
 回到本地终端窗口，将 Azure 远程功能添加到本地 Git 存储库。 将 _&lt;deploymentLocalGitUrl-from-create-step>_ 替换为从[创建 Web 应用](#create)保存的 Git 远程 URL。
 

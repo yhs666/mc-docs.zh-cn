@@ -17,11 +17,11 @@ origin.date: 12/04/2017
 ms.date: 03/26/2018
 ms.author: v-yiso
 ms.openlocfilehash: 0eda1d3c6037d5bc8831161881df44632ea2654d
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30075078"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648333"
 ---
 # <a name="phoenix-query-server-rest-sdk"></a>Phoenix 查询服务器 REST SDK
 

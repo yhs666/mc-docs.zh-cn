@@ -16,11 +16,11 @@ origin.date: 08/17/2017
 ms.date: 09/04/2017
 ms.author: v-yiso
 ms.openlocfilehash: 3aa1ec0a384be664ea6b97c2e1744b80afd52e65
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939062"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648733"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>使用流量管理器为 Azure 应用服务中的 Web 应用配置自定义域名
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]

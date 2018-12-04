@@ -16,11 +16,11 @@ origin.date: 01/07/2017
 ms.date: 10/22/2018
 ms.author: v-biyu
 ms.openlocfilehash: 9957928f7a8190b55b08453b7f3d0a4d9d64f0d4
-ms.sourcegitcommit: 2fdf25eb4b978855ff2832bcdcca093c141be261
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49120603"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648398"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>访问防火墙后面的 Azure Key Vault
 ### <a name="q-my-key-vault-client-application-needs-to-be-behind-a-firewall-what-ports-hosts-or-ip-addresses-should-i-open-to-enable-access-to-a-key-vault"></a>问：我的密钥保管库客户端应用程序需位于防火墙之后。 我应该打开什么样的端口、主机或 IP 地址来启用密钥保管库访问权限？

@@ -16,11 +16,11 @@ origin.date: 05/16/2018
 ms.date: 09/10/2018
 ms.author: v-yeche
 ms.openlocfilehash: 08be29fcde363f0fbf370c60766811c027b240f0
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515680"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646964"
 ---
 # <a name="plan-virtual-networks"></a>计划虚拟网络
 
@@ -69,7 +69,7 @@ ms.locfileid: "44515680"
 - 可将对 Azure 资源（例如 Azure 存储帐户或 Azure SQL 数据库）的访问权限限制为具有虚拟网络服务终结点的特定子网。 此外，可拒绝通过 Internet 访问资源。 可创建多个子网，并为某些子网启用服务终结点，但不启用其他项。 详细了解[服务终结点](virtual-network-service-endpoints-overview.md)，以及可为其启用的 Azure 资源。
 - 可将零个或一个网络安全组与虚拟网络中的每个子网相关联。 可将相同或不同的网络安全组关联到每个子网。 每个网络安全组都包含规则，允许或拒绝到达和来自源和目标的流量。 详细了解[网络安全组](#traffic-filtering)。
 
-## <a name="security"></a>安全
+## <a name="security"></a>安全性
 
 可使用网络安全组和网络虚拟设备来筛选虚拟网络中到达或来自资源的流量。 可控制 Azure 如何路由来自子网的流量。 还可限制组织中的人员使用虚拟网络中的资源。
 
@@ -85,7 +85,7 @@ ms.locfileid: "44515680"
 ### <a name="traffic-routing"></a>流量路由
 
 Azure 为子网中的出站流量创建多个默认路由。 可通过创建路由表并将其关联到子网来替代 Azure 的默认路由。 替代 Azure 的默认路由的常见原因是：
-- 想要子网之间的流量流经 NVA。 了解如何[配置路由表以强制流量通过 NVA](tutorial-create-route-table-portal.md) 的详细信息。
+- 想要子网之间的流量流经 NVA。 想要详细了解如何[配置路由表以强制流量通过 NVA](tutorial-create-route-table-portal.md)。
 - 想要通过 Azure VPN 网关强制所有 Internet 绑定流量通过 NVA 或本地。 强制 Internet 流量本地进行检查和记录通常被称为强制隧道。 详细了解如何配置[强制隧道](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2Fazure%2Fvirtual-network%2Ftoc.json)。
 
 如果需要实施自定义路由，建议熟悉 [Azure 中的路由](virtual-networks-udr-overview.md)。
@@ -96,7 +96,7 @@ Azure 为子网中的出站流量创建多个默认路由。 可通过创建路�
 
 ### <a name="peering"></a>对等互连
 
-使用[虚拟网络对等](virtual-network-peering-overview.md)时，虚拟网络可位于相同的或不同的受支持 Azure 区域中。 虚拟网络可位于相同或不同的 Azure 订阅中，只要这两个订阅都分配给相同的 Azure Active Directory 租户即可。 建立对等之前，建议熟悉所有对等[需求和约束](virtual-network-manage-peering.md#requirements-and-constraints)。 相同区域中对等的虚拟网络中的资源之间的带宽与资源在同一虚拟网络中的带宽相同。
+使用[虚拟网络对等](virtual-network-peering-overview.md)时，虚拟网络可位于相同的或不同的受支持 Azure 区域中。 虚拟网络可位于相同或不同的 Azure 订阅中，只要这两个订阅都分配给相同的 Azure Active Directory 租户即可。 建立对等之前，建议熟悉所有对等[需求和约束](virtual-network-manage-peering.md#requirements-and-constraints)。 同一区域的对等互连虚拟网络中的资源之间的带宽与资源在同一虚拟网络中的带宽相同。
 
 ### <a name="vpn-gateway"></a>VPN 网关
 
@@ -105,7 +105,7 @@ Azure 为子网中的出站流量创建多个默认路由。 可通过创建路�
 <!--Not Available on [hub and spoke networks](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json)-->
 ### <a name="name-resolution"></a>名称解析
 
-虚拟网络中的资源无法使用 Azure 的[内置 DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md)，解析对等虚拟网络中的资源名称。 若要在对等互连虚拟网络中解析名称，请[部署自己的 DNS 服务器](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)或使用 Azure DNS 专用域。 在虚拟网络和本地网络的资源之间解析名称也需要部署自己的 DNS 服务器。
+一个虚拟网络中的资源无法使用 Azure 的[内置 DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md) 来解析对等互连虚拟网络中的资源名称。 若要在对等互连虚拟网络中解析名称，请[部署自己的 DNS 服务器](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)或使用 Azure DNS 专用域。 在虚拟网络和本地网络的资源之间解析名称也需要部署自己的 DNS 服务器。
 <!--Not Available on [private domains](../dns/private-dns-overview.md?toc=%2fvirtual-network%2ftoc.json)-->
 
 ## <a name="permissions"></a>权限
@@ -116,11 +116,11 @@ Azure 对资源使用[基于角色的访问控制](../role-based-access-control/
 <a name="policies"></a>
 ## <a name="policy"></a>策略
 
-通过 Azure Policy，可创建、分配和管理策略定义。 策略定义将在整个资源中强制实施不同的规则，以便资源符合组织标准和服务级别协议。 Azure 策略对资源进行评估，扫描并找到与所定义策略不相符的资源。 例如，可以定义和应用仅在特定资源组或区域中允许创建虚拟网络的策略。 另一个策略可能要求每个子网都有一个与之关联的网络安全组。 然后，在创建和更新资源时评估此策略。
+通过 Azure Policy，可创建、分配和管理策略定义。 策略定义将在整个资源中强制实施不同的规则，使资源符合组织标准和服务级别协议。 Azure 策略对资源进行评估，扫描并找到与所定义策略不相符的资源。 例如，可以定义并应用只允许在特定资源组或区域中创建虚拟网络的策略。 另一个策略可能要求每个子网都有一个与之关联的网络安全组。 然后，在创建和更新资源时评估此策略。
 
 策略应用于以下层次结构：订阅、管理组和资源组。 了解有关 [Azure Policy](../azure-policy/azure-policy-introduction.md?toc=%2fvirtual-network%2ftoc.json) 或部署某些虚拟网络[策略模板](policy-samples.md)示例的详细信息。
 
 ## <a name="next-steps"></a>后续步骤
 
-了解[虚拟网络](manage-virtual-network.md)、[子网和服务终结点](virtual-network-manage-subnet.md)、[网络接口](virtual-network-network-interface.md)、[对等互连](virtual-network-manage-peering.md)、[网络和应用程序安全组](manage-network-security-group.md)或[路由表](manage-route-table.md)的所有任务、设置和选项。
+了解适合[虚拟网络](manage-virtual-network.md)、[子网和服务终结点](virtual-network-manage-subnet.md)、[网络接口](virtual-network-network-interface.md)、[对等互连](virtual-network-manage-peering.md)、[网络和应用程序安全组](manage-network-security-group.md)或[路由表](manage-route-table.md)的所有任务、设置和选项。
 <!--Update_Description: wording update, update reference link-->

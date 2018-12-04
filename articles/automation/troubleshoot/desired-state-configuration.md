@@ -11,11 +11,11 @@ ms.date: 07/23/2018
 ms.topic: conceptual
 manager: digimobile
 ms.openlocfilehash: 4ccc60e847c4d53cf2d41baac849e6f292e0b6da
-ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39143482"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644101"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Desired State Configuration (DSC) 疑难解答
 
@@ -64,7 +64,7 @@ Compilation completed successfully, but no node configuration.mofs were generate
 下述解决方案中的任何一种都可以解决此问题：
 
 * 确保配置定义中 **Node** 关键字旁边的表达式的计算结果不为 $null。
-* 如果要在编译配置时传递 ConfigurationData，请确保从 [ConfigurationData](../automation-dsc-compile.md#configurationdata) 传递配置需要的预期值。
+* 如果要在编译配置时传递 ConfigurationData，请确保从 [ConfigurationData](../automation-dsc-compile.md#configurationdata)传递配置需要的预期值。
 
 ### <a name="dsc-in-progress"></a>场景：DSC 节点报告卡在了“正在进行”状态
 

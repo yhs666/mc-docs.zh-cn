@@ -17,11 +17,11 @@ origin.date: 05/11/2018
 ms.date: 09/03/2018
 ms.author: v-yiso
 ms.openlocfilehash: 56952095b6fe43a672960bca8585c3528b484820
-ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42870968"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648743"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure Web 应用配置及管理常见问题解答
 
@@ -242,7 +242,7 @@ Invoke-AzureRmResourceAction -ResourceGroupName "<App Service Certificate Resour
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>如何确定应用服务中安装的 .NET 版本？
 
-若要查找应用服务中安装的 Microsoft.NET 版本，最快的方法是使用 Kudu 控制台。 可以从门户或使用应用服务应用的 URL 访问 Kudu 控制台。 有关详细说明，请参阅[确定应用服务中安装的 .NET 版本](https://blogs.msdn.microsoft.com/waws/2016/11/02/how-to-determine-the-installed-net-version-in-azure-app-services/)。
+若要查找应用服务中安装的 Microsoft.NET 版本，最快的方法是使用 Kudu 控制台。 可以从门户或使用应用服务应用的 URL，来访问 Kudu 控制台。 有关详细说明，请参阅[确定应用服务中安装的 .NET 版本](https://blogs.msdn.microsoft.com/waws/2016/11/02/how-to-determine-the-installed-net-version-in-azure-app-services/)。
 
 ## <a name="why-isnt-autoscale-working-as-expected"></a>为什么自动缩放不按预期方式工作？
 
@@ -252,7 +252,7 @@ Invoke-AzureRmResourceAction -ResourceGroupName "<App Service Certificate Resour
 
 当指标超过预配置的限值时，将触发自动缩放。 有时可能会发现，与预期相比，仅填充了部分容量。 当所需的实例数无法实现时，则可能会发生这种情况。 在这种情况下，自动缩放使用可用的实例数进行部分填充。 然后，自动缩放运行重新平衡逻辑，以获取更多容量。 它会分配剩余实例。 请注意，这可能需要几分钟的时间。
 
-如果在几分钟后看不到预期的实例数，则可能是因为部分重填已足以将指标拉回到限值以内。 或者，可能自动缩放已执行缩小操作，因为已达到度量值的下限。
+如果在几分钟后未看到预期数量的实例，则可能是因为部分重填已足以使指标处于边界内。 或者，可能自动缩放已执行缩小操作，因为已达到度量值的下限。
 
 如果以上情况都不存在而问题仍然存在，请提交支持请求。
 

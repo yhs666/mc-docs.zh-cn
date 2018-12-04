@@ -12,11 +12,11 @@ ms.date: 11/12/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: 717dec6fd2e31728363ae5dba995bab9bcd18d0e
-ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50919122"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646805"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure 逻辑应用中工作流定义语言的触发器和操作类型引用
 

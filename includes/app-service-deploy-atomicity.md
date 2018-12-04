@@ -9,11 +9,11 @@ ms.date: 06/08/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: ac2cf4d688b1bdc54ed2d7341f0e195d3b2fe42d
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315788"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52665674"
 ---
 ## <a name="what-happens-to-my-app-during-deployment"></a>部署期间我的应用会发生什么情况？
 

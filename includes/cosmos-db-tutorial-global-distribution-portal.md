@@ -10,11 +10,11 @@ ms.date: 04/23/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: 533781564c05926ec35865a3c4d24551ebe12429
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940499"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643781"
 ---
 <!-- Not Available on [!VIDEO https://www.youtube.com/embed/1D06yjTVxt8] -->
 

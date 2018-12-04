@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/06/2017
-ms.date: 09/03/2018
+ms.date: 11/08/2018
 ms.author: v-junlch
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 246f423f8577cae0d06b96fca4d4a5ee59dd5f9f
-ms.sourcegitcommit: 562cde32fc2271238f3d1ef5d2cc5ed037bdec2d
+ms.openlocfilehash: 3204887fd443cb8054859062f42e32ced6520f88
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43531632"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647482"
 ---
 # <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>代理流中使用委派用户标识的服务到服务调用
 OAuth 2.0 (OBO) 代理流适用于这样的用例：其中应用程序调用某个服务/web API，而后者又需要调用另一个服务/web API。 思路是通过请求链传播委托用户标识和权限。 要使中间层服务向下游服务发出身份验证请求，该服务需要代表用户保护 Azure Active Directory (Azure AD) 提供的访问令牌。
 
 > [!IMPORTANT]
-> 使用 [OAuth 2.0 隐式授予](v1-oauth2-implicit-grant-flow.md)的公共客户端不能使用 OBO 流。 这些客户端必须将其访问令牌传递给中间层机密客户端，才能执行 OBO 流。 有关哪些客户端可以执行 OBO 调用的详细信息，请参阅[客户端限制](#client-limitations)。
+> 从 2018 年 5 月开始，`id_token` 不能用于代理流 - SPA 必须将访问令牌传递给中间层机密客户端，才能执行 OBO 流。 请参阅[限制](#client-limitations)，以了解有关哪些客户端能够执行代理调用的详细信息。
 
 ## <a name="on-behalf-of-flow-diagram"></a>代理流示意图
 假设已在应用程序中使用 [OAuth 2.0 授权代码授权流](v1-protocols-oauth-code.md)对用户进行身份验证。 此时，应用程序已获得访问令牌（令牌 A），其中包含用户对访问中间层 Web API (API A) 的声明和许可。 现在，API A 需要向下游 Web API (API B) 发出身份验证请求。
@@ -210,3 +210,4 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdW
 - [在 Azure AD 中使用 OAuth 2.0 客户端凭据授予执行服务到服务身份验证](v1-oauth2-client-creds-grant-flow.md)
 - [Azure AD 中的 OAuth 2.0](v1-protocols-oauth-code.md)
 
+<!-- Update_Description: wording update -->

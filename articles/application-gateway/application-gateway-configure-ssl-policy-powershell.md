@@ -14,11 +14,11 @@ origin.date: 03/27/2018
 ms.date: 06/07/2018
 ms.author: v-junlch
 ms.openlocfilehash: 077cf332bcae3d6d70b8b869b73bc90d801a2608
-ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855774"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644700"
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>在应用程序网关上配置 SSL 策略版本和密码套件
 

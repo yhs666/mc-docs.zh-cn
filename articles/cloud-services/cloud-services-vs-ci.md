@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 11/02/2016
 ms.author: v-yiso
 ms.openlocfilehash: daceaf803f2de6c05d3bc5652eb6bec193b05084
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20181622"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644040"
 ---
-# <a name="securely-save-cloud-services-diagnostics-storage-key-and-setup-continuous-integration-and-deployment-to-azure-using-visual-studio-online"></a>使用 Visual Studio Online 安全地保存云服务诊断存储密钥及设置对 Azure 的持续集成和部署
+# <a name="securely-save-cloud-services-diagnostics-storage-key-and-setup-continuous-integration-and-deployment-to-azure-using-visual-studio-online"></a>使用 Visual Studio Online 安全地保存云服务诊断存储密钥和设置 Azure 持续集成与部署
  这是现今开放源代码项目的常见做法。 在配置文件中保存应用程序密钥不再是安全的做法，因为存在从公共源控件泄漏密钥的安全漏洞。 以纯文本格式将密钥存储在持续集成管道的文件中也不是安全的做法，因为生成服务器可能会在云环境中共享资源。 本文介绍 Visual Studio 和 Visual Studio Online 如何在开发和持续集成过程中减轻安全问题。
 
 ## <a name="remove-diagnostics-storage-key-secret-in-project-configuration-file"></a>删除项目配置文件中的诊断存储密钥
 云服务诊断扩展要求提供 Azure 存储才能保存诊断结果。 以前可在云服务配置 (.cscfg) 文件中指定存储连接字符串，并可将其签入到源代码管理。 在最新的 Azure SDK 版本中，我们将该行为更改为仅存储使用令牌替换密钥的部分连接字符串。 以下步骤介绍新的云服务工具的工作原理：
 
 ### <a name="1-open-the-role-designer"></a>1.打开角色设计器
-* 双击或右键单击云服务角色来打开角色设计器
+* 双击或右键单击云服务角色，以打开角色设计器
 
 ![打开角色设计器][0]
 
@@ -37,7 +37,7 @@ ms.locfileid: "20181622"
 
 ![本地存储模拟器连接字符串不是密钥][1]
 
-* 如果要创建新项目，默认情况下取消选中此复选框。 这会让选定存储连接字符串的存储密钥部分被令牌替换。 令牌的值可在当前用户的 AppData Roaming 文件夹下找到，例如：C:\Users\contosouser\AppData\Roaming\Microsoft\CloudService
+* 如果要创建新项目，默认情况下取消选中此复选框。 这会导致所选存储连接字符串的存储密钥部分被替换为令牌。 令牌的值可在当前用户的 AppData Roaming 文件夹下找到，例如：C:\Users\contosouser\AppData\Roaming\Microsoft\CloudService
 
 > 请注意，user\AppData 文件夹是用户登录控制的访问，被视为存储开发机密的安全位置。
 > 
@@ -54,7 +54,7 @@ ms.locfileid: "20181622"
   ![开始本地调试][3]
 
 ### <a name="5-publish-project-from-visual-studio"></a>5.从 Visual Studio 发布项目
-* 启动发布对话框，然后按照登录说明操作，将应用程序发布到 Azure。
+* 启动发布对话框，并按照登录说明操作，将应用程序发布到 Azure。
 
 ### <a name="6-additional-information"></a>6.其他信息
 > 注意：角色设计器中的“设置”面板暂时保持原样不变。 如果想要使用诊断的密钥管理功能，请转到“配置”选项卡。
@@ -91,7 +91,7 @@ ms.locfileid: "20181622"
 ![将项目签入源控件][9]
 
 ### <a name="3----configure-build-process"></a>3.  配置生成过程
-* 浏览到团队项目，然后添加新的生成过程模板
+* 浏览到团队项目并添加新的生成过程模板
 
 ![添加新的生成][10]
 

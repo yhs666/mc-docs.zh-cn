@@ -16,11 +16,11 @@ origin.date: 08/07/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
 ms.openlocfilehash: 0e98fb9eb653a0aac1497b16b87616da238f057a
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426418"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646729"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>使用 Azure 门户分析媒体
 > [!NOTE]
@@ -127,7 +127,7 @@ Azure Media Hyperlapse 是 MP，可以使用第一人称视角或运动相机内
 ![分析视频](./media/media-services-portal-analyze/media-services-portal-analyze006.png)
 
 ## <a name="azure-media-video-thumbnails"></a>Azure 媒体视频缩略图
-此处理器可通过自动选择来自源视频的有趣片段来帮助创建长视频的摘要。 要提供有关长视频内容的快速概述时，这很有用。 有关详细信息和示例，请参阅[使用 Azure Media Video Thumbnails 创建视频摘要](media-services-video-summarization.md)
+此处理器可通过自动选择来自源视频的有趣片段来帮助创建长视频的摘要。 要提供有关长视频内容的快速概述时，这很有用。 有关详细信息和示例，请参阅 [使用 Azure 媒体视频缩略图创建视频摘要](media-services-video-summarization.md)
 
 ![分析视频](./media/media-services-portal-analyze/media-services-portal-analyze008.png)
 

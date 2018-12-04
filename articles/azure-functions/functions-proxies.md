@@ -16,11 +16,11 @@ origin.date: 01/22/2018
 ms.date: 04/16/2018
 ms.author: v-junlch
 ms.openlocfilehash: 12968cd540bc93c07035c8573a071f64889c1fec
-ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46524065"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645727"
 ---
 # <a name="work-with-azure-functions-proxies"></a>使用 Azure Functions 代理
 

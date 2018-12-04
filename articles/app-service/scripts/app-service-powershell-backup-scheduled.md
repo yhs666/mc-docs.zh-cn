@@ -17,11 +17,11 @@ ms.author: v-yiso
 ms.custom: mvc
 ms.date: 01/02/2018
 ms.openlocfilehash: 88834d6bc884def3f54ee2048b3adcd8506ec1f5
-ms.sourcegitcommit: 51f9fe7a93207e6b9d61e09b7abf56a7774ee856
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2017
-ms.locfileid: "27546586"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646523"
 ---
 # <a name="create-a-scheduled-backup-for-a-web-app"></a>为 Web 应用创建计划备份
 

@@ -16,11 +16,11 @@ origin.date: 07/11/2017
 ms.date: 10/08/2018
 ms.author: v-junlch
 ms.openlocfilehash: cb6513f187b3cc797d05c53691666bb3c63cc649
-ms.sourcegitcommit: b8f424fbff10034c55851618f6564d52257a5e92
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48876428"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645568"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>应用程序列表中意料之外的应用程序
 

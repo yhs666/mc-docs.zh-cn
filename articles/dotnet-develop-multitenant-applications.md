@@ -12,11 +12,11 @@ origin.date: 06/05/2015
 ms.date: 01/21/2016
 ms.author: v-junlch
 ms.openlocfilehash: 185532fd78a012189a25687788c9de3dd3b8977d
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20184748"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648252"
 ---
 # <a name="multitenant-applications-in-azure"></a>Azure 中的多租户应用程序
 

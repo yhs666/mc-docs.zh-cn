@@ -14,11 +14,11 @@ origin.date: 11/11/2017
 ms.date: 09/10/2018
 ms.author: v-junlch
 ms.openlocfilehash: 19b78f186c2462069289e2d3618a42b026e1895d
-ms.sourcegitcommit: 40456700212200e707d6cb3147cf96ad161d3ff2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44269513"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644244"
 ---
 # <a name="set-up-named-authentication-credentials"></a>设置命名的身份验证凭据
 
@@ -43,7 +43,7 @@ ms.locfileid: "44269513"
 
 - [Web 应用一般概述](/app-service/)
 - [将应用部署到 Azure 应用服务](/app-service/app-service-deploy-local-git) 
-- [使用 Visual Studio 部署 WebJobs](/app-service/websites-dotnet-deploy-webjobs)
+- [使用 Visual Studio 部署 Web 作业](/app-service/websites-dotnet-deploy-webjobs)
 - [创建和部署云服务](/cloud-services/cloud-services-how-to-create-deploy-portal)
 
 <!-- Update_Description: update metedata properties -->

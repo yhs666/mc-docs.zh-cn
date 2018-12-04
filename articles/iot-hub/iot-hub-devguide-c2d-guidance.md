@@ -10,11 +10,11 @@ origin.date: 01/29/2018
 ms.date: 09/10/2018
 ms.author: v-yiso
 ms.openlocfilehash: ef0726bdd783e5641bed3f54cdf658a16b433fe1
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43329105"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644210"
 ---
 # <a name="cloud-to-device-communications-guidance"></a>从云到设备通信指南
 IoT 中心提供三个选项，允许设备应用向后端应用公开功能：

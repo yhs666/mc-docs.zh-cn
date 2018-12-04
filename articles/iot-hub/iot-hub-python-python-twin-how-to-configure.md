@@ -16,11 +16,11 @@ origin.date: 01/12/2018
 ms.date: 05/07/2018
 ms.author: v-yiso
 ms.openlocfilehash: 34a3d29b04adcc2a09dc79339d0a9d732d15cecb
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939956"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647021"
 ---
 # <a name="use-desired-properties-to-configure-devices-python"></a>使用所需属性配置设备 (Python)
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]

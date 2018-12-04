@@ -17,11 +17,11 @@ ms.date: 07/10/2018
 ms.author: v-junlch
 ms.custom: mvc
 ms.openlocfilehash: 349bfeb2f51b496ae73fc7cb65aed7d3de8814af
-ms.sourcegitcommit: a22129c95c9f877a04c6b5b428edf7f4e953fd97
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37937386"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647374"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>快速入门：创建 ASP.NET Web 应用 
 

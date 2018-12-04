@@ -15,11 +15,11 @@ author: thraka
 ms.author: v-yiso
 manager: timlt
 ms.openlocfilehash: 145fd4a4cb61d7ea0769ade654edfe485118f6ca
-ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2017
-ms.locfileid: "23635100"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647107"
 ---
 # <a name="azure-cloud-services-config-schema-cscfg-file"></a>Azure 云服务配置架构（.cscfg 文件）
 服务配置文件指定要为服务中每个角色部署的角色实例数、任何配置设置的值，以及与角色关联的任何证书的缩略图。 如果服务属于虚拟网络，必须在服务配置文件以及虚拟网络配置文件中提供网络的配置信息。 服务配置文件的默认扩展名为 .csdef。
@@ -59,7 +59,7 @@ ms.locfileid: "23635100"
 ##  <a name="ServiceConfiguration"></a> ServiceConfiguration 元素
 `ServiceConfiguration` 元素是服务配置文件的顶层元素。
 
-下表描述 `ServiceConfiguration` 元素的属性。 所有属性值均为字符串类型。
+下表介绍了 `ServiceConfiguration` 元素的属性。 所有属性值均为字符串类型。
 
 | 属性 | 说明 |
 | --------- | ----------- |

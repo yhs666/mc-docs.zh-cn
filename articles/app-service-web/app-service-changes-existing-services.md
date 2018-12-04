@@ -16,11 +16,11 @@ origin.date: 02/12/2016
 ms.date: 09/26/2016
 ms.author: v-dazen
 ms.openlocfilehash: bd9f93e3e82348171adf71f79a5a4315b24f0ee2
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20184247"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644373"
 ---
 # <a name="azure-app-service-and-existing-azure-services"></a>Azure App Service 和现有的 Azure 服务
 本文概括介绍了对现有 Azure 服务的更改，这是将多个 Azure 服务组合为 [Azure App Service](https://www.azure.cn/home/features/app-service/)（新的集成产品/服务）更改的一部分。
@@ -53,7 +53,7 @@ ms.locfileid: "20184247"
 <td align="left"><li>对于 Azure 网站，对应用服务进行了严格限制，必须将名称“网站”更改为“Web 应用”。
 <p><li>现在，网站的所有现有实例均已改为应用服务中的 Web 应用。</p>
 <p><li>可以通过 <a href="/app-service-web/app-service-web-app-azure-portal">Azure 门户</a>访问现有网站，该门户的 <em>应用服务</em>下列出了所有现有站点。</p>
-<p><li>Web 托管计划现在改为了应用服务计划<em></em><em></em>。 应用服务计划可以托管任何应用类型的应用服务，例如 Web 应用、移动应用或 API 应用<em></em>。</p>
+<p><li>Web 托管计划现在改为了应用服务计划。 应用服务计划可以托管任何应用类型的应用服务，例如 Web 应用、移动应用或 API 应用。</p>
 <p><li>Azure App Service Web 应用现已公开上市。</p>
 <p><li><a href="https://www.azure.cn/home/features/app-service/web-apps/">了解有关 Web 应用的详细信息</a>。</p></td>
 </tr>

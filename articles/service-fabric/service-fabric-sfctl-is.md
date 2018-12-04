@@ -16,11 +16,11 @@ origin.date: 07/31/2018
 ms.date: 09/10/2018
 ms.author: v-yeche
 ms.openlocfilehash: f07ac4ca29a302d6252895accf041ce1c684621f
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515658"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646275"
 ---
 # <a name="sfctl-is"></a>sfctl is
 查询并向基础结构服务发送命令。
@@ -30,7 +30,7 @@ ms.locfileid: "44515658"
 |命令|说明|
 | --- | --- |
 | command | 针对给定基础结构服务实例调用管理命令。 |
-| query | 针对给定基础结构服务实例调用只读查询。 |
+| 查询 | 针对给定基础结构服务实例调用只读查询。 |
 
 ## <a name="sfctl-is-command"></a>sfctl is command
 针对给定基础结构服务实例调用管理命令。

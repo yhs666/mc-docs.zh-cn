@@ -16,11 +16,11 @@ origin.date: 09/29/2017
 ms.author: v-yiso
 ms.date: 09/17/2018
 ms.openlocfilehash: 4f2ff84c0d907733e3e61a6c910e22ff297d4f1a
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068189"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646740"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API 导入限制和已知问题
 ## <a name="about-this-list"></a>关于此列表

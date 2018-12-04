@@ -10,11 +10,11 @@ origin.date: 07/06/2018
 ms.date: 09/17/2018
 ms.author: v-yeche
 ms.openlocfilehash: 8bbd6f0708045f322c217eb5aefe5ac619543bc2
-ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586839"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643860"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>设置 Azure VM 迁移到 Azure 后的灾难恢复 
 

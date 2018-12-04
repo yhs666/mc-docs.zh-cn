@@ -6,16 +6,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 07/06/2018
-ms.date: 09/24/2018
+origin.date: 10/10/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 0b25f445b4019619e5caabf4f1eb2f33c9b3714c
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: dacc04f2551e0b532e18a0889622207eb6383ed9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201352"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644917"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>为 Azure VM 设置到 Azure 次要区域的灾难恢复
 
@@ -168,6 +168,21 @@ Site Recovery 会针对目标区域创建默认设置和复制策略。 你可�
 
 > [!IMPORTANT]
   如果启用了多 VM 一致性，则复制组中的计算机将通过端口 20004 相互通信。 确保防火墙设备没有阻止 VM 之间通过端口 20004 进行的内部通信。 如果想要 Linux VM 成为复制组的一部分，请确保按照特定 Linux 版本的指南手动打开端口 20004 上的出站流量。
+
+<!--Pending for Verify later-->
+### <a name="configure-encryption-settings"></a>配置加密设置
+
+如果源虚拟机启用了 Azure 磁盘加密 (ADE)，则会显示以下加密设置部分。
+
+- **磁盘加密密钥保管库**：默认情况下，Azure Site Recovery 会在目标区域中创建新的密钥保管库，其名称具有基于源 VM 磁盘加密密钥的“asr”后缀。 如果 Azure Site recovery 创建的密钥保管库已存在，则会重复使用。
+- **密钥加密密钥保管库**：默认情况下，Azure Site Recovery 会在目标区域中创建新的密钥保管库，其名称具有基于源 VM 密钥加密密钥的“asr”后缀。 如果 Azure Site recovery 创建的密钥保管库已存在，则会重复使用。
+
+单击加密设置旁边的“自定义”可替代默认值并选择自定义密钥保管库。
+
+>[!NOTE]
+>Azure Site Recovery 目前仅支持运行 Windows OS 且[已使用 Azure AD 应用启用加密](https://aka.ms/ade-aad-app)的 Azure VM。
+>
+<!--Pending for Verify later-->
 
 ### <a name="track-replication-status"></a>跟踪复制状态
 

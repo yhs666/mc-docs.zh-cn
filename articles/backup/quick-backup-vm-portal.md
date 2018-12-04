@@ -13,11 +13,11 @@ ms.date: 08/22/2018
 ms.author: v-junlch
 ms.custom: mvc
 ms.openlocfilehash: 5403a3b153edb9435486c759b5631093cb67f3d7
-ms.sourcegitcommit: 85cdb61361dc61147bac991d4907f454f0684ea0
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42709721"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644684"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>在 Azure 中备份虚拟机
 可以通过 Azure 门户创建 Azure 备份。 此方法提供基于浏览器的用户界面用于创建和配置 Azure 备份及所有相关的资源。 可以通过定期创建备份来保护数据。 Azure 备份可创建恢复点，这些恢复点可存储在异地冗余的恢复保管库中。 本文详细介绍如何使用 Azure 门户备份虚拟机 (VM)。 
@@ -29,7 +29,7 @@ ms.locfileid: "42709721"
 在 http://portal.azure.cn 登录 Azure 门户。
 
 ## <a name="select-a-vm-to-back-up"></a>选择要备份的 VM
-在恢复服务保管库中创建一个简单的已计划每日备份。 
+在恢复服务保管库中创建一个简单的计划每日备份。 
 
 1. 在左侧菜单中选择“虚拟机”。 
 2. 从列表中选择要备份的 VM。 如果使用了 VM 快速入门教程中的示例命令，VM 在 *myResourceGroup* 资源组中名为 *myVM*。
@@ -54,7 +54,7 @@ ms.locfileid: "42709721"
 
 
 ## <a name="start-a-backup-job"></a>启动备份作业
-可以立即开始备份，而不用等待默认策略根据计划的时间运行作业。 这第一个备份作业会创建完整恢复点。 此初始备份后的每个备份作业会创建增量恢复点。 增量恢复点有利于存储并具有时效性，因为它们仅传输自上次备份以来所做的更改。
+可以立即开始备份，而不用等待默认策略根据计划的时间运行作业。 第一个备份作业会创建一个完整恢复点。 此初始备份后的每个备份作业会创建增量恢复点。 增量恢复点有利于存储并具有时效性，因为它们仅传输自上次备份以来所做的更改。
 
 1. 在 VM 的“备份”窗口中，选择“立即备份”。
 

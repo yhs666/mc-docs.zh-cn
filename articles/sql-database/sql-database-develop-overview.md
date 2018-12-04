@@ -12,11 +12,11 @@ origin.date: 06/20/2018
 ms.date: 09/02/2018
 ms.author: v-jay
 ms.openlocfilehash: 140e1612dbabbe9d675fa7b1f62063889f5ebc72
-ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43249722"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647183"
 ---
 # <a name="sql-database-application-development-overview"></a>SQL 数据库应用程序开发概述
 本文逐步讲解开发人员在编写代码以连接到 Azure SQL 数据库时应考虑的基本注意事项。
@@ -60,7 +60,7 @@ Azure SQL 数据库提供用于在 SQL 数据库中限制访问、保护数据�
 
 ## <a name="managing-connections"></a>管理连接
 * 在客户端连接逻辑中，将默认超时替换为 30 秒。  默认值 15 秒对于依赖于 Internet 的连接而言太短。
-* 如果在使用[连接池](http://msdn.microsoft.com/library/8xx3tyca.aspx)，请确保在程序不活跃地使用连接时将其关闭，而不是准备重用它。
+* 如果在使用 [连接池](http://msdn.microsoft.com/library/8xx3tyca.aspx)，请确保在程序不活跃地使用连接时将其关闭，而不是准备重用它。
 
 ## <a name="network-considerations"></a>网络注意事项
 * 在托管客户端程序的计算机上，确保防火墙允许端口 1433 上的传出 TCP 通信。  详细信息：[配置 Azure SQL 数据库防火墙](sql-database-configure-firewall-settings.md)。

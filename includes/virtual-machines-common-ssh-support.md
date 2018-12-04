@@ -10,11 +10,11 @@ ms.date: 06/04/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: c6f5a97ff67afb493b978681398ed41340b5729f
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702891"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647706"
 ---
 ## <a name="supported-ssh-key-formats"></a>受支持的 SSH 密钥格式
 

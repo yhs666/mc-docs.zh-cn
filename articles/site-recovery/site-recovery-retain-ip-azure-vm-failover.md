@@ -11,11 +11,11 @@ author: rockboyfor
 ms.topic: conceptual
 ms.author: v-yeche
 ms.openlocfilehash: 2353337e63e787e09e694f0a0cba7566fa834115
-ms.sourcegitcommit: f216d57a5a2732e2e2c4e20ac9747e206ac914e4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39416938"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646214"
 ---
 <!-- IMPORTANT: THIS ARTICLE DESCRIBE THE CONNECTION BETWEEN Source(China East) to Target(China North)-->
 # <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>为 Azure 虚拟机故障转移保留 IP 地址

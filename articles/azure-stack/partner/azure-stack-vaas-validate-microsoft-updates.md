@@ -15,11 +15,11 @@ ms.date: 08/27/2018
 ms.author: v-jay
 ms.reviewer: johnhas
 ms.openlocfilehash: 7d62ee95a3b4837b4dbeb98139a5b79e17292a0d
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869702"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647459"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>验证来自 Microsoft 的软件更新
 

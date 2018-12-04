@@ -7,11 +7,11 @@ origin.date: 09/12/2018
 ms.date: 09/24/2018
 ms.author: v-yeche
 ms.openlocfilehash: 4c891d45271cd0289b57f1af1802569e39e2c3b9
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201265"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643761"
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>VMware 到 Azure 复制体系结构
 

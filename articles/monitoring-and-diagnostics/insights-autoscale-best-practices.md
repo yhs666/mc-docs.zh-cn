@@ -9,11 +9,11 @@ origin.date: 07/07/2017
 ms.date: 10/22/2018
 ms.author: v-lingwu
 ms.openlocfilehash: 223db0ecc702a064571ca9b9c414325e49435b0e
-ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652258"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643872"
 ---
 # <a name="best-practices-for-autoscale"></a>自动缩放最佳实践
 Azure Monitor 自动缩放仅适用于[虚拟机规模集](/services/virtual-machine-scale-sets/)、[云服务](/services/cloud-services/)、[应用服务 - Web 应用](/services/app-service/web/)和 [API 管理服务](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)。

@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 03/17/2017
 ms.author: v-junlch
 ms.openlocfilehash: d0269c23d05b7cdd6901eaf909348878eae75f6e
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20181556"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644005"
 ---
 # <a name="big-compute-in-azure-technical-resources-for-batch-and-high-performance-computing"></a>Azure 中的大型计算：用于批处理和高性能计算的技术资源
 此为技术资源指南，旨在帮助用户在 Azure 中运行大规模并行批处理和高性能计算 (HPC) 工作负荷。 可以使用各种 Azure 服务将现有的批处理或 HPC 工作负荷扩展到 Azure 云，或者生成新的大型计算解决方案。
@@ -81,7 +81,7 @@ Azure 提供适合运行 Linux 和 Windows HPC 工作负荷的 [VM 大小范围]
 
 ## <a name="samples-and-demos"></a>示例和演示
 - [Azure Batch C# 和 Python 代码示例](https://github.com/Azure/azure-batch-samples)
-- [ Shipyard](https://azure.github.io/batch-shipyard/) 工具包，可以轻松地将批处理样式的 Dockerized 工作负荷部署到 Azure Batch
+- [批处理 Shipyard](https://azure.github.io/batch-shipyard/) 工具包，可以轻松地将批处理样式的 Dockerized 工作负荷部署到 Azure Batch
 - 基于 Azure Batch 构建的 [doAzureParallel](http://www.github.com/Azure/doAzureParallel) R 包
 - [Test drive SUSE Linux Enterprise Server for HPC](https://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver12optimizedforhighperformancecompute/)（试用 SUSE Linux Enterprise Server for HPC）
 

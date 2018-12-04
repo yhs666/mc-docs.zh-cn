@@ -16,11 +16,11 @@ origin.date: 06/22/2017
 ms.date: 12/04/2017
 ms.author: v-yeche
 ms.openlocfilehash: 5c94b77ce433e4f4f301d0f4946702cdd3fae56a
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
-ms.locfileid: "26044744"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646015"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>有关 Azure Service Fabric 与 API 管理的概述
 

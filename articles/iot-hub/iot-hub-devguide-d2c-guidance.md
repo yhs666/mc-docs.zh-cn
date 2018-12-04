@@ -16,11 +16,11 @@ origin.date: 01/29/2018
 ms.date: 05/07/2018
 ms.author: v-yiso
 ms.openlocfilehash: c4a6bdfe87685af8b6fa60d108a47d5ae147324a
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121118"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644213"
 ---
 # <a name="device-to-cloud-communications-guidance"></a>从设备到云通信指南
 将信息从设备应用发送到解决方案后端时，IoT 中心会公开三个选项：

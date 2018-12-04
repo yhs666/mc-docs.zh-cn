@@ -17,11 +17,11 @@ origin.date: 04/25/2017
 ms.author: v-yiso
 ms.date: 10/16/2017
 ms.openlocfilehash: 675022b67681b4e0318c69eaaeebb55622cb3216
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
-ms.locfileid: "22339064"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643780"
 ---
 # <a name="ssh-support-for-azure-web-apps-for-containers"></a>对用于容器的 Azure Web 应用的 SSH 支持
 

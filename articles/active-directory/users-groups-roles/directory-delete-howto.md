@@ -15,11 +15,11 @@ ms.author: v-junlch
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.openlocfilehash: 2610957462d4344ecc11f0a0af4d345a917b17d3
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487524"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647136"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>删除 Azure Active Directory 租户
 删除租户时，也会删除包含在该租户中的所有资源。 必须对租户进行准备，尽量减少关联的资源，然后才能将其删除。 只有 Azure Active Directory (Azure AD) 全局管理员可以从门户中删除 Azure AD 租户。

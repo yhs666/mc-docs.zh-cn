@@ -4,22 +4,21 @@ description: 了解如何在 Azure PowerShell 中使用 Azure Site Recovery 为 
 services: site-recovery
 author: rockboyfor
 manager: digimobile
-editor: raynew
 ms.service: site-recovery
 ms.topic: article
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+origin.date: 10/02/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2eba90eed06d9c0feca98661acde67c8fc10b39a
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: 6fe8c73e0abdaabc127e087e2a7cbdc7fa3ab4fa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168385"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647768"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>使用 Azure PowerShell 为 Azure 虚拟机设置灾难恢复
 
-本文介绍如何使用 Azure PowerShell 来设置和测试 Azure 虚拟机的灾难恢复。 
+本文介绍如何使用 Azure PowerShell 来设置和测试 Azure 虚拟机的灾难恢复。
 
 你将学习如何执行以下操作：
 
@@ -35,7 +34,6 @@ ms.locfileid: "39168385"
 
 > [!NOTE]
 > 并非所有可以通过门户使用的方案功能都能通过 Azure PowerShell 使用。 目前不支持通过 Azure PowerShell 使用的部分方案功能包括：
-> - 复制使用托管磁盘的 Azure 虚拟机的功能。
 > - 在无需显式指定虚拟机每个磁盘的情况下指定要复制虚拟机中所有磁盘的功能。  
 
 ## <a name="prerequisites"></a>先决条件
@@ -47,7 +45,7 @@ ms.locfileid: "39168385"
 
 ## <a name="log-in-to-your-azure-subscription"></a>登录到 Azure 订阅
 
-使用 Connect-AzureRmAccount -Environment AzureChinaCloud cmdlet 登录到 Azure 订阅
+使用 Connect-AzureRmAccount cmdlet 登录到 Azure 订阅
 
 ```azurepowershell
 Connect-AzureRmAccount -Environment AzureChinaCloud
@@ -62,6 +60,7 @@ Select-AzureRmSubscription -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
 本文中的示例会将“中国东部”区域中的某个虚拟机复制到“中国北部”区域并在其中进行恢复。 要复制的虚拟机是包含 OS 磁盘和单个数据磁盘的虚拟机。 本示例中使用的虚拟机名称为 AzureDemoVM。
 
+<!--Notice: Change to replciated to and recovered in China North region-->
 ```azurepowershell
 # Get details of the virtual machine
 $VM = Get-AzureRmVM -ResourceGroupName "A2AdemoRG" -Name "AzureDemoVM"
@@ -94,7 +93,7 @@ $DataDisk1VhdURI = $VM.StorageProfile.DataDisks[0].Vhd
 
 ## <a name="create-a-recovery-services-vault"></a>创建恢复服务保管库
 
-创建要在其中创建恢复服务保管库的资源组。 
+创建要在其中创建恢复服务保管库的资源组。
 
 > [!IMPORTANT]
 > * 恢复服务保管库和要保护的虚拟机必须位于不同的 Azure 位置。
@@ -103,15 +102,16 @@ $DataDisk1VhdURI = $VM.StorageProfile.DataDisks[0].Vhd
 
 在本文的示例中，要保护的虚拟机位于“中国东部”区域。 为灾难恢复选择的恢复区域为“中国北部”区域。 恢复服务保管库及其资源组都位于恢复区域（中国北部）
 
+<!--Notice: Change to replciated to and recovered in China North region-->
 ```azurepowershell
 #Create a resource group for the recovery services vault in the recovery Azure region
 New-AzureRmResourceGroup -Name "a2ademorecoveryrg" -Location "China North"
 ```
 ```
 ResourceGroupName : a2ademorecoveryrg
-Location          : chinanorth2
+Location          : chinanorth
 ProvisioningState : Succeeded
-Tags              : 
+Tags              :
 ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/a2ademorecoveryrg
 ```
 
@@ -127,19 +127,19 @@ Write-Output $vault
 Name              : a2aDemoRecoveryVault
 ID                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/a2ademorecoveryrg/providers/Microsoft.RecoveryServices/vaults/a2aDemoRecoveryVault
 Type              : Microsoft.RecoveryServices/vaults
-Location          : chinanorth2
+Location          : chinanorth
 ResourceGroupName : a2ademorecoveryrg
 SubscriptionId    : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
-``` 
+```
 ## <a name="set-the-vault-context"></a>设置保管库上下文
 
 > [!TIP]
 > Azure Site Recovery PowerShell 模块（AzureRm.RecoveryServices.SiteRecovery 模块）包含大多数 cmdlet 的易用别名。 模块中的 cmdlet 采用 *\<Operation>-**AzureRmRecoveryServicesAsr**\<Object>* 形式，并具有采用 *\<Operation>-**ASR**\<Object>* 形式的等效别名。 本文使用 cmdlet 别名以便于阅读。
 
-设置 PowerShell 会话中使用的保管库上下文。 为此，请下载保管库设置文件，并将下载的文件导入 PowerShell 会话以设置保管库上下文。 
+设置 PowerShell 会话中使用的保管库上下文。 为此，请下载保管库设置文件，并将下载的文件导入 PowerShell 会话以设置保管库上下文。
 
-设置后，PowerShell 会话中的后续 Azure Site Recovery 操作将在所选保管库的上下文中执行。 
+设置后，PowerShell 会话中的后续 Azure Site Recovery 操作将在所选保管库的上下文中执行。
 
  ```azurepowershell
 #Download the vault settings file for the vault.
@@ -161,21 +161,23 @@ Remove-Item -Path $Vaultsettingsfile.FilePath
 ```
 ## <a name="prepare-the-vault-to-start-replicating-azure-virtual-machines"></a>准备保管库以开始复制 Azure 虚拟机
 
-####<a name="1-create-a-site-recovery-fabric-object-to-represent-the-primarysource-region"></a>1.创建用于表示主要（源）区域的 Site Recovery 结构对象
+### <a name="create-a-site-recovery-fabric-object-to-represent-the-primary-source-region"></a>创建用于表示主要（源）区域的 Site Recovery 结构对象
 
-保管库中的结构对象表示 Azure 区域。 主要结构对象是创建的结构对象，表示要在保管库中保护的虚拟机所属的 Azure 区域。 在本文的示例中，要保护的虚拟机位于“中国东部”区域。
+保管库中的结构对象表示 Azure 区域。 创建主要结构对象，以表示要在保管库中保护的虚拟机所属的 Azure 区域。 在本文的示例中，要保护的虚拟机位于“中国东部”区域。
 
-> [!NOTE]
-> Azure Site Recovery 操作以异步方式执行。 启动某个操作时，会提交一个 Azure Site Recovery 作业并返回一个作业跟踪对象。 使用作业跟踪对象获得最新的状态作业 (Get-ASRJob) 和监视操作状态。
+- 每个区域只能创建一个结构对象。 
+- 如果之前已在 Azure 门户中为 VM 启用了 Site Recovery 复制，则 Site Recovery 会自动创建结构对象。 如果区域存在结构对象，则无法创建新结构对象。
+
+在开始之前，请注意 Site Recovery 操作以异步方式执行。 启动某个操作时，会提交一个 Azure Site Recovery 作业并返回一个作业跟踪对象。 使用作业跟踪对象获得最新的状态作业 (Get-ASRJob) 和监视操作状态。
 
 ```azurepowershell
 #Create Primary ASR fabric
-$TempASRJob = New-ASRFabric -Azure -Location 'China East'  -Name "A2Ademo-ChinaEast" 
+$TempASRJob = New-ASRFabric -Azure -Location 'China East'  -Name "A2Ademo-ChinaEast"
 
 # Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
+while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
         #If the job hasn't completed, sleep for 10 seconds before checking the job status again
-        sleep 10; 
+        sleep 10;
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
@@ -186,17 +188,17 @@ $PrimaryFabric = Get-AsrFabric -Name "A2Ademo-ChinaEast"
 ```
 如果在同一个保管库中保护来自多个 Azure 区域的虚拟机，请为每个源 Azure 区域创建一个结构对象。
 
-####<a name="2-create-a-site-recovery-fabric-object-to-represent-the-recovery-region"></a>2.创建用于表示恢复区域的 Site Recovery 结构对象
+### <a name="create-a-site-recovery-fabric-object-to-represent-the-recovery-region"></a>创建用于表示恢复区域的 Site Recovery 结构对象
 
 恢复结构对象表示 Azure 恢复位置。 虚拟机将复制和恢复到（发生故障转移时）该恢复结构表示的恢复区域。 本示例使用的 Azure 恢复区域是“中国北部”。
 
 ```azurepowershell
 #Create Recovery ASR fabric
-$TempASRJob = New-ASRFabric -Azure -Location 'China North'  -Name "A2Ademo-ChinaNorth" 
+$TempASRJob = New-ASRFabric -Azure -Location 'China North'  -Name "A2Ademo-ChinaNorth"
 
 # Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
-        sleep 10; 
+while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+        sleep 10;
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
@@ -207,7 +209,7 @@ $RecoveryFabric = Get-AsrFabric -Name "A2Ademo-ChinaNorth"
 
 ```
 
-####<a name="3-create-a-site-recovery-protection-container-in-the-primary-fabric"></a>3.在主要结构中创建 Site Recovery 保护容器
+### <a name="create-a-site-recovery-protection-container-in-the-primary-fabric"></a>在主要结构中创建 Site Recovery 保护容器
 
 保护容器是用于在一个结构中分组复制项的容器。
 
@@ -216,8 +218,8 @@ $RecoveryFabric = Get-AsrFabric -Name "A2Ademo-ChinaNorth"
 $TempASRJob = New-AzureRmRecoveryServicesAsrProtectionContainer -InputObject $PrimaryFabric -Name "A2AChinaEastProtectionContainer"
 
 #Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
-        sleep 10; 
+while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+        sleep 10;
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
@@ -225,15 +227,15 @@ Write-Output $TempASRJob.State
 
 $PrimaryProtContainer = Get-ASRProtectionContainer -Fabric $PrimaryFabric -Name "A2AChinaEastProtectionContainer"
 ```
-####<a name="4-create-a-site-recovery-protection-container-in-the-recovery-fabric"></a>4.在恢复结构中创建 Site Recovery 保护容器
+### <a name="create-a-site-recovery-protection-container-in-the-recovery-fabric"></a>在恢复结构中创建 Site Recovery 保护容器
 
 ```azurepowershell
 #Create a Protection container in the recovery Azure region (within the Recovery fabric)
 $TempASRJob = New-AzureRmRecoveryServicesAsrProtectionContainer -InputObject $RecoveryFabric -Name "A2AChinaNorthProtectionContainer"
 
 #Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
-        sleep 10; 
+while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+        sleep 10;
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
@@ -244,15 +246,15 @@ Write-Output $TempASRJob.State
 $RecoveryProtContainer = Get-ASRProtectionContainer -Fabric $RecoveryFabric -Name "A2AChinaNorthProtectionContainer"
 ```
 
-####<a name="5-create-a-replication-policy"></a>5.创建复制策略
+### <a name="create-a-replication-policy"></a>创建复制策略
 
 ```azurepowershell
 #Create replication policy
 $TempASRJob = New-ASRPolicy -AzureToAzure -Name "A2APolicy" -RecoveryPointRetentionInHours 24 -ApplicationConsistentSnapshotFrequencyInHours 4
 
 #Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
-        sleep 10; 
+while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+        sleep 10;
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
@@ -261,7 +263,7 @@ Write-Output $TempASRJob.State
 
 $ReplicationPolicy = Get-ASRPolicy -Name "A2APolicy"
 ```
-####<a name="6-create-a-protection-container-mapping-between-the-primary-and-recovery-protection-container"></a>6.在主要保护容器与恢复保护容器之间创建保护容器映射
+### <a name="create-a-protection-container-mapping-between-the-primary-and-recovery-protection-container"></a>在主要保护容器与恢复保护容器之间创建保护容器映射
 
 保护容器映射将主要保护容器映射到恢复保护容器和复制策略。 针对在保护容器对之间复制虚拟机时所用的每个复制策略各创建一个映射。
 
@@ -270,8 +272,8 @@ $ReplicationPolicy = Get-ASRPolicy -Name "A2APolicy"
 $TempASRJob = New-ASRProtectionContainerMapping -Name "A2APrimaryToRecovery" -Policy $ReplicationPolicy -PrimaryProtectionContainer $PrimaryProtContainer -RecoveryProtectionContainer $RecoveryProtContainer
 
 #Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
-        sleep 10; 
+while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+        sleep 10;
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
@@ -281,17 +283,17 @@ Write-Output $TempASRJob.State
 $EusToWusPCMapping = Get-ASRProtectionContainerMapping -ProtectionContainer $PrimaryProtContainer -Name "A2APrimaryToRecovery"
 ```
 
-####<a name="7-create-a-protection-container-mapping-for-failback-reverse-replication-after-a-failover"></a>7.创建用于故障回复（故障转移后的反向复制）的保护容器映射
+### <a name="create-a-protection-container-mapping-for-failback-reverse-replication-after-a-failover"></a>创建用于故障回复（故障转移后的反向复制）的保护容器映射
 
 故障转移后，准备好将故障转移的虚拟机恢复到原始 Azure 区域时，需执行故障回复。 为了故障回复，故障转移的虚拟机将从故障转移的区域反向复制到原始区域。 反向复制时，原始区域和恢复区域的角色将会切换。 原始区域现在变成新的恢复区域，而最初的恢复区域现在会变成主要区域。 反向复制的保护容器映射表示原始和恢复区域的已切换角色。
 
 ```azurepowershell
-#Create Protection container mapping (for failback) between the Recovery and Primary Protection Containers with the Replication policy 
+#Create Protection container mapping (for failback) between the Recovery and Primary Protection Containers with the Replication policy
 $TempASRJob = New-ASRProtectionContainerMapping -Name "A2ARecoveryToPrimary" -Policy $ReplicationPolicy -PrimaryProtectionContainer $RecoveryProtContainer -RecoveryProtectionContainer $PrimaryProtContainer
 
 #Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
-        sleep 10; 
+while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+        sleep 10;
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
@@ -308,7 +310,7 @@ Write-Output $TempASRJob.State
 $ChinaEastCacheStorageAccount = New-AzureRmStorageAccount -Name "a2acachestorage" -ResourceGroupName "A2AdemoRG" -Location 'China East' -SkuName Standard_LRS -Kind Storage
 ```
 
-对于不使用托管磁盘的虚拟机，目标存储帐户是虚拟机磁盘复制到的恢复区域中的存储帐户。 目标存储帐户可以是标准存储帐户，也可以是高级存储帐户。 根据磁盘的数据更改率（IO 写入率）以及 Azure Site Recovery 对存储类型支持的变动限制，来选择所需的存储帐户类型。
+对于**不使用托管磁盘**的虚拟机，目标存储帐户是虚拟机磁盘复制到的恢复区域中的存储帐户。 目标存储帐户可以是标准存储帐户，也可以是高级存储帐户。 根据磁盘的数据更改率（IO 写入率）以及 Azure Site Recovery 对存储类型支持的变动限制，来选择所需的存储帐户类型。
 
 ```azurepowershell
 #Create Target storage account in the recovery region. In this case a Standard Storage account
@@ -358,8 +360,8 @@ $ChinaNorthTargetStorageAccount = New-AzureRmStorageAccount -Name "a2atargetstor
     $TempASRJob = New-ASRNetworkMapping -AzureToAzure -Name "A2AEusToWusNWMapping" -PrimaryFabric $PrimaryFabric -PrimaryAzureNetworkId $ChinaEastPrimaryNetwork -RecoveryFabric $RecoveryFabric -RecoveryAzureNetworkId $ChinaNorthRecoveryNetwork
 
     #Track Job status to check for completion
-    while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
-            sleep 10; 
+    while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+            sleep 10;
             $TempASRJob = Get-ASRJob -Job $TempASRJob
     }
 
@@ -373,8 +375,8 @@ $ChinaNorthTargetStorageAccount = New-AzureRmStorageAccount -Name "a2atargetstor
     $TempASRJob = New-ASRNetworkMapping -AzureToAzure -Name "A2AWusToEusNWMapping" -PrimaryFabric $RecoveryFabric -PrimaryAzureNetworkId $ChinaNorthRecoveryNetwork -RecoveryFabric $PrimaryFabric -RecoveryAzureNetworkId $ChinaEastPrimaryNetwork
 
     #Track Job status to check for completion
-    while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
-            sleep 10; 
+    while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+            sleep 10;
             $TempASRJob = Get-ASRJob -Job $TempASRJob
     }
 
@@ -384,7 +386,43 @@ $ChinaNorthTargetStorageAccount = New-AzureRmStorageAccount -Name "a2atargetstor
 
 ## <a name="replicate-azure-virtual-machine"></a>复制 Azure 虚拟机
 
-复制 Azure 虚拟机。
+复制包含**托管磁盘**的 Azure 虚拟机。
+
+```azurepowershell
+
+#Get the resource group that the virtual machine must be created in when failed over.
+$RecoveryRG = Get-AzureRmResourceGroup -Name "a2ademorecoveryrg" -Location "China North"
+
+#Specify replication properties for each disk of the VM that is to be replicated (create disk replication configuration)
+
+#OsDisk
+$OSdiskId =  $vm.StorageProfile.OsDisk.ManagedDisk.Id
+$RecoveryOSDiskAccountType = $vm.StorageProfile.OsDisk.ManagedDisk.StorageAccountType
+$RecoveryReplicaDiskAccountType =  $vm.StorageProfile.OsDisk.ManagedDisk.StorageAccountType
+
+$OSDiskReplicationConfig = New-AzureRmRecoveryServicesAsrAzureToAzureDiskReplicationConfig -managed -LogStorageAccountId $storageAccount.Id `
+         -DiskId $OSdiskId -RecoveryResourceGroupId  $ RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
+         -RecoveryOSDiskAccountType $RecoveryOSDiskAccountType
+
+# Data disk
+$datadiskId1  = $vm.StorageProfile.DataDisks[0].ManagedDisk.id
+$RecoveryReplicaDiskAccountType =  $vm.StorageProfile.DataDisks[0]. StorageAccountType
+$RecoveryTargetDiskAccountType = $vm.StorageProfile.DataDisks[0]. StorageAccountType
+
+$DataDisk1ReplicationConfig  = New-AzureRmRecoveryServicesAsrAzureToAzureDiskReplicationConfig -managed -LogStorageAccountId $storageAccount.Id `
+         -DiskId $datadiskId1 -RecoveryResourceGroupId  $ RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
+         -RecoveryTargetDiskAccountType $RecoveryTargetDiskAccountType
+
+#Create a list of disk replication configuration objects for the disks of the virtual machine that are to be replicated.
+$diskconfigs = @()
+$diskconfigs += $OSDiskReplicationConfig, $DataDisk1ReplicationConfig
+
+#Start replication by creating replication protected item. Using a GUID for the name of the replication protected item to ensure uniqueness of name.
+$TempASRJob = New-ASRReplicationProtectedItem -AzureToAzure -AzureVmId $VM.Id -Name (New-Guid).Guid -ProtectionContainerMapping $EusToWusPCMapping -AzureToAzureDiskReplicationConfiguration $diskconfigs -RecoveryResourceGroupId $RecoveryRG.ResourceId
+
+```
+
+复制包含**非托管磁盘**的 Azure 虚拟机。
 
 ```azurepowershell
 #Specify replication properties for each disk of the VM that is to be replicated (create disk replication configuration)
@@ -472,7 +510,7 @@ EndTime          : 4/25/2018 4:33:06 AM
 TargetObjectId   : ce86206c-bd78-53b4-b004-39b722c1ac3a
 TargetObjectType : ProtectionEntity
 TargetObjectName : azuredemovm
-AllowedActions   : 
+AllowedActions   :
 Tasks            : {Prerequisites check for test failover, Create test virtual machine, Preparing the virtual machine, Start the virtual machine}
 Errors           : {}
 ```
@@ -542,7 +580,7 @@ EndTime          : 4/25/2018 4:51:01 AM
 TargetObjectId   : ce86206c-bd78-53b4-b004-39b722c1ac3a
 TargetObjectType : ProtectionEntity
 TargetObjectName : azuredemovm
-AllowedActions   : 
+AllowedActions   :
 Tasks            : {Prerequisite check, Commit}
 Errors           : {}
 ```
@@ -552,4 +590,4 @@ Errors           : {}
 ## <a name="next-steps"></a>后续步骤
 查看 [Azure Site Recovery PowerShell 参考](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery)来了解如何通过 PowerShell 执行其他任务，例如创建恢复计划，以及对恢复计划执行测试故障转移。
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

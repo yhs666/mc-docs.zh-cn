@@ -16,11 +16,11 @@ origin.date: 02/22/2017
 ms.date: 08/13/2018
 ms.author: v-yeche
 ms.openlocfilehash: 486079e7ff082817718c5d8a38d3f5a7cad42e37
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41704507"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643563"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-powershell"></a>使用 PowerShell 通过安全组视图分析虚拟机安全性
 

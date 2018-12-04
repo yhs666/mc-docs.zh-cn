@@ -11,11 +11,11 @@ origin.date: 04/23/2018
 ms.date: 06/18/2018
 ms.author: v-jay
 ms.openlocfilehash: dc816326ec2f61f52984b8a74bf9c82a3f792836
-ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35324433"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645634"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>通过适用于 Azure SQL 数据库和 SQL Server 的 Spark 连接器，加速实时大数据分析
 

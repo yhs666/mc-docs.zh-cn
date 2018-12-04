@@ -16,11 +16,11 @@ origin.date: 06/01/2016
 ms.date: 04/24/2017
 ms.author: v-dazen
 ms.openlocfilehash: 8d12815c30ea0d0d58f5c18d17cfa162075966dd
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20184345"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646204"
 ---
 # <a name="how-to-use-azure-service-bus-with-the-webjobs-sdk"></a>如何通过 WebJobs SDK 使用 Azure Service Bus
 
@@ -49,9 +49,9 @@ public class Program
 在 GitHub.com 上的 azure-webjobs-sdk-samples 存储库中有[完整的服务总线代码示例](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Program.cs)。
 
 ## <a id="prerequisites"></a>先决条件
-你必须先安装 [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/) NuGet 包和其他 WebJobs SDK 包，然后才能使用服务总线。 
+用户必须先安装 [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/) NuGet 包和其他 WebJobs SDK 包，才能使用服务总线。 
 
-你还必须设置 AzureWebJobsServiceBus 连接字符串，以及存储连接字符串。  你可以在 App.config 文件的 `connectionStrings` 部分中执行此操作，如以下示例所示：
+还必须设置 AzureWebJobsServiceBus 连接字符串，以及存储连接字符串。  可以在 App.config 文件的 `connectionStrings` 部分中执行此操作，如以下示例所示：
 
         <connectionStrings>
             <add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=[accountname];AccountKey=[accesskey];EndpointSuffix=core.chinacloudapi.cn"/>
@@ -80,7 +80,7 @@ SDK 接收 `PeekLock` 模式的消息。如果函数成功完成，则对此消�
             logger.WriteLine(message);
         }
 
-**注意：** 如果你要在未使用 WebJobs SDK 的应用程序中创建队列消息，请务必将 [BrokeredMessage.ContentType](http://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.contenttype.aspx) 设置为“text/plain”。
+**注意：** 如果要在未使用 WebJobs SDK 的应用程序中创建队列消息，请务必将 [BrokeredMessage.ContentType](http://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.contenttype.aspx) 设置为“text/plain”。
 
 ### <a name="poco-queue-message"></a>POCO 队列消息
 SDK 会自动反序列化包含 POCO[（普通旧 CLR 对象](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)）类型 JSON 的队列消息。 以下代码示例读取包含 `BlobInformation` 对象（具有 `BlobName` 属性）的队列消息：
@@ -101,10 +101,10 @@ SDK 会自动反序列化包含 POCO[（普通旧 CLR 对象](http://en.wikipedi
         client.Send(message);
 
 ### <a name="types-servicebustrigger-works-with"></a>ServiceBusTrigger 适用的类型
-除了 `string` 和 POCO 类型以外，你还可以使用具有字节数组或 `BrokeredMessage` 对象的 `ServiceBusTrigger` 属性。
+除了 `string` 和 POCO 类型以外，还可以使用具有字节数组或 `BrokeredMessage` 对象的 `ServiceBusTrigger` 属性。
 
 ## <a id="create"></a>如何创建服务总线队列消息
-若要编写用于新建队列消息的函数，请使用 `ServiceBus` 属性，并将队列名称传递给属性构造函数。 
+要编写用于新建队列消息的函数，请使用 `ServiceBus` 属性，并将队列名称传递给属性构造函数。 
 
 ### <a name="create-a-single-queue-message-in-a-non-async-function"></a>在非异步函数中创建单个队列消息
 以下代码示例使用输出参数在名为“outputqueue”的队列中创建新的消息，该消息的内容与名为“inputqueue”的队列中收到的队列消息相同。
@@ -121,9 +121,9 @@ SDK 会自动反序列化包含 POCO[（普通旧 CLR 对象](http://en.wikipedi
 * `string`
 * `byte[]`
 * `BrokeredMessage`
-* 你定义的可序列化 POCO 类型。 自动序列化为 JSON。
+* 定义的可序列化 POCO 类型。 自动序列化为 JSON。
 
-对于 POCO 类型参数，当函数结束时始终创建队列消息；如果参数为 null，则 SDK 将创建在接收和反序列化消息时返回 null 的队列消息。 对于其他类型，如果该参数为 null，则不创建队列消息。
+对于 POCO 类型参数，当函数结束时始终创建队列消息；如果参数为 null，则 SDK 会创建在接收和反序列化消息时返回 null 的队列消息。 对于其他类型，如果该参数为 null，则不创建队列消息。
 
 ### <a name="create-multiple-queue-messages-or-in-async-functions"></a>在异步函数中创建多个队列消息
 若要创建多个消息，请使用具有 `ICollector<T>` 或 `IAsyncCollector<T>` 的 `ServiceBus` 属性，如以下代码示例所示：
@@ -138,7 +138,7 @@ SDK 会自动反序列化包含 POCO[（普通旧 CLR 对象](http://en.wikipedi
             outputQueueMessage.Add(queueMessage + "2");
         }
 
-调用 `Add` 方法时，将立即创建每个队列消息。
+调用 `Add` 方法时，会立即创建每个队列消息。
 
 ## <a id="topics"></a>如何处理服务总线主题
 若要编写 SDK 在收到服务总线主题消息时调用的函数，请使用 `ServiceBusTrigger` 属性以及捕获主题名称和订阅名称的构造函数，如以下代码示例所示：
@@ -159,7 +159,7 @@ SDK 会自动反序列化包含 POCO[（普通旧 CLR 对象](http://en.wikipedi
 * `MessageProcessor` 策略模式允许为每个队列/主题指定处理器。
 * 默认情况下支持消息处理并发。 
 * 可以轻松通过 `ServiceBusConfiguration.MessageOptions` 对 `OnMessageOptions` 进行自定义。
-* 允许在 `ServiceBusTriggerAttribute`/`ServiceBusAttribute` 上指定 [AccessRights](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Functions.cs#L71)（适用于你可能不具有管理权限的情况）。 请注意，若没有管理 AccessRights，Azure WebJobs 将无法自动预配不存在的队列和主题。
+* 允许在 `ServiceBusTriggerAttribute`/`ServiceBusAttribute` 上指定 [AccessRights](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Functions.cs#L71)（适用于可能不具有管理权限的情况）。 请注意，若没有管理 AccessRights，Azure WebJobs 无法自动预配不存在的队列和主题。
 
 ## <a id="queues"></a>存储队列操作说明文章涉及的相关主题
 有关非特定于服务总线的 WebJobs SDK 方案的详细信息，请参阅[如何结合使用 Azure 队列存储和 WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)。 
@@ -175,5 +175,5 @@ SDK 会自动反序列化包含 POCO[（普通旧 CLR 对象](http://en.wikipedi
 * 手动触发函数
 * 写入日志
 
-## <a id="nextsteps"></a>后续步骤
+## <a id="nextsteps"></a> 后续步骤
 本指南中包含的代码示例展示了如何处理常见方案来结合使用 Azure 服务总线。 有关如何使用 Azure WebJobs 和 WebJobs SDK 的详细信息，请参阅 [Azure WebJobs 推荐资源](/app-service-web/websites-webjobs-resources)。

@@ -17,11 +17,11 @@ ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: misainat
 ms.openlocfilehash: 8d93a7e10401e777f1a7587fede1a79555060c56
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195462"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645615"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack 遥测
 

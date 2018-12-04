@@ -17,11 +17,11 @@ origin.date: 02/14/2017
 ms.date: 05/21/2018
 ms.author: v-yeche
 ms.openlocfilehash: 7b895f6e8e5def6cc3f3ab39fda0bd1fad6aa262
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34256014"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645132"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>适用于 Windows 的网络观察程序代理虚拟机扩展
 
@@ -65,7 +65,7 @@ ms.locfileid: "34256014"
 
 ### <a name="property-values"></a>属性值
 
-| Name | 值/示例 |
+| 名称 | 值/示例 |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | 发布者 | Microsoft.Azure.NetworkWatcher |

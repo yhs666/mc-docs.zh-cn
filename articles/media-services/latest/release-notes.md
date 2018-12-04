@@ -13,11 +13,11 @@ origin.date: 03/19/2018
 ms.date: 06/25/2018
 ms.author: v-nany
 ms.openlocfilehash: ebaeecc495edbc0d60609a6298344df0987a24dc
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748377"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648290"
 ---
 # <a name="azure-media-services-v3-preview-release-notes"></a>Azure 媒体服务 v3（预览）发行说明 
 

@@ -11,11 +11,11 @@ origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
 ms.openlocfilehash: c1e9b33f074903b746762fa1ed5f67ad912c38ea
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486533"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647253"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>跨扩展云数据库进行报告（预览）
 可以使用[弹性查询](sql-database-elastic-query-overview.md)从单个连接点中的多个 Azure SQL 数据库中创建报告。 数据库必须进行横向分区（也称为“分片”）。
@@ -113,10 +113,10 @@ ms.locfileid: "39486533"
    ![从其他源导入 Excel][5]
 4. 在“数据连接向导”中，键入服务器名称和登录凭据  。 。
 5. 在“选择包含所需数据的数据库”对话框中，选择 ElasticDBQuery 数据库。
-6. 在列表视图中选择“客户”表并单击“下一步”。 然后单击“完成”。
+6. 在列表视图中选择“客户”表并单击“下一步”。 然后单击“完成” 。
 7. 在“导入数据”窗体中的“请选择该数据在工作簿中的显示方式”下，选择“表”，然后单击“确定”。
 
-存储在不同分片中、来自“客户”表的所有行将填入 Excel 工作表。
+存储在不同分片中、来自“客户”表的所有行将填入 Excel 工作表  。
 
 现在，可以使用 Excel 的强大数据可视化功能。 可以使用包含服务器名称、数据库名称和凭据的连接字符串，将 BI 和数据集成工具连接到弹性查询数据库。 请确保支持将 SQL Server 用作工具的数据源。 可以引用弹性查询数据库和外部表，就如同使用工具连接的任何其他 SQL Server 数据库和 SQL Server 表一样。
 

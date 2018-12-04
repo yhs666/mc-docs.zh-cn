@@ -16,11 +16,11 @@ origin.date: 06/01/2016
 ms.date: 12/16/2016
 ms.author: v-dazen
 ms.openlocfilehash: f7f262b8f04f3aa93030dc365a1d65e42f78baa4
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20184322"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647731"
 ---
 # <a name="how-to-use-azure-table-storage-with-the-webjobs-sdk"></a>如何通过 WebJobs SDK 使用 Azure 表存储
 
@@ -34,7 +34,7 @@ ms.locfileid: "20184322"
 一些代码片段显示了[手动调用](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual)（即：不是使用触发器属性之一调用）的函数中使用的 `Table` 属性。 
 
 ## <a id="ingress"></a>如何向表中添加实体
-若要将实体添加到表中，请使用包含 `ICollector<T>` 或 `IAsyncCollector<T>` 参数的 `Table` 属性，其中 `T` 指定要添加的实体的架构。 属性构造函数使用指定表名称的字符串参数。 
+要将实体添加到表中，请使用包含 `ICollector<T>` 或 `IAsyncCollector<T>` 参数的 `Table` 属性，其中 `T` 指定要添加的实体的架构。 属性构造函数使用指定表名称的字符串参数。 
 
 下面的代码示例将 `Person` 实体添加到名为 *Ingress* 的表。
 
@@ -70,7 +70,7 @@ ms.locfileid: "20184322"
 如果要直接使用 Azure 存储 API，可以将 `CloudStorageAccount` 参数添加到方法签名。
 
 ## <a id="monitor"></a>实时监视
-因为数据入口函数通常处理大量数据，WebJobs SDK 仪表板提供了实时监视的数据。 “调用日志”  部分告诉你函数是否仍在运行。
+因为数据入口函数通常处理大量数据，WebJobs SDK 仪表板提供了实时监视的数据。 “调用日志”部分告诉你函数是否仍在运行。
 
 ![Ingress 函数正在运行](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingressrunning.png)
 
@@ -83,7 +83,7 @@ ms.locfileid: "20184322"
 ![Ingress 函数已完成](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingresssuccess.png)
 
 ## <a id="multiple"></a>如何从表中读取多个实体
-若要读取表，请将 `Table` 属性和 `IQueryable<T>` 参数一起使用，其中类型 `T` 派生自 `TableEntity` 或 实现 `ITableEntity`。
+要读取表，请将 `Table` 属性和 `IQueryable<T>` 参数一起使用，其中类型 `T` 派生自 `TableEntity` 或 实现 `ITableEntity`。
 
 下面的代码示例读取并记录 `Ingress` 表中所有行：
 
@@ -158,5 +158,5 @@ ms.locfileid: "20184322"
 * 手动触发函数
 * 写入日志
 
-## <a id="nextsteps"></a>后续步骤
+## <a id="nextsteps"></a> 后续步骤
 本指南提供的代码示例演示了如何处理常见方案以操作 Azure 表。 有关如何使用 Azure WebJobs 和 WebJobs SDK 的详细信息，请参阅 [Azure WebJobs 推荐资源](/app-service-web/websites-webjobs-resources)。

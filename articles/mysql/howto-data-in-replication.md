@@ -11,11 +11,11 @@ ms.topic: article
 origin.date: 08/31/2018
 ms.date: 10/22/2018
 ms.openlocfilehash: 93844cfe405768b42ff341642055787a68c0fc14
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453728"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645725"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>如何配置 Azure Database for MySQL 的数据传入复制
 

@@ -11,11 +11,11 @@ ms.author: v-jay
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: bd16783fa5fccdc4f0fdb04a8c03a84cc7342db0
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426379"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648976"
 ---
 # <a name="recommended-on-premises-encoders"></a>推荐的本地编码器
 使用 Azure 媒体服务实时传送视频流时，可以指定通道接收输入流的方式。 如果选择将本地编码器与实时编码通道结合使用，则编码器应推送高质量单比特率流作为输出。 如果选择将本地编码器与直通通道结合使用，则编码器应推送具备所有所需输出质量的多比特率流作为输出。 有关详细信息，请参阅[使用本地编码器实时传送视频流](media-services-live-streaming-with-onprem-encoders.md)。

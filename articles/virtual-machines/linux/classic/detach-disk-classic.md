@@ -18,11 +18,11 @@ origin.date: 02/09/2017
 ms.date: 07/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: 012bf57a90a35c9c3eb6c300b4da0660d85bc412
-ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39261940"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644064"
 ---
 # <a name="how-to-detach-a-disk-from-a-linux-virtual-machine"></a>如何从 Linux 虚拟机分离磁盘
 > [!IMPORTANT] 

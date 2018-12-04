@@ -14,11 +14,11 @@ origin.date: 01/23/2017
 ms.date: 09/27/2018
 ms.author: v-junlch
 ms.openlocfilehash: 21d69dd25416250b283136edaa257fc7413c4c14
-ms.sourcegitcommit: 5af51a8cb9a7db8b1efb6ce6772890ac9884666a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47400099"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648353"
 ---
 # <a name="redis-cache-documentation"></a>Redis 缓存文档
 

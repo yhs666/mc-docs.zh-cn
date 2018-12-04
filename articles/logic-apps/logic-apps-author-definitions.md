@@ -14,11 +14,11 @@ origin.date: 01/01/2018
 ms.date: 10/15/2018
 ms.author: v-yiso
 ms.openlocfilehash: 7153008e21e958d3db69bfe60772d0fcab27a6e0
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455250"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644956"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>为 Azure 逻辑应用中的逻辑应用定义创建、编辑或扩展 JSON
 

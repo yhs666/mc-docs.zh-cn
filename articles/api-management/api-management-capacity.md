@@ -13,11 +13,11 @@ origin.date: 06/18/2018
 ms.date: 08/13/2018
 ms.author: v-yiso
 ms.openlocfilehash: 5ad237cc2e08f62710448243cc1e568ace7ce6d9
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487519"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648055"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Azure API 管理实例的容量
 

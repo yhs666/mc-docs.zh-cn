@@ -10,11 +10,11 @@ origin.date: 07/06/2018
 ms.date: 07/23/2018
 ms.author: v-yeche
 ms.openlocfilehash: 92c23babf75ab04ca68836a89ba39623c425dc79
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168247"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648422"
 ---
 # <a name="overview-of-failback"></a>故障回复概述
 

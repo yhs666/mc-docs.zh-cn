@@ -16,11 +16,11 @@ origin.date: 10/28/2016
 ms.date: 10/09/2017
 ms.author: v-yiso
 ms.openlocfilehash: 563f3388da6e6275e8749a2547f2c977640304e7
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939839"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645609"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>连续部署到 Azure 应用服务
 
@@ -62,7 +62,7 @@ ms.locfileid: "38939839"
 
 将 Visual Studio 解决方案推送到 Azure 应用服务就像推送简单的 index.html 文件一样容易。 应用服务部署过程简化了所有细节，包括还原 NuGet 依赖项和生成应用程序二进制文件。 可以按照仅在 Git 存储库中维护代码的源控件最佳实践操作，并让应用服务部署处理其余工作。
 
-将 Visual Studio 解决方案推送到应用服务的步骤与[上一部分](#overview)中的步骤相同，前提是按以下方式配置解决方案和存储库：
+将 Visual Studio 解决方案推送到应用服务的步骤与 [上一部分](#overview)中的步骤相同，前提是按以下方式配置解决方案和存储库：
 
 * 使用 Visual Studio 源代码管理选项生成如下图所示的 `.gitignore` 文件，或者在内容存储库根目录中手动添加一个 `.gitignore` 文件，其内容类似于此 [.gitignore 示例](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore)。
 

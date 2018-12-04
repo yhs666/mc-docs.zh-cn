@@ -17,21 +17,21 @@ ms.date: 04/24/2017
 ms.author: v-dazen
 ms.custom: mvc
 ms.openlocfilehash: e8cd47d1e677c5bb66b49df68dbfc1568617c862
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
-ms.locfileid: "20186767"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648421"
 ---
 # <a name="bind-a-custom-ssl-certificate-to-a-web-app"></a>将自定义 SSL 证书绑定到 Web 应用
 
-此示例脚本在应用服务中创建一个 Web 应用及其相关资源，然后将自定义域名的 SSL 证书绑定到该应用。 
+此示例脚本在应用服务中创建一个 Web 应用及其相关资源，并将自定义域名的 SSL 证书绑定到该应用。 
 
 必要时，请使用 [Azure PowerShell 指南](https://docs.microsoft.com/powershell/azure/overview)中的说明安装 Azure PowerShell。 同时，请确保：
 
 - 已使用 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 命令创建与 Azure 的连接。
-- 你可以访问域注册机构的 DNS 配置页。
-- 你有要上传和绑定的 SSL 证书的有效 .PFX 文件及其密码。
+- 可以访问域注册机构的 DNS 配置页。
+- 有要上传和绑定的 SSL 证书的有效 .PFX 文件及其密码。
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -85,7 +85,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 |
 | [New-AzureRmAppServicePlan](https://docs.microsoft.com/powershell/module/azurerm.websites/new-azurermappserviceplan) | 创建应用服务计划。 |

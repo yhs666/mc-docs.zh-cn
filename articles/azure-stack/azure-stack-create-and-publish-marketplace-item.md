@@ -16,11 +16,11 @@ ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: avishwan
 ms.openlocfilehash: 775940ed56a0933fed1f23042963263e52a1ceeb
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195350"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647017"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>创建和发布市场项目
 

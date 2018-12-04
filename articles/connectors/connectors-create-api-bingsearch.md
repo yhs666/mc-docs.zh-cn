@@ -13,11 +13,11 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: f2317fba4391abdbd5fb3c02e63fac7c3f58d083
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167972"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646841"
 ---
 # <a name="find-news-with-bing-search-and-azure-logic-apps"></a>使用必应搜索和 Azure 逻辑应用查找新闻 
 
@@ -81,7 +81,7 @@ ms.locfileid: "39167972"
 
 1. 在 Azure 门户或 Visual Studio 的逻辑应用设计器中打开逻辑应用。 此示例使用 Azure 门户。
 
-2. 在该触发器或操作下，选择“新建步骤” > “添加操作”。
+2. 在该触发器或操作下，选择“新建步骤” > “添加操作”。
 
    本示例使用“必应搜索 - 针对新的新闻文章”触发器
 

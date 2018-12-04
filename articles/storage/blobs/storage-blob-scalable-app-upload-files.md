@@ -13,11 +13,11 @@ ms.date: 05/07/2018
 ms.author: v-johch
 ms.custom: mvc
 ms.openlocfilehash: ba74a19932410cd7d92ee444aa4816d1887c088e
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867374"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647184"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>将大量随机数据以并行方式上传到 Azure 存储
 

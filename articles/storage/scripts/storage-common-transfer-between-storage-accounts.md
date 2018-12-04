@@ -15,11 +15,11 @@ origin.date: 02/01/2018
 ms.date: 06/11/2018
 ms.author: v-nany
 ms.openlocfilehash: d1f121e4b93d7594a568caf1d90392e68f9d8ef0
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295749"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648768"
 ---
 # <a name="migrate-blobs-across-storage-accounts-using-azcopy-on-windows"></a>使用 Windows 版 AzCopy 跨存储帐户迁移 blob
 

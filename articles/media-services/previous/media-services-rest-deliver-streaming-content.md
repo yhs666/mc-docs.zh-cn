@@ -16,11 +16,11 @@ origin.date: 12/07/2017
 ms.date: 07/30/2017
 ms.author: v-nany
 ms.openlocfilehash: cae892b4ff8ac48a06319c27ed9fa294c028b699
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219602"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644464"
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>使用 REST 发布 Azure 媒体服务内容
 > [!div class="op_single_selector"]
@@ -36,8 +36,7 @@ ms.locfileid: "39219602"
 
 本文说明如何创建 OnDemand 流式处理定位符，以发布资产及生成平滑流、MPEG DASH 和 HLS 流式处理 URL。 此外，还会示范如何生成渐进式下载 URL。
 
-
-            [以下](#types) 部分显示了其值会在 REST 调用中使用的枚举类型。   
+[以下](#types) 部分显示了其值会在 REST 调用中使用的枚举类型。   
 
 > [!NOTE]
 > 访问媒体服务中的实体时，必须在 HTTP 请求中设置特定标头字段和值。 有关详细信息，请参阅[媒体服务 REST API 开发的设置](media-services-rest-how-to-use.md)。

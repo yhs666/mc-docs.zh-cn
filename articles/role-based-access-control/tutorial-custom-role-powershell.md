@@ -15,11 +15,11 @@ origin.date: 06/12/2018
 ms.date: 09/25/2018
 ms.author: v-junlch
 ms.openlocfilehash: fcbb6c99d72d85808f89e55c618e14202f7bebbe
-ms.sourcegitcommit: 830a60c06303a8447d128a3bca8b36aa2b3b655b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47075849"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647427"
 ---
 # <a name="tutorial-create-a-custom-role-using-azure-powershell"></a>教程：使用 Azure PowerShell 创建自定义角色
 

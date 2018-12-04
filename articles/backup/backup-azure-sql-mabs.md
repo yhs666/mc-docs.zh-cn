@@ -10,11 +10,11 @@ origin.date: 03/24/2017
 ms.date: 07/06/2018
 ms.author: v-junlch
 ms.openlocfilehash: e45237b85ce4eaf955e5d791670c85ea62c2368f
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873348"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645949"
 ---
 # <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>使用 Azure 备份服务器将 SQL Server 备份到 Azure
 本文将引导使用 Azure 备份服务器 (MABS) 来完成 SQL Server 数据库的备份配置步骤。
@@ -101,12 +101,12 @@ ms.locfileid: "37873348"
     - 在星期六中午 12:00 进行的备份 会保留 104 周
     - 在最后一个星期六中午 12:00 进行的备份 会保留 60 个月
     - 在 3 月的最后一个星期六中午 12:00 进行的备份 会保留 10 年
-14. 单击“**下一步**”，选择相应的选项将初始备份副本传输到 Azure。 可以选择“**自动通过网络**”或“**脱机备份**”。
+14. 单击“下一步”，选择相应的选项将初始备份副本传输到 Azure。 可以选择“**自动通过网络**”或“**脱机备份**”。
 
     - “**自动通过网络**”会根据为备份选择的计划将备份数据传输到 Azure。
     - “**脱机备份**”的工作原理详见 [Azure 备份中的脱机备份工作流](backup-azure-backup-import-export.md)。
 
-    选择将初始备份副本发送到 Azure 的相关传输机制，然后单击“**下一步**”。
+    选择将初始备份副本发送到 Azure 的相关传输机制，并单击“**下一步**”。
 15. 在“**摘要**”屏幕中查看策略详细信息以后，单击“**创建组**”按钮即可完成工作流的操作。 可以单击“**关闭**”按钮，然后即可在“监视”工作区中监视作业进度。
 
     ![保护组创建进度](./media/backup-azure-backup-sql/pg-summary.png)

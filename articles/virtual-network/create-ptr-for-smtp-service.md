@@ -17,11 +17,11 @@ ms.date: 03/12/2018
 ms.author: v-yeche
 ms.custom: ''
 ms.openlocfilehash: 04c45539f12b4c843910c885dc162ae5de0bfa63
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34568765"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643683"
 ---
 #  <a name="configure-reverse-lookup-zones-for-an-smtp-banner-check"></a>为 SMTP 横幅检查配置反向查找区域
 

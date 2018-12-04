@@ -16,11 +16,11 @@ origin.date: 08/02/2018
 ms.date: 09/10/2018
 ms.author: v-yeche
 ms.openlocfilehash: 09dd0f657a6a96217ff8557690d21920bdd5d086
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515800"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647219"
 ---
 #  <a name="network-virtual-appliance-issues-in-azure"></a>Azure 中的网络虚拟设备问题
 

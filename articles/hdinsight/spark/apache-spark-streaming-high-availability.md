@@ -18,11 +18,11 @@ origin.date: 01/26/2018
 ms.author: v-yiso
 ms.date: 03/26/2018
 ms.openlocfilehash: 1adadb938042f10fb965ea2b109a7ed2abe3686e
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30077693"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646685"
 ---
 # <a name="create-high-availability-spark-streaming-jobs-with-yarn"></a>使用 YARN 创建高可用性 Spark 流作业
 

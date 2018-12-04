@@ -17,11 +17,11 @@ ms.date: 05/24/2018
 ms.author: v-junlch
 ms.reviewer: brenduns
 ms.openlocfilehash: 708373947bbd2e9d58c657f09c55e75558c3db9f
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475058"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643888"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>基于 Azure Stack 的应用服务 Update 1 发行说明
 
