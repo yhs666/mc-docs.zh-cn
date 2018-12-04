@@ -10,11 +10,11 @@ origin.date: 10/15/2018
 ms.date: 10/19/2018
 ms.author: v-lingwu
 ms.openlocfilehash: 4f1812e9c9204f5bb22f1598433d6d0fa13c3b00
-ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477777"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664545"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>在虚拟网络中创建 Azure Batch 池
 
@@ -44,7 +44,7 @@ Azure Batch 池具有两个设置来允许计算节点彼此进行通信，例�
     
 ## <a name="create-a-pool-with-a-vnet-in-the-portal"></a>使用门户中的 VNet 创建池
 
-在创建 VNet 并将一个子网分配给它后，可以使用该 VNet 创建 Batch 池。 请按照下列步骤在 Azure 门户中创建池： 
+在创建 VNet 并将一个子网分配给它后，可以使用该 VNet 创建 Batch 池。 请按照下列步骤在 Azure 门户中创建池： 
 
 
 

@@ -16,11 +16,11 @@ origin.date: 01/23/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
 ms.openlocfilehash: 3159afa48026df56415844fdf2060e9722104d78
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295796"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660889"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Azure 导入/导出服务日志文件格式
 当 Azure 导入/导出服务在执行导入作业或导出作业的过程中针对驱动器执行某个操作时，会将日志写入到与该作业关联的存储帐户中的块 Blob 中。  
@@ -81,7 +81,7 @@ page-range-list ::=
 <PageRangeList>  
       [<PageRange Offset="page-range-offset" Length="page-range-length"   
        [Hash="md5-hash"] Status="page-range-status"/>]  
-      [<PageRange Offset="page-range-offset" Length="page-range-length"   
+      [<PageRange Offset="page-range-offset" Length="page-range-length"   
        [Hash="md5-hash"] Status="page-range-status"/>]  
 </PageRangeList>  
   
@@ -89,7 +89,7 @@ block-list ::=
 <BlockList>  
       [<Block Offset="block-offset" Length="block-length" [Id="block-id"]  
        [Hash="md5-hash"] Status="block-status"/>]  
-      [<Block Offset="block-offset" Length="block-length" [Id="block-id"]   
+      [<Block Offset="block-offset" Length="block-length" [Id="block-id"]   
        [Hash="md5-hash"] Status="block-status"/>]  
 </BlockList>  
   

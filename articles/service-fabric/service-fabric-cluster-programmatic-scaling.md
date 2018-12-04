@@ -16,11 +16,11 @@ origin.date: 10/17/2017
 ms.date: 12/04/2017
 ms.author: v-yeche
 ms.openlocfilehash: 0787f1fddd8f38de1d66d86e2c16ad6ae0ef831f
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
-ms.locfileid: "26045143"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661827"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>以编程方式缩放 Service Fabric 群集 
 

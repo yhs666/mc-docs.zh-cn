@@ -17,11 +17,11 @@ origin.date: 04/26/2017
 ms.date: 03/19/2018
 ms.author: v-yeche
 ms.openlocfilehash: d351ebc70093dcd6c5fa7a7d758801f68922a8d8
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29965212"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663755"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>适用于 Linux 的虚拟机扩展和功能
 
@@ -46,9 +46,9 @@ Azure 虚拟机扩展是小型应用程序，可在Azure 虚拟机上提供部�
 
 ### <a name="azure-vm-agent"></a>Azure VM 代理
 
-Azure VM 代理可管理 Azure 虚拟机与 Azure 结构控制器之间的交互。 VM 代理负责部署和管理 Azure 虚拟机的许多功能层面，包括运行 VM 扩展。 Azure VM 代理预先安装在 Azure 应用商店映像上，并可手动安装在支持的操作系统上。
+Azure VM 代理可管理 Azure 虚拟机与 Azure 结构控制器之间的交互。 VM 代理负责部署和管理 Azure 虚拟机的许多功能层面，包括运行 VM 扩展。 Azure VM 代理预先安装在 Azure 市场映像上，并可手动安装在受支持的操作系统上。
 
-有关受支持的操作系统以及安装说明的信息，请参阅 [Azure virtual machine agent](agent-user-guide.md)（Azure 虚拟机代理）。
+有关支持的操作系统和安装说明的信息，请参阅 [Azure 虚拟机代理](agent-user-guide.md)。
 
 ## <a name="discover-vm-extensions"></a>发现 VM 扩展
 

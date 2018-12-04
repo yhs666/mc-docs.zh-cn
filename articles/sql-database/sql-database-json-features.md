@@ -10,11 +10,11 @@ ms.date: 04/17/2018
 ms.author: v-johch
 ms.topic: article
 ms.openlocfilehash: ad489ea64b5ad8b0a66cb1ffe43473eecf4225de
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486595"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661671"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Azure SQL 数据库中的 JSON 功能入门
 使用 Azure SQL 数据库可以分析和查询以 JavaScript 对象表示法 [(JSON)](http://www.json.org/) 格式表示的数据，并将关系数据导出为 JSON 文本。

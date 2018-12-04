@@ -14,28 +14,30 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/05/2018
-ms.date: 09/10/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: bab96b3ac766012f4eaa4b68e09e2b4f6b2d9181
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: f8c4898fde37e9bbc38656a91a1ea3c7a2574b0b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515703"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667110"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>创建、更改或删除网络安全组
 
 通过网络安全组中的安全规则，可以筛选可流入和流出虚拟网络子网和网络接口的流量类型。 如果不熟悉网络安全组，请参阅[网络安全组概述](security-overview.md)了解有关详细信息，并完成[筛选流量](tutorial-filter-network-traffic.md)教程，获得有关网络安全组的一些经验。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 在完成本文任何部分中的步骤之前，请完成以下任务：
 
 - 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 - 如果使用门户，请打开 https://portal.azure.cn，并使用 Azure 帐户登录。
-- 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 5.4.1 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 以创建与 Azure 的连接。
+- 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 5.4.1 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount` 以创建与 Azure 的连接。
+
 <!-- Not Available on [Azure Cloud Shell](https://shell.azure.com/powershell)-->
-- 如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.28 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
+- 如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.28 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
+
 <!-- Not Available on [Azure Cloud Shell](https://shell.azure.com/bash)-->
 
 必须将登录或连接到 Azure 所用的帐户分配给[网络参与者](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)角色或分配有“[权限](#permissions)”中所列适当操作的[自定义角色](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json)。
@@ -52,7 +54,7 @@ ms.locfileid: "44515703"
 2. 依次选择“网络”、“网络安全组”。
 3. 输入网络资源组的“名称”，选择自己的“订阅”，创建新的“资源组”或选择现有的资源组，选择一个“位置”，然后选择“创建”。
 
-**命令**
+命令
 
 - Azure CLI: [az network vnet create](https://docs.azure.cn/zh-cn/cli/network/nsg?view=azure-cli-latest#az-network-nsg-create)
 - PowerShell: [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworksecuritygroup)
@@ -61,7 +63,7 @@ ms.locfileid: "44515703"
 
 在门户顶部的搜索框中，输入“网络安全组”。 “网络安全组”出现在搜索结果中时，将其选中。 随后将列出订阅中存在的网络安全组。
 
-**命令**
+命令
 
 - Azure CLI: [az network nsg list](https://docs.azure.cn/zh-cn/cli/network/nsg?view=azure-cli-latest#az-network-nsg-list)
 - PowerShell: [Get-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworksecuritygroup)
@@ -70,15 +72,16 @@ ms.locfileid: "44515703"
 
 1. 在门户顶部的搜索框中，输入“网络安全组”。 “网络安全组”出现在搜索结果中时，将其选中。
 2. 在列表中选择要查看其详细信息的网络安全组。 在“设置”下，可查看“入站安全规则”和“出站安全规则”以及与网络安全组相关联的“网络接口”和“子网”。 也可启用或禁用“诊断日志”和查看“有效的安全规则”。 若要了解详细信息，请参阅[查看有效的安全规则](diagnose-network-traffic-filter-problem.md)。
+    
     <!-- Not Available on [Diagnostic logs](virtual-network-nsg-manage-log.md)-->
 3. 要了解有关列出的常见 Azure 设置的详细信息，请参阅以下文章：
-    *   [活动日志](../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-network%2ftoc.json#activity-logs)
+    *   [活动日志](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
     *   [访问控制 (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-network%2ftoc.json#access-control)
     *   [标记](../azure-resource-manager/resource-group-using-tags.md?toc=%2fvirtual-network%2ftoc.json)
     *   [锁](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fvirtual-network%2ftoc.json)
     *   [自动化脚本](../azure-resource-manager/resource-manager-export-template.md?toc=%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
 
-**命令**
+命令
 
 - Azure CLI: [az network nsg show](https://docs.azure.cn/zh-cn/cli/network/nsg?view=azure-cli-latest#az-network-nsg-show)
 - PowerShell: [Get-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworksecuritygroup)
@@ -88,7 +91,7 @@ ms.locfileid: "44515703"
 1. 在门户顶部的搜索框中，输入“网络安全组”。 “网络安全组”出现在搜索结果中时，将其选中。
 2. 选择要更改的网络安全组。 最常见的更改是[添加](#create-a-security-rule)或[删除](#delete-a-security-rule)安全规则以及[将网络安全组关联到子网或网络接口或从其中取消关联](#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet-or-network-interface)。
 
-**命令**
+命令
 
 - Azure CLI: [az network nsg update](https://docs.azure.cn/zh-cn/cli/network/nsg?view=azure-cli-latest#az-network-nsg-update)
 - PowerShell: [Set-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworksecuritygroup)
@@ -105,7 +108,7 @@ ms.locfileid: "44515703"
 2. 从列表中选择要删除的网络安全组。
 3. 依次选择“删除”、“是”。
 
-**命令**
+命令
 
 - Azure CLI: [az network nsg delete](https://docs.azure.cn/zh-cn/cli/network/nsg?view=azure-cli-latest#az-network-nsg-delete)
 - PowerShell: [Remove-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermnetworksecuritygroup) 
@@ -125,18 +128,17 @@ ms.locfileid: "44515703"
 
     |设置  |值  |详细信息  |
     |---------|---------|---------|
-    |Source     | 为入站安全规则选择“任何项”、“IP 地址”或“服务标记”。 如果要创建出站安全规则，所用选项与为“目标”列出的选项相同。       | 如果选择“IP 地址”，请指定“源 IP 地址/CIDR 范围”。 可指定单个值或以逗号分隔的多个值的列表。 多个值的示例为 10.0.0.0/16, 192.188.1.1。 可指定的值的数目有限制。 有关详细信息，请参阅 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。 如果选择“服务标记”，请选择一个服务标记。 服务标记是 IP 地址类别的预定义标识符。 若要了解有关可用服务标记以及每个标记表示的含义的详细信息，请参阅[服务标记](security-overview.md#service-tags)。 如果指定的 IP 地址已分配给 Azure 虚拟机，请确保指定的是专用 IP，而不是已分配给虚拟机的公共 IP 地址。 在 Azure 将公共 IP 地址转换为专用 IP 地址以符合入站安全规则后，在 Azure 将专用 IP 地址转换为公共 IP 地址以符合出站规则之前，会处理安全规则。 若要了解有关 Azure 中的公共和专用 IP 地址的详细信息，请参阅 [IP 地址类型](virtual-network-ip-addresses-overview-arm.md)。        |
+    |源     | 为入站安全规则选择“任何项”、“应用程序安全组”、“IP 地址”或“服务标记”。 如果要创建出站安全规则，所用选项与为“目标”列出的选项相同。       | 如果选择“应用程序安全组”，则选择一个或多个与网络接口存在于同一区域的现有的应用程序安全组。 了解如何[创建应用程序安全组](#create-an-application-security-group)。 如果为“源”和“目标”都选择“应用程序安全组”，则两个应用程序安全组中的网络接口必须在同一虚拟网络中。 如果选择“IP 地址”，请指定“源 IP 地址/CIDR 范围”。 可指定单个值或以逗号分隔的多个值的列表。 多个值的示例为 10.0.0.0/16, 192.188.1.1。 可指定的值的数目有限制。 有关详细信息，请参阅 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。 如果选择“服务标记”，请选择一个服务标记。 服务标记是 IP 地址类别的预定义标识符。 若要了解有关可用服务标记以及每个标记表示的含义的详细信息，请参阅[服务标记](security-overview.md#service-tags)。 如果指定的 IP 地址已分配给 Azure 虚拟机，请确保指定的是专用 IP，而不是已分配给虚拟机的公共 IP 地址。 在 Azure 将公共 IP 地址转换为专用 IP 地址以符合入站安全规则后，在 Azure 将专用 IP 地址转换为公共 IP 地址以符合出站规则之前，会处理安全规则。 若要了解有关 Azure 中的公共和专用 IP 地址的详细信息，请参阅 [IP 地址类型](virtual-network-ip-addresses-overview-arm.md)。        |
     |源端口范围     | 指定单个端口（如 80）、端口范围（如 1024-65535）或单个端口和/或端口范围的以逗号分隔的列表（如 80, 1024-65535）。 输入星号可允许任何端口上的流量。 | 端口和范围指定规则允许或拒绝哪个端口流量。 可指定的端口数目有限制。 有关详细信息，请参阅 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。  |
-    |目标     | 为入站安全规则选择“任何项”、“IP 地址”或“虚拟网络”。 如果要创建出站安全规则，则使用选项与为“源”列出的选项相同。        | 如果选择“IP 地址”，则指定“目标 IP 地址/CIDR 范围”。 类似于“源”和“源 IP 地址/CIDR 范围”，你可指定单个或多个地址或范围，并且可指定的数目有限制。 选择“虚拟网络”，它是一个服务标记，意味着流量可到虚拟网络地址空间内的所有 IP 地址。 如果指定的 IP 地址已分配给 Azure 虚拟机，请确保指定的是专用 IP，而不是已分配给虚拟机的公共 IP 地址。 在 Azure 将公共 IP 地址转换为专用 IP 地址以符合入站安全规则后，在 Azure 将专用 IP 地址转换为公共 IP 地址以符合出站规则之前，会处理安全规则。 若要了解有关 Azure 中的公共和专用 IP 地址的详细信息，请参阅 [IP 地址类型](virtual-network-ip-addresses-overview-arm.md)。        |
+    |目标     | 为入站安全规则选择“任何项”、“应用程序安全组”、“IP 地址”或“虚拟网络”。 如果要创建出站安全规则，则使用选项与为“源”列出的选项相同。        | 如果选择“应用程序安全组”，那么必须选择一个或多个与网络接口存在于同一区域的现有的应用程序安全组。 了解如何[创建应用程序安全组](#create-an-application-security-group)。 如果选择“应用程序安全组”，则选择一个与网络接口存在于同一区域的现有的应用程序安全组。 如果选择“IP 地址”，则指定“目标 IP 地址/CIDR 范围”。 类似于“源”和“源 IP 地址/CIDR 范围”，你可指定单个或多个地址或范围，并且可指定的数目有限制。 选择“虚拟网络”，它是一个服务标记，意味着流量可到虚拟网络地址空间内的所有 IP 地址。 如果指定的 IP 地址已分配给 Azure 虚拟机，请确保指定的是专用 IP，而不是已分配给虚拟机的公共 IP 地址。 在 Azure 将公共 IP 地址转换为专用 IP 地址以符合入站安全规则后，在 Azure 将专用 IP 地址转换为公共 IP 地址以符合出站规则之前，会处理安全规则。 若要了解有关 Azure 中的公共和专用 IP 地址的详细信息，请参阅 [IP 地址类型](virtual-network-ip-addresses-overview-arm.md)。        |
     |目标端口范围     | 指定单个值或以逗号分隔的多个值的列表。 | 类似于“源端口范围”，可指定单个或多个端口和范围，并且可指定的数目有限制。 |
     |协议     | 选择“任何”、“TCP”或“UDP”。        |         |
     |操作     | 选择“允许”或“拒绝”。        |         |
     |Priority     | 输入一个介于 100-4096 之间的值，该值对于网络安全组内的所有安全规则都是唯一的。 |规则按优先顺序处理。 编号越低，优先级越高。 建议创建规则时在优先级数字之间留出空隙，例如 100, 200, 300。 留出空隙后，未来在需要使规则高于或低于现有规则时，可更轻松添加规则。         |
     |Name     | 网络安全组内规则的唯一名称。        |  名称最多可包含 80 个字符。 它必须以字母或数字开头，以字母、数字或下划线结尾，且仅可包含字母、数字、下划线、句点或连字符。       |
     |说明     | 可选说明。        |         |
-    
-    <!-- Not Available on Set Appliction security groups -->
-**命令**
+
+命令
 
 - Azure CLI: [az network nsg rule create](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create)
 - PowerShell: [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig)
@@ -151,7 +153,7 @@ ms.locfileid: "44515703"
 
 列表包含已创建的任何规则以及网络安全组[默认安全规则](security-overview.md#default-security-rules)。
 
-**命令**
+命令
 
 - Azure CLI: [az network nsg rule list](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-list)
 - PowerShell: [Get-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworksecurityruleconfig)
@@ -163,7 +165,7 @@ ms.locfileid: "44515703"
 3. 在“设置”下选择“入站安全规则”或“出站安全规则”。
 4. 选择要查看其详细信息的规则。 有关所有设置的详细说明，请参阅[安全规则设置](#security-rule-settings)。
 
-**命令**
+命令
 
 - Azure CLI: [az network nsg rule show](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-show)
 - PowerShell: [Get-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworksecurityruleconfig)
@@ -173,7 +175,7 @@ ms.locfileid: "44515703"
 1. 完成[查看安全规则的详细信息](#view-details-of-a-security-rule)中的步骤。
 2. 根据需要更改设置，然后选择“保存”。 有关所有设置的详细说明，请参阅[安全规则设置](#security-rule-settings)。
 
-**命令**
+命令
 
 - Azure CLI: [az network nsg rule update](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-update)
 - PowerShell：[Set-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworksecurityruleconfig)
@@ -183,7 +185,7 @@ ms.locfileid: "44515703"
 1. 完成[查看安全规则的详细信息](#view-details-of-a-security-rule)中的步骤。
 2. 依次选择“删除”、“是”。
 
-**命令**
+命令
 
 - Azure CLI: [az network nsg rule delete](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-delete)
 - PowerShell：[Remove-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermnetworksecurityruleconfig)
@@ -194,32 +196,48 @@ ms.locfileid: "44515703"
 
 ### <a name="create-an-application-security-group"></a>创建应用程序安全组
 
-<!-- Not Available on Application security group on Portal-->
-**命令**
+1. 选择 Azure 门户左上角的“+ 创建资源”。
+2. 在“在市场中搜索”框中输入“应用程序安全组”。 当“应用程序安全组”显示在搜索结果中时，将其选中，再次在“所有项”下选择“应用程序安全组”，然后选择“创建”。
+3. 输入或选择以下信息，然后选择“创建”：
+
+    | 设置        | 值                                                   |
+    | ---            | ---                                                     |
+    | Name           | 名称在资源组中必须唯一。        |
+    | 订阅   | 选择订阅。                               |
+    | 资源组 | 选择现有的资源组，或创建一个新的组。 |
+    | 位置       | 选择位置                                       |
+
+命令
 
 - Azure CLI: [az network asg create](https://docs.azure.cn/zh-cn/cli/network/asg?view=azure-cli-latest#az-network-asg-create)
 - PowerShell: [New-AzureRmApplicationSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermapplicationsecuritygroup)
 
 ### <a name="view-all-application-security-groups"></a>查看所有应用程序安全组
 
-<!-- Not Available on Application security group on Portal-->
-**命令**
+1. 选择 Azure 门户左上角的“所有服务”。
+2. 在“所有服务筛选器”框中输入“应用程序安全组”，然后在其显示在搜索结果中时，选择“应用程序安全组”。
+
+命令
 
 - Azure CLI: [az network asg list](https://docs.azure.cn/zh-cn/cli/network/asg?view=azure-cli-latest#az-network-asg-list)
 - PowerShell: [Get-AzureRmApplicationSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermapplicationsecuritygroup)
 
 ### <a name="view-details-of-a-specific-application-security-group"></a>查看特定应用程序安全组的详细信息
 
-<!-- Not Available on Application security group on Portal-->
-**命令**
+1. 选择 Azure 门户左上角的“所有服务”。
+2. 在“所有服务筛选器”框中输入“应用程序安全组”，然后在其显示在搜索结果中时，选择“应用程序安全组”。
+3. 选择要查看其详细信息的应用程序安全组。
+
+命令
 
 - Azure CLI: [az network asg show](https://docs.azure.cn/zh-cn/cli/network/asg?view=azure-cli-latest#az-network-asg-show)
 - PowerShell: [Get-AzureRmApplicationSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermapplicationsecuritygroup)
 
 ### <a name="change-an-application-security-group"></a>更改应用程序安全组
 
-<!-- Not Available on Application security group on Portal-->
-**命令**
+1. 选择 Azure 门户左上角的“所有服务”。
+2. 在“所有服务筛选器”框中输入“应用程序安全组”，然后在其显示在搜索结果中时，选择“应用程序安全组”。
+3. 选择要更改其设置的应用程序安全组。 可以对应用程序安全组添加或删除标记，或者分配或删除权限。
 
 - Azure CLI: [az network asg update](https://docs.azure.cn/zh-cn/cli/network/asg?view=azure-cli-latest#az-network-asg-update)
 - PowerShell: No PowerShell cmdlet.
@@ -228,8 +246,12 @@ ms.locfileid: "44515703"
 
 如果应用程序安全组中有任何网络接口，则不能将其删除。 通过更改网络接口设置或删除网络接口，从应用程序安全组中移除所有网络接口。 有关详细信息，请参阅[在应用程序安全组中添加或删除网络接口](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups)或[删除网络接口](virtual-network-network-interface.md#delete-a-network-interface)。
 
-<!-- Not Available on Application security group on Portal-->
-**命令**
+1. 选择 Azure 门户左上角的“所有服务”。
+2. 在“所有服务筛选器”框中输入“应用程序安全组”，然后在其显示在搜索结果中时，选择“应用程序安全组”。
+3. 选择要删除的应用程序安全组。
+4. 选择“删除”，然后选择“是”，删除应用程序安全组。
+
+命令
 
 - Azure CLI: [az network asg delete](https://docs.azure.cn/zh-cn/cli/network/asg?view=azure-cli-latest#az-network-asg-delete)
 - PowerShell: [Remove-AzureRmApplicationSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermapplicationsecuritygroup)
@@ -270,4 +292,4 @@ ms.locfileid: "44515703"
 - 使用 [PowerShell](powershell-samples.md) 或 [Azure CLI](cli-samples.md) 示例脚本或使用 Azure [资源管理器模板](template-samples.md)创建网络或应用程序安全组
 - 为虚拟网络创建并应用 [Azure Policy](policy-samples.md)
 
-<!-- Update_Description: wording update  -->
+<!-- Update_Description: wording update, add applciation security group content in portal  -->

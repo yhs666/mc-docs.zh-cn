@@ -12,11 +12,11 @@ ms.topic: article
 origin.date: 02/28/2018
 ms.date: 08/27/2018
 ms.openlocfilehash: 1b680412cc9bbf1fe5490a5d374c3f2dff773f78
-ms.sourcegitcommit: 6dd65fba579a2ce25c63ac69ff3b71d814a9d256
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42703867"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662063"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>使用 Azure CLI 配置和访问服务器日志
 可以使用 Azure CLI（Azure 的命令行实用工具）下载 Azure Database for MySQL 服务器日志。
@@ -29,7 +29,7 @@ ms.locfileid: "42703867"
 ## <a name="configure-logging-for-azure-database-for-mysql"></a>为 Azure Database for MySQL 配置日志记录
 通过执行下列步骤，可以对服务器进行配置以访问 MySQL 慢查询日志：
 1. 通过将 slow\_query\_log 参数设置为 ON 启用日志记录。
-2. 调整其他参数，例如 long\_query\_time 和 log\_slow\_admin\_statements。
+2. 调整其他参数，例如 **long\_query\_time**  和  **log\_slow\_admin\_statements**。
 
 若要了解如何通过 Azure CLI 设置这些参数的值，请参阅[如何配置服务器参数](howto-configure-server-parameters-using-cli.md)。 
 

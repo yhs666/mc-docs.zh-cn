@@ -16,11 +16,11 @@ origin.date: 03/22/2018
 ms.date: 11/05/2018
 ms.author: v-jay
 ms.openlocfilehash: b962e37e3f1dbf67c3b86ae4ae899e8f47bd7b01
-ms.sourcegitcommit: 9be84d4dc546d66a0d9d1d2be67dd79c84b2c210
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50408840"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664161"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Azure 负载均衡器的多个前端
 

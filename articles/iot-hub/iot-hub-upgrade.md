@@ -10,11 +10,11 @@ origin.date: 04/02/2018
 ms.date: 09/10/2018
 ms.author: v-yiso
 ms.openlocfilehash: 42e531aa68550ceaf656fedeb5f9a95398251162
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43328963"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661001"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>如何升级 IoT 中心
 

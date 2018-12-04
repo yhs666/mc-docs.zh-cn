@@ -13,11 +13,11 @@ ms.date: 10/25/2018
 ms.author: v-junlch
 ROBOTS: NOINDEX
 ms.openlocfilehash: 0828d2a5ad7d9744a2dfb991824ef191e812a52a
-ms.sourcegitcommit: 44ce337717bb948f5ac08217a156935f663c0f46
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034659"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661680"
 ---
 # <a name="what-is-the-emotion-api"></a>什么是情感 API？
 

@@ -17,11 +17,11 @@ origin.date: 03/29/2018
 ms.date: 05/08/2018
 ms.author: v-junlch
 ms.openlocfilehash: a72c1f70f428be4dff9fdd6708f8ca482f6526a9
-ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33937449"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661832"
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>下载用于 S2S VPN 连接的 VPN 设备配置脚本
 

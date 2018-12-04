@@ -10,11 +10,11 @@ ms.date: 08/27/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: f2e2ea7e071ae2920b1b8511ccee4ff8b494b74c
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871785"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661593"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Azure IaaS 磁盘的备份和灾难恢复
 

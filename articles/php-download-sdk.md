@@ -16,11 +16,11 @@ origin.date: 06/01/2016
 ms.date: 07/12/2018
 ms.author: v-junlch
 ms.openlocfilehash: 6360d5cfd81e226d1e2fbc7676bf8b44db9e6815
-ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38999181"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662196"
 ---
 # <a name="download-the-azure-sdk-for-php"></a>下载 Azure SDK for PHP
 

@@ -16,11 +16,11 @@ origin.date: 12/18/2017
 ms.date: 03/19/2018
 ms.author: v-yiso
 ms.openlocfilehash: 41e3d5b672d3cfe4d20c5342291955afd121b567
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870492"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663676"
 ---
 # <a name="understand-autoscale-settings"></a>了解自动缩放设置
 使用自动缩放设置有助于确保运行适当数量的资源来处理应用程序负载的波动。 可将自动缩放设置配置为基于指标（指示负载或性能）触发，或者在计划好的日期和时间触发。 本文将会深度剖析自动缩放设置。 本文首先介绍设置的架构和属性，然后逐步讲解可配置的不同配置文件类型。 最后讨论 Azure 中的自动缩放功能如何评估要在任意给定时间执行哪个配置文件。
@@ -313,7 +313,7 @@ ms.locfileid: "29870492"
 若要详细了解自动缩放，请参阅以下文章：
 
 * [自动缩放概述](monitoring-overview-autoscale.md)
-* [Azure 监视器自动缩放常用指标](insights-autoscale-common-metrics.md)
+* [Azure Monitor 自动缩放常用指标](insights-autoscale-common-metrics.md)
 * [Azure 监视器自动缩放的最佳做法](insights-autoscale-best-practices.md)
 * [使用自动缩放操作发送电子邮件和 webhook 警报通知](insights-autoscale-to-webhook-email.md)
 * [自动缩放 REST API](https://msdn.microsoft.com/library/dn931953.aspx)

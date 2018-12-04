@@ -16,11 +16,11 @@ origin.date: 08/15/2018
 ms.date: 08/27/2018
 ms.author: v-junlch
 ms.openlocfilehash: 84e05dd95260327e3112f4c13f70e7a1bd26653d
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869546"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664196"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Azure Stack 中支持的虚拟机大小
 

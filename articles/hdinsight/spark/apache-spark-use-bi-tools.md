@@ -16,11 +16,11 @@ origin.date: 05/07/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
 ms.openlocfilehash: 818d50708e74ac7367198abea2f8819028c4bc5a
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068034"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663432"
 ---
 # <a name="tutorial-analyze-spark-data-using-power-bi-in-hdinsight"></a>教程：使用 Power BI 在 HDInsight 中分析 Spark 数据 
 

@@ -15,11 +15,11 @@ origin.date: 10/13/2017
 ms.date: 02/26/2018
 ms.author: v-yiso
 ms.openlocfilehash: 03a9dce39ad5268bb76c9e804ca013ced5379a79
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29286080"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661151"
 ---
 # <a name="route-the-request-based-on-the-size-of-its-body"></a>基于请求的正文大小路由请求
 

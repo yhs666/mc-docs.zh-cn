@@ -16,11 +16,11 @@ origin.date: 12/21/2016
 ms.date: 03/01/2017
 ms.author: v-dazen
 ms.openlocfilehash: 384461aadf19f353dbdcd92f3ed585beba1ebe3c
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20184240"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661224"
 ---
 # <a name="supported-move-configurations"></a>受支持的迁移配置
 可以使用 [Resource Manager 迁移资源 API](../azure-resource-manager/resource-group-move-resources.md) 迁移 Azure Web 应用资源。

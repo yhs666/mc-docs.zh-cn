@@ -15,11 +15,11 @@ origin.date: 09/01/2017
 ms.author: adamab
 ms.date: 10/16/2017
 ms.openlocfilehash: 8885a97d9c2d474e8573a570c0a7e02be90002e5
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
-ms.locfileid: "22339076"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663107"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Azure 仪表板结构
 本文档将使用以下仪表板作为示例，介绍 Azure 仪表板的结构：

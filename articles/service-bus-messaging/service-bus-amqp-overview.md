@@ -16,11 +16,11 @@ origin.date: 09/26/2018
 ms.date: 10/31/2018
 ms.author: v-lingwu
 ms.openlocfilehash: a052e0a9d58802e08b64ae029ac5f359b9c0dcbd
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409306"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660645"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>服务总线的 AMQP 1.0 支持
 

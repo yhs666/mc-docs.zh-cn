@@ -17,11 +17,11 @@ origin.date: 08/14/2017
 ms.date: 12/18/2017
 ms.author: v-yeche
 ms.openlocfilehash: 9453e6cbe480ab65c50d1a0f322ce65916da46f3
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
-ms.locfileid: "26727465"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664362"
 ---
 # <a name="openshift-in-azure"></a>Azure 中的 OpenShift
 

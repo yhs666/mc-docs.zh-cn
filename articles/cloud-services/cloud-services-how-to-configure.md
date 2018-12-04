@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/11/2016
 ms.author: v-yiso
 ms.openlocfilehash: 107069d9bd49f09b72b21ccbd4d3f15b922ecbf3
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
-ms.locfileid: "20453188"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667080"
 ---
 # <a name="how-to-configure-cloud-services"></a>如何配置云服务
 
@@ -26,7 +26,7 @@ ms.locfileid: "20453188"
 >- [Azure 门户](./cloud-services-how-to-configure-portal.md)
 >- [Azure 经典门户](./cloud-services-how-to-configure.md)
 
-你可以在 Azure 经典门户中配置最常使用的云服务设置。 或者，如果希望直接更新配置文件，可下载要更新的服务配置文件，然后上传更新文件并通过配置更改更新云服务。 无论使用哪种方法，配置更新都将应用于所有角色实例。
+可以在 Azure 经典门户中配置最常使用的云服务设置。 或者，如果你希望直接更新配置文件，则可以下载要更新的服务配置文件，然后上传更新文件并使用配置更改更新云服务。 无论使用哪种方法，配置更新都会应用于所有角色实例。
 
 Azure 经典门户还允许用户[为 Azure 云服务中的角色启用远程桌面连接](./cloud-services-role-enable-remote-desktop.md)
 
@@ -38,9 +38,9 @@ Azure 经典门户还允许用户[为 Azure 云服务中的角色启用远程桌
 
     ![配置页](./media/cloud-services-how-to-configure/CloudServices_ConfigurePage1.png)
 
-    在“配置”页上，你可以配置监视、更新角色设置，并选择角色实例的来宾操作系统和系列  。 
+    在“配置”页上，可以配置监视、更新角色设置，并选择角色实例的来宾操作系统和系列。 
 
-2. 在“监视”中，将监视级别设置为“详细”或“最少”，并配置详细监视所需的诊断连接字符串 。
+2. 在“监视”中，将监视级别设置为“详细”或“最少”，并配置详细监视所需的诊断连接字符串。
 
 3. 对于服务角色（按角色分组），可更新下列设置：
 
@@ -48,19 +48,19 @@ Azure 经典门户还允许用户[为 Azure 云服务中的角色启用远程桌
     >修改服务配置 (.cscfg) 文件的 ConfigurationSettings 元素中指定的其他配置设置的值。
     >
     >**证书**  
-    >：更改 SSL 加密中用于角色的证书指纹。 若要更改证书，必须首先上传新证书（在“证书”页上）。 然后更新角色设置中显示的证书字符串中的指纹。
+    >更改 SSL 加密中用于角色的证书指纹。 若要更改证书，必须首先上传新证书（在“证书”页上）。 然后更新角色设置中显示的证书字符串中的指纹。
 
 4. 在“操作系统”中，可更改角色实例的操作系统系列或版本，或选择“自动”，启用当前操作系统版本的自动更新。 操作系统设置将应用到 Web 角色和辅助角色，但不影响虚拟机。
 
-    部署期间，所有角色实例都将安装最新版本的操作系统，并且默认情况下这些操作系统会自动更新。 
+    部署期间，所有角色实例都会安装最新版本的操作系统，并且默认情况下这些操作系统会自动更新。 
 
-    如果由于你代码中的兼容性要求而需要云服务在不同的操作系统版本上运行，则可选择操作系统系列和版本。 当你选择一个特定的操作系统版本时，云服务的自动操作系统更新便挂起。 你将需要确保操作系统接收更新。
+    如果由于代码中的兼容性要求而需要云服务在不同的操作系统版本上运行，则可选择操作系统系列和版本。 选择一个特定的操作系统版本时，云服务的自动操作系统更新便挂起。 需要确保操作系统接收更新。
 
-    如果你使用最新版本的操作系统解决了应用程序中的所有兼容性问题，则可通过将操作系统版本设置成“自动”来启用自动操作系统更新 。 
+    如果使用最新版本的操作系统解决了应用程序中的所有兼容性问题，则可通过将操作系统版本设置成“自动”来启用自动操作系统更新。 
 
     ![操作系统设置](./media/cloud-services-how-to-configure/CloudServices_ConfigurePage_OSSettings.png)
 
-5. 若要保存你的配置设置，并将其推送至角色实例，请单击“保存” 。 （单击“放弃”可取消更改。）更改设置后，命令栏中会出现“保存”和“放弃”。
+5. 要保存你的配置设置，并将其推送至角色实例，请单击“保存”。 （单击“放弃”可取消更改。）更改设置后，命令栏中会出现“保存”和“放弃”。
 
 ## <a name="update-a-cloud-service-configuration-file"></a>更新云服务配置文件
 
@@ -82,8 +82,8 @@ Azure 经典门户还允许用户[为 Azure 云服务中的角色启用远程桌
 
 ## <a name="next-steps"></a>后续步骤
 
-* 了解如何[部署云服务](./cloud-services-how-to-create-deploy.md)。
-* 配置[自定义域名](./cloud-services-custom-domain-name.md)。
+* 了解如何 [部署云服务](./cloud-services-how-to-create-deploy.md)。
+* 配置 [自定义域名](./cloud-services-custom-domain-name.md)。
 * [管理云服务](./cloud-services-how-to-manage.md)。
 * [为 Azure 云服务中的角色启用远程桌面连接](./cloud-services-role-enable-remote-desktop.md)
 * 配置 [SSL 证书](./cloud-services-configure-ssl-certificate.md)。

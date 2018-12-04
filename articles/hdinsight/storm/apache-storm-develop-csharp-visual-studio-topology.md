@@ -18,11 +18,11 @@ origin.date: 11/27/2017
 ms.date: 03/26/2018
 ms.author: v-yiso
 ms.openlocfilehash: edb6b53f28a0f1f9d245d94710fcde6b1614cd66
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41704716"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663780"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>使用针对 Visual Studio 的 Data Lake 工具开发 Apache Storm 的 C# 拓扑
 
@@ -82,30 +82,30 @@ using System;
 using System.IO;
 namespace ConsoleApplication2
 {
-   class Program
-   {
-       static void Main(string[] args)
-       {
-           string javaHome = Environment.GetEnvironmentVariable("JAVA_HOME");
-           if (!string.IsNullOrEmpty(javaHome))
-           {
-               string jarExe = Path.Combine(javaHome + @"\bin", "jar.exe");
-               if (File.Exists(jarExe))
-               {
-                   Console.WriteLine("JAVA Is Installed properly");
-                    return;
-               }
-               else
-               {
-                   Console.WriteLine("A valid JAVA JDK is not found. Looks like JRE is installed instead of JDK.");
-               }
-           }
-           else
-           {
-             Console.WriteLine("A valid JAVA JDK is not found. JAVA_HOME environment variable is not set.");
-           }
-       }  
-   }
+   class Program
+   {
+       static void Main(string[] args)
+       {
+           string javaHome = Environment.GetEnvironmentVariable("JAVA_HOME");
+           if (!string.IsNullOrEmpty(javaHome))
+           {
+               string jarExe = Path.Combine(javaHome + @"\bin", "jar.exe");
+               if (File.Exists(jarExe))
+               {
+                   Console.WriteLine("JAVA Is Installed properly");
+                    return;
+               }
+               else
+               {
+                   Console.WriteLine("A valid JAVA JDK is not found. Looks like JRE is installed instead of JDK.");
+               }
+           }
+           else
+           {
+             Console.WriteLine("A valid JAVA JDK is not found. JAVA_HOME environment variable is not set.");
+           }
+       }  
+   }
 }
 ```
 
@@ -770,7 +770,7 @@ Context.Logger.Info("Component started");
 
 **Apache HDInsight 上的 Hadoop**
 
-* [将 Hive 与 Hadoop on HDInsight 配合使用](../hadoop/hdinsight-use-hive.md)
+* [将 Hive 与 HDInsight 上的 Hadoop 配合使用](../hadoop/hdinsight-use-hive.md)
 * [将 Pig 与 Hadoop on HDInsight 配合使用](../hadoop/hdinsight-use-pig.md)
 * [将 MapReduce 与 HDInsight 上的 Hadoop 配合使用](../hadoop/hdinsight-use-mapreduce.md)
 

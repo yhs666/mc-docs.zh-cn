@@ -16,11 +16,11 @@ origin.date: 12/09/2017
 ms.date: 07/30/2018
 ms.author: v-nany
 ms.openlocfilehash: 8aa8d907841d86d4d0ac5c41382ffb3321602847
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426366"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667030"
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>如何使用 Azure 媒体服务执行实时流式处理以通过 .NET 创建多比特率流
 > [!div class="op_single_selector"]
@@ -92,7 +92,7 @@ ms.locfileid: "47426366"
 ## <a name="prerequisites"></a>先决条件
 以下是完成本教程所需具备的条件。
 
-* 一个 Azure 帐户。 如果没有帐户，可以创建一个试用帐户，只需几分钟即可完成。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。 获取可用来尝试付费版 Azure 服务的信用额度。 即使在信用额度用完后，也可保留帐户并使用免费的 Azure 服务和功能，例如 Azure 应用服务中的 Web 应用功能。
+* 一个 Azure 帐户。 如果没有帐户，可以创建一个试用帐户，只需几分钟即可完成。 有关详细信息，请参阅 [Azure 试用](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。 获取可用来尝试付费版 Azure 服务的信用额度。 即使在信用额度用完后，也可保留帐户并使用免费的 Azure 服务和功能，例如 Azure 应用服务中的 Web 应用功能。
 * 一个媒体服务帐户。 若要创建媒体服务帐户，请参阅[创建帐户](media-services-portal-create-account.md)。
 * Visual Studio 2010 SP1（Professional、Premium、Ultimate 或 Express）或更高版本。
 * 必须使用适用于 .NET 的媒体服务 SDK 版本 3.2.0.0 或更高版本。

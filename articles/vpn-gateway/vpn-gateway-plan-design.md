@@ -17,11 +17,11 @@ origin.date: 07/27/2017
 ms.date: 08/31/2017
 ms.author: v-junlch
 ms.openlocfilehash: 20996391c9c75189f22441ba79e94aa46be4df97
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939090"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660455"
 ---
 # <a name="planning-and-design-for-vpn-gateway"></a>规划和设计 VPN 网关
 

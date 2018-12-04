@@ -16,11 +16,11 @@ origin.date: 07/21/2017
 ms.date: 03/12/2018
 ms.author: v-yeche
 ms.openlocfilehash: cc14a4862c3c724b544b636839da84b1cdee436e
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29871492"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662998"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>带宽/吞吐量测试 (NTTTCP)
 
@@ -68,7 +68,7 @@ ms.locfileid: "29871492"
 
 netsh advfirewall firewall add rule program=\<PATH\>\\ntttcp.exe name="ntttcp" protocol=any dir=in action=allow enable=yes profile=ANY
 
-例如，如果已将 ntttcp.exe 复制到“c:\\tools”文件夹中，则此命令为： 
+例如，如果已将 ntttcp.exe 复制到“c:\\tools”文件夹中，则此命令为： 
 
 netsh advfirewall firewall add rule program=c:\\tools\\ntttcp.exe name="ntttcp" protocol=any dir=in action=allow enable=yes profile=ANY
 
@@ -84,7 +84,7 @@ ntttcp -r -m 8,\*,10.0.0.4 -t 300
 
 在发送方上启动 NTTTCP（**从 CMD 运行**，而不是从 PowerShell 运行）：
 
-ntttcp -s -m 8,\*,10.0.0.4 -t 300 
+ntttcp -s -m 8,\*,10.0.0.4 -t 300 
 
 等待结果。
 
@@ -92,23 +92,23 @@ ntttcp -s -m 8,\*,10.0.0.4 -t 300
 
 使用 nttcp-for-linux。 可从 <https://github.com/Microsoft/ntttcp-for-linux> 获得它
 
-在 Linux VM 上（发送方和接收方），运行以下命令以在 VM 上准备 ntttcp-for-linux：
+在 Linux VM上（发送方和接收方），运行以下命令以在 VM 上准备 nttcp-for-linux：
 
-CentOS - 安装 Git：
+CentOS — 安装 Git：
 ``` bash
-  yum install gcc -y  
-  yum install git -y
+  yum install gcc -y  
+  yum install git -y
 ```
 Ubuntu — 安装 Git：
 ``` bash
- apt-get -y install build-essential  
- apt-get -y install git
+ apt-get -y install build-essential  
+ apt-get -y install git
 ```
-在两个 VM 上同时获取并安装：
+在这两者上生成并安装：
 ``` bash
- git clone https://github.com/Microsoft/ntttcp-for-linux
- cd ntttcp-for-linux/src
- make && make install
+ git clone https://github.com/Microsoft/ntttcp-for-linux
+ cd ntttcp-for-linux/src
+ make && make install
 ```
 
 如 Windows 示例中一样，假设 Linux 接收方的 IP 为 10.0.0.4

@@ -19,11 +19,11 @@ ms.author: v-junlch
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.openlocfilehash: bf1e4caa9f544af2b91a463063eae4042799a6aa
-ms.sourcegitcommit: 562cde32fc2271238f3d1ef5d2cc5ed037bdec2d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43531663"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660591"
 ---
 # <a name="single-sign-out-saml-protocol"></a>单一注销 SAML 协议
 

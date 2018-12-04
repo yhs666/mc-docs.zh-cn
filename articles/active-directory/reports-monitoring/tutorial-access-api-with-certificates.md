@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.component: report-monitor
 origin.date: 05/07/2018
-ms.date: 10/09/2018
+ms.date: 11/13/2018
 ms.author: v-junlch
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5152903973bbd211730b1f7966bb429e16c39a4f
-ms.sourcegitcommit: b91bbb0f49b12b1a7ac9eaf4742daa0c4a513f11
+ms.openlocfilehash: 589fe45b31cd9d16f1c6a7329093cf2369ad8cfd
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48876452"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666834"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>教程：使用证书通过 Azure Active Directory 报告 API 获取数据
 

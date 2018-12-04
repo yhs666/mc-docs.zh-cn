@@ -16,11 +16,11 @@ origin.date: 11/16/2016
 ms.date: 03/26/2018
 ms.author: v-johch
 ms.openlocfilehash: b98b8853d863b45116f45dc876e03dd2db5983f0
-ms.sourcegitcommit: 9b4669fe42e0dd7e3b463423ae4f58143af2b111
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30082161"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662088"
 ---
 # <a name="advisor-high-availability-recommendations"></a>顾问高可用性建议
 
@@ -35,7 +35,7 @@ Azure 顾问可帮助确保并提高业务关键应用程序的连续性。 可�
 
 ## <a name="ensure-availability-set-fault-tolerance"></a>确保可用性集容错 
 
-要为应用程序提供冗余，建议你将两个或更多虚拟机组合到一个可用性集中。 顾问标识包含单个虚拟机的可用性集，并建议向其中添加一个或多个虚拟机。 这种配置可以确保在计划内或计划外维护事件期间，至少有一个虚拟机可用，并满足 Azure 虚拟机 SLA 要求。 可以选择创建虚拟机，或将现有的虚拟机添加到可用性集。  
+要为应用程序提供冗余，建议你将两个或更多虚拟机组合到一个可用性集中。 顾问标识包含单个虚拟机的可用性集，并建议向其中添加一个或多个虚拟机。 这种配置可以确保在计划内或计划外维护事件期间，至少有一个虚拟机可用，并满足 Azure 虚拟机 SLA 要求。 可以选择创建虚拟机，或将现有的虚拟机添加到可用性集。  
 
 ## <a name="ensure-application-gateway-fault-tolerance"></a>确保应用程序网关容错
 为了确保由应用程序网关提供支持的任务关键型应用程序的业务连续性，顾问会标识没有针对容错进行配置的应用程序网关实例，并建议可以执行的修正操作。 顾问会标识中型或大型单实例应用程序网关，并建议至少再添加一个实例。 它还标识单实例或多实例小型应用程序网关，并建议迁移到中型或大型 SKU。 顾问建议执行这些操作以确保应用程序网关实例配置为满足这些资源的当前 SLA 要求。

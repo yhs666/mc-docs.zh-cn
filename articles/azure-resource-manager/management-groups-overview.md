@@ -14,11 +14,11 @@ origin.date: 08/31/2018
 ms.date: 09/24/2018
 ms.author: v-yeche
 ms.openlocfilehash: 9b2c96265275fa7178a96c2dc68c7866798da561
-ms.sourcegitcommit: 21b81b5cd326b6900fa7274b3b073aecd01111aa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121666"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662991"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>使用 Azure 管理组来组织资源
 

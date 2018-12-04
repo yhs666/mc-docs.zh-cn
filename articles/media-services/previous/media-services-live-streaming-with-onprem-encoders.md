@@ -16,11 +16,11 @@ origin.date: 04/12/2017
 ms.date: 07/30/2018
 ms.author: v-johch
 ms.openlocfilehash: 47ea70775130b5514326ec52d3540d843964b394
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426436"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664597"
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>使用本地编码器执行实时传送视频流以创建多比特率流
 
@@ -111,7 +111,7 @@ ms.locfileid: "47426436"
 #### <a name="ingest-urls-endpoints"></a>摄取 URL（终结点）
 频道提供你在实时编码器中指定的输入终结点（引入 URL），因此编码器可以将流推送到你的频道。   
 
-当创建频道时，可以获取摄取 URL。 若要获取这些 URL，频道不一定要处于“正在运行”状态。  当准备好开始将数据推送到频道时，频道必须处于“正在运行”状态。 在频道开始引入数据后，可以通过预览 URL 来预览流。
+当创建频道时，可以获取摄取 URL。 若要获取这些 URL，频道不一定要处于“正在运行”状态。 准备好开始将数据推送到频道时，频道必须处于“正在运行”状态。 在频道开始引入数据后，可以通过预览 URL 来预览流。
 
 可以选择通过 SSL 连接引入分片 MP4（平滑流）实时流。 要通过 SSL 进行引入，请确保将引入 URL 更新为 HTTPS。 当前，无法通过 SSL 引入 RTMP。
 

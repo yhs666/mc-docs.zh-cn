@@ -10,11 +10,11 @@ ms.date: 09/24/2018
 ms.author: v-jay
 ms.component: files
 ms.openlocfilehash: 2d0a7b016a50b84240961d8575bfcfb1275f0c12
-ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523714"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660664"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Azure 文件的共享快照概述 
 Azure 文件提供了获取文件共享的共享快照的功能。 共享快照可以捕获在某个时间点的共享状态。 本文介绍共享快照提供的功能，以及如何在自定义用例中加以利用。

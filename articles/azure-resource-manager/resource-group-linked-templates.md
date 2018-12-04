@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/10/2018
-ms.date: 09/03/2018
+origin.date: 10/03/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: bfc66ef079892a30c17db4362dd966c7e73c4ed1
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: d2de66bbbaabf4c9ce2cee5ca6fb739fc2b4cd29
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164793"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664193"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>部署 Azure 资源时使用链接模版和嵌套模版
 
@@ -29,6 +29,8 @@ ms.locfileid: "43164793"
 对于中小型解决方案，单个模板更易于理解和维护。 可以查看单个文件中的所有资源和值。 对于高级方案，使用链接模板可将解决方案分解为目标组件，并重复使用模板。
 
 使用链接模板时，需创建一个用于在部署期间接收参数值的主模板。 主模板包含所有链接模板，并根据需要将值传递给这些模板。
+
+如需教程，请参阅[教程：创建链接的 Azure 资源管理器模板](./resource-manager-tutorial-create-linked-templates.md)。
 
 ## <a name="link-or-nest-a-template"></a>链接或嵌套模板
 
@@ -102,7 +104,7 @@ ms.locfileid: "43164793"
      "name": "linkedTemplate",
      "type": "Microsoft.Resources/deployments",
      "properties": {
-       "mode": "incremental",
+       "mode": "Incremental",
        "templateLink": {
           "uri":"https://mystorageaccount.blob.core.chinacloudapi.cn/AzureTemplates/newStorageAccount.json",
           "contentVersion":"1.0.0.0"
@@ -120,7 +122,9 @@ ms.locfileid: "43164793"
 
 ### <a name="external-template-and-inline-parameters"></a>外部模板和内联参数
 
-或者，可以提供内联参数。 若要将值从主模板传递给链接模板，请使用**参数**。
+或者，可以提供内联参数。 不能同时使用内联参数和指向参数文件的链接。 同时指定 `parametersLink` 和 `parameters` 时，部署将失败，并出现错误。
+
+若要将值从主模板传递给链接模板，请使用**参数**。
 
 ```json
 "resources": [
@@ -129,7 +133,7 @@ ms.locfileid: "43164793"
      "name": "linkedTemplate",
      "type": "Microsoft.Resources/deployments",
      "properties": {
-       "mode": "incremental",
+       "mode": "Incremental",
        "templateLink": {
           "uri":"https://mystorageaccount.blob.core.chinacloudapi.cn/AzureTemplates/newStorageAccount.json",
           "contentVersion":"1.0.0.0"
@@ -200,7 +204,7 @@ ms.locfileid: "43164793"
             "name": "linkedTemplate",
             "type": "Microsoft.Resources/deployments",
             "properties": {
-                "mode": "incremental",
+                "mode": "Incremental",
                 "templateLink": {
                     "uri": "[uri(deployment().properties.templateLink.uri, 'helloworld.json')]",
                     "contentVersion": "1.0.0.0"
@@ -441,7 +445,7 @@ done
       "name": "linkedTemplate",
       "type": "Microsoft.Resources/deployments",
       "properties": {
-        "mode": "incremental",
+        "mode": "Incremental",
         "templateLink": {
           "uri": "[concat(uri(deployment().properties.templateLink.uri, 'helloworld.json'), parameters('containerSasToken'))]",
           "contentVersion": "1.0.0.0"
@@ -498,8 +502,9 @@ az group deployment create --resource-group ExampleGroup --template-uri $url?$to
 
 ## <a name="next-steps"></a>后续步骤
 
+* 若要浏览教程，请参阅[教程：创建链接的 Azure 资源管理器模板](./resource-manager-tutorial-create-linked-templates.md)。
 * 若要了解如何为资源定义部署顺序，请参阅[在 Azure 资源管理器模板中定义依赖关系](resource-group-define-dependencies.md)。
 * 若要了解如何定义一个资源而创建多个实例，请参阅[在 Azure 资源管理器中创建多个资源实例](resource-group-create-multiple.md)。
 * 有关在存储帐户中设置模板和生成 SAS 令牌的步骤，请参阅[使用 Resource Manager 模板和 Azure PowerShell 部署资源](resource-group-template-deploy.md)或[使用 Resource Manager 模板和 Azure CLI 部署资源](resource-group-template-deploy-cli.md)。
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -12,11 +12,11 @@ origin.date: 09/14/2018
 ms.date: 10/15/2018
 ms.author: v-jay
 ms.openlocfilehash: ba81847d1b7859696bd0f68d08c6f6325e8c63c7
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913914"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660802"
 ---
 # <a name="elastic-database-tools-glossary"></a>弹性数据库工具词汇表
 Azure SQL 数据库中的[弹性数据库工具](sql-database-elastic-scale-introduction.md)功能的术语定义如下。 这些工具用于管理[分片映射](sql-database-elastic-scale-shard-map-management.md)，包括[客户端库](sql-database-elastic-database-client-library.md)、[拆分/合并工具](sql-database-elastic-scale-overview-split-and-merge.md)、[弹性池](sql-database-elastic-pool.md)和[查询](sql-database-elastic-query-overview.md)。 

@@ -17,11 +17,11 @@ ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: ''
 ms.openlocfilehash: 6f7afbd5cba702e5113e2a5f323a3fcb6b350a0a
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848805"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666939"
 ---
 # <a name="remediate-common-issues-for-azure-stack-pki-certificates"></a>修复 Azure Stack PKI 证书的常见问题
 可以通过本文中的信息来了解并解决 Azure Stack PKI 证书的常见问题。 可以使用 Azure Stack 就绪性检查器工具来[验证 Azure Stack PKI 证书](azure-stack-validate-pki-certs.md)，以便发现问题。 此工具检查的目的是确保证书满足有关 Azure Stack 部署和 Azure Stack 机密轮换的 PKI 要求，结果记录在 [report.json 文件](azure-stack-validation-report.md)中。  

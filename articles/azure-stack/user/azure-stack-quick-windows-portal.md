@@ -12,11 +12,11 @@ ms.author: v-jay
 ms.reviewer: ''
 ms.custom: mvc
 ms.openlocfilehash: 705065841bdf88ccf2a7da4b66e4c3a16a61b79d
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913897"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664504"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-with-the-azure-stack-portal"></a>快速入门：使用 Azure Stack 门户创建 Windows Server 虚拟机
 

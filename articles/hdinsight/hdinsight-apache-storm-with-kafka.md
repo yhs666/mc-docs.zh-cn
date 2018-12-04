@@ -17,11 +17,11 @@ origin.date: 05/21/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
 ms.openlocfilehash: 5aa2e15e19ea47ba1feadc6055f96d67057f8420
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747472"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664399"
 ---
 # <a name="tutorial-use-apache-storm-with-kafka-on-hdinsight"></a>教程：将 Apache Storm 与 Kafka on HDInsight 结合使用
 
@@ -46,7 +46,7 @@ ms.locfileid: "36747472"
 
 * 熟悉 Storm 解决方案（拓扑）的生成和部署。 具体而言，熟悉使用 Flux 框架的拓扑。 有关详细信息，请参阅[使用 Java 创建 Storm 拓扑](./storm/apache-storm-develop-java-topology.md)文档。
 
-* [Java JDK 1.8](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) 或更高版本。 HDInsight 3.5 或更高版本需要 Java 8。
+* [Java JDK](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) 1.8 或更高版本。 HDInsight 3.5 或更高版本需要 Java 8。
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -534,7 +534,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
 Kafka 将数据存储在主题中。 启动 Storm 拓扑之前，必须创建主题。 若要创建拓扑，请使用以下步骤：
 
-1. 使用以下命令通过 SSH 连接到 Kafka 群集。 将 `sshuser` 替换为创建群集时所用的 SSH 用户名。 将 `kafkaclustername` 替换为 Kafka 群集的名称：
+1. 使用以下命令通过 SSH 连接到 Kafka 群集。 将 `sshuser` 替换为创建群集时使用的 SSH 用户名。 将 `kafkaclustername` 替换为 Kafka 群集的名称：
 
     ```bash
     ssh sshuser@kafkaclustername-ssh.azurehdinsight.cn
@@ -554,7 +554,7 @@ Kafka 将数据存储在主题中。 启动 Storm 拓扑之前，必须创建主
 
 ## <a name="start-the-writer"></a>启动写入器
 
-1. 使用以下命令通过 SSH 连接到 Storm 群集。 将 `sshuser` 替换为创建群集时所用的 SSH 用户名。 将 `stormclustername` 替换为 Storm 群集的名称：
+1. 使用以下命令通过 SSH 连接到 Storm 群集。 将 `sshuser` 替换为创建群集时使用的 SSH 用户名。 将 `stormclustername` 替换为 Storm 群集的名称：
 
     ```bash
     ssh sshuser@stormclustername-ssh.azurehdinsight.cn
@@ -638,7 +638,7 @@ Kafka 将数据存储在主题中。 启动 Storm 拓扑之前，必须创建主
 3. 选择“删除资源组”，然后进行确认。
 
 > [!WARNING]
-> HDInsight 群集计费在创建群集之后便会开始，删除群集后才会停止。 HDInsight 群集按分钟收费，因此不再需要使用群集时，应将其删除。
+> 创建群集后便开始 HDInsight 群集计费，删除群集后停止计费。 群集以每分钟按比例收费，因此无需再使用群集时，应始终将其删除。
 > 
 > 删除 Kafka on HDInsight 群集会删除存储在 Kafka 中的任何数据。
 

@@ -17,11 +17,11 @@ origin.date: 02/26/2016
 ms.date: 07/02/2018
 ms.author: v-yiso
 ms.openlocfilehash: 35343d209935c6b39201469c6dd8af8967ad93b8
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315479"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664371"
 ---
 # <a name="configuring-python-with-azure-app-service-web-apps"></a>使用 Azure 应用服务 Web 应用配置 Python
 本教程介绍在 [Azure 应用服务 Web 应用](http://go.microsoft.com/fwlink/?LinkId=529714)中创作和配置符合基本 Web 服务器网关接口 (WSGI) 的 Python 应用程序的选项。
@@ -205,8 +205,7 @@ Python 3.4 的示例 `web.config` ：
 
 `WSGI_ALT_VIRTUALENV_HANDLER` 是指定 WSGI 处理程序的位置。 在上述示例中，该位置为 `app.wsgi_app`，因为处理程序是根文件夹中 `app.py` 中的一个名为 `wsgi_app` 的函数。
 
-
-            `PYTHONPATH`，但是，如果通过在 requirements.txt 中指定将所有依赖项全部安装到虚拟环境中，则不需要更改。
+`PYTHONPATH`，但是，如果通过在 requirements.txt 中指定将所有依赖项全部安装到虚拟环境中，则不需要更改。
 
 ## <a name="virtual-environment-proxy"></a>虚拟环境代理
 使用以下脚本可检索 WSGI 处理程序、激活虚拟环境以及记录错误。 该脚本是通用的，无需修改即可使用。

@@ -15,11 +15,11 @@ origin.date: 11/08/2017
 ms.date: 11/27/2017
 ms.author: v-yeche
 ms.openlocfilehash: acd21835fe3b81c1e344f8a7e8cd86ab58d4443f
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
-ms.locfileid: "25592477"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663212"
 ---
 # <a name="resolve-reserved-resource-name-errors"></a>解决保留资源名称错误
 

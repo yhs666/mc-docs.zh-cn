@@ -8,15 +8,15 @@ ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.component: implement
 origin.date: 04/17/2018
-ms.date: 10/15/2018
+ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 8e5f1ea6290de1db5412147164c6b28bc198ca04
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.openlocfilehash: 94ea91b18b640a998d64b65a9ff1b30bf68c40c5
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089113"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663797"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>快速入门：使用 Azure 门户在 Azure SQL 数据仓库中缩放计算资源
 
@@ -38,8 +38,8 @@ ms.locfileid: "49089113"
 
 更改数据仓库单位：
 
-1. 在 Azure 门户的左侧页面中，单击“SQL 数据库”。
-2. 从“SQL 数据库”页中选择“mySampleDataWarehouse”。 此操作打开数据仓库。
+1. 在 Azure 门户的左侧页面中，单击“SQL 数据仓库”。
+2. 从“SQL 数据仓库”页中选择“mySampleDataWarehouse”。 此操作打开数据仓库。
 3. 单击“缩放”。
 
     ![单击“缩放”](media/quickstart-scale-compute-portal/click-scale.png)

@@ -16,11 +16,11 @@ origin.date: 05/02/2018
 ms.author: v-yiso
 ms.date: 10/15/2018
 ms.openlocfilehash: 9effb72befa6e7e4b860e3882ffbd090128cf4c5
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455273"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661219"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Azure 中继混合连接协议
 Azure 中继是 Azure 服务总线平台最重要的功能支柱之一。 中继的新“混合连接”功能是基于 HTTP 和 WebSocket 的安全、开放协议演化版。 它取代了之前基于专用协议构建的名为“BizTalk 服务”的功能。 将混合连接集成到 Azure 应用服务并不影响原有的运行方式。
@@ -64,7 +64,7 @@ Azure 中继是 Azure 服务总线平台最重要的功能支柱之一。 中继
 
 除了 Web 套接字连接以外，侦听器还可以从发送方接收 HTTP 请求帧（如果已对混合连接显式启用此功能）。
 
-附加到混合连接的、支持 HTTP 的侦听器必须处理 `request` 手势。 不处理 `request`，因而导致连接时重复出现超时错误的侦听器将来可能会被服务列入黑名单。
+附加到混合连接的、支持 HTTP 的侦听器必须处理 `request` 手势。 不处理 `request`，因而导致连接时重复出现超时错误的侦听器将来可能会被服务列入阻止列表。
 
 HTTP 帧标头元数据将转换为 JSON，以方便由侦听器框架处理；执行这种转换的另一个原因是，相比 JSON 分析器，HTTP 标头分析库极其少见。 仅与发送方与中继 HTTP 网关之间的关系相关的 HTTP 元数据（包括授权信息）不会转发。 HTTP 请求正文以透明方式作为二进制 Web 套接字帧传输。
 
@@ -335,7 +335,7 @@ FEFEFEFEFEFEFEFEFEFEF...
 
 ##### <a name="responding-to-requests"></a>响应请求
 
-接收方必须做出响应。 在保持连接期间一直不响应请求可能导致侦听器被列入黑名单。
+接收方必须做出响应。 在保持连接期间一直不响应请求可能导致侦听器被列入阻止列表。
 
 响应可按任意顺序发送，但必须在 60 秒内响应每个请求，否则会将传送报告为失败。 在服务收到 `response` 帧之前，会进行 60 秒倒计时。 包含多个二进制帧的处理中响应不能空闲 60 秒以上，否则会将其终止。
 

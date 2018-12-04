@@ -3,7 +3,7 @@ title: 在 Azure HDInsight 上安装第三方 Hadoop 应用程序 | Azure
 description: 了解如何在 Azure HDInsight 上安装第三方 Hadoop 应用程序。
 services: hdinsight
 documentationcenter: ''
-author: mumian
+author: jasonwhowell
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/14/2018
-ms.date: 06/25/2018
+ms.date: 11/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: 75ead85c29b764592b5537f9449758fcc8264254
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: 5f69000616a524d319049eb38cf2ae1c614773e1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747423"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659970"
 ---
 # <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>在 Azure HDInsight 上安装第三方 Hadoop 应用程序
 
@@ -43,7 +43,7 @@ HDInsight 应用程序是用户可以在 HDInsight 群集上安装的应用程�
 * **[Trifacta](http://www.trifacta.com/)** 利用机器学习来提供突破性的用户体验、工作流和体系结构，使得数据工程师和分析师能够更高效地探究和编制当今的各种数据。
 * **WANdisco Fusion HDI App** 可随数据更改（无论数据位于何处）提供到数据的连续一致连接。 它支持用户随时随地访问数据，不会出现任何停机或中断情况。
 
-本文提供的说明将使用 Azure 门户。 也可以从门户导出 Azure Resource Manager 模板或从供应商处获取 Resource Manage 模板的副本，并使用 Azure PowerShell 和 Azure CLI 部署模板。  请参阅[使用资源管理器模板在 HDInsight 中创建 Hadoop 群集](hdinsight-hadoop-create-linux-clusters-arm-templates.md)。
+本文提供的说明将使用 Azure 门户。 也可以从门户导出 Azure 资源管理器模板或从供应商处获取 Resource Manage 模板的副本，并使用 Azure PowerShell 和 Azure 经典 CLI 部署模板。  请参阅[使用资源管理器模板在 HDInsight 中创建 Hadoop 群集](hdinsight-hadoop-create-linux-clusters-arm-templates.md)。
 
 ## <a name="prerequisites"></a>先决条件
 如果想要在现有的 HDInsight 群集上安装 HDInsight 应用程序，必须有一个 HDInsight 群集。 若要创建群集，请参阅 [创建群集](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster)。 也可以在创建 HDInsight 群集时安装 HDInsight 应用程序。
@@ -98,7 +98,7 @@ HTTP 终结点凭据是你针对 HDInsight 群集配置的 HTTP 用户凭据；S
 请参阅 [故障排除安装问题](hdinsight-apps-install-custom-applications.md#troubleshoot-the-installation)。
 
 ## <a name="next-steps"></a>后续步骤
-* [安装自定义 HDInsight 应用程序](hdinsight-apps-install-custom-applications.md)：了解如何将未发布的 HDInsight 应用程序部署到 HDInsight。
+* [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md)（安装自定义 HDInsight 应用程序）：了解如何将未发布的 HDInsight 应用程序部署到 HDInsight。
 * [MSDN：安装 HDInsight 应用程序](https://msdn.microsoft.com/library/mt706515.aspx)：了解如何定义 HDInsight 应用程序。
 * [使用脚本操作自定义基于 Linux 的 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)：了解如何使用脚本操作安装其他应用程序。
 * [使用 Resource Manager 模板在 HDInsight 中创建基于 Linux 的 Hadoop 群集](hdinsight-hadoop-create-linux-clusters-arm-templates.md)：了解如何调用 Resource Manager 模板创建 HDInsight 群集。

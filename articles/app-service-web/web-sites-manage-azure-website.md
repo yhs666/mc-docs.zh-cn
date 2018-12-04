@@ -16,16 +16,16 @@ origin.date: 08/24/2016
 ms.date: 12/05/2016
 ms.author: v-dazen
 ms.openlocfilehash: 28decf650d5259710d08367d32888eee40d2e1bf
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
-ms.locfileid: "20186805"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660327"
 ---
 # <a name="manage-a-web-app-in-azure-app-service"></a>管理 Azure 应用服务中的 Web 应用
 本主题包含用于管理 [Azure 应用服务](/app-service-web/app-service-changes-existing-services)中 Web 应用的资源链接。 管理包括维持 Web 应用平稳运行的所有任务。 
 
-在整个 Web 应用使用期内，您将执行各种管理任务，从初始部署到正常操作、维护与更新。
+在整个 Web 应用使用期内，您要执行各种管理任务，从初始部署到正常操作、维护与更新。
 
 许多 Web 应用管理任务都可在 Azure 门户中执行。
 
@@ -33,7 +33,7 @@ ms.locfileid: "20186805"
 ### <a name="choose-a-tier"></a>选择层级
 提供五个级别的 Azure 应用服务：免费、共享、基本、标准和高级。 有关各层的功能与定价的信息，请参阅[定价详细信息](https://www.azure.cn/pricing/details/app-service/)。 
 
-* [应用服务计划](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)支持将多个 Web 应用分组到同一层中。
+* [应用服务计划](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)支持在同一层对多个 Web 应用进行分组。
 * 在创建 Web 应用后可以随时[切换层](web-sites-scale.md)。
 
 ### <a name="configuration"></a>配置
@@ -55,11 +55,11 @@ ms.locfileid: "20186805"
 * **Python**：[使用 Azure 应用服务 Web 应用配置 Python](web-sites-python-configure.md)
 
 ## <a name="while-your-web-app-is-running"></a>Web 应用运行期间
-在 Web 应用运行期间，您要确保其可用性，并能够进行缩放以满足用户流量。 您可能还需要解决错误。
+在 Web 应用运行期间，需要确保其可用性，并能够进行缩放以满足用户流量。 可能还需要解决错误。
 
 ### <a name="monitoring"></a>监视
 * 通过 Azure 门户，可以[添加性能指标](web-sites-monitor.md)（如 CPU 使用率和客户端请求数）。
-* [缩放 Web 应用](web-sites-scale.md)以响应流量。 您可以根据不同的层缩放虚拟机数量和/或虚拟机实例的大小。 在标准层和高级层中，您还可以设置自动缩放，那么您的 Web 应用将能够根据固定计划，或以负载为依据进行自动缩放。  
+* [缩放 Web 应用](web-sites-scale.md)以响应流量。 可以根据不同的层缩放虚拟机数量和/或虚拟机实例的大小。 在标准层和高级层中，您还可以设置自动缩放，那么您的 Web 应用能够根据固定计划，或以负载为依据进行自动缩放。  
 
 ### <a name="backups"></a>备份
 * 设置 Web 应用的[自动备份](web-sites-backup.md)。
@@ -76,7 +76,7 @@ ms.locfileid: "20186805"
 ## <a name="when-you-update-your-web-app"></a>更新 Web 应用时
 如果尚未启用自动备份，可以创建[手动备份](web-sites-backup.md)。
 
-请考虑使用[过渡部署](web-sites-staged-publishing.md)。 该选项可支持您向与生产部署并排运行的分阶段部署发布更新。 
+请考虑使用[过渡部署](web-sites-staged-publishing.md)。 该选项可支持向与生产部署并排运行的分阶段部署发布更新。 
 
 <!-- Anchors. -->
 

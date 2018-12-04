@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: v-yiso
 ms.custom: mvc
 ms.openlocfilehash: da806cba3e79cd809dce9e40d3db862b7a951680
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43330442"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664451"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>教程：为 IoT 中心执行手动故障转移（公共预览版）
 
@@ -50,7 +50,7 @@ ms.locfileid: "43330442"
 
     **区域**：选择离你近的属于预览版一部分的区域。 本教程使用 `chinaeast`。 只能在 Azure 异地配对区域之间执行故障转移。 与 chinaeast 异地配对的区域是 chinanorth。
     
-   **Iot 中心名称**：指定 IoT 中心的名称。 该中心名称必须全局唯一。 
+   **Iot 中心名称**：指定 IoT 中心的名称。 该中心名称必须在全局中独一无二。 
 
    ![显示用于创建 IoT 中心的“基本信息”窗格的屏幕截图](./media/tutorial-manual-failover/create-hub-02-basics.png)
 
@@ -74,11 +74,11 @@ ms.locfileid: "43330442"
 
    ![显示“手动故障转移”窗格的屏幕截图](./media/tutorial-manual-failover/trigger-failover-02.png)
 
-3. 在“手动故障转移”窗格顶部单击“启动故障转移”。 此时会看到“确认手动故障转移”窗格。 填充 IoT 中心的名称，确认它是需要进行故障转移的。 然后，若要启动故障转移，请单击“确定”。
+3. 在“手动故障转移”窗格顶部单击“启动故障转移”。 此时会看到“确认手动故障转移”窗格。 填充 IoT 中心的名称，确认是它需要故障转移。 然后，若要启动故障转移，请单击“确定”。
 
    执行手动故障转移所需时间与中心的已注册设备数成正比。 例如，如果有 1 百万台设备，可能需要 15 分钟，但如果有 5 百万台设备，则可能需要 1 小时或更长的时间。
 
-4. 在“确认手动故障转移”窗格中填充 IoT 中心的名称，确认它是需要进行故障转移的。 然后，若要启动故障转移，请单击“确定”。 
+4. 在“确认手动故障转移”窗格中填充 IoT 中心的名称，确认是它需要故障转移。 然后，若要启动故障转移，请单击“确定”。 
 
    ![显示“手动故障转移”窗格的屏幕截图](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
 
@@ -106,7 +106,7 @@ ms.locfileid: "43330442"
 
 3. 在“手动故障转移”窗格顶部单击“启动故障转移”。 此时会看到“确认手动故障转移”窗格。 
 
-4. 在“确认手动故障转移”窗格中填充 IoT 中心的名称，确认它是需要进行故障回复的。 然后，若要启动故障回复，请单击“确定”。 
+4. 在“确认手动故障转移”窗格中填充 IoT 中心的名称，确认是它需要故障回复。 然后，若要启动故障回复，请单击“确定”。 
 
    ![手动故障回复请求的屏幕截图](./media/tutorial-manual-failover/trigger-failback-01-regions.png)
 
@@ -114,7 +114,7 @@ ms.locfileid: "43330442"
 
 ## <a name="clean-up-resources"></a>清理资源 
 
-若要删除为本教程创建的资源，请删除资源组。 此操作会一并删除组中包含的所有资源。 在这种情况下，它会删除 IoT 中心和资源组本身。 
+若要删除为本教程创建的资源，请删除资源组。 此操作会一并删除组中包含的所有资源。 在本示例中，它会删除 IoT 中心和资源组本身。 
 
 1. 单击“资源组”。 
 

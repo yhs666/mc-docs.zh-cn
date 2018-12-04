@@ -16,11 +16,11 @@ origin.date: 07/31/2018
 ms.date: 09/10/2018
 ms.author: v-yeche
 ms.openlocfilehash: 89066edb25ea6952e172a429bfb17674bc17c474
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515621"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661602"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 获取和设置 Chaos Schedule。

@@ -12,11 +12,11 @@ origin.date: 04/11/2018
 ms.author: v-yiso
 ms.date: 09/10/2018
 ms.openlocfilehash: 9bf7b1b49c72a3c1da93b0b18287f668e973390b
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43328692"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660207"
 ---
 # <a name="connect-intel-edison-to-azure-iot-hub-c"></a>将 Intel Edison 连接到 Azure IoT 中心 (C)
 

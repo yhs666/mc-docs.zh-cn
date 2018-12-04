@@ -10,11 +10,11 @@ origin.date: 02/24/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.openlocfilehash: 6d60aa10483547c9f9c21cdfcfec9b3c191f720f
-ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38999139"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660768"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>使用 Azure 容器注册表从 Azure Kubernetes 服务进行身份验证
 

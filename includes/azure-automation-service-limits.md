@@ -10,11 +10,11 @@ ms.date: 06/18/2018
 ms.author: v-johch
 ms.custom: include file
 ms.openlocfilehash: 0560e52a9793b901d8365bbddcbbdc623fd4d73f
-ms.sourcegitcommit: 7d01230972e7a7c4fd1aaf22220fb04a05726135
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568632"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660230"
 ---
 | 资源 | 最大限制 |
 | --- | --- |

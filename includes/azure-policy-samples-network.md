@@ -10,11 +10,11 @@ ms.date: 07/09/2018
 ms.author: v-jay
 ms.custom: include file
 ms.openlocfilehash: 244c8b370e851a3940fdb458b06606f116fce0c0
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405434"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662560"
 ---
 ## <a name="network"></a>网络
 

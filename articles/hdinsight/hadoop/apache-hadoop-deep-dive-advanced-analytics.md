@@ -18,11 +18,11 @@ origin.date: 11/14/2017
 ms.date: 09/24/2018
 ms.author: v-yiso
 ms.openlocfilehash: fe697ff78b4103febdb4657629fde9e9f467d7ea
-ms.sourcegitcommit: bae4e9e500e3e988ef8fa0371777ca9cc49b4e94
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45584843"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662681"
 ---
 # <a name="deep-dive---advanced-analytics"></a>深入探讨 - 高级分析
 
@@ -32,7 +32,7 @@ HDInsight 提供可从大量结构化、非结构化和快速移动的数据中�
 
 ## <a name="advanced-analytics-process"></a>高级分析过程
 
-![进程](./media/apache-hadoop-deep-dive-advanced-analytics/process.png)
+![过程](./media/apache-hadoop-deep-dive-advanced-analytics/process.png)
 
 在识别业务问题并开始收集和处理数据之后，需要创建一个模型用于表示所要预测的问题。 该模型使用一种或多种机器学习算法做出最符合业务需求的预测类型。  大部分数据应该用于训练模型，剩余的数据用于测试或评估该模型。 
 

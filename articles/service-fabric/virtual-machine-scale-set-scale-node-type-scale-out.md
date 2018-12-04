@@ -16,11 +16,11 @@ origin.date: 08/21/2018
 ms.date: 10/15/2018
 ms.author: v-yeche
 ms.openlocfilehash: 1a0e042270027c52e08f5e762bc95e602c011a9a
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089260"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663659"
 ---
 # <a name="scale-a-service-fabric-cluster-out-by-adding-a-virtual-machine-scale-set"></a>通过添加虚拟机规模集扩大 Service Fabric 群集
 本文介绍如何通过将新的虚拟机规模集添加到现有群集来扩大 Azure Service Fabric 群集。 Service Fabric 群集是通过网络连接在一起的一组虚拟机或物理机，可在其中部署和管理微服务。 属于群集一部分的计算机或 VM 称为节点。 虚拟机规模集是一种 Azure 计算资源，用于将一组 VM 作为一个集进行部署和管理。 Azure 群集中定义的每个节点类型[设置为独立的规模集](service-fabric-cluster-nodetypes.md)。 然后可以单独管理每个节点类型。 创建 Service Fabric 群集后，可以纵向缩放群集节点类型（更改节点资源）、升级节点类型 VM 的操作系统或将新的虚拟机规模集添加到现有群集。  随时可以缩放群集，即使该群集上正在运行工作负荷。  在缩放群集的同时，应用程序也会随之自动缩放。

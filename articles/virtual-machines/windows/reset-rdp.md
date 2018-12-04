@@ -17,11 +17,11 @@ origin.date: 03/23/2018
 ms.date: 06/25/2018
 ms.author: v-yeche
 ms.openlocfilehash: 8086a4998a6cabfa5284cb5d53b783549aa85d4c
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315556"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666892"
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm"></a>如何在 Windows VM 中重置远程桌面服务或其登录密码
 如果无法连接到 Windows 虚拟机 (VM)，可以重置本地管理员密码或重置远程桌面服务配置（Windows 域控制器上不支持）。 可以使用 Azure 门户或 Azure PowerShell 中的 VM 访问扩展重置密码。 登录到 VM 后，应重置该用户的密码。  

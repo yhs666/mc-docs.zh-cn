@@ -16,11 +16,11 @@ origin.date: 07/26/2018
 ms.date: 09/03/2018
 ms.author: ccompy
 ms.openlocfilehash: 98adaa15b9fd65638ee4e29467dde8c0261a3e80
-ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871009"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661360"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Azure 应用服务混合连接 #
 

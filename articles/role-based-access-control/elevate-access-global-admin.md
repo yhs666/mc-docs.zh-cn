@@ -17,11 +17,11 @@ ms.date: 10/22/2018
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.openlocfilehash: d1eb615a3da6c9550d59d44f0a2ffa4002856b68
-ms.sourcegitcommit: c938756f3be94dbbf574c31620ddf911b427fc21
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49634797"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666557"
 ---
 # <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>为 Azure Active Directory 中的全局管理员提升访问权限
 

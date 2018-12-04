@@ -12,16 +12,16 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 02/06/2018
-ms.date: 08/20/2018
+origin.date: 10/01/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 1eb52274623269018cc0fb66894d5e6756c0062a
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.openlocfilehash: efff17deeb1e10a0a7e6cbeb6444dbc288746909
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41705253"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663668"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>教程：在 Azure 中缩放 Service Fabric 群集
 
@@ -39,14 +39,14 @@ ms.locfileid: "41705253"
 > * 使用模板在 Azure 上创建安全的 [Windows 群集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)或 [Linux 群集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 > * 缩小或扩大群集
 > * [升级群集的运行时](service-fabric-tutorial-upgrade-cluster.md)
-> * [部署 API 管理与 Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+> * [删除群集](service-fabric-tutorial-delete-cluster.md)
 
 ## <a name="prerequisites"></a>先决条件
 
 在开始学习本教程之前：
 
 * 如果还没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)
-* 安装 [Azure PowerShell 模块 4.1 或更高版本](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)或 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
+* 安装 [Azure Powershell 模块版本 4.1 或更高版本](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)或者 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
 * 在 Azure 上创建安全的 [Windows 群集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)或 [Linux 群集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 * 如果部署 Windows 群集，请设置 Windows 开发环境。 安装 [Visual Studio 2017](http://www.visualstudio.com) 和 **Azure 开发**、**ASP.NET 和 Web 开发**以及 **.NET Core 跨平台开发**工作负荷。  然后设置 [.NET 开发环境](service-fabric-get-started.md)。
 * 如果部署 Linux 群集，请在 [Linux](service-fabric-get-started-linux.md) 或 [MacOS](service-fabric-get-started-mac.md) 上设置一个 Java 开发环境。  安装 [Service Fabric CLI](service-fabric-cli.md)。
@@ -117,12 +117,12 @@ az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 6
 
 缩小和扩大相同，只是使用的是更低的容量值。 缩小规模集时，将从规模集中移除虚拟机实例。 通常情况下，Service Fabric 不能识别发生了什么，并且它认为节点已丢失。 然后 Service Fabric 将报告群集的不正常状态。 为防止错误状态，必须通知 Service Fabric 你希望节点消失。
 
-### <a name="remove-the-service-fabric-node"></a>移除 Service Fabric 节点
+### <a name="remove-the-service-fabric-node"></a>删除 Service Fabric 节点
 
 > [!NOTE]
 > 此部分仅应用于 Bronze 持续性层。 有关持续性的详细信息，请参阅 [Service Fabric 群集容量规划][durability]。
 
-缩小虚拟机规模集时，规模集（大多情况下）会移除上次创建的虚拟机实例。 因此，需要找到上次创建的相应 Service Fabric 节点。 可以通过检查 Service Fabric 节点上最大 `NodeInstanceId` 属性值找到最近的节点。 下面的代码示例按节点实例排序并返回有最大 ID 值的实例的详细信息。
+为了使群集节点均匀地分布在升级域和容错域中，从而使它们的利用均匀，应该首先删除最近创建的节点。 换句话说，应该按照创建节点的相反顺序删除节点。 最近创建的节点是具有最大 `virtual machine scale set InstanceId` 属性值的节点。 下面的代码示例返回最近创建的节点。
 
 ```powershell
 Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
@@ -132,7 +132,7 @@ Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastInde
 sfctl node list --query "sort_by(items[*], &name)[-1]"
 ```
 
-Service Fabric 群集需要了解此节点将被移除。 需要执行以下三个步骤：
+Service Fabric 群集需要了解此节点将被删除。 需要执行以下三个步骤：
 
 1. 禁用节点，使其不再是数据复制。  
 PowerShell：`Disable-ServiceFabricNode`  
@@ -233,7 +233,7 @@ sfctl node remove-state --node-name _nt1vm_5
 
 ### <a name="scale-in-the-scale-set"></a>缩小规模集
 
-将 Service Fabric 节点从群集中移除后，即可缩小虚拟机规模集。 在下面的示例中，规模集容量缩小了 1。
+将 Service Fabric 节点从群集中删除后，即可缩小虚拟机规模集。 在下面的示例中，规模集容量缩小了 1。
 
 ```powershell
 $scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm

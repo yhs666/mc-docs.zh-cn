@@ -16,11 +16,11 @@ origin.date: 09/10/2018
 ms.date: 10/31/2018
 ms.author: v-lingwu
 ms.openlocfilehash: 51e8aa083f4f0901704cb7ea3c47adcc968a32f7
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409360"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667066"
 ---
 # <a name="how-to-use-service-bus-queues-with-nodejs"></a>如何通过 Node.js 使用服务总线队列
 

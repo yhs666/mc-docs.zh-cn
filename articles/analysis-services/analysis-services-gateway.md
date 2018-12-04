@@ -10,11 +10,11 @@ ms.date: 11/22/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
 ms.openlocfilehash: 9bd46d693fe1c936c4759ee20e2f9efe9aeb1cb1
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195372"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662832"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>使用 Azure 本地数据网关连接到本地数据源
 本地数据网关的作用好似一架桥，提供本地数据源与云中的 Azure Analysis Services 服务器之间的安全数据传输。 除了适用于同一区域中的多个 Azure Analysis Services 服务器以外，最新版本的网关还适用于 Azure 逻辑应用、Power BI、Power Apps 和 Azure Flow。 可将同一订阅和同一区域中的多个服务与单个网关相关联。 

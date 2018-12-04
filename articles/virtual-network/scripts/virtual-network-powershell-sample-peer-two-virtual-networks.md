@@ -17,11 +17,11 @@ origin.date: 03/20/2018
 ms.date: 05/07/2018
 ms.author: v-yeche
 ms.openlocfilehash: 542df961c50a71ddbb67e99e83480b2a72d1c8e5
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34868516"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664368"
 ---
 # <a name="peer-two-virtual-networks-script-sample"></a>将两个虚拟网络脚本示例对等互连
 

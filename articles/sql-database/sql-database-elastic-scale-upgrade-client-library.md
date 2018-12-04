@@ -11,11 +11,11 @@ origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
 ms.openlocfilehash: 5e6609cebd22374624dfcc708b2a215cee2996cb
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913993"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660644"
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>升级应用以使用最新的弹性数据库客户端库
 可通过 Visual Studio 中的 NuGet 和 NuGet 包管理器界面获取 [弹性数据库客户端库](sql-database-elastic-database-client-library.md) 的新版本。 升级包含客户端库的 bug 修复和新功能支持。

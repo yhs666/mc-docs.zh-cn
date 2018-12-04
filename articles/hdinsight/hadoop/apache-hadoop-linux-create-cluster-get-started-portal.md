@@ -16,11 +16,11 @@ origin.date: 05/07/2018
 ms.date: 08/27/2018
 ms.author: v-yiso
 ms.openlocfilehash: 6878922a43ea8dc318594b52c7a199cb9e319942
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41704024"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666529"
 ---
 # <a name="quickstart-get-started-with-hadoop-and-hive-in-azure-hdinsight-using-the-azure-portal"></a>快速入门：通过 Azure 门户在 Azure HDInsight 中开始使用 Hadoop 和 Hive
 

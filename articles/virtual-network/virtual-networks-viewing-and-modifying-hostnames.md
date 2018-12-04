@@ -16,15 +16,14 @@ origin.date: 05/24/2018
 ms.date: 07/23/2018
 ms.author: v-yeche
 ms.openlocfilehash: f61c25a0730d4baebd27ac396887a3fae9c63ca1
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167960"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666496"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>查看和修改主机名
-若要允许通过主机名引用角色实例，必须在服务配置文件中为每个角色设置主机名的值。 可以通过将所需主机名添加到 **Role** 元素的 **vmName** 属性来执行该操作。 
-            **vmName** 属性的值用作每个角色实例的主机名的基本元素。 例如，如果 **vmName** 是 *webrole*，并且该角色有三个实例，则这些实例的主机名将为 *webrole0*、*webrole1* 和 *webrole2*。 无需在配置文件中为虚拟机指定主机名，因为虚拟机的主机名会基于虚拟机名称填充。 有关配置 Microsoft Azure 服务的详细信息，请参阅 [Azure Service 配置架构（.cscfg 文件）](https://msdn.microsoft.com/library/azure/ee758710.aspx)
+若要允许通过主机名引用角色实例，必须在服务配置文件中为每个角色设置主机名的值。 可以通过将所需主机名添加到 **Role** 元素的 **vmName** 属性来执行该操作。 **vmName** 属性的值用作每个角色实例的主机名的基本元素。 例如，如果 **vmName** 是 *webrole*，并且该角色有三个实例，则这些实例的主机名将为 *webrole0*、*webrole1* 和 *webrole2*。 无需在配置文件中为虚拟机指定主机名，因为虚拟机的主机名会基于虚拟机名称填充。 有关配置 Microsoft Azure 服务的详细信息，请参阅 [Azure Service 配置架构（.cscfg 文件）](https://msdn.microsoft.com/library/azure/ee758710.aspx)
 
 ## <a name="viewing-hostnames"></a>查看主机名
 可以使用下列任一工具来查看云服务中虚拟机和角色实例的主机名。
@@ -44,7 +43,7 @@ ms.locfileid: "39167960"
 
 1. 确保有用于连接到 Azure 门户的客户端证书。 若要获取客户端证书，请执行[如何：下载和导入发布设置和订阅信息](https://msdn.microsoft.com/library/dn385850.aspx)中呈现的步骤。 
 2. 使用值 2013-11-01 设置名为 x-ms-version 的标头条目。
-3. 发送以下格式的请求：https://management.core.chinacloudapi.cn/\<subscrition-id\>/services/hostedservices/\<service-name\>?embed-detail=true
+3. 发送以下格式的请求： https://management.core.chinacloudapi.cn/\<subscrition-id\>/services/hostedservices/\<service-name\>?embed-detail=true
 4. 在 **HostName** 元素中查找每个 **RoleInstance** 元素。
 
 > [!WARNING]

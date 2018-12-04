@@ -11,11 +11,11 @@ ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: scottnap
 ms.openlocfilehash: 79f4c5fc7e726875464d213d444ba7e27f917755
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195341"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664500"
 ---
 # <a name="introduction-to-azure-stack-networking"></a>Azure Stack 网络简介
 

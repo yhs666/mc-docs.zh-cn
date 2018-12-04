@@ -9,11 +9,11 @@ ms.date: 03/02/2018
 ms.author: mandia
 ms.custom: include file
 ms.openlocfilehash: ec5b3ca9ccd139cbdf17768056eb1d835336e7a7
-ms.sourcegitcommit: c1c46f12f4a5dd98ae8d59b3bd5cd8ab3f999a6e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "38940242"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660975"
 ---
 1. 在 [Azure 门户](https://portal.azure.com)中，创建一个空白逻辑应用。 
 

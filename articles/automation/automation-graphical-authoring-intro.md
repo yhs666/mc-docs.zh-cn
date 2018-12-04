@@ -13,11 +13,11 @@ origin.date: 03/16/2018
 ms.date: 07/23/2018
 ms.author: v-nany
 ms.openlocfilehash: 792331a8af0d5e41c69d5d9254b1b601ff0450c5
-ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39143448"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666458"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Azure 自动化中的图形创作
 
@@ -45,13 +45,13 @@ Azure 自动化中的所有 Runbook 都是 Windows PowerShell 工作流。 图�
 
 ### <a name="library-control"></a>库控件
 
-库控件是你选择要添加到 Runbook 的[活动](#activities)的地方。 用户可以将活动添加到画布，再将它们连接到其他活动。 它包括下表中描述的四个部分：
+库控件是你选择要添加到 Runbook 的 [活动](#activities) 的地方。 用户可以将活动添加到画布，再将它们连接到其他活动。 它包括下表中描述的四个部分：
 
 | 部分 | 说明 |
 |:--- |:--- |
 | Cmdlet |包括可以在 Runbook 中使用的所有 cmdlet。 Cmdlet 按模块组织。 所有安装在自动化帐户中的模块都可用。 |
 | Runbook |包括你自动化帐户中的 Runbook。 这些 Runbook 可以添加到画布中用作子 Runbook。 仅显示核心类型与所编辑 Runbook 相同的 Runbook；对于图形 Runbook，仅显示基于 PowerShell 的 Runbook，而对于图形 PowerShell 工作流 Runbook，则仅显示基于 PowerShell 工作流的 Runbook。 |
-| 资产 |包括自动化帐户中能够在 Runbook 中使用的[自动化资产](http://msdn.microsoft.com/library/dn939988.aspx)。 将资产添加到 Runbook 中时，它会添加一个可以获取所选资产的工作流活动。 在使用变量资产的情况下，可以选择是否添加用于获取变量或设置变量的活动。 |
+| 资产 |包括自动化帐户中能够在 Runbook 中使用的 [自动化资产](http://msdn.microsoft.com/library/dn939988.aspx) 。 将资产添加到 Runbook 中时，它会添加一个可以获取所选资产的工作流活动。 在使用变量资产的情况下，可以选择是否添加用于获取变量或设置变量的活动。 |
 | Runbook 控件 |包括可以在当前 Runbook 中使用的 Runbook 控件活动。 *交接点* 采用多个输入，并会等到所有输入完成后才会继续执行工作流。 *Code* 活动运行一行或多行 PowerShell 或 PowerShell 工作流代码，具体取决于图形 Runbook 类型。 可以将此活动用于自定义代码或通过其他活动难以实现的功能。 |
 
 ### <a name="configuration-control"></a>配置控件
@@ -207,7 +207,7 @@ $DateTimeStart
 
 指定链接的条件时，目标活动仅在该条件解析为 true 的情况下运行。 通常会在条件中使用 $ActivityOutput 变量来检索源活动的输出
 
-对于管道链接，用户可以为一个对象指定一个条件，并针对源活动的每个对象输出对条件进行评估。 然后会针对符合条件的每个对象运行目标活动。 例如，通过 Get-AzureRmVm 源活动，可以将以下语法用于条件管道链接，以便只检索名为 *Group1* 的资源组中的虚拟机。
+对于管道链接，用户可以为一个对象指定一个条件，并针对源活动的每个对象输出对条件进行评估。 然后会针对符合条件的每个对象运行目标活动。 例如，通过 Get-AzureRmVm 源活动，可以将以下语法用于条件管道链接，以便只检索名为 *Group1*的资源组中的虚拟机。
 
 ```powershell
 $ActivityOutput['Get Azure VMs'].Name -match "Group1"

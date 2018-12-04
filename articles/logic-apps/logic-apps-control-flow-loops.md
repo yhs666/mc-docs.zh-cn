@@ -12,11 +12,11 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.date: 04/23/2018
 ms.openlocfilehash: b04a66b9de89a3941d9af9c2b6fa8d5f47592315
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315554"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666699"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>在 Azure 逻辑应用中添加循环以重复执行操作或处理数组
 

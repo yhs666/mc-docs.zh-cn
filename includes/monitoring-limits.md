@@ -12,11 +12,11 @@ ms.date: 05/04/2018
 ms.author: robb
 ms.custom: include file
 ms.openlocfilehash: ffbb584d209612f8bfa8c6b1b152c0de0b4f1435
-ms.sourcegitcommit: 7d01230972e7a7c4fd1aaf22220fb04a05726135
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568638"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664304"
 ---
 | 资源 | 默认限制 | 最大限制 |
 | --- | --- | --- |

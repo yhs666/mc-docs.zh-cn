@@ -10,11 +10,11 @@ ms.date: 08/06/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
 ms.openlocfilehash: 51e104931598825c46d3beb72f4730033f7304b4
-ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487835"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664513"
 ---
 # <a name="backup-and-restore"></a>备份和还原
 

@@ -17,11 +17,11 @@ ms.date: 10/08/2018
 ms.author: v-yiso
 ms.custom: mvc
 ms.openlocfilehash: bc85653bda546d0c5d7194686da8b8b86b027292
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523818"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660557"
 ---
 # <a name="web-apps-overview"></a>Web 应用概述
 

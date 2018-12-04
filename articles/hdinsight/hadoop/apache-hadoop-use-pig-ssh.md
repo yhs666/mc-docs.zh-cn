@@ -18,11 +18,11 @@ origin.date: 02/27/2018
 ms.date: 05/21/2018
 ms.author: v-yiso
 ms.openlocfilehash: 610e25c05ddf1ac1129ee40b06377b384b0e2951
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34449971"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666513"
 ---
 # <a name="run-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>使用 Pig 命令 (SSH) 在基于 Linux 的群集上运行 Pig 作业
 
@@ -41,7 +41,7 @@ ms.locfileid: "34449971"
 ssh sshuser@myhdinsight-ssh.azurehdinsight.cn
 ```
 
-有关详细信息，请参阅 [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
+有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 ## <a id="pig"></a>使用 Pig 命令
 

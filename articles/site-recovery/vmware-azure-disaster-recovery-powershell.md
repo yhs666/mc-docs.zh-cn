@@ -3,17 +3,18 @@ title: 使用 Azure Site Recovery 中的 PowerShell 将 VMware VM 复制和故�
 description: 了解如何使用 Azure Site Recovery 中的 PowerShell 设置 VMware VM 到 Azure 的复制和故障转移。
 services: site-recovery
 author: rockboyfor
+manager: digimobile
 ms.service: site-recovery
 origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.date: 11/19/2018
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: 46de52aa0982d4a7b3e006056b5a4e2a2d946586
-ms.sourcegitcommit: f7ff09be9f3be5e3eb795e383c0c670f480f233d
+ms.openlocfilehash: 0ad70a64cf264321d32e07897e564e734f49a925
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39169025"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666698"
 ---
 # <a name="replicate-and-fail-over-vmware-vms-to-azure-with-powershell"></a>使用 PowerShell 将 VMware VM 复制和故障转移到 Azure
 
@@ -38,7 +39,7 @@ ms.locfileid: "39169025"
 
 ## <a name="log-into-azure"></a>登录到 Azure
 
-使用 Connect-AzureRmAccount -Environment AzureChinaCloud cmdlet 登录到 Azure 订阅：
+使用 Connect-AzureRmAccount cmdlet 登录到 Azure 订阅：
 
 ```azurepowershell
 Connect-AzureRmAccount -Environment AzureChinaCloud
@@ -169,7 +170,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
     1     ConfigurationServer
     ```
 
-   在上面的输出中，***$ProcessServers[0]*** 对应于 *ScaleOut ProcessServer*，***$ProcessServers[1]*** 对应于 *ConfigurationServer* 上的进程服务器角色
+   在以上输出中，***$ProcessServers [0]*** 对应于 *ScaleOut ProcessServer* ***$ProcessServers [1]*** 对应于 *ConfigurationServer* 上的进程服务器角色
 
 3. 标识已在配置服务器上设置的帐户。
 
@@ -486,4 +487,5 @@ Errors           : {}
 
 ## <a name="next-steps"></a>后续步骤
 了解如何使用 [Azure Site Recovery PowerShell 参考](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery)自动执行更多任务。
-<!-- Update_Description: update meta properties， update link, wording update -->
+
+<!-- Update_Description: update meta properties, wording update -->

@@ -18,11 +18,11 @@ ms.date: 10/09/2017
 ms.author: v-yiso
 ms.custom: mvc
 ms.openlocfilehash: cb2f9414a8d3fc6e1aef8581cf5af4da5151bd10
-ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
-ms.locfileid: "22146520"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661323"
 ---
 # <a name="connect-a-web-app-to-a-storage-account"></a>将 Web 应用连接到存储帐户
 
@@ -69,7 +69,7 @@ az webapp config appsettings set --settings "STORAGE_CONNSTR=$connstr" --name $a
 
 此脚本使用以下命令创建资源组、Web 应用、存储帐户和所有相关资源。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 创建用于存储所有资源的资源组。 |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | 创建应用服务计划。 这与 Azure Web 应用的服务器场类似。 |

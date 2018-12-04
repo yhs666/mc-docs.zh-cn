@@ -13,11 +13,11 @@ origin.date: 04/21/2018
 ms.date: 06/25/2018
 ms.author: v-jay
 ms.openlocfilehash: b709804115aaacd64c50f90ab9c08d27fd715876
-ms.sourcegitcommit: b23f331a9507c52ddd564c77379e7013b14141e7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39138862"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666946"
 ---
 # <a name="encoding-with-azure-media-services"></a>使用 Azure 媒体服务进行编码
 

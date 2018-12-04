@@ -16,11 +16,11 @@ origin.date: 07/19/2017
 ms.date: 12/04/2017
 ms.author: v-yeche
 ms.openlocfilehash: d6954364a37d2cbb14f3472f50e1c9fe718b95cc
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29285721"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660487"
 ---
 # <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>将 Windows 容器中的 .NET 应用程序部署到 Azure Service Fabric
 
@@ -207,7 +207,7 @@ Edge 会在内部 NAT 网络上使用容器的 IP 地址（通常为 172.x.x.x�
    >生成容器映像大约需要 15 分钟。
    >首次部署到 Service Fabric 群集时会下载 Windows Server Core 容器的基础映像。 下载另需 5-10 分钟才能完成。
 
-使用群集的 URL（例如 *http://mycluster.chinanorth.cloudapp.chinacloudapi.cn*）浏览到 Fabrikam 呼叫中心应用程序
+使用群集的 URL 浏览到 Fabrikam Call Center 应用程序，例如 *http://mycluster.chinanorth.cloudapp.chinacloudapi.cn*
 
 现在，已容器化并部署 Fabrikam 呼叫中心解决方案，可以打开 [Azure 门户][link-azure-portal]并查看在 Service Fabric 中运行的应用程序。 若要试用应用程序，可打开 Web 浏览器并转到 Service Fabric 群集的 URL。
 

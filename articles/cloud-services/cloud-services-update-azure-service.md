@@ -16,11 +16,11 @@ origin.date: 04/19/2017
 ms.author: v-yiso
 ms.date: 12/11/2017
 ms.openlocfilehash: f1b1bf82ee6b9030c1cc5be1ae946be2a826096f
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
-ms.locfileid: "26044762"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663327"
 ---
 # <a name="how-to-update-a-cloud-service"></a>如何更新云服务
 
@@ -137,7 +137,7 @@ Azure 将角色实例划分为称为升级域 (UD) 的逻辑组。 升级域 (UD
     1.  Locked 元素用于检测何时可以在给定部署上调用变动操作。
     2.  RollbackAllowed 元素用于检测何时可以在给定部署上调用[回滚更新或升级](https://msdn.microsoft.com/zh-cn/library/azure/hh403977.aspx)操作。
 
-    要执行回滚，不需要检查 Locked 和 RollbackAllowed 元素。 确认 RollbackAllowed 设置为 true 就足够了。 只有在使用设置为“x-ms-version: 2011-10-01”或更高版本的请求标头调用这些方法时，才会返回这些元素。 有关版本控制标头的详细信息，请参阅 [服务管理版本控制](https://msdn.microsoft.com/zh-cn/library/azure/gg592580.aspx)。
+    要执行回滚，不需要检查 Locked 和 RollbackAllowed 元素。 确认 RollbackAllowed 设置为 true 就足够了。 只有在使用设置为“x-ms-version: 2011-10-01”或更高版本的请求标头调用这些方法时，才会返回这些元素。 有关版本控制标头的详细信息，请参阅[服务管理版本控制](https://msdn.microsoft.com/zh-cn/library/azure/gg592580.aspx)。
 
 在某些情况下，不支持回滚更新或升级，这些情况包括：
 

@@ -10,11 +10,11 @@ ms.date: 06/11/2018
 ms.author: v-nany
 ms.custom: include file
 ms.openlocfilehash: b1610a4a1f5d37506402f2cc51ef7d1f3efa6a66
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940334"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666431"
 ---
 完成后，可以删除资源组。 删除资源组时会删除该资源组中部署的存储帐户、Azure 文件共享和其他任何资源。
 

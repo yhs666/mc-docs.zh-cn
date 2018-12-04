@@ -13,11 +13,11 @@ ms.date: 10/25/2018
 ms.author: v-junlch
 ROBOTS: NOINDEX
 ms.openlocfilehash: 560f7d228928d0fdceba999db5087d9515f394d2
-ms.sourcegitcommit: 44ce337717bb948f5ac08217a156935f663c0f46
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034661"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660924"
 ---
 # <a name="tutorial-use-the-emotion-api-with-a-jupyter-notebook--python"></a>教程：通过 Jupyter Notebook 和 Python 使用情感 API。
 

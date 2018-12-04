@@ -11,14 +11,14 @@ ms.component: fundamentals
 ms.workload: identity
 ms.topic: overview
 origin.date: 09/13/2018
-ms.date: 10/09/2018
+ms.date: 11/12/2018
 ms.custom: it-pro
-ms.openlocfilehash: df269c1696419d54531707bc829b0e35d9329259
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.openlocfilehash: 6d746a4d52c4ae7e7545d70a2b8c918d7b8236c8
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913756"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663271"
 ---
 # <a name="what-is-azure-active-directory"></a>什么是 Azure Active Directory？
 Azure Active Directory (Azure AD) 是 Microsoft 提供的多租户、基于云的目录和标识管理服务。 Azure AD 将核心目录服务、应用程序访问管理和标识保护组合到一个解决方案中，提供基于标准的平台，帮助开发人员根据集中策略和规则为其应用程序提供访问控制。
@@ -48,5 +48,6 @@ Azure AD 的多租户、地理分布、高可用性设计意味着可以依赖�
 有关这些版本的定价选项，请参阅 [Azure Active Directory 定价](https://www.azure.cn/pricing/details/active-directory/)
 
 
-<!-- Update_Description: wording update -->
+## <a name="next-steps"></a>后续步骤
+- [将 Azure AD 与 Windows Server Active Directory 集成](../hybrid/how-to-connect-install-express.md)。
 

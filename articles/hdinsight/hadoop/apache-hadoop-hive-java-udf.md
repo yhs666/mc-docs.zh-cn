@@ -17,11 +17,11 @@ origin.date: 05/16/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
 ms.openlocfilehash: fac87af9180df47caed34df9a169a5d55683ceda
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873568"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662281"
 ---
 # <a name="use-a-java-udf-with-hive-in-hdinsight"></a>在 HDInsight 中通过 Hive 使用 Java UDF
 
@@ -196,7 +196,7 @@ ms.locfileid: "37873568"
     ssh myuser@mycluster-ssh.azurehdinsight.cn
     ```
 
-    有关详细信息，请参阅 [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
+    有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 4. 从 SSH 会话将 jar 文件复制到 HDInsight 存储。
 
@@ -214,7 +214,7 @@ ms.locfileid: "37873568"
 
     该命令假定你使用默认的群集登录帐户 **admin**。
 
-2. 当到达 `jdbc:hive2://localhost:10001/>` 提示符时，输入以下代码将 UDF 添加到 Hive，并将其作为函数公开。
+2. 显示 `jdbc:hive2://localhost:10001/>` 提示符后，输入以下代码将 UDF 添加到 Hive，并将其作为函数公开。
 
     ```hiveql
     ADD JAR wasb:///example/jars/ExampleUDF-1.0-SNAPSHOT.jar;
@@ -246,7 +246,7 @@ ms.locfileid: "37873568"
 
 ## <a name="next-steps"></a>后续步骤
 
-有关使用 Hive 的其他方式，请参阅[将 HDInsight 与 Hive 配合使用](hdinsight-use-hive.md)。
+有关使用 Hive 的其他方式，请参阅[将 Hive 与 HDInsight 配合使用](hdinsight-use-hive.md)。
 
 有关 Hive 用户定义函数的详细信息，请参阅 apache.org 网站上的 Hive wiki 的 [Hive 运算符和用户定义函数](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) 部分。
 

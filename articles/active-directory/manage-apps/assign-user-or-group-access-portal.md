@@ -17,11 +17,11 @@ ms.date: 08/29/2018
 ms.author: v-junlch
 ms.reviewer: luleon
 ms.openlocfilehash: 5f41b0c3ebd620c5d8181d734f6fbc8e26fa874d
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164723"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660013"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>在 Azure Active Directory 中向企业应用分配用户或组
 若要将用户或组分配到企业应用，必须具有适当的权限才能管理企业应用，并且必须是目录的全局管理员。
@@ -122,8 +122,8 @@ ms.locfileid: "43164723"
 
 ## <a name="next-steps"></a>后续步骤
 - [查看所有组](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [删除企业应用的用户或组分配](remove-user-or-group-access-portal.md)
-- [禁用企业应用的用户登录](disable-user-sign-in-portal.md)
-- [更改企业应用的名称或徽标](change-name-or-logo-portal.md)
+- [Remove a user or group assignment from an enterprise app](remove-user-or-group-access-portal.md)
+- [Disable user sign-ins for an enterprise app](disable-user-sign-in-portal.md)
+- [Change the name or logo of an enterprise app](change-name-or-logo-portal.md)
 
 <!-- Update_Description: code update -->

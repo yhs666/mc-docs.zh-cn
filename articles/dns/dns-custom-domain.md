@@ -14,11 +14,11 @@ origin.date: 1/19/2018
 ms.date: 05/21/2018
 ms.author: v-nany
 ms.openlocfilehash: 4a5b698a8d9db8731d8a06cc86f03781ec064279
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426438"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666563"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>使用 Azure DNS 为 Azure 服务提供自定义域设置
 

@@ -10,11 +10,11 @@ ms.date: 08/27/2018
 ms.author: v-jay
 ms.component: data-lake-storage-gen2
 ms.openlocfilehash: f37aedd73222eff0a06468d54ec9fd88662650af
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872463"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661683"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>将 HDFS CLI 与 Data Lake Storage Gen2 配合使用
 

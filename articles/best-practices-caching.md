@@ -13,11 +13,11 @@ origin.date: 07/14/2016
 ms.date: 08/01/2016
 ms.author: v-junlch
 ms.openlocfilehash: 07988d5fb159ce225d672fbfb0f8f9eeeeb4d2d4
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939001"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663756"
 ---
 # <a name="caching-guidance"></a>缓存指南
 
@@ -397,7 +397,7 @@ private async Task<string> RetrieveItem(string itemKey)
 
 `StringGet` 和 `StringSet` 方法不是只能检索或存储字符串值。 它们可以采用任何序列化为字节数组的项。 如果需要保存 .NET 对象，可以将它序列化为字节流，并使用 `StringSet` 方法将它写入缓存。
 
-同样地，可以使用 `StringGet` 方法从缓存中读取对象，并将其反序列化为 .NET 对象。 以下代码演示了 IDatabase 接口的一组扩展方法（Redis 连接的 `GetDatabase` 方法返回 `IDatabase` 对象），使用这些方法的某些示例代码可以在缓存中读取和写入 `BlogPost` 对象：
+同样，可以使用 `StringGet` 方法从缓存中读取对象，并将其反序列化为 .NET 对象。 以下代码演示了 IDatabase 接口的一组扩展方法（Redis 连接的 `GetDatabase` 方法返回 `IDatabase` 对象），使用这些方法的某些示例代码可以在缓存中读取和写入 `BlogPost` 对象：
 
 ```csharp
 public static class RedisCacheExtensions
@@ -537,7 +537,7 @@ Redis 支持对字符串值执行一系列原子性“获取和设置”操作�
   // Decrement by 50
   // newValue should be 50
   ```
-* `GETSET` 用于检索与键关联的值，并将其更改为新值。 StackExchange 库通过 `IDatabase.StringGetSetAsync` 方法使此操作可供使用。 以下代码段演示了此方法的示例。 此代码从前一示例返回与键 "data:counter" 关联的当前值。 然后将此键的值重置为零，这些都是同一操作的一部分：
+* `GETSET`用于检索与键关联的值，并将其更改为新值。 StackExchange 库通过 `IDatabase.StringGetSetAsync` 方法使此操作可供使用。 以下代码段演示了此方法的示例。 此代码从前一示例返回与键 "data:counter" 关联的当前值。 然后将此键的值重置为零，这些都是同一操作的一部分：
 
   ```csharp
   ConnectionMultiplexer redisHostConnection = ...;
@@ -849,7 +849,7 @@ Redis 服务器除了可用作数据缓存以外，还可通过高性能发布�
 
 Redis 提供 SUBSCRIBE 命令来让客户端应用程序订阅通道。 此命令需要一个或多个可供应用程序接受消息的通道的名称。 StackExchange 库包含 `ISubscription` 接口，可让 .NET Framework 应用程序订阅和发布到通道。
 
-使用 Redis 服务器连接的 `GetSubscriber` 方法创建 `ISubscription` 对象。 然后使用此对象的 `SubscribeAsync` 方法在通道上侦听消息。 以下代码示例演示了如何订阅名为“messages:blogPosts”的通道：
+使用 Redis 服务器连接的 `GetSubscriber` 方法创建 `ISubscription` 对象。 然后使用此对象的 `SubscribeAsync` 方法来侦听通道上的消息。 以下代码示例演示了如何订阅名为“messages:blogPosts”的通道：
 
 ```csharp
 ConnectionMultiplexer redisHostConnection = ...;
@@ -892,7 +892,7 @@ ISubscriber subscriber = redisHostConnection.GetSubscriber();
 ## <a name="related-patterns-and-guidance"></a>相关模式和指南
 在应用程序中实施缓存时，以下模式也可能与方案相关：
 
-- [缓存端模式](http://msdn.microsoft.com/zh-cn/library/dn589799.aspx)：此模式描述如何按需将数据从数据存储载入缓存。 此模式还有助于在缓存中保存的数据与原始数据存储中的数据之间保持一致性。
+- [缓存端模式](http://msdn.microsoft.com/zh-cn/library/dn589799.aspx)：此模式说明如何按需将数据从数据存储载入缓存。 此模式还有助于在缓存中保存的数据与原始数据存储中的数据之间保持一致性。
 - [分片模式](http://msdn.microsoft.com/zh-cn/library/dn589797.aspx) 提供了有关实施水平分区，以帮助在存储和访问大量数据时提高可伸缩性的信息。
 
 ## <a name="more-information"></a>详细信息

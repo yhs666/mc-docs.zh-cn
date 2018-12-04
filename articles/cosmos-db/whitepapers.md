@@ -11,11 +11,11 @@ origin.date: 05/01/2018
 ms.date: 08/13/2018
 ms.author: v-yeche
 ms.openlocfilehash: fa6845ca9eaf9277323951f373041d418f307cd6
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41705078"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660454"
 ---
 # <a name="azure-cosmos-db-whitepapers"></a>Azure Cosmos DB 白皮书 
 

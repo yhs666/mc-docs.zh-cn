@@ -14,11 +14,11 @@ origin.date: 07/24/2018
 ms.date: 08/31/2018
 ms.author: v-junlch
 ms.openlocfilehash: 21bc7539b87acf19e00026ca13c31c1cb93c5220
-ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43330806"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664556"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>如何在 Azure Functions 中禁用函数
 

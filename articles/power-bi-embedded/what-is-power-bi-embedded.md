@@ -12,11 +12,11 @@ ms.reviewer: ''
 origin.date: 05/31/2018
 ms.date: 07/18/2018
 ms.openlocfilehash: 939815ae9dec8565bc73267dc46c169293813622
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168503"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661188"
 ---
 # <a name="what-is-power-bi-embedded"></a>Power BI Embedded 是什么？
 

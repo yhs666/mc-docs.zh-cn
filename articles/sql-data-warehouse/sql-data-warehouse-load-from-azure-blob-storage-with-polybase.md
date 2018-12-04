@@ -11,12 +11,12 @@ origin.date: 04/17/2018
 ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 927260b47503cf63254d8c9a480e23f2ee24d510
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.openlocfilehash: 3aba402aab3277cd78e46a9154be8be041268ba8
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089016"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661864"
 ---
 # <a name="load-contoso-retail-data-to-azure-sql-data-warehouse"></a>将 Contoso 零售数据加载到 Azure SQL 数据仓库
 
@@ -29,7 +29,7 @@ ms.locfileid: "49089016"
 3. 完成加载后执行优化。
 
 ## <a name="before-you-begin"></a>准备阶段
-若要运行本教程，需要一个已包含 SQL 数据仓库数据库的 Azure 帐户。 如果没有此帐户，请参阅[创建 SQL 数据仓库][创建 SQL 数据仓库]。
+若要运行本教程，需要一个已包含 SQL 数据仓库数据库的 Azure 帐户。 如果没有此帐户，请参阅 [Create a SQL Data Warehouse][Create a SQL Data Warehouse]（创建 SQL 数据仓库）。
 
 ## <a name="1-configure-the-data-source"></a>1.配置数据源
 PolyBase 使用 T-SQL 外部对象来定义外部数据的位置和属性。 外部对象定义存储在 SQL 数据仓库中。 数据本身存储在外部。
@@ -268,7 +268,7 @@ ORDER BY
 ```
 
 ## <a name="5-optimize-columnstore-compression"></a>5.优化列存储压缩
-默认情况下，SQL 数据仓库将表存储为聚集列存储索引。 加载完成后，某些数据行可能未压缩到列存储中。  发生这种情况的原因多种多样。 若要了解详细信息，请参阅[管理列存储索引][管理列存储索引]。
+默认情况下，SQL 数据仓库将表存储为聚集列存储索引。 加载完成后，某些数据行可能未压缩到列存储中。  发生这种情况的原因多种多样。 若要了解详细信息，请参阅 [管理列存储索引][manage columnstore indexes]。
 
 若要在加载后优化查询性能和列存储压缩，请重新生成表，以强制列存储索引压缩所有行。 
 
@@ -280,12 +280,12 @@ ALTER INDEX ALL ON [cso].[DimProduct]               REBUILD;
 ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 ```
 
-有关维护列存储索引的详细信息，请参阅[管理列存储索引][管理列存储索引]一文。
+有关维护列存储索引的详细信息，请参阅 [管理列存储索引][manage columnstore indexes] 一文。
 
 ## <a name="6-optimize-statistics"></a>6.优化统计信息
 最好是在加载之后马上创建单列统计信息。 对于统计信息，可以使用多个选项。 例如，如果针对每个列创建单列统计信息，则重新生成所有统计信息可能需要花费很长时间。 如果知道某些列不会在查询谓词中使用，可以不创建有关这些列的统计信息。
 
-如果决定针对每个表的每个列创建单列统计信息，可以使用[统计信息][统计信息]一文中的存储过程代码示例 `prc_sqldw_create_stats`。
+如果决定针对每个表的每个列创建单列统计信息，可以使用[统计信息][statistics]一文中的存储过程代码示例 `prc_sqldw_create_stats`。
 
 以下示例是创建统计信息的不错起点。 它会针对维度表中的每个列以及事实表中的每个联接列创建单列统计信息。 以后，随时可以将单列或多列统计信息添加到其他事实表列。
 
@@ -345,13 +345,18 @@ GROUP BY p.[BrandName]
 ```
 
 ## <a name="next-steps"></a>后续步骤
-若要加载整个 Contoso 零售数据仓库数据，可以使用脚本。有关更多开发技巧，请参阅 [SQL 数据仓库开发概述][SQL 数据仓库开发概述]。
+若要加载完整的 Contoso 零售数据仓库数据，请使用脚本。有关更多开发技巧，请参阅 [SQL 数据仓库开发概述][SQL Data Warehouse development overview]。
 
 <!--Image references-->
 
 <!--Article references-->
-<!-- Not Avaiable on [Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md -->
-<!-- Need to append when sample SQL Server has been implement in Mooncake--> [将数据加载到 SQL 数据仓库]: sql-data-warehouse-overview-load.md [SQL 数据仓库开发概述]: sql-data-warehouse-overview-develop.md [管理列存储索引]: sql-data-warehouse-tables-index.md [统计信息]: sql-data-warehouse-tables-statistics.md [CTAS]: sql-data-warehouse-develop-ctas.md [标签]: sql-data-warehouse-develop-label.md
+[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+[Load data into SQL Data Warehouse]: sql-data-warehouse-overview-load.md
+[SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
+[manage columnstore indexes]: sql-data-warehouse-tables-index.md
+[Statistics]: sql-data-warehouse-tables-statistics.md
+[CTAS]: sql-data-warehouse-develop-ctas.md
+[label]: sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
 [CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/library/dn935022.aspx

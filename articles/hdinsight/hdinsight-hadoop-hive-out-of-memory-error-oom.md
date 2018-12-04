@@ -18,11 +18,11 @@ origin.date: 05/14/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
 ms.openlocfilehash: 651ab7d52d7a183f3f173393be59091ec971427c
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747400"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662334"
 ---
 # <a name="fix-a-hive-out-of-memory-error-in-azure-hdinsight"></a>解决 Azure HDInsight 中的 Hive 内存不足错误
 

@@ -16,11 +16,11 @@ origin.date: 12/06/2017
 ms.date: 08/20/2018
 ms.author: v-yeche
 ms.openlocfilehash: 3c89f5a412ac481bd270a55d9402a2047794c663
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41705395"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666632"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>为 Service Fabric 群集打开端口
 

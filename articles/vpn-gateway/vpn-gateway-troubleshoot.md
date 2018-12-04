@@ -17,11 +17,11 @@ origin.date: 01/31/2018
 ms.date: 03/09/2018
 ms.author: v-junlch
 ms.openlocfilehash: 632137d1651eba7eb36c76c64802c9352cbabf1a
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29925256"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661194"
 ---
 # <a name="troubleshoot-vpn-gateway"></a>VPN 网关疑难解答
 

@@ -17,11 +17,11 @@ origin.date: 02/24/2017
 ms.date: 10/22/2018
 ms.author: v-yeche
 ms.openlocfilehash: 281c10f5a0f9772d871bd9c0570096296627299a
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034914"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664210"
 ---
 # <a name="how-to-set-up-key-vault-for-virtual-machines-with-the-azure-cli"></a>如何使用 Azure CLI 为虚拟机设置 Key Vault
 

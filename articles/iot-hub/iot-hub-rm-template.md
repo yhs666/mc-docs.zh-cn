@@ -16,11 +16,11 @@ origin.date: 08/08/2017
 ms.author: v-yiso
 ms.date: 12/18/2017
 ms.openlocfilehash: 1032cf55c4126efcdfd362617ccaff408ac3b9e4
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38938840"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666566"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>使用 Azure 资源管理器模板创建 IoT 中心 (.NET)
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]

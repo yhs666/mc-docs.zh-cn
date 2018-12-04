@@ -16,11 +16,11 @@ origin.date: 05/11/2018
 ms.date: 06/04/2018
 ms.author: v-yeche
 ms.openlocfilehash: d9d3dec20b457011b74093e8b324509e636647f1
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867793"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660009"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>了解 Azure VM 的系统重启
 

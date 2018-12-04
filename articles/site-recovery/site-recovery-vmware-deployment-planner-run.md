@@ -2,25 +2,19 @@
 title: 适用于 VMware 到 Azure 部署的 Azure Site Recovery Deployment Planner | Azure
 description: 本文介绍针对 VMware 到 Azure 方案运行 Azure Site Recovery 部署规划器的模式。
 services: site-recovery
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.topic: conceptual
+origin.date: 10/11/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: d885695b2c0bd98e90ccc851b42b97497b612dd8
-ms.sourcegitcommit: f7ff09be9f3be5e3eb795e383c0c670f480f233d
+ms.openlocfilehash: dd04c447b06c4a45ecb001808b3c74aeda0cf59e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39169021"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663710"
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>运行适用于 VMware 到 Azure 部署的 Azure Site Recovery 部署规划器
 本文为适用于 VMware 到 Azure 生产部署的 Azure Site Recovery Deployment Planner 用户指南。
@@ -169,6 +163,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 |-TargetRegion|（可选）充当复制目标的 Azure 区域。 由于 Azure 的成本因区域而异，因此可使用此参数来生成特定目标 Azure 区域的报表。<br>默认值为 ChinaNorth 或上次使用的目标区域。|
 |-OfferId|（可选）与给定订阅关联的套餐。 默认值为 MS-AZR-0003P（即用即付）。|
 |-Currency|（可选）在生成的报表中显示的成本所采用的货币。|
+
 <!-- Not Avaiable line 165 on  [supported target regions](site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-target-regions) -->
 <!-- Not Avaiable on Refer to the list of [supported currencies](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies) -->
 
@@ -213,8 +208,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Serve
 <!-- Not Avaiable on #### Example 7: Generate a report for South India Azure region with Indian Rupee and specific offer ID -->
 
 ## <a name="percentile-value-used-for-the-calculation"></a>用于计算的百分位值
-
-            **在生成报告时，该工具使用分析期间收集的性能指标的哪个默认百分位值？**
+**在生成报告时，该工具使用分析期间收集的性能指标的哪个默认百分位值？**
 
 该工具默认使用分析所有 VM 期间收集的读/写 IOPS、写入 IOPS 和数据变动量的第 95 百分位值。 此指标可确保系统不使用第 100 百分位峰值（在发生临时事件时，可能会出现在 VM 中）来确定目标存储帐户和源带宽需求。 例如，临时事件可能是一天运行一次的备份作业、定期发生的数据库索引编制或分析报告生成活动，或者其他类似的短期时间点事件。
 
@@ -273,7 +267,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Serve
 
 ### <a name="example"></a>示例
 ```
-ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_ProfiledData -VMListFile E:\vCenter1_ProfiledData\ProfileVMList1.txt  -StorageAccountName  asrspfarm1 -StorageAccountKey by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
+ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_ProfiledData -Virtualization VMware -VMListFile E:\vCenter1_ProfiledData\ProfileVMList1.txt  -StorageAccountName  asrspfarm1 -StorageAccountKey by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
 
 >[!NOTE]
@@ -292,4 +286,5 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_Profil
 
 ## <a name="next-steps"></a>后续步骤
 * [分析生成的报表](site-recovery-vmware-deployment-planner-analyze-report.md)。
-<!-- Update_Description: update meta properties, wording update, update link -->
+
+<!-- Update_Description: update meta properties, wording update  -->

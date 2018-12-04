@@ -15,11 +15,11 @@ origin.date: 07/02/2018
 ms.date: 09/24/2018
 ms.author: v-yeche
 ms.openlocfilehash: 423161feb42d13b7a5b8263c30b5b6d7f7f19521
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527208"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662349"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>通过 Visual Studio 创建和部署 Azure 资源组
 使用 Visual Studio 可以创建一个项目，用于将基础结构和代码部署到 Azure。 例如，可以为应用定义 Web 主机、网站和数据库，并将该基础结构与代码一起部署。 Visual Studio 许多不同的入门模板用于部署常见方案。 本文部署 Web 应用和 SQL 数据库。  

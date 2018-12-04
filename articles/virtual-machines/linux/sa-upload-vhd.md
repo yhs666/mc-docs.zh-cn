@@ -17,11 +17,11 @@ origin.date: 07/10/2017
 ms.date: 10/22/2018
 ms.author: v-yeche
 ms.openlocfilehash: e4deadfaf8d399552118d00fe6cd1d2c56aa5a81
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034876"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664299"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>通过 Azure CLI 从自定义磁盘上传并创建 Linux VM
 

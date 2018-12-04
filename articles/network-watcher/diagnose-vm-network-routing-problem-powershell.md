@@ -19,11 +19,11 @@ ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: ''
 ms.openlocfilehash: 06d2585e23261c65a3a1812138fcf46a126297aa
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38938820"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661592"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-powershell"></a>诊断虚拟机网络路由问题 - Azure PowerShell
 

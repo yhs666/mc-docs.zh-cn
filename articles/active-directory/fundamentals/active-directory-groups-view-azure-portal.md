@@ -1,6 +1,6 @@
 ---
-title: 快速入门：使用 Azure Active Directory 搜索并查看组和分配的成员 | Microsoft Docs
-description: 本快速入门提供有关如何使用 Azure Active Directory 搜索并查看所有组及其分配的成员的步骤。
+title: 快速入门：在 Azure Active Directory 中查看组织的组和成员 | Microsoft Docs
+description: 本快速入门提供有关如何使用 Azure 门户搜索和查看组织的组及其分配的成员的步骤。
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -8,45 +8,86 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: quickstart
-origin.date: 08/30/2018
-ms.date: 10/09/2018
+origin.date: 09/24/2018
+ms.date: 11/12/2018
 ms.author: v-junlch
 ms.custom: it-pro
 ms.reviewer: krbain
-ms.openlocfilehash: 08eb41c2fcf5c007e9ebd645740f700ac55583c8
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.openlocfilehash: 5f835c6d9995b17ae47e043d975bdc16650f72bf
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913750"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663590"
 ---
-# <a name="quickstart-search-for-a-specific-group-and-view-its-members-using-azure-active-directory"></a>快速入门：使用 Azure Active Directory 搜索特定组并查看其成员
-可以使用 Azure Active Directory 搜索特定组并查看分配的成员。
+<!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
-在此快速入门中，你将查看所有现有组，选择“MDM 策略 - 西部”组，然后查看分配的成员。
+# <a name="quickstart-view-your-organizations-groups-and-members-in-azure-active-directory"></a>快速入门：在 Azure Active Directory 中查看组织的组和成员
+可以使用 Azure 门户查看组织的现有组和组成员。 组用于管理需要对可能受限的应用和服务的拥有相同访问权限和许可权限的所有用户（成员）。
+
+本快速入门介绍如何查看组织的所有现有组和分配的成员。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
 
 ## <a name="prerequisites"></a>先决条件
 在开始之前，需要：
 
-1. 创建一个 Azure Active Directory 租户。 有关详细信息，请参阅[访问 Azure Active Directory 门户并创建新租户](active-directory-access-create-new-tenant.md)。
-
-2.  创建 _MDM 策略 - 西部_组，并添加成员 _Alain Charon_。 有关详细信息，请参阅[创建基本组并添加成员](active-directory-groups-create-azure-portal.md)。
+- 创建一个 Azure Active Directory 租户。 有关详细信息，请参阅[访问 Azure Active Directory 门户并创建新租户](active-directory-access-create-new-tenant.md)。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 必须使用目录的全局管理员帐户登录到 [Azure 门户](https://portal.azure.cn/)。
 
-## <a name="view-your-existing-groups"></a>查看现有组
+## <a name="create-a-new-group"></a>创建一个新组 
+创建名为“MDM 策略 - 西部”的新组。 有关创建组的详细信息，请参阅[如何创建基本组并添加成员](active-directory-groups-create-azure-portal.md)。
+
+1. 依次选择“Azure Active Directory”、“组”、“新建组”。
+
+2. 填写“组”页：
+    
+    - **组类型：** 选择“安全性”
+    
+    - **组名称：** 键入“MDM 策略 - 西部”
+    
+    - **成员身份类型：** 选择“已分配”
+
+3. 选择“创建” 。
+
+## <a name="create-a-new-user"></a>创建新用户
+创建名为 _Alain Charon_ 的新用户。 在将某个用户添加为组成员之前，该用户必须事先存在。 有关创建用户的详细信息，请参阅[如何添加或删除用户](add-users-azure-active-directory.md)。
+
+1. 依次选择“Azure Active Directory”、“用户”、“新建用户”。
+
+2. 填写“用户”页：
+
+    - **名称：** 键入 _Alain Charon_。
+
+    - **用户名：** 键入 *alain@contoso.com*。
+
+3. 复制“密码”框中提供的自动生成的密码，然后选择“创建”。
+
+## <a name="add-a-group-member"></a>添加组成员
+创建组和用户后，可将 _Alain Charon_ 作为成员添加到“MDM 策略 - 西部”组。 有关添加组成员的详细信息，请参阅[如何添加或删除组成员](active-directory-groups-members-azure-portal.md)。
+
+1. 选择“Azure Active Directory” > “组”。
+
+2. 在“组 - 所有组”页中，搜索并选择“MDM 策略 - 西部”组。
+
+3. 在“MDM 策略 - 西部概述”页中，从“管理”区域选择“成员”。
+
+4. 选择“添加成员”，然后搜索并选择“Alain Charon”。
+
+5. 选择“选择”。
+
+## <a name="view-all-groups"></a>查看所有组
 可在 Azure 门户的“组 - 所有组”页中查看组织的所有组。
 
-- 依次选择“Azure Active Directory”、“组”。
+- 选择“Azure Active Directory” > “组”。
 
     此时会出现“组 - 所有组”页，其中显示了所有活动的组。
 
     ![“组 - 所有组”页，其中显示了所有现有的组](./media/active-directory-groups-view-azure-portal/groups-all-groups-blade-with-all-groups.png)
 
-## <a name="search-for-a-specific-group"></a>搜索特定组
+## <a name="search-for-the-group"></a>搜索组
 搜索“组 - 所有组”页，找到“MDM 策略 - 西部”组。
 
 1. 在“组 - 所有组”页上的“搜索”框中键入 _MDM_。
@@ -61,7 +102,7 @@ ms.locfileid: "48913750"
 
     ![包含成员信息的“MDM 策略 - 西部概述”页](./media/active-directory-groups-view-azure-portal/group-overview-blade.png)
 
-## <a name="view-members-of-the-mdm-policy---west-group"></a>查看“MDM 策略 - 西部”组的成员
+## <a name="view-group-members"></a>查看组成员
 找到组后，可以查看所有已分配的成员。
 
 - 从“管理”区域中选择“成员”，然后查看分配到该特定组的完整成员名称列表，包括“Alain Charon”。
@@ -69,7 +110,7 @@ ms.locfileid: "48913750"
     ![分配到“MDM 策略 - 西部”组的成员列表](./media/active-directory-groups-view-azure-portal/groups-all-members.png)
 
 ## <a name="clean-up-resources"></a>清理资源
-如果你不打算继续使用此应用程序，可以使用以下步骤删除该组及其分配的成员：
+本文档的“操作方法指南”部分中的多个操作流程都使用了此组。 但是，如果你不想要使用该组，可使用以下步骤删除该组以及分配到其中的成员：
 
 1. 在“组 - 所有组”页上，搜索“MDM 策略 - 西部”组。
 
@@ -86,12 +127,3 @@ ms.locfileid: "48913750"
     >[!Important]
     >这不会删除用户 Alain Charon，而只会删除他在该组中的成员身份。
 
-## <a name="next-steps"></a>后续步骤
-找到组并查看成员后，可以继续执行以下操作：
-- [添加或删除成员](active-directory-groups-members-azure-portal.md)
-
-- [使用组来管理对资源的访问权限](active-directory-manage-groups.md)
-
-- [添加组所有者](active-directory-accessmanagement-managing-group-owners.md)
-
-<!-- Update_Description: wording update -->

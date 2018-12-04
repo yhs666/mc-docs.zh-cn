@@ -10,11 +10,11 @@ ms.date: 08/27/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
 ms.openlocfilehash: b270fb9fd0783340c8039d4d7d83f62e74c2910c
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871607"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662398"
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services - Adventure Works 教程
 

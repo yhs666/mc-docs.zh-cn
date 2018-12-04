@@ -16,11 +16,11 @@ origin.date: 02/22/2017
 ms.date: 11/20/2017
 ms.author: v-yeche
 ms.openlocfilehash: 474aaa811ffa60602fc41224b6520d35adc813b1
-ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2017
-ms.locfileid: "24519528"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666812"
 ---
 # <a name="introduction-to-topology-in-azure-network-watcher"></a>Azure 网络观察程序中的拓扑简介
 

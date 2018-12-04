@@ -9,11 +9,11 @@ ms.date: 05/02/2018
 ms.author: clemensv
 ms.custom: include file
 ms.openlocfilehash: 1fe0d74682305b12b213471ca341f17fb4d429d4
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43328229"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660265"
 ---
 ### <a name="create-a-console-application"></a>创建控制台应用程序
 

@@ -12,11 +12,11 @@ origin.date: 08/01/2016
 ms.date: 01/03/2017
 ms.author: v-yiso
 ms.openlocfilehash: 8b32fef5f368a6be9fd11f93e83a3c59109bd3f2
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20184658"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660353"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>在 Azure 存储中存储和查看诊断数据
 
@@ -24,7 +24,7 @@ ms.locfileid: "20184658"
 
 ## <a name="specify-a-storage-account"></a>指定存储帐户
 
-指定要在 ServiceConfiguration.cscfg 文件中使用的存储帐户。 将帐户信息定义为配置设置中的连接字符串。 以下示例显示的是在 Visual Studio 中针对新的云服务项目创建的默认连接字符串：
+指定要在 ServiceConfiguration.cscfg 文件中使用的存储帐户。 帐户信息被定义为配置设置中的连接字符串。 以下示例显示的是在 Visual Studio 中针对新的云服务项目创建的默认连接字符串：
 
 ```
     <ConfigurationSettings>
@@ -66,7 +66,7 @@ ms.locfileid: "20184658"
 
 - **WADDiagnosticInfrastructureLogsTable** - 诊断监视器和配置更改。
 
-- **WADDirectoriesTable** - 诊断监视器监视的目录。  这包括 IIS 日志、IIS 失败请求日志和自定义目录。  在“容器”字段中指定 blob 日志文件的位置，在 RelativePath 字段中指定 blob 的名称。  AbsolutePath 字段指示文件的位置和名称，就像文件存在于 Azure 虚拟机上一样。
+- **WADDirectoriesTable** - 诊断监视器监视的目录。  这包括 IIS 日志、IIS 失败请求日志和自定义目录。  在“容器”字段中指定 blob 日志文件的位置，在 RelativePath 字段中指定 blob 的名称。  AbsolutePath 字段指示文件的位置和名称，就像文件存在于 Azure 虚拟机上一样。
 
 - **WADPerformanceCountersTable** - 性能计数器。
 
@@ -80,7 +80,7 @@ ms.locfileid: "20184658"
 
 - **wad-iis-logfiles** - 包含有关 IIS 日志的信息。
 
-- **"custom"** - 自定义容器，基于配置由诊断监视器监视的目录。  此 blob 容器的名称将在 WADDirectoriesTable 中指定。
+- **"custom"** - 自定义容器，基于配置由诊断监视器监视的目录。  此 blob 容器的名称在 WADDirectoriesTable 中指定。
 
 ## <a name="tools-to-view-diagnostic-data"></a>用于查看诊断数据的工具
 将数据传输到存储后，可以使用多个工具进行查看。 例如：

@@ -16,11 +16,11 @@ origin.date: 10/01/2016
 ms.author: v-yiso
 ms.date: 10/08/2018
 ms.openlocfilehash: 1c0cb0a47201b3dd9d9a23572241528b034f0721
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523918"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662509"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>如何使用移动应用 Node.js SDK
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]

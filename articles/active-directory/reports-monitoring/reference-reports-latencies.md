@@ -18,11 +18,11 @@ ms.date: 10/09/2018
 ms.author: v-junlch
 ms.reviewer: dhanyahk
 ms.openlocfilehash: 8d66ceb7226c8db347f9c655326e587e98b5acb7
-ms.sourcegitcommit: b91bbb0f49b12b1a7ac9eaf4742daa0c4a513f11
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48876451"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662052"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory 报告延迟
 

@@ -10,11 +10,11 @@ origin.date: 10/04/2018
 ms.date: 10/04/2018
 ms.author: v-lingli
 ms.openlocfilehash: 8e72a9217255c4561d0a67fbc9ac3d3efbbddfb4
-ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477785"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663932"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>使用自定义映像创建虚拟机池 
 

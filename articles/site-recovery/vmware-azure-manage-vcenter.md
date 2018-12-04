@@ -9,11 +9,11 @@ origin.date: 06/20/2018
 ms.date: 07/23/2018
 ms.author: v-yeche
 ms.openlocfilehash: 35f9b4cf90d462f6783a044836f59172c8474e4d
-ms.sourcegitcommit: 74f9f0acb00fb728ff6e9bd67ac86a0c1bcd8d13
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39218922"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664298"
 ---
 # <a name="manage-vmware-vcenter-servers"></a>管理 VMware vCenter 服务器 
 

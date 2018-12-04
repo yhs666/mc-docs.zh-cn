@@ -15,11 +15,11 @@ origin.date: 06/06/2018
 ms.date: 09/03/2018
 ms.author: v-yeche
 ms.openlocfilehash: 829a25a6057e3431107e8f78209daef6a1442f20
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164923"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663574"
 ---
 # <a name="resolve-not-found-errors-for-azure-resources"></a>解决 Azure 资源找不到错误
 

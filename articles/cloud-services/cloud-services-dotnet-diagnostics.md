@@ -16,11 +16,11 @@ origin.date: 05/22/2017
 ms.date: 03/19/2018
 ms.author: v-yiso
 ms.openlocfilehash: 0a26010a9664abb256b2cf35ceb660f53480182c
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870468"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663591"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>在 Azure 云服务中启用 Azure 诊断
 

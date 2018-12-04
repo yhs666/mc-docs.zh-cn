@@ -9,11 +9,11 @@ ms.date: 08/06/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
 ms.openlocfilehash: 98f80ef3560985308102494cb0c16a14c5a46ccb
-ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487829"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660981"
 ---
 # <a name="automation-with-service-principals"></a>使用服务主体进行自动化
 

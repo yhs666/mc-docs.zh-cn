@@ -17,11 +17,11 @@ ms.date: 04/30/2018
 ms.author: v-yiso
 ms.custom: mvc, devcenter
 ms.openlocfilehash: e3b17b4cef8aa3ca0cdb3acb1efe3df7647c8fb8
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31781856"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663559"
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>在 Azure 中创建第一个 Java Web 应用
 

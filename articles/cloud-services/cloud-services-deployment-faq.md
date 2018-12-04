@@ -17,11 +17,11 @@ origin.date: 05/11/2018
 ms.author: v-yiso
 ms.date: 06/11/2018
 ms.openlocfilehash: dd4f032a71c8f467849a593e3ef842f0ce08257e
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695020"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666561"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 云服务的部署问题：常见问题解答 (FAQ)
 
@@ -64,17 +64,16 @@ ms.locfileid: "34695020"
 
 有关详细信息，请参阅[如何更新云服务](./cloud-services-update-azure-service.md)。
 
-## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>使用 Azure 资源管理器存储帐户时，为什么不能够通过服务管理 API 或 PowerShell 部署云服务？ 
+## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>使用 Azure 资源管理器存储帐户时，为什么不能够通过服务管理 API 或 PowerShell 部署云服务？ 
 
-由于云服务不是直接与 Azure 资源管理器模型兼容的经典资源，因此不能将其与 Azure 资源管理器存储帐户相关联。 下面是几个选项： 
- 
+由于云服务不是直接与 Azure 资源管理器模型兼容的经典资源，因此不能将其与 Azure 资源管理器存储帐户相关联。 下面是几个选项： 
+ 
 - 通过 REST API 部署。
 
-    通过服务管理 REST API 部署时，可以通过指定指向 blob 存储（同时使用经典和 Azure 资源管理器存储帐户）的 SAS URL 绕过限制。 在[此处](https://msdn.microsoft.com/library/azure/ee460813.aspx)阅读有关 PackageUrl 属性的详细信息。
-  
+    通过服务管理 REST API 部署时，可以通过指定指向 blob 存储（同时使用经典和 Azure 资源管理器存储帐户）的 SAS URL 绕过限制。 在[此处](https://msdn.microsoft.com/library/azure/ee460813.aspx)阅读有关 PackageUrl 属性的详细信息。  
 - 通过 [Azure 门户](https://portal.azure.cn)部署。
 
-    这将从 [Azure 门户](https://portal.azure.cn)进行，因为调用将通过一个代理/填充程序完成，该代理/填充程序使得 Azure 资源管理器可以与经典资源通信。 
+    这将从 [Azure 门户](https://portal.azure.cn)进行，因为调用将通过一个代理/填充程序完成，该代理/填充程序使得 Azure 资源管理器可以与经典资源通信。 
  
 ## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>为什么 Azure 门户要求提供存储帐户才能进行部署？ 
 

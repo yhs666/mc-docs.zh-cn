@@ -16,11 +16,11 @@ origin.date: 05/10/2017
 ms.date: 09/03/2018
 ms.author: v-yeche
 ms.openlocfilehash: 7fca8a0ab87b6704f52ab010be49c5adaee0bf92
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164959"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664130"
 ---
 # <a name="get-account-keys-for-azure-cosmos-db-using-powershell"></a>使用 PowerShell 获取 Azure Cosmos DB 的帐户密钥
 

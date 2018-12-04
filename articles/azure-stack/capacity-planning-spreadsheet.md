@@ -17,11 +17,11 @@ ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: prchint
 ms.openlocfilehash: 8704b996d6e198862f709b833460fb4aee9756a1
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195624"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666952"
 ---
 # <a name="azure-stack-capacity-planner"></a>Azure Stack Capacity Planner
 Azure Stack Capacity Planner 是用于 Azure Stack 资源容量规划的电子表格。 使用该容量规划器可以设计计算资源的各种分配，并查看这些分配如何与所选的硬件产品/服务相适应。 下面提供了有关如何使用 Azure Stack 计算器的详细说明。
@@ -32,7 +32,7 @@ Azure Stack Capacity Planner 是用于 Azure Stack 资源容量规划的电子�
 |标签名称|说明|
 |-----|-----|
 |Version-Disclaimer|计算器用途、版本号和发行日期的简要概述。|
-|Instructions|提供有关如何使用 Azure Stack Capacity Planner 的详细说明。|
+|说明|提供有关如何使用 Azure Stack Capacity Planner 的详细说明。|
 |DefinedSolutionSKUs|最多包含五个硬件定义的多列表。 此工作表中的条目为示例。 其用途是供用户更改详细信息，以匹配正在考虑使用或购买的系统配置。|
 |DefineByVMFootprint|通过创建各种大小和数量的虚拟机的集合来找到相应的硬件 SKU。|
 |DefineByWorkloadFootprint|通过创建 Azure Stack 工作负荷的集合来找到相应的硬件 SKU。|

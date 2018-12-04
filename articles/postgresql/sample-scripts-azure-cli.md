@@ -12,11 +12,11 @@ ms.topic: sample
 ms.custom: sample, mvc
 ms.date: 06/22/2018
 ms.openlocfilehash: 2397061f63b5e9b8159658b6034e57e10c01a679
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722977"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660605"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-postgresql"></a>用于 PostgreSQL 的 Azure 数据库的 Azure CLI 示例 
 下表包含指向示例 Azure CLI 脚本的链接，这些脚本针对用于 PostgreSQL 的 Azure 数据库。

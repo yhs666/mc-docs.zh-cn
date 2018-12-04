@@ -12,11 +12,11 @@ origin.date: 07/20/2018
 ms.author: v-yiso
 ms.date: 09/03/2018
 ms.openlocfilehash: b2eafeebffd7486169c984beb13710eb97409ef5
-ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871042"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661215"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>快速入门：使用 Azure 逻辑应用创建第一个自动化工作流 - Azure 门户
 

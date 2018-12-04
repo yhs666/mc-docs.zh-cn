@@ -14,11 +14,11 @@ ms.author: v-junlch
 ms.reviewer: vincesm
 custom: it-pro
 ms.openlocfilehash: 48b451453e187586702a6cac01baff2eea4d72a9
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913863"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661761"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Azure Active Directory 中的默认用户权限是什么？
 

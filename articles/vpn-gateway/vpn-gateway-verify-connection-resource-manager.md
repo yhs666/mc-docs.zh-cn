@@ -17,11 +17,11 @@ origin.date: 05/16/2017
 ms.date: 10/01/2018
 ms.author: v-jay
 ms.openlocfilehash: 1c46cb0354007d560d0ab25a90a3c7820184aab8
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426409"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661624"
 ---
 # <a name="verify-a-vpn-gateway-connection"></a>验证 VPN 网关连接
 
@@ -56,4 +56,4 @@ ms.locfileid: "47426409"
 
 ## <a name="next-steps"></a>后续步骤
 
-* 可以将虚拟机添加到虚拟网络。 请参阅[创建虚拟机](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)以获取相关步骤。
+* 可以将虚拟机添加到虚拟网络。 请参阅 [创建虚拟机](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 以获取相关步骤。

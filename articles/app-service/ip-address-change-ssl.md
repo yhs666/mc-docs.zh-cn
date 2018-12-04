@@ -12,11 +12,11 @@ origin.date: 06/28/2018
 ms.date: 07/30/2018
 ms.author: v-yiso
 ms.openlocfilehash: 9c35be34d55ca81f6ddedef4245770828dbae136
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168033"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662925"
 ---
 # <a name="how-to-prepare-for-an-ssl-ip-address-change"></a>如何为 SSL IP 地址更改做好准备
 

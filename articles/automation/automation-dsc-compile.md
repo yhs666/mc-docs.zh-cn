@@ -11,11 +11,11 @@ ms.date: 10/01/2018
 ms.topic: conceptual
 manager: digimobile
 ms.openlocfilehash: 509a0ddfb1e563904a6f04f21b4a53d9204cac75
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426182"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664021"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>在 Automation State Configuration 中编译 DSC 配置
 
@@ -116,7 +116,7 @@ Configuration ParametersExample
 
 ### <a name="powershell"></a>PowerShell
 
-PowerShell 需要[哈希表](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_hash_tables)中的参数，其中的键必须与参数名称匹配，值等于参数值。
+PowerShell 要求将参数放入[哈希表](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_hash_tables)中，其中的键必须与参数名称匹配，值等于参数值。
 
 ```powershell
 $Parameters = @{
@@ -229,7 +229,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 Azure Automation State Configuration 和 Runbook 中的资产引用是相同的。 有关详细信息，请参阅以下主题：
 
-- [Certificates](automation-certificates.md)
+- [证书](automation-certificates.md)
 - [连接](automation-connections.md)
 - [凭据](automation-credentials.md)
 - [变量](automation-variables.md)
@@ -311,7 +311,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 ### <a name="importing-a-node-configuration-with-powershell"></a>使用 PowerShell 导入节点配置
 
-可以使用 [Import-AzureRmAutomationDscNodeConfiguration](https://docs.microsoft.com/powershell/module/azurerm.automation/import-azurermautomationdscnodeconfiguration) cmdlet 将节点配置导入自动化帐户。
+可以使用 [Import-AzureRmAutomationDscNodeConfiguration](https://docs.microsoft.com/powershell/module/azurerm.automation/import-azurermautomationdscnodeconfiguration) cmdlet 将节点配置导入自动化帐户中。
 
 ```powershell
 Import-AzureRmAutomationDscNodeConfiguration -AutomationAccountName 'MyAutomationAccount' -ResourceGroupName 'MyResourceGroup' -ConfigurationName 'MyNodeConfiguration' -Path 'C:\MyConfigurations\TestVM1.mof'

@@ -14,11 +14,11 @@ origin.date: 04/23/2018
 ms.date: 09/25/2018
 ms.author: v-junlch
 ms.openlocfilehash: 3ab5f74c0317f21f9137ab642ea505eab954c7c8
-ms.sourcegitcommit: 830a60c06303a8447d128a3bca8b36aa2b3b655b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47075845"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662087"
 ---
 # <a name="azure-application-gateway-url-path-based-routing-overview"></a>Azure 应用程序网关基于 URL 路径的路由概述
 

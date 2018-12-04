@@ -17,11 +17,11 @@ ms.date: 06/26/2018
 ms.author: v-junlch
 ms.reviewer: efemmano
 ms.openlocfilehash: 7c685cdfee35410ab9847ecf7dfa42f007f35eee
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027234"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662924"
 ---
 # <a name="region-management-in-azure-stack"></a>Azure Stack 中的区域管理
 

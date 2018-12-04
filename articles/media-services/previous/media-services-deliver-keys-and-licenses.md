@@ -16,11 +16,11 @@ origin.date: 09/18/2018
 ms.date: 10/22/2018
 ms.author: v-jay
 ms.openlocfilehash: 2623c96c409e70264b31eaec5158cd9ccd6be36f
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453780"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660947"
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>使用 Azure 媒体服务传送 DRM 许可证或 AES 密钥
 

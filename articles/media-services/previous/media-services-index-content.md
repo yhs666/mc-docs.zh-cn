@@ -16,11 +16,11 @@ origin.date: 07/20/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
 ms.openlocfilehash: 72c6f94db116f235f8066f1423b4961aacd570f0
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219664"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666454"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>使用 Azure Media Indexer 为媒体文件编制索引
 使用 Azure Media Indexer，可以使媒体文件内容可供搜索，并为隐藏的字幕和关键字生成全文本脚本。 可以只处理一个媒体文件，也可以一次处理多个媒体文件。  

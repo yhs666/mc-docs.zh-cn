@@ -16,11 +16,11 @@ origin.date: 02/22/2017
 ms.date: 09/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: bd0b30241215037a07c5bb1e03d7fa7e6f42d8a3
-ms.sourcegitcommit: 432984d85afe6f3da8f211bae0fa98a556785ee8
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455386"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662368"
 ---
 # <a name="use-next-hop-to-diagnose-virtual-machine-routing-problems"></a>使用“下一个跃点”功能来诊断虚拟机路由问题
 
@@ -35,7 +35,7 @@ ms.locfileid: "47455386"
 * VirtualNetworkGateway
 * VirtualNetwork
 * VirtualNetworkPeering
-* VirtualNetworkServiceEndpoint 
+* 虚拟网络服务终结点 
 * MicrosoftEdge
 * 无
 

@@ -16,11 +16,11 @@ origin.date: 07/18/2017
 ms.date: 06/07/2018
 ms.author: v-junlch
 ms.openlocfilehash: 7d27e8395905f670e24af57ea43c1ec63a344a16
-ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855745"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662605"
 ---
 # <a name="application-gateway-redirect-overview"></a>应用程序网关重定向概述
 

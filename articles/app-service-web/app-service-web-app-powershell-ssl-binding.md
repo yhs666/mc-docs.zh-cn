@@ -16,11 +16,11 @@ origin.date: 01/13/2016
 ms.date: 09/26/2016
 ms.author: v-dazen
 ms.openlocfilehash: d05dea44519cbec156d53a8efbe4e8182e9384e2
-ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
-ms.locfileid: "22146539"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661911"
 ---
 # <a name="azure-app-service-ssl-certificate-binding-using-powershell"></a>使用 PowerShell 创建 Azure App Service SSL 证书绑定
 发行的 Azure PowerShell 版本 1.1.0 中添加了新的 cmdlet，可让用户将现有的或新的 SSL 证书绑定到现有的 Web 应用。
@@ -68,4 +68,4 @@ ms.locfileid: "22146539"
     Remove-AzureRmWebAppSSLBinding -ResourceGroupName myresourcegroup -WebAppName mytestapp -Name www.contoso.com -DeleteCertificate $false
 
 ### <a name="references"></a>参考
-* [将 Azure PowerShell 与 Azure Resource Manager 配合使用](../powershell-azure-resource-manager.md)
+* [将 Azure PowerShell 与 Azure Resource Manager 结合使用](../powershell-azure-resource-manager.md)

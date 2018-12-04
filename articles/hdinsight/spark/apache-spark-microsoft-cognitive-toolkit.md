@@ -17,11 +17,11 @@ origin.date: 11/28/2017
 ms.date: 03/26/2018
 ms.author: v-yiso
 ms.openlocfilehash: 4379a5b95d4a063e4c60db4a77a2a37be013e747
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30074152"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662475"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>将 Microsoft 认知工具包深入学习模型与 Azure HDInsight Spark 群集配合使用
 
@@ -72,7 +72,7 @@ ms.locfileid: "30074152"
 
 * 请确保仅在头节点和工作节点上运行脚本并清除其他所有复选框。
 
-* 单击“创建”。
+* 单击**创建**。
 
 ## <a name="upload-the-jupyter-notebook-to-azure-hdinsight-spark-cluster"></a>将 Jupyter 笔记本上传到 Azure HDInsight Spark 群集
 

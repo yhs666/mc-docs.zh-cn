@@ -10,11 +10,11 @@ origin.date: 04/30/2018
 ms.author: v-yiso
 ms.date: 09/03/2018
 ms.openlocfilehash: 4f436bf045f1e7f73c3a5d3eaf37979de5df6ee4
-ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42870922"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662547"
 ---
 # <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure 逻辑应用中工作流定义语言的架构引用
 

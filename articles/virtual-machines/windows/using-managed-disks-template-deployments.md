@@ -14,10 +14,10 @@ origin.date: 06/01/2017
 ms.date: 08/28/2017
 ms.author: jaboes
 ms.openlocfilehash: 00a0495a171a6cdecf2e10175cf467afb8d74180
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940144"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666651"
 ---
 [!INCLUDE [virtual-machines-using-managed-disks-template-deployments](../../../includes/virtual-machines-using-managed-disks-template-deployments.md)]

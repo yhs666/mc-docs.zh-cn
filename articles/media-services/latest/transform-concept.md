@@ -13,11 +13,11 @@ origin.date: 03/19/2018
 ms.date: 05/28/2018
 ms.author: v-nany
 ms.openlocfilehash: d3ffd525bf04ab454d03872a7c591789a8453d2b
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475171"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667027"
 ---
 # <a name="transforms-and-jobs"></a>转换和作业
 

@@ -16,11 +16,11 @@ origin.date: 07/18/2017
 ms.author: v-yiso
 ms.date: 09/17/2018
 ms.openlocfilehash: d58c7c05f6265e0b627d39f7d8a29a61b82c31bc
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068139"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661179"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>用于 Visual Studio 的 Python 工具中的 Python Web 角色和辅助角色
 

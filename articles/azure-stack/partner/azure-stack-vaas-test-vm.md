@@ -15,11 +15,11 @@ ms.date: 08/27/2018
 ms.author: v-jay
 ms.reviewer: johnhas
 ms.openlocfilehash: b097a466a900afbf743590c581cc6bf18d10d4ea
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869667"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660623"
 ---
 # <a name="deploy-the-local-agent-and-test-virtual-machines"></a>部署本地代理并测试虚拟机
 

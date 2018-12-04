@@ -11,11 +11,11 @@ ms.date: 11/05/2018
 ms.topic: conceptual
 manager: digimobile
 ms.openlocfilehash: 616bca4d7113bb825aca1d9ddad38e53acdffc88
-ms.sourcegitcommit: d26e5d0d625a61d6b130800d10c81f47c83fb1e0
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50745504"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666693"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>使用警报触发 Azure 自动化 Runbook
 

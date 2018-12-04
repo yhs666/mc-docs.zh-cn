@@ -17,11 +17,11 @@ origin.date: 07/12/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
 ms.openlocfilehash: d090628ece7fe6952df2a220c6aefbc74692b57c
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
-ms.locfileid: "21925986"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660963"
 ---
 # <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>使用 SCP 将文件移到 Linux VM 和从 Linux VM 移动文件
 
@@ -67,7 +67,7 @@ scp ~/.azure/config azureuser@myserver.chinaeast.chinacloudapp.cn:/home/azureuse
 
 在此示例中，我们将日志文件的目录从 Linux VM 复制到工作站。 日志文件可能或可能不包含敏感或机密数据。 但是，使用 SCP 可确保加密日志文件内容。 使用 SCP 传输文件是将日志目录和文件获取到工作站上同时确保安全的最简单方法。
 
-以下命令可将 Azure VM 上位于 */home/azureuser/log/* 目录中的文件复制到本地 /tmp 目录中：
+以下命令可将 Azure VM 上位于 /home/azureuser/log/ 目录中的文件复制到本地 /tmp 目录中：
 
 ```bash
 scp -r azureuser@myserver.chinaeast.chinacloudapp.cn:/home/azureuser/logs/. /tmp/

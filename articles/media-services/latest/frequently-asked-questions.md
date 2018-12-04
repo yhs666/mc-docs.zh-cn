@@ -13,11 +13,11 @@ origin.date: 05/29/2018
 ms.date: 06/25/2018
 ms.author: v-jay
 ms.openlocfilehash: 8364ceda77bda3b4ec00d7a2a4ee1ed1559b0319
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748514"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666951"
 ---
 # <a name="azure-media-services-v3-preview-frequently-asked-questions"></a>Azure 媒体服务 v3（预览版）常见问题
 

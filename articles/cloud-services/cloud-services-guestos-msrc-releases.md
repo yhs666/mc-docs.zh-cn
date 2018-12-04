@@ -15,11 +15,11 @@ origin.date: 10/12/2018
 ms.author: v-yiso
 ms.date: 11/12/2018
 ms.openlocfilehash: 4f6eedbbbc69325be2617d3e1e4694c1d73a4592
-ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50919124"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663965"
 ---
 # <a name="azure-guest-os"></a>Azure 来宾 OS
 下表显示了适用于 Azure 来宾 OS 的 Microsoft 安全响应中心 (MSRC) 更新。 要确定特定的更新是否适用于使用的来宾 OS，请搜索本文。 引入这些更新的特定[系列][family-explain]始终会包含这些更新。

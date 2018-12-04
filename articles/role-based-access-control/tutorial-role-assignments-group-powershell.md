@@ -15,11 +15,11 @@ origin.date: 06/11/2018
 ms.date: 09/25/2018
 ms.author: v-junlch
 ms.openlocfilehash: 3bb3771dfcc3708c9a4e8d62b46f8a399eef6997
-ms.sourcegitcommit: 830a60c06303a8447d128a3bca8b36aa2b3b655b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47075851"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666655"
 ---
 # <a name="tutorial-grant-access-for-a-group-using-rbac-and-azure-powershell"></a>教程：使用 RBAC 和 Azure PowerShell 授予组的访问权限
 

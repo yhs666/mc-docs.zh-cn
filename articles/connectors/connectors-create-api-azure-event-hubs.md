@@ -13,11 +13,11 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: c189598aa372662d808f1efd277386dc2137c767
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939465"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666876"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>使用 Azure 事件中心和 Azure 逻辑应用监视、接收和发送事件 
 
@@ -53,7 +53,7 @@ ms.locfileid: "38939465"
       ![复制事件中心命名空间连接字符串](media/connectors-create-api-azure-event-hubs/find-event-hub-namespace-connection-string.png)
 
       > [!TIP]
-      > 若要确认连接字符串是与事件中心命名空间关联，还是与特定的事件中心关联，请确保该连接字符串没有 `EntityPath` 参数。 如果找到了该参数，则说明连接字符串适用于特定的事件中心“实体”，不是适用于逻辑应用的正确字符串。
+      > 若要确认连接字符串是与事件中心命名空间关联，还是与特定的事件中心关联，请确保该连接字符串不具有 `EntityPath` 参数。 如果找到了该参数，则说明连接字符串适用于特定的事件中心“实体”，不是适用于逻辑应用的正确字符串。
 
 4. 现在继续[添加事件中心触发器](#add-trigger)或[添加事件中心操作](#add-action)。
 
@@ -69,7 +69,8 @@ ms.locfileid: "38939465"
 
 2. 在搜索框中，输入“事件中心”作为筛选器。 在触发器列表中，选择所需的触发器。 
 
-   此示例使用“事件中心 - 事件在事件中心可用时”触发器
+   此示例使用此触发器： 
+   “事件中心 - 事件在事件中心可用时”****
 
    ![选择触发器](./media/connectors-create-api-azure-event-hubs/find-event-hubs-trigger.png)
 
@@ -112,7 +113,7 @@ ms.locfileid: "38939465"
 
 1. 在 Azure 门户或 Visual Studio 的逻辑应用设计器中打开逻辑应用。 此示例使用 Azure 门户。
 
-2. 在该触发器或操作下，选择“新建步骤” > “添加操作”。
+2. 在该触发器或操作下，选择“新建步骤” > “添加操作”。
 
    若要在现有步骤之间添加操作，请将鼠标移到连接箭头上方。 
    选择出现的加号 (**+**)，然后选择“添加操作”。

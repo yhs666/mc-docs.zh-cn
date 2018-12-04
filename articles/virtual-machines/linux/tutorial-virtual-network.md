@@ -18,11 +18,11 @@ ms.date: 10/22/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 0c4dab24449fae36b6cba23fb34570aaa6613b93
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034963"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663323"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>教程：使用 Azure CLI 为 Linux 虚拟机创建和管理 Azure 虚拟网络
 

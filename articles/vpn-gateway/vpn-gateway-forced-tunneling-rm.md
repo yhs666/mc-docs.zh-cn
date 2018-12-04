@@ -17,11 +17,11 @@ origin.date: 02/01/2018
 ms.date: 03/12/2018
 ms.author: v-junlch
 ms.openlocfilehash: 2d6578542d564f8244604e3e901a04da91f066e6
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29925198"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666749"
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>使用 Azure Resource Manager 部署模型配置强制隧道
 

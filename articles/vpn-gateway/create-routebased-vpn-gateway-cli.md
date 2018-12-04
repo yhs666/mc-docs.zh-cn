@@ -17,11 +17,11 @@ origin.date: 04/04/2018
 ms.date: 10/01/2018
 ms.author: v-jay
 ms.openlocfilehash: 8a0cffb5821cd3249aa27947d432bf31ca61dfe5
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426397"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660784"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>使用 CLI 创建基于路由的 VPN 网关
 
@@ -63,7 +63,7 @@ az network vnet subnet create \
   --vnet-name VNet1 \
   -n GatewaySubnet \
   -g TestRG1 \
-  --address-prefix 10.1.255.0/27 
+  --address-prefix 10.1.255.0/27 
 ```
 
 ## <a name="PublicIP"></a>请求公共 IP 地址
@@ -74,7 +74,7 @@ VPN 网关必须具有动态分配的公共 IP 地址。 将向为虚拟网络�
 az network public-ip create \
   -n VNet1GWIP \
   -g TestRG1 \
-  --allocation-method Dynamic 
+  --allocation-method Dynamic 
 ```
 
 ## <a name="CreateGateway"></a>创建 VPN 网关

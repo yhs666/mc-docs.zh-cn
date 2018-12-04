@@ -15,11 +15,11 @@ ms.date: 08/27/2018
 ms.author: v-jay
 ms.reviewer: johnhas
 ms.openlocfilehash: 36d74968d12b311df85e2476ee5a441a4015e65c
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195435"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660622"
 ---
 # <a name="what-is-validation-as-a-service-for-azure-stack"></a>什么是适用于 Azure Stack 的验证即服务？
 

@@ -17,11 +17,11 @@ origin.date: 02/26/2016
 ms.date: 09/26/2016
 ms.author: v-dazen
 ms.openlocfilehash: ce7b0b4998d4913dfc1f8e88a5181b2274d0234f
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20184297"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667043"
 ---
 # <a name="developing-wordpress-on-azure-app-service"></a>在 Azure 应用服务上开发 WordPress
 [!INCLUDE [app-service-blueprint-guide-for-wordpress](../../includes/app-service-blueprint-guide-for-wordpress.md)]

@@ -11,11 +11,11 @@ ms.topic: conceptual
 origin.date: 04/20/2017
 ms.date: 08/20/2018
 ms.openlocfilehash: 07e17532a2fdec8a1102e1c2ae0fbc2de7805846
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41705093"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663862"
 ---
 # <a name="azure-stream-analytics-event-order-considerations"></a>Azure 流分析事件顺序注意事项
 
@@ -128,7 +128,7 @@ Azure 流分析使用 [TIMESTAMP BY OVER](https://msdn.microsoft.com/library/azu
 * 在合并多个时间线时，如果一个源或分区中缺少数据，可能会按照额外的延迟到达容错时限将输出延迟。
 
 ## <a name="get-help"></a>获取帮助
-若要获取更多帮助，请访问 [Azure 流分析论坛](https://www.azure.cn/support/contact/)。
+有关更多帮助，请访问 [Azure 流分析论坛](https://www.azure.cn/support/contact/)。
 
 ## <a name="next-steps"></a>后续步骤
 * [流分析简介](stream-analytics-introduction.md)

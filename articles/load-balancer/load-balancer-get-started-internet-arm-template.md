@@ -16,11 +16,11 @@ origin.date: 09/25/2017
 ms.date: 04/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: 337035a14abd4a91b45ec64b0a1f2d37c82ce7fc
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167898"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660099"
 ---
 # <a name="creating-a-public-load-balancer-using-a-template"></a>使用模板创建公共负载均衡器
 
@@ -57,7 +57,7 @@ ms.locfileid: "39167898"
 
 若要使用 Azure CLI 部署模板，请执行以下步骤。
 
-1. 如果从未使用过 Azure CLI，请参阅 [Install and Configure the Azure CLI](../cli-install-nodejs.md)（安装和配置 Azure CLI），并按照说明进行操作，直到选择 Azure 帐户和订阅。
+1. 如果从未使用过 Azure CLI，请参阅[安装和配置 Azure CLI](../cli-install-nodejs.md)，并按照说明进行操作，直到选择 Azure 帐户和订阅。
 2. 运行 **azure config mode** 命令以切换到 Resource Manager 模式，如下所示。
 
     ```azurecli

@@ -14,11 +14,11 @@ ms.date: 07/09/2018
 ms.author: v-yiso
 origin.date: 07/30/2018
 ms.openlocfilehash: 0c4175ee8208a868525ac204e3170c1ed0038037
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167868"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661743"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>有关使用 Azure 资源管理器模板部署 Web 应用的指南
 

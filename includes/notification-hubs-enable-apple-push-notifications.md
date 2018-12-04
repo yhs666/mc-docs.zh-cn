@@ -11,7 +11,7 @@ Apple Push Notification 服务 (APNS) 使用证书对推送通知进行身份验
 2. 单击“Keychain Access”，展开“Certificate Assistant”（证书助理），并单击“Request a Certificate from a Certificate Authority...”（从证书颁发机构请求证书...）。
 
     ![使用 Keychain Access 请求新证书](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-request-cert-from-ca.png)
-3. 选择“用户电子邮件地址”和“公用名称”，确保已选择“保存到磁盘”，并单击“继续”。 将“CA Email Address”（CA 电子邮件地址）字段保留空白，因为它不是必填字段。
+3. 选择“用户电子邮件地址”和“公用名称”，确保已选择“保存到磁盘”，并单击“继续”。 将“CA Email Address”（CA 电子邮件地址）字段保留空白，因为它不是必填字段  。
 
     ![所需证书信息](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-csr-info.png)
 

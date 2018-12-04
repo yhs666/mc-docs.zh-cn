@@ -16,11 +16,11 @@ ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: jeffgo
 ms.openlocfilehash: fefd3bc8ebf02dc47a8f0fdec35da128f2a4cbbd
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848792"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661294"
 ---
 # <a name="remove-the-sql-resource-provider"></a>删除 SQL 资源提供程序
 

@@ -18,15 +18,15 @@ ms.date: 10/09/2017
 ms.author: v-yiso
 ms.custom: mvc
 ms.openlocfilehash: b40d5ed9b73ed5eecb2e6429ff14f6f6daed166d
-ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
-ms.locfileid: "22146514"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660332"
 ---
 # <a name="scale-a-web-app-manually"></a>手动缩放 Web 应用
 
-通过此方案可以了解如何创建资源组、应用服务计划和 Web 应用。 然后，将应用服务计划从单个实例扩展到多个实例。
+在此方案中，将了解如何创建资源组、应用服务计划和 Web 应用。 然后，将应用服务计划从单个实例扩展到多个实例。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -62,7 +62,7 @@ az appservice plan update --number-of-workers 2 --name AppServiceManualScalePlan
 
 此脚本使用以下命令创建资源组、Web 应用和所有相关资源。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 创建用于存储所有资源的资源组。 |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | 创建应用服务计划。 这与 Azure Web 应用的服务器场类似。 |

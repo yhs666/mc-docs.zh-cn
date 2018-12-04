@@ -19,11 +19,11 @@ ms.author: v-junlch
 ms.reviewer: andret
 ms.custom: aaddev
 ms.openlocfilehash: 5cd2e5696783bd8a9b2f4e27ec69cf46152b71fd
-ms.sourcegitcommit: 562cde32fc2271238f3d1ef5d2cc5ed037bdec2d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43531690"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660029"
 ---
 # <a name="support-and-help-options-for-developers"></a>开发人员的支持和帮助选项 
 

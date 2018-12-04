@@ -10,11 +10,11 @@ ms.date: 08/06/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
 ms.openlocfilehash: a4c9e025a178098d16a7b4cd7e85b44c4b0a0ebb
-ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487796"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663554"
 ---
 # <a name="supplemental-lesson---detail-rows"></a>补充课程 - 详细信息行
 

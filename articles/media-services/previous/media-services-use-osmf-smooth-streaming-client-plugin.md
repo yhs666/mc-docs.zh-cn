@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 09/26/2016
 ms.author: v-johch
 ms.openlocfilehash: 231b1c26aed3463db51862bed58c509490c81002
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748354"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666541"
 ---
 # <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>如何使用适用于 Adobe Open Source Media Framework 的 Microsoft 平滑流式处理插件
 ## <a name="overview"></a>概述
@@ -330,11 +330,10 @@ package {
 适用于 OSMF 的平滑流式处理动态插件与 [Strobe Media Playback (SMP)](http://osmf.org/strobe_mediaplayback.html) 兼容。 可以使用 SS for OSMF 插件向 SMP 添加平滑流式处理内容播放功能。 为此，请在进行 HTTP 加载时，使用以下步骤将“MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf”复制到 Web 服务器下：
 
 1. 浏览 [Strobe Media Playback 设置页](http://osmf.org/dev/2.0gm/setup.html)。 
-2. 将 src 设置为平滑流式处理源，（例如，http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest) 
+2. 将 src 设置为平滑流式处理源，（例如， http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest) 
 3. 进行所需的配置更改，并单击“Preview and Update”（预览并更新）。
    
-   
-            **注意** 内容 Web 服务器需要有效的 crossdomain.xml。 
+   **注意** 内容 Web 服务器需要有效的 crossdomain.xml。 
 4. 使用常用的文本编辑器将该代码复制并粘贴到一个简单的 HTML 页，如以下示例所示：
 
         <html>

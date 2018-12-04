@@ -19,11 +19,11 @@ ms.date: 09/10/2018
 ms.author: v-yeche
 ms.custom: ''
 ms.openlocfilehash: a994400e0e345ba113944112326479a66db02af6
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515708"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663009"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>教程：通过 Azure 门户使用虚拟网络对等互连连接虚拟网络
 
@@ -41,7 +41,7 @@ ms.locfileid: "44515708"
 
 ## <a name="log-in-to-azure"></a>登录 Azure 
 
-通过 https://portal.azure.cn 登录到 Azure 门户。
+在 https://portal.azure.cn 登录 Azure 门户。
 
 ## <a name="create-virtual-networks"></a>创建虚拟网络
 

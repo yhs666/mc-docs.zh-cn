@@ -12,11 +12,11 @@ origin.date: 05/02/2018
 ms.date: 09/17/2018
 ms.author: v-yiso
 ms.openlocfilehash: e9170bc7e98fbaff11c54903d4526182f3304399
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068072"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660532"
 ---
 # <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>通过 Azure 虚拟网络连接到 Kafka on HDInsight
 

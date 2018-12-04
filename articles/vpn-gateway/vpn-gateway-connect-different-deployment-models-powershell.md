@@ -17,11 +17,11 @@ origin.date: 02/13/2018
 ms.date: 06/14/2018
 ms.author: v-junlch
 ms.openlocfilehash: a1604d777e02b709eff7b7f3d569218da312b765
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939190"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663575"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>使用 PowerShell 从不同的部署模型连接虚拟网络
 

@@ -18,11 +18,11 @@ origin.date: 10/27/2017
 ms.date: 10/22/2018
 ms.author: v-yiso
 ms.openlocfilehash: f8ac3199a59fbea0c36bd82f08fc009e0318d731
-ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121550"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666742"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>使用用于 Visual Studio Code 的 Azure HDInsight 工具
 
@@ -85,7 +85,7 @@ ms.locfileid: "49121550"
  
         ![Sign in instructions for other environment](./media/hdinsight-for-vscode/hdi-azure-hdinsight-hdinsight-signin.png)
 
-    连接后，VS Code 窗口左下角的状态栏上会显示 Azure 帐户名称。 
+    连接后，VS Code 窗口左下角的状态栏上会显示 Azure 帐户名称。 
 
     > [!NOTE]
     > 由于已知的 Azure 身份验证问题，需要以专用模式或匿名模式打开浏览器。 如果 Azure 帐户已启用双重身份验证，我们建议使用手机身份验证，而不要使用 PIN 身份验证。
@@ -315,7 +315,7 @@ Livy 配置受支持，可在工作区文件夹中的 **.VSCode\settings.json** 
     **POST /batches**   
     请求正文
 
-    | 名称 | 说明 | 类型 | 
+    | name | 说明 | type | 
     | :- | :- | :- | 
     | file | 包含要执行的应用程序的文件 | path（必需） | 
     | proxyUser | 运行作业时要模拟的用户 | 字符串 | 

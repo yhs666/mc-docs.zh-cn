@@ -16,11 +16,11 @@ origin.date: 10/15/2017
 ms.date: 10/15/2018
 ms.author: v-yeche
 ms.openlocfilehash: 8223adead14e01d933829ae3d26bb7187dd28ea5
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089194"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664411"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>在本地计算机开发安装过程中监视和诊断服务
 > [!div class="op_single_selector"]

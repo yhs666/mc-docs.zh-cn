@@ -14,11 +14,11 @@ ms.author: v-junlch
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.openlocfilehash: 541b7f5b4056d04b19b5ede29d023c0eca584d52
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913945"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660750"
 ---
 # <a name="how-to-add-or-remove-group-members-using-azure-active-directory"></a>如何：使用 Azure Active Directory 添加或删除组成员
 使用 Azure Active Directory，可以继续添加和删除组成员。
@@ -27,15 +27,15 @@ ms.locfileid: "48913945"
 
 1. 使用目录的全局管理员帐户登录到 [Azure 门户](https://portal.azure.cn)。
 
-2. 依次选择“Azure Active Directory”、“组”。
+2. 选择“Azure Active Directory”，然后选择“组”。
 
 3. 在“组 - 所有组”页中，搜索并选择要添加成员的组。 在此示例中，使用我们之前创建的组“MDM 策略 - 西部”。
 
-    ![“组 - 所有组”页，其中突出显示了组名](./media/active-directory-groups-members-azure-portal/group-all-groups-screen.png)
+    ![“组 - 所有组”页，其中突出显示了组名称](./media/active-directory-groups-members-azure-portal/group-all-groups-screen.png)
 
 4. 在“MDM 策略 - 西部概述”页中，从“管理”区域选择“成员”。
 
-    ![“MDM 策略 - 西部概述”页，其中突出显示了“成员”选项](./media/active-directory-groups-members-azure-portal/group-overview-blade.png)
+    ![“MDM 策略 – 西部概述”页，其中突出显示了“成员”选项](./media/active-directory-groups-members-azure-portal/group-overview-blade.png)
 
 5. 选择“添加成员”，然后搜索并选择要添加到该组的每个成员，然后选择“选择”。
 

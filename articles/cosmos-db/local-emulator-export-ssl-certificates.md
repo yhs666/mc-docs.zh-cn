@@ -13,11 +13,11 @@ origin.date: 06/06/2017
 ms.date: 09/03/2018
 ms.author: v-yeche
 ms.openlocfilehash: 40edd94ff106c3ca53bf06799febc8ace9065972
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164734"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660669"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>使用 Java、Python 和 Node.js 导出要使用的 Azure Cosmos DB 模拟器证书
 

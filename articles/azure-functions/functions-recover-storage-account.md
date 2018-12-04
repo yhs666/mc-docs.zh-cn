@@ -14,11 +14,11 @@ origin.date: 09/05/2018
 ms.date: 10/19/2018
 ms.author: v-junlch
 ms.openlocfilehash: ef9ac7ebd99e99f02a0ddc37abde08aa518ad322
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49454021"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662326"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>如何排查“Azure Functions 运行时无法访问”的问题
 

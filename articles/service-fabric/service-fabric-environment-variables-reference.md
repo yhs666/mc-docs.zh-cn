@@ -11,14 +11,14 @@ ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 12/07/2017
-ms.date: 05/28/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7df162129051c58451c035c281dccbfa3c329d09
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 28db35b2ba5816c051efe4e74d32672f42e6a1d4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554167"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664408"
 ---
 # <a name="service-fabric-environment-variables"></a>Service Fabric 环境变量
 
@@ -38,7 +38,7 @@ Service Fabric 为每个服务实例提供了内置环境变量集。 下面是�
 | Fabric_NodeId                                | 运行进程的节点的节点 ID                            | bf865279ba277deb864a976fbf4c200e                                     |
 | Fabric_NodeIPOrFQDN                          | 群集清单文件中指定的节点的 IP 或FQDN。 | localhost 或 10.0.0.1                                                |
 | Fabric_NodeName                              | 运行进程的节点的节点名称                          | _Node_0                                                              |
-| Fabric_ServiceName                           | 服务的名称（如果服务在 ExclusiveProcess 模式下托管）。 仅当使用 ServicePackageActivationMode ExclusiveProcess 创建服务时，此变量值才可用。  | MyService                                               |
+| Fabric_ServiceName                           | 服务的结构 uri 名称（如果服务在 ExclusiveProcess 模式下托管）。 仅当使用 ServicePackageActivationMode ExclusiveProcess 创建服务时，此变量值才可用。  | fabric:/MyApplication/MyService                                               |
 | Fabric_ServicePackageActivationId            | ServicePackageActivationId                                         | GUID                                                               |
 | Fabric_ServicePackageName                    | 包含进程的服务包的名称                     | Web1Pkg                                                              |
 
@@ -57,4 +57,5 @@ Service Fabric 运行时使用的内部环境变量：
 - FabricActivatorAddress
 - FabricPackageFileName
 - HostedServiceName
-<!-- Update_Description: update meta properties -->
+
+<!-- Update_Description: update meta properties, wording update -->

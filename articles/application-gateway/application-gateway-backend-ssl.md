@@ -17,11 +17,11 @@ origin.date: 07/19/2017
 ms.date: 09/13/2017
 ms.author: v-junlch
 ms.openlocfilehash: 898c96d4539c5bdbdc7c2339867931cb0426ab90
-ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2017
-ms.locfileid: "22094884"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662930"
 ---
 # <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>应用程序网关的端到端 SSL 概述
 

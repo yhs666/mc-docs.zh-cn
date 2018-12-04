@@ -16,11 +16,11 @@ origin.date: 02/21/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
 ms.openlocfilehash: e200dfa524d405847a973149beeeeca2b94a4b2a
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747429"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663743"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>HDInsight 上的 Apache Spark 群集的已知问题
 

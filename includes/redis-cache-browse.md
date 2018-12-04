@@ -10,10 +10,11 @@ ms.date: 05/25/2018
 ms.author: v-junlch
 ms.custom: include file
 ms.openlocfilehash: 56b71b4dd79218b32bbb0e18ce5e48d07c6ee0ef
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52665126"
 ---
 如果未将缓存固定到仪表板，请使用“所有服务”在[Azure 门户](https://portal.azure.cn)中查找缓存。
 

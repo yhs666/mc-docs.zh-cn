@@ -9,11 +9,11 @@ origin.date: 09/27/2018
 ms.date: 11/12/2018
 ms.author: v-yeche
 ms.openlocfilehash: 7433ef0bb8e053aa783109f236757e49dd4f7d54
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195570"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660769"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Azure 容器注册表的最佳做法
 

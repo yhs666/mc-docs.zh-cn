@@ -12,11 +12,11 @@ origin.date: 08/29/2018
 ms.date: 10/30/2018
 ms.author: v-junlch
 ms.openlocfilehash: 79898de68042f78fcbac2aaab908cd2a45e415ab
-ms.sourcegitcommit: b8e99939a5493a15b78c32e87bfbf76a8c96a84a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409184"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662228"
 ---
 # <a name="detecting-image-types"></a>检测图像类型
 

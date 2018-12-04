@@ -10,11 +10,11 @@ origin.date: 04/01/2018
 ms.date: 09/10/2018
 ms.author: v-yiso
 ms.openlocfilehash: fd983276f899209f003c284f099c2a1e355498ce
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43329163"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662135"
 ---
 # <a name="connecting-iot-devices-to-azure-iot-hub-and-event-hubs"></a>将 IoT 设备连接到 Azure：IoT 中心和事件中心
 

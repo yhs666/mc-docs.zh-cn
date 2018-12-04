@@ -15,11 +15,11 @@ origin.date: 04/16/2018
 ms.author: v-yiso
 ms.date: 09/17/2018
 ms.openlocfilehash: 843794ea6a904e768a0ddc68de4bc07e523b680b
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068054"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666891"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>教程：使用 Apache Kafka 生成者和使用者 API
 

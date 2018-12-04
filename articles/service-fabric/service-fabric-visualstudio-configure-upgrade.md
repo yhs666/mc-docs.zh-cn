@@ -16,11 +16,11 @@ origin.date: 06/29/2017
 ms.date: 09/10/2018
 ms.author: v-yeche
 ms.openlocfilehash: 6255881caaa26b3832c793bd1ed066c425855cd7
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515596"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664075"
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>在 Visual Studio 中配置 Service Fabric 应用程序的升级
 Azure Service Fabric 的 Visual Studio 工具提供发布到本地或远程群集的升级支持。 在测试和调试期间将应用程序升级到较新的版本而不是替换应用程序的三种方案：
@@ -32,7 +32,7 @@ Azure Service Fabric 的 Visual Studio 工具提供发布到本地或远程群�
 ## <a name="parameters-needed-to-upgrade"></a>升级所需的参数
 可以选择的部署类型有两种：常规或升级。 常规部署会将群集上所有先前的部署信息和数据都清除，而升级部署则将其保留。 在 Visual Studio 中升级 Service Fabric应用程序时，需要提供应用程序升级参数和运行状况检查策略。 应用程序升级参数可帮助控制升级，而运行状况检查策略可确定升级是否成功。 有关详细信息，请参阅 [Service Fabric 应用程序升级：升级参数](service-fabric-application-upgrade-parameters.md)。
 
-有三种升级模式：*Monitored*、*UnmonitoredAuto* 和 *UnmonitoredManual*。
+有三种升级模式：Monitored、UnmonitoredAuto 和 UnmonitoredManual。
 
 * Monitored 升级自动执行升级和应用程序运行状况检查。
 * UnmonitoredAuto 升级自动执行升级，但跳过应用程序运行状况检查。
@@ -44,16 +44,16 @@ Azure Service Fabric 的 Visual Studio 工具提供发布到本地或远程群�
 如果要使用 Visual Studio Service Fabric 工具升级 Service Fabric应用程序，可以选中“升级应用程序”复选框，将发布程序指定为升级而不是常规部署。
 
 ### <a name="to-configure-the-upgrade-parameters"></a>配置升级参数
-1. 单击复选框旁边的“**设置**”按钮。 此时将显示“编辑升级参数”对话框。 “**编辑升级参数**”对话框支持 Monitored、UnmonitoredAuto 和 UnmonitoredManual 升级模式。
+1. 单击复选框旁边的“设置”按钮。 此时将显示“编辑升级参数”对话框。 “编辑升级参数”对话框支持 Monitored、UnmonitoredAuto 和 UnmonitoredManual 升级模式。
 2. 选择想要使用的升级模式，并填写参数网格。
 
-    每个参数都有默认值。 可选参数 *DefaultServiceTypeHealthPolicy* 采用哈希表输入。 下面是 *DefaultServiceTypeHealthPolicy* 的哈希表输入格式示例：
+    每个参数都有默认值。 可选参数 DefaultServiceTypeHealthPolicy 采用哈希表输入。 下面是 *DefaultServiceTypeHealthPolicy* 的哈希表输入格式示例：
 
     ```
     @{ ConsiderWarningAsError = "false"; MaxPercentUnhealthyDeployedApplications = 0; MaxPercentUnhealthyServices = 0; MaxPercentUnhealthyPartitionsPerService = 0; MaxPercentUnhealthyReplicasPerPartition = 0 }
     ```
 
-    *ServiceTypeHealthPolicyMap* 是另一个接受哈希表输入（格式如下）的可选参数：
+     
 
     ```    
     @ {"ServiceTypeName" : "MaxPercentUnhealthyPartitionsPerService,MaxPercentUnhealthyReplicasPerPartition,MaxPercentUnhealthyServices"}

@@ -15,11 +15,11 @@ origin.date: 07/05/2017
 ms.date: 08/20/2018
 ms.author: v-yiso
 ms.openlocfilehash: fe7000c2a8114d11f68ed90cd36f4935f9a66e4a
-ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41704599"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666593"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>如何配置和运行云服务的启动任务
 
@@ -44,7 +44,7 @@ ms.locfileid: "41704599"
 
 下面列出了 Azure 中的角色启动过程：
 
-1. 实例将标记为“**正在启动**”并且不接收流量。
+1. 实例将标记为“正在启动”并且不接收流量  。
 
 2. 所有启动任务均根据其 **taskType** 属性执行。
     - **simple** 任务以同步方式执行（一次一个任务）。
@@ -57,7 +57,7 @@ ms.locfileid: "41704599"
 
 4. 调用 [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) 方法。
 
-5. 实例将标记为“**就绪**”，并且流量将路由到实例。
+5. 实例将标记为“准备就绪”  ，并且流量将路由到实例。
 
 6. 将调用 [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.Run](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) 方法。
 
@@ -79,7 +79,7 @@ ms.locfileid: "41704599"
 </Startup>
 ```
 
-在下面的示例中，Startup.cmd 批处理文件会将行“The current version is 1.0.0.0”写入到由 TEMP 环境变量指定的目录下的 StartupLog.txt 文件中。 `EXIT /B 0` 行确保启动任务以为零的 **errorlevel** 结尾。
+在下面的示例中， **Startup.cmd** 批处理文件会将行“当前版本是 1.0.0.0”写入到由 TEMP 环境变量指定的目录下的 StartupLog.txt 文件中。 `EXIT /B 0` 行确保启动任务以为零的 **errorlevel** 结尾。
 
 ```cmd
 ECHO The current version is %MyVersionNumber% >> "%TEMP%\StartupLog.txt" 2>&1

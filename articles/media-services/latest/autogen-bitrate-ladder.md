@@ -15,11 +15,11 @@ origin.date: 03/19/2018
 ms.date: 06/25/2018
 ms.author: v-nany
 ms.openlocfilehash: cc3e2b761037b395fcdba6778e6ede12e128ed8d
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748389"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661175"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>使用自动生成的比特率阶梯进行编码
 

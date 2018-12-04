@@ -15,11 +15,11 @@ ms.date: 09/21/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ecd69a98e6cfab94314142f93ba5f94ec92a4da6
-ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46524047"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666822"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 的缩放和托管
 

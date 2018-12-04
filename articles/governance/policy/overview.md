@@ -10,12 +10,12 @@ ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: c9f0fd0dac06c28b2b2656baee05d1fdfc8d9632
-ms.sourcegitcommit: b8e99939a5493a15b78c32e87bfbf76a8c96a84a
+ms.openlocfilehash: 6d743be1359ba81bd4b1277ce1d76ba43ea00efe
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409199"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662235"
 ---
 # <a name="what-is-azure-policy"></a>什么是 Azure Policy？
 
@@ -120,7 +120,7 @@ Azure Policy 让权限在两个不同的资源提供程序中以操作的形式�
 
 ## <a name="maximum-count-of-policy-objects"></a>Policy 对象的最大计数
 
-[!INCLUDE [policy-limits](../../includes/azure-policy-limits.md)]
+[!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
 
 ## <a name="recommendations-for-managing-policies"></a>管理策略的建议
 

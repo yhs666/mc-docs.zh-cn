@@ -17,11 +17,11 @@ ms.workload: big-data
 origin.date: 01/19/2018
 ms.author: v-yiso
 ms.openlocfilehash: 95bde6ade5aa85d06a32c20dabfb859dc5b16e9d
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30077686"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660137"
 ---
 # <a name="apache-phoenix-in-hdinsight"></a>HDInsight 中的 Apache Phoenix
 

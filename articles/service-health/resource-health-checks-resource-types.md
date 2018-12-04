@@ -16,11 +16,11 @@ origin.date: 10/09/2017
 ms.author: v-yiso
 ms.date: 08/13/2018
 ms.openlocfilehash: fe8cf2aa931aeddc666d4935d3f2100186712adc
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486933"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666991"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Azure 资源运行状况中的资源类型和运行状况检查
 下面是通过资源运行状况执行的所有检查（按资源类型）的完整列表。

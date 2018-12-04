@@ -16,16 +16,16 @@ origin.date: 01/13/2016
 ms.date: 10/09/2017
 ms.author: v-yiso
 ms.openlocfilehash: e177689d3fd2770a4aaec88ca6eea797e4006616
-ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
-ms.locfileid: "22146553"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661912"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>使用 PowerShell 克隆 Azure App Service 应用
 在发行的 Azure PowerShell 版本 1.1.0 中，为 New-AzureRMWebApp 添加了新选项，可让用户将现有的 Web 应用克隆到不同区域或相同区域中新建的应用。 这样，客户就可以快速轻松地跨不同区域部署许多应用。
 
-应用克隆目前仅支持高级层应用服务计划。 新功能使用与 Web 应用备份功能相同的限制，具体请参阅[在 Azure App Service 中备份 Web 应用](web-sites-backup.md)。
+应用克隆目前仅支持高级层应用服务计划。 新功能使用与 Web 应用备份功能相同的限制，具体请参阅[在 Azure 应用服务中备份 Web 应用](web-sites-backup.md)。
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -96,4 +96,4 @@ ms.locfileid: "22146553"
 * [使用 Azure 门户克隆 Web 应用](app-service-web-app-cloning-portal.md)
 * [在 Azure App Service 中备份 Web 应用](web-sites-backup.md)
 * [Azure 流量管理器预览版对 Azure Resource Manager 的支持](../traffic-manager/traffic-manager-powershell-arm.md)
-* [将 Azure PowerShell 与 Azure Resource Manager 配合使用](../powershell-azure-resource-manager.md)
+* [将 Azure PowerShell 与 Azure Resource Manager 结合使用](../powershell-azure-resource-manager.md)

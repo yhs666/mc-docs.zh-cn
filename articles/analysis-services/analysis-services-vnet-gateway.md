@@ -10,11 +10,11 @@ ms.date: 11/22/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
 ms.openlocfilehash: 68cfdf5d3816821a0dcb79fc0eccf657ccb66a58
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195464"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660976"
 ---
 # <a name="use-gateway-for-data-sources-on-an-azure-virtual-network-vnet"></a>为 Azure 虚拟网络 (VNet) 上的数据源使用网关
 

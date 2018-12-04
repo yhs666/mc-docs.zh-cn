@@ -13,11 +13,11 @@ origin.date: 05/22/2017
 ms.date: 09/07/2018
 ms.author: v-junlch
 ms.openlocfilehash: 0cfdd168b5d0e89cf518eaefd451440a3fcba30c
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068137"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660060"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>用于 Node.js 的 Batch SDK 入门
 

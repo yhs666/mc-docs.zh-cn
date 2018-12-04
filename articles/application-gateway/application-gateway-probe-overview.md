@@ -10,11 +10,11 @@ origin.date: 08/06/2018
 ms.date: 10/17/2018
 ms.author: v-junlch
 ms.openlocfilehash: ae593af722980ae11dd1e11c9f3122ff9c81fc2f
-ms.sourcegitcommit: 4ead6b1d3527373b63c90680b6400a2e95b4064e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49374975"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662479"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>应用程序网关运行状况监视概述
 

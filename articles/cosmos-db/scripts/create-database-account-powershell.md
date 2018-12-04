@@ -16,11 +16,11 @@ origin.date: 05/10/2017
 ms.date: 09/03/2018
 ms.author: v-yeche
 ms.openlocfilehash: b93923706b8197e290ecf0c5b52820773153649c
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164683"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663089"
 ---
 # <a name="azure-cosmos-db-create-a-sql-api-account-using-powershell"></a>Azure Cosmos DB：使用 PowerShell 创建 SQL API 帐户
 

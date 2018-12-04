@@ -10,11 +10,11 @@ origin.date: 03/24/2017
 ms.date: 07/05/2018
 ms.author: v-junlch
 ms.openlocfilehash: 7f211d08f44536cc5037079cafbda2dfa212c965
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873581"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661358"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-azure-backup-server"></a>使用 Azure 备份服务器将 Exchange Server 备份到 Azure 备份
 本文说明如何配置 Azure 备份服务器 (MABS)，将 Microsoft Exchange Server 备份到 Azure。  
@@ -101,8 +101,7 @@ ms.locfileid: "37873581"
 - **恢复到 Exchange Server 上的其他数据库：** 数据将恢复到其他 Exchange Server 上的其他数据库。
 - **恢复到恢复数据库：** 数据将恢复到 Exchange 恢复数据库 (RDB)。
 - **复制到网络文件夹：** 数据将恢复到网络文件夹。
-- 
-            **复制到磁带：** 如果 MABS 上附加并配置了磁带库或独立的磁带驱动器，则恢复点复制到可用的磁带。
+- **复制到磁带：** 如果 MABS 上附加并配置了磁带库或独立的磁带驱动器，则恢复点复制到可用的磁带。
 
     ![选择在线复制](./media/backup-azure-backup-exchange-server/choose-online-replication.png)
 

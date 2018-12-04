@@ -18,11 +18,11 @@ ms.author: v-jay
 ms.reviewer: unknown
 ms.custom: mvc
 ms.openlocfilehash: 711878e937c3d861f77ddd87876515deac443af3
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195423"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661760"
 ---
 # <a name="what-is-azure-stack"></a>什么是 Azure Stack？
 

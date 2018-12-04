@@ -16,11 +16,11 @@ origin.date: 09/11/2018
 ms.date: 09/24/2018
 ms.author: v-yeche
 ms.openlocfilehash: 8c5eebd9b81c505d3f38b18abd5807307b1b6c5e
-ms.sourcegitcommit: fb353628b721f124b82a30155ca5f78bbb7fa60b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47424054"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662206"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>解决从虚拟机到 Azure 的故障转移时出现的错误
 

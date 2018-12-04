@@ -15,11 +15,11 @@ origin.date: 10/13/2017
 ms.date: 05/14/2018
 ms.author: v-yiso
 ms.openlocfilehash: 385212d96017739e2a174bc9ecea05a29b811603
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815014"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663863"
 ---
 # <a name="use-oauth2-for-authorization-between-the-gateway-and-a-backend"></a>使用 OAuth2 在网关和后端之间进行授权
 

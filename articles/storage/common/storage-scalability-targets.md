@@ -16,11 +16,11 @@ origin.date: 10/24/2017
 ms.date: 12/04/2017
 ms.author: v-nany
 ms.openlocfilehash: c802fa11020feef665e6327a7f9509a964bb8fc0
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295779"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663555"
 ---
 # <a name="azure-storage-scalability-and-performance-targets"></a>Azure 存储可伸缩性和性能目标
 ## <a name="overview"></a>概述

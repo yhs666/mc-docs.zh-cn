@@ -13,11 +13,11 @@ ms.date: 10/09/2018
 ms.author: v-junlch
 ms.reviewer: jeffsta
 ms.openlocfilehash: 4cddbe1d96822849fc5c95fa3edbc524eaa332d4
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913898"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663019"
 ---
 # <a name="how-to-assign-roles-and-administrators-to-users-with-azure-active-directory"></a>如何：使用 Azure Active Directory 向用户分配角色和管理员
 如果你的组织中的某位用户需要有权管理 Azure Active Directory (Azure AD) 资源，则必须根据该用户需要有权执行的操作在 Azure AD 中为该用户分配合适的角色。

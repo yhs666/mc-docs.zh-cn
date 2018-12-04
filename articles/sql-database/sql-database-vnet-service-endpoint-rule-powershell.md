@@ -14,11 +14,11 @@ manager: digimobile
 origin.date: 10/05/2018
 ms.date: 10/29/2018
 ms.openlocfilehash: bb1e596bd193c09e0b4f72da96de99b70710c2af
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135722"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661647"
 ---
 # <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell：为 SQL 创建虚拟服务终结点和 VNet 规则
 

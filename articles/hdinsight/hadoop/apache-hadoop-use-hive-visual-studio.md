@@ -18,11 +18,11 @@ origin.date: 05/16/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
 ms.openlocfilehash: 0260ed105743cf8a8cd05049d7cccaf2732f4800
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939144"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662305"
 ---
 # <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>使用用于 Visual Studio 的 Data Lake 工具运行 Hive 查询
 
@@ -64,7 +64,7 @@ ms.locfileid: "38939144"
 
     这些语句执行以下操作：
 
-   * `DROP TABLE`：如果表存在，此语句会将其删除。
+   * `DROP TABLE`：如果该表存在，此语句会将其删除。
 
    * `CREATE EXTERNAL TABLE`：在 Hive 中创建一个新的“外部”表。 外部表仅在 Hive 中存储表定义；数据会保留在原始位置。
 
@@ -103,8 +103,7 @@ ms.locfileid: "38939144"
 
     这些语句执行以下操作：
 
-   * 
-            `CREATE TABLE IF NOT EXISTS`：如果表尚不存在，则创建表。 由于未使用 `EXTERNAL` 关键字，因此此语句会创建内部表。 内部表存储在 Hive 数据仓库中，由 Hive 管理。
+   * `CREATE TABLE IF NOT EXISTS`：如果表尚不存在，则创建表。 由于未使用 `EXTERNAL` 关键字，因此此语句会创建内部表。 内部表存储在 Hive 数据仓库中，由 Hive 管理。
 
      > [!NOTE]
      > 与 `EXTERNAL` 表不同，删除内部表会同时删除基础数据。
@@ -123,7 +122,7 @@ ms.locfileid: "38939144"
 
 有关 HDInsight 中的 Hive 的一般信息：
 
-* [将 Hive 与 Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
+* [将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)
 
 有关 HDInsight 上 Hadoop 的其他使用方法的信息：
 

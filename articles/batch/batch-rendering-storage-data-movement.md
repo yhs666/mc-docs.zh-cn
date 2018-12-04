@@ -8,11 +8,11 @@ origin.date: 08/02/2018
 ms.date: 09/07/2018
 ms.topic: conceptual
 ms.openlocfilehash: 4d78cc0c8fded65f889a8fe75c4d478ebfe09a6f
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068312"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663961"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>用于渲染资产和输出文件的存储与数据移动选项
 

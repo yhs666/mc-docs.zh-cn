@@ -16,11 +16,11 @@ origin.date: 08/09/2017
 ms.date: 10/02/2017
 ms.author: v-yeche
 ms.openlocfilehash: 1015b0b15fc493464d0698b38496e64d3b404714
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29285450"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662798"
 ---
 # <a name="service-fabric-on-linux"></a>Linux 上的 Service Fabric
 如同在 Windows 上一样，可以使用 Linux 上的 Service Fabric 预览版在 Linux 上构建、部署和管理高可用性、高度可缩放的应用程序。 Service Fabric 框架（Reliable Services 和 Reliable Actors）除了可在 C# (.NET Core) 中使用以外，也能在 Java on Linux 中使用。  还可以使用任何语言或框架来构建[来宾可执行的服务](service-fabric-deploy-existing-app.md)。 此外，预览版还支持协调 Docker 容器。 Docker 容器可以运行使用 Service Fabric 框架的来宾可执行文件或本机 Service Fabric 服务。

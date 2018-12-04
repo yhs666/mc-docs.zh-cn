@@ -1,6 +1,6 @@
 ---
-title: Azure Functions 的 host.json 参考
-description: Azure Functions host.json 文件的参考文档。
+title: Azure Functions 2.x 的 host.json 参考
+description: 使用 v2 运行时的 Azure Functions host.json 文件的参考文档。
 services: functions
 author: ggailey777
 manager: jeconnoc
@@ -9,21 +9,25 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 09/08/2018
-ms.date: 10/19/2018
+ms.date: 11/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: 7a260085b9afb7d8f523f392cfc1e81bd0bc0af2
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 3f90fc712cf27accae349a99cc8ed84d330a1507
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453604"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666975"
 ---
-# <a name="hostjson-reference-for-azure-functions"></a>Azure Functions 的 host.json 参考
+# <a name="hostjson-reference-for-azure-functions-2x"></a>Azure Functions 2.x 的 host.json 参考  
 
-*host.json* 元数据文件包含对函数应用的所有函数产生影响的全局配置选项。 本文列出可用的设置。 JSON 架构位于 http://json.schemastore.org/host。
+> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
+> * [版本 1](functions-host-json-v1.md)
+> * [第 2 版](functions-host-json.md)
+
+*host.json* 元数据文件包含对函数应用的所有函数产生影响的全局配置选项。 本文列出了可用于 v2 运行时的设置。  
 
 > [!NOTE]
-> Azure Functions 运行时版本 v1 和 v2 之间的 *host.json* 存在显著差异。 针对 v2 运行时的函数应用需要 `"version": "2.0"`。
+> 本文适用于 Azure Functions 2.x。  有关 Functions 1.x 中 host.json 的参考，请参阅 [Azure Functions 1.x 的 host.json 参考](functions-host-json-v1.md)。
 
 其他函数应用配置选项在[应用设置](functions-app-settings.md)中进行管理。
 
@@ -33,38 +37,18 @@ ms.locfileid: "49453604"
 
 以下示例 *host.json* 文件指定了所有可能的选项。
 
-### <a name="version-2x"></a>版本 2.x
 
 ```json
 {
     "version": "2.0",
-    "aggregator": {
-        "batchSize": 1000,
-        "flushTimeout": "00:00:30"
-    },
     "extensions": {
-        "eventHubs": {
-          "maxBatchSize": 64,
-          "prefetchCount": 256,
-          "batchCheckpointFrequency": 1
-        },
-        "http": {
-            "routePrefix": "api",
-            "maxConcurrentRequests": 100,
-            "maxOutstandingRequests": 30
-        },
-        "queues": {
-            "visibilityTimeout": "00:00:10",
-            "maxDequeueCount": 3
-        },
-        "sendGrid": {
-            "from": "Azure Functions <samples@functions.com>"
-        },
-        "serviceBus": {
-          "maxConcurrentCalls": 16,
-          "prefetchCount": 100,
-          "autoRenewTimeout": "00:05:00"
-        }
+        "cosmosDb": {},
+        "durableTask": {},
+        "eventHubs": {},
+        "http": {},
+        "queues": {},
+        "sendGrid": {},
+        "serviceBus": {}
     },
     "functions": [ "QueueProcessor", "GitHubWebHook" ],
     "functionTimeout": "00:05:00",
@@ -74,20 +58,6 @@ ms.locfileid: "49453604"
         "healthCheckWindow": "00:02:00",
         "healthCheckThreshold": 6,
         "counterThreshold": 0.80
-    },
-    "id": "9f4ea53c5136457d883d685e57164f08",
-    "logging": {
-        "fileLoggingMode": "debugOnly",
-        "logLevel": {
-          "Function.MyFunction": "Information",
-          "default": "None"
-        },
-        "applicationInsights": {
-            "sampling": {
-              "isEnabled": true,
-              "maxTelemetryItemsPerSecond" : 5
-            }
-        }
     },
     "singleton": {
       "lockPeriod": "00:00:15",
@@ -100,80 +70,21 @@ ms.locfileid: "49453604"
 }
 ```
 
-### <a name="version-1x"></a>版本 1.x
-
-```json
-{
-    "eventHub": {
-      "maxBatchSize": 64,
-      "prefetchCount": 256,
-      "batchCheckpointFrequency": 1
-    },
-    "functions": [ "QueueProcessor", "GitHubWebHook" ],
-    "functionTimeout": "00:05:00",
-    "healthMonitor": {
-        "enabled": true,
-        "healthCheckInterval": "00:00:10",
-        "healthCheckWindow": "00:02:00",
-        "healthCheckThreshold": 6,
-        "counterThreshold": 0.80
-    },
-    "http": {
-        "routePrefix": "api",
-        "maxOutstandingRequests": 20,
-        "maxConcurrentRequests": 10,
-        "dynamicThrottlesEnabled": false
-    },
-    "id": "9f4ea53c5136457d883d685e57164f08",
-    "logger": {
-        "categoryFilter": {
-            "defaultLevel": "Information",
-            "categoryLevels": {
-                "Host": "Error",
-                "Function": "Error",
-                "Host.Aggregator": "Information"
-            }
-        }
-    },
-    "queues": {
-      "maxPollingInterval": 2000,
-      "visibilityTimeout" : "00:00:30",
-      "batchSize": 16,
-      "maxDequeueCount": 5,
-      "newBatchThreshold": 8
-    },
-    "serviceBus": {
-      "maxConcurrentCalls": 16,
-      "prefetchCount": 100,
-      "autoRenewTimeout": "00:05:00"
-    },
-    "singleton": {
-      "lockPeriod": "00:00:15",
-      "listenerLockPeriod": "00:01:00",
-      "listenerLockRecoveryPollingInterval": "00:01:00",
-      "lockAcquisitionTimeout": "00:01:00",
-      "lockAcquisitionPollingInterval": "00:00:03"
-    },
-    "tracing": {
-      "consoleLevel": "verbose",
-      "fileLoggingMode": "debugOnly"
-    },
-    "watchDirectories": [ "Shared" ],
-}
-```
-
 本文的以下各部分解释了每个顶级属性。 除非另有说明，否则其中的所有属性都是可选的。
 
+## <a name="cosmosdb"></a>CosmosDB
+
+可在 [Cosmos DB 触发器和绑定](functions-bindings-cosmosdb-v2.md#host-json)中查找配置设置。
+
+## <a name="durabletask"></a>durableTask
+
+可在 [Durable Functions 的绑定](durable-functions-bindings.md#host-json)中查找配置设置。
 
 ## <a name="eventhub"></a>eventHub
 
-[事件中心触发器和绑定](functions-bindings-event-hubs.md)的配置设置。 在版本 2.x 中，这是[扩展](#extensions)的子级。
-
-[!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
+可在[事件中心触发器和绑定](functions-bindings-event-hubs.md#host-json)中查找配置设置。 
 
 ## <a name="extensions"></a>扩展
-
-*仅限版本 2.x*。
 
 返回包含所有特定于绑定的设置的对象的属性，例如 [http](#http) 和 [eventHub](#eventhub)。
 
@@ -223,61 +134,22 @@ ms.locfileid: "49453604"
 
 ## <a name="http"></a>http
 
-[http 触发器和绑定](functions-bindings-http-webhook.md)的配置设置。 在版本 2.x 中，这是[扩展](#extensions)的子级。
+可在 [http 触发器和绑定](functions-bindings-http-webhook.md)中查找配置设置。
 
 [!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
 
-## <a name="id"></a>id
-
-*仅限版本 1.x*。
-
-作业宿主的唯一 ID。 可以是不带短划线的小写 GUID。 在本地运行时必须指定。 在 Azure 中运行时，我们建议你不要设置 ID 值。 省略 `id` 时，Azure 中会自动生成 ID。 使用版本 2.x 运行时时，无法设置自定义函数应用 ID。
-
-如果跨多个函数应用共享存储帐户，请确保每个函数应用都有不同的 `id`。 可省略 `id` 属性或手动将每个函数应用的 `id` 设置为不同的值。 计时器触发器使用存储锁来确保当函数应用横向扩展到多个实例时将只有一个计时器实例。 如果两个函数应用共享相同的 `id` 且每个都使用计时器触发器，则只会运行一个计时器。
-
-```json
-{
-    "id": "9f4ea53c5136457d883d685e57164f08"
-}
-```
-
-## <a name="logger"></a>logger
-
-*仅限版本 1.x*。
-控制 ILogger 对象或 context.log 写入的日志的筛选。
-
-```json
-{
-    "logger": {
-        "categoryFilter": {
-            "defaultLevel": "Information",
-            "categoryLevels": {
-                "Host": "Error",
-                "Function": "Error",
-                "Host.Aggregator": "Information"
-            }
-        }
-    }
-}
-```
-
-|属性  |默认 | 说明 |
-|---------|---------|---------| 
-|categoryFilter|不适用|指定按类别进行筛选| 
-|defaultLevel|信息|对于 `categoryLevels` 数组中未指定的任何类别，将在此级别发送日志。| 
-|categoryLevels|不适用|一个类别数组，指定每个类别的最低日志级别。 此处指定的类别控制以相同值开头的所有类别，较长的值优先。 在前面的示例 *host.json* 文件中，将在 `Information` 级别记录以“Host.Aggregator”开头的所有类别的日志。 在 `Error` 级别记录以“Host”开头的其他所有类别（例如“Host.Executor”）的日志。| 
 
 ## <a name="queues"></a>queues
 
-[存储队列触发器和绑定](functions-bindings-storage-queue.md)的配置设置。 在版本 2.x 中，这是[扩展](#extensions)的子级。
+可在[存储队列触发器和绑定](functions-bindings-storage-queue.md#host-json)中查找设置。  
 
-[!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
+## <a name="sendgrid"></a>SendGrid
+
+可在 [SendGrid 触发器和绑定](functions-bindings-sendgrid.md#host-json)中查找配置设置。
 
 ## <a name="servicebus"></a>serviceBus
 
-[服务总线触发器和绑定](functions-bindings-service-bus.md)的配置设置。 在版本 2.x 中，这是[扩展](#extensions)的子级。
-
-[!INCLUDE [functions-host-json-service-bus](../../includes/functions-host-json-service-bus.md)]
+可在[服务总线触发器和绑定](functions-bindings-service-bus.md#host-json)中查找配置设置。
 
 ## <a name="singleton"></a>singleton
 
@@ -303,29 +175,7 @@ ms.locfileid: "49453604"
 |lockAcquisitionTimeout|00:01:00|运行时尝试获取锁的最长时间。| 
 |lockAcquisitionPollingInterval|不适用|尝试获取锁的间隔时间。| 
 
-## <a name="tracing"></a>tracing
-
-版本 1.x
-
-使用 `TraceWriter` 对象创建的日志的配置设置。 请参阅 [C# 日志记录](functions-reference-csharp.md#logging)和 [Node.js 日志记录](functions-reference-node.md#writing-trace-output-to-the-console)。 在版本 2.x 中，所有日志行为都由日志记录控制。
-
-```json
-{
-    "tracing": {
-      "consoleLevel": "verbose",
-      "fileLoggingMode": "debugOnly"
-    }
-}
-```
-
-|属性  |默认 | 说明 |
-|---------|---------|---------| 
-|consoleLevel|info|控制台日志记录的跟踪级别。 选项包括：`off`、`error`、`warning`、`info` 和 `verbose`。|
-|fileLoggingMode|debugOnly|文件日志记录的跟踪级别。 选项包括 `never`、`always` 和 `debugOnly`。| 
-
 ## <a name="version"></a>版本
-
-版本 2.x
 
 针对 v2 运行时的函数应用需要版本字符串 `"version": "2.0"`。
 

@@ -14,11 +14,11 @@ origin.date: 08/08/2018
 ms.date: 09/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: c178990eb8af182d4fdac0e31023832b200a9948
-ms.sourcegitcommit: 399060a8d46534abd370693f6282e7343b371634
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455590"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661071"
 ---
 # <a name="event-hubs-features-overview"></a>事件中心功能概述
 

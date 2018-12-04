@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 09/10/2018
-ms.date: 09/24/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7cfa65dc216e4feb6026d250d9fbbc5b982f9646
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: 50bebc82215fafa36c59ad76dd8c7422d2bc84ba
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201384"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666798"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>VMware 和物理服务器到 Azure 的复制支持矩阵
 
@@ -66,6 +66,7 @@ Site Recovery 支持复制在支持的计算机上运行的任何工作负荷。
 计算机设置 | 复制到 Azure 的计算机必须满足 [Azure 要求](#azure-vm-requirements)。
 Windows 操作系统 | 64 位 Windows Server 2016（服务器核心，带桌面体验的服务器）、Windows Server 2012 R2、Windows Server 2012、带 SP1（或更高版本）的 Windows Server 2008 R2。 </br></br>  [至少带 SP2 的 Windows Server 2008 - 32 位和 64 位](migrate-tutorial-windows-server-2008.md)（仅适用于迁移）。 </br></br> 不支持 Windows 2016 Nano Server。
 Linux 操作系统 | CentOS：5.2 到 5.11<b>\*\*</b>、6.1 到 6.10<b>\*\*</b>、7.0 到 7.5 <br/><br/>Ubuntu 14.04 LTS 服务器[（支持的内核版本）](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS 服务器[（支持的内核版本）](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[（受支持的内核版本）](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1、SP2、SP3 [（受支持的内核版本）](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>、SUSE Linux Enterprise Server 11 SP4 * </br></br></br>不支持将复制计算机从 SUSE Linux Enterprise Server 11 SP3 升级到 SP4。* 若要升级，请禁用复制并在升级后重新启用它。</br></br><b>\*\*</b> *请参阅 [Azure 中对 Linux 虚拟机的支持](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure)来了解 Azure 中对 Linux 和开放源代码技术的支持。Azure Site Recovery 允许在 Azure 中故障转移和运行 Linux 服务器，但是，Linux 供应商可能会将该支持限制为寿命尚未终止的发行版版本。*
+
 <!-- Notice: Anchor should be #ubuntu-kernel-versions to replace #supported-ubuntu-kernel-versions-for-vmwarephysical-servers -->
 <!-- Not Available on Red Hat Enterprise Linux: 5.2 to 5.11, 6.1 to 6.9, 7.0 to 7.4 <br/><br/> -->
 <!-- Not Available on Oracle Enterprise Linux 6.4, 6.5 running the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> -->
@@ -76,8 +77,8 @@ Linux 操作系统 | CentOS：5.2 到 5.11<b>\*\*</b>、6.1 到 6.10<b>\*\*</b>�
 > - 不支持跨主要 Linux 发行版升级受保护的计算机。 若要升级，请禁用复制，升级操作系统，然后再重新启用复制。
 >
 > - 运行 CentOS 5.2 到 5.11 的服务器应安装有 Linux Integration Services (LIS) 组件，以便计算机在 Azure 中启动。
-<!-- Not Available on Red Hat Enterprise Linux 5.2 to 5.11-->
 
+<!-- Not Available on Red Hat Enterprise Linux 5.2 to 5.11-->
 ### <a name="ubuntu-kernel-versions"></a>Ubuntu 内核版本
 
 **支持的版本** | **Azure Site Recovery 移动服务版本** | **内核版本** |
@@ -144,7 +145,6 @@ XFSv5 | 从版本 9.10 开始，移动服务支持 XFS 文件系统上的 XFSv5 
 
 <!-- Not Available on Host network IPv6 | No. -->
 <!-- Not Available on Guest/server network IPv6 | No. -->
-
 ## <a name="azure-vm-network-after-failover"></a>Azure VM 网络（故障转移后）
 
 **组件** | **支持**
@@ -158,8 +158,7 @@ Azure 流量管理器 | 是
 IPv4 | 是
 保留源 IP 地址 | 是
 Azure 虚拟网络服务终结点<br/> （不带 Azure 存储防火墙） | 是
-
-<!-- Not Available on Accelerated Networking | No-->
+加速网络 | 否
 
 <a name="support-for-storage"></a>
 ## <a name="storage"></a>存储
@@ -236,6 +235,7 @@ HUB | 是
 FC 磁盘 | 不支持。 | 如果不支持，检查会失败。
 BitLocker | 不支持。 | 为计算机启用复制之前，必须先禁用 BitLocker。 |
 VM 名称 | 1 到 63 个字符。<br/><br/> 限制为字母、数字和连字符。<br/><br/> 计算机名称必须以字母或数字开头和结尾。 |  请在 Site Recovery 中的计算机属性中更新该值。
+
 <!-- Notice: Anchor should be ##replicated-machines-->
 
 ## <a name="vault-tasks"></a>保管库任务
@@ -257,4 +257,5 @@ VM 名称 | 1 到 63 个字符。<br/><br/> 限制为字母、数字和连字符
 
 ## <a name="next-steps"></a>后续步骤
 [了解如何](tutorial-prepare-azure.md)为 VMware VM 的灾难恢复准备 Azure。
+
 <!--Update_Description: update meta properties, wording update, update  -->

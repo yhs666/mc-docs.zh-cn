@@ -15,11 +15,11 @@ ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: librown
 ms.openlocfilehash: 65cf00fc925c23ce7b209bb87781e59c9f445019
-ms.sourcegitcommit: 75c2b5cdaf25ede92e080f6c48ca17d2f4ded4fb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43115465"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666644"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Azure 多重身份验证的登录体验
 > [!NOTE]

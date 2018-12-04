@@ -10,11 +10,11 @@ origin.date: 07/06/2018
 ms.date: 07/23/2018
 ms.author: v-yeche
 ms.openlocfilehash: 3ed86f45eff43bc35d5159bfbaee8306ab86aaf1
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168386"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664406"
 ---
 # <a name="delete-a-site-recovery-vault"></a>删除 Site Recovery 保管库
 

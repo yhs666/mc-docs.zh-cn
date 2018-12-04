@@ -12,15 +12,15 @@ ms.devlang: dotnet
 ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 08/24/2018
-ms.date: 10/15/2018
+origin.date: 09/24/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: ce9acf5311348e66b3d6078cd5dd0180f303f98b
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.openlocfilehash: c5ac4b56a51fa509f2e584f85dc7c4b0869758b2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089256"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664478"
 ---
 # <a name="supported-service-fabric-versions"></a>支持的 Service Fabric 版本
 
@@ -43,7 +43,7 @@ ms.locfileid: "49089256"
 | 5.7.* | 5.4.164.* |低于或等于版本 2.7 |2017 年 12 月 15 日  |
 | 6.0.* | 5.6.205.* |版本 2.8 或更低版本 |2018 年 3 月 30 日     |
 | 6.1.* | 5.7.221.* |版本 3.0 或更低版本 |2018 年 7 月 15 日      |
-| 6.2.* | 6.0.232.* |版本 3.1 或更低版本 |2018 年 9 月 15 日 |
+| 6.2.* | 6.0.232.* |版本 3.1 或更低版本 |2018 年 10 月 26 日 |
 | 6.3.* | 6.1.480.* |版本 3.2 或更低版本 |当前版本，因此无结束日期 |
 
 <!-- Update_Description: update meta properties -->

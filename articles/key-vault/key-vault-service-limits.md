@@ -16,11 +16,11 @@ origin.date: 11/02/2017
 ms.date: 11/30/2017
 ms.author: v-junlch
 ms.openlocfilehash: 358be24b06c5509d757a2ff37bc5e2a12302b608
-ms.sourcegitcommit: b7076a41bb1841914e08ee5ad8c8e194ba82eeaa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
-ms.locfileid: "26044589"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660248"
 ---
 # <a name="azure-key-vault-service-limits"></a>Azure Key Vault 服务限制
 以下是 Azure 密钥保管库的服务限制。

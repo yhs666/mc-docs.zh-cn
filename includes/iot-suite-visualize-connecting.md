@@ -18,7 +18,7 @@
 
 若要对设备调用方法，请使用远程监视解决方案中的“设备”页。 例如，在远程监视解决方案中，**冷却器**设备实现了 **FirmwareUpdate** 方法。
 
-1. 选择“设备”可导航到解决方案中的“设备”页。
+1. 选择“设备”，导航到解决方案中的“设备”页面。
 
 1. 在“设备”页上的设备列表中选择已预配的设备：
 
@@ -26,7 +26,7 @@
 
 1. 若要显示可在设备上调用的方法列表，请选择“作业”，然后选择“运行方法”。 若要计划在多个设备上运行的作业，可以在列表中选择多个设备。 “作业”面板会显示普遍适用于所有选定设备的方法类型。
 
-1. 选择 **FirmwareUpdate**，将作业名称设置为 **UpdatePhysicalChiller**。 将“固件版本”设置为 **2.0.0**，将“固件 URI”设置为 **http://contoso.com/updates/firmware.bin**，然后选择“应用”：
+1. 选择 FirmwareUpdate，将作业名称设置为 UpdatePhysicalChiller。 将“固件版本”设置为 **2.0.0**，将“固件 URI”设置为 **http://contoso.com/updates/firmware.bin**，然后选择“应用”：
 
     ![计划固件更新](media/iot-suite-visualize-connecting/deviceschedule.png)
 

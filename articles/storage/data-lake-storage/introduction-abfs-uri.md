@@ -11,11 +11,11 @@ ms.date: 08/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
 ms.openlocfilehash: 79ccc32af1109856dd22989e45995aec552be374
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872406"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662187"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>使用 Azure Data Lake Storage Gen2 URI
 

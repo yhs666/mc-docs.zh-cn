@@ -15,11 +15,11 @@ author: thraka
 ms.author: v-yiso
 manager: timlt
 ms.openlocfilehash: 42389fa18250039f7f166b54198c80bb1a9c12b9
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695031"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664410"
 ---
 # <a name="azure-cloud-services-definition-workerrole-schema"></a>Azure 云服务定义 WorkerRole 架构
 Azure 辅助角色对普通开发非常有用，可为 web 角色执行后台处理。
@@ -131,7 +131,7 @@ Azure 辅助角色对普通开发非常有用，可为 web 角色执行后台处
 
 [ProgramEntryPoint](#ProgramEntryPoint)
 
-[Variable](#Variable)
+[变量](#Variable)
 
 [RoleInstanceValue](#RoleInstanceValue)
 

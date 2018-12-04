@@ -18,11 +18,11 @@ ms.date: 04/16/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: bf647f7d83af10c880884a0285784c990b12ca99
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939933"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663883"
 ---
 # <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-cli"></a>通过 CLI 使用现有托管 OS 磁盘创建虚拟机
 

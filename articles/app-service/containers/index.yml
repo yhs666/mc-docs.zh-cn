@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: b1af331c2d224d9e074e878d18e8e9f5f58c8fd3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662921"
 documentType: LandingData
 title: “用于容器的 Web 应用”文档
 metadata:
@@ -15,12 +21,6 @@ metadata:
   origin.date: 09/05/2017
   ms.author: v-yiso
   ms.date: 10/16/2017
-  ms.openlocfilehash: b1af331c2d224d9e074e878d18e8e9f5f58c8fd3
-  ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
-  ms.translationtype: HT
-  ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/29/2017
-  ms.locfileid: "22339066"
 sections:
 - title: 5 分钟快速入门
   items:
@@ -64,7 +64,7 @@ sections:
     items:
     - html: <a href="https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
     - html: <a href="https://docs.microsoft.com/cli/azure/appservice">Azure CLI 2.0</a>
-- title: 引用
+- title: 参考
   items:
   - type: list
     style: cards

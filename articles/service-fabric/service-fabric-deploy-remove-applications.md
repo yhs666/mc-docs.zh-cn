@@ -16,11 +16,11 @@ origin.date: 01/19/2018
 ms.date: 10/15/2018
 ms.author: v-yeche
 ms.openlocfilehash: 03cf37f0fab34b84ec1aeb04524a8d9d9b334501
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089114"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660990"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>使用 PowerShell 部署和删除应用程序
 > [!div class="op_single_selector"]

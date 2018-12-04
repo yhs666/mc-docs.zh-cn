@@ -15,11 +15,11 @@ ms.date: 08/27/2018
 ms.author: v-junlch
 ms.custom: end-user
 ms.openlocfilehash: 0693b925472cf9113b51bd8fd2b6bc15f3bd42d6
-ms.sourcegitcommit: 75c2b5cdaf25ede92e080f6c48ca17d2f4ded4fb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43115534"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666901"
 ---
 # <a name="reset-your-work-or-school-password"></a>重置工作或学校密码
 
@@ -40,7 +40,7 @@ ms.locfileid: "43115534"
 
 1. 在任何工作或学校“登录”页上，选择“无法访问帐户?”链接，然后选择“工作或学校帐户”，或直接转到[密码重置页面](https://passwordreset.activedirectory.windowsazure.cn/)。
 
-    ![无法访问帐户？][Login]
+    ![无法访问帐户?][Login]
 
 2. 输入工作或学校用户 ID，通过输入在屏幕上看到的字符证明自己不是机器人，然后选择“下一步”。
 

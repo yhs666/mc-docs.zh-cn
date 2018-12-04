@@ -9,11 +9,11 @@ origin.date: 08/30/2018
 ms.date: 11/12/2018
 ms.author: v-yeche
 ms.openlocfilehash: c61b1d8b5d539e3f6ac631f09088dea54a7d368e
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195358"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662893"
 ---
 # <a name="azure-container-registry-skus"></a>Azure 容器注册表 SKU
 

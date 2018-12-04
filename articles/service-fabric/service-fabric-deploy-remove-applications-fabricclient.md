@@ -16,11 +16,11 @@ origin.date: 01/19/2018
 ms.date: 05/28/2018
 ms.author: v-yeche
 ms.openlocfilehash: e3c6ca0457adcc27dfbf6bfd385239aa8377f8ab
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554527"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667036"
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>使用 FabricClient 部署和删除应用程序
 > [!div class="op_single_selector"]

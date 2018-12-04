@@ -14,11 +14,11 @@ origin.date: 05/05/2017
 ms.date: 05/14/2018
 ms.author: v-junlch
 ms.openlocfilehash: 616974848395c0254cf4992c03b716f9ea85cfb1
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173328"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663936"
 ---
 # <a name="azure-batch-compute-node-environment-variables"></a>Azure Batch 计算节点环境变量
 [Azure Batch 服务](https://azure.microsoft.com/services/batch/)在计算节点上设置以下环境变量。 可以在任务命令行中引用这些环境变量，也可在命令行运行的程序和脚本中引用它们。

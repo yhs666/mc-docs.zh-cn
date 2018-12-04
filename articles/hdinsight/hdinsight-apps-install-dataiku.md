@@ -18,11 +18,11 @@ origin.date: 01/10/2018
 ms.author: v-yiso
 ms.date: 03/26/2018
 ms.openlocfilehash: 64113f1e0d17d98eb7c38c8726690daedd65f721
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30077687"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663744"
 ---
 # <a name="install-published-application---dataiku-dds"></a>安装已发布的应用程序 - Dataiku DDS
 
@@ -122,7 +122,7 @@ Dataiku [Data Science Studio (DSS)](https://www.dataiku.com/dss/features/connect
 
 * [Dataiku DSS 文档](https://doc.dataiku.com/dss/latest/)。
 * [安装自定义 HDInsight 应用程序](hdinsight-apps-install-custom-applications.md)：了解如何将未发布的 HDInsight 应用程序部署到 HDInsight。
-* [发布 HDInsight 应用程序](hdinsight-apps-publish-applications.md)：了解如何将自定义 HDInsight 应用程序发布到 Azure Marketplace。
+* [发布 HDInsight 应用程序](hdinsight-apps-publish-applications.md)：了解如何将自定义 HDInsight 应用程序发布到 Azure 市场。
 * [MSDN：安装 HDInsight 应用程序](https://msdn.microsoft.com/library/mt706515.aspx)：了解如何定义 HDInsight 应用程序。
 * [使用脚本操作自定义基于 Linux 的 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)：了解如何使用脚本操作安装其他应用程序。
 * [在 HDInsight 中使用空边缘节点](hdinsight-apps-use-edge-node.md)：了解如何使用空边缘节点访问 HDInsight 群集、测试和托管 HDInsight 应用程序。

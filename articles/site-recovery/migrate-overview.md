@@ -3,17 +3,18 @@ title: 关于 Azure Site Recovery 中的迁移 | Azure
 description: 本文介绍如何使用 Azure Site Recovery 服务迁移本地和 Azure VM。
 services: site-recovery
 author: rockboyfor
+manager: digimobile
 ms.service: site-recovery
-ms.topic: article
-origin.date: 07/06/2018
-ms.date: 09/17/2018
+ms.topic: conceptual
+origin.date: 10/10/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: b6adefaffd0abc03c366bde01b00c5102c28be1a
-ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
+ms.openlocfilehash: 8a4d7ddc54dcf7c4809cc1dd8bd584b78bec7131
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586825"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666470"
 ---
 # <a name="about-migration"></a>关于迁移
 
@@ -30,14 +31,14 @@ ms.locfileid: "45586825"
 除了可以使用 Site Recovery 对本地和 Azure VM 进行灾难恢复外，还可以使用 Site Recovery 服务迁移这些 VM。 区别是什么？
 
 - 对于灾难恢复，定期将计算机复制到 Azure。 发生服务中断时，将从主站点将计算机故障转移到辅助 Azure 站点，并从该处对其进行访问。 当主站点再次可用时，可从 Azure 进行故障回复。
-- 对于迁移，将本地计算机复制到 Azure 或将 Azure VM 复制到辅助区域。 然后可以将 VM 从主站点故障转移到辅助站点，并完成迁移过程。 不涉及故障回复。  
+- 对于迁移，将本地计算机复制到 Azure 或将 Azure VM 复制到辅助区域。 然后可将 VM 从主站点故障转移到辅助站点，并完成迁移过程。 不涉及故障回复。  
 
 ## <a name="migration-scenarios"></a>迁移方案
 
 **方案** | **详细信息**
 --- | ---
-**从本地迁移到 Azure** | 可以将本地 VMware VM、Hyper-V VM 和物理服务器迁移到 Azure。 为此，完成的步骤几乎与完整灾难恢复的步骤一样。 只是不会将计算机从 Azure 故障回复到本地站点。
-**在 Azure 区域之间进行迁移** | 可以将 Azure VM 从一个 Azure 区域迁移到另一个 Azure 区域。 迁移完成后，现在可以在迁移到的次要区域中为 Azure VM 配置灾难恢复。
+**从本地迁移到 Azure** | 可将本地 VMware VM、Hyper-V VM 和物理服务器迁移到 Azure。 为此，完成的步骤几乎与完整灾难恢复的步骤一样。 只是不会将计算机从 Azure 故障回复到本地站点。
+**在 Azure 区域之间迁移** | 可将 Azure VM 从一个 Azure 区域迁移到另一个 Azure 区域。 迁移完成后，现在可以在迁移到的次要区域中为 Azure VM 配置灾难恢复。
 **将 AWS 迁移到 Azure** | 可将 AWS 实例迁移到 Azure VM。 Site Recovery 将 AWS 实例视为用于迁移目的的物理服务器。 
 
 ## <a name="next-steps"></a>后续步骤
@@ -46,4 +47,4 @@ ms.locfileid: "45586825"
 - [将 VM 从一个 Azure 区域迁移到另一个](azure-to-azure-tutorial-migrate.md)
 - [将 AWS 迁移到 Azure](migrate-tutorial-aws-azure.md)
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

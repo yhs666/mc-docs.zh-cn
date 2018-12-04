@@ -4,16 +4,16 @@ description: 本文介绍如何运行 Site Recovery 部署规划器，以实现 
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-ms.topic: article
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.topic: conceptual
+origin.date: 10/11/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: f8d305093d8b86dcb5b28b6ccf0c20d7247d94e5
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: f03e9edf44016589a3f5e3f48b2e5fa8d781a98d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168463"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666567"
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>运行适用于 Hyper-V 到 Azure 部署的 Azure Site Recovery 部署规划器
 
@@ -185,6 +185,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport /?
 |-TargetRegion|（可选）充当复制目标的 Azure 区域。 由于 Azure 的成本因区域而异，因此可使用此参数来生成特定目标 Azure 区域的报表。 默认值为 ChinaNorth 或上次使用的目标区域。 |
 |-OfferId|（可选）与订阅关联的产品/服务。 默认值为 MS-AZR-0003P（即用即付）。|
 |-Currency|（可选）在生成的报表中显示的成本所采用的货币。 |
+
 <!-- Not Avaiable on Refer to the list of [supported target regions](hyper-v-deployment-planner-cost-estimation.md#supported-target-regions) -->
 <!-- Not Avaiable on Refer to the list of [supported currencies](hyper-v-deployment-planner-cost-estimation.md#supported-currencies) -->
 
@@ -306,4 +307,5 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Virtualization Hyper-V -Direc
 
 ## <a name="next-steps"></a>后续步骤
 * [分析生成的报表](hyper-v-deployment-planner-analyze-report.md)
-<!-- Update_Description: update meta properties, wording update -->
+
+<!-- Update_Description: update meta properties -->

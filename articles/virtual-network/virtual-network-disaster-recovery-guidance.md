@@ -16,11 +16,11 @@ origin.date: 05/16/2016
 ms.date: 04/02/2018
 ms.author: v-yeche
 ms.openlocfilehash: 5ae110c3b6c707125b437b47e57c584164600f4f
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30223204"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660558"
 ---
 # <a name="virtual-network---business-continuity"></a>虚拟网络 - 业务连续性
 

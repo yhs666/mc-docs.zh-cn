@@ -11,11 +11,11 @@ origin.date: 04/04/2018
 ms.date: 09/10/2018
 ms.author: v-yiso
 ms.openlocfilehash: d34f79cc2e9d86529caac9f9250cc9412b8e99cb
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43328456"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666517"
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
 

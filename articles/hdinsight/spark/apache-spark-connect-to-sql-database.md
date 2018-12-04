@@ -16,11 +16,11 @@ origin.date: 05/01/2018
 ms.date: 06/25/2018
 ms.author: nitinme
 ms.openlocfilehash: 137111760005a039e6e9a4618b5b247a457ee2d0
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747464"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660438"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>使用 HDInsight Spark 群集在 Azure SQL 数据库中读取和写入数据
 
@@ -63,7 +63,7 @@ ms.locfileid: "36747464"
    
     ![Spark 中 Jupyter Notebook 的内核](./media/apache-spark-connect-to-sql-database/kernel-jupyter-notebook-on-spark.png "Spark 中 Jupyter Notebook 的内核")
 
-    有关内核的详细信息，请参阅[将 Jupyter Notebook 内核与 HDInsight 中的 Apache Spark 群集配合使用](apache-spark-jupyter-notebook-kernels.md)。
+    要深入了解这些内核，请参阅 [在 HDInsight 中将 Jupyter 笔记本内核与 Apache Spark 群集配合使用](apache-spark-jupyter-notebook-kernels.md)。
 
    > [!NOTE]
    > 本文使用 Spark (Scala) 内核，因为目前只有 Scala 和 Java 才支持将数据从 Spark 流式传输到 SQL 数据库。 尽管可以使用 Python 在 SQL中 读取和写入数据，但为了保持一致，本文将使用 Scala 执行所有三个操作。

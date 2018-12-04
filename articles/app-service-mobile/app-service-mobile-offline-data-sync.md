@@ -16,11 +16,11 @@ origin.date: 10/30/2016
 ms.author: v-yiso
 ms.date: 07/23/2018
 ms.openlocfilehash: 22e7f1de66d37e316e128a4139e32e82b592b17f
-ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39031753"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663238"
 ---
 # <a name="offline-data-sync-in-azure-mobile-apps"></a>Azure 移动应用中的脱机数据同步
 ## <a name="what-is-offline-data-sync"></a>什么是脱机数据同步？
@@ -69,7 +69,7 @@ ms.locfileid: "39031753"
 * **推送**：推送是对同步上下文的操作，发送自上一次推送之后的所有 CUD 更改。 请注意，无法做到只发送单个表的更改，否则这些操作可能以无序发送。 推送对 Azure 移动应用后端执行一系列 REST 调用，而这会修改服务器数据库。
 * 拉取：拉取按表执行并可使用查询进行自定义，以便只检索服务器数据的子集。 然后，Azure 移动客户端 SDK 会将最终数据插入本地存储。
 * 隐式推送：如果针对包含挂起本地更新的表执行拉取，则拉取操作先对同步上下文执行 `push()`。 此推送有助于最大程度减少已排队的更改与服务器中新数据之间的冲突。
-* 增量同步：拉取操作的第一个参数是 query name，此参数只在客户端上使用。 如果使用非 null 查询名称，Azure 移动 SDK 将执行*增量同步*。每次拉取操作返回结果集时，该结果集中最新的 `updatedAt` 时间戳将存储在 SDK 本地系统表中。 后续拉取操作只检索该时间戳以后的记录。
+* 增量同步：拉取操作的第一个参数是 query name，此参数只在客户端上使用。 如果使用非 null 查询名称，Azure Mobile SDK 将执行增量同步 。每次拉取操作返回结果集时，该结果集中最新的 `updatedAt` 时间戳将存储在 SDK 本地系统表中。 后续拉取操作只检索该时间戳以后的记录。
 
   若要使用增量同步，服务器必须返回有意义的 `updatedAt` 值，并且必须支持按此字段排序。 但是，由于 SDK 在 updatedAt 字段中添加了自身的排序，因此无法使用本身具有 `orderBy` 子句的拉取查询。
 

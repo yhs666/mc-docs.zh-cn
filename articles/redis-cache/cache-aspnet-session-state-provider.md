@@ -16,11 +16,11 @@ origin.date: 05/01/2017
 ms.date: 09/27/2018
 ms.author: v-junlch
 ms.openlocfilehash: 2cbe290098a3e48e88b20a6cae978d120ec731b7
-ms.sourcegitcommit: 5af51a8cb9a7db8b1efb6ce6772890ac9884666a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47400101"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663576"
 ---
 # <a name="aspnet-session-state-provider-for-azure-redis-cache"></a>Azure Redis 缓存的 ASP.NET 会话状态提供程序
 Azure Redis 缓存提供了一个会话状态提供程序，可以使用该提供程序通过 Redis 缓存将会话状态存储在内存中而不是存储在 SQL Server 数据库中。 如果要使用缓存会话状态提供程序，首先配置缓存，然后使用 Redis 缓存会话状态 NuGet 包为缓存配置 ASP.NET 应用程序。

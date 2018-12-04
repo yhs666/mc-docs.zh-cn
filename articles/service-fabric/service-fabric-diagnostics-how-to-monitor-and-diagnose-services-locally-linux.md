@@ -16,11 +16,11 @@ origin.date: 02/23/2018
 ms.date: 10/15/2018
 ms.author: v-yeche
 ms.openlocfilehash: 06de8c61149a530dfe5015e7ecd97663856c4d1e
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49088965"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662207"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>在本地计算机开发安装过程中监视和诊断服务
 
@@ -110,18 +110,18 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
         }
         protected override void OnEventWritten(EventWrittenEventArgs eventData)
         {
-            using (StreamWriter Out = new StreamWriter( new FileStream("/tmp/MyServiceLog.txt", FileMode.Append)))           
-        { 
-                 // report all event information               
-         Out.Write(" {0} ",  Write(eventData.Task.ToString(), eventData.EventName, eventData.EventId.ToString(), eventData.Level,""));
-                if (eventData.Message != null)              
-            Out.WriteLine(eventData.Message, eventData.Payload.ToArray());              
-            else             
-        { 
-                    string[] sargs = eventData.Payload != null ? eventData.Payload.Select(o => o.ToString()).ToArray() : null; 
-                    Out.WriteLine("({0}).", sargs != null ? string.Join(", ", sargs) : "");             
+            using (StreamWriter Out = new StreamWriter( new FileStream("/tmp/MyServiceLog.txt", FileMode.Append)))           
+        { 
+                 // report all event information               
+         Out.Write(" {0} ",  Write(eventData.Task.ToString(), eventData.EventName, eventData.EventId.ToString(), eventData.Level,""));
+                if (eventData.Message != null)              
+            Out.WriteLine(eventData.Message, eventData.Payload.ToArray());              
+            else             
+        { 
+                    string[] sargs = eventData.Payload != null ? eventData.Payload.Select(o => o.ToString()).ToArray() : null; 
+                    Out.WriteLine("({0}).", sargs != null ? string.Join(", ", sargs) : "");             
         }
-           }
+           }
         }
     }
 ```

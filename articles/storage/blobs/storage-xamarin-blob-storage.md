@@ -11,11 +11,11 @@ origin.date: 05/11/2017
 ms.date: 10/30/2017
 ms.author: v-johch
 ms.openlocfilehash: a7087323e56dd9029d2360a2607adce3c0331aa2
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295740"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661320"
 ---
 # <a name="how-to-use-blob-storage-from-xamarin"></a>如何通过 Xamarin 使用 Blob 存储
 

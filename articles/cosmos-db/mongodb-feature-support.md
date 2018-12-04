@@ -12,11 +12,11 @@ origin.date: 11/15/2017
 ms.date: 09/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: 7d81539090b106350c2e336589af90c963a39906
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201432"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666855"
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>MongoDB API 对 MongoDB 功能和语法的支持
 

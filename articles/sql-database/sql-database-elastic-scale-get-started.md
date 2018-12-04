@@ -11,11 +11,11 @@ origin.date: 08/27/2018
 ms.date: 10/29/2018
 ms.author: v-jay
 ms.openlocfilehash: 3196f7e021ce8d2223e28ee0f058f9eee811dfa4
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135854"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660964"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>弹性数据库工具入门
 本文档通过帮助你运行示例应用来介绍[弹性数据库客户端库](sql-database-elastic-database-client-library.md)的开发人员体验。 此示例应用将创建一个简单的分片应用程序，并探讨 Azure SQL 数据库的弹性数据库工具特性的主要功能。 它重点介绍[分片映射管理](sql-database-elastic-scale-shard-map-management.md)、[数据依赖型路由](sql-database-elastic-scale-data-dependent-routing.md)和[多分片查询](sql-database-elastic-scale-multishard-querying.md)的用例。 该客户端库可用于 Java 和 .NET。 

@@ -11,11 +11,11 @@ ms.topic: conceptual
 origin.date: 08/20/2018
 ms.date: 08/27/2018
 ms.openlocfilehash: 2d7d90e7de5f9141658d68601d5f5267e28f8865
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426174"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662211"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>使用适用于Azure Database for PostgreSQL 的虚拟网络服务终结点和规则
 

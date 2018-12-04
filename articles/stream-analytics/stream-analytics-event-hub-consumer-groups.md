@@ -11,11 +11,11 @@ ms.topic: conceptual
 origin.date: 04/27/2018
 ms.date: 06/18/2018
 ms.openlocfilehash: ff54a9de961239abaccd40649fb815577428949e
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416842"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661443"
 ---
 # <a name="troubleshoot-event-hub-receivers-in-azure-stream-analytics"></a>在 Azure 流分析中对事件中心接收器进行故障排除
 

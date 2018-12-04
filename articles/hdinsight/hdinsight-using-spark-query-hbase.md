@@ -1,5 +1,5 @@
 ---
-title: 使用 Spark 读取和写入 HBase 数据 - Azure HDInsight
+title: 使用 Spark 来读写 HBase 数据 - Azure HDInsight
 description: 使用 Spark HBase 连接器将 Spark 群集中的数据读写到 HBase 群集。
 services: hdinsight
 documentationcenter: ''
@@ -15,11 +15,11 @@ origin.date: 01/11/2018
 ms.author: v-yiso
 ms.date: 06/25/2018
 ms.openlocfilehash: 0bce0ceb4c45df1bff2dba1e3b85ed0e67cb0519
-ms.sourcegitcommit: bae4e9e500e3e988ef8fa0371777ca9cc49b4e94
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45584849"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664001"
 ---
 # <a name="use-spark-to-read-and-write-hbase-data"></a>使用 Spark 读取和写入 HBase 数据
 
@@ -114,7 +114,7 @@ ms.locfileid: "45584849"
 5. 在容器列表中，选择 Spark 集群使用的容器。
 6. 选择“上传”。
 
-    ![上载](./media/hdinsight-using-spark-query-hbase/upload.png)
+    ![上传](./media/hdinsight-using-spark-query-hbase/upload.png)
 
 7. 选择之前下载到本地计算机的 `hbase-site.xml` 文件。
 

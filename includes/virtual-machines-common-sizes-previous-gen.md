@@ -10,11 +10,11 @@ ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: 650324903dde2895ba71c4637ed9e7622e24d8a5
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307067"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661789"
 ---
 本文提供有关先前几代虚拟机大小的信息。 这些大小仍可使用，但有新的大小可供使用。
 
@@ -62,7 +62,7 @@ ACU：160
 
 | 大小         | vCPU | 内存：GiB | 临时存储 (SSD) GiB | 临时存储的最大吞吐量：IOPS/读取 MBps/写入 MBps | 最大的数据磁盘/吞吐量：IOPS | 最大 NIC 数/预期网络带宽 (MBps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_D1  | 1         | 3.5         | 50             | 3000/46/23                                           | 4/4x500                         | 2 / 500                 |
+| Standard_D1  | 1         | 3.5         | 50             | 3000/46/23                                           | 4/4x500                         | 2 / 500                 |
 | Standard_D2  | 2         | 7           | 100            | 6000/93/46                                           | 8/8x500                         | 2 / 1000                     |
 | Standard_D3  | 4         | 14          | 200            | 12000/187/93                                         | 16/16x500                         | 4 / 2000                     |
 | Standard_D4  | 8         | 28          | 400            | 24000/375/187                                        | 32/32x500                       | 8 / 4000                     |

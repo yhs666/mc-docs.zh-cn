@@ -17,11 +17,11 @@ origin.date: 06/05/2017
 ms.date: 06/04/2018
 ms.author: v-yeche
 ms.openlocfilehash: b78fff25efa3ab331b4eaca97e18afb797b097e9
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702753"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661422"
 ---
 # <a name="create-a-managed-disk-from-a-vhd-file-in-a-storage-account-in-same-or-different-subscription-with-powershell"></a>使用 PowerShell 在相同或不同订阅的存储帐户中从 VHD 文件创建托管磁盘
 

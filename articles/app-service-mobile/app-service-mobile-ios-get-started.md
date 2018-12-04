@@ -16,11 +16,11 @@ origin.date: 08/17/2018
 ms.date: 09/03/2018
 ms.author: v-yiso
 ms.openlocfilehash: bf137e0b029d5688d1a44cfefcc08fbe2e35105e
-ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42870563"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663800"
 ---
 #<a name="create-an-ios-app"></a>创建 iOS 应用
 

@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.topic: conceptual
 manager: digimobile
 ms.openlocfilehash: d3556be62a642b7395e205da34ca95aad699f9e1
-ms.sourcegitcommit: 1b60848d25bbd897498958738644a4eb9cf3a302
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43731195"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663683"
 ---
 # <a name="editing-textual-runbooks-in-azure-automation"></a>在 Azure 自动化中编辑文本 Runbook
 
@@ -49,7 +49,7 @@ Azure 自动化中的每个 Runbook 都有两个版本：草稿版和已发布�
 
 ### <a name="to-insert-code-for-a-child-runbook-into-a-runbook"></a>将子 Runbook 的代码插入 Runbook 中
 
-1. 在文本编辑器的“画布”中，将光标置于要放置[子 Runbook](automation-child-runbooks.md) 代码的位置。
+1. 在文本编辑器的“画布”中，将光标置于要放置[子 Runbook](automation-child-runbooks.md)代码的地方。
 2. 展开“库”控件中的“Runbook”节点。
 3. 右键单击要插入的 Runbook，并选择“添加到画布”。
 4. 此时会插入带 Runbook 参数占位符的子 Runbook 的代码。

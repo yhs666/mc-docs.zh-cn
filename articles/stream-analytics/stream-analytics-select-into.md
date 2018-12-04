@@ -11,11 +11,11 @@ ms.topic: conceptual
 origin.date: 04/20/2017
 ms.date: 09/30/2018
 ms.openlocfilehash: 36a637269f99d8471d08120a45a3121b60857936
-ms.sourcegitcommit: 432984d85afe6f3da8f211bae0fa98a556785ee8
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455395"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660425"
 ---
 # <a name="debug-queries-by-using-select-into-statements"></a>使用 SELECT INTO 语句调试查询
 

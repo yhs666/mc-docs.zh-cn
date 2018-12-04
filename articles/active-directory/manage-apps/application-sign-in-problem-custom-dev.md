@@ -17,11 +17,11 @@ ms.date: 10/08/2018
 ms.author: v-junlch
 ms.reviewer: asteen
 ms.openlocfilehash: 11eb2ed43589cff5b9c476d1d680c5c26b6b9dad
-ms.sourcegitcommit: b8f424fbff10034c55851618f6564d52257a5e92
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48876431"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660326"
 ---
 # <a name="problems-signing-in-to-an-custom-developed-application"></a>登录自定义开发的应用程序时出现的问题
 

@@ -16,11 +16,11 @@ origin.date: 07/31/2018
 ms.date: 09/10/2018
 ms.author: v-yeche
 ms.openlocfilehash: 386e3c3eaf40ba377dada8249ca41b6c18d7f0a8
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515715"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666672"
 ---
 # <a name="sfctl-service"></a>sfctl service
 创建、删除和管理服务、服务类型与服务包。
@@ -32,10 +32,10 @@ ms.locfileid: "44515715"
 | app-name | 获取服务的 Service Fabric 应用程序名称。 |
 | code-package-list | 获取部署在 Service Fabric 节点上的代码包的列表。 |
 | create | 创建指定的 Service Fabric 服务。 |
-| delete | 删除现有的 Service Fabric 服务。 |
+| 删除 | 删除现有的 Service Fabric 服务。 |
 | deployed-type | 获取有关 Service Fabric 群集中节点上部署的应用程序的指定服务类型的信息。 |
 | deployed-type-list | 获取列表，其中包含有关 Service Fabric 群集中节点上部署的应用程序中的服务类型的信息。 |
-| description | 获取现有 Service Fabric 服务的说明。 |
+| 说明 | 获取现有 Service Fabric 服务的说明。 |
 | get-container-logs | 获取 Service Fabric 节点上部署的容器的容器日志。 |
 | health | 获取指定 Service Fabric 服务的运行状况。 |
 | info | 获取有关属于 Service Fabric 应用程序的特定服务的信息。 |
@@ -155,7 +155,7 @@ ms.locfileid: "44515715"
 |参数|说明|
 | --- | --- |
 | --service-id [必需] | 服务的标识。 此 ID 通常是不带“fabric\:”URI 方案的服务全名。 从版本 6.0 开始，分层名称以“\~”字符隔开。 例如，如果服务名称为“fabric\:/myapp/app1/svc1”，则 6.0 及更高版本中的服务标识为“myapp\~app1\~svc1”，在以前的版本中为“myapp/app1/svc1”。 |
-| --force-remove | 强制删除 Service Fabric 应用程序或服务，跳过正常关闭序列。 若因服务代码中的问题而无法正常关闭副本，导致删除应用程序或服务操作超时，可使用此参数强制删除该应用程序或服务。 |
+| --force-remove | 强制删除 Service Fabric 应用程序或服务，跳过正常关闭序列。 若因服务代码中的问题而无法正常关闭副本，导致应用程序或服务删除超时，可使用此参数强制删除该应用程序或服务。 |
 | --timeout -t | 服务器超时，以秒为单位。  默认值\: 60。 |
 
 ### <a name="global-arguments"></a>全局参数
@@ -324,7 +324,7 @@ ms.locfileid: "44515715"
 |参数|说明|
 | --- | --- |
 | --application-id [必需] | 应用程序的标识。 这通常是不带“fabric\:”URI 方案的应用程序全名。 从版本 6.0 开始，分层名称以“\~”字符隔开。 例如，如果应用程序名称为“fabric\:/myapp/app1”，则 6.0 及更高版本中的应用程序标识为“myapp\~app1”，在以前的版本中为“myapp/app1”。 |
-| --continuation-token | 继续标记参数用于获取下一组结果。 如果单个响应无法容纳来自系统的结果，则 API 响应中包括含有非空值的继续标记。 当此值传递到下一个 API 调用时，API 返回下一组结果。 如果没有更多结果，则该继续标记不包含值。 不应将此参数的值进行 URL 编码。 |
+| --continuation-token | 继续标记参数用于获取下一组结果。 如果单个响应无法容纳来自系统的结果，则 API 响应中包括含有非空值的继续标记。 当此值传递到下一个 API 调用时，API 返回下一组结果。 如果没有更多结果，则继续标记不包含值。 不应将此参数的值进行 URL 编码。 |
 | --service-type-name | 用于筛选要查询的服务的服务类型名称。 |
 | --timeout -t | 服务器超时，以秒为单位。  默认值\: 60。 |
 

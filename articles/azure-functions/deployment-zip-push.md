@@ -12,11 +12,11 @@ origin.date: 08/12/2018
 ms.date: 09/21/2018
 ms.author: v-junlch
 ms.openlocfilehash: e4fe0360beeebfd34d8bfadbeb9030411d70bf49
-ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46524014"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662005"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Azure Functions 的 Zip 部署
 

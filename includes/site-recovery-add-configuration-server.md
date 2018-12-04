@@ -11,11 +11,11 @@ ms.date: 9/30/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: 76e51b3aa2be7b8c49e33db93b644aa58ed03432
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201482"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664705"
 ---
 1. 运行统一安装程序安装文件。
 2. 在“开始之前”中，选择“安装配置服务器和进程服务器”。

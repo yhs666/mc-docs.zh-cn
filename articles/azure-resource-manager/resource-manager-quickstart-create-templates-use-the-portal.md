@@ -15,11 +15,11 @@ ms.date: 09/24/2018
 ms.topic: quickstart
 ms.author: v-yeche
 ms.openlocfilehash: f1fba4b3dba76c216057b152e7237bc2e0b554ab
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46526976"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663217"
 ---
 <!-- Verify successfully-->
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建和部署 Azure 资源管理器模板

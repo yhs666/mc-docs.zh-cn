@@ -16,11 +16,11 @@ origin.date: 05/14/2018
 ms.date: 08/27/2018
 ms.author: v-yiso
 ms.openlocfilehash: b19071710ba25a335bf9e833397f33e4717ea53d
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41704715"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661722"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>使用 .NET SDK 管理 HDInsight 中的 Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -264,7 +264,7 @@ foreach (var key in results.Configuration.Keys)
 
 **提交 Sqoop 作业**
 
-请参阅[将 Sqoop 与 HDInsight 配合使用](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)。
+请参阅 [将 Sqoop 与 HDInsight 配合使用](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)。
 
 **提交 Oozie 作业**
 

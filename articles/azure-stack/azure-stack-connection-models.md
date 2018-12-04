@@ -17,11 +17,11 @@ ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: wfayed
 ms.openlocfilehash: c8225cac73980672633df9683fcfce6900fc58ac
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195529"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666498"
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Azure Stack 集成系统连接模型
 如果你对 Azure Stack 集成系统感兴趣，则需要了解[几个数据中心集成注意事项](azure-stack-datacenter-integration.md)，以便 Azure Stack 部署确定系统将如何适应数据中心。 此外，还需要准确确定如何将 Azure Stack 集成到混合云环境。 本文概述了这些主要决策，包括 Azure 连接决策、标识存储决策和计费模型决策。

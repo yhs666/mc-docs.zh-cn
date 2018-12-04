@@ -17,11 +17,11 @@ origin.date: 07/21/2016
 ms.author: v-yiso
 ms.date: 10/15/2018
 ms.openlocfilehash: d90b36ac80435bff3dca6c4f9364ec76e2454a00
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455106"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661357"
 ---
 # <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>使用 Webhook 和 Azure 逻辑应用创建基于事件的工作流或操作
 

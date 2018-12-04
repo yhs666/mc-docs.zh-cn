@@ -13,11 +13,11 @@ origin.date: 10/11/2017
 ms.date: 02/26/2018
 ms.author: v-yiso
 ms.openlocfilehash: 325b1b0458c8efe61f2e38f6f0bcb1807b437fbe
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29286072"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662456"
 ---
 # <a name="terminology"></a>术语
 

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.component: authentication
 ms.topic: article
 origin.date: 01/15/2018
-ms.date: 10/11/2018
+ms.date: 11/05/2018
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: annaba
-ms.openlocfilehash: 19c025fd97671717a7c8a395cb9657595c717cc2
-ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
+ms.openlocfilehash: 4349d9471239c3d5d311c47cdcfda6abf155359c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121614"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660139"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Azure Active Directory 中基于证书的身份验证入门
 
@@ -30,7 +30,7 @@ ms.locfileid: "49121614"
 本主题：
 
 - 提供的步骤介绍如何为 Office 365 企业版、商业版、教育版和美国政府版计划中租户的用户配置并使用基于证书的身份验证。 可在 Office 365 China（Office 365 中国版）、Office 365 US Government Defense（Office 365 美国政府国防版）和 Office 365 US Government Federal（Office 365 美国政府联邦版）计划中使用此功能。
-- 假设已配置[公钥基础结构 (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) 和 [AD FS](../connect/active-directory-aadconnectfed-whatis.md)。
+- 假设已配置[公钥基础结构 (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) 和 [AD FS](../hybrid/how-to-connect-fed-whatis.md)。
 
 ## <a name="requirements"></a>要求
 
@@ -208,3 +208,4 @@ EAS 配置文件必须包含以下信息：
 
 [有关 iOS 设备上基于证书的身份验证的其他信息。](active-directory-certificate-based-authentication-ios.md)
 
+<!-- Update_Description: wording update -->

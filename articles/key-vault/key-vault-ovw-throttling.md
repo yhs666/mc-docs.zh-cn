@@ -14,11 +14,11 @@ origin.date: 05/10/2018
 ms.date: 06/11/2018
 ms.author: v-junlch
 ms.openlocfilehash: e562cd82b74377efa582fc3bd666640cca7999ec
-ms.sourcegitcommit: 306fba1a7125ef6f0555781524afa8f535bea2a0
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35253372"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661325"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Azure Key Vault 限制指南
 

@@ -17,11 +17,11 @@ origin.date: 02/26/2016
 ms.date: 10/09/2017
 ms.author: v-yiso
 ms.openlocfilehash: d5e437499b9273fd81225403c1ee94ce526cc6fe
-ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
-ms.locfileid: "22146552"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661822"
 ---
 # <a name="configuring-python-with-azure-app-service-web-apps"></a>使用 Azure 应用服务 Web 应用配置 Python
 本教程介绍在 [Azure 应用服务 Web 应用](/app-service-web/app-service-changes-existing-services)中创作和配置符合基本 Web 服务器网关接口 (WSGI) 的 Python 应用程序的选项。
@@ -29,7 +29,7 @@ ms.locfileid: "22146552"
 其中讲解了 Git 部署的一些功能，如使用 requirements.txt 安装虚拟环境和包。
 
 ## <a name="bottle-django-or-flask"></a>Bottle、Django 还是 Flask？
-Azure 应用商店包含用于 Bottle、Django 和 Flask 框架的模板。 如果正在开发 Azure 应用服务中的第一个 Web 应用，可以通过 Azure 门户快速创建一个：
+Azure 市场包含用于 Bottle、Django 和 Flask 框架的模板。 如果正在开发 Azure 应用服务中的第一个 Web 应用，可以通过 Azure 门户快速创建一个：
 
 * [使用 Bottle 创建 Web 应用](web-sites-python-create-deploy-bottle-app.md)
 * [使用 Django 创建 Web 应用](web-sites-python-create-deploy-django-app.md)
@@ -43,7 +43,7 @@ Azure 应用商店包含用于 Bottle、Django 和 Flask 框架的模板。 如�
 ## <a name="git-publishing"></a>Git 发布
 按照 [从本地 Git 部署到 Azure 应用服务](app-service-deploy-local-git.md)的说明为新创建的 Web 应用配置 Git 发布。 本教程使用 Git 来创建、管理 Python Web 应用以及将其发布到 Azure 应用服务。
 
-在设置 Git 发布之后，会创建 Git 存储库并使其与你的 Web 应用相关联。 随即会显示该存储库的 URL，之后其可用于将数据从本地开发环境推送到云。 要通过 Git 发布应用程序，请确保还安装了 Git 客户端，并按照提供的说明将 Web 应用内容推送到 Azure 应用服务。
+在设置 Git 发布之后，将创建 Git 存储库并使其与 Web 应用相关联。 随即会显示该存储库的 URL，之后其可用于将数据从本地开发环境推送到云。 要通过 Git 发布应用程序，请确保还安装了 Git 客户端，并按照提供的说明将 Web 应用内容推送到 Azure 应用服务。
 
 ## <a name="application-overview"></a>应用程序概述
 接下来几节会创建以下文件。 这些文件应放在 Git 存储库的根目录中。
@@ -206,8 +206,7 @@ Python 3.4 的示例 `web.config` ：
 
 `WSGI_ALT_VIRTUALENV_HANDLER` 是指定 WSGI 处理程序的位置。 在上述示例中，该位置为 `app.wsgi_app`，因为处理程序是根文件夹中 `app.py` 中的一个名为 `wsgi_app` 的函数。
 
-
-            `PYTHONPATH`，但是，如果通过在 requirements.txt 中指定将所有依赖项全部安装到虚拟环境中，则不需要更改。
+`PYTHONPATH`，但是，如果通过在 requirements.txt 中指定将所有依赖项全部安装到虚拟环境中，则不需要更改。
 
 ## <a name="virtual-environment-proxy"></a>虚拟环境代理
 使用以下脚本可检索 WSGI 处理程序、激活虚拟环境以及记录错误。 该脚本是通用的，无需修改即可使用。
@@ -349,5 +348,5 @@ Python 3.4 的示例 `web.config` ：
 ## <a name="next-steps"></a>后续步骤
 有关详细信息，请参阅 [Python 开发人员中心](/develop/python/)。
 
-## <a name="whats-changed"></a>更改内容
-* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
+## <a name="whats-changed"></a>发生的更改
+* 有关从网站更改为 应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)

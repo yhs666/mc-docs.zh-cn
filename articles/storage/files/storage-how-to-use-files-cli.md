@@ -15,11 +15,11 @@ origin.date: 03/26/2018
 ms.date: 06/11/2018
 ms.author: v-nany
 ms.openlocfilehash: 5eb90e0dc36e8e3686dee50f9cb57ad58b928431
-ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523653"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661693"
 ---
 # <a name="manage-azure-file-shares-using-azure-cli"></a>使用 Azure CLI 管理 Azure 文件共享
 [Azure 文件](storage-files-introduction.md)是 Microsoft 推出的易于使用的云文件系统。 可以在 Windows、Linux 和 macOS 中装载 Azure 文件共享。 本文介绍通过 Azure CLI 来使用 Azure 文件共享的基本知识。 了解如何： 

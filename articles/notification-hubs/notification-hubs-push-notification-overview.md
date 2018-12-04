@@ -17,11 +17,11 @@ origin.date: 04/14/2018
 ms.date: 07/09/2018
 ms.author: v-junlch
 ms.openlocfilehash: 36c404a15395927faa84c63d0ad63b92c6c3f1b4
-ms.sourcegitcommit: e950fe5260c519e05f8c5bbf193a8ef733a6a2d2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37936309"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661686"
 ---
 # <a name="what-is-azure-notification-hubs"></a>什么是 Azure 通知中心？
 Azure 通知中心提供易于使用且横向扩展的推送引擎，可用于从任何后端（云或本地）向任何平台（iOS、Android、Windows、Kindle、百度等）发送通知。 通知中心非常适合用于企业和消费者方案。 下面是一些示例方案：
@@ -102,8 +102,7 @@ PNSes 非常强大。 但应用开发人员仍然需要完成大量工作才能�
     - 共享访问机密 (SAS) 或联合身份验证。
 
 ## <a name="integration-with-app-service-mobile-apps"></a>与应用服务 Mobile Apps 集成
-为了帮助在 Azure 服务之间提供无缝且统一的体验， [应用服务移动应用](../app-service-mobile/app-service-mobile-value-prop.md) 原生支持使用通知中心来推送通知。 
-  [应用服务 Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) 提供面向企业开发人员和系统集成商的高度可缩放、全局可用的移动应用程序平台，该平台向移动开发人员提供一组丰富的功能。
+为了帮助在 Azure 服务之间提供无缝且统一的体验， [应用服务移动应用](../app-service-mobile/app-service-mobile-value-prop.md) 原生支持使用通知中心来推送通知。 [应用服务 Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) 提供面向企业开发人员和系统集成商的高度可缩放、全局可用的移动应用程序平台，该平台向移动开发人员提供一组丰富的功能。
 
 移动应用开发人员可以借助以下工作流来利用通知中心：
 

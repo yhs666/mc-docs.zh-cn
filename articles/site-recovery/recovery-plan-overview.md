@@ -12,11 +12,11 @@ origin.date: 07/06/2018
 ms.date: 07/23/2018
 ms.author: v-yeche
 ms.openlocfilehash: e421f556c0647715901db76bd8374b44646d3d25
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168227"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660239"
 ---
 # <a name="about-recovery-plans"></a>关于恢复计划
 

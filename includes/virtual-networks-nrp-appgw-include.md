@@ -4,7 +4,7 @@
 
 | 属性 | 说明 |
 | --- | --- |
-| backendAddressPools |后端服务器的 IP 地址列表。 列出的 IP 地址应属于虚拟网络子网，或者应是公共 IP/VIP 或专用 IP |
+| **backendAddressPools** |后端服务器的 IP 地址列表。 列出的 IP 地址应属于虚拟网络子网，或者应是公共 IP/VIP 或专用 IP |
 | backendHttpSettingsCollection |每个池具有端口、协议和基于 Cookie 的相关性等设置。 这些设置绑定到池，并会应用到池中的所有服务器 |
 | frontendPorts |此端口是应用程序网关上打开的公共端口。 流量将抵达此端口，然后重定向到后端服务器之一 |
 | httpListeners |侦听器具有前端端口、协议（Http 或 Https，区分大小写）和 SSL 证书名称（如果要配置 SSL 卸载） |

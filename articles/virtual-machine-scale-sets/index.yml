@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 8ef03e485261dfe50d4820426acc333890ad448a
-ms.sourcegitcommit: 56ed1b03d83f222db6118fe1e2f2485a9488507f
+ms.openlocfilehash: 873dc52ba55f5da4f21f738343390f57874cc026
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41704465"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664191"
 documentType: LandingData
 title: 虚拟机规模集文档
 metadata:
@@ -17,7 +17,7 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
 origin.date: 03/14/2018
-ms.date: 08/13/2018
+ms.date: 11/15/2018
 ms.author: v-junlch
 abstract:
   description: 使用 Azure 虚拟机规模集可以创建并管理一组完全相同的、负载均衡的、自动缩放的虚拟机。 使用我们的快速入门、教程和示例了解如何创建、配置、管理和自动缩放虚拟机规模集。
@@ -35,7 +35,7 @@ sections:
       href: /virtual-machine-scale-sets/quick-create-portal
     - image:
         src: /virtual-machines/linux/media/index/cli.svg
-      text: Azure CLI 2.0
+      text: Azure CLI
       href: /virtual-machine-scale-sets/quick-create-cli
     - image:
         src: /virtual-machines/linux/media/index/logo_powershell.svg
@@ -48,11 +48,11 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: 使用 <a href="/virtual-machine-scale-sets/tutorial-create-and-manage-cli">Azure CLI 2.0</a> 或 <a href="/virtual-machine-scale-sets/tutorial-create-and-manage-powershell">Azure PowerShell</a> 创建和管理规模集
-    - html: 通过 <a href="/virtual-machine-scale-sets/tutorial-use-disks-cli">Azure CLI 2.0</a> 或 <a href="/virtual-machine-scale-sets/tutorial-use-disks-powershell">Azure PowerShell</a> 使用数据磁盘
-    - html: 通过 <a href="/virtual-machine-scale-sets/tutorial-use-custom-image-cli">Azure CLI 2.0</a> 或 <a href="/virtual-machine-scale-sets/tutorial-use-custom-image-powershell">Azure PowerShell</a> 使用自定义 VM 映像
-    - html: 使用 <a href="/virtual-machine-scale-sets/tutorial-install-apps-cli">Azure CLI 2.0</a> 或 <a href="/virtual-machine-scale-sets/tutorial-install-apps-powershell">Azure PowerShell</a> 将应用部署到规模集
-    - html: 使用 <a href="/virtual-machine-scale-sets/tutorial-autoscale-cli">Azure CLI 2.0</a> 或 <a href="/virtual-machine-scale-sets/tutorial-autoscale-powershell">Azure PowerShell</a> 自动缩放规模集
+    - html: 使用 <a href="/virtual-machine-scale-sets/tutorial-create-and-manage-cli">Azure CLI</a> 或 <a href="/virtual-machine-scale-sets/tutorial-create-and-manage-powershell">Azure Powershell</a> 创建和管理规模集
+    - html: 通过 <a href="/virtual-machine-scale-sets/tutorial-use-disks-cli">Azure CLI</a> 或 <a href="/virtual-machine-scale-sets/tutorial-use-disks-powershell">Azure Powershell</a> 使用数据磁盘
+    - html: 通过 <a href="/virtual-machine-scale-sets/tutorial-use-custom-image-cli">Azure CLI</a> 或 <a href="/virtual-machine-scale-sets/tutorial-use-custom-image-powershell">Azure Powershell</a> 使用自定义 VM 映像
+    - html: 使用 <a href="/virtual-machine-scale-sets/tutorial-install-apps-cli">Azure CLI</a> 或 <a href="/virtual-machine-scale-sets/tutorial-install-apps-powershell">Azure PowerShell</a> 将应用部署到规模集
+    - html: 使用 <a href="/virtual-machine-scale-sets/tutorial-autoscale-cli">Azure CLI</a> 或 <a href="/virtual-machine-scale-sets/tutorial-autoscale-powershell">Azure Powershell</a> 自动缩放规模集
 - title: 示例
   items:
   - type: paragraph
@@ -61,5 +61,5 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="/virtual-machine-scale-sets/cli-samples">Azure CLI 2.0</a>
+    - html: <a href="/virtual-machine-scale-sets/cli-samples">Azure CLI</a>
     - html: <a href="/virtual-machine-scale-sets/powershell-samples">Azure PowerShell</a>

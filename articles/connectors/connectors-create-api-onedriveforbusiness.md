@@ -17,11 +17,11 @@ origin.date: 08/18/2016
 ms.author: v-yiso
 ms.date: 03/26/2018
 ms.openlocfilehash: 0040afd9408ddd4cf26993ca396d15bc84a30492
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939568"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662230"
 ---
 # <a name="get-started-with-the-onedrive-for-business-connector"></a>OneDrive for Business 连接器入门
 连接到 OneDrive for Business 管理文件。 可以执行各种操作，例如上传、更新、获取和删除文件。

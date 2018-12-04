@@ -17,11 +17,11 @@ ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: scottnap
 ms.openlocfilehash: 6fd6862f5882c11c30df9b1d44a48d1ac30b836f
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48849126"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660719"
 ---
 # <a name="add-public-ip-addresses"></a>添加公共 IP 地址
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*  

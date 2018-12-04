@@ -11,11 +11,11 @@ ms.topic: article
 origin.date: 02/28/2018
 ms.date: 09/29/2018
 ms.openlocfilehash: a159a47f855f3779f4744f28856e3cd3d3256bdd
-ms.sourcegitcommit: 3b9e31daa1ae213311d7d530225be03e4c3e6332
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48850716"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667065"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>配置应用程序的 SSL 连接性以安全连接到 Azure Database for MySQL
 

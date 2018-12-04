@@ -15,11 +15,11 @@ ms.date: 11/05/2018
 ms.author: v-yiso
 ms.custom: mvc
 ms.openlocfilehash: d5781f25cfe6647de02707136ddcdd5e94c91382
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135698"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664358"
 ---
 # <a name="set-up-rate-limit-policy"></a>设置速率限制策略
 

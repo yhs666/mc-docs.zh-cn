@@ -10,11 +10,11 @@ ms.date: 11/12/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
 ms.openlocfilehash: 6edb5f75e04242e0d3f03c5603f2ca5201fa24c6
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195538"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667083"
 ---
 # <a name="alias-server-names"></a>服务器别名
 

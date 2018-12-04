@@ -16,11 +16,11 @@ origin.date: 07/04/2018
 ms.date: 07/23/2018
 ms.author: v-junlch
 ms.openlocfilehash: b8138fca9aeba47fa7e2e7825a320536313805b3
-ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39220252"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664585"
 ---
 # <a name="overview-of-function-types-and-features-for-durable-functions-azure-functions"></a>Durable Functions 的函数类型和功能概述 (Azure Functions)
 

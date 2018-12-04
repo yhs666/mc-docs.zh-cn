@@ -17,11 +17,11 @@ origin.date: 03/26/2018
 ms.date: 05/21/2018
 ms.author: v-yiso
 ms.openlocfilehash: 9d0a5b48f99143d764c614818ada4e95079ca36a
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450052"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661933"
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-hadoop-on-hdinsight-and-sql-database"></a>使用 Apache Sqoop 在 Hadoop on HDInsight 与 SQL 数据库之间进行导入和导出
 
@@ -74,7 +74,7 @@ GO
     ssh mycluster-ssh.azurehdinsight.cn
     ```
 
-    有关详细信息，请参阅 [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
+    有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 2. 若要验证 Sqoop 是否可以看到 SQL 数据库，请使用以下命令：
 

@@ -16,11 +16,11 @@ origin.date: 10/04/2016
 ms.date: 01/29/2018
 ms.author: v-yiso
 ms.openlocfilehash: 69a7dd13e2f46b8370569ad67fee82bfe0cb64e0
-ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2018
-ms.locfileid: "27984749"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661764"
 ---
 # <a name="enable-offline-sync-for-your-xamarinforms-mobile-app"></a>为 Xamarin.Forms 移动应用启用脱机同步
 
@@ -131,7 +131,7 @@ ms.locfileid: "27984749"
 
 如果对一个表执行拉取操作，并且该表具有由上下文跟踪的未完成的本地更新，那么该拉取操作自动触发之前的上下文推送操作。 在此示例中刷新、添加和完成项目时，可省略显式 **PushAsync** 调用。
 
-在所提供的代码中，查询远程 TodoItem 表中的所有记录，但它还可以筛选记录，只需将查询 ID 和查询传递给 **PushAsync** 即可。 有关详细信息，请参阅 *Azure 移动应用中的脱机数据同步* 中的 [增量同步][2]部分。
+在所提供的代码中，将查询远程 TodoItem 表中的所有记录，但它还可以筛选记录，只需将查询 ID 和查询传递给 **PushAsync**即可。 有关详细信息，请参阅 *Azure 移动应用中的脱机数据同步* 中的 [增量同步][2]部分。
 
 ## <a name="run-the-client-app"></a>运行客户端应用
 

@@ -18,11 +18,11 @@ ms.date: 08/27/2018
 ms.author: v-yiso
 ROBOTS: NOINDEX
 ms.openlocfilehash: e9db09368967a371b4d21c6c01bde8c0512f0beb
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41704942"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666494"
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>使用脚本操作自定义基于 Windows 的 HDInsight 群集
 在创建群集的过程中，可以使用脚本操作来调用[自定义脚本](hdinsight-hadoop-script-actions.md)，以便在群集上安装其他软件。
@@ -291,8 +291,7 @@ Azure HDInsight 服务是一个弹性平台，可让你使用围绕着 Hadoop �
 HDInsight 服务中有两种类型的开放源代码组件：
 
 * **内置组件** - 这些组件预先安装在 HDInsight 群集上，并提供在群集的核心功能。 例如，Yarn ResourceManager、Hive 查询语言 (HiveQL) 及 Mahout 库均属于此类别。 [HDInsight 提供的 Hadoop 群集版本有哪些新功能？](hdinsight-component-versioning.md)</a>中提供了群集组件的完整列表。
-* 
-            **自定义组件** - 作为群集用户，可以安装，或者在工作负荷中使用由社区提供的或自己创建的任何组件。
+* **自定义组件** - 作为群集用户，可以安装，或者在工作负荷中使用由社区提供的或自己创建的任何组件。
 
 完全支持内置组件，Azure 支持部门帮助找出并解决与这些组件相关的问题。
 

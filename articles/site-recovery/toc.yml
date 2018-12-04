@@ -116,6 +116,8 @@ items:
       href: concepts-expressroute-with-site-recovery.md
     - name: 将网络安全组与 Site Recovery 配合使用
       href: concepts-network-security-group-with-site-recovery.md
+    - name: 将公共 IP 地址与 Site Recovery 配合使用
+      href: concepts-public-ip-address-with-site-recovery.md
   - name: 应用的灾难恢复
     href: site-recovery-workload.md
   - name: 关于恢复计划
@@ -138,6 +140,8 @@ items:
         href: azure-to-azure-network-mapping.md
       - name: 设置 IP 地址以进行故障转移
         href: site-recovery-retain-ip-azure-vm-failover.md
+      - name: 将 ExpressRoute 与 Azure VM 灾难恢复集成
+        href: azure-vm-disaster-recovery-with-expressroute.md
     - name: 灾难恢复
       items:
       - name: 迁移到 Azure 之后的 Azure VM 灾难恢复
@@ -148,6 +152,8 @@ items:
       items:
       - name: 启用 Azure 到 Azure 复制
         href: azure-to-azure-how-to-enable-replication.md
+      - name: 为加密的 VM 启用 Azure 到 Azure 复制
+        href: azure-to-azure-how-to-enable-replication-ade-vms.md
       - name: 重新保护已从 Azure 次要区域故障转移到主要区域的计算机
         href: azure-to-azure-how-to-reprotect.md
     - name: 故障排除
@@ -203,7 +209,7 @@ items:
       - name: 设置物理服务器复制的源环境
         href: physical-azure-set-up-source.md
       - name: 设置物理服务器复制的目标环境
-        href: physical-azure-set-up-target.md
+        href: vmware-azure-set-up-target.md
       - name: 为 Azure Stack VM 设置灾难恢复
         href: azure-stack-site-recovery.md
     - name: 部署移动服务
@@ -252,7 +258,7 @@ items:
         href: site-recovery-monitor-and-troubleshoot.md
       - name: 排查 VMware 到 Azure 复制的问题
         href: vmware-azure-troubleshoot-replication.md
-      - name: 排查 VMware 和物理服务器复制中的移动服务问题
+      - name: 排查 VMware 和物理服务器复制中的移动服务/推送安装问题
         href: vmware-azure-troubleshoot-push-install.md
       - name: 排查故障转移到 Azure 的问题
         href: site-recovery-failover-to-azure-troubleshoot.md
@@ -382,9 +388,9 @@ items:
     href: https://www.azure.cn/pricing/calculator/
   - name: 服务更新
     href: https://www.azure.cn/what-is-new/
-ms.openlocfilehash: 9d37df9dee3829c8019e9527984a34ced1ac55ce
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: b38aabb2ef22919946e6d6280277c69b26dd97d5
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201441"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662950"

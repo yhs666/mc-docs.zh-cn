@@ -17,11 +17,11 @@ origin.date: 05/31/2017
 ms.date: 03/19/2018
 ms.author: v-yeche
 ms.openlocfilehash: 1e128fdf496799a1706cca2912a23577c5629bea
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29965323"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664554"
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>将本地 AlwaysOn 可用性组扩展到 Azure
 AlwaysOn 可用性组通过添加辅助副本为数据库组提供高可用性。 在发生故障时，可以使用这些副本来故障转移数据库。 此外，它们还可用于卸载读取工作负荷或备份任务。
@@ -45,7 +45,7 @@ AlwaysOn 可用性组通过添加辅助副本为数据库组提供高可用性�
 
 1. 在 SQL Server Management Studio 中，展开“AlwaysOn 高可用性” > “可用性组” > “[可用性组的名称]”。
 2. 右键单击“可用性副本”，并单击“添加副本”。
-3. 默认情况下，会显示“将副本添加到可用性组向导”。 单击“下一步”。  如果在上一次启动此向导期间在页面底部选择了“不再显示此页”选项，不会显示此屏幕。
+3. 默认情况下，将显示“将副本添加到可用性组向导”。 单击“下一步”。  如果在上一次启动此向导期间在页面底部选择了“不再显示此页”选项，不会显示此屏幕。
 
     ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742861.png)
 4. 需要连接到所有现有辅助副本。 可以单击每个副本旁的“连接...”， 也可以单击屏幕底部的“全部连接…” 。 身份验证之后，单击“下一步”转到下一屏幕。

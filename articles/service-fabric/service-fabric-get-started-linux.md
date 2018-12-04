@@ -16,11 +16,11 @@ origin.date: 02/23/2018
 ms.date: 10/15/2018
 ms.author: v-yeche
 ms.openlocfilehash: 0f21a841a9b4a502d5dcc2a84894a592e0616dd8
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089064"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662816"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>在 Linux 上准备开发环境
 > [!div class="op_single_selector"]

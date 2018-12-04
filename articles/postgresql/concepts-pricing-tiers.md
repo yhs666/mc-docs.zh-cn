@@ -11,11 +11,11 @@ ms.topic: article
 origin.date: 10/10/2018
 ms.date: 10/29/2018
 ms.openlocfilehash: e63f05daafcf8c7457c199e4c72010046d3bd812
-ms.sourcegitcommit: 1934f3a6db96e9e069f10bfc0ca47dedb1b25c8f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652578"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660424"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Database for PostgreSQL 定价层
 

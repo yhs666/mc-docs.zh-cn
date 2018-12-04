@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/27/2017
 ms.openlocfilehash: caa39f663af2b61c73da581432a63a8c6d18f47c
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
-ms.locfileid: "25592555"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661747"
 ---
 # <a name="post-deployment-tasks"></a>部署后任务
 
@@ -38,9 +38,9 @@ ms.locfileid: "25592555"
 这些步骤使用 Azure CLI 创建应用注册，然后使用 GUI（门户）设置权限。 若要创建应用注册，需要提供以下五项信息：
 
 - 显示名称：应用注册名称（例如 OCPAzureAD）
-- 主页：OpenShift 控制台 URL（例如 https://masterdns343khhde.chinanorth.cloudapp.chinacloudapi.cn:8443/console）
-- 标识符 URI：OpenShift 控制台 URL（例如 https://masterdns343khhde.chinanorth.cloudapp.chinacloudapi.cn:8443/console）
-- 回复 URL：主机公共 URL 和应用注册名称（例如 https://masterdns343khhde.chinanorth.cloudapp.chinacloudapi.cn:8443/oauth2callback/OCPAzureAD）
+- 主页：OpenShift 控制台 URL（例如 https://masterdns343khhde.chinanorth.cloudapp.chinacloudapi.cn:8443/console)
+- 标识符 URI：OpenShift 控制台 URL（例如 https://masterdns343khhde.chinanorth.cloudapp.chinacloudapi.cn:8443/console)
+- 答复 URL：主公用 URL 和应用注册名称（例如 https://masterdns343khhde.chinanorth.cloudapp.chinacloudapi.cn:8443/oauth2callback/OCPAzureAD)
 - 密码：安全密码（使用强密码）
 
 以下示例使用上述信息创建应用注册：
@@ -283,9 +283,9 @@ oc create -f ocp-omsagent.yml
 
 ## <a name="configure-metrics-and-logging"></a>配置指标和日志记录
 
-OpenShift 容器平台的 Azure 资源管理器模板提供输入参数用于启用指标和日志记录。 OpenShift 容器平台 Marketplace 产品和 OpenShift Origin 资源管理器模板不提供这些参数。
+OpenShift 容器平台的 Azure 资源管理器模板提供输入参数用于启用指标和日志记录。 OpenShift Container Platform Marketplace 产品和 OpenShift Origin 资源管理器模板不提供这些参数。
 
-如果使用了 OCP 资源管理器模板并且在安装时未启用指标和日志记录，或使用了 OCP Marketplace 产品，则事后也可以轻松启用这些功能。 如果使用 OpenShift Origin 资源管理器模板，则需要完成一些准备工作。
+如果使用了 OCP 资源管理器模板并且在安装时未启用指标和日志记录，或使用了 OCP 市场产品，则事后也可以轻松启用这些功能。 如果使用 OpenShift Origin 资源管理器模板，则需要完成一些准备工作。
 
 ### <a name="openshift-origin-template-pre-work"></a>OpenShift Origin 模板的准备工作
 

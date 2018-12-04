@@ -12,11 +12,11 @@ ms.author: v-jay
 ms.reviewer: fiseraci
 keywords: ''
 ms.openlocfilehash: ad31948691b4da3999fa4be9d54b60a936b8d320
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195457"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660058"
 ---
 # <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Azure Stack 数据中心集成 - Syslog 转发
 

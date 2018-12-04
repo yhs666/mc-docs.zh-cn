@@ -15,11 +15,11 @@ origin.date: 12/14/2017
 ms.date: 03/26/2018
 ms.author: v-yeche
 ms.openlocfilehash: 2ee0712608551290ade2229ddb0296f36be84b70
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30222576"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664529"
 ---
 # <a name="outputs-section-in-azure-resource-manager-templates"></a>Azure 资源管理器模板中的 Outputs 节
 在 Outputs 节中，可以指定从部署返回的值。 例如，可能会返回用于访问已部署资源的 URI。
@@ -108,7 +108,7 @@ az group deployment show -g <resource-group-name> -n <deployment-name> --query p
 ## <a name="next-steps"></a>后续步骤
 * 若要查看许多不同类型的解决方案的完整模型，请参阅 [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/)（Azure 快速入门模板）。
 * 有关用户可以使用的来自模板中的函数的详细信息，请参阅 [Azure Resource Manager Template Functions](resource-group-template-functions.md)（Azure Resource Manager 模板函数）。
-* 要在部署期间合并多个模板，请参阅[将已链接的模板与 Azure 资源管理器配合使用](resource-group-linked-templates.md)。
+* 要在部署期间合并多个模板，请参阅 [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md)（将已链接的模板与 Azure Resource Manager 配合使用）。
 * 可能需要使用不同资源组中的资源。 使用跨多个资源组共享的存储帐户或虚拟网络时，此方案很常见。 有关详细信息，请参阅 [resourceId 函数](resource-group-template-functions-resource.md#resourceid)。
 
 <!-- Update_Description: update meta properties, wording update -->

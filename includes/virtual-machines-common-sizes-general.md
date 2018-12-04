@@ -10,11 +10,11 @@ ms.date: 11/12/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: 5c2532313cbdc7a992d1d5bf23de097f64a073b2
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034992"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662980"
 ---
 <!-- NOTICE: 最大 NIC 数/预期网络带宽 (Mbps) SHOULD BE (Mbps) --> 常规用途 VM 大小提供均衡的 CPU 与内存之比。 适用于测试和开发、小到中型数据库和低到中等流量 Web 服务器。 本文介绍了此分组中各个大小的 vCPU 数、数据磁盘数、NIC 数和存储吞吐量。 
 

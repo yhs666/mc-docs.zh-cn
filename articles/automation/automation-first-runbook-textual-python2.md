@@ -11,11 +11,11 @@ ms.date: 10/01/2018
 ms.topic: conceptual
 manager: digimobile
 ms.openlocfilehash: 734b127d65730aa1c88c40d3a4f9d006bb9da916
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426445"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666869"
 ---
 # <a name="my-first-python-runbook"></a>我的第一个 Python Runbook
 
@@ -65,7 +65,7 @@ print("Hello World!")
 
 1. 单击“测试窗格”打开测试窗格  。
 1. 单击“启动”以启动测试  。 这应该是唯一的已启用选项。
-1. 将创建一个 [Runbook 作业](automation-runbook-execution.md) 并显示其状态。
+1. 创建一个 [Runbook 作业](automation-runbook-execution.md)并显示其状态。
    作业状态一开始为“排队”，表示正在等待云中的 Runbook 辅助角色变为可用状态。 在某个辅助角色认领此作业后，作业状态将变为“正在启动”，然后当 Runbook 实际开始运行时，此状态将变为“正在运行”。
 1. Runbook 作业完成后，会显示其输出。 在此示例中，应会显示 Hello World。
 1. 关闭测试窗格以返回到画布。
@@ -204,9 +204,9 @@ async_vm_start.wait()
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要开始使用 PowerShell Runbook，请参阅 [我的第一个 PowerShell Runbook](automation-first-runbook-textual-powershell.md)
+- 若要开始使用 PowerShell Runbook，请参阅 [My first PowerShell runbook](automation-first-runbook-textual-powershell.md)
 - 若要开始使用图形 Runbook，请参阅 [我的第一个图形 Runbook](automation-first-runbook-graphical.md)
-- 若要开始使用 PowerShell 工作流 Runbook，请参阅[我的第一个 PowerShell 工作流 Runbook](automation-first-runbook-textual.md)
+- 若要开始使用 PowerShell 工作流 Runbook，请参阅 [我的第一个 PowerShell 工作流 Runbook](automation-first-runbook-textual.md)
 - 若要了解有关 Runbook 类型、其优点和限制的详细信息，请参阅 [Azure 自动化 Runbook 类型](automation-runbook-types.md)
 - 若要了解如何使用 Python 进行 Azure 开发，请参阅[适用于 Python 开发人员的 Azure](https://docs.microsoft.com/python/azure/?view=azure-python)
 - 若要查看 Python 2 runbook 示例，请参阅 [GitHub 上的 Azure 自动化](https://github.com/azureautomation/runbooks/tree/master/Utility/Python)

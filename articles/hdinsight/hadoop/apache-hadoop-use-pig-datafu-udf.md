@@ -17,11 +17,11 @@ origin.date: 06/16/2018
 ms.date: 08/27/2018
 ms.author: v-yiso
 ms.openlocfilehash: efcf383bbb01c6afa6f2bb2601fec24939ff56ec
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41704059"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664103"
 ---
 # <a name="use-apache-datafu-pig-with-pig-on-hdinsight"></a>在 HDInsight 上将 Apache DataFu Pig 与 pig 结合使用
 
@@ -67,7 +67,7 @@ DataFu Pig 是适用于 Hadoop 上的 Pig 的开放源代码库集合。
 
 ### <a name="download-datafu-to-hdinsight"></a>将 DataFu 下载到 HDInsight
 
-1. 使用 SSH 连接到基于 Linux 的 HDInsight 群集。 有关详细信息，请参阅 [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
+1. 使用 SSH 连接到基于 Linux 的 HDInsight 群集。 有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 2. 使用以下命令下载使用 wget 实用工具的 DataFu jar 文件：
 

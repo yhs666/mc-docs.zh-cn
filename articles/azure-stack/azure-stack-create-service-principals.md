@@ -15,11 +15,11 @@ origin.date: 09/06/2018
 ms.date: 10/15/2018
 ms.author: v-jay
 ms.openlocfilehash: 91c7b12a7e92d3d89a4198c40a85fe703707d85d
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848927"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667003"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>提供对 Azure Stack 的应用程序访问权限
 

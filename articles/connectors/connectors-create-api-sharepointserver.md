@@ -17,11 +17,11 @@ origin.date: 08/18/2016
 ms.author: v-yiso
 ms.date: 04/23/2018
 ms.openlocfilehash: 0590781c6f5e3ea828b631b595efe775ad8942f0
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31319157"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662838"
 ---
 # <a name="get-started-with-the-sharepoint-connector"></a>SharePoint 连接器入门
 SharePoint 连接器提供在 SharePoint 上处理列表的方法。

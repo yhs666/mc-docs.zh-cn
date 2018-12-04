@@ -1,26 +1,18 @@
 ---
 title: 什么是 Azure DNS？
 description: Microsoft Azure 上的 DNS 托管服务概述。 在 Microsoft Azure 上托管域。
-services: dns
-documentationcenter: na
-author: yunan2016
-manager: digimobile
-editor: ''
-ms.assetid: 68747a0d-b358-4b8e-b5e2-e2570745ec3f
+author: vhorne
+manager: jeconnoc
 ms.service: dns
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 06/07/2018
-ms.date: 06/25/2018
-ms.author: v-nany
-ms.openlocfilehash: 07bbd0a4d76ebb89185c9de3cffcaa303be8f42a
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.topic: overview
+ms.date: 9/24/2018
+ms.author: victorh
+ms.openlocfilehash: cd3ec3fcf72a6a330b18c8bbd1fa26113ff4ce98
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748333"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661927"
 ---
 # <a name="what-is-azure-dns"></a>什么是 Azure DNS？
 
@@ -32,11 +24,11 @@ Azure DNS 是 DNS 域的托管服务，它使用 Microsoft Azure 基础结构提
 
 ## <a name="reliability-and-performance"></a>可靠性和性能
 
-Azure DNS 中的 DNS 域托管在 DNS 名称服务器的 Azure 全球网络上。 Azure DNS 使用任意广播网络，让每个 DNS 查询由最近的可用 DNS 服务器来应答。 这为域提供更快的性能和高可用性。
+Azure DNS 中的 DNS 域托管在 DNS 名称服务器的 Azure 全球网络上。 Azure DNS 使用任意广播网络，以便每个 DNS 查询由最近的可用 DNS 服务器来应答，从而为你的域提供快速性能和高可用性。
 
 ## <a name="security"></a>安全性
 
-Azure DNS 服务基于 Azure 资源管理器。 因此，可以获得资源管理器功能，例如：
+Azure DNS 服务基于 Azure 资源管理器，提供以下功能：
 
 * [基于角色的访问控制](https://docs.azure.cn/azure-resource-manager/resource-group-overview#access-control) - 用于控制谁有权访问组织的特定操作。
 
@@ -49,9 +41,9 @@ Azure DNS 服务基于 Azure 资源管理器。 因此，可以获得资源管�
 
 ## <a name="ease-of-use"></a>易于使用
 
-Azure DNS 服务可管理 Azure 服务的 DNS 记录，还可为外部资源提供 DNS。 Azure DNS 在 Azure 门户中集成，与其他 Azure 服务使用相同的凭据、支持合同和计费。 
+Azure DNS 服务可以管理 Azure 服务的 DNS 记录，还可以为外部资源提供 DNS。 Azure DNS 在 Azure 门户中集成，与其他 Azure 服务使用相同的凭据、支持合同和计费。 
 
-DNS 基于 Azure 中托管的 DNS 区域数并按 DNS 查询数进行计费。 若要深入了解定价，请参阅 [Azure DNS 定价](https://azure.cn/pricing/details/dns/)。
+DNS 基于在 Azure 中托管的 DNS 区域数和接收的 DNS 查询数进行计费。 若要深入了解定价，请参阅 [Azure DNS 定价](https://azure.cn/pricing/details/dns/)。
 
 可以通过 Azure 门户、Azure PowerShell cmdlet 和跨平台 Azure CLI 对域和记录进行管理。 需要自动化 DNS 管理的应用程序可通过 REST API 和 SDK 与服务集成。
 

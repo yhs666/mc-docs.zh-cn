@@ -16,11 +16,11 @@ origin.date: 02/22/2017
 ms.date: 11/13/2017
 ms.author: v-yeche
 ms.openlocfilehash: 319dadf3e5ea05e4970ad222242d75c0fc524257
-ms.sourcegitcommit: 81faeb249bcf9c8a84f571ce8d4ca033b224c0e9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24104633"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662483"
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-azure-cli-10"></a>使用 Azure CLI 1.0 通过 Azure 网络观察程序中的“下一跃点”功能找到下一跃点类型
 
@@ -35,7 +35,7 @@ ms.locfileid: "24104633"
 
 本文使用适用于 Windows、Mac 和 Linux 的跨平台 Azure CLI 1.0。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 在此方案中，将使用 Azure CLI 来查找下一跃点类型和 IP 地址。
 
@@ -54,7 +54,7 @@ azure network watcher next-hop -g resourceGroupName -n networkWatcherName -t tar
 ```
 
 > [!NOTE]
-如果 VM 具有多个 NIC 并且在任何 NIC 上启用了 IP 转发，则必须指定 NIC 参数 (-i nic-id)。 否则其则是可选项。
+如果 VM 具有多个 NIC 并且在任何 NIC 上启用了 IP 转发，则必须指定 NIC 参数 (-i nic-id)。 否则，该参数是可选的。
 
 ## <a name="review-results"></a>查看结果
 

@@ -16,11 +16,11 @@ origin.date: 02/22/2017
 ms.date: 09/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: fe89f7cdc1a8c87c0e2c47b37b0c62021ebe1dc5
-ms.sourcegitcommit: 432984d85afe6f3da8f211bae0fa98a556785ee8
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455384"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666811"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>在 PowerShell 中使用 Azure 网络观察程序管理数据包捕获
 

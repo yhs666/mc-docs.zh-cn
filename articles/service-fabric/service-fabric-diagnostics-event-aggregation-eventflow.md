@@ -16,11 +16,11 @@ origin.date: 10/15/2017
 ms.date: 05/28/2018
 ms.author: v-yeche
 ms.openlocfilehash: 1e74d0e95eece24da1061169f33764da97ca0ab4
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554219"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663232"
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>使用 EventFlow 聚合和收集事件
 

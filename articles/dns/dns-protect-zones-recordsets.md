@@ -15,11 +15,11 @@ origin.date: 10/20/2016
 ms.date: 07/23/2018
 ms.author: v-nany
 ms.openlocfilehash: a867b86fba95e9e2d7843824209b189b53cc8480
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426325"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662353"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>如何保护 DNS 区域和记录
 
@@ -72,7 +72,7 @@ Azure RBAC 规则可应用于订阅，资源组或单个资源。 在 Azure DNS 
 New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>" -ResourceName "<zone name>" -ResourceType Microsoft.Network/DNSZones
 ```
 
-也可[通过 Azure CLI](../role-based-access-control/role-assignments-cli.md) 提供等效命令：
+等效命令也可[通过 Azure CLI](../role-based-access-control/role-assignments-cli.md) 提供：
 
 ```azurecli
 # Grant 'DNS Zone Contributor' permissions to a specific zone

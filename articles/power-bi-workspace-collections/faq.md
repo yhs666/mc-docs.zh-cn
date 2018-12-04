@@ -12,11 +12,11 @@ origin.date: 09/25/2017
 ms.date: 09/26/2018
 ms.author: v-junlch
 ms.openlocfilehash: e18c90bb637c542346b0972a8ff553fe1883ae7f
-ms.sourcegitcommit: 7c6ff130adaa67bc90094846f81295ef0719d072
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47191364"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666945"
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Power BI 工作区集合常见问题解答
 

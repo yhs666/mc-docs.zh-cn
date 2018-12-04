@@ -13,14 +13,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/18/2017
-ms.date: 09/10/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: ef900027c950edb7555d0edc47518b0c18834b0b
-ms.sourcegitcommit: 399060a8d46534abd370693f6282e7343b371634
+ms.openlocfilehash: 8e90f3dbf2d95c24809f8844982e12441675a233
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455594"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667095"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric 常见问题
 
@@ -65,6 +65,7 @@ ms.locfileid: "47455594"
 
 当前，大型虚拟机规模集还存在其他问题，例如缺少 level-4 负载均衡支持。 
 
+<!--Not Available on [details on Large scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)-->
 ### <a name="what-is-the-minimum-size-of-a-service-fabric-cluster-why-cant-it-be-smaller"></a>Service Fabric 群集的最小大小如何？ 为什么不能更小？
 
 运行生产工作负荷的 Service Fabric 群集支持的最小大小是五个节点。 对于开发/测试方案，我们支持三节点群集。
@@ -93,6 +94,7 @@ ms.locfileid: "47455594"
 
 ### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>是否可以对群集节点类型（虚拟机规模集）中的附加数据磁盘进行加密？
 是的。  有关详细信息，请参阅[创建具有附加数据磁盘的群集](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks)。
+
 <!--Not Available on [Encrypt disks (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) -->
 <!--Not Available on [Encrypt disks (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md)-->
 

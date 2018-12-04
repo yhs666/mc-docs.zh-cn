@@ -16,11 +16,11 @@ origin.date: 05/10/2017
 ms.date: 09/03/2018
 ms.author: v-yeche
 ms.openlocfilehash: d6649db90489c3f933b4e378f4ac65665270629b
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164898"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662202"
 ---
 # <a name="create-an-azure-cosmos-db-failover-policy-for-high-availability-using-powershell"></a>使用 PowerShell 创建 Azure Cosmos DB 故障转移策略以实现高可用性
 

@@ -10,11 +10,11 @@ ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: 7b0a215c21761fd2f75c007d9e255223f1c5d587
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307092"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661838"
 ---
 >[!NOTE]
 > 可以通过本反馈页面或 [Azure 反馈](https://www.azure.cn/support/support-azure/)使用 #azerrormessage 标记给我们留言。

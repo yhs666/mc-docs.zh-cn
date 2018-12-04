@@ -16,11 +16,11 @@ origin.date: 09/29/2016
 ms.date: 10/31/2016
 ms.author: v-dazen
 ms.openlocfilehash: 8db0e3b3d6b87c5bfdf43f3988a1ebfd550ac8d6
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20184271"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662985"
 ---
 # <a name="using-azure-resource-manager-based-powershell-to-manage-azure-web-apps"></a>使用基于 Azure Resource Manager 的 PowerShell 来管理 Azure Web 应用
 > [!div class="op_single_selector"]

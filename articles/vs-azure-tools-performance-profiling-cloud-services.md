@@ -16,11 +16,11 @@ origin.date: 11/11/2016
 ms.date: 05/11/2018
 ms.author: v-junlch
 ms.openlocfilehash: 3463650f905411796ec7c6ca9533acea722f6e96
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34060321"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661495"
 ---
 # <a name="testing-the-performance-of-a-cloud-service"></a>测试云服务的性能
 ## <a name="overview"></a>概述

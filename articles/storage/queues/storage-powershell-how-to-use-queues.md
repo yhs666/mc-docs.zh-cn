@@ -16,11 +16,11 @@ origin.date: 09/14/2017
 ms.date: 07/02/2018
 ms.author: v-johch
 ms.openlocfilehash: cbb8ea8a12e43f5cd523f327fced6adfe2a706e1
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295702"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660908"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>使用 Azure PowerShell 执行 Azure 队列存储操作
 

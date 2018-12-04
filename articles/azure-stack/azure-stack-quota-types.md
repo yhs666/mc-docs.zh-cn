@@ -17,11 +17,11 @@ ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: xiaofmao
 ms.openlocfilehash: f4d9520c88a350815c684b1d82a95c06e5ae104e
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869349"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666681"
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure Stack 中的配额类型
 
@@ -79,8 +79,7 @@ ms.locfileid: "42869349"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 
-  [详细了解计划、套餐和配额。](azure-stack-plan-offer-quota-overview.md)
+- [详细了解计划、套餐和配额。](azure-stack-plan-offer-quota-overview.md)
 - [创建计划时创建配额。](azure-stack-create-plan.md)
 
 <!-- Update_Description: add edit a quota -->

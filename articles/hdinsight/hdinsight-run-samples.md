@@ -18,11 +18,11 @@ ms.date: 03/26/2018
 ms.author: v-yiso
 ROBOTS: NOINDEX
 ms.openlocfilehash: a4a33f3fd88a8b166ffebcd259af7171bae2bad2
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30076874"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663130"
 ---
 # <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>在基于 Windows 的 HDInsight 中运行 Hadoop MapReduce 示例
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
@@ -137,7 +137,7 @@ Hadoop 向 MapReduce 提供了一个流式处理 API，利用它，可以采用 
 
 同时，映射器从进程的 stdout 中收集面向行的输出。 将每行转换为一个键/值对（作为映射程序的输出而收集）。 默认情况下，一行的前缀直至第一个制表符是键，而该行的剩余部分（不包括制表符）是值。 如果行中没有制表符，则整行被视为键，而值为 Null。
 
-如果为**化简器**指定可执行文件，则当初始化化简器时，每个化简器任务都会将此可执行文件作为一个单独的进程启动。 当化简器任务运行时，它将其输入键/值对转换为行，并将这些行馈送到进程的 [stdin][stdin-stdout-stderr]。
+如果为**化简器**指定可执行文件，则当初始化化简器时，每个化简器任务都会将此可执行文件作为一个单独的进程启动。 当化简器任务运行时，它将其输入键/值对转换为行，并将这些行馈送到进程的 [stdin][stdin-stdout-stderr] 。
 
 同时，化简器从进程的 [stdout][stdin-stdout-stderr] 中收集面向行的输出。 将每行转换为一个键/值对（作为化简器的输出收集）。 默认情况下，一行的前缀直至第一个制表符是键，而该行的剩余部分（不包括制表符）是值。
 
@@ -217,7 +217,7 @@ pi 估计器使用统计学方法（拟蒙特卡罗法）估算 pi 值。 单位
 
 * [将 Hadoop 与 HDInsight 中的 Hive 配合使用以分析手机使用情况][hdinsight-get-started]
 * [将 Pig 与 Hadoop on HDInsight 配合使用][hdinsight-use-pig]
-* [将 Hive 与 Hadoop on HDInsight 配合使用][hdinsight-use-hive]
+* [将 Hive 与 HDInsight 上的 Hadoop 配合使用][hdinsight-use-hive]
 * [在 HDInsight 中提交 Hadoop 作业][hdinsight-submit-jobs]
 * [Azure HDInsight SDK 文档][hdinsight-sdk-documentation]
 

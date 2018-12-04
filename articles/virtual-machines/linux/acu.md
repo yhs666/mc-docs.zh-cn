@@ -17,11 +17,11 @@ origin.date: 12/05/2017
 ms.date: 08/27/2018
 ms.author: v-yeche
 ms.openlocfilehash: 4ec7c0cd69e41639541527d670961c2746331c2a
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872207"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662608"
 ---
 # <a name="azure-compute-unit-acu"></a>Azure 计算单元 (ACU)
 

@@ -16,11 +16,11 @@ origin.date: 05/10/2017
 ms.date: 09/03/2018
 ms.author: v-yeche
 ms.openlocfilehash: 9e5b31cb3aa0b77c6cf8efda315a46d8d2f0df63
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164787"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666546"
 ---
 # <a name="regenerate-an-azure-cosmos-db-account-key-using-powershell"></a>使用 PowerShell 重新生成 Azure Cosmos DB 帐户密钥
 

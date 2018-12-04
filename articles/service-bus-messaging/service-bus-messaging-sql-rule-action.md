@@ -16,11 +16,11 @@ origin.date: 09/05/2018
 ms.date: 10/31/2018
 ms.author: v-lingwu
 ms.openlocfilehash: f6a7bc4259ee25b087c7e667d11df773d955202c
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409310"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662854"
 ---
 # <a name="sqlruleaction-syntax"></a>SQLRuleAction 语法
 

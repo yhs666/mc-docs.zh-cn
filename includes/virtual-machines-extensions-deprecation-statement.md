@@ -10,11 +10,11 @@ ms.date: 06/04/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: 94c01d7cb4620e7d386c29f18242da8545a49206
-ms.sourcegitcommit: c1f196ee0a345620ea22b330c13718bc00a7dc4a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36208904"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52665243"
 ---
 > [!IMPORTANT]
 > 此扩展已被弃用，列在此处仅供参考。 不建议在部署中继续使用此扩展。

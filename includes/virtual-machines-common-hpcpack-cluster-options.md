@@ -10,11 +10,11 @@ ms.date: 06/04/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: 31f8104e27016bdf14f4b86cda36f261d8740197
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34723129"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661778"
 ---
 利用 Microsoft HPC Pack 和 Azure 的计算与基础结构服务，创建和管理基于云的高性能计算 (HPC) 群集。 可免费下载的 HPC Pack 是在 Azure 和 Windows Server 技术基础之上构建的，支持各种 HPC 工作负荷。
 

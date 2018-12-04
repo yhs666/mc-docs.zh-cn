@@ -17,11 +17,11 @@ origin.date: 06/01/2018
 ms.date: 08/27/2018
 ms.author: v-yeche
 ms.openlocfilehash: 214daf2783851432d615fcc49e5f414ec1bd9574
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872329"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660844"
 ---
 # <a name="common-powershell-commands-for-creating-and-managing-azure-virtual-machines"></a>用于创建和管理 Azure 虚拟机的常用 PowerShell 命令
 
@@ -49,8 +49,7 @@ ms.locfileid: "42872329"
 | 创建 VM 配置 |$vm = [New-AzureRmVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig) -VMName $myVM -VMSize "Standard_D1_v1"<BR></BR><BR></BR>VM 配置用于定义或更新 VM 的设置。 使用 VM 的名称及其[大小](sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)对配置进行初始化。 |
 | 添加配置设置 |$vm = [Set-AzureRmVMOperatingSystem](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) -VM $vm -Windows -ComputerName $myVM -Credential $cred -ProvisionVMAgent -EnableAutoUpdate<BR></BR><BR></BR>包括[凭据](https://technet.microsoft.com/library/hh849815.aspx)的操作系统设置会添加到以前使用 New-AzureRmVMConfig 创建的配置对象。 |
 | 添加网络接口 |$vm = [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.compute/Add-AzureRmVMNetworkInterface) -VM $vm -Id $nic.Id<BR></BR><BR></BR>VM 必须使用[网络接口](../virtual-machines-windows-ps-create.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)在虚拟网络中通信。 还可使用 [Get-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmnetworkinterface) 检索现有网络接口对象。 |
-| 指定平台映像 |$vm = [Set-AzureRmVMSourceImage](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsourceimage) -VM $vm -PublisherName "publisher_name" -Offer "publisher_offer" -Skus "product_sku" -Version "latest"<BR></BR><BR></BR>
-            [映像信息](cli-ps-findimage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)会添加到以前使用 New-AzureRmVMConfig 创建的配置对象。 仅当将操作系统磁盘设置为使用平台映像时，才使用此命令返回的对象。 |
+| 指定平台映像 |$vm = [Set-AzureRmVMSourceImage](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsourceimage) -VM $vm -PublisherName "publisher_name" -Offer "publisher_offer" -Skus "product_sku" -Version "latest"<BR></BR><BR></BR>[映像信息](cli-ps-findimage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)会添加到以前使用 New-AzureRmVMConfig 创建的配置对象。 仅当将操作系统磁盘设置为使用平台映像时，才使用此命令返回的对象。 |
 | 创建 VM |[New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) -ResourceGroupName $myResourceGroup -Location $location -VM $vm<BR></BR><BR></BR>所有资源在[资源组](../../azure-resource-manager/powershell-azure-resource-manager.md)中创建。 运行此命令之前，请运行 New-AzureRmVMConfig、Set-AzureRmVMOperatingSystem、Set-AzureRmVMSourceImage、Add-AzureRmVMNetworkInterface 和 Set-AzureRmVMOSDisk。 |
 | 更新 VM |[Update-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvm) -ResourceGroupName $myResourceGroup -VM $vm<BR></BR><BR></BR>使用 Get-AzureRmVM 获取当前 VM 配置，更改 VM 对象上的配置设置，并运行此命令。 |
 

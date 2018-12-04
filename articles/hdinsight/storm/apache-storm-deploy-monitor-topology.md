@@ -18,11 +18,11 @@ ms.date: 12/25/2017
 ms.author: v-yiso
 ROBOTS: NOINDEX
 ms.openlocfilehash: ba7abad377f62bc53a3716a9e0d4c5d4b60a1dbd
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873688"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663737"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-windows-based-hdinsight"></a>在基于 Windows 的 HDInsight 上部署和管理 Apache Storm 拓扑
 

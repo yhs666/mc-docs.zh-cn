@@ -10,11 +10,11 @@ origin.date: 6/27/2018
 ms.date: 11/05/2018
 ms.author: v-jay
 ms.openlocfilehash: 57247bfbaedabb3bf0eb9a2c97ce1e63053ef770
-ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50743520"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666545"
 ---
 # <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>教程：使用 Spark 通过 Azure Databricks 访问 Azure Data Lake Storage Gen2 预览版数据
 

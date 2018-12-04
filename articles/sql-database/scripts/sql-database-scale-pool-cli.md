@@ -14,11 +14,11 @@ manager: digimobile
 origin.date: 09/20/2018
 ms.date: 10/29/2018
 ms.openlocfilehash: 980e52107a9ed960dcc44d62eef2c1a6e70a42c7
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135721"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666474"
 ---
 # <a name="use-cli-to-scale-a-sql-elastic-pool-in-azure-sql-database"></a>使用 CLI 在 Azure SQL 数据库中缩放 SQL 弹性池
 

@@ -16,11 +16,11 @@ origin.date: 09/25/2017
 ms.date: 09/10/2018
 ms.author: v-yeche
 ms.openlocfilehash: 09578b3a55445d742f33cede518303b2c4ac262f
-ms.sourcegitcommit: fd49281c58f34de20cc310d6cefb4568992cd675
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43858448"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660941"
 ---
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>将 Azure Resource Manager 支持与 Azure 负载均衡器配合使用
 

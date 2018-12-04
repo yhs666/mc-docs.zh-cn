@@ -17,11 +17,11 @@ ms.date: 10/08/2018
 ms.author: v-yiso
 ms.custom: mvc, devcenter
 ms.openlocfilehash: ea4d2283b418989448cebfae3ceca3a298299414
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523909"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661542"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>在 Azure 中创建 ASP.NET Framework Web 应用
 
@@ -30,12 +30,12 @@ ms.locfileid: "46523909"
 ![](./media/app-service-web-get-started-dotnet-framework/published-azure-web-app.png)
 ## <a name="prerequisites"></a>先决条件
 
-若要完成本教程，请安装带有 ASP.NET 和 Web 开发工作负载的 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a>。
+若要完成本教程，请安装带有 ASP.NET 和 Web 开发工作负荷的 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a>。
 
 如果已安装 Visual Studio 2017：
 
-- 通过单击“帮助” > “检查更新”，在 Visual Studio 中安装最新更新。
-- 通过单击“工具” > “获取工具和功能”添加工作负载。
+- 单击“帮助” > “检查更新”，在 Visual Studio 中安装最新更新。
+- 单击“工具” > “获取工具和功能”添加工作负荷。
 
 ## <a name="create-an-aspnet-web-app"></a>创建 ASP.NET Web 应用
 
@@ -92,7 +92,7 @@ ms.locfileid: "46523909"
 
 在“托管计划”旁边，选择“新建”。 
 
-在“配置托管计划”对话框中，按照屏幕截图使用表中的设置。
+在“配置托管计划”对话框中，使用该屏幕截图下面的表中的设置。
 
 ![创建应用服务计划](./media/app-service-web-get-started-dotnet-framework/configure-app-service-plan.png)
 

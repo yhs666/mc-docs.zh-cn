@@ -16,14 +16,14 @@ origin.date: 08/11/2016
 ms.date: 07/24/2017
 ms.author: v-dazen
 ms.openlocfilehash: af6747acfbd9b5d59bd04172eb009fb1ad0cc5a1
-ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
-ms.locfileid: "22146602"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660730"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>将应用与 Azure 虚拟网络进行集成
-本文档介绍 Azure 应用服务虚拟网络集成功能，并说明如何在 [Azure 应用服务](/app-service-web/app-service-changes-existing-services) 中使用应用对其进行设置。  如果你不熟悉 Azure 虚拟网络 (VNET)，则这里需要指出的是，该功能允许你将多个 Azure 资源置于你可以控制其访问权限但无法通过 Internet 路由的网络中。  然后，用户可以使用多种 VPN 技术将这些网络连接到本地网络。  若要了解有关 Azure 虚拟网络的详细信息，请先了解以下信息： [Azure 虚拟网络概述][VNETOverview]。  
+本文档介绍 Azure 应用服务虚拟网络集成功能，并说明如何在 [Azure 应用服务](/app-service-web/app-service-changes-existing-services)中使用应用对其进行设置。  如果你不熟悉 Azure 虚拟网络 (VNET)，则这里需要指出的是，该功能允许你将多个 Azure 资源置于你可以控制其访问权限但无法通过 Internet 路由的网络中。  然后，用户可以使用多种 VPN 技术将这些网络连接到本地网络。  若要了解有关 Azure 虚拟网络的详细信息，请先了解以下信息： [Azure 虚拟网络概述][VNETOverview]。  
 
 在 Azure 中国区，Azure 应用服务只有一个窗体。  
 

@@ -16,11 +16,11 @@ origin.date: 01/23/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
 ms.openlocfilehash: e72ff6574c431deccd7483a4115cbc3e352ad5db
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295845"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660984"
 ---
 # <a name="diagnostics-and-error-recovery-for-azure-importexport-jobs"></a>导入/导出作业的诊断和错误恢复
 对于每个已处理的驱动器，Azure 导入/导出服务在关联的存储帐户中创建错误日志。 也可以通过在调用[放置作业](https://docs.microsoft.com/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate)或[更新作业属性](https://docs.microsoft.com/rest/api/storageimportexport/jobs#Jobs_Update)操作时将 `LogLevel` 属性设置为 `Verbose` 来启用详细日志记录。

@@ -3,17 +3,19 @@ title: 使用 Site Recovery 对复制到 Azure 的 Hyper-V VM 进行故障转移
 description: 了解如何使用 Azure Site Recovery 将 Hyper-V VM 故障转移到 Azure 以及向本地站点进行故障回复
 services: site-recovery
 author: rockboyfor
+manager: digimobile
 ms.service: site-recovery
-ms.topic: article
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.topic: tutorial
+origin.date: 10/10/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: a114343b33111f153b4bccc3e48ebfd92ba6e298
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.custom: MVC
+ms.openlocfilehash: f821d2d7cf42ec42208419afad60c57f88c2d3a6
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168405"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659982"
 ---
 # <a name="failover-and-failback-hyper-v-vms-replicated-to-azure"></a>对复制到 Azure 的 Hyper-V VM 进行故障转移和故障回复
 
@@ -78,4 +80,5 @@ ms.locfileid: "39168405"
 6. 登录到本地 VM，检查它是否按预期方式可用。
 7. 本地 VM 当前处于“等待提交”状态。 单击“提交”。 这会删除 Azure VM 及其磁盘，并准备要进行反向复制的本地 VM。
 若要开始将本地 VM 复制到 Azure，请启用“反向复制”。 这会触发复制自关闭 Azure VM 以来发生的增量更改。
-<!-- Update_Description: update meta properties, update link， wording update -->
+
+<!-- Update_Description: update meta properties -->

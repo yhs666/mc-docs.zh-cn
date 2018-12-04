@@ -5,16 +5,16 @@ services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-ms.topic: article
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.topic: conceptual
+origin.date: 10/10/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3623bfd7e1667591b7b4d373d894cd7c69e603dd
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: f6e82845c59526470be069d133ba086f6e3d067a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168319"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662549"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>从 Hyper-V 复制到辅助站点的测试结果
 
@@ -136,40 +136,24 @@ Hyper-V 副本使用恢复服务器上的少量内存来使存储操作数量最
 | 文件服务器 |4
 8
 16
-32
-64 |60%
+3264 |60%
 20%
 5%
-5%
-10% |80%
+5%10% |80%
 80%
 80%
-80%
-80% |8
+80%80% |8
 8
 8
-8
-8 |全部 100% 随机 |
-| SQL Server（卷 1）SQL Server（卷 2） |8
-64 |100%
-100% |70%
-0% |8
-8 |100% 随机
-100% 连续 |
+88 |全部 100% 随机 |
+| SQL Server（卷 1）SQL Server（卷 2） |864 |100%100% |70%0% |88 |100% 随机100% 连续 |
 | Exchange |32 |100% |67% |8 |100% 随机 |
-| 工作站/VDI |4
-64 |66%
-34% |70%
-95% |11 |两者都 100% 随机 |
+| 工作站/VDI |464 |66%34% |70%95% |11 |两者都 100% 随机 |
 | Web 文件服务器 |4
-8
-64 |33%
-34%
-33% |95%
-95%
-95% |8
-8
-8 |全部 75% 随机 |
+864 |33%
+34%33% |95%
+95%95% |8
+88 |全部 75% 随机 |
 
 ### <a name="vm-configuration"></a>VM 配置
 
@@ -215,4 +199,5 @@ Hyper-V 副本使用恢复服务器上的少量内存来使存储操作数量最
 ## <a name="next-steps"></a>后续步骤
 
 [设置复制](hyper-v-vmm-disaster-recovery.md)
-<!-- Update_Description: update meta properties, wording update -->
+
+<!-- Update_Description: update meta properties -->

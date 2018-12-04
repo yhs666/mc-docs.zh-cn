@@ -12,11 +12,11 @@ ms.date: 08/27/2018
 ms.author: v-jay
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
 ms.openlocfilehash: 982322c7c7eba6d85488b85159f4a477043d884e
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872455"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661698"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>教程：在 Azure HDInsight 上使用 Apache Hive 提取、转换和加载数据
 

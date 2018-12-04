@@ -17,11 +17,11 @@ origin.date: 06/01/2018
 ms.date: 10/22/2018
 ms.author: v-yeche
 ms.openlocfilehash: 0c7cfaaebd6f29652137db342f9c0e6675bf9a6c
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034936"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660959"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>从 Azure 下载 Linux VHD
 

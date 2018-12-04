@@ -11,11 +11,11 @@ ms.topic: article
 origin.date: 08/31/2018
 ms.date: 09/24/2018
 ms.openlocfilehash: 4e720468bd40375232425fc898c8474818d5b315
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527132"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661499"
 ---
 # <a name="azure-database-for-mysql-data-in-replication-stored-procedures"></a>Azure Database for MySQL 数据复制存储过程
 

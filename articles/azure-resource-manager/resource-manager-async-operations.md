@@ -14,11 +14,11 @@ origin.date: 08/21/2018
 ms.date: 09/24/2018
 ms.author: v-yeche
 ms.openlocfilehash: e44d2e4b70d0e103bce9194442b3141be8d7d50b
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527010"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663214"
 ---
 # <a name="track-asynchronous-azure-operations"></a>跟踪异步 Azure 操作
 某些 Azure REST 操作以异步方式运行，因为操作无法快速完成。 本文介绍如何通过响应中返回的值跟踪异步操作的状态。  

@@ -16,11 +16,11 @@ origin.date: 10/01/2016
 ms.date: 01/29/2018
 ms.author: v-yiso
 ms.openlocfilehash: c439d7dec4926256d09ac99792764d7f671ef2c1
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939490"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661169"
 ---
 #<a name="create-a-xamarinios-app"></a>创建 Xamarin iOS 应用
 

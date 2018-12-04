@@ -16,11 +16,11 @@ origin.date: 02/20/2018
 ms.date: 07/12/2018
 ms.author: v-junlch
 ms.openlocfilehash: 7d7f5e5174caffe28f683795fc8ec4973258538d
-ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38999141"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661201"
 ---
 # <a name="storage-explorer-accessibility"></a>存储资源管理器可访问性
 ## <a name="screen-readers"></a>屏幕阅读器

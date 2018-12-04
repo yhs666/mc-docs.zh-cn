@@ -14,11 +14,11 @@ origin.date: 11/14/2017
 ms.date: 04/09/2018
 ms.author: v-yiso
 ms.openlocfilehash: 7cdb06fa4aa26ee99a98374b1ebe5671fc52ed4d
-ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30293834"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666903"
 ---
 # <a name="configure-service-health-alerts-with-servicenow"></a>使用 ServiceNow 配置服务运行状况警报
 

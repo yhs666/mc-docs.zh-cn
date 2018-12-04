@@ -17,11 +17,11 @@ ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
 ms.date: 01/15/2018
 ms.openlocfilehash: 1bad67a9dfc64ee62d50f347a26cbd6600adba12
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939138"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660642"
 ---
 # <a name="connect-your-device-to-your-iot-hub-using-java"></a>使用 Java 将设备连接到 IoT 中心
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
@@ -452,8 +452,7 @@ ms.locfileid: "38939138"
 
 若要继续了解 IoT 中心入门知识并浏览其他 IoT 方案，请参阅：
 
-* 
-            [连接设备][lnk-connect-device]
+* [连接设备][lnk-connect-device]
 * [设备管理入门][lnk-device-management]
 * [Azure IoT Edge 入门][lnk-iot-edge]
 

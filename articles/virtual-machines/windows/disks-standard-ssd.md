@@ -12,11 +12,11 @@ origin.date: 08/14/2018
 ms.date: 10/29/2018
 ms.author: v-yeche
 ms.openlocfilehash: 399e00a469e2bb78bbc53c07b6144e6c8483478b
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035069"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661329"
 ---
 [!INCLUDE [virtual-machines-disks-standard-ssd](../../../includes/virtual-machines-disks-standard-ssd.md)]
 

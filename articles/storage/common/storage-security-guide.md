@@ -10,11 +10,11 @@ ms.date: 09/24/2018
 ms.author: v-jay
 ms.component: common
 ms.openlocfilehash: 67bf76d2a14359eb8658d35cea78a9286d300ac5
-ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523725"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663277"
 ---
 # <a name="azure-storage-security-guide"></a>Azure 存储安全指南
 

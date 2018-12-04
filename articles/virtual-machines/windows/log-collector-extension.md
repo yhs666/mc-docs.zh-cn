@@ -16,11 +16,11 @@ origin.date: 08/23/2016
 ms.date: 05/21/2018
 ms.author: v-yeche
 ms.openlocfilehash: 2a271d6d32fc69b3c329772ed18cfddbba7ed98a
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34255986"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663243"
 ---
 # <a name="azurelogcollector-extension"></a>AzureLogCollector 扩展
 [!INCLUDE [virtual-machines-common-log-collector-extension](../../../includes/virtual-machines-common-log-collector-extension.md)]

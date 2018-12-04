@@ -16,11 +16,11 @@ origin.date: 10/11/2016
 ms.date: 08/20/2018
 ms.author: v-yeche
 ms.openlocfilehash: 989dbc70ef005715e12a4256be1784a5bf7cfc44
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41705289"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661928"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>将公司 Internet 域指向 Azure 流量管理器域
 

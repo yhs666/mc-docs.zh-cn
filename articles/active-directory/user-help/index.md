@@ -12,11 +12,11 @@ origin.date: 07/30/2018
 ms.date: 08/27/2018
 ms.author: v-junlch
 ms.openlocfilehash: 13212ea56b0ada53459ecc49430269b03907b76a
-ms.sourcegitcommit: 75c2b5cdaf25ede92e080f6c48ca17d2f4ded4fb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43115546"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663087"
 ---
 # <a name="user-help-for-authentication-apps-and-device-management"></a>有关身份验证、应用和设备管理的用户帮助
 

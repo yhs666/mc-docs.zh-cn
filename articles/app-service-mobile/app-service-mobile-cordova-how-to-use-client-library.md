@@ -16,17 +16,17 @@ origin.date: 10/30/2016
 ms.date: 01/29/2018
 ms.author: v-yiso
 ms.openlocfilehash: ba2d944581860deb2475935c292acc575fd83f3e
-ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2018
-ms.locfileid: "27984733"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661172"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>如何使用适用于 Azure 移动应用的 Apache Cordova 客户端库
 
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-本指南介绍如何使用最新的 [适用于 Azure 移动应用的 Apache Cordova 插件]执行常见任务。 对于 Azure 移动应用的新手，请先完成 [Azure Mobile Apps Quick Start] （Azure 移动应用快速入门），创建后端、创建表并下载预先生成的 Apache Cordova 项目。 本指南侧重于客户端 Apache Cordova 插件。
+本指南介绍如何使用最新的 [适用于 Azure 移动应用的 Apache Cordova 插件]执行常见任务。 对于 Azure 移动应用的新手，请先完成 [Azure 移动应用快速入门] （Azure 移动应用快速入门），创建后端、创建表并下载预先生成的 Apache Cordova 项目。 本指南侧重于客户端 Apache Cordova 插件。
 
 ## <a name="supported-platforms"></a>支持的平台
 
@@ -98,7 +98,7 @@ Azure 应用服务支持使用各种外部标识提供者（例如 Facebook、Go
 
 请遵循以下说明将本地设置添加到配置中：
 
-1. 登录到 [Azure 门户]
+1. 登录到 [Azure Portal]
 2. 选择“所有资源”或“应用服务”，然后单击移动应用的名称。
 3. 单击“工具” 
 4. 在“观察”菜单中单击“资源浏览器”，然后单击“转到”。  会打开新窗口或选项卡。
@@ -113,14 +113,14 @@ Azure 应用服务支持使用各种外部标识提供者（例如 Facebook、Go
      ],
     ```
 
-    将 URL 替换为自己服务的 URL。  示例包括 “ http://localhost:3000 ” （适用于 Node.js 示例服务）或 “ http://localhost:4400 ” （适用于 Ripple 服务）。  但是，这些 URL 是示例，根据不同的情况（包括示例中提到的服务）可能会有差异。
+    将 URL 替换为自己服务的 URL。  示例包括“ http://localhost:3000 ”（适用于 Node.js 示例服务）或“ http://localhost:4400 ”（适用于 Ripple 服务）。  但是，这些 URL 是示例，根据不同的情况（包括示例中提到的服务）可能会有差异。
 8. 单击屏幕右上角的“读/写”  按钮。
 9. 单击绿色的“PUT”  按钮。
 
 此时会保存设置。  在保存完设置之前，请不要关闭浏览器窗口。
 同时将以下环回 URL 添加到应用服务的 CORS 设置：
 
-1. 登录到 [Azure 门户]
+1. 登录到 [Azure Portal]
 2. 选择“所有资源”或“应用服务”，然后单击移动应用的名称。
 3. “设置”边栏选项卡随即自动打开。  如果没有打开，请单击“所有设置” 。
 4. 在“API”菜单下面单击“CORS”  。
@@ -179,7 +179,7 @@ pushHandler.on('error', function (error) {
 
 <!-- URLs. -->
 [Azure Portal]: https://portal.azure.cn
-[Azure Mobile Apps Quick Start]: ./app-service-mobile-cordova-get-started.md
+[Azure 移动应用快速入门]: ./app-service-mobile-cordova-get-started.md
 [身份验证入门]: ./app-service-mobile-cordova-get-started-users.md
 [Add authentication to your app]: ./app-service-mobile-cordova-get-started-users.md
 

@@ -17,15 +17,15 @@ ms.date: 09/10/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 2017878c44909b71a2cc31c3a4fa831794e358cc
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515647"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662427"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>教程：安装并创建 Service Fabric 群集
 
-Service Fabric 独立群集为你提供选择自己的环境的选项，并创建群集作为 Service Fabric 所采用的“任何 OS、任何云”方法的一部分。 在本系列教程中，我们将创建一个托管在 AWS 上的独立群集，并将应用程序安装到其中。
+Service Fabric 独立群集提供相应的选项让我们选择自己的环境，并创建群集作为 Service Fabric 所采用的“任意 OS、任意云”方案的一部分。 在本系列教程中，我们将创建一个托管在 AWS 上的独立群集，并将应用程序安装到其中。
 
 本教程是一个系列中的第二部分。 本教程将逐步指导完成创建 Service Fabric 独立群集的步骤。
 
@@ -38,7 +38,7 @@ Service Fabric 独立群集为你提供选择自己的环境的选项，并创�
 
 ## <a name="download-the-service-fabric-for-windows-server-package"></a>下载用于 Windows Server 的 Service Fabric 包
 
-Service Fabric 提供了一个安装程序包，用于创建独立的 Service Fabric 群集。  在本地计算机上[下载安装程序包](http://go.microsoft.com/fwlink/?LinkId=730690)。  成功下载后，将其通过 RDP 连接复制到 EC2 实例，并将其粘贴到桌面上。
+Service Fabric 提供了一个安装程序包，用于创建独立的 Service Fabric 群集。  在本地计算机上[下载安装程序包](http://go.microsoft.com/fwlink/?LinkId=730690)。  成功下载后，通过 RDP 连接将其复制到 EC2 实例，并将其粘贴到桌面上。
 
 选择 zip 文件并打开上下文菜单，然后选择“全部提取” > “提取”。  提取文件时，将在桌面上生成一个与 zip 文件名相同的文件夹。
 
@@ -123,7 +123,7 @@ Your cluster is successfully created! You can connect and manage your cluster us
 ```
 
 > [!NOTE]
-> 部署跟踪被写入到运行 CreateServiceFabricCluster.ps1 PowerShell 脚本的 VM/计算机上。 这些信息可以从运行脚本的目录中的子文件夹 DeploymentTraces 中找到。 要确定是否已将 Service Fabric 正确部署到计算机，请根据群集配置文件 FabricSettings 部分中的详述找到 FabricDataRoot 目录（默认为 c:\ProgramData\SF）中安装的文件。 同样，可以看到 FabricHost.exe 和 Fabric.exe 进程在任务管理器中运行。
+> 部署跟踪已写入运行 CreateServiceFabricCluster.ps1 PowerShell 脚本的 VM/计算机。 可在运行脚本的目录中的子文件夹 DeploymentTraces 中找到这些信息。 要确定是否已将 Service Fabric 正确部署到计算机，请根据群集配置文件 FabricSettings 部分中的详述找到 FabricDataRoot 目录（默认为 c:\ProgramData\SF）中安装的文件。 同样，可以看到 FabricHost.exe 和 Fabric.exe 进程在任务管理器中运行。
 >
 >
 
@@ -145,7 +145,7 @@ Your cluster is successfully created! You can connect and manage your cluster us
 > * 运行应用程序
 > * 验证连接数
 
-转到本系列教程的第三部分，将应用程序安装到已创建的群集中。
+请继续学习本系列教程的第三部分，将应用程序安装到已创建的群集中。
 
 > [!div class="nextstepaction"]
 > [将应用程序安装到 Service Fabric 群集中](service-fabric-tutorial-standalone-install-an-application.md)

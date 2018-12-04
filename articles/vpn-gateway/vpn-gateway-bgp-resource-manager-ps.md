@@ -17,11 +17,11 @@ origin.date: 04/12/2017
 ms.date: 06/14/2018
 ms.author: v-junlch
 ms.openlocfilehash: 0098eeee301b8f5cccad54d1a24822c89a451dab
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568395"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662068"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>如何使用 PowerShell 在 Azure VPN 网关上配置 BGP
 本文介绍使用 Resource Manager 部署模型和 PowerShell 在跨界站点到站点 (S2S) VPN 连接和 VNet 到 VNet 连接上启用 BGP 的步骤。

@@ -17,11 +17,11 @@ origin.date: 01/29/2018
 ms.author: v-yiso
 ms.date: 06/11/2018
 ms.openlocfilehash: 73dc72b7df9bab496d4f19ead920930fef0f0cc8
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695061"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664055"
 ---
 # <a name="azure-iot-hub-get-started-with-real-devices"></a>Azure IoT 中心真实设备入门
 

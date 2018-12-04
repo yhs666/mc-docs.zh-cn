@@ -17,11 +17,11 @@ ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: misainat
 ms.openlocfilehash: ca410251bb19b2533de1b565ead678b3f09812d0
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195508"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660079"
 ---
 # <a name="azure-stack-development-kit-architecture"></a>Azure Stack 开发工具包体系结构
 Azure Stack 开发工具包 (ASDK) 是 Azure Stack 的单节点部署。 所有组件安装在单主机计算机上运行的虚拟机中。 

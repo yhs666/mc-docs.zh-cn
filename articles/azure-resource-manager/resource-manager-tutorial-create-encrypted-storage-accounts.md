@@ -11,15 +11,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 origin.date: 09/07/2018
-ms.date: 09/24/2018
+ms.date: 11/19/2018
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: cc3d240c888588e2ab4b7b7cb50ac92722ad7930
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.openlocfilehash: bffdda21188211dbbf681ed59f1dcd555b8f486c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46526983"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662737"
 ---
 # <a name="tutorial-create-an-azure-resource-manager-template-for-deploying-an-encrypted-storage-account"></a>教程：创建用于部署已加密存储帐户的 Azure 资源管理器模板
 
@@ -111,6 +111,7 @@ resourceGroup() 函数返回表示当前资源组的对象。 有关模板函数
 ## <a name="edit-the-template"></a>编辑模板
 
 本教程的目标是定义一个模板，以便创建加密的存储帐户。  示例模板仅创建基本的非加密型存储帐户。 若要查找与加密相关的配置，可以使用 Azure 存储帐户的模板参考。
+
 <!--Not Available on [Azure Templates](https://docs.microsoft.com/zh-cn/azure/templates/)-->
 1. 在存储帐户资源定义的 properties 元素中，添加以下 json：
 
@@ -149,7 +150,7 @@ resourceGroup() 函数返回表示当前资源组的对象。 有关模板函数
 
 ## <a name="next-steps"></a>后续步骤
 
-本教程介绍了如何使用模板参考来自定义现有的模板。 在下一个教程中，你将学习如何使用资源迭代来创建多个存储帐户。
+本教程介绍了如何使用模板参考来自定义现有的模板。 若要了解如何创建多个存储帐户实例，请参阅：
 
 > [!div class="nextstepaction"]
 > [创建多个实例](./resource-manager-tutorial-create-multiple-instances.md)

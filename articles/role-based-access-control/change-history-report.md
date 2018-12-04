@@ -17,11 +17,11 @@ ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 97c6fc92ae109104fb4d30fd9a24d344886903a4
-ms.sourcegitcommit: cce18df2de12353f0d8f01c649307a5789d59cd4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39246134"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662609"
 ---
 # <a name="view-activity-logs-for-rbac-changes"></a>查看 RBAC 更改的活动日志
 

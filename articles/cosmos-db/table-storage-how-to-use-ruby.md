@@ -13,11 +13,11 @@ origin.date: 04/05/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.openlocfilehash: be368202b811f07d9e5a55060bcb07a94726d488
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070311"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662249"
 ---
 # <a name="how-to-use-azure-table-storage-with-ruby"></a>如何配合使用 Ruby 和 Azure 表存储
 <!-- Not Available on Azure Cosmos DB Table API -->

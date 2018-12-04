@@ -16,11 +16,11 @@ origin.date: 01/19/2018
 ms.date: 05/28/2018
 ms.author: v-yeche
 ms.openlocfilehash: a381d2f146d5fcb8c4cc91fc1807481843559b5a
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554618"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664435"
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric 网络模式
 可将 Azure Service Fabric 群集与其他 Azure 网络功能集成。 本文说明如何创建使用以下功能的群集：

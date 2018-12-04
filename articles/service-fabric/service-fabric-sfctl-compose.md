@@ -16,11 +16,11 @@ origin.date: 07/31/2018
 ms.date: 09/10/2018
 ms.author: v-yeche
 ms.openlocfilehash: d0deab7c7e5ce1cae2f63b8e1be11cfabe3f1c83
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515685"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661950"
 ---
 # <a name="sfctl-compose"></a>sfctl compose
 创建、删除和管理 Docker Compose 应用程序。
@@ -32,7 +32,7 @@ ms.locfileid: "44515685"
 | create | 创建 Service Fabric compose 部署。 |
 | list | 获取在 Service Fabric 群集中创建的 compose 部署列表。 |
 | remove | 从群集中删除现有的 Service Fabric compose 部署。 |
-| status | 获取有关 Service Fabric compose 部署的信息。 |
+| 状态 | 获取有关 Service Fabric compose 部署的信息。 |
 | 升级 | 开始升级 Service Fabric 群集中的 compose 部署。 |
 | upgrade-status | 获取在此 Service Fabric Compose 部署中执行的最新升级的详细信息。 |
 
@@ -69,7 +69,7 @@ ms.locfileid: "44515685"
 
 |参数|说明|
 | --- | --- |
-| --continuation-token | 继续标记参数用于获取下一组结果。 如果单个响应无法容纳来自系统的结果，则 API 响应中包括含有非空值的继续标记。 当此值传递到下一个 API 调用时，API 返回下一组结果。 如果没有更多结果，则该继续标记不包含值。 不应将此参数的值进行 URL 编码。 |
+| --continuation-token | 继续标记参数用于获取下一组结果。 如果单个响应无法容纳来自系统的结果，则 API 响应中包括含有非空值的继续标记。 当此值传递到下一个 API 调用时，API 返回下一组结果。 如果没有更多结果，则继续标记不包含值。 不应将此参数的值进行 URL 编码。 |
 | --max-results | 作为分页查询的一部分返回的最大结果数。 此参数定义返回结果数的上限。 如果根据配置中定义的最大消息大小限制，无法将这些结果容纳到消息中，则返回的结果数可能小于指定的最大结果数。 如果此参数为零或者未指定，则分页查询包含返回消息中最多可容纳的结果数。 |
 | --timeout -t | 服务器超时，以秒为单位。  默认值\: 60。 |
 

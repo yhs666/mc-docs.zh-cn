@@ -16,11 +16,11 @@ origin.date: 09/26/2017
 ms.author: v-yiso
 ms.date: 05/14/2018
 ms.openlocfilehash: 967a58d9e0e5d1df3980b0da7b1858ae26ffe796
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815341"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663099"
 ---
 # <a name="verifying-expressroute-connectivity"></a>验证 ExpressRoute 连接
 ExpressRoute 可以通过经连接提供商加速的专用连接将本地网络扩展到 Microsoft 云中，涉及以下三个不同的网络区域：

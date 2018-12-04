@@ -3,7 +3,7 @@ title: 在 Azure DNS 中托管反向 DNS 查找区域 | Microsoft Docs
 description: 了解如何使用 Azure DNS 托管 IP 范围的反向 DNS 查找区域
 services: dns
 documentationcenter: na
-author: yunan2016
+author: WenJason
 manager: digimobile
 ms.service: dns
 ms.devlang: na
@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/29/2017
-ms.date: 12/18/2017
-ms.author: v-nany
-ms.openlocfilehash: 44cd7a3c35d757f96b601e19bb0040a76eb3c1ca
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.date: 11/12/2018
+ms.author: v-jay
+ms.openlocfilehash: 6f1dafda2973e6159d3342c106541ede4aa1e5c0
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426239"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663131"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>在 Azure DNS 中托管反向 DNS 查找区域
 
@@ -28,11 +28,11 @@ ms.locfileid: "47426239"
 
 阅读本文之前，应已熟悉此[反向 DNS 和 Azure 支持概述](dns-reverse-dns-overview.md)。
 
-本文将逐步指导用户使用 Azure 门户、Azure PowerShell、Azure CLI 1.0 或 Azure CLI 2.0 创建自己的第一个 DNS 区域和记录。
+本文将逐步指导用户使用 Azure 门户、Azure PowerShell、Azure 经典 CLI 或 Azure CLI 创建自己的第一个 DNS 区域和记录。
 
 ## <a name="create-a-reverse-lookup-dns-zone"></a>创建反向查找 DNS 区域
 
-1. 登录到 [Azure 门户](https://portal.azure.cn)
+1. 登录到 [Azure 门户](https://portal.azure.cn)。
 1. 在“中心”菜单上，单击“新建” > “网络”，然后单击“DNS 区域”。
 
    ![“DNS 区域”选项](./media/dns-reverse-dns-hosting/figure1.png)
@@ -64,13 +64,13 @@ IPv4 反向查找区域的名称基于其所代表的 IP 范围。 应采用以�
 New-AzureRmDnsZone -Name 2.0.192.in-addr.arpa -ResourceGroupName MyResourceGroup
 ```
 
-#### <a name="azure-cli-10"></a>Azure CLI 1.0
+#### <a name="azure-classic-cli"></a>Azure 经典 CLI
 
 ```azurecli
 azure network dns zone create MyResourceGroup 2.0.192.in-addr.arpa
 ```
 
-#### <a name="azure-cli-20"></a>Azure CLI 2.0
+#### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
 az network dns zone create -g MyResourceGroup -n 2.0.192.in-addr.arpa
@@ -95,13 +95,13 @@ IPv6 反向查找区域的名称应采用以下格式：`<IPv6 network prefix in
 New-AzureRmDnsZone -Name 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName MyResourceGroup
 ```
 
-#### <a name="azure-cli-10"></a>Azure CLI 1.0
+#### <a name="azure-classic-cli"></a>Azure 经典 CLI
 
 ```azurecli
 azure network dns zone create MyResourceGroup 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa
 ```
 
-#### <a name="azure-cli-20"></a>Azure CLI 2.0
+#### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
 az network dns zone create -g MyResourceGroup -n 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa
@@ -139,13 +139,13 @@ az network dns zone create -g MyResourceGroup -n 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2
 ```powershell
 New-AzureRmDnsRecordSet -Name 15 -RecordType PTR -ZoneName 2.0.192.in-addr.arpa -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Ptrdname "dc1.contoso.com")
 ```
-#### <a name="azure-cli-10"></a>Azure CLI 1.0
+#### <a name="azure-classic-cli"></a>Azure 经典 CLI
 
 ```azurecli
 azure network dns record-set add-record MyResourceGroup 2.0.192.in-addr.arpa 15 PTR --ptrdname dc1.contoso.com  
 ```
 
-#### <a name="azure-cli-20"></a>Azure CLI 2.0
+#### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
     az network dns record-set ptr add-record -g MyResourceGroup -z 2.0.192.in-addr.arpa -n 15 --ptrdname dc1.contoso.com
@@ -176,13 +176,13 @@ azure network dns record-set add-record MyResourceGroup 2.0.192.in-addr.arpa 15 
 New-AzureRmDnsRecordSet -Name "e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f" -RecordType PTR -ZoneName 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Ptrdname "dc2.contoso.com")
 ```
 
-#### <a name="azure-cli-10"></a>Azure CLI 1.0
+#### <a name="azure-classic-cli"></a>Azure 经典 CLI
 
 ```
 azure network dns record-set add-record MyResourceGroup 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f PTR --ptrdname dc2.contoso.com 
 ```
  
-#### <a name="azure-cli-20"></a>Azure CLI 2.0
+#### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
     az network dns record-set ptr add-record -g MyResourceGroup -z 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -n e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f --ptrdname dc2.contoso.com
@@ -206,13 +206,13 @@ azure network dns record-set add-record MyResourceGroup 0.0.0.0.c.d.b.a.8.b.d.0.
 Get-AzureRmDnsRecordSet -ZoneName 2.0.192.in-addr.arpa -ResourceGroupName MyResourceGroup
 ```
 
-#### <a name="azure-cli-10"></a>Azure CLI 1.0
+#### <a name="azure-classic-cli"></a>Azure 经典 CLI
 
 ```azurecli
     azure network dns record-set list MyResourceGroup 2.0.192.in-addr.arpa
 ```
 
-#### <a name="azure-cli-20"></a>Azure CLI 2.0
+#### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
     azure network dns record-set list -g MyResourceGroup -z 2.0.192.in-addr.arpa
@@ -232,13 +232,13 @@ Get-AzureRmDnsRecordSet -ZoneName 2.0.192.in-addr.arpa -ResourceGroupName MyReso
 Get-AzureRmDnsRecordSet -ZoneName 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName MyResourceGroup
 ```
 
-#### <a name="azure-cli-10"></a>Azure CLI 1.0
+#### <a name="azure-classic-cli"></a>Azure 经典 CLI
 
 ```azurecli
     azure network dns record-set list MyResourceGroup 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa
 ```
 
-#### <a name="azure-cli-20"></a>Azure CLI 2.0
+#### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
     azure network dns record-set list -g MyResourceGroup -z 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa

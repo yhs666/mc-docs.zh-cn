@@ -18,11 +18,11 @@ origin.date: 12/05/2017
 ms.date: 01/15/2018
 ms.author: v-yiso
 ms.openlocfilehash: b664ff79fc6008d1fd4210af867857d099dcf94c
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
-ms.locfileid: "27781360"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666971"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>将基于 Windows 的 HDInsight 的 .NET 解决方案迁移到基于 Linux 的 HDInsight
 
@@ -60,7 +60,7 @@ HDInsight 版本 3.6 附带了 Mono 版本 4.2.1。 有关包含在 HDInsight �
 
 ## <a name="manual-portability-analysis"></a>手动可移植性分析
 
-使用[应用程序可移植性 (http://www.mono-project.com/docs/getting-started/application-portability/)](http://www.mono-project.com/docs/getting-started/application-portability/) 文档中的信息手动审核代码。
+使用[应用程序可移植性 (http://www.mono-project.com/docs/getting-started/application-portability/)](http://www.mono-project.com/docs/getting-started/application-portability/) 文档中的信息执行代码的手动审核。
 
 ## <a name="modify-and-build"></a>修改和生成
 

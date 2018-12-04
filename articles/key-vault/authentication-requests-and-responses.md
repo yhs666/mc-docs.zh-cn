@@ -16,11 +16,11 @@ origin.date: 05/09/2018
 ms.date: 10/22/2018
 ms.author: v-biyu
 ms.openlocfilehash: c0b7597c090419601219474d06b795631d848414
-ms.sourcegitcommit: 2fdf25eb4b978855ff2832bcdcca093c141be261
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49120602"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662960"
 ---
 # <a name="authentication-requests-and-responses"></a>身份验证、请求和响应
 

@@ -17,11 +17,11 @@ ms.date: 05/28/2018
 ms.author: v-yiso
 ROBOTS: NOINDEX
 ms.openlocfilehash: 9af057fc5dd558abee7f9a51aaf64aa481b09fcf
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450117"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662753"
 ---
 # <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>使用 Tez UI 调试基于 Windows 的 HDInsight 上的 Tez 作业
 Tez UI 可以用来调试使用 Tez 作为执行引擎的 Hive 作业。 Tez UI 可以将作业显示为包含已连接项目的图形，深入了解每个项目并检索统计信息和日志记录信息。
@@ -141,6 +141,6 @@ Tez UI 是一个网页，提供使用 Tez 的进程的信息。 它可以为以�
     ![任务详细信息](./media/hdinsight-debug-tez-ui/taskdetails.png)
 
 ## <a name="next-steps"></a>后续步骤
-既然已了解如何使用 Tez 视图，接下来将详细了解如何[使用 Hive on HDInsight](hadoop/hdinsight-use-hive.md)。
+现在，已了解如何使用 Tez 视图，因此可以详细了解如何 [使用 HDInsight 上的 Hive](hadoop/hdinsight-use-hive.md)。
 
 有关 Tez 的更详细的技术信息，请参阅 [Hortonworks 的 Tez 页](http://hortonworks.com/hadoop/tez/)。

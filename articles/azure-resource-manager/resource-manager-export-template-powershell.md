@@ -15,11 +15,11 @@ origin.date: 02/23/2018
 ms.date: 03/26/2018
 ms.author: v-yeche
 ms.openlocfilehash: 38ed7db7a4dbfabe5ce185f7409d9084826895a6
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30222595"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666963"
 ---
 # <a name="export-azure-resource-manager-templates-with-powershell"></a>使用 PowerShell 导出 Azure Resource Manager 模板
 

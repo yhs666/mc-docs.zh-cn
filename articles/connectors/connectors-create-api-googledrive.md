@@ -18,11 +18,11 @@ origin.date: 11/07/2016
 ms.author: v-yiso
 ms.date: 03/26/2018
 ms.openlocfilehash: 5384782595557567a2e21b3fb1c371910c0cd5a9
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939582"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660758"
 ---
 # <a name="get-started-with-the-google-drive-connector"></a>Google Drive 连接器入门
 连接到 Google Drive，创建文件、获取行等。 通过 Google Drive，可以： 

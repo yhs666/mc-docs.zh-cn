@@ -16,11 +16,11 @@ origin.date: 10/01/2016
 ms.date: 01/29/2018
 ms.author: v-yiso
 ms.openlocfilehash: 62e43077d72a620d1c9e58bbe4828e5a2408ddeb
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939599"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661511"
 ---
 #<a name="create-an-android-app"></a>创建 Android 应用
 

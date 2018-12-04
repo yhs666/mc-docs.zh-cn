@@ -18,11 +18,11 @@ ms.date: 08/28/2018
 ms.author: v-junlch
 ms.reviewer: dhanyahk
 ms.openlocfilehash: ba6cadd15dd3bc9a48ccfa9e5157e0e2c14c2791
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43171553"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663135"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Azure AD 审核活动参考
 

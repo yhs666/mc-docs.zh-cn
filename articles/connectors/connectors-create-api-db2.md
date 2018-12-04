@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 08/23/2018
 tags: connectors
 ms.openlocfilehash: 354e67183a36f511811d74a0685dea2e23d6c0e2
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455285"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662909"
 ---
 # <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>使用 Azure 逻辑应用管理 IBM DB2 资源
 

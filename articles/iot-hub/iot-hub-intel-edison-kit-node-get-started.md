@@ -13,11 +13,11 @@ ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
 ms.date: 09/10/2018
 ms.openlocfilehash: 0e147d1b19b9fb61f1b851b8d131585e8f50d376
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43328605"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662282"
 ---
 # <a name="connect-intel-edison-to-azure-iot-hub-nodejs"></a>将 Intel Edison 连接到 Azure IoT 中心 (Node.js)
 

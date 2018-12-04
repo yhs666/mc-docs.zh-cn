@@ -18,11 +18,11 @@ origin.date: 12/20/2017
 ms.date: 10/22/2018
 ms.author: v-yiso
 ms.openlocfilehash: 44094bf327333ff2a222474b649cbca2ca6a99a5
-ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121543"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664225"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>调试 Azure HDInsight 中运行的 Apache Spark 作业
 

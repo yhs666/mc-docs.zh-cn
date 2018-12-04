@@ -12,11 +12,11 @@ origin.date: 01/20/2017
 ms.date: 10/30/2018
 ms.author: v-junlch
 ms.openlocfilehash: 92fb0160e05629319460e6cc701e4b8f7567fa81
-ms.sourcegitcommit: b8e99939a5493a15b78c32e87bfbf76a8c96a84a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50408995"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666504"
 ---
 # <a name="how-to-analyze-videos-in-real-time"></a>如何实时分析视频
 本指南将演示如何对实时视频流中提取的帧执行近实时分析。 此类系统中的基本组件包括：

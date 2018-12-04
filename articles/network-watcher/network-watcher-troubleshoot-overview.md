@@ -16,11 +16,11 @@ origin.date: 06/19/2017
 ms.date: 04/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: 38f9dd898292e1d5762c67262aa902659fd98012
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121507"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662165"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>在 Azure 网络观察程序中进行资源故障排除简介
 

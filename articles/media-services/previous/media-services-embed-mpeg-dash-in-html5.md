@@ -16,11 +16,11 @@ origin.date: 09/26/2016
 ms.date: 1/22/2018
 ms.author: v-jay
 ms.openlocfilehash: c4dd5880b1a564d20a514658e3b8c38624dafae2
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426447"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660766"
 ---
 # <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>使用 DASH.js 在 HTML5 应用程序中嵌入 MPEG-DASH 自适应流式处理视频
 ## <a name="overview"></a>概述
@@ -41,7 +41,7 @@ Dash.js 是用 JavaScript 编写的开源 MPEG-DASH 视频播放器。 其目标
 只需几行 JavaScript 代码，即可完成初始化播放器。 使用 dash.js，将 MPEG-DASH 视频嵌入到基于浏览器的应用程序中确实就这么简单。
 
 ## <a name="creating-the-html-page"></a>创建 HTML 页
-第一步是创建一个包含 **video** 元素的标准 HTML 页，将此文件保存为 basicPlayer.html，如以下示例所示：
+第一步是创建一个包含 **video** 元素的标准 HTML 页面，将此文件保存为 basicPlayer.html，如以下示例所示：
 
 ```html
     <!DOCTYPE html>

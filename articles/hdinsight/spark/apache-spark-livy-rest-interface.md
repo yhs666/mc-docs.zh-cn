@@ -11,11 +11,11 @@ ms.topic: conceptual
 origin.date: 07/18/2018
 ms.date: 09/17/2018
 ms.openlocfilehash: 24f13cbe24e097f4d77da78b2a1b8a827db199ef
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068177"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661724"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>使用 Apache Spark REST API 将远程作业提交到 HDInsight Spark 群集
 
@@ -163,7 +163,7 @@ HDInsight 3.5 群集默认情况下禁止使用本地文件路径访问示例数
 
 2. 在左侧导航中，单击“Livy”，并单击“配置”。
 
-3. 如果要允许完全访问文件系统，请在 **livy-default** 下添加属性名称 `livy.file.local-dir-whitelist`，并将其值设置为 "/"。 如果要仅允许访问特定目录，请提供该目录的路径作为值。
+3. 如果要允许完全访问文件系统，请在 **livy-default** 下添加属性名称 `livy.file.local-dir-whitelist`，并将其值设置为 **"/"**。 如果要仅允许访问特定目录，请提供该目录的路径作为值。
 
 ## <a name="submitting-livy-jobs-for-a-cluster-within-an-azure-virtual-network"></a>在 Azure 虚拟网络中提交群集的 Livy 作业
 

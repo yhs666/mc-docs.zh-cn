@@ -12,11 +12,11 @@ ms.date: 07/02/2018
 ms.author: v-nany
 ms.custom: mvc
 ms.openlocfilehash: 307afd1c2ca521efcde1191fa7cd3a35adb33940
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295687"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662503"
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>使应用程序数据在 Azure 存储中高度可用
 

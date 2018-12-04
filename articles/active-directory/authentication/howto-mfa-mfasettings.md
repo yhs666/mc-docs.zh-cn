@@ -12,11 +12,11 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
 ms.openlocfilehash: 63f062a67252dc6f87ec58ee3587b30b973a0519
-ms.sourcegitcommit: c237baac64f847301ba7f67082ffffcd81c00142
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43850807"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661326"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>配置 Azure 多重身份验证设置
 

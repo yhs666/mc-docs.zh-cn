@@ -17,11 +17,11 @@ origin.date: 05/16/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
 ms.openlocfilehash: 1fa435aa71d30a17e70e52257d8ab28bd505534d
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747321"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662115"
 ---
 # <a name="run-sqoop-jobs-by-using-net-sdk-for-hadoop-in-hdinsight"></a>使用 HDInsight 中的用于 Hadoop 的 .NET SDK 运行 Sqoop 作业
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -124,6 +124,6 @@ HDInsight .NET SDK 提供 .NET 客户端库，以便可轻易从 .NET 中使用 
 现在你已了解如何使用 Sqoop。 若要了解更多信息，请参阅以下文章：
 
 * [将 Oozie 与 HDInsight 配合使用](../hdinsight-use-oozie.md)：在 Oozie 工作流中使用 Sqoop 操作。
-* [使用 HDInsight 分析航班延误数据](../hdinsight-analyze-flight-delay-data.md)：使用 Hive 分析航班延误数据，然后使用 Sqoop 将数据导出到 Azure SQL 数据库。
+* [使用 HDInsight 分析外部测试版延迟数据](../hdinsight-analyze-flight-delay-data.md)：使用 Hive 分析外部测试版延迟数据，并使用 Sqoop 将数据导出到 Azure SQL 数据库。
 * [将数据上传到 HDInsight](../hdinsight-upload-data.md)：了解将数据上传到 HDInsight 或 Azure Blob 存储的其他方法。
 

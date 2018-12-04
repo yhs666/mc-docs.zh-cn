@@ -12,11 +12,11 @@ origin.date: 01/26/2017
 ms.date: 10/30/2018
 ms.author: v-junlch
 ms.openlocfilehash: e3ec41a77f7b3169d4059fd8edb1e3c1b24b7ae0
-ms.sourcegitcommit: b8e99939a5493a15b78c32e87bfbf76a8c96a84a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50408979"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662697"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>计算机视觉 API 常见问题解答
 

@@ -16,11 +16,11 @@ ms.date: 05/21/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.openlocfilehash: 92811a332f0e1af7c3df5b6290ff8c034d446a52
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873528"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664594"
 ---
 # <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>在 HDInsight 中通过 Hive 和 Pig 使用 Python 用户定义的函数 (UDF)
 
@@ -190,7 +190,7 @@ def create_structure(input):
 
 有关使用 SSH 的详细信息，请参阅[将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-1. 使用 `scp` 将文件复制到 HDInsight 群集。 例如，以下命令会将文件复制到名为 **mycluster** 的群集。
+1. 使用 `scp` 将文件复制到 HDInsight 群集。 例如，以下命令将文件复制到名为 **mycluster**的群集。
 
     ```bash
     scp hiveudf.py pigudf.py myuser@mycluster-ssh.azurehdinsight.cn:
@@ -515,7 +515,7 @@ $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
 
 ## <a name="next"></a>后续步骤
 
-如果需要加载默认情况下未提供的 Python 模块，请参阅[如何将模块部署到 Azure HDInsight](http://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx)。
+如果需要加载默认情况下未提供的 Python 模块，请参阅 [How to deploy a module to Azure HDInsight](http://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx)（如何将模块部署到 Azure HDInsight）。
 
 若要了解使用 Pig 和 Hive 的其他方式以及如何使用 MapReduce，请参阅以下文档：
 

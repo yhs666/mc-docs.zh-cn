@@ -10,11 +10,11 @@ ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: a237499d08e58714b7a705a890f478948137e38c
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307159"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664227"
 ---
 > [!div class="op_single_selector"]
 > * [Portal](../articles/virtual-network/tutorial-filter-network-traffic.md)

@@ -17,11 +17,11 @@ ms.date: 08/09/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 783232eb67b54f7be95cecc5e8de1a47d4ed3076
-ms.sourcegitcommit: f8bb533368ab2ef8efdf47e186672993ad8334cd
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722328"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660140"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>创建可高效列出 Batch 资源的查询
 

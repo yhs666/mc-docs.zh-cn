@@ -13,11 +13,11 @@ origin.date: 05/04/2018
 ms.date: 07/23/2018
 ms.author: v-nany
 ms.openlocfilehash: ed490e50b0a3c906c859916dfbbe1a5030fd27e5
-ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39143406"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662843"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>了解重要的适用于自动化 Runbook 的 Windows PowerShell 工作流概念
 

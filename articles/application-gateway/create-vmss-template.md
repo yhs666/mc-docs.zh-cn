@@ -15,11 +15,11 @@ origin.date: 07/31/2017
 ms.date: 06/01/2018
 ms.author: v-junlch
 ms.openlocfilehash: 4e9f19976bd90125bab7a67b70b7f55da6f55590
-ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855832"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662926"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板创建应用程序网关
 

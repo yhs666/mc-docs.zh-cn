@@ -12,11 +12,11 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
 ms.openlocfilehash: 8a778b54c30a81bc8daf7e1dee7e9718aa4aeb70
-ms.sourcegitcommit: c237baac64f847301ba7f67082ffffcd81c00142
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43850806"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660501"
 ---
 # <a name="how-azure-multi-factor-authentication-works"></a>Azure 多重身份验证的工作原理
 双重验证的安全性在于其分层方法。 破坏多因素身份验证系统对于攻击者来说是巨大的挑战。 即使攻击者设法得到用户的密码，如果没有同时占有可信设备也没有用处。 

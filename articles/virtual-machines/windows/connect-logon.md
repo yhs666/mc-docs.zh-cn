@@ -17,11 +17,11 @@ origin.date: 09/13/2018
 ms.date: 10/22/2018
 ms.author: v-yeche
 ms.openlocfilehash: 86ad386003e1e9d1eab320e5f12a77895f868d1b
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034869"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660465"
 ---
 # <a name="how-to-connect-and-log-on-to-an-azure-virtual-machine-running-windows"></a>如何连接并登录到运行 Windows 的 Azure 虚拟机
 可以从 Windows 桌面使用 Azure 门户中的“连接”按钮来启动远程桌面 (RDP) 会话。 首先连接到虚拟机，然后登录。

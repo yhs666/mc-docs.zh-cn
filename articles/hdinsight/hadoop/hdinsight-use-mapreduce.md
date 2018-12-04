@@ -18,11 +18,11 @@ origin.date: 05/16/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
 ms.openlocfilehash: 0dd7cafc6b1cbf0c6b58ca944c689c1c17cd493e
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873598"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662126"
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>在 Hadoop on HDInsight 中使用 MapReduce
 
@@ -42,8 +42,7 @@ ms.locfileid: "37873598"
 
 Hadoop MapReduce 是一个软件框架，用于编写处理海量数据的作业。 输入的数据将拆分为独立的区块。 每个区块跨群集中的节点并行进行处理。 MapReduce 作业包括两个函数：
 
-* 
-            **映射器**：使用输入数据，对数据进行分析（通常使用筛选器和排序操作），并发出元组（键/值对）
+* **映射器**：使用输入数据，对数据进行分析（通常使用筛选器和排序操作），并发出元组（键/值对）
 
 * **化简器**：使用映射器发出的元组并执行汇总运算，以基于映射器数据创建更小的合并结果
 

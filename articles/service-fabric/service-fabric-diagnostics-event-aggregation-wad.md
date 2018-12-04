@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/03/2018
-ms.date: 05/28/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 25c9b41dead3f55c4b9d651bea01e36b76257e0e
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 3956f9a2f5e1a7db9a2491e3643b013ec2886eb5
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554432"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666658"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>使用 Windows Azure 诊断聚合和集合事件
 > [!div class="op_single_selector"]
@@ -32,6 +32,8 @@ ms.locfileid: "34554432"
 当你运行 Azure Service Fabric 群集时，最好是从一个中心位置的所有节点中收集日志。 将日志放在中心位置可帮助分析和排查群集中的问题，或该群集中运行的应用程序与服务的问题。
 
 上传和收集日志的方式之一是使用可将日志上传到 Azure 存储并能选择发送日志到 Azure 事件中心的 Windows Azure 诊断 (WAD) 扩展。 也可以使用外部进程读取存储中的事件，并将它们放在分析平台产品中。
+
+<!-- Not Available on Application Insight -->
 <!-- Not Available [OMS Log Analytics](../log-analytics/log-analytics-service-fabric.md) -->
 
 ## <a name="prerequisites"></a>先决条件
@@ -64,6 +66,7 @@ Service Fabric 提供了一些[现成的日志记录通道](service-fabric-diagn
 
 ### <a name="create-a-cluster-with-the-diagnostics-extension"></a>创建包含诊断扩展的群集
 若要使用资源管理器创建群集，需要在创建群集之前，将诊断配置 JSON 添加到整个资源管理器模板。 我们会在 Resource Manager 模板示例中提供包含五个 VM 的群集 Resource Manager 模板，并在演示 Resource Manager 模板示例的过程中添加诊断配置。 可以在 Azure 示例库中的以下位置找到该示例： [包含五节点群集的诊断 Resource Manager 模板示例](https://azure.microsoft.com/en-in/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/)。
+
 <!--URL should be https://azure.microsoft.com/en-in/resources/templates/ -->
 
 若要查看 Resource Manager 模板中的诊断设置，请打开 azuredeploy.json 文件并搜索 **IaaSDiagnostics**。 若要使用此模板创建群集，请选择在上面的链接中提供的“部署到 Azure”  按钮。
@@ -221,7 +224,7 @@ Service Fabric 提供了一些[现成的日志记录通道](service-fabric-diagn
 >[!NOTE]
 >此通道包含非常大量的事件，从详细通道启用事件收集会导致快速生成大量跟踪并可能会消耗存储容量。 请只有在绝对必要的情况下才启用此项。
 
-若要启用“基本数据和消息通道”（我们针对全面日志记录的建议），模板的 `WadCfg` 中的 `EtwManifestProviderConfiguration` 将如下所示：
+若要启用“基本操作通道”（建议启用以获得干扰最少的全面日志记录），模板的 `WadCfg` 中的 `EtwManifestProviderConfiguration` 将如下所示：
 
 ```json
   "WadCfg": {
@@ -249,7 +252,7 @@ Service Fabric 提供了一些[现成的日志记录通道](service-fabric-diagn
               {
                 "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
                 "scheduledTransferLogLevelFilter": "Information",
-                "scheduledTransferKeywordFilter": "4611686018427387928",
+                "scheduledTransferKeywordFilter": "4611686018427387904",
                 "scheduledTransferPeriod": "PT5M",
                 "DefaultEvents": {
                   "eventDestination": "ServiceFabricSystemEventTable"
@@ -284,6 +287,7 @@ Service Fabric 提供了一些[现成的日志记录通道](service-fabric-diagn
 ## <a name="collect-performance-counters"></a>收集性能计数器
 
 若要从群集中收集性能指标，请将性能计数器添加到群集的资源管理器模板中的“WadCfg > DiagnosticMonitorConfiguration”。 对于我们建议收集的性能计数器列表，请参阅 [Service Fabric 性能计数器](service-fabric-diagnostics-event-generation-perf.md)。
+
 <!-- Wait for [Performance monitoring with WAD](service-fabric-diagnostics-perf-wad.md) -->
 <!-- Not Available on If you are using an Application Insights sink, as described in the section below, and want these metrics to show up in Application Insights, then make sure to add the sink name in the "sinks" section as shown above. This will automatically send the performance counters that are individually configured to your Application Insights resource. -->
 <!-- Not Available on ## Send logs to Application Insights -->
@@ -292,6 +296,7 @@ Service Fabric 提供了一些[现成的日志记录通道](service-fabric-diagn
 ## <a name="next-steps"></a>后续步骤
 
 正确配置 Azure 诊断后，将看到来自 ETW 和 EventSource 日志的存储表中的数据。 如果选择使用 Kibana 或其他不在资源管理器模板中直接配置的任何数据分析和可视化平台，请确保设置所选平台以读入这些存储表中的数据。
+
 <!-- Not Available on [Event and log analysis through OMS](service-fabric-diagnostics-event-analysis-oms.md) -->
 <!-- Not Available on [appropriate article](service-fabric-diagnostics-event-analysis-appinsights.md) -->
 
@@ -299,6 +304,7 @@ Service Fabric 提供了一些[现成的日志记录通道](service-fabric-diagn
 >目前没有任何方法可以筛选或清理已发送到表的事件。 如果未实施某个过程从表中删除事件，该表会不断增大。 目前，在[监视器示例](https://github.com/Azure-Samples/service-fabric-watchdog-service)中有一个运行数据整理服务的示例，建议为自己编写一个，除非有需要存储超过 30 或 90 天日志的的理由。
 
 * [了解如何使用诊断扩展收集性能计数器或日志](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+
 <!-- Not Available on * [Event Analysis and Visualization with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) -->
 <!-- Not Available on * [Event Analysis and Visualization with Log Analytics](service-fabric-diagnostics-event-analysis-oms.md) -->
 

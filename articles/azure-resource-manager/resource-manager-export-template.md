@@ -15,11 +15,11 @@ origin.date: 06/26/2018
 ms.date: 08/13/2018
 ms.author: v-yeche
 ms.openlocfilehash: 78d08734f19037dbaba9a1311731ea6675db80d8
-ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625481"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660091"
 ---
 # <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>从现有资源导出 Azure 资源管理器模板
 本文介绍如何从订阅中的现有资源导出 Resource Manager 模板。 可以使用该生成的模板更好地了解模板语法。

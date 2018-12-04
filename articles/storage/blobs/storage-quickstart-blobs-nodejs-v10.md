@@ -10,11 +10,11 @@ origin.date: 09/19/2018
 ms.date: 11/05/2018
 ms.author: v-jay
 ms.openlocfilehash: 16cd7afee563f8aa5beeac348fb87e7eb4f20242
-ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50743563"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661189"
 ---
 # <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript-preview"></a>快速入门：使用 Azure Storage v10 SDK for JavaScript 上载、下载、列出和删除 blob（预览版）
 

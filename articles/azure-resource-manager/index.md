@@ -13,11 +13,11 @@ origin.date: 07/16/2018
 ms.date: 09/03/2018
 ms.author: v-yeche
 ms.openlocfilehash: 8bfddd8df8e5e4801c6ae7e02eddf121f6cf6ddc
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164636"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663211"
 ---
 # <a name="azure-resource-manager-documentation"></a>Azure Resource Manager 文档
 

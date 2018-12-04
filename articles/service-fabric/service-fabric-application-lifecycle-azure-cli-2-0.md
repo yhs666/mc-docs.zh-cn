@@ -11,11 +11,11 @@ ms.date: 08/14/2017
 wacn.date: ''
 ms.author: v-yeche
 ms.openlocfilehash: 219b51c35eac4ef6d1a01f92c7a1cd72e167b284
-ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
-ms.locfileid: "20822702"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662576"
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-cli-20"></a>使用 Azure CLI 2.0 管理 Azure Service Fabric 应用程序
 

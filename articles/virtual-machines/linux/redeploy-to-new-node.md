@@ -16,11 +16,11 @@ origin.date: 12/14/2017
 ms.date: 07/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: c433c7e9bc92b47195aba42e6726e02860a98771
-ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39261832"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661606"
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>将 Linux 虚拟机重新部署到新的 Azure 节点
 如果在对 SSH 或应用程序访问 Azure 中 Linux 虚拟机 (VM) 进行故障排除时遇到困难，重新部署 VM 可能会有帮助。 重新部署 VM 时，将 VM 移到 Azure 基础结构中的新节点，并重新提供支持。 所有配置选项和关联资源均保留。 本文介绍如何使用 Azure CLI 或 Azure 门户重新部署 VM。

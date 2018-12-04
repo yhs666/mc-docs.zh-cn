@@ -16,11 +16,11 @@ origin.date: 06/12/2018
 ms.date: 08/27/2018
 ms.author: v-yeche
 ms.openlocfilehash: d203e88705a4d5bf72ba52df2b670492914bfe0c
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871660"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660130"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>适用于 Windows 的 Azure 磁盘加密 (Microsoft.Azure.Security.AzureDiskEncryption)
 

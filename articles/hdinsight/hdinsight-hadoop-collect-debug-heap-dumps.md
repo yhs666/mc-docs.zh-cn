@@ -18,21 +18,21 @@ ms.date: 12/25/2017
 ms.author: v-yiso
 ROBOTS: NOINDEX
 ms.openlocfilehash: 9241487edc84a8a1efe94afbba6f5d0d97f88ed7
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
-ms.locfileid: "26721321"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663903"
 ---
 # <a name="collect-heap-dumps-in-blob-storage-to-debug-and-analyze-hadoop-services"></a>在 Blob 存储中收集堆转储以调试和分析 Hadoop 服务
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
-堆转储包含应用程序的内存快照，包括创建转储时各变量的值。 因此，它们在诊断发生在运行时的问题时很有用。 可以自动收集 Hadoop 服务的堆转储，并将其放置在用户 Azure Blob 存储帐户中的 HDInsightHeapDumps/ 下。
+堆转储包含应用程序的内存快照，其中包括创建转储时各变量的值。 因此，它们在诊断发生在运行时的问题时很有用。 可以自动收集 Hadoop 服务的堆转储，并将其放置在用户 Azure Blob 存储帐户中的 HDInsightHeapDumps/ 下。
 
 必须为各个群集上的服务启用各种服务的堆转储集合。 默认为群集关闭此功能。 这些堆转储可能很大，因此在启用收集后，建议监视保存这些转储的 Blob 存储帐户。
 
 > [!IMPORTANT]
-> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 本文中的信息仅适用于基于 Windows 的 HDInsight。 有关基于 Linux 的 HDInsight 的信息，请参阅[为基于 Linux 的 HDInsight 上的 Hadoop 服务启用堆转储](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+> Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 本文中的信息仅适用于基于 Windows 的 HDInsight。 有关基于 Linux 的 HDInsight 的信息，请参阅[为基于 Linux 的 HDInsight 上的 Hadoop 服务启用堆转储](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 
 ## <a name="eligible-services-for-heap-dumps"></a>符合启用堆转储的服务
 可以为以下服务启用堆转储：
@@ -44,7 +44,7 @@ ms.locfileid: "26721321"
 * **hdfs** - datanode、secondarynamenode、namenode
 
 ## <a name="configuration-elements-that-enable-heap-dumps"></a>用于启用堆转储的配置元素
-若要为服务启用堆转储，需要在该服务的节（由 service_name 指定）中设置相应的配置元素。
+若要为服务启用堆转储，需要在该服务的节（由 **service_name** 指定）中设置相应的配置元素。
 
     "javaargs.<service_name>.XX:+HeapDumpOnOutOfMemoryError" = "-XX:+HeapDumpOnOutOfMemoryError",
     "javaargs.<service_name>.XX:HeapDumpPath" = "-XX:HeapDumpPath=c:\Dumps\<service_name>_%date:~4,2%%date:~7,2%%date:~10,2%%time:~0,2%%time:~3,2%%time:~6,2%.hprof"

@@ -17,11 +17,11 @@ origin.date: 11/11/2016
 ms.date: 09/26/2018
 ms.author: v-junlch
 ms.openlocfilehash: 2be0092a63f7648ed717369cce9f476df0e882b6
-ms.sourcegitcommit: 641f375fc67e8c9d6ec1296560602c0b64ab8a52
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47398132"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662784"
 ---
 # <a name="debugging-an-azure-cloud-service-or-virtual-machine-in-visual-studio"></a>在 Visual Studio 中调试云服务或虚拟机
 

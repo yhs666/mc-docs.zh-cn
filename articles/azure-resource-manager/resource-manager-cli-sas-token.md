@@ -16,15 +16,15 @@ origin.date: 05/31/2017
 ms.date: 07/03/2017
 ms.author: v-yeche
 ms.openlocfilehash: 946f2a198904746006f8fdf32e2e1d8c429b8426
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
-ms.locfileid: "20188207"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663567"
 ---
 # <a name="deploy-private-resource-manager-template-with-sas-token-and-azure-cli"></a>使用 SAS 令牌和 Azure CLI 部署专用 Resource Manager 模板
 
-如果模板驻留在存储帐户中，你可以限制对该模板的访问，并在部署过程中提供共享访问签名 (SAS) 令牌。 本主题介绍如何将 Azure PowerShell 与 Resource Manager 模板配合使用在部署过程中提供 SAS 令牌。 
+如果模板驻留在存储帐户中，可以限制对该模板的访问，并在部署过程中提供共享访问签名 (SAS) 令牌。 本主题介绍如何将 Azure PowerShell 与 Resource Manager 模板配合使用在部署过程中提供 SAS 令牌。 
 
 ## <a name="add-private-template-to-storage-account"></a>将专用模板添加到存储帐户
 
@@ -61,7 +61,7 @@ az storage blob upload \
 ```
 
 ### <a name="provide-sas-token-during-deployment"></a>在部署期间提供 SAS 令牌
-若要在存储帐户中部署专用模板，请生成 SAS 令牌，并将其包括在模板的 URI 中。 设置到期时间以允许足够的时间来完成部署。
+要在存储帐户中部署专用模板，请生成 SAS 令牌，并将其包括在模板的 URI 中。 设置到期时间以允许足够的时间来完成部署。
 
 ```azurecli
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)

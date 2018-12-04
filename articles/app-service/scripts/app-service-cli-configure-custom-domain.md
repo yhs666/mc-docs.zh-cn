@@ -18,11 +18,11 @@ ms.date: 04/02/2017
 ms.author: v-yiso
 ms.custom: mvc
 ms.openlocfilehash: fff3e1aa31368a0bb8e3aa2b96e78e0c96410a94
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30155665"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666712"
 ---
 # <a name="map-a-custom-domain-to-a-web-app"></a>将自定义域映射到 Web 应用
 

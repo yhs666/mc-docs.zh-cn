@@ -19,11 +19,11 @@ ms.date: 06/11/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 46885b23b19112249c85cf369f07eabd8a500b24
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34868481"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664165"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>快速入门：使用 PowerShell 创建虚拟网络
 

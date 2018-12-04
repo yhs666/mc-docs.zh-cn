@@ -16,11 +16,11 @@ origin.date: 06/29/2018
 ms.date: 08/20/2018
 ms.author: v-yeche
 ms.openlocfilehash: a175479610e15cdb0e1fc606e0b209a59921a840
-ms.sourcegitcommit: 744a0de811483c47bc1e88dd73084874376eb01c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40184775"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660948"
 ---
 # <a name="develop-java-service-fabric-applications-with-visual-studio-code"></a>使用 Visual Studio Code 开发 Java Service Fabric 应用程序
 

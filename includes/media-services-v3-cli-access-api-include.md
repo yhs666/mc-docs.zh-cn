@@ -10,11 +10,11 @@ ms.date: 06/25/2018
 ms.author: v-nany
 ms.custom: include file
 ms.openlocfilehash: 81b8425d19fc353688d0a00bfbf751c5ae747f6f
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800544"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662145"
 ---
 ## <a name="access-the-media-services-api"></a>访问媒体服务 API
 

@@ -17,11 +17,11 @@ origin.date: 02/02/2016
 ms.date: 06/11/2018
 ms.author: v-yeche
 ms.openlocfilehash: b0f3c8bc5f437210a13f7e434f7e94f50f0e1e03
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38938764"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664577"
 ---
 # <a name="create-a-network-security-group-classic-using-powershell"></a>使用 PowerShell 创建网络安全组（经典）
 [!INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]
@@ -34,7 +34,7 @@ ms.locfileid: "38938764"
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-下面的示例 PowerShell 命令需要一个已经基于上述方案创建的简单环境。 如果想要运行本文档中所显示的命令，首先通过[创建 VNet](virtual-networks-create-vnet-classic-netcfg-ps.md) 构建测试环境。
+下面的示例 PowerShell 命令需要一个已经基于上述方案创建的简单环境。 如果想要运行本文档中所显示的命令，首先通过 [创建 VNet](virtual-networks-create-vnet-classic-netcfg-ps.md)构建测试环境。
 
 ## <a name="create-an-nsg-for-the-front-end-subnet"></a>为前端子网创建 NSG
 

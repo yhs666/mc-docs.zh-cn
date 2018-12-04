@@ -10,11 +10,11 @@ origin.date: 07/24/2017
 ms.date: 08/23/2018
 ms.author: v-junlch
 ms.openlocfilehash: e2f2cb5c757a1d4e719d0f3f90ff628e279c6f9e
-ms.sourcegitcommit: 85cdb61361dc61147bac991d4907f454f0684ea0
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42709697"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662265"
 ---
 # <a name="back-up-a-vmware-server-to-azure"></a>将 VMware 服务器备份到 Azure
 

@@ -17,11 +17,11 @@ ms.date: 04/30/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 0e2189be390191a88adc83d5b51ad5ce7d896a01
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121105"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663158"
 ---
 # <a name="update-the-rdp-port-range-values"></a>更新 RDP 端口范围值
 

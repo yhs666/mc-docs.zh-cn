@@ -16,11 +16,11 @@ origin.date: 08/14/2018
 ms.date: 10/15/2018
 ms.author: v-yeche
 ms.openlocfilehash: cf83317e916a9223c5af69c9ab3da71e71ceb591
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089089"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664485"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Service Fabric 群集安全方案
 Azure Service Fabric 群集是你拥有的资源。 保护群集以阻止未经授权的用户连接到它们是你的职责。 当在群集上运行生产工作负荷时，安全的群集环境尤为重要。 尽管可以创建不安全的群集，但当该群集向公共 Internet 公开管理终结点时，匿名用户可与它建立连接。 不支持将不安全群集用于生产工作负荷。 

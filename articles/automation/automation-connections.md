@@ -11,11 +11,11 @@ ms.date: 10/01/2018
 ms.topic: conceptual
 manager: digimobile
 ms.openlocfilehash: c93c527322091ff3f7b4cc6e352745066aa66963
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426215"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666684"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure 自动化中的连接资产
 

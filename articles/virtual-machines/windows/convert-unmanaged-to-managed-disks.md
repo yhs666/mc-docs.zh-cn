@@ -17,11 +17,11 @@ origin.date: 07/12/2018
 ms.date: 07/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: 50ff214cfb6e2e4b209c136f6b17b53ef0e5436e
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307059"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660470"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>将 Windows 虚拟机从非托管磁盘转换为托管磁盘
 

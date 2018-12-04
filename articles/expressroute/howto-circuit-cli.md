@@ -17,11 +17,11 @@ origin.date: 10/19/2017
 ms.author: v-yiso
 ms.date: 12/11/2017
 ms.openlocfilehash: 443ed0141b03e793183fd0657276583499178d30
-ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50919102"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662928"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>使用 CLI 创建和修改 ExpressRoute 线路
 

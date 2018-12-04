@@ -17,11 +17,11 @@ ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: anajod
 ms.openlocfilehash: d973d85d9aa4d07781d9a300c5e4729907e8bba6
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195458"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663359"
 ---
 # <a name="optimize-sql-server-performance"></a>优化 SQL Server 性能
 

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/09/2018
-ms.date: 05/28/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: a2cf824d3f03230fc3bc8dfe048ca86855fa4911
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 9cfb59563f96ee79c105c81c39e46c1e07d19c53
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554458"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667042"
 ---
 # <a name="scaling-service-fabric-clusters"></a>缩放 Service Fabric 群集
 Service Fabric 群集是通过网络连接在一起的一组虚拟机或物理机，可在其中部署和管理微服务。 属于群集一部分的计算机或 VM 称为节点。 群集可以包含数千个节点。 创建 Service Fabric 群集后，可以群集横向缩放（更改节点数）或纵向缩放（更改节点资源）该群集。  随时可以缩放群集，即使该群集上正在运行工作负荷。  在缩放群集的同时，应用程序也会随之自动缩放。
@@ -76,6 +76,10 @@ Azure API 可让应用程序以编程方式使用虚拟机规模集和 Service F
 
 删除可能启动多个升级的节点。 某些节点标有 `IsSeedNode="true"` 标记，可使用 [Get-ServiceFabricClusterManifest](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclustermanifest) 通过查询群集清单进行标识。 在此类方案中，因为种子节点需要移动，因此删除此类节点相比其他节点需要较长时间。 群集必须至少维护三个主节点类型的节点。
 
+> [!WARNING]
+> 我们建议你不要将节点数降低到群集的[可靠性层的群集大小](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster)以下。 这会干扰 Service Fabric 系统服务在群集中复制的能力，并且会破坏群集的稳定性或可能销毁群集。
+>
+
 缩放独立群集时，请记住以下准则：
 - 应顺次执行主节点的替换，而不是成批删除，并成批添加。
 - 删除节点类型之前，请检查是否存在任何引用该节点类型的节点。 请在删除相应节点类型之前删除这些节点。 删除所有相应节点后，可从群集配置中删除 NodeType 并使用 [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade) 开始配置升级。
@@ -107,4 +111,5 @@ Azure API 可让应用程序以编程方式使用虚拟机规模集和 Service F
 * [横向扩展或缩减 Azure 群集](service-fabric-tutorial-scale-cluster.md)
 * 使用 fluent Azure 计算 SDK [以编程方式缩放 Azure 群集](service-fabric-cluster-programmatic-scaling.md)。
 * [横向扩展或缩减独立群集](service-fabric-cluster-windows-server-add-remove-nodes.md)
-<!-- Update_Description: update meta properties  -->
+
+<!-- Update_Description: update meta properties, wording update  -->

@@ -16,11 +16,11 @@ origin.date: 04/25/2018
 ms.date: 08/31/2018
 ms.author: v-junlch
 ms.openlocfilehash: f70aab3cddf43065629b798589c15dd87d204b6b
-ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43330757"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663583"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>如何以 WebJobs 的形式运行 Durable Functions
 

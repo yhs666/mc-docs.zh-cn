@@ -16,11 +16,11 @@ origin.date: 04/12/2018
 ms.date: 05/14/2018
 ms.author: v-yiso
 ms.openlocfilehash: 2d388d16b5d69118d14aea29e7d12e2df6877d67
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815156"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666998"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>使用 Azure 门户查看服务运行状况通知
 

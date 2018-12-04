@@ -15,11 +15,11 @@ origin.date: 02/15/2018
 ms.date: 08/27/2018
 ms.author: v-yeche
 ms.openlocfilehash: db3c6c8e190b78df7601f27f6d1442ef1b73cc3c
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871652"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663064"
 ---
 # <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建 SQL Server Windows 虚拟机
 

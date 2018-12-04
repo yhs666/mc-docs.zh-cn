@@ -17,11 +17,11 @@ origin.date: 07/18/2018
 ms.date: 09/17/2018
 ms.author: v-yeche
 ms.openlocfilehash: 171281d9f2444a193bb1b2b1773cf9e630ae5beb
-ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45587799"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667098"
 ---
 <!--Verify successfully-->
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application"></a>快速入门：为高度可用的 Web 应用程序创建流量管理器配置文件。
@@ -49,7 +49,7 @@ ms.locfileid: "45587799"
     |      位置  |   中国东部        |
     |||
 
-3. 选择**创建**。
+3. 选择“创建” 。
 4. 默认网站在 Web 应用成功部署时创建。
 5. 重复步骤 1-3，使用以下设置在另一 Azure 区域创建另一个网站：
 
@@ -88,7 +88,7 @@ ms.locfileid: "45587799"
 
     | 设置                 | 值                                              |
     | ---                     | ---                                                |
-    | Type                    | Azure 终结点                                   |
+    | 类型                    | Azure 终结点                                   |
     | Name           | myPrimaryEndpoint                                        |
     | 目标资源类型           | 应用服务                          |
     | 目标资源          | **选择应用服务**可显示同一订阅下的 Web 应用的列表。 在“资源”中，选取要添加为第一个终结点的应用服务。 |

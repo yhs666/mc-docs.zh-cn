@@ -16,11 +16,11 @@ origin.date: 09/11/2018
 ms.date: 10/08/2018
 ms.author: v-junlch
 ms.openlocfilehash: e7e5b939ed3ae82dcb6e4e6df8565fc5dba810d5
-ms.sourcegitcommit: 71f203d04b212d2bfbf4f227693c2b8fe209db22
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48850510"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660770"
 ---
 # <a name="how-to-recognize-differences-between-delegated-and-application-permissions"></a>如何识别委派权限和应用程序权限
 

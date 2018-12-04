@@ -16,11 +16,11 @@ origin.date: 07/06/2018
 ms.date: 09/24/2018
 ms.author: v-yeche
 ms.openlocfilehash: dbf1987b6b9e842afb28a761d5a188caeaebd5e0
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201368"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663899"
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 复制多层 Dynamics AX 应用程序
 

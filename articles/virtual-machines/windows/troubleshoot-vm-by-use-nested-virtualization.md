@@ -16,11 +16,11 @@ origin.date: 11/06/2017
 ms.date: 04/10/2018
 ms.author: v-yeche
 ms.openlocfilehash: 67359a1c9f85d19b176f60d176deeb28424348c4
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
-ms.locfileid: "30941501"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663751"
 ---
 <!-- Pending On EV3 and DV3 GA Announcement -->
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>使用 Azure 中的嵌套虚拟化排查问题 Azure VM

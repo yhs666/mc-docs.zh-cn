@@ -18,11 +18,11 @@ origin.date: 12/13/2017
 ms.date: 07/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: e13c76ba270fea42719c24f6d38fbb5e54c1fe3b
-ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39261831"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663898"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>对连接到 Azure 中 Linux VM 时出现的问题进行详细的 SSH 故障排除的步骤
 有许多可能的原因会导致 SSH 客户端无法访问 VM 上的 SSH 服务。 如果已经执行了较[常规的 SSH 故障排除步骤](troubleshoot-ssh-connection.md)，则需要进一步排查连接问题。 本文指导用户完成详细的故障排除步骤，以确定 SSH 连接失败的位置以及解决方法。

@@ -16,16 +16,16 @@ origin.date: 02/23/2018
 ms.date: 05/28/2018
 ms.author: v-yeche
 ms.openlocfilehash: 7cd1a22aa7fbdbd21718c372233eecfadfc0b51b
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554207"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661359"
 ---
 # <a name="capacity-planning-for-service-fabric-applications"></a>Service Fabric 应用程序的容量规划
 本文档介绍如何评估运行 Azure Service Fabric 应用程序所需的资源量（CPU、RAM 和磁盘存储空间）。 资源要求经常会随着时间而变化。 开发/测试服务时需要的资源通常很少，之后进入生产环境且应用程序受欢迎度提高时需要的资源会更多。 设计应用程序时，应仔细规划长期要求并做出选择，以便到时服务可以缩放以应对较高的客户需求。
 
- 创建 Service Fabric 群集时，请确定构成群集的虚拟机 (VM) 类型。 每个 VM 附带有限数量的资源，包括 CPU（核心数和速度）、网络带宽、RAM 和磁盘存储空间。 服务随着时间而发展时，可以升级到可提供更批量资源的 VM 和/或将更多 VM 添加到群集。 若要采用后一种措施，最初必须架构好服务，使它可以利用动态添加到群集的新 VM。
+ 创建 Service Fabric 群集时，请确定构成群集的虚拟机 (VM) 类型。 每个 VM 附带有限数量的资源，包括 CPU（核心数和速度）、网络带宽、RAM 和磁盘存储空间。 服务随着时间而发展时，可以升级到可提供更多资源的 VM 和/或将更多 VM 添加到群集。 若要采用后一种措施，最初必须架构好服务，使它可以利用动态添加到群集的新 VM。
 
 某些服务本身只能管理 VM 上的少量数据或无法管理任何数据。 因此，这些服务的容量规划应主要注重于性能，这意味着要选择适当的 VM CPU（核心数和速度）。 此外，应该考虑网络带宽，包括发生网络传输的频率以及要传输的数据量。 随着服务使用量的增加，如果服务需要运行良好，则可以将更多 VM 添加到群集，并跨所有 VM 来负载均衡网络请求。
 

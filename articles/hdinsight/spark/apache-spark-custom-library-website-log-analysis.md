@@ -18,11 +18,11 @@ origin.date: 11/28/2017
 ms.date: 04/16/2018
 ms.author: v-yiso
 ms.openlocfilehash: 01500927e44e077dd3efa48c50ad2e43bbabacc2
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
-ms.locfileid: "30941403"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666564"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-spark-cluster-on-hdinsight"></a>将自定义 Python 库与 HDInsight 上的 Spark 群集配合使用来分析网站日志
 
@@ -42,7 +42,7 @@ ms.locfileid: "30941403"
 * HDInsight 上的 Apache Spark 群集。 有关说明，请参阅[在 Azure HDInsight 中创建 Apache Spark 群集](apache-spark-jupyter-spark-sql.md)。
 
 ## <a name="save-raw-data-as-an-rdd"></a>将原始数据另存为 RDD
-在本部分中，将使用与 HDInsight 中的 Apache Spark 群集关联的 [Jupyter](https://jupyter.org) 笔记本来运行用于处理原始示例数据并将其保存为 Hive 表的作业。 示例数据是所有群集在默认情况下均会提供的 .csv 文件 (hvac.csv)。
+在本节中，使用与 HDInsight 中的 Apache Spark 群集关联的 [Jupyter](https://jupyter.org) 笔记本，运行处理原始数据示例并将其保存为 Hive 表的作业。 示例数据是所有群集在默认情况下均会提供的 .csv 文件 (hvac.csv)。
 
 将数据保存为 Hive 表后，下一节将使用 Power BI 和 Tableau 等 BI 工具连接 Hive 表。
 

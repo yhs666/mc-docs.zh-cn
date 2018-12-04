@@ -12,11 +12,11 @@ ms.date: 11/05/2018
 ms.author: v-jay
 ms.custom: mvc
 ms.openlocfilehash: a6d0497aa6e5e8c536a15cca55ef8ec7215990b8
-ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50743537"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663831"
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>使用 Azure 存储在云中上传图像数据
 

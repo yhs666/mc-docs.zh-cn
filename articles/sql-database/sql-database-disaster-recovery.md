@@ -11,11 +11,11 @@ origin.date: 07/16/2018
 ms.date: 08/06/2018
 ms.author: v-nany
 ms.openlocfilehash: 3bf0ef7dcd49bfa9b3537419d61d021bdaa268c9
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913776"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664166"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>还原 Azure SQL 数据库或故障转移到辅助数据库
 Azure SQL 数据库提供以下功能，以便在服务中断后进行恢复：

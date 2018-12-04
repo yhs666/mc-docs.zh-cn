@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 11/03/2017
-ms.date: 09/10/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0e5f9b3268b9bd4275bb999a414a3f39c7710bb1
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: 1cabf2caa140344e926f329c8ccff6946433813e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515669"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660324"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric 中的反向代理
 借助 Azure Service Fabric 中内置的反向代理，Service Fabric 群集中运行的微服务可以发现包含 http 终结点的其他服务，并与之通信。
@@ -76,11 +76,11 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 
 * **http(s)：** 可以将反向代理配置为接受 HTTP 或 HTTPS 流量。 对于 HTTPS 转发，在设置反向代理侦听 HTTPS 后，请参阅[使用反向代理连接到安全服务](service-fabric-reverseproxy-configure-secure-communication.md)。
 * **群集的完全限定域名 (FQDN) | 内部 IP：** 对于外部客户端，可以配置反向代理，以便可以通过群集域（例如 mycluster.chinaeast.cloudapp.chinacloudapi.cn）访问反向代理。 默认情况下，反向代理在每个节点上运行。 对于内部流量，可在本地主机或任意内部节点 IP（例如 10.0.0.1）上访问反向代理。
-* Port：为反向代理指定的端口，例如 19081。
+* **端口：** 这是已为反向代理指定的端口，例如 19081。
 * **ServiceInstanceName：** 在不使用“fabric:/”方案的情况下尝试访问的已部署服务实例的完全限定名称。 例如，若要访问 *fabric:/myapp/myservice/* 服务，可以使用 *myapp/myservice*。
 
     服务实例名称要区分大小写。 若 URL 中的服务实例名称大小写不同，则会导致请求失败，并显示 404（未找到）。
-* **后缀路径：** 要连接到的服务的实际 URL 路径，例如 *myapi/values/add/3*。
+* **Suffix path：** 要连接到的服务的实际 URL 路径，例如 *myapi/values/add/3*。
 * **PartitionKey：** 对于分区服务，这是针对要访问的分区计算出的分区键。 请注意，这*不*是分区 ID GUID。 对于使用单独分区方案的服务，此参数不是必需的。
 * **PartitionKind：** 服务分区方案。 该方案可以是“Int64Range”或“Named”。 对于使用单独分区方案的服务，此参数不是必需的。
 * **ListenerName** 服务中的终结点采用以下形式：{"Endpoints":{"Listener1":"Endpoint1","Listener2":"Endpoint2" ...}}。 当服务公开了多个终结点时，此参数标识应将客户端请求转发到的终结点。 如果服务只有一个侦听器，则可以省略此项。
@@ -114,7 +114,7 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
 要访问服务公开的资源，可直接在 URL 中将资源路径置于服务名称之后：
 
 * 外部访问方式：`http://mycluster.chinaeast.cloudapp.chinacloudapi.cn:19081/MyApp/MyService/index.html?PartitionKey=3&PartitionKind=Int64Range`
-* 内部访问方式：`http://localhost:19081/MyApp/MyService/api/users/6?PartitionKey=3&PartitionKind=Int64Range`
+* 内部访问方式： `http://localhost:19081/MyApp/MyService/api/users/6?PartitionKey=3&PartitionKind=Int64Range`
 
 然后，网关会将这些请求转发到服务的 URL：
 
@@ -156,9 +156,13 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
 ```
 对于本地群集，`Fabric_NodeIPOrFQDN` 默认设置为“localhost”。 使用 `-UseMachineName` 参数启动本地群集，确保容器可访问节点上运行的反向代理。 有关详细信息，请参阅[配置开发人员环境以调试容器](service-fabric-how-to-debug-windows-containers.md#configure-your-developer-environment-to-debug-containers)。
 
+在 Docker Compose 容器中运行的 Service Fabric 服务需要特殊的 docker-compose.yml 端口部分 http: 或 https: 配置。
+
+<!-- Not Available on  [Docker Compose deployment support in Azure Service Fabric](service-fabric-docker-compose.md)-->
 ## <a name="next-steps"></a>后续步骤
 * [在群集上设置和配置反向代理](service-fabric-reverseproxy-setup.md)。
 * [设置使用反向代理转发到安全的 HTTP 服务](service-fabric-reverseproxy-configure-secure-communication.md)
+* [诊断反向代理事件](service-fabric-reverse-proxy-diagnostics.md)
 * 参阅 [GitHub 上的示例项目](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)中服务之间的 HTTP 通信示例。
 * [使用 Reliable Services 远程控制执行远程过程调用](service-fabric-reliable-services-communication-remoting.md)
 * [Reliable Services 中使用 OWIN 的 Web API](service-fabric-reliable-services-communication-webapi.md)

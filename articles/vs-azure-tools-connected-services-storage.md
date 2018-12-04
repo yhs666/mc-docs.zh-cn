@@ -14,11 +14,11 @@ origin.date: 03/26/2017
 ms.date: 09/10/2018
 ms.author: v-junlch
 ms.openlocfilehash: e20534971ae105a2cb9af22df55e0b2ebb9cd7c7
-ms.sourcegitcommit: 40456700212200e707d6cb3147cf96ad161d3ff2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44269503"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662748"
 ---
 # <a name="adding-azure-storage-by-using-visual-studio-connected-services"></a>使用 Visual Studio 连接服务添加 Azure 存储
 在 Visual Studio 中，通过使用“添加连接服务”对话框可将以下任何服务连接到 Azure 存储：
@@ -46,7 +46,7 @@ ms.locfileid: "44269503"
 
 1. 在“Azure 存储”对话框中，选择一个现有的存储帐户，并选择“添加”。
    
-    若要要创建存储帐户，请转到下一步。 否则，请跳到步骤 6。
+    如果需要创建存储帐户，请转到下一步。 否则，请跳到步骤 6。
     
     ![将现有存储帐户添加到项目](./media/vs-azure-tools-connected-services-storage/select-azure-storage-account.png)
 

@@ -16,11 +16,11 @@ origin.date: 04/14/2018
 ms.date: 07/09/2018
 ms.author: v-junlch
 ms.openlocfilehash: 013b41fe35bb4f1ac5a02a0b57145192bb3c9419
-ms.sourcegitcommit: e950fe5260c519e05f8c5bbf193a8ef733a6a2d2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37936354"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664272"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>通过百度开始使用通知中心
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]

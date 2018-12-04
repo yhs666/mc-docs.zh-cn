@@ -18,11 +18,11 @@ ms.date: 04/02/2018
 ms.author: v-yiso
 ms.custom: mvc
 ms.openlocfilehash: 47b20ff8444d094bfbe205dee31d267574bf11a0
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30155489"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662320"
 ---
 # <a name="create-a-web-app-and-deploy-code-from-a-local-git-repository"></a>从本地 Git 存储库创建 Web 应用并部署代码
 

@@ -16,11 +16,11 @@ origin.date: 02/16/2018
 ms.date: 05/07/2018
 ms.author: v-yiso
 ms.openlocfilehash: 428f639f400e65d3b1de751c65c2f941ea941735
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939803"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666908"
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-pythonpython"></a>使用设备管理启动设备固件更新 (Python/Python)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]

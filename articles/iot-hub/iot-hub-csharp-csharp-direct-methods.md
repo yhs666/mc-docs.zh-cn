@@ -16,11 +16,11 @@ origin.date: 07/18/2017
 ms.author: v-yiso
 ms.date: 09/25/2017
 ms.openlocfilehash: 38d979ce1b5711b1d85564ad2f63b17846c943d9
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939143"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666524"
 ---
 # <a name="use-direct-methods-netnet"></a>使用直接方法 (.NET/.NET)
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]

@@ -12,11 +12,11 @@ ms.date: 08/22/2018
 ms.author: v-junlch
 ms.custom: mvc
 ms.openlocfilehash: a00fe2d83dda892e8842c10f23b49121d72e32c4
-ms.sourcegitcommit: da9f7b0825e493636d6596eb6ae95d03e0626583
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41734267"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666683"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-azure-powershell"></a>通过 Azure PowerShell 使用应用程序网关管理 Web 流量
 

@@ -16,11 +16,11 @@ origin.date: 05/16/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
 ms.openlocfilehash: 0a84112665279917969457202219b07bc5bb379a
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747481"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666977"
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 群集上安装并使用 Solr
 
@@ -61,7 +61,7 @@ ms.locfileid: "36747481"
 1. 在“群集摘要”部分中，依次选择“高级设置”、“脚本操作”。 使用以下信息填充表格：
 
    * **名称**：输入脚本操作的友好名称。
-   * **脚本 URI**：https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
+   * **脚本 URI**： https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
    * **标头**：选中此选项
    * **辅助角色**：选中此选项
    * **ZOOKEEPER**：选中此选项以在 Zookeeper 节点上安装
@@ -88,7 +88,7 @@ ms.locfileid: "36747481"
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.cn
     ```
 
-    有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
+    有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
      > [!IMPORTANT]
      > 本文档中的后续步骤使用 SSH 隧道连接到 Solr Web UI。 要使用这些步骤，必须建立 SSH 隧道，并将浏览器配置为使用该隧道。
@@ -202,7 +202,7 @@ Solr 仪表板是一个 Web UI，可让你通过 Web 浏览器使用 Solr。 Sol
 
     ![Solr 仪表板图像](./media/hdinsight-hadoop-solr-install-linux/solrdashboard.png)
 
-3. 在左窗格中，使用“核心选择器”下拉列表选择 **collection1**。 **collection1**下面应会出现多个条目。
+3. 在左窗格中，使用“核心选择器”下拉列表选择 **collection1**。 然后，**collection1** 下面应会出现多个条目。
 
 4. 从 **collection1** 下面的条目中选择“查询”。 使用以下值来填充搜索页：
 

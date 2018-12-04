@@ -16,11 +16,11 @@ ms.date: 09/10/2018
 ms.author: v-yiso
 ms.custom: mvc
 ms.openlocfilehash: 054e85d7f762595aa79bdfbd83be4bb47e2b882d
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43328391"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664454"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 

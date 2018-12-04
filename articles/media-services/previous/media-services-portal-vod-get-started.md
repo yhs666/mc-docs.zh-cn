@@ -16,11 +16,11 @@ origin.date: 08/07/2017
 ms.date: 09/04/2017
 ms.author: v-johch
 ms.openlocfilehash: e08c026c119982fddaaa0e0d516215bd094e74ca
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426210"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663548"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>使用 Azure 门户按需传送内容入门
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]

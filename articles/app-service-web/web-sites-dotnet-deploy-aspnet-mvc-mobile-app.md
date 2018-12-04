@@ -16,11 +16,11 @@ origin.date: 01/12/2016
 ms.date: 03/17/2017
 ms.author: v-dazen
 ms.openlocfilehash: 0d1e8be83af98f69b031f6d97d2898d17ab083e4
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939613"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666788"
 ---
 # <a name="deploy-an-aspnet-mvc-5-mobile-web-app-in-azure-app-service"></a>在 Azure 应用服务上部署 ASP.NET MVC 5 移动 Web 应用
 本教程介绍有关如何生成一个方便移动的 ASP.NET MVC 5 Web 应用并将其部署到 Azure 应用服务的基础知识。 学习本教程需要安装 [Visual Studio Express 2013 for Web][Visual Studio Express 2013] 或者 Visual Studio 专业版（如果已有）。 可以使用 [Visual Studio 2015]，但屏幕截图可能有所不同，并且必须使用 ASP.NET 4.x 模板。
@@ -80,7 +80,7 @@ ms.locfileid: "38939613"
 10. “应用服务”对话框现在会显示用户已登录。 单击“新建” 。
 
     ![][DeployNewWebsite]  
-11. 在“Web 应用名称”  字段中，指定唯一的应用名称前缀。 完全限定的 Web 应用名称为 *&lt;前缀>*.chinacloudsites.cn。 此，在“资源组”中选择或指定新的资源组名称。  创建新的应用服务计划。
+11. 在“Web 应用名称”  字段中，指定唯一的应用名称前缀。 完全限定的 Web 应用名称为 *&lt;前缀>*.chinacloudsites.cn。 此，在“资源组”中选择或指定新的资源组名称。 然后，单击“新建”以创建一个新的应用服务计划。
 
     ![][DeploySiteSettings]
 12. 配置新的应用服务计划，并单击“确定”。 
@@ -94,7 +94,7 @@ ms.locfileid: "38939613"
     ![][DeployPublishSite]
 
     在 Visual Studio 完成将初学者项目发布到 Azure Web 应用后，会打开桌面浏览器并显示实时 Web 应用。
-15. 启动移动浏览器模拟器，将会议应用程序 (*\<prefix\>*.chinacloudsites.cn) URL 复制到模拟器，然后单击右上角的按钮并选择“按标记浏览”。 如果使用 Internet Explorer 11 作为默认浏览器，则只需依次键入 `F12` 和 `Ctrl+8`，然后将浏览器配置文件更改为“Windows Phone”。 下图显示纵向模式下的 *AllTags* 视图（选择“按标签浏览”后显示）。
+15. 启动移动浏览器模拟器，将会议应用程序 (*\<prefix\>*.chinacloudsites.cn) URL 复制到模拟器，然后单击右上角的按钮并选择“按标记浏览”。 如果使用 Internet Explorer 11 作为默认浏览器，则只需依次键入 `F12` 和 `Ctrl+8`，并将浏览器配置文件更改为“Windows Phone”。 下图显示纵向模式下的 *AllTags* 视图（选择“按标签浏览”后显示）。
 
     ![][AllTags]
 
@@ -192,7 +192,7 @@ Bootstrap 并不特定于 ASP.NET MVC 5，可以在任何 Web 应用程序上利
 
     using System.Web.WebPages;
 
-保存更改。 将 *Views\\Shared\\\_Layout.Mobile.cshtml* 文件复制到 *Views\\Shared\\\_Layout.iPhone.cshtml*。 打开新文件，然后将标题从 `MVC5 Application (Mobile)` 更改为 `MVC5 Application (iPhone)`。
+保存更改。 将 *Views\\Shared\\\_Layout.Mobile.cshtml* 文件复制到 *Views\\Shared\\\_Layout.iPhone.cshtml*。 打开新文件，并将标题从 `MVC5 Application (Mobile)` 更改为 `MVC5 Application (iPhone)`。
 
 将 *Views\\Home\\AllTags.Mobile.cshtml* 文件复制到 *Views\\Home\\AllTags.iPhone.cshtml*。 在新文件中，将 `<h2>` 元素从“Tags (M)”更改为“Tags (iPhone)”。
 
@@ -221,7 +221,7 @@ Bootstrap 并不特定于 ASP.NET MVC 5，可以在任何 Web 应用程序上利
 
 ![][AllSpeakers_LayoutMobileOverridden]
 
-可以通过在视图文件中将 `RequireConsistentDisplayMode` 设置为 `false` 来禁用特定视图中一致的显示模式。 *Views\\Home\\AllSpeakers.cshtml* 文件中的以下标记将 `RequireConsistentDisplayMode` 设置为 `false`：
+可以通过在视图文件中将 `RequireConsistentDisplayMode` 设置为 `false` 来禁用特定视图中一致的显示模式。 *Views\\Home\\AllSpeakers.cshtml* 文件中的以下标记 `RequireConsistentDisplayMode` 设置为 `false`：
 
     @model IEnumerable<string>
 
@@ -234,7 +234,7 @@ Bootstrap 并不特定于 ASP.NET MVC 5，可以在任何 Web 应用程序上利
 但是，Bootstrap CSS 框架的主要优势是响应式布局，也就是说，可以跨桌面、电话和平板电脑浏览器应用单个样式表，以创建一致的外观。 在下一节中，将了解如何利用 Bootstrap 来创建适合移动的视图。
 
 ## <a name="bkmk_Improvespeakerslist"></a>改进发言人列表
-正如你刚才看到的，“发言人”视图虽然可读，但链接字体小，不易在移动设备上点击。 *AllSpeakers* 视图适合移动应用，显示较大的便于点按的链接，并包含一个搜索框，用于快速查找发言人。
+正如你刚才看到的，“发言人”视图虽然可读，但链接字体小，不易在移动设备上点击。 在本节中，将使 *AllSpeakers* 视图适合移动应用，显示较大的便于点按的链接，并包含一个搜索框，用于快速查找发言人。
 
 可以使用 Bootstrap [链接列表组][linked list group]样式来改进“发言人”视图。 在 *Views\\Home\\AllSpeakers.cshtml* 中，将 Razor 文件的内容替换为以下代码。
 
@@ -253,7 +253,7 @@ Bootstrap 并不特定于 ASP.NET MVC 5，可以在任何 Web 应用程序上利
         }
     </div>
 
-`<div>` 标记中的 `class="list-group"` 属性将应用 Bootstrap 列表样式，`class="input-group-item"` 属性将向每个链接应用 Bootstrap 列表项样式。
+`<div>` 标记中的 `class="list-group"` 属性会应用 Bootstrap 列表样式，`class="input-group-item"` 属性会向每个链接应用 Bootstrap 列表项样式。
 
 刷新移动浏览器。 更新的视图如下所示：
 
@@ -410,7 +410,7 @@ Bootstrap [链接列表组][linked list group] 样式使每个链接的整个框
 
 ![][SessionsTableTagASP.NET]
 
-正如你所看到的，显示的内容采用表格式，这种格式当前设计为在桌面浏览器中查看。 但是，在移动浏览器中，这种格式不太便于阅读。 要解决此问题，请打开 *Views\\Home\\SessionsTable.cshtml*，然后将该文件的内容替换为以下代码：
+正如你所看到的，显示的内容采用表格式，这种格式当前设计为在桌面浏览器中查看。 但是，在移动浏览器中，这种格式不太便于阅读。 要解决此问题，请打开 *Views\\Home\\SessionsTable.cshtml*，并将该文件的内容替换为以下代码：
 
     @model IEnumerable<Mvc5Mobile.Models.Session>
 
@@ -445,7 +445,7 @@ Bootstrap [链接列表组][linked list group] 样式使每个链接的整个框
 
 该代码执行 3 项操作：
 
-* 使用 Bootstrap [自定义链接列表组][custom linked list group]会话信息设为竖向，这样即可在移动浏览器中阅读所有此类信息（使用 list-group-item-text 等类）
+* 使用 Bootstrap [自定义链接列表组][custom linked list group]将会话信息设为竖向，这样即可在移动浏览器中阅读所有此类信息（使用 list-group-item-text 等类）
 * 将[网格系统][grid system]应用到布局，使会话项在桌面浏览器中横向排布，在移动浏览器中纵向排布（使用 col-md-4 类）
 * 使用[响应式实用工具][responsive utilities]，以便在移动浏览器中查看时隐藏会话标记（使用 hidden-xs 类）
 

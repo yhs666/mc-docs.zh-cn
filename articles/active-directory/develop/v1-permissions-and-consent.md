@@ -12,27 +12,32 @@ ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 08/27/2018
-ms.date: 10/08/2018
+ms.topic: conceptual
+origin.date: 09/24/2018
+ms.date: 11/08/2018
 ms.author: v-junlch
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 857f9c78950232ec70d737e9a3551ca120f5cded
-ms.sourcegitcommit: 71f203d04b212d2bfbf4f227693c2b8fe209db22
+ms.openlocfilehash: 795c68a458ce156a9696f6f95225e22cc8e6905e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48850505"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662600"
 ---
-# <a name="permissions-in-azure-active-directory"></a>Azure Active Directory 中的权限
+# <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Azure Active Directory v1.0 终结点中的权限和许可
 
-Azure Active Directory (Azure AD) 对 OAuth 和 OpenID Connect (OIDC) 流广泛使用权限。 当应用从 Azure AD 接收访问令牌时，访问令牌将包含声明，这些声明描述了应用对特定资源的权限。 利用权限（也称为作用域），资源可以轻松进行授权，因为资源只需要检查令牌是否包含对应用要调用的 API 的合适权限。 
+[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
+
+Azure Active Directory (Azure AD) 对 OAuth 和 OpenID Connect (OIDC) 流广泛使用权限。 当应用从 Azure AD 接收访问令牌时，访问令牌将包含声明，这些声明描述了应用对特定资源的权限。
+
+利用权限（也称为作用域），资源可以轻松进行授权，因为资源只需要检查令牌是否包含对应用要调用的 API 的合适权限。
 
 ## <a name="types-of-permissions"></a>权限的类型
 
-Azure AD 定义两种权限： 
-- **委托的权限** - 由包含登录用户的应用使用。 对于这些应用，用户或管理员需许可应用请求的权限，并向应用授予委托的权限，以便在对 API 发出调用时，该应用可充当登录的用户。 根据具体的 API，用户可能无法直接许可 API，而是改为[要求管理员提供“管理员许可”。](/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)
+Azure AD 定义两种权限：
+
+- **委托的权限** - 由包含登录用户的应用使用。 对于这些应用，用户或管理员需许可应用请求的权限，并向应用授予委托的权限，以便在对 API 发出调用时，该应用可充当登录的用户。 根据 API，用户可能无法直接许可 API，而是[要求管理员提供“管理员同意”](/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)。
 - **应用程序权限** - 由无需存在登录用户即可运行的应用使用；例如，以后台服务或守护程序形式运行的应用。 应用程序权限只能由管理员许可，因为它们通常非常强大，允许跨用户边界访问数据，或者访问仅限管理员访问的数据。 
 
 有效权限是应用在对 API 发出请求时拥有的权限。 
@@ -101,4 +106,3 @@ Azure AD 中的应用程序必须获得许可才能访问所需的资源或 API�
     - Mail.ReadWrite - 允许用户读取或写入邮件。
     - Mail.ReadWrite.All - 允许管理员或用户访问组织中的所有邮件。
 
-<!-- Update_Description: wording update -->

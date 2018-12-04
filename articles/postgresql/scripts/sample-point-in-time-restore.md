@@ -13,11 +13,11 @@ ms.custom: mvc
 origin.date: 02/28/2018
 ms.date: 08/27/2018
 ms.openlocfilehash: 7cb1a2e0df3f3c094f98af2f3510fc25cc7b0f67
-ms.sourcegitcommit: 6dd65fba579a2ce25c63ac69ff3b71d814a9d256
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42703863"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666943"
 ---
 # <a name="restore-an-azure-database-for-postgresql-server-using-azure-cli"></a>使用 Azure CLI 还原 Azure Database for PostgreSQL 服务器
 此示例 CLI 脚本可将单个 Azure Database for PostgreSQL 服务器还原到前一个时间点。 本文需要 Azure CLI 2.0 或更高版本。 通过运行 `az --version` 来查看版本。 请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)，了解如何安装或升级 Azure CLI 的版本。

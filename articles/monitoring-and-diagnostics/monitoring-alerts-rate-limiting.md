@@ -16,11 +16,11 @@ origin.date: 03/12/2018
 ms.date: 05/14/2018
 ms.author: v-yiso
 ms.openlocfilehash: 67b7a4b252709517b1a66535ff49f594a7cb1521
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33814993"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660429"
 ---
 # <a name="rate-limiting-for-voice-sms-emails-azure-app-push-notifications-and-webhook-posts"></a>语音、短信、电子邮件、Azure 应用推送通知和 webhook 帖子的速率限制
 速率限制是在发送给特定电话号码、电子邮件地址或设备的通知太多时发生的通知挂起。 通过速率限制，确保警报处于管理且可操作状态。

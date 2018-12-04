@@ -17,11 +17,11 @@ origin.date: 03/24/2017
 ms.date: 06/11/2018
 ms.author: v-yeche
 ms.openlocfilehash: 0ac50a7642dcd86de5af9f83944d93c47cf0ed43
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939520"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661648"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>使用 PowerShell 将多个 IP 地址分配到虚拟机
 
@@ -247,14 +247,14 @@ ms.locfileid: "38939520"
     ```
     使用唯一的配置名称和专用 IP 地址创建任意数目的配置（适用于具有静态 IP 地址的配置）。
 
-    将专用 IP 地址添加到 VM 操作系统，只需完成本文[将 IP 地址添加到 VM 操作系统](#os-config)部分针对操作系统的步骤即可。
+    将专用 IP 地址添加到 VM 操作系统，只需完成本文 [将 IP 地址添加到 VM 操作系统](#os-config) 部分针对操作系统的步骤即可。
 
     **添加公共 IP 地址**
 
     将公共 IP 地址资源关联到新 IP 配置或现有 IP 配置即可添加公共 IP 地址。 根据需要完成以下部分之一中的步骤。
 
     > [!NOTE]
-    > 公共 IP 地址会产生少许费用。 有关 IP 地址定价的详细信息，请阅读 [IP 地址定价](https://www.azure.cn/pricing/details/reserved-ip-addresses/)页。 可在一个订阅中使用的公共 IP 地址数有限制。 有关限制的详细信息，请阅读 [Azure limits](../azure-subscription-service-limits.md#networking-limits)（Azure 限制）一文。
+    > 公共 IP 地址会产生少许费用。 有关 IP 地址定价的详细信息，请阅读 [IP 地址定价](https://www.azure.cn/pricing/details/reserved-ip-addresses/)页。 可在一个订阅中使用的公共 IP 地址数有限制。 若要了解有关限制的详细信息，请阅读 [Azure 限制](../azure-subscription-service-limits.md#networking-limits) 一文。
     >
 
     - **将公共 IP 地址资源关联到新 IP 配置**
@@ -307,7 +307,7 @@ ms.locfileid: "38939520"
         -Location $Location -AllocationMethod Static
         ```
 
-        输入以下命令，将公共 IP 地址资源关联到名为 *IpConfig-3* 的现有 IP 配置：
+        输入以下命令，将公共 IP 地址资源关联到名为 *IPConfig-3*的现有 IP 配置：
 
         ```powershell
         Set-AzureRmNetworkInterfaceIpConfig `
@@ -328,7 +328,7 @@ ms.locfileid: "38939520"
     ```powershell   
     $MyNIC.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
     ```
-8. 将专用 IP 地址添加到 VM 操作系统，只需完成本文[将 IP 地址添加到 VM 操作系统](#os-config)部分针对操作系统的步骤即可。 请勿向操作系统添加公共 IP 地址。
+8. 将专用 IP 地址添加到 VM 操作系统，只需完成本文 [将 IP 地址添加到 VM 操作系统](#os-config) 部分针对操作系统的步骤即可。 请勿向操作系统添加公共 IP 地址。
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
 

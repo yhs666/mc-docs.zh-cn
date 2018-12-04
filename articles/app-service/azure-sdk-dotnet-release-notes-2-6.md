@@ -15,11 +15,11 @@ origin.date: 02/24/2017
 ms.date: 10/29/2018
 ms.author: v-biyu
 ms.openlocfilehash: f5b32c30c48f86ea2e20f63a8da8c71a4ec6f1b7
-ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49451597"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662923"
 ---
 # <a name="azure-sdk-for-net-26-release-notes"></a>Azure SDK for .NET 2.6 发行说明
 本文档包含 Azure SDK for .NET 2.6 发行版的发行说明。 

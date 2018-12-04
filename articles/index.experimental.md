@@ -4,11 +4,11 @@ hide_bc: true
 title: Azure 文档
 description: 了解如何使用 Azure 云服务构建和管理功能强大的应用程序。 获取文档、代码示例、教程和更多内容。
 ms.openlocfilehash: 79009ddd12b2cd5ff775459f1d1783773fe2e4f5
-ms.sourcegitcommit: b23f331a9507c52ddd564c77379e7013b14141e7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39138833"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666986"
 ---
 <div id="main" class="v2">
     <div class="container">

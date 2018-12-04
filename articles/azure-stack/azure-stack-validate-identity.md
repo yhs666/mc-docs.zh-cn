@@ -17,11 +17,11 @@ ms.date: 05/24/2018
 ms.author: v-junlch
 ms.reviewer: ''
 ms.openlocfilehash: 8cb0f6a7010b2d434fb1fb9372cdb11e5a7dfc37
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475129"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664282"
 ---
 # <a name="validate-azure-identity"></a>验证 Azure 标识 
 使用 Azure Stack 就绪性检查器工具 (AzsReadinessChecker) 验证 Azure Active Directory (Azure AD) 是否已准备好与 Azure Stack 配合使用。 在开始 Azure Stack 部署之前，请验证 Azure 标识解决方案。  

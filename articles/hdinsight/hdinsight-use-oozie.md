@@ -17,11 +17,11 @@ ms.date: 08/27/2018
 ms.author: v-yiso
 ROBOTS: NOINDEX
 ms.openlocfilehash: 1c3494ce2fb1d7a73ce134900a2372360d9248c0
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41704789"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666793"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>在 HDInsight 中将 Oozie 与 Hadoop 配合使用以定义和运行工作流
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
@@ -53,7 +53,7 @@ Apache Oozie 是一个管理 Hadoop 作业的工作流/协调系统。 它与 Ha
         [WARN]  4
 
     有关 Hive 的详细信息，请参阅[将 Hive 与 HDInsight 配合使用][hdinsight-use-hive]。
-2. Sqoop 操作将 HiveQL 输出导出到 Azure SQL 数据库中的表。 有关 Sqoop 的详细信息，请参阅[将 Hadoop Sqoop 与 HDInsight 配合使用][hdinsight-use-sqoop]。
+2. Sqoop 操作将 HiveQL 输出导出到 Azure SQL 数据库中的表。 有关 Sqoop 的详细信息，请参阅 [将 Hadoop Sqoop 与 HDInsight 配合使用][hdinsight-use-sqoop]。
 
 > [!NOTE]
 > 有关在 HDInsight 群集上支持的 Oozie 版本，请参阅 [HDInsight 提供的 Hadoop 群集版本有哪些新增功能？][hdinsight-versions]。
@@ -160,8 +160,7 @@ RunHiveScript 有几个变量。 在使用 Azure PowerShell 从工作站提交 O
 
 1. **DROP TABLE 语句** 删除 log4j Hive 表（如果存在）。
 2. **CREATE TABLE 语句** 创建指向 log4j 日志文件位置的 log4j Hive 外部表。 字段分隔符为“,”。 默认分行符为“\n”。 如果想要多次运行 Oozie 工作流，可使用 Hive 外部表来避免从原始位置删除数据文件。
-3. 
-            **INSERT OVERWRITE 语句**可从 log4j Hive 表中计算每个日志级别类型的出现次数，并将输出保存到 Azure 存储中的 Blob。
+3. **INSERT OVERWRITE 语句**可从 log4j Hive 表中计算每个日志级别类型的出现次数，并将输出保存到 Azure 存储中的 Blob。
 
 该脚本中使用了三个变量：
 
@@ -179,7 +178,7 @@ Azure PowerShell 目前不提供任何用于定义 Oozie 作业的 cmdlet。 可
 本部分中的 PowerShell 脚本执行以下步骤：
 
 1. 连接到 Azure。
-2. 创建 Azure 资源组。 有关详细信息，请参阅[将 Azure PowerShell 与 Azure 资源管理器配合使用](../powershell-azure-resource-manager.md)。
+2. 创建 Azure 资源组。 有关详细信息，请参阅[将 Azure PowerShell 与 Azure Resource Manager 配合使用](../powershell-azure-resource-manager.md)。
 3. 创建一个 Azure SQL 数据库服务器、一个 Azure SQL 数据库和两个表。 工作流中的 Sqoop 操作会使用这些项。
 
     表的名称为 *log4jLogCount*。
@@ -626,8 +625,8 @@ Azure PowerShell 目前不提供任何用于定义 Oozie 作业的 cmdlet。 可
 * [使用 PowerShell 管理 HDInsight][hdinsight-admin-powershell]
 * [在 HDInsight 中上传 Hadoop 作业的数据][hdinsight-upload-data]
 * [将 Sqoop 与 HDInsight 中的 Hadoop 配合使用][hdinsight-use-sqoop]
-* [将 Hive 与 Hadoop on HDInsight 配合使用][hdinsight-use-hive]
-* [将 Pig 与 Hadoop on HDInsight 配合使用][hdinsight-use-pig]
+* [将 Hive 与 HDInsight 上的 Hadoop 配合使用][hdinsight-use-hive]
+* [将 Pig 与 HDInsight 上的 Hadoop 配合使用][hdinsight-use-pig]
 * [为 HDInsight 开发 Java MapReduce 程序][hdinsight-develop-mapreduce]
 
 [hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563

@@ -14,11 +14,11 @@ origin.date: 04/15/2017
 ms.date: 10/15/2018
 ms.author: v-yeche
 ms.openlocfilehash: e11df84cff0ca0f902f9b9da48610f06d296f427
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089096"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660252"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Azure Service Fabric 托管模型
 本文概述 Azure Service Fabric 提供的应用程序托管模型，并介绍**共享进程**模型和**独占进程**模型之间的差异。 本文介绍已部署的应用程序在 Service Fabric 节点上的外观，以及服务和服务主机进程的副本（或实例）之间的关系。

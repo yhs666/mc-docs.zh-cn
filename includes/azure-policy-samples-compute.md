@@ -10,11 +10,11 @@ ms.date: 07/09/2018
 ms.author: v-jay
 ms.custom: include file
 ms.openlocfilehash: a76b1f586ffb277eaf52982254f9fb447507a8fb
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405426"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662557"
 ---
 ## <a name="compute"></a>计算
 

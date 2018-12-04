@@ -12,11 +12,11 @@ ms.date: 11/05/2018
 ms.author: v-yeche
 ms.reviewer: sngun
 ms.openlocfilehash: 856b5992348fb86682e34f33adc745edc211b339
-ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50204863"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666890"
 ---
 # <a name="distribute-data-multiple-region-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 在多个区域分配数据
 

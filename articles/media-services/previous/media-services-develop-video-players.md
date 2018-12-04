@@ -16,11 +16,11 @@ origin.date: 07/17/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
 ms.openlocfilehash: 0c3abb1f331a8ff422ffa1488e30eb1795445b7b
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219654"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662714"
 ---
 # <a name="develop-video-player-applications"></a>开发视频播放器应用程序
 ## <a name="overview"></a>概述

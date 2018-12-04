@@ -10,11 +10,11 @@ ms.date: 08/06/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
 ms.openlocfilehash: c866f7f22b869fb2a497e03edbd0af5d8a4023d9
-ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487786"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661566"
 ---
 # <a name="monitor-server-metrics"></a>监视服务器指标
 

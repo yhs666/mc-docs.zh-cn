@@ -15,11 +15,11 @@ origin.date: 07/18/2017
 ms.author: v-yiso
 ms.date: 08/20/2017
 ms.openlocfilehash: b8b2ef9bee47448bc04aa59aa3cedec8722c0be8
-ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41705258"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666620"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>在 .NET 中自定义 Web 角色或辅助角色的生命周期
 

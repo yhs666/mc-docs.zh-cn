@@ -15,11 +15,11 @@ origin.date: 05/03/2017
 ms.date: 09/17/2018
 ms.author: v-yeche
 ms.openlocfilehash: 71623a933a3c0416b1c0acbe32bc31cc41a6571c
-ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586840"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660398"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Azure 流量管理器上的降级状态故障排除
 
@@ -27,7 +27,7 @@ ms.locfileid: "45586840"
 
 ![已降级终结点状态](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png)
 
-如果流量管理器的运行状况显示“非活动”状态，则这两个终结点可能**已禁用**：
+如果流量管理器的运行状况显示“非活动”状态，则两个终结点的状态可能为“已禁用”：
 
 ![非活动流量管理器状态](./media/traffic-manager-troubleshooting-degraded/traffic-manager-inactive.png)
 
@@ -37,7 +37,7 @@ ms.locfileid: "45586840"
 * 即使重定向 URL 返回 200，30x 重定向也会失败。
 * 对于 HTTPS 探测器，证书错误会被忽略。
 * 只要返回 200，就无需在意探测器路径的实际内容。 常用的技巧是探测某些静态内容的 URL，例如“/favicon.ico”。 即使应用程序处于正常状态，ASP 页等动态内容也不一定会返回 200。
-* 最佳实践是将探测路径设置为提供足够逻辑来确定站点是启动还是关闭的值。 在上面的示例中，如果将路径设置为“/favicon.ico”，只会测试 w3wp.exe 是否响应。 这种探测可能不会指示 Web 应用程序是否正常。 更好的选择是，将路径设置为诸如“/Probe.aspx”之类的值，可通过逻辑确定站点运行状况。 例如，可以使用性能计数器来查看 CPU 利用率，或者测量失败请求的数目。 或者，可以尝试访问数据库资源或会话状态，确保 Web 应用程序正常工作。
+* 最佳实践是将探测路径设置为提供足够逻辑来确定站点是启动还是关闭的值。 在上述示例中，如果将路径设置为“/favicon.ico”，则只会测试 w3wp.exe 是否有响应。 这种探测可能不会指示 Web 应用程序是否正常。 更好的做法是将路径设置为类似于“/Probe.aspx”的值，通过某个逻辑来确定站点的运行状况。 例如，可以使用性能计数器来查看 CPU 利用率，或者测量失败请求的数目。 或者，可以尝试访问数据库资源或会话状态，确保 Web 应用程序正常工作。
 * 如果配置文件中的所有终结点都已降级，流量管理器会将所有终结点视为处于正常状态，并将流量路由到所有终结点。 此行为可确保探测机制中的问题不会导致服务完全中断。
 
 ## <a name="troubleshooting"></a>故障排除

@@ -16,11 +16,11 @@ origin.date: 12/13/2017
 ms.date: 10/22/2018
 ms.author: v-yeche
 ms.openlocfilehash: 1a1d1b6ac34f9cd195c7080fdaa42e0df4d26c15
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034818"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664366"
 ---
 # <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>使用 Azure CLI 打开 Linux VM 的端口和终结点
 

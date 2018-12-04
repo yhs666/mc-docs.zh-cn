@@ -16,11 +16,11 @@ origin.date: 09/18/2017
 ms.date: 09/10/2018
 ms.author: v-yiso
 ms.openlocfilehash: 2834e4b2858c746e2f844b40a0e9112e44fc451f
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43328626"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662238"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>使用 X.509 CA 证书进行设备身份验证
 

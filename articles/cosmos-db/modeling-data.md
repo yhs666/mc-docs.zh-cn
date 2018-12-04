@@ -12,11 +12,11 @@ origin.date: 05/29/2016
 ms.date: 09/03/2018
 ms.author: v-yeche
 ms.openlocfilehash: 985ca6ec52d8a05df8dfed0d5f994f2d2bbad42b
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164744"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663246"
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>为 NoSQL 数据库的文档数据建模
 尽管无架构的数据库（如 Azure Cosmos DB）能够非常容易地接受对数据模型的更改，但用户仍需花一些时间来研究数据。 

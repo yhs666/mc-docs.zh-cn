@@ -11,11 +11,11 @@ origin.date: 03/19/2018
 ms.date: 09/10/2018
 ms.author: liydu
 ms.openlocfilehash: 892cccd8f4910e661607da78bb72f0a13df88670
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43329020"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666495"
 ---
 # <a name="door-monitor"></a>门监视器          
 

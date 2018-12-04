@@ -11,12 +11,12 @@ origin.date: 09/06/2018
 ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: a64ef5223c2aeafbfb7ba4f1bff4b1961478d65c
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.openlocfilehash: 883a0317d94cb244817d99b8b3d2339763b51eb4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089025"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666692"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Azure SQL 数据仓库中的备份和还原
 了解 Azure SQL 数据仓库中备份和还原的工作方式。 使用数据仓库快照可将数据仓库恢复或复制到主要区域中以前的某个还原点。 使用数据仓库异地冗余备份可还原到不同的地理区域。 
@@ -80,10 +80,8 @@ Azure 帐单上将列出存储的明细项目，以及灾难恢复存储的明�
 
 若要还原数据仓库，请参阅[使用 Azure 门户还原数据仓库](sql-data-warehouse-restore-database-portal.md)、[使用 PowerShell 还原数据仓库](sql-data-warehouse-restore-database-powershell.md) 或 [使用 T-SQL 还原数据仓库](sql-data-warehouse-restore-database-rest-api.md)。
 
-若要还原已删除或已暂停的数据仓库，则可以[创建支持票证](https://support.windowsazure.cn/support/support-azure)。 
-
 ## <a name="geo-redundant-restore"></a>异地冗余还原
-可[将数据仓库还原](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region)到支持所选性能级别的 SQL 数据仓库的任何区域。 
+可[将数据仓库还原](https://docs.azure.cn/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region)到支持所选性能级别的 SQL 数据仓库的任何区域。 
 
 > [!NOTE]
 > 若要执行异地冗余还原，不能选择退出此功能。

@@ -11,11 +11,11 @@ ms.date: 9/30/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: a07948359ccadeec9954f685c149db5a94bff9e9
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201473"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661877"
 ---
 有关物理服务器复制的配置/进程服务器要求
 

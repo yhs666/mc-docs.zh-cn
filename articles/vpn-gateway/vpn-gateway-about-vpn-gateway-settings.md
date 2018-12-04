@@ -17,11 +17,11 @@ origin.date: 03/20/2018
 ms.date: 07/10/2018
 ms.author: v-junlch
 ms.openlocfilehash: ff82227cdf280fa188075aed6f3720053ff57e87
-ms.sourcegitcommit: a22129c95c9f877a04c6b5b428edf7f4e953fd97
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37937355"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663845"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>关于 VPN 网关配置设置
 

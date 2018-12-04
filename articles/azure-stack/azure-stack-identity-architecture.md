@@ -17,11 +17,11 @@ ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: ''
 ms.openlocfilehash: 8200f5ceda13bad1e291ef2863e2973ddfe7f7a4
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869466"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664403"
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Azure Stack 的标识体系结构
 在选择要与 Azure Stack 配合使用的标识提供者之前，请了解 Azure Active Directory (Azure AD) 的选项与 Active Directory 联合身份验证服务 (AD FS) 的选项之间的重要区别。 

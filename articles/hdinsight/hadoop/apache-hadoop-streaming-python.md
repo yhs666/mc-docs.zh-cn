@@ -19,11 +19,11 @@ origin.date: 04/10/2018
 ms.date: 05/21/2018
 ms.author: v-yiso
 ms.openlocfilehash: 4734f85f0d2c4eba582310d2012cfc1a73d98e5e
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450111"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662280"
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>为 HDInsight 开发 Python 流式处理 MapReduce 程序
 

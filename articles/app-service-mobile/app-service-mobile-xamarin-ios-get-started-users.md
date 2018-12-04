@@ -16,11 +16,11 @@ orgin.date: 07/05/2017
 ms.author: v-yiso
 ms.date: 09/03/2018
 ms.openlocfilehash: f29e19a7372732f25918e994a147d321e7b4a5b6
-ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42870997"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661914"
 ---
 # <a name="add-authentication-to-your-xamarinios-app"></a>向 Xamarin.iOS 应用添加身份验证
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]

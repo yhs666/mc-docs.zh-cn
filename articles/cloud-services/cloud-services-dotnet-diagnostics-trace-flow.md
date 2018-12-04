@@ -12,11 +12,11 @@ origin.date: 02/20/2016
 ms.date: 12/26/2016
 ms.author: v-yiso
 ms.openlocfilehash: 7a61f22c7521ecfedfffee3be370de50168bec55
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20184653"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660378"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>使用 Azure 诊断跟踪云服务应用程序的流
 
@@ -36,7 +36,7 @@ Trace、Debug 和 TraceSource 都需要设置“侦听器”来收集和记录�
 
 完成以下过程之前，必须初始化 Azure 诊断监视器。 若要执行此操作，请参阅[在 Azure 中启用诊断](./cloud-services-dotnet-diagnostics.md)。
 
-请注意，如果使用 Visual Studio 提供的模板，将自动添加侦听器的配置。
+请注意，如果使用 Visual Studio 提供的模板，自动添加侦听器的配置。
 
 ### <a name="add-a-trace-listener"></a>添加跟踪侦听器
 

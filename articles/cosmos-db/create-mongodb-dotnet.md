@@ -13,11 +13,11 @@ origin.date: 05/22/2018
 ms.date: 09/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: 53e594ff9fa9c5f5df290f8175e2e0b1a282f3a3
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201293"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667085"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB：使用 .NET 和 Azure 门户生成 MongoDB API Web 应用
 

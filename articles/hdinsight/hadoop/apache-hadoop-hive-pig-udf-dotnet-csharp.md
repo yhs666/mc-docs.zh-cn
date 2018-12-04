@@ -18,11 +18,11 @@ origin.date: 02/27/2018
 ms.date: 05/21/2018
 ms.author: v-yiso
 ms.openlocfilehash: b9f1629b8554f493cddbe97d51a99747f8f6c1f8
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873315"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663163"
 ---
 # <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>在 HDInsight 中的 Hadoop 上将 C# 用户定义函数与 Hive 和 Pig 流式处理配合使用
 
@@ -214,7 +214,7 @@ Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此
 
     此查询将从 `hivesampletable` 中选择 `clientid`、`devicemake` 和 `devicemodel` 字段并将这些字段传递到 HiveCSharp.exe 应用程序。 该查询预期应用程序返回三个字段，它们存储为 `clientid`、`phoneLabel` 和 `phoneHash`。 该查询还预期在默认存储容器的根目录中找到 HiveCSharp.exe。
 
-5. 单击“提交”将作业提交到 HDInsight 群集。 此时会打开“Hive 作业摘要”窗口  。
+5. 单击“提交”将作业提交到 HDInsight 群集  。 此时会打开“Hive 作业摘要”窗口  。
 
 6. 单击“刷新”以刷新摘要，直到“作业状态”更改为“已完成”。 若要查看作业输出，请单击“作业输出”。
 

@@ -11,11 +11,11 @@ origin.date: 09/20/2017
 ms.date: 09/26/2018
 ms.author: v-junlch
 ms.openlocfilehash: da843851df4b37e5a7ecc0485c66d5d72ce75c07
-ms.sourcegitcommit: 7c6ff130adaa67bc90094846f81295ef0719d072
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47191375"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666624"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>将行级别安全性用于 Power BI 工作区集合
 

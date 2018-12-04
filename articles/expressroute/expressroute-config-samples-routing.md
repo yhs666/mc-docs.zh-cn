@@ -16,18 +16,18 @@ origin.date: 10/10/2016
 ms.author: v-yiso
 ms.date: ''
 ms.openlocfilehash: cd523b42edaa46d9d05ac06d819459a82947c42d
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
-ms.locfileid: "20472103"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666967"
 ---
 # <a name="router-configuration-samples-to-setup-and-manage-routing"></a>用于设置和管理路由的路由器配置示例
 
-本页提供适用于 Cisco IOS XE 和 Juniper MX 系列路由器的接口与路由配置示例。 这些示例仅供指导，不能按原样使用。 你可以与你的供应商合作，以便为你的网络指定适当的配置。 
+本页提供适用于 Cisco IOS XE 和 Juniper MX 系列路由器的接口与路由配置示例。 这些示例仅供指导，不能按原样使用。 可以与供应商合作，以便为网络指定适当的配置。 
 
 >[!IMPORTANT]
-> 本页中的示例仅供指导。 你必须与供应商的销售/技术团队和你的网络团队合作，以便指定符合需要的适当配置。 对于本页中所列配置的相关问题，Microsoft 将不提供支持。 有关支持问题，必须与设备供应商联系。
+> 本页中的示例仅供指导。 必须与供应商的销售/技术团队和网络团队合作，以便指定符合需要的适当配置。 对于本页中所列配置的相关问题，Microsoft 不提供支持。 有关支持问题，必须与设备供应商联系。
 > 
 > 
 
@@ -75,7 +75,7 @@ ms.locfileid: "20472103"
 
 ### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3.设置要通过 BGP 会话播发的前缀
 
-你可以配置路由器，以将所选前缀播发给 Microsoft。 可以使用以下示例来执行此操作。
+可以配置路由器，以将所选前缀播发给 Microsoft。 可以使用以下示例来执行此操作。
 
     router bgp <Customer_ASN>
      bgp log-neighbor-changes
@@ -164,7 +164,7 @@ ms.locfileid: "20472103"
 
 ### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3.设置要通过 BGP 会话播发的前缀
 
-你可以配置路由器，以将所选前缀播发给 Microsoft。 可以使用以下示例来执行此操作。
+可以配置路由器，以将所选前缀播发给 Microsoft。 可以使用以下示例来执行此操作。
 
     policy-options {
         policy-statement <Policy_Name> {

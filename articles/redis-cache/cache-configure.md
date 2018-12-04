@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 origin.date: 08/22/2017
-ms.date: 04/26/2018
+ms.date: 11/14/2018
 ms.author: v-junlch
-ms.openlocfilehash: 8021eb59aa362cfd76e9842574602fea87ae916f
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 799b0bbc812c7cfe944d5f7e9268b249e8120ab1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121734"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661052"
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>如何配置 Azure Redis 缓存
 本主题介绍可用于 Azure Redis 缓存实例的配置。 本主题还介绍了适用于 Azure Redis 缓存实例的默认 Redis 服务器配置。
@@ -81,7 +81,7 @@ ms.locfileid: "32121734"
 
 ### <a name="access-control-iam"></a>访问控制 (IAM)
 
-访问控制 (IAM) 部分在 Azure 门户中为基于角色的访问控制 (RBAC) 提供支持。 此配置有助于组织轻松准确地满足其访问管理要求。 有关详细信息，请参阅 [Azure 门户中基于角色的访问控制](../active-directory/role-based-access-control-configure.md)。
+访问控制 (IAM) 部分在 Azure 门户中为基于角色的访问控制 (RBAC) 提供支持。 此配置有助于组织轻松准确地满足其访问管理要求。 有关详细信息，请参阅 [Azure 门户中基于角色的访问控制](../role-based-access-control/role-assignments-portal.md)。
 
 ### <a name="tags"></a>标记
 
@@ -151,7 +151,7 @@ ms.locfileid: "32121734"
 
 “maxfragmentationmemory-reserve”设置配置保留以容纳内存碎片的内存量（以 MB 为单位）。 设置此值后，即使在缓存已满或接近满的状态并且碎片比率很高时，你也能拥有更加稳定的 Redis 服务器体验。 为此类操作保留内存后，无法存储缓存数据。
 
-在选择新的内存保留值（maxmemory-reserved 或 maxfragmentationmemory-reserved）时，请注意此更改可能会如何影响已在运行的包含大量数据的缓存。 例如，如果你的 53 GB 缓存中已有 49 GB 数据，那么，将保留值更改为 8 GB 后，此更改会将系统的最大可用内存降至 45 GB。 如果你的当前 `used_memory` 或 `used_memory_rss` 值高于 45 GB 的新限制，则系统需要逐出数据，直到 `used_memory` 和 `used_memory_rss` 均低于 45 GB。 逐出可能会增加服务器负载和内存碎片。 有关 `used_memory` 和 `used_memory_rss` 等缓存指标的详细信息，请参阅[可用指标和报告时间间隔](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)。
+在选择新的内存保留值（maxmemory-reserved 或 maxfragmentationmemory-reserved）时，请注意此更改可能会如何影响已在运行的包含大量数据的缓存。 例如，如果你的 53 GB 缓存中已有 49 GB 数据，那么，将预留值更改为 8 GB 后，此更改会将系统的最大可用内存降至 45 GB。 如果你的当前 `used_memory` 或 `used_memory_rss` 值高于 45 GB 的新限制，则系统需要逐出数据，直到 `used_memory` 和 `used_memory_rss` 均低于 45 GB。 逐出可能会增加服务器负载和内存碎片。 有关 `used_memory` 和 `used_memory_rss` 等缓存指标的详细信息，请参阅[可用指标和报告时间间隔](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)。
 
 > [!IMPORTANT]
 > “maxmemory-reserved”和“maxfragmentationmemory-reserved”设置仅适用于标准缓存和高级缓存。
@@ -177,7 +177,7 @@ Redis 密钥空间通知是在“高级设置”边栏选项卡上配置的。 �
 
 ![建议](./media/cache-configure/redis-cache-no-recommendations.png)
 
-如果在缓存操作期间发生任何状况（例如，高内存使用率、网络带宽或服务器负载），会在“Redis 缓存”边栏选项卡中显示警报。
+如果在缓存操作期间发生任何状况（例如，高内存使用率、网络带宽或服务器负载），将在“Redis 缓存”边栏选项卡中显示警报。
 
 ![建议](./media/cache-configure/redis-cache-recommendations-alert.png)
 
@@ -216,7 +216,7 @@ Redis 密钥空间通知是在“高级设置”边栏选项卡上配置的。 �
 
 ![Redis 群集大小](./media/cache-configure/redis-cache-redis-cluster-size.png)
 
-要更改群集大小，请使用滑块，或在“分片计数”文本框中键入 1 到 10 之间的数字，并单击“确定”进行保存。
+如果要更改群集大小，请使用滑块，或在“分片计数”文本框中键入 1 到 10 之间的数字，并单击“确定”进行保存。
 
 > [!IMPORTANT]
 > Redis 群集仅适用于高级缓存。 有关详细信息，请参阅 [如何为高级 Azure Redis 缓存配置群集功能](cache-how-to-premium-clustering.md)。
@@ -311,7 +311,7 @@ Redis 密钥空间通知是在“高级设置”边栏选项卡上配置的。 �
 
 导入可用于从任何云或环境中运行的任何 Redis 服务器引入与 Redis 兼容的 RDB 文件，包括在 Linux、Windows 上运行的 Redis 或任何云提供程序（如 Amazon Web Services 等）。 导入数据是使用预先填充的数据创建缓存的简单方式。 在导入过程中，Azure Redis 缓存从 Azure 存储将 RDB 文件加载到内存中，此后再将密钥插入到缓存中。
 
-使用导出可以将 Azure Redis 缓存中存储的数据导出到与 Redis 兼容的 RDB 文件。 可以使用此功能将一个 Azure Redis 缓存实例中的数据移到另一个 Azure Redis 缓存实例或另一个 Redis 服务器。 在导出过程中，将在托管 Azure Redis 缓存服务器实例的 VM 上创建临时文件，并将该文件上传到指定的存储帐户。 导出操作完成后，无论状态为成功还是失败，都会删除临时文件。
+使用导出可以将 Azure Redis 缓存中存储的数据导出到与 Redis 兼容的 RDB 文件。 可以使用此功能将一个 Azure Redis 缓存实例中的数据移到另一个 Azure Redis 缓存实例或另一个 Redis 服务器。 在导出过程中，会在托管 Azure Redis 缓存服务器实例的 VM 上创建临时文件，并将该文件上传到指定的存储帐户。 导出操作完成后，无论状态为成功还是失败，都会删除临时文件。
 
 > [!IMPORTANT]
 > 导入/导出仅适用于高级层缓存。 有关详细信息和说明，请参阅[在 Azure Redis 缓存中导入和导出数据](cache-how-to-import-export-data.md)。
@@ -327,7 +327,7 @@ Redis 密钥空间通知是在“高级设置”边栏选项卡上配置的。 �
 
 ![重新启动](./media/cache-configure/redis-cache-reboot-cluster.png)
 
-要重新启动缓存的一个或多个节点，请选择所需节点，并单击“重新启动”。 如果高级缓存启用了群集功能，请选择要重新启动的分片，并单击“重新启动”。 几分钟后，所选节点将重新启动，再过几分钟后，又会回到联机状态。
+要重新启动缓存的一个或多个节点，请选择所需节点，并单击“重新启动”。 如果高级缓存启用了群集功能，请选择要重启的分片，并单击“重启”。 几分钟后，所选节点将重新启动，再过几分钟后，又会回到联机状态。
 
 > [!IMPORTANT]
 > 现在所有定价层都可以重新启动。 有关详细信息和说明，请参阅 [Azure Redis 缓存管理 - 重启](cache-administration.md#reboot)。
@@ -357,7 +357,7 @@ Redis 密钥空间通知是在“高级设置”边栏选项卡上配置的。 �
 默认情况下，Azure Monitor 中的缓存指标将[存储 30 天](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#store-and-archive)，然后被删除。 若要将缓存指标保留超过 30 天，请单击“诊断”，[配置存储帐户](cache-how-to-monitor.md#export-cache-metrics)以用于存储缓存诊断。
 
 >[!NOTE]
->除了将缓存指标存档到存储中外，还可以[将其流式传输到事件中心或将其发送到 Log Analytics](../monitoring-and-diagnostics/monitoring-overview-metrics.md#export-metrics)。
+>除了将缓存指标存档到存储中外，还可以[将其流式传输到事件中心或将其发送到 Log Analytics](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md)。
 >
 >
 
@@ -400,7 +400,7 @@ Redis 密钥空间通知是在“高级设置”边栏选项卡上配置的。 �
 | --- | --- | --- |
 | `databases` |16 |默认的数据库数为 16，但可以根据定价层配置不同数目。<sup>1</sup> 默认数据库是 DB 0，可以基于每个连接使用 `connection.GetDatabase(dbid)`（其中 `dbid` 是介于 `0` 和 `databases - 1` 之间的数字）选择其他数据库。 |
 | `maxclients` |取决于定价层<sup>2</sup> |该值是同一时间内允许的最大已连接客户端数。 一旦达到该限制，Redis 会在关闭所有新连接的同时返回“达到客户端最大数量”的错误。 |
-| `maxmemory-policy` |`volatile-lru` |Maxmemory 策略是达到 `maxmemory`（创建缓存时所选缓存服务的大小）时，Redis 会根据它选择要删除内容的设置。 Azure Redis 缓存的默认设置为 `volatile-lru`，此设置使用 LRU 算法删除具有过期设置的密钥。 可以在 Azure 门户中配置此设置。 有关详细信息，请参阅[内存策略](#memory-policies)。 |
+| `maxmemory-policy` |`volatile-lru` |Maxmemory 策略是达到 `maxmemory`（创建缓存时所选缓存服务的大小）时，Redis 根据它选择要删除内容的设置。 Azure Redis 缓存的默认设置为 `volatile-lru`，此设置使用 LRU 算法删除具有过期设置的密钥。 可以在 Azure 门户中配置此设置。 有关详细信息，请参阅[内存策略](#memory-policies)。 |
 | `maxmemory-samples` |3 |LRU 算法和最小 TTL 算法都是近似算法而不是精确算法，这是为了节省内存。 默认情况下，Redis 会检查三个密钥并选取最近使用较少的一个。 |
 | `lua-time-limit` |5,000 |Lua 脚本的最大执行时间（以毫秒为单位）。 如果达到最大执行时间，Redis 会记录达到最大允许时间后仍继续执行的脚本，并开始在查询答复时出现错误。 |
 | `lua-event-limit` |500 |脚本事件队列的最大大小。 |

@@ -16,11 +16,11 @@ ms.date: 07/02/2018
 ms.author: v-junlch
 ms.custom: mvc
 ms.openlocfilehash: 409502916e391a4069dbf978a90933f8df1748a6
-ms.sourcegitcommit: f0bfa3f8dca94099a2181492952e6a575fbdbcc8
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37142669"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664480"
 ---
 # <a name="restrict-web-traffic-using-azure-powershell"></a>使用 Azure PowerShell 限制 Web 流量
 

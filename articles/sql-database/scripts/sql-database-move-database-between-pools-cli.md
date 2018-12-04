@@ -14,11 +14,11 @@ manager: digimobile
 origin.date: 09/20/2018
 ms.date: 10/29/2018
 ms.openlocfilehash: 5fda81efba9380a7f93984f72e4e3d7aec3df700
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135877"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666471"
 ---
 # <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>使用 CLI 在 SQL 弹性池中移动 Azure SQL 数据库
 

@@ -17,11 +17,11 @@ origin.date: 11/02/2017
 ms.date: 12/25/2017
 ms.author: v-yiso
 ms.openlocfilehash: 0941ce1833919253b11ace7b3c8050b578408597
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
-ms.locfileid: "26721735"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663552"
 ---
 # <a name="troubleshoot-spark-by-using-azure-hdinsight"></a>使用 Azure HDInsight 对 Spark 进行故障排除
 

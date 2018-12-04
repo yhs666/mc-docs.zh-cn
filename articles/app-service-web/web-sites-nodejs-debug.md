@@ -17,11 +17,11 @@ origin.date: 08/17/2017
 ms.date: 09/04/2017
 ms.author: v-yiso
 ms.openlocfilehash: 172c3d285534d0be0d7f38d436c6477e42e57d69
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
-ms.locfileid: "21135402"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666770"
 ---
 # <a name="how-to-debug-a-nodejs-web-app-in-azure-app-service"></a>如何在 Azure 应用服务中调试 Node.js Web 应用
 Azure 提供了内置诊断来协助调试托管在 [Azure 应用服务](./app-service-changes-existing-services.md) Web 应用中的 Node.js 应用程序。 本文会介绍如何启用 stdout 和 stderr 的日志记录，如何在浏览器中显示错误信息以及下载和查看日志文件。
@@ -89,8 +89,7 @@ Azure 提供了内置诊断来协助调试托管在 [Azure 应用服务](./app-s
 
 在仪表板中返回的 FTP URL 针对 **LogFiles** 目录，该目录中包含以下子目录：
 
-* 
-            [部署方法](web-sites-deploy.md) - 如果你使用 Git 之类的部署方法，则会创建同名的目录，并且会包含与部署相关的信息。
+* [部署方法](web-sites-deploy.md) - 如果你使用 Git 之类的部署方法，则会创建同名的目录，并且会包含与部署相关的信息。
 * nodejs - 从所有应用程序实例捕获的 Stdout 和 stderr 信息（在 loggingEnabled 为 true 时）。
 
 ### <a name="zip-archive"></a>Zip 存档
@@ -103,8 +102,7 @@ Azure 提供了内置诊断来协助调试托管在 [Azure 应用服务](./app-s
 * 部署 - 与应用程序部署有关的信息日志
 * LogFiles
 
-  * 
-            [部署方法](web-sites-deploy.md) - 如果使用 Git 之类的部署方法，将创建同名的目录，并包含与部署相关的信息。
+  * [部署方法](web-sites-deploy.md) - 如果使用 Git 之类的部署方法，将创建同名的目录，并包含与部署相关的信息。
   * nodejs - 从所有应用程序实例捕获的 Stdout 和 stderr 信息（在 loggingEnabled 为 true 时）。
 
 ### <a name="live-stream-tail"></a>实时流（尾标）

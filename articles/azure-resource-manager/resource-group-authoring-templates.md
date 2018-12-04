@@ -16,11 +16,11 @@ origin.date: 05/30/2018
 ms.date: 09/24/2018
 ms.author: v-yeche
 ms.openlocfilehash: 1e8f36dbee1204e35c53379e7a3ede9bcccf2933
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527054"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663098"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>了解 Azure 资源管理器模板的结构和语法
 本文介绍 Azure 资源管理器模板的结构。 演示了模板的不同部分，以及可在相应部分使用的属性。 模板中包含可用于为部署构造值的 JSON 和表达式。 有关创建模板的分步教程，请参阅[创建第一个 Azure Resource Manager 模板](resource-manager-create-first-template.md)。
@@ -314,7 +314,7 @@ ms.locfileid: "46527054"
 ## <a name="next-steps"></a>后续步骤
 * 若要查看许多不同类型的解决方案的完整模型，请参阅 [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/)（Azure 快速入门模板）。
 * 有关用户可以使用的来自模板中的函数的详细信息，请参阅 [Azure Resource Manager Template Functions](resource-group-template-functions.md)（Azure Resource Manager 模板函数）。
-* 要在部署期间合并多个模板，请参阅[将已链接的模板与 Azure 资源管理器配合使用](resource-group-linked-templates.md)。
+* 要在部署期间合并多个模板，请参阅 [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md)（将已链接的模板与 Azure Resource Manager 配合使用）。
 * 有关创建可以跨全球 Azure、Azure 主权云和 Azure Stack 使用的资源管理器模板的建议，请参阅[开发用于实现云一致性的 Azure 资源管理器模板](templates-cloud-consistency.md)。
 
 <!--Update_Description: update meta properties, wording update -->

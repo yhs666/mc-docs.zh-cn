@@ -18,11 +18,11 @@ ms.author: v-jay
 ms.reviewer: ''
 ms.custom: mvc
 ms.openlocfilehash: b7db8e3812a9ecd32010a43eef681425d5dd6e78
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848804"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666936"
 ---
 # <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>教程：将虚拟机提供给 Azure Stack 用户使用
 

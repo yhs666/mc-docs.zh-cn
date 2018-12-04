@@ -17,11 +17,11 @@ origin.date: 06/19/2017
 ms.date: 08/07/2017
 ms.author: v-dazen
 ms.openlocfilehash: 938e52fab890a04572d5df206e83d88776d16ad7
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
-ms.locfileid: "20764234"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660764"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>使用 Azure 门户修改本地网络网关设置
 

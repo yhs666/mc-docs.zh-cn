@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.service: automation
 ms.custom: mvc
 ms.openlocfilehash: 8bcfe40c07ad37a3cd0750c61bb5442d9d186c18
-ms.sourcegitcommit: 74f9f0acb00fb728ff6e9bd67ac86a0c1bcd8d13
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39218884"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660432"
 ---
 # <a name="create-an-azure-automation-runbook"></a>创建 Azure 自动化 Runbook
 

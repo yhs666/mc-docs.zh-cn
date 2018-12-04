@@ -17,11 +17,11 @@ origin.date: 07/17/2017
 ms.date: 06/04/2018
 ms.author: v-yeche
 ms.openlocfilehash: 38cfc6a127444fd3f92626c1a690cafb4b779db3
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867631"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660863"
 ---
 # <a name="common-powershell-commands-for-azure-virtual-networks"></a>适用于 Azure 虚拟网络的常见 PowerShell 命令
 

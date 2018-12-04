@@ -16,11 +16,11 @@ origin.date: 09/25/2017
 ms.date: 06/18/2018
 ms.author: v-yeche
 ms.openlocfilehash: 5c49677e6db7de1a96b85418f2f271813cd832f7
-ms.sourcegitcommit: 9be84d4dc546d66a0d9d1d2be67dd79c84b2c210
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50408835"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662402"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>使用 Azure 门户对多个 IP 配置进行负载均衡
 

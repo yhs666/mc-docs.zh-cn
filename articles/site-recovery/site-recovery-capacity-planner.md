@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: 0a1cd8eb-a8f7-4228-ab84-9449e0b2887b
 ms.service: site-recovery
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+origin.date: 10/11/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3ad7c49a9f633d82d0629ce7dba29429c0dc0a32
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: 34aa59ffdc32258fefdfe213e242c0d8d164afae
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168334"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663310"
 ---
 # <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>计划用于使用 Site Recovery 保护 Hyper-V VM 的容量
 
@@ -153,4 +153,5 @@ AA 到 AE 列为输出，提供的是每个 VM 的信息。
 
 ## <a name="next-steps"></a>后续步骤
 [了解如何运行](site-recovery-capacity-planning-for-hyper-v-replication.md)容量计划工具。
+
 <!-- Update_Description: update meta properties -->

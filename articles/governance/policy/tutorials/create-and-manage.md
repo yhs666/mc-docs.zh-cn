@@ -11,11 +11,11 @@ ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
 ms.openlocfilehash: f6b4b432a349cb9dedb93291067fc92acac5b4e3
-ms.sourcegitcommit: b8e99939a5493a15b78c32e87bfbf76a8c96a84a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409118"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664492"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>创建和管理策略以强制实施符合性
 

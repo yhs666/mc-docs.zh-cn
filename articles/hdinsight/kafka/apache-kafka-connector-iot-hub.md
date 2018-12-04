@@ -16,11 +16,11 @@ origin.date: 05/15/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
 ms.openlocfilehash: 704cd2a7121c71f73a03e51081b63f56d237d234
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747527"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661010"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>将 Apache Kafka on HDInsight 与 Azure IoT 中心配合使用
 
@@ -375,5 +375,5 @@ t.runtime.WorkerSinkTask:262)
 
 本文档已介绍如何使用 Kafka Connect API 在 HDInsight 上启动 IoT Kafka 连接器。 请使用以下链接探索 Kafka 的其他用法：
 
-* [将 Apache Spark 与 Kafka on HDInsight 结合使用](../hdinsight-apache-spark-with-kafka.md)
-* [将 Apache Storm 与 Kafka on HDInsight 结合使用](../hdinsight-apache-storm-with-kafka.md)
+* [Use Apache Spark with Kafka on HDInsight（将 Apache Spark 与 Kafka on HDInsight 配合使用）](../hdinsight-apache-spark-with-kafka.md)
+* [在 HDInsight 上将 Apache Storm 与 Kafka 配合使用](../hdinsight-apache-storm-with-kafka.md)

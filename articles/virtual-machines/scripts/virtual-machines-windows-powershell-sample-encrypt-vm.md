@@ -17,11 +17,11 @@ origin.date: 12/12/2017
 ms.date: 07/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: bec405446c428703ae702ec30982650bdb287787
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295566"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664365"
 ---
 # <a name="encrypt-a-windows-virtual-machine-with-azure-powershell"></a>使用 Azure PowerShell 加密 Windows 虚拟机
 

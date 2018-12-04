@@ -16,11 +16,11 @@ origin.date: 07/20/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
 ms.openlocfilehash: 93e5b0de25c79f900b39c4ee2f8b70f830b38846
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475180"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661480"
 ---
 # <a name="create-contentkeys-with-net"></a>使用 .NET 创建内容密钥
 > [!div class="op_single_selector"]

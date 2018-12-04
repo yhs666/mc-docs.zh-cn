@@ -17,11 +17,11 @@ origin.date: 06/05/2017
 ms.date: 06/04/2018
 ms.author: v-yeche
 ms.openlocfilehash: 7b6590f95e810e16247d65a44b4c3ca291f4648d
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702756"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661321"
 ---
 # <a name="create-a-snapshot-from-a-vhd-to-create-multiple-identical-managed-disks-in-small-amount-of-time-with-powershell"></a>使用 PowerShell 从 VHD 创建快照，在短时间内创建多个相同的托管磁盘
 

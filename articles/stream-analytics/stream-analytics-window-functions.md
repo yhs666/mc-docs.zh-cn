@@ -11,11 +11,11 @@ ms.topic: conceptual
 origin.date: 05/07/2018
 ms.date: 06/18/2018
 ms.openlocfilehash: 3b4b668beb65f806f6e4d5480ec336fbe0cd3e6c
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416844"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660428"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>流分析开窗函数简介
 在实时流方案中，对临时窗口中包含的数据执行操作是一种常见模式。 流分析提供对开窗函数的本机支持，使开发人员能够最小的工作量创建复杂的流进程作业。

@@ -17,11 +17,11 @@ ms.author: v-yiso
 ms.custom: mvc
 ms.date: 10/16/2017
 ms.openlocfilehash: 64f155e243f0fea3a0e3c98115e8562f73c00f08
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939060"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667058"
 ---
 # <a name="build-a-java-and-mysql-web-app-in-azure"></a>在 Azure 中构建 Java 和 MySQL Web 应用
 

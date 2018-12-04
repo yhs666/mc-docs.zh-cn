@@ -16,11 +16,11 @@ origin.date: 04/14/2018
 ms.date: 09/26/2018
 ms.author: v-junlch
 ms.openlocfilehash: ece55824945bb50722b5f38372bd0effd4313ae2
-ms.sourcegitcommit: 7c6ff130adaa67bc90094846f81295ef0719d072
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47191370"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662159"
 ---
 # <a name="tutorial-push-localized-notifications-to-ios-devices-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向 iOS 设备推送本地化通知 
 
@@ -115,7 +115,7 @@ ms.locfileid: "47191370"
     }
     ````
 
-    然后修改 subscribe 方法以包括该区域设置：
+    然后修改 *subscribe* 方法以包括该区域设置：
 
     ```objc
     - (void) subscribeWithLocale: (int) locale categories:(NSSet *)categories completion:(void (^)(NSError *))completion{

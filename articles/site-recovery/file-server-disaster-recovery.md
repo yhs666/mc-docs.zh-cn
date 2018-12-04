@@ -14,11 +14,11 @@ ms.date: 07/23/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: c9526c50638fc880f3e41dd48bc3b8e131625225
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871890"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663066"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 保护文件服务器 
 

@@ -12,11 +12,11 @@ origin.date: 06/06/2017
 ms.date: 06/23/2018
 ms.author: v-yiso
 ms.openlocfilehash: 083b5d16131f1cde9a8c02a3f300770b18c02d7f
-ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39031829"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663959"
 ---
 # <a name="get-resource-health-using-the-rest-api"></a>使用 REST API 获取资源运行状况 
 

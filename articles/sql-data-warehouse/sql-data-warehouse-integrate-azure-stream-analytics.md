@@ -12,11 +12,11 @@ ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: 1b9a6f7e170f086f66c94ebbfb81625fd5133e4b
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089056"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663741"
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>将 Azure 流分析与 SQL 数据仓库配合使用
 Azure 流分析是一种完全托管的服务，可以在云中通过流式数据进行低延迟、高度可用、可缩放且复杂的事件处理。 可以先阅读 [Azure 流分析简介][Introduction to Azure Stream Analytics]了解基本知识。 然后，可以参考 [开始使用 Azure 流分析][Get started using Azure Stream Analytics] 教程，了解如何使用流分析创建端到端解决方案。

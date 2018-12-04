@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: maxluk
 ms.openlocfilehash: 01d6b098f8cf80afa1740ca2ca773fa3f71ccda2
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30077695"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666677"
 ---
 # <a name="optimize-spark-jobs"></a>优化 Spark 作业
 

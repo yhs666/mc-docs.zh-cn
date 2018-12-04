@@ -17,11 +17,11 @@ ms.date: 03/12/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 9f45122f82e148cb6acdd2ef9f97380b0096ebd7
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29797868"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667084"
 ---
 # <a name="upgrade-a-service-fabric-application"></a>升级 Service Fabric 应用程序
 

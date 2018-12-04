@@ -16,7 +16,7 @@
 
     a. 在“命名空间”区域中，选择“选择现有”链接。 
    
-    b. 选择**创建**。
+    b. 选择“创建” 。
    
       ![Azure 门户 - 设置通知中心属性](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
 

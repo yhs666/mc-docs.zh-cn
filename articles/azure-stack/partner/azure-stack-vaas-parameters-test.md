@@ -15,11 +15,11 @@ ms.date: 08/27/2018
 ms.author: v-jay
 ms.reviewer: johnhas
 ms.openlocfilehash: 4abddc59449f0113e5c0faa99e137f20490b4430
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869653"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661199"
 ---
 # <a name="test-parameters-for-validation-as-a-service-azure-stack"></a>验证即服务 Azure Stack 的测试参数
 

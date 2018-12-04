@@ -16,11 +16,11 @@ ms.date: 09/25/2018
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.openlocfilehash: 811717ccc80645391ca5c9d1e558e5c91f5b50da
-ms.sourcegitcommit: 830a60c06303a8447d128a3bca8b36aa2b3b655b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47075853"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662389"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>使用 RBAC 和 Azure 门户管理访问权限
 

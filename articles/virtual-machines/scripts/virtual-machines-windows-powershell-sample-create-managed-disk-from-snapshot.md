@@ -17,11 +17,11 @@ origin.date: 06/05/2017
 ms.date: 06/04/2018
 ms.author: v-yeche
 ms.openlocfilehash: 34f87664bc4789a555b38ecb0d90fc6835279d19
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702734"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662518"
 ---
 # <a name="create-a-managed-disk-from-a-snapshot-with-powershell"></a>使用 PowerShell 从快照创建托管磁盘
 

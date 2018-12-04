@@ -14,11 +14,11 @@ manager: digimobile
 origin.date: 09/20/2018
 ms.date: 10/29/2018
 ms.openlocfilehash: 448c588a4d3a58f023c451f81cc54da4c8215d60
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135893"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666660"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>如何使用批处理来改善 SQL 数据库应用程序的性能
 对 Azure SQL 数据库执行批处理操作可以大幅改善应用程序的性能和缩放性。 为了帮助你了解优点，本文的第一部分包含一些示例测试结果，用于比较对 SQL 数据库发出的顺序请求和分批请求。 本文的余下部分介绍了帮助你在 Azure 应用程序中成功使用批处理的方法、方案和注意事项。

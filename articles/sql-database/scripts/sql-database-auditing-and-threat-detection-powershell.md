@@ -18,11 +18,11 @@ origin.date: 09/07/2018
 ms.date: 10/15/2018
 ms.author: v-jay
 ms.openlocfilehash: 3efb392a3d9148d78cfad1029e78720d1fd67c8e
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913860"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660832"
 ---
 # <a name="use-powershell-to-configure-sql-database-auditing-and-threat-detection"></a>使用 PowerShell 配置 SQL 数据库审核和威胁检测
 

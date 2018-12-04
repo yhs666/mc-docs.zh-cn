@@ -17,11 +17,11 @@ ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: harik
 ms.openlocfilehash: 76b9e78adb3ae60d77a0379ab8601b06ec0b7328
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848842"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666935"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack 服务策略
 本文介绍 Azure Stack 集成系统的服务策略，以及必须如何做才能使系统保持在受支持的状态。 

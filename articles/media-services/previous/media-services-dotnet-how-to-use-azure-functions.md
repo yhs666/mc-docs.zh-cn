@@ -16,11 +16,11 @@ origin.date: 12/09/2017
 ms.date: 05/07/2018
 ms.author: v-johch
 ms.openlocfilehash: 6e4c712343d3525eb26e5cf974867b04793cbb9f
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748415"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661833"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>开发使用媒体服务的 Azure Functions
 
@@ -35,7 +35,7 @@ ms.locfileid: "36748415"
     
 ## <a name="create-a-function-app"></a>创建函数应用
 
-1. 转到 [Azure 门户](http://portal.azure.cn)，并使用 Azure 帐户登录。
+1. 转到 [Azure 门户](http://portal.azure.cn)，然后使用 Azure 帐户登录。
 2. 根据[此文](../../azure-functions/functions-create-function-app-portal.md)中所述创建 Function App。
 
 >[!NOTE]

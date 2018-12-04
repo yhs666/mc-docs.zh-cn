@@ -16,11 +16,11 @@ origin.date: 04/14/2018
 ms.date: 09/10/2018
 ms.author: v-junlch
 ms.openlocfilehash: 386fb7a9741d7c7981724a52f09c3e7351e10c84
-ms.sourcegitcommit: 1471663f5f5a1c4e1fbead7c4d351610cb0086bb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44363576"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661637"
 ---
 # <a name="send-cross-platform-notifications-to-users-with-notification-hubs"></a>使用通知中心向用户发送跨平台通知
 在上一教程[使用通知中心通知用户]中，我们了解了如何向注册给经过身份验证的特定用户的所有设备推送通知。 在该教程中，需要使用多个请求将通知发送到每个支持的客户端平台。 Azure 通知中心支持模板，可以通过模板指定特定设备要如何接收通知。 此方法简化了发送跨平台通知的方式。 
@@ -70,7 +70,7 @@ ms.locfileid: "44363576"
    
     此代码调用平台特定的方法来创建模板注册而非本机注册。 由于模板注册派生自本机注册，因此无需修改现有注册。
 
-3. 在 **Notifications** 控制器中，将 **sendNotification** 方法替换为以下代码：
+3. 在 Notifications 控制器中，将 sendNotification 方法替换为以下代码：
    
         public async Task<HttpResponseMessage> Post()
         {
@@ -83,7 +83,7 @@ ms.locfileid: "44363576"
             return Request.CreateResponse(HttpStatusCode.OK);
         }
    
-    此代码将通知同时发送到所有平台，而不必指定本机负载。 通知中心使用提供的*标记*值（在注册的模板中指定）生成正确的有效负载并将它传递到每个设备。
+    此代码将通知同时发送到所有平台，而不必指定本机负载。 通知中心使用提供的 *标记* 值（在注册的模板中指定）生成正确的负载并将它传递到每个设备。
 
 4. 重新发布 WebApi 后端项目。
 
@@ -93,7 +93,7 @@ ms.locfileid: "44363576"
     通知会显示在每个设备上。
 
 ## <a name="next-steps"></a>后续步骤
-现在，已完成本教程，请从以下主题中查找有关通知中心和模板的更多信息：
+现在，已完成本教程，可以查看以下主题了解有关通知中心和模板的更多信息：
 
 - [Use Notification Hubs to send breaking news]: Demonstrates another scenario for using templates.
 - [Azure 通知中心概述][Templates]：包含有关模板的更详细信息。

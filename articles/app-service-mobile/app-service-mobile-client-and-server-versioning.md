@@ -16,11 +16,11 @@ origin.date: 10/01/2016
 ms.date: 01/29/2018
 ms.author: v-yiso
 ms.openlocfilehash: 8d1b6dafad19b4b1c157eb53edf1105cf7153467
-ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2018
-ms.locfileid: "27984758"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661164"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>移动应用和移动服务中的客户端与服务器版本控制
 

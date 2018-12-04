@@ -15,11 +15,11 @@ origin.date: 06/12/2018
 ms.date: 07/24/2018
 ms.author: v-junlch
 ms.openlocfilehash: 2164658cb654a2a960dd38445668ef717b56a7d1
-ms.sourcegitcommit: cce18df2de12353f0d8f01c649307a5789d59cd4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39246118"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660340"
 ---
 # <a name="tutorial-create-a-custom-role-using-azure-cli"></a>教程：使用 Azure CLI 创建自定义角色
 

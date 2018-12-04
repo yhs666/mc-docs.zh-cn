@@ -16,11 +16,11 @@ origin.date: 12/07/2017
 ms.date: 07/30/2018
 ms.author: v-nany
 ms.openlocfilehash: 57a7dcd05c144678398dd67c5d0898a0067ae419
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426466"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664207"
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>使用 Azure 媒体服务 REST API 创建筛选器
 > [!div class="op_single_selector"]

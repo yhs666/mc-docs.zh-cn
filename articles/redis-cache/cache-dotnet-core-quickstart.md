@@ -17,11 +17,11 @@ ms.date: 07/10/2018
 ms.author: v-junlch
 ms.custom: mvc
 ms.openlocfilehash: e009b98591fe0e648b345ac5af69eceae62468c0
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939251"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660385"
 ---
 # <a name="quickstart-use-azure-redis-cache-with-a-net-core-app"></a>快速入门：将 Azure Redis 缓存与 .NET Core 应用配合使用
 

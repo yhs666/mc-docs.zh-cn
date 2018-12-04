@@ -16,11 +16,11 @@ ms.date: 07/20/2018
 ms.author: v-junlch
 ms.reviewer: jeffgo
 ms.openlocfilehash: 0f49015025937ce3ddead3246c9df200ee6497ca
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168257"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662023"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL 资源提供程序维护操作
 

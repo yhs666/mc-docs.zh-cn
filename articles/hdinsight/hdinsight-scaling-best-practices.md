@@ -2,33 +2,26 @@
 title: 缩放群集大小 - Azure HDInsight
 description: 根据工作负荷缩放 HDInsight 群集。
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 origin.date: 02/02/2018
 ms.author: v-yiso
-ms.date: 03/26/2018
-ms.openlocfilehash: 289b47fa778b3405980796e53a9ff82db684ef83
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.date: 11/19/2018
+ms.openlocfilehash: a225cc493bf29babd78a8b119de10d12f57ca547
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30077692"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661790"
 ---
 # <a name="scale-hdinsight-clusters"></a>缩放 HDInsight 群集
 
 HDInsight 提供弹性，可让你选择扩展和缩减群集中的工作节点数。 这样，便可以在若干小时后或者在周末收缩群集，或者在业务高峰期扩展群集。
 
-例如，如果要每隔一天或每隔一个月执行某种批处理一次，则可以在该计划事件之前的几分钟扩展 HDInsight 群集，以便有足够的内存和 CPU 计算能力。 可以使用 PowerShell cmdlet [`Set–AzureRmHDInsightClusterSize`](hdinsight-administer-use-powershell.md#scale-clusters) 自动缩放。  在完成处理并且用量再次下降后，可将 HDInsight 群集缩减为更少的工作节点。
+例如，如果要每隔一天或每隔一个月执行某种批处理一次，则可以在该计划事件之前的几分钟扩展 HDInsight 群集，以便有足够的内存和 CPU 计算能力。 可以使用 PowerShell cmdlet [`Set–AzureRmHDInsightClusterSize`](hdinsight-administer-use-powershell.md#scale-clusters) 自动缩放。  在完成处理并且用量再次下降后，可将 HDInsight 群集缩减为更少的工作节点。
 
 * 通过 [PowerShell](hdinsight-administer-use-powershell.md) 缩放群集：
 
@@ -36,11 +29,13 @@ HDInsight 提供弹性，可让你选择扩展和缩减群集中的工作节点�
     Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
     ```
     
-* 通过 [Azure CLI](hdinsight-administer-use-command-line.md) 缩放群集：
+* 通过 [Azure 经典 CLI](hdinsight-administer-use-command-line.md) 缩放群集：
 
     ```
     azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
     ```
+
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
     
 * 若要通过 [Azure 门户](https://portal.azure.cn)缩放群集，请打开 HDInsight 群集的窗格，在左侧菜单中选择“缩放群集”，然后在“缩放群集”窗格中键入工作节点数并选择“保存”。
 
@@ -87,7 +82,7 @@ yarn application -kill "application_1499348398273_0003"
 
 在完成缩放操作后的几分钟内，区域服务器会自动进行均衡。 若要手动均衡区域服务器，请使用以下步骤：
 
-1. 使用 SSH 连接到 HDInsight 群集。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
+1. 使用 SSH 连接到 HDInsight 群集。 有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 2. 启动 HBase shell：
 
