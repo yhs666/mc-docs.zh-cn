@@ -3,7 +3,7 @@ title: 教程 - 创建和管理 Azure 虚拟机规模集 | Microsoft Docs
 description: 了解如何使用 Azure PowerShell 创建虚拟机规模集以及某些常见的管理任务，例如如何启动和停止实例，或者如何更改规模集容量。
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 05/18/2018
-ms.date: 08/13/2018
+ms.date: 11/29/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: c294cc17fa54837b49e34c5451f02e7b338c0601
-ms.sourcegitcommit: 56ed1b03d83f222db6118fe1e2f2485a9488507f
+ms.openlocfilehash: baef4b658f4b8c6e6d465601a88826324d5e786d
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41704101"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673095"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>教程：使用 Azure PowerShell 创建和管理虚拟机规模集
 利用虚拟机规模集，可以部署和管理一组相同的、自动缩放的虚拟机。 在虚拟机规模集的整个生命周期内，可能需要运行一个或多个管理任务。 本教程介绍如何执行下列操作：
@@ -36,7 +36,7 @@ ms.locfileid: "41704101"
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
-如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 6.0.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 以创建与 Azure 的连接。 
+如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 6.0.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 以创建与 Azure 的连接。 
 
 
 ## <a name="create-a-resource-group"></a>创建资源组
@@ -327,6 +327,7 @@ Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force -AsJob
 请转到下一教程，了解规模集磁盘。
 
 > [!div class="nextstepaction"]
-> [通过规模集使用数据磁盘](tutorial-use-disks-powershell.md)
+> [将数据磁盘与规模集配合使用](tutorial-use-disks-powershell.md)
 
-<!-- Update_Description: wording update -->
+
+<!-- Update_Description: update metedata properties -->

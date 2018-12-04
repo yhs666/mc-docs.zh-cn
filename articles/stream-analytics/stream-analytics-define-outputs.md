@@ -2,20 +2,20 @@
 title: 了解 Azure 流分析的输出
 description: 本文介绍 Azure 流分析提供的数据输出选项，包括用于分析结果的 Power BI。
 services: stream-analytics
-author: rockboyfor
-ms.author: v-yeche
+author: lingliw
+ms.author: v-lingwu
 manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 05/14/2018
-ms.date: 09/30/2018
-ms.openlocfilehash: 9876023afa1593200b7fdfafc9ddb2e57b1c1888
-ms.sourcegitcommit: 432984d85afe6f3da8f211bae0fa98a556785ee8
+origin.date: 10/22/2018
+ms.date: 11/26/2018
+ms.openlocfilehash: 77289093dff4fb0dadae04bda27f64158e407453
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455399"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674857"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>了解 Azure 流分析的输出
 本文将介绍适用于 Azure 流分析作业的不同类型的输出。 输出可帮助存储和保存流分析作业的结果。 使用输出数据，可进一步进行业务分析和数据的数据仓储。 
@@ -202,6 +202,7 @@ Blob 存储提供了一种经济高效且可缩放的解决方案，用于在云
 | Azure SQL 数据库 | 否 | 无 | 不适用。 | 
 | Azure Blob 存储 | 是 | 在 Path 模式中使用事件字段中的 {date} 和 {time} 标记。 选择日期格式，例如 YYYY/MM/DD、DD/MM/YYYY、MM-DD-YYYY。 HH 用于时间格式。 作为[预览版](https://aka.ms/ASAPreview)的一部分，可以通过单个自定义事件属性 {fieldname} 或 {datetime:\<specifier>} 对 blob 输出进行分区。 | 按照[完全可并行化的查询](stream-analytics-scale-jobs.md)的输入分区。 | 
 | Azure 事件中心 | 是 | 是 | 按分区对齐方式变化。</br> 输出事件中心分区键与上游（上一个）查询步骤相同时，编写器的数量与输出事件中心分区的数量相同。 各编写器使用 EventHub 的 [EventHubSender class](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) 将事件发送到特定分区。 </br> 输出事件中心分区键与上游（上一个）查询步骤不相同时，编写器的数量与之前步骤中的分区数量不相同。 各编写器使用 EventHubClient [SendBatchAsync class](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) 将事件发送到所有输出分区。 |
+| Power BI | 否 | 无 | 不适用。 | 
 | Azure 表存储 | 是 | 任何输出列。  | 按照[完全并行化的查询](stream-analytics-scale-jobs.md)的输入分区。 | 
 | Azure 服务总线主题 | 是 | 自动选择。 分区数基于[服务总线 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 分区键是每个分区的唯一整数值。| 与输出主题中的分区数量相同。  |
 | Azure 服务总线队列 | 是 | 自动选择。 分区数基于[服务总线 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 分区键是每个分区的唯一整数值。| 与输出队列中的分区数量相同。 |

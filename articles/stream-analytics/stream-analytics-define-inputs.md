@@ -2,20 +2,20 @@
 title: 将数据作为 Azure 流分析的输入进行流式传输
 description: 了解如何在 Azure 流分析中设置数据连接。 输入包括来自事件的数据流，也包括引用数据。
 services: stream-analytics
-author: rockboyfor
-ms.author: v-yeche
+author: lingliw
+ms.author: v-lingwu
 manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 04/27/2018
-ms.date: 09/30/2018
-ms.openlocfilehash: df0e467ae5e68fb39f8803ff9d3719b486315bb1
-ms.sourcegitcommit: 432984d85afe6f3da8f211bae0fa98a556785ee8
+ms.date: 11/26/2018
+ms.openlocfilehash: 0f2a40af35a2126e154cc26e5b9a6a1546aabd26
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455398"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674812"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>将数据作为流分析的输入进行流式传输
 
@@ -41,7 +41,7 @@ Azure 事件中心提供高度可缩放的发布-订阅事件引入器。 事件
 `EventEnqueuedUtcTime` 是事件到达事件中心的时间戳，也是事件从事件中心发送到流分析的默认时间戳。 若要在事件有效负载中使用时间戳以流方式处理数据，必须使用 [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) 关键字。
 
 ### <a name="consumer-groups"></a>使用者组
-应对每个流分析事件中心输入进行配置，使之拥有自己的使用者组。 如果作业包含自联接或具有多个输入，则某些输入可能会由下游的多个读取器读取。 这种情况会影响单个使用者组中的读取器数量。 为了避免超出针对事件中心设置的每个分区每个使用者组 5 个读取器的限制，最好是为每个流分析作业指定一个使用者组。 此外，还有一项限制，即每个事件中心只能有 20 个使用者组。 有关详细信息，请参阅[使用事件中心接收器排查 Azure 流分析问题](stream-analytics-event-hub-consumer-groups.md)。
+应对每个流分析事件中心输入进行配置，使之拥有自己的使用者组。 如果作业包含自联接或具有多个输入，则某些输入可能会由下游的多个读取器读取。 这种情况会影响单个使用者组中的读取器数量。 为了避免超出针对事件中心设置的每个分区每个使用者组 5 个读取器的限制，最好是为每个流分析作业指定一个使用者组。 此外，还有一项限制，即每个事件中心只能有 20 个使用者组。
 
 ### <a name="stream-data-from-event-hubs"></a>从事件中心对数据进行流式传输
 下表介绍了 Azure 门户的“新输入”页中用于从事件中心流式传输数据输入的每个属性：
@@ -116,7 +116,6 @@ Azure Iot 中心是已针对 IoT 进行优化，具有高度伸缩性的发布-�
 | **IoTHub.ConnectionDeviceId** | 用于发送此消息的身份验证 ID。 此值由 IoT 中心在服务绑定的消息上加盖标记。 |
 | **IoTHub.ConnectionDeviceGenerationId** | 用于发送此消息的经过身份验证设备的生成 ID。 此值由 IoT 中心在服务绑定的消息上加盖标记。 |
 | **IoTHub.EnqueuedTime** | IoT 中心收到消息的时间。 |
-| **IoTHub.StreamId** | 由发送方设备添加的自定义事件属性。 |
 
 ## <a name="stream-data-from-blob-storage"></a>从 Blob 存储流式传输数据
 对于需要将大量非结构化数据存储在云中的情况，Azure Blob 存储提供了一种经济高效且可伸缩的解决方案。 通常情况下，可以将 Blob 存储中的数据视为静态数据，但 Blob 数据可以作为数据流由流分析处理。 
@@ -181,8 +180,8 @@ FROM Input
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
+[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
 
 <!--Update_Description: update meta properties -->
 

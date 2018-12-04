@@ -3,22 +3,18 @@ title: Azure IoT 中心设备管理入门 (Node)
 description: 如何使用 IoT 中心设备管理进行远程设备重启。 使用 Azure IoT SDK for Node.js 实现包含直接方法的模拟设备应用和调用直接方法的服务应用。
 author: juanjperez
 manager: cberlin
-editor: ''
-ms.assetid: e044006d-ffd6-469b-bc63-c182ad066e31
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 origin.date: 08/25/2017
-ms.date: 10/29/2018
+ms.date: 12/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: 0e733d2a3992dc023ac88c7a9bba31f6a624226f
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 2cfda59a348a888778a4e9a0863903d11ad1e82a
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453816"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674830"
 ---
 # <a name="get-started-with-device-management-node"></a>设备管理入门 (Node)
 
@@ -41,7 +37,13 @@ ms.locfileid: "49453816"
 * Node.js 版本 4.0.x 或更高版本； <br/>  [准备开发环境][lnk-dev-setup]介绍了如何在 Windows 或 Linux 上安装本教程所用的 Node.js。
 * 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
 
-[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+## <a name="create-an-iot-hub"></a>创建 IoT 中心
+
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+### <a name="retrieve-connection-string-for-iot-hub"></a>检索 IoT 中心的连接字符串
+
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 

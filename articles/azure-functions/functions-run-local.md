@@ -9,15 +9,15 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-origin.date: 09/24/2018
-ms.date: 10/19/2018
+origin.date: 10/29/2018
+ms.date: 11/22/2018
 ms.author: v-junlch
-ms.openlocfilehash: 60285ef54514a9f90263d55a6dfaf1f7473b75f7
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 422e4d926da75b89ff7302afc8f19683318c9dc4
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453852"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672803"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>使用 Azure Functions Core Tools
 
@@ -115,16 +115,6 @@ npm install -g azure-functions-core-tools@v1
     sudo apt-get install azure-functions-core-tools
     ```
 
-### <a name="v1"></a>1.x 版
-
-工具的原始版本使用 Functions 1.x 运行时。 此版本使用 .NET Framework (4.7.1)，仅在 Windows 计算机上受支持。 在安装 1.x 版工具之前，必须[安装 NodeJS](https://docs.npmjs.com/getting-started/installing-node)，其中包含 npm。
-
-使用以下命令安装 1.x 版工具：
-
-```bash
-npm install -g azure-functions-core-tools@v1
-```
-
 ## <a name="create-a-local-functions-project"></a>创建本地 Functions 项目
 
 Functions 项目目录包含文件 [host.json](functions-host-json.md) 和 [local.settings.json](#local-settings-file) 以及若干个子文件夹，这些子文件夹包含各个函数的代码。 此目录相当于 Azure 中的一个函数应用。 若要详细了解 Functions 文件夹的结构，请参阅 [Azure Functions 开发人员指南](functions-reference.md#folder-structure)。
@@ -187,7 +177,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 {
   "IsEncrypted": false,
   "Values": {
-    "FUNCTIONS\_WORKER\_RUNTIME": "<language worker>",
+    "FUNCTIONS_WORKER_RUNTIME": "<language worker>",
     "AzureWebJobsStorage": "<connection-string>",
     "AzureWebJobsDashboard": "<connection-string>",
     "MyBindingConnection": "<binding-connection-string>"
@@ -343,6 +333,9 @@ Host.Functions.MyHttpTrigger
 Job host started
 Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
+
+>[!IMPORTANT]
+>在本地运行时，不会对 HTTP 终结点强制执行身份验证。 这意味着所有本地 HTTP 请求都将作为 `authLevel = "anonymous"` 处理。 有关详细信息，请参阅 [HTTP 绑定](functions-bindings-http-webhook.md#authorization-keys)一文。 
 
 ### <a name="passing-test-data-to-a-function"></a>将测试数据传递给函数
 

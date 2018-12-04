@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 02/01/2016
-ms.date: 07/30/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3ecd762d3d18de87fd086533d72be72d5eba9d6c
-ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
+ms.openlocfilehash: 2a3643d1d0798814c55043a54510422f79ccf196
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39261963"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674821"
 ---
 <!-- Remove the Red Hat family in meta properties-->
 # <a name="how-to-install-mysql-on-azure"></a>如何在 Azure 上安装 MySQL
@@ -86,6 +86,7 @@ ms.locfileid: "39261963"
              #[root@mysqlnode ~]# service mysql restart
 
 ### <a name="how-to-install-mysql-on-centos"></a>如何在 CentOS 上安装 MySQL
+
 <!-- Not Avaiable on Red Hat OS 系列（例如 CentOS、Oracle Linux） --> 此处会将 Linux VM 与 CentOS 一起使用。
 
 * 步骤 1：添加 MySQL Yum 存储库   切换到 `root` 用户：
@@ -179,4 +180,5 @@ ms.locfileid: "39261963"
 
 ### <a name="next-step"></a>后续步骤
 在[此处](https://www.mysql.com/)查找更多有关 MySQL 的使用方法和信息。
+
 <!-- Update_Description: update meta properties  -->

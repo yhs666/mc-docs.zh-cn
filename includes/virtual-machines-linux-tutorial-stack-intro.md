@@ -1,6 +1,20 @@
+---
+author: rockboyfor
+ms.service: virtual-machines-linux
+ms.topic: include
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
+ms.openlocfilehash: c44e654d7e6eb1314f1637f094a5be4a2662cbc2
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675763"
+---
 ## <a name="create-a-resource-group"></a>创建资源组
 
-使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 
+使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 
 
 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组。
 
@@ -10,7 +24,7 @@ az group create --name myResourceGroup --location chinaeast
 
 ## <a name="create-a-virtual-machine"></a>创建虚拟机
 
-使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) 命令创建 VM。 
+使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 命令创建 VM。 
 
 下面的示例创建一个名为 *myVM* 的 VM，并且在默认密钥位置中不存在 SSH 密钥时创建这些密钥。 若要使用特定的一组密钥，请使用 `--ssh-key-value` 选项。 该命令还会将 *azureuser* 设置为管理员用户名。 稍后要使用此名称连接到 VM。 
 
@@ -40,7 +54,7 @@ az vm create \
 
 ## <a name="open-port-80-for-web-traffic"></a>为 Web 流量打开端口 80 
 
-默认情况下，仅允许通过 SSH 连接登录到 Azure 中部署的 Linux VM。 由于此 VM 将用作 Web 服务器，因此需要从 Internet 打开端口 80。 使用 [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_open_port) 命令打开所需端口。  
+默认情况下，仅允许通过 SSH 连接登录到 Azure 中部署的 Linux VM。 由于此 VM 将用作 Web 服务器，因此需要从 Internet 打开端口 80。 使用 [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-open-port) 命令打开所需端口。  
 
 ```azurecli 
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -59,5 +73,4 @@ az network public-ip list --resource-group myResourceGroup --query [].ipAddress
 ssh azureuser@40.68.254.142
 ```
 
-<!--Update_Description: wording update, update link -->
-<!--ms.date: 01/08/2018-->
+<!-- Update_Description: update meta properties, wording update, update link -->

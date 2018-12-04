@@ -3,7 +3,7 @@ title: 将应用程序部署到 Azure 虚拟机规模集 | Microsoft Docs
 description: 了解如何将应用程序部署到规模集中的 Linux 和 Windows 虚拟机实例
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/29/2018
-ms.date: 09/27/2018
+ms.date: 11/29/2018
 ms.author: v-junlch
-ms.openlocfilehash: 8822eb947d183bdb43a213c479cf5c2e8a0e03e3
-ms.sourcegitcommit: 5af51a8cb9a7db8b1efb6ce6772890ac9884666a
+ms.openlocfilehash: a1f1eca55cb93a2c9257c3af33eb179de8b7a905
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47400097"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672826"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>在虚拟机规模集上部署应用程序
 若要在规模集中的虚拟机 (VM) 实例上运行应用程序，首先需要安装应用程序组件和所需文件。 本文介绍如何为规模集中的实例生成自定义 VM 映像，或在现有 VM 实例上自动运行安装脚本。 本文还将介绍如何跨规模集管理应用程序或 OS 更新。
@@ -32,14 +32,14 @@ ms.locfileid: "47400097"
 
 若要减少配置管理和预配 VM 的时间，可以创建自定义 VM 映像，使其在规模集中预配实例后立即准备好运行应用程序。 若要深入了解如何通过规模集创建和使用自定义 VM 映像，请参阅以下教程：
 
-- [Azure CLI 2.0](tutorial-use-custom-image-cli.md)
+- [Azure CLI](tutorial-use-custom-image-cli.md)
 - [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
 
 ## <a name="already-provisioned"></a>使用自定义脚本扩展安装应用
 自定义脚本扩展在 Azure VM 上下载和执行脚本。 此扩展适用于部署后配置、软件安装或其他任何配置/管理任务。 可以从 Azure 存储或 GitHub 下载脚本，或者在扩展运行时将脚本提供给 Azure 门户。 若要深入了解如何通过规模集创建和使用自定义 VM 映像，请参阅以下教程：
 
-- [Azure CLI 2.0](tutorial-install-apps-cli.md)
+- [Azure CLI](tutorial-install-apps-cli.md)
 - [Azure PowerShell](tutorial-install-apps-powershell.md)
 - [Azure Resource Manager 模板](tutorial-install-apps-template.md)
 
@@ -121,4 +121,4 @@ az vmss create `
 ## <a name="next-steps"></a>后续步骤
 生成应用程序并将其部署到规模集时，可参阅[规模集设计概述](virtual-machine-scale-sets-design-overview.md)。 若要深入了解如何管理规模集，请参阅[使用 PowerShell 管理规模集](virtual-machine-scale-sets-windows-manage.md)。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->

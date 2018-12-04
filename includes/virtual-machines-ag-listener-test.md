@@ -1,3 +1,17 @@
+---
+author: rockboyfor
+ms.service: virtual-machines
+ms.topic: include
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
+ms.openlocfilehash: 0e9767dec0842ed3444df9c9299024bea58e5f89
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676158"
+---
 在此步骤中，你使用同一网络上运行的客户端应用程序测试可用性组侦听程序。
 
 客户端连接具有以下要求：
@@ -15,3 +29,5 @@
 > 
 
 在测试侦听程序时，请务必对可用性组进行故障转移，以确保客户端可以在故障转移之间连接到侦听程序。
+
+<!-- Update_Description: update meta properties -->

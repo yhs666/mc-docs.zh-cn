@@ -16,11 +16,11 @@ origin.date: 06/12/2017
 ms.date: 10/15/2018
 ms.author: v-yeche
 ms.openlocfilehash: fe3c69c74b7c16f45e9313b00d525a7f16c8e147
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089080"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667255"
 ---
 # <a name="replacing-the-start-node-and-stop-node-apis-with-the-node-transition-api"></a>将启动节点 API 和停止节点 API 替换为节点转换 API
 

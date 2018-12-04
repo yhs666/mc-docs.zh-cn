@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 05/03/2018
-ms.date: 06/04/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 106deee52f7202b08dda5d2acad9abc9526cbdda
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: 2a5dd65fdbbd4d4d9557d04420a5026f09f2552f
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405271"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675328"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>适用于 Azure 虚拟机（资源管理器）的自动备份 v2
 
@@ -152,8 +152,8 @@ ms.locfileid: "37405271"
 
 可以使用 PowerShell 来配置自动备份 v2。 开始之前，必须：
 
-- [下载并安装最新的 Azure PowerShell](http://aka.ms/webpi-azps)。
-- 打开 Windows PowerShell 并使用 **Connect-AzureRmAccount -Environment AzureChinaCloud ** 命令将其与帐户关联。
+- [下载并安装最新的 Azure PowerShell](https://aka.ms/webpi-azps)。
+- 打开 Windows PowerShell 并使用 Connect-AzureRmAccount 命令将其与帐户关联。
 
 ### <a name="install-the-sql-iaas-extension"></a>安装 SQL IaaS 扩展
 如果通过 Azure 门户预配了 SQL Server 虚拟机，应已安装 SQL Server IaaS 扩展。 可通过调用 **Get-AzureRmVM** 命令并检查 **Extensions** 属性，来确定是否为 VM 安装了该扩展。
@@ -225,7 +225,7 @@ If (-Not $storage)
 > [!NOTE]
 > 自动备份不支持在高级存储中存储备份，但可以从使用高级存储的 VM 磁盘创建备份。
 
-然后，使用 New-AzureRmVMSqlServerAutoBackupConfig 命令启用并配置自动备份 v2 设置，以便在 Azure 存储帐户中存储备份。 在本示例中，备份设置为保留 10 天。 系统数据库备份已启用。 完整备份计划为每周运行，时段从 20:00 开始，持续两小时。 日志备份计划为每隔 30 分钟运行。 第二个命令 **Set-AzureRmVMSqlServerExtension**使用这些设置更新指定的 Azure VM。
+然后，使用 **New-AzureRmVMSqlServerAutoBackupConfig** 命令启用并配置自动备份 v2 设置，以便在 Azure 存储帐户中存储备份。 在本示例中，备份设置为保留 10 天。 系统数据库备份已启用。 完整备份计划为每周运行，时段从 20:00 开始，持续两小时。 日志备份计划为每隔 30 分钟运行。 第二个命令 **Set-AzureRmVMSqlServerExtension**使用这些设置更新指定的 Azure VM。
 
 ```powershell
 $autobackupconfig = New-AzureRmVMSqlServerAutoBackupConfig -Enable `
@@ -277,7 +277,7 @@ Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 ```powershell
 $vmname = "yourvmname"
 $resourcegroupname = "vmresourcegroupname"
-$region = "Azure region name such as EASTUS2"
+$region = "Azure region name such as chinanorth"
 $storage_accountname = "storageaccountname"
 $storage_resourcegroupname = $resourcegroupname
 $retentionperiod = 10
@@ -329,6 +329,7 @@ Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 1. 使用 SMTP 服务器和用户名配置数据库邮件。 可在 SQL Server Management Studio 中或使用 Transact-SQL 命令配置数据库邮件。 有关详细信息，请参阅[数据库邮件](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail)。
 1. [配置 SQL Server 代理以使用数据库邮件](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-sql-server-agent-mail-to-use-database-mail)。
 1. 验证是否通过本地 VM 防火墙和适用于 VM 的网络安全组允许该 SMTP 端口。
+
 <!-- Not Available on [SendGrid](../../../sendgrid-dotnet-how-to-send-email.md)-->
 ## <a name="next-steps"></a>后续步骤
 自动备份 v2 在 Azure VM 上配置托管备份。 因此，请务必[查看有关托管备份的文档](https://msdn.microsoft.com/library/dn449496.aspx)，了解其行为和影响。

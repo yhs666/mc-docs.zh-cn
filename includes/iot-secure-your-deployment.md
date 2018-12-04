@@ -1,20 +1,24 @@
-# <a name="secure-your-iot-deployment"></a>保护 IoT 部署
+# <a name="secure-your-internet-of-things-iot-deployment"></a>保护物联网 (IoT) 部署
+
 本文提供保护基于 Azure IoT 的物联网 (IoT) 基础结构的进一步详细信息。 它链接到配置和部署每个组件的实现级别详细信息。 还提供多种竞争方式间的比较和选择。
 
 保护 Azure IoT 部署可分为以下三个安全区域：
 
-- **设备安全**：在现实中部署 IoT 设备时，保护 IoT 设备安全。
-- **连接安全**：确保 IoT 设备和 IoT 中心之间传输的所有数据的机密性和防篡改性。
-- **云安全**：数据移动或存储在云中时，提供一种数据保护方式。
+* **设备安全**：在现实中部署 IoT 设备时，保护 IoT 设备安全。
 
-![三个安全区域][img-overview]
+* **连接安全**：确保 IoT 设备和 IoT 中心之间传输的所有数据的机密性和防篡改性。
+
+* **云安全**：数据移动或存储在云中时，提供一种数据保护方式。
+
+![三个安全区域](./media/iot-secure-your-deployment/overview.png)
 
 ## <a name="secure-device-provisioning-and-authentication"></a>安全的设备预配和身份验证
-Azure IoT 套件通过以下两种方式保护 IoT 设备：
 
-- 为每个设备提供唯一标识密钥（安全令牌），设备可使用该密钥与 IoT 中心通信。
+IoT 解决方案加速器通过以下两种方法保护 IoT 设备：
 
-- 使用设备内置 [X.509 证书][lnk-x509] 和私钥作为一种向 IoT 中心验证设备的方式。 此身份验证方式可确保任何时候都无法在设备外部获知设备上的私钥，从而提供更高级别的安全性。
+* 为每个设备提供唯一标识密钥（安全令牌），设备可使用该密钥与 IoT 中心通信。
+
+* 使用设备内置 [X.509 证书](http://www.itu.int/rec/T-REC-X.509-201210-I/en)和私钥作为一种向 IoT 中心验证设备的方式。 此身份验证方式可确保任何时候都无法在设备外部获知设备上的私钥，从而提供更高级别的安全性。
 
 安全令牌方式通过将对称密钥与每个呼叫关联，为每个设备向 IoT 中心作出的呼叫提供身份验证。 基于 X.509 的身份验证允许物理层 IoT 设备的身份验证作为 TLS 连接建立的一部分。 基于安全令牌的方式可在没有 X.509 身份验证的情况下使用，但这种模式的安全性较低。 这两种方式的选择主要取决于设备验证需要达到的安全程度和设备上安全储存的可用性（以安全存储私钥）。
 
@@ -24,12 +28,13 @@ IoT 中心使用安全令牌对设备和服务进行身份验证，以避免在�
 
 可在以下文章中找到有关安全令牌结构及其用法的详细信息：
 
--   [安全令牌结构][lnk-security-tokens]
--   [将 SAS 令牌当做设备使用][lnk-sas-tokens]
+* [安全令牌结构](../articles/iot-hub/iot-hub-devguide-security.md#security-token-structure)
 
-每个 IoT 中心都有一个 [标识注册表][lnk-identity-registry] ，用于在服务中创建各设备的资源（例如包含即时云到设备消息的队列），以及允许访问面向设备的终结点。 IoT 中心标识注册表针对解决方案为设备标识和安全密钥提供安全存储。 可将单个或一组设备标识添加到允许列表或方块列表，以便完全控制设备访问。 以下文章提供有关标识注册表的结构和受支持操作的详细信息。
+* [将 SAS 令牌用作设备](../articles/iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app)
 
-[IoT 中心支持 MQTT、AMQP 和 HTTP 等协议][lnk-protocols]。 每个协议使用 IoT 设备到 IoT 中心的安全令牌的方式不同：
+每个 IoT 中心都有一个[标识注册表](../articles/iot-hub/iot-hub-devguide-identity-registry.md)，可用于在服务中创建各设备的资源（例如包含即时云到设备消息的队列），以及允许访问面向设备的终结点。 IoT 中心标识注册表针对解决方案为设备标识和安全密钥提供安全存储。 可将单个或一组设备标识添加到允许列表或方块列表，以便完全控制设备访问。 以下文章提供有关标识注册表的结构和受支持操作的详细信息。
+
+[IoT 中心支持 MQTT、AMQP 和 HTTP 等协议](../articles/iot-hub/iot-hub-devguide-security.md)。 每个协议使用 IoT 设备到 IoT 中心的安全令牌的方式不同：
 
 * AMQP：基于 SASL PLAIN 和 AMQP 声明的安全性（若是 IoT 中心级别令牌，则为 `{policyName}@sas.root.{iothubName}`；若是设备范围令牌，则为 `{deviceId}`）。
 
@@ -37,11 +42,11 @@ IoT 中心使用安全令牌对设备和服务进行身份验证，以避免在�
 
 * HTTP：有效令牌位于授权请求标头中。
 
-IoT 中心标识注册表可用于配置每个设备的安全凭据和访问控制。 如果 IoT 解决方案已大幅投资于[自定义设备标识注册表和/或身份验证方案][lnk-custom-auth]，则可通过创建令牌服务，将该解决方案集成到具有 IoT 中心的现有基础结构中。
+IoT 中心标识注册表可用于配置每个设备的安全凭据和访问控制。 但是，如果 IoT 解决方案已大幅投资于[自定义设备标识注册表和/或身份验证方案](../articles/iot-hub/iot-hub-devguide-security.md#custom-device-and-module-authentication)，则可通过创建令牌服务，将该解决方案集成到具有 IoT 中心的现有基础结构中。
 
 ### <a name="x509-certificate-based-device-authentication"></a>基于 X.509 证书的设备身份验证
 
-使用 [基于设备的 X.509 证书][lnk-use-x509] 及其关联的私钥和公钥允许在物理层进行其他身份验证。 私钥安全存储在设备中，无法在设备外发现。 X.509 证书包含有关设备的信息（例如设备 ID）以及其他组织详细信息。 使用公钥生成证书签名。
+使用[基于设备的 X.509 证书](../articles/iot-hub/iot-hub-devguide-security.md)及其关联的私钥和公钥允许在物理层进行其他身份验证。 私钥安全存储在设备中，无法在设备外发现。 X.509 证书包含有关设备的信息（例如设备 ID）以及其他组织详细信息。 使用公钥生成证书签名。
 
 高级设备预配流：
 
@@ -55,20 +60,22 @@ IoT 中心标识注册表可用于配置每个设备的安全凭据和访问控�
 
 ## <a name="securing-the-connection"></a>保护连接安全
 
-使用传输层安全性 (TLS) 标准来保护 IoT 设备和 IoT 中心之间的 Internet 连接安全。 Azure IoT 支持 [TLS 1.2][lnk-tls12]、TLS 1.1 和 TLS 1.0（按此顺序）。 对 TLS 1.0 的支持仅为向后兼容性提供。 如果可能，请使用 TLS 1.2，因为它可提供最大安全性。
+使用传输层安全性 (TLS) 标准来保护 IoT 设备和 IoT 中心之间的 Internet 连接安全。 Azure IoT 支持 [TLS 1.2](https://tools.ietf.org/html/rfc5246)、TLS 1.1 和 TLS 1.0（按此顺序）。 对 TLS 1.0 的支持仅为向后兼容性提供。 如果可能，请使用 TLS 1.2，因为它可提供最大安全性。
 
 ## <a name="securing-the-cloud"></a>保护云的安全
 
-Azure IoT 中心允许为每个安全密钥定义 [访问控制策略][lnk-protocols] 。 它使用以下一组权限向每个 IoT 中心的终结点授予访问权限。 权限可根据功能限制对 IoT 中心的访问。
+Azure IoT 中心允许为每个安全密钥定义[访问控制策略](../articles/iot-hub/iot-hub-devguide-security.md)。 它使用以下一组权限向每个 IoT 中心的终结点授予访问权限。 权限可根据功能限制对 IoT 中心的访问。
 
-* **RegistryRead**。 授予对标识注册表的读取访问权限。 有关详细信息，请参阅 [identity registry][lnk-identity-registry]（标识注册表）。
-* **RegistryReadWrite**。 授予对标识注册表的读取和写入访问权限。 有关详细信息，请参阅 [identity registry][lnk-identity-registry]（标识注册表）。
+* **RegistryRead**。 授予对标识注册表的读取访问权限。 有关详细信息，请参阅[标识注册表](../articles/iot-hub/iot-hub-devguide-identity-registry.md)。
+
+* **RegistryReadWrite**。 授予对标识注册表的读取和写入访问权限。 有关详细信息，请参阅[标识注册表](../articles/iot-hub/iot-hub-devguide-identity-registry.md)。
+
 * **ServiceConnect**。 授予对面向云服务的通信和监视终结点的访问权限。 例如，它授权后端云服务接收设备到云的消息、发送云到设备的消息，以及检索对应的传送确认。
 * **DeviceConnect**。 授予对面向设备的终结点的访问权限。 例如，它授予发送设备到云的消息和接收云到设备的消息的权限。 此权限由设备使用。
 
-有两种方法可以使用[安全令牌][lnk-sas-tokens]来获取 IoT 中心的 DeviceConnect 权限：使用设备标识密钥，或者使用共享访问密钥。 此外，必须注意的是，可从设备访问的所有功能都故意显示在前缀为 `/devices/{deviceId}`的终结点上。
+有两种方法可以使用[安全令牌](../articles/iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app)来获取 IoT 中心的 **DeviceConnect** 权限：使用设备标识密钥，或者使用共享访问密钥。 此外，必须注意的是，可从设备访问的所有功能都故意显示在前缀为 `/devices/{deviceId}`的终结点上。
 
-[服务组件使用共享访问策略只能生成安全令牌][lnk-service-tokens] ，授予适当权限。
+[服务组件只能使用共享访问策略生成安全令牌](../articles/iot-hub/iot-hub-devguide-security.md#use-security-tokens-from-service-components)，授予适当权限。
 
 Azure IoT 中心和其他可能是解决方案的一部分的服务允许使用 Azure Active Directory 管理用户。
 

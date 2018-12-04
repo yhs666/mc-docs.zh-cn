@@ -16,11 +16,11 @@ origin.date: 06/20/2018
 ms.date: 08/20/2018
 ms.author: v-yeche
 ms.openlocfilehash: 623c758920f61269cad79050145746ef7d238828
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41704468"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667243"
 ---
 # <a name="common-exceptions-and-errors-when-working-with-the-fabricclient-apis"></a>使用 FabricClient API 时常见的异常和错误
 [FabricClient](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient?view=azure-dotnet#System_Fabric_FabricClient) API 可让群集和应用程序管理员对 Service Fabric 造应用程序、服务或群集执行管理任务。 例如，部署、升级和删除应用程序、检查群集的运行状况或测试服务。 应用程序开发人员和群集管理员可以使用 FabricClient API 来开发用于管理 Service Fabric 群集和应用程序的工具。

@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/08/2017
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 0f3a09fa80dfcbf5c241999f924c1de90969380c
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: e4e6d184d18e6e3812db6c9081dd8ba5b787e40b
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453674"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674961"
 ---
 # <a name="azure-cli-samples-for-linux-virtual-machines"></a>适用于 Linux 虚拟机的 Azure CLI 示例
 
@@ -55,4 +55,4 @@ ms.locfileid: "49453674"
 
 <!--Not Available on virtual-machines-linux-cli-sample-create-vm-oms.md -->
 
-<!--Update_Description: wording update, update link -->
+<!--Update_Description: update meta properties -->

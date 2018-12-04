@@ -3,7 +3,7 @@ title: 在 Azure 门户中自动缩放虚拟机规模集 | Microsoft Docs
 description: 如何在 Azure 门户中为虚拟机规模集创建自动缩放规则
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/29/2018
-ms.date: 08/13/2018
+ms.date: 11/29/2018
 ms.author: v-junlch
-ms.openlocfilehash: 4ea2c39a2d7fba878ff19ede33bf5a14761f51fc
-ms.sourcegitcommit: 56ed1b03d83f222db6118fe1e2f2485a9488507f
+ms.openlocfilehash: 26c3afca9b84bce68b670f2ed112816b86b2e58f
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41705328"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672873"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>在 Azure 门户中自动缩放虚拟机规模集
 创建规模集时，可定义想运行的 VM 实例数。 若应用程序需要更改，可自动增加或减少 VM 实例数。 通过自动缩放功能，可随客户需求的改变而进行调整，或在应用的整个生命周期内响应应用程序性能更改。
 
-本文演示如何在 Azure 门户中创建自动缩放规则，以监视规模集中 VM 实例的性能。 这些缩放规则根据性能指标增加或减少 VM 实例数。 也可使用 [Azure PowerShell](tutorial-autoscale-powershell.md) 或 [Azure CLI 2.0](tutorial-autoscale-cli.md) 完成这些步骤。
+本文演示如何在 Azure 门户中创建自动缩放规则，以监视规模集中 VM 实例的性能。 这些缩放规则根据性能指标增加或减少 VM 实例数。 也可使用 [Azure PowerShell](tutorial-autoscale-powershell.md) 或 [Azure CLI](tutorial-autoscale-cli.md) 完成这些步骤。
 
 
 ## <a name="prerequisites"></a>先决条件
-需要现有虚拟机规模集，才能创建自动缩放规则。 可使用 [Azure 门户](quick-create-portal.md)、[Azure PowerShell](quick-create-powershell.md) 或 [Azure CLI 2.0](quick-create-cli.md) 创建规模集。
+需要现有虚拟机规模集，才能创建自动缩放规则。 可使用 [Azure 门户](quick-create-portal.md)、[Azure PowerShell](quick-create-powershell.md) 或 [Azure CLI](quick-create-cli.md) 创建规模集。
 
 
 ## <a name="create-a-rule-to-automatically-scale-out"></a>创建规则，以便自动横向扩展
@@ -131,6 +131,5 @@ ms.locfileid: "41705328"
 有关如何管理 VM 实例的信息，请参阅[使用 Azure PowerShell 管理虚拟机规模集](virtual-machine-scale-sets-windows-manage.md)。
 
 若要了解如何在触发自动缩放规则时生成警报，请参阅[在 Azure Monitor 中使用自动缩放操作发送电子邮件和 Webhook 警报通知](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)。 还可以[在 Azure Monitor 中使用审核日志发送电子邮件和 Webhook 警报通知](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)。
-
 
 <!-- Update_Description: update metedata properties -->

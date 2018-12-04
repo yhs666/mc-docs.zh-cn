@@ -7,19 +7,19 @@ author: lingliw
 manager: digimobile
 ms.service: service-bus-messaging
 ms.topic: article
-origin.date: 09/24/2018
-ms.date: 10/31/2018
+origin.date: 11/06/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 6c0bc855a20bd3f107751fec9af6d562e95e7488
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.openlocfilehash: 6921a626c711ac2d48ce9155d03c45488d5be795
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409351"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674970"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure Monitor 中的 Azure 服务总线指标（预览版）
 
-服务总线指标提供 Azure 订阅中的资源的状态。 通过一组丰富的指标数据，可在命名空间和实体级别评估服务总线资源的总体运行状况。 这些统计信息非常重要，因为它们能够帮助监视服务总线的状态。 另外，指标也可帮助解决由根本原因造成的问题，而无需联系 Azure 支持。
+服务总线指标提供 Azure 订阅中的资源状态。 通过一组丰富的指标数据，可在命名空间和实体级别评估服务总线资源的总体运行状况。 这些统计信息非常重要，因为它们能够帮助监视服务总线的状态。 另外，指标也可帮助解决由根本原因造成的问题，而无需联系 Azure 支持。
 
 Azure Monitor 提供了统一的用户界面，可用于监视各种 Azure 服务。 有关详细信息，请参阅 GitHub 上的[在 Azure 中进行监视](../monitoring-and-diagnostics/monitoring-overview.md)和[通过 .NET 检索 Azure Monitor 指标](https://github.com/Azure-Samples/monitor-dotnet-metrics-api)示例。
 
@@ -30,7 +30,7 @@ Azure Monitor 提供了统一的用户界面，可用于监视各种 Azure 服�
 
 Azure Monitor 提供多种访问指标的方法。 可通过 [Azure 门户](https://portal.azure.cn)或 Azure Monitor API（REST 和 .NET）和事件中心访问指标。 有关详细信息，请参阅 [Azure Monitor 指标](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api)。
 
-默认情况下，已启用指标，并且可访问最近 30 天的数据。 如需将数据保留更长一段时间，可将指标数据存档到 Azure 存储帐户。 可在 Azure Monitor 的 [诊断设置](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) 中完成这种配置。
+默认情况下，已启用指标，并且可访问最近 30 天的数据。 如需将数据保留更长一段时间，可将指标数据存档到 Azure 存储帐户。 此值是在 Azure Monitor 中的[诊断设置](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)中配置的。
 
 ## <a name="access-metrics-in-the-portal"></a>在门户中访问指标
 

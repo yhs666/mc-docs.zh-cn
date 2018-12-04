@@ -14,11 +14,11 @@ origin.date: 11/30/2017
 ms.date: 08/27/2018
 ms.author: v-yiso
 ms.openlocfilehash: c5879e51ebf71b572fc62cb0d64ec7277736aaf3
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41705256"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667263"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>使用用于 Eclipse 的 Azure 工具包为 HDInsight 群集创建 Spark 应用程序
 

@@ -1,6 +1,6 @@
 ---
-title: 创建支持基于 URL 路径的重定向的应用程序网关 - Azure CLI
-description: 了解如何通过 Azure CLI 使用基于 URL 路径的重定向流量创建应用程序网关。
+title: 教程 - 创建支持基于 URL 路径的重定向的应用程序网关 - Azure CLI
+description: 本教程介绍如何通过 Azure CLI 使用基于 URL 路径的重定向流量创建应用程序网关。
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -8,15 +8,15 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
 origin.date: 07/14/2018
-ms.date: 10/17/2018
+ms.date: 11/21/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: f25e4631d0557107246d68ba60759a55cdb48a8f
-ms.sourcegitcommit: 4ead6b1d3527373b63c90680b6400a2e95b4064e
+ms.openlocfilehash: 6ebfe7d2d7cbc9f0ab6a1a4d1c5e0d40baa405f7
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49374976"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672599"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>教程：使用 Azure CLI 创建支持基于 URL 路径的重定向的应用程序网关
 
@@ -312,14 +312,6 @@ az network public-ip show \
 az group delete --name myResourceGroupAG --location chinanorth
 ```
 ## <a name="next-steps"></a>后续步骤
-
-在本教程中，你已学习了如何执行以下操作：
-
-> [!div class="checklist"]
-> * 设置网络
-> * 创建应用程序网关
-> * 添加侦听器和路由规则
-> * 为后端池创建虚拟机规模集
 
 > [!div class="nextstepaction"]
 > [详细了解应用程序网关的作用](application-gateway-introduction.md)

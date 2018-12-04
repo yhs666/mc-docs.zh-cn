@@ -3,21 +3,21 @@ title: 适用于 Functions 2.x 的 Azure Cosmos DB 绑定
 description: 了解如何在 Azure Functions 中使用 Azure Cosmos DB 触发器和绑定。
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: Azure Functions，函数，事件处理，动态计算，无服务体系结构
 ms.service: azure-functions; cosmos-db
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 11/21/2017
-ms.date: 10/18/2018
+ms.date: 11/22/2018
 ms.author: v-junlch
-ms.openlocfilehash: e0c7c085156ff1a3d267c41f99839b8867a248f1
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 0681b6563b3a5ae6ae37a74c0bc8796e59717f7a
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453868"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672955"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>适用于 Azure Functions 2.x 的 Azure Cosmos DB 绑定
 
@@ -68,6 +68,7 @@ using Microsoft.Azure.Documents;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
 
 namespace CosmosDBSamplesV2
 {
@@ -80,12 +81,12 @@ namespace CosmosDBSamplesV2
             ConnectionStringSetting = "CosmosDBConnection",
             LeaseCollectionName = "leases",
             CreateLeaseCollectionIfNotExists = true)]IReadOnlyList<Document> documents, 
-            TraceWriter log)
+            ILogger log)
         {
             if (documents != null && documents.Count > 0)
             {
-                log.Info($"Documents modified: {documents.Count}");
-                log.Info($"First document Id: {documents[0].Id}");
+                log.LogInformation($"Documents modified: {documents.Count}");
+                log.LogInformation($"First document Id: {documents[0].Id}");
             }
         }
     }
@@ -121,12 +122,12 @@ C# 脚本代码如下所示：
     using System;
     using Microsoft.Azure.Documents;
     using System.Collections.Generic;
-    
+    using Microsoft.Extensions.Logging;
 
-    public static void Run(IReadOnlyList<Document> documents, TraceWriter log)
+    public static void Run(IReadOnlyList<Document> documents, ILogger log)
     {
-      log.Verbose("Documents modified " + documents.Count);
-      log.Verbose("First document Id " + documents[0].Id);
+      log.LogInformation("Documents modified " + documents.Count);
+      log.LogInformation("First document Id " + documents[0].Id);
     }
 ```
 
@@ -208,7 +209,7 @@ JavaScript 代码如下所示：
     public static void Run(
         [CosmosDBTrigger("database", "collection", ConnectionStringSetting = "myCosmosDB")]
     IReadOnlyList<Document> documents,
-        TraceWriter log)
+        ILogger log)
     {
         ...
     }
@@ -312,6 +313,7 @@ namespace CosmosDBSamplesV2
 ```cs
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 
 namespace CosmosDBSamplesV2
 {
@@ -325,17 +327,17 @@ namespace CosmosDBSamplesV2
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection", 
                 Id = "{ToDoItemId}")]ToDoItem toDoItem,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info($"C# Queue trigger function processed Id={toDoItemLookup?.ToDoItemId}");
+            log.LogInformation($"C# Queue trigger function processed Id={toDoItemLookup?.ToDoItemId}");
 
             if (toDoItem == null)
             {
-                log.Info($"ToDo item not found");
+                log.LogInformation($"ToDo item not found");
             }
             else
             {
-                log.Info($"Found ToDo item, Description={toDoItem.Description}");
+                log.LogInformation($"Found ToDo item, Description={toDoItem.Description}");
             }
         }
     }
@@ -354,6 +356,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 
 namespace CosmosDBSamplesV2
 {
@@ -368,17 +371,17 @@ namespace CosmosDBSamplesV2
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection", 
                 Id = "{Query.id}")] ToDoItem toDoItem,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info("C# HTTP trigger function processed a request.");
+            log.LogInformation("C# HTTP trigger function processed a request.");
 
             if (toDoItem == null)
             {
-                log.Info($"ToDo item not found");
+                log.LogInformation($"ToDo item not found");
             }
             else
             {
-                log.Info($"Found ToDo item, Description={toDoItem.Description}");
+                log.LogInformation($"Found ToDo item, Description={toDoItem.Description}");
             }
             return new OkResult();
         }
@@ -398,6 +401,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 
 namespace CosmosDBSamplesV2
 {
@@ -412,17 +416,17 @@ namespace CosmosDBSamplesV2
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection", 
                 Id = "{id}")] ToDoItem toDoItem,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info("C# HTTP trigger function processed a request.");
+            log.LogInformation("C# HTTP trigger function processed a request.");
 
             if (toDoItem == null)
             {
-                log.Info($"ToDo item not found");
+                log.LogInformation($"ToDo item not found");
             }
             else
             {
-                log.Info($"Found ToDo item, Description={toDoItem.Description}");
+                log.LogInformation($"Found ToDo item, Description={toDoItem.Description}");
             }
             return new OkResult();
         }
@@ -446,6 +450,7 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
 using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
 
 namespace CosmosDBSamplesV2
 {
@@ -459,13 +464,13 @@ namespace CosmosDBSamplesV2
                 ConnectionStringSetting = "CosmosDBConnection", 
                 SqlQuery = "select * from ToDoItems r where r.id = {id}")]
                 IEnumerable<ToDoItem> toDoItems,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info("C# HTTP trigger function processed a request.");
+            log.LogInformation("C# HTTP trigger function processed a request.");
 
             foreach (ToDoItem toDoItem in toDoItems)
             {
-                log.Info(toDoItem.Description);
+                log.LogInformation(toDoItem.Description);
             }
             return new OkResult();
         }
@@ -486,6 +491,7 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
 using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
 
 namespace CosmosDBSamplesV2
 {
@@ -501,12 +507,12 @@ namespace CosmosDBSamplesV2
                 ConnectionStringSetting = "CosmosDBConnection", 
                 SqlQuery = "SELECT top 2 * FROM c order by c._ts desc")]
                 IEnumerable<ToDoItem> toDoItems,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info("C# HTTP trigger function processed a request.");
+            log.LogInformation("C# HTTP trigger function processed a request.");
             foreach (ToDoItem toDoItem in toDoItems)
             {
-                log.Info(toDoItem.Description);
+                log.LogInformation(toDoItem.Description);
             }
             return new OkResult();
         }
@@ -529,6 +535,7 @@ using Microsoft.Azure.Documents.Linq;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -545,9 +552,9 @@ namespace CosmosDBSamplesV2
                 databaseName: "ToDoItems",
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection")] DocumentClient client,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info("C# HTTP trigger function processed a request.");
+            log.LogInformation("C# HTTP trigger function processed a request.");
 
             var searchterm = req.Query["searchterm"];
             if (string.IsNullOrWhiteSpace(searchterm))
@@ -557,7 +564,7 @@ namespace CosmosDBSamplesV2
 
             Uri collectionUri = UriFactory.CreateDocumentCollectionUri("ToDoItems", "Items");
 
-            log.Info($"Searching for: {searchterm}");
+            log.LogInformation($"Searching for: {searchterm}");
 
             IDocumentQuery<ToDoItem> query = client.CreateDocumentQuery<ToDoItem>(collectionUri)
                 .Where(p => p.Description.Contains(searchterm))
@@ -567,7 +574,7 @@ namespace CosmosDBSamplesV2
             {
                 foreach (ToDoItem result in await query.ExecuteNextAsync())
                 {
-                    log.Info(result.Description);
+                    log.LogInformation(result.Description);
                 }
             }
             return new OkResult();
@@ -713,7 +720,7 @@ function.json 文件如下所示：
       "Id": "{Query.id}"
     }
   ],
-  "disabled": true
+  "disabled": false
 }
 ```
 
@@ -721,18 +728,19 @@ C# 脚本代码如下所示：
 
 ```cs
 using System.Net;
+using Microsoft.Extensions.Logging;
 
-public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem, TraceWriter log)
+public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem, ILogger log)
 {
-    log.Info("C# HTTP trigger function processed a request.");
+    log.LogInformation("C# HTTP trigger function processed a request.");
 
     if (toDoItem == null)
     {
-         log.Info($"ToDo item not found");
+         log.LogInformation($"ToDo item not found");
     }
     else
     {
-        log.Info($"Found ToDo item, Description={toDoItem.Description}");
+        log.LogInformation($"Found ToDo item, Description={toDoItem.Description}");
     }
     return req.CreateResponse(HttpStatusCode.OK);
 }
@@ -783,18 +791,19 @@ C# 脚本代码如下所示：
 
 ```cs
 using System.Net;
+using Microsoft.Extensions.Logging;
 
-public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem, TraceWriter log)
+public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem, ILogger log)
 {
-    log.Info("C# HTTP trigger function processed a request.");
+    log.LogInformation("C# HTTP trigger function processed a request.");
 
     if (toDoItem == null)
     {
-         log.Info($"ToDo item not found");
+         log.LogInformation($"ToDo item not found");
     }
     else
     {
-        log.Info($"Found ToDo item, Description={toDoItem.Description}");
+        log.LogInformation($"Found ToDo item, Description={toDoItem.Description}");
     }
     return req.CreateResponse(HttpStatusCode.OK);
 }
@@ -844,14 +853,15 @@ C# 脚本代码如下所示：
 
 ```cs
 using System.Net;
+using Microsoft.Extensions.Logging;
 
-public static HttpResponseMessage Run(HttpRequestMessage req, IEnumerable<ToDoItem> toDoItems, TraceWriter log)
+public static HttpResponseMessage Run(HttpRequestMessage req, IEnumerable<ToDoItem> toDoItems, ILogger log)
 {
-    log.Info("C# HTTP trigger function processed a request.");
+    log.LogInformation("C# HTTP trigger function processed a request.");
 
     foreach (ToDoItem toDoItem in toDoItems)
     {
-        log.Info(toDoItem.Description);
+        log.LogInformation(toDoItem.Description);
     }
     return req.CreateResponse(HttpStatusCode.OK);
 }
@@ -904,10 +914,11 @@ C# 脚本代码如下所示：
 using System.Net;
 using Microsoft.Azure.Documents.Client;
 using Microsoft.Azure.Documents.Linq;
+using Microsoft.Extensions.Logging;
 
-public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, DocumentClient client, TraceWriter log)
+public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, DocumentClient client, ILogger log)
 {
-    log.Info("C# HTTP trigger function processed a request.");
+    log.LogInformation("C# HTTP trigger function processed a request.");
 
     Uri collectionUri = UriFactory.CreateDocumentCollectionUri("ToDoItems", "Items");
     string searchterm = req.GetQueryNameValuePairs()
@@ -919,7 +930,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
         return req.CreateResponse(HttpStatusCode.NotFound);
     }
 
-    log.Info($"Searching for word: {searchterm} using Uri: {collectionUri.ToString()}");
+    log.LogInformation($"Searching for word: {searchterm} using Uri: {collectionUri.ToString()}");
     IDocumentQuery<ToDoItem> query = client.CreateDocumentQuery<ToDoItem>(collectionUri)
         .Where(p => p.Description.Contains(searchterm))
         .AsDocumentQuery();
@@ -928,7 +939,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
     {
         foreach (ToDoItem result in await query.ExecuteNextAsync())
         {
-            log.Info(result.Description);
+            log.LogInformation(result.Description);
         }
     }
     return req.CreateResponse(HttpStatusCode.OK);
@@ -1025,7 +1036,7 @@ function.json 文件如下所示：
       "Id": "{Query.id}"
     }
   ],
-  "disabled": true
+  "disabled": false
 }
 ```
 
@@ -1296,6 +1307,7 @@ namespace CosmosDBSamplesV2
 ```cs
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 using System;
 
 namespace CosmosDBSamplesV2
@@ -1309,12 +1321,12 @@ namespace CosmosDBSamplesV2
                 databaseName: "ToDoItems",
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection")]out dynamic document,
-            TraceWriter log)
+            ILogger log)
         {
             document = new { Description = queueMessage, id = Guid.NewGuid() };
 
-            log.Info($"C# Queue trigger function inserted one row");
-            log.Info($"Description={queueMessage}");
+            log.LogInformation($"C# Queue trigger function inserted one row");
+            log.LogInformation($"Description={queueMessage}");
         }
     }
 }
@@ -1330,6 +1342,7 @@ namespace CosmosDBSamplesV2
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace CosmosDBSamplesV2
 {
@@ -1343,13 +1356,13 @@ namespace CosmosDBSamplesV2
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection")]
                 IAsyncCollector<ToDoItem> toDoItemsOut,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info($"C# Queue trigger function processed {toDoItemsIn?.Length} items");
+            log.LogInformation($"C# Queue trigger function processed {toDoItemsIn?.Length} items");
 
             foreach (ToDoItem toDoItem in toDoItemsIn)
             {
-                log.Info($"Description={toDoItem.Description}");
+                log.LogInformation($"Description={toDoItem.Description}");
                 await toDoItemsOut.AddAsync(toDoItem);
             }
         }
@@ -1414,10 +1427,11 @@ C# 脚本代码如下所示：
 
     using Microsoft.Azure.WebJobs.Host;
     using Newtonsoft.Json.Linq;
+    using Microsoft.Extensions.Logging;
 
-    public static void Run(string myQueueItem, out object employeeDocument, TraceWriter log)
+    public static void Run(string myQueueItem, out object employeeDocument, ILogger log)
     {
-      log.Info($"C# Queue trigger function processed: {myQueueItem}");
+      log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
 
       dynamic employee = JObject.Parse(myQueueItem);
 
@@ -1476,14 +1490,15 @@ C# 脚本代码如下所示：
 
 ```cs
 using System;
+using Microsoft.Extensions.Logging;
 
-public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> toDoItemsOut, TraceWriter log)
+public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> toDoItemsOut, ILogger log)
 {
-    log.Info($"C# Queue trigger function processed {toDoItemsIn?.Length} items");
+    log.LogInformation($"C# Queue trigger function processed {toDoItemsIn?.Length} items");
 
     foreach (ToDoItem toDoItem in toDoItemsIn)
     {
-        log.Info($"Description={toDoItem.Description}");
+        log.LogInformation($"Description={toDoItem.Description}");
         await toDoItemsOut.AddAsync(toDoItem);
     }
 }
@@ -1591,6 +1606,7 @@ F# 代码如下所示：
 ```fsharp
     open FSharp.Interop.Dynamic
     open Newtonsoft.Json
+    open Microsoft.Extensions.Logging
 
     type Employee = {
       id: string
@@ -1599,8 +1615,8 @@ F# 代码如下所示：
       address: string
     }
 
-    let Run(myQueueItem: string, employeeDocument: byref<obj>, log: TraceWriter) =
-      log.Info(sprintf "F# Queue trigger function processed: %s" myQueueItem)
+    let Run(myQueueItem: string, employeeDocument: byref<obj>, log: ILogger) =
+      log.LogInformation(sprintf "F# Queue trigger function processed: %s" myQueueItem)
       let employee = JObject.Parse(myQueueItem)
       employeeDocument <-
         { id = sprintf "%s-%s" employee?name employee?employeeId
@@ -1693,6 +1709,33 @@ public String cosmosDbQueryById(
 |---|---|
 | CosmosDB | [CosmosDB 错误代码](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 
+<a name="host-json"></a>  
+
+## <a name="hostjson-settings"></a>host.json 设置
+
+本部分介绍版本 2.x 中可用于此绑定的全局配置设置。 有关版本 2.x 中的全局配置设置的详细信息，请参阅 [Azure Functions 版本 2.x 的 host.json 参考](functions-host-json.md)。
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "cosmosDB": {
+            "connectionMode": "Gateway",
+            "protocol": "Https",
+            "leaseOptions": {
+                "leasePrefix": "prefix1"
+            }
+        }
+    }
+}
+```  
+
+|属性  |默认 | 说明 |
+|---------|---------|---------| 
+|GatewayMode|网关|连接到 Azure Cosmos DB 服务时该函数使用的连接模式。 选项为 `Direct` 和 `Gateway`|
+|协议|Https|连接到 Azure Cosmos DB 服务时该函数使用的连接协议。  参阅[此处，了解两种模式的说明](../cosmos-db/performance-tips.md#networking)| 
+|leasePrefix|不适用|应用中所有函数要使用的租用前缀。| 
+
 ## <a name="next-steps"></a>后续步骤
 
 - [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
@@ -1702,4 +1745,4 @@ public String cosmosDbQueryById(
 > [Go to a quickstart that uses a Cosmos DB trigger](functions-create-cosmos-db-triggered-function.md)
 --->
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

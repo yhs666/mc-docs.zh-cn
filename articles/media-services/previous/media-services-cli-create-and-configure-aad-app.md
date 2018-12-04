@@ -11,17 +11,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/17/2017
-ms.date: 10/01/2018
+origin.date: 10/22/2018
+ms.date: 12/03/2018
 ms.author: v-jay
-ms.openlocfilehash: d0806f34a169216e4900691ddba24c8d6436ce13
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.openlocfilehash: 85954b42609a78541249fec822b6558c548e760e
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426291"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672987"
 ---
-# <a name="use-azure-cli-to-create-an-aad-app-and-configure-it-to-access-azure-media-services-api"></a>使用 Azure CLI 创建 AAD 应用，并将它配置为访问 Azure 媒体服务 API
+# <a name="use-azure-cli-to-create-an-azure-ad-app-and-configure-it-to-access-azure-media-services-api"></a>使用 Azure CLI 创建 Azure AD 应用并将其配置为访问 Azure 媒体服务 API
 
 本主题展示了如何使用 Azure CLI 创建 Azure Active Directory (Azure AD) 应用程序和服务主体，以便访问 Azure 媒体服务资源。 
 

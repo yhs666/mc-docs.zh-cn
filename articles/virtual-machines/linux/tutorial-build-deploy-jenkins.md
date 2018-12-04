@@ -11,15 +11,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 07/31/2018
-ms.date: 09/24/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: jenkins
-ms.openlocfilehash: d5fca39982a76923442f04ca7f578bf6a84047ad
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.openlocfilehash: b6ad22f3d1b9227c4c99b0adb96e17872e3e68f8
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527192"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674437"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>教程：使用 Jenkins 和 Azure DevOps Services 将应用部署到 Azure 中的 Linux 虚拟机
 
@@ -42,9 +42,9 @@ ms.locfileid: "46527192"
 ## <a name="before-you-begin"></a>准备阶段
 
 * 需要具有对 Jenkins 服务器的访问权限。 如果尚未创建 Jenkins 服务器，请参阅 [Jenkins 文档](https://jenkins.io/doc/)。 
+  
   <!-- Not Available on [Create a Jenkins master on an Azure virtual machine](/jenkins/install-jenkins-solution-template) -->
   <!-- Keep the office website -->
-
 * 登录到 Azure DevOps Services 组织 (**https://{yourorganization}.visualstudio.com**)。 
   可以[免费创建 Azure DevOps Services 组织](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308)。
 
@@ -191,4 +191,4 @@ ms.locfileid: "46527192"
 > [!div class="nextstepaction"]
 > [部署 LAMP 堆栈](tutorial-lamp-stack.md)
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update -->

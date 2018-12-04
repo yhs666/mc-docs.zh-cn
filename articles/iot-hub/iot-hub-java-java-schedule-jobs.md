@@ -9,13 +9,13 @@ ms.devlang: java
 ms.topic: conceptual
 origin.date: 07/10/2017
 ms.author: v-yiso
-ms.date: 09/10/2018
-ms.openlocfilehash: b4266fcaaefad9c638a9368ce79581d120089849
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.date: 12/03/2018
+ms.openlocfilehash: 1926f7d0afd9e623547c698f3bf95b59c576205e
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43328591"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675236"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>计划和广播作业 (Java)
 
@@ -54,15 +54,24 @@ schedule-jobs：使用作业来调用 lockDoor 直接方法，并在多个设备
 
 要完成本教程，需要：
 
-* 最新的 [Java SE 开发工具包 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* 最新的 [Java SE 开发工具包 8](https://aka.ms/azure-jdks)
+
 * [Maven 3](https://maven.apache.org/install.html)
 * 有效的 Azure 帐户。 （如果没有帐户，只需几分钟即可创建一个[试用帐户](http://www.azure.cn/pricing/1rmb-trial/)。）
 
-[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+## <a name="create-an-iot-hub"></a>创建 IoT 中心
 
-[!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-还可使用[适用于 Azure CLI 2.0 的 IoT 扩展](https://github.com/Azure/azure-iot-cli-extension)工具向 IoT 中心添加设备。
+### <a name="retrieve-connection-string-for-iot-hub"></a>检索 IoT 中心的连接字符串
+
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
+
+## <a name="register-a-new-device-in-the-iot-hub"></a>在 IoT 中心内注册新设备
+
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
+
+还可使用[适用于 Azure CLI 的 IoT 扩展](https://github.com/Azure/azure-iot-cli-extension)工具向 IoT 中心添加设备。
 
 ## <a name="create-the-service-app"></a>创建服务应用
 

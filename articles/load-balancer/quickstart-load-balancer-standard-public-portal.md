@@ -15,15 +15,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/21/2018
-ms.date: 11/05/2018
+ms.date: 11/26/2018
 ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: 5b56139e34a102189bf5b507df310b1737843135
-ms.sourcegitcommit: 9be84d4dc546d66a0d9d1d2be67dd79c84b2c210
+ms.openlocfilehash: 8c4c3a10762b6fbcdcee44091acad42ff89feb29
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50408861"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672868"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建标准负载均衡器以对 VM 进行负载均衡
 
@@ -146,6 +146,7 @@ ms.locfileid: "50408861"
     - *myHealthProbe* - 运行状况探测的名称。
     - **HTTP** - 协议类型。
     - *80* - 端口号。
+    - *Healthprobe.aspx* - URI 路径。 可以将此值替换为任何其他的 URI，或者保留默认路径值 **"\\"** 以获取默认 URI。
     - *15* - 两次探测尝试之间的**时间间隔**（以秒为单位）。
     - *2* - 将 VM 视为不正常所对应的**不正常阈值**或连续探测失败次数。
 4. 单击“确定”。

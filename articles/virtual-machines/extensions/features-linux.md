@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 03/30/2018
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 071c5657430d02b18fa7907524bbae46548779e2
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 62278edb91e38460b45aee818bde41119f49a33a
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453660"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674974"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>适用于 Linux 的虚拟机扩展和功能
 
@@ -55,7 +55,8 @@ Azure VM 代理可管理 Azure VM 与 Azure 结构控制器之间的交互。 VM
 
 #### <a name="supported-oses"></a>支持的 OS
 
-Linux 代理在多个 OS 上运行，但是，扩展框架对扩展的 OS 施加限制。 有关详细信息，请参阅 [此文] (https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems)。
+Linux 代理在多个 OS 上运行，但是，扩展框架对扩展的 OS 施加限制。 有关详细信息，请参阅[此文章](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems
+)。
 
 某些扩展并非在所有 OS 上均受支持，可能会发出错误代码 51“不受支持的 OS”。 请查看相应的扩展文档来了解支持情况。
 
@@ -64,7 +65,7 @@ Linux 代理在多个 OS 上运行，但是，扩展框架对扩展的 OS 施加
 从 Azure 存储扩展存储库下载扩展包，将扩展状态上传内容发布到 Azure 存储。 如果使用[受支持](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)版本的代理，则不需要允许对 VM 区域中 Azure 存储的访问，因为可以使用代理将通信重定向到 Azure 结构控制器，以进行代理通信。 如果使用不受支持的代理版本，则需要允许从 VM 对该区域中 Azure 存储的出站访问。
 
 > [!IMPORTANT]
-> 如果已使用来宾防火墙阻止对 168.63.129.1 的访问，则不管采用上述哪种方法，扩展都会失败。
+> 如果已使用来宾防火墙阻止对 168.63.129.16 的访问，则不管采用上述哪种方法，扩展都会失败。
 
 代理只可用于下载扩展包和报告状态。 例如，如果扩展安装需要从 GitHub 下载脚本（自定义脚本），或需要访问 Azure 存储（Azure 备份），则需要打开其他防火墙/网络安全组端口。 不同的扩展具有不同的要求，因为它们本身就是应用程序。 对于需要访问 Azure 存储的扩展，可以使用[存储](/virtual-network/security-overview#service-tags)的 Azure NSG 服务标记来允许访问。
 

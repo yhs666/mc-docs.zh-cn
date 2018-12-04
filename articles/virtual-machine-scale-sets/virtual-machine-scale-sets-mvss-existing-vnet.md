@@ -3,7 +3,7 @@ title: 在 Azure 规模集模板中引用现有虚拟网络 | Microsoft Docs
 description: 如何将虚拟网络添加到现有 Azure 虚拟机规模集模板
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/27/2017
-ms.date: 01/31/2018
+ms.date: 11/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: 93b3bb3a215312d3aa16acee5abc855f3191b0e2
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 5a8db113ea162548bfe605849b77adcb224b365f
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29285569"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673131"
 ---
 # <a name="add-reference-to-an-existing-virtual-network-in-an-azure-scale-set-template"></a>在 Azure 规模集模板中添加对现有虚拟网络的引用
 
@@ -108,4 +108,4 @@ ms.locfileid: "29285569"
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

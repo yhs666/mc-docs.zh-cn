@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 08/24/2018
-ms.date: 10/29/2018
+ms.date: 12/03/2018
 ms.author: v-biyu
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 518382768ba9977bab7613e45498aa85cd53369d
-ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
+ms.openlocfilehash: f84f05bbf0ce61f7435ee0fd4a97d802190b20ef
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49451602"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674977"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>在 Azure 中创建 Node.js Web 应用
 
@@ -50,11 +50,11 @@ var port = process.env.PORT || 1337;
 
 应用服务会将 process.env.PORT 注入应用程序，因此代码将使用该变量来获知要侦听的端口。 
 
-在终端窗口中，导航到示例性 Node.js 项目的根目录（包含 _index.js_ 的目录）。
+在终端窗口中，导航到示例 Node.js 项目的根目录（包含 _index.js_ 的目录）。
 
 ## <a name="run-the-app-locally"></a>在本地运行应用
 
-在本地运行应用程序，这样就能了解将它部署到 Azure 时它的外观应该是什么样的。 打开一个终端窗口并使用 `npm start` 脚本启动内置的 Node.js HTTP 服务器。
+在本地运行应用程序，以便你能了解将它部署到 Azure 时它的外观应该是什么样的。 打开一个终端窗口并使用 `npm start` 脚本启动内置的 Node.js HTTP 服务器。
 
 ```bash
 npm start
@@ -69,15 +69,15 @@ npm start
 在终端窗口中，按 **Ctrl+C** 退出 Web 服务器。
 
 > [!NOTE]
-> 在 Azure 应用服务中，此应用在 IIS 中使用 [iisnode](https://github.com/tjanczuk/iisnode) 运行。 为了让应用能够使用 iisnode 运行，根应用目录包含一个 web.config 文件。 此文件可以由 IIS 读取，与 iisnode 相关的设置记录在 [iisnode GitHub 存储库](https://github.com/tjanczuk/iisnode/blob/master/src/samples/configuration/web.config)中。
+> 在 Azure 应用服务中，此应用在 IIS 中使用 [iisnode](https://github.com/Azure/iisnode) 运行。 为了让应用能够使用 iisnode 运行，根应用目录包含一个 web.config 文件。 此文件可以由 IIS 读取，与 iisnode 相关的设置记录在 [iisnode GitHub 存储库](https://github.com/Azure/iisnode/blob/master/src/samples/configuration/web.config)中。
 
 [!INCLUDE [Create ZIP file](../../includes/app-service-web-create-zip.md)]
 
 [!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
 
-[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-scus.md)] 
 
-[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-scus.md)] 
 
 ## <a name="create-a-web-app"></a>创建 Web 应用
 
@@ -123,7 +123,7 @@ http://<app name>.chinacloudsites.cn
 
 新 Web 应用应该如下所示：
 
-![空 Web 应用页](media/app-service-web-get-started-php/app-service-web-service-created.png)
+![空 Web 应用页](media/app-service-web-get-started-nodejs-poc/app-service-web-service-created.png)
 
 [!INCLUDE [Deploy ZIP file](../../includes/app-service-web-deploy-zip.md)]
 

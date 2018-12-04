@@ -1,7 +1,7 @@
 ---
 title: H264 单比特率低品质 SD (Android) | Microsoft Docs
 description: 本主题概述了 H264 单比特率低品质 SD (Android) 任务预设。
-author: hayley244
+author: WenJason
 manager: digimobile
 editor: ''
 services: media-services
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/20/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 7038b5d5a08815a9f9bcf8923e822f5be7f5d790
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+origin.date: 10/30/2018
+ms.date: 12/03/2018
+ms.author: v-jay
+ms.openlocfilehash: 6d4647afe5e9806979c364efd355c3cd72ec1f89
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426228"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672625"
 ---
 # <a name="h264-single-bitrate-low-quality-sd-for-android"></a>适用于 Android 的 H264 单比特率低品质 SD
 `Media Encoder Standard` 定义一组可在创建编码作业时使用的编码预设。 可以使用 `preset name` 指定编码媒体文件采用的格式。 也可以创建自己的 JSON 或基于 XML 的预设（使用 UTF-8 或 UTF-16 编码）。 然后，将自定义预设传递到编码器。 有关此 `Media Encoder Standard` 编码器支持的所有预设名称的列表，请参阅 [Media Encoder Standard 的任务预设](media-services-mes-presets-overview.md)。  

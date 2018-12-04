@@ -7,15 +7,15 @@ manager: timlt
 ms.author: v-yiso
 ms.custom: mvc
 origin.date: 05/29/2018
-ms.date: 10/29/2018
+ms.date: 12/03/2018
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 4dc964936c3485e2db78efcd095f0b3549926c8b
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: a47700e5f65894f53bae32e1d9413bab6366a211
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453856"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674687"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>教程：使用模拟设备测试 IoT 中心的连接性
 

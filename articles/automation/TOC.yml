@@ -11,22 +11,23 @@ items:
     href: automation-quickstart-create-account.md
   - name: 创建 runbook
     href: automation-quickstart-create-runbook.md
-  - name: 创建 DSC 配置
-    href: automation-quickstart-dsc-configuration.md
   expanded: true
-- name: 如何
+- name: 操作指南
   items:
   - name: 身份验证和安全性
     items:
     - name: 创建独立的自动化帐户
       href: automation-create-standalone-account.md
     - name: 管理自动化运行方式帐户
+      displayName: certificate renewal
       href: manage-runas-account.md
     - name: 管理基于角色的访问控制
+      displayName: RBAC
       href: automation-role-based-access-control.md
   - name: 创建 Runbook
     items:
     - name: Runbook 类型
+      displayName: graphical, python, powershell, powershell workflow
       href: automation-runbook-types.md
     - name: 创建和导入 Runbook
       href: automation-creating-importing-runbook.md
@@ -39,6 +40,7 @@ items:
     - name: 创建 Python Runbook
       href: automation-first-runbook-textual-python2.md
     - name: 编辑文本 Runbook
+      displayName: powershell
       href: automation-edit-textual-runbook.md
     - name: 编辑图形 Runbook
       href: automation-graphical-authoring-intro.md
@@ -49,11 +51,11 @@ items:
     - name: 子 Runbook
       href: automation-child-runbooks.md
     - name: Runbook 输出
+      displayName: message streams, progress records, preference
       href: automation-runbook-output-and-messages.md
     - name: 源代码管理集成
-      href: source-control-integration.md
-    - name: 源代码管理集成 - 传统
-      href: automation-source-control-integration.md
+      href: automation-source-control-integration-legacy.md
+      displayname: github
   - name: 自动化
     items:
     - name: 启动 Runbook
@@ -65,28 +67,37 @@ items:
     - name: 图形 Runbook 中的错误处理
       href: automation-runbook-graphical-error-handling.md
     - name: 跟踪 Runbook 作业
+      displayName: fair share, activity log
       href: automation-runbook-execution.md
     - name: 管理 Azure 自动化数据
+      displayName: backup
       href: automation-managing-data.md
     - name: 将 JSON 对象传递到 Azure 自动化 Runbook
       href: automation-pass-json-string.md
     - name: 管理 Python 2 程序包
       href: python-packages.md
   - name: 状态配置
+    displayName: DSC
     items:
     - name: 状态配置概述
+      displayName: DSC
       href: automation-dsc-overview.md
     - name: 入门
+      displayName: DSC
       href: automation-dsc-getting-started.md
     - name: 使用状态配置将服务器配置为所需状态并管理偏移
+      displayName: DSC, compliance
       href: tutorial-configure-servers-desired-state.md
     - name: 载入用于管理的计算机
+      displayName: DSC, state configuration
       href: automation-dsc-onboarding.md
     - name: 编译 DSC 配置
+      displayName: state configuration, composite resources, configurationData
       href: automation-dsc-compile.md
     - name: 使用复合资源编写 DSC 配置
       href: compose-configurationwithcompositeresources.md
     - name: 使用 Chocolatey 进行连续部署
+      displayName: dsc, state configuration
       href: automation-dsc-cd-chocolatey.md
   - name: 管理共享资源
     items:
@@ -107,17 +118,18 @@ items:
   - name: 方案
     items:
     - name: 从 Azure 警报启动 Runbook
+      displayName: Monitor, Azure Monitor
       href: automation-create-alert-triggered-runbook.md
-    - name: 删除资源组
-      href: automation-scenario-remove-resourcegroup.md
     - name: 在 Azure 自动化 PowerShell Runbook 中部署 Azure 资源管理器模板
       href: automation-deploy-template-runbook.md
-  - name: 故障排除
-    items:
-    - name: Runbook
-      href: troubleshoot/runbooks.md
-    - name: Desired State Configuration (DSC)
-      href: troubleshoot/desired-state-configuration.md
+- name: 故障排除
+  items:
+  - name: Runbook
+    displayName: troubleshoot
+    href: troubleshoot/runbooks.md
+  - name: 状态配置 (DSC)
+    displayName: Desired State Configuration, troubleshoot
+    href: troubleshoot/desired-state-configuration.md
 - name: 参考
   items:
   - name: Azure PowerShell
@@ -132,9 +144,9 @@ items:
     href: https://www.azure.cn/zh-cn/pricing/details/automation/
   - name: 定价计算器
     href: https://www.azure.cn/zh-cn/pricing/calculator/automation/
-ms.openlocfilehash: bdeeaa42581ae5a11311f89e63bf38ad38dadcaa
-ms.sourcegitcommit: d26e5d0d625a61d6b130800d10c81f47c83fb1e0
+ms.openlocfilehash: aab819b55908714b4886aeccc6ff09fbf4cf2cb8
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50745519"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674610"

@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 03/23/2017
-ms.date: 05/21/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 43abd9f49218ba6453b13aaf96ccee22a2350b8c
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 9e835b18b1e09d66ec651b86a4d6da6a654d6735
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940093"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674114"
 ---
 # <a name="how-to-schedule-planned-maintenance-on-azure-vms"></a>如何在 Azure VM 上安排计划内的维护
 > [!IMPORTANT]

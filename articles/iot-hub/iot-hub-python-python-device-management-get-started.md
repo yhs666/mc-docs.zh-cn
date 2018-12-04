@@ -4,19 +4,20 @@ description: 如何使用 IoT 中心设备管理进行远程设备重启。 使�
 author: kgremban
 manager: timlt
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
+services: iot-hub
+ms.devlang: python
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/02/2018
-ms.date: 10/29/2018
+ms.date: 12/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: 7b9b616281c1b718362b95ab411945fd85fd34e4
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: be8c3bda1c900ba62e526da05faec39973fa110f
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453539"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675219"
 ---
 # <a name="get-started-with-device-management-python"></a>设备管理入门 (Python)
 
@@ -42,9 +43,13 @@ ms.locfileid: "49453539"
 * 如果使用 Windows OS，则请安装 [Visual C++ 可再发行组件包][lnk-visual-c-redist]，以便使用 Python 中的本机 DLL。
 * 有效的 Azure 帐户。 （如果没有帐户，只需花费几分钟就能创建一个[免费帐户][lnk-free-trial]。）
 
-[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+## <a name="create-an-iot-hub"></a>创建 IoT 中心
 
-[!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+### <a name="retrieve-connection-string-for-iot-hub"></a>检索 IoT 中心的连接字符串
+
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
 ## <a name="create-a-simulated-device-app"></a>创建模拟设备应用程序
 本部分的操作：

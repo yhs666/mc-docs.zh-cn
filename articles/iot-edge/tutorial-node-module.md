@@ -3,23 +3,23 @@ title: Azure IoT Edge Node.js 教程 | Microsoft Docs
 description: 本教程介绍如何使用 Node.js 代码创建 IoT Edge 模块并将其部署到边缘设备
 services: iot-edge
 author: shizn
-manager: timlt
+manager: philmea
 ms.author: v-yiso
 origin.date: 09/21/2018
-ms.date: 11/05/2018
+ms.date: 12/10/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6e278879e4d6c2975242d2794c4a599e1a5889e3
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.openlocfilehash: e804ab1674646372cbaeecebdf182a3b9437f4e9
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135815"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674163"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>教程：开发 Node.js IoT Edge 模块并将其部署到模拟设备
 
-可以使用 IoT Edge 模块部署代码，以直接将业务逻辑实现到 IoT Edge 设备。 本教程详细介绍如何创建并部署用于筛选传感器数据的 IoT Edge 模块。 将使用的模拟 IoT Edge 设备是在 [Windows][lnk-tutorial1-win] 或 [Linux][lnk-tutorial1-lin] 教程的“在模拟设备上部署 Azure IoT Edge”中创建的。 本教程介绍如何执行下列操作：    
+可以使用 IoT Edge 模块部署代码，以直接将业务逻辑实现到 IoT Edge 设备。 本教程详细介绍如何创建并部署用于筛选传感器数据的 IoT Edge 模块。 将使用在快速入门中创建的模拟 IoT Edge 设备。 本教程介绍如何执行下列操作：    
 
 > [!div class="checklist"]
 > * 使用 Visual Studio Code 创建 IoT Edge Node.js 模块
@@ -211,7 +211,7 @@ VS Code 窗口将加载你的 IoT Edge 解决方案空间。 解决方案工作�
 
 5. 选择 **config** 文件夹中的 **deployment.json** 文件，然后单击“选择 Edge 部署清单”。 不要使用 deployment.template.json 文件。 
 
-6. 单击刷新按钮。 此时会看到新的 **NodeModule** 在运行，此外还有 **TempSensor** 模块以及 **$edgeAgent** 和 **$edgeHub** 在运行。 
+6. 单击“刷新”按钮。 此时会看到新的 **NodeModule** 在运行，此外还有 **TempSensor** 模块以及 **$edgeAgent** 和 **$edgeHub** 在运行。 
 
 
 ## <a name="view-generated-data"></a>查看生成的数据

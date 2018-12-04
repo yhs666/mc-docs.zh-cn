@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 07/06/2018
 ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: ac5af06b5fab92641d89192b5f83cdef8a7d6cee
-ms.sourcegitcommit: f7ff09be9f3be5e3eb795e383c0c670f480f233d
+ms.openlocfilehash: 2a9abd809df5339b10db6d1600d9b638e10ab5aa
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39169054"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674745"
 ---
 # <a name="replicate-a-multi-tier-iis-based-web-application"></a>复制基于 IIS 的多层 Web 应用程序
 
@@ -90,7 +90,7 @@ Azure|不可用|是
 1. 在组 3 下面添加 Web 层虚拟机。 这可以确保在启动应用程序层后启动 Web 层虚拟机。
 1. 在组 4 下面添加负载均衡虚拟机。 这可以确保在启动 Web 层后启动负载均衡虚拟机。
 
-有关详细信息，请参阅[自定义恢复计划](site-recovery-runbook-automation.md#customize-the-recovery-plan)。
+<!-- Not Available on [Customize the recovery plan](site-recovery-runbook-automation.md#customize-the-recovery-plan)-->
 
 ### <a name="add-a-script-to-the-recovery-plan"></a>将脚本添加到恢复计划
 在故障转移后或测试故障转移期间，可能需要在 Azure 虚拟机上执行一些操作才能让 IIS Web 场正常工作。 可将某些故障转移后的操作自动化。 例如，可在恢复计划中添加相应的脚本，来更新 DNS 条目、更改站点绑定或更改连接字符串。 [将 VMM 脚本添加到恢复计划](site-recovery-how-to-add-vmmscript.md)介绍了如何使用脚本来设置自动化任务。

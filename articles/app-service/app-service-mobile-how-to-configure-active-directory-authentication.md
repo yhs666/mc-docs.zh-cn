@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 04/19/2018
-ms.date: 10/08/2018
-ms.author: v-yiso
-ms.openlocfilehash: e7ac17097216287f0a753dd6f18a7268c737a157
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.date: 12/03/2018
+ms.author: v-biyu
+ms.openlocfilehash: 86c51efb9ec5d399b3106d9d2be8bc1a31e18940
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523905"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675057"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-login"></a>将应用服务应用配置为使用 Azure Active Directory 登录
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -73,7 +73,7 @@ Azure Active Directory 还允许注册权限映射控制度更高的本机客户
 6. 在成功添加应用注册后，选择该应用注册将其打开。 找到应用程序 ID 并记下此值。
 7. 单击“所有设置” > “所需的权限” > “添加” > “选择 API”。
 8. 键入先前注册的应用服务应用的名称进行搜索，然后选中该应用并单击“选择”。 
-9. 选择“访问 \<app_name>”。 然后单击“选择”。 然后单击“完成”。
+9. 选择“访问 \<app_name>”。 然后单击“选择” 。 然后单击“完成”。
 
 现已配置可以访问应用服务应用的本机客户端应用程序。
 
@@ -96,5 +96,4 @@ Azure Active Directory 还允许注册权限映射控制度更高的本机客户
 <!-- URLs. -->
 
 [Azure 门户]: https://portal.azure.cn/
-[Azure Classic Management Portal]: https://manage.windowsazure.cn/
 [alternative method]:#advanced

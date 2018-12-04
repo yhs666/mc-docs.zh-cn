@@ -14,15 +14,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 10/12/2018
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: f4da83ec2649e9cfc894c2a84bc1bb410856c539
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.openlocfilehash: 31da9fcd24e8597596152f4b3ce2a2a6dfa1e31b
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034830"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674316"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建 Linux 虚拟机
 
@@ -102,7 +102,6 @@ cat ~/.ssh/id_rsa.pub
 3. 使用创建 SSH 密钥对时使用过的 bash shell（例如本地 bash shell）将 SSH 连接命令粘贴到 shell 中，以便创建一个 SSH 会话。 
 
 <!-- Not Available on [Azure Cloud Shell](https://shell.azure.com/bash)-->
-
 ## <a name="install-web-server"></a>安装 Web 服务器
 
 若要查看运行中的 VM，请安装 NGINX Web 服务器。 在 SSH 会话中更新包源，然后安装最新的 NGINX 包。

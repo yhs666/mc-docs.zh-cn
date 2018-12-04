@@ -7,14 +7,14 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 origin.date: 07/04/2017
-ms.date: 10/29/2018
+ms.date: 12/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: 12c80d59bc4c1689131a3b1d0ff4be1e8d215086
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 53283f9aa1c7f98e82b8b8d915d1a72c24450b62
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453770"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675289"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>通过 .NET 使用 IoT 中心将文件从设备上传到云
 
@@ -92,7 +92,7 @@ ms.locfileid: "49453770"
     ```
 
 > [!NOTE]
-> 为简单起见，本教程不实现任何重试策略。 在生产代码中，应按 MSDN 文章 [Transient Fault Handling](https://msdn.microsoft.com/library/hh680901.aspx)（暂时性故障处理）中所述实施重试策略（例如指数性的回退）。
+> 为简单起见，本教程不实现任何重试策略。 在生产代码中，应该按文章 [Transient Fault Handling](https://msdn.microsoft.com/library/hh680901.aspx)（暂时性故障处理）中所述实施重试策略（例如指数退避）。
 > 
 > 
 
@@ -166,13 +166,13 @@ ms.locfileid: "49453770"
 ## <a name="next-steps"></a>后续步骤
 在本教程中，已学习了如何使用 IoT 中心的文件上传功能来简化从设备进行的文件上传。 可以使用以下文章继续探索 IoT 中心功能和方案：
 
-* [以编程方式创建 IoT 中心][lnk-create-hub]
-* [C SDK 简介][lnk-c-sdk]
-* [Azure IoT SDK][lnk-sdks]
+* [以编程方式创建 IoT 中心](iot-hub-rm-template-powershell.md)
+* [C SDK 简介](iot-hub-device-sdk-c-intro.md)
+* [Azure IoT SDK](iot-hub-devguide-sdks.md)
 
 若要进一步探索 IoT 中心的功能，请参阅：
 
-* [使用 Azure IoT Edge 将 AI 部署到边缘设备](../iot-edge/tutorial-simulate-device-linux.md)
+* [使用 Azure IoT Edge 将 AI 部署到边缘设备](../iot-edge/quickstart-linux.md)
 
 <!-- Images. -->
 

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 origin.date: 06/29/2018
 ms.date: 09/03/2018
-ms.openlocfilehash: 223731dfc27fcc15ad90e7c452c108046c7a3564
-ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
+ms.openlocfilehash: 9a0e228759f0b417e2758956121f4baf1c2110fd
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42870911"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674936"
 ---
 # <a name="what-is-azure-logic-apps"></a>什么是 Azure 逻辑应用？
 
@@ -65,30 +65,6 @@ ms.locfileid: "42870911"
 
 某些模式和工作流描述起来容易，但难以在代码中实现。 逻辑应用可用于跨本地环境和云环境无缝连接不同的系统。 例如，可以将云营销解决方案连接到本地计费系统，也可以使用企业服务总线集中进行跨 API 和系统的消息传送。 可以通过逻辑应用快速、可靠且一致地为这些方案提供可重复使用和重新配置的解决方案。
 
-### <a name="first-class-support-for-enterprise-integration-and-b2b-scenarios"></a>针对企业集成和 B2B 方案的一流支持
-
-企业和组织使用符合行业标准但却不同的消息协议和格式（例如 EDIFACT、AS2 和 X12）进行电子方式的相互通信。 可以使用 [Enterprise Integration Pack (EIP)](../logic-apps/logic-apps-enterprise-integration-overview.md) 中的功能来生成逻辑应用，以便将合作伙伴使用的消息格式转换成组织的系统能够解释和处理的格式。 逻辑应用可以通过加密和数字签名顺利且安全地处理这些交换。
-
-一开始采用小规模，只需使用当前的系统和服务，然后按自己的步调逐渐扩大规模。 准备就绪以后，即可使用逻辑应用和 EIP 来获得以下功能和其他功能，从而实现集成方案并通过纵向扩展将其变为更成熟的方案：
-
-* 在以下产品和服务的基础上进行生成：
-
-  * [Azure 服务总线](../service-bus-messaging/service-bus-messaging-overview.md)
-  * [Azure Functions](../azure-functions/functions-overview.md)
-  * [Azure API 管理](../api-management/api-management-key-concepts.md)
-
-* 处理 [XML 消息](../logic-apps/logic-apps-enterprise-integration-xml.md)
-* 处理[平面文件](../logic-apps/logic-apps-enterprise-integration-flatfile.md)
-* 使用 [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md)、[AS2](../logic-apps/logic-apps-enterprise-integration-as2.md) 和 [X12](../logic-apps/logic-apps-enterprise-integration-x12.md) 协议交换消息
-* 使用[集成帐户](../logic-apps/logic-apps-enterprise-integration-accounts.md)在一个位置存储和管理以下 B2B 项目和其他项目：
-
-  * [合作伙伴](../logic-apps/logic-apps-enterprise-integration-partners.md)
-  * [协议](../logic-apps/logic-apps-enterprise-integration-agreements.md) 
-  * [XML 转换映射](../logic-apps/logic-apps-enterprise-integration-maps.md)
-  * [XML 验证架构](../logic-apps/logic-apps-enterprise-integration-schemas.md)
-   
-例如，如果使用 Microsoft BizTalk Server，则逻辑应用可以使用 [BizTalk Server 连接器](../connectors/apis-list.md#on-premises-connectors)连接到 BizTalk Server 并与其通信。 然后，可以通过包含[集成帐户连接器](../connectors/apis-list.md#integration-account-connectors)（已在 Enterprise Integration Pack 中提供），在逻辑应用中进行扩展或执行类似于 BizTalk 的操作。 
-
 ### <a name="write-once-reuse-often"></a>编写一次即可多次重复使用
 
 将逻辑应用作为模板创建，然后即可跨多个环境和区域[部署和重新配置应用](../logic-apps/logic-apps-create-deploy-template.md)。
@@ -135,4 +111,3 @@ ms.locfileid: "42870911"
 
 * [使用按计划的逻辑应用检查流量](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)
 * 详细了解 [Azure 的无服务器解决方案](../logic-apps/logic-apps-serverless-overview.md)
-* 详细了解[通过 Enterprise Integration Pack 进行的 B2B 集成](../logic-apps/logic-apps-enterprise-integration-overview.md)

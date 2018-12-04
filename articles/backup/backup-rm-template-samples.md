@@ -2,20 +2,20 @@
 title: 用于 Azure 备份的 Azure 资源管理器模板
 description: Azure 备份 PowerShell 示例
 services: backup
-author: markgalioto
-manager: carmonm
+author: lingliw
+manager: digimobile
 ms.service: backup
 ms.topic: sample
 origin.date: 04/18/2018
-ms.date: 07/06/2018
-ms.author: v-junlch
+ms.date: 11/26/2018
+ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 41f17a1811543cd730ec42153e5910fc082c84d3
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: eca5fc8cf02b14810428262fe0dcbcaab75ea7a3
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873483"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674522"
 ---
 # <a name="azure-resource-manager-templates-for-azure-backup"></a>用于 Azure 备份的 Azure 资源管理器模板
 
@@ -32,7 +32,7 @@ ms.locfileid: "37873483"
 | [为 IaaS VM 创建每日备份策略](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-daily-backup-policy-create) | 模板创建恢复服务保管库和每日备份策略，该策略用于备份经典虚拟机和资源管理器虚拟机。|
 | [部署启用了备份的 Windows Server VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-create-vm-and-configure-backup) | 模板创建启用默认备份策略的 Windows Server VM 和恢复服务保管库。|
 |**监视备份作业** |  |
-| [使用 OMS Log Analytics 监视 Azure 备份](https://github.com/Azure/azure-quickstart-templates/tree/master/101-backup-oms-monitoring) | 模板部署用于 Azure 备份的 OMS 监视，后者用于监视备份和还原作业、备份警报以及在恢复服务保管库中使用的云存储。|  
+| [使用 Log Analytics 监视 Azure 备份](https://github.com/Azure/azure-quickstart-templates/tree/master/101-backup-oms-monitoring) | 模板部署用于 Azure 备份的 Log Analytics Monitoring，后者用于监视备份和还原作业、备份警报以及在恢复服务保管库中使用的云存储。|  
 |   |   |
 
 

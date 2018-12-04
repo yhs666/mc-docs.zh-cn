@@ -14,14 +14,14 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 origin.date: 05/11/2018
-ms.date: 10/29/2018
+ms.date: 12/03/2018
 ms.author: v-biyu
-ms.openlocfilehash: 12dcf985c258ebbb42f7eae2c4a93fe9f1dd2b98
-ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
+ms.openlocfilehash: 4d2c6e793505609304bb18508d6dd7ae387be8be
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49451590"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675395"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Azure 中 Web 应用的部署常见问题解答
 
@@ -33,7 +33,7 @@ ms.locfileid: "49451590"
 
 可通过以下几种方式发布 Web 应用代码：
 
-*   使用 Visual Studio 进行部署。 如果拥有 Visual Studio 解决方案，请右键单击 Web 应用程序项目，然后选择“发布”。
+*   使用 Visual Studio 进行部署。 如果具有 Visual Studio 解决方案，则右键单击 Web 应用程序项目，然后选择“发布”。
 *   使用 FTP 客户端进行部署。 在 Azure 门户中，下载要向其部署代码的 Web 应用的发布配置文件。 然后，使用相同的发布配置文件 FTP 凭据将文件上传到 \site\wwwroot。
 
 有关详细信息，请参阅[将应用部署到应用服务](app-service-deploy-local-git.md)。
@@ -80,7 +80,7 @@ ms.locfileid: "49451590"
 
 ## <a name="how-do-i-publish-my-code-to-app-service"></a>如何将代码发布到应用服务？
 
-Azure 快速入门旨在帮助用户使用所选的部署堆栈和方法部署应用。 若要使用快速入门，请在 Azure 门户中转到“设置” > “应用部署”。
+Azure 快速入门旨在帮助用户使用所选的部署堆栈和方法部署应用。 若要使用快速入门，请在 Azure 门户中转到应用服务，在“部署”下，选择“快速入门”。
 
 ## <a name="why-does-my-app-sometimes-restart-after-deployment-to-app-service"></a>为什么应用有时会在部署到应用服务后重启？
 

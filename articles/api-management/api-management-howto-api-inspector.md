@@ -13,14 +13,14 @@ ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 origin.date: 06/15/2018
-ms.date: 08/13/2018
+ms.date: 12/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: f4a5f9f4f707231d38d3383f9846104f35ae2505
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.openlocfilehash: 47ef9495e4a32059d7b899528df86f17b10d855a
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487047"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675212"
 ---
 # <a name="debug-your-apis-using-request-tracing"></a>使用请求跟踪调试 API
 
@@ -35,18 +35,19 @@ ms.locfileid: "39487047"
 
 ## <a name="prerequisites"></a>先决条件
 
++ 了解 [Azure API 管理术语](api-management-terminology.md)。
 + 完成以下快速入门：[创建 Azure API 管理实例](get-started-create-service-instance.md)。
 + 此外，请完成以下教程：[导入并发布第一个 API](import-and-publish.md)。
 
 ## <a name="trace-a-call"></a>跟踪调用
 
+![API 跟踪](media/api-management-howto-api-inspector/06-DebugYourAPIs-01-TraceCall.png)
+
 1. 选择“API”。
 2. 在 API 列表中单击“演示会议 API”。
-3. 选择“GetSpeakers”操作。
-4. 切换到“测试”选项卡。
+3. 切换到“测试”选项卡。
+4. 选择“GetSpeakers”操作。
 5. 请确保包含名为 **Ocp-Apim-Trace**、值设置为 **true** 的 HTTP 标头。
-
-    ![API 跟踪标头](media/api-management-howto-api-inspector/api-management-tracing-header.png)
 
     > [!NOTE]
     > 如果 Ocp-Apim-Subscription-Key 未自动填充，可以通过转到开发人员门户并在配置文件页面上公开密钥来检索它。

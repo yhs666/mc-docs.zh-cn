@@ -2,20 +2,20 @@
 title: 使用 Azure 流分析的 IoT 实时数据流
 description: 带流分析和实时数据处理的 IoT 传感器标记和数据流
 services: stream-analytics
-author: rockboyfor
-ms.author: v-yeche
+author: lingliw
+ms.author: v-lingwu
 manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 03/28/2017
-ms.date: 09/30/2018
-ms.openlocfilehash: 7bfce7c20c6a66b22c7940ebb3340f93d87c7432
-ms.sourcegitcommit: 432984d85afe6f3da8f211bae0fa98a556785ee8
+ms.date: 11/26/2018
+ms.openlocfilehash: b69bdcbb87b74d6d28215ea738ed8d7e507f4ecd
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455393"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675394"
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>开始使用 Azure 流分析处理来自 IoT 设备的数据
 在本教程中，会学习如何创建流处理逻辑，以从物联网 (IoT) 设备收集数据。 我们会使用真实的物联网 (IoT) 用例来演示如何经济实惠地快速生成解决方案。
@@ -43,7 +43,7 @@ Contoso 是一家工业自动化公司，该公司已将其制造流程完全自
 为了方便使用，本入门指南提供从实际 SensorTag 设备中捕获的示例数据文件。 可以对示例数据运行查询并查看结果。 在后续教程中，学习如何将作业连接到输入和输出并将其部署到 Azure 服务。
 
 ## <a name="create-a-stream-analytics-job"></a>创建流分析作业
-1. 在 [Azure 门户](https://portal.azure.cn)中，单击加号，再在右侧的文本窗口中键入 **流分析** 。 然后在结果列表中选择“流分析作业”。
+1. 在 [Azure 门户](https://portal.azure.cn)中，单击加号，再在右侧的文本窗口中键入 **流分析** 。 然后在结果列表中选择“流分析作业”  。
 
     ![创建新的流分析作业](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-02.png)
 2. 输入唯一作业名并验证订阅是否与作业对应。 然后新建资源组或选择订阅中的现有资源组。
@@ -72,7 +72,7 @@ Contoso 是一家工业自动化公司，该公司已将其制造流程完全自
 ![查询框](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
 
 ### <a name="query-archive-your-raw-data"></a>查询：存档原始数据
-查询的最简单形式是传递查询，该查询会将所有输入数据存档到其指定的输出。 将示例数据文件从 [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/GettingStarted) 下载到计算机中的某个位置。 
+查询的最简单形式是传递查询，该查询会将所有输入数据存档到其指定的输出。 将 [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/GettingStarted) 中的示例数据文件下载到计算机中的某个位置。 
 
 1. 从 PassThrough.txt 文件粘贴查询。 
 
@@ -83,7 +83,7 @@ Contoso 是一家工业自动化公司，该公司已将其制造流程完全自
 3. 会在右侧打开一个窗格，请在此处选择下载位置中的 HelloWorldASA InputStream.json 数据文件，并在窗格底部单击“确定”  。
 
     ![测试输入流](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06b.png)
-4. 然后，在窗口左上区域单击“测试”齿轮，处理针对示例数据集的测试查询。 处理完成后，查询下方会打开一个结果窗口。
+4. 然后在窗口左上方单击“测试”  齿轮，接着根据示例数据集处理测试查询。 处理完成后，查询下方会打开一个结果窗口。
 
     ![测试结果](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
 

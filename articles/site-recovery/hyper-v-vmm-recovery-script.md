@@ -16,11 +16,11 @@ origin.date: 07/06/2018
 ms.date: 09/17/2018
 ms.author: v-yeche
 ms.openlocfilehash: d11b66ddfe30b4e9fd8a8114da917adc4433e54e
-ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586846"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667252"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>将 VMM 脚本添加到还原计划
 
@@ -35,14 +35,14 @@ ms.locfileid: "45586846"
 * 确保脚本使用的是 try-catch 块，以便恰当地处理异常。
     - 如果脚本中出现异常，脚本将停止运行，且任务显示为失败。
     - 如果发生错误，则不运行脚本的剩余部分。
-    - 如果在运行未计划的故障转移时发生错误，将继续执行恢复计划。
-    - 如果在运行计划的故障转移时发生错误，则将停止恢复计划。 请修复脚本，检查它是否按预期运行，然后重新运行还原计划。
+    - 如果在运行计划外故障转移时发生错误，将继续运行恢复计划。
+    - 如果在运行计划内故障转移时发生错误，恢复计划会停止。 请修复脚本，检查它是否按预期运行，然后重新运行还原计划。
         - `Write-Host` 命令在恢复计划脚本中不起作用。 如果在脚本中使用 `Write-Host`，则脚本将失败。 若要创建输出，请创建转而运行主脚本的代理脚本。 请使用 \>\> 命令来确保所有输出均已传输。
-        - 如果脚本未在 600 秒内返回，则脚本超时。
-        - 如果向 STDERR 写入了内容，则脚本归类为失败。 此信息显示在脚本执行详细信息中。
+        - 如果脚本在 600 秒内未返回，将发生超时。
+        - 如果向 STDERR 写入了内容，则脚本归类为失败。 此信息会显示在脚本执行详细信息中。
 
 * 需使用 VMM 服务帐户才能运行还原计划中的脚本。 确保此帐户可读取包含脚本的远程共享。 测试要运行的脚本与 VMM 服务帐户处于同一用户权限级别。
-* Windows PowerShell 模块中随附了 VMM cmdlet。 安装 VMM 控制台时会随附安装模块。 要将模块加载到脚本中，请在脚本中使用以下命令： 
+* Windows PowerShell 模块中随附提供了 VMM cmdlet。 安装 VMM 控制台时已安装该模块。 要将模块加载到脚本中，请在脚本中使用以下命令： 
 
     `Import-Module -Name virtualmachinemanager`
 

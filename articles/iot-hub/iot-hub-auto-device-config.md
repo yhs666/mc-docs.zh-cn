@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 04/13/2018
 ms.date: 08/06/2018
 ms.author: v-yiso
-ms.openlocfilehash: 09e0a51ca5392888d3f9b00038ac2bb03285cf71
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.openlocfilehash: c2f6121d1b5e6b9004ea5ff0b6e3045a099ead3d
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43328950"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674469"
 ---
 # <a name="configure-and-monitor-iot-devices-at-scale-using-the-azure-portal"></a>使用 Azure 门户大规模配置和监视 IoT 设备
 
@@ -203,5 +203,5 @@ SELECT deviceId FROM devices
 [lnk-metrics]: iot-hub-metrics.md
 [lnk-monitor]: iot-hub-operations-monitoring.md
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
+[lnk-iotedge]: ../iot-edge/quickstart-linux.md
 [lnk-portal]: https://portal.azure.cn

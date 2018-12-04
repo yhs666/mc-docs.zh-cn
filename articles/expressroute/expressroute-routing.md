@@ -5,15 +5,15 @@ services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: conceptual
-origin.date: 08/29/2018
+origin.date: 11/05/2018
 ms.author: v-yiso
-ms.date: 10/15/2018
-ms.openlocfilehash: b30fc7604e81b5fa3128189cd5310072ebddb799
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.date: 12/10/2018
+ms.openlocfilehash: aa025a306d7b165e78e069324908590ff24530f3
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455268"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674398"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 路由要求
 若要使用 ExpressRoute 连接到 Microsoft 云服务，需要设置并管理路由。 某些连接服务提供商以托管服务形式提供路由的设置和管理。 请咨询连接服务提供商，以确定他们是否提供此类服务。 如果不提供，则必须遵守以下要求：
@@ -100,7 +100,7 @@ ms.locfileid: "47455268"
 专用 AS 编号可以用于 Microsoft 对等互连，但也需手动验证。 此外，对于收到的前缀，我们会删除 AS PATH 中的专用 AS 数字。 因此，无法在 AS PATH 中追加专用 AS 数字来[影响 Microsoft 对等互连的路由](expressroute-optimize-routing.md)。 
 
 > [!IMPORTANT]
-> 通过 ExpressRoute 播发到 Microsoft 的公共 IP 地址不得播发到 Internet。 这会中断其他 Microsoft 服务的连接。 但是，用户网络中与 Microsoft 内的 O365 终结点通信的服务器使用的公共 IP 地址可通过 ExpressRoute 播发。 
+> 不要将相同的公共 IP 路由播发到公共 Internet 和通过 ExpressRoute 播发。 我们强烈建议你通过 ExpressRoute 播发更具体的路由，而将更一般的路由播发到 Internet 上进行 [NAT](expressroute-nat.md)。 除了要进行 NAT 的公共路由外，还可以在本地网络中通过 ExpressRoute 播发与 Microsoft 中的 Office 365 终结点通信的服务器使用的公共 IP 地址。 
 > 
 > 
 
@@ -114,8 +114,7 @@ Azure 公共对等互连路径使用户能够通过其公共 IP 地址连接到 
 公共对等互连允许使用专用 AS 编号。
 
 ## <a name="dynamic-route-exchange"></a>动态路由交换
-
-路由交换将通过 eBGP 协议进行。 在 MSEE 与路由器之间建立 EBGP 会话。 不要求对 BGP 会话进行身份验证。 如果需要，可以配置 MD5 哈希。 有关配置 BGP 会话的信息，请参阅[配置路由](./expressroute-howto-routing-classic.md)及[线路预配工作流和线路状态](./expressroute-workflows.md)。
+路由交换将通过 eBGP 协议进行。 在 MSEE 与路由器之间建立 EBGP 会话。 不要求对 BGP 会话进行身份验证。 如果需要，可以配置 MD5 哈希。 有关配置 BGP 会话的信息，请参阅[配置路由](how-to-routefilter-portal.md)及[线路预配工作流和线路状态](expressroute-workflows.md)。
 
 ## <a name="autonomous-system-numbers"></a>自治系统编号
 Microsoft 使用 AS 12076 进行 Azure 公共、Azure 专用和 Microsoft 对等互连。 我们保留了 ASN 65515-65520 供内部使用。 支持 16 和 32 位 AS 编号。
@@ -139,7 +138,7 @@ ExpressRoute 不能配置为传输路由器。 必须依赖连接服务提供商
  - 使用用户定义的路由可为需要 Internet 连接的每个子网建立 Internet 连接。
 
 > [!NOTE]
-> 播发默认路由会中断 Windows 和其他 VM 许可证激活。 请按照 [此处](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) 的说明来解决此问题。
+> 播发默认路由会中断 Windows 和其他 VM 许可证激活。 请按照 [此处](https://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) 的说明来解决此问题。
 > 
 > 
 

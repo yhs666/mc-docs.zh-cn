@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 04/13/2018
 ms.date: 10/29/2018
 ms.author: chrisgre
-ms.openlocfilehash: f34ccfe3f65d2b7af6ecc1ea93751876aa01fdc8
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: f0bf48a834a83ddfd08425b429fffd8bed4751f0
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453572"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675238"
 ---
 # <a name="configure-and-monitor-iot-devices-at-scale-using-the-azure-cli"></a>使用 Azure CLI 大规模配置和监视 IoT 设备
 
@@ -98,7 +98,7 @@ Azure IoT 中心内的自动设备管理功能可将许多复杂且重复性的�
 * **--labels** - 添加标签以帮助跟踪配置。 标签是描述部署的“名称, 值”对。 例如，`HostPlatform, Linux` 或 `Version, 3.0.1`
 * **--content** - 要设置为孪生所需属性的目标内容的内联 JSON 或文件路径。 
 * **--hub-name** - 将在其中创建配置的 IoT 中心的名称。 此中心必须在当前订阅中。 使用 `az account set -s [subscription name]` 命令切换到所需订阅
-* **--target-condition** - 输入一个目标条件，用于确定哪些设备会成为此配置的目标。 条件基于设备孪生标记或设备孪生所需属性，并且应当与表达式格式匹配。 例如 `tags.environment='test'` 或 `properties.desired.devicemodel='4000x'`。 
+* **--target-condition** - 输入一个目标条件，用于确定哪些设备会成为此配置的目标。 条件基于设备孪生标记或设备孪生所需属性，并且应当与表达式格式匹配。 例如 `tags.environment='test'` 或 `properties.desired.devicemodel='4000x'`。 
 * **--priority** - 一个正整数。 如果在同一台设备上设定了两个或更多配置作为目标，将会应用优先级数值最高的配置。
 * **--metrics** - 指标查询的文件路径。 指标提供应用配置内容后设备可能报告的各种状态的摘要计数。 例如，可以针对挂起的设置更改、错误和成功的设置更改各创建一个指标。 
 
@@ -112,7 +112,7 @@ az iot hub configuration show --config-id [configuration id] --hub-name [hub nam
 * **--config-id** - 存在于 IoT 中心内的配置的名称。
 * **--hub-name** - 配置所在的 IoT 中心的名称。 此中心必须在当前订阅中。 使用 `az account set -s [subscription name]` 命令切换到所需订阅
 
-在命令窗口中检查配置。 **metrics** 属性列出由每个中心评估的每个指标的计数：
+在命令窗口中检查配置。 **metrics** 属性列出由每个中心评估的每个指标的计数：
 * **targetedCount** - 一个系统指标，它指定 IoT 中心内与目标条件匹配的设备孪生数。
 * **appliedCount** - 一个系统指标，它指定已应用了目标内容的设备数。
 * **你的自定义指标** - 你定义的任何指标都会被视为用户指标。
@@ -173,7 +173,7 @@ az iot hub configuration delete --config-id [configuration id] \
 若要进一步探索 IoT 中心的功能，请参阅：
 
 * [IoT 中心开发人员指南](iot-hub-devguide.md)
-* [使用 Azure IoT Edge 将 AI 部署到边缘设备](../iot-edge/tutorial-simulate-device-linux.md)
+* [使用 Azure IoT Edge 将 AI 部署到边缘设备](../iot-edge/quickstart-linux.md)
 
 若要了解如何使用 IoT 中心设备预配服务启用零接触实时预配，请参阅： 
 

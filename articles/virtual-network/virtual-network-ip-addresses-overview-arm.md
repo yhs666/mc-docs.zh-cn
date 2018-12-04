@@ -1,6 +1,6 @@
 ---
 title: Azure 中的 IP 地址类型 | Azure
-description: 了解如何在 Azure 中使用公共和专用 IP 地址
+description: 了解 Azure 中的公共 IP 地址和专用 IP 地址。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
@@ -13,22 +13,23 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 05/02/2017
-ms.date: 09/10/2018
+origin.date: 09/24/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0e3a306b625dafa9cbe6755c4cb6a90a9b9edd37
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: a5a34a5616425ac4ca852ac1c44ad56ee65f1f8b
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515636"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675261"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure 中的 IP 地址类型和分配方法
 
-可以将 IP 地址分配到与其他 Azure 资源通信的 Azure 资源，也可以将其分配到本地网络和 Internet。 可以在 Azure 中使用两种类型的 IP 地址：
+可以将 IP 地址分配到与其他 Azure 资源通信的 Azure 资源，也可以将其分配到本地网络和 Internet。 Azure 中可使用两种类型的 IP 地址：
 
 * **公共 IP 地址**：用来与 Internet 通信，包括与面向公众的 Azure 服务通信。
 * **专用 IP 地址**：使用 VPN 网关或 ExpressRoute 线路将网络扩展到 Azure 时，用于在 Azure 虚拟网络 (VNet) 和本地网络中通信。
+<!-- Not Available on [Learn about a public IP prefix.](public-ip-address-prefix.md)-->
 
 > [!NOTE]
 > Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fvirtual-network%2ftoc.json)。  本文介绍如何使用 Resource Manager 部署模型。Azure 建议对大多数新的部署使用该模型，而不是使用[经典部署模型](virtual-network-ip-addresses-overview-classic.md)。
@@ -40,24 +41,56 @@ ms.locfileid: "44515636"
 
 公共 IP 地址允许 Internet 资源与 Azure 资源进行入站通信。 在 IP 地址已分配给 Azure 资源的情况下，公共 IP 地址还允许这些资源与 Internet 和面向公众的 Azure 服务进行出站通信。 此地址专门用于该资源，直到你对其取消分配。 如果公共 IP 地址未分配给资源，该资源仍可与 Internet 进行出站通信，但 Azure 会动态分配不专用于该资源的可用 IP 地址。 有关 Azure 中的出站连接的详细信息，请参阅[了解出站连接](../load-balancer/load-balancer-outbound-connections.md?toc=%2fvirtual-network%2ftoc.json)。
 
-在 Azure 资源管理器中，[公共 IP](virtual-network-public-ip-address.md) 地址是具有其自身属性的资源。 可与公共 IP 地址资源关联的部分资源包括：
+在 Azure Resource Manager 中，[公共 IP](virtual-network-public-ip-address.md) 地址是具有其自身属性的资源。 可与公共 IP 地址资源关联的部分资源包括：
 
 * 虚拟机网络接口
 * 面向 Internet 的负载均衡器
 * VPN 网关
-* 应用程序网关数
+* 应用程序网关
 
 ### <a name="ip-address-version"></a>IP 地址版本
 
 公共 IP 地址是使用 IPv4 地址创建的。
 <!-- Not Available on IPv6 -->
 
-<!-- Not Avaliablle on ### SKU-->
+<a name="SKU"></a>
+### <a name="sku"></a>SKU
+
+使用以下 SKU 之一创建公共 IP 地址：
+
+>[!IMPORTANT]
+> 必须为负载均衡器和公用 IP 资源使用匹配的 SKU。 不能混合使用基本 SKU 资源和标准 SKU 资源。 无法将独立的虚拟机、可用性集资源中的虚拟机或虚拟机规模集资源同时附加到两个 SKU。  新的设计应当考虑使用标准 SKU 资源。  有关详细信息，请查看[标准负载均衡器](../load-balancer/load-balancer-standard-overview.md?toc=%2fvirtual-network%2ftoc.json)。
+
+#### <a name="basic"></a>基本
+
+推出 SKU 之前创建的所有公共 IP 地址为基本 SKU 公共 IP 地址。 随着 SKU 的推出，可以选择指定公共 IP 地址要采用的 SKU。 基本 SKU 地址为：
+
+- 使用静态或动态分配方法分配。
+- 默认情况下处于打开状态。  建议使用网络安全组来对入站或出站流量进行限制，但这是可选的。
+- 分配到可以采用公共 IP 地址的任何 Azure 资源，例如网络接口、VPN 网关、应用程序网关和面向 Internet 的负载均衡器。
+- 可以分配到特定的区域。
+- 非区域冗余。 
+<!-- Not Available on [Availability zones overview](../availability-zones/az-overview.md?toc=%2fvirtual-network%2ftoc.json)-->
+
+#### <a name="standard"></a>标准
+
+标准 SKU 公共 IP 地址为：
+
+- 只能使用静态分配方法分配。
+- 默认情况下为安全的，并且对入站流量关闭。 必须使用[网络安全组](security-overview.md#network-security-groups)将允许的入站流量显式列入允许列表中。
+- 分配到网络接口或公用的标准负载均衡器。 有关 Azure 标准负载均衡器的详细信息，请参阅 [Azure 标准负载均衡器](../load-balancer/load-balancer-standard-overview.md?toc=%2fvirtual-network%2ftoc.json)。
+- 默认为区域冗余。 可以按区域创建，并在特定的可用性区域中有保障。 
+<!-- Not Available on [Availability zones overview](../availability-zones/az-overview.md?toc=%2fvirtual-network%2ftoc.json)-->
+<!-- Not Available on [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fvirtual-network%2ftoc.json)-->
+
+> [!NOTE]
+> 在创建并关联[网络安全组](security-overview.md#network-security-groups)且显式允许所需入站流量之前，与标准 SKU 资源进行通信将会失败。
+
 
 
 ### <a name="allocation-method"></a>分配方法
 
-基本 SKU 公共 IP 地址支持“静态”分配方法。  在创建资源时会为其分配 IP 地址，在删除资源时将释放 IP 地址。
+基本和标准 SKU 公用 IP 地址都支持“静态”分配方法。  在创建资源时会为其分配 IP 地址，在删除资源时将释放 IP 地址。
 
 基本 SKU 公用 IP 地址还支持“动态”分配方法，这是未指定分配方法时将采用的默认方法。  为基本的公用 IP 地址资源选择“动态”分配方法意味着在创建资源时“不”分配 IP 地址。  将公用 IP 地址与虚拟机进行关联时或者将第一个虚拟机实例放置到基本负载均衡器的后端池中时，将分配公用 IP 地址。   停止（或删除）该资源时，就会释放该 IP 地址。  例如，从资源 A 中释放后，可将该 IP 地址分配到不同的资源。 如果在停止资源 A 的情况下将 IP 地址分配到不同的资源，则重启资源 A 时，会分配一个不同的 IP 地址。 如果将基本的公用 IP 地址资源的分配方法从“静态”更改为“动态”，则会释放地址。 要确保所关联资源的 IP 地址保持不变，可将分配方法显式设置为*静态*。 静态 IP 地址是立即分配的。
 
@@ -69,7 +102,7 @@ ms.locfileid: "44515636"
 
 * 必须更新防火墙规则才能与 Azure 资源通信。
 * 对 DNS 名称进行解析时，如果更改了 IP 地址，则需更新 A 记录。
-* Azure 资源与其他使用 IP 地址型安全模型的应用或服务通信。
+* Azure 资源可与使用基于 IP 地址的安全模型的其他应用或服务通信。
 * 使用链接到 IP 地址的 SSL 证书。
 
 > [!NOTE]
@@ -78,10 +111,11 @@ ms.locfileid: "44515636"
 
 ### <a name="dns-hostname-resolution"></a>DNS 主机名解析
 可以为公共 IP 资源指定一个 DNS 域名标签，以便在 Azure 托管的 DNS 服务器中创建 *domainnamelabel*.*location*.cloudapp.chinacloudapi.cn 到公共 IP 地址的映射。 例如，如果在创建公共 IP 资源时将 domainnamelabel 指定为 contoso，将 Azure 的“位置”指定为“中国北部”，则会将完全限定域名 (FQDN) contoso.chinanorth.cloudapp.chinacloudapi.cn 解析成该资源的公共 IP 地址。 可以使用 FQDN 创建指向 Azure 中的公共 IP 地址的自定义域 CNAME 记录。 除了使用带有默认后缀的 DNS 名称标签，还可以改用 Azure DNS 服务来配置带有自定义后缀（可解析为公用 IP 地址）的 DNS 名称。
+
 <!-- Not Available on  [Use Azure DNS with an Azure public IP address](../dns/dns-custom-domain.md?toc=%2fvirtual-network%2ftoc.json#public-ip-address). -->
 
 > [!IMPORTANT]
-> 所创建的每个域名标签在其 Azure 位置中必须是唯一的。  
+> 所创建的每个域名标签在其 Azure 位置必须是唯一的。  
 >
 
 ### <a name="virtual-machines"></a>虚拟机
@@ -96,7 +130,7 @@ ms.locfileid: "44515636"
 
 [Azure VPN 网关](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fvirtual-network%2ftoc.json)将 Azure 虚拟网络连接到其他 Azure 虚拟网络或本地网络。 需将公共 IP 地址分配到 VPN 网关才能与远程网络通信。 只能向 VPN 网关分配”动态”基本的公用 IP 地址。
 
-### <a name="application-gateways"></a>应用程序网关数
+### <a name="application-gateways"></a>应用程序网关
 
 将公共 IP 地址分配给网关的**前端**配置可以将其与 Azure [应用程序网关](../application-gateway/application-gateway-introduction.md?toc=%2fvirtual-network%2ftoc.json)相关联。 此公共 IP 地址充当负载均衡型 VIP。 只能将“动态”基本的公用 IP 地址分配给应用程序网关前端配置。
 
@@ -113,11 +147,11 @@ ms.locfileid: "44515636"
 ## <a name="private-ip-addresses"></a>专用 IP 地址
 专用 IP 地址能够让 Azure 资源在不使用可访问 Internet 的 IP 地址的情况下，与[虚拟网络](virtual-networks-overview.md)或本地网络中的其他资源（通过 VPN 网关或 ExpressRoute 线路）通信。
 
-在 Azure 资源管理器部署模型中，可将专用 IP 地址关联到以下类型的 Azure 资源：
+在 Azure Resource Manager 部署模型中，可将专用 IP 地址关联到以下类型的 Azure 资源：
 
 * 虚拟机网络接口
 * 内部负载均衡器 (ILB)
-* 应用程序网关数
+* 应用程序网关
 
 ### <a name="ip-address-version"></a>IP 地址版本
 
@@ -155,7 +189,7 @@ ms.locfileid: "44515636"
 | 顶级资源 | IP 地址关联 | 动态 | 静态 |
 | --- | --- | --- | --- |
 | 虚拟机 |Linux |是 |是 |
-| 负载均衡 |前端配置 |是 |是 |
+| 负载均衡器 |前端配置 |是 |是 |
 | 应用程序网关 |前端配置 |是 |是 |
 
 ## <a name="limits"></a>限制
@@ -168,4 +202,4 @@ Azure 中的[网络限制](../azure-subscription-service-limits.md?toc=%2fvirtua
 * [使用 Azure 门户通过静态公共 IP 部署 VM](virtual-network-deploy-static-pip-arm-portal.md)
 * [通过 Azure 门户使用静态专用 IP 地址部署 VM](virtual-networks-static-private-ip-arm-pportal.md)
 
-<!--Update_Description: wording update, update link -->
+<!--Update_Description: wording update, update link, add SKU content -->

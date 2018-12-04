@@ -3,7 +3,7 @@ title: Azure 虚拟机规模集常见问题解答 | Microsoft Docs
 description: 获取有关虚拟机规模集常见问题的解答。
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/12/2017
-ms.date: 09/07/2018
+ms.date: 11/29/2018
 ms.author: v-junlch
 ms.custom: na
-ms.openlocfilehash: 44d4f935d171a44ac937531d4a86aabc547e9de8
-ms.sourcegitcommit: 399060a8d46534abd370693f6282e7343b371634
+ms.openlocfilehash: 3f2ab13aed69ce63835dd14b74369acecf88986d
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455597"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672952"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 虚拟机规模集常见问题解答
 
@@ -50,7 +50,7 @@ ms.locfileid: "47455597"
 
 **问：** 如何使用自定义映像创建规模集？
 
-**A.** 创建并捕获 VM 映像，然后将其用作规模集的源。 有关如何创建和使用自定义 VM 映像的教程，你可以使用 [Azure CLI 2.0](tutorial-use-custom-image-cli.md) 或 [Azure PowerShell](tutorial-use-custom-image-powershell.md)
+**A.** 创建并捕获 VM 映像，然后将其用作规模集的源。 有关如何创建和使用自定义 VM 映像的教程，你可以使用 [Azure CLI](tutorial-use-custom-image-cli.md) 或 [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
 **问：** 如果我将规模集容量从 20 减少到 15，将删除哪些 VM？
 
@@ -124,7 +124,7 @@ ms.locfileid: "47455597"
 
 ### <a name="how-do-i-set-up-autoscale-on-a-virtual-machine-scale-set-by-using-powershell"></a>如何使用 PowerShell 对虚拟机规模集设置自动缩放？
 
-若要使用 PowerShell 对虚拟机规模集设置自动缩放，请参阅[自动缩放虚拟机规模集](tutorial-autoscale-powershell.md)。 你还可以使用 [Azure CLI 2.0](tutorial-autoscale-cli.md) 和 [Azure 模板](tutorial-autoscale-template.md)配置自动缩放
+若要使用 PowerShell 对虚拟机规模集设置自动缩放，请参阅[自动缩放虚拟机规模集](tutorial-autoscale-powershell.md)。 你还可以使用 [Azure CLI](tutorial-autoscale-cli.md) 和 [Azure 模板](tutorial-autoscale-template.md)配置自动缩放
 
 
 ### <a name="if-i-have-stopped-deallocated-a-vm-is-that-vm-started-as-part-of-an-autoscale-operation"></a>如果我已停止（解除分配）VM，该 VM 是否作为自动缩放操作的一部分启动？
@@ -738,4 +738,4 @@ IP 地址是从指定的子网中选择的。
   - 出于这种方案，可能创建了自己的自动缩放引擎，并希望以更快的速度完成端到端缩放。
 - 虚拟机规模集未均匀分布在容错域或更新域。 这可能是由于有选择地删除了 VM，或者因为过度预配后，VM 被删除。 在虚拟机规模集上先运行 `stop deallocate`，并运行 `start`，可将 VM 均匀地分布到容错域或更新域。
 
-<!--Update_Description: wording update-->
+<!-- Update_Description: update metedata properties -->

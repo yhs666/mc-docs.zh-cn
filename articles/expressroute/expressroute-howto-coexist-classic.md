@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 03/21/2017
 ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 6eb970ce411ca4ca6190fcd34c38263c8e81ca1d
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.openlocfilehash: c9359c45e53553d449cd46d0f5bf30fcc4382cc5
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30073777"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674396"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>配置 ExpressRoute 和站点到站点并存连接（经典）
 > [!div class="op_single_selector"]
@@ -30,13 +30,13 @@ ms.locfileid: "30073777"
 > 
 > 
 
-能够配置站点到站点 VPN 和 ExpressRoute 具有多项优势。 可以将站点到站点 VPN 配置为 ExressRoute 的安全故障转移路径，或者使用站点到站点 VPN 连接到不是通过 ExpressRoute 进行连接的站点。 我们会在本文中介绍这两种方案的配置步骤。 本文适用于经典部署模型。 此配置在门户中不可用。
+能够配置站点到站点 VPN 和 ExpressRoute 具有多项优势。 可以将站点到站点 VPN 配置为 ExpressRoute 的安全故障转移路径，或者使用站点到站点 VPN 连接到不是通过 ExpressRoute 进行连接的站点。 我们会在本文中介绍这两种方案的配置步骤。 本文适用于经典部署模型。 此配置在门户中不可用。
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
 **关于 Azure 部署模型**
 
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
+[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 > [!IMPORTANT]
 > 按以下说明进行操作之前，必须预先配置ExpressRoute 线路。 在按以下步骤操作之前，请务必遵循相关指南来[创建 ExpressRoute 线路](expressroute-howto-circuit-classic.md)和[配置路由](expressroute-howto-routing-classic.md)。
@@ -199,7 +199,6 @@ ms.locfileid: "30073777"
         New-AzureVirtualNetworkGatewayConnection -connectedEntityId <local-network-gateway-id> -gatewayConnectionName Azure2Local -gatewayConnectionType IPsec -sharedKey abc123 -virtualNetworkGatewayId <azure-s2s-vpn-gateway-id>
 
 ## <a name="add"></a>为现有的 VNet 配置并存连接
-
 如果已经有了一个虚拟网络，请检查网关子网大小。 如果网关子网为 /28 或 /29，则必须先删除虚拟网络网关，然后增加网关子网大小。 本部分的步骤说明如何这样做。
 
 如果网关子网为 /27 或更大，且虚拟网络是通过 ExpressRoute 连接的，则可跳过下面的步骤，转到前一部分的 [“步骤 6 - 创建站点到站点 VPN 网关”](#vpngw) 。

@@ -17,12 +17,12 @@ origin.date: 02/10/2017
 ms.date: 10/22/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 487ade6e9dbfb761c1e4c22d3242e6991ed0f24a
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 364e9fccdde4d27f2803e7192eb9aae7cf402148
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453559"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674116"
 ---
 # <a name="resize-a-linux-virtual-machine-using-azure-cli"></a>使用 Azure CLI 重设 Linux 虚拟机大小 
 
@@ -63,7 +63,8 @@ ms.locfileid: "49453559"
 
 <!-- links -->
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
-[scale-set]: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md 
+[scale-set]: ../../virtual-machine-scale-sets/tutorial-autoscale-cli.md 
+<!-- Notice: URL is Correct on tutorial-autoscale-cli.md to replace virtual-machine-scale-sets-linux-autoscale.md-->
 [vm-sizes]:sizes.md
 
 <!-- Update_Description: update meta properties, wording update -->

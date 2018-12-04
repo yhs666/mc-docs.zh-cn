@@ -1,19 +1,20 @@
 ---
 title: 在 Azure 门户中创建和管理器操作组
 description: 了解如何在 Azure 门户中创建和管理操作组。
-author: dkamstra
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 origin.date: 09/12/2018
-ms.date: 10/22/2018
-ms.author: v-yiso
-ms.openlocfilehash: 888f49c9fbf95de02222db31172ece8a12e17308
-ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.component: alerts
+ms.openlocfilehash: 02b09bde1bb7f4976dc261a8f579279a5069643c
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121534"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675348"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>在 Azure 门户中创建和管理器操作组
 ## <a name="overview"></a>概述
@@ -24,8 +25,8 @@ ms.locfileid: "49121534"
 每个操作包含以下属性：
 
 * 名称：操作组中的唯一标识符。  
-* **操作类型**：发送语音呼叫或短信、发送电子邮件、调用 Webhook、将数据发送到 ITSM 工具、调用逻辑应用、向 Azure 应用发送推送通知，或者运行自动化 Runbook。
-* **详细信息**：相应电话号码、电子邮件地址、webhook URI 或 ITSM 连接详细信息。
+* **操作类型**：要执行的操作。 示例包括发送语音呼叫、短信、电子邮件，或者触发各种类型的自动化操作。 请参阅本文下文中的“类型”。 
+* **详细信息**：因“操作类型”而异的相应详细信息。 
 
 有关如何使用 Azure 资源管理器模板以配置操作组的信息，请参阅[操作组资源管理器模板](monitoring-create-action-group-with-resource-manager-template.md)。
 
@@ -40,68 +41,62 @@ ms.locfileid: "49121534"
 1. 选择“添加操作组”，并填写字段。
 
     ![“添加操作组”命令](./media/monitoring-action-groups/add-action-group.png)
-    
-4. 在“操作组名称”框中输入名称，然后在“短名称”框中输入名称。 使用此组发送通知时，短名称被用来代替完整的操作组名称。
+1. 在“操作组名称”框中输入名称，然后在“短名称”框中输入名称。 使用此组发送通知时，短名称被用来代替完整的操作组名称。
 
-    ![“添加操作组”对话框](./media/monitoring-action-groups/action-group-define.png)
+      ![“添加操作组”对话框](./media/monitoring-action-groups/action-group-define.png)
 
-5. “订阅”框会自动填充当前订阅。 此“订阅”是在其中保存操作组的订阅。
+1. “订阅”框会自动填充当前订阅。 此“订阅”是在其中保存操作组的订阅。
 
-6. 选择在其中保存操作组的“资源组”。
+1. 选择在其中保存操作组的“资源组”。
 
-7. 通过为每个操作提供以下项来定义操作列表：
+1. 通过为每个操作提供以下项来定义操作列表：
 
     a. 名称：输入此操作的唯一标识符。
 
     b. **操作类型**：选择“电子邮件/短信”、“Webhook”或“自动化 Runbook”。
 
-    c. **详细信息**：根据操作类型，输入电话号码、电子邮件地址、Webhook URI 或自动化 Runbook。 
+    c. **详细信息**：根据操作类型，输入电话号码、电子邮件地址、webhook URI、Azure 应用、ITSM 连接或自动化 runbook。 对于 ITSM 操作，另外指定 ITSM 工具需要的“工作项”和其他字段。
 
-8. 选择“确定”创建操作组。
+1. 选择“确定”创建操作组。
 
-## <a name="action-specific-information"></a>特定于操作的信息
-<dl>
-<dt>Azure 应用推送</dt>
-<dd>一个操作组中最多可以有 10 个 Azure 应用操作。</dd>
-<dd>目前，Azure 应用操作只支持 ServiceHealth 警报。 任何其他警报时间都会被忽略。 请参阅[配置每次发布服务运行状况通知时的警报](monitoring-activity-log-alerts-on-service-notifications.md)。</dd>
-
-<dt>电子邮件</dt>
-<dd>将从以下电子邮件地址发送电子邮件。 确保电子邮件筛选正确配置
-<ul>
-    <li>azure-noreply@microsoft.com</li>
-    <li>azureemail-noreply@microsoft.com</li>
-    <li>alerts-noreply@mail.windowsazure.com</li>
-</ul>
-</dd>
-<dd>一个操作组中最多可以有 1000 个电子邮件操作</dd>
-<dd>请参阅[速率限制信息](./monitoring-alerts-rate-limiting.md)一文</dd>
-<dt>Runbook</dt>
-<dd>一个操作组中最多可以有 10 个 Runbook 操作</dd>
-<dd>有关 Runbook 有效负载的限制，请参考 [Azure 订阅服务限制](../azure-subscription-service-limits.md)</dd>
-
-<dt>短信</dt>
-<dd>一个操作组中最多可以有 10 个短信操作</dd>
-<dd>请参阅[速率限制信息](./monitoring-alerts-rate-limiting.md)一文</dd>
-<dd>请参阅[短信警报行为](monitoring-sms-alert-behavior.md)一文</dd>
-<dt>Webhook</dt>
-<dd>一个操作组中最多可以有 10 个 Webhook 操作
-<dd>重试逻辑 - 响应的超时期限为 10 秒。 返回的 HTTP 状态代码为 408、429、503、504 时，或者 HTTP 终结点没有响应时，最多可以重试 2 次 Webhook 调用。 首次重试在 10 秒后发生。 第二次（也是最后一次）重试在 100 秒后发生。</dd>
-<dd>源 IP 地址范围
-<ul>
-    <li>13.106.57.181</li>
-    <li>13.106.54.3</li>
-    <li>13.106.54.19</li>
-    <li>13.106.38.142</li>
-    <li>13.106.38.148</li>
-    <li>13.106.57.196</li>
-</ul>
-若要接收有关这些 IP 地址更改的更新，我们建议你配置[服务运行状况警报](./monitoring-service-notifications.md)，以监视有关操作组服务的信息通知。
-</dd>
-</dl>
-## 管理操作组 创建操作组后，它会在“监视器”**** 边栏选项卡的“操作组”**** 部分显示。 选择要管理的操作组：
+## <a name="manage-your-action-groups"></a>管理操作组 ##
+创建操作组后，它会在“监视器”边栏选项卡的“操作组”部分显示。 选择要管理的操作组：
 
 * 添加、编辑或删除操作。
 * 删除操作组。
+
+## <a name="action-specific-information"></a>特定于操作的信息
+**Azure 应用推送** - 一个操作组中最多可以有 10 个 Azure 应用操作。 目前，Azure 应用操作只支持 ServiceHealth 警报。 任何其他警报时间都会被忽略。 请参阅[配置每次发布服务运行状况通知时的警报](monitoring-activity-log-alerts-on-service-notifications.md)。
+
+**电子邮件** - 将从以下电子邮件地址发送电子邮件。 确保电子邮件筛选正确配置
+   - azure-noreply@microsoft.com
+   - azureemail-noreply@microsoft.com
+   - alerts-noreply@mail.windowsazure.cn
+
+一个操作组中最多可以有 1000 个电子邮件操作。 请参阅[速率限制信息](./monitoring-alerts-rate-limiting.md)一文
+
+**ITSM** - 在需要 ITSM 连接的操作组 ITSM 操作中最多可以有 10 个 ITSM 连接。 了解如何创建 [ITSM 连接](../log-analytics/log-analytics-itsmc-overview.md)。
+
+**逻辑应用** - 一个操作组中最多可以有 10 个逻辑应用操作。
+
+**Runbook** - 一个操作组中最多可以有 10 个 Runbook 操作，有关 Runbook 有效负载的限制，请参考 [Azure 订阅服务限制](../azure-subscription-service-limits.md)
+
+**短信** - 一个操作组中最多可以有 10 个短信操作，请参阅[速率限制信息](./monitoring-alerts-rate-limiting.md)一文和[短信警报行为](monitoring-sms-alert-behavior.md)一文
+
+**语音** - 一个操作组中最多可以有 10 个语音操作</dd>
+请参阅[速率限制信息](./monitoring-alerts-rate-limiting.md)一文</dd>
+
+**Webhook** - 一个操作组中最多可以有 10 个 Webhook 操作。 重试逻辑 - 响应的超时期限为 10 秒。 返回的 HTTP 状态代码为 408、429、503、504 时，或者 HTTP 终结点没有响应时，最多可以重试 2 次 Webhook 调用。 首次重试在 10 秒后发生。 第二次（也是最后一次）重试在 100 秒后发生。
+
+源 IP 地址范围
+    - 13.106.57.181
+    - 13.106.54.3
+    - 13.106.54.19
+    - 13.106.38.142
+    - 13.106.38.148
+    - 13.106.57.196
+
+若要接收有关这些 IP 地址更改的更新，我们建议你配置[服务运行状况警报](./monitoring-service-notifications.md)，以监视有关操作组服务的信息通知。
 
 ## <a name="next-steps"></a>后续步骤 ##
 * 详细了解[短信警报行为](monitoring-sms-alert-behavior.md)。  

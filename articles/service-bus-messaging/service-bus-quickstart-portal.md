@@ -9,14 +9,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
 origin.date: 09/22/2018
-ms.date: 10/31/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: cb0a0434c2c78dcfb17731c5701f4d413ae6ed54
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.openlocfilehash: 890b921c46d7cabec91c0accba27dee2a2c9e66b
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409373"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674528"
 ---
 # <a name="quickstart-send-and-receive-messages-using-the-azure-portal-and-net"></a>快速入门：使用 Azure 门户和 .NET 发送和接收消息
 
@@ -32,7 +32,7 @@ Azure 服务总线是一种提供安全消息传送和绝对可靠性的企业�
 
 若要完成本教程，请确保已安装：
 
-- [Visual Studio 2017 Update 3（版本 15.3 (26730.01)）](http://www.visualstudio.com/vs)或更高版本。
+- [Visual Studio 2017 Update 3（版本 15.3 (26730.01)）](https://www.visualstudio.com/vs)或更高版本。
 - [NET Core SDK](https://www.microsoft.com/net/download/windows) 2.0 或更高版本。
 
 ## <a name="log-on-to-the-azure-portal"></a>登录到 Azure 门户。

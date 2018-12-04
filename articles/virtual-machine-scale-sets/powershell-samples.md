@@ -3,7 +3,7 @@ title: Azure PowerShell 示例 | Microsoft Docs
 description: Azure PowerShell 示例
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/27/2018
-ms.date: 08/13/2018
+ms.date: 11/29/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 40236427d0d99a389e329285a53e52900c27370d
-ms.sourcegitcommit: 56ed1b03d83f222db6118fe1e2f2485a9488507f
+ms.openlocfilehash: 8b751c328142a549eece896c660b4bcd8bc21b73
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41705246"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673132"
 ---
 # <a name="azure-powershell-samples-for-virtual-machine-scale-sets"></a>虚拟机规模集的 Azure PowerShell 示例
 

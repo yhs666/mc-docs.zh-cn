@@ -10,14 +10,14 @@ ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 origin.date: 05/22/2017
-ms.date: 11/05/2018
+ms.date: 12/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: d65234b5240fe8873b6ec1549c7848754eebd6f2
-ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
+ms.openlocfilehash: 86743b2e338ed4b083955f556946530a5fce0cad
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50204826"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675108"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL 教程：构建 SQL API Java 控制台应用程序
 
@@ -55,7 +55,7 @@ ms.locfileid: "50204826"
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [Git](https://git-scm.com/downloads)。
-* [Java 开发工具包 (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html)。
+* [Java 开发工具包 (JDK) 7+](https://docs.azure.cn/zh-cn/java/java-supported-jdk-runtime?view=azure-java-stable)。
 * [Maven](http://maven.apache.org/download.cgi)。
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>步骤 1：创建 Azure Cosmos DB 帐户
@@ -94,7 +94,7 @@ ms.locfileid: "50204826"
 ![NoSQL 教程创建 Java 控制台应用程序时使用的 Azure 门户的屏幕截图。 显示了一个 Azure Cosmos DB 帐户，在“Azure Cosmos DB 帐户”边栏选项卡上突出显示了“ACTIVE”中心、“密钥”按钮，在“密钥”边栏选项卡上突出显示了 URI、主密钥、辅助密钥的值][keys]
 
 ## <a name="step-4-create-a-database"></a>第 4 步：创建数据库
-可以使用 **DocumentClient** 类的 [createDatabase](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_client.createdatabase) 方法创建 Azure Cosmos DB [数据库](sql-api-resources.md#databases)。 数据库是跨集合分区的 JSON 文档存储的逻辑容器。
+可以使用 **DocumentClient** 类的 [createDatabase](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_client.createdatabase) 方法创建 Azure Cosmos DB [数据库](databases-containers-items.md#azure-cosmos-databases)。 数据库是跨集合分区的 JSON 文档存储的逻辑容器。
 
     Database database = new Database();
     database.setId("familydb");
@@ -107,7 +107,7 @@ ms.locfileid: "50204826"
 > 
 > 
 
-可以使用 **DocumentClient** 类的 [createCollection](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_client.createcollection) 方法创建[集合](sql-api-resources.md#collections)。 集合是 JSON 文档和相关联的 JavaScript 应用程序逻辑的容器。
+可以使用 **DocumentClient** 类的 [createCollection](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_client.createcollection) 方法创建集合。 集合是 JSON 文档和相关联的 JavaScript 应用程序逻辑的容器。
 
     DocumentCollection collectionInfo = new DocumentCollection();
     collectionInfo.setId("familycoll");
@@ -121,7 +121,7 @@ ms.locfileid: "50204826"
 
 <a name="CreateDoc"></a>
 ## <a name="step-6-create-json-documents"></a>步骤 6：创建 JSON 文档
-可以使用 **DocumentClient** 类的 [createDocument](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_client.createdocument) 方法创建[文档](sql-api-resources.md#documents)。 文档是用户定义的（任意）JSON 内容。 现在，我们可以插入一个或多个文档。 如果已有要在数据库中存储的数据，则可以使用 Azure Cosmos DB 的[数据迁移工具](import-data.md)将数据导入数据库。
+可以使用 **DocumentClient** 类的 [createDocument](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_client.createdocument) 方法创建文档。 文档是用户定义的（任意）JSON 内容。 现在，我们可以插入一个或多个文档。 如果已有要在数据库中存储的数据，则可以使用 Azure Cosmos DB 的[数据迁移工具](import-data.md)将数据导入数据库。
 
     // Insert your Java objects as documents 
     Family andersenFamily = new Family();
@@ -145,7 +145,7 @@ ms.locfileid: "50204826"
 
 <a name="Query"></a>
 ## <a name="step-7-query-azure-cosmos-db-resources"></a>步骤 7：查询 Azure Cosmos DB 资源
-Azure Cosmos DB 支持对存储在每个集合中的 JSON 文档进行各种[查询](sql-api-sql-query.md)。  以下示例代码展示了如何将 SQL 语法与 [queryDocuments](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_client.querydocuments) 方法一起使用来查询 Azure Cosmos DB 中的文档。
+Azure Cosmos DB 支持对存储在每个集合中的 JSON 文档进行各种[查询](how-to-sql-query.md)。  以下示例代码展示了如何将 SQL 语法与 [queryDocuments](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_client.querydocuments) 方法一起使用来查询 Azure Cosmos DB 中的文档。
 
     FeedResponse<Document> queryResults = this.client.queryDocuments(
         "/dbs/familydb/colls/familycoll",

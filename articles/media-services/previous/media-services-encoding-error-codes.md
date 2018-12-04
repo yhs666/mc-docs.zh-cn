@@ -3,7 +3,7 @@ title: Azure 媒体服务编码错误代码 | Microsoft 文档
 description: 此主题列出了在执行编码任务期间发生错误的情况下可能返回的错误代码。
 services: media-services
 documentationcenter: ''
-author: hayley244
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: ce4e939f-5aee-41f9-859d-e4429815e9f2
@@ -12,19 +12,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/09/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 3ee7af0b362422f5e73568b0a02e632317f86512
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+origin.date: 10/29/2018
+ms.date: 12/03/2018
+ms.author: v-jay
+ms.openlocfilehash: 7a94bed295a75bb4dd8f19c428c9c30560574ada
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426126"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672988"
 ---
 # <a name="encoding-error-codes"></a>编码错误代码
 
-下表列出了在执行编码任务期间发生错误的情况下可能返回的错误代码。  若要获取 .NET 代码中的错误详细信息，请使用 [ErrorDetails](http://msdn.microsoft.com/library/microsoft.windowsazure.mediaservices.client.errordetail.aspx) 类。 若要获取 REST 代码中的错误详细信息，请使用 [ErrorDetail](https://msdn.microsoft.com/library/jj853026.aspx) REST API。
+下表列出了在执行编码任务期间发生错误的情况下可能返回的错误代码。  若要获取 .NET 代码中的错误详细信息，请使用 [ErrorDetails](https://msdn.microsoft.com/library/microsoft.windowsazure.mediaservices.client.errordetail.aspx) 类。 若要获取 REST 代码中的错误详细信息，请使用 [ErrorDetail](https://msdn.microsoft.com/library/jj853026.aspx) REST API。
 
 | ErrorDetail.Code | 出错的可能原因 |
 | --- | --- |

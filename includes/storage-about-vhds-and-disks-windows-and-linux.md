@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: storage
 ms.topic: include
 origin.date: 04/09/2018
-ms.date: 11/12/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 7558e119ed47c1453c49b171468a75478f300d99
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.openlocfilehash: acdd93fad2a147a65f082c70eef5ddc9e5cb58cc
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035132"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676030"
 ---
 ## <a name="about-vhds"></a>关于 VHD
 
@@ -67,13 +67,15 @@ Azure 磁盘具备 99.999% 的可用性。 Azure 磁盘持续提供企业级持�
 
 下表针对托管磁盘和非托管磁盘比较了标准 HDD、标准 SSD 和高级 SSD，方便你确定要使用的具体层。 用星号表示的大小当前处于预览阶段。
 
+<!--Notice:  P60, P70, P80,  E60, E70, E80, S60, S70, S80 are not invalid on MC-->
 |    | Azure 高级磁盘 |Azure 标准 SSD 盘 | Azure 标准 HDD 磁盘
 |--- | ------------------ | ------------------------------- | -----------------------
 | 磁盘类型 | 固态硬盘 (SSD) | 固态硬盘 (SSD) | 机械硬盘 (HDD)  
 | 概述  | 基于 SSD 的高性能、低延迟磁盘支持，适用于运行 IO 密集型工作负荷或托管任务关键型生产环境的 VM |比 HDD 更一致的性能和可靠性。 适用于低 IOPS 工作负荷| 基于 HDD 的经济高效型磁盘，适用于访问频率不高的方案
 | 方案  | 生产和性能敏感型工作负荷 |Web 服务器、不常使用的企业应用程序和开发/测试| 备份、非关键、不常访问
-| 磁盘大小 | P4：32 GiB（仅托管磁盘）<br>P6：64 GiB（仅托管磁盘）<br>P10：128 GiB<br>P15：256 GiB（仅托管磁盘）<br>P20：512 GiB<br>P30：1024 GiB<br>P40：2048 GiB<br>P50：4,095 GiB<br>P60：8,192 GiB * (8 TiB)<br>P70：16,384 GiB * (16 TiB)<br>P80：32,767 GiB * (32 TiB) |仅托管磁盘：<br>E10：128 GiB<br>E15：256 GiB<br>E20：512 GiB<br>E30：1024 GiB<br>E40：2048 GiB<br>E50：4095 GiB<br>E60：8,192 GiB * (8 TiB)<br>E70：16,384 GiB * (16 TiB)<br> E80：32,767 GiB * (32 TiB) | 非托管磁盘：1 GiB - 4 TiB (4095 GiB) <br><br>托管磁盘：<br> S4：32 GiB <br>S6：64 GiB <br>S10：128 GiB <br>S15：256 GiB <br>S20：512 GiB <br>S30：1024 GiB <br>S40：2048 GiB<br>S50：4095 GiB<br>S60：8,192 GiB * (8 TiB)<br>S70：16,384 GiB * (16 TiB)<br>S80：32,384 GiB * (32 TiB)
-| 每个磁盘的最大吞吐量 | P4：25 MiB/秒<br> P6：50 MiB/秒<br> P10：100 MiB/秒<br> P15：200 MiB/秒<br> P20：150 MiB/秒<br> P30：200 MiB/秒<br> P40-P50：250 MiB/秒<br> P60：480 MiB/秒<br> P70-P80：750 MiB/秒 | E10-E50：高达 60 MiB/秒<br> E60：高达 300 MiB/秒*<br> E70-E80：500 MiB/秒*| S4 - S50：高达 60 MiB/秒<br> S60：高达 300 MiB/秒*<br> S70-S80：高达 500 MiB/秒*
-| 每个磁盘的最大 IOPS | P4：120 IOPS<br> P6：240 IOPS<br> P10：500 IOPS<br> P15：1100 IOPS<br> P20：2300 IOPS<br> P30：5000 IOPS<br> P40-P50：7500 IOPS<br> P60：12,500 IOPS *<br> P70：15,000 IOPS *<br> P80：20,000 IOPS * | E10-E50：高达 500 IOPS<br> E60：高达 1300 IOPS *<br> E70-E80：高达 2000 IOPS * | S4-S50：高达 500 IOPS<br> S60：高达 1300 IOPS *<br> S70-S80：高达 2000 IOPS *
+| 磁盘大小 | P4：32 GiB（仅托管磁盘）<br>P6：64 GiB（仅托管磁盘）<br>P10：128 GiB<br>P15：256 GiB（仅托管磁盘）<br>P20：512 GiB<br>P30：1024 GiB<br>P40：2048 GiB<br>P50：4,095 GiB |仅托管磁盘：<br>E10：128 GiB<br>E15：256 GiB<br>E20：512 GiB<br>E30：1024 GiB<br>E40：2048 GiB<br>E50：4095 GiB | 非托管磁盘：1 GiB - 4 TiB (4095 GiB) <br><br>托管磁盘：<br> S4：32 GiB <br>S6：64 GiB <br>S10：128 GiB <br>S15：256 GiB <br>S20：512 GiB <br>S30：1024 GiB <br>S40：2048 GiB<br>S50：4095 GiB
+| 每个磁盘的最大吞吐量 | P4：25 MiB/秒<br> P6：50 MiB/秒<br> P10：100 MiB/秒<br> P15：200 MiB/秒<br> P20：150 MiB/秒<br> P30：200 MiB/秒<br> P40-P50：250 MiB/秒 | E10-E50：高达 60 MiB/秒| S4 - S50：高达 60 MiB/秒
+| 每个磁盘的最大 IOPS | P4：120 IOPS<br> P6：240 IOPS<br> P10：500 IOPS<br> P15：1100 IOPS<br> P20：2300 IOPS<br> P30：5000 IOPS<br> P40-P50：7500 IOPS | E10-E50：高达 500 IOPS | S4-S50：高达 500 IOPS
 
+<!--Notice:  P60, P70, P80,  E60, E70, E80, S60, S70, S80 are not invalid on MC-->
 <!-- Update_Description: wording update, update link -->

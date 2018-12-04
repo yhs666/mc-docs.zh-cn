@@ -14,14 +14,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 origin.date: 05/30/2017
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 561d424fc4b2a9bdca0d762378df51ac273aedd4
-ms.sourcegitcommit: 96b58e881dba2fd02665d806d7c27d770326b0cc
+ms.openlocfilehash: d488d70e21f97e2dcb2b5b4d8bfcb7bbbb13aa9d
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652018"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675125"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>针对通过 SSH 连接到 Azure Linux VM 时发生的失败、错误或被拒绝问题进行故障排除
 尝试连接到 Linux 虚拟机 (VM) 时，有多种原因可能会导致安全外壳 (SSH) 错误、SSH 连接失败或被拒绝。 本文将帮助用户找出原因并更正问题。 可以使用 Azure 门户、Azure CLI 或适用于 Linux 的 VM 访问扩展来排查和解决连接问题。
@@ -41,8 +41,8 @@ ms.locfileid: "49652018"
 4. 查看 [VM 资源运行状况](../../service-health/resource-health-overview.md)。 
     
     <!-- Redirect is Correct /resource-health/XXXX.md TO /service-health/XXXX.md -->
-   * 确保 VM 报告为正常。
-   * 如果已启用启动诊断，请验证 VM 在日志中是否未报告启动错误。
+    * 确保 VM 报告为正常。
+    * 如果已启用启动诊断，请验证 VM 在日志中是否未报告启动错误。
 5. 重启 VM。
 6. 重新部署 VM。
 
@@ -52,7 +52,7 @@ ms.locfileid: "49652018"
 可以使用以下方法之一重置凭据或 SSH 配置：
 
 * [Azure 门户](#use-the-azure-portal) - 如果需要快速重置 SSH 配置或 SSH 密钥，并且没有安装 Azure 工具，则很适合使用此方法。
-* [Azure CLI](#use-the-azure-cli) - 如果已打开命令行，则可以快速重置 SSH 配置或凭据。 你也可以使用 [Azure 经典 CLI](#use-the-azure-classic-cli)
+* [Azure CLI](#use-the-azure-cli) - 如果已打开命令行，则可以快速重置 SSH 配置或凭据。 也可以使用 [Azure CLI](#use-the-azure-classic-cli)
 * [Azure VMAccessForLinux 扩展](#use-the-vmaccess-extension) - 创建和重复使用 json 定义文件来重置 SSH 配置或用户凭据。
 
 在执行每个故障排除步骤之后，请尝试再次连接到 VM。 如果仍然无法连接，请尝试下一步。
@@ -245,7 +245,7 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 * 将 VM 重新部署到新的 Azure 节点。 有关如何重新部署 VM 的信息，请参阅[将虚拟机重新部署到新的 Azure 节点](../windows/redeploy-to-new-node.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
     完成此操作后，临时磁盘数据会丢失，并且系统会更新与虚拟机关联的动态 IP 地址。
-* 按照[如何为基于 Linux 的虚拟机重置密码或 SSH](../linux/classic/reset-access-classic.md?) 中的说明执行以下操作：
+* 按照[如何为基于 Linux 的虚拟机重置密码或 SSH](../linux/classic/reset-access-classic.md) 中的说明执行以下操作：
 
   * 重置密码或 SSH 密钥。
   * 创建 *sudo* 用户帐户。

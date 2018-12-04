@@ -12,12 +12,12 @@ ms.workload: na
 origin.date: 10/06/2017
 ms.date: 10/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: cd45d623bb62b0eebaca6b9caf969d41976eee6e
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 92b5494fc7d1501990cf26bf37e6230226c7ba96
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453661"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674458"
 ---
 # <a name="schedule-and-broadcast-jobs-node"></a>计划和广播作业 (Node)
 
@@ -54,7 +54,13 @@ scheduleJobService.js，它调用模拟设备应用中的直接方法，并通�
 * Node.js 版本 4.0.x 或更高版本； <br/>  [准备开发环境][lnk-dev-setup]介绍了如何在 Windows 或 Linux 上安装本教程所用的 Node.js。
 * 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
 
-[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+## <a name="create-an-iot-hub"></a>创建 IoT 中心
+
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+### <a name="retrieve-connection-string-for-iot-hub"></a>检索 IoT 中心的连接字符串
+
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
@@ -268,7 +274,7 @@ scheduleJobService.js，它调用模拟设备应用中的直接方法，并通�
 [lnk-c2d-methods]: quickstart-control-device-node.md
 [lnk-dev-methods]: ./iot-hub-devguide-direct-methods.md
 [lnk-fwupdate]: ./tutorial-firmware-update.md
-[lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
+[lnk-iot-edge]: ../iot-edge/quickstart-linux.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-transient-faults]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx

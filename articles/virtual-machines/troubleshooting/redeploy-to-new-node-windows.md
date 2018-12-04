@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 05/11/2018
-ms.date: 10/22/2018
+origin.date: 10/31/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: a41f32dcf47103ac640a5d03a55ba67c5f1f0466
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: f51eb59b5c661f97c7cebdecfe14e0981fc2e831
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453935"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674157"
 ---
 # <a name="redeploy-windows-virtual-machine-to-new-azure-node"></a>将 Windows 虚拟机重新部署到新的 Azure 节点
-如果在对远程桌面 (RDP) 连接或应用程序对基于 Windows 的 Azure 虚拟机 (VM) 的访问进行故障排除时遇到困难，重新部署 VM 可能会有帮助。 重新部署 VM 时，将 VM 移到 Azure 基础结构中的新节点，然后重新打开它，同时保留所有配置选项和关联的资源。 本文介绍了如何使用 Azure PowerShell 或 Azure 门户重新部署 VM。
+如果在对远程桌面 (RDP) 连接或应用程序对基于 Windows 的 Azure 虚拟机 (VM) 的访问进行故障排除时遇到困难，重新部署 VM 可能会有帮助。 重新部署 VM 时，Azure 将尝试正常关闭虚拟机，将 VM 移到 Azure 基础结构中的新节点，然后重新打开它，同时保留所有配置选项和关联的资源。 本文介绍了如何使用 Azure PowerShell 或 Azure 门户重新部署 VM。
 
 > [!NOTE]
 > 重新部署 VM 后，临时磁盘将丢失，与虚拟网络接口关联的动态 IP 地址将更新。 
@@ -41,3 +41,5 @@ Set-AzureRmVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
 
 ## <a name="next-steps"></a>后续步骤
 如果在连接 VM 时遇到问题，可以在 [troubleshooting RDP connections](troubleshoot-rdp-connection.md)（RDP 连接故障排除）或 [detailed RDP troubleshooting steps](detailed-troubleshoot-rdp.md)（详细的 RDP 故障排除步骤）中找到具体的帮助信息。 如果无法访问在 VM 上运行的应用程序，还可以阅读[应用程序故障排除问题](../windows/troubleshoot-app-connection.md)。
+
+<!-- Update_Description: wording update, update link -->

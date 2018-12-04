@@ -14,20 +14,20 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 03/12/2018
-ms.date: 07/30/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4b7b634416683d0295a49c0e528b9ada9f8fcadf
-ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
+ms.openlocfilehash: 5c2c68e89a14d328e87e3c7d7a6a86fc2de99e28
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39261860"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674115"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>为 Azure 准备 SLES 或 openSUSE 虚拟机
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="prerequisites"></a>先决条件
-本文假定已在虚拟硬盘中安装了 SUSE 或 openSUSE Linux 操作系统。 存在多个用于创建 .vhd 文件的工具，例如 Hyper-V 等虚拟化解决方案。 有关说明，请参阅 [安装 Hyper-V 角色和配置虚拟机](http://technet.microsoft.com/library/hh846766.aspx)。
+本文假定已在虚拟硬盘中安装了 SUSE 或 openSUSE Linux 操作系统。 存在多个用于创建 .vhd 文件的工具，例如 Hyper-V 等虚拟化解决方案。 有关说明，请参阅 [安装 Hyper-V 角色和配置虚拟机](https://technet.microsoft.com/library/hh846766.aspx)。
 
 ### <a name="sles--opensuse-installation-notes"></a>SLES/openSUSE 安装说明
 * 另请参阅[常规 Linux 安装说明](create-upload-generic.md#general-linux-installation-notes)，了解更多有关如何为 Azure 准备 Linux 的提示。
@@ -39,8 +39,8 @@ ms.locfileid: "39261860"
 ## <a name="use-suse-studio"></a>使用 SUSE Studio
 [SUSE Studio](http://www.susestudio.com) 可以轻松地创建和管理 Azure 和 Hyper-V 的 SLES 和 openSUSE 映像。 这是自定义用户自己的 SUSE 和 openSUSE 映像的推荐方法。
 
-作为构建用户自己的 VHD 的替代方法，SUSE 也会为 VMDepot 中的 SLES 发布 BYOS（自带订阅）映像。
-<!-- Not Available on https://vmdepot.msopentech.com/User/Show?user=1007 -->
+作为构建用户自己的 VHD 的替代方法，SUSE 也会为 [VMDepot](https://www.microsoft.com/research/wp-content/uploads/2016/04/using-and-contributing-vms-to-vm-depot.pdf) 中的 SLES 发布 BYOS（自带订阅）映像。
+
 ## <a name="prepare-suse-linux-enterprise-server-11-sp4"></a>准备 SUSE Linux Enterprise Server 11 SP4
 1. 在 Hyper-V 管理器的中间窗格中，选择虚拟机。
 2. 单击“连接”打开虚拟机窗口。
@@ -123,7 +123,7 @@ ms.locfileid: "39261860"
         # sudo zypper ar -f http://download.opensuse.org/distribution/13.1/repo/oss openSUSE_13.1_OSS
         # sudo zypper ar -f http://download.opensuse.org/update/13.1 openSUSE_13.1_Updates
 
-    然后，可以通过再次运行命令“`zypper lr`”验证已添加存储库。 如果未启用某个相关的更新存储库，请使用以下命令启用该存储库：
+    然后，可以通过再次运行命令“`zypper lr`”来验证已添加存储库。 如果未启用某个相关的更新存储库，请使用以下命令启用该存储库：
 
         # sudo zypper mr -e [NUMBER OF REPOSITORY]
 4. 将内核更新为可用的最新版本：
@@ -172,4 +172,5 @@ ms.locfileid: "39261860"
 
 ## <a name="next-steps"></a>后续步骤
 现在，可以使用 SUSE Linux 虚拟硬盘在 Azure 中创建新的 Azure 虚拟机了。 如果是首次将 .vhd 文件上传到 Azure，请参阅[从自定义磁盘创建 Linux VM](upload-vhd.md#option-1-upload-a-vhd)。
+
 <!-- Update_Description: wording update, update link, update meta propreties -->

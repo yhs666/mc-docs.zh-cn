@@ -18,11 +18,11 @@ origin.date: 04/10/2018
 ms.date: 05/21/2018
 ms.author: v-yiso
 ms.openlocfilehash: 20510e20f3f676a20c806d7cb5f5b8565eed96f4
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34449987"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667162"
 ---
 # <a name="run-pig-jobs-with-hadoop-on-hdinsight-by-using-rest"></a>使用 REST 通过 HDInsight 上的 Hadoop 运行 Pig 作业
 
@@ -123,6 +123,6 @@ HDInsight 可以使用 Azure 存储作为默认数据存储。 有关详细信�
 
 有关 HDInsight 上的 Hadoop 的其他使用方法的信息：
 
-* [将 Hive 与 Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
+* [将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)
 * [将 MapReduce 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-mapreduce.md)
 <!--Update_Description: wording update-->

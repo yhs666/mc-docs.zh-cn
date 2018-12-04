@@ -17,11 +17,11 @@ origin.date: 07/24/2018
 ms.date: 09/02/2018
 ms.author: v-jay
 ms.openlocfilehash: ba8c893951e9990fc41e3a78460088065d3ca69a
-ms.sourcegitcommit: e17577aca6df1a41d3ec164f33189f0435c5e060
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43252776"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667311"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>配置与 Azure VPN 网关的主动-主动 S2S VPN 连接
 

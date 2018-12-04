@@ -3,7 +3,7 @@ title: 媒体服务操作 REST API 概述 | Microsoft 文档
 description: 媒体服务 REST API 概述
 services: media-services
 documentationcenter: ''
-author: yunan2016
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: a5f1c5e7-ec52-4e26-9a44-d9ea699f68d9
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 12/05/2017
-ms.date: 07/30/2018
-ms.author: v-nany
-ms.openlocfilehash: 116f8f3d2020d4fa8c4367882366509310562e19
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+origin.date: 10/29/2018
+ms.date: 12/03/2018
+ms.author: v-jay
+ms.openlocfilehash: 618805d042824f99a7b9f79e7e33acd654ad09c3
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426222"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673093"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>媒体服务操作 REST API 概述
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]

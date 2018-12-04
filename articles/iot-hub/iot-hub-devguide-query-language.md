@@ -9,16 +9,16 @@ ms.topic: conceptual
 origin.date: 02/26/2018
 ms.author: v-yiso
 ms.date: 10/29/2018
-ms.openlocfilehash: 2ed790e1f7dc5309063db85713971b047743850d
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 5e94f1f6caa87c85d7b9107b12ad17800bc15d1d
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453740"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674585"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>用于设备和模块孪生、作业和消息路由的 IoT 中心查询语言
 
-IoT 中心提供类似于 SQL 的强大语言，用于检索有关[设备孪生][lnk-twins]和[作业][lnk-jobs]以及[消息路由][lnk-devguide-messaging-routes]的信息。 本文内容：
+IoT 中心提供类似于 SQL 的强大语言，用于检索有关[设备孪生](iot-hub-devguide-device-twins.md)、[作业](iot-hub-devguide-jobs.md)和[消息路由](iot-hub-devguide-messages-d2c.md)的信息。 本文内容：
 
 * IoT 中心查询语言的主要功能简介，以及
 * 语言的详细说明。 有关用于消息路由的查询语言的详细信息，请参阅[消息路由中的查询](../iot-hub/iot-hub-devguide-routing-query-syntax.md)。
@@ -26,7 +26,9 @@ IoT 中心提供类似于 SQL 的强大语言，用于检索有关[设备孪生]
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="device-and-module-twin-queries"></a>设备和模块孪生查询
-[设备孪生][lnk-twins]和模块孪生可以包含标记和属性形式的任意 JSON 对象。 通过 IoT 中心，可将设备孪生和模块孪生作为包含所有孪生信息的单个 JSON 文档进行查询。
+
+[设备孪生](iot-hub-devguide-device-twins.md)和模块孪生可以包含标记和属性形式的任意 JSON 对象。 通过 IoT 中心，可将设备孪生和模块孪生作为包含所有孪生信息的单个 JSON 文档进行查询。
+
 例如，假定 IoT 中心设备孪生具有以下结构（模块孪生将与之类似，只是具有附加的 moduleId）：
 
 ```json
@@ -88,7 +90,7 @@ SELECT * FROM devices
 ```
 
 > [!NOTE]
-> [Azure IoT SDK][lnk-hub-sdks] 支持将大量结果分页：
+> [Azure IoT SDK](iot-hub-devguide-sdks.md) 支持将大型结果分页。
 
 IoT 中心允许使用任意条件检索设备孪生筛选结果。 例如，若要接收 **location.region** 标记设置为 **CN** 的设备孪生，请使用以下查询：
 
@@ -119,7 +121,7 @@ SELECT * FROM devices
 WHERE is_defined(properties.reported.connectivity)
 ```
 
-有关筛选功能的完整参考，请参阅 [WHERE 子句][lnk-query-where] 部分。
+有关筛选功能的完整参考，请参阅 [WHERE 子句](iot-hub-devguide-query-language.md#where-clause)部分。
 
 此外还支持分组与聚合。 例如，若要查明每个遥测配置中的设备计数，请使用以下查询：
 
@@ -178,7 +180,9 @@ Select * from devices.modules where properties.reported.status = 'scanning' and 
 ```
 
 ### <a name="c-example"></a>C# 示例
-查询功能由 [C# 服务 SDK][lnk-hub-sdks] 在 **RegistryManager** 类中公开。
+
+查询功能由 [C# 服务 SDK](iot-hub-devguide-sdks.md) 在 RegistryManager 类中公开。
+
 下面是一个简单的查询示例：
 
 ```csharp
@@ -198,7 +202,9 @@ while (query.HasMoreResults)
 查询对象公开多个“下一步”值，具体取决于该查询所需的反序列化选项。 例如，设备孪生或作业对象，或使用投影时的普通 JSON。
 
 ### <a name="nodejs-example"></a>Node.js 示例
-查询功能由 [适用于 Node.js 的 Azure IoT 服务 SDK][lnk-hub-sdks] 在 **Registry** 对象中公开。
+
+查询功能由[适用于 Node.js 的 Azure IoT 服务 SDK](iot-hub-devguide-sdks.md) 在 Registry 对象中公开。
+
 下面是一个简单的查询示例：
 
 ```nodejs
@@ -231,8 +237,8 @@ query.nextAsTwin(onResults);
 目前，仅支持在基元类型（无对象）之间进行比较，例如，仅在这些属性具有基元值时才支持 `... WHERE properties.desired.config = properties.reported.config`。
 
 ## <a name="get-started-with-jobs-queries"></a>作业查询入门
-[Jobs][lnk-jobs] 可对一组设备执行操作。 每个设备孪生包含名为 **作业**的集合中该设备参与的作业的信息。
-从逻辑上讲，
+
+使用[作业](iot-hub-devguide-jobs.md)可对一组设备执行操作。 每个设备孪生包含名为 **作业**的集合中该设备参与的作业的信息。
 
 ```json
 {
@@ -319,7 +325,7 @@ FROM <from_specification>
 ## <a name="where-clause"></a>WHERE 子句
 **WHERE <filter_condition>** 子句是可选的。 它指定要将 FROM 集合中的 JSON 文档内含在结果中时需满足的一项或多项条件。 任何 JSON 文档必须将指定的条件求值为“true”才能包含在结果中。
 
-[表达式和条件][lnk-query-expressions]部分中介绍了允许的条件。
+[表达式和条件](iot-hub-devguide-query-language.md#expressions-and-conditions)部分介绍了允许的条件。
 
 ## <a name="select-clause"></a>SELECT 子句
 **SELECT <select_list>** 是必需的，用于指定要通过查询检索的值。 它指定用于生成新 JSON 对象的 JSON 值。
@@ -347,7 +353,7 @@ SELECT 子句的语法如下：
         | max(<projection_element>)
 ```
 
-**Attribute_name** 引用 FROM 集合中 JSON 文档的任一属性。 在[设备孪生查询入门][lnk-query-getstarted]部分可以找到 SELECT 子句的一些示例。
+**Attribute_name** 引用 FROM 集合中 JSON 文档的任一属性。 在[设备孪生查询入门](iot-hub-devguide-query-language.md#get-started-with-device-twin-queries)部分可以找到 SELECT 子句的一些示例。
 
 目前，仅支持在针对设备孪生执行的聚合查询中使用除 **SELECT*** 以外的选择子句。
 
@@ -375,6 +381,11 @@ GROUP BY 的正式语法为：
 **Attribute_name** 引用 FROM 集合中 JSON 文档的任一属性。
 
 目前，仅在查询设备孪生时才支持使用 GROUP BY 子句。
+
+> [!IMPORTANT]
+> 术语 `group` 目前被视为查询中的特殊关键字。 如果你使用 `group` 作为属性名，请考虑使用双括号将其括起来以避免错误，例如 `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`。
+>
+>
 
 ## <a name="expressions-and-conditions"></a>表达式和条件
 从较高层面讲，*表达式*可以：
@@ -481,19 +492,5 @@ GROUP BY 的正式语法为：
 | CONTAINS(x,y) | 返回一个布尔值，该值指示第一个字符串表达式是否包含第二个字符串表达式。 |
 
 ## <a name="next-steps"></a>后续步骤
-了解如何使用 [Azure IoT SDK][lnk-hub-sdks]在应用中执行查询。
 
-[lnk-query-where]: ./iot-hub-devguide-query-language.md#where-clause
-[lnk-query-expressions]: ./iot-hub-devguide-query-language.md#expressions-and-conditions
-[lnk-query-getstarted]: ./iot-hub-devguide-query-language.md#get-started-with-device-twin-queries
-
-[lnk-twins]: ./iot-hub-devguide-device-twins.md
-[lnk-jobs]: ./iot-hub-devguide-jobs.md
-[lnk-devguide-endpoints]: ./iot-hub-devguide-endpoints.md
-[lnk-devguide-quotas]: ./iot-hub-devguide-quotas-throttling.md
-[lnk-devguide-mqtt]: ./iot-hub-mqtt-support.md
-[lnk-devguide-messaging-routes]: ./iot-hub-devguide-messages-read-custom.md
-[lnk-devguide-messaging-format]: ./iot-hub-devguide-messages-construct.md
-[lnk-devguide-messaging-routes]: ./iot-hub-devguide-messages-read-custom.md
-
-[lnk-hub-sdks]: ./iot-hub-devguide-sdks.md
+了解如何使用 [Azure IoT SDK](iot-hub-devguide-sdks.md) 在应用中执行查询。

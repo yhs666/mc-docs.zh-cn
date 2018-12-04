@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 09/28/2018
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 967a1aa4ae5f6498cd1c40b0836252a1bc92366d
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 0567c824b6a4d6329880422e3ea6d81a91e913ae
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453830"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674963"
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>如何使用 Azure CLI 在 Azure 市场中查找 Linux VM 映像
 本主题介绍如何使用 Azure CLI 在 Azure 市场中查找 VM 映像。 使用 CLI、资源管理器模板或其他工具以编程方式创建 VM 时，使用此信息指定市场映像。
@@ -290,4 +290,4 @@ az vm image show --location chinanorth --urn Canonical:UbuntuServer:16.04-LTS:la
 ## <a name="next-steps"></a>后续步骤
 若要使用映像信息快速创建虚拟机，请参阅[使用 Azure CLI 创建和管理 Linux VM](tutorial-manage-vm.md)。
 
-<!--Update_Description: update meta properties, update link -->
+<!--Update_Description: update meta properties, wording update -->

@@ -17,11 +17,11 @@ origin.date: 12/04/2017
 ms.date: 02/26/2018
 ms.author: v-yiso
 ms.openlocfilehash: cfe3df5165587bc70d14b231d16b7e6f2b9705b8
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450118"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667163"
 ---
 # <a name="run-custom-mapreduce-programs"></a>运行自定义 MapReduce 程序
 

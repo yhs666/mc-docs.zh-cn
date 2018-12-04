@@ -14,18 +14,18 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 06/04/2018
-ms.date: 07/30/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5fcb1b3608676e34e57abebfc90f43551cce4351
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 2b7a547c753abe043b407ae201192abadfcd683b
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872319"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675268"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Azure 虚拟机中 SQL Server 的备份和还原
 
-本文提供有关适用于 Windows Azure 虚拟机中运行的 SQL Server 的备份和还原选项的指导。 Azure 存储维护每个 Azure VM 磁盘的三个副本，以确保数据不会丢失或物理数据不会损坏。 因此，与在本地不同，无需重点关注硬件故障问题。 但是，仍应备份 SQL Server 数据库，以防止发生应用程序或用户错误，例如意外的数据插入或删除。 如果出现这种意外，必须能够还原到特定的时间点。
+本文提供有关适用于 Azure Windows 虚拟机中运行的 SQL Server 的备份和还原选项的指导。 Azure 存储维护每个 Azure VM 磁盘的三个副本，以确保数据不会丢失或物理数据不会损坏。 因此，与在本地不同，无需重点关注硬件故障问题。 但是，仍应备份 SQL Server 数据库，以防止发生应用程序或用户错误，例如意外的数据插入或删除。 如果出现这种意外，必须能够还原到特定的时间点。
 
 本文的第一部分提供可用备份和还原选项的概述。 后续部分提供有关每种策略的详细信息。
 
@@ -41,10 +41,10 @@ ms.locfileid: "42872319"
 
 以下部分更详细地介绍了每个选项。 本文的最后一个部分以功能矩阵的形式提供了摘要。
 
-<a name="autoamted"></a>
+<a name="automated"></a>
 ##  <a name="automated-backup"></a>自动备份
 
-自动备份为 Windows Azure VM 中运行的 SQL Server Standard 和 Enterprise 版本提供自动备份服务。 此服务由 [SQL Server IaaS 代理扩展](virtual-machines-windows-sql-server-agent-extension.md)提供。该扩展已自动安装在 Azure 门户中的 SQL Server Windows 虚拟机映像上。
+自动备份为 Azure Windows VM 中运行的 SQL Server Standard 和 Enterprise 版本提供自动备份服务。 此服务由 [SQL Server IaaS 代理扩展](virtual-machines-windows-sql-server-agent-extension.md)提供。该扩展已自动安装在 Azure 门户中的 SQL Server Windows 虚拟机映像上。
 
 所有数据库将备份到配置的 Azure 存储帐户中。 备份可以加密，最多会保留 30 天。
 
@@ -149,10 +149,11 @@ SQL Server 2016 和更高版本的 VM 提供更多的自定义选项，以及自
 | 使用 SSMS 或 Transact-SQL 脚本监视备份作业 | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 | 使用 SSMS 或 Transact-SQL 脚本还原数据库 | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 
-<!-- Not Available on | Customize monitoring based on OMS |   | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |-->
+<!-- Not Available on Line 142 Customize monitoring based on Log Analytics-->
 ## <a name="next-steps"></a>后续步骤
 
 规划 Azure VM 中的 SQL Server 部署时，可在以下指南中找到预配指导：[如何在 Azure 门户中预配 Windows SQL Server 虚拟机](virtual-machines-windows-portal-sql-server-provision.md)。
 
 尽管备份和还原可用于迁移数据，但是，Azure VM 上的 SQL Server 可能还存在更便捷的数据迁移路径。 有关迁移选项和建议的完整讨论，请参阅[将数据库迁移到 Azure VM 上的 SQL Server](virtual-machines-windows-migrate-sql.md)。
+
 <!-- Update_Description: wording update, update meta properties, update link -->

@@ -7,16 +7,16 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-origin.date: 07/13/2018
-ms.date: 09/25/2018
+origin.date: 11/13/2018
+ms.date: 11/21/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 5a69d6ec1b5e99b13c2c1ad535641bb8dc7a7181
-ms.sourcegitcommit: 830a60c06303a8447d128a3bca8b36aa2b3b655b
+ms.openlocfilehash: c900126de1f380c349b51836b5ddee9a8b7ff2a5
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47075846"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673153"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>使用 Azure PowerShell 创建支持基于 URL 路径的重定向的应用程序网关
 
@@ -33,6 +33,8 @@ ms.locfileid: "47075846"
 下面的示例演示来自端口 8080 和 8081 并定向到相同后端池的站点流量：
 
 ![URL 路由示例](./media/tutorial-url-redirect-powershell/scenario.png)
+
+如果需要，也可以使用 [Azure CLI](tutorial-url-redirect-cli.md) 完成本教程中的步骤。
 
 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
@@ -516,15 +518,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroupAG
 ```
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，你已学习了如何执行以下操作：
-
-> [!div class="checklist"]
-> * 设置网络
-> * 创建应用程序网关
-> * 添加侦听器和路由规则
-> * 为后端池创建虚拟机规模集
-
 > [!div class="nextstepaction"]
 > [详细了解应用程序网关的作用](application-gateway-introduction.md)
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

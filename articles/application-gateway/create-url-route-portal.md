@@ -9,15 +9,15 @@ tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-origin.date: 01/26/2018
-ms.date: 08/08/2018
+origin.date: 10/25/2018
+ms.date: 11/21/2018
 ms.author: v-junlch
-ms.openlocfilehash: 0560ae4b443736cc2951ef1f3e05155bf8a2308a
-ms.sourcegitcommit: a1c6a743b4be62477e7debfc9ea5f03afca2bc8f
+ms.openlocfilehash: 14339be94f86326cb1fa44154d4ebc6f93245143
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625179"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672618"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>通过 Azure 门户使用基于路径的路由规则创建应用程序网关
 
@@ -33,6 +33,8 @@ ms.locfileid: "39625179"
 > * 创建基于路径的路由规则
 
 ![URL 路由示例](./media/create-url-route-portal/scenario.png)
+
+如果你愿意，可以使用 [Azure CLI](tutorial-url-route-cli.md) 或 [Azure PowerShell](tutorial-url-route-powershell.md) 完成本教程中的步骤。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
@@ -158,7 +160,7 @@ ms.locfileid: "39625179"
 
     ![记下应用程序网关的公共 IP 地址](./media/create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。 例如，http://40.121.222.19。
+2. 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。 例如， http://40.121.222.19。
 
     ![在应用程序网关中测试基 URL](./media/create-url-route-portal/application-gateway-iistest.png)
 

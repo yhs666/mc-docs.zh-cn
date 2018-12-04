@@ -12,15 +12,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 04/06/2018
-ms.date: 10/22/2018
+origin.date: 11/01/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: d8e0c21ab4b0e0bef6e80092e89812eb0fcf2203
-ms.sourcegitcommit: 96b58e881dba2fd02665d806d7c27d770326b0cc
+ms.openlocfilehash: 6ad4eafd8c516f235b5054f3a55317d1a7b2d64f
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652006"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674695"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>使用 Azure 中的嵌套虚拟化排查问题 Azure VM
 
@@ -102,23 +102,20 @@ ms.locfileid: "49652006"
 
 11. 选择“稍后附加虚拟硬盘”。
 
-    ![有关“稍后附加虚拟硬盘”选项的图像](./media/troubleshoot-vm-by-use-nested-virtualization/attach-disk-later.png)
-    
-    <!--Notice: URL is ./media Correct-->
+    ![有关“稍后附加虚拟硬盘”选项的图像](media/troubleshoot-vm-by-use-nested-virtualization/attach-disk-later.png)
+
 12. 创建 VM 后，选择“完成”。
 
 13. 右键单击创建的 VM，然后选择“设置”。
 
 14. 依次选择“IDE Controller 0”、“硬盘”，然后单击“添加”。
 
-    ![有关添加新硬盘的图像](./media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
-    
-    <!--Notice: URL is ./media Correct-->
+    ![有关添加新硬盘的图像](media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
+
 15. 在“物理硬盘”中，选择已附加到 Azure VM 的问题 VM 的磁盘。 如果没有看到任何列出的磁盘，请使用磁盘管理检查是否将磁盘设置为离线。
 
-    ![有关安装磁盘的图像](./media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
-    
-    <!--Notice: URL is ./media Correct-->
+    ![有关安装磁盘的图像](media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
+
 17. 依次选择“应用”、“确定”。
 
 18. 双击 VM，然后启动它。
@@ -133,12 +130,11 @@ ms.locfileid: "49652006"
 
 3.  转到“所有资源”，搜索磁盘名称，然后选择该磁盘。
 
-    ![有关搜索磁盘的图像](./media/troubleshoot-vm-by-use-nested-virtualization/search-disk.png)     
-    
-    <!--Notice: URL is ./media Correct-->
+     ![有关搜索磁盘的图像](media/troubleshoot-vm-by-use-nested-virtualization/search-disk.png)     
+
 4. 单击“创建 VM”。
 
-     ![有关从磁盘创建 VM 的图像](./media/troubleshoot-vm-by-use-nested-virtualization/create-vm-from-vhd.png) 
+     ![有关从磁盘创建 VM 的图像](media/troubleshoot-vm-by-use-nested-virtualization/create-vm-from-vhd.png) 
 
 此外也可以使用 Azure PowerShell 从磁盘创建 VM。 有关详细信息，请参阅[使用 PowerShell 从现有磁盘创建新的 VM](../windows/create-vm-specialized.md#create-the-new-vm)。 
 
@@ -146,5 +142,4 @@ ms.locfileid: "49652006"
 
 如果在连接到 VM 时遇到问题，请参阅[对 Azure VM 的 RDP 连接进行故障排除](troubleshoot-rdp-connection.md)。 如果在访问 VM 上运行的应用程序时遇到问题，请参阅[对 Windows VM 上的应用程序连接问题进行故障排除](troubleshoot-app-connection.md)。
 
-<!-- Update_Description: new articles on troubleshoot vm by use nested virualization  -->
-<!--ms.date: 10/22/2018-->
+<!-- Update_Description: update meta properties, update link  -->

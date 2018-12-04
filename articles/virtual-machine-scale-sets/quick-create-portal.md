@@ -4,7 +4,7 @@ description: 了解如何在 Azure 门户中快速创建虚拟机规模集
 keywords: 虚拟机规模集
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -16,14 +16,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.custom: H1Hack27Feb2017
 origin.date: 03/27/18
-ms.date: 08/13/2018
+ms.date: 11/29/2018
 ms.author: v-junlch
-ms.openlocfilehash: 073768b33d2cd018d5930d665295799acf450eed
-ms.sourcegitcommit: 399060a8d46534abd370693f6282e7343b371634
+ms.openlocfilehash: 0d4a45869be6445e601093e949164ed2672caee0
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455593"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672586"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建虚拟机规模集
 利用虚拟机规模集，可以部署和管理一组相同的、自动缩放的虚拟机。 可以手动缩放规模集中的 VM 数，也可以定义规则，以便根据资源使用情况（如 CPU 使用率、内存需求或网络流量）进行自动缩放。 然后，Azure 负载均衡器会将流量分配到规模集中的 VM 实例。 本快速入门介绍如何在 Azure 门户中创建虚拟机规模集。

@@ -1,9 +1,9 @@
 ---
-title: Azure CLI 2.0 示例 - 区域冗余规模集 | Microsoft Docs
-description: Azure CLI 2.0 示例
+title: Azure CLI 示例 - 区域冗余规模集 | Microsoft Docs
+description: Azure CLI 示例
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/27/2018
-ms.date: 04/25/2018
+ms.date: 11/27/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: e1298d29088efc477fb58d39f8bc4cc2cc81942f
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 8e87f39e0c7504b4a0075dfb9655ec91273198e2
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939935"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672502"
 ---
 # <a name="create-a-zone-redundant-virtual-machine-scale-set-with-powershell"></a>使用 PowerShell 创建区域冗余虚拟机规模集
 此脚本创建跨多个可用性区域运行 Ubuntu 的虚拟机规模集。 运行脚本后，可通过 RDP 访问虚拟机。
@@ -96,7 +96,8 @@ az group delete --name myResourceGroup
 | [az group delete](/cli/ad/group#delete) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
-有关 Azure CLI 2.0 的详细信息，请参阅 [Azure CLI 2.0 文档](/cli/)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](/cli/overview)。
 
-可以在 [Azure 虚拟机规模集文档](../cli-samples.md)中找到其他虚拟机规模集 Azure CLI 2.0 脚本示例。
+可以在 [Azure 虚拟机规模集文档](../cli-samples.md)中找到其他虚拟机规模集 Azure CLI 脚本示例。
 
+<!-- Update_Description: wording update -->

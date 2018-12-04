@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 07/28/2016
-ms.date: 05/14/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: dbcf190970c93bd8112bb8d4afd567a5fbf7eb65
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 2b076d8011a2d9308e0d073a659b848269a1b868
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34062045"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675075"
 ---
 # <a name="frequently-asked-question-about-azure-linux-virtual-machines-created-with-the-classic-deployment-model"></a>使用经典部署模型创建的 Azure Linux 虚拟机的常见问题解答
 > [!IMPORTANT] 

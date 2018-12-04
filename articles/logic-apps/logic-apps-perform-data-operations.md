@@ -11,12 +11,12 @@ origin.date: 07/30/2018
 ms.date: 09/03/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 56baf99368ba97c2ddb9668000b940a872b1d965
-ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
+ms.openlocfilehash: 601a409e6bf7d611c44d1e1878261ea2ea1777e7
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871057"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674825"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>在 Azure 逻辑应用中执行数据操作
 
@@ -53,7 +53,6 @@ ms.locfileid: "42871057"
 | [**分析 JSON**](#parse-json-action) | 为 JSON 内容中的属性创建用户友好的数据令牌，以便在逻辑应用中更轻松地使用这些属性。 | 
 ||| 
 
-若要创建更复杂的 JSON 转换，请参阅[使用 Liquid 模板执行高级 JSON 转换](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md)。
 
 ## <a name="prerequisites"></a>先决条件
 

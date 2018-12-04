@@ -3,7 +3,7 @@ title: Azure PowerShell 示例 - 启用基于主机的自动缩放 | Microsoft D
 description: Azure PowerShell 示例
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/27/2018
-ms.date: 08/13/2018
+ms.date: 11/27/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 02416ed3e2a83eb9ff60ec6a7cdc65e719059d09
-ms.sourcegitcommit: 56ed1b03d83f222db6118fe1e2f2485a9488507f
+ms.openlocfilehash: 6e41b97f0556e390ae090af0d43a20996cfd754a
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41705086"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672722"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-powershell"></a>使用 PowerShell 自动缩放虚拟机规模集
 此脚本创建运行 Windows Server 2016 的虚拟机规模集，当 CPU 负载发生变化时，它会使用基于主机的指标自动缩放。

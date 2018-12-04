@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: dns
 ms.topic: tutorial
 origin.date: 06/13/2018
-ms.date: 10/01/2018
+ms.date: 10/26/2018
 ms.author: v-jay
-ms.openlocfilehash: 4b5199c676c9cfeadfe0b1ac31726bcd066be472
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.openlocfilehash: dc3ff03f3e8efb6e6958618269e04de12b8f8e77
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848766"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672854"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>教程：在 Azure DNS 中托管域
 
@@ -71,6 +71,9 @@ Azure DNS 自动在区域中创建所分配名称服务器的权威 NS 记录。
 创建 DNS 区域且有了名称服务器以后，需使用 Azure DNS 名称服务器更新父域。 每个注册机构都有自身的 DNS 管理工具，可以更改域的名称服务器记录。 在注册机构的 DNS 管理页中，请编辑 NS 记录并将 NS 记录替换为 Azure DNS 名称服务器。
 
 将域委托给 Azure DNS 时，必须使用 Azure DNS 提供的名称服务器。 建议使用所有 4 个名称服务器，不管域名是什么。 域委托不需要名称服务器即可使用相同的顶级域作为域。
+
+> [!NOTE]
+> 复制每个名称服务器地址时，请确保复制地址末尾的尾随句点。 尾随句点表示完全限定域名的结束。 如果 NS 名称末尾没有句点，一些注册机构可能会追加句点。 但是为了符合 DNS RFC，应包括尾随句点，因为不能假定每个注册机构都为你追加句点。
 
 Azure DNS 目前不支持使用你自己区域中的名称服务器的委托（有时称为“虚构名称服务器”）。
 

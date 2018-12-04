@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/10/2018
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7dc77e67a13c45cd1580e9edced6e526b671f42c
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.openlocfilehash: ce76303327cd6c2b3a6ec78e31e1f243ff53c04c
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034858"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675319"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>使用 PowerShell 从专用磁盘创建 Windows VM
 
@@ -150,7 +150,7 @@ New-AzureRmResourceGroup -Location $location `
 从上传的 VHD 创建新 OS 磁盘。 
 
 ```powershell
-$sourceUri = (https://storageaccount.blob.core.chinacloudapi.cn/vhdcontainer/osdisk.vhd)
+$sourceUri = 'https://storageaccount.blob.core.chinacloudapi.cn/vhdcontainer/osdisk.vhd'
 $osDiskName = 'myOsDisk'
 $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
     (New-AzureRmDiskConfig -AccountType Standard_LRS  `
@@ -163,7 +163,7 @@ $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
 
 通过创建 VM 快照来创建使用托管磁盘的 VM 副本，然后使用该快照创建一个新的托管磁盘和一个新 VM。
 
-### <a name="take-a-snapshot-of-the-os-disk"></a>创建 OS 磁盘快照
+### <a name="take-a-snapshot-of-the-os-disk"></a>拍摄 OS 磁盘快照
 
 可创建整个 VM（包括所有磁盘）的快照或仅创建单个磁盘的快照。 以下步骤说明如何使用 [New-AzureRmSnapshot](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermsnapshot) cmdlet 仅创建 VM OS 磁盘的快照。 
 
@@ -362,4 +362,4 @@ $vmList.Name
 ## <a name="next-steps"></a>后续步骤
 登录新虚拟机。 有关详细信息，请参阅 [How to connect and log on to an Azure virtual machine running Windows](connect-logon.md)（如何连接并登录到运行 Windows 的 Azure 虚拟机）。
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update -->

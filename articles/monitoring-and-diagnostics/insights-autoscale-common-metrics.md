@@ -5,15 +5,15 @@ author: lingliw
 services: monitoring-and-diagnostics
 ms.service: monitoring-and-diagnostics
 ms.topic: conceptual
-origin.date: 12/6/2016
-ms.date: 10/22/2018
+origin.date: 12/06/2016
+ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: b39b2c1eb49173f4aad7bfbf25846cfa2835cb41
-ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
+ms.openlocfilehash: d78d36fb7fa99ba78bef9c226ea1b9e236036b37
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652253"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674431"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure 监视器自动缩放常用指标
 利用 Azure 监视器自动缩放，可以根据遥测数据（指标）增加或减少正在运行的实例数。 本文档介绍了你可能想要使用的常用指标。 在 Azure 门户中，可以选择要作为缩放依据的资源指标。 不过，也可以选择其他资源的任何指标来作为缩放依据。

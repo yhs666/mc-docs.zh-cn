@@ -13,18 +13,20 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 origin.date: 10/05/2018
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 919678ef859df2f5a7e88303ec1208494e69e3e4
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: db699424e0c977fe14ec48a57c1b254a436cd3cb
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453670"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675149"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Desired State Configuration 扩展与 Azure 资源管理器模板
 
-本文介绍 [Desired State Configuration (DSC) 扩展处理程序](dsc-overview.md)的 Azure 资源管理器模板。 许多示例使用 **RegistrationURL**（以字符串形式提供）和 **RegistrationKey**（以 [PSCredential](https://docs.azure.cn/zh-cn/dotnet/api/system.management.automation.pscredential?view=azure-dotnet) 形式提供）来通过 Azure 自动化进行加入。 有关获取这些值的详细信息，请参阅[加入 Azure Automation State Configuration 管理的计算机 - 安全注册](/automation/automation-dsc-onboarding#secure-registration)。
+本文介绍 [Desired State Configuration (DSC) 扩展处理程序](dsc-overview.md)的 Azure 资源管理器模板。 许多示例使用 **RegistrationURL**（以字符串形式提供）和 **RegistrationKey**（以 [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?view=azure-dotnet) 形式提供）来通过 Azure 自动化进行加入。 有关获取这些值的详细信息，请参阅[加入 Azure Automation State Configuration 管理的计算机 - 安全注册](/automation/automation-dsc-onboarding#secure-registration)。
+
+<!--Notice: URL is correct on https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?view=azure-dotnet-->
 
 > [!NOTE]
 > 你可能会遇到略有不同的架构示例。 2016 年 10 月发行版中发生了架构更改。 有关详细信息，请参阅[从以前的格式更新](#update-from-a-previous-format)。
@@ -168,7 +170,7 @@ DSC 扩展继承默认扩展属性。
 | settings.configurationArguments |集合 |定义想要传递到 DSC 配置的任何参数。 此属性未加密。 |
 | settings.configurationData.url |字符串 |指定 URL，将从中下载配置数据 (.pds1) 文件用作 DSC 配置的输入。 如果提供的 URL 需要 SAS 令牌才能访问，请将 **protectedSettings.configurationDataUrlSasToken** 属性设置为 SAS 令牌的值。 |
 | settings.privacy.dataCollection |字符串 |启用或禁用遥测数据收集。 此属性的可能值只有 **Enable**、**Disable**、**''** 或 **$null**。 将此属性保留为空或 null 可启用遥测。 默认值为 **''**。 有关详细信息，请参阅 [Azure DSC 扩展数据集合](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/)。 |
-| settings.advancedOptions.downloadMappings |集合 |定义要从中下载 WMF 的备选位置。 有关详细信息，请参阅 [Azure DSC 扩展 2.8 以及如何将扩展依赖项下载内容映射到自己的位置](http://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx)。 |
+| settings.advancedOptions.downloadMappings |集合 |定义要从中下载 WMF 的备选位置。 有关详细信息，请参阅 [Azure DSC 扩展 2.8 以及如何将扩展依赖项下载内容映射到自己的位置](https://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx)。 |
 | protectedSettings.configurationArguments |集合 |定义想要传递到 DSC 配置的任何参数。 此属性已加密。 |
 | protectedSettings.configurationUrlSasToken |字符串 |指定用于访问 **settings.configuration.url** 所定义的 URL 的 SAS 令牌。 此属性已加密。 |
 | protectedSettings.configurationDataUrlSasToken |字符串 |指定用于访问 **settings.configurationData.url** 所定义的 URL 的 SAS 令牌。 此属性已加密。 |

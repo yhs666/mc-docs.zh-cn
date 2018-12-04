@@ -3,18 +3,18 @@ title: 将设备更新到最新版本的 Azure IoT Edge | Microsoft Docs
 description: 如何将 IoT Edge 设备更新为运行最新版本的安全守护程序和 IoT Edge 运行时
 keywords: ''
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 10/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 205cf4f2339c2499357c6b56857337ac9e460a0e
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.openlocfilehash: 23753ef726ad11b814358891d542f50d6200e60c
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135943"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675323"
 ---
 # <a name="update-the-iot-edge-runtime"></a>更新 IoT Edge 运行时
 
@@ -28,6 +28,8 @@ ms.locfileid: "50135943"
 ## <a name="update-the-security-daemon"></a>更新安全守护程序
 
 IoT Edge 安全守护程序是一个本机组件，需要使用 IoT Edge 设备上的包管理器进行更新。 
+
+使用命令 `iotedge version` 检查设备上运行的安全守护程序的版本。 
 
 ### <a name="linux-devices"></a>Linux 设备
 
@@ -58,7 +60,11 @@ Install-SecurityDaemon -Manual -ContainerOS <Windows or Linux>
 
 ## <a name="update-the-runtime-containers"></a>更新运行时容器
 
-更新 Edge 代理和 Edge 中心容器的方式取决于部署中使用的是滚动更新标记（例如 1.0）还是特定标记（例如 1.0.2）。 
+更新 Edge 代理和 Edge 中心容器的方式取决于在部署中使用的是滚动标记（如 1.0）还是特定标记（如 1.0.2）。 
+
+使用 `iotedge logs edgeAgent` 或 `iotedge logs edgeHub` 命令检查设备上目前安装的 IoT Edge 代理和 Edge 中心模块的版本。 
+
+  ![查看容器版本](./media/how-to-update-iot-edge/container-version.png)
 
 ### <a name="understand-iot-edge-tags"></a>了解 IoT Edge 标记
 

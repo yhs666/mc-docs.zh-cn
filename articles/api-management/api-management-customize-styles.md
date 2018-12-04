@@ -13,14 +13,14 @@ ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 origin.date: 06/15/2018
-ms.date: 07/16/2018
+ms.date: 12/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: b8987a854824a120064a5f5978ea8c1da37679f5
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 9242c974d0ba5b6b1b572525c4fb58ef02567a5b
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873296"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675217"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>自定义开发人员门户页面的样式
 
@@ -40,6 +40,7 @@ ms.locfileid: "37873296"
 
 ## <a name="prerequisites"></a>先决条件
 
++ 了解 [Azure API 管理术语](api-management-terminology.md)。
 + 完成以下快速入门：[创建 Azure API 管理实例](get-started-create-service-instance.md)。
 + 此外，请完成以下教程：[导入并发布第一个 API](import-and-publish.md)。
 

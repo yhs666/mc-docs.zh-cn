@@ -13,25 +13,25 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-origin.date: 07/06/2017
-ms.date: 10/22/2018
+origin.date: 10/17/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: e74ac280d1813bfa439433d37ce4cb31f959d984
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.openlocfilehash: 6424a2c245a03e7cbd1ed7cd9ae5bc4a5882491f
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034960"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674980"
 ---
-# <a name="create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>使用 Azure CLI 从自定义磁盘创建 Linux VM
+# <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>使用 Azure CLI 从自定义磁盘创建 Linux VM
 
 <!-- rename to create-vm-specialized -->
 
-本文说明如何在 Azure 中上传自定义的虚拟硬盘 (VHD) 或复制现有 VHD，并从自定义磁盘创建 Linux 虚拟机 (VM)。 可以根据要求安装并配置 Linux 分发版，并使用该 VHD 快速创建新的 Azure 虚拟机。
+本文介绍如何上传自定义虚拟硬盘 (VHD)，以及如何在 Azure 中复制现有的 VHD。 然后，使用新建的 VHD 来创建新的 Linux 虚拟机 (VM)。 可根据要求安装并配置 Linux 分发版，然后使用该 VHD 创建新的 Azure 虚拟机。
 
-如果想要从自定义磁盘创建多个 VM，则应该从 VM 或 VHD 创建映像。 有关详细信息，请参阅[使用 CLI 创建 Azure VM 的自定义映像](tutorial-custom-images.md)。
+若要从自定义磁盘创建多个 VM，请先从 VM 或 VHD 创建映像。 有关详细信息，请参阅[使用 CLI 创建 Azure VM 的自定义映像](tutorial-custom-images.md)。
 
-可以使用两个选项：
+可使用两个选项创建自定义磁盘：
 * [上传 VHD](#option-1-upload-a-specialized-vhd)
 * [复制现有的 Azure VM](#option-2-copy-an-existing-azure-vm)
 
@@ -49,35 +49,35 @@ az vm create --resource-group myResourceGroup --location chinaeast --name myVM \
 ## <a name="requirements"></a>要求
 若要完成以下步骤，需要：
 
-* 已准备好在 Azure 中使用的 Linux 虚拟机。 本文的[准备 VM](#prepare-the-vm) 部分介绍了如何查找有关安装 Azure Linux 代理 (waagent) 的特定于分发版的信息。要使 VM 在 Azure 中正常工作，以及要通过 SSH 连接到 VM，需要用到该代理。
+* 已准备好在 Azure 中使用的 Linux 虚拟机。 本文的[准备 VM](#prepare-the-vm) 部分介绍了如何查找有关安装 Azure Linux 代理 (waagent) 的特定于分发版的信息，通过 SSH 连接到 VM 时需要用到该代理。
 * 用于将 [Azure 认可的 Linux 分发版](endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)（或参阅[关于未认可分发版的信息](create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)）安装到采用 VHD 格式的虚拟磁盘的 VHD 文件。 可使用多种工具创建 VM 和 VHD：
-  * 安装并配置 [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) 或 [KVM](http://www.linux-kvm.org/page/RunningKVM)，并注意使用 VHD 作为映像格式。 如果需要，可以使用 **qemu-img convert** [转换映像](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats)。
+  * 安装并配置 [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) 或 [KVM](http://www.linux-kvm.org/page/RunningKVM)，并注意使用 VHD 作为映像格式。 如果需要，可以使用 `qemu-img convert` [转换映像](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats)。
   * 也可以在 [Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) 或 [Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx) 上使用 Hyper-V。
 
 > [!NOTE]
-> Azure 不支持更新的 VHDX 格式。 创建 VM 时，请将 VHD 指定为格式。 如果需要，可以使用 [qemu-img convert](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) 或 [Convert-VHD](https://technet.microsoft.com/library/hh848454.aspx) PowerShell cmdlet 将 VHDX 磁盘转换为 VHD。 此外，Azure 不支持上传动态 VHD，因此，上传之前，你需要将此类磁盘转换为静态 VHD。 可以使用 [Azure VHD Utilities for GO](https://github.com/Microsoft/azure-vhd-utils-for-go) 等工具在上传到 Azure 的过程中转换动态磁盘。
+> Azure 不支持更新的 VHDX 格式。 创建 VM 时，请将 VHD 指定为格式。 如果需要，可以使用 [qemu-img convert](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) 或 [Convert-VHD](https://technet.microsoft.com/library/hh848454.aspx) PowerShell cmdlet 将 VHDX 磁盘转换为 VHD。 Azure 不支持上传动态 VHD，因此，上传之前，你需要将此类磁盘转换为静态 VHD。 可以使用 [Azure VHD Utilities for GO](https://github.com/Microsoft/azure-vhd-utils-for-go) 等工具在将动态磁盘上传到 Azure 的过程中转换磁盘。
 > 
 > 
 
 * 确保已安装了最新的 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
 <!-- URL is CORRECT ON install-az-cli2 redirect to install-azure-cli -->
 
-在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括 *myResourceGroup*、*mystorageaccount* 和 *mydisks*。
+在以下示例中，请将示例参数名称（例如 *myResourceGroup*、*mystorageaccount* 和 *mydisks*）替换为自己的值。
 
 <a name="prepimage"></a>
 
 ## <a name="prepare-the-vm"></a>准备 VM
 
-Azure 支持各种 Linux 分发（请参阅 [Endorsed Distributions](endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)（认可的分发））。 以下文章指导用户准备 Azure 上支持的各种 Linux 分发版：
+Azure 支持各种 Linux 分发（请参阅[认可的分发](endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)）。 以下文章介绍了如何准备 Azure 支持的各种 Linux 分发版：
 
 * [基于 CentOS 的分发版](create-upload-centos.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [Debian Linux](debian-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [Oracle Linux](oracle-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
-
-<!-- Not Avaialble on * [Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)-->
 * [SLES 和 openSUSE](suse-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [Ubuntu](create-upload-ubuntu.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
-* [其他 - 非认可分发版](create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [其他：非认可分发版](create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+
+<!-- Not Avaialble on Line 71 * [Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)-->
 
 另请参阅 [Linux 安装说明](create-upload-generic.md#general-linux-installation-notes)，获取更多有关如何为 Azure 准备 Linux 映像的一般提示。
 
@@ -89,13 +89,14 @@ Azure 支持各种 Linux 分发（请参阅 [Endorsed Distributions](endorsed-di
 <a name="option-1-upload-a-specialized-vhd"></a>
 ## <a name="option-1-upload-a-vhd"></a>选项 1：上传 VHD
 
-可以上传本地计算机上运行的或者从另一个云导出的自定义 VHD。 若要使用 VHD 创建新的 Azure VM，需要将 VHD 上传到存储帐户，并从该 VHD 创建托管磁盘。 
+可以上传本地计算机上运行的或者从另一个云导出的自定义 VHD。 若要使用 VHD 创建新的 Azure VM，需要将 VHD 上传到存储帐户，并从该 VHD 创建托管磁盘。 有关详细信息，请参阅 [Azure 托管磁盘概述](../windows/managed-disks-overview.md)。
 
 ### <a name="create-a-resource-group"></a>创建资源组
 
-在上传自定义磁盘和创建 VM 之前，首先需要使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 创建一个资源组。
+在上传自定义磁盘和创建 VM 之前，需要使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 创建一个资源组。
 
-以下示例在 *chinaeast* 位置创建名为 *myResourceGroup* 的资源组：[Azure 托管磁盘概述](../windows/managed-disks-overview.md)
+以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组：
+
 ```azurecli
 az group create \
     --name myResourceGroup \
@@ -104,9 +105,7 @@ az group create \
 
 ### <a name="create-a-storage-account"></a>创建存储帐户
 
-可以使用 [az storage account create](https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#az-storage-account-create)为自定义磁盘和 VM 创建存储帐户。 
-
-以下示例在前面创建的资源组中创建名为 *mystorageaccount* 的存储帐户：
+可以使用 [az storage account create](https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#az-storageaccount-create)为自定义磁盘和 VM 创建存储帐户。 以下示例在前面创建的资源组中创建名为 *mystorageaccount* 的存储帐户：
 
 ```azurecli
 az storage account create \
@@ -118,9 +117,9 @@ az storage account create \
 ```
 
 ### <a name="list-storage-account-keys"></a>列出存储帐户密钥
-Azure 将为每个存储帐户生成两个 512 位的访问密钥。 在向存储帐户进行身份验证以执行操作（例如执行写入操作）时，会使用这些访问密钥。 从此处了解有关[管理对存储的访问](../../storage/common/storage-account-manage.md#access-keys)的详细信息。 可以使用 [az storage account keys list](https://docs.azure.cn/zh-cn/cli/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list)查看访问密钥。
+Azure 为每个存储帐户生成两个 512 位的访问密钥。 在向存储帐户进行身份验证以执行操作（例如执行写入操作）时，将使用这些访问密钥。 有关详细信息，请参阅[管理对存储的访问](../../storage/common/storage-account-manage.md#access-keys)。 
 
-查看创建的存储帐户的访问密钥：
+可以使用 [az storage account keys list](https://docs.azure.cn/zh-cn/cli/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list)查看访问密钥。 例如，若要查看创建的存储帐户的访问密钥：
 
 ```azurecli
 az storage account keys list \
@@ -142,7 +141,7 @@ info:    storage account keys list command OK
 记下 **key1**，因为在后续步骤中需要使用它来与存储帐户交互。
 
 ### <a name="create-a-storage-container"></a>创建存储容器
-在存储帐户中创建用于整理磁盘的容器的方式，与创建各种目录以便有条理地整理本地文件系统的方式相同。 一个存储帐户可以包含任意数目的容器。 可以使用 [az storage container create](https://docs.azure.cn/zh-cn/cli/storage/container?view=azure-cli-latest#az-storage-container-create) 创建容器。
+在存储帐户中创建用于整理磁盘的容器的方式，与创建各种目录以便有条理地整理本地文件系统的方式相同。 一个存储帐户可以包含多个容器。 可以使用 [az storage container create](https://docs.azure.cn/zh-cn/cli/storage/container?view=azure-cli-latest#az-storage-container-create) 创建容器。
 
 以下示例创建名为 *mydisks* 的容器：
 
@@ -153,7 +152,7 @@ az storage container create \
 ```
 
 ### <a name="upload-the-vhd"></a>上传 VHD
-现在，使用 [az storage blob upload](https://docs.azure.cn/zh-cn/cli/storage/blob?view=azure-cli-latest#az-storage-blob-upload)上传自定义磁盘。 可以页 Blob 的形式上传和存储自定义磁盘。
+使用 [az storage blob upload](https://docs.azure.cn/zh-cn/cli/storage/blob?view=azure-cli-latest#az-storage-blob-upload) 上传自定义磁盘。 可以页 Blob 的形式上传和存储自定义磁盘。
 
 指定访问密钥、在上一步中创建的容器，以及自定义磁盘在本地计算机上的路径：
 
@@ -181,7 +180,7 @@ az disk create \
 <a name="option-2-copy-an-existing-azure-vm"></a>
 ## <a name="option-2-copy-an-existing-vm"></a>选项 2：复制现有 VM
 
-也可以在 Azure 中创建自定义的 VM，并复制 OS 磁盘并将其附加到新 VM 以创建另一个副本。 这种做法在测试中不会有任何问题，但若要将现有 Azure VM 作为多个新 VM 的模型，则必须改为创建**映像**。 有关从现有 Azure VM 创建映像的详细信息，请参阅[使用 CLI 创建 Azure VM 的自定义映像](tutorial-custom-images.md)
+也可以在 Azure 中创建自定义的 VM，然后复制 OS 磁盘并将其附加到新 VM 以创建另一个副本。 这种做法在测试中不会有任何问题，但若要将现有 Azure VM 作为多个新 VM 的模型，请改为创建映像。 有关从现有 Azure VM 创建映像的详细信息，请参阅[使用 CLI 创建 Azure VM 的自定义映像](tutorial-custom-images.md)。
 
 ### <a name="create-a-snapshot"></a>创建快照
 
@@ -204,7 +203,7 @@ az snapshot create \
 snapshotId=$(az snapshot show --name osDiskSnapshot --resource-group myResourceGroup --query [id] -o tsv)
 ```
 
-创建托管磁盘。 在此示例中，我们会在标准存储中从快照创建大小为 128GB、名为 *myManagedDisk* 的托管磁盘。
+创建托管磁盘。 此示例将从快照创建名为 *myManagedDisk* 的托管磁盘，该磁盘位于标准存储中，大小为 128 GB。
 
 ```azure-cli
 az disk create \
@@ -217,7 +216,7 @@ az disk create \
 
 ## <a name="create-the-vm"></a>创建 VM
 
-现在，使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM，并将托管磁盘附加为 OS 磁盘 (--attach-os-disk)。 以下示例使用基于上传的 VHD 创建的托管磁盘创建名为 *myNewVM* 的 VM：
+使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM，并将托管磁盘附加为 OS 磁盘 (--attach-os-disk)。 以下示例使用基于上传的 VHD 创建的托管磁盘创建名为 *myNewVM* 的 VM：
 
 ```azurecli
 az vm create \

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 08/17/2017
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0c134eb43f35f4d58a1af773e65537aa4f643424
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 2722f7b40576b81b439901d1ed644f464e71295d
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453870"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674313"
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>使用 Node.js 在 Azure 中的 Linux 上运行 Cassandra 群集
 
@@ -51,7 +51,7 @@ Cassandra 可以部署到单个或多个 Azure 区域，具体取决于工作负
 ### <a name="single-region-deployment"></a>单区域部署
 我们首先学习单区域部署，然后运用所学的知识创建多区域模型。 将使用 Azure 虚拟网络创建独立的子网，以满足上述网络安全要求。  介绍的单区域部署创建过程使用 Ubuntu 14.04 LTS 和 Cassandra 2.08。 但是，可以轻松调整该过程，使其适用于其他 Linux 产品。 以下是单区域部署的部分系统特征。  
 
-**高可用性：** 图 1 中所示的 Cassandra 节点已部署到两个可用性集，因此这些节点是分布到多个容错域的，可用性很高。 将标注每个可用性集的 VM 映射到 2 个容错域。 Azure 使用容错域概念来管理计划外停机（例如，硬件或软件故障）， 使用升级域（例如，主机或来宾 OS 修补/升级、应用程序升级）概念来管理计划内停机。 请参阅 [Azure 应用程序的灾难恢复和高可用性](http://msdn.microsoft.com/library/dn251004.aspx)，了解容错域和升级域在实现高可用性方面的作用。
+**高可用性：** 图 1 中所示的 Cassandra 节点已部署到两个可用性集，因此这些节点是分布到多个容错域的，可用性很高。 将标注每个可用性集的 VM 映射到 2 个容错域。 Azure 使用容错域概念来管理计划外停机（例如，硬件或软件故障）， 使用升级域（例如，主机或来宾 OS 修补/升级、应用程序升级）概念来管理计划内停机。 请参阅 [Azure 应用程序的灾难恢复和高可用性](https://msdn.microsoft.com/library/dn251004.aspx)，了解容错域和升级域在实现高可用性方面的作用。
 
 ![单区域部署](./media/cassandra-nodejs/cassandra-linux1.png)
 
@@ -120,13 +120,13 @@ Cassandra 支持两种类型的数据完整性模型 - 一致性和最终一致�
 
 <table>
 <tr><th>软件</th><th>源</th><th>版本</th></tr>
-<tr><td>JRE    </td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
+<tr><td>JRE    </td><td>[JRE 8](https://docs.azure.cn/zh-cn/java/java-supported-jdk-runtime?view=azure-java-stable) </td><td>8U5</td></tr>
 <tr><td>JNA    </td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
 <tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/)</td><td> 2.0.8</td></tr>
 <tr><td>Ubuntu    </td><td>[Azure](https://www.azure.cn/) </td><td>14.04 LTS</td></tr>
 </table>
 
-下载 JRE 时，必须手动接受 Oracle 许可条款。 因此，为了简化部署，可将所有必需软件下载到桌面。 然后将其上传到进行群集部署之前需要创建的 Ubuntu 模板映像中。
+若要简化部署，请将全部所需软件下载至桌面。 然后将其上传到进行群集部署之前需要创建的 Ubuntu 模板映像中。
 
 将以上软件下载到本地计算机上某个已知 的下载目录（例如，Windows 上的 %TEMP%/downloads 或者大多数 Linux 发行版或 Mac 上的 ~/Downloads）。
 
@@ -398,7 +398,7 @@ Azure 在进行配置时需要用 PEM 或 DER 编码的 X509 公钥。 按照“
         #Create internal load balancer
         Add-AzureInternalLoadBalancer -ServiceName $serviceName -InternalLoadBalancerName $ilbName -SubnetName "data" -StaticVNetIPAddress "$ilbIP"
         Write-Host "Created $ilbName"
-        #Add add the thrift endpoint to the internal load balancer for all the VMs
+        #Add the thrift endpoint to the internal load balancer for all the VMs
         foreach($vmName in $vmNames)
         {
             Get-AzureVM -ServiceName $serviceName -Name $vmName |
@@ -445,7 +445,6 @@ Azure 在进行配置时需要用 PEM 或 DER 编码的 X509 公钥。 按照“
 1. 使用 Powershell 命令 Get-AzureInternalLoadbalancer cmdlet 获取内部负载均衡器的 IP 地址（例如 10.1.2.101）。 该命令的语法如下所示：
 
         Get-AzureLoadbalancer -ServiceName "hk-c-svc-north-china" [displays the details of the internal load balancer along with its IP address]
-
 2. 使用 Putty 或 ssh 登录到 Web 场 VM（例如 hk-w1-north-china）
 3. 执行 $CASS_HOME/bin/cqlsh 10.1.2.101 9160
 4. 使用以下 CQL 命令验证群集是否正常工作：

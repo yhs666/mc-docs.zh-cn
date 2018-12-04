@@ -3,24 +3,23 @@ title: 实时传送视频流故障排除指南 | Microsoft Docs
 description: 本主题提供有关如何排查实时流式处理问题的建议。
 services: media-services
 documentationcenter: ''
-author: hayley244
+author: WenJason
 manager: digimobile
 editor: ''
-ms.assetid: 3a7f6c1d-ce57-4fa4-a7a6-edb526b3ffbf
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/20/2017
-ms.date: 07/30/2018
-ms.author: v-haiqya
-ms.openlocfilehash: 9d51fcc07f6886dfdc7bfc82cef17d531583ef1f
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+origin.date: 10/15/2018
+ms.date: 12/03/2018
+ms.author: v-jay
+ms.openlocfilehash: e3007b6922f3ee2041faf66a0d486a63636fb01f
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426386"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672958"
 ---
 # <a name="troubleshooting-guide-for-live-streaming"></a>实时流式处理故障排除指南
 本文提供有关如何排查某些实时流式处理问题的建议。

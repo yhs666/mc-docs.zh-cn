@@ -6,16 +6,16 @@ author: lingliw
 manager: digimobile
 ms.author: v-lingwu
 origin.date: 09/22/2018
-ms.date: 10/31/2018
+ms.date: 11/26/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 803dbdb3f7d4f1eeff8bc21a392bd9f11687c90b
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.openlocfilehash: 4cce4572e613e8b3e04013a54cdf39128e55b5da
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409390"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674240"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>教程：使用 CLI 和主题/订阅更新库存
 
@@ -39,7 +39,7 @@ Azure 服务总线是一种多租户云消息传送服务，可以在应用程�
 
 若要使用 Java 开发服务总线应用，必须安装以下项：
 
-- [Java 开发工具包](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)最新版本。
+- [Java 开发工具包](https://aka.ms/azure-jdks)最新版本。
 - [Azure CLI](https://docs.azure.cn/zh-cn/cli/index?view=azure-cli-latest)
 - [Apache Maven](https://maven.apache.org) 3.0 或更高版本。
 

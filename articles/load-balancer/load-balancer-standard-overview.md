@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/24/2018
-ms.date: 11/05/2018
+ms.date: 11/26/2018
 ms.author: v-jay
-ms.openlocfilehash: fd146fc1495baa6415a2bfd8b061a5f478435f81
-ms.sourcegitcommit: 9be84d4dc546d66a0d9d1d2be67dd79c84b2c210
+ms.openlocfilehash: 98b28141812adee0cc9809a13c1025ffb237b083
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50408866"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674357"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Azure 负载均衡器标准版概述
 
@@ -54,12 +54,12 @@ ms.locfileid: "50408866"
 
 [!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]
 
-请查看[负载均衡器的服务限制](https://docs.azure.cn/zh-cn/azure-subscription-service-limits#load-balancer)和[定价](https://www.azure.cn/zh-cn/pricing/details/load-balancer/)。
+请查看[负载均衡器的服务限制](https://docs.azure.cn/zh-cn/azure-subscription-service-limits#load-balancer)、[定价](https://www.azure.cn/zh-cn/pricing/details/load-balancer/)和 [SLA](https://www.azure.cn/zh-cn/support/sla/load-balancer/)。
 
 
 ### <a name="backend"></a>后端池
 
-标准负载均衡器的后端池在虚拟网络中扩展到任何虚拟机资源。  如需常规支持，[请联系技术支持以了解更多详细信息](https://www.azure.cn/zh-cn/support/contact/)。  后端实例是 IP 配置（NIC 资源的属性）。
+标准负载均衡器的后端池在虚拟网络中扩展到任何虚拟机资源。  可包含多达 1000 个后端实例。  后端实例是 IP 配置（NIC 资源的属性）。
 
 后端池可以包含独立的虚拟机、可用性集或虚拟机规模集。  还可以在后端池中混合资源。 按每个负载均衡器资源计算，最多可以在后端池中混合 150 个资源。
 
@@ -165,9 +165,13 @@ SKU 不可变。 按照本部分中的步骤从一个资源 SKU 移动到另一�
 
 负载均衡器标准版目前已在所有公有云区域推出。
 
+## <a name="sla"></a>SLA
+
+可以使用标准负载均衡器，其 SLA 为 99.99%。  有关详细信息，请查看[标准负载均衡器 SLA](https://www.azure.cn/zh-cn/support/sla/load-balancer/)。
+
 ## <a name="pricing"></a>定价
 
-标准负载均衡器根据以下内容计费：配置的负载均衡规则数量以及处理的所有入站和出站数据量。
+标准负载均衡器根据以下内容计费：配置的负载均衡规则数量以及处理的所有入站和出站数据量。 有关标准负载均衡器的定价信息，请访问[负载均衡器定价](https://www.azure.cn/zh-cn/pricing/details/load-balancer/)页。
 
 ## <a name="limitations"></a>限制
 
@@ -190,5 +194,4 @@ SKU 不可变。 按照本部分中的步骤从一个资源 SKU 移动到另一�
 - 了解有关[虚拟网络](../virtual-network/virtual-networks-overview.md)的信息。
 - 详细了解[网络安全组](../virtual-network/security-overview.md)。
 - 了解 [VNet 服务终结点](../virtual-network/virtual-network-service-endpoints-overview.md)。
-- 了解 Azure 的部分其他关键[网络功能](../networking/networking-overview.md)。
 - 详细了解[负载均衡器](load-balancer-overview.md)。

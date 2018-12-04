@@ -7,14 +7,14 @@ services: iot-hub
 ms.devlang: c
 ms.topic: conceptual
 orgin.date: 06/25/2018
-ms.date: 08/06/2018
+ms.date: 12/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: 464733260c60153b4f0385bdc5e4f6a6757f7318
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.openlocfilehash: ae010c7a8b2d1ce9f8d8ddc495746cdc5bff580e
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43329122"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675309"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-c-back-end-and-c-device"></a>使用 C 后端和 C 设备创建 IoT 中心模块标识和模块孪生入门
 
@@ -375,8 +375,8 @@ int main(void)
 
 若要继续了解 IoT 中心入门知识并浏览其他 IoT 方案，请参阅：
 
-* [设备管理入门][lnk-device-management]
-* [IoT Edge 入门][lnk-iot-edge]
+* [设备管理入门](iot-hub-node-node-device-management-get-started.md)
+* [IoT Edge 入门](../iot-edge/quickstart-linux.md)
 
 
 <!-- Images. -->
@@ -387,6 +387,6 @@ int main(void)
 [lnk-portal]: https://portal.azure.com/
 
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
+[lnk-iot-edge]: ../iot-edge/quickstart-linux.md
 [lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/

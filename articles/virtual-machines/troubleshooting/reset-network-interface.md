@@ -10,15 +10,15 @@ tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
-origin.date: 05/11/2018
-ms.date: 10/22/2018
+origin.date: 11/16/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: ac34be4cdfad911876fd4d59717a3d7943c53c61
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 9f790112cf47a3dd8e06a9e36373c340f02c6488
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453995"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674235"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>如何为 Azure Windows VM 重置网络接口 
 
@@ -33,6 +33,8 @@ ms.locfileid: "49453995"
 
 要重置网络接口，请执行下列步骤：
 
+#### <a name="use-azure-portal"></a>使用 Azure 门户
+
 1.  转到 [Azure 门户]( https://portal.azure.cn)。
 2.  选择“虚拟机(经典)”。
 3.  选择受影响的虚拟机。
@@ -42,6 +44,31 @@ ms.locfileid: "49453995"
 7.  选择“保存”。
 8.  虚拟机将重新启动以将新的 NIC 初始化到系统。
 9.  尝试通过 RDP 连接到计算机。 如果成功，可以根据需要将专用 IP 地址更改回原始 IP 地址。 否则，可以保留它。 
+
+#### <a name="use-azure-powershell"></a>使用 Azure PowerShell
+
+1. 确保[已安装最新的 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
+2. 打开提升的 Azure PowerShell 会话（以管理员身份运行）。 运行以下命令：
+
+    ```powershell
+    #Set the variables 
+    $SubscriptionID = "<Suscription ID>"
+    $VM = "<VM Name>"
+    $CloudService = "<Cloud Service>"
+    $VNET = "<Virtual Network>"
+    $IP = "NEWIP"
+
+    #Log in to the subscription 
+    Add-AzureAccount -Environment AzureChinaCloud
+    Select-AzureSubscription -SubscriptionId $SubscriptionId 
+
+    #Check whether the new IP address is available in the virtual network.
+    Test-AzureStaticVNetIP -VNetName $VNET -IPAddress  $IP
+
+    #Add/Change static IP. This process will not change MAC address
+    Get-AzureVM -ServiceName $CloudService -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP |Update-AzureVM
+    ```
+3. 尝试通过 RDP 连接到计算机。 如果成功，可以根据需要将专用 IP 地址更改回原始 IP 地址。 否则，可以保留它。 
 
 ### <a name="for-vms-deployed-in-resource-group-model"></a>对于部署在资源组模型中的 VM
 
@@ -55,6 +82,31 @@ ms.locfileid: "49453995"
 8.  将“IP 地址”更改为子网中可用的其他 IP 地址。
 9. 虚拟机将重新启动以将新的 NIC 初始化到系统。
 10. 尝试通过 RDP 连接到计算机。 如果成功，可以根据需要将专用 IP 地址更改回原始 IP 地址。 否则，可以保留它。 
+
+#### <a name="use-azure-powershell"></a>使用 Azure PowerShell
+
+1. 确保[已安装最新的 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+2. 打开提升的 Azure PowerShell 会话（以管理员身份运行）。 运行以下命令：
+
+    ```powershell
+    #Set the variables 
+    $SubscriptionID = "<Suscription ID>"
+    $VM = "<VM Name>"
+    $ResourceGroup = "<Resource Group>"
+    $VNET = "<Virtual Network>"
+    $IP = "NEWIP"
+
+    #Log in to the subscription 
+    Add-AzureRMAccount -Environment AzureChinaCloud
+    Select-AzureRMSubscription -SubscriptionId $SubscriptionId 
+
+    #Check whether the new IP address is available in the virtual network.
+    Test-AzureStaticVNetIP -VNetName $VNET -IPAddress  $IP
+
+    #Add/Change static IP. This process will not change MAC address
+    Get-AzureRMVM -ServiceName $ResourceGroup -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP | Update-AzureRMVM
+    ```
+3. 尝试通过 RDP 连接到计算机。  如果成功，可以根据需要将专用 IP 地址更改回原始 IP 地址。 否则，可以保留它。 
 
 ## <a name="delete-the-unavailable-nics"></a>删除不可用的 NIC
 通过远程桌面连接到计算机后，必须删除旧的 NIC 以避免出现潜在问题：
@@ -73,3 +125,5 @@ ms.locfileid: "49453995"
     >
 
 6.  现在，所有不可用的适配器应该已从系统中清除。
+
+<!-- Update_Description: wording update, update link -->

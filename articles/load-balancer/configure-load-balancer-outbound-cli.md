@@ -4,22 +4,20 @@ description: 本文介绍如何使用 Azure CLI 在标准负载均衡器中配�
 services: load-balancer
 documentationcenter: na
 author: WenJason
-manager: digimobile
-tags: azure-resource-manager
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/24/2018
-ms.date: 11/05/2018
+ms.date: 11/26/2018
 ms.author: v-jay
-ms.openlocfilehash: b645134522a5c1fdca6cc8c1fe0f9a4dd99ca96c
-ms.sourcegitcommit: 9be84d4dc546d66a0d9d1d2be67dd79c84b2c210
+ms.openlocfilehash: 02088a615859990710fa46616d355cde69fcdbe7
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50408858"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673046"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>使用 Azure CLI 在标准负载均衡器中配置负载均衡和出站规则
 
@@ -62,7 +60,7 @@ ms.locfileid: "50408858"
 
 ## <a name="create-outbound-public-ip-address"></a>创建出站公共 IP 地址 
 
-使用 [az network public-ip create](/cli/network/public-ip#create) 在 *myresourcegroupoutbound* 中为负载均衡器的名为 *mypublicipoutbound* 的前端出站配置创建标准 IP 地址。
+使用 [az network public-ip create](/cli/network/public-ip#create) 为负载均衡器的前端出站配置创建标准 IP 地址。
 
 ```cli
   az network public-ip create --resource-group myresourcegroupoutbound --name mypublicipoutbound --sku standard
@@ -80,7 +78,7 @@ ms.locfileid: "50408858"
 
 ### <a name="create-load-balancer"></a>创建负载均衡器
 
-使用 [az network lb create](/cli/network/lb?view=azure-cli-latest#create) 创建名为 *lb* 的入站 IP 地址负载均衡器，该负载均衡器包括名为 *myfrontendinbound* 的入站前端 IP 配置，以及名为 *bepool* 的后端池（与在前一步创建的公共 IP 地址 *mypublicipinbound* 相关联）。
+使用 [az network lb create ](/cli/network/lb?view=azure-cli-latest#create) 创建名为“lb”的入站 IP 地址负载均衡器，该负载均衡器包括入站前端 IP 配置和后端池（与在前一步创建的公共 IP 地址“mypublicipinbound”相关联）。
 
 ```cli
   az network lb create \

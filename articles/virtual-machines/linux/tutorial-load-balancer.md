@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 11/13/2017
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 1ed2af045940a449c0721abd7a5f6bbef20e1a44
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.openlocfilehash: ac4b97c675f1ce5ef452bb26539500113161d0b2
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034894"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675160"
 ---
 # <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>教程：在 Azure 中使用 Azure CLI 均衡 Linux 虚拟机负载以创建高可用性应用程序
 
@@ -326,4 +326,4 @@ az network nic ip-config address-pool add \
 > [!div class="nextstepaction"]
 > [管理 VM 和虚拟网络](tutorial-virtual-network.md)
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

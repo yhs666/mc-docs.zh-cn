@@ -1,3 +1,21 @@
+---
+title: include 文件
+description: include 文件
+services: storage
+author: rockboyfor
+ms.service: storage
+ms.topic: include
+origin.date: 09/15/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
+ms.custom: include file
+ms.openlocfilehash: 68dd416f83076bf22c785ad5fd8e6791deb467e6
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676047"
+---
 # <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>通过递增快照备份 Azure 非托管 VM 磁盘
 ## <a name="overview"></a>概述
 Azure 存储提供创建 Blob 快照的功能。 快照将捕获该时间点的 Blob 状态。 本文介绍有关如何使用快照维护虚拟机磁盘备份的方案。 如果选择不使用 Azure 备份和恢复服务，但想要为虚拟机磁盘创建自定义备份策略，则可以使用此方法。
@@ -49,7 +67,7 @@ Blob 快照是在某个时间点捕获的 Blob 只读版本。 在创建快照�
 可以通过执行以下操作实现增量快照复制：
 
 * 使用 [快照 Blob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob)创建基本 Blob 的快照。
-* 使用[复制 Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) 将快照复制到目标备份存储帐户。 这是备份页 Blob。 创建备份页 Blob 的快照，并将其存储在备份帐户中。
+* 使用[复制 Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) 将快照复制到相同区域或任何其他 Azure 区域中的目标备份存储帐户。 这是备份页 Blob。 创建备份页 Blob 的快照，并将其存储在备份帐户中。
 * 使用快照 Blob 创建基本 Blob 的另一个快照。
 * 使用 [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges) 获取基本 Blob 的第一个与第二个快照之间的差异。 使用新参数 **prevsnapshot** 指定要用于获取差异的快照的 DateTime 值。 如果提供此参数，则 REST 响应只包含在目标快照与先前快照之间更改的页面（包括清除页面）。
 * 使用 [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) 将这些更改应用到备份页 Blob。
@@ -62,7 +80,7 @@ Blob 快照是在某个时间点捕获的 Blob 只读版本。 在创建快照�
 
 假设在某个 DS 系列 Azure VM 上附加了一个高级存储 P30 磁盘。 名为 *mypremiumdisk* 的 P30 磁盘存储在名为 *mypremiumaccount* 的高级存储帐户中。 名为 mybackupstdaccount 的标准存储帐户用于存储 mypremiumdisk 的备份。 我们希望每隔 12 小时保留 *mypremiumdisk* 的一个快照。
 
-若要了解如何创建存储帐户和磁盘，请参阅[关于 Azure 存储帐户](../articles/storage/storage-create-storage-account.md)。
+要了解如何创建存储帐户，请参阅[创建存储帐户](/storage/common/storage-quickstart-create-account)。
 
 若要了解如何备份 Azure VM，请参阅[规划 Azure VM 备份](../articles/backup/backup-azure-vms-introduction.md)。
 
@@ -98,5 +116,4 @@ Blob 快照是在某个时间点捕获的 Blob 只读版本。 在创建快照�
 * [创建 Blob 的快照](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)
 * [规划 VM 备份基础结构](../articles/backup/backup-azure-vms-introduction.md)
 
-<!--Update_Description: wording update-->
-<!--ms.date: 10/16/2017-->
+<!-- Update_Description: update meta properties, wording update -->

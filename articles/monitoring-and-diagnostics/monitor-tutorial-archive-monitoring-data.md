@@ -1,21 +1,21 @@
 ---
 title: 使用 Azure 存储将 Azure 指标和日志数据存档
 description: 将 Azure 内生成的日志和指标数据存档到存储帐户。
-author: johnkemnetz
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: tutorial
 origin.date: 09/25/2017
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
 ms.custom: mvc
 ms.component: metrics
-ms.openlocfilehash: 4b0270c975ad24355f36322793c5eb8f9bffacb8
-ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
+ms.openlocfilehash: db198617df59c554be16c0bb429410dc88104ef9
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652222"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674312"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>使用 Azure 存储将 Azure 指标和日志数据存档
 
@@ -185,14 +185,13 @@ Azure 环境的很多层都会生成可存档到 Azure 存储帐户的日志和�
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，学习了如何设置 Azure 环境（订阅、资源和来宾 OS）中要存档到存储帐户的监视数据。 
-
+在本教程中，学习了如何设置 Azure 环境（订阅、资源和来宾 OS）中要存档到存储帐户的监视数据。
 
 > [!div class="checklist"]
 > * 创建用于保存监控数据的存储帐户
-> * 将订阅日志路由到其中 
-> * 将资源数据路由到其中 
-> * 将虚拟机（来宾 OS）数据路由到其中 
-> * 查看其中的监控数据 
-> * 清理资源 
+> * 将订阅日志路由到其中
+> * 将资源数据路由到其中
+> * 将虚拟机（来宾 OS）数据路由到其中
+> * 查看其中的监控数据
+> * 清理资源
 

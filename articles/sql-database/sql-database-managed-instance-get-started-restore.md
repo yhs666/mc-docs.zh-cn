@@ -11,16 +11,16 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab, bonova
 manager: digimobile
-origin.date: 09/20/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: 4841469c260a0ca8ecc9dc06ea8873c9dca1d150
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+origin.date: 11/01/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: bda49decdb51ae0625a29275cb074ff3d272401f
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135939"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672480"
 ---
-# <a name="restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>将数据库备份还原到 Azure SQL 数据库托管实例
+# <a name="quickstart-restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>快速入门：将数据库备份还原到 Azure SQL 数据库托管实例
 
 本快速入门演示了如何使用 Wide World Importers - 标准备份文件将存储在 Azure blob 存储中的数据库备份还原到托管实例。 此方法需要一些停机时间。 
 

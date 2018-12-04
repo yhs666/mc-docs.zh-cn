@@ -3,23 +3,23 @@ title: 使用 Azure AD 身份验证通过 .NET 访问Azure 媒体服务 API | Mi
 description: 本主题介绍了如何使用 Azure Active Directory (Azure AD) 身份验证访问 Azure 媒体服务 API。
 services: media-services
 documentationcenter: ''
-author: Juliako
-manager: erikre
+author: WenJason
+manager: digimobile
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/27/2018
-ms.date: 05/07/2018
-ms.author: v-haiqya
-ms.openlocfilehash: 740f06e8f602470f1d8c07c470baf311fd970935
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+origin.date: 10/22/2018
+ms.date: 12/03/2018
+ms.author: v-jay
+ms.openlocfilehash: ecc1e793b349b7b764a392ba12e771946ae553cf
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426275"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672810"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>使用 Azure AD 身份验证通过 .NET 访问 Azure 媒体服务 API
 
@@ -30,7 +30,7 @@ ms.locfileid: "47426275"
 - 一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用](https://www.azure.cn/pricing/1rmb-trial/)。 
 - 一个媒体服务帐户。 有关详细信息，请参阅[通过使用 Azure 门户创建 Azure 媒体服务帐户](media-services-portal-create-account.md)。
 - 最新的 [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) 包。
-- 熟悉主题[使用 AAD 身份验证访问 Azure 媒体服务 API 概述](media-services-use-aad-auth-to-access-ams-api.md)。 
+- 熟悉主题[使用 Azure AD 身份验证访问 Azure 媒体服务 API 概述](media-services-use-aad-auth-to-access-ams-api.md)。 
 
 通过 Azure 媒体服务使用 Azure AD 身份验证时，可以通过以下两种方式之一进行身份验证：
 
@@ -98,14 +98,14 @@ ms.locfileid: "47426275"
 
 以下示例介绍如何创建 Azure AD 令牌和上下文：
 
-    namespace AADAuthSample
+    namespace AzureADAuthSample
     {
         class Program
         {
             static void Main(string[] args)
             {
                 // Specify your Azure AD tenant domain, for example "microsoft.partner.onmschina.cn".
-                var tokenCredentials = new AzureAdTokenCredentials("{YOUR AAD TENANT DOMAIN HERE}", AzureEnvironments.AzureChinaCloudEnvironment);
+                var tokenCredentials = new AzureAdTokenCredentials("{YOUR Azure AD TENANT DOMAIN HERE}", AzureEnvironments.AzureChinaCloudEnvironment);
     
                 var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
     
@@ -159,7 +159,7 @@ ms.locfileid: "47426275"
     
 以下示例介绍如何创建 Azure AD 令牌和上下文：
 
-    namespace AADAuthSample
+    namespace AzureADAuthSample
     {
     
         class Program

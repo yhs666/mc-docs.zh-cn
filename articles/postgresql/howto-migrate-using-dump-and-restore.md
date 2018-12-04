@@ -9,13 +9,13 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 origin.date: 09/22/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: dbce890bf3219876222069d55a1588c43700bb8f
-ms.sourcegitcommit: 1934f3a6db96e9e069f10bfc0ca47dedb1b25c8f
+ms.date: 12/03/2018
+ms.openlocfilehash: aa9c5d669bdfcbb43d1d5c48512203ec6f103bda
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652577"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674788"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>使用转储和还原迁移 PostgreSQL 数据库
 可以使用 [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) 将 PostgreSQL 数据库提取到转储文件，并使用 [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) 从 pg_dump 创建的存档文件中还原 PostgreSQL 数据库。
@@ -72,7 +72,7 @@ pg_restore -v --no-owner --host=mydemoserver.postgres.database.chinacloudapi.cn 
     ```
 
 ### <a name="for-the-restore"></a>对于还原
-- 我们建议将备份文件移动到你要迁移到的 Azure Database for PostgreSQL 服务器所在区域中的 Azure VM，并从该 VM 执行 pg_restore 以减少网络延迟。
+- 我们建议将备份文件移动到你要迁移到的 Azure Database for PostgreSQL 服务器所在区域中的 Azure VM，并从该 VM 执行 pg_restore 以减少网络延迟。 此外，我们还建议通过启用[加速网络](..\virtual-network\create-vm-accelerated-networking-powershell.md)来创建 VM。
 - 默认情况下应该已经完成，但需打开转储文件来验证 create index 语句是否在插入数据之后。 如果不是这种情况，请将 create index 语句移动到插入的数据之后。
 - 使用 -Fc 和 -j *#* 交换机进行并行还原。 *#* 是目标服务器上的内核数。 你还可以尝试将 *#* 设置为目标服务器内核数的两倍，以查看产生的影响。 例如：
 
@@ -86,4 +86,4 @@ pg_restore -v --no-owner --host=mydemoserver.postgres.database.chinacloudapi.cn 
 
 ## <a name="next-steps"></a>后续步骤
 - 若要使用导出和导入迁移 PostgreSQL 数据库，请参阅[使用导入和导出迁移 PostgreSQL 数据库](howto-migrate-using-export-and-import.md)。
-- 有关将数据库迁移到 Azure Database for PostgreSQL 的详细信息，请参阅[数据库迁移指南](http://aka.ms/datamigration)。
+- 有关将数据库迁移到 Azure Database for PostgreSQL 的详细信息，请参阅[数据库迁移指南](https://aka.ms/datamigration)。

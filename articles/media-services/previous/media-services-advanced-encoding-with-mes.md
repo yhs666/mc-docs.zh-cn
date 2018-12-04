@@ -3,7 +3,7 @@ title: 通过自定义 MES 预设执行高级编码 | Microsoft Docs
 description: 本主题说明如何通过自定义 Media Encoder Standard 任务预设执行高级编码。
 services: media-services
 documentationcenter: ''
-author: Hayley244
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: 2a4ade25-e600-4bce-a66e-e29cf4a38369
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/01/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 2359af25d32ffdf38759b1cf7f6822bf345b8d14
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+origin.date: 10/30/2018
+ms.date: 12/03/2018
+ms.author: v-jay
+ms.openlocfilehash: ab83b95f401c9092f5c8a88841e2233f074df266
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426321"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672522"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>通过自定义 MES 预设执行高级编码 
 
@@ -706,7 +706,7 @@ Media Encoder Standard 允许在现有视频上覆盖图像。 目前支持以�
 
 若要强制编码器在输入不包含音频时生成包含静音曲目的资产，请指定“InsertSilenceIfNoAudio”值。
 
-可使用[此部分](media-services-mes-presets-overview.md)中所述的任何 MES 预设，并进行以下修改：
+可使用 [此部分](media-services-mes-presets-overview.md) 中所述的任何 MES 预设，并进行以下修改：
 
 ### <a name="json-preset"></a>JSON 预设
     {

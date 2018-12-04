@@ -16,11 +16,11 @@ origin.date: 09/28/2017
 ms.date: 07/18/2018
 ms.author: v-junlch
 ms.openlocfilehash: 8afb596a03346d0362f4a42eedeab70857a16067
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168482"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667207"
 ---
 # <a name="use-the-power-bi-embedded-migration-tool"></a>使用 Power BI Embedded 迁移工具
 

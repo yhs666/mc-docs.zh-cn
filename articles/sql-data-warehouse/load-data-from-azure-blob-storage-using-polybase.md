@@ -8,15 +8,15 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 origin.date: 09/12/2018
-ms.date: 10/15/2018
+ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: c8b5f8712ead1ef451fd1d9912caa1568f600a97
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.openlocfilehash: 629a4ac114d3ec8e26ffdb57905446b3f7fc81a6
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089239"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667129"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>教程：将纽约出租车数据加载到 Azure SQL 数据仓库
 
@@ -37,7 +37,7 @@ ms.locfileid: "49089239"
 ## <a name="before-you-begin"></a>准备阶段
 
 开始本教程之前，请下载并安装最新版 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)。
-<!-- Not Available on http://XX.XX.filename.md -->
+
 
 ## <a name="log-in-to-the-azure-portal"></a>登录到 Azure 门户
 
@@ -79,17 +79,14 @@ ms.locfileid: "49089239"
 
 5. 单击“选择”。
 
-<!--Pending on Gen2-->
 6. 单击“性能级别”，指定数据仓库是 Gen1 还是 Gen2，以及数据仓库单位的数量。 
 
 7. 针对本教程，请选择 SQL 数据仓库的“Gen1”。 滑块默认设置为“DW1000c”。  请尝试上下移动滑块，以查看其工作原理。 
-<!--Pending on Gen2-->
 
     ![配置性能](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
 8. 单击“应用” 。
-9. 在“SQL 数据仓库”页中，为空白数据库选择“排序规则”。 对于本教程，请使用默认值。 有关排序规则的详细信息，请参阅[排序规则](https://docs.microsoft.com/sql/t-sql/statements/collations)
-<!-- URL is Correct remove .md postfix on https://docs.microsoft.com/sql/t-sql/statements/collations -->
+9. 在“SQL 数据仓库”页中，为空白数据库选择“排序规则”。 对于本教程，请使用默认值。 有关排序规则的详细信息，请参阅 [Collations](https://docs.microsoft.com/sql/t-sql/statements/collations)（排序规则）
 
 11. 完成 SQL 数据库表单后，即可单击“创建”对数据库进行预配。 预配需要数分钟。 
 
@@ -145,7 +142,6 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 ## <a name="connect-to-the-server-as-server-admin"></a>以服务器管理员的身份连接到服务器
 
 本部分使用 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) 来建立与 Azure SQL Server 的连接。
-<!-- Not Cantains .md postfix of https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms.md-->
 
 1. 打开 SQL Server Management Studio。
 
@@ -169,8 +165,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
 ## <a name="create-a-user-for-loading-data"></a>创建用于加载数据的用户
 
-<!--Pending on Gen2--> 服务器管理员帐户用于执行管理操作，不适合对用户数据运行查询。 加载数据是一种内存密集型操作。 内存最大值是根据已设置的 SQL 数据仓库的代系、[数据仓库单位](what-is-a-data-warehouse-unit-dwu-cdwu.md)和[资源类](resource-classes-for-workload-management.md)定义的。 
-<!--Pending on Gen2-->
+服务器管理员帐户用于执行管理操作，不适合对用户数据运行查询。 加载数据是一种内存密集型操作。 内存最大值是根据已设置的 SQL 数据仓库的代系、[数据仓库单位](what-is-a-data-warehouse-unit-dwu-cdwu.md)和[资源类](resource-classes-for-workload-management.md)定义的。 
 
 最好创建专用于加载数据的登录名和用户。 然后，将加载用户添加到启用相应最大内存分配的[资源类](resource-classes-for-workload-management.md)。
 
@@ -248,7 +243,6 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
     );
     ```
 <!-- Notice:  wasbs://2013@nytaxiblob.blob.core.windows.net/ is CORRECT source-->
-    
 5. 运行以下 [CREATE EXTERNAL FILE FORMAT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql) T-SQL 语句，指定外部数据文件的格式设置特征和选项。 此语句指定外部数据存储为文本，且值由管道 ("|") 字符分隔。 使用 Gzip 压缩外部文件。 
 
     ```sql

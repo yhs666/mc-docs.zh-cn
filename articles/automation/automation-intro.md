@@ -7,16 +7,16 @@ ms.component: process-automation
 author: WenJason
 ms.author: v-jay
 keywords: azure 自动化, DSC, powershell, desired state configuration, 更新管理, 更改跟踪, 清单, runbook, python, 图形
-origin.date: 03/15/2018
-ms.date: 10/01/2018
+origin.date: 10/18/2018
+ms.date: 11/26/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: f9287e036a48fecd4a5da4d83e780099a79a2734
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.openlocfilehash: 3267c5cbb0ccffaf276375b93a384ce3f0a3036f
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426455"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673001"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Azure 自动化简介
 

@@ -2,20 +2,21 @@
 title: 为 Azure SQL 数据仓库中的表编制索引 | Microsoft Azure
 description: 在 Azure SQL 数据仓库中为表编制索引的建议和示例。
 services: sql-data-warehouse
-author: rockboyfor
+author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-origin.date: 04/14/2018
-ms.date: 04/25/2018
-ms.author: v-yeche
-ms.openlocfilehash: 05a22351dee6d21b23230e85771d6b307ce0b441
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+origin.date: 04/17/2018
+ms.date: 11/26/2018
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: 487a0293192d8252cd56e3eb5bdc5382095e1ff3
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089107"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672592"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>为 SQL 数据仓库中的表编制索引
 在 Azure SQL 数据仓库中为表编制索引的建议和示例。

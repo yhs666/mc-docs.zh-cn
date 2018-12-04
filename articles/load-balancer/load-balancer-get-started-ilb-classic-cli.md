@@ -4,24 +4,20 @@ description: 了解如何在经典部署模型中使用 Azure 经典 CLI 创建�
 services: load-balancer
 documentationcenter: na
 author: WenJason
-manager: digimobile
-editor: ''
-tags: azure-service-management
-ms.assetid: becbbbde-a118-4269-9444-d3153f00bf34
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 06/18/2018
-ms.date: 11/05/2018
+origin.date: 10/31/2018
+ms.date: 11/26/2018
 ms.author: v-jay
-ms.openlocfilehash: bf5c526aac4ed4628ad9bcb54dc611e536949cdc
-ms.sourcegitcommit: 9be84d4dc546d66a0d9d1d2be67dd79c84b2c210
+ms.openlocfilehash: 518a7b8c42c670637920cb23c4cba32270181998
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50408841"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673088"
 ---
 # <a name="get-started-creating-an-internal-load-balancer-using-the-azure-classic-cli"></a>开始使用 Azure 经典 CLI 创建内部负载均衡器
 

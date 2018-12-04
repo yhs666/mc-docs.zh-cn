@@ -4,7 +4,7 @@ description: 将规模集模板转换为托管磁盘规模集模板
 keywords: 虚拟机规模集
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/18/2017
-ms.date: 01/29/2018
+ms.date: 11/29/2018
 ms.author: v-junlch
-ms.openlocfilehash: a3dbdc8ece6a756658c19abb20c7f764360927ba
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 1e38890cdb8049627746759535367b8f4ffdbd05
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29285492"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673089"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>将规模集模板转换为托管磁盘规模集模板
 
-使用 Resource Manager 模板创建不使用托管的磁盘的规模集的客户可能希望改为使用托管的磁盘。 本文演示如何使用托管磁盘，以 [Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates)（适用于示例资源管理器模板的社区主导存储库）中的拉取请求为例。 可从以下网址查看完整的拉取请求： [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998)，相关的差异比较部分及说明如下所示：
+使用 Resource Manager 模板创建不使用托管的磁盘的规模集的客户可能希望改为使用托管的磁盘。 本文演示如何使用托管磁盘，以 [Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates)（适用于示例资源管理器模板的社区主导存储库）中的拉取请求为例。 可在此处查看完整的拉取请求：[https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998)，差异的相关部分如下，并进行了说明：
 
 ## <a name="making-the-os-disks-managed"></a>托管 OS 磁盘
 
@@ -147,6 +147,6 @@ ms.locfileid: "29285492"
 ## <a name="next-steps"></a>后续步骤
 有关使用规模集的示例 Resource Manager 模板，请在 [Azure 快速入门模板 github 存储库](https://github.com/Azure/azure-quickstart-templates)中搜索“vmss”。
 
-有关一般信息，请参阅[规模集的主要登陆页](/virtual-machine-scale-sets/)。
+有关一般信息，请参阅[规模集的主要登陆页](https://www.azure.cn/home/features/virtual-machine-scale-sets/)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 origin.date: 06/01/2017
 ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 72f39fac0db3be000009b16bf2b46bb9d200bf00
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.openlocfilehash: 636264535ba641f8a92ff59a756085ff75669703
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034922"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674178"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>将 Azure 高级存储用于虚拟机上的 SQL Server
 ## <a name="overview"></a>概述
@@ -541,7 +541,7 @@ ms.locfileid: "50034922"
 * 测试故障转移。
 * 将 AFP 切换回 SQL1 和 SQL2
 
-<a name="appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage"><a/>
+<a name="appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage"></a>
 ## <a name="appendix-migrating-a-multisite-always-on-cluster-to-premium-storage"></a>附录：将多站点 Always On 群集迁移到高级存储
 本文的剩余部分介绍了一个将多站点 AlwaysOn 群集转换为高级存储的详细示例。 它还将侦听器从使用外部负载均衡器 (ELB) 转换为使用内部负载均衡器 (ILB)。
 

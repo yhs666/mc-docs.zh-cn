@@ -11,15 +11,15 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: overview
 origin.date: 10/03/2017
-ms.date: 10/19/2018
+ms.date: 11/22/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 91e120bb41f52710788b2380987bb82af31f1470
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: df9c20bc14f3462f6f409e58878ec58af3274903
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453589"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672611"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Azure Functions 简介  
 Azure Functions 是用于在云中轻松运行小段代码或“函数”的一个解决方案。 用户可以只编写解决现有问题所需的代码，而无需担心要运行该代码的整个应用程序或基础结构。 Functions 可使开发更有效率，并可以使用自己所选的开发语言，例如 C#、F#、Node.js、Java 或 PHP。 只需为代码运行的时间付费，并可信任 Azure 会根据需要进行调整。 使用 Azure Functions 可以在 Azure 上开发[无服务器](https://azure.microsoft.com/solutions/serverless/)应用程序。

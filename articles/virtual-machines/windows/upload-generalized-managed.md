@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 09/25/2018
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: f19c0e0e1c767b191c6871709324d35e7e069790
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.openlocfilehash: aa7a2acc8f647a38415f21b63f52a9184c81a463
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034965"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674346"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>上传通用化 VHD 并使用它在 Azure 中创建新 VM
 
@@ -98,7 +98,7 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.chinacloudapi.cn/myco
 
 也可以使用以下方法之一将 VHD 上传到存储帐户：
 
-- [AzCopy](http://aka.ms/downloadazcopy)
+- [AzCopy](https://aka.ms/downloadazcopy)
 - [Azure 存储复制 Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx)
 - [Azure 存储资源管理器上传 Blob](https://azurestorageexplorer.codeplex.com/)
 - [Storage Import/Export Service REST API Reference](https://msdn.microsoft.com/library/dn529096.aspx)（存储导入/导出服务 REST API 参考）

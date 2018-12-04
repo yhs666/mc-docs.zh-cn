@@ -1,3 +1,17 @@
+---
+author: rockboyfor
+ms.service: virtual-machines
+ms.topic: include
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
+ms.openlocfilehash: e383fa6f1b8cfc00f7555b63d7be6938382144ab
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676185"
+---
 可用性集可帮助虚拟机在停机期间（例如维护期间）保持可用。 在可用性集中放置两个或更多个类似配置的虚拟机，即可针对虚拟机运行的应用程序或服务创建保持其可用性所需的冗余。 有关工作原理的详细信息，请参阅[管理虚拟机的可用性][Manage the availability of virtual machines]。
 
 同时使用可用性集和负载均衡终结点是帮助确保应用程序一直可用并有效运行的最佳实践。 有关负载均衡终结点的详细信息，请参阅 [Azure 基础结构服务的负载均衡][Load balancing for Azure infrastructure services]。
@@ -32,7 +46,7 @@
 8. 查看配置设置。 完成后，单击“创建”。
 9. 当 Azure 创建虚拟机时，可以在中心菜单的“虚拟机”下跟踪进度。
 
-若要使用 Azure PowerShell 命令创建 Azure 虚拟机并将它添加到新的或现有的可用性集，请参阅[使用 Azure PowerShell 创建和预配置基于 Windows 的虚拟机](../articles/virtual-machines/windows/classic/create-powershell.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+要使用 Azure PowerShell 命令创建 Azure 虚拟机并将它添加到新的或现有的可用性集，请参阅[使用 Azure PowerShell 创建和预配置基于 Windows 的虚拟机](../articles/virtual-machines/windows/classic/create-powershell.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 <a name="addmachine"></a>
 ## <a name="option-2-add-an-existing-virtual-machine-to-an-availability-set"></a>选项 2：将现有虚拟机添加到可用性集
@@ -69,4 +83,5 @@
 
 [Create a virtual machine running Windows]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
 [Virtual Network overview]: ../articles/virtual-network/virtual-networks-overview.md
-<!--ms.date: 03/19/2018 -->
+
+<!-- Update_Description: update meta properties -->

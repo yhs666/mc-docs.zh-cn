@@ -7,16 +7,16 @@ ms.service: automation
 ms.component: dsc
 author: WenJason
 ms.author: v-jay
-origin.date: 08/08/2018
-ms.date: 09/10/2018
+origin.date: 11/06/2018
+ms.date: 11/26/2018
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 6dd6efaa7aa199a84573afc19b3fa6bc02b6b75a
-ms.sourcegitcommit: 1b60848d25bbd897498958738644a4eb9cf3a302
+ms.openlocfilehash: 96fc39086a5dd00fc85d77405d496e2647082b8b
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43731191"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672506"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Automation State Configuration 概述
 

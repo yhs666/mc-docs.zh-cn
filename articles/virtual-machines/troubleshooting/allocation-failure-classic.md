@@ -10,15 +10,15 @@ tags: top-support-issue,azure-resource-manager,azure-service-management
 ms.assetid: bb939e23-77fc-4948-96f7-5037761c30e8
 ms.service: virtual-machines
 ms.topic: troubleshooting
-origin.date: 04/13/2018
-ms.date: 10/22/2018
+origin.date: 11/01/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: f8dd3a33813d764df6e8a15048952d3bcf829bbb
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 868717b22af3c0fcacf3ca9eabb1104365e84651
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453978"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674220"
 ---
 # <a name="troubleshooting-steps-specific-to-allocation-failure-scenarios-in-the-classic-deployment-model"></a>针对经典部署模型中的分配失败情况进行故障排除的步骤
 
@@ -125,4 +125,4 @@ New_General* 或 New_VMSizeNotSupported*
 
 此外，用户也可以 [将基于地缘组的虚拟网络迁移到区域虚拟网络](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)，并重新添加所需的资源。
 
-<!-- Update_Description: move file to new directory, wording update  -->
+<!-- Update_Description: update meta properties  -->

@@ -1,5 +1,3 @@
-<!-- need to be verified -->
-
 ---
 title: 使用 Azure CLI 在多个 IP 配置上进行负载均衡 | Microsoft 文档
 description: 了解如何使用 Azure CLI 将多个 IP 地址分配给虚拟机。
@@ -9,15 +7,21 @@ author: WenJason
 manager: digimobile
 editor: ''
 tags: azure-resource-manager
-ms.assetid: null
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/25/2018
-ms.date: 11/05/2018
+ms.date: 11/26/2018
 ms.author: v-jay
+ms.openlocfilehash: db2a8ef045faea32556826414f5d8c35f098949e
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672777"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-azure-cli"></a>使用 Azure CLI 在多个 IP 配置上进行负载均衡
 
@@ -30,7 +34,7 @@ ms.author: v-jay
 若要实现本文中所述的方案，请完成以下步骤：
 
 1. 按照所链接的文章中的步骤[安装和配置 Azure CLI](/cli/install-azure-cli?view=azure-cli-latest)，然后登录到 Azure 帐户。
-2. [创建一个资源组](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json)并将其命名为 *contosofabrikam*，如下所示：<!-- Not Available create-resource-group --> 
+2. 如下所述[创建一个资源组](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-resource-group)并将其命名为 *contosofabrikam*，如下所示：
 
     ```azurecli
     az group create contosofabrikam chinaeast
@@ -96,7 +100,7 @@ ms.author: v-jay
     az storage account create --location chinaeast --resource-group contosofabrikam --kind Storage --sku-name GRS mystorageaccount1
     ```
 
-11. 为 VM1 [创建网络接口](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json)，添加另一个 IP 配置 *VM1-ipconfig2*，并[创建 VM](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-a-vm)，如下所示：<!-- Not Available create-a-virtual-nic -->
+11. 为 VM1 [创建网络接口](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-a-virtual-nic)，添加另一个 IP 配置 *VM1-ipconfig2*，并[创建 VM](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-a-vm)，如下所示：<!-- Not Available create-a-virtual-nic -->
 
     ```azurecli
     az network nic create --resource-group contosofabrikam --location chinaeast --subnet-vnet-name myVnet --subnet-name mySubnet --name VM1Nic1 --ip-config-name NIC1-ipconfig1

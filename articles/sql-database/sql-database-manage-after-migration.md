@@ -2,23 +2,23 @@
 title: 迁移后管理 - Azure SQL 数据库 | Microsoft Docs
 description: 了解如何在迁移到 Azure SQL 数据库后管理数据库。
 services: sql-database
-author: WenJason
-manager: digimobile
 ms.service: sql-database
-ms.custom: migrate
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-origin.date: 09/14/2018
-ms.date: 10/15/2018
+author: WenJason
 ms.author: v-jay
-ms.suite: sql
-ms.prod_service: sql-database
-ms.component: data-movement
-ms.openlocfilehash: 027d4f8d36e9a197d0f824e99dd48dee97e49ab0
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.reviewer: carlrab
+manager: digimobile
+origin.date: 10/05/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: e1f2e0dc325995ebda8ff92966dfd3897070079f
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135894"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675255"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>云中的新 DBA  – 管理 Azure SQL 数据库中的数据库
 
@@ -37,7 +37,7 @@ ms.locfileid: "50135894"
 发生灾难时，可以借助业务连续性和灾难恢复功能使业务像平时一样继续。 灾难可能是数据库级别的事件（例如，某人错误地删除了某个重要表）或数据中心级别的事件（区域性灾难，例如海啸）。 
 
 ### <a name="how-do-i-create-and-manage-backups-on-sql-database"></a>如何在 SQL 数据库中创建和管理备份？
-不要在 Azure SQL 数据库中创建备份，因为没有这个必要。 SQL 数据库会自动备份数据库，因此我们不再需要考虑如何计划、执行和管理备份。 该平台每周创建完整备份，每隔几小时创建差异备份，每隔 5 分钟创建日志备份，以确保灾难恢复的有效性，并尽量减少数据丢失。 创建数据库后，首次完整备份会立即发生。 在称为“保留期”的某段时间内，这些备份均可用，可用情况因所选服务层而有所不同。  在 SQL 数据库中，可以使用[时间点恢复 (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore) 还原到此保留期内的任意时间点。
+不要在 Azure SQL 数据库中创建备份，因为没有这个必要。 SQL 数据库会自动备份数据库，因此我们不再需要考虑如何计划、执行和管理备份。 该平台每周创建完整备份，每隔几小时创建差异备份，每隔 5 分钟创建日志备份，以确保灾难恢复的有效性，并尽量减少数据丢失。 创建数据库后，首次完整备份会立即发生。 在称为“保留期”的某段时间内，这些备份均可用，可用情况因所选服务层而有所不同。 在 SQL 数据库中，可以使用[时间点恢复 (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore) 还原到此保留期内的任意时间点。
 
 |服务层|保留期（天）|
 |---|:---:|
@@ -72,12 +72,12 @@ SQL 数据库中提供[两种身份验证方法](sql-database-control-access.md#
 - [Azure Active Directory 身份验证](sql-database-aad-authentication.md)
 - SQL 身份验证。 
 
-不支持传统的 Windows 身份验证。 Azure Active Directory (AD) 是集中式的标识和访问管理服务。 使用此服务可以十分方便地为组织的所有人员提供单一登录访问 (SSO)。 这意味着，为简化身份验证，凭据将在所有 Azure 服务之间共享。 AAD 支持 [MFA（多重身份验证）](sql-database-ssms-mfa-authentication.md)，只需[点击几下鼠标](../active-directory/connect/active-directory-aadconnect-get-started-express.md)，AAD 就能与 Windows Server Active Directory 集成。 SQL 身份验证的工作方式与以往并无不同。 只需提供用户名/密码，就能让用户在给定逻辑服务器上的任何数据库中进行身份验证。 此外，还允许 SQL 数据库和 SQL 数据仓库在 Azure AD 域中提供多重身份验证和来宾用户帐户。 如果你已经有一个本地 Active Directory，则可以将该目录与 Azure Active Directory 联合在一起，以将目录扩展到 Azure。
+不支持传统的 Windows 身份验证。 Azure Active Directory (AD) 是集中式的标识和访问管理服务。 使用此服务可以十分方便地为组织的所有人员提供单一登录访问 (SSO)。 这意味着，为简化身份验证，凭据将在所有 Azure 服务之间共享。 AAD 支持 [MFA（多重身份验证）](sql-database-ssms-mfa-authentication.md)，只需[点击几下鼠标](../active-directory/hybrid/how-to-connect-install-express.md)，AAD 就能与 Windows Server Active Directory 集成。 SQL 身份验证的工作方式与以往并无不同。 只需提供用户名/密码，就能让用户在给定逻辑服务器上的任何数据库中进行身份验证。 此外，还允许 SQL 数据库和 SQL 数据仓库在 Azure AD 域中提供多重身份验证和来宾用户帐户。 如果你已经有一个本地 Active Directory，则可以将该目录与 Azure Active Directory 联合在一起，以将目录扩展到 Azure。
 
 |**如果你…**|**SQL 数据库/SQL 数据仓库**|
 |---|---|
 |不想在 Azure 中使用 Azure Active Directory (AD)|使用 [SQL 身份验证](sql-database-security-overview.md)|
-|在本地 SQL Server 上使用 AD|[将 AD 与 Azure AD 联合](../active-directory/connect/active-directory-aadconnect.md)，并使用 Azure AD 身份验证。 借此，你可以使用单一登录。|
+|在本地 SQL Server 上使用 AD|[将 AD 与 Azure AD 联合](../active-directory/hybrid/whatis-hybrid-identity.md)，并使用 Azure AD 身份验证。 借此，你可以使用单一登录。|
 |需要实施多重身份验证 (MFA)| 使用[支持 MFA 的 Azure AD 通用身份验证](sql-database-ssms-mfa-authentication.md)。|
 |使用来自联合域的 Azure AD 凭据登录到 Windows|使用 [Azure AD 集成身份验证](sql-database-aad-authentication-configure.md)。|
 |使用来自未与 Azure 联合的域的凭据登录到 Windows|使用 [Azure AD 集成身份验证](sql-database-aad-authentication-configure.md)。|

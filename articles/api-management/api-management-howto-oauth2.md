@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 08/10/2018
 ms.author: v-yiso
 ms.date: 10/08/2018
-ms.openlocfilehash: d0fbed13712eda8708da19179c0bb9605357cadb
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.openlocfilehash: 4e20b4582c9c2b0cbca9be4b9884d15f834e54ab
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523871"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674870"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>如何在 Azure API 管理中使用 OAuth 2.0 为开发人员帐户授权
 许多 API 支持使用 [OAuth 2.0](http://oauth.net/2/) 维护 API 的安全，并确保仅有效用户具有访问权限且只能访问有权访问的资源。 要将 Azure API 管理的交互式开发人员门户与此类 API 配合使用，需通过该服务对服务实例进行配置，使之适用于支持 OAuth 2.0 的 API。
@@ -146,14 +146,13 @@ ms.locfileid: "46523871"
 [api-management-apis-echo-api]: ./media/api-management-howto-oauth2/api-management-apis-echo-api.png
 
 
-[How to add operations to an API]: ./api-management-howto-add-operations.md
 [How to add and publish a product]: ./api-management-howto-add-products.md
 [Monitoring and analytics]: ./api-management-monitoring.md
 [Add APIs to a product]: ./api-management-howto-add-products.md#add-apis
 [Publish a product]: ./api-management-howto-add-products.md#publish-product
 [Get started with Azure API Management]: get-started-create-service-instance.md
-[API Management policy reference]: ./api-management-policy-reference.md
-[Caching policies]: ./api-management-policy-reference.md#caching-policies
+[API Management policy reference]: ./api-management-policies.md
+[Caching policies]: ./api-management-policies.md#caching-policies
 [Create an API Management service instance]: get-started-create-service-instance.md
 
 [http://oauth.net/2/]: http://oauth.net/2/

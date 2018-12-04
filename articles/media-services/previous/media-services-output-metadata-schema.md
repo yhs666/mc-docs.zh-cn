@@ -1,7 +1,7 @@
 ---
 title: Azure 媒体服务输出元数据架构 | Microsoft Docs
 description: 本主题概述了 Azure 媒体服务输出元数据架构。
-author: hayley244
+author: WenJason
 manager: digimobile
 editor: ''
 services: media-services
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/19/2017
-ms.date: 05/07/2018
-ms.author: v-haiqya
-ms.openlocfilehash: ded2f57ca3d3aadb1a987a6f9ff83c55d6b1e05c
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+origin.date: 10/30/2018
+ms.date: 12/03/2018
+ms.author: v-jay
+ms.openlocfilehash: 1f33672a498672bbed9e375f81f0bc88b7d1f807
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426267"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673166"
 ---
 # <a name="output-metadata"></a>输出元数据
 ## <a name="overview"></a>概述
@@ -146,7 +146,7 @@ ms.locfileid: "47426267"
 ## <a name="LoudnessMeteringResultParameters "></a> LoudnessMeteringResultParameters 元素
 Loudness metering result parameters.  
 
-可以找到 XML 示例，请参阅 [XML 示例](media-services-output-metadata-schema.md#xml)。  
+可以找到 XML 示例 [XML 示例](media-services-output-metadata-schema.md#xml)。  
 
 ### <a name="attributes"></a>属性
 | Name | 类型 | 说明 |

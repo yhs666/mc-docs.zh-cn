@@ -1,7 +1,7 @@
 ---
-title: H264 单比特率 16x9 SD 音频 5.1 | Azure
+title: H264 单比特率 16x9 SD Audio 5.1 | Microsoft 文档
 description: 本主题概述了“H264 单比特率 16x9 SD Audio 5.1”任务预设。
-author: hayley244
+author: WenJason
 manager: digimobile
 editor: ''
 services: media-services
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/20/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: d05682585e67f69dd3449d0202c3e185183d82bc
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+origin.date: 10/30/2018
+ms.date: 12/03/2018
+ms.author: v-jay
+ms.openlocfilehash: 86ab9d353a80c3b3611fb8d8c6dfbc8400221b98
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219721"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672679"
 ---
 # <a name="h264-single-bitrate-16x9-sd-audio-51"></a>H264 单比特率 16x9 SD 音频 5.1
 `Media Encoder Standard` 定义一组可在创建编码作业时使用的编码预设。 可以使用 `preset name` 指定编码媒体文件采用的格式。 也可以创建自己的 JSON 或基于 XML 的预设（使用 UTF-8 或 UTF-16 编码）。 然后，将自定义预设传递到编码器。 有关此 `Media Encoder Standard` 编码器支持的所有预设名称的列表，请参阅 [Media Encoder Standard 的任务预设](media-services-mes-presets-overview.md)。  

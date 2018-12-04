@@ -1,21 +1,24 @@
 ---
 title: 使用 Azure 门户创建 SQL 数据库警报 | Microsoft 文档
 description: 使用 Azure 门户创建 SQL 数据库警报，可在满足指定条件时触发通知或自动化。
-author: WenJason
-manager: digimobile
 services: sql-database
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-origin.date: 09/14/2018
-ms.date: 10/15/2018
+author: WenJason
 ms.author: v-jay
-ms.openlocfilehash: cae14bc52b69ee2439805eaecdf529d0335579b1
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.reviewer: carlrab
+manager: digimobile
+origin.date: 11/02/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: eac2fa72692443e9c391ba5456c8ced6502789ca
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48914011"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672712"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>使用 Azure 门户为 Azure SQL 数据库和数据仓库创建警报
 
@@ -42,19 +45,15 @@ ms.locfileid: "48914011"
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>使用 Azure 门户创建指标的警报规则
 1. 在此[门户](https://portal.azure.cn/)，查找想要监视的资源并选中它。
-2. SQL DB 和弹性池与 SQL DW 的此步骤是不同的： 
-
-   - **仅 SQL DB 和弹性池**：在“监视”部分下，选择“警报”或“警报规则”。 对于不同的资源，文本和图标可能会略有不同。  
+2. 在“监视”部分下，选择“警报(经典)”。 对于不同的资源，文本和图标可能会略有不同。  
    
-     ![监视](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButton.png)
+     ![监视](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertsClassicButton.JPG)
   
-   - **仅 SQL DW**：在“常见任务”部分下，选择“监视”。 单击“DWU 使用情况”图。
+   - **仅限 SQL DW** ：单击“DWU 使用情况”图表。 选择“查看经典警报”
 
-     ![常见任务](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButtonDW.png)
-
-3. 选择“添加通知”命令，并填写字段。
+3. 选择“添加指标警报(经典)”按钮，并填写字段。
    
-    ![添加警报](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPage.png)
+    ![添加警报](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPageClassic.JPG)
 4. **命名**警报规则，并选择也在通知电子邮件中显示的“说明”。
 5. 选择想要监视的“指标”为该指标选择一个“条件”和“阈值”。 还选择触发警报前指标规则必须满足的时间段。 例如，如果使用时间段"PT5M"，且警报针对 CPU 高于 80% 的情况，则平均 CPU 高于 80% 达到 5 分钟时触发警报。 第一次触发结束后，当平均 CPU 低于 80% 的时间超过 5 分钟时，将再次触发。 每 1 分钟对 CPU 进行一次测量。 请参阅下表，了解支持的时间窗口和每个警报使用的聚合类型（并非所有警报都使用平均值）。   
 6. 如果触发警报时希望向管理员和共同管理员发送电子邮件，则选择“向所有者发送电子邮件...”。

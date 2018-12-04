@@ -12,18 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/09/2017
-ms.date: 06/25/2018
-ms.author: v-nany
-ms.openlocfilehash: 84a04e5b43f38cf70b1906cbc48c2c74285b33ee
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+origin.date: 10/30/2018
+ms.date: 12/03/2018
+ms.author: v-jay
+ms.openlocfilehash: 8017f193446cf2f27642210a45e0ab78b81e98d7
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426136"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673053"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>媒体编码器高级工作流格式和编解码器
-
 
 本文档包含的输入和输出文件格式及编解码器列表受 **媒体编码器高级工作流** 编码器的公开预览版支持。
 

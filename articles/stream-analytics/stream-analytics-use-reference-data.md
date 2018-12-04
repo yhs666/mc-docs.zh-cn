@@ -2,25 +2,23 @@
 title: 使用参考数据在 Azure 流分析中查找
 description: 本文介绍如何使用参考数据在 Azure 流分析作业的查询设计中查找或关联数据。
 services: stream-analytics
-author: rockboyfor
-ms.author: v-yeche
+author: lingliw
+ms.author: v-lingwu
 manager: digimobile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 04/25/2018
-ms.date: 09/30/2018
-ms.openlocfilehash: 81358e4fb091ec91ce017bd5c8caf757776cd028
-ms.sourcegitcommit: 432984d85afe6f3da8f211bae0fa98a556785ee8
+ms.date: 11/26/2018
+ms.openlocfilehash: 33f281b2be2528cdf754caae6f7548dfdad14e41
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455388"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674249"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>使用参考数据在流分析中查找
-参考数据（也称为查找表）是一个静态的或本质上缓慢变化的有限数据集，用于执行查找或与数据流相关联。 Azure 流分析在内存中加载参考数据以实现低延迟流处理。 为了在 Azure 流分析作业中利用引用数据，通常会在查询中使用[引用数据联合](https://msdn.microsoft.com/library/azure/dn949258.aspx)。 流分析使用 Azure Blob 存储作为引用数据的存储层。 引用数据建模为 blob 序列（在输入配置中定义），这些 blob 按blob 名称中指定的日期/时间顺序升序排列。 它**仅**支持使用**大于**序列中最后一个 blob 指定的日期/时间的日期/时间添加到序列的末尾。
-
-<!-- Not Available [any number of cloud-based and on-premises data stores](../data-factory/data-factory-data-movement-activities.md) -->
+参考数据（也称为查找表）是一个静态的或本质上缓慢变化的有限数据集，用于执行查找或与数据流相关联。 Azure 流分析在内存中加载参考数据以实现低延迟流处理。 为了在 Azure 流分析作业中利用引用数据，通常会在查询中使用[引用数据联合](https://msdn.microsoft.com/library/azure/dn949258.aspx)。 流分析使用 Azure Blob 存储作为引用数据的存储层，并且通过 Azure 数据工厂，可以从[基于云和本地的任意数量的数据存储](../data-factory/copy-activity-overview.md)将引用数据转换和/或复制到 Azure Blob 存储，以用作引用数据。 引用数据建模为 blob 序列（在输入配置中定义），这些 blob 按blob 名称中指定的日期/时间顺序升序排列。 它**仅**支持使用**大于**序列中最后一个 blob 指定的日期/时间的日期/时间添加到序列的末尾。
 
 流分析支持**最大大小为 300 MB** 的参考数据。 只有简单的查询才能达到参考数据最大大小 300 MB 限制。 随着查询复杂性增加以包括有状态处理（如开窗聚合、临时联接接和临时分析函数），预计参考数据的最大支持大小将减少。 如果 Azure 流分析无法加载参考数据并执行复杂操作，则作业将耗尽内存并失败。 在这种情况下，SU % 利用率指标将达到 100%。    
 
@@ -58,7 +56,7 @@ ms.locfileid: "47455388"
 Azure 流分析每间隔一分钟都会自动扫描刷新的参考数据 Blob。
 
 > [!NOTE]
-> 当前，流分析作业仅在计算机时间提前于 blob 名称中的编码时间时才查找 blob 刷新。 例如，该作业将尽可能查找 `sample/2015-04-16/17-30/products.csv`，但不会早于 2015 年 4 月 16 日下午 5:30（UTC 时区）。 它*永远不会*查找编码时间早于发现的上一个 blob 的 blob。
+> 当前，流分析作业仅在计算机时间提前于 blob 名称中的编码时间时才查找 blob 刷新。 例如，该作业将尽可能查找 `sample/2015-04-16/17-30/products.csv` ，但不会早于 2015 年 4 月 16 日下午 5:30（UTC 时区）。 它*永远不会*查找编码时间早于发现的上一个 blob 的 blob。
 > 
 > 例如 作业找到 blob `sample/2015-04-16/17-30/products.csv` 后，它将忽略编码日期早于 2015 年 4 月 16 日下午 5:30 的任何文件，因此如果晚到达的 `sample/2015-04-16/17-25/products.csv` blob 在同一容器中创建，该作业不会使用它。
 > 

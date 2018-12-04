@@ -9,15 +9,15 @@ editor: ''
 ms.service: service-bus-messaging
 ms.topic: overview
 origin.date: 09/22/2018
-ms.date: 10/31/2018
+ms.date: 11/26/2018
 ms.custom: mvc
 ms.author: v-lingwu
-ms.openlocfilehash: e6558f90ef0d283f23ffbe70c16a5e868cd12127
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.openlocfilehash: daacc27748f2cc3d9e2086256de785eda0c377b9
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409376"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674303"
 ---
 # <a name="what-is-azure-service-bus"></a>什么是 Azure 服务总线？
 

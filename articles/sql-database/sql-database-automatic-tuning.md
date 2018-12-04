@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
 origin.date: 04/01/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: 18904f10b061193799412c9008b479684e6901a2
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.date: 12/03/2018
+ms.openlocfilehash: 7723a3cdbb345759ef3e98e228aaae1f4e8c6516
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135783"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673076"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Azure SQL 数据库中的自动优化
 
@@ -72,7 +72,7 @@ Azure SQL 数据库中可用的自动优化选项包括：
 
 自动优化确定可以优化数据库性能的“创建索引”、“删除索引”和“强制执行上一个卓越计划”建议，在 [Azure 门户](sql-database-advisor-portal.md)中显示它们，并通过 [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) 和 [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning) 公开它们。
 
-可以使用门户手动应用优化建议，也可以让“自动优化”自主为你应用优化建议。 让系统自主为你应用优化建议的好处是，在这种情况下，它会自动验证对工作负荷性能是否有正向提升，如果没有，而是检测到性能倒退，则它将自动回退优化建议。 请注意，按照设计，如果受优化建议影响的查询不是频繁执行，则验证阶段可能要花费长达 72 小时。 如果是手动应用优化建议，则自动性能验证和回退机制不可用。
+可以使用门户手动应用优化建议，也可以让“自动优化”自主为你应用优化建议。 让系统自主为你应用优化建议的好处是，它会自动验证对工作负荷性能是否有正向提升，如果检测不到显著的性能改进，它会自动还原优化建议。 请注意，按照设计，如果受优化建议影响的查询不是频繁执行，则验证阶段可能要花费长达 72 小时。 如果是手动应用优化建议，则自动性能验证和回退机制不可用。
 
 每个数据库都可以独立启用或禁用自动优化选项，也可以在逻辑服务器上配置这些选项，并将其应用于从服务器继承设置的每个数据库。 逻辑服务器可继承 Azure 默认值，用于自动调整设置。 目前 Azure 默认值设为启用 FORCE_LAST_GOOD_PLAN 和 CREATE_INDEX，禁用 DROP_INDEX。
 

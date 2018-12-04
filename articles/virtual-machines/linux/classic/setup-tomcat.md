@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 12/15/2015
-ms.date: 05/21/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3abb854f0270076bed49fd87da47e7093c247546
-ms.sourcegitcommit: caa089a6221a4925943f1ea516ca58ae62da0dff
+ms.openlocfilehash: 00a6fe3802a02c48d53d3abcd32abfe4dce7da91
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "50982959"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674730"
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>使用 Azure 在 Linux 虚拟机上设置 Tomcat7
 Apache Tomcat（简称 Tomcat，以前也称为 Jakarta Tomcat）是由 Apache Software Foundation (ASF) 开发的一个开源 Web 服务器和 servlet 容器。 Tomcat 实现了 Sun Microsystems 提出的 Java Servlet 和 JavaServer Pages (JSP) 规范。 Tomcat 提供用于运行 Java 代码的纯 Java HTTP Web 服务器环境。 在最简单的配置中，Tomcat 在单个操作系统进程中运行。 此进程运行 Java 虚拟机 (JVM)。 浏览器向 Tomcat 发出的每个 HTTP 请求在 Tomcat 进程中作为单独线程进行处理。  
@@ -38,7 +38,7 @@ Apache Tomcat（简称 Tomcat，以前也称为 Jakarta Tomcat）是由 Apache S
 * 如何准备适用于 Tomcat7 的虚拟机。
 * 如何安装 Tomcat7。
 
-本文假设读者已拥有 Azure 订阅。  如果没有，可在 [Azure 网站](https://www.azure.cn/)上注册一个免费试用订阅。 如果已有 MSDN 订阅，请参阅 [Azure 特价：MSDN 权益](https://www.azure.cn/offers/ms-mc-arz-msdn/)。 若要了解有关 Azure 的详细信息，请参阅 [什么是 Azure？](https://www.azure.cn/home/features/what-is-azure/)。
+本文假设读者已拥有 Azure 订阅。  如果没有，可在 [Azure 网站](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full)上注册一个免费试用订阅。 如果已有 MSDN 订阅，请参阅 [Azure 特价：MSDN 权益](https://www.azure.cn/offers/ms-mc-arz-msdn/)。 若要了解有关 Azure 的详细信息，请参阅 [什么是 Azure？](https://www.azure.cn/home/features/what-is-azure/)。
 
 本文假设读者具备 Tomcat 和 Linux 的基本实践知识。  
 
@@ -132,48 +132,17 @@ TCP 端口 8080 是 Tomcat 用来侦听的默认端口号。 如果使用 Azure 
 在此阶段，我们安装 Java 运行时环境、Tomcat7 和其他 Tomcat7 组件。  
 
 ### <a name="java-runtime-environment"></a>Java 运行时环境
-Tomcat 是用 Java 编写的。 有两种类型的 Java 开发工具包 (JDK)：OpenJDK 和 Oracle JDK。 可以选择所需的工具包。  
+Tomcat 用 Java 编写。 有关如何获取完全支持的 Java 运行时的信息，请参阅[支持的 Java JDK](https://docs.azure.cn/zh-cn/java/java-supported-jdk-runtime?view=azure-java-stable)。 也可使用自带软件，但本文的其余部分将使用 Azure 支持的版本。
 
-> [!NOTE]
-> 这两个 JDK 对于 Java API 中的类，几乎包含相同的代码，但用于虚拟机的代码不同。 OpenJDK 倾向于使用开放库，而 Oracle JDK 倾向于使用封闭库。 Oracle JDK 包含更多类并且修复了一些 bug，比 OpenJDK 更稳定。
+#### <a name="install-azure-supported-jdk"></a>安装支持的 Java JDK
 
-#### <a name="install-openjdk"></a>安装 OpenJDK  
-
-使用以下命令下载 OpenJDK。   
-
-    sudo apt-get update  
-    sudo apt-get install openjdk-7-jre  
-
-* 若要创建包含 JDK 文件的目录，请执行以下命令：  
-
-        sudo mkdir /usr/lib/jvm  
-* 要将 JDK 文件解压到 /usr/lib/jvm/ 目录，请执行以下命令：  
-
-        sudo tar -zxf jdk-8u5-linux-x64.tar.gz  -C /usr/lib/jvm/
-
-#### <a name="install-oracle-jdk"></a>安装 Oracle JDK
-
-使用以下命令从 Oracle 网站下载 Oracle JDK。  
-
-     wget --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u5-b13/jdk-8u5-linux-x64.tar.gz  
-* 若要创建包含 JDK 文件的目录，请执行以下命令：  
-
-        sudo mkdir /usr/lib/jvm  
-* 要将 JDK 文件解压到 /usr/lib/jvm/ 目录，请执行以下命令：  
-
-        sudo tar -zxf jdk-8u5-linux-x64.tar.gz  -C /usr/lib/jvm/  
-* 将 Oracle JDK 设置为默认 Java 虚拟机：  
-
-        sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.8.0_05/bin/java 100  
-
-        sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk1.8.0_05/bin/javac 100  
+按照[适用于 Azure 的 Azul Zulu Enterprise](https://www.azul.com/downloads/azure-only/zulu/#apt-repo) 网站上记录的 `apt-get` 安装说明进行操作。
 
 #### <a name="confirm-that-java-installation-is-successful"></a>确认 Java 安装成功
 可以使用如下命令测试是否已正确安装 Java 运行时环境：  
+    java 版本  
 
-    java -version  
-
-如果已安装 OpenJDK，应会看到如下消息：![指出成功安装 OpenJDK 的消息][14]
+应会看到如下消息：![指出成功安装 OpenJDK 的消息][14]
 
 如果已安装 Oracle JDK，应会看到如下消息：![指出成功安装 Oracle JDK 的消息][15]
 
@@ -248,8 +217,8 @@ Tomcat 是用 Java 编写的。 有两种类型的 Java 开发工具包 (JDK)：
      检查公用端口和专用端口终结点设置，确保专用端口与 Tomcat 侦听端口相同。 有关如何为虚拟机配置终结点的说明，请参阅本文的“阶段 1：创建映像”部分。  
 
      若要确定 Tomcat 侦听端口，请打开 /etc/httpd/conf/httpd.conf（CentOS 发行版）或 /etc/tomcat7/server.xml（Debian 发行版）。 默认情况下，Tomcat 侦听端口为 8080。 以下是示例：  
-     <!-- Change Red Hat to CentOS -->
-
+        
+        <!-- Change Red Hat to CentOS -->
         <Connector port="8080" protocol="HTTP/1.1"  connectionTimeout="20000"   URIEncoding="UTF-8"            redirectPort="8443" />  
 
      如果要使用 Debian 或 Ubuntu 等虚拟机并且要更改 Tomcat 侦听的默认端口（例如 8081），则还应为操作系统打开该端口。 首先打开配置文件：  

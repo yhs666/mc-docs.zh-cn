@@ -1,10 +1,10 @@
 ---
-title: Azure Batch 服务配额和限制 | Microsoft Docs
+title: Azure Batch 服务的配额和限制 | Azure
 description: 了解默认的 Azure Batch 配额、限制和约束，以及如何请求提高配额
 services: batch
 documentationcenter: ''
-author: dlepow
-manager: jeconnoc
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
 ms.service: batch
@@ -12,16 +12,16 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/10/2018
-ms.date: 10/19/2018
+origin.date: 11/06/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b14129be0131c76d7d11ef43c8e4ce76a13b4f65
-ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
+ms.openlocfilehash: f0883f7286f652ba11ea5a11fecca680fd63f62f
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477767"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674742"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 服务配额和限制
 
@@ -41,22 +41,31 @@ ms.locfileid: "49477767"
 ## <a name="resource-quotas"></a>资源配额
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
-
 ### <a name="cores-quotas-in-user-subscription-mode"></a>用户订阅模式中的核心配额
 
 如果创建了 Batch 帐户，并将池分配模式设置为“用户订阅”，则会以不同的方式应用配额。 在此模式下，会在创建池后直接在订阅中创建 Batch VM 和其他资源。 Azure Batch 核心配额不会应用到在此模式下创建的帐户。 对于此类帐户，将应用订阅中的区域计算核心数和其他资源的配额。 在 [Azure 订阅和服务的限制、配额和约束](../azure-subscription-service-limits.md)中详细了解这些配额。
+
+## <a name="pool-size-limits"></a>池大小限制
+
+| **资源** | **最大限制** |
+| --- | --- |
+| **[启用了节点间通信的池](batch-mpi.md)中的计算节点**  ||
+| Batch 服务池分配模式 | 100 |
+| Batch 订阅池分配模式 | 80 |
+| **[使用自定义 VM 映像创建的池](batch-custom-images.md)中的计算节点**<sup>1</sup> ||
+| 专用节点 | 2000 |
+| 低优先级节点 | 1000 |
+
+<sup>1</sup> 适用于未启用节点间通信的池。
 
 ## <a name="other-limits"></a>其他限制
 
 | **资源** | **最大限制** |
 | --- | --- |
-| 每个计算节点的[并发任务](batch-parallel-node-tasks.md)数 |4 x 节点核心数 |
-| 每个 Batch 帐户的[应用程序](batch-application-packages.md)数 |20 个 |
-| 每个应用程序的应用程序包数 |40 |
+| 每个计算节点的[并发任务](batch-parallel-node-tasks.md)数 | 4 x 节点核心数 |
+| 每个 Batch 帐户的[应用程序](batch-application-packages.md)数 | 20 个 |
+| 每个应用程序的应用程序包数 | 40 |
 | 最长任务生存期 | 7 天<sup>1</sup> |
-| [启用了节点间通信的池](batch-mpi.md)中的计算节点 | 100 |
-| [使用自定义 VM 映像创建的池](batch-custom-images.md)中的专用计算节点 | 2500 |
-| [使用自定义 VM 映像创建的池](batch-custom-images.md)中的低优先级计算节点 | 1000 |
 
 <sup>1</sup> 最长任务生存期（从添加到作业时算起到任务完成时结束）为 7 天。 已完成的任务会无限期保存；最长生存期内未完成的任务的数据不可访问。
 
@@ -70,8 +79,6 @@ ms.locfileid: "49477767"
    
     ![Batch 帐户配额][account_quotas]
 
-
-
 ## <a name="increase-a-quota"></a>提高配额
 
 执行以下步骤，使用 [Azure 门户][portal]请求提高批处理帐户或订阅的配额。 可以提高哪种配额取决于批处理帐户的池分配模式。
@@ -79,23 +86,31 @@ ms.locfileid: "49477767"
 ### <a name="increase-a-batch-cores-quota"></a>提高批处理核心配额 
 
 1. 在门户仪表板上选择“帮助 + 支持”磁贴，或单击门户右上角的问号 (**?**)。
-2. 选择“新建支持请求”。
-3. 更新以下基本类型。
+2. 选择“新建支持请求” > “基本”。
+3. 在“基本信息”中：
 
-    a. 输入基本信息，例如“姓名”、“电话号码”、“电子邮件”。
-   
-    b. “问题类型” > “配额”
-   
-    c. 选择订阅。
-   
-    d. “配额类型” > “Batch”
-   
-    e. 输入“支持问题标题”
-   
-    f. 在“详细信息”中，指定想要更改的每个配额、Batch 帐户名和新限制。
-   
-    g. 上传附件。
-    
+    a. “问题类型” > “配额”
+
+    b. 选择订阅。
+
+    c. “配额类型” > “Batch”
+
+    d. “支持计划” > “配额支持 - 已包括”
+
+    单击“下一步”。
+4. 在“问题”中：
+
+    a. 根据[业务影响情况][support_sev]选择“严重性”。
+
+    b. 在“详细信息”中，指定想要更改的每个配额、Batch 帐户名和新限制。
+
+    单击“下一步”。
+5. 在“联系人信息”中：
+
+    a. Select a <bpt id="p1">**</bpt>Preferred contact method<ept id="p1">**</ept>.
+
+    b. 输入并确认所需的联系人详细信息。
+
     单击“创建”提交支持请求。
 
 提交支持请求后，Azure 支持人员将与你取得联系。 请注意，完成该请求最多需要 2 个工作日。

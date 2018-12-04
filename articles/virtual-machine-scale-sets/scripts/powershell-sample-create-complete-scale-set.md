@@ -3,7 +3,7 @@ title: Azure PowerShell 示例 - 创建完整的虚拟机规模集 | Microsoft D
 description: Azure PowerShell 示例
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/29/2018
-ms.date: 08/13/2018
+ms.date: 11/27/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: ac6e0b68132eca5792da042070b0ac4b1b6f9230
-ms.sourcegitcommit: 56ed1b03d83f222db6118fe1e2f2485a9488507f
+ms.openlocfilehash: 25c4e994271b9749e21c40757641e40caa440edb
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41704937"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672572"
 ---
 # <a name="create-a-complete-virtual-machine-scale-set-with-powershell"></a>使用 PowerShell 创建完整的虚拟机规模集
 此脚本创建运行 Windows Server 2016 的虚拟机规模集。 单个资源是配置和创建的，而不是使用 [New-AzureRmVmss 中提供的内置资源创建选项](powershell-sample-create-simple-scale-set.md)。 运行脚本后，可通过 RDP 访问 VM 实例。

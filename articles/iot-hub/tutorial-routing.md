@@ -10,12 +10,12 @@ origin.date: 09/11/2018
 ms.date: 10/29/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 9e9d0eb6ddd9d82f959df128ede463919c6135e6
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 51afbf990e7a9f419103b33610b416baf53facd8
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453869"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674912"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>教程：使用 IoT 中心配置消息路由
 
@@ -283,6 +283,7 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
 现在为存储帐户设置路由。 你转到“消息路由”窗格，然后添加路由。 添加路由时，请为路由定义新的终结点。 此设置完成后，“级别”属性设置为“storage”的消息将自动写入存储帐户。
 
+数据以 Avro 格式写入 Blob 存储。
 1. 在 [Azure 门户](https://portal.azure.cn)中，单击“资源组”，然后选择你的资源组。 本教程使用 ContosoResources。 
 
 2. 在资源列表下单击 IoT 中心。 本教程使用 ContosoTestHub。 
@@ -299,9 +300,19 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
 6. 单击“选取容器”。 将转到存储帐户列表。 选择在准备步骤中设置的存储账户。 本教程使用 **contosostorage**。 它显示该存储帐户中的容器列表。 选择在准备步骤中设置的容器。 本教程使用 contosoresults。 单击“选择”。 随即返回到“添加终结点”窗格。 
 
-7. 为其余字段使用默认值。 单击“创建”以创建存储终结点并将其添加到路由。 随即返回到“添加路由”窗格。
+7. 在本教程中，其余字段使用默认值。 
 
-8.  现在完成余下的路由查询信息。 此查询指定将消息发送到刚刚添加为终结点的存储容器的条件。 填充屏幕上的字段。 
+   > [!NOTE]
+   > 可以使用 **Blob 文件名格式**设置 Blob 名称的格式。 默认为 `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`。 格式必须包含 {iothub}、{partition}、{YYYY}、{MM}、{DD}、{HH} 和 {mm}，顺序不限。 
+   > 
+   > 例如，使用默认 Blob 文件名格式时，如果中心名称为 ContosoTestHub，日期/时间为 2018 年 10 月 30 日上午 10:56，则 Blob 名称将类似于：`ContosoTestHub/0/2018/10/30/10/56`。
+   > 
+   > Blob 以 Avro 格式写入。
+   >
+
+8. 单击“创建”以创建存储终结点并将其添加到路由。 随即返回到“添加路由”窗格。
+
+9. 现在完成余下的路由查询信息。 此查询指定将消息发送到刚刚添加为终结点的存储容器的条件。 填充屏幕上的字段。 
 
    **名称**：为路由查询输入名称。 本教程使用 StorageRoute。
 

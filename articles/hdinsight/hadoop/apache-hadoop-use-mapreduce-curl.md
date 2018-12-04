@@ -2,27 +2,22 @@
 title: 将 MapReduce 和 Curl 与 HDInsight 中的 Hadoop 配合使用 - Azure | Azure
 description: 了解如何使用 Curl 在 HDInsight 的 Hadoop 上远程运行 MapReduce 作业。
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: bc6daf37-fcdc-467a-a8a8-6fb2f0f773d1
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 02/27/2018
-ms.date: 05/21/2018
+ms.date: 11/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: a1d1ee9c179d8ca941a338356ec9de7f4c24890b
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: 71f6ba2897e758d77b068e28b39aa162fce3c1b1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34449931"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667165"
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>使用 REST 在 HDInsight 上通过 Hadoop 运行 MapReduce 作业
 
@@ -149,7 +144,7 @@ ms.locfileid: "34449931"
 
 4. 在作业的状态更改为 `SUCCEEDED` 后，可以从 Azure Blob 存储中检索作业的结果。 随查询一起传递的 `statusdir` 参数包含输出文件的位置。 在本示例中，位置为 `/example/curl`。 此地址在群集默认存储的 `/example/curl` 中存储作业的输出。
 
-使用 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest) 可以列出和下载这些文件。 有关从 Azure CLI 中使用 blob 的详细信息，请参阅[将 Azure CLI 2.0 与 Azure 存储配合使用](../../storage/common/storage-azure-cli.md#create-and-manage-blobs)文档。
+可以使用 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest) 列出并下载这些文件。 有关从 Azure CLI 中使用 blob 的详细信息，请参阅[将 Azure CLI 与 Azure 存储配合使用](../../storage/common/storage-azure-cli.md#create-and-manage-blobs)文档。
 
 ## <a id="nextsteps"></a>后续步骤
 
@@ -159,7 +154,7 @@ ms.locfileid: "34449931"
 
 有关 HDInsight 上 Hadoop 的其他使用方法的信息：
 
-* [将 Hive 与 Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
+* [将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)
 * [将 Pig 与 Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
 
 有关本文中使用的 REST 接口的详细信息，请参阅 [WebHCat Reference](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference)（WebHCat 参考）。

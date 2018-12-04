@@ -1,20 +1,20 @@
 ---
 title: 接收有关 Azure 服务通知的活动日志警报
 description: 在 Azure 服务发生时，通过短信、电子邮件或 webhook 接收通知。
-author: shawntabrizi
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 origin.date: 06/09/2018
-ms.date: 10/22/2018
-ms.author: v-yiso
+ms.date: 11/26/2018
+ms.author: v-lingwu
 ms.component: alerts
-ms.openlocfilehash: caabaf1278f25ad7e171f262becbfbe38b102a70
-ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
+ms.openlocfilehash: 8d36caf0ffa8f779bb5752d0bc0d870a7b8be734
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121537"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675221"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>创建有关服务通知的活动日志警报
 ## <a name="overview"></a>概述

@@ -1,9 +1,9 @@
 ---
-title: 使用 Azure CLI 2.0 自管理虚拟机规模集 | Microsoft Docs
-description: 管理虚拟机规模集常用的 Azure CLI 2.0 命令，如管理如何启动和停止实例，或更改此规模集容量。
+title: 使用 Azure CLI 管理虚拟机规模集 | Microsoft Docs
+description: 管理虚拟机规模集常用的 Azure CLI 命令，例如管理如何启动和停止实例，或更改规模集容量。
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/29/2018
-ms.date: 09/07/2018
+ms.date: 11/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: b327752f3c5d5e24cbdafde24163ebbe5aa21da4
-ms.sourcegitcommit: 40456700212200e707d6cb3147cf96ad161d3ff2
+ms.openlocfilehash: 35980034889e71dc6a7638dc57d04946e83bf5df
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44269512"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673134"
 ---
-# <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>使用 Azure CLI 2.0 管理虚拟机规模集
-在虚拟机规模集的整个生命周期内，可能需要运行一个或多个管理任务。 此外，可能还需要创建自动执行各种生命周期任务的脚本。 本文详细介绍了执行这些任务常用的一些 Azure CLI 2.0 命令。
+# <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>使用 Azure CLI 管理虚拟机规模集
+在虚拟机规模集的整个生命周期内，可能需要运行一个或多个管理任务。 此外，可能还需要创建自动执行各种生命周期任务的脚本。 本文详细介绍了执行这些任务常用的一些 Azure CLI 命令。
 
-要完成这些管理任务，需要最新的 Azure CLI 2.0。 请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli) 了解相关信息。 如果需要创建虚拟机规模集，可以[使用 Azure CLI 2.0 创建规模集](quick-create-cli.md)。
+若要完成这些管理任务，需要最新的 Azure CLI。 请参阅[安装 Azure CLI](/cli/install-azure-cli) 了解相关信息。 如果需要创建虚拟机规模集，可以[使用 Azure CLI 创建规模集](quick-create-cli.md)。
 
 
 ## <a name="view-information-about-a-scale-set"></a>查看有关规模集的信息
@@ -70,7 +70,7 @@ az vmss list-instance-connection-info `
 ## <a name="change-the-capacity-of-a-scale-set"></a>更改规模集的容量
 以上命令显示了与规模集和 VM 实例相关的信息。 要增加或减少规模集中的实例数，可以更改其容量。 规模集会创建或删除所需数量的 VM，然后配置 VM 以接收应用程序流量。
 
-若要查看规模集中当前包含的实例数，请使用 [az vmss show](/cli/vmss#az_vmss_show) 并查询 sku.capacity：
+若要查看规模集中当前包含的实例数，请使用 [az vmss show](/cli/vmss#az_vmss_show) 并查询 “sku.capacity”：
 
 ```azurecli
 az vmss show `
@@ -80,7 +80,7 @@ az vmss show `
     --output table
 ```
 
-然后，可以使用 [az vmss scale](/cli/vmss#az_vmss_scale) 手动增加或减少规模集中虚拟机的数目。 以下示例将规模集中 VM 的数目设置为“5”：
+然后，可以使用 [az vmss scale](/cli/vmss#az_vmss_scale) 手动增加或减少规模集中虚拟机的数目。 以下示例将规模集中 VM 的数目设置为 5：
 
 ```azurecli
 az vmss scale `
@@ -141,4 +141,4 @@ az vmss delete-instances --resource-group myResourceGroup --name myScaleSet --in
 ## <a name="next-steps"></a>后续步骤
 规模集的其他常见任务包括如何[部署应用程序](virtual-machine-scale-sets-deploy-app.md)和[升级 VM 实例](virtual-machine-scale-sets-upgrade-scale-set.md)。 也可使用 Azure CLI 来[配置自动缩放规则](virtual-machine-scale-sets-autoscale-overview.md)。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->

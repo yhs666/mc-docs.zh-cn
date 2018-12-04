@@ -3,7 +3,7 @@ title: 使用网络观察程序和 Grafana 管理网络安全组流日志 | Azur
 description: 在 Azure 中使用网络观察程序和 Grafana 管理和分析网络安全组流日志。
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
+author: lingliw
 manager: digimobile
 editor: ''
 tags: azure-resource-manager
@@ -14,22 +14,25 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/15/2017
-ms.date: 09/10/2018
-ms.author: v-yeche
-ms.openlocfilehash: 45f0dd4d64715cb77058b2474098e44160bfbda0
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.openlocfilehash: f88bf23c0bfb934fb25b6a20bd9334f0fbd59c7a
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515583"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674387"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>使用网络观察程序和 Grafana 管理和分析网络安全组流日志
 
 可以通过[网络安全组 (NSG) 流日志](network-watcher-nsg-flow-logging-overview.md)提供的信息了解网络接口上的入口和出口 IP 流量。 这些流日志针对每个 NSG 规则显示出站和入站流、流所适用的 NIC、有关流的 5 -元组信息（源/目标 IP、源/目标端口、协议），以及是允许还是拒绝流量。
 
+> [!Warning]  
+> 以下步骤适用于流日志版本 1。 有关详细信息，请参阅[针对网络安全组进行流日志记录简介](network-watcher-nsg-flow-logging-overview.md)。 以下说明在未修改的情况下不适用于版本 2 的日志文件。
+
 网络中可能有许多启用了流日志记录的 NSG。 这么大量的日志记录数据导致难以对日志进行分析以及从中获得见解。 本文提供了一个解决方案来使用 Grafana（一个开源绘图工具）、ElasticSearch（一个分布式搜索和分析引擎）和 Logstash（一个开源服务器端数据处理管道）来集中管理这些 NSG 流日志。  
 
-## <a name="scenario"></a>场景
+## <a name="scenario"></a>方案
 
 NSG 流日志是使用网络观察程序启用的，并且存储在 Azure Blob 存储中。 Logstash 插件用于连接和处理 Blob 存储中的流日志并将其发送到 ElasticSearch。  将流日志存储到 ElasticSearch 中之后，可在 Grafana 中对其进行分析，并在自定义的仪表板中将其可视化。
 
@@ -198,7 +201,7 @@ sudo service grafana-server start
 
 ![仪表板图形](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig4.png)
 
-## <a name="conclusion"></a>结束语
+## <a name="conclusion"></a>结论
 
 通过将网络观察程序与 ElasticSearch 和 Grafana 集成，现在能够以方便、集中的方式管理和可视化 NSG 流日志和其他数据。 Grafana 提供了许多其他强大的绘图功能，使用这些功能还可以进一步管理流日志，以及更好地了解网络流量。 现在，你已设置了 Grafana 实例并将其连接到了 Azure，可以继续尽情了解它所提供的其他功能了。
 

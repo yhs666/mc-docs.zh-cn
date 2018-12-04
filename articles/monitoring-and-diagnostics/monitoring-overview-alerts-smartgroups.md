@@ -6,15 +6,15 @@ services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 origin.date: 05/15/2018
-ms.date: 11/05/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
 ms.component: alerts
-ms.openlocfilehash: 8293bdc152e3f8ee991c1a25bf4c77baa6da189b
-ms.sourcegitcommit: 92a941c705f0a76483dea5b708054c53e8c9666b
+ms.openlocfilehash: 7864e048b4f701c625f968ac98ba649b98bb7381
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50235349"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675008"
 ---
 # <a name="smart-groups"></a>智能组
 处理警报时面临的一个常见难题是筛选噪音以找出真正重要的事项 - 智能组旨在解决该问题。  
@@ -45,7 +45,7 @@ ms.locfileid: "50235349"
 
 选择某个智能组时，会显示“智能组详细信息”页。 该页提供智能组的详细信息（包括创建该组的原因），并可在其中更改智能组的状态。
 
-![智能组详细信息](media/monitoring-overview-unified-alerts/smart-group-detail.png)
+![智能组详细信息](media/monitoring-overview-alerts-smartgroups/smart-group-detail.png)
 
 “智能组详细信息”页包括以下部分。
 

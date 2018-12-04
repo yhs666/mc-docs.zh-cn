@@ -2,20 +2,20 @@
 title: 用于 Azure 流分析的管理 .NET SDK
 description: 流分析管理 .NET SDK 入门。 了解如何设置和运行分析作业。 创建项目、输入、输出和转换。
 services: stream-analytics
-author: rockboyfor
-ms.author: v-yeche
+author: lingliw
+ms.author: v-lingwu
 manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 03/06/2017
-ms.date: 06/18/2018
-ms.openlocfilehash: efa3bd0a97112728395a8597d943ee0955bbce10
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.date: 11/26/2018
+ms.openlocfilehash: 1de2255639c442e2a6b09cc3a36e04b32e821e6d
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416834"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675224"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>管理 .NET SDK：设置和运行使用 .NET 版 Azure 流分析 API 的分析作业
 了解如何通过管理 .NET SDK 设置和运行使用 .NET 版流分析 API 的分析作业。 设置项目、创建输入和输出源、转换，以及开始和停止作业。 就分析作业来说，可以从 Blob 存储或事件中心流式传输数据。
@@ -121,7 +121,7 @@ Azure 流分析是一种完全托管的服务，可以在云中通过流式数�
     };
    ```
 
-resourceGroupName 变量的值应该与你在先决条件步骤中创建或选取的资源组的名称相同。
+**resourceGroupName** 变量的值应该与你在先决条件步骤中创建或选取的资源组的名称相同。
 
 若要自动执行凭据演示方面的作业创建，请参阅[使用 Azure Resource Manager 对服务主体进行身份验证](../azure-resource-manager/resource-group-authenticate-service-principal.md)。
 
@@ -265,8 +265,7 @@ resourceGroupName 变量的值应该与你在先决条件步骤中创建或选�
    ```
 
 ## <a name="delete-a-stream-analytics-job"></a>删除流分析作业
-
-            **Delete** 方法会删除作业以及基础性的子资源，包括作业的输入、输出和转换。
+**Delete** 方法会删除作业以及基础性的子资源，包括作业的输入、输出和转换。
 
    ```
    // Delete a streaming job
@@ -296,13 +295,13 @@ resourceGroupName 变量的值应该与你在先决条件步骤中创建或选�
 [azure.blob.storage.use]: /storage/storage-dotnet-how-to-use-blobs/
 
 [azure.event.hubs]: https://www.azure.cn/home/features/event-hubs/
-[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
+[azure.event.hubs.developer.guide]: https://msdn.microsoft.com/library/azure/dn789972.aspx
 
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.forum]: http://go.microsoft.com/fwlink/?LinkId=512151
+[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
+[stream.analytics.forum]: https://go.microsoft.com/fwlink/?LinkId=512151
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-<!-- Not Avaialble on [stream.analytics.developer.guide]: stream-analytics-developer-guide.md --> [stream.analytics.scale.jobs]：stream-analytics-scale-jobs.md [stream.analytics.query.language.reference]：http://go.microsoft.com/fwlink/?LinkID=513299 [stream.analytics.rest.api.reference]：http://go.microsoft.com/fwlink/?LinkId=5173011
+<!-- Not Avaialble on [stream.analytics.developer.guide]: stream-analytics-developer-guide.md --> [stream.analytics.scale.jobs]：stream-analytics-scale-jobs.md [stream.analytics.query.language.reference]： https://go.microsoft.com/fwlink/?LinkID=513299 [stream.analytics.rest.api.reference]： https://go.microsoft.com/fwlink/?LinkId=5173011
 
 <!--Update_Description: update meta properties, wording update, update link -->

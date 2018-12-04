@@ -3,21 +3,21 @@ title: Azure Functions 的移动应用绑定
 description: 了解如何在 Azure Functions 中使用 Azure 移动应用绑定。
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: Azure Functions，函数，事件处理，动态计算，无服务体系结构
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 11/21/2017
-ms.date: 10/18/2018
+ms.date: 11/22/2018
 ms.author: v-junlch
-ms.openlocfilehash: 34a9b2ea8e77f81bd55a4db0b1f8dd0b90796057
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 36033e5e1964058b162029e31f89f333e5f7e087
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453789"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672542"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Azure Functions 的移动应用绑定 
 
@@ -328,4 +328,4 @@ public static object Run(
 > [!div class="nextstepaction"]
 > [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
-<!-- Update_Description: wording update --
+<!-- Update_Description: update metedata properties -->

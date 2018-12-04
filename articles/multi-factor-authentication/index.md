@@ -13,11 +13,11 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: v-junlch
 ms.openlocfilehash: 330a3ab9f7f7c915a564215d43412203a3018685
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20182064"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667166"
 ---
 # <a name="multi-factor-authentication-documentation"></a>多重身份验证文档
 

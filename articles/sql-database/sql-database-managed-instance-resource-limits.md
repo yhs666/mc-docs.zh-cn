@@ -9,16 +9,16 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab, jovanpop
+ms.reviewer: carlrab, jovanpop, sachinp
 manager: digimobile
-origin.date: 10/04/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: f4ceccd5b345857bedfed950e3c06179fc9cc11f
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+origin.date: 10/17/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: 6029f84315643d10bccc7447ea4cc7fc7a785ba8
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135949"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673149"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL 数据库托管实例资源限制概述
 

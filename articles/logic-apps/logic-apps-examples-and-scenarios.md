@@ -1,6 +1,6 @@
 ---
 title: 示例和常见方案 - Azure 逻辑应用
-description: 通过示例、方案、教程和演练深入了解逻辑应用
+description: Azure 逻辑应用的示例、方案、教程和演练
 services: logic-apps
 author: jeffhollan
 manager: anneta
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 origin.date: 01/31/2018
 ms.author: v-yiso
-ms.date: 10/15/2018
-ms.openlocfilehash: 49535e30322c5e95379b77df64f85fe97934797d
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.date: 12/10/2018
+ms.openlocfilehash: 6cac23fe23de8b4dd5d68d793e27ceed4fed1115
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455153"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674852"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Azure 逻辑应用的常见方案、示例、教程和演练
 
@@ -76,7 +76,6 @@ ms.locfileid: "47455153"
 * [工作流中的授权错误和异常处理](../logic-apps/logic-apps-exception-handling.md)
 * [用例：医疗保健公司如何将逻辑应用异常处理用于 HL7 FHIR 工作流](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 * [在现有的逻辑应用上启用监视、日志记录和警报](../logic-apps/logic-apps-monitor-your-logic-apps.md)
-* [创建逻辑应用时启用监视和诊断日志记录](../logic-apps/logic-apps-monitor-your-logic-apps-oms.md)
 
 ## <a name="deploy-and-manage-logic-apps"></a>部署和管理逻辑应用
 
@@ -101,6 +100,7 @@ ms.locfileid: "47455153"
 * [使用 Azure Serverless 创建实时社交仪表板](../logic-apps/logic-apps-scenario-social-serverless.md)
 * [从逻辑应用调用 Azure 函数](../logic-apps/logic-apps-azure-functions.md)
 * [教程：使用 Azure Functions 触发逻辑应用](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
+* [教程：通过连接 IoT 中心和邮箱的 Azure 逻辑应用进行 IoT 远程监视并发送通知](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 * [博客：从逻辑应用调用 SOAP 终结点](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 
 ## <a name="end-to-end-scenarios"></a>端到端方案

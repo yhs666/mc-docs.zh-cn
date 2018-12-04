@@ -9,15 +9,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 09/07/2018
+origin.date: 11/05/2018
 ms.author: v-yiso
-ms.date: 10/15/2018
-ms.openlocfilehash: 3e21c0653c68b20050109e1f1653d7c981b8879e
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.date: 12/10/2018
+ms.openlocfilehash: 1e05da9b7ca08322439462c6eb12f35b1a00d260
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455182"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675058"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>使用 PowerShell 配置 ExpressRoute 和站点到站点共存连接
 > [!div class="op_single_selector"]
@@ -31,7 +31,9 @@ ms.locfileid: "47455182"
 * 可以将站点到站点 VPN 配置为 ExpressRoute 的安全故障转移路径。 
 * 另外，还可以使用站点到站点 VPN 连接到未通过 ExpressRoute 连接的站点。 
 
-本文中介绍了这两种方案的配置步骤。 本文适用于 Resource Manager 部署模型并使用 PowerShell。 也可以使用 Azure 门户配置这些方案，但文档尚不可用。
+本文中介绍了这两种方案的配置步骤。 本文适用于 Resource Manager 部署模型并使用 PowerShell。 也可以使用 Azure 门户配置这些方案，但文档尚不可用。 可以先配置任一网关。 通常，添加新网关或网关连接时不会导致停机。
+
+
 
 >[!NOTE]
 >如果想要通过 ExpressRoute 线路创建站点到站点 VPN，请参阅[此文](site-to-site-vpn-over-microsoft-peering.md)。
@@ -176,7 +178,7 @@ ms.locfileid: "47455182"
   $gwConfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name "ERGatewayIpConfig" -SubnetId $gwSubnet.Id -PublicIpAddressId $gwIP.Id
   $gw = New-AzureRmVirtualNetworkGateway -Name "ERGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "ExpressRoute" -GatewaySku Standard
   ```
-11. 将 ExpressRoute 网关连接到 ExpressRoute 线路。 完成此步骤后，则已通过 ExpressRoute 建立本地网络与 Azure 之间的连接。 有关链接操作的详细信息，请参阅[将 VNet 链接到 ExpressRoute](expressroute-howto-linkvnet-arm.md)。
+11. 将 ExpressRoute 网关连接到 ExpressRoute 线路。 完成此步骤后，则已通过 ExpressRoute 建立本地网络与 Azure 之间的连接。 有关链接操作的详细信息，请参阅 [将 VNet 链接到 ExpressRoute](expressroute-howto-linkvnet-arm.md)。
 
   ```powershell
   $ckt = Get-AzureRmExpressRouteCircuit -Name "YourCircuit" -ResourceGroupName "YourCircuitResourceGroup"

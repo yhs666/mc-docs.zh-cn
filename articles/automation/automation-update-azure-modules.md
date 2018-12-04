@@ -6,16 +6,16 @@ ms.service: automation
 ms.component: process-automation
 author: WenJason
 ms.author: v-jay
-origin.date: 09/19/2018
-ms.date: 11/05/2018
+origin.date: 11/19/2018
+ms.date: 11/26/2018
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: a05b45423dbe7232cb6d1bf942a4dc5a5fb8ad46
-ms.sourcegitcommit: d26e5d0d625a61d6b130800d10c81f47c83fb1e0
+ms.openlocfilehash: 38a4b9d14eb1137ded298b6fcdac8a302693d768
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50745503"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672835"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>如何在 Azure 自动化中更新 Azure PowerShell 模块
 

@@ -1,6 +1,6 @@
 ---
 title: Azure SQL 数据库性能优化指南 | Microsoft Docs
-description: 了解如何使用建议提高 Azure SQL 数据库查询性能。
+description: 了解如何使用建议手动优化 Azure SQL 数据库查询性能。
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -11,47 +11,27 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 10/05/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: 1efc1e49d6c1eb16c98985d3a27d6250014e675e
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+origin.date: 10/22/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: d82173b22f4c9433b3aa81a3237d6f4a1b8c5385
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135832"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673160"
 ---
-# <a name="tuning-performance-in-azure-sql-database"></a>在 Azure SQL 数据库中优化性能
+# <a name="manual-tune-query-performance-in-azure-sql-database"></a>手动优化 Azure SQL 数据库中的查询性能
 
-Azure SQL 数据库提供[建议](sql-database-advisor.md)，可用于提高数据库的性能，或者让 Azure SQL 数据库[自动适应你的应用程序](sql-database-automatic-tuning.md)，并应用可改善工作负荷性能的变更。
+如果你确定遇到了与 SQL 数据库相关的性能问题，则以下文章可为你提供帮助：
 
-如果你未收到任何适用的建议，但仍然遇到性能问题，可以使用以下方法来提高性能：
-
-- 在[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)或[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)中增加服务层，为数据库提供更多资源。
 - 优化应用程序，应用某些可以提高性能的最佳做法。
 - 通过更改索引和查询来优化数据库，以便更有效地处理数据。
 
-这些是手动方法，因为你需要确定满足需求所需的资源量。 否则，你需要重写应用程序或数据库代码并部署更改。
-
-## <a name="increasing-service-tier-of-your-database"></a>提高数据库服务层
-
-Azure SQL 数据库提供了[两种可供选择的购买模型](sql-database-service-tiers.md)：[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)和[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)。 每个服务层可严格隔离 SQL 数据库可以使用的资源，并保证相应服务层的可预测性能。 本文指导用户为其应用程序选择服务层， 并讨论如何通过多种方式调整应用程序，以便充分利用 Azure SQL 数据库。 每个服务层都有其自己的[资源限制](sql-database-resource-limits.md)。 有关详细信息，请参阅[基于 vCore 的资源限制](sql-database-vcore-resource-limits-single-databases.md)和[基于 DTU 的资源限制](sql-database-dtu-resource-limits-single-databases.md)。
-
-> [!NOTE]
-> 本文侧重于 Azure SQL 数据库中单一数据库的性能指南。 有关弹性池的性能指南，请参阅[弹性池的价格和性能注意事项](sql-database-elastic-pool-guidance.md)。 但请注意，可以将本文的许多优化建议应用到弹性池中的数据库，获得类似的性能优势。
-
-SQL 数据库所需的服务层取决于每个资源维度的峰值负载要求。 某些应用程序对于某种资源仅少量使用，但对于其他资源需要大量使用。
-
-### <a name="service-tier-capabilities-and-limits"></a>服务层功能和限制
-
-在每个服务层，由你设置计算大小，因此可以灵活地只为所需的容量付费。 你可以根据工作负荷变化向上或向下[调整容量](sql-database-single-database-scale.md)。 例如，如果数据库工作负荷在返校购物季期间很高，则可在设定的时间内（七月到九月）增加数据库的计算大小， 而在高峰季结束之后降低性能级别。 可以按业务的季节性因素优化云环境，将支出降至最低。 此模型也很适合软件产品发布环节。 测试团队可在进行测试运行时分配容量，一旦完成测试，即释放该容量。 在容量请求模型中，只为所需容量付费，而避免在很少使用的专用资源上支出。
-
-### <a name="the-purpose-of-service-tiers"></a>服务层的目的
-
-尽管每个数据库工作负荷可能各不相同，但服务层的目的就是在不同的计算大小下提供性能可预测性。 具有大规模数据库资源需求的客户可以在更专用的计算环境下工作。
+本文假定你已完成了 Azure SQL 数据库[数据库顾问建议](sql-database-advisor.md)和 Azure SQL 数据库[自动优化建议](sql-database-automatic-tuning.md)。 它还假定你已查看了[监视和优化概述](sql-database-monitor-tune-overview.md)以及与性能问题故障排除相关的文章。 此外，本文还假定你没有 CPU 资源，与运行相关的性能问题可以通过提升计算大小或服务层来向数据库提供更多资源来解决。
 
 ## <a name="tune-your-application"></a>优化应用程序
 
-在传统的本地 SQL Server 中，进行初始容量规划的过程经常与在生产中运行应用程序的过程分离。 首先购买硬件和产品许可证，然后进行性能优化。 使用 Azure SQL 数据库时，最好是交替完成应用程序的运行和优化过程。 使用按需支付容量的模型，可以优化应用程序以使用目前所需的最少资源，而不是靠推测应用程序的未来增长计划过度预配硬件（这通常是不正确的做法）。 某些客户可能不选择优化应用程序，而是选择过度预配硬件资源。 如果不想在繁忙时段更改关键应用程序，不妨使用此方法。 但是，在使用 Azure SQL 数据库中的服务层时，优化应用程序可以使资源需求降至最低并减少每月的费用。
+在传统的本地 SQL Server 中，进行初始容量规划的过程经常与在生产中运行应用程序的过程分离。 首先购买硬件和产品许可证，然后进行性能优化。 使用 Azure SQL 数据库时，最好是交替完成应用程序的运行和优化过程。 使用按需支付容量的模型，可以优化应用程序以使用目前所需的最少资源，而不是靠推测应用程序的未来增长计划过度预配硬件（这通常是不正确的做法）。 有些客户可能选择不优化应用程序，而是选择过度配置硬件资源。 如果不想在繁忙时段更改关键应用程序，不妨使用此方法。 但是，在使用 Azure SQL 数据库中的服务层时，优化应用程序可以使资源需求降至最低并减少每月的费用。
 
 ### <a name="application-characteristics"></a>应用程序特征
 
@@ -76,17 +56,6 @@ SQL 数据库所需的服务层取决于每个资源维度的峰值负载要求�
 ## <a name="tune-your-database"></a>优化数据库
 
 在本节中，我们将了解一些用于优化 Azure SQL 数据库的技术，以获取应用程序的最佳性能，并以尽可能小的计算大小运行。 有些方法可与传统的 SQL Server 优化最佳实践搭配使用，但有些方法专用于 Azure SQL 数据库。 在某些情况下，可通过检查数据库使用的资源找到要进一步优化的区域，扩展传统的 SQL Server 方法，使这些方法也可在 Azure SQL 数据库中使用。
-
-### <a name="identify-performance-issues-using-azure-portal"></a>使用 Azure 门户识别性能问题
-
-Azure 门户中的以下工具可帮助分析和解决 SQL 数据库的性能问题：
-
-- [查询性能见解](sql-database-query-performance.md)
-- [SQL 数据库顾问](sql-database-advisor.md)
-
-Azure 门户有这两种工具及其使用方法的详细说明。 若要有效地诊断和纠正问题，建议首先在 Azure 门户中尝试这些工具。 建议使用手动优化方法来解决索引缺失和查询优化问题，这一点我们随后会用特例进行介绍。
-
-若要详细了解如何在 Azure SQL 数据库中发现问题，请参阅 [Azure 门户中的性能监视](sql-database-monitor-tune-overview.md)和[使用 DMV 监视数据库](sql-database-monitoring-with-dmvs.md)这两篇文章。
 
 ### <a name="identifying-and-adding-missing-indexes"></a>识别和添加缺失的索引
 

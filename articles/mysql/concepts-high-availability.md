@@ -4,22 +4,23 @@ description: 本主题介绍了使用 Azure Database for MySQL 时的高可用�
 services: mysql
 author: WenJason
 ms.author: v-jay
-manager: kfile
+manager: digimobile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: c12ac06bf5d4b559a43e409c289ef1706beced6d
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+origin.date: 02/28/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: e9f0c1d90f5e4f2bdc1f10e3dd95478e50b78ca9
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723075"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672931"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的高可用性概念
 
 > [!NOTE]
-> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql/)。
+> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
 
 Azure Database for MySQL 服务提供有保证的高级别可用性。 有资金支持的服务级别协议 (SLA) 在正式版本发布后的可用性为 99.99%。 使用此服务期间，几乎没有应用程序故障时间。
 
@@ -39,4 +40,5 @@ Azure Database for MySQL 服务提供有保证的高级别可用性。 有资金
 执行缩放操作期间，数据库连接会中断。 客户端应用程序的连接中断，未提交的未结事务也会遭取消。 在客户端应用程序重试连接或建立新连接后，网关便会将连接定向到新设置大小的实例。 
 
 ## <a name="next-steps"></a>后续步骤
-- 有关该服务的概述，请参阅 [Azure Database for MySQL 概述](overview.md)
+- 有关该服务的概述，请参阅  [Azure Database for MySQL 概述](overview.md)
+- 有关重试逻辑的概述，请参阅[处理 Azure Database for MySQL 的暂时性连接错误](concepts-connectivity.md)

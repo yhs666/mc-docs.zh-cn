@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/20/2017
-ms.date: 06/04/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 39e56bcb956aaa54fc1d7c73428814de0d3733e7
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 634eefeec04e4b63ee72f318617bfab3905ea45a
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702807"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674330"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>有关 Windows 虚拟机的常见问题
 本文讨论了在 Azure 中使用 Resource Manager 部署模型创建的 Windows 虚拟机的一些常见问题。 有关本主题的 Linux 版本，请参阅[有关 Linux 虚拟机的常见问题](../linux/faq.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
@@ -29,6 +29,7 @@ ms.locfileid: "34702807"
 ## <a name="what-can-i-run-on-an-azure-vm"></a>我可以在 Azure VM 上运行什么程序？
 所有订户都可以在 Azure 虚拟机上运行服务器软件。 有关在 Azure 中运行 Microsoft 服务器软件的支持策略的信息，请参阅 [Microsoft server software support for Azure Virtual Machines](https://support.microsoft.com/kb/2721672)（对 Azure 虚拟机中的 Microsoft 服务器软件的支持）
 
+<!-- Not Available on Windows 7, Windows 8.1, and Windows 10-->
 <!-- Not Available on MSDN Azure benefit subscribers and MSDN Dev -->
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>使用虚拟机时，我可以使用多少存储？
 每个数据磁盘的容量高达 4 TB (4,095 GB)。 可以使用的数据磁盘数取决于虚拟机大小。 有关详细信息，请参阅[虚拟机大小](sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
@@ -137,4 +138,5 @@ Azure 存储帐户还可为操作系统磁盘和任何数据磁盘提供存储�
         <td>Password22</td>
     </tr>
 </table>
+
 <!--Update_Description: wording update, wording update -->

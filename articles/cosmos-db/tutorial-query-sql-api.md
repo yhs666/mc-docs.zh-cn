@@ -11,14 +11,14 @@ ms.custom: tutorial-develop, mvc
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 05/10/2017
-ms.date: 08/13/2018
+ms.date: 12/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9213c89203b187a0f19568047d747d98820d69d8
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.openlocfilehash: e3a1b87d87c6bc662b4ffc6ed03d08b6215ebbc2
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41704935"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674677"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>教程：使用 SQL API 查询 Azure Cosmos DB
 
@@ -66,7 +66,7 @@ Azure Cosmos DB [SQL API](documentdb-introduction.md) 支持使用 SQL 查询文
 通过 [REST API 和 SDK](sql-api-sdk-dotnet.md) 或[查询演练](https://www.documentdb.com/sql/demo)（它对现有示例数据集运行查询），可在 Azure 门户中使用数据资源管理器运行查询。
 
 有关 SQL 查询的详细信息，请参阅：
-* [SQL 查询和 SQL 语法](sql-api-sql-query.md)
+* [SQL 查询和 SQL 语法](how-to-sql-query.md)
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -139,4 +139,5 @@ Azure Cosmos DB [SQL API](documentdb-introduction.md) 支持使用 SQL 查询文
 
 > [!div class="nextstepaction"]
 > [全局分发数据](tutorial-global-distribution-sql-api.md)
+
 <!-- Update_Description: wording update, update link -->

@@ -3,7 +3,7 @@ title: 在 Azure 规模集模板中引用自定义映像 | Microsoft Docs
 description: 了解如何向现有 Azure 虚拟机规模集模板添加自定义映像
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/10/2017
-ms.date: 01/31/2018
+ms.date: 11/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: dc443392d7e36eda4eb92b176ece2ba942f2e539
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: a34d26b076b4caa942092da33936303d66932be7
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29285463"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673121"
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>向 Azure 规模集模板添加自定义映像
 
@@ -120,4 +120,4 @@ ms.locfileid: "29285463"
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

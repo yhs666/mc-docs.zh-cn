@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: tutorial
 origin.date: 06/01/2018
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 5cb285b36d7b0b0a3aa5c170fec06c9d205e4eba
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.openlocfilehash: ddf98ccf16dadbe0c1b39247e43751c7c0942fdb
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034900"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674801"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli"></a>教程：使用 Azure CLI 在 Linux 上创建虚拟机规模集和部署高度可用的应用
 
@@ -262,4 +262,4 @@ az vmss disk detach \
 > [!div class="nextstepaction"]
 > [对虚拟机进行负载均衡](tutorial-load-balancer.md)
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

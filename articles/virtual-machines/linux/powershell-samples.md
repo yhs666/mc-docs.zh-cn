@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/01/2017
-ms.date: 07/30/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 39baa040e67a9977d2e240db63f81713c807327d
-ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
+ms.openlocfilehash: 2c239aa2773afe69977ad03bf0f9f646aef8df35
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39261868"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674311"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Azure 虚拟机 PowerShell 示例
 
@@ -34,5 +34,6 @@ ms.locfileid: "39261868"
 | [创建已启用 Docker 的 VM](./../scripts/virtual-machines-linux-powershell-sample-create-docker-host.md) | 创建一个虚拟机，将此 VM 配置为 Docker 主机，并运行 NGINX 容器。 |
 | [创建 VM 并运行配置脚本](./../scripts/virtual-machines-linux-powershell-sample-create-vm-nginx.md) | 创建一个虚拟机，并使用 Azure 自定义脚本扩展安装 NGINX。 |
 | [创建安装有 WordPress 的 VM](./../scripts/virtual-machines-linux-powershell-sample-create-vm-wordpress.md) | 创建一个虚拟机，并使用 Azure 自定义脚本扩展安装 WordPress。 |
+
 <!-- Not Available on virtual-machines-linux-powershell-sample-create-vm-oms.md -->
 <!-- Update_Description: update meta properties, wording update -->

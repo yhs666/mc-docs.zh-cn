@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/30/2017
-ms.date: 10/15/2018
+ms.date: 12/10/2018
 ms.author: v-yiso
-ms.openlocfilehash: 79e71094deb3238dd735e6820a49f0ba195cfee0
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.openlocfilehash: c8e413d06bc891b765396a83d5f28ef93553dc82
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455283"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674291"
 ---
 # <a name="overview-azure-serverless-with-azure-logic-apps-and-azure-functions"></a>概述：使用 Azure 逻辑应用和 Azure Functions 的 Azure 无服务器
 
-无服务器应用程序提供了以下优势：部署速度快、减少了所需的代码，并且缩放简单。  本文将探讨无服务器解决方案的各种属性以及 Azure 无服务器产品/服务。
+[无服务器](https://azure.microsoft.com/solutions/serverless/)应用程序提供以下优势：部署速度快、减少了所需代码，并且缩放简单。  本文将探讨无服务器解决方案的各种属性以及 Azure 无服务器产品/服务。
 
 ## <a name="what-is-serverless"></a>什么是无服务器？
 

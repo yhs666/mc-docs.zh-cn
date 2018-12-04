@@ -6,14 +6,14 @@ services: monitoring-and-diagnostics
 ms.service: monitoring-and-diagnostics
 ms.topic: conceptual
 origin.date: 02/22/2016
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 66ec7554929eeb8832dcce68d098feb72e546187
-ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
+ms.openlocfilehash: 507d82a5aed7a4bcf1b0c42cd98a2773b070a502
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652262"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674629"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>使用 VM 规模集的 Resource Manager 模板的高级自动缩放配置
 可以根据性能指标阈值，按循环计划或按特定日期扩展和缩减虚拟机规模集。 还可以为缩放操作配置电子邮件和 webhook 通知。 本文演示了在 VM 规模集上使用 Resource Manager 模板配置以上所有对象的示例。
@@ -58,11 +58,11 @@ ms.locfileid: "49652262"
 
 5. 请确保在资源浏览器中处于 **读/写** 模式。
 
-    ![Autoscalewad，默认自动缩放设置](./media/insights-advanced-autoscale-vmss/autoscalewad.png)
+    ![Autoscalewad，默认自动缩放设置](media/insights-advanced-autoscale-virtual-machine-scale-sets/autoscalewad.png)
 
 6. 单击“编辑”。 **替换** 为以下配置：
 
-    ![配置文件](./media/insights-advanced-autoscale-vmss/profiles.png)
+    ![配置文件](media/insights-advanced-autoscale-virtual-machine-scale-sets/profiles.png)
 
     ```
     {

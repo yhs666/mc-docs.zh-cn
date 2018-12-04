@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.workload: infrastructure-services
 origin.date: 09/18/2018
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 19d2d68a9bfb15f004434ea3c33c7f8d1fa5203a
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: aafa2f777eb8d72ab672daa7e881f4237d828207
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453936"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675101"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>排查 API 限制错误 
 
@@ -89,3 +89,5 @@ Content-Type: application/json; charset=utf-8
 ## <a name="next-steps"></a>后续步骤
 
 若要详细了解 Azure 中的其他服务的重试指南，请参阅[特定服务的重试指南](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)
+
+<!-- Update_Description: wording update, update link -->

@@ -8,15 +8,15 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
 origin.date: 07/14/2018
-ms.date: 10/17/2018
+ms.date: 11/21/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 0551734d8884ce9be16f94372b3ac4a23dc3ba5a
-ms.sourcegitcommit: 4ead6b1d3527373b63c90680b6400a2e95b4064e
+ms.openlocfilehash: da2f9f8237e0c070536ffb8f23238124658e52d1
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49374962"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673145"
 ---
 # <a name="tutorial-create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>教程：通过 Azure CLI 使用 SSL 终端创建应用程序网关
 
@@ -154,15 +154,17 @@ az vmss extension set `
 
 ## <a name="test-the-application-gateway"></a>测试应用程序网关
 
-若要获取应用程序网关的公共 IP 地址，可以使用 [az network public-ip show](/cli/network/public-ip#az-network_public_ip_show)。 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。
+若要获取应用程序网关的公共 IP 地址，可以使用 [az network public-ip show](/cli/network/public-ip#az-network_public_ip_show)。
 
-```azurepowershell
+```azurecli
 az network public-ip show `
   --resource-group myResourceGroupAG `
   --name myAGPublicIPAddress `
   --query [ipAddress] `
   --output tsv
 ```
+
+复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。 就此示例来说，URL 为 **https://52.170.203.149**。
 
 ![安全警告](./media/tutorial-ssl-cli/application-gateway-secure.png)
 
@@ -179,14 +181,6 @@ az group delete --name myResourceGroupAG --location chinanorth
 ```
 
 ## <a name="next-steps"></a>后续步骤
-
-在本教程中，你已学习了如何执行以下操作：
-
-> [!div class="checklist"]
-> * 创建自签名证书
-> * 设置网络
-> * 使用证书创建应用程序网关
-> * 使用默认后端池创建虚拟机规模集
 
 > [!div class="nextstepaction"]
 > [创建托管多个网站的应用程序网关](./tutorial-multiple-sites-cli.md)

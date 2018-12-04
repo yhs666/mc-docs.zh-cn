@@ -2,20 +2,20 @@
 title: 排查 Azure 流分析中的常见问题
 description: 本文介绍 Azure 流分析中的几个常见问题及其排查步骤。
 services: stream-analytics
-author: rockboyfor
+author: lingliw
 manager: digimobile
-ms.author: v-yeche
+ms.author: v-lingwu
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 04/12/2018
-ms.date: 09/30/2018
-ms.openlocfilehash: 81e85ffd9d3e8c258605940cab5933719feaa891
-ms.sourcegitcommit: 432984d85afe6f3da8f211bae0fa98a556785ee8
+ms.date: 11/26/2018
+ms.openlocfilehash: 4e45e7cc38ea6bde40017c1d9d78fac93ebabd01
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455390"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674143"
 ---
 # <a name="common-issues-in-stream-analytics-and-steps-to-troubleshoot"></a>流分析的常见问题以及故障排除的步骤
 

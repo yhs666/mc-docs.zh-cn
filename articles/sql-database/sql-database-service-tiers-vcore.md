@@ -11,30 +11,30 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: sashan, moslake
 manager: digimobile
-origin.date: 10/12/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: f0a5b7b817abffc1e5788e73830cdcf1b7794f2f
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+origin.date: 10/22/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: 7fe43c10af4f7576706a6c251d578f922e288350
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135820"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674247"
 ---
-# <a name="vcore-service-tiers-azure-hybrid-use-benefit-and-migration"></a>vCore 服务层、Azure 混合使用权益和迁移
+# <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>vCore 服务层、Azure 混合权益和迁移
 
 使用基于 vCore 的购买模型，可以单独缩放计算和存储资源，匹配本地性能，以及优化价格。 它还允许你选择硬件世代：
 
 - 第 4 代 - 最多 24 个基于 Intel E5-2673 v3 (Haswell) 2.4 GHz 处理器的逻辑 CPU，vCore = 1 PP（物理核心），每核心 7 GB，附加了 SSD
 - 第 5 代 - 最多 80 个基于 Intel E5-2673 v4 (Broadwell) 2.3 GHz 处理器的逻辑 CPU，vCore=1 LP（超线程）， 每核心 5.5 GB，快速 eNVM SSD
 
-vCore 模式还允许使用[面向 SQL Server 的 Azure 混合使用权益](https://azure.cn/pricing/hybrid-benefit/)来节省成本。
+vCore 模式还允许使用[适用于 SQL Server 的 Azure 混合权益](https://azure.cn/pricing/hybrid-benefit/)来节省成本。
 
 > [!NOTE]
 > 有关基于 DTU 的服务层的信息，请参阅[基于 DTU 的服务层](sql-database-service-tiers-dtu.md)。 若要了解如何区分基于 DTU 的服务层和基于 vCore 的服务层，请参阅 [Azure SQL 数据库购买模型](sql-database-service-tiers.md)。
 
 ## <a name="service-tier-characteristics"></a>服务层特征
 
-vCore 模型提供了两个服务层：常规用途和业务关键。 服务层根据一系列计算大小、高可用性设计、故障隔离、存储类型和 IO 范围进行区分。 客户必须单独配置所需的存储和备份保留期。
+vCore 模型提供了两个服务层：常规用途和业务关键。 服务层根据一系列计算大小、高可用性设计、故障隔离、存储类型和 IO 范围进行区分。 客户必须单独配置所需的存储和备份保留期。 必须单独配置所需的存储和备份保持期。 在 Azure 门户中，转到“服务器”（而不是数据库）>“托管备份”>“配置策略”>“时间点还原配置”>“7 - 35 天”。
 
 下表可帮助你了解这两个层之间的差别：
 
@@ -58,9 +58,9 @@ vCore 模型提供了两个服务层：常规用途和业务关键。 服务层�
 
 有关常见问题的解答，请参阅 [SQL 数据库常见问题解答](sql-database-faq.md)。
 
-## <a name="azure-hybrid-use-benefit"></a>Azure 混合使用权益
+## <a name="azure-hybrid-benefit"></a>Azure 混合权益
 
-在基于 vCore 的购买模型中，可以使用[面向 SQL Server 的 Azure 混合使用权益](../virtual-machines/windows/hybrid-use-benefit-licensing.md)交换现有许可证，以获得 SQL 数据库的折扣价格。 借助这项 Azure 权益，可以使用附带软件保障的本地 SQL Server 许可证，将 Azure SQL 数据库的成本最多节省 30%。
+在基于 vCore 的购买模型中，可以使用[适用于 SQL Server 的 Azure 混合权益](../virtual-machines/windows/hybrid-use-benefit-licensing.md)交换现有许可证，以获得 SQL 数据库的折扣价格。 借助这项 Azure 权益，可以使用附带软件保障的本地 SQL Server 许可证，将 Azure SQL 数据库的成本最多节省 30%。
 
 ![定价](./media/sql-database-service-tiers/pricing.png)
 
@@ -106,5 +106,5 @@ vCore 模型提供了两个服务层：常规用途和业务关键。 服务层�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关适用于单一数据库的特定计算大小和存储大小选项的详细信息，请参阅[适用于单一数据库的 SQL 数据库基于 vCore 的资源限制](sql-database-vcore-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)。
-- 若要详细了解适用于弹性池的特定计算大小和存储大小选项，请参阅[适用于弹性池的 SQL 数据库基于 vCore 的资源限制](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes)。
+- 有关适用于单一数据库的特定计算大小和存储大小选项的详细信息，请参阅[适用于单一数据库的 SQL 数据库基于 vCore 的资源限制](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)。
+- 若要详细了解适用于弹性池的特定计算大小和存储大小选项，请参阅[适用于弹性池的 SQL 数据库基于 vCore 的资源限制](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)。

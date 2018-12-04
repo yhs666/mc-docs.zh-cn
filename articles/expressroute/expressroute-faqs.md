@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 08/29/2018
 ms.author: v-yiso
 ms.date: 11/12/2018
-ms.openlocfilehash: d53dec0e5a5ca6c6c63358d8dfb24b09f13ff277
-ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
+ms.openlocfilehash: 08cb1393dd550baf3b6cd835e95ec1add60e68ed
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50919119"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674604"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute 常见问题
 
@@ -39,7 +39,7 @@ ExpressRoute 连接不通过公共 Internet 。 与通过 Internet 的典型连�
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>如果我购买了具有给定带宽的 ExpressRoute 线路，是否可以根据需要提升到更高的速度？
 
-是的。 ExpressRoute 线路的配置允许免费将速度提升到所购带宽限制的两倍。 请咨询服务提供商，确定他们是否支持此功能。
+ 是的。 ExpressRoute 线路的配置允许免费将速度提升到所购带宽限制的两倍。 请咨询服务提供商，确定他们是否支持此功能。
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>能否同时与虚拟网络和其他 Azure 服务使用同一专用网络连接？
 
@@ -326,10 +326,3 @@ Office 365 服务要求启用高级版外接程序。 有关费用，请参阅[�
 
 * 在 2017 年 8 月 1 日或之后配置的 ExpressRoute 线路的 Microsoft 对等互连的任何前缀只在将路由筛选器附加到线路之后才会播发。 默认情况下，不会显示任何前缀。
 
-## <a name="expressRouteDirect"></a>ExpressRoute Direct（预览版）
-
-[!INCLUDE [ExpressRoute Direct](../../includes/expressroute-direct-faq-include.md)]
-
-## <a name="globalreach"></a>Global Reach（预览版）
-
-[!INCLUDE [Global Reach](../../includes/expressroute-global-reach-faq-include.md)]

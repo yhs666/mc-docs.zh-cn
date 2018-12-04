@@ -1,23 +1,24 @@
 ---
 title: 管理多个具有弹性池的 SQL 数据库 - Azure | Microsoft 文档
 description: 使用弹性池管理和缩放多个 SQL 数据库（成千上万的）。 可以按一个价格将资源分布到需要的任何位置。
-keywords: 多个数据库, 数据库资源, 数据库性能
 services: sql-database
-author: WenJason
-manager: digimobile
 ms.service: sql-database
 ms.subservice: elastic-pool
-ms.custom: DBs & servers
-origin.date: 09/14/2018
-ms.date: 10/15/2018
-ms.author: v-jay
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.openlocfilehash: 0bfa59b286fad7a351a98eaa0028881afc4ae754
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+author: WenJason
+ms.author: v-jay
+ms.reviewer: ninarn, carlrab
+manager: digimobile
+origin.date: 10/15/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: 99fbaea15777509fb5116763914755703a413052
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913900"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672756"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>弹性池有助于管理和缩放多个 Azure SQL 数据库
 
@@ -106,16 +107,14 @@ SaaS 开发人员构建在由多个数据库组成的大规模数据层上的应
 
 有关每个资源模型提供的服务层，请参阅[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)或[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)。
 
-SQL数据库自动评估现有 SQL 数据库服务器中数据库的历史资源使用率，并在 Azure 门户中推荐适当的池配置。 除推荐外，内置体验还估算服务器上自定义组数据库的 eDTU 使用率。 这样便可以执行“假设”分析，其方法为：通过交互方式将数据库添加到池并删除它们以在提交所做的更改之前获取资源使用率分析和调整建议。 相关操作方式，请参阅[监视、管理弹性池并调整其大小](#monitor-an-elastic-pool-and-its-databases)。
-
 在无法使用工具的情况下，以下分步步骤有助于评估池是否比单一数据库更具成本效益：
 
 1. 通过如下方式来估算池所需的 eDTU 或 vCore：
 
-   对于基于 DTU 的购买模型：MAX(<数据库的总数目 X 每一数据库的平均 DTU 使用率>、<br>
+   对于基于 DTU 的购买模型：MAX(<数据库的总数目 X 每一数据库的平均 DTU 使用率>、<br>  
    <并发高峰数据库的数目 X 每一数据库的高峰 DTU 使用率）
 
-   对于基于 vCore 的购买模型：MAX(<数据库的总数目 X 每一数据库的平均 vCore 使用率>、<br>
+   对于基于 vCore 的购买模型：MAX(<数据库的总数目 X 每一数据库的平均 vCore 使用率>、<br>  
    <并发高峰数据库的数目 X 每一数据库的高峰 vCore 使用率)
 
 2. 通过将池内所有的数据库所需的字节数相加来估算池所需要的存储空间。 然后，确定提供此存储量的 eDTU 池的大小。

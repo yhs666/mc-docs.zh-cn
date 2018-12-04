@@ -2,24 +2,23 @@
 title: 适用于 SQL 数据库的 Azure PowerShell 脚本示例 | Microsoft Docs
 description: Azure PowerShell 脚本示例有助于创建并管理 Azure SQL 数据库服务器、弹性池、数据库和防火墙。
 services: sql-database
-documentationcenter: sql-database
-author: WenJason
-manager: digimobile
-editor: tysonn
-tags: azure-service-management
 ms.service: sql-database
-ms.custom: overview-samples, mvc
+ms.subservice: development
+ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
-origin.date: 09/14/2018
-ms.date: 10/15/2018
+author: WenJason
 ms.author: v-jay
-ms.openlocfilehash: 49f7e3b4b9bd9c3be57cdb444c739c14f62d6119
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.reviewer: ''
+manager: digimobile
+origin.date: 10/29/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: 66ee035ffb65215849906531c2cb247d8b09908b
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913746"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672872"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>适用于 Azure SQL 数据库的 Azure PowerShell 示例
 

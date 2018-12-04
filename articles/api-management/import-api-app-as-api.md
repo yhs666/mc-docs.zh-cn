@@ -3,7 +3,7 @@ title: 使用 Azure 门户将 API 应用作为 API 导入
 description: 本教程演示如何使用 API 管理 (APIM) 将 API 应用导入为 API。
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 11/22/2017
-ms.date: 02/26/2018
+ms.date: 12/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: 41cd80e91b275e593253f36d26e2150bc22f513f
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 1588806e1e65d8e3ad5076ae589c495240111fcc
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939043"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674708"
 ---
 # <a name="import-an-api-app-as-an-api"></a>将 API 应用导入为 API
 
@@ -44,7 +44,7 @@ ms.locfileid: "38939043"
 1. 从“API 管理”下选择“API”。
 2. 从“添加新的 API”列表中选择“API 应用”。
 
-    !(API 应用)[./media/import-api-app-as-api/api-app.png]
+    ![API 应用](./media/import-api-app-as-api/api-app.png)
     
 3. 按“浏览”查看订阅中的 API 应用列表。
 4. 选择应用。 APIM 找到与所选应用关联的 swagger 后，将其提取并导入。 

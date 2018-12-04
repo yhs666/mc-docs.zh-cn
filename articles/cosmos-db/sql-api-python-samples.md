@@ -10,14 +10,14 @@ ms.component: cosmosdb-sql
 ms.devlang: python
 ms.topic: sample
 origin.date: 03/14/2018
-ms.date: 09/03/2018
+ms.date: 12/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3515b39773c36433636311425f95753c69b6ef92
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: f5b3d4be865f8c07b74216ea00aef3811a89f571
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164643"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674484"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Azure Cosmos DB Python 示例
 

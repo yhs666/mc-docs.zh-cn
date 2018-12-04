@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 06/20/2018
 ms.author: v-yiso
 ms.date: 08/13/2018
-ms.openlocfilehash: 16f9e93a4e5a945139c5ecdd1c7f6af4eaeb4560
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.openlocfilehash: d47df757b5a8f63e1deddaea9d70d00095600be5
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487004"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674862"
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>如何使用 Azure API 管理中的客户端证书身份验证确保后端服务安全
 
@@ -102,14 +102,13 @@ New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/mya
 
 
 
-[How to add operations to an API]: ./api-management-howto-add-operations.md
 [How to add and publish a product]: ./api-management-howto-add-products.md
 [Monitoring and analytics]: ../api-management-monitoring.md
 [Add APIs to a product]: ./api-management-howto-add-products.md#add-apis
 [Publish a product]: ./api-management-howto-add-products.md#publish-product
 [Get started with Azure API Management]: get-started-create-service-instance.md
-[API Management policy reference]: ./api-management-policy-reference.md
-[Caching policies]: ./api-management-policy-reference.md#caching-policies
+[API Management policy reference]: ./api-management-policies.md
+[Caching policies]: ./api-management-policies.md#caching-policies
 [Create an API Management service instance]: get-started-create-service-instance.md
 
 [Azure API Management REST API Certificate entity]: http://msdn.microsoft.com/library/azure/dn783483.aspx

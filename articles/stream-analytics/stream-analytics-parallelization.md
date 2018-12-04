@@ -2,20 +2,20 @@
 title: 在 Azure 流分析中使用查询并行化和缩放功能
 description: 本文介绍如何通过配置输入分区、优化查询定义和设置作业流单元来缩放流分析作业。
 services: stream-analytics
-author: rockboyfor
-ms.author: v-yeche
+author: lingliw
+ms.author: v-lingwu
 manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 05/07/2018
-ms.date: 06/18/2018
-ms.openlocfilehash: 5ac64bdad268a8706117b5e6ddc6b7c4f53b4132
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.date: 11/26/2018
+ms.openlocfilehash: 2ab7c8c1eb26971e203fb42327f53afc7e45d736
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416798"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674864"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>利用 Azure 流分析中的查询并行化
 本文说明了如何利用 Azure 流分析中的并行化。 了解如何通过配置输入分区和调整分析查询定义来缩放流分析作业。
@@ -232,12 +232,12 @@ PowerBI 输出当前不支持分区。 因此，此方案不易并行。
 
 <!--Link references-->
 
-[microsoft.support]: http://support.microsoft.com
-[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
+[microsoft.support]: https://support.microsoft.com
+[azure.event.hubs.developer.guide]: https://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
+[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
 
 <!--Update_Description: wording update, update link -->

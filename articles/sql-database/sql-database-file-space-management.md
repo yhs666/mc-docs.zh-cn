@@ -2,33 +2,46 @@
 title: Azure SQL 数据库文件空间管理 | Microsoft Docs
 description: 本页介绍如何管理 Azure SQL 数据库的文件空间，并提供代码示例来演示如何确定是否需要收缩数据库，以及如何执行数据库收缩操作。
 services: sql-database
-author: WenJason
-manager: digimobile
 ms.service: sql-database
-ms.custom: how-to
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-origin.date: 09/14/2018
-ms.date: 10/15/2018
+author: WenJason
 ms.author: v-jay
-ms.openlocfilehash: b41c60eeb50c6dde5103ce3f6c608fc8297a8651
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.reviewer: carlrab
+manager: digimobile
+origin.date: 09/14/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: e9b3ea2ad3d0e86d806bc98ed5c2d33ece402f35
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913999"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673038"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>管理 Azure SQL 数据库中的文件空间
 本文介绍 Azure SQL 数据库中不同类型的存储空间，以及当需要显式管理分配给数据库和弹性池的文件空间时可以执行的步骤。
 
 ## <a name="overview"></a>概述
 
-在 Azure SQL 数据库中，Azure 门户和以下 API 显示的大多数存储空间指标用于度量数据库与弹性池使用的数据页数：
+在 Azure SQL 数据库中存在工作负荷模式，其中数据库基础数据文件的分配可能会大于已使用数据页的数量。 如果使用的空间不断增大，并且后续删除了数据，则可能会出现这种情况。 这是因为分配的文件空间不会自动回收。
+
+在以下情况下，可能需要监视文件空间用量并收缩数据文件：
+- 当分配给数据库的文件空间达到池的最大大小时，允许在弹性池中增大数据。
+- 允许减少单一数据库或弹性池的最大大小。
+- 允许将单一数据库或弹性池更改为最大大小更小的其他服务层或性能层。
+
+### <a name="monitoring-file-space-usage"></a>监视文件空间用量
+Azure 门户和以下 API 中显示的大多数存储空间指标仅度量已用数据页面的大小：
 - 基于 Azure 资源管理器的指标 API，包括 PowerShell [get-metrics](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric)
 - T-SQL：[sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
+
+但是，以下 API 还度量分配给数据库和弹性池的空间大小：
 - T-SQL：[sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL：[sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
-存在工作负载模式，其中数据库基础数据文件的分配可能会大于已使用数据页的数量。  如果使用的空间不断增大，并且后续删除了数据，则可能会出现这种情况。  这是因为分配的文件空间不会自动回收。  在这种情况下，数据库或池的已分配空间可能会超出支持的限制并阻止数据增长或阻止服务层和计算大小更改，并且需要收缩数据文件以进行缓解。
+### <a name="shrinking-data-files"></a>收缩数据文件
 
 SQL DB 服务不会自动收缩数据文件来回收未使用的分配空间，因为这可能会影响数据库的性能。  但是，客户可遵循[回收未使用的分配空间](#reclaim-unused-allocated-space)中所述的步骤，在其选定的时间通过自助式操作收缩数据文件。 
 
@@ -111,7 +124,7 @@ SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
 ```sql
 -- Connect to master
 -- Elastic pool data space used in MB  
-SELECT TOP 1 avg_storage_percent * elastic_pool_storage_limit_mb AS ElasticPoolDataSpaceUsedInMB
+SELECT TOP 1 avg_storage_percent / 100.0 * elastic_pool_storage_limit_mb AS ElasticPoolDataSpaceUsedInMB
 FROM sys.elastic_pool_resource_stats
 WHERE elastic_pool_name = 'ep1'
 ORDER BY end_time DESC
@@ -189,17 +202,35 @@ ORDER BY end_time DESC
 
 ## <a name="reclaim-unused-allocated-space"></a>回收已分配但未使用的空间
 
-确定用于回收已分配但未使用的空间的数据库后，请修改以下命令，收缩每个数据库的数据文件。
+### <a name="dbcc-shrink"></a>DBCC 收缩
+
+识别可回收已分配但未使用的空间的数据库后，请修改以下命令中的数据库名称，以收缩每个数据库的数据文件。
 
 ```sql
 -- Shrink database data space allocated.
 DBCC SHRINKDATABASE (N'db1')
 ```
 
+此命令在运行时可能会影响数据库的性能，请尽量在使用率较低的时候运行它。  
+
 有关此命令的详细信息，请参阅 [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql)。 
 
-> [!IMPORTANT] 
-> 收缩数据库数据文件后，请考虑重新生成数据库索引，因为索引可能碎片化，失去其性能优化效力。 如果出现这种情况，则应重新生成索引。 有关碎片和重新生成索引的详细信息，请参阅[重新组织和重新生成索引](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes)。
+### <a name="auto-shrink"></a>自动收缩
+
+或者，可以为数据库启用自动收缩。  自动收缩可降低文件管理的复杂性，并且与 SHRINKDATABASE 或 SHRINKFILE 相比，对数据库性能的影响更小。  在管理包含多个数据库的弹性池时，自动收缩可能特别有用。  但是，与 SHRINKDATABASE 和 SHRINKFILE 相比，自动收缩在回收文件空间方面的效率更低。
+若要启用自动收缩，请修改以下命令中的数据库名称。
+
+
+```sql
+-- Enable auto-shrink for the database.
+ALTER DATABASE [db1] SET AUTO_SHRINK ON
+```
+
+有关此命令的详细信息，请参阅 [DATABASE SET](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017) 选项。 
+
+### <a name="rebuild-indexes"></a>重建索引
+
+收缩数据库数据文件后，索引可能会碎片化，失去其性能优化效力。 如果性能降低，请考虑重建数据库索引。 有关碎片和重新生成索引的详细信息，请参阅[重新组织和重新生成索引](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes)。
 
 ## <a name="next-steps"></a>后续步骤
 

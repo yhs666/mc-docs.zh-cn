@@ -2,21 +2,21 @@
 title: Durable Functions 的绑定 - Azure
 description: 如何使用 Azure Functions 的 Durable Functions 扩展的触发器和绑定。
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-origin.date: 09/29/2017
-ms.date: 10/18/2018
+origin.date: 10/23/2018
+ms.date: 11/21/2018
 ms.author: v-junlch
-ms.openlocfilehash: fafefa85c618fb52573d401702e8ee29fde3d4d2
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: cb58ea963d7119b9b821dc9196e599381ec24625
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453603"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672857"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 的绑定
 
@@ -113,7 +113,7 @@ const df = require("durable-functions");
 
 module.exports = df.orchestrator(function*(context) {
     const name = context.df.getInput();
-    const result = yield context.df.callActivityAsync("SayHello", name);
+    const result = yield context.df.callActivity("SayHello", name);
     return result;
 });
 ```
@@ -124,7 +124,7 @@ module.exports = df.orchestrator(function*(context) {
 
 如果使用 Visual Studio，则使用 [ActivityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html) .NET 属性配置活动触发器。 
 
-如果使用 Azure 门户进行开发，则由 function.json 文件中 `bindings` 数组的以下 JSON 对象定义活动触发器：
+如果使用 VS Code 或 Azure 门户进行开发，则由 function.json 文件中 `bindings` 数组的以下 JSON 对象定义活动触发器：
 
 ```json
 {
@@ -250,7 +250,7 @@ public static async Task<dynamic> Mapper([ActivityTrigger] DurableActivityContex
 
 如果使用 Visual Studio，可以使用 [OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) .NET 属性绑定到业务流程客户端。
 
-如果使用脚本语言（例如，*.csx* 文件）进行开发，由 *function.json* 的 `bindings` 数组中的以下 JSON 对象定义业务流程触发器：
+如果使用脚本语言（例如，.csx 或 .js 文件）进行开发，由 function.json 的 `bindings` 数组中的以下 JSON 对象定义业务流程触发器：
 
 ```json
 {
@@ -258,7 +258,7 @@ public static async Task<dynamic> Mapper([ActivityTrigger] DurableActivityContex
     "taskHub": "<Optional - name of the task hub>",
     "connectionName": "<Optional - name of the connection string app setting>",
     "type": "orchestrationClient",
-    "direction": "out"
+    "direction": "in"
 }
 ```
 
@@ -312,7 +312,7 @@ public static Task Run(
     {
       "name": "starter",
       "type": "orchestrationClient",
-      "direction": "out"
+      "direction": "in"
     }
   ],
   "disabled": false
@@ -353,10 +353,16 @@ module.exports = function (context, input) {
 
 有关启动实例的更多详细信息，请参阅[实例管理](durable-functions-instance-management.md)。
 
+<a name="host-json"></a>  
+
+## <a name="hostjson-settings"></a>host.json 设置
+
+[!INCLUDE [durabletask](../../includes/functions-host-json-durabletask.md)]
+
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
 > [了解检查点行为和重播行为](durable-functions-checkpointing-and-replay.md)
 
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

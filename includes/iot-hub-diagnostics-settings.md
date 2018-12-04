@@ -4,7 +4,7 @@
 1. 选择“诊断设置”。
 1. 选择“启用诊断”。
 
-   ![启用诊断][1]
+   ![启用诊断](./media/iot-hub-diagnostics-settings/turnondiagnostics.png)
 
 1. 为诊断设置提供名称。
 1. 选择希望将日志发送到的目标。 可选择以下三个选项的任意组合：
@@ -33,7 +33,7 @@ Select-AzureRmSubscription -SubscriptionName <subscription that includes your Io
 Set-AzureRmDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true
 ```
 
-新设置在大约 10 分钟后生效。 在此之后，日志将出现在“诊断设置”边栏选项卡上配置的存档目标中。 有关配置诊断的详细信息，请参阅[从 Azure 资源收集和使用日志数据][lnk-diagnostics-settings]。
+新设置在大约 10 分钟后生效。 在此之后，日志将出现在“诊断设置”边栏选项卡上配置的存档目标中。 有关配置诊断的详细信息，请参阅[从 Azure 资源收集和使用日志数据](../articles/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)。
 
 <!-- Images -->
 [1]: ./media/iot-hub-diagnostics-settings/turnondiagnostics.png

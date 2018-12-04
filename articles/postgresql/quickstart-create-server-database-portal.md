@@ -9,14 +9,14 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-origin.date: 03/20/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: 80bbfa5e161453695a93094a66f39a44808f5a29
-ms.sourcegitcommit: 1934f3a6db96e9e069f10bfc0ca47dedb1b25c8f
+origin.date: 11/01/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: 63a0380391c08144055cf126422b7a2456fcfd28
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652579"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675145"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建 Azure Database for PostgreSQL 服务器
 
@@ -98,18 +98,18 @@ ms.locfileid: "49652579"
 
  ![服务器“概述”页](./media/quickstart-create-database-portal/6-server-name.png)
 
-## <a name="connect-to-the-postgresql-database-by-using-psql-in-powershell"></a>在 PowerShell 中使用 psql 连接到 PostgreSQL 数据库
+## <a name="connect-to-the-postgresql-database-using-psql"></a>使用 psql 连接到 PostgreSQL 数据库
 
-可以通过多个应用程序连接到 Azure Database for PostgreSQL 服务器。 让我们先使用 psql 命令行实用工具来演示如何连接到该服务器。如果已在自己的计算机上通过本地方式安装了 psql 实用工具，也可从该处进行连接。
+可以通过多个应用程序连接到 Azure Database for PostgreSQL 服务器。 如果客户端计算机已安装 PostgreSQL，则可以使用 [psql](https://www.postgresql.org/docs/current/static/app-psql.html) 的本地实例连接到 Azure PostgreSQL 服务器。 现在使用 psql 命令行实用工具连接到 Azure PostgreSQL 服务器。
 
-在 PowerShell 提示符下键入 psql 命令行，连接到 Azure Database for PostgreSQL 服务器中的数据库。
+1. 在 Shell 中键入 psql 命令行，连接到 Azure Database for PostgreSQL 服务器中的数据库。
 
-    To connect to an Azure Database for PostgreSQL server with the [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) utility, use the following format:
+    若要使用 [psql](https://www.postgresql.org/docs/current/static/app-psql.html) 实用工具连接到用于 PostgreSQL 的 Azure 数据库，请使用以下格式：
     ```bash
     psql --host=<yourserver> --port=<port> --username=<server admin login> --dbname=<database name>
     ```
 
-    For example, the following command connects to an example server:
+    例如，以下命令连接到示例服务器：
 
     ```bash
     psql --host=mydemoserver.postgres.database.chinacloudapi.cn --port=5432 --username=myadmin@mydemoserver --dbname=postgres
@@ -122,15 +122,15 @@ ms.locfileid: "49652579"
     --username | 服务器管理员登录名 |此前在创建用于 PostgreSQL 的 Azure 数据库服务器时提供的服务器管理员登录用户名。 如果不记得用户名，请按上一部分的步骤操作，以便获取连接信息。 格式为 username@servername。
     --dbname | postgres | 首次连接时系统生成的默认数据库名称。 以后可创建自己的数据库。
 
-    After you run the psql command with your own parameter values, you're prompted to enter the server admin password. This password is the same one that you provided when you created the server. 
+    使用自己的参数值运行 psql 命令以后，系统会提示输入服务器管理员密码。 此密码是在创建服务器时提供的密码。 
 
     psql 参数 |建议的值|说明
     ---|---|---
     password | 管理员密码 | 键入的密码字符不会显示在 bash 提示符处。 键入所有字符后，请按 Enter 键以便进行身份验证和连接。
 
-    After you connect, the psql utility displays a postgres prompt where you type sql commands. In the initial connection output, a warning may appear because the psql in PowerShell might be a different version than the Azure Database for PostgreSQL server version. 
+    连接后，psql 实用工具会显示 postgres 提示符，要求在其中键入 sql 命令。 在初始连接输出中可能会显示警告，因为所使用的 psql 版本可能不同于 Azure Database for PostgreSQL 服务器版本。 
     
-    Example psql output:
+    psql 输出示例：
     ```bash
     psql (9.5.7, server 9.6.2)
     WARNING: psql major version 9.5, server major version 9.6.
@@ -142,30 +142,30 @@ ms.locfileid: "49652579"
     ```
 
     > [!TIP]
-    > If the firewall is not configured to allow the IP address of PowerShell, the following error occurs:
+    > 如果未将防火墙配置为允许客户端的 IP 地址，则会出现以下错误：
     > 
-    > "psql: FATAL:  no pg_hba.conf entry for host "0.0.0.0", user "myadmin", database "postgres", SSL on FATAL: SSL connection is required. Specify SSL options and retry.
+    > psql: 致命错误: 主机 "<IP address>"、用户 "myadmin"、数据库 "postgres" 没有 pg_hba.conf 条目，SSL 出现致命错误: 需要 SSL 连接。 请指定 SSL 选项，然后重试。
     > 
-    > To resolve the error, make sure the server configuration matches the steps in the "Configure a server-level firewall rule" section of this article.
+    > 若要解决此错误，请确保服务器配置符合本文“配置服务器级防火墙规则”部分相关步骤的要求。
 
-4. 出现提示时通过键入以下命令来创建名为“mypgsqldb”的空数据库：
+2. 出现提示时通过键入以下命令来创建名为“mypgsqldb”的空数据库：
     ```bash
     CREATE DATABASE mypgsqldb;
     ```
     该命令可能需要几分钟时间才能完成。 
 
-5. 在提示符下，执行以下命令来将连接切换到新建的数据库 **mypgsqldb**：
+3. 在提示符下，执行以下命令来将连接切换到新建的数据库 **mypgsqldb**：
     ```bash
     \c mypgsqldb
     ```
 
-6. 键入 `\q`，再按 Enter 键退出 psql。 完成后可关闭 PowerShell。
+4. 键入 `\q`，再按 Enter 键退出 psql。 
 
-已通过 PowerShell 中的 psql 连接到 Azure Database for PostgreSQL 服务器并创建了一个空用户数据库。 请转到下一部分，使用另一常用工具 pgAdmin 进行连接。
+已通过 psql 连接到 Azure Database for PostgreSQL 服务器并创建了一个空用户数据库。 请转到下一部分，使用另一常用工具 pgAdmin 进行连接。
 
 ## <a name="connect-to-the-postgresql-server-using-pgadmin"></a>使用 pgAdmin 连接到 PostgreSQL 服务器
 
-pgAdmin 是用于 PostgreSQL 的开源工具。 可以从 [pgAdmin 网站](http://www.pgadmin.org/)安装 pgAdmin。 你所使用的 pgAdmin 版本可能不同于本快速入门中使用的版本。 如果需要更多指南，请阅读 pgAdmin 文档。
+pgAdmin 是用于 PostgreSQL 的开源工具。 可以从 [pgAdmin 网站](https://www.pgadmin.org/)安装 pgAdmin。 你所使用的 pgAdmin 版本可能不同于本快速入门中使用的版本。 如果需要更多指南，请阅读 pgAdmin 文档。
 
 1. 在客户端计算机上打开 pgAdmin 应用程序。
 

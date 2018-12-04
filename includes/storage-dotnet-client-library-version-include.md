@@ -1,8 +1,20 @@
+---
+author: rockboyfor
+ms.service: storage
+ms.topic: include
+origin.date: 10/26/2018
+ms.date: 12/03/2018
+ms.author: v-yeche
+ms.openlocfilehash: 05200ccf440030705d0bd128d1de73fc289f4269
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676195"
+---
 > [!NOTE]
 > 完成本教程需要 Azure Storage Common Library for .NET（预览版）。 可以在 [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/) 上找到适合下载的最新版本。
 > 
 > 若要使用存储模拟器，请参阅[客户端库自述文件](https://github.com/Azure/azure-storage-net/blob/master/README.md)以了解版本要求。 要将用于 .NET 的存储客户端库与存储模拟器配合使用，必须使用相应的最低版本的 Azure 存储模拟器。
 > 
-> 
-<!-- Update_Description: wording update, update link -->
-<!--ms.date: 03/05/2018-->
+>

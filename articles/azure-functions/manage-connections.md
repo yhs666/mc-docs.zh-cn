@@ -2,23 +2,19 @@
 title: 如何管理 Azure Functions 中的连接
 description: 了解如何通过使用静态连接客户端来避免 Azure Functions 中的性能问题。
 services: functions
-documentationcenter: ''
 author: ggailey777
-manager: cfowler
-editor: ''
-ms.service: functions
-ms.workload: na
-ms.devlang: na
-ms.topic: article
-origin.date: 07/13/2018
-ms.date: 08/31/2018
+manager: jeconnoc
+ms.service: azure-functions
+ms.topic: conceptual
+origin.date: 11/02/2018
+ms.date: 11/22/2018
 ms.author: v-junlch
-ms.openlocfilehash: 04cdff60ae193f99d0e76bf96179a38927b257c6
-ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
+ms.openlocfilehash: 77690ced82aeee6302ecb147f818a6899a4f8e1e
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43330822"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673141"
 ---
 # <a name="how-to-manage-connections-in-azure-functions"></a>如何管理 Azure Functions 中的连接
 
@@ -41,9 +37,13 @@ ms.locfileid: "43330822"
 - **应**创建一个可在每次调用函数时使用的静态客户端。
 - 如果不同的函数使用相同的服务，请**考虑**在共享帮助程序类中创建单个静态客户端。
 
-## <a name="httpclient-code-example"></a>HttpClient 代码示例
+## <a name="client-code-examples"></a>客户端代码示例
 
-以下是创建静态 [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) 的函数代码示例：
+本部分演示了用于通过函数代码创建和使用客户端的最佳做法。
+
+### <a name="httpclient-example-c"></a>HttpClient 示例 (C#)
+
+下面是用于创建静态 [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) 的 C# 函数代码示例：
 
 ```cs
 // Create a single, static HttpClient
@@ -58,9 +58,30 @@ public static async Task Run(string input)
 
 关于 .NET [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) 的一个常见问题是“我应该释放我的客户端吗？” 一般情况下，在使用对象实现了 `IDisposable` 之后，你会释放这些对象。 但是，你不会释放静态客户端，因为在函数结束后还需要使用它。 你需要将静态客户端一直保留到应用程序生存期结束。
 
-## <a name="documentclient-code-example"></a>DocumentClient 代码示例
+### <a name="http-agent-examples-nodejs"></a>HTTP 代理示例 (Node.js)
 
-[DocumentClient](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.documentclient) 连接到 Azure Cosmos DB 实例。 Azure Cosmos DB 文档建议[在应用程序生存期内使用单一实例 Azure Cosmos DB 客户端](/cosmos-db/performance-tips#sdk-usage)。 以下示例展示了在函数中执行该操作的一种模式：
+因为它提供了更好的连接管理选项，所以你应当使用本机 [`http.agent`](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_class_http_agent) 类而不应当使用非本机方法，例如 `node-fetch` 模块。 连接参数是使用 `http.agent` 类上的选项配置的。 有关 HTTP 代理可用的详细选项，请参阅[new Agent(\[options\])](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_new_agent_options)。
+
+`http.request()` 使用的全局 `http.globalAgent` 将这些值全部设置为其各自的默认值。 在 Functions 中配置连接限制的建议方法是全局设置一个最大数量。 以下示例为函数应用设置最大 socket 数量：
+
+```js
+http.globalAgent.maxSockets = 200;
+```
+
+ 以下示例创建一个新的 HTTP 请求，并采用仅用于该请求的自定义 HTTP 代理。
+
+```js
+var http = require('http');
+var httpAgent = new http.Agent();
+httpAgent.maxSockets = 200;
+options.agent = httpAgent;
+http.request(options, onResponseCallback);
+```
+
+### <a name="documentclient-code-example-c"></a>DocumentClient 代码示例 (C#)
+
+[DocumentClient](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.documentclient
+) 连接到 Azure Cosmos DB 实例。 Azure Cosmos DB 文档建议[在应用程序生存期内使用单一实例 Azure Cosmos DB 客户端](/cosmos-db/performance-tips#sdk-usage)。 以下示例展示了在函数中执行该操作的一种模式：
 
 ```cs
 #r "Microsoft.Azure.Documents.Client"

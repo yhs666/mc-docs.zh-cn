@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 10/15/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: 6f6768ed04e356fb6262f8a4f30d9bded77630e2
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+origin.date: 10/19/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: be0072e72c21f3bf6258989c03bde69561a83117
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135846"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673062"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>使用只读副本对只读的查询工作负荷进行负载均衡（预览版）
 

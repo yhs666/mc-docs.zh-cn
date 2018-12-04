@@ -11,15 +11,15 @@ ms.service: virtual-machines-linux
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 12/14/2017
-ms.date: 10/22/2018
+origin.date: 10/31/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: ef3757b6962fc58857cd5190b846f21c059fc934
-ms.sourcegitcommit: 96b58e881dba2fd02665d806d7c27d770326b0cc
+ms.openlocfilehash: c3b8fc740558dd64ded240f86009b13197be72aa
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652010"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674121"
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>将 Linux 虚拟机重新部署到新的 Azure 节点
 如果在对 SSH 或应用程序访问 Azure 中 Linux 虚拟机 (VM) 进行故障排除时遇到困难，重新部署 VM 可能会有帮助。 重新部署 VM 时，将 VM 移到 Azure 基础结构中的新节点，并重新提供支持。 所有配置选项和关联资源均保留。 本文介绍如何使用 Azure CLI 或 Azure 门户重新部署 VM。
@@ -55,4 +55,4 @@ azure vm redeploy --resource-group myResourceGroup --vm-name myVM
 ## <a name="next-steps"></a>后续步骤
 如果在连接 VM 时遇到问题，可以在 [SSH 连接故障排除](troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)或[详细的 SSH 故障排除步骤](detailed-troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到特定的帮助。 如果无法访问在 VM 上运行的应用程序，还可以阅读 [application troubleshooting issues](troubleshoot-app-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)（应用程序故障排除问题）。
 
-<!--Update_Description: update link, wording update -->
+<!--Update_Description: update meta properties -->

@@ -94,10 +94,14 @@ items:
       href: concepts-compatibility.md
     - name: 应用程序开发
       href: concepts-database-application-development.md
+    - name: 连接复原
+      href: concepts-connectivity.md
   - name: 复制
     items:
     - name: 复制中数据
       href: concepts-data-in-replication.md
+    - name: 只读副本
+      href: concepts-read-replicas.md
 - name: 操作指南
   items:
   - name: 管理服务器
@@ -148,8 +152,14 @@ items:
     items:
     - name: 配置复制中数据
       href: howto-data-in-replication.md
+    - name: 创建只读副本 Azure 门户
+      href: howto-read-replicas-portal.md
+    - name: 创建只读副本 Azure CLI
+      href: howto-read-replicas-cli.md
   - name: 故障排除
     items:
+    - name: 排查连接错误
+      href: howto-troubleshoot-common-connection-issues.md
     - name: 查询性能故障排除
       href: howto-troubleshoot-query-performance.md
     - name: 如何使用 sys 架构中的视图
@@ -160,6 +170,10 @@ items:
       href: howto-manage-vnet-using-portal.md
     - name: Azure CLI
       href: howto-manage-vnet-using-cli.md
+  - name: 重新启动服务器
+    items:
+    - name: Azure 门户
+      href: howto-restart-server-portal.md
 - name: 参考
   items:
   - name: Azure CLI
@@ -180,9 +194,9 @@ items:
       href: videos.md
   - name: 支持选项
     href: https://www.azure.cn/zh-cn/support/contact/
-ms.openlocfilehash: 984c9491e7efec80be64c0b6df10791466f608ff
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: f636f128823f38f70aa70952cf287d5a32bebd0e
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453677"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672730"

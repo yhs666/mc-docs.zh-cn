@@ -12,14 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2018
-ms.author: v-nany
-ms.openlocfilehash: deb5201e6bce115b75eede034bee13317f7482a3
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+origin.date: 10/30/2018
+ms.date: 12/03/2018
+ms.author: jay
+ms.openlocfilehash: 9822c1f70d4dc09a443c88c9a79417114be87a5d
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426428"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672715"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>在高级编码器中使用多个输入文件和组件属性
 ## <a name="overview"></a>概述
@@ -148,7 +149,7 @@ task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
 * 第一个是工作流资产，其中包含工作流文件。 可以使用[工作流设计器](media-services-workflow-designer.md)来设计工作流文件。
 * 第二个是媒体资产，其中包含要编码的媒体文件。
 
-将多个媒体文件发送到**媒体编码器高级工作流**编码器时，存在以下限制：
+将多个媒体文件发送到 **媒体编码器高级工作流** 编码器时存在以下限制：
 
 * 所有媒体文件必须位于同一个 *媒体资产*中。 不支持使用多个媒体资产。
 * 必须在此媒体资产中设置主文件（理想情况下，这是请求编码器处理的主要视频文件）。
@@ -158,7 +159,7 @@ task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
 
 工作流中的连接：
 
-* 如果使用一个或多个媒体文件输入组件，并打算使用 **setRuntimeProperties** 来指定文件名，请勿将主文件组件插针连接到这些组件。 确保主文件对象与媒体文件输入之间没有连接。
+* 如果使用一个或多个媒体文件输入组件，并打算使用 **setRuntimeProperties** 来指定文件名，那么请勿将主文件组件引脚连接到这些组件。 确保主文件对象与媒体文件输入之间没有连接。
 * 如果偏好使用剪辑列表 XML 和一个媒体源组件，则可以将两者连接在一起。
 
 ![主源文件与媒体文件输入之间未建立连接](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture0_nopin.png)
@@ -167,7 +168,7 @@ task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
 
 ![从剪辑列表 XML 到剪辑列表源的连接](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture1_pincliplist.png)
 
-可以将剪辑列表 XML 连接到媒体源并使用 transcodeSource。
+*可以将剪辑列表 XML 连接到媒体源并使用 transcodeSource。*
 
 ### <a name="clip-list-xml-customization"></a>剪辑列表 XML 自定义
 可以在配置字符串 XML 中使用 **transcodeSource** ，以便在运行时于工作流中指定剪辑列表 XML。 这需要剪辑列表 XML 插针才能连接到工作流中的媒体源组件。
@@ -198,7 +199,7 @@ task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
   </transcodeRequest>
 ```
 
-如果要通过使用“Expressions”来指定 /primarySourceFile，以使用此属性来命名输出文件，则建议在 /primarySourceFile 属性的后面将剪辑列表 XML 作为属性传递，以避免剪辑列表被 /primarySourceFile 设置覆盖。
+如果想要指定 /primarySourceFile 以使用此属性通过“Expressions”来命名输出文件，则建议在 /primarySourceFile 属性的 *后面* 将剪辑列表 XML 传递为属性，以避免剪辑列表被 /primarySourceFile 设置覆盖。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

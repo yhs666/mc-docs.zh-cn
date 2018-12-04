@@ -4,24 +4,19 @@ description: 在 ExpressRoute 配置中使用 PowerShell 配置经典部署模�
 documentationcenter: na
 services: expressroute
 author: charwen
-manager: carmonm
-editor: ''
-tags: azure-service-management
-ms.assetid: 85ee0bc1-55be-4760-bfb4-34d9f2c96f30
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/21/2017
-ms.date: 09/17/2018
+origin.date: 11/05/2018
+ms.date: 12/10/2018
 ms.author: v-yiso
-ms.openlocfilehash: 3d20035d5ca3e7a07f1d52c25e770eff6b8e228b
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: 4f06a7b162f6e269c606043a64fc7bd5773d755c
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068181"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674223"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell-classic"></a>使用 PowerShell 配置 ExpressRoute 的虚拟网络网关（经典）
 > [!div class="op_single_selector"]
@@ -36,7 +31,7 @@ ms.locfileid: "44068181"
 
 **关于 Azure 部署模型**
 
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
+[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="before-beginning"></a>开始之前
 

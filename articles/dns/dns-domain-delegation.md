@@ -15,11 +15,11 @@ origin.date: 12/18/2017
 ms.date: 05/21/2018
 ms.author: v-nany
 ms.openlocfilehash: d277461782f6fc60fcffddd36bb73e9178159dd0
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426201"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667126"
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>使用 Azure DNS 委托 DNS 区域
 

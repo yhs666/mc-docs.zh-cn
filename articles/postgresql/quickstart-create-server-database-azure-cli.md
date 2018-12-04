@@ -10,21 +10,21 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: quickstart
 origin.date: 04/01/2018
-ms.date: 10/29/2018
+ms.date: 12/03/2018
 ms.custom: mvc
-ms.openlocfilehash: a42fb4f42971affa4b88025a132a6f39095f4b1e
-ms.sourcegitcommit: 1934f3a6db96e9e069f10bfc0ca47dedb1b25c8f
+ms.openlocfilehash: 3505d734d2f3308afae96c53bd9465c5ffd11d26
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652580"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674839"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建 Azure Database for PostgreSQL
 用于 PostgreSQL 的 Azure 数据库是一种托管服务，可用于在云中运行、管理和缩放具有高可用性的 PostgreSQL 数据库。 Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 本快速入门指南介绍了如何使用 Azure CLI 在 [Azure 资源组](https://docs.azure.cn/azure-resource-manager/resource-group-overview)中创建 Azure Database for PostgreSQL 服务器。
 
 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
-如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0 版或更高版本。 若要查看安装的版本，请运行 `az --version` 命令。 如果需要进行安装或升级，请参阅[安装 Azure CLI]( /cli/install-azure-cli)。 
+本文要求运行 Azure CLI 2.0 或更高版本。 若要查看安装的版本，请运行 `az --version` 命令。 如果需要进行安装或升级，请参阅[安装 Azure CLI]( /cli/install-azure-cli)。 
 
 如果在本地运行 CLI，需要使用 [az login](/cli/authenticate-azure-cli?view=interactive-log-in) 命令登录帐户。 记下与订阅名称相对应的命令输出中的 **id** 属性。
 ```cli
@@ -131,16 +131,16 @@ az postgres server show --resource-group myresourcegroup --name mydemoserver
 
 ## <a name="connect-to-postgresql-database-using-psql"></a>使用 psql 连接到 PostgreSQL 数据库
 
-如果客户端计算机已安装 PostgreSQL，则可以使用 [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) 的本地实例连接到 Azure PostgreSQL 服务器。 现在使用 psql 命令行实用工具连接到 Azure PostgreSQL 服务器。
+如果客户端计算机已安装 PostgreSQL，则可以使用 [psql](https://www.postgresql.org/docs/current/static/app-psql.html) 的本地实例连接到 Azure PostgreSQL 服务器。 现在使用 psql 命令行实用工具连接到 Azure PostgreSQL 服务器。
 
 1. 运行以下 psql 命令连接到 Azure Database for PostgreSQL 服务器
-```cli
+```bash
 psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
 ```
 
   例如，以下命令使用访问凭据连接到 PostgreSQL 服务器 **mydemoserver.postgres.database.chinacloudapi.cn** 上名为“postgres”的默认数据库。 提示输入密码时，输入之前选择的 `<server_admin_password>`。
   
-```cli
+  ```bash
 psql --host=mydemoserver.postgres.database.chinacloudapi.cn --port=5432 --username=myadmin@mydemoserver --dbname=postgres
 ```
 
@@ -156,7 +156,7 @@ CREATE DATABASE mypgsqldb;
 
 ## <a name="connect-to-the-postgresql-server-using-pgadmin"></a>使用 pgAdmin 连接到 PostgreSQL 服务器
 
-pgAdmin 是用于 PostgreSQL 的开源工具。 可以从 [pgAdmin 网站](http://www.pgadmin.org/)安装 pgAdmin。 你所使用的 pgAdmin 版本可能不同于本快速入门中使用的版本。 如果需要更多指南，请阅读 pgAdmin 文档。
+pgAdmin 是用于 PostgreSQL 的开源工具。 可以从 [pgAdmin 网站](https://www.pgadmin.org/)安装 pgAdmin。 你所使用的 pgAdmin 版本可能不同于本快速入门中使用的版本。 如果需要更多指南，请阅读 pgAdmin 文档。
 
 1. 在客户端计算机上打开 pgAdmin 应用程序。
 

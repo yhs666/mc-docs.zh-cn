@@ -3,18 +3,18 @@ title: 在 Azure 流分析中分析 JSON 和 AVRO
 description: 本文介绍如何针对复杂数据类型（如数组、JSON、CSV 格式数据）进行操作。
 services: stream-analytics
 ms.service: stream-analytics
-author: rockboyfor
-ms.author: v-yeche
+author: lingliw
+ms.author: v-lingwu
 manager: digimobile
 ms.topic: conceptual
 origin.date: 08/03/2018
-ms.date: 09/17/2018
-ms.openlocfilehash: 0d8d407f6fee30b64f4eabac4d1fb93dee9456ad
-ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
+ms.date: 11/26/2018
+ms.openlocfilehash: 56f946e42ad2cbf8849864e7a62eba71ea416b36
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586652"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675393"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>在 Azure 流分析中分析 JSON 和 Avro 数据
 

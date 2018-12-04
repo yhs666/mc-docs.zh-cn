@@ -7,20 +7,20 @@ ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
 origin.date: 09/26/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: 3bee7e9688e6c15d10c3ba7c36d4347675a6c47f
-ms.sourcegitcommit: 1934f3a6db96e9e069f10bfc0ca47dedb1b25c8f
+ms.date: 12/03/2018
+ms.openlocfilehash: 17b2c76e320a96d7c561182b63ada460bc24edea
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652585"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675213"
 ---
 # <a name="best-practices-for-query-store"></a>查询存储的最佳做法
 
-适用于：Azure Database for PostgreSQL 9.6 和 10
+**适用于：** Azure Database for PostgreSQL 9.6 和 10
 
 > [!IMPORTANT]
-> 查询存储功能在有限的一些区域为公共预览版。
+> 查询存储功能目前以公共预览版提供。
 
 
 本文概述了在 Azure Database for PostgreSQL 中使用查询存储的最佳做法。

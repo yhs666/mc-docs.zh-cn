@@ -3,23 +3,23 @@ title: 通过 Azure 门户开始使用 Azure AD 身份验证 | Microsoft Docs
 description: 了解如何使用 Azure 门户访问 Azure Active Directory (Azure AD) 身份验证设置，以便使用 Azure 媒体服务 API。
 services: media-services
 documentationcenter: ''
-author: Juliako
-manager: erikre
+author: WenJason
+manager: digimobile
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/17/2017
-ms.date: 08/07/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 6237bb5fb437528a73cd0393c5c5d8eeea844a92
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+origin.date: 10/29/2018
+ms.date: 12/03/2018
+ms.author: v-jay
+ms.openlocfilehash: 31c22ff01117e86fec3250934a1f78cbe7bc7935
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426324"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673057"
 ---
 # <a name="get-started-with-azure-ad-authentication-by-using-the-azure-portal"></a>通过 Azure 门户开始使用 Azure AD 身份验证
 

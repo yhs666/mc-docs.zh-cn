@@ -16,11 +16,11 @@ origin.date: 11/27/2017
 ms.date: 08/20/2018
 ms.author: v-yeche
 ms.openlocfilehash: 450f19e22594037a6965fcc5ff044b64445ddadb
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41704791"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667245"
 ---
 # <a name="azure-service-fabric-java-client-apis"></a>Azure Service Fabric Java 客户端 API
 

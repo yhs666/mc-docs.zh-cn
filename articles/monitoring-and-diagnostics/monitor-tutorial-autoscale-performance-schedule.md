@@ -2,21 +2,19 @@
 title: 基于性能数据或计划自动缩放 Azure 资源
 description: 使用指标数据和调度为应用服务计划创建自动缩放设置
 author: anirudhcavale
-manager: orenr
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
+services: azure-monitor
+ms.service: azure-monitor
 ms.topic: tutorial
-origin.date: 12/11/2017
-ms.date: 03/19/2018
-ms.author: v-yiso
+ms.date: 12/11/2017
+ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 4fd12b02bb4b197bcbafcfd22d60c9d350e0cd1b
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.component: autoscale
+ms.openlocfilehash: 91d62f154256af67c21556dbb59ff4532b218714
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870471"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675153"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>基于性能数据或调度为 Azure 资源创建自动缩放设置 | Microsoft 文档
 
@@ -67,33 +65,33 @@ ms.locfileid: "29870471"
 
 ## <a name="create-recurrance-profile"></a>创建重复配置文件
 
-1. 在默认配置文件下，单击“添加缩放条件”链接
+1. 在默认配置文件下，单击“添加缩放条件”链接。
 
-2. 将此配置文件的“名称”编辑为“星期一到星期五的配置文件”
+2. 将此配置文件的“名称”编辑为“星期一到星期五的配置文件”。
 
-3. 确保已将“缩放模式”设置为“基于指标缩放”
+3. 确保已将“缩放模式”设置为“基于指标缩放”。
 
 4. 对于“实例限制”，将“最小值”设置为“1”，将“最大值”设置为“2”，将“默认值”设置为“1”。 该设置将确保此配置文件不会将服务计划自动缩放为拥有的实例数少于 1 个或多于 2 个。 如果此配置文件没有足够的数据来用于作出决策，它将使用默认的实例数（在此示例中为 1）。
 
-5. 对于“调度”，选择“重复特定日期”
+5. 对于“计划日程”，请选择“重复特定日期”。
 
 6. 将此配置文件设置为从星期一到星期五的上午九点到下午六点 (PST) 重复。 该设置将确保此配置文件仅在星期一到星期五的上午九点到下午六点适用并处于活动状态。 在所有其他时间段，“默认”配置文件是自动缩放设置使用的配置文件。
 
 ## <a name="create-a-scale-out-rule"></a>创建扩大规则
 
-1. 在“星期一到星期五的配置文件”中
+1. 在“星期一到星期五的配置文件”中。
 
-2. 单击“添加规则”链接
+2. 单击“添加规则”链接。
 
 3. 将“指标源”设置为“其他资源”。 将“资源类型”设置为“应用服务”，并将“资源”设置为本教程前面部分创建的 Web 应用。
 
-4. 将“时间聚合”设置为“总计”，将“指标名称”设置为“请求”，并将“时间粒度统计信息”设置为“合计”
+4. 将“时间聚合”设置为“总计”，将“指标名称”设置为“请求”，并将“时间粒度统计信息”设置为“合计”。
 
 5. 将“运算符”设置为“大于”，将“阈值”设置为“10”，并将“持续时间”设置为“5”分钟。
 
-6. 为“操作”选择“增加计数”，将“实例计数”设置为“1”，并将“冷却时间”设置为“5”分钟
+6. 为“操作”选择“增加计数”，将“实例计数”设置为“1”，并将“冷却时间”设置为“5”分钟。
 
-7. 单击“添加”按钮
+7. 单击“添加”按钮。
 
 此规则将确保当你的 Web 应用在 5 分钟或更短时间内收到的请求超过 10 个时，将向你的应用服务计划再添加一个实例，以托管负载。
 

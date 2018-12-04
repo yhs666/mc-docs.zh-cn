@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 02/09/2018
-ms.date: 07/30/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: c450c59f4d1d6a794df9bfa9a5e6ad16def13d45
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.openlocfilehash: 19f22d5c5cac4266562794cab0703d7ed500d9a9
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306951"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674461"
 ---
 # <a name="tutorial-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application-with-azure-powershell"></a>教程：在 Azure 中使用 Azure PowerShell 均衡 Windows 虚拟机负载以创建高可用性应用程序
 负载均衡通过将传入请求分布到多个虚拟机来提供更高级别的可用性。 本教程介绍了 Azure 负载均衡器的不同组件，这些组件用于分发流量和提供高可用性。 你将学习如何执行以下操作：
@@ -36,9 +36,9 @@ ms.locfileid: "39306951"
 > * 查看负载均衡器的实际运行情况
 > * 在负载均衡器中添加和删除 VM
 
-<!-- Not Avaiable on  [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)] -->
+<!--[!INCLUDE [cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]-->
 
-如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 以创建与 Azure 的连接。
+如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount` 以创建与 Azure 的连接。
 
 ## <a name="azure-load-balancer-overview"></a>Azure 负载均衡器概述
 Azure 负载均衡器是位于第 4 层（TCP、UDP）的负载均衡器，通过在正常运行的 VM 之间分发传入流量提供高可用性。 负载均衡器运行状况探测器监视每个 VM 上的给定端口，仅将流量分发给正常运行的 VM。
@@ -52,7 +52,7 @@ Azure 负载均衡器是位于第 4 层（TCP、UDP）的负载均衡器，通�
 ## <a name="create-azure-load-balancer"></a>创建 Azure 负载均衡器
 本部分详细介绍了如何创建和配置负载均衡器的每个组件。 在创建负载均衡器之前，需使用 [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) 创建资源组。 以下示例在 ChinaEast 位置创建名为 myResourceGroupLoadBalancer 的资源组：
 
-```powershell
+```PowerShell
 New-AzureRmResourceGroup `
   -ResourceGroupName "myResourceGroupLoadBalancer" `
   -Location "ChinaEast"
@@ -61,7 +61,7 @@ New-AzureRmResourceGroup `
 ### <a name="create-a-public-ip-address"></a>创建公共 IP 地址
 若要通过 Internet 访问应用，负载均衡器需要具有一个公共 IP 地址。 使用 [New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermpublicipaddress) 创建一个公共 IP 地址。 以下示例在 myResourceGroupLoadBalancer 资源组中创建名为 myPublicIP 的公共 IP 地址：
 
-```powershell
+```PowerShell
 $publicIP = New-AzureRmPublicIpAddress `
   -ResourceGroupName "myResourceGroupLoadBalancer" `
   -Location "ChinaEast" `
@@ -72,7 +72,7 @@ $publicIP = New-AzureRmPublicIpAddress `
 ### <a name="create-a-load-balancer"></a>创建负载均衡器
 使用 [New-AzureRmLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermloadbalancerfrontendipconfig) 创建一个前端 IP 池。 以下示例创建名为 *myFrontEndPool* 的前端 IP 池并附加 *myPublicIP* 地址： 
 
-```powershell
+```PowerShell
 $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig `
   -Name "myFrontEndPool" `
   -PublicIpAddress $publicIP
@@ -80,13 +80,13 @@ $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig `
 
 使用 [New-AzureRmLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermloadbalancerbackendaddresspoolconfig) 创建一个后端地址池。 在剩余的步骤中，各个 VM 将附加到此后端池。 以下示例创建名为 myBackEndPool 的后端地址池：
 
-```powershell
+```PowerShell
 $backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "myBackEndPool"
 ```
 
 现在，使用 [New-AzureRmLoadBalancer](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermloadbalancer) 创建负载均衡器。 以下示例使用在前面的步骤中创建的前端和后端 IP 池创建名为 *myLoadBalancer* 的负载均衡器：
 
-```powershell
+```PowerShell
 $lb = New-AzureRmLoadBalancer `
   -ResourceGroupName "myResourceGroupLoadBalancer" `
   -Name "myLoadBalancer" `
@@ -102,7 +102,7 @@ $lb = New-AzureRmLoadBalancer `
 
 若要创建 TCP 运行状况探测器，请使用 [Add-AzureRmLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/module/azurerm.network/add-azurermloadbalancerprobeconfig)。 以下示例创建名为 *myHealthProbe* 的运行状况探测器，用于在 *TCP* 端口 *80* 上监视每个 VM：
 
-```powershell
+```PowerShell
 Add-AzureRmLoadBalancerProbeConfig `
   -Name "myHealthProbe" `
   -LoadBalancer $lb `
@@ -114,7 +114,7 @@ Add-AzureRmLoadBalancerProbeConfig `
 
 若要应用运行状况探测器，请使用 [Set-AzureRmLoadBalancer](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermloadbalancer) 更新负载均衡器：
 
-```powershell
+```PowerShell
 Set-AzureRmLoadBalancer -LoadBalancer $lb
 ```
 
@@ -123,7 +123,7 @@ Set-AzureRmLoadBalancer -LoadBalancer $lb
 
 使用 [Add-AzureRmLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig) 创建一个负载均衡器规则。 以下示例创建名为 *myLoadBalancerRule* 的负载均衡器规则并均衡 *TCP* 端口 *80* 上的流量：
 
-```powershell
+```PowerShell
 $probe = Get-AzureRmLoadBalancerProbeConfig -LoadBalancer $lb -Name "myHealthProbe"
 
 Add-AzureRmLoadBalancerRuleConfig `
@@ -139,7 +139,7 @@ Add-AzureRmLoadBalancerRuleConfig `
 
 使用 [Set-AzureRmLoadBalancer](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermloadbalancer) 更新负载均衡器：
 
-```powershell
+```PowerShell
 Set-AzureRmLoadBalancer -LoadBalancer $lb
 ```
 
@@ -149,7 +149,7 @@ Set-AzureRmLoadBalancer -LoadBalancer $lb
 ### <a name="create-network-resources"></a>创建网络资源
 使用 [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork) 创建虚拟网络。 以下示例创建包含 mySubnet 的名为 myVnet 的虚拟网络：
 
-```powershell
+```PowerShell
 # Create subnet config
 $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
   -Name "mySubnet" `
@@ -166,7 +166,7 @@ $vnet = New-AzureRmVirtualNetwork `
 
 使用 [New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworkinterface) 创建虚拟 NIC。 以下示例创建三个虚拟 NIC。 （在以下步骤中针对为应用创建的每个 VM 各使用一个虚拟 NIC）。 可随时创建其他虚拟 NIC 和 VM，并将其添加到负载均衡器：
 
-```powershell
+```PowerShell
 for ($i=1; $i -le 3; $i++)
 {
    New-AzureRmNetworkInterface `
@@ -183,7 +183,7 @@ for ($i=1; $i -le 3; $i++)
 
 使用 [New-AzureRmAvailabilitySet](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermavailabilityset) 创建一个可用性集。 以下示例创建名为 myAvailabilitySet 的可用性集：
 
-```powershell
+```PowerShell
 $availabilitySet = New-AzureRmAvailabilitySet `
   -ResourceGroupName "myResourceGroupLoadBalancer" `
   -Name "myAvailabilitySet" `
@@ -195,13 +195,13 @@ $availabilitySet = New-AzureRmAvailabilitySet `
 
 使用 [New-AzureRmNetworkInterface](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) 设置 VM 的管理员用户名和密码：
 
-```powershell
+```PowerShell
 $cred = Get-Credential
 ```
 
 现在，可使用 [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) 创建 VM。 以下示例创建三个 VM 和所需的虚拟网络组件（如果它们尚不存在）：
 
-```powershell
+```PowerShell
 for ($i=1; $i -le 3; $i++)
 {
     New-AzureRmVm `
@@ -225,7 +225,7 @@ for ($i=1; $i -le 3; $i++)
 
 使用 [Set-AzureRmVMExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension) 安装自定义脚本扩展。 该扩展运行 `powershell Add-WindowsFeature Web-Server` 来安装 IIS Web 服务器，然后更新 Default.htm 页以显示 VM 的主机名：
 
-```powershell
+```PowerShell
 for ($i=1; $i -le 3; $i++)
 {
    Set-AzureRmVMExtension `
@@ -243,7 +243,7 @@ for ($i=1; $i -le 3; $i++)
 ## <a name="test-load-balancer"></a>测试负载均衡器
 使用 [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress) 获取负载均衡器的公共 IP 地址。 以下示例获取前面创建的“myPublicIP”的 IP 地址：
 
-```powershell
+```PowerShell
 Get-AzureRmPublicIPAddress `
   -ResourceGroupName "myResourceGroupLoadBalancer" `
   -Name "myPublicIP" | select IpAddress
@@ -261,7 +261,7 @@ Get-AzureRmPublicIPAddress `
 ### <a name="remove-a-vm-from-the-load-balancer"></a>从负载均衡器中删除 VM
 使用 [Get-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkinterface) 获取网络接口卡，然后将虚拟 NIC 的 LoadBalancerBackendAddressPools 属性设置为 $null。 最后，更新虚拟 NIC：
 
-```powershell
+```PowerShell
 $nic = Get-AzureRmNetworkInterface `
     -ResourceGroupName "myResourceGroupLoadBalancer" `
     -Name "myVM2"
@@ -276,7 +276,7 @@ Set-AzureRmNetworkInterface -NetworkInterface $nic
 
 获取负载均衡器：
 
-```powershell
+```PowerShell
 $lb = Get-AzureRMLoadBalancer `
     -ResourceGroupName myResourceGroupLoadBalancer `
     -Name myLoadBalancer 
@@ -301,4 +301,5 @@ Set-AzureRmNetworkInterface -NetworkInterface $nic
 
 > [!div class="nextstepaction"]
 > [管理 VM 和虚拟网络](./tutorial-virtual-network.md)
+
 <!-- Update_Description: update meta properties, wording update -->

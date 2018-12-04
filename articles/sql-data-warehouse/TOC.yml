@@ -72,6 +72,8 @@ items:
       href: sql-data-warehouse-auditing-overview.md
     - name: 行级别安全性
       href: column-level-security.md
+    - name: 行级别安全性
+      href: https://docs.microsoft.com/sql/relational-databases/security/row-level-security?toc=/azure/sql-data-warehouse/toc.json
   - name: 数据加载
     items:
     - name: 概述
@@ -148,8 +150,18 @@ items:
       href: sql-data-warehouse-concept-resource-utilization-query-activity.md
     - name: 数据保护
       href: backup-and-restore.md
+    - name: 建议
+      href: sql-data-warehouse-concept-recommendations.md
     - name: 故障排除
       href: sql-data-warehouse-troubleshoot.md
+  - name: 维护计划
+    items:
+    - name: 概述
+      href: maintenance-scheduling.md
+    - name: 查看维护计划
+      href: viewing-maintenance-schedule.md
+    - name: 更改维护计划
+      href: changing-maintenance-schedule.md
   - name: 集成
     items:
     - name: 概述
@@ -202,16 +214,24 @@ items:
     items:
     - name: 监视工作负荷
       href: sql-data-warehouse-manage-monitor.md
-    - name: 升级到第 2 代
-      href: upgrade-to-latest-generation.md
+    - name: 监视 Gen2 缓存
+      href: sql-data-warehouse-how-to-monitor-cache.md
     - name: 还原数据仓库
       href: sql-data-warehouse-restore.md
   - name: 集成
     items:
     - name: 配置 SQL 数据库弹性查询
       href: tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md
-    - name: 添加 Azure 流分析作业
-      href: sql-data-warehouse-integrate-azure-stream-analytics.md
+    - name: 构建数据管道
+      items:
+      - name: 使用 Fivetran 连接
+        href: fivetran-quickstart.md
+      - name: 添加 Azure 流分析作业
+        href: sql-data-warehouse-integrate-azure-stream-analytics.md
+    - name: 构建仪表板和报表
+      items:
+      - name: 配置 SQL 数据库弹性查询
+        href: tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md
 - name: 参考
   items:
   - name: T-SQL
@@ -244,11 +264,9 @@ items:
     href: https://www.azure.cn/what-is-new/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-sqldw/
-  - name: 支持
-    href: https://support.windowsazure.cn/support/support-azure
-ms.openlocfilehash: ce7046c6b53d0289458d13825d9d42ad99078028
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.openlocfilehash: 27e37a378e561ece07733cec0058bcd479e7b4c7
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089031"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674362"

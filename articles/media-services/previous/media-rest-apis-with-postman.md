@@ -3,7 +3,7 @@ title: 配置 Postman 以便进行 Azure 媒体服务 REST API 调用
 description: 了解如何为媒体服务 REST API 调用配置 Postman。
 services: media-services
 documentationcenter: ''
-author: yunan2016
+author: WenJason
 manager: digimobile
 editor: ''
 ms.service: media-services
@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/04/2017
-ms.date: 01/22/2018
-ms.author: v-nany
-ms.openlocfilehash: 59e1c4119ddd47c46d5ad5a7d709b4d6856df5a1
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+origin.date: 10/29/2018
+ms.date: 12/03/2018
+ms.author: v-jay
+ms.openlocfilehash: 77deb80baed40cd7ed2bcfacaf334145418f85a0
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219684"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673157"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>配置 Postman 以便进行媒体服务 REST API 调用
 

@@ -1,19 +1,20 @@
 ---
 title: Azure Monitor 按资源类型支持的指标
 description: 可在 Azure 监视器中为每种资源类型使用的指标的列表。
-author: anirudhcavale
-services: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
+author: lingliw
+services: azure-monitor
+ms.service: azure-monitor
 ms.topic: reference
 origin.date: 09/14/2018
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: b38794772e8bc8bc3abd46b9bf867d5548594654
-ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
+ms.component: metrics
+ms.openlocfilehash: 09063919bdf25be3a61f0d063d724ef65e970502
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652265"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675435"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure 监视器支持的指标
 Azure 监视器提供多种方式来与指标交互，包括在门户中制作指标图表、通过 REST API 访问指标，或者使用 PowerShell 或 CLI 查询指标。 下面是目前可在 Azure 监视器的指标管道中使用的完整指标列表。 其他指标可在门户或旧版 API 中使用。 下面的此列表仅包含可以通过合并的 Azure Monitor 指标管道使用的指标。 若要查询和访问这些指标，请使用 [2018-01-01 API 版本](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -587,8 +588,8 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 |devices.totalDevices|设备总数（已弃用）|计数|总计|已注册到 IoT 中心的设备数目|无维度|
 |devices.connectedDevices.allProtocol|连接的设备数（已弃用） |计数|总计|已连接到 IoT 中心的设备数目|无维度|
 |d2c.telemetry.egress.success|路由：遥测消息传送次数|计数|总计|使用 IoT 中心路由将消息成功传送到所有终结点的次数。 如果某条消息已路由到多个终结点，则每成功传送一次，此值就会加 1。 如果某条消息多次路由到同一终结点，则每成功传送一次，此值就会加 1。|无维度|
-|d2c.telemetry.egress.dropped|路由：遥测消息删除次数 |计数|总计|由于终结点消亡，IoT 中心路由删除消息的次数。 此值不会统计已传送到回退路由的消息，因为已删除的消息不会传送到回退路由。|无维度|
-|d2c.telemetry.egress.orphaned|路由：遥测消息孤立次数 |计数|总计|消息由于与任何路由规则（包括回退规则）都不匹配而被 IoT 中心路由孤立的次数。 |无维度|
+|d2c.telemetry.egress.dropped|路由：遥测消息删除次数 |计数|总计|由于终结点消亡，IoT 中心路由删除消息的次数。 此值不会统计已传送到回退路由的消息，因为已删除的消息不会传送到回退路由。|无维度|
+|d2c.telemetry.egress.orphaned|路由：遥测消息孤立次数 |计数|总计|消息由于与任何路由规则（包括回退规则）都不匹配而被 IoT 中心路由孤立的次数。 |无维度|
 |d2c.telemetry.egress.invalid|路由：遥测消息不兼容|计数|总计|消息由于与终结点不兼容而无法由 IoT 中心路由传送的次数。 此值不包括重试次数。|无维度|
 |d2c.telemetry.egress.fallback|路由：消息传送到回退路由的次数|计数|总计|IoT 中心路由将消息传送到与回退路由关联的终结点的次数。|无维度|
 |d2c.endpoints.egress.eventHubs|路由：消息传送到事件中心的次数|计数|总计|IoT 中心路由成功将消息传送到事件中心终结点的次数。|无维度|

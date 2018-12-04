@@ -3,7 +3,7 @@ title: 如何在 Azure API 管理中创建和发布产品
 description: 了解如何在 Azure API 管理中创建和发布产品。
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 origin.date: 08/10/2018
-ms.date: 09/17/2018
+ms.date: 12/03/2018
 ms.author: apimpm
-ms.openlocfilehash: fbe148b16479229bd49cad0eff240a759e9e12fd
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: c9989fb4228aa899c826d96439f94788fe6854c7
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068196"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675178"
 ---
 # <a name="create-and-publish-a-product"></a>创建和发布产品  
 
@@ -32,19 +32,20 @@ ms.locfileid: "44068196"
 > * 创建和发布产品
 > * 将 API 添加到产品
 
-![添加产品](media/api-management-howto-add-products/added-product.png)
+![添加产品教程](media/api-management-howto-add-products/added-product.png)
 
 ## <a name="prerequisites"></a>先决条件
 
++ 了解 [Azure API 管理术语](api-management-terminology.md)。
 + 完成以下快速入门：[创建 Azure API 管理实例](get-started-create-service-instance.md)。
 + 此外，请完成以下教程：[导入并发布第一个 API](import-and-publish.md)。
 
 ## <a name="create-and-publish-a-product"></a>创建和发布产品
 
+![添加产品](media/api-management-howto-add-products/02-create-publish-product-01.png)
+
 1. 单击左侧菜单中的“产品”显示“产品”页。
 2. 单击“+ 添加”。
-
-    ![已添加产品](media/api-management-howto-add-products/add-product.png)
 
     添加产品时，需要提供以下信息： 
 
@@ -78,12 +79,15 @@ ms.locfileid: "44068196"
 
 ### <a name="add-an-api-to-an-existing-product"></a>将 API 添加到现有产品
 
-![添加产品 API](media/api-management-howto-add-products/add-product-api.png)
+![添加产品 API](media/api-management-howto-add-products/02-create-publish-product-02.png)
 
 1. 从“产品”选项卡中选择一个产品。
 2. 导航到 **API** 文件夹。
 3. 单击“+ 添加”。
 4. 选择 API 并单击“选择”。
+
+> [!TIP]
+> 可以[通过 REST API](https://docs.microsoft.com/rest/api/apimanagement/subscription/createorupdate) 或 PowerShell 命令使用自定义订阅密钥来创建用户的订阅或将其更新为某个产品。
 
 ## <a name="next-steps"></a>后续步骤
 

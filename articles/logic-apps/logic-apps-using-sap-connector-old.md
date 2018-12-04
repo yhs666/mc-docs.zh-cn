@@ -12,12 +12,12 @@ services: logic-apps
 ms.reviewer: klam, divswa, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 6b0f3db14f8f5e0f067ebd3364d6da5ac8f0101d
-ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
+ms.openlocfilehash: 5d41e88d1f4796b00a056867f2acb66c591131b9
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50919185"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675059"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>从 Azure 逻辑应用连接到 SAP 系统
 
@@ -204,5 +204,4 @@ ms.locfileid: "50919185"
 ## <a name="next-steps"></a>后续步骤
 
 * 从逻辑应用[连接到本地系统](../logic-apps/logic-apps-gateway-connection.md)
-* 了解如何使用 [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md) 执行验证、转换和其他消息操作。
 * 了解其他[逻辑应用连接器](../connectors/apis-list.md)

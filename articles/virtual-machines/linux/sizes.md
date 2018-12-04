@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-origin.date: 10/01/2018
-ms.date: 10/22/2018
+origin.date: 11/14/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 84e0119fdecd4de51bfb1d0e85253bafffdd412c
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.openlocfilehash: c23cc7965e0ae0d9e65147a23e619aca77f2c49b
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034966"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674443"
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Azure 中 Linux 虚拟机的大小
 本文介绍可用于运行 Linux 应用和工作负荷的 Azure 虚拟机的可用大小与选项。 此外，还提供在计划使用这些资源时要考虑的部署注意事项。 本文也适用于 [Windows 虚拟机](../windows/sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
@@ -74,5 +74,4 @@ ms.locfileid: "50034966"
 <!--Not Available- [Storage optimized](sizes-storage.md) -->
 <!--Not Available- [High performance compute](sizes-hpc.md)-->
 <!--Not Available on A8-A11 series-->
-
 <!--Update_Description: update meta properties, wording update, update link -->

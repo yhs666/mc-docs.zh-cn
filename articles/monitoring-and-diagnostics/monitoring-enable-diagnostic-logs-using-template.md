@@ -1,20 +1,20 @@
 ---
 title: 使用资源管理器模板自动启用诊断设置
 description: 了解如何使用 Resource Manager 模板创建诊断设置，以便将诊断日志流式传输到事件中心，或者将其存储在存储帐户中。
-author: johnkemnetz
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 origin.date: 03/26/2018
-ms.date: 08/20/2018
-ms.author: v-yiso
+ms.date: 11/26/2018
+ms.author: v-lingwu
 ms.component: ''
-ms.openlocfilehash: 42a44e2b25d1efed791306f75b930ce157abe88a
-ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
+ms.openlocfilehash: fe4305a966abfdd01f6b529d7c8462a78f77a91e
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41704479"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674332"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>在创建资源时使用 Resource Manager 模板自动启用诊断设置
 本文介绍如何使用 [Azure 资源管理器模板](../azure-resource-manager/resource-group-authoring-templates.md)在创建资源时配置资源的诊断设置。 这样可以让用户在创建资源时自动将诊断日志和指标流式传输到事件中心、将其存档在存储帐户中，或者发送到 Log Analytics。
@@ -117,7 +117,7 @@ ms.locfileid: "41704479"
     ]
     ```
 
-诊断设置的属性 blob 遵循[此文所述的格式](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate)。 添加 `metrics` 属性还可将资源指标发送到这些相同输出，前提是[该资源支持 Azure Monitor 指标](monitoring-supported-metrics.md)。
+诊断设置的属性 blob 遵循 [此文所述的格式](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate)。 添加 `metrics` 属性还可将资源指标发送到这些相同输出，前提是[该资源支持 Azure Monitor 指标](monitoring-supported-metrics.md)。
 
 下面是一个完整的示例，说明了如何创建逻辑应用，以及如何启用流式传输到事件中心和在存储帐户中进行存储的功能。
 
@@ -135,7 +135,7 @@ ms.locfileid: "41704479"
     },
     "testUri": {
       "type": "string",
-      "defaultValue": "http://azure.microsoft.com/status/feed/"
+      "defaultValue": "http://www.azure.cn/support/service-dashboard/feed/"
     },
     "settingName": {
       "type": "string",
@@ -260,7 +260,7 @@ ms.locfileid: "41704479"
 3. 将 WADCfg XML 文件的内容添加到 XMLCfg 属性中，对所有 XML 字符进行适当的转义。
 
 > [!WARNING]
-> 这最后一步操作起来比较复杂。 请[参阅此文](../virtual-machines/extensions/diagnostics-template.md#diagnostics-configuration-variables)获取相关示例，了解如何将诊断配置架构拆分成进行了正确转义和格式化操作的变量。
+> 这最后一步操作起来比较复杂。 [参阅此文](../virtual-machines/extensions/diagnostics-template.md#diagnostics-configuration-variables)获取相关示例，了解如何将诊断配置架构拆分成进行了正确转义和格式化操作的变量。
 > 
 > 
 

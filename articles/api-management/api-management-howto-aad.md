@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 01/16/2018
 ms.author: v-yiso
 ms.date: 10/08/2018
-ms.openlocfilehash: df5bb4210ada19c698346a1b97582d81ffa62a15
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.openlocfilehash: cce90b66856feff02cced147f8ae989e5628c902
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523867"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675354"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>在 Azure API 管理中使用 Azure Active Directory 授权开发人员帐户
 
@@ -185,14 +185,13 @@ ms.locfileid: "46523867"
 [api-management-complete-registration]: ./media/api-management-howto-aad/api-management-complete-registration.png
 [api-management-registration-complete]: ./media/api-management-howto-aad/api-management-registration-complete.png
 
-[How to add operations to an API]: ./api-management-howto-add-operations.md
 [How to add and publish a product]: ./api-management-howto-add-products.md
 [Monitoring and analytics]: ./api-management-monitoring.md
 [Add APIs to a product]: ./api-management-howto-add-products.md#add-apis
 [Publish a product]: ./api-management-howto-add-products.md#publish-product
 [Get started with Azure API Management]: get-started-create-service-instance.md
-[API Management policy reference]: ./api-management-policy-reference.md
-[Caching policies]: ./api-management-policy-reference.md#caching-policies
+[API Management policy reference]: ./api-management-policies.md
+[Caching policies]: ./api-management-policies.md#caching-policies
 [Create an API Management service instance]: get-started-create-service-instance.md
 
 [http://oauth.net/2/]: http://oauth.net/2/

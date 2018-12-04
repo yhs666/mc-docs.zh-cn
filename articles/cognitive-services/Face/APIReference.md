@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.component: face-api
 ms.topic: reference
 origin.date: 03/01/2018
-ms.date: 10/24/2018
+ms.date: 11/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: 2d698e1fc9a8295ce6b47b3d38726ec3e72df33c
-ms.sourcegitcommit: 44ce337717bb948f5ac08217a156935f663c0f46
+ms.openlocfilehash: d4ca083e4bf806da175541e20fe069c2e5099aaf
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034658"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672776"
 ---
 # <a name="api-reference"></a>API 参考
 
@@ -32,3 +32,6 @@ Microsoft 人脸 API 是基于云的 API，为人脸检测和识别提供先进�
 - [PersonGroup Person 管理 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)：用来管理用于[识别](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)的 PersonGroup 人脸。
 - [PersonGroup 管理 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244)：用来管理用于[识别](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)的 PersonGroup 数据集。
 
+<!-- Linguist question: Please confirm that the following are API names and should be left as is: "Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management, and Face Algorithms" -->
+
+<!-- Update_Description: wording update -->

@@ -1,19 +1,20 @@
 ---
 title: 将 Azure 监视数据流式传输到事件中心
 description: 了解如何将所有 Azure 监视数据流式传输到事件中心，以将数据获取到合作伙伴 SIEM 或分析工具。
-author: johnkemnetz
-services: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
+author: lingliw
+services: azure-monitor
+ms.service: azure-monitor
 ms.topic: conceptual
-origin.date: 08/21/201
-ms.date: 10/22/2018
-ms.author: v-linglwu
-ms.openlocfilehash: 7f5b01f6f289c0f18afe023ff62cac801150e76e
-ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
+origin.date: 11/01/2018
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.component: ''
+ms.openlocfilehash: ff83d8b2c12ab45a136212228a9ae14d79b593c6
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652248"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675229"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>将 Azure 监视数据流式传输到事件中心以便外部工具使用
 

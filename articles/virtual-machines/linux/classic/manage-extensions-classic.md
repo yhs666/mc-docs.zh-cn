@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 08/29/2016
-ms.date: 05/21/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: afbf415a972f55ce8d2c9a943c4a7d82b3c562ea
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.openlocfilehash: 55f234b224da3208964c3803ba90be74d78fd7d6
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173275"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675066"
 ---
 # <a name="manage-virtual-machine-extensions"></a>管理虚拟机扩展
 介绍如何在 Azure 上查找、添加、修改或删除 Windows 或 Linux 虚拟机的 VM 扩展。

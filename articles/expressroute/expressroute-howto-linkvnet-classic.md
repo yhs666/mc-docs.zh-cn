@@ -8,13 +8,13 @@ ms.service: expressroute
 ms.topic: conceptual
 origin.date: 07/27/2018
 ms.author: v-yiso
-ms.date: 09/7/2018
-ms.openlocfilehash: ec7c03cc7d2890c71ab33be0a142fd502d517a55
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.date: 12/10/2018
+ms.openlocfilehash: bd714821efd30c3b4d7d7fe02c6c849a8474d93a
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068130"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674288"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>使用 PowerShell 将虚拟网络连接到 ExpressRoute 线路（经典）
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "44068130"
 
 **关于 Azure 部署模型**
 
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
+[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="configuration-prerequisites"></a>配置先决条件
 

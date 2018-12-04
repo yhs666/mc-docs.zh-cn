@@ -1,3 +1,17 @@
+---
+author: rockboyfor
+ms.service: virtual-machines-linux
+ms.topic: include
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
+ms.openlocfilehash: 3d4cdddce9e572e5ed780c9b6d0a4c955b2e058a
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676031"
+---
 将数据磁盘添加到 Linux VM 时，如果 LUN 0 位置没有磁盘，则可能会遇到错误。 如果使用 `azure vm disk attach-new` 命令并指定 LUN (`--lun`) 来手动添加磁盘，而不是让 Azure 平台确定适当的 LUN，则请注意，LUN 0 已经有磁盘或者将有磁盘。 
 
 请考虑以下示例，其中显示了 `lsscsi` 输出的代码片段：
@@ -18,3 +32,5 @@
 
 * 在添加数据磁盘之后，请查看 `lsscsi` 的输出，验证 LUN 0 位置是否有磁盘。
 * 如果磁盘未在 VM 内正确显示，请验证 LUN 0 位置是否有磁盘。
+
+<!-- Update_Description: update meta properties, wording update -->

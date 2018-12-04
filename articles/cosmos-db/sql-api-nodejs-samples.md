@@ -9,14 +9,14 @@ ms.component: cosmosdb-sql
 ms.devlang: na
 ms.topic: sample
 origin.date: 09/24/2018
-ms.date: 11/05/2018
+ms.date: 12/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: a1fa9d1a5f6e78b4474352f50a5f8c7c39d907a0
-ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
+ms.openlocfilehash: e6a96ece4932a46b2c5d1ffb472d6ecf4d344f0c
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50204840"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674486"
 ---
 # <a name="azure-cosmos-db-nodejs-examples"></a>Azure Cosmos DB Node.js 示例
 > [!div class="op_single_selector"]
@@ -96,7 +96,7 @@ ms.locfileid: "50204840"
 | [在字符串路径上创建范围索引](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/IndexManagement/app.js#L281-L346) |[IndexKind.Range](https://docs.microsoft.com/javascript/api/%40azure/cosmos/indexkind?view=azure-node-latest)、[IndexingPolicy](https://docs.microsoft.com/javascript/api/%40azure/cosmos/indexingpolicy?view=azure-node-latest)、[Items.query](https://docs.microsoft.com/javascript/api/%40azure/cosmos/items?view=azure-node-latest#query) |
 | [使用默认 indexPolicy 创建容器，然后对其进行联机更新](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/IndexManagement/app.js#L435-L507) |[Containers.create](https://docs.microsoft.com/javascript/api/%40azure/cosmos/containers?view=azure-node-latest#create)
 
-有关索引的详细信息，请参阅 [Azure Cosmos DB 索引策略](indexing-policies.md)。
+有关索引的详细信息，请参阅 [Azure Cosmos DB 索引策略](index-policy.md)。
 
 ## <a name="server-side-programming-examples"></a>服务器端编程示例
 [ServerSideScripts](https://github.com/Azure/azure-cosmos-js/tree/master/samples/ServerSideScripts) 项目的 [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ServerSideScripts/app.js) 文件演示如何执行以下任务。

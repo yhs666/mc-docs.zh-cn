@@ -9,14 +9,14 @@ ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 origin.date: 03/27/2018
-ms.date: 09/30/2018
+ms.date: 12/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5b5aab8ddb27165bf15771dfb2ff89482ceb6bdf
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: e8204c95fb7cfd6159c5da989b9cf277e511c972
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201289"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674155"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>适用于 Azure Cosmos DB 和 Async Java 的性能提示
 
@@ -31,7 +31,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 如果有“如何改善数据库性能？”的疑问， 请考虑以下选项：
 
 ## <a name="networking"></a>网络
-    <a name="same-region"></a>
+<a name="same-region"></a>
 1. **将客户端并置在同一 Azure 区域中以提高性能**
 
     如果可能，请将任何调用 Azure Cosmos DB 的应用程序放在与 Azure Cosmos DB 数据库所在的相同区域中。 根据请求采用的路由，各项请求从客户端传递到 Azure 数据中心边界时的此类延迟可能有所不同。 通过确保在与预配 Azure Cosmos DB 终结点所在的同一 Azure 区域中调用应用程序，可能会实现最低的延迟。 有关可用区域的列表，请参阅 [Azure Regions](https://www.azure.cn/support/service-dashboard/#services)（Azure 区域）。
@@ -47,7 +47,6 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
     每个 AsyncDocumentClient 实例都是线程安全的，可执行高效的连接管理和地址缓存。 若要通过 AsyncDocumentClient 获得高效的连接管理和更好的性能，建议在应用程序生存期内对每个 AppDomain 使用单个 AsyncDocumentClient 实例。
 
     <a name="max-connection"></a>
-
 3. **优化 ConnectionPolicy**
 
     使用 Async Java SDK 时，Azure Cosmos DB 请求是通过 HTTPS/REST 发出的，并且受制于默认的最大连接池大小 (1000)。 此默认值对于大多数用例是很理想的。 但是，如果你有一个包含许多分区的大型集合，则可以使用 setMaxPoolSize 将最大连接池大小设置为更大的数字（例如 1500）。
@@ -66,7 +65,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
 5. **按 getRetryAfterInMilliseconds 间隔实现回退**
 
-    在性能测试期间，应该增加负载，直到系统对小部分请求进行限制为止。 如果受到限制，客户端应用程序应按照服务器指定的重试间隔退让。 遵循退让可确保最大程度地减少等待重试的时间。 有关详细信息，请参阅[超过保留的吞吐量限制](request-units.md#RequestRateTooLarge)和 DocumentClientException.getRetryAfterInMilliseconds。
+    在性能测试期间，应该增加负载，直到系统对小部分请求进行限制为止。 如果受到限制，客户端应用程序应按照服务器指定的重试间隔退让。 遵循退让可确保最大程度地减少等待重试的时间。 
 6. **增大客户端工作负荷**
 
     如果以高吞吐量级别（> 50,000 RU/s）进行测试，客户端应用程序可能成为瓶颈，因为计算机的 CPU 或网络利用率将达到上限。 如果达到此限制，可以跨多个服务器横向扩展客户端应用程序，以进一步推送 Azure Cosmos DB 帐户。
@@ -104,7 +103,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
       });
     ```
 
-    收到结果后，如果想要针对结果执行 CPU 密集型工作，应避免针对 eventloop IO netty 线程执行。 可以提供自己的计划程序，以提供自己的线程来运行工作。
+    收到结果后，如果想要针对结果执行 CPU 密集型工作，应避免针对事件循环 IO netty 线程执行。 可以提供自己的计划程序，以提供自己的线程来运行工作。
 
     ```java
     import rx.schedulers;
@@ -231,4 +230,5 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
 ## <a name="next-steps"></a>后续步骤
 若要深入了解如何设计应用程序以实现缩放和高性能，请参阅 [Azure Cosmos DB 中的分区和缩放](partition-data.md)。
+
 <!-- Update_Description: update meta properties, wording update -->

@@ -3,21 +3,21 @@ title: Azure Functions 的 Azure Blob 存储绑定
 description: 了解如何在 Azure Functions 中使用 Azure Blob 存储触发器和绑定。
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: Azure Functions，函数，事件处理，动态计算，无服务体系结构
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 09/03/2018
-ms.date: 10/18/2018
+ms.date: 11/22/2018
 ms.author: v-junlch
-ms.openlocfilehash: 2a5897ec93f8b5c8df7dc34d4c7a2d7b8ad029cb
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: c20e9be4e03b3593e6e56606f46cad7dcaa906fe
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453701"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673169"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure Blob 存储绑定
 
@@ -55,7 +55,7 @@ ms.locfileid: "49453701"
 - [C#](#trigger---c-example)
 - [C# 脚本 (.csx)](#trigger---c-script-example)
 - [JavaScript](#trigger---javascript-example)
-- [Java](#trigger---javascript-example)
+- [Java](#trigger---java-example)
 
 ### <a name="trigger---c-example"></a>触发器 - C# 示例
 
@@ -63,9 +63,9 @@ ms.locfileid: "49453701"
 
 ```csharp
 [FunctionName("BlobTriggerCSharp")]        
-public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, string name, TraceWriter log)
+public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, string name, ILogger log)
 {
-    log.Info($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
+    log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
 }
 ```
 
@@ -101,9 +101,9 @@ blob 触发器路径 `samples-workitems/{name}` 中的字符串 `{name}` 会创�
 下面是绑定到 `Stream` 的 C# 脚本代码：
 
 ```cs
-public static void Run(Stream myBlob, TraceWriter log)
+public static void Run(Stream myBlob, ILogger log)
 {
-   log.Info($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
+   log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
 }
 ```
 
@@ -114,9 +114,9 @@ public static void Run(Stream myBlob, TraceWriter log)
 
 using Microsoft.WindowsAzure.Storage.Blob;
 
-public static void Run(CloudBlockBlob myBlob, string name, TraceWriter log)
+public static void Run(CloudBlockBlob myBlob, string name, ILogger log)
 {
-    log.Info($"C# Blob trigger function Processed blob\n Name:{name}\nURI:{myBlob.StorageUri}");
+    log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name}\nURI:{myBlob.StorageUri}");
 }
 ```
 
@@ -178,18 +178,17 @@ function.json 文件如下所示：
 下面是 Java 代码：
 
 ```java
- @FunctionName("blobprocessor")
- public void run(
-    @BlobTrigger(name = "file",
-                  dataType = "binary",
-                  path = "myblob/filepath",
-                  connection = "myconnvarname") byte[] content,
-    @BindingName("name") String filename,
-     final ExecutionContext context
- ) {
-     context.getLogger().info("Name: " + name + " Size: " + content.length + " bytes");
- }
-
+@FunctionName("blobprocessor")
+public void run(
+  @BlobTrigger(name = "file",
+               dataType = "binary",
+               path = "myblob/{name}",
+               connection = "MyStorageAccountAppSetting") byte[] content,
+  @BindingName("name") String filename,
+  final ExecutionContext context
+) {
+  context.getLogger().info("Name: " + filename + " Size: " + content.length + " bytes");
+}
 ```
 
 
@@ -258,7 +257,7 @@ function.json 文件如下所示：
 |类型 | 不适用 | 必须设置为 `blobTrigger`。 在 Azure 门户中创建触发器时，会自动设置此属性。|
 |direction | 不适用 | 必须设置为 `in`。 在 Azure 门户中创建触发器时，会自动设置此属性。 [用法](#trigger---usage)部分中已阐述异常。 |
 |**name** | 不适用 | 表示函数代码中的 Blob 的变量的名称。 | 
-|**路径** | **BlobPath** |要监视的容器。  可以是某种 [Blob 名称模式](#trigger-blob-name-patterns)。 | 
+|**路径** | **BlobPath** |要监视的容器。  可以是某种 [Blob 名称模式](#trigger---blob-name-patterns)。 | 
 |**连接** | **Connection** | 包含要用于此绑定的存储连接字符串的应用设置的名称。 如果应用设置名称以“AzureWebJobs”开始，则只能在此处指定该名称的余下部分。 例如，如果将 `connection` 设置为“MyStorage”，函数运行时将会查找名为“AzureWebJobsMyStorage”的应用设置。 如果将 `connection` 留空，函数运行时将使用名为 `AzureWebJobsStorage` 的应用设置中的默认存储连接字符串。<br><br>连接字符串必须属于某个常规用途存储帐户，而不能属于[Blob 存储帐户](../storage/common/storage-account-overview.md#types-of-storage-accounts)。|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -340,9 +339,9 @@ Blob 触发器提供了几个元数据属性。 这些属性可在其他绑定�
 例如，以下 C# 脚本和 JavaScript 示例会记录触发 blob 的路径，包括容器：
 
 ```csharp
-public static void Run(string myBlob, string blobTrigger, TraceWriter log)
+public static void Run(string myBlob, string blobTrigger, ILogger log)
 {
-    log.Info($"Full blob path: {blobTrigger}");
+    log.LogInformation($"Full blob path: {blobTrigger}");
 } 
 ```
 
@@ -413,9 +412,9 @@ JavaScript 函数会将整个 blob 加载到内存中，并且如果绑定到 `s
 public static void Run(
     [QueueTrigger("myqueue-items")] string myQueueItem,
     [Blob("samples-workitems/{queueTrigger}", FileAccess.Read)] Stream myBlob,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
+    log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 }
 ```        
 
@@ -461,9 +460,9 @@ public static void Run(
 C# 脚本代码如下所示：
 
 ```cs
-public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
+public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
     myOutputBlob = myInputBlob;
 }
 ```
@@ -545,9 +544,9 @@ public void blobSize(@QueueTrigger(name = "filename",  queueName = "myqueue-item
 public static void Run(
     [QueueTrigger("myqueue-items")] string myQueueItem,
     [Blob("samples-workitems/{queueTrigger}", FileAccess.Read)] Stream myBlob,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
+    log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 }
 
 ```
@@ -559,9 +558,9 @@ public static void Run(
 public static void Run(
     [QueueTrigger("myqueue-items")] string myQueueItem,
     [Blob("samples-workitems/{queueTrigger}", FileAccess.Read, Connection = "StorageConnectionAppSetting")] Stream myBlob,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
+    log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 }
 ```
 
@@ -693,9 +692,9 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 C# 脚本代码如下所示：
 
 ```cs
-public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
+public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
     myOutputBlob = myInputBlob;
 }
 ```
@@ -860,4 +859,4 @@ public static void Run(
 > [Go to a quickstart that uses a Blob storage trigger](functions-create-storage-blob-triggered-function.md)
 --->
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

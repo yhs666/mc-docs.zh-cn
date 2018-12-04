@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 origin.date: 08/25/2017
-ms.date: 09/10/2018
+ms.date: 12/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: 791f5da0f1ce174f1462ef05a47faac5fd7b698d
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.openlocfilehash: 36938f7e4316d0a89ec8ce42241ece47bce12432
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43328635"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674206"
 ---
 # <a name="get-started-with-device-twins-node"></a>设备孪生入门 (Node)
 
@@ -35,14 +35,20 @@ ms.locfileid: "43328635"
 
 * Node.js 版本 4.0.x 或更高版本。
 
-+ 有效的 Azure 帐户。 （如果没有帐户，只需花费几分钟就能创建一个[帐户][lnk-free-trial]。）
++ 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
 
-[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+## <a name="create-an-iot-hub"></a>创建 IoT 中心
+
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+### <a name="retrieve-connection-string-for-iot-hub"></a>检索 IoT 中心的连接字符串
+
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="create-the-service-app"></a>创建服务应用
-在本部分中，将创建一个 Node.js 控制台应用，该应用将位置元数据添加到与 **myDeviceId** 关联的设备孪生。 然后，该应用将选择位于美国的设备来查询存储在 IoT 中心的设备孪生，然后查询报告移动电话网络连接的设备孪生。
+在此部分，会创建一个 Node.js 控制台应用，将位置元数据添加到与 **myDeviceId**关联的设备孪生。 然后，该应用将选择位于美国的设备来查询存储在 IoT 中心的设备孪生，然后查询报告移动电话网络连接的设备孪生。
 
 1. 新建名为 **addtagsandqueryapp**的空文件夹。 在命令提示符下的**addtagsandqueryapp** 文件夹中，使用以下命令创建新的 package.json 文件。 接受所有默认值：
    
@@ -196,9 +202,9 @@ ms.locfileid: "43328635"
 
 充分利用以下资源：
 
-- 通过 [Get started with IoT Hub][lnk-iothub-getstarted] （IoT 中心入门）教程学习如何从设备发送遥测；
-- 通过[使用所需属性配置设备][lnk-twin-how-to-configure]教程学习如何使用设备孪生的所需属性配置设备；
-- 通过[使用直接方法][lnk-methods-tutorial]教程学习如何以交互方式控制设备（例如从用户控制的应用打开风扇）。
+* 通过 [Get started with IoT Hub][lnk-iothub-getstarted] （IoT 中心入门）教程学习如何从设备发送遥测；
+* 通过[使用所需属性配置设备][lnk-twin-how-to-configure]教程学习如何使用设备孪生的所需属性配置设备；
+* 通过[使用直接方法][lnk-methods-tutorial]教程学习如何以交互方式控制设备（例如从用户控制的应用打开风扇）。
 
 <!-- images -->
 [1]: ./media/iot-hub-node-node-twin-getstarted/service1.png
@@ -216,7 +222,7 @@ ms.locfileid: "43328635"
 
 [lnk-iothub-getstarted]: quickstart-send-telemetry-node.md
 [lnk-device-management]: ./iot-hub-node-node-device-management-get-started.md
-[lnk-iot-edge]: ./iot-hub-linux-iot-edge-get-started.md
+[lnk-iot-edge]: ../iot-edge/quickstart-linux.md
 [lnk-connect-device]: https://www.azure.cn/develop/iot/
 
 [lnk-twin-how-to-configure]: tutorial-device-twins.md

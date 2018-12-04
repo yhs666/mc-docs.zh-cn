@@ -9,18 +9,18 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 09/22/2018
-ms.date: 10/18/2018
+ms.date: 11/22/2018
 ms.author: v-junlch
-ms.openlocfilehash: 0f01081fc6a95cd85f1018d47230727b2f9b996c
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 750ec0fbc093dc1639f095f8c3a2edac00942c48
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453664"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672554"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions 的应用设置参考
 
-函数应用中的应用设置包含对该函数应用的所有函数产生影响的全局配置选项。 在本地运行时，这些设置出现在环境变量中。 本文列出可在函数应用中使用的应用设置。
+函数应用中的应用设置包含对该函数应用的所有函数产生影响的全局配置选项。 在本地运行时，这些设置出现在[环境变量](functions-run-local.md#local-settings-file)中。 本文列出可在函数应用中使用的应用设置。
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
@@ -73,11 +73,11 @@ ms.locfileid: "49453664"
 
 ## <a name="azurewebjobssecretstoragetype"></a>AzureWebJobsSecretStorageType
 
-指定用于密钥存储的存储库或提供程序。 目前，支持的存储库包括 blob（“Blob”）和文件系统（“disabled”）。 默认值为文件系统（“disabled”）。
+指定用于密钥存储的存储库或提供程序。 目前，支持的存储库包括 blob 存储（“Blob”）和本地文件系统（“Files”）。 默认是在版本 1 中使用 blob，在版本 2 中使用文件系统。 请注意，在版本 1 中，文件系统仅适用于在应用服务计划中运行的功能。
 
 |键|示例值|
 |---|------------|
-|AzureWebJobsSecretStorageType|disabled|
+|AzureWebJobsSecretStorageType|文件|
 
 ## <a name="azurewebjobsstorage"></a>AzureWebJobsStorage
 

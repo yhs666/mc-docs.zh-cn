@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 05/11/2018
-ms.date: 06/04/2018
+origin.date: 10/31/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 69bdea3e97264c2fd0abba9e5f661670723f4add
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: c74aff662dac8efc08fd6252341a87b5b0ddb253
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940079"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674314"
 ---
 # <a name="troubleshoot-a-linux-classic-vm-by-attaching-the-os-disk-to-a-recovery-vm"></a>通过将 OS 磁盘附加到恢复 VM，对 Linux 经典 VM 进行故障排除
 

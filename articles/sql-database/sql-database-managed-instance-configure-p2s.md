@@ -11,16 +11,16 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab, bonova, jovanpop
 manager: digimobile
-origin.date: 10/05/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: 30834fabd2be03d11a0b52fd648d769f1d4c282a
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+origin.date: 11/01/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: 9a0bfe61ac4ea595afaee75715b66d57778cdcd5
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135968"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672916"
 ---
-# <a name="configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>配置从本地到 Azure SQL 数据库托管实例的点到站点连接
+# <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>快速入门：配置从本地到 Azure SQL 数据库托管实例的点到站点连接
 
 本快速入门演示如何使用本地客户端计算机的点到站点连接，通过 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) 连接到 Azure SQL 数据库托管实例。 有关点到站点连接的信息，请参阅[关于点到站点 VPN](../vpn-gateway/point-to-site-about.md)
 

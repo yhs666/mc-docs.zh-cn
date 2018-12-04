@@ -3,7 +3,7 @@ title: 有关安装和配置适用于 Azure Stack 的 PowerShell 的快速入门
 description: 了解如何安装和配置适用于 Azure Stack 的 PowerShell。
 services: azure-stack
 documentationcenter: ''
-author: WenJasom
+author: WenJason
 manager: digimobile
 editor: ''
 ms.service: azure-stack
@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 09/17/2018
 ms.date: 11/12/2018
 ms.author: v-jay
-ms.openlocfilehash: deb536948de0ed3992d56cca87fba2481f2fdd1a
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.openlocfilehash: aca0b15f37de3733a670469bb16a6884c97db74d
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195426"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674511"
 ---
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>在 Azure Stack 中使用 PowerShell 启动并运行
 
@@ -202,5 +202,5 @@ New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 
 ## <a name="next-steps"></a>后续步骤
 
- - [安装和配置 CLI](/user/azure-stack-version-profiles-azurecli2)
+ - [安装和配置 CLI](user/azure-stack-version-profiles-azurecli2.md)
  - [开发模板](user/azure-stack-develop-templates.md)

@@ -1,9 +1,9 @@
 ---
-title: 使用 Azure CLI 2.0 导入和导出 Azure DNS 的域区域文件 | Microsoft 文档
-description: 了解如何通过使用 Azure CLI 2.0 导入和导出 Azure DNS 的 DNS 区域文件
+title: 使用 Azure CLI 导入和导出 Azure DNS 的域区域文件 | Microsoft 文档
+description: 了解如何通过使用 Azure CLI 导入和导出 Azure DNS 的 DNS 区域文件
 services: dns
 documentationcenter: na
-author: yunan2016
+author: WenJason
 manager: digimobile
 ms.assetid: f5797782-3005-4663-a488-ac0089809010
 ms.service: dns
@@ -12,18 +12,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/30/2018
-ms.date: 05/28/2018
-ms.author: v-nany
-ms.openlocfilehash: a5b7d3971590bfc9562470cf942db0c6cc1eb837
-ms.sourcegitcommit: 1471663f5f5a1c4e1fbead7c4d351610cb0086bb
+ms.date: 11/26/2018
+ms.author: v-jay
+ms.openlocfilehash: c3686dd59c5c3ee0aa52b5ca3608fdeca009cccf
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44363583"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672497"
 ---
-# <a name="import-and-export-a-dns-zone-file-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 导入和导出 DNS 区域文件 
+# <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>使用 Azure CLI 导入和导出 DNS 区域文件 
 
-本文介绍如何使用 Azure CLI 2.0 导入和导出 Azure DNS 的 DNS 区域文件。
+本文介绍如何使用 Azure CLI 导入和导出 Azure DNS 的 DNS 区域文件。
 
 ## <a name="introduction-to-dns-zone-migration"></a>DNS 区域迁移简介
 
@@ -31,7 +31,7 @@ DNS 区域文件是一个文本文件，其中包含区域中每个域名系统 
 
 Azure DNS 支持通过使用 Azure 命令行接口 (CLI) 导入和导出区域文件。 当前**不**支持通过 Azure PowerShell 或 Azure 门户导入区域文件。
 
-Azure CLI 2.0 是用于管理 Azure 服务的跨平台命令行工具。 它适用于 Windows、Mac 和 Linux 平台，可以从 [Azure 下载页](https://azure.microsoft.com/downloads/)获取。 跨平台支持对导入和导出区域文件很重要，因为最常见的名称服务器软件 [BIND](https://www.isc.org/downloads/bind/) 通常在 Linux 上运行。
+Azure CLI 是用于管理 Azure 服务的跨平台命令行工具。 它适用于 Windows、Mac 和 Linux 平台，可以从 [Azure 下载页](https://azure.microsoft.com/downloads/)获取。 跨平台支持对导入和导出区域文件很重要，因为最常见的名称服务器软件 [BIND](https://www.isc.org/downloads/bind/) 通常在 Linux 上运行。
 
 
 ## <a name="obtain-your-existing-dns-zone-file"></a>获取现有的 DNS 区域文件

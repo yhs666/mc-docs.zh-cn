@@ -6,16 +6,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+origin.date: 10/10/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 7b32739ae381ec12d6f09ce5dc22a48b739a9b6b
-ms.sourcegitcommit: 74f9f0acb00fb728ff6e9bd67ac86a0c1bcd8d13
+ms.openlocfilehash: 685a331ca4d880b38355bb79cd5015960551f24d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39218897"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667121"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>针对本地 VMware VM 设置到 Azure 的灾难恢复
 
@@ -77,11 +77,11 @@ ms.locfileid: "39218897"
 3. 在“添加服务器”中，检查“VMware 的配置服务器”是否已显示在“服务器类型”中。
 4. 下载配置服务器的 OVF 模板。
 
- > [!TIP]
- >可以直接从[下载中心](https://aka.ms/asrconfigurationserver_bjb)下载最新版本的配置服务器模板。
+    > [!TIP]
+    > 可以直接从[下载中心](https://aka.ms/asrconfigurationserver_bjb)下载最新版本的配置服务器模板。
 
->[!NOTE]
-通过 OVF 模板提供的许可证是有效期为 180 天的评估许可证。 客户需要使用所购买的许可证来激活 Windows。
+> [!NOTE]
+> 通过 OVF 模板提供的许可证是有效期为 180 天的评估许可证。 客户需要使用所购买的许可证来激活 Windows。
 
 ## <a name="import-the-template-in-vmware"></a>在 VMware 中导入模板
 
@@ -128,7 +128,7 @@ ms.locfileid: "39218897"
 4. 选择“安装 VMware PowerCLI”。 执行此操作之前，请确保所有浏览器窗口已关闭。 然后选择“继续”。
 5. 在“验证设备配置”中验证先决条件，然后继续。
 6. 在“配置 vCenter Server/vSphere ESXi 服务器”中，输入要复制的 VM 所在的 vCenter Server 或 vSphere 主机的 FQDN 或 IP 地址。 输入服务器侦听的端口。 为保管库中的 VMware 服务器输入一个可用的友好名称。
-7. 输入配置服务器用来连接到 VMware 服务器的凭据。 Site Recovery 将使用这些凭据自动发现可复制的 VMware VM。 选择“添加”，然后选择“继续”。
+7. 输入配置服务器用来连接到 VMware 服务器的用户凭据。 确保用户名和密码正确无误，并且属于要保护的虚拟机的 Administrators 组。 Site Recovery 将使用这些凭据自动发现可复制的 VMware VM。 选择“添加”，然后选择“继续”。
 8. 在“配置虚拟机凭据”中，输入将用于在 VM 上自动安装移动服务的用户名和密码（如果已启用复制）。
     - 对于 Windows 计算机，该帐户在要复制的计算机上需有本地管理员特权。
     - 对于 Linux，请提供根帐户的详细信息。
@@ -152,7 +152,7 @@ Site Recovery 会使用指定的设置连接到 VMware 服务器，并且会发�
 ## <a name="create-a-replication-policy"></a>创建复制策略
 
 1. 打开 [Azure 门户](https://portal.azure.cn)，选择“所有资源”。
-2. 选择名为 ContosoVMVault 的恢复服务保管库。
+2. 选择恢复服务保管库（在本教程中为 **ContosoVMVault**）。
 3. 若要创建复制策略，请选择“Site Recovery 基础结构” > “复制策略” > “+复制策略”。
 4. 在“创建复制策略”中，输入策略名称。 我们使用 **VMwareRepPolicy**。
 5. 在“RPO 阈值”中，使用默认值 60 分钟。 此值确定创建恢复点的频率。 如果连续复制超出此限制，则会生成警报。

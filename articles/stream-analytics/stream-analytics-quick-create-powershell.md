@@ -2,20 +2,20 @@
 title: 使用 Azure PowerShell 创建流分析作业
 description: 本快速入门详细介绍了如何使用 Azure PowerShell 模块来部署并运行 Azure 流分析作业。
 services: stream-analytics
-author: rockboyfor
-ms.author: v-yeche
+author: lingliw
+ms.author: v-lingwu
 origin.date: 05/14/2018
-ms.date: 09/17/2018
+ms.date: 11/26/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: digimobile
-ms.openlocfilehash: a725406b5ee1adfa96ae3db1f48cb2aa6a0bb30f
-ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
+ms.openlocfilehash: 1c4fb6aacff6ab373135f13000930ec1c6ef3756
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586612"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675318"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建流分析作业
 
@@ -23,7 +23,7 @@ Azure PowerShell 模块用于通过 PowerShell cmdlet 或脚本创建和管理 A
 
 示例作业从 Azure Blob 存储中的 Blob 读取流式处理数据。 在本快速入门中使用的输入数据文件包含的静态数据仅供说明之用。 在实际方案中，请将流式处理输入数据用于流分析作业。 接下来，作业使用流分析查询语言计算温度超过 100° 时的平均温度，对数据进行转换。 最后，作业将生成的输出事件写入到另一文件中。 
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 * 如果没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。  
 

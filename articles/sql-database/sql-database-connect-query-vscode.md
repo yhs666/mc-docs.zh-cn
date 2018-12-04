@@ -3,22 +3,25 @@ title: VS Code：在 Azure SQL 数据库中进行连接和数据查询 | Microso
 description: 了解如何通过使用 Visual Studio Code 连接到 Azure 上的 SQL 数据库。 然后，通过运行 Transact-SQL (T-SQL) 语句来查询和编辑数据。
 keywords: 连接到 sql 数据库
 services: sql-database
-author: yunan2016
-manager: digimobile
 ms.service: sql-database
-ms.custom: mvc,DBs & servers
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: quickstart
-origin.date: 04/01/2018
-ms.date: 04/17/2018
-ms.author: v-nany
-ms.openlocfilehash: d45b0a4c2e0ccf29f4dce7445f8336193cb65110
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+author: WenJason
+ms.author: v-jay
+ms.reviewer: ''
+manager: digimobile
+origin.date: 11/01/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: b0552a6b4678f98dda6d5ba9c8b723b46b2e0af2
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913926"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672953"
 ---
-# <a name="azure-sql-database-use-visual-studio-code-to-connect-and-query-data"></a>Azure SQL 数据库：使用 Visual Studio Code 进行连接和数据查询
+# <a name="quickstart-azure-sql-database-use-visual-studio-code-to-connect-and-query-data"></a>快速入门：Azure SQL 数据库：使用 Visual Studio Code 进行连接和数据查询
 
 [Visual Studio Code](https://code.visualstudio.com/docs) 是一种图形代码编辑器，适用于 Linux、macOS 和 Windows，并且支持各种扩展，其中包括 [mssql 扩展](https://aka.ms/mssql-marketplace)（用于查询 Microsoft SQL Server、Azure SQL 数据库和 SQL 数据仓库）。 本快速入门演示了如何使用 Visual Studio Code 连接到 Azure SQL 数据库，并使用 Transact-SQL 语句在数据库中查询、插入、更新和删除数据。
 

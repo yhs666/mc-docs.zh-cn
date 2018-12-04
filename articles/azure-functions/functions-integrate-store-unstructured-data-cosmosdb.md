@@ -11,15 +11,15 @@ ms.service: azure-functions
 ms.devlang: csharp
 ms.topic: quickstart
 origin.date: 10/01/2018
-ms.date: 10/19/2018
+ms.date: 11/22/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 3d46f93d276a1fa2ea36e558d548cd5978e126e8
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 2fe737db92c2194ee20d5d530ec5c91782cb1950
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453805"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673144"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>使用 Azure Functions 和 Azure Cosmos DB 存储非结构化数据
 
@@ -84,6 +84,7 @@ ms.locfileid: "49453805"
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 
 public static IActionResult Run(HttpRequest req, out object taskDocument, ILogger log)
 {
@@ -172,4 +173,4 @@ module.exports = async function (context, req) {
 
 若要详细了解如何绑定到 Cosmos DB 数据库，请参阅 [Azure Functions Cosmos DB 绑定](functions-bindings-cosmosdb.md)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

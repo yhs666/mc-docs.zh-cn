@@ -15,12 +15,12 @@ ms.workload: NA
 origin.date: 09/17/2018
 ms.date: 10/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3148be129a089c1b6d2dc69477427d115535c77f
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.openlocfilehash: 70d967879cd15d6e9798b6c36a2b3a6196c4281f
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089132"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674989"
 ---
 # <a name="service-fabric-terminology-overview"></a>Service Fabric 术语概述
 Service Fabric 是分布式系统平台，可借助它轻松打包、部署和管理可缩放且可靠的微服务。 本文详细介绍 Service Fabric 所使用的术语，帮助了解文档中使用的术语。
@@ -153,8 +153,9 @@ Service Fabric 资源是可以单独部署到 Service Fabric 的任何内容，�
 有关详细信息，请阅读[为服务选择编程模型](service-fabric-choose-framework.md)一文。
 
 ### <a name="docker-compose"></a>Docker Compose 
-[Docker Compose](https://docs.docker.com/compose/) 是 Docker 项目的一部分。 Service Fabric 对[使用 Docker Compose 模型部署应用程序](service-fabric-docker-compose.md)提供了有限支持。
+[Docker Compose](https://docs.docker.com/compose/) 是 Docker 项目的一部分。 Service Fabric 对使用 Docker Compose 模型部署应用程序提供有限支持。
 
+<!-- Pending on [deploying applications using the Docker Compose model](service-fabric-docker-compose.md)-->
 ## <a name="environments"></a>环境
 
 Service Fabric 是一种开放源平台技术，多种不同的服务和产品都以它为基础。 Azure 提供了以下选项：

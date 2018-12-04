@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 12/15/2017
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: bb28e4c49e8712440d8eaf25b273735d1350a123
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 110f066905eef3db36a651933749e5b414794a82
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453807"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674918"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>将 Linux 虚拟机从非托管磁盘转换为托管磁盘
 
@@ -102,4 +102,4 @@ ms.locfileid: "49453807"
 ## <a name="next-steps"></a>后续步骤
 有关存储选项的详细信息，请参阅 [Azure 托管磁盘概述](../windows/managed-disks-overview.md)。
 
-<!--Update_Description: update meta properties, update link -->
+<!--Update_Description: update meta properties -->

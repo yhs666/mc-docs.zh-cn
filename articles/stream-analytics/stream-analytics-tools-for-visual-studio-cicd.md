@@ -2,20 +2,20 @@
 title: 使用流分析工具进行持续集成和开发
 description: 本文介绍如何使用用于 Azure 流分析的 Visual Studio 工具设置持续集成和部署过程。
 services: stream-analytics
-author: rockboyfor
-ms.author: v-yeche
+author: lingliw
+ms.author: v-lingwu
 manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 09/27/2017
-ms.date: 05/07/2018
-ms.openlocfilehash: 8a512cac9633b0b5e149ddd69ada596381a79744
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.date: 11/26/2018
+ms.openlocfilehash: 202dc4a4550b73b96d4a6fcb308aeac721bf6b7f
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815121"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674438"
 ---
 # <a name="continuously-integrate-and-develop-with-stream-analytics-tools"></a>使用流分析工具进行持续集成和开发
 本文介绍如何使用适用于 Visual Studio 的 Azure 流分析工具设置持续集成和部署过程。

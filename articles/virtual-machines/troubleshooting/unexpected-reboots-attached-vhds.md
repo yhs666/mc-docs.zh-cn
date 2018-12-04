@@ -8,15 +8,15 @@ manager: digimobile
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.service: virtual-machines
 ms.topic: article
-origin.date: 05/01/2018
-ms.date: 10/22/2018
+origin.date: 11/01/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8e69eee17913de691468c53d4d3f8d9c0aef36f6
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: aa8d79403f800cc7bafce26623297eb82da01880
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49454002"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675084"
 ---
 # <a name="troubleshoot-unexpected-reboots-of-vms-with-attached-vhds"></a>排查附加 VHD 的 VM 意外重启
 
@@ -25,3 +25,5 @@ ms.locfileid: "49454002"
 通常，虚拟机对 VHD 进行的每个单独的输入或输出操作都会转换为对基础页 Blob 进行的“Get 页”或“Put 页”操作。 因此，可以根据应用程序的特定行为，对环境使用估计的 IOPS 以优化可以在单个存储帐户中设置的 VHD 数。 Azure 建议在单个存储帐户中设置 40 个或更少的磁盘。 有关存储帐户的可伸缩性目标的详细信息（尤其是使用的存储帐户类型的总请求速率和总带宽），请参阅 [Azure 存储可伸缩性和性能目标](../../storage/common/storage-scalability-targets.md)。
 
 如果即将超过存储帐户的可伸缩性目标，请将 VHD 放入多个存储帐户中，以减少每个帐户中的活动。
+
+<!-- Update_Description: update meta properties -->

@@ -15,11 +15,11 @@ origin.date: 05/07/2018
 ms.date: 10/22/2018
 ms.author: v-yiso
 ms.openlocfilehash: f9623e6c0ea92cdac34e739c1201791c625979be
-ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121548"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667136"
 ---
 # <a name="what-is-azure-hdinsight-and-the-hadoop-technology-stack"></a>什么是 Azure HDInsight 和 Hadoop 技术堆栈
 本文介绍 Azure HDInsight 上的 Apache Hadoop。 Azure HDInsight 是适用于企业的分析服务，具有完全托管、全面且开源的特点。 可以使用 Hadoop、Spark、Hive、LLAP、Kafka、Storm、R 等开源框架。 

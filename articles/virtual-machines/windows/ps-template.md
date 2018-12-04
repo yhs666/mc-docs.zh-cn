@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 07/18/2017
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2e86935bb2e8f9c2bb17722d6cab207618448361
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.openlocfilehash: dfa17d636d9f6b96ba9918691e183f0dbce5095f
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034976"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674132"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>通过 Resource Manager 模板创建 Windows 虚拟机
 
@@ -54,9 +54,9 @@ ms.locfileid: "50034976"
 
 ## <a name="create-the-files"></a>创建文件
 
-此步骤将创建一个用于部署资源的模板文件和一个用于向模板提供参数值的参数文件。 还创建用于执行 Azure 资源管理器操作的授权文件。
+此步骤将创建一个用于部署资源的模板文件和一个用于向模板提供参数值的参数文件。 还会创建用于执行 Azure 资源管理器操作的授权文件。 
 
-1. 创建一个名为 *CreateVMTemplate.json* 的文件，并向其中添加此 JSON 代码：
+1. 创建一个名为 *CreateVMTemplate.json* 的文件，并向其中添加 JSON 代码。 将 `domainNameLabel` 的值替换为你自己的唯一名称。
 
     ```json
     {

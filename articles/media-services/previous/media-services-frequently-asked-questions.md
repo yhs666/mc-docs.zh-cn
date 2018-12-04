@@ -3,24 +3,23 @@ title: Azure 媒体服务常见问题 | Microsoft 文档
 description: 常见问题 (FAQ)
 services: media-services
 documentationcenter: ''
-author: forester123
+author: WenJason
 manager: digimobile
 editor: ''
-ms.assetid: 5374f7f4-c189-43ef-8b7f-f2f4141e2748
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/29/2017
-ms.date: 11/06/2017
-ms.author: v-johch
-ms.openlocfilehash: 71f48bf1d2450997ccf3983d89c98cbfac927e7f
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+origin.date: 10/15/2018
+ms.date: 12/03/2018
+ms.author: v-jay
+ms.openlocfilehash: 68ae1ae4c6670e4272bae4fe3fa03be0e6c70e08
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426426"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672507"
 ---
 # <a name="frequently-asked-questions"></a>常见问题
 
@@ -30,7 +29,7 @@ ms.locfileid: "47426426"
 
 问：如何流式传输到 Apple iOS 设备
 
-答：向 URL 的“/Manifest”部分添加“(format=m3u8-aapl)”路径，告知流式处理源服务器返回供 Apple iOS 本机设备使用的 HLS 内容（有关详细信息，请参阅 (传送内容)[media-services-deliver-content-overview.md]）。
+答：向 URL 的“/Manifest”部分添加“(format=m3u8-aapl)”路径，告知流式处理源服务器返回供 Apple iOS 本机设备使用的 HLS 内容（有关详细信息，请参阅[传送内容](media-services-deliver-content-overview.md)）。
 
 问：如何缩放索引？
 

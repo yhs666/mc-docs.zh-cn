@@ -3,7 +3,7 @@ title: 疑难解答使用虚拟机规模集的自动缩放问题 | Microsoft Doc
 description: 疑难解答使用虚拟机规模集的自动缩放问题。 了解遇到的典型问题以及如何解决这些问题。
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: windows
 ms.devlang: na
 ms.topic: article
 origin.date: 11/16/2017
-ms.date: 06/08/2018
+ms.date: 11/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: bf8eff092ee2d45a88eb418f1c6aa048f415d69a
-ms.sourcegitcommit: a63d392037f3eca3196026c500ac7d2d26d85a7c
+ms.openlocfilehash: 6cb98de199e746a4b4ceaabf03257ddd06fd03f7
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35253184"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672471"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>疑难解答使用虚拟机规模集的自动缩放问题
 **问题** - 已使用虚拟机规模集在 Azure 资源管理器中创建自动缩放基础结构（例如，通过部署与 https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale 类似的模板来这样做）。已定义了缩放规则，其效果良好，但无论在 VM 中施加多少负载，它都不会自动缩放。
@@ -47,11 +47,11 @@ ms.locfileid: "35253184"
     编写时很容易犯错，因此可使用如上述的久经验证的模板来开始编写，并进行微小的增量更改。 
 - 可以手动缩小或扩大吗？
   
-    请尝试使用不同的“容量”设置重新部署虚拟机规模集资源，以手动更改 VM 的数目。 此处是一个示例模板：https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing - 可能需要编辑该模板以确保它与规模集所用的计算机大小相同。 如果成功手动更改 VM 数目，则可知该问题与自动缩放无关。
+    请尝试使用不同的“容量”设置重新部署虚拟机规模集资源，以手动更改 VM 的数目。 此处是一个示例模板： https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing - 可能需要编辑该模板以确保它与规模集所用的计算机大小相同。 如果成功手动更改 VM 数目，则可知该问题与自动缩放无关。
 
 - 诊断扩展运行正常且可发出性能数据吗？
   
-    更新：已增强 Azure 自动缩放，以使用基于主机的指标管道，这将不再需要安装诊断扩展。 如果使用新管道创建自动缩放应用程序，则后续几个段落不再适用。 此处提供了一个已转换为使用主机管道的 Azure 模板的示例：https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale。 
+    更新：已增强 Azure 自动缩放，以使用基于主机的指标管道，这将不再需要安装诊断扩展。 如果使用新管道创建自动缩放应用程序，则后续几个段落不再适用。 此处提供了一个已转换为使用主机管道的 Azure 模板的示例： https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale。 
   
     使用基于主机的指标进行自动缩放比较好的原因如下：
   
@@ -85,4 +85,4 @@ ms.locfileid: "35253184"
 [explorer]: ./media/virtual-machine-scale-sets-troubleshoot/image1.png
 [tables]: ./media/virtual-machine-scale-sets-troubleshoot/image4.png
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->

@@ -4,7 +4,7 @@ description: 了解 Azure 虚拟机规模集的设计注意事项
 keywords: linux 虚拟机, 虚拟机规模集
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 06/01/2017
-ms.date: 09/27/2018
+ms.date: 11/29/2018
 ms.author: v-junlch
-ms.openlocfilehash: f6aae3c7f85f1d8865c28f4b4c5c97c9ae4bb8ef
-ms.sourcegitcommit: 399060a8d46534abd370693f6282e7343b371634
+ms.openlocfilehash: e6e1c8a7f94470ce5e45fa4b951ca5356b549b0c
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455581"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673109"
 ---
 # <a name="design-considerations-for-scale-sets"></a>规模集的设计注意事项
 本文讨论虚拟机规模集的设计注意事项。 有关什么是虚拟机规模集的信息，请参阅[虚拟机规模集概述](virtual-machine-scale-sets-overview.md)。
@@ -75,4 +75,4 @@ ms.locfileid: "47455581"
 
 对于高出这些限制所允许的 VM，需要部署多个规模集，如[此模板](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale)所示。
 
-<!--Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->

@@ -9,11 +9,11 @@ origin.date: 08/14/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: 6cbea00b4325fc9190cff13803718b49d736155f
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871404"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52665421"
 ---
 **文档上次更新时间**：太平洋标准时间 2018 年 8 月 14 日上午 10:00。
 

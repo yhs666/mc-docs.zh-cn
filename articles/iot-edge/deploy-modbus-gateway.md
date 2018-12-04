@@ -2,18 +2,19 @@
 title: 在 Azure IoT Edge 上部署 Modbus | Microsoft Docs
 description: 通过创建 IoT Edge 网关设备，允许设备使用 Modbus TCP 与 Azure IoT 中心通信
 author: kgremban
-manager: timlt
+manager: philmea
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 06/07/2018
-ms.author: kgremban
-ms.openlocfilehash: b5316479011a432f3822448f03b8ad6ecddd4fe1
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+origin.date: 06/07/2018
+ms.date: 12/10/2018
+ms.author: v-yiso
+ms.openlocfilehash: 5df052baf13c5b5f960b019a708f7fc6641c1908
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068248"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674416"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>通过 IoT Edge 设备网关连接 Modbus TCP 设备
 
@@ -54,13 +55,12 @@ mcr.microsoft.com/azureiotedge/modbus:1.0
 
       ```JSON
       {  
-        "properties.desired":{  
+        "properties.desired":{
           "PublishInterval":"2000",
-          "SlaveConfigs":{  
-            "Slave01":{  
-              "SlaveConnection":"<IPV4 address>",
-              "HwId":"PowerMeter-0a:01:01:01:01:01",
-              "Operations":{  
+          "SlaveConfigs":{
+            "Slave01":{
+              "SlaveConnection":"<IPV4 address>","HwId":"PowerMeter-0a:01:01:01:01:01",
+              "Operations":{
                 "Op01":{  
                   "PollingInterval": "1000",
                   "UnitId":"1",
@@ -100,7 +100,7 @@ docker logs -f modbus
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要详细了解如何让 IoT Edge 设备充当网关，请参阅[创建充当透明网关的 IoT Edge 设备][lnk-transparent-gateway-linux]
+- 若要详细了解如何让 IoT Edge 设备充当网关，请参阅[创建充当透明网关的 IoT Edge 设备](./how-to-create-transparent-gateway.md)
 - 有关 IoT Edge 模块工作原理的详细信息，请参阅[了解 Azure IoT Edge 模块](iot-edge-modules.md)
 
 <!-- Links -->

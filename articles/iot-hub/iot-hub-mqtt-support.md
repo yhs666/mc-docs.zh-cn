@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 10/15/2018
 ms.date: 10/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: a29abf424661eceb2b5045e90eeb3f2e7fd115d3
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 2e81f95cb9b63c448f36512b0df67aa6fdbae673
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453855"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674370"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>使用 MQTT 协议与 IoT 中心通信
 
@@ -333,7 +333,7 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" + rid, twin_repor
 [lnk-compare]: ./iot-hub-compare-event-hubs.md
 [lnk-scaling]: ./iot-hub-scaling.md
 [lnk-devguide]: ./iot-hub-devguide.md
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
+[lnk-iotedge]: ../iot-edge/quickstart-linux.md
 [lnk-x509]: iot-hub-security-x509-get-started.md
 
 <!--Update_Description:update meta properties and link references-->

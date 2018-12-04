@@ -15,11 +15,11 @@ origin.date: 10/01/2016
 ms.author: v-yiso
 ms.date: 10/08/2018
 ms.openlocfilehash: 13631eb9b190c6a28b0b6efbc5ceb32d06048309
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523894"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667192"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>如何使用适用于 Azure 移动应用的 iOS 客户端库
 
@@ -569,7 +569,7 @@ Pod：
     * 将 **INSERT-AUTHORITY-HERE** 替换为在其中预配应用程序的租户的名称。 格式应为 https://login.chinacloudapi.cn/contoso.onmicrosoft.com。 可以在 [Azure 门户]中从 Azure Active Directory 的“域”选项卡复制此值。
     * 将 **INSERT-RESOURCE-ID-HERE** 替换移动应用后端的客户端 ID。 可以在门户中“Azure Active Directory 设置”下面的“高级”选项卡获取此客户端 ID。
     * 将 **INSERT-CLIENT-ID-HERE** 替换为从本机客户端应用程序复制的客户端 ID。
-    * 使用 HTTPS 方案将 **INSERT-REDIRECT-URI-HERE** 替换为站点的 _/.auth/login/done_ 终结点。 此值应类似于 _https://contoso.chinacloudsites.cn/.auth/login/done_。
+    * 将 **INSERT-REDIRECT-URI-HERE** 替换为站点的 _/.auth/login/done_ 终结点（使用 HTTPS 方案）。 此值应类似于 _https://contoso.chinacloudsites.cn/.auth/login/done_。
 
 **Objective-C**：
 

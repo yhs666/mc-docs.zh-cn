@@ -10,12 +10,12 @@ origin.date: 09/13/2018
 ms.date: 11/12/2018
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: f2b8acefcde2774af043bb929a1f97243a0d27fb
-ms.sourcegitcommit: b8e99939a5493a15b78c32e87bfbf76a8c96a84a
+ms.openlocfilehash: 625afadefad0e537fa586bedbe3f21af8964319f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409072"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667280"
 ---
 # <a name="approved-vm-images"></a>已批准的 VM 映像
 
@@ -28,7 +28,7 @@ ms.locfileid: "50409072"
 - [Azure CLI](#azure-cli)
 - [REST API](#rest-api)
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-policy"></a>示例策略
 
@@ -148,7 +148,7 @@ PowerShell 还支持 `-PolicyParameterObject`，这要求向该 cmdlet 传递一
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
 
 ### <a name="deploy-with-azure-powershell"></a>使用 Azure PowerShell 部署
 
@@ -192,7 +192,7 @@ Remove-AzureRmPolicyDefinition -Id $definition.ResourceId
 
 ## <a name="azure-cli"></a>Azure CLI
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
 ### <a name="deploy-with-azure-cli"></a>使用 Azure CLI 进行部署
 

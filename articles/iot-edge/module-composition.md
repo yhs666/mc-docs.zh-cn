@@ -2,23 +2,23 @@
 title: Azure IoT Edge 模块组合 | Microsoft 文档
 description: 了解部署清单如何声明要部署的模块、如何部署这些模块以及如何在它们之间创建消息路由。
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: v-yiso
 origin.date: 06/06/2018
-ms.date: 11/05/2018
+ms.date: 12/10/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b69d9e0649bec8c80203266326fc1b7d31e9a6fc
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.openlocfilehash: 36a161742484e230e7374ebb7cd43f52b75c0bec
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135784"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675332"
 ---
-# <a name="learn-how-to-use-deployment-manifests-to-deploy-modules-and-establish-routes"></a>了解如何使用部署清单来部署模块和建立路由
+# <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>了解如何在 IoT Edge 中部署模块和建立路由
 
-每个 IoT Edge 设备至少运行两个模块：$edgeAgent 和 $edgeHub，它们构成了 IoT Edge 运行时。 除这两个标准模块以外，任何 IoT Edge 设备都可以运行多个模块来执行任意数量的进程。 一次性将所有这些模块部署到设备时，需要通过某种方式来声明要包含哪些模块，以及这些模块的交互方式。 
+每个 IoT Edge 设备至少运行两个模块：$edgeAgent 和 $edgeHub，它们构成了 IoT Edge 运行时。 此外，任何 IoT Edge 设备都可以运行多个模块来执行任意数量的进程。 一次性将所有这些模块部署到设备时，需要通过某种方式来声明要包含哪些模块，以及这些模块的交互方式。 
 
 部署清单是一个 JSON 文档，用于描述以下内容：
 
@@ -28,7 +28,7 @@ ms.locfileid: "50135784"
 
 所有 IoT Edge 设备均先需要使用部署清单进行配置。 在使用有效清单进行配置前，新安装的 IoT Edge 运行时会报告错误代码。 
 
-在 Azure IoT Edge 教程中，你将通过 Azure IoT Edge 门户中的向导生成部署清单。 此外，也可以使用 REST 或 IoT 中心服务 SDK 以编程方式应用部署清单。 有关详细信息，请参阅[了解 IoT Edge 部署][lnk-deploy]。
+在 Azure IoT Edge 教程中，你将通过 Azure IoT Edge 门户中的向导生成部署清单。 此外，也可以使用 REST 或 IoT 中心服务 SDK 以编程方式应用部署清单。 有关详细信息，请参阅[了解 IoT Edge 部署](module-deployment-monitoring.md)。
 
 ## <a name="create-a-deployment-manifest"></a>创建部署清单。
 
@@ -139,7 +139,7 @@ Edge 中心提供了一种在模块之间，以及模块和 IoT 中心之间以�
 | `/messages/modules/{moduleId}/outputs/{output}` | 由使用 {output} 的 {moduleId} 发送的任何设备到云的消息 |
 
 ### <a name="condition"></a>条件
-条件在路由声明中是可选的。 若要将所有消息从接收器传递到源，完全省略 **WHERE** 子句即可。 或者，可以使用 [IoT 中心查询语言][lnk-iothub-query]来筛选满足条件的特定消息或消息类型。
+条件在路由声明中是可选的。 若要将所有消息从接收器传递到源，完全省略 **WHERE** 子句即可。 或者，可以使用 [IoT 中心查询语言](../iot-hub/iot-hub-devguide-routing-query-syntax.md)来筛选满足条件的特定消息或消息类型。
 
 在 IoT Edge 中的模块之间传递的消息与在设备和 Azure IoT 中心之间传递的消息的格式是一样的。 所有消息都是 JSON 格式的，并具备 systemProperties、appProperties 和 body 参数。 
 
@@ -175,7 +175,7 @@ Edge 中心会一直存储消息，直到达到在 [Edge 中心所需属性](mod
 
 如果未在部署清单中指定模块孪生的所需属性，则 IoT 中心将不会以任何方式修改模块孪生，并且你将能够以编程方式设置所需属性。
 
-将使用用来修改设备孪生的相同机制来修改模块孪生。 有关详细信息，请参阅[设备孪生开发人员指南](../iot-hub/iot-hub-devguide-device-twins.md)。   
+将使用用来修改设备孪生的相同机制来修改模块孪生。 有关详细信息，请参阅[模块孪生开发人员指南](../iot-hub/iot-hub-devguide-module-twins.md)。   
 
 ## <a name="deployment-manifest-example"></a>部署清单示例
 
@@ -263,7 +263,7 @@ Edge 中心会一直存储消息，直到达到在 [Edge 中心所需属性](mod
 
 * 有关在 $edgeAgent 和 $edgeHub 中可以或必须包含的属性的完整列表，请参阅 [Edge 代理和 Edge 中心的属性](module-edgeagent-edgehub.md)。
 
-* 至此，你已了解如何使用 IoT Edge 模块，接下来请继续[了解开发 IoT Edge 模块的要求和工具][lnk-module-dev]。
+* 至此，你已了解如何使用 IoT Edge 模块，接下来请继续[了解开发 IoT Edge 模块的要求和工具](module-development.md)。
 
 [lnk-deploy]: module-deployment-monitoring.md
 [lnk-iothub-query]: ../iot-hub/iot-hub-devguide-routing-query-syntax.md

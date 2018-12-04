@@ -13,15 +13,15 @@ origin.date: 12/14/2017
 ms.date: 03/19/2018
 ms.author: v-yiso
 ms.openlocfilehash: 1869390d54fe033b24ec58531455f9d684b4d666
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870343"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667235"
 ---
 # <a name="configure-a-custom-domain-name"></a>配置自定义域名 
 
-创建 API 管理 (APIM) 实例时，Azure 会将其分配到 azure api.net 的一个子域（例如 `apim-service-name.azure-api.cn`）。 不过，你可以使用自己的域名（例如 **contoso.com**）公开你的 APIM 终结点。本教程演示了如何将现有的自定义 DNS 名称映射到 Azure API 管理实例公开的终结点。
+创建 API 管理 (APIM) 实例时，Azure 会将其分配到 azure api.net 的一个子域（例如 `apim-service-name.azure-api.cn`）。 不过，你可以使用自己的域名（例如 **contoso.com**）公开你的 APIM 终结点。 本教程演示了如何将现有的自定义 DNS 名称映射到 Azure API 管理实例公开的终结点。
 > [!WARNING]
 > 想要使用证书固定改进其应用程序安全性的客户必须使用自定义域名和他们管理的证书，而不是使用默认证书。 改为固定默认证书的客户将硬依赖于他们不控制的证书属性，建议不要这样做。
 >

@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 06/19/2018
 ms.author: v-yiso
 ms.date: 08/13/2018
-ms.openlocfilehash: e02c1a43db193152e4b632cf43e7382b9c847efe
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.openlocfilehash: c5c287149a90b708d8ca650ade718688c87ff541
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487042"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675237"
 ---
 # <a name="error-handling-in-api-management-policies"></a>API 管理策略中的错误处理
 
@@ -190,5 +190,5 @@ Azure API 管理通过提供 `ProxyError` 对象，允许发布服务器响应�
 
 + [API 管理中的策略](api-management-howto-policies.md)
 + [转换 API](transform-api.md)
-+ [策略参考](api-management-policy-reference.md)，获取策略语句及其设置的完整列表
++ [策略参考](api-management-policies.md)，获取策略语句及其设置的完整列表
 + [策略示例](policy-samples.md)   

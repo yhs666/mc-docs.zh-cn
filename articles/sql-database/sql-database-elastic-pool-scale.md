@@ -3,7 +3,7 @@ title: 缩放弹性池资源 - Azure SQL 数据库 | Microsoft Docs
 description: 本页描述如何在 Azure SQL 数据库中缩放弹性池资源。
 services: sql-database
 ms.service: sql-database
-subservice: elastic-pool
+ms.subservice: elastic-pool
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 09/20/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: 5457cee43e9be1506fce4e553e842c5334c30178
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+origin.date: 10/15/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: 32bc5b18ecdf1c0bf7a3d308a989437cac774b10
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135725"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672978"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>在 Azure SQL 数据库中缩放弹性池资源
 

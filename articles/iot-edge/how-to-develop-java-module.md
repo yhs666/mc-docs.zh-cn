@@ -4,18 +4,18 @@ description: 使用 Visual Studio Code 开发和调试 Azure IoT Edge 的 Java �
 services: iot-edge
 keywords: ''
 author: shizn
-manager: timlt
+manager: philmea
 ms.author: v-yiso
 origin.date: 09/21/2018
-ms.date: 11/05/2018
+ms.date: 12/10/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d16745c78c0057a9fe57c77f2ee9804c32b1ca5f
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.openlocfilehash: 7fda72c97a5585deb1d4f802e11d3c0c94ef1716
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135831"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674338"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-java-modules-for-azure-iot-edge"></a>使用 Visual Studio Code 开发和调试 Azure IoT Edge 的 Java 模块
 
@@ -34,7 +34,7 @@ ms.locfileid: "50135831"
 * [Docker 扩展](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 
 若要创建一个模块，需要使用 Java 和 Maven 生成并运行模块代码，使用 Docker 生成模块映像，并使用容器注册表保存模块映像：
-* [Java SE 开发工具包 10](http://www.oracle.com/technetwork/java/javase/downloads/index.html)。请[将 `JAVA_HOME` 环境变量](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/)设置为指向 JDK 安装项目。
+* [Java SE 开发工具包 10](https://aka.ms/azure-jdks)。请[将 `JAVA_HOME` 环境变量](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/)设置为指向 JDK 安装项目。
 * [Maven](https://maven.apache.org/)
 * [Docker](https://docs.docker.com/engine/installation/)
 * [Azure 容器注册表](https://docs.microsoft.com/azure/container-registry/)或 [Docker 中心](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)

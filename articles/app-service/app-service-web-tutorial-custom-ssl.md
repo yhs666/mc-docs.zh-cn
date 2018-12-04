@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 08/24/2018
-ms.date: 10/29/2018
+ms.date: 12/03/2018
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: 98b98e5a3c2306ec0e75ea928d0d2a2d42b666eb
-ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
+ms.openlocfilehash: 6a674e0317b819d26a61838797fa877ce30f4043
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49451618"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674386"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>教程：将现有的自定义 SSL 证书绑定到 Azure Web 应用
 
@@ -40,7 +40,7 @@ Azure Web 应用提供高度可缩放、自修补的 Web 托管服务。 本教�
 > * 使用脚本自动完成 TLS 管理
 
 > [!NOTE]
-> 如果需要获取自定义 SSL 证书，可以直接在 Azure 门户中获取，然后将其绑定到 Web 应用。 请遵循[应用服务证书教程](web-sites-purchase-ssl-web-site.md)。
+> 如果需要获取自定义 SSL 证书，可以直接在 Azure 门户中获取，然后将其绑定到 Web 应用。 
 >
 >
 
@@ -67,45 +67,7 @@ Azure Web 应用提供高度可缩放、自修补的 Web 托管服务。 本教�
 > [!NOTE]
 > **椭圆曲线加密 (ECC) 证书**可用于应用服务，但本文不予讨论。 请咨询证书颁发机构，了解有关创建 ECC 证书的确切步骤。
 
-## <a name="prepare-your-web-app"></a>准备 Web 应用
-
-若要将自定义 SSL 证书绑定到 Web 应用，[应用服务计划](https://www.azure.cn/pricing/details/app-service/)必须位于“基本”、“标准”或“高级”层。 在此步骤中，请确保 Web 应用位于受支持的定价层。
-
-### <a name="log-in-to-azure"></a>登录 Azure
-
-打开 [Azure 门户](https://portal.azure.cn)。
-
-### <a name="navigate-to-your-web-app"></a>导航到 Web 应用
-
-在左侧菜单中单击“应用服务”，然后单击你的 Web 应用的名称。
-
-![选择 Web 应用](./media/app-service-web-tutorial-custom-ssl/select-app.png)
-
-你已登录到了 Web 应用的管理页面。  
-
-### <a name="check-the-pricing-tier"></a>检查定价层
-
-在 Web 应用页面的左侧导航窗格中，向下滚动到“设置”部分，然后选择“扩大(应用服务计划)”。
-
-![扩展菜单](./media/app-service-web-tutorial-custom-ssl/scale-up-menu.png)
-
-检查以确保 Web 应用不在 **F1** 或 **D1** 层中。 深蓝色的框突出显示了 Web 应用的当前层。
-
-![检查定价层](./media/app-service-web-tutorial-custom-ssl/check-pricing-tier.png)
-
-**F1** 或 **D1** 层不支持自定义 SSL。 如果需要进行扩展，请遵循下一部分中的步骤。 否则，请关闭“纵向扩展”页并跳转到[上传和绑定 SSL 证书](#upload)。
-
-### <a name="scale-up-your-app-service-plan"></a>扩展应用服务计划
-
-选择任何非免费层（**B1**、**B2**、**B3**，或“生产”类别中的任何层）。 有关其他选项，请单击“查看其他选项”。
-
-单击“应用” 。
-
-![选择定价层](./media/app-service-web-tutorial-custom-ssl/choose-pricing-tier.png)
-
-如果看到以下通知，则表示缩放操作已完成。
-
-![扩展通知](./media/app-service-web-tutorial-custom-ssl/scale-notification.png)
+[!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
 <a name="upload"></a>
 

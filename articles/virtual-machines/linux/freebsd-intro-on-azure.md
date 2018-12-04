@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 09/13/2017
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 90aac79a36cf192b9531dbdfe3ebbc3b3ef21ffb
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.openlocfilehash: 6a21a3f7bd8abf2d411828365460c355f79af164
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034935"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675308"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Azure FreeBSD 简介
 本文概述如何在 Azure 中运行 FreeBSD 虚拟机。
@@ -137,7 +137,7 @@ $ sudo <COMMAND>
 可以选择使用 `sudo -s`获取 root shell。
 
 ## <a name="known-issues"></a>已知问题
-[Azure VM 来宾代理](https://github.com/Azure/WALinuxAgent/) 2.2.2 存在 [已知问题](https://github.com/Azure/WALinuxAgent/pull/517)，此问题导致 Azure 上的 FreeBSD VM 预配失败。 [Azure VM 来宾代理](https://github.com/Azure/WALinuxAgent/) 2.2.3 及更高版本已修复此问题。 
+[Azure VM 来宾代理](https://github.com/Azure/WALinuxAgent/) 2.2.2 存在[已知问题](https://github.com/Azure/WALinuxAgent/pull/517)，此问题导致 Azure 上的 FreeBSD VM 预配失败。 [Azure VM 来宾代理](https://github.com/Azure/WALinuxAgent/) 2.2.3 及更高版本已修复此问题。 
 
 ## <a name="next-steps"></a>后续步骤
 * 转到 [Azure 市场](https://market.azure.cn/zh-cn/marketplace/apps/Microsoft.FreeBSD112)创建 FreeBSD VM。

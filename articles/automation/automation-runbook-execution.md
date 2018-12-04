@@ -6,20 +6,20 @@ ms.service: automation
 ms.component: process-automation
 author: WenJason
 ms.author: v-jay
-origin.date: 10/08/2018
-ms.date: 11/05/2018
+origin.date: 10/30/2018
+ms.date: 11/26/2018
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 88b20f6a66a80b50675786c807c38b4f760f91fd
-ms.sourcegitcommit: d26e5d0d625a61d6b130800d10c81f47c83fb1e0
+ms.openlocfilehash: 836351cc463e5951b6d01663805d7423d7548e56
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50745511"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672628"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>在 Azure 自动化中执行 Runbook
 
-在 Azure 自动化中启动 Runbook 时，会创建一个作业。 作业是 Runbook 的单一执行实例。 分配一个 Azure 自动化工作线程来运行每个作业。 尽管辅助角色由多个 Azure 帐户共享，但不同自动化帐户中的作业是相互独立的。 无法控制要由哪个辅助角色为作业请求提供服务。 一个 runbook 可以同时运行多个作业。 可以重用同一自动化帐户中的作业的执行环境。 在 Azure 门户中查看 Runbook 列表时，列表中会列出为每个 Runbook 启动的所有作业的状态。 可以查看每个 runbook 的作业列表以跟踪每个作业的状态。 有关不同作业状态的说明，请参阅[作业状态](#job-statuses)。
+在 Azure 自动化中启动 Runbook 时，会创建一个作业。 作业是 Runbook 的单一执行实例。 分配一个 Azure 自动化工作线程来运行每个作业。 尽管辅助角色由多个 Azure 帐户共享，但不同自动化帐户中的作业是相互独立的。 无法控制要由哪个辅助角色为作业请求提供服务。 一个 runbook 可以同时运行多个作业。 可以重用同一自动化帐户中的作业的执行环境。 同时运行的作业越多，就越可能将其分派到同一个沙盒中。 在同一沙盒进程中运行的作业可能会相互影响，一个示例就是运行 `Disconnect-AzureRMAccount` cmdlet。 运行此 cmdlet 将断开共享沙盒进程中的每个 Runbook 作业。 在 Azure 门户中查看 Runbook 列表时，列表中会列出为每个 Runbook 启动的所有作业的状态。 可以查看每个 runbook 的作业列表以跟踪每个作业的状态。 作业日志最长可存储 30 天。 有关不同作业状态的说明，请参阅[作业状态](#job-statuses)。
 
 下图显示[图形 Runbook](automation-runbook-types.md#graphical-runbooks) 和 [PowerShell 工作流 Runbook](automation-runbook-types.md#powershell-workflow-runbooks) 的 Runbook 作业生命周期。
 
@@ -134,17 +134,9 @@ Get-AzureRmLog -ResourceId $JobResourceID -MaxRecord 1 | Select Caller
 
 ## <a name="fair-share"></a>公平共享
 
-为了在云中的所有 Runbook 之间共享资源，Azure 自动化在任何作业运行三小时后都会将其暂时卸载。 在此期间，[基于 PowerShell 的 Runbook](automation-runbook-types.md#powershell-runbooks) 的作业都将停止且不会重新启动。 作业状态显示“已停止”。 此类型的 Runbook 始终从头开始重新启动，因为它们不支持检查点。
+为了在云中的所有 runbook 之间共享资源，Azure 自动化将暂时卸载或停止已经运行三小时以上的所有作业。 [基于 PowerShell 的 Runbook](automation-runbook-types.md#powershell-runbooks) 和 [Python Runbook](automation-runbook-types.md#python-runbooks) 的作业将停止且不会重启，作业状态显示“已停止”。
 
-[基于 PowerShell 工作流的 Runbook](automation-runbook-types.md#powershell-workflow-runbooks) 会从最后一个[检查点](https://docs.microsoft.com/system-center/sma/overview-powershell-workflows#bk_Checkpoints)进行恢复。 运行三小时后，Runbook 作业会由服务挂起，且其状态显示为“正在运行等待资源”。 沙盒变得可用时，Runbook 将通过自动化服务自动重新启动，并从最后一个检查点进行恢复。 此行为是实现挂起/重启的正常 PowerShell 工作流行为。 如果 Runbook 再次超过三小时的运行时，将重复该过程，最多三次。 在第三次重新启动后，如果 Runbook 仍未在三小时内完成，则 Runbook 作业将失败，且作业状态显示为“失败，正在等待资源”。 在此情况下，会收到以下异常和失败。
-
-*该作业无法继续运行，因为它已反复被系统从同一个检查点逐出。请确保 Runbook 在未保持其状态的情况下没有执行冗长的操作。*
-
-此行为是为了防止服务出现 Runbook 无限期运行而无法完成的情况，因为在不重新卸载的情况下，Runbook 无法到达下一个检查点。
-
-如果该 Runbook 没有检查点或者作业在卸载之前尚未达到第一个检查点，则会从开始处重启。
-
-如果在 Azure 上使用 PowerShell 工作流 Runbook，则在创建 Runbook 时，应确保在两个检查点之间运行任何活动的时间不超过三小时。 可能需要向 Runbook 添加检查点以确保它不会达到此三小时限制，或者需要将长时间运行的操作分解。 例如，Runbook 可能会对大型 SQL 数据库运行重新编制索引操作。 如果这一项操作未在公平份额限制内完成，则作业会卸载并从开始处重启。 在此情况下，应将重新编制索引操作拆分成多个步骤（例如，一次重新编制一个表的索引），然后在每项操作的后面插入一个检查点，使作业能够在上次操作后恢复并得以完成。
+另一种选择是通过使用子 runbook 来优化 runbook。 如果 runbook 在多个资源上遍历同一函数，例如在多个数据库上执行某个数据库操作，可将该函数移到[子 runbook](automation-child-runbooks.md)，并使用 [Start-AzureRMAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet 进行调用。 每个这样的子 Runbook 都会在单独的进程中并行执行，缩短了父 Runbook 完成操作所需的总时间。 在子 runbook 完成后，如果需要执行操作，可使用 runbook 中的 [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) cmdlet 检查每个子 runbook 的作业状态。
 
 ## <a name="next-steps"></a>后续步骤
 

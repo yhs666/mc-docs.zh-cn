@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 02/09/2017
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9f2831e142ebe20eaf091c47c5e8c859f62a7efa
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: fef8c8864922344fd14a425f5eafc3ec3dcbaabc
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453744"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674998"
 ---
 # <a name="how-to-create-a-classic-linux-vm-with-the-azure-classic-cli"></a>如何使用 Azure 经典 CLI 创建经典 Linux VM
 > [!IMPORTANT] 

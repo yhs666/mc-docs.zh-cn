@@ -16,11 +16,11 @@ origin.date: 05/11/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
 ms.openlocfilehash: 54cf3edb205b22709f10efbbb7f248f6dcd31191
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940172"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667215"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>如何通过 C++ 使用队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

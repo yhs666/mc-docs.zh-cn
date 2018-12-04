@@ -1,3 +1,17 @@
+---
+author: rockboyfor
+ms.service: virtual-machines
+ms.topic: include
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
+ms.openlocfilehash: 8a25e01669969eacdd9ca7ea1602d645e3d2d0cb
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676346"
+---
 # <a name="common-errors-during-classic-to-azure-resource-manager-migration"></a>从经典部署模型迁移到 Azure Resource Manager 部署模型的过程中出现的常见错误
 本文编录了将 IaaS 资源从 Azure 经典部署模型迁移到 Azure Resource Manager 堆栈期间的最常见错误和缓解措施。
 
@@ -20,8 +34,6 @@
 | HostedService {cloud-service-name} 中的 VM {vm-name} 包含具有 blob 名称为 {vhd-blob-name} 的 MediaLink {vhd-uri} 的磁盘，这在 Azure Resource Manager 中不受支持。 | 当 Blob 的名称包含“/”（这当前在计算资源提供程序中不支持）时，将出现此错误。 |
 | HostedService {cloud-service-name} 中的部署 {deployment-name} 不允许迁移，因为不在区域范围内。 请参阅 http://aka.ms/regionalscope，了解如何将该部署移至区域范围。 | 在 2014 年，Azure 宣布：网络资源将从群集级别范围移至区域范围。 有关详细信息，请参阅 [http://aka.ms/regionalscope] (http://aka.ms/regionalscope)。 当要迁移的部署尚未进行更新操作（自动将其移至区域范围）时，会发生此错误。 最好的解决办法是向 VM 添加终结点，或者向 VM 添加数据磁盘，并重试迁移。 <br> 请参阅[如何在 Azure 中的经典 Windows 虚拟机上设置终结点](../articles/virtual-machines/windows/classic/setup-endpoints.md#create-an-endpoint)或[将数据磁盘附加到使用经典部署模型创建的 Windows 虚拟机](../articles/virtual-machines/windows/classic/attach-disk.md)|
 | 虚拟网络 {vnet-name} 不支持迁移，因为它具有非网关 PaaS 部署。 | 当具有非网关 PaaS 部署（例如连接到虚拟网络的应用程序网关或 API 管理服务）时，将发生此错误。|
-
-<!-- URL is Correct on https://aka.ms/vmbackupmigration Redirect to virtual-machines/windows/migration-classic-resource-manager-faq#vault -->
 
 ## <a name="detailed-mitigations"></a>详细的缓解措施
 
@@ -159,4 +171,4 @@ Update-AzureRmVM -ResourceGroupName "MyRG" -VM $vm
 az vm update -g "myrg" -n "myvm" --set osProfile.Secrets=[]
 ```
 
-<!--ms.date: 10/29/2018-->
+<!-- Update_Description: update meta properties, wording update -->

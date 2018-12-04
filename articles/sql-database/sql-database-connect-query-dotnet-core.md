@@ -11,16 +11,16 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 04/01/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: fd0b76300a0c260a3a414503000d2830a2d189c1
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+origin.date: 11/01/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: 6fee52793f51c742fb682dc1c86246b3ae8960f7
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135873"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673113"
 ---
-# <a name="use-net-core-c-to-query-an-azure-sql-database"></a>使用 .NET Core (C#) 查询 Azure SQL 数据库
+# <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>快速入门：使用 .NET Core (C#) 查询 Azure SQL 数据库
 
 此快速入门演示如何在 Windows/Linux/macOS 中使用 [.NET Core](https://www.microsoft.com/net/) 来创建连接到 Azure SQL 数据库的 C# 程序，并使用 Transact-SQL 语句来查询数据。
 

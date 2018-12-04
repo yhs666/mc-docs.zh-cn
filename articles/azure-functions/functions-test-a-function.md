@@ -11,15 +11,15 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 02/02/2017
-ms.date: 09/21/2018
+ms.date: 11/22/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 74c8935b6a6a005869f5eaf030fc37d3df870450
-ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
+ms.openlocfilehash: 1fd95cf8800768b0f3a01cedf8abcfb205247007
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46524039"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672465"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>在 Azure Functions 中测试代码的策略
 
@@ -265,14 +265,15 @@ Azure Functions 门户旨在让你测试 HTTP 和计时器触发的函数。 还
 6. 输入要发送信息的队列名称：
 
         queue-newusers
-7. 单击 **+** 按钮，选择队列触发器以前使用的存储帐户。 。
+7. 单击 **+** 按钮，选择队列触发器以前使用的存储帐户。 然后单击“保存” 。
 8. 单击计时器触发器的“开发”选项卡。
-9. 只要使用了之前所示的同一队列消息对象名称，就可以为 C# 计时器函数使用如下代码。 。
+9. 只要使用了之前所示的同一队列消息对象名称，就可以为 C# 计时器函数使用如下代码。 然后单击“保存” 。
 
     ```cs
     using System;
+    using Microsoft.Extensions.Logging;
 
-    public static void Run(TimerInfo myTimer, out String myQueue, TraceWriter log)
+    public static void Run(TimerInfo myTimer, out String myQueue, ILogger log)
     {
         String newUser =
         "{\"name\":\"User testing from C# timer function\",\"address\":\"XYZ\"}";
@@ -442,4 +443,4 @@ static void Main(string[] args)
 
 [Azure 门户]: https://portal.azure.cn
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

@@ -2,26 +2,26 @@
 title: 使用 Azure 门户创建流分析作业 | Azure
 description: 本快速入门介绍如何开始创建流分析作业、配置输入和输出，以及定义查询。
 services: stream-analytics
-author: rockboyfor
-ms.author: v-yeche
+author: lingliw
+ms.author: v-lingwu
 origin.date: 08/20/2018
-ms.date: 09/17/2018
+ms.date: 11/26/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: digimobile
-ms.openlocfilehash: 46f8331922f2107213fd0c5ab2135e441732b8bd
-ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
+ms.openlocfilehash: 8ba41fc1263246fdd1c9751ad275b0a5c83270b5
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586607"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675166"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建流分析作业
 
 本快速入门介绍如何开始创建流分析作业。 在本快速入门中，请定义一个流分析作业，以便每隔 30 秒读取一次示例传感器数据并筛选出平均温度超过 100 的行。 在本文中，请从 Blob 存储读取数据，对数据进行转换，然后将数据写回到同一 Blob 存储中的另一容器。 在本快速入门中使用的输入数据文件包含的静态数据仅供说明之用。 在实际方案中，请将流式处理输入数据用于流分析作业。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 * 如果没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
@@ -67,10 +67,10 @@ ms.locfileid: "45586607"
 
 4. 使用以下信息填写“流分析作业”页：
 
-   |**设置**  |建议的值  |**说明**  |
+   |**设置**  |**建议的值**  |**说明**  |
    |---------|---------|---------|
    |作业名称   |  myasajob   |   输入用于标识流分析作业的名称。 流分析作业名称只能包含字母数字字符、连字符和下划线，其长度必须介于 3 到 63 个字符之间。 |
-   |订阅  | 用户的订阅\<\> |  选择要用于此作业的 Azure 订阅。 |
+   |订阅  | \<订阅\> |  选择要用于此作业的 Azure 订阅。 |
    |资源组   |   asaquickstart-resourcegroup  |   选择“新建”，然后输入帐户的新资源组名称。 |
    |位置  |  \<选择离用户最近的区域\> | 选择可以在其中托管流分析作业的地理位置。 使用最靠近用户的位置，以便改进性能并减少数据传输成本。 |
    |流式处理单位  | 1  |   流单元表示执行作业所需的计算资源。 默认情况下，此值设置为 1。 若要了解如何缩放流单元，请参阅[了解和调整流单元](stream-analytics-streaming-unit-consumption.md)一文。   |
@@ -94,10 +94,10 @@ ms.locfileid: "45586607"
 
 3. 使用以下值填写“Blob 存储”页：
 
-   |**设置**  |建议的值  |**说明**  |
+   |**设置**  |**建议的值**  |**说明**  |
    |---------|---------|---------|
    |输入别名  |  BlobInput   |  输入一个名称，用于标识作业的输入。   |
-   |订阅   |  用户的订阅\<\> |  选择包含已创建的存储帐户的 Azure 订阅。 存储帐户可以在同一订阅中，也可以在另一订阅中。 此示例假定已在同一订阅中创建存储帐户。 |
+   |订阅   |  \<订阅\> |  选择包含已创建的存储帐户的 Azure 订阅。 存储帐户可以在同一订阅中，也可以在另一订阅中。 此示例假定已在同一订阅中创建存储帐户。 |
    |存储帐户  |  myasastorageaccount |  选择或输入存储帐户的名称。 如果在同一订阅中创建存储帐户名称，则会自动将其删除。 |
    |容器  | container1 | 选择包含示例数据的容器的名称。 如果在同一订阅中创建容器名称，则会自动将其删除。 |
 
@@ -113,10 +113,10 @@ ms.locfileid: "45586607"
 
 3. 使用以下值填写“Blob 存储”页：
 
-   |**设置**  |建议的值  |**说明**  |
+   |**设置**  |**建议的值**  |**说明**  |
    |---------|---------|---------|
    |输出别名 |   BlobOutput   |   输入一个名称，用于标识作业的输出。 |
-   |订阅  |  用户的订阅\<\>  |  选择包含已创建的存储帐户的 Azure 订阅。 存储帐户可以在同一订阅中，也可以在另一订阅中。 此示例假定已在同一订阅中创建存储帐户。 |
+   |订阅  |  \<订阅\>  |  选择包含已创建的存储帐户的 Azure 订阅。 存储帐户可以在同一订阅中，也可以在另一订阅中。 此示例假定已在同一订阅中创建存储帐户。 |
    |存储帐户 |  asaquickstartstorage |   选择或输入存储帐户的名称。 如果在同一订阅中创建存储帐户名称，则会自动将其删除。       |
    |容器 |   container1  |  选择你在存储帐户中创建的现有容器。   |
    |路径模式 |   output  |  输入一个名称作为输出的现有容器中的路径。   |

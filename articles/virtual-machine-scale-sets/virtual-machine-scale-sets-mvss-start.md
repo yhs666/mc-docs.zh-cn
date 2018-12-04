@@ -3,7 +3,7 @@ title: 了解虚拟机规模集模板 | Microsoft Docs
 description: 了解如何创建虚拟机规模集的最小可行规模集模板
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/01/2017
-ms.date: 01/31/2018
+ms.date: 11/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: fa17f3c2959b71f1d5f4a86faf5632fb133d38fe
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 53736984820e4fb20b43848432fe9df3f16d270a
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29285645"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672887"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>了解虚拟机规模集模板
 [Azure Resource Manager 模板](/azure-resource-manager/resource-group-overview#template-deployment)是部署成组的相关资源的好办法。 本系列教程演示如何创建最小的可行规模集模板，以及如何修改此模板以满足各种场景。 所有示例都来自此 [GitHub 存储库](https://github.com/gatneil/mvss)。 
@@ -81,7 +81,7 @@ Resource Manager 模板还可用于定义稍后要在模板中使用的变量。
 ```
 
 ## <a name="specify-location"></a>指定位置
-若要指定虚拟网络的位置，请使用[资源管理器模板函数](../azure-resource-manager/resource-group-template-functions.md)。 此函数必须括在引号和方括号内，如：`"[<template-function>]"`。 在本例中，使用 `resourceGroup` 函数。 该函数不使用任何参数，返回 JSON 对象以及有关要将部署部署到的资源组的元数据。 资源组在部署时由用户进行设置。 然后此值会通过 `.location` 编入到该 JSON 对象的索引中，以便从该 JSON 对象中获取位置。
+若要指定虚拟网络的位置，请使用[资源管理器模板函数](../azure-resource-manager/resource-group-template-functions.md)。 必须将此函数括在引号和方括号中，如下所示：`"[<template-function>]"`。 在本例中，使用 `resourceGroup` 函数。 该函数不使用任何参数，返回 JSON 对象以及有关要将部署部署到的资源组的元数据。 资源组在部署时由用户进行设置。 然后此值会通过 `.location` 编入到该 JSON 对象的索引中，以便从该 JSON 对象中获取位置。
 
 ```json
        "location": "[resourceGroup().location]",
@@ -214,4 +214,4 @@ Resource Manager 模板还可用于定义稍后要在模板中使用的变量。
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

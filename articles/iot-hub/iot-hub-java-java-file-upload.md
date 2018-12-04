@@ -2,7 +2,6 @@
 title: 使用 Java 将文件从设备上传到 Azure IoT 中心 | Microsoft Docs
 description: 如何使用用于 Java 的 Azure IoT 设备 SDK 从设备将文件上传到云中。 上传的文件存储在 Azure 存储 Blob 容器中。
 author: dominicbetts
-manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
@@ -10,12 +9,12 @@ ms.topic: conceptual
 origin.date: 06/28/2017
 ms.author: dobett
 ms.date: 10/29/2018
-ms.openlocfilehash: bd75f63f1414d96d687dcfe593273e1d4a3b840d
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: ddb5f961adc1ee0e6ff24ffec7ae6c09bb110bd1
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453745"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674141"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>使用 IoT 中心将文件从设备上传到云
 
@@ -26,7 +25,7 @@ ms.locfileid: "49453745"
 - 安全地为设备提供用于上传文件的 Azure Blob URI。
 - 使用 IoT 中心文件上传通知在应用后端中触发对文件的处理。
 
-[IoT 中心入门](quickstart-send-telemetry-java.md)和[使用 IoT 中心发送云到设备的消息](iot-hub-java-java-c2d.md)教程介绍了 IoT 中心提供的基本的设备到云和云到设备的消息传送功能。 [处理设备到云的消息](tutorial-routing.md)教程介绍了一种在 Azure Blob 存储中可靠存储设备到云消息的方法。 但是，在某些情况下，无法轻松地将设备发送的数据映射为 IoT 中心接受的相对较小的设备到云消息。 例如：
+[将遥测数据发送到 IoT 中心 (Java)](quickstart-send-telemetry-java.md) 和[使用 IoT 中心发送云到设备的消息 (Java)](iot-hub-java-java-c2d.md) 教程介绍了 IoT 中心提供的基本的设备到云和云到设备消息传送功能。 [使用 IoT 中心配置消息路由](tutorial-routing.md)教程介绍了一种在 Azure Blob 存储中可靠存储设备到云消息的方法。 但是，在某些情况下，无法轻松地将设备发送的数据映射为 IoT 中心接受的相对较小的设备到云消息。 例如：
 
 * 包含图像的大型文件
 * 视频
@@ -41,11 +40,12 @@ ms.locfileid: "49453745"
 * **read-file-upload-notification**，它可以接收来自 IoT 中心的文件上传通知。
 
 > [!NOTE]
-> IoT 中心通过 Azure IoT 设备 SDK 来支持许多设备平台和语言（包括 C、.NET 和 Javascript）。 有关如何将设备连接到 Azure IoT 中心的分步说明，请参阅 [Azure IoT 开发人员中心]。
+> IoT 中心通过 Azure IoT 设备 SDK 来支持许多设备平台和语言（包括 C、.NET 和 Javascript）。 有关如何将设备连接到 Azure IoT 中心的分步说明，请参阅 [Azure IoT 开发人员中心](http://www.azure.cn/develop/iot)。
 
 要完成本教程，需要以下各项：
 
-* 最新的 [Java SE 开发工具包 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* 最新的 [Java SE 开发工具包 8](https://aka.ms/azure-jdks)
+
 * [Maven 3](https://maven.apache.org/install.html)
 * 有效的 Azure 帐户。 （如果没有帐户，只需几分钟即可创建一个[试用帐户](http://www.azure.cn/pricing/1rmb-trial/)。）
 
@@ -174,7 +174,7 @@ ms.locfileid: "49453745"
       public void run() {
         try {
           while (true) {
-            System.out.println("Recieve file upload notifications...");
+            System.out.println("Receive file upload notifications...");
             FileUploadNotification fileUploadNotification = fileUploadNotificationReceiver.receive();
             if (fileUploadNotification != null) {
               System.out.println("File Upload notification received");
@@ -261,37 +261,10 @@ mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
 
 在本教程中，已学习了如何使用 IoT 中心的文件上传功能来简化从设备进行的文件上传。 可以使用以下文章继续探索 IoT 中心功能和方案：
 
-* [以编程方式创建 IoT 中心][lnk-create-hub]
-* [C SDK 简介][lnk-c-sdk]
-* [Azure IoT SDK][lnk-sdks]
+* [以编程方式创建 IoT 中心](iot-hub-rm-template-powershell.md)
+* [C SDK 简介](iot-hub-device-sdk-c-intro.md)
+* [Azure IoT SDK](iot-hub-devguide-sdks.md)
 
 若要进一步探索 IoT 中心的功能，请参阅：
 
-* [使用 IoT Edge 模拟设备][lnk-iotedge]
-
-<!-- Images. -->
-
-[50]: ./media/iot-hub-csharp-csharp-file-upload/run-apps1.png
-[1]: ./media/iot-hub-csharp-csharp-file-upload/image-properties.png
-[2]: ./media/iot-hub-csharp-csharp-file-upload/file-upload-project-csharp1.png
-[3]: ./media/iot-hub-csharp-csharp-file-upload/enable-file-notifications.png
-
-<!-- Links -->
-
-
-
-[Azure IoT 开发人员中心]: http://www.azure.cn/develop/iot
-
-[Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Azure Storage]:../storage/common/storage-quickstart-create-account.md
-[lnk-configure-upload]: ./iot-hub-configure-file-upload.md
-[Azure IoT service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-[lnk-free-trial]: http://www.azure.cn/pricing/1rmb-trial/
-
-[lnk-create-hub]: ./iot-hub-rm-template-powershell.md
-[lnk-c-sdk]: ./iot-hub-device-sdk-c-intro.md
-[lnk-sdks]: ./iot-hub-devguide-sdks.md
-
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-
-
+* [使用 IoT Edge 模拟设备](../iot-edge/quickstart-linux.md)

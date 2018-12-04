@@ -8,15 +8,15 @@ ms.workload: storage
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
 origin.date: 06/15/2017
-ms.date: 08/27/2018
+ms.date: 08/28/2018
 ms.author: v-yeche
 ms.component: disks
-ms.openlocfilehash: 1d7eb43ffa8788b46782a81c0f09ff2f21171be6
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 00a815484408f1ad3203fb7c9c61fc378f3e7d3b
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871609"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674766"
 ---
 [!INCLUDE [virtual-machines-managed-disks-overview.md](../../../includes/virtual-machines-managed-disks-overview.md)]
 <!-- Update_Description: update meta properties -->

@@ -3,7 +3,7 @@ title: 监视网络通信 - 教程 - Azure 门户 | Azure
 description: 了解如何使用 Azure 网络观察程序的连接监视器功能监视两个虚拟机之间的网络通信。
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
+author: lingliw
 manager: digimobile
 editor: ''
 tags: azure-resource-manager
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 04/27/2018
-ms.date: 09/10/2018
-ms.author: v-yeche
+origin.date: 10/25/2018
+ms.date: 11/26/2018
+ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: ec0d0ce2eae4a2ace2ecde4e9ef55505769c2d24
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: 8e1e17251c1f178339a485b47cf1d104271bb6e3
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515594"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675227"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>教程：使用 Azure 门户监视两个虚拟机之间的网络通信
 
@@ -31,6 +31,7 @@ ms.locfileid: "44515594"
 > [!div class="checklist"]
 > * 创建两个 VM
 > * 使用网络观察程序的连接监视器功能监视 VM 之间的通信
+> * 根据连接监视器指标生成警报
 > * 诊断两个 VM 之间的通信问题，并了解如何解决该问题
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
@@ -94,7 +95,7 @@ ms.locfileid: "44515594"
     | 设置                  | 值               |
     | ---------                | ---------           |
     | Name                     | myVm1-myVm2(22)     |
-    | Source                   |                     |
+    | 源                   |                     |
     | 虚拟机          | myVM1               |
     | 目标              |                     |
     | 选择一个虚拟机 |                     |
@@ -115,12 +116,25 @@ ms.locfileid: "44515594"
 
     请注意以下信息：
 
-    | Item                     | 值                      | 详细信息                                                     |
+    | 项目                     | 值                      | 详细信息                                                     |
     | ---------                | ---------                  |--------                                                     |
     | 状态                   | 可访问                  | 指示终结点是否可以访问。|
     | 平均 往返时间          | 指示进行连接所需的往返时间，以毫秒为单位。 连接监视器每 60 秒探测一次连接，因此可以监视一段时间的延迟情况。                                         |
     | Hops                     | 连接监视器指示两个终结点之间的跃点数。 在此示例中，连接是在同一虚拟网络中的两个 VM 之间进行的，因此只有一个到 IP 地址 10.0.0.5 的跃点。 如果在 VM 之间存在通过其他方式（例如 VPN 网关或网络虚拟设备）完成的系统的或自定义的路由、路由流量，则会列出其他跃点。                                                                                                                         |
     | 状态                   | 终结点出现绿色复选标记指示该终结点是正常的。    ||
+
+## <a name="generate-alerts"></a>生成警报
+
+警报通过警报规则在 Azure Monitor 中创建，可以按固定的时间间隔自动运行保存的查询或自定义日志搜索。 生成的警报可以自动运行一项或多项操作，例如通知某人或启动另一进程。 设置警报规则时，目标资源决定了可以用于生成警报的一系列指标。
+
+1. 在 Azure 门户中选择“监视器”服务，然后选择“警报 > “新建警报规则”。
+2. 单击“选择目标”，然后选择要作为目标的资源。 选择“订阅”，然后设置“资源类型”，以便筛选出要使用的连接监视器。
+
+    ![目标为选中状态的警报屏幕](./media/connection-monitor/set-alert-rule.png)
+1. 选中目标资源以后，请选择“添加条件”。网络观察程序有[创建警报时基于的指标](/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts#metrics-and-dimensions-supported)。 将“可用信号”设置为指标 ProbesFailedPercent 和 AverageRoundtripMs：
+
+    ![信号处于选中状态的警报页](./media/connection-monitor/set-alert-signals.png)
+1. 填写警报详细信息，例如警报规则名称、说明和严重性。 也可向警报添加操作组，以便自动完成和自定义警报响应。
 
 ## <a name="view-a-problem"></a>查看问题
 

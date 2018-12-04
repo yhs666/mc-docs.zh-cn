@@ -8,15 +8,15 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 origin.date: 04/26/2018
-ms.date: 10/08/2018
+ms.date: 12/03/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 223e2f75d46fa3cb92ad034d684f49aa7a22ad05
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 39b8bbf28bbe7bcadc54cf9e8c7b4b832977f408
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453617"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674170"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-net-back-end-and-net-device"></a>使用 .NET 后端和 .NET 设备创建 IoT 中心模块标识和模块孪生入门
 
@@ -37,8 +37,13 @@ ms.locfileid: "49453617"
 
 * 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
 
-[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+## <a name="create-an-iot-hub"></a>创建 IoT 中心
 
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+### <a name="retrieve-connection-string-for-iot-hub"></a>检索 IoT 中心的连接字符串
+
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 现已创建 IoT 中心，因此已具有完成本教程剩余部分所需的主机名和 IoT 中心连接字符串。
 
 [!INCLUDE [iot-hub-get-started-create-module-identity-csharp](../../includes/iot-hub-get-started-create-module-identity-csharp.md)]
@@ -159,8 +164,8 @@ ms.locfileid: "49453617"
 
 若要继续了解 IoT 中心入门知识并浏览其他 IoT 方案，请参阅：
 
-* [设备管理入门][lnk-device-management]
-* [IoT Edge 入门](../iot-edge/tutorial-simulate-device-linux.md)
+* [设备管理入门](iot-hub-node-node-device-management-get-started.md)
+* [IoT Edge 入门](../iot-edge/quickstart-linux.md)
 
 
 <!-- Images. -->

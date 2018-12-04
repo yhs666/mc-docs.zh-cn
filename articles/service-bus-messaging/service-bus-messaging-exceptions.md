@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/21/2018
-ms.date: 10/31/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 6e6f3bcafedc1c8e237597a770a8a255b75e84a9
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.openlocfilehash: e2eddba57aead6e9688a87dd02d0a2cfef649ec3
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409396"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675106"
 ---
 # <a name="service-bus-messaging-exceptions"></a>服务总线消息传送异常
 本文列出 Azure 服务总线消息传送 API 生成的一些异常。 此参考信息随时更改，请不时返回查看更新内容。
@@ -34,7 +34,6 @@ ms.locfileid: "50409396"
 4. 其他异常（[System.Transactions.TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx)、[System.TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx)、[Microsoft.ServiceBus.Messaging.MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception)、[Microsoft.ServiceBus.Messaging.SessionLockLostException](/dotnet/api/microsoft.azure.servicebus.sessionlocklostexception)）。 常规操作：特定于异常类型；请参考以下部分中的表。 
 
 ## <a name="exception-types"></a>异常类型
-
 下表列出了消息异常的类型及其原因，并说明可以采取的建议性操作。
 
 | **异常类型** | **说明/原因/示例** | **建议的操作** | **自动/立即重试注意事项** |
@@ -71,7 +70,7 @@ ms.locfileid: "50409396"
 
 ```Output
 Microsoft.ServiceBus.Messaging.QuotaExceededException
-Message: The maximum entity size has been reached or exceeded for Topic: ‘xxx-xxx-xxx’. 
+Message: The maximum entity size has been reached or exceeded for Topic: 'xxx-xxx-xxx'. 
     Size of entity in bytes:1073742326, Max entity size in bytes:
 1073741824..TrackingId:xxxxxxxxxxxxxxxxxxxxxxxxxx, TimeStamp:3/15/2013 7:50:18 AM
 ```
@@ -105,8 +104,6 @@ ConnectionsQuotaExceeded for namespace xxx.
 ### <a name="queues-and-topics"></a>队列和主题
 对于队列和主题，超时在 [MessagingFactorySettings.OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout) 属性中作为连接字符串的一部分指定，或通过 [ServiceBusConnectionStringBuilder](/dotnet/api/microsoft.azure.servicebus.servicebusconnectionstringbuilder) 指定。 错误消息本身可能会有所不同，但它始终包含当前操作的指定超时值。 
 
-
-
 ## <a name="next-steps"></a>后续步骤
 
 有关服务总线 .NET API 的完整参考，请参阅 [Azure .NET API 参考](/dotnet/api/overview/azure/service-bus)。
@@ -114,5 +111,4 @@ ConnectionsQuotaExceeded for namespace xxx.
 若要了解有关[服务总线](/service-bus-messaging/)的详细信息，请参阅以下文章：
 
 - [服务总线消息传送概述](./service-bus-messaging-overview.md)
-- [服务总线基础知识](./service-bus-fundamentals-hybrid-solutions.md)
 - [服务总线体系结构](./service-bus-architecture.md)

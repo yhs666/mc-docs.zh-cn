@@ -15,11 +15,11 @@ origin.date: 09/10/2018
 ms.date: 10/15/2018
 ms.author: v-jay
 ms.openlocfilehash: 2870abb82b141699db847d1201d671fd64d22c05
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848870"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667160"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>在 Azure Stack 中监视运行状况和警报
 

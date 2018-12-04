@@ -3,23 +3,23 @@ title: Azure IoT Edge Java 教程 | Microsoft Docs
 description: 本教程介绍如何使用 Java 代码创建 IoT Edge 模块并将其部署到边缘设备。
 services: iot-edge
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: v-yiso
-origin.date: 08/30/2018
-ms.date: 11/05/2018
+origin.date: 09/21/2018
+ms.date: 12/10/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 0dafd0efd8f6fe3eb9217e0e29768d57f3cd674f
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.openlocfilehash: be0f5c651fc047e4856837af6a8f0f8a4bb1ae7b
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135819"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674315"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-and-deploy-to-your-simulated-device"></a>教程：开发 Java IoT Edge 模块并将其部署到模拟设备
 
-可以使用 Azure IoT Edge 模块部署代码，直接将业务逻辑实现到 IoT Edge 设备。 本教程详细介绍如何创建并部署用于筛选传感器数据的 IoT Edge 模块。 将使用的模拟 IoT Edge 设备是在 [Windows][lnk-tutorial1-win] 或 [Linux][lnk-tutorial1-lin] 快速入门的“在模拟设备上部署 Azure IoT Edge”中创建的。 本教程介绍如何执行下列操作：    
+可以使用 Azure IoT Edge 模块部署代码，直接将业务逻辑实现到 IoT Edge 设备。 本教程详细介绍如何创建并部署用于筛选传感器数据的 IoT Edge 模块。 将使用的模拟 IoT Edge 设备是在 [Windows](quickstart.md) 或 [Linux](quickstart-linux.md) 快速入门的“在模拟设备上部署 Azure IoT Edge”中创建的。 本教程介绍如何执行下列操作：    
 
 > [!div class="checklist"]
 > * 使用 Visual Studio Code，根据 Azure IoT Edge maven 模板包和 Azure IoT Java 设备 SDK 创建 IoT Edge Java 模块。
@@ -49,7 +49,7 @@ Azure IoT Edge 设备：
 * [Visual Studio Code](https://code.visualstudio.com/)。 
 * 适用于 Visual Studio Code 的 [Java 扩展包](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)。
 * 适用于 Visual Studio Code 的 [Azure IoT Edge 扩展](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)。 
-* [Java SE 开发工具包 10](http://www.oracle.com/technetwork/java/javase/downloads/index.html)。请[将 `JAVA_HOME` 环境变量](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/)设置为指向 JDK 安装项目。
+* [Java SE 开发工具包 10](https://aka.ms/azure-jdks)。请[将 `JAVA_HOME` 环境变量](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/)设置为指向 JDK 安装项目。
 * [Maven](https://maven.apache.org/)
 * [Docker CE](https://docs.docker.com/install/)
    * 如果是在 Windows 设备上进行开发，请确保将 Docker [配置为使用 Linux 容器](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)。 
@@ -76,9 +76,7 @@ Azure IoT Edge 设备：
 
 1. 在 Visual Studio Code 中，选择“查看” > “命令面板”，以打开 VS Code 命令面板。 
 
-2. 在命令面板中，输入并运行“Azure: 登录”命令，然后按说明登录 Azure 帐户。 如果已登录，则可跳过此步骤。
-
-3. 在命令面板中，输入并运行“Azure IoT Edge: 新建 IoT Edge 解决方案”命令。 在命令面板中提供以下信息，以便创建解决方案： 
+2. 在命令面板中，输入并运行“Azure IoT Edge: 新建 IoT Edge 解决方案”命令。 在命令面板中提供以下信息，以便创建解决方案： 
 
    1. 选择要在其中创建解决方案的文件夹。 
    2. 提供解决方案的名称，或者接受默认的 **EdgeSolution**。
@@ -243,19 +241,21 @@ Azure IoT Edge 设备：
 
 在用于设置 IoT Edge 设备的快速入门文章中，已使用 Azure 门户部署了一个模块。 还可以使用用于 Visual Studio Code 的 Azure IoT Toolkit 扩展来部署模块。 你已经为方案准备了部署清单，即 **deployment.json** 文件。 现在需要做的就是选择一个设备来接收部署。
 
-1. 在 VS Code 命令面板中，运行“Azure IoT 中心: 选择 IoT 中心”。 
+1. 在 VS Code 命令面板中，运行“Azure: 登录”命令，然后按说明登录 Azure 帐户。 如果已登录，则可跳过此步骤。
 
-2. 选择包含要配置的 IoT Edge 设备的订阅和 IoT 中心。 
+2. 在 VS Code 命令面板中，运行“Azure IoT 中心: 选择 IoT 中心”。 
 
-3. 在 VS Code 资源管理器中，展开“Azure IoT 中心设备”部分。 
+3. 选择包含要配置的 IoT Edge 设备的订阅和 IoT 中心。 
 
-4. 右键单击 IoT Edge 设备的名称，然后选择“为单个设备创建部署”。 
+4. 在 VS Code 资源管理器中，展开“Azure IoT 中心设备”部分。 
+
+5. 右键单击 IoT Edge 设备的名称，然后选择“为单个设备创建部署”。 
 
    ![为单个设备创建部署](./media/tutorial-java-module/create-deployment.png)
 
-5. 选择 **config** 文件夹中的 **deployment.json** 文件，然后单击“选择 Edge 部署清单”。 不要使用 deployment.template.json 文件。 
+6. 选择 **config** 文件夹中的 **deployment.json** 文件，然后单击“选择 Edge 部署清单”。 不要使用 deployment.template.json 文件。 
 
-6. 单击刷新按钮。 此时会看到新的 **JavaModule** 在运行，此外还有 **TempSensor** 模块以及 **$edgeAgent** 和 **$edgeHub** 在运行。  
+7. 单击“刷新”按钮。 此时会看到新的 **JavaModule** 在运行，此外还有 **TempSensor** 模块以及 **$edgeAgent** 和 **$edgeHub** 在运行。  
 
 ## <a name="view-generated-data"></a>查看生成的数据
 

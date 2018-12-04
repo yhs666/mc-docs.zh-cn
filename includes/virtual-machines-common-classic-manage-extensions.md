@@ -1,3 +1,17 @@
+---
+author: rockboyfor
+ms.service: virtual-machines
+ms.topic: include
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
+ms.openlocfilehash: cb02503037e21fdab8e7177e8a69bb6d9f85c9a3
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676131"
+---
 ## <a name="using-vm-extensions"></a>使用 VM 扩展
 Azure VM 扩展实现了可帮助其他程序在 Azure VM 上正常工作的行为或功能（例如，**WebDeployForVSDevTest** 扩展允许 Visual Studio 在 Azure VM 上对解决方案进行 Web 部署），或为用户提供与 VM 交互的功能以支持其他某种行为（例如，用户可以使用 VM 访问扩展从 PowerShell、Azure CLI 和 REST 客户端重置或修改 Azure VM 上的远程访问值）。
 
@@ -100,3 +114,5 @@ Azure VM 扩展实现了可帮助其他程序在 Azure VM 上正常工作的行�
 > 扩展也可以使用通过 JSON 定义的配置。 使用这些类型的扩展时，仅使用 **SampleConfig** 元素。
 > 
 >
+
+<!-- Update_Description: update meta properties -->

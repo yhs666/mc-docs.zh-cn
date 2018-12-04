@@ -2,28 +2,29 @@
 title: 部署 Azure IoT Edge 模块 | Microsoft Docs
 description: 了解如何将模块部署到边缘设备
 author: kgremban
-manager: timlt
-ms.author: kgremban
-ms.date: 09/27/2018
+manager: philmea
+ms.author: v-yiso
+origin.date: 09/27/2018
+ms.date: 12/10/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d7a55c8602d3e97be943b8e48a31c152fb22d146
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.openlocfilehash: 83d68001d0f39c2003a5ae6dd580614a238d60eb
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135944"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675011"
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale"></a>了解单设备 IoT Edge 部署或大规模 IoT Edge 部署
 
-Azure IoT Edge 设备遵循的[设备生命周期][lnk-lifecycle]类似于其他类型的 IoT 设备：
+Azure IoT Edge 设备遵循的[设备生命周期](../iot-hub/iot-hub-device-management-overview.md)类似于其他类型的 IoT 设备：
 
-1. 对 IoT Edge 设备进行预配，其中涉及使用 OS 对设备进行图像处理，以及安装 [IoT Edge 运行时][lnk-runtime]。
-2. 将设备配置为运行 [IoT Edge 模块][lnk-modules]，然后监视其运行状况。 
+1. 对 IoT Edge 设备进行预配，其中涉及使用 OS 对设备进行图像处理，以及安装 [IoT Edge 运行时](iot-edge-runtime.md)。
+2. 将设备配置为运行 [IoT Edge 模块](iot-edge-modules.md)，然后监视其运行状况。 
 3. 最后，如果设备需要替换或变得过时，则停用设备。  
 
-Azure IoT Edge 提供两种方法来配置在 IoT Edge 设备上运行的模块：一种方法用于在单个设备上进行开发和快速迭代（在 Azure IoT Edge [教程](tutorial-deploy-function.md)中使用此方法），另一种方法用于管理大群 IoT Edge 设备。 可以通过 Azure 门户和编程方式使用这两种方法。 若是针对组或大量设备，可以使用设备孪生中的[标记](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-monitor#identify-devices-using-tags)指定要将模块部署到哪些设备。 以下步骤步骤讨论如何部署到通过标记属性标识的华盛顿州设备组。 
+Azure IoT Edge 提供两种方法来配置在 IoT Edge 设备上运行的模块：一种方法用于在单个设备上进行开发和快速迭代（在 Azure IoT Edge [教程](tutorial-deploy-function.md)中使用此方法），另一种方法用于管理大群 IoT Edge 设备。 可以通过 Azure 门户和编程方式使用这两种方法。 若是针对组或大量设备，可以使用设备孪生中的[标记](../iot-edge/how-to-deploy-monitor.md#identify-devices-using-tags)指定要将模块部署到哪些设备。 以下步骤步骤讨论如何部署到通过标记属性标识的华盛顿州设备组。 
 
 本文重点介绍设备群的配置和监视阶段，统称为 IoT Edge 自动部署。 整个部署步骤如下所示： 
 
@@ -32,7 +33,7 @@ Azure IoT Edge 提供两种方法来配置在 IoT Edge 设备上运行的模块�
 3. IoT 中心服务从 IoT Edge 设备检索状态，然后将这些状态呈现给负责监视的操作员。  例如，如果某个 Edge 设备配置不成功，或者某个模块在运行时发生故障，操作员就会看到。 
 4. 随时对新的符合目标条件的 IoT Edge 设备进行部署配置。 例如，如果某个部署的目标是华盛顿州的所有 IoT Edge 设备，则当某个新的 IoT Edge 设备完成预配并添加到华盛顿州设备组时，该部署会自动配置此设备。 
  
-本文将介绍配置和监视部署过程中涉及的每个组件。 如需创建和更新部署的详细介绍，请参阅[大规模部署和监视 IoT Edge 模块][lnk-howto]。
+本文将介绍配置和监视部署过程中涉及的每个组件。 如需创建和更新部署的详细介绍，请参阅[大规模部署和监视 IoT Edge 模块](how-to-deploy-monitor.md)。
 
 ## <a name="deployment"></a>部署
 
@@ -128,8 +129,8 @@ loT Edge 自动部署会分配 IoT Edge 模块映像，这些映像在一组 IoT
 
 ## <a name="next-steps"></a>后续步骤
 
-* 阅读[大规模部署和监视 IoT Edge 模块][lnk-howto]，详细了解创建、更新或删除部署的步骤。
-* 详细了解其他 IoT Edge 概念，例如 [IoT Edge 运行时][lnk-runtime]和 [IoT Edge 模块][lnk-modules]。
+* 阅读[大规模地部署和监视 IoT Edge 模块](how-to-deploy-monitor.md)，详细了解创建、更新或删除部署的步骤。
+* 详细了解其他 IoT Edge 概念，例如 [IoT Edge 运行时](iot-edge-runtime.md)和 [IoT Edge 模块](iot-edge-modules.md)。
 
 <!-- Links -->
 [lnk-lifecycle]: ../iot-hub/iot-hub-device-management-overview.md

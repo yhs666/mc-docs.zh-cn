@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/21/2018
-ms.date: 10/31/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 410000eb8751d50647dd339bc78ba23397e78f16
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.openlocfilehash: 7f457e50659827be9af92458a06a98ca4d7c7fd2
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409348"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674736"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>使用 PowerShell 管理服务总线资源
 

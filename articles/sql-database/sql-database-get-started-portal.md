@@ -11,16 +11,16 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 09/07/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: 6aac8efe07efc85a509b815a29629dca3f106df2
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+origin.date: 11/01/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: d80e562ce95d48a0fd843c40d4578f5df926266e
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135766"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672753"
 ---
-# <a name="create-an-azure-sql-database-in-the-azure-portal"></a>在 Azure 门户中创建 Azure SQL 数据库
+# <a name="quickstart-create-an-azure-sql-database-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建 Azure SQL 数据库
 
 本快速入门逐步讲解如何使用[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)在 Azure 中创建 SQL 数据库。 Azure SQL 数据库是一种“数据库即服务”产品，可用于在云中运行和缩放高可用性 SQL Server 数据库。 本快速入门介绍如何开始使用 Azure 门户创建 SQL 数据库，然后对其进行查询。
 

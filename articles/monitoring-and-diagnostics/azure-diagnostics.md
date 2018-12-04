@@ -1,26 +1,27 @@
 ---
 title: Azure 诊断扩展概述
 description: 使用 Azure 诊断在云服务、虚拟机和 Service Fabric 中进行调试、性能度量、监视和流量分析
-services: monitoring-and-diagnostics
-author: rboucher
-ms.service: monitoring-and-diagnostics
+services: azure-monitor
+author: lingliw
+ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: conceptual
 origin.date: 09/20/2018
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: c04591f72c6c8c19b0b3a543798c2cb920eb1712
-ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
+ms.component: diagnostic-extension
+ms.openlocfilehash: 57804a5cc71852ff23f89ffac7f8e5c4f76a7aa8
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652226"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675265"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>什么是 Azure 诊断扩展
 Azure 诊断扩展是 Azure 中可对部署的应用程序启用诊断数据收集的代理。 可以使用于自许多不同源的诊断扩展。 目前支持 Azure 云服务（经典）Web 和辅助角色、虚拟机、虚拟机规模集，以及 Service Fabric。 其他 Azure 服务具有不同的诊断方法。 请参阅 [Azure 中的监控概述](monitoring-overview.md)。 
 
 ## <a name="linux-agent"></a>Linux 代理
-[Linux 版本的扩展](../virtual-machines/linux/diagnostic-extension.md)适用于运行 Linux 的虚拟机。 收集的统计信息和行为因 Windows 版本而异。 
+[Linux 版本的扩展](../virtual-machines/extensions/diagnostics-linux.md)适用于运行 Linux 的虚拟机。 收集的统计信息和行为因 Windows 版本而异。
 
 ## <a name="data-you-can-collect"></a>可以收集的数据
 Azure 诊断扩展可收集以下类型的数据：
@@ -47,14 +48,13 @@ Azure 诊断扩展可收集以下类型的数据：
 ### <a name="azure-monitor"></a>Azure Monitor
 你还可以将数据发送到 Azure Monitor。 此时，该接收器仅适用于性能计数器。 由此，可将在 VM、VMSS 或云服务上收集的性能计数器作为自定义指标发送到 Azure Monitor。 Azure Monitor 接收器支持：
 * 通过 [Azure Monitor 指标 API](https://docs.microsoft.com/rest/api/monitor/) 检索发送到 Azure Monitor 的所有性能计数器。
-* 通过 Azure Monitor 中新的[统一警报体验](monitoring-overview-unified-alerts.md)根据发送到 Azure Monitor 的所有性能计数器发出警报
+* 通过 Azure Monitor 中新的[统一警报体验](monitoring-overview-alerts.md)根据发送到 Azure Monitor 的所有性能计数器发出警报
 * 将性能计数器中的通配符运算符视为指标上的“实例”维度。  例如，如果你收集了“LogicalDisk(\*)/DiskWrites/sec”计数器，则可以根据“实例”维度进行筛选和拆分，以基于 VM 上的每个逻辑磁盘（C:、D:等）的磁盘写入次数/秒进行绘图或发出警报
 
 若要了解有关如何配置此接收器的详细信息，请参阅 [Azure 诊断架构文档](azure-diagnostics-schema-1dot3-and-later.md)。
 
 ## <a name="versioning-and-configuration-schema"></a>版本控制和配置架构
-请参阅 [Azure 诊断版本历史记录和架构](azure-diagnostics-versioning-history.md)。
-
+请参阅 [Azure 诊断版本历史记录和架构](azure-diagnostics-schema.md)。
 
 ## <a name="next-steps"></a>后续步骤
 请选择要尝试在哪个服务上收集诊断数据，并使用以下文章来入门。 有关具体任务的参考，请使用一般的 Azure 诊断链接。
@@ -71,7 +71,7 @@ Azure 诊断扩展可收集以下类型的数据：
 
 ## <a name="virtual-machines"></a>虚拟机
 * 如果使用 Visual Studio，请参阅[使用 Visual Studio 跟踪 Azure 虚拟机](../vs-azure-tools-debug-cloud-services-virtual-machines.md)帮助自己入门。 否则，请参阅
-* [在 Azure 虚拟机上设置 Azure 诊断](../virtual-machines-dotnet-diagnostics.md)
+* [在 Azure 虚拟机上设置 Azure 诊断](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
 
 有关更高级主题，请参阅
 

@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 01/31/2017
-ms.date: 03/19/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: 232f9c99835b32ad058dcf4e1fcc9c2aba3efb35
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 6a4a041108429f08a8f22fe62128f983180adeaf
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939519"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674663"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>连接到 Azure 上的 SQL Server 虚拟机（经典部署）
 > [!div class="op_single_selector"]
@@ -108,5 +108,6 @@ ms.locfileid: "38939519"
 
 请务必查看适用于 Azure 虚拟机上运行的 SQL Server 的所有最佳安全性实践。 有关详细信息，请参阅 [Azure 虚拟机中 SQL Server 的安全注意事项](../sql/virtual-machines-windows-sql-security.md)。
 
-有关其他与在 Azure VM 中运行 SQL Server 相关的主题，请参阅 [SQL Server on Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md)（Azure 虚拟机上的 SQL Server）。
-<!-- Update_Description: update meta properties, wording update, update link -->
+有关其他与在 Azure VM 中运行 SQL Server 相关的主题，请参阅 [Azure 虚拟机上的 SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)。
+
+<!-- Update_Description: update meta properties, wording update -->

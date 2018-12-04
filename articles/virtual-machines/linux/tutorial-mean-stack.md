@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 08/08/2017
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 8a3900a5003be53925e210e109d2311a42e456e1
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.openlocfilehash: d41bf1a9563354f9e6dfb1ecec3a49de45940b5b
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034985"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674154"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>教程：在 Azure 中的 Linux 虚拟机上创建 MongoDB、Express、AngularJS 和 Node.js (MEAN) 堆栈
 
@@ -357,4 +357,4 @@ sudo apt-get install -y nodejs
 > [!div class="nextstepaction"]
 > [使用 SSL 保护 Web 服务器](tutorial-secure-web-server.md)
 
-<!--Update_Description: update meta properties， wording update -->
+<!--Update_Description: update meta properties -->

@@ -2,25 +2,21 @@
 title: Durable Functions 中的扇出/扇入方案 - Azure
 description: 了解如何在 Azure Functions 的 Durable Functions 扩展中实现扇出/扇入方案。
 services: functions
-author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+author: kashimiz
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-origin.date: 03/19/2018
-ms.date: 05/29/2018
+ms.topic: conceptual
+origin.date: 10/23/2018
+ms.date: 11/21/2018
 ms.author: v-junlch
-ms.openlocfilehash: 597cf58461ada1a378a675bcc1c3d0ba983da32d
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 7c0347644449f4680a5499c7c300961720e263da
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34567299"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672464"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Durable Functions 中的扇出/扇入方案 - 云备份示例
 
@@ -269,7 +265,7 @@ public static async Task<long> Run(
 
 ### <a name="javascript-functions-v2-only"></a>JavaScript（仅限 Functions v2）
 
-JavaScript 实现无法访问 Azure Functions 的 `Binder` 功能，因此[用于 Node 的 Azure 存储 SDK](https://github.com/Azure/azure-storage-node) 将取而代之。 请注意，该 SDK 需要 `AZURE_STORAGE_CONNECTION_STRING` 应用设置。
+JavaScript 实现无法访问 Azure Functions 的 `Binder` 功能，因此[用于 Node 的 Azure 存储 SDK](https://github.com/Azure/azure-storage-node) 将取而代之。
 
 ```JavaScript
 const fs = require("fs");
@@ -328,7 +324,7 @@ Content-Length: 20
 ```
 
 > [!NOTE]
-> 调用的 `HttpStart` 函数只会处理 JSON 格式的内容。 为此，`Content-Type: application/json` 标头是必需的，目录路径已编码为 JSON 字符串。
+> 调用的 `HttpStart` 函数只会处理 JSON 格式的内容。 为此，`Content-Type: application/json` 标头是必需的，目录路径已编码为 JSON 字符串。 此外，HTTP 代码片段假定 `host.json` 文件中有一个条目，该条目从所有 HTTP 触发器函数 URL 中删除默认的 `api/` 前缀。 可以在示例的 `host.json` 文件中找到此配置的标记。
 
 此 HTTP 请求会触发 `E2_BackupSiteContent` 业务流程协调程序，并将字符串 `D:\home\LogFiles` 作为参数传递。 响应提供了一个链接，可使用该链接获取备份操作的状态：
 
@@ -461,4 +457,4 @@ namespace VSSample
 
 此示例说明了如何实现扇出/扇入模式。 下一个示例演示如何使用[持久计时器](durable-functions-timers.md)实现监视模式。
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

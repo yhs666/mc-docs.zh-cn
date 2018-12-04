@@ -7,15 +7,15 @@ ms.component: shared-capabilities
 author: WenJason
 ms.author: v-jay
 origin.date: 03/15/2018
-ms.date: 10/01/2018
+ms.date: 11/26/2018
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: d719b5761ce4e5ee05c4bdaa9ac21e038e1e3f4d
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.openlocfilehash: bf08d7dbb7c0929b1ca36e5d27acecea4eb983d6
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426453"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672933"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Azure 自动化中的证书资产
 
@@ -84,7 +84,7 @@ New-AzureRmAutomationCertificate -AutomationAccountName "MyAutomationAccount" -N
 
 ## <a name="using-a-certificate"></a>使用证书
 
-若要使用证书，请使用 Get-AutomationCertificate 活动。 不能使用 [Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate) cmdlet，因为它返回有关证书资产的信息，而不是证书本身的信息。
+若要使用证书，请使用 Get-AutomationCertificate 活动。 不能使用 [Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate?view=azurermps-6.6.0) cmdlet，因为它返回有关证书资产的信息，而不是证书本身的信息。
 
 ### <a name="textual-runbook-sample"></a>文本 Runbook 示例
 
@@ -93,7 +93,7 @@ New-AzureRmAutomationCertificate -AutomationAccountName "MyAutomationAccount" -N
 ```powershell
 $serviceName = 'MyCloudService'
 $cert = Get-AutomationCertificate -Name 'MyCertificate'
-$certPwd = Get-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" `
+$certPwd = Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" `
 -AutomationAccountName "MyAutomationAccount" -Name 'MyCertPassword'
 Add-AzureCertificate -ServiceName $serviceName -CertToDeploy $cert
 ```

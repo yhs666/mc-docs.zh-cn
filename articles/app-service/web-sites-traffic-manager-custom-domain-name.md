@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/17/2017
-ms.date: 12/04/2017
-ms.author: v-yiso
-ms.openlocfilehash: 51b1d7a72ff02925c3ef3079470d3f7cde152bab
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.date: 12/03/2018
+ms.author: v-biyu
+ms.openlocfilehash: eaf61d05bf8e150b0f13dba870f55b28c5b003f5
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939905"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674502"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>使用流量管理器为 Azure 应用服务中的 Web 应用配置自定义域名
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
@@ -46,6 +46,11 @@ ms.locfileid: "38939905"
 <a name="bkmk_configurecname"></a>
 
 ## <a name="add-a-dns-record-for-your-custom-domain"></a>为自定义域添加 DNS 记录
+> [!NOTE]
+> 如果已通过 Azure 应用服务 Web 应用购买了域，请跳过下面的步骤并参阅[为 Web 应用购买域](custom-dns-web-site-buydomains-web-app.md)文章的最后一个步骤。
+> 
+> 
+
 要将自定义域与 Azure 应用服务中的 Web 应用关联，必须在 DNS 表中为自定义域添加新条目。 请通过使用来自域提供商的管理工具执行此操作。
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
@@ -66,6 +71,6 @@ ms.locfileid: "38939905"
 ## <a name="next-steps"></a>后续步骤
 有关详细信息，请参阅 [Node.js 开发人员中心](/develop/nodejs/)。
 
-
+[!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!-- URL List -->

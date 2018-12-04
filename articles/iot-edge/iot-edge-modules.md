@@ -2,19 +2,19 @@
 title: 了解 Azure IoT Edge 模块 | Microsoft 文档
 description: 了解有关 Azure IoT Edge 模块以及如何进行配置的信息
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: v-yiso
 origin.date: 09/21/2018
-ms.date: 11/05/2018
+ms.date: 12/10/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 76f770f87fbc54d69c6d0b2f1e0970a4d8cb5cf6
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.openlocfilehash: f6d5c70b9da3f3149ee558c9c62af22d44f0fec5
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135775"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674960"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>了解 Azure IoT Edge 模块
 
@@ -32,7 +32,7 @@ IoT Edge 模块映像包含能够充分利用 IoT Edge 运行时的管理、安�
 
 每当将模块映像部署到设备上，并由 IoT Edge 运行时启动时，就会创建该模块的一个新实例。 世界不同地区的两台设备可以使用相同的模块映像；但是，当模块在设备上启动时，每个模块都有其自己的模块实例。 
 
-![云中的模块映像 - 设备上模块实例][1]
+![云中的模块映像 - 设备上模块实例](./media/iot-edge-modules/image_instance.png)
 
 在实现中，模块映像作为存储库中的容器映像存在，而模块实例则是设备上的容器。 
 
@@ -47,13 +47,13 @@ As use cases for Azure IoT Edge grow, new types of module images and instances w
 
 很显然，当需要在同一设备上多次部署一个模块映像时，可以使用不同的名称多次部署相同的映像。
 
-![模块标识是唯一的][2]
+![模块标识是唯一的](./media/iot-edge-modules/identity.png)
 
 ## <a name="module-twins"></a>模块孪生
 
 此外，每个模块实例都有一个对应的模块孪生，你可以使用它来配置模块实例。 实例和孪生通过模块标识进行相互关联。 
 
-模块孪生是存储模块信息和配置属性的 JSON 文档。 此概念与 IoT 中心的[设备孪生][lnk-device-twin]概念类似。 模块孪生的结构与设备孪生完全相同。 用于与这两种类型的孪生进行交互的 API 也是相同的。 两者之间唯一的区别是用来实例化客户端 SDK 的标识。 
+模块孪生是存储模块信息和配置属性的 JSON 文档。 此概念与 IoT 中心的[设备孪生](../iot-hub/iot-hub-devguide-device-twins.md)概念类似。 模块孪生的结构与设备孪生完全相同。 用于与这两种类型的孪生进行交互的 API 也是相同的。 两者之间唯一的区别是用来实例化客户端 SDK 的标识。 
 
 ```csharp
 // Create a ModuleClient object. This ModuleClient will act on behalf of a 
@@ -80,8 +80,8 @@ Azure IoT Edge 支持在 IoT Edge 设备上执行脱机操作。 现在，这些
 公共预览版中提供了其他脱机功。能。 有关详细信息，请参阅[了解 IoT Edge 设备、模块和子设备的扩展脱机功能](offline-capabilities.md)。
 
 ## <a name="next-steps"></a>后续步骤
- - [了解开发 IoT Edge 模块的要求和工具][lnk-mod-dev]
- - [了解 Azure IoT Edge 运行时及其体系结构][lnk-runtime]
+ - [了解开发 IoT Edge 模块的要求和工具](module-development.md)
+ - [了解 Azure IoT Edge 运行时及其体系结构](iot-edge-runtime.md)
 
 <!-- Images -->
 [1]: ./media/iot-edge-modules/image_instance.png

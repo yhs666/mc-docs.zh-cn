@@ -9,7 +9,7 @@
 使用以下命令可创建网关。 请务必将所有值替换成自己的值。
 
 ```powershell
-New-AzureVNetGateway -VNetName "MyAzureVNET" -GatewayName "ERGateway" -GatewayType DynamicRouting -GatewaySKU  Standard
+New-AzureVNetGateway -VNetName "MyAzureVNET" -GatewayType DynamicRouting -GatewaySKU  Standard
 ```
 
 ## <a name="verify-the-gateway-was-created"></a>验证是否已创建网关

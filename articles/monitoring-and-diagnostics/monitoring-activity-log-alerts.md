@@ -2,18 +2,19 @@
 title: Azure Monitor 中的活动日志警报
 description: 当活动日志中出现某些事件时，通过 SMS、Webhook、短信、电子邮件等方式进行通知。
 author: lingliw
-services: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
+services: azure-monitor
+ms.service: azure-monitor
 ms.topic: conceptual
 origin.date: 09/17/2018
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 761a03f5e0968914b35edfb69333c9ee351eab4a
-ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
+ms.component: alerts
+ms.openlocfilehash: 6b238690c230e8f9d43da9bc197db7ab746056a6
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652221"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674174"
 ---
 # <a name="alerts-on-activity-log"></a>根据活动日志发出警报 
 
@@ -50,7 +51,7 @@ ms.locfileid: "49652221"
 - 事件发起者：也称为“调用方”。 电子邮件地址或执行操作的用户的 Azure Active Directory 标识符。
 
 > [!NOTE]
-> 在一个订阅中最多有 100 条针对以下任一范围活动的警报规则：单个资源、资源组中的所有资源（或）整个订阅级别。
+> 在一个订阅中最多有 100 条警报规则可以针对以下任一范围活动创建：单个资源、资源组中的所有资源（或）整个订阅级别。
 
 活动日志警报激活后会使用操作组生成操作或通知。 操作组是一组可重用的通知接收方，例如电子邮件地址、Webhook URL 或短信电话号码。 可以从多个警报中引用接收方，以集中和分组通知通道。 在定义活动日志警报时，有两个选项。 方法：
 
@@ -58,7 +59,6 @@ ms.locfileid: "49652221"
 * 创建新的操作组。 
 
 若要了解有关操作组的详细信息，请参阅[在 Azure 门户中创建和管理操作组](monitoring-action-groups.md)。
-
 
 ## <a name="next-steps"></a>后续步骤
 - 获取[警报概述](monitoring-overview-alerts.md)。

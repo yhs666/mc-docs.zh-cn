@@ -2,19 +2,19 @@
 title: 使用 Azure 基于角色的访问控制管理备份
 description: 使用基于角色的访问控制来管理对恢复服务保管库中的备份管理操作的访问。
 services: backup
-author: trinadhk
-manager: shreeshd
+author: lingliw
+manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-origin.date: 07/11/2018
-ms.date: 08/08/2018
-ms.author: v-junlch
-ms.openlocfilehash: e8254a8eec8aaeb079341e1a0840283e4a860455
-ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
+origin.date: 11/14/2018
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 86834036aaf0a0bf5b63a8235676fcca42fbb033
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625533"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674692"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>使用基于角色的访问控制管理 Azure 备份恢复点
 Azure 基于角色的访问控制 (RBAC) 可用于对 Azure 进行细致的访问管理。 使用 RBAC，可以在团队中对职责进行分配，仅向用户授予执行作业所需的访问权限。
@@ -24,37 +24,46 @@ Azure 基于角色的访问控制 (RBAC) 可用于对 Azure 进行细致的访�
 
 Azure 备份提供 3 个用于控制备份管理操作的内置角色。 详细了解 [Azure RBAC 内置角色](../role-based-access-control/built-in-roles.md)
 
-- [备份参与者](../role-based-access-control/built-in-roles.md#backup-contributor) - 此角色具有创建和管理备份方面的所有权限，除了创建恢复服务保管库和授予他人访问权限。 可以把该角色想象成可执行每个备份管理操作的备份管理的管理员。
-- [备份操作员](../role-based-access-control/built-in-roles.md#backup-operator) - 此角色具有除删除备份和管理备份策略之外的针对参与者操作的所有权限。 此角色等效于参与者，但它不能执行破坏性操作，例如通过删除数据或删除本地资源的注册来停止备份。
-- [备份读取器](../role-based-access-control/built-in-roles.md#backup-reader) - 此角色具有查看所有备份管理操作的权限。 可以把该角色想象成一位监视者。
+* [备份参与者](../role-based-access-control/built-in-roles.md#backup-contributor) - 此角色具有创建和管理备份方面的所有权限，除了创建恢复服务保管库和授予他人访问权限。 可以把该角色想象成可执行每个备份管理操作的备份管理的管理员。
+* [备份操作员](../role-based-access-control/built-in-roles.md#backup-operator) - 此角色具有除删除备份和管理备份策略之外的针对参与者操作的所有权限。 此角色等效于参与者，但它不能执行破坏性操作，例如通过删除数据或删除本地资源的注册来停止备份。
+* [备份读取器](../role-based-access-control/built-in-roles.md#backup-reader) - 此角色具有查看所有备份管理操作的权限。 可以把该角色想象成一位监视者。
 
 若要定义自己的角色以便进一步控制，请参阅如何在 Azure RBAC 中 [生成自定义角色](../role-based-access-control/custom-roles.md)。
-
-
 
 ## <a name="mapping-backup-built-in-roles-to-backup-management-actions"></a>将备份内置角色映射到备份管理操作
 下表包含备份管理操作和执行这些操作所需的最低 RBAC 角色。
 
-| 管理操作 | 所需的最低 RBAC 角色 |
-| --- | --- |
-| 创建恢复服务保管库 | 保管库资源组上的参与者 |
-| 启用 Azure VM 备份 | 在包含保管库的资源组范围内定义的备份操作员、VM 上的虚拟机参与者 |
-| 按需备份 VM | 备份操作员 |
-| 还原 VM | 备份操作员、将要部署 VM 的资源组参与者、Vnet 上的读者和所选子网上的加入者 |
-| 从 VM 备份还原磁盘及单个文件 | 备份操作员，VM 上的虚拟机参与者 |
-| 创建 Azure VM 备份的备份策略 | 备份参与者 |
-| 修改 Azure VM 备份的备份策略 | 备份参与者 |
-| 删除 Azure VM 备份的备份策略 | 备份参与者 |
-| 停止在 VM 备份上备份（通过保留数据或删除数据） | 备份参与者 |
-| 注册本地 Windows Server/客户端/SCDPM 或 Azure 备份服务器 | 备份操作员 |
-| 删除已注册的本地 Windows Server/客户端/SCDPM 或 Azure 备份服务器 | 备份参与者 |
+| 管理操作 | 所需的最低 RBAC 角色 | 所需的范围 |
+| --- | --- | --- |
+| 创建恢复服务保管库 | 参与者 | 包含保管库的资源组 |
+| 启用 Azure VM 备份 | 备份操作员 | 包含保管库的资源组 |
+| | 虚拟机参与者 | VM 资源 |
+| 按需备份 VM | 备份操作员 | 恢复保管库资源 |
+| 还原 VM | 备份操作员 | 恢复服务保管库 |
+| | 参与者 | 将在其中部署 VM 的资源组 |
+| | 虚拟机参与者 | 得到备份的源 VM |
+| 还原非托管磁盘 VM 备份 | 备份操作员 | 恢复保管库资源 |
+| | 虚拟机参与者 | 得到备份的源 VM |
+| | 存储帐户参与者 | 要还原磁盘的存储帐户资源 |
+| 从 VM 备份还原托管磁盘 | 备份操作员 | 恢复保管库资源 |
+| | 虚拟机参与者 | 得到备份的源 VM |
+| | 存储帐户参与者 | 在还原过程中选择的临时存储帐户，用于在将保管库转换为托管磁盘之前保存保管库中的数据 |
+| | 参与者 | 托管磁盘将还原到的资源组 |
+| 从 VM 备份还原单个文件 | 备份操作员 | 恢复保管库资源 |
+| | 虚拟机参与者 | 得到备份的源 VM |
+| 创建 Azure VM 备份的备份策略 | 备份参与者 | 恢复保管库资源 |
+| 修改 Azure VM 备份的备份策略 | 备份参与者 | 恢复保管库资源 |
+| 删除 Azure VM 备份的备份策略 | 备份参与者 | 恢复保管库资源 |
+| 停止在 VM 备份上备份（通过保留数据或删除数据） | 备份参与者 | 恢复保管库资源 |
+| 注册本地 Windows Server/客户端/SCDPM 或 Azure 备份服务器 | 备份操作员 | 恢复保管库资源 |
+| 删除已注册的本地 Windows Server/客户端/SCDPM 或 Azure 备份服务器 | 备份参与者 | 恢复保管库资源 |
 
 ## <a name="next-steps"></a>后续步骤
-- [基于角色的访问控制](../role-based-access-control/role-assignments-portal.md)：Azure 门户中的 RBAC 入门。
-- 了解如何通过以下方式管理访问权限：
-  - [PowerShell](../role-based-access-control/role-assignments-powershell.md)
-  - [Azure CLI](../role-based-access-control/role-assignments-cli.md)
-  - [REST API](../role-based-access-control/role-assignments-rest.md)
-- [基于角色的访问控制故障排除](../role-based-access-control/troubleshooting.md)：获取解决常见问题的建议。
+* [基于角色的访问控制](../role-based-access-control/role-assignments-portal.md)：Azure 门户中的 RBAC 入门。
+* 了解如何通过以下方式管理访问权限：
+  * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
+  * [Azure CLI](../role-based-access-control/role-assignments-cli.md)
+  * [REST API](../role-based-access-control/role-assignments-rest.md)
+* [基于角色的访问控制故障排除](../role-based-access-control/troubleshooting.md)：获取解决常见问题的建议。
 
 <!-- Update_Description: wording update -->

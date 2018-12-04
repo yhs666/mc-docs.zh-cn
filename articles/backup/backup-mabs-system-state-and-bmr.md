@@ -2,31 +2,31 @@
 title: Azure 备份服务器可保护系统状态并还原为裸机
 description: 使用 Azure 备份服务器备份系统状态，并提供裸机恢复 (BMR) 保护。
 services: backup
-author: markgalioto
-manager: carmonm
+author: lingliw
+manager: digimobile
 keywords: ''
 ms.service: backup
 ms.topic: conceptual
 origin.date: 05/15/2017
-ms.date: 07/06/2018
-ms.author: v-junlch
-ms.openlocfilehash: 9ef2d1dd5190e1ea7df5d65faf1098745efc5735
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.openlocfilehash: d30d5d39b88236bd85b141e0c30b10651397da74
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873673"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675404"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>使用 Azure 备份服务器备份系统状态，并将计算机还原成裸机
 
 Azure 备份服务器备份系统状态，并提供裸机恢复 (BMR) 保护。
 
--   系统状态备份：备份操作系统文件，以便在计算机启动时恢复，但系统文件和注册表会丢失。 系统状态备份包括：
-    - 域成员：启动文件、COM+ 类注册数据库、注册表
-    - 域控制器：Windows Server Active Directory (NTDS)、启动文件、COM+ 类注册数据库、注册表、系统卷 (SYSVOL)
-    - 运行群集服务的计算机：群集服务器元数据
-    - 运行证书服务的计算机：证书数据
-- 裸机备份：备份操作系统文件和关键卷上的所有数据（用户数据除外）。 根据定义，BMR 备份包括系统状态备份。 在计算机不会启动的情况下，如果必须彻底恢复，则可通过此备份获得保护。
+*   系统状态备份：备份操作系统文件，以便在计算机启动时恢复，但系统文件和注册表会丢失。 系统状态备份包括：
+    * 域成员：启动文件、COM+ 类注册数据库、注册表
+    * 域控制器：Windows Server Active Directory (NTDS)、启动文件、COM+ 类注册数据库、注册表、系统卷 (SYSVOL)
+    * 运行群集服务的计算机：群集服务器元数据
+    * 运行证书服务的计算机：证书数据
+* 裸机备份：备份操作系统文件和关键卷上的所有数据（用户数据除外）。 根据定义，BMR 备份包括系统状态备份。 在计算机不会启动的情况下，如果必须彻底恢复，则可通过此备份获得保护。
 
 下表总结了可以备份和恢复的内容。 若要详细了解可以通过系统状态和 BMR 进行保护的应用版本，请参阅 [Azure 备份服务器备份什么？](backup-mabs-protection-matrix.md)。
 
@@ -58,8 +58,8 @@ Azure 备份服务器备份系统状态，并提供裸机恢复 (BMR) 保护。
 
 接下来，Windows Server 备份在还原文件夹的根目录中创建名为 WindowsImageBackup 的文件夹。 Windows Server 备份创建备份以后，所有数据就会置于该文件夹中。 备份完成后，文件将传输到备份服务器计算机。 请注意以下信息：
 
-- 不会在完成备份或传输后清理该文件夹及其内容。 更准确地说，系统会保留该空间来完成下一次备份。
-- 每次进行备份都会创建该文件夹。 时间和日期戳反映了上次系统状态备份的时间。
+* 不会在完成备份或传输后清理该文件夹及其内容。 更准确地说，系统会保留该空间来完成下一次备份。
+* 每次进行备份都会创建该文件夹。 时间和日期戳反映了上次系统状态备份的时间。
 
 ## <a name="bmr-backup"></a>BMR 备份
 
@@ -84,8 +84,8 @@ Azure 备份服务器备份系统状态，并提供裸机恢复 (BMR) 保护。
 -   进行 BMR 保护时，备份服务器对受保护计算机没有任何空间要求，这一点与进行系统状态保护不同。 Windows Server 备份直接将备份传输到备份服务器计算机。 备份传输作业不显示在备份服务器的“作业”视图中。
 
 -   备份服务器在 BMR 的副本卷上保留 30 GB 的空间。 可以在“修改保护组”向导的“磁盘分配”页中更改此设置，也可以通过 Get-DatasourceDiskAllocation 和 Set-DatasourceDiskAllocation PowerShell cmdlet 来进行。 在恢复点卷上，BMR 保护需要大约 6 GB 的空间对内容保留五天的时间。
-    - 请注意，不能将副本卷大小降到 15 GB 以下。
-    - 备份服务器不计算 BMR 数据源的大小， 而是对所有服务器都假定一个 30 GB 的大小。 请根据环境中预期会进行的 BMR 备份的大小更改此值。 粗略进行计算的话，BMR 备份的大小就是所有关键卷上已使用空间之和。 关键卷 = 启动卷 + 系统卷 + 托管系统状态数据的卷，例如 Active Directory。
+    * 请注意，不能将副本卷大小降到 15 GB 以下。
+    * 备份服务器不计算 BMR 数据源的大小， 而是对所有服务器都假定一个 30 GB 的大小。 请根据环境中预期会进行的 BMR 备份的大小更改此值。 粗略进行计算的话，BMR 备份的大小就是所有关键卷上已使用空间之和。 关键卷 = 启动卷 + 系统卷 + 托管系统状态数据的卷，例如 Active Directory。
 
 -   如果从系统状态保护更改为 BMR 保护，则 BMR 保护在恢复点卷上需要较少的空间， 但系统不会回收该卷上的多余空间。 可以在“修改保护组”向导的“修改磁盘分配”页中手动缩减卷大小，也可以通过 Get-DatasourceDiskAllocation 和 Set-DatasourceDiskAllocation PowerShell cmdlet 来进行。
 
@@ -98,16 +98,15 @@ Azure 备份服务器备份系统状态，并提供裸机恢复 (BMR) 保护。
 ## <a name="before-you-begin"></a>准备阶段
 
 1.  部署 Azure 备份服务器。 验证备份服务器是否已正确部署。 有关详细信息，请参阅：
-    - [Azure 备份服务器的系统要求](http://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites)
-    - [备份服务器保护矩阵](backup-mabs-protection-matrix.md)
+    * [Azure 备份服务器的系统要求](https://docs.microsoft.com/zh-cn/system-center/dpm/install-dpm#setup-prerequisites)
+    * [备份服务器保护矩阵](backup-mabs-protection-matrix.md)
 
-2.  设置存储。 可以将备份数据存储在磁盘、磁带以及 Azure 云中。 有关详细信息，请参阅 [Prepare data storage](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage)（准备数据存储）。
+2.  设置存储。 可以将备份数据存储在磁盘、磁带以及 Azure 云中。 有关详细信息，请参阅 [Prepare data storage](https://docs.microsoft.com/zh-cn/system-center/dpm/plan-long-and-short-term-data-storage)（准备数据存储）。
 
-3.  设置保护代理。 在要备份的计算机上安装保护代理。 有关详细信息，请参阅 [Deploy the DPM protection agent](http://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent)（部署 DPM 保护代理）。
+3.  设置保护代理。 在要备份的计算机上安装保护代理。 有关详细信息，请参阅 [Deploy the DPM protection agent](https://docs.microsoft.com/zh-cn/system-center/dpm/deploy-dpm-protection-agent)（部署 DPM 保护代理）。
 
 ## <a name="back-up-system-state-and-bare-metal"></a>备份系统状态和裸机
-按 [Deploy protection groups](http://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups)（部署保护组）中的说明设置保护组。 请注意，不能在不同组中对同一计算机实施 BMR 和系统状态保护。 此外，在选择 BMR 时，会自动启用系统状态。
-
+按 [Deploy protection groups](https://docs.microsoft.com/zh-cn/system-center/dpm/create-dpm-protection-groups)（部署保护组）中的说明设置保护组。 请注意，不能在不同组中对同一计算机实施 BMR 和系统状态保护。 此外，在选择 BMR 时，会自动启用系统状态。
 
 1.  若要在备份服务器管理员控制台中打开“创建新保护组”向导，请选择“保护” > “操作” > “创建保护组”。
 
@@ -115,7 +114,7 @@ Azure 备份服务器备份系统状态，并提供裸机恢复 (BMR) 保护。
 
 3.  在“选择组成员”页上展开计算机，然后选择“BMR”或“系统状态”。
 
-    请记住，不能在不同组中对同一计算机实施 BMR 和系统状态保护。 此外，在选择 BMR 时，会自动启用系统状态。 有关详细信息，请参阅 [Deploy protection groups](http://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups)（部署保护组）。
+    请记住，不能在不同组中对同一计算机实施 BMR 和系统状态保护。 此外，在选择 BMR 时，会自动启用系统状态。 有关详细信息，请参阅 [Deploy protection groups](https://docs.microsoft.com/zh-cn/system-center/dpm/create-dpm-protection-groups)（部署保护组）。
 
 4.  在“选择数据保护方法”页上，选择要如何处理短期和长期备份。 短期备份始终先备份到磁盘，然后可以选择通过 Azure 备份从磁盘备份到 Azure 云（短期或长期）。 可以设置一种长期备份，备份到单独的磁带设备或连接到备份服务器的磁带库，替代长期备份到云。
 
@@ -125,9 +124,9 @@ Azure 备份服务器备份系统状态，并提供裸机恢复 (BMR) 保护。
 
 6.  若需将数据存储在磁带上进行长期存储，请在“指定长期目标”页上选择要保留磁带数据多长时间（1-99 年）。 
     1. 对于“备份频率”，请选择运行到磁带的备份的频率。 频率取决于所选保留期：
-        - 如果保留期为 1-99 年，则可选择“每日”、“每周”、“每两周”、“每月”、“每季”、“每半年”或“每年”作为备份频率。
-        - 如果保留期为 1-11 月，则可选择“每日”、“每周”、“每两周”或“每月”作为备份频率。
-        - 如果保留期为 1-4 周，则可选择“每日”或“每周”作为备份频率。
+        * 如果保留期为 1-99 年，则可选择“每日”、“每周”、“每两周”、“每月”、“每季”、“每半年”或“每年”作为备份频率。
+        * 如果保留期为 1-11 月，则可选择“每日”、“每周”、“每两周”或“每月”作为备份频率。
+        * 如果保留期为 1-4 周，则可选择“每日”或“每周”作为备份频率。
 
     2. 在“选择磁带和库详细信息”页上，选择要使用的磁带和库，以及是否应压缩和加密数据。
 

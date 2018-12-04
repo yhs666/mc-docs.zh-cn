@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/01/2017
-ms.date: 06/25/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 24ddc3d4f72a94544ba0fab4f3667efab7fc32d4
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 281a0a3e8ee1d491f0184b564aa9f02e06f450a8
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939185"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674681"
 ---
 # <a name="restart-vms"></a>重新启动 VM
 
@@ -38,7 +38,7 @@ ms.locfileid: "38939185"
 az vm restart --ids $(az vm list --resource-group myResourceGroup --query "[].id" -o tsv)
 ```
 
-第二种方法使用 `az resouce list` 获取带标记的 VM，筛选出是 VM 的资源，并重新启动那些 VM。
+第二种方法使用 `az resource list` 获取带标记的 VM，筛选出是 VM 的资源，并重新启动那些 VM。
 
 ```bash
 az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Microsoft.Compute/virtualMachines'].id" -o tsv)
@@ -129,7 +129,7 @@ az group delete -n myResourceGroup --no-wait --yes
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/zh-cn/cli/overview?view=azure-cli-latest)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/zh-cn/cli/index?view=azure-cli-latest)。
 
 可以在 [Azure Linux VM 文档](../linux/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机 CLI 脚本示例。
 

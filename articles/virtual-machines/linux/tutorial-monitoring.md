@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 06/06/2018
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 39fa78bf002182cadf8bc52bdef3aa518c446db4
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.openlocfilehash: 3baacc298150cdc368da9de8d08e2553c5c9d290
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034901"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674694"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>教程：监视和更新 Azure 中的 Linux 虚拟机
 
@@ -37,7 +37,7 @@ ms.locfileid: "50034901"
 
 <!-- Not Available on View VM metrics-->
 <!-- Not Available on Manage package updates-->
-<!-- Not Available on > * Monitor changes and inventory-->
+<!-- Not Available on Monitor changes and inventory-->
 <!-- Not Available on Set up advanced monitoring-->
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
@@ -167,6 +167,10 @@ Linux VM 在 Azure 中有一个与它交互的专用主机。 系统会自动收
 > * 在 VM 上启用诊断扩展
 > * 基于诊断指标创建警报
 
+<!-- Not Available on View VM metrics-->
+<!-- Not Available on Manage package updates-->
+<!-- Not Available on Monitor changes and inventory-->
+<!-- Not Available on Set up advanced monitoring-->
 <!-- Not Available on [Manage VM security](./tutorial-azure-security.md)-->
 
-<!--Update_Description: update meta properties, update link, wording update -->
+<!--Update_Description: update meta properties, update link, wording update-->

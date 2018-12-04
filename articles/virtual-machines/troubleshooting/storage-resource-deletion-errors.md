@@ -9,15 +9,15 @@ tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.service: virtual-machines
 ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
-origin.date: 05/01/2018
-ms.date: 10/22/2018
+origin.date: 11/01/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: cc76dfb96c0a445882af1c0556686d62fb203a03
-ms.sourcegitcommit: 96b58e881dba2fd02665d806d7c27d770326b0cc
+ms.openlocfilehash: 8563d3d80bfc92ef5bed54d628cae897bbc5b9ae
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652007"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674257"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>排查存储资源删除错误
 
@@ -42,6 +42,7 @@ Azure 阻止删除附加到 VM 的磁盘，以防发生损坏。 它还会阻止
 
 ## <a name="step-1-identify-blob-attached-to-a-vm"></a>第 1 步：发现附加到 VM 的 blob
 
+<a name="step-1-identify-blobs-attached-to-a-vm"></a>
 ### <a name="scenario-1-deleting-a-blob---identify-attached-vm"></a>场景 1：删除 Blob - 识别附加的 VM
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 在“中心”菜单上，选择“所有资源” 。 转到存储帐户，在“Blob 服务”下，选择“容器”，并导航到要删除的 blob。
@@ -70,10 +71,7 @@ Azure 阻止删除附加到 VM 的磁盘，以防发生损坏。 它还会阻止
 
 ### <a name="scenario-3-deleting-storage-account---identify-all-blobs-within-storage-account-that-are-attached-to-vms"></a>方案 3：删除存储帐户 - 发现存储帐户内附加到 VM 的所有 blob
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 在“中心”菜单上，选择“所有资源” 。 转到存储帐户，在“blob 服务”下，选择“容器”。
-
-    ![门户屏幕截图，其中突出显示了存储帐户容器和值为“已租用”的“租用状态”](./media/troubleshoot-vhds/utd-containers-sm.png)
-
+2. 在“中心”菜单上，选择“所有资源” 。 转到存储帐户，在“blob 服务”下，选择“Blob”。
 3. 在“容器”窗格中，找到“租用状态”为“已租用”的所有容器，并按照[方案 2](#scenario-2-deleting-a-container---identify-all-blobs-within-container-that-are-attached-to-vms) 对每个状态为“已租用”的容器执行操作。
 4. 按照[第 2 步](#step-2-delete-vm-to-detach-os-disk)和[第 3 步](#step-3-detach-data-disk-from-the-vm)操作，删除附加有 OSDisk 的 VM，并拆离 DataDisk。 
 
@@ -104,3 +102,4 @@ Azure 阻止删除附加到 VM 的磁盘，以防发生损坏。 它还会阻止
 9. 选择“其他安全性验证” 。 此时该磁盘将与 VM 分离，并且 VHD 将不再租用。 可能需要几分钟才能释放租约。 若要验证租用是否已解除，请转到 blob 位置，再检查“blob 属性”窗格中的“租用状态”值是否为“已解锁”或“可租用”。
 
 <!-- Not Avaialble on [Storage deletion errors in Resource Manager deployment]: #storage-delete-errors-in-rm-->
+<!-- Update_Description: wording update, update link -->

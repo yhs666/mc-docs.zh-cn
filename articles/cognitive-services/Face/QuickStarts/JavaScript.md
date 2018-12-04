@@ -1,5 +1,5 @@
 ---
-title: 快速入门：检测图像中的人脸 - 人脸 API，JavaScript
+title: 快速入门：使用 REST API 和 JavaScript 检测图像中的人脸
 titleSuffix: Azure Cognitive Services
 description: 在本快速入门中，你将使用认知服务中的人脸 API 和 JavaScript 检测图像中的人脸。
 services: cognitive-services
@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 origin.date: 05/10/2018
-ms.date: 10/22/2018
+ms.date: 11/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: babf2fd820747863732d82c1cbb303f4b0bb9eb1
-ms.sourcegitcommit: 44ce337717bb948f5ac08217a156935f663c0f46
+ms.openlocfilehash: 2761bff4ea0016ac62a7cced8f04e9b937bdd4f3
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034624"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672573"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-javascript"></a>快速入门：使用 JavaScript 检测图像中的人脸
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>快速入门：使用 REST API 和 JavaScript 检测图像中的人脸
 
 在本快速入门中，你将使用人脸 API 检测图像中的人脸。
 
@@ -38,9 +38,9 @@ ms.locfileid: "50034624"
 若要运行此示例，请执行以下步骤：
 
 1. 复制以下内容并将其保存到某个文件，例如 `detectFaces.html`。
-2. 将 `<Subscription Key>` 替换为有效订阅密钥。
-4. 将此文件拖放到浏览器中。
-5. 单击 `Analyze faces` 按钮。
+1. 将 `<Subscription Key>` 替换为有效订阅密钥。
+1. 将此文件拖放到浏览器中。
+1. 单击 `Analyze faces` 按钮。
 
 ### <a name="face---detect-request"></a>人脸 - 检测请求
 

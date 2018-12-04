@@ -1,3 +1,17 @@
+---
+author: rockboyfor
+ms.service: virtual-machines
+ms.topic: include
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
+ms.openlocfilehash: 4e47dadac1d5f8d3fbad5441011b395fc847578f
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675648"
+---
 ## <a name="multi-and-single-instance-vms"></a>多实例和单实例 VM
 对于在 Azure 上运行的许多客户而言，在 VM 进行计划内维护时可以计划是非常重要的，因为在维护期间会停机约 15 分钟。 可以在预配的 VM 接收计划内维护时，使用可用性集帮助控制。
 
@@ -54,5 +68,6 @@ Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Remove-AzureA
 <!--Anchors-->
 
 <!--Link references-->
-<!-- Not Available on [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md -->
-<!-- Not Available on [Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/  -->
+<!-- Not Available on [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md-->
+<!-- Not Available on [Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance-->
+<!-- Update_Description: update meta properties, wording update -->

@@ -3,7 +3,7 @@ title: Azure 虚拟机规模集自动缩放概述 | Microsoft Docs
 description: 了解可以通过哪些不同的方法，根据性能或固定的计划自动缩放 Azure 虚拟机规模集
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/29/2018
-ms.date: 09/27/2018
+ms.date: 11/29/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fa9a249066d81dc424210a61cb20eacfb7f17c81
-ms.sourcegitcommit: 5af51a8cb9a7db8b1efb6ce6772890ac9884666a
+ms.openlocfilehash: 2d853ebaa46d9af32ecb2e4064aedf0116db1ad3
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47400102"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672560"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Azure 虚拟机规模集自动缩放概述
 Azure 虚拟机规模集可以自动增加或减少运行应用程序的 VM 实例数。 这种自动且弹性的行为可以减少监视和优化应用程序性能所需的管理开销。 创建规则，用于定义提供正面客户体验而可接受的性能。 如果满足定义的这些阈值，自动缩放规则会采取措施来调整规模集的容量。 还可以计划事件，以便在固定的时间自动增加或减少规模集的容量。 本文概述所提供的性能指标，以及自动缩放可以执行的操作。
@@ -43,7 +43,7 @@ Azure 虚拟机规模集可以自动增加或减少运行应用程序的 VM 实�
 
 - [Azure 门户](virtual-machine-scale-sets-autoscale-portal.md)
 - [Azure PowerShell](tutorial-autoscale-powershell.md)
-- [Azure CLI 2.0](tutorial-autoscale-cli.md)
+- [Azure CLI](tutorial-autoscale-cli.md)
 - [Azure 模板](tutorial-autoscale-template.md)
 
 若要创建使用更详细性能指标的自动缩放规则，可在 VM 实例上[安装并配置 Azure 诊断扩展](#in-guest-vm-metrics-with-the-azure-diagnostics-extension)。
@@ -134,9 +134,9 @@ Azure 诊断扩展是在 VM 实例中运行的代理。 该代理可监视性能
 可通过以下工具之一创建使用基于主机的指标的自动缩放规则：
 
 - [Azure PowerShell](tutorial-autoscale-powershell.md)
-- [Azure CLI 2.0](tutorial-autoscale-cli.md)
+- [Azure CLI](tutorial-autoscale-cli.md)
 - [Azure 模板](tutorial-autoscale-template.md)
 
 有关如何管理 VM 实例的信息，请参阅[使用 Azure PowerShell 管理虚拟机规模集](virtual-machine-scale-sets-windows-manage.md)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

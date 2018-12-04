@@ -3,7 +3,7 @@ title: Azure 虚拟机规模集概述 | Microsoft Docs
 description: 了解 Azure 虚拟机规模集和应用程序自动缩放方法。
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
 origin.date: 03/27/2018
-ms.date: 04/24/2018
+ms.date: 11/29/2018
 ms.author: v-junlch
-ms.openlocfilehash: 6e016ff969a9e20e97b1e2e4d2c86253fbc6ebfe
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 5f0329ca9aaf31d1085ed7f23810284ad79995bc
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32122084"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673008"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>什么是虚拟机规模集？
 使用 Azure 虚拟机规模集可以创建并管理一组完全相同的、负载均衡的 VM。 可以根据需求或定义的计划自动增减 VM 实例的数目。 规模集为应用程序提供高可用性，用于集中管理、配置和更新大量 VM。 可以使用虚拟机规模集为计算、大数据和容器工作负荷等领域构建大规模的服务。
@@ -69,3 +69,4 @@ Azure 虚拟机规模集为跨多个 VM 运行的应用程序提供管理功能�
 > [!div class="nextstepaction"]
 > [在 Azure 门户中创建规模集](quick-create-portal.md)
 
+<!-- Update_Description: update metedata properties -->

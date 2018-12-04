@@ -6,15 +6,15 @@ services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
 origin.date: 09/17/2018
-ms.date: 11/05/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
 ms.component: alerts
-ms.openlocfilehash: dd1048197125b97088b66d172e1a9e6e65f48674
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.openlocfilehash: 833f605bbc3afc0ce89137d8a4d8c867e634c3af
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409381"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674230"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>在 Azure Monitor 中创建日志的指标警报  
 
@@ -59,8 +59,8 @@ Azure Monitor 支持比经典警报更具优势的[指标警报类型](monitorin
 - 为选定 Log Analytics 工作区的指标警报选择的信号类型为“指标”
 - 使用维度筛选器根据特定的条件或资源进行筛选；日志的指标是多维的
 - 配置信号逻辑时，可以创建单个警报来跨越多个维度值（例如“计算机”）
-- 如果**不**使用 Azure 门户为选定的 Log Analytics 工作区创建指标警报，则用户必须先手动创建一个显式规则，以便使用 [Azure Monitor - 计划的查询规则](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules
-)将日志数据转换为指标。**
+- 如果**不**使用 Azure 门户为选定的 *Log Analytics 工作区*创建指标警报，则用户必须先手动创建一个显式规则，以便使用 [Azure Monitor - 计划的查询规则](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules
+)将日志数据转换为指标。
 
 > [!NOTE]
 > 通过 Azure 门户为 Log Analytics 工作区创建指标警报时，会自动在后台创建相应的规则用于通过 [Azure Monitor - 计划的查询规则](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)将日志数据转换为指标，无需任何用户干预或操作。 如果不使用 Azure 门户创建日志的指标警报，请参阅[日志的指标警报的资源模板](#resource-template-for-metric-alerts-for-logs)部分，了解在创建指标警报之前，创建基于 ScheduledQueryRule 的“日志到指标”转换规则的示例方法 - 否则没有任何数据可用于创建日志的指标警报。
@@ -102,7 +102,7 @@ Azure Monitor 支持比经典警报更具优势的[指标警报类型](monitorin
             "type": "string",
             "defaultValue": "true",
             "metadata": {
-                "description": "Specifies whether the log convertion rule is enabled"
+                "description": "Specifies whether the log conversion rule is enabled"
             }
         },
         "convertRuleMetric": {
@@ -219,9 +219,9 @@ Azure Monitor 支持比经典警报更具优势的[指标警报类型](monitorin
         }
     },
     "variables": {
-        "convertRuleTag": "hidden-link:/subscriptions/1234-56789-1234-567a/resourceGroups/resouceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName",
+        "convertRuleTag": "hidden-link:/subscriptions/1234-56789-1234-567a/resourceGroups/resourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName",
         "convertRuleSourceWorkspace": {
-            "SourceId": "/subscriptions/1234-56789-1234-567a/resourceGroups/resouceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName"
+            "SourceId": "/subscriptions/1234-56789-1234-567a/resourceGroups/resourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName"
         }
     },
     "resources": [

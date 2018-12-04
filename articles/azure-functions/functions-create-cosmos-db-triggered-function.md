@@ -10,15 +10,15 @@ ms.service: azure-functions; cosmos-db
 ms.devlang: multiple
 ms.topic: quickstart
 origin.date: 10/02/2018
-ms.date: 10/18/2018
+ms.date: 11/22/2018
 ms.author: v-junlch
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 069cca8266937d36f697a2bcb539ce5ed829a9d7
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 9a8ec62c9d328af965ec32b8e3bb0e3dc7586b7d
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453537"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672847"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>创建由 Azure Cosmos DB 触发的函数
 
@@ -109,7 +109,7 @@ ms.locfileid: "49453537"
     | **集合 ID** | Items | 新集合的名称。 它必须匹配函数绑定中定义的名称。  |
     | **存储容量** | 固定 (10 GB)|使用默认值。 此值是数据库的存储容量。 |
     | **吞吐量** |400 RU| 使用默认值。 如果想要减少延迟，以后可以增加吞吐量。 |
-    | **[分区键](../cosmos-db/partition-data.md#best-practices-when-choosing-a-partition-key)** | /category|一个分区键，用于将数据均匀分配到每个分区。 选择正确的分区键对于创建高性能集合而言很重要。 | 
+    | **[分区键](../cosmos-db/partition-data.md)** | /category|一个分区键，用于将数据均匀分配到每个分区。 选择正确的分区键对于创建高性能集合而言很重要。 | 
 
 1. 单击“确定”创建项集合。 创建该集合可能需要一点时间。
 
@@ -147,4 +147,4 @@ ms.locfileid: "49453537"
 
 有关 Azure Cosmos DB 触发器的详细信息，请参阅[适用于 Azure Functions 的 Azure Cosmos DB 绑定](functions-bindings-cosmosdb.md)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

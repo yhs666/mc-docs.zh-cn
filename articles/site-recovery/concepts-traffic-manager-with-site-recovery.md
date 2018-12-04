@@ -11,11 +11,11 @@ origin.date: 07/06/2018
 ms.date: 07/23/2018
 ms.author: v-yeche
 ms.openlocfilehash: bc4ba6453d16eb718a86140f5169047960b40ac8
-ms.sourcegitcommit: 54851a22f188f2401ed971931132b46febe7014e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39361345"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667147"
 ---
 <!-- Notice: Source location Azure East, China East TO Target location Azure Sourth East, China North-->
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>将 Azure 流量管理器与 Azure Site Recovery 配合使用

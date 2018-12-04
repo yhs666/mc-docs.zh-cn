@@ -2,20 +2,20 @@
 title: Azure 流分析作业的纵向扩展和横向扩展
 description: 本文介绍如何通过分布输入数据、优化查询以及设置作业流单元来缩放流分析作业。
 services: stream-analytics
-author: rockboyfor
-ms.author: v-yeche
+author: lingliw
+ms.author: v-lingwu
 manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 06/22/2017
-ms.date: 09/30/2018
-ms.openlocfilehash: cbdcc16c9b5d2a835988dc327a1208b58e5016d0
-ms.sourcegitcommit: 432984d85afe6f3da8f211bae0fa98a556785ee8
+ms.date: 11/26/2018
+ms.openlocfilehash: d138ac615a7cd1522d661f119c7a0ad7cae7e06e
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455382"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675313"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>扩展 Azure 流分析作业以增加吞吐量
 本文介绍如何优化流分析查询，增加流分析作业的吞吐量。 可以使用以下指南来扩展作业，以便处理较高负载并充分利用更多的系统资源（如更多带宽、更多 CPU 资源、更多内存）。
@@ -99,13 +99,13 @@ ms.locfileid: "47455382"
 
 <!--Link references-->
 
-[microsoft.support]: http://support.microsoft.com
-[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
+[microsoft.support]: https://support.microsoft.com
+[azure.event.hubs.developer.guide]: https://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
+[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
 
 <!--Update_Description: update meta properties, wording update-->
 

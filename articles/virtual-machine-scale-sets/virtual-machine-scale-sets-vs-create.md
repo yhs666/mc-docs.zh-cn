@@ -5,7 +5,7 @@ services: virtual-machine-scale-sets
 ms.custom: H1Hack27Feb2017
 ms.workload: na
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/13/2017
-ms.date: 09/27/2018
+ms.date: 11/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: 8a7c1ffb851b510dbfc9be74f2c3809b245c2791
-ms.sourcegitcommit: 5af51a8cb9a7db8b1efb6ce6772890ac9884666a
+ms.openlocfilehash: c2546244737610b93dd18d9086bd91d99b9ab2d5
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47400096"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673147"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>如何使用 Visual Studio 创建虚拟机规模集
 本文介绍如何使用 Visual Studio 资源组部署部署 Azure 虚拟机规模集。
@@ -109,4 +109,4 @@ Azure 资源组部署是一种通过单个部署操作将相关的一组 Azure �
 [output_window]: ./media/virtual-machine-scale-sets-vs-create/9-Output.png
 [cloud_explorer]: ./media/virtual-machine-scale-sets-vs-create/12-CloudExplorer.png
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 05/24/2017
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: b6fcbb9ee302f15a49547c8198ac2893ff18e52a
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 555856bfc54052c2cf62f6cfab74cc29bdffe30f
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453579"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674448"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>创建 OpenBSD 磁盘映像并将其上传到 Azure
 本文介绍如何创建和上传包含 OpenBSD 操作系统的虚拟硬盘 (VHD)。 上传后，可将其用作自己的映像，通过 Azure CLI 在 Azure 中创建虚拟机 (VM)。
@@ -31,7 +31,7 @@ ms.locfileid: "49453579"
 
 * **Azure 订阅** - 如果没有帐户，只需几分钟即可创建一个。 如果有 MSDN 订阅，请参阅 [Visual Studio 订户的每月 Azure 信用额度](https://www.azure.cn/support/legal/offer-rate-plans/)。 否则，请了解如何[创建试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。  
 * Azure CLI - 确保已安装了最新的 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
-* **安装在 .vhd 文件中的 OpenBSD 操作系统** - 必须将受支持的 OpenBSD 操作系统（[6.1 版本 AMD64](https://ftp.openbsd.org/pub/OpenBSD/6.1/amd64/)）安装到虚拟硬盘中。 可使用多种工具创建 .vhd 文件。 例如，可使用 Hyper-V 等虚拟化解决方案创建 .vhd 文件并安装操作系统。 有关如何安装和使用 Hyper-V 的说明，请参阅[安装 Hyper-V 并创建虚拟机](http://technet.microsoft.com/library/hh846766.aspx)。
+* **安装在 .vhd 文件中的 OpenBSD 操作系统** - 必须将受支持的 OpenBSD 操作系统（[6.1 版本 AMD64](https://ftp.openbsd.org/pub/OpenBSD/6.1/amd64/)）安装到虚拟硬盘中。 可使用多种工具创建 .vhd 文件。 例如，可使用 Hyper-V 等虚拟化解决方案创建 .vhd 文件并安装操作系统。 有关如何安装和使用 Hyper-V 的说明，请参阅[安装 Hyper-V 并创建虚拟机](https://technet.microsoft.com/library/hh846766.aspx)。
 
 ## <a name="prepare-openbsd-image-for-azure"></a>为 Azure 准备 OpenBSD 映像
 在安装了 OpenBSD 操作系统 6.1（已添加 Hyper-V 支持）的 VM上，完成以下步骤：
@@ -64,7 +64,7 @@ ms.locfileid: "49453579"
     ln -sf /usr/local/bin/python2.7 /usr/local/bin/python
     ln -sf /usr/local/bin/python2.7-2to3 /usr/local/bin/2to3
     ln -sf /usr/local/bin/python2.7-config /usr/local/bin/python-config
-    ln -sf /usr/local/bin/pydoc2.7  /usr/local/bin/pydoc
+    ln -sf /usr/local/bin/pydoc2.7  /usr/local/bin/pydoc
     ```
 
 6. 始终可以在 [Github](https://github.com/Azure/WALinuxAgent/releases) 上找到 Azure 代理的最新版本。 安装代理，如下所示：
@@ -177,4 +177,4 @@ ssh azureuser@<ip address>
 
 若要从托管磁盘创建 VM，请阅读 [az disk](https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest)。
 
-<!--Update_Description: update meta properties， update link, wording update -->
+<!--Update_Description: update meta properties， wording update -->

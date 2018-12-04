@@ -16,11 +16,11 @@ ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: thoroet
 ms.openlocfilehash: 0fb2430cfc2326121623c62f7a541d6ae4cb8c61
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848867"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667158"
 ---
 # <a name="manage-role-based-access-control"></a>管理基于角色的访问控制
 

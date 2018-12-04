@@ -10,14 +10,14 @@ ms.component: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 08/16/2017
-ms.date: 11/05/2018
+ms.date: 12/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7f8d8986435eda9e0d8b9f4b5b2cdde6e20765ec
-ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
+ms.openlocfilehash: 62d5bd0f9e29f3ebdb3bbe8981057648a16d3f98
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50204853"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674789"
 ---
 # <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB：SQL API 入门教程
 
@@ -171,7 +171,7 @@ ms.locfileid: "50204853"
             Console.ReadKey();
     }
 
-可以通过使用 DocumentClient 类的 [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) 方法来创建 Azure Cosmos DB [数据库](sql-api-resources.md#databases)。 数据库是跨集合分区的 JSON 文档存储的逻辑容器。
+可以通过使用 DocumentClient 类的 [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) 方法来创建 Azure Cosmos DB [数据库](databases-containers-items.md#azure-cosmos-databases)。 数据库是跨集合分区的 JSON 文档存储的逻辑容器。
 
 将以下代码复制并粘贴到客户端创建后面的 **GetStartedDemo** 方法。 这会创建一个名为 *FamilyDB* 的数据库。
 
@@ -193,7 +193,7 @@ ms.locfileid: "50204853"
 > 
 > 
 
-可以通过使用 **DocumentClient** 类的 [CreateDocumentCollectionIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionifnotexistsasync.aspx) 方法来创建[集合](sql-api-resources.md#collections)。 集合是 JSON 文档和相关联的 JavaScript 应用程序逻辑的容器。
+可以通过使用 **DocumentClient** 类的 [CreateDocumentCollectionIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionifnotexistsasync.aspx) 方法来创建集合。 集合是 JSON 文档和相关联的 JavaScript 应用程序逻辑的容器。
 
 将以下代码复制并粘贴到数据库创建后的 **GetStartedDemo** 方法。 这将创建一个名为 *FamilyCollection* 的文档集合。
 
@@ -210,7 +210,7 @@ ms.locfileid: "50204853"
 
 <a name="CreateDoc"></a>
 ## <a name="step-6-create-json-documents"></a>步骤 6：创建 JSON 文档
-可以通过使用 **DocumentClient** 类的 [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) 方法创建[文档](sql-api-resources.md#documents)。 文档为用户定义的（任意）JSON 内容。 现在，我们可以插入一个或多个文档。 如果已有要在数据库中存储的数据，则可以使用 Azure Cosmos DB 的[数据迁移工具](import-data.md)将数据导入数据库。
+可以通过使用 **DocumentClient** 类的 [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) 方法创建文档。 文档为用户定义的（任意）JSON 内容。 现在，我们可以插入一个或多个文档。 如果已有要在数据库中存储的数据，则可以使用 Azure Cosmos DB 的[数据迁移工具](import-data.md)将数据导入数据库。
 
 在本例中，首先需要创建 Family 类来表示存储在 Azure Cosmos DB 中的对象。 此外还将创建 **Family** 中使用的 **Parent**、**Child**、**Pet** 和 **Address** 子类。 请注意，文档必须将 **ID** 属性序列化为 JSON 格式的 **ID**。 通过在 **GetStartedDemo** 方法后添加以下内部子类来创建这些类。
 
@@ -372,7 +372,7 @@ ms.locfileid: "50204853"
 
 <a name="Query"></a>
 ## <a name="step-7-query-azure-cosmos-db-resources"></a>步骤 7：查询 Azure Cosmos DB 资源
-Azure Cosmos DB 支持对存储在每个集合中的 JSON 文档进行各种[查询](sql-api-sql-query.md)。  下面的示例代码演示了各种查询（使用 Azure Cosmos DB SQL 语法以及 LINQ），可以针对上一步中插入的文档执行查询。
+Azure Cosmos DB 支持对存储在每个集合中的 JSON 文档进行各种[查询](how-to-sql-query.md)。  下面的示例代码演示了各种查询（使用 Azure Cosmos DB SQL 语法以及 LINQ），可以针对上一步中插入的文档执行查询。
 
 将 **ExecuteSimpleQuery** 方法复制并粘贴到 **CreateFamilyDocumentIfNotExists** 方法后面。
 
@@ -425,7 +425,7 @@ Azure Cosmos DB 支持对存储在每个集合中的 JSON 文档进行各种[查
 
 ![说明 NoSQL 教程创建 C# 控制台应用程序所用查询的范围和意义的图表。](./media/sql-api-get-started/nosql-tutorial-collection-documents.png)
 
-查询中的关键字 [FROM](sql-api-sql-query.md#FromClause) 是可选项，因为 Azure Cosmos DB 查询已限制为单个集合。 因此，“FROM Families f”可与“FROM root r”或者任何其他所选变量名进行交换。 Azure Cosmos DB 将推断所选 Families、root 或变量名，并默认引用当前集合。
+查询中的关键字 [FROM](how-to-sql-query.md#FromClause) 是可选项，因为 Azure Cosmos DB 查询已限制为单个集合。 因此，“FROM Families f”可与“FROM root r”或者任何其他所选变量名进行交换。 Azure Cosmos DB 将推断所选 Families、root 或变量名，并默认引用当前集合。
 
 <a name="ReplaceDocument"></a>
 ## <a name="step-8-replace-json-document"></a>步骤 8：替换 JSON 文档

@@ -5,17 +5,17 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-origin.date: 08/01/2018
-ms.date: 08/22/2018
+origin.date: 10/16/2018
+ms.date: 11/21/2018
 ms.author: v-junlch
-ms.openlocfilehash: 7b7c2b87e5c588c14f886911a0f73c28bf123ab3
-ms.sourcegitcommit: da9f7b0825e493636d6596eb6ae95d03e0626583
+ms.openlocfilehash: 67586a73e6689e7177c9eb2cb5c85dcf5489e050
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41734346"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672466"
 ---
-# <a name="configure-app-service-web-apps-with-application-gateway"></a>使用应用程序网关配置应用服务 Web 应用 
+# <a name="configure-app-service-web-apps-with-application-gateway"></a>使用应用程序网关配置应用服务 Web 应用
 
 可以通过应用程序网关将 Azure Web 应用或其他多租户服务配置为后端池成员。 本文介绍如何通过应用程序网关配置 Azure Web 应用。 第一个示例介绍如何将现有的应用程序网关配置为使用 Web 应用作为后端池成员。 第二个示例介绍如何新建一个将 Web 应用用作后端池成员的应用程序网关。
 
@@ -42,7 +42,7 @@ Add-AzureRmApplicationGatewayProbeConfig -name webappprobe2 -ApplicationGateway 
 # Retrieve the newly added probe
 $probe = Get-AzureRmApplicationGatewayProbeConfig -name webappprobe2 -ApplicationGateway $gw
 
-# Configure an existing backend http settings 
+# Configure an existing backend http settings
 Set-AzureRmApplicationGatewayBackendHttpSettings -Name appGatewayBackendHttpSettings -ApplicationGateway $gw -PickHostNameFromBackendAddress -Port 80 -Protocol http -CookieBasedAffinity Disabled -RequestTimeout 30 -Probe $probe
 
 # Add the web app to the backend pool
@@ -117,7 +117,7 @@ $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -Pu
 $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 
 # Create a new rule
-$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool 
+$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 
 # Define the application gateway SKU to use
 $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
@@ -142,7 +142,7 @@ Id                       : /subscriptions/<subscription_id>/resourceGroups/Conto
 Etag                     : W/"00000d5b-54ed-4907-bae8-99bd5766d0e5"
 ResourceGuid             : 00000000-0000-0000-0000-000000000000
 ProvisioningState        : Succeeded
-Tags                     : 
+Tags                     :
 PublicIpAllocationMethod : Dynamic
 IpAddress                : xx.xx.xxx.xx
 PublicIpAddressVersion   : IPv4
@@ -155,6 +155,12 @@ DnsSettings              : {
                                 "Fqdn": "00000000-0000-xxxx-xxxx-xxxxxxxxxxxx.chinacloudapp.cn"
                             }
 ```
+
+## <a name="restrict-access"></a>限制访问
+
+这些示例中部署的 Web 应用使用可通过 Internet 直接访问的公共 IP 地址。 这有助于在了解新功能和尝试新事物时获取疑难解答。 但若想将功能部署至生产环境，将需要添加更多限制。
+
+若要限制对 Web 应用的访问权限，一种方法是使用 [Azure 应用服务静态 IP 限制](../app-service/app-service-ip-restrictions.md)。 例如，可以限制 Web 应用，使其仅接收来自应用程序网关的流量。 使用应用服务 IP 限制功能列出应用程序网关 VIP，作为具有访问权限的唯一地址。
 
 ## <a name="next-steps"></a>后续步骤
 

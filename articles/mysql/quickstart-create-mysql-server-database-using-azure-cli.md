@@ -9,15 +9,15 @@ editor: jasonwhowell
 ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: quickstart
-origin.date: 09/14/2018
-ms.date: 10/22/2018
+origin.date: 11/01/2018
+ms.date: 12/03/2018
 ms.custom: mvc
-ms.openlocfilehash: e2e09e333cc6b5eba605efbb56b6810e0c8e2721
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 34d929edb0355f2c6e552f6a3b62ea04a5121274
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453846"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672716"
 ---
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>使用 Azure CLI 为 MySQL 服务器创建 Azure 数据库
 
@@ -141,7 +141,7 @@ az mysql server show --resource-group myresourcegroup --name mydemoserver
 键入下一命令： 
 
 1. 使用 **mysql** 命令行工具连接到服务器：
-```cli
+```bash
  mysql -h mydemoserver.mysql.database.chinacloudapi.cn -u myadmin@mydemoserver -p
 ```
 

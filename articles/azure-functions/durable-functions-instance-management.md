@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 08/31/2018
-ms.date: 10/18/2018
+ms.date: 11/21/2018
 ms.author: v-junlch
-ms.openlocfilehash: 90dc5aceffa69bda97af89a1a90e96226a739f19
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 41194257d263b7cfb64e55e20202fcbb1ddeabfa
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453750"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672527"
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>在 Durable Functions 中管理实例 (Azure Functions)
 
@@ -41,10 +41,10 @@ ms.locfileid: "49453750"
 public static async Task Run(
     [ManualTrigger] string input,
     [OrchestrationClient] DurableOrchestrationClient starter,
-    TraceWriter log)
+    ILogger log)
 {
     string instanceId = await starter.StartNewAsync("HelloWorld", input);
-    log.Info($"Started orchestration with ID = '{instanceId}'.");
+    log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
 }
 ```
 
@@ -120,12 +120,38 @@ public static async Task Run(
 public static async Task Run(
     [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")]HttpRequestMessage req,
     [OrchestrationClient] DurableOrchestrationClient client,
-    TraceWriter log)
+    ILogger log)
 {
     IList<DurableOrchestrationStatus> instances = await starter.GetStatusAsync(); // You can pass CancellationToken as a parameter.
     foreach (var instance in instances)
     {
-        log.Info(JsonConvert.SerializeObject(instance));
+        log.LogInformation(JsonConvert.SerializeObject(instance));
+    };
+}
+```
+## <a name="querying-instances-with-filters"></a>使用筛选器查询实例
+
+此外，还可以使用 `GetStatusAsync` 方法获取匹配一组预定义筛选器的业务流程实例的列表。 可能的筛选器选项包括业务流程创建时间和业务流程运行时状态。
+
+```csharp
+[FunctionName("QueryStatus")]
+public static async Task Run(
+    [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")]HttpRequestMessage req,
+    [OrchestrationClient] DurableOrchestrationClient client,
+    ILogger log)
+{
+    IEnumerable<OrchestrationRuntimeStatus> runtimeStatus = new List<OrchestrationRuntimeStatus> {
+        OrchestrationRuntimeStatus.Completed,
+        OrchestrationRuntimeStatus.Running
+    };
+    IList<DurableOrchestrationStatus> instances = await starter.GetStatusAsync(
+        new DateTime(2018, 3, 10, 10, 1, 0),
+        new DateTime(2018, 3, 10, 10, 23, 59),
+        runtimeStatus
+    ); // You can pass CancellationToken as a parameter.
+    foreach (var instance in instances)
+    {
+        log.LogInformation(JsonConvert.SerializeObject(instance));
     };
 }
 ```

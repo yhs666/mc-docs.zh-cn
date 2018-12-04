@@ -6,21 +6,20 @@ documentationcenter: ''
 author: WenJason
 manager: digimobile
 editor: ''
-ms.assetid: 3ca2d7af-1cf0-45fa-9585-3b73f3ee057d
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 07/24/2018
-ms.date: 09/17/2018
+origin.date: 10/15/2018
+ms.date: 12/03/2018
 ms.author: v-jay
-ms.openlocfilehash: d0e6ed43bd7cf52b837db13a81b6a041efdc6c59
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.openlocfilehash: f7683823b2adc2b70dacc5249d49a887d31bf064
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426277"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672751"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒体服务发行说明
 这些 Azure 媒体服务发行说明汇总了与以前版本相比的变更之处和已知的问题。
@@ -37,7 +36,7 @@ ms.locfileid: "47426277"
 | --- | --- |
 | REST API 中未提供几种常见的 HTTP 标头。 |如果使用 REST API 来开发媒体服务应用程序，将发现一些常见的 HTTP 标头字段（包括 CLIENT-REQUEST-ID、REQUEST-ID 和 RETURN-CLIENT-REQUEST-ID）不受支持。 未来的更新会增加这些标头。 |
 | 不允许使用百分号编码。 |为流内容构建 URL 时，媒体服务使用 IAssetFile.Name 属性的值（例如，`http://{AMSAccount}.origin.mediaservices.chinacloudapi.cn/{GUID}/{IAssetFile.Name}/streamingParameters`）。 出于这个原因，不允许使用百分号编码。 Name 属性的值不能含有任何以下[百分号编码保留字符](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)：!* '();:@&=+$,/?%#[]"。 此外，文件扩展名中只能含有一个“.”。 |
-| Azure 存储 SDK 版本 3.x 中的 ListBlobs 方法将失败。 |媒体服务基于 [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) 版本生成 SAS URI。 如果希望使用存储 SDK 来列出 BLOB 容器中的 BLOB，请使用存储 SDK 版本 2.x 中的 [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) 方法。 |
+| Azure 存储 SDK 版本 3.x 中的 ListBlobs 方法将失败。 |媒体服务基于 [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) 版本生成 SAS URI。 如果希望使用存储 SDK 来列出 BLOB 容器中的 BLOB，请使用存储 SDK 版本 2.x 中的 [CloudBlobContainer.ListBlobs](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) 方法。 |
 | 媒体服务限制机制会限制那些发出过多服务请求的应用程序的资源使用情况。 该服务可能返回“服务不可用” 503 HTTP 状态代码。 |有关详细信息，请参阅[媒体服务错误代码](media-services-encoding-error-codes.md)中的 503 HTTP 状态代码说明。 |
 | 查询实体时，一次返回的实体数限制为 1,000 个，因为公共 REST 第 2 版将查询结果数限制为 1,000 个。 |使用[此 .NET 示例](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities)和[此 REST API 示例](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)中所述的 Skip 和 Take (.NET)/ top (REST)。 |
 | 某些客户端可能会在平滑流式处理清单中碰到重复标记问题。 |有关详细信息，请参阅[此部分](media-services-deliver-content-overview.md#known-issues)。 |
@@ -46,6 +45,12 @@ ms.locfileid: "47426277"
 
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>REST API 版本历史记录
 有关媒体服务 REST API 版本历史记录的信息，请参阅 [Azure 媒体服务 REST API 参考]。
+
+## <a name="october-2018"></a>2018 年 10 月
+
+### <a name="cmaf-support"></a>CMAF 支持
+
+CMAF 和“cbcs”加密支持 Apple HLS (iOS 11+) 以及支持 CMAF 的 MPEG-DASH 播放器。
 
 ## <a name="july-2018"></a>2018 年 7 月
 
@@ -105,7 +110,7 @@ Azure 媒体编修器正式推出 - 此媒体处理器将会通过模糊化所�
 
 在媒体服务中，流式处理终结点表示一个流服务，该服务可以直接将内容传递给客户端播放器应用程序，也可以传递给内容支付网络 (CDN) 以进一步分发。 媒体服务还提供无缝 Azure 内容分发网络集成。 StreamingEndpoint 服务的出站流可以是媒体服务帐户中的实时流、点播视频或渐进式下载的资产。 每个媒体服务帐户均包括一个默认的流式处理终结点。 可以在帐户下创建其他流式处理终结点。 
 
-有两个版本的流式处理终结点：1.0 和 2.0。 2017 年 1 月 10 日起，任何新创建的媒体服务帐户都会包括 2.0 版默认流式处理终结点。 可添加到此帐户的其他流式处理终结点也是 2.0 版。 此更改不会影响现有帐户。 现有流式处理终结点为 1.0，可升级到 2.0 版。 此次更改带来了行为、计费和功能更改。 有关详细信息，请参阅[流式处理终结点概述](media-services-streaming-endpoints-overview.md)。
+有两个版本的流式处理终结点：1.0 和 2.0。 2017 年 1 月 10 日起，任何新创建的媒体服务帐户都会包括 2.0 版默认流式处理终结点。 可添加到此帐户的其他流式处理终结点也是 2.0 版。 此更改不会影响现有帐户。 现有流式处理终结点为 1.0，可升级到 2.0 版。 此次更改带来了行为、计费和功能更改。 有关详细信息，请参阅： [流式处理终结点概述](media-services-streaming-endpoints-overview.md)。
 
 从 2.15 版本开始，向流式处理终结点实体的以下属性添加了媒体服务：
 
@@ -207,7 +212,7 @@ Azure SDK 团队已发布新版 [Azure SDK for PHP](http://github.com/Azure/azur
 ## <a id="july_changes_15"></a>2015 年 7 月版本
 * 宣布了 Media Encoder Standard 公开上市。 有关详细信息，请参阅 [此博客文章](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)。
   
-    Media Encoder Standard 使用[本节](http://go.microsoft.com/fwlink/?LinkId=618336)所述的预设值。 使用 4k 编码预设时，请获取高级预留单位类型。 有关详细信息，请参阅[缩放编码](media-services-scale-media-processing-overview.md)。
+    Media Encoder Standard 使用[本节](https://go.microsoft.com/fwlink/?LinkId=618336)所述的预设值。 使用 4k 编码预设时，请获取高级预留单位类型。 有关详细信息，请参阅[缩放编码](media-services-scale-media-processing-overview.md)。
 * 媒体服务和 Media Player 中采用了直播实时字幕。 有关详细信息，请参阅 [此博客文章](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/)。
 
 ### <a name="media-services-net-sdk-updates"></a>媒体服务 .NET SDK 更新
@@ -337,7 +342,7 @@ Azure SDK 团队已发布新版 [Azure SDK for PHP](http://github.com/Azure/azur
   * 域名的所有权必须通过媒体服务验证。 若要验证域，请创建映射 MediaServicesAccountId 父域的 CName 来验证 DNS mediaservices-dns-zone。
   * 必须创建另一个 CName，以将自定义主机名（例如 sports.contoso.com）映射到媒体服务 StreamingEndpont 的主机名（例如 amstest.streaming.mediaservices.chinacloudapi.cn）。
 
-    有关详细信息，请参阅 [StreamingEndpoint](http://msdn.microsoft.com/library/azure/dn783468.aspx) 一文中的 CustomHostNames 属性。
+    有关详细信息，请参阅 [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx) 一文中的 CustomHostNames 属性。
 
 ### <a id="sept_14_preview_changes"></a>公共预览版的新增功能/应用场景
 * 实时流式处理预览版。 有关详细信息，请参阅[使用媒体服务实时传送视频流](media-services-manage-channels-overview.md)。
@@ -405,7 +410,7 @@ Azure SDK 团队已发布新版 [Azure SDK for PHP](http://github.com/Azure/azur
 
 媒体服务 SDK 当前的最新版本为 3.0.0.0。 可从 NuGet 下载最新程序包或从 [GitHub] 获取资料。
 
-自媒体服务 SDK 3.0.0.0 版本起，可以重复使用 [Azure AD 访问控制服务](http://msdn.microsoft.com/library/hh147631.aspx)令牌。 有关详细信息，请参阅[使用适用于 .NET 的媒体服务 SDK 连接到媒体服务](http://msdn.microsoft.com/library/azure/jj129571.aspx)中的“重复使用访问控制服务令牌”一节。
+自媒体服务 SDK 3.0.0.0 版本起，可以重复使用 [Azure AD 访问控制服务](https://msdn.microsoft.com/library/hh147631.aspx)令牌。 有关详细信息，请参阅[使用适用于 .NET 的媒体服务 SDK 连接到媒体服务](https://msdn.microsoft.com/library/azure/jj129571.aspx)中的“重复使用访问控制服务令牌”一节。
 
 ### <a name="dec_13_donnet_ext_changes"></a>媒体服务 .NET SDK 扩展 2.0.0.0
  媒体服务.NET SDK 扩展是一组扩展方法和帮助器函数，可简化代码，并令使用媒体服务进行开发变得更加容易。 [媒体服务 .NET SDK 扩展](https://github.com/Azure/azure-sdk-for-media-services-extensions/tree/dev)中提供了最新信息。

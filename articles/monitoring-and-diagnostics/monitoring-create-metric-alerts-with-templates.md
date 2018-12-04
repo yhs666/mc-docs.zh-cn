@@ -2,18 +2,19 @@
 title: 使用 Resource Manager 模板创建指标警报
 description: 了解如何使用资源管理器模板创建指标警报。
 author: lingliw
-services: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
-ms.topic: article
-origin.date: 04/26/2018
-ms.date: 10/22/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+origin.date: 09/27/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: d34bb6325d39fae7a8770f4888ed36cd619b197d
-ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
+ms.component: alerts
+ms.openlocfilehash: 331a4e150a6ee8bbd5e2cf79b4b19dd0ae4b1cd4
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652232"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675140"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>使用 Resource Manager 模板创建指标警报
 本文介绍如何在 Azure Monitor 中使用 [Azure 资源管理器模板](../azure-resource-manager/resource-group-authoring-templates.md)配置[较新的指标警报](monitoring-near-real-time-metric-alerts.md)。 使用资源管理器模板可以通过编程方式在多个环境中设置一致且可重现的警报。 较新的指标警报当前适用于[这套资源类型](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported)。
@@ -28,15 +29,15 @@ ms.locfileid: "49652232"
 2. 编辑相应的参数文件并将其用作 JSON 来自定义警报
 3. 使用[任意部署方法](../azure-resource-manager/resource-group-template-deploy.md)部署模板。
 
-
 ## <a name="resource-manager-template-for-a-simple-metric-alert"></a>简单指标警报的资源管理器模板
+
 若要使用 Resource Manager 模板创建警报，需要创建 `Microsoft.Insights/metricAlerts` 类型的资源，并填充所有相关属性。 下面是创建指标警报规则的示例模板。
 
 为进行本次演练，请将下面的 json 保存为 simplemetricalert.json。
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -235,7 +236,7 @@ ms.locfileid: "49652232"
 使用 Azure PowerShell
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzureRmAccount -Environment AzureChinaCloud
 
 Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
  
@@ -266,7 +267,7 @@ az group deployment create \
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -384,7 +385,7 @@ az group deployment create \
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -446,20 +447,17 @@ az group deployment create \
 }
 ```
 
-
 可以根据当前工作目录，通过 PowerShell 或 Azure CLI 使用模板和参数文件创建指标警报
 
 使用 Azure PowerShell
 ```powershell
-Connect-AzureRmAccount
+Connect-AzureRmAccount -Environment AzureChinaCloud
 
 Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
  
 New-AzureRmResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
-  -TemplateFile advancedmetricalert.json -TemplateParametersFile advancedmetricalert.parameters.json
+  -TemplateFile advancedmetricalert.json -TemplateParameterFile advancedmetricalert.parameters.json
 ```
-
-
 
 使用 Azure CLI
 ```azurecli
@@ -494,7 +492,7 @@ az group deployment create \
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -542,14 +540,14 @@ az group deployment create \
         "targetResourceRegion":{
             "type": "string",
             "allowedValues": [
-                "EastUS",
-                "EastUS2",
+                "ChinaEast",
+                "ChinaEast2",
                 "CentralUS",
                 "NorthCentralUS",
                 "SouthCentralUS",
-                "WestCentralUS",
-                "WestUS",
-                "WestUS2",
+                "chinanorth",
+                "ChinaNorth",
+                "ChinaNorth2",
                 "CanadaEast",
                 "CanadaCentral",
                 "BrazilSouth",
@@ -569,10 +567,10 @@ az group deployment create \
                 "NorwayWest",
                 "SoutheastAsia",
                 "EastAsia",
-                "AustraliaEast",
-                "AustraliaSoutheast",
-                "AustraliaCentral",
-                "AustraliaCentral2",
+                "ChinaEast",
+                "ChinaSoutheast",
+                "ChinaCentral",
+                "ChinaCentral2",
                 "ChinaEast",
                 "ChinaNorth",
                 "ChinaEast2",
@@ -581,7 +579,7 @@ az group deployment create \
                 "WestIndia",
                 "SouthIndia",
                 "JapanEast",
-                "JapanWest",
+                "ChinaEast",
                 "KoreaCentral",
                 "KoreaSouth",
                 "SouthAfricaWest",
@@ -590,7 +588,7 @@ az group deployment create \
                 "UAENorth"
             ],
             "metadata": {
-                "description": "Azure region in which target resources to be monitored are in (without spaces). For example: EastUS"
+                "description": "Azure region in which target resources to be monitored are in (without spaces). For example: ChinaEast"
             }
         },
         "targetResourceType": {
@@ -710,7 +708,7 @@ az group deployment create \
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -761,12 +759,12 @@ az group deployment create \
 使用 Azure PowerShell
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzureRmAccount -Environment AzureChinaCloud
 
 Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
 
 New-AzureRmResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
-  -TemplateFile all-vms-in-resource-group.json -TemplateParametersFile all-vms-in-resource-group.parameters.json
+  -TemplateFile all-vms-in-resource-group.json -TemplateParameterFile all-vms-in-resource-group.parameters.json
 ```
 
 使用 Azure CLI
@@ -789,7 +787,7 @@ az group deployment create \
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -837,14 +835,14 @@ az group deployment create \
         "targetResourceRegion":{
             "type": "string",
             "allowedValues": [
-                "EastUS",
-                "EastUS2",
+                "ChinaEast",
+                "ChinaEast2",
                 "CentralUS",
                 "NorthCentralUS",
                 "SouthCentralUS",
-                "WestCentralUS",
-                "WestUS",
-                "WestUS2",
+                "chinanorth",
+                "ChinaNorth",
+                "ChinaNorth2",
                 "CanadaEast",
                 "CanadaCentral",
                 "BrazilSouth",
@@ -864,10 +862,10 @@ az group deployment create \
                 "NorwayWest",
                 "SoutheastAsia",
                 "EastAsia",
-                "AustraliaEast",
-                "AustraliaSoutheast",
-                "AustraliaCentral",
-                "AustraliaCentral2",
+                "ChinaEast",
+                "ChinaSoutheast",
+                "ChinaCentral",
+                "ChinaCentral2",
                 "ChinaEast",
                 "ChinaNorth",
                 "ChinaEast2",
@@ -876,7 +874,7 @@ az group deployment create \
                 "WestIndia",
                 "SouthIndia",
                 "JapanEast",
-                "JapanWest",
+                "ChinaEast",
                 "KoreaCentral",
                 "KoreaSouth",
                 "SouthAfricaWest",
@@ -885,7 +883,7 @@ az group deployment create \
                 "UAENorth"
             ],
             "metadata": {
-                "description": "Azure region in which target resources to be monitored are in (without spaces). For example: EastUS"
+                "description": "Azure region in which target resources to be monitored are in (without spaces). For example: ChinaEast"
             }
         },
         "targetResourceType": {
@@ -1005,7 +1003,7 @@ az group deployment create \
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1053,12 +1051,12 @@ az group deployment create \
 使用 Azure PowerShell
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzureRmAccount -Environment AzureChinaCloud
 
 Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
 
 New-AzureRmResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
-  -TemplateFile all-vms-in-subscription.json -TemplateParametersFile all-vms-in-subscription.parameters.json
+  -TemplateFile all-vms-in-subscription.json -TemplateParameterFile all-vms-in-subscription.parameters.json
 ```
 
 使用 Azure CLI
@@ -1081,7 +1079,7 @@ az group deployment create \
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1129,14 +1127,14 @@ az group deployment create \
         "targetResourceRegion":{
             "type": "string",
             "allowedValues": [
-                "EastUS",
-                "EastUS2",
+                "ChinaEast",
+                "ChinaEast2",
                 "CentralUS",
                 "NorthCentralUS",
                 "SouthCentralUS",
-                "WestCentralUS",
-                "WestUS",
-                "WestUS2",
+                "chinanorth",
+                "ChinaNorth",
+                "ChinaNorth2",
                 "CanadaEast",
                 "CanadaCentral",
                 "BrazilSouth",
@@ -1156,10 +1154,10 @@ az group deployment create \
                 "NorwayWest",
                 "SoutheastAsia",
                 "EastAsia",
-                "AustraliaEast",
-                "AustraliaSoutheast",
-                "AustraliaCentral",
-                "AustraliaCentral2",
+                "ChinaEast",
+                "ChinaSoutheast",
+                "ChinaCentral",
+                "ChinaCentral2",
                 "ChinaEast",
                 "ChinaNorth",
                 "ChinaEast2",
@@ -1168,7 +1166,7 @@ az group deployment create \
                 "WestIndia",
                 "SouthIndia",
                 "JapanEast",
-                "JapanWest",
+                "ChinaEast",
                 "KoreaCentral",
                 "KoreaSouth",
                 "SouthAfricaWest",
@@ -1177,7 +1175,7 @@ az group deployment create \
                 "UAENorth"
             ],
             "metadata": {
-                "description": "Azure region in which target resources to be monitored are in (without spaces). For example: EastUS"
+                "description": "Azure region in which target resources to be monitored are in (without spaces). For example: ChinaEast"
             }
         },
         "targetResourceType": {
@@ -1297,7 +1295,7 @@ az group deployment create \
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1348,12 +1346,12 @@ az group deployment create \
 使用 Azure PowerShell
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzureRmAccount -Environment AzureChinaCloud
 
 Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
 
 New-AzureRmResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
-  -TemplateFile list-of-vms.json -TemplateParametersFile list-of-vms.parameters.json
+  -TemplateFile list-of-vms.json -TemplateParameterFile list-of-vms.parameters.json
 ```
 
 使用 Azure CLI

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 03/30/2017
-ms.date: 05/14/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: ca6a8b3bf0e46263141d1330e3412973d8aaeb7b
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: a213702d2b901f76479fcb2e6051c81e50af0425
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940085"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674442"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>有关平台支持的从经典部署模型到 Azure Resource Manager 的迁移的技术深入探讨
 

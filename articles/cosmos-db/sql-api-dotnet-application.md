@@ -11,15 +11,15 @@ ms.workload: azure-vs
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 08/03/2017
-ms.date: 11/05/2018
+ms.date: 12/03/2018
 ms.author: v-yeche
 ms.custom: devcenter, vs-azure
-ms.openlocfilehash: bad0217643208bae57ceea68acccd77be672074b
-ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
+ms.openlocfilehash: 25e0aee146ded2958927903f8aa4b572c28cb665
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50204849"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674485"
 ---
 <a name="_Toc395809351"></a>
 # <a name="aspnet-mvc-tutorial-web-application-development-with-azure-cosmos-db"></a>ASP.NET MVC 教程：开发采用 Azure Cosmos DB 的 Web 应用程序
@@ -503,7 +503,7 @@ ms.locfileid: "50204849"
             return View(item);
         }
 
-    第一个方法会处理当用户单击“索引”视图中的“编辑”链接时所发生的 Http GET。 此方法会从 Azure Cosmos DB 中提取[**文档**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx)，并将它传递给“编辑”视图。
+    第一个方法会处理当用户单击“索引”视图中的“编辑”链接时所发生的 Http GET。 此方法会从 Azure Cosmos DB 中提取[**文档**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx)，并将它传递给“编辑”视图。
 
     “编辑”视图会接着对 **IndexController** 执行 Http POST 操作。 
 

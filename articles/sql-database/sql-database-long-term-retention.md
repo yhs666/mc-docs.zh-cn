@@ -1,22 +1,24 @@
 ---
-title: 将 Azure SQL 数据库备份存储 10 年之久 | Azure
+title: 将 Azure SQL 数据库备份存储 10 年之久 | Microsoft Docs
 description: 了解 Azure SQL 数据库如何支持将完整数据库备份存储长达 10 年。
 services: sql-database
-author: yunan2016
-manager: digimobile
 ms.service: sql-database
-ms.custom: business continuity
-ms.topic: article
-origin.date: 07/16/2018
-ms.date: 08/06/2018
-ms.author: v-nany
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: WenJason
+ms.author: v-jay
 ms.reviewer: carlrab
-ms.openlocfilehash: 07b89a3c90317f4b4f57ba1e992d43511c7f9acf
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+manager: digimobile
+origin.date: 10/24/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: 7911368e9e6e0d7a1b2b01cc8ef0357d4b33424d
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486546"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672509"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>将 Azure SQL 数据库备份存储 10 年之久
 
@@ -24,7 +26,8 @@ ms.locfileid: "39486546"
 
 ## <a name="how-sql-database-long-term-retention-works"></a>SQL 数据库长期保留的工作原理
 
-长期备份保留利用[自动 SQL 数据库备份](sql-database-automated-backups.md)创建的快照进行时间点还原 (PITR)。 可以为每个 SQL 数据库配置长期保留策略并指定需要以何频率将备份复制到长期存储。 若要实现该灵活性，可以使用以下四个参数的组合定义策略：每周备份保留 (W)、每月备份保留 (M)、每年备份保留 (Y) 和年中的周 (WeekOfYear)。 如果指定 W，则每周会将一个备份复制到长期存储。 如果指定 M，则会在每月的第一周将一个备份复制到长期存储。 如果指定 Y，则会在 WeekOfYear 指定的周将一个备份复制到长期存储。 每个备份将在长期存储中保留由这些参数指定的期限。 
+长期备份保留 (LTR) 利用[自动创建](sql-database-automated-backups.md)的完整数据库备份来启用时间点还原 (PITR)。 如果配置了 LTR 策略，则会将这些备份复制到不同的存储 blob。
+可以为每个 SQL 数据库配置 LTR 策略并指定需要以何频率将备份复制到长期存储 blob。 若要实现该灵活性，可以使用以下四个参数的组合定义策略：每周备份保留 (W)、每月备份保留 (M)、每年备份保留 (Y) 和年中的周 (WeekOfYear)。 如果指定 W，则每周会将一个备份复制到长期存储。 如果指定 M，则会在每月的第一周将一个备份复制到长期存储。 如果指定 Y，则会在 WeekOfYear 指定的周将一个备份复制到长期存储。 每个备份将在长期存储中保留由这些参数指定的期限。 
 
 示例:
 

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 05/11/2018
-ms.date: 10/22/2018
+origin.date: 10/31/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 27370b01c3aaa5716acb6c66a45cf1c2680d8ed8
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: eda43362eedfae5288fbbb4d7905e55f08e8a65c
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49454003"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674996"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>了解 Azure VM 的系统重启
 
@@ -42,7 +42,7 @@ Azure 资源运行状况是一项服务，用于公开各个 Azure 资源的运�
 ## <a name="actions-and-events-that-can-cause-the-vm-to-reboot"></a>可能导致 VM 重启的操作和事件
 
 ### <a name="planned-maintenance"></a>计划内维护
-Azure 跨多个区域定期执行更新，提高 VM 所基于主机基础结构的可靠性、性能及安全性。 许多更新（包括内存保留更新）在执行时不会对 VM 或云服务产生任何影响。
+Azure 在全球范围内定期执行更新，提高 VM 所基于主机基础结构的可靠性、性能及安全性。 许多更新（包括内存保留更新）在执行时不会对 VM 或云服务产生任何影响。
 
 但是，有些更新确实需要重启。 在这种情况下，VM 会在修补基础结构期间关闭，随后再重启。
 
@@ -74,7 +74,7 @@ Azure 跨多个区域定期执行更新，提高 VM 所基于主机基础结构�
 ### <a name="azure-security-center-and-windows-update"></a>Azure 安全中心和 Windows 更新
 Azure 安全中心每天对 Windows 和 Linux VM 进行监控，以找出缺少的操作系统更新。 安全中心从 Windows Update 或 Windows Server Update Services (WSUS) 检索可用的安全更新和关键更新的列表，具体取决于 Windows VM 上配置的服务。 安全中心还可检查 Linux 系统的最新更新。 如果 VM 缺少系统更新，安全中心会建议你应用系统更新。 通过 Azure 门户中的安全中心控制这些系统更新的应用情况。 应用某些更新后，可能需要重启 VM。 有关详细信息，请参阅[在 Azure 安全中心应用系统更新](../../security-center/security-center-apply-system-updates.md)。
 
-与本地服务器一样，Azure 不会向 Microsoft Azure VM 推送 Windows 更新提供的更新，因为这些虚拟机应由用户进行管理。 但是，我们依然建议启用 Windows 自动更新设置。 自动安装 Windows 更新提供的更新也会导致应用更新后发生重启。 有关详细信息，请参阅 [Windows 更新常见问题解答](https://support.microsoft.com/help/12373/windows-update-faq)。
+与本地服务器一样，Azure 不会向 Windows VM 推送 Windows 更新提供的更新，因为这些虚拟机应由用户进行管理。 但是，我们依然建议启用 Windows 自动更新设置。 自动安装 Windows 更新提供的更新也会导致应用更新后发生重启。 有关详细信息，请参阅 [Windows 更新常见问题解答](https://support.microsoft.com/help/12373/windows-update-faq)。
 
 ### <a name="other-situations-affecting-the-availability-of-your-vm"></a>影响 VM 可用性的其他情况
 在其他情况下，Azure 可能主动暂停使用 VM。 你会在执行此操作前收到电子邮件通知，因此有机会解决该基础问题。 举例来说，影响 VM 可用性的问题包括：违反安全规范、付款方式过期。
@@ -109,9 +109,11 @@ VM 可能因自身问题重启。 在 VM 上运行的工作负荷或角色可能
 
 超过 IO 限制
 
-如果 I/O 请求因每秒输入/输出操作数 (IOPS) 超出磁盘 I/O 限制而持续受到限制，则可能暂时关闭 VM。 （标准磁盘存储的限制为 500 IOPS。）为缓解此问题，请在来宾 VM 中使用磁盘剥离或配置存储空间，具体情况取决于工作负荷。 有关详细信息，请参阅[配置 Azure VM 以获得最佳存储性能](http://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx)。
+如果 I/O 请求因每秒输入/输出操作数 (IOPS) 超出磁盘 I/O 限制而持续受到限制，则可能暂时关闭 VM。 （标准磁盘存储的限制为 500 IOPS。）为缓解此问题，请在来宾 VM 中使用磁盘剥离或配置存储空间，具体情况取决于工作负荷。 有关详细信息，请参阅[配置 Azure VM 以获得最佳存储性能](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx)。
 
 通过 Azure 高级存储提供高达 80,000 IOPS 的 IOPS 限制。 有关详细信息，请参阅[高性能高级存储](../windows/premium-storage.md)。
 
 ### <a name="other-incidents"></a>其他事件
 在极少数情况下，普遍的问题可能影响 Azure 数据中心内的多台服务器。 如果出现这种问题，Azure 团队会向受影响订阅者发送电子邮件通知。 可查看 [Azure 服务运行状况仪表板](https://www.azure.cn/support/service-dashboard/)和 Azure 门户，了解正在进行的服务中断和过去事件的状态。
+
+<!-- Update_Description: update meta properties, wording update -->

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 07/17/2017
-ms.date: 06/04/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: b00b96e026f20bc63def5524be7e0110ca4a0449
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 88304d3ee6220d919c427f863b14b4bf58a0c127
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867573"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675158"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>使用 Java 创建和管理 Azure 中的 Windows VM
 
@@ -40,7 +40,7 @@ ms.locfileid: "34867573"
 
 ## <a name="create-a-maven-project"></a>创建 Maven 项目
 
-1. 如果尚未安装 [Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html)，请安装。
+1. 如果尚未安装 [Java](https://docs.azure.cn/zh-cn/java/java-supported-jdk-runtime?view=azure-java-stable)，请安装。
 2. 安装 [Maven](http://maven.apache.org/download.cgi)。
 3. 创建新文件夹和项目：
 
@@ -299,7 +299,7 @@ input.nextLine();
 > 
 >
 
-如果要使用现有磁盘而不是商城映像，请使用以下代码： 
+如果要使用现有磁盘而不是市场映像，请使用以下代码： 
 
 ```java
 ManagedDisk managedDisk = azure.disks.define("myosdisk") 
@@ -474,4 +474,4 @@ azure.resourceGroups().deleteByName("myResourceGroup");
 ## <a name="next-steps"></a>后续步骤
 * 详细了解如何使用[用于 Java 的 Azure 库](https://docs.azure.cn/java/java-sdk-azure-overview)。
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

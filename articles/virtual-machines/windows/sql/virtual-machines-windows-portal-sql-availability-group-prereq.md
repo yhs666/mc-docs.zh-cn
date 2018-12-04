@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 03/29/2018
-ms.date: 09/24/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 095a39d3cb43d86425377912013896010e53dab7
-ms.sourcegitcommit: cc9e8c76454e7d194505af32c42c0f3e4e0ec9e9
+ms.openlocfilehash: b62aa1af197a5673521eb67255169a5e7bcf2223
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49315951"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675399"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>完成在 Azure 虚拟机中创建 Alwayson 可用性组的先决条件
 
@@ -36,13 +36,12 @@ ms.locfileid: "49315951"
 
 ## <a name="review-availability-group-documentation"></a>查看可用性组文档
 
-本教程假设你已基本了解 SQL Server AlwaysOn 可用性组。 若不熟悉此技术，请参阅 [AlwaysOn 可用性组概述 (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx)。
+本教程假设你已基本了解 SQL Server AlwaysOn 可用性组。 若不熟悉此技术，请参阅 [AlwaysOn 可用性组概述 (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx)。
 
 ## <a name="create-an-azure-account"></a>创建 Azure 帐户
-需要一个 Azure 帐户。 可以[建立一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial)或[激活 Visual Studio 订户权益](https://docs.microsoft.com/zh-cn/visualstudio/subscriptions/subscriber-benefits)。
+需要一个 Azure 帐户。 可以[建立一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial)或[激活 Visual Studio 订户权益](https://www.azure.cn/offers/ms-mc-arz-msdn/)。
 
 <!-- Notice: MSDN or Visual Studio Subscription is https://www.azure.cn/offers/ms-mc-arz-msdn/-->
-
 ## <a name="create-a-resource-group"></a>创建资源组
 1. 登录到 [Azure 门户](http://portal.azure.cn)。
 2. 在门户中单击 **+** 创建一个新对象。
@@ -302,7 +301,7 @@ Azure 会创建虚拟机。
 
    >[!NOTE]
    >“DNS 选项”页可能会警告你无法创建此 DNS 服务器的委托。 在非生产环境中可以忽略此警告。
-22. 单击“下一步”，直到出现“必备项检查”对话框。 然后单击“安装” 。
+22. 单击“下一步”，直到出现“必备项检查”对话框。  然后单击“安装” 。
 
 在服务器完成配置更改后，重启服务器。
 
@@ -532,4 +531,5 @@ Azure 会创建虚拟机。
 ## <a name="next-steps"></a>后续步骤
 
 * [在 Azure 虚拟机上创建 SQL Server AlwaysOn 可用性组](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
+
 <!-- Update_Description: update meta properties, wording update, update link -->

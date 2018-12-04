@@ -1,7 +1,7 @@
 ---
 title: Azure 媒体服务错误代码 | Microsoft Docs
 description: 本主题概述 Azure 媒体服务错误代码。
-author: hayley244
+author: WenJason
 manager: digimobile
 editor: ''
 services: media-services
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/31/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: b9141caa9d66235f9e349a03e1a9b1b6b0a83951
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+origin.date: 10/29/2018
+ms.date: 12/03/2018
+ms.author: v-jay
+ms.openlocfilehash: 7c574ed9973202dce9d7002c412263c1940c004e
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426207"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672479"
 ---
 # <a name="azure-media-services-error-codes"></a>Azure 媒体服务错误代码
 使用 Azure 媒体服务时，可能会从服务收到因问题而异的 HTTP 错误代码，例如身份验证令牌到期或媒体服务不支持操作。 以下是媒体服务可能返回的 **HTTP 错误代码** 及其可能原因的列表。  
@@ -118,4 +118,4 @@ ms.locfileid: "47426207"
 > 
 
 ## <a name="see-also"></a>另请参阅
-[媒体服务管理错误代码](http://msdn.microsoft.com/library/windowsazure/dn167016.aspx)
+[媒体服务管理错误代码](https://msdn.microsoft.com/library/windowsazure/dn167016.aspx)

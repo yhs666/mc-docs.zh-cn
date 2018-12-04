@@ -3,7 +3,7 @@ title: 了解 Azure VM 规模集 VM 的实例 ID | Microsoft Docs
 description: 了解 Azure VM 规模集 VM 的实例 ID
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/22/2018
-ms.date: 03/27/2018
+ms.date: 11/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: 4c890beeaf57b1328d5d1ffe10477a553b6f3b9d
-ms.sourcegitcommit: a22129c95c9f877a04c6b5b428edf7f4e953fd97
+ms.openlocfilehash: 6ab2be43055f36af60daa59378c43a1d529b8772
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37937334"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672760"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>了解 Azure VM 规模集 VM 的实例 ID
 本文介绍规模集的实例 ID 和显示这些 ID 的各种方法。
@@ -99,3 +99,4 @@ $ az vmss show -g {resourceGroupName} -n {vmScaleSetName}
 >[!NOTE]
 > 计算机名称前缀是规模集模型中可以设置的属性，因此它可以与规模集名称本身不同。
 
+<!-- Update_Description: update metedata properties -->

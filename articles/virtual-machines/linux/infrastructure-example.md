@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 12/15/2017
-ms.date: 07/30/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9f1ca15aa562b366a46f67f5b206c25a96f22b5f
-ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
+ms.openlocfilehash: d5d7829b781b026c097aa74d351498639f0ee4c8
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39261900"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675350"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>适用于 Linux VM 的 Azure 示例基础结构演练
 
@@ -118,4 +118,6 @@ Adventure Works Cycles 决定为其 Azure VM 使用以下名称：
 * 四个层中的虚拟机
 * 用于从 Internet 到 Web 服务器的基于 HTTPS 的 Web 流量的外部负载均衡集
 * 用于从 Web 服务器到应用程序服务器的未加密 Web 流量的内部负载均衡集
-* 单个资源组 <!--Update_Description: update meta properties, wording update -->
+* 单个资源组
+
+<!--Update_Description: update meta properties -->

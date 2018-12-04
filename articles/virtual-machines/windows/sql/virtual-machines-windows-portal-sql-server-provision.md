@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 origin.date: 05/04/2018
-ms.date: 06/04/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9e54f33306b884ca3904ef492872da7e5d3a47e7
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 8785d678da2bc828bffa3779ea71716e93a343ad
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38938847"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674146"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>如何在 Azure 门户中预配 Windows SQL Server 虚拟机
 
@@ -274,7 +274,7 @@ ms.locfileid: "38938847"
 > 为了让你了解部署时间，我已使用默认设置将一个 SQL VM 部署到中国东部区域。 此测试部署花费了约 12 分钟才完成。 但是根据你所在的区域和选择的设置，花费的部署时间会更长或更短。
 
 <a name="remotedesktop"></a>
-## <a name="open-the-vm-with-remote-desktop"></a>使用远程桌面打开 VM
+##  <a name="open-the-vm-with-remote-desktop"></a>使用远程桌面打开 VM
 
 使用以下步骤通过远程桌面连接到 SQL Server 虚拟机：
 
@@ -285,7 +285,7 @@ ms.locfileid: "38938847"
 通过访问计算机，可以根据要求直接更改计算机和 SQL Server 设置。 例如，可以配置防火墙设置或更改 SQL Server 配置设置。
 
 <a name="connect"></a>
-## <a name="connect-to-sql-server-remotely"></a>远程连接到 SQL Server
+##  <a name="connect-to-sql-server-remotely"></a>远程连接到 SQL Server
 
 在本演示中，选择了虚拟机的“公共”访问权限和“SQL Server 身份验证”。 这些设置将虚拟机自动配置为允许任何客户端通过 Internet 来与 SQL Server 建立连接（假设这些客户端可提供正确的 SQL 登录名）。
 
@@ -299,4 +299,5 @@ ms.locfileid: "38938847"
 ## <a name="next-steps"></a>后续步骤
 
 有关在 Azure 中使用 SQL Server 的其他信息，请参阅 [Azure 虚拟机上的 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md) 和[常见问题](virtual-machines-windows-sql-server-iaas-faq.md)。
-<!--Update_Description: update meta properties, wording update, update link -->
+
+<!--Update_Description: update meta properties -->

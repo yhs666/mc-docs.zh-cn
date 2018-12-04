@@ -3,25 +3,25 @@ title: 部署并监视 Azure IoT Edge 的模块 (CLI) | Microsoft Docs
 description: 管理在边缘设备上运行的模块
 keywords: ''
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: v-yiso
 origin.date: 07/25/2018
-ms.date: 11/05/2018
+ms.date: 12/10/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: dbdb4582fe337cecd0ea8df497b3dc17abe32431
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.openlocfilehash: 8a5fc5e7a67d185c44e9aa7ee4678a88c9b0f7fb
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135880"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674344"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>使用 Azure CLI 大规模部署并监视 IoT Edge 模块
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-edge-how-to-deploy-monitor-selector.md)]
 
-使用 Azure IoT Edge 可以将分析移至边缘并提供云接口，以便能够无需实际访问每个设备即可管理和监控 IoT Edge 设备。 随着物联网解决方案日益庞大和复杂，远程管理设备功能变得越来越重要。 Azure IoT Edge 旨在支持业务目标，不管添加的设备数量。
+使用 Azure IoT Edge 可以将分析移至边缘并提供云接口，以便能够远程管理和监控 IoT Edge 设备。 随着物联网解决方案日益庞大和复杂，远程管理设备功能变得越来越重要。 Azure IoT Edge 旨在支持业务目标，不管添加的设备数量。
 
 可以管理单独的设备并一次性将模块部署到设备中。 但是，如果想大规模更改设备，则可以创建一个 IoT Edge 自动部署，该部署是 IoT 中心中自动设备管理的一部分。 部署是允许同时将多个模块部署到多个设备、跟踪模块的状态和运行状况以及在必要时做出更改的动态过程。 
 
@@ -129,7 +129,7 @@ ms.locfileid: "50135880"
 }
 ```
 
-有关设备孪生和标记的详细信息，请参阅[了解和使用 IoT 中心的设备孪生][lnk-device-twin]。
+有关设备孪生和标记的详细信息，请参阅[了解和使用 IoT 中心的设备孪生](../iot-hub/iot-hub-devguide-device-twins.md)。
 
 ## <a name="create-a-deployment"></a>创建部署
 
@@ -210,7 +210,7 @@ az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub na
 
 ## <a name="next-steps"></a>后续步骤
 
-了解有关[将模块部署到边缘设备][lnk-deployments]的详细信息。
+了解有关[将模块部署到 Edge 设备](module-deployment-monitoring.md)的详细信息。
 
 <!-- Images -->
 [1]: ./media/how-to-deploy-monitor/iot-edge-deployments.png

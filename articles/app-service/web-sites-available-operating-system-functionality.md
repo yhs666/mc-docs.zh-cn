@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/01/2016
-ms.date: 07/02/2018
-ms.author: v-yiso
-ms.openlocfilehash: fad4770a3ae95ee3a11f4d18c5882fd890634b38
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.date: 12/03/2018
+ms.author: v-biyu
+ms.openlocfilehash: 05d6ccc522cfe3fe3970af2675b8ddf4afd12b51
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315585"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675144"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure 应用服务上的操作系统功能
 本文介绍了可供在 [Azure 应用服务](app-service-web-overview.md)上运行的所有应用使用的常见基准操作系统功能。 这些功能包括文件、网络和注册表访问以及诊断日志和事件。 
@@ -39,7 +39,7 @@ ms.locfileid: "36315585"
 ## <a name="development-frameworks"></a>开发框架
 应用服务定价层控制可用于应用的计算资源（CPU、磁盘存储、内存和网络出口）的数量。 但是，可用于应用的框架功能范围保持不变，而与缩放层无关。
 
-应用服务支持多种开发框架，包括 ASP.NET、经典 ASP、node.js、PHP 和 Python - 它们全都作为 IIS 中的扩展运行。 为了简化和标准化安全配置，应用服务应用通常使用其默认设置运行不同的开发框架。 用于配置应用的一个方法可能是为每个单独的开发框架自定义 API 外围应用和功能。 而应用服务则是通过实现操作系统功能的公共基准，采用更通用的方法，与应用的开发框架无关。
+应用服务支持多种开发框架，包括 ASP.NET、经典 ASP、node.js、PHP 和 Python – 它们全都作为 IIS 中的扩展运行。 为了简化和标准化安全配置，应用服务应用通常使用其默认设置运行不同的开发框架。 用于配置应用的一个方法可能是为每个单独的开发框架自定义 API 外围应用和功能。 而应用服务则是通过实现操作系统功能的公共基准，采用更通用的方法，与应用的开发框架无关。
 
 以下部分概述了可用于应用服务应用的一般类型的操作系统功能。
 
@@ -122,4 +122,11 @@ ms.locfileid: "36315585"
 
 ## <a name="more-information"></a>详细信息
 
-[Azure Web 应用沙盒](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) - 有关应用服务的执行环境的最新信息。 直接由应用服务开发团队维护此页。
+[Azure Web 应用沙盒](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) - 有关应用服务的执行环境的最新信息。 此页由应用服务开发团队直接维护。
+
+> [!NOTE]
+> 如果要在注册 Azure 帐户之前开始使用 Azure 应用服务，请转到[试用应用服务](https://www.azure.cn/zh-cn/home/features/app-service/)，可以在应用服务中立即创建一个生存期较短的入门 Web 应用。 不需要使用信用卡，也不需要做出承诺。
+> 
+> 
+
+

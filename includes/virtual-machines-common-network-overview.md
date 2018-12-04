@@ -5,16 +5,16 @@ services: virtual-machines-windows
 author: rockboyfor
 ms.service: virtual-machines-windows
 ms.topic: include
-origin.date: 03/11/2018
-ms.date: 08/27/2018
+origin.date: 11/01/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 82c17be49aa06c1686a719cbd09492578fa0f1c9
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 17d11817431b39f83d68545ef4a11a0021727843
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871878"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675903"
 ---
 创建 Azure 虚拟机 (VM) 时，必须创建[虚拟网络](../articles/virtual-network/virtual-networks-overview.md) (VNet) 或使用现有的 VNet。 此外，还需要确定如何在 VNet 上访问 VM。 [在创建资源之前必须做好规划](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md)，确保了解[网络资源的限制](../articles/azure-subscription-service-limits.md#networking-limits)。
 
@@ -37,9 +37,7 @@ ms.locfileid: "42871878"
 
 [网络接口 (NIC)](../articles/virtual-network/virtual-network-network-interface.md) 是 VM 与虚拟网络 (VNet) 之间互相连接的桥梁。 VM 必须至少有一个 NIC，但可以根据所创建 VM 的大小包含多个 NIC。 了解 [Windows](../articles/virtual-machines/windows/sizes.md) 或 [Linux](../articles/virtual-machines/linux/sizes.md) 的每个 VM 大小支持的 NIC 数。
 
-可以创建具有多个 NIC 的 VM，并可在 VM 的整个生命周期中添加或删除 NIC。 多个 NIC 允许 VM 连接到不同子网，并可通过最适当的接口发送或接收流量。
-
-如果 VM 已添加到可用性集，该可用性集中的所有 VM 必须包含一个或多个 NIC。 包含多个 NIC 的 VM 不一定要有相同数目的 NIC，但必须至少包含两个 NIC。
+可以创建具有多个 NIC 的 VM，并可在 VM 的整个生命周期中添加或删除 NIC。 多个 NIC 允许 VM 连接到不同子网，并可通过最适当的接口发送或接收流量。 同一个可用性集中可以存在具有任意数目网络接口的 VM，只要 VM 大小支持该数目。 
 
 附加到 VM 的每个 NIC 必须在与 VM 相同的位置和订阅中。 每个 NIC 必须连接到与 NIC 位于相同 Azure 位置和订阅中的 VNet。 创建 VM 之后，可以更改它连接到的子网，但无法更改 VNet。 附加到 VM 的每个 NIC 将分配有一个 MAC 地址，在删除 VM 之前，该地址不会变化。
 
@@ -152,7 +150,7 @@ NSG 包含两种类型的规则：入站规则和出站规则。 在每组中，
 
 可在同一 VNet 中创建 VM，VM 可以使用专用 IP 地址相互连接。 即使 VM 位于不同的子网中，它们也可以相互连接，无需配置网关或使用公共 IP 地址。 要将 VM 放入某个 VNet，请创建该 VNet，然后在每个 VM 时，将其分配到该 VNet 和子网。 在部署或启动期间，VM 会获取其网络设置。  
 
-部署 VM 时，系统为 VM 分配一个 IP 地址。 如果将多个 VM 部署到 VNet 或子网，则 VM 启动时，系统为其分配 IP 地址。 动态 IP 地址 (DIP) 是与 VM 关联的内部 IP 地址。 可向 VM 分配静态 DIP。 如果分配静态 DIP，应考虑使用特定的子网，避免意外地重复使用另一个 VM 的静态 DIP。  
+部署 VM 时，系统为 VM 分配一个 IP 地址。 如果将多个 VM 部署到 VNet 或子网，则 VM 启动时，系统为其分配 IP 地址。 还可以为 VM 分配静态 IP。 如果分配静态 IP，应考虑使用特定子网，以避免意外地重复使用另一个 VM 的静态 IP。  
 
 如果创建了一个 VM，事后又想要将它迁移到 VNet，做出这种配置更改并不是一个简单的过程。 在这种情况下，必须将 VM 重新部署到 VNet。 最简单的重新部署方法是删除该 VM（但不要删除其上附加的任何磁盘），并在 VNet 中使用原始磁盘重新创建 VM。 
 
@@ -173,4 +171,5 @@ NSG 包含两种类型的规则：入站规则和出站规则。 在每组中，
 - 了解如何配置[用户定义的路由和 IP 转发](../articles/virtual-network/virtual-networks-udr-overview.md)。 
 - 了解如何配置 [VNet 到 VNet 连接](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)。
 - 了解如何[排查路由问题](../articles/virtual-network/diagnose-network-routing-problem.md)。
-<!--Update_Description: update link, wording update, update meta properties -->
+
+<!--Update_Description:  wording update, update meta properties -->

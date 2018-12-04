@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 07/05/2016
-ms.date: 08/27/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 89297a9124777e0786cfb5d70c89c2d75af050b0
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 097a694229249104fe8c4225be868847b3368d25
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871577"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674822"
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>如何在 Azure 中标记 Windows 虚拟机
 本文介绍了在 Azure 中通过 Resource Manager 部署模型标记 Windows 虚拟机的不同方式。 标记是用户定义的键/值对，可直接放置在资源或资源组中。 针对每个资源和资源组，Azure 当前支持最多 15 个标记。 标记可以在创建时放置在资源中或添加到现有资源中。 请注意，只有通过 Resource Manager 部署模型创建的资源支持标记。 如果想要标记 Linux 虚拟机，请参阅[如何在 Azure 中标记 Linux 虚拟机](../linux/tag.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
@@ -52,22 +52,20 @@ ms.locfileid: "42871577"
 
 第二个命令显示给定变量的标记。
 
-        PS C:\> $tags
+```
+    PS C:\> $tags
 
-        Name        Value
-        ----                           -----
-        Value        MyDepartment
-        Name        Department
-        Value        MyApp1
-        Name        Application
-        Value        MyName
-        Name        Created By
-        Value        Production
-        Name        Environment
+    Key           Value
+    ----          -----
+    Department    MyDepartment
+    Application   MyApp1
+    Created By    MyName
+    Environment   Production
+```
 
 第三个命令将其他标记添加到 *$tags* 变量。 请注意，使用 **+=** 将新的键/值对追加到 *$tags* 列表。
 
-        PS C:\> $tags += @{Name="Location";Value="MyLocation"}
+        PS C:\> $tags += @{Location="MyLocation"}
 
 第四个命令将 *$tags* 变量中定义的标记放置到给定资源中。 在本示例中，该资源为 MyTestVM。
 
@@ -75,20 +73,17 @@ ms.locfileid: "42871577"
 
 第五个命令可显示资源上的所有标记。 可以看到，*Location* 现在定义为值为 *MyLocation* 的标记。
 
-        PS C:\> (Get-AzureRmResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
+```
+    PS C:\> (Get-AzureRmResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
 
-        Name        Value
-        ----                           -----
-        Value        MyDepartment
-        Name        Department
-        Value        MyApp1
-        Name        Application
-        Value        MyName
-        Name        Created By
-        Value        Production
-        Name        Environment
-        Value        MyLocation
-        Name        Location
+    Key           Value
+    ----          -----
+    Department    MyDepartment
+    Application   MyApp1
+    Created By    MyName
+    Environment   Production
+    Location      MyLocation
+```
 
 若要了解有关通过 PowerShell 标记的详细信息，请查看 [Azure 资源 Cmdlet][Azure Resource Cmdlets]。
 
@@ -102,6 +97,7 @@ ms.locfileid: "42871577"
 [Azure Resource Cmdlets]: https://docs.microsoft.com/powershell/module/azurerm.resources/
 [Azure Resource Manager Overview]: ../../azure-resource-manager/resource-group-overview.md
 [Using Tags to organize your Azure Resources]: ../../azure-resource-manager/resource-group-using-tags.md
+
 <!-- Not Available on [Understanding your Azure Bill]: ../../billing/billing-understand-your-bill.md -->
 <!-- Not Available on [Gain insights into your Azure resource consumption]: ../../billing/billing-usage-rate-card-overview.md-->
 <!-- Update_Description: wording update, update link -->

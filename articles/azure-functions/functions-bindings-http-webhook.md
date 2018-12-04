@@ -3,21 +3,21 @@ title: Azure Functions HTTP 触发器和绑定
 description: 了解如何在 Azure Functions 中使用 HTTP 触发器和绑定。
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: Azure Functions, Functions, 事件处理, webhook, 动态计算, 无服务体系结构, HTTP, API, REST
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 11/21/2017
-ms.date: 10/18/2018
+ms.date: 11/22/2018
 ms.author: v-junlch
-ms.openlocfilehash: 41e2c6d89909706c49482575fa32e9c0273a0b47
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: e153e9e569d90f0e764dddf81b5ce5552904cabd
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453615"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672574"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP 触发器和绑定
 
@@ -45,7 +45,7 @@ HTTP 触发器可进行自定义以响应 [Webhook](https://en.wikipedia.org/wik
 
 借助 HTTP 触发器，可以使用 HTTP 请求调用函数。 可以使用 HTTP 触发器生成无服务器 API 和响应 Webhook。 
 
-默认情况下，在 Functions 1.x 中，HTTP 触发器返回“HTTP 200 正常”和空的正文；在 Functions 2.x 中返回“HTTP 204 无内容”和空的正文。 若要修改该响应，请配置 [HTTP 输出绑定](#http-output-binding)。
+默认情况下，在 Functions 1.x 中，HTTP 触发器返回“HTTP 200 正常”和空的正文；在 Functions 2.x 中返回“HTTP 204 无内容”和空的正文。 若要修改该响应，请配置 [HTTP 输出绑定](#output)。
 
 ## <a name="trigger---example"></a>触发器 - 示例
 
@@ -65,9 +65,9 @@ HTTP 触发器可进行自定义以响应 [Webhook](https://en.wikipedia.org/wik
 [FunctionName("HttpTriggerCSharp")]
 public static async Task<HttpResponseMessage> Run(
     [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]HttpRequestMessage req, 
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info("C# HTTP trigger function processed a request.");
+    log.LogInformation("C# HTTP trigger function processed a request.");
 
     // parse query parameter
     string name = req.GetQueryNameValuePairs()
@@ -122,10 +122,11 @@ function.json 文件如下所示：
 ```csharp
 using System.Net;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
-public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
 {
-    log.Info($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
+    log.LogInformation($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
 
     // parse query parameter
     string name = req.GetQueryNameValuePairs()
@@ -149,8 +150,9 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 ```csharp
 using System.Net;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
-public static string Run(CustomObject req, TraceWriter log)
+public static string Run(CustomObject req, ILogger log)
 {
     return "Hello " + req?.name;
 }
@@ -389,7 +391,7 @@ http://<yourapp>.chinacloudsites.cn/api/products/electronics/357
 
 ```csharp
 public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id, 
-                                                TraceWriter log)
+                                                ILogger log)
 {
     if (id == null)
         return  req.CreateResponse(HttpStatusCode.OK, $"All {category} items were requested.");
@@ -550,4 +552,4 @@ HTTP 请求长度限制为 100 MB（104,857,600 字节），并且 URL 长度限
 
 [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

@@ -11,12 +11,12 @@ ms.workload: na
 origin.date: 08/29/2018
 ms.author: v-yiso
 ms.date: 10/29/2017
-ms.openlocfilehash: a1aa8410892df6b6ca22d95cc20b8cd1d61108aa
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 02a9677d03b632d58a3ad836909231d831603240
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453815"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674982"
 ---
 # <a name="create-an-iot-hub-using-the-new-azurermiothub-cmdlet"></a>使用 New-AzureRmIotHub cmdlet 创建 IoT 中心
 
@@ -102,7 +102,7 @@ Remove-AzureRmResourceGroup -Name MyIoTRG1
 
 若要进一步探索 IoT 中心的功能，请参阅：
 
-* [使用 Azure IoT Edge 将 AI 部署到边缘设备](../iot-edge/tutorial-simulate-device-linux.md)
+* [使用 Azure IoT Edge 将 AI 部署到边缘设备](../iot-edge/quickstart-linux.md)
 
 <!-- Links -->
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/

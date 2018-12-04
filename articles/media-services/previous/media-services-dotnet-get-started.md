@@ -3,7 +3,7 @@ title: 使用 .NET 按需传送内容入门 | Microsoft Docs
 description: 本教程会引导完成使用 Azure 媒体服务和 .NET 实施点播内容传送应用程序的步骤。
 services: media-services
 documentationcenter: ''
-author: yunan2016
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: 388b8928-9aa9-46b1-b60a-a918da75bd7b
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-origin.date: 12/10/2017
-ms.date: 12/25/2017
-ms.author: v-nany
-ms.openlocfilehash: 2b2d52a2ea34b8f7dacc1cd5747e7cb41026fa26
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+origin.date: 10/29/2018
+ms.date: 12/03/2018
+ms.author: v-jay
+ms.openlocfilehash: f8ac02bd150fa70d6b3b819222a6f78bd78514ef
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426430"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672519"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>使用 .NET SDK 开始传送点播内容
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "47426430"
 
 以下是完成本教程所需具备的条件：
 
-* 一个 Azure 帐户。 有关详细信息，请参阅 [Azure 1 元试用](https://www.azure.cn/pricing/1rmb-trial/)。 
+* 一个 Azure 帐户。 有关详细信息，请参阅 [1 元试用](https://www.azure.cn/pricing/1rmb-trial/)。 
 * 一个媒体服务帐户。 若要创建媒体服务帐户，请参阅 [如何创建媒体服务帐户](media-services-portal-create-account.md)。
 * .NET Framework 4.0 或更高版本。
 * Visual Studio。

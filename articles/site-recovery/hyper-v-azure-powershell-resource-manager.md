@@ -1,20 +1,20 @@
 ---
 title: 使用 PowerShell 和 Azure Resource Manager 复制 Hyper-V VM | Azure
-description: 在 PowerShell 和 Azure 资源管理器中使用 Azure Site Recovery 将 Hyper-V VM 自动复制到 Azure。
+description: 在 PowerShell 和 Azure Resource Manager 中使用 Azure Site Recovery 将 Hyper-V VM 自动复制到 Azure。
 services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 07/06/2018
-ms.date: 09/17/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 19a4f86649bada055a0aefa207e1d79fb14252cd
-ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
+ms.openlocfilehash: 199fbb98b9616502befcc8fc3abc254c9a193ba3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586837"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667145"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>使用 PowerShell 和 Azure 资源管理器对 Hyper-V VM 设置到 Azure 的灾难恢复
 
@@ -24,7 +24,7 @@ ms.locfileid: "45586837"
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-Azure PowerShell 提供用于通过 Windows PowerShell 管理 Azure 的 cmdlet。 适用于 Azure 资源管理器的 Azure PowerShell 随附 Site Recovery PowerShell cmdlet，有助于保护和恢复 Azure 中的服务器。
+Azure PowerShell 提供用于通过 Windows PowerShell 管理 Azure 的 cmdlet。 Site Recovery PowerShell cmdlet 在 Azure PowerShell for Azure Resource Manager 中提供，可帮助你保护和恢复你在 Azure 中的服务器。
 
 尽管无需成为一名 PowerShell 专家就可以使用本文章，但你还是需要理解诸如模块、cmdlet 和会话等基本概念。 请参阅 [Windows PowerShell 入门](http://technet.microsoft.com/library/hh857337.aspx)和[将 Azure PowerShell 与 Azure 资源管理器配合使用](../powershell-azure-resource-manager.md)。
 
@@ -35,8 +35,8 @@ Azure PowerShell 提供用于通过 Windows PowerShell 管理 Azure 的 cmdlet�
 确保已满足以下先决条件：
 
 * 一个 [Azure](https://www.azure.cn/) 帐户。 你可以从[试用版](https://www.azure.cn/pricing/1rmb-trial/)开始。 此外，还可以参阅 [Azure Site Recovery Manager 定价](https://www.azure.cn/pricing/details/site-recovery/)。
-* Azure PowerShell 1.0。 有关此版本及其安装方法的信息，请参阅 [Azure PowerShell 1.0.](https://www.azure.cn/)
-* [AzureRM.SiteRecovery](https://www.powershellgallery.com/packages/AzureRM.SiteRecovery/) 和 [AzureRM.RecoveryServices](https://www.powershellgallery.com/packages/AzureRM.RecoveryServices/) 模块。 可以从 [PowerShell 库](https://www.powershellgallery.com/)获取这些模块的最新版本
+* Azure PowerShell 1.0。 若要深入了解此版本及其安装方法，请参阅 [Azure PowerShell 1.0。](https://www.azure.cn/)
+* [AzureRM.SiteRecovery](https://www.powershellgallery.com/packages/AzureRM.SiteRecovery/) 和 [AzureRM.RecoveryServices](https://www.powershellgallery.com/packages/AzureRM.RecoveryServices/) 模块。 可以从 [PowerShell 库](https://www.powershellgallery.com/)
 
 此外，本文中提及的特定示例要求满足以下先决条件：
 
@@ -45,9 +45,10 @@ Azure PowerShell 提供用于通过 Windows PowerShell 管理 Azure 的 cmdlet�
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>步骤 1：登录到 Azure 帐户
 
-1. 打开 PowerShell 控制台，并运行以下命令以登录到 Azure 帐户。 该 cmdlet 会打开一个网页，提示输入帐户凭据：**Connect-AzureRmAccount -Environment AzureChinaCloud**。
+1. 打开 PowerShell 控制台，并运行以下命令以登录到 Azure 帐户。 该 cmdlet 会打开一个网页，提示输入帐户凭据：Connect-AzureRmAccount。
     - 也可使用 **-Credential** 参数将帐户凭据作为参数包含在 **Connect-AzureRmAccount -Environment AzureChinaCloud** cmdlet 中。
-<!-- Not Available on CSP partner working on behalf of a tenant -->
+    
+    <!-- Not Available on CSP partner working on behalf of a tenant -->
 2. 一个帐户可以有多个订阅，因此请将需要使用的订阅与帐户关联在一起：
 
     `Select-AzureRmSubscription -SubscriptionName $SubscriptionName`
@@ -99,7 +100,7 @@ Azure PowerShell 提供用于通过 Windows PowerShell 管理 Azure 的 cmdlet�
         Get-AzureRmRecoveryServicesVaultSettingsFile -Vault $vault -SiteIdentifier $SiteIdentifier -SiteFriendlyName $sitename -Path $Path
     ```
 
-5. 将已下载的密钥复制到 Hyper-V 主机。 需要通过该密钥将 Hyper-V 主机注册到站点。
+5. 将已下载的密钥复制到 Hyper-V 主机。 你需要通过该密钥将 Hyper-V 主机注册到站点。
 
 ## <a name="step-5-install-the-provider-and-agent"></a>步骤 5：安装提供程序和代理
 
@@ -202,4 +203,5 @@ Azure PowerShell 提供用于通过 Windows PowerShell 管理 Azure 的 cmdlet�
 
 ## <a name="next-steps"></a>后续步骤
 [详细了解](https://docs.microsoft.com/powershell/module/azurerm.siterecovery) Azure Site Recovery 和 Azure 资源管理器 PowerShell cmdlet。
-<!-- Update_Description: update meta properties, wording update, update link -->
+
+<!-- Update_Description: update meta properties, wording update -->

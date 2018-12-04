@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/26/2018
-ms.date: 10/31/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 011644249377afc2f68229fca41b39ba2b86eb2b
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.openlocfilehash: 43d376dff3a9584300d38d36839add6f655fbe52
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409379"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674202"
 ---
 # <a name="topic-filters-and-actions"></a>主题筛选器和操作
 
@@ -41,7 +41,7 @@ ms.locfileid: "50409379"
 
 ## <a name="actions"></a>操作
 
-使用 SQL 筛选条件，可以定义可通过添加、删除或替换属性及其值对消息进行批注的操作。 操作[使用类似 SQL 的表达式](service-bus-messaging-sql-filter.md)，该表达式有一点依赖于 SQL UPDATE 语句语法。 在匹配之后以及将消息选择到主题中之前对消息执行操作。 对消息属性进行的更改是复制到订阅中的消息所专有的。
+使用 SQL 筛选条件，可以定义可通过添加、删除或替换属性及其值对消息进行批注的操作。 操作[使用类似 SQL 的表达式](service-bus-messaging-sql-filter.md)，该表达式有一点依赖于 SQL UPDATE 语句语法。 在消息匹配之后以及将消息选择到订阅中之前对消息执行操作。 对消息属性进行的更改是复制到订阅中的消息所专有的。
 
 ## <a name="usage-patterns"></a>使用模式
 
@@ -51,7 +51,7 @@ ms.locfileid: "50409379"
 
 分区使用筛选器以可预测且互相排斥的方式在多个现有主题订阅间分发消息。 当系统进行扩大以在功能相同的隔离舱（每个隔离舱包含总体数据的子集；例如客户配置文件信息）中处理许多不同上下文时，可使用分区模式。 借助分区，发布者可将消息提交到主题中，而无需了解分区模型。 消息随后会移动到正确的订阅，分区的消息处理程序随后会从该订阅检索它。
 
-路由使用筛选器以可预测、但不一定独占的方式在主题订阅间分发消息。 通过与[自动转发](service-bus-auto-forwarding.md)功能相结合，主题筛选器可以用于在服务总线命名空间中创建复杂路由图，以便在 Azure 区域中进行消息分发。 通过使 Azure Functions 或 Azure 逻辑应用充当 Azure 服务总线命名空间之间的桥梁，可以创建可直接集成到业务线应用程序中的复杂多区域拓扑。
+路由使用筛选器以可预测、但不一定独占的方式在主题订阅间分发消息。 通过与[自动转发](service-bus-auto-forwarding.md)功能相结合，主题筛选器可以用于在服务总线命名空间中创建复杂路由图，以便在 Azure 区域中进行消息分发。 通过使 Azure Functions 或 Azure 逻辑应用充当 Azure 服务总线命名空间之间的桥梁，可以创建直接集成到业务线应用程序中的复杂全局拓扑。
 
 ## <a name="next-steps"></a>后续步骤
 

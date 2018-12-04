@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: mathoma
 manager: digimobile
-origin.date: 09/25/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: 5648448c3622ab1e7fc6bc56bf9a7b2ecbc69c22
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+origin.date: 11/09/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: 59424da9deb4d686cbcd1b6fea024d64e38c75dd
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135940"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672461"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>复制到 SQL 数据库的单个数据库和池化数据库
 
@@ -65,7 +65,7 @@ ms.locfileid: "50135940"
 
 1. 在本地 SQL Server 数据库上创建事务复制发布。  
 2. 在本地 SQL Server 上使用**新建订阅向导**或 Transact-SQL 语句创建一个推送，以便推送到 Azure SQL 数据库的订阅。  
-3. 初始数据集通常是一个快照，该快照由快照代理创建，由分发代理进行分发和应用。 初始数据集也可通过备份或其他方式（例如 SQL Server Integration Services）提供。  
+3. 对于 Azure SQL 数据库中的单一数据库和入池数据库，初始数据集是由快照代理创建并由分发代理分发和应用的快照。 
 
 ### <a name="data-migration-scenario"></a>数据迁移方案  
 

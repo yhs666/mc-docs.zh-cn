@@ -3,7 +3,7 @@ title: 使用 Azure 门户监视编码作业进度
 description: 本教程逐步演示如何使用 Azure 门户监视作业进度。
 services: media-services
 documentationcenter: ''
-author: hayley244
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: bb4e3ee3-1ab9-46d0-9ae7-848d945bc0b8
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/20/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 7fc05c02dceb1c175023d7131fa5e0f9d1fcab5c
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+origin.date: 11/05/2018
+ms.date: 12/03/2018
+ms.author: v-jay
+ms.openlocfilehash: b693c5fdf67cac9b768aaf8a1c4fbc32c0684b65
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219616"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672615"
 ---
 # <a name="monitor-encoding-job-progress-with-the-azure-portal"></a>使用 Azure 门户监视编码作业进度
 > [!div class="op_single_selector"]

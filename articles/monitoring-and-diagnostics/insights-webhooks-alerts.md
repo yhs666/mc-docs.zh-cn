@@ -1,19 +1,20 @@
 ---
 title: 使用 Webhook 让经典指标警报通知非 Azure 系统
 description: 了解如何将 Azure 指标警报重新路由到其他非 Azure 系统。
-author: snehithm
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 origin.date: 04/03/2017
-ms.author: v-yiso
-ms.date: 10/22/2018
-ms.openlocfilehash: 51794441d820c5812a2a112e12c29fa442cab7ed
-ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.component: alerts
+ms.openlocfilehash: 114389cae9d7154ebdb911995a78f5980a8cc687
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121542"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674457"
 ---
 # <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>使用 Webhook 让经典指标警报通知非 Azure 系统
 可以使用 Webhook 将 Azure 警报通知路由到其他系统，以便进行后续处理或自定义操作。 可以针对警报使用 Webhook，以将警报路由到可以发送短信的服务，以记录 Bug、通过聊天/消息服务通知团队，或进行各种其他操作。 
@@ -58,7 +59,7 @@ POST 操作对于所有基于指标的警报包含以下 JSON 有效负载和架
         "resourceName": "mysite1",
         "resourceType": "microsoft.foo/sites",
         "resourceId": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1",
-        "resourceRegion": "centralus",
+        "resourceRegion": "chinaeast",
         "portalLink": "https://portal.azure.cn/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1"
     },
     "properties": {
@@ -68,13 +69,12 @@ POST 操作对于所有基于指标的警报包含以下 JSON 有效负载和架
 }
 ```
 
-
-| 字段 | 必需 | 一组固定的值 | 注释 |
+| 字段 | 必需 | 一组固定值 | 注释 |
 |:--- |:--- |:--- |:--- |
 | 状态 |Y |Activated, Resolved |基于设置的条件的警报的状态。 |
 | 上下文 |Y | |警报上下文。 |
 | timestamp |Y | |触发警报的时间。 |
-| id |Y | |每个警报规则都具有一个唯一的 ID。 |
+| id |Y | |每个警报规则都有一个唯一 ID。 |
 | name |Y | |警报名称。 |
 | 说明 |Y | |警报的说明。 |
 | conditionType |Y |“Metric”、“Event” |支持两种类型的警报：指标和事件。 指标警报基于指标条件。 事件警报基于活动日志中的事件。 使用此值可检查警报是基于指标还是基于事件。 |

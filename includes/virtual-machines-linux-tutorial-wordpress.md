@@ -1,3 +1,17 @@
+---
+author: rockboyfor
+ms.service: virtual-machines-linux
+ms.topic: include
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
+ms.openlocfilehash: f4d5d3b9087139c48bbb8bd1ee91101c093bf90f
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675764"
+---
 ## <a name="install-wordpress"></a>安装 WordPress
 
 若要尝试堆栈，请安装示例应用。 例如，以下步骤安装用于创建网站和博客的开源 [WordPress](https://wordpress.org/) 平台。 其他可尝试的工作负荷包括 [Drupal](http://www.drupal.org) 和 [Moodle](https://moodle.org/)。 
@@ -73,5 +87,5 @@ sudo mv /etc/wordpress/config-localhost.php /etc/wordpress/config-default.php
 现在可以完成 WordPress 设置并在平台上进行发布了。 打开浏览器并转到 `http://yourPublicIPAddress/wordpress` 。 替换 VM 的公共 IP 地址。 应如下图所示。
 
 ![WordPress 安装页](./media/virtual-machines-linux-tutorial-wordpress/wordpressstartpage.png)
-<!--Update_Description: wording update-->
-<!--ms.date: 01/08/2018-->
+
+<!-- Update_Description: update meta properties, wording update -->

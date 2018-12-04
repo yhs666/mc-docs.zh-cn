@@ -1,3 +1,17 @@
+---
+author: rockboyfor
+ms.service: virtual-machines
+ms.topic: include
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
+ms.openlocfilehash: 0af50c43943e3b925991d2a12c00c63e49538d44
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676398"
+---
 通过 Resource Manager 命令和模板使用 Azure CLI 以利用资源组部署 Azure 资源和工作负荷之前，需要一个 Azure 帐户。 如果没有帐户，可以[在此处获取免费 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
 如果尚未安装 Azure CLI 并连接到订阅，请参阅[安装 Azure CLI](../articles/cli-install-nodejs.md) 以使用 `azure config mode arm` 将模式设置为 `arm`，并使用 `azure login -e AzureChinaCloud` 命令连接到 Azure。
@@ -44,5 +58,4 @@
 ## <a name="next-steps"></a>后续步骤
 * 有关超越基本 VM 管理的其他 CLI 命令示例，请参阅[将 Azure CLI 与 Azure Resource Manager 配合使用](../articles/virtual-machines/azure-cli-arm-commands.md)。
 
-<!-- Update_Description: wording update, update link -->
-<!-- ms.date: 10/29/2018 -->
+<!-- Update_Description: update meta properties -->

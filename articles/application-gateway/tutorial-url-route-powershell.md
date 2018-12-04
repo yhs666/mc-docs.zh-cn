@@ -7,16 +7,16 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-origin.date: 07/13/2018
-ms.date: 08/07/2018
+origin.date: 10/25/2018
+ms.date: 11/21/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: a4db2985392b7d2c4163e44615447ebfe3bf0e7d
-ms.sourcegitcommit: a1c6a743b4be62477e7debfc9ea5f03afca2bc8f
+ms.openlocfilehash: ef9d406c205d0845c0fc4dd9cf8c757f88161fda
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625191"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672823"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-azure-powershell"></a>使用 Azure PowerShell 基于 URL 对 Web 流量进行路由
 
@@ -32,6 +32,8 @@ ms.locfileid: "39625191"
 > * 创建可缩放的后端池
 
 ![URL 路由示例](./media/tutorial-url-route-powershell/scenario.png)
+
+如果你愿意，可以使用 [Azure CLI](tutorial-url-route-cli.md) 或 [Azure 门户](create-url-route-portal.md)完成本教程中的步骤。
 
 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
@@ -357,11 +359,11 @@ for ($i=1; $i -le 3; $i++)
     -UpgradePolicyMode Automatic
 
   Set-AzureRmVmssStorageProfile $vmssConfig `
-    -OsDiskCreateOption "FromImage" `
     -ImageReferencePublisher MicrosoftWindowsServer `
     -ImageReferenceOffer WindowsServer `
     -ImageReferenceSku 2016-Datacenter `
     -ImageReferenceVersion latest
+    -OsDiskCreateOption FromImage
 
   Set-AzureRmVmssOsProfile $vmssConfig `
     -AdminUsername azureuser `
@@ -444,4 +446,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroupAG
 > [!div class="nextstepaction"]
 > [基于 URL 重定向 Web 流量](./tutorial-url-redirect-powershell.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

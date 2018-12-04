@@ -3,23 +3,23 @@ title: 通过 Azure Active Directory 身份验证访问 Azure 媒体服务 API |
 description: 了解使用 Azure Active Directory (Azure AD) 验证对 Azure 媒体服务 API 的访问的相关概念和步骤。
 services: media-services
 documentationcenter: ''
-author: Juliako
-manager: erikre
+author: WenJason
+manager: digimobile
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/17/2017
-ms.date: 06/25/2018
-ms.author: v-haiqya
-ms.openlocfilehash: 933f999301548bba8be1b4b1d578e203b26a0552
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+origin.date: 10/29/2018
+ms.date: 12/03/2018
+ms.author: v-jay
+ms.openlocfilehash: ecb79b6f6f8e20bcb98234941416128c85258353
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426444"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672646"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>通过 Azure AD 身份验证访问 Azure 媒体服务 API
  
@@ -101,7 +101,7 @@ Azure 媒体服务 API 是 RESTful API。 可用于通过 REST API 或可用的�
 
 使用服务主体身份验证方法生成使用者方案时，通常在中间层（通过一些 API）处理身份验证，而不直接在移动或桌面应用程序中处理。 
 
-若要使用这种方法，请在它自己的租户中创建 Azure AD 应用程序和服务主体。 创建应用程序后，向应用程序授予对媒体服务帐户的参与者或所有者角色访问权限。 为此，可以使用 Azure 门户、Azure CLI 或 PowerShell 脚本。 也可以使用现有 Azure AD 应用程序。 可以[在 Azure 门户中](media-services-portal-get-started-with-aad.md)注册和管理 Azure AD 应用程序和服务主体。 也可以使用 [Azure CLI 2.0](media-services-use-aad-auth-to-access-ams-api.md) 或 [PowerShell](media-services-powershell-create-and-configure-aad-app.md) 执行此操作。 
+若要使用这种方法，请在它自己的租户中创建 Azure AD 应用程序和服务主体。 创建应用程序后，向应用程序授予对媒体服务帐户的参与者或所有者角色访问权限。 可在 Azure 门户中使用 Azure CLI 或 PowerShell 脚本执行此操作。 也可以使用现有 Azure AD 应用程序。 可以[在 Azure 门户中](media-services-portal-get-started-with-aad.md)注册和管理 Azure AD 应用程序和服务主体。 也可以使用 [Azure CLI](media-services-use-aad-auth-to-access-ams-api.md) 或 [PowerShell](media-services-powershell-create-and-configure-aad-app.md) 执行此操作。 
 
 ![中间层应用](./media/media-services-use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
 
@@ -147,8 +147,8 @@ Azure 媒体服务 API 是 RESTful API。 可用于通过 REST API 或可用的�
 
 下面的文章概述了 Azure AD 身份验证概念： 
 
-- [Azure AD 解决的身份验证方案](../../active-directory/develop/active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad)
-- [在 Azure AD 中添加、更新或删除应用程序](../../active-directory/develop/active-directory-integrating-applications.md)
+- [Azure AD 解决的身份验证方案](../../active-directory/develop/authentication-scenarios.md)
+- [在 Azure AD 中添加、更新或删除应用程序](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)
 - [使用 PowerShell 配置和管理基于角色的访问控制](../../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="next-steps"></a>后续步骤

@@ -1,3 +1,17 @@
+---
+author: rockboyfor
+ms.service: virtual-machines
+ms.topic: include
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
+ms.openlocfilehash: 7a69504487cacadd047211973a03f208cc5c89f8
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676340"
+---
 * 该转换需要重启 VM，因此请在预先存在的维护时段内计划 VM 迁移。 
 
 * 该转换是不可逆的。 
@@ -10,6 +24,6 @@
 
 * 不会删除在转换之前由 VM 使用的原始 VHD 和存储帐户。 它们会继续产生费用。 若要避免这些项目产生的费用，请在验证转换已完成后删除原始 VHD Blob。
 
-* 查看支持转换过程所需的 Azure VM 代理最低版本。 有关如何检查和更新代理版本的信息，请参阅 [Azure 中 VM 代理的最低版本支持](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)
-<!--Update_Description: wording update, update link-->
-<!--ms.date: 05/14/2018-->
+* 查看支持转换过程所需的 Azure VM 代理最低版本。 有关如何检查和更新目标版本的信息，请参阅 [Minimum version support for VM agents in Azure](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)（对 Azure 中的 VM 代理的最低版本支持）
+
+<!-- Update_Description: update meta properties  -->

@@ -11,12 +11,12 @@ ms.workload: na
 origin.date: 08/29/2017
 ms.date: 10/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: fdd63573f903a20f8f962ff56e3ffcc0d50eb5e5
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 5cbaefbebc56743edff824fcae9c049f5f09b170
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453752"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674583"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>适用于 C 语言的 Azure IoT 设备 SDK - 有关 IoTHubClient 的详细信息
 
@@ -279,10 +279,4 @@ batching 选项非常重要。 默认情况下，库将逐个引入事件（单�
 
 若要详细了解如何针对 IoT 中心进行开发，请参阅 [Azure IoT SDK](iot-hub-devguide-sdks.md)。
 
-若要进一步探索 IoT 中心的功能，请参阅：
-
-* [使用 Azure IoT Edge 将 AI 部署到边缘设备][lnk-iotedge]
-
-[lnk-sdks]: ./iot-hub-devguide-sdks.md
-
-[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md
+若要进一步探索 IoT 中心的功能，请参阅[使用 Azure IoT Edge 将 AI 部署到边缘设备](../iot-edge/quickstart-linux.md)。

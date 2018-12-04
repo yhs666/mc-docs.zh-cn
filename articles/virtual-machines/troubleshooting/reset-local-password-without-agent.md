@@ -11,15 +11,15 @@ ms.service: virtual-machines-windows
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 01/25/2018
-ms.date: 10/22/2018
+origin.date: 10/31/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: ac37056ff8827b1888c8147d35fe5b9d98a67e42
-ms.sourcegitcommit: 96b58e881dba2fd02665d806d7c27d770326b0cc
+ms.openlocfilehash: 0ea6c95144907d95ef638243f26462707374e518
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652005"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674808"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>脱机重置 Azure VM 的本地 Windows 密码
 如果已安装 Azure 来宾代理，可以使用 [Azure 门户或 Azure PowerShell](reset-rdp.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 重置 Azure 中 VM 的本地 Windows 密码。 此方法是重置 Azure VM 密码的主要方法。 如果遇到了 Azure 来宾代理无响应的问题，或者上传自定义映像后无法安装，可以手动重置 Windows 密码。 本文详细说明如何通过将源 OS 虚拟磁盘附加到另一个 VM 来重置本地帐户密码。 本文所述的步骤不适用于 Windows 域控制器。 
@@ -134,7 +134,7 @@ ms.locfileid: "49652005"
      ![复制磁盘 URI](./media/reset-local-password-without-agent/copy_source_vhd_uri.png)
 9. 从源 VM 的 OS 磁盘创建一个 VM：
 
-   * 使用[此 Azure Resource Manager 模板](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet)从专用的 VHD 创建一个 VM。 单击 `Deploy to Azure` 按钮打开 Azure 门户，其中填充了模板化详细信息。
+   *使用[此 Azure 资源管理器模板](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet)从专用的 VHD 创建一个 VM。 单击 `Deploy to Azure` 按钮打开 Azure 门户，其中填充了模板化详细信息。
    * 如果想要保留 VM 的所有先前设置，请选择“编辑模板”，提供现有的 VNet、子网、网络适配器或公共 IP。
    * 在 `OSDISKVHDURI` 参数文本框中，粘贴在上一步骤中获取的源 VHD 的 URI：
 

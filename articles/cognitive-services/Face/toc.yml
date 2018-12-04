@@ -8,38 +8,46 @@ items:
   expanded: true
 - name: 快速入门
   items:
-  - name: C# API
-    href: QuickStarts/CSharp.md
-  - name: C# SDK
-    href: QuickStarts/csharp-detect-sdk.md
-  - name: cURL
-    href: QuickStarts/curl.md
-  - name: Go
-    href: QuickStarts/go.md
-  - name: Java
-    href: QuickStarts/Java.md
-  - name: Javascript
-    href: QuickStarts/JavaScript.md
-  - name: Node.js
-    href: QuickStarts/node.md
-  - name: PHP
-    href: QuickStarts/PHP.md
-  - name: Python
-    href: QuickStarts/Python.md
-  - name: Ruby
-    href: QuickStarts/Ruby.md
+  - name: 使用客户端 SDK
+    items:
+    - name: 在图像中检测人脸
+      items:
+      - name: C#
+        href: QuickStarts/csharp-detect-sdk.md
+      - name: Python
+        href: Tutorials/FaceAPIinPythonTutorial.md
+  - name: 使用 REST API
+    items:
+    - name: 在图像中检测人脸
+      items:
+      - name: C#
+        href: QuickStarts/CSharp.md
+      - name: cURL
+        href: QuickStarts/curl.md
+      - name: Go
+        href: QuickStarts/go.md
+      - name: Java
+        href: QuickStarts/Java.md
+      - name: Javascript
+        href: QuickStarts/JavaScript.md
+      - name: Node.js
+        href: QuickStarts/node.md
+      - name: PHP
+        href: QuickStarts/PHP.md
+      - name: Python
+        href: QuickStarts/Python.md
+      - name: Ruby
+        href: QuickStarts/Ruby.md
 - name: 教程
   items:
-  - name: C#
-    href: Tutorials/FaceAPIinCSharpTutorial.md
-  - name: Android
-    href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
-- name: 操作方法指南
-  items:
-  - name: 第一个人脸 API 应用
+  - name: 使用客户端 SDK
     items:
-    - name: Python
-      href: Tutorials/FaceAPIinPythonTutorial.md
+    - name: C#
+      href: Tutorials/FaceAPIinCSharpTutorial.md
+    - name: Android
+      href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
+- name: 操作指南
+  items:
   - name: 在图像中检测人脸
     href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
   - name: 在图像中识别人脸
@@ -76,8 +84,8 @@ items:
     href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face
   - name: 常见问题
     href: FAQ.md
-  - name: 定价
-    href: https://www.azure.cn/pricing/details/cognitive-services/face-api
+  - name: 定价和限制
+    href: https://www.azure.cn/pricing/details/cognitive-services/
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/430315-face-api
   - name: Stack Overflow
@@ -88,9 +96,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: 发行说明
     href: ReleaseNotes.md
-ms.openlocfilehash: f386222b058104936e7cde85de13323c81ae58c0
-ms.sourcegitcommit: 44ce337717bb948f5ac08217a156935f663c0f46
+ms.openlocfilehash: cfee12b582d725864648fcac3a3da775188397e0
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034631"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672979"

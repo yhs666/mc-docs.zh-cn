@@ -15,12 +15,12 @@ ms.topic: get-started-article
 origin.date: 12/15/2016
 ms.author: v-yiso
 ms.date: 02/26/2018
-ms.openlocfilehash: 21367de3bb0ffe8a856b53115a56714bfdd29f60
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 522357fe4163602fcfa7993ace29e56622561668
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29284978"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674975"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>添加缓存以提高 Azure API 管理中的性能
 API 管理中的操作可以配置为响应缓存。 响应缓存可以显著减少 API 延迟、带宽消耗和不经常更改数据的 web 服务负载。
@@ -46,7 +46,7 @@ API 管理中的操作可以配置为响应缓存。 响应缓存可以显著减
 
 使用此示例中显示的缓存策略时，向 **GetSpeakers** 操作发出的第一个请求返回来自后端服务的响应。 将缓存此响应，由指定的标头和查询字符串参数进行键控。 采用匹配的参数，对操作的后续调用会返回缓存的响应，直到缓存时间间隔过期。
 
-1. 登录 Azure 门户 ([https://portal.azure.cn](https://portal.azure.cn))。
+1. 在 [https://portal.azure.cn](https://portal.azure.cn) 中登录 Azure 门户。
 2. 浏览到自己的 APIM 实例。
 3. 选择“API”选项卡。
 4. 在 API 列表中单击“演示会议 API”。
@@ -97,7 +97,6 @@ API 管理中的操作可以配置为响应缓存。 响应缓存可以显著减
 [api-management-console]: ./media/api-management-howto-cache/api-management-console.png
 
 
-[How to add operations to an API]: ./api-management-howto-add-operations.md
 [How to add and publish a product]: ./api-management-howto-add-products.md
 [Monitoring and analytics]: ./api-management-monitoring.md
 [Add APIs to a product]: ./api-management-howto-add-products.md#add-apis

@@ -3,8 +3,8 @@ title: 使用 Azure 媒体服务管理编码的速度和并发 | Microsoft 文�
 description: 本文简要概述了如何使用 Azure 媒体服务管理编码作业/任务的速度和并发。
 services: media-services
 documentationcenter: ''
-author: juliako
-manager: erikre
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: 676313f8-a158-4e3a-a99b-2c29a341ecc9
 ms.service: media-services
@@ -12,14 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
-ms.author: v-johch
-ms.openlocfilehash: 16419b04465c5e2d8c1a8013cf5131715365ebc1
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+origin.date: 10/29/2018
+ms.date: 12/03/2018
+ms.author: v-jay
+ms.openlocfilehash: 873106bfb7a8b49bf8f39735ce075f11a3d71935
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426454"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672626"
 ---
 #  <a name="manage-speed-and-concurrency-of-your-encoding"></a>管理编码的速度和并发
 

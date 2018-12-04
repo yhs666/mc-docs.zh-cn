@@ -1,21 +1,24 @@
 ---
-title: Azure SQL 数据库中的临时表入门 | Azure
+title: Azure SQL 数据库中的临时表入门 | Microsoft 文档
 description: 了解如何开始使用 Azure SQL 数据库中的临时表。
 services: sql-database
-author: Hayley244
-manager: digimobile
 ms.service: sql-database
-ms.custom: development
-ms.topic: article
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: WenJason
+ms.author: v-jay
+ms.reviewer: carlrab
+manager: digimobile
 origin.date: 03/21/2018
-ms.date: 06/18/2018
-ms.author: v-johch
-ms.openlocfilehash: b67dbf0c497246aa81570c9ea2efcf4796b9cdf6
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.date: 12/03/2018
+ms.openlocfilehash: a07b6864ec4a2a22d6bae14fd548fcfad0834155
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486707"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672920"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Azure SQL 数据库中的临时表入门
 临时表是 Azure SQL 数据库中新的可编程功能，可用于跟踪和分析数据更改的完整历史记录，而无需编写自定义代码。 临时表保存与时间上下文密切相关的数据，因此，只有特定时段内的存储事实才会解译为有效。 利用临时表的这种属性，可执行基于时间的有效分析，并从数据演变中获得见解。
@@ -23,7 +26,7 @@ ms.locfileid: "39486707"
 ## <a name="temporal-scenario"></a>临时表方案
 本文演示了在应用程序方案中使用临时表的步骤。 假设要跟踪从头开始开发的新网站上的用户活动，或要通过用户活动分析扩展的现有网站上的用户活动。 在这个简化的示例中，我们假设一段时间内浏览过的网页数是需要在托管于 Azure SQL 数据库上的网站数据库中捕获和监视的指标。 用户活动历史分析的目标是获取有关重新设计网站的意见，并为访客提供更好的体验。
 
-此方案的数据库模型非常简单 - 用户活动指标以一个整数字段 **PageVisited** 表示，并与用户配置文件中的基本信息一起捕获。 此外，对于基于时间的分析，需要为每个用户保留一系列的行，其中每行代表特定用户在特定时间段内访问过的网页数。
+此方案的数据库模型非常简单 - 用户活动指标以一个整数字段 **PageVisited** 表示，并与用户配置文件中的基本信息一起捕获。 此外，对于基于时间的分析，需要为每个用户保留一系列的行，其中每行代表特定时间段内特定用户访问过的网页数。
 
 ![架构](./media/sql-database-temporal-tables/AzureTemporal1.png)
 
@@ -46,7 +49,7 @@ ms.locfileid: "39486707"
 
 ![SSDTNewTable](./media/sql-database-temporal-tables/AzureTemporal3.png)
 
-也可以通过直接指定 Transact-SQL 语句来创建临时表，如以下示例中所示。 请注意，每个临时表的必需元素为 PERIOD 定义以及引用将存储历史行版本的另一个用户表的 SYSTEM_VERSIONING 子句：
+也可以通过直接指定 Transact-SQL 语句来创建时态表，如以下示例中所示。 请注意，每个临时表的必需元素为 PERIOD 定义以及引用将存储历史行版本的另一个用户表的 SYSTEM_VERSIONING 子句：
 
 ````
 CREATE TABLE WebsiteUserInfo 

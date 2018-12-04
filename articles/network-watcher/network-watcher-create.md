@@ -3,7 +3,7 @@ title: 创建 Azure 网络观察程序实例 | Azure
 description: 了解如何在 Azure 区域中启用网络观察程序。
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
+author: lingliw
 manager: digimobile
 editor: ''
 ms.assetid: b1314119-0b87-4f4d-b44c-2c4d0547fb76
@@ -13,18 +13,37 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 04/30/2018
-ms.author: v-yeche
-ms.openlocfilehash: 9a598785187193f4c588d9b96648ea5af04bfca3
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 97a8d6761316b1299567aebc2e50339d556930e7
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121128"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674488"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>创建 Azure 网络观察程序实例
 
-网络观察程序是一个区域性服务，可用于在网络方案级别监视和诊断 Azure 内部以及传入和传出 Azure 的流量的状态。 使用方案级别监视可以诊断端到端网络级别视图的问题。 借助网络观察程序随附的网络诊断和可视化工具，可以了解、诊断和洞察 Azure 中的网络。
+网络观察程序是一个区域性服务，可用于在网络方案级别监视和诊断 Azure 内部以及传入和传出 Azure 的流量的状态。 使用方案级别监视可以诊断端到端网络级别视图的问题。 借助网络观察程序随附的网络诊断和可视化工具，可以了解、诊断和洞察 Azure 中的网络。 通过创建网络观察程序资源启用网络观察程序。 使用此资源，可利用网络观察程序功能。
+
+## <a name="network-watcher-is-automatically-enabled"></a>自动启用网络观察程序
+在订阅中创建或更新虚拟网络时，将在虚拟网络的区域中自动启用网络观察程序。 自动启用网络观察程序对资源或相关费用没有任何影响。
+
+#### <a name="opt-out-of-network-watcher-automatic-enablement"></a>选择退出网络观察程序自动启用
+如果想要退出网络观察程序自动启用，可以通过运行以下命令来执行此操作：
+
+> [!WARNING]
+> 选择退出网络观察程序自动启用是一项永久性更改。 你选择退出后，就不能在没有[联系支持人员](https://www.azure.cn/support/contact/)的情况下选择加入
+
+```PowerShell
+Register-AzureRmProviderFeature -FeatureName DisableNetworkWatcherAutocreation -ProviderNamespace Microsoft.Network
+Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Network
+```
+
+```azurecli
+az feature register --name DisableNetworkWatcherAutocreation --namespace Microsoft.Network
+az provider register -n Microsoft.Network
+```
 
 ## <a name="create-a-network-watcher-in-the-portal"></a>在门户中创建网络观察程序
 
@@ -61,7 +80,7 @@ az network watcher configure --resource-group NetworkWatcherRG --locations china
 ### <a name="log-in-with-armclient"></a>使用 ARMClient 登录
 
 ```powerShell
-armclient login "MOONCAKE"
+armclient login "MOONCAKE" "MOONCAKE" "MOONCAKE"
 ```
 
 ### <a name="create-the-network-watcher"></a>创建网络观察程序

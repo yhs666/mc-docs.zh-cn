@@ -2,22 +2,23 @@
 title: Azure Monitor 中的指标警报支持的资源
 description: Azure Monitor 中的指标警报的支持指标和日志参考
 author: lingliw
-services: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
+services: monitoring
+ms.service: azure-monitor
 ms.topic: conceptual
 origin.date: 06/29/2018
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: b1b22772c325f136f016e11719f456aa992f6fda
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.component: alerts
+ms.openlocfilehash: 551de4f469a09d7f451ce4fdcab4c4410a4d1c1f
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409395"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675142"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Azure Monitor 中的指标警报支持的资源
 
-Azure Monitor 现在支持[新指标警报类型](monitoring-overview-unified-alerts.md)，它比旧式经典指标警报具有显著的优势。 指标可用于 [Azure 服务的大型列表](monitoring-supported-metrics.md)。 新型警报支持资源类型的一个（不断增长的）子集。 本文列出了该子集。
+Azure Monitor 现在支持[新型指标警报类型](monitoring-overview-alerts.md)，它比旧式[经典指标警报](monitoring-overview-alerts-classic.md)具有显著的优势。 指标可用于 [Azure 服务的大型列表](monitoring-supported-metrics.md)。 新型警报支持资源类型的一个（不断增长的）子集。 本文列出了该子集。
 
 还可以在常用 Log Analytics 日志中使用新型指标警报，这些警报作为日志中指标的一部分提取为指标 
 - 适用于 Windows 和 Linux 计算机的[性能计数器](../log-analytics/log-analytics-data-sources-performance-counters.md)
@@ -110,7 +111,7 @@ Azure Monitor 现在支持[新指标警报类型](monitoring-overview-unified-al
     "resourceName": "diag500",
     "resourceType": "Microsoft.Storage/storageAccounts",
     "resourceId": "/subscriptions/1e3ff1c0-771a-4119-a03b-be82a51e232d/resourceGroups/Contoso/providers/Microsoft.Storage/storageAccounts/diag500",
-    "portalLink": "https://portal.azure.com/#resource//subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Contoso/providers/Microsoft.Storage/storageAccounts/diag500"
+    "portalLink": "https://portal.azure.cn/#resource//subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Contoso/providers/Microsoft.Storage/storageAccounts/diag500"
   },
         "properties": {
                 "key1": "value1",

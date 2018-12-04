@@ -1,3 +1,17 @@
+---
+author: rockboyfor
+ms.service: virtual-machines
+ms.topic: include
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
+ms.openlocfilehash: 23e726291ca39ee405ab4c2683d1c3712b7d25ba
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676284"
+---
 ![独立云服务中的虚拟机](./media/virtual-machines-common-classic-connect-vms/CloudServiceExample.png)
 
 如果将虚拟机放在虚拟网络中，可以决定要将多少云服务用于负载均衡和可用性集。 此外，可以采用与本地网络相同的方式，在子网上组织虚拟机，并将虚拟网络连接到本地网络。 下面是一个示例：
@@ -37,4 +51,5 @@
 3.  填写 VM 详细信息时，请选择在第一步中创建的云服务名称。
 
   ![为虚拟机选择云服务](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_SA.png)
-<!--ms.date: 03/19/2018 -->
+
+<!-- Update_Description: update meta properties -->

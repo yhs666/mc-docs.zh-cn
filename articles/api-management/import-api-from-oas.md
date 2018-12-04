@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 11/22/2017
-ms.date: 06/18/2018
+ms.date: 12/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: a7f0c0a333047b20c6008317f9a5ac2fd7c48909
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 5f46bd3482138d5cfca521e982b2b7e69eca180a
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939492"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675241"
 ---
 # <a name="import-an-openapi-specification"></a>导入 OpenAPI 规范
 
@@ -66,12 +66,11 @@ ms.locfileid: "38939492"
 
 可直接从 Azure 门户调用操作，这样可以方便地查看和测试 API 的操作。  
 
+![测试 API](./media/api-management-get-started/01-import-first-api-01.png)
+
 1. 选择上一步中创建的 API。
 2. 按“测试”选项卡。
-
-    ![测试 API](./media/api-management-get-started/test-api.png)
-    
-1. 单击“GetSpeakers”。
+3. 单击“GetSpeakers”。
 
     该页显示查询参数的字段，但在此示例中，我们并没有这些字段。 此外，还会显示标头的字段。 其中一个标头是“Ocp-Apim-Subscription-Key”，适用于和此 API 关联的产品订阅密钥。 如果创建了 APIM 实例，那么你已是管理员，因此会自动填充该密钥。 
     

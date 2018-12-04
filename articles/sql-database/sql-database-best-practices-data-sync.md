@@ -2,19 +2,23 @@
 title: Azure SQL 数据同步最佳做法 | Microsoft Docs
 description: 了解有关配置和运行 Azure SQL 数据同步的最佳做法。
 services: sql-database
-origin.date: 08/20/2018
-ms.date: 10/15/2018
-ms.topic: conceptual
 ms.service: sql-database
+ms.subservice: data-movement
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-manager: craigg
-ms.openlocfilehash: da3b8630c3a579162db12d2cf16fd36eab644fe1
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.reviewer: ''
+manager: digimobile
+origin.date: 10/22/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: 5d3799172f36b330457174d5d96a77b61241c998
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48914004"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672528"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>SQL 数据同步最佳做法 
 
@@ -67,6 +71,10 @@ Azure SQL 数据库仅支持单组凭据。 若要在此约束内完成这些任
 同步组中的每个表均必须具有主键。 SQL 数据同步服务无法同步不具有主键的表。
 
 在使用 SQL 数据同步投入生产之前，请测试初始和正在进行的同步性能。
+
+#### <a name="empty-tables-provide-the-best-performance"></a>空表提供最佳性能
+
+空表在初始化时提供最佳性能。 如果目标表为空表，则数据同步会使用批量插入来加载数据。 否则，数据同步会逐行进行比较和插入以检查是否存在冲突。 但是，如果不考虑性能，则可以在已包含数据的表之间设置同步。
 
 ### <a name="provisioning-destination-databases"></a> 预配目标数据库
 
@@ -212,12 +220,16 @@ SQL 数据同步自动预配的限制如下：
 ## <a name="next-steps"></a>后续步骤
 有关 SQL 数据同步的详细信息，请参阅：
 
--   [使用 Azure SQL 数据同步跨多个云和本地数据库同步数据](sql-database-sync-data.md)
--   [设置 Azure SQL 数据同步](sql-database-get-started-sql-data-sync.md)
--   [Azure SQL 数据同步问题疑难解答](sql-database-troubleshoot-data-sync.md)  
--   演示如何配置 SQL 数据同步的完整 PowerShell 示例：  
-    -   [使用 PowerShell 在多个 Azure SQL 数据库之间进行同步](scripts/sql-database-sync-data-between-sql-databases.md)  
-    -   [使用 PowerShell 在 Azure SQL 数据库和 SQL Server 本地数据库之间进行同步](scripts/sql-database-sync-data-between-azure-onprem.md)  
+-   概述 - [使用 Azure SQL 数据同步跨多个云和本地数据库同步数据](sql-database-sync-data.md)
+-   设置数据同步
+    - 在门户中 - [教程：设置 SQL 数据同步，以在 Azure SQL 数据库和本地 SQL Server 之间同步数据](sql-database-get-started-sql-data-sync.md)
+    - 使用 PowerShell
+        -  [使用 PowerShell 在多个 Azure SQL 数据库之间进行同步](scripts/sql-database-sync-data-between-sql-databases.md)
+        -  [使用 PowerShell 在 Azure SQL 数据库和 SQL Server 本地数据库之间进行同步](scripts/sql-database-sync-data-between-azure-onprem.md)
+-   故障排除 - [排查 Azure SQL 数据同步问题](sql-database-troubleshoot-data-sync.md)
+-   更新同步架构
+    -   使用 Transact-SQL - [在 Azure SQL 数据同步中自动复制架构更改](sql-database-update-sync-schema.md)
+    -   使用 PowerShell - [使用 PowerShell 更新现有同步组中的同步架构](scripts/sql-database-sync-update-schema.md)
 
 有关 SQL 数据库的详细信息，请参阅：
 

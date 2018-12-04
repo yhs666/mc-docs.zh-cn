@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 origin.date: 06/28/2017
-ms.date: 09/10/2018
+ms.date: 12/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: f8272ba7697776459a5af5ce2ff76cd103fb89be
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.openlocfilehash: 90d5dbc1f21727bf03fdd9fa331d25c15c933aae
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43329136"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675294"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>使用 IoT 中心将文件从设备上传到云
 
@@ -33,7 +33,7 @@ ms.locfileid: "43329136"
 * 以高频率采样的振动数据
 * 某种形式的预处理数据。
 
-通常使用 [Hadoop](../hdinsight/index.md) 堆栈等工具在云中批处理这些文件。 需要从设备上传文件时，仍可以使用 IoT 中心的安全性和可靠性。
+通常使用 [Hadoop](../hdinsight/index.yml) 堆栈等工具在云中批处理这些文件。 需要从设备上传文件时，仍可以使用 IoT 中心的安全性和可靠性。
 
 在本教程结束时，会运行两个 Node.js 控制台应用：
 

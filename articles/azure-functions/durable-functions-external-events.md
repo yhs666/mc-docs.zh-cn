@@ -2,21 +2,21 @@
 title: 在 Durable Functions 中处理外部事件 - Azure
 description: 了解如何在 Azure Functions 的 Durable Functions 扩展中处理外部事件。
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-origin.date: 09/29/2017
-ms.date: 10/18/2018
+origin.date: 10/23/2018
+ms.date: 11/21/2018
 ms.author: v-junlch
-ms.openlocfilehash: e0fa514fe7a4d960cab15bf2bad0e760cc803e1a
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 3d7aa42b67452b9b6fe09de41127eef874d119f9
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453557"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672462"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>在 Durable Functions 中处理外部事件 (Azure Functions)
 
@@ -137,7 +137,7 @@ public static async Task Run(
 #### <a name="javascript-functions-v2-only"></a>JavaScript（仅限 Functions v2）
 
 ```javascript
-const df = require.orchestrator("durable-functions");
+const df = require("durable-functions");
 
 module.exports = df.orchestrator(function*(context) {
     const applicationId = context.df.getInput();
@@ -149,7 +149,7 @@ module.exports = df.orchestrator(function*(context) {
     // all three departments must grant approval before a permit can be issued
     yield context.df.Task.all([gate1, gate2, gate3]);
 
-    yield context.df.callActivityAsync("IssueBuildingPermit", applicationId);
+    yield context.df.callActivity("IssueBuildingPermit", applicationId);
 });
 ```
 
@@ -212,4 +212,4 @@ function raiseEvent(instanceId, eventName) {
 > [了解如何设置永久业务流程](durable-functions-eternal-orchestrations.md)
  
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

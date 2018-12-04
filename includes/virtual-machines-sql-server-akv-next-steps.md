@@ -1,3 +1,17 @@
+---
+author: rockboyfor
+ms.service: virtual-machines-sql
+ms.topic: include
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
+ms.openlocfilehash: c3b584fbe6ff838416e2398b29261a962b8c5c94
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676285"
+---
 ## <a name="next-steps"></a>后续步骤
 
 启用 Azure Key Vault 集成之后，可以在 SQL VM 上启用 SQL Server 加密。 首先，需要在密钥保管库内创建一个非对称密钥，并在 VM 上的 SQL Server 中创建一个对称密钥。 然后，将能够执行 T-SQL 语句，启用对数据库和备份的加密。
@@ -132,5 +146,5 @@ CLOSE SYMMETRIC KEY DATA_ENCRYPTION_KEY;
 有关如何使用这些加密功能的详细信息，请参阅[将 EKM 用于 SQL Server 加密功能](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM)。
 
 请注意，本文中的步骤假定用户已经具有在 Azure 虚拟机上运行的 SQL Server。 如果没有，请参阅[在 Azure 中预配 SQL Server 虚拟机](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md)。 有关在 Azure VM 中运行 SQL Server 的其他指南，请参阅 [Azure 虚拟机上的 SQL Server 概述](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)。
+
 <!--Update_Description: wording update, update link-->
-<!--ms.date: 07/30/2018-->

@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 03/27/2018
-ms.date: 05/21/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cafbaab410d405b05c5aee8703775a79f6f68932
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 27434c8824abf151b0463f5d13311f952b64ad5c
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939650"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674616"
 ---
 # <a name="manage-the-availability-of-windows-virtual-machines-in-azure"></a>在 Azure 中管理 Windows 虚拟机的可用性 
 
@@ -34,4 +34,5 @@ ms.locfileid: "38939650"
 
 ## <a name="next-steps"></a>后续步骤
 若要了解对虚拟机进行负载均衡的详细信息，请参阅[对虚拟机进行负载均衡](tutorial-load-balancer.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+
 <!-- Update_Description: update meta properties  -->

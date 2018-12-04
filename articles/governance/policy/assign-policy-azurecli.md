@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
 ms.openlocfilehash: 07d85e2056f6d7990e8fe6045d2e358322cb39f4
-ms.sourcegitcommit: b8e99939a5493a15b78c32e87bfbf76a8c96a84a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409160"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667273"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>使用 Azure CLI 创建策略分配以识别 Azure 环境中的不合规资源
 

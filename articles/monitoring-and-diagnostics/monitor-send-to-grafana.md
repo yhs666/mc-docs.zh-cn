@@ -1,30 +1,31 @@
 ---
 title: 使用 Grafana 监视 Azure 服务和应用程序
 description: 路由 Azure Monitor 和 Application Insights 数据，以便在 Grafana 中进行查看。
-services: monitoring-and-diagnostics
+services: azure-monitor
 keywords: ''
-author: rboucher
-ms.author: v-yiso
+author: lingliw
+ms.author: v-lingwu
 origin.date: 11/06/2017
-ms.date: 02/26/2018
-ms.topic: article
-ms.service: monitoring-and-diagnostics
-ms.openlocfilehash: 8263c55a701bcd4ae04f06fb155d11f426fa915d
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.date: 11/26/2018
+ms.topic: conceptual
+ms.service: azure-monitor
+ms.component: ''
+ms.openlocfilehash: f04ebe7246d25322048ca947ddfeb767c267ff51
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29286102"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675230"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>在 Grafana 中监控 Azure 服务
 你现在还可以使用 [Azure Monitor 数据源插件](https://grafana.com/plugins/grafana-azure-monitor-datasource)从 [Grafana](https://grafana.com/) 监控 Azure 服务和应用程序。 此插件将收集通过 Application Insights SDK 收集的应用程序性能数据，以及 Azure Monitor 提供的基础结构数据。 随后，可以在 Grafana 仪表板上显示此数据。
 
 此插件目前为预览版。
 
-使用以下步骤从 Azure Marketplace 设置 Grafana 服务器，并从 Azure Monitor 为指标生成仪表板。
+使用以下步骤从 Azure 市场设置 Grafana 服务器，并从 Azure Monitor 为指标生成仪表板。
 
 ## <a name="set-up-a-grafana-instance"></a>设置 Grafana 实例
-1. 转到 Azure Marketplace 并选取 Grafana Labs 的 Grafana。
+1. 转到 Azure 市场并选取 Grafana Labs 的 Grafana。
 
 2. 填写名称和详细信息。 创建新的资源组。 记录为 VM 用户名、VM 密码和 Grafana 服务器管理员密码选择的值。  
 
@@ -41,7 +42,7 @@ ms.locfileid: "29286102"
 
     如果选择网络安全组（在本例中为 grafana nsg），你可以看到端口 3000 用于访问 Grafana 服务器。 
 
-2. 返回资源列表，然后选择“公共 IP 地址”。 使用在此屏幕上找到的值，在浏览器中键入 *http://<IP address>:3000* 或 *<DNSName>:3000*。 你应看到刚生成的 Grafana 服务器登录页。
+2. 返回资源列表，然后选择“公共 IP 地址”。 使用在此屏幕上找到的值，在浏览器中键入 http://<IP address>:3000 或 <DNSName>:3000。 你应看到刚生成的 Grafana 服务器登录页。
     
     ![Grafana 登录屏幕](.\media\monitor-how-to-grafana\grafana2.png) 
 
@@ -102,7 +103,7 @@ Grafana 使用 Azure Active Directory 服务主体连接到 Azure Monitor API �
     
 你也可以重复使用此设置来包含 Prometheus 服务器中的指标。 在 Grafana 插件库中使用 Prometheus 数据源插件。
     
-如何使用 Telegraf、InfluxDB、Prometheus 和 Docker 的优秀参考文章如下：
+以下为如何使用 Telegraf、InfluxDB、Prometheus 和 Docker 的优秀参考文章：
  - [如何在 Ubuntu 16.04 上使用 TICK Stack 监控系统指标](https://www.digitalocean.com/community/tutorials/how-to-monitor-system-metrics-with-the-tick-stack-on-ubuntu-16-04)
 
  - [使用 Grafana、InfluxDB 和 Telegraf 监控 Docker 资源指标](https://blog.vpetkov.net/2016/08/04/monitor-docker-resource-metrics-with-grafana-influxdb-and-telegraf/)
@@ -112,12 +113,11 @@ Grafana 使用 Azure Active Directory 服务主体连接到 Azure Monitor API �
 包含 Azure Monitor 和 Application Insights 指标的完整 Grafana 仪表板的图像如下。
 ![Grafana 示例指标](.\media\monitor-how-to-grafana\grafana8.png) 
 
-
 ## <a name="clean-up-resources"></a>清理资源
 
-无论你是否在使用 VM，一旦开始运行都是需要付费的。 为了避免产生额外的费用，请对此文章中创建的资源组进行清理。 
+无论你是否在使用 VM，一旦开始运行都是需要付费的。 为了避免产生额外的费用，请对此文章中创建的资源组进行清理。
 
-1. 在 Azure 门户的左侧菜单中，单击“资源组”，然后单击“Grafana”。 
+1. 在 Azure 门户的左侧菜单中，单击“资源组”，然后单击“Grafana”。
 2. 在资源组页上，单击“删除”，在文本框中键入“Grafana”，然后单击“删除”。
 
 ## <a name="next-steps"></a>后续步骤

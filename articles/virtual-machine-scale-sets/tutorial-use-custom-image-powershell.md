@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 03/27/2018
-ms.date: 08/13/2018
+ms.date: 11/29/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 66de1fb5870627f4e04490e63c10bc73aca0c095
-ms.sourcegitcommit: 56ed1b03d83f222db6118fe1e2f2485a9488507f
+ms.openlocfilehash: dc4717c30d4a3b96dcd5cf93df5dbc89fd2c3ff3
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41704464"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673142"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>教程：通过 Azure PowerShell 创建和使用虚拟机规模集的自定义映像
 创建规模集时，需指定部署 VM 实例时要使用的映像。 若要在部署 VM 实例之后减少任务数目，可以使用自定义 VM 映像。 在此自定义 VM 映像中可以完成全部所需的应用程序安装或配置步骤。 在规模集中创建的任何 VM 实例使用自定义 VM 映像，并随时可为应用程序流量提供服务。 本教程介绍如何执行下列操作：
@@ -35,13 +35,13 @@ ms.locfileid: "41704464"
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
-如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 6.0.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 以创建与 Azure 的连接。 
+如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 6.0.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 以创建与 Azure 的连接。 
 
 
 ## <a name="create-and-configure-a-source-vm"></a>创建并配置源 VM
 
 >[!NOTE]
-> 本教程介绍创建和使用通用化 VM 映像的过程。 不支持从专用 VM 映像创建规模集。
+> 本教程介绍创建和使用通用化 VM 映像的过程。 不支持从专用 VHD 创建规模集。
 
 首先使用 [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) 创建资源组，然后使用 [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) 创建 VM。 此 VM 可用作自定义 VM 映像的源。 以下示例在名为 *myResourceGroup* 的资源组中创建名为 *myCustomVM* 的 VM。 系统提示时，请输入用作 VM 登录凭据的用户名和密码：
 
@@ -75,7 +75,7 @@ mstsc /v:<IpAddress>
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-准备将 VM 用作自定义映像的最后一步是使 VM 通用化。 Sysprep 会删除所有个人帐户信息和配置，并将 VM 重置为干净状态，以便将来进行部署。 有关详细信息，请参阅 [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx)（如何使用 Sysprep：简介）。
+准备将 VM 用作自定义映像的最后一步是使 VM 通用化。 Sysprep 会删除所有个人帐户信息和配置，并将 VM 重置为干净状态，以便将来进行部署。 有关详细信息，请参阅 [How to Use Sysprep: An Introduction](https://technet.microsoft.com/library/bb457073.aspx)（如何使用 Sysprep：简介）。
 
 若要使 VM 通用化，请运行 Sysprep 并针对开箱即用体验来设置 VM。 完成后，指示 Sysprep 关闭 VM：
 
@@ -167,4 +167,4 @@ Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force -AsJob
 > [!div class="nextstepaction"]
 > [将应用程序部署到规模集](tutorial-install-apps-powershell.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

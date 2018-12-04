@@ -1,32 +1,25 @@
 ---
 title: Azure IoT 中心迁移到诊断设置
 description: 如何更新 Azure IoT 中心以使用 Azure 诊断设置而非使用操作监视功能来实时监视 IoT 中心内的操作状态。
-services: iot-hub
-documentationcenter: ''
 author: kgremban
-manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-origin.date: 10/10/2017
-ms.date: 06/11/2018
+services: iot-hub
+ms.topic: conceptual
+origin.date: 11/19/2018
+ms.date: 12/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: 31ae6880f12033f765d38e3b07da208e890b7a8b
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 507f4372aea23c59b10a9607b9d8c83bd6e52006
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939989"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674757"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-diagnostics-settings"></a>将 IoT 中心从操作监视迁移到诊断设置
 
-使用[操作监视][lnk-opsmon]跟踪 IoT 中心内的操作状态的客户可以将该工作流迁移到 [Azure 诊断设置][lnk-diagnostics-settings]（Azure Monitor 的一项功能）。 诊断设置针对许多 Azure 服务提供了资源级诊断信息。
+使用[操作监视](iot-hub-operations-monitoring.md)跟踪 IoT 中心内的操作状态的客户可以将该工作流迁移到 [Azure 诊断设置](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)（Azure Monitor 的一项功能）。 诊断设置针对许多 Azure 服务提供了资源级诊断信息。
 
-IoT 中心的操作监视功能已弃用，将来会被删除。 本文提供了将工作负荷从操作监视移动到诊断设置的步骤。 要详细了解弃用日程表，请参阅[利用 Azure Monitor 和 Azure 资源运行状况监视 Azure IoT 解决方案][lnk-blog-announcement]。
+IoT 中心的操作监视功能已弃用，将来会被删除。 本文提供了将工作负荷从操作监视移动到诊断设置的步骤。 若要详细了解弃用日程表，请参阅[利用 Azure Monitor 和 Azure 资源运行状况监视 Azure IoT 解决方案](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health/)。
 
 ## <a name="update-iot-hub"></a>更新 IoT 中心
 
@@ -39,8 +32,10 @@ IoT 中心的操作监视功能已弃用，将来会被删除。 本文提供了
 在工作流上测试新的诊断设置后，可以关闭操作监视功能。 
 
 1. 在 IoT 中心菜单中，选择“操作监视”。
-1. 在每个监视类别下，选择“无”。
-1. 保存操作监视更改。
+
+2. 在每个监视类别下，选择“无”。
+
+3. 保存操作监视更改。
 
 ## <a name="update-applications-that-use-operations-monitoring"></a>更新使用操作监视的应用程序
 
@@ -48,20 +43,14 @@ IoT 中心的操作监视功能已弃用，将来会被删除。 本文提供了
 
 此外，诊断设置还针对五个新类别提供跟踪。 更新应用程序的现有架构后，还要添加新类别：
 
-- 云到设备孪生操作
-- 设备到云孪生操作
-- 孪生查询
-- 作业操作
-- 直接方法
+* 云到设备孪生操作
+* 设备到云孪生操作
+* 孪生查询
+* 作业操作
+* 直接方法
 
-有关特定的架构结构，请参阅[了解诊断设置的架构][lnk-diagnostics-schema]。
+有关特定的架构结构，请参阅[了解诊断设置的架构](iot-hub-monitor-resource-health.md#understand-the-logs)。
 
 ## <a name="next-steps"></a>后续步骤
 
-- [监视 Azure IoT 中心的运行状况并快速诊断问题][lnk-monitor]
-
-[lnk-opsmon]: iot-hub-operations-monitoring.md
-[lnk-diagnostics-settings]: ../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md
-[lnk-diagnostics-schema]: iot-hub-monitor-resource-health.md#understand-the-logs
-[lnk-blog-announcement]: https://azure.microsoft.com/blog/monitor-your-azure-iot-accelerators-with-azure-monitor-and-azure-resource-health
-[lnk-monitor]: iot-hub-monitor-resource-health.md
+* [监视 Azure IoT 中心的运行状况并快速诊断问题](iot-hub-monitor-resource-health.md)

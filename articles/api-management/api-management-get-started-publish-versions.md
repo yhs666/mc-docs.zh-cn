@@ -13,14 +13,14 @@ ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 origin.date: 06/15/2018
-ms.date: 07/16/2018
+ms.date: 12/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: fb31047f61efb9fde48d541492e1e8c194b2217d
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 793aa95bb4ea26ca21f25850a46ba292ab342a84
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873491"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674179"
 ---
 # <a name="publish-multiple-versions-of-your-api"></a>发布 API 的多个版本 
 
@@ -34,16 +34,17 @@ ms.locfileid: "37873491"
 > * 将版本添加到产品
 > * 浏览开发人员门户以查看版本
 
-![开发人员门户上显示的版本](./media/api-management-getstarted-publish-versions/azure_portal.PNG)
+![开发人员门户上显示的版本](media/api-management-getstarted-publish-versions/azure_portal.PNG)
 
 ## <a name="prerequisites"></a>先决条件
 
++ 了解 [Azure API 管理术语](api-management-terminology.md)。
 + 完成以下快速入门：[创建 Azure API 管理实例](get-started-create-service-instance.md)。
 + 此外，请完成以下教程：[导入并发布第一个 API](import-and-publish.md)。
 
 ## <a name="add-a-new-version"></a>添加新版本
 
-![API 上下文菜单 - 添加版本](./media/api-management-getstarted-publish-versions/AddVersionMenu.png)
+![API 上下文菜单 - 添加版本](media/api-management-getstarted-publish-versions/AddVersionMenu.png)
 
 1. 从 API 列表中选择“演示会议 API”。
 2. 选择它旁边的上下文菜单 (**...**)。
@@ -59,7 +60,12 @@ ms.locfileid: "37873491"
 ![“添加版本”屏幕](media/api-management-getstarted-publish-versions/AddVersion.PNG)
 
 1. 保留选择“路径”作为**版本控制方案**。
-2. 添加 **v1** 作为**名称**和**版本标识符**。
+2. 在“名称”字段中键入 **demo-conference-api-v1**。
+
+    > [!NOTE]
+    > 版本实际上是基于 API 修订版的新 API。 **名称**是新 API 的名称，必须在 API 管理实例中是唯一的。
+
+3. 在“版本标识符”字段中键入 **v1**。
 
     > [!TIP]
     > 如果选择“标头”或“查询字符串”作为版本控制方案，需要提供附加的值 - 标头或查询字符串参数的名称。
@@ -78,15 +84,14 @@ ms.locfileid: "37873491"
 
 要使调用方看到新版本，必须将该版本添加到**产品**。
 
+![API 管理产品](media/api-management-getstarted-publish-versions/08-AddMultipleVersions-03-AddVersionToProduct.png)
+
 1. 从经典部署模型页选择“产品”。
-
-    ![API 管理产品](media/api-management-getstarted-publish-versions/Products.png)
-
 2. 选择“不受限制”。
 3. 选择“API”。
 4. 选择“设置” （应用程序对象和服务主体对象）。
 5. 选择“演示会议 API，版本 v1”。
-6. 导航到服务管理页并选择“API”。
+6. 单击“选择”。
 
 ## <a name="browse-the-developer-portal-to-see-the-version"></a>浏览开发人员门户以查看版本
 1. 在顶部菜单中选择“开发人员门户”。

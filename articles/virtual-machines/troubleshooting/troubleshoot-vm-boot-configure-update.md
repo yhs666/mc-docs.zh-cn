@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中，VM 启动时停滞，显示消息“正在准备 Windows。 请不要关闭计算机。” | Azure
+title: VM 启动时停滞，显示消息“正在准备 Windows。 请不要关闭计算机。” | Azure
 description: 介绍当 VM 启动停滞并显示“正在准备 Windows。 请不要关闭计算机。”时用来解决问题的步骤。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 09/18/2018
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5ca0983951b7c7eee2e22f4613945641b23bec4c
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 80735e9e07d267a2082996eb2202f34d815d1243
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49454027"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674138"
 ---
-# <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>在 Azure 中，VM 启动时停滞，显示消息“正在准备 Windows。 请不要关闭计算机。 ”
+# <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>VM 启动时停滞，显示消息“正在准备 Windows。 请不要关闭计算机。” ”
 
 本文可帮助你解决当虚拟机 (VM) 启动停滞并显示“正在准备 Windows。 请不要关闭计算机。” 消息时出现的问题。
 
@@ -184,12 +184,12 @@ $osDiskName = "OsDiskName";
 $DataDiskName = "DataDiskName"
 
 #This can be found by selecting the Managed Disks you wish you use in the Azure Portal if the format below doesn't match
-$osDiskResouceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$osDiskName";
+$osDiskResourceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$osDiskName";
 $dataDiskResourceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$DataDiskName";
 
 $vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize;
 
-#Uncomment to add Availabilty Set
+#Uncomment to add Availability Set
 #$avSet = Get-AzureRmAvailabilitySet -Name $avName -ResourceGroupName $rgName;
 #$vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avSet.Id;
 
@@ -202,13 +202,15 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic1.Id -Primary;
 #$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic2.Id;
 
 #Windows VM
-$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDiskResouceId -name $osDiskName -CreateOption Attach -Windows;
+$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDiskResourceId -name $osDiskName -CreateOption Attach -Windows;
 
 #Linux VM
-#$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDiskResouceId -name $osDiskName -CreateOption Attach -Linux;
+#$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDiskResourceId -name $osDiskName -CreateOption Attach -Linux;
 
-#Uncomment to add additnal Data Disk
+#Uncomment to add additional Data Disk
 #Add-AzureRmVMDataDisk -VM $vm -ManagedDiskId $dataDiskResourceId -Name $dataDiskName -Caching None -DiskSizeInGB 1024 -Lun 0 -CreateOption Attach;
 
 New-AzureRmVM -ResourceGroupName $rgName -Location $loc -VM $vm;
 ```
+
+<!-- Update_Description: update meta properties, wording update -->

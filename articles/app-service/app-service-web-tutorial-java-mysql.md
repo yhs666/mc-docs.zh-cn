@@ -13,18 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: tutorial
 origin.date: 05/22/2017
-ms.date: 10/29/2018
+ms.date: 12/03/2018
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: d1c63fac14cd56bfcba1a71154c5f3e7913e3ecd
-ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
+ms.openlocfilehash: be65aaafad18eeff859eef10eda2877f6f81904c
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49451611"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674285"
 ---
 # <a name="tutorial-build-a-java-and-mysql-web-app-in-azure"></a>教程：在 Azure 中构建 Java 和 MySQL Web 应用
 
+> [!NOTE]
+> 本文将应用部署到 Windows 上的应用服务。 若要部署到基于 _Linux_ 的应用服务，请参阅[将容器化 Spring Boot 应用部署到 Azure](/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin)。
+>
 
 本教程介绍如何在 Azure 中创建 Java Web 应用，并将其连接到 MySQL 数据库。 完成本教程后，即可使用 [Spring Boot](https://projects.spring.io/spring-boot/) 应用程序将数据存储到[用于 MySQL 的 Azure 数据库](https://docs.azure.cn/zh-cn/mysql/overview)，后者运行在 [Azure 应用服务 Web 应用](app-service-web-overview.md)中。
 
@@ -437,25 +440,25 @@ az webapp log tail --name <app_name> --resource-group myResourceGroup
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果不需要将这些资源用于其他教程（请参阅[后续步骤](#next)），则可通过在 Cloud Shell 中运行以下命令将其删除： 
-  
+如果不需要将这些资源用于其他教程（请参阅[后续步骤](#next)），则可通过在 Cloud Shell 中运行以下命令将其删除： 
+  
 ```azurecli
-az group delete --name myResourceGroup 
-``` 
+az group delete --name myResourceGroup 
+``` 
 
 <a name="next"></a>
 
-## <a name="next-steps"></a>后续步骤
+## Next steps
 
 > [!div class="checklist"]
-> * 在 Azure 中创建 MySQL 数据库
-> * 将示例 Java 应用连接到 MySQL
-> * 将应用部署到 Azure
-> * 更新并重新部署应用
-> * 从 Azure 流式传输诊断日志
-> * 在 Azure 门户中管理应用
+> * Create a MySQL database in Azure
+> * Connect a sample Java app to the MySQL
+> * Deploy the app to Azure
+> * Update and redeploy the app
+> * Stream diagnostic logs from Azure
+> * Manage the app in the Azure portal
 
-转到下一教程，了解如何向应用映射自定义 DNS 名称。
+Advance to the next tutorial to learn how to map a custom DNS name to the app.
 
 > [!div class="nextstepaction"] 
-> [将现有的自定义 DNS 名称映射到 Azure Web 应用](app-service-web-tutorial-custom-domain.md)
+> [Map an existing custom DNS name to Azure Web Apps](app-service-web-tutorial-custom-domain.md)

@@ -12,15 +12,15 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
-origin.date: 05/11/2018
-ms.date: 10/22/2018
+origin.date: 11/01/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: e50f5b6a91a902518843e4948075faded87a28e6
-ms.sourcegitcommit: 96b58e881dba2fd02665d806d7c27d770326b0cc
+ms.openlocfilehash: 5ef1f3a5a163dfc3489f6fb9567ce39d43a5fa5e
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652009"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675072"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>排查 Linux VM 设备名更改问题
 
@@ -151,9 +151,8 @@ Azure Linux 代理 Udev 规则在 /dev/disk/azure 路径下构造一组符号链
 有关详细信息，请参阅以下文章：
 
 - [Ubuntu：使用 UUID](https://help.ubuntu.com/community/UsingUUID)
-
-<!-- Not Avaiable on - [Red Hat: Persistent naming](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html) -->
 - [Linux：UUID 有什么作用](https://www.linux.com/news/what-uuids-can-do-you)
 - [Udev：新式 Linux 系统中的设备管理简介](https://www.linux.com/news/udev-introduction-device-management-modern-linux-system)
 
+<!-- Not Avaiable on Line 150- [Red Hat: Persistent naming](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html) -->
 <!--Update_Description: update meta properties，update link -->

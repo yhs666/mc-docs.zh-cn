@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/23/2018
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: f7f7a9e7f10ca5c45ce29963ddb37edf07be4cdb
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.openlocfilehash: 6b57eae9d66a7bf9b05f5fdc4469a521d14b3126
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034974"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674256"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>教程：使用 Azure CLI 创建和管理 Linux VM
 
@@ -117,11 +117,12 @@ WindowsServer  MicrosoftWindowsServer  2012-Datacenter     MicrosoftWindowsServe
 UbuntuServer   Canonical               16.04-LTS           Canonical:UbuntuServer:16.04-LTS:latest                         UbuntuLTS            latest
 CentOS         OpenLogic               7.3                 OpenLogic:CentOS:7.3:latest                                     CentOS               latest
 openSUSE-Leap  SUSE                    42.2                SUSE:openSUSE-Leap:42.2:latest                                  openSUSE-Leap        latest
-RHEL           RedHat                  7.3                 RedHat:RHEL:7.3:latest                                          RHEL                 latest
 SLES           SUSE                    12-SP2              SUSE:SLES:12-SP2:latest                                         SLES                 latest
 Debian         credativ                8                   credativ:Debian:8:latest                                        Debian               latest
 CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
 ```
+
+<!-- Not Available on RHEL-->
 
 可以通过添加 `--all` 参数查看完整列表。 还可以按 `--publisher` 或 `--offer` 筛选映像列表。 在此示例中，已在列表中筛选出其产品与“CentOS”匹配的所有映像。 
 
@@ -161,12 +162,12 @@ az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:C
 | [常规用途](sizes-general.md)         |Dsv3、Dv3、DSv2、Dv2、DS、D、Av2、A0-7| CPU 与内存之比均衡。 适用于开发/测试、小到中型应用程序和数据解决方案。  |
 | [计算优化](sizes-compute.md)   | Fs, F             | 高 CPU 与内存之比。 适用于中等流量的应用程序、网络设备和批处理。        |
 | [内存优化](../virtual-machines-windows-sizes-memory.md)    | Esv3、Ev3、M、DSv2、DS、Dv2、D   | 较高的内存核心比。 适用于关系数据库、中到大型缓存和内存中分析。                 |
-| [GPU](sizes-gpu.md)          | NC            | 专门针对大量图形绘制和视频编辑的 VM。       |
 
+<!-- Not Available on [GPU](sizes-gpu.md)-->
 <!-- Not Available GS,G series-->
 <!-- Not Available Ls series-->
-<!-- Not Available NV series-->
-
+<!-- Not Available NV, NC series-->
+<!-- Not Available H, A8-11 series-->
 ### <a name="find-available-vm-sizes"></a>查找可用的 VM 大小
 
 若要查看在特定区域可用的 VM 大小的列表，请使用 [az vm list-sizes](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list-sizes) 命令。 
@@ -264,7 +265,7 @@ Azure VM 可能会处于多种电源状态之一。 从虚拟机监控程序的�
 | 已解除分配 | 指示虚拟机已从虚拟机监控程序中删除，但仍可在控制面板中使用。 处于“已解除分配”状态的虚拟机不会产生计算费用。 |
 | - | 指示虚拟机的电源状态未知。 |
 
-### <a name="find-power-state"></a>查找电源状态
+### <a name="find-the-power-state"></a>查找电源状态
 
 若要检索特定 VM 的状态，请使用 [az vm get-instance-view](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-get-instance-view) 命令。 请确保为虚拟机和资源组指定有效的名称。 
 
@@ -331,4 +332,4 @@ az group delete --name myResourceGroupVM --no-wait --yes
 > [!div class="nextstepaction"]
 > [创建和管理 VM 磁盘](./tutorial-manage-disks.md)
 
-<!--Update_Description: update meta properties, update links -->
+<!--Update_Description: update meta properties, update links, wording update -->

@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/19/2017
-ms.date: 05/28/2018
-ms.author: v-nany
-ms.openlocfilehash: 8eae8b9e792c6d04373cce22f703d2bb92622d44
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+origin.date: 10/30/2018
+ms.date: 12/03/2018
+ms.author: v-jay
+ms.openlocfilehash: 1f4aeb36b659f6f74f5c414fac84d76a71bf8230
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426433"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672996"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>使用工作流设计器创建高级编码工作流
 ## <a name="overview"></a>概述
@@ -34,7 +34,7 @@ ms.locfileid: "47426433"
 * 基于决策的工作流，该类工作流将检查要解析的源内容，并且仅编码所需的输出跟踪。  这有助于消除因无意中增加源内容而生成的多余跟踪。
 * 可使用多个输入文件来支持标题、覆盖和拼结在一起的内容。 
 
-还可以使用此工具修改任何[已发布工作流](media-services-workflow-designer.md#existing_workflows)。 
+还可以使用此工具来修改任何 [已发布工作流](media-services-workflow-designer.md#existing_workflows)。 
 
 
 创建工作流文件后，可将其作为资产上传，并用于对媒体文件编码。 有关如何使用 **.NET** 通过**媒体编码器高级工作流**编码的信息，请参阅[使用媒体编码器高级工作流进行高级编码](media-services-encode-with-premium-workflow.md)。

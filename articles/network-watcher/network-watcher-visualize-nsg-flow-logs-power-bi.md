@@ -13,20 +13,23 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 09/10/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: bce2a3ca3cc6fec8489b2d369f9c8e235cdbc220
-ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
+ms.openlocfilehash: 73bdf2dd54e36fbeb22d7e0cae6cea840e2329e6
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652241"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674987"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>使用 Power BI 可视化网络安全组流日志
 
 使用网络安全组流日志可以查看有关网络安全组中入口和出口 IP 流量的信息。 这些流日志基于每个规则显示出站和入站流、流所适用的 NIC、有关流的 5 元组信息（源/目标 IP、源/目标端口、协议），以及是允许还是拒绝流量。
 
 手动搜索日志文件可能难以洞察流日志数据。 本文提供一种用来可视化最新流日志和了解网络流量的解决方案。
+
+> [!Warning]  
+> 以下步骤适用于流日志版本 1。 有关详细信息，请参阅[针对网络安全组进行流日志记录简介](network-watcher-nsg-flow-logging-overview.md)。 以下说明在未修改的情况下不适用于版本 2 的日志文件。
 
 ## <a name="scenario"></a>方案
 
@@ -55,7 +58,7 @@ ms.locfileid: "49652241"
 1. 在 Power BI Desktop 应用程序中下载并打开以下 Power BI 模板：[网络观察程序 PowerBI 流日志模板](https://aka.ms/networkwatcherpowerbiflowlogstemplate)
 1. 输入所需的查询参数
     1. **StorageAccountName** - 指定包含所要加载和可视化的 NSG 流日志的存储帐户的名称。
-    1. **NumberOfLogFiles** - 指定要在 Power BI 中下载和可视化的日志文件数。 例如，如果指定 50，则会下载 50 个最新的日志文件。 如果将 2 个 NSG 启用并配置为向此帐户发送 NSG 流日志，则可以查看过去 25 小时的日志。
+    1. **NumberOfLogFiles** - 指定要在 Power BI 中下载和可视化的日志文件数。 例如，如果指定 50，则会下载 50 个最新的日志文件。 如果启用 2 个 NSG 并配置为向此帐户发送 NSG 流日志，则可以查看过去 25 小时的日志。
 
     ![Power BI 主界面][2]
 

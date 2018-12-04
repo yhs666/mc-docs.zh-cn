@@ -1,3 +1,17 @@
+---
+author: rockboyfor
+ms.service: virtual-machines-sql
+ms.topic: include
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
+ms.openlocfilehash: 3ed7c8d4daa55099f87b2eae53e029ff6cf3b014
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676350"
+---
 1. 使用远程桌面连接到虚拟机以后，搜索“配置管理器”：
 
     ![打开 SSCM](./media/virtual-machines-sql-server-connection-tcp-protocol/sql-server-configuration-manager.png)
@@ -14,4 +28,6 @@
 
 1. 关闭 SQL Server 配置管理器。
 
-有关启用 SQL Server 数据库引擎的协议的详细信息，请参阅[启用或禁用服务器网络协议](http://msdn.microsoft.com/library/ms191294.aspx)。
+有关启用 SQL Server 数据库引擎的协议的详细信息，请参阅[启用或禁用服务器网络协议](https://msdn.microsoft.com/library/ms191294.aspx)。
+
+<!--Update_Description: wording update, update link-->

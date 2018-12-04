@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 11/29/2018
 ms.author: v-yiso
 ms.date: 02/26/2018
-ms.openlocfilehash: dc74207faae76ad54af3ab81eb2616d18a2bedcf
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: e415ad12c80e332b32aa1a52a5b1129a5ce0e942
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29285071"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675397"
 ---
 # <a name="policies-in-azure-api-management"></a>Azure API 管理中的策略
 
@@ -68,7 +68,7 @@ ms.locfileid: "29285071"
 
 ## <a name="policy-reference"></a>策略参考
 
-请参阅[策略参考](api-management-policy-reference.md)了解政策说明完整列表及其设置。
+请参阅[策略参考](api-management-policies.md)了解政策说明完整列表及其设置。
 
 ## <a name="policy-samples"></a>策略示例
 
@@ -121,13 +121,12 @@ ms.locfileid: "29285071"
 有关如何使用策略的详细信息，请参阅：
 
 + [转换 API](transform-api.md)
-+ [策略参考](api-management-policy-reference.md)，获取策略语句及其设置的完整列表
++ [策略参考](api-management-policies.md)，获取策略语句及其设置的完整列表
 + [策略示例](policy-samples.md)   
 
-[Policy Reference]: ./api-management-policy-reference.md
+[Policy Reference]: ./api-management-policies.md
 [Product]: ./api-management-howto-add-products.md
 [API]: api-management-howto-add-products.md
-[Operation]: ./api-management-howto-add-operations.md
 
 [Advanced policies]: https://msdn.microsoft.com/library/azure/dn894085.aspx
 [Control flow]: https://msdn.microsoft.com/library/azure/dn894085.aspx#choose

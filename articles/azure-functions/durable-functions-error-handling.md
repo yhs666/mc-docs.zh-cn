@@ -2,21 +2,21 @@
 title: 处理 Durable Functions 中的错误 - Azure
 description: 了解如何在 Azure Functions 的 Durable Functions 扩展中处理错误。
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-origin.date: 09/05/2018
-ms.date: 09/21/2018
+origin.date: 10/23/2018
+ms.date: 11/21/2018
 ms.author: v-junlch
-ms.openlocfilehash: 4bdea0ede1f130de71c4d4cb14f5e1f5d1254004
-ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
+ms.openlocfilehash: c93d99b889fdf95c6d80b32a1e2f59de28a1cf17
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46524028"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672867"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>处理 Durable Functions 中的错误 (Azure Functions)
 
@@ -27,6 +27,8 @@ Durable Function 业务流程采用代码实现，并可使用编程语言的错
 活动函数中引发的任何异常都将封送回业务流程协调程序函数，并作为 `FunctionFailedException` 引发。 可在业务流程协调程序函数中编写满足需要的错误处理和补偿代码。
 
 例如，考虑使用以下业务流程协调程序函数，将一个帐户中的资金转到另一帐户：
+
+#### <a name="c"></a>C#
 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
@@ -65,11 +67,49 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript（仅限 Functions v2）
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const transferDetails = context.df.getInput();
+
+    yield context.df.callActivity("DebitAccount",
+        {
+            account = transferDetails.sourceAccount,
+            amount = transferDetails.amount,
+        }
+    );
+
+    try {
+        yield context.df.callActivity("CreditAccount",
+            {
+                account = transferDetails.destinationAccount,
+                amount = transferDetails.amount,
+            }
+        );
+    }
+    catch (error) {
+        // Refund the source account.
+        // Another try/catch could be used here based on the needs of the application.
+        yield context.df.callActivity("CreditAccount",
+            {
+                account = transferDetails.sourceAccount,
+                amount = transferDetails.amount,
+            }
+        );
+    }
+});
+```
+
 如果目标帐户的 CreditAccount 函数调用失败，则业务流程协调程序函数通过将资金归还源帐户来进行补偿。
 
 ## <a name="automatic-retry-on-failure"></a>失败时自动重试
 
 调用活动函数或子业务流程函数时，可指定自动重试策略。 以下示例尝试调用某函数多达三次，每次重试之间等待 5 秒：
+
+#### <a name="c"></a>C#
 
 ```csharp
 public static async Task Run(DurableOrchestrationContext context)
@@ -84,7 +124,21 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-`CallActivityWithRetryAsync` API 采用 `RetryOptions` 参数。 使用 `CallSubOrchestratorWithRetryAsync` API 的子业务流程调用均可使用这些相同的重试策略。
+#### <a name="javascript-functions-v2-only"></a>JavaScript（仅限 Functions v2）
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const retryOptions = new df.RetryOptions(5000, 3);
+    
+    yield context.df.callActivityWithRetry("FlakyFunction", retryOptions);
+
+    // ...
+});
+```
+
+`CallActivityWithRetryAsync` (C#) 或 `callActivityWithRetry` (JS) API 采用 `RetryOptions` 参数。 使用 `CallSubOrchestratorWithRetryAsync` (C#) 或 `callSubOrchestratorWithRetry` (JS) API 的子业务流程调用均可使用这些相同的重试策略。
 
 可通过多种选项自定义自动重试策略。 包含以下内容：
 
@@ -98,6 +152,8 @@ public static async Task Run(DurableOrchestrationContext context)
 ## <a name="function-timeouts"></a>函数超时
 
 如果业务流程协调程序内的函数调用耗时太长，建议放弃该函数调用。 本示例中执行此操作的正确方法是将 `context.CreateTimer` 和 `Task.WhenAny` 结合使用，创建[持久计时器](durable-functions-timers.md)，如下例中所示：
+
+#### <a name="c"></a>C#
 
 ```csharp
 public static async Task<bool> Run(DurableOrchestrationContext context)
@@ -126,6 +182,30 @@ public static async Task<bool> Run(DurableOrchestrationContext context)
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript（仅限 Functions v2）
+
+```javascript
+const df = require("durable-functions");
+const moment = require("moment");
+
+module.exports = df.orchestrator(function*(context) {
+    const deadline = moment.utc(context.df.currentUtcDateTime).add(30, "s");
+
+    const activityTask = context.df.callActivity("FlakyFunction");
+    const timeoutTask = context.df.createTimer(deadline.toDate());
+
+    const winner = yield context.df.Task.any([activityTask, timeoutTask]);
+    if (winner === activityTask) {
+        // success case
+        timeoutTask.cancel();
+        return true;
+    } else {
+        // timeout case
+        return false;
+    }
+});
+```
+
 > [!NOTE]
 > 此机制实际上不会终止正在进行的活动函数执行。 它只是允许业务流程协调程序函数忽略结果并继续运行。 有关详细信息，请参阅[计时器](durable-functions-timers.md#usage-for-timeout)文档。
 
@@ -134,4 +214,4 @@ public static async Task<bool> Run(DurableOrchestrationContext context)
 如果业务流程协调程序函数失败，出现未经处理的异常，则会记录异常的详细信息，且实例的完成状态为 `Failed`。
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: coding update -->

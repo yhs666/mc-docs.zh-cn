@@ -2,19 +2,20 @@
 title: 在 IoT Core 上安装 Azure IoT Edge | Microsoft Docs
 description: 在 Windows IoT Core 设备上安装 Azure IoT Edge 运行时
 author: kgremban
-manager: timlt
-ms.author: kgremban
+manager: philmea
+ms.author: v-yiso
 ms.reviewer: veyalla
-ms.date: 03/05/2018
+origin.date: 03/05/2018
+ms.date: 12/10/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f57db00894dab80f96f45111331d47a173520ced
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: f0ec09334de9f5d3c33eac09966a89b2ad2fd1b9
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068257"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674120"
 ---
 # <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>在 Windows IoT Core 上安装 IoT Edge 运行时 - 预览
 
@@ -27,7 +28,7 @@ ms.locfileid: "44068257"
 ## <a name="install-the-container-runtime"></a>安装容器运行时
 
 1. 使用内部版本 17134 (RS4) IoT Core 映像配置板。 
-1. 打开设备，然后[使用 PowerShell 远程登录][lnk-powershell]。
+1. 打开设备，然后[使用 PowerShell 远程登录](https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell)。
 1. 在 PowerShell 控制台中，安装容器运行时： 
 
    ```powershell
@@ -45,11 +46,11 @@ ms.locfileid: "44068257"
 
 ## <a name="finish-installing"></a>完成安装
 
-按照[这篇文章][lnk-install-windows-on-windows]中的说明操作，安装并配置 IoT Edge 安全守护程序
+按照[本文](how-to-install-iot-edge-windows-with-windows.md)中的说明操作，安装并配置 IoT Edge 安全守护程序
 
 ## <a name="next-steps"></a>后续步骤
 
-现在已具有一个运行 IoT Edge 运行时的设备，下面了解如何[大规模部署和监视 IoT Edge 模块][lnk-deploy]。
+现在已具有一个运行 IoT Edge 运行时的设备，下面了解如何[大规模部署和监视 IoT Edge 模块](how-to-deploy-monitor.md)。
 
 <!--Links-->
 [lnk-install-windows-on-windows]: how-to-install-iot-edge-windows-with-windows.md

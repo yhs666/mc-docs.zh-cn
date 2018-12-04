@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 07/02/2018
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2c8d049e0d49e020d3a3949fc94888fca3ebe2b2
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.openlocfilehash: aa31081e362c8c12e163b76132335ff75564ebc4
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034981"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674706"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>处理 Linux 虚拟机的计划内维护通知
 
@@ -175,4 +175,4 @@ azure compute virtual-machine initiate-maintenance --service-name myService --na
 
 了解如何使用[计划事件](scheduled-events.md)从 VM 内注册维护事件。
 
-<!-- Update_Description: update meta properties, wording update  -->
+<!-- Update_Description: update meta properties  -->

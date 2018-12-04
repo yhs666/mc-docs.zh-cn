@@ -1,3 +1,17 @@
+---
+author: rockboyfor
+ms.service: virtual-machines
+ms.topic: include
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
+ms.openlocfilehash: 44634a7221dd26cab228a0b297b32655e625fcfc
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676162"
+---
 1. 在故障转移群集管理器中，展开“角色”，然后突出显示可用性组。  
 
 2. 在“资源”选项卡上，右键单击侦听程序名称，然后单击“属性”。
@@ -24,3 +38,5 @@
 10. 右键单击侦听程序名称，然后单击“属性”。
 
 11. 在“端口”框中，通过使用先前使用过的 $EndpointPort 为可用性组侦听程序指定端口号（在本教程中，默认值是 1433），然后单击“确定”。
+
+<!-- Update_Description: update meta properties -->

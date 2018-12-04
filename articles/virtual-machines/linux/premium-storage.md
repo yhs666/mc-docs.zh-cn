@@ -7,21 +7,21 @@ ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.topic: article
 origin.date: 03/30/2018
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
 ms.component: disks
-ms.openlocfilehash: c8721b347ea55e0a776b2a3398222ddb0e325ab3
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.openlocfilehash: 5f26d3ccf9b0a187eae79dae80669a1bd9c671ad
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034879"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674284"
 ---
 [!INCLUDE [virtual-machines-common-premium-storage.md](../../../includes/virtual-machines-common-premium-storage.md)]
 
 ### <a name="design-and-implement-with-premium-storage"></a>高级存储的设计和实现
 * [使用高级存储实现高性能设计](premium-storage-performance.md)
-* [对高级存储使用 Blob 存储操作](http://go.microsoft.com/fwlink/?LinkId=521969)
+* [对高级存储使用 Blob 存储操作](https://go.microsoft.com/fwlink/?LinkId=521969)
 
 ### <a name="operational-guidance"></a>操作指南
 * [迁移到 Azure 高级存储](../../storage/common/storage-migration-to-premium-storage.md)

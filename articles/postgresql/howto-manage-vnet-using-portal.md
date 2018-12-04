@@ -4,17 +4,17 @@ description: 使用 Azure 门户创建和管理 Azure Database for PostgreSQL VN
 services: postgresql
 author: WenJason
 ms.author: v-jay
-manager: digimobile
-editor: jasonwhowell
-ms.service: postgresql-database
-ms.topic: article
-ms.date: 06/22/2018
-ms.openlocfilehash: 4a4e1cc0553d6e3d311b60f615cad7abbc6afba2
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.reviewer: jasonwhowell
+ms.service: postgresql
+ms.topic: conceptual
+origin.date: 10/23/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: 1a50c7db3a643d3e7f508e599d8fec83c0a6f0e0
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426302"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674923"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>使用 Azure 门户创建和管理 Azure Database for PostgreSQL VNet 服务终结点和 VNet 规则
 虚拟网络 (VNet) 服务终结点和规则将虚拟网络的专用地址空间扩展到你的 Azure Database for PostgreSQL 服务器。 有关 Azure Database for PostgreSQL VNet 服务终结点（包括限制）的概述，请参阅 [Azure Database for PostgreSQL Server VNet 服务终结点](concepts-data-access-and-security-vnet.md)。 在 Azure Database for PostgreSQL 的所有支持区域中，VNet 服务终结点均可用。
@@ -31,6 +31,16 @@ ms.locfileid: "47426302"
 2. 输入 VNet 规则名称，选择订阅、虚拟网络和子网名称，再单击“启用”。 这会使用 Microsoft.SQL 服务标记自动对子网启用 VNet 服务终结点。
 
    ![Azure 门户 - 配置 VNet](./media/howto-manage-vnet-using-portal/2-configure-vnet.png)
+
+    该帐户必须拥有创建虚拟网络和服务终结点所需的必要权限。
+
+    对虚拟网络拥有写入访问权限的用户可在虚拟网络上单独配置服务终结点。
+    
+    若要在 VNet 中保护 Azure 服务资源，用户必须对所添加的子网拥有“Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/”权限。 此权限默认包含在内置的服务管理员角色中，可以通过创建自定义角色进行修改。
+    
+    详细了解[内置角色](/active-directory/role-based-access-built-in-roles)以及将特定的权限分配到[自定义角色](/active-directory/role-based-access-control-custom-roles)。
+    
+    VNet 和 Azure 服务资源可以位于相同或不同的订阅中。 如果 VNet 和 Azure 服务资源位于不同的订阅中，资源应在相同的 Active Directory (AD) 租户下。
 
    > [!IMPORTANT]
    > 强烈建议在配置服务终结点前，先阅读本文介绍的服务终结点配置和注意事项。 **虚拟网络服务终结点**：[虚拟网络服务终结点](../virtual-network/virtual-network-service-endpoints-overview.md)是一个子网，其属性值包括一个或多个正式的 Azure 服务类型名称。 VNet 服务终结点使用服务类型名称 Microsoft.Sql，可引用名为“SQL 数据库”的 Azure 服务。 此服务标记也适用于 Azure SQL 数据库、Azure Database for PostgreSQL 和 MySQL 服务。 请务必要注意，对 VNet 服务终结点应用 Microsoft.Sql 服务标记时，它会为所有 Azure 数据库服务配置服务终结点流量，其中包括 Azure SQL 数据库、Azure Database for PostgreSQL 和子网上的 Azure Database for MySQL 服务器。 

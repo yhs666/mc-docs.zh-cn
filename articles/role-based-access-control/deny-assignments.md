@@ -17,11 +17,11 @@ ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: 04d84ebf8146b09dd6a7c760085629969ae04f52
-ms.sourcegitcommit: c938756f3be94dbbf574c31620ddf911b427fc21
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49634808"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667257"
 ---
 # <a name="understand-deny-assignments"></a>了解拒绝分配
 

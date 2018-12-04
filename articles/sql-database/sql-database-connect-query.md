@@ -11,16 +11,16 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 04/24/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: b127d1a0b3b95c2c365e16faf84db760b2ec64a0
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+origin.date: 11/01/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: 203efbd344e474b9dd13bc27345fc9ea34987753
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135771"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672577"
 ---
-# <a name="azure-sql-database-connect-and-query-quickstarts"></a>Azure SQL 数据库连接和查询快速入门
+# <a name="quickstarts-azure-sql-database-connect-and-query"></a>快速入门：Azure SQL 数据库连接和查询
 
 以下文档包含演示如何连接和查询 Azure SQL 数据库的 Azure 示例链接。 它还针对传输级别安全性提供了一些建议。
 

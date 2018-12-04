@@ -3,7 +3,7 @@ title: Azure 虚拟机规模集附加数据磁盘 | Microsoft 文档
 description: 了解如何将附加数据磁盘与虚拟机规模集配合使用
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 04/25/2017
-ms.date: 06/08/2018
+ms.date: 11/29/2018
 ms.author: v-junlch
-ms.openlocfilehash: aca0fcac42f1965e73e4598f0c7e00d571a16185
-ms.sourcegitcommit: a63d392037f3eca3196026c500ac7d2d26d85a7c
+ms.openlocfilehash: e33ecdc3a194e76d740448b01fb8e466b139cdde
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35253169"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673090"
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Azure 虚拟机规模集和附加数据磁盘
 为了扩展可用存储，Azure [虚拟机规模集](/virtual-machine-scale-sets/)支持包含附加数据磁盘的 VM 实例。 可以在创建规模集时附加数据磁盘，也可以将数据磁盘附加到现有规模集。
 
 > [!NOTE]
->  创建包含附加数据磁盘的规模集时，需要在 VM 中装载并格式化这些磁盘，才能使用（就像标准 Azure VM 一样）。 若要完成此过程，可使用自定义脚本扩展来调用脚本，将 VM 中的所有数据磁盘分区和格式化，这是一种很方便的方法。 有关示例，请参阅 [Azure CLI 2.0](tutorial-use-disks-cli.md#prepare-the-data-disks) [Azure PowerShell](tutorial-use-disks-powershell.md#prepare-the-data-disks)。
+>  创建包含附加数据磁盘的规模集时，需要在 VM 中装载并格式化这些磁盘，才能使用（就像标准 Azure VM 一样）。 若要完成此过程，可使用自定义脚本扩展来调用脚本，将 VM 中的所有数据磁盘分区和格式化，这是一种很方便的方法。 有关示例，请参阅 [Azure CLI](tutorial-use-disks-cli.md#prepare-the-data-disks) [Azure PowerShell](tutorial-use-disks-powershell.md#prepare-the-data-disks)。
 
 
 ## <a name="create-and-manage-disks-in-a-scale-set"></a>在规模集中创建和管理磁盘
 有关如何创建包含附加数据磁盘的规模集、准备和格式化或添加和删除数据磁盘的详细信息，请参阅以下教程之一：
 
-- [Azure CLI 2.0](tutorial-use-disks-cli.md)
+- [Azure CLI](tutorial-use-disks-cli.md)
 - [Azure PowerShell](tutorial-use-disks-powershell.md)
 
 本文的余下内容概述具体的用例，例如，需要数据磁盘的 Service Fabric 群集，或者将包含内容的现有数据磁盘附加到规模集。
@@ -102,5 +102,5 @@ Microsoft.Compute API 的 API 版本 _2016-04-30-preview_ 或更高版本中提�
 
 Azure 门户对规模集中附加数据磁盘的支持一开始是受限的。 可以根据需要使用 Azure 模板、CLI、PowerShell、SDK 和 REST API 管理附加磁盘。
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->
 

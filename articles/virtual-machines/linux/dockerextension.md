@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/18/2017
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: c5f5c1c777197f631c162fad065f51bd5ed4e080
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.openlocfilehash: d35b53cdbe0a35b59792bf8dfdfbd5509cfa3e9c
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034857"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674384"
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>在 Azure 中使用 Docker VM 扩展创建 Docker 环境
 
@@ -36,7 +36,6 @@ Azure Docker VM 扩展在 Linux 虚拟机 (VM) 中安装并配置 Docker 守护�
 有关不同部署方法的详细信息，包括如何使用 Docker Machine，请参阅以下文章：
 
 <!-- Not Available Azure Container Services -->
-
 * 若要快速建立应用原型，可以使用 [Docker Machine](docker-machine.md) 创建一个 Docker 主机。
 
 <!-- Not Available /container-service/ -->
@@ -58,10 +57,9 @@ az group create --name myResourceGroup --location chinaeast
 > 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“cloudapp.chinacloudapi.cn”）；必要时更改某些不受支持的 VM 映像；更改某些不受支持的 VM 大小、SKU 以及资源提供程序的 API 版本。
 
 ```azurecli
-# download the azuredeploy.json from URL(https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json)
 az group deployment create --resource-group myResourceGroup \
-  --template-file ./azuredeploy.json `
-  --parameters newStorageAccountName=mystorageaccount adminUsername=azureadmin adminPassword=P@ssw0rd! dnsNameForPublicIP=mypublicdns vmSize=Standard_A1
+    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json `
+    --parameters adminUsername=azureadmin adminPassword=P@ssw0rd! dnsNameForPublicIP=mypublicdns vmSize=Standard_A1
 ```
 
 <!--parameters using KEY=VALUE, the json format popup some convert error -->
@@ -157,4 +155,4 @@ b6ed109fb743        nginx               "nginx -g 'daemon off"   About a minute 
 * [开始使用 Docker 和 Compose，在 Azure 虚拟机上定义和运行多容器应用程序](docker-compose-quickstart.md)。
 <!-- Not Available * [Deploy an Azure Container Service cluster](../../container-service/dcos-swarm/container-service-deployment.md)-->
 
-<!--Update_Description: update meta properties， update link, update cmdlet -->
+<!--Update_Description: update meta properties， wording update -->

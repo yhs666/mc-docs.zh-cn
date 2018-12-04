@@ -6,16 +6,16 @@ author: lingliw
 manager: digimobile
 ms.author: v-lingwu
 origin.date: 09/22/2018
-ms.date: 10/31/2018
+ms.date: 11/26/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: d6d843460dc7b280df2ef91e7db13f45ffcc0640
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.openlocfilehash: 47e3f0ddf9c11e88239d03916a3c73c06e3f5fa3
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409339"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674140"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>教程：使用 PowerShell 和主题/订阅更新库存
 
@@ -41,7 +41,7 @@ Azure 服务总线是一种多租户云消息传送服务，可以在应用程�
 
 若要完成本教程，请确保已安装：
 
-1. [Visual Studio 2017 Update 3（版本 15.3 (26730.01)）](http://www.visualstudio.com/vs)或更高版本。
+1. [Visual Studio 2017 Update 3（版本 15.3 (26730.01)）](https://www.visualstudio.com/vs)或更高版本。
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows) 2.0 或更高版本。
 
 本教程要求运行最新版本的 Azure PowerShell。 如需进行安装或升级，请参阅[安装和配置 Azure PowerShell][]。
@@ -61,7 +61,7 @@ Azure 服务总线是一种多租户云消息传送服务，可以在应用程�
 2. 运行以下命令来登录到 Azure：
 
    ```PowerShell
-   Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+   Login-AzureRmAccount -Environment AzureChinaCloud -EnvironmentName AzureChinaCloud
    ```
 
 4. 设置当前的订阅上下文，或者查看当前处于活动状态的订阅：

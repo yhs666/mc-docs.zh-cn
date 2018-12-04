@@ -13,14 +13,14 @@ ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 origin.date: 06/15/2018
-ms.date: 07/16/2018
+ms.date: 12/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: 6cbe7fe2124c92eb8c2b83470fd33609f24edb83
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 7a04eb33477c4cf2807045da2df08f81f02564b6
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873335"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674524"
 ---
 # <a name="mock-api-responses"></a>模拟 API 响应
 
@@ -41,11 +41,15 @@ ms.locfileid: "37873335"
 
 ## <a name="prerequisites"></a>先决条件
 
-完成以下快速入门：[创建 Azure API 管理实例](get-started-create-service-instance.md)。
++ 了解 [Azure API 管理术语](api-management-terminology.md)。
++ 了解 [Azure API 管理中策略的概念](api-management-howto-policies.md)。
++ 完成以下快速入门：[创建 Azure API 管理实例](get-started-create-service-instance.md)。
 
 ## <a name="create-a-test-api"></a>创建测试 API 
 
 本部分中的步骤说明如何创建不带后端的空白 API。 此外，说明如何将某个操作添加到该 API。 完成本部分中的步骤之后调用该操作会生成错误。 完成“启用响应模拟”部分中的步骤后，不会出现任何错误。
+
+![创建空白 API](./media/mock-api-responses/03-MockAPIResponses-01-CreateTestAPI.png)
 
 1. 在“API 管理”服务中，选择“API”。
 2. 在左侧菜单中，选择“+ 添加 API”。
@@ -56,20 +60,20 @@ ms.locfileid: "37873335"
 
 ## <a name="add-an-operation-to-the-test-api"></a>将操作添加到测试 API
 
+![向 API 添加操作](./media/mock-api-responses/03-MockAPIResponses-02-AddOperation.png)
+
 1. 选择上一步中创建的 API。
 2. 单击“+ 添加操作”。
 
-    ![模拟操作响应](./media/mock-api-responses/mock-api-responses-add-operation.png)
-
-    |设置|值|说明|
-    |---|---|---|
-    |**显示名称**|测试调用|显示在**开发人员门户**中的名称。|
-    |**URL**（HTTP 谓词）|GET|可以选择预定义的 HTTP 谓词之一。|
-    |**URL** |*/test*|API 的 URL 路径。 |
-    |**说明**||输入用于在**开发人员门户**中通过此 API 向开发人员提供文档的操作的说明。|
-    |“查询”选项卡||可以添加查询参数。 除了提供名称和说明以外，还可以提供可分配到此参数的值。 其中一个值可被标记为默认（可选）。|
-    |“请求”选项卡||可以定义请求内容类型、示例和架构。 |
-    |“响应”选项卡|请参阅此表格后面的步骤。|定义响应状态代码、内容类型、示例和架构。|
+    | 设置             | 值                             | 说明                                                                                                                                                                                   |
+    |---------------------|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | **显示名称**    | 测试调用                       | 显示在**开发人员门户**中的名称。                                                                                                                                       |
+    | **URL**（HTTP 谓词） | GET                               | 可以选择预定义的 HTTP 谓词之一。                                                                                                                                         |
+    | **URL**             | */test*                           | API 的 URL 路径。                                                                                                                                                                       |
+    | **说明**     |                                   | 输入用于在**开发人员门户**中通过此 API 向开发人员提供文档的操作的说明。                                                    |
+    | “查询”选项卡       |                                   | 可以添加查询参数。 除了提供名称和说明以外，还可以提供可分配到此参数的值。 其中一个值可被标记为默认（可选）。 |
+    | “请求”选项卡     |                                   | 可以定义请求内容类型、示例和架构。                                                                                                                                  |
+    | “响应”选项卡    | 请参阅此表格后面的步骤。 | 定义响应状态代码、内容类型、示例和架构。                                                                                                                           |
 
 3. 选择“URL”、“显示名称”和“说明”字段下面的“响应”选项卡。
 4. 单击“+ 添加响应”。
@@ -81,18 +85,25 @@ ms.locfileid: "37873335"
 
 ## <a name="enable-response-mocking"></a>启用响应模拟
 
+![启用响应模拟](./media/mock-api-responses/03-MockAPIResponses-03-EnableMocking.png)
+
 1. 选择在“创建测试 API”步骤中创建的 API。
 2. 选择添加的测试操作。
 3. 在右侧窗口中，单击“设计”选项卡。
-4. 在“入站处理”窗口中，单击铅笔图标。
-5. 在“模拟”选项卡中，为“模拟行为”选择“静态响应”。
-6. 在“API 管理返回以下响应:”文本框中，键入 **200 OK, application/json**。 此项选择指示 API 应返回上一部分中定义的响应示例。
+4. 在“入站处理”窗口中，单击“+ 添加策略”。
+5. 从库中选择“模拟响应”磁贴。
+
+    ![模拟响应策略磁贴](./media/mock-api-responses/mock-responses-policy-tile.png)
+
+6. 在“API 管理响应”文本框中，键入 **200 OK, application/json**。 此项选择指示 API 应返回上一部分中定义的响应示例。
 
     ![启用响应模拟](./media/mock-api-responses/mock-api-responses-set-mocking.png)
-    
+
 7. 单击“保存” 。
 
 ## <a name="test-the-mocked-api"></a>测试模拟 API
+
+![测试模拟 API](./media/mock-api-responses/03-MockAPIResponses-04-TestMocking.png)
 
 1. 选择在“创建测试 API”步骤中创建的 API。
 2. 打开“测试”选项卡。

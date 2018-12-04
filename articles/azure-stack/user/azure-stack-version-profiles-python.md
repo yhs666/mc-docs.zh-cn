@@ -15,12 +15,12 @@ ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: sijuman
 <!-- dev: viananth -->
-ms.openlocfilehash: 24da4646cbc38f899664993add13ebbd7900fd85
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: cee1da4108da53de2472d215e648abcc45d098da
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869418"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672711"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Python 配合使用
 
@@ -54,8 +54,7 @@ Python SDK 支持 API 版本配置文件将不同的云平台（例如 Azure Sta
 |---------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------|
 | 租户 ID | AZURE_TENANT_ID | Azure Stack [租户 ID](../azure-stack-identity-overview.md) 的值。 |
 | 客户端 ID | AZURE_CLIENT_ID | 在本文档上一部分创建服务主体时保存的服务主体应用程序 ID。 |
-| 订阅 ID | AZURE_SUBSCRIPTION_ID | 
-  [订阅 ID](../azure-stack-plan-offer-quota-overview.md#subscriptions) 用于访问 Azure Stack 中的套餐。 |
+| 订阅 ID | AZURE_SUBSCRIPTION_ID | [订阅 ID](../azure-stack-plan-offer-quota-overview.md#subscriptions) 用于访问 Azure Stack 中的套餐。 |
 | 客户端机密 | AZURE_CLIENT_SECRET | 创建服务主体时保存的服务主体应用程序机密。 |
 | 资源管理器终结点 | ARM_ENDPOINT | 参阅 [Azure Stack 资源管理器终结点](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint)。 |
 
@@ -155,6 +154,5 @@ os_disk = compute_client.disks.get(GROUP_NAME, os_disk_name)
 
 - [Azure Python 开发中心](/develop/python/)
 - [Azure 虚拟机文档](https://www.azure.cn/home/features/virtual-machines/)
-- [虚拟机的学习路径](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
 - 如果没有 Azure 订阅，可从[此处](https://www.azure.cn/pricing/1rmb-trial)获取试用帐户。
 

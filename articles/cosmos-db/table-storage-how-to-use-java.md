@@ -9,14 +9,14 @@ ms.component: cosmosdb-table
 ms.devlang: Java
 ms.topic: sample
 origin.date: 04/05/2018
-ms.date: 07/02/2018
+ms.date: 12/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: bd9a85d9d76251aa61a05f961a369623270ff121
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: 1931b5b7fc6b636af994cf55e4d71ddb1509574d
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070177"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674754"
 ---
 # <a name="how-to-use-azure-table-storage-from-java"></a>如何通过 Java 使用 Azure 表存储
 <!-- Not Available on Azure Cosmos DB Table API -->
@@ -27,6 +27,7 @@ ms.locfileid: "37070177"
 ## <a name="overview"></a>概述
 本文演示如何使用 Azure 表存储服务执行常见任务。 这些示例用 Java 编写并使用 [Azure Storage SDK for Java][Azure Storage SDK for Java]。 涉及的方案包括创建、列出和删除表，以及在表中插入、查询、修改和删除实体。 有关表的详细信息，请参阅 [后续步骤](#next-steps) 部分。
 
+<!--Not Available on Azure Cosmos DB-->
 > [!NOTE]
 > SDK 提供给在 Android 设备上使用 Azure 存储的开发人员。 有关详细信息，请参阅 [Azure Storage SDK for Android][Azure Storage SDK for Android]。
 >
@@ -44,9 +45,11 @@ ms.locfileid: "37070177"
 
 若要使用本文中的示例，请安装 Java 开发工具包 (JDK)，并在 Azure 订阅中创建一个 Azure 存储帐户。 完成此操作后，请验证开发系统是否满足 GitHub 上[用于 Java 的 Azure 存储 SDK][Azure Storage SDK for Java] 存储库中列出的最低要求和依赖项。 如果系统满足这些要求，可以按照说明从该存储库将用于 Java 的 Azure 存储库下载并安装到你的系统中。  完成这些任务后，便可以创建一个 Java 应用程序，以使用本文中的示例。
 
+<!--Not Available on Azure Cosmos DB-->
 ## <a name="configure-your-application-to-access-table-storage"></a>配置应用程序以访问表存储
 将下列 import 语句添加到需要在其中使用 Azure 存储 API 访问表的 Java 文件的顶部：
 
+<!--Not Available on Azure Cosmos DB Table API-->
 ```java
 // Include the following imports to use table APIs
 import com.microsoft.azure.storage.*;
@@ -67,8 +70,8 @@ public static final String storageConnectionString =
     "AccountKey=your_storage_account_key;" +
     "EndpointSuffix=core.chinacloudapi.cn";
 ```
-<!-- Add EndpointSuffix configuration -->
 
+<!-- Add EndpointSuffix configuration -->
 <!-- Not Avaiable on ## Add an Azure Cosmos DB connection string -->
 
 对于在 Azure 的角色中运行的应用程序，可将此字符串存储在服务配置文件 *ServiceConfiguration.cscfg* 中，并可通过调用 **RoleEnvironment.getConfigurationSettings** 方法对其进行访问。 下面是从服务配置文件中名为 **StorageConnectionString** 的 *Setting* 元素中获取连接字符串的示例：
@@ -409,8 +412,7 @@ catch (Exception e)
 ```
 
 ## <a name="modify-an-entity"></a>修改实体
-要修改实体，请从表服务中检索它，对实体对象进行更改，然后通过替换或合并操作将更改保存回表服务。 以下代码更改现有客户的电话号码。 此代码将调用 **TableOperation.replace**，而不是像执行插入时那样调用 **TableOperation.insert**。 
-            **CloudTable.execute** 方法调用表服务，并替换该实体，除非在此应用程序检索到该实体之后另一个应用程序对它进行了更改。 如果出现这种情况，则会引发异常，必须再次检索、修改并保存该实体。 此乐观并发重试模式在分布式存储系统中很常见。
+要修改实体，请从表服务中检索它，对实体对象进行更改，然后通过替换或合并操作将更改保存回表服务。 以下代码更改现有客户的电话号码。 此代码将调用 **TableOperation.replace**，而不是像执行插入时那样调用 **TableOperation.insert**。 **CloudTable.execute** 方法调用表服务，并替换该实体，除非在此应用程序检索到该实体之后另一个应用程序对它进行了更改。 如果出现这种情况，则会引发异常，必须再次检索、修改并保存该实体。 此乐观并发重试模式在分布式存储系统中很常见。
 
 ```java
 try
@@ -597,7 +599,7 @@ catch (Exception e)
 
 有关详细信息，请访问[面向 Java 开发人员的 Azure](https://docs.azure.cn/java/)。
 
-[Azure SDK for Java]: /develop/java/
+[Azure SDK for Java]: https://docs.azure.cn/zh-cn/develop/java
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
 [Azure 存储客户端 SDK 参考]: http://azure.github.io/azure-storage-java/

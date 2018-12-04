@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 02/16/2017
-ms.date: 09/24/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: ad3d3be7db0b82606fe85596f5323a3d77edf522
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.openlocfilehash: d1b7ce941a0acc7fb422ce063ab09870acaed1ce
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527047"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675267"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>在 Azure 中为 Always On 可用性组配置负载均衡器
 本文说明如何在使用 Azure Resource Manager 运行的 Azure 虚拟机中为 SQL Server Always On 可用性组创建负载均衡器。 当 SQL Server 实例位于 Azure 虚拟机时，可用性组需要负载均衡器。 负载均衡器存储可用性组侦听器的 IP 地址。 如果可用性组跨多个区域，则每个区域都需要一个负载均衡器。
@@ -28,7 +28,7 @@ ms.locfileid: "46527047"
 若要完成此任务，需要在使用 Resource Manager 运行的 Azure 虚拟机上部署一个 SQL Server 可用性组。 这两个 SQL Server 虚拟机必须属于同一个可用性集。 
 <!-- Not Available on [Microsoft template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)-->
 
-如果需要，可以[手动配置可用性组](virtual-machines-windows-portal-sql-availability-group-tutorial.md)。
+如果需要，可以 [手动配置可用性组](virtual-machines-windows-portal-sql-availability-group-tutorial.md)。
 
 本文要求事先配置可用性组。  
 
@@ -122,7 +122,7 @@ Azure 将更新后端地址池的设置。 现在，可用性集有了一个池�
 4.  单击 **“确定”**。 
 
 > [!NOTE]
-> 确保指定的端口已在两个 SQL Server 实例的防火墙上打开。 这两个实例需要所用 TCP 端口的入站规则。 有关详细信息，请参阅 [添加或编辑防火墙规则](http://technet.microsoft.com/library/cc753558.aspx)。 
+> 确保指定的端口已在两个 SQL Server 实例的防火墙上打开。 这两个实例需要所用 TCP 端口的入站规则。 有关详细信息，请参阅 [添加或编辑防火墙规则](https://technet.microsoft.com/library/cc753558.aspx)。 
 > 
 > 
 
@@ -308,4 +308,3 @@ SQLCMD 连接会自动连接到托管主副本的 SQL Server 实例。
 - [在不同区域中的 Azure 虚拟机上创建 SQL Server AlwaysOn 可用性组](virtual-machines-windows-portal-sql-availability-group-dr.md)
 
 <!-- Update_Description: update meta properties， wording update -->
-

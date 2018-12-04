@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
 origin.date: 04/20/2018
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9a92a9cb1580fedb38f5d1be27970bdf9056fec0
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: b3158b91a17c411a44d2045e7bac3a005916ee94
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453634"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675004"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>如何在 Windows VM 上安装和配置 Trend Micro Deep Security 即服务
 [!INCLUDE [virtual-machines-extensions-deprecation-statement](../../../includes/virtual-machines-extensions-deprecation-statement.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "49453634"
 
 使用 Azure 门户、Azure CLI 或 PowerShell 创建的现有 VM 可能不具有 VM 代理。 对于未安装 VM 代理的现有虚拟机，需要先下载并安装 VM 代理。 本文介绍这两种情况。
 
-如果已经有针对本地解决方案的 Trend Micro 当前订阅，则可用它来帮助保护 Azure 虚拟机。 如果还不是客户，则可注册试用订阅。 有关此解决方案的详细信息，请参阅 Trend Micro 博客文章 [Azure VM Agent Extension For Deep Security](http://go.microsoft.com/fwlink/p/?LinkId=403945)（用于 Deep Security 的 Azure VM 代理扩展）。
+如果已经有针对本地解决方案的 Trend Micro 当前订阅，则可用它来帮助保护 Azure 虚拟机。 如果还不是客户，则可注册试用订阅。 有关此解决方案的详细信息，请参阅 Trend Micro 博客文章 [Azure VM Agent Extension For Deep Security](https://go.microsoft.com/fwlink/p/?LinkId=403945)（用于 Deep Security 的 Azure VM 代理扩展）。
 
 <!-- Not Available on ## Install the Deep Security Agent on a new VM-->
 
@@ -39,7 +39,7 @@ ms.locfileid: "49453634"
 ## <a name="install-the-deep-security-agent-on-an-existing-vm"></a>在现有 VM 上安装 Deep Security Agent
 若要在现有 VM 上安装代理，需要以下各项：
 
-* 在本地计算机上安装 Azure PowerShell 模块 0.8.2 版或更高版本。 可以使用 **Get-Module azure | format-table version** 命令查看已安装的 Azure PowerShell 的版本。 有关说明以及指向最新版本的链接，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。 使用 `Add-AzureAccount -Environment AzureChinaCloud` 登录到 Azure 订阅。
+* 在本地计算机上安装 Azure PowerShell 模块 0.8.2 版或更高版本。 可以使用 **Get-Module azure | format-table version** 命令查看已安装的 Azure PowerShell 的版本。 有关说明以及指向最新版本的链接，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。 使用 `Add-AzureAccount` 登录到 Azure 订阅。
 * 在目标虚拟机上安装 VM 代理。
 
 首先，请验证是否已安装 VM 代理。 填写云服务名称和虚拟机名称，并在管理员级别的 Azure PowerShell 命令提示符下运行以下命令。 替换引号内的所有内容，包括 < and > 字符。
@@ -51,7 +51,7 @@ ms.locfileid: "49453634"
 
 如果不知道云服务名称和虚拟机名称，运行 **Get-AzureVM** 即可显示当前订阅中所有虚拟机的该信息。
 
-如果 **write-host** 命令返回 **True**，则已安装 VM 代理。 如果该命令返回 **False**，请参阅 Azure 博客文章 [VM 代理和扩展 - 第 2 部分](http://go.microsoft.com/fwlink/p/?LinkId=403947)中的说明和下载链接。
+如果 **write-host** 命令返回 **True**，则已安装 VM 代理。 如果该命令返回 **False**，请参阅 Azure 博客文章 [VM 代理和扩展 - 第 2 部分](https://go.microsoft.com/fwlink/p/?LinkId=403947)中的说明和下载链接。
 
 如果已安装 VM 代理，请运行以下命令。
 
@@ -62,9 +62,9 @@ ms.locfileid: "49453634"
 ## <a name="next-steps"></a>后续步骤
 安装后，代理需要几分钟时间才会开始运行。 之后需在虚拟机上激活 Deep Security，才能通过 Deep Security Manager 进行管理。 有关其他说明，请参阅以下文章：
 
-* 有关此解决方案的 Trend 文章：[Instant-On Cloud Security for Azure](http://go.microsoft.com/fwlink/?LinkId=404101)（用于 Azure 的 Instant-On Cloud Security）
-* 用于配置虚拟机的 [Windows PowerShell 脚本示例](http://go.microsoft.com/fwlink/?LinkId=404100)
-* 示例的[说明](http://go.microsoft.com/fwlink/?LinkId=404099)
+* 有关此解决方案的 Trend 文章：[Instant-On Cloud Security for Azure](https://go.microsoft.com/fwlink/?LinkId=404101)（用于 Azure 的 Instant-On Cloud Security）
+* 用于配置虚拟机的 [Windows PowerShell 脚本示例](https://go.microsoft.com/fwlink/?LinkId=404100)
+* 示例的[说明](https://go.microsoft.com/fwlink/?LinkId=404099)
 
 ## <a name="additional-resources"></a>其他资源
 [如何登录到运行 Windows Server 的虚拟机]

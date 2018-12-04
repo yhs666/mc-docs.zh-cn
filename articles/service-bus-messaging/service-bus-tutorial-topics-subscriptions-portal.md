@@ -6,20 +6,20 @@ author: lingliw
 manager: digimobile
 ms.author: v-lingwu
 origin.date: 09/22/2018
-ms.date: 10/31/2018
+ms.date: 11/26/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 14d5598ae812c5c5785d083b240c18e6a75e536b
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.openlocfilehash: 4c1f4534c6a5891b5ebe65572c533daacfff994f
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409383"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674719"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>教程：使用 Azure 门户和主题/订阅更新库存
 
-Microsoft Azure 服务总线是一种多租户云消息传送服务，可以在应用程序和服务之间发送信息。 异步操作可实现灵活的中转消息传送、结构化的先进先出 (FIFO) 消息传送以及发布/订阅功能。 本教程介绍如何通过 Azure 门户和 .NET 将零售库存方案中的服务总线主题和订阅与发布/订阅渠道配合使用。
+Azure 服务总线是一种多租户云消息传送服务，可以在应用程序和服务之间发送信息。 异步操作可实现灵活的中转消息传送、结构化的先进先出 (FIFO) 消息传送以及发布/订阅功能。 本教程介绍如何通过 Azure 门户和 .NET 将零售库存方案中的服务总线主题和订阅与发布/订阅渠道配合使用。
 
 本教程介绍如何执行下列操作：
 > [!div class="checklist"]
@@ -39,7 +39,7 @@ Microsoft Azure 服务总线是一种多租户云消息传送服务，可以在�
 
 若要完成本教程，请确保已安装：
 
-- [Visual Studio 2017 Update 3（版本 15.3 (26730.01)）](http://www.visualstudio.com/vs)或更高版本。
+- [Visual Studio 2017 Update 3（版本 15.3 (26730.01)）](https://www.visualstudio.com/vs)或更高版本。
 - [NET Core SDK](https://www.microsoft.com/net/download/windows) 2.0 或更高版本。
 
 ## <a name="service-bus-topics-and-subscriptions"></a>服务总线主题和订阅

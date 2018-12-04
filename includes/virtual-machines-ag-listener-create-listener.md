@@ -1,3 +1,17 @@
+---
+author: rockboyfor
+ms.service: virtual-machines
+ms.topic: include
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
+ms.openlocfilehash: 43d3484f18f0c5c6ff565aa4e1ef60baa2f25e27
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676163"
+---
 在此步骤中，你在故障转移群集管理器和 SQL Server Management Studio 中手动创建可用性组侦听程序。
 
 1. 从托管主副本的节点打开故障转移群集管理器。
@@ -35,3 +49,5 @@
 
        b. 在同一个“IP 地址”属性窗口中，更改“ IP 地址名称”。  
         该名称用于 PowerShell 脚本的 $IPResourceName 变量中。 如果解决方案跨多个 Azure 虚拟网络，请对每个 IP 资源重复此步骤。
+        
+<!-- Update_Description: update meta properties -->

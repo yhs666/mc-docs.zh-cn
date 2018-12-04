@@ -1,3 +1,17 @@
+---
+author: rockboyfor
+ms.service: virtual-machines-sql
+ms.topic: include
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
+ms.openlocfilehash: a3a7812ad7566530cc428f1d662ffe5b18af498f
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676194"
+---
 ### <a name="determine-the-dns-name-of-the-virtual-machine"></a>确定虚拟机的 DNS 名称
 若要从另一台计算机连接到 SQL Server 数据库引擎，必须知道虚拟机的域名系统 (DNS) 名称。 （这是 Internet 用于识别虚拟机的名称。 可以使用 IP 地址，但 IP 地址在 Azure 为冗余或维护而移动资源时可能会变更。 DNS 名称将保持不变，因为可将该名称重定向到新的 IP 地址。）  
 
@@ -19,4 +33,6 @@
 3. 在“身份验证”框中，选择“SQL Server 身份验证”。
 4. 在“登录名”框中，键入在前面的任务中创建的登录名。
 5. 在“密码”框中，键入在前面的任务中创建的登录名的密码。
-6. 单击“连接”。
+6. 单击“连接” 。
+
+<!--Update_Description: wording update, update link-->

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 origin.date: 06/15/2018
-ms.date: 09/17/2018
+ms.date: 12/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: cfaf4b566433efac065a6d3223e64280adbb9fd5
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: 388b427596cc68bce6858107ff369b45f08a3827
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068178"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674510"
 ---
 # <a name="use-revisions-to-make-non-breaking-changes-safely"></a>使用修订安全做出非重大更改
 当 API 准备就绪并即将供开发人员使用时，你最终需要对该 API 进行更改，同时避免干扰 API 的调用方。 另一种有效的做法是让开发人员知道所做的更改。 可以在 Azure API 管理中使用**修订**实现此目的。 有关详细信息，请参阅[版本和修订](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/)以及[使用 Azure API 管理进行 API 版本控制](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/)。
@@ -37,10 +37,13 @@ ms.locfileid: "44068178"
 
 ## <a name="prerequisites"></a>先决条件
 
++ 了解 [Azure API 管理术语](api-management-terminology.md)。
 + 完成以下快速入门：[创建 Azure API 管理实例](get-started-create-service-instance.md)。
 + 此外，请完成以下教程：[导入并发布第一个 API](import-and-publish.md)。
 
 ## <a name="add-a-new-revision"></a>添加新的修订版
+
+![添加 API 修订版本](media/api-management-getstarted-revise-api/07-AddRevisions-01-AddNewRevision.png)
 
 1. 选择“API”页。
 2. 从 API 列表中选择“演示会议 API”（或想要添加修订的其他 API）。
@@ -49,8 +52,6 @@ ms.locfileid: "44068178"
 
     > [!TIP]
     > 也可以在 API 上的上下文菜单 (**...**) 中选择“添加修订版”。
-    
-    ![靠近屏幕顶部的“修订”菜单](media/api-management-getstarted-revise-api/TopMenu.PNG)
 
 5. 提供新修订版的说明，帮助记住其用途。
 6. 选择“创建”
@@ -60,6 +61,8 @@ ms.locfileid: "44068178"
     > 原始 API 保留在“修订版 1”中。 这是在将其他修订版设为当前版本之前，用户继续调用的修订版。
 
 ## <a name="make-non-breaking-changes-to-your-revision"></a>对修订版进行非重大更改
+
+![修改修订版本](media/api-management-getstarted-revise-api/07-AddRevisions-02-MakeChanges.png)
 
 1. 从 API 列表中选择“演示会议 API”。
 2. 选择靠近屏幕顶部的“设计”选项卡。

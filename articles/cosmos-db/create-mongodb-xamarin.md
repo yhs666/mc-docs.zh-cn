@@ -10,14 +10,14 @@ ms.custom: quickstart, xamarin
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 06/20/2018
-ms.date: 09/30/2018
+ms.date: 12/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 18bfe994e1663777e917c18849b1b6dfb39edba5
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: 04046f2f8f61ea4e6c6844db49ac0c049334679f
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201480"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674865"
 ---
 # <a name="quickstart-build-a-mongodb-api-xamarinforms-app-with-net-and-the-azure-portal"></a>快速入门：使用 .NET 和 Azure 门户生成 MongoDB API Xamarin.Forms 应用
 
@@ -199,5 +199,4 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 > [!div class="nextstepaction"]
 > [将 MongoDB API 的数据导入 Azure Cosmos DB](mongodb-migrate.md)
 
-<!-- Update_Description: new articles on create mongodb xamarin -->
-<!--ms.date: 09/30/2018-->
+<!-- Update_Description: update meta properties, wording update -->

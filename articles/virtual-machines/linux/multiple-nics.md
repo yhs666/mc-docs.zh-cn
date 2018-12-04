@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 06/07/2018
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0bdcf8b7f81c89e55cd86f74327db0542ab8e42d
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.openlocfilehash: 0b88c1f11c0770350b5e77d974b9275fde1c4344
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034980"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675286"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>如何在 Azure 中创建具有多个网络接口卡的 Linux 虚拟机
 
@@ -102,7 +102,7 @@ az vm create \
     --nics myNic1 myNic2
 ```
 
-通过完成[为多个 NIC 配置来宾 OS](#configure-guest-os-for- multiple-nics) 中的步骤，将路由表添加到来宾 OS。
+通过完成[为多个 NIC 配置来宾 OS](#configure-guest-os-for-multiple-nics) 中的步骤，将路由表添加到来宾 OS。
 
 ## <a name="add-a-nic-to-a-vm"></a>将 NIC 添加到 VM
 之前的步骤创建了具有多个 NIC 的 VM。 还可使用 Azure CLI 将 NIC 添加到现有 VM。 不同的 [VM 大小](sizes.md)支持不同数目的 NIC，因此请相应地调整 VM 的大小。 如果需要，可[调整 VM 的大小](change-vm-size.md)。
@@ -139,7 +139,7 @@ az vm nic add \
 az vm start --resource-group myResourceGroup --name myVM
 ```
 
-通过完成[为多个 NIC 配置来宾 OS](#configure-guest-os-for- multiple-nics) 中的步骤，将路由表添加到来宾 OS。
+通过完成[为多个 NIC 配置来宾 OS](#configure-guest-os-for-multiple-nics) 中的步骤，将路由表添加到来宾 OS。
 
 ## <a name="remove-a-nic-from-a-vm"></a>从 VM 中删除 NIC
 若要从现有 VM 中删除 NIC，请先使用 [az vm deallocate](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-deallocate) 解除分配 VM。 以下示例解除分配名为 myVM 的 VM：
@@ -183,7 +183,7 @@ Azure 资源管理器模板使用声明性 JSON 文件来定义环境。 可以�
 
 可以阅读[使用 Resource Manager 模板创建多个 NIC](../../virtual-network/template-samples.md) 的完整示例。
 
-通过完成[为多个 NIC 配置来宾 OS](#configure-guest-os-for- multiple-nics) 中的步骤，将路由表添加到来宾 OS。
+通过完成[为多个 NIC 配置来宾 OS](#configure-guest-os-for-multiple-nics) 中的步骤，将路由表添加到来宾 OS。
 
 ## <a name="configure-guest-os-for-multiple-nics"></a>为多个 NIC 配置来宾 OS
 

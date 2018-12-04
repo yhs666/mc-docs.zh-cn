@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/20/2018
-ms.date: 10/17/2018
+ms.date: 11/21/2018
 ms.author: v-junlch
-ms.openlocfilehash: 847c8d4d631f91c3f4bbccd94f1eb7a24aecedc6
-ms.sourcegitcommit: 4ead6b1d3527373b63c90680b6400a2e95b4064e
+ms.openlocfilehash: ab05b1670676f4cf76063ff1d121085eb3f585e8
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49374981"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672802"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>应用程序网关的后端运行状况、诊断日志和指标
 
@@ -329,7 +329,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Visualize your Azure Activity Log with Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx)（使用 Power BI 直观显示 Azure 活动日志）博客文章。
+- [Visualize your Azure Activity Log with Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx)（使用 Power BI 直观显示 Azure 活动日志）博客文章。
 - [View and analyze Azure Activity Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/)（在 Power BI 和其他组件中查看和分析 Azure 活动日志）博客文章。
 
 [1]: ./media/application-gateway-diagnostics/figure1.png
@@ -343,4 +343,4 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 [9]: ./media/application-gateway-diagnostics/figure9.png
 [10]: ./media/application-gateway-diagnostics/figure10.png
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

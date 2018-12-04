@@ -1,22 +1,20 @@
 ---
-title: 审核和接收关于 Azure 订阅中重要操作的通知 | Microsoft Docs
+title: 审核和接收关于 Azure 订阅中重要操作的通知
 description: 在活动日志中了解资源管理、服务运行状况和其他订阅活动的历史记录，然后在订阅中执行高特权操作时，使用活动日志警报接收电子邮件通知。
 author: johnkemnetz
-manager: orenr
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
+services: azure-monitor
+ms.service: azure-monitor
 ms.topic: quickstart
-origin.date: 09/25/2017
-ms.date: 07/23/2018
-ms.author: v-yiso
+ms.date: 09/25/2017
+ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: 2ebbbeffe4ae936dc76cc140b7384123a06b39f5
-ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
+ms.component: alerts
+ms.openlocfilehash: 7d96ef31b17fd7b9e350e9861662bd85ad9a0b1f
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39031704"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674630"
 ---
 # <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>审核和接收关于 Azure 订阅中重要操作的通知
 

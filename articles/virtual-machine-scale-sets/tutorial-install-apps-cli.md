@@ -1,9 +1,9 @@
 ---
-title: 教程 - 使用 Azure CLI 2.0 在规模集中安装应用程序 | Microsoft Docs
-description: 了解如何使用自定义脚本扩展通过 Azure CLI 2.0 将应用程序安装到虚拟机规模集中
+title: 教程 - 使用 Azure CLI 在规模集中安装应用程序 | Microsoft Docs
+description: 了解如何使用自定义脚本扩展通过 Azure CLI 将应用程序安装到虚拟机规模集中
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 03/27/2018
-ms.date: 08/13/2018
+ms.date: 11/29/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 8eacc0d62058d9f58dd8d277f37147d2dc0852f4
-ms.sourcegitcommit: 56ed1b03d83f222db6118fe1e2f2485a9488507f
+ms.openlocfilehash: 9841d98ffa4feaf6bca0b7fc8330e83b93ab257a
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41704466"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672747"
 ---
-# <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli-20"></a>教程：使用 Azure CLI 2.0 在虚拟机规模集中安装应用程序
+# <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>教程：使用 Azure CLI 在虚拟机规模集中安装应用程序
 若要在规模集中的虚拟机 (VM) 实例上运行应用程序，首先需要安装应用程序组件和所需文件。 前一篇教程介绍了如何创建自定义 VM 映像并使用它来部署 VM 实例。 使用此自定义映像可以手动安装和配置应用程序。 也可以在部署每个 VM 实例之后，将应用程序自动安装到规模集，或者更新已在规模集中运行的应用程序。 本教程介绍如何执行下列操作：
 
 > [!div class="checklist"]
@@ -34,13 +34,13 @@ ms.locfileid: "41704466"
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
-如果选择在本地安装和使用 CLI，本教程要求运行 Azure CLI 2.0.29 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。 
+如果选择在本地安装和使用 CLI，本教程要求运行 Azure CLI 2.0.29 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。 
 
 
 ## <a name="what-is-the-azure-custom-script-extension"></a>什么是 Azure 自定义脚本扩展？
 自定义脚本扩展在 Azure VM 上下载和执行脚本。 此扩展适用于部署后配置、软件安装或其他任何配置/管理任务。 可以从 Azure 存储或 GitHub 下载脚本，或者在扩展运行时将脚本提供给 Azure 门户。
 
-自定义脚本扩展与 Azure 资源管理器模板集成，也可以与 Azure CLI 2.0、Azure PowerShell、Azure 门户或 REST API 配合使用。 有关详细信息，请参阅[自定义脚本扩展概述](../virtual-machines/linux/extensions-customscript.md)。
+自定义脚本扩展与 Azure 资源管理器模板集成，也可以与 Azure CLI、Azure PowerShell、Azure 门户或 REST API 配合使用。 有关详细信息，请参阅[自定义脚本扩展概述](../virtual-machines/linux/extensions-customscript.md)。
 
 若要通过 Azure CLI 使用自定义脚本扩展，请创建 JSON 文件，用于定义要包含的文件和要执行的命令。 这些 JSON 定义可以在规模集部署之间重复使用，以应用一致的应用程序安装。
 
@@ -167,7 +167,7 @@ az group delete --name myResourceGroup --no-wait --yes
 
 
 ## <a name="next-steps"></a>后续步骤
-本教程介绍了如何使用 Azure CLI 2.0 在规模集中自动安装和更新应用程序：
+本教程介绍了如何使用 Azure CLI 在规模集中自动安装和更新应用程序：
 
 > [!div class="checklist"]
 > * 将应用程序自动安装到规模集
@@ -178,5 +178,6 @@ az group delete --name myResourceGroup --no-wait --yes
 
 > [!div class="nextstepaction"]
 > [自动缩放规模集](tutorial-autoscale-cli.md)
+
 
 <!-- Update_Description: update metedata properties -->

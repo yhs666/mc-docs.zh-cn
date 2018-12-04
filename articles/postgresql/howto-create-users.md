@@ -1,21 +1,19 @@
 ---
 title: 在 Azure Database for PostgreSQL 服务器中创建用户
 description: 本文介绍了如何创建新的用户帐户，用以与 Azure Database for PostgreSQL 服务器进行交互。
-services: postgresql
 author: WenJason
 ms.author: v-jay
 editor: jasonwhowell
-manager: digimobile
-ms.service: postgresql-database
-ms.topic: article
-origin.date: 02/28/2018
-ms.date: 10/01/2018
-ms.openlocfilehash: cbaf69534990828f0c2fb0ede510c8eefe81a37a
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.service: postgresql
+ms.topic: conceptual
+origin.date: 10/16/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: 46c288e68b71de1865626b4c1f5cd3c29e9caf0a
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426133"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674422"
 ---
 # <a name="create-users-in-azure-database-for-postgresql-server"></a>在 Azure Database for PostgreSQL 服务器中创建用户 
 本文介绍了如何在 Azure Database for PostgreSQL 服务器中创建用户。
@@ -39,6 +37,7 @@ PostgreSQL 引擎使用权限来控制对数据库对象的访问权限，如 [P
    若要连接到数据库服务器，需提供完整的服务器名称和管理员登录凭据。 你可以在 Azure 门户的服务器“概述”页或“属性”页中轻松找到服务器名称和登录信息。 
 
 2. 使用管理员帐户和密码连接到你的数据库服务器。 使用你喜欢的客户端工具，例如 pgAdmin 或 psql。
+   如果不确定如何连接，请参阅[快速入门](./quickstart-create-server-database-portal.md)
 
 3. 编辑并运行下面的 SQL 代码。 将占位符值 <new_user> 替换为新用户名，将占位符密码替换为你自己的强密码。 
 
@@ -75,7 +74,7 @@ PostgreSQL 引擎使用权限来控制对数据库对象的访问权限，如 [P
 5. 指定选定的数据库并使用新用户名和密码，登录到服务器。 此示例显示了 psql 命令行。 使用此命令，会提示你输入用户名的密码。 替换你自己的服务器名称、数据库名称和用户名。
 
    ```azurecli-interactive
-   psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=db_user@mydemoserver --dbname=newdb
+   psql --host=mydemoserver.postgres.database.chinacloudapi.cn --port=5432 --username=db_user@mydemoserver --dbname=newdb
    ```
 
 ## <a name="next-steps"></a>后续步骤

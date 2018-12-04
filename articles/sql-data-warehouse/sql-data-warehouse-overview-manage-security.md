@@ -1,27 +1,22 @@
 ---
-title: 保护 SQL 数据仓库中的数据库 | Azure
+title: 保护 SQL 数据仓库中的数据库 | Microsoft 文档
 description: 有关在开发解决方案时保护 Azure SQL 数据仓库中的数据库的技巧。
 services: sql-data-warehouse
-documentationcenter: NA
-author: rockboyfor
+author: WenJason
 manager: digimobile
-editor: ''
-ms.assetid: 8fa2f5ca-4cf5-4418-99a2-4dc745799850
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: security
-origin.date: 12/14/2017
-ms.date: 03/12/2018
-ms.author: v-yeche
-ms.openlocfilehash: 3c6c30aca17a347f1572c56917ecde2ae1276358
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.topic: conceptual
+ms.component: implement
+origin.date: 04/17/2018
+ms.date: 11/26/2018
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: c0ee9353042ec8a07560eab358d50753bbb801de
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29797955"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672771"
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>保护 SQL 数据仓库中的数据库
 > [!div class="op_single_selector"]
@@ -121,5 +116,5 @@ Azure SQL 数据仓库透明数据加密 (TDE) 可以对静态数据进行加密
 [Azure portal]: https://portal.azure.cn/
 
 <!--Other Web references-->
-[Role-based access control in Azure Portal]: /active-directory/role-based-access-control-configure
+[Role-based access control in Azure portal]: /role-based-access-control/role-assignments-portal
 <!-- Update_Description: update meta properties, wording update -->

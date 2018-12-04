@@ -15,12 +15,12 @@ origin.date: 11/15/2017
 ms.date: 08/13/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 2a3781ce1638b4b138e0a6a9363340bc8225f695
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.openlocfilehash: 6d0cd57f8589e68b6720e1d5937f34e83f0a3d1d
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486922"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674277"
 ---
 # <a name="what-is-api-management"></a>什么是 API 管理？
 
@@ -33,10 +33,8 @@ API 管理 (APIM) 可帮助组织将 API 发布给外部、合作伙伴和内部
 要使用 API 管理，管理员需要创建 API。 每个 API 包括一个或多个操作，可以将每个 API 添加到一个或多个产品。 要使用的 API，开发人员需要订阅包含该 API 的产品，它们可以调用该 API 的操作，根据任何可能生效的使用情况策略。 常见方案包括：
 
 * **保护移动基础结构** 通过使用 API 密钥控制访问，使用限制或使用高级安全策略（如 JWT 令牌验证）阻止 DOS 攻击。
-* 
-  **启用 ISV 合作伙伴生态系统** 通过开发人员门户提供快速的合作伙伴加入，并构建 API 外观使其与未准备好供合作伙伴使用的内部实现分离。
-* 
-  **运行内部的 API 程序** 通过为组织提供一个集中位置来交流 API 的可用性和最新更改，基于组织帐户控制访问，所有这一切都基于 API 网关与后端之间的安全通道。
+* **启用 ISV 合作伙伴生态系统** 通过开发人员门户提供快速的合作伙伴加入，并构建 API 外观使其与未准备好供合作伙伴使用的内部实现分离。
+* **运行内部的 API 程序** 通过为组织提供一个集中位置来交流 API 的可用性和最新更改，基于组织帐户控制访问，所有这一切都基于 API 网关与后端之间的安全通道。
 
 系统由以下组件组成：
 
@@ -74,9 +72,8 @@ API 管理 (APIM) 可帮助组织将 API 发布给外部、合作伙伴和内部
  * Azure API 管理
  
 ## <a name="apis"> </a>API 和操作
-API 是 API 管理服务实例的基础。 每个 API 表示一组可供开发人员使用的操作。 每个 API 包含对实现该 API 的后端服务的引用，并且其操作映射到由后端服务实现的操作。 API 管理中的操作高度可配置，可控制 URL 映射、查询和路径参数、请求和响应内容以及操作响应缓存。 还可以在 API 或单个操作级别实现速率限制、配额和 IP 限制策略。
+API 是 API 管理服务实例的基础。 每个 API 表示一组可供开发人员使用的操作。 每个 API 包含对实现该 API 的后端服务的引用，并且其操作映射到由后端服务实现的操作。 API 管理中的操作高度可配置，可控制 URL 映射、查询和路径参数、请求和响应内容以及操作响应缓存。 速率限制、配额和 IP 限制策略还可以在 API 或单个操作级别实施。
 
-有关详细信息，请参阅[如何创建 API][How to create APIs] 和[如何将操作添加到 API][How to add operations to an API]。
 
 ## <a name="products"> </a> 产品
 产品是用于将 API 提供给开发人员的方式。 API 管理中的产品有一个或多个 API，并且配置为包含一个标题、说明和使用条款。 产品可以是**公开的**或**受保护的**。 对于受保护的产品，必须先订阅，然后才能使用它们，但公开的产品无需订阅即可使用。 当产品准备就绪可供开发人员使用时，可以将其发布。 产品一旦发布，开发人员就可以查看（如果是受保护的产品，应先进行订阅）。 订阅审批是在产品级别配置的，可能需要管理员审批，也可能自动审批。
@@ -130,14 +127,13 @@ API 是 API 管理服务实例的基础。 每个 API 表示一组可供开发�
 [Policies]: #policies
 [Developer portal]: #developer-portal
 
-[How to create APIs]: ./api-management-howto-create-apis.md
-[How to add operations to an API]: ./api-management-howto-add-operations.md
+
 [How to create and publish a product]: ./api-management-howto-add-products.md
 [How to create and use groups]: ./api-management-howto-create-groups.md
 [How to associate groups with developers]: ./api-management-howto-create-groups.md#associate-group-developer
 [How create and configure advanced product settings]: transform-api.md
 [How to create or invite developers]: ./api-management-howto-create-or-invite-developers.md
-[Policy reference]: ./api-management-policy-reference.md
+[Policy reference]: ./api-management-policies.md
 [API Management policies]: ./api-management-howto-policies.md
 [Create an API Management service instance]: get-started-create-service-instance.md
 

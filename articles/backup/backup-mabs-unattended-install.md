@@ -1,53 +1,53 @@
 ---
-title: 无提示的 Azure 备份服务器 v2 安装
-description: 使用 PowerShell 脚本可以无提示方式安装 Azure 备份服务器 v2。 这种类型安装也称为无人参与安装。
+title: 无提示的 Azure 备份服务器 V2 安装
+description: 使用 PowerShell 脚本可以无提示方式安装 Azure 备份服务器 V2。 这种类型安装也称为无人参与安装。
 services: backup
-author: markgalioto
-manager: carmonm
+author: lingliw
+manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-origin.date: 05/30/2017
-ms.date: 07/06/2018
-ms.author: v-junlch
-ms.openlocfilehash: 054fb28d58b2f0aa4df779b2cabe30bf60562c2c
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+origin.date: 11/13/2018
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.openlocfilehash: c8e185b51304ac25f963efe47da817466e89723f
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873289"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674505"
 ---
-# <a name="run-an-unattended-installation-of-azure-backup-server-v2"></a>运行 Azure 备份服务器 v2 的无人参与安装
+# <a name="run-an-unattended-installation-of-azure-backup-server"></a>运行 Azure 备份服务器的无人参与安装
 
-了解如何运行 Azure 备份服务器 v2 的无人参与安装。 
+了解如何运行 Azure 备份服务器的无人参与安装。
 
-如果是安装 Azure 备份服务器 v1，则这些步骤不适用。
+如果是安装 Azure 备份服务器 V1，则这些步骤不适用。
 
-## <a name="install-backup-server-v2"></a>安装备份服务器 v2
+## <a name="install-backup-server"></a>安装备份服务器
 
-1. 在托管 Azure 备份服务器 v2 的服务器上，创建一个文本文件。 （可以在记事本或其他文本编辑器中创建该文件。）将该文件保存为 MABSSetup.ini。 
+1. 在承载 Azure 备份服务器 V2 或更高版本的服务器上，创建一个文本文件。 （可以在记事本或其他文本编辑器中创建该文件。）将该文件保存为 MABSSetup.ini。
 
 2. 将以下代码粘贴在 MABSSetup.ini 文件中。 将括号 (\< \>) 内的文本替换为来自你环境的值。 以下文本是一个示例：
 
-    ```
-    [OPTIONS]
-    UserName=administrator
-    CompanyName=<Microsoft Corporation>
-    SQLMachineName=localhost
-    SQLInstanceName=<SQL instance name>
-    SQLMachineUserName=administrator
-    SQLMachinePassword=<admin password>
-    SQLMachineDomainName=<machine domain>
-    ReportingMachineName=localhost
-    ReportingInstanceName=<reporting instance name>
-    SqlAccountPassword=<admin password>
-    ReportingMachineUserName=<username>
-    ReportingMachinePassword=<reporting admin password>
-    ReportingMachineDomainName=<domain>
-    VaultCredentialFilePath=<vault credential full path and complete name>
-    SecurityPassphrase=<passphrase>
-    PassphraseSaveLocation=<passphrase save location>
-    UseExistingSQL=<1/0 use or do not use existing SQL>
-    ```
+  ```
+  [OPTIONS]
+  UserName=administrator
+  CompanyName=<Microsoft Corporation>
+  SQLMachineName=localhost
+  SQLInstanceName=<SQL instance name>
+  SQLMachineUserName=administrator
+  SQLMachinePassword=<admin password>
+  SQLMachineDomainName=<machine domain>
+  ReportingMachineName=localhost
+  ReportingInstanceName=<reporting instance name>
+  SqlAccountPassword=<admin password>
+  ReportingMachineUserName=<username>
+  ReportingMachinePassword=<reporting admin password>
+  ReportingMachineDomainName=<domain>
+  VaultCredentialFilePath=<vault credential full path and complete name>
+  SecurityPassphrase=<passphrase>
+  PassphraseSaveLocation=<passphrase save location>
+  UseExistingSQL=<1/0 use or do not use existing SQL>
+  ```
 
 3. 保存文件。 然后在安装服务器上的提升的命令提示符下，输入以下命令：
 

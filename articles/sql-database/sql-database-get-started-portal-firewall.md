@@ -11,16 +11,16 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto, carlrab
 manager: digimobile
-origin.date: 09/06/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: 209d6460f3729dcd4bbe048d4360b708561760c7
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+origin.date: 11/01/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: d9c07b91a23c065abf32c11a4b6e22316012c994
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135724"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672795"
 ---
-# <a name="create-a-server-level-firewall-rule-for-your-sql-database-using-the-azure-portal"></a>使用 Azure 门户为 SQL 数据库创建服务器级防火墙规则
+# <a name="quickstart-create-a-server-level-firewall-rule-for-your-sql-database-using-the-azure-portal"></a>快速入门：使用 Azure 门户为 SQL 数据库创建服务器级防火墙规则
 
 本快速入门介绍如何为 Azure SQL 数据库创建服务器级防火墙规则，使你能够从本地资源连接到该数据库。
 

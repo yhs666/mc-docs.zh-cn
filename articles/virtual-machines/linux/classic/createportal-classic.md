@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 05/31/2017
-ms.date: 05/14/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6a6ee935ad6c4c03c5a9f9e9a32ce7fc018549d7
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: ca0ab19bd3112f86a0953a5174ec95d8f5d723d6
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34061938"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674113"
 ---
 # <a name="create-a-custom-virtual-machine-running-linux"></a>创建运行 Linux 的自定义虚拟机
 > [!IMPORTANT] 

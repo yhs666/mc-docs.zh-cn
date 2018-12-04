@@ -2,25 +2,21 @@
 title: Durable Functions 中的永久业务流程 - Azure
 description: 了解如何使用 Azure Functions 的 Durable Functions 扩展实现永久业务流程。
 services: functions
-author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+author: kashimiz
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-origin.date: 09/29/2017
-ms.date: 07/24/2018
+ms.topic: conceptual
+origin.date: 10/23/2018
+ms.date: 11/21/2018
 ms.author: v-junlch
-ms.openlocfilehash: aa56a5a8870f7a7a833d9de989a67ed8191cf151
-ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
+ms.openlocfilehash: b27087d1a169903213b3db064236464e8991771e
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39220194"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672491"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Durable Functions 中的永久业务流程 (Azure Functions)
 
@@ -39,12 +35,11 @@ ms.locfileid: "39220194"
 > [!NOTE]
 > Durable Task Framework 会维护同一个实例 ID，但在内部会为由 `ContinueAsNew` 重置的业务流程协调程序函数创建一个新的“执行 ID”。 此执行 ID 通常不对外公开，但在调试业务流程执行时知道该 ID 可能比较有用。
 
-> [!NOTE]
-> `ContinueAsNew` 方法尚不可在 JavaScript 中使用。
-
 ## <a name="periodic-work-example"></a>定期工作示例
 
 永久业务流程的一个用例是需要无限期执行定期工作的代码。
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("Periodic_Cleanup_Loop")]
@@ -61,6 +56,23 @@ public static async Task Run(
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript（仅限 Functions v2）
+
+```javascript
+const df = require("durable-functions");
+const moment = require("moment");
+
+module.exports = df.orchestrator(function*(context) {
+    yield context.df.callActivity("DoCleanup");
+
+    // sleep for one hour between cleanups
+    const nextCleanup = moment.utc(context.df.currentUtcDateTime).add(1, "h");
+    yield context.df.createTimer(nextCleanup);
+
+    context.df.continueAsNew(undefined);
+});
+```
+
 此示例与计时器触发的函数之间的区别是此处的清理触发时间不基于计划。 例如，每小时执行某个函数的 CRON 计划将在 1:00、2:00 和 3:00 等时间执行，并且可能会遇到重叠问题。 不过，在此示例中，如果清理花费 30 分钟，则它将计划在 1:00、2:30、4:00 等时间执行，因此不可能重叠。
 
 ## <a name="exit-from-an-eternal-orchestration"></a>从永久业务流程退出
@@ -74,4 +86,4 @@ public static async Task Run(
 > [!div class="nextstepaction"]
 > [了解如何实现单一实例业务流程](durable-functions-singletons.md)
 
-<!-- Update_Description: remove content about "Counter example" -->
+<!-- Update_Description: code update -->

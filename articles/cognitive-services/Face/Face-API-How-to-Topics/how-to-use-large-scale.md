@@ -12,11 +12,11 @@ origin.date: 03/01/2018
 ms.date: 10/23/2018
 ms.author: v-junlch
 ms.openlocfilehash: ae2c6ea19ee39c93fc617aafa6f93c257c95c771
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034929"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667146"
 ---
 # <a name="example-how-to-use-the-large-scale-feature"></a>示例：如何使用大规模功能
 

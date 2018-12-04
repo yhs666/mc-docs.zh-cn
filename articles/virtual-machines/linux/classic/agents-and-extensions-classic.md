@@ -15,15 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 03/02/2017
-ms.date: 05/14/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d52ad9d2cfcbaf68d549b7e1f59687a4b0a8bf0e
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 85664ae6c3d6e6ef51a02d48670506ff67a540f3
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34061962"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674149"
 ---
 # <a name="about-the-virtual-machine-agent-and-extensions-for-linux"></a>关于适用于 Linux 的虚拟机代理和扩展
 > [!IMPORTANT]

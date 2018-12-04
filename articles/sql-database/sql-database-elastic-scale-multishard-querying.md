@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 10/05/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: f4203a0deab2e53a99a8a7833a5f12328a323eb6
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.date: 12/03/2018
+ms.openlocfilehash: 0d3d6d4dc078ed59799fe810c01536575c98bfde
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135813"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672797"
 ---
 # <a name="multi-shard-querying-using-elastic-database-tools"></a>使用弹性数据库工具进行多分片查询
 
@@ -30,7 +30,7 @@ ms.locfileid: "50135813"
 2. 创建 **MultiShardConnection**（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_connection)、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multishardconnection)）对象。
 3. 创建 **MultiShardStatement 或 MultiShardCommand**（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_statement)、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand)）。 
 4. 设置 T-SQL 命令的 **CommandText 属性**（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_statement)、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand)）。
-5. 通过调用 **ExecuteQueryAsync 或 ExecuteReader**（[Java]()、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand)）方法执行该命令。
+5. 通过调用 **ExecuteQueryAsync 或 ExecuteReader**（[Java](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_statement.executeQueryAsync)、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand)）方法执行该命令。
 6. 使用 **MultiShardResultSet 或 MultiShardDataReader**（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_result_set)、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multisharddatareader)）类查看结果。 
 
 ## <a name="example"></a>示例

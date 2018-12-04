@@ -1,34 +1,27 @@
 ---
 title: 创建和修改 ExpressRoute 线路：PowerShell：Azure Resource Manager | Azure
 description: 本文介绍如何创建、预配、验证、更新、删除和取消预配 ExpressRoute 线路。
-documentationcenter: na
 services: expressroute
 author: ganesr
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: f997182e-9b25-4a7a-b079-b004221dadcc
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/18/2017
-ms.date: 06/18/2018
+ms.date: 12/10/2018
 ms.author: v-yiso
-ms.openlocfilehash: 8a0034f3a0fca819b8f17ed398180203a679e94f
-ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
+ms.openlocfilehash: 8634a0e406bcccb2d17c11675dc844e113dea3af
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855377"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674949"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>使用 PowerShell 创建和修改 ExpressRoute 线路
 > [!div class="op_single_selector"]
 > * [Azure 门户](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
-> * [视频 - Azure 门户](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell（经典）](expressroute-howto-circuit-classic.md)
 >
 >
@@ -36,8 +29,8 @@ ms.locfileid: "34855377"
 
 
 ## <a name="before-you-begin"></a>准备阶段
-* 安装最新版本的 Azure Resource Manager PowerShell cmdlet。 有关详细信息，请参阅 [Azure PowerShell 概述](../powershell-install-configure.md)。
-* 在开始配置之前，请查看[先决条件](./expressroute-prerequisites.md)和[工作流](./expressroute-workflows.md)。
+
+在开始配置之前，请查看[先决条件](expressroute-prerequisites.md)和[工作流](expressroute-workflows.md)。
 
 
 ## <a name="create"></a>创建和预配 ExpressRoute 线路
@@ -235,7 +228,7 @@ Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName
 有关分步说明，请参阅 [ExpressRoute 线路路由配置](./expressroute-howto-routing-arm.md)一文，了解如何创建和修改线路对等互连。
 
 > [!IMPORTANT]
-> 这些说明只适用于由提供第 2 层连接服务的服务提供商创建的线路。 如果服务提供商提供第 3 层托管服务（通常是 IP VPN，如 MPLS），则连接服务提供商将为你配置和管理路由。
+> 这些说明仅适用于由提供第 2 层连接服务的服务提供商创建的线路。 如果服务提供商提供第 3 层托管服务（通常是 IP VPN，如 MPLS），则连接服务提供商会配置和管理路由。
 > 
 > 
 

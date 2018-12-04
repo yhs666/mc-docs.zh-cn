@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2017
-ms.date: 03/12/2018
-ms.author: v-yiso
-ms.openlocfilehash: e82bea13a651b5928d1502f8520f04d83480d3be
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.date: 12/03/2018
+ms.author: v-biyu
+ms.openlocfilehash: 13eef72e70f5f7cf76ce98ffb524a82a8a8f6c16
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29730701"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674572"
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>如何：在 Azure 应用服务中监视 Web 应用
 [应用服务](app-service-web-overview.md)在 [Azure 门户](https://portal.azure.cn)中提供了内置监视功能。
@@ -155,6 +155,10 @@ ms.locfileid: "29730701"
 
 托管在基本、标准或高级应用服务计划中的应用服务应用支持**自动缩放**。 使用自动缩放可以配置监视应用服务计划指标的规则。 规则可以增加或减少实例计数，并根据需要提供更多的资源。 规则还有助于避免应用程序过度预配，从而节省资金。 可以在此处了解有关自动缩放的详细信息：[如何缩放](../monitoring-and-diagnostics/insights-how-to-scale.md)以及 [Azure 监视器自动缩放的最佳做法](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 
+> [!NOTE]
+> 如果想要在注册 Azure 帐户之前开始使用 Azure 应用服务，请转到[试用应用服务](https://www.azure.cn/zh-cn/home/features/app-service/)，并在其中立即创建一个生存期较短的入门 Web 应用。 不需要使用信用卡，也不需要做出承诺。
+> 
+> 
 
 [fzilla]:http://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:/cloud-services/cloud-services-sizes-specs

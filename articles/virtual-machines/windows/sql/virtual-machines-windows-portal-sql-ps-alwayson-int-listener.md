@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 05/22/2017
-ms.date: 09/24/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: ab13928af6a462c45022fc70aa7bcbb882293f99
-ms.sourcegitcommit: 1b1f7254343b2a3ada7b253841f86f2ff88f0a0b
+ms.openlocfilehash: f31228eea3d30d56ba0fb7f6f6847f8826bb9a7c
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47420910"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674347"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>配置一个或多个 Always On 可用性组侦听器 - Resource Manager
 本主题说明如何：
@@ -43,7 +43,7 @@ ms.locfileid: "47420910"
 [!INCLUDE [Start your PowerShell session](../../../../includes/sql-vm-powershell.md)]
 
 ## <a name="configure-the-windows-firewall"></a>配置 Windows 防火墙
-配置 Windows 防火墙以允许 SQL Server 访问。 防火墙规则允许到端口（由 SQL Server 实例使用）的 TCP 连接，并且允许侦听器探测。 有关详细的说明，请参阅[为数据库引擎访问配置 Windows 防火墙](http://msdn.microsoft.com/library/ms175043.aspx#Anchor_1)。 为 SQL Server 端口和探测端口创建入站规则。
+配置 Windows 防火墙以允许 SQL Server 访问。 防火墙规则允许到端口（由 SQL Server 实例使用）的 TCP 连接，并且允许侦听器探测。 有关详细的说明，请参阅[为数据库引擎访问配置 Windows 防火墙](https://msdn.microsoft.com/library/ms175043.aspx#Anchor_1)。 为 SQL Server 端口和探测端口创建入站规则。
 
 如果要限制 Azure 网络安全组的访问权限，请确保“允许”规则包含后端 SQL Server VM IP 地址、可用性组侦听器的负载均衡器浮动 IP 地址、群集核心 IP 地址（如适用）。
 
@@ -114,7 +114,7 @@ foreach($VMName in $VMNames)
 > 对于 SQL Server 可用性组，每个 IP 地址需要一个特定的探测端口。 例如，如果负载均衡器上有一个 IP 地址使用探测端口 59999，该负载均衡器上的其他任何 IP 地址就不能使用探测端口 59999。
 
 * 有关负载均衡器限制的信息，请参阅[网络限制 - Azure Resource Manager](../../../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits) 下面的**每个负载均衡器的专用前端 IP**。
-* 有关可用性组限制的信息，请参阅[限制（可用性组）](http://msdn.microsoft.com/library/ff878487.aspx#RestrictionsAG)。
+* 有关可用性组限制的信息，请参阅[限制（可用性组）](https://msdn.microsoft.com/library/ff878487.aspx#RestrictionsAG)。
 
 以下脚本将新的 IP 地址添加到现有负载均衡器。 ILB 使用侦听器端口作为负载均衡前端端口。 此端口可以是 SQL Server 正在侦听的端口。 对于 SQL Server 的默认实例，此端口为 1433。 可用性组的负载均衡规则需要浮动 IP（直接服务器返回），因此后端端口与前端端口相同。 请更新环境的变量。 
 
@@ -192,7 +192,7 @@ $ILB | Add-AzureRmLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConf
 SQLCMD 连接会自动连接到托管主副本的 SQL Server 实例。 
 
 > [!NOTE]
-> 确保指定的端口已在两个 SQL Server 的防火墙上打开。 这两个服务器需要所用 TCP 端口的入站规则。 有关详细信息，请参阅 [Add or Edit Firewall Rule](http://technet.microsoft.com/library/cc753558.aspx)（添加或编辑防火墙规则）。 
+> 确保指定的端口已在两个 SQL Server 的防火墙上打开。 这两个服务器需要所用 TCP 端口的入站规则。 有关详细信息，请参阅 [Add or Edit Firewall Rule](https://technet.microsoft.com/library/cc753558.aspx)（添加或编辑防火墙规则）。 
 > 
 > 
 
@@ -209,10 +209,11 @@ SQLCMD 连接会自动连接到托管主副本的 SQL Server 实例。
 ## <a name="powershell-cmdlets"></a>PowerShell cmdlet
 使用以下 PowerShell cmdlet 为 Azure 虚拟机创建内部负载均衡器。
 
-* 使用 [New-AzureRmLoadBalancer](http://msdn.microsoft.com/library/mt619450.aspx) 创建负载均衡器。 
-* 使用 [New-AzureRMLoadBalancerFrontendIpConfig](http://msdn.microsoft.com/library/mt603510.aspx) 创建负载均衡器的前端 IP 配置。 
-* 使用 [New-AzureRmLoadBalancerRuleConfig](http://msdn.microsoft.com/library/mt619391.aspx) 创建负载均衡器的规则配置。 
-* 使用 [New-AzureRmLoadBalancerBackendAddressPoolConfig](http://msdn.microsoft.com/library/mt603791.aspx) 创建负载均衡器的后端地址池配置。 
-* 使用 [New-AzureRmLoadBalancerProbeConfig](http://msdn.microsoft.com/library/mt603847.aspx) 创建负载均衡器的探测配置。
-* 使用 [Remove-AzureRmLoadBalancer](http://msdn.microsoft.com/library/mt603862.aspx) 从 Azure 资源组中删除负载均衡器。
+* 使用 [New-AzureRmLoadBalancer](https://msdn.microsoft.com/library/mt619450.aspx) 创建负载均衡器。 
+* 使用 [New-AzureRMLoadBalancerFrontendIpConfig](https://msdn.microsoft.com/library/mt603510.aspx) 创建负载均衡器的前端 IP 配置。 
+* 使用 [New-AzureRmLoadBalancerRuleConfig](https://msdn.microsoft.com/library/mt619391.aspx) 创建负载均衡器的规则配置。 
+* 使用 [New-AzureRmLoadBalancerBackendAddressPoolConfig](https://msdn.microsoft.com/library/mt603791.aspx) 创建负载均衡器的后端地址池配置。 
+* 使用 [New-AzureRmLoadBalancerProbeConfig](https://msdn.microsoft.com/library/mt603847.aspx) 创建负载均衡器的探测配置。
+* 使用 [Remove-AzureRmLoadBalancer](https://msdn.microsoft.com/library/mt603862.aspx) 从 Azure 资源组中删除负载均衡器。
+
 <!-- Update_Description: wording update, update link -->

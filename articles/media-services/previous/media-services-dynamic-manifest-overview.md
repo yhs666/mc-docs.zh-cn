@@ -3,7 +3,7 @@ title: 筛选器和动态清单 | Microsoft Docs
 description: 本主题介绍如何创建筛选器，以便客户端能够使用它们来流式传输流的特定部分。 媒体服务会创建动态清单来存档此选择性的流。
 services: media-services
 documentationcenter: ''
-author: yunan2016
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: ff102765-8cee-4c08-a6da-b603db9e2054
@@ -12,23 +12,23 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-origin.date: 01/22/2018
-ms.date: 05/07/2018
-ms.author: v-nany
-ms.openlocfilehash: 435d7b84fddd0ff758c5ff51e1544769d6926259
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+origin.date: 11/06/2018
+ms.date: 12/03/2018
+ms.author: v-jay
+ms.openlocfilehash: f62cb00d599c28709989efd6c95aee26a8ce862e
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426290"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672849"
 ---
 # <a name="filters-and-dynamic-manifests"></a>筛选器和动态清单
-从 2.17 版开始，可使用媒体服务为资产定义筛选器。 这些筛选器是服务器端规则，可让客户选择运行如下操作：只播放一段视频（而非播放完整视频），或只指定客户设备可以处理的一部分音频和视频再现内容（而非与该资产相关的所有再现内容）。 通过按客户请求创建的动态清单可以实现对资产进行这种筛选，并基于指定的筛选器流式传输视频。
+从 2.17 版开始，可使用媒体服务为资产定义筛选器。 这些筛选器是服务器端规则，可让客户选择执行如下操作：只播放一段视频（而非播放完整视频），或只指定客户设备可以处理的一部分音频和视频再现内容（而非与该资产相关的所有再现内容）。 通过按客户请求创建的动态清单可以实现对资产进行筛选，并基于指定的筛选器流式传输视频。
 
 本主题讨论一些常见方案，在这些方案中使用筛选器对于客户非常有利，并链接到演示如何以编程方式创建筛选器的主题。
 
 ## <a name="overview"></a>概述
-在将内容传送到客户（流式传输实时事件或视频点播）时，你的目标就是：将优质视频传递到处于不同网络条件下的各种设备。 若要实现此目标，请执行以下操作：
+将内容传送到客户（流式传输实时事件或视频点播）时，目标是：将优质视频传递到处于不同网络条件下的各种设备。 若要实现此目标，请执行以下操作：
 
 * 将流编码成多比特率（[自适应比特率](http://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)）视频流（这将会负责处理质量和网络条件），并 
 * 使用媒体服务[动态打包](media-services-dynamic-packaging-overview.md)将流动态地重新打包成不同的协议（这将会负责不同设备上的流式处理）。 媒体服务支持传送以下自适应比特率流式处理技术：HTTP Live Streaming (HLS)、平滑流式处理和 MPEG DASH。 
@@ -71,7 +71,7 @@ ms.locfileid: "47426290"
 ### <a name="dynamic-manifests"></a>动态清单
 在某些[情况](media-services-dynamic-manifest-overview.md#scenarios)下，默认资产的清单文件中描述的内容无法满足客户端所需的灵活性。 例如：
 
-* 特定于设备：只传送内容播放设备所支持的指定再现内容和/或指定的语言轨迹（“再现内容筛选”）。 
+* 特定于设备：只传送内容播放设备所支持的指定再现内容和/或指定的语言轨道（“再现内容筛选”）。 
 * 缩小清单以显示实时事件的子剪辑（“子剪辑筛选”）。
 * 修剪视频开头（“修剪视频”）。
 * 调整演播窗口 (DVR)，以便在播放器中提供长度有限的 DVR 窗口（“调整演播窗口”）。
@@ -110,13 +110,13 @@ http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb2
 * 调整 DVR 演播窗口。
 
 ## <a name="rendition-filtering"></a>再现内容筛选
-可选择将资产编码成多个编码配置文件（H.264 Baseline、H.264 High、AACL、AACH、Dolby Digital Plus），以及多个优质比特率。 不过，并非所有的客户端设备都支持资产的所有配置文件和比特率。 例如，早期的 Android 设备只支持 H.264 Baseline+AACL。 将较高的比特率发送到不能利用这些优势的设备会浪费带宽及设备计算资源。 此类设备必须解码所有给定信息，目的仅仅是为了缩小信息以便能够显示。
+可选择将资产编码成多个编码配置文件（H.264 Baseline、H.264 High、AACL、AACH、Dolby Digital Plus），以及多个优质比特率。 不过，并非所有的客户端设备都支持所有的资产配置文件和比特率。 例如，早期的 Android 设备只支持 H.264 Baseline+AACL。 将较高的比特率发送到不能利用这些优势的设备会浪费带宽及设备计算资源。 此类设备必须解码所有给定信息，目的仅仅是为了缩小信息以便能够显示。
 
 借助动态清单，可以创建设备配置文件（例如移动配置文件、控制台、HD/SD 等），并包含想要纳入配置文件中的曲目与质量。
 
 ![再现内容筛选示例][renditions2]
 
-以下示例使用编码器将夹层资产编码成七个 ISO MP4 视频再现内容（从 180p 到 1080p）。 编码的资产可动态打包成以下任一流协议：HLS、平滑流和 MPEG DASH。  图表顶部显示了不包含筛选器的资产的 HLS 清单（包含全部七个再现内容）。  左下角显示名为“ott”的筛选器已应用到 HLS 清单。 “ott”筛选器指定要删除所有不低于 1Mbps 的比特率，因此质量最差的两个级别会从响应中剥除。  右下角显示名为 "mobile" 的筛选器已应用到 HLS 清单。 “mobile”筛选器指定要删除分辨率大于 720p 的再现内容，因此将剥除两个 1080p 再现内容。
+以下示例使用编码器将夹层资产编码成七个 ISO MP4 视频再现内容（从 180p 到 1080p）。 编码的资产可动态打包成以下任一流协议：HLS、平滑流和 MPEG DASH。  图表顶部显示了不包含筛选器的资产的 HLS 清单（包含全部七个再现内容）。  左下角显示名为“ott”的筛选器已应用到 HLS 清单。 “ott”筛选器指定要删除所有不低于 1Mbps 的比特率，因此质量最差的两个级别会从响应中剥除。 右下角显示名为“mobile”的筛选器已应用到 HLS 清单。 “mobile”筛选器指定删除分辨率大于 720p 的再现内容，因此会剥除两个 1080p 再现内容。
 
 ![再现内容筛选][renditions1]
 
@@ -182,7 +182,7 @@ http://teststreaming.streaming.mediaservices.chinacloudapi.cn/3d56a4d-b71d-489b-
 
 ## <a name="know-issues-and-limitations"></a>已知问题和限制
 * 动态清单在 GOP 边界（主键帧）内运行，因此修剪后具有精确的 GOP。 
-* 可以对本地和全局筛选器使用相同的筛选器名称。 请注意，本地筛选器的优先顺序更高，会取代全局筛选器。
+* 可以对本地和全局筛选器使用相同的筛选器名称。 本地筛选器的优先级更高，会替代全局筛选器。
 * 如果更新筛选器，则流式处理终结点需要最多 2 分钟来刷新规则。 如果内容是通过使用某些筛选器提供的（并在代理和 CDN 缓存中缓存），则更新这些筛选器会导致播放器失败。 建议在更新筛选器之后清除缓存。 如果此选项不可用，请考虑使用其他筛选器。
 
 ## <a name="see-also"></a>另请参阅

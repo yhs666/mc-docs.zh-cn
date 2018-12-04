@@ -4,22 +4,21 @@ description: 提供有关如何处理函数执行时发生的错误的常规指�
 services: functions
 cloud: ''
 documentationcenter: ''
-author: ggailey777
-manager: cfowler
+author: craigshoemaker
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: multiple
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 origin.date: 02/01/2018
-ms.date: 04/13/2018
+ms.date: 11/22/2018
 ms.author: v-junlch
-ms.openlocfilehash: 2cfc5da2026311c723524722247caf27f9fbdc67
-ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
+ms.openlocfilehash: c10d525de76ba4845bb4f7b5ddfa26f89e76dff4
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673041"
 ---
 # <a name="azure-functions-error-handling"></a>Azure Functions 错误处理
 
@@ -47,3 +46,4 @@ ms.lasthandoff: 04/19/2018
 
 + [表存储](functions-bindings-storage-table.md#exceptions-and-return-codes)
 
+<!-- Update_Description: update metedata properties -->

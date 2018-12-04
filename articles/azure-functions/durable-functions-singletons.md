@@ -3,24 +3,20 @@ title: Durable Functions 的单一实例 - Azure
 description: 如何使用 Azure Functions 的 Durable Functons 扩展中的单一实例。
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 origin.date: 09/29/2017
-ms.date: 07/24/2018
+ms.date: 11/22/2018
 ms.author: v-junlch
-ms.openlocfilehash: 9a616e9251c6ed4f4f7fc8c492b39651e71db1db
-ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
+ms.openlocfilehash: fa21654986aba64dc52a2c1143eb16718c1a4043
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39220188"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672595"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Durable Functions 中的单一实例业务流程协调程序 (Azure Functions)
 
@@ -37,7 +33,7 @@ public static async Task<HttpResponseMessage> RunSingle(
     [OrchestrationClient] DurableOrchestrationClient starter,
     string functionName,
     string instanceId,
-    TraceWriter log)
+    ILogger log)
 {
     // Check if an instance with the specified ID already exists.
     var existingInstance = await starter.GetStatusAsync(instanceId);
@@ -46,7 +42,7 @@ public static async Task<HttpResponseMessage> RunSingle(
         // An instance with the specified ID doesn't exist, create one.
         dynamic eventData = await req.Content.ReadAsAsync<object>();
         await starter.StartNewAsync(functionName, instanceId, eventData);
-        log.Info($"Started orchestration with ID = '{instanceId}'.");
+        log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
         return starter.CreateCheckStatusResponse(req, instanceId);
     }
     else
@@ -71,4 +67,4 @@ public static async Task<HttpResponseMessage> RunSingle(
 > [!div class="nextstepaction"]
 > [了解如何调用子业务流程](durable-functions-sub-orchestrations.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

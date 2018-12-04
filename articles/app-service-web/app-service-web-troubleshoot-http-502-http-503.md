@@ -18,16 +18,16 @@ origin.date: 07/06/2016
 ms.date: 09/26/2016
 ms.author: v-dazen
 ms.openlocfilehash: 6d5a765a5b2f2b06ef080b5d3766a9db7c16d432
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
-ms.locfileid: "20634099"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667296"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-your-azure-web-apps"></a>排查 Azure Web 应用中的“502 错误的网关”和“503 服务不可用”HTTP 错误
-[Azure App Service](/app-service-web/app-service-changes-existing-services) 中托管的 Web 应用经常出现“502 网关错误”和“503 服务不可用”错误。 本文将帮助你排查这些错误。
+[Azure App Service](/app-service-web/app-service-changes-existing-services) 中托管的 Web 应用经常出现“502 网关错误”和“503 服务不可用”错误。 本文帮助你排查这些错误。
 
-如果你对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) 上的 Azure 专家。 或者，你也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)，并单击“**获取支持**”。
+如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) 上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)，并单击“**获取支持**”。
 
 ## <a name="symptom"></a>症状
 浏览 Web 应用时返回 HTTP 错误“502 错误的网关”或 HTTP 错误“503 服务不可用”。
@@ -55,9 +55,9 @@ ms.locfileid: "20634099"
 每次发生服务中断或性能下降时 Azure 会进行宣传。 可以在 [Azure 门户](https://portal.azure.cn/)中跟踪服务的运行状况。
 
 #### <a name="monitor-your-web-app"></a>监视 Web 应用
-此选项可让你找出应用程序是否存在任何问题。 在 Web 应用的边栏选项卡中，单击“请求和错误”磁贴。 “指标”边栏选项卡将显示所有可以添加的指标。
+此选项可让你找出应用程序是否存在任何问题。 在 Web 应用的边栏选项卡中，单击“请求和错误”磁贴。 “指标”边栏选项卡显示所有可以添加的指标。
 
-你可能想要在 Web 应用中监视的一些指标包括
+可能想要在 Web 应用中监视的一些指标包括
 
 * 平均内存工作集
 * 平均响应时间
@@ -85,11 +85,11 @@ Kudu 提供的一些信息和功能包括：
 * 应用程序的环境设置
 * 日志流
 * 诊断转储
-* 调试控制台，你可以在其中运行 Powershell cmdlet 和基本 DOS 命令。
+* 调试控制台，可以在其中运行 Powershell cmdlet 和基本 DOS 命令。
 
-Kudu 的另一项有用功能是，如果应用程序引发第一次异常，你可以使用 Kudu 和 SysInternals 工具 Procdump 创建内存转储。 这些内存转储是进程的快照，通常可以帮助你排查较复杂的 Web 应用问题。
+Kudu 的另一项有用功能是，如果应用程序引发第一次异常，可以使用 Kudu 和 SysInternals 工具 Procdump 创建内存转储。 这些内存转储是进程的快照，通常可以帮助你排查较复杂的 Web 应用问题。
 
-有关 Kudu 提供的功能的详细信息，请参阅 [你应该了解的 Azure 网站联机工具](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/)。
+有关 Kudu 提供的功能的详细信息，请参阅[应该了解的 Azure 网站联机工具](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/)。
 
 <a name="mitigate" />
 
@@ -99,12 +99,12 @@ Kudu 的另一项有用功能是，如果应用程序引发第一次异常，你
 
 有关缩放的详细信息，请参阅[缩放 Azure 应用服务中的 Web 应用](web-sites-scale.md)。
 
-此外，你可以选择在多个实例上运行应用程序。 这不仅能提供更强大的处理能力，而且还能提供一定程度的容错。 如果进程在某个实例上中断，其他实例仍将继续处理请求。
+此外，可以选择在多个实例上运行应用程序。 这不仅能提供更强大的处理能力，而且还能提供一定程度的容错。 如果进程在某个实例上中断，其他实例仍将继续处理请求。
 
 可以将缩放设置为手动或自动。
 
 #### <a name="use-autoheal"></a>使用 AutoHeal
-AutoHeal 会根据你选择的设置（例如配置更改、请求、基于内存的限制或执行请求所需的时间），回收应用程序的工作进程。 在大多数情况下，回收进程是在出现问题后进行恢复的最快方式。 尽管始终可以从 Azure 门户直接重新启动 Web 应用，但 AutoHeal 可以自动为你执行此操作。 你只需在 Web 应用的根 web.config 中添加一些触发器即可。 请注意，即使你的应用程序并非 .Net 应用程序，这些设置的工作方式也仍然相同。
+AutoHeal 会根据所选设置（例如配置更改、请求、基于内存的限制或执行请求所需的时间）回收应用的工作进程。 在大多数情况下，回收进程是在出现问题后进行恢复的最快方式。 尽管始终可以从 Azure 门户直接重新启动 Web 应用，但 AutoHeal 可以自动执行此操作。 只需在 Web 应用的根 web.config 中添加一些触发器即可。 请注意，即使应用程序并非 .Net 应用程序，这些设置的工作方式也仍然相同。
 
 有关详细信息，请参阅 [自动修复 Azure 网站](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/)。
 
@@ -113,4 +113,4 @@ AutoHeal 会根据你选择的设置（例如配置更改、请求、基于内�
 
  ![重新启动应用以解决 HTTP 错误“502 错误的网关”和“503 服务不可用”](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
-还可以使用 Azure Powershell 管理 Web 应用。 有关详细信息，请参阅[将 Azure PowerShell 与 Azure Resource Manager 配合使用](../powershell-azure-resource-manager.md)。
+还可以使用 Azure Powershell 管理 Web 应用。 有关详细信息，请参阅[将 Azure PowerShell 与 Azure 资源管理器配合使用](../powershell-azure-resource-manager.md)。

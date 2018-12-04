@@ -3,8 +3,8 @@ title: 使用 Azure 门户缩放媒体处理 | Microsoft Docs
 description: 本教程逐步介绍了如何使用 Azure 门户缩放媒体处理。
 services: media-services
 documentationcenter: ''
-author: Juliako
-manager: erikre
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: e500f733-68aa-450c-b212-cf717c0d15da
 ms.service: media-services
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/04/2017
-ms.date: 08/07/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 6806bd662a16f542bcb689c26194c52025516d83
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+origin.date: 11/05/2018
+ms.date: 12/03/2018
+ms.author: v-jay
+ms.openlocfilehash: 267fdd3db16b1f76665efdd0ad593d1adfa9ef1d
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426475"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672630"
 ---
 # <a name="change-the-reserved-unit-type"></a>更改预留单位类型
 > [!div class="op_single_selector"]
@@ -31,10 +31,6 @@ ms.locfileid: "47426475"
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 
 > 
-
-> [!NOTE]
-> 若要获取最新版本的 Java SDK 并开始使用 Java 进行开发，请参阅[媒体服务的 Java 客户端 SDK 入门](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use)。 <br/>
-> 若要下载最新的媒体服务 PHP SDK，请在 [Packagist 存储库](https://packagist.org/packages/microsoft/windowsazure#v0.5.7)中查找 0.5.7 版 Microsoft/WindowAzure 包。  
 
 ## <a name="overview"></a>概述
 

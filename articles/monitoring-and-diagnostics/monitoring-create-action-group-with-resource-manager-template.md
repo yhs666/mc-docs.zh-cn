@@ -1,26 +1,20 @@
 ---
 title: 使用资源管理器模板创建操作组
 description: 了解如何使用 Azure 资源管理器模板创建操作组。
-author: dkamstra
-manager: chrad
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: lingliw
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 origin.date: 02/16/2018
-ms.date: 03/19/2018
-ms.author: v-yiso
-ms.openlocfilehash: e201dd867fa9eb0ae91da4891312dd62123be2f4
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.component: alerts
+ms.openlocfilehash: 98958c508641ba249ebb8e5dfd3d52ee0ffdd403
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870313"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675391"
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>使用资源管理器模板创建操作组
 本文说明如何使用 [Azure 资源管理器模板](../azure-resource-manager/resource-group-authoring-templates.md)配置操作组。 使用模板，可以自动设置可以在某些类型的警报中重复使用的操作组。 这些操作组可确保警报触发时所有相应的当事方可以收到通知。

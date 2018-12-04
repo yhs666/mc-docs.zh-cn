@@ -3,7 +3,7 @@ title: 创建一个 Azure API 管理实例
 description: 按照本教程中的步骤创建新的 Azure API 管理实例。
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cflower
 editor: ''
 ms.service: api-management
@@ -11,14 +11,14 @@ ms.workload: integration
 ms.topic: quickstart
 ms.custom: mvc
 origin.date: 11/28/2017
-ms.date: 03/19/2018
+ms.date: 12/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: a29cf058a1dee0b1926ac0bfcdb8cd26d0f0dda0
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: a81adfddebd939c8c90a8a8979e0c80f7062a296
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939612"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674490"
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>创建新的 Azure API 管理服务实例
 
@@ -36,6 +36,7 @@ Azure API 管理 (APIM) 可帮助组织将 API 发布给外部、合作伙伴和
 
 ## <a name="create-a-new-service"></a>创建新服务
 
+![新建 Azure API 管理实例](./media/get-started-create-service-instance/00-CreateResource-01.png)
 1. 在 [Azure 门户](https://portal.azure.cn/)中，选择“创建资源” > “企业集成” > “API 管理”。
 
     或者，选择“新建”，在搜索框中键入 `API management`，然后按 Enter。 单击**创建**。
@@ -44,15 +45,16 @@ Azure API 管理 (APIM) 可帮助组织将 API 发布给外部、合作伙伴和
 
     ![新实例](./media/get-started-create-service-instance/get-started-create-service-instance-create-new.png)
 
-    | 设置      | 建议的值  | 说明              |
-    | ------------ |  ------- | ---------------------------------|
-    |**名称**|API 管理服务的唯一名称| 以后无法更改此名称。 服务名称用来以 *{name}.azure-api.net* 形式生成默认域名。 如果希望使用自定义域名，请参阅[配置自定义域名](configure-custom-domain.md)。 <br/> 服务名称用来引用服务和相应的 Azure 资源。|
-    |**订阅**|你的订阅 | 要在其下创建此新服务实例的订阅。 在可以访问的不同 Azure 订阅中选择一个订阅。|
-    |**资源组**|*apimResourceGroup*|可以选择新的或现有的资源。 资源组是共享生命周期、权限和策略的资源的集合。 在[此处](../azure-resource-manager/resource-group-overview.md#resource-groups)了解更多信息。|
-    |**位置**|*美国西部*|选择最近的地理区域。 下拉列表中仅显示可用的 API 管理服务区域。 |
-    |组织名称|组织的名称|许多位置，包括开发人员门户和通知电子邮件的发件人的标题中使用此名称。|
-    |**管理员电子邮件**|*admin@org.com*|设置要将来自 **API 管理**的所有通知发送到的电子邮件地址。|
-    |**定价层**|*开发人员*|设置“开发人员”层来评估服务。 此层不用于生产用途。 有关对 API 管理层进行缩放的详细信息，请参阅[升级和缩放](upgrade-and-scale.md)。|
+    | 设置                 | 建议的值                               | 说明                                                                                                                                                                                                                                                                                                                         |
+|-------------------------|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **名称**                | API 管理服务的唯一名称 | 以后无法更改此名称。 服务名称用来以 *{name}.azure-api.net* 形式生成默认域名。 如果希望使用自定义域名，请参阅[配置自定义域名](configure-custom-domain.md)。 <br/> 服务名称用来引用服务和相应的 Azure 资源。 |
+| **订阅**        | 你的订阅                             | 要在其下创建此新服务实例的订阅。 在可以访问的不同 Azure 订阅中选择一个订阅。                                                                                                                                                            |
+| **资源组**      | *apimResourceGroup*                           | 可以选择新的或现有的资源。 资源组是共享生命周期、权限和策略的资源的集合。 在[此处](../azure-resource-manager/resource-group-overview.md#resource-groups)了解更多信息。                                                                                                  |
+| **位置**            | *美国西部*                                    | 选择最近的地理区域。 下拉列表中仅显示可用的 API 管理服务区域。                                                                                                                                                                                                          |
+| 组织名称   | 组织的名称                 | 许多位置，包括开发人员门户和通知电子邮件的发件人的标题中使用此名称。                                                                                                                                                                                                             |
+| **管理员电子邮件** | *admin@org.com*                               | 设置要将来自 **API 管理**的所有通知发送到的电子邮件地址。                                                                                                                                                                                                                                              |
+| **定价层**        | *开发人员*                                   | 设置“开发人员”层来评估服务。 此层不用于生产用途。 有关对 API 管理层进行缩放的详细信息，请参阅[升级和缩放](upgrade-and-scale.md)。                                                                                                                                    |
+
 3. 选择“创建”。
 
     > [!TIP]
@@ -64,13 +66,18 @@ Azure API 管理 (APIM) 可帮助组织将 API 发布给外部、合作伙伴和
 
 如果不再需要资源组和所有相关资源，可以使用以下步骤将其删除：
 
+1. 在 Azure 门户中，选择“所有服务”。
+2. 在搜索框中输入 `resource groups`，然后单击结果。
 
-1. 在 Azure 门户中，选择 ![箭头](./media/get-started-create-service-instance/arrow.png)上获取。
-2. 选择“资源组”。
-3. 找到所需的资源组。
-4. 单击“ 上获取。 .” 并删除该组。
+    ![资源组导航](./media/get-started-create-service-instance/00-DeleteResource-01.png)
 
-![cleanup](./media/get-started-create-service-instance/cleanup.png)
+3. 找到并单击资源组。
+4. 单击“删除资源组”。
+
+    ![资源组导航](./media/get-started-create-service-instance/00-DeleteResource-02.png)
+
+5. 输入资源组的名称，确认删除。
+6. 单击“删除” 。
 
 ## <a name="next-steps"></a>后续步骤
 

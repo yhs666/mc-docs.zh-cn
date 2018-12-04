@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 09/19/2017
-ms.date: 07/02/2018
+ms.date: 12/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: d41ea3ad571ccf5892fca1bd150ecbdff59e12c7
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 8708b917875a453a2950e8905c34270674ea4c6a
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940016"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675046"
 ---
 # <a name="monitor-azure-cosmos-db"></a>监视 Azure Cosmos DB
 可以在 [Azure 门户](https://portal.azure.cn/)中监视 Azure Cosmos DB 帐户。 对于每个 Azure Cosmos DB 帐户，一整套指标可用于监视吞吐量、存储、可用性、延迟和一致性。
@@ -63,7 +63,7 @@ ms.locfileid: "38940016"
 
 用于检索各个指标的查询使用以下格式：
 
-    https://management.chinacloudapi.cn/subscriptions/{SubecriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metrics?api-version=2015-04-08&$filter=%28name.value%20eq%20%27Total%20Requests%27%29%20and%20timeGrain%20eq%20duration%27PT5M%27%20and%20startTime%20eq%202016-06-03T03%3A26%3A00.0000000Z%20and%20endTime%20eq%202016-06-10T03%3A26%3A00.0000000Z
+    https://management.chinacloudapi.cn/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metrics?api-version=2015-04-08&$filter=%28name.value%20eq%20%27Total%20Requests%27%29%20and%20timeGrain%20eq%20duration%27PT5M%27%20and%20startTime%20eq%202016-06-03T03%3A26%3A00.0000000Z%20and%20endTime%20eq%202016-06-10T03%3A26%3A00.0000000Z
 
 有关详细信息，请参阅 [通过 Azure Monitor REST API 检索资源指标](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/02/23/retrieving-resource-metrics-via-the-azure-insights-api/)。 请注意，已将“Azure Insights”重命名为“Azure Monitor”。  本博客条目引用旧名称。
 

@@ -1,25 +1,20 @@
 ---
 title: Azure IoT 中心设备管理入门 (Java) | Azure
 description: 如何使用 Azure IoT 中心设备管理启动远程设备重启。 使用适用于 Java 的 Azure IoT 设备 SDK 实现包含直接方法的模拟设备应用，并使用适用于 Java 的 Azure IoT 服务 SDK 实现调用直接方法的服务应用。
-services: iot-hub
-documentationcenter: .java
-author: Derek1101
-manager: timlt
-editor: ''
+author: dominicbetts
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: java
+ms.topic: conceptual
 origin.date: 08/08/2017
 ms.author: v-yiso
-ms.date: 10/16/2017
-ms.openlocfilehash: e2be03703bf9140964d84e651645193b82666bb5
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.date: 12/03/2017
+ms.openlocfilehash: e63bae587997bcde57c77bc1ebd04d85e000cd7c
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38938872"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674580"
 ---
 # <a name="get-started-with-device-management-java"></a>设备管理入门 (Java)
 
@@ -47,15 +42,23 @@ trigger-reboot。 此应用：
 * 显示已更新的报告属性。
 
 > [!NOTE]
-> 有关 SDK 的信息（可以使用这些 SDK 构建在设备和解决方案后端上运行的应用程序），请参阅 [Azure IoT SDK][lnk-hub-sdks]。
+> 有关 SDK 的信息（可以使用这些 SDK 构建在设备和解决方案后端上运行的应用程序），请参阅 [Azure IoT SDK](iot-hub-devguide-sdks.md)。
 
 要完成本教程，需要：
 
-* Java SE 8。 <br/> [准备开发环境][lnk-dev-setup] 介绍了如何在 Windows 或 Linux 上安装本教程所用的 Java。
-* Maven 3。  <br/> [准备开发环境][lnk-dev-setup]介绍如何在 Windows 或 Linux 上安装本教程所用的 [Maven][lnk-maven]。
+* Java SE 8。 <br/> [准备开发环境](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md)介绍了如何在 Windows 或 Linux 上安装本教程所用的 Java。
+
+* Maven 3。  <br/> [准备开发环境](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md)介绍如何在 Windows 或 Linux 上安装本教程所用的 [Maven](https://maven.apache.org/what-is-maven.html)。
+
 * [Node.js 版本 0.10.0 或更高版本](http://nodejs.org)。
 
-[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+## <a name="create-an-iot-hub"></a>创建 IoT 中心
+
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+### <a name="retrieve-connection-string-for-iot-hub"></a>检索 IoT 中心的连接字符串
+
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
@@ -64,8 +67,10 @@ trigger-reboot。 此应用：
 本部分将创建一个进行如下操作的 Java 控制台应用：
 
 1. 在模拟设备应用中调用重启直接方法。
-1. 显示响应。
-1. 轮询设备发送的报告属性，以确定重启的完成时间。
+
+2. 显示响应。
+
+3. 轮询设备发送的报告属性，以确定重启的完成时间。
 
 此控制台应用连接到 IoT 中心，调用该直接方法并读取报告属性。
 
@@ -89,9 +94,9 @@ trigger-reboot。 此应用：
     ```
 
     > [!NOTE]
-    > 可以使用 [Maven 搜索][lnk-maven-service-search]检查是否有最新版本的 **iot-service-client**。
+    > 可以使用 [Maven 搜索](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)检查是否有最新版本的 **iot-service-client**。
 
-1. 在 **dependencies** 节点后添加以下 **build** 节点。 此配置指示 Maven 使用 Java 1.8 来生成应用：
+5. 在 **dependencies** 节点后添加以下 **build** 节点。 此配置指示 Maven 使用 Java 1.8 来生成应用：
 
     ```xml
     <build>
@@ -235,7 +240,7 @@ trigger-reboot。 此应用：
     ```
 
     > [!NOTE]
-    > 可以使用 [Maven 搜索][lnk-maven-device-search]检查是否有最新版本的 **iot-device-client**。
+    > 可以使用 [Maven 搜索](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)检查是否有最新版本的 **iot-device-client**。
 
 1. 在 **dependencies** 节点后添加以下 **build** 节点。 此配置指示 Maven 使用 Java 1.8 来生成应用：
 
@@ -430,17 +435,17 @@ trigger-reboot。 此应用：
 
     `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
 
-    ![Java IoT 中心模拟设备应用，侦听重新启动直接方法调用][1]
+    ![Java IoT 中心模拟设备应用，侦听重新启动直接方法调用](./media/iot-hub-java-java-device-management-getstarted/launchsimulator.png)
 
-1. 在 trigger-reboot 文件夹的命令提示符下，运行以下命令，从 IoT 中心调用模拟设备上的重新启动方法：
+2. 在 trigger-reboot 文件夹的命令提示符下，运行以下命令，从 IoT 中心调用模拟设备上的重新启动方法：
 
     `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
 
-    ![用于调用重新启动直接方法的 Java IoT 中心服务应用][2]
+    ![用于调用重新启动直接方法的 Java IoT 中心服务应用](./media/iot-hub-java-java-device-management-getstarted/triggerreboot.png)
 
-1. 模拟设备对重新启动直接方法调用做出响应：
+3. 模拟设备对重新启动直接方法调用做出响应：
 
-    ![Java IoT 中心模拟设备应用对直接方法调用进行响应][3]
+    ![Java IoT 中心模拟设备应用对直接方法调用进行响应](./media/iot-hub-java-java-device-management-getstarted/respondtoreboot.png)
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]
 

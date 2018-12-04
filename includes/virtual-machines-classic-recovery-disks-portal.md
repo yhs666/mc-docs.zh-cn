@@ -1,3 +1,17 @@
+---
+author: rockboyfor
+ms.service: virtual-machines
+ms.topic: include
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
+ms.openlocfilehash: 6cdff55bd680990346d628a92149a09d44e14bee
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676067"
+---
 如果虚拟机 (VM) 在 Azure 中遇到启动或磁盘错误，可能需要对虚拟硬盘本身执行故障排除步骤。 一个常见示例是应用程序更新失败，使 VM 无法成功启动。 本文介绍如何使用 Azure 门户将虚拟硬盘连接到另一个 VM 来修复所有错误，然后重新创建原始 VM。
 
 ## <a name="recovery-process-overview"></a>恢复过程概述
@@ -59,4 +73,5 @@
 2. 在门户左上角，选择“创建资源” > “计算” > “虚拟机” > “从库中”。
 3. 在“选择映像”部分，选择“我的磁盘”，并选择原始虚拟硬盘。 查看位置信息。 这是必须在其中部署 VM 的区域。 选择“下一步”按钮。
 4. 在“虚拟机配置”部分，键入 VM 名称并选择 VM 大小。
-<!--ms.date: 07/30/2018 -->
+
+<!-- Update_Description: update meta properties -->

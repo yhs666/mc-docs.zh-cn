@@ -2,34 +2,34 @@
 title: 初步了解：使用恢复服务保管库保护 Azure VM
 description: 使用恢复服务保管库保护 Azure VM。 使用资源管理器部署的 VM、经典部署型 VM、高级存储 VM、加密 VM 和基于托管磁盘的 VM 的备份来保护数据。 创建并注册恢复服务保管库。 在 Azure 中注册 VM、创建策略和保护 VM。
 services: backup
-author: markgalioto
-manager: carmonm
+author: lingliw
+manager: digimobile
 keyword: backups; vm backup
 ms.service: backup
 ms.topic: conceptual
 origin.date: 08/01/2018
-ms.date: 09/25/2018
-ms.author: v-junlch
+ms.date: 11/26/2018
+ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
 keywords: 备份; VM 备份
-ms.openlocfilehash: 9ae2bd1514b4a02c46e09b1ef36ddb0a99b56110
-ms.sourcegitcommit: a4d8c8641a6341113532d8770603d4b66cc13ced
+ms.openlocfilehash: 73eb2937928d5e3e859a8c27ed80712d8717fa7d
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47114530"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674643"
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>将 Azure 虚拟机备份到恢复服务保管库
 
 本文介绍如何从虚拟机操作菜单为虚拟机配置保护，或恢复服务保管库。 恢复服务保管库保护：
 
-- Azure 资源管理器部署的 VM
-- 经典 VM
-- 标准存储 VM
-- 高级存储 VM
-- 在托管磁盘上运行的 VM
-- 使用 Azure 磁盘加密进行加密的 VM
-- 使用 VSS 对 Windows VM 进行应用程序一致性备份，以及使用自定义快照前和快照后脚本对 Linux VM 进行应用程序一致性备份
+* Azure 资源管理器部署的 VM
+* 经典 VM
+* 标准存储 VM
+* 高级存储 VM
+* 在托管磁盘上运行的 VM
+* 使用 Azure 磁盘加密进行加密的 VM
+* 使用 VSS 对 Windows VM 进行应用程序一致性备份，以及使用自定义快照前和快照后脚本对 Linux VM 进行应用程序一致性备份
 
 有关保护高级存储 VM 的详细信息，请参阅[备份和还原高级存储 VM](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup) 一文。 有关支持托管磁盘 VM 的详细信息，请参阅[备份和还原托管磁盘上的 VM](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup)。 若要详细了解适用于 Linux VM 备份的前脚本和后脚本框架，请参阅[使用前脚本和后脚本进行应用程序一致性 Linux VM 备份](/backup/backup-azure-linux-app-consistent)。
 
@@ -150,9 +150,9 @@ ms.locfileid: "47114530"
 
 6. 在“资源组”部分：
 
-    - 如果要创建资源组，请选择“新建”。
+    * 如果要创建资源组，请选择“新建”。
     或
-    - 选择“使用现有项”，并单击下拉菜单查看可用资源组列表  。
+    * 选择“使用现有项”，并单击下拉菜单查看可用资源组列表  。
 
     有关资源组的完整信息，请参阅 [Azure 资源管理器概述](../azure-resource-manager/resource-group-overview.md)。
 
@@ -320,8 +320,8 @@ ms.locfileid: "47114530"
 
 | **操作** | **Windows** | **Linux** |
 | --- | --- | --- |
-| 安装 VM 代理 |<li>下载并安装 [代理 MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。 需要管理员权限才能完成安装。 <li>[更新 VM 属性](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) ，指明已安装代理。 |<li> 从 GitHub 安装最新的 [Linux 代理](https://github.com/Azure/WALinuxAgent) 。 需要管理员权限才能完成安装。 <li> [更新 VM 属性](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) ，指明已安装代理。 |
-| 更新 VM 代理 |更新 VM 代理与重新安装 [VM 代理二进制文件](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)一样简单。 <br>确保在更新 VM 代理时，没有任何正在运行的备份操作。 |按照[更新 Linux VM 代理](../virtual-machines/linux/update-agent.md)中的说明进行操作。 <br>确保在更新 VM 代理时，没有任何正在运行的备份操作。 |
+| 安装 VM 代理 |<li>下载并安装 [代理 MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。 需要管理员权限才能完成安装。 <li>[更新 VM 属性](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) ，指明已安装代理。 |<li> 从 GitHub 安装最新的 [Linux 代理](https://github.com/Azure/WALinuxAgent) 。 需要管理员权限才能完成安装。 <li> [更新 VM 属性](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) ，指明已安装代理。 |
+| 更新 VM 代理 |更新 VM 代理与重新安装 [VM 代理二进制文件](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)一样简单。 <br>确保在更新 VM 代理时，没有任何正在运行的备份操作。 |按照[更新 Linux VM 代理](../virtual-machines/linux/update-agent.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中的说明进行操作。 <br>确保在更新 VM 代理时，没有任何正在运行的备份操作。 |
 | 验证 VM 代理安装 |<li>导航到 Azure VM 中的 *C:\WindowsAzure\Packages* 文件夹。 <li>应会发现 WaAppAgent.exe 文件已存在。<li> 右键单击该文件，转到“**属性**”，并选择“**详细信息**”选项卡。“产品版本”字段应为 2.6.1198.718 或更高。 |不适用 |
 
 ### <a name="backup-extension"></a>备份扩展
@@ -336,6 +336,6 @@ ms.locfileid: "47114530"
 Azure VM 备份的成本取决于受保护实例的数目。 如需受保护实例的定义，请参阅[什么是受保护实例](backup-introduction-to-azure-backup.md#what-is-a-protected-instance)。 如果需要通过示例来了解如何计算虚拟机的备份费用，请参阅[受保护实例的计算方法](backup-azure-vms-introduction.md#calculating-the-cost-of-protected-instances)。 请参阅“Azure 备份定价”页，了解[备份定价](https://www.azure.cn/pricing/details/backup/)。
 
 ## <a name="questions"></a>存在疑问？
-如果有疑问，或者希望包含某种功能，请 [给我们反馈](http://aka.ms/azurebackup_feedback)。
+如果有疑问，或者希望包含某种功能，请 [给我们反馈](https://aka.ms/azurebackup_feedback)。
 
 <!-- Update_Description: wording update -->

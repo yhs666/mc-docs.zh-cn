@@ -3,7 +3,7 @@ title: 使用 .NET 监视作业进度
 description: 了解如何使用事件处理程序代码来跟踪作业进度并发送状态更新。 代码示例用 C# 编写，并使用用于 .NET 的媒体服务 SDK。
 services: media-services
 documentationcenter: ''
-author: hayley244
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: ee720ed6-8ce5-4434-b6d6-4df71fca224e
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 07/20/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 39b3062b2cf0052c77928342132d359d381d6e5a
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+origin.date: 11/05/2018
+ms.date: 12/03/2018
+ms.author: v-jay
+ms.openlocfilehash: ec363dc218507c613f7d36b2d320a46dceeb2fc9
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219686"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673127"
 ---
 # <a name="monitor-job-progress-using-net"></a>使用 .NET 监视作业进度
 > [!div class="op_single_selector"]

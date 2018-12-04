@@ -4,18 +4,18 @@ description: 使用 Visual Studio Code 开发和调试用于 Azure IoT Edge 的 
 services: iot-edge
 keywords: ''
 author: shizn
-manager: timlt
+manager: philmea
 ms.author: v-yiso
 origin.date: 09/21/2018
-ms.date: 11/05/2018
+ms.date: 12/10/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 3f15f3f979683f23174fad2bca9e42f4ed90df51
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.openlocfilehash: 201d0fee3c8650934bd1fbb75c5bf867a597386b
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135800"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675324"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-nodejs-modules-for-azure-iot-edge"></a>使用 Visual Studio Code 开发和调试用于 Azure IoT Edge 的 Node.js 模块
 
@@ -123,7 +123,7 @@ IoT Edge Node.js 模块依赖于 Azure IoT Node.js 设备 SDK。 在默认的模
 
 5. 在 VS Code 集成终端中，运行以下命令向模块发送 Hello World 消息。 这是在前面的步骤中成功设置 IoT Edge 模拟器时所显示的命令。 如果当前终止被阻止，可能需要创建或切换到另一个集成终端。
 
-    ```cmd
+    ```bash
     curl --header "Content-Type: application/json" --request POST --data '{"inputName": "input1","data":"hello world"}' http://localhost:53000/api/v1/messages
     ```
 

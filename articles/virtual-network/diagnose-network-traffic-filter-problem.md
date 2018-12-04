@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/29/2018
-ms.date: 09/10/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9e33cb662eb5ac8f3ff6a6f4cdb1bb7a13e80aed
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: 203aaf9887cc9f138e0a635c168f2afc73966348
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515672"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675240"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>诊断虚拟机网络流量筛选器问题
 
@@ -29,7 +29,7 @@ ms.locfileid: "44515672"
 
 使用 NSG 可以控制流入和流出 VM 的流量类型。 可将 NSG 关联到 Azure 虚拟网络中的子网和/或附加到 VM 的网络接口。 应用到网络接口的有效安全规则是关联到网络接口以及网络接口所在子网的 NSG 的聚合。 不同 NSG 中的规则有时互相冲突，影响 VM 的网络连接。 可以查看 NSG 中对 VM 网络接口应用的所有有效安全规则。 如果不熟悉虚拟网络、网络接口或 NSG 的概念，请参阅[虚拟网络概述](virtual-networks-overview.md)、[网络接口](virtual-network-network-interface.md)和[网络安全组概述](security-overview.md)。
 
-## <a name="scenario"></a>场景
+## <a name="scenario"></a>方案
 
 尝试通过端口 80 从 Internet 连接到 VM，但连接失败。 若要确定为何无法从 Internet 访问端口 80，可以使用 Azure [门户](#diagnose-using-azure-portal)、[PowerShell](#diagnose-using-powershell) 或 [Azure CLI](#diagnose-using-azure-cli) 查看网络接口的有效安全规则。
 
@@ -76,7 +76,7 @@ ms.locfileid: "44515672"
 
 ## <a name="diagnose-using-powershell"></a>使用 PowerShell 诊断
 
-可以通过从计算机运行 PowerShell 来运行命令。 如果在计算机上运行 PowerShell，需要 *AzureRM* PowerShell 模块 6.0.1 或更高版本。 在计算机上运行 `Get-Module -ListAvailable AzureRM`，找到已安装的版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 如果在本地运行 PowerShell，则还需要运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud`，以使用拥有[所需权限](virtual-network-network-interface.md#permissions)的帐户登录到 Azure。
+可以通过从计算机运行 PowerShell 来运行命令。 如果在计算机上运行 PowerShell，需要 *AzureRM* PowerShell 模块 6.0.1 或更高版本。 在计算机上运行 `Get-Module -ListAvailable AzureRM`，找到已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需要运行 `Login-AzureRmAccount`，以使用拥有[所需权限](virtual-network-network-interface.md#permissions)的帐户登录到 Azure。
 <!-- Not Available on [Azure Cloud Shell](https://shell.azure.com/powershell)-->
 
 使用 [Get-AzureRmEffectiveNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermeffectivenetworksecuritygroup) 获取网络接口的有效安全规则。 以下示例获取资源组 *myResourceGroup* 中名为 *myVMVMNic* 的网络接口的有效安全规则：
@@ -111,7 +111,8 @@ NetworkInterfaces
 
 ## <a name="diagnose-using-azure-cli"></a>使用 Azure CLI 诊断
 
-如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本文需要 Azure CLI 2.0.32 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需要运行 `az login`，并使用拥有[所需权限](virtual-network-network-interface.md#permissions)的帐户登录到 Azure。
+如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本文需要 Azure CLI 2.0.32 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需要运行 `az login`，并使用拥有[所需权限](virtual-network-network-interface.md#permissions)的帐户登录到 Azure。
+
 <!-- Not Available on [Azure Cloud Shell](https://shell.azure.com/powershell)-->
 
 使用 [az network nic list-effective-nsg](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az-network-nic-list-effective-nsg) 获取网络接口的有效安全规则。 以下示例获取资源组 *myResourceGroup* 中名为 *myVMVMNic* 的网络接口的有效安全规则：
@@ -169,7 +170,7 @@ az vm show \
 
 | 属性                | 值                                                                              |
 |---------                |---------                                                                           |
-| Source                  | 任意                                                                                |
+| 源                  | 任意                                                                                |
 | 源端口范围      | 任意                                                                                |
 | 目标             | VM 的 IP 地址、IP 地址范围，或子网中的所有地址。 |
 | 目标端口范围 | 80                                                                                 |
@@ -193,6 +194,7 @@ az vm show \
 * 仅当某个 NSG 已关联到 VM 的网络接口和/或子网，并且 VM 处于运行状态时，才显示网络接口的有效安全规则。
 * 如果没有任何 NSG 关联到网络接口或子网，并且向 VM 分配了[公共 IP 地址](virtual-network-public-ip-address.md)，则会打开所有端口，以便在任意位置进行入站和出站访问。 如果 VM 有公共 IP 地址，我们建议将 NSG 应用到子网和网络接口。
 
+<a name="additional-dignosis"></a>
 ## <a name="additional-diagnosis"></a>其他诊断
 
 * 若要运行快速测试来确定是否允许传入或传出 VM 的流量，请使用 Azure 网络观察程序的 [IP 流验证](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md)功能。 IP 流验证会告知是允许还是拒绝了流量。 如果被拒绝，IP 流验证会告知哪个安全规则拒绝了流量。
@@ -205,5 +207,5 @@ az vm show \
 - 了解[网络安全组](manage-network-security-group.md#work-with-network-security-groups)和[安全规则](manage-network-security-group.md#work-with-security-rules)的所有任务、属性和设置。
 - 了解 VM 的[默认安全规则](security-overview.md#default-security-rules)、[服务标记](security-overview.md#service-tags)，以及 [Azure 如何处理入站和出站流量的安全规则](security-overview.md#network-security-groups)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: wording update, update link -->
 

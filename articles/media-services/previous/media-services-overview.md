@@ -6,21 +6,20 @@ documentationcenter: ''
 author: WenJason
 manager: digimobile
 editor: ''
-ms.assetid: 7a5e9723-c379-446b-b4d6-d0e41bd7d31f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-origin.date: 09/24/2018
-ms.date: 10/22/2018
+origin.date: 10/15/2018
+ms.date: 12/03/2018
 ms.author: v-jay
-ms.openlocfilehash: 2bb2ba26665282938d6b7668d10ffe8bd343ae47
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: e8024ec1a71c222890e8f4abc16e3c378bbf7c85
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453717"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673158"
 ---
 # <a name="azure-media-services-overview"></a>Azure 媒体服务概述 
 

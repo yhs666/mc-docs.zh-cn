@@ -4,18 +4,18 @@ description: 使用 Visual Studio Code 开发、生成和调试 Azure IoT Edge �
 services: iot-edge
 keywords: ''
 author: shizn
-manager: timlt
+manager: philmea
 ms.author: v-yiso
 origin.date: 09/27/2018
-ms.date: 11/05/2018
+ms.date: 12/10/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 92666a233e09b8d98691844143e02ae5db8d2333
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.openlocfilehash: da09021756acd268864cd0a8063b41cd891169aa
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135861"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674169"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>使用 Visual Studio Code 开发和调试 Azure IoT Edge 的 C# 模块
 

@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 11/27/2017
 ms.author: v-yiso
 ms.date: 02/26/2018
-ms.openlocfilehash: e11c1cdd3c24d57f2791f6622ce3715a7cb74ec4
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: ba69242615ec640eebf38760f595bef7ec690fc8
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29285039"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674874"
 ---
 # <a name="api-management-authentication-policies"></a>API 管理身份验证策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -106,5 +106,5 @@ ms.locfileid: "29285039"
 
 + [API 管理中的策略](api-management-howto-policies.md)
 + [转换 API](transform-api.md)
-+ [策略参考](api-management-policy-reference.md)，获取策略语句及其设置的完整列表
++ [策略参考](api-management-policies.md)，获取策略语句及其设置的完整列表
 + [策略示例](policy-samples.md)   

@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 07/02/2018
-ms.date: 08/27/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: f1df6ee0e8bf3d169972520d7bcff1536912e90d
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 001978bb30b10cee72060ee8c5fce75b538b787c
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871641"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676297"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>在门户中查看计划用于维护的虚拟机
 
@@ -39,7 +39,7 @@ ms.locfileid: "42871641"
       | 已经更新 | VM 已更新，目前不需进一步操作。 | 
       | 稍后重试 | 已经启动维护，但没有成功。 可以稍后使用自助式维护选项。 | 
       | 立即重试 | 可以重试以前未成功的自行启动的维护。 | 
-      | - | 你的虚拟机不属于计划内维护。 |
+      | - | 计划内维护流程不处理你的 VM。 |
 
     **“维护 - 自助”时段**：显示可以自行启动 VM 维护的时间范围。
 
@@ -47,17 +47,9 @@ ms.locfileid: "42871641"
 
 ## <a name="notification-and-alerts-in-the-portal"></a>门户中的通知和警报
 
-Azure 通过向订阅所有者和共有者组发送电子邮件来传达计划维护的安排。 可以通过创建 Azure 活动日志警报，为此通信添加其他收件人和频道。 有关详细信息，请参阅[通过 Azure 活动日志监视订阅活动] (../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md)。
+Azure 通过向订阅所有者和共有者组发送电子邮件来传达计划维护的安排。 可以通过创建 Azure 活动日志警报，为此通信添加其他收件人和频道。 有关详细信息，请参阅[创建有关服务通知的活动日志警报](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)。
 
-1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 在左侧菜单中选择“监视”。 
-3. 在“监视 - 警报(经典)”窗格中，单击“+ 添加活动日志警报”。
-5. 填写“添加活动日志警报”页中的信息，请务必在“条件”中设置以下内容：
-   - **事件类别**：服务运行状况
-   - **服务**：虚拟机规模集和虚拟机
-   - **类型**：计划内维护 
-
-若要详细了解如何配置活动日志警报，请参阅[创建活动日志警报](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts.md)。
+请确保将“事件类型”设置为“计划内维护”，将“服务”设置为“虚拟机规模集”和/或“虚拟机”
 
 ## <a name="start-maintenance-on-your-vm-from-the-portal"></a>从门户启动虚拟机维护
 
@@ -69,4 +61,5 @@ Azure 通过向订阅所有者和共有者组发送电子邮件来传达计划�
 开始维护后，就会进行虚拟机维护。维护状态会更新，在几分钟内反映结果。
 
 如果错过自助时段，则在 VM 将由 Azure 维护时，仍然可以看到该时段。
+
 <!--Update_Description: wording update, update meta properties-->

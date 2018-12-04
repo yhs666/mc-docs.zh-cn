@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-origin.date: 08/10/2018
-ms.date: 10/31/2018
+origin.date: 10/16/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 52fdc6f632b40430a6eddda9cf208b3690a9b66a
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.openlocfilehash: 4e4073fe5cc3cd3820dc11ec1a774aa90f8ec5b1
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409393"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674472"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>如何通过 Node.js 使用服务总线主题和订阅
 
@@ -50,21 +50,20 @@ ms.locfileid: "50409393"
 2. 导航到创建示例应用程序的文件夹。
 3. 在命令窗口中键入 **npm install azure** ，这应会生成以下输出：
 
-    ```
-        azure@0.7.5 node_modules\azure
-    ├── dateformat@1.0.2-1.2.3
-    ├── xmlbuilder@0.4.2
-    ├── node-uuid@1.2.0
-    ├── mime@1.2.9
-    ├── underscore@1.4.4
-    ├── validator@1.1.1
-    ├── tunnel@0.0.2
-    ├── wns@0.5.3
-    ├── xml2js@0.2.7 (sax@0.5.2)
-    └── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
-    ```
-
-3.  可以手动运行 **ls** 命令来验证是否创建了 **node\_modules** 文件夹。 在该文件夹中，找到 **azure** 程序包，其中包含访问服务总线主题所需的库。
+   ```
+       azure@0.7.5 node_modules\azure
+   ├── dateformat@1.0.2-1.2.3
+   ├── xmlbuilder@0.4.2
+   ├── node-uuid@1.2.0
+   ├── mime@1.2.9
+   ├── underscore@1.4.4
+   ├── validator@1.1.1
+   ├── tunnel@0.0.2
+   ├── wns@0.5.3
+   ├── xml2js@0.2.7 (sax@0.5.2)
+   └── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
+   ```
+3. 可以手动运行 **ls** 命令来验证是否创建了 **node\_modules** 文件夹。 在该文件夹中，找到 azure 包，其中包含访问服务总线主题所需的库。
 
 ### <a name="import-the-module"></a>导入模块
 
@@ -79,10 +78,7 @@ Azure 模块将读取前面在执行步骤“获取凭据”时获取的连接�
 
 有关设置 Azure 云服务环境变量的示例，请参阅[使用存储的 Node.js 云服务][Node.js Cloud Service with Storage]。
 
-
-
 ## <a name="create-a-topic"></a>创建主题
-
 可以通过 **ServiceBusService** 对象处理主题。 以下代码创建 **ServiceBusService** 对象。 将它添加到靠近 **server.js** 文件顶部、用于导入 azure 模块的语句之后的位置：
 
 ```javascript
@@ -132,7 +128,7 @@ function (returnObject, finalCallback, next)
 
 在此回叫中并且在处理 `returnObject`（来自对服务器请求的响应）后，回叫必须调用 next（如果存在），继续处理其他筛选器或调用 `finalCallback` 以结束服务调用。
 
-Azure SDK for Node.js 中附带了两个实现了重试逻辑的筛选器，分别是 **ExponentialRetryPolicyFilter** 和 **LinearRetryPolicyFilter**。 以下代码创建一个 **ServiceBusService** 对象，该对象使用 **ExponentialRetryPolicyFilter**：
+Azure SDK for Node.js 中附带了两个实现了重试逻辑的筛选器，分别是 **ExponentialRetryPolicyFilter** 和 **LinearRetryPolicyFilter**。 以下代码创建一个 ServiceBusService 对象，该对象使用 ExponentialRetryPolicyFilter：
 
 ```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
@@ -140,7 +136,6 @@ var serviceBusService = azure.createServiceBusService().withFilter(retryOperatio
 ```
 
 ## <a name="create-subscriptions"></a>创建订阅
-
 主题订阅也是使用 **ServiceBusService** 对象创建的。 订阅已命名，并可具有可选筛选器，用于限制传送到订阅的虚拟队列的消息集。
 
 > [!NOTE]
@@ -160,7 +155,6 @@ serviceBusService.createSubscription('MyTopic','AllMessages',function(error){
 ```
 
 ### <a name="create-subscriptions-with-filters"></a>创建具有筛选器的订阅
-
 还可以创建筛选器，以确定发送到主题的哪些消息应该在特定主题订阅中显示。
 
 订阅支持的最灵活的一种筛选器是 **SqlFilter**，它实现了一部分 SQL92 功能。 SQL 筛选器将对发布到主题的消息的属性进行操作。 有关可用于 SQL 筛选器的表达式的更多详细信息，请参阅 [SqlFilter.SqlExpression][SqlFilter.SqlExpression] 语法。
@@ -245,12 +239,11 @@ var rule={
 现在，当消息发送到 `MyTopic` 时，它会传送给订阅了 `AllMessages` 主题订阅的接收者，并且选择性地传送给订阅了 `HighMessages` 和 `LowMessages` 主题订阅的接收者（具体取决于消息内容）。
 
 ## <a name="how-to-send-messages-to-a-topic"></a>如何将消息发送到主题
-
 要将消息发送到服务总线主题，应用程序必须使用 ServiceBusService 对象的 `sendTopicMessage` 方法。
 发送到服务总线主题的消息是 **BrokeredMessage** 对象。
 BrokeredMessage 对象具有一组标准属性（如 `Label` 和 `TimeToLive`）、一个用于保存特定于应用程序的自定义属性的字典，以及一段字符串数据正文。 应用程序可以通过将字符串值传递给 `sendTopicMessage` 设置消息正文，并且任何必需的标准属性将用默认值填充。
 
-以下示例演示如何向 `MyTopic`发送五条测试消息。 每条消息的 `messagenumber` 属性值因循环迭代而异（这会确定哪些订阅接收它）：
+以下示例演示如何向 `MyTopic`发送五条测试消息。 每条消息的 `messagenumber` 属性值因循环迭代而异（此属性确定哪些订阅接收它）：
 
 ```javascript
 var message = {
@@ -312,7 +305,6 @@ Service Bus 提供了相关功能来帮助你轻松地从应用程序错误或�
 如果应用程序在处理消息之后，但在调用 `deleteMessage` 方法之前崩溃，则在应用程序重启时会将该消息重新传送给它。 此行为通常称为“至少处理一次”。 也就是说，每条消息将至少被处理一次，但在某些情况下，同一消息可能会被重新传送。 如果方案不允许重复处理，则应该向应用程序添加逻辑来处理重复消息传送。 可以使用消息的 MessageId 属性，该属性在各次传送尝试中保持不变。
 
 ## <a name="delete-topics-and-subscriptions"></a>删除主题和订阅
-
 主题和订阅具有持久性，必须通过 [Azure 门户][Azure portal]或以编程方式显式删除。
 以下示例演示了如何删除名为 `MyTopic`的主题：
 
@@ -335,7 +327,6 @@ serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error)
 ```
 
 ## <a name="next-steps"></a>后续步骤
-
 现在，已了解有关 Service Bus 主题的基础知识，单击下面的链接可了解更多信息。
 
 * 请参阅[队列、主题和订阅][Queues, topics, and subscriptions]。

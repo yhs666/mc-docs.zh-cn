@@ -16,12 +16,12 @@ origin.date: 07/12/2018
 ms.date: 10/15/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 5b7ddd29ce70d3419610e62fdf12884abf855356
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.openlocfilehash: 9ecec5f0a30b3e8eae89e031af3cd32bcee5aedd
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089075"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675228"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>教程：将 Service Fabric 应用程序部署到 Azure 中的群集
 
@@ -38,7 +38,8 @@ ms.locfileid: "49089075"
 > * 将应用程序部署到远程群集。
 > * [向 ASP.NET Core 前端服务添加 HTTPS 终结点](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)。
 > * [使用 Azure Pipelines 配置 CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)。
-> * [设置应用程序的监视和诊断](service-fabric-tutorial-monitoring-aspnet.md)。
+
+<!-- Not Available on > * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)-->
 
 ## <a name="prerequisites"></a>先决条件
 

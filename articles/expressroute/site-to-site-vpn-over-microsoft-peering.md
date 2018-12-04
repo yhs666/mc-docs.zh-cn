@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 12/06/2017
 ms.author: v-yiso
 ms.date: 08/13/2018
-ms.openlocfilehash: 7be29a7326de21d16fe86f2c3e9c77a2d110aebd
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.openlocfilehash: 8ae0de4b908d92d3a1d446f28d096749949a2ca1
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487034"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674947"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>通过 ExpressRoute Microsoft 对等互连配置站点到站点的 VPN
 
@@ -64,7 +64,7 @@ ms.locfileid: "39487034"
 
 * 要配置新的 ExpressRoute 线路，请先查看 [ExpressRoute 先决条件](expressroute-prerequisites.md)一文，然后查看[创建和修改 ExpressRoute 线路](expressroute-howto-circuit-arm.md)。
 
-* 如果已有 ExpressRoute 线路，但未配置 Microsoft 对等互连，请查看[创建和修改 ExpressRoute 线路的对等互连](expressroute-howto-routing-arm.md#msft)一文，配置 Microsoft 对等互连。
+* 如果已有 ExpressRoute 线路，但未配置 Microsoft 对等互连，请查看[创建和修改 ExpressRoute 线路的对等互连](expressroute-howto-routing-arm.md)一文，配置 Microsoft 对等互连。
 
 配置线路和 Microsoft 对等互连后，即可在 Azure 门户的“概述”页面中轻松查看。
 
@@ -713,7 +713,5 @@ Total number of prefixes 2
 ```
 
 ## <a name="next-steps"></a>后续步骤
-
-* [为 ExpressRoute 配置网络性能监视器](how-to-npm.md)
 
 * [将站点到站点连接添加到包含现有 VPN 网关连接的 VNet](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)

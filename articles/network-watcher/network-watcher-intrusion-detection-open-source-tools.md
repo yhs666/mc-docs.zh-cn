@@ -3,7 +3,7 @@ title: 使用 Azure 网络观察程序和开源工具执行网络入侵检测 | 
 description: 本文介绍如何使用 Azure 网络观察程序和开源工具执行网络入侵检测
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
+author: lingliw
 manager: digimobile
 editor: ''
 ms.assetid: 0f043f08-19e1-4125-98b0-3e335ba69681
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 11/13/2017
-ms.author: v-yeche
-ms.openlocfilehash: b128a9a5a7f9a9882f2b71d31de9096243e7d5c7
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 8582fd3d5cbaa1cd2cdb4b7a757cffca3cb5ba0b
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
-ms.locfileid: "26727543"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675120"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>使用网络观察程序和开源工具执行网络入侵检测
 
@@ -40,7 +40,7 @@ Suricata 就是这样的一种开源工具，它是一个 IDS 引擎，可使用
 
 ### <a name="install-suricata"></a>安装 Suricata
 
-有关其他所有安装方法，请访问 http://suricata.readthedocs.io/en/latest/install.html
+有关所有其他安装方法，请访问 http://suricata.readthedocs.io/en/latest/install.html
 
 1. 在 VM 的命令行终端中运行以下命令：
 
@@ -82,7 +82,8 @@ tail -f /var/log/suricata/fast.log
 
 #### <a name="install-elasticsearch"></a>安装 Elasticsearch
 
-1. Elastic Stack 5.0 及更高版本需要 Java 8。 运行命令 `java -version` 可以检查版本。 如果未安装 Java，请参阅 [Oracle 网站](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)上的文档
+1. Elastic Stack 5.0 及更高版本需要 Java 8。 运行命令 `java -version` 可以检查版本。 如果尚未安装 java，请参阅 [Azure 支持的 JDK](https://aka.ms/azure-jdks) 上的文档。
+
 1. 下载适用于系统的正确二进制程序包：
 
     ```
@@ -277,7 +278,7 @@ tail -f /var/log/suricata/fast.log
 
 有关创建自定义可视化效果和仪表板的更多文档，请参阅 [Kibana 的正式文档](https://www.elastic.co/guide/en/kibana/current/introduction.html)。
 
-## <a name="conclusion"></a>结束语
+## <a name="conclusion"></a>结论
 
 通过将网络观察程序提供的数据包捕获与 Suricata 等开源 IDS 工具相结合，可以针对各种威胁执行网络入侵检测。 使用这些仪表板可以快速探查网络中的趋势和异常，以及挖掘数据来发现恶意用户代理或有漏洞的端口触发警报的根本原因。 使用这些提取的数据，可以在如何抵御网络中的任何有害入侵企图方面做出明智的决策，并创建规则来防范网络中将来发生入侵。
 

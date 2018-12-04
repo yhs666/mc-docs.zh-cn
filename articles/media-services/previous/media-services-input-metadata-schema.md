@@ -1,7 +1,7 @@
 ---
 title: Azure 媒体服务输入元数据架构 | Microsoft Docs
 description: 本主题概述了 Azure 媒体服务输入元数据架构。
-author: hayley244
+author: WenJason
 manager: digimobile
 editor: ''
 services: media-services
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/19/2017
-ms.date: 1/22/2018
-ms.author: v-haiqya
-ms.openlocfilehash: fe8ede7ae5235de60dc002f78303034f7ebe01e7
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+origin.date: 10/30/2018
+ms.date: 12/03/2018
+ms.author: v-jay
+ms.openlocfilehash: befa1eed65e6bd541fbdb272cd9b96844b203c2f
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426338"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673013"
 ---
 # <a name="input-metadata"></a>输入元数据
 编码作业与要在其上执行某些编码任务的输入资产（或资产）相关联。  完成任务后，会生成一个输出资产。  输出资产包含视频、音频、缩略图、清单等。输出资产还包含提供输入资产相关元数据的文件。 元数据 XML 文件的名称采用下列格式：&lt;asset_id&gt;_metadata.xml（例如，41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml），其中 &lt;asset_id&gt; 是输入资产的 AssetId 值。  

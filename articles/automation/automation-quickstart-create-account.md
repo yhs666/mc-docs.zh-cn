@@ -4,18 +4,18 @@ description: 了解如何创建 Azure 自动化帐户和运行 Runbook
 services: automation
 author: WenJason
 ms.author: v-jay
-origin.date: 08/22/2018
-ms.date: 10/01/2018
+origin.date: 10/18/2018
+ms.date: 11/26/2018
 ms.topic: quickstart
 ms.service: automation
 ms.component: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 0fda456a271c2229df64b857bab602c3ae0c220a
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.openlocfilehash: b0f1a37124ade39dc70545788e74ea922166d641
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848922"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673114"
 ---
 # <a name="create-an-azure-automation-account"></a>创建 Azure 自动化帐户
 
@@ -33,7 +33,7 @@ Azure 自动化帐户可以通过 Azure 创建。 此方法提供一个基于浏
 
 1. 搜索“自动化”，然后选择“自动化”。
 
-1. 输入帐户信息。 对于“创建 Azure 运行方式帐户”，请选择“是”，以便自动启用可简化向 Azure 进行的身份验证的项目。 需要注意的是，在创建自动化帐户时，选择它后将无法更改名称。 完成后，请单击**创建**，启动自动化帐户部署。
+1. 输入帐户信息。 对于“创建 Azure 运行方式帐户”，请选择“是”，以便自动启用可简化向 Azure 进行的身份验证的项目。 需要注意的是，在创建自动化帐户时，选择它后将无法更改名称。 一个自动化帐户可以跨所有区域和订阅管理给定租户的资源。 完成后，请单击**创建**，启动自动化帐户部署。
 
     ![在页面中输入有关自动化帐户的信息](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
 

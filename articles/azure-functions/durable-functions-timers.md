@@ -2,21 +2,21 @@
 title: Durable Functions 中的计时器 - Azure
 description: 了解如何实现 Azure Functions 的 Durable Functions 扩展中的持久计时器。
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-origin.date: 04/30/2018
-ms.date: 10/18/2018
+origin.date: 10/23/2018
+ms.date: 11/22/2018
 ms.author: v-junlch
-ms.openlocfilehash: 2c2dc9545cfde8e7564b244e4e7de81c8b450be8
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 3411bcc04ce241c8f2a95184506e49ad35f8986d
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453536"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672475"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Durable Functions 中的计时器 (Azure Functions)
 
@@ -63,7 +63,7 @@ module.exports = df.orchestrator(function*(context) {
         const dayOfMonth = context.df.currentUtcDateTime.getDate();
         const deadline = moment.utc(context.df.currentUtcDateTime).add(1, 'd');
         yield context.df.createTimer(deadline.toDate());
-        yield context.df.callActivityAsync("SendBillingEvent");
+        yield context.df.callActivity("SendBillingEvent");
     }
 });
 ```
@@ -113,9 +113,9 @@ const df = require("durable-functions");
 const moment = require("moment-js");
 
 module.exports = df.orchestrator(function*(context) {
-    const deadline = moment.utc(context.df.currentUtcDateTime).add(30, 's');
+    const deadline = moment.utc(context.df.currentUtcDateTime).add(30, "s");
 
-    const activityTask = context.df.callActivityAsync("GetQuote");
+    const activityTask = context.df.callActivity("GetQuote");
     const timeoutTask = context.df.createTimer(deadline);
 
     const winner = yield context.df.Task.any([activityTask, timeoutTask]);

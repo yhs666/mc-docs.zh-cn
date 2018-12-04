@@ -7,21 +7,21 @@ ms.component: process-automation
 author: WenJason
 ms.author: v-jay
 origin.date: 03/15/2018
-ms.date: 10/01/2018
+ms.date: 11/26/2018
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 077dbabf187396ff84ca94c35a69128aa9093829
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.openlocfilehash: 861e8c9b75bf82b9f2b32a59c8d35411b1645685
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426389"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672957"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>创建独立的 Azure 自动化帐户
 
 本文介绍如何在 Azure 门户中创建 Azure 自动化帐户。 可以使用门户自动化帐户来评估和了解自动化，而无需使用其他管理解决方案。 可以在将来的任何时候添加这些管理解决方案，以便对 Runbook 作业进行高级监视。 
 
-使用自动化帐户，可以对在 Azure 资源管理器部署或经典部署中管理资源的 Runbook 进行身份验证。
+使用自动化帐户，可以对在 Azure 资源管理器部署或经典部署中管理资源的 Runbook 进行身份验证。 一个自动化帐户可以跨所有区域和订阅管理给定租户的资源。
 
 在 Azure 门户中创建自动化帐户时，会自动创建以下帐户：
 
@@ -62,14 +62,15 @@ ms.locfileid: "47426389"
    ![在 Azure 市场中搜索并选择“自动化和控制”](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)
 
 1. 在下一个屏幕上选择“创建”。
+
   ![添加自动化帐户](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
 
   > [!NOTE]
   > 如果“添加自动化帐户”边栏选项卡中显示以下消息，则表示你的帐户不是订阅管理员角色成员和订阅的共同管理员。
   >
   > ![添加自动化帐户警报](media/automation-create-standalone-account/create-account-without-perms.png)
-  >
-1. 在“添加自动化帐户”窗格的“名称”框中，输入新自动化帐户的名称。 此名称选定后即不可更改。
+
+1. 在“添加自动化帐户”窗格的“名称”框中，输入新自动化帐户的名称。 此名称选定后即不可更改。 每个区域和资源组的自动化帐户名称都是唯一的。
 1. 如果有多个订阅，请在“订阅”框中为新帐户指定一个订阅。
 1. 对于“资源组”，请输入或选择新的或现有的资源组。
 1. 对于“位置”，请选择一个 Azure 数据中心位置。
@@ -110,5 +111,5 @@ ms.locfileid: "47426389"
 
 * 若要了解有关图形创作的详细信息，请参阅 [Azure 自动化中的图形创作](automation-graphical-authoring-intro.md)。
 * 若要开始使用 PowerShell Runbook，请参阅[我的第一个 PowerShell Runbook](automation-first-runbook-textual-powershell.md)。
-* 若要开始使用 PowerShell 工作流 Runbook，请参阅 [我的第一个 PowerShell 工作流 Runbook](automation-first-runbook-textual.md)。
+* 若要开始使用 PowerShell 工作流 Runbook，请参阅 [My first PowerShell workflow runbook](automation-first-runbook-textual.md)（我的第一个 PowerShell 工作流 Runbook）。
 * 若要开始使用 Python2 runbook，请参阅[第一个 Python2 runbook](automation-first-runbook-textual-python2.md)。

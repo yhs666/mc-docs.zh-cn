@@ -10,14 +10,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/22/2017
-ms.date: 10/15/2018
+ms.date: 12/10/2018
 ms.author: v-yiso
-ms.openlocfilehash: 715b8138460a12f179ddbd7ae1185474b8b91530
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.openlocfilehash: 6b93c934937f2e162437f465383db3d0e1264f3f
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455169"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674317"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>通过 Azure 逻辑应用保护对自定义 API 的调用
 
@@ -99,15 +99,15 @@ ms.locfileid: "47455169"
 
 可使用 PowerShell 通过 Azure 资源管理器执行此任务。 在 PowerShell 中运行以下命令：
 
-1. `Switch-AzureMode AzureResourceManager`
+1. `Add-AzureRmAccount`
 
-2. `Add-AzureAccount`
+2. `$SecurePassword = Read-Host -AsSecureString`（输入密码，然后按 Enter）
 
-3. `New-AzureADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password "identity-password"`
+3. `New-AzureRmADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
 
 4. 请务必复制所使用的“租户 ID”（Azure AD 租户的 GUID）、“应用程序 ID”和密码。
 
-有关详细信息，请了解如何[使用 PowerShell 创建服务主体以访问资源](../azure-resource-manager/resource-group-authenticate-service-principal.md)。
+
 
 #### <a name="part-2-create-an-azure-ad-application-identity-for-your-web-app-or-api-app"></a>第 2 部分：为 Web 应用或 API 应用创建 Azure AD 应用程序标识
 

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2017
-ms.date: 07/30/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: b9c30b2d422fb1ab908cfdc901b164a9ad799a06
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.openlocfilehash: a2a4ff8d45d080d595026863aca1e09be0e89f99
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306987"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674558"
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm-created-using-the-classic-deployment-model"></a>如何在使用经典部署模型创建的 Windows VM 中重置远程桌面服务或其登录密码
 > [!IMPORTANT]
@@ -59,7 +59,7 @@ $vm = Get-AzureVM -ServiceName "myCloudService" -Name "myVM"
 write-host $vm.VM.ProvisionGuestAgent
 ```
 
-如果 **write-host** 命令显示 **True**，则已安装 VM 代理。 如果该命令显示 **False**，请参阅 Azure 博客文章 [VM 代理和扩展 - 第 2 部分](http://go.microsoft.com/fwlink/p/?linkid=403947&clcid=0x409)中的说明和下载链接。
+如果 **write-host** 命令显示 **True**，则已安装 VM 代理。 如果该命令显示 **False**，请参阅 Azure 博客文章 [VM 代理和扩展 - 第 2 部分](https://go.microsoft.com/fwlink/p/?linkid=403947&clcid=0x409)中的说明和下载链接。
 
 如果使用门户创建虚拟机，检查 `$vm.GetInstance().ProvisionGuestAgent` 是否返回 **True**。 如果不是，使用以下命令进行设置：
 
@@ -111,4 +111,5 @@ Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' 
 [使用 RDP 或 SSH 连接到 Azure 虚拟机](/virtual-machines/linux/overview)
 
 [对与基于 Windows 的 Azure 虚拟机的远程桌面连接进行故障排除](../troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+
 <!-- Update_Description: update meta properties -->

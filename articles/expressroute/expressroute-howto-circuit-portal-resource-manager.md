@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/20/2017
-ms.date: 03/12/2018
+ms.date: 12/10/2018
 ms.author: v-yiso
-ms.openlocfilehash: 9fa480ecaffd113f3e26cd15e356013cd41534be
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 7af4f2404bc55b5a8b4ec84886816f68e11daf92
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29730913"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675352"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>创建和修改 ExpressRoute 线路
 
@@ -55,8 +55,9 @@ ms.locfileid: "29730913"
 
 1. 可以通过选择创建新资源的选项来创建 ExpressRoute 线路。 单击“创建资源” > “网络” > “ExpressRoute”，如下图所示：
 
-    ![创建 ExpressRoute 线路](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit1.png)
-2. 单击“ExpressRoute”即可看到“创建 ExpressRoute 线路”页。 在此页上填写相应值时，请务必指定正确的 SKU 层和数据计量计费模型（“无限制”或“按流量计费”）。
+  ![创建 ExpressRoute 线路](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit1.png)
+  
+2. 单击“ExpressRoute”即可看到“创建 ExpressRoute 线路”页。 在此页上填写相应值时，请务必指定正确的 SKU 层（“标准”或“高级”）和数据计量计费模型（“不限流量”或“按流量计费”）。
 
   ![配置 SKU 层和数据计量](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit.png)
 
@@ -113,7 +114,7 @@ ExpressRoute 线路必须处于以下状态时才能使用：
 有关分步说明，请参阅 [ExpressRoute 线路路由配置](./expressroute-howto-routing-portal-resource-manager.md)一文，了解如何创建和修改线路对等互连。
 
 > [!IMPORTANT]
-> 这些说明只适用于由提供第 2 层连接服务的服务提供商创建的线路。 如果服务提供商提供第 3 层托管服务（通常是 IP VPN，如 MPLS），则连接服务提供商会配置和管理路由。
+> 这些说明仅适用于由提供第 2 层连接服务的服务提供商创建的线路。 如果服务提供商提供第 3 层托管服务（通常是 IP VPN，如 MPLS），则连接服务提供商会配置和管理路由。
 > 
 > 
 

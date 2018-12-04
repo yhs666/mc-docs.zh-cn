@@ -1,1 +1,1 @@
-创建 Office 365 是为了通过 Internet 安全可靠地访问。 因此，我们建议将 ExpressRoute 用于特定方案。 有关使用 ExpressRoute 访问 Office 365 的信息，请访问[适用于 Office 365 的 Azure ExpressRoute](http://aka.ms/ExpressRouteOffice365)。
+创建 Office 365 是为了通过 Internet 安全可靠地访问。 因此，我们建议将 ExpressRoute 用于特定方案。 有关使用 ExpressRoute 访问 Office 365 的信息，请访问[适用于 Office 365 的 Azure ExpressRoute](https://aka.ms/ExpressRouteOffice365)。

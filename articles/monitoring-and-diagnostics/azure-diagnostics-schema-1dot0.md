@@ -1,26 +1,20 @@
 ---
-title: Azure 诊断 1.0 配置架构 | Microsoft Docs
+title: Azure 诊断 1.0 配置架构
 description: 只有在用户将 Azure SDK 2.4 及更低版本 与 Azure 虚拟机、虚拟机规模集、Service Fabric 或云服务配合使用时，才相关。
-services: monitoring-and-diagnostics
-documentationcenter: .net
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
-origin.date: 05/15/2017
-ms.date: 12/11/2017
+ms.topic: reference
+ms.date: 05/15/2017
 ms.author: robb
-ms.openlocfilehash: 4cb704693c13f116a596c7855c6704f0cbcd640c
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.component: diagnostic-extension
+ms.openlocfilehash: 4d6a0614d25882dde6c635d745047d814ac96651
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
-ms.locfileid: "26045144"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674525"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Azure 诊断 1.0 配置架构
 > [!NOTE]
@@ -107,7 +101,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 属性：
 
-|属性  |类型   |必选| 默认 | 说明|  
+|属性  |类型   |必须| 默认 | 说明|  
 |-----------|-------|--------|---------|------------|  
 |**configurationChangePollInterval**|duration|可选 | PT1M| 指定诊断监视器轮询诊断配置更改的时间间隔。|  
 |**overallQuotaInMB**|unsignedInt|可选| 4000 MB。 提供的值不得超过此值 |为所有日志记录缓冲区分配的文件系统存储的总量。|  

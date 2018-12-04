@@ -2,20 +2,20 @@
 title: 在 Azure 流分析作业中轮换登录凭据
 description: 本文介绍如何在 Azure 流分析作业中更新输入和输出接收器的凭据。
 services: stream-analytics
-author: rockboyfor
-ms.author: v-yeche
+author: lingliw
+ms.author: v-lingwu
 manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 01/11/2018
-ms.date: 05/07/2018
-ms.openlocfilehash: 3134e147d61ecfb7bfedf080ae394b68850cb03a
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.date: 11/26/2018
+ms.openlocfilehash: 5bcabd5028b234f073babeabdf7100a5638084e2
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815129"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674954"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>轮转流分析作业的输入和输出的登录凭据
 

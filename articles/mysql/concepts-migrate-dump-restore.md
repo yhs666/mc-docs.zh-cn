@@ -6,20 +6,21 @@ author: WenJason
 ms.author: v-jay
 manager: digimobile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
-ms.date: 06/16/2018
-ms.openlocfilehash: 2010e301951f190a3af8d72d9dd0e9120b154066
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+origin.date: 06/02/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: e819898e046e112f37fb55b3a51a59191a2273c5
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723034"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672780"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>使用转储和还原将 MySQL 数据库迁移到 Azure Database for MySQL
 
 > [!NOTE]
-> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql/)。
+> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
 
 本文介绍了在 Azure Database for MySQL 中备份和还原数据库的两种常见方式
 - 从命令行转储和还原（使用 mysqldump） 

@@ -9,14 +9,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
 origin.date: 09/22/2018
-ms.date: 10/31/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: fc7f91f4994c65ddf527cfe3d65d45044015efde
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.openlocfilehash: a6a75ea7af58c9af15386c1ebe111180277ba09c
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409308"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675310"
 ---
 # <a name="quickstart-send-and-receive-messages-using-azure-powershell-and-net"></a>快速入门：使用 Azure PowerShell 和 .NET 发送和接收消息
 
@@ -32,7 +32,7 @@ Azure 服务总线是一种提供安全消息传送和绝对可靠性的企业�
 
 若要完成本教程，请确保已安装：
 
-- [Visual Studio 2017 Update 3（版本 15.3 (26730.01)）](http://www.visualstudio.com/vs)或更高版本。
+- [Visual Studio 2017 Update 3（版本 15.3 (26730.01)）](https://www.visualstudio.com/vs)或更高版本。
 - [NET Core SDK](https://www.microsoft.com/net/download/windows) 2.0 或更高版本。
 
 本快速入门要求运行最新版本的 Azure PowerShell。 如需进行安装或升级，请参阅[安装和配置 Azure PowerShell][]。
@@ -48,7 +48,7 @@ Azure 服务总线是一种提供安全消息传送和绝对可靠性的企业�
 2. 运行以下命令以登录到 Azure：
 
    ```PowerShell
-   Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+   Login-AzureRmAccount -Environment AzureChinaCloud -EnvironmentName AzureChinaCloud
    ```
 
 3. 发出以下命令来设置当前的订阅上下文，或者查看当前活动的订阅：

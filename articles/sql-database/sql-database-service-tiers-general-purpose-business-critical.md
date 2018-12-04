@@ -10,19 +10,19 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: sashan, moslake
-manager: craigg
-origin.date: 10/04/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: 08847a2c8a7590527813163acff4e2e076fa23e8
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+manager: digimobile
+origin.date: 10/15/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: 9e2677765e5daf2fba4c89757655f94728d9ee21
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135945"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675272"
 ---
 # <a name="general-purpose-and-business-critical-service-tiers"></a>“常规用途”和“业务关键”服务层
 
-本文讨论基于 vCore 购买模型中的常规用途和业务关键服务层的存储和备份注意事项。 
+本文讨论基于 vCore 购买模型中的常规用途和业务关键服务层的存储和备份注意事项。
 
 ## <a name="data-and-log-storage"></a>数据和日志存储
 
@@ -54,5 +54,5 @@ ms.locfileid: "50135945"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要详细了解适用于常规用途和业务关键服务层中的单一数据库的特定计算大小和存储大小选项，请参阅[适用于单一数据库的 SQL 数据库基于 vCore 的资源限制](sql-database-vcore-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)
-- 若要详细了解适用于常规用途和业务关键服务层中的弹性池的特定计算大小和存储大小选项，请参阅[适用于弹性池的 SQL 数据库基于 vCore 的资源限制](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes)。
+- 若要详细了解适用于常规用途和业务关键服务层中的单一数据库的特定计算大小和存储大小选项，请参阅[适用于单一数据库的 SQL 数据库基于 vCore 的资源限制](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)
+- 若要详细了解适用于常规用途和业务关键服务层中的弹性池的特定计算大小和存储大小选项，请参阅[适用于弹性池的 SQL 数据库基于 vCore 的资源限制](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)。

@@ -1,9 +1,9 @@
 ---
-title: 教程：创建公共的基本负载均衡器 - Azure 门户 | Azure
+title: 教程 - 创建公共的基本负载均衡器 - Azure 门户 | Microsoft Docs
 description: 本教程展示了如何使用 Azure 门户创建内部的基本负载均衡器。
 services: load-balancer
 documentationcenter: na
-author: rockboyfor
+author: WenJason
 manager: digimobile
 editor: ''
 tags: azure-resource-manager
@@ -15,15 +15,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/28/2018
-ms.date: 07/23/2018
-ms.author: v-yeche
+ms.date: 11/26/2018
+ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: 5747405829fa495c3c31bbec36bce0150e0f3fc5
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: 63f066a475745c1d3956a62698c8e387457f8960
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167817"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672889"
 ---
 # <a name="tutorial-load-balance-internal-traffic-with-basic-load-balancer-to-vms-using-the-azure-portal"></a>教程：使用 Azure 门户通过基本负载均衡器将内部流量在各台 VM 之间进行负载均衡
 
@@ -103,7 +103,7 @@ ms.locfileid: "39167817"
 
 ## <a name="create-basic-load-balancer-resources"></a>创建基本负载均衡器资源
 
-在此部分，请为后端地址池和运行状况探测配置负载均衡器设置，并指定负载均衡器和 NAT 规则。
+在本部分中，将为后端地址池和运行状况探测配置负载均衡器设置，并指定负载均衡器规则。
 
 
 ### <a name="create-a-backend-address-pool"></a>创建后端地址池

@@ -9,14 +9,14 @@ editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-origin.date: 09/12/2018
-ms.date: 10/22/2018
-ms.openlocfilehash: ca6f30cb9336cb3d41f68b68084a5789e2415c68
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+origin.date: 11/01/2018
+ms.date: 12/06/2018
+ms.openlocfilehash: 7a75cfe1913c10f19a75faa8d7ff58673fb218df
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453614"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672581"
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>使用 Azure 门户创建 Azure Database for MySQL 服务器
 
@@ -28,7 +28,7 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
 如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
-打开 Web 浏览器，然后访问 [Azure 门户](https://portal.azure.com/)。 输入登录到门户所需的凭据。 默认视图是服务仪表板。
+打开 Web 浏览器，然后访问 [Azure 门户](https://portal.azure.cn/)。 输入登录到门户所需的凭据。 默认视图是服务仪表板。
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>创建 Azure Database for MySQL 服务器
 创建 Azure Database for MySQL 服务器时，请使用定义好的一组[计算和存储资源](./concepts-compute-unit-and-storage.md)。 请在 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)中创建该服务器。
@@ -102,9 +102,7 @@ Azure Database for MySQL 服务在服务器级别创建防火墙。 除非创建
 在此示例中，服务器名称是 **mydemoserver.mysql.database.chinacloudapi.cn**，服务器管理员登录名是 **myadmin@mydemoserver**。
 
 ## <a name="connect-to-mysql-by-using-the-mysql-command-line-tool"></a>使用 mysql 命令行工具连接到 MySQL
-可以通过多个应用程序连接到 Azure Database for MySQL 服务器。 
-
-让我们先使用 [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) 命令行工具来演示如何连接到该服务器。
+使用 mysql.exe 命令行工具连接到服务器。 可从[此处](https://dev.mysql.com/downloads/)下载 MySQL 并将其安装在计算机上。 
 
 1. 若要借助 mysql 实用程序连接到 Azure Database for MySQL 服务器，请使用以下格式：
 
@@ -114,7 +112,7 @@ Azure Database for MySQL 服务在服务器级别创建防火墙。 除非创建
 
     例如，以下命令连接到示例服务器：
 
-    ```cli
+    ```bash
     mysql --host mydemoserver.mysql.database.chinacloudapi.cn --user myadmin@mydemoserver -p
     ```
 
@@ -144,7 +142,7 @@ Azure Database for MySQL 服务在服务器级别创建防火墙。 除非创建
     mysql>
     ```
     > [!TIP]
-    > 如果未将防火墙配置为允许 PowerShell 的 IP 地址，则会出现以下错误：
+    > 如果未将防火墙配置为允许客户端的 IP 地址，则会出现以下错误：
     >
     > 错误 2003 (28000): 不允许 IP 地址为 123.456.789.0 的客户端访问服务器。
     >
@@ -173,7 +171,7 @@ Azure Database for MySQL 服务在服务器级别创建防火墙。 除非创建
     SHOW DATABASES;
     ```
 
-键入 `\q`，然后选择 Enter 键，退出 mysql 工具。 完成后可关闭 PowerShell。
+5. 键入 `\q`，然后选择 Enter 键，退出 mysql 工具。
 
 现在，你已连接到 Azure Database for MySQL 服务器并创建空白用户数据库。 请转到下一部分进行类似的练习。 下一练习使用另一常用工具（即 MySQL Workbench）连接到同一服务器。
 

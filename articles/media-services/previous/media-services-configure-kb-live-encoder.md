@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-origin.date: 02/02/2018
-ms.date: 10/22/2018
+origin.date: 11/04/2018
+ms.date: 12/03/2018
 ms.author: v-jay
-ms.openlocfilehash: aceeea09fe637f495e3c0eed463aeb205b3c3f56
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 4198066d8892612f6d3f73dcdfcd266b8a8a8b50
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453654"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672622"
 ---
 # <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>使用 Haivision KB 实时编码器发送单比特率实时流
 > [!div class="op_single_selector"]
@@ -62,7 +62,7 @@ ms.locfileid: "49453654"
 -   编解码器：H.264
 -   配置文件：高（等级 4.0）
 -   比特率：5000 kbps
--   关键帧：2 秒（60 秒）
+-   关键帧：2 秒（60 帧）
 -   帧速率：30
 
 音频：

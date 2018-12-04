@@ -10,14 +10,14 @@ ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
 origin.date: 09/12/2018
-ms.date: 10/19/2018
+ms.date: 11/22/2018
 ms.author: v-junlch
-ms.openlocfilehash: da605959798ab57001a1593415516afe87ccbf00
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 4ad4d82e29ff51fcb6c0bfd7070f1f2188a49932
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453850"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673010"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# developer reference（Azure Functions C# 开发人员参考）
 
@@ -66,9 +66,9 @@ public static class SimpleExample
     [FunctionName("QueueTrigger")]
     public static void Run(
         [QueueTrigger("myqueue-items")] string myQueueItem, 
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"C# function processed: {myQueueItem}");
+        log.LogInformation($"C# function processed: {myQueueItem}");
     }
 } 
 ```
@@ -99,9 +99,9 @@ public static class SimpleExampleWithOutput
     public static void Run(
         [QueueTrigger("myqueue-items-source")] string myQueueItem, 
         [Queue("myqueue-items-destination")] out string myQueueItemCopy,
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"CopyQueueMessage function processed: {myQueueItem}");
+        log.LogInformation($"CopyQueueMessage function processed: {myQueueItem}");
         myQueueItemCopy = myQueueItem;
     }
 }
@@ -120,10 +120,10 @@ public static class BindingExpressionsExample
     public static void Run(
         [QueueTrigger("%queueappsetting%")] string myQueueItem,
         DateTimeOffset insertionTime,
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"Message content: {myQueueItem}");
-        log.Info($"Created at: {insertionTime}");
+        log.LogInformation($"Message content: {myQueueItem}");
+        log.LogInformation($"Created at: {insertionTime}");
     }
 }
 ```
@@ -223,9 +223,9 @@ public static class ICollectorExample
     public static void Run(
         [QueueTrigger("myqueue-items-source-3")] string myQueueItem,
         [Queue("myqueue-items-destination")] ICollector<string> myDestinationQueue,
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"C# function processed: {myQueueItem}");
+        log.LogInformation($"C# function processed: {myQueueItem}");
         myDestinationQueue.Add($"Copy 1: {myQueueItem}");
         myDestinationQueue.Add($"Copy 2: {myQueueItem}");
     }
@@ -234,9 +234,7 @@ public static class ICollectorExample
 
 ## <a name="logging"></a>日志记录
 
-若要使用 C# 将输出记录到流式处理日志中，请包括 `TraceWriter` 类型的参数。 建议将其命名为 `log`。 避免在 Azure Functions 中使用 `Console.Write`。 
-
-[Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs) 中定义了 `TraceWriter`。 `TraceWriter` 的日志级别可在 [host.json](functions-host-json.md) 中配置。
+若要使用 C# 将输出记录到流式处理日志中，请包括 `ILogger` 类型的参数。 建议将其命名为 `log`。 避免在 Azure Functions 中使用 `Console.Write`。
 
 ```csharp
 public static class SimpleExample
@@ -244,9 +242,9 @@ public static class SimpleExample
     [FunctionName("QueueTrigger")]
     public static void Run(
         [QueueTrigger("myqueue-items")] string myQueueItem, 
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"C# function processed: {myQueueItem}");
+        log.LogInformation($"C# function processed: {myQueueItem}");
     }
 } 
 ```
@@ -263,9 +261,9 @@ public static class AsyncExample
         [BlobTrigger("sample-images/{blobName}")] Stream blobInput,
         [Blob("sample-images-copies/{blobName}", FileAccess.Write)] Stream blobOutput,
         CancellationToken token,
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"BlobCopy function processed.");
+        log.LogInformation($"BlobCopy function processed.");
         await blobInput.CopyToAsync(blobOutput, 4096, token);
     }
 }
@@ -309,11 +307,11 @@ public static class CancellationTokenExample
 public static class EnvironmentVariablesExample
 {
     [FunctionName("GetEnvironmentVariables")]
-    public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+    public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger log)
     {
-        log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
-        log.Info(GetEnvironmentVariable("AzureWebJobsStorage"));
-        log.Info(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
+        log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
+        log.LogInformation(GetEnvironmentVariable("AzureWebJobsStorage"));
+        log.LogInformation(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
     }
 
     public static string GetEnvironmentVariable(string name)
@@ -358,9 +356,9 @@ public static class IBinderExample
     public static void Run(
         [QueueTrigger("myqueue-items-source-4")] string myQueueItem,
         IBinder binder,
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"CreateBlobUsingBinder function processed: {myQueueItem}");
+        log.LogInformation($"CreateBlobUsingBinder function processed: {myQueueItem}");
         using (var writer = binder.Bind<TextWriter>(new BlobAttribute(
                     $"samples-output/{myQueueItem}", FileAccess.Write)))
         {
@@ -383,9 +381,9 @@ public static class IBinderExampleMultipleAttributes
     public async static Task RunAsync(
             [QueueTrigger("myqueue-items-source-binder2")] string myQueueItem,
             Binder binder,
-            TraceWriter log)
+            ILogger log)
     {
-        log.Info($"CreateBlobInDifferentStorageAccount function processed: {myQueueItem}");
+        log.LogInformation($"CreateBlobInDifferentStorageAccount function processed: {myQueueItem}");
         var attributes = new Attribute[]
         {
         new BlobAttribute($"samples-output/{myQueueItem}", FileAccess.Write),
@@ -411,4 +409,4 @@ public static class IBinderExampleMultipleAttributes
 > [!div class="nextstepaction"]
 > [详细了解有关 Azure Functions 的最佳做法](functions-best-practices.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

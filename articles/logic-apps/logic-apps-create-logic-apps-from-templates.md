@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/15/2017
-ms.date: 03/19/2018
+ms.date: 12/10/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5c1823e50b939db83f17f6d46a36ba7d0823285a
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: acd624d64bf15fe34db0fb74db239c23eb70bc50
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870587"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675040"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>从预构建的模板创建逻辑应用工作流
 

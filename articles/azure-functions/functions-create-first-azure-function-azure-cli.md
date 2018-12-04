@@ -6,19 +6,19 @@ keywords: ''
 author: ggailey777
 ms.author: v-junlch
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
-origin.date: 09/10/2018
-ms.date: 10/18/2018
+origin.date: 11/13/2018
+ms.date: 11/22/2018
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 599a0ac7d9b2f8dda74525c4b399ebc94e0c2ad4
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 2b60526cf17191bdfcd790f5ba71a68ed2e9191a
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453766"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672523"
 ---
 # <a name="create-your-first-function-from-the-command-line"></a>从命令行创建第一个函数
 
@@ -46,7 +46,7 @@ ms.locfileid: "49453766"
 func init MyFunctionProj
 ```
 
-出现提示时，请使用箭头键从以下语言选项中选择辅助角色运行时：
+当系统提示时，请从下面的语言选项中选择一个辅助角色运行时：
 
 + `dotnet`：创建 .NET 类库项目 (.csproj)。
 + `node`：创建 JavaScript 项目。
@@ -60,110 +60,17 @@ Writing local.settings.json
 Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
 ```
 
-## <a name="create-a-function"></a>创建函数
-
-以下命令导航到新项目，并创建名为 `MyHtpTrigger` 的 HTTP 触发的函数。
+使用以下命令导航到新的 `MyFunctionProj` 项目文件夹。
 
 ```bash
 cd MyFunctionProj
-func new --name MyHttpTrigger --template "HttpTrigger"
 ```
 
-执行该命令时，会看到如下所示的输出（一个 JavaScript 函数）：
+[!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
 
-```output
-Writing C:\functions\MyFunctionProj\MyHttpTrigger\index.js
-Writing C:\functions\MyFunctionProj\MyHttpTrigger\sample.dat
-Writing C:\functions\MyFunctionProj\MyHttpTrigger\function.json
-```
+[!INCLUDE [functions-update-function-code](../../includes/functions-update-function-code.md)]
 
-## <a name="edit-the-function"></a>编辑函数
-
-默认情况下，模板会创建一个在发出请求时需要函数密钥的函数。 若要在 Azure 中更轻松地测试该函数，需将该函数更新为允许匿名访问。 进行此更改的方式取决于函数项目语言。
-
-### <a name="c"></a>C\#
-
-打开 MyHttpTrigger.cs 代码文件（即新函数），将函数定义中的 **AuthorizationLevel** 特性更新为值 `anonymous`，然后保存更改。
-
-```csharp
-[FunctionName("MyHttpTrigger")]
-        public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous, 
-            "get", "post", Route = null)]HttpRequest req, ILogger log)
-```
-
-### <a name="javascript"></a>Javascript
-
-在文本编辑器中打开新函数的 function.json 文件，将 **bindings.httpTrigger** 中的 **authLevel** 属性更新为 `anonymous`，然后保存更改。
-
-```json
-  "bindings": [
-    {
-      "authLevel": "anonymous",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "$return"
-    }
-  ]
-```
-
-现在，无需提供函数密钥，即可在 Azure 中调用该函数。 在本地运行时永远不需要函数密钥。
-
-## <a name="run-the-function-locally"></a>在本地运行函数
-
-以下命令启动函数应用。 该应用将使用 Azure 中的相同 Azure Functions 运行时运行。
-
-```bash
-func host start --build
-```
-
-编译 C# 项目需要 `--build` 选项。 JavaScript 项目不需要此选项。
-
-当 Functions 宿主启动时，会写入以下输出所示的内容（为方便阅读，内容已截断）：
-
-```output
-
-                  %%%%%%
-                 %%%%%%
-            @   %%%%%%    @
-          @@   %%%%%%      @@
-       @@@    %%%%%%%%%%%    @@@
-     @@      %%%%%%%%%%        @@
-       @@         %%%%       @@
-         @@      %%%       @@
-           @@    %%      @@
-                %%
-                %
-
-...
-
-Content root path: C:\functions\MyFunctionProj
-Now listening on: http://0.0.0.0:7071
-Application started. Press Ctrl+C to shut down.
-
-...
-
-Http Functions:
-
-        HttpTrigger: http://localhost:7071/api/HttpTrigger
-
-[8/27/2018 10:38:27 PM] Host started (29486ms)
-[8/27/2018 10:38:27 PM] Job host started
-```
-
-从运行时输出中复制 `HTTPTrigger` 函数的 URL，并将其粘贴到浏览器的地址栏中。 将查询字符串 `?name=<yourname>` 追加到此 URL 并执行请求。 下面演示本地函数在浏览器中返回的对 GET 请求的响应：
-
-![在浏览器本地进行测试](./media/functions-create-first-azure-function-azure-cli/functions-test-local-browser.png)
-
-在本地运行函数后，可在 Azure 中创建函数应用和其他所需资源。
+[!INCLUDE [functions-run-function-test-local](../../includes/functions-run-function-test-local.md)]
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
 
@@ -201,17 +108,18 @@ az functionapp create --resource-group myResourceGroup --plan <App Service plan>
 }
 ```
 
-## <a name="configure-the-function-app"></a>配置函数应用
+### <a name="configure-the-function-app-nodejs"></a>配置函数应用 (Node.js)
 
-Core Tools 2.x 版创建项目时使用的模板适用于 Azure Functions 2.x 运行时。 因此，需确保 2.x 版运行时在 Azure 中使用。 将 `FUNCTIONS_WORKER_RUNTIME` 应用程序设置为 `~2` 会将函数应用固定到最新的 2.x 版本。 使用 [az functionapp config appsettings set](/cli/functionapp/config/appsettings#set) 命令设置应用程序设置。
+创建 JavaScript 函数应用时，请务必以相应的 Node.js 版本为目标。 2.x 版的 Functions 运行时需要 Node.js 版本 8.x。 应用程序设置 `WEBSITE_NODE_DEFAULT_VERSION` 控制 Azure 中函数应用使用的 Node.js 版本。 使用 [az functionapp config appsettings set](/cli/functionapp/config/appsettings#set) 命令将 Node.js 版本设置为 `8.11.1`。
 
 在以下 Azure CLI 命令中，<app_name> 是函数应用的名称。
 
 ```azurecli
-az functionapp config appsettings set --name <app_name> \
---resource-group myResourceGroup \
---settings FUNCTIONS_WORKER_RUNTIME=~2
+az functionapp config appsettings set --resource-group myResourceGroup \
+ --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
 ```
+
+验证输出中的新设置。
 
 [!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
 

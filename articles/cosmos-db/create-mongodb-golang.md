@@ -9,15 +9,15 @@ ms.component: cosmosdb-mongo
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 07/21/2017
-ms.date: 09/30/2018
+ms.date: 12/03/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 4ee3a9dd8dfaa87d618535e23d31cafe9b6ab09c
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: 83d1e21a246ff8008483f61f70a32223c0498945
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201323"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674421"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB：使用 Golang 和 Azure 门户生成 MongoDB API 控制台应用
 
@@ -29,6 +29,7 @@ ms.locfileid: "47201323"
 > * [Xamarin](create-mongodb-xamarin.md)
 > * [Golang](create-mongodb-golang.md)
 >  
+
 Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可快速创建和查询文档数据库，这些数据库受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。
 <!-- Notice: 全球分布 to 多个区域分布 -->
 <!-- Notice: global to multiple-region -->
@@ -45,7 +46,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
   [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 - [Go](https://golang.org/dl/) 以及 [Go](https://golang.org/) 语言的基础知识。
-- IDE — [Gogland](https://www.jetbrains.com/go/)（由 Jetbrains 开发）、[Visual Studio Code](https://code.visualstudio.com/)（由 Microsoft 开发）或 [Atom](https://atom.io/)。 本教程使用 Goglang。
+- IDE — [GoLand](https://www.jetbrains.com/go/)（由 Jetbrains 推出）、[Visual Studio Code](https://code.visualstudio.com/)（由 Microsoft 推出）或 [Atom](https://atom.io/)。 本教程使用 Goglang。
 
 <a name="create-account"></a>
 ## <a name="create-a-database-account"></a>创建数据库帐户
@@ -68,7 +69,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
     go get gopkg.in/mgo.v2
     ```
 
-[mgo](http://labix.org/mgo)（发音同 *mango*）驱动程序是适用于 [Go 语言](http://golang.org/)的 [MongoDB](http://www.mongodb.org/) 驱动程序，该语言采用很简单的 API 和标准的 Go 惯用语，实现了多种经过严格测试的精选功能。
+[mgo](http://labix.org/mgo) 驱动程序是适用于 [Go 语言](http://golang.org/)的 [MongoDB](http://www.mongodb.org/) 驱动程序，该语言采用很简单的 API 和标准的 GO 惯用语，实现了多种经过严格测试的精选功能。
 
 <a name="connection-string"></a>
 
@@ -259,4 +260,4 @@ if err != nil {
 > [!div class="nextstepaction"]
 > [将 MongoDB API 的数据导入 Azure Cosmos DB](mongodb-migrate.md)
 
-<!--Update_Description: update meta properties  -->
+<!--Update_Description: update meta properties, wording update  -->

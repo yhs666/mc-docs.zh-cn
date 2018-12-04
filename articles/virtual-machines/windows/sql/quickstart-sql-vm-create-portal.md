@@ -12,14 +12,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 origin.date: 05/11/2018
-ms.date: 06/04/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 07dd28c4b3ee8920152ff6ab28809282b39cb5d3
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 4f63d2a494e3fb8d0d0f3774f51957d9e00cb7e0
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939666"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674566"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建 SQL Server 2017 Windows 虚拟机
 
@@ -163,4 +163,4 @@ ms.locfileid: "38939666"
 > [!div class="nextstepaction"]
 > [将数据库迁移到 SQL VM](virtual-machines-windows-migrate-sql.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update meta properties -->

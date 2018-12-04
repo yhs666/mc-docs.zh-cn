@@ -9,12 +9,12 @@ origin.date: 09/24/2018
 ms.date: 11/05/2018
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 8922d53524f3b6b79447384547bf366e4b937e4e
-ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
+ms.openlocfilehash: 9803f2f71158313830e97f8fc7e144f50fb78c41
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50204861"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675312"
 ---
 # <a name="multi-master-conflict-resolution-in-azure-cosmos-db"></a>Azure Cosmos DB 中的多主数据库冲突解决 
 
@@ -162,6 +162,7 @@ function myUdpStoredProcedure(incomingDocument, existingDocument, isDeleteConfli
 
 用户定义的过程对 Cosmos DB 分区键拥有完全访问权限，可以执行任何存储操作来解决冲突。 如果用户定义的过程未提交冲突版本，则系统将删除冲突，而 existingDocument 将保持已提交状态。 如果用户定义的过程失败或不存在，则 Azure Cosmos DB 会将冲突添加到只读的冲突源，在其中可以异步处理冲突，如[异步冲突解决模式](#custom--asynchronous)中所述。 
 
+<a name="custom--asynchronous"></a>
 ### <a name="custom---asynchronous"></a>自定义 - 异步  
 
 在此模式下，Azure Cosmos DB 会排除所有冲突（插入、替换和删除）以防止其提交，并将其注册到只读的冲突源，由用户的应用程序延期解决。 应用程序可以异步执行冲突解决，并使用任何逻辑或引用任何外部源、应用程序或服务来解决冲突。
@@ -215,8 +216,9 @@ FeedResponse<Conflict> response = await myClient.ReadConflictFeedAsync(myCollect
 |SQL API    | 节点    |[azure-cosmos-js/samples/MultiRegionWrite/](https://github.com/Azure/azure-cosmos-js/tree/master/samples/MultiRegionWrite)  |
 |SQL API    | Java    |[azure-cosmos-db-sql-java-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-sql-java-multi-master)  |
 |MongoDB  | .NET    |[azure-cosmos-db-mongodb-dotnet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-multi-master)   |
-|表 API  | .NET    |[azure-cosmos-db-table-dotnet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-multi-master)       |
-|Gremlin API | .NET | [azure-cosmos-db-gremlin-dontnet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-gremlin-dontnet-multi-master)|
+
+<!--Not Available on  Table  API -->
+<!--Not Available on  Gremlin API -->
 
 ## <a name="next-steps"></a>后续步骤
 

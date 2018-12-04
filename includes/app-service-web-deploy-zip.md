@@ -1,6 +1,6 @@
 ## <a name="deploy-zip-file"></a>部署 ZIP 文件
 
-在浏览器中，导航到 `https://<app_name>.scm.chinacloudsites.cn/ZipDeploy`。
+在浏览器中，导航到 `https://<app_name>.scm.chinacloudsites.cn/ZipDeployUI`。
 
 上传在[创建一个项目 ZIP 文件](#create-a-project-zip-file)中创建的 ZIP 文件，只需将其拖至网页的文件资源管理器区域即可。
 

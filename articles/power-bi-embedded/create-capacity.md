@@ -12,11 +12,11 @@ ms.reviewer: ''
 origin.date: 05/31/2018
 ms.date: 07/18/2018
 ms.openlocfilehash: 77ae088696342a8187d1f9b7e4c7de9ca4d52370
-ms.sourcegitcommit: cce18df2de12353f0d8f01c649307a5789d59cd4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39246126"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667214"
 ---
 # <a name="create-power-bi-embedded-capacity-in-the-azure-portal"></a>在 Azure 门户中创建 Power BI Embedded 容量
 

@@ -21,7 +21,7 @@ items:
     href: quickstart-create-standard-load-balancer-powershell.md
 - name: 教程
   items:
-  - name: 创建和管理负载均衡器
+  - name: 对传入 VM 的 Internet 流量进行负载均衡
     href: tutorial-load-balancer-standard-manage-portal.md
   - name: 对传入 VM 的内部流量进行负载均衡
     href: tutorial-load-balancer-basic-internal-portal.md
@@ -49,6 +49,8 @@ items:
   items:
   - name: 配置出站规则
     href: configure-load-balancer-outbound-cli.md
+  - name: 使用 REST API 创建 Azure 负载均衡器
+    href: create-load-balancer-rest-api.md
   - name: 创建基本负载均衡器（模板）
     href: load-balancer-get-started-internet-arm-template.md
   - name: 配置内部负载均衡器
@@ -116,7 +118,7 @@ items:
   - name: Ruby
     href: http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers
   - name: Python
-    href: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html?view=azure-dotnet#azure.mgmt.network.operations.LoadBalancersOperations
+    href: https://docs.microsoft.com/en-us/python/api/azure-mgmt-network/azure.mgmt.network.v2017_10_01.models.LoadBalancer?view=azure-python
   - name: REST
     href: https://msdn.microsoft.com/library/azure/mt163651.aspx
 - name: 相关内容
@@ -141,9 +143,9 @@ items:
     href: https://www.azure.cn/pricing/calculator/
   - name: 服务更新
     href: https://www.azure.cn/what-is-new/
-ms.openlocfilehash: a929961ae050dcbd0f41842d66303d7625820402
-ms.sourcegitcommit: 9be84d4dc546d66a0d9d1d2be67dd79c84b2c210
+ms.openlocfilehash: 5af41eef8a9c7b3578bbac317a65d1018ae64aac
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50408836"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672932"

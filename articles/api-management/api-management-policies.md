@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 11/19/2017
 ms.author: v-yiso
 ms.date: 02/26/2018
-ms.openlocfilehash: 2159b3564f5fcc24f76119d797342345258e7084
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 08eed577220cac9f67ac874f957b2e466efe1c09
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29285119"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675045"
 ---
 # <a name="api-management-policies"></a>API 管理策略
 本部分提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](./api-management-howto-policies.md)。  
@@ -125,5 +125,5 @@ ms.locfileid: "29285119"
 
 + [API 管理中的策略](api-management-howto-policies.md)
 + [转换 API](transform-api.md)
-+ [策略参考](api-management-policy-reference.md)，获取策略语句及其设置的完整列表
++ [策略参考](api-management-policies.md)，获取策略语句及其设置的完整列表
 + [策略示例](policy-samples.md)   

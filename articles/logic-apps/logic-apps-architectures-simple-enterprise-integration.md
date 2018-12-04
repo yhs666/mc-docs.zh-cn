@@ -9,12 +9,12 @@ ms.author: mattfarm
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/15/2018
-ms.openlocfilehash: 7081c9e4f6e6deee196255f04180a8f2cc792876
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.openlocfilehash: f103ff985898d912ea4d1ac863f3dd330aec9cf5
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455255"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675096"
 ---
 # <a name="simple-enterprise-integration-architecture"></a>简单的企业集成体系结构
 
@@ -166,7 +166,6 @@ API 管理使用称作“命名值”或“属性”的对象管理机密。 这
 
 每个服务还提供以下选项：
 
-* 若要进行更深入的分析和仪表板显示，可将逻辑应用日志发送到 [Azure Log Analytics](logic-apps-monitor-your-logic-apps-oms.md)。
 
 * 若要进行 DevOps 监视，可为 API 管理配置 Azure Application Insights。
 

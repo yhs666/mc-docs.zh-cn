@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 11/03/2016
-ms.date: 12/18/2017
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 608653e4ad6296dcc7891613dab166c13407595c
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 2ab89d8bab2ed5cd97fb4591dccf30bb37bc6149
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
-ms.locfileid: "26727537"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674855"
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-creating-a-new-windows-virtual-machine-in-azure"></a>排查在 Azure 中新建 Windows 虚拟机时遇到的经典部署问题
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-selectors](../../../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-selectors-include.md)]
@@ -53,7 +53,7 @@ ms.locfileid: "26727537"
 
 **解决方法：**
 
-若要解决这两个错误，请上传原始 VHD、可用的本地设置以及与该 OS（通用/专用）相同的设置。 若要以通用设置上传，请记得先运行 sysprep。 有关详细信息，请参阅[创建 Windows Server VHD 并将其上传到 Azure](createupload-vhd.md)。
+若要解决这两个错误，请上传原始 VHD、可用的本地设置以及与该 OS（通用/专用）相同的设置。 若要以通用设置上传，请记得先运行 sysprep。 有关详细信息，请参阅[创建 Windows Server VHD 并将其上传到 Azure](createupload-vhd.md) 。
 
 **捕获错误：**
 
@@ -65,7 +65,7 @@ ms.locfileid: "26727537"
 
 若要解决这两个错误，请从门户中删除当前映像，并[从当前 VHD 重新捕获映像](capture-image.md)，其设置与 OS 的设置相同（通用/专用）。
 
-## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>问题：自定义/库/应用商店映像；分配失败
+## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>问题：自定义/库/市场映像；分配失败
 当新的 VM 请求被发送到没有可用空间可处理请求、或不支持所请求的 VM 大小的群集，便发生此错误。 在相同的云服务中不可混合不同系列的 VM。 因此，如果想要创建和云服务可支持大小不同的新 VM，计算请求将失败。
 
 可能遇到因两种情况造成的错误，取决于用于创建新 VM 的云服务的条件约束。
@@ -89,9 +89,9 @@ ms.locfileid: "26727537"
 
 * 创建新的区域虚拟网络。
 * 在新的虚拟网络中创建新 VM。
-* 
-            [将现有虚拟网络连接到](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)新虚拟网络。 详细了解 [区域虚拟网络](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)。 此外，用户也可以 [将基于地缘组的虚拟网络迁移到区域虚拟网络](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)，并创建新 VM。
+* [将现有虚拟网络连接到](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)新虚拟网络。 详细了解 [区域虚拟网络](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)。 此外，用户也可以 [将基于地缘组的虚拟网络迁移到区域虚拟网络](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)，并创建新 VM。
 
 ## <a name="next-steps"></a>后续步骤
 如果在 Azure 中启动已停止的 Windows VM 或调整现有 Windows VM 的大小时遇到问题，请参阅[排查在 Azure 中重新启动现有 Windows 虚拟机或调整其大小时遇到的经典部署问题](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)。
-<!-- Update_Description: add classic portal migration notice. -->
+
+<!-- Update_Description: update meta properties -->

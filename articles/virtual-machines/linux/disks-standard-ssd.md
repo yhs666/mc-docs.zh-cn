@@ -9,14 +9,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 08/14/2018
-ms.date: 10/29/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: ad04985e54d1183e411945de2d452a4898aff4e8
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.openlocfilehash: 54e0f5960a40407c5dd805e26f7ce6bdf3e02155
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035068"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674148"
 ---
 [!INCLUDE [virtual-machines-disks-standard-ssd](../../../includes/virtual-machines-disks-standard-ssd.md)]
 
@@ -25,5 +25,4 @@ ms.locfileid: "50035068"
 > [!div class="nextstepaction"]
 > [Azure 标准与高级托管磁盘存储的相互转换](convert-disk-storage.md)
 
-<!-- Update_Description: new articles on disks standard ssd -->
-<!--ms.date: 10/22/2018-->
+<!-- Update_Description: update meta properties -->

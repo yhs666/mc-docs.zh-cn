@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 07/17/2017
-ms.date: 06/04/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 59c55161bffe9c1dc3cc9c251b1f794c5337bf79
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 0eeea4c5c8f7de455d2e0d93797cd2c05302d500
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702792"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674335"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>使用 C# 创建和管理 Azure 中的 Windows VM #
 
@@ -59,6 +59,7 @@ ms.locfileid: "34702792"
 
 在开始此步骤之前，请确保能够访问 [Active Directory 服务主体](../../azure-resource-manager/resource-group-create-service-principal-portal.md)。 还应该记录稍后步骤需要的应用程序 ID、身份验证秘钥和的租户 ID。
 
+<!--Notice: URL is correct ../../azure-resource-manager/resource-group-create-service-principal-portal.md-->
 ### <a name="create-the-authorization-file"></a>创建授权文件
 
 1. 在解决方案资源管理器中，右键单击“myDotnetProject” > “添加” > “新建项”，然后在“Visual C# 项”中选择“文本文件”。 将文件命名为 azureauth.properties，然后单击“添加”。
@@ -218,7 +219,7 @@ azure.VirtualMachines.Define(vmName)
 > 
 >
 
-如果要使用现有磁盘而不是商城映像，请使用以下代码：
+如果要使用现有磁盘而不是市场映像，请使用以下代码：
 
 ```
 var managedDisk = azure.Disks.Define("myosdisk")

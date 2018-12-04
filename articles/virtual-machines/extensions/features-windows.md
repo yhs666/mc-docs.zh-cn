@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 03/30/2018
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 718db489c52a37570f909e9fe403492aee7d9d45
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 5bc4e7169c163010a01533de6f1760faaa3fb370
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453864"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674927"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>适用于 Windows 的虚拟机扩展和功能
 
@@ -35,7 +35,7 @@ Azure 虚拟机 (VM) 扩展是小型应用程序，可在 Azure VM 上提供部�
 有许多不同的 Azure VM 扩展可用，每个都有特定用例。 示例包括：
 
 - 使用适用于 Windows 的 DSC 扩展将 PowerShell 所需状态配置应用到 VM。 有关详细信息，请参阅 [Azure Desired State configuration extension](dsc-overview.md)（Azure Desired State Configuration 扩展）。
-<!--Not Available on [Connect Azure VMs to Log Analytics](../../log-analytics/log-analytics-azure-vm-extension.md)-->
+    <!--Not Available on [Connect Azure VMs to Log Analytics](../../log-analytics/log-analytics-azure-vm-extension.md)-->
 - 使用 Chef 配置 Azure VM。 有关详细信息，请参阅[使用 Chef 自动执行 Azure VM 部署](../windows/chef-automation.md)。
 - 使用 Datadog 扩展配置 Azure 基础结构监视功能。 有关详细信息，请参阅 [Datadog 博客](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/)。
 
@@ -57,7 +57,7 @@ Azure VM 代理可管理 Azure VM 与 Azure 结构控制器之间的交互。 VM
 
 #### <a name="supported-oses"></a>支持的 OS
 
-Windows 来宾代理在多个 OS 上运行，但是，扩展框架对扩展的 OS 施加限制。 有关详细信息，请参阅 [此文] (https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems)。
+Windows 来宾代理在多个 OS 上运行，但是，扩展框架对扩展的 OS 施加限制。 有关详细信息，请参阅[此文章](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems)。
 
 某些扩展并非在所有 OS 上均受支持，可能会发出错误代码 51“不受支持的 OS”。 请查看相应的扩展文档来了解支持情况。
 

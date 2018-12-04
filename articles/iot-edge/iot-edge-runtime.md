@@ -9,12 +9,12 @@ ms.date: 11/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 329555ee3c4ff5c3dadb87de688399b72ac528bf
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.openlocfilehash: 4bdc90bf6379293863c2a2c91b359b3555c21bb6
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135758"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674456"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>了解 Azure IoT Edge 运行时及其体系结构
 
@@ -24,13 +24,13 @@ IoT Edge 运行时在 IoT Edge 设备上执行以下功能：
 
 * 安装和更新设备上的工作负荷。
 * 维护设备上的 Azure IoT Edge 安全标准。
-* 确保 [IoT Edge 模块][lnk-modules] 始终运行。
+* 确保 [IoT Edge 模块](iot-edge-modules.md)始终处于运行状态。
 * 将模块运行状况报告给云以进行远程监控。
 * 促进下游叶设备与 IoT Edge 设备之间的通信。
 * 促进 IoT Edge 设备上的模块间的通信。
 * 促进 IoT Edge 设备和云之间的通信。
 
-![IoT Edge 运行时向 IoT 中心传达见解和模块运行状况][1]
+![IoT Edge 运行时向 IoT 中心传达见解和模块运行状况](./media/iot-edge-runtime/Pipeline.png)
 
 IoT Edge 运行时的职责分为两类：通信和模块管理。 这两种角色是由组成 IoT Edge 运行时的两个组件执行的。 IoT Edge 中心负责通信，IoT Edge 代理管理部署和监视模块。 
 
@@ -50,7 +50,7 @@ Edge 中心不是在本地运行的完整版本的 IoT 中心。 有一些功能
 
 为减少 IoT Edge 解决方案使用的带宽，Edge 中心优化了对云的实际连接数量。 Edge 中心采用来自客户端（如模块或叶设备）的逻辑连接，并将它们组合为连接到云的单个物理连接。 此过程的详细信息对解决方案的其他部分透明。 即使客户端都通过相同连接进行发送，它们也会认为具有自己的云连接。 
 
-![Edge 中心充当多个物理设备和云之间的网关][2]
+![Edge 中心充当多个物理设备和云之间的网关](./media/iot-edge-runtime/Gateway.png)
 
 Edge 中心可以确定其是否连接到了 IoT 中心。 如果连接丢失，Edge 中心将在本地保存消息或克隆更新。 一旦重新建立连接，将同步所有数据。 此临时缓存的位置由 Edge 中心的模块孪生的属性决定。 只要设备具有存储容量，缓存的大小就没有限制并且会增加。 
 
@@ -58,7 +58,7 @@ Edge 中心可以确定其是否连接到了 IoT 中心。 如果连接丢失，
 
 Edge 中心促进模块间通信。 使用 Edge 中心作为消息中转站可以保持模块之间相互独立。 模块只需指定它们接受消息的输入和写入消息的输出。 然后解决方案开发者将这些输入和输出拼结在一起，以便模块按特定于该解决方案的顺序处理数据。 
 
-![Edge 中心促进模块间通信。][3]
+![Edge 中心促进模块间通信。](./media/iot-edge-runtime/ModuleEndpoints.png)
 
 为了将数据发送到 Edge 中心，模块会调用 SendEventAsync 方法。 第一个参数指定要发送消息的输出。 下面的伪代码发送 output1 上的消息：
 
@@ -71,14 +71,16 @@ Edge 中心促进模块间通信。 使用 Edge 中心作为消息中转站可�
 若要接收消息，请注册一个回叫，用于处理在特定输入上传入的消息。 下面的伪代码注册用于处理在 input1 上接收到的所有消息的函数 messageProcessor。
 
    ```csharp
-   await client.SetEventHandlerAsync(“input1”, messageProcessor, userContext);
+   await client.SetInputMessageHandlerAsync(“input1”, messageProcessor, userContext);
    ```
+
+有关 ModuleClient 类及其通信方法的更多信息，请参阅首选 SDK 语言的 API 参考：[C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet)、[C 和 Python](/iot-hub/iot-c-sdk-ref/iothub-module-client-h)、[Java](/java/api/com.microsoft.azure.sdk.iot.device._module_client?view=azure-java-stable) 或 [Node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest)。
 
 解决方案开发者负责指定用于确定 Edge 中心如何在模块间传递消息的规则。 路由规则在云中定义，并向下推送到其设备孪生中的 Edge 中心。 使用 IoT 中心路由的同一语法定义在 Azure IoT Edge 中的模块之间的路由。 
 
 <!--- For more info on how to declare routes between modules, see []. --->   
 
-![模块之间的路由][4]
+![模块之间的路由](./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png)
 
 ## <a name="iot-edge-agent"></a>IoT Edge 代理
 
@@ -118,7 +120,7 @@ IoT Edge 代理在 IoT Edge 设备的安全性中起着关键作用。 例如，
 
 ## <a name="next-steps"></a>后续步骤
 
-[了解 Azure IoT Edge 证书][lnk-certs]
+[了解 Azure IoT Edge 证书](iot-edge-certs.md)
 
 <!-- Images -->
 [1]: ./media/iot-edge-runtime/Pipeline.png

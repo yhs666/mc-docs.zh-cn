@@ -3,7 +3,7 @@ title: 创建和管理弹性池 - Azure SQL 数据库 | Microsoft Docs
 description: 创建和管理 Azure SQL 弹性池。
 services: sql-database
 ms.service: sql-database
-subservice: elastic-pool
+ms.subservice: elastic-pool
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,24 +11,25 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 09/20/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: 62be9bdd0d710398a51a2a9dde796e018365eb53
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+origin.date: 10/29/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: aedb328dda82d6dcc5356f2c12466de7bed64320
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135853"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672551"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>在 Azure SQL 数据库中创建和管理弹性池
 
-使用弹性池，可以确定弹性池处理其数据库工作负载所需的资源量，以及每个入池数据库的资源量。 
+使用弹性池，可以确定弹性池处理其数据库工作负载所需的资源量，以及每个入池数据库的资源量。
 
 ## <a name="azure-portal-manage-elastic-pools-and-pooled-databases"></a>Azure 门户：管理弹性池和入池数据库
 
 可在一个位置找到所有池设置：“配置池”边栏选项卡。 若要转到该位置，请在门户中找到所需的弹性池，然后在边栏选项卡顶部，或者在左侧资源菜单中单击“配置池”。
 
 在此处，可以进行以下任意更改组合，并将所有这些更改保存到一个批处理文件中：
+
 1. 更改池的服务层
 2. 缩放性能（DTU 或 vCore）和存储
 3. 在池中添加或删除数据库
@@ -37,7 +38,7 @@ ms.locfileid: "50135853"
 
 ![弹性池配置边栏选项卡](./media/sql-database-elastic-pool-manage-portal/configure-pool.png)
 
-## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell：管理弹性池和入池数据库 
+## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell：管理弹性池和入池数据库
 
 若要使用 Azure PowerShell 创建并管理 SQL 数据库弹性池和入池数据库，请使用以下 PowerShell cmdlet。 如果需要安装或升级 PowerShell，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 若要创建和管理弹性池的逻辑服务器，请参阅[创建和管理逻辑服务器](sql-database-logical-servers.md)。 若要创建和管理防火墙规则，请参阅[使用 PowerShell 创建和管理防火墙规则](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell)。
 
@@ -57,10 +58,8 @@ ms.locfileid: "50135853"
 |[Set-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase)|设置数据库的属性，将现有数据库移入、移出弹性池或在其之间移动。|
 |[Remove-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqldatabase)|删除数据库。|
 
-
 > [!TIP]
 > 使用门户或每次只能创建一个单一数据库的 PowerShell cmdlet 在弹性池中创建多个数据库可能需要一段时间。 若要自动创建到弹性池中，请参阅 [CreateOrUpdateElasticPoolAndPopulate](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae)。
->
 
 ## <a name="azure-cli-manage-elastic-pools-and-pooled-databases"></a>Azure CLI：管理弹性池和入池数据库
 
@@ -90,7 +89,7 @@ ms.locfileid: "50135853"
 | 命令 | 说明 |
 | --- | --- |
 |[CREATE DATABASE（Azure SQL 数据库）](https://docs.microsoft.com/sql/t-sql/statements/create-database-azure-sql-database)|在现有池中创建新数据库或将其创建为单一数据库。 必须连接到 master 数据库，才能新建数据库。|
-| [ALTER DATABASE（Azure SQL 数据库）](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database) |将数据库移入、移出弹性池或在其之间移动。|
+|[ALTER DATABASE（Azure SQL 数据库）](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database) |将数据库移入、移出弹性池或在其之间移动。|
 |[DROP DATABASE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/drop-database-transact-sql)|删除数据库。|
 |[sys.elastic_pool_resource_stats（Azure SQL 数据库）](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|返回逻辑服务器中所有弹性数据库池的资源使用率统计信息。 对于每个弹性数据库池，每 15 秒的报告窗口就会提供一行（每分钟四行）。 这包括池中所有数据库的 CPU、IO、日志和存储消耗以及并发的请求/会话利用率。|
 |[sys.database_service_objectives（Azure SQL 数据库）](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|返回 Azure SQL 数据库或 Azure SQL 数据仓库的版本（服务层）、服务目标（定价层）和弹性池名称（若有）。 如果已登录到 Azure SQL 数据库服务器中的 master 数据库，则会返回所有数据库的相关信息。 对于 Azure SQL 数据仓库，必须连接到 master 数据库。|

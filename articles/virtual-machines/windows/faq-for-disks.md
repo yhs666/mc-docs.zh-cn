@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/15/2017
-ms.date: 05/21/2018
+ms.date: 05/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6dbf49a5304b6122bb9b596bbb0c32e731c1b311
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 69812b2f013787437c00b9fff66dc13352de2587
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939206"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674388"
 ---
 [!INCLUDE [virtual-machines-faq-for-disks](../../../includes/virtual-machines-faq-for-disks.md)]
 <!-- Update_Description: update meta properties -->

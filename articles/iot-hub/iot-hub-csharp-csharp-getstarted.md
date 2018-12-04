@@ -16,11 +16,11 @@ origin.date: 01/29/2018
 ms.date: 03/19/2018
 ms.author: v-yiso
 ms.openlocfilehash: fd009effa1b873e1b4b17eb10e5cc01b3c7e5ec1
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940007"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667174"
 ---
 # <a name="connect-your-device-to-your-iot-hub-using-net"></a>使用 .NET 将设备连接到 IoT 中心
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
@@ -217,8 +217,7 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
 
 若要继续了解 IoT 中心入门知识并浏览其他 IoT 方案，请参阅：
 
-* 
-            [连接设备][lnk-connect-device]
+* [连接设备][lnk-connect-device]
 * [设备管理入门][lnk-device-management]
 * [IoT Edge 入门][lnk-iot-edge]
 

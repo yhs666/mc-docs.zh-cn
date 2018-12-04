@@ -11,24 +11,24 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 09/20/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: faf03373f52f6bb6da06d7921fd2803bd4615b01
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+origin.date: 10/19/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: 4c18e11af73acc053f08c2c9c65e321873def8e5
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135856"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672638"
 ---
 # <a name="azure-sql-database-logical-servers-and-their-management"></a>Azure SQL 数据库逻辑服务器及其管理
 
-## <a name="what-is-an-azure-sql-logical-server"></a>什么是 Azure SQL 逻辑服务器？
+## <a name="what-is-an-azure-sql-logical-server"></a>什么是 Aure SQL 逻辑服务器
 
 逻辑服务器用作多个单一或[已共用](sql-database-elastic-pool.md)数据库的中心管理点，包括[登录名](sql-database-manage-logins.md)[防火墙规则](sql-database-firewall-configure.md)[审核规则](sql-database-auditing.md)[威胁检测策略](sql-database-threat-detection.md)和[故障转移组](sql-database-geo-replication-overview.md)。 逻辑服务器可以与其资源组位于不同的区域。 必须先创建逻辑服务器，然后才能创建 Azure SQL 数据库。 服务器上的所有数据库都在逻辑服务器所在的同一区域内创建而成。
 
 逻辑服务器是一种逻辑构造，它不同于在本地环境中可能已熟悉的 SQL Server 实例。 具体而言，SQL 数据库服务对数据库相对于其逻辑服务器的位置不做出任何保证，并且不公开任何实例级访问权限或功能。
 
-创建逻辑服务器时，提供服务器登录帐户和密码，此凭据有权管理服务器上的 master 数据库及其上创建的所有数据库。 这一初始帐户就是 SQL 登录帐户。 Azure SQL 数据库支持结合使用 SQL 身份验证和 Azure Active Directory 身份验证以进行身份验证。 若要详细了解登录名和身份验证，请参阅[在 Azure SQL 数据库中管理数据库和登录名](sql-database-manage-logins.md)。 不支持 Windows 身份验证。 
+创建逻辑服务器时，提供服务器登录帐户和密码，此凭据有权管理服务器上的 master 数据库及其上创建的所有数据库。 这一初始帐户就是 SQL 登录帐户。 Azure SQL 数据库支持结合使用 SQL 身份验证和 Azure Active Directory 身份验证以进行身份验证。 若要详细了解登录名和身份验证，请参阅[在 Azure SQL 数据库中管理数据库和登录名](sql-database-manage-logins.md)。 不支持 Windows 身份验证。
 
 Azure 数据库逻辑服务器：
 
@@ -39,19 +39,19 @@ Azure 数据库逻辑服务器：
 - 参与 [Azure 基于角色的访问控制 (RBAC)](/role-based-access-control/overview)。也就是说，服务器中的数据库、弹性池和数据库从服务器继承访问权限
 - 是位置靠前的数据库、弹性池和数据仓库标识元素，用于管理 Azure 资源（请参阅“数据库和池的 URL 方案”）
 - 在区域中并置资源
-- 为数据库访问提供连接终结点 (<serverName>.database.chinacloudapi.cn)
-- 通过连接到 master 数据库通过 DMV 提供对所含资源相关元数据的访问方式 
-- 提供应用于数据库的管理策略的作用域，即登录名、防火墙、审核、威胁检测等。 
+- 为数据库访问提供连接终结点 (`<serverName>`.database.chinacloudapi.cn)
+- 通过连接到 master 数据库通过 DMV 提供对所含资源相关元数据的访问方式
+- 提供应用于数据库的管理策略的作用域，即登录名、防火墙、审核、威胁检测等
 - 受父订阅中的配额限制（默认情况下，每个订阅六个服务器，[请单击此处了解订阅限制](../azure-subscription-service-limits.md)）
 - 提供所含资源的数据库配额和 DTU 或 vCore 配额范围（例如，45,000 个 DTU）
-- 是在包含资源上启用的功能的版本控制作用域 
+- 是在包含资源上启用的功能的版本控制作用域
 - 服务器级主体登录名可以管理服务器上的所有数据库
 - 可以包含的登录名类似于本地 SQL Server 实例中的登录名，这些登录名有权访问服务器上的一个或多个数据库，并且可以被授予有限的管理权限。 有关详细信息，请参阅[登录名](sql-database-manage-logins.md)。
 - 用于所有在逻辑服务器上创建的用户数据库的默认排序规则是 `SQL_LATIN1_GENERAL_CP1_CI_AS`，其中 `LATIN1_GENERAL` 为英语（美国），`CP1` 为代码页 1252，`CI` 不区分大小写，`AS` 区分重音符。
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-portal"></a>使用 Azure 门户管理 Azure SQL 服务器、数据库和防火墙
 
-可以提前创建 Azure SQL 数据库的资源组，也可以在创建服务器本身期间创建。 转到新 SQL 服务器表单的方法有多种，可以通过新建 SQL 服务器，也可以在新建数据库期间。 
+可以提前创建 Azure SQL 数据库的资源组，也可以在创建服务器本身期间创建。 转到新 SQL 服务器表单的方法有多种，可以通过新建 SQL 服务器，也可以在新建数据库期间。
 
 ### <a name="create-a-blank-sql-server-logical-server"></a>创建空白 SQL 服务器（逻辑服务器）
 
@@ -68,19 +68,16 @@ Azure 数据库逻辑服务器：
 
 ### <a name="manage-an-existing-sql-server"></a>管理现有 SQL 服务器
 
-若要管理现有服务器，请使用多种方法转到服务器，如通过特定 SQL 数据库网页、“SQL 服务器”页或“所有资源”页。 
+若要管理现有服务器，请使用多种方法转到服务器，如通过特定 SQL 数据库网页、“SQL 服务器”页或“所有资源”页。
 
-若要管理现有数据库，请转到“SQL 数据库”页，再单击要管理的数据库。 下面的屏幕截图展示了如何通过数据库的“概述”页开始为数据库设置服务器级防火墙。 
+若要管理现有数据库，请转到“SQL 数据库”页，再单击要管理的数据库。 下面的屏幕截图展示了如何通过数据库的“概述”页开始为数据库设置服务器级防火墙。
 
-   ![服务器防火墙规则](./media/sql-database-get-started-portal/server-firewall-rule.png) 
+   ![服务器防火墙规则](./media/sql-database-get-started-portal/server-firewall-rule.png)
 
 > [!IMPORTANT]
 > 要配置数据库的性能属性，请参阅[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)和[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)。
->
-
 > [!TIP]
 > 有关 Azure 门户快速入门，请参阅[在 Azure 门户中创建 Azure SQL 数据库](sql-database-get-started-portal.md)。
->
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-powershell"></a>使用 PowerShell 管理 Azure SQL 服务器、数据库和防火墙
 
@@ -163,7 +160,6 @@ Azure 数据库逻辑服务器：
 |[sys.database_firewall_rules (Azure SQL Database)](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-firewall-rules-azure-sql-database)|返回与 Microsoft Azure SQL 数据库关联的数据库级防火墙设置的相关信息。 |
 |[sp_delete_database_firewall_rule (Azure SQL Database)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database)|从 Azure SQL 数据库或 SQL 数据仓库中删除数据库级防火墙规则设置。 |
 
-
 > [!TIP]
 > 有关在 Microsoft Windows 上使用 SQL Server Management Studio 的快速入门，请参阅 [Azure SQL 数据库：使用 SQL Server Management Studio 进行连接和数据查询](sql-database-connect-query-ssms.md)。 有关在 macOS、Linux 或 Windows 上使用 Visual Studio Code 的快速入门，请参阅 [Azure SQL 数据库：使用 Visual Studio Code 进行连接和数据查询](sql-database-connect-query-vscode.md)。
 
@@ -180,6 +176,7 @@ Azure 数据库逻辑服务器：
 |[Servers - List By Resource Group](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|返回资源组中服务器的列表。|
 |[Servers - Update](https://docs.microsoft.com/rest/api/sql/servers/update)|更新现有服务器。|
 |[数据库 - 创建或更新](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|创建新数据库或更新现有数据库。|
+|[数据库 - 删除](https://docs.microsoft.com/rest/api/sql/databases/delete)|删除数据库。|
 |[数据库 - 获取](https://docs.microsoft.com/rest/api/sql/databases/get)|获取数据库。|
 |[数据库 - 按弹性池列出](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|返回弹性池中数据库的列表。|
 |[数据库 - 按服务器列出](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|返回服务器中的数据库列表。|

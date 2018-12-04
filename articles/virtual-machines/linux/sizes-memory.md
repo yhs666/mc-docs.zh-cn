@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 07/06/2018
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 096e5e32839ce6cabc7c00efb82c2d92aa54ebca
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.openlocfilehash: 238b049b20cb36fd6ac264d603b7341ce14b57a0
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034977"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674306"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>内存优化虚拟机大小
 
@@ -33,7 +33,7 @@ ms.locfileid: "50034977"
 ## <a name="other-sizes"></a>其他大小
 - [常规用途](sizes-general.md)
 - [计算优化](sizes-compute.md)
-- [GPU](sizes-gpu.md)
+- [GPU](../windows/sizes-gpu.md)
 - [前几代](sizes-previous-gen.md)
 
 <!--Not Avaialble - [Storage optimized](sizes-storage.md)-->

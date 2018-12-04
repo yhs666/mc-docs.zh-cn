@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 10/05/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: cc59b9bf63a4c5d34f6dd07b150c91384f142c11
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+origin.date: 10/19/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: f61c4eca51af848bc4b7c6843f5ef77cf8a4df4b
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135787"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673063"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL 数据库购买模型
 
@@ -30,21 +30,21 @@ ms.locfileid: "50135787"
 
 |**购买模型**|**说明**|**最适用于**|
 |---|---|---|
-|基于 DTU 的模型|此模型基于计算、存储和 IO 资源的捆绑度量。 单一数据库的计算大小以数据库事务单位 (DTU) 表示，弹性池则以弹性数据库事务单位 (eDTU) 表示。 有关 DTU 和 eDTU 的详细信息，请参阅[什么是 DTU 和 eDTU？](sql-database-service-tiers.md#dtu-based-purchasing-model)|最适合希望获得简单预配置资源选项的客户。| 
+|基于 DTU 的模型|此模型基于计算、存储和 IO 资源的捆绑度量。 单一数据库的计算大小以数据库事务单位 (DTU) 表示，弹性池则以弹性数据库事务单位 (eDTU) 表示。 有关 DTU 和 eDTU 的详细信息，请参阅[什么是 DTU 和 eDTU？](sql-database-service-tiers.md#dtu-based-purchasing-model)|最适合希望获得简单预配置资源选项的客户。|
 |基于 vCore 的模型|此模型允许单独选择计算和存储资源。 此外，它还允许使用面向 SQL Server 的 Azure 混合权益来节省成本。|最适合注重灵活性、控制度和透明度的客户。|
 ||||  
 
 ![定价模型](./media/sql-database-service-tiers/pricing-model.png)
 
-## <a name="vcore-based-purchasing-model"></a>基于 vCore 的购买模型 
+## <a name="vcore-based-purchasing-model"></a>基于 vCore 的购买模型
 
 虚拟核心表示通过一个选项提供的逻辑 CPU，该选项允许在硬件的层代和硬件的物理特性（例如，核心数、内存、存储大小）之间进行选择。 基于 vCore 的购买模型提供单项资源消耗的灵活性、控制度和透明度，并提供简单明了的方法将本地工作负荷要求转换到云。 此模型允许根据工作负荷需求来选择计算、内存和存储。 在基于 vCore 的购买模型中，你可为[单一数据库](sql-database-single-database-scale.md)和[弹性池](sql-database-elastic-pool.md)选择[常规用途](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability)或[业务关键](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability)服务层。 
 
 使用基于 vCore 的购买模型，可以单独选择计算和存储资源，匹配本地性能，以及优化价格。 在基于 vCore 的购买模型中，客户的费用包括：
 
 - 计算（服务层 + vCore 数目和内存量 + 硬件层代）
-- 数据和日志存储的类型与数量 
-- 备份存储 (RA-GRS) 
+- 数据和日志存储的类型与数量
+- 备份存储 (RA-GRS)
 
 > [!IMPORTANT]
 > 计算、IO、数据和日志存储按数据库或弹性池收费。 备份存储按每个数据库收费。
@@ -53,7 +53,7 @@ ms.locfileid: "50135787"
 
 ## <a name="dtu-based-purchasing-model"></a>基于 DTU 的购买模型
 
-数据库事务单位 (DTU) 表示 CPU、内存、读取和写入的混合度量。 基于 DTU 的购买模型提供一组预配置的计算资源套件和随附的存储，以促成不同级别的应用程序性能。 偏爱预配置套件简易性和每月定价付款的客户，可能会发现基于 DTU 的模型更适合解决其需求。 在基于 DTU 的购买模型中，客户可为[单一数据库](sql-database-single-database-scale.md)和[弹性池](sql-database-elastic-pool.md)选择“基本”、“标准”或“高级”服务层。 
+数据库事务单位 (DTU) 表示 CPU、内存、读取和写入的混合度量。 基于 DTU 的购买模型提供一组预配置的计算资源套件和随附的存储，以促成不同级别的应用程序性能。 偏爱预配置套件简易性和每月定价付款的客户，可能会发现基于 DTU 的模型更适合其需求。 在基于 DTU 的购买模型中，客户可为[单一数据库](sql-database-single-database-scale.md)和[弹性池](sql-database-elastic-pool.md)选择“基本”、“标准”或“高级”服务层。 
 
 ### <a name="database-transaction-units-dtus"></a>数据库事务单位 (DTU)
 
@@ -71,9 +71,7 @@ ms.locfileid: "50135787"
 
 ### <a name="elastic-database-transaction-units-edtus"></a>弹性数据库事务单位 (eDTU)
 
-可将数据库放在 SQL 数据库服务器上的[弹性池](sql-database-elastic-pool.md)中，该服务器在这些数据库之间共享资源池，而不必为 SQL 数据库提供一组始终可用的专用资源 (DTU)，因为有时可能并不需要。 弹性池中的共享资源用弹性数据库事务单位或 eDTU 度量。 弹性池提供一种简单的低成本高效益的解决方案，用于管理使用模式变化很大且不可预测的多个数据库的性能目标。 弹性池可保证不出现一个数据库使用池中所有资源的情况，同时确保池中的每个数据库始终可以使用最少量的必需资源。 
-
-![SQL 数据库简介：按层和级别统计的 eDTU](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
+可将数据库放在 SQL 数据库服务器上的[弹性池](sql-database-elastic-pool.md)中，该服务器在这些数据库之间共享资源池，而不必为 SQL 数据库提供一组始终可用的专用资源 (DTU)，因为有时可能并不需要。 弹性池中的共享资源用弹性数据库事务单位或 eDTU 度量。 弹性池提供一种简单的低成本高效益的解决方案，用于管理使用模式变化很大且不可预测的多个数据库的性能目标。 弹性池可保证不出现一个数据库使用池中所有资源的情况，同时确保池中的每个数据库始终可以使用最少量的必需资源。
 
 为池提供的 eDTU 的数量和价格是固定的。 在弹性池中，单独的数据库都被赋予了在配置的边界内自动缩放的灵活性。 负载较重的数据库消耗较多的 eDTU 来满足需求。 负载较轻的数据库消耗较少的 eDTU。 无负载的数据库不消耗任何 eDTU。 为整个池而不是每个数据库预配资源可以简化管理任务，使池的预算可预测。
 
@@ -81,7 +79,7 @@ ms.locfileid: "50135787"
 
 ### <a name="determine-the-number-of-dtus-needed-by-a-workload"></a>确定工作负荷所需的 DTU 数
 
-如果要将现有的本地或 SQL Server 虚拟机工作负荷迁移到 Azure SQL 数据库，可以使用 [DTU 计算器](http://dtucalculator.azurewebsites.net/) 来估算所需的 DTU 数目。 对于现有的 Azure SQL 数据库工作负荷，可以使用 [SQL 数据库 Query Performance Insight](sql-database-query-performance.md) 来了解数据库资源使用量 (DTU)，更深入地了解如何优化工作负荷。 也可以使用 [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) DMV 查看最近一小时的资源消耗。 目录视图 [sys.resource_stats](http://msdn.microsoft.com/library/dn269979.aspx) 也可显示最近 14 天的资源消耗，不过，五分钟平均值的准确性较低。
+如果要将现有的本地或 SQL Server 虚拟机工作负荷迁移到 Azure SQL 数据库，可以使用 [DTU 计算器](http://dtucalculator.azurewebsites.net/) 来估算所需的 DTU 数目。 对于现有的 Azure SQL 数据库工作负荷，可以使用 [SQL 数据库 Query Performance Insight](sql-database-query-performance.md) 来了解数据库资源使用量 (DTU)，更深入地了解如何优化工作负荷。 也可以使用 [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) DMV 查看最近一小时的资源消耗。 目录视图 [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) 也可显示最近 14 天的资源消耗，不过，五分钟平均值的准确性较低。
 
 ### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>受益于资源弹性池的工作负荷
 

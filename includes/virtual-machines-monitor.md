@@ -64,7 +64,6 @@
 
 ## <a name="next-steps"></a>后续步骤
 - 逐步完成[使用 Azure PowerShell 监视 Windows 虚拟机](../articles/virtual-machines/windows/tutorial-monitoring.md)或[使用 Azure CLI 监视 Linux 虚拟机](../articles/virtual-machines/linux/tutorial-monitoring.md)中的步骤。
-- 了解更多有关[监视和诊断](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)的最佳做法的信息。
+<!-- Not Availablle on [Monitoring and diagnostics](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)-->
 
 <!--Update_Description: update meta properties, wording udpate, update link -->
-<!-- ms.date: 10/29/2018 -->

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
 origin.date: 11/27/2017
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0978cd4ae5aca7107a923a2605e9b6791d164533
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.openlocfilehash: 437bb6e3980bfb5043df8ae10ed24d7f637ab0a8
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034915"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675092"
 ---
 # <a name="tutorial-install-a-lamp-web-server-on-a-linux-virtual-machine-in-azure"></a>教程：在 Azure 中的 Linux 虚拟机上安装 LAMP Web 服务器
 
@@ -131,4 +131,4 @@ sudo sh -c 'echo "<?php phpinfo(); ?>" > /var/www/html/info.php'
 [2]: ./media/tutorial-lamp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lamp-stack/apachesuccesspage.png
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties -->

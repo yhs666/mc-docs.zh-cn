@@ -10,12 +10,12 @@ origin.date: 08/29/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
 ms.date: 10/29/2018
-ms.openlocfilehash: c0e9a914cd5c22ae8ebbe9d606acc52944cfd37f
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 906fc1acfd556ee630e27fd355ce3e709ae18201
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453857"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674590"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>了解 IoT 中心的标识注册表
 
@@ -268,6 +268,6 @@ IoT 中心开发人员指南中的其他参考主题包括：
 [lnk-devguide-jobs]: ./iot-hub-devguide-jobs.md
 
 [lnk-getstarted-tutorial]: quickstart-send-telemetry-dotnet.md
-[lnk-AM]: ../monitoring-and-diagnostics/index.yml
+[lnk-AM]: /monitoring-and-diagnostics/
 [lnk-ARH]: ../service-health/resource-health-overview.md
 [lnk-howto-evgrid-connstate]: iot-hub-how-to-order-connection-state-events.md

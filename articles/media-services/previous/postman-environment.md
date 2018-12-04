@@ -3,7 +3,7 @@ title: 为 Azure 媒体服务 REST 调用导入 Postman 环境
 description: 本文提供了用于 Azure 媒体服务 REST 调用的 Postman 环境的定义。
 services: media-services
 documentationcenter: ''
-author: yunan2016
+author: WenJason
 manager: digimobile
 editor: ''
 ms.service: media-services
@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/04/2018
-ms.date: 02/27/2018
-ms.author: v-nany
-ms.openlocfilehash: cf624b25778e8cd2b2cb15dababb71dc995ac5fc
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+origin.date: 10/29/2018
+ms.date: 12/03/2018
+ms.author: v-jay
+ms.openlocfilehash: ccc0973c898f5fb3cf82e5b2734d51a0c664c4a6
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219716"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673018"
 ---
 # <a name="import-the-postman-environment"></a>导入 Postman 环境 
 

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 02/13/2018
 ms.author: v-yiso
-ms.date: 04/09/2018
-ms.openlocfilehash: 2500ceaed66b72b7f781c0ac1ae12ea41d33bdaf
-ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
+ms.date: 12/03/2018
+ms.openlocfilehash: 92b79b0ffced7884ddb90f8c773adbe15c861f36
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30293807"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675392"
 ---
 # <a name="managing-azure-api-management-using-azure-automation"></a>使用 Azure 自动化管理 Azure API 管理
 本指南介绍 Azure 自动化服务，以及如何使用它来简化 Azure API 管理的管理。
@@ -35,9 +35,9 @@ Azure 自动化提供了具有高可靠性和高可用性的工作流执行引�
 ## <a name="how-can-azure-automation-help-manage-azure-api-management"></a>Azure 自动化如何帮助管理 Azure API Management？
 可使用[适用于 Azure API 管理 API 的 Windows PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/?view=azurermps-5.5.0#api_management/) 在 Azure 自动化中管理 API 管理。 在 Azure 自动化中，可以编写 PowerShell 工作流脚本来使用 cmdlet 执行多种 API 管理任务。 还可以将 Azure 自动化中的这些 cmdlet 与其他 Azure 服务的 cmdlet 搭配使用，以自动完成跨 Azure 服务和第三方系统的复杂任务。
 
-以下是利用自动化使用 API 管理的一些示例：
+以下是利用 Powershell 使用 API 管理的一些示例：
 
-* [Azure API 管理 - 使用 PowerShell 进行备份和还原](https://blogs.msdn.microsoft.com/katriend/2015/10/02/azure-api-management-using-powershell-for-backup-and-restore/)
+* [适用于 API 管理的 Azure PowerShell 示例](/api-management/powershell-samples)
 
 ## <a name="next-steps"></a>后续步骤
 在了解 Azure 自动化以及如何使用它来管理 Azure API Management 的基础知识后，请使用以下链接了解更多信息。

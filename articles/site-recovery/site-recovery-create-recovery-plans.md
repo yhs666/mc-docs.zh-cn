@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 07/06/2018
 ms.date: 09/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: a970810f4cfb0efa043dbf237f763c32573c9703
-ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
+ms.openlocfilehash: cfd67ac46023b836b5dda8ea5db311a54b8805ee
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586847"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674177"
 ---
 # <a name="create-and-customize-recovery-plans"></a>创建和自定义恢复计划
 
@@ -27,7 +27,7 @@ ms.locfileid: "45586847"
 2. 在“创建恢复计划”中，为计划指定一个名称。
 3. 根据计划中的计算机选择一个源和目标，对于部署模型，选择“资源管理器”。 源位置必须具有已针对故障转移和恢复启用的计算机。 
 
-   **故障转移** | **源** | **目标** 
+   **故障转移** | Source | **目标** 
    --- | --- | ---
    Azure 到 Azure | Azure 区域 |Azure 区域
    VMware 到 Azure | 配置服务器 | Azure
@@ -39,7 +39,7 @@ ms.locfileid: "45586847"
    > [!NOTE]
    > 恢复计划可以包含具有相同源和目标的计算机。 VMware 和由 VMM 托管的 Hyper-V VM 不能出现在同一计划中。 VMware VM 和物理服务器可以出现在同一计划中，其中，源是配置服务器。
 
-2. 在“选择项目虚拟机”中，选择要添加到计划中的计算机（或复制组）。 然后单击“确定”。
+2. 在“选择项目虚拟机”中，选择要添加到计划中的计算机（或复制组）。 。
     - 计算机将添加到计划中的默认组（组 1）。 在故障转移后，此组中的所有计算机将同时启动。
     - 你只能选择位于你指定的源和目标位置的计算机。 
 1. 单击“确定”以创建计划。
@@ -56,26 +56,27 @@ ms.locfileid: "45586847"
 
 可以通过添加脚本或手动操作来自定义恢复计划。 请注意：
 
-- 如果要复制到 Azure，可以将 Azure 自动化 Runbook 集成到恢复计划中。 [了解详细信息](site-recovery-runbook-automation.md)。
+- 如果要复制到 Azure，可以将 Azure 自动化 Runbook 集成到恢复计划中。 
+    <!-- Not Available on [Learn more](site-recovery-runbook-automation.md)-->
 - 如果要复制由 System Center VMM 托管的 Hyper-V VM，可以在本地 VMM 服务器上创建一个脚本，并将该脚本包括在恢复计划中。
-- 添加脚本时，将为该组添加一组新的操作。 例如，使用以下名称创建了组 1 的一组预先步骤：“组 1：预先步骤”。 该集中将列出所有预先步骤。 仅当已部署 VMM 服务器时，才能在主站点上添加脚本。
-- 如果添加了手动操作，当恢复计划运行时，它会在你插入了手动操作的点停止。 将显示对话框，提示指定该手动操作已完成。
+- 添加脚本时，为该组添加一组新的操作。 例如，使用以下名称创建了组 1 的一组预先步骤：“组 1：预先步骤”。 该集中将列出所有预先步骤。 仅当已部署 VMM 服务器时，才能在主站点上添加脚本。
+- 如果添加了手动操作，当恢复计划运行时，它会在你插入了手动操作的点停止。 此时会显示一个对话框，提示指定该手动操作已完成。
 - 若要在 VMM 服务器上创建脚本，请遵循[此文章](hyper-v-vmm-recovery-script.md)中的说明。
 - 在故障转移到辅助站点期间，以及从辅助站点故障回复到主站点期间，都可以应用脚本。 支持取决于复制方案：
 
     **方案** | **故障转移** | **故障回复**
     --- | --- | --- 
     Azure 到 Azure  | Runbook | Runbook
-    VMware 到 Azure | Runbook | NA 
+    VMware 复制到 Azure | Runbook | 不可用 
     从包含 VMM 的 Hyper-V 到 Azure | Runbook | 脚本
-    Hyper-V 站点到 Azure | Runbook | NA
+    Hyper-V 站点到 Azure | Runbook | 不可用
     从 VMM 到辅助 VMM | 脚本 | 脚本
 
 1. 在恢复计划中，单击应当将操作添加到的步骤，并指定操作应在何时发生：a. 如果希望操作在故障转移后在组中的计算机启动之前发生，请选择“添加预操作”。
     b. 如果希望操作在故障转移后在组中的计算机启动之后发生，请选择“添加后操作”。 若要移动操作的位置，请选择“上移”或“下移”按钮。
 2. 在“插入操作”中，选择“脚本”或“手动操作”。
 3. 如果要添加手动操作，请执行以下操作。a. 为操作键入一个名称，然后键入操作说明。 运行故障转移的人员将会看到这些说明。
-    b. 指定是否要为所有类型的故障转移（测试、故障转移、计划内故障转移（如果相关））添加手动操作。 然后单击“确定”。
+    b. 指定是否要为所有类型的故障转移（测试、故障转移、计划内故障转移（如果相关））添加手动操作。 。
 4. 如果要添加脚本，请执行以下操作：a. 如果要添加 VMM 脚本，请选择“故障转移到 VMM 脚本”，并在“脚本路径”中键入共享的相对路径。 例如，如果共享位于 \\<VMMServerName>\MSSCVMMLibrary\RPScripts，请指定以下路径：\RPScripts\RPScript.PS1。
     b. 如果要添加 Azure 自动化 Runbook，请指定该 Runbook 所在的 **Azure 自动化帐户**，并选择相应的 **Azure Runbook 脚本**。
 5. 运行恢复计划的测试故障转移，以确保脚本按预期运行。

@@ -1,23 +1,18 @@
 ---
 title: 用于 Azure Cosmos DB 的 Azure CLI 示例 | Azure
 description: Azure CLI 示例 - 创建和管理 Azure Cosmos DB 帐户、数据库、容器、区域和防火墙。
-services: cosmos-db
 author: rockboyfor
-manager: digimobile
-tags: azure-service-management
 ms.service: cosmos-db
-ms.custom: mvc
-ms.devlang: azurecli
 ms.topic: sample
-origin.date: 11/29/2017
-ms.date: 11/05/2018
+origin.date: 10/26/2018
+ms.date: 12/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 80c5d8392df6e388265dfd2162da428d33b784bd
-ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
+ms.openlocfilehash: 5a325bb4149fd5954bea8b5634989b59853007a1
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50204818"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675291"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>用于 Azure Cosmos DB 的 Azure CLI 示例
 
@@ -26,24 +21,26 @@ ms.locfileid: "50204818"
 | |  |
 |---|---|
 |**创建 Azure Cosmos DB 帐户、数据库和容器**||
-|[创建 SQL API 帐户](scripts/create-database-account-collections-cli.md)| 创建单个 Azure Cosmos DB API 帐户、数据库及容器，以用于 SQL API。 |
+| [创建 SQL API 帐户](scripts/create-database-account-collections-cli.md)| 创建单个 Azure Cosmos DB SQL API 帐户、数据库和容器。 |
 | [创建 MongoDB API 帐户](scripts/create-mongodb-database-account-cli.md) | 创建单个 Azure Cosmos DB MongoDB API 帐户、数据库和集合。 |
 |**缩放 Azure Cosmos DB**||
 | [缩放容器吞吐量](scripts/scale-collection-throughput-cli.md) | 更改容器上预配的吞吐量。|
-|[将 Azure Cosmos DB 数据库帐户复制到多个区域中并配置故障转移优先级](scripts/scale-multiregion-cli.md)|多数据中心将帐户数据复制到具有指定故障转移优先级的多个区域中。|
+| [将 Azure Cosmos DB 数据库帐户复制到多个区域中并配置故障转移优先级](scripts/scale-multiregion-cli.md)|多数据中心将帐户数据复制到具有指定故障转移优先级的多个区域中。|
 |**保护 Azure Cosmos DB**||
 | [获取帐户密钥](scripts/secure-get-account-key-cli.md) | 获取帐户的主要和辅助主写入密钥以及主要和辅助只读密钥。|
 | [获取 MongoDB 连接字符串](scripts/secure-mongo-connection-string-cli.md) | 获取用于将 MongoDB 应用连接到 Azure Cosmos DB 帐户的连接字符串。|
-|[重新生成帐户密钥](scripts/secure-regenerate-key-cli.md)|重新生成帐户的主密钥或只读密钥。|
-|[创建防火墙](scripts/create-firewall-cli.md)| 创建入站 IP 访问控制策略，仅允许从获批准的一组计算机和/或云服务访问帐户。|
+| [重新生成帐户密钥](scripts/secure-regenerate-key-cli.md)|重新生成帐户密钥。|
+| [创建防火墙](scripts/create-firewall-cli.md)| 创建入站 IP 访问控制策略，仅允许从获批准的一组计算机和/或云服务访问帐户。|
 |**高可用性、灾难恢复、备份和还原**||
-|[配置故障转移策略](scripts/ha-failover-policy-cli.md)|为在其中复制帐户的每个区域设置故障转移优先级。|
+| [配置故障转移策略](scripts/ha-failover-policy-cli.md)|为在其中复制帐户的每个区域设置故障转移优先级。|
 |**将 Azure Cosmos DB 连接到资源**||
-|[将 Web 应用连接到 Azure Cosmos DB](../app-service/scripts/app-service-cli-app-service-documentdb.md)|创建并连接 Azure Cosmos DB 数据库和 Azure Web 应用。|
+| [将 Web 应用连接到 Azure Cosmos DB](../app-service/scripts/app-service-cli-app-service-documentdb.md)|创建并连接 Azure Cosmos DB 数据库和 Azure Web 应用。|
 |||
 
 <!--Not Available on [Create a Gremlin API account](scripts/create-graph-database-account-cli.md)-->
+<!--Not Available on [Create a Cassandra API account](scripts/create-cassandra-database-account-cli.md)-->
+<!--Not Available on [Create a Table API account](scripts/create-table-database-account-cli.md)-->
 <!--NOTICES: Line 35 全球范围 to 多个数据中心范围  -->
 <!--NOTICE: Line 35 Globally TO Multiple data-center-->
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

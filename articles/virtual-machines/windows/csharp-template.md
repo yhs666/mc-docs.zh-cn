@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 07/14/2017
-ms.date: 06/04/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 931c7ea9d6d752709df77b534878d157d2ad943f
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 8d2895554793ca7fe92a7979ba5652c1029f75c7
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702797"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675155"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>使用 C# 和 Resource Manager 模板部署 Azure 虚拟机
 本文介绍如何使用 C# 部署 Azure 资源管理器模板。 创建的模板会在包含单个子网的新虚拟网络中部署运行 Windows Server 的单个虚拟机。
@@ -186,7 +186,7 @@ ms.locfileid: "34702797"
 
 ### <a name="create-the-authorization-file"></a>创建授权文件
 
-在部署模板之前，请先确保能够访问 [Active Directory 服务主体](../../resource-group-authenticate-service-principal.md)。 从服务主体中，会获取对 Azure Resource Manager 请求进行身份验证的令牌。 还应记录授权文件中所需的应用程序 ID、身份验证密钥和租户 ID。
+在部署模板之前，请先确保能够访问 [Active Directory 服务主体](../../azure-resource-manager/resource-group-authenticate-service-principal.md)。 从服务主体中，会获取对 Azure Resource Manager 请求进行身份验证的令牌。 还应记录授权文件中所需的应用程序 ID、身份验证密钥和租户 ID。
 
 1. 在解决方案资源管理器中，右键单击*myDotnetProject* > **，单击“添加** > **新建项**，然后在**Visual C# 项**中选择*文本文件*。 将文件命名为 azureauth.properties，然后单击“添加”。
 2. 添加这些授权属性：

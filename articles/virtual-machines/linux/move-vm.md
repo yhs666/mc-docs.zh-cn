@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 09/12/2018
-ms.date: 09/24/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: d0b29796a46d78040504924befdba352b8cf630a
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.openlocfilehash: 4d33a61be81f3ec13d360bbdab6a7c4af1d40411
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527079"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674382"
 ---
 # <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>将 Linux VM 移到其他订阅或资源组
 本文逐步说明如何在资源组或订阅之间移动 Linux 虚拟机 (VM)。 如果在个人订阅中创建了 VM，现在想要将其移到公司的订阅，则在订阅之间移动 VM 会很方便。
@@ -43,7 +43,7 @@ ms.locfileid: "46527079"
 az account show --subscription mySourceSubscription --query tenantId
 az account show --subscription myDestinationSubscription --query tenantId
 ```
-如果源和目标订阅的租户 ID 不相同，则必须联系[支持人员](https://www.azure.cn/support/support-ticket-form)才能将资源移动到新租户。
+如果源和目标订阅的租户 ID 不相同，则必须联系[支持人员](https://support.azure.cn/zh-cn/support/support-azure/)才能将资源移动到新租户。
 
 若要成功移动 VM，需要移动 VM 及其所有支持资源。 使用 [az resource list](https://docs.azure.cn/zh-cn/cli/resource?view=azure-cli-latest#az-resource-list) 命令列出资源组中的所有资源及其 ID。 这有助于通过管道将此命令的输出发送到文件，以便将 ID 复制并粘贴到后续命令中。
 
@@ -74,6 +74,6 @@ az resource move \
 [!INCLUDE [virtual-machines-common-move-vm](../../../includes/virtual-machines-common-move-vm.md)]
 
 ## <a name="next-steps"></a>后续步骤
-可以在资源组和订阅之间移动许多不同类型的资源。 有关详细信息，请参阅[将资源移到新资源组或订阅](../../resource-group-move-resources.md)。
+可以在资源组和订阅之间移动许多不同类型的资源。 有关详细信息，请参阅[将资源移到新资源组或订阅](../../resource-group-move-resources.md)。    
 
 <!--Update_Description: wording update, update link -->

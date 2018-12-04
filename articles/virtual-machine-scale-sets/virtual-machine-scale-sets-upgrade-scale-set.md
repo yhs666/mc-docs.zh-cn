@@ -1,9 +1,9 @@
 ---
 title: 修改 Azure 虚拟机规模集 | Microsoft Docs
-description: 了解如何使用 REST API、Azure PowerShell 和 Azure CLI 2.0 修改和更新 Azure 虚拟机规模集
+description: 了解如何使用 REST API、Azure PowerShell 和 Azure CLI 修改和更新 Azure 虚拟机规模集
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/14/2018
-ms.date: 06/08/2018
+ms.date: 11/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: 0a6ffe6691ef30a25e680319ce2c71b7ddee55a2
-ms.sourcegitcommit: a63d392037f3eca3196026c500ac7d2d26d85a7c
+ms.openlocfilehash: 199fa9d90c326a17a3b84618a5186b53f038332d
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35253179"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672772"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>修改虚拟机规模集
-在应用程序的整个生命周期内，你可能需要修改或更新你的虚拟机规模集。 这些更新可能包括更新规模集的配置，或更改应用程序配置。 本文介绍了如何使用 REST API、Azure PowerShell 或 Azure CLI 2.0 修改现有规模集。
+在应用程序的整个生命周期内，你可能需要修改或更新你的虚拟机规模集。 这些更新可能包括更新规模集的配置，或更改应用程序配置。 本文介绍了如何使用 REST API、Azure PowerShell 或 Azure CLI 修改现有规模集。
 
 ## <a name="fundamental-concepts"></a>基本概念
 
@@ -43,7 +43,7 @@ ms.locfileid: "35253179"
     Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
     ```
 
-- 通过 Azure CLI 2.0 使用 [az vmss show](/cli/vmss#az_vmss_show)：
+- 通过 Azure CLI 使用 [az vmss show](/cli/vmss#az_vmss_show)：
 
     ```azurecli
     az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -51,7 +51,7 @@ ms.locfileid: "35253179"
 
 - 还可以使用特定于语言的 [Azure SDK](/downloads/)。
 
-输出的具体呈现取决于提供给命令的选项。 下面的示例显示了来自 Azure CLI 2.0 的精简版示例输出：
+输出的具体呈现取决于提供给命令的选项。 下面的示例显示了来自 Azure CLI 的精简版示例输出：
 
 ```azurecli
 az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -87,7 +87,7 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
     Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceView
     ```
 
-- 通过 Azure CLI 2.0 使用 [az vmss get-instance-view](/cli/vmss#az_vmss_get_instance_view)：
+- 通过 Azure CLI 使用 [az vmss get-instance-view](/cli/vmss#az_vmss_get_instance_view)：
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
@@ -95,7 +95,7 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
 
 - 还可以使用特定于语言的 [Azure SDK](/downloads/)
 
-输出的具体呈现取决于提供给命令的选项。 下面的示例显示了来自 Azure CLI 2.0 的精简版示例输出：
+输出的具体呈现取决于提供给命令的选项。 下面的示例显示了来自 Azure CLI 的精简版示例输出：
 
 ```azurecli
 $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
@@ -127,7 +127,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
 
 
 ### <a name="the-scale-set-vm-model-view"></a>规模集 VM 模型视图
-规模集中的每个 VM 都有自己的模型视图，这类似于每个规模集都有模型视图的情况。 若要查询规模集的模型视图，可使用以下命令：
+规模集中的每个 VM 实例都有自己的模型视图，这类似于每个规模集都有模型视图的情况。 若要查询规模集中特定 VM 实例的模型视图，可使用以下命令：
 
 - 如下所示通过 REST API 使用 [compute/virtualmachinescalesetvms/get](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/get)：
 
@@ -141,7 +141,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
     Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
     ```
 
-- 通过 Azure CLI 2.0 使用 [az vmss show](/cli/vmss#az_vmss_show)：
+- 通过 Azure CLI 使用 [az vmss show](/cli/vmss#az_vmss_show)：
 
     ```azurecli
     az vmss show --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -149,7 +149,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
 
 - 还可以使用 [Azure SDK](/downloads/)。
 
-输出的具体呈现取决于提供给命令的选项。 下面的示例显示了来自 Azure CLI 2.0 的精简版示例输出：
+输出的具体呈现取决于提供给命令的选项。 下面的示例显示了来自 Azure CLI 的精简版示例输出：
 
 ```azurecli
 $ az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -163,11 +163,11 @@ $ az vmss show --resource-group myResourceGroup --name myScaleSet
 }
 ```
 
-这些属性描述的是 VM 本身的配置，而不是规模集作为一个整体的配置。 例如，规模集模型使用 `overprovision` 作为属性，而规模集中 VM 的模型则不是这样。 之所以存在这种差异，是因为过度预配是规模集作为一个整体的属性，而不是规模集中各个 VM 的属性（有关过度预配的详细信息，请参阅[规模集的设计注意事项](virtual-machine-scale-sets-design-overview.md#overprovisioning)）。
+这些属性描述的是规模集中某个 VM 实例的配置，而不是规模集作为一个整体的配置。 例如，规模集模型使用 `overprovision` 作为属性，而规模集中 VM 实例的模型则不是这样。 之所以存在这种差异，是因为过度预配是规模集作为一个整体的属性，而不是规模集中各个 VM 实例的属性（有关过度预配的详细信息，请参阅[规模集的设计注意事项](virtual-machine-scale-sets-design-overview.md#overprovisioning)）。
 
 
 ### <a name="the-scale-set-vm-instance-view"></a>规模集 VM 实例视图
-规模集中的每个 VM 都有自己的实例视图，这类似于每个规模集都有实例视图的情况。 若要查询规模集的实例视图，可使用以下命令：
+规模集中的每个 VM 实例都有自己的实例视图，这类似于每个规模集都有实例视图的情况。 若要查询规模集中特定 VM 实例的实例视图，可使用以下命令：
 
 - 通过 REST API 使用 [compute/virtualmachinescalesetvms/getinstanceview](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/getinstanceview)：
 
@@ -181,7 +181,7 @@ $ az vmss show --resource-group myResourceGroup --name myScaleSet
     Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -InstanceView
     ```
 
-- 通过 Azure CLI 2.0 使用 [az vmss get-instance-view](/cli/vmss#az_vmss_get_instance_view)
+- 通过 Azure CLI 使用 [az vmss get-instance-view](/cli/vmss#az_vmss_get_instance_view)
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -189,7 +189,7 @@ $ az vmss show --resource-group myResourceGroup --name myScaleSet
 
 - 还可以使用 [Azure SDK](/downloads/)
 
-输出的具体呈现取决于提供给命令的选项。 下面的示例显示了来自 Azure CLI 2.0 的精简版示例输出：
+输出的具体呈现取决于提供给命令的选项。 下面的示例显示了来自 Azure CLI 的精简版示例输出：
 
 ```azurecli
 $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -240,7 +240,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 }
 ```
 
-这些属性描述的是 VM 本身的当前运行时状态，包括应用于规模集的任何扩展。
+这些属性描述的是规模集中 VM 实例的当前运行时状态，包括应用于规模集的任何扩展。
 
 
 ## <a name="how-to-update-global-scale-set-properties"></a>如何更新全局规模集属性
@@ -260,7 +260,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -VirtualMachineScaleSet {scaleSetConfigPowershellObject}
     ```
 
-- 通过 Azure CLI 2.0 使用 [az vmss update](/cli/vmss#az_vmss_update)：
+- 通过 Azure CLI 使用 [az vmss update](/cli/vmss#az_vmss_update)：
     - 修改属性：
 
         ```azurecli
@@ -307,7 +307,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
     Update-AzureRmVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
     ```
 
-- 通过 Azure CLI 2.0 使用 [az vmss update-instances](/cli/vmss#az_vmss_update_instances)：
+- 通过 Azure CLI 使用 [az vmss update-instances](/cli/vmss#az_vmss_update_instances)
 
     ```azurecli
     az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids {instanceIds}
@@ -332,7 +332,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
     Set-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
     ```
 
-- 通过 Azure CLI 2.0 使用 [az vmss reimage](/cli/vmss#az_vmss_reimage)：
+- 通过 Azure CLI 使用 [az vmss reimage](/cli/vmss#az_vmss_reimage)：
 
     ```azurecli
     az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -346,7 +346,6 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 ### <a name="create-time-properties"></a>创建时属性
 某些属性只能在创建规模集时设置。 这些属性包括：
 
-- 可用性区域
 - Image reference publisher
 - image reference offer
 - 托管 OS 磁盘存储帐户类型
@@ -393,10 +392,30 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -ImageReferenceVersion 16.04.201801090
     ```
 
-- 通过 Azure CLI 2.0 使用 [az vmss update](/cli/vmss#az_vmss_update_instances)：
+- 通过 Azure CLI 使用 [az vmss update](/cli/vmss#az_vmss_update_instances)：
 
     ```azurecli
     az vmss update --resource-group myResourceGroup --name myScaleSet --set virtualMachineProfile.storageProfile.imageReference.version=16.04.201801090
+    ```
+
+或者，你可能想要更改规模集使用的映像。 例如，你可能想要更新或更改规模集使用的自定义映像。 可以通过更新“映像引用 ID”属性来更改规模集使用的映像。 “映像引用 ID”属性不是列表的一部分，因此可以使用下列命令之一直接修改该属性：
+
+- 如下所示通过 Azure PowerShell 使用 [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss)：
+
+    ```powershell
+    Update-AzureRmVmss `
+        -ResourceGroupName "myResourceGroup" `
+        -VMScaleSetName "myScaleSet" `
+        -ImageReferenceId /subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myNewImage
+    ```
+
+- 通过 Azure CLI 使用 [az vmss update](/cli/vmss#az_vmss_update_instances)：
+
+    ```azurecli
+    az vmss update `
+        --resource-group myResourceGroup `
+        --name myScaleSet `
+        --set virtualMachineProfile.storageProfile.imageReference.id=/subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myNewImage
     ```
 
 
@@ -419,7 +438,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -virtualMachineScaleSet $vmss
     ```
 
-- Azure CLI 2.0：
+- Azure CLI：
 
     ```azurecli
     # Remove the load balancer backend pool from the scale set model
@@ -437,6 +456,6 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 
 
 ## <a name="next-steps"></a>后续步骤
-还可以使用 [Azure CLI 2.0](virtual-machine-scale-sets-manage-cli.md) 或 [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md) 对规模集执行常见管理任务。
+还可以使用 [Azure CLI](virtual-machine-scale-sets-manage-cli.md) 或 [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md) 对规模集执行常见的管理任务。
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

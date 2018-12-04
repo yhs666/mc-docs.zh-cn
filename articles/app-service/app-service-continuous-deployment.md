@@ -15,11 +15,11 @@ origin.date: 06/05/2018
 ms.date: 07/02/2018
 ms.author: v-yiso
 ms.openlocfilehash: 197196f2f469cbc28932de209121005fb9caa8f9
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523898"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667176"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>持续部署到 Azure 应用服务
 本文展示了如何为 [Azure 应用服务](app-service-web-overview.md)配置持续部署。 应用服务可以使用 BitBucket、GitHub 和 [Azure DevOps Services](https://www.visualstudio.com/team-services/) 实现持续部署，方法是从上述服务之一中的现有存储库拉取最新的更新。

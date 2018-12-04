@@ -4,29 +4,25 @@ description: Azure 负载均衡器功能、体系结构和实现概述。 了解
 services: load-balancer
 documentationcenter: na
 author: WenJason
-manager: digimobile
-editor: ''
-ms.assetid: ''
 ms.service: load-balancer
 Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for.
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/20/2018
-ms.date: 11/05/2018
+ms.date: 11/26/2018
 ms.author: v-jay
-ms.custom: mvc
-ms.openlocfilehash: 8854f678791d15ad43f3ecea33fa5e973554885d
-ms.sourcegitcommit: 9be84d4dc546d66a0d9d1d2be67dd79c84b2c210
+ms.openlocfilehash: 7c2bef85b024232601c451af253988664e539120
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50408846"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673159"
 ---
 # <a name="what-is-azure-load-balancer"></a>什么是 Azure 负载均衡器？
 
-使用 Azure 负载均衡器可以缩放应用程序，并为服务提供高可用性。 负载均衡器支持入站和出站方案、提供低延迟和高吞吐量，以及为所有 TCP 和 UDP 应用程序纵向扩展到数以百万计的流。  
+使用 Azure 负载均衡器可以缩放应用程序，并为服务创建高可用性。 负载均衡器支持入站和出站方案、提供低延迟和高吞吐量，以及为所有 TCP 和 UDP 应用程序纵向扩展到数以百万计的流。  
 
 负载均衡器根据规则和运行状况探测，将抵达负载均衡器前端的新入站流量分配到后端池实例。 
 
@@ -71,7 +67,7 @@ Azure 负载均衡器以两种 SKU 提供：“基本”和“标准”。 规�
 
 * **端口转发**
 
-    使用 Azure 负载均衡器可以创建入站 NAT 规则，以便通过端口转发，将来自特定前端 IP 地址的特定端口的流量转发到虚拟网络中特定后端实例的特定端口。 也可以通过与负载均衡相同的基于哈希的分配来实现此目的。 此功能的常见应用方案是与 Azure 虚拟网络中的单个 VM 实例建立远程桌面协议 (RDP) 或安全外壳 (SSH) 会话。 可将多个内部终结点映射到相同前端 IP 地址上的不同端口。 使用这些端口可以通过 Internet 远程管理 VM，而无需额外配置 Jumpbox。
+    使用 Azure 负载均衡器可以创建入站 NAT 规则，以便通过端口转发，将来自特定前端 IP 地址的特定端口的流量转发到虚拟网络中特定后端实例的特定端口。 也可以通过与负载均衡相同的基于哈希的分配来实现此目的。 此功能的常见应用方案是与 Azure 虚拟网络中的单个 VM 实例建立远程桌面协议 (RDP) 或安全外壳 (SSH) 会话。 可将多个内部终结点映射到相同前端 IP 地址上的不同端口。 可以使用前端 IP 地址通过 Internet 远程管理 VM，而无需额外配置跳转盒。
 
 * **应用程序不可知性和透明性**
 
@@ -91,14 +87,14 @@ Azure 负载均衡器以两种 SKU 提供：“基本”和“标准”。 规�
      
     负载均衡器为 TCP、HTTP 和 HTTPS 终结点提供了[不同的运行状况探测类型](load-balancer-custom-probe-overview.md#types)。
 
-    此外，使用经典云服务时允许使用其他类型：[来宾代理](load-balancer-custom-probe-overview.md#guestagent)。  这应作为运行状况探测的最后手段，当其他选择可行时不推荐使用此选择。
+    此外，使用经典云服务时允许使用其他类型：[来宾代理](load-balancer-custom-probe-overview.md#guestagent)。  这应作为运行状况探测的最后手段，当其他选项可行时不建议使用此选项。
     
 * **出站连接 (SNAT)**
 
     从虚拟网络中的专用 IP 地址发往 Internet 上的公共 IP 地址的所有出站流量可以转换为负载均衡器的前端 IP 地址。 通过负载均衡规则将公共前端绑定到后端 VM 后，Azure 会将出站连接设定为自动转换成公共前端的 IP 地址。
 
     * 可以轻松地对服务进行升级和灾难恢复操作，因为前端可以动态映射到服务的其他实例。
-    * 简化了访问控制列表 (ACL) 管理。 以前端 IP 表示的 ACL 不会随着服务的缩放或重新部署而更改。  将出站连接转换为较小数量的 IP 地址不是计算机可以减少白名单的负担。
+    * 简化了访问控制列表 (ACL) 管理。 以前端 IP 表示的 ACL 不会随着服务的缩放或重新部署而更改。  将出站连接转换为较小数量的 IP 地址不是计算机可以减少允许列表的负担。
 
     有关详细信息，请参阅[出站连接](load-balancer-outbound-connections.md)。
 
@@ -122,7 +118,7 @@ Azure 负载均衡器以两种 SKU 提供：“基本”和“标准”。 规�
 
 [!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]
 
-有关详细信息，请参阅[负载均衡器的服务限制](https://docs.azure.cn/zh-cn/azure-subscription-service-limits#load-balancer)。 有关标准负载均衡器的详细信息，请参阅[概述](load-balancer-standard-overview.md)。
+有关详细信息，请参阅[负载均衡器的服务限制](https://docs.azure.cn/zh-cn/azure-subscription-service-limits#load-balancer)。 对于标准负载均衡器，请参阅[概述](load-balancer-standard-overview.md)、[定价](https://www.azure.cn/zh-cn/pricing/details/load-balancer/)和 [SLA](https://www.azure.cn/zh-cn/support/sla/load-balancer/)。
 
 ## <a name="concepts"></a>概念
 
@@ -156,11 +152,14 @@ Azure 负载均衡器以两种 SKU 提供：“基本”和“标准”。 规�
 *图：使用公共和内部负载均衡器对多层应用程序进行负载均衡*
 
 ## <a name="pricing"></a>定价
-根据配置的负载均衡规则数量以及处理的入站和出站数据量计收标准负载均衡器的费用。
+根据配置的负载均衡规则数量以及处理的入站和出站数据量计收标准负载均衡器的费用。 有关标准负载均衡器的定价信息，请访问[负载均衡器定价](https://azure.cn/pricing/details/load-balancer/)页。
 
 基本负载均衡器是免费提供的。
 
-<!-- Not Available on ## SLA-->
+## <a name="sla"></a>SLA
+
+有关标准负载均衡器 SLA 的信息，请访问[负载均衡器 SLA](https://www.azure.cn/zh-cn/support/sla/load-balancer/) 页。 
+
 ## <a name="limitations"></a>限制
 
 - 负载均衡器属于 TCP 或 UDP 产品，用于对这些特定的 IP 协议进行负载均衡和端口转发。  负载均衡规则和入站 NAT 规则支持 TCP 和 UDP，但不支持其他 IP 协议（包括 ICMP）。 负载均衡器不会终止、响应 UDP 或 TCP 流的有效负载，也不与之交互。 它不是一个代理。 必须使用负载均衡或入站 NAT 规则（TCP 或 UDP）中所用的同一协议在带内成功验证与前端的连接，并且必须至少有一个虚拟机为客户端生成了响应，这样才能看到前端发出的响应。  未从前端负载均衡器收到带内响应即表明没有任何虚拟机能够做出响应。  在虚拟机都不能做出响应的情况下，无法与负载均衡器前端交互。  这一点也适用于出站连接，其中的[端口伪装 SNAT](load-balancer-outbound-connections.md#snat) 仅支持 TCP 和 UDP；其他任何 IP 协议（包括 ICMP）也会失败。  分配实例级公共 IP 地址即可缓解问题。

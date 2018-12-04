@@ -3,7 +3,7 @@ title: Azure Functions 的 Azure 服务总线绑定
 description: 了解如何在 Azure Functions 中使用 Azure 服务总线触发器和绑定。
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: Azure Functions，函数，事件处理，动态计算，无服务体系结构
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
@@ -11,14 +11,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 04/01/2017
-ms.date: 09/21/2018
+ms.date: 11/22/2018
 ms.author: v-junlch
-ms.openlocfilehash: 06e45ebf95a4238282bd5c88503b69d0a5dbfc3c
-ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
+ms.openlocfilehash: d43d97621272e3a1794aefc8a0602616f8c2de3a
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46524036"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672545"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions 的 Azure 服务总线绑定
 
@@ -64,16 +64,20 @@ public static void Run(
     Int32 deliveryCount,
     DateTime enqueuedTimeUtc,
     string messageId,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
-    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
-    log.Info($"DeliveryCount={deliveryCount}");
-    log.Info($"MessageId={messageId}");
+    log.LogInformation($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+    log.LogInformation($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.LogInformation($"DeliveryCount={deliveryCount}");
+    log.LogInformation($"MessageId={messageId}");
 }
 ```
 
-此示例适用于 Azure Functions 版本 1.x；对于 2.x，请[省略访问权限参数](#trigger---configuration)。
+此示例适用于 Azure Functions 版本 1.x。 要使此代码适用于 2.x：
+
+- [省略访问权限参数](#trigger---configuration)
+- 将日志参数的类型从 `TraceWriter` 更改为 `ILogger`
+- 将 `log.Info` 更改为 `log.LogInformation`
  
 ### <a name="trigger---c-script-example"></a>触发器 - C# 脚本示例
 
@@ -139,8 +143,8 @@ public static void Run(string myQueueItem,
 F# 脚本代码如下所示：
 
 ```fsharp
-let Run(myQueueItem: string, log: TraceWriter) =
-    log.Info(sprintf "F# ServiceBus queue trigger function processed message: %s" myQueueItem)
+let Run(myQueueItem: string, log: ILogger) =
+    log.LogInformation(sprintf "F# ServiceBus queue trigger function processed message: %s" myQueueItem)
 ```
 
 ### <a name="trigger---javascript-example"></a>触发器 - JavaScript 示例
@@ -224,7 +228,7 @@ module.exports = function(context, myQueueItem) {
   ```csharp
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
   public static void Run(
-      [ServiceBusTrigger("myqueue")] string myQueueItem, TraceWriter log)
+      [ServiceBusTrigger("myqueue")] string myQueueItem, ILogger log)
   {
       ...
   }
@@ -236,7 +240,7 @@ module.exports = function(context, myQueueItem) {
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
   public static void Run(
       [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] 
-      string myQueueItem, TraceWriter log)
+      string myQueueItem, ILogger log)
   {
       ...
   }
@@ -256,7 +260,7 @@ module.exports = function(context, myQueueItem) {
       [FunctionName("ServiceBusQueueTriggerCSharp")]
       public static void Run(
           [ServiceBusTrigger("myqueue", AccessRights.Manage)] 
-          string myQueueItem, TraceWriter log)
+          string myQueueItem, ILogger log)
   {
       ...
   }
@@ -327,7 +331,7 @@ Functions 1.x 允许你在 *host.json* 中配置 `autoRenewTimeout`，以映射�
 |`To`|`string`|发送到地址。|
 |`Label`|`string`|应用程序特定标签。|
 |`CorrelationId`|`string`|相关 ID。|
-|`Properties`|`IDictionary<String,Object>`|应用程序特定的消息属性。|
+|`UserProperties`|`IDictionary<String,Object>`|应用程序特定的消息属性。|
 
 请参阅在本文的前面部分使用这些属性的[代码示例](#trigger---example)。
 
@@ -358,9 +362,9 @@ Functions 1.x 允许你在 *host.json* 中配置 `autoRenewTimeout`，以映射�
 ```cs
 [FunctionName("ServiceBusOutput")]
 [return: ServiceBus("myqueue", Connection = "ServiceBusConnection")]
-public static string ServiceBusOutput([HttpTrigger] dynamic input, TraceWriter log)
+public static string ServiceBusOutput([HttpTrigger] dynamic input, ILogger log)
 {
-    log.Info($"C# function processed: {input.Text}");
+    log.LogInformation($"C# function processed: {input.Text}");
     return input.Text;
 }
 ```
@@ -396,10 +400,10 @@ public static string ServiceBusOutput([HttpTrigger] dynamic input, TraceWriter l
 下面是可创建一条消息的 C# 脚本代码：
 
 ```cs
-public static void Run(TimerInfo myTimer, TraceWriter log, out string outputSbQueue)
+public static void Run(TimerInfo myTimer, ILogger log, out string outputSbQueue)
 {
     string message = $"Service Bus queue message created at: {DateTime.Now}";
-    log.Info(message); 
+    log.LogInformation(message); 
     outputSbQueue = message;
 }
 ```
@@ -407,10 +411,10 @@ public static void Run(TimerInfo myTimer, TraceWriter log, out string outputSbQu
 下面是可创建多条消息的 C# 脚本代码：
 
 ```cs
-public static void Run(TimerInfo myTimer, TraceWriter log, ICollector<string> outputSbQueue)
+public static void Run(TimerInfo myTimer, ILogger log, ICollector<string> outputSbQueue)
 {
     string message = $"Service Bus queue messages created at: {DateTime.Now}";
-    log.Info(message); 
+    log.LogInformation(message); 
     outputSbQueue.Add("1 " + message);
     outputSbQueue.Add("2 " + message);
 }
@@ -447,9 +451,9 @@ public static void Run(TimerInfo myTimer, TraceWriter log, ICollector<string> ou
 下面是可创建一条消息的 F# 脚本代码：
 
 ```fsharp
-let Run(myTimer: TimerInfo, log: TraceWriter, outputSbQueue: byref<string>) =
+let Run(myTimer: TimerInfo, log: ILogger, outputSbQueue: byref<string>) =
     let message = sprintf "Service Bus queue message created at: %s" (DateTime.Now.ToString())
-    log.Info(message)
+    log.LogInformation(message)
     outputSbQueue = message
 ```
 
@@ -522,7 +526,7 @@ public String pushToQueue(
  }
  ```
 
- 在 Java 函数运行时库中，对其值将写入服务总线队列的函数参数使用 `@QueueOutput` 注释。  参数类型应为 `OutputBinding<T>`，其中 T 是 POJO 的任何本机 Java 类型。
+ 在 [Java 函数运行时库](https://docs.microsoft.com/en-us/java/api/overview/azure/functions/runtime)中，对其值将写入服务总线队列的函数参数使用 `@QueueOutput` 注释。  参数类型应为 `OutputBinding<T>`，其中 T 是 POJO 的任何本机 Java 类型。
 
 ## <a name="output---attributes"></a>输出 - 特性
 
@@ -533,7 +537,7 @@ public String pushToQueue(
 ```csharp
 [FunctionName("ServiceBusOutput")]
 [return: ServiceBus("myqueue")]
-public static string Run([HttpTrigger] dynamic input, TraceWriter log)
+public static string Run([HttpTrigger] dynamic input, ILogger log)
 {
     ...
 }
@@ -544,7 +548,7 @@ public static string Run([HttpTrigger] dynamic input, TraceWriter log)
 ```csharp
 [FunctionName("ServiceBusOutput")]
 [return: ServiceBus("myqueue", Connection = "ServiceBusConnection")]
-public static string Run([HttpTrigger] dynamic input, TraceWriter log)
+public static string Run([HttpTrigger] dynamic input, ILogger log)
 {
     ...
 }
@@ -595,9 +599,41 @@ public static string Run([HttpTrigger] dynamic input, TraceWriter log)
 | 服务总线 | [服务总线错误代码](/service-bus-messaging/service-bus-messaging-exceptions) |
 | 服务总线 | [服务总线限制](/service-bus-messaging/service-bus-quotas) |
 
+<a name="host-json"></a>  
+
+## <a name="hostjson-settings"></a>host.json 设置
+
+本部分介绍版本 2.x 中可用于此绑定的全局配置设置。 下面的示例 host.json 文件仅包含此绑定的 2.x 版本设置。 有关版本 2.x 中的全局配置设置的详细信息，请参阅 [Azure Functions 版本 2.x 的 host.json 参考](functions-host-json.md)。
+
+> [!NOTE]
+> 有关 Functions 1.x 中 host.json 的参考，请参阅 [Azure Functions 1.x 的 host.json 参考](functions-host-json-v1.md)。
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "serviceBus": {
+            "prefetchCount": 100,
+            "messageHandlerOptions": {
+                "autoComplete": false,
+                "maxConcurrentCalls": 32,
+                "maxAutoRenewDuration": "00:55:00"
+        }
+    }
+}
+```
+
+|属性  |默认 | 说明 |
+|---------|---------|---------| 
+|autoRenewTimeout|00:05:00|自动续订消息锁的最长持续时间。| 
+|autoComplete|false|触发器应立即标记为已完成（自动完成），还是等待调用完成的处理。| 
+|maxConcurrentCalls|16|消息泵应该对回调发起的最大并发调用数。 默认情况下，Functions 运行时同时处理多条消息。 若要指示运行时一次只处理单个队列或主题消息，请将 `maxConcurrentCalls` 设置为 1。 | 
+|prefetchCount|不适用|基础 MessageReceiver 将要使用的默认 PrefetchCount。| 
+
+
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
 > [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

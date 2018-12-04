@@ -3,21 +3,21 @@ title: Azure Functions 的 Azure 表存储绑定
 description: 了解如何在 Azure Functions 中使用 Azure 表存储绑定。
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: Azure Functions，函数，事件处理，动态计算，无服务体系结构
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 09/03/2018
-ms.date: 10/18/2018
+ms.date: 11/22/2018
 ms.author: v-junlch
-ms.openlocfilehash: 9840760802015e0858ec144697a7309b2d3988ad
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 1a737bd6d1beb0ec2ce9e5fcea9c1ae5a75afc04
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453863"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673171"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 表存储绑定
 
@@ -77,9 +77,9 @@ public class TableStorage
     public static void TableInput(
         [QueueTrigger("table-items")] string input, 
         [Table("MyTable", "MyPartition", "{queueTrigger}")] MyPoco poco, 
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}");
+        log.LogInformation($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}");
     }
 }
 ```
@@ -100,11 +100,11 @@ public class TableStorage
     public static void TableInput(
         [QueueTrigger("table-items")] string input, 
         [Table("MyTable", "MyPartition")] IQueryable<MyPoco> pocos, 
-        TraceWriter log)
+        ILogger log)
     {
         foreach (MyPoco poco in pocos)
         {
-            log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}");
+            log.LogInformation($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}");
         }
     }
 }
@@ -117,6 +117,7 @@ public class TableStorage
 ```csharp
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 using Microsoft.WindowsAzure.Storage.Table;
 using System;
 using System.Threading.Tasks;
@@ -133,9 +134,9 @@ namespace FunctionAppCloudTable2
         public static async Task Run(
             [TimerTrigger("0 */1 * * * *")] TimerInfo myTimer, 
             [Table("AzureWebJobsHostLogscommon")] CloudTable cloudTable,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+            log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
 
             TableQuery<LogEntity> rangeQuery = new TableQuery<LogEntity>().Where(
                 TableQuery.CombineFilters(
@@ -149,7 +150,7 @@ namespace FunctionAppCloudTable2
             foreach (LogEntity entity in 
                 await cloudTable.ExecuteQuerySegmentedAsync(rangeQuery, null))
             {
-                log.Info(
+                log.LogInformation(
                     $"{entity.PartitionKey}\t{entity.RowKey}\t{entity.Timestamp}\t{entity.OriginalName}");
             }
         }
@@ -196,10 +197,10 @@ namespace FunctionAppCloudTable2
 C# 脚本代码如下所示：
 
 ```csharp
-public static void Run(string myQueueItem, Person personEntity, TraceWriter log)
+public static void Run(string myQueueItem, Person personEntity, ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
-    log.Info($"Name in Person entity: {personEntity.Name}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"Name in Person entity: {personEntity.Name}");
 }
 
 public class Person
@@ -245,13 +246,14 @@ C# 脚本代码添加对 Azure 存储 SDK 的引用，以便实体类型可以�
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"
 using Microsoft.WindowsAzure.Storage.Table;
+using Microsoft.Extensions.Logging;
 
-public static void Run(string myQueueItem, IQueryable<Person> tableBinding, TraceWriter log)
+public static void Run(string myQueueItem, IQueryable<Person> tableBinding, ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
     foreach (Person person in tableBinding.Where(p => p.PartitionKey == myQueueItem).ToList())
     {
-        log.Info($"Name: {person.Name}");
+        log.LogInformation($"Name: {person.Name}");
     }
 }
 
@@ -291,10 +293,11 @@ public class Person : TableEntity
 using Microsoft.WindowsAzure.Storage.Table;
 using System;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
-public static async Task Run(TimerInfo myTimer, CloudTable cloudTable, TraceWriter log)
+public static async Task Run(TimerInfo myTimer, CloudTable cloudTable, ILogger log)
 {
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+    log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
 
     TableQuery<LogEntity> rangeQuery = new TableQuery<LogEntity>().Where(
     TableQuery.CombineFilters(
@@ -308,7 +311,7 @@ public static async Task Run(TimerInfo myTimer, CloudTable cloudTable, TraceWrit
     foreach (LogEntity entity in 
     await cloudTable.ExecuteQuerySegmentedAsync(rangeQuery, null))
     {
-        log.Info(
+        log.LogInformation(
             $"{entity.PartitionKey}\t{entity.RowKey}\t{entity.Timestamp}\t{entity.OriginalName}");
     }
 }
@@ -366,8 +369,8 @@ type Person = {
 }
 
 let Run(myQueueItem: string, personEntity: Person) =
-    log.Info(sprintf "F# Queue trigger function processed: %s" myQueueItem)
-    log.Info(sprintf "Name in Person entity: %s" personEntity.Name)
+    log.LogInformation(sprintf "F# Queue trigger function processed: %s" myQueueItem)
+    log.LogInformation(sprintf "Name in Person entity: %s" personEntity.Name)
 ```
 
 ### <a name="input---javascript-example"></a>输入 - JavaScript 示例
@@ -444,7 +447,7 @@ public int run(
   public static void Run(
       [QueueTrigger("table-items")] string input, 
       [Table("MyTable", "Http", "{queueTrigger}")] MyPoco poco, 
-      TraceWriter log)
+      ILogger log)
   {
       ...
   }
@@ -457,7 +460,7 @@ public int run(
   public static void Run(
       [QueueTrigger("table-items")] string input, 
       [Table("MyTable", "Http", "{queueTrigger}", Connection = "StorageConnectionAppSetting")] MyPoco poco, 
-      TraceWriter log)
+      ILogger log)
   {
       ...
   }
@@ -562,9 +565,9 @@ public class TableStorage
 
     [FunctionName("TableOutput")]
     [return: Table("MyTable")]
-    public static MyPoco TableOutput([HttpTrigger] dynamic input, TraceWriter log)
+    public static MyPoco TableOutput([HttpTrigger] dynamic input, ILogger log)
     {
-        log.Info($"C# http trigger function processed: {input.Text}");
+        log.LogInformation($"C# http trigger function processed: {input.Text}");
         return new MyPoco { PartitionKey = "Http", RowKey = Guid.NewGuid().ToString(), Text = input.Text };
     }
 }
@@ -601,11 +604,11 @@ public class TableStorage
 C# 脚本代码如下所示：
 
 ```csharp
-public static void Run(string input, ICollector<Person> tableBinding, TraceWriter log)
+public static void Run(string input, ICollector<Person> tableBinding, ILogger log)
 {
     for (int i = 1; i < 10; i++)
         {
-            log.Info($"Adding Person entity {i}");
+            log.LogInformation($"Adding Person entity {i}");
             tableBinding.Add(
                 new Person() { 
                     PartitionKey = "Test", 
@@ -663,9 +666,9 @@ type Person = {
   Name: string
 }
 
-let Run(input: string, tableBinding: ICollector<Person>, log: TraceWriter) =
+let Run(input: string, tableBinding: ICollector<Person>, log: ILogger) =
     for i = 1 to 10 do
-        log.Info(sprintf "Adding Person entity %d" i)
+        log.LogInformation(sprintf "Adding Person entity %d" i)
         tableBinding.Add(
             { PartitionKey = "Test"
               RowKey = i.ToString()
@@ -730,7 +733,7 @@ module.exports = function (context) {
 [return: Table("MyTable")]
 public static MyPoco TableOutput(
     [HttpTrigger] dynamic input, 
-    TraceWriter log)
+    ILogger log)
 {
     ...
 }
@@ -743,7 +746,7 @@ public static MyPoco TableOutput(
 [return: Table("MyTable", Connection = "StorageConnectionAppSetting")]
 public static MyPoco TableOutput(
     [HttpTrigger] dynamic input, 
-    TraceWriter log)
+    ILogger log)
 {
     ...
 }
@@ -800,4 +803,4 @@ public static MyPoco TableOutput(
 > [!div class="nextstepaction"]
 > [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: code update -->

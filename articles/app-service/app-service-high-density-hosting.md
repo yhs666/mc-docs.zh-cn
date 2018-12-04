@@ -16,11 +16,11 @@ origin.date: 01/22/2018
 ms.date: 10/29/2018
 ms.author: v-biyu
 ms.openlocfilehash: a55f5d93ed44e05fbfc4cabbcd6803f9d7bbd819
-ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49451584"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667175"
 ---
 # <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>在 Azure 应用服务上使用按应用缩放进行高密度托管
 默认情况下，通过缩放应用服务应用在其中运行的[应用服务计划](azure-web-sites-web-hosting-plans-in-depth-overview.md)来缩放这些应用。 当多个应用在同一个应用服务计划中运行时，每个横向扩展实例会在计划中运行所有应用。

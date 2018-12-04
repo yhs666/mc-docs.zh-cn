@@ -9,15 +9,15 @@ ms.component: cosmosdb-sql
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/24/2017
-ms.date: 07/02/2018
+ms.date: 12/03/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 13dae0e6fef5926803e5658ce3fd486e3e27e29e
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: 72582599f5376c110739aa353bc312f7c6d79069
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070208"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674698"
 ---
 # <a name="partitioning-in-azure-cosmos-db-using-the-sql-api"></a>使用 SQL API 在 Azure Cosmos DB 中进行分区
 
@@ -187,7 +187,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
     .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
 ```
 
-从 SDK 1.12.0 及更高版本开始，Cosmos DB 支持使用 SQL 对已分区的容器执行[聚合函数](sql-api-sql-query.md#Aggregates) `COUNT`、`MIN`、`MAX` 和 `AVG`。 查询必须包括单个聚合运算符，并且必须在投影中包括单个值。
+从 SDK 1.12.0 及更高版本开始，Cosmos DB 支持使用 SQL 对已分区容器执行[聚合函数](how-to-sql-query.md#Aggregates) `COUNT`、`MIN`、`MAX`、`AVG` 操作。 查询必须包括单个聚合运算符，并且必须在投影中包括单个值。
 
 ### <a name="parallel-query-execution"></a>并行查询执行
 Cosmos DB SDK 1.9.0 及更高版本支持并行查询执行选项，这些选项可用于对已分区集合执行低延迟查询，即使在这些查询需要处理大量分区时，也是如此。 例如，以下查询配置为跨分区并行运行。
@@ -226,4 +226,5 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 * 使用 Azure Cosmos DB 执行规模和性能测试。 有关示例，请参阅[使用 Azure Cosmos DB 执行性能和规模测试](performance-testing.md)。
 * 使用 [SDK](sql-api-sdk-dotnet.md) 或 [REST API](https://docs.microsoft.com/rest/api/cosmos-db/) 的编码入门
 * 了解 [Azure Cosmos DB 中的预配吞吐量](request-units.md)
+
 <!-- Update_Description: wording update, update link -->

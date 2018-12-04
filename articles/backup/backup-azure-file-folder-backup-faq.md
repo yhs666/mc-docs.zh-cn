@@ -2,27 +2,27 @@
 title: Azure 备份代理常见问题解答
 description: 以下常见问题的解答：Azure 备份代理工作原理、备份和保留限制。
 services: backup
-author: trinadhk
-manager: shreeshd
+author: lingliw
+manager: digimobile
 keywords: 备份和灾难恢复;备份服务
 ms.service: backup
 ms.topic: conceptual
 origin.date: 08/06/2018
-ms.date: 08/23/2018
-ms.author: v-junlch
-ms.openlocfilehash: 063c0c3247e78367200ee6d86afb8a33cb24142b
-ms.sourcegitcommit: 85cdb61361dc61147bac991d4907f454f0684ea0
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 30f3c47364d06ef938654a810e7f318bd846f09d
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42709732"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674691"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>有关 Azure 备份代理的问题
-本文提供常见问题的解答，有助于快速了解 Azure 备份代理组件。 某些答案提供内含全面信息的文章的链接。 还可以在 [论坛](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中发布有关 Azure 备份服务的问题。
+本文提供常见问题的解答，有助于快速了解 Azure 备份代理组件。 某些答案提供内含全面信息的文章的链接。 还可以在 [论坛](https://www.azure.cn/support/contact/)中发布有关 Azure 备份服务的问题。
 
 ## <a name="configure-backup"></a>配置备份
 ### <a name="where-can-i-download-the-latest-azure-backup-agent-br"></a>我可以在哪里下载最新的 Azure 备份代理？ <br/>
-可以从 [此处](http://aka.ms/azurebackup_agent)下载最新的代理，用于备份 Windows Server、System Center DPM 或 Windows 客户端。 如果想要备份虚拟机，请使用 VM 代理（会自动安装适当的扩展）。 从 Azure 资源库创建的虚拟机上已有 VM 代理。
+可以从 [此处](https://aka.ms/azurebackup_agent)下载最新的代理，用于备份 Windows Server、System Center DPM 或 Windows 客户端。 如果想要备份虚拟机，请使用 VM 代理（会自动安装适当的扩展）。 从 Azure 资源库创建的虚拟机上已有 VM 代理。
 
 ### <a name="when-configuring-the-azure-backup-agent-i-am-prompted-to-enter-the-vault-credentials-do-vault-credentials-expire"></a>在配置 Azure 备份代理时，系统提示我输入保管库凭据。 保管库凭据会过期吗？
 是的，保管库凭据在 48 小时后过期。 如果文件过期，请登录 Azure 门户，并从保管库下载保管库凭据文件。
@@ -30,25 +30,25 @@ ms.locfileid: "42709732"
 ### <a name="what-types-of-drives-can-i-back-up-files-and-folders-from-br"></a>可以从哪些类型的驱动器备份文件和文件夹？ <br/>
 无法备份以下驱动器/卷：
 
-- 可移动介质：所有备份项源必须报告为“固定”。
-- 只读卷：为使卷影复制服务 (VSS) 起作用，卷必须是可写的。
-- 脱机卷：为使 VSS 起作用，卷必须是联机的。
-- 网络共享：若要使用联机备份进行备份，卷对于服务器而言必须是本地的。
-- 受 Bitlocker 保护的卷：必须先解锁卷，才能备份。
-- 文件系统标识：NTFS 是受支持的唯一文件系统。
+* 可移动介质：所有备份项源必须报告为“固定”。
+* 只读卷：为使卷影复制服务 (VSS) 起作用，卷必须是可写的。
+* 脱机卷：为使 VSS 起作用，卷必须是联机的。
+* 网络共享：若要使用联机备份进行备份，卷对于服务器而言必须是本地的。
+* 受 Bitlocker 保护的卷：必须先解锁卷，才能备份。
+* 文件系统标识：NTFS 是受支持的唯一文件系统。
 
 ### <a name="what-file-and-folder-types-can-i-back-up-from-my-serverbr"></a>可以从我的服务器备份哪些文件和文件夹类型？<br/>
 支持以下类型：
 
-- 加密
-- 压缩
-- 稀疏
-- 压缩 + 稀疏
-- 硬链接：不支持，跳过
-- 重分析点：不支持，跳过
-- 加密 + 稀疏：不支持，跳过
-- 压缩流：不支持，跳过
-- 稀疏流：不支持，跳过
+* 加密
+* 压缩
+* 稀疏
+* 压缩 + 稀疏
+* 硬链接：不支持，跳过
+* 重分析点：不支持，跳过
+* 加密 + 稀疏：不支持，跳过
+* 压缩流：不支持，跳过
+* 稀疏流：不支持，跳过
 
 ### <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-already-backed-by-the-azure-backup-service-using-the-vm-extension-br"></a>可以在已由 Azure 备份服务备份的 Azure VM 上使用 VM 扩展来安装 Azure 备份代理吗？ <br/>
 绝对是。 Azure 备份使用 VM 扩展为 Azure VM 提供 VM 级别备份。 在来宾 Windows OS 上安装 Azure 备份代理，以保护该来宾 Windows OS 上的文件和文件夹。
@@ -76,14 +76,14 @@ ms.locfileid: "42709732"
 1. 通过在权限提升的命令提示符下运行以下命令来停止备份引擎：
 
     ```PS C:\> Net stop obengine``` 
-  
+
 2. 请不要移动文件， 而是将缓存空间文件夹复制到具有足够空间的其他驱动器。 确认备份使用新的缓存空间后，可以删除原始缓存空间。
 3. 更新以下注册表项，使路径指向新的缓存空间文件夹。<br/>
 
     | 注册表路径 | 注册表项 | 值 |
     | --- | --- | --- |
-    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Backup\Config` |ScratchLocation |*新缓存文件夹位置* |
-    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*新缓存文件夹位置* |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*新缓存文件夹位置* |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*新缓存文件夹位置* |
 
 4. 在提升的命令提示符下运行以下命令来重启备份引擎：
 
@@ -91,21 +91,20 @@ ms.locfileid: "42709732"
 
 在新缓存位置成功完成创建备份后，可以删除原始缓存文件夹。
 
-
 ### <a name="where-can-i-put-the-cache-folder-for-the-azure-backup-agent-to-work-as-expectedbr"></a>可以将缓存文件夹放在何处，以便 Azure 备份代理按预期工作？<br/>
 建议不要将缓存文件夹放在以下位置：
 
-- 网络共享或可移动媒体：缓存文件夹必须位于需要使用联机备份进行备份的服务器本地。 不支持网络位置或可移动媒体，例如 U 盘
-- 脱机卷：缓存文件夹必须联机才能使用 Azure 备份代理执行预期的备份
+* 网络共享或可移动媒体：缓存文件夹必须位于需要使用联机备份进行备份的服务器本地。 不支持网络位置或可移动媒体，例如 U 盘
+* 脱机卷：缓存文件夹必须联机才能使用 Azure 备份代理执行预期的备份
 
 ### <a name="are-there-any-attributes-of-the-cache-folder-that-are-not-supportedbr"></a>缓存文件夹是否有任何不受支持的属性？<br/>
 缓存文件夹不支持以下属性或其组合：
 
-- 加密
-- 已删除重复数据
-- 压缩
-- 稀疏
-- 重分析点
+* 加密
+* 已删除重复数据
+* 压缩
+* 稀疏
+* 重分析点
 
 缓存文件夹和元数据 VHD 没有 Azure 备份代理所需的属性。
 

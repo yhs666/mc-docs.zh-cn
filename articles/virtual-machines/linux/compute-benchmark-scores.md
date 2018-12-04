@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 04/09/2018
-ms.date: 07/30/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0bc816eae583a06406f04ba1e3c15537df1d6882
-ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
+ms.openlocfilehash: 8f59a457202461e4bfed230e7cd37cb302f1599e
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39261906"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674612"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Linux VM 的计算基准测试分数
 以下 CoreMark 基准测试分数显示运行 Ubuntu 的 Azure 高性能 VM 产品阵容的计算性能。 此外，还提供了 [Windows VM](../windows/compute-benchmark-scores.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)的计算基准测试分数。
@@ -308,14 +308,24 @@ ms.locfileid: "39261906"
 
 <!-- Not Available ## HPC - A8-11 -->
 <!-- Not Available ## Ls - Storage Optimized -->
-<!-- Not Available ## M - Memory Optimized -->
-## <a name="about-coremark"></a>关于 CoreMark
-Linux 分数是通过在 Ubuntu 上运行 [CoreMark](http://www.eembc.org/coremark/faq.php) 计算得出的。 CoreMark 中配置的线程数设置为虚拟 CPU 的数目，并发性设置为 PThreads。 目标迭代次数已根据预期性能进行调整，提供至少 20 秒（通常更长）的运行时。 最终分数表示已完成迭代次数除以运行测试所花费的秒数。 每项测试在每个 VM 上至少运行了七次。 测试运行日期如上所示。 于当天在支持 VM 的每个 Azure 公共区域中的多个 VM 上执行测试运行。 基本 A 和 B (Burstable) 系列未显示，因为其性能不稳定。
+## <a name="m---memory-optimized"></a>M - 内存优化
+(3/23/2018 8:57:07 PM pbi 2050259)
 
-<!-- Not Available on N series not shown as they are GPU centric and Coremark doesn't measure GPU performance.-->
+| VM 大小 | CPU | vCPU | NUMA 节点 | Memory(GiB) | 平均分数 | 标准偏差 | StdDev% | 运行次数 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_M64-32ms | Intel(R) Xeon(R) CPU E7-8890 v3 \@ 2.50GHz | 64 | 2 | 1,806.2 | 339,412 | 4,655 | 1.37% | 21 |
+| Standard_M64ms | Intel(R) Xeon(R) CPU E7-8890 v3 \@ 2.50GHz | 64 | 2 | 1,806.2 | 662,070 | 16,539 | 2.50% | 70 |
+| Standard_M64s | Intel(R) Xeon(R) CPU E7-8890 v3 \@ 2.50GHz | 64 | 2 | 1,032.1 | 659,757 | 22,439 | 3.40% | 21 |
+| Standard_M128-32ms | Intel(R) Xeon(R) CPU E7-8890 v3 \@ 2.50GHz | 64 | 4 | 3,923.0 | 332,861 | 6,061 | 1.82% | 42 |
+| Standard_M128-64ms | Intel(R) Xeon(R) CPU E7-8890 v3 \@ 2.50GHz | 128 | 4 | 3,923.0 | 656,788 | 16,341 | 2.49% | 35 |
+| Standard_M128ms | Intel(R) Xeon(R) CPU E7-8890 v3 \@ 2.50GHz | 128 | 4 | 3,923.0 | 1,275,328 | 16,544 | 1.30% | 70 |
+| Standard_M128s | Intel(R) Xeon(R) CPU E7-8890 v3 \@ 2.50GHz | 128 | 4 | 2,064.3 | 1,275,445 | 19,510 | 1.53% | 42 |
+
+## <a name="about-coremark"></a>关于 CoreMark
+Linux 分数是通过在 Ubuntu 上运行 [CoreMark](http://www.eembc.org/coremark/faq.php) 计算得出的。 CoreMark 中配置的线程数设置为虚拟 CPU 的数目，并发性设置为 PThreads。 目标迭代次数已根据预期性能进行调整，提供至少 20 秒（通常更长）的运行时。 最终分数表示已完成迭代次数除以运行测试所花费的秒数。 每项测试在每个 VM 上至少运行了七次。 测试运行日期如上所示。 于当天在支持 VM 的每个 Azure 公共区域中的多个 VM 上执行测试运行。 基本 A 和 B (Burstable) 系列未显示，因为其性能不稳定。 N 系列未显示，因为它们以 GPU 为中心，并且 Coremark 不测量 GPU 性能。
 
 ## <a name="next-steps"></a>后续步骤
 * 有关存储容量、磁盘详细信息以及选择 VM 大小的注意事项，请参阅[虚拟机的大小](sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
-* 若要在 Linux VM 上运行 CoreMark 脚本，请下载 [CoreMark 脚本包](http://download.microsoft.com/download/3/0/5/305A3707-4D3A-4599-9670-AAEB423B4663/AzureCoreMarkScriptPack.zip)。
+* 若要在 Linux VM 上运行 CoreMark 脚本，请下载 [CoreMark 脚本包](https://download.microsoft.com/download/3/0/5/305A3707-4D3A-4599-9670-AAEB423B4663/AzureCoreMarkScriptPack.zip)。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties, add M series scores -->

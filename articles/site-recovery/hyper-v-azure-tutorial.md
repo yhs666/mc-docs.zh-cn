@@ -3,18 +3,19 @@ title: 使用 Azure Site Recovery 为本地 Hyper-V VM（不包含 VMM）设置�
 description: 了解如何使用 Azure Site Recovery 服务为本地 Hyper-V VM（不包含 VMM）设置灾难恢复。
 services: site-recovery
 author: rockboyfor
+manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+origin.date: 10/10/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 321c836ab751af8b415c5d98cc03b01184a8040f
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: 92ad9a9bb352e434e48e354b3958a72930fe4ba1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168467"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667248"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>对 Azure 设置本地 Hyper-V VM 的灾难恢复
 
@@ -120,4 +121,5 @@ Site Recovery 检查是否有一个或多个兼容的 Azure 存储帐户和网�
 
 ## <a name="next-steps"></a>后续步骤
 [运行灾难恢复演练](tutorial-dr-drill-azure.md)
-<!-- Update_Description: update meta properties, wording update -->
+
+<!-- Update_Description: update meta properties  -->

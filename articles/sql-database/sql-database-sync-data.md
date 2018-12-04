@@ -2,21 +2,23 @@
 title: Azure SQL 数据同步 | Microsoft Docs
 description: 此概述介绍 Azure SQL 数据同步
 services: sql-database
-author: WenJason
-manager: digimobile
 ms.service: sql-database
-ms.custom: data-sync
+ms.subservice: data-movement
+ms.custom: data sync
+ms.devlang: ''
 ms.topic: conceptual
-origin.date: 08/09/2018
-ms.date: 09/02/2018
+author: WenJason
 ms.author: v-jay
 ms.reviewer: douglasl
-ms.openlocfilehash: 9728faa76d9c4929a99e3f15a39ba66eaac03cc2
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+manager: digimobile
+origin.date: 08/09/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: daaf2d99ba362a8fce47a7f326be7c9fd98e6651
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913907"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672990"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>使用 SQL 数据同步跨多个云和本地数据库同步数据
 
@@ -149,7 +151,7 @@ SQL 数据同步使用插入、更新和删除触发器来跟踪更改。 它在
 | **维度**                                                      | **限制**              | **解决方法**              |
 |-----------------------------------------------------------------|------------------------|-----------------------------|
 | 任何数据库可属于的同步组的数量上限。       | 5                      |                             |
-| 一个同步组中包含的终结点的数量上限              | 30                     | 创建多个同步组 |
+| 一个同步组中包含的终结点的数量上限              | 30                     |                             |
 | 一个同步组中包含的本地终结点的数量上限。 | 5                      | 创建多个同步组 |
 | 数据库、表、架构和列名称                       | 每个名称 50 个字符 |                             |
 | 同步组中的表                                          | 500                    | 创建多个同步组 |
@@ -157,6 +159,8 @@ SQL 数据同步使用插入、更新和删除触发器来跟踪更改。 它在
 | 表中的数据行大小                                        | 24MB                  |                             |
 | 最小同步间隔                                           | 5 分钟              |                             |
 |||
+> [!NOTE]
+> 如果只有一个同步组，则单个同步组中最多可能有 30 个终结点。 如果有多个同步组，则所有同步组中的终结点总数不能超过 30。 如果数据库属于多个同步组，则该数据库计算为多个终结点，而不是一个。
 
 ## <a name="faq-about-sql-data-sync"></a>SQL 数据同步常见问题解答
 

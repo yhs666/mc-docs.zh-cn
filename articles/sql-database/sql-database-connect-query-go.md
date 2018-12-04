@@ -11,16 +11,16 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: MightyPen
 manager: digimobile
-origin.date: 09/07/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: 2705a240a62b7274296e6e8010fee0d497009476
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+origin.date: 11/01/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: d004e368c5397d4af1a34c9f95bbcc03208e195c
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135855"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672814"
 ---
-# <a name="use-go-to-query-an-azure-sql-database"></a>使用 Go 查询 Azure SQL 数据库
+# <a name="quickstart-use-go-to-query-an-azure-sql-database"></a>快速入门：使用 Go 查询 Azure SQL 数据库
 
 本快速入门演示了如何使用 [Go](https://godoc.org/github.com/denisenkom/go-mssqldb) 连接到 Azure SQL 数据库。 此外演示了用于查询和修改数据的 Transact-SQL 语句。
 

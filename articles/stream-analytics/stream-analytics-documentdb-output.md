@@ -2,23 +2,23 @@
 title: Cosmos DB 的 Azure 流分析输出
 description: 本文介绍如何使用 Azure 流分析保存 Azure Cosmos DB 的输出以进行 JSON 输出，从而实现对非结构化 JSON 数据进行数据存档和低延迟查询。
 services: stream-analytics
-author: rockboyfor
-ms.author: v-yeche
+author: lingliw
+ms.author: v-lingwu
 manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 03/28/2017
-ms.date: 09/17/2018
-ms.openlocfilehash: 20063080289b3af0609ac0208672e61cac89cd6b
-ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
+ms.date: 11/26/2018
+ms.openlocfilehash: 1d3e9cfd6d2f06276148a8b0bf8ca4a94972e34f
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586582"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674241"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Cosmos DB 的 Azure 流分析输出  
-流分析可以针对 [Azure Cosmos DB](https://www.azure.cn/home/features/documentdb/) 进行 JSON 输出，从而支持对非结构化 JSON 数据进行数据存档和低延迟查询。 本文档介绍有关实现此配置的一些最佳做法。
+流分析可以针对 [Azure Cosmos DB](https://www.azure.cn/home/features/documentdb/) 进行 JSON 输出，从而支持对非结构化 JSON 数据进行数据存档和低延迟查询。 本文档包括用于实现此配置的一些最佳做法。
 
 <!-- Not Available on [Azure Cosmos DB's learning path](https://www.azure.cn/documentation/learning-paths/documentdb/)-->
 
@@ -38,6 +38,13 @@ ms.locfileid: "45586582"
 由于流分析与 Azure Cosmos DB 集成，因此可以在集合中基于给定的文档 ID 列插入或更新记录。 这也称为 *Upsert*。
 
 流分析使用乐观 Upsert 方法，即仅当由于文档 ID 冲突而插入失败时才进行更新。 此更新以修补程序的形式执行，因此它使得对文档的部分更新（即添加新属性或替换现有属性）以增量方式执行。 但是，JSON 文档中数组属性的值的更改会导致整个数组被覆盖，即不会合并数组。
+
+如果传入的 JSON 文档具有现有 ID 字段，则该字段将自动用作 Cosmos DB 中的“文档 ID”列，并且任何后续写入都将按此处理，从而导致出现以下情况之一：
+- 唯一ID 导致插入
+- 重复的 ID 和设置为“ID”的“文档 ID”导致 upsert
+- 在第一个文档之后，重复的 ID 和未设置的“文档 ID”导致错误
+
+如果要保存<i>所有</i>文档（包括具有重复 ID 的文档），请在查询中重命名 ID 字段（使用 AS 关键字），并让 Cosmos DB 创建 ID 字段或将 ID 替换为其他列的值（使用 AS 关键字或使用“文档 ID”设置）。
 
 ## <a name="data-partitioning-in-cosmos-db"></a>Cosmos DB 中的数据分区
 建议使用 Azure Cosmos DB [unlimited](../cosmos-db/partition-data.md) 将数据分区，因为 Azure Cosmos DB 可根据工作负荷自动缩放分区。 写入到无限制的容器时，流分析会使用先前查询步骤或输入分区方案中一样多的并行写入器。

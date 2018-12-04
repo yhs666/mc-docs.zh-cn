@@ -2,7 +2,6 @@
 title: Azure IoT 中心设备孪生入门 (Java) | Microsoft Docs
 description: 如何使用 Azure IoT 中心设备孪生添加标记，并使用 IoT 中心查询。 使用适用于 Java 的 Azure IoT 设备 SDK 实现设备应用，并使用适用于 Java 的 Azure IoT 服务 SDK 实现可添加标记并运行 IoT 中心查询的服务应用。
 author: dominicbetts
-manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
@@ -11,13 +10,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/04/2017
 ms.author: dobett
-ms.date: 09/10/2018
-ms.openlocfilehash: 8c923521aee5170aed276b6929f6ce92bb01cf78
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.date: 12/03/2018
+ms.openlocfilehash: d736bc2d1f60a938a9ccc55c37aca60a83ea1b59
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43328991"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674453"
 ---
 # <a name="get-started-with-device-twins-java"></a>设备孪生入门 (Java)
 
@@ -33,13 +32,22 @@ ms.locfileid: "43328991"
 
 要完成本教程，需要：
 
-* 最新的 [Java SE 开发工具包 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* 最新的 [Java SE 开发工具包 8](https://aka.ms/azure-jdks)
+
 * [Maven 3](https://maven.apache.org/install.html)
 * 有效的 Azure 帐户。 （如果没有帐户，只需几分钟即可创建一个[试用帐户](http://www.azure.cn/pricing/1rmb-trial/)。）
 
-[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+## <a name="create-an-iot-hub"></a>创建 IoT 中心
 
-[!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+### <a name="retrieve-connection-string-for-iot-hub"></a>检索 IoT 中心的连接字符串
+
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
+
+## <a name="register-a-new-device-in-the-iot-hub"></a>在 IoT 中心内注册新设备
+
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="create-the-service-app"></a>创建服务应用
 
@@ -47,13 +55,15 @@ ms.locfileid: "43328991"
 
 1. 在开发计算机上，创建名为 `iot-java-twin-getstarted` 的空文件夹。
 
-1. 在 `iot-java-twin-getstarted` 文件夹中，通过命令提示符使用以下命令创建名为 **add-tags-query** 的 Maven 项目。 请注意，这是一条很长的命令：
+2. 在 `iot-java-twin-getstarted` 文件夹中，通过命令提示符使用以下命令创建名为 **add-tags-query** 的 Maven 项目。 请注意，这是一条很长的命令：
 
-    `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=add-tags-query -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
+    ```
+    mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=add-tags-query -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+    ```
 
-1. 在命令提示符下，导航到 `add-tags-query` 文件夹。
+3. 在命令提示符下，导航到 `add-tags-query` 文件夹。
 
-1. 使用文本编辑器打开 `add-tags-query` 文件夹中的 `pom.xml` 文件，在 **dependencies** 节点中添加以下依赖项。 通过此依赖项可以使用应用中的 **iot-service-client** 包来与 IoT 中心通信：
+4. 使用文本编辑器打开 `add-tags-query` 文件夹中的 `pom.xml` 文件，在 **dependencies** 节点中添加以下依赖项。 通过此依赖项可以使用应用中的 **iot-service-client** 包来与 IoT 中心通信：
 
     ```xml
     <dependency>

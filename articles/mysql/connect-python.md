@@ -12,17 +12,17 @@ ms.devlang: python
 ms.topic: quickstart
 origin.date: 02/28/2018
 ms.date: 08/13/2018
-ms.openlocfilehash: 9af353f087a342c62a9fc93d740d6b46b45fcfcb
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.openlocfilehash: fd38530b6aa0b6360ec573383a64b25847cf66e8
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723052"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672834"
 ---
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Azure Database for MySQL：使用 Python 进行连接并查询数据
 
-> [!NOTE]
-> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql/)。
+> [!NOTE] 
+> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
 
 本快速入门演示了如何使用 [Python](https://python.org) 连接到 Azure Database for MySQL。 该语言可以通过 Mac OS、Ubuntu Linux 和 Windows 平台，使用 SQL 语句在数据库中查询、插入、更新和删除数据。 本主题假设你熟悉如何使用 Python 进行开发，但不太熟悉 Azure Database for MySQL 的用法。
 
@@ -32,7 +32,11 @@ ms.locfileid: "39723052"
 - [使用 Azure CLI 创建用于 MySQL 服务器的 Azure 数据库](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-python-and-the-mysql-connector"></a>安装 Python 和 MySQL 连接器
-在自己的计算机上安装 [Python](https://www.python.org/downloads/) 和[用于 Python 的 MySQL 连接器](https://dev.mysql.com/downloads/connector/python/)。 根据自己的平台执行相应部分中的步骤：
+在自己的计算机上安装 [Python](https://www.python.org/downloads/) 和[用于 Python 的 MySQL 连接器](https://dev.mysql.com/downloads/connector/python/)。 根据自己的平台执行下面相应部分中的步骤。 
+
+> [!NOTE]
+> 本快速入门使用原始 SQL 查询方法连接到 MySQL 以运行查询。 如果使用的是 Web 框架，请对这些框架使用建议的连接器。 例如，建议将 [mysqlclient](https://pypi.org/project/mysqlclient/) 与 Django 一起使用。
+>
 
 ### <a name="windows"></a>Windows
 1. 下载并安装 [python.org](https://www.python.org/downloads/windows/) 提供的 Python 2.7。 
@@ -61,17 +65,16 @@ ms.locfileid: "39723052"
 
    ```bash
    pip install mysql-connector-python-rf
-   ```
+   ``` 
 
 ## <a name="get-connection-information"></a>获取连接信息
 获取连接到 Azure Database for MySQL 所需的连接信息。 需要完全限定的服务器名称和登录凭据。
 
-1. 登录到 [Azure 门户](https://portal.azure.com/)。
+1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 2. 在 Azure 门户的左侧菜单中，单击“所有资源”，然后搜索已创建的服务器（例如 mydemoserver）。
 3. 单击服务器名称。
 4. 从服务器的“概览”面板中记下“服务器名称”和“服务器管理员登录名”。 如果忘记了密码，也可通过此面板来重置密码。
  ![Azure Database for MySQL 服务器名称](./media/connect-python/1_server-overview-name-login.png)
-   
 
 ## <a name="run-python-code"></a>运行 Python 代码
 - 将代码粘贴到文本文件中，然后将该文件使用 .py 文件扩展名保存到项目文件夹中（例如 C:\pythonmysql\createtable.py 或 /home/username/pythonmysql/createtable.py）。

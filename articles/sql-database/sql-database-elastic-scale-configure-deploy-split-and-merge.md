@@ -2,22 +2,26 @@
 title: 部署拆分 / 合并服务 | Microsoft 文档
 description: 可使用拆分/合并工具在分片数据库之间移动数据。
 services: sql-database
-author: WenJason
-manager: digimobile
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-origin.date: 04/01/2018
-ms.date: 10/15/2018
+author: WenJason
 ms.author: v-jay
-ms.openlocfilehash: 7b3826480822098405a02b519114cfe95d52727c
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.reviewer: ''
+manager: digimobile
+origin.date: 10/05/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: 4dddd151349c66bbd0eaf058aeca47e8ecb9c738
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48914010"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672580"
 ---
-# <a name="deploy-a-split-merge-service"></a>部署拆分/合并服务
+# <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>部署拆分/合并服务以在分片数据库之间移动数据
+
 可使用拆分/合并工具在分片数据库之间移动数据。 请参阅[在扩展云数据库之间移动数据](sql-database-elastic-scale-overview-split-and-merge.md)
 
 ## <a name="download-the-split-merge-packages"></a>下载拆分/合并包
@@ -60,7 +64,7 @@ ms.locfileid: "48914010"
 为了针对本教程创建一个简单的测试部署，我们将执行少量的配置步骤来使服务正常运行。 仅一个计算机/帐户可以执行这些步骤，以便与服务进行通信。
 
 ### <a name="create-a-self-signed-certificate"></a>创建自签名证书
-创建新的目录并使用 [Visual Studio 的开发人员命令提示符](http://msdn.microsoft.com/library/ms229859.aspx)窗口从该目录执行以下命令：
+创建新的目录并使用 [Visual Studio 的开发人员命令提示符](https://msdn.microsoft.com/library/ms229859.aspx)窗口从该目录执行以下命令：
 
    ```
     makecert ^

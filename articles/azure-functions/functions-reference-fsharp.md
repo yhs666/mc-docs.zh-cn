@@ -1,6 +1,6 @@
 ---
 title: 'Azure Functions F # 开发人员参考 | Microsoft Docs'
-description: '了解如何开发使用 F # 的 Azure 功能。'
+description: 了解如何使用 F# 脚本开发 Azure Functions。
 services: functions
 documentationcenter: fsharp
 author: sylvanc
@@ -10,19 +10,22 @@ ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
 ms.service: azure-functions
 ms.devlang: fsharp
 ms.topic: reference
-origin.date: 09/09/2016
-ms.date: 10/19/2018
+origin.date: 10/09/2018
+ms.date: 11/22/2018
 ms.author: v-junlch
-ms.openlocfilehash: 3b65b453ebc5372aaca8983babe9ce08d6b80258
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 4a258abd74670fbc70e3e2d954af25a08e85f268
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453574"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672600"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure Functions F# 开发人员参考
 
-Azure Functions F# 是用于在云中轻松运行小段代码或“函数”的一个解决方案。 数据通过函数参数流入 F # 函数。 在 `function.json`指定参数名称，没有访问函数记录器和取消令牌等的预定义的名称。
+Azure Functions F# 是用于在云中轻松运行小段代码或“函数”的一个解决方案。 数据通过函数参数流入 F # 函数。 在 `function.json`指定参数名称，没有访问函数记录器和取消令牌等的预定义的名称。 
+
+>[!IMPORTANT]
+>仅 Azure Functions 运行时的[版本 1.x](functions-versions.md#creating-1x-apps) 支持 F# 脚本 (.fsx)。 如果要将 F# 与版本 2.x 运行时结合使用，必须使用预编译的 F# 类库项目 (.fs)。 就像 [C# 类库项目](functions-dotnet-class-library.md)那样，使用 Visual Studio 创建、管理和发布 F# 类库项目。 有关 Functions 版本的详细信息，请参阅 [Azure Functions 运行时版本概述](functions-versions.md)。
 
 本文假定已阅读 [Azure Functions 开发人员参考](functions-reference.md)。
 
@@ -77,7 +80,7 @@ type TestObject =
     { SenderName : string
       Greeting : string }
 
-let Run(req: TestObject, log: TraceWriter) =
+let Run(req: TestObject, log: ILogger) =
     { req with Greeting = sprintf "Hello, %s" req.SenderName }
 ```
 
@@ -94,11 +97,11 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## <a name="logging"></a>日志记录
-若要记录以 F # 输出传送到 [流式传输日志](../app-service/web-sites-enable-diagnostic-log.md) 中，函数应采取 `TraceWriter` 参数。 为了保持一致，我们建议参数名为 `log`。 例如：
+若要记录以 F # 输出传送到 [流式传输日志](../app-service/web-sites-enable-diagnostic-log.md) 中，函数应采取 `ILogger` 参数。 为了保持一致，我们建议参数名为 `log`。 例如：
 
 ```fsharp
-let Run(blob: string, output: byref<string>, log: TraceWriter) =
-    log.Verbose(sprintf "F# Azure Function processed a blob: %s" blob)
+let Run(blob: string, output: byref<string>, log: ILogger) =
+    log.LogInformation(sprintf "F# Azure Function processed a blob: %s" blob)
     output <- input
 ```
 
@@ -130,8 +133,9 @@ let Run(req: HttpRequestMessage, token: CancellationToken)
 ```fsharp
 open System.Net
 open System.Threading.Tasks
+open Microsoft.Extensions.Logging
 
-let Run(req: HttpRequestMessage, log: TraceWriter) =
+let Run(req: HttpRequestMessage, log: ILogger) =
     ...
 ```
 
@@ -155,8 +159,9 @@ let Run(req: HttpRequestMessage, log: TraceWriter) =
 open System.Net
 open System.Net.Http
 open System.Threading.Tasks
+open Microsoft.Extensions.Logging
 
-let Run(req: HttpRequestMessage, log: TraceWriter) =
+let Run(req: HttpRequestMessage, log: ILogger) =
     ...
 ```
 
@@ -194,8 +199,9 @@ let Run(req: HttpRequestMessage, log: TraceWriter) =
 
 open System
 open Microsoft.Azure.WebJobs.Host
+open Microsoft.Extensions.Logging
 
-let Run(blob: string, output: byref<string>, log: TraceWriter) =
+let Run(blob: string, output: byref<string>, log: ILogger) =
     ...
 ```
 
@@ -251,10 +257,11 @@ Azure 函数执行代码时，它可以处理带有 `COMPILED` 定义的源，�
 
 ```fsharp
 open System.Environment
+open Microsoft.Extensions.Logging
 
-let Run(timer: TimerInfo, log: TraceWriter) =
-    log.Info("Storage = " + GetEnvironmentVariable("AzureWebJobsStorage"))
-    log.Info("Site = " + GetEnvironmentVariable("WEBSITE_SITE_NAME"))
+let Run(timer: TimerInfo, log: ILogger) =
+    log.LogInformation("Storage = " + GetEnvironmentVariable("AzureWebJobsStorage"))
+    log.LogInformation("Site = " + GetEnvironmentVariable("WEBSITE_SITE_NAME"))
 ```
 
 ## <a name="reusing-fsx-code"></a>重用.fsx 代码
@@ -265,15 +272,15 @@ let Run(timer: TimerInfo, log: TraceWriter) =
 ```fsharp
 #load "logger.fsx"
 
-let Run(timer: TimerInfo, log: TraceWriter) =
+let Run(timer: TimerInfo, log: ILogger) =
     mylog log (sprintf "Timer: %s" DateTime.Now.ToString())
 ```
 
 `logger.fsx`
 
 ```fsharp
-let mylog(log: TraceWriter, text: string) =
-    log.Verbose(text);
+let mylog(log: ILogger, text: string) =
+    log.LogInformation(text);
 ```
 
 提供给 `#load` 指令的路径与`.fsx` 文件位置相关。
@@ -295,4 +302,4 @@ let mylog(log: TraceWriter, text: string) =
 - [Azure Functions 缩放](functions-scale.md)
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

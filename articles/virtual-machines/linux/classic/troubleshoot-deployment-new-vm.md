@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 09/06/2016
-ms.date: 03/19/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 24cd818c01392a71ae5db7ebb4db78b3ce4fb5b3
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: c585c888ab0bdf3c95ff047c39b70e11b3fd13b4
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29965108"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674647"
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>排查在 Azure 中新建 Linux 虚拟机时遇到的经典部署问题
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-selectors](../../../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-selectors-include.md)]
@@ -64,7 +64,7 @@ ms.locfileid: "29965108"
 
 若要解决这两个错误，请从门户中删除当前映像，并[从当前 VHD 重新捕获映像](capture-image-classic.md)，其设置与 OS 的设置相同（通用/专用）。
 
-## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>问题：自定义/库/应用商店映像；分配失败
+## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>问题：自定义/库/市场映像；分配失败
 当新的 VM 请求被发送到没有可用空间可处理请求、或不支持所请求的 VM 大小的群集，便发生此错误。 在相同的云服务中不可混合不同系列的 VM。 因此，如果想要创建和云服务可支持大小不同的新 VM，计算请求将失败。
 
 可能遇到因两种情况造成的错误，取决于用于创建新 VM 的云服务的条件约束。
@@ -88,9 +88,9 @@ ms.locfileid: "29965108"
 
 * 创建新的区域虚拟网络。
 * 在新的虚拟网络中创建新 VM。
-* 
-            [将现有虚拟网络连接到](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)新虚拟网络。 详细了解 [区域虚拟网络](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)。 此外，用户也可以 [将基于地缘组的虚拟网络迁移到区域虚拟网络](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)，并创建新 VM。
+* [将现有虚拟网络连接到](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)新虚拟网络。 详细了解 [区域虚拟网络](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)。 此外，用户也可以 [将基于地缘组的虚拟网络迁移到区域虚拟网络](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)，并创建新 VM。
 
 ## <a name="next-steps"></a>后续步骤
 如果你在 Azure 中启动已停止的 Linux VM 或调整现有 Linux VM 的大小时遇到问题，请参阅[排查在 Azure 中重新启动现有 Linux 虚拟机或调整其大小时遇到的经典部署问题](restart-resize-error-troubleshooting.md)。
-<!--Update_Description: update meta properties, update link -->
+
+<!--Update_Description: update meta properties -->

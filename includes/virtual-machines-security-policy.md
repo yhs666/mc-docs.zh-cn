@@ -1,3 +1,17 @@
+---
+author: rockboyfor
+ms.service: virtual-machines
+ms.topic: include
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
+ms.openlocfilehash: e3c4b0e812a3d69141788f0f2b47656254d93af0
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675857"
+---
 为了所运行的应用程序，请务必确保虚拟机 (VM) 安全。 保护 VM 可以添加一个或多个 Azure 服务和功能，这些服务和功能涵盖保护对 VM 的访问和保护数据存储。 按照本文提供的信息操作，可确保 VM 和应用程序安全。
 
 ## <a name="antimalware"></a>反恶意软件
@@ -29,7 +43,8 @@
 
 使用[基于角色的访问控制 (RBAC)](../articles/role-based-access-control/overview.md)，可以在团队中对职责进行分配，仅向 VM 上的用户授予执行作业所需的访问权限。 可以仅允许某些操作，而不是向 VM 上的每个人授予不受限制的权限。 可以使用 [Azure CLI](https://docs.azure.cn/zh-cn/cli/role?view=azure-cli-latest) 或 [Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md) 为 [Azure 门户](../articles/role-based-access-control/role-assignments-portal.md)中的 VM 配置访问控制。
 
-## <a name="next-steps"></a>后续步骤
-<!-- Not Avaiable on - Walk through the steps to monitor virtual machine security by using Azure Security Center for [Linux](../articles/virtual-machines/linux/tutorial-azure-security.md) or [Windows](../articles/virtual-machines/windows/tutorial-azure-security.md). -->
+<!-- Not Avaiable on -## Next steps-->
+<!-- Not Avaiable on - [Linux](../articles/virtual-machines/linux/tutorial-azure-security.md)-->
+<!-- Not Avaiable on - [Windows](../articles/virtual-machines/windows/tutorial-azure-security.md)-->
 
 <!--Update_Description: wording update, update link-->

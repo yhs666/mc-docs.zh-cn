@@ -9,12 +9,12 @@ ms.author: v-yeche
 ms.topic: quickstart
 origin.date: 08/21/2018
 ms.date: 10/29/2018
-ms.openlocfilehash: f5451a3b085dcde55d353180eed56d727ef619a6
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.openlocfilehash: 536aa2ff049710c02fa94304f91277e23cdcb309
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035070"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675396"
 ---
 <!-- Verify successfully-->
 # <a name="install-ansible-on-azure-virtual-machines"></a>在 Azure 虚拟机上安装 Ansible
@@ -53,6 +53,7 @@ sudo pip install ansible[azure]
 
 按[创建 Azure 凭据](#create-azure-credentials)部分概述的说明进行操作。
 
+<a name="ubuntu1604-lts"></a>
 ### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
 
 在终端或 Bash 窗口中输入以下命令，为 Azure Python SDK 模块和 Ansible 安装所需的程序包：
@@ -94,6 +95,7 @@ sudo pip uninstall -y cryptography
 
 如果要使用 Ansible Tower 或 Jenkins 等工具，则需使用将服务主体值声明为环境变量的选项。
 
+<a name="file-credentials"></a>
 ### <a name="span-idfile-credentials-create-ansible-credentials-file"></a><span id="file-credentials"/>创建 Ansible 凭据文件
 
 本部分介绍了如何创建本地凭据文件，以便向 Ansible 提供凭据。 有关如何定义 Ansible 凭据的详细信息，请参阅[为 Azure 模块提供凭据](https://docs.ansible.com/ansible/guide_azure.html#providing-credentials-to-azure-modules)。
@@ -120,6 +122,7 @@ cloud_environment=AzureChinaCloud
 
 保存并关闭该文件。
 
+<a name="env-credentials"></a>
 ### <a name="span-idenv-credentialsuse-ansible-environment-variables"></a><span id="env-credentials"/>使用 Ansible 环境变量
 
 本部分介绍了如何通过将 Ansible 凭据导出为环境变量来配置它们。

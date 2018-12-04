@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 03/12/2018
 ms.author: v-yiso
 ms.date: 05/14/2018
-ms.openlocfilehash: be0b55afe5b51fc09b8afd69c3b4d039a62fbf48
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 9591aaef749257432e53cbdd002837c3c29e079c
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33814922"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674782"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>将公共对等互连移动到 Microsoft 对等互连
 
@@ -42,17 +42,17 @@ ExpressRoute 支持将 Microsoft 对等互连与 Azure PaaS 服务的路由筛�
 
 如果尚未创建 Microsoft 对等互连，请使用以下任意文章创建 Microsoft 对等互连。 如果连接服务提供商提供第 3 层托管服务，则可以请求连接服务提供商为你的线路启用 Microsoft 对等互连。
 
-  * [使用 Azure 门户创建 Microsoft 对等互连](expressroute-howto-routing-portal-resource-manager.md#msft)
-  * [使用 Azure Powershell 创建 Microsoft 对等互连](expressroute-howto-routing-arm.md#msft)
-  * [使用 Azure CLI 创建 Microsoft 对等互连](howto-routing-cli.md#msft)
+  * [使用 Azure 门户创建 Microsoft 对等互连](expressroute-howto-routing-portal-resource-manager.md)
+  * [使用 Azure Powershell 创建 Microsoft 对等互连](expressroute-howto-routing-arm.md)
+  * [使用 Azure CLI 创建 Microsoft 对等互连](howto-routing-cli.md)
 
 ## <a name="validate"></a>2.验证 Microsoft 对等互连已启用
 
 验证 Microsoft 对等互连已启用，且播发的公用前缀处于已配置状态。
 
-  * [Azure 门户](expressroute-howto-routing-portal-resource-manager.md#getmsft)
-  * [Azure PowerShell](expressroute-howto-routing-arm.md#getmsft)
-  * [Azure CLI](howto-routing-cli.md#getmsft)
+  * [Azure 门户](expressroute-howto-routing-portal-resource-manager.md)
+  * [Azure PowerShell](expressroute-howto-routing-arm.md)
+  * [Azure CLI](howto-routing-cli.md)
 
 ## <a name="routefilter"></a>3.配置路由筛选器并连接到线路
 

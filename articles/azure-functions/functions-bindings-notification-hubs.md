@@ -3,25 +3,21 @@ title: 适用于 Azure Functions 的 通知中心绑定
 description: 了解如何在 Azure Functions 中使用 Azure 通知中心绑定。
 services: functions
 documentationcenter: na
-author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+author: craigshoemaker
+manager: jeconnoc
 keywords: Azure Functions，函数，事件处理，动态计算，无服务体系结构
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 origin.date: 11/21/2017
-ms.date: 07/24/2018
+ms.date: 11/22/2018
 ms.author: v-junlch
-ms.openlocfilehash: a5f2d2b20c3147765fb7ca96bf67d1bbcbd04d3e
-ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
+ms.openlocfilehash: da9469483b787cd8072fb7dba41d6be9fe15cc2b
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39220197"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672473"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>适用于 Azure Functions 的 通知中心输出绑定
 
@@ -193,11 +189,11 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
     // The JSON format for a native APNS notification is ...
     // { "aps": { "alert": "notification message" }}  
 
-    log.Info($"Sending APNS notification of a new user");    
+    log.LogInformation($"Sending APNS notification of a new user");    
     dynamic user = JsonConvert.DeserializeObject(myQueueItem);    
     string apnsNotificationPayload = "{\"aps\": {\"alert\": \"A new user wants to be added (" + 
                                         user.name + ")\" }}";
-    log.Info($"{apnsNotificationPayload}");
+    log.LogInformation($"{apnsNotificationPayload}");
     await notification.AddAsync(new AppleNotification(apnsNotificationPayload));        
 }
 ```
@@ -314,4 +310,4 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 > [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

@@ -11,27 +11,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/09/2017
-ms.date: 05/28/2018
-ms.author: v-nany
-ms.openlocfilehash: 4cb42219638b14f0d40d385fcfee6c9006e942ed
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+origin.date: 10/30/2018
+ms.date: 12/03/2018
+ms.author: v-jay
+ms.openlocfilehash: a24430f9162250bd249fa35387c9876f3eac5114
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426184"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672505"
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>使用 Media Encoder Premium Workflow 进行高级编码
 
-
-
-
 ## <a name="overview"></a>概述
-Microsoft Azure 媒体服务即将推出**媒体编码器高级工作流**媒体处理器。 此处理器针对高级按需工作流提供高级编码功能。
+Microsoft Azure 媒体服务即将推出 **媒体编码器高级工作流** 媒体处理器。 此处理器针对高级按需工作流提供高级编码功能。
 
 以下主题概述了与 **媒体编码器高级工作流**相关的详细信息：
 
-* [媒体编码器高级工作流支持的格式](media-services-premium-workflow-encoder-formats.md) - 介绍**媒体编码器高级工作流**支持的文件格式和编解码器。
+* [媒体编码器高级工作流支持的格式](media-services-premium-workflow-encoder-formats.md) – 介绍 **媒体编码器高级工作流**支持的文件格式和编解码器。
 * [Azure 点播媒体编码器的概述和比较](media-services-encode-asset.md)比较了 Media Encoder Premium Workflow 和 Media Encoder Standard 的编码功能。
 
 本文演示如何在 Media Encoder Premium Workflow 中使用 .NET 进行编码。

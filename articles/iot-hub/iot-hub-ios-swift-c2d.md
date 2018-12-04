@@ -9,18 +9,17 @@ ms.topic: conceptual
 origin.date: 04/19/2018
 ms.date: 10/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: b56d3c3dfc3b40c67a7524e861caf9733d9a86d6
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 85ee5901da91e2e2e005d2326afc6b861eb8803d
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453767"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674809"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>使用 IoT 中心发送云到设备消息 (iOS)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-
-Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备和单个解决方案后端之间实现安全可靠的双向通信。 [将遥测数据从设备发送到 IoT 中心]一文介绍了如何创建 IoT 中心、在其中预配设备标识，以及编写模拟设备应用来发送设备到云的消息。
+Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备和单个解决方案后端之间实现安全可靠的双向通信。 [将遥测数据从设备发送到 IoT 中心](quickstart-send-telemetry-ios.md)一文介绍了如何创建 IoT 中心、在其中预配设备标识，以及编写模拟设备应用来发送设备到云的消息。
 
 本文介绍以下操作：
 
@@ -32,15 +31,16 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
 
 在本文结束时，运行两个 Swift iOS 项目：
 
-* **sample-device**：在[将遥测数据从设备发送到 IoT 中心]中创建的同一应用，可连接到 IoT 中心并接收云到设备的消息。
+* **sample-device**：在[将遥测数据从设备发送到 IoT 中心](quickstart-send-telemetry-ios.md)中创建的同一应用，可连接到 IoT 中心并接收云到设备的消息。
+
 * **sample-service**：通过 IoT 中心将云到设备的消息发送到模拟设备应用，然后接收中心的传送确认。
 
 > [!NOTE]
-> IoT 中心通过 Azure IoT 设备 SDK 对许多设备平台和语言（包括 C、Java 和 Javascript）提供 SDK 支持。 有关如何将设备连接到本教程的代码以及通常如何连接到 Azure IoT 中心的分步说明，请参阅 [Azure IoT 开发人员中心]。
+> IoT 中心通过 Azure IoT 设备 SDK 对许多设备平台和语言（包括 C、Java 和 Javascript）提供 SDK 支持。 有关如何将设备连接到本教程的代码以及通常如何连接到 Azure IoT 中心的分步说明，请参阅 [Azure IoT 开发人员中心](http://www.azure.com/develop/iot)。
 
 要完成本教程，需要以下各项：
 
-- 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
+- 有效的 Azure 帐户。 （如果没有帐户，只需花费几分钟就能创建一个 [试用帐户][lnk-free-trial]。）
 - Azure 中的活动 IoT 中心。 
 - [Azure 示例](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip)中的代码示例。
 - 最新版本的 [XCode](https://developer.apple.com/xcode/)，运行最新版本的 iOS SDK。 本快速入门已使用 XCode 9.3 和 iOS 11.3 测试过。
@@ -50,7 +50,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
 ## <a name="simulate-an-iot-device"></a>模拟 IoT 设备
 在本部分，我们将模拟一个运行 Swift 应用程序的 iOS 设备，以从 IoT 中心接收云到设备的消息。 
 
-这是在[将遥测数据从设备发送到 IoT 中心]一文中创建的示例设备。 如果已运行该设备，则可跳过本部分。
+这是在[将遥测数据从设备发送到 IoT 中心](quickstart-send-telemetry-ios.md)一文中创建的示例设备。 如果已运行该设备，则可跳过本部分。
 
 ### <a name="install-cocoapods"></a>安装 CocoaPods
 
@@ -162,23 +162,6 @@ pod install
 ## <a name="next-steps"></a>后续步骤
 在本教程中，已学习如何发送和接收云到设备的消息。 
 
-若要查看使用 IoT 中心完成端到端解决方案的示例，请参阅 [Azure IoT 远程监视解决方案加速器]。
+若要查看使用 IoT 中心完成端到端解决方案的示例，请参阅 [Azure IoT 解决方案加速器](/iot-accelerators/)文档。
 
-若要了解有关使用 IoT 中心开发解决方案的详细信息，请参阅 [IoT 中心开发人员指南]。
-
-<!-- Images -->
-[img-simulated-device]: media/iot-hub-python-python-c2d/simulated-device.png
-[img-send-command]:  media/iot-hub-python-python-c2d/send-command.png
-[img-message-recieved]: media/iot-hub-python-python-c2d/message-recieved.png
-
-<!-- Links -->
-[将遥测数据从设备发送到 IoT 中心]: quickstart-send-telemetry-ios.md
-
-[IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
-[IoT 中心开发人员指南]: iot-hub-devguide.md
-[Azure IoT 开发人员中心]: /develop/iot
-[lnk-free-trial]: http://www.azure.cn/pricing/1rmb-trial/
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
-[Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Azure portal]: https://portal.azure.cn
-[Azure IoT 远程监视解决方案加速器]: /iot-suite/
+若要了解有关使用 IoT 中心开发解决方案的详细信息，请参阅 [IoT 中心开发人员指南](iot-hub-devguide.md)。

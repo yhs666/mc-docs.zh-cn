@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 03/27/2017
-ms.date: 07/30/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: a3d50603d2a28089a9e9b3213bbc8ae9376be346
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.openlocfilehash: 03004ba5fdbb9d5e43295cc48b2ada705a9925a8
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307034"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675218"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>教程：使用 Azure PowerShell 创建 Azure VM 的自定义映像
 
@@ -39,9 +39,11 @@ ms.locfileid: "39307034"
 
 下列步骤详细说明了如何将现有 VM 转换为可重用自定义映像，用于创建新的 VM 实例。
 
-若要完成本教程中的示例，必须具备现有虚拟机。 如果需要，此[脚本示例](../scripts/virtual-machines-windows-powershell-sample-create-vm.md)可为你创建一个虚拟机。 按照教程进行操作时，请根据需要替换资源组和 VM 名称。
+若要完成本教程中的示例，必须具备现有虚拟机。 如果需要，此[脚本示例](../scripts/virtual-machines-windows-powershell-sample-create-vm.md)可为你创建一个虚拟机。 通过教程操作时，根据需要替换资源组和 VM 名称。
 
-<!--[!INCLUDE [cloud-shell-try-it.md|cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]--> 如果选择在本地安装并使用 PowerShell，则本教程需要 AzureRM 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
+<!--[!INCLUDE [cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]-->
+
+如果选择在本地安装并使用 PowerShell，则本教程需要 AzureRM 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
 
 ## <a name="prepare-vm"></a>准备 VM
 
@@ -49,7 +51,7 @@ ms.locfileid: "39307034"
 
 ### <a name="generalize-the-windows-vm-using-sysprep"></a>使用 Sysprep 通用化 Windows VM
 
-Sysprep 将删除所有个人帐户信息及其他某些数据，并准备好要用作映像的计算机。 有关 Sysprep 的详细信息，请参阅[如何使用 Sysprep：简介](http://technet.microsoft.com/library/bb457073.aspx)。
+Sysprep 将删除所有个人帐户信息及其他某些数据，并准备好要用作映像的计算机。 有关 Sysprep 的详细信息，请参阅[如何使用 Sysprep：简介](https://technet.microsoft.com/library/bb457073.aspx)。
 
 1. 连接到虚拟机。
 2. 以管理员身份打开“命令提示符”窗口。 将目录切换到 *%windir%\system32\sysprep*，然后运行 *sysprep.exe*。
@@ -63,13 +65,13 @@ Sysprep 将删除所有个人帐户信息及其他某些数据，并准备好要
 
 使用 [Stop-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/stop-azurermvm) 解除分配 VM。
 
-```powershell
+```PowerShell
 Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM -Force
 ```
 
 使用 [Set-AzureRmVm](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvm) 将虚拟机的状态设置为 `-Generalized`。 
 
-```powershell
+```PowerShell
 Set-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM -Generalized
 ```
 
@@ -79,19 +81,19 @@ Set-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM -Generalized
 
 获取虚拟机。 
 
-```powershell
+```PowerShell
 $vm = Get-AzureRmVM -Name myVM -ResourceGroupName myResourceGroup
 ```
 
 创建映像配置。
 
-```powershell
+```PowerShell
 $image = New-AzureRmImageConfig -Location ChinaEast -SourceVirtualMachineId $vm.ID 
 ```
 
 创建映像。
 
-```powershell
+```PowerShell
 New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceGroup
 ``` 
 
@@ -101,7 +103,7 @@ New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceG
 
 本示例从“myResourceGroup”中的“myImage”创建名为“myVMfromImage”的 VM。
 
-```powershell
+```PowerShell
 New-AzureRmVm `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVMfromImage" `
@@ -120,16 +122,16 @@ New-AzureRmVm `
 
 按名称列出所有映像。
 
-```powershell
+```PowerShell
 $images = Get-AzureRMResource -ResourceType Microsoft.Compute/images 
 $images.name
 ```
 
-删除映像。 此示例将从 myResourceGroup 中删除名为 myOldImage 的映像。
+删除映像。 此示例将从 *myResourceGroup* 中删除名为 *myImage* 的映像。
 
-```powershell
+```PowerShell
 Remove-AzureRmImage `
-    -ImageName myOldImage `
+    -ImageName myImage `
     -ResourceGroupName myResourceGroup
 ```
 

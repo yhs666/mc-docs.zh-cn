@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 04/26/2018
 ms.date: 09/10/2018
 ms.author: v-yiso
-ms.openlocfilehash: 1c6e1f18b2d034d2205f89ffa0425fbc4219ef5a
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.openlocfilehash: 8ab76460c3ffdbca950b2b0cd97d608c91514437
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43329021"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675311"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-python-back-end-and-python-device"></a>使用 Python 后端和 Python 设备创建 IoT 中心模块标识和模块孪生入门
 
@@ -176,6 +176,6 @@ except KeyboardInterrupt:
 [lnk-portal]: https://portal.azure.cn/
 
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
+[lnk-iot-edge]: ../iot-edge/quickstart-linux.md
 [lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/

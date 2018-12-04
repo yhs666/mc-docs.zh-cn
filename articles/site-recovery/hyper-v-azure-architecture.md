@@ -2,17 +2,18 @@
 title: Azure Site Recovery 中的 Hyper-V 到 Azure 复制体系结构 | Azure
 description: 本文概述通过 Azure Site Recovery 服务将本地 Hyper-V VM（不带 VMM）复制到 Azure 时所用的组件和体系结构。
 author: rockboyfor
+manager: digimobile
 ms.service: site-recovery
-ms.topic: article
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.topic: conceptual
+origin.date: 10/10/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: c3eadfcdece335879d66058cc7cdc2e893528fd5
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: 7a0ccb3608079133d196aaf0bb45c92646c75de6
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168344"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667258"
 ---
 # <a name="hyper-v-to-azure-replication-architecture"></a>Hyper-V 到 Azure 复制体系结构
 
@@ -127,4 +128,5 @@ ms.locfileid: "39168344"
 ## <a name="next-steps"></a>后续步骤
 
 根据[此教程](tutorial-prepare-azure.md)开始使用 Hyper-V 到 Azure 复制。
+
 <!-- Update_Description: update meta propreties -->
