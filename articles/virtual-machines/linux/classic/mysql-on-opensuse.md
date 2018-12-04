@@ -17,11 +17,11 @@ origin.date: 07/19/2016
 ms.date: 09/30/2016
 ms.author: v-dazen
 ms.openlocfilehash: 05dc533f77c67fcfeb6504099a17f43ea00ef4de
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20186072"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659188"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>在 Azure 中运行 OpenSUSE Linux 的虚拟机上安装 MySQL
 [MySQL][MySQL] 是一种常用的开源 SQL 数据库。 本教程介绍如何创建运行 OpenSUSE Linux 的虚拟机，然后安装 MySQL。

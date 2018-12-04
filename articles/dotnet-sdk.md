@@ -12,11 +12,11 @@ origin.date: 06/30/2016
 ms.date: 08/08/2016
 ms.author: v-junlch
 ms.openlocfilehash: be4acf4482b5d245cf54cff334d876c62c99c8a1
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20184753"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659196"
 ---
 # <a name="what-is-the-azure-sdk-for-net"></a>什么是 Azure SDK for .NET？
 
@@ -119,7 +119,7 @@ Azure SDK for .NET 将安装以下产品：
 
 * [客户端库](http://go.microsoft.com/fwlink/?LinkId=510472)。 
 
-    Azure SDK 包括使用 Azure 服务时所需的客户端库，但你在安装 SDK 时并未安装所有这些库。 如果应用程序需要的客户端库 SDK 并没有安装，可以从 [NuGet.org](http://go.microsoft.com/fwlink/?LinkId=510472) 获取。 如果你的应用程序使用的客户端库是 SDK 安装的，则最好是使用 NuGet.org 上的最新版本对其进行更新。
+    Azure SDK 包括使用 Azure 服务时所需的客户端库，但你在安装 SDK 时并未安装所有这些库。 如果应用程序需要的客户端库 SDK 并没有安装，可以从 [NuGet.org](http://go.microsoft.com/fwlink/?LinkId=510472) 获取。如果你的应用程序使用的客户端库是 SDK 安装的，则最好是使用 NuGet.org 上的最新版本对其进行更新。
 
       **Local copies of client libraries.** The Azure SDK for .NET copies to your computer the NuGet packages for some Azure client libraries, such as Storage, Service Bus, and Caching. These client libraries are automatically included in new cloud service projects, so the local NuGet packages enable Visual Studio to create projects even if you're not connected to the Internet. Client libraries are generally updated more frequently than new SDK versions are released, so the client libraries at NuGet.org are often more current than what you get with the SDK. 
 
@@ -144,7 +144,7 @@ Azure SDK for .NET 将安装以下产品：
 
 ###<a id="clientlib"></a>我想要一个客户端库。 我必须安装 Azure SDK for .NET 才能获取它吗？
 
-该 SDK 仅安装客户端库，因此在没有连接到 Internet 的情况下，你也可以创建云服务项目。 最新的客户端库在 [NuGet.org](http://go.microsoft.com/fwlink/?LinkId=510472) 的 NuGet 包中提供。 有关详细信息，请参阅本文档前面部分的[安装 Azure SDK for .NET 时未获得的内容](#notincluded)。
+该 SDK 仅安装客户端库，因此在没有连接到 Internet 的情况下，你也可以创建云服务项目。 最新的客户端库在 [NuGet.org](http://go.microsoft.com/fwlink/?LinkId=510472) 的 NuGet 包中提供。有关详细信息，请参阅本文档前面部分的[安装 Azure SDK for .NET 时未获得的内容](#notincluded)。
 
 ###<a id="olderversions"></a>哪里可以找到较旧版本的 Azure SDK for .NET？
 

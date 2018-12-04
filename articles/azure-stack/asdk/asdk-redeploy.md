@@ -18,11 +18,11 @@ ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: misainat
 ms.openlocfilehash: bc5e2ffe29bb77a4492cca6a541fcb1fb4dd810d
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869365"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656977"
 ---
 # <a name="redeploy-the-asdk"></a>重新部署 ASDK
 本文介绍如何在非生产环境中重新部署 Azure Stack 开发工具包 (ASDK)。 由于不支持 ASDK 升级，因此若要改用较新的版本，需彻底地进行重新部署。 也可随时根据需要从头开始重新部署 ASDK。

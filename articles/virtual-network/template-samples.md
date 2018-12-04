@@ -17,11 +17,11 @@ origin.date: 04/13/2018
 ms.date: 06/11/2018
 ms.author: v-yeche
 ms.openlocfilehash: 66c9ec319335d18f47915d1e819b525720c258a1
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34868333"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655024"
 ---
 # <a name="azure-resource-manager-template-samples-for-virtual-network"></a>适用于虚拟网络的 Azure 资源管理器模板示例
 

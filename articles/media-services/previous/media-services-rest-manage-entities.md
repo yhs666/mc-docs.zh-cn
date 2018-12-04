@@ -16,11 +16,11 @@ origin.date: 08/19/2017
 ms.date: 10/22/2018
 ms.author: v-jay
 ms.openlocfilehash: f306d08dd4fb913f5a524ccab85c0ac79988da21
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453566"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658891"
 ---
 # <a name="managing-media-services-entities-with-rest"></a>使用 REST 管理媒体服务实体 
 > [!div class="op_single_selector"]

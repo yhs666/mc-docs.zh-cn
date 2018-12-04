@@ -15,11 +15,11 @@ origin.date: 08/14/2017
 ms.date: 07/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: c235c4ae6c77328e0e1bec109d2ac111e96d0143
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307057"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659522"
 ---
 # <a name="how-to-monitor-virtual-machines-in-azure"></a>如何监视 Azure 中的虚拟机
 

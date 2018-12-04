@@ -11,11 +11,11 @@ origin.date: 04/02/2018
 ms.date: 09/10/2018
 ms.author: v-yiso
 ms.openlocfilehash: 6337aee28f7e12e9423006749202014a864f948d
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43328637"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659180"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>向 MQTT 服务器发送消息
 

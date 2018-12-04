@@ -16,11 +16,11 @@ origin.date: 09/10/2017
 ms.date: 10/31/2018
 ms.author: v-lingwu
 ms.openlocfilehash: d86fc4136dd6c5407df1208581828c312ebd3376
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409367"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657642"
 ---
 # <a name="how-to-use-service-bus-queues-with-ruby"></a>如何通过 Ruby 使用服务总线队列
 

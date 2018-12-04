@@ -17,11 +17,11 @@ ms.date: 10/15/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 4513d186d7a80e1595c512e6c42b5bec68ea3d8e
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089140"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656117"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>教程：配置 Jenkins 环境以便为 Service Fabric 上的 Java 应用程序启用 CI/CD
 

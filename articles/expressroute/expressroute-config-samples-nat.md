@@ -16,11 +16,11 @@ origin.date: 10/10/2016
 ms.author: v-yiso
 ms.date: 03/26/2018
 ms.openlocfilehash: 6f58dcf3bff55071c8277316af58bd0b516b0d01
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30072538"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655603"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>用于设置和管理 NAT 的路由器配置示例
 本页提供 Cisco ASA 和 Juniper SRX 系列路由器的 NAT 配置示例。 这些示例仅供指导，不能按原样使用。 可以与供应商合作，以便为网络指定适当的配置。 

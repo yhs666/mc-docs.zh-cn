@@ -17,11 +17,11 @@ ms.date: 10/22/2018
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.openlocfilehash: c2a08e1b916c96278c5d6a9de2d327cdfb5eb1b7
-ms.sourcegitcommit: c938756f3be94dbbf574c31620ddf911b427fc21
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49634807"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658355"
 ---
 # <a name="list-deny-assignments-using-rbac-and-the-rest-api"></a>使用 RBAC 和 REST API 列出拒绝分配
 

@@ -16,11 +16,11 @@ origin.date: 09/07/2018
 ms.author: v-yiso
 ms.date: 10/15/2018
 ms.openlocfilehash: 58e88201c5a6201bbef64750402a7dc7a1c4bbbf
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455267"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659676"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作伙伴和对等位置
 

@@ -18,11 +18,11 @@ ms.date: 11/02/2017
 ms.author: v-junlch
 ms.custom: mvc
 ms.openlocfilehash: 65fd458d80bf93177ffd668ca55075bb2e8a8ccc
-ms.sourcegitcommit: c2be8d831d87f6a4d28c5950bebb2c7b8b6760bf
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
-ms.locfileid: "23980777"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655521"
 ---
 # <a name="back-up-an-encrypted-azure-virtual-machine-with-powershell"></a>使用 PowerShell 备份已加密 Azure 虚拟机
 
@@ -107,7 +107,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 此脚本使用以下命令创建部署。 表中的每一项均链接到特定于命令的文档。
 
-| 命令 | 说明 | 
+| 命令 | 注释 | 
 |---|---| 
 | [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 | 
 | [New-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/New-AzureRmRecoveryServicesVault) | 创建用于存储备份的恢复服务保管库。 | 

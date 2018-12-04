@@ -10,11 +10,11 @@ ms.date: 09/24/2018
 ms.author: v-jay
 ms.custom: include file
 ms.openlocfilehash: ef76369330557f41b9de0229debcece373398194
-ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46566760"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659514"
 ---
 ## <a name="create-an-azure-storage-account"></a>创建 Azure 存储帐户
 创建第一个 Azure 存储帐户的最简单方法是使用 [Azure 门户](https://portal.azure.cn)。 若要了解更多信息，请参阅 [创建存储帐户](../articles/storage/common/storage-quickstart-create-account.md)。

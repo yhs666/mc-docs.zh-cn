@@ -12,11 +12,11 @@ origin.date: 01/12/2018
 ms.author: v-yiso
 ms.date: 11/12/2018
 ms.openlocfilehash: 34591c6243361332ba2cef372274d09fe80b51dc
-ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50919112"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659859"
 ---
 # <a name="manage-mailing-list-requests-with-azure-logic-apps"></a>使用 Azure 逻辑应用管理邮件列表请求
 

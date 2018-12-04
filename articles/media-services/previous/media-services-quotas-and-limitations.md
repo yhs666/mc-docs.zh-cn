@@ -16,11 +16,11 @@ origin.date: 11/02/2017
 ms.date: 05/07/2018
 ms.author: v-haiqya
 ms.openlocfilehash: 010d9b0c7f4b67df2e81f473a4b8c4885e14555c
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426373"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654998"
 ---
 # <a name="quotas-and-limitations"></a>配额和限制
 本文介绍与 Microsoft Azure 媒体服务关联的配额和限制。

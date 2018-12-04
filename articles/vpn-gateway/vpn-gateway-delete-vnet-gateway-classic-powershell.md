@@ -17,11 +17,11 @@ origin.date: 05/11/2017
 ms.date: 08/13/2018
 ms.author: v-junlch
 ms.openlocfilehash: 92c12d2be3f5f5b9b9d61f8e4b0a994099a0ba2b
-ms.sourcegitcommit: ec76e0b9a869eb833f76f6bebbabd2d61ed17e0c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41704467"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659240"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>使用 PowerShell 删除虚拟网络网关（经典）
 > [!div class="op_single_selector"]

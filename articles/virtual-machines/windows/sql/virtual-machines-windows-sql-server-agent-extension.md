@@ -17,11 +17,11 @@ origin.date: 07/12/2018
 ms.date: 07/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: c0de8efbfbd98c6334c43be1bf2b98d3fc29726b
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307028"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654445"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>使用 SQL Server 代理扩展 (Resource Manager) 在 Azure 虚拟机上自动完成管理任务
 > [!div class="op_single_selector"]

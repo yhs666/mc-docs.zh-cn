@@ -17,11 +17,11 @@ ms.date: 09/07/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 075f66a577c9063fe5d74ca11ced0736ffb3be4a
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068147"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658768"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>使用 Visual Studio 项目模板快速启动 Batch 解决方案
 
@@ -229,7 +229,7 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 
 **作业管理器任务设置**
 
-客户端应该将作业管理器的 killJobOnCompletion 标志设置为 false。
+客户端应该将作业管理器的 *killJobOnCompletion* 标志设置为 **false**。
 
 客户端通常可以安全地将 runExclusive 设置为 false。
 
@@ -241,7 +241,7 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 
 如果作业拆分器发出具有依赖项的任务，客户端必须将作业的 usesTaskDependencies 设置为 true。
 
-在作业拆分器模型中，除了作业拆分器所创建的任务外，客户端通常不需要将任务添加到作业中。 因此一般而言，客户端应该将作业的 onAllTasksComplete 设置为 terminatejob。
+在作业拆分器模型中，除了作业拆分器所创建的任务外，客户端通常不需要将任务添加到作业中。 因此一般而言，客户端应该将作业的 *onAllTasksComplete* 设置为 **terminatejob**。
 
 ## <a name="task-processor-template"></a>任务处理器模板
 任务处理器模板可帮助实现任务处理器来执行以下操作：

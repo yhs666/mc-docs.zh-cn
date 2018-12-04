@@ -14,11 +14,11 @@ origin.date: 01/23/2017
 ms.date: 05/07/2018
 ms.author: v-yeche
 ms.openlocfilehash: 49a4eac4f2ba1d2da39b4c02e542157a2dc7e4a1
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815043"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658034"
 ---
 # <a name="sql-server-stretch-database-documentation"></a>SQL Server Stretch Database 文档
 

@@ -16,11 +16,11 @@ ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: waltero
 ms.openlocfilehash: a1647df07b75591b606f30c23921f94d6c4dc1ce
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195634"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656748"
 ---
 # <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>排查部署到 Kubernetes (K8) 以及向 Azure Stack 部署 Kubernetes (K8) 的问题
 

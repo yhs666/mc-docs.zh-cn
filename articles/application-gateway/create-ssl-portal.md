@@ -12,11 +12,11 @@ origin.date: 05/15/2018
 ms.date: 06/01/2018
 ms.author: v-junlch
 ms.openlocfilehash: ec555bcbfc00f97ce97ca0f025d3873251cd5d13
-ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855797"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658656"
 ---
 # <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>通过 Azure 门户使用 SSL 终端配置应用程序网关
 

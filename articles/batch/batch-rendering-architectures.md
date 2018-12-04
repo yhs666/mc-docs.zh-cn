@@ -9,11 +9,11 @@ origin.date: 08/13/2018
 ms.date: 09/07/2018
 ms.topic: conceptual
 ms.openlocfilehash: e4bc9d979ac4f79ffc848b3fc6a252c9dc6afcce
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068330"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658401"
 ---
 # <a name="reference-architectures-for-azure-rendering"></a>Azure 渲染的参考体系结构
 

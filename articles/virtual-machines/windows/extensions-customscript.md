@@ -17,11 +17,11 @@ origin.date: 07/16/2017
 ms.date: 05/21/2018
 ms.author: v-yeche
 ms.openlocfilehash: a273f639ef49945ca15bdf923311d38926f3e59f
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305804"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658639"
 ---
 # <a name="custom-script-extension-for-windows"></a>适用于 Windows 的自定义脚本扩展
 
@@ -86,7 +86,7 @@ ms.locfileid: "34305804"
 
 ### <a name="property-values"></a>属性值
 
-| Name | 值/示例 |
+| 名称 | 值/示例 |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | 发布者 | Microsoft.Compute |

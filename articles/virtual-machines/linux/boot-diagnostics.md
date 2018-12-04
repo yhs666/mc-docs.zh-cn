@@ -17,11 +17,11 @@ origin.date: 03/19/2018
 ms.date: 06/04/2018
 ms.author: v-yeche
 ms.openlocfilehash: c3e8cda5882581359192a9bf123601c13b498941
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702701"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654948"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-linux-virtual-machines-in-azure"></a>如何使用启动诊断排查 Azure 中 Linux 虚拟机的故障
 

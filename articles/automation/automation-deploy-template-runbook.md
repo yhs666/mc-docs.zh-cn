@@ -12,11 +12,11 @@ ms.topic: conceptual
 manager: digimobile
 keywords: powershell, runbook, json, azure 自动化
 ms.openlocfilehash: 1c28019bf158cac4217de76968fd6c5ba45acb5d
-ms.sourcegitcommit: 1b60848d25bbd897498958738644a4eb9cf3a302
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43731221"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658492"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>在 Azure 自动化 PowerShell Runbook 中部署 Azure 资源管理器模板
 

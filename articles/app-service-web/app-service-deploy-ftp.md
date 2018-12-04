@@ -16,16 +16,16 @@ origin.date: 01/05/2016
 ms.date: 10/09/2017
 ms.author: v-yiso
 ms.openlocfilehash: 5ef5b1271edd910a7c380fcd916ea30230e3e504
-ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
-ms.locfileid: "22146521"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659944"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>使用 FTP/S 将应用部署到 Azure 应用服务
 本文介绍了如何使用 FTP 或 FTPS 将 Web 应用、移动应用后端或 API 应用部署到 [Azure App Service](/app-service-web/app-service-changes-existing-services)。
 
-应用的 FTP/S 终结点已处于活动状态。 启用 FTP/S 部署不需要进行任何配置。 
+应用的 FTP/S 终结点已处于活动状态。 无需配置即可启用 FTP / S 部署。 
 
 <a name="step1"></a>
 ## <a name="step-1-set-deployment-credentials"></a>步骤 1：设置部署凭据

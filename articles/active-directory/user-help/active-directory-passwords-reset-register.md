@@ -14,11 +14,11 @@ origin.date: 01/11/2018
 ms.date: 08/27/2018
 ms.author: v-junlch
 ms.openlocfilehash: ef41abc2102064561f4cd2cf1f44818ebc369fe6
-ms.sourcegitcommit: 75c2b5cdaf25ede92e080f6c48ca17d2f4ded4fb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43115531"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657854"
 ---
 # <a name="register-for-self-service-password-reset"></a>注册自助密码重置
 

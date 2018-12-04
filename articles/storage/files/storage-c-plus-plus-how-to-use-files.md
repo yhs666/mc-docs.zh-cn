@@ -16,11 +16,11 @@ origin.date: 09/19/2017
 ms.date: 10/30/2017
 ms.author: v-johch
 ms.openlocfilehash: 80a7857d963a74574116573bfa1120b04404689c
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103069"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654509"
 ---
 # <a name="develop-for-azure-files-with-c"></a>使用 C++ 针对 Azure 文件进行开发
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]

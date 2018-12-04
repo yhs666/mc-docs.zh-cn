@@ -18,11 +18,11 @@ origin.date: 01/09/2018
 ms.date: 03/26/2018
 ms.author: v-yiso
 ms.openlocfilehash: 1559b49e94772cdee63b42ac25857df24aa38ed6
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30075827"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656818"
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>在 HDInsight 上的 Apache Spark 群集中使用建本操作安装适用于 Jupyter 笔记本的外部 Python 包
 > [!div class="op_single_selector"]
@@ -60,7 +60,7 @@ ms.locfileid: "30075827"
 2. 在 Spark 群集边栏选项卡中，单击左窗格中的“脚本操作”。 运行用于在头节点和工作节点中安装 TensorFlow 的自定义操作。 https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh 中提供了 bash 脚本的参考信息。请访问有关[如何使用自定义脚本操作](/hdinsight/hdinsight-hadoop-customize-cluster-linux)的文档。
 
    > [!NOTE]
-   > 群集中有两个 python 安装。 Spark 将使用位于 `/usr/bin/anaconda/bin` 中的 Anaconda python 安装。 通过 `/usr/bin/anaconda/bin/pip` 和 `/usr/bin/anaconda/bin/conda` 在自定义操作中引用该安装。
+   > 群集中有两个 python 安装。 Spark 将使用位于 `/usr/bin/anaconda/bin`中的 Anaconda python 安装。 通过 `/usr/bin/anaconda/bin/pip` 和 `/usr/bin/anaconda/bin/conda` 在自定义操作中引用该安装。
    > 
    > 
 
@@ -72,7 +72,7 @@ ms.locfileid: "30075827"
 
     ![提供笔记本的名称](./media/apache-spark-python-package-installation/hdinsight-spark-name-notebook.png "提供笔记本的名称")
 
-5. 现在将`import tensorflow` 并运行 hello world 示例。 
+5. 现在将 `import tensorflow` 并运行 hello world 示例。 
 
     要复制的代码：
 

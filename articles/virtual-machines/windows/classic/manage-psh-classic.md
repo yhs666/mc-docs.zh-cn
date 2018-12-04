@@ -18,11 +18,11 @@ origin.date: 10/12/2016
 ms.date: 05/21/2018
 ms.author: v-yeche
 ms.openlocfilehash: 3f39e79d28418e5f87c6d32b8175bd0afbd03839
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34256586"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655166"
 ---
 # <a name="manage-your-virtual-machines-by-using-azure-powershell"></a>使用 Azure PowerShell 管理虚拟机
 > [!IMPORTANT] 
@@ -75,7 +75,7 @@ ms.locfileid: "34256586"
     Start-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 ## <a name="attach-a-data-disk"></a>附加数据磁盘
-此任务需要几个步骤才能完成。 首先，使用 ****Add-AzureDataDisk**** cmdlet 将磁盘添加到 $vm 对象。 然后，使用“Update-AzureVM”cmdlet 更新 VM 的配置。
+此任务需要几个步骤才能完成。 首先，使用 ****Add-AzureDataDisk**** cmdlet 将磁盘添加到 $vm 对象。 然后，使用 **Update-AzureVM** cmdlet 更新 VM 的配置。
 
 还需要确定是要附加新的磁盘还是附加包含数据的磁盘。 对于新磁盘，此命令创建并附加 .vhd 文件。
 

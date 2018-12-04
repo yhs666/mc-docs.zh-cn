@@ -15,11 +15,11 @@ ms.author: v-yiso
 ms.custom: na
 ms.date: 12/18/2017
 ms.openlocfilehash: af14f4c81bc93bd991f3ba1b6e38878c0da250e7
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940013"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655382"
 ---
 # <a name="connect-your-simulated-device-to-your-iot-hub-using-python"></a>使用 Python 将模拟设备连接到 IoT 中心
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
@@ -290,8 +290,7 @@ ms.locfileid: "38940013"
 
 若要继续了解 IoT 中心入门知识并浏览其他 IoT 方案，请参阅：
 
-* 
-            [连接设备][lnk-connect-device]
+* [连接设备][lnk-connect-device]
 * [设备管理入门][lnk-device-management]
 * [使用 Azure IoT Edge 将 AI 部署到边缘设备][lnk-iot-edge]
 

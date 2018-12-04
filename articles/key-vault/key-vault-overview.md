@@ -16,11 +16,11 @@ origin.date: 05/08/2018
 ms.date: 11/05/2018
 ms.author: v-biyu
 ms.openlocfilehash: 1fceae22814cc83aadd461cf198a5210a8173cfd
-ms.sourcegitcommit: 8a68d9275ddb92ea45601fed96e21559999d9579
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026959"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658548"
 ---
 # <a name="what-is-azure-key-vault"></a>什么是 Azure 密钥保管库？
 

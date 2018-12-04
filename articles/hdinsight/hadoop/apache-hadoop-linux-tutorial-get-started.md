@@ -18,11 +18,11 @@ origin.date: 05/07/2018
 ms.date: 07/23/2018
 ms.author: v-yiso
 ms.openlocfilehash: f9905729c673c080f02bc658775da27e74073b44
-ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39031754"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655272"
 ---
 # <a name="quickstart-get-started-with-hadoop-and-hive-in-azure-hdinsight-using-resource-manager-template"></a>快速入门：使用资源管理器模板在 Azure HDInsight 中开始使用 Hadoop 和 Hive
 

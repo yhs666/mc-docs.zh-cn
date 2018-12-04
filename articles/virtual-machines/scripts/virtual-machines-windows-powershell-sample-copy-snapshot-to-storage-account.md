@@ -17,11 +17,11 @@ origin.date: 06/05/2017
 ms.date: 10/30/2017
 ms.author: v-yeche
 ms.openlocfilehash: 4af79702915e184ea7e63295c569306ae19ac617
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
-ms.locfileid: "23629739"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655840"
 ---
 # <a name="exportcopy-managed-snapshots-as-vhd-to-a-storage-account-in-different-region-with-powershell"></a>使用 PowerShell 将托管快照作为 VHD 导出/复制到不同区域中的存储帐户
 
@@ -63,10 +63,10 @@ $destinationVHDFileName = "yourvhdfilename"
 Select-AzureRmSubscription -SubscriptionId $SubscriptionId
 
 #Generate the SAS for the snapshot 
-$sas = Grant-AzureRmSnapshotAccess -ResourceGroupName $ResourceGroupName -SnapshotName $SnapshotName  -DurationInSecond $sasExpiryDuration -Access Read 
+$sas = Grant-AzureRmSnapshotAccess -ResourceGroupName $ResourceGroupName -SnapshotName $SnapshotName  -DurationInSecond $sasExpiryDuration -Access Read 
 
 #Create the context for the storage account which will be used to copy snapshot to the storage account 
-$destinationContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
+$destinationContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
 
 #Copy the snapshot to the storage account 
 Start-AzureStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer $storageContainerName -DestContext $destinationContext -DestBlob $destinationVHDFileName
@@ -76,7 +76,7 @@ Start-AzureStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer $storageCo
 
 此脚本使用以下命令为托管快照生成 SAS URI，并使用 SAS URI 将快照复制到存储帐户。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [Grant-AzureRmSnapshotAccess](https://docs.microsoft.com/powershell/module/azurerm.compute/New-AzureRmDisk) | 生成快照的 SAS URI，用于将快照复制到存储帐户。 |
 | [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/New-AzureStorageContext) | 使用帐户名和密钥创建存储帐户上下文。 此上下文可用于对存储帐户执行读/写操作。 |

@@ -12,11 +12,11 @@ ms.topic: article
 ms.service: azure-stack
 ms.reviewer: scottnap
 ms.openlocfilehash: 10d5686b5c548475d26019a569a0409f9c32cb61
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869336"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654658"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Azure Stack 网络注意事项
 

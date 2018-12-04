@@ -16,11 +16,11 @@ origin.date: 09/29/2016
 ms.date: 01/03/2017
 ms.author: v-dazen
 ms.openlocfilehash: 33ab082ad121a46e3aff540a3b7d4b1094a87f84
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20184273"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659967"
 ---
 # <a name="using-azure-resource-manager-based-xplat-cli-for-azure-app-service"></a>使用用于 Azure 应用服务的基于 Azure Resource Manager 的 XPlat CLI
 > [!div class="op_single_selector"]
@@ -164,7 +164,7 @@ ms.locfileid: "20184273"
     azure webapp config hostnames list --name ContosoWebApp --resource-group ContosoAzureResourceGroup
 
 #### <a name="add-hostname-bindings"></a>添加主机名绑定
-若要将主机名绑定添加到应用，请使用：
+要将主机名绑定添加到应用，请使用：
 
     azure webapp config hostnames add --name ContosoWebApp --resource-group ContosoAzureResourceGroup --hostname www.contoso.com
 

@@ -15,11 +15,11 @@ origin.date: 03/23/2018
 ms.date: 10/22/2018
 ms.author: v-yeche
 ms.openlocfilehash: 3619f4e5b2ecd7eab6be3bd1507a4fa05021adbc
-ms.sourcegitcommit: caa089a6221a4925943f1ea516ca58ae62da0dff
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "50982957"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658126"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>使用 Azure Policy 限制 Linux VM 上的扩展安装
 

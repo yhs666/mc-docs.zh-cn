@@ -1,6 +1,6 @@
 ---
 title: 策略模板示例 | Azure
-description: 适用于虚拟网络的 Azure 策略模板示例。
+description: 适用于虚拟网络的 Azure Policy 模板示例。
 services: virtual-network
 documentationcenter: ''
 author: rockboyfor
@@ -18,15 +18,15 @@ ms.date: 06/11/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: cea4ae960897e51aac6e5c7776fbca2f1e2e8f23
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34915942"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657840"
 ---
-# <a name="azure-policy-sample-templates-for-virtual-network"></a>适用于虚拟网络的 Azure 策略示例模板
+# <a name="azure-policy-sample-templates-for-virtual-network"></a>适用于虚拟网络的 Azure Policy 示例模板
 
-下表包含示例 [Azure 策略](../azure-policy/azure-policy-introduction.md?toc=%2fvirtual-network%2ftoc.json)模板的链接。 示例位于 [Azure 策略示例存储库](https://github.com/Azure/azure-policy)中。
+下表包含示例 [Azure Policy](../azure-policy/azure-policy-introduction.md?toc=%2fvirtual-network%2ftoc.json) 模板的链接。 示例位于 [Azure Policy 示例存储库](https://github.com/Azure/azure-policy)中。
 
 | | |
 |---|---|

@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.topic: article
 ms.date: 02/28/2018
 ms.openlocfilehash: eead6334624be5c692dc3730bf4e98fae1249a54
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723037"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654964"
 ---
 # <a name="azure-database-for-postgresql-videos"></a>Azure Database for PostgreSQL 视频
 

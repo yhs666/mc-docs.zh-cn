@@ -16,11 +16,11 @@ origin.date: 11/01/2017
 ms.date: 12/04/2017
 ms.author: v-yeche
 ms.openlocfilehash: e481cdca9e8834c82aff20f3f0120bb38658c4f7
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
-ms.locfileid: "26045006"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656262"
 ---
 # <a name="build-a-web-service-front-end-for-your-application-using-aspnet-core"></a>使用 ASP.NET Core 生成应用程序的 Web 服务前端
 默认情况下，Azure Service Fabric 服务不提供用于访问 Web 的公共接口。 若要向 HTTP 客户端公开应用程序的功能，需要创建一个 Web 项目作为入口点，然后从该处与单个服务进行通信。
@@ -53,7 +53,7 @@ ASP.NET Core 是轻量跨平台的 Web 开发框架，可用于创建现代 Web 
 
     ![在新建服务对话框中选择 ASP.NET Web 服务][vs-new-service-dialog]
 
-3. 下一页将提供一组 ASP.NET Core 项目模板。 请注意，如果 ASP.NET Core 项目是在 Service Fabric 应用程序外部创建的，则在显示这些选项的同时，还会提供少量附加代码，用于向 Service Fabric 运行时注册该服务。 本教程中，选择“Web API”。 不过，也可运用相同的思路来构建完整的 Web 应用程序。
+3. 下一页提供一组 ASP.NET Core 项目模板。 请注意，如果 ASP.NET Core 项目是在 Service Fabric 应用程序外部创建的，则在显示这些选项的同时，还会提供少量附加代码，用于向 Service Fabric 运行时注册该服务。 本教程中，选择“Web API”。 不过，也可运用相同的思路来构建完整的 Web 应用程序。
 
     ![选择 ASP.NET 项目类型][vs-new-aspnet-project-dialog]
 
@@ -114,7 +114,7 @@ ASP.NET Core 是轻量跨平台的 Web 开发框架，可用于创建现代 Web 
 1. 在有状态服务中，添加对包含此接口的类库项目的引用。
 
     ![在有状态服务中添加对类库项目的引用][vs-add-class-library-reference]
-2. 找到继承自 `StatefulService` 的类（例如 `MyStatefulService`），并扩展它以实现 `ICounter` 接口。
+2. 找到继承自 `StatefulService` 的类（例如 `MyStatefulService`），扩展它以实现 `ICounter` 接口。
 
     ```c#
     using MyStatefulService.Interface;

@@ -17,11 +17,11 @@ ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: scottnap
 ms.openlocfilehash: 8928d8b4696d77865e8ef973be934e82c4a3ba58
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195369"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656331"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>使用 VPN 将 Azure Stack 连接到 Azure
 

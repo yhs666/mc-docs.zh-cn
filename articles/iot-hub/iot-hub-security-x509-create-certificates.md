@@ -15,11 +15,11 @@ orign.date: 05/01/2018
 ms.date: 06/11/2018
 ms.author: dkshir
 ms.openlocfilehash: bf20624a075b7279d1ae57de96490706c9da0289
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695125"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657734"
 ---
 # <a name="powershell-scripts-to-manage-ca-signed-x509-certificates"></a>用于管理 CA 签名的 X.509 证书的 PowerShell 脚本
 

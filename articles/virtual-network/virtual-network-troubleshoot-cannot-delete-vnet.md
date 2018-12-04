@@ -16,11 +16,11 @@ origin.date: 05/11/2018
 ms.date: 06/11/2018
 ms.author: v-yeche
 ms.openlocfilehash: b8374f43820ab5b615e547034ae2d9abcbded515
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34868850"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656132"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>故障排除：无法在 Azure 中删除虚拟网络
 

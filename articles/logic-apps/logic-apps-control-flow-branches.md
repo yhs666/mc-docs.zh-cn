@@ -10,11 +10,11 @@ origin.date: 10/10/2018
 ms.reviewer: klam, LADocs
 ms.date: 11/12/2018
 ms.openlocfilehash: 5c0ab69e51fdadb8da81271a6fb4a557e76730ab
-ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50919099"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658062"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>创建或联接 Azure 逻辑应用中的工作流的并行分支
 

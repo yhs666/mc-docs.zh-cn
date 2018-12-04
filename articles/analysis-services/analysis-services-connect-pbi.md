@@ -10,11 +10,11 @@ ms.date: 08/06/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
 ms.openlocfilehash: 1960c418d4d60363fd711587470b2408051496e5
-ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487838"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655876"
 ---
 # <a name="connect-with-power-bi"></a>使用 Power BI 进行连接
 

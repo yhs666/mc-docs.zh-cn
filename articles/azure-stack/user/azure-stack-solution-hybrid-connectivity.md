@@ -16,11 +16,11 @@ ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: anajod
 ms.openlocfilehash: f16e5e8ec8abeb3ba823d15ed813533b58f86e28
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195559"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659274"
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>教程：使用 Azure 和 Azure Stack 配置混合云连接
 

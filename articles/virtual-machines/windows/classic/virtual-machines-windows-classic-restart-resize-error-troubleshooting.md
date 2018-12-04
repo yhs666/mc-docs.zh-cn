@@ -17,11 +17,11 @@ ms.date: 06/25/2018
 ms.devlang: na
 ms.author: v-yeche
 ms.openlocfilehash: 9d0d03eedaa3fd4e83e17738770e43a28af71196
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315388"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658752"
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-restarting-or-resizing-an-existing-windows-virtual-machine-in-azure"></a>排查在 Azure 中重新启动现有 Windows 虚拟机或调整其大小时遇到的经典部署问题
 > [!div class="op_single_selector"]

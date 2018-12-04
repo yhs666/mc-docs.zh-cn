@@ -16,11 +16,11 @@ origin.date: 09/07/2018
 ms.date: 10/15/2018
 ms.author: v-jay
 ms.openlocfilehash: 41745292f3862de71a8b8352f4f296d342dcea5f
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848849"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655433"
 ---
 # <a name="apply-updates-in-azure-stack"></a>在 Azure Stack 中应用更新
 
@@ -32,8 +32,8 @@ ms.locfileid: "48848849"
 
 当适用于 Azure Stack 的 Microsoft 或 OEM 更新包可用时，将该包下载到可从 Azure Stack 访问的位置，并查看包内容。 更新包通常包含以下文件：
 
-- 自解压 *PackageName*.exe 文件。 此文件包含更新的有效负载，例如，Windows Server 的最新累积更新。   
-- 相应的 *PackageName*.bin 文件。 这些文件为与 *PackageName*.exe 文件关联的有效负载提供压缩。 
+- 自解压 *PackageName*.exe 文件。 此文件包含更新的有效负载，例如，Windows Server 的最新累积更新。   
+- 相应的 *PackageName*.bin 文件。 这些文件为与 *PackageName*.exe 文件关联的有效负载提供压缩。 
 - Metadata.xml 文件。 此文件包含有关更新的基本信息，例如发布者、名称、先决条件、大小和支持路径 URL。
 
 ## <a name="import-and-install-updates"></a>导入并安装更新
@@ -54,7 +54,7 @@ ms.locfileid: "48848849"
 3. 在存储帐户详细信息中，在“服务”下，选择 **Blob**。
  
     ![显示如何转到存储帐户的 Blob](media/azure-stack-apply-updates/ApplyUpdates3.png) 
- 
+ 
 4. 在“Blob 服务”下，选择“+ 容器”创建容器。 输入名称（例如 *Update-1709*），然后选择“确定”。
  
      ![显示如何在存储帐户中添加容器](media/azure-stack-apply-updates/ApplyUpdates4.png)
@@ -65,12 +65,12 @@ ms.locfileid: "48848849"
 
 6. 在“上传 blob”下，单击文件夹图标，浏览到更新包的 .exe 文件，然后在文件资源管理器窗口中单击“打开”。
   
-7. 在“上传 blob”下，单击“上传”。 
+7. 在“上传 blob”下，单击“上传”。 
   
     ![显示上传每个包文件的位置](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
-8. 对于 *PackageName*.bin 和 Metadata.xml 文件，重复步骤 6 和步骤 7。 不要导入 Supplemental Notice.txt 文件（如果已包含）。
-9. 完成后，可以查看通知（在门户右上角的钟形图标）。 通知应指示已完成上传。 
+8. 对于 *PackageName*.bin 和 Metadata.xml 文件，重复步骤 6 和步骤 7。 不要导入 Supplemental Notice.txt 文件（如果已包含）。
+9. 完成后，可以查看通知（在门户右上角的钟形图标）。 通知应指示已完成上传。 
 10. 导航回仪表板上的“更新”磁贴。 该磁贴应指示有可用更新。 单击该磁贴可查看新添加的更新包。
 11. 若要安装更新，请选择标记为“就绪”的包，然后右键单击该包并选择“立即更新”，或者单击顶部附近的“立即更新”操作。
 12. 单击正在安装的更新包时，可以在“更新运行详细信息”区域中查看状态。 还可以在此处单击“下载完整日志”以下载日志文件。

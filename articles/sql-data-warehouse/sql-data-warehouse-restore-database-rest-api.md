@@ -12,11 +12,11 @@ ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: ef78147290db3f2bf123e01be33b7f91ea615486
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089003"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657832"
 ---
 # <a name="restore-an-azure-sql-data-warehouse-with-rest-apis"></a>使用 REST API 还原 Azure SQL 数据仓库
 使用 REST API 还原 Azure SQL 数据仓库。

@@ -9,11 +9,11 @@ origin.date: 07/19/2018
 ms.date: 09/10/2018
 ms.author: v-jay
 ms.openlocfilehash: 63d65374f78518923d8d3e94a475a3ed406deaa4
-ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43651877"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655325"
 ---
 # <a name="introduction-to-azure-files"></a>Azure 文件简介
 Azure 文件在云端提供完全托管的文件共享，这些共享项可通过行业标准的[服务器消息块 (SMB) 协议](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)进行访问。 Azure 文件共享可由云或者 Windows、Linux 和 macOS 的本地部署同时装载。 此外，可以使用 Azure 文件同步将 Azure 文件共享缓存在 Windows Server 上，以加快访问速度（与在数据使用位置进行访问的速度相当）。

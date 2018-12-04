@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 06afd77b4f7b438c0d187500cb0c630f1e1f7f10
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: 669d586c7430df3eda1d89ac3c6c35687a93bfbb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168367"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658399"
 ---
 # <a name="replicate-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>使用 PowerShell 将 Hyper-V VM 复制到辅助站点（资源管理器）
 
@@ -59,9 +59,10 @@ ms.locfileid: "39168367"
         $Password = "<password>"
         $SecurePassword = ConvertTo-SecureString -AsPlainText $Password -Force
         $Cred = New-Object System.Management.Automation.PSCredential -ArgumentList $UserName, $SecurePassword
-        Connect-AzureRmAccount -Environment AzureChinaCloud #-Credential $Cred
-    <!--Notice: Update username format for Azure.cn-->
+        Connect-AzureRmAccount -Environment AzureChinaCloud -Credential $Cred
     
+    <
+    <!--Notice: Update username format for Azure.cn-->
 2. 使用订阅 ID 检索订阅列表。 记下要在其中创建恢复服务保管库的订阅的 ID。 
 
         Get-AzureRmSubscription
@@ -276,4 +277,5 @@ ms.locfileid: "39168367"
 ## <a name="next-steps"></a>后续步骤
 
 [详细了解](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/#recovery)如何将 Site Recovery 和资源管理器 PowerShell cmdlet 配合使用。
+
 <!-- Update_Description: update meta properties -->

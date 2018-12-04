@@ -15,11 +15,11 @@ origin.date: 12/20/2017
 ms.author: v-yiso
 ms.date: 10/15/2018
 ms.openlocfilehash: f9b4d544613fc025cb5625331d23960e1af9781c
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455263"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659054"
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>从 Azure Active Directory 访问控制服务迁移到共享访问签名授权
 

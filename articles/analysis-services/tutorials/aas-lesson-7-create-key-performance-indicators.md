@@ -10,11 +10,11 @@ ms.date: 08/06/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
 ms.openlocfilehash: cb9ef78c274883e257a37992417c0155fa97bd49
-ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487809"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659770"
 ---
 # <a name="create-key-performance-indicators"></a>创建关键绩效指标
 

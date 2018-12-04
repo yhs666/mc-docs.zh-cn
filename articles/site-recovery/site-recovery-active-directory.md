@@ -11,11 +11,11 @@ origin.date: 07/19/2018
 ms.date: 09/24/2018
 ms.author: v-yeche
 ms.openlocfilehash: c63fc49a8b667adb4c48109cd49206e81e61c35e
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201397"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658646"
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>使用 Azure Site Recovery 保护 Active Directory 和 DNS
 

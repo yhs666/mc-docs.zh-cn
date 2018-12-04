@@ -19,11 +19,11 @@ origin.date: 12/11/2017
 ms.date: 01/15/2018
 ms.author: v-yiso
 ms.openlocfilehash: 4c06a0675b3b914394e397b91016ed7ada26dbef
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
-ms.locfileid: "27781304"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655243"
 ---
 # <a name="get-started-with-a-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>开始使用 Hadoop 沙盒, 虚拟机上的模拟器
 
@@ -54,14 +54,14 @@ ms.locfileid: "27781304"
 1. 选择 Hortonworks 沙盒，依次单击“启动”、“正常启动”。 虚拟机完成启动过程后，显示登录说明。
    
     ![正常启动](./media/apache-hadoop-emulator-get-started/normal-start.png)
-2. 打开 Web 浏览器并导航到显示的 URL（通常是 http://127.0.0.1:8888）。
+2. 打开 Web 浏览器并导航到显示的 URL（通常是 http://127.0.0.1:8888) 。
 
 ## <a name="set-sandbox-passwords"></a>设置沙盒密码
 
 1. 在“Hortonworks 沙盒”页的“开始”步骤中，选择“查看高级选项”。 使用此页上的信息通过 SSH 登录到沙盒。 使用提供的名称和密码。
 
    > [!NOTE]
-   > 如果未安装 SSH 客户端，可以使用虚拟机在 http://localhost:4200/ 上提供的基于 Web 的 SSH。
+   > 如果未安装 SSH 客户端，可以使用虚拟机在 **http://localhost:4200/** 上提供的基于 Web 的 SSH。
    > 
 
     首次使用 SSH 建立连接时，系统会提示更改 root 帐户的密码。 输入新密码，在使用 SSH 登录时将使用该密码。

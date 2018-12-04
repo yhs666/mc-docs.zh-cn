@@ -13,11 +13,11 @@ origin.date: 10/16/2017
 ms.date: 09/03/2018
 ms.author: v-yeche
 ms.openlocfilehash: e10f966a4cea05b71eb0fc09e7b3f5773f7df8c7
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164781"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655937"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db"></a>适用于 Azure Cosmos DB 的 Azure PowerShell 示例
 
@@ -31,7 +31,7 @@ ms.locfileid: "43164781"
 |缩放 Azure Cosmos DB||
 |[将 Azure Cosmos DB 帐户复制到多个区域中并配置故障转移优先级](scripts/scale-multiregion-powershell.md)|多数据中心将帐户数据复制到具有指定故障转移优先级的多个区域中。|
 |**保护 Azure Cosmos DB**||
-| [获取帐户密钥](scripts/secure-get-account-key-powershell.md) | 获取帐户的主要和辅助主写入密钥以及主要和辅助只读密钥。|
+| [获取帐户密钥](scripts/secure-get-account-key-powershell.md) | 获取帐户的主要和辅助主写入密钥以及主要和辅助只读密钥。|
 | [获取 MongoDB 连接字符串](scripts/secure-mongo-connection-string-powershell.md) | 获取用于将 MongoDB 应用连接到 Azure Cosmos DB 帐户的连接字符串。|
 |[重新生成帐户密钥](scripts/secure-regenerate-key-powershell.md)|重新生成帐户的主密钥或只读密钥。|
 |[创建防火墙](scripts/create-firewall-powershell.md)| 创建入站 IP 访问控制策略，仅允许从获批准的一组计算机和/或云服务访问帐户。|

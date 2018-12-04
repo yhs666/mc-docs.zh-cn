@@ -16,11 +16,11 @@ origin.date: 03/27/2018
 ms.date: 04/30/2018
 ms.author: v-yiso
 ms.openlocfilehash: d0421d6bfc18c25d454ff5257d29cfb83da799b7
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782028"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654605"
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>使用 Webhook 为现有的问题管理系统配置运行状况通知
 

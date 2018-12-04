@@ -9,11 +9,11 @@ origin.date: 08/01/2018
 ms.date: 08/22/2018
 ms.author: v-junlch
 ms.openlocfilehash: 0ef4bd9a67c2380e2fbbf6e6b0913807721a177c
-ms.sourcegitcommit: da9f7b0825e493636d6596eb6ae95d03e0626583
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41734329"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655028"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends"></a>应用程序网关对多租户后端的支持
 

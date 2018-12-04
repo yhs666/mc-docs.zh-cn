@@ -10,11 +10,11 @@ ms.date: 08/27/2018
 ms.author: v-jay
 ms.component: data-lake-storage-gen2
 ms.openlocfilehash: c819b34bd54075f8aa86914930951ddc16958a97
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872437"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656935"
 ---
 # <a name="azure-data-lake-storage-gen2-preview-hierarchical-namespace"></a>Azure Data Lake Storage Gen2 预览版分层命名空间
 

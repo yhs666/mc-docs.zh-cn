@@ -15,11 +15,11 @@ origin.date: 04/11/2018
 ms.author: v-yiso
 ms.date: 10/08/2018
 ms.openlocfilehash: 17c091f1d2e3b8d99240f485d20a1184b75a5ac6
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523863"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655798"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-python"></a>将 Raspberry Pi 连接到 Azure IoT 中心 (Python)
 

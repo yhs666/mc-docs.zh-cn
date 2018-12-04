@@ -11,11 +11,11 @@ ms.topic: conceptual
 origin.date: 03/28/2017
 ms.date: 06/18/2018
 ms.openlocfilehash: d82abeaaba048717c5e4b4cda2d93b74b50b8cef
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405279"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654798"
 ---
 # <a name="guarantee-stream-analytics-job-reliability-during-service-updates"></a>在服务更新期间保证流分析作业可靠性
 
@@ -28,7 +28,8 @@ ms.locfileid: "37405279"
 
 流分析的更新部署不会同时在一组配对区域中进行。 **同一组中**多个区域中的部署可能会**同时**进行。
 <!-- Notice: Remove the India exception -->
-<!-- Not Available on [availability and paired regions](/best-practices-availability-paired-regions--> 建议客户将相同的作业部署到这两个配对区域。 除了流分析的内部监视功能外，还建议客户监视作业，就好像**这两个作业**是生产作业一样。 如果中断确定为流分析服务更新的结果，请相应地升级并将任何下游使用者故障转移到正常运行的作业输出。 升级到支持部门可防止配对区域受新部署的影响并维护配对作业的完整性。
+<!-- Not Available on [availability and paired regions](/best-practices-availability-paired-regions-->
+建议客户将相同的作业部署到这两个配对区域。 除了流分析的内部监视功能外，还建议客户监视作业，就好像**这两个作业**是生产作业一样。 如果中断确定为流分析服务更新的结果，请相应地升级并将任何下游使用者故障转移到正常运行的作业输出。 升级到支持部门可防止配对区域受新部署的影响并维护配对作业的完整性。
 
 <!-- Update_Description: new articles on stream analytics job reliability -->
 <!--ms.date: 06/18/2018-->

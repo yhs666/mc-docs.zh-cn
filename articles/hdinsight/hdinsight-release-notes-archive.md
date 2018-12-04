@@ -15,11 +15,11 @@ origin.date: 03/20/2018
 ms.date: 08/27/2018
 ms.author: v-yiso
 ms.openlocfilehash: a94fa666b3188fbed4c4e04d1af0282e3fa147c6
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40184585"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655459"
 ---
 # <a name="archived-release-notes-for-azure-hdinsight"></a>Azure HDInsight 发行说明存档
 

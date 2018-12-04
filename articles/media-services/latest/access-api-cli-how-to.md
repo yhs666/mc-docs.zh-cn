@@ -14,11 +14,11 @@ origin.date: 03/19/2018
 ms.date: 06/25/2018
 ms.author: v-nany
 ms.openlocfilehash: 8a5d56294e0a2341dda10587fa771666d82a2dc2
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405408"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656203"
 ---
 # <a name="access-azure-media-services-api-with-cli-20"></a>使用 CLI 2.0 访问 Azure 媒体服务 API
  

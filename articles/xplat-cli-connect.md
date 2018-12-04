@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/04/2016
 ms.author: v-junlch
 ms.openlocfilehash: e051f4f646992dd089b4b64ee2b96a15d773ca9d
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940708"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658796"
 ---
 # <a name="log-in-to-azure-from-the-azure-cli"></a>通过 Azure CLI 登录 Azure
 
@@ -159,7 +159,7 @@ azure account set Azure-sub-2
 > [!NOTE]
 > 更改默认订阅会立即生效，并且是全局更改；新的 Azure CLI 命令（无论是从同一命令行实例还是其他实例运行的）将使用新的默认订阅。
 
-如果要将非默认订阅用于 Azure CLI，但不想更改当前默认订阅，则可以将 `--subscription` 选项用于命令并提供用于此操作的订阅名称。
+如果要将非默认订阅用于 Azure CLI，但不想更改当前默认订阅，则可以将 `--subscription` 选项用于命令并提供要用于此操作的订阅名称。
 
 一旦连接到 Azure 订阅，即可使用 Azure CLI 命令来处理 Azure 资源。
 

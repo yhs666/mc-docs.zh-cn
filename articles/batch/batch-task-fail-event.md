@@ -14,16 +14,15 @@ origin.date: 04/20/2017
 ms.date: 05/15/2018
 ms.author: v-junlch
 ms.openlocfilehash: 354e38f3299b1fe8f373815f06a2db1f9fe9578e
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173256"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658017"
 ---
 # <a name="task-fail-event"></a>任务失败事件
 
- 当任务以失败结束时，会发出此事件。 当前，所有非零退出代码都视为失败。 
-            *除了*任务完成事件，还会发出此事件，该事件可用于检测任务失败的时间。
+ 当任务以失败结束时，会发出此事件。 当前，所有非零退出代码都视为失败。 *除了*任务完成事件，还会发出此事件，该事件可用于检测任务失败的时间。
 
 
  以下示例显示了任务失败事件的正文。

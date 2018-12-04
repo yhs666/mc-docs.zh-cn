@@ -16,11 +16,11 @@ ms.date: 11/27/2017
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: c699203d853686d40a0f4486a5e774a1628aecc4
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
-ms.locfileid: "25592491"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656648"
 ---
 # <a name="azure-cosmos-db-import-cassandra-data"></a>Azure Cosmos DB：导入 Cassandra 数据
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 08/21/2018
 ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3460df8fbc1503bf39c551a16c83727255230a59
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: 2bb43c03537cdcced5d6a8f9fa5dc9912e490bdb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201471"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659697"
 ---
 # <a name="use-key-vault-to-store-and-access-azure-cosmos-db-keys"></a>使用 Key Vault 存储和访问 Azure Cosmos DB 密钥
 
@@ -92,7 +92,7 @@ ms.locfileid: "47201471"
 ## <a name="next-steps"></a>后续步骤
 
 * 若要为 Azure Cosmos DB 配置防火墙，请参阅[防火墙支持](firewall-support.md)一文。
-* 若要配置虚拟网络服务终结点，请参阅[使用 VNet 服务终结点保护访问](vnet-service-endpoint.md)一文。
+<!--Pending to translate on * To configure virtual network service endpoint, see [secure access by using VNet service endpoint](vnet-service-endpoint.md)-->
 
 <!--Update_Description: new article on access secrets from keyvault -->
 <!--ms.date: 09/03/2018-->

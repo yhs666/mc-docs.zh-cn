@@ -17,11 +17,11 @@ origin.date: 06/06/2017
 ms.date: 10/30/2017
 ms.author: v-yeche
 ms.openlocfilehash: fb055bd7abeff4e7ad19fea38c5462b6628bc51e
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
-ms.locfileid: "23629770"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657921"
 ---
 # <a name="copy-managed-disks-in-the-same-subscription-or-different-subscription-with-powershell"></a>在相同或不同订阅中通过 PowerShell 复制托管磁盘
 
@@ -70,7 +70,7 @@ New-AzureRmDisk -Disk $diskConfig -DiskName $managedDiskName -ResourceGroupName 
 
 此脚本使用以下命令，通过源托管磁盘的 ID 在目标订阅中创建新的托管磁盘。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [New-AzureRmDiskConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/New-AzureRmDiskConfig) | 创建用于磁盘创建的磁盘配置。 包括父磁盘的资源 ID 以及与父磁盘位置相同的位置。  |
 | [New-AzureRmDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/New-AzureRmDisk) | 使用磁盘配置、磁盘名称和作为参数传递的资源组名称创建磁盘。 |

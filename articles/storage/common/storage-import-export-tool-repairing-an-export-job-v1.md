@@ -16,11 +16,11 @@ origin.date: 01/23/2017
 ms.date: ''
 ms.author: v-haiqya
 ms.openlocfilehash: 36e6c7b4e03af217c1414d29c467979fde365ab7
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295764"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656341"
 ---
 # <a name="repairing-an-export-job"></a>修复导出作业
 在完成导出作业后，可以在本地运行 Azure 导入/导出工具来执行以下操作：  

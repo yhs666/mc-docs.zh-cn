@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 06/09/2018
 ms.author: liydu
 ms.openlocfilehash: e74dab7ceefaa4f38d4f5dabba86d87c18a6383b
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523931"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659784"
 ---
 若要继续了解 Azure IoT 中心入门知识并使用 IoT DevKit 探索其他 IoT 方案，请参阅以下文章：
 

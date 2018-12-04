@@ -11,11 +11,11 @@ origin.date: 01/12/2018
 ms.date: 07/05/2018
 ms.author: v-junlch
 ms.openlocfilehash: 993c43365cb5d06b3e664611a9c4340852d0029c
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873641"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657738"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Azure Linux VM 的应用程序一致性备份
 

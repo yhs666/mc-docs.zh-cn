@@ -5,16 +5,16 @@ services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-ms.topic: article
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.topic: conceptual
+origin.date: 10/10/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0c46d86c5432c05acbaa9145fa91fd35eec8fa10
-ms.sourcegitcommit: f7ff09be9f3be5e3eb795e383c0c670f480f233d
+ms.openlocfilehash: 6d20a9b7fc59b6c4b5137e8655e2fe5596ea0725
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39169041"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654657"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery：常见问题解答 (FAQ)
 本文包含有关 Azure Site Recovery 的常见问题。 如果在阅读本文后有任何问题，请在 [Azure 恢复服务论坛](https://www.azure.cn/support/contact/)上发布这些问题。
@@ -139,7 +139,7 @@ Azure 用户帐户需要具有某些[权限](site-recovery-role-based-linked-acc
 ### <a name="can-i-throttle-bandwidth-allotted-for-hyper-v-replication-traffic"></a>可以限制针对 Hyper-V 复制流量分配的带宽吗？
 是的。 可以从以下部署文章中阅读更多有关限制带宽的信息：
 
-* [复制 VMware VM 和物理服务器的容量规划](site-recovery-plan-capacity-vmware.md)
+* [Capacity planning for replicating VMware VMs and physical servers（复制 VMware VM 和物理服务器的容量规划）](site-recovery-plan-capacity-vmware.md)
 * [将 Hyper-V VM 复制到 Azure 的容量规划](site-recovery-capacity-planning-for-hyper-v-replication.md)
 
 ## <a name="failover"></a>故障转移
@@ -159,7 +159,7 @@ Azure 具有复原能力。 Site Recovery 已经能够根据需要故障转移�
 
 * [详细了解](site-recovery-create-recovery-plans.md)恢复计划。
 * [详细了解](site-recovery-failover.md)故障转移。
-* [详细了解](site-recovery-failback-azure-to-vmware.md) VMware VM 和物理服务器故障回复的信息
+* [了解详细信息](site-recovery-failback-azure-to-vmware.md) 阅读更多有关对 VMware VM 和物理服务器进行故障回复的信息
 
 ### <a name="if-my-on-premises-host-is-not-responding-or-crashed-can-i-failover-back-to-a-different-host"></a>如果我的本地主机未响应或崩溃，我是否可以故障转移回到另一个主机？
 是，可以使用备用位置恢复从 Azure 故障回复到另一个主机。 通过用于 VMware 和 Hyper-V 虚拟机的以下链接详细了解选项。
@@ -198,4 +198,4 @@ Azure 具有复原能力。 Site Recovery 已经能够根据需要故障转移�
 * 阅读 [站点恢复概述](site-recovery-overview.md)
 * 了解 [Site Recovery 体系结构](site-recovery-components.md)
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

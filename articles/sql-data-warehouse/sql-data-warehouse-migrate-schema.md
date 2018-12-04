@@ -12,11 +12,11 @@ ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: 30e0295154164b316ead20445dfe9ec026b0b5ec
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089230"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658819"
 ---
 # <a name="migrate-your-schemas-to-sql-data-warehouse"></a>将架构迁移到 SQL 数据仓库
 有关如何将 SQL 架构迁移到 SQL 数据仓库的指南。 

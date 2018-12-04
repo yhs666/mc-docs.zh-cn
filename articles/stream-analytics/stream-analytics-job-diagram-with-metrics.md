@@ -11,11 +11,11 @@ ms.topic: conceptual
 origin.date: 05/01/2017
 ms.date: 06/18/2018
 ms.openlocfilehash: 41ccdd525c3075a98155840c2765289fee2b4a25
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416775"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655997"
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>使用作业关系图进行数据驱动调试
 

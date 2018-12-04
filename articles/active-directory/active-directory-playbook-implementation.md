@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: v-junlch
 ms.openlocfilehash: 94316496b69809b512fe3f843b8a29f72baeb4d6
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
-ms.locfileid: "27781326"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659465"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-implementation"></a>Azure Active Directory 概念证明演练手册：实现
 

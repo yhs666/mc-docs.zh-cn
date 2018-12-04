@@ -16,11 +16,11 @@ origin.date: 04/16/2018
 ms.date: 08/27/2018
 ms.author: larryfr
 ms.openlocfilehash: bb0563bbcdd0ab5af8281ac884db9f247963965f
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41704516"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656617"
 ---
 # <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>快速入门：创建 Kafka on HDInsight 群集
 

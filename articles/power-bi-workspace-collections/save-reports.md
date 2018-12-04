@@ -12,11 +12,11 @@ origin.date: 09/20/2017
 ms.date: 09/26/2018
 ms.author: v-junlch
 ms.openlocfilehash: 6b2f2b9974c82bc8786db4c6448111fd43e9c0b7
-ms.sourcegitcommit: 7c6ff130adaa67bc90094846f81295ef0719d072
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47191373"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654965"
 ---
 # <a name="save-reports-in-power-bi-workspace-collections"></a>在 Power BI 工作区集合中保存报表
 

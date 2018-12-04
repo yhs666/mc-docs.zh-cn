@@ -13,11 +13,11 @@ origin.date: 06/28/2017
 ms.author: sushi
 ms.date: 11/20/2017
 ms.openlocfilehash: cd1048bd423cadb354604038693c2a3d79807b2c
-ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
-ms.locfileid: "24058584"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658594"
 ---
 # <a name="create-an-azure-iot-edge-module-with-nodejs"></a>使用 Node.js 创建 Azure IoT Edge 模块
 

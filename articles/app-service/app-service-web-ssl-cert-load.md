@@ -15,11 +15,11 @@ origin.date: 12/01/2017
 ms.date: 07/30/2018
 ms.author: v-yiso
 ms.openlocfilehash: dfefff37d8ac51d6d1d43c6735ad63f181745b35
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168011"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657091"
 ---
 # <a name="use-an-ssl-certificate-in-your-application-code-in-azure-app-service"></a>在 Azure 应用服务的应用程序代码中使用 SSL 证书
 

@@ -15,11 +15,11 @@ origin.date: 03/16/2017
 ms.date: 05/07/2018
 ms.author: v-yeche
 ms.openlocfilehash: 3941305446a56e41df4fb9a496d43ddbbd0a688d
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815314"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654947"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>使用 PowerShell 管理流量管理器
 

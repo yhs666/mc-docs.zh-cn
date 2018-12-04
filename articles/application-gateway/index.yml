@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 7c30bcfe63ab43f26cd87606c8d28728b03fa7c2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655027"
 documentType: LandingData
 title: 应用程序网关文档
 metadata:
@@ -9,12 +15,6 @@ metadata:
   manager: jeconnocfte
   ms.service: application-gateway
   ms.topic: landing-page
-  ms.openlocfilehash: 7c30bcfe63ab43f26cd87606c8d28728b03fa7c2
-  ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
-  ms.translationtype: HT
-  ms.contentlocale: zh-CN
-  ms.lasthandoff: 06/08/2018
-  ms.locfileid: "34855801"
 origin.date: 02/01/2018
 ms.date: 06/07/2018
 ms.author: v-junlch

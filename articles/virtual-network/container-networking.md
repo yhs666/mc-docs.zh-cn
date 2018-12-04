@@ -16,15 +16,15 @@ origin.date: 12/18/2017
 ms.date: 01/22/2018
 ms.author: v-yeche
 ms.openlocfilehash: abd880888dc07fa254ad909145fb6c1f069c29f2
-ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27958286"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655823"
 ---
 # <a name="container-networking"></a>容器网络
 
-Azure 提供了一个[容器网络接口 (CNI) 插件](https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md)，可通过该插件使用本机 Azure 网络功能部署并管理你自己的 Kubernetes 群集。 在使用 [Azure 容器服务引擎](https://github.com/Azure/acs-engine)（简称 ACS 引擎）部署 Kubernetes 群集时，默认会启用该插件。
+Azure 提供了一个[容器网络接口 (CNI) 插件](https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md)，可通过该插件使用本机 Azure 网络功能部署并管理你自己的 Kubernetes 群集。 将 Kubernetes 群集与 [Azure 容器服务引擎](https://github.com/Azure/acs-engine)（或称为 ACS 引擎）部署在一起时会默认启用此插件。
 
 ## <a name="networking-capabilities"></a>网络功能
 

@@ -14,11 +14,11 @@ ms.author: v-junlch
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.openlocfilehash: df0e6de01d5dbe47124388e94b767df0cad95573
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913934"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659772"
 ---
 # <a name="how-to-create-a-basic-group-and-add-members-using-azure-active-directory"></a>如何：使用 Azure Active Directory 创建基本组并添加成员
 
@@ -32,7 +32,7 @@ ms.locfileid: "48913934"
 
 2. 依次选择“Azure Active Directory”、“组”、“新建组”。
 
-    ![其中显示了“组”的 Azure AD](./media/active-directory-groups-create-azure-portal/group-full-screen.png)
+    ![显示组的 Azure AD](./media/active-directory-groups-create-azure-portal/group-full-screen.png)
 
 3. 在“组”页面上，填写所需的信息。
 

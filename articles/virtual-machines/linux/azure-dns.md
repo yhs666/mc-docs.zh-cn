@@ -16,11 +16,11 @@ origin.date: 10/19/2016
 ms.date: 08/27/2018
 ms.author: v-yeche
 ms.openlocfilehash: 5158326e51e74d72aa0f2113c830da8e7795c6a7
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872073"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654956"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Azure 中 Linux 虚拟机的 DNS 名称解析选项
 Azure 默认提供单个虚拟网络内的所有虚拟机的 DNS 名称解析。 在 Azure 托管的虚拟机上配置自己的 DNS 服务，即可实现自己的 DNS 名称解析解决方案。 以下方案可帮助你选择适合你情况的解决方案。
@@ -38,8 +38,7 @@ Azure 默认提供单个虚拟网络内的所有虚拟机的 DNS 名称解析。
 | 不同虚拟网络中的角色实例或虚拟机之间的名称解析 |客户托管的 DNS 服务器，在虚拟网络之间转发可供 Azure（DNS 代理）解析的查询。 请参阅[使用自己的 DNS 服务器进行名称解析](#name-resolution-using-your-own-dns-server)。 |仅 FQDN |
 | 通过 Azure 中的角色实例或虚拟机解析本地计算机和服务的名称 |客户托管的 DNS 服务器（例如，本地域控制器、本地只读域控制器或使用区域传送同步的 DNS 辅助服务器）。 请参阅[使用自己的 DNS 服务器进行名称解析](#name-resolution-using-your-own-dns-server)。 |仅 FQDN |
 | 解析本地计算机中的 Azure 主机名 |将查询转发到相应虚拟网络中客户托管的 DNS 代理服务器。 代理服务器将查询转发到 Azure 进行解析。 请参阅[使用自己的 DNS 服务器进行名称解析](#name-resolution-using-your-own-dns-server)。 |仅 FQDN |
-| 针对内部 IP 的反向 DNS |
-            [使用自己的 DNS 服务器的名称解析](#name-resolution-using-your-own-dns-server) |不适用 |
+| 针对内部 IP 的反向 DNS |[使用自己的 DNS 服务器的名称解析](#name-resolution-using-your-own-dns-server) |不适用 |
 
 <a name="azure-provided-name-resolution"></a>
 ## <a name="name-resolution-that-azure-provides"></a>Azure 提供的名称解析

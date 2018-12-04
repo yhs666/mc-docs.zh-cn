@@ -7,11 +7,11 @@ ms.date: 10/29/2018
 ms.topic: conceptual
 ms.service: iot-hub
 ms.openlocfilehash: ed006d834d75b87c15fa510379d64e44dfe9ce34
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453694"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658986"
 ---
 # <a name="summary-of-customer-data-request-features"></a>客户数据请求功能摘要
 

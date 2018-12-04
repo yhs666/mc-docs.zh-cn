@@ -9,11 +9,11 @@ ms.date: 05/21/2018
 ms.author: estfan
 ms.custom: include file
 ms.openlocfilehash: 6e95d456c5eb981a29400057cfd58faa419060fc
-ms.sourcegitcommit: c1c46f12f4a5dd98ae8d59b3bd5cd8ab3f999a6e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "38940663"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659100"
 ---
 1. 系统提示输入连接信息时，请提供以下详细信息：
 

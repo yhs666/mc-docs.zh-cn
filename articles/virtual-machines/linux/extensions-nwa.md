@@ -17,11 +17,11 @@ origin.date: 02/14/2017
 ms.date: 02/05/2018
 ms.author: v-yeche
 ms.openlocfilehash: 71fba8aa27f32d51cb184b276b55e6e4a17a24ea
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872363"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657005"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>适用于 Linux 的网络观察程序代理虚拟机扩展
 

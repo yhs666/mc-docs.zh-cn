@@ -10,11 +10,11 @@ ms.date: 11/12/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: 1379a0cf84b461e8cdea6bec64b4b9b09c059625
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195575"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655993"
 ---
 ## <a name="create-a-service-principal"></a>创建服务主体
 

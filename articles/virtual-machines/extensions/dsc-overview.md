@@ -18,11 +18,11 @@ origin.date: 05/02/2018
 ms.date: 09/24/2018
 ms.author: v-yeche
 ms.openlocfilehash: d36bd472a496e24a193a6342eb98e91f1271adac
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527104"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654919"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Azure Desired State Configuration 扩展处理程序简介
 

@@ -6,16 +6,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 09/12/2018
-ms.date: 09/24/2018
+origin.date: 10/10/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: d2b9a3c4cfaa49bfbdad930f6b2c2da5639445b0
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: 6dfd4817b61d02bc391faebee0394cc037b73a9d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201347"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655872"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>在 Azure 区域之间故障转移和故障回复 Azure VM
 
@@ -73,4 +73,4 @@ ms.locfileid: "47201347"
 
 VM 重新受保护后，可以根据需要故障回复到主要区域。 为此，请设置从次要区域到主要区域的故障转移，如本文所述。
 
-<!-- Update_Description: update meta properties， wording update -->
+<!-- Update_Description: update meta properties -->

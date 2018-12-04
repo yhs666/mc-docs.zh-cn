@@ -14,11 +14,11 @@ origin.date: 01/23/2017
 ms.date: 03/26/2018
 ms.author: v-johch
 ms.openlocfilehash: 5a4788feae41dd592769a0ce8517dd52aec4be36
-ms.sourcegitcommit: 9b4669fe42e0dd7e3b463423ae4f58143af2b111
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30082160"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658419"
 ---
 # <a name="azure-advisor-documentation"></a>Azure 顾问文档
 

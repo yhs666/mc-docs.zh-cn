@@ -16,11 +16,11 @@ origin.date: 09/15/2017
 ms.date: 09/07/2018
 ms.author: v-junlch
 ms.openlocfilehash: d2b145e569ceaa309807e35c1ef6be194d3ab4f5
-ms.sourcegitcommit: 40456700212200e707d6cb3147cf96ad161d3ff2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44269527"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657433"
 ---
 # <a name="how-to-configure-geo-replication-for-azure-redis-cache"></a>如何为 Azure Redis 缓存配置异地复制功能
 
@@ -105,9 +105,9 @@ ms.locfileid: "44269527"
 - [是否可以链接不同大小的两个缓存？](#can-i-link-two-caches-with-different-sizes)
 - [是否可以在启用群集时使用异地复制？](#can-i-use-geo-replication-with-clustering-enabled)
 - [当缓存位于 VNET 中时是否可以使用异地复制？](#can-i-use-geo-replication-with-my-caches-in-a-vnet)
-- [什么是 Redis 异地复制的复制计划？](#what-is-the-replication-schedule-for-redis-geo-replication)
-- [异地复制需要多长时间？](#how-long-does-geo-replication-replication-take)
-- [复制恢复点是否受保证？](#is-the-replication-recovery-point-guaranteed)
+- [适用于 Redis 异地复制的复制计划是什么？](#what-is-the-replication-schedule-for-redis-geo-replication)
+- [异地复制型复制需要多长时间？](#how-long-does-geo-replication-replication-take)
+- [复制恢复点是否有保证？](#is-the-replication-recovery-point-guaranteed)
 - [是否可以使用 PowerShell 或 Azure CLI 管理异地复制？](#can-i-use-powershell-or-azure-cli-to-manage-geo-replication)
 - [跨 Azure 区域复制数据的费用是多少？](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
 - [尝试删除链接缓存时为何操作会失败？](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
@@ -146,17 +146,17 @@ ms.locfileid: "44269527"
 - 支持在同一 VNET 中的缓存间进行异地复制。
 - 也支持不同 VNET 中的缓存间异地复制，只要两个 VNET 都以这样一种方式进行配置，即最终 VNET 中的资源可以通过 TCP 连接到达彼此。
 
-### 什么是 Redis 异地复制的复制计划？ <a name="what-is-the-replication-schedule-for-redis-geo-replication"></a>
+### 适用于 Redis 异地复制的复制计划是什么？ <a name="what-is-the-replication-schedule-for-redis-geo-replication"></a>
 
-复制不按特定计划进行，而是以连续和异步方式进行，即 对主缓存进行的所有写入都会即时地异步复制到辅助缓存。
+复制不按特定的计划进行，而是持续的、异步的，也就是说， 针对主缓存的所有写入会即时异步复制到辅助缓存。
 
-### 异地复制需要多长时间？ <a name="how-long-does-geo-replication-replication-take"></a>
+### 异地复制型复制需要多长时间？ <a name="how-long-does-geo-replication-replication-take"></a>
 
-复制以递增、异步和连续方式进行，所用时间通常不会与区域间的延迟相差太多。 在特定情况下的特定时间，辅助缓存可能需要从主缓存执行数据的完全同步。 在这种情况下，复制时间取决于多个因素，例如，主缓存上的负载、缓存计算机上的可用带宽、区域间延迟等。例如，根据某些测试，我们发现，如果将中国北部和中国东部区域设为一个异地复制对，则要完整地复制 53 GB 的内容，可能需要 5-10 分钟的时间。
+复制具有增量、异步和持续的特点，所需时间通常与区域间的延迟并无太大区别。 有时候，在某些情况下，辅助缓存可能需要对主缓存中的数据进行完全同步。 在这种情况下，复制时间取决于多个因素，例如，主缓存上的负载、缓存计算机上的可用带宽、区域间延迟等。例如，根据某些测试，我们发现，如果将中国北部和中国东部区域设为一个异地复制对，则要完整地复制 53 GB 的内容，可能需要 5-10 分钟的时间。
 
 ### 复制恢复点是否有保证？ <a name="is-the-replication-recovery-point-guaranteed"></a>
 
-当前，对于异地复制模式下的缓存，持久性和导入/导出功能处于禁用状态。 因此，在客户启动故障转移情况下，或在异地复制对之间的复制链接中断的情况下，辅助缓存会保留到该时间点为止从主缓存同步的内存中数据。 在这种情况下不提供任何恢复点保证。
+对于异地复制模式下的缓存，目前已禁用暂留和导入/导出功能。 因此，如果客户启动了故障转移，或者异地复制对之间的复制链接断开，则辅助缓存会保留其在该时间点之前从主缓存同步的内存中数据。 在此类情况下，不提供恢复点保证。
 
 ### 是否可以使用 PowerShell 或 Azure CLI管理异地复制？ <a name="can-i-use-powershell-or-azure-cli-to-manage-geo-replication"></a>
 

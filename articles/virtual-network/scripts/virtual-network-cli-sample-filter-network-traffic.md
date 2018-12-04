@@ -13,21 +13,22 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-origin.date: 05/07/2018
-ms.date: 05/07/2018
+origin.date: 03/20/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3d1c89cd0bd37f80ad020e46950c44cec5baad34
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 501955c689397c91a5518fa5800ed45ad91ee8bf
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815490"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658855"
 ---
 # <a name="filter-inbound-and-outbound-vm-network-traffic-script-sample"></a>筛选入站和出站 VM 网络流量脚本示例
 
 该脚本示例创建了包含前端和后端子网的虚拟网络。 前端子网的入站网络流量仅限于 HTTP、HTTPS 和 SSH，而从后端子网到 Internet 的出站流量则不受允许。 运行该脚本后，将具有一个包含两个 NIC 的虚拟机。 每个 NIC 连接到不同的子网。
 
-可以通过本地 Azure CLI 安装来执行脚本。 此脚本要求运行版本 2.0.28 或更高版本。 要查找已安装的版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 CLI，则还需运行 `az login` 以创建与 Azure 的连接。
+可以通过本地 Azure CLI 安装来执行脚本。 如果在本地使用 CLI，此脚本要求运行版本 2.0.28 或更高版本。 要查找已安装的版本，请运行 `az --version`。 如需进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 CLI，则还需运行 `az login` 以创建与 Azure 的连接。
+
 <!-- Not Available on [Cloud Shell](https://shell.azure.com/bash) -->
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -196,8 +197,11 @@ az group delete --name MyResourceGroup --yes
 | [az network nsg rule create](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) |创建 NSG 规则，允许或阻止特定子网的特定端口。 |
 | [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) | 创建虚拟机，并将 NIC 附加到每个 VM。 此命令还指定要使用的虚拟机映像和管理凭据。 |
 | [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-delete) | 删除资源组及其包含的所有资源。 |
+
 ## <a name="next-steps"></a>后续步骤
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/zh-cn/cli/overview?view=azure-cli-latest)。
+
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/zh-cn/cli/index?view=azure-cli-latest)。
+
 可在[虚拟网络 CLI 示例](../cli-samples.md)中查找其他虚拟网络 CLI 脚本示例。
-<!-- Update_Description: new articles on virtual network cli sample filter network traffic script -->
-<!--ms.date: 05/07/2018-->
+
+<!-- Update_Description: wording update, update meta properties -->

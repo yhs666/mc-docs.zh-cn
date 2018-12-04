@@ -17,11 +17,11 @@ ms.date: 06/26/2018
 ms.author: v-junlch
 ms.reviewer: brenduns
 ms.openlocfilehash: cc090f5c1e4ec44cfd957b62ab69f636b5408364
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027191"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656245"
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>基于 Azure Stack 的应用服务：添加更多的基础结构或辅助角色
 

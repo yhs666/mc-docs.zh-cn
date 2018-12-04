@@ -17,11 +17,11 @@ origin.date: 12/16/2016
 ms.date: 01/03/2017
 ms.author: v-dazen
 ms.openlocfilehash: 0e28b627ea3727b4281314006b61b85af5af3c8f
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940706"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654582"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>设置 Azure 应用服务中的过渡环境
 <a name="Overview"></a>
@@ -49,7 +49,7 @@ ms.locfileid: "38940706"
     ![添加新部署槽][QGAddNewDeploymentSlot]
 
    > [!NOTE]
-   > 如果应用尚未处于“标准”或“高级”模式，则会收到消息，指示启用过渡支持的模式。 此时，可选择“升级”，并导航到应用的“缩放”选项卡，并继续。
+   > 如果应用尚未处于“标准”或“高级”模式，则会收到消息，指示启用过渡支持的模式。 此时，可选择“升级”，导航到应用的“缩放”选项卡，然后继续。
    > 
    > 
 3. 在“添加槽”边栏选项卡中，为槽提供一个名称，并选择是否要从其他现有部署槽中克隆应用配置。 单击复选标记以继续。

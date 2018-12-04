@@ -16,11 +16,11 @@ ms.date: 07/24/2018
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.openlocfilehash: 751c525f6f2ce33af5cfd106d3dfabc379859f1a
-ms.sourcegitcommit: cce18df2de12353f0d8f01c649307a5789d59cd4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39246147"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657592"
 ---
 # <a name="create-custom-roles-using-azure-powershell"></a>使用 Azure PowerShell 创建自定义角色
 

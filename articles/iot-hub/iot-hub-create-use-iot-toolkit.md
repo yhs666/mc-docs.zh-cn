@@ -9,11 +9,11 @@ origin.date: 07/30/2018
 ms.date: 10/08/2018
 ms.author: v-yiso
 ms.openlocfilehash: 6351c1f7851d12ef7bd237d4f8c5a06768759184
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523840"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654393"
 ---
 # <a name="create-an-iot-hub-using-the-azure-iot-toolkit-for-visual-studio-code"></a>使用用于 Visual Studio Code 的 Azure IoT 工具包创建 IoT 中心
 

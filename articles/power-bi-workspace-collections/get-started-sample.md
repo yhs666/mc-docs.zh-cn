@@ -12,11 +12,11 @@ origin.date: 09/25/2017
 ms.date: 09/26/2018
 ms.author: v-junlch
 ms.openlocfilehash: de0f1ba703fdc7f37b722fdf871571db39e7feec
-ms.sourcegitcommit: 7c6ff130adaa67bc90094846f81295ef0719d072
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47191379"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654799"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Power BI 工作区集合入门示例
 
@@ -89,7 +89,7 @@ Web 应用示例是一个示例应用程序，用于呈现**工作区**中导入
     ```
 3. 运行 **EmbedSample** Web 应用程序。
 
-运行 **EmbedSample** Web 应用程序后，左侧的导航面板应包含“报表”菜单。 如果要查看导入的报表，请展开“报表” ，并单击任一报表。 如果已导入了[零售分析示例 PBIX](http://go.microsoft.com/fwlink/?LinkID=780547)，则示例 Web 应用将如下所示：
+运行 **EmbedSample** Web 应用程序后，左侧的导航面板应包含“报表”菜单。 如果要查看导入的报表，请展开“报表” ，并单击任一报表。 如果已导入了 [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547)（零售分析示例 PBIX），则示例 Web 应用将如下所示：
 
 ![示例应用程序中的示例左导航栏](./media/get-started-sample/sample-left-nav.png)
 

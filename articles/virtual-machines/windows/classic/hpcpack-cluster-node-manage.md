@@ -17,11 +17,11 @@ origin.date: 12/29/2016
 ms.date: 05/21/2018
 ms.author: v-yeche
 ms.openlocfilehash: 0528620ca6c36ef9d0edac29dc5afbcb639c6ddf
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173358"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657687"
 ---
 # <a name="manage-the-number-and-availability-of-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>管理 Azure 的 HPC Pack 群集中计算节点的数量和可用性
 如果在 Azure VM 中创建了一个 HPC Pack 2012 R2 群集，可能希望有轻松添加、删除、启动（预配）或停止（取消预配）群集中一些计算节点 VM 的方法。 若要执行这些任务，请运行头节点 VM 中安装的 Azure PowerShell 脚本。 这些脚本可帮助你控制 HPC Pack 群集资源的数量和可用性，以便可以控制成本。
@@ -31,7 +31,7 @@ ms.locfileid: "34173358"
 > 另外，本文中介绍的 PowerShell 脚本在 HPC Pack 2016 中不可用。
 
 ## <a name="prerequisites"></a>先决条件
-* **Azure VM 中的 HPC Pack 2012 R2 群集**：在经典部署模型中创建 HPC Pack 2012 R2 群集。 例如，可以通过使用 Azure 应用商店的 HPC Pack 2012 R2 VM 映像和 Azure PowerShell 脚本，自动化部署。 有关信息和先决条件，请参阅[使用 HPC Pack IaaS 部署脚本创建 HPC 群集](hpcpack-cluster-powershell-script.md)。
+* **Azure VM 中的 HPC Pack 2012 R2 群集**：在经典部署模型中创建 HPC Pack 2012 R2 群集。 例如，可以通过使用 Azure 市场中的 HPC Pack 2012 R2 VM 映像和 Azure PowerShell 脚本，自动执行部署。 有关信息和先决条件，请参阅[使用 HPC Pack IaaS 部署脚本创建 HPC 群集](hpcpack-cluster-powershell-script.md)。
 
     部署后，在头节点上的 %CCP\_HOME%bin 文件夹中查找节点管理脚本。 以管理员身份运行各个脚本。
 * **Azure 发布设置文件或管理证书**：需要在头节点上执行下列操作之一：
@@ -60,8 +60,7 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 
 ```
 ### <a name="parameters"></a>parameters
-* 
-            **ServiceName**：云服务的名称，新计算节点 VM 会添加到该服务。
+* **ServiceName**：云服务的名称，新计算节点 VM 会添加到该服务。
 * **ImageName**：Azure VM 映像名称，可以通过 Azure 门户或 Azure PowerShell cmdlet **Get-AzureVMImage** 获得。 映像必须满足以下要求：
 
   1. 必须安装了 Windows 操作系统。
@@ -151,4 +150,4 @@ Stop-HPCIaaSNode.ps1 -Name HPCNodeCN-* -Force
 
 ## <a name="next-steps"></a>后续步骤
 * 若要根据群集上作业及任务的当前工作负荷自动扩展或收缩群集节点，请参阅[在 Azure 中根据群集工作负荷自动扩展和收缩 HPC Pack 群集资源](hpcpack-cluster-node-autogrowshrink.md)。
-<!-- Update_Description: update meta properties, wording update -->
+  <!-- Update_Description: update meta properties, wording update -->

@@ -13,11 +13,11 @@ origin.date: 06/19/2017
 ms.date: 11/05/2018
 ms.author: v-yeche
 ms.openlocfilehash: ca895ee0be0a7d17953d76b1e64ff5db88877838
-ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50204827"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655255"
 ---
 # <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB：迁移现有的 Node.js MongoDB Web 应用 
 

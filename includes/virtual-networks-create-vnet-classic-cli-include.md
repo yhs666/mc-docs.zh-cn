@@ -10,11 +10,11 @@ ms.date: 06/11/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: ac3b30ba2e495a3b566acf1c037df89fe488a5b6
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34881942"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655447"
 ---
 ## <a name="how-to-create-a-classic-vnet-using-azure-cli"></a>如何使用 Azure CLI 创建经典 VNet
 可以使用 Azure CLI 从运行 Windows、Linux 或 OSX 的任何计算机上的命令提示符管理 Azure 资源。

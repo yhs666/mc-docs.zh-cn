@@ -10,24 +10,31 @@ ms.assetid: 72f4e464-1352-4a49-a18f-c37f58e7d5c4
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 04/27/2017
-ms.date: 10/08/2018
+origin.date: 09/24/2018
+ms.date: 11/06/2018
 ms.author: v-junlch
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: d0cbbe482e9fd00959a2e5f3c0132fb03fc8d7b1
-ms.sourcegitcommit: 71f203d04b212d2bfbf4f227693c2b8fe209db22
+ms.openlocfilehash: 3dcec20ffb90f94357b18e452e0ab1bb0fee46d9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48850504"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655700"
 ---
 # <a name="branding-guidelines-for-applications"></a>适用于应用程序的品牌准则
 
-本文讨论在使用 Azure Active Directory (Azure AD) 开发应用程序时应使用的品牌准则。 在客户需要使用 Azure AD 中托管的工作或学校帐户或个人帐户进行注册和登录到应用程序时，这些准则将帮助指导客户进行相关操作。
+使用 Azure Active Directory (Azure AD) 开发应用程序时，如果客户想要使用工作或学校帐户（在 Azure AD 中托管）或其个人帐户进行注册和登录到应用程序，你需要指导客户进行相关操作。
+
+在本文中，你将：
+
+- 了解 Microsoft 管理的两种用户帐户以及如何在应用程序中引用 Azure AD 帐户
+- 了解添加要在应用中使用的 Microsoft 徽标所需执行的操作
+- 下载官方的**登录**或**使用 Microsoft 登录**图像以在应用中使用
+- 了解品牌和导航的注意事项
 
 ## <a name="personal-accounts-vs-work-or-school-accounts-from-microsoft"></a>个人帐户与 Microsoft 中的工作或学校帐户
 

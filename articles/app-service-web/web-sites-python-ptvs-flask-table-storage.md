@@ -17,18 +17,18 @@ origin.date: 07/07/2016
 ms.date: 03/17/2017
 ms.author: v-dazen
 ms.openlocfilehash: 4f26713df693e08b49a51b81ea49bcd776763c8a
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939602"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658215"
 ---
 # <a name="flask-and-azure-table-storage-on-azure-with-python-tools-22-for-visual-studio"></a>具有 Python Tools 2.2 for Visual Studio 的 Azure 上的 Flask 和 Azure 表存储
 在本教程中，我们会使用 [Python Tools for Visual Studio] 通过一个 PTVS 样本模板创建简单的轮询 Web 应用。
 
 轮询 Web 应用是对存储库的抽象界定，因此可以轻松地在不同类型的存储库（内存、Azure 表存储、MongoDB）之间进行切换。
 
-我们将了解如何创建 Azure 存储帐户、如何将 Web 应用配置为使用 Azure 表存储，以及如何将 Web 应用发布到 [Azure 应用服务 Web 应用](/app-service-web/app-service-changes-existing-services)中。
+我们将了解如何创建 Azure 存储帐户、如何将 Web 应用配置为使用 Azure 表存储，以及如何将 Web 应用发布到 [Azure 应用服务Web 应用](/app-service-web/app-service-changes-existing-services)中。
 
 请访问 [Python 开发人员中心] ，查看更多有关使用 PTVS 以及 Bottle、Flask 和 Django Web 框架、MongoDB、Azure 表存储、MySQL、SQL 数据库服务开发 Azure 应用服务 Web 应用的文章。 虽然本文着重介绍应用服务，但步骤与 [Azure 云服务]的开发步骤类似。
 
@@ -69,7 +69,7 @@ ms.locfileid: "38939602"
 
       ![快速创建](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAzureStorageCreate.png)
 
-    创建存储帐户后，“通知”按钮将呈绿色闪烁表示**成功**，并且存储帐户的边栏选项卡处于打开状态，以显示它属于所创建的新资源组。
+    创建存储帐户后，“通知”按钮呈绿色闪烁表示**成功**，并且存储帐户的边栏选项卡处于打开状态，以显示它属于所创建的新资源组。
 3. 在存储帐户的边栏选项卡中单击“访问密钥”部分。 记下帐户名和 key1。
 
       ![密钥](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAzureStorageKeys.png)
@@ -133,7 +133,7 @@ ms.locfileid: "38939602"
    * **区域**
    * 保持“数据库服务器”的“无数据库”设置不变
 5. 接受其他所有默认值，并单击 **发布**。
-6. 此时，Web 浏览器会自动打开已发布的 Web 应用。 如果浏览到“关于”页面，将看到它使用的是**内存中**存储库，而不是 **Azure 表存储**存储库。
+6. 此时，Web 浏览器会自动打开已发布的 Web 应用。 如果浏览到“关于”页面，会看到它使用的是**内存中**存储库，而不是 **Azure 表存储**存储库。
 
    这是因为未在 Azure 应用服务的 Web 应用实例上设置环境变量，因此它使用的是 **settings.py** 中指定的默认值。
 

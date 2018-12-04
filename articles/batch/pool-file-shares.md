@@ -17,11 +17,11 @@ ms.date: 06/28/2018
 ms.author: v-junlch
 ms.custom: ''
 ms.openlocfilehash: 2d189a948693227c48ead92b80440b4693004c8e
-ms.sourcegitcommit: c587cc1c53b1f92b45fae0d1ff8e1f7bd544bc55
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103347"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657896"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>将 Batch 池与 Azure 文件共享配合使用
 

@@ -17,11 +17,11 @@ origin.date: 10/01/2016
 ms.author: v-yiso
 ms.date: 01/29/2018
 ms.openlocfilehash: 4cba0d9f469a174c8f285149af9095fcd773bdf2
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939337"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659908"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>使用适用于 Azure 移动应用的 .NET 后端服务器 SDK
 
@@ -69,7 +69,7 @@ ms.locfileid: "38939337"
 
 安装[用于 .NET 的 Azure SDK][4]（2.9.0 版或更高版本），在 Visual Studio 中创建 Azure 移动应用项目。 安装 SDK 后，使用以下步骤创建 ASP.NET 应用程序：
 
-1. 从“文件” > “新建” > “项目...”，打开“新建项目”对话框。
+1. 打开“新建项目”对话框（从“文件” > “新建” > “项目...”）。
 2. 展开“模板” > “Visual C#”，然后选择“Web”。
 
 3. 选择“ASP.NET Web 应用程序”。
@@ -359,7 +359,7 @@ Azure 移动应用使用应用服务身份验证/授权来保护移动后端。 
     }
 ```
 
-`AppServiceLoginHandler.CreateToken()` 方法包含 audience 和 issuer 参数。 这两个参数使用 HTTPS 方案设置为应用程序根目录的 URL。 同样，应将 *secretKey* 设置为应用程序的签名密钥值。 请勿分发客户端中的签名密钥，因为该密钥可用于伪造密钥和模拟用户。 在应用服务中托管时，可以通过引用 WEBSITE\_AUTH\_SIGNING\_KEY 环境变量获取签名密钥。 如果在本地调试上下文中有需要，可根据 [使用身份验证进行本地调试](#local-debug)部分中的说明检索密钥，并将它存储为应用程序设置。
+`AppServiceLoginHandler.CreateToken()` 方法包含 audience 和 issuer 参数。 这两个参数使用 HTTPS 方案设置为应用程序根目录的 URL。 同样，应该将 *secretKey* 设置为应用程序的签名密钥值。 请勿分发客户端中的签名密钥，因为该密钥可用于伪造密钥和模拟用户。 在应用服务中托管时，可以通过引用 WEBSITE\_AUTH\_SIGNING\_KEY 环境变量获取签名密钥。 如果在本地调试上下文中有需要，可根据 [使用身份验证进行本地调试](#local-debug)部分中的说明检索密钥，并将它存储为应用程序设置。
 
 颁发的令牌可能还包括其他声明和到期日期。  颁发的令牌必须至少包含一个使用者 (sub) 声明。
 
@@ -516,9 +516,9 @@ await hub.SendTemplateNotificationAsync(notification, userTag);
 
 Azure 应用服务提供多种适用于 ASP.NET 应用程序的调试和故障排除方法：
 
-* [监视 Azure App Service](../app-service/web-sites-monitor.md)
+* [Monitoring an Azure App Service（监视 Azure 应用服务）](../app-service/web-sites-monitor.md)
 * [Enable Diagnostic Logging in Azure App Service（在 Azure 应用服务中启用诊断记录）](../app-service/web-sites-enable-diagnostic-log.md)
-* [在 Visual Studio 中对 Azure App Service 进行故障排除](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md)
+* [在 Visual Studio 中对 Azure 应用服务进行故障排除](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md)
 
 ### <a name="logging"></a>日志记录
 

@@ -17,11 +17,11 @@ origin.date: 11/13/2017
 ms.date: 01/22/2018
 ms.author: v-yeche
 ms.openlocfilehash: 2bb7c9930b78ce4ba37a3fa6f1efdf97acd7f68b
-ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27958245"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655025"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>虚拟机网络带宽
 

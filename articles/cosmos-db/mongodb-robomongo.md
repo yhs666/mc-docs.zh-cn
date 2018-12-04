@@ -13,11 +13,11 @@ origin.date: 05/23/2017
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.openlocfilehash: 4ff1e9f8e865748eaf0e3639d98eedf6e0e720ca
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070109"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655238"
 ---
 # <a name="use-robomongo-with-an-azure-cosmos-db-api-for-mongodb-account"></a>配合使用 Robomongo 与 Azure Cosmos DB: API for MongoDB 帐户
 若要使用 Robomongo 连接到 Azure Cosmos DB: API for MongoDB 帐户，必须：
@@ -38,7 +38,7 @@ ms.locfileid: "37070109"
 4. 在“连接设置”窗口中，选择名称。 然后，从步骤 1 的连接信息中找到**主机**和**端口**，并将其分别输入到“地址”和“端口”中。
 
     ![Robomongo 管理连接的屏幕截图](./media/mongodb-robomongo/manageconnections.png)
-5. 在“身份验证”选项卡上，单击“执行身份验证”。 然后，输入数据库（默认值为 Admin）、用户名和密码。
+5. 在“身份验证”选项卡上，单击“执行身份验证”。 然后，输入数据库（默认值为 Admin）、**用户名**和**密码**。
 **用户名**和**密码**可以在步骤 1 的连接信息中找到。
 
     ![Robomongo 身份验证选项卡的屏幕截图](./media/mongodb-robomongo/authentication.png)

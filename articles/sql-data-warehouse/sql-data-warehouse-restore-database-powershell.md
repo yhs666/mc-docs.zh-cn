@@ -12,11 +12,11 @@ ms.date: 09/17/2018
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: 9e947b341e76fcd78dc20fb79d8c0ef7cb39acbb
-ms.sourcegitcommit: 9a82a54c6b6f4d8074139e090011fe05b8018fcf
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44363161"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654336"
 ---
 # <a name="restore-an-azure-sql-data-warehouse-powershell"></a>还原 Azure SQL 数据仓库 (PowerShell)
 > [!div class="op_single_selector"]
@@ -27,9 +27,9 @@ ms.locfileid: "44363161"
 > 
 > 
 
-在本文中，学习如何使用 PowerShell 还原 Azure SQL 数据仓库。
+本文会介绍如何使用 PowerShell 还原 Azure SQL 数据仓库。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 **验证 DTU 容量。** 每个 SQL 数据仓库都由一个具有默认 DTU 配额的 SQL 服务器（例如 myserver.database.chinacloudapi.cn）托管。  在还原 SQL 数据仓库之前，请确保 SQL Server 的剩余 DTU 配额足够进行数据库还原。 
 <!-- Not Available [Request a DTU quota change][Request a DTU quota change] -->
 
@@ -155,7 +155,7 @@ $GeoRestoredDatabase.status
 > 
 > 
 
-如果源数据库启用了 TDE，则已恢复的数据库将启用 TDE。
+如果源数据库启用了 TDE，则已恢复的数据库会启用 TDE。
 
 ## <a name="next-steps"></a>后续步骤
 若要了解 Azure SQL 数据库版本的业务连续性功能，请阅读 [Azure SQL 数据库业务连续性概述][Azure SQL Database business continuity overview]。

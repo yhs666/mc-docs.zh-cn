@@ -13,11 +13,11 @@ origin.date: 06/27/2018
 ms.date: 11/05/2018
 ms.author: v-jay
 ms.openlocfilehash: d2da506009a9e00541e561656176bfe838c4f710
-ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50743553"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654517"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>快速入门：在 HDInsight 中设置群集
 

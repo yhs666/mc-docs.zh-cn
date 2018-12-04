@@ -11,11 +11,11 @@ origin.date: 05/09/2017
 ms.date: 10/22/2018
 ms.author: v-yeche
 ms.openlocfilehash: 18695dbdcc54ec034a578654467d9667ee9e9701
-ms.sourcegitcommit: caa089a6221a4925943f1ea516ca58ae62da0dff
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "50982963"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656430"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>使用 Linux 诊断扩展监视指标和日志
 

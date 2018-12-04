@@ -16,11 +16,11 @@ ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: alfredo
 ms.openlocfilehash: cd75b1296644d6b262b77f68af12cc6656db3911
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195440"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659585"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>在 Azure Stack 中管理租户注册
 

@@ -15,11 +15,11 @@ origin.date: 05/22/2018
 ms.date: 09/17/2018
 ms.author: v-biyu
 ms.openlocfilehash: 20b657a8ed9e1f611b5dac22b7252a2c7150fd23
-ms.sourcegitcommit: d649060b55bac3ad9f4fc2bd2962748a4b5bf715
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44066149"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659625"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Azure Key Vault 客户数据功能
 

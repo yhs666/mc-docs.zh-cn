@@ -11,11 +11,11 @@ ms.date: 10/19/2018
 ms.author: v-lingwu
 ms.custom: mvc
 ms.openlocfilehash: fc03c64f9dfec8f41a4d9eba3dff3c0f27db8cae
-ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477783"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658957"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>使用 Azure 门户备份多个虚拟机
 

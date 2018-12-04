@@ -10,11 +10,11 @@ ms.date: 08/27/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: 5f19f2b08c031ffc245a4b8f492ac770424a1a50
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871160"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657132"
 ---
 创建虚拟机 (VM)、重启已停止（已解除分配）的 VM 或重设 VM 大小时，Azure 会为订阅分配计算资源。 我们会不断投入其他基础结构和功能，确保始终提供可用于支持客户需求的所有 VM 类型。 但是，偶尔可能因特定区域中前所未有的 Azure 服务需求增长而遇到资源分配失败的情况。 当尝试在区域中创建或启动 VM，同时 VM 显示以下错误代码和消息时，会出现此问题：
 

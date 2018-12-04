@@ -11,11 +11,11 @@ ms.service: azure-stack
 manager: digimobile
 ms.reviewer: xiaofmao
 ms.openlocfilehash: 6f23f3c9d89c1b8c95dc48a86a231f5edeb28496
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195395"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659555"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Azure Stack 存储开发工具入门
 

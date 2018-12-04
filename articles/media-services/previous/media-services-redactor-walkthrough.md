@@ -16,11 +16,11 @@ origin.date: 09/03/2017
 ms.date: 09/25/2017
 ms.author: v-johch
 ms.openlocfilehash: 4c4bb6e2a6aad79e41bd98e3d0db3a0af072e4ed
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426223"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654318"
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>使用 Azure 媒体分析进行面部修订演练
 

@@ -15,11 +15,11 @@ ms.workload: required
 ms.date: 05/01/2017
 ms.author: v-johch
 ms.openlocfilehash: e0bc2068ce9ba3264f45ea7d3984278d7b325d37
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20182413"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655323"
 ---
 # <a name="azure-service-fabric-reliable-state-manager-and-reliable-collection-internals"></a>Azure Service Fabric 可靠状态管理器和可靠集合内部
 本文档深入探讨可靠状态管理器和可靠集合，了解核心组件如何在后台工作。

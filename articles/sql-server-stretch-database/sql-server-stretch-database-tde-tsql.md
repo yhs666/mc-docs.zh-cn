@@ -16,11 +16,11 @@ origin.date: 01/23/2017
 ms.date: 03/24/2017
 ms.author: v-yeche
 ms.openlocfilehash: d3bffffa030cc314c22e3543cdab42837daa56b3
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
-ms.locfileid: "20188246"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655262"
 ---
 # <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure-transact-sql"></a>为 Azure 上的 Stretch Database 启用透明数据加密 (TDE) (Transact-SQL)
 > [!div class="op_single_selector"]

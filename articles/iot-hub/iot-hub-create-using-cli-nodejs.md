@@ -16,11 +16,11 @@ origin.date: 04/01/2018
 ms.author: v-yiso
 ms.date: 05/07/2018
 ms.openlocfilehash: 57c91f31a34e618ad1722f119ab7c143f3fe383a
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121129"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654391"
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>使用 Azure CLI 创建 IoT 中心
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]

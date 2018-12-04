@@ -12,11 +12,11 @@ ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: 21606dc58aa966713f6fcaf8f66088a2c3316383
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089014"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658611"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde"></a>透明数据加密 (TDE) 入门
 > [!div class="op_single_selector"]

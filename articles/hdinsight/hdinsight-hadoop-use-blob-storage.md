@@ -1,29 +1,22 @@
 ---
 title: 从与 HDFS 兼容的 Azure 存储查询数据 - Azure HDInsight | Azure
 description: 了解如何从 Azure 存储查询数据，以存储分析结果。
-keywords: blob 存储,hdfs,结构化数据,非结构化数据,Hadoop 输入,Hadoop 输出, hadoop 存储, hdfs 输入,hdfs 输出,hdfs 存储,wasb azure
 services: hdinsight,storage
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 1d2e65f2-16de-449e-915f-3ffbc230f815
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
+ms.devlang: na
 origin.date: 05/14/2018
-ms.date: 09/24/2018
+ms.date: 11/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: 2f5593cf95b3960ba5f9371d98501d2302acff27
-ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
+ms.openlocfilehash: 7e859778f2b207e4726d4194fc865c43892f5f7c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121533"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654485"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>将 Azure 存储与 Azure HDInsight 群集配合使用
 
@@ -118,7 +111,7 @@ Blob 可用于结构化和非结构化数据。 Blob 容器将数据存储为键
 > 不支持在 HDInsight 群集之外的其他位置使用别的存储帐户。
 
 ### <a name="use-azure-powershell"></a>使用 Azure PowerShell
-如果[已安装并配置 Azure PowerShell][powershell-install]，可以从 Azure PowerShell 提示符使用以下命令来创建存储帐户和容器：
+如果 [已安装并配置 Azure PowerShell][powershell-install]，可从 Azure PowerShell 提示符使用以下命令来创建存储帐户和容器：
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
@@ -143,11 +136,11 @@ Blob 可用于结构化和非结构化数据。 Blob 容器将数据存储为键
     $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
     New-AzureStorageContainer -Name $containerName -Context $destContext
 
-### <a name="use-azure-cli"></a>使用 Azure CLI
+### <a name="use-azure-classic-cli"></a>使用 Azure 经典 CLI
 
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-如果 [已安装并配置 Azure CLI](../cli-install-nodejs.md)，则以下命令可以用于存储帐户和容器。
+如果[已安装并配置了 Azure 经典 CLI](../cli-install-nodejs.md)，可将以下命令用于存储帐户和容器。
 
     azure storage account create <storageaccountname> --type LRS
 
@@ -273,24 +266,24 @@ URI 方案提供了使用 *wasb:* 前缀的未加密访问和使用 *wasbs* 的 
 
     Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.chinacloudapi.cn/;"
 
-### <a name="use-azure-cli"></a>使用 Azure CLI
+### <a name="use-azure-classic-cli"></a>使用 Azure 经典 CLI
 使用以下命令列出与 Blob 有关的命令：
 
     azure storage blob
 
-**使用 Azure CLI 上传文件的示例**
+**使用 Azure 经典 CLI 上传文件的示例**
 
     azure storage blob upload <sourcefilename> <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-**使用 Azure CLI 下载文件的示例**
+**使用 Azure 经典 CLI 下载文件的示例**
 
     azure storage blob download <containername> <blobname> <destinationfilename> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-**使用 Azure CLI 删除文件的示例**
+**使用 Azure 经典 CLI 删除文件的示例**
 
     azure storage blob delete <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-**使用 Azure CLI 列出文件的示例**
+**使用 Azure 经典 CLI 列出文件的示例**
 
     azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
 
@@ -320,7 +313,7 @@ URI 方案提供了使用 *wasb:* 前缀的未加密访问和使用 *wasbs* 的 
 [hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
 [hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
 
-[blob-storage-restAPI]: http://msdn.microsoft.com/library/azure/dd135733.aspx
+[blob-storage-restAPI]: http://msdn.microsoft.com/library/windowsazure/dd135733.aspx
 [azure-storage-create]:../storage/common/storage-create-storage-account.md
 
 [img-hdi-powershell-blobcommands]: ./media/hdinsight-hadoop-use-blob-storage/HDI.PowerShell.BlobCommands.png

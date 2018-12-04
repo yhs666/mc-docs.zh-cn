@@ -16,11 +16,11 @@ origin.date: 08/09/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
 ms.openlocfilehash: d04536243aa93ca71d0b8a06c2f529281e0081df
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475446"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659040"
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>授权 Microsoft® 平滑流式处理客户端移植工具包
 ## <a name="overview"></a>概述

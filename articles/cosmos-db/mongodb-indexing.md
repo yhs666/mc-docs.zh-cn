@@ -13,11 +13,11 @@ origin.date: 03/01/2018
 ms.date: 09/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: c3bc0b84d1b615b90dbf62a388707805396b5c25
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201316"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656660"
 ---
 # <a name="indexing-in-the-azure-cosmos-db-mongodb-api"></a>Azure Cosmos DB: MongoDB API 中的索引编制
 

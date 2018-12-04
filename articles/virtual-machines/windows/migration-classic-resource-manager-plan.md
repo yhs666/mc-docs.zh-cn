@@ -17,11 +17,11 @@ origin.date: 04/01/2017
 ms.date: 09/24/2018
 ms.author: v-yeche
 ms.openlocfilehash: a6cf03d748eb423dec07709c2fdacc1dbb6c033e
-ms.sourcegitcommit: cc9e8c76454e7d194505af32c42c0f3e4e0ec9e9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49315950"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655121"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>规划将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager
 尽管 Azure 资源管理器提供了许多精彩功能，但请务必计划迁移，以确保一切顺利进行。 花时间进行规划可确保执行迁移活动时不会遇到问题。

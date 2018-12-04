@@ -11,11 +11,11 @@ ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 3277c07d6cfd9d32ed43881da56c3a62a477830b
-ms.sourcegitcommit: 2cf6961f692f318ce7034e7b4d994ee51d902199
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947680"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659896"
 ---
 # <a name="tutorial-deploy-web-app-from-azure-container-registry"></a>快速入门：从 Azure 容器注册表部署 Web 应用
 

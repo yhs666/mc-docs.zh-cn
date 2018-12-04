@@ -19,11 +19,11 @@ ms.date: 11/05/2018
 ms.author: v-jay
 ms.custom: mvc
 ms.openlocfilehash: 7af1230f9385762323ed21a2f3703f4673dc3211
-ms.sourcegitcommit: 9be84d4dc546d66a0d9d1d2be67dd79c84b2c210
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50408832"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659491"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>快速入门：使用 Azure CLI 创建公共负载均衡器以对 VM 进行负载均衡
 

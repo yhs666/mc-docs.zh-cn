@@ -17,11 +17,11 @@ origin.date: 03/30/2017
 ms.date: 05/21/2018
 ms.author: v-yeche
 ms.openlocfilehash: bce4992307af1dc2157f62335ec9c2964c9d92b1
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305819"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659089"
 ---
 # <a name="community-tools-to-migrate-iaas-resources-from-classic-to-azure-resource-manager"></a>使用社区工具将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器
 本文编录了社区提供的工具，这些工具可帮助将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager 部署模型。

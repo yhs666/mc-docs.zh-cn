@@ -16,11 +16,11 @@ origin.date: 12/13/2017
 ms.date: 07/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: 892071b29b7d22fe70212308bbf3424e6f4e5380
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306982"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654820"
 ---
 # <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>如何在 Azure 中使用 PowerShell 打开 VM 的端口和终结点
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]

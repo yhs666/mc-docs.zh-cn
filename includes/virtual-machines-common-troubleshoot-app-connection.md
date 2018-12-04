@@ -10,11 +10,11 @@ ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: f3a2201240fa4abbbc03591e13daededc1857376
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307068"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656520"
 ---
 有多种原因可导致无法启用或连接到在 Azure 虚拟机 (VM) 上运行的应用程序。 原因包括应用程序未在预期端口上运行或侦听、侦听端口受到阻止，或网络规则未将流量正确传递到应用程序。 本文说明有条理地找到问题并更正问题。
 

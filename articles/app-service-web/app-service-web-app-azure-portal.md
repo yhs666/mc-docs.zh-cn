@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 门户中进行导航的参考
+title: 有关在 Azure 门户中导航的参考
 description: 了解用户在管理门户和 Azure 门户之间对应用服务 Web 的不同体验
 services: app-service
 documentationcenter: ''
@@ -16,11 +16,11 @@ origin.date: 02/26/2016
 ms.date: 09/26/2016
 ms.author: v-dazen
 ms.openlocfilehash: 115b352ddffa1717b336b1ef2dccb52d020c6191
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
-ms.locfileid: "20463857"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658166"
 ---
 # <a name="reference-for-navigating-the-azure-portal"></a>在 Azure 门户中进行导航的参考
 现在，Azure 网站称为[应用服务 Web 应用](/app-service-web/app-service-changes-existing-services)。 我们正在更新所有文档以反映此名称更改，并为 Azure 门户提供说明。 完成该过程之前，可以使用此文档作为在 Azure 门户中使用 Web 应用的指南。
@@ -76,4 +76,4 @@ Azure 门户则可以利用多个服务中的组件端对端地轻松构建应�
 [Azure Portal]: https://portal.azure.cn
 
 ## <a name="whats-changed"></a>发生的更改
-* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为 应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)

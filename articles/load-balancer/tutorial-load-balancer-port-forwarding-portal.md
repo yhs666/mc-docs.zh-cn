@@ -19,11 +19,11 @@ ms.date: 11/05/2019
 ms.author: v-jay
 ms.custom: mvc
 ms.openlocfilehash: 8b1d47f8c634a0903973b7f3d150072c5cbf3bf4
-ms.sourcegitcommit: 9be84d4dc546d66a0d9d1d2be67dd79c84b2c210
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50408865"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656087"
 ---
 # <a name="tutorial-configure-port-fowarding-in-load-balancer-using-the-azure-portal"></a>教程：使用 Azure 门户在负载均衡器中配置端口转发
 

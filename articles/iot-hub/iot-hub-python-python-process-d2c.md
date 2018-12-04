@@ -16,11 +16,11 @@ origin.date: 01/22/2018
 ms.date: 06/11/2018
 ms.author: v-yiso
 ms.openlocfilehash: 81a670f0d4db0d8569e2556eb09e19b5e8608c10
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695077"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655170"
 ---
 # <a name="routing-messages-with-iot-hub-python"></a>使用 IoT 中心路由消息 (Python)
 

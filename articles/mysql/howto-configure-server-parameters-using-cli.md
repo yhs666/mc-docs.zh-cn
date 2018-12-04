@@ -12,11 +12,11 @@ ms.topic: article
 origin.date: 07/18/2018
 ms.date: 08/27/2018
 ms.openlocfilehash: 75db5a2df7aa2ed79c1eb89da3fe9810663dc75a
-ms.sourcegitcommit: 6dd65fba579a2ce25c63ac69ff3b71d814a9d256
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42703823"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658083"
 ---
 # <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>使用 Azure CLI 自定义服务器配置参数
 

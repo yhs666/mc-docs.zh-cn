@@ -18,11 +18,11 @@ ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: d3959039e38cb2530d1865d13248718b0424fa0f
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295651"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655200"
 ---
 # <a name="troubleshoot-a-vms-operating-system-disk"></a>对 VM 操作系统磁盘进行故障排除
 

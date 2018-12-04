@@ -16,11 +16,11 @@ origin.date: 09/04/2017
 ms.author: v-yiso
 ms.date: 12/18/2017
 ms.openlocfilehash: ae0206bede348d61ec796ed78db7ee611778a5c9
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26410548"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659437"
 ---
 # <a name="azure-iot-hub-get-started-with-simulated-devices-tutorials"></a>Azure IoT 中心及模拟设备入门教程
 

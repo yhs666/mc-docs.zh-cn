@@ -15,11 +15,11 @@ ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: thoroet
 ms.openlocfilehash: b6fe11c5fa0c05aabbd6dd5e44a376d5891fbf5f
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195432"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656881"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 

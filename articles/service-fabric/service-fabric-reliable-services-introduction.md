@@ -16,11 +16,11 @@ origin.date: 03/09/2018
 ms.date: 05/28/2018
 ms.author: v-yeche
 ms.openlocfilehash: f1d891b0f7b8d49427cc4b7d522423991be9cc5b
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554495"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654488"
 ---
 # <a name="reliable-services-overview"></a>Reliable Services 概述
 Azure Service Fabric 可简化无状态和有状态 Reliable Services 的编写与管理。 本主题的内容：

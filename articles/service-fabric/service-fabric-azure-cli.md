@@ -16,11 +16,11 @@ origin.date: 08/09/2017
 ms.date: 09/11/2017
 ms.author: v-yeche
 ms.openlocfilehash: 8d4299d3a0590f2c9188ba0f528666bee18b7b77
-ms.sourcegitcommit: 1fb5f5438975a4901c35b6b95cbb190a08570a9b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/14/2018
-ms.locfileid: "29341274"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655653"
 ---
 # <a name="using-the-xplat-cli-to-interact-with-a-service-fabric-cluster"></a>使用 XPlat CLI 与 Service Fabric 群集交互
 

@@ -11,11 +11,11 @@ ms.topic: conceptual
 origin.date: 03/28/2017
 ms.date: 05/07/2018
 ms.openlocfilehash: 9855ba85b70741ecccebfd2b120c1f5977c5bf49
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815061"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656103"
 ---
 # <a name="visualize-and-troubleshoot-stream-analytics-jobs"></a>流分析作业的可视化和故障排除
 与其他基于云的技术一样，在流分析中，故障排除有时需要深入了解作业没有生成预期的输出（或者是该问题的任何输出）的原因。 考虑到这一点，流分析提供了可视化流作业的功能。 该功能作为建模工具使用起来也很方便，并且对需要其工作文档的人员来说具有附带好处。

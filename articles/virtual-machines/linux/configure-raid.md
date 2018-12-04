@@ -17,11 +17,11 @@ origin.date: 02/02/2017
 ms.date: 08/27/2018
 ms.author: v-yeche
 ms.openlocfilehash: 6105f2042137624a73f27f6bfa036a296059bc3c
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871978"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659189"
 ---
 # <a name="configure-software-raid-on-linux"></a>在 Linux 上配置软件 RAID
 一种比较常见的情况是，在 Azure 中的 Linux 虚拟机上使用软件 RAID 将多个附加的数据磁盘显示为单个 RAID 设备。 通常，与仅使用单个磁盘相比，使用此方法不但可改进性能，而且还可提高吞吐量。
@@ -84,7 +84,7 @@ ms.locfileid: "42871978"
     Partition number (1-4): 1
     ```
 
-1. 选择新分区的起始点，或者按 `<enter>` 键接受默认值，将该分区置于驱动器可用空间的开始处：
+1. 选择新分区的起始点，或者按 `<enter>` 接受默认值，将该分区放在驱动器可用空间的开头：
 
     ```bash   
     First cylinder (1-1305, default 1):

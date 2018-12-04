@@ -13,11 +13,11 @@ origin.date: 08/02/2018
 ms.date: 09/07/2018
 ms.author: v-junlch
 ms.openlocfilehash: a8167a1dd9c1305a51dfedc1c3b69c13b30eeee3
-ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477759"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656082"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>使用 Azure Batch CLI 模板和文件传输
 

@@ -13,11 +13,11 @@ origin.date: 05/01/2018
 ms.date: 06/04/2018
 ms.author: v-yeche
 ms.openlocfilehash: 83ed83d9775fd3bca95c5753af5bd1f4b5ab5068
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405254"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659192"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>排查存储资源删除错误
 

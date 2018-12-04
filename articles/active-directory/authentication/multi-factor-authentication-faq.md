@@ -12,11 +12,11 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
 ms.openlocfilehash: 827c2569dff757dce70f7b3131aba0dfd2f52624
-ms.sourcegitcommit: c237baac64f847301ba7f67082ffffcd81c00142
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43850813"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655178"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>有关 Azure 多重身份验证的常见问题
 

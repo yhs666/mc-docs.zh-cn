@@ -18,11 +18,11 @@ ms.date: 07/23/2018
 ms.author: v-yeche
 ms.custom: ''
 ms.openlocfilehash: 38ae1a0ce04b17b81bc49909db6b960f11cd6405
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167904"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658846"
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>创建包含多个子网的虚拟网络（经典）
 

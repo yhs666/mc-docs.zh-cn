@@ -15,11 +15,11 @@ ms.date: 08/27/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: 151e59defd3263617ce7cc031b8aca1f7badcd36
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872141"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657591"
 ---
 ## <a name="prepare-for-akv-integration"></a>准备 AKV 集成
 若要使用 Azure Key Vault 集成来配置 SQL Server VM，有以下几个先决条件： 

@@ -12,11 +12,11 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
 ms.openlocfilehash: 379dac1c197fae95ca6d71102e7b23199fcfdd24
-ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121518"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657017"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>如何获取 Azure 多重身份验证
 

@@ -17,11 +17,11 @@ origin.date: 07/18/2016
 ms.author: v-yiso
 ms.date: 04/23/2018
 ms.openlocfilehash: 424e27ba92ca367652fa9629026406ae30c5c613
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939578"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655305"
 ---
 # <a name="get-started-with-the-twitter-connector"></a>Twitter 连接器入门
 借助 Twitter 连接器，可以：

@@ -16,11 +16,11 @@ origin.date: 08/15/2018
 ms.date: 08/27/2018
 ms.author: v-junlch
 ms.openlocfilehash: 83bfe30151014ccc3263ecedf66f7cc71a33f10a
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869350"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657589"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>离线更新 Azure Stack 上的 Azure 应用服务
 

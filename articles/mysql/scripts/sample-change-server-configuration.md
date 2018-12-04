@@ -13,11 +13,11 @@ ms.custom: mvc
 origin.date: 02/28/2018
 ms.date: 08/27/2018
 ms.openlocfilehash: a10ae9530989e7b136b55df5d2fc267c7b6e7452
-ms.sourcegitcommit: 6dd65fba579a2ce25c63ac69ff3b71d814a9d256
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42703865"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656601"
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-mysql-server-using-azure-cli"></a>使用 Azure CLI 列出和更新用于 MySQL 服务器的 Azure 数据库的配置
 > [!NOTE]

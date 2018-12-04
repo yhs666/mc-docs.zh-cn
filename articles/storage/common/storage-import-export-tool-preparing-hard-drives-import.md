@@ -16,11 +16,11 @@ origin.date: 06/29/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
 ms.openlocfilehash: 79c9eb4cd18c5023267ad6f897cbca0bb412c119
-ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50743542"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656815"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>为导入作业准备硬盘驱动器
 

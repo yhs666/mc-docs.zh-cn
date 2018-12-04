@@ -15,11 +15,11 @@ origin.date: 10/06/2017
 ms.date: 07/09/2018
 ms.author: v-yeche
 ms.openlocfilehash: cb370de264008e4549876edb23b33bc5695d3f1f
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164949"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656263"
 ---
 # <a name="use-the-azure-cli-to-manage-azure-resources-and-resource-groups"></a>使用 Azure CLI 管理 Azure 资源和资源组
 

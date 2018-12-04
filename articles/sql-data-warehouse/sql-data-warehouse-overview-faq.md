@@ -17,11 +17,11 @@ origin.date: 04/17/2018
 ms.date: 08/20/2017
 ms.author: v-yeche
 ms.openlocfilehash: b33c2436a0da9298d977faef61a5a6d6106620cb
-ms.sourcegitcommit: 02c4716e07b3d83104fa419b379a15589ae8017e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41704903"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658451"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>SQL 数据仓库常见问题解答
 

@@ -16,11 +16,11 @@ origin.date: 03/26/2018
 ms.author: v-yiso
 ms.date: 05/28/2018
 ms.openlocfilehash: 9a95f67370a6fac8fafe87f86e8fdab06f68c956
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450065"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655576"
 ---
 # <a name="use-spark-structured-streaming-with-kafka-and-azure-cosmos-db"></a>将 Spark 结构化流式处理与 Kafka 和 Azure Cosmos DB 配合使用
 
@@ -76,8 +76,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
    
     ![HDInsight 自定义部署](./media/apache-kafka-spark-structured-streaming-cosmosdb/parameters.png)
 
-    * 
-            **订阅**：选择 Azure 订阅。
+    * **订阅**：选择 Azure 订阅。
    
     * **资源组**：创建一个组或选择现有组。 此组包含 HDInsight 群集。
 

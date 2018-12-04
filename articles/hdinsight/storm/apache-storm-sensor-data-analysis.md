@@ -17,11 +17,11 @@ origin.date: 10/19/2017
 ms.date: 01/15/2018
 ms.author: v-yiso
 ms.openlocfilehash: 53c0f410bc7fcac53d05f46e64e177a11c84a9ba
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873466"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657941"
 ---
 # <a name="analyze-sensor-data-with-apache-storm-event-hub-and-hbase-in-hdinsight-hadoop"></a>使用 Apache Storm、事件中心和 HDInsight 中的 HBase (Hadoop) 分析传感器数据
 
@@ -98,7 +98,7 @@ ms.locfileid: "37873466"
 * [Java 和 JDK 1.7](http://www.oracle.com/technetwork/java/javase/downloads/index.html)：用于开发 Storm 拓扑。
 * [Maven](http://maven.apache.org/what-is-maven.html)：用于生成和编译项目。
 * [Git](http://git-scm.com/)：用于从 GitHub 下载项目。
-* **SSH** 客户端：用于连接到基于 Linux 的 HDInsight 群集。 有关详细信息，请参阅 [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
+* **SSH** 客户端：用于连接到基于 Linux 的 HDInsight 群集。 有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 若要创建事件中心，请使用[创建事件中心](../../event-hubs/event-hubs-create.md)文档中的步骤。
 

@@ -16,11 +16,11 @@ origin.date: 08/09/2017
 ms.date: 07/30/2018
 ms.author: v-haiqya
 ms.openlocfilehash: 9383a8d974eb7b6dc246e2d875c726259e66d6f0
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426341"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656693"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>使用 REST 配置 Azure 媒体服务遥测
 

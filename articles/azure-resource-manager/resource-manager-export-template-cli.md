@@ -15,11 +15,11 @@ origin.date: 02/23/2018
 ms.date: 09/03/2018
 ms.author: v-yeche
 ms.openlocfilehash: 993ba06ff7ab6c663fcc3ee1ac9c67ab3414008a
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164907"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657201"
 ---
 # <a name="export-azure-resource-manager-templates-with-azure-cli"></a>使用 Azure CLI 导出 Azure Resource Manager 模板
 

@@ -11,11 +11,11 @@ origin.date: 05/23/2017
 ms.date: 09/03/2018
 ms.author: v-yeche
 ms.openlocfilehash: 9e8d1233343e8a1ec523363d8381f3b6e4c2e310
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164651"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657078"
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Azure Cosmos DB 数据库静态加密
 

@@ -17,11 +17,11 @@ origin.date: 02/14/2018
 ms.date: 06/13/2018
 ms.author: v-junlch
 ms.openlocfilehash: 5a384d8ed464c6243f050b98d02724c86a87068f
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568323"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657365"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>配置 VNet 到 VNet 连接（经典）
 

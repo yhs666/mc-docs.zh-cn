@@ -16,11 +16,11 @@ origin.date: 12/14/2017
 ms.date: 02/26/2018
 ms.author: v-yiso
 ms.openlocfilehash: 52b1c1391ab1ab4eae54adbdb3aac0c801a3d557
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29285240"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654698"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>为 Azure 中的角色实例启用通信
 
@@ -136,86 +136,86 @@ foreach (RoleInstance roleInst in RoleEnvironment.CurrentRoleInstance.Role.Insta
 > 
 
 ```csharp
-using System;
-using System.Diagnostics;
-using System.Linq;
-using System.Net;
-using System.Net.Sockets;
-using System.Threading;
-using Microsoft.WindowsAzure;
-using Microsoft.WindowsAzure.Diagnostics;
-using Microsoft.WindowsAzure.ServiceRuntime;
-using Microsoft.WindowsAzure.StorageClient;
+using System;
+using System.Diagnostics;
+using System.Linq;
+using System.Net;
+using System.Net.Sockets;
+using System.Threading;
+using Microsoft.WindowsAzure;
+using Microsoft.WindowsAzure.Diagnostics;
+using Microsoft.WindowsAzure.ServiceRuntime;
+using Microsoft.WindowsAzure.StorageClient;
 
-namespace WorkerRole1
+namespace WorkerRole1
 {
-  public class WorkerRole : RoleEntryPoint
-  {
-    public override void Run()
-    {
-      try
-      {
-        // Initialize method-wide variables
-        var epName = "Endpoint1";
-        var roleInstance = RoleEnvironment.CurrentRoleInstance;
-        
-        // Identify direct communication port
-        var myPublicEp = roleInstance.InstanceEndpoints[epName].PublicIPEndpoint;
-        Trace.TraceInformation("IP:{0}, Port:{1}", myPublicEp.Address, myPublicEp.Port);
+  public class WorkerRole : RoleEntryPoint
+  {
+    public override void Run()
+    {
+      try
+      {
+        // Initialize method-wide variables
+        var epName = "Endpoint1";
+        var roleInstance = RoleEnvironment.CurrentRoleInstance;
+        
+        // Identify direct communication port
+        var myPublicEp = roleInstance.InstanceEndpoints[epName].PublicIPEndpoint;
+        Trace.TraceInformation("IP:{0}, Port:{1}", myPublicEp.Address, myPublicEp.Port);
 
-        // Identify public endpoint
-        var myInternalEp = roleInstance.InstanceEndpoints[epName].IPEndpoint;
-                
-        // Create socket listener
-        var listener = new Socket(
-          myInternalEp.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-                
-        // Bind socket listener to internal endpoint and listen
-        listener.Bind(myInternalEp);
-        listener.Listen(10);
-        Trace.TraceInformation("Listening on IP:{0},Port: {1}",
-          myInternalEp.Address, myInternalEp.Port);
+        // Identify public endpoint
+        var myInternalEp = roleInstance.InstanceEndpoints[epName].IPEndpoint;
+                
+        // Create socket listener
+        var listener = new Socket(
+          myInternalEp.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+                
+        // Bind socket listener to internal endpoint and listen
+        listener.Bind(myInternalEp);
+        listener.Listen(10);
+        Trace.TraceInformation("Listening on IP:{0},Port: {1}",
+          myInternalEp.Address, myInternalEp.Port);
 
-        while (true)
-        {
-          // Block the thread and wait for a client request
-          Socket handler = listener.Accept();
-          Trace.TraceInformation("Client request received.");
+        while (true)
+        {
+          // Block the thread and wait for a client request
+          Socket handler = listener.Accept();
+          Trace.TraceInformation("Client request received.");
 
-          // Define body of socket handler
-          var handlerThread = new Thread(
-            new ParameterizedThreadStart(h =>
-            {
-              var socket = h as Socket;
-              Trace.TraceInformation("Local:{0} Remote{1}",
-                socket.LocalEndPoint, socket.RemoteEndPoint);
+          // Define body of socket handler
+          var handlerThread = new Thread(
+            new ParameterizedThreadStart(h =>
+            {
+              var socket = h as Socket;
+              Trace.TraceInformation("Local:{0} Remote{1}",
+                socket.LocalEndPoint, socket.RemoteEndPoint);
 
-              // Shut down and close socket
-              socket.Shutdown(SocketShutdown.Both);
-              socket.Close();
-            }
-          ));
+              // Shut down and close socket
+              socket.Shutdown(SocketShutdown.Both);
+              socket.Close();
+            }
+          ));
 
-          // Start socket handler on new thread
-          handlerThread.Start(handler);
-        }
-      }
-      catch (Exception e)
-      {
-        Trace.TraceError("Caught exception in run. Details: {0}", e);
-      }
-    }
+          // Start socket handler on new thread
+          handlerThread.Start(handler);
+        }
+      }
+      catch (Exception e)
+      {
+        Trace.TraceError("Caught exception in run. Details: {0}", e);
+      }
+    }
 
-    public override bool OnStart()
-    {
-      // Set the maximum number of concurrent connections 
-      ServicePointManager.DefaultConnectionLimit = 12;
+    public override bool OnStart()
+    {
+      // Set the maximum number of concurrent connections 
+      ServicePointManager.DefaultConnectionLimit = 12;
 
-      // For information on handling configuration changes
-      // see the MSDN topic at http://go.microsoft.com/fwlink/?LinkId=166357.
-      return base.OnStart();
-    }
-  }
+      // For information on handling configuration changes
+      // see the MSDN topic at http://go.microsoft.com/fwlink/?LinkId=166357.
+      return base.OnStart();
+    }
+  }
 }
 ```
 

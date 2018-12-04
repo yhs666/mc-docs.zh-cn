@@ -16,11 +16,11 @@ origin.date: 12/14/2016
 ms.author: v-yiso
 ms.date: 11/06/2017
 ms.openlocfilehash: e838b2e845b9fdd817d1eeb3250beb469876774f
-ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2017
-ms.locfileid: "23635094"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659891"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>在 Azure 中为应用程序配置 SSL
 
@@ -43,7 +43,7 @@ ms.locfileid: "23635094"
 
 ## <a name="step-1-get-an-ssl-certificate"></a>步骤 1：获取 SSL 证书
 
-若要为应用程序配置 SSL，首先需要获取已由证书颁发机构 (CA)（出于此目的颁发证书的受信任的第三方）签署的 SSL 证书。 如果尚未获取 SSL 证书，需要从销售 SSL 证书的公司购买一个 SSL 证书。
+若要为应用程序配置 SSL，首先需要获取已由证书颁发机构 (CA)（出于此目的颁发证书的受信任的第三方）签署的 SSL 证书。 如果尚未获取 SSL 证书，将需要从销售 SSL 证书的公司购买一个 SSL 证书。
 
 该证书必须满足 Azure 中的以下 SSL 证书要求：
 
@@ -108,7 +108,7 @@ ms.locfileid: "23635094"
     </WebRole>
     ```
 
-3.  在服务定义文件中，在“站点”部分中添加 Binding 元素。 此节添加 HTTPS 绑定以将终结点映射到网站：
+3.  在服务定义文件中，在“站点”部分中添加 Binding 元素。 此节添加 HTTPS 绑定以将终结点映射到您的网站：
 
     ```xml
     <WebRole name="CertificateTesting" vmsize="Small">
@@ -152,7 +152,7 @@ ms.locfileid: "23635094"
 已将部署包更新为使用此证书，并且已添加 HTTPS 终结点。 现在可以使用 Azure 经典门户将包和证书上传到 Azure。
 
 1. 登录到 [Azure 经典门户][Azure classic portal]。 
-2. 在左侧导航窗格中单击“**云服务**”。
+2. 在左侧导航窗格中单击“云服务”。
 3. 单击所需的云服务。
 4. 单击“证书”选项卡。
 
@@ -186,7 +186,7 @@ ms.locfileid: "23635094"
 
 * [云服务的常规配置](./cloud-services-how-to-configure.md)。
 * 了解如何[部署云服务](./cloud-services-how-to-create-deploy.md)。
-* 配置[自定义域名](./cloud-services-custom-domain-name.md)。
+* 配置 [自定义域名](./cloud-services-custom-domain-name.md)。
 * [管理云服务](./cloud-services-how-to-manage.md)。
 
   [Azure classic portal]: http://manage.windowsazure.cn

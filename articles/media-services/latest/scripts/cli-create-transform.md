@@ -16,11 +16,11 @@ origin.date: 05/11/2018
 ms.date: 05/28/2018
 ms.author: v-nany
 ms.openlocfilehash: cc493449490403e4e10b363912676b48de185d61
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405383"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656571"
 ---
 # <a name="cli-example-create-a-transform"></a>CLI 示例：创建转换
 

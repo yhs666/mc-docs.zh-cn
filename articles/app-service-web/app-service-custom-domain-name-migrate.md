@@ -17,11 +17,11 @@ origin.date: 01/30/2017
 ms.date: 03/03/2017
 ms.author: v-dazen
 ms.openlocfilehash: 7daf92065e979fa07cb8aee277c44a4a44f5ab0e
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
-ms.locfileid: "20186793"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658327"
 ---
 # <a name="migrate-an-active-custom-domain-to-azure-app-service"></a>将活动的自定义域迁移到 Azure 应用服务
 
@@ -35,7 +35,7 @@ ms.locfileid: "20186793"
 
 ## <a name="bind-the-domain-name-preemptively"></a>提前绑定域名
 
-提前绑定自定义域时，请先完成下面的两项操作，然后再对 DNS 记录进行更改：
+提前绑定自定义域时，对 DNS 记录进行任何更改之前，需要完成以下两项操作：
 
 - 验证域所有权
 - 为应用启用域名
@@ -55,12 +55,12 @@ ms.locfileid: "20186793"
     <th>TXT 值</th>
     </tr>
     <tr>
-    <td>contoso.com (root)</td>
+    <td>contoso.com（根域）</td>
     <td>awverify.contoso.com</td>
     <td>&lt;<i>appname</i>>.chinacloudsites.cn</td>
     </tr>
     <tr>
-    <td>www.contoso.com (sub)</td>
+    <td>www.contoso.com（子域）</td>
     <td>awverify.www.contoso.com</td>
     <td>&lt;<i>appname</i>>.chinacloudsites.cn</td>
     </tr>

@@ -16,11 +16,11 @@ origin.date: 05/26/2017
 ms.author: v-yiso
 ms.date: 12/11/2017
 ms.openlocfilehash: 55d113bd3e724ec399961532492217c879669ed2
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
-ms.locfileid: "26044713"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657672"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>在 Azure 中为应用程序配置 SSL
 
@@ -35,7 +35,7 @@ ms.locfileid: "26044713"
 如果尚未创建云服务，请首先阅读[此文](./cloud-services-how-to-create-deploy-portal.md)。
 
 ## <a name="step-1-get-an-ssl-certificate"></a>步骤 1：获取 SSL 证书
-若要为应用程序配置 SSL，首先需要获取已由证书颁发机构 (CA)（出于此目的颁发证书的受信任的第三方）签署的 SSL 证书。 如果尚未获取 SSL 证书，需要从销售 SSL 证书的公司购买一个 SSL 证书。
+若要为应用程序配置 SSL，首先需要获取已由证书颁发机构 (CA)（出于此目的颁发证书的受信任的第三方）签署的 SSL 证书。 如果尚未获取 SSL 证书，将需要从销售 SSL 证书的公司购买一个 SSL 证书。
 
 该证书必须满足 Azure 中的以下 SSL 证书要求：
 
@@ -183,5 +183,5 @@ ms.locfileid: "26044713"
 
 * [云服务的常规配置](./cloud-services-how-to-configure-portal.md)。
 * 了解如何[部署云服务](./cloud-services-how-to-create-deploy-portal.md)。
-* 配置[自定义域名](./cloud-services-custom-domain-name-portal.md)。
+* 配置 [自定义域名](./cloud-services-custom-domain-name-portal.md)。
 * [管理云服务](./cloud-services-how-to-manage-portal.md)。

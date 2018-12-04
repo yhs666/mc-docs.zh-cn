@@ -17,11 +17,11 @@ ms.author: cephalin
 ms.custom: mvc
 ms.date: 10/16/2017
 ms.openlocfilehash: 1029cfde5c131c9da5b65f0e1f70066ef820fc2a
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939478"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654346"
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>在 Azure 中构建 PHP 和 MySQL Web 应用
 
@@ -456,7 +456,7 @@ php artisan make:migration add_complete_column --table=tasks
 
 此命令显示已生成的迁移文件的名称。 在 database/migrations 中找到此文件，并打开它。
 
-将 `up`方法替换为以下代码：
+将 `up` 方法替换为以下代码：
 
 ```php
 public function up()

@@ -19,11 +19,11 @@ ms.date: 05/07/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 82d3f7cba953058a122347a46ab549f78ac47d47
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815302"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658041"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建虚拟网络
 
@@ -43,7 +43,7 @@ ms.locfileid: "33815302"
 
     |设置|值|
     |---|---|
-    |Name|myVirtualNetwork|
+    |名称|myVirtualNetwork|
     |订阅| 选择订阅。|
     |资源组| 选择“新建”，并输入 myResourceGroup|
     |位置| 选择“中国东部”。|

@@ -16,11 +16,11 @@ origin.date: 10/12/2016
 ms.date: 01/29/2018
 ms.author: v-yiso
 ms.openlocfilehash: e76aa3085a79b074d051fe74355cb4b614fdaa58
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523915"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658704"
 ---
 # <a name="add-push-notifications-to-your-windows-app"></a>向 Windows 应用添加推送通知
 
@@ -51,7 +51,7 @@ ms.locfileid: "46523915"
     ![关联应用与 Windows 应用商店](./media/app-service-mobile-windows-store-dotnet-get-started-push/app-service-mobile-uwp-app-push-auth.png)
 
    > [!IMPORTANT]
-   > 客户端密钥和程序包 SID 是重要的安全凭据。 请勿将这些值告知任何人或随应用程序分发它们。 将“应用程序 ID”与机密配合使用来配置 Microsoft 帐户身份验证。
+   > 客户端密钥和程序包 SID 是重要的安全凭据。 请勿将这些值告知任何人或随应用程序分发它们。 将“应用程序 ID”  与机密配合使用来配置 Microsoft 帐户身份验证。
    >
    >
 

@@ -11,11 +11,11 @@ origin.date: 08/25/2018
 ms.date: 10/15/2018
 ms.author: v-yiso
 ms.openlocfilehash: 42c2904fcb929c53ed8f5847fecb39b0f8f3d04c
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455147"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654431"
 ---
 # <a name="scenario-trigger-logic-apps-with-azure-functions-and-azure-service-bus"></a>方案：使用 Azure Functions 和 Azure 服务总线触发逻辑应用
 

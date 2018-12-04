@@ -17,11 +17,11 @@ origin.date: 06/27/2017
 ms.date: 07/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: 017f488b9ff6f072b8c599702db6c7f3b2fdf6cf
-ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39261877"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658374"
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Azure VM 上的 Ruby on Rails Web 应用程序
 本教程介绍如何在 Azure 中使用 Linux 虚拟机托管 Ruby on Rails 网站。  
@@ -138,8 +138,7 @@ ms.locfileid: "39261877"
 
 * [使用 Blob 存储非结构化数据][blobs]
 * [使用表存储键/值对][tables]
-* 
-  [使用内容分发网络提供高带宽内容][cdn-howto]
+* [使用内容分发网络提供高带宽内容][cdn-howto]
 
 <!-- WA.com links -->
 [blobs]:../../../storage/blobs/storage-ruby-how-to-use-blob-storage.md

@@ -15,15 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure-services
 origin.date: 03/14/2018
-ms.date: 05/07/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: fa5c599b898fa24df371c10ff8489ef5d7e85c09
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 5735efbd2bfda64bbb0ad5169c8a21622dbbfb65
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815509"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658873"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>使用 Azure CLI 通过虚拟网络服务终结点限制对 PaaS 资源的网络访问
 
@@ -40,7 +40,7 @@ ms.locfileid: "33815509"
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本快速入门要求运行 Azure CLI 2.0.28 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
+如果选择在本地安装并使用 CLI，本快速入门要求运行 Azure CLI 2.0.28 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
 
 ## <a name="create-a-virtual-network"></a>创建虚拟网络
 
@@ -335,7 +335,7 @@ az storage share list \
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果不再需要资源组及其包含的所有资源，可以使用 [az group delete](https://docs.azure.cn/zh-cn/cli/overview?view=azure-cli-latest#az-group-delete) 将其删除。
+如果不再需要资源组及其包含的所有资源，可以使用 [az group delete](https://docs.azure.cn/zh-cn/cli/index?view=azure-cli-latest#az-group-delete) 将其删除。
 
 ```azurecli 
 az group delete --name myResourceGroup --yes
@@ -346,5 +346,5 @@ az group delete --name myResourceGroup --yes
 在本文中，已为虚拟网络子网启用了服务终结点。 我们已了解，可为通过多个 Azure 服务部署的资源启用服务终结点。 我们创建了一个 Azure 存储帐户并将该存储帐户限制为仅可供某个虚拟网络子网中的资源进行网络访问。 若要详细了解服务终结点，请参阅[服务终结点概述](virtual-network-service-endpoints-overview.md)和[管理子网](virtual-network-manage-subnet.md)。
 
 如果帐户中有多个虚拟网络，可将两个虚拟网络连接到一起，使每个虚拟网络中的资源可以相互通信。 若要了解如何操作，请参阅[连接虚拟网络](tutorial-connect-virtual-networks-cli.md)。
-<!-- Update_Description: new articles on restrict network access to resources with CLI  -->
-<!--ms.date: 05/07/2018-->
+
+<!-- Update_Description: wording update  -->

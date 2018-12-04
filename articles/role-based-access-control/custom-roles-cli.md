@@ -16,11 +16,11 @@ ms.date: 07/24/2018
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.openlocfilehash: afee4dc7e59f349f0ab722a137a2f866bf21693e
-ms.sourcegitcommit: cce18df2de12353f0d8f01c649307a5789d59cd4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39246145"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655683"
 ---
 # <a name="create-custom-roles-using-azure-cli"></a>使用 Azure CLI 创建自定义角色
 

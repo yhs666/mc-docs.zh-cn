@@ -12,11 +12,11 @@ origin.date: 07/14/2018
 ms.date: 10/17/2018
 ms.author: v-junlch
 ms.openlocfilehash: 5bdb7f9702ce39fabd332cd53ee1f8020d90d797
-ms.sourcegitcommit: 4ead6b1d3527373b63c90680b6400a2e95b4064e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49374977"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654571"
 ---
 # <a name="create-an-application-gateway-with-a-virtual-machine-scale-set-using-the-azure-cli"></a>通过 Azure CLI 使用虚拟机规模集创建应用程序网关
 

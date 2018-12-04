@@ -16,11 +16,11 @@ origin.date: 05/10/2018
 ms.date: 09/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: 6a22108f1c0a693d93cfc8c5a354e1f2a981ae6e
-ms.sourcegitcommit: 432984d85afe6f3da8f211bae0fa98a556785ee8
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455389"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658037"
 ---
 # <a name="role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>使用网络观察程序功能所需的基于角色的访问控制权限
 

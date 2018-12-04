@@ -13,11 +13,11 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: v-yiso
 ms.openlocfilehash: ba10e377e8e27a54c8a5d3f2290dce2317ea1082
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20182274"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658600"
 ---
 #<a name="service-bus-documentation"></a>服务总线文档
 

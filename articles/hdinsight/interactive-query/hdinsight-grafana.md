@@ -11,11 +11,11 @@ ms.topic: conceptual
 origin.date: 05/17/2018
 ms.date: 10/22/2018
 ms.openlocfilehash: 8ea7168252ea4a409d0650e16979f750173db622
-ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121604"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656456"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>在 Azure HDInsight 中访问 Grafana
 

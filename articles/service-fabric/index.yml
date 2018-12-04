@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: e93db55c8418acf68ea0b729a8b6e0966b2ed42f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659756"
 documentType: LandingData
 title: Azure Service Fabric 文档
 metadata:
@@ -16,12 +22,6 @@ metadata:
   origin.date: 11/03/2017
   ms.date: 04/09/2018
   ms.author: v-yeche
-  ms.openlocfilehash: e93db55c8418acf68ea0b729a8b6e0966b2ed42f
-  ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
-  ms.translationtype: HT
-  ms.contentlocale: zh-CN
-  ms.lasthandoff: 07/06/2018
-  ms.locfileid: "37873515"
 abstract:
   description: Azure Service Fabric 是一种分布式系统平台，可借助它轻松打包、部署和管理可缩放且可靠的微服务和容器。 开发人员和管理员不仅可以避免复杂的基础结构问题，而且可以专注于实现可缩放、可靠且可管理的要求苛刻的任务关键型工作负荷。 参考我们的快速入门、教程和示例了解如何使用 Azure Service Fabric。
 sections:

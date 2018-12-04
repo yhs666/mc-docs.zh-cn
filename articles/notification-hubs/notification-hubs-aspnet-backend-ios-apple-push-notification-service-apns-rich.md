@@ -16,11 +16,11 @@ origin.date: 04/25/2018
 ms.date: 07/09/2018
 ms.author: v-junlch
 ms.openlocfilehash: adee9214d400c06c0302507f51dc7c799b1504f3
-ms.sourcegitcommit: e950fe5260c519e05f8c5bbf193a8ef733a6a2d2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37936342"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659524"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Azure 通知中心富推送
 ## <a name="overview"></a>概述
@@ -41,9 +41,9 @@ ms.locfileid: "37936342"
 
 ## <a name="webapi-project"></a>WebAPI 项目
 1. 在 Visual Studio 中，打开在[通知用户](notification-hubs-aspnet-backend-ios-apple-apns-notification.md)教程中创建的 AppBackend 项目。
-2. 获取用于通知用户的映像，并将其置于项目目录的 **img** 文件夹中。
+2. 获取想要用于通知用户的图像，并将其置于项目目录的 **img** 文件夹中。
 3. 单击“解决方案资源管理器”中的“显示所有文件”，右键单击该文件夹以“包括在项目中”。
-4. 通过选定的映像，将“属性”窗口中的“生成操作”更改为“嵌入的资源”。
+4. 通过选定的图像，将“属性”窗口中的“生成操作”更改为 **嵌入的资源**。
    
     ![][IOS2]
 5. 在 **Notifications.cs**中，添加以下 using 语句：
@@ -128,7 +128,7 @@ ms.locfileid: "37936342"
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 8. 现在，我们将此应用重新部署到 Azure 网站，以便可以从所有设备对其进行访问。 右键单击 AppBackend 项目，然后选择“发布”。
-9. 选择 Azure 网站作为发布目标。 使用 Azure 帐户登录，选择现有或新的网站，并记下“连接”选项卡中的目标 URL 属性。在本教程后面的部分中，会将此 URL 称为“后端终结点”。 单击“发布”。
+9. 选择 Azure 网站作为发布目标。 使用 Azure 帐户登录，选择现有或新的网站，并记下“连接”选项卡中的目标 URL 属性。在本教程后面的部分中，我们将此 URL 称为*后端终结点* 。 单击“发布”。
 
 ## <a name="modify-the-ios-project"></a>修改 iOS 项目
 已将应用后端修改为只发送通知的 *ID*，将更改 iOS 应用以处理该 ID，并从后端检索富消息。
@@ -145,7 +145,7 @@ ms.locfileid: "37936342"
 6. 单击情节提要中的“主页视图控制器”，并确保它将 homeViewController 作为其“自定义类”和标识检查器下方的“情节提要 ID”。
 7. 为图像视图控制器执行同样的操作，确保 **imageViewController**充当相应的内容。
 8. 然后，新建标题为 **imageViewController** 的视图控制器类来处理用户刚才创建的 UI。
-9. 在 **imageViewController.h** 中，将以下代码添加到控制器的接口声明中。 请务必按住 Ctrl 键并从情节提要图像视图拖动到这些属性中，以链接两者：
+9. 在 **imageViewController.h**中，将以下代码添加到控制器的接口声明中。 请务必按住 Ctrl 键并从情节提要图像视图拖动到这些属性中，以链接两者：
    
         @property (weak, nonatomic) IBOutlet UIImageView *myImage;
         @property (strong) UIImage* imagePayload;

@@ -17,11 +17,11 @@ origin.date: 11/18/2016
 ms.date: 05/07/2018
 ms.author: v-yiso
 ms.openlocfilehash: 4b0a573574f9b34803e36fe437ed8a8bdf3c299a
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121562"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655373"
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>在 Azure 计算模拟器中使用 Visual Studio 探查器来本地测试云服务的性能
 

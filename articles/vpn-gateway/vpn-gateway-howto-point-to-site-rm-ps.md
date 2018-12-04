@@ -17,11 +17,11 @@ origin.date: 02/12/2018
 ms.date: 06/13/2018
 ms.author: v-junlch
 ms.openlocfilehash: d7967099ae10e3bb03ba9092fc3161ec16908d59
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939940"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659135"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>使用本机 Azure 证书身份验证配置与 VNet 的点到站点连接：PowerShell
 
@@ -57,8 +57,7 @@ ms.locfileid: "38939940"
 - **子网名称：GatewaySubnet**<br>要使 VPN 网关正常工作，必须使用子网名称 GatewaySubnet。
   - **GatewaySubnet 地址范围：192.168.200.0/24** 
 - **VPN 客户端地址池：172.16.201.0/24**<br>使用此点到站点连接连接到 VNet 的 VPN 客户端接收来自 VPN 客户端地址池的 IP 地址。
-- 
-            **订阅：** 如果有多个订阅，请确保使用正确的订阅。
+- **订阅：** 如果有多个订阅，请确保使用正确的订阅。
 - **资源组：TestRG**
 - **位置：中国北部**
 - **DNS 服务器：要用于名称解析的 DNS 服务器的 IP 地址** 。 （可选）

@@ -17,11 +17,11 @@ origin.date: 06/15/2018
 ms.date: 07/10/2018
 ms.author: v-junlch
 ms.openlocfilehash: c7158748507201823216cf15ec4f1b6147cf1aaa
-ms.sourcegitcommit: a22129c95c9f877a04c6b5b428edf7f4e953fd97
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37937371"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654608"
 ---
 # <a name="community-suggested-third-party-vpn-or-firewall-device-settings-for-azure-vpn-gateway"></a>适用于 Azure VPN 网关的社区建议第三方 VPN 或防火墙设备设置
 

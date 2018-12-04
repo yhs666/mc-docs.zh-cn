@@ -17,11 +17,11 @@ origin.date: 01/23/2018
 ms.date: 06/04/2018
 ms.author: v-yeche
 ms.openlocfilehash: 6f132cca942440816f5137296b5ae44914a0c5e3
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702858"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654873"
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>在 Azure 虚拟机（经典）中对 SQL Server 进行自动备份
 > [!div class="op_single_selector"]

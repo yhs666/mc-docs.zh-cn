@@ -16,17 +16,17 @@ origin.date: 06/20/2017
 ms.date: 10/30/2017
 ms.author: v-johch
 ms.openlocfilehash: 3d0d775e20e6c4cffd73941ad10ba1c265839d22
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939371"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654412"
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>在 Azure 存储中需要安全传输
 
 “需要安全传输”选项通过仅允许来自安全连接的帐户请求，增强存储帐户安全性。 例如，在调用 REST API 访问存储帐户时，必须使用 HTTPS 进行连接。 “需要安全传输”拒绝使用 HTTP 的请求。
 
-使用 Azure 文件服务时，如果启用了“需要安全传输”，任何未加密的连接都会失败。 这包括使用 SMB 2.1、未加密的 SMB 3.0 以及某些版本的 Linux SMB 客户端的方案。 
+使用 Azure 文件服务时，如果启用了“需要安全传输”，任何未加密的连接都会失败。 这包括使用 SMB 2.1、未加密的 SMB 3.0 以及某些版本的 Linux SMB 客户端的方案。 
 
 默认情况下，将禁用“需要安全传输”选项。
 

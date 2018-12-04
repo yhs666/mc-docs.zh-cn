@@ -16,11 +16,11 @@ origin.date: 08/15/2018
 ms.date: 08/27/2018
 ms.author: v-junlch
 ms.openlocfilehash: 31d9f5fdf79839cee07df3ab55832cff9e0e3a66
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869479"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657838"
 ---
 # <a name="create-a-virtual-machine-and-install-a-certificate-retrieved-from-an-azure-stack-key-vault"></a>创建虚拟机，并安装从 Azure Stack 密钥保管库检索到的证书
 

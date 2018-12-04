@@ -30,7 +30,7 @@ items:
     href: cli-samples.md
   - name: Azure PowerShell
     href: powershell-samples.md
-  - name: 资源管理器模板
+  - name: Resource Manager 模板
     href: template-samples.md
   - name: Azure Policy 模板
     href: policy-samples.md
@@ -130,6 +130,15 @@ items:
           href: virtual-network-multiple-ip-addresses-powershell.md
         - name: Azure CLI
           href: virtual-network-multiple-ip-addresses-cli.md
+      - name: 创建 VM - 加速网络
+        items:
+        - name: Azure PowerShell
+          href: create-vm-accelerated-networking-powershell.md
+        - name: Azure CLI
+          href: create-vm-accelerated-networking-cli.md
+          items:
+          - name: 设置 DPDK
+            href: setup-dpdk.md
       - name: 虚拟机网络吞吐量
         href: virtual-machine-network-throughput.md
     - name: 连接方案
@@ -224,7 +233,7 @@ items:
       items:
       - name: Azure PowerShell
         href: virtual-networks-create-nsg-classic-ps.md
-      - name: Azure CLI 1.0
+      - name: Azure 经典 CLI
         href: virtual-networks-create-nsg-classic-cli.md
     - name: 创建路由表
       items:
@@ -296,11 +305,11 @@ items:
     href: https://www.azure.cn/pricing/details/networking/
   - name: 定价计算器
     href: https://www.azure.cn/pricing/calculator/
-  - name: 常见问题解答
+  - name: 常见问题
     href: virtual-networks-faq.md
-ms.openlocfilehash: 4c396e0044de05a139cc86aa8219a8e662f0e39e
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: ea84a68bd73e4741ece4511eeecbfcfa1039ecef
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515654"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655032"

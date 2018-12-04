@@ -18,11 +18,11 @@ ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: misainat
 ms.openlocfilehash: 334cde6d2e43f124cde1a1500230c559d33e7f3d
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195373"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656327"
 ---
 # <a name="what-is-the-azure-stack-development-kit"></a>什么是 Azure Stack 开发工具包？
 [Azure Stack 集成系统](../azure-stack-poc.md)的大小范围为 4 到 12 个节点，由硬件合作伙伴和 Microsoft 共同提供支持。 使用 Azure Stack 集成系统可为生产工作负荷启用新方案。 如果你是 Azure Stack 操作员，想要管理集成系统基础结构并提供服务，请参阅[操作员文档](/azure-stack)。

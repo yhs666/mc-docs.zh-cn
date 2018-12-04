@@ -17,11 +17,11 @@ ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: wamota
 ms.openlocfilehash: 8e5159c22fce2425569f463f648af08fe1669122
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848737"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658648"
 ---
 # <a name="about-deployment-network-traffic"></a>关于部署网络流量
 了解 Azure Stack 部署过程中的网络流量对确保成功部署是如何的重要。 本文详述了部署过程中的预期网络流量，方便用户了解预期会发生的情况。

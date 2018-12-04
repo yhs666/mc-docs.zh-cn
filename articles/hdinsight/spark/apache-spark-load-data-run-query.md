@@ -14,11 +14,11 @@ origin.date: 05/17/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
 ms.openlocfilehash: 40091b9b39c691a0549d736371d2ff1e4aeb99b6
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747500"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654647"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>教程：在 Azure HDInsight 中的 Apache Spark 群集上加载数据并运行查询
 

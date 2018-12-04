@@ -12,11 +12,11 @@ ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: 65e055c60e823ad4e6f56fe7a59fe08bb608cf9f
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49088966"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658644"
 ---
 # <a name="table-data-types-in-azure-sql-data-warehouse"></a>Azure SQL 数据仓库中的表数据类型
 有关在 Azure SQL 数据仓库中定义表数据类型的建议。 

@@ -17,11 +17,11 @@ origin.date: 03/15/2016
 ms.date: 07/23/2018
 ms.author: v-yeche
 ms.openlocfilehash: 74472dce32cfbd694472a096991808147cc348d3
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167730"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655508"
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>使用 Azure CLI 控制路由和使用虚拟设备（经典）
 
@@ -94,7 +94,7 @@ ms.locfileid: "39167730"
    * **-a（或 --address-prefix）**。 数据包的目标子网的地址前缀。 对于我们的方案，为 *192.168.2.0/24*。
    * **-t（或 --next-hop-type）**。 要发送的对象流量的类型。 可能的值为 *VirtualAppliance*、*VirtualNetworkGateway*、*VNETLocal*、*Internet* 或 *None*。
    * **-p（或 --next-hop-ip-address**）。 下一个跃点的 IP 地址。 对于我们的方案，为 *192.168.0.4*。
-4. 运行以下命令将已创建的路由表与 **FrontEnd** 子网关联：
+4. 运行以下命令，将创建的路由表与 **FrontEnd** 子网关联：
 
     ```azurecli
     azure network vnet subnet route-table add -t TestVNet -n FrontEnd -r UDR-FrontEnd

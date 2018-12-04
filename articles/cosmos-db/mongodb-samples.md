@@ -14,11 +14,11 @@ origin.date: 03/23/2018
 ms.date: 08/13/2018
 ms.author: v-yeche
 ms.openlocfilehash: b158db7b03afd84fd089ffa0fad2b1a627e35017
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41704782"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656450"
 ---
 # <a name="build-an-azure-cosmos-db-api-for-mongodb-app-using-nodejs"></a>使用 Node.js 生成 Azure Cosmos DB: API for MongoDB 应用
 > [!div class="op_single_selector"]

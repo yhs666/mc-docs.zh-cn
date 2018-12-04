@@ -17,11 +17,11 @@ origin.date: 08/14/2018
 ms.date: 08/27/2018
 ms.author: v-yeche
 ms.openlocfilehash: 26aa8fadd542f41549616e89e90c24af39e1bcf9
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871578"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656983"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>在 Linux 虚拟机上使用 Azure 自定义脚本扩展版本 1
 

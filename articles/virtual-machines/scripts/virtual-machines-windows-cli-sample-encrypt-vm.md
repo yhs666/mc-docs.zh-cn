@@ -17,11 +17,11 @@ origin.date: 12/15/2017
 ms.date: 07/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: 86e60c57fce2784faa983fdd18a069ddffcb5409
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295788"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655209"
 ---
 # <a name="encrypt-a-windows-virtual-machine-in-azure"></a>在 Azure 中加密 Windows 虚拟机
 

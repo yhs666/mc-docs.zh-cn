@@ -12,11 +12,11 @@ origin.date: 09/10/2018
 ms.date: 09/21/2018
 ms.author: v-junlch
 ms.openlocfilehash: 96e622debd9848b09066073bb639266bfaf073a2
-ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46524062"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657370"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>从包文件运行 Azure Functions
 

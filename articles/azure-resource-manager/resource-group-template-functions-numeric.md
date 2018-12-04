@@ -16,11 +16,11 @@ origin.date: 11/08/2017
 ms.date: 11/27/2017
 ms.author: v-yeche
 ms.openlocfilehash: 1dcf30f1b99d76a7773735b754405be20352078e
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867487"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654795"
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的数值函数
 
@@ -92,7 +92,7 @@ Resource Manager 提供以下用于处理整数的函数：
 
 上述示例中使用默认值的输出为：
 
-| Name | Type | 值 |
+| Name | 类型 | 值 |
 | ---- | ---- | ----- |
 | addResult | int | 8 |
 
@@ -209,7 +209,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述示例中使用默认值的输出为：
 
-| Name | Type | 值 |
+| Name | 类型 | 值 |
 | ---- | ---- | ----- |
 | divResult | int | 2 |
 
@@ -303,7 +303,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述示例中使用默认值的输出为：
 
-| Name | Type | 值 |
+| Name | 类型 | 值 |
 | ---- | ---- | ----- |
 | intResult | int | 4 |
 
@@ -366,7 +366,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述示例中使用默认值的输出为：
 
-| Name | Type | 值 |
+| Name | 类型 | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | int | 5 |
 | intOutput | int | 5 |
@@ -430,7 +430,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述示例中使用默认值的输出为：
 
-| Name | Type | 值 |
+| Name | 类型 | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | int | 0 |
 | intOutput | int | 0 |
@@ -501,7 +501,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述示例中使用默认值的输出为：
 
-| Name | Type | 值 |
+| Name | 类型 | 值 |
 | ---- | ---- | ----- |
 | modResult | int | 1 |
 
@@ -572,7 +572,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述示例中使用默认值的输出为：
 
-| Name | Type | 值 |
+| Name | 类型 | 值 |
 | ---- | ---- | ----- |
 | mulResult | int | 15 |
 
@@ -642,7 +642,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述示例中使用默认值的输出为：
 
-| Name | Type | 值 |
+| Name | 类型 | 值 |
 | ---- | ---- | ----- |
 | subResult | int | 4 |
 

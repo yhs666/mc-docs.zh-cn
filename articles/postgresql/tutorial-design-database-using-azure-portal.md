@@ -11,12 +11,12 @@ ms.custom: tutorial, mvc
 ms.topic: tutorial
 origin.date: 03/20/2018
 ms.date: 10/29/2018
-ms.openlocfilehash: 930ba191f34caef8cb32fead57358a696111a3f9
-ms.sourcegitcommit: 1934f3a6db96e9e069f10bfc0ca47dedb1b25c8f
+ms.openlocfilehash: 2a0197daaffc37cd49aa3241363c71b568c3bca9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652575"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657947"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>教程：使用 Azure 门户设计 Azure Database for PostgreSQL
 
@@ -61,7 +61,7 @@ ms.locfileid: "49652575"
    > [!IMPORTANT]
    > 此处指定的服务器管理员登录名和密码是以后在本教程中登录到服务器及其数据库所必需的。 请牢记或记录此信息，以后会使用到它。
 
-4.  单击“定价层”以指定新服务器的定价层。 对于本教程，请选择“常规用途”、“第 5 代”计算代，2 个 **vCore**、5 GB 的**存储**和 7 天的**备份保留期**。 选择“异地冗余”备份冗余选项，以便将服务器的自动备份存储到异地冗余存储中。
+4.  单击“定价层”以指定新服务器的定价层。 对于本教程，请选择“常规用途”、“第 4 代”计算代，2 个 **vCore**、5 GB 的**存储**和 7 天的**备份保留期**。 选择“异地冗余”备份冗余选项，以便将服务器的自动备份存储到异地冗余存储中。
  ![Azure Database for PostgreSQL - 选取定价层](./media/tutorial-design-database-using-azure-portal/2-pricing-tier.png)
 
 5.  单击“确定” 。

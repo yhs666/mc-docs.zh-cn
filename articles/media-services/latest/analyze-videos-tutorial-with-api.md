@@ -14,11 +14,11 @@ origin.date: 04/09/2018
 ms.date: 06/25/2018
 ms.author: v-nany
 ms.openlocfilehash: 16dec461fdee8808a8f3f0227e8e6c9605072b22
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800476"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654573"
 ---
 # <a name="tutorial-analyze-videos-with-azure-media-services"></a>教程：使用 Azure 媒体服务分析视频 
 
@@ -31,7 +31,7 @@ ms.locfileid: "37800476"
 > * 访问媒体服务 API
 > * 配置示例应用
 > * 检查用于分析指定视频的代码
-> * 运行应用程序
+> * 运行应用
 > * 检查输出
 > * 清理资源
 

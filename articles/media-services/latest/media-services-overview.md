@@ -18,11 +18,11 @@ ms.date: 06/25/2018
 ms.author: v-nany
 ms.custom: mvc
 ms.openlocfilehash: 630a379eeae433d838be4b49df452ef84c9650ca
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748359"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654842"
 ---
 # <a name="what-is-azure-media-services-v3"></a>什么是 Azure 媒体服务 v3？
 

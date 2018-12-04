@@ -10,11 +10,11 @@ ms.date: 07/10/2018
 ms.author: v-junlch
 ms.custom: include file
 ms.openlocfilehash: 60d89e2ee8fea19e6372638e940f3125d3b64602
-ms.sourcegitcommit: a22129c95c9f877a04c6b5b428edf7f4e953fd97
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37937393"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657083"
 ---
 ### <a name="retrieve-host-name-ports-and-access-keys-by-using-the-azure-portal"></a>使用 Azure 门户检索主机名、端口和访问密钥
 

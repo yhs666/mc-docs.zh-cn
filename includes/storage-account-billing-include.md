@@ -10,11 +10,11 @@ ms.date: 09/24/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: b722af62cb383e7a58b73faa8d94550e1b816bd9
-ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523740"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659509"
 ---
 我们会根据存储帐户使用情况，对 Azure 存储计费。 存储帐户中的所有对象会作为组共同计费。 
 

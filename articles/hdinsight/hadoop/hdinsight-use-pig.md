@@ -18,11 +18,11 @@ origin.date: 04/23/2018
 ms.date: 08/27/2018
 ms.author: v-yiso
 ms.openlocfilehash: 9bb2fd3d9e7e0d013a15dd5fc6a86a316d0208c4
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41705339"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659627"
 ---
 # <a name="use-pig-with-hadoop-on-hdinsight"></a>将 Pig 与 HDInsight 上的 Hadoop 配合使用
 
@@ -30,7 +30,7 @@ ms.locfileid: "41705339"
 
 Pig 是一个平台，可以使用名为 *Pig Latin* 的过程语言为 Hadoop 创建程序。 Pig 可以替代 Java 来创建 *MapReduce* 解决方案，它已包括在 Azure HDInsight 中。 使用下表可以找出将 Pig 与 HDInsight 配合使用的各种方法：
 
-| **使用此方法** ，如果想要... | ... **交互式** shell | ...**批处理** | ...使用此 **群集操作系统** | ...从此 **客户端操作系统** |
+| **使用此方法**，如果想要... | ... **交互式** shell | ...**批处理** | ...使用此 **群集操作系统** | ...从此 **客户端操作系统** |
 |:--- |:---:|:---:|:--- |:--- |
 | [SSH](apache-hadoop-use-pig-ssh.md) |✔ |✔ |Linux |Linux、Unix、Mac OS X 或 Windows |
 | [REST API](apache-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux 或 Windows |Linux、Unix、Mac OS X 或 Windows |
@@ -77,7 +77,7 @@ HDInsight 提供各种示例数据集，它们存储在 `/example/data` 和 `/Hd
 在前面的示例中，日志级别为 ERROR。
 
 > [!NOTE]
-> 还可以使用 [Apache Log4j](http://en.wikipedia.org/wiki/Log4j) 日志记录工具来生成 log4j 文件，然后将该文件上传到 Blob。 请参阅[将数据上传到 HDInsight](../hdinsight-upload-data.md) 以获取相关说明。 有关如何将 Azure 存储中的 Blob 与 HDInsight 配合使用的详细信息，请参阅[将 Azure Blob 存储与 HDInsight 配合使用](../hdinsight-hadoop-use-blob-storage.md)。
+> 还可以使用 [Apache Log4j](http://en.wikipedia.org/wiki/Log4j) 日志记录工具来生成 log4j 文件，并将该文件上传到 Blob。 请参阅[将数据上传到 HDInsight](../hdinsight-upload-data.md) 以获取相关说明。 有关如何将 Azure 存储中的 Blob 用于 HDInsight 的详细信息，请参阅[将 Azure Blob 存储与 HDInsight 配合使用](../hdinsight-hadoop-use-blob-storage.md)。
 
 ## <a id="job"></a>示例作业
 

@@ -16,11 +16,11 @@ origin.date: 08/09/2018
 ms.date: 08/27/2018
 ms.author: v-yeche
 ms.openlocfilehash: f623385fa47e09f760f8d50c9a03d96e773064c7
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872448"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656819"
 ---
 # <a name="virtual-machines-lifecycle-and-states"></a>虚拟机生命周期和状态
 

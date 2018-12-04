@@ -16,11 +16,11 @@ origin.date: 02/22/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
 ms.openlocfilehash: 6a8faf0262eeedfff246698cdbe4e9a3149775e3
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103075"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657773"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>对 Azure 存储服务的跨域资源共享 (CORS) 支持
 从版本 2013-08-15 开始，Azure 存储服务支持 Blob、表、队列和文件服务的跨域资源共享 (CORS)。 CORS 是一项 HTTP 功能，使在一个域中运行的 Web 应用程序能够访问另一个域中的资源。 Web 浏览器实施一种称为[同源策略](http://www.w3.org/Security/wiki/Same_Origin_Policy)的安全限制，防止网页调用不同域中的 API；CORS 提供了一种安全的方法，允许一个域（源域）调用其他域中的 API。 有关 CORS 的详细信息，请参阅 [CORS 规范](http://www.w3.org/TR/cors/)。
@@ -88,7 +88,7 @@ Azure 存储服务支持为 **AllowedHeaders** 和 **ExposedHeaders** 两个元�
 * 允许的标头、公开的标头或允许的源的长度不应超过 256 个字符。
 * 允许的标头和公开的标头可能是：
   * 文本标头，其中提供了准确的标头名称，如 **x-ms-meta-processed**。 最多可在请求中指定 64 个文本标头。
-  * 带前缀的标头，其中提供了标头的前缀，如 **x-ms-meta-data***。 以此方式指定前缀将允许或公开以给定前缀开头的所有标头。 最多可在请求中指定 2 个带前缀的标头。
+  * 带前缀的标头，其中提供了标头的前缀，如 **x-ms-meta-data**\*。 以此方式指定前缀将允许或公开以给定前缀开头的所有标头。 最多可在请求中指定 2 个带前缀的标头。
 * 在 **AllowedMethods** 元素中指定的方法（或 HTTP 谓词）必须与 Azure 存储服务 API 支持的方法一致。 支持的方法为 DELETE、GET、HEAD、MERGE、POST、OPTIONS 和 PUT。
 
 ## <a name="understanding-cors-rule-evaluation-logic"></a>了解 CORS 规则的评估逻辑

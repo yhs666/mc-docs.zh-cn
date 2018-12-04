@@ -16,11 +16,11 @@ origin.date: 08/15/2018
 ms.date: 08/27/2018
 ms.author: v-junlch
 ms.openlocfilehash: 00c4341dd31a600640b9ab239c248868cc27230a
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869346"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655214"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-powershell"></a>使用 PowerShell 管理 Azure Stack 中的 Key Vault
 

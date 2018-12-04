@@ -10,11 +10,11 @@ ms.date: 09/10/2018
 ms.author: v-jay
 ms.custom: include file
 ms.openlocfilehash: e7305a5b34454600163bdf4f5781a604970bc032
-ms.sourcegitcommit: 3ec1b0705c8305fc4561b9511c275edb9baa1f59
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49316015"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659957"
 ---
 寄送磁盘后，请返回到 Azure 门户中的“导入/导出”页面。 
 

@@ -19,11 +19,11 @@ ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: 4fae4164b022bbda5dcfbd38b28a2c69e5bbfb7a
-ms.sourcegitcommit: 562cde32fc2271238f3d1ef5d2cc5ed037bdec2d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43531651"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658834"
 ---
 # <a name="azure-ad-token-reference"></a>Azure AD 令牌参考
 Azure Active Directory (Azure AD) 在处理每个身份验证流时会发出多种类型的安全令牌。 本文档说明每种令牌的格式、安全特征和内容。 

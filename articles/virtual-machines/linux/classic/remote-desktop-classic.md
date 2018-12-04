@@ -18,11 +18,11 @@ origin.date: 05/30/2017
 ms.date: 07/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: c66216407783fb369e37a59dcc6e893bb51dcad6
-ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39261933"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659187"
 ---
 # <a name="using-remote-desktop-to-connect-to-a-azure-linux-vm"></a>使用远程桌面连接到 Azure Linux VM
 > [!IMPORTANT] 

@@ -17,11 +17,11 @@ origin.date: 03/15/2016
 ms.date: 06/11/2018
 ms.author: v-yeche
 ms.openlocfilehash: c695d412ac3aba50c79c2d9670dcbab921ff9016
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940184"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658036"
 ---
 # <a name="create-a-virtual-network-classic-by-using-the-azure-portal"></a>使用 Azure 门户创建虚拟网络（经典）
 [!INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]

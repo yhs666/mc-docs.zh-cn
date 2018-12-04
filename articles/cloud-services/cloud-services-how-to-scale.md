@@ -15,11 +15,11 @@ origin.date: 05/18/2017
 ms.author: v-yiso
 ms.date: 09/11/2017
 ms.openlocfilehash: de45fd45d84dadd95d1f8354c66e58074b4e20f7
-ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/01/2017
-ms.locfileid: "21944662"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656503"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-classic-portal"></a>如何在经典门户中为云服务配置自动缩放
 

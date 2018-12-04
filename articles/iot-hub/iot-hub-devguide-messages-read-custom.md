@@ -15,11 +15,11 @@ origin.date: 04/09/2018
 ms.author: v-yiso
 ms.date: 10/29/2018
 ms.openlocfilehash: 96b79db44f914d72a4e80ee13e26f9c19efe7e3f
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453783"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655363"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>对设备到云的消息使用消息路由和自定义终结点
 

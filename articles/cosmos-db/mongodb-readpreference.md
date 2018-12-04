@@ -13,11 +13,11 @@ origin.date: 02/26/2018
 ms.date: 11/05/2018
 ms.author: v-yeche
 ms.openlocfilehash: 2fcce59c7f8e199196b9be443b3aea3ee6bb2d7f
-ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50204807"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656657"
 ---
 # <a name="how-to-multiple-region-distribute-reads-using-read-preference-with-the-azure-cosmos-db-mongodb-api"></a>如何在 Azure Cosmos DB MongoDB API 中使用读取首选项在多个区域分配读取操作 
 

@@ -16,11 +16,11 @@ origin.date: 12/07/2017
 ms.date: 12/25/2017
 ms.author: v-nany
 ms.openlocfilehash: 87fcf587c832274c3c5a9ffa25a1702a6b3fe094
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219665"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654595"
 ---
 # <a name="creating-filters-with-azure-media-services-net-sdk"></a>使用 Azure 媒体服务 .NET SDK 创建筛选器
 > [!div class="op_single_selector"]

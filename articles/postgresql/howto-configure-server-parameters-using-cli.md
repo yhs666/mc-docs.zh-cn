@@ -12,11 +12,11 @@ ms.topic: article
 origin.date: 02/28/2018
 ms.date: 08/13/2018
 ms.openlocfilehash: 2bdd6a2ed4c7d4243afba8b9c6395389e5a1054e
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722930"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654794"
 ---
 # <a name="customize-server-configuration-parameters-using-azure-cli"></a>使用 Azure CLI 自定义服务器配置参数
 可以使用命令行接口 (Azure CLI) 列出、显示和更新 Azure PostgreSQL 服务器的配置参数。 会在服务器级别公开引擎配置的一个子集，并且可以进行修改。 

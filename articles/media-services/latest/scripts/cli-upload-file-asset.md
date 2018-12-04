@@ -16,11 +16,11 @@ origin.date: 05/11/2018
 ms.date: 05/28/2018
 ms.author: v-nany
 ms.openlocfilehash: 0554dcb3ad59b863904cfc62a25236282fca80f6
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405231"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657573"
 ---
 # <a name="cli-example-upload-a-local-file-to-a-container"></a>CLI 示例：将本地文件上传到容器 
 

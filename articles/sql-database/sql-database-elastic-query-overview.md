@@ -11,11 +11,11 @@ origin.date: 09/14/2018
 ms.date: 10/15/2018
 ms.author: v-jay
 ms.openlocfilehash: ff9811b75bb27078efdf94b0395b7018f483ddda
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913871"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656583"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL 数据库弹性查询概述（预览版）
 

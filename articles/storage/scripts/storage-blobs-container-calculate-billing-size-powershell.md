@@ -17,11 +17,11 @@ origin.date: 11/07/2017
 ms.date: 12/04/2017
 ms.author: v-nany
 ms.openlocfilehash: a911f4917bb61d4e50d2df801f1ac0cd4640d38b
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295829"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659726"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>计算要计费的 Blob 容器总大小
 
@@ -38,7 +38,7 @@ ms.locfileid: "39295829"
 
 Blob 容器的总大小包括容器自身大小，以及容器内所有 blob 的大小。
 
-下述部分介绍 Blob 容器和 blob 的存储容量计算方法。 在下一部分中，Len(X) 表示字符串中的字符数。
+下述部分介绍 Blob 容器和 blob 的存储容量计算方法。 在下一部分中，Len(X) 表示字符串中的字符数。
 
 ### <a name="blob-containers"></a>Blob 容器
 

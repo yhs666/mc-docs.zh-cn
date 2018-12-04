@@ -17,11 +17,11 @@ origin.date: 03/25/2018
 ms.date: 06/13/2018
 ms.author: v-junlch
 ms.openlocfilehash: 47253411e05118b40251034a35ae6511902c8dd3
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568493"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657269"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>针对虚拟网络对等互连配置 VPN 网关传输
 

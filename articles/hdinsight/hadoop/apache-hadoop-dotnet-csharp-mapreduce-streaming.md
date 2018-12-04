@@ -16,11 +16,11 @@ origin.date: 02/27/2018
 ms.date: 05/21/2018
 ms.author: v-yiso
 ms.openlocfilehash: 7d0d21fabed38a2cde00d647010fb207a15b93be
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940006"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655252"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a>在 HDInsight 中的 Hadoop 上将 C# 与 MapReduce 流式处理配合使用
 
@@ -177,7 +177,7 @@ namespace reducer
 
 ## <a name="run-a-job-using-an-ssh-session"></a>运行作业：使用 SSH 会话
 
-1. 使用 SSH 连接到 HDInsight 群集。 有关详细信息，请参阅 [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
+1. 使用 SSH 连接到 HDInsight 群集。 有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 2. 使用以下命令之一启动 MapReduce 作业：
 

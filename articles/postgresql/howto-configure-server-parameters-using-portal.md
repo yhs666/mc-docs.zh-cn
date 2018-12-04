@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.topic: article
 ms.date: 08/22/2018
 ms.openlocfilehash: a42f7f18dd3232e4e83355e5377b40a2c5649947
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723023"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659166"
 ---
 # <a name="configure-server-parameters-in-azure-portal"></a>在 Azure 门户中配置服务器参数
 可以通过 Azure 门户列出、显示和更新 Azure Database for PostgreSQL 的配置参数。

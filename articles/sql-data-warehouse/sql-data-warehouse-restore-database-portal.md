@@ -8,15 +8,15 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 origin.date: 04/17/2018
-ms.date: 10/15/2018
+ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 6be11f518a1cb5ec803f712c52a520c1e4f54632
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.openlocfilehash: 4d302c32483d533e88eb7d1a067392e6d4f32407
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49088964"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658607"
 ---
 # <a name="restore-azure-sql-data-warehouse-portal"></a>还原 Azure SQL 数据仓库（门户）
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "49088964"
 本文介绍如何使用 Azure 门户还原 Azure SQL 数据仓库。
 
 ## <a name="before-you-begin"></a>准备阶段
-**验证 DTU 容量。** 每个 SQL 数据仓库实例都由一个具有默认数据吞吐量单位 (DTU) 配额的 SQL 服务器（例如 myserver.database.chinacloudapi.cn）托管。 在还原 SQL 数据仓库之前，请验证 SQL Server 的剩余 DTU 配额是否足够进行数据库还原。 若要了解如何计算所需 DTU 配额或请求更多的 DTU，请参阅[请求 DTU 配额更改][请求 DTU 配额更改]。
+**验证 DTU 容量。** 每个 SQL 数据仓库实例都由一个具有默认数据吞吐量单位 (DTU) 配额的 SQL 服务器（例如 myserver.database.chinacloudapi.cn）托管。 在还原 SQL 数据仓库之前，请验证 SQL Server 的剩余 DTU 配额是否足够进行数据库还原。
 <!-- Not Available [Request a DTU quota change][Request a DTU quota change] -->
 
 ## <a name="restore-an-active-or-paused-database"></a>还原活动或暂停的数据库

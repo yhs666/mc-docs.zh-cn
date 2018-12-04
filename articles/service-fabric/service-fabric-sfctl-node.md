@@ -16,11 +16,11 @@ origin.date: 07/31/2018
 ms.date: 09/10/2018
 ms.author: v-yeche
 ms.openlocfilehash: 0e5ea9d9d9cdd73c12a79de3b1d71ed4cdfc0fe6
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515735"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656292"
 ---
 # <a name="sfctl-node"></a>sfctl node
 管理构成群集的节点。
@@ -140,7 +140,7 @@ ms.locfileid: "44515735"
 
 |参数|说明|
 | --- | --- |
-| --continuation-token | 继续标记参数用于获取下一组结果。 如果单个响应无法容纳来自系统的结果，则 API 响应中包括含有非空值的继续标记。 当此值传递到下一个 API 调用时，API 返回下一组结果。 如果没有更多结果，则该继续标记不包含值。 不应将此参数的值进行 URL 编码。 |
+| --continuation-token | 继续标记参数用于获取下一组结果。 如果单个响应无法容纳来自系统的结果，则 API 响应中包括含有非空值的继续标记。 当此值传递到下一个 API 调用时，API 返回下一组结果。 如果没有更多结果，则继续标记不包含值。 不应将此参数的值进行 URL 编码。 |
 | --max-results | 作为分页查询的一部分返回的最大结果数。 此参数定义返回结果数的上限。 如果根据配置中定义的最大消息大小限制，无法将这些结果容纳到消息中，则返回的结果数可能小于指定的最大结果数。 如果此参数为零或者未指定，则分页查询包含返回消息中最多可容纳的结果数。 |
 | --node-status-filter | 用于根据 NodeStatus 筛选节点。 仅返回与指定的筛选器值匹配的节点。 筛选器值可以是下列项之一。  默认值\: default。 |
 | --timeout -t | 服务器超时，以秒为单位。  默认值\: 60。 |

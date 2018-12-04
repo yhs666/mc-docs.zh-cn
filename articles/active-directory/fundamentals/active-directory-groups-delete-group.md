@@ -14,11 +14,11 @@ ms.author: v-junlch
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.openlocfilehash: 20cb9adda4886c0a40fc4bfa8289fc663778213b
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48914092"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657326"
 ---
 # <a name="how-to-delete-a-group-using-azure-active-directory"></a>如何：使用 Azure Active Directory 删除组
 可以出于多种原因删除组，但通常是因为：
@@ -32,7 +32,7 @@ ms.locfileid: "48914092"
 ## <a name="to-delete-a-group"></a>删除组
 1. 使用目录的全局管理员帐户登录到 [Azure 门户](https://portal.azure.cn)。
 
-2. 依次选择“Azure Active Directory”、“组”。
+2. 选择“Azure Active Directory”，然后选择“组”。
 
 3. 在“组 - 所有组”页中，搜索并选择要删除的组。 对于这些步骤，我们将使用“MDM 策略 - 东部”。
 

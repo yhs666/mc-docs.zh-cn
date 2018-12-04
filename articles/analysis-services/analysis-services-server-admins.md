@@ -10,11 +10,11 @@ ms.date: 09/24/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
 ms.openlocfilehash: f700bf837543fd811e7a0b16eb50a7292055bcc4
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527050"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658449"
 ---
 # <a name="manage-server-administrators"></a>管理服务器管理员
 

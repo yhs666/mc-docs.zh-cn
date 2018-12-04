@@ -13,11 +13,11 @@ ms.date: 09/21/2018
 ms.author: v-junlch
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 88bd60a77e6ac1de95f5784160f084f749447a40
-ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46524037"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654609"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>如何在 Azure 门户中管理 Function App 
 

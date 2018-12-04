@@ -6,11 +6,11 @@ origin.date: 08/09/2018
 ms.date: 10/29/2018
 ms.author: v-yeche
 ms.openlocfilehash: 0fa576ccf289a8b61d227d9ed80d69f9a0d12771
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035087"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656647"
 ---
 <!--Verify successfully-->
 1. 在 Azure 本地 Shell 中，创建名为 `rg.yml` 的文件。

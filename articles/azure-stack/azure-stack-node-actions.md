@@ -16,11 +16,11 @@ ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: ppacent
 ms.openlocfilehash: 73f46eb608f574f2d1d1e583e3428976483a4fa8
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869443"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657630"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure Stack 中的缩放单元节点操作
 

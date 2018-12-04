@@ -10,11 +10,11 @@ ms.date: 04/23/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: 56e0145f7d0819d8c3bdeb69a0c149fc3288d5f5
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940250"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658273"
 ---
 现在可以在 Azure 门户中使用数据资源管理器工具来创建数据库和集合。 
 

@@ -15,11 +15,11 @@ author: ''
 ms.author: adegeo
 manager: timlt
 ms.openlocfilehash: 7ee8dd342f4297619f424cb677306c4ad34e39d6
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873585"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654545"
 ---
 # <a name="azure-cloud-services-config-role-schema"></a>Azure 云服务配置角色架构
 

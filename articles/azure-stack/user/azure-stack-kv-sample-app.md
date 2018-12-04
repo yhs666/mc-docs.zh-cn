@@ -16,11 +16,11 @@ origin.date: 08/15/2018
 ms.date: 08/27/2018
 ms.author: v-junlch
 ms.openlocfilehash: fdad0fe624a1bd164ec1d0192506d1b9a4dc5f54
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869366"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656458"
 ---
 # <a name="a-sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>使用密钥保管库中存储的密钥和机密的示例应用程序
 

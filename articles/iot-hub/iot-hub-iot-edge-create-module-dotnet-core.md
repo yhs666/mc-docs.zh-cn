@@ -14,11 +14,11 @@ origin.date: 06/28/2017
 ms.author: jcline
 ms.date: 08/07/2017
 ms.openlocfilehash: c7d5a93a0ac88a0ab00c880b1eee3935060d256d
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
-ms.locfileid: "20634601"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656329"
 ---
 # <a name="create-an-azure-iot-edge-module-with-cx23"></a>使用 C&#x23; 创建 Azure IoT Edge 模块
 

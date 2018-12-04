@@ -12,11 +12,11 @@ ms.service: multiple
 ms.custom: accessibility
 manager: timlt
 ms.openlocfilehash: 8b7bb7c97d360559529f9e000c3c094c3bb85be3
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
-ms.locfileid: "22339062"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656614"
 ---
 # <a name="turn-on-high-contrast-or-change-the-theme-in-the-azure-portal"></a>在 Azure 门户中启用高对比度或更改主题
 如果需要更高的对比度，或者想要在 Azure 门户中更改配色方案，请转到门户设置进行更改。 

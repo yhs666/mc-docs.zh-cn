@@ -16,11 +16,11 @@ origin.date: 06/18/2018
 ms.date: 10/15/2018
 ms.author: v-yeche
 ms.openlocfilehash: 7b44b646cd2e9e191cc1b93715b8484608221069
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089223"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656828"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>在 Linux 上创建第一个 Java Service Fabric Reliable Actors 应用程序
 > [!div class="op_single_selector"]

@@ -16,11 +16,11 @@ origin.date: 09/12/2018
 ms.date: 10/15/2018
 ms.author: v-jay
 ms.openlocfilehash: 18c940ad98b86df37c54394155fd39c4cd9dfdf5
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848910"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655463"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>将应用服务资源提供程序添加到受 AD FS 保护且已断开连接的 Azure Stack 环境
 

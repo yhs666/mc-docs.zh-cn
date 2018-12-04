@@ -12,11 +12,11 @@ ms.date: 10/15/2018
 ms.author: twounder
 ms.reviewer: twounder
 ms.openlocfilehash: 897129b75375068496b0b0febe9827f8b572c517
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089164"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658610"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>Azure SQL 数据仓库中的新增功能 2018 年 6 月
 Azure SQL 数据仓库持续得到改进。 本文介绍了 2018 年 6 月发行的版本中所引入的新功能和所做的更改。 

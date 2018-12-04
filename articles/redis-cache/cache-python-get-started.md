@@ -17,11 +17,11 @@ ms.date: 07/10/2018
 ms.author: v-junlch
 ms.custom: mvc
 ms.openlocfilehash: 21f187472133884df176826b74d28be68bea14b7
-ms.sourcegitcommit: a22129c95c9f877a04c6b5b428edf7f4e953fd97
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37937330"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659015"
 ---
 # <a name="quickstart-use-azure-redis-cache-with-python"></a>快速入门：将 Azure Redis 缓存与 Python 配合使用
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/02/2016
 ms.author: v-yiso
 ms.openlocfilehash: aceacfc37ae878578d4b9ee5c251fc6486674f71
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20181540"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656490"
 ---
 # <a name="use-emulator-express-to-debug-cloud-services-application-in-vs-2017"></a>在 VS 2017 中使用 Emulator Express 调试云服务应用程序
 本文介绍如何在 VS 2017 中使用 Emulator Express 调试云服务应用程序。
@@ -31,7 +31,7 @@ ms.locfileid: "20181540"
 
 ![默认选择 Emulator Express][1]
 
-Emulator Express 要求提供 [Visual C++ Redistributable][Visual C++ Redistributable] for Visual Studio。 它当前不随 Azure 工作负荷安装。 使用 F5 手势调试云服务应用程序时，Visual Studio 会提示安装此组件，然后继续执行调试。
+Emulator Express 要求提供 [Visual C++ Redistributable][Visual C++ Redistributable] for Visual Studio。 它当前不随 Azure 工作负荷安装。 使用 F5 手势调试云服务应用程序时，Visual Studio 会提示安装此组件，并继续调试。
 
 ![提示安装 C++ Redistributable][2]
 

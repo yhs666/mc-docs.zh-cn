@@ -13,11 +13,11 @@ ms.author: v-jay
 ms.reviewer: ''
 ms.custom: mvc
 ms.openlocfilehash: d0dcd6cb1aa654335e9d403f678a56ae6a0aec4f
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848846"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655458"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>快速入门：使用 Azure Stack 门户创建 Linux 服务器虚拟机
 

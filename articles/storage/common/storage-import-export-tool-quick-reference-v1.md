@@ -16,11 +16,11 @@ origin.date: 01/15/2017
 ms.date: 10/16/2017
 ms.author: v-johch
 ms.openlocfilehash: 834bef0973c76584e34ce51844616a6e28651fb7
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295804"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656339"
 ---
 # <a name="quick-reference-for-frequently-used-commands-for-import-jobs"></a>导入作业的常用命令快速参考
 本部分提供一些常用命令的快速参考。 有关详细用法，请参阅[为导入作业准备硬盘驱动器](../storage-import-export-tool-preparing-hard-drives-import-v1.md)。  

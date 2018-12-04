@@ -17,11 +17,11 @@ origin.date: 05/11/2018
 ms.date: 10/08/2018
 ms.author: v-yiso
 ms.openlocfilehash: b22213c4b832ea2f5514430203388791a4f6534d
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523919"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657040"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>针对 Azure 中 Web 应用的开源技术常见问题的解答
 

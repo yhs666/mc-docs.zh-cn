@@ -16,11 +16,11 @@ origin.date: 05/11/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
 ms.openlocfilehash: f752057b600570b4e00288ca4b3f0b0b368b2789
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295766"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658266"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-azure-storage"></a>Azure 存储的使用 Java 的客户端加密和 Azure 密钥保管库
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]

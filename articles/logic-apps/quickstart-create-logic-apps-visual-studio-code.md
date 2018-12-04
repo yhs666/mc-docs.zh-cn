@@ -12,11 +12,11 @@ ms.suite: integration
 origin.date: 10/05/2018
 ms.date: 11/12/2018
 ms.openlocfilehash: adc74922994a06756c3ea562c66e9b5a75845db6
-ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50919184"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655604"
 ---
 # <a name="quickstart-create-and-manage-automated-logic-app-workflows---visual-studio-code"></a>快速入门：创建和管理自动化逻辑应用工作流 - Visual Studio Code
 

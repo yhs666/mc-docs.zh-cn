@@ -19,11 +19,11 @@ ms.date: 10/19/2018
 ms.author: v-lingli
 ms.custom: mvc
 ms.openlocfilehash: 320a1d73a516d7105d56c8489cddee77138153c8
-ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652220"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656173"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>快速入门：诊断虚拟机网络流量筛选器问题 - Azure CLI
 

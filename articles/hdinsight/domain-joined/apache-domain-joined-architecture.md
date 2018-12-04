@@ -16,11 +16,11 @@ origin.date: 03/20/2018
 ms.date: 05/21/2018
 ms.author: v-yiso
 ms.openlocfilehash: 82294d75e6105763de111a990ec82553b2f93320
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34449907"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656244"
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>在 HDInsight 中规划加入 Azure 域的 Hadoop 群集
 
@@ -43,7 +43,7 @@ HDInsight 不构建自己的多用户身份验证和授权，而是依赖于最�
     - 在 OU 中创建服务主体。
     - 将计算机加入到域并在 OU 中创建计算机主体。
 
-以下屏幕截图显示了在 contoso.com 中创建的一个 OU。屏幕截图中还显示了一些服务主体和计算机主体。
+以下屏幕截图显示了在 contoso.com 中创建的一个 OU。 屏幕截图中还显示了一些服务主体和计算机主体。
 
 ![已加入域的 HDInsight 群集 OU](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png)上获取。
 
@@ -55,6 +55,6 @@ HDInsight 不构建自己的多用户身份验证和授权，而是依赖于最�
 > 不再支持 Azure IaaS VM 上 的 Active Directory。
 
 ## <a name="next-steps"></a>后续步骤
-* 若要管理已加入域的 HDInsight 群集，请参阅 [Manage domain-joined HDInsight clusters](apache-domain-joined-manage.md)（管理已加入域的 HDInsight 群集）。
-* 若要配置 Hive 策略和运行 Hive 查询，请参阅 [Configure Hive policies for domain-joined HDInsight clusters](apache-domain-joined-run-hive.md)（为已加入域的 HDInsight 群集配置 Hive 策略）。
+* 若要管理加入域的 HDInsight 群集，请参阅 [管理加入域的 HDInsight 群集](apache-domain-joined-manage.md)。
+* 若要配置 Hive 策略和运行 Hive 查询，请参阅 [为加入域的 HDInsight 群集配置 Hive 策略](apache-domain-joined-run-hive.md)。
 * 要在已加入域的 HDInsight 群集上使用 SSH 运行 Hive 查询，请参阅[将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)。

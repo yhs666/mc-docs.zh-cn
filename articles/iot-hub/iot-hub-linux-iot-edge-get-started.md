@@ -17,11 +17,11 @@ ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
 ms.date: 11/20/2017
 ms.openlocfilehash: 9a9067edfb7ee16964394ed5a7cad7e4b50647c9
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939557"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656108"
 ---
 # <a name="explore-azure-iot-edge-architecture-on-linux"></a>在 Linux 上浏览 Azure IoT Edge 体系结构
 

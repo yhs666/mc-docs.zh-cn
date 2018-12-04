@@ -8,11 +8,11 @@ origin.date: 08/02/2018
 ms.date: 09/07/2018
 ms.topic: conceptual
 ms.openlocfilehash: afba6b4aaa56beafeb2f8009a89c36cb5bfef47c
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068249"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659584"
 ---
 # <a name="rendering-applications"></a>渲染应用程序
 

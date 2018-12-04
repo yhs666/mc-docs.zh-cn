@@ -18,11 +18,11 @@ ms.author: v-junlch
 ms.custom: aaddev
 ms.reviewer: celested
 ms.openlocfilehash: 4546619f1a1195355252ba934db66be0b5ca0bb5
-ms.sourcegitcommit: 71f203d04b212d2bfbf4f227693c2b8fe209db22
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48850506"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658696"
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>将应用程序与 Azure Active Directory 集成
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]

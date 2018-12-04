@@ -11,11 +11,11 @@ ms.date: 10/01/2018
 ms.topic: conceptual
 manager: digimobile
 ms.openlocfilehash: e2dacd6370fa9bb2c6bb817641c023bb86982dca
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426385"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656635"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>用例：使用 Automation State Configuration 和 Chocolatey 持续部署到虚拟机
 
@@ -40,7 +40,7 @@ DevOps 领域中有许多工具可帮助你处理持续集成管道中的各个�
 Desired State Configuration (DSC)（[概述](https://docs.microsoft.com/powershell/dsc/overview)）是一个 PowerShell 工具，可使用它为计算机声明所需的配置。 例如，可以说“我想要安装 Chocolatey、我想要安装 IIS、我想要打开端口 80、我想要安装网站 1.0.0 版”。 DSC 本地配置管理器 (LCM) 实现该配置。 DSC“拉”服务器有一个存储库用于保存计算机的配置。 每台计算机上的 LCM 定期检查计算机的配置是否与存储的配置匹配。 它可以报告状态，也可以尝试让计算机恢复到与存储的配置匹配。 可以编辑“拉”服务器上存储的配置，使一台计算机或一组计算机与更改的配置匹配。
 
 Azure 自动化是 Azure 中的托管服务，允许使用 Runbook、节点、凭据、资源以及资产（如计划和全局变量），自动执行各种任务。
-Azure Automation State Configuration 扩展了此自动化功能，包含 PowerShell DSC 工具。 下面是全面的[概述](automation-dsc-overview.md)。
+Azure Automation State Configuration 扩展了此自动化功能，包含 PowerShell DSC 工具。 以下是一个不错的 [概述](automation-dsc-overview.md)。
 
 DSC 资源是具有特定功能的代码模块，例如管理网络、Active Directory 或 SQL Server。 Chocolatey DSC 资源知道如何访问 NuGet 服务器（以及其他组件）、下载包、安装包，等等。 [PowerShell 库](http://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title)中有其他许多 DSC 资源。
 这些模块已安装到 Azure Automation State Configuration 拉取服务器（由你安装）以供配置使用。
@@ -190,7 +190,7 @@ GitHub 上的 [此 Visual Studio 项目](https://github.com/sebastus/ARM/tree/ma
 ## <a name="related-articles"></a>相关文章
 * [Azure 自动化 DSC 概述](automation-dsc-overview.md)
 * [Azure Automation DSC cmdlet](https://docs.microsoft.com/powershell/module/azurerm.automation#automation)
-* [载入用于根据 Azure 自动化 DSC 管理的计算机](automation-dsc-onboarding.md)
+* [Onboarding machines for management by Azure Automation DSC（登记由 Azure 自动化 DSC 管理的计算机）](automation-dsc-onboarding.md)
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -15,11 +15,11 @@ origin.date: 04/23/2018
 ms.date: 07/02/2018
 ms.author: v-jay
 ms.openlocfilehash: 4270b247593a1a49e240b360c99a03802e8dc688
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103142"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655775"
 ---
 # <a name="design-for-data-modification"></a>针对数据修改的设计
 本文重点介绍优化插入、更新和删除的设计注意事项。 在某些情况下，需要在针对查询优化的设计与针对数据修改优化的设计之间进行权衡，就像你在设计关系数据库时要做的那样（尽管在关系数据库中，管理设计权衡的方法是不同的）。 [表设计模式](#table-design-patterns)部分介绍了一些详细的表服务设计模式，着重阐释了其中的部分权衡。 在实践中，会发现许多针对查询实体优化的设计对于修改实体也能很好地工作。  

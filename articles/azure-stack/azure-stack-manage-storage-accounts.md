@@ -16,11 +16,11 @@ ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: xiaofmao
 ms.openlocfilehash: 3b039f6315ae010d00539192f3ecb07931140613
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195437"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658992"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>管理 Azure Stack 中的存储帐户
 了解如何管理 Azure Stack 中的存储帐户，以根据业务需求查找、恢复和回收存储容量。

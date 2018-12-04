@@ -16,11 +16,11 @@ origin.date: 02/22/2017
 ms.date: 11/13/2017
 ms.author: v-yeche
 ms.openlocfilehash: 3ec4d079d1890ab2e39c678956af67e6b1d3542a
-ms.sourcegitcommit: 81faeb249bcf9c8a84f571ce8d4ca033b224c0e9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24104629"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658362"
 ---
 # <a name="introduction-to-ip-flow-verify-in-azure-network-watcher"></a>Azure 网络观察程序中的“IP 流验证”简介
 

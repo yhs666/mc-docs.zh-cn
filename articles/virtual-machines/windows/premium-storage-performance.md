@@ -11,11 +11,11 @@ ms.date: 08/27/2018
 ms.author: v-yeche
 ms.component: disks
 ms.openlocfilehash: a041c2c651243754a23c375d5e77c607f3e38846
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872296"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659083"
 ---
 [!INCLUDE [virtual-machines-common-premium-storage-performance.md](../../../includes/virtual-machines-common-premium-storage-performance.md)]
 

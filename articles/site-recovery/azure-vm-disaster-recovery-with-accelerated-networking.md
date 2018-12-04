@@ -11,11 +11,11 @@ origin.date: 08/24/2018
 ms.date: 08/24/2018
 ms.author: v-yeche
 ms.openlocfilehash: 22083a6540d2cb460e1d25e4707d859a110791fe
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201481"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655878"
 ---
 # <a name="accelerated-networking-with-azure-virtual-machine-disaster-recovery"></a>将加速网络与 Azure 虚拟机灾难恢复配合使用
 

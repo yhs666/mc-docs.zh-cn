@@ -16,11 +16,11 @@ origin.date: 09/01/2016
 ms.date: 10/09/2017
 ms.author: v-yiso
 ms.openlocfilehash: e65cb864b70d1b7f3cea7ea8d483c7b33d9f5daf
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939050"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656016"
 ---
 # <a name="create-a-line-of-business-azure-app-with-azure-active-directory-authentication"></a>使用 Azure Active Directory 身份验证创建业务线 Azure 应用
 

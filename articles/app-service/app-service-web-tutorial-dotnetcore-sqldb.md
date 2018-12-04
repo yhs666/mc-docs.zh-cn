@@ -16,11 +16,11 @@ ms.date: 06/04/2018
 ms.author: v-yiso
 ms.custom: mvc
 ms.openlocfilehash: 2369ac4957da355de7a6873a6729b811e830030c
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939274"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657203"
 ---
 # <a name="tutorial-build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>教程：在 Azure 应用服务中生成 .NET Core 和 SQL 数据库 Web 应用
 

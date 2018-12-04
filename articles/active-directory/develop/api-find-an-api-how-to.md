@@ -16,11 +16,11 @@ origin.date: 09/11/2018
 ms.date: 10/08/2018
 ms.author: v-junlch
 ms.openlocfilehash: 22065c8c8ed775dec60e6727ee65e2f7869ebf91
-ms.sourcegitcommit: 71f203d04b212d2bfbf4f227693c2b8fe209db22
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48850514"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656978"
 ---
 # <a name="how-to-find-a-specific-api-needed-for-a-custom-developed-application"></a>如何为自定义开发的应用程序查找所需的特定 API
 

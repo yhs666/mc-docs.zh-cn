@@ -16,11 +16,11 @@ origin.date: 09/11/2018
 ms.date: 10/31/2018
 ms.author: v-lingwu
 ms.openlocfilehash: 419c3e11d733c2711b909a4f2eb34a0dbe5d7c98
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409342"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655438"
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板为命名空间和队列创建服务总线授权规则
 

@@ -11,11 +11,11 @@ origin.date: 04/17/2018
 ms.date: 10/15/2018
 ms.author: v-jay
 ms.openlocfilehash: 4ce70698a03f1098ce5a3d8a2d638ff93ded3167
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089069"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656492"
 ---
 # <a name="using-create-table-as-select-ctas-in-azure-sql-data-warehouse"></a>在 Azure SQL 数据仓库中使用 CREATE TABLE AS SELECT (CTAS)
 有关在开发解决方案时使用 Azure SQL 数据仓库中的 CREATE TABLE AS SELECT (CTAS) T-SQL 语句编写代码的技巧。

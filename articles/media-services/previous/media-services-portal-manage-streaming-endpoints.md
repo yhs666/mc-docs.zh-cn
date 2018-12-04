@@ -17,11 +17,11 @@ origin.date: 09/10/2017
 ms.date: 1/22/2018
 ms.author: v-johch
 ms.openlocfilehash: 21d637da724a166cf826a9a0b83af9ba04c4fb31
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426478"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655157"
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>使用 Azure 门户管理流式处理终结点
 

@@ -17,11 +17,11 @@ origin.date: 06/15/2018
 ms.author: v-yiso
 ms.date: 07/19/2018
 ms.openlocfilehash: 54daa5d29db8050979772d75ad670f61adf4890a
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873578"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655654"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>对无法启动的云服务角色进行故障排除
 
@@ -136,7 +136,7 @@ DLL 或程序集缺失的症状可能为：
 
 6. 选择“查看 IntelliTrace 日志” 。 此时会打开“IntelliTrace 摘要”  。
 
-7. 查找摘要的异常部分。 如果存在异常，则会将该部分标记为“**异常数据**”。
+7. 查找摘要的异常部分。 如果存在异常，则会将该部分标记为“异常数据” 。
 
 8. 展开“异常数据”并查找类似如下内容的 System.IO.FileNotFoundException 错误：
 

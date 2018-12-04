@@ -11,11 +11,11 @@ origin.date: 04/01/2018
 ms.date: 04/07/2018
 ms.author: v-johch
 ms.openlocfilehash: c840fe7a0667fd4638b592774a9cd9cc4f34f00b
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913856"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657533"
 ---
 # <a name="monitor-and-improve-performance"></a>监视和提高性能
 Azure SQL 数据库确定数据库中的潜在问题，并通过提供智能优化操作和建议来建议可以提高工作负荷性能的操作。

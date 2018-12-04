@@ -16,11 +16,11 @@ origin.date: 06/12/2018
 ms.date: 08/27/2018
 ms.author: v-yeche
 ms.openlocfilehash: e1c5acd08d2a91d4943debf6117a81e090b1036a
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871716"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656191"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>适用于 Linux 的 Azure 磁盘加密 (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 

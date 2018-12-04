@@ -16,11 +16,11 @@ origin.date: 01/03/2017
 ms.date: 02/10/2017
 ms.author: v-dazen
 ms.openlocfilehash: fe26c737634744ee9bed8f1d6879d89acb3cc0b4
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
-ms.locfileid: "20187893"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655119"
 ---
 # <a name="example-1---build-a-simple-dmz-using-nsgs-with-classic-powershell"></a>示例 1 - 将 NSG 与经典 PowerShell 配合使用，构建简单的外围网络
 
@@ -30,7 +30,7 @@ ms.locfileid: "20187893"
 > 
 >
 
-本示例将创建一个原始的外围网络，其中包含四个 Windows Server 和网络安全组。 本示例介绍了每个相关的 PowerShell 命令，帮助用户更好地理解每一步。 另外还提供了“流量方案”部分，让你逐步深入了解流量如何流经外围网络的各个防御层。 最后的“参考”部分提供了完整的代码，并说明如何构建此环境来测试和试验各种方案。 
+本示例创建一个原始的外围网络，其中包含四个 Windows Server 和网络安全组。 本示例介绍了每个相关的 PowerShell 命令，帮助用户更好地理解每一步。 另外还提供了“流量方案”部分，让你逐步深入了解流量如何流经外围网络的各个防御层。 最后的“参考”部分提供了完整的代码，并说明如何构建此环境来测试和试验各种方案。 
 
 ![使用 NSG 的入站外围网络][1]
 
@@ -59,10 +59,10 @@ ms.locfileid: "20187893"
 
 成功运行脚本后，可以执行其他可选步骤。“参考”部分中提供了两个脚本，用于设置 Web 服务器和包含简单 Web 应用程序的应用服务器，以便能使用此外围网络配置进行测试。
 
-以下部分通过演练 PowerShell 脚本的关键代码行，详细说明了本示例的网络安全组及其运行方式。
+以下部分通过演练 PowerShell 脚本的关键代码行，详细说明本示例的网络安全组及其运行方式。
 
 ## <a name="network-security-groups-nsg"></a>网络安全组 (NSG)
-此示例将构建一个 NSG 组，然后为其加载六个规则。 
+此示例将构建一个 NSG 组，并为其加载六个规则。 
 
 > [!TIP]
 > 一般而言，应该先创建特定的“允许”规则，然后创建一般的“拒绝”规则。 分配的优先级确定先评估哪些规则。 发现要向流量应用的特定规则后，不再需要评估后续规则。 可以朝入站或出站方向（从子网的角度看）应用 NSG 规则。
@@ -120,7 +120,7 @@ ms.locfileid: "20187893"
          -Protocol *
     ```
 
-4. 此规则允许入站 Internet 流量抵达 Web 服务器。 此规则不会更改路由行为。 该规则仅允许发往 IIS01 的流量通过。 因此，如果来自 Internet 的流量将 Web 服务器作为其目标，此规则将允许流量，并停止处理其他规则。 （在优先级为 140 的规则中，其他所有入站 Internet 流量均被阻止）。 如果你只要处理 HTTP 流量，可将此规则进一步限制为只允许目标端口 80。
+4. 此规则允许入站 Internet 流量抵达 Web 服务器。 此规则不会更改路由行为。 该规则仅允许发往 IIS01 的流量通过。 因此，如果来自 Internet 的流量将 Web 服务器作为其目标，此规则将允许流量，并停止处理其他规则。 （在优先级为 140 的规则中，其他所有入站 Internet 流量均被阻止）。 如果只要处理 HTTP 流量，可将此规则进一步限制为只允许目标端口 80。
 
     ```PowerShell
     Get-AzureNetworkSecurityGroup -Name $NSGName | `
@@ -132,7 +132,7 @@ ms.locfileid: "20187893"
          -Protocol *
     ```
 
-5. 此规则允许流量从 IIS01 服务器传递到 AppVM01 服务器，后面的规则将阻止其他所有从前端到后端的流量。 如果要添加的端口是已知的，则可以改善此规则。 例如，如果 IIS 服务器只抵达 AppVM01 上的 SQL Server，并且 Web 应用程序曾遭到入侵，则目标端口范围应该从“*”（任何）更改为 1433（SQL 端口），以缩小 AppVM01 上的入站攻击面。
+5. 此规则允许流量从 IIS01 服务器传递到 AppVM01 服务器，后面的规则会阻止其他所有从前端到后端的流量。 如果要添加的端口是已知的，则可以改善此规则。 例如，如果 IIS 服务器只抵达 AppVM01 上的 SQL Server，并且 Web 应用程序曾遭到入侵，则目标端口范围应该从“*”（任何）更改为 1433（SQL 端口），以缩小 AppVM01 上的入站攻击面。
 
     ```PowerShell
     Get-AzureNetworkSecurityGroup -Name $NSGName | `
@@ -144,7 +144,7 @@ ms.locfileid: "20187893"
          -Protocol *
     ```
 
-6. 此规则将拒绝从 Internet 到网络上任何服务器的流量。 规则的优先级为 110 和 120 时，只有入站 Internet 流量能够发往防火墙和服务器上的 RDP 端口，其他流量将被阻止。 此规则属于“防故障”规则，可以阻止所有意外的流量。
+6. 此规则拒绝从 Internet 到网络上任何服务器的流量。 规则的优先级为 110 和 120 时，只有入站 Internet 流量能够发往防火墙和服务器上的 RDP 端口，其他流量被阻止。 此规则属于“防故障”规则，可以阻止所有意外的流量。
     ```PowerShell
     Get-AzureNetworkSecurityGroup -Name $NSGName | `
         Set-AzureNetworkSecurityRule `
@@ -191,16 +191,16 @@ ms.locfileid: "20187893"
     1. 后端子网到前端子网的入站流量没有适用的 NSG 规则，因此不会应用任何 NSG 规则
     2. 允许子网间流量的默认系统规则允许此流量，因此允许流量。
 12. IIS 服务器接收 SQL 响应，完成 HTTP 响应并发送给请求方
-13. 前端子网上没有出站规则，因此允许响应，Internet 用户将收到请求的网页。
+13. 前端子网上没有出站规则，因此允许响应，Internet 用户会收到请求的网页。
 
 #### <a name="allowed-rdp-to-backend"></a>（*允许*）通过 RDP 访问后端
 1. Internet 上的服务器管理员在 BackEnd001.CloudApp.Net:xxxxx 上请求与 AppVM01 的 RDP 会话，其中 xxxxx 是通过 RDP 访问 AppVM01 所用的随机分配端口号（在 Azure 门户上或通过 PowerShell 可以找到分配的端口）
 2. 后端子网开始处理入站规则：
    1. NSG 规则 1 (DNS) 不适用，将转到下一规则
    2. NSG 规则 2 (RDP) 适用，允许流量，停止规则处理
-3. 由于没有出站规则，将应用默认规则并允许返回流量
+3. 由于没有出站规则，应用默认规则并允许返回流量
 4. 已启用 RDP 会话
-5. AppVM01 会提示用户提供用户名和密码
+5. AppVM01 提示输入用户名和密码
 
 #### <a name="allowed-web-server-dns-look-up-on-dns-server"></a>（*允许*）在 DNS 服务器上执行 Web 服务器 DNS 查找
 1. Web 服务器 IIS01 需要 www.data.gov 上的数据源，但需要解析地址。
@@ -212,7 +212,7 @@ ms.locfileid: "20187893"
 6. DNS 服务器没有缓存的地址，请求 Internet 上的根 DNS 服务器
 7. 后端子网上没有出站规则，允许流量
 8. Internet DNS 服务器做出响应，由于此会话是从内部发起的，因此允许响应
-9. DNS 服务器缓存响应，然后将初始请求响应发送给 IIS01
+9. DNS 服务器缓存响应，并将初始请求响应发送给 IIS01
 10. 后端子网上没有出站规则，允许流量
 11. 前端子网开始处理入站规则：
     1. 后端子网到前端子网的入站流量没有适用的 NSG 规则，因此不会应用任何 NSG 规则
@@ -254,13 +254,13 @@ ms.locfileid: "20187893"
 4. 流量抵达 IIS01 的内部 IP 地址 (10.0.1.5)
 5. IIS01 未侦听端口 1433，因此不会对请求做出响应
 
-## <a name="conclusion"></a>结束语
+## <a name="conclusion"></a>结论
 这是一个相对简单的示例，直观演示了如何将后端子网与入站流量隔离。
 
 ## <a name="references"></a>参考
 ### <a name="main-script-and-network-config"></a>主脚本和网络配置
 将完整脚本保存在 PowerShell 脚本文件中。 将网络配置保存到名为“NetworkConf1.xml”的文件中。
-如有需要，请修改用户定义的变量，然后运行该脚本。
+如有需要，请修改用户定义的变量，并运行该脚本。
 
 #### <a name="full-script"></a>完整脚本
 此脚本基于用户定义的变量执行以下操作：

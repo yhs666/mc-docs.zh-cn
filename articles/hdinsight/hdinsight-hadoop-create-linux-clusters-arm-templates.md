@@ -2,27 +2,20 @@
 title: 使用模板创建 Hadoop 群集 - Azure HDInsight | Azure
 description: 了解如何使用 Resource Manager 模板创建 HDInsight 的群集
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 00a80dea-011f-44f0-92a4-25d09db9d996
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 origin.date: 05/14/2018
-ms.date: 06/25/2018
+ms.date: 11/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: 2650b05aa65bafb06a7ee49bf5ca12f465c04769
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: ee0b3c9093048ad0105c7901f75e7a69e1dd4282
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747370"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659289"
 ---
 # <a name="create-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>使用 Resource Manager 模板在 HDInsight 中创建 Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -35,7 +28,7 @@ ms.locfileid: "36747370"
 要按照本文中的说明进行操作，需要：
 
 * 一个 [Azure 订阅](https://www.azure.cn/pricing/1rmb-trial/)。
-* Azure PowerShell 和/或 Azure CLI。
+* Azure PowerShell 和/或 Azure 经典 CLI。
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
@@ -59,7 +52,7 @@ ms.locfileid: "36747370"
 
 - Azure 门户：请参阅[从现有资源导出 Azure 资源管理器模板](../azure-resource-manager/resource-manager-export-template.md)。
 - Azure PowerShell：请参阅[使用 PowerShell 导出 Azure 资源管理器模板](../azure-resource-manager/resource-manager-export-template-powershell.md)。
-- Azure CLI：请参阅[使用 Azure CLI 导出 Azure 资源管理器模板](../azure-resource-manager/resource-manager-export-template-cli.md)。
+- Azure 经典 CLI：请参阅[使用 Azure 经典 CLI 导出 Azure 资源管理器模板](../azure-resource-manager/resource-manager-export-template-cli.md)。
 
 
 ## <a name="deploy-using-the-portal"></a>使用门户进行部署
@@ -70,9 +63,9 @@ ms.locfileid: "36747370"
 
 可以使用 Azure PowerShell 部署资源管理器模板。 有关详细信息，请参阅[使用资源管理器模板和 Azure PowerShell 部署资源](../azure-resource-manager/resource-group-template-deploy.md)和[使用 SAS 令牌和 Azure PowerShell 部署专用资源管理器模板](../azure-resource-manager/resource-manager-powershell-sas-token.md)。
 
-## <a name="deploy-using-cli"></a>使用 CLI 进行部署
+## <a name="deploy-using-azure-cli"></a>使用 Azure CLI 进行部署
 
-可以使用 Azure CLI 部署资源管理器模板。 有关详细信息，请参阅[使用资源管理器模板和 Azure CLI 部署资源](../azure-resource-manager/resource-group-template-deploy-cli.md)和[使用 SAS 令牌和 Azure CLI 部署专用资源管理器模板](../azure-resource-manager/resource-manager-cli-sas-token.md)。
+可以使用经典 CLI 部署资源管理器模板。 有关详细信息，请参阅[使用资源管理器模板和 Azure CLI 部署资源](../azure-resource-manager/resource-group-template-deploy-cli.md)和[使用 SAS 令牌和 Azure CLI 部署专用资源管理器模板](../azure-resource-manager/resource-manager-cli-sas-token.md)。
 
 ## <a name="deploy-using-the-rest-api"></a>使用 REST API 进行部署
 可以使用 REST API 部署资源管理器模板。 有关详细信息，请参阅[使用资源管理器模板和资源管理器 REST API 部署资源](../azure-resource-manager/resource-group-template-deploy-rest.md)。

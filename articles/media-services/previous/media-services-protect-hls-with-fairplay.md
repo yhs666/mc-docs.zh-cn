@@ -15,11 +15,11 @@ origin.date: 09/18/2018
 ms.date: 10/22/2018
 ms.author: v-jay
 ms.openlocfilehash: c655a9a793bb14fdede44410621dcaf3b6983999
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453862"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658930"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>使用 Apple FairPlay 或 Microsoft PlayReady 保护 HLS 内容
 使用 Azure 媒体服务，可使用以下格式动态加密 HTTP Live Streaming (HLS) 内容：  

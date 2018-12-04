@@ -16,11 +16,11 @@ origin.date: 05/24/2018
 ms.date: 10/29/2018
 ms.author: v-yiso
 ms.openlocfilehash: 1c6ca798355a0037d34988d6ae9c267c53488337
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453527"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659730"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>使用 Azure IoT C SDK 针对受限制设备进行开发
 

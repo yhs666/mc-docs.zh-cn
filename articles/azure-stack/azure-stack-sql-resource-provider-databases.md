@@ -16,11 +16,11 @@ ms.date: 07/20/2018
 ms.author: v-junlch
 ms.reviewer: jeffgo
 ms.openlocfilehash: 9f69d14c0220974243147ff47cc202c14248c18b
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168493"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656328"
 ---
 # <a name="create-sql-databases"></a>创建 SQL 数据库
 

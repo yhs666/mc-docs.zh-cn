@@ -16,11 +16,11 @@ origin.date: 07/11/2017
 ms.date: 10/08/2018
 ms.author: v-junlch
 ms.openlocfilehash: 201e2e6f4c305a7994d13e7826b7c8a9effc9a28
-ms.sourcegitcommit: b8f424fbff10034c55851618f6564d52257a5e92
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48876432"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656691"
 ---
 # <a name="how-to-assign-users-to-applications"></a>如何将用户分配给应用程序
 

@@ -11,11 +11,11 @@ origin.date: 06/15/2017
 ms.date: 10/13/2017
 ms.author: v-junlch
 ms.openlocfilehash: 49caa6611d927df8a936e9fff15ae48b15dac105
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
-ms.locfileid: "23407622"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654761"
 ---
 # <a name="computer-vision-javascript-quick-starts"></a>计算机视觉 JavaScript 快速入门
 

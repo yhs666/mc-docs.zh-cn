@@ -9,11 +9,11 @@ origin.date: 07/22/2018
 ms.date: 09/17/2018
 ms.author: v-yeche
 ms.openlocfilehash: d281b23f58f03917eb8664e6ba983f8230bfdc97
-ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586854"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658123"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>可以通过 Azure Site Recovery 保护哪些工作负荷？
 
@@ -21,14 +21,14 @@ ms.locfileid: "45586854"
 
 ## <a name="overview"></a>概述
 
-组织需要制定业务连续性和灾难恢复 (BCDR) 策略来确保工作负荷和数据在计划内和计划外停机期间保持安全和可用，并尽快恢复正常运行。
+组织需要制定业务连续性和灾难恢复 (BCDR) 策略来确保工作负荷和数据在计划和非计划停机期间保持安全和可用，并尽快恢复正常运行。
 
-站点恢复就是能够帮助实现 BCDR 策略的一个 Azure 服务。 使用站点恢复，可将应用程序感知的复制部署到云或辅助站点中。 无论应用是基于 Windows 还是 Linux，是在物理服务器、VMware 还是 Hyper-V 上运行，都可以使用站点恢复来协调复制，执行灾难恢复测试，以及运行故障转移和故障回复。
+Site Recovery 就是能够帮助实现 BCDR 策略的一个 Azure 服务。 使用 Site Recovery，可将应用程序感知的复制部署到云或辅助站点中。 无论应用是基于 Windows 还是 Linux，是在物理服务器、VMware 还是 Hyper-V 上运行，都可以使用 Site Recovery 协调复制、执行灾难恢复测试，以及运行故障转移和故障回复。
 
 Site Recovery 集成 Microsoft 应用程序，其中包括 SharePoint、Exchange、Dynamics、SQL Server 和 Active Directory。
 <!-- Not Available on  Microsoft also works closely with leading vendors including Oracle, SAP, and Red Hat. You can customize replication solutions on an app-by-app basis. -->
 
-## <a name="why-use-site-recovery-for-application-replication"></a>为何要使用站点恢复来复制应用程序？
+## <a name="why-use-site-recovery-for-application-replication"></a>为何使用 Site Recovery 复制应用程序？
 
 Site Recovery 可帮助实现应用程序级的保护和恢复，如下所示：
 
@@ -37,11 +37,11 @@ Site Recovery 可帮助实现应用程序级的保护和恢复，如下所示：
 * 针对单层或多层应用程序的应用一致性快照。
 * 集成 SQL Server AlwaysOn，纳入了其他应用程序级复制技术，其中包括 AD 复制、SQL AlwaysOn、Exchange 数据库可用性组 (DAG) 和 Oracle 数据防护。
 * 灵活的恢复计划，一次单击即可恢复整个应用程序堆栈，包括在计划中使用外部脚本和手动操作。
-* 站点恢复和 Azure 中的高级网络管理可以简化应用的网络要求，包括保留 IP 地址、配置负载均衡器或集成 Azure 流量管理器以降低 RTO 网络切换数。
+* Site Recovery 和 Azure 中的高级网络管理可以简化应用的网络要求，包括保留 IP 地址、配置负载均衡或集成 Azure 流量管理器以降低 RTO 网络切换数。
 * 丰富的自动化库，提供特定于应用程序的生产就绪型脚本，可以下载并与恢复计划集成。
 
 ## <a name="workload-summary"></a>工作负荷摘要
-站点恢复可复制受支持计算机上运行的任何应用。 此外，我们已经与产品团队合作执行其他特定于应用的测试。
+Site Recovery 可复制受支持计算机上运行的任何应用。 此外，我们已经与产品团队合作执行其他特定于应用的测试。
 
 | **工作负载** |**将 Azure VM 复制到 Azure** |**将 Hyper-V VM 复制到辅助站点** | **将 Hyper-V VM 复制到 Azure** | **将 VMware VM 复制到辅助站点** | **将 VMware VM 复制到 Azure** |
 | --- | --- | --- | --- | --- |---|
@@ -62,10 +62,10 @@ Active Directory 和 DNS 基础结构对于大多数企业应用而言至关重�
 
 可以使用站点恢复，为 Active Directory 和 DNS 创建一个完整的自动化灾难恢复计划。 例如，要将 SharePoint 和 SAP 从主站点故障转移到辅助站点，可以先设置可故障转移 Active Directory 的恢复计划，然后设置额外的应用特定计划，以故障转移依赖于 Active Directory 的其他应用。
 
-[详细了解](site-recovery-active-directory.md) 如何保护 Active Directory 和 DNS。
+[详细了解](site-recovery-active-directory.md)如何保护 Active Directory 和 DNS。
 
 ## <a name="protect-sql-server"></a>保护 SQL Server
-SQL Server 是本地数据中心许多业务应用的数据服务基础。  站点恢复可与 SQL Server HA/DR 技术一起用于保护采用 SQL Server 的多层企业应用。 Site Recovery 提供：
+SQL Server 是本地数据中心许多业务应用的数据服务基础。  Site Recovery 可与 SQL Server HA/DR 技术一起用于保护采用 SQL Server 的多层企业应用。 Site Recovery 提供：
 
 * 为 SQL Server 提供简单且经济高效的灾难恢复解决方案。 将多个版本的 SQL Server 独立服务器和群集复制到 Azure 或辅助站点。  
 * 集成 SQL AlwaysOn 可用性组，使用 Azure Site Recovery 恢复计划管理故障转移和故障回复。
@@ -73,13 +73,13 @@ SQL Server 是本地数据中心许多业务应用的数据服务基础。  站�
 * 在出现高峰负载时使用 Site Recovery 扩展 SQL Server，让这些负载“迸发”到 Azure 中更大型的 IaaS 虚拟机中。
 * 简单的 SQL Server 灾难恢复测试。 可以运行测试故障转移来分析数据，并可以运行合规性检查，且不影响生产环境。
 
-[详细了解](site-recovery-sql.md) 如何保护 SQL Server。
+[详细了解](site-recovery-sql.md)如何保护 SQL Server。
 
 ## <a name="protect-sharepoint"></a>保护 SharePoint
-Azure Site Recovery 可帮助保护 SharePoint 部署，如下所述：
+Azure Site Recovery 可帮助保护 SharePoint 部署，如下所示：
 
 * 消除对用于灾难恢复的备用场的需要以及相关的基础结构成本。 使用 Site Recovery 将整个场（Web 层、应用层和数据库层）复制到 Azure 或辅助站点。
-* 简化应用程序部署和管理。 部署到主站点的更新会自动复制，因此可在故障转移和恢复辅助站点中的场之后使用。 此外，还可降低使后备场保持最新状态的管理复杂性和相关成本。
+* 简化应用程序部署和管理。 部署到主站点的更新自动复制，因此可在故障转移和恢复辅助站点中的场之后使用。 此外，还可降低使备用场保持最新状态的管理复杂性和相关成本。
 * 按照副本环境的需要创建一个与生产类似的副本来进行测试和调试，从而简化 SharePoint 应用程序的开发与测试。
 * 使用站点恢复将 SharePoint 部署迁移到 Azure，从而简化从本地到云的过渡过程。
 
@@ -97,7 +97,7 @@ Azure Site Recovery 可通过以下方式帮助保护 Dynamics AX ERP 解决方�
 ## <a name="protect-rds"></a>保护 RDS
 远程桌面服务 (RDS) 允许虚拟桌面基础结构 (VDI)、基于会话的桌面和应用程序，让用户能够在任何地方工作。 使用 Azure Site Recovery 可以：
 
-* 将托管或非托管池虚拟桌面到辅助站点以及远程应用程序和会话复制到辅助站点或 Azure。
+* 将托管或非托管的共用虚拟桌面复制到辅助站点，并将远程应用程序和会话复制到辅助站点或 Azure。
 
 * 下面是可以复制的项：
 
@@ -112,20 +112,20 @@ Azure Site Recovery 可通过以下方式帮助保护 Dynamics AX ERP 解决方�
 [详细了解](https://gallery.technet.microsoft.com/Remote-Desktop-DR-Solution-bdf6ddcb) 如何保护 RDS。
 
 ## <a name="protect-exchange"></a>保护 Exchange
-站点恢复可通过以下方式帮助保护 Exchange：
+Site Recovery 可按如下所示帮助保护 Exchange：
 
 * 对于小型 Exchange 部署，例如单一服务器或服务器单机，站点恢复可以复制和故障转移到 Azure 或辅助站点。
-* 对于大型部署，站点恢复可与 Exchange DAGS 集成。
-* 在企业中进行 Exchange 灾难恢复时，Exchange DAG 是建议的解决方案。  站点恢复中的恢复计划可以包含 DAG，以便跨站点协调 DAG 故障转移。
+* 对于大型部署，Site Recovery 可与 Exchange DAGS 集成。
+* 在企业中进行 Exchange 灾难恢复时，Exchange DAG 是建议的解决方案。  Site Recovery 中的恢复计划可以包含 DAG，以便跨站点协调 DAG 故障转移。
 
 [详细了解](https://gallery.technet.microsoft.com/Exchange-DR-Solution-using-11a7dcb6) 如何保护 Exchange。
 
 ## <a name="protect-sap"></a>保护 SAP
-按如下所述使用站点恢复来保护 SAP 部署：
+按如下所示使用 Site Recovery 保护 SAP 部署：
 
 * 将组件复制到 Azure，以便保护在本地运行的 SAP NetWeaver 和非 NetWeaver 生产应用程序。
 * 将组件复制到其他 Azure 数据中心，以便保护在 Azure 中运行的 SAP NetWeaver 和非 NetWeaver 生产应用程序。
-* 使用站点恢复将 SAP 部署迁移到 Azure，从而简化云迁移。
+* 使用 Site Recovery 将 SAP 部署迁移到 Azure，从而简化云迁移。
 * 通过创建一个按需生产克隆来测试 SAP 应用程序，简化 SAP 项目的升级、测试和原型制作。
 
 <!-- Not Avaiable on [Learn more](site-recovery-sap.md) --> 

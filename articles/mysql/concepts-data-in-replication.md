@@ -11,11 +11,11 @@ ms.topic: article
 origin.date: 08/31/2018
 ms.date: 08/13/2018
 ms.openlocfilehash: 2375e0c0c6af4908773cdf0c7e23a84ced466c84
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527006"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656425"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>将数据复制到 Azure Database for MySQL
 

@@ -18,11 +18,11 @@ ms.author: v-junlch
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.openlocfilehash: 2e318d599a3a5cb9f3d32a97b4776c7008819079
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164952"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658979"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>在 Azure Active Directory 中删除企业应用的用户或组分配
 可以轻松地在 Azure Active Directory (Azure AD) 中删除用户或组对企业应用程序的已分配访问权限。 必须具有适当的权限才能管理企业应用，并且必须是目录的全局管理员。
@@ -48,8 +48,8 @@ ms.locfileid: "43164952"
 ## <a name="next-steps"></a>后续步骤
 
 - [查看所有组](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [向企业应用分配用户或组](assign-user-or-group-access-portal.md)
+- [Assign a user or group to an enterprise app](assign-user-or-group-access-portal.md)
 - [禁用企业应用的用户登录](disable-user-sign-in-portal.md)
-- [更改企业应用的名称或徽标](change-name-or-logo-portal.md)
+- [Change the name or logo of an enterprise app](change-name-or-logo-portal.md)
 
 <!-- Update_Description: update metedata properties -->

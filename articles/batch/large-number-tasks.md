@@ -17,11 +17,11 @@ ms.date: 09/26/2018
 ms.author: v-junlch
 ms.custom: ''
 ms.openlocfilehash: 8226386345f7b35ad93f50ec31d5072d1a0c3e46
-ms.sourcegitcommit: 5616622f754f3b83c7120a3d1344d0344e03ca61
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47188786"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657764"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>将大量的任务提交到 Batch 作业
 

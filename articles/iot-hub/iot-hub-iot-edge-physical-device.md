@@ -16,11 +16,11 @@ origin.date: 09/28/2017
 ms.author: v-yiso
 ms.date: 11/20/2017
 ms.openlocfilehash: a52a711316ca2a2ffe8cc543770f44ae1df2ce74
-ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
-ms.locfileid: "24058623"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659649"
 ---
 # <a name="forward-device-to-cloud-messages-to-iot-hub-using-azure-iot-edge-on-a-raspberry-pi"></a>在 Raspberry Pi 上使用 Azure IoT Edge 将设备到云消息转发到 IoT 中心
 
@@ -49,7 +49,7 @@ ms.locfileid: "24058623"
 
 * *BLE 模块*，与 BLE 设备相连接，从设备接收温度数据并将命令发送到设备。
 * BLE 云到设备模块，用于为 BLE 模块将来自 IoT 中心的 JSON 消息转换为 BLE 指令。
-* *记录器模块*，用于将所有网关消息记录到本地文件中。
+* *记录器模块* ，用于将所有网关消息记录记录到本地文件中。
 * *标识映射模块* ，用于在 BLE 设备 MAC 地址和 Azure IoT 中心设备标识之间进行转换。
 * *IoT 中心模块*，用于将遥测数据上传到 IoT 中心并接收来自 IoT 中心的设备命令。
 * *BLE 打印机模块*，用于解释 BLE 设备的遥测，并将格式化数据输出到控制台，以启用故障排除和调试。
@@ -500,7 +500,7 @@ BLE 设备的示例配置假定使用 Texas Instruments SensorTag 设备。 任�
 
 在运行示例前，可能需要按 SensorTag 设备上的小按钮，使其可被发现。
 
-运行示例时，可使用[设备资源管理器](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer)或 [iothub-explorer](https://github.com/Azure/iothub-explorer) 工具来监视 IoT Edge 网关从 SensorTag 设备转发的消息。 例如，若使用 iothub-explorer，可通过以下命令监视设备到云的消息：
+运行示例时，可使用[设备资源管理器](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer)或 [iothub-explorer](https://github.com/Azure/iothub-explorer) 工具来监视 IoT Edge 网关从 SensorTag 设备转发的消息。 例如，可以使用 iothub-explorer 使用以下命令监视设备到云消息：
 
 ```sh
 iothub-explorer monitor-events --login "HostName={Your iot hub name}.azure-devices.cn;SharedAccessKeyName=iothubowner;SharedAccessKey={Your IoT Hub key}"

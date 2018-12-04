@@ -17,11 +17,11 @@ origin.date: 03/15/2016
 ms.date: 06/11/2018
 ms.author: v-yeche
 ms.openlocfilehash: ab5d0f766c36ba41cca238a030921e59a7fba98d
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34869048"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655109"
 ---
 # <a name="migrate-a-virtual-network-classic-from-an-affinity-group-to-a-region"></a>将虚拟网络（经典）从地缘组迁移到区域
 

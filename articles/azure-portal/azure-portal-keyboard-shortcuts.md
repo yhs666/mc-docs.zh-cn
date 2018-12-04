@@ -17,11 +17,11 @@ ms.author: micflan
 ms.custom: accessibility
 ms.date: 08/13/2018
 ms.openlocfilehash: fda6c45ccbff8a15262723b9ff1eb37b82f5f879
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486925"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658173"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Azure 门户中的键盘快捷方式
 本文介绍了 Azure 门户中使用的键盘快捷方式。 各个服务可能有其自己的键盘快捷方式。

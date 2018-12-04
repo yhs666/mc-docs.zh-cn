@@ -17,11 +17,11 @@ origin.date: 05/10/2017
 ms.date: 09/03/2018
 ms.author: v-yeche
 ms.openlocfilehash: 81c8477e25e10840904f182605a169b4d50fd44a
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164909"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655322"
 ---
 # <a name="get-an-azure-cosmos-db-connection-string-for-mongodb-apps-using-powershell"></a>使用 PowerShell 获取 MongoDB 应用的 Azure Cosmos DB 连接字符串
 

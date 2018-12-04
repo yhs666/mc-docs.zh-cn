@@ -3,16 +3,16 @@ title: 使用 Azure Site Recovery 从 Azure 故障回复到 VMware | Azure
 description: 将虚拟机故障转移到 Azure 之后，可以启动故障回复将虚拟机恢复到本地。 了解故障回复的步骤。
 author: rockboyfor
 ms.service: site-recovery
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+origin.date: 10/11/2018
+ms.date: 11/19/2018
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: f50d8d3d7cc9215868c59a0aa103e415b29d9c86
-ms.sourcegitcommit: f7ff09be9f3be5e3eb795e383c0c670f480f233d
+ms.openlocfilehash: f6c99aade911b80f325b2fa80b3f4d0bcd36feca
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39169061"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658104"
 ---
 # <a name="fail-back-from-azure-to-an-on-premises-site"></a>从 Azure 故障回复到本地站点
 
@@ -96,4 +96,5 @@ ms.locfileid: "39169061"
 ## <a name="next-steps"></a>后续步骤
 
 重新保护作业完成后，虚拟机将复制回 Azure，你可以执行[故障转移](site-recovery-failover.md)再次将虚拟机移到 Azure。
+
 <!-- Update_Description: update meta properties  -->

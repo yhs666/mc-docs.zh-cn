@@ -15,11 +15,11 @@ origin.date: 10/24/2017
 ms.date: 12/04/2017
 ms.author: v-nany
 ms.openlocfilehash: 2b770c7bf2d2bd750e4ca4a19393efece90a610d
-ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523662"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658152"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>使用 PowerShell 管理 Azure 独立云中的存储
 

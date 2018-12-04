@@ -11,11 +11,11 @@ ms.topic: conceptual
 origin.date: 04/30/2018
 ms.date: 08/20/2018
 ms.openlocfilehash: 9a2a44a0dffaa3b9e207b8a58022c1fac818fe4d
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41704027"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659679"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>处理 Azure 流分析中基于可配置阈值的规则
 本文介绍如何使用参考数据实现在 Azure 流分析中使用基于可配置阈值的规则的警报解决方案。

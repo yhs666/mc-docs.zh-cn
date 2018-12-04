@@ -10,11 +10,11 @@ ms.date: 05/14/2017
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: cdfe09e09bcd8a510657751b8d0a55d472b6a622
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695948"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654339"
 ---
 以下是造成分配请求被固定的常见分配案例。 我们在本文稍后深入探讨每一个案例。
 

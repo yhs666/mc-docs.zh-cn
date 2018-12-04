@@ -11,11 +11,11 @@ origin.date: 08/16/2018
 ms.date: 09/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: 7966eccf53d6b3bd40561094181c5180f29322c4
-ms.sourcegitcommit: 399060a8d46534abd370693f6282e7343b371634
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455582"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658860"
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>事件中心 .NET Framework API 概述
 

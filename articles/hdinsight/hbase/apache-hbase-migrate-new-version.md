@@ -16,11 +16,11 @@ origin.date: 01/22/2018
 ms.author: ashishth
 ms.date: 07/23/2018
 ms.openlocfilehash: 9d9289c573d11dde51375517bb77e79c9b19c169
-ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39031768"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659964"
 ---
 # <a name="migrate-an-hbase-cluster-to-a-new-version"></a>将 HBase 群集迁移到新版本
 

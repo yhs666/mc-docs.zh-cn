@@ -16,11 +16,11 @@ origin.date: 10/18/2016
 ms.date: 03/19/2018
 ms.author: v-yiso
 ms.openlocfilehash: 35e9423da95f5833812f207cb8a90ee3ea70c64a
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870556"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656085"
 ---
 # <a name="handle-content-types-in-logic-apps"></a>在逻辑应用中处理内容类型
 

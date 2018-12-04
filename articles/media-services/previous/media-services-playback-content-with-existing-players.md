@@ -16,11 +16,11 @@ origin.date: 07/02/2018
 ms.date: 10/17/2018
 ms.author: v-jay
 ms.openlocfilehash: 42f1d8ff88537ebecfa5c6d63838b8f156a16d5f
-ms.sourcegitcommit: 9a82a54c6b6f4d8074139e090011fe05b8018fcf
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44363150"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655448"
 ---
 # <a name="playing-your-content-with-existing-players"></a>使用现有播放器播放内容
 Azure 媒体服务支持多种常用的流式处理格式，如平滑流、HTTP 实时流和 MPEG-Dash。 本主题列出了可用于测试流的现有播放器。
@@ -32,7 +32,7 @@ Azure 媒体服务支持多种常用的流式处理格式，如平滑流、HTTP 
 
 请注意以下事项：
 
-* **媒体服务内容播放器**从默认的流式处理终结点播放。 如果要从非默认流式处理终结点播放，请使用其他播放器。 例如 [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html)。
+* **媒体服务内容播放器** 从默认的流式处理终结点播放。 如果要从非默认流式处理终结点播放，请使用其他播放器。 例如 [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html)。
 
 ![AMSPlayer][AMSPlayer]
 
@@ -61,8 +61,8 @@ Azure 媒体服务支持多种常用的流式处理格式，如平滑流、HTTP 
 ### <a name="other"></a>其他
 若要测试 HLS URL，还可以使用：
 
-* iOS 设备上的“Safari”或
-* Windows 上的“3ivx HLS 播放器”。
+*  或
+*  。
 
 ## <a name="developing-video-players"></a>开发视频播放器
 有关如何开发自己的播放器的信息，请参阅[开发视频播放器](media-services-develop-video-players.md)

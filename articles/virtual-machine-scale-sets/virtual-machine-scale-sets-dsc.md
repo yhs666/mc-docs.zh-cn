@@ -18,11 +18,11 @@ origin.date: 04/05/2017
 ms.date: 04/26/2018
 ms.author: v-junlch
 ms.openlocfilehash: 0502d8b4177662ad5372b3736d53fd496cdc194d
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121637"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657013"
 ---
 # <a name="using-virtual-machine-scale-sets-with-the-azure-dsc-extension"></a>将虚拟机规模集与 Azure DSC 扩展配合使用
 [虚拟机规模集](virtual-machine-scale-sets-overview.md)可与 [Azure 所需状态配置 (DSC)](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 扩展处理程序配合使用。 虚拟机规模集提供部署和管理大量虚拟机的方法，并且可根据负载情况实现弹性扩大和缩小。 VM 联机时，DSC 用于配置 VM，使它们能够运行生产软件。
@@ -102,7 +102,7 @@ ms.locfileid: "32121637"
 虚拟机规模集的行为与单一 VM 的行为相同。 创建新 VM 后，会自动使用 DSC 扩展对其进行预配。 如果扩展需要更新的 WMF 版本，则 VM 会重新启动，并联机。 VM 联机后，会下载 DSC 配置 .zip 文件，并在 VM 上预配该文件。 在 [Azure DSC 扩展概述](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中可以找到详细信息。
 
 ## <a name="next-steps"></a>后续步骤
-检查[适用于 DSC 扩展的 Azure Resource Manager 模板](../virtual-machines/windows/extensions-dsc-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+检查[适用于 DSC 扩展的 Azure 资源管理器模板](../virtual-machines/windows/extensions-dsc-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 了解[DSC 扩展安全处理凭据](../virtual-machines/windows/extensions-dsc-credentials.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)的方法。 
 

@@ -17,11 +17,11 @@ ms.author: v-yiso
 ms.custom: mvc
 ms.date: 10/16/2017
 ms.openlocfilehash: e8bc4cdb843bc9484529e7c86b496b93dccbd712
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939161"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654344"
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-web-apps-for-containers"></a>在用于容器的 Azure Web 应用中生成 .NET Core 和 SQL 数据库 Web 应用
 

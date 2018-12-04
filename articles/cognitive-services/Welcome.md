@@ -11,11 +11,11 @@ origin.date: 09/12/2018
 ms.date: 10/25/2018
 ms.author: v-junlch
 ms.openlocfilehash: 44db45407fe1fc5cfcc11d8259212f5455df28d5
-ms.sourcegitcommit: 44ce337717bb948f5ac08217a156935f663c0f46
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034627"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655577"
 ---
 # <a name="what-are-azure-cognitive-services"></a>什么是 Azure 认知服务？
 

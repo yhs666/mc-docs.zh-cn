@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
 origin.date: 01/15/2018
-ms.date: 10/09/2018
+ms.date: 11/13/2018
 ms.author: v-junlch
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e6958390efc9856fe10cc5120a7301dc16984c66
-ms.sourcegitcommit: b91bbb0f49b12b1a7ac9eaf4742daa0c4a513f11
+ms.openlocfilehash: bd8556558e7e2131f86d664f354db416b62f7618
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48876453"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657112"
 ---
 # <a name="what-are-azure-active-directory-reports"></a>什么是 Azure Active Directory 报告？
 
@@ -55,3 +55,4 @@ ms.locfileid: "48876453"
 - [审核日志报表](concept-audit-logs.md)
 
 
+<!-- Update_Description: wording update -->

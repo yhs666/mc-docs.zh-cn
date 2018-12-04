@@ -11,17 +11,17 @@ ms.topic: conceptual
 origin.date: 04/12/2018
 ms.date: 08/20/2018
 ms.openlocfilehash: 091d36b3ca3f9be1c80667ce728f3184531dae28
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41704030"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655352"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Azure 流分析作业中的检查点和重播概念
 本文介绍 Azure 流分析中内部检查点和重播的概念及其对作业恢复的影响。 每当运行流分析作业时，都会在内部维护状态信息。 该状态信息定期保存在检查点中。 在某些情况下，如果发生作业失败或升级，则会使用检查点信息进行作业恢复。 在另一些情况下，检查点无法用于恢复，而必须使用重播。
 
-## <a name="stateful-query-logic-in-temporal-elements"></a>时态元素中的有状态查询逻辑
-Azure 流分析作业的独有功能之一是执行有状态的处理，如开窗聚合、临时联接和临时分析函数。 当作业运行时，其中的每个运算符都会保存状态信息。 这些查询元素的最大窗口大小为 7 天。 
+## <a name="stateful-query-logicin-temporal-elements"></a>时态元素中的有状态查询逻辑
+Azure 流分析作业的独有功能之一是执行有状态的处理，如开窗聚合、临时联接和临时分析函数。 当作业运行时，其中的每个运算符都会保存状态信息。 这些查询元素的最大窗口大小为 7 天。 
 
 多个流分析查询元素中都出现了时态窗口的概念：
 1. 开窗聚合（翻转窗口、跳跃窗口和滑动窗口 GROUP BY）

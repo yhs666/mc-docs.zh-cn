@@ -16,11 +16,11 @@ origin.date: 02/16/2018
 ms.date: 03/19/2018
 ms.author: v-yiso
 ms.openlocfilehash: 7ea68d483c617c642e704e54fe30400197da8314
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870266"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657625"
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>操作组中的短信通知行为
 ## <a name="overview"></a>概述 ##

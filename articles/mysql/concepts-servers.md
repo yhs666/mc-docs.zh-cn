@@ -10,11 +10,11 @@ ms.service: mysql
 ms.topic: article
 ms.date: 06/16/2018
 ms.openlocfilehash: 6ee0739cbd809edea8a8baad1022ae9d2c9e1128
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723122"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657296"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的服务器概念
 

@@ -16,11 +16,11 @@ origin.date: 04/25/2017
 ms.date: 10/29/2018
 ms.author: v-biyu
 ms.openlocfilehash: 65ce13ea79bd83abed26afdae632150d3d76f50f
-ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49451610"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654482"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>在 Azure 应用服务中配置 Web 应用
 

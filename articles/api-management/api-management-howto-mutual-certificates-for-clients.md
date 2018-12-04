@@ -15,11 +15,11 @@ origin.date: 02/01/2017
 ms.author: v-yiso
 ms.date: 02/26/2018
 ms.openlocfilehash: 591ae1ff0dff18618bcef4d0816c4d60b5387cab
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29284944"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659406"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>如何使用 API 管理中的客户端证书身份验证确保 API 安全
 

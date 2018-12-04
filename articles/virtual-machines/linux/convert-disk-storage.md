@@ -17,11 +17,11 @@ origin.date: 07/12/2018
 ms.date: 10/22/2018
 ms.author: v-yeche
 ms.openlocfilehash: 3e7d94e329224bc3b574b620bba3d19ab1312ae8
-ms.sourcegitcommit: caa089a6221a4925943f1ea516ca58ae62da0dff
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "50982961"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659181"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Azure 标准与高级托管磁盘存储的相互转换
 

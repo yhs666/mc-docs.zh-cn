@@ -12,11 +12,11 @@ origin.date: 07/14/2018
 ms.date: 10/17/2018
 ms.author: v-junlch
 ms.openlocfilehash: 720f13ee7b9a98b963bfdb8596255803a113bb22
-ms.sourcegitcommit: 4ead6b1d3527373b63c90680b6400a2e95b4064e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49374969"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658493"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>使用 Azure CLI 创建支持 HTTP 到 HTTPS 重定向的应用程序网关
 

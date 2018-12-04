@@ -17,11 +17,11 @@ origin.date: 06/27/2017
 ms.date: 12/18/2017
 ms.author: v-yeche
 ms.openlocfilehash: 07a752bf5974ce913b41cee4e68c7dfbb5d4f602
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
-ms.locfileid: "26727668"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658381"
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Azure VM 上的 Ruby on Rails Web 应用程序
 本教程介绍如何在 Azure 中使用 Linux 虚拟机托管 Ruby on Rails 网站。  
@@ -90,7 +90,7 @@ ms.locfileid: "26727668"
 
 [new](http://guides.rubyonrails.org/command_line.html#rails-new) 命令创建新的 Rails 应用。 [server](http://guides.rubyonrails.org/command_line.html#rails-server) 命令启动 Rails 附带的 WEBrick Web 服务器。 （在生产环境中使用时，可能想要使用其他服务器，例如 Unicorn 或 Passenger。）
 
-输出应显示如下。
+输出与以下类似。
 
     => Booting WEBrick
     => Rails 4.2.1 application starting in development on http://0.0.0.0:3000
@@ -138,7 +138,7 @@ ms.locfileid: "26727668"
 
 * [使用 Blob 存储非结构化数据][blobs]
 * [使用表存储键/值对][tables]
-* [使用内容传送网络提供高带宽内容][cdn-howto]
+* [使用内容分发网络提供高带宽内容][cdn-howto]
 
 <!-- WA.com links -->
 [blobs]:../../../storage/blobs/storage-ruby-how-to-use-blob-storage.md

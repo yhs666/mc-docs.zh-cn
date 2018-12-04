@@ -13,11 +13,11 @@ ms.date: 10/22/2018
 ms.author: v-biyu
 ms.custom: mvc
 ms.openlocfilehash: 74f5340a3276c64b0cd8a52cbe0116a11c5886b2
-ms.sourcegitcommit: 2fdf25eb4b978855ff2832bcdcca093c141be261
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49120601"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654330"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-node-web-app"></a>快速入门：使用 Node Web 应用在 Azure Key Vault 中设置和检索机密 
 

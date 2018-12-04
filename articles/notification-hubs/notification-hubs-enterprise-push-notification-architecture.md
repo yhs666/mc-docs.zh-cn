@@ -16,11 +16,11 @@ origin.date: 04/14/2018
 ms.date: 09/10/2018
 ms.author: v-junlch
 ms.openlocfilehash: 0f7049d46cd15ce0780a13a9b72f092652b19d04
-ms.sourcegitcommit: 1471663f5f5a1c4e1fbead7c4d351610cb0086bb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44363573"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657189"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>企业推送架构指南
 当今企业正在逐渐趋向为其最终用户（外部）或员工（内部）创建移动应用程序。 它们已经拥有现成的后端系统，无论是大型机还是一些 LoB 应用程序都必须集成到移动应用程序体系结构中。 本指南介绍如何最好地实现此集成，并针对常见场景建议可能的解决方案。
@@ -60,7 +60,7 @@ ms.locfileid: "44363573"
 1. [通知中心 - Windows 通用教程] - 此教程说明了如何设置 Windows 应用商店应用以及如何使用通知中心注册，并接收通知。
 
 ### <a name="sample-code"></a>代码示例
-完整的示例代码可在[通知中心示例]中找到。 它分为三个组件：
+完整的示例代码可在 [通知中心示例]中找到。 它分为三个组件：
 
 1. **EnterprisePushBackendSystem**
    
@@ -248,7 +248,7 @@ ms.locfileid: "44363573"
 1. 运行 EnterprisePushBackendSystem 控制台应用程序，这可模拟 LoB 后端并开始发送消息，应该出现如下图所示的 toast 通知：
    
     ![][5]
-1. 这些消息最初会发送到由 Web 作业中的服务总线订阅监视的服务总线主题。 收到消息后，将创建通知并将其发送到移动应用。 转到 [Azure 门户]中 Web 作业的“日志”链接时，可以仔细查看 Web 作业日志来确认处理：
+1. 这些消息最初会发送到由 Web 作业中的服务总线订阅监视的服务总线主题。 收到消息后，将创建通知并将其发送到移动应用。 转到 [Azure 门户] 中 Web 作业的“日志”链接时，可以仔细查看 Web 作业日志来确认处理：
    
     ![][6]
 

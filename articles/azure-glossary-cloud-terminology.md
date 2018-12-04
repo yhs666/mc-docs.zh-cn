@@ -17,11 +17,11 @@ origin.date: 08/16/2017
 ms.date: 10/22/2018
 ms.author: v-lingwu
 ms.openlocfilehash: 7325accd06c298c6b54135587a52eee5381a0413
-ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652246"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655826"
 ---
 # <a name="azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Azure 词汇表：Azure 平台上的云术语字典
 

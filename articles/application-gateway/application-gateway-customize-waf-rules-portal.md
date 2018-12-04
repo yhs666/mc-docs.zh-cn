@@ -17,11 +17,11 @@ origin.date: 03/28/2017
 ms.date: 10/17/2018
 ms.author: v-junlch
 ms.openlocfilehash: e309bc2a353b2130cb727cabd82262a57414a4cb
-ms.sourcegitcommit: 4ead6b1d3527373b63c90680b6400a2e95b4064e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49374960"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654742"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-portal"></a>通过 Azure 门户自定义 Web 应用程序防火墙规则
 

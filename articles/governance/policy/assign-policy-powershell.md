@@ -11,11 +11,11 @@ ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
 ms.openlocfilehash: 947b31bfcc6ee2c93f647869dd29d6d61888eb91
-ms.sourcegitcommit: b8e99939a5493a15b78c32e87bfbf76a8c96a84a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409056"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655928"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-the-azure-rm-powershell-module"></a>快速入门：使用 Azure RM PowerShell 模块创建策略分配以识别不合规资源
 

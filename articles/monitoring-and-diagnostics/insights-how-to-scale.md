@@ -16,11 +16,11 @@ origin.date: 06/06/2017
 ms.author: v-yiso
 ms.date: 03/19/2018
 ms.openlocfilehash: e6ce98f944ab2d2cba02fd941d24ca669576085c
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870493"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655663"
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>手动或自动缩放实例计数
 
@@ -142,6 +142,6 @@ ms.locfileid: "29870493"
 
 ## <a name="next-steps"></a>后续步骤
 * [监视服务指标](./insights-how-to-customize-monitoring.md)，确保服务可用且响应迅速。
-* [启用监视和诊断](./insights-how-to-use-diagnostics.md)收集服务的详细高频指标。
-* 每当操作事件发生或指标超过阈值时[接收警报通知](insights-receive-alert-notifications.md)。
+* [启用监视和诊断](./insights-how-to-use-diagnostics.md) 以收集服务的详细高频指标。
+* [接收警报通知](insights-receive-alert-notifications.md) 。
 * [查看事件和活动日志](./insights-debugging-with-events.md)，可了解服务中发生的所有事件。

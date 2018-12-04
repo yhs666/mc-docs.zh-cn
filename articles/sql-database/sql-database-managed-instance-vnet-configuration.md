@@ -14,11 +14,11 @@ manager: digimobile
 origin.date: 09/20/2018
 ms.date: 10/29/2018
 ms.openlocfilehash: aeba8ab11973cc2a88f0cd2d27e370b8cab4de2b
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135768"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657660"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>为 Azure SQL 数据库托管实例配置 VNet
 

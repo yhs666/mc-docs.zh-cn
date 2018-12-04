@@ -15,11 +15,11 @@ origin.date: 03/15/2017
 ms.date: 3/5/2018
 ms.author: v-haiqya
 ms.openlocfilehash: 7352552ae263455282a0ae4afbc0d026bdb5647a
-ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523731"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657498"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>使用 Azure 存储指标和日志记录、AzCopy 及 Message Analyzer 进行端到端故障排除
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -236,7 +236,7 @@ Message Analyzer 包括 Azure 存储的资产，可帮助你分析服务器、�
 
 如果仍有大量的日志数据，则你可能需要在加载日志数据之前指定会话筛选器以筛选数据。 在“会话筛选器”框中，选择“库”按钮可以选择预定义的筛选器；例如，从 Azure 存储筛选器中选择“全局时间筛选器 I”可根据某个时间间隔进行筛选。 然后，可以编辑筛选条件，以指定想要查看的间隔的起始和结束时间戳。 还可以根据特定的状态代码筛选；例如，可以选择仅加载状态代码为 404 的日志条目。
 
-若要深入了解如何将日志数据导入 Microsoft Message Analyzer，请参阅 TechNet 上的 [Retrieving Message Data](http://technet.microsoft.com/library/dn772437.aspx)（检索消息数据）。
+有关如何将日志数据导入 Microsoft Message Analyzer 的详细信息，请参阅 TechNet 上的[检索消息数据](http://technet.microsoft.com/library/dn772437.aspx)。
 
 ### <a name="use-the-client-request-id-to-correlate-log-file-data"></a>使用客户端请求 ID 关联日志文件数据
 Azure 存储客户端库会自动为每个请求生成唯一的客户端请求 ID。 此值将写入客户端日志、服务器日志和网络跟踪，因此可以在 Message Analyzer 中使用它在所有三个日志之间关联数据。 有关客户端请求 ID 的其他信息，请参阅[客户端请求 ID](storage-monitoring-diagnosing-troubleshooting.md#client-request-id)。

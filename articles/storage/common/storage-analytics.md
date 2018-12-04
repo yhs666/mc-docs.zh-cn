@@ -16,11 +16,11 @@ origin.date: 03/03/2017
 ms.date: 10/30/2017
 ms.author: v-johch
 ms.openlocfilehash: 9effb08b1b37134bedb849b82ed205bfda7fb700
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295613"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657487"
 ---
 # <a name="storage-analytics"></a>存储分析
 

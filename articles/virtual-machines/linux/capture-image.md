@@ -17,11 +17,11 @@ origin.date: 10/08/2018
 ms.date: 10/22/2018
 ms.author: v-yeche
 ms.openlocfilehash: 6c590fc41449def3c2e34a518b511bcc2224a740
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453771"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659577"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>如何创建虚拟机或 VHD 的映像
 
@@ -35,7 +35,7 @@ ms.locfileid: "49453771"
 
 在创建映像前，需要具有以下项：
 
-* 在资源管理器部署模型中使用托管磁盘创建的 Azure VM。 如果尚未创建 Linux VM，则可以使用[门户](quick-create-portal.md)、[Azure CLI](quick-create-cli.md) 或[资源管理器模板](create-ssh-secured-vm-from-template.md)。 根据需要配置 VM。 例如，[添加数据磁盘](add-disk.md)、应用更新和安装应用程序。 
+* 在资源管理器部署模型中使用托管磁盘创建的 Azure VM。 如果尚未创建 Linux VM，则可以使用[门户](quick-create-portal.md)、[Azure CLI](quick-create-cli.md) 或[资源管理器模板](create-ssh-secured-vm-from-template.md)。 根据需要配置 VM。 例如， [添加数据磁盘](add-disk.md)、应用更新和安装应用程序。 
 
 * 已安装最新 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并已使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
 

@@ -16,11 +16,11 @@ origin.date: 06/01/2016
 ms.date: 12/16/2016
 ms.author: v-dazen
 ms.openlocfilehash: db45eef3dcb9d9e5752410d1237d064830f7ea09
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20184323"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659250"
 ---
 # <a name="how-to-use-azure-blob-storage-with-the-webjobs-sdk"></a>如何通过 WebJobs SDK 使用 Azure Blob 存储
 
@@ -50,9 +50,9 @@ ms.locfileid: "20184323"
             output = input.ReadToEnd();
         }
 
-属性构造函数采用指定容器名称的字符串参数和 Blob 名称的占位符。 在此示例中，如果在 *input* 容器中创建了名为 *Blob1.txt* 的 Blob，则该函数将在 *output* 容器中创建名为 *Blob1.txt* 的 Blob。 
+属性构造函数采用指定容器名称的字符串参数和 Blob 名称的占位符。 在此示例中，如果在 *input* 容器中创建了名为 *Blob1.txt* 的 Blob，则该函数会在 *output* 容器中创建名为 *Blob1.txt* 的 Blob。 
 
-你可以指定包含 Blob 名称占位符的名称模式，如以下代码示例中所示：
+可以指定包含 Blob 名称占位符的名称模式，如以下代码示例中所示：
 
         public static void CopyBlob([BlobTrigger("input/original-{name}")] TextReader input,
             [Blob("output/copy-{name}")] out string output)
@@ -62,7 +62,7 @@ ms.locfileid: "20184323"
 
 此代码只会复制名称以“original-”开头的 Blob。 例如，将 *input* 容器中的 *original-Blob1.txt* 复制到 *output* 容器中的 *copy-Blob1.txt*。
 
-如果你需要为名称中包含大括号的 Blob 名称指定名称模式，则使用双倍的大括号。 例如，如果你想要在 *images* 容器中查找具有以下类似名称的 Blob：
+如果需要为名称中包含大括号的 Blob 名称指定名称模式，则使用双倍的大括号。 例如，如果想要在 *images* 容器中查找具有以下类似名称的 Blob：
 
         {20140101}-soundfile.mp3
 
@@ -70,10 +70,10 @@ ms.locfileid: "20184323"
 
         images/{{20140101}}-{name}
 
-在示例中，*name* 占位符值将是 *soundfile.mp3*。 
+在示例中，*name* 占位符值是 *soundfile.mp3*。 
 
 ### <a name="separate-blob-name-and-extension-placeholders"></a>单独的 Blob 名称和扩展名占位符
-以下代码示例在将 *input* 容器中显示的 Blob 复制到 *output* 容器中时更改文件扩展名。 该代码将记录 *input* Blob 的扩展名，并将 *output* Blob 的扩展名设置为 *.txt*。
+以下代码示例在将 *input* 容器中显示的 Blob 复制到 *output* 容器中时更改文件扩展名。 该代码记录 *input* Blob 的扩展名，并将 *output* Blob 的扩展名设置为 *.txt*。
 
         public static void CopyBlobToTxtFile([BlobTrigger("input/{name}.{ext}")] TextReader input,
             [Blob("output/{name}.txt")] out string output,
@@ -214,7 +214,7 @@ SDK 自动反序列化 JSON 消息。 下面是 `PoisonBlobMessage` 类：
 ### <a id="polling"></a> Blob 轮询算法
 启动应用程序时，WebJobs SDK 将扫描 `BlobTrigger` 属性指定的所有容器。 在大型存储帐户中，此扫描可能需要一些时间，因此在查找新 Blob 和执行 `BlobTrigger` 函数之前，可能需要一段时间。
 
-若要在应用程序启动后检测新的或已更改的 Blob，SDK 会定期读取从 Blob 存储日志。 Blob 日志将进行缓冲，仅每隔 10 分钟左右进行物理写入，因此创建或更新 Blob 后可能存在很长的延迟，然后才会执行对应的 `BlobTrigger` 函数。 
+若要在应用程序启动后检测新的或已更改的 Blob，SDK 会定期读取从 Blob 存储日志。 Blob 日志将进行缓冲，仅每隔 10 分钟左右进行物理写入，因此创建或更新 Blob 后可能存在很长的延迟，才会执行对应的 `BlobTrigger` 函数。 
 
 使用 `Blob` 属性创建的 Blob 出现异常。 当 WebJobs SDK 创建新 Blob 时，会立即将新的 Blob 传递给任何匹配的 `BlobTrigger` 函数。 因此，如果建立了 Blob 输入和输出的链接，则 SDK 可以高效地处理它们。 但是，如果想要对通过其他方式创建或更新的 Blob 降低运行 Blob 处理函数的延迟时间，建议使用 `QueueTrigger`（而不是 `BlobTrigger`）。
 
@@ -229,7 +229,7 @@ Blob 回执存储在 AzureWebJobsStorage 连接字符串指定的 Azure 存储�
 * Blob 名称
 * ETag（Blob 版本标识符，例如："0x8D1DC6E70A277EF"）
 
-如果你想要强制重新处理某个 Blob，则可以从 *azure-webjobs-hosts* 容器中手动删除该 Blob 的 Blob 回执。
+如果想要强制重新处理某个 Blob，则可以从 *azure-webjobs-hosts* 容器中手动删除该 Blob 的 Blob 回执。
 
 ## <a id="queues"></a>队列文章涵盖的相关主题
 有关如何处理队列消息触发的 Blob 处理，或者不特定于 Blob 处理的 WebJobs SDK 方案的信息，请参阅[如何通过 WebJobs SDK 使用 Azure 队列存储](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)。 
@@ -246,5 +246,5 @@ Blob 回执存储在 AzureWebJobsStorage 连接字符串指定的 Azure 存储�
 * 手动触发函数
 * 写入日志
 
-## <a id="nextsteps"></a>后续步骤
-本指南提供的代码示例演示了如何处理常见方案以操作 Azure Blob。 有关如何使用 Azure WebJobs 和 WebJobs SDK 的详细信息，请参阅 [Azure WebJobs 推荐资源](/app-service-web/websites-webjobs-resources)。
+## <a id="nextsteps"></a> 后续步骤
+本指南提供的代码示例演示了如何处理常见方案以操作 Azure Blob。 若要详细了解如何使用 Azure WebJobs 和 WebJobs SDK，请参阅[有关 Azure WebJobs 的推荐资源](/app-service-web/websites-webjobs-resources)。

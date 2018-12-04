@@ -15,11 +15,11 @@ origin.date: 02/02/2018
 ms.date: 10/29/2018
 ms.author: v-biyu
 ms.openlocfilehash: 17f81fe2d93226a6ca57c26c81bc18d4aadc439b
-ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49451592"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656210"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Azure 应用服务中的 OS 和运行时修补
 

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/05/2017
-ms.date: 08/13/2018
+origin.date: 09/28/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 080c0bb467502e9e2e8db7d9a5f4a32a54b89fcb
-ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
+ms.openlocfilehash: 32b83a86cc14d8fb05b50a4f18c3ff16436957c6
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625552"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654562"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的数组和对象函数 
 
@@ -46,7 +46,7 @@ Resource Manager 提供以下用于处理数组和对象的函数。
 
 若要获取由某个值分隔的字符串值数组，请参阅 [split](resource-group-template-functions-string.md#split)。
 
-<a id="array" />
+<a name="array" />
 
 ## <a name="array"></a>数组
 `array(convertToArray)`
@@ -114,7 +114,7 @@ Resource Manager 提供以下用于处理数组和对象的函数。
 
 要使用 Azure CLI 部署此示例模板，请使用：
 
-```cli
+```azurecli
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/array.json
 ```
 
@@ -124,7 +124,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/array.json
 ```
 
-<a id="coalesce" />
+<a name="coalesce" />
 
 ## <a name="coalesce"></a>coalesce
 `coalesce(arg1, arg2, arg3, ...)`
@@ -202,7 +202,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 要使用 Azure CLI 部署此示例模板，请使用：
 
-```cli
+```azurecli
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/coalesce.json
 ```
 
@@ -212,7 +212,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/coalesce.json
 ```
 
-<a id="concat" />
+<a name="concat" />
 
 ## <a name="concat"></a>concat
 `concat(arg1, arg2, arg3, ...)`
@@ -276,7 +276,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 要使用 Azure CLI 部署此示例模板，请使用：
 
-```cli
+```azurecli
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
 ```
 
@@ -316,7 +316,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 要使用 Azure CLI 部署此示例模板，请使用：
 
-```cli
+```azurecli
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
 ```
 
@@ -326,12 +326,12 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
 ```
 
-<a id="contains" />
+<a name="contains" />
 
 ## <a name="contains"></a>contains
 `contains(container, itemToFind)`
 
-检查数组是否包含某个值、某个对象是否包含某个键，或者某个字符串是否包含某个子字符串。
+检查数组是否包含某个值、某个对象是否包含某个键，或者某个字符串是否包含某个子字符串。 字符串比较区分大小写。 但在测试某个对象是否包含某个键时，该比较不区分大小写。
 
 ### <a name="parameters"></a>parameters
 
@@ -410,7 +410,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 要使用 Azure CLI 部署此示例模板，请使用：
 
-```cli
+```azurecli
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
 ```
 
@@ -420,7 +420,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
 ```
 
-<a id="createarray" />
+<a name="createarray" />
 
 ## <a name="createarray"></a>createarray
 `createArray (arg1, arg2, arg3, ...)`
@@ -490,7 +490,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 要使用 Azure CLI 部署此示例模板，请使用：
 
-```cli
+```azurecli
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/createarray.json
 ```
 
@@ -500,7 +500,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/createarray.json
 ```
 
-<a id="empty" />
+<a name="empty" />
 
 ## <a name="empty"></a>empty
 
@@ -569,7 +569,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 要使用 Azure CLI 部署此示例模板，请使用：
 
-```cli
+```azurecli
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
 ```
 
@@ -579,7 +579,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
 ```
 
-<a id="first" />
+<a name="first" />
 
 ## <a name="first"></a>first
 `first(arg1)`
@@ -634,7 +634,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 要使用 Azure CLI 部署此示例模板，请使用：
 
-```cli
+```azurecli
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
 ```
 
@@ -644,7 +644,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
 ```
 
-<a id="intersection" />
+<a name="intersection" />
 
 ## <a name="intersection"></a>intersection
 `intersection(arg1, arg2, arg3, ...)`
@@ -713,7 +713,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 要使用 Azure CLI 部署此示例模板，请使用：
 
-```cli
+```azurecli
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
 ```
 
@@ -738,6 +738,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 指定字符串中的 JSON 对象，或指定 null 时的空对象。
 
+### <a name="remarks"></a>备注
+
+如需将某个参数值或变量包含在 JSON 对象中，可使用 [concat](resource-group-template-functions-string.md#concat) 函数创建要传递到此函数的字符串。
+
 ### <a name="example"></a>示例
 
 以下[示例模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json)演示如何对数组和对象使用 json 函数：
@@ -746,6 +750,12 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
+    "parameters": {
+        "testValue": {
+            "type": "string",
+            "defaultValue": "demo value"
+        }
+    },
     "resources": [
     ],
     "outputs": {
@@ -756,6 +766,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
         "nullOutput": {
             "type": "bool",
             "value": "[empty(json('null'))]"
+        },
+        "paramOutput": {
+            "type": "object",
+            "value": "[json(concat('{\"a\": \"', parameters('testValue'), '\"}'))]"
         }
     }
 }
@@ -767,10 +781,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 | ---- | ---- | ----- |
 | jsonOutput | 对象 | {"a": "b"} |
 | nullOutput | 布尔 | True |
+| paramOutput | 对象 | {"a": "demo value"}
 
 要使用 Azure CLI 部署此示例模板，请使用：
 
-```cli
+```azurecli
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/json.json
 ```
 
@@ -780,7 +795,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/json.json
 ```
 
-<a id="last" />
+<a name="last" />
 
 ## <a name="last"></a>last
 `last (arg1)`
@@ -835,7 +850,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 要使用 Azure CLI 部署此示例模板，请使用：
 
-```cli
+```azurecli
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
 ```
 
@@ -845,7 +860,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
 ```
 
-<a id="length" />
+<a name="length" />
 
 ## <a name="length"></a>length
 `length(arg1)`
@@ -907,7 +922,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 要使用 Azure CLI 部署此示例模板，请使用：
 
-```cli
+```azurecli
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
 ```
 
@@ -928,7 +943,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 有关在数组中使用此函数的详细信息，请参阅 [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md)（在 Azure Resource Manager 中创建多个资源实例）。
 
-<a id="max" />
+<a name="max" />
 
 ## <a name="max"></a>max
 `max(arg1)`
@@ -982,7 +997,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 要使用 Azure CLI 部署此示例模板，请使用：
 
-```cli
+```azurecli
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
 ```
 
@@ -992,7 +1007,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
 ```
 
-<a id="min" />
+<a name="min" />
 
 ## <a name="min"></a>min
 `min(arg1)`
@@ -1046,7 +1061,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 要使用 Azure CLI 部署此示例模板，请使用：
 
-```cli
+```azurecli
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
 ```
 
@@ -1056,7 +1071,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
 ```
 
-<a id="range" />
+<a name="range" />
 
 ## <a name="range"></a>range
 `range(startingInteger, numberOfElements)`
@@ -1110,7 +1125,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 要使用 Azure CLI 部署此示例模板，请使用：
 
-```cli
+```azurecli
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/range.json
 ```
 
@@ -1120,7 +1135,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/range.json
 ```
 
-<a id="skip" />
+<a name="skip" />
 
 ## <a name="skip"></a>skip
 `skip(originalValue, numberToSkip)`
@@ -1191,7 +1206,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 要使用 Azure CLI 部署此示例模板，请使用：
 
-```cli
+```azurecli
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
 ```
 
@@ -1201,7 +1216,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
 ```
 
-<a id="take" />
+<a name="take" />
 
 ## <a name="take"></a>take
 `take(originalValue, numberToTake)`
@@ -1272,7 +1287,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 要使用 Azure CLI 部署此示例模板，请使用：
 
-```cli
+```azurecli
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
 ```
 
@@ -1282,7 +1297,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
 ```
 
-<a id="union" />
+<a name="union" />
 
 ## <a name="union"></a>union
 `union(arg1, arg2, arg3, ...)`
@@ -1351,7 +1366,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 要使用 Azure CLI 部署此示例模板，请使用：
 
-```cli
+```azurecli
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/union.json
 ```
 

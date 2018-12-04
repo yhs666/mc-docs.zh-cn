@@ -16,11 +16,11 @@ origin.date: 04/26/2017
 ms.date: 09/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: 7650b14ac7785537c87df1cb65dee87b921f8c7a
-ms.sourcegitcommit: 432984d85afe6f3da8f211bae0fa98a556785ee8
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455383"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656622"
 ---
 # <a name="introduction-to-network-security-group-view-in-azure-network-watcher"></a>Azure 网络观察程序中的网络安全组视图简介 | Microsoft 文档
 

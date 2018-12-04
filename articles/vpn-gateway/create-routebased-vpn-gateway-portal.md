@@ -17,11 +17,11 @@ origin.date: 04/04/2018
 ms.date: 05/08/2018
 ms.author: v-junlch
 ms.openlocfilehash: 9b9b1ebad0e16f7dfaa157a843db369a66f772e5
-ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33940674"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657765"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>使用 Azure 门户创建基于路由的 VPN 网关
 
@@ -32,7 +32,7 @@ ms.locfileid: "33940674"
 ## <a name="vnet"></a>创建虚拟网络
 
 1. 从浏览器导航到 [Azure 门户](http://portal.azure.cn)并使用 Azure 帐户登录。
-2. 单击“创建资源”。 在“搜索 Marketplace”字段中，键入“虚拟网络”。 从返回的列表中找到“虚拟网络”，单击打开“虚拟网络”页。
+2. 单击“创建资源”。 在“在市场中搜索”字段中，键入“虚拟网络”。 从返回的列表中找到“虚拟网络”，单击打开“虚拟网络”页。
 3. 从靠近“虚拟网络”页底部的“选择部署模型”列表中，确认已从下拉列表中选择“资源管理器”，然后单击“创建”。 这会打开“创建虚拟网络”页。
 4. 在“创建虚拟网络”页上，配置 VNet 设置。 填写字段时，如果在字段中输入的字符有效，红色感叹号标记会变成绿色对钩标记。 使用以下值：
 

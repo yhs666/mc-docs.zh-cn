@@ -12,11 +12,11 @@ origin.date: 03/01/2018
 ms.date: 10/23/2018
 ms.author: v-junlch
 ms.openlocfilehash: 13ac3185aaa5a1349ef24402c26755a9ade3408d
-ms.sourcegitcommit: 44ce337717bb948f5ac08217a156935f663c0f46
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034662"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656563"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>示例：如何实时分析视频
 

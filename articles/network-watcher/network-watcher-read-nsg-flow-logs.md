@@ -15,11 +15,11 @@ origin.date: 07/25/2017
 ms.date: 09/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: f3440e4c83013b1c0f0e210f575cdfafddad0ae0
-ms.sourcegitcommit: 432984d85afe6f3da8f211bae0fa98a556785ee8
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455391"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659685"
 ---
 # <a name="read-nsg-flow-logs"></a>读取 NSG 流日志
 

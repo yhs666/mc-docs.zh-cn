@@ -16,11 +16,11 @@ origin.date: 05/15/2017
 ms.date: 09/04/2017
 ms.author: v-yeche
 ms.openlocfilehash: b6fdeecf1c041553f4ac6afdbdc8f5ced8b52c34
-ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
-ms.locfileid: "21938703"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655957"
 ---
 # <a name="use-azure-cli-to-create-a-service-principal-to-access-resources"></a>使用 Azure CLI 创建服务主体来访问资源
 
@@ -52,7 +52,7 @@ ms.locfileid: "21938703"
     azure ad sp create -n exampleapp -p {your-password}
     ```
 
-    随后返回新的服务主体。 授权时需要使用对象 ID。 登录时需要提供随服务主体名称列出的 GUID。 此 GUID 与 AppId 的值一样。在示例应用程序中，此值称为 `Client ID`。 
+    随后返回新的服务主体。 授权时需要使用对象 ID。 登录时需要提供随服务主体名称列出的 GUID。 此 GUID 的值与应用 ID 相同。在示例应用程序中，此值称为 `Client ID`。 
 
     ```azurecli
     info:    Executing command ad sp create
@@ -67,7 +67,7 @@ ms.locfileid: "21938703"
       info:    ad sp create command OK
     ```
 
-3. 向服务主体授予对订阅的权限。 在此示例中，向“读取者”角色（授予读取订阅中所有资源的权限）添加服务主体。 对于其他角色，请参阅 [RBAC：内置角色](../active-directory/role-based-access-built-in-roles.md)。 对于 objectid 参数，请提供创建应用程序时使用的 Object ID。 运行此命令之前，必须留出一些时间让新服务主体传遍 Azure Active Directory。 手动运行这些命令时，任务之间通常已经过足够的时间。 在脚本中，应在命令间添加休眠步骤（如 `sleep 15`）。 如果看到错误称主体不存在于目录中，请重新运行该命令。
+3. 向服务主体授予对订阅的权限。 在此示例中，向“读取者”角色（授予读取订阅中所有资源的权限）添加服务主体。 对于其他角色，请参阅 [RBAC：内置角色](../active-directory/role-based-access-built-in-roles.md)。 对于 objectid 参数，请提供创建应用程序时使用的对象 ID。 运行此命令之前，必须留出一些时间让新服务主体传遍 Azure Active Directory。 手动运行这些命令时，任务之间通常已经过足够的时间。 在脚本中，应在命令间添加休眠步骤（如 `sleep 15`）。 如果看到错误称主体不存在于目录中，请重新运行该命令。
 
     ```azurecli
     azure role assignment create --objectId ff863613-e5e2-4a6b-af07-fff6f2de3f4e -o Reader -c /subscriptions/{subscriptionId}/
@@ -155,7 +155,7 @@ ms.locfileid: "21938703"
     openssl req -x509 -days 3650 -newkey rsa:2048 -out cert.pem -nodes -subj '/CN=exampleapp'
     ```
 
-2. 前述步骤创建了两个文件 - privkey.pem 和 cert.pem。 将公钥和私钥组合成一个文件。
+2. 前述步骤创建了两个文件 - privkey.pem 和 cert.pem。 将公钥和私钥组合在一个文件中。
 
     ```
     cat privkey.pem cert.pem > examplecert.pem
@@ -174,7 +174,7 @@ ms.locfileid: "21938703"
     azure ad sp create -n exampleapp --cert-value {certificate data}
     ```
 
-    随后返回新的服务主体。 授权时需要使用对象 ID。 登录时需要提供随服务主体名称列出的 GUID。 此 GUID 与 AppId 的值一样。在示例应用程序中，此值称为“客户端 ID”。 
+    将返回新的服务主体。 授权时需要使用对象 ID。 登录时需要提供随服务主体名称列出的 GUID。 此 GUID 与 AppId 的值一样。在示例应用程序中，此值称为“客户端 ID”。 
      
     ```azurecli
     info:    Executing command ad sp create
@@ -187,7 +187,7 @@ ms.locfileid: "21938703"
         data:                      https://www.contoso.org/example
         info:    ad sp create command OK
     ```
-6. 向服务主体授予对订阅的权限。 在此示例中，向“读取者”角色（授予读取订阅中所有资源的权限）添加服务主体。 对于其他角色，请参阅 [RBAC：内置角色](../active-directory/role-based-access-built-in-roles.md)。 对于 objectid 参数，请提供创建应用程序时使用的 Object ID。 运行此命令之前，必须留出一些时间让新服务主体传遍 Azure Active Directory。 手动运行这些命令时，任务之间通常已经过足够的时间。 在脚本中，应在命令间添加休眠步骤（如 `sleep 15`）。 如果看到错误称主体不存在于目录中，请重新运行该命令。
+6. 向服务主体授予对订阅的权限。 在此示例中，向“读取者”角色（授予读取订阅中所有资源的权限）添加服务主体。 对于其他角色，请参阅 [RBAC：内置角色](../active-directory/role-based-access-built-in-roles.md)。 对于 objectid 参数，请提供创建应用程序时使用的对象 ID。 运行此命令之前，必须留出一些时间让新服务主体传遍 Azure Active Directory。 手动运行这些命令时，任务之间通常已经过足够的时间。 在脚本中，应在命令间添加休眠步骤（如 `sleep 15`）。 如果看到错误称主体不存在于目录中，请重新运行该命令。
    
     ```azurecli
     azure role assignment create --objectId 7dbc8265-51ed-4038-8e13-31948c7f4ce7 -o Reader -c /subscriptions/{subscriptionId}/
@@ -318,6 +318,6 @@ azure ad app set --applicationId 4fd39843-c338-417d-b549-a545f584a745 --cert-val
 * [Ruby](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/)
 
 ## <a name="next-steps"></a>后续步骤
-* 有关将应用程序集成到 Azure 以管理资源的详细步骤，请参阅 [Developer's guide to authorization with the Azure Resource Manager API](resource-manager-api-authentication.md)（使用 Azure 资源管理器 API 进行授权的开发人员指南）。
-* 若要获取有关使用证书和 Azure CLI 的详细信息，请参阅 [Certificate-based authentication with Azure Service Principals from Linux command line](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx)（从 Linux 命令行对 Azure 服务主体进行基于证书的身份验证）。
+* 有关将应用程序集成到 Azure 以管理资源的详细步骤，请参阅[使用 Azure 资源管理器 API 进行授权的开发人员指南](resource-manager-api-authentication.md)。
+* 若要获取有关使用证书和 Azure CLI 的详细信息，请参阅[从 Linux 命令行对 Azure 服务主体进行基于证书的身份验证](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx)。
 * 有关可对用户授予或拒绝的可用操作的列表，请参阅 [Azure Resource Manager 资源提供程序操作](../active-directory/role-based-access-control-resource-provider-operations.md)。

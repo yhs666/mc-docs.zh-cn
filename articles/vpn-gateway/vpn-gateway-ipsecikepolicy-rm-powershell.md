@@ -17,11 +17,11 @@ origin.date: 02/14/2018
 ms.date: 06/13/2018
 ms.author: v-junlch
 ms.openlocfilehash: 6803f3f8e849aa8e846609ebe709ed6881c9c0a9
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568401"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657676"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>为 S2S VPN 或 VNet 到 VNet 的连接配置 IPsec/IKE 策略
 

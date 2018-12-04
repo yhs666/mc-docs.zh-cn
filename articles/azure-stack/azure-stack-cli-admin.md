@@ -16,11 +16,11 @@ origin.date: 09/28/2018
 ms.date: 11/12/2018
 ms.author: v-jay
 ms.openlocfilehash: e39e50b8d6dbbe7d2271ad3990358d95945ca989
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195451"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654566"
 ---
 # <a name="enable-azure-cli-for-azure-stack-users"></a>为 Azure Stack 用户启用 Azure CLI
 

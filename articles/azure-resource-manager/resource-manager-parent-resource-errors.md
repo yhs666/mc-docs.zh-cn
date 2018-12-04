@@ -13,11 +13,11 @@ origin.date: 08/01/2018
 ms.date: 09/03/2018
 ms.author: v-yeche
 ms.openlocfilehash: 942af82d8e2fdecf73f4ddf3bb094c942b402748
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164957"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655113"
 ---
 # <a name="resolve-errors-for-parent-resources"></a>解决父资源的错误
 

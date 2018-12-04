@@ -9,15 +9,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 09/07/2018
-ms.date: 09/24/2018
+origin.date: 09/28/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: ccef712d1fb63aa73914250c8d2263f0fc07d87e
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.openlocfilehash: 1deb36d8c98a1f15da8a6b8578e5bee884e75856
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527292"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655824"
 ---
 <!--pending for verify -->
 # <a name="move-operation-support-for-resources"></a>支持移动操作的资源
@@ -156,6 +156,7 @@ az resource list -g demogroup --query '[].{name:name, reourcetype:type}'
 | registries | 是 | 是 |
 | registries/buildtasks | 是 | 是 |
 | registries/replications | 否 | 否 |
+| registries/tasks | 是 | 是 |
 | registries/webhooks | 是 | 是 |
 
 <!-- Not Available on ## Microsoft.ContainerService-->
@@ -175,13 +176,13 @@ az resource list -g demogroup --query '[].{name:name, reourcetype:type}'
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 | 资源类型 | 资源组 | 订阅 |
 | ------------- | -------------- | ------------ |
-| servers | 否 | 否 |
+| servers | 是 | 是 |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 | 资源类型 | 资源组 | 订阅 |
 | ------------- | -------------- | ------------ |
 | servergroups | 否 | 否 |
-| servers | 否 | 否 |
+| servers | 是 | 是 |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 | 资源类型 | 资源组 | 订阅 |
@@ -261,15 +262,22 @@ az resource list -g demogroup --query '[].{name:name, reourcetype:type}'
 | ------------- | -------------- | ------------ |
 | applicationgateways | 否 | 否 |
 | applicationsecuritygroups | 是 | 是 |
+| azurefirewalls | 是 | 是 |
 | connections | 是 | 是 |
 | ddosprotectionplans | 否 | 否 |
 | dnszones | 是 | 是 |
 | expressroutecircuits | 否 | 否 |
+| expressroutecrossconnections | 否 | 否 |
+| expressroutegateways | 否 | 否 |
 | expressrouteports | 否 | 否 |
+| frontdoors | 是 | 是 |
+| frontdoorwebapplicationfirewallpolicies | 是 | 是 |
+| interfaceendpoints | 否 | 否 |
 | loadbalancers | 是 | 是 |
 | localnetworkgateways | 是 | 是 |
 | networkintentpolicies | 是 | 是 |
 | networkinterfaces | 是 | 是 |
+| networkprofiles | 否 | 否 |
 | networksecuritygroups | 是 | 是 |
 | networkwatchers | 是 | 是 |
 | networkwatchers/connectionmonitors | 是 | 是 |
@@ -279,9 +287,16 @@ az resource list -g demogroup --query '[].{name:name, reourcetype:type}'
 | publicipprefixes | 是 | 是 |
 | routefilters | 否 | 否 |
 | routetables | 是 | 是 |
+| serviceendpointpolicies | 是 | 是 |
 | trafficmanagerprofiles | 是 | 是 |
+| virtualhubs | 是 | 是 |
 | virtualnetworkgateways | 是 | 是 |
 | virtualnetworks | 是 | 是 |
+| virtualnetworktaps | 否 | 否 |
+| virtualwans | 是 | 是 |
+| vpngateways | 是 | 是 |
+| vpnsites | 是 | 是 |
+| webapplicationfirewallpolicies | 是 | 是 |
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | 资源类型 | 资源组 | 订阅 |
@@ -356,6 +371,8 @@ az resource list -g demogroup --query '[].{name:name, reourcetype:type}'
 ## <a name="microsoftsql"></a>Microsoft.Sql
 | 资源类型 | 资源组 | 订阅 |
 | ------------- | -------------- | ------------ |
+| managedinstances | 是 | 是 |
+| managedinstances/databases | 是 | 是 |
 | servers | 是 | 是 |
 | servers/databases | 是 | 是 |
 | servers/elasticpools | 是 | 是 |

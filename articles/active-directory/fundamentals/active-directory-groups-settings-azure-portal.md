@@ -14,11 +14,11 @@ ms.author: v-junlch
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.openlocfilehash: d3feb33636b277b907eebc55e9131008fb15f29d
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913747"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657307"
 ---
 # <a name="how-to-edit-your-group-information-using-azure-active-directory"></a>如何：使用 Azure Active Directory 编辑组信息
 
@@ -27,7 +27,7 @@ ms.locfileid: "48913747"
 ## <a name="to-edit-your-group-settings"></a>编辑组设置
 1. 使用目录的全局管理员帐户登录到 [Azure 门户](https://portal.azure.cn)。
 
-2. 依次选择“Azure Active Directory”、“组”。
+2. 选择“Azure Active Directory”，然后选择“组”。
 
     此时会出现“组 - 所有组”页，其中显示了所有处于活动状态的组。
 
@@ -53,7 +53,7 @@ ms.locfileid: "48913747"
     
     - **成员身份类型。** 更改成员身份类型。 有关各种可用成员身份类型的详细信息，请参阅[如何：使用 Azure Active Directory 门户创建基本组并添加成员](active-directory-groups-create-azure-portal.md)
     
-    - **对象 ID。** 无法更改对象 ID，但可以复制它以在用于组的 PowerShell 命令中使用。 有关使用 PowerShell cmdlet 的详细信息，请参阅[用于配置组设置的 Azure Active Directory cmdlet](../users-groups-roles/groups-settings-v2-cmdlets.md)。
+    - **对象 ID。** 无法更改对象 ID，但可以复制它以在用于组的 PowerShell 命令中使用。 有关 PowerShell cmdlet 的详细信息，请参阅[用于配置组设置的 Azure Active Directory cmdlet](../users-groups-roles/groups-settings-v2-cmdlets.md)。
 
 ## <a name="next-steps"></a>后续步骤
 这些文章提供了有关 Azure Active Directory 的更多信息。

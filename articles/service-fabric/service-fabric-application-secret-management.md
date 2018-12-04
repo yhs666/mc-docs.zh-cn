@@ -16,17 +16,16 @@ origin.date: 03/21/2018
 ms.date: 08/20/2018
 ms.author: v-yeche
 ms.openlocfilehash: fc302e8267e5facf0d3cb00e8c55cecf9c9cc310
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41705090"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655297"
 ---
 # <a name="manage-secrets-in-service-fabric-applications"></a>管理 Service Fabric 应用程序中的机密
 本指南逐步讲解管理 Service Fabric 应用程序中的机密的步骤。 机密可以是任何敏感信息，例如存储连接字符串、密码或其他不应以明文形式处理的值。
 
-
-            [Azure 密钥保管库][key-vault-get-started]在此处用作证书的安全存储位置，可用于将证书安装在 Azure 中的 Service Fabric 群集上。 如果不部署到 Azure，则不需要使用密钥保管库来管理 Service Fabric 应用程序中的机密。 但是，在应用程序中 *使用* 机密的方式不区分云平台，因此可让应用程序部署到托管在任何位置的群集。 
+[Azure 密钥保管库][key-vault-get-started]在此处用作证书的安全存储位置，可用于将证书安装在 Azure 中的 Service Fabric 群集上。 如果不部署到 Azure，则不需要使用密钥保管库来管理 Service Fabric 应用程序中的机密。 但是，在应用程序中 *使用* 机密的方式不区分云平台，因此可让应用程序部署到托管在任何位置的群集。 
 
 ## <a name="obtain-a-data-encipherment-certificate"></a>获取数据加密证书
 数据加密证书只用于加密和解密服务 Settings.xml 中的配置值，而不用于身份验证或密码文本签名。 该证书必须满足以下要求：

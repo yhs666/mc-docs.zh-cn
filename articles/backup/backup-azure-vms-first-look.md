@@ -16,11 +16,11 @@ origin.date: 08/02/2017
 ms.date: 09/04/2017
 ms.author: v-junlch
 ms.openlocfilehash: b200998be97e6c8e2d20726fb288273e958cd04f
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
-ms.locfileid: "22005238"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656243"
 ---
 # <a name="first-look-backing-up-azure-virtual-machines"></a>初步了解：备份 Azure 虚拟机
 > [!div class="op_single_selector"]
@@ -81,7 +81,7 @@ ms.locfileid: "22005238"
     ![完成发现](./media/backup-azure-vms-first-look/discovery-complete.png)
 7. 单击页面底部的“**注册**”。
     ![注册按钮](./media/backup-azure-vms-first-look/register-icon.png)
-8. 在“注册项”快捷菜单中，选择要注册的虚拟机。
+8. 在“**注册项**”快捷菜单中，选择要注册的虚拟机。
 
    > [!TIP]
    > 可以一次注册多个虚拟机。
@@ -153,7 +153,7 @@ Azure VM 代理必须安装在 Azure 虚拟机上，备份扩展才能运行。 
 1. 在“受保护的项”页底部，单击“立即备份”。
     ![“立即备份”图标](./media/backup-azure-vms-first-look/backup-now-icon.png)
 
-    Azure 备份服务为初始备份操作创建备份作业。
+    Azure 备份服务将为初始备份操作创建备份作业。
 2. 单击“**作业**”选项卡查看作业列表。
 
     ![备份进行中](./media/backup-azure-vms-first-look/protect-inprogress.png)

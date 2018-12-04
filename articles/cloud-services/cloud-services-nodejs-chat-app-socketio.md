@@ -16,11 +16,11 @@ origin.date: 08/17/2017
 ms.date: 01/15/2018
 ms.author: v-yiso
 ms.openlocfilehash: 39b3b81093524a6a138eb9441318858a1ee81952
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
-ms.locfileid: "27604473"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654629"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>在 Azure 云服务中使用 Socket.IO 生成 Node.js 聊天应用程序
 
@@ -75,7 +75,7 @@ Socket.IO 在 node.js 服务器和客户端之间提供实时通信。 本教程
 
 1.  使用“克隆”  按钮创建存储库的本地副本。 还可以使用“ZIP”按钮下载项目。
 
-    ![显示 https://github.com/LearnBoost/socket.io/tree/master/examples/chat 的浏览器窗口，其中突出显示了 ZIP 下载图标][chat-example-view]
+    ![用于查看 https://github.com/LearnBoost/socket.io/tree/master/examples/chat 的浏览器窗口，其中突出显示 ZIP 下载图标][chat-example-view]
 
 3.  浏览本地存储库的目录结构，找到 examples\\chat 目录。 将此目录的内容复制到先前创建的 C:\\node\\chatapp\\WorkerRole1 目录。
 
@@ -137,14 +137,14 @@ Socket.IO 在 node.js 服务器和客户端之间提供实时通信。 本教程
     PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
    > [!NOTE]
    > If you encounter issues with launching emulator, eg.:
-      Start-AzureEmulator : An unexpected failure occurred.  Details: Encountered an unexpected error The communication object,  System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+      Start-AzureEmulator : An unexpected failure occurred.  Details: Encountered an unexpected error The communication object,  System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
    
       reinstall AzureAuthoringTools v 2.7.1 and AzureComputeEmulator v 2.7 - make sure that version matches.
    >
    >
     ```
 
-2.  打开浏览器并导航到 http://127.0.0.1。
+2.  打开浏览器并导航到 **http://127.0.0.1**。
 
 3.  浏览器窗口打开后，输入昵称，并按 Enter。
    这样，就可以用特定昵称发布消息。 要测试多用户功能，请使用同一 URL 打开另外的浏览器窗口但输入不同的昵称。

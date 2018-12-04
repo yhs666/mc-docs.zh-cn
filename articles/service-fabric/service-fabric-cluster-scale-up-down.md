@@ -16,11 +16,11 @@ origin.date: 06/22/2017
 ms.date: 08/07/2017
 ms.author: v-yeche
 ms.openlocfilehash: 3497219e6fb789d8c80246c41c4f48a2eeac0fec
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29285506"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657165"
 ---
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>使用自动缩放规则扩展可缩减 Service Fabric 群集
 虚拟机规模集是一种 Azure 计算资源，可用于将一组虚拟机作为一个集进行部署和管理。 在 Service Fabric 群集中定义的每个节点类型将设置为不同的虚拟机规模集。 然后，每个节点类型可以独立缩减或扩展、打开不同的端口集，并可以有不同的容量指标。 可在 [Service Fabric nodetypes](service-fabric-cluster-nodetypes.md) 文档中了解有关详细信息。 由于群集中的 Service Fabric 节点类型由后端的虚拟机规模集构成，因此需要为每个节点类型/虚拟机规模集设置自动缩放规则。
@@ -53,7 +53,7 @@ Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <Virtual Machine sca
 
 ## <a name="manually-remove-vms-from-the-primary-node-typevirtual-machine-scale-set"></a>手动从主节点类型/虚拟机规模集中删除 VM
 > [!NOTE]
-> Service Fabric 系统服务在群集中以主节点类型运行。 因此请不要关闭该节点类型的实例，或者将该节点类型的实例数目缩减到少于可靠性层所需的数目。 在[此处](service-fabric-cluster-capacity.md)了解有关可靠性层的详细信息。 
+> Service Fabric 系统服务在群集中以主节点类型运行。 因此请不要关闭该节点类型的实例，或者将该节点类型的实例数目缩减到少于可靠性层所需的数目。 在 [此处](service-fabric-cluster-capacity.md)了解有关可靠性层的详细信息。 
 > 
 > 
 

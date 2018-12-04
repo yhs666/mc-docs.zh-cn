@@ -15,11 +15,11 @@ origin.date: 04/23/2018
 ms.date: 07/02/2018
 ms.author: v-jay
 ms.openlocfilehash: b84777e93ca78392dd4af41040706c3d7ac72f5f
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103145"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657456"
 ---
 # <a name="modeling-relationships"></a>为关系建模
 本文讨论可帮助设计 Azure 表存储解决方案的建模流程。

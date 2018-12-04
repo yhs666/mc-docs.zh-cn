@@ -2,50 +2,48 @@
 title: 将 Azure Active Directory 用户同步到群集 - Azure HDInsight
 description: 将经身份验证的用户从 Azure Active Directory 同步到群集。
 services: hdinsight
-documentationcenter: ''
-author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
 ms.service: hdinsight
+author: ashishthaps
+tags: azure-portal
+ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/24/2018
+ms.date: 11/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: 9463fb0e85ca066c15cd82a6c63f08e21a3a3251
-ms.sourcegitcommit: bae4e9e500e3e988ef8fa0371777ca9cc49b4e94
+origin.date: 09/24/2018
+ms.openlocfilehash: b3f64e0fd13d310aa5f2dcf1151a66dc0a38436d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45584847"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657890"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>将 Azure Active Directory 用户同步到 HDInsight 群集
 
-[已加入域的 HDInsight 群集](hdinsight-domain-joined-introduction.md)可对 Azure Active Directory (Azure AD) 用户使用强身份验证，还可使用基于角色的访问控制 (RBAC) 策略。 将用户和组添加到 Azure AD 时，可以同步需要访问群集的用户。
+[使用企业安全性套餐 (ESP) 的 HDInsight 群集](hdinsight-domain-joined-introduction.md)可对 Azure Active Directory (Azure AD) 用户使用强身份验证，还可使用基于角色的访问控制 (RBAC) 策略。 将用户和组添加到 Azure AD 时，可以同步需要访问群集的用户。
 
 ## <a name="prerequisites"></a>先决条件
 
-[创建已加入域的 HDInsight 群集](hdinsight-domain-joined-configure.md)（如果尚未这样做）。
+如果你尚未执行此操作，请[使用企业安全性套餐创建 HDInsight 群集](hdinsight-domain-joined-configure.md)。
 
 ## <a name="add-new-azure-ad-users"></a>添加新的 Azure AD 用户
 
 若要查看主机，请打开 Ambari Web UI。 每个节点都会使用新的无人参与升级设置进行更新。
 
-1. 在 [Azure 门户](https://portal.azure.cn)中，导航到与已加入域的群集相关联的 Azure AD 目录。
+1. 在 [Azure 门户](https://portal.azure.cn)中，导航到与 ESP 群集相关联的 Azure AD 目录。
 
 2. 从左侧菜单选择“所有用户”，然后选择“新建用户”。
 
     ![“所有用户”窗格](./media/hdinsight-sync-aad-users-to-cluster/aad-users.png)
 
-3. 完成新用户表单。 选择所创建的组，以便分配基于群集的权限。 在此示例中，请创建名为“HiveUsers”的组，以便向其分配新用户。 [示例说明](hdinsight-domain-joined-configure.md)介绍如何创建已加入域的群集，其中包括如何添加 `HiveUsers` 和 `AAD DC Administrators` 这两个组。
+3. 完成新用户表单。 选择所创建的组，以便分配基于群集的权限。 在此示例中，请创建名为“HiveUsers”的组，以便向其分配新用户。 [示例说明](hdinsight-domain-joined-configure.md)介绍如何创建 ESP 群集，其中包括如何添加 `HiveUsers` 和 `AAD DC Administrators` 这两个组。
 
     ![“新建用户”窗格](./media/hdinsight-sync-aad-users-to-cluster/aad-new-user.png)
 
-4. 选择**创建**。
+4. 选择“创建” 。
 
 ## <a name="use-the-ambari-rest-api-to-synchronize-users"></a>使用 Ambari REST API 来同步用户
 
@@ -67,7 +65,7 @@ ms.locfileid: "45584847"
     "https://<YOUR CLUSTER NAME>.azurehdinsight.cn/api/v1/ldap_sync_events"
     ```
     
-    响应应为如下所示：
+    响应应如下所示：
 
     ```json
     {
@@ -88,7 +86,7 @@ ms.locfileid: "45584847"
     curl -u admin:<YOUR PASSWORD> https://<YOUR CLUSTER NAME>.azurehdinsight.cn/api/v1/ldap_sync_events/1
     ```
     
-    响应应为如下所示：
+    响应应如下所示：
     
     ```json
     {
@@ -155,6 +153,6 @@ ms.locfileid: "45584847"
 
 ## <a name="see-also"></a>另请参阅
 
-* [在已加入域的 HDInsight 中配置 Hive 策略](hdinsight-domain-joined-run-hive.md)
-* [管理已加入域的 HDInsight 群集](hdinsight-domain-joined-manage.md)
+* [使用 ESP 在 HDInsight 中配置 Hive 策略](hdinsight-domain-joined-run-hive.md)
+* [管理 ESP HDInsight 群集](hdinsight-domain-joined-manage.md)
 * [授权用户访问 Ambari](hdinsight-authorize-users-to-ambari.md)

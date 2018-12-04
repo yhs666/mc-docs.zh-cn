@@ -18,11 +18,11 @@ ms.date: 12/18/2017
 ms.author: v-yiso
 ROBOTS: NOINDEX
 ms.openlocfilehash: 05f2e1c93990cd38ad5f9195fc3e4beb8baa991e
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26410386"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658904"
 ---
 # <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>从远程桌面连接运行 Pig 作业
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
@@ -30,9 +30,9 @@ ms.locfileid: "26410386"
 本文档演练了如何使用 Pig 命令从到基于 Windows 的 HDInsight 群集的远程桌面连接运行 Pig Latin 语句。 Pig Latin 允许通过描述数据转换创建 MapReduce 应用程序，而不是创建映射和化简函数。
 
 > [!IMPORTANT]
-> 远程桌面只能在使用 Windows 作为操作系统的 HDInsight 群集上使用。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+> 远程桌面只能在使用 Windows 作为操作系统的 HDInsight 群集上使用。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 >
-> 有关 HDInsight 3.4 或更高版本，请参阅[将 Pig 与 HDInsight 和 SSH 配合使用](apache-hadoop-use-pig-ssh.md)，了解如何通过命令行直接在群集上以交互方式运行 Pig 作业。
+> 有关 HDInsight 3.4 或更高版本，请参阅[将 Pig 与 HDInsight 和 SSH 配合使用](apache-hadoop-use-pig-ssh.md) ，了解如何通过命令行直接在群集上以交互方式运行 Pig 作业。
 
 ## <a id="prereq"></a>先决条件
 要完成本文中的步骤，需要：
@@ -41,7 +41,7 @@ ms.locfileid: "26410386"
 * 运行 Windows 10、Windows 8 或 Windows 7 的客户端计算机
 
 ## <a id="connect"></a>使用远程桌面进行连接
-为 HDInsight 群集启用远程桌面，然后根据[使用 RDP 连接到 HDInsight 群集](../hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)中的说明连接到该群集。
+为 HDInsight 群集启用远程桌面，并根据 [使用 RDP 连接到 HDInsight 群集](../hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)中的说明连接到该群集。
 
 ## <a id="pig"></a>使用 Pig 命令
 1. 在建立远程桌面连接后，通过使用桌面上的图标启动 **Hadoop 命令行** 。
@@ -86,7 +86,7 @@ ms.locfileid: "26410386"
         STORE RESULT into 'wasb:///example/data/pigout'
 
    > [!NOTE]
-   > 数据将存储到指定目录中名为 **part-nnnnn** 的文件中。 如果该目录已存在，会收到错误消息。
+   > 数据将存储到文件中名为 **part-nnnnn**的指定目录。 如果该目录已存在，将收到错误消息。
    >
    >
 7. 若要退出 grunt 提示符，请输入以下语句。
@@ -129,6 +129,6 @@ ms.locfileid: "26410386"
 
 有关 HDInsight 上的 Hadoop 的其他使用方法的信息：
 
-* [将 Hive 与 Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
+* [将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)
 * [将 MapReduce 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-mapreduce.md)
 <!--Update_Description: change 'wasbs' into 'wasb'-->

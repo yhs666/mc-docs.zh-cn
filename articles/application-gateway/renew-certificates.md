@@ -10,11 +10,11 @@ origin.date: 08/15/2018
 ms.date: 08/22/2018
 ms.author: v-junlch
 ms.openlocfilehash: df23dfddb7c0a5c49485c228f3e4344b336ce5e7
-ms.sourcegitcommit: da9f7b0825e493636d6596eb6ae95d03e0626583
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41734290"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655684"
 ---
 # <a name="renew-application-gateway-certificates"></a>续订应用程序网关证书
 

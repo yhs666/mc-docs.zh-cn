@@ -3,26 +3,20 @@ title: 在 HDInsight (Hadoop) 上安装并使用 Giraph - Azure | Azure
 description: 了解如何使用脚本操作在基于 Linux 的 HDInsight 群集上安装 Giraph。 脚本操作可让你通过更改群集配置或安装服务和实用工具，在创建期间自定义群集。
 services: hdinsight
 documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 9fcac906-8f06-4002-9fe8-473e42f8fd0f
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 origin.date: 04/23/2018
-ms.date: 06/25/2018
+ms.date: 11/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: ee45a0d97deaf17ba70c2e962b5ac3622e971c41
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: 3f97c3981e4ea68d0fd07ee8121aff15ae2e44f1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747401"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655575"
 ---
 # <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>在 HDInsight Hadoop 群集上安装 Giraph 并使用 Giraph 处理大型图形
 
@@ -65,7 +59,7 @@ ms.locfileid: "36747401"
 > [!NOTE]
 > 可以通过下列任一方法应用脚本操作：
 > * Azure PowerShell
-> * Azure CLI
+> * Azure 经典 CLI
 > * HDInsight .NET SDK
 > * Azure Resource Manager 模板
 > 
@@ -77,7 +71,7 @@ ms.locfileid: "36747401"
 
    * **名称**：输入脚本操作的友好名称。
 
-   * **脚本 URI**：https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
+   * **脚本 URI**： https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
 
    * **标头**：选中此项
 

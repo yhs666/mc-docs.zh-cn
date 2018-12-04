@@ -9,15 +9,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/22/2018
-ms.date: 09/24/2018
+origin.date: 10/10/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: f58ded6b5cc803aa216fb21fb914fb5f830a38f6
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.openlocfilehash: 910868dd8d6ba45462feaa35ec2d8190fbe2005a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46526866"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656288"
 ---
 # <a name="deploy-resources-to-an-azure-subscription"></a>将资源部署到 Azure 订阅
 
@@ -46,7 +46,7 @@ ms.locfileid: "46526866"
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "policyDefinitionID": {
@@ -138,7 +138,7 @@ New-AzureRmDeployment `
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {},
     "variables": {},
@@ -146,7 +146,7 @@ New-AzureRmDeployment `
         {
             "type": "Microsoft.Authorization/policyDefinitions",
             "name": "locationpolicy",
-            "apiVersion": "2018-03-01",
+            "apiVersion": "2018-05-01",
             "properties": {
                 "policyType": "Custom",
                 "parameters": {},
@@ -164,7 +164,7 @@ New-AzureRmDeployment `
         {
             "type": "Microsoft.Authorization/policyAssignments",
             "name": "location-lock",
-            "apiVersion": "2018-03-01",
+            "apiVersion": "2018-05-01",
             "dependsOn": [
                 "locationpolicy"
             ],
@@ -201,7 +201,7 @@ New-AzureRmDeployment `
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "principalId": {
@@ -216,7 +216,7 @@ New-AzureRmDeployment `
         {
             "type": "Microsoft.Authorization/roleAssignments",
             "name": "[guid(parameters('principalId'), deployment().name)]",
-            "apiVersion": "2017-05-01",
+            "apiVersion": "2017-09-01",
             "properties": {
                 "roleDefinitionId": "[resourceId('Microsoft.Authorization/roleDefinitions', parameters('roleDefinitionId'))]",
                 "principalId": "[parameters('principalId')]"
@@ -263,4 +263,4 @@ New-AzureRmDeployment `
 * 若要了解有关创建 Azure Resource Manager模板的信息，请参阅[创作模板](resource-group-authoring-templates.md)。 
 * 有关模板中的可用函数列表，请参阅[模板函数](resource-group-template-functions.md)。
 
-<!-- Update_Description: add powershell cmdlet content -->
+<!-- Update_Description: update meta properties, update schema reference link -->

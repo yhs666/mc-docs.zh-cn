@@ -16,17 +16,17 @@ origin.date: 05/15/2017
 ms.date: 06/11/2018
 ms.author: v-yiso
 ms.openlocfilehash: c9e57ff708c99c03cb9508c5b36e0aea91440992
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695043"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655445"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure 云服务和 ASP.NET 入门
 
 ## <a name="overview"></a>概述
 
-本教程演示如何使用 ASP.NET MVC 前端创建多层.NET 应用程序，并将其部署到 [Azure 云服务](./cloud-services-choose-me.md)。 应用程序使用 [Azure SQL 数据库](http://msdn.microsoft.com/zh-cn/library/azure/ee336279)、[Azure Blob 服务](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)和 [Azure 队列服务](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)。 可以从 MSDN 代码库 [下载 Visual Studio 项目](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4)。
+本教程演示如何使用 ASP.NET MVC 前端创建多层 .NET 应用程序，并将其部署到 [Azure 云服务](./cloud-services-choose-me.md)。 应用程序使用 [Azure SQL 数据库](http://msdn.microsoft.com/zh-cn/library/azure/ee336279)、[Azure Blob 服务](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)和 [Azure 队列服务](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)。 可以从 MSDN 代码库 [下载 Visual Studio 项目](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4)。
 
 本教程介绍如何在本地生成并运行应用程序、如何将其部署到 Azure 并在云中运行，以及如何从头构建。 用户可以从头构建并进行测试，之后根据用户的喜好部署步骤。
 
@@ -145,7 +145,7 @@ Azure 云服务是该应用程序将运行的环境。
 5. 选择要在其中部署该应用程序的区域。
 
     此字段指定你的云服务将托管在哪个数据中心。 对于生产应用程序，可以选择离客户最近的区域。 对于本教程，选择最近的区域。
-5. 单击“创建”。
+5. 单击**创建**。
 
     在下图中，使用 URL csvccontosoads.chinacloudapp.cn 创建一个云服务。
 
@@ -175,7 +175,7 @@ Azure 云服务是该应用程序将运行的环境。
 9. 针对新服务器单击“选择”。
 
     ![新建 SQL 数据库服务器](./media/cloud-services-dotnet-get-started/newdbserver.png)
-10. 单击“创建”。
+10. 单击**创建**。
 
 ### <a name="create-an-azure-storage-account"></a>创建 Azure 存储帐户
 
@@ -199,7 +199,7 @@ Azure 存储帐户提供在云中存储队列和 Blob 数据的资源。
     当云服务和存储帐户位于不同的数据中心（不同区域）时，延迟将增加，并且需要为数据中心外的带宽付费。 数据中心内的带宽是免费的。
 
     Azure 地缘组实际上是一种机制，目的是最小化数据中心内不同资源之间的距离，这样可以降低延迟。 本教程不使用地缘组。 有关详细信息，请参阅 [如何在 Azure 中创建地缘组](http://msdn.microsoft.com/library/jj156209.aspx)。
-7. 单击“创建”。
+7. 单击**创建**。
 
     ![新的存储帐户](./media/cloud-services-dotnet-get-started/newstorage.png)
 
@@ -276,7 +276,7 @@ Web 角色项目和辅助角色项目的 azure 存储帐户连接字符串存储
 
 5. 保存所做更改。
 
-6. 按用于 `StorageConnectionString` 连接字符串的同一过程设置 `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` 连接字符串。
+6. 按照你所使用的针对 `StorageConnectionString` 连接字符串的相同过程，设置 `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` 连接字符串。
 
     此连接字符串用于日志记录。
 
@@ -297,7 +297,7 @@ Web 角色项目和辅助角色项目的 azure 存储帐户连接字符串存储
 </ConfigurationSettings>
 ```
 
-*ServiceConfiguration.Cloud.cscfg* 文件包括你在 Visual Studio 中为这些设置输入的值。
+*ServiceConfiguration.Cloud.cscfg* 文件包括你为 Visual Studio 中的设置输入的值。
 
 ```xml
 <Role name="ContosoAdsWorker">
@@ -562,7 +562,7 @@ var storageAccount = CloudStorageAccount.Parse
     (RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
 ```
 
-然后，它获取对图像 Blob 容器的引用，创建尚不存在的容器，并在新容器上设置访问权限。 默认情况下，新容器只允许带存储帐户凭据的客户端访问 Blob。 网站需要 Blob 是公共的，以便它可以使用指向图像 Blob 的 Url 显示图像。
+然后，它获取对 *图像* Blob 容器的引用，创建尚不存在的容器，并在新容器上设置访问权限。 默认情况下，新容器只允许带存储帐户凭据的客户端访问 Blob。 网站需要 Blob 是公共的，以便它可以使用指向图像 Blob 的 Url 显示图像。
 
 ```csharp
 var blobClient = storageAccount.CreateCloudBlobClient();
@@ -603,7 +603,7 @@ imagesQueue.CreateIfNotExists();
 ### <a name="contosoadsweb---adcontrollercs"></a>ContosoAdsWeb - AdController.cs
 在 AdController.cs 文件中，构造函数调用 `InitializeStorage` 方法来创建 Azure 存储客户端库对象，该对象提供用于处理 blob 和队列的 API。
 
-然后，代码获取对图像 Blob 容器的引用，正如之前在 Global.asax.cs 中所见。 在执行该操作时，它设置适用于 Web 应用程序的默认 [重试策略](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) 。 对于超过暂时性故障反复重试超过一分钟的 Web 应用程序，默认指数回退重试策略将其可能挂起。 此处指定的重试策略将在每次尝试后等待三秒，最多可尝试三次。
+然后，代码获取对*图像* Blob 容器的引用，正如用户之前在 *Global.asax.cs* 中看到的那样。 在执行该操作时，它设置适用于 Web 应用程序的默认 [重试策略](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) 。 对于超过暂时性故障反复重试超过一分钟的 Web 应用程序，默认指数回退重试策略将其可能挂起。 此处指定的重试策略将在每次尝试后等待三秒，最多可尝试三次。
 
 ```csharp
 var blobClient = storageAccount.CreateCloudBlobClient();

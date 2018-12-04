@@ -12,11 +12,11 @@ origin.date: 08/22/2018
 ms.date: 10/30/2018
 ms.author: v-junlch
 ms.openlocfilehash: 87d1eae69dd9436d91ab2d3c89d79589a36153c7
-ms.sourcegitcommit: b8e99939a5493a15b78c32e87bfbf76a8c96a84a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50408981"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658948"
 ---
 # <a name="what-is-computer-vision"></a>什么是计算机视觉？
 

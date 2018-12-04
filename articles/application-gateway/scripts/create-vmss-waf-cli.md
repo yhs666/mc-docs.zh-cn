@@ -16,11 +16,11 @@ ms.date: 08/22/2018
 ms.author: v-junlch
 ms.custom: mvc
 ms.openlocfilehash: 578a21e2d1989395a6397fa7fdea422d15a71895
-ms.sourcegitcommit: da9f7b0825e493636d6596eb6ae95d03e0626583
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41734318"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657250"
 ---
 # <a name="restrict-web-traffic-using-the-azure-cli"></a>使用 Azure CLI 限制 Web 流量
 

@@ -16,11 +16,11 @@ origin.date: 11/02/2017
 ms.date: 05/28/2018
 ms.author: v-yeche
 ms.openlocfilehash: a77d0bfea0ded8e9670dca8471aa6d66890e22a8
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554394"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657895"
 ---
 # <a name="polymorphism-in-the-reliable-actors-framework"></a>Reliable Actors 框架中的多态性技术
 Reliable Actors 框架允许使用许多在面向对象的设计中使用的相同技术来生成执行组件。 其中一种技术是多态性技术，它允许类型和接口从多个通用父类中继承。 Reliable Actors 框架中的继承通常遵循 .NET 模型，并会受到一些附加限制。 在 Java/Linux 中，它遵循 Java 模型。

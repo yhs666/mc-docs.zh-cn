@@ -9,12 +9,12 @@ origin.date: 10/03/2018
 ms.date: 11/12/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: b7839fc39f3e71dccdc3764f47778c607ac34259
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.openlocfilehash: 17ca13e98128609991272395a21a0f8eb0567c16
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195535"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654567"
 ---
 # <a name="what-is-azure-analysis-services"></a>什么是 Azure Analysis Services？
 
@@ -193,10 +193,9 @@ Azure Analysis Services 还支持使用[动态管理视图 (DMV)](https://docs.m
 ![分享的文档](./media/analysis-services-overview/aas-overview-edit.png)
 
 文档团队会审查你的供稿，如果获得批准，你的 GitHub 帐户名会显示为供稿人。
+
 <!--Not Avaible on [Docs contributor guide](/contribute/)-->
-
-Azure Analysis Services 文档还包含 [GitHub 问题](https://docs.microsoft.com/zh-cn/teamblog/a-new-feedback-system-is-coming-to-docs)。 可以提供有关产品或文档的反馈， 使用文章底部的“反馈”即可。 SQL Server Analysis Services 文档尚未启用“GitHub 问题”。 
-
+<!--Not Suitable on [GitHub Issues](https://docs.microsoft.com/zh-cn/teamblog/a-new-feedback-system-is-coming-to-docs)-->
 <!-- Not Available on ## Blogs-->
 <!-- Not Available on ## Community-->
 ## <a name="next-steps"></a>后续步骤

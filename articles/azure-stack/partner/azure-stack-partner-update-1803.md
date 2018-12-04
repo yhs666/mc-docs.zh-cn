@@ -15,11 +15,11 @@ ms.date: 08/27/2018
 ms.author: v-jay
 ms.reviewer: John.Haskin
 ms.openlocfilehash: dae5d0705d546988b46218977ee3835cd0fbbd11
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195362"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658265"
 ---
 # <a name="release-notes---1803"></a>发行说明 - 1803
 

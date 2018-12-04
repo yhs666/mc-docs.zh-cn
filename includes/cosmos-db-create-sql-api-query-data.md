@@ -10,11 +10,11 @@ ms.date: 06/04/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: 0ab6b4c3dce7f6ce2d54e7d210f8096f2f0e85b0
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940248"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657735"
 ---
 现在可以在数据资源管理器中使用查询来检索和筛选数据。
 

@@ -16,11 +16,11 @@ origin.date: 01/23/2017
 ms.date: 10/16/2017
 ms.author: v-johch
 ms.openlocfilehash: a47f599ec736e05b9d1f4161c3283204702341b8
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295729"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656342"
 ---
 # <a name="repairing-an-import-job"></a>修复导入作业
 Azure 导入/导出服务可能无法将某些文件或某个文件的部分内容复制到 Azure Blob 服务。 失败的部分原因包括：  

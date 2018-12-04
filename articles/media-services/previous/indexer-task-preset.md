@@ -15,11 +15,11 @@ origin.date: 08/03/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
 ms.openlocfilehash: 667dd091eddbf7ba41fc5b6a8bc7bed9172784cb
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475168"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654594"
 ---
 # <a name="task-preset-for-azure-media-indexer"></a>Azure Media Indexer 的任务预设
 

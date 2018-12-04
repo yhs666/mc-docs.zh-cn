@@ -18,11 +18,11 @@ origin.date: 04/23/2018
 ms.date: 09/24/2018
 ms.author: v-yiso
 ms.openlocfilehash: d8931b13ad2a28f904a24b88654c5c6cdd393523
-ms.sourcegitcommit: bae4e9e500e3e988ef8fa0371777ca9cc49b4e94
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45584836"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658244"
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>将 Apache Mahout 与 HDInsight (PowerShell) 中的 Hadoop 配合使用生成电影推荐
 
@@ -34,7 +34,7 @@ ms.locfileid: "45584836"
 
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
-* 基于 Linux 的 HDInsight 群集。 有关创建该群集的信息，请参阅[开始在 HDInsight 中使用基于 Linux 的 Hadoop][getstarted]。
+* 基于 Linux 的 HDInsight 群集。 有关创建该群集的信息，请参阅 [开始在 HDInsight 中使用基于 Linux 的 Hadoop][getstarted]。
 
     > [!IMPORTANT]
     > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
@@ -177,7 +177,7 @@ Get-AzureStorageBlobContent -blob "HdiSamples/HdiSamples/MahoutMovieData/user-ra
 ```
 
 > [!NOTE]
-> Mahout 作业不删除在处理作业时创建的临时数据。 在示例作业中指定 `--tempDir` 参数，将临时文件隔离到特定目录中。
+> Mahout 作业不删除在处理作业时创建的临时数据。 在示例作业中指定 `--tempDir` 参数，以将临时文件隔离到特定目录中。
 
 Mahout 作业不会将输出返回到 STDOUT。 而是会将其作为 **part-r-00000** 存储在指定的输出目录中。 该脚本将此文件下载到工作站上的当前目录中的 **output.txt** 中。
 
@@ -364,7 +364,7 @@ foreach($blob in $blobs)
 
 ### <a name="nopowershell"></a>不适用于 Azure PowerShell 的类
 
-在 Windows PowerShell 中使用时，使用以下类的 Mahout 作业将返回各种错误消息：
+在 Windows PowerShell 中使用时，使用以下类的 Mahout 作业返回各种错误消息：
 
 * org.apache.mahout.utils.clustering.ClusterDumper
 * org.apache.mahout.utils.SequenceFileDumper

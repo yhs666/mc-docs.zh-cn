@@ -15,11 +15,11 @@ ms.date: 08/27/2018
 ms.author: v-jay
 ms.reviewer: johnhas
 ms.openlocfilehash: 07d1784dba44ff96ff83ce9385a7cbeba9deedf3
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869659"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658643"
 ---
 # <a name="set-up-your-validation-as-a-service-account"></a>设置验证即服务帐户
 

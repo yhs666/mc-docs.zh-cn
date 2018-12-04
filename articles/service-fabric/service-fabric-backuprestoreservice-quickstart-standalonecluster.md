@@ -16,11 +16,11 @@ origin.date: 04/04/2018
 ms.date: 08/20/2018
 ms.author: v-yeche
 ms.openlocfilehash: 9887bfccc37ca33093735f614160ab34999ba30f
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41705394"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655660"
 ---
 # <a name="quickstart-periodic-backup-and-restore-in-azure-service-fabric-preview"></a>快速入门：Azure Service Fabric（预览版）中的定期备份和还原
 > [!div class="op_single_selector"]

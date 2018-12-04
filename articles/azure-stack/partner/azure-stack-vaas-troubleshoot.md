@@ -15,11 +15,11 @@ ms.date: 08/27/2018
 ms.author: v-jay
 ms.reviewer: johnhas
 ms.openlocfilehash: 3887ab7af28b522d6a5689ed8b5137e5564b22a1
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869674"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655822"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>对验证即服务进行故障排除
 
@@ -34,7 +34,7 @@ ms.locfileid: "42869674"
 > [!Note] 
 > 已在该代理上运行的任何测试都将继续运行，但是，如果检测信号在测试结束之前没有恢复，则代理将无法更新测试状态，也无法上传日志。 测试将始终显示为**正在运行**并且需要取消。
 
-## <a name="agent-process-on-machine-was-shut-down-while-executing-test-what-to-expect"></a>在执行测试时，计算机上的代理进程已关闭。 会发生什么情况？
+## <a name="agent-process-on-machine-was-shut-down-while-executing-test-what-to-expect"></a>在执行测试时，计算机上的代理进程已关闭。 要发生的情况
 
 如果代理进程是非正常关闭的，例如计算机重启、进程被终止（在代理窗口上按 CTRL+C 被视为正常关闭），则之前正在其上运行的测试将继续显示为**正在运行**。 如果代理重启，则代理会将测试状态更新为**已取消**。 如果代理未重启，则测试会显示为**正在运行**并且必须手动取消测试
 

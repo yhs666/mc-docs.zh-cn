@@ -14,11 +14,11 @@ origin.date: 03/06/2017
 ms.date: 09/10/2018
 ms.author: v-junlch
 ms.openlocfilehash: 53e9cc2f23870c10d8e5950d4a79aed9f704b442
-ms.sourcegitcommit: 40456700212200e707d6cb3147cf96ad161d3ff2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44269508"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659151"
 ---
 # <a name="configure-an-azure-cloud-service-project-with-visual-studio"></a>使用 Visual Studio 配置 Azure 云服务项目
 可根据你对 Azure 云服务项目的要求来对其进行配置。 可针对以下类别设置项目的属性：

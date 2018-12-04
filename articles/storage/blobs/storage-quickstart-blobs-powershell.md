@@ -11,11 +11,11 @@ origin.date: 04/09/2018
 ms.date: 09/10/2018
 ms.author: v-johch
 ms.openlocfilehash: b848925f8b13b058f760e9c812ef6f3299cfd97a
-ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43651216"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656981"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 上传、下载和列出 Blob
 

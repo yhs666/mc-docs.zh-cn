@@ -2,6 +2,6 @@
 
 * 在应用中，添加新项并单击“+”。
 
-* 检查是否已收到通知，然后单击“确定”以取消通知  。 现已成功完成本教程。
+* 检查是否已收到通知，并单击“确定”以取消通知  。 现已成功完成本教程。
 
       ![](../articles/media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png)

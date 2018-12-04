@@ -18,11 +18,11 @@ origin.date: 04/14/2018
 ms.date: 09/26/2018
 ms.author: v-junlch
 ms.openlocfilehash: c17cf152e94b956686581367c066ad560b24cbb5
-ms.sourcegitcommit: 7c6ff130adaa67bc90094846f81295ef0719d072
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47191377"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655205"
 ---
 # <a name="tutorial-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向 iOS 应用推送通知
 

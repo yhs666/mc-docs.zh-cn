@@ -16,11 +16,11 @@ origin.date: 01/29/2018
 ms.date: 09/07/2018
 ms.author: v-junlch
 ms.openlocfilehash: 95d4c826f7f3707ce6756edfd662553f617aab16
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068151"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654524"
 ---
 # <a name="cli-example-create-a-batch-account-in-user-subscription-mode"></a>CLI 示例：在用户订阅模式下创建 Batch 帐户
 

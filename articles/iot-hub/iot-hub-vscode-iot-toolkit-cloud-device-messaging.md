@@ -10,11 +10,11 @@ origin.date: 7/20/2018
 ms.date: 09/10/2018
 ms.author: v-yiso
 ms.openlocfilehash: 21bc947906a7060d27e4490936cb3466ec243c64
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43330444"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656355"
 ---
 # <a name="use-azure-iot-toolkit-extension-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>使用用于 Visual Studio Code 的 Azure IoT 工具包扩展在设备和 IoT 中心之间发送和接收消息
 

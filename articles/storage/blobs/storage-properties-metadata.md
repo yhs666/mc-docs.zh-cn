@@ -9,11 +9,11 @@ origin.date: 07/16/2017
 ms.date: 09/10/2017
 ms.author: v-jay
 ms.openlocfilehash: 6edb948ef32fb7d8165ca30ac11ce440ec6cb838
-ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43650810"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656975"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>设置和检索属性与元数据
 

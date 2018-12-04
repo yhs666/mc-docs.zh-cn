@@ -18,11 +18,11 @@ origin.date: 08/03/2017
 ms.date: 09/04/2017
 ms.author: v-yiso
 ms.openlocfilehash: 0efd5cfa5c0557fdd33574fdaed8e44520c75611
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
-ms.locfileid: "21134766"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657872"
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>排查 Azure 应用服务中 Web 应用性能缓慢的问题
 本文帮助排查 [Azure 应用服务](./app-service-changes-existing-services.md)中 Web 应用性能缓慢的问题。
@@ -134,7 +134,7 @@ Kudu 提供的一些信息和功能包括：
 * 诊断转储
 * 调试控制台，可以在其中运行 Powershell cmdlet 和基本 DOS 命令。
 
-Kudu 的另一项有用功能是，如果应用程序引发第一次异常，可以使用 Kudu 和 SysInternals 工具 Procdump 创建内存转储。 这些内存转储是进程的快照，通常可以帮助你排查较复杂的 Web 应用问题。
+Kudu 的另一项有用功能是，如果应用程序引发第一次异常，可以使用 Kudu 和 SysInternals 工具 Procdump 创建内存转储。 这些内存转储是进程的快照，通常可帮助排查较复杂的 Web 应用问题。
 
 有关 Kudu 提供的功能的详细信息，请参阅 [Azure Websites Team Services tools you should know about](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/)（应该了解的 Azure Websites Team Services 工具）。
 
@@ -151,7 +151,7 @@ Kudu 的另一项有用功能是，如果应用程序引发第一次异常，可
 可以将缩放设置为手动或自动。
 
 #### <a name="use-autoheal"></a>使用 AutoHeal
-AutoHeal 会根据你选择的设置（例如配置更改、请求、基于内存的限制或执行请求所需的时间），回收应用程序的工作进程。 在大多数情况下，回收进程是在出现问题后进行恢复的最快方式。 尽管始终都可从 Azure 门户中直接重启 Web 应用，但 AutoHeal 可以自动执行此操作。 只需在 Web 应用的根 web.config 中添加一些触发器即可。 即使应用程序并非 .Net 应用程序，这些设置的工作方式也仍然相同。
+AutoHeal 会根据所选设置（例如配置更改、请求、基于内存的限制或执行请求所需的时间）回收应用的工作进程。 在大多数情况下，回收进程是在出现问题后进行恢复的最快方式。 尽管始终都可从 Azure 门户中直接重启 Web 应用，但 AutoHeal 可以自动执行此操作。 只需在 Web 应用的根 web.config 中添加一些触发器即可。 即使应用程序并非 .Net 应用程序，这些设置的工作方式也仍然相同。
 
 有关详细信息，请参阅 [自动修复 Azure 网站](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/)。
 

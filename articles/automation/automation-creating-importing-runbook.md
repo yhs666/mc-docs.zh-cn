@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.topic: conceptual
 manager: digimobile
 ms.openlocfilehash: 3e2bb1eb9daf7926c8cfb58bc683d6de5abed419
-ms.sourcegitcommit: 1b60848d25bbd897498958738644a4eb9cf3a302
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43731197"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659787"
 ---
 # <a name="creating-or-importing-a-runbook-in-azure-automation"></a>在 Azure 自动化中创建或导入 Runbook
 
@@ -47,7 +47,7 @@ New-AzureRmAutomationRunbook -AutomationAccountName MyAccount `
 
 可以在 Azure 自动化中创建新的 Runbook，方法是导入 PowerShell 脚本或 PowerShell 工作流（扩展名为 .ps1）、导出的图形 Runbook (.graphrunbook) 或 Python 2 脚本（扩展名为.py）。  必须指定在导入期间创建的 [Runbook 类型](automation-runbook-types.md)，并考虑以下注意事项。
 
-* .graphrunbook 文件只能导入到新的[图形 Runbook](automation-runbook-types.md#graphical-runbooks) 中，并且只能从 .graphrunbook 文件创建图形 Runbook。
+* .graphrunbook 文件只能导入到新的 [图形 Runbook](automation-runbook-types.md#graphical-runbooks)中，并且只能从 .graphrunbook 文件创建图形 Runbook。
 * 包含 PowerShell 工作流的 .ps1 文件只能导入到 [PowerShell 工作流 Runbook](automation-runbook-types.md#powershell-workflow-runbooks) 中。  如果该文件包含多个 PowerShell 工作流，导入会失败。 必须将每个工作流保存到各自的文件中，并分别导入每个工作流。
 * 不包含工作流的 .ps1 文件可以导入到 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks) 中，也可以导入到 [PowerShell 工作流 Runbook](automation-runbook-types.md#powershell-workflow-runbooks) 中。  如果将它导入到 PowerShell 工作流 Runbook 中，则会将其转换为工作流，并会在 Runbook 中添加注释，详述所做的更改。
 
@@ -73,7 +73,7 @@ New-AzureRmAutomationRunbook -AutomationAccountName MyAccount `
 > 
 
 ### <a name="to-import-a-runbook-from-a-script-file-with-windows-powershell"></a>使用 Windows PowerShell 从脚本文件中导入 Runbook
-可以使用 [Import-AzureRMAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/import-azurermautomationrunbook) cmdlet 将脚本文件导入为 PowerShell 工作流 Runbook 草稿。 如果 Runbook 已存在，除非使用 *-Force* 参数，否则导入会失败。 
+可以使用 [Import-AzureRMAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/import-azurermautomationrunbook) cmdlet 将脚本文件导入为 PowerShell 工作流草稿 Runbook。 如果 Runbook 已存在，除非使用 *-Force* 参数，否则导入会失败。 
 
 下面的示例命令演示了如何将脚本文件导入到 Runbook 中。
 
@@ -112,5 +112,5 @@ Publish-AzureRmAutomationRunbook -AutomationAccountName $automationAccountName `
 
 ## <a name="next-steps"></a>后续步骤
 * 若要深入了解使用文本编辑器编辑 PowerShell 和 PowerShell 工作流 Runbook，请参阅[在 Azure 自动化中编辑文本 Runbook](automation-edit-textual-runbook.md)
-* 若要详细了解图形 Runbook 创作，请参阅 [Azure 自动化中的图形创作](automation-graphical-authoring-intro.md)
+* 若要详细了解图形 Runbook 创作，请参阅 [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md)
 

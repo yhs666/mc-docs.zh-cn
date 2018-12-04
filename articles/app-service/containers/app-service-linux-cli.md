@@ -17,11 +17,11 @@ origin.date: 08/22/2017
 ms.author: v-yiso
 ms.date: 10/16/2017
 ms.openlocfilehash: 408a55f5cca7a49197d610a9aa5c38da0f934af5
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
-ms.locfileid: "22339061"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657179"
 ---
 # <a name="manage-web-apps-for-containers-using-azure-cli"></a>使用 Azure CLI 管理用于容器的 Web 应用
 

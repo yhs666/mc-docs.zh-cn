@@ -16,11 +16,11 @@ origin.date: 04/09/2018
 ms.date: 05/28/2018
 ms.author: v-haiqya
 ms.openlocfilehash: 0d40eb7e6a9f0d48ed0e8d28f256208876f81b4a
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426480"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657242"
 ---
 # <a name="configure-a-content-key-authorization-policy"></a>配置内容密钥授权策略
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]

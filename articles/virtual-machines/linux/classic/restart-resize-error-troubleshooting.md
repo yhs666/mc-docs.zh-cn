@@ -17,11 +17,11 @@ ms.date: 12/18/2017
 ms.devlang: na
 ms.author: v-yeche
 ms.openlocfilehash: 010bc5cc0f230dca0d003a06bce499a3311fbc4a
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
-ms.locfileid: "26727601"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659186"
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-restarting-or-resizing-an-existing-linux-virtual-machine-in-azure"></a>排查在 Azure 中重新启动或调整现有 Linux 虚拟机时遇到的经典部署问题
 > [!div class="op_single_selector"]
@@ -73,7 +73,7 @@ ms.locfileid: "26727601"
 
 * 单击“浏览全部” > “虚拟机(经典)” >  *用户的虚拟机*  > “设置” > “大小”。 有关详细步骤，请参阅[调整虚拟机的大小](https://msdn.microsoft.com/library/dn168976.aspx)。
 
-如果无法减小 VM 大小，请遵循以下步骤：
+如果无法减少 VM 大小，请遵循以下步骤：
 
 * 创建新的云服务，确保它不链接到地缘组，并且未与链接到地缘组的虚拟网络相关联。
 * 在其中创建更大的新 VM。

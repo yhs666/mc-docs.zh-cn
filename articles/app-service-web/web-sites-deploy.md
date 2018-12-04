@@ -16,14 +16,14 @@ origin.date: 01/05/2017
 ms.date: 07/10/2017
 ms.author: v-dazen
 ms.openlocfilehash: 1c303d1109745fa7be0a1fa4d230d41524683ad7
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939046"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659341"
 ---
 # <a name="deploy-your-app-to-azure-app-service"></a>将应用部署到 Azure 应用服务
-本文可帮助你确定将 Web 应用、移动应用后端或 API 应用的文件部署到 [Azure 应用服务](/app-service-web/app-service-changes-existing-services) 的最佳选项，并将你引导到相应的资源，其中包含特定于首选选项的操作说明。
+本文可帮助用户确定将 Web 应用、移动应用后端或 API 应用的文件部署到 [Azure 应用服务](/app-service-web/app-service-changes-existing-services)的最佳选项，并将用户引导到相应的资源，其中包含特定于用户的首选选项的操作说明。
 
 ## <a name="overview"></a>Azure 应用服务部署概述
 Azure 应用服务保留了应用程序框架（ASP.NET、PHP、Node.js 等等）。 某些框架在默认情况下已启用，而其他框架（如 Java 和 Python）可能需要进行简单的复选标记配置才能启用。 此外，还可以自定义应用程序框架，如运行时的 PHP 版本或位元。 有关详细信息，请参阅[在 Azure 应用服务中配置应用](web-sites-configure.md)。
@@ -82,7 +82,7 @@ Azure 应用服务保留了应用程序框架（ASP.NET、PHP、Node.js 等等�
 ### <a name="vsts"></a>如何从基于云的源代码管理服务连续部署
 在 Kudu 中，可以配置从 GitHub 进行的连续部署。
 
-* [连续部署到 Azure 应用服务](app-service-continuous-deployment.md)。 
+* [Continous Deployment to Azure 应用服务](app-service-continuous-deployment.md)（连续部署到 Azure 应用服务）。 
 
 若要了解如何通过 Azure 门户中未列出的云存储库（如 [GitLab](https://gitlab.com/)）手动配置连续部署，请参阅[使用手动步骤设置连续部署](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps)。
 

@@ -16,13 +16,13 @@ origin.date: 08/16/2018
 ms.date: 09/17/2018
 ms.author: v-yeche
 ms.openlocfilehash: e66f7b92c699bcfc2496aa3556f494aba4b36501
-ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586572"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654450"
 ---
-# <a name="availability-and-consistency-in-event-hubs"></a>事件中心中的可用性和一致性
+# <a name="availability-and-consistency-in-event-hubs"></a>事件中心内的可用性和一致性
 
 ## <a name="overview"></a>概述
 Azure 事件中心使用[分区模型](event-hubs-features.md#partitions)在单个事件中心内提高可用性和并行化。 例如，如果事件中心具有四个分区，并且其中一个分区要在负载均衡操作中从一台服务器移动到另一台服务器，则仍可以通过其他三个分区进行发送和接收。 此外，具有更多分区可以让更多并发读取器处理数据，从而提高聚合吞吐量。 了解分布式系统中分区和排序的意义是解决方案设计的重要方面。
@@ -31,7 +31,7 @@ Azure 事件中心使用[分区模型](event-hubs-features.md#partitions)在单�
 
 Brewer 的定理按如下所示定义一致性和可用性：
 * 分区容差：系统即使在出现分区故障时也能继续处理数据的数据处理能力。
-* 可用性：非故障节点在合理时间量内返回合理响应（没有错误或超时）。
+* 可用性：非故障节点在合理时间内返回合理响应（没有错误或超时）。
 * 一致性：保证读取针对给定客户端返回最新写入。
 
 ## <a name="partition-tolerance"></a>分区容差

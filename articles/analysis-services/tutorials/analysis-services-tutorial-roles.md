@@ -9,11 +9,11 @@ ms.date: 08/06/2018
 ms.author: v-yeche
 ms.reviewer: owend
 ms.openlocfilehash: 6a772b5830b0939c57bf97e5c03b2337585246db
-ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487846"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657263"
 ---
 <!--Notice: Verify successfully-->
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>教程：配置服务器管理员和用户角色

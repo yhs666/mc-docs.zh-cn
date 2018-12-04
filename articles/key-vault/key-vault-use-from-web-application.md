@@ -13,11 +13,11 @@ origin.date: 07/20/2018
 ms.date: 11/05/2018
 ms.author: v-biyu
 ms.openlocfilehash: 00d6d0b345214b80fae4b8c00beff13d675b1c02
-ms.sourcegitcommit: 8a68d9275ddb92ea45601fed96e21559999d9579
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026943"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656382"
 ---
 # <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>教程：从 Web 应用程序使用 Azure Key Vault
 

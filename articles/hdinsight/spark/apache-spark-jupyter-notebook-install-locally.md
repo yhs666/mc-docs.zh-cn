@@ -18,11 +18,11 @@ origin.date: 11/28/2017
 ms.date: 03/26/2018
 ms.author: v-yiso
 ms.openlocfilehash: 168aed8ae28e9ed227eb87e9122a230d6b458335
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873412"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658939"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>在计算机上安装 Jupyter notebook 并连接到 HDInsight 上的 Apache Spark
 

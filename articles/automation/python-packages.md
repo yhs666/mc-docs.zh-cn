@@ -11,11 +11,11 @@ ms.date: 10/01/2018
 ms.topic: conceptual
 manager: digimonbile
 ms.openlocfilehash: 2b5dfe79f86c46e64bef8689f385836ce1de8012
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426490"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658859"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>管理 Azure 自动化中的 Python 2 程序包
 

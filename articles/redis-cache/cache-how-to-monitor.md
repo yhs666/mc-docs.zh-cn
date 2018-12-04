@@ -13,14 +13,14 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 origin.date: 07/13/2017
-ms.date: 08/13/2018
+ms.date: 11/14/2018
 ms.author: v-junlch
-ms.openlocfilehash: b0f0a74532cf438c1fd9e74f3975cf3c3a102ccc
-ms.sourcegitcommit: 56ed1b03d83f222db6118fe1e2f2485a9488507f
+ms.openlocfilehash: 7d235d79c777328308fe5b595eee24b4122ad163
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41703926"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659309"
 ---
 # <a name="how-to-monitor-azure-redis-cache"></a>如何监视 Azure Redis 缓存
 Azure Redis 缓存使用 [Azure Monitor](/monitoring-and-diagnostics/) 提供用于监视缓存实例的几个选项。 可以查看度量值、将度量值图表固定到启动板、自定义监视图表的日期和时间范围、在图表中添加和删除度量值，以及设置符合特定条件时发出的警报。 借助这些工具，可以监视 Azure Redis 缓存实例的运行状况，以及管理缓存应用程序。
@@ -76,11 +76,11 @@ Azure Redis 缓存使用 [Azure Monitor](/monitoring-and-diagnostics/) 提供用
 ![Redis 诊断](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
 
 >[!NOTE]
->除了将缓存指标存档至存储区外，还可以[将其流式传输到事件中心或将其发送到 Log Analytics](../monitoring-and-diagnostics/monitoring-overview-metrics.md#export-metrics)。
+>除了将缓存指标存档至存储区外，还可以[将其流式传输到事件中心或将其发送到 Log Analytics](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md#retrieve-metric-values)。
 >
 >
 
-若要访问指标，可按前文所述在 Azure 门户中查看它们，还可以使用 [Azure Monitor 指标 REST API](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api) 对其进行访问。
+若要访问指标，可按前文所述在 Azure 门户中查看它们，还可以使用 [Azure Monitor 指标 REST API](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) 对其进行访问。
 
 > [!NOTE]
 > 如果更改存储帐户，以前配置的存储帐户中的数据仍可供下载，但并不会显示在 Azure 门户中。  
@@ -125,10 +125,13 @@ Azure Redis 缓存使用 [Azure Monitor](/monitoring-and-diagnostics/) 提供用
 
 - 发送电子邮件通知
 - 调用 Webhook
+- 调用 Azure 逻辑应用
 
 若要配置缓存的预警规则，从“资源菜单”单击“预警规则”。
 
 ![监视](./media/cache-how-to-monitor/redis-cache-monitoring.png)
+
+有关配置和使用警报的详细信息，请参阅[警报概述](../monitoring-and-diagnostics/insights-alerts-portal.md)。
 
 ## <a name="activity-logs"></a>活动日志
 活动日志提供针对 Azure Redis 缓存实例执行的操作的详细信息。 活动日志以前称为“审核日志”或“操作日志”。 通过活动日志，可确定对 Azure Redis 缓存实例执行的任何写入操作（PUT、POST、DELETE）的“操作内容、操作人员和操作时间”。 

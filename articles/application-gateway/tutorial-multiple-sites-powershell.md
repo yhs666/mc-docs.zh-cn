@@ -11,11 +11,11 @@ ms.date: 08/07/2018
 ms.author: v-junlch
 ms.custom: mvc
 ms.openlocfilehash: 89b9f2a10513ae25a91e337710dfb266cf0fa557
-ms.sourcegitcommit: a1c6a743b4be62477e7debfc9ea5f03afca2bc8f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625200"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655995"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-azure-powershell"></a>使用 Azure PowerShell 创建托管多个网站的应用程序网关
 
@@ -281,7 +281,7 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 ## <a name="test-the-application-gateway"></a>测试应用程序网关
 
-在浏览器的地址栏中输入域名。 例如，http://www.contoso.com。
+在浏览器的地址栏中输入域名。 例如， http://www.contoso.com。
 
 ![在应用程序网关中测试 contoso 站点](./media/tutorial-multiple-sites-powershell/application-gateway-iistest.png)
 

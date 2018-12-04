@@ -15,11 +15,11 @@ origin.date: 06/02/2018
 ms.date: 07/09/2018
 ms.author: v-yeche
 ms.openlocfilehash: 689a6daad5b5b0801a7f02f7f657cbf5851e4bc6
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405193"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657198"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>将 Azure 资源部署到多个订阅或资源组
 

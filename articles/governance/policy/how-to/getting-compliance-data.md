@@ -11,11 +11,11 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
 ms.openlocfilehash: 8c640d86e791e6c061ee15716eb542b65eba0252
-ms.sourcegitcommit: b8e99939a5493a15b78c32e87bfbf76a8c96a84a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409112"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654624"
 ---
 # <a name="getting-compliance-data"></a>获取符合性数据
 

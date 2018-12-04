@@ -16,11 +16,11 @@ origin.date: 04/14/2018
 ms.date: 09/10/2018
 ms.author: v-junlch
 ms.openlocfilehash: 4d0629316812c0b193fa164eb17fe0fb0d13ee62
-ms.sourcegitcommit: 1471663f5f5a1c4e1fbead7c4d351610cb0086bb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44363570"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655460"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>如何通过 Python 使用通知中心
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -48,7 +48,7 @@ ms.locfileid: "44363570"
 > 
 
 ## <a name="client-interface"></a>客户端接口
-主要的客户端接口可提供 [.NET 通知中心 SDK](http://msdn.microsoft.com/library/jj933431.aspx) 中可用的相同方法。 此接口允许直接翻译该网站目前提供的所有教程和示例，这些内容均由社区通过 Internet 提供。
+主要的客户端接口可提供 [.NET 通知中心 SDK](http://msdn.microsoft.com/library/jj933431.aspx)中提供的相同方法。 此接口允许直接翻译该网站目前提供的所有教程和示例，这些内容均由社区通过 Internet 提供。
 
 可以在 [Python REST 包装器示例]中找到提供的所有代码。
 
@@ -97,7 +97,7 @@ ms.locfileid: "44363570"
 
 
 ### <a name="create-security-token"></a>创建安全令牌
-有关创建安全令牌的详细信息，请访问[此处](http://msdn.microsoft.com/library/dn495627.aspx)。
+有关安全令牌创建的详细信息，请访问 [此处](http://msdn.microsoft.com/library/dn495627.aspx)。
 将以下方法添加到 NotificationHub 类，以便根据当前请求的 URI 和提取自连接字符串的凭据创建令牌。
 
     @staticmethod
@@ -275,7 +275,7 @@ ms.locfileid: "44363570"
 
     hub = NotificationHub("myConnectionString", "myNotificationHubName")
 
-然后，根据目标移动平台添加发送代码。 此示例还添加了更高级别的方法以支持基于平台发送通知，例如 send_windows_notification for windows; send_apple_notification (for apple) 等。 
+然后，根据用户的目标移动平台添加发送代码。 此示例还添加了更高级别的方法以支持基于平台发送通知，例如 send_windows_notification for windows; send_apple_notification (for apple) 等。 
 
 ### <a name="windows-store-and-windows-phone-81-non-silverlight"></a>Windows 应用商店和 Windows Phone 8.1（非 Silverlight）
     wns_payload = """<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Test</text></binding></visual></toast>"""
@@ -336,7 +336,7 @@ ms.locfileid: "44363570"
         '<NotificationOutcome xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><Success>0</Success><Failure>0</Failure><Results i:nil="true"/></NotificationOutcome>'
 
 ### <a name="broadcast-toast-notification-to-windows"></a>将 toast 通知广播到 Windows
-向 Windows 客户端发送 toast 广播通知时请注意发送出去的标头。 
+请注意你在向 Windows 客户端发送广播 toast 通知时发送出去的标头。 
 
     hub.send_windows_notification(wns_payload)
 
@@ -365,7 +365,7 @@ ms.locfileid: "44363570"
         var template =
                         @"<toast><visual><binding template=""ToastText01""><text id=""1"">$(greeting_en)</text></binding></visual></toast>";
 
-**服务器端 - 正在发送的有效负载**
+**服务器端 - 正在发送的负载**
 
         template_payload = {'greeting_en': 'Hello', 'greeting_fr': 'Salut'}
         hub.send_template_notification(template_payload)

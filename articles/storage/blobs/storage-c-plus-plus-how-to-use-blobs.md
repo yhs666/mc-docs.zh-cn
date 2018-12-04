@@ -10,11 +10,11 @@ origin.date: 03/21/2018
 ms.date: 06/11/2018
 ms.author: v-nany
 ms.openlocfilehash: 44fcd5b72a8817b63ee3802360f4f4682f4bdd62
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940173"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656980"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>如何通过 C++ 使用 Blob 存储
 
@@ -263,6 +263,6 @@ blockBlob.delete_blob();
 * [使用 C++ 列出 Azure 存储资源](../storage-c-plus-plus-enumeration.md)
 * [适用于 C++ 的存储空间客户端库参考](http://azure.github.io/azure-storage-cpp)
 * [Azure 存储文档](/storage/)
-* [使用 AzCopy 命令行实用程序传输数据](../storage-use-azcopy.md)
+* [使用 AzCopy 命令行实用工具传输数据](../storage-use-azcopy.md)
 
 <!--Update_Description: wording update -->

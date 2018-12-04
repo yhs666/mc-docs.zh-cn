@@ -17,11 +17,11 @@ ms.date: 10/12/2018
 ms.author: v-junlch
 ms.custom: seohack1
 ms.openlocfilehash: 8e7786636fe9c8b5247dd86aa0822c973458c341
-ms.sourcegitcommit: 21b81b5cd326b6900fa7274b3b073aecd01111aa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121665"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656421"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>为 Azure Active Directory 开发业务线应用
 本指南提供开发用于 Azure Active Directory (AD) 的业务线 (LoB) 应用程序的概述，目标受众为 Active Directory/Office 365 全局管理员。

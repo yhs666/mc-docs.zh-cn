@@ -14,11 +14,11 @@ origin.date: 04/15/2018
 ms.date: 06/25/2018
 ms.author: v-nany
 ms.openlocfilehash: d0540b54ffb8f72c7f597adb6455e488ee26ac13
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748398"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656206"
 ---
 # <a name="azure-cli-examples-for-azure-media-services"></a>Azure 媒体服务的 Azure CLI 示例
 

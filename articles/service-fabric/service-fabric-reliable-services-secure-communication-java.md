@@ -15,11 +15,11 @@ origin.date: 06/30/2017
 ms.date: 08/20/2018
 ms.author: v-yeche
 ms.openlocfilehash: 4d3fbd793e5095f7b4a04726f1f0ba2dc0947d54
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41705097"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655841"
 ---
 # <a name="secure-service-remoting-communications-in-a-java-service"></a>保护 Java 服务的服务远程处理通信
 > [!div class="op_single_selector"]

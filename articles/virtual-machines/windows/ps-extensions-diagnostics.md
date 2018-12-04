@@ -16,11 +16,11 @@ origin.date: 12/15/2015
 ms.date: 05/21/2018
 ms.author: v-yeche
 ms.openlocfilehash: c82dcde95c1fcad3a9245fd57c4dc524fa7542b7
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305803"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655821"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>使用 PowerShell 在运行 Windows 的虚拟机中启用 Azure 诊断
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]

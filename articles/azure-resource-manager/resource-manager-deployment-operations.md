@@ -5,29 +5,27 @@ services: azure-resource-manager,virtual-machines
 documentationcenter: ''
 tags: top-support-issue
 author: rockboyfor
-manager: digimobile
-editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
-origin.date: 01/13/2017
-ms.date: 03/26/
+origin.date: 09/28/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 01f14df5e507b66bdb6041dffda69ffe981ca4f0
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 9c4bd3ae5b5b9b0a1c80bffb0b38cf31a072bb39
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30222567"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659346"
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>使用 Azure 资源管理器查看部署操作
 
-可以通过 Azure 门户查看部署操作。 当你在部署过程中收到错误时，可能最想要查看操作，因此本文重点介绍如何查看已失败的操作。 该门户提供了一个界面让你轻松找到错误并确定可能的解决方法。
+可以通过 Azure 门户查看部署操作。 在部署过程中收到错误时，可能最想要查看的就是这些操作，因此，本文将重点介绍如何查看已失败的操作。 该门户提供了一个界面让你轻松找到错误并确定可能的解决方法。
 
-可以通过查看审核日志或部署操作来对部署进行故障排除。 本主题演示这两种方法。 如需帮助解决特定部署错误，请参阅[解决使用 Azure Resource Manager 将资源部署到 Azure 时的常见错误](resource-manager-common-deployment-errors.md)。
+可以通过查看审核日志或部署操作来对部署进行故障排除。 本文介绍了这两种方法。 如需帮助解决特定部署错误，请参阅[解决使用 Azure Resource Manager 将资源部署到 Azure 时的常见错误](resource-manager-common-deployment-errors.md)。
 
 ## <a name="portal"></a>门户
 若要查看部署操作，请使用以下步骤 ：
@@ -68,7 +66,13 @@ ms.locfileid: "30222567"
     Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
     ```
 
-2. 每个部署包括多个操作。 每个操作代表部署过程中的一个步骤。 为了查明部署何处出现问题，通常需要查看部署操作的详细信息。 可以用 **Get-AzureRmResourceGroupDeploymentOperation**查看操作的状态。
+1. 若要获取相关 ID，请使用：
+
+    ```powershell
+    (Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
+    ```
+
+1. 每个部署包括多个操作。 每个操作代表部署过程中的一个步骤。 为了查明部署何处出现问题，通常需要查看部署操作的详细信息。 可以用 **Get-AzureRmResourceGroupDeploymentOperation**查看操作的状态。
 
     ```powershell
     Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
@@ -86,7 +90,7 @@ ms.locfileid: "30222567"
                    serviceRequestId:0196828d-8559-4bf6-b6b8-8b9057cb0e23...}
     ```
 
-3. 若要获取有关失败操作的更多详细信息，请检索状态为“失败”的操作的属性  。
+1. 若要获取有关失败操作的更多详细信息，请检索状态为“失败”的操作的属性  。
 
     ```powershell
     (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
@@ -109,7 +113,7 @@ ms.locfileid: "30222567"
     ```
 
     注意操作的 serviceRequestId 和 trackingId。 与技术支持人员合作排查部署问题时，serviceRequestId 非常有用。 会在下一步使用 trackingId 重点关注特定操作。
-4. 若要获取特定失败操作的状态消息，请使用以下命令：
+1. 若要获取特定失败操作的状态消息，请使用以下命令：
 
     ```powershell
     ((Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
@@ -120,10 +124,10 @@ ms.locfileid: "30222567"
     ```powershell
     code           message                                                                        details
     ----           -------                                                                        -------
-    DnsRecordInUse DNS record dns.chinanorth.chinacloudapp.cn is already used by another public IP. {}
+    DnsRecordInUse DNS record dns.chinanorth.cloudapp.chinacloudapi.cn is already used by another public IP. {}
     ```
 
-4. Azure 中的每个部署操作均包括请求和响应内容。 请求内容是在部署过程中发送到 Azure 的内容（例如，创建 VM、OS 磁盘和其他资源）。 响应内容是 Azure 从部署请求发送回的内容。 在部署期间，可以使用 **DeploymentDebugLogLevel** 参数指定将请求和/或响应保留在日志中。 
+1. Azure 中的每个部署操作均包括请求和响应内容。 请求内容是在部署过程中发送到 Azure 的内容（例如，创建 VM、OS 磁盘和其他资源）。 响应内容是 Azure 从部署请求发送回的内容。 在部署期间，可以使用 **DeploymentDebugLogLevel** 参数指定将请求和/或响应保留在日志中。 
 
     使用以下 PowerShell 命令从日志中获取该信息，并将其保存在本地：
 
@@ -138,21 +142,19 @@ ms.locfileid: "30222567"
 1. 使用 **azure group deployment show** 命令获取部署的总体状态。
 
     ```azurecli
-    azure group deployment show --resource-group ExampleGroup --name ExampleDeployment --json
+    az group deployment show -g ExampleGroup -n ExampleDeployment
     ```
 
-    返回的值之一是 **correlationId**。 此值可用于跟踪相关事件，在与技术支持人员合作排查部署问题时非常有用。
+1. 返回的值之一是 **correlationId**。 此值可用于跟踪相关事件，在与技术支持人员合作排查部署问题时非常有用。
 
     ```azurecli
-    "properties": {
-    "provisioningState": "Failed",
-    "correlationId": "4002062a-a506-4b5e-aaba-4147036b771a",
+    az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
     ```
 
-2. 若要查看部署操作，请使用：
+1. 若要查看部署操作，请使用：
 
     ```azurecli
-    azure group deployment operation list --resource-group ExampleGroup --name ExampleDeployment --json
+    az group deployment operation list -g ExampleGroup -n ExampleDeployment
     ```
 
 ## <a name="rest"></a>REST
@@ -217,4 +219,5 @@ ms.locfileid: "30222567"
 * 如需帮助解决特定部署错误，请参阅[解决使用 Azure Resource Manager 将资源部署到 Azure 时的常见错误](resource-manager-common-deployment-errors.md)。
 * 若要了解如何使用活动日志监视其他类型的操作，请参阅[通过查看活动日志管理 Azure 资源](resource-group-audit.md)。
 * 若要在执行部署之前验证部署，请参阅[使用 Azure Resource Manager 模板部署资源组](resource-group-template-deploy.md)。
+
 <!-- Update_Description: update meta properties, wording update, update link -->

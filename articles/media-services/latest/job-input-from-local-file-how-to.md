@@ -13,11 +13,11 @@ origin.date: 03/19/2018
 ms.date: 06/25/2018
 ms.author: v-nany
 ms.openlocfilehash: 263da013181d94efc2687d679a1a0a4342440d8b
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748440"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654668"
 ---
 # <a name="create-a-job-input-from-a-local-file"></a>从本地文件创建作业输入
 

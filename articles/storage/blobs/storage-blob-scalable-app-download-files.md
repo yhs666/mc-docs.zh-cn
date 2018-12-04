@@ -14,11 +14,11 @@ ms.date: 05/07/2018
 ms.author: v-johch
 ms.custom: mvc
 ms.openlocfilehash: 24380785c6288c2e76ada56ee3387650dfcb02cf
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295634"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656979"
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>从 Azure 存储下载大量随机数据
 

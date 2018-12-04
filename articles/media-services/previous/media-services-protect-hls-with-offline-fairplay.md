@@ -17,11 +17,11 @@ origin.date: 12/01/2017
 ms.date: 1/22/2018
 ms.author: v-nany
 ms.openlocfilehash: 598fa7d6c65da02a9391b1f25b9d239ba44e71e7
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426233"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659495"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>适用于 iOS 的脱机 FairPlay Streaming 
 Microsoft Azure 媒体服务提供一套设计良好的[内容保护服务](https://docs.azure.cn/media-services/media-services-content-protection-overview)，包括：

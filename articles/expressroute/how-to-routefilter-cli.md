@@ -17,11 +17,11 @@ origin.date: 09/25/2017
 ms.author: v-yiso
 ms.date: 11/12/2018
 ms.openlocfilehash: bbd96039223d8c3368da4fce7e5c28b3a40a783e
-ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50919081"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654835"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>配置用于 Microsoft 对等互连的路由筛选器：Azure CLI
 

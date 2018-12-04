@@ -17,11 +17,11 @@ origin.date: 12/29/2016
 ms.date: 04/16/2018
 ms.author: v-yeche
 ms.openlocfilehash: 6fa19bb9b5efd0392cc7589ee8726731028cdc19
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31324608"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656326"
 ---
 # <a name="create-a-windows-high-performance-computing-hpc-cluster-with-the-hpc-pack-iaas-deployment-script"></a>使用 HPC Pack IaaS 部署脚本创建 Windows 高性能计算 (HPC) 群集
 运行 HPC Pack IaaS 部署 PowerShell 脚本，以便在 Azure 虚拟机中部署适用于 Windows 工作负荷的完整 HPC Pack 2012 R2 群集。 群集包含运行 Windows Server 和 Microsoft HPC Pack 的已加入 Active Directory 的头节点，以及指定的其他 Windows 计算资源。 
@@ -265,7 +265,7 @@ ms.locfileid: "31324608"
 
     若要解决此问题，请登录到域控制器，删除转发器配置设置或配置一个有效的转发器 DNS 服务器。 若要配置此设置，请在服务器管理器中单击“工具” >
     “DNS”打开 DNS 管理器，然后双击“转发器”。
-<!-- Not Available on RDMA cluster -->
+  <!-- Not Available on RDMA cluster -->
 
 ## <a name="next-steps"></a>后续步骤
 * 尝试在群集上运行测试工作负荷。 相关事例，请参阅 HPC Pack [入门指南](https://technet.microsoft.com/library/jj884144)。

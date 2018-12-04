@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
 origin.date: 09/13/2018
-ms.date: 10/09/2018
+ms.date: 11/13/2018
 ms.author: v-junlch
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 137f3430a6dfc712d884ded36c4af9872c477c7e
-ms.sourcegitcommit: b91bbb0f49b12b1a7ac9eaf4742daa0c4a513f11
+ms.openlocfilehash: 711773c31424da5b079735914c5c6d7370b36767
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48876456"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655081"
 ---
 # <a name="quickstart-download-an-audit-report-using-the-azure-portal"></a>快速入门：使用 Azure 门户下载审核报告
 

@@ -3,17 +3,18 @@ title: 规划容量和缩放以便使用 Azure Site Recovery 将 VMware 复制�
 description: 请阅读本文了解如何规划容量和缩放，以便使用 Azure Site Recovery 将 VMware VM 复制到 Azure
 services: site-recovery
 author: rockboyfor
+manager: digimobile
 ms.service: site-recovery
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+origin.date: 10/10/2018
+ms.date: 11/19/2018
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: e6fe52d37d56350ce5b4a4f43fdfd4bb0e206bba
-ms.sourcegitcommit: f7ff09be9f3be5e3eb795e383c0c670f480f233d
+ms.openlocfilehash: 73cafb4f947c2f9777e690441d3e3332231998e7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39169064"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657153"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>通过 Azure Site Recovery，针对 VMware 复制规划容量和缩放
 
@@ -117,6 +118,31 @@ ms.locfileid: "39169064"
 
     ![“配置服务器”对话框的屏幕截图](./media/site-recovery-vmware-to-azure/migrate-ps3.png)
 3. 在“选择目标进程服务器”中，选择要使用的新进程服务器，然后选择该服务器将要处理的虚拟机。 单击信息图标，获取服务器的相关信息。 为了帮助你做出负载决策，随后会显示将每个所选虚拟机复制到新进程服务器所需的平均空间。 单击复选标记，开始复制到新的进程服务器。
+
+## <a name="deploy-additional-master-target-servers"></a>部署其他主目标服务器
+
+在以下方案中将需要其他主目标服务器
+
+1. 如果尝试保护基于 Linux 的虚拟机。
+2. 如果配置服务器上可用的主目标服务器不能访问 VM 的数据存储。
+3. 如果主目标服务器上的磁盘总数（服务器上的 本地磁盘数 + 要保护的磁盘数）超过 60。
+
+若要为基于 Linux 的虚拟机添加新的主目标服务器，请[单击此处](vmware-azure-install-linux-master-target.md)。
+
+对于基于 Windows 的虚拟机，请按照以下说明进行操作。
+
+1. 导航到“恢复服务保管库” > “Site Recovery 基础结构” > “配置服务器”。
+2. 单击所需的“配置服务器”>“+主目标服务器”。![add-master-target-server.png](media/site-recovery-plan-capacity-vmware/add-master-target-server.png)
+3. 下载统一设置并在 VM 上运行，以设置主目标服务器。
+4. 选择“安装主目标服务器” > “下一步”。 ![choose-MT.PNG](media/site-recovery-plan-capacity-vmware/choose-MT.PNG)
+5. 选择默认安装位置 >单击“安装”。 ![MT-installation](media/site-recovery-plan-capacity-vmware/MT-installation.PNG)
+6. 单击“转到配置”向配置服务器注册主目标服务器。 ![MT-proceed-configuration.PNG](media/site-recovery-plan-capacity-vmware/MT-proceed-configuration.PNG)
+7. 输入配置服务器的 IP 地址和密码。 [单击此处](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase)了解如何生成密码。![cs-ip-passphrase](media/site-recovery-plan-capacity-vmware/cs-ip-passphrase.PNG)
+8. 单击“注册”，并在注册后单击“完成”。
+9. 注册成功后，此服务器在“恢复服务保管库” > “Site Recovery 基础结构” > “配置服务器”>“相关配置服务器的主目标服务器”下的门户上列出。
+
+ >[!NOTE]
+ >还可在[此处](https://aka.ms/latestmobsvc)下载适用于 Windows 的最新版本的主目标服务器统一设置。
 
 ## <a name="next-steps"></a>后续步骤
 

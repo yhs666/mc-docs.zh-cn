@@ -8,11 +8,11 @@ origin.date: 08/02/2018
 ms.date: 09/07/2018
 ms.topic: conceptual
 ms.openlocfilehash: 7d5bab56072ea5852fd38f4f2b6a3b1a93aab25a
-ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477789"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655511"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Azure Batch 的渲染功能
 

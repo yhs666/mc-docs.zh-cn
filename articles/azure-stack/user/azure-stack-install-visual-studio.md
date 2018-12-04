@@ -16,11 +16,11 @@ ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: unknown
 ms.openlocfilehash: 4ad2c10c1915637bcff1a14ecade8fb487afd034
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869368"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656467"
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack"></a>安装 Visual Studio 并连接到 Azure Stack
 

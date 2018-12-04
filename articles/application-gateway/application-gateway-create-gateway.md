@@ -17,11 +17,11 @@ origin.date: 07/31/2017
 ms.date: 06/07/2018
 ms.author: v-junlch
 ms.openlocfilehash: 746745d42630e5af8b36b21d6a01299db486df2b
-ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855757"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656493"
 ---
 # <a name="create-start-or-delete-an-application-gateway-with-powershell"></a>使用 PowerShell 创建、启动或删除应用程序网关 
 
@@ -53,8 +53,7 @@ Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之�
 - **后端服务器池设置：** 每个池都有一些设置，例如端口、协议和基于 Cookie 的关联性。 这些设置绑定到池，并会应用到池中的所有服务器。
 - **前端端口：** 此端口是应用程序网关上打开的公共端口。 流量将抵达此端口，并重定向到后端服务器之一。
 - **侦听器：** 侦听器具有前端端口、协议（Http 或 Https，这些值区分大小写）和 SSL 证书名称（如果要配置 SSL 卸载）。
-- 
-            **规则：** 规则会绑定侦听器和后端服务器池，并定义当流量抵达特定侦听器时应定向到的后端服务器池。
+- **规则：** 规则会绑定侦听器和后端服务器池，并定义当流量抵达特定侦听器时应定向到的后端服务器池。
 
 ## <a name="create-an-application-gateway"></a>创建应用程序网关
 
@@ -223,7 +222,7 @@ Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 
 ### <a name="configure-the-application-gateway-by-using-a-configuration-object"></a>使用配置对象配置应用程序网关
 
-以下示例演示如何使用配置对象配置应用程序网关。 必须单独配置所有的配置项，并将其添加到应用程序网关配置对象。 创建配置对象之后，使用 `Set-AzureApplicationGateway` 命令将配置提交到之前创建的应用程序网关资源。
+以下示例演示如何使用配置对象配置应用程序网关。 必须单独配置所有的配置项，并将其添加到应用程序网关配置对象。 创建配置对象之后，使用 `Set-AzureApplicationGateway` 命令将配置提交到前面创建的应用程序网关资源。
 
 > [!NOTE]
 > 在为每个配置对象分配值之前，需要声明 PowerShell 用于存储的对象类型。 创建各项的第一行定义了所使用的 `Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name)`。
@@ -346,7 +345,7 @@ $appgwconfig.HttpLoadBalancingRules.Add($rule)
 ```
 
 ### <a name="step-3"></a>步骤 3
-使用 `Set-AzureApplicationGatewayConfig` 将配置对象提交到应用程序网关资源。
+使用 `Set-AzureApplicationGatewayConfig`将配置对象提交到应用程序网关资源。
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name AppGwTest -Config $appgwconfig

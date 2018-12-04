@@ -17,11 +17,11 @@ origin.date: 11/17/2016
 ms.date: 05/21/2018
 ms.author: v-yeche
 ms.openlocfilehash: a36affe5aecbc4374b44b512c13e451630af444b
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34256071"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654821"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Azure 虚拟机代理概述
 

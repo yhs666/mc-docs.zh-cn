@@ -18,11 +18,11 @@ origin.date: 12/13/2017
 ms.date: 02/26/2018
 ms.author: ashishth
 ms.openlocfilehash: b7a1651829a447c19a0a69f458ca718db8bffd22
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
-ms.locfileid: "30941526"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656805"
 ---
 # <a name="use-the-hbase-net-sdk"></a>使用 HBase .NET SDK
 

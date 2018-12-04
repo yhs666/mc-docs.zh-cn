@@ -14,6 +14,8 @@ items:
     href: active-directory-groups-view-azure-portal.md
 - name: 概念
   items:
+  - name: 标识安全分数
+    href: identity-secure-score.md
   - name: 组和访问管理
     href: active-directory-manage-groups.md
   - name: Azure AD 体系结构
@@ -28,6 +30,8 @@ items:
       href: sign-up-organization.md
     - name: 添加自定义域名
       href: add-custom-domain.md
+    - name: 添加隐私信息
+      href: active-directory-properties-area.md
   - name: 组
     items:
     - name: 创建组并添加成员
@@ -52,18 +56,22 @@ items:
       href: active-directory-users-reset-password-azure-portal.md
     - name: 向用户分配角色
       href: active-directory-users-assign-role-azure-portal.md
+    - name: 还原已删除的用户
+      href: active-directory-users-restore.md
   expanded: true
 - name: 资源
   items:
+  - name: 获取对 Azure Active Directory 的支持
+    href: https://support.azure.cn/en-us/support/support-azure/
   - name: Azure Active Directory 常见问题
     href: active-directory-faq.md
   - name: 管理 Azure AD 目录
     href: active-directory-administer.md
   - name: Azure 标识解决方案
     href: understand-azure-identity-solutions.md
-ms.openlocfilehash: fd28389f948b784152d6f25575026f353fb8a3e3
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.openlocfilehash: e47a9ef1d205c705003f69bbd2a4d60b57f2ec1d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48914087"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654876"

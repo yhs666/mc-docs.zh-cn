@@ -10,11 +10,11 @@ origin.date: 08/27/2018
 ms.date: 11/05/2018
 ms.author: v-jay
 ms.openlocfilehash: 67310df2960452b9ca43791a9e9a124d61a2fd63
-ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50743551"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654914"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>快速入门：使用 Azure 存储资源管理器在对象存储中创建 blob
 

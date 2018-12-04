@@ -16,11 +16,11 @@ origin.date: 08/18/2017
 ms.date: 05/28/2018
 ms.author: v-yeche
 ms.openlocfilehash: 6941c7148caeb7d06c72c48e4a6c44065dc9ead6
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554360"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659301"
 ---
 # <a name="availability-of-service-fabric-services"></a>Service Fabric 服务的可用性
 本文概述 Azure Service Fabric 服务如何保持服务的可用性。

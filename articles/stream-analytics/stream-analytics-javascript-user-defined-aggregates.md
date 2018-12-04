@@ -11,11 +11,11 @@ ms.topic: conceptual
 origin.date: 10/28/2017
 ms.date: 09/30/2018
 ms.openlocfilehash: cccfdef9185e319f316de455c41daeb8dcf0ec4d
-ms.sourcegitcommit: 432984d85afe6f3da8f211bae0fa98a556785ee8
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455385"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657394"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Azure 流分析 JavaScript 用户定义的聚合（预览）
 

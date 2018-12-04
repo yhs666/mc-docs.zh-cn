@@ -12,11 +12,11 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: b5c8c18c6d02710646560f29d4bc7b5784f730a2
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455122"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658234"
 ---
 # <a name="create-and-manage-files-in-box-with-azure-logic-apps"></a>使用 Azure 逻辑应用在 Box 中创建和管理文件
 

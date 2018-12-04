@@ -13,11 +13,11 @@ ms.date: 10/25/2018
 ms.author: v-junlch
 ROBOTS: NOINDEX
 ms.openlocfilehash: 188066cb9f7a01ff5244f5be6fb5cc420aed22f9
-ms.sourcegitcommit: 44ce337717bb948f5ac08217a156935f663c0f46
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034673"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659134"
 ---
 # <a name="emotion-api-frequently-asked-questions"></a>情感 API 常见问题解答
 

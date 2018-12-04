@@ -16,11 +16,11 @@ origin.date: 09/11/2018
 ms.date: 10/08/2018
 ms.author: v-junlch
 ms.openlocfilehash: 17a7d74dbf0b07df65f0be73669a60f0082f8225
-ms.sourcegitcommit: 71f203d04b212d2bfbf4f227693c2b8fe209db22
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48850515"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658728"
 ---
 # <a name="how-to-grant-permissions-to-a-custom-developed-application"></a>如何向自定义开发的应用程序授予权限
 

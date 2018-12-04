@@ -14,18 +14,18 @@ ms.workload: na
 ms.date: 08/09/2016
 ms.author: v-johch
 ms.openlocfilehash: 310a568ea5c3bdb3823b7ae2b1da98efd41b8fa8
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20182206"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657828"
 ---
 # <a name="trust-center"></a>信任中心
 
 Azure.cn 上的 Azure 安全信息站点提供所需的信息用于规划、设计、部署、配置和安全管理云解决方案。 Microsoft 信任中心还提供所需的信息，让你确信运行服务的 Azure 平台是安全的。
-我们知道，在将应用程序和数据委托给 Azure 时，你会出现一些疑问。 它们托管在哪个位置？ 谁可以访问它们？ 21Vianet 采取哪些措施来保护它？ 如何检验 21Vianet 是否遵守诺言？
+我们知道，在将应用程序和数据委托给 Azure 时，会出现一些疑问。 它们托管在哪个位置？ 谁可以访问它们？ 21Vianet 采取哪些措施来保护它？ 如何检验 21Vianet 是否遵守诺言？
 
-我们很乐意提供解答。 由于这是你的数据，因此谁可以访问它将由你决定，它的托管位置将由你与我们共同决定。 为了保护数据，我们使用了前沿安全技术和顶级加密法。 我们的合规状态由独立的部门审核，在许多层面都是透明的 — 包括有关如何处理客户数据的法规要求，以及我们代码的安全性。
+我们很乐意提供解答。 由于这是你的数据，因此谁可以访问它由你决定，它的托管位置由你与我们共同决定。 为了保护数据，我们使用了前沿安全技术和顶级加密法。 我们的合规状态由独立的部门审核，在许多层面都是透明的 — 包括有关如何处理客户数据的法规要求，以及我们代码的安全性。
 
 信任中心提供以下信息：
 

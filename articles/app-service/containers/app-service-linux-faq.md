@@ -17,11 +17,11 @@ origin.date: 05/04/2017
 ms.author: v-yiso
 ms.date: 10/16/2017
 ms.openlocfilehash: ff1cd4698299225281d4f06341c19174b082fd9c
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
-ms.locfileid: "22339073"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657188"
 ---
 # <a name="azure-app-service-web-app-for-containers-faq"></a>用于容器的 Azure 应用服务 Web 应用常见问题解答
 

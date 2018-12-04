@@ -16,11 +16,11 @@ origin.date: 01/06/2016
 ms.date: 02/21/2017
 ms.author: v-dazen
 ms.openlocfilehash: 2bd80b539f71659abc7ddcf7d2ffc30cd5e451b7
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939614"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658337"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>按可预见的方式在 Azure 中设置和部署微服务
 
@@ -59,10 +59,10 @@ ms.locfileid: "38939614"
 ### <a name="azure-powershell-080-or-later"></a>Azure PowerShell 0.8.0 或更高版本
 从版本 0.8.0 开始，Azure PowerShell 安装除了包括 Azure 模块外还包括 Azure Resource Manager 模块。 此新模块使你能够编写资源组部署的脚本。
 
-有关详细信息，请参阅[将 Azure PowerShell 与 Azure 资源管理器配合使用](../powershell-azure-resource-manager.md)
+有关详细信息，请参阅[将 Azure PowerShell 与 Azure Resource Manager 配合使用](../powershell-azure-resource-manager.md)
 
 ### <a name="deploy-to-azure-button"></a>“部署到 Azure”按钮
-如果你将 GitHub 用于源代码管理，则可将一个 [“部署到 Azure”按钮](https://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/)放入 README.MD，这将对 Azure 启用统包部署 UI。 可为任何简单的 Web 应用执行此操作，同时可扩展这一操作，通过将 azuredeploy.json 文件放入存储库根来实现对整个资源组的部署。 “部署到 Azure”按钮将使用此包含资源组模板的 JSON 文件来创建资源组。 有关示例，请参阅会在本教程中使用的 [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) 示例。
+如果你将 GitHub 用于源代码管理，则可将一个 [“部署到 Azure”按钮](https://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/)放入 README.MD，这将对 Azure 启用统包部署 UI。 可为任何简单的 Web 应用执行此操作，同时可扩展这一操作，通过将 azuredeploy.json 文件放入存储库根来实现对整个资源组的部署。 “部署到 Azure”按钮将使用此包含资源组模板的 JSON 文件来创建资源组。 有关示例，请参阅将在本教程中使用的 [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) 示例。
 
 ## <a name="get-the-sample-resource-group-template"></a>获取示例资源组模板
 现在让我们开始吧。
@@ -181,7 +181,7 @@ Web 应用取决于两个不同的资源。 这意味着只有在创建应用服
 
    ![](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
 3. 在“选择 Azure 模板”中，选择“空白模板”，然后单击“确定”。
-4. 将 azuredeploy.json 拖动到新项目的“模板”文件夹。
+4. 将 azuredeploy.json 拖动到新项目的“模板”  文件夹。
 
    ![](./media/app-service-deploy-complex-application-predictably/deploy-2-copyjson.png)
 5. 从解决方案资源管理器中打开复制的 azuredeploy.json。
@@ -214,7 +214,7 @@ Web 应用取决于两个不同的资源。 这意味着只有在创建应用服
     现在你能够在一张不错的表中编辑在模板文件中定义的所有参数。 定义默认值的参数已具有其默认值，并且定义允许值的列表的参数显示为下拉列表。
 
     ![](./media/app-service-deploy-complex-application-predictably/deploy-10-parametereditor.png)
-15. 填写所有空参数，并使用 [repoUrl](https://github.com/azure-appservice-samples/ToDoApp.git) 中的 **ToDoApp 的 GitHub 存储库地址**。 然后，单击“保存”。
+15. 填写所有空参数，并使用 [repoUrl](https://github.com/azure-appservice-samples/ToDoApp.git) 中的 **ToDoApp 的 GitHub 存储库地址**。 然后单击“保存” 。
 
     ![](./media/app-service-deploy-complex-application-predictably/deploy-11-parametereditorfilled.png)
 
@@ -251,5 +251,5 @@ Web 应用取决于两个不同的资源。 这意味着只有在创建应用服
 * [创作 Azure Resource Manager 模板](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Azure Resource Manager 模板功能](../azure-resource-manager/resource-group-template-functions.md)
 * [使用 Azure Resource Manager 模板部署应用程序](../azure-resource-manager/resource-group-template-deploy.md)
-* [将 Azure PowerShell 与 Azure 资源管理器配合使用](../azure-resource-manager/powershell-azure-resource-manager.md)
+* [将 Azure PowerShell 与 Azure Resource Manager 结合使用](../azure-resource-manager/powershell-azure-resource-manager.md)
 * [Azure 中的资源组部署故障排除](../azure-resource-manager/resource-manager-common-deployment-errors.md)

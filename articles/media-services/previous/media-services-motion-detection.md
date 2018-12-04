@@ -15,11 +15,11 @@ origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
 ms.openlocfilehash: 7598ec84d53b69bfbda160628332ee844126f985
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426441"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659075"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>使用 Azure 媒体分析检测动作
 ## <a name="overview"></a>概述

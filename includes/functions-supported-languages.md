@@ -11,11 +11,11 @@ ms.date: 10/19/2018
 ms.author: v-junlch
 ms.custom: include file
 ms.openlocfilehash: 68a374aa2a216082fd1d6f172d283e90f18e6030
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453896"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656274"
 ---
 |语言                                 |1.x         |2.x|
 |-----------------------------------------|------------|---|

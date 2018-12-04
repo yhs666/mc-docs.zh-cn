@@ -12,16 +12,16 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 01/22/2018
-ms.date: 10/15/2018
+origin.date: 09/27/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 2217d592ee8e779d05efb6cd3ed330bf6fb30ae8
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.openlocfilehash: c10aade0c4f3978dc14c8a75887a51242fc3020f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089136"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659841"
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>教程：将 Service Fabric Windows 群集部署到 Azure 虚拟网络
 
@@ -44,7 +44,7 @@ ms.locfileid: "49089136"
 > * 在 Azure 上创建安全群集
 > * [缩小或扩大群集](service-fabric-tutorial-scale-cluster.md)
 > * [升级群集的运行时](service-fabric-tutorial-upgrade-cluster.md)
-> * [部署 API 管理与 Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+> * [删除群集](service-fabric-tutorial-delete-cluster.md)
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -82,14 +82,14 @@ Azure Key Vault 用于管理 Azure 中 Service Fabric 群集的证书。  在 Az
 
 下载以下资源管理器模板文件：
 
-* [vnet-cluster.json][template]
-* [vnet-cluster.parameters.json][parameters]
+* [azuredeploy.json][template]
+* [azuredeploy.parameters.json][parameters]
 
-[vnet-cluster.json][template] 部署一些资源，包括以下资源。
+此模板将包含五个虚拟机和单个节点类型的安全群集部署到虚拟网络和网络安全组中。  其他示例模板可以在 [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates) 上找到。  [azuredeploy.json][template] 部署一些资源，包括以下资源。
 
 ### <a name="service-fabric-cluster"></a>Service Fabric 群集
 
-部署具有以下特征的 Windows 群集：
+在 **Microsoft.ServiceFabric/clusters** 资源中，配置了具有以下特征的 Windows 群集：
 
 * 单节点类型
 * 主节点类型包含五个节点（可在模板参数中配置）
@@ -98,13 +98,13 @@ Azure Key Vault 用于管理 Azure 中 Service Fabric 群集的证书。  在 Az
 * 已启用[反向代理](service-fabric-reverseproxy.md)
 * 已启用 [DNS 服务](service-fabric-dnsservice.md)
 * 铜级[持久性级别](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster)（可在模板参数中配置）
- * 银级[可靠性级别](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster)（可在模板参数中配置）
+* 银级[可靠性级别](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster)（可在模板参数中配置）
 * 客户端连接终结点：19000（可在模板参数中配置）
 * HTTP 网关终结点：19080（可在模板参数中配置）
 
 ### <a name="azure-load-balancer"></a>Azure 负载均衡器
 
-已部署负载均衡器，并针对以下端口设置了探测和规则：
+在 **Microsoft.Network/loadBalancers** 资源中，配置了负载均衡器，并为以下端口设置了探测和规则：
 
 * 连接终结点:19000
 * HTTP 网关终结点：19080
@@ -112,16 +112,16 @@ Azure Key Vault 用于管理 Azure 中 Service Fabric 群集的证书。  在 Az
 * 应用程序端口：443
 * Service Fabric 反向代理：19081
 
-如需其他任何应用程序端口，则需要调整 microsoft.network/loadBalancers 资源和 Microsoft.Network/networkSecurityGroups 资源，以允许传入流量。
+如需其他任何应用程序端口，则需要调整 **Microsoft.Network/loadBalancers** 资源和 **Microsoft.Network/networkSecurityGroups** 资源，以允许传入流量。
 
 ### <a name="virtual-network-subnet-and-network-security-group"></a>虚拟网络、子网和网络安全组
 
-虚拟网络、子网和网络安全组的名称已在模板参数中声明。  虚拟网络和子网的地址空间也已在模板参数中声明：
+虚拟网络、子网和网络安全组的名称已在模板参数中声明。  虚拟网络和子网的地址空间也在模板参数中声明，并在 **Microsoft.Network/virtualNetworks** 资源中配置：
 
 * 虚拟网络地址空间：172.16.0.0/20
 * Service Fabric 子网地址空间：172.16.2.0/23
 
-网络安全组中已启用以下入站流量规则。 可以通过更改模板变量来更改端口值。
+在 **Microsoft.Network/networkSecurityGroups** 资源中启用以下入站流量规则。 可以通过更改模板变量来更改端口值。
 
 * ClientConnectionEndpoint (TCP)：19000
 * HttpGatewayEndpoint (HTTP/TCP)：19080
@@ -132,11 +132,11 @@ Azure Key Vault 用于管理 Azure 中 Service Fabric 群集的证书。  在 Az
 * 应用程序端口范围 - 49152 到 65534（用于服务间的通信，但未在负载均衡器上打开）
 * 阻止其他所有端口
 
-如需其他任何应用程序端口，则需要调整 microsoft.network/loadBalancers 资源和 Microsoft.Network/networkSecurityGroups 资源，以允许传入流量。
+如需其他任何应用程序端口，则需要调整 **Microsoft.Network/loadBalancers** 资源和 **Microsoft.Network/networkSecurityGroups** 资源，以允许传入流量。
 
 ## <a name="set-template-parameters"></a>设置模板参数
 
-[Vnet-cluster.parameters.json][parameters] 参数文件声明用于部署群集和关联资源的多个值。 可能需要使用某些参数来修改部署：
+[azuredeploy.parameters.json][parameters] 参数文件声明用于部署群集和关联资源的多个值。 可能需要使用某些参数来修改部署：
 
 |参数|示例值|说明|
 |---|---||
@@ -152,7 +152,7 @@ Azure Key Vault 用于管理 Azure 中 Service Fabric 群集的证书。  在 Az
 
 ## <a name="deploy-the-virtual-network-and-cluster"></a>部署虚拟网络和群集
 
-接下来，设置网络拓扑并部署 Service Fabric 群集。 [vnet-cluster.json][template] 资源管理器模板针对 Service Fabric 创建虚拟网络 (VNET)、子网和网络安全组 (NSG)。 该模板还会部署一个已启用证书安全性的群集。  对于生产群集，请使用证书颁发机构 (CA) 提供的证书作为群集证书。 可以使用自签名证书来保护测试群集。
+接下来，设置网络拓扑并部署 Service Fabric 群集。 [azuredeploy.json][template] 资源管理器模板针对 Service Fabric 创建虚拟网络 (VNET)、子网和网络安全组 (NSG)。 该模板还会部署一个已启用证书安全性的群集。  对于生产群集，请使用证书颁发机构 (CA) 提供的证书作为群集证书。 可以使用自签名证书来保护测试群集。
 
 ### <a name="create-a-cluster-using-an-existing-certificate"></a>使用现有证书创建群集
 
@@ -179,8 +179,8 @@ Set-AzureRmContext -SubscriptionId <guid>
 New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 
 # Create the Service Fabric cluster.
-New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\vnet-cluster.json" `
--ParameterFile "$templatepath\vnet-cluster.parameters.json" -CertificatePassword $certpwd `
+New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
+-ParameterFile "$templatepath\azuredeploy.parameters.json" -CertificatePassword $certpwd `
 -KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname -CertificateFile $certpath
 ```
 
@@ -210,8 +210,8 @@ Set-AzureRmContext -SubscriptionId <guid>
 New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 
 # Create the Service Fabric cluster.
-New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\vnet-cluster.json" `
--ParameterFile "$templatepath\vnet-cluster.parameters.json" -CertificatePassword $certpwd `
+New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
+-ParameterFile "$templatepath\azuredeploy.parameters.json" -CertificatePassword $certpwd `
 -CertificateOutputFolder $certfolder -KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname -CertificateSubjectName $subname
 
 ```
@@ -247,14 +247,7 @@ Get-ServiceFabricClusterHealth
 
 ## <a name="clean-up-resources"></a>清理资源
 
-本教程系列中的其他文章将会使用本文中创建的群集。 如果不立即转到下一篇文章，可能需要删除该群集和 Key Vault，以避免产生费用。 若要删除群集及其占用的所有资源，最简单的方式是删除资源组。
-
-使用 [Remove-AzureRMResourceGroup cmdlet](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) 删除资源组和所有群集资源。  此外，还需删除包含 Key Vault 的资源组。
-
-```powershell
-Remove-AzureRmResourceGroup -Name $groupname -Force
-Remove-AzureRmResourceGroup -Name $vaultgroupname -Force
-```
+本教程系列中的其他文章将使用刚才创建的群集。 如果不立即转到下一篇文章，可能需要[删除该群集](service-fabric-cluster-delete.md)，以避免产生费用。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -272,7 +265,7 @@ Remove-AzureRmResourceGroup -Name $vaultgroupname -Force
 > [!div class="nextstepaction"]
 > [缩放群集](service-fabric-tutorial-scale-cluster.md)
 
-[template]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/cluster-tutorial/vnet-cluster.json
-[parameters]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/cluster-tutorial/vnet-cluster.parameters.json
+[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/5-VM-Windows-1-NodeTypes-Secure-NSG/azuredeploy.json
+[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/5-VM-Windows-1-NodeTypes-Secure-NSG/azuredeploy.parameters.json
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties, wording update, update link -->

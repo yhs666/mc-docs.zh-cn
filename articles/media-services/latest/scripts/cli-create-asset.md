@@ -16,11 +16,11 @@ origin.date: 04/15/2018
 ms.date: 05/28/2018
 ms.author: v-nany
 ms.openlocfilehash: ac4d2acc196e85baa90fac12281a62124a2bbe97
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405323"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657900"
 ---
 # <a name="cli-example-create-an-azure-media-services-account"></a>CLI 示例：创建 Azure 媒体服务帐户
 

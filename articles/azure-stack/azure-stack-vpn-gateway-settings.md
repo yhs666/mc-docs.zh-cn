@@ -16,11 +16,11 @@ origin.date: 08/14/2018
 ms.date: 10/15/2018
 ms.author: v-jay
 ms.openlocfilehash: 32b74cf5ded684f83a2e32f95a22c831b8d48ad0
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848803"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656927"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Azure Stack 的 VPN 网关配置设置
 

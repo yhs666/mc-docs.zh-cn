@@ -10,11 +10,11 @@ ms.date: 09/24/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
 ms.openlocfilehash: 17e2be66e7b75026e77f4b7c6cffb67eeffb89bb
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527174"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656687"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>使用 PowerShell 管理 Azure Analysis Services
 

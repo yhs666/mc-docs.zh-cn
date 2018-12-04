@@ -14,11 +14,11 @@ ms.service: key-vault
 ms.technology: ''
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
 ms.openlocfilehash: 00be55d909e7ebb8a94e729161efd076ca26528f
-ms.sourcegitcommit: 8a68d9275ddb92ea45601fed96e21559999d9579
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026965"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654334"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>使用 .NET 向 Azure Key Vault 进行服务到服务身份验证
 

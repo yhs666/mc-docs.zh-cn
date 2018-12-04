@@ -16,11 +16,11 @@ origin.date: 10/01/2016
 ms.date: 01/29/2018
 ms.author: v-yiso
 ms.openlocfilehash: 07c7dbe5f914657e5e19d597e105b162901863a2
-ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2018
-ms.locfileid: "27984768"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659773"
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>将现有 .NET Azure 移动服务升级到应用服务
 
@@ -112,7 +112,7 @@ ms.locfileid: "27984768"
 ```
 
 >[!NOTE]
-> 如果想要详细了解新的 .NET 服务器 SDK 以及如何在应用中添加/删除功能，请参阅 [How to use the .NET server SDK] （如何使用 .NET 服务器 SDK）主题。
+> 如果想要详细了解新的 .NET 服务器 SDK 以及如何在应用中添加/删除功能，请参阅 [如何使用 .NET 服务器 SDK] （如何使用 .NET 服务器 SDK）主题。
 >
 >
 
@@ -273,7 +273,7 @@ traceWriter.Info("Hello, World");
 
 ### <a name="custom-authentication"></a>自定义身份验证
 
-如果应用程序使用自定义的身份验证解决方案，需要确保已升级的站点有权访问系统。 遵循 [.NET server SDK overview] （.NET 服务器 SDK 概述）中适用于自定义身份验证的新说明来集成解决方案。 请注意，自定义身份验证组件仍以预览版提供。
+如果应用程序使用自定义的身份验证解决方案，需要确保已升级的站点有权访问系统。 遵循 [.NET 服务器 SDK 概述] （.NET 服务器 SDK 概述）中适用于自定义身份验证的新说明来集成解决方案。 请注意，自定义身份验证组件仍以预览版提供。
 
 ##<a name="updating-clients"></a>更新客户端
 在获得可正常运行的移动应用后端之后，可以在使用它的新版客户端应用程序上操作。 移动应用还包含新版客户端 SDK。与上述服务器升级类似，需先删除对移动服务 SDK 的所有引用，然后再安装移动应用版本。
@@ -307,8 +307,8 @@ traceWriter.Info("Hello, World");
 [Add authentication to your mobile app]: ./app-service-mobile-xamarin-ios-get-started-users.md
 [Azure 计划程序]: ../scheduler/index.md
 [Web 作业]: https://github.com/Azure/azure-webjobs-sdk/wiki
-[How to use the .NET server SDK]: ./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[如何使用 .NET 服务器 SDK]: ./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: ./app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: ./app-service-mobile-migrating-from-mobile-services.md
 [应用服务定价]: https://www.azure.cn/pricing/details/app-service/
-[.NET server SDK overview]: ./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[.NET 服务器 SDK 概述]: ./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md

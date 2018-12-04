@@ -18,11 +18,11 @@ ms.date: 05/21/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ed2e2ddfc643f935166ae49ce056b9d689784a61
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34261430"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659342"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>适用于 Windows 的虚拟机扩展和功能
 
@@ -46,7 +46,7 @@ Azure 虚拟机扩展是小型应用程序，可在Azure 虚拟机上提供部�
 每个虚拟机扩展可能都有其自己的一组先决条件。 例如，Docker VM 扩展有支持的 Linux 分发的先决条件。 特定于扩展的文档中详细介绍了单个扩展的要求。
 
 ### <a name="azure-vm-agent"></a>Azure VM 代理
-Azure VM 代理可管理 Azure 虚拟机与 Azure 结构控制器之间的交互。 VM 代理负责部署和管理 Azure 虚拟机的许多功能层面，包括运行 VM 扩展。 Azure VM 代理预先安装在 Azure 应用商店映像上，并可安装在支持的操作系统上。
+Azure VM 代理可管理 Azure 虚拟机与 Azure 结构控制器之间的交互。 VM 代理负责部署和管理 Azure 虚拟机的许多功能层面，包括运行 VM 扩展。 Azure VM 代理预先安装在 Azure 市场映像上，并可安装在受支持的操作系统上。
 
 有关受支持的操作系统以及安装说明的信息，请参阅 [Azure virtual machine agent](agent-user-guide.md)（Azure 虚拟机代理）。
 

@@ -16,15 +16,15 @@ origin.date: 04/25/2017
 ms.date: 07/10/2017
 ms.author: v-dazen
 ms.openlocfilehash: bc1655f3e153bc8439e0197d5433c19e7e700667
-ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
-ms.locfileid: "22146607"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658663"
 ---
 # <a name="create-a-basic-azure-web-app-in-intellij"></a>在 IntelliJ 中创建基本的 Azure Web 应用
 
-本教程介绍如何使用[用于 IntelliJ 的 Azure 工具包]创建基本 Hello World 应用程序，并将其作为 Web 应用部署到 Azure。
+本教程介绍如何使用[适用于 IntelliJ 的 Azure 工具包]创建基本 Hello World 应用程序，并将其作为 Web 应用部署到 Azure。
 
 > [!NOTE]
 > 
@@ -130,7 +130,7 @@ ms.locfileid: "22146607"
     ![新建项目对话框][04]
 5. 在 IntelliJ 的项目资源管理器视图中，依次展开“Java-Web-App-On-Azure”和“Web”，然后双击“index.jsp”。
 
-    ![打开索引页][05c]
+    ![打开索引页面][05c]
 6. 在 IntelliJ 中打开 index.jsp 文件后，添加文本以将 **Hello World!** 动态显示 现有 `<body>` 元素中。 更新后的 `<body>` 内容应类似于以下示例：
    
    ```java
@@ -183,13 +183,13 @@ ms.locfileid: "22146607"
    
    c. 为 Web 应用容器输入“DNS 标签”；这是在 Azure 中的 Web 应用程序构成主机 URL 的叶 DNS 标签。 请注意该名称必须是可用的，且符合 Azure Web 应用命名要求。
 
-   d.单击“下一步”。 在“Web 容器”下拉菜单中，为应用程序选择适当的软件。
+   d. 在“Web 容器”下拉菜单中，为应用程序选择适当的软件。
       
       当前，可以从 Tomcat 8、Tomcat 7 或 Jetty 9 中选择。 Azure 将提供所选软件的最新分发版，并且该版本基于由 JDK 8 创建并由 Azure 提供的 JDK 最新分发版运行。
 
-   e.在“新建 MySQL 数据库”边栏选项卡中，接受法律条款，并单击“确定”。 在“订阅”下拉菜单中，选择要用于此部署的订阅。
+   e. 在“订阅”下拉菜单中，选择要用于此部署的订阅。
 
-   f.单击“保存”以保存设置。 在“资源组”下拉菜单中，选择要与 Web 应用关联的资源组。 （使用 Azure 资源组可以将相关资源组织在一起，以便于将它们一起删除。）
+   f. 在“资源组”下拉菜单中，选择要与 Web 应用关联的资源组。 （使用 Azure 资源组可以将相关资源组织在一起，以便于将它们一起删除。）
       
       可以选择现有资源组（如果有）并跳到下面的步骤 g，或者按照以下步骤创建新的资源组：
       
@@ -230,7 +230,7 @@ ms.locfileid: "22146607"
        ![新建应用容器][14]
    10. 单击“确定”完成创建新的 Web 应用容器。
 
-        等待 Web 应用容器列表刷新，这需要几秒，然后，新创建的 Web 应用容器应在列表中处于选中状态。
+        等待 Web 应用容器列表刷新，这需要几秒，之后用户新创建的 Web 应用容器应在列表中处于选中状态。
 6. 现已准备好完成 Web 应用到 Azure 的初始部署；单击“确定”将 Java 应用程序部署到选定的 Web 应用容器。 默认情况下，应用程序部署为应用程序服务器的子目录。 如果想要将其部署为根应用程序，请选中“部署到根”复选框，然后单击“确定”。
 
     ![部署到 Azure][15]
@@ -268,7 +268,7 @@ ms.locfileid: "22146607"
 
 几秒钟后，“Azure 活动日志”视图会将已更新的部署显示为“已发布”，可以在 Web 浏览器中验证已更新的应用程序。
 
-### <a name="starting-stopping-or-restarting-an-existing-web-app"></a>启动、停止或重启现有 Web 应用
+### <a name="starting-stopping-or-restarting-an-existing-web-app"></a>启动、停止或重启现有的 Web 应用
 若要启动或停止现有的 Azure Web 应用容器（包括其中所有已部署的 Java 应用程序），可以使用“Azure 资源管理器”视图。
 
 如果“Azure 资源管理器”视图尚未打开，可以依次单击 IntelliJ 中的“视图”菜单、“工具窗口”和“服务资源管理器”将它打开。 如果事先未尚未登录，系统将提示登录。

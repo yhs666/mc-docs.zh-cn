@@ -16,11 +16,11 @@ origin.date: 03/16/2018
 ms.date: 05/28/2018
 ms.author: v-yeche
 ms.openlocfilehash: 08fd0c651027424ac166a49279f19d21d971b0fd
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554512"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659837"
 ---
 # <a name="get-started-with-reliable-services"></a>Reliable Services 入门
 > [!div class="op_single_selector"]
@@ -136,7 +136,7 @@ Service Fabric 引入了一种新的有状态服务。 有状态服务能够可�
 
 应用程序现在应该有两个服务：无状态服务 *HelloWorldStateless* 和有状态服务 *HelloWorldStateful*。
 
-有状态服务具有与无状态服务相同的入口点。 主要差异在于可以可靠地存储状态的 *状态提供程序* 的可用性。 Service Fabric 附带名为[可靠集合](service-fabric-reliable-services-reliable-collections.md)的状态提供程序实现，可让你通过可靠状态管理器创建复制的数据结构。 有状态可靠服务默认使用此状态提供程序。
+有状态服务具有与无状态服务相同的入口点。 主要差异在于可以可靠地存储状态的 *状态提供程序* 的可用性。 Service Fabric 附带名为 [Reliable Collections](service-fabric-reliable-services-reliable-collections.md) 的状态提供程序实现调用，可让你通过可靠状态管理器创建复制的数据结构。 有状态可靠服务默认使用此状态提供程序。
 
 打开 **HelloWorldStateful** 中的 *HelloWorldStateful.cs*，该文件包含以下 RunAsync 方法：
 

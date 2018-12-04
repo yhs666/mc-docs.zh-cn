@@ -14,11 +14,11 @@ origin.date: 07/11/2018
 ms.date: 08/13/2018
 ms.author: v-yeche
 ms.openlocfilehash: 62e590443938214d66a1d0533b222c03533954f6
-ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625534"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655695"
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Azure 资源管理器模板的 Resources 节
 

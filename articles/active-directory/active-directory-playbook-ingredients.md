@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: v-junlch
 ms.openlocfilehash: 4305d68a78911557b45991d8ab8612b39541e0d5
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
-ms.locfileid: "29993255"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654363"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-ingredients"></a>Azure Active Directory 概念证明演练手册成分 
 
@@ -34,8 +34,7 @@ Azure AD 为企业中的诸多方面提供标识和访问解决方案。 我们�
 ## <a name="environment"></a>环境
 
 必须确定要在其中提供 PoC 的环境的详细信息。 理想情况下，完成 PoC 后，可以基于该环境构建解决方案。 目标环境至关重要，既要让它尽量真实，同时又要考虑约束产生的开销或者其他因素。 PoC 的典型环境包括：
-* 
-            **生产：** 方案会在已部署 Microsoft 云服务（生产 AD、Office 365、Azure AD 租户/SSO 解决方案）的实时环境中实施。 
+* **生产：** 方案会在已部署 Microsoft 云服务（生产 AD、Office 365、Azure AD 租户/SSO 解决方案）的实时环境中实施。 
 * **用户验收测试 (UAT)/开发环境：** 已部署包含测试数据的、可模拟生产环境的基础结构（并行 AD，可能还包括 Azure AD 租户/SSO 解决方案）。 通常，测试环境在企业中的多个项目之间共享。
 
 本指南中的大多数方案在性质上是累加的。 因此，可在生产租户中部署它们，而不会影响 PoC 外的用户。 整篇文档会概述哪些方案会产生租户范围的影响。 在这些情况下，可能需要考虑非生产环境。 

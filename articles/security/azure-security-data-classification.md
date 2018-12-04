@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 04/18/2017
 ms.author: v-johch
 ms.openlocfilehash: 3cd5662b6bc2b3f31b2f88d442e43f55f529d030
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20182224"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658188"
 ---
 # <a name="data-classification-for-azure"></a>Azure 的数据分类
 本文介绍数据分类基础知识并强调其价值，特别是在云计算环境下和使用 Microsoft Azure 时。 

@@ -16,11 +16,11 @@ origin.date: 08/24/2017
 ms.date: 05/28/2018
 ms.author: v-yeche
 ms.openlocfilehash: b4f9367f512fb9357fc948237c1a6b5cf46d2dc4
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554401"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658903"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>使用 Windows 安全性保护 Windows 上的独立群集
 为了防止有人未经授权访问某个 Service Fabric 群集，必须保护该群集。 当群集运行生产工作负荷时，安全性就尤为重要。 本文介绍如何在 ClusterConfig.JSON 文件中使用 Windows 安全性配置节点到节点和客户端到节点的安全性。  该过程对应于[创建在 Windows 上运行的独立群集](service-fabric-cluster-creation-for-windows-server.md)中的安全性配置步骤。 有关 Service Fabric 如何使用 Windows 安全性的详细信息，请参阅[群集安全方案](service-fabric-cluster-security.md)。

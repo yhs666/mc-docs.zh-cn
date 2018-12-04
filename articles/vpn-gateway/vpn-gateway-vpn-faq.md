@@ -9,11 +9,11 @@ origin.date: 07/27/2018
 ms.date: 09/02/2018
 ms.author: v-jay
 ms.openlocfilehash: a7960eafc2caf2a2a3da6161de3e92a29ec65bcf
-ms.sourcegitcommit: e17577aca6df1a41d3ec164f33189f0435c5e060
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43252766"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654651"
 ---
 # <a name="vpn-gateway-faq"></a>VPN 网关常见问题
 
@@ -66,7 +66,7 @@ VPN 网关是一种虚拟网络网关。 VPN 网关通过公共连接在虚拟�
 基于路由的网关可实施基于路由的 VPN。 基于路由的 VPN 使用 IP 转发或路由表中的“路由”将数据包引导到相应的隧道接口中。 然后，隧道接口会加密或解密出入隧道的数据包。 基于路由的 VPN 的策略或流量选择器配置为任意到任意（或通配符）。
 
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>能否将基于策略的 VPN 网关更新为基于路由的？
-否。 Azure Vnet 网关类型不能从基于策略更改为基于路由，反之亦然。 必须先删除该网关，然后再重新创建，此过程需时约 60 分钟。 不会保留网关的 IP 地址，也不会保留预共享密钥 (PSK)。
+否。 Azure Vnet 网关类型不能从基于策略更改为基于路由，反之亦然。 必须先删除该网关，然后再重新创建，此过程需时约 60 分钟。 不会保留网关的 IP 地址，也不会保留预共享密钥 (PSK)。
 1. 删除与要删除的网关相关联的任何连接。
 2. 删除网关：
 * [Azure 门户](vpn-gateway-delete-vnet-gateway-portal.md)

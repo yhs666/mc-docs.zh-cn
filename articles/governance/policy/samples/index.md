@@ -10,30 +10,30 @@ origin.date: 01/17/2018
 ms.date: 11/12/2018
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: aa89a5f6e4d3537e51fa6e989ca4e6b6a40b01de
-ms.sourcegitcommit: b8e99939a5493a15b78c32e87bfbf76a8c96a84a
+ms.openlocfilehash: 4b097363751ae7a565daa4022732f24f1f514778
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409053"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659306"
 ---
 # <a name="azure-policy-samples"></a>Azure Policy 示例
 
 下表包含 Azure Policy 的示例链接。 这些示例也位于 [Azure Policy 示例存储库](https://github.com/Azure/azure-policy)。
 
-[!INCLUDE [azure-policy-samples-general](../../includes/azure-policy-samples-general.md)]
+[!INCLUDE [azure-policy-samples-general](../../../../includes/azure-policy-samples-general.md)]
 
-[!INCLUDE [azure-policy-samples-compute](../../includes/azure-policy-samples-compute.md)]
+[!INCLUDE [azure-policy-samples-compute](../../../../includes/azure-policy-samples-compute.md)]
 
-[!INCLUDE [azure-policy-samples-datalake](../../includes/azure-policy-samples-datalake.md)]
+[!INCLUDE [azure-policy-samples-datalake](../../../../includes/azure-policy-samples-datalake.md)]
 
-[!INCLUDE [azure-policy-samples-monitoring](../../includes/azure-policy-samples-monitoring.md)]
+[!INCLUDE [azure-policy-samples-monitoring](../../../../includes/azure-policy-samples-monitoring.md)]
 
-[!INCLUDE [azure-policy-samples-network](../../includes/azure-policy-samples-network.md)]
+[!INCLUDE [azure-policy-samples-network](../../../../includes/azure-policy-samples-network.md)]
 
-[!INCLUDE [azure-policy-samples-sql](../../includes/azure-policy-samples-sql.md)]
+[!INCLUDE [azure-policy-samples-sql](../../../../includes/azure-policy-samples-sql.md)]
 
-[!INCLUDE [azure-policy-samples-storage](../../includes/azure-policy-samples-storage.md)]
+[!INCLUDE [azure-policy-samples-storage](../../../../includes/azure-policy-samples-storage.md)]
 
 ## <a name="next-steps"></a>后续步骤
 

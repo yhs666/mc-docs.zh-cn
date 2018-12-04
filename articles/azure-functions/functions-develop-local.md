@@ -12,11 +12,11 @@ origin.date: 09/04/2018
 ms.date: 09/21/2018
 ms.author: v-junlch
 ms.openlocfilehash: 7631cc8792851023370908d3ade102893e4410ff
-ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46524006"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659417"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>在本地对 Azure Functions 进行编码和测试
 

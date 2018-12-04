@@ -17,11 +17,11 @@ origin.date: 02/14/2018
 ms.date: 03/12/2018
 ms.author: v-junlch
 ms.openlocfilehash: 1b7677554d3449c3b2b03689510e65c17e923d24
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29925170"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657762"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>将站点到站点连接添加到包含现有 VPN 网关连接的 VNet
 

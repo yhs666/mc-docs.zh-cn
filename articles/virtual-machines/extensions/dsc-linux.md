@@ -16,11 +16,11 @@ origin.date: 06/12/2018
 ms.date: 09/24/2018
 ms.author: v-yeche
 ms.openlocfilehash: 2043cb21845755e2401f8e26bb78fe5cabb9dfd6
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46526968"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658130"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>适用于 Linux 的 DSC 扩展 (Microsoft.OSTCExtensions.DSCForLinux)
 

@@ -5,16 +5,16 @@ services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-ms.topic: article
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.topic: conceptual
+origin.date: 10/10/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: fc7a2881d800be8c6f581fe62c7fc713203d6976
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: f603758c918b93866be7ae6346e9561ca838d130
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168303"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655001"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>对复制到辅助本地站点的 Hyper-V VM 进行故障转移和故障回复
 
@@ -69,4 +69,5 @@ ms.locfileid: "39168303"
 
 ## <a name="next-steps"></a>后续步骤
 [查看将 Hyper-V VM 复制到辅助站点的步骤](hyper-v-vmm-disaster-recovery.md)。
+
 <!-- Update_Description: update meta properties  -->

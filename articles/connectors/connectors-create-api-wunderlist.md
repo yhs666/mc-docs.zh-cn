@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 7226b59504c7112c039061ab0c184fe14f6e59d0
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455261"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658236"
 ---
 # <a name="monitor-and-manage-wunderlist-by-using-azure-logic-apps"></a>使用 Azure 逻辑应用监视和管理 Wunderlist
 

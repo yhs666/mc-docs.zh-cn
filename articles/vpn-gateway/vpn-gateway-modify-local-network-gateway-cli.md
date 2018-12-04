@@ -17,11 +17,11 @@ origin.date: 11/29/2017
 ms.date: 12/29/2017
 ms.author: v-junlch
 ms.openlocfilehash: e13ffcf25753087f50fa98d1a54038e3f4349239
-ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27586314"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656566"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-cli"></a>使用 Azure CLI 修改本地网络网关设置
 

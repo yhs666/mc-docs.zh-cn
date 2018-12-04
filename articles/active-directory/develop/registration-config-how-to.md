@@ -16,11 +16,11 @@ origin.date: 09/11/2018
 ms.date: 10/08/2018
 ms.author: v-junlch
 ms.openlocfilehash: 5c730b81d8642488c7974d32da4723eedf59c048
-ms.sourcegitcommit: 71f203d04b212d2bfbf4f227693c2b8fe209db22
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48850507"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654409"
 ---
 # <a name="how-to-select-permissions-for-a-given-api"></a>如何为给定 API 选择权限
 

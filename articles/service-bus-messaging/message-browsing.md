@@ -15,11 +15,11 @@ origin.date: 09/25/2018
 ms.date: 10/31/2018
 ms.author: v-lingwu
 ms.openlocfilehash: 91dc26ba44abc4d4b918c5cb248aa40e1d75d9cc
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409297"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658262"
 ---
 # <a name="message-browsing"></a>消息浏览
 

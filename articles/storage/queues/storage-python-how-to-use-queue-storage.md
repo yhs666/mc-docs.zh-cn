@@ -16,11 +16,11 @@ origin.date: 12/08/2016
 ms.date: 01/01/2018
 ms.author: v-johch
 ms.openlocfilehash: df69c0392497a8b5cc50a10190699564c609aaea
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295736"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657881"
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>如何通过 Python 使用队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

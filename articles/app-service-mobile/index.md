@@ -14,11 +14,11 @@ origin.date: 05/25/2018
 ms.date: 10/29/2018
 ms.author: v-biyu
 ms.openlocfilehash: 9b73dda29481997f8b9678387a6b034835068f73
-ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49451587"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659969"
 ---
 # <a name="mobile-apps-documentation"></a>移动应用文档
 

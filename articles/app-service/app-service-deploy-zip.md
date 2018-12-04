@@ -15,11 +15,11 @@ origin.date: 03/07/2018
 ms.date: 07/02/2018
 ms.author: v-yiso
 ms.openlocfilehash: c042259013896d7d13cd65bb4ea25cddf0040336
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315378"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659684"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>使用 ZIP 或 WAR 文件将应用部署到 Azure 应用服务
 
@@ -54,7 +54,7 @@ WAR 文件部署将 [WAR](https://wikipedia.org/wiki/WAR_(file_format)) 文件�
 
 此目录应包含 Web 应用的入口文件，例如 _index.html_、_index.php_ 和 _app.js_。 它还可能包含包管理文件，如 _project.json_、_composer.json_、_package.json_、_bower.json_ 和 _requirements.txt_。
 
-创建一个包含项目中的所有内容的 zip 存档。 以下命令使用终端中的默认工具：
+创建一个包含项目中的所有内容的 zip 存档。 以下命令使用您终端中的默认工具执行操作：
 
 ```
 # Bash

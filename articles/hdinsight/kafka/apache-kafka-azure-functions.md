@@ -16,11 +16,11 @@ origin.date: 05/08/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
 ms.openlocfilehash: 59df2c715ca33433bf9846c25a0e9afe79873772
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747521"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657024"
 ---
 # <a name="use-kafka-on-hdinsight-from-an-azure-function-app"></a>通过 Azure 函数应用使用 Kafka on HDInsight
 

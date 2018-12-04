@@ -16,11 +16,11 @@ origin.date: 08/08/2017
 ms.author: v-yiso
 ms.date: 12/18/2017
 ms.openlocfilehash: abe9ebba13673df3d900f5203378d437634ea60b
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695072"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656354"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>使用 Azure Resource Manager 模板创建 IoT 中心 (PowerShell)
 

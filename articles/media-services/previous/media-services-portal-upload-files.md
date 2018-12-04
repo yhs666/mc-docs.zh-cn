@@ -16,11 +16,11 @@ oringin.date: 08/07/2017
 ms.date: 09/25/2017
 ms.author: v-johch
 ms.openlocfilehash: 7bdbc2bba3e2ce1c074e19be6a876bbd930d5c4c
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426457"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655686"
 ---
 # <a name="upload-files-to-a-media-services-account-in-the-azure-portal"></a>在 Azure 门户中将文件上传到媒体服务帐户
 > [!div class="op_single_selector"]

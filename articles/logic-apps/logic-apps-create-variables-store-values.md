@@ -12,11 +12,11 @@ ms.date: 07/02/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: b8303d611d394f4d1816dc9665a6fd1b5666bac6
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315697"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657523"
 ---
 # <a name="create-variables-for-saving-and-managing-values-in-azure-logic-apps"></a>在 Azure 逻辑应用中创建用于保存和管理值的变量
 

@@ -16,11 +16,11 @@ origin.date: 05/15/2018
 ms.date: 07/09/2018
 ms.author: v-yeche
 ms.openlocfilehash: 1a3d546caa0316e695eb5364f118b403deba810a
-ms.sourcegitcommit: 292f22020e00c607229c1693229f25fb2837d8af
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37910603"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657898"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>查看 Service Fabric 容器服务的日志
 Azure Service Fabric 是一种容器业务流程协调程序，支持 [Linux 和 Windows 容器](service-fabric-containers-overview.md)。  本文介绍如何查看正在运行的容器服务或不活动容器的容器日志，以便诊断和排查问题。

@@ -17,11 +17,11 @@ origin.date: 03/21/2018
 ms.date: 05/21/2018
 ms.author: v-yeche
 ms.openlocfilehash: 2ff8ffcd270f7d6023aca87fb595398cd4a06678
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257055"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654828"
 ---
 # <a name="planned-maintenance-for-virtual-machines-in-azure"></a>Azure 中虚拟机的计划内维护
 

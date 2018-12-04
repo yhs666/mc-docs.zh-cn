@@ -15,11 +15,11 @@ origin.date: 02/24/2017
 ms.date: 09/03/2018
 ms.author: v-yiso
 ms.openlocfilehash: f2cc4969474e271e6332c0cf5b2ea791cdf1aef6
-ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42870894"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656165"
 ---
 # <a name="azure-sdk-for-net-29-release-notes"></a>用于 .NET 的 Azure SDK 2.9 发行说明
 
@@ -33,7 +33,7 @@ ms.locfileid: "42870894"
 
 ### <a name="visual-studio-2017-release-candidate"></a>Visual Studio 2017 候选发布
 
-- 在 Visual Studio 2017 RC 中，此版本的用于 .NET 的 Azure SDK 内置于 Azure 工作负荷中。 从目前开始，进行 Azure 开发所需的所有工具都会成为 Visual Studio 2017 RC 的一部分。 对于 Visual Studio 2015 和 Visual Studio 2013，仍可通过 WebPI 获取 SDK。 当 Visual Studio 2017 作为最终产品发布时，我们停止为 Visual Studio 2013 发布用于 .NET 的 Azure SDK。 单击此链接下载 Visual Studio 2017 RC：https://www.visualstudio.com/vs/visual-studio-2017-rc/
+- 在 Visual Studio 2017 RC 中，此版本的用于 .NET 的 Azure SDK 内置于 Azure 工作负荷中。 从目前开始，进行 Azure 开发所需的所有工具都会成为 Visual Studio 2017 RC 的一部分。 对于 Visual Studio 2015 和 Visual Studio 2013，仍可通过 WebPI 获取 SDK。 当 Visual Studio 2017 作为最终产品发布时，我们停止为 Visual Studio 2013 发布用于 .NET 的 Azure SDK。 单击此链接下载 Visual Studio 2017 RC： https://www.visualstudio.com/vs/visual-studio-2017-rc/
 
 ### <a name="azure-diagnostics"></a>Azure 诊断
 

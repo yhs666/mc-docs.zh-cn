@@ -10,11 +10,11 @@ ms.date: 08/06/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
 ms.openlocfilehash: 3ef5b3a34b0d23866b2821fd547ca06dedcff7b3
-ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487798"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657967"
 ---
 # <a name="create-perspectives"></a>创建透视
 

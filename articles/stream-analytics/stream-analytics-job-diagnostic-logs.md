@@ -11,11 +11,11 @@ ms.topic: conceptual
 origin.date: 04/20/2017
 ms.date: 06/18/2018
 ms.openlocfilehash: bca13dda0bb022548c36bbe5dbeef64fb22fb582
-ms.sourcegitcommit: 3130e6042909be0d97d7de5aec7ae9454cd81cfc
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37102878"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659681"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>使用诊断日志对 Azure 流分析进行故障排除
 

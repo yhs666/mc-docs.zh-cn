@@ -14,11 +14,11 @@ manager: digimobile
 origin.date: 09/20/2018
 ms.date: 10/29/2018
 ms.openlocfilehash: 6bb561b00add6dfe77d4765a55f6de9d3ff4c9d9
-ms.sourcegitcommit: 3e4e199e1a9938465496408f66153a58d75d1154
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "50982926"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658302"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>使用基于 DTU 的购买模型的弹性池的资源限制 
 

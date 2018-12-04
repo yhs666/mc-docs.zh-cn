@@ -17,11 +17,11 @@ origin.date: 04/04/2018
 ms.date: 05/08/2018
 ms.author: v-junlch
 ms.openlocfilehash: 6ef76a58d732e93cf90dc608c970b654587ca901
-ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33937489"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657321"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>在 Azure 门户中创建站点到站点连接
 

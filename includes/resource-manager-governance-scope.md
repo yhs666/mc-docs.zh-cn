@@ -11,11 +11,11 @@ ms.date: 03/26/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: e0ec366b8c09f874f4e4bfa7470b917368c2379c
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940599"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656443"
 ---
 在创建任何项之前，让我们复习一下作用域的概念。 Azure 提供四个级别的管理：管理组、订阅、资源组和资源。 下图显示了一个这些层的示例。
 <!-- Not Available on [Management groups](../articles/billing/billing-enterprise-mgmt-group-overview.md) -->

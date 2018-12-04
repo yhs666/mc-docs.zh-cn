@@ -14,11 +14,11 @@ ms.date: 09/21/2018
 ms.author: v-junlch
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: 31e63c7b717994e485203a2a6504a1b64bd0bab1
-ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46524033"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654459"
 ---
 # <a name="create-a-function-triggered-by-a-generic-webhook"></a>创建由通用 webhook 触发的函数
 

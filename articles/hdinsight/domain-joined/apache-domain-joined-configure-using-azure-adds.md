@@ -16,11 +16,11 @@ origin.date: 03/20/2018
 ms.date: 05/21/2018
 ms.author: v-yiso
 ms.openlocfilehash: f033140344c2d09705ac9f261213a99fea0413c0
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34449998"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658988"
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>使用 Azure Active Directory 域服务设置和配置已加入域的 HDInsight 群集
 
@@ -51,9 +51,9 @@ ms.locfileid: "34449998"
 创建已加入域的 HDInsight 群集时，必须提供以下参数：
 
 - **域名**：与 Azure AD DS 关联的域名。 例如 contoso.onmicrosoft.com
-- **域用户名**：“Azure AD DC 管理员组”中的服务帐户，已在上一部分创建。 例如，hdiadmin@contoso.onmicrosoft.com。此域用户是此已加入域的 HDInsight 群集的管理员。
+- **域用户名**：“Azure AD DC 管理员组”中的服务帐户，已在上一部分创建。 例如，hdiadmin@contoso.onmicrosoft.com。 此域用户是此已加入域的 HDInsight 群集的管理员。
 - **域密码**：服务帐户的密码。
-- **组织单位**：要用于 HDInsight 群集的 OU 的可分辨名称。 例如：OU=HDInsightOU,DC=contoso,DC=onmicrosohift,DC=com。如果此 OU 不存在，HDInsight 群集会尝试创建此 OU。 
+- **组织单位**：要用于 HDInsight 群集的 OU 的可分辨名称。 例如：OU=HDInsightOU,DC=contoso,DC=onmicrosohift,DC=com。 如果此 OU 不存在，HDInsight 群集会尝试创建此 OU。 
 - **LDAPS URL**：例如 ldaps://contoso.onmicrosoft.com:636
 - **访问用户组**：其用户要同步到群集的安全组。 例如 HiveUsers。 如果想要指定多个用户组，请使用逗号“,”分隔这些组。
  

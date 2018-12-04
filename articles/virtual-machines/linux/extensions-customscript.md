@@ -17,11 +17,11 @@ origin.date: 04/26/2017
 ms.date: 03/19/2018
 ms.author: v-yeche
 ms.openlocfilehash: 337651de76e6e0e6b75f19617e47d447bf76159f
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29965196"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658775"
 ---
 # <a name="use-the-azure-custom-script-extension-with-linux-virtual-machines"></a>在 Linux 虚拟机上使用 Azure 自定义脚本扩展
 自定义脚本扩展在 Azure 虚拟机上下载和运行脚本。 此扩展适用于部署后配置、软件安装或其他任何配置/管理任务。 可以从 Azure 存储或其他可访问的 Internet 位置下载脚本，或者将脚本提供给扩展运行时。 

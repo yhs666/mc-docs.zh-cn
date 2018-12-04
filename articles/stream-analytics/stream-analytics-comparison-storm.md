@@ -11,11 +11,11 @@ ms.topic: conceptual
 origin.date: 06/27/2017
 ms.date: 05/07/2018
 ms.openlocfilehash: f05042c62806a7164ce697b1f2195419d455d878
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815273"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659675"
 ---
 # <a name="choosing-a-streaming-analytics-platform-comparing-apache-storm-and-azure-stream-analytics"></a>选择流分析平台：Apache Storm 与 Azure 流分析的比较
 Azure 提供了多种用于流数据分析的解决方案：[Azure 流分析](/stream-analytics/)和 Azure HDInsight 上的 Apache Storm。 这两个分析平台都具备 PaaS 解决方案的优势。 但这些平台的功能以及配置和管理方式却存在一些显著差异。 

@@ -18,11 +18,11 @@ ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: ''
 ms.openlocfilehash: 41522ede8c8091032396f1ce0ec4a1e4588751ca
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848926"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659349"
 ---
 # <a name="tutorial-create-a-vm-using-a-community-template"></a>教程：使用社区模板创建 VM
 作为 Azure Stack 操作员或用户，你可以使用[自定义 GitHub 快速入门模板](https://github.com/Azure/AzureStack-QuickStart-Templates)来创建 VM，不需通过 Azure Stack 市场来手动进行部署。

@@ -14,11 +14,11 @@ ms.date: 09/03/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: c6f8a88666569e308d2e33d4152a4ff2feaa73db
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164664"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656078"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-2-create-a-nodejs-express-app-with-the-angular-cli"></a>通过 Angular 和 Azure Cosmos DB 创建 MongoDB 应用 - 第 2 部分：通过 Angular CLI 创建 Node.js Express 应用 
 

@@ -10,11 +10,11 @@ origin.date: 07/31/2018
 ms.date: 09/10/2018
 ms.component: common
 ms.openlocfilehash: 9c5337b8bd88cf12fe161ebc1fc7f3ed62052578
-ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523720"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657034"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>将 Azure 存储用于 Jenkins 持续集成解决方案
 
@@ -49,7 +49,7 @@ Jenkins 通过允许开发人员轻松地集成其代码更改以及自动和频
      
       虽然典型 Jenkins CI 解决方案会设置为作为一个服务运行，但在本教程中，通过命令行运行 Jenkins war 就足够了。
 * 一个 Azure 帐户。 可以在 <http://www.azure.cn> 中注册 Azure 帐户。
-* Azure 存储帐户。 如果还没有存储帐户，可使用[创建存储帐户](../common/storage-quickstart-create-account.md)中的步骤创建一个。
+* Azure 存储帐户。 如果还没有存储帐户，则可使用 [创建存储帐户](../common/storage-quickstart-create-account.md)中的步骤创建一个。
 * 建议（但不要求）熟悉 Jenkins CI 解决方案，因为以下内容将使用基本示例，演示使用 Blob 服务作为 Jenkins CI 生成项目的存储库时所需的步骤。
 
 ## <a name="how-to-use-the-blob-service-with-jenkins-ci"></a>如何将 Blob 服务用于 Jenkins CI
@@ -149,7 +149,7 @@ Jenkins 通过允许开发人员轻松地集成其代码更改以及自动和频
 * [Jenkins 概览](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins)
 * [用于 Java 的 Azure 存储 SDK](https://github.com/azure/azure-storage-java)
 * [Azure 存储客户端 SDK 参考](http://azure.github.io/azure-storage-java/)
-* [Azure 存储服务 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+* [Azure Storage Services REST API（Azure 存储服务 REST API）](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Azure 存储团队博客](http://blogs.msdn.com/b/windowsazurestorage/)
 
 有关详细信息，请访问[面向 Java 开发人员的 Azure](https://www.azure.cn/develop/java/)。

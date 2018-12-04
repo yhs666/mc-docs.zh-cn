@@ -1,5 +1,4 @@
-
-            **如果这些条件都成立**，Azure 将确定应用程序使用 Python：
+**如果这些条件都成立**，Azure 将确定应用程序使用 Python：
 
 * 根文件夹中的 requirements.txt 文件
 * 根文件夹中的任何 .py 文件或指定 python 的 runtime.txt

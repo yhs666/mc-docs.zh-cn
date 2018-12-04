@@ -12,11 +12,11 @@ ms.date: 11/12/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: 2e476f59f7629b1f65bb975ebe3b5b67ac66f00b
-ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50919082"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656091"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>在 Azure 逻辑应用中创建控制工作流操作的条件语句
 

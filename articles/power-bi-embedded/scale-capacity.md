@@ -16,11 +16,11 @@ origin.date: 01/19/2018
 ms.date: 07/18/2018
 ms.author: v-junlch
 ms.openlocfilehash: 4011a4c7fbdfee37c0151e385ad0aa5f7f1c9766
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168496"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655666"
 ---
 # <a name="scale-your-power-bi-embedded-capacity"></a>缩放 Power BI Embedded 容量
 

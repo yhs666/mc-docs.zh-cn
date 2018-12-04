@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.topic: article
 origin.date: 06/01/2018
 ms.date: 08/13/2018
-ms.openlocfilehash: 7117de8ee75dd9c78ab714169ccb45ef8fc1a56c
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.openlocfilehash: 8cba2870e5dc16ec8479f1be182261c9257f7fb7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723102"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656600"
 ---
 # <a name="migrate-your-postgresql-database-using-export-and-import"></a>使用导入和导出功能迁移 PostgreSQL 数据库
 可以使用 [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) 将 PostgreSQL 数据库解压到脚本文件，并使用 [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) 将数据从该文件导入目标数据库。
@@ -45,7 +45,7 @@ psql --file=<database>.sql --host=<server name> --port=5432 --username=<user@ser
 ```
 此示例使用 psql 实用程序和前一步骤中名为 **testdb.sql** 的脚本文件，将数据导入到目标服务器 **mydemoserver.postgres.database.chinacloudapi.cn** 上的数据库 **mypgsqldb** 中。
 ```bash
-psql --file=testdb.sql --host=mydemoserver.database.windows.net --port=5432 --username=mylogin@mydemoserver --dbname=mypgsqldb
+psql --file=testdb.sql --host=mydemoserver.postgres.database.chinacloudapi.cn --port=5432 --username=mylogin@mydemoserver --dbname=mypgsqldb
 ```
 
 ## <a name="next-steps"></a>后续步骤

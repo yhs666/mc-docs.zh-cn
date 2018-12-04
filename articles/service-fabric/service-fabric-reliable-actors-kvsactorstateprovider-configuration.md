@@ -16,11 +16,11 @@ origin.date: 10/02/2017
 ms.date: 10/15/2018
 ms.author: v-yeche
 ms.openlocfilehash: 923590af416e8536669da9cb9fbf1941960ee98e
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49088993"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659227"
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>配置 Reliable Actors - KVSActorStateProvider
 通过更改 Microsoft Visual Studio 程序包根目录下的指定执行组件的 Config 文件夹中生成的 settings.xml 文件，可以修改 KVSActorStateProvider 的默认配置。

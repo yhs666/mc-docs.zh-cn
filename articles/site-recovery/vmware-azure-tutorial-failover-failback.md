@@ -11,11 +11,11 @@ ms.date: 09/24/2018
 ms.author: v-yeche
 ms.custom: MVC
 ms.openlocfilehash: b2e73dce0bba663c6ff123be234e920de9c5bac2
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201340"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658117"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>对复制到 Azure 的 VMware VM 和物理服务器进行故障转移和故障回复
 

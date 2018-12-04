@@ -18,11 +18,11 @@ origin.date: 09/27/2017
 ms.date: 12/25/2017
 ms.author: v-yiso
 ms.openlocfilehash: e3268eb00f8e2139dfe5a61566cc3175ef49519f
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
-ms.locfileid: "26721724"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659032"
 ---
 # <a name="monitor-cluster-performance"></a>监视群集性能
 

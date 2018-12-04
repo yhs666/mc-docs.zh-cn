@@ -16,11 +16,11 @@ origin.date: 04/20/2017
 ms.date: 10/15/2018
 ms.author: v-yeche
 ms.openlocfilehash: a654cb9ffd510224af1e17088a22a952ca6967d8
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089231"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654494"
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>配置 Reliable Actors 的 FabricTransport 设置
 
