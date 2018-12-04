@@ -19,11 +19,11 @@ ms.date: 06/18/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: b6932fea38134596df392d3a6b2e6a319836cfe3
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167986"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651709"
 ---
 # <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建公共基本负载均衡器
 

@@ -19,7 +19,7 @@
     using Microsoft.Azure.Devices.Common.Exceptions;
     ```
 
-1. 将以下字段添加到 **Program** 类。 将占位符值替换为在上一部分为中心创建的 IoT 中心连接字符串。
+1. 将以下字段添加到 Program 类。 将占位符值替换为在上一部分为中心创建的 IoT 中心连接字符串。
 
     ```csharp
     static RegistryManager registryManager;

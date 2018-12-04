@@ -16,11 +16,11 @@ ms.author: v-junlch
 ms.reviewer: bpham
 ms.custom: it-pro
 ms.openlocfilehash: 91af6493e8c4ecd6b2be1ec09bf88472ca0d370a
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800579"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650958"
 ---
 # <a name="how-to-add-your-organizations-privacy-info-in-azure-active-directory"></a>操作指南：在 Azure Active Directory 中添加组织的隐私信息
 本文介绍租户管理员如何通过 Azure 门户将与隐私相关的信息添加到组织的 Azure Active Directory (Azure AD) 租户。

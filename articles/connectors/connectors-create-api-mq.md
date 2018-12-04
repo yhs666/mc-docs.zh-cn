@@ -17,11 +17,11 @@ origin.date: 06/01/2017
 ms.author: v-yiso
 ms.date: 03/26/2018
 ms.openlocfilehash: 6e50b7cff50711c1729d3cd225aa98453c94b2bd
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30072537"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653108"
 ---
 # <a name="connect-to-an-ibm-mq-server-from-logic-apps-using-the-mq-connector"></a>使用 MQ 连接器从逻辑应用连接到 IBM MQ 服务器 
 

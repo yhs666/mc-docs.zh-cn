@@ -11,11 +11,11 @@ ms.topic: article
 origin.date: 02/28/2018
 ms.date: 08/13/2018
 ms.openlocfilehash: 573cddf1353a222f55463addb066acce21a6e529
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722970"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651864"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>如何将应用程序连接到 Azure Database for MySQL
 

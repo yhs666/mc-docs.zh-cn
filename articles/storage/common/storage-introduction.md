@@ -9,11 +9,11 @@ origin.date: 07/11/2018
 ms.date: 09/24/2018
 ms.author: v-jay
 ms.openlocfilehash: 3eee7dfde0420c214788ec4f0c18599955336bfb
-ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523712"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651018"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure 存储简介
 

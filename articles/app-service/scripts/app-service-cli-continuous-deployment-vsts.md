@@ -18,11 +18,11 @@ ms.date: 10/08/2018
 ms.author: v-yiso
 ms.custom: mvc
 ms.openlocfilehash: 01b84007db0e781df4852bfcd456a2de28e38b32
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523920"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649055"
 ---
 # <a name="create-a-web-app-with-continuous-deployment-from-azure-devops"></a>从 Azure DevOps 使用持续部署创建 Web 应用
 

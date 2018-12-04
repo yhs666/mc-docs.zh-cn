@@ -16,11 +16,11 @@ origin.date: 09/10/2017
 ms.date: 10/15/2018
 ms.author: v-jay
 ms.openlocfilehash: 047ebc1c5ce71055c38237cccd28e8b6a971cd86
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848862"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650411"
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>更换 Azure Stack 集成系统上的缩放单元节点
 

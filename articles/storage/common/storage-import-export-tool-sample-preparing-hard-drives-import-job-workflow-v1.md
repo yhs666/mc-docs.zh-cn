@@ -16,11 +16,11 @@ origin.date: 01/23/2017
 ms.date: 10/16/2017
 ms.author: v-johch
 ms.openlocfilehash: eddf51f09062778f4b0e01ed7c2e78e54ad19d0c
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295691"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652543"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>为导入作业准备硬盘驱动器的示例工作流
 本主题讲解如何完成为导入作业准备驱动器的整个过程。  
@@ -176,5 +176,5 @@ WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp
 ## <a name="next-steps"></a>后续步骤
 
 * [为导入作业准备硬盘驱动器](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-* [常用命令快速参考](../storage-import-export-tool-quick-reference-v1.md) 
+* [常用命令快速参考](../storage-import-export-tool-quick-reference-v1.md) 
 <!--Update_Description: wording update-->

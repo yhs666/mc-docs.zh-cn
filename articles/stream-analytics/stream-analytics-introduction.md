@@ -13,11 +13,11 @@ ms.custom: mvc
 origin.date: 03/27/2018
 ms.date: 08/20/2018
 ms.openlocfilehash: c8e0bd05f4dbad4c2f2a719491507ada9b72da2e
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41703863"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650795"
 ---
 # <a name="what-is-stream-analytics"></a>什么是流分析？
 

@@ -18,11 +18,11 @@ ms.date: 10/22/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: c239a406d1e21f5a8dc3cd2f0036752303242de6
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035086"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652481"
 ---
 # <a name="exportcopy-the-underlying-vhd-of-a-managed-disk-to-a-storage-account-with-cli"></a>使用 CLI 将托管磁盘的基础 VHD 导出/复制到存储帐户
 

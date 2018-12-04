@@ -16,11 +16,11 @@ origin.date: 02/22/2017
 ms.date: 11/13/2017
 ms.author: v-yeche
 ms.openlocfilehash: 93a7ea08e1ca1f8da12442c8ab9f100e89eb0e81
-ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2017
-ms.locfileid: "24519483"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651160"
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-aure-network-watcher-using-azure-rest-api"></a>使用 Azure REST API 通过 Azure 网络观察程序中的“下一跃点”功能找到下一跃点类型
 
@@ -33,9 +33,9 @@ ms.locfileid: "24519483"
 
 “下一跃点”是网络观察程序的一项功能，提供基于指定的虚拟机获取下一跃点类型和 IP 地址的功能。 此功能对于确定离开虚拟机的流量是否通过网关、Internet 或虚拟网络到达其目标很有用。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
-ARMclient 用于使用 PowerShell 调用 REST API。 根据 [Chocolatey 上的 ARMClient](https://chocolatey.org/packages/ARMClient) 中所述在 chocolatey 上找到 ARMClient
+通过 PowerShell 调用 REST API 时，使用的是 ARMclient。 根据 [Chocolatey 上的 ARMClient](https://chocolatey.org/packages/ARMClient) 中所述在 chocolatey 上找到 ARMClient
 
 此方案假定已按照[创建网络观察程序](network-watcher-create.md)中的步骤创建网络观察程序。
 

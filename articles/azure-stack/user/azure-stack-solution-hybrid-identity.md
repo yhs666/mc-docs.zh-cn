@@ -16,11 +16,11 @@ ms.date: 06/27/2018
 ms.author: v-junlch
 ms.reviewer: Anjay.Ajodha
 ms.openlocfilehash: 5cc8d8d5cf880651909c424368c5f20b6f549bc9
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195324"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650358"
 ---
 # <a name="tutorial-configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>教程：为 Azure 和 Azure Stack 应用程序配置混合云标识
 

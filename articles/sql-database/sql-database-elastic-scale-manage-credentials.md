@@ -11,11 +11,11 @@ origin.date: 04/01/2018
 ms.date: 09/02/2018
 ms.author: v-nany
 ms.openlocfilehash: d2bf4dc96fb64fda8610f78bb01c8c7b795a2d0a
-ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43249846"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651661"
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>用于访问弹性数据库客户端库的凭据
 [弹性数据库客户端库](sql-database-elastic-database-client-library.md)使用三种不同的凭据来访问[分片映射管理器](sql-database-elastic-scale-shard-map-management.md)。 使用凭据时，应根据需要尽可能采用最低访问级别。

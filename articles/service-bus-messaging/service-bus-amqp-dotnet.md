@@ -16,11 +16,11 @@ origin.date: 08/16/2018
 ms.author: v-yiso
 ms.date: 09/10/2018
 ms.openlocfilehash: 7ccc4afe74aba8cc3aec26c251b9826bed6a6509
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43329181"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654191"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>使用 AMQP 1.0 通过 .NET 使用服务总线
 
@@ -55,7 +55,7 @@ AMQP 1.0 支持在服务总线包 2.1 版或更高版本中提供。 为确保�
 使用 AMQP 时，在连接字符串后面追加 `;TransportType=Amqp`。 此表示法使客户端库使用 AMQP 1.0 连接到服务总线。
 
 ## <a name="message-serialization"></a>消息序列化
-使用默认协议时，.NET 客户端库的默认序列化行为是使用 [DataContractSerializer][DataContractSerializer] 类型序列化 [BrokeredMessage][BrokeredMessage] 实例，以便在客户端库和服务总线服务之间进行传输。 使用 AMQP 传输模式时，客户端库使用 AMQP 类型系统将[中转消息][BrokeredMessage]序列化为 AMQP 消息。 此序列化使得消息能够由可能在不同平台上运行的接收应用程序接收和解释，例如，使用 JMS API 来访问服务总线的 Java 应用程序。
+使用默认协议时，.NET 客户端库的默认序列化行为是使用 [DataContractSerializer][DataContractSerializer] 类型序列化 [BrokeredMessage][BrokeredMessage] 实例，以便在客户端库和服务总线服务之间进行传输。 使用 AMQP 传输模式时，客户端库使用 AMQP 类型系统将 [中转消息][BrokeredMessage] 序列化为 AMQP 消息。 此序列化使得消息能够由可能在不同平台上运行的接收应用程序接收和解释，例如，使用 JMS API 来访问服务总线的 Java 应用程序。
 
 构造 [BrokeredMessage][BrokeredMessage] 实例时，可以提供 .NET 对象作为构造函数的参数以充当消息的正文。 对于可映射到 AMQP 基元类型的对象，正文序列化为 AMQP 数据类型。 如果该对象不能直接映射到 AMQP 基元类型（即，应用程序定义的自定义类型），则使用 [DataContractSerializer][DataContractSerializer]序列化对象，并且已序列化的字节会在 AMQP 数据消息中发送。
 
@@ -99,7 +99,7 @@ AMQP 1.0 支持在服务总线包 2.1 版或更高版本中提供。 为确保�
 
 与默认协议相比，使用 AMQP 时在服务总线 .NET API 的行为方面也有一些细微的差异：
 
-- 忽略 [OperationTimeout][OperationTimeout] 属性。
+- 将忽略 [OperationTimeout][OperationTimeout] 属性。
 
 - `MessageReceiver.Receive(TimeSpan.Zero)` 是以 `MessageReceiver.Receive(TimeSpan.FromSeconds(10))` 的形式实现的。
 - 通过锁定令牌完成消息只能由最初收到消息的消息接收方完成。

@@ -18,11 +18,11 @@ origin.date: 03/31/2017
 ms.author: v-yiso
 ms.date: 04/23/2018
 ms.openlocfilehash: 3209446a0c86a7e1b67de3cb12ef997799b44364
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31322550"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652291"
 ---
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>在逻辑应用中使用 HTTP 终结点调用、触发或嵌套工作流
 

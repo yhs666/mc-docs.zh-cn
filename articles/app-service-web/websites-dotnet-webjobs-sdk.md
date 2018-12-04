@@ -16,11 +16,11 @@ origin.date: 06/01/2016
 ms.date: 12/12/2016
 ms.author: v-dazen
 ms.openlocfilehash: 822759702911768f97cb7c5102eaa87a6c1227d0
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
-ms.locfileid: "20453143"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651884"
 ---
 # <a name="what-is-the-azure-webjobs-sdk"></a>什么是 Azure WebJobs SDK
 
@@ -42,7 +42,7 @@ WebJobs SDK 包括以下组件：
 下面是 Azure WebJobs SDK 帮助轻松处理的部分典型方案：
 
 * 图像处理或其他需要频繁使用 CPU 的工作。 网站的一项常见功能是上传图像或视频。 通常，在上传内容后要进行处理，但又不想在执行此操作时让用户等候。
-* 队列处理。 Web 前端与后端服务进行通信的常见方式是使用队列。 当网站需要完成工作时，它会将消息推送到队列。 后端服务会从队列提取消息，并完成工作。 可以在图像处理中使用队列：例如，在用户上传多个文件后，会将文件名放置在由后端选取队列消息处理的队列消息中。 或者，可以使用队列提高网站响应能力。 例如，无需将目录直接写入 SQL 数据库，而可以写入队列并告知用户已完成，然后由后端服务处理高延迟的关系型数据库工作。 有关使用图像处理队列的示例，请参阅 [WebJobs SDK 入门教程](websites-dotnet-webjobs-sdk-get-started.md)。
+* 队列处理。 Web 前端与后端服务进行通信的常见方式是使用队列。 当网站需要完成工作时，它会将消息推送到队列。 后端服务会从队列提取消息，并完成工作。 可以在图像处理中使用队列：例如，在用户上传多个文件后，会将文件名放置在由后端选取队列消息处理的队列消息中。 或者，可以使用队列提高网站响应能力。 例如，无需将目录直接写入 SQL 数据库，而可以写入队列并告知用户已完成，并由后端服务处理高延迟的关系型数据库工作。 有关使用图像处理队列的示例，请参阅 [WebJobs SDK 入门教程](websites-dotnet-webjobs-sdk-get-started.md)。
 * RSS 聚合。 如果有维护 RSS 源列表的网站，可以在后台进程中提取源中的所有文章。
 * 文件维护，例如聚合或清理日志文件。  可能拥有由多个站点在不同时间创建的日志文件，结合这些文件便于执行分析工作。 或者，要计划每周运行的任务，以清理旧的日志文件。
 * 输入 Azure 表。 可能拥有要分析的存储文件和 Blob，并要将数据存储在表中。 入口函数可能会写入许多行（在某些情况下可能有上百万行），而 WebJobs SDK 可以轻松实现此功能。 SDK 还可实时监视进度指示器，例如表中的写入行数。
@@ -56,7 +56,7 @@ WebJobs SDK 包括以下组件：
 ## <a id="code"></a> 代码示例
 使用 Azure 存储处理典型任务的代码十分简单。 在控制台应用程序的 `Main` 方法中创建一个 `JobHost` 对象，协调对编写的方法的调用。 WebJobs SDK 框架根据方法中使用的 WebJobs SDK 属性，了解调用方法的时间和要使用的参数值。 SDK 提供指定调用函数的条件的*触发器*，并提供指定如何获取传入和传出方法参数信息的*绑定器*。
 
-例如，[QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md) 属性导致在队列中收到消息时调用函数，如果消息格式为字节数组或自定义类型的 JSON，该消息将自动反序列化。 每次在 Azure 存储帐户中创建新的 blob 时，[BlobTrigger](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md) 属性都会触发进程。
+例如， [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md) 属性导致在队列中收到消息时调用函数，如果消息格式为字节数组或自定义类型的 JSON，该消息自动反序列化。 每次在 Azure 存储帐户中创建新的 blob 时，[BlobTrigger](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md) 属性都会触发进程。
 
 以下是用于轮询队列并为收到的每个队列消息创建 Blob 的简单程序：
 
@@ -72,9 +72,9 @@ WebJobs SDK 包括以下组件：
             writer.WriteLine(inputText);
         }
 
-`JobHost` 对象是一组后台函数的容器。 `JobHost` 对象可监视函数，观察触发函数的事件，并在发生触发事件时执行函数。 可调用 `JobHost` 方法，指示要在当前线程或后台线程中执行容器进程。 在此示例中， `RunAndBlock` 方法将在当前线程中持续运行该进程。
+`JobHost` 对象是一组后台函数的容器。 `JobHost` 对象可监视函数，观察触发函数的事件，并在发生触发事件时执行函数。 可调用 `JobHost` 方法，指示要在当前线程或后台线程中执行容器进程。 在此示例中，`RunAndBlock` 方法在当前线程中持续运行该进程。
 
-由于此示例中的 `ProcessQueueMessage` 方法具有 `QueueTrigger` 属性，因此接收新队列消息时会触发该函数。 `JobHost` 对象监视指定队列（在此示例中为“webjobsqueue”）中的新队列消息，发现新队列消息后，此对象将调用 `ProcessQueueMessage`。 
+由于此示例中的 `ProcessQueueMessage` 方法具有 `QueueTrigger` 属性，因此接收新队列消息时会触发该函数。 `JobHost` 对象监视指定队列（在此示例中为“webjobsqueue”）中的新队列消息，发现新队列消息后，此对象调用 `ProcessQueueMessage`。 
 
 `QueueTrigger` 属性将 `inputText` 参数绑定到队列消息的值。 `Blob` 属性将 `TextWriter` 对象绑定到“containername”容器中名为“blobname”的 Blob。  
 
@@ -158,7 +158,7 @@ public class Functions
 ## <a id="workerrole"></a>在 WebJobs 外部使用 WebJobs SDK
 使用 WebJobs SDK 的程序是指可在任意位置运行的标准控制台应用程序 - 不一定要以 Web 作业的形式运行。 在开发计算机上，可本地测试程序；在生产环境中，可在云服务辅助角色或 Windows 服务中运行程序（如果喜欢其中一个环境）。 
 
-但是，只能将仪表板用作 Azure 应用服务 Web 应用的扩展。 如果要在 WebJob 外部运行且仍然使用仪表板，可将 Web 应用配置为使用 WebJobs SDK 仪表板连接字符串引用的同一存储帐户，然后 Web 应用的 WebJobs 仪表板将显示有关其他位置运行程序的函数执行数据。 可以使用 URL https://*{webappname}*.scm.chinacloudsites.cn/azurejobs/#/functions 访问仪表板。 有关详细信息，请参阅 [使用 WebJobs SDK 获取用于本地开发的仪表板](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx)，但请注意，此博客文章会显示旧的连接字符串名称。 
+但是，只能将仪表板用作 Azure 应用服务 Web 应用的扩展。 如果要在 WebJob 外部运行且仍然使用仪表板，可将 Web 应用配置为使用 WebJobs SDK 仪表板连接字符串引用的同一存储帐户，Web 应用的 WebJobs 仪表板将显示有关其他位置运行程序的函数执行数据。 可以使用 URL https://*{webappname}*.scm.chinacloudsites.cn/azurejobs/#/functions 访问仪表板。 有关详细信息，请参阅 [使用 WebJobs SDK 获取用于本地开发的仪表板](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx)，但请注意，此博客文章会显示旧的连接字符串名称。 
 
 ## <a id="nostorage"></a>仪表板功能
 即使不使用 WebJobs SDK 触发器或绑定器，WebJobs SDK 也具有下列优点：

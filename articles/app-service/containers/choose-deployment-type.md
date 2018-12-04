@@ -17,11 +17,11 @@ origin.date: 07/14/2017
 ms.author: v-yiso
 ms.date: 10/16/2017
 ms.openlocfilehash: 12ab1155c0d98533648b25e557f95aede9ab2107
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
-ms.locfileid: "22339068"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650908"
 ---
 # <a name="custom-image-or-built-in-platform-image"></a>自定义映像还是内置平台映像？
 

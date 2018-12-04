@@ -10,11 +10,11 @@ origin.date: 03/16/2018
 ms.date: 10/01/2018
 manager: digimobile
 ms.openlocfilehash: 202b6df0fd56fda88c4f25c6ee44ff0e69f77de9
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426477"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650842"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Azure 自动化中的 Runbook 输出和消息
 大多数 Azure 自动化 Runbook 向用户或旨在由其他工作流使用的复杂对象提供某种形式的输出，例如错误消息。 Windows PowerShell 提供 [多个流](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) ，以便从脚本或工作流发送输出。 Azure 自动化以不同方式处理其中的每个流，在创建 Runbook 时，应该遵循有关如何使用每个流的最佳实践。
@@ -31,7 +31,7 @@ ms.locfileid: "47426477"
 | 调试 |面向交互式用户的消息。 不应在 Runbook 中使用。 |不会写入作业历史记录。 |不会写入测试输出窗格。 |
 
 ## <a name="output-stream"></a>输出流
-输出流旨在输出脚本或工作流创建的对象（如果该脚本或工作流正常运行）。 在 Azure 自动化中，此流主要用于[调用当前 Runbook 的父 Runbook](automation-child-runbooks.md) 使用的对象。 从父 Runbook [调用某个内联 Runbook](automation-child-runbooks.md#invoking-a-child-runbook-using-inline-execution) 时，后者会将输出流中的数据返回给父级。 仅在知道该 Runbook 永不会被其他 Runbook 调用时，才应使用输出流将一般信息传回给用户。 但是，最佳做法通常是使用[详细流](#verbose-stream)向用户传递常规信息。
+输出流旨在输出脚本或工作流创建的对象（如果该脚本或工作流正常运行）。 在 Azure 自动化中，此流主要用于[调用当前 Runbook 的父 Runbook](automation-child-runbooks.md) 使用的对象。 从父 Runbook [调用某个内嵌 Runbook](automation-child-runbooks.md#invoking-a-child-runbook-using-inline-execution) 时，被调用的 Runbook 会将输出流中的数据返回给父级。 仅在知道该 Runbook 永不会被其他 Runbook 调用时，才应使用输出流将一般信息传回给用户。 但是，作为最佳实践，通常应该使用 [详细流](#verbose-stream) 向用户传递一般信息。
 
 可以使用 [Write-Output](http://technet.microsoft.com/library/hh849921.aspx)，或者在 Runbook 中将对象放置在其对应行中，向输出流写入数据。
 
@@ -133,7 +133,7 @@ Write-Error -Message "This is an error message that will stop the runbook becaus
 ### <a name="verbose-stream"></a>详细流
 详细消息流用于传递有关 Runbook 操作的一般信息。 由于 [调试流](#Debug) 在 Runbook 中不可用，因此，应该为调试信息使用详细消息。 默认情况下，来自已发布 Runbook 的详细消息不会存储在作业历史记录中。 要存储详细消息，请在 Azure 门户中 Runbook 的“配置”选项卡上，将已发布 Runbook 配置为“记录详细记录”。 在大多数情况下，出于性能方面的原因，应该保留默认设置，即，不记录详细记录。 启用此选项的目的只是为了排查 Runbook 的问题或对它进行调试。
 
-[测试 Runbook](automation-testing-runbook.md) 时，不会显示详细消息，即使已将该 Runbook 配置为记录详细记录，也是如此。 要在[测试 Runbook](automation-testing-runbook.md) 时显示详细消息，必须将 $VerbosePreference 变量设置为 Continue。 设置该变量后，Azure 门户的测试输出窗格中会显示详细消息。
+[测试 Runbook](automation-testing-runbook.md) 时，不会显示详细消息，即使已将该 Runbook 配置为记录详细记录，也是如此。 要在[测试 Runbook](automation-testing-runbook.md)时显示详细消息，必须将 $VerbosePreference 变量设置为 Continue。 设置该变量后，Azure 门户的测试输出窗格中会显示详细消息。
 
 使用 [Write-Verbose](http://technet.microsoft.com/library/hh849951.aspx) cmdlet 创建详细消息。
 

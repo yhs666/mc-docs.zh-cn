@@ -12,11 +12,11 @@ origin.date: 03/16/2018
 ms.date: 05/14/2018
 ms.author: v-nany
 ms.openlocfilehash: bb5320d3face3ba43862b09a5a62d2c5c42e132b
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426196"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649493"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Azure 自动化中的变量资产
 

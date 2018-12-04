@@ -16,17 +16,17 @@ origin.date: 04/27/2016
 ms.date: 01/03/2017
 ms.author: v-dazen
 ms.openlocfilehash: 06f776fee38039024f1132a0f9b924602046a27b
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20184259"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651883"
 ---
 # <a name="provision-a-web-app-with-a-sql-database"></a>设置使用 SQL 数据库的 Web 应用
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-在本主题中，会学习如何创建用于部署 Web 应用和 SQL 数据库的 Azure Resource Manager 模板。 你将了解如何定义要部署的资源以及如何定义执行部署时指定的参数。 可将此模板用于自己的部署，或自定义此模板以满足要求。
+在本主题中，会学习如何创建用于部署 Web 应用和 SQL 数据库的 Azure Resource Manager 模板。 了解如何定义要部署的资源以及如何定义执行部署时指定的参数。 可将此模板用于自己的部署，或自定义此模板以满足要求。
 
 有关创建模板的详细信息，请参阅[创作 Azure Resource Manager 模板](../azure-resource-manager/resource-group-authoring-templates.md)。
 
@@ -36,7 +36,7 @@ ms.locfileid: "20184259"
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="what-you-will-deploy"></a>将部署的内容
+## <a name="what-you-will-deploy"></a>要部署的内容
 在此模板中，你将部署：
 
 * Web 应用

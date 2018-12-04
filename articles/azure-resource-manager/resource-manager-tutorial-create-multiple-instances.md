@@ -11,15 +11,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 origin.date: 09/10/2018
-ms.date: 09/24/2018
+ms.date: 11/19/2018
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: a6c5b61208ac7cf70661558516b069546a8ba157
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.openlocfilehash: 9a18c7f96f4dd6294d323ea5381c4835270a91b5
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527284"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649820"
 ---
 # <a name="tutorial-create-multiple-resource-instances-using-resource-manager-templates"></a>教程：使用资源管理器模板创建多个资源实例
 
@@ -29,6 +29,8 @@ ms.locfileid: "46527284"
 > * 打开快速入门模板
 > * 编辑模板
 > * 部署模板
+
+如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -150,4 +152,4 @@ Get-AzureRmStorageAccount -ResourceGroupName <ResourceGroupName>
 > [!div class="nextstepaction"]
 > [创建依赖资源](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
 
-<!-- Update_Description: update link, wording update -->
+<!-- Update_Description: wording update -->

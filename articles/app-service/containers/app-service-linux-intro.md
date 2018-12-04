@@ -17,11 +17,11 @@ origin.date: 02/16/2017
 ms.author: v-yiso
 ms.date: 10/16/2017
 ms.openlocfilehash: 208937d999691b2b4b424f6600cbde67228d8f43
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
-ms.locfileid: "22339059"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650264"
 ---
 # <a name="introduction-to-azure-web-apps-for-containers"></a>用于容器的 Azure Web 应用简介
 

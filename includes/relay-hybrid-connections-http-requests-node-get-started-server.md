@@ -9,11 +9,11 @@ ms.date: 05/02/2018
 ms.author: clemensv
 ms.custom: include file
 ms.openlocfilehash: d0fd3e88bdb25fdfd430924ef6b7f571d070b733
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695888"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650338"
 ---
 ### <a name="create-a-nodejs-application"></a>创建 Node.js 应用程序
 

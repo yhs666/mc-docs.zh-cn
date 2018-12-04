@@ -9,11 +9,11 @@ origin.date: 07/17/2018
 ms.date: 11/05/2018
 ms.author: v-jay
 ms.openlocfilehash: 1bcde25129fe2a78695096c319b4158381b7afa9
-ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50919085"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649919"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>使用 Azure 导入/导出服务从 Azure Blob 存储导出数据
 本文分步说明如何使用 Azure 导入/导出服务从 Azure Blob 存储安全地导出大量数据。 该服务要求你将空驱动器寄送到 Azure 数据中心。 该服务将数据从存储帐户导出到驱动器，然后将驱动器寄回。

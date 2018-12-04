@@ -17,11 +17,11 @@ origin.date: 03/08/2018
 ms.author: v-yiso
 ms.date: 04/02/2018
 ms.openlocfilehash: 42349bc84fa7ca4557c0a12729c49c28e4c1a10d
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30155655"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654275"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>使用门户将虚拟网络连接到 ExpressRoute 线路
 > [!div class="op_single_selector"]
@@ -117,7 +117,7 @@ ms.locfileid: "30155655"
 
     ![单击“新建”](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection1.png)
 
-2. 在应用商店中搜索“连接”，并选择它并单击“创建”。
+2. 在市场中搜索“连接”，选择它并单击“创建”。
 
     ![搜索连接](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection2.png)
 

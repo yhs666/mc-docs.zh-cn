@@ -16,11 +16,11 @@ ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: thoroet
 ms.openlocfilehash: f4d2a13d87232614e5f69eb5ae906c8d5650f71b
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195551"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652100"
 ---
 # <a name="download-azure-stack-tools-from-github"></a>从 GitHub 下载 Azure Stack 工具
 

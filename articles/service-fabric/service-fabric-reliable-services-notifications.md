@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/29/2017
-ms.date: 05/28/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8b7116ca4f8248c2b8993a277e749c57a4f36fa5
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 396e6b81e53a2a6c3588e2158666dda9803302c4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554637"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650211"
 ---
 # <a name="reliable-services-notifications"></a>Reliable Services 通知
 通知可让客户端跟踪对它们感兴趣的对象所进行的更改。 两种类型的对象支持通知：*可靠状态管理器*和*可靠字典*。
@@ -98,7 +98,7 @@ public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChange
 {
     if (e.Action == NotifyStateManagerChangedAction.Rebuild)
     {
-        this.ProcessStataManagerRebuildNotification(e);
+        this.ProcessStateManagerRebuildNotification(e);
 
         return;
     }
@@ -222,4 +222,4 @@ public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEve
 * [Reliable Services 备份和还原（灾难恢复）](service-fabric-reliable-services-backup-restore.md)
 * [Reliable Collections 的开发人员参考](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update -->

@@ -16,11 +16,11 @@ ms.date: 09/25/2018
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.openlocfilehash: ddb5eaac7a0b497b4f148e0e13f816c9978848c5
-ms.sourcegitcommit: 830a60c06303a8447d128a3bca8b36aa2b3b655b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47075852"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653053"
 ---
 # <a name="manage-access-using-rbac-and-azure-powershell"></a>使用 RBAC 和 Azure PowerShell 管理访问权限
 

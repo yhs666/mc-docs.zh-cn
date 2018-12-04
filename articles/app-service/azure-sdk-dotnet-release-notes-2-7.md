@@ -15,11 +15,11 @@ origin.date: 02/24/2017
 ms.date: 10/30/2017
 ms.author: v-yiso
 ms.openlocfilehash: 14038c15e7c4f3ae6e0f7fe3e7a4259a9ef86fed
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
-ms.locfileid: "23475121"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650920"
 ---
 # <a name="azure-sdk-for-net-27-and-net-271-release-notes"></a>Azure SDK for .NET 2.7 和 .NET 2.7.1 发行说明
 ## <a name="overview"></a>概述

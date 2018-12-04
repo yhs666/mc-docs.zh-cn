@@ -10,11 +10,11 @@ ms.date: 04/23/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: 38825fe5f7a8c81401696d94ca9e820cc1b1e581
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940229"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52665814"
 ---
 1. 在新窗口中，登录到 [Azure 门户](https://portal.azure.cn/)。
 2. 在左菜单中，依次单击“创建资源”、“数据库”，然后在“Azure Cosmos DB”下单击“创建”。

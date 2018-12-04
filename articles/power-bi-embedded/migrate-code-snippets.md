@@ -16,11 +16,11 @@ origin.date: 09/28/2017
 ms.date: 07/18/2018
 ms.author: v-junlch
 ms.openlocfilehash: fb274091ac2c4f05ecc02a653796a561c7d9862a
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168294"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649416"
 ---
 # <a name="code-snippets-for-migrating-content-from-power-bi-workspace-collections"></a>从 Power BI 工作区集合中迁移内容的代码片段
 

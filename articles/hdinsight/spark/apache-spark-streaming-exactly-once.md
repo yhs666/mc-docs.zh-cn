@@ -18,11 +18,11 @@ origin.date: 01/26/2018
 ms.author: v-yiso
 ms.date: 03/26/2018
 ms.openlocfilehash: cd1fcd679c8bf3793c497bad8107cfa99b6d46b6
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30077676"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652120"
 ---
 # <a name="create-spark-streaming-jobs-with-exactly-once-event-processing"></a>创建支持“恰好一次”事件处理的 Spark 流作业
 

@@ -15,11 +15,11 @@ origin.date: 09/04/2017
 ms.author: v-yiso
 ms.date: 11/20/2017
 ms.openlocfilehash: d44be6bdbf5e277c4088a01e2be264f396350fee
-ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
-ms.locfileid: "24058582"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653047"
 ---
 # <a name="azure-iot-edge-architectural-concepts"></a>Azure IoT Edge 体系结构概念
 

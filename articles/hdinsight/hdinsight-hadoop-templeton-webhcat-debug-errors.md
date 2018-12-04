@@ -18,11 +18,11 @@ origin.date: 05/16/2018
 ms.date: 08/27/2018
 ms.author: v-yiso
 ms.openlocfilehash: d8449d33af805144e4e6d474df1a51258d682773
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41704063"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652126"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>了解和解决从 HDInsight 上的 WebHCat 收到的错误
 

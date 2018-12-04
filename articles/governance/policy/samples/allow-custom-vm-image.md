@@ -10,18 +10,18 @@ origin.date: 10/30/2017
 ms.date: 11/12/2018
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: 4ca5d1b2e673ea9b692a8cecd7b413b2d483bdcb
-ms.sourcegitcommit: b8e99939a5493a15b78c32e87bfbf76a8c96a84a
+ms.openlocfilehash: 6bc7fd982a2261bcec18eae2185ad1299a8bf8b7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409103"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650873"
 ---
 # <a name="allow-custom-vm-image-from-a-resource-group"></a>允许使用来自资源组的自定义 VM 映像
 
 此示例策略需要自定义映像来自批准的资源组。 指定已批准的资源组的名称。
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>示例模板
 ```json
@@ -70,7 +70,7 @@ ms.locfileid: "50409103"
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 进行部署
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
 
 ```powershell
 $definition = New-AzureRmPolicyDefinition -Name "custom-image-from-rg" -DisplayName "Allow custom VM image from a Resource Group" -description "This policy allows only usage of images from a resource group" -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/custom-image-from-rg/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/custom-image-from-rg/azurepolicy.parameters.json' -Mode All
@@ -89,7 +89,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="deploy-with-azure-cli"></a>使用 Azure CLI 进行部署
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
 ```cli
 az policy definition create --name 'custom-image-from-rg' --display-name 'Allow custom VM image from a Resource Group' --description 'This policy allows only usage of images from a resource group' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/custom-image-from-rg/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/custom-image-from-rg/azurepolicy.parameters.json' --mode All

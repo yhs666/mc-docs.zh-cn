@@ -16,11 +16,11 @@ origin.date: 09/29/2017
 ms.date: 05/30/2018
 ms.author: v-junlch
 ms.openlocfilehash: 6707e3479e30dcb4c06ad9a73a4d711096ca7a98
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34567288"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653469"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Durable Functions 中的任务中心 (Azure Functions)
 

@@ -16,11 +16,11 @@ origin.date: 04/25/2016
 ms.date: 02/21/2017
 ms.author: v-dazen
 ms.openlocfilehash: 25050ece1cceaa3656743daf00871b7a5fba3101
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939481"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649732"
 ---
 # <a name="tutorial-web-app-with-a-multi-tenant-database-using-entity-framework-and-row-level-security"></a>教程：使用多租户数据库和 Entity Framework 及行级别安全性的 Web 应用
 

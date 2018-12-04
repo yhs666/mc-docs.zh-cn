@@ -12,11 +12,11 @@ ms.date: 10/17/2018
 ms.author: v-junlch
 ms.custom: mvc
 ms.openlocfilehash: 7416f6833bf415070c6ff3a55f9267df919a0ae2
-ms.sourcegitcommit: 4ead6b1d3527373b63c90680b6400a2e95b4064e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49374959"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651747"
 ---
 # <a name="tutorial-enable-web-application-firewall-using-the-azure-cli"></a>教程：使用 Azure CLI 启用 Web 应用程序防火墙
 

@@ -16,14 +16,14 @@ origin.date: 04/25/2017
 ms.date: 07/10/2017
 ms.author: v-dazen
 ms.openlocfilehash: f2da4a22b0b4e0faf07c1b5d88655f5ac32bcf1a
-ms.sourcegitcommit: e9f431f6ee60196bbae604e7d8152c6ef48ead1a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2017
-ms.locfileid: "21932636"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653595"
 ---
 # <a name="create-a-basic-azure-web-app-using-eclipse"></a>使用 Eclipse 创建基本的 Azure Web 应用
-本教程说明如何使用 [Azure Toolkit for Eclipse] 创建一个基本的 Hello World 应用程序，并将其部署到 Azure 作为 Web 应用。 为简单起见显示了一个基本 JSP 示例，但就 Azure 部署而言，相似的步骤也适用于 Java servlet。
+本教程说明如何使用 [适用于 Eclipse 的 Azure 工具包] 创建一个基本的 Hello World 应用程序，并将其部署到 Azure 作为 Web 应用。 为简单起见显示了一个基本 JSP 示例，但就 Azure 部署而言，相似的步骤也适用于 Java servlet。
 
 完成本教程后，应用程序会在 Web 浏览器中如下图所示：
 
@@ -33,8 +33,8 @@ ms.locfileid: "21932636"
 * Java 开发人员工具包 (JDK) 1.8 或更高版本。
 * Eclipse IDE for Java EE Developers，Luna 或更高版本。 可从 <http://www.eclipse.org/downloads/> 下载。
 * 一个基于 Java 的 Web 服务器或应用程序服务器（例如 [Apache Tomcat] 或 [Jetty]）的分发。
-* 一个 Azure 订阅，可从 <https://www.azure.cn/pricing/1rmb-trial/> 或 <http://www.azure.cn/pricing/overview/> 获取。
-* [Azure Toolkit for Eclipse]。 有关安装 Azure 工具包的信息，请参阅 [安装适用于 Eclipse 的 Azure 工具包]。
+* 一种 Azure 订阅，可从 <https://www.azure.cn/pricing/1rmb-trial/> 或 <http://www.azure.cn/pricing/overview/> 获取。
+* [适用于 Eclipse 的 Azure 工具包]。 有关安装 Azure 工具包的信息，请参阅 [安装 Azure Toolkit for Eclipse]。
 
 ## <a name="to-create-a-hello-world-application"></a>创建 Hello World 应用程序
 首先，我们从创建 Java 项目开始。
@@ -53,7 +53,7 @@ ms.locfileid: "21932636"
 
 6. 对于本教程，请在“选择 JSP 模板”对话框中选择“新建 JSP 文件(html)”，然后单击“完成”。
 
-7. 在 Eclipse 中打开 index.jsp 文件后，添加文本以动态显示 **Hello World!** 现有 `<body>` 元素中。 更新后的 `<body>` 内容应与下图中所示类似：
+7. 在 Eclipse 中打开 index.jsp 文件后，添加文本以动态显示 **Hello World!** 在现有 `<body>` 元素中。 更新后的 `<body>` 内容应与下图中所示类似：
    ```
    <body>
    <b><% out.println("Hello World!"); %></b>
@@ -139,12 +139,12 @@ ms.locfileid: "21932636"
 对于任一情况，过程都是相同的，只需几秒钟即可完成：
 
 1. 在 Eclipse 项目资源管理器中，右键单击要更新或添加到现有 Web 应用容器的 Java 应用程序。
-2. 出现上下文菜单时，请选择“Azure”，然后单击“发布为 Azure Web 应用...”
+2. 出现上下文菜单时，请选择“Azure”，并单击“发布为 Azure Web 应用...”
 3. 由于之前已登录，因此将看到现有 Web 应用容器的列表。 选择要对其发布或重新发布 Java 应用程序的 Web 应用容器，然后单击“确定”。
 
 几秒钟后，“Azure 活动日志”视图会将已更新的部署显示为“已发布”，可以在 Web 浏览器中验证已更新的应用程序。
 
-## <a name="starting-stopping-or-restarting-an-existing-web-app"></a>启动、停止或重启现有 Web 应用
+## <a name="starting-stopping-or-restarting-an-existing-web-app"></a>启动、停止或重启现有的 Web 应用
 若要启动或停止现有的 Azure Web 应用容器（包括其中所有已部署的 Java 应用程序），可以使用“Azure 资源管理器”视图。
 
 如果“Azure 资源管理器”视图尚未打开，可以依次单击 Eclipse 中的“窗口”菜单、“显示视图”、“其他...”、“Azure”和“Azure 资源管理器”将它打开。 如果事先未尚未登录，系统将提示登录。
@@ -172,7 +172,7 @@ ms.locfileid: "21932636"
 
    ![](media\app-service-web-eclipse-create-hello-world-web-app\10.png)
 
-   单击“是”。 
+   单击 **“是”**。 
 
    ![](media\app-service-web-eclipse-create-hello-world-web-app\11.png)
 
@@ -185,14 +185,14 @@ ms.locfileid: "21932636"
 ## <a name="next-steps"></a>后续步骤
 有关 Azure Toolkits for Java IDE 的详细信息，请参阅以下链接：
 
-* [Azure Toolkit for Eclipse]
-  * [安装适用于 Eclipse 的 Azure 工具包]
+* [适用于 Eclipse 的 Azure 工具包]
+  * [安装 Azure Toolkit for Eclipse]
   * *在 Eclipse 中创建 Azure 的 Hello World Web 应用（本文）*
-  * [Azure Toolkit for Eclipse 的新增功能]
-* [Azure Toolkit for IntelliJ]
-  * [安装 Azure Toolkit for IntelliJ]
+  * [用于 Eclipse 的 Azure 工具包的新增功能]
+* [适用于 IntelliJ 的 Azure 工具包]
+  * [安装用于 IntelliJ 的 Azure 工具包]
   * [在 IntelliJ 中创建 Azure 的 Hello World Web 应用]
-  * [Azure Toolkit for IntelliJ 中的新增功能]
+  * [用于 IntelliJ 的 Azure 工具包的新增功能]
 
 有关将 Azure 与 Java 配合使用的详细信息，请参阅 [Azure Java 开发人员中心]。
 
@@ -200,14 +200,14 @@ ms.locfileid: "21932636"
 
 <!-- URL List -->
 
-[Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse.md
-[Azure Toolkit for IntelliJ]: ../azure-toolkit-for-intellij.md
+[适用于 Eclipse 的 Azure 工具包]: ../azure-toolkit-for-eclipse.md
+[适用于 IntelliJ 的 Azure 工具包]: ../azure-toolkit-for-intellij.md
 [Create a Hello World Web App for Azure in Eclipse]: ./app-service-web-eclipse-create-hello-world-web-app.md
 [在 IntelliJ 中创建 Azure 的 Hello World Web 应用]: ./app-service-web-intellij-create-hello-world-web-app.md
-[安装适用于 Eclipse 的 Azure 工具包]: ../azure-toolkit-for-eclipse-installation.md
-[安装 Azure Toolkit for IntelliJ]: ../azure-toolkit-for-intellij-installation.md
-[Azure Toolkit for Eclipse 的新增功能]: ../azure-toolkit-for-eclipse-whats-new.md
-[Azure Toolkit for IntelliJ 中的新增功能]: ../azure-toolkit-for-intellij-whats-new.md
+[安装 Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse-installation.md
+[安装用于 IntelliJ 的 Azure 工具包]: ../azure-toolkit-for-intellij-installation.md
+[用于 Eclipse 的 Azure 工具包的新增功能]: ../azure-toolkit-for-eclipse-whats-new.md
+[用于 IntelliJ 的 Azure 工具包的新增功能]: ../azure-toolkit-for-intellij-whats-new.md
 
 [Azure Java 开发人员中心]: /develop/java/
 [Web 应用概述]: ./app-service-web-overview.md

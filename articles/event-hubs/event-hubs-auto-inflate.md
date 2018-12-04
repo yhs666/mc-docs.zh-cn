@@ -16,11 +16,11 @@ origin.date: 07/02/2018
 ms.date: 09/17/2018
 ms.author: v-yeche
 ms.openlocfilehash: 643888413926cc4199b25b1b49a2da50e20a3ea5
-ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586597"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652788"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>自动增加 Azure 事件中心吞吐量单位
 

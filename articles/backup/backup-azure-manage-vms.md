@@ -10,11 +10,11 @@ origin.date: 11/28/2016
 ms.date: 07/06/2018
 ms.author: v-junlch
 ms.openlocfilehash: 29604aa217172ba8e04cc86a3b0de1a7e98c11b6
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873341"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650365"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>管理 Azure 虚拟机备份
 

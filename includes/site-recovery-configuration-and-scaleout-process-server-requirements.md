@@ -11,11 +11,11 @@ ms.date: 09/17/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: 77edbdc932f6964242f75814e0117e70d2948a48
-ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586885"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650345"
 ---
 配置/进程服务器要求
 

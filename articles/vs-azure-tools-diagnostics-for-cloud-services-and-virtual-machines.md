@@ -16,11 +16,11 @@ origin.date: 06/28/2018
 ms.date: 08/14/2018
 ms.author: v-junlch
 ms.openlocfilehash: a0c1781ab4b9ae9029581e1691aca99a0eb4769a
-ms.sourcegitcommit: 5ccfb836b271e60d44ba8a871b8904a695fe8e27
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41704904"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652472"
 ---
 # <a name="set-up-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>为 Azure 云服务和虚拟机设置诊断
 需要对 Azure 云服务或虚拟机进行故障排除时，可使用 Visual Studio 更轻松地设置 Azure 诊断。 诊断可以在运行云服务的虚拟机和虚拟机实例上捕获系统数据和日志记录数据。 诊断数据传输到所选的存储帐户。 有关 Azure 中诊断日志记录的详细信息，请参阅[为 Azure 应用服务中的 Web 应用启用诊断日志记录](app-service/web-sites-enable-diagnostic-log.md)。

@@ -12,11 +12,11 @@ ms.topic: sample
 ms.custom: mvc
 ms.date: 06/16/2018
 ms.openlocfilehash: 7d6ffca943d1879c231c09528bdfc6756182d856
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527144"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649380"
 ---
 # <a name="restore-an-azure-database-for-mysql-server-using-azure-cli"></a>使用 Azure CLI 还原 Azure Database for MySQL 服务器
 

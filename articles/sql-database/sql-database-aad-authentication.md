@@ -14,11 +14,11 @@ manager: digimobile
 origin.date: 10/05/2018
 ms.date: 10/29/2018
 ms.openlocfilehash: 19a1fda30cf84c7b6b9495c6d4cda10cdb888842
-ms.sourcegitcommit: 3e4e199e1a9938465496408f66153a58d75d1154
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "50982920"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651659"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>使用 Azure Active Directory 身份验证进行 SQL 身份验证
 

@@ -19,11 +19,11 @@ origin.date: 04/20/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
 ms.openlocfilehash: df680cd8d403dcd90be9f7a4b6899f23b01f852f
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747407"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651842"
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>将 Beeline 客户端与 Apache Hive 配合使用
 
@@ -77,7 +77,7 @@ Beeline 是一个 Hive 客户端，包含在 HDInsight 群集的头节点上。 
         beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
         ```
 
-2. Beeline 命令以 `!` 字符开头，例如，`!help` 会显示帮助。 但是，`!` 对于某些命令可以省略。 例如，`help` 也是有效的。
+2. Beeline 命令以 `!` 字符开头，例如，`!help` 显示帮助。 但是，`!` 对于某些命令可以省略。 例如，`help` 也是有效的。
 
     有一个 `!sql`，用于执行 HiveQL 语句。 但是，由于 HiveQL 非常流行，因此可以省略前面的 `!sql`。 以下两个语句等效：
 
@@ -201,12 +201,12 @@ Beeline 是一个 Hive 客户端，包含在 HDInsight 群集的头节点上。 
 
     * **CREATE TABLE IF NOT EXISTS** - 创建表（如果该表尚不存在）。 因为未使用 **EXTERNAL** 关键字，此语句创建内部表。 内部表存储在 Hive 数据仓库中，由 Hive 全权管理。
     * **STORED AS ORC**：以优化行纵栏表 (ORC) 格式存储数据。 ORC 格式是高度优化且有效的 Hive 数据存储格式。
-    * **INSERT OVERWRITE ...SELECT** - 从包含 **[ERROR]** 的 **log4jLogs** 表中选择行，并将数据插入 **errorLogs** 表中。
+    * **INSERT OVERWRITE ...SELECT**- 从包含 **[ERROR]** 的 **log4jLogs** 表中选择行，然后将数据插入 **errorLogs** 表中。
 
     > [!NOTE]
     > 与外部表不同，删除内部表会同时删除基础数据。
 
-3. 要保存文件，请使用 **Ctrl**+**_X**，并输入 **Y**，最后按 **Enter**。
+3. 如果要保存文件，请使用 **Ctrl**+**_X**，并输入 **Y**，最后按 **Enter**。
 
 4. 使用以下命令通过 Beeline 运行该文件：
 
@@ -274,7 +274,7 @@ beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
 
 有关 HDInsight 中 Hive 的更多常规信息，请参阅以下文档：
 
-* [将 Hive 与 Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
+* [将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)
 
 若要深入了解使用 Hadoop on HDInsight 的其他方法，请参阅以下文档：
 
@@ -284,7 +284,7 @@ beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
 如果将 Tez 与 Hive 配合使用，请参阅以下文档：
 
 * [在基于 Windows 的 HDInsight 上使用 Tez UI](../hdinsight-debug-tez-ui.md)
-* [在基于 Linux 的 HDInsight 上使用 Ambari Tez 视图](../hdinsight-debug-ambari-tez-view.md)
+* [Use the Ambari Tez view on Linux-based HDInsight（在基于 Linux 的 HDInsight 上使用 Ambari Tez 视图）](../hdinsight-debug-ambari-tez-view.md)
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 

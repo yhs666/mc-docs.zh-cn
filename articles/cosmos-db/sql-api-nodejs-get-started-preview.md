@@ -14,11 +14,11 @@ origin.date: 07/30/2018
 ms.date: 09/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: 87f8188e67c516a71bd4e5a27318d78970821be7
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201358"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650057"
 ---
 # <a name="nodejs-tutorial-create-a-nodejs-console-application-with-azure-cosmos-db-sql-api-and-javascript-sdk-20-preview"></a>Node.js 教程：使用 Azure Cosmos DB SQL API 和 JavaScript SDK 2.0（预览版）创建 Node.js 控制台应用程序
 

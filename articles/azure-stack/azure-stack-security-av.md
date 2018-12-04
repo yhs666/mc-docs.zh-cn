@@ -11,11 +11,11 @@ ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: fiseraci
 ms.openlocfilehash: 6ea28589b47e6fe7fbb5f62c07aafcd47510d2a9
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195512"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651047"
 ---
 # <a name="update-windows-defender-antivirus-on-azure-stack"></a>在 Azure Stack上更新 Windows Defender 防病毒
 

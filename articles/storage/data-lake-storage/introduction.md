@@ -10,11 +10,11 @@ ms.date: 08/27/2018
 ms.author: v-jay
 ms.component: data-lake-storage-gen2
 ms.openlocfilehash: 059491306ba1e043ef3b2d3907a90307134797c4
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872418"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649301"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Azure Data Lake Storage Gen2 预览版简介
 

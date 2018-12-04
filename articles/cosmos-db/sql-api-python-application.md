@@ -14,11 +14,11 @@ ms.date: 11/05/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a50667fca752ef86ab645b4a3ae815b728acf40e
-ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50204834"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651148"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>构建使用 Azure Cosmos DB 的 Python Flask Web 应用程序
 

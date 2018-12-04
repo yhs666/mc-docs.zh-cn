@@ -17,11 +17,11 @@ origin.date: 03/07/2018
 ms.date: 07/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: ad9d443fd6204cb02013afff57da3d6cd3790813
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307063"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650250"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>在 Azure 虚拟机（经典）中对 SQL Server 进行自动修补
 > [!div class="op_single_selector"]

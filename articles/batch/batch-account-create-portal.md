@@ -17,11 +17,11 @@ ms.date: 09/07/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e273d29c6d8b5f16eec390d74af03bb8f06740c3
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068120"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651885"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>使用 Azure 门户创建 Batch 帐户
 

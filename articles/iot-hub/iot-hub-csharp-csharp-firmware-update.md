@@ -16,11 +16,11 @@ origin.date: 10/19/2017
 ms.date: 07/09/2018
 ms.author: v-yiso
 ms.openlocfilehash: 54a950c542de780186b9b011cfcb7fe284082b30
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939805"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650716"
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-netnet"></a>使用设备管理启动设备固件更新 (.NET/.NET)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
@@ -55,7 +55,7 @@ ms.locfileid: "38939805"
 ## <a name="trigger-a-remote-firmware-update-on-the-device-using-a-direct-method"></a>使用直接方法在设备上触发远程固件更新
 在本部分中，用户创建一个 .NET 控制台应用（使用 C#），以便在设备上启动远程固件更新。 该应用使用直接方法来启动更新，并使用设备孪生查询定期获取活动固件更新的状态。
 
-1. 在 Visual Studio 中，使用“**控制台应用程序**”项目模板将 Visual C# Windows 经典桌面项目添加到当前解决方案。 **TriggerFWUpdate**。
+1. 在 Visual Studio 中，使用“**控制台应用程序**”项目模板将 Visual C# Windows 经典桌面项目添加到当前解决方案。 将项目命名为 **TriggerFWUpdate**。
 
     ![新的 Visual C# Windows 经典桌面项目][img-createserviceapp]
 

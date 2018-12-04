@@ -17,11 +17,11 @@ origin.date: 04/04/2018
 ms.date: 07/09/2018
 ms.author: v-junlch
 ms.openlocfilehash: 629af208949e9c92fd61718e0fc04e90ba1886c2
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38938838"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653642"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向特定用户发送通知
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
@@ -212,7 +212,7 @@ ms.locfileid: "38938838"
         ApplicationData.Current.LocalSettings.Values["AuthenticationToken"] = token;
     }
     ```
-1. 打开 **App.xaml.cs** 文件。 `InitNotificationsAsync()` in the `OnLaunched()` 的调用。 注释掉或删除对 `InitNotificationsAsync()`的调用。 按钮处理程序会初始化通知注册。
+1. 打开 **App.xaml.cs** 文件。  `InitNotificationsAsync()` in the `OnLaunched()` 的调用。 注释掉或删除对 `InitNotificationsAsync()`的调用。 按钮处理程序会初始化通知注册。
 
     ```csharp
     protected override void OnLaunched(LaunchActivatedEventArgs e)

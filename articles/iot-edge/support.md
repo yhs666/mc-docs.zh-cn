@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 2158f1a65f095471b94e3cc07b6550118881af48
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523838"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653931"
 ---
 # <a name="azure-iot-edge-support"></a>Azure IoT Edge 支持
 有多种方法可用来寻求对 Azure IoT Edge 产品的支持。
@@ -68,4 +68,4 @@ Azure IoT Edge 需要一个容器引擎来启动模块，无论它运行于哪�
 
 
 <!-- Links -->
-[lnk-edge-blog]: https://azure.microsoft.com/blog/securing-the-intelligent-edge/ 
+[lnk-edge-blog]: https://azure.microsoft.com/blog/securing-the-intelligent-edge/ 

@@ -15,11 +15,11 @@ origin.date: 02/15/2018
 ms.date: 10/01/2018
 ms.author: v-jay
 ms.openlocfilehash: 2b255b64c3ff2904e5628c25ec70f5dcfb3eb26f
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426461"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653898"
 ---
 # <a name="import-a-postman-collection-with-live-streaming-operations"></a>使用实时传送视频流操作导入一个 Postman 集合
 

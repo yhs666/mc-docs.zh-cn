@@ -15,11 +15,11 @@ ms.date: 10/17/2018
 ms.author: v-junlch
 ms.custom: mvc
 ms.openlocfilehash: f77a8b7e703e961fa67708130c5e15bc83952d33
-ms.sourcegitcommit: 4ead6b1d3527373b63c90680b6400a2e95b4064e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49374979"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651230"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>快速入门：使用 Azure 应用程序网关定向 Web 流量 - Azure CLI
 

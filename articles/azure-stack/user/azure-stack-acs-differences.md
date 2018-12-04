@@ -16,11 +16,11 @@ ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviwer: xiaofmao
 ms.openlocfilehash: ff682b583bcfee27e3a6de1d74967c5cdcc56f66
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195543"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653765"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack 存储：差异和注意事项
 

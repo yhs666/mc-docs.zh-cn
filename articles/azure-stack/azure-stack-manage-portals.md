@@ -16,11 +16,11 @@ origin.date: 09/12/2018
 ms.date: 11/12/2018
 ms.author: v-jay
 ms.openlocfilehash: 5f2d25733606b246e1a75bebb579c148b9b98643
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195463"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649088"
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>在 Azure Stack 中使用管理员门户
 

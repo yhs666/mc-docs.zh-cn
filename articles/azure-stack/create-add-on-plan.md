@@ -18,11 +18,11 @@ ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: ''
 ms.openlocfilehash: 6bd268087b66477b3dd4bfedc09002079fbec6af
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869435"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653332"
 ---
 # <a name="azure-stack-add-on-plans"></a>Azure Stack 附加计划
 
@@ -59,4 +59,4 @@ ms.locfileid: "42869435"
     ![](media/create-add-on-plan/4.PNG)
 
 ## <a name="next-steps"></a>后续步骤
-[创建套餐](azure-stack-create-offer.md)
+[创建产品/服务](azure-stack-create-offer.md)

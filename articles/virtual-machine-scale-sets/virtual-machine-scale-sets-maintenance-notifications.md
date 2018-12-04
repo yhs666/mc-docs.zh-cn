@@ -16,11 +16,11 @@ origin.date: 07/09/2018
 ms.date: 09/07/2018
 ms.author: v-junlch
 ms.openlocfilehash: c348d37e8df351d447a9607f51d6005a97a520f2
-ms.sourcegitcommit: 40456700212200e707d6cb3147cf96ad161d3ff2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44269537"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652349"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>虚拟机规模集的计划内维护通知
 
@@ -176,7 +176,7 @@ az vmss list-instances -g rgName -n vmssName --expand instanceView
 az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 ```
 
-## <a name="faq"></a>常见问题解答
+## <a name="faq"></a>常见问题
 
 **问：为什么需要立即重新启动 VM？**
 
@@ -217,7 +217,7 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
    - 我们已取消这次维护，并使用不同的有效负载重新启动它。 可能是我们已检测到出错的有效负载，只需部署其他有效负载。
    - 由于硬件故障，已在另一个节点上对 VM 进行服务修复。
    - 选择了停止（解除分配）VM 并将其重启。
-   - 已经为 VM 启用了自动关闭。
+   - 已经为 VM 启用了**自动关闭**。
 
 ## <a name="next-steps"></a>后续步骤
 

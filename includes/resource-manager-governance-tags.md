@@ -10,11 +10,11 @@ ms.date: 9/30/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: 0800e7e13bf417c36e3dfd0f60fddd51b146151a
-ms.sourcegitcommit: fb353628b721f124b82a30155ca5f78bbb7fa60b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47454504"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653112"
 ---
 可以将标记应用于 Azure资源，从而将元数据有条理地组织到分类中。 每个标记均由名称和值对组成。 例如，可以对生产中的所有资源应用名称“Environment”和值“Production”。
 

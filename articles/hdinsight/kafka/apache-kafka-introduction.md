@@ -17,11 +17,11 @@ origin.date: 04/11/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
 ms.openlocfilehash: ab596dd30c6b0ff18f40a8493e42d9fd8b987f4e
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747391"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649876"
 ---
 # <a name="what-is-apache-kafka-on-hdinsight"></a>什么是 Apache Kafka on HDInsight？
 
@@ -89,8 +89,7 @@ Kafka 将记录（数据）存储在主题中。 记录由**生成者**生成，
 
 * **活动跟踪**：由于 Kafka 提供有序的日志记录，因此可用于跟踪和重建活动， 例如，网站上或应用程序内的用户操作。
 
-* 
-            **聚合**：使用流处理可以从不同的流聚合信息，并将信息组合并集中化为操作数据。
+* **聚合**：使用流处理可以从不同的流聚合信息，并将信息组合并集中化为操作数据。
 
 * **转换**：使用流处理可将多个输入主题的数据组合并扩充为一个或多个输出主题。
 

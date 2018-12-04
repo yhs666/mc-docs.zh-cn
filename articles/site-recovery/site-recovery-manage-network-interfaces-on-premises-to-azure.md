@@ -10,11 +10,11 @@ origin.date: 07/06/2018
 ms.date: 07/23/2018
 ms.author: v-yeche
 ms.openlocfilehash: 720d7f39a0ef5008b5217da7db1c4e34471944b6
-ms.sourcegitcommit: f7ff09be9f3be5e3eb795e383c0c670f480f233d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39169022"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654088"
 ---
 # <a name="manage-virtual-machine-network-interfaces-for-on-premises-to-azure-replication"></a>管理用于本地到 Azure 复制的虚拟机网络接口
 

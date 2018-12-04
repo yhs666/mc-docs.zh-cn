@@ -16,11 +16,11 @@ origin.date: 08/07/2017
 ms.author: v-yiso
 ms.date: 09/04/2017
 ms.openlocfilehash: c5f924621125aa0eec34a5296b171572f40c4833
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
-ms.locfileid: "21135007"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651904"
 ---
 # <a name="how-to-use-the-maven-plugin-for-azure-web-apps-to-deploy-a-spring-boot-app-to-azure"></a>如何使用适用于 Azure Web 应用的 Maven 插件将 Spring Boot 应用部署到 Azure
 
@@ -151,7 +151,7 @@ ms.locfileid: "21135007"
    `<client>` | 包含服务主体的 `appId` 值。
    `<tenant>` | 包含服务主体的 `tenant` 值。
    `<key>` | 包含服务主体的 `password` 值。
-   `<environment>` | 定义目标 Azure 云环境，此示例中为 `AZURE`。 （[适用于 Azure Web 应用的 Maven插件]文档中提供了完整的环境列表）
+   `<environment>` | 定义目标 Azure 云环境，此示例中为 `AZURE`。 （[适用于 Azure Web 应用的 Maven 插件]文档中提供了完整的环境列表）
 
 1. 保存并关闭 *settings.xml* 文件。
 
@@ -193,16 +193,16 @@ ms.locfileid: "21135007"
    </plugin>
    ```
 
-可以为 Maven 插件修改几个值，[适用于 Azure Web 应用的 Maven插件]文档中提供了这些元素各自的详细说明。 尽管如此，在本文中有仍几个值得注意的值：
+可以为 Maven 插件修改几个值，[适用于 Azure Web 应用的 Maven 插件]文档中提供了这些元素各自的详细说明。 尽管如此，在本文中有仍几个值得注意的值：
 
 元素 | 说明
 ---|---|---
-`<version>` | 指定[适用于 Azure Web 应用的 Maven插件]的版本。 应检查 [Maven 中央存储库](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-webapp-maven-plugin%22)中列出的版本，确保使用最新版本。
+`<version>` | 指定[适用于 Azure Web 应用的 Maven 插件]的版本。 应检查 [Maven 中央存储库](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-webapp-maven-plugin%22)中列出的版本，确保使用最新版本。
 `<authentication>` | 指定 Azure 的身份验证信息，该信息在本示例中含有包含 `azure-auth` 的 `<serverId>` 元素；Maven 使用该值查找在本文前面部分定义的 Maven *settings.xml* 文件中的 Azure 服务主体值。
 `<resourceGroup>` | 指定目标资源组，在此示例中为 `maven-plugin`。 如果资源组不存在，则会在部署过程中进行创建。
 `<appName>` | 指定 Web 应用的目标名称。 在此示例中，目标名称为 `maven-web-app-${maven.build.timestamp}`，此示例附加​​了 `${maven.build.timestamp}` 后缀以避免冲突。 （时间戳是可选项；可为应用名称指定任何唯一的字符串。）
-`<region>` | 指定目标区域，在此示例中为 `westus`。 （[适用于 Azure Web 应用的 Maven插件]文档中提供了完整列表。）
-`<javaVersion>` | 为 Web 应用指定 Java 运行时版本。 （[适用于 Azure Web 应用的 Maven插件]文档中提供了完整列表。）
+`<region>` | 指定目标区域，在此示例中为 `westus`。 （[适用于 Azure Web 应用的 Maven 插件]文档中提供了完整列表。）
+`<javaVersion>` | 为 Web 应用指定 Java 运行时版本。 （[适用于 Azure Web 应用的 Maven 插件]文档中提供了完整列表。）
 `<deploymentType>` | 为 Web 应用指定部署类型。 目前仅支持 `ftp`，但是正在开发其他部署类型支持。
 `<resources>` | 指定将 Web 应用部署到 Azure 时 Maven 使用的资源和目标。 此示例中，两个 `<resource>` 元素指定 Maven 部署 Web 应用的 JAR 文件和 Spring Boot 项目中的 *web.config* 文件。
 
@@ -257,7 +257,7 @@ The embedded Tomcat server in the sample Spring Boot application is configured t
 
 有关本文中讨论的各项技术的详细信息，请参阅以下文章：
 
-* [适用于 Azure Web 应用的 Maven插件]
+* [适用于 Azure Web 应用的 Maven 插件]
 
 * [通过 Azure CLI 登录到 Azure](https://docs.microsoft.com/en-us/azure/xplat-cli-connect)
 
@@ -281,7 +281,7 @@ The embedded Tomcat server in the sample Spring Boot application is configured t
 [Spring Boot]: http://projects.spring.io/spring-boot/
 [Spring Boot 入门]: https://github.com/microsoft/gs-spring-boot
 [Spring Framework]: https://spring.io/
-[适用于 Azure Web 应用的 Maven插件]: https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin
+[适用于 Azure Web 应用的 Maven 插件]: https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin
 
 <!-- IMG List -->
 

@@ -9,11 +9,11 @@ origin.date: 06/07/2018
 ms.date: 09/24/2018
 ms.author: v-jay
 ms.openlocfilehash: 2d03631d28ea9806558c63dabe5e24efb634d19e
-ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50743558"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653510"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>在 Windows 中使用 Azure 文件共享
 [Azure 文件](storage-files-introduction.md)是易于使用的云文件系统。 可以在 Windows 和 Windows Server 中无缝使用 Azure 文件共享。 本文介绍在 Windows 和 Windows Server 中使用 Azure 文件共享时的注意事项。

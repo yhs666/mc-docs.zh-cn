@@ -10,11 +10,11 @@ ms.date: 09/24/2018
 ms.author: v-jay
 ms.custom: include file
 ms.openlocfilehash: d92bbf9958d68fe15640969d2c17bfa0414f3590
-ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523737"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652344"
 ---
 ## <a name="set-up-your-development-environment"></a>设置开发环境
 接下来在 Visual Studio 中设置开发环境，即可试用本指南中的代码示例。

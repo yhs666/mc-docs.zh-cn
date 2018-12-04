@@ -18,11 +18,11 @@ origin.date: 02/05/2018
 ms.date: 04/16/2018
 ms.author: v-yiso
 ms.openlocfilehash: f2ccdb9a321956f8587b167088bce583f9be85f0
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
-ms.locfileid: "30941444"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649399"
 ---
 # <a name="overview-of-spark-streaming"></a>Spark 流式处理概述
 

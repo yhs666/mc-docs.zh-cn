@@ -16,11 +16,11 @@ origin.date: 05/08/2017
 ms.date: 01/15/2018
 ms.author: v-yeche
 ms.openlocfilehash: 025fe1676dd9b149664069bd9b20a5a83e8d06f6
-ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
-ms.locfileid: "27770643"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650193"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>添加、禁用、启用或删除终结点
 

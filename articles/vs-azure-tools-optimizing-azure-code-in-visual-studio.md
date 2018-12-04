@@ -17,11 +17,11 @@ origin.date: 11/11/2016
 ms.date: 09/26/2018
 ms.author: v-junlch
 ms.openlocfilehash: 5c2a5b76f53028756df1e255f9074097ce15c8ac
-ms.sourcegitcommit: 641f375fc67e8c9d6ec1296560602c0b64ab8a52
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47398134"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653186"
 ---
 # <a name="optimizing-your-azure-code"></a>优化 Azure 代码
 对使用 Azure 的应用程序进行编程时，应遵循某些编码做法，以免在云环境中应用程序的伸缩性、行为和性能出现问题。 Microsoft 提供了 Azure 代码分析工具，该工具可识别并确定部分常见问题并帮助你解决这些问题。 可以通过 NuGet 在 Visual Studio 中下载该工具。
@@ -128,11 +128,11 @@ AP2002
 请通过 [Azure 代码分析反馈](http://go.microsoft.com/fwlink/?LinkId=403771)来分享看法和意见。
 
 ### <a name="reason"></a>原因
-当调用 **OnMessage** 时，客户端将启动一个内部消息泵，该消息泵不断轮询队列或订阅。 此消息泵包含发出消息接收调用的无限循环。 如果调用超时，它会发出新的调用。 超时间隔由所用的 [MessagingFactory](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.messagingfactory.aspx) 的 [OperationTimeout](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx) 属性值确定。
+在调用 **OnMessage**时，客户端将启动持续轮询队列或订阅的内部消息泵。 此消息泵包含发出消息接收调用的无限循环。 如果调用超时，它会发出新的调用。 超时间隔由所用的 [MessagingFactory](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.messagingfactory.aspx) 的 [OperationTimeout](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx) 属性值确定。
 
 相比于 **Receive**，使用 **OnMessage** 的优点是用户不必手动轮询消息、处理异常、并行处理多个消息和完成消息。
 
-如果调用 **Receive** 时而未使用其默认值，请确保 *ServerWaitTime* 值大于一分钟。 将 *ServerWaitTime* 设置为大于一分钟可防止服务器在未接收完消息时就已超时。
+如果调用 **Receive** 时而未使用其默认值，请确保 *ServerWaitTime* 值大于一分钟。 将 *ServerWaitTime* 设置为超过一分钟可防止服务器在未接收完消息时就已超时。
 
 ### <a name="solution"></a>解决方案
 请参阅以下代码示例了解建议用法。 有关详细信息，请参阅 [QueueClient.OnMessage 方法 (Microsoft.ServiceBus.Messaging)](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.queueclient.onmessage.aspx) 和 [QueueClient.Receive 方法 (Microsoft.ServiceBus.Messaging)](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.queueclient.receive.aspx)。
@@ -401,7 +401,7 @@ AP4001
 - 对于 IIS 托管的 Web 应用程序，请使用 web.config 来存储连接字符串。
 - 对于 ASP.NET vNext 应用程序，请使用 configuration.json 来存储连接字符串。
 
-有关使用 web.config 或 app.config 等配置文件的相关信息，请参阅 [ASP.NET Web 配置指南](https://msdn.microsoft.com/library/vstudio/ff400235\(v=vs.100\).aspx)。 有关 Azure 环境变量工作原理的信息，请参阅 [Azure Web Sites: How Application Strings and Connection Strings Work](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)（Azure 网站：应用程序字符串和连接字符串的工作原理）。 有关在源代码管理中存储连接字符串的信息，请参阅[避免将敏感信息（如连接字符串）放置在源代码存储库中存储的文件内](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)。
+有关使用 web.config 或 app.config 等配置文件的相关信息，请参阅 [ASP.NET Web 配置指南](https://msdn.microsoft.com/library/vstudio/ff400235\(v=vs.100\).aspx)。 有关 Azure 环境变量工作原理的信息，请参阅 [Azure Web Sites: How Application Strings and Connection Strings Work](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)（Azure 网站：应用程序字符串和连接字符串的工作原理）。 有关在源代码管理中存储连接字符串的信息，请参阅 [避免将敏感信息（如连接字符串）放置在源代码存储库中存储的文件内](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)。
 
 ## <a name="use-diagnostics-configuration-file"></a>使用诊断配置文件
 ### <a name="id"></a>ID

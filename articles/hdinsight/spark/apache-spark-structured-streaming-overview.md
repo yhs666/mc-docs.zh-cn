@@ -18,11 +18,11 @@ orgin.date: 02/05/2018
 ms.date: 04/16/2018
 ms.author: v-yiso
 ms.openlocfilehash: b432c481d0a73f55b3c9a88d14b1368298260590
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
-ms.locfileid: "30941528"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652727"
 ---
 # <a name="overview-of-spark-structured-streaming"></a>Spark 结构化流的概述
 

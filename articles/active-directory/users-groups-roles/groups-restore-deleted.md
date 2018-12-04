@@ -16,11 +16,11 @@ ms.author: v-junlch
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.openlocfilehash: 200b8405172753af5dd825bec3004321fe7386ec
-ms.sourcegitcommit: 4c7b45c574675b157e6520295f86b7e19450f5e3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49088928"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650516"
 ---
 # <a name="restore-a-deleted-office-365-group-in-azure-active-directory"></a>在 Azure Active Directory 中还原已删除的 Office 365 组
 

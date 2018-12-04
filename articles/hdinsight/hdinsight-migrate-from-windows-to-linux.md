@@ -2,26 +2,22 @@
 title: 从基于 Windows 的 HDInsight 迁移到基于 Linux 的 HDInsight -Azure | Azure
 description: 了解如何从基于 Windows 的 HDInsight 群集迁移到基于 Linux 的 HDInsight 群集。
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-ms.assetid: ff35be59-bae3-42fd-9edc-77f0041bab93
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/30/2018
-ms.date: 07/23/2018
+ms.date: 11/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: 186ebb4a51641927f99fb4b7d41aa62d301f8db5
-ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
+ms.openlocfilehash: 19ce08157d056f44481225c2573a77d23b68bc79
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39031760"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652172"
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>从基于 Windows 的 HDInsight 群集迁移到基于 Linux 的群集
 
@@ -81,7 +77,7 @@ ms.locfileid: "39031760"
 
 4. 选择“添加存储密钥”，并在出现提示时选择步骤 1 中由 PowerShell 脚本返回的存储帐户。 在每个部分中单击“选择”。 最后，创建群集。
 
-5. 创建群集后，使用 **SSH** 连接到该群集。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
+5. 创建群集后，使用 **SSH** 连接到该群集。 有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 6. 从 SSH 会话中，使用以下命令来将文件从链接的存储帐户复制到新的默认存储帐户。 将 CONTAINER 替换为 PowerShell 返回的容器信息。 将 __ACCOUNT__ 替换为帐户名称。 将数据的路径替换为数据文件的路径。
 
@@ -104,7 +100,7 @@ ms.locfileid: "39031760"
 
 ## <a name="client-side-technologies"></a>客户端技术
 
-诸如 [Azure PowerShell cmdlet](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)、[Azure CLI](../cli-install-nodejs.md) 或 [.NET SDK for Hadoop](https://hadoopsdk.codeplex.com/) 等客户端技术将继续处理基于 Linux 的群集。 这些技术依赖于在两种群集操作系统类型上都一致的 REST API。
+[Azure PowerShell cmdlet](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)、[Azure 经典 CLI](../cli-install-nodejs.md) 或 [.NET SDK for Hadoop](https://hadoopsdk.codeplex.com/) 等客户端技术将继续操作基于 Linux 的群集。 这些技术依赖于在两种群集操作系统类型上都一致的 REST API。
 
 ## <a name="server-side-technologies"></a>服务器端技术
 
@@ -113,7 +109,7 @@ ms.locfileid: "39031760"
 | 如果使用此技术... | 请执行此操作... |
 | --- | --- |
 | **PowerShell**（服务器端脚本，包含群集创建期间使用的脚本操作） |重新编写为 Bash 脚本。 有关脚本操作的信息，请参阅[使用脚本操作自定义基于 Linux 的 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)和[针对基于 Linux 的 HDInsight 的脚本操作开发](hdinsight-hadoop-script-actions-linux.md)。 |
-| **Azure CLI**（服务器端脚本） |尽管 Azure CLI 可在 Linux 上使用，但它并没有预先安装在 HDInsight 群集头节点上。 有关安装 Azure CLI 的详细信息，请参阅 [Azure CLI 2.0 入门](https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-lastest)。 |
+| **Azure 经典 CLI**（服务器端脚本） |虽然可在 Linux 上使用 Azure 经典 CLI，但它并未预装到 HDInsight 群集头节点上。 要详细了解如何安装 Azure 经典 CLI，请参阅 [Azure 经典 CLI 入门](/cli/get-started-with-azure-cli)。 |
 | **.NET 组件** |.NET 在基于 Linux 的 HDInsight 上通过 [Mono](https://mono-project.com) 受支持。 有关详细信息，请参阅[将 .NET 解决方案迁移到基于 Linux 的 HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md)。 |
 | **Win32 组件或其他仅限 Windows 的技术** |指南取决于组件或技术。 你也许能够找到与 Linux 兼容的版本。 如果未找到，则必须找到一个替代解决方案或重写此组件。 |
 
@@ -132,7 +128,7 @@ ms.locfileid: "39031760"
 
 我们建议使用公钥证书，因为它比密码更安全。 证书身份验证会生成已签名的公钥/私钥对，然后在创建群集时提供公钥。 使用 SSH 连接到服务器时，客户端上的私钥会为连接提供身份验证。
 
-有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
+有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 ### <a name="cluster-customization"></a>群集自定义
 
@@ -144,7 +140,7 @@ ms.locfileid: "39031760"
 
 ### <a name="virtual-networks"></a>虚拟网络
 
-基于 Windows 的 HDInsight 仅支持经典虚拟网络，而基于 Linux 的 HDInsight 则需要 Resource Manager 虚拟网络。 如果资源位于基于 Linux 的 HDInsight 群集必须连接到的经典虚拟网络中，请参阅[将经典虚拟网络连接到 Resource Manager 虚拟网络](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md)。
+基于 Windows 的 HDInsight 仅支持经典虚拟网络，而基于 Linux 的 HDInsight 则需要 Resource Manager 虚拟网络。 如果资源位于基于 Linux 的 HDInsight 群集必须连接到的经典虚拟网络中，请参阅 [Connecting a Classic Virtual Network to a Resource Manager Virtual Network](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md)（将经典虚拟网络连接到 Resource Manager 虚拟网络）。
 
 有关配置要求的详细信息，请参阅[使用虚拟网络扩展 HDInsight 功能](hdinsight-extend-hadoop-virtual-network.md)文档。
 

@@ -16,11 +16,11 @@ origin.date: 08/31/2017
 ms.date: 12/18/2017
 ms.author: v-yiso
 ms.openlocfilehash: 09dd9d8fb8ac0281c618a11031e3ef803d13a575
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38938852"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654140"
 ---
 # <a name="connect-your-simulated-device-to-your-iot-hub-using-node"></a>使用 Node 将模拟设备连接到 IoT 中心
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
@@ -287,8 +287,7 @@ ms.locfileid: "38938852"
 
 若要继续了解 IoT 中心入门知识并浏览其他 IoT 方案，请参阅：
 
-* 
-            [连接设备][lnk-connect-device]
+* [连接设备][lnk-connect-device]
 * [设备管理入门][lnk-device-management]
 * [使用 Azure IoT Edge 将 AI 部署到边缘设备][lnk-iot-edge]
 

@@ -18,11 +18,11 @@ origin.date: 05/30/2017
 ms.date: 06/04/2018
 ms.author: v-yeche
 ms.openlocfilehash: 676b6b31036ec38f1e69c51b16a8bb023caae918
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702765"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651719"
 ---
 # <a name="log-on-to-a-windows-virtual-machine-using-the-azure-portal"></a>使用 Azure 门户登录到 Windows 虚拟机
 在 Azure 门户中，使用“连接”按钮启动远程桌面会话，然后登录到 Windows VM。

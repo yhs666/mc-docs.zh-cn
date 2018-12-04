@@ -17,11 +17,11 @@ origin.date: 09/09/2016
 ms.date: 02/05/2018
 ms.author: v-yeche
 ms.openlocfilehash: b0498385395e5c7b987643bcc93ccaa68da5c625
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29285610"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653995"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>排查在 Azure 中创建新 Linux 虚拟机时遇到的 Resource Manager 部署问题
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -65,7 +65,7 @@ ms.locfileid: "29285610"
 
 若要解决这两个错误，请从门户中删除当前映像，并[从当前 VHD 重新捕获映像](capture-image.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)，其设置与 OS 的设置相同（通用/专用）。
 
-## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>问题：自定义/库/应用商店映像；分配失败
+## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>问题：自定义/库/市场映像；分配失败
 当新的 VM 请求被固定到不支持所请求的 VM 大小、或没有可用空间可处理请求的群集时，便会发生此错误。
 
 **原因 1：** 群集不支持请求的 VM 大小。

@@ -17,15 +17,15 @@ origin.date: 09/26/2017
 ms.author: v-yiso
 ms.date: 03/26/2018
 ms.openlocfilehash: 321a30cc2b90c4ba3d8499efd11adbfdd00121f9
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30073312"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650191"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>配置用于 Microsoft 对等互连的路由筛选器：Azure 门户
 > [!div class="op_single_selector"]
-> * [Azure Portal](how-to-routefilter-portal.md)
+> * [Azure 门户](how-to-routefilter-portal.md)
 > * [Azure PowerShell](how-to-routefilter-powershell.md)
 > * [Azure CLI](how-to-routefilter-cli.md)
 > 

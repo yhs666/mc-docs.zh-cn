@@ -10,11 +10,11 @@ ms.date: 08/06/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
 ms.openlocfilehash: b2e8530eac706d6b2dc474bb4fd6f4aada653edc
-ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487849"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649958"
 ---
 # <a name="connecting-to-servers"></a>连接到服务器
 

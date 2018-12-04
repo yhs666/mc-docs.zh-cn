@@ -14,11 +14,11 @@ origin.date: 12/06/2017
 ms.date: 10/15/2018
 ms.author: v-yeche
 ms.openlocfilehash: 89ad16af0c908ca18d55763a41b722f024bbcca5
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089170"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650125"
 ---
 # <a name="how-to-specify-the-port-number-of-a-service-using-parameters-in-service-fabric"></a>如何在 Service Fabric 中使用参数来指定服务的端口号
 

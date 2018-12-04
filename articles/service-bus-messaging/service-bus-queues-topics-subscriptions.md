@@ -11,11 +11,11 @@ origin.date: 09/18/2018
 ms.date: 10/31/2018
 ms.author: v-lingwu
 ms.openlocfilehash: 8de22439c37145471533c311608d3947e8188734
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409388"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650910"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>服务总线队列、主题和订阅
 Azure 服务总线支持一组基于云的、面向消息的中间件技术，包括可靠的消息队列和持久发布/订阅消息。 这些“中转”消息传送功能可被视为分离式消息传送功能，支持使用服务总线消息传送工作负载的发布-订阅、临时分离和负载均衡方案。 分离式通信具有很多优点；例如，客户端和服务器可以根据需要进行连接并以异步方式执行其操作。

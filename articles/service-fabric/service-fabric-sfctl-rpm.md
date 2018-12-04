@@ -16,11 +16,11 @@ origin.date: 07/31/2018
 ms.date: 09/10/2018
 ms.author: v-yeche
 ms.openlocfilehash: 99d38628dc316b5a39d0fcf64c8114efada8cbe6
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515581"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651946"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
 查询并向修复管理器服务发送命令。
@@ -30,7 +30,7 @@ ms.locfileid: "44515581"
 |命令|说明|
 | --- | --- |
 | approve-force | 强制批准给定的修复任务。 |
-| delete | 删除已完成的修复任务。 |
+| 删除 | 删除已完成的修复任务。 |
 | list | 获取与给定筛选器匹配的修复任务列表。 |
 
 ## <a name="sfctl-rpm-approve-force"></a>sfctl rpm approve-force

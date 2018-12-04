@@ -17,11 +17,11 @@ origin.date: 03/20/2018
 ms.date: 05/07/2018
 ms.author: v-yeche
 ms.openlocfilehash: fdc4a036df7956a0b7fe0d6f69eb1cd1a39975a5
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34868517"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652852"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance-script-sample"></a>通过网络虚拟设备脚本示例路由流量
 

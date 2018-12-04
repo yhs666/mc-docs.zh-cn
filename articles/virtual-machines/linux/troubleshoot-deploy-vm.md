@@ -17,11 +17,11 @@ origin.date: 05/11/2018
 ms.date: 07/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: 603f45108781612aa209bdd900cbefa9cd050a0a
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307030"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651980"
 ---
 # <a name="troubleshoot-deploying-linux-virtual-machine-issues-in-azure"></a>排查 Azure 中的 Linux 虚拟机部署问题
 

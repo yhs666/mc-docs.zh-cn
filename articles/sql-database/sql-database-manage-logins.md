@@ -15,11 +15,11 @@ manager: digimobile
 origin.date: 09/07/2018
 ms.date: 10/29/2018
 ms.openlocfilehash: cfc9abaa0f04a67c9a4bd8245a0caa92a9c5e20e
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135860"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653677"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>控制和授予对 SQL 数据库和 SQL 数据仓库的数据库访问权限
 

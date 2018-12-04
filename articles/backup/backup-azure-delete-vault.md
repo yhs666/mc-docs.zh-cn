@@ -10,11 +10,11 @@ origin.date: 07/06/2018
 ms.date: 10/19/2018
 ms.author: v-lingwu
 ms.openlocfilehash: c7ced446b42f937a4360bb478746bc6a6dc44cd1
-ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477780"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649666"
 ---
 # <a name="delete-a-recovery-services-vault"></a>删除恢复服务保管库
 

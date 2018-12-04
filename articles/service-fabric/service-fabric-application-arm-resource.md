@@ -16,11 +16,11 @@ origin.date: 12/06/2017
 ms.date: 09/10/2018
 ms.author: v-yeche
 ms.openlocfilehash: b7160db9740ba981e3907668d254cd2729d56133
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515631"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653754"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>将应用程序和服务作为 Azure 资源管理器资源进行管理
 

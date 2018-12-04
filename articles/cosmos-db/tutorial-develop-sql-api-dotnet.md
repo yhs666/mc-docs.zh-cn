@@ -18,11 +18,11 @@ ms.date: 04/23/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 7065b34dd1cc816bc2ac6a50c708a2d1a185ebcd
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939420"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653768"
 ---
 # <a name="azure-cosmos-db-develop-with-the-sql-api-in-net"></a>Azure Cosmos DB：在 .NET 中使用 SQL API 进行开发
 
@@ -107,7 +107,7 @@ private DocumentClient client;
 
 在 Azure 门户中，导航到你的 Azure Cosmos DB 帐户。 在左侧菜单上选择“密钥”，然后选择“读写密钥”。
 
-从门户中复制该 URI 并将它粘贴到 program.cs 文件中的 `<your endpoint URL>`。 然后从门户中复制“主密钥”并将它粘贴到 `<your primary key>`。 请务必删除值中的 `<` 和 `>`。
+从门户中复制该 URI 并将它粘贴到 program.cs 文件中的 `<your endpoint URL>`。 然后从门户中复制“主密钥”并粘贴到 `<your primary key>`。 请务必删除值中的 `<` 和 `>`。
 
 ![NoSQL 教程用于创建 C# 控制台应用程序的 Azure 门户的屏幕截图。 显示了一个 Azure Cosmos DB 帐户，其中在 Azure Cosmos DB 帐户区域中突出显示了“密钥”，并且在“密钥”区域中突出显示了 URI 和“主密钥”值](./media/tutorial-develop-sql-api-dotnet/nosql-tutorial-keys.png)
 

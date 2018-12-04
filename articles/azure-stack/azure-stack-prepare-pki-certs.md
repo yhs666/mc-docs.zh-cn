@@ -16,11 +16,11 @@ ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: ppacent
 ms.openlocfilehash: 7ca3b61ea8e75a810a1a15602ffd9fc78f915152
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848797"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654041"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>为部署准备 Azure Stack PKI 证书
 必须使用与 Azure Stack的证书要求匹配的属性导入和导出[从所选 CA 获取](azure-stack-get-pki-certs.md)的证书文件。

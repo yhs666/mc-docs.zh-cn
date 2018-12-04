@@ -9,11 +9,11 @@ origin.date: 08/07/2018
 ms.date: 09/10/2018
 ms.author: v-yiso
 ms.openlocfilehash: a322b0343421ec9e895e4c413e07bcaa5d06f03d
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453591"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653018"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT 中心高可用性和灾难恢复
 作为实施弹性 IoT 解决方案的第一步，架构师、开发人员和企业主必须定义要构建的解决方案的运行时间目标。 可以主要根据每个方案的具体业务目标定义这些目标。 针对这种环境，[Azure 业务连续性技术指南](https://docs.microsoft.com/azure/architecture/resiliency/)一文介绍了一个常规框架来帮助你思考业务连续性和灾难恢复。 [Azure 应用程序的灾难恢复和高可用性](https://msdn.microsoft.com/library/dn251004.aspx)一文针对 Azure 应用程序的高可用性 (HA) 和灾难恢复 (DR) 实现策略提供了体系结构指导。

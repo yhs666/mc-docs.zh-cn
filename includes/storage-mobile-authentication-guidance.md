@@ -28,7 +28,7 @@
 
 以下示例演示如何使用 Microsoft Azure 存储资源管理器来生成 SAS。
 
-1. [安装 Microsoft Azure 存储资源管理器](http://storageexplorer.com)
+1.  [安装 Microsoft Azure 存储资源管理器](http://storageexplorer.com)
 2. 连接到订阅
 3. 单击用户的存储帐户，并单击左下方的“操作”选项卡。 单击“获取共享访问签名”，生成 SAS 的连接字符串。
 4. 下面是 SAS 连接字符串的示例，该字符串为存储帐户的 Blob 服务授予对服务、容器和对象级别的读取与写入权限。

@@ -15,11 +15,11 @@ origin.date: 03/07/2017
 ms.date: 10/30/2017
 ms.author: v-yiso
 ms.openlocfilehash: 4f1ecb5d7ce2808e0595cc5e30231cf174515f91
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
-ms.locfileid: "23475119"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652149"
 ---
 # <a name="azure-sdk-for-net-30-release-notes"></a>Azure SDK for .NET 3.0 发行说明
 
@@ -43,11 +43,11 @@ ms.locfileid: "23475119"
 
 ### <a name="windows-server-2016-virtual-machines"></a>Windows Server 2016 虚拟机
 
-- Visual Studio 现在支持将云服务部署到 OS 系列 5 (Windows Server 2016) 虚拟机。 对于现有的云服务，可以更改设置以针对新的 OS 系列。 创建新的云服务时，如果选择使用 .net 4.6 或更高版本创建服务，则服务默认使用 OS 系列 5。  有关详细信息，可查看[来宾 OS 系列支持表](../cloud-services/cloud-services-guestos-update-matrix.md)。
+- Visual Studio 现在支持将云服务部署到 OS 系列 5 (Windows Server 2016) 虚拟机。 对于现有云服务，可更改设置以面向新的 OS 系列。 创建新的云服务时，如果选择使用 .net 4.6 或更高版本创建服务，则服务默认使用 OS 系列 5。  有关详细信息，可查看[来宾 OS 系列支持表](../cloud-services/cloud-services-guestos-update-matrix.md)。
 
 ### <a name="known-issues"></a>已知问题
 
-- 删除与 Visual Studio 2015 使用并列配置的 Visual Studio 2017 时，Azure .NET SDK 3.0 引入了一个问题。  如果已为 Visual Studio 2015 安装 Azure SDK，卸载 Visual Studio 2017 时，会删除 Azure 存储模拟器和 Azure 计算模拟器。  在 Visual Studio 2015 中创建和调试新的云服务项目时，这会生成错误。 若要解决此问题，请从 Web 平台安装程序重新安装 Azure SDK。  此问题会在未来的 Visual Studio 2017 更新中解决。  。
+- 删除与 Visual Studio 2015 使用并列配置的 Visual Studio 2017 时，Azure .NET SDK 3.0 引入了一个问题。  如果已为 Visual Studio 2015 安装 Azure SDK，卸载 Visual Studio 2017 时，会删除 Azure 存储模拟器和 Azure 计算模拟器。  在 Visual Studio 2015 中创建和调试新的云服务项目时，这会生成错误。 若要解决此问题，请从 Web 平台安装程序重新安装 Azure SDK。  此问题会在未来的 Visual Studio 2017 更新中解决。  上获取。
 
 ### <a name="azure-in-role-cache"></a>Azure 角色中缓存 
 

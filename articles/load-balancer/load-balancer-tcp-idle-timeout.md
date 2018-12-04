@@ -15,11 +15,11 @@ origin.date: 09/25/2017
 ms.date: 11/20/2017
 ms.author: v-yeche
 ms.openlocfilehash: 396d4e3fcddfc6ceac27b4ce86c2c43598b4bbcb
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167871"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652248"
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>为 Azure 负载均衡器配置 TCP 空闲超时设置
 

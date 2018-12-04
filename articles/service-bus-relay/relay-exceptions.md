@@ -16,11 +16,11 @@ origin.date: 12/20/2017
 ms.author: v-yiso
 ms.date: 10/15/2018
 ms.openlocfilehash: b53dd9961b7d1a974d58dc0238f9601e74e9a56c
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455251"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651016"
 ---
 # <a name="azure-relay-exceptions"></a>Azure 中继异常
 

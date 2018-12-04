@@ -16,11 +16,11 @@ ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: alfredop
 ms.openlocfilehash: fa8f12b7ab2b4be470d53a3937a9008bc5a878be
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195521"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650776"
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>向 Azure 报告 Azure Stack 用量数据 
 

@@ -16,11 +16,11 @@ ms.date: 07/20/2018
 ms.author: v-junlch
 ms.reviewer: jeffgo
 ms.openlocfilehash: 3087fa62131dbf93e4c065c49b423ac7f875a953
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168418"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652293"
 ---
 # <a name="use-sql-databases-on-azure-stack"></a>在 Azure Stack 中使用 SQL 数据库
 

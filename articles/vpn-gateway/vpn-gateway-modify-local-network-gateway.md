@@ -17,11 +17,11 @@ origin.date: 06/19/2017
 ms.date: 08/07/2017
 ms.author: v-dazen
 ms.openlocfilehash: df2028f32b6d39af27c869e9940a526a179c38b3
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
-ms.locfileid: "20764025"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653594"
 ---
 # <a name="modify-local-network-gateway-settings-using-powershell"></a>使用 PowerShell 修改本地网络网关设置
 
@@ -34,7 +34,7 @@ ms.locfileid: "20764025"
 >
 >
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 安装最新版本的 Azure Resource Manager PowerShell cmdlet。 有关安装 PowerShell cmdlet 的详细信息，请参阅 [如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) 。
 

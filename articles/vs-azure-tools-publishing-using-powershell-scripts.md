@@ -14,11 +14,11 @@ origin.date: 11/11/2016
 ms.date: 10/22/2018
 ms.author: v-lingwu
 ms.openlocfilehash: 03d743ca41fa6eb8a2c2619880c62bd08006507e
-ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652255"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654031"
 ---
 # <a name="using-windows-powershell-scripts-to-publish-to-dev-and-test-environments"></a>使用 Windows PowerShell 脚本发布到开发和测试环境
 

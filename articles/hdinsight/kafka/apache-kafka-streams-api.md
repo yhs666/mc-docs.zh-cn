@@ -11,11 +11,11 @@ ms.topic: tutorial
 origin.date: 04/17/2018
 ms.date: 09/17/2018
 ms.openlocfilehash: e8c5fbc33d6dccca27a924e81f5220a8491f0746
-ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121538"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650525"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>教程：Apache Kafka Streams API
 

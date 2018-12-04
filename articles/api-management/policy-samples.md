@@ -16,11 +16,11 @@ ms.date: 07/16/2018
 ms.author: v-yiso
 ms.custom: mvc
 ms.openlocfilehash: 4ec623b24a567ad22c8ad61535bdb26f396f0985
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873669"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652722"
 ---
 # <a name="api-management-policy-samples"></a>API 管理策略示例
 

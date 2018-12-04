@@ -18,11 +18,11 @@ ms.date: 10/29/2018
 ms.author: v-yeche
 ms.custom: ''
 ms.openlocfilehash: 35301f57b6e0a48e5f9ba7f126a8529761397677
-ms.sourcegitcommit: 691993753d89211238991e41a817b70ccc7cb0df
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135477"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653117"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>创建具有加速网络的 Linux 虚拟机
 

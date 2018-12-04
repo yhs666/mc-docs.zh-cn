@@ -17,11 +17,11 @@ origin.date: 07/23/2018
 ms.author: v-yiso
 ms.date: 09/17/2018
 ms.openlocfilehash: 751889db3037bd9f48363e80cd310ec83c0e3330
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068169"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652837"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 云服务的配置和管理问题：常见问题解答 (FAQ)
 

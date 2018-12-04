@@ -17,11 +17,11 @@ origin.date: 04/15/2015
 ms.date: 08/27/2018
 ms.author: v-yeche
 ms.openlocfilehash: 9ab62110d7715cbec288b1c49f0308c16c85456b
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872176"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652388"
 ---
 # <a name="mariadb-mysql-cluster-azure-tutorial"></a>MariaDB (MySQL) 群集：Azure 教程
 > [!IMPORTANT]
@@ -137,7 +137,7 @@ ms.locfileid: "42872176"
 
         ln -s /mnt/data/mysql /var/lib/mysql
 
-1. 由于 [SELinux 会干扰群集操作](http://galeracluster.com/documentation-webpages/configuration.html#selinux)，因此在当前会话中有必要将其禁用。 编辑 `/etc/selinux/config` ，禁止其随后重新启动。
+1. [SELinux 干扰群集操作](http://galeracluster.com/documentation-webpages/configuration.html#selinux)，所以在当前会话中有必要将其禁用。 编辑 `/etc/selinux/config` ，禁止其随后重新启动。
 
         setenforce 0
 

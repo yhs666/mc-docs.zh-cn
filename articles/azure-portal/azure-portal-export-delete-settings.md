@@ -12,11 +12,11 @@ ms.service: azure-portal
 ms.custom: ''
 manager: dougeby
 ms.openlocfilehash: 26d9576335cf9e4873112247b46f91ff6c6595b2
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487522"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653662"
 ---
 # <a name="export-or-delete-settings-in-the-azure-portal"></a>导出或删除 Azure 门户中的设置
 可以从 Azure 门户设置菜单中导出并删除以下设置：

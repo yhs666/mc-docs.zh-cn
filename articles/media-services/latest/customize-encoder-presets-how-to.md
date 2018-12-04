@@ -14,11 +14,11 @@ origin.date: 05/17/2018
 ms.date: 06/25/2018
 ms.author: v-nany
 ms.openlocfilehash: 5eb1afabb3316da7cd2b6d4f7d360e60241fbea1
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748338"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651878"
 ---
 # <a name="how-to-encode-with-a-custom-transform"></a>如何对自定义转换进行编码
 

@@ -17,11 +17,11 @@ origin.date: 02/22/2018
 ms.date: 09/24/2018
 ms.author: v-yeche
 ms.openlocfilehash: 0c68f005c9041944dba12617c98886e72e479469
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527001"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651997"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure 元数据服务：适用于 Linux VM 的计划事件
 

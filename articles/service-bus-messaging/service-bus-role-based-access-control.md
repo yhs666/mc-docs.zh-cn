@@ -16,11 +16,11 @@ origin.date: 09/19/2018
 ms.date: 10/31/2018
 ms.author: v-lingwu
 ms.openlocfilehash: ff88d1233b24852a9279db76cda56382fb857043
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409319"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652702"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Active Directory 基于角色的访问控制（预览版）
 

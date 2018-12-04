@@ -17,11 +17,11 @@ origin.date: 11/02/2017
 ms.date: 12/25/2017
 ms.author: v-yiso
 ms.openlocfilehash: 25cd6d5c37336c0f221f152dc069f53220e7a977
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
-ms.locfileid: "26721317"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653397"
 ---
 # <a name="troubleshoot-hdfs-by-using-azure-hdinsight"></a>使用 Azure HDInsight 排除 HDFS 故障
 

@@ -14,11 +14,11 @@ origin.date: 04/09/2018
 ms.date: 06/25/2018
 ms.author: v-nany
 ms.openlocfilehash: aa89b1d510f5059d179012faa2f562444da38d6d
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800499"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649006"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-using-apis"></a>教程：使用 API 上传、编码和流式传输视频
 

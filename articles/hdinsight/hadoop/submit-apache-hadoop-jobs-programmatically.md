@@ -16,11 +16,11 @@ origin.date: 05/16/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
 ms.openlocfilehash: 6592ddd724976f9293ff0a342bfc3b13e8938aa2
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747332"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650318"
 ---
 # <a name="submit-hadoop-jobs-in-hdinsight"></a>在 HDInsight 中提交 Hadoop 作业
 

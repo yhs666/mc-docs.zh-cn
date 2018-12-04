@@ -18,11 +18,11 @@ ms.date: 09/07/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e0f40e36386b4d67bcc49a89716359822a24298b
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068052"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649263"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>通过用于 .NET 的 Batch Management 客户端库管理 Batch 帐户和配额
 
@@ -102,7 +102,7 @@ Azure 订阅和类似于 Batch 的各个 Azure 服务均有默认配额，用于
 ### <a name="check-an-azure-subscription-for-batch-account-quotas"></a>检查 Azure 订阅和 Batch 帐户配额
 在区域中创建 Batch 帐户之前，可以检查 Azure 订阅，看是否能将帐户添加到该区域中。
 
-在以下的代码片段中，我们先使用 [BatchManagementClient.Account.ListAsync][net_mgmt_listaccounts] 来获取订阅中所有 Batch 帐户的集合。 获取此集合后，可以确定目标区域有多少个帐户。 然后使用 [BatchManagementClient.Subscriptions][net_mgmt_subscriptions] 获取批处理帐户配额，并确定可以在该区域中创建多少个帐户（如果有）。
+在以下的代码片段中，我们先使用 [BatchManagementClient.Account.ListAsync][net_mgmt_listaccounts] 来获取订阅中所有 Batch 帐户的集合。 获取此集合后，可以确定目标区域有多少个帐户。 然后使用 [BatchManagementClient.Subscriptions][net_mgmt_subscriptions] 来获取批处理帐户配额，并确定可以在该区域中创建多少个帐户（如果有）。
 
 ```csharp
 // Get a collection of all Batch accounts within the subscription

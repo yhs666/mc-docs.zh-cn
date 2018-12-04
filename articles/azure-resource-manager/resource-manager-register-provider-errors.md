@@ -15,11 +15,11 @@ origin.date: 03/09/2018
 ms.date: 03/26/2018
 ms.author: v-yeche
 ms.openlocfilehash: f7c5d7f703d2b51f84e1f935c39288841133844a
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30222498"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652264"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>解决资源提供程序注册错误
 

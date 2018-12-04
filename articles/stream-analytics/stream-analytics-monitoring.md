@@ -11,11 +11,11 @@ ms.topic: conceptual
 origin.date: 03/28/2017
 ms.date: 05/07/2018
 ms.openlocfilehash: 3c86ce76896528a51f0131f708d744a1bab6eefb
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815063"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650794"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>了解流分析作业监视以及如何监视查询
 

@@ -12,11 +12,11 @@ origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
 ms.openlocfilehash: bbdae4eefcf69eeeea99b262ad8c236ad4025f10
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486626"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651065"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>弹性数据库客户端库与实体框架
 此文档介绍与[弹性数据库工具](sql-database-elastic-scale-introduction.md)集成所需的实体框架应用程序中的更改。 重点是使用 Entity Framework **Code First** 方法撰写[分片映射管理](sql-database-elastic-scale-shard-map-management.md)和[数据相关路由](sql-database-elastic-scale-data-dependent-routing.md)。 EF 的 [Code First – 新数据库](http://msdn.microsoft.com/data/jj193542.aspx)教程在本文档中充当运行示例。 本文档附带的示例代码是 Visual Studio 代码示例中弹性数据库工具示例的一部分。
@@ -41,7 +41,7 @@ ms.locfileid: "39486626"
 ## <a name="entity-framework-workflows"></a>实体框架工作流
 实体框架开发人员依靠以下四个工作流之一构建应用程序并确保应用程序对象的持久性： 
 
-* **Code First（新数据库）**：EF 开发人员在应用程序代码中创建模型，然后 EF 从其生成数据库。 
+* **Code First（新数据库）**：EF 开发人员在应用程序代码中创建模型，EF 从其生成数据库。 
 * **Code First（现有数据库）**：开发人员让 EF 从现有数据库生成模型的应用程序代码。
 * **Model First**：开发人员在 EF 设计器中创建模型，EF 从该模型创建数据库。
 * **数据库优先**：开发人员使用 EF 工具从现有数据库推断模型。 
@@ -170,7 +170,7 @@ Microsoft 模式和实践团队已发布[暂时性故障处理应用程序块](h
 
 上述代码中的 **SqlDatabaseUtils.SqlRetryPolicy** 定义为 **SqlDatabaseTransientErrorDetectionStrategy**，重试计数为 10，每两次重试的等待时间为 5 秒。 此方法类似于 EF 和用户启动事务的指南（请参阅[重试执行策略的限制（从 EF6 开始）](http://msdn.microsoft.com/data/dn307226)。 这两种情况都要求应用程序控制返回暂时性异常的范围：重新打开事务，或者（如下所示）从使用弹性数据库客户端库的适当构造函数重新创建上下文。
 
-需要控制其中暂时性异常返回范围还使该列不能使用 EF 随附的内置 **SqlAzureExecutionStrategy**。 **SqlAzureExecutionStrategy** 将重新打开连接，但不会使用 **OpenConnectionForKey**，从而绕过了调用 **OpenConnectionForKey** 期间执行的所有验证。 该代码示例使用的是 EF 也已随附的内置 **DefaultExecutionStrategy**。 与 **SqlAzureExecutionStrategy**相反，它能与暂时性故障处理中的重试策略正常配合工作。 执行策略在 **ElasticScaleDbConfiguration** 类中设置。 请注意，我们决定不使用 DefaultSqlExecutionStrategy，因为在发生暂时性异常时，最好使用 SqlAzureExecutionStrategy - 这会导致所述的错误行为。 有关不同重试策略和 EF 的详细信息，请参阅 [EF 中的连接弹性](http://msdn.microsoft.com/data/dn456835.aspx)。     
+需要控制其中暂时性异常返回范围还使该列不能使用 EF 随附的内置 **SqlAzureExecutionStrategy**。 **SqlAzureExecutionStrategy** 会重新打开连接，但不会使用 **OpenConnectionForKey**，从而绕过了调用 **OpenConnectionForKey** 期间执行的所有验证。 该代码示例使用的是 EF 也已随附的内置 **DefaultExecutionStrategy**。 与 **SqlAzureExecutionStrategy**相反，它能与暂时性故障处理中的重试策略正常配合工作。 执行策略在 **ElasticScaleDbConfiguration** 类中设置。 请注意，我们决定不使用 DefaultSqlExecutionStrategy，因为在发生暂时性异常时，最好使用 SqlAzureExecutionStrategy - 这会导致所述的错误行为。 有关不同重试策略和 EF 的详细信息，请参阅 [EF 中的连接弹性](http://msdn.microsoft.com/data/dn456835.aspx)。     
 
 #### <a name="constructor-rewrites"></a>构造函数重写
 上方的代码示例演示应用程序所需的默认构造函数重写，以将数据依赖型路由与 Entity Framework 一起使用。 下表将此方法一般化到其他构造函数。 
@@ -254,7 +254,7 @@ Microsoft 模式和实践团队已发布[暂时性故障处理应用程序块](h
 * 给定一个请求，假设它所有的数据库处理包含在单个分片内，如该请求所提供的分片键所标识的那样。 但是，此假设并不总是有效。 例如，当无法提供分片键时。 为解决此问题，客户端库提供 **MultiShardQuery** 类，此类可实现连接抽象以用于在多个分片上查询。 学习结合使用 **MultiShardQuery** 和 EF 不在本文档的范围内。
 
 ## <a name="conclusion"></a>结论
-通过本文档中概述的步骤，EF 应用程序可以通过重构 EF 应用程序中使用的 DbContext 子类的构造函数来使用弹性数据库客户端库的数据依赖型路由功能。 这会所需的更改限制到 **DbContext** 类已经存在的位置。 此外，EF 应用程序可以通过将调用必要的 EF 迁移的步骤与新分片的注册和分片映射中的映射结合，继续从自动架构部署中受益。 
+通过本文档中概述的步骤，EF 应用程序可以通过重构 EF 应用程序中使用的 DbContext 子类的构造函数来使用弹性数据库客户端库的数据依赖型路由功能。 这将所需的更改限制到 **DbContext** 类已经存在的位置。 此外，EF 应用程序可以通过将调用必要的 EF 迁移的步骤与新分片的注册和分片映射中的映射结合，继续从自动架构部署中受益。 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

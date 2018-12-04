@@ -13,11 +13,11 @@ origin.date: 04/20/2018
 ms.date: 11/05/2018
 ms.author: v-yeche
 ms.openlocfilehash: 5a15d21c335d1fa2dee323469291a7b0e8787d17
-ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50204854"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653697"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>将 Azure Cosmos DB 模拟器用于本地开发和测试
 

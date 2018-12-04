@@ -16,11 +16,11 @@ origin.date: 11/01/2017
 ms.date: 05/28/2018
 ms.author: v-yeche
 ms.openlocfilehash: 241887ae251a0ca3605d66108ee31db6641b8cb8
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867468"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652449"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>在 Service Fabric 中与服务建立连接和通信
 在 Service Fabric 中，服务在 Service Fabric 群集（通常分布在多个 VM 间）中的某个位置运行。 它可以从一个位置移动到另一个位置（由服务所有者移动或由 Service Fabric 自动移动）。 服务不以静态方式绑定到特定计算机或地址。
@@ -72,7 +72,7 @@ Service Fabric 提供一种服务发现和解析服务，称为“命名服务�
 在群集内相互连接的服务通常可以直接访问其他服务的终结点，因为群集中的节点处于相同的本地网络上。 但是在某些环境中，群集可能位于通过一组有限端口对外部入口流量进行路由的负载均衡器之后。 在这些情况下，服务仍可以使用命名服务相互通信和解析地址，但必须执行额外步骤才能允许外部客户端连接到服务。
 
 ## <a name="service-fabric-in-azure"></a>Azure 中的 Service Fabric
-Azure 中的 Service Fabric 群集位于 Azure 负载均衡器之后。 发送到群集的所有外部流量都必须通过该负载均衡器。 该负载均衡器会自动在给定端口上将入站流量转发到打开了相同端口的随机*节点*。 Azure 负载均衡器只了解节点上打开的端口，它不了解各个服务打开的端口。
+Azure 中的 Service Fabric 群集位于 Azure 负载均衡器之后。 发送到群集的所有外部流量都必须通过该负载均衡器。 该负载均衡器自动在给定端口上将入站流量转发到打开了相同端口的随机 *节点* 。 Azure 负载均衡器只了解节点上打开的端口，它不了解各个服务打开的端口。
 
 ![Azure 负载均衡器和 Service Fabric 拓扑][3]
 

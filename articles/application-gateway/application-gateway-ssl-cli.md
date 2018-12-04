@@ -12,11 +12,11 @@ origin.date: 07/14/2018
 ms.date: 10/17/2018
 ms.author: v-junlch
 ms.openlocfilehash: cfeaaaa5fec7f9e9db3f32fdfde3479e399ab056
-ms.sourcegitcommit: 4ead6b1d3527373b63c90680b6400a2e95b4064e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49374971"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649822"
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>通过 Azure CLI 使用 SSL 终端创建应用程序网关
 

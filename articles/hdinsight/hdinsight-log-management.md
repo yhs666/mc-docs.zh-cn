@@ -2,27 +2,20 @@
 title: 管理 HDInsight 群集的日志 - Azure HDInsight
 description: 确定 HDInsight 活动日志文件的类型、大小和保留策略。
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 01/11/2018
-ms.date: 06/25/2018
+ms.date: 11/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: 901a259b4b29ad26ab002e274c677ef7f91b82a3
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: 219cba2f9c54203ff47d72bd9827153df1c5c7ff
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747376"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653721"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>管理 HDInsight 群集的日志
 
@@ -51,12 +44,13 @@ HDInsight 日志管理的典型步骤如下：
 * 群集状态，包括上次状态更改的详细信息
 * 为主节点、核心节点和任务节点指定的 HDInsight 实例的类型和数量
 
-可以使用 Azure 门户获取其中的大多数顶级信息。  或者，可以使用 Azure CLI 获取有关 HDInsight 群集的信息：
+可以使用 Azure 门户获取其中的大多数顶级信息。  或者，可以使用 Azure 经典 CLI 获取有关 HDInsight 群集的信息：
 
 ```
     azure hdinsight cluster list
     azure hdinsight cluster show <ClusterName>
 ```
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 也可以使用 PowerShell 查看此信息。  有关详细信息，请参阅[使用 Azure PowerShell 在 HDInsight 中管理 Hadoop 群集](hdinsight-administer-use-powershell.md)。
 

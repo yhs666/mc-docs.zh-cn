@@ -17,11 +17,11 @@ origin.date: 03/20/2018
 ms.date: 05/07/2018
 ms.author: v-yeche
 ms.openlocfilehash: 4fbbfdac70fd9d125adf3939d7b6fca9a8cc0fdb
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34868354"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652823"
 ---
 # <a name="create-a-network-for-multi-tier-applications-script-sample"></a>为多层应用程序创建网络脚本示例
 

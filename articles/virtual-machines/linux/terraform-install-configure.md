@@ -17,11 +17,11 @@ origin.date: 06/19/2018
 ms.date: 10/22/2018
 ms.author: v-yeche
 ms.openlocfilehash: 1b7ee98ab491e93b523d81c43f9a2c210eab0ac9
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034927"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653857"
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>安装和配置 Terraform 以在 Azure 中预配 VM 和其他基础结构
 

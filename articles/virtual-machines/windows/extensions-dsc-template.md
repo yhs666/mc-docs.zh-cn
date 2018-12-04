@@ -18,11 +18,11 @@ origin.date: 03/22/2018
 ms.date: 05/21/2018
 ms.author: v-yeche
 ms.openlocfilehash: e868562be6c6bccbdd35b6dfe0911a7d76f3ecbe
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34568788"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652516"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Desired State Configuration 扩展与 Azure 资源管理器模板
 

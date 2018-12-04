@@ -17,11 +17,11 @@ origin.date: 09/07/2017
 ms.date: 09/24/2018
 ms.author: v-yeche
 ms.openlocfilehash: 384c5a2efdf31513aaf506b13d93f11fbecfb7b1
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46526973"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649626"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>B 系列可突增虚拟机大小
 

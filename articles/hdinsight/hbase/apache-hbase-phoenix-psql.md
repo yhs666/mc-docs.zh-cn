@@ -17,11 +17,11 @@ origin.date: 11/10/2017
 ms.date: 02/26/2018
 ms.author: v-yiso
 ms.openlocfilehash: 167e1c01db7aa27a1c074f6e4b2e1d4a3438aa77
-ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2018
-ms.locfileid: "29552369"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652135"
 ---
 # <a name="bulk-load-data-into-phoenix-using-psql"></a>使用 psql 将数据大容量加载到 Phoenix
 

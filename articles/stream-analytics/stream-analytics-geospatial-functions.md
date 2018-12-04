@@ -11,11 +11,11 @@ ms.topic: conceptual
 origin.date: 09/04/2018
 ms.date: 09/30/2018
 ms.openlocfilehash: 316e0c38f278440b5c94dc771af53e02588d5dfc
-ms.sourcegitcommit: 432984d85afe6f3da8f211bae0fa98a556785ee8
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455548"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649476"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>流分析地理空间函数的简介
 

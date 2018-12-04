@@ -18,11 +18,11 @@ ms.date: 04/02/2018
 ms.author: v-yiso
 ms.custom: mvc
 ms.openlocfilehash: 02e687a4405eaf10ab1055f14e0865fb81c19bf3
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30155414"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650180"
 ---
 # <a name="connect-a-web-app-to-cosmos-db"></a>将 Web 应用连接到 Cosmos DB
 

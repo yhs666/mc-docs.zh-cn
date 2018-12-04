@@ -14,11 +14,11 @@ origin.date: 10/12/2017
 ms.date: 10/19/2018
 ms.author: v-junlch
 ms.openlocfilehash: 818592456fe33f567439ed406c7650cbe34776a3
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453642"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650481"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions 开发人员指南
 在 Azure Functions 中，特定函数共享一些核心技术概念和组件，不受所用语言或绑定限制。 跳转学习某个特定语言或绑定的详细信息之前，请务必通读此通用概述。

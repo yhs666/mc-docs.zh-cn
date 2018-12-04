@@ -13,11 +13,11 @@ origin.date: 05/10/2017
 ms.date: 09/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: 21dab5a3f0de8b0a0c8b406a6247b21573d98589
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201410"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653339"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-java-and-the-azure-portal"></a>Azure Cosmos DB：使用 Java 和 Azure 门户生成 MongoDB API 控制台应用
 

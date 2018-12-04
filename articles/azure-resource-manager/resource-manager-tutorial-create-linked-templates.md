@@ -11,19 +11,20 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 origin.date: 09/07/2018
-ms.date: 09/24/2018
+ms.date: 11/19/2018
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 5ab3d87de837a8dfcdd6b58e36704d961f591e83
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.openlocfilehash: 4ba7e915cd3efb46b3152511cea95ceb8c162e5c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527290"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652833"
 ---
-# <a name="tutorial-create-linked-azure-resource-manager-templates"></a>教程：创建 Azure 资源管理器链接模板
+<!--Verify successfully-->
+# <a name="tutorial-create-linked-azure-resource-manager-templates"></a>教程：创建链接的 Azure 资源管理器模板
 
-了解如何创建 Azure 资源管理器链接模板。 使用链接模板时，可以通过一个模板调用另一个模板。 它非常适用于模板的模块化。 本教程使用的模板与在[教程：使用资源管理器模板创建多个资源实例](./resource-manager-tutorial-create-multiple-instances.md)中使用的相同，该模板可以创建虚拟机、虚拟网络和其他依赖资源（包括存储帐户）。 请将存储帐户资源隔离到链接模板。
+了解如何创建链接的 Azure 资源管理器模板。 使用链接模板时，可以通过一个模板调用另一个模板。 它非常适用于模板的模块化。 本教程使用的模板与在[教程：使用资源管理器模板创建多个资源实例](./resource-manager-tutorial-create-multiple-instances.md)中使用的相同，该模板可以创建虚拟机、虚拟网络和其他依赖资源（包括存储帐户）。 请将存储帐户资源隔离到链接模板。
 
 本教程涵盖以下任务：
 
@@ -132,7 +133,7 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 
 ## <a name="upload-the-linked-template"></a>上传链接模板
 
-模板需要能够从运行部署的位置进行访问。 该位置可以是 Azure 存储帐户、Github 或 Dropbox。 如果模板包含敏感信息，请确保对其访问权限进行保护。 在本教程中使用的 Cloud Shell 部署方法与在[教程：使用资源管理器模板创建多个资源实例](./resource-manager-tutorial-create-multiple-instances.md)中使用的一样。 主模板 (azuredeploy.json) 上传到 Shell。 链接模板 (linkedTemplate.json) 必须在某个位置共享。  为了减少本教程的任务，我们将上一部分定义的链接模板上传到了 [Azure 存储帐户](https://armtutorials.blob.core.chinacloudapi.cn/linkedtemplates/linkedStorageAccount.json)中。
+模板需要能够从运行部署的位置进行访问。 该位置可以是 Azure 存储帐户、Github 或 Dropbox。 如果模板包含敏感信息，请确保对其访问权限进行保护。 在本教程中使用的 Cloud Shell 部署方法与在[教程：使用资源管理器模板创建多个资源实例](./resource-manager-tutorial-create-multiple-instances.md)中使用的一样。 主模板 (azuredeploy.json) 上传到 Shell。 链接模板 (linkedTemplate.json) 必须在某个位置共享。  为了减少本教程的任务，我们将上一部分定义的链接模板上传到了 [Azure 存储帐户](https://armtutorials.blob.core.windows.net/linkedtemplates/linkedStorageAccount.json)中。
 
 ## <a name="call-the-linked-template"></a>调用链接模板
 
@@ -150,7 +151,7 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
       "properties": {
           "mode": "Incremental",
           "templateLink": {
-              "uri":"https://armtutorials.blob.core.chinacloudapi.cn/linkedtemplates/linkedStorageAccount.json"
+              "uri":"https://armtutorials.blob.core.windows.net/linkedtemplates/linkedStorageAccount.json"
           },
           "parameters": {
               "storageAccountName":{"value": "[variables('storageAccountName')]"},
@@ -213,9 +214,6 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 3. 选择资源组名称。  应会看到，该资源组中总共有六个资源。
 4. 在顶部菜单中选择“删除资源组”。
 
-## <a name="next-steps"></a>后续步骤
-
-本教程介绍如何通过开发和部署模板来创建虚拟机、虚拟网络和依赖资源。 若要详细了解模板，请参阅[了解 Azure 资源管理器模板的结构和语法](./resource-group-authoring-templates.md)。
-
-<!-- Update_Description: new articles on resource manager tutorial create linked templates -->
-<!--ms.date: 09/24/2018-->
+<!-- Not Available on ## Next steps-->
+<!-- Not Available on  [Use Azure Deployment Manager](./deployment-manager-tutorial.md)-->
+<!-- Update_Description: update meta properties, wording update -->

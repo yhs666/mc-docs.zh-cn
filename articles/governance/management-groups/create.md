@@ -12,11 +12,11 @@ origin.date: 10/10/2018
 ms.date: 10/29/2018
 ms.author: v-yeche
 ms.openlocfilehash: 1974515c20794881c3b14f66f1a3f10a5a1d1e21
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035081"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650874"
 ---
 <!--Verify successfully-->
 # <a name="create-management-groups-for-resource-organization-and-management"></a>创建用来组织和管理资源的管理组

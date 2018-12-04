@@ -15,11 +15,11 @@ origin.date: 03/23/2018
 ms.date: 10/22/2018
 ms.author: v-yeche
 ms.openlocfilehash: 69c1de654cba73410c80c21261f8ebfcea7d1d37
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453733"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650984"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>使用 Azure Policy 限制 Windows VM 上的扩展安装
 

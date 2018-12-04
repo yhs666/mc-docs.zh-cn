@@ -10,11 +10,11 @@ ms.date: 06/11/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: 7c4294aee5556c2b8c4f2f85f4550292f7273e2a
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34881976"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649206"
 ---
 > [!div class="op_single_selector"]
 > * [Azure 门户](../articles/virtual-network/virtual-networks-static-private-ip-arm-pportal.md)

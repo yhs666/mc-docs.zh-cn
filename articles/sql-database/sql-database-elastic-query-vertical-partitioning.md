@@ -11,11 +11,11 @@ origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-nany
 ms.openlocfilehash: a9a17bafe25179bd6fa5e428cedd7c5d19f15e6e
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486558"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649794"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>跨具有不同架构的云数据库进行查询（预览版）
 ![跨不同数据库中的表进行查询][1]
@@ -115,8 +115,7 @@ ms.locfileid: "39486558"
 ### <a name="remarks"></a>备注
 弹性查询将扩展现有的外部表语法以定义使用 RDBMS 类型的外部数据源的外部表。 垂直分区的外部表定义涉及以下几个方面： 
 
-* 
-            **架构**：外部表 DDL 定义了查询可以使用的架构。 外部表定义中提供的架构需要与存储实际数据的远程数据库中的表的架构相匹配。 
+* **架构**：外部表 DDL 定义了查询可以使用的架构。 外部表定义中提供的架构需要与存储实际数据的远程数据库中的表的架构相匹配。 
 * **远程数据库引用**：外部表 DDL 引用外部数据源。 外部数据源指定存储实际表数据的远程数据库的逻辑服务器名称和数据库名称。 
 
 使用上一节中所述的外部数据源时，用于创建外部表的语法如下： 

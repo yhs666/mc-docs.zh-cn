@@ -28,6 +28,8 @@ items:
     items:
     - name: 管理目录
       href: /active-directory/fundamentals/active-directory-administer?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: 管理域名
+      href: domains-manage.md
     - name: 删除目录
       href: directory-delete-howto.md
     - name: 自助服务注册
@@ -56,18 +58,16 @@ items:
     items:
     - name: 角色和权限参考
       href: directory-assign-admin-roles.md
-    - name: 查看角色成员
+    - name: 查看和分配角色
       href: directory-manage-roles-portal.md
-    - name: 向用户分配角色
-      href: /active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
   expanded: true
 - name: 参考
   items:
   - name: Azure AD CLI
     href: /cli/ad
-ms.openlocfilehash: 474329a8b3095f22260453ba1aee1f79ac1ee790
-ms.sourcegitcommit: 4c7b45c574675b157e6520295f86b7e19450f5e3
+ms.openlocfilehash: 92e7f3e1daa213e061fbec2e1170dd1477fa4f5e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49088922"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652417"

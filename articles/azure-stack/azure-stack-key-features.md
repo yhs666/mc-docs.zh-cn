@@ -17,11 +17,11 @@ ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: ''
 ms.openlocfilehash: cf451083c5ade727b1c3d5e641fa61a7f7534385
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195513"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652259"
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Azure Stack 中的重要功能和概念
 如果你不太熟悉 Azure Stack，本文的术语和功能说明可能会有所帮助。

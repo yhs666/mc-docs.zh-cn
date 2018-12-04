@@ -17,11 +17,11 @@ origin.date: 05/22/2017
 ms.date: 10/01/2018
 ms.author: v-jay
 ms.openlocfilehash: 0514351cb22be87fc34b97e485c2178b737f3fc7
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426431"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654249"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>关于加密要求和 Azure VPN 网关
 

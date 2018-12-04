@@ -12,11 +12,11 @@ origin.date: 09/20/2017
 ms.date: 09/26/2018
 ms.author: v-junlch
 ms.openlocfilehash: 596822ab3a6ef9826175e70cbcbbf38be340cc6b
-ms.sourcegitcommit: 7c6ff130adaa67bc90094846f81295ef0719d072
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47191372"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654123"
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>在 Power BI 工作区集合中基于数据集创建新报表
 

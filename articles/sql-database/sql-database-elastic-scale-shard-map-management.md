@@ -14,11 +14,11 @@ manager: digimobile
 origin.date: 03/16/2018
 ms.date: 10/29/2018
 ms.openlocfilehash: ef98a477413cf0b65153e9dce8b5049f9f904628
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135868"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651446"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>使用分片映射管理器扩大数据库
 若要轻松地扩大 SQL Azure 上的数据库，请使用分片映射管理器。 分片映射管理器是一个特殊的数据库，它维护一个分片集中有关所有分片（数据库）的全局映射信息。 元数据允许应用程序基于 **分片键**值连接到正确的数据库。 此外，在集中的每个分片都包含跟踪本地分片数据的映射（称为 shardlet）。 

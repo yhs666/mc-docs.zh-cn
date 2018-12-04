@@ -10,11 +10,11 @@ ms.custom: H1Hack27Feb2017
 ms.date: 10/29/2018
 ms.author: v-yiso
 ms.openlocfilehash: 0a2ee0dba2ca55dd73fe01a3ae34d20a589543b9
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453643"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651456"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>了解和调用 IoT 中心的直接方法
 借助 IoT 中心，用户可以从云中对设备调用直接方法。 直接方法表示与设备进行的请求-答复式交互，类似于会立即成功或失败（在用户指定的超时时间后）的 HTTP 调用。 此方法用于即时操作过程不同的情况，即时操作的不同取决于设备能否响应。

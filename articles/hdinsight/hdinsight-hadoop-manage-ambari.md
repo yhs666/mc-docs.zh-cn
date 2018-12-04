@@ -1,6 +1,6 @@
 ---
 title: 使用 Ambari Web UI 监视和管理 Azure HDInsight
-description: 了解如何使用 Ambari 监视和管理基于 Linux 的 HDInsight 群集。 本文档介绍如何使用 HDInsight 群集随附的 Ambari Web UI。
+description: 了解如何使用 Ambari 监视和管理基于 Linux 的 HDInsight 群集。 本文档介绍如何使用 HDInsight 群集附带的 Ambari Web UI。
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -18,11 +18,11 @@ origin.date: 03/23/2018
 ms.date: 09/24/2018
 ms.author: v-yiso
 ms.openlocfilehash: 812cb5cb4e78202210a250cdafcda7f2d0d816d4
-ms.sourcegitcommit: bae4e9e500e3e988ef8fa0371777ca9cc49b4e94
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45584842"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649303"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>使用 Ambari Web UI 管理 HDInsight 群集
 
@@ -30,13 +30,13 @@ ms.locfileid: "45584842"
 
 Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Hadoop 群集的管理和监视。 基于 Linux 的 HDInsight 群集包含 Ambari，用于监视群集和进行配置更改。
 
-本文档介绍如何搭配使用 Ambari Web UI 和 HDInsight 群集。
+本文档介绍如何结合使用 Ambari Web UI 和 HDInsight 群集。
 
 ## <a id="whatis"></a>什么是 Ambari？
 
-[Apache Ambari](http://ambari.apache.org) 通过提供易于使用的 Web UI 简化了 Hadoop 管理。 可以使用 Ambari 来管理和监视 Hadoop 群集。 开发人员可以使用 [Ambari REST API](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md) 在其应用程序中集成这些功能。
+[Apache Ambari](http://ambari.apache.org) 通过提供易于使用的 Web UI 简化了 Hadoop 管理。 可以使用 Ambari 来管理和监视 Hadoop 群集。 开发人员可以使用 [Ambari REST API](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)在其应用程序中集成这些功能。
 
-使用 Linux 操作系统的 HDInsight 群集已按默认提供 Ambari Web UI。
+默认已对使用 Linux 操作系统的 HDInsight 群集提供了 Ambari Web UI。
 
 > [!IMPORTANT]
 > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 
@@ -57,13 +57,13 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Hadoop 群集�
 > [!WARNING]
 > 并非 Ambari Web UI 的所有功能都受 HDInsight 支持。 有关详细信息，请参阅本文档的[不受支持操作](#unsupported-operations)部分。
 
-连接到 Ambari Web UI 时，系统会提示进行页面验证。 请使用在创建群集过程中你使用的群集管理员用户（默认 Admin）和密码。
+连接到 Ambari Web UI 时，系统会提示用户向该页进行身份验证。 请使用在创建群集过程中你使用的群集管理员用户（默认 Admin）和密码。
 
 当该页打开时，请注意顶栏。 此栏中包含以下信息和控件：
 
 ![ambari-nav](./media/hdinsight-hadoop-manage-ambari/ambari-nav.png)
 
-* **Ambari 徽标** - 打开仪表板（其可用于监视群集）。
+* **Ambari 徽标** - 打开仪表板，以便可以监视群集。
 
 * **群集名称 # 项操作** - 显示进行中的 Ambari 操作数目。 选择群集名称或“# 项操作”会显示后台操作列表。
 
@@ -77,7 +77,7 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Hadoop 群集�
 
 * **警报** - 包含信息、警告和严重警报的日志。
 
-* **管理** - 已安装到群集的软件堆栈/服务、服务帐户信息和 Kerberos 安全性。
+* **管理** - 已安装在群集上的软件堆栈/服务、服务帐户信息和 Kerberos 安全性。
 
 * **管理按钮** - Ambari 管理、用户设置和注销。
 
@@ -102,7 +102,7 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Hadoop 群集�
 
 ![管理警报组对话框](./media/hdinsight-hadoop-manage-ambari/manage-alerts.png)
 
-还可管理警报方式，并通过在“操作”菜单中选择“管理警报通知”创建警报通知。 所有当前通知都会显示。 还可以从此处创建通知。 出现特定的警报/严重性组合时，可通过**电子邮件**或 **SNMP** 发送通知。 例如，可在“YARN 默认设置”组中的任何警报设为“严重”时发送电子邮件消息。
+还可管理警报方式，并通过在“操作”菜单中选择“管理警报通知”来创建警报通知。 所有当前通知都会显示。 还可以从此处创建通知。 出现特定的警报/严重性组合时，可通过**电子邮件**或 **SNMP** 发送通知。 例如，可在“YARN 默认设置”组中的任何警报设为“严重”时发送电子邮件消息。
 
 ![创建警报对话框](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)
 
@@ -129,9 +129,9 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Hadoop 群集�
 ![服务边栏](./media/hdinsight-hadoop-manage-ambari/service-bar.png)
 
 > [!NOTE]
-> 所显示的服务因 HDInsight 群集类型和版本而异。 此处显示的服务可能与群集显示的服务不同。
+> 对于不同的 HDInsight 群集类型和版本，所显示的服务会有所不同。 此处显示的服务可能不同于针对群集所显示的服务。
 
-选择一项服务会显示有关该服务的更多详细信息。
+选择一个服务会显示有关该服务的更多详细信息。
 
 ![检索摘要信息](./media/hdinsight-hadoop-manage-ambari/service-details.png)
 
@@ -144,7 +144,7 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Hadoop 群集�
 * **NameNode** - Hadoop 分布式文件系统 (HDFS) NameNode UI。
 * **Oozie Web UI** - Oozie UI。
 
-选择其中任一链接会在浏览器中打开新选项卡，这会显示所选页面。
+选择其中任何链接会在浏览器中打开新选项卡，新选项卡显示选择的页面。
 
 > [!NOTE]
 > 选择某项服务的**快速链接**条目可能会返回“找不到服务”错误。 如果遇到此错误，则在使用此服务的**快速链接**条目时必须使用 SSH 隧道。 有关信息，请参阅[将 SSH 隧道与 HDInsight 配合使用](hdinsight-linux-ambari-ssh-tunnel.md)
@@ -192,7 +192,7 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Hadoop 群集�
      > [!NOTE]
      > 请勿在 HDInsight 群集上使用此操作。
 
-   * **重用** - 以前已停用的主机添加到群集中。
+   * **重用** - 将以前已停用的主机添加到群集中。
 
      > [!NOTE]
      > 请勿在 HDInsight 群集上使用此操作。
@@ -204,9 +204,9 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Hadoop 群集�
 ![服务操作](./media/hdinsight-hadoop-manage-ambari/service-actions.png)
 
 > [!WARNING]
-> 虽然“添加服务”列于该菜单中，但不应将其用于将服务添加到 HDInsight 群集。 群集设置期间应使用脚本操作添加新服务。 有关使用脚本操作的详细信息，请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。
+> 虽然“添加服务”列于该菜单中，但不应使用它来向 HDInsight 群集添加服务。 群集设置期间应使用脚本操作添加新服务。 有关使用脚本操作的详细信息，请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。
 
-虽然“操作”按钮可以重新启动所有服务，但要启动、停止或重新启动的往往是特定服务。 使用以下步骤来对单个服务执行操作：
+虽然“操作”按钮可以重启所有服务，但你要启动、停止或重启的通常是某个特定服务。 使用以下步骤来对单个服务执行操作：
 
 1. 从“仪表板”或“服务”页面中选择一个服务。
 
@@ -215,9 +215,9 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Hadoop 群集�
     ![服务操作](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)
 
    > [!NOTE]
-   > 在群集运行时重新启动某些服务可能会生成警报。 若要避免生成警报，可使用“服务操作”按钮来为服务启用**维护模式**，然后再执行重启。
+   > 在群集运行时重启某些服务可能会生成警报。 若要避免生成警报，可使用“服务操作”按钮来为服务启用**维护模式**，然后再执行重启。
 
-3. 选择某个操作后，页面顶部的“# 项操作”条目的数字便会递增，指出正在进行后台操作。 如果已配置为显示，则会显示后台操作的列表。
+3. 选择某个操作后，页面顶部的“# 项操作”条目的数字便会递增，指出正在进行后台操作。 如果已配置为显示，则显示后台操作的列表。
 
    > [!NOTE]
    > 如果你已为服务启用了**维护模式**，请记得在操作完成后使用“服务操作”按钮来将它禁用。
@@ -230,14 +230,14 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Hadoop 群集�
 
     ![配置](./media/hdinsight-hadoop-manage-ambari/service-configs.png)
 
-3. 使用显示的字段修改配置，并选择“保存”。 或者，选择以前的某个配置，并选择“设为当前配置”以回滚到以前的设置。
+3. 使用显示的字段修改配置，然后选择“保存”。 或者，选择以前的某个配置，然后选择“设为当前配置”以回滚到以前的设置。
 
 ## <a name="ambari-views"></a>Ambari 视图
 
-Ambari 视图允许开发人员使用 [Ambari 视图框架](https://cwiki.apache.org/confluence/display/AMBARI/Views)将 UI 元素插入 Ambari Web UI。 HDInsight 提供了以下视图和 Hadoop 群集类型：
+Ambari 视图允许开发人员使用 [Ambari 视图框架](https://cwiki.apache.org/confluence/display/AMBARI/Views)将 UI 元素插入到 Ambari Web UI 中。 HDInsight 为 Hadoop 群集类型提供了以下视图：
 
 
-* Hive 视图: Hive 视图允许直接从 Web 浏览器运行 Hive 查询。 可保存查询、查看结果、将结果保存到群集存储中或将结果下载到本地系统。 有关使用 Hive 视图的详细信息，请参阅[将 Hive 视图与 HDInsight 配合使用](hadoop/apache-hadoop-use-hive-ambari-view.md)。
+* Hive 视图：Hive 视图允许用户直接从 Web 浏览器运行 Hive 查询。 可保存查询、查看结果、将结果保存到群集存储中或将结果下载到本地系统。 有关使用 Hive 视图的详细信息，请参阅[将 Hive 视图与 HDInsight 配合使用](hadoop/apache-hadoop-use-hive-ambari-view.md)。
 
 * Tez 视图：使用 Tez 视图可以更好地理解和优化作业。 可以查看与 Tez 作业的执行情况以及使用了哪些资源有关的信息。
 

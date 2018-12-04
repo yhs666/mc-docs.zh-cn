@@ -17,11 +17,11 @@ origin.date: 06/20/2017
 ms.date: 01/23/2018
 ms.author: v-junlch
 ms.openlocfilehash: 32aebf8e4c70015dfa557eafadf92f433ec3a59e
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
-ms.locfileid: "28003119"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653497"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>使用门户删除虚拟网络网关
 

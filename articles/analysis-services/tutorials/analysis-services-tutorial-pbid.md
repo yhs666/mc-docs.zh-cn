@@ -9,11 +9,11 @@ ms.date: 08/06/2018
 ms.author: v-yeche
 ms.reviewer: owend
 ms.openlocfilehash: fc1330428c3783535470545b44dbf0f7422ad6f5
-ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487833"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653895"
 ---
 <!--Notice: Verify sucessfully-->
 # <a name="tutorial-connect-with-power-bi-desktop"></a>教程：使用 Power BI Desktop 进行连接

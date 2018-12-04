@@ -16,11 +16,11 @@ ms.author: v-junlch
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.openlocfilehash: 9c33d3b21f9eabebf506eeccfc24b763fb21e939
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487525"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650037"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>什么是 Azure Active Directory 的自助服务注册？
 此文章介绍自助服务注册及如何在 Azure Active Directory (Azure AD) 中支持自助服务注册的相关内容。 

@@ -10,11 +10,11 @@ ms.service: mysql-database
 ms.topic: article
 ms.date: 06/16/2018
 ms.openlocfilehash: b303e246d5949a2b5be83e6760dcef3da628849e
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873433"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650538"
 ---
 # <a name="application-development-overview-for-azure-database-for-mysql"></a>Azure Database for MySQL 应用程序开发概述 
 

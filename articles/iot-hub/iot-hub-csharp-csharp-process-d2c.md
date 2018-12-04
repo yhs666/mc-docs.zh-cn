@@ -16,11 +16,11 @@ origin.date: 07/25/2017
 ms.date: 06/11/2018
 ms.author: v-yiso
 ms.openlocfilehash: e721f5ea75588aa8003b62a5f6c547dec5db8e4d
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695029"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652043"
 ---
 # <a name="routing-messages-with-iot-hub-net"></a>使用 IoT 中心路由消息 (.NET)
 

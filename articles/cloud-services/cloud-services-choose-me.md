@@ -15,11 +15,11 @@ origin.date: 04/19/2017
 ms.author: v-yiso
 ms.date: 11/12/2018
 ms.openlocfilehash: 335393fbb4303ced1b0c612b73657c88634c5abe
-ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50919079"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652830"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Azure 云服务概述
 Azure 云服务是[平台即服务](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) 的一个示例。 与 [Azure 应用服务](../app-service/app-service-web-overview.md)一样，此技术设计用于支持可缩放、可靠且运营成本低廉的应用程序。 同样，应用服务托管在虚拟机 (VM) 上，Azure 云服务也是如此。 但是，你对 VM 有更多的控制。 可以在使用 Azure 云服务的 VM 上安装自己的软件，并且可以远程访问它们。

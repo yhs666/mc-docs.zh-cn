@@ -10,11 +10,11 @@ ms.date: 09/10/2018
 ms.author: v-jay
 ms.custom: mvc
 ms.openlocfilehash: 7d0f848f2e3980cfd4ae6148b2b4ec352d917637
-ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43649250"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649878"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>监视云存储应用程序并排查其问题
 

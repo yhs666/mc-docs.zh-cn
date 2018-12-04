@@ -10,11 +10,11 @@ ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: bbc053fe16a17bffcdab0b18bb76dd90e9790951
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47454456"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649639"
 ---
 某些数据库工作负荷（例如 SQL Server 或 Oracle）要求高内存、高存储和高 I/O 带宽，但不要求高核心计数。 许多数据库工作负荷不是 CPU 密集型的。 Azure 提供特定的 VM 大小，允许你对 VM vCPU 计数进行限制，在保留相同的内存、存储和 I/O 带宽的同时，降低软件许可成本。
 

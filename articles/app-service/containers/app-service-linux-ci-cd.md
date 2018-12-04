@@ -17,11 +17,11 @@ origin.date: 05/10/2017
 ms.author: v-yiso
 ms.date: 10/16/2017
 ms.openlocfilehash: 78067e582fbbb70bc8262cfa61ef46987f75b617
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
-ms.locfileid: "22339060"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649004"
 ---
 # <a name="continuous-deployment-with-azure-web-app-for-containers"></a>使用用于容器的 Azure Web 应用进行持续部署
 
@@ -29,7 +29,7 @@ ms.locfileid: "22339060"
 
 ## <a name="step-1---sign-in-to-azure"></a>步骤 1 - 登录 Azure
 
-通过 http://portal.azure.cn 登录到 Azure 门户
+登录到 Azure 门户 (http://portal.azure.cn)
 
 ## <a name="step-2---enable-container-continuous-deployment-feature"></a>步骤 2 - 启用容器连续部署功能
 

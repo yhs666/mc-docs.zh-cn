@@ -12,11 +12,11 @@ origin.date: 08/29/2018
 ms.author: v-yiso
 ms.date: 10/15/2018
 ms.openlocfilehash: adcf7cfce5000c74a1f393082634a56411c8d6aa
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455226"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650887"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>ExpressRoute 线路预配工作流和线路状态
 本页从较高层面引导完成服务预配和路由配置工作流。 

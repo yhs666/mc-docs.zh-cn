@@ -16,11 +16,11 @@ origin.date: 01/29/2018
 ms.date: 09/07/2018
 ms.author: v-junlch
 ms.openlocfilehash: 7234b8cd9aba800bce8de4451f106db53b28e2e4
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068029"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653224"
 ---
 # <a name="cli-example-run-a-job-and-tasks-with-azure-batch"></a>CLI 示例：使用 Azure Batch 运行作业和任务
 

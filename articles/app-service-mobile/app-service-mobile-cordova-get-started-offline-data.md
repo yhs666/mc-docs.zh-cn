@@ -16,11 +16,11 @@ origin.date: 10/30/2016
 ms.date: 01/29/2018
 ms.author: v-yiso
 ms.openlocfilehash: 897f22d694162906b27505bb668eb6ed4ac79e8d
-ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2018
-ms.locfileid: "27984743"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652593"
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>为 Cordova 移动应用启用脱机同步
 
@@ -30,7 +30,7 @@ ms.locfileid: "27984743"
 
 本教程基于完成教程 [Apache Cordova 快速入门]时创建的移动应用的 Cordova 快速入门解决方案。 在本教程中，需更新快速入门解决方案，以便添加 Azure 移动应用的脱机功能。  我们还重点介绍了该应用中的特定于脱机的代码。
 
-若要了解有关脱机同步功能的详细信息，请参阅主题 [增量同步]。 若要深入了解 API 用法，请参阅 [API 文件](https://azure.github.io/azure-mobile-apps-js-client)。
+若要了解有关脱机同步功能的详细信息，请参阅主题 [Azure 移动应用中的脱机数据同步]。 若要深入了解 API 用法，请参阅 [API 文件](https://azure.github.io/azure-mobile-apps-js-client)。
 
 ## <a name="add-offline-sync-to-the-quickstart-solution"></a>在快速入门解决方案中添加脱机同步功能
 应用中必须添加脱机同步代码。 脱机同步功能需要 cordova-sqlite-storage 插件，该插件会在项目中包含 Azure 移动应用时自动添加到应用中。 快速入门项目包含上述两个插件。
@@ -153,7 +153,7 @@ ms.locfileid: "27984743"
 
 如果对一个表执行拉取操作，并且该表具有由上下文跟踪的未完成的本地更新，那么该拉取操作自动触发推送操作。 在此示例中刷新、添加和完成项时，可省略显式 **push** 调用，因为它可能是冗余的。
 
-在所提供的代码中，会查询远程 todoItem 表中的所有记录，也可以筛选记录，只需将查询 ID 和查询传递给 **push** 即可。 有关详细信息，请参阅 *Azure 移动应用中的脱机数据同步* 中的 [增量同步]部分。
+在所提供的代码中，会查询远程 todoItem 表中的所有记录，也可以筛选记录，只需将查询 ID 和查询传递给 **push** 即可。 有关详细信息，请参阅 *Azure 移动应用中的脱机数据同步* 中的 [Azure 移动应用中的脱机数据同步]部分。
 
 ## <a name="optional-disable-authentication"></a>（可选）禁用身份验证
 
@@ -210,7 +210,7 @@ ms.locfileid: "27984743"
     请注意，数据已在数据库和本地存储之间进行同步，并包含在应用断开连接时添加的项目。
 
 ## <a name="additional-resources"></a>其他资源
-* [增量同步]
+* [Azure 移动应用中的脱机数据同步]
 * [用于 Apache Cordova 的 Visual Studio 工具]
 
 ## <a name="next-steps"></a>后续步骤
@@ -224,8 +224,8 @@ ms.locfileid: "27984743"
 <!-- URLs. -->
 [Apache Cordova 快速入门]: ./app-service-mobile-cordova-get-started.md
 [脱机同步示例]: https://github.com/Azure-Samples/app-service-mobile-cordova-client-conflict-handling
-[增量同步]: ./app-service-mobile-offline-data-sync.md
 [Azure 移动应用中的脱机数据同步]: ./app-service-mobile-offline-data-sync.md
+[Offline Data Sync in Azure Mobile Apps]: ./app-service-mobile-offline-data-sync.md
 [Adding Authentication]: ./app-service-mobile-cordova-get-started-users.md
 [authentication]: ./app-service-mobile-cordova-get-started-users.md
 [Work with the .NET backend server SDK for Azure Mobile Apps]: ./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md

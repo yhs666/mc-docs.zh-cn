@@ -16,11 +16,11 @@ ms.date: 07/02/2018
 ms.author: v-junlch
 ms.custom: mvc
 ms.openlocfilehash: f62623fdbf214b3525092454415317295c9d169f
-ms.sourcegitcommit: f0bfa3f8dca94099a2181492952e6a575fbdbcc8
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37142665"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651522"
 ---
 # <a name="azure-application-gateway-powershell-samples"></a>Azure 应用程序网关 PowerShell 示例
 

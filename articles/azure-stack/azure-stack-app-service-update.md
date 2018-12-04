@@ -15,11 +15,11 @@ origin.date: 09/10/2018
 ms.date: 10/15/2018
 ms.author: v-jay
 ms.openlocfilehash: d241ae10750d72cbdba7ffb4056938515efb673b
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848783"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650431"
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>更新 Azure Stack 上的 Azure 应用服务
 

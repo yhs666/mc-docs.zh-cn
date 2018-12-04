@@ -11,11 +11,11 @@ ms.topic: conceptual
 origin.date: 04/26/2017
 ms.date: 05/07/2018
 ms.openlocfilehash: 143c19b34642ad3f1cbd85325347802ddffc255a
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815030"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653755"
 ---
 # <a name="how-to-configure-data-outputs-for-stream-analytics-jobs"></a>如何配置流分析作业的数据输出
 

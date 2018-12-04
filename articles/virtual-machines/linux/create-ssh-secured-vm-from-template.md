@@ -18,11 +18,11 @@ ms.date: 10/22/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2ed6cf4f57a3e609fb975333dc77b31be0b1a005
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453747"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653283"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>如何使用 Azure Resource Manager 模板创建 Linux 虚拟机
 

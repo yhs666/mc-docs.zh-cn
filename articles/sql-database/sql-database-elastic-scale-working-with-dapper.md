@@ -11,11 +11,11 @@ origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
 ms.openlocfilehash: 30d0c0bcb3bc4f6fab61197e74de44ccf7102ca6
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486732"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651048"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>将弹性数据库客户端库与 Dapper 配合使用
 本文档面向依赖于使用 Dapper 生成应用程序，但同时想要运用[弹性数据库工具](sql-database-elastic-scale-introduction.md)创建应用程序来实现分片，以横向扩展其数据层的开发人员。  本文档演示了与弹性数据库工具集成所需的基于 Dapper 的应用程序发生的更改。 我们将重点介绍如何使用 Dapper 构建弹性数据库分片管理和数据依赖型路由。 

@@ -18,11 +18,11 @@ origin.date: 10/25/2016
 ms.date: 05/21/2018
 ms.author: v-yiso
 ms.openlocfilehash: 6099f6921728b246bf4792b168f760a51f48ab2e
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34449948"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653797"
 ---
 # <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>在已加入域的 HDInsight 中配置 Hive 策略
 了解如何为 Hive 配置 Apache Ranger 策略。 本文涉及创建两个 Ranger 策略来限制对 hivesampletable 的访问。 hivesampletable 随 HDInsight 群集提供。 配置这些策略后，可以使用 Excel 和 ODBC 驱动程序连接到 HDInsight 中的 Hive 表。
@@ -93,7 +93,7 @@ ms.locfileid: "34449948"
  | Hive 服务器类型 | 选择“Hive Server 2” |
  | 机制 | 选择“Azure HDInsight 服务” |
  | HTTP 路径 | 将此字段留空。 |
- | 用户名 | 输入 hiveuser1@contoso158.onmicrosoft.com。如果域名不同，请更新域名。 |
+ | 用户名 | 输入 hiveuser1@contoso158.onmicrosoft.com。 如果域名不同，请更新域名。 |
  | 密码 | 输入 hiveuser1 的密码。 |
 
 在保存数据源之前，请务必单击“测试”。
@@ -139,9 +139,9 @@ ms.locfileid: "34449948"
     完成后，应会看到导入的两个数据列。
 
 ## <a name="next-steps"></a>后续步骤
-* 若要配置已加入域的 HDInsight 群集，请参阅 [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md)（配置已加入域的 HDInsight 群集）。
+* 有关配置已加入域的 HDInsight 群集，请参阅 [配置已加入域的 HDInsight 群集](apache-domain-joined-configure.md)。
 * 若要管理已加入域的 HDInsight 群集，请参阅[管理已加入域的 HDInsight 群集](apache-domain-joined-manage.md)。
 * 有关在已加入域的 HDInsight 群集上使用 SSH 运行 Hive 查询，请参阅[将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)。
 * 若要使用 Hive JDBC 连接 Hive，请参阅 [Connect to Hive on Azure HDInsight using the Hive JDBC driver](../hadoop/apache-hadoop-connect-hive-jdbc-driver.md)（使用 Hive JDBC 驱动程序连接到 Azure HDInsight 上的 Hive）
-* 要使用 Hive ODBC 将 Excel 连接到 Hadoop，请参阅 [Connect Excel to Hadoop with the Microsoft Hive ODBC drive](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)（使用 Microsoft Hive ODBC 驱动程序将 Excel 连接到 Hadoop）
-* 要使用 Power Query 将 Excel 连接到 Hadoop，请参阅 [Connect Excel to Hadoop by using Power Query](../hadoop/apache-hadoop-connect-excel-power-query.md)（使用 Power Query 将 Excel 连接到 Hadoop）
+* 有关使用 Hive ODBC 将 Excel 连接到 Hadoop，请参阅 [使用 Microsoft Hive ODBC 驱动程序将 Excel 连接到 Hadoop](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)
+* 有关使用 Power Query 将 Excel 连接到 Hadoop，请参阅 [使用 Power Query 将 Excel 连接到 Hadoop](../hadoop/apache-hadoop-connect-excel-power-query.md)

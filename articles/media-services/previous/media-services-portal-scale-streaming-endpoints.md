@@ -16,11 +16,11 @@ origin.date: 09/10/2017
 ms.date: 09/25/2017
 ms.author: v-johch
 ms.openlocfilehash: 8385923e2bf47260e5a58fc62a926e3afdd63f01
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426162"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651249"
 ---
 # <a name="scale-streaming-endpoints-with-the-azure-portal"></a>使用 Azure 门户缩放流式处理终结点
 ## <a name="overview"></a>概述

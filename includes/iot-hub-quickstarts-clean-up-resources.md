@@ -9,11 +9,11 @@ ms.date: 06/19/2018
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: a72ebc9b3cceef91684aa83f8557d5c3a26d8ce5
-ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306622"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650218"
 ---
 如果想要继续学习下一篇建议的文章，可以保留已创建的资源，以便重复使用。
 

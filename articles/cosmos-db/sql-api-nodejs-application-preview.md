@@ -13,11 +13,11 @@ origin.date: 07/31/2018
 ms.date: 09/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: 8e3c7fabfea4e77fd844058584a2852883f6ff38
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201440"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651712"
 ---
 <a name="_Toc395783175"></a>
 # <a name="build-a-nodejs-web-application-using-azure-cosmos-db-and-nodejs-sdk-preview"></a>使用 Azure Cosmos DB 和 Node.js SDK（预览版）生成 Node.js Web 应用程序

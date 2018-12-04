@@ -10,11 +10,11 @@ ms.date: 06/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 ms.openlocfilehash: 31fe210b87a052438956d813db0d104e0f2cdb6e
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068280"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654238"
 ---
 # <a name="develop-an-iot-edge-solution-with-multiple-modules-in-visual-studio-code"></a>在 Visual Studio Code 中使用多个模块开发 IoT Edge 解决方案
 

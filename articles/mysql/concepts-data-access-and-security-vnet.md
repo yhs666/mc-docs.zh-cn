@@ -11,11 +11,11 @@ ms.topic: conceptual
 origin.date: 08/20/2018
 ms.date: 08/27/2018
 ms.openlocfilehash: 134aae16062fe5476f9ab515893645f1b69e8091
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527093"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650548"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>对 Azure Database for MySQL 使用虚拟网络服务终结点和规则
 

@@ -17,11 +17,11 @@ origin.date: 03/23/2018
 ms.date: 06/04/2018
 ms.author: v-yeche
 ms.openlocfilehash: 7db7c7cd3e442fba5fbb52cd31aa69e5d84f134a
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702833"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651092"
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Azure 虚拟机中的 SQL Server 的安全注意事项
 

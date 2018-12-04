@@ -10,11 +10,11 @@ origin.date: 05/08/2018
 ms.date: 07/05/2018
 ms.author: v-junlch
 ms.openlocfilehash: 88f76aebdcfb3fe2470495d82cc7412b6435ac5e
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873602"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650683"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>DPM 和 Azure 备份服务器的脱机备份工作流
 Azure 备份有多个可提升效率的内置功能，可在将数据初始完整备份到 Azure 期间节省网络和存储成本。 初始完整备份通常会传输大量数据，且需要较多网络带宽，相比之下，后续备份只传输差异/增量部分。 Azure 备份可压缩初始备份。 通过脱机种子设定过程，Azure 备份可以使用磁盘将压缩后的初始备份数据脱机上传到 Azure。
@@ -99,7 +99,7 @@ Azure 备份的脱机种子设定与 [Azure 导入/导出服务](../storage/comm
 ### <a name="prepare-sata-drives-and-ship-to-azure"></a>准备 SATA 驱动器并寄送到 Azure
 *AzureOfflineBackupDiskPrep*实用程序用于准备送到最近的 Azure 数据中心的 SATA 驱动器。 在以下路径的恢复服务代理安装目录中可获得此实用工具：
 
-   *\Microsoft* *Azure* *Recovery* *Services* *Agent\Utils\*
+   *\Microsoft* *Azure* *Recovery* *Services* \*Agent\Utils\*
 
 1. 转到该目录，将“AzureOfflineBackupDiskPrep”目录复制到 SATA 驱动器准备连接的副本计算机上。 确保满足以下与副本计算机相关的要求：
 

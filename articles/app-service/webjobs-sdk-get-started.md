@@ -15,11 +15,11 @@ origin.date: 04/27/2018
 ms.date: 07/30/2018
 ms.author: v-yiso
 ms.openlocfilehash: 803df68d085dc05d02004245c747ebedc05a68e8
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167818"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649081"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>用于事件驱动的后台处理的 Azure WebJobs SDK 入门
 
@@ -90,7 +90,7 @@ public static void Run(
    using Microsoft.Azure.WebJobs;
    ```
 
-1. 将 `Main`方法替换为以下代码：
+1. 将 `Main` 方法替换为以下代码：
 
    ```cs
    static void Main()
@@ -388,7 +388,7 @@ WebJobs SDK 在“应用设置”集合中查找存储连接字符串。 在本�
 
 输出绑定可以简化写入数据的代码。 本示例在前一个示例的基础上做了修改，它会写入 Blob 的副本，而不是记录其大小。
 
-1. 将 `ProcessQueueMessage`方法替换为以下代码：
+1. 将 `ProcessQueueMessage` 方法替换为以下代码：
 
    ```cs
    public static void ProcessQueueMessage(

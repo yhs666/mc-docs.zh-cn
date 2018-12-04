@@ -18,11 +18,11 @@ ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: ''
 ms.openlocfilehash: c26f695daac50f6ae2b9421b321b97c5f948eb8c
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848784"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652024"
 ---
 # <a name="tutorial-create-and-test-a-subscription"></a>教程：创建和测试订阅
 本教程介绍如何创建包含套餐的订阅，然后对其进行测试。 测试时，需要以云管理员身份登录到 Azure Stack 用户门户，订阅套餐，然后创建虚拟机。

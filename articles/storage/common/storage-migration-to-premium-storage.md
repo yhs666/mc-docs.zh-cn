@@ -16,11 +16,11 @@ origin.date: 06/27/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
 ms.openlocfilehash: 8316b35ffd81f45572f660dd35cfb90bbcd6a615
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295855"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650402"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>迁移到 Azure 高级存储（非托管磁盘）
 
@@ -61,10 +61,10 @@ Azure VM 支持附加多个高级存储磁盘，使应用程序可以具有每�
 #### <a name="disk-sizes"></a>磁盘大小
 有五种类型的磁盘可用于 VM，每种磁盘都具有特定的 IOPS 和吞吐量限制。 根据应用程序在容量、性能、可伸缩性和峰值负载方面的需要为 VM 选择磁盘类型时，需要考虑这些限制。
 
-| 高级磁盘类型  | P10   | P20   | P30            | P40            | P50            | 
+| 高级磁盘类型  | P10   | P20   | P30            | P40            | P50            | 
 |:-------------------:|:-----:|:-----:|:--------------:|:--------------:|:--------------:|
-| 磁盘大小           | 128 GB| 512 GB| 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
-| 每个磁盘的 IOPS       | 500   | 2300  | 5000           | 7500           | 7500           | 
+| 磁盘大小           | 128 GB| 512 GB| 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| 每个磁盘的 IOPS       | 500   | 2300  | 5000           | 7500           | 7500           | 
 | 每个磁盘的吞吐量 | 每秒 100 MB | 每秒 150 MB | 每秒 200 MB | 每秒 250 MB | 每秒 250 MB |
 
 根据工作负荷，确定 VM 是否需要附加数据磁盘。 可以将多个持久性数据磁盘附加到 VM。 如有需要，可以跨磁盘条带化，以增加卷的容量与性能。 （请参阅[此处](../../virtual-machines/windows/premium-storage-performance.md#disk-striping)，了解什么是磁盘条带化。）如果使用[存储空间][4]来条带化高级存储数据磁盘，应该以使用的每个磁盘一个列的方式来配置它。 否则，条带化卷的整体性能可能会低于预期，因为磁盘之间的通信分配不平均。 对于 Linux VM，可使用 *mdadm* 实用工具实现该目的。 有关详细信息，请参阅[在 Linux 上配置软件 RAID](../../virtual-machines/linux/configure-raid.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 一文。

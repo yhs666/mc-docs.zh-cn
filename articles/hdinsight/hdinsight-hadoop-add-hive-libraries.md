@@ -17,11 +17,11 @@ ms.date: 05/28/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.openlocfilehash: e4f10185062bf8007ce35bc9b30bdc0728f145c2
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34449932"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652132"
 ---
 # <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>创建 HDInsight 群集时添加自定义 Hive 库
 
@@ -65,7 +65,7 @@ ms.locfileid: "34449932"
   > [!NOTE]
   > 本文档假定已创建存储帐户、blob 容器，并已将文件上传到该容器。
   >
-  > 如果尚未创建存储帐户，可以通过 [Azure 门户](https://portal.azure.cn)创建该帐户。 然后可以使用实用程序（如 [Azure 存储资源管理器](http://storageexplorer.com/)）在帐户中创建一个容器并将文件上传到该容器。
+  > 如果尚未创建存储帐户，可以通过 [Azure 门户](https://portal.azure.cn)创建该帐户。 然后可以使用实用工具（如 [Azure 存储资源管理器](http://storageexplorer.com/) ）在帐户中创建容器并将文件上传到该容器。
 
 ## <a name="create-a-cluster-using-the-script"></a>使用脚本创建群集。
 
@@ -80,7 +80,7 @@ ms.locfileid: "34449932"
 
    * **名称**：输入脚本操作的友好名称。
 
-   * **脚本 URI**：https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh
+   * **脚本 URI**： https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh
 
    * **标头**：选中此选项。
 

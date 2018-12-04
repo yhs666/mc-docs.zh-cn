@@ -19,11 +19,11 @@ ms.date: 07/23/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 82d48d1224ee00789efe294cdfcc839d743bb271
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167779"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652397"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>教程：使用 Azure 门户通过路由表路由网络流量
 

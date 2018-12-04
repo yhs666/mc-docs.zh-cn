@@ -12,11 +12,11 @@ origin.date: 01/26/2018
 ms.date: 08/08/2018
 ms.author: v-junlch
 ms.openlocfilehash: b068a86d772f8ea8ce9d1ef1756f7419624795cc
-ms.sourcegitcommit: a1c6a743b4be62477e7debfc9ea5f03afca2bc8f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625163"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654196"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-portal"></a>使用 Azure 门户创建托管多个站点的应用程序网关
 
@@ -169,7 +169,7 @@ ms.locfileid: "39625163"
 
 ## <a name="test-the-application-gateway"></a>测试应用程序网关
 
-1. 在浏览器的地址栏中输入域名。 例如，http://www.contoso.com。
+1. 在浏览器的地址栏中输入域名。 例如， http://www.contoso.com。
 
     ![在应用程序网关中测试 contoso 站点](./media/application-gateway-create-multisite-portal/application-gateway-iistest.png)
 

@@ -10,18 +10,18 @@ origin.date: 04/27/2018
 ms.date: 11/12/2018
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: 4f750e56f6cfe3334c40b7541d9729bf032b97b3
-ms.sourcegitcommit: b8e99939a5493a15b78c32e87bfbf76a8c96a84a
+ms.openlocfilehash: bb35297d67f20025ca8a0c49c891d6ce27f1d99e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409045"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651829"
 ---
 # <a name="audit-diagnostic-setting"></a>审核诊断设置
 
 如果未对指定资源类型启用诊断设置，则内置策略会进行审核。 指定一个资源类型的数组以检查是否已启用诊断设置。
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>示例模板
 ```json
@@ -83,7 +83,7 @@ ms.locfileid: "50409045"
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 进行部署
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
 
 ```powershell
 $definition = Get-AzureRmPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/7f89b1eb-583c-429a-8828-af049802c1d9
@@ -101,7 +101,7 @@ Remove-AzureRmPolicyAssignment -Name "Audit diagnostics" -Scope <scope>
 
 ## <a name="deploy-with-azure-cli"></a>使用 Azure CLI 进行部署
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
 ```cli
 az policy assignment create --scope <scope> --name "Audit diagnostics" --policy 7f89b1eb-583c-429a-8828-af049802c1d9 --params '{"listOfResourceTypes":{"value":["Microsoft.Cache/Redis","Microsoft.Compute/virtualmachines"]}}'

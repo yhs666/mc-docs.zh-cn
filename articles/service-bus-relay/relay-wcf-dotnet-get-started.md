@@ -1,10 +1,10 @@
 ---
-title: .NET 中的 Azure Relay WCF 中继入门
+title: .NET 中的 Azure Relay WCF 中继入门 | Azure
 description: 了解如何使用 Azure Relay WCF 中继连接两个托管于不同位置的应用程序。
 services: service-bus-relay
 documentationcenter: .net
-author: spelluru
-manager: timlt
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: 5493281a-c2e5-49f2-87ee-9d3ffb782c75
 ms.service: service-bus-relay
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 12/20/2017
-ms.author: v-yiso
-ms.date: 10/15/2018
-ms.openlocfilehash: 26dd6ccfeae0f3759fd641ecd08454985e343a86
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.date: 11/06/18
+ms.author: v-lingwu
+ms.openlocfilehash: b30ff817db4bbcf4d5441aba8903bad7b0c4ceae
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455269"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652701"
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>如何将 Azure Relay WCF 中继与 .NET 配合使用
 本文介绍如何使用 Azure 中继服务。 相关示例用 C# 编写并使用服务总线程序集中包含的 Windows Communication Foundation (WCF) API 及扩展。 有关 Azure 中继的详细信息，请参阅 [Azure 中继概述](relay-what-is-it.md)。
@@ -220,8 +220,7 @@ using (var ch = cf.CreateChannel())
 ## <a name="next-steps"></a>后续步骤
 现已了解有关 Azure 中继的基础知识，请单击以下链接了解详细信息。
 
-* [什么是 Azure 中继？](./relay-what-is-it.md)
-* [Azure 服务总线体系结构概述](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
+* [什么是 Azure 中继？](relay-what-is-it.md)
 * 从 [Azure 示例][Azure samples]下载服务总线示例，或参阅[服务总线示例概述][overview of Service Bus samples]。
 
 [Shared Access Signature Authentication with Service Bus]: ../service-bus-messaging/service-bus-shared-access-signature-authentication.md

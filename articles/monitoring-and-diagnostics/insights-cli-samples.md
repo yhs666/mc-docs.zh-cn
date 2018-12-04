@@ -9,11 +9,11 @@ origin.date: 05/16/2018
 ms.date: 10/22/2018
 ms.author: v-lingwu
 ms.openlocfilehash: c08dca4af60d11b753cee045ec0f0b64dcb6baaa
-ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652228"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649012"
 ---
 # <a name="azure-monitor-cli-quick-start-samples"></a>Azure Monitor CLI 快速入门示例
 本文演示有助于访问 Azure 监视器功能的示例命令行接口 (CLI) 命令。 Azure Monitor 允许基于配置的遥测数据值自动缩放云服务、虚拟机和 Web 应用，以及发送警报通知或调用 Web URL。

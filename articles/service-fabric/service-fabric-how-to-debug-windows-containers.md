@@ -15,11 +15,11 @@ origin.date: 05/14/2018
 ms.date: 09/10/2018
 ms.author: v-yeche
 ms.openlocfilehash: e0389264dc3edea6f1112359c1475ce65347277a
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515639"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651492"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>如何：使用 Visual Studio 2017 在 Azure Service Fabric 中调试 Windows 容器
 

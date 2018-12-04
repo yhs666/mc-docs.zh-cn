@@ -17,11 +17,11 @@ origin.date: 07/10/2017
 ms.date: 07/24/2017
 ms.author: v-dazen
 ms.openlocfilehash: b74f49290c7bd53b5861de3ad5e6915ca2a053af
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
-ms.locfileid: "20634179"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649731"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>针对 Azure 中 Web 应用的开源技术常见问题的解答
 
@@ -33,7 +33,7 @@ ms.locfileid: "20634179"
 
 若要启用 PHP 日志记录：
 
-1. 登录到 Kudu 网站：https://*yourwebsitename*.scm.chinacloudsites.cn。
+1. 登录到 Kudu 网站： https://*yourwebsitename*.scm.chinacloudsites.cn。
 2. 在顶部菜单中，选择“调试控制台” > “CMD”。
 3. 选择“Site”文件夹。
 4. 选择“wwwroot”文件夹。
@@ -41,7 +41,7 @@ ms.locfileid: "20634179"
 6. 将文件名称设置为“.user.ini”。
 7. 选择“.user.ini”旁边的铅笔图标。
 8. 在文件中，添加以下代码：`log_errors=on`
-9. 选择“保存”。
+9. 选择“其他安全性验证” 。
 10. 选择“wp-config.php”旁边的铅笔图标。
 11. 将文本更改为以下代码：
    ```
@@ -72,7 +72,7 @@ ms.locfileid: "20634179"
     1. 在 Azure 门户中，转到自己的 Web 应用。
     2. 在“设置”边栏选项卡上，选择“应用程序设置”。
     3. 在“应用设置”中，可将 WEBSITE_NODE_DEFAULT_VERSION 包括为键，并将所需的 Node.js 版本作为值。
-    4. 转到 Kudu 控制台：https://*yourwebsitename*.scm.chinacloudsites.cn。
+    4. 转到 Kudu 控制台： https://*yourwebsitename*.scm.chinacloudsites.cn。
     5. 若要检查 Node.js 版本，请输入以下命令：  
    ```
    node -v
@@ -107,7 +107,7 @@ ms.locfileid: "20634179"
 
 ## <a name="how-do-i-debug-a-nodejs-app-thats-hosted-in-app-service"></a>如何调试应用服务中承载的 Node.js 应用？
 
-1.  转到 Kudu 控制台：https://*yourwebsitename*.scm.chinacloudsites.cn/DebugConsole。
+1.  转到 Kudu 控制台： https://*yourwebsitename*.scm.chinacloudsites.cn/DebugConsole。
 2.  转到应用程序日志文件夹 (D:\home\LogFiles\Application)。
 3.  在 logging_errors.txt 文件中，检查内容。
 
@@ -121,10 +121,10 @@ ms.locfileid: "20634179"
 
 ## <a name="where-are-the-tomcat-log-files-located"></a>Tomcat 日志文件位于何处？
 
-对于 Azure 应用商店和自定义部署：
+对于 Azure 市场和自定义部署：
 
 * 文件夹位置：D:\home\site\wwwroot\bin\apache-tomcat-8.0.33\logs
-* 感兴趣的文件：
+* 相关文件：
     * catalina.*yyyy-mm-dd*.log
     * host-manager.*yyyy-mm-dd*.log
     * localhost.*yyyy-mm-dd*.log
@@ -152,7 +152,7 @@ The web application[ROOT] registered the JDBC driver [com.mysql.jdbc.Driver] but
 若要解决该错误：
 
 1. 从 app/lib 文件夹中删除 sqljdbc*.jar 文件。
-2. 如果使用自定义 Tomcat 或 Azure 应用商店 Tomcat Web 服务器，请将此 .jar 文件复制到 Tomcat lib 文件夹中。
+2. 如果使用自定义 Tomcat 或 Azure 市场 Tomcat Web 服务器，请将此 .jar 文件复制到 Tomcat lib 文件夹中。
 3. 如果从 Azure 门户启用 Java（选择“Java 1.8” > “Tomcat 服务器”），请在并行于应用的文件夹中复制 sqljdbc.* jar 文件。 然后，将以下 classpath 设置添加到 web.config 文件中：
 
     ```
@@ -184,7 +184,7 @@ The process cannot access the file because it is being used by another process.
 
 ## <a name="where-do-i-find-the-log-files-for-jetty"></a>在哪里可以找到 Jetty 的日志文件？
 
-对于应用商店和自定义部署，日志文件位于 D:\home\site\wwwroot\bin\jetty-distribution-9.1.2.v20140210\logs 文件夹。 请注意，文件夹位置取决于所使用的 Jetty 版本。 例如，以下提供的路径用于 Jetty 9.1.2。 查找 jetty_*YYYY_MM_DD*.stderrout.log。
+对于市场和自定义部署，日志文件位于 D:\home\site\wwwroot\bin\jetty-distribution-9.1.2.v20140210\logs 文件夹中。 请注意，文件夹位置取决于所使用的 Jetty 版本。 例如，以下提供的路径用于 Jetty 9.1.2。 查找 jetty_*YYYY_MM_DD*.stderrout.log。
 
 对于门户应用设置部署，日志文件位于 D:\home\LogFiles。 查找 jetty_*YYYY_MM_DD*.stderrout.log
 
@@ -227,6 +227,6 @@ WordPress Buddy+ 是可用于在数据库中直接更新重定向 URL 的 Azure 
 
 ## <a name="i-get-an-http-403-error-when-i-try-to-import-or-export-my-mysql-in-app-database-by-using-phpmyadmin-how-do-i-resolve-this"></a>在尝试使用 PHPMyadmin 导入或导出 MySQL 应用内数据库时，收到了 HTTP 403 错误。 如何解决此问题？
 
-如果使用的是较旧版本的 Chrome，则可能遇到一个已知的 bug。 要解决此问题，请升级到较新版本的 Chrome。 还可尝试使用不会出现此问题的另一种浏览器，如 Internet Explorer 或 Edge。
+如果使用的是较旧版本的 Chrome，则可能遇到一个已知的 bug。 要解决此问题，请升级到较新版本的 Chrome。 还可尝试使用不会出现此问题的另一种浏览器，如 Internet Explorer 或 Microsoft Edge。
 
 <!--Update_Description: update meta data-->

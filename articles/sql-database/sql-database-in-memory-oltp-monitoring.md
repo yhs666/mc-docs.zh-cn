@@ -11,11 +11,11 @@ origin.date: 09/14/2018
 ms.date: 10/15/2018
 ms.author: v-jay
 ms.openlocfilehash: c3b374efd4a3c4a77d2b2d475009adfd30e8852b
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913936"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649129"
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>监视内存中 OLTP 存储
 使用[内存中 OLTP](sql-database-in-memory.md)时，内存优化表中的数据和表变量驻留在内存中 OLTP 存储内。 每个高级和业务关键服务层都具有最大内存中 OLTP 存储大小。 请参阅[基于 DTU 的资源限制 - 单一数据库](sql-database-dtu-resource-limits-single-databases.md)、[基于 DTU 的资源限制 - 弹性池](sql-database-dtu-resource-limits-elastic-pools.md)、[基于 vCore 的资源限制 - 单一数据库](sql-database-vcore-resource-limits-single-databases.md)和[基于 vCore 的资源限制 - 弹性池](sql-database-vcore-resource-limits-elastic-pools.md)。

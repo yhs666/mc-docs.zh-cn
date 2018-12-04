@@ -10,11 +10,11 @@ ms.date: 09/24/2018
 ms.author: v-jay
 ms.component: common
 ms.openlocfilehash: 3e74c5c19037046d0046835068040a486024e2e3
-ms.sourcegitcommit: 5616622f754f3b83c7120a3d1344d0344e03ca61
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47188779"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653424"
 ---
 # <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>异地冗余存储 (GRS)：Azure 存储的跨区域复制
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-grs.md)]

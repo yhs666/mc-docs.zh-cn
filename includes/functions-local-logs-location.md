@@ -11,11 +11,11 @@ ms.date: 05/30/2018
 ms.author: v-junlch
 ms.custom: include file
 ms.openlocfilehash: 514cef1fa426162b047e758fef77882ffde2917f
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34567338"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652661"
 ---
 当 Functions 主机在本地运行时，它会将日志写入以下路径：
 

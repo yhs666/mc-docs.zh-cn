@@ -14,14 +14,14 @@ origin.date: 03/21/2017
 ms.date: 09/10/2018
 ms.author: v-junlch
 ms.openlocfilehash: b6f1f699b58f1435d42842e804b9e42e6f3b48e9
-ms.sourcegitcommit: 40456700212200e707d6cb3147cf96ad161d3ff2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44269521"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652820"
 ---
 # <a name="retain-a-constant-virtual-ip-address-for-an-azure-cloud-service"></a>为 Azure 云服务保留固定的虚拟 IP 地址
-更新托管于 Azure 中的云服务时，可能需要确保该服务的虚拟 IP 地址 (VIP) 不发生更改。 许多域管理服务使用域名系统 (DNS) 注册域名。 仅当 VIP 保持不变时，DNS 才适用。 可使用 Azure Tools 中的**发布向导**来确保云服务的 VIP 在更新时不更改。 有关如何将 DNS 域管理用于云服务的详细信息，请参阅[为 Azure 云服务配置自定义域名](cloud-services/cloud-services-custom-domain-name-portal.md)。
+更新托管于 Azure 中的云服务时，可能需要确保该服务的虚拟 IP 地址 (VIP) 不发生更改。 许多域管理服务使用域名系统 (DNS) 注册域名。 仅当 VIP 保持不变时，DNS 才适用。 可使用 Azure Tools 中的“发布向导”  来确保云服务的 VIP 在更新时不更改。 有关如何将 DNS 域管理用于云服务的详细信息，请参阅[为 Azure 云服务配置自定义域名](cloud-services/cloud-services-custom-domain-name-portal.md)。
 
 ## <a name="publish-a-cloud-service-without-changing-its-vip"></a>发布云服务，而不更改其 VIP
 在特定环境（如生产环境）中第一次将云服务部署到 Azure 时，其 VIP 就已分配。 VIP 仅会在显式删除部署或部署更新过程将其隐式删除时发生更改。 若要保留 VIP，则切勿删除部署，且务必确保 Visual Studio 不会自动删除部署。 
@@ -51,7 +51,7 @@ ms.locfileid: "44269521"
 
     ![发布 Azure 应用程序“部署设置”页](./media/vs-azure-tools-cloud-service-retain-a-constant-virtual-ip-address/azure-publish-deployment-update-settings.png)
 
-7. 在“发布 Azure 应用程序”对话框中，选择“下一步”，直到显示“摘要”页。 验证设置，并选择“发布”。
+7. 在“发布 Azure 应用程序”对话框中，选择“下一步”，直到显示“摘要”页。 验证用户的设置，并选择“发布”。
    
     ![发布 Azure 应用程序“摘要”页](./media/vs-azure-tools-cloud-service-retain-a-constant-virtual-ip-address/azure-publish-summary.png)
 

@@ -17,17 +17,17 @@ origin.date: 02/19/2016
 ms.date: 03/29/2017
 ms.author: v-dazen
 ms.openlocfilehash: 18796900778bf422ea40d82ad469b83358bbd653
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939277"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650102"
 ---
 # <a name="creating-web-apps-with-django-in-azure"></a>在 Azure 中使用 Django 创建 Web 应用
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-本教程介绍如何开始在 [Azure 应用服务 Web 应用](/app-service-web/app-service-changes-existing-services)中运行 Python。 Web 应用提供有限的免费托管和快速部署功能，现在，可以使用 Python！ 随着应用增长，可以切换到付费托管，并且还可以与所有其他 Azure 服务集成。
+本教程介绍如何在 [Azure 应用服务 Web 应用](/app-service-web/app-service-changes-existing-services)中运行 Python。 Web 应用提供有限的免费托管和快速部署功能，现在，可以使用 Python！ 随着应用增长，可以切换到付费托管，并且还可以与所有其他 Azure 服务集成。
 
 将使用 Django Web 框架创建应用程序（请参阅本教程针对 [Flask](web-sites-python-create-deploy-flask-app.md) 和 [Bottle](web-sites-python-create-deploy-bottle-app.md) 的备选版本）。 将从 Azure 市场创建 Web 应用，设置 Git 部署和本地克隆存储库。 然后将本地运行应用程序，将其更改、 提交和推送到 Azure。 本教程演示如何从 Windows 或 Mac/Linux 执行此操作。
 

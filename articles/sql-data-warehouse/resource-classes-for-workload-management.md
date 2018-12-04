@@ -1,26 +1,26 @@
 ---
-title: 用于工作负荷管理的资源类 - Azure SQL 数据仓库 | Azure
+title: 用于工作负荷管理的资源类 - Azure SQL 数据仓库 | Microsoft Docs
 description: 有关使用资源类管理并发性以及计算 Azure SQL 数据仓库中查询的资源的指导。
 services: sql-data-warehouse
-author: rockboyfor
+author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 origin.date: 04/26/2018
-ms.date: 06/25/2018
-ms.author: v-yeche
+ms.date: 11/12/2018
+ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: fe9a4cb602e737bf12ab93ea2659e535c422eca8
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 9cb011d2002e792ea98ece3b0cfa38b8b033a29e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315661"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651015"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>使用 Azure SQL 数据仓库中的资源类管理工作负荷
 有关在 Azure SQL 数据仓库中使用资源类管理查询内存和并发性的指导。  
-
+ 
 ## <a name="what-is-workload-management"></a>什么是工作负荷管理？
 工作负荷管理是指优化所有查询的整体性能的功能。 适当优化的工作负荷能够有效地运行查询和负载操作，而不管这些查询和操作是计算密集型还是 IO 密集型。  SQL 数据仓库为多用户环境提供工作负荷管理功能。 数据仓库不适用于多租户工作负荷。
 
@@ -30,7 +30,6 @@ ms.locfileid: "36315661"
 - 若要调整性能容量，可以[纵向扩展或缩减](quickstart-scale-compute-portal.md)。
 
 查询的性能容量由查询的资源类决定。 本文的余下内容介绍什么是资源类以及如何对其进行调整。
-
 
 ## <a name="what-are-resource-classes"></a>什么是资源类？
 查询的性能容量由用户的资源类决定。  资源类是 Azure SQL 数据仓库中预先确定的资源限制，控制查询执行的计算资源和并发性。 资源类可以针对并发运行的查询数以及分配给每个查询的计算资源量设置限制，从而帮助管理工作负荷。 我们需要在内存和并发性之间进行权衡。
@@ -72,8 +71,6 @@ ms.locfileid: "36315661"
 - largerc
 - xlargerc 
 
-
-<!--Pending on Gen2-->
 ### <a name="gen2-dynamic-resource-classes-are-truly-dynamic"></a>第 2 代动态资源类真正地实现了动态
 第 1 代挖掘动态资源类的详细信息时，有些详细信息会让理解其行为变得更加复杂：
 
@@ -89,7 +86,7 @@ ms.locfileid: "36315661"
 | mediumrc       | 10%               | 10 个                     |
 | largerc        | 22%               | 4                      |
 | xlargerc       | 70%               | 1                      |
-<!--Pending on Gen2-->
+
 
 ### <a name="default-resource-class"></a>默认资源类
 默认情况下，每个用户都是动态资源类 (**smallrc**) 的成员。 
@@ -157,7 +154,7 @@ Removed as these two are not confirmed / supported under SQLDW
 
 - 使用 10 个并发槽位运行的查询可以访问的计算资源，是使用 2 个并发槽位运行的查询的 5 倍。
 - 如果每个查询需要 10 个并发槽位并且有 40 个并发槽位，则只有 4 个查询可以并发运行。
-
+ 
 只有受资源控制的查询消耗并发槽位。 系统查询和一些不重要的查询不消耗任何槽位。消耗的确切并发槽位数由查询的资源类决定。
 
 ## <a name="view-the-resource-classes"></a>查看资源类
@@ -217,8 +214,8 @@ EXEC sp_droprolemember 'largerc', 'loaduser';
 若要优化性能，可使用不同的资源类。 下一部分提供了一个可以帮助推算最佳资源类的存储过程。
 
 ## <a name="example-code-for-finding-the-best-resource-class"></a>用于找出最佳资源类的示例代码
-
-<!--Pending on Gen2--> 可以使用以下存储过程（仅适用于第 1 代），根据给定的 SLO 推算每个资源类的并发性和内存授予，以及根据给定的资源类推算对非分区 CCI 表执行内存密集型 CCI 操作时可用的尽量最佳资源类：<!--Pending on Gen2-->
+ 
+可以使用以下存储过程（仅适用于第 1 代），根据给定的 SLO 推算每个资源类的并发性和内存授予，以及根据给定的资源类推算对非分区 CCI 表执行内存密集型 CCI 操作时可用的尽量最佳资源类：
 
 下面是此存储过程的用途：  
 1. 用于查看每个资源类的、根据给定 SLO 推算的并发性和内存授予。 如此示例中所示，用户需要为架构和表名提供 NULL。  
@@ -234,7 +231,7 @@ EXEC sp_droprolemember 'largerc', 'loaduser';
 
 >  [!NOTE]  
 >  如果结合提供的参数执行存储过程后未获得输出，则可能存在两种情况。 <br />1.DW 参数包含无效的 SLO 值 <br />2.或者，针对表执行的 CCI 操作没有匹配的资源类。 <br />例如，在 DW100 级别，可用的最高内存授予是 400 MB。如果表架构很宽，则就会超过 400 MB 的要求。
-
+      
 ### <a name="usage-example"></a>用法示例：
 语法：  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`  
@@ -291,7 +288,7 @@ SET @DWU_NUM = CAST (SUBSTRING(@DWU, 3, LEN(@DWU)-2) AS INT)
 -- Raise error if either schema name or table name is supplied but not both them supplied
 --IF ((@SCHEMA_NAME IS NOT NULL AND @TABLE_NAME IS NULL) OR (@TABLE_NAME IS NULL AND @SCHEMA_NAME IS NOT NULL))
 --     RAISEERROR('User need to supply either both Schema Name and Table Name or none of them')
-
+       
 -- Dropping temp table if exists.
 IF OBJECT_ID('tempdb..#ref') IS NOT NULL
 BEGIN

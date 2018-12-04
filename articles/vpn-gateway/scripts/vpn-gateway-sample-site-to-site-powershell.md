@@ -17,11 +17,11 @@ origin.date: 04/30/2018
 ms.date: 06/12/2018
 ms.author: v-junlch
 ms.openlocfilehash: ae22eae1b0564a1ffdc358aa6573fe78f55139d4
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568484"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649124"
 ---
 # <a name="create-a-vpn-gateway-and-add-a-site-to-site-connection-using-powershell"></a>使用 PowerShell 创建 VPN 网关并添加站点到站点连接
 

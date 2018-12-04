@@ -17,11 +17,11 @@ origin.date: 03/21/2018
 ms.date: 05/08/2018
 ms.author: v-junlch
 ms.openlocfilehash: 96f6fb4b4ab65b030daa130a51bedf24c73633f2
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939288"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650608"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal"></a>使用 Azure 门户配置 VNet 到 VNet VPN 网关连接
 

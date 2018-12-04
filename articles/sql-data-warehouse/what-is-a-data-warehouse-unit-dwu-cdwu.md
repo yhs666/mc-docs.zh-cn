@@ -12,11 +12,11 @@ ms.date: 06/25/2018
 ms.author: v-yeche
 ms.reviewer: igorstan
 ms.openlocfilehash: 18a16ef8b337e04dfd32d50a91f56f193a4254f0
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315410"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649097"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>数据仓库单位 (DWU) 和计算数据仓库单位 (cDWU)
 针对选择理想数目的数据仓库单位（DWU、cDWU）来优化价格和性能以及如何更改单位数提供了建议。 

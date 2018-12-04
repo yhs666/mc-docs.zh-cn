@@ -18,11 +18,11 @@ ms.date: 08/28/2018
 ms.author: v-junlch
 ms.reviewer: dhanyahk
 ms.openlocfilehash: d28b1c842010674e348da72f38947e2884e63bc5
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43171500"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652445"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 门户中的“审核活动”报告 
 

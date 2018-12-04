@@ -16,11 +16,11 @@ origin.date: 04/14/2018
 ms.date: 07/09/2018
 ms.author: v-junlch
 ms.openlocfilehash: 50b20810d51d02e9635e9b6ffec64eeac219502a
-ms.sourcegitcommit: e950fe5260c519e05f8c5bbf193a8ef733a6a2d2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37936346"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649916"
 ---
 # <a name="templates"></a>模板
 ## <a name="overview"></a>概述

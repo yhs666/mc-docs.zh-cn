@@ -16,11 +16,11 @@ origin.date: 06/19/2017
 ms.date: 08/13/2018
 ms.author: v-yeche
 ms.openlocfilehash: d1049caa797e71da02dc2b4938f4bb62ed1e236d
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41703962"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649506"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>使用 Azure 网络观察程序排查虚拟网络网关和连接问题
 

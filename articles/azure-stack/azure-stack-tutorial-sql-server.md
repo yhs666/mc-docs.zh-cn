@@ -18,11 +18,11 @@ ms.author: v-jay
 ms.reviewer: ''
 ms.custom: mvc
 ms.openlocfilehash: 3421b91b4febc278066698c206a92eab3743d4e9
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848806"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652250"
 ---
 # <a name="tutorial-make-sql-databases-available-to-your-azure-stack-users"></a>教程：将 SQL 数据库提供给 Azure Stack 用户使用
 

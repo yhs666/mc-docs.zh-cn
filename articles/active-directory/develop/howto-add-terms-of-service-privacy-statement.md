@@ -9,20 +9,20 @@ editor: ''
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 05/23/2018
-ms.date: 09/03/2018
+origin.date: 09/24/2018
+ms.date: 11/06/2018
 ms.author: v-junlch
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: c41121aab35aeecbef637cdb28846a325de333e2
-ms.sourcegitcommit: 562cde32fc2271238f3d1ef5d2cc5ed037bdec2d
+ms.openlocfilehash: fe35f1236998cde88b0d3dcef6b264dc0a3646f6
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43531593"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650547"
 ---
 # <a name="terms-of-service-and-privacy-statement-for-registered-azure-active-directory-apps"></a>已注册 Azure Active Directory 应用的服务条款和隐私声明
 
@@ -59,6 +59,7 @@ ms.locfileid: "43531593"
 - [使用应用对象 JSON](#app-object-json)
 
 ### <a name="registered-in-azure-portal"></a>已在 Azure 门户中注册应用
+
 如果已在 Azure 门户中注册应用，请按照下列步骤操作。
 
 1. 登录  [Azure 门户](https://portal.azure.cn/)。
@@ -67,7 +68,7 @@ ms.locfileid: "43531593"
 4. 填写 **“服务条款 URL”** 和 **“隐私声明 URL”** 字段。
 5. 保存所做更改。
 
-![含有服务条款和隐私声明 URL 的应用属性部分](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
+    ![含有服务条款和隐私声明 URL 的应用属性部分](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"></a>使用应用对象 JSON
 如果想要直接修改应用对象 JSON，可以使用 Azure 门户中的清单编辑器来包含指向应用的服务条款和隐私声明的链接。

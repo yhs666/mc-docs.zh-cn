@@ -1,9 +1,32 @@
-
+---
+title: include 文件
+description: include 文件
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: ios
+ms.workload: identity
+origin.date: 09/19/2018
+ms.date: 11/05/2018
+ms.author: v-junlch
+ms.custom: include file
+ms.openlocfilehash: ee48d4f8443c7f004a6f205e1dcb41746d0bea37
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649698"
+---
 ## <a name="add-the-applications-registration-information-to-your-app"></a>向应用添加应用程序的注册信息
 
 在此步骤中，需要将应用程序 ID 添加到项目:
 
-1.  在 `ViewController.swift` 中，将以“`let kClientID`”开头的行替换为：
+1. 在 `ViewController.swift` 中，将以“`let kClientID`”开头的行替换为：
     ```swift
     let kClientID = "[Enter the application Id here]"
     ```
@@ -26,7 +49,6 @@
         <key>CFBundleURLSchemes</key>
         <array>
             <string>msal[Enter the application Id here]</string>
-            <string>auth</string>
         </array>
     </dict>
 </array>
@@ -35,3 +57,5 @@
 </ol>
 
 
+
+<!-- ms.date: 11/05/2018 -->

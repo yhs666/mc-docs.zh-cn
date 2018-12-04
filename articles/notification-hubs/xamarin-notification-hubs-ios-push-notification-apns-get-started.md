@@ -18,11 +18,11 @@ origin.date: 08/23/2018
 ms.date: 09/26/2018
 ms.author: v-junlch
 ms.openlocfilehash: 6daa74f7981207c73e5862b500b5e5a3ac34bb61
-ms.sourcegitcommit: 7c6ff130adaa67bc90094846f81295ef0719d072
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47191376"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650917"
 ---
 # <a name="tutorial-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向 Xamarin.iOS 应用推送通知
 

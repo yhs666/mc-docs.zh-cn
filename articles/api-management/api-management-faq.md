@@ -16,11 +16,11 @@ origin.date: 11/19/2017
 ms.author: v-yiso
 ms.date: 04/09/2018
 ms.openlocfilehash: db886fd1f3ff4bfac5d43606f11f2301303e4bdd
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068096"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650761"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API 管理常见问题解答
 了解有关 Azure API 管理的常见问题解答、模式和最佳做法。

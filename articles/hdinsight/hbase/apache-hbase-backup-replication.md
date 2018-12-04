@@ -18,11 +18,11 @@ origin.date: 01/22/2018
 ms.author: v-yiso
 ms.date: 03/26/2018
 ms.openlocfilehash: 53bd4b98ab9f994d48415e5a50805df17e7e8c99
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30077688"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649650"
 ---
 # <a name="set-up-backup-and-replication-for-hbase-and-phoenix-on-hdinsight"></a>为 HDInsight 上的 HBase 和 Phoenix 设置备份与复制
 

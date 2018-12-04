@@ -10,18 +10,18 @@ origin.date: 10/30/2017
 ms.date: 11/12/2018
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: 71ff44b140ed7a6d5f19a052a9b84fb75b7f5453
-ms.sourcegitcommit: b8e99939a5493a15b78c32e87bfbf76a8c96a84a
+ms.openlocfilehash: 1b2f5be84f05bd29d4e82bdcd94f057059fc6643
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409111"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652679"
 ---
 # <a name="audit-sql-db-level-audit-setting"></a>审核 SQL DB 级别审核设置
 
 如果 SQL 数据库审核设置与指定设置不匹配，则此策略会审核这些设置。 指定用于指示应启用或禁用审核设置的值。
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>示例模板
 ```json
@@ -69,7 +69,7 @@ ms.locfileid: "50409111"
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 进行部署
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
 
 ```powershell
 $definition = New-AzureRmPolicyDefinition -Name "audit-sql-db-auditing" -DisplayName "Audit SQL DB Level Audit Setting" -description "Audit DB level audit setting for SQL databases" -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/SQL/audit-sql-db-auditing/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/SQL/audit-sql-db-auditing/azurepolicy.parameters.json' -Mode All
@@ -88,7 +88,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="deploy-with-azure-cli"></a>使用 Azure CLI 进行部署
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
 ```cli
 az policy definition create --name 'audit-sql-db-auditing' --display-name 'Audit SQL DB Level Audit Setting' --description 'Audit DB level audit setting for SQL databases' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/SQL/audit-sql-db-auditing/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/SQL/audit-sql-db-auditing/azurepolicy.parameters.json' --mode All

@@ -17,11 +17,11 @@ ms.author: v-yiso
 ms.date: 12/04/2017
 ms.custom: mvc
 ms.openlocfilehash: da1a4912ef671fc908182ba97e9bc4edda0d724c
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
-ms.locfileid: "25592485"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651586"
 ---
 # <a name="delete-a-backup-for-a-web-app"></a>删除 Web 应用的备份
 
@@ -57,7 +57,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [Get-AzureRmWebAppBackupList](https://docs.microsoft.com/en-us/powershell/module/azurerm.websites/get-azurermwebappbackuplist) | 获取 Web 应用的备份列表。 |
 | [Remove-AzureRmWebAppBackup](https://docs.microsoft.com/en-us/powershell/module/azurerm.websites/remove-azurermwebappbackup) | 删除 Web 应用的指定备份。 |

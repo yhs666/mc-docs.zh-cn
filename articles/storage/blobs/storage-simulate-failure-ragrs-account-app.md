@@ -14,11 +14,11 @@ ms.date: 06/11/2018
 ms.author: v-johch
 ms.custom: mvc
 ms.openlocfilehash: e61d5c2d9814d7ceced596c86bb0c6e31bc1393e
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295611"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649892"
 ---
 # <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>模拟在访问读取访问冗余存储时出现的故障
 

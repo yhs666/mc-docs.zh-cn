@@ -10,18 +10,18 @@ origin.date: 10/30/2017
 ms.date: 11/12/2018
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: 2f4d09c3df5e4d49253e0852110e5946badfc98f
-ms.sourcegitcommit: b8e99939a5493a15b78c32e87bfbf76a8c96a84a
+ms.openlocfilehash: 1645ec927c5e886b672bf89187ae36bad6e7f37f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409127"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650876"
 ---
 # <a name="allowed-express-route-skus"></a>允许的 Express Route SKU
 
 此策略需要 Express Route 使用已批准的 SKU。 指定允许的 SKU 的数组。
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>示例模板
 ```json
@@ -68,7 +68,7 @@ ms.locfileid: "50409127"
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 进行部署
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
 
 ```powershell
 $definition = New-AzureRmPolicyDefinition -Name "express-route-skus" -DisplayName "Allowed Express Route SKUs" -description "This policy enables you to specify a set of express route SKUs that your organization can deploy." -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/express-route-skus/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/express-route-skus/azurepolicy.parameters.json' -Mode All
@@ -87,7 +87,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="deploy-with-azure-cli"></a>使用 Azure CLI 进行部署
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
 ```cli
 az policy definition create --name 'express-route-skus' --display-name 'Allowed Express Route SKUs' --description 'This policy enables you to specify a set of express route SKUs that your organization can deploy.' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/express-route-skus/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/express-route-skus/azurepolicy.parameters.json' --mode All

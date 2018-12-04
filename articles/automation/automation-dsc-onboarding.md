@@ -11,11 +11,11 @@ origin.date: 08/08/2018
 ms.date: 10/01/2018
 manager: digimobile
 ms.openlocfilehash: a7fbe909447b1b30ceceef111a8ed411946cf747
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426212"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651584"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>加入 Azure Automation State Configuration 管理的计算机
 
@@ -75,7 +75,7 @@ Azure Automation State Configuration 可让你使用 Azure 门户、Azure 资源
    Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2
    ```
 
-1. 如果无法从远程应用 PowerShell DSC 元配置，请将步骤 2 中元配置的文件夹复制到每一台要登记的计算机。 然后在每台要登记的计算机上本地调用 **Set-DscLocalConfigurationManager**。
+1. 如果无法从远程应用 PowerShell DSC 元配置，请将步骤 2 中元配置的文件夹复制到每一台要登记的计算机。 然后在要登记的每台计算机本地调用 **Set-DscLocalConfigurationManager** 。
 1. 使用 Azure 门户或 cmdlet 检查要加入的计算机现在是否在 Azure 自动化帐户中显示为已注册的 State Configuration 节点。
 
 ## <a name="physicalvirtual-linux-machines-on-premises-in-azure-or-in-a-cloud-other-than-azure"></a>位于本地、Azure 或 Azure 以外的云中的物理/虚拟 Linux 计算机

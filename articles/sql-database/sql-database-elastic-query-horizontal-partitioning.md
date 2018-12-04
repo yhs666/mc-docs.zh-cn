@@ -12,11 +12,11 @@ origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
 ms.openlocfilehash: 88064e0e67e55050470994105457d42336d8c485
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486663"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652466"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>跨横向扩展的云数据库进行报告（预览版）
 ![跨分片进行查询][1]

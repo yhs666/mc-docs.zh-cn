@@ -11,11 +11,11 @@ origin.date: 04/01/2018
 ms.date: 4/17/2018
 ms.author: v-nany
 ms.openlocfilehash: fb74dc803befe1223e16dd4b47f51a15ba6d28d7
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486593"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651424"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>SQL 数据库性能建议
 

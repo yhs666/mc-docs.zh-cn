@@ -1,6 +1,6 @@
 ---
 title: 使用 Hive 和 Hadoop 分析传感器数据 - Azure HDInsight | Azure
-description: 了解如何通过将 Hive 查询控制台与 HDInsight (Hadoop) 配合使用来分析传感器数据，并通过 PowerView 在 Microsoft Excel 中可视化数据。
+description: 了解如何通过将 Hive 查询控制台与 HDInsight (Hadoop) 配合使用来分析传感器数据，然后通过 PowerView 在 Microsoft Excel 中可视化数据。
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -18,18 +18,18 @@ ms.date: 12/18/2017
 ms.author: v-yiso
 ROBOTS: NOINDEX
 ms.openlocfilehash: 85c3c0db892df51ed2c79625cbbf0db12c4f27a2
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26576126"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651240"
 ---
 # <a name="analyze-sensor-data-using-the-hive-query-console-on-hadoop-in-hdinsight"></a>使用 HDInsight 中 Hadoop上的 Hive 查询控制台分析传感器数据
 
-了解如何通过将 Hive 查询控制台与 HDInsight (Hadoop) 配合使用来分析传感器数据，并通过使用 Power View 在 Microsoft Excel 中可视化数据。
+了解如何通过将 Hive 查询控制台与 HDInsight (Hadoop) 配合使用来分析传感器数据，然后通过使用 Power View 在 Microsoft Excel 中可视化数据。
 
 > [!IMPORTANT]
-> 本文档中的步骤仅适用于基于 Windows 的 HDInsight 群集。 低于 HDInsight 3.4 的 HDInsight 版本仅在 Windows 上提供。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+> 本文档中的步骤仅适用于基于 Windows 的 HDInsight 群集。 低于 HDInsight 3.4 的 HDInsight 版本仅在 Windows 上提供。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 
 在本示例中，使用 Hive 处理历史数据，并确定与加热和空调系统有关的问题。 具体而言，通过执行以下任务，确定系统无法可靠地维持固定温度：

@@ -6,16 +6,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+origin.date: 10/10/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 5c06abcef1b82d3cbbf1511764d97f58bb295d37
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: ec60c158ad37bb5db825a90b7164edebd9486c97
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168419"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649530"
 ---
 # <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>运行 Azure VM 到 Azure 次要区域的灾难恢复演练
 
@@ -53,4 +53,4 @@ ms.locfileid: "39168419"
 > [!div class="nextstepaction"]
 > [运行生产故障转移](azure-to-azure-tutorial-failover-failback.md)
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

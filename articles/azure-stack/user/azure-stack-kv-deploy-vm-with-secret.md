@@ -15,11 +15,11 @@ origin.date: 09/28/2018
 ms.date: 11/12/2018
 ms.author: v-jay
 ms.openlocfilehash: 8dc9290a8b1b09aca9fe7412da73fde49b311cd0
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195394"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650558"
 ---
 # <a name="create-a-virtual-machine-using-a-secure-password-stored-in-azure-stack-key-vault"></a>使用存储在 Azure Stack 密钥保管库中的安全密码创建虚拟机
 

@@ -11,11 +11,11 @@ ms.date: 11/05/2018
 ms.author: v-jay
 ms.component: common
 ms.openlocfilehash: cee0b92515b4cc3467a20407348b77e67999c200
-ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50743536"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650976"
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>在 Azure 存储中断时该怎么办
 Microsoft 一直努力确保所提供的服务始终可用。 但有时候，各种不可控因素会导致一个或多个区域出现计划外服务中断，对我们造成影响。 为了帮助你应对这些偶发事件，我们提供了下述针对 Azure 存储服务的概述性指导。

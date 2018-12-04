@@ -13,11 +13,11 @@ origin.date: 08/07/2018
 ms.date: 09/03/2018
 ms.author: v-yeche
 ms.openlocfilehash: f5a3ea65c567ccecc2e7e656322517140e228b6b
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43171473"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651413"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure 资源管理器部署模式
 部署资源时，可以指定部署为增量更新还是完整更新。  这两种模式的主要区别是资源管理器如何处理资源组中不在模板中的现有资源。

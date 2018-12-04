@@ -8,11 +8,11 @@ origin.date: 07/06/2018
 ms.date: 07/23/2018
 ms.author: v-yeche
 ms.openlocfilehash: c29dddbacc17e8b7f528d404b194f698a7428ae5
-ms.sourcegitcommit: 74f9f0acb00fb728ff6e9bd67ac86a0c1bcd8d13
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39218902"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653967"
 ---
 # <a name="vmware-vmphysical-server-to-vmware-replication-architecture"></a>执行 VMware VM/物理服务器到 VMware 的复制的体系结构
 

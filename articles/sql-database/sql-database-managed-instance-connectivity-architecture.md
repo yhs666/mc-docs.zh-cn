@@ -14,11 +14,11 @@ manager: digimobile
 origin.date: 08/16/2018
 ms.date: 10/29/2018
 ms.openlocfilehash: ab680dc30a5e5a6b6fedf1ea8aa3f0c9b18355db
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135966"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653447"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Azure SQL 数据库托管实例连接体系结构 
 

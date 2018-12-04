@@ -16,11 +16,11 @@ origin.date: 02/22/2017
 ms.date: 11/13/2017
 ms.author: v-yeche
 ms.openlocfilehash: 73aa04a3cf57f36b5a0dcbb42d4c57c476d41b57
-ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2017
-ms.locfileid: "24519482"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651167"
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-powershell"></a>使用 PowerShell 通过 Azure 网络观察程序中的“下一跃点”功能找到下一跃点类型
 
@@ -33,7 +33,7 @@ ms.locfileid: "24519482"
 
 “下一跃点”是网络观察程序的一项功能，提供基于指定的虚拟机获取下一跃点类型和 IP 地址的功能。 此功能对于确定离开虚拟机的流量是否通过网关、Internet 或虚拟网络到达其目标很有用。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 在此方案中，将使用 Azure 门户来查找下一跃点类型和 IP 地址。
 

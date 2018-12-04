@@ -16,11 +16,11 @@ origin.date: 07/02/2018
 ms.date: 07/18/2018
 ms.author: v-junlch
 ms.openlocfilehash: 419ebc07e9bad382286dbda6eb08c468c86c7a38
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168492"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653050"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>关于 Azure Stack 的 VPN 网关
 

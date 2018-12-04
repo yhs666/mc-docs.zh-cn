@@ -15,11 +15,11 @@ origin.date: 09/14/2018
 ms.date: 10/15/2018
 ms.author: v-jay
 ms.openlocfilehash: ab12e23b7cd4125149ae8191bee9b4dd30b8c529
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48849127"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650351"
 ---
 # <a name="how-to-consume-monitoring-data-from-azure-stack"></a>如何使用 Azure Stack 中的监视数据
 

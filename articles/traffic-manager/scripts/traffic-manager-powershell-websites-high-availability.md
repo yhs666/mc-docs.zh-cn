@@ -17,11 +17,11 @@ origin.date: 04/26/2018
 ms.date: 07/09/2018
 ms.author: v-yeche
 ms.openlocfilehash: 74d157e54e8b8a100153d6dea09acadaf12d17c8
-ms.sourcegitcommit: 037a777484c32657c30778c14c27c14db36d39c3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37799987"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654066"
 ---
 # <a name="route-traffic-for-high-availability-of-applications-using-azure-powershell"></a>使用 Azure PowerShell 为实现应用程序的高可用性路由流量
 

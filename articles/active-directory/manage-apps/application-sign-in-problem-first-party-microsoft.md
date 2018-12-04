@@ -17,11 +17,11 @@ ms.date: 10/08/2018
 ms.author: v-junlch
 ms.reviewer: asteen
 ms.openlocfilehash: e430ea0cc7f0a2f95b5c4220231d541b6a71f800
-ms.sourcegitcommit: b8f424fbff10034c55851618f6564d52257a5e92
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48876433"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653795"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>登录 Microsoft 应用程序时出现的问题
 

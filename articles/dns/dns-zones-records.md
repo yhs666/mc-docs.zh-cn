@@ -17,11 +17,11 @@ origin.date: 12/18/2017
 ms.date: 12/18/2017
 ms.author: v-nany
 ms.openlocfilehash: 54ddc877e5814d6db6abee60437e75352115a3a6
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426268"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651595"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>DNS 区域和记录概述
 

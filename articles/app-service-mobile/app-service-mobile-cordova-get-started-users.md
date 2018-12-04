@@ -16,11 +16,11 @@ origin.date: 10/30/2016
 ms.author: v-yiso
 ms.date: 01/29/2018
 ms.openlocfilehash: 2365e1edd547f66269d442402c4d669863e6047b
-ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2018
-ms.locfileid: "27984787"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652581"
 ---
 # <a name="add-authentication-to-your-apache-cordova-app"></a>将身份验证添加到 Apache Cordova 应用
 

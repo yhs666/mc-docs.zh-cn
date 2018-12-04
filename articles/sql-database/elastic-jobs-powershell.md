@@ -10,11 +10,11 @@ oriign.date: 06/14/2018
 ms.date: 08/06/2018
 ms.author: v-jay
 ms.openlocfilehash: 326bda7e0f053ad49a90f15f443e0de6c8807587
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913916"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653241"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>使用 PowerShell 创建弹性作业代理
 
@@ -61,7 +61,7 @@ Get-Module AzureRM.Sql
 
 创建弹性作业代理需要一个用作[作业数据库](elastic-jobs-overview.md#job-database)的数据库（S0 或更高级别）。 
 
-*下面的脚本创建新的资源组、服务器以及可用作作业数据库的数据库。下面的脚本还创建了另外一个服务器，其中包含 2 个可以对其执行作业的空数据库。
+*下面的脚本创建新的资源组、服务器以及可用作作业数据库的数据库。下面的脚本还创建了另外一个服务器，其中包含 2 个可以对其执行作业的空数据库。*
 
 弹性作业没有特定的命名要求，因此可以使用所需的任何命名约定，只要其符合 Azure 要求即可。
 

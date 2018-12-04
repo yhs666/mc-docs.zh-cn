@@ -16,11 +16,11 @@ origin.date: 01/15/2017
 ms.date: 10/16/2017
 ms.author: v-johch
 ms.openlocfilehash: 73f53e38ac9d1ee6b992d8eafbef62db7e0add78
-ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2017
-ms.locfileid: "22612502"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650247"
 ---
 # <a name="using-the-azure-importexport-tool"></a>使用 Azure 导入/导出工具 
 

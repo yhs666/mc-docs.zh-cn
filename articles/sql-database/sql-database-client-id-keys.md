@@ -11,11 +11,11 @@ origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-haiqya
 ms.openlocfilehash: ccb795766f317e31f6fd5c78b0dab952e23291de
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913928"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649529"
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>获取对应用程序进行身份验证所需的值以便从代码访问 SQL 数据库
 若要在代码中创建并管理 SQL 数据库，必须在创建 Azure 资源的订阅中的 Azure Active Directory (AAD) 域内注册你的应用。

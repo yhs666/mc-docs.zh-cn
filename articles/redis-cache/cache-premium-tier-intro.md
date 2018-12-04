@@ -16,11 +16,11 @@ origin.date: 07/05/2017
 ms.date: 02/28/2018
 ms.author: v-junlch
 ms.openlocfilehash: 22d250de731f922f9fbf0d33b49c0f565dc21837
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29730958"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652124"
 ---
 # <a name="introduction-to-the-azure-redis-cache-premium-tier"></a>Azure Redis 缓存高级层简介
 Azure Redis 缓存是一种分布式托管缓存，可通过提供对数据的超高速访问权限来帮助你构建高度可缩放且响应灵敏的应用程序。 
@@ -56,7 +56,7 @@ Redis 群集可提供最大的缩放能力和吞吐量。 增加群集中分片�
 
 导入可用于从任何云或环境中运行的任何 Redis 服务器引入与 Redis 兼容的 RDB 文件，包括在 Linux、Windows 上运行的 Redis 或任何云提供程序（如 Amazon Web Services 等）。 导入数据是使用预先填充的数据创建缓存的简单方式。 在导入过程中，Azure Redis 缓存从 Azure 存储将 RDB 文件加载到内存中，此后再将密钥插入到缓存中。
 
-使用导出可以将 Azure Redis 缓存中存储的数据导出到与 Redis 兼容的 RDB 文件。 可以使用此功能将一个 Azure Redis 缓存实例中的数据移到另一个 Azure Redis 缓存实例或另一个 Redis 服务器。 在导出过程中，将在托管 Azure Redis 缓存服务器实例的 VM 上创建临时文件，并将该文件上传到指定的存储帐户。 导出操作完成后，无论状态为成功还是失败，都会删除临时文件。
+使用导出可以将 Azure Redis 缓存中存储的数据导出到与 Redis 兼容的 RDB 文件。 可以使用此功能将一个 Azure Redis 缓存实例中的数据移到另一个 Azure Redis 缓存实例或另一个 Redis 服务器。 在导出过程中，会在托管 Azure Redis 缓存服务器实例的 VM 上创建临时文件，并将该文件上传到指定的存储帐户。 导出操作完成后，无论状态为成功还是失败，都会删除临时文件。
 
 有关详细信息，请参阅[如何在 Azure Redis 缓存中导入和导出数据](cache-how-to-import-export-data.md)。
 

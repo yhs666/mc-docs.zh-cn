@@ -5,16 +5,16 @@ services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-ms.topic: article
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.topic: conceptual
+origin.date: 10/11/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7764faf0a96cbe4238a91e375e5402f71f496e72
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: c4b08a3aa45a26d5fa609a8cc0e1e67846e365f7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168373"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652371"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>分析 Azure Site Recovery 部署规划器报表
 本文介绍 Azure Site Recovery 部署规划器针对 Hyper-V 到 Azure 方案生成的 Excel 报表中包含的工作表。
@@ -156,10 +156,9 @@ Hyper-V 到 Azure 报表的建议表根据选定的所需 RPO 提供以下详细
 
 **磁盘存储类型**：标准或高级存储帐户，用于复制“要放置的 VM”列中所述的所有相应 VM。
 
-**建议的前缀**：建议的三字符前缀，可用于存储帐户的命名。 可以使用自己的前缀，而该工具的建议则遵循[存储帐户的分区命名约定](https://aka.ms/storage-performance-checklist)。
+**建议的前缀**：建议的三字符前缀，可用于存储帐户的命名。 可以使用自己的前缀，而该工具的建议则遵循 [存储帐户的分区命名约定](https://aka.ms/storage-performance-checklist)。
 
-
-            **建议的帐户名称**：在使用建议的前缀后出现的存储帐户名称。 将尖括号（< 和 >）中的名称替换为自定义输入。
+**建议的帐户名称**：在使用建议的前缀后出现的存储帐户名称。 将尖括号（< 和 >）中的名称替换为自定义输入。
 
 **日志存储帐户**：所有复制日志存储在标准存储帐户中。 对于复制到高级存储帐户的 VM，请设置一个附加的标准存储帐户来进行日志存储。 单个标准日志存储帐户可由多个高级复制存储帐户使用。 复制到标准存储帐户的 VM 为日志使用相同的存储帐户。
 
@@ -359,5 +358,6 @@ VM 兼容性：值为“是”和“是\*”。  **是**\*针对 VM 适用于 [A
 
 ## <a name="next-steps"></a>后续步骤
 详细了解[成本估算](hyper-v-deployment-planner-cost-estimation.md)。
-<!-- Update_Description: update meta properties, wording update -->
+
+<!-- Update_Description: update meta properties  -->
 

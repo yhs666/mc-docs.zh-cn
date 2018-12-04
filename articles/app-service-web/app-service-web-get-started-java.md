@@ -17,11 +17,11 @@ ms.date: 07/03/2017
 ms.author: v-dazen
 ms.custom: mvc
 ms.openlocfilehash: d9c01f467f6c54758a23cbd10ecf423c5fa1619b
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
-ms.locfileid: "20634079"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651900"
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>在 Azure 中创建第一个 Java Web 应用
 
@@ -117,7 +117,7 @@ ms.locfileid: "20634079"
 
 ### <a name="resource-group-tab"></a>“资源组”选项卡
 
-选择“资源组”选项卡。 保留默认的资源组生成值。
+选择“资源组”选项卡。保留默认的资源组生成值。
 
 ![“资源组”选项卡](./media/app-service-web-get-started-java/create-app-service-resource-group.png)
 
@@ -151,7 +151,7 @@ Azure 工具包创建 Web 应用，并显示进度对话框。
 
 ![“Azure 活动日志”对话框](./media/app-service-web-get-started-java/aal.png)
 
-祝贺你！ 现已成功将 Web 应用部署到 Azure。 
+祝贺！ 现已成功将 Web 应用部署到 Azure。 
 
 ![“你好，Azure！” 示例 Web 应用](./media/app-service-web-get-started-java/browse-web-app-1.png)
 

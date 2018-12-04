@@ -16,11 +16,11 @@ ms.date: 07/25/2018
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.openlocfilehash: 6c11d732218b7e4e4cefb388c019dfeb5b9c201b
-ms.sourcegitcommit: cce18df2de12353f0d8f01c649307a5789d59cd4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39246136"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651009"
 ---
 # <a name="manage-access-using-rbac-and-azure-cli"></a>使用 RBAC 和 Azure CLI 管理访问权限
 

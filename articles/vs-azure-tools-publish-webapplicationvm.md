@@ -14,11 +14,11 @@ origin.date: 11/11/2016
 ms.date: 09/10/2018
 ms.author: v-junlch
 ms.openlocfilehash: a2fe5fab9d337fd65bde9ca1090150d19683e8a5
-ms.sourcegitcommit: 40456700212200e707d6cb3147cf96ad161d3ff2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44269526"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653161"
 ---
 # <a name="publish-webapplicationvm-windows-powershell-script"></a>Publish-WebApplicationVM（Windows PowerShell 脚本）
 将 Web 应用程序部署到虚拟机。 如果资源不存在，脚本会在 Azure 订阅中创建所需的资源。
@@ -40,29 +40,29 @@ Publish-WebApplicationVM
 | 别名 | 无 |
 | --- | --- |
 | 必需？ |true |
-| 位置 |指定 |
+| 位置 |名为 |
 | 默认值 |无 |
 | 接受管道输入？ |false |
 | 接受通配符？ |false |
 
 ### <a name="subscriptionname"></a>SubscriptionName
-要在其中创建虚拟机的 Azure 订阅的名称。
+想要在其中创建虚拟机的 Azure 订阅的名称。
 
 | 别名 | 无 |
 | --- | --- |
 | 必需？ |false |
-| 位置 |指定 |
+| 位置 |名为 |
 | 默认值 |使用订阅文件中的第一个订阅 |
 | 接受管道输入？ |false |
 | 接受通配符？ |false |
 
 ### <a name="webdeploypackage"></a>WebDeployPackage
-要发布到虚拟机的 Web 部署包的路径。 可以在 Visual Studio 中使用“发布 Web”向导来创建此包。 请参阅[如何：在 Visual Studio 中创建 Web 部署包](https://msdn.microsoft.com/library/dd465323.aspx)。
+要发布到虚拟机的 Web 部署包的路径。 可以在 Visual Studio 中使用“发布 Web”向导来创建此包。 请参阅 [如何：在 Visual Studio 中创建 Web 部署包](https://msdn.microsoft.com/library/dd465323.aspx)。
 
 | 别名 | 无 |
 | --- | --- |
 | 必需？ |false |
-| 位置 |指定 |
+| 位置 |名为 |
 | 默认值 |无 |
 | 接受管道输入？ |false |
 | 接受通配符？ |false |
@@ -73,7 +73,7 @@ Publish-WebApplicationVM
 | 别名 | 无 |
 | --- | --- |
 | 必需？ |false |
-| 位置 |指定 |
+| 位置 |名为 |
 | 默认值 |false |
 | 接受管道输入？ |false |
 | 接受通配符？ |false |
@@ -84,7 +84,7 @@ Publish-WebApplicationVM
 | 别名 | 无 |
 | --- | --- |
 | 必需？ |false |
-| 位置 |指定 |
+| 位置 |名为 |
 | 默认值 |无 |
 | 接受管道输入？ |false |
 | 接受通配符？ |否 |
@@ -95,18 +95,18 @@ Azure 中的 SQL 数据库的凭据。 示例：-DatabaseServerPassword @{Name =
 | 别名 | 无 |
 | --- | --- |
 | 必需？ |false |
-| 位置 |指定 |
+| 位置 |名为 |
 | 默认值 |无 |
 | 接受管道输入？ |false |
 | 接受通配符？ |false |
 
 ### <a name="sendhostmessagestooutput"></a>SendHostMessagesToOutput
-如果为 true，则将来自脚本的消息打印到输出流。
+如果为 true，则将消息从脚本打印到输出流。
 
 | 别名 | 无 |
 | --- | --- |
 | 必需？ |false |
-| 位置 |指定 |
+| 位置 |名为 |
 | 默认值 |false |
 | 接受管道输入？ |false |
 | 接受通配符？ |false |

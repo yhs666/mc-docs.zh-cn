@@ -10,11 +10,11 @@ origin.date: 03/06/2018
 ms.date: 06/11/2018
 ms.author: v-haiqya
 ms.openlocfilehash: a7ec877b83567852759596519d8f77b664d1af62
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867443"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652347"
 ---
 # <a name="create-a-blob-snapshot"></a>创建 Blob 快照
 

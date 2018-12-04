@@ -10,11 +10,11 @@ ms.date: 11/05/2018
 ms.author: v-jay
 ms.custom: include file
 ms.openlocfilehash: e2d7238a6750b1520c9df3160e8adf3d34fecf95
-ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50919415"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649410"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>是否所有 Azure VPN 网关 SKU 都支持自定义 IPsec/IKE 策略？
 自定义 IPsec/IKE 策略在 Azure VpnGw1、VpnGw2、VpnGw3、标准 VPN 网关和高性能 VPN 网关上受支持。 不支持基本 SKU。

@@ -10,11 +10,11 @@ ms.date: 09/24/2018
 ms.author: v-jay
 ms.component: common
 ms.openlocfilehash: 168a26d95998effbaea20f152ec2e42e6bed767b
-ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523723"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649343"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>使用 Azure 存储模拟器进行开发和测试
 

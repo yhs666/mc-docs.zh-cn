@@ -17,11 +17,11 @@ ms.date: 06/25/2018
 ms.author: v-yiso
 ms.custom: hdiseo17may2017
 ms.openlocfilehash: 04e6b5aa4a1e29355dfc0b487524d9ae5abb3ecc
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747455"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653432"
 ---
 # <a name="serialize-data-in-hadoop-with-the-microsoft-avro-library"></a>使用 Microsoft Avro Library 序列化 Hadoop 中的数据
 

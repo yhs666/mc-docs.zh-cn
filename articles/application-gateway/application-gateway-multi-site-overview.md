@@ -16,11 +16,11 @@ origin.date: 05/09/2017
 ms.date: 08/07/2017
 ms.author: v-dazen
 ms.openlocfilehash: 1e27752b0308e05c07a95df6817a8d5fcd43064a
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
-ms.locfileid: "20764078"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654027"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>应用程序网关的多站点托管功能
 
@@ -31,9 +31,9 @@ ms.locfileid: "20764078"
 > [!IMPORTANT]
 > 规则将按照门户中的列出顺序进行处理。 我们强烈建议先配置多站点侦听器，然后再配置基本侦听器。  这可以确保将流量路由到适当的后端。 如果基本侦听器先列出并且与传入请求匹配，则该侦听器将处理该请求。
 
-对 http://contoso.com 的请求将路由到 ContosoServerPool，而对 http://fabrikam.com 的请求将路由到 FabrikamServerPool。
+对 http://contoso.com 的请求路由到 ContosoServerPool，对 http://fabrikam.com 的请求路由到 FabrikamServerPool。
 
-同样可以将同一父域的两个子域托管到同一应用程序网关部署。 使用子域的示例可以包括在单个应用程序网关部署中托管的 http://blog.contoso.com 和 http://app.contoso.com。
+同样可以将同一父域的两个子域托管到同一应用程序网关部署。 例如，在单个应用程序网关部署中托管的 http://blog.contoso.com 和 http://app.contoso.com 都是使用子域。
 
 ## <a name="host-headers-and-server-name-indication-sni"></a>主机标头和服务器名称指示 (SNI)
 

@@ -16,11 +16,11 @@ origin.date: 04/07/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
 ms.openlocfilehash: 471bbc6fa8aeec54b5994e2cce27d02c0b4f678f
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295625"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652544"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>为导入作业准备硬盘驱动器的示例工作流
 

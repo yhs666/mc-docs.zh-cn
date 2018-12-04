@@ -10,11 +10,11 @@ origin.date: 06/27/2018
 ms.date: 08/27/2018
 ms.author: v-jay
 ms.openlocfilehash: 585f0b8827d92c1f7d5a939d9b96cf8a6b6befd6
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872441"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650825"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-data-lake-storage-gen2-preview"></a>使用 Distcp 在 Azure 存储 Blob 与 Data Lake Storage Gen2 预览版之间复制数据
 

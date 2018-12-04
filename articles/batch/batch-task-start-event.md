@@ -14,11 +14,11 @@ origin.date: 04/20/2017
 ms.date: 05/15/2018
 ms.author: v-junlch
 ms.openlocfilehash: 36cd52f2a4953ab5b027d966cdfd0cd5ef2c764b
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173283"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649826"
 ---
 # <a name="task-start-event"></a>任务开始事件
 

@@ -12,11 +12,11 @@ origin.date: 01/20/2017
 ms.date: 10/30/2018
 ms.author: v-junlch
 ms.openlocfilehash: 0de015c39a94a893b4bc280de605f29e7b3d2adf
-ms.sourcegitcommit: b8e99939a5493a15b78c32e87bfbf76a8c96a84a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50408986"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652046"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>示例：如何调用计算机视觉 API
 

@@ -10,11 +10,11 @@ ms.date: 08/06/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
 ms.openlocfilehash: f7471174350d14df3e96c8860a8601747b8ee922
-ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487850"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650482"
 ---
 # <a name="manage-database-roles-and-users"></a>管理数据库角色和用户
 

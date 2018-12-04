@@ -5,7 +5,7 @@
 | --- | --- | --- |
 | publicIPAllocationMethod |定义 IP 地址是静态的还是动态的。 |static、dynamic |
 | idleTimeoutInMinutes |定义空闲超时，默认值为 4 分钟。 如果在此时间内没有收到给定会话的更多数据包，则会终止该会话。 |介于 4 和 30 之间的任何值 |
-| ipAddress |分配给对象的 IP 地址。 这是只读属性。 |104.42.233.77 |
+| **ipAddress** |分配给对象的 IP 地址。 这是只读属性。 |104.42.233.77 |
 
 ### <a name="dns-settings"></a>DNS 设置
 公共 IP 地址具有一个名为 dnsSettings 的子对象，该对象包含以下属性：

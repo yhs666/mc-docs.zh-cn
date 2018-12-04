@@ -16,11 +16,11 @@ ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: alfredo
 ms.openlocfilehash: 231f0cd746efd0d8721726cb6a8ccd37099efcdd
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195434"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652773"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>管理充当云服务提供商的 Azure Stack 的使用情况和计费 
 

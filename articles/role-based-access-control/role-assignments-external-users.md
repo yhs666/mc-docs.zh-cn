@@ -18,11 +18,11 @@ ms.author: v-junlch
 ms.reviewer: skwan
 ms.custom: it-pro
 ms.openlocfilehash: 278a2cbd32396d95154041f8e2c126ab4446c481
-ms.sourcegitcommit: 830a60c06303a8447d128a3bca8b36aa2b3b655b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47075844"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654171"
 ---
 # <a name="manage-access-for-external-users-using-rbac"></a>使用 RBAC 管理外部用户的访问权限
 

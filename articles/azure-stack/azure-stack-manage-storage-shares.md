@@ -16,11 +16,11 @@ ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: xiaofmao
 ms.openlocfilehash: 7e21e9e84613eb5b692ccbbdd3acf3f0bfc21697
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195560"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651622"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>管理 Azure Stack 的存储容量 
 

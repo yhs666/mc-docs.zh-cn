@@ -16,11 +16,11 @@ origin.date: 08/20/2018
 ms.date: 08/27/2018
 ms.author: v-junlch
 ms.openlocfilehash: 2323da50d1a5fbfbc4d5a57b580a460bfd15b642
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869553"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650727"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>在 Azure Stack 上开始使用应用服务之前
 

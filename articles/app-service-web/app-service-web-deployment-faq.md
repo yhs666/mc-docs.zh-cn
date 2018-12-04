@@ -17,11 +17,11 @@ origin.date: 07/10/2017
 ms.date: 10/09/2017
 ms.author: v-yiso
 ms.openlocfilehash: 95d6ff8d5d7ac9f32dd59bc4e8c6ef6f83a250ab
-ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
-ms.locfileid: "22146541"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650551"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Azure 中 Web 应用的部署常见问题解答
 
@@ -33,7 +33,7 @@ ms.locfileid: "22146541"
 
 可通过以下几种方式发布 Web 应用代码：
 
-*   使用 Visual Studio 进行部署。 如果拥有 Visual Studio 解决方案，请右键单击 Web 应用程序项目，然后选择“发布”。
+*   使用 Visual Studio 进行部署。 如果具有 Visual Studio 解决方案，则右键单击 Web 应用程序项目，然后选择“发布”。
 *   使用 FTP 客户端进行部署。 在 Azure 门户中，下载要向其部署代码的 Web 应用的发布配置文件。 然后，使用相同的发布配置文件 FTP 凭据将文件上传到 \site\wwwroot。
 
 有关详细信息，请参阅[将应用部署到应用服务](web-sites-deploy.md)。

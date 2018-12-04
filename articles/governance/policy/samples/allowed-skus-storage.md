@@ -10,18 +10,18 @@ origin.date: 10/30/2017
 ms.date: 11/12/2018
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: 4fdaa937c82ba1a1be9dc98b833fa7d1aafa6fab
-ms.sourcegitcommit: b8e99939a5493a15b78c32e87bfbf76a8c96a84a
+ms.openlocfilehash: f533028c3a947b3b6f73a4856bd15eea088a11d5
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409122"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650877"
 ---
 # <a name="allowed-skus-for-storage-accounts-and-virtual-machines"></a>允许用于存储帐户和虚拟机的 SKU
 
 此策略需要存储帐户和虚拟机使用已批准的 SKU。 使用内置策略以确保使用已批准的 SKU。 指定已批准的虚拟机 SKU 数组和已批准的存储帐户 SKU 数组。
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>示例模板
 ```json
@@ -77,7 +77,7 @@ ms.locfileid: "50409122"
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 进行部署
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
 
 ```powershell
 $policydefinitions = "https://raw.githubusercontent.com/Azure/azure-policy/master/samples/PolicyInitiatives/skus-for-multiple-types/azurepolicyset.definitions.json"
@@ -99,7 +99,7 @@ Remove-AzureRmPolicySetDefinitions -Name "skus-for-multiple-types"
 
 ## <a name="deploy-with-azure-cli"></a>使用 Azure CLI 进行部署
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
 ```cli
 az policy set-definition create --name "skus-for-multiple-types" --display-name "Allowed SKUs for Storage Accounts and Virtual Machines" --description "This policy allows you to speficy what skus are allowed for storage accounts and virtual machines" --definitions "https://raw.githubusercontent.com/Azure/azure-policy/master/samples/PolicyInitiatives/skus-for-multiple-types/azurepolicyset.definitions.json" --params "https://raw.githubusercontent.com/Azure/azure-policy/master/samples/PolicyInitiatives/skus-for-multiple-types/azurepolicyset.parameters.json"

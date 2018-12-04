@@ -12,15 +12,15 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
-origin.date: 08/29/2018
-ms.date: 10/15/2018
+origin.date: 10/12/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 67e6995b320d2cdfc4ab7e8625c5de19a34d1b2a
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.openlocfilehash: 118df523d175434530d39de7f8136e9979fb37e6
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089087"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650610"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>Service Fabric Reliable Services 中的 ASP.NET Core
 
@@ -253,6 +253,49 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 此示例中为 WebHost 依赖关系注入容器提供 `IReliableStateManager` 的单一实例。 这不是必需的，但通过此操作，可在 MVC 控制器操作方法中使用 `IReliableStateManager` 和 Reliable Collections。
 
 有状态服务中不会为 `KestrelCommunicationListener` 提供`Endpoint` 配置名称。 后续部分会对此进行详细说明。
+
+### <a name="configure-kestrel-to-use-https"></a>将 Kestrel 配置为使用 HTTPS
+如要在服务中为 Kestrel 启用 HTTPS，需要设置多个侦听选项。  将 `ServiceInstanceListener` 更新为使用 EndpointHttps 终结点和侦听特定端口（例如端口 443）。 配置使用 Kestrel 服务器的 Web 主机时，须将 Kestrel 配置为针对所有网络接口上的 IPv6 地址进行侦听： 
+
+```csharp
+new ServiceInstanceListener(
+serviceContext =>
+    new KestrelCommunicationListener(
+        serviceContext,
+        "EndpointHttps",
+        (url, listener) =>
+        {
+            ServiceEventSource.Current.ServiceMessage(serviceContext, $"Starting Kestrel on {url}");
+
+            return new WebHostBuilder()
+                .UseKestrel(opt =>
+                {
+                    int port = serviceContext.CodePackageActivationContext.GetEndpoint("EndpointHttps").Port;
+                    opt.Listen(IPAddress.IPv6Any, port, listenOptions =>
+                    {
+                        listenOptions.UseHttps(GetCertificateFromStore());
+                        listenOptions.NoDelay = true;
+                    });
+                })
+                .ConfigureAppConfiguration((builderContext, config) =>
+                {
+                    config.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+                })
+
+                .ConfigureServices(
+                    services => services
+                        .AddSingleton<HttpClient>(new HttpClient())
+                        .AddSingleton<FabricClient>(new FabricClient())
+                        .AddSingleton<StatelessServiceContext>(serviceContext))
+                .UseContentRoot(Directory.GetCurrentDirectory())
+                .UseStartup<Startup>()
+                .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
+                .UseUrls(url)
+                .Build();
+        }))
+```
+
+如需查看教程中使用的完整示例，请参阅[配置 Kestrel 以使用 HTTPS](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#configure-kestrel-to-use-https)。
 
 ### <a name="endpoint-configuration"></a>终结点配置
 使用 Kestrel 时不需要 `Endpoint` 配置。 

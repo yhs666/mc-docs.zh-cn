@@ -18,11 +18,11 @@ ms.date: 01/02/2018
 ms.author: v-yiso
 ms.custom: mvc
 ms.openlocfilehash: f643438578b7bac1ee7c3d4160cecd7f8dd76a16
-ms.sourcegitcommit: 51f9fe7a93207e6b9d61e09b7abf56a7774ee856
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2017
-ms.locfileid: "27546578"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650254"
 ---
 # <a name="scale-a-web-app-worldwide-with-a-high-availability-architecture"></a>缩放具有高可用性体系结构的全球 Web 应用
 
@@ -30,7 +30,7 @@ ms.locfileid: "27546578"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-如果选择在本地安装并使用 CLI，则需要使用 Azure CLI 2.0 版或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest)。
+如果选择在本地安装并使用 CLI，则需使用 Azure CLI 2.0 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest)。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 

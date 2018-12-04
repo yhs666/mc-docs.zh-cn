@@ -16,11 +16,11 @@ origin.date: 05/09/2018
 ms.date: 06/11/2018
 ms.author: v-junlch
 ms.openlocfilehash: 6d1d724bcb5c1961ff9650e569b2a218a4630cf9
-ms.sourcegitcommit: 306fba1a7125ef6f0555781524afa8f535bea2a0
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35253392"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651146"
 ---
 # <a name="key-vault-versions"></a>Key Vault 版本
 

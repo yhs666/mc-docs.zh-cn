@@ -12,11 +12,11 @@ ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: kivenkat
 ms.openlocfilehash: f0dc7d4229a7cd24c0bb567456cfad4c1c9ac56a
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848895"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652443"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>在 Azure Stack 中提供虚拟机规模集
 

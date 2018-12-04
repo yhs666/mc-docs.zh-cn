@@ -9,11 +9,11 @@ origin.date: 06/07/2018
 ms.date: 10/22/2018
 ms.author: v-lingwu
 ms.openlocfilehash: a6cdd9e920c36e83aff01f7ca23e83a172c5e2f3
-ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652239"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649868"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>从 Azure 资源收集和使用日志数据
 

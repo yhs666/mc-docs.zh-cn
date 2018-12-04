@@ -10,11 +10,11 @@ ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: d127fc9dff400344251064f9f5a41bdd0c1e743e
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523903"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650436"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>通过 Visual Studio Code 部署 Azure IoT Edge 模块
 

@@ -12,11 +12,11 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
 ms.openlocfilehash: d8687e497e0bc06cc3f4a31b19a214eca46e5692
-ms.sourcegitcommit: c237baac64f847301ba7f67082ffffcd81c00142
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43850825"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649599"
 ---
 # <a name="quickstart-self-service-password-reset"></a>快速入门：自助服务密码重置
 

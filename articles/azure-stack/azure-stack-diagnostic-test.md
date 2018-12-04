@@ -15,11 +15,11 @@ ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: hectorl
 ms.openlocfilehash: 01bc2822bfe0e3d8b175377a969fe7ada6e9c55b
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195429"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652286"
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>为 Azure Stack 运行验证测试
 

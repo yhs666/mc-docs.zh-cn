@@ -8,15 +8,15 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
 origin.date: 04/17/2018
-ms.date: 10/15/2018
+ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 0cc0843eba21ab4533b7a3ff4340ed2979ba530b
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.openlocfilehash: a65a1019f3d2a358666030c3a658dee0d1c095ab
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089155"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651358"
 ---
 # <a name="data-warehouse-workload"></a>数据仓库工作负荷
 数据仓库工作负荷是指所有针对数据仓库所发生的操作。 数据仓库工作负荷包括将数据载入仓库、对数据仓库执行分析和报告、管理数据仓库中的数据，以及从数据仓库导出数据的整个过程。 这些组件的深度与广度多半与数据仓库的成熟度相当。
@@ -63,14 +63,13 @@ ms.locfileid: "49089155"
 * 如果要执行分析，可以在数据仓库中生成分析多维数据集，并针对数据仓库运行分析，或是预先处理数据，再导出到分析服务器做进一步的分析。
 
 ## <a name="next-steps"></a>后续步骤
-对 SQL 数据仓库有了初步的认识后，请学习如何快速创建 SQL 数据仓库和[加载示例数据][load sample data]。
-<!-- Not Available on [create a SQL Data Warehouse][create a SQL Data Warehouse] -->
+对 SQL 数据仓库有了初步的认识后，请继续学习如何快速[创建 SQL 数据仓库][create a SQL Data Warehouse]和[加载示例数据][load sample data]。
 
 <!--Image references-->
 
 <!--Article references-->
 [load sample data]: ./sql-data-warehouse-load-sample-databases.md
-<!-- Not Available on [create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md -->
+[create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->
 

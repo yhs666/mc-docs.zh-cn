@@ -9,15 +9,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/22/2018
-ms.date: 09/24/2018
+origin.date: 10/10/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 93e48b3d4820844d53e787ce86f4c34cd98e9bff
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.openlocfilehash: 3c84c3b03ec84bdbe0f646474b3a3ca12a8033d7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46526970"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651964"
 ---
 <!--Verify sucessfully-->
 # <a name="create-resource-groups-in-azure-resource-manager-templates"></a>在 Azure 资源管理器模板中创建资源组
@@ -34,7 +34,7 @@ ms.locfileid: "46526970"
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
     "contentVersion": "1.0.0.1",
     "parameters": {
         "rgName": {
@@ -85,7 +85,7 @@ New-AzureRmDeployment `
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
     "contentVersion": "1.0.0.1",
     "parameters": {
         "rgNamePrefix": {
@@ -133,7 +133,7 @@ New-AzureRmDeployment `
   -Name demoCopyRG `
   -Location chinaeast `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/copyRG.json `
-  -rgName demogroup `
+  -rgNamePrefix demogroup `
   -rgLocation chinaeast `
   -instanceCount 3
 ```
@@ -146,7 +146,7 @@ New-AzureRmDeployment `
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
     "contentVersion": "1.0.0.1",
     "parameters": {
         "rgName": {
@@ -173,7 +173,7 @@ New-AzureRmDeployment `
         },
         {
             "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2017-05-10",
+            "apiVersion": "2018-05-01",
             "name": "storageDeployment",
             "resourceGroup": "[parameters('rgName')]",
             "dependsOn": [
@@ -235,4 +235,4 @@ New-AzureRmDeployment `
 * 若要了解有关创建 Azure Resource Manager模板的信息，请参阅[创作模板](resource-group-authoring-templates.md)。 
 * 有关模板中的可用函数列表，请参阅[模板函数](resource-group-template-functions.md)。
 
-<!-- Update_Description: add powershell cmdlet content -->
+<!-- Update_Description: update meta properties, wording update -->

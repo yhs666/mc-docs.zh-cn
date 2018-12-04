@@ -16,11 +16,11 @@ ms.date: 07/02/2018
 ms.author: v-junlch
 ms.custom: mvc
 ms.openlocfilehash: c4c725248aff807f92540806402663f368beda07
-ms.sourcegitcommit: f0bfa3f8dca94099a2181492952e6a575fbdbcc8
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37142674"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651271"
 ---
 # <a name="manage-web-traffic-with-azure-powershell"></a>使用 Azure PowerShell 管理 Web 流量
 

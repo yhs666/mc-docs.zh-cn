@@ -18,11 +18,11 @@ origin.date: 09/07/2018
 ms.date: 10/15/2018
 ms.author: v-jay
 ms.openlocfilehash: a86f15e24a28ff1c7eb6fa8b365fcef71d9c8cb4
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913986"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653867"
 ---
 # <a name="use-powershell-to-copy-a-sql-database-to-a-new-server"></a>使用 PowerShell 将 SQL 数据库复制到新服务器
 

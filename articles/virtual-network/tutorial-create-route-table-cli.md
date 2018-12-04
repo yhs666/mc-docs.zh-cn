@@ -15,15 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 03/13/2018
-ms.date: 09/10/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: b5b64c8aa9e3d5f582b8b60296361afa52daad26
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: 72b8cfde396aaf3f182a1a5d03e71a7dba35c278
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515686"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651750"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>使用 Azure CLI 通过路由表路由网络流量
 
@@ -41,7 +41,7 @@ ms.locfileid: "44515686"
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本快速入门要求运行 Azure CLI 2.0.28 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
+如果选择在本地安装并使用 CLI，本快速入门要求运行 Azure CLI 2.0.28 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
 
 ## <a name="create-a-route-table"></a>创建路由表
 
@@ -124,7 +124,7 @@ NVA 是执行网络功能（如路由、防火墙或 WAN 优化）的 VM。
 
 使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 在 *DMZ* 子网中创建 NVA。 创建 VM 时，Azure 默认会创建一个公共 IP 地址并将其分配到该 VM。 `--public-ip-address ""` 参数指示 Azure 不要创建公共 IP 地址并将其分配到该 VM，因为不需要从 Internet 连接到该 VM。 如果默认密钥位置中尚不存在 SSH 密钥，该命令会创建它们。 若要使用特定的一组密钥，请使用 `--ssh-key-value` 选项。
 
-```azurecli
+```CLI
 az vm create \
   --resource-group myResourceGroup \
   --name myVmNva \
@@ -229,7 +229,7 @@ sudo apt-get install traceroute
 traceroute myVmPublic
 ```
 
-响应类似于以下示例：
+其响应类似于如下示例：
 
 ```bash
 traceroute to myVmPublic (10.0.0.4), 30 hops max, 60 byte packets
@@ -256,7 +256,7 @@ sudo apt-get install traceroute
 traceroute myVmPrivate
 ```
 
-响应类似于以下示例：
+其响应类似于如下示例：
 
 ```bash
 traceroute to myVmPrivate (10.0.1.4), 30 hops max, 60 byte packets
@@ -281,4 +281,4 @@ az group delete --name myResourceGroup --yes
 
 尽管可以在一个虚拟网络中部署多个 Azure 资源，但无法将某些 Azure PaaS 服务的资源部署到虚拟网络。 不过，仍可以限制为只允许来自某个虚拟网络子网的流量访问某些 Azure PaaS 服务的资源。 若要了解如何操作，请参阅[限制对 PaaS 资源的网络访问](tutorial-restrict-network-access-to-resources-cli.md)。
 
-<!-- Update_Description: update meta properties  -->
+<!-- Update_Description: update meta properties, wording update  -->

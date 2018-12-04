@@ -14,11 +14,11 @@ origin.date: 01/25/2018
 ms.date: 06/07/2018
 ms.author: v-junlch
 ms.openlocfilehash: aa990506e339a9c7d3a1fb7dc88c1a133881632b
-ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855741"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652700"
 ---
 # <a name="create-an-application-gateway-using-azure-powershell"></a>使用 Azure PowerShell 创建应用程序网关
 

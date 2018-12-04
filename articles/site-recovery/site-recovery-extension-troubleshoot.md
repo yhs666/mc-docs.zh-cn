@@ -11,11 +11,11 @@ origin.date: 07/06/2018
 ms.date: 07/23/2018
 ms.author: v-yeche
 ms.openlocfilehash: 44a305b66145c5d82fe14771d2307176b7a535cb
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168486"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652446"
 ---
 # <a name="troubleshoot-azure-site-recovery-extension-failures-issues-with-the-agent-or-extension"></a>排除 Azure Site Recovery 扩展故障：代理或扩展的问题
 

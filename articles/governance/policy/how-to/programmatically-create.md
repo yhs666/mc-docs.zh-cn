@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: digimobile
 ms.openlocfilehash: 1796810cf7e80c516ea433c8adf037212e1f92a1
-ms.sourcegitcommit: b8e99939a5493a15b78c32e87bfbf76a8c96a84a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409136"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650260"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>以编程方式创建策略和查看符合性数据
 

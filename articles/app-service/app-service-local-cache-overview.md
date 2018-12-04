@@ -18,11 +18,11 @@ origin.date: 03/04/2016
 ms.date: 10/08/2018
 ms.author: v-yiso
 ms.openlocfilehash: aca5899956acf7a4672ca281c3e8bebac53d8c1e
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523828"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651331"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Azure 应用服务本地缓存概述
 Azure Web 应用内容存储在 Azure 存储中，作为内容共享持续提供。 此设计旨在兼容各种应用，具有以下特点：  

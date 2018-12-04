@@ -15,11 +15,11 @@ origin.date: 11/15/2017
 ms.date: 09/24/2018
 ms.author: v-yeche
 ms.openlocfilehash: 0788ab7a42070d2e5a352afa6e6411399b3b75c9
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527145"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651581"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager 与经典部署：了解部署模型和资源状态
 
@@ -127,10 +127,10 @@ Get-AzureRmVM -ResourceGroupName ExampleGroup
 ## <a name="migrate-from-classic-to-resource-manager"></a>从经典部署迁移到 Resource Manager 部署
 如果已准备好将资源从经典部署迁移到 Resource Manager 部署，请参阅：
 
-1. [有关平台支持的从经典部署模型到 Azure Resource Manager 部署模型的迁移的技术深入探讨](../virtual-machines/windows/migration-classic-resource-manager-deep-dive.md)
+1. [平台支持的从经典部署模型迁移到 Azure Resource Manager 的技术深入探讨](../virtual-machines/windows/migration-classic-resource-manager-deep-dive.md)
 2. [平台支持的从经典部署模型到 Azure Resource Manager 部署模型的 IaaS 资源迁移](../virtual-machines/windows/migration-classic-resource-manager-overview.md)
 3. [使用 Azure PowerShell 将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器部署模型](../virtual-machines/windows/migration-classic-resource-manager-ps.md)
-4. [使用 Azure CLI 将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器部署模型](../virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)
+4. [使用 Azure CLI 将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager 部署模型](../virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)
 
 ## <a name="frequently-asked-questions"></a>常见问题
 **我能使用资源管理器创建虚拟机，以将其部署到使用经典部署创建的虚拟网络中吗？**

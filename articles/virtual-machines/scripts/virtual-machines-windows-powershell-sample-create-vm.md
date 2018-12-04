@@ -18,11 +18,11 @@ ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: c34b644a00e6eece1e3c894b68058f7d16393bce
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295558"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649151"
 ---
 # <a name="create-a-fully-configured-virtual-machine-with-powershell"></a>使用 PowerShell 创建完全配置的虚拟机
 

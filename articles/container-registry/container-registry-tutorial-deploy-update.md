@@ -11,11 +11,11 @@ ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 31a8ccb3ef634cb8db5ab53c60b5162378ee527a
-ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38999188"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653609"
 ---
 # <a name="tutorial-push-an-updated-image-to-regional-deployments"></a>教程：将已更新的映像推送到区域部署
 

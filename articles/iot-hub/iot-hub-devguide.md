@@ -16,11 +16,11 @@ origin.date: 01/29/2018
 ms.date: 05/07/2018
 ms.author: v-yiso
 ms.openlocfilehash: 5cbd4e5f4072ab4ada1c9e3c99971f3480bfd191
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121543"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649366"
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Azure IoT 中心开发人员指南
 Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备和单个解决方案后端之间实现安全可靠的双向通信。
@@ -54,7 +54,7 @@ Azure IoT 中心提供：
 * [参考 - IoT 中心终结点][devguide-endpoints] 说明了每个 IoT 中心针对运行时和管理操作公开的各种终结点。 此文还介绍了如何在 IoT 中心创建附加终结点，以及如何在非标准方案中使用现场网关实现到 IoT 中心终结点的连接。
 * [参考 - 用于设备孪生、作业和消息路由的 IoT 中心查询语言][devguide-query]介绍了可用于在中心检索设备孪生和作业相关信息的 IoT 中心查询语言。
 * [参考 - 配额和限制][devguide-quotas]总结了 IoT 中心服务中设置的配额，以及当超过配额时会发生的限制。
-* [参考 - 定价][devguide-pricing]提供有关 IoT 中心的不同 SKU 和定价的常规信息，以及 IoT 中心如何将各种 IoT 中心功能作为消息计量的详细信息。
+* [参考 - 定价][devguide-pricing] 提供有关 IoT 中心的不同 SKU 和定价的常规信息，以及 IoT 中心如何将各种 IoT 中心功能作为消息计量的详细信息。
 * [参考 - 设备和服务 SDK][devguide-sdks] 列出了用于开发与 IoT 中心交互的设备和服务应用的 Azure IoT SDK。 此文章包括指向联机 API 文档的链接。
 * [参考 - IoT 中心 MQTT 支持][devguide-mqtt] 详细介绍了 IoT 中心如何支持 MQTT 协议。 此文章介绍了到 Azure IoT SDK 的 MQTT 协议内置支持，并阐述了如何直接使用 MQTT 协议。
 * [词汇表][devguide-glossary] 是与 IoT 中心相关的常见术语的列表。

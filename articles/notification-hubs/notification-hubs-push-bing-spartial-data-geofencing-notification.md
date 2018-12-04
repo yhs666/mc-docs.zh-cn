@@ -18,11 +18,11 @@ origin.date: 04/14/2018
 ms.date: 07/09/2018
 ms.author: v-junlch
 ms.openlocfilehash: 418fa03287ab87e88ab39f734bac895b6223aee1
-ms.sourcegitcommit: e950fe5260c519e05f8c5bbf193a8ef733a6a2d2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37936349"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650639"
 ---
 # <a name="tutorial-push-location-based-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>教程：使用 Azure 通知中心和必应空间数据推送基于位置的通知
 本教程介绍如何使用 Azure 通知中心和必应空间数据来传送基于位置的推送通知。 
@@ -394,7 +394,7 @@ ms.locfileid: "37936349"
 可能还需要执行几个步骤才能使解决方案可用于生产。
 
 1. 首先，需要确保地域隔离区是动态的。 需要对必应 API 进行一些额外的处理，才能在现有数据源内上传新边界。 有关详细信息，请参阅[必应空间数据服务 API 文档](https://msdn.microsoft.com/library/ff701734.aspx)。
-2. 其次，由于你要确保向正确的参与者执行传送，因此可以通过 [标记](notification-hubs-tags-segment-push-message.md)锁定这些人。
+2. 其次，由于要确保向正确的参与者执行传送，因此可以通过 [标记](notification-hubs-tags-segment-push-message.md)来锁定这些人。
 
 本教程中所示的解决方案描述了一种场景，其中可能有各种不同的目标平台，因此未限制只有系统特定的功能才能使用地域隔离。 也就是说，通用 Windows 平台可以提供现成的 [地域隔离区检测](https://msdn.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence)功能。
 

@@ -17,11 +17,11 @@ ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: misainat
 ms.openlocfilehash: 86532cf3285e97f1f007ff6189b06be050568f3b
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195374"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649816"
 ---
 # <a name="prepare-the-asdk-host-computer"></a>准备 ASDK 主机
 在主机上安装 ASDK 之前，必须先准备好用于安装的 ASDK 环境。 准备好开发工具包主机之后，该主机会从 CloudBuilder.vhdx 虚拟机硬盘启动，以开始进行 ASDK 部署。

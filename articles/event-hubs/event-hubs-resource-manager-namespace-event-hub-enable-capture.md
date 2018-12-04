@@ -16,11 +16,11 @@ origin.date: 08/16/2018
 ms.date: 11/05/2018
 ms.author: v-biyu
 ms.openlocfilehash: 69d47eb70912580928fcae64459ee028e6b97273
-ms.sourcegitcommit: 8a68d9275ddb92ea45601fed96e21559999d9579
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026966"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652161"
 ---
 <!--Verify successfully-->
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>使用模板通过事件中心创建一个命名空间并启用捕获
@@ -336,7 +336,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Azure Quickstart Templates]:  https://github.com/Azure/azure-quickstart-templates/?term=event+hubs
-<!-- Not Available on [Azure Resources naming conventions]: https://www.azure.cn/documentation/articles/guidance-naming-conventions/--> [事件中心和“允许捕获到存储”模板]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture<!-- Not Available on [Event hub and enable Capture to Azure Data Lake Store template]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture-for-adls-->>
+<!-- Not Available on [Azure Resources naming conventions]: https://www.azure.cn/documentation/articles/guidance-naming-conventions/--> [事件中心和“允许捕获到存储”模板]： https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture<!-- Not Available on [Event hub and enable Capture to Azure Data Lake Store template]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture-for-adls-->>
 
 <!-- Update_Description: new articles on event hubs resource manager namespace event hub enbale capture -->
 <!--ms.date: 09/17/2018-->

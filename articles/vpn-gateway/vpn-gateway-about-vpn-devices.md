@@ -11,11 +11,11 @@ origin.date: 10/05/2018
 ms.date: 11/05/2018
 ms.author: v-jay
 ms.openlocfilehash: 9f802eacb0e75426f98a93931dc427d15c022147
-ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50919117"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650243"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>关于用于站点到站点 VPN 网关连接的 VPN 设备和 IPsec/IKE 参数
 

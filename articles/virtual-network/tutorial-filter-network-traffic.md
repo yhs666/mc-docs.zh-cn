@@ -19,11 +19,11 @@ ms.date: 07/23/2018
 ms.author: v-yeche
 ms.custom: ''
 ms.openlocfilehash: cc7ccce733a2d8449e2ab5a6a471e298daaf5967
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167907"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650052"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-powershell"></a>教程：在 PowerShell 中使用网络安全组筛选网络流量
 

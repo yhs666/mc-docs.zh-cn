@@ -17,11 +17,11 @@ origin.date: 01/03/2018
 ms.date: 02/26/2018
 ms.author: v-yiso
 ms.openlocfilehash: 7d322219111823057b1ac16fbaecf05d1befeafe
-ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2018
-ms.locfileid: "29552326"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652656"
 ---
 # <a name="use-apache-phoenix-with-linux-based-hbase-clusters-in-hdinsight"></a>将 Apache Phoenix 与 HDinsight 中基于 Linux 的 HBase 群集配合使用
 了解如何在 Azure HDInsight 中使用 [Apache Phoenix](http://phoenix.apache.org/)，以及如何使用 SQLLine。 有关 Phoenix 的详细信息，请参阅 [在 15 分钟或以下了解 Phoenix](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)。 有关 Phoenix 语法，请参阅 [Phoenix 语法](http://phoenix.apache.org/language/index.html)。
@@ -50,7 +50,7 @@ ms.locfileid: "29552326"
 
 **使用 SQLLine**
 
-1. 使用 SSH 连接到群集。 有关详细信息，请参阅 [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
+1. 使用 SSH 连接到群集。 有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 2. 在 SSH 中，运行以下命令以运行 SQLLine：
 

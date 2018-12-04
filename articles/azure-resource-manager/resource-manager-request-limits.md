@@ -16,11 +16,11 @@ origin.date: 09/17/2018
 ms.date: 09/24/2018
 ms.author: v-yeche
 ms.openlocfilehash: 3cb6d32ac632e98d35d1fba770a9ae677df75bd5
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527153"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652219"
 ---
 # <a name="throttling-resource-manager-requests"></a>限制 Resource Manager 请求数
 对于每个 Azure 订阅和租户，资源管理器最多允许每小时 12,000 个读取请求和每小时 1,200 个写入请求。 这些限制作用于发出请求的主体 ID，以及订阅 ID 或租户 ID。 如果请求来自多个主体 ID，则在整个订阅或租户中实施的限制大于每小时 12,000 个和 1,200 个。

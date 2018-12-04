@@ -16,11 +16,11 @@ ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: jeffgo
 ms.openlocfilehash: f3b55e3d92dfbd459da52380c1cacd2508a30afc
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848801"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652862"
 ---
 # <a name="update-the-sql-resource-provider"></a>更新 SQL 资源提供程序
 

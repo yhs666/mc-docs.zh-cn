@@ -12,11 +12,11 @@ ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: c9e685ac84cfdcea62ab5862476da887f41d4ea3
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089006"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649076"
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>SQL 数据仓库中的临时表
 本文包含使用临时表的基本指导，并重点介绍会话级别临时表的原则。 使用本文中的信息可以帮助将代码模块化，从而同时提高代码的可重用性和易维护性。

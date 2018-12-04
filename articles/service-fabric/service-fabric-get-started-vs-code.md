@@ -16,11 +16,11 @@ origin.date: 06/29/2018
 ms.date: 08/20/2018
 ms.author: v-yeche
 ms.openlocfilehash: 127fa3e9293f529ab156e217e88b69434a72542e
-ms.sourcegitcommit: 744a0de811483c47bc1e88dd73084874376eb01c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40184773"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651495"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Service Fabric for Visual Studio Code
 

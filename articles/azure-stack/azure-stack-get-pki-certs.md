@@ -17,11 +17,11 @@ ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: ppacent
 ms.openlocfilehash: 4ae1eb3924c0bba063432b08146e83c42b4d8596
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848881"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654038"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Azure Stack 证书签名请求生成
 

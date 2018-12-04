@@ -10,11 +10,11 @@ origin.date: 07/31/2018
 ms.date: 09/10/2018
 ms.author: v-yeche
 ms.openlocfilehash: 04a6eb7bfe82964dbb1a98ba071523b011b901c5
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515619"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649128"
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
 

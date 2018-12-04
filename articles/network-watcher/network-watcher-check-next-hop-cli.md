@@ -16,11 +16,11 @@ origin.date: 02/22/2017
 ms.date: 04/02/2018
 ms.author: v-yeche
 ms.openlocfilehash: 882c2827ca14553f7a967d4f5cb82cd02d83f08d
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30222463"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651159"
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-azure-cli-20"></a>使用 Azure CLI 2.0 通过 Azure 网络观察程序中的“下一跃点”功能找到下一跃点类型
 

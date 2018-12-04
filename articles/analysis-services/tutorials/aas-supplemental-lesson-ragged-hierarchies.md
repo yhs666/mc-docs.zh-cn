@@ -10,11 +10,11 @@ ms.date: 08/06/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
 ms.openlocfilehash: d382a93dc7991c04479da0c914f6e8e78ed76ada
-ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487795"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653815"
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>补充课程 - 不规则层次结构
 

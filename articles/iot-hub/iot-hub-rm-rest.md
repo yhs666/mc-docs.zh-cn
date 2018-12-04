@@ -16,11 +16,11 @@ origin.date: 08/08/2017
 ms.author: v-yiso
 ms.date: 12/18/2017
 ms.openlocfilehash: 5b4cd8642650436cf65dec77076b87ee2649820a
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38938795"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654009"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>使用资源提供程序 REST API 创建 IoT 中心 (.NET)
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
@@ -87,13 +87,13 @@ ms.locfileid: "38938795"
 
     }
     ```
-2. 将以下代码添加到 **CreateIoTHub** 方法中。 该代码创建一个 **HttpClient** 对象，在标头中使用身份验证令牌：
+2. 将以下代码添加到 **CreateIoTHub** 方法。 该代码创建一个 **HttpClient** 对象，在标头中使用身份验证令牌：
 
     ```csharp
     HttpClient client = new HttpClient();
     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
     ```
-3. 将以下代码添加到 **CreateIoTHub** 方法中。 此代码描述要创建的 IoT 中心，并生成 JSON 表示形式。 有关支持 IoT 中心的位置的最新列表，请参阅 [Azure 状态][lnk-status]：
+3. 将以下代码添加到 **CreateIoTHub** 方法。 此代码描述要创建的 IoT 中心，并生成 JSON 表示形式。 有关支持 IoT 中心的位置的最新列表，请参阅 [Azure 状态][lnk-status]：
 
     ```csharp
     var description = new

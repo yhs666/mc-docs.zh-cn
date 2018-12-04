@@ -17,11 +17,11 @@ ms.date: 06/26/2018
 ms.author: v-junlch
 ms.reviewer: anwestg
 ms.openlocfilehash: 7efa7376450bdab258ce40de30c1416426461da5
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027193"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652292"
 ---
 # <a name="configure-deployment-sources"></a>配置部署源
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
@@ -50,7 +50,7 @@ Azure Stack 上的应用服务支持从多个源代码管理提供程序执行�
 1. 登录到 GitHub，浏览到 https://www.github.com/settings/developers 并单击“注册新应用程序”。
     ![GitHub - 注册新应用程序][3]
 2. 输入**应用程序名称**，例如：Azure Stack 上的应用服务。
-3. 输入“主页 URL”。 主页 URL 必须是 Azure Stack 门户地址。 例如，https://portal.local.azurestack.external。
+3. 输入“主页 URL”。 主页 URL 必须是 Azure Stack 门户地址。 例如， https://portal.local.azurestack.external。
 4. 输入**应用程序说明**。
 5. 输入“授权回调 URL”。  在默认的 Azure Stack 部署中，URL 采用 https://portal.local.azurestack.external/TokenAuthorize 格式。如果在不同的域下运行，请将 local.azurestack.external 替换为你的域
 6. 单击“注册应用程序”。  此时会出现一个页面，其中列出了应用程序的“客户端 ID”和“客户端机密”。

@@ -18,11 +18,11 @@ origin.date: 05/01/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
 ms.openlocfilehash: 0e5337f74481a64a07f37bd014f798e2fe88dc21
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873359"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651838"
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-hadoop-in-hdinsight-ssh"></a>通过 HDInsight (SSH) 中基于 Linux 的 Hadoop 使用 Apache Mahout 生成电影推荐
 
@@ -49,7 +49,7 @@ Mahout 是适用于 Apache Hadoop 的 [计算机学习][ml] 库。 Mahout 包含
 
 ## <a name="recommendations"></a>了解建议
 
-由 Mahout 提供的功能之一是推荐引擎。 此引擎接受 `userID`、`itemId` 和 `prefValue` 格式（项的首选项）的数据。 然后，Mahout 将执行共现分析以确定：偏好某个项的用户也偏好其他类似项。 随后，Mahout 确定拥有类似项偏好的用户，这些偏好可用于推荐。
+由 Mahout 提供的功能之一是推荐引擎。 此引擎接受 `userID`、`itemId` 和 `prefValue` 格式（项的首选项）的数据。 然后，Mahout 将执行共现分析，以确定： *偏好某个项的用户也偏好其他类似项*。 随后，Mahout 确定拥有类似项偏好的用户，这些偏好可用于推荐。
 
 下面的工作流是使用电影数据的简化示例：
 
@@ -108,7 +108,7 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
     hdfs dfs -get /HdiSamples/HdiSamples/MahoutMovieData/* .
     ```
 
-    此命令会将输出数据复制到当前目录中名为 **recommendations.txt** 的文件以及电影数据文件。
+    此命令会将输出数据以及电影数据文件复制到当前目录中名为 **recommendations.txt** 的文件。
 
 3. 使用如下命令创建 Python 脚本，该脚本查找电影名称中是否存在建议输出中的数据：
 

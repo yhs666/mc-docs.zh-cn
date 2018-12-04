@@ -11,12 +11,12 @@ origin.date: 04/17/2018
 ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 41ca15a37b8ddaee4fd5e100f419eef189fd89e5
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.openlocfilehash: ef793aa2056d76272d8017aa7a18072d7ed9eea6
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49088972"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651721"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>管理 Azure SQL 数据仓库中的计算资源
 了解如何管理 Azure SQL 数据仓库中的计算资源。 可以通过暂停数据仓库来降低成本，或者根据性能需求缩放数据仓库。 
@@ -106,7 +106,7 @@ SQL 数据仓库的体系结构对存储和计算功能进行了分隔，允许�
 ## <a name="permissions"></a>权限
 
 缩放数据仓库需要 [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) 中所述的权限。  暂停和恢复需要 [SQL DB 参与者](../role-based-access-control/built-in-roles.md#sql-db-contributor)权限，具体而言是 Microsoft.Sql/servers/databases/action 权限。
-<!-- URL is remove the .md on (https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) -->
+
 
 ## <a name="next-steps"></a>后续步骤
 计算资源管理工作的另一方面是为单个查询分配不同的计算资源。 有关详细信息，请参阅[用于工作负荷管理的资源类](resource-classes-for-workload-management.md)。

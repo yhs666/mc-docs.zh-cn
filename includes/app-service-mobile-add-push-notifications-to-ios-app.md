@@ -15,7 +15,7 @@
     [[UIApplication sharedApplication] registerForRemoteNotifications];
     ```
 
-3. 在“QSAppDelegate.m” 中，添加以下处理程序方法。 你的应用现已更新，可支持推送通知。 
+3. 在“QSAppDelegate.m” 中，添加以下处理程序方法。 应用现已更新，可支持推送通知。 
 
     ```
     // Registration with APNs is successful
@@ -113,7 +113,7 @@
     }
     ```
 
-2. 在“AppDelegate.swift” 中，添加以下处理程序方法。 你的应用现已更新，可支持推送通知。
+2. 在“AppDelegate.swift” 中，添加以下处理程序方法。 应用现已更新，可支持推送通知。
 
     ```
     func application(application: UIApplication,

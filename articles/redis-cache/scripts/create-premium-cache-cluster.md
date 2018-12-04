@@ -17,11 +17,11 @@ origin.date: 08/30/2017
 ms.date: 03/01/2018
 ms.author: v-junlch
 ms.openlocfilehash: 320161df155bea5464b9eb463f6b2ae6d5c0ac9b
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38938739"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652980"
 ---
 # <a name="create-a-premium-azure-redis-cache-with-clustering"></a>使用群集功能创建高级 Azure Redis 缓存
 

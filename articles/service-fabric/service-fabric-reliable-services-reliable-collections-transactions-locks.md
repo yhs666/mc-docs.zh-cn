@@ -16,17 +16,17 @@ origin.date: 05/01/2017
 ms.date: 05/28/2018
 ms.author: v-yeche
 ms.openlocfilehash: d483434929ccb80b771a336167f87b1b4213b7ea
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554643"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650634"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Azure Service Fabric 可靠集合中的事务和锁模式
 
 ## <a name="transaction"></a>事务
 事务是作为单个逻辑工作单元执行的一系列操作。
-事务必须显示以下 ACID 属性。 （请参阅：https://technet.microsoft.com/library/ms190612)
+事务必须显示以下 ACID 属性。 （请参阅： https://technet.microsoft.com/library/ms190612)
 * **原子性**：事务必须是原子工作单元。 换而言之，要么执行其所有数据修改，要么一个数据修改也不执行。
 * **一致性**：完成后，事务必须使所有数据处于一致状态。 事务结束时，所有内部数据结构必须都正确。
 * **隔离**：并发事务所做的修改必须与任何其他并发事务所做的修改隔离。 用于 ITransaction 中的某个操作的隔离级别由执行该操作的 IReliableState 确定。
@@ -94,5 +94,5 @@ Reliable Queue 使用操作级别锁，允许具有 `TryPeekAsync` 和/或 `TryD
 * [Reliable Services 通知](service-fabric-reliable-services-notifications.md)
 * [Reliable Services 备份和还原（灾难恢复）](service-fabric-reliable-services-backup-restore.md)
 * [可靠状态管理器和配置](service-fabric-reliable-services-configuration.md)
-* [Reliable Collections 的开发人员参考](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+* [可靠集合的开发人员参考](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 <!-- Update_Description: update meta properties, wording update -->

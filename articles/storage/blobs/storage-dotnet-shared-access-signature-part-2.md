@@ -16,11 +16,11 @@ origin.date: 05/15/2017
 ms.date: 10/23/2017
 ms.author: v-johch
 ms.openlocfilehash: f4e09095bdb1545d0bca693d5f253de13290841b
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295655"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652387"
 ---
 # <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>共享访问签名，第 2 部分：创建 SAS 并将 SAS 用于 Blob 存储
 

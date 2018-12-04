@@ -8,14 +8,14 @@ ms.custom: mvc
 ms.service: storage
 ms.author: v-jay
 origin.date: 04/06/2018
-ms.date: 11/05/2018
+ms.date: 11/08/2018
 ms.topic: quickstart
-ms.openlocfilehash: 41f988baaad304fae8f63a8c185645944e52d1c3
-ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
+ms.openlocfilehash: cb789b3d177330df989fcfa3271a23291d49175d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50743557"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649922"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -27,7 +27,7 @@ ms.locfileid: "50743557"
 ## <a name="setting-up-storage-account-cors-rules"></a>设置存储帐户 CORS 规则 
 必须先将帐户配置为启用[跨域资源共享](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)（简称 CORS），然后 Web 应用程序才能从客户端访问 Blob 存储。 
 
-返回到 Azure 门户，然后选择存储帐户。 若要定义新的 CORS 规则，请返回到“设置”部分，然后单击“CORS”链接。 接下来，请单击“添加”按钮，打开“添加 CORS 规则”窗口。 对于本快速入门，请创建开放的 CORS 规则：
+返回到 Azure 门户，然后选择存储帐户。 若要定义新的 CORS 规则，请返回到“设置”部分，然后单击“CORS”链接。 对于本快速入门，请创建开放的 CORS 规则：
 
 ![Azure Blob 存储帐户 CORS 设置](media/storage-quickstart-blobs-javascript-client-libraries/azure-blob-storage-cors-settings.png)
 
@@ -73,7 +73,7 @@ az storage account generate-sas
 
 | 参数        | 值   | 说明  |
 |------------------|---------|---------|
-| *permissions*    | racwdl  | 此 SAS 允许 *read*（读取）、*append*（追加）、*create*（创建）、*write*（编写）、*delete*（删除）和 *list*（列出）功能。 |
+| *权限*    | racwdl  | 此 SAS 允许 *read*（读取）、*append*（追加）、*create*（创建）、*write*（编写）、*delete*（删除）和 *list*（列出）功能。 |
 | *resource-types* | sco     | 受 SAS 影响的资源为 *service*（服务）、*container*（容器）和 *object*（对象）。 |
 | *services*       | b       | 受 SAS 影响的服务为 *blob* 服务。 |
 

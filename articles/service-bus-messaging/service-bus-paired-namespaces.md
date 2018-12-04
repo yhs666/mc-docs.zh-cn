@@ -16,11 +16,11 @@ origin.date: 09/21/2018
 ms.date: 10/31/2018
 ms.author: v-lingwu
 ms.openlocfilehash: ecbd5744339a4d30d93895c52e1dcdbd903365be
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409398"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653806"
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>配对命名空间实现详细信息和成本影响
 

@@ -15,11 +15,11 @@ origin.date: 11/22/2017
 ms.date: 02/26/2018
 ms.author: apimpm
 ms.openlocfilehash: c7832e08508fe0c6d0adb9cda0de32ad0422944b
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939609"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652723"
 ---
 # <a name="import-a-soap-api-and-convert-to-rest"></a>导入 SOAP API 并将其转换为 REST
 

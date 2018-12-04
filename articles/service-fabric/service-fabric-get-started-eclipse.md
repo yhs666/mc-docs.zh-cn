@@ -16,11 +16,11 @@ origin.date: 04/06/2018
 ms.date: 09/10/2018
 ms.author: v-yeche
 ms.openlocfilehash: 0f446c2055220ee81ec66a3cfc6fbda7790db057
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515737"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651963"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>使用适用于 Eclipse 的 Service Fabric 插件开发 Java 应用程序
 Eclipse 是面向 Java 开发人员的最常用集成开发环境 (IDE) 之一。 本文介绍如何设置适用于 Azure Service Fabric 的 Eclipse 开发环境。 了解如何安装 Service Fabric 插件、创建 Service Fabric 应用程序，以及将 Service Fabric 应用程序部署到 Eclipse 中的本地或远程 Service Fabric 群集。 
@@ -43,7 +43,7 @@ Eclipse 是面向 Java 开发人员的最常用集成开发环境 (IDE) 之一�
 
 若要安装 Service Fabric 插件，请在 Eclipse 中转到“帮助” > “安装新软件”。
 1. 在“使用”框中，输入 **http://dl.microsoft.com/eclipse**。
-2. 单击 **“添加”**。
+2. 单击“添加” 。
 
     ![适用于 Eclipse 的 Service Fabric 插件][sf-eclipse-plugin-install]
 3. 选择 Service Fabric 插件，并单击“下一步”。
@@ -51,7 +51,7 @@ Eclipse 是面向 Java 开发人员的最常用集成开发环境 (IDE) 之一�
 
 如果已安装 Service Fabric 插件，请安装最新版本。 
 1. 若要检查可用的更新，请转到“帮助” > “关于 Eclipse” > “安装详细信息”。 
-2. 在已安装的插件列表中选择“Service Fabric”，并单击“更新”。 随后将安装可用的更新。
+2. 在已安装插件的列表中选择“Service Fabric”，然后单击“更新”。 随后会安装可用的更新。
 3. 更新 Service Fabric 插件后，还需刷新 Gradle 项目。  右键单击 **build.gradle**，然后选择“刷新”。
 
 > [!NOTE]
@@ -62,7 +62,7 @@ Eclipse 是面向 Java 开发人员的最常用集成开发环境 (IDE) 之一�
 
 ## <a name="create-a-service-fabric-application-in-eclipse"></a>在 Eclipse 中创建 Service Fabric 应用程序
 
-1.  在 Eclipse 中，转到“文件” > “新建” > “其他”。 选择“Service Fabric 项目”，并单击“下一步”。
+1.  在 Eclipse 中，转到“文件” > “新建” > “其他”。 选择“Service Fabric 项目”，然后单击“下一步”。
 
     ![Service Fabric 新建项目第 1 页][create-application/p1]
 
@@ -88,7 +88,7 @@ Eclipse 是面向 Java 开发人员的最常用集成开发环境 (IDE) 之一�
 
 ## <a name="build-a-service-fabric-application-in-eclipse"></a>在 Eclipse 中生成 Service Fabric 应用程序
 
-1.  右键单击新建的 Service Fabric 应用程序，并选择“Service Fabric”。
+1.  右键单击新建的 Service Fabric 应用程序，然后选择“Service Fabric”。
 
     ![Service Fabric 右键菜单][publish/RightClick]
 
@@ -176,7 +176,7 @@ Eclipse 是面向 Java 开发人员的最常用集成开发环境 (IDE) 之一�
 
     ![运行配置对话框 - 本地](./media/service-fabric-get-started-eclipse/run-config-local.png)
 
-5. 确保“工作目录”指向要部署的应用程序。 要更改应用程序，请单击“工作区”按钮，并选择所需的应用程序。
+5. 确保“工作目录”指向要部署的应用程序。 若要更改应用程序，请单击“工作区”按钮，然后选择所需的应用程序。
 6. 单击“应用”，然后单击“运行”。
 
 应用程序会在片刻之后生成和部署。 可在 Service Fabric Explorer 中监视部署状态。  
@@ -204,7 +204,7 @@ Eclipse 是面向 Java 开发人员的最常用集成开发环境 (IDE) 之一�
 
 ## <a name="edit-manifest-versions-of-your-service-fabric-java-application"></a>编辑 Service Fabric Java 应用程序的清单版本
 
-若要编辑清单版本，请右键单击项目，转到“Service Fabric”，然后从下拉菜单中选择“编辑清单版本...”。 在向导中，可以更新应用程序清单和服务清单的清单版本，以及“编码”、“配置”和“数据”包的版本。
+若要编辑清单版本，请右键单击项目，转到“Service Fabric”，然后从下拉菜单中选择“编辑清单版本...”。 在向导中，可以更新应用程序清单和服务清单的清单版本，以及“代码”、“配置”和“数据”包的版本。
 
 如果选中“自动更新应用程序和服务的版本”选项，然后更新了一个版本，则会自动更新清单版本。 举例来说，首先选中该复选框，然后将“代码”版本从 0.0.0 更新为 0.0.1，最后再单击“完成”，则服务清单版本和应用程序清单版本就会自动更新为 0.0.1。
 

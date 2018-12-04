@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 12/21/2017
 ms.author: v-yiso
 ms.date: 02/05/2018
-ms.openlocfilehash: fade5790a2985c06bef5990705f7c8997970c238
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 6dcc0a9f2926bb5d0040100e7a7e7477eb70129a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695090"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649057"
 ---
 # <a name="service-bus-architecture"></a>服务总线体系结构
 
@@ -53,5 +53,4 @@ ms.locfileid: "34695090"
 现在，已概要了解服务总线体系结构，请访问以下链接了解详细信息：
 
 - [服务总线消息传送概述](./service-bus-messaging-overview.md)
-- [服务总线基础知识](./service-bus-fundamentals-hybrid-solutions.md)
 * [服务总线队列入门](service-bus-dotnet-get-started-with-queues.md)

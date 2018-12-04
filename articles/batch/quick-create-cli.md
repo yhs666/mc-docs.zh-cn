@@ -12,11 +12,11 @@ ms.date: 10/19/2018
 ms.author: v-lingwu
 ms.custom: mvc
 ms.openlocfilehash: 46f323a301e30f59a051cdd41141b5dfe1ddc26f
-ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477776"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653244"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>快速入门：使用 Azure CLI 运行第一个 Batch 作业
 

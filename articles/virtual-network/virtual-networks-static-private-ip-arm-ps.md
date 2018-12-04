@@ -18,11 +18,11 @@ ms.date: 05/07/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1dea3ef70914b4c1eff6cf20159e40f2ec1a68e1
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939181"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652881"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-powershell"></a>使用 PowerShell 为虚拟机配置专用 IP 地址
 
@@ -30,7 +30,7 @@ ms.locfileid: "38939181"
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
-Azure 有两个部署模型：Azure Resource Manager 和经典模型。 Azure 建议通过 Resource Manager 部署模型创建资源。 若要详细了解这两个模型之间的差异，请阅读[了解 Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md)一文。 本文介绍 Resource Manager 部署模型。 还可以[管理经典部署模型中的静态专用 IP 地址](virtual-networks-static-private-ip-classic-ps.md)。
+Azure 有两个部署模型：Azure Resource Manager 和经典模型。 Azure 建议通过 Resource Manager 部署模型创建资源。 若要详细了解这两个模型之间的差异，请阅读[了解 Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md)一文。 本文介绍 Resource Manager 部署模型。 还可以 [管理经典部署模型中的静态专用 IP 地址](virtual-networks-static-private-ip-classic-ps.md)。
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 

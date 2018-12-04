@@ -9,11 +9,11 @@ origin.date: 08/13/2018
 ms.date: 09/10/2018
 ms.author: v-jay
 ms.openlocfilehash: b753cd6b5944c3ba720edf6bf055350599d121dd
-ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43652900"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651632"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>使用 Windows 上的 AzCopy 传输数据
 AzCopy 是一个命令行实用程序，专用于使用旨在实现最佳性能的简单命令将数据复制到 Microsoft Azure Blob、文件和表存储以及从这些位置复制数据。 可在文件系统和存储帐户之间或在存储帐户之间复制数据。  

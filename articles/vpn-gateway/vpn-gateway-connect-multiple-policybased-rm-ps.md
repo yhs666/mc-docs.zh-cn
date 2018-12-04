@@ -17,11 +17,11 @@ origin.date: 02/14/2018
 ms.date: 06/13/2018
 ms.author: v-junlch
 ms.openlocfilehash: 3036227865b94c608118554a264ce8352dfc7a10
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568296"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650667"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>使用 PowerShell 将 Azure VPN 网关连接到多个基于策略的本地 VPN 设备
 
@@ -52,7 +52,7 @@ ms.locfileid: "35568296"
 | **最大S2S 连接** | **1**                       | 基本/标准：10<br> 高性能：30 |
 |                          |                             |                                          |
 
-使用自定义 IPsec/IKE 策略时，现在可以通过选项“**PolicyBasedTrafficSelectors**”将 Azure 基于路由的 VPN 网关配置为使用基于前缀的流量选择器，以便连接到基于策略的本地 VPN 设备。 使用此功能可从 Azure 虚拟网络和 VPN 网关连接到多个基于策略的本地 VPN/防火墙设备，消除只能在当前 Azure 基于策略的 VPN 网关中建立单一连接的限制。
+使用自定义 IPsec/IKE 策略时，现在可以通过选项“**PolicyBasedTrafficSelectors**”将 Azure 基于路由的 VPN 网关配置为使用基于前缀的流量选择器，以便连接到基于策略的本地 VPN 设备。 此功能允许从 Azure 虚拟网络和 VPN 网关连接到多个基于策略的本地 VPN/防火墙设备，从当前基于 Azure Policy 的 VPN 网关中删除单个连接限制。
 
 > [!IMPORTANT]
 > 1. 若要启用此连接，基于策略的本地 VPN 设备必须支持 **IKEv2**，才能连接到基于路由的 Azure VPN 网关。 请查看 VPN 设备规格。

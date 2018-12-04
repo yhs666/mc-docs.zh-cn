@@ -18,11 +18,11 @@ ms.date: 10/09/2017
 ms.author: v-yiso
 ms.custom: mvc
 ms.openlocfilehash: 502ff1a379de2a00429a5e4897a6b394849cd5b5
-ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
-ms.locfileid: "22146542"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649564"
 ---
 # <a name="connect-a-web-app-to-a-sql-database"></a>将 Web 应用连接到 SQL 数据库
 
@@ -77,7 +77,7 @@ az webapp config appsettings set --settings "SQLSRV_CONNSTR=Server=tcp:$serverNa
 
 此脚本使用以下命令创建资源组、Web 应用、SQL 数据库和所有相关资源。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 创建用于存储所有资源的资源组。 |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | 创建应用服务计划。 这与 Azure Web 应用的服务器场类似。 |

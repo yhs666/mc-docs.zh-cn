@@ -19,11 +19,11 @@ origin.date: 02/22/2018
 ms.date: 03/26/2018
 ms.author: v-yiso
 ms.openlocfilehash: c96442425f115537f4cbf54b760da10169806fc9
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30074523"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652726"
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight 中 Spark 群集上的 Jupyter Notebook 的内核 
 
@@ -122,7 +122,7 @@ HDInsight Spark 群集提供可在 Spark 上的 Jupyter Notebook 中用于测试
 * 从 **hivesampletable**中选择所有记录。
 * 由于使用了 -q，因此将关闭自动可视化。
 * 由于使用了 `-m sample -r 0.1 -n 500`，因此将从 hivesampletable 的行中随机采样 10%，并将结果集的大小限制为 500 行。
-* 最后，由于使用了 `-o query2`，因此也会将输出保存到名为 **query2** 的数据帧中。
+* 最后，由于使用了 `-o query2` ，因此将输出保存到名为 **query2**的数据帧中。
 
 ## <a name="considerations-while-using-the-new-kernels"></a>使用新内核时的注意事项
 
@@ -139,7 +139,7 @@ HDInsight Spark 群集提供可在 Spark 上的 Jupyter Notebook 中用于测试
 
 ## <a name="where-are-the-notebooks-stored"></a>Notebook 存储在何处？
 
-如果群集使用 Azure 存储作为默认存储帐户，Jupyter notebook 将保存到 **/HdiNotebooks** 文件夹下的存储帐户。  可以从存储帐户访问在 Jupyter 内部创建的 Notebook、文本文件和文件夹。  例如，如果使用 Jupyter 创建文件夹 **myfolder** 和 Notebook **myfolder/mynotebook.ipynb**，可在存储帐户中通过 `/HdiNotebooks/myfolder/mynotebook.ipynb` 访问该 Notebook。  反之亦然，如果直接将笔记本上传到 `/HdiNotebooks/mynotebook1.ipynb` 中的存储帐户，则可以从 Jupyter 查看该笔记本。  即使删除了群集，Notebook 也仍会保留在存储帐户中。
+如果群集使用 Azure 存储作为默认存储帐户，Jupyter notebook 将保存到 **/HdiNotebooks** 文件夹下的存储帐户。  可以从存储帐户访问在 Jupyter 内部创建的 Notebook、文本文件和文件夹。  例如，如果使用 Jupyter 创建文件夹 **myfolder** 和 Notebook **myfolder/mynotebook.ipynb**，可在存储帐户中通过 `/HdiNotebooks/myfolder/mynotebook.ipynb` 访问该 Notebook。  反之亦然，如果直接将 Notebook 上传到 `/HdiNotebooks/mynotebook1.ipynb`中的存储帐户，则可以从 Jupyter 查看该 Notebook。  即使删除了群集，Notebook 也仍会保留在存储帐户中。
 
 将笔记本保存到存储帐户的方式与 HDFS 兼容。 因此，如果通过 SSH 访问群集，可以使用如以下代码片段所示的文件管理命令：
 

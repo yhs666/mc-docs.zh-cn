@@ -10,11 +10,11 @@ ms.date: 08/06/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
 ms.openlocfilehash: 3279eaea7553229d257f034e7feb98600b94c875
-ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487793"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652480"
 ---
 # <a name="analysis-services-high-availability"></a>Analysis Services 高可用性
 本文说明如何确保 Azure Analysis Services 服务器的高可用性。 

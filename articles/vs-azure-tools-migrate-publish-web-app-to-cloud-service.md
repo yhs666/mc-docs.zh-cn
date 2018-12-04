@@ -14,11 +14,11 @@ origin.date: 11/10/2017
 ms.date: 09/10/2018
 ms.author: v-junlch
 ms.openlocfilehash: 56f00d865d25ecf411aee97193a0f3191d672cbe
-ms.sourcegitcommit: 40456700212200e707d6cb3147cf96ad161d3ff2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44269522"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649596"
 ---
 # <a name="how-to-migrate-and-publish-a-web-application-to-an-azure-cloud-service-from-visual-studio"></a>如何：通过 Visual Studio 将 Web 应用程序迁移和发布到 Azure 云服务
 
@@ -42,7 +42,7 @@ ms.locfileid: "44269522"
 
 如果构建应用程序，请使用计算模拟器在本地运行它，或将其发布到 Azure，你可能会看到错误：“指定的路径、文件名太长，或两者都太长。” 此错误表示完全限定的 Azure 项目名称的长度超过了 146 个字符。 要解决该问题，请将你的解决方案移到路径较短的其他文件夹中。
 
-有关如何将任何警告视为错误的详细信息，请参阅[使用 Visual Studio 配置 Azure 云服务项目](vs-azure-tools-configuring-an-azure-project.md)。
+有关如何将任何警告视为错误的详细信息，请参阅 [使用 Visual Studio 配置 Azure 云服务项目](vs-azure-tools-configuring-an-azure-project.md)。
 
 ### <a name="test-the-migration-locally"></a>在本地测试迁移
 

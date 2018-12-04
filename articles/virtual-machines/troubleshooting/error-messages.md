@@ -14,11 +14,11 @@ origin.date: 05/22/2017
 ms.date: 10/22/2018
 ms.author: v-yeche
 ms.openlocfilehash: 40d2b46f446abc53591c25a360798e0aa0e93eba
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49454026"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652531"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>了解在 Azure 中管理虚拟机时遇到的常见错误消息
 

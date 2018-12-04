@@ -17,11 +17,11 @@ ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: misainat
 ms.openlocfilehash: eeb5245a71cdc0be23b1db8eb18467185a0f3051
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195467"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649824"
 ---
 # <a name="asdk-administration-basics"></a>ASDK 管理基础知识 
 如果你不熟悉 Azure Stack 开发工具包 (ASDK) 的管理，请参考本文。 本指南概述评估环境中 Azure Stack 操作员的角色，以及如何确保测试用户快速提高工作效率。

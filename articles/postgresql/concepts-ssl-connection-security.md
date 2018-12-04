@@ -12,11 +12,11 @@ ms.topic: article
 origin.date: 02/28/2018
 ms.date: 09/29/2018
 ms.openlocfilehash: cde74ec8245e02e3918e39aa2a5883f0c7dd6000
-ms.sourcegitcommit: 3b9e31daa1ae213311d7d530225be03e4c3e6332
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48850717"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653361"
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>配置 Azure Database for PostgreSQL 中的 SSL 连接
 Azure Database for PostgreSQL 倾向于使用安全套接字层 (SSL) 将客户端应用程序连接到 PostgreSQL 服务。 通过在数据库服务器与客户端应用程序之间强制实施 SSL 连接，可以加密服务器与应用程序之间的数据流，有助于防止“中间人”攻击。

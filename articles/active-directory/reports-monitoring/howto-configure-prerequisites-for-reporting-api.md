@@ -18,11 +18,11 @@ ms.date: 08/29/2018
 ms.author: v-junlch
 ms.reviewer: dhanyahk
 ms.openlocfilehash: ae88dc01c743c10be6aa780059267e978ac3f5f8
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43171532"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653674"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>访问 Azure Active Directory 报告 API 的先决条件
 

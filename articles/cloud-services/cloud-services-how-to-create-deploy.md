@@ -16,11 +16,11 @@ origin.date: 07/18/2017
 ms.author: v-yiso
 ms.date: 09/11/2017
 ms.openlocfilehash: da48bd4e9c3c42478bf7419d0a1a9702717cf36d
-ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/01/2017
-ms.locfileid: "21944691"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651312"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>如何创建和部署云服务
 
@@ -30,7 +30,7 @@ ms.locfileid: "21944691"
 
 Azure 经典门户提供两种创建和部署云服务的方法：快速创建和自定义创建。
 
-本主题介绍如何使用“快速创建”方法创建新的云服务，并使用“上传”  在 Azure 中上传和部署云服务包。 使用此方法时，Azure 经典门户会在用户操作时提供方便的链接以便满足所有要求。 如果可以在创建云服务时对其进行部署，可使用“自定义创建” 同时执行这两项操作。
+本主题介绍如何使用“快速创建”方法创建新的云服务，并使用“上传”在 Azure 中上传和部署云服务包。 使用此方法时，Azure 经典门户会在用户操作时提供方便的链接以便满足所有要求。 如果可以在创建云服务时对其进行部署，可使用“自定义创建”同时执行这两项操作。
 
 > [!NOTE]
 > 如果计划从 Visual Studio Team Services (VSTS) 发布云服务，请使用“快速创建”，并从“快速启动”或仪表板设置 VSTS 发布。
@@ -51,7 +51,7 @@ Azure 经典门户提供两种创建和部署云服务的方法：快速创建�
 
 可以通过[此处](./cloud-services-model-and-package.md)了解有关这些内容以及如何创建包的详细信息。
 
-## <a name="prepare-your-app"></a>准备应用
+## <a name="prepare-your-app"></a>准备应用程序
 部署云服务之前，必须根据应用程序代码创建云服务包 (.cspkg)，并创建云服务配置文件 (.cscfg)。 Azure SDK 提供了用于准备这些必需的部署文件的工具。 可以从 [Azure 下载](https://www.azure.cn/downloads)页安装 SDK，并使用要用于开发应用程序代码的语言。
 
 导出服务包之前，三种云服务功能需要特殊的配置：
@@ -60,11 +60,11 @@ Azure 经典门户提供两种创建和部署云服务的方法：快速创建�
 
 - 如果要配置与角色实例的远程桌面连接，请为远程桌面[配置角色](./cloud-services-role-enable-remote-desktop.md)。
 
-- 如果要为云服务配置详细监视，请为云服务启用 Azure 诊断。 最少监视（默认监视级别）使用从角色实例（虚拟机）的主机操作系统中收集到的性能计数器。 “详细监视”*收集基于角色实例中性能数据的其他度量信息，以便对应用程序处理期间出现的问题进行进一步分析。 若要了解如何启用 Azure 诊断，请参阅[在 Azure 中启用诊断](./cloud-services-dotnet-diagnostics.md)。
+- 如果要为云服务配置详细监视，请为云服务启用 Azure 诊断。 *最少监视*（默认监视级别）使用从角色实例（虚拟机）的主机操作系统中收集到的性能计数器。 “详细监视”*收集基于角色实例中性能数据的其他度量信息，以便对应用程序处理期间出现的问题进行进一步分析。 若要了解如何启用 Azure 诊断，请参阅[在 Azure 中启用诊断](./cloud-services-dotnet-diagnostics.md)。
 
 要使用 Web 角色或辅助角色创建云服务，必须[创建服务包](./cloud-services-model-and-package.md#servicepackagecspkg)。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 - 如果尚未安装 Azure SDK，请单击“安装 Azure SDK”打开 [Azure 下载页](https://www.azure.cn/downloads/)，然后下载要用于开发代码的相应语言的 SDK。 （也可以稍后执行此操作。）
 
@@ -78,11 +78,11 @@ Azure 经典门户提供两种创建和部署云服务的方法：快速创建�
 
     ![CloudServices_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_QuickCreate.png)
 
-2. 在“URL”中，输入要在公用 URL 中使用的子域名称，以便在生产部署中访问云服务 。 生产部署的 URL 格式为：http://myURL.chinacloudapp.cn。
+2. 在“URL”中，输入要在公用 URL 中使用的子域名称，以便在生产部署中访问云服务 。 生产部署的 URL 格式为： http://myURL.chinacloudapp.cn。
 
 3. 在“区域或地缘组”中，选择要在其中部署云服务的地理区域或地缘组 。 要将云服务和其他 Azure 服务部署到某个区域中的同一位置，请选择地缘组。
 
-4. 单击“创建云服务”。
+4. 单击“创建云服务” 。
 
     ![CloudServices_Region](./media/cloud-services-how-to-create-deploy/CloudServices_Regionlist.png)
 

@@ -16,11 +16,11 @@ origin.date: 01/23/2018
 ms.author: v-yiso
 ms.date: 03/12/2018
 ms.openlocfilehash: e93b0e69418beaa41388b6c444209bd5b0d489aa
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29730772"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649437"
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Azure 中继身份验证和授权
 

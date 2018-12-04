@@ -17,11 +17,11 @@ ms.date: 10/12/2018
 ms.author: v-junlch
 ms.reviewer: zawad
 ms.openlocfilehash: 9f032a391a432125d7f1995ea01d188b7a86aea0
-ms.sourcegitcommit: 21b81b5cd326b6900fa7274b3b073aecd01111aa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121674"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650550"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>了解 Azure AD 应用程序许可体验
 
@@ -34,7 +34,7 @@ ms.locfileid: "49121674"
 授予许可时的实际用户体验取决于以下因素：在用户的租户上设置的策略、用户的权限范围（或角色）、客户端应用程序请求的[权限](/active-directory/develop/active-directory-permissions)的类型。 这意味着应用程序开发人员和租户管理员可以对许可体验进行某种控制。 管理员可以灵活地设置和禁用租户或应用上的策略，以便控制其租户中的许可体验。 应用程序开发人员可以规定哪些类型的权限可以请求，以及是否需要引导用户完成用户许可流或管理员许可流。
 
 - **用户许可流**：应用程序开发人员将用户引导到授权终结点，目的是只记录当前用户的许可。
-- **管理员许可流**：应用程序开发人员将用户引导到管理员许可终结点，目的是记录整个租户的许可。 若要确保管理员许可流正常运行，应用程序开发人员必须在应用程序清单的 `RequiredResourceAccess` 属性中列出所有权限。 有关详细信息，请参阅[应用程序清单](/active-directory/develop/reference-app-manifest)。
+- **管理员许可流**：应用程序开发人员将用户引导到管理员许可终结点，目的是记录整个租户的许可。 若要确保管理员许可流正常工作，应用程序开发人员必须列出应用程序清单中 `RequiredResourceAccess` 属性中的所有权限。 有关详细信息，请参阅[应用程序清单](/active-directory/develop/reference-app-manifest)。
 
 ## <a name="building-blocks-of-the-consent-prompt"></a>许可提示的构建基块
 

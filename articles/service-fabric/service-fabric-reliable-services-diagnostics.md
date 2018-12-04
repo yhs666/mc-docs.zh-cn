@@ -16,11 +16,11 @@ origin.date: 08/24/2018
 ms.date: 10/15/2018
 ms.author: v-yeche
 ms.openlocfilehash: 8ad44ab43b9c7f71e76b694d52dd239a0a868a8e
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089199"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651730"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>有状态 Reliable Services 的诊断功能
 Azure Service Fabri 有状态 Reliable Services StatefulServiceBase 类会发出 [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 事件，这些事件可用于调试服务、提供对运行时运行方式的深入了解，以及帮助进行故障排除。

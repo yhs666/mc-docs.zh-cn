@@ -13,7 +13,7 @@
    这确保项目使用新配置文件进行代码签名。 有关正式的 Xamarin 设备设置文档，请参阅 [Xamarin 设备设置]。
 
 #### <a name="configure-the-ios-project-in-visual-studio"></a>在 Visual Studio 中配置 iOS 项目
-1. 在 Visual Studio 中，右键单击项目，然后单击“属性” 。
+1. 在 Visual Studio 中，右键单击项目，并单击“属性” 。
 2. 在属性页中，单击“iOS 应用程序”选项卡，然后使用先前创建的 ID 更新“标识符”。
 
     ![](./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-23.png)

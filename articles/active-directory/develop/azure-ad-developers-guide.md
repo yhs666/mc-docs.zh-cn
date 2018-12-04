@@ -1,6 +1,6 @@
 ---
-title: 针对开发人员的 Azure Active Directory | Microsoft Docs
-description: 本文概述了如何使用 Azure Active Directory 登录 Microsoft 工作和学校帐户。
+title: 关于 v1.0 | Azure
+description: 本文概述了如何使用 Azure Active Directory v1.0 终结点和平台登录 Microsoft 工作和学校帐户。
 services: active-directory
 author: CelesteDG
 manager: mtillman
@@ -12,54 +12,41 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 04/30/2018
-ms.date: 09/03/2018
+origin.date: 09/24/2018
+ms.date: 11/06/2018
 ms.author: v-junlch
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 01bd4660164e8a40553cf527047a02509c96e3f5
-ms.sourcegitcommit: 562cde32fc2271238f3d1ef5d2cc5ed037bdec2d
+ms.openlocfilehash: 98d463a94f92fb898c83941105e426e159b222ad
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43531589"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650471"
 ---
-# <a name="azure-active-directory-for-developers"></a>针对开发人员的 Azure Active Directory
+# <a name="about-v10"></a>关于 v1.0
 
 Azure Active Directory (Azure AD) 是一个云标识服务，开发人员可以使用它来生成应用，让用户使用 Microsoft 工作或学校帐户安全登录。 Azure AD 支持开发人员生成单租户业务线 (LOB) 应用和多租户应用。 除了基本登录以外，Azure AD 还可以让应用调用 [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/overview) 等 Microsoft API，以及在 Azure AD 平台上生成的自定义 API。 本文档介绍了如何使用行业标准协议（例如 OAuth2.0 与 OpenID Connect）向应用程序添加 Azure AD 支持。
 
 > [!NOTE]
-> 本页面中的大部分内容侧重于仅支持 Microsoft 工作或学校帐户的 Azure AD v1.0 终结点。 
+> 本页面中的大部分内容侧重于仅支持 Microsoft 工作或学校帐户的 v1.0 终结点和平台。
 
 | | |
 | --- | --- |
 |[身份验证基础知识](authentication-scenarios.md) | 使用 Azure AD 进行身份验证简介 |
-|[应用程序的类型](authentication-scenarios.md#application-types-and-scenarios) | Azure AD 支持的身份验证方案概述。 |      
+|[应用程序的类型](app-types.md) | Azure AD 支持的身份验证方案概述。 |
 | | |
 
 ## <a name="get-started"></a>入门
-以下指导性设置逐步讲解如何使用 Azure AD 身份验证库 (ADAL) SDK 在偏好的平台上生成应用。 
 
-|  |  |  |  |
-| --- | --- | --- | --- |
-| <center>![移动和桌面应用](./media/azure-ad-developers-guide/NativeApp_Icon.png)<br />移动和桌面应用</center> | [概述](authentication-scenarios.md#native-application-to-web-api)<br /><br />[iOS](quickstart-v1-ios.md)<br /><br />[Android](quickstart-v1-android.md) | [.NET (WPF)](quickstart-v1-dotnet.md)<br /><br />[Xamarin](quickstart-v1-xamarin.md) |
-| <center>![Web 应用](./media/azure-ad-developers-guide/Web_app.png)<br />Web 应用</center> | [概述](authentication-scenarios.md#web-browser-to-web-application)<br /><br />[ASP.NET](quickstart-v1-aspnet-webapp.md)<br /><br />[Java](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect) | [Python](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)<br/><br/> [Node.js](quickstart-v1-openid-connect-code.md) |
-| <center>![单页应用](./media/azure-ad-developers-guide/SPA.png)<br />单页应用</center> | [概述](authentication-scenarios.md#single-page-application-spa)<br /><br />[AngularJS](quickstart-v1-angularjs-spa.md)<br /><br />[JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |  |
-| <center>![Web API](./media/azure-ad-developers-guide/Web_API.png)<br />Web API</center> | [概述](authentication-scenarios.md#web-application-to-web-api)<br /><br />[ASP.NET](quickstart-v1-dotnet-webapi.md)<br /><br />[Node.js](quickstart-v1-nodejs-webapi.md) | &nbsp; |
-| <center>![服务到服务](./media/azure-ad-developers-guide/Service_App.png)<br />服务到服务</center> | [概述](authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)|  |
-|  |  |  |  |  |
+v1.0 快速入门和教程将逐步讲解如何使用 Azure AD 身份验证库 (ADAL) SDK 在偏好的平台上生成应用。 若要开始使用，请参阅 [Microsoft 标识平台（面向开发人员的 Azure Active Directory）](index.yml)中的 **v1.0 快速入门**和 **v1.0 教程**。
 
 ## <a name="how-to-guides"></a>操作指南
-以下指导逐步讲解如何在 Azure AD 中完成一些最常见的任务。
 
-|                                                                           |  |
-|---------------------------------------------------------------------------| --- |
-|[应用程序注册](quickstart-v1-integrate-apps-with-azure-ad.md)           | 如何在 Azure AD 中注册应用程序。 |
-|[多租户应用程序](howto-convert-app-to-be-multi-tenant.md)    | 如何登录任何 Microsoft 工作帐户。 |
-|[OAuth 和 OpenID Connect 协议](v1-protocols-openid-connect-code.md)| 如何使用 Microsoft 身份验证协议让用户登录并调用 Web API。 |
-|  |  |
+有关 Azure AD 中最常见任务的详细信息和演练，请参阅 **v1.0 操作指南**。
 
 ## <a name="reference-topics"></a>参考主题
+
 以下文章详细介绍了在 Azure AD 中使用的 API、协议消息和术语。
 
 |                                                                                   | |
@@ -72,3 +59,4 @@ Azure Active Directory (Azure AD) 是一个云标识服务，开发人员可以�
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
+<!-- Update_Description: wording update -->

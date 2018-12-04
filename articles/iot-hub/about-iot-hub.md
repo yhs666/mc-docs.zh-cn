@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.openlocfilehash: e01e92b7045b9d0930290fc51a8cdccaf1c9f0de
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43328972"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650595"
 ---
 # <a name="what-is-azure-iot-hub"></a>Azure IoT 中心是什么？
 

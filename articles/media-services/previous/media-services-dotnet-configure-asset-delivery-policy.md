@@ -16,11 +16,11 @@ origin.date: 03/05/2018
 ms.date: 05/07/2018
 ms.author: v-haiqya
 ms.openlocfilehash: 02a92ba786c38a63b29e2377c46bace6ad974d1e
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219485"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651521"
 ---
 # <a name="configure-asset-delivery-policies-with-net-sdk"></a>使用 .NET SDK 配置资产传送策略
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../../includes/media-services-selector-asset-delivery-policy.md)]

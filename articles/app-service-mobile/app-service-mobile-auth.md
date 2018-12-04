@@ -15,11 +15,11 @@ origin.date: 10/01/2016
 ms.date: 05/14/2018
 ms.author: v-yiso
 ms.openlocfilehash: d6db600b6603e8b71939a31a5062051a8fde4f82
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33814969"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652595"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-for-mobile-apps"></a>Azure 应用服务中针对移动应用的身份验证和授权
 

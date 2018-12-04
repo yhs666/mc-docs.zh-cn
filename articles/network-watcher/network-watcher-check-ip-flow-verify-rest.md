@@ -16,11 +16,11 @@ origin.date: 02/22/2017
 ms.date: 04/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: 14f45a585a46b05fb04657e34c23c146a7c447c4
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121124"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652118"
 ---
 # <a name="check-if-traffic-is-allowed-or-denied-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>使用 Azure 网络观察程序的组件（即“IP 流验证”功能）检查是允许还是拒绝流量
 

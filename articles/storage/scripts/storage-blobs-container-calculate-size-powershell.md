@@ -17,11 +17,11 @@ origin.date: 11/07/2017
 ms.date: 06/11/2018
 ms.author: v-johch
 ms.openlocfilehash: 0b0bc20d85dc660d77a9b352b3710f3dc7c02a15
-ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523704"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651257"
 ---
 # <a name="calculate-the-size-of-a-blob-storage-container"></a>计算 Blob 存储容器的大小
 

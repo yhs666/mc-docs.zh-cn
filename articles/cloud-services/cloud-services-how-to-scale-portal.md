@@ -16,11 +16,11 @@ origin.date: 05/18/2017
 ms.author: v-yiso
 ms.date: 03/19/2018
 ms.openlocfilehash: 228c2eab12b713eb107e2d775d5ce596b00485e9
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870325"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653045"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>如何在门户中为云服务配置自动缩放
 
@@ -41,7 +41,7 @@ ms.locfileid: "29870325"
 - 还可以缩放与订阅关联的其他资源。
 
 - 若要使应用程序具有高可用性，应确保为其部署两个或更多角色实例。 有关详细信息，请参阅[服务级别协议](https://www.azure.cn/support/legal/sla/)。
-- 仅当所有角色都处于**就绪**状态时才能自动缩放。  
+- 仅当所有角色都处于**就绪**状态时才能自动缩放。  
 
 
 ## <a name="where-scale-is-located"></a>缩放位置

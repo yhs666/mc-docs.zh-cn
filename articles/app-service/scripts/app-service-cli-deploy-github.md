@@ -18,11 +18,11 @@ ms.date: 04/02/2018
 ms.author: v-yiso
 ms.custom: mvc
 ms.openlocfilehash: e3eceb9de69d1b9cbaec2dc2eb712a8f3ca323f8
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30155587"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650012"
 ---
 # <a name="create-a-web-app-with-deployment-from-github"></a>从 GitHub 使用部署创建 Web 应用
 

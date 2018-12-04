@@ -204,7 +204,7 @@ ms.assetid: d9b1ba9a-b3f2-4d12-affc-2ee34311538b ms.service: app-service-mobile 
 
 还可继续学习以下教程之一：
 
-* [向应用添加身份验证](app-service-mobile-xamarin-forms-get-started-users.md)  
+* [向应用程序添加身份验证](app-service-mobile-xamarin-forms-get-started-users.md)  
   了解如何使用标识提供者对应用的用户进行身份验证。
 * [为应用启用脱机同步](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
   了解如何使用移动应用后端向应用添加脱机支持。 使用脱机同步，用户可以与移动应用进行交互（查看、添加或修改数据），即使在没有网络连接时也是如此。

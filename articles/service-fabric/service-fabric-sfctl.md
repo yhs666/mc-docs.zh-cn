@@ -16,11 +16,11 @@ origin.date: 07/31/2018
 ms.date: 09/10/2018
 ms.author: v-yeche
 ms.openlocfilehash: 99dd2351136508fb6dfba7144f022122b8980e4f
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515632"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650571"
 ---
 # <a name="sfctl"></a>sfctl
 用于管理 Service Fabric 群集和实体的命令。 此版本与 Service Fabric 6.3 运行时兼容。

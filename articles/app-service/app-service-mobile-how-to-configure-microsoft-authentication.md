@@ -16,11 +16,11 @@ origin.date: 04/19/2018
 ms.date: 10/29/2018
 ms.author: v-biyu
 ms.openlocfilehash: 098e83d1268318fdf65c9e76d8a77a0dd6fae610
-ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49451588"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651319"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-microsoft-account-login"></a>如何将应用服务应用程序配置为使用 Microsoft 帐户登录
 

@@ -11,11 +11,11 @@ origin.date: 02/06/2017
 ms.date: 10/13/2017
 ms.author: v-junlch
 ms.openlocfilehash: fa2188014494d68c419510cd1d5944665a48e5c5
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
-ms.locfileid: "23407584"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653981"
 ---
 # <a name="computer-vision-curl-quick-starts"></a>计算机视觉 cURL 快速入门
 

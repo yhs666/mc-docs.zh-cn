@@ -15,11 +15,11 @@ origin.date: 08/013/2018
 ms.date: 10/22/2018
 ms.author: v-yeche
 ms.openlocfilehash: 040155d2b184f0741b286b0cba05dde054aa1dee
-ms.sourcegitcommit: 96b58e881dba2fd02665d806d7c27d770326b0cc
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652011"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653622"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>通过使用 Azure 门户将 OS 磁盘附加到恢复 VM，对 Windows VM 进行故障排除
 如果 Windows 虚拟机 (VM) 在 Azure 中遇到启动或磁盘错误，可能需要对虚拟硬盘本身执行故障排除步骤。 一个常见示例是应用程序更新失败，使 VM 无法成功启动。 本文详细介绍如何使用 Azure 门户将虚拟硬盘连接到另一个 Windows VM 来修复所有错误，然后重新创建原始 VM。

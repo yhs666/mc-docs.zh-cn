@@ -17,11 +17,11 @@ origin.date: 10/08/2018
 ms.date: 10/22/2018
 ms.author: v-yeche
 ms.openlocfilehash: 18581546baa5b2fa40f7892e7364d2a203a58468
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034884"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649339"
 ---
 # <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>使用 Azure 门户将托管数据磁盘附加到 Windows VM
 

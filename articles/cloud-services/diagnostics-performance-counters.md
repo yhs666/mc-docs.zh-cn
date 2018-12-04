@@ -16,11 +16,11 @@ origin.date: 02/02/18
 ms.date: 03/19/2018
 ms.author: v-yiso
 ms.openlocfilehash: a564128ad84cd65f0bb119e04adef368e4a532f4
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870553"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651311"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>收集 Azure 云服务的性能计数器
 

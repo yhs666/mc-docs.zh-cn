@@ -2,25 +2,21 @@
 title: 教程：在 HDInsight 上使用 Hive 执行提取、转换、加载 (ETL) 操作 - Azure | Microsoft Docs
 description: 了解如何从原始 CSV 数据集提取数据，在 HDInsight 上使用 Hive 将其转换，然后使用 Sqoop 将已转换的数据加载到 Azure SQL 数据库。
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 0c23a079-981a-4079-b3f7-ad147b4609e5
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 05/07/2018
-ms.date: 08/27/2018
+ms.date: 11/19/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: 49d206eb24386043fb794c4bf188e2982c525f6a
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.openlocfilehash: ce1f3215aa3918276d2ff54d6ad08f46c0ed299a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41704028"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652888"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>教程：在 Azure HDInsight 上使用 Apache Hive 提取、转换和加载数据
 
@@ -51,7 +47,7 @@ ms.locfileid: "41704028"
 
 * **Azure SQL 数据库**。 使用 Azure SQL 数据库作为目标数据存储。 如果没有 SQL 数据库，请参阅[在 Azure 门户中创建 Azure SQL 数据库](../sql-database/sql-database-get-started.md)。
 
-* **Azure CLI 2.0**。 如果尚未安装 Azure CLI，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)了解详细步骤。
+* **Azure CLI**。 如果尚未安装 Azure CLI，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)了解详细步骤。
 * **SSH 客户端**。 有关详细信息，请参阅[使用 SSH 连接到 HDInsight (Hadoop)](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 ## <a name="download-the-flight-data"></a>下载航班数据

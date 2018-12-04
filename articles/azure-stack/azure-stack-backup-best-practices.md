@@ -17,11 +17,11 @@ ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: hectorl
 ms.openlocfilehash: 3d01b25420d01534bf65dfdbfb67800a7fa93132
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869430"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651640"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>基础结构备份服务最佳做法
 

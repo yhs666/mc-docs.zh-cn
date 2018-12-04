@@ -14,11 +14,11 @@ origin.date: 03/25/2017
 ms.date: 09/26/2018
 ms.author: v-junlch
 ms.openlocfilehash: b16d7353255b72e0f5e72782e49dd39ea8aa4431
-ms.sourcegitcommit: 641f375fc67e8c9d6ec1296560602c0b64ab8a52
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47398129"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654006"
 ---
 # <a name="manage-the-resources-associated-with-your-azure-accounts-in-visual-studio-cloud-explorer"></a>在 Visual Studio Cloud Explorer 中管理与 Azure 帐户关联的资源
 通过 Cloud Explorer，可在 Visual Studio 中查看 Azure 资源和资源组、检查其属性，以及执行重要的开发人员诊断操作。 

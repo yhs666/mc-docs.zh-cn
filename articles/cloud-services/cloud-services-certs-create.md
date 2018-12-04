@@ -16,11 +16,11 @@ origin.date: 04/19/2017
 ms.author: v-yiso
 ms.date: 04/02/2018
 ms.openlocfilehash: 826a76b7b9acbbdcea82078c44ba0ebb7d29dd03
-ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30293802"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652851"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Azure 云服务证书概述
 证书在 Azure 中用于云服务（[服务证书](#what-are-service-certificates)）以及用于通过管理 API 进行身份验证（[管理证书](#what-are-management-certificates)）。 本主题提供了这两种证书类型的一般概述，并说明了如何[创建](#create)并将其[部署](#deploy)到 Azure。

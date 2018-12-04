@@ -16,11 +16,11 @@ origin.date: 04/23/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
 ms.openlocfilehash: 13b4c5cbcda4d82e3964371259fb51f8680f734f
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747344"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649687"
 ---
 # <a name="develop-java-mapreduce-programs-for-hadoop-on-hdinsight"></a>为 HDInsight 上的 Hadoop 开发 Java MapReduce 程序
 
@@ -259,13 +259,13 @@ ms.locfileid: "36747344"
 scp target/wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:
 ```
 
-将 __USERNAME__ 替换为群集的 SSH 用户名。 将“CLUSTERNAME”替换为 HDInsight 群集名。
+将 __USERNAME__ 替换为群集的 SSH 用户名。 将 __CLUSTERNAME__ 替换为 HDInsight 群集名称。
 
-此命令会将文件从本地系统复制到头节点。 有关详细信息，请参阅 [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
+此命令会将文件从本地系统复制到头节点。 有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 ## <a name="run"></a>在 Hadoop 上运行 MapReduce 作业
 
-1. 使用 SSH 连接到 HDInsight。 有关详细信息，请参阅 [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
+1. 使用 SSH 连接到 HDInsight。 有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 2. 在 SSH 会话中，使用以下命令运行 MapReduce 应用程序：
 

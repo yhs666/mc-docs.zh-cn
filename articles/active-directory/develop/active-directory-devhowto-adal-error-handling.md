@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 02/27/2017
-ms.date: 09/03/2018
+ms.date: 11/06/2018
 ms.custom: ''
-ms.openlocfilehash: 72cde24fddfbe7a29f9938c343b665dccae8d026
-ms.sourcegitcommit: 562cde32fc2271238f3d1ef5d2cc5ed037bdec2d
+ms.openlocfilehash: 1a47c7f9f493c1ce64e6460de34655b70ba8b138
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43531548"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652953"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Azure Active Directory 身份验证库 (ADAL) 客户端的错误处理最佳做法
 
@@ -366,9 +366,9 @@ catch (AdalException e) {
 }
 ```
 
-### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>错误情况和操作步骤：单页面应用程序 (adal.js)
+### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>错误情况和操作步骤：单页应用程序 (adal.js)
 
-如果使用 adal.js 和 AcquireToken 生成单页面应用程序，则错误处理代码与典型自动调用类似。 特别是在 adal.js 中，AcquireToken 从不显示 UI。 
+如果使用 adal.js 和 AcquireToken 生成单页应用程序，则错误处理代码与典型自动调用类似。 特别是在 adal.js 中，AcquireToken 从不显示 UI。 
 
 AcquireToken 失败存在以下情况：
 
@@ -593,4 +593,4 @@ window.Logging = {
 [AAD-Sign-In]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
 
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

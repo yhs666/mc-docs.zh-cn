@@ -10,11 +10,11 @@ origin.date: 02/28/2017
 ms.date: 09/24/2018
 ms.author: v-jay
 ms.openlocfilehash: b42454a01ccf25c4813171d70fdcbc92283a048c
-ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523728"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649379"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>将 Azure 存储用于 Hudson 持续集成解决方案
 ## <a name="overview"></a>概述
@@ -75,7 +75,7 @@ Hudson 通过允许开发人员轻松地集成其代码更改以及自动和频�
    
     a. 输入存储帐户名，该帐户名可从 [Azure 门户](https://portal.azure.cn)获取。
    
-    b. 输入存储帐户密钥，同样可以从 [Azure 门户](https://portal.azure.cn)获取该密钥。
+    b. 输入存储帐户密钥，该密钥同样可从 [Azure 门户](https://portal.azure.cn)获取。
    
     c. 如果要使用公共 Azure 云，请对“BLOB 服务终结点 URL”使用默认值。 如果要使用其他 Azure 云，请使用在 [Azure 门户](https://portal.azure.cn)中为存储帐户指定的终结点。
    
@@ -161,7 +161,7 @@ Hudson 通过允许开发人员轻松地集成其代码更改以及自动和频�
 * [Hudson 简介](http://wiki.eclipse.org/Hudson-ci/Meet_Hudson)
 * [用于 Java 的 Microsoft Azure 存储 SDK](https://github.com/azure/azure-storage-java)
 * [Azure 存储客户端 SDK 参考](http://azure.github.io/azure-storage-java/)
-* [Azure 存储服务 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+* [Azure Storage Services REST API（Azure 存储服务 REST API）](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Azure 存储团队博客](http://blogs.msdn.com/b/windowsazurestorage/)
 
 有关详细信息，请访问[面向 Java 开发人员的 Azure](https://docs.azure.cn/java/)。

@@ -16,11 +16,11 @@ origin.date: 05/04/2017
 ms.date: 10/12/2018
 ms.author: v-junlch
 ms.openlocfilehash: 00fb36f36c2529749a69bc8ec75fdb8dbb0fe05a
-ms.sourcegitcommit: 21b81b5cd326b6900fa7274b3b073aecd01111aa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121670"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651629"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 概念证明操作手册：构建基块
 

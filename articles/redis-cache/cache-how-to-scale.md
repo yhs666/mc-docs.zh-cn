@@ -16,17 +16,17 @@ origin.date: 04/11/2017
 ms.date: 09/07/2018
 ms.author: v-junlch
 ms.openlocfilehash: 0869c95da36b8c5580cc12ad89485af23d547fb6
-ms.sourcegitcommit: 40456700212200e707d6cb3147cf96ad161d3ff2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44269530"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653250"
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>如何缩放 Azure Redis 缓存
-Azure Redis 缓存具有不同的缓存产品/服务，使缓存大小和功能的选择更加灵活。 如果创建缓存后，应用程序的要求发生更改，可以更改缓存的大小和定价层。 本文演示如何使用 Azure 门户以及 Azure PowerShell 和 Azure CLI 等工具来缩放缓存。
+Azure Redis 缓存具有不同的缓存产品/服务，使缓存大小和功能的选择更加灵活。 创建缓存后，如果应用程序的要求发生更改，可以缩放缓存的大小和定价层。 本文演示如何使用 Azure 门户以及 Azure PowerShell 和 Azure CLI 等工具来缩放缓存。
 
 ## <a name="when-to-scale"></a>何时缩放
-可以使用 Azure Redis 缓存的[监视](cache-how-to-monitor.md)功能来监视缓存的运行状况和性能，并帮助确定何时缩放缓存。 
+可以使用 Azure Redis 缓存的[监视](cache-how-to-monitor.md)功能来监视缓存的运行状况和性能，并确定何时缩放缓存。 
 
 可以监视以下指标以帮助确定是否需要进行缩放。
 
@@ -35,7 +35,7 @@ Azure Redis 缓存具有不同的缓存产品/服务，使缓存大小和功能�
 - 网络带宽
 - CPU 使用率
 
-如果确定缓存不再满足应用程序的要求，可以更改到应用程序所需的更大或更小缓存定价层。 有关确定应使用哪个缓存定价层的详细信息，请参阅 [我应当使用哪些 Redis 缓存产品/服务和大小](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)。
+如果确定缓存不再满足应用程序的要求，可以缩放到适合应用程序的更大或更小缓存定价层。 有关确定应使用哪个缓存定价层的详细信息，请参阅 [我应当使用哪些 Redis 缓存产品/服务和大小](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)。
 
 ## <a name="scale-a-cache"></a>缩放缓存
 若要缩放缓存，请在 [Azure 门户](https://portal.azure.cn)中[浏览到缓存](cache-configure.md#configure-redis-cache-settings)，然后从“资源”菜单单击“缩放”。
@@ -130,7 +130,7 @@ Azure Redis 缓存具有不同的缓存产品/服务，使缓存大小和功能�
 不需要，在缩放操作期间缓存名称和密钥不变。
 
 ### <a name="how-does-scaling-work"></a>缩放的工作原理？
-- 将**基本**缓存缩放为不同大小时，将关闭该缓存，同时使用新的大小预配一个新缓存。 在此期间，缓存不可用，且缓存中的所有数据都将丢失。
+- 将 **基本** 缓存缩放为不同大小时，将关闭该缓存，同时使用新的大小预配一个新缓存。 在此期间，缓存不可用，且缓存中的所有数据都将丢失。
 - 将**基本**缓存缩放为**标准**缓存时，将预配副本缓存并将主缓存中的数据复制到副本缓存。 在缩放过程中，缓存仍然可用。
 - 将**标准**缓存缩放为不同大小或缩放到**高级**缓存时，将关闭其中一个副本，同时将其重新预配为新的大小，将数据转移，然后，在重新预配另一个副本之前，另一个副本将执行一次故障转移，类似于一个缓存节点发生故障时所发生的过程。
 
@@ -143,7 +143,7 @@ Azure Redis 缓存具有不同的缓存产品/服务，使缓存大小和功能�
 如果在缓存创建过程中为 `databases` 设置配置了自定义值，请记住，某些定价层具有不同的[数据库限制](cache-configure.md#databases)。 以下是在这种情况下缩放时的一些注意事项：
 
 - 缩放到的定价层的 `databases` 限制低于当前层：
-  - 如果使用默认 `databases` 数（对于所有定价层来说均为 16），则不会丢失数据。
+  - 如果使用的是默认 `databases`数（对于所有定价层来说为 16），则不会丢失数据。
   - 如果使用的是在要缩放到的层的限制内的自定义 `databases` 数，则将保留此 `databases` 设置并且不会丢失数据。
   - 如果使用的是超出新层限制的自定义 `databases` 数，则 `databases` 设置将降低到新层的限制，并且已删除数据库中的所有数据都将丢失。
 - 所缩放到的定价层的 `databases` 限制等于或高于当前定价层时，将保留 `databases` 设置并且不会丢失数据。
@@ -175,7 +175,7 @@ Azure Redis 缓存具有不同的缓存产品/服务，使缓存大小和功能�
 缩放大约需要 20 分钟，具体取决于缓存中的数据量。
 
 ### <a name="how-can-i-tell-when-scaling-is-complete"></a>如何判断缩放何时完成？
-在 Azure 门户中可以看到进行中的缩放操作。 缩放完成后，缓存状态将更改为**正在运行**。
+在 Azure 门户中可以看到进行中的缩放操作。 缩放完成后，缓存状态更改为 **正在运行**。
 
 <!-- IMAGES -->
 

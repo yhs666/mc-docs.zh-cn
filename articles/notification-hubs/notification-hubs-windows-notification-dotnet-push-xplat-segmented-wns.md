@@ -17,11 +17,11 @@ origin.date: 04/14/2018
 ms.date: 09/10/2018
 ms.author: v-junlch
 ms.openlocfilehash: 79dbd52f265cb0d8051747c36528e79684273dce
-ms.sourcegitcommit: 1471663f5f5a1c4e1fbead7c4d351610cb0086bb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44363574"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650119"
 ---
 # <a name="tutorial-push-notifications-to-specific-windows-devices-running-universal-windows-platform-applications"></a>教程：向运行通用 Windows 平台应用程序的特定 Windows 设备推送通知
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]

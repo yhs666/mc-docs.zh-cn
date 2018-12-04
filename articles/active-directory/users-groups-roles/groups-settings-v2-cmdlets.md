@@ -12,16 +12,16 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
 origin.date: 06/07/2018
-ms.date: 07/31/2018
+ms.date: 11/13/2018
 ms.author: v-junlch
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 7e515245e10ccf2cf8b7d922e7de8795733d27c4
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.openlocfilehash: 32605308b9bddc3519557f1ed07842b027fc425a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487493"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649858"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>用于组管理的 Azure Active Directory 版本 2 cmdlet
 > [!div class="op_single_selector"]
@@ -251,8 +251,8 @@ ObjectId 参数是要将所有者添加到的组的 ObjectID，-RefObjectId 是�
     PS C:\Windows\system32> remove-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -OwnerId e831b3fd-77c9-49c7-9fca-de43e109ef67
 
 ## <a name="reserved-aliases"></a>保留的别名 
-创建组后，某些终结点允许最终用户指定一个 mailNickname 或别名，用作组的电子邮件地址的一部分。 仅 Azure AD 全局管理员可以创建具有以下权限较高的电子邮件别名的组。 
-  
+创建组后，某些终结点允许最终用户指定一个 mailNickname 或别名，用作组的电子邮件地址的一部分。 仅 Azure AD 全局管理员可以创建具有以下权限较高的电子邮件别名的组。 
+  
 - abuse 
 - admin 
 - administrator 
@@ -269,5 +269,5 @@ ObjectId 参数是要将所有者添加到的组的 ObjectID，-RefObjectId 是�
 如需更多 Azure Active Directory PowerShell 文档，可参阅 [Azure Active Directory Cmdlet](https://docs.microsoft.com/powershell/azure/install-adv2?view=azureadps-2.0)。
 
 - [使用 Azure Active Directory 组管理对资源的访问](../fundamentals/active-directory-manage-groups.md)
-- [将本地标识与 Azure Active Directory 集成](../connect/active-directory-aadconnect.md)
+- [将本地标识与 Azure Active Directory 集成](../hybrid/whatis-hybrid-identity.md)
 

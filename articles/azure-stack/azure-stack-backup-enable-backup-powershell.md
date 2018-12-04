@@ -16,11 +16,11 @@ ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: hectorl
 ms.openlocfilehash: 5abcc5d84fcbcee4f75089e60f7fe91624c0ab0d
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869433"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651113"
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>使用 PowerShell 为 Azure Stack 启用备份
 

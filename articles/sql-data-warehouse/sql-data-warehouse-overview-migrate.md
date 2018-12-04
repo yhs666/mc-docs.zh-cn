@@ -12,11 +12,11 @@ ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: 31ae273fff71f16d3505a58653e991e75146ae44
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089058"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653801"
 ---
 # <a name="migrate-your-solution-to-azure-sql-data-warehouse"></a>将解决方案迁移到 Azure SQL 数据仓库
 请参阅“将现有数据库解决方案迁移到 Azure SQL 数据仓库所涉及的内容”。 

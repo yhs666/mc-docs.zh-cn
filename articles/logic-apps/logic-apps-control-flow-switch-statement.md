@@ -12,11 +12,11 @@ ms.topic: article
 ms.reviewer: klam, LADocs
 ms.date: 11/12/2018
 ms.openlocfilehash: afafe85aa8a8c79fc1489b763bae9d04f49370fe
-ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50919078"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653897"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>基于 Azure 逻辑应用中的特定值创建运行工作流操作的 Switch 语句
 
@@ -115,7 +115,7 @@ ms.locfileid: "50919078"
 }
 ```
 
-| 标签 | 说明 |
+| Label | 说明 |
 |-------|-------------|
 | `"Switch"`         | Switch 语句的名称，可对其进行重命名以提高可读性 |
 | `"type": "Switch"` | 指示该操作是一个 Switch 语句 |

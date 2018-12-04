@@ -11,11 +11,11 @@ origin.date: 07/06/2018
 ms.date: 07/23/2018
 ms.author: v-yeche
 ms.openlocfilehash: 68f1c7b984dbe887a3f55776387588a70b4d955c
-ms.sourcegitcommit: 74f9f0acb00fb728ff6e9bd67ac86a0c1bcd8d13
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39218915"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653968"
 ---
 # <a name="troubleshoot-failback-from-azure-to-vmware"></a>从 Azure 故障回复到 VMware 时进行故障排除
 

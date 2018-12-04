@@ -1,5 +1,5 @@
 1. 在[门户](http://portal.azure.cn)中，导航到要为其创建虚拟网关的 Resource Manager 虚拟网络。
-2. 在 VNet 页的“设置”部分中单击“子网”，展开“子网”页。
+2. 在 VNet 页的“设置”部分单击“子网”，展开“子网”页。
 3. 在“子网”页中，单击“+网关子网”打开“添加子网”页。 
 
     ![添加网关子网](./media/vpn-gateway-add-gwsubnet-p2s-rm-portal-include/addgwsubnet.png "添加网关子网")

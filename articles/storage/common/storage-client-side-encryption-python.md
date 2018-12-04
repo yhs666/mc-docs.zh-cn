@@ -16,11 +16,11 @@ origin.date: 05/11/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
 ms.openlocfilehash: 58a58d8f3052c7dee12460ae92349e0d3eb0773f
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295826"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653371"
 ---
 # <a name="client-side-encryption-with-python-for-azure-storage"></a>使用适用于 Azure 存储的 Python 进行客户端加密
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -124,7 +124,7 @@ ms.locfileid: "39295826"
 > 
 > 
 
-存储客户端库要求提供的 KEK 和密钥解析程序实现以下接口。 对 Python KEK 管理的 [Azure Key Vault](https://www.azure.cn/home/features/key-vault/) 支持正在筹备中，开发完成后将集成到此库中。
+存储客户端库要求提供的 KEK 和密钥解析程序实现以下接口。 用于 Python KEK 管理的 [Azure 密钥保管库](https://www.azure.cn/home/features/key-vault/)支持正在筹备中，开发完成后会集成到此库中。
 
 ## <a name="client-api--interface"></a>客户端 API/接口
 创建存储服务对象（例如 blockblobservice）后，用户可以向构成加密策略的字段赋值：key_encryption_key、key_resolver_function 和 require_encryption。 用户可仅提供 KEK 或解析程序，或同时提供两者。 key_encryption_key 是使用密钥标识符进行标识的基本密钥类型，它提供包装/解包逻辑。 key_resolver_function 用于在解密过程中解析密钥。 在指定了密钥标识符的情况下，它返回有效的 KEK。 由此，用户能够在多个位置中托管的多个密钥之间进行选择。

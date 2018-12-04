@@ -16,11 +16,11 @@ origin.date: 07/31/2018
 ms.date: 09/10/2018
 ms.author: v-yeche
 ms.openlocfilehash: ae56ab3c579b8a31946109dc3f683711ea0822dd
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515623"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651936"
 ---
 # <a name="sfctl-sa-cluster"></a>sfctl sa-cluster
 管理独立 Service Fabric 群集。
@@ -67,15 +67,15 @@ ms.locfileid: "44515623"
 | --cluster-config            [必需] | 将应用于群集的群集配置。 |
 | --application-health-policies | 应用程序类型名称对的 JSON 编码字典以及引发错误之前的最大不正常百分比。 |
 | --delta-unhealthy-nodes | 升级过程中允许的增量运行状况降级最大百分比。 允许的值为 0 到 100 的整数值。 |
-| --health-check-retry | 应用程序或群集不正常时尝试执行运行状况检查所间隔的时间长度。  默认值：PT0H0M0S。 |
-| --health-check-stable | 应用程序或群集必须保持正常状态的时间长度。  默认值：PT0H0M0S。 |
-| --health-check-wait | 启动运行状况检查进程之前，完成升级域后等待的时间长度。  默认值：PT0H0M0S。 |
+| --health-check-retry | 应用程序或群集不正常时尝试执行运行状况检查所间隔的时间长度。  默认值\: PT0H0M0S。 |
+| --health-check-stable | 应用程序或群集必须保持正常状态的时间长度。  默认值\: PT0H0M0S。 |
+| --health-check-wait | 启动运行状况检查进程之前，完成升级域后等待的时间长度。  默认值\: PT0H0M0S。 |
 | --timeout -t | 服务器超时，以秒为单位。  默认值\: 60。 |
 | --unhealthy-applications | 升级过程中允许的不正常应用程序最大百分比。 允许的值为 0 到 100 的整数值。 |
 | --unhealthy-nodes | 升级过程中允许的不正常节点最大百分比。 允许的值为 0 到 100 的整数值。 |
 | --upgrade-domain-delta-unhealthy-nodes | 升级过程中允许的升级域增量运行状况降级最大百分比。 允许的值为 0 到 100 的整数值。 |
-| --upgrade-domain-timeout | 升级域的超时。  默认值：PT0H0M0S。 |
-| --upgrade-timeout | 升级超时。  默认值：PT0H0M0S。 |
+| --upgrade-domain-timeout | 升级域的超时。  默认值\: PT0H0M0S。 |
+| --upgrade-timeout | 升级超时。  默认值\: PT0H0M0S。 |
 
 ### <a name="global-arguments"></a>全局参数
 

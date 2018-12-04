@@ -17,11 +17,11 @@ origin.date: 04/11/2018
 ms.author: v-yiso
 ms.date: 05/07/2018
 ms.openlocfilehash: bf9c97b54cba7e118d09a56324c748a5aae553ff
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121083"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651376"
 ---
 # <a name="use-iothub-explorer-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>使用 iothub-explorer 在设备与 IoT 中心之间发送和接收消息
 

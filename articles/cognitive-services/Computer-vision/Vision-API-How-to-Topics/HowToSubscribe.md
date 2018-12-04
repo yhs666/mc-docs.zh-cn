@@ -12,11 +12,11 @@ origin.date: 05/19/2017
 ms.date: 10/30/2018
 ms.author: v-junlch
 ms.openlocfilehash: 00455a1548490284d6476ea86fda638ecbe2e51c
-ms.sourcegitcommit: b8e99939a5493a15b78c32e87bfbf76a8c96a84a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50408992"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652035"
 ---
 # <a name="how-to-obtain-subscription-keys"></a>如何获取订阅密钥
 

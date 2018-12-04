@@ -17,11 +17,11 @@ ms.date: 10/15/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 4741d4972d6a31065abee66079e326cccddd39a5
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089093"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651987"
 ---
 # <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>教程：在 Service Fabric 上创建包含 Java Web API 前端服务和有状态后端服务的应用程序
 

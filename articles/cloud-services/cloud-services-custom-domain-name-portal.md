@@ -16,11 +16,11 @@ origin.date: 07/05/2017
 ms.date: 08/20/2018
 ms.author: v-yiso
 ms.openlocfilehash: eb5e221b9db187860324a32308b0e42b4661f381
-ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41704596"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650902"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>为 Azure 云服务配置自定义域名
 创建云服务时，Azure 会将其分配给 **chinacloudapp.cn** 的子域。 例如，如果云服务名为“contoso”，则用户能够在 URL（如 http://contoso.chinacloudapp.cn）上访问应用程序。 Azure 还会分配一个虚拟 IP 地址。
@@ -151,7 +151,7 @@ www.contoso.com 的访问者不会看到真正的主机 (contoso.chinacloudapp.c
 * [如何管理云服务](cloud-services-how-to-manage-portal.md)
 
 * [云服务的常规配置](./cloud-services-how-to-configure-portal.md)。
-* 了解如何[部署云服务](./cloud-services-how-to-create-deploy-portal.md)。
+* 了解如何 [部署云服务](./cloud-services-how-to-create-deploy-portal.md)。
 * 配置 [SSL 证书](./cloud-services-configure-ssl-certificate-portal.md)。
 
 [Expose Your Application on a Custom Domain]: #access-app

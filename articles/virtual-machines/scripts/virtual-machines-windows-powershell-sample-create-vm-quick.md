@@ -18,11 +18,11 @@ ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: f375b588a1bc9eb59409f18f2167a88b36b3d89f
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295808"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653588"
 ---
 # <a name="create-a-virtual-machine-with-powershell"></a>使用 PowerShell 创建虚拟机
 

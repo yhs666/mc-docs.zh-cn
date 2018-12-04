@@ -17,11 +17,11 @@ origin.date: 02/14/2017
 ms.date: 08/27/2018
 ms.author: v-yeche
 ms.openlocfilehash: ff7c08b9049ac336f188253e39eeb5298636e2d4
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872107"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649968"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>适用于 Windows 的网络观察程序代理虚拟机扩展
 

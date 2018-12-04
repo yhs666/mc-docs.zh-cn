@@ -13,11 +13,11 @@ origin.date: 04/15/2018
 ms.date: 06/11/2018
 ms.author: v-junlch
 ms.openlocfilehash: 28dc72148f8490db4a9c98a6959981a74903bda6
-ms.sourcegitcommit: 306fba1a7125ef6f0555781524afa8f535bea2a0
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35253387"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653124"
 ---
 # <a name="what-happened-to-my-aspnet-core-project-visual-studio-key-vault-connected-service"></a>我的 ASP.NET Core 项目（Visual Studio Key Vault 连接服务）发生了什么情况？
 

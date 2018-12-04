@@ -15,11 +15,11 @@ ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.openlocfilehash: 1696ec54a1a4d1758077697da5a04fb463c32b51
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195438"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649553"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Azure CLI 配合使用
 

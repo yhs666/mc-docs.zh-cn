@@ -16,11 +16,11 @@ origin.date: 09/28/2017
 ms.date: 07/18/2018
 ms.author: v-junlch
 ms.openlocfilehash: 39071c9d99b2c86a6f076236c6d5ef99238429df
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168299"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649699"
 ---
 # <a name="how-to-migrate-power-bi-workspace-collection-content-to-power-bi-embedded"></a>如何将 Power BI 工作区集合内容迁移到 Power BI Embedded
 

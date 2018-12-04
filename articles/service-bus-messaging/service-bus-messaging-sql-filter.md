@@ -16,11 +16,11 @@ origin.date: 09/05/2018
 ms.date: 10/31/2018
 ms.author: v-lingwu
 ms.openlocfilehash: 2572838b30e2a1b2332463426ced640ca1012c4a
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409369"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654198"
 ---
 # <a name="sqlfilter-syntax"></a>SQLFilter 语法
 

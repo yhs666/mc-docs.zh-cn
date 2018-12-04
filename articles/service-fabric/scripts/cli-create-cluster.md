@@ -17,11 +17,11 @@ ms.date: 03/12/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 2d5f936c18d8753946038016af902a100e792574
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29797797"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654109"
 ---
 # <a name="create-a-secure-service-fabric-linux-cluster-in-azure"></a>在 Azure 中创建安全的 Service Fabric Linux 群集
 

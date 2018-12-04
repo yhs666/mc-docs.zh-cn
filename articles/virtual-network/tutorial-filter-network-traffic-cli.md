@@ -15,15 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 03/30/2018
-ms.date: 05/07/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 907a98f2c6e12d3686f7c32dd4f97f673b7e79e1
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 54a41f2f6355c66900a525ce0354548384b2e52e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815506"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650055"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>在 Azure CLI 中使用网络安全组筛选网络流量
 
@@ -38,7 +38,7 @@ ms.locfileid: "33815506"
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0.28 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
+如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0.28 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
 
 ## <a name="create-a-network-security-group"></a>创建网络安全组
 
@@ -245,5 +245,5 @@ az group delete --name myResourceGroup --yes
 在本文中，我们已创建一个网络安全组并将其关联到虚拟网络子网。 若要详细了解网络安全组，请参阅[网络安全组概述](security-overview.md)和[管理网络安全组](manage-network-security-group.md)。
 
 默认情况下，Azure 在子网之间路由流量。 你也可以选择通过某个 VM（例如，充当防火墙的 VM）在子网之间路由流量。 若要了解操作方法，请参阅[创建路由表](tutorial-create-route-table-cli.md)。
-<!-- Update_Description: new articles on tutorial filter network traffic with CLI  -->
-<!--ms.date: 05/07/2018-->
+
+<!-- Update_Description: wording update  -->

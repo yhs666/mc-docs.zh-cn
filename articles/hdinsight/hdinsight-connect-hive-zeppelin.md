@@ -18,11 +18,11 @@ origin.date: 05/14/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
 ms.openlocfilehash: b255a6deec814abdf4b69588fac404d38fc7e575
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747340"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649645"
 ---
 # <a name="use-zeppelin-to-run-hive-queries-in-azure-hdinsight"></a>在 Azure HDInsight 中使用 Zeppelin 运行 Hive 查询 
 

@@ -14,11 +14,11 @@ ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.technology: database-engine
 ms.openlocfilehash: 33fc5885e09a3e60ea63061c3ad6e096546aa869
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702886"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649540"
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>在 Azure 门户中预配 Linux SQL Server 虚拟机
 
@@ -63,7 +63,7 @@ ms.locfileid: "34702886"
    > [!TIP]
    > Developer 版允许你使用 Enterprise 版的功能进行测试或开发，但没有 SQL Server 许可费用。 只需支付运行 Linux VM 的费用。
 
-1. 单击“创建”。
+1. 单击**创建**。
 
 1. 在“基本信息”窗口中，填写 Linux VM 的详细信息。 
 

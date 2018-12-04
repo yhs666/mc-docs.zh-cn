@@ -10,11 +10,11 @@ ms.service: mysql-database
 ms.topic: article
 ms.date: 02/28/2018
 ms.openlocfilehash: da94d369c790709371a56b9b48acafc97b5abea3
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873482"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649802"
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>在 Azure 门户中配置和访问服务器日志
 

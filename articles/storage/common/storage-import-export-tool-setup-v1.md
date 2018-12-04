@@ -16,11 +16,11 @@ origin.date: 01/15/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
 ms.openlocfilehash: 49f31d4d7b80f7555ed27bb9fbc4076fc673d984
-ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43651058"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652542"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>设置 Azure 导入/导出工具
 Azure 导入/导出工具是可与 Azure 导入/导出服务一起使用的驱动器准备和修复工具。 可以使用该工具实现以下功能：  

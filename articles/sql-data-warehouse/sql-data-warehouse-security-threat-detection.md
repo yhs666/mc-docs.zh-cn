@@ -12,11 +12,11 @@ ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: a3e0acf3f2c67c18ef136b6380d9e4aca873efe2
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089217"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652896"
 ---
 # <a name="threat-detection-in-azure-sql-data-warehouse"></a>Azure SQL 数据仓库中的威胁检测
 在 Azure SQL 数据仓库中配置威胁检测并浏览可疑事件。

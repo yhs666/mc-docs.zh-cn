@@ -17,11 +17,11 @@ origin.date: 08/30/2017
 ms.author: v-yiso
 ms.date: 10/16/2017
 ms.openlocfilehash: 832ceef52bf31c81bcdfcff197c6a54a23eae459
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939163"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654261"
 ---
 # <a name="create-a-net-core-web-app-in-a-linux-container-in-azure"></a>在 Azure 的 Linux 容器中创建 .NET Core Web 应用
 

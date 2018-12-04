@@ -11,11 +11,11 @@ ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
 ms.openlocfilehash: 3e66cc0cdfd71d19393f0c502166b3e78cb81d76
-ms.sourcegitcommit: b8e99939a5493a15b78c32e87bfbf76a8c96a84a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409193"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652447"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>创建策略分配，识别 Azure 环境中的不合规资源
 

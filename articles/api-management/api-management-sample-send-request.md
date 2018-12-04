@@ -16,11 +16,11 @@ origin.date: 12/15/2016
 ms.author: v-yiso
 ms.date: 03/19/2018
 ms.openlocfilehash: 6d6ebf78ec380c5e905443d6f336ac1e85910598
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870502"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651696"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>通过 Azure API 管理服务使用外部服务
 Azure API 管理服务中的策略可以单纯根据传入的请求、传出的响应以及基本配置信息执行多种不同的有用工作。 但是，如果能够与 API 管理策略中的外部服务进行交互，则可以使更多的想法成为可能。

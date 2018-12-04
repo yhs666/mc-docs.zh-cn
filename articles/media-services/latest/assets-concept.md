@@ -13,11 +13,11 @@ origin.date: 03/19/2018
 ms.date: 06/25/2018
 ms.author: v-nany
 ms.openlocfilehash: 6690753e0d9ddd1c5e76dff13595dda874127199
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748422"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654097"
 ---
 # <a name="assets"></a>资产
 

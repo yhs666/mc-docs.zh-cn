@@ -16,11 +16,11 @@ origin.date: 12/08/2016
 ms.date: 08/28/2017
 ms.author: v-haiqya
 ms.openlocfilehash: 2c5fde85dc4812765d8878aa66fe49a3d982fd6e
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940149"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651773"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>如何通过 Java 使用队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

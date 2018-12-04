@@ -13,11 +13,11 @@ origin.date: 08/29/2017
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.openlocfilehash: e8640ca586af0d023bfce97c9f3201bf00ad8851
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070328"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652985"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 执行性能和规模测试
 

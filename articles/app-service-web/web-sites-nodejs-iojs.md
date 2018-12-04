@@ -16,11 +16,11 @@ origin.date: 08/17/2017
 ms.date: 09/04/2017
 ms.author: v-yiso
 ms.openlocfilehash: d2c0249398f61803afc1b71308218bad8d5609ba
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
-ms.locfileid: "21134780"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652453"
 ---
 # <a name="how-to-use-iojs-with-azure-app-service-web-apps"></a>如何将 io.js 与 Azure 应用服务 Web 应用配合使用
 与 Joyent 的 Node.js 项目相比，流行的 Node 分叉 [io.js] 具有许多不同的特性，包括更加开放的监管模型、更快的发行周期，和更快地采纳新的和试验性的 JavaScript 功能。
@@ -53,7 +53,7 @@ GitHub 上提供了 [io.js 部署脚本](https://github.com/felixrieseberg/iojs-
 <a id="nextsteps"></a>
 
 ## <a name="next-steps"></a>后续步骤
-在本文中，已学习了如何使用提供的部署脚本以及手动安装方法，将 io.js 与应用服务 Web 应用配合使用。 
+在本文中，你已学习了如何使用提供的部署脚本以及手动安装方法，将 io.js 与应用服务 Web 应用配合使用。 
 
 > [!NOTE]
 > io.js 正在紧张的开发中，其更新频率超过了 Node.js。 许多 Node.js 模块可能并不适用于 io.js - 若要进行故障排除，请查阅 [GitHub 上的 io.js]。

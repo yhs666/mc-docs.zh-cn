@@ -7,14 +7,14 @@ ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 origin.date: 08/27/2018
-ms.date: 09/24/2018
+ms.date: 11/08/2018
 ms.author: v-jay
-ms.openlocfilehash: 3bef5765fecac3691c80b96ac326befa4ca7d215
-ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
+ms.openlocfilehash: 0e9137a73f9db4b645cfb02ae9ca8634551c5456
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523687"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652929"
 ---
 # <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>快速入门：使用 .NET 在对象存储中创建 blob
 
@@ -138,7 +138,7 @@ Temp file = C:\Users\myusername\Documents\QuickStart_c5e7f24f-a7f8-4926-a9da-969
 Uploading to Blob storage as blob 'QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db.txt'
 
 Listing blobs in container.
-https://storagesamples.blob.core.windows.net/quickstartblobs33c90d2a-eabd-4236-958b-5cc5949e731f/QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db.txt
+https://storagesamples.blob.core.chinacloudapi.cn/quickstartblobs33c90d2a-eabd-4236-958b-5cc5949e731f/QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db.txt
 
 Downloading blob to C:\Users\myusername\Documents\QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db_DOWNLOADED.txt
 

@@ -17,11 +17,11 @@ ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: misainat
 ms.openlocfilehash: 0df2fce92162f253ddaf09752b4976471e376219
-ms.sourcegitcommit: 3ec1b0705c8305fc4561b9511c275edb9baa1f59
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49316008"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649817"
 ---
 # <a name="download-and-extract-the-azure-stack-development-kit-asdk"></a>下载并提取 Azure Stack 开发工具包 (ASDK)
 在确保开发工具包主机满足安装 ASDK 的基本要求以后，下一步是下载并提取 ASDK 部署包，以获取 Cloudbuilder.vhdx。

@@ -17,11 +17,11 @@ ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: hectorl
 ms.openlocfilehash: 7d65d2ec4adbf274e4286a03c3ae671f86a9fa64
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869326"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654042"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>在发生灾难性数据丢失后进行恢复
 

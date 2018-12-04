@@ -16,11 +16,11 @@ origin.date: 02/23/2018
 ms.date: 05/28/2018
 ms.author: v-yeche
 ms.openlocfilehash: 9999f018d5e93e3f8b35b212ba94c059129d7d9d
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554272"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650817"
 ---
 # <a name="import-a-certificate-file-into-a-container-running-on-service-fabric"></a>将证书文件导入到 Service Fabric 上运行的容器
 

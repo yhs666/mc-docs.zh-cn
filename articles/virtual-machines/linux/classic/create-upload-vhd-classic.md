@@ -18,11 +18,11 @@ origin.date: 11/28/2016
 ms.date: 07/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: a7d6259ebf4928676bd3a61c6d8b538d76f1faec
-ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39261863"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652380"
 ---
 # <a name="creating-and-uploading-a-virtual-hard-disk-that-contains-the-linux-operating-system"></a>创建并上传包含 Linux 操作系统的虚拟硬盘
 > [!IMPORTANT] 

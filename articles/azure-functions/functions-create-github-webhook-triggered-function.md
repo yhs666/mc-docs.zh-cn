@@ -18,11 +18,11 @@ ms.date: 04/10/2018
 ms.author: v-junlch
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: d1ac79b9fb55a60757b23a6e569ca2eab8ed0965
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939469"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649479"
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>创建由 GitHub Webhook 触发的函数
 
@@ -73,7 +73,7 @@ ms.locfileid: "38939469"
 
    ![启用“问题”](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook.png)
 
-1. 在“设置”中，选择“Webhook” > “添加 Webhook”。
+1. 在“设置”中，选择“Webhook” >“添加 Webhook”。 ****
 
     ![添加 GitHub webhook](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-2.png)
 

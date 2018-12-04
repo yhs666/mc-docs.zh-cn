@@ -15,11 +15,11 @@ origin.date: 03/09/2018
 ms.date: 03/26/2018
 ms.author: v-yeche
 ms.openlocfilehash: 865694b8f1754257b0f680f31b534ca646113c72
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30222455"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649417"
 ---
 # <a name="resolve-errors-for-storage-account-names"></a>解决存储帐户名称错误
 

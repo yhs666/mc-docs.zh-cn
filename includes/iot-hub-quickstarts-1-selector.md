@@ -9,11 +9,11 @@ ms.date: 04/13/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: a8a199904dccb28ada472d5c541d19595ba89609
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523923"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650823"
 ---
 > [!div class="op_single_selector"]
 > * [C](../articles/iot-hub/quickstart-send-telemetry-c.md)

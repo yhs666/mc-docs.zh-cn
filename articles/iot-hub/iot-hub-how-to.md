@@ -16,11 +16,11 @@ origin.date: 10/13/2017
 ms.date: 12/18/2017
 ms.author: v-yiso
 ms.openlocfilehash: 6273ba30f57eb4280207dee1ddb967d41581caec
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26410355"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653220"
 ---
 # <a name="how-to-use-azure-iot-hub"></a>如何使用 Azure IoT 中心
 

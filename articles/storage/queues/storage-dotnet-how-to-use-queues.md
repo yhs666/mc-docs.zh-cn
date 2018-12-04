@@ -11,11 +11,11 @@ origin.date: 06/13/2018
 ms.date: 07/02/2018
 ms.author: v-johch
 ms.openlocfilehash: fb204867fd0a85f325cf6ffec0b9e257f16ff3a9
-ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523678"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651955"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>通过 .NET 开始使用 Azure 队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

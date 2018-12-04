@@ -9,11 +9,11 @@ origin.date: 09/11/2018
 ms.date: 09/24/2018
 ms.author: v-yeche
 ms.openlocfilehash: 56224fee22f65582fae04fa40318b2595df6d491
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201345"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649309"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>对复制到 Azure 的物理服务器进行故障转移和故障回复
 

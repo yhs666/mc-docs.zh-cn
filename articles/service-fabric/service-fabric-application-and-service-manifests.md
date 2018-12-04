@@ -16,11 +16,11 @@ origin.date: 02/23/2018
 ms.date: 05/28/2018
 ms.author: v-yeche
 ms.openlocfilehash: 7b698f358a276ee7a3c49fa2cfbf81a40ab93de0
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554446"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653135"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric 应用程序和服务清单
 本文介绍如何使用 ApplicationManifest.xml 和 ServiceManifest.xml 文件来定义 Service Fabric 应用程序与服务并对其进行版本控制。  [ServiceFabricServiceModel.xsd 架构文档](service-fabric-service-model-schema.md)中阐述了这些清单文件的 XML 架构。

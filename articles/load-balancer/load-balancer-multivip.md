@@ -15,11 +15,11 @@ origin.date: 09/25/2017
 ms.date: 11/05/2018
 ms.author: v-jay
 ms.openlocfilehash: 21e2c97efdb9652bbffb88da9b387f69f270193c
-ms.sourcegitcommit: 9be84d4dc546d66a0d9d1d2be67dd79c84b2c210
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50408831"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652156"
 ---
 # <a name="configure-multiple-vips-for-a-cloud-service"></a>为云服务配置多个 VIP
 

@@ -11,11 +11,11 @@ ms.date: 08/08/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7ac1cf79ca0a1f0e59ab0a5eb2c6ed9ae32904bb
-ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625522"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649672"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Azure 备份报表的数据模型
 本文介绍用于创建 Azure 备份报表的 Power BI 数据模型。 使用此数据模型，可基于相关字段筛选现有报表，更重要是，还可使用模型中表格和字段创建自己的报表。 

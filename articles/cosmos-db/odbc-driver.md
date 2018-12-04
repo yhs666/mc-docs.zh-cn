@@ -12,11 +12,11 @@ origin.date: 03/22/2018
 ms.date: 09/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: 70809f160292f2aa556fc3d5d472f9c85854fd9b
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201431"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651269"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>使用 BI 分析工具和 ODBC 驱动程序连接到 Azure Cosmos DB
 
@@ -62,7 +62,7 @@ Azure Cosmos DB 是一种无架构数据库，它允许应用程序即时迭代�
     ![“Azure Cosmos DB ODBC 驱动程序 DSN 设置”窗口](./media/odbc-driver/odbc-driver-dsn-setup.png)
     - **数据源名称**：ODBC DSN 的友好名称。 此名称对于 Azure Cosmos DB 帐户是唯一的，因此，如果有多个帐户，请适当地为数据源命名。
     - **说明**：数据源的简短说明。
-    - 主机：Azure Cosmos DB 帐户的 URI。 可在 Azure 门户的“Azure Cosmos DB 密钥”页中检索此信息，如以下屏幕截图所示。 
+    - **主机**：Azure Cosmos DB 帐户的 URI。 可在 Azure 门户的“Azure Cosmos DB 密钥”页中检索此信息，如以下屏幕截图所示。 
     - **访问密钥**：从 Azure 门户中“Azure Cosmos DB 密钥”页获取的主要或辅助读写或只读密钥，如以下屏幕截图所示。 如果 DSN 用于只读数据的处理和报告，我们建议使用只读密钥。
     ![“Azure Cosmos DB 密钥”页](./media/odbc-driver/odbc-driver-keys.png)
     - **加密以下对象的访问密钥**：根据此计算机的用户选择最合适的选项。 
@@ -113,7 +113,7 @@ Azure Cosmos DB 是一种无架构数据库，它允许应用程序即时迭代�
 
     a. 在“属性”框中，键入分隔符属性的名称。 这是文档中要将采样范围限定到的属性（例如 City）。并按 Enter 键。 
 
-    b. 如果只想要将采样范围限定为刚刚输入的属性的值，请在选择框中选择该属性，在“值”框中输入值（例如 Seattle），然后按 Enter 键。 可以继续添加属性的多个值。 只需确保在输入值时选择正确的属性。
+    b. 如果只想要将采样范围限定为刚刚输入的属性的值，请在选择框中选择该属性，在“值”框中输入值（例如 Seattle），并按 Enter 键。 可以继续添加属性的多个值。 只需确保在输入值时选择正确的属性。
 
     例如，如果包含 City 的 **Attributes** 值，并想要将表限制为仅包含带有 Beijing 和 Dubai 城市值的行，请在“属性”框中输入 City，在“值”框中输入 Beijing 和 Dubai。
 1. 单击 **“确定”**。 
@@ -177,9 +177,9 @@ Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server
 ## <a name="optional-creating-views"></a>（可选）创建视图
 可在采样过程中定义和创建视图。 这些视图相当于 SQL 视图。 它们是只读的，并且是所定义的 Azure Cosmos DB SQL 的选择和投影范围。 
 
-若要创建数据的视图，请在“架构编辑器”窗口中的“视图定义”列内，单击要采样的集合行中的“添加”。 然后在“视图定义”窗口中执行以下操作：
+若要创建数据的视图，请在“架构编辑器”窗口中的“视图定义”列内，单击要采样的集合行中的“添加”。 然后在“视图定义”  窗口中执行以下操作：
 1. 单击“新建”，输入视图的名称（例如 EmployeesfromSeattleView），并单击“确定”。
-1. 在“编辑视图”窗口中，输入一个 Azure Cosmos DB 查询。 输入内容必须是 Azure Cosmos DB SQL 查询，例如 `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Gender, c.Manager FROM c WHERE c.City = "Seattle"`。并单击“确定”。
+1. 在“编辑视图”窗口中，输入一个 Azure Cosmos DB 查询。 这必须是 Azure Cosmos DB SQL 查询（例如 `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Gender, c.Manager FROM c WHERE c.City = "Seattle"`），并单击“确定”。
 
 可以创建任意数量的视图。 定义完视图后，可以采样数据。 
 

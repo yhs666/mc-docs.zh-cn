@@ -16,11 +16,11 @@ origin.date: 09/25/2017
 ms.date: 04/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: 765320f64902740482c3bc3052a146dba8e9a465
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167794"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651290"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>使用 PowerShell 在多个 IP 配置上进行负载均衡
 

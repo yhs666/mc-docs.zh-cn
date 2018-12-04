@@ -16,11 +16,11 @@ origin.date: 02/09/2017
 ms.author: antonba
 ms.date: 03/19/2018
 ms.openlocfilehash: fd19588a5094fbec02d8c0c6f0a7563c6ac407d2
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870420"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654239"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>在 Azure API 管理中修改开发人员门户上的页面内容和页面布局
 在 Azure API 管理中自定义开发人员门户有三种基本方法：

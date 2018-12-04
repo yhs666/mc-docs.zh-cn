@@ -10,11 +10,11 @@ ms.date: 06/11/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: e839cf1b29c5375f3fa52be668f54f8426eb814c
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34881725"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653039"
 ---
 ## <a name="scenario"></a>方案
 为了更好地说明如何创建 UDR，本文档使用以下方案：

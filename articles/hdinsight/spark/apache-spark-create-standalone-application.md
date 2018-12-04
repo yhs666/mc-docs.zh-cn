@@ -16,11 +16,11 @@ origin.date: 05/07/2018
 ms.date: 07/23/2018
 ms.author: v-yiso
 ms.openlocfilehash: 6872c2753a164f630200261a9bc71b090bacd115
-ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39031718"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651380"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-spark-in-hdinsight-using-intellij"></a>教程：使用 IntelliJ 在 HDInsight 中创建适用于 Spark 的 Scala Maven 应用程序
 
@@ -185,7 +185,7 @@ ms.locfileid: "39031718"
         ![创建 JAR](./media/apache-spark-create-standalone-application/delete-output-jars.png)
        
         请务必选中“包含在项目生成中”框，以确保每次生成或更新项目时都创建 jar。 选择“应用”，并选择“确定”。
-    7. 从“生成”菜单中，选择“生成项目”以创建 jar。 输出 jar 会在 **\out\artifacts** 下创建。
+    7. 从“生成”菜单中，选择“生成项目”以创建 jar。 输出 jar 在 **\out\artifacts** 下创建。
        
         ![创建 JAR](./media/apache-spark-create-standalone-application/output.png)
 
@@ -193,8 +193,7 @@ ms.locfileid: "39031718"
 若要在群集上运行应用程序，可以使用以下方法：
 
 * **将应用程序 jar 复制到群集关联的 Azure 存储 blob**。 可以使用命令行实用工具 [**AzCopy**](../../storage/common/storage-use-azcopy.md) 来执行此操作。 也可以使用许多其他客户端来上传数据。 有关详细信息，请参阅[在 HDInsight 中上传 Hadoop 作业的数据](../hdinsight-upload-data.md)。
-* 
-            **使用 Livy 将应用程序作业远程提交**到 Spark 群集。 HDInsight 上的 Spark 群集包括 Livy，可公开 REST 终结点以远程提交 Spark 作业。 有关详细信息，请参阅[将 Livy 与 HDInsight 上的 Spark 群集配合使用以远程提交 Spark 作业](apache-spark-livy-rest-interface.md)。
+* **使用 Livy 将应用程序作业远程提交**到 Spark 群集。 HDInsight 上的 Spark 群集包括 Livy，可公开 REST 终结点以远程提交 Spark 作业。 有关详细信息，请参阅 [将 Livy 与 HDInsight 上的 Spark 群集配合使用以远程提交 Spark 作业](apache-spark-livy-rest-interface.md)。
 
 ## <a name="next-step"></a>后续步骤
 

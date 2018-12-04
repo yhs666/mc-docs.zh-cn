@@ -17,11 +17,11 @@ origin.date: 03/17/2017
 ms.date: 01/08/2018
 ms.author: v-yeche
 ms.openlocfilehash: 643631e42b3ac87cca70276584eadef807ff8b75
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
-ms.locfileid: "27604559"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649756"
 ---
 # <a name="configure-always-on-availability-group-in-azure-virtual-machines-classic"></a>在 Azure 虚拟机中配置 Always On 可用性组（经典）
 > [!div class="op_single_selector"]
@@ -59,7 +59,7 @@ ms.locfileid: "27604559"
 * 已深入了解 Always On 可用性组。 有关详细信息，请参阅 [Always On 可用性组 (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx)。
 
 > [!NOTE]
-> 要将 AlwaysOn 可用性组与 SharePoint 结合使用，另请参阅[为 SharePoint 2013 配置 SQL Server 2012 AlwaysOn 可用性组](https://technet.microsoft.com/library/jj715261.aspx)。
+> 要将 Always On 可用性组与 SharePoint 结合使用，另请参阅[为 SharePoint 2013 配置 SQL Server 2012 Always On 可用性组](https://technet.microsoft.com/library/jj715261.aspx)。
 > 
 > 
 
@@ -130,8 +130,7 @@ ms.locfileid: "27604559"
     | 部署配置 |**添加新林** = 选定<br/>**根域名** = corp.contoso.com |
     | 域控制器选项 |**密码** = Contoso!000<br/>**确认密码** = Contoso!000 |
 14. 单击“下一步”浏览向导中的其他页。 在“必备项检查”页上，确认看到以下消息：“所有先决条件检查都成功通过”。 请注意，应该查看所有适用的警告消息，但可以继续安装。
-15. 单击“安装” 。 
-            **ContosoDC** 虚拟机自动重新启动。
+15. 单击“安装” 。 **ContosoDC** 虚拟机自动重新启动。
 
 ## <a name="configure-domain-accounts"></a>配置域帐户
 后续步骤用于配置 Active Directory 帐户以供稍后使用。
@@ -195,7 +194,7 @@ ms.locfileid: "27604559"
 
     ![更改虚拟机的首选 DNS 服务器](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784629.png)
 6. 在命令栏中，单击“更改此连接的设置”。 （根据窗口大小，可能需要单击双右箭头才能看到此命令）。
-7. 选择“Internet 协议版本 4 (TCP/IPv4)”，然后单击“属性”。
+7. 选择“Internet 协议版本 4 (TCP/IPv4)”，并单击“属性”。
 8. 选择“使用以下 DNS 服务器地址”，并在“首选 DNS 服务器”中指定 **10.10.2.4**。
 9. 地址 **10.10.2.4** 是分配给 Azure 虚拟网络中 10.10.2.0/24 子网内的虚拟机的地址。 该虚拟机就是 **ContosoDC**。 若要验证 **ContosoDC** 的 IP 地址，请在命令提示窗口中使用 **nslookup contosodc**，如以下屏幕截图所示。
 
@@ -280,7 +279,7 @@ ms.locfileid: "27604559"
 10. 将剩余节点添加到群集中。 在浏览器树中，右键单击“Cluster1.corp.contoso.com”，并单击“添加节点”，如以下屏幕截图所示。
 
      ![将节点添加到群集中](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784634.png)
-11. 在“添加节点向导”中，在“选择服务器”页上，单击“下一步”，然后在“输入服务器名称”中键入服务器名称，然后单击“添加”，以将“ContosoSQL2”和“ContosoWSFCNode”添加到列表中。 完成后，单击“下一步”。
+11. 在“添加节点向导”中，在“选择服务器”页上，单击“下一步”，并在“输入服务器名称”中键入服务器名称，然后单击“添加”，以将“ContosoSQL2”和“ContosoWSFCNode”添加到列表中。 完成后，单击“下一步”。
 12. 在“验证警告”页上，单击“否”（在生产方案中，应执行验证测试）。 然后单击“下一步”。
 13. 在“确认”页中，单击“下一步”以添加节点。
 
@@ -325,10 +324,10 @@ ms.locfileid: "27604559"
 17. 在“名称”页上的“名称”文本框中指定一个规则名称，如 **SQL Server (Program Rule)**，并单击“完成”。
 18. 若要启用“Always On 可用性组”功能，请在“启动”屏幕上打开“SQL Server 配置管理器”。
 19. 在浏览器树中，单击“SQL Server 服务”，右键单击“SQL Server (MSSQLSERVER)”服务，并单击“属性”。
-20. 单击“AlwaysOn 高可用性”选项卡，选择“启用 AlwaysOn 可用性组”（如以下屏幕截图所示），并单击“应用”。 在对话框中单击“确定”，但不要关闭“属性”对话框。 在更改服务帐户后，重新启动 SQL Server 服务。
+20. 单击“Always On 高可用性”选项卡，选择“启用 Always On 可用性组”（如以下屏幕截图所示），并单击“应用”。 在对话框中单击“确定”，但不要关闭“属性”对话框。 在更改服务帐户后，重新启动 SQL Server 服务。
 
      ![启用 AlwaysOn 可用性组](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665520.gif)
-21. 要更改 SQL Server 服务帐户，请单击“登录”选项卡，在“帐户名”中键入 **CORP\SQLSvc1**（对于 **ContosoSQL1**）或 **CORP\SQLSvc2**（对于 **ContosoSQL2**），填入并确认密码，单击“确定”。
+21. 如果要更改 SQL Server 服务帐户，请单击“登录”选项卡，在“帐户名”中键入 **CORP\SQLSvc1**（对于 **ContosoSQL1**）或 **CORP\SQLSvc2**（对于 **ContosoSQL2**），填入并确认密码，并单击“确定”。
 22. 在打开的对话框中，单击“是”以重新启动 SQL Server 服务。 重新启动 SQL Server 服务后，在“属性”对话框中所做的更改即会生效。
 23. 从虚拟机注销。
 
@@ -350,18 +349,18 @@ ms.locfileid: "27604559"
 5. 添加 **CORP\SQLSvc1**，并为其分配**读/写**权限。 添加 **CORP\SQLSvc2**，为其分配**读取**权限（如以下屏幕截图所示），并单击“共享”。 文件共享过程完成后，请单击“完成”。
 
     ![授予对备份文件夹的权限](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665522.gif)
-6. 要创建数据库，请从“开始”菜单中打开“SQL Server Management Studio”，并单击“连接”以连接到默认 SQL Server 实例。
+6. 如果要创建数据库，请从“开始”菜单中打开“SQL Server Management Studio”，并单击“连接”以连接到默认 SQL Server 实例。
 7. 在“对象资源管理器”中，右键单击“数据库”，并单击“新建数据库”。
 8. 在“数据库名称”中，键入 **MyDB1**，并单击“确定”。
 
 ### <a name="make-a-full-backup-of-mydb1-and-restore-it-on-contososql2"></a>创建 MyDB1 的完整备份并在 ContosoSQL2 上还原该数据库
-1. 要创建该数据库的完整备份，请在“对象资源管理器”中，展开“数据库”，右键单击“MyDB1”，指向“任务”，并单击“备份”。
+1. 如果要创建该数据库的完整备份，请在“对象资源管理器”中，展开“数据库”，右键单击“MyDB1”，指向“任务”，并单击“备份”。
 2. 在“源”部分中，将“备份类型”设置为“完整”。 在“目标”部分中，单击“删除”删除备份文件的默认文件路径。
 3. 在“目标”部分中，单击“添加”。
-4. 在“文件名”文本框中，键入 **\\ContosoSQL1\backup\MyDB1.bak**，单击“确定”，再次单击“确定”以备份数据库。 备份操作完成后，再次单击“确定”以关闭对话框。
-5. 要创建该数据库的事务日志备份，请在“对象资源管理器”中，展开“数据库”，右键单击“MyDB1”，指向“任务”，并单击“备份”。
-6. 在“备份类型”中，选择“事务日志”。 仍将“目标”文件路径设置为此前指定的文件路径，然后单击“确定”。 备份操作完成后，再次单击“确定”。
-7. 要在 **ContosoSQL2** 上还原完整备份和事务日志备份，请打开 **ContosoSQL2** 的 RDP 文件，并以 **CORP\Install** 身份登录。 将 **ContosoSQL1** 的远程桌面会话保持打开。
+4. 在“文件名”文本框中，键入 **\\ContosoSQL1\backup\MyDB1.bak**，单击“确定”，并再次单击“确定”以备份数据库。 备份操作完成后，再次单击“确定”以关闭对话框。
+5. 如果要创建该数据库的事务日志备份，请在“对象资源管理器”中，展开“数据库”，右键单击“MyDB1”，指向“任务”，并单击“备份”。
+6. 在“备份类型”中，选择“事务日志”。 仍将“目标”文件路径设置为此前指定的文件路径，并单击“确定”。 备份操作完成后，再次单击“确定”。
+7. 如果要在 **ContosoSQL2** 上还原完整备份和事务日志备份，请打开 **ContosoSQL2** 的 RDP 文件，并以 **CORP\Install** 身份登录。 将 **ContosoSQL1** 的远程桌面会话保持打开。
 8. 从“开始”菜单中打开“SQL Server Management Studio”，并单击“连接”以连接到默认 SQL Server 实例。
 9. 在“对象资源管理器”中，右键单击“数据库”，并单击“还原数据库”。
 10. 在“源”部分中，选择“设备”，并单击省略号“...” 按钮。
@@ -370,7 +369,7 @@ ms.locfileid: "27604559"
 13. 转到“选项”页，在“恢复状态”中选择“RESTORE WITH NORECOVERY”，并单击“确定”以还原数据库。 还原操作完成后，单击“确定”。
 
 ### <a name="create-the-availability-group"></a>创建可用性组
-1. 返回到 **ContosoSQL1** 的远程桌面会话。 在 SQL Server Management Studio 的“对象资源管理器”中，右键单击“AlwaysOn 高可用性”，并单击“新建可用性组向导”，如以下屏幕截图所示。
+1. 返回到 **ContosoSQL1** 的远程桌面会话。 在 SQL Server Management Studio 的“对象资源管理器”中，右键单击“Always On 高可用性”，并单击“新建可用性组向导”，如以下屏幕截图所示。
 
     ![启动“新建可用性组”向导](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665523.gif)
 2. 在“简介”页上，单击“下一步”。 在“指定可用性组名称”页上的“可用性组名称”中键入 **AG1**，并再次单击“下一步”。
@@ -397,7 +396,7 @@ ms.locfileid: "27604559"
 9. 在“摘要”页上，单击“完成”，并等待向导配置好新的可用性组。 在“进度”页上，可单击“更多详细信息”以查看详细进度。 向导运行完成后，检查“结果”页以验证是否已成功创建可用性组（如以下屏幕截图所示），并单击“关闭”以退出向导。
 
     ![“新建可用性组”向导中的“结果”](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665531.gif)
-10. 在“对象资源管理器”中，展开“AlwaysOn 高可用性”，并展开“可用性组”。 此时，应在此容器中看到新的可用性组。 右键单击“AG1 (主)”，并单击“显示仪表板”。
+10. 在“对象资源管理器”中，展开“Always On 高可用性”，并展开“可用性组”。 此时，应在此容器中看到新的可用性组。 右键单击“AG1 (主)”，并单击“显示仪表板”。
 
      ![显示可用性组仪表板](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665532.gif)
 11. **Always On 仪表板**应如以下屏幕截图所示。 可以在其中查看副本、每个副本的故障转移模式以及同步状态。

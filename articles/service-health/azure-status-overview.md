@@ -16,11 +16,11 @@ origin.date: 03/27/2018
 ms.date: 04/30/2017
 ms.author: v-yiso
 ms.openlocfilehash: 52307612c0a9bdcc09e1644a6b10698dc9008fe7
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782073"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651982"
 ---
 # <a name="azure-status"></a>Azure 状态
 [Azure 状态](https://www.azure.cn/support/service-dashboard/)可提供 Azure 服务运行状况的全局视图。 通过 Azure 状态可获取有关服务可用性的最新信息。 所有人均可访问 Azure 状态并查看报告其服务运行状况的所有服务。 

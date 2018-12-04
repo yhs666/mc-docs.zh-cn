@@ -16,11 +16,11 @@ origin.date: 01/23/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
 ms.openlocfilehash: f895167ec40fda6ba75199b788389f21fef73dee
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
-ms.locfileid: "21134996"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652335"
 ---
 # <a name="backing-up-drive-manifests-for-azure-importexport-jobs"></a>为 Azure 导入/导出作业备份驱动器清单
 

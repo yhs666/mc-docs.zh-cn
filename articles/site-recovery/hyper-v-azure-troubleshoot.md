@@ -2,20 +2,19 @@
 title: 排查使用 Azure Site Recovery 执行 Hyper-V 到 Azure 的复制的问题 | Azure
 description: 介绍如何排查使用 Azure Site Recovery 执行 Hyper-V 到 Azure 的复制的问题
 services: site-recovery
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 07/06/2018
-ms.date: 09/24/2018
+origin.date: 10/10/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 74df0ef5a46fff1491e114aa919442bb760d22fc
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: 3bd4c263ab05210c5e080b7a0cabd8808743c14b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201411"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653102"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>排查 Hyper-V 到 Azure 的复制和故障转移的问题
 
@@ -166,4 +165,4 @@ ms.locfileid: "47201411"
 -   对于 VMM，请使用[支持诊断平台 (SDP) 工具](http://social.technet.microsoft.com/wiki/contents/articles/28198.asr-data-collection-and-analysis-using-the-vmm-support-diagnostics-platform-sdp-tool.aspx)执行 Site Recovery 日志收集。
 -   对于不带 VMM 的 Hyper-V，请[下载此工具](https://dcupload.microsoft.com/tools/win7files/DIAG_ASRHyperV_global.DiagCab)，并在 Hyper-V 主机上运行该工具来收集日志。
 
-<!-- Update_Description: update meta properties, wording update  -->
+<!-- Update_Description: update meta properties  -->

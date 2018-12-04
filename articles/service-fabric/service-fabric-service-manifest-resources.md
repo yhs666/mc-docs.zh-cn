@@ -16,11 +16,11 @@ origin.date: 02/23/2018
 ms.date: 05/28/2018
 ms.author: v-yeche
 ms.openlocfilehash: a330655163ceaf2b56e1dc9bebdee78b0aa7e737
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554359"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650859"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>在服务清单中指定资源
 ## <a name="overview"></a>概述

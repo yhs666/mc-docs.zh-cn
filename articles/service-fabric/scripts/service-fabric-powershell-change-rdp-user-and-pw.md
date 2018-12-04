@@ -17,11 +17,11 @@ ms.date: 04/30/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 9128ad81334a8f3b0780ebb11aba10d35f7b3bc8
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121132"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654107"
 ---
 # <a name="update-the-admin-username-and-password-of-the-vms-in-a-cluster"></a>更新群集中 VM 的管理员用户名和密码
 

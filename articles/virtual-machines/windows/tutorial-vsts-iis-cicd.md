@@ -18,11 +18,11 @@ ms.date: 09/24/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 00a1af4ae4fb6e8def1dadb098b4a186e74f5844
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527002"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651528"
 ---
 # <a name="tutorial-create-a-continuous-integration-pipeline-with-azure-devops-services-and-iis"></a>教程：使用 Azure DevOps Services 和 IIS 创建持续集成管道
 若要将应用程序开发的生成、测试和部署阶段自动化，可以使用持续集成和部署 (CI/CD) 管道。 本教程介绍如何在 Azure 中使用 Azure DevOps Services 和 Windows 虚拟机 (VM) 创建一个运行 IIS 的 CI/CD 管道。 你将学习如何执行以下操作：

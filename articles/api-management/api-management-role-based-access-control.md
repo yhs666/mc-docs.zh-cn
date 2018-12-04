@@ -16,11 +16,11 @@ origin.date: 06/20/2018
 ms.author: v-yiso
 ms.date: 08/13/2018
 ms.openlocfilehash: 06e86615cfe75fac0109b5eb55749099e7b37267
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486970"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651326"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>如何在 Azure API 管理中使用基于角色的访问控制
 Azure API 管理依赖于 Azure 基于角色的访问控制 (RBAC) 来为 API 管理服务和实体（例如，API 和策略）启用精细访问管理。 本文概述 API 管理中的内置角色和自定义角色。 有关 Azure 门户中的访问管理的详细信息，请参阅 [Azure 门户中的访问管理入门](../active-directory/role-based-access-control-what-is.md)

@@ -9,21 +9,21 @@ ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 08/23/2018
-ms.date: 10/09/2018
+ms.date: 11/12/2018
 ms.author: v-junlch
 ms.reviewer: jeffsta
 custom: it-pro
-ms.openlocfilehash: 31fb5c6f669a6748b0dcecc003475d3803ef9d33
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.openlocfilehash: c218299094e1747e47bfa6b001825cb54022c693
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48914009"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653504"
 ---
 # 管理 Azure AD 目录 <a name="manage-your-azure-ad-directory"></a>
 
 ## 什么是 Azure AD 租户？ <a name="what-is-an-azure-ad-tenant"></a>
-在 Azure Active Directory (Azure AD) 中，租户是组织在注册 Azure 或 Office 365 之类的 Azure 云服务时接收的 Azure AD 目录的专用实例。 每个 Azure AD 目录都是独特的，独立于其他 Azure AD 目录。 就像公司办公大楼是组织特有的安全资产一样，Azure AD 目录也设计为仅供组织使用的安全资产。 Azure AD 体系结构将客户数据和标识信息隔离开来，因此，一个 Azure AD 目录的用户和管理员不可能意外或恶意性地访问另一目录中的数据。
+在 Azure Active Directory (Azure AD) 中，租户是组织在注册 Azure 或 Office 365 之类的 Azure 云服务时接收的 Azure AD 目录的专用实例。 每个 Azure AD 目录都是独特的，独立于其他 Azure AD 目录。 就像公司办公大楼是组织特有的安全资产一样，根据设计，Azure AD 目录也是仅供组织使用的安全资产。 Azure AD 体系结构将客户数据和标识信息隔离开来，因此，一个 Azure AD 目录的用户和管理员不可能意外或恶意性地访问另一目录中的数据。
 
 ![管理 Azure Active Directory](./media/active-directory-administer/aad_portals.png)
 
@@ -39,7 +39,7 @@ Azure AD 在大多数 Microsoft 云服务的后面提供核心目录和身份管
 
 我们建议在注册其他 Microsoft 服务时，使用注册第一个服务时用过的管理员帐户。 首次注册 Microsoft 服务时提供的信息用来为组织创建新的 Azure AD 目录实例。 如果在订阅其他 Microsoft 服务时使用该目录对登录尝试进行身份验证，这些服务可能会使用默认目录中配置的现有用户帐户、策略、设置或本地目录集成。
 
-有关如何将本地目录与 Azure AD 集成的详细信息，请参阅[与 Azure AD Connect 进行目录集成](../connect/active-directory-aadconnect.md)。
+有关如何将本地目录与 Azure AD 集成的详细信息，请参阅[与 Azure AD Connect 进行目录集成](../hybrid/whatis-hybrid-identity.md)。
 
 ### 通过以组织身份注册 Azure 云服务来创建 Azure AD 目录 <a name="create-an-azure-ad-directory-by-signing-up-for-a-microsoft-cloud-service-as-an-organization"></a>
 如果尚未订阅 Azure 云服务，可使用以下链接之一进行注册。 注册第一个服务后，会自动创建 Azure AD 目录。
@@ -52,7 +52,7 @@ Azure AD 在大多数 Microsoft 云服务的后面提供核心目录和身份管
 2. 确保需要让其成为订阅所有者的用户位于目标目录中。
 3. 单击“转让订阅”。
 4. 指定接收方。 接收方会自动收到含有接受链接的电子邮件。
-5. 接收方单击该链接并遵照说明操作，包括输入他们的付款信息。 接收方成功后，订阅将转让。 
+5. 接收方单击该链接并遵循说明操作，包括输入他们的付款信息。 接收方成功后，订阅将转让。 
 6. 如果订阅所有权转让成功，则订阅的默认目录会更改为该用户所在的目录。
 
 ### <a name="manage-the-default-directory-in-azure"></a>管理 Azure 中的默认目录
@@ -86,7 +86,7 @@ Azure AD 管理中心、Office 365 管理中心和 Azure AD cmdlet 均从与组�
   - 在某个目录中为用户分配或删除管理员角色时，所做的更改不会影响该用户在另一个目录中可能具有的任何管理员角色。
 - **同步独立性**。 可以单独配置每个 Azure AD 租户，以便通过 Azure AD Connect 目录同步工具的单个实例来同步数据。
 
-与其他 Azure 资源不同，目录不是 Azure 订阅的子资源。 因此，如果取消 Azure 订阅或让其过期，则仍可以使用 Azure AD PowerShell、Azure 图形 API 或其他界面（例如 Office 365 管理中心）访问目录数据。 还可以将其他订阅与目录相关联。
+与其他 Azure 资源不同，目录不是 Azure 订阅的子资源。 因此，如果取消 Azure 订阅或让 Azure 订阅过期，仍可以使用 Azure AD PowerShell、Azure Graph API 或 Office 365 管理中心之类的其他界面访问目录数据。 还可以将其他订阅与目录相关联。
 
 ## 如何进行准备，以便删除 Azure AD 目录 <a name="how-to-prepare-to-delete-an-azure-ad-directory"></a>
 全局管理员可以从门户删除 Azure AD 目录。 删除目录时，也会删除包含在该目录中的所有资源。 删除目录之前，请验证你是否不需要该目录。
@@ -96,10 +96,10 @@ Azure AD 管理中心、Office 365 管理中心和 Azure AD cmdlet 均从与组�
 
 Azure AD 要求删除目录之前必须符合特定的条件。 这可以降低删除目录后对用户或应用程序造成负面影响（例如，影响用户登录 Office 365 或访问 Azure 中的资源）的风险。 例如，如果用于订阅的某个目录被无意删除，则用户无法访问该订阅的 Azure 资源。
 
-需检查以下情况：
+需检查以下条件：
 
 - 该目录中的唯一用户应该是要删除该目录的全局管理员。 只有在删除所有其他用户后，才能删除该目录。 如果用户是从本地同步的，则必须关闭同步，并且必须使用 Azure 门户或 Azure PowerShell cmdlet 从云目录中删除这些用户。 不要求删除组或联系人，例如，从 Office 365 管理中心添加的联系人。
-- 目录中不能有任何应用程序。 只有在删除所有应用程序后，才能删除目录。
+- 目录中不能有任何应用程序。 只有在删除所有应用程序后，才能删除该目录。
 - 不能有任何多重身份验证提供程序链接到该目录。
 - 与目录关联的任何 Microsoft Online Services（例如 Azure 或 Office 365）不能存在任何订阅。 例如，如果在 Azure 中创建了一个默认目录，并且 Azure 订阅仍然依赖于此目录进行身份验证，则不能删除此目录。 类似地，如果其他用户已将订阅与某个目录相关联，则你无法删除该目录。 
 
@@ -111,5 +111,4 @@ Azure AD 要求删除目录之前必须符合特定的条件。 这可以降低�
 - [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory)
 - [在 Azure AD 中分配管理员角色](../users-groups-roles/directory-assign-admin-roles.md)
 
-
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: link update -->

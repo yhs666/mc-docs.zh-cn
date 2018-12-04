@@ -10,11 +10,11 @@ origin.date: 09/06/2018
 ms.date: 10/01/2018
 ms.author: v-jay
 ms.openlocfilehash: ad080fa2b2b43816f8d167e41a3fed3c386eb5ff
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426103"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653872"
 ---
 # <a name="install-client-certificates-for-p2s-certificate-authentication-connections"></a>安装用于 P2S 证书身份验证连接的客户端证书
 

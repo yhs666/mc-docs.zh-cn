@@ -17,11 +17,11 @@ ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: justini
 ms.openlocfilehash: 06fb39d87455c631b97fb9a496b4dff911876c57
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195402"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650449"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 更新
 
@@ -122,7 +122,7 @@ Azure Stack 1807 更新内部版本号为 **1.1807.0.76**。
 - 设置数据中心集成时，不再访问 Azure 文件共享中的 AD FS 元数据文件。 有关详细信息，请参阅[通过提供联合元数据文件来设置 AD FS 集成](azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file)。 
 
 <!-- 2388980 | ASDK, IS --> 
-- 修复了一个妨碍用户将此前已分配给某个网络接口或负载均衡器的现有公用 IP 地址分配给新的网络接口或负载均衡器的问题。  
+- 修复了一个妨碍用户将此前已分配给某个网络接口或负载均衡器的现有公共 IP 地址分配给新的网络接口或负载均衡器的问题。  
 
 <!-- 2551834 - IS, ASDK --> 
 - 在管理员门户或用户门户中选择存储帐户的“概览”时，“概要”窗格现在会正确显示所有预期的信息。 
@@ -201,7 +201,7 @@ Azure Stack 使用 Windows Server 2016 的 Server Core 安装来托管重要基�
 
 ### <a name="portal"></a>门户
 
-- Azure Stack 技术文档重点介绍了最新版本。 由于版本之间的门户更改，你在使用 Azure Stack 门户时看到的内容可能与在文档中看到的内容不同。 
+- Azure Stack 技术文档重点介绍了最新版本。 由于版本之间的门户更改，在使用 Azure Stack 门户时看到的内容可能与在文档中看到的内容不同。 
 
 - 在管理员门户中[从下拉列表提交新的支持请求](azure-stack-manage-portals.md#quick-access-to-help-and-support)的功能不可用。 对于 Azure Stack 集成系统，请改用以下链接：[https://aka.ms/newsupportrequest](https://aka.ms/newsupportrequest)。
 
@@ -235,7 +235,7 @@ Azure Stack 使用 Windows Server 2016 的 Server Core 安装来托管重要基�
 ### <a name="health-and-monitoring"></a>运行状况和监视
 
 <!-- TBD - IS -->
-- 你可能会看到以下警报在 Azure Stack 系统上重复出现，然后消失：
+- 可能会看到以下警报在 Azure Stack 系统上重复出现，然后消失：
    - *基础结构角色实例不可用*
    - *缩放单元节点已脱机*
    
@@ -341,7 +341,7 @@ Azure Stack 使用 Windows Server 2016 的 Server Core 安装来托管重要基�
 
 
 <!-- No Number - IS, ASDK -->  
-- 为 SQL 和 MySQL 资源提供程序创建 SKU 时，**系列**名称中不支持使用特殊字符（包括空格和句点）。 
+- 为 SQL 和 MySQL 资源提供程序创建 SKU 时，“系列”名称中不支持使用特殊字符（包括空格和句点）。 
 
 <!-- TBD - IS --> 
 - 只有资源提供程序才能在托管 SQL 或 MySQL 的服务器上创建项目。 如果在不是由资源提供程序创建的主机服务器上创建项目，则此类项目可能导致状态不匹配。  

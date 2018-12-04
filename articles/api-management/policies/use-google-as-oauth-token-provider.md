@@ -15,11 +15,11 @@ origin.date: 10/13/2017
 ms.date: 02/26/2018
 ms.author: v-yiso
 ms.openlocfilehash: a95d84396c13ff3b85f5f4c88c8353be0867463d
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29286076"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654104"
 ---
 # <a name="authorize-access-using-google-oauth-token"></a>使用 Google OAuth 令牌授予访问权限
 

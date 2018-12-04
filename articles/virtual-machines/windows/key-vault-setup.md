@@ -17,11 +17,11 @@ origin.date: 01/24/2017
 ms.date: 08/27/2018
 ms.author: v-yeche
 ms.openlocfilehash: 5a2a47e3b044ae885d2fb233ce28dfc47e465ba3
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872574"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650176"
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>在 Azure Resource Manager 中为虚拟机设置密钥保管库
 
@@ -30,7 +30,7 @@ ms.locfileid: "42872574"
 在 Azure Resource Manager 堆栈中，密码/证书被建模为密钥保管库资源提供程序所提供的资源。 若要了解有关 Key Vault 的详细信息，请参阅[什么是 Azure Key Vault？](../../key-vault/key-vault-whatis.md)
 
 > [!NOTE]
-> 1. 为了让密钥保管库能与 Azure 资源管理器虚拟机搭配使用，必须将密钥保管库上的 **EnabledForDeployment** 属性设置为 true。 可以在各种客户端中执行此操作。
+> 1. 为了让密钥保管库能与 Azure Resource Manager 虚拟机搭配使用，必须将密钥保管库上的 **EnabledForDeployment** 属性设置为 true。 可以在各种客户端中执行此操作。
 > 2. 需要在与虚拟机相同的订阅和位置中创建 Key Vault。
 >
 >

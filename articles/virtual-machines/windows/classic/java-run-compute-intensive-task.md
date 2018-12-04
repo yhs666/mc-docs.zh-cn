@@ -16,11 +16,11 @@ origin.date: 04/11/2018
 ms.date: 06/04/2018
 ms.author: v-yeche
 ms.openlocfilehash: c054668ac123bc1a7f5d953c74242d7cf502933d
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702775"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652515"
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>如何在虚拟机上通过 Java 运行计算密集型任务
 > [!IMPORTANT] 

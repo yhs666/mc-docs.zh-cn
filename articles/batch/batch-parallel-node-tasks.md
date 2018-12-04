@@ -17,11 +17,11 @@ ms.date: 09/07/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8244d531fa4b0446b5bec7f5ac0dd6101201e85c
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068190"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650796"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>以并发方式运行任务以最大程度地利用 Batch 计算节点 
 
@@ -73,7 +73,7 @@ pool.Commit();
 ```
 
 ## <a name="batch-rest-example"></a>Batch REST 示例
-此 [Batch REST][api_rest] API 代码片段演示了一个请求，该请求要求创建一个包含两个大型节点的池，每个节点最多四个任务。 有关如何使用 REST API 添加池的详细信息，请参阅[将池添加到帐户][rest_addpool]。
+此 [Batch REST][api_rest] API 代码片段演示了一个请求，该请求要求创建一个包含两个大型节点的池，每个节点最多四个任务。 有关如何使用 REST API 添加池的详细信息，请参阅 [Add a pool to an account][rest_addpool]（将池添加到帐户）。
 
 ```json
 {

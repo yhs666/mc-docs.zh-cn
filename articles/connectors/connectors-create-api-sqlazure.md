@@ -13,11 +13,11 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: 58a024d4be10f31274affcbd3ec770a8b2ede2dd
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939037"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653104"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>通过 Azure 逻辑应用连接到 SQL Server 或 Azure SQL 数据库
 

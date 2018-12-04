@@ -12,11 +12,11 @@ origin.date: 04/15/2018
 ms.date: 06/11/2018
 ms.author: v-junlch
 ms.openlocfilehash: 68c56ecb66461633c383f4121632ddcdf19bcc09
-ms.sourcegitcommit: 306fba1a7125ef6f0555781524afa8f535bea2a0
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35253393"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652324"
 ---
 # <a name="get-started-with-key-vault-connected-service-in-visual-studio-aspnet-core-projects"></a>Visual Studio 中的 Key Vault 连接服务入门（ASP.NET Core 项目）
 
@@ -55,7 +55,7 @@ ms.locfileid: "35253393"
 
 ## <a name="clean-up-resources"></a>清理资源
 
-不再需要资源组时，可将其删除。 这会删除 Key Vault 和相关的资源。 若要通过门户删除资源组，请执行以下操作：
+不再需要资源组时，可将其删除。 这会删除 Key Vault 和相关的资源。 要通过门户删除资源组，请执行以下操作：
 
 1. 在门户顶部的“搜索”框中输入资源组的名称。 在搜索结果中看到在本快速入门中使用的资源组后，请将其选中。
 2. 选择“删除资源组”。

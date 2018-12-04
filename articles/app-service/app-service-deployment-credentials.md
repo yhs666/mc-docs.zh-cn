@@ -15,11 +15,11 @@ origin.date: 01/05/2017
 ms.date: 01/29/2018
 ms.author: v-yiso
 ms.openlocfilehash: 66bae3c5315d8ef83f5506474235d0117470523f
-ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2018
-ms.locfileid: "27984737"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651886"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>为 Azure 应用服务配置部署凭据
 [Azure 应用服务](app-service-web-overview.md)支持两种类型的凭据，这些凭据适用于[本地 GIT 部署](app-service-deploy-local-git.md)和 [FTP/S 部署](app-service-deploy-ftp.md)。 这些凭据与 Azure Active Directory 凭据不同。

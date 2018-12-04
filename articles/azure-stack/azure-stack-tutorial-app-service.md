@@ -18,11 +18,11 @@ ms.author: v-jay
 ms.reviewer: ''
 ms.custom: mvc
 ms.openlocfilehash: 83f0a0253ecee4afd07d7b60015ac7bccf9b9b80
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195345"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650077"
 ---
 # <a name="tutorial-make-web-and-api-apps-available-to-your-azure-stack-users"></a>教程：将 Web 和 API 应用提供给 Azure Stack 用户使用
 

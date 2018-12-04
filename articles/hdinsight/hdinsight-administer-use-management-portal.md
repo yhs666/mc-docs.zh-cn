@@ -2,25 +2,21 @@
 title: 使用 Azure 门户在 HDInsight 中管理基于 Windows 的 Hadoop 群集 | Azure
 description: 了解如何管理 HDInsight 服务。 创建 HDInsight 群集，打开交互式 JavaScript 控制台，并打开 Hadoop 命令控制台。
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 9295a988-bd88-453a-8c8b-55fa103bf39c
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/25/2017
-ms.date: 05/28/2018
+ms.date: 11/19/2018
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 44d7e603e39276244f3894f5e92a74bb48920756
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: 44046b244b6ed77a5f811c1df9bc4b922597964a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450122"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651017"
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 门户管理 HDInsight 中基于 Windows 的 Hadoop 群集
 
@@ -153,7 +149,7 @@ HDInsight 使用各种 Hadoop 组件。 有关已获得验证和支持的组件�
 使用群集缩放功能，可更改 Azure HDInsight 中运行的群集使用的辅助节点数，而无需重新创建群集。
 
 > [!NOTE]
-> 只支持使用 HDInsight 3.1.3 或更高版本的群集。 如果不确定群集的版本，可以查看“属性”页面。  请参阅[列出和显示群集](#list-and-show-clusters)。
+> 只支持使用 HDInsight 3.1.3 或更高版本的群集。 如果不确定群集的版本，可以查看“属性”页面。  请参阅 [列出并显示群集](#list-and-show-clusters)。
 >
 >
 
@@ -211,7 +207,7 @@ HDInsight 使用各种 Hadoop 组件。 有关已获得验证和支持的组件�
 可以通过许多方式对此过程进行程序性处理：
 
 * 使用 Azure PowerShell。  请参阅[分析航班延误数据](hdinsight-analyze-flight-delay-data.md)。
-* 使用 Azure CLI。 请参阅[使用 Azure CLI 管理 HDInsight 群集](hdinsight-administer-use-command-line.md)。
+* 使用 Azure 经典 CLI。 请参阅[使用 Azure 经典 CLI 管理 HDInsight 群集](hdinsight-administer-use-command-line.md)。
 * 使用 HDInsight .NET SDK。 请参阅[提交 Hadoop 作业](hadoop/submit-apache-hadoop-jobs-programmatically.md)。
 
 有关定价信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。 要从门户中删除群集，请参阅 [删除群集](#delete-clusters)
@@ -368,7 +364,7 @@ HDInsight 群集边栏选项卡的“使用情况”部分会显示相关信息�
 在本文中，已学习如何使用门户创建 HDInsight 群集和如何打开 Hadoop 命令行工具。 要了解更多信息，请参阅下列文章：
 
 * [使用 Azure PowerShell 管理 HDInsight](hdinsight-administer-use-powershell.md)
-* [使用 Azure CLI 管理 HDInsight](hdinsight-administer-use-command-line.md)
+* [使用 Azure 经典 CLI 管理 HDInsight](hdinsight-administer-use-command-line.md)
 * [创建 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)
 * [以编程方式提交 Hadoop 作业](hadoop/submit-apache-hadoop-jobs-programmatically.md)
 * [Azure HDInsight 入门](hadoop/apache-hadoop-linux-tutorial-get-started.md)

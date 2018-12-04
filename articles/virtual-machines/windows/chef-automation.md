@@ -17,11 +17,11 @@ origin.date: 05/30/2017
 ms.date: 10/22/2018
 ms.author: v-yeche
 ms.openlocfilehash: 29f81e45f830dedc117549bb1893eddf73a349f7
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034866"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652486"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>使用 Chef 自动部署 Azure 虚拟机
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]

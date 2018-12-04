@@ -14,11 +14,11 @@ ms.date: 11/05/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 4fb362fe312dd47a24106718611e0fa0942c3459
-ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50204819"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650173"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-4-create-an-azure-cosmos-db-account-using-the-azure-cli"></a>通过 Angular 和 Azure Cosmos DB 创建 MongoDB 应用 - 第 4 部分：使用 Azure CLI 创建 Azure Cosmos DB 帐户
 

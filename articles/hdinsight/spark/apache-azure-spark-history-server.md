@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 origin.date: 09/14/2018
 ms.date: 10/22/2018
-ms.openlocfilehash: 895d1fa74727327cc79fed953165f622982355da
-ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
+ms.openlocfilehash: 601ed982f91cabccf9222c312696b4058b7a4847
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121608"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652664"
 ---
 # <a name="use-extended-spark-history-server-to-debug-and-diagnose-spark-applications"></a>使用扩展的 Spark History Server 调试和诊断 Spark 应用程序
 
@@ -298,7 +298,7 @@ Spark History Server Web UI 如下所示：
 
 **示例**：
 
-`upgrade_spark_enhancement.sh https://${account_name}.blob.core.windows.net/packages/jars/spark-enhancement-${version}.tgz` 
+`upgrade_spark_enhancement.sh https://${account_name}.blob.core.chinacloudapi.cn/packages/jars/spark-enhancement-${version}.jar` 
 
 **在 Azure 门户中使用 bash 文件**
 

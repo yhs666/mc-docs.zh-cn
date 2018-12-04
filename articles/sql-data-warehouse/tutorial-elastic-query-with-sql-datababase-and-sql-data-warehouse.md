@@ -11,11 +11,11 @@ origin.date: 04/14/2018
 ms.date: 04/25/2018
 ms.author: v-yeche
 ms.openlocfilehash: 4d3631829e099188e311fd8fd028308ef80b9808
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121731"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649426"
 ---
 # <a name="tutorial-use-elastic-query-to-access-data-in-azure-sql-data-warehouse-from-azure-sql-database"></a>教程：使用弹性查询功能从 Azure SQL 数据库访问 Azure SQL 数据仓库中的数据
 

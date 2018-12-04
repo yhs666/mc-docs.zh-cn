@@ -16,11 +16,11 @@ origin.date: 05/22/2018
 ms.date: 07/02/2018
 ms.author: v-johch
 ms.openlocfilehash: db82b8e9d33dbb6a85654adbbedd2e0ab2b7d361
-ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523682"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650866"
 ---
 # <a name="how-to-deploy-azure-files"></a>如何部署 Azure 文件
 [Azure 文件](storage-files-introduction.md)在云中提供完全托管的文件共享，这些共享项可通过行业标准 SMB 协议进行访问。 本文介绍如何在组织内实际部署 Azure 文件。

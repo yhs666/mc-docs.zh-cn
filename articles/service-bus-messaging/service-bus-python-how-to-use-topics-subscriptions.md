@@ -16,11 +16,11 @@ origin.date: 09/20/2018
 ms.date: 10/31/2018
 ms.author: v-lingwu
 ms.openlocfilehash: 4ebcda74e8a8d52aa370e157513bc7539c6e738e
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409372"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653724"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>如何通过 Python 使用服务总线主题和订阅
 

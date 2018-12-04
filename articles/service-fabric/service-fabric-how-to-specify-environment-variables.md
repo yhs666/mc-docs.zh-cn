@@ -14,11 +14,11 @@ origin.date: 12/06/2017
 ms.date: 09/10/2018
 ms.author: v-yeche
 ms.openlocfilehash: 914cefc3c01b30d877d77b7f41e0e979e8930c04
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515693"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653211"
 ---
 # <a name="how-to-specify-environment-variables-for-services-in-service-fabric"></a>如何在 Service Fabric 中指定服务的环境变量
 

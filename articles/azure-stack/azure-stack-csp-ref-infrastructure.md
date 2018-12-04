@@ -16,11 +16,11 @@ ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: alfredo
 ms.openlocfilehash: 8c86562b26565ca3b3479c514b1eeb909c47e22b
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869408"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653327"
 ---
 ## <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>适用于云服务提供商的使用情况报告基础结构
 

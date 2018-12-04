@@ -15,11 +15,11 @@ origin.date: 07/07/2017
 ms.date: 12/18/2017
 ms.author: v-yiso
 ms.openlocfilehash: 4c4430dcfd8d1f80b2b4d6aec36118258a90282e
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26576308"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652164"
 ---
 # <a name="troubleshoot-hbase-by-using-azure-hdinsight"></a>使用 Azure HDInsight 对 HBase 进行故障排除
 

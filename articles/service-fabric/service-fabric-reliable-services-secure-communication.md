@@ -16,11 +16,11 @@ origin.date: 04/20/2017
 ms.date: 08/20/2018
 ms.author: v-yeche
 ms.openlocfilehash: 097c67e1abc72e6ea175492f29339f2f46a3a871
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41705400"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652984"
 ---
 # <a name="secure-service-remoting-communications-in-a-c-service"></a>保护 C# 服务的服务远程处理通信
 > [!div class="op_single_selector"]
@@ -181,7 +181,7 @@ ms.locfileid: "41705400"
 
     ```
 
-    如果客户端代码正在作为服务的一部分运行，则可以从 settings.xml 文件中加载 `FabricTransportRemotingSettings`。 创建与服务代码类似的 HelloWorldClientTransportSettings 节，如上所示。 对客户端代码进行以下更改。
+    如果客户端代码正在作为服务一部分运行，可以从 settings.xml 文件中加载 `FabricTransportRemotingSettings`。 创建与服务代码类似的 HelloWorldClientTransportSettings 节，如上所示。 对客户端代码进行以下更改。
 
     ```csharp
     ServiceProxyFactory serviceProxyFactory = new ServiceProxyFactory(

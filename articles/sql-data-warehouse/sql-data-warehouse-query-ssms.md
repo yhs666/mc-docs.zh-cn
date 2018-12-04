@@ -8,15 +8,15 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 origin.date: 04/17/2018
-ms.date: 10/15/2018
+ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 1a3aaa98a4107261aed7702c3517e4f6f4ff205a
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.openlocfilehash: 31c353a456713f3d7e29d9e69cd91408d0d68a62
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089039"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653159"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>使用 SQL Server Management Studio (SSMS) 连接到 SQL 数据仓库
 > [!div class="op_single_selector"]
@@ -33,8 +33,7 @@ ms.locfileid: "49089039"
 ## <a name="prerequisites"></a>先决条件
 要使用本教程，需要：
 
-* 现有 SQL 数据仓库。
-<!-- Not Available on  To create one, see [Create a SQL Data Warehouse][Create a SQL Data Warehouse] -->
+* 现有 SQL 数据仓库。 若要创建这样一个数据仓库，请参阅 [创建 SQL 数据仓库][Create a SQL Data Warehouse]。
 * 安装了 SQL Server Management Studio (SSMS)。 [安装 SSMS][Install SSMS] 。
 * 完全限定的 SQL Server 名称。 若要查找此名称，请参阅 [连接到 SQL 数据仓库][Connect to SQL Data Warehouse]。
 
@@ -87,6 +86,7 @@ ms.locfileid: "49089039"
 <!--Other-->
 [Azure portal]: https://portal.azure.cn
 [Install SSMS]: https://msdn.microsoft.com/zh-cn/library/hh213248.aspx
+
 
 <!--Image references-->
 

@@ -11,11 +11,11 @@ ms.date: 07/06/2018
 ms.author: v-junlch
 ms.custom: mvc
 ms.openlocfilehash: f87e257976adaab66d9fc15b48f0b3fb13146a25
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873362"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653221"
 ---
 # <a name="azure-backup-powershell-samples"></a>Azure 备份 PowerShell 示例
 

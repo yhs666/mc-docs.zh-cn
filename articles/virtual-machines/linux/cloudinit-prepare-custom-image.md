@@ -16,11 +16,11 @@ origin.date: 11/29/2017
 ms.date: 07/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: 41436cd844f4b0b2a0734467056a839b1026ded6
-ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39261875"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653287"
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>准备与 cloud-init 配合使用的现有 Linux Azure VM 映像
 本文介绍如何选择一个现有的 Azure 虚拟机，使其准备好重新部署并可使用 cloud-init。 生成的映像可用于部署新的虚拟机或虚拟机规模集 - 然后，可以在部署时通过 cloud-init 进一步对其进行自定义。  Azure 预配资源后，这些 cloud-init 脚本即会在第一次启动时运行。 有关 cloud-init 如何在 Azure 以及受支持的 Linux 发行版中本机工作的详细信息，请参阅 [cloud-init 概述](using-cloud-init.md)

@@ -12,11 +12,11 @@ origin.date: 09/25/2017
 ms.date: 09/26/2018
 ms.author: v-junlch
 ms.openlocfilehash: c7dde62b6e26457f243109dedc81eaf632df062c
-ms.sourcegitcommit: 7c6ff130adaa67bc90094846f81295ef0719d072
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47191361"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651356"
 ---
 # <a name="get-started-with-power-bi-workspace-collections"></a>Power BI 工作区集合入门
 
@@ -91,7 +91,7 @@ ms.locfileid: "47191361"
 
 | 导入 | DirectQuery |
 | --- | --- |
-| 将表、列 *和数据* 导入或复制到 **Power BI Desktop**。 当使用可视化效果时， **Power BI Desktop** 会查询数据的副本。 若要查看对基础数据所做的更改，必须刷新，或重新导入完整的当前数据集。 |仅将 *表和列* 导入或复制到 **Power BI Desktop**。 当使用可视化效果时， **Power BI Desktop** 查询基础数据源，这意味着始终可以查看当前数据。 |
+| 将表、列和数据  导入或复制到 **Power BI Desktop**。 当使用可视化效果时， **Power BI Desktop** 会查询数据的副本。 若要查看对基础数据所做的更改，必须刷新，或重新导入完整的当前数据集。 |仅将表和列  导入或复制到 **Power BI Desktop**。 当使用可视化效果时， **Power BI Desktop** 查询基础数据源，这意味着始终可以查看当前数据。 |
 
 有关连接到数据源的详细信息，请参阅 [连接到数据源](connect-datasource.md)。
 

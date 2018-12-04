@@ -5,16 +5,16 @@ services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-ms.topic: article
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.topic: conceptual
+origin.date: 10/10/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6d4cac760b35c36e5dafd179cc6164a54b95454a
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: d08175b348a3ac4b19efb34b648c39496234f2e2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168307"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653639"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>设置 IP 寻址以在故障转移后连接到辅助本地站点
 
@@ -125,4 +125,5 @@ ms.locfileid: "39168307"
 ## <a name="next-steps"></a>后续步骤
 
 [运行故障转移](hyper-v-vmm-failover-failback.md)
-<!-- Update_Description: update meta properties, wording update -->
+
+<!-- Update_Description: update meta properties -->

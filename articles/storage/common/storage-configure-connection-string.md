@@ -16,11 +16,11 @@ origin.date: 04/12/2017
 ms.date: 10/16/2017
 ms.author: v-johch
 ms.openlocfilehash: 7958790f15551fc3c4fe2fcac53a51ed7427aea4
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723080"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654187"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>配置 Azure 存储连接字符串
 

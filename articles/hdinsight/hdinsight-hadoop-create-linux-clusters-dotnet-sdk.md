@@ -13,11 +13,11 @@ origin.date: 08/16/2018
 ms.date: 10/22/2018
 ms.author: v-yiso
 ms.openlocfilehash: f74e94815f47303a1decf06e9df159a06e0cffe1
-ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121516"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652158"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>使用 .NET SDK 在 HDInsight 中创建基于 Linux 的群集
 

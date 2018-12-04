@@ -11,11 +11,11 @@ ms.date: 08/23/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1dc37e7623fe868d6b38c32735745675d110ba46
-ms.sourcegitcommit: 85cdb61361dc61147bac991d4907f454f0684ea0
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42709678"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649652"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>使用 Azure 备份还原已加密 VM 的密钥保管库密钥和机密
 本文介绍在密钥和机密不存在于密钥保管库中的情况下，如何使用 Azure VM 备份对加密的 Azure VM 进行还原。 如果要为还原的 VM 保留密钥（密钥加密密钥）和机密（BitLocker 加密密钥）的单独副本，也可以使用这些步骤。

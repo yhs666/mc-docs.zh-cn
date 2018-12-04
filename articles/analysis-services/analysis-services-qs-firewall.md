@@ -10,11 +10,11 @@ ms.date: 11/12/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
 ms.openlocfilehash: 2bbad8dd441f4e7529e2925579d3ad57cb68e13f
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195473"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651359"
 ---
 <!--Notice: Verified successfully-->
 # <a name="quickstart-configure-server-firewall---portal"></a>快速入门：配置服务器防火墙 - 门户

@@ -10,11 +10,11 @@ ms.date: 11/05/2018
 ms.author: v-jay
 ms.component: common
 ms.openlocfilehash: c648005a93b74fb30687edf3399ee6d2d37722dd
-ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50743543"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653426"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>对 Azure 存储 使用 Azure PowerShell
 

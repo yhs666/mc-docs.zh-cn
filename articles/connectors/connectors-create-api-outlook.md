@@ -12,11 +12,11 @@ ms.date: 08/18/2016
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: 8030ab9d317c1deefaf441008b9022c4a26bb17c
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455093"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653089"
 ---
 # <a name="manage-email-calendars-and-contacts-in-outlookcom-with-azure-logic-apps"></a>使用 Azure 逻辑应用管理 Outlook.com 中的电子邮件、日历和联系人
 

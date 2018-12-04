@@ -16,11 +16,11 @@ origin.date: 05/22/2017
 ms.date: 08/08/2018
 ms.author: v-junlch
 ms.openlocfilehash: 9f82ca16e82124d19a6b7827c031fc655c72fc1f
-ms.sourcegitcommit: f8bb533368ab2ef8efdf47e186672993ad8334cd
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722329"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649857"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>在 Batch 中的用户帐户下运行任务
 

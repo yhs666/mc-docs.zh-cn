@@ -14,11 +14,11 @@ ms.date: 09/03/2018
 ms.author: v-junlch
 ms.custom: aaddev, vs-azure
 ms.openlocfilehash: ee2bb20f01b14372d3f8a43bfdb624af9ee9314e
-ms.sourcegitcommit: 562cde32fc2271238f3d1ef5d2cc5ed037bdec2d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43531556"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653820"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>使用 Azure Active Directory 连接服务诊断错误
 

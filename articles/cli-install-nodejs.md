@@ -17,11 +17,11 @@ origin.date: 03/20/2017
 ms.date: 04/04/2018
 ms.author: v-junlch
 ms.openlocfilehash: 75bfb981ef6c29be4b8cd01f2b3103bfae4f2f98
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
-ms.locfileid: "30941525"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652829"
 ---
 # <a name="install-the-azure-cli-10"></a>安装 Azure CLI 1.0
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ ms.locfileid: "30941525"
 安装 Azure CLI 1.0 后，[将它连接到 Azure 订阅](/cli/authenticate-azure-cli)，并从命令行接口（Bash、终端、命令提示符等）运行 **azure** 命令，从而使用 Azure 资源。
 
 ## <a name="option-1-install-an-npm-package"></a>选项 1：安装 npm 包
-若要从 npm 包安装 CLI，请确保已下载并安装 [最新的 Node.js 和 npm](https://nodejs.org/en/download/package-manager/)。 然后，运行 npm install，安装 azure-cli 包：
+若要从 npm 包安装 CLI，请确保已下载并安装 [最新的 Node.js 和 npm](https://nodejs.org/en/download/package-manager/)。 然后，运行 **npm install** 来安装 azure-cli 包：
 
 ```bash
 npm install -g azure-cli
@@ -59,7 +59,7 @@ sudo npm install -g azure-cli
 > [!NOTE]
 > 如果需要在 Linux 分发版或 OS 中安装或更新 Node.js 和 npm，建议安装最新的 Node.js LTS 版本 (4.x)。 如果使用旧版本，可能会遇到安装错误。
 
-如果喜欢，也可以将 npm 包的最新 Linux [tar 文件][linux-installer]下载到本地。 然后，如下所示安装所下载的 npm 包（在 Linux 分发版中可能需要使用 sudo）：
+如果喜欢，也可以将 npm 包的最新 Linux [tar 文件][linux-installer]下载到本地。 然后，如下所示安装所下载的 npm 包（在 Linux 分发版中可能需要使用 **sudo**）：
 
 ```bash
 npm install -g <path to downloaded tar file>

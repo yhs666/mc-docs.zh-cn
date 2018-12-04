@@ -5,18 +5,17 @@ author: mtillman
 ms.author: v-junlch
 manager: angrobe
 origin.date: 03/01/2018
-ms.date: 07/04/2018
+ms.date: 11/13/2018
 ms.topic: article
-ms.prod: ''
+ms.component: develop
 ms.service: active-directory
-ms.technology: techgroup-identity
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 73d5dbf878bb1e2b4d3b60c97946c725d7b2d573
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.openlocfilehash: d7b3bae9f81e4cae73dca44aeab3280e03b1b3d7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800584"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649788"
 ---
 # <a name="azure-active-directory-guided-setup-steps"></a>Azure Active Directory 指导的设置步骤
 
@@ -26,3 +25,4 @@ ms.locfileid: "37800584"
 [!INCLUDE [active-directory-develop-guidedsetup-javascriptspa-configure-arp.md](../../includes/active-directory-develop-guidedsetup-javascriptspa-configure-arp.md)]
 [!INCLUDE [active-directory-develop-guidedsetup-windesktop-configure-arp.md](../../includes/active-directory-develop-guidedsetup-windesktop-configure-arp.md)]
 
+<!-- Update_Description: update metedata properties -->

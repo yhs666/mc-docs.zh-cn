@@ -16,11 +16,11 @@ origin.date: 08/17/2017
 ms.date: 01/15/2018
 ms.author: v-yiso
 ms.openlocfilehash: 077e43104b24aae10d85b62e7d6b80e99e4b1a01
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
-ms.locfileid: "27604281"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653044"
 ---
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>使用 Express 在 Azure 云服务中构建并部署 Node.js Web 应用程序
 

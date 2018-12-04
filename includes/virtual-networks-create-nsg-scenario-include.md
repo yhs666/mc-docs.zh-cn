@@ -10,11 +10,11 @@ ms.date: 06/11/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: 984c88ed57a464719b6407f4946361b7f30bb88a
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34881900"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652329"
 ---
 ## <a name="scenario"></a>方案
 为了更好地说明如何创建 NSG，本文档使用以下方案：

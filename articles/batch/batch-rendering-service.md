@@ -8,11 +8,11 @@ ms.date: 10/19/2018
 ms.author: v-lingwu
 ms.topic: conceptual
 ms.openlocfilehash: 546d2d044a32a3c70474b3d7d282f95a8a1a3c9f
-ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477770"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649846"
 ---
 # <a name="rendering-using-azure"></a>使用 Azure 进行渲染
 

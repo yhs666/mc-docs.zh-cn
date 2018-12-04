@@ -16,11 +16,11 @@ origin.date: 02/22/2017
 ms.date: 08/13/2018
 ms.author: v-yeche
 ms.openlocfilehash: 575ec75e6c5bc94d8b711c32a29c50dbaa881c0b
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41703855"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649505"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>通过 Azure REST API 使用 Azure 网络观察程序管理数据包捕获
 

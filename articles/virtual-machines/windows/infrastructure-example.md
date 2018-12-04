@@ -18,11 +18,11 @@ ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5e40f40035e9f2f867301e87990c336783303e89
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306948"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650178"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>适用于 Windows VM 的 Azure 示例基础结构演练
 本文逐步讲述如何构建示例应用程序基础结构。 我们将详细介绍如何设计简单在线商店的基础结构，此在线商店可将关于命名约定、可用性集、虚拟网络及负载均衡器的所有准则和决策聚集在一起；以及如何实际部署虚拟机 (VM)。

@@ -17,11 +17,11 @@ ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: misainat
 ms.openlocfilehash: dd1d63b440611ec8af24e06ecdb68a1c2ac5ea6e
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195454"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652251"
 ---
 # <a name="start-and-stop-azure-stack"></a>启动和停止 Azure Stack
 应该遵循本文中的过程正确关闭再重启 Azure Stack 服务。 关闭将物理关闭整个 Azure Stack 环境的电源。 启动会启动所有基础结构角色，并将租户资源返回到关闭之前的电源状态。

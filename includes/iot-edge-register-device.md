@@ -9,11 +9,11 @@ ms.date: 06/25/2018
 ms.author: kgremban
 ms.custom: include file
 ms.openlocfilehash: bacafdc8f7fd8e206335f3be0a086df1c54f1081
-ms.sourcegitcommit: bae4e9e500e3e988ef8fa0371777ca9cc49b4e94
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45584891"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653001"
 ---
 为模拟设备创建设备标识，以便它可以与 IoT 中心通信。 由于 IoT Edge 设备的行为和托管方式与典型 IoT 设备不同，请从一开始就将此设备声明为 IoT Edge 设备。 
 

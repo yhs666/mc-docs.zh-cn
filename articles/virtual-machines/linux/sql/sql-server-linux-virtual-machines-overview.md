@@ -14,11 +14,11 @@ origin.date: 04/10/2018
 ms.date: 05/21/2018
 ms.author: v-yeche
 ms.openlocfilehash: 964775b9a2a6f88a6b066aa886a6e242156ab68b
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34568768"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653289"
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Azure 虚拟机 (Linux) 上的 SQL Server 概述
 

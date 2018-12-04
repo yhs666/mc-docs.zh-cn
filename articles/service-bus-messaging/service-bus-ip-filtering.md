@@ -12,11 +12,11 @@ origin.date: 09/26/2018
 ms.date: 10/31/2018
 ms.author: v-lingwu
 ms.openlocfilehash: d5933f5d0c11a6d07680107a474c7d6b8e377069
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409358"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651031"
 ---
 # <a name="use-ip-filters"></a>使用 IP 筛选器
 

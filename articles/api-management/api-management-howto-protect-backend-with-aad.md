@@ -15,11 +15,11 @@ origin.date: 03/18/2018
 ms.date: 09/17/2018
 ms.author: v-yiso
 ms.openlocfilehash: 9418cabf0eb6eeb51765a9de56f3c500c1a72884
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068101"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654273"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>结合 Azure Active Directory 和 API 管理使用 OAuth 2.0 保护 API
 

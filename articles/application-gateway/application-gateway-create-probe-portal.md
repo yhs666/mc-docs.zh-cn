@@ -17,11 +17,11 @@ origin.date: 04/26/2017
 ms.date: 06/07/2018
 ms.author: v-junlch
 ms.openlocfilehash: eb29d3218c7a6ad12c4a697bc59e19d354f1977b
-ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855732"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652098"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>使用门户创建应用程序网关的自定义探测
 

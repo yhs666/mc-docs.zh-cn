@@ -16,11 +16,11 @@ origin.date: 05/23/2018
 ms.author: v-yiso
 ms.date: 09/10/2018
 ms.openlocfilehash: 828c1f096feba48059323f39cdefdf0f408ce6f1
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43329167"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653577"
 ---
 # <a name="azure-service-bus"></a>Azure 服务总线
 
@@ -89,7 +89,7 @@ ms.locfileid: "43329167"
 
 * 订户 1 仅接收包含 **Seller="Ava"** 属性的消息。
 * 订户 2 接收包含属性 Seller="Ruby" 和/或包含的 Amount 属性值大于 100,000 的消息。 Ruby 可能是销售经理，因此她希望查看她自己的销售和其他人所做的所有大单销售。
-* 订户 3 将其筛选器设置为 **True**，这意味着它将接收所有消息。 例如，此应用程序可能负责维护审核线索，因此它需要查看所有消息。
+* 订户 3 将其筛选器设置为 **True**，这意味着它会接收所有消息。 例如，此应用程序可能负责维护审核线索，因此它需要查看所有消息。
 
 与队列一样，某主题的订户可使用 [ReceiveAndDelete 或 PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) 读取消息。 不过与队列不同的是，发送至主题的单个消息可由多个订阅接收。 此方法通常称作发布和订阅（或 pub/sub），在当多个应用程序对相同消息感兴趣时非常有用。 通过定义适当的筛选器，每位订户可以只访问需要查看的消息流部分。
 

@@ -18,11 +18,11 @@ origin.date: 02/21/2017
 ms.date: 05/21/2018
 ms.author: v-yeche
 ms.openlocfilehash: 24c7d6870bd6a512220a8ec0ca7b15b0c5b62aff
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34568766"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650690"
 ---
 # <a name="attach-a-data-disk-to-a-windows-virtual-machine-created-with-the-classic-deployment-model"></a>将数据磁盘附加到使用经典部署模型创建的 Windows 虚拟机
 
@@ -66,7 +66,7 @@ ms.locfileid: "34568766"
 
 ### <a name="initialize-a-new-data-disk"></a>初始化新的数据磁盘
 
-1. 连接到虚拟机。 有关说明，请参阅[如何连接并登录到运行 Windows 的 Azure 虚拟机](../../virtual-machines-windows-connect-logon.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+1. 连接到虚拟机。 有关说明，请参阅 [How to connect and log on to an Azure virtual machine running Windows](../../virtual-machines-windows-connect-logon.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)（如何连接并登录到运行 Windows 的 Azure 虚拟机）。
 2. 在登录虚拟机后，打开“服务器管理器” 。 在左窗格中，选择“文件和存储服务” 。
 
     ![打开服务器管理器](../media/attach-disk-portal/fileandstorageservices.png)

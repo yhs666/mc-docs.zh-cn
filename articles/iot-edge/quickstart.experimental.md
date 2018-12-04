@@ -11,11 +11,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: 1a45841564b0c985662e6d2db320111fa27d1e92
-ms.sourcegitcommit: bae4e9e500e3e988ef8fa0371777ca9cc49b4e94
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45584914"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650459"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>快速入门：将第一个 IoT Edge 模块从 Azure 门户部署到 Windows 设备 - 预览
 
@@ -267,7 +267,7 @@ iotedge logs tempSensor -f
 
 若要删除资源组，请执行以下步骤： 
 
-1. 登录到 [Azure 门户](https://portal.azure.com)，并单击“资源组”。
+1. 登录到 [Azure 门户](https://portal.azure.com)，然后单击“资源组”。
 2. 在“按名称筛选...”文本框中键入包含 IoT 中心的资源组的名称。 
 3. 在结果列表中的资源组右侧，单击“...”，然后单击“删除资源组”。
 4. 系统会要求确认是否删除资源组。 再次键入资源组的名称进行确认，然后单击“删除”。 片刻之后，将会删除该资源组及其包含的所有资源。

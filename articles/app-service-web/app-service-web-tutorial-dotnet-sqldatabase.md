@@ -17,11 +17,11 @@ ms.date: 09/04/2017
 ms.author: v-yiso
 ms.custom: mvc
 ms.openlocfilehash: b3541e09fc0bb54221d5d07bf7067c8ed613322d
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939615"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649082"
 ---
 # <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>使用 SQL 数据库在 Azure 中生成 ASP.NET 应用
 

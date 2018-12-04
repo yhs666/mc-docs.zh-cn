@@ -16,11 +16,11 @@ origin.date: 04/14/2018
 ms.date: 07/09/2018
 ms.author: v-junlch
 ms.openlocfilehash: fc996a2302374dcdbd42ef9edcf7ebc1bcf021fa
-ms.sourcegitcommit: e950fe5260c519e05f8c5bbf193a8ef733a6a2d2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37936319"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653634"
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>如何通过 PHP 使用通知中心
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]

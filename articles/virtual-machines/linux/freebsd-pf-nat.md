@@ -17,11 +17,11 @@ origin.date: 02/20/2017
 ms.date: 10/22/2018
 ms.author: v-yeche
 ms.openlocfilehash: 130ffb80b67f1c1f399fec1a2ccbd82285ec1ce3
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034854"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652541"
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>如何使用 FreeBSD 的数据包筛选器在 Azure 中创建安全防火墙
 本文介绍如何通过 Azure Resource Manager 模板使用 FreeBSD 的数据包筛选器为通用 Web 服务器方案部署 NAT 防火墙。

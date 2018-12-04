@@ -8,6 +8,9 @@ items:
   - name: HDInsight 上的 Hadoop 组件
     href: ../hdinsight-component-versioning.md
     maintainContext: true
+  - name: HDInsight 4.0
+    href: ../hdinsight-version-release.md
+    maintainContext: true
 - name: 快速入门
   items:
   - name: 创建 Spark 群集 - 门户
@@ -202,6 +205,8 @@ items:
     items:
     - name: 管理群集资源
       href: apache-spark-resource-manager.md
+    - name: 使用扩展历史记录服务器管理 Spark 应用程序
+      href: apache-azure-spark-history-server.md
     - name: 配置 Spark 设置
       href: apache-spark-settings.md
     - name: 优化 Spark 作业
@@ -221,7 +226,7 @@ items:
       - name: 使用 .NET SDK
         href: ../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
         maintainContext: true
-      - name: 使用 Azure CLI
+      - name: 使用 Azure 经典 CLI
         href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
         maintainContext: true
       - name: 使用 Azure 门户
@@ -244,7 +249,7 @@ items:
       - name: 使用 Azure PowerShell
         href: ../hdinsight-administer-use-powershell.md
         maintainContext: true
-      - name: 使用 Azure CLI
+      - name: 使用 Azure 经典 CLI
         href: ../hdinsight-administer-use-command-line.md
         maintainContext: true
     - name: 使用 Ambari Web UI 管理群集
@@ -310,6 +315,8 @@ items:
     items:
     - name: 调试 Spark 作业
       href: apache-spark-job-debugging.md
+    - name: 通过作业图调试 Spark 作业
+      href: apache-azure-spark-history-server.md
     - name: 使用 IntelliJ 调试 Spark 作业
       href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
     - name: 排查 HDInsight 群集速度慢或故障问题
@@ -389,9 +396,15 @@ items:
   - name: 代码示例
     href: https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight
   - name: Azure PowerShell
-    href: https://docs.microsoft.com/en-us/powershell/module/azurerm.hdinsight
-  - name: .NET (Hadoop)
-    href: https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight?view=azure-dotnet
+    href: /powershell/module/azurerm.hdinsight
+  - name: .NET SDK
+    href: /dotnet/api/overview/hdinsight?view=azure-dotnet
+  - name: Python SDK
+    href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
+  - name: Java SDK
+    href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
+  - name: Go SDK
+    href: ../hdinsight-go-sdk-overview.md
   - name: .NET (HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
   - name: .NET (Avro)
@@ -414,9 +427,9 @@ items:
   - name: 适用于 HDInsight 的 Windows 工具
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: f963564b1223a51339e80b5458fdd733dd9d79f2
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: 4cfaa1565586165d66e265067c149ff5bcbaffb3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068037"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650778"

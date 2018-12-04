@@ -10,11 +10,11 @@ origin.date: 03/21/2018
 ms.date: 09/10/2018
 ms.author: v-jay
 ms.openlocfilehash: 405c7bc4731e000bbf9417b0204c44b9939bad76
-ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43650759"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651733"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>使用 RA-GRS 设计高度可用的应用程序
 

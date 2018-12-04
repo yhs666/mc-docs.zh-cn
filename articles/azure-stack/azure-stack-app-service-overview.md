@@ -17,11 +17,11 @@ ms.date: 07/20/2018
 ms.author: v-junlch
 ms.reviewer: anwestg
 ms.openlocfilehash: b6ba08ac56b22a4b4d864bb86d1ec707ba8bed27
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168229"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652775"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Azure Stack 上的应用服务概述
 

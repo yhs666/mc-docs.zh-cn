@@ -11,11 +11,11 @@ origin.date: 07/16/2018
 ms.date: 09/02/2018
 ms.author: v-jay
 ms.openlocfilehash: 5aa30abe36900b883d4062c4f41f0768318f3056
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913874"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651073"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>在 SQL 数据库中使用内存中技术优化性能
 

@@ -16,11 +16,11 @@ origin.date: 09/04/2018
 ms.date: 10/15/2018
 ms.author: v-yeche
 ms.openlocfilehash: 7845e182d2d3b7aba43ae5cd5c25d8d86eadc5dc
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089257"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650755"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>为有状态服务创建单元测试
 对 Service Fabric 有状态服务进行单元测试可发现传统应用程序或特定于域的单元测试不一定会捕获的常见错误。 在为有状态服务开发单元测试时，应牢记一些特殊注意事项。

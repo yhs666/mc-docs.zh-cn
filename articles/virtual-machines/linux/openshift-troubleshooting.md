@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/27/2017
 ms.openlocfilehash: fde445187c4a68cd8a6b1a66fab592686b5ee5f8
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
-ms.locfileid: "25592554"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650091"
 ---
 # <a name="troubleshoot-openshift-deployment-in-azure"></a>在 Azure 中排查 OpenShift 部署问题
 

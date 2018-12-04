@@ -16,11 +16,11 @@ origin.date: 03/21/2018
 ms.date: 07/09/2018
 ms.author: v-yeche
 ms.openlocfilehash: 7fbdc4da4ab7f7d9eaf36c7171c67c36bbd795ea
-ms.sourcegitcommit: 292f22020e00c607229c1693229f25fb2837d8af
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37910581"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650391"
 ---
 # <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>为 HTTP 和 HTTPS 终结点分配安全访问策略
 如果将运行方式策略应用到服务，且服务清单声明使用 HTTP 协议的终结点资源，则必须指定 SecurityAccessPolicy。  SecurityAccessPolicy 会确保分配给这些终结点的端口已正确限制为运行该服务所用的用户帐户。 否则，**http.sys** 无法访问服务，并且无法从客户端调用。 以下示例将 Customer1 帐户应用于名为 **EndpointName** 的终结点，并向它授予完全访问权限。

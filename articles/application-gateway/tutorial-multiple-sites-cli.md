@@ -12,11 +12,11 @@ ms.date: 10/17/2018
 ms.author: v-junlch
 ms.custom: mvc
 ms.openlocfilehash: 592728d06ca035c29df14878bc08410d936c60fc
-ms.sourcegitcommit: 4ead6b1d3527373b63c90680b6400a2e95b4064e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49374956"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650019"
 ---
 # <a name="tutorial-create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>教程：使用 Azure CLI 创建托管多个网站的应用程序网关
 

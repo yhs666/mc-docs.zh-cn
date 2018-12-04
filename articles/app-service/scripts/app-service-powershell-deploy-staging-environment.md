@@ -17,11 +17,11 @@ ms.date: 04/30/2017
 ms.author: v-yiso
 ms.custom: mvc
 ms.openlocfilehash: 0ed9271cd627e45d5e81c2a4a51aa74c511c3950
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31781820"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651593"
 ---
 # <a name="create-a-web-app-and-deploy-code-to-a-staging-environment"></a>创建 Web 应用并将代码部署到过渡环境
 

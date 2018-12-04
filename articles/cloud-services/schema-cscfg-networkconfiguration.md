@@ -15,11 +15,11 @@ author: thraka
 ms.author: v-yiso
 manager: timlt
 ms.openlocfilehash: fb87d87913e9f7a829a54292705e4115d6cd39c7
-ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2017
-ms.locfileid: "23635105"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652434"
 ---
 # <a name="azure-cloud-services-config-networkconfiguration-schema"></a>Azure 云服务的配置 NetworkConfiguration 架构
 

@@ -18,11 +18,11 @@ origin.date: 04/19/2018
 ms.date: 06/14/2018
 ms.author: v-junlch
 ms.openlocfilehash: 1f265c59d905a9adc6c998513967f5b0f9cdadb5
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939640"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654007"
 ---
 # <a name="what-is-vpn-gateway"></a>什么是 VPN 网关？
 

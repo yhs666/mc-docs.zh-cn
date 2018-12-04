@@ -18,11 +18,11 @@ origin.date: 10/27/2017
 ms.date: 12/25/2017
 ms.author: v-yiso
 ms.openlocfilehash: 922271e06abe2ed01f65764ebca6aeb329f5d040
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
-ms.locfileid: "26721689"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653817"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>为 Visual Studio Code 设置 PySpark 交互式环境
 

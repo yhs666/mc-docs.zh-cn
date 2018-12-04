@@ -13,11 +13,11 @@ origin.date: 11/28/2017
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.openlocfilehash: 69aa68c4e4a768f3d13114de6134421dd57921db
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070168"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651040"
 ---
 # <a name="how-to-manage-an-azure-cosmos-db-account"></a>如何管理 Azure Cosmos DB 帐户
 了解如何在 Azure 门户中设置全局一致性、使用密钥，以及删除 Azure Cosmos DB 帐户。
@@ -84,7 +84,7 @@ ms.locfileid: "37070168"
 2. 在“资源”菜单中，单击“密钥”（或 MongoDB API 帐户的“连接字符串”）。
 3. 单击“主连接字符串”或“辅助连接字符串”框旁边的“复制”按钮。 
 
-如果在 [Azure Cosmos DB 数据库迁移工具](import-data.md)中使用连接字符串，将数据库名称追加到连接字符串的末尾。 `AccountEndpoint=< >;AccountKey=< >;Database=< >`。
+如果要在 [Azure Cosmos DB 数据库迁移工具](import-data.md)中使用连接字符串，请将数据库名称追加到连接字符串的末尾。 `AccountEndpoint=< >;AccountKey=< >;Database=< >`。
 
 <a name="delete"></a>
 ##  <a name="delete-an-azure-cosmos-db-account"></a>删除 Azure Cosmos DB 帐户

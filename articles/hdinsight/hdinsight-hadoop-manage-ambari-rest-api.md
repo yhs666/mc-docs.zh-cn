@@ -18,11 +18,11 @@ origin.date: 04/23/2018
 ms.date: 09/24/2018
 ms.author: v-yiso
 ms.openlocfilehash: 0365cdafbbc49dcb4170c17cf1c79a017adf2337
-ms.sourcegitcommit: bae4e9e500e3e988ef8fa0371777ca9cc49b4e94
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45584862"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650368"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-rest-api"></a>使用 Ambari REST API 管理 HDInsight 群集
 
@@ -34,24 +34,24 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Hadoop 群集�
 
 ## <a id="whatis"></a>什么是 Ambari
 
-[Apache Ambari](http://ambari.apache.org) 提供可用于管理和监视 Hadoop 群集的 Web UI。 开发人员可以使用 [Ambari REST API](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md) 在其应用程序中集成这些功能。
+[Apache Ambari](http://ambari.apache.org) 提供可用于管理和监视 Hadoop 群集的 Web UI。 开发人员可以使用 [Ambari REST API](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)在其应用程序中集成这些功能。
 
 基于 Linux 的 HDInsight 群集已按默认提供 Ambari。
 
 ## <a name="how-to-use-the-ambari-rest-api"></a>如何使用 Ambari REST API
 
 > [!IMPORTANT]
-> 本文档中的信息和示例要求使用以 Linux 作为操作系统的 HDInsight 群集。 有关详细信息，请参阅 [HDInsight 入门](hadoop/apache-hadoop-linux-tutorial-get-started.md)。
+> 本文档中的信息和示例需要使用 Linux 操作系统的 HDInsight 群集。 有关详细信息，请参阅 [HDInsight 入门](hadoop/apache-hadoop-linux-tutorial-get-started.md)。
 
-本文档针对 Bourne 外壳 (bash) 和 PowerShell 都提供了示例。 测试 bash 示例时使用的是 GNU bash 版本 4.3.11，但应结合使用其他 Unix shell。 PowerShell 示例进行测试时使用的是 PowerShell 5.0，但应当也可以与 PowerShell 3.0 或更高版本一起工作。
+本文档针对 Bourne 外壳 (bash) 和 PowerShell 都提供了示例。 测试 bash 示例时使用的是 GNU bash 版本 4.3.11，但应结合使用其他 Unix shell。 PowerShell 示例使用 PowerShell 5.0 进行了测试，但也应适用于 PowerShell 3.0 或更高版本。
 
 如果使用 __Bourne 外壳__ (Bash)，则必须安装以下各项：
 
-* [cURL](http://curl.haxx.se/)：cURL 是一个可用于从命令行操作 REST API 的实用工具。 在本文档中，将使用它来与 Ambari REST API 通信。
+* [cURL](http://curl.haxx.se/)：cURL 是一个可用于从命令行使用 REST API 的实用工具。 在本文档中，它用于与 Ambari REST API 通信。
 
-无论是使用 Bash 还是 PowerShell，都还必须安装 [jq](https://stedolan.github.io/jq/)。 Jq 是一个可用于操作 JSON 文档的实用工具。 **所有** Bash 示例都使用了该实用工具，PowerShell 示例中有**一个**使用了该实用工具。
+不论使用 Bash 还是 PowerShell，还必须安装 [jq](https://stedolan.github.io/jq/) 。 Jq 是用于处理 JSON 文档的实用工具。 **所有** Bash 示例都使用了该实用工具，PowerShell 示例中有**一个**使用了该实用工具。
 
-### <a name="base-uri-for-ambari-rest-api"></a>Ambari Rest API 的基本 URI
+### <a name="base-uri-for-ambari-rest-api"></a>用于 Ambari Rest API 的基 URI
 
 Ambari REST API 在 HDInsight 上的基 URI 是 https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME，其中 **CLUSTERNAME** 是群集的名称。
 
@@ -62,7 +62,7 @@ Ambari REST API 在 HDInsight 上的基 URI 是 https://CLUSTERNAME.azurehdinsig
 >
 > `https://MyCluster.azurehdinsight.cn/api/v1/clusters/MyCluster`
 > 
-> 以下 URI 返回错误，因为名称的第二个部分未正确使用大小写。
+> 下面的 URI 返回一个错误，因为第二个出现的名称的大小写不正确。
 > 
 > `https://mycluster.azurehdinsight.cn/api/v1/clusters/mycluster`
 >
@@ -74,7 +74,7 @@ Ambari REST API 在 HDInsight 上的基 URI 是 https://CLUSTERNAME.azurehdinsig
 
 ## <a name="examples-authentication-and-parsing-json"></a>示例：身份验证和解析 JSON
 
-以下示例演示了如何针对基本 Ambari REST API 发出 GET 请求：
+以下示例演示如何针对基本 Ambari REST API 发出 GET 请求：
 
 ```bash
 curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME"
@@ -94,7 +94,7 @@ $resp.Content
 ```
 
 > [!IMPORTANT]
-> 本文档中的 PowerShell 示例采用以下假设：
+> 本文档中的 PowerShell 示例作出以下假设：
 >
 > * `$creds` 是一个凭据对象，包含群集的管理员登录名和密码。 可以通过使用 `$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"` 并在出现提示时提供凭据来设置此值。
 > * `$clusterName` 是一个包含群集名称的字符串。 可以使用 `$clusterName="clustername"` 设置此值。
@@ -123,7 +123,7 @@ $resp.Content
 
 ### <a name="parsing-json-data"></a>解析 JSON 数据
 
-以下示例使用 `jq` 来解析 JSON 响应文档并仅显示结果中的 `health_report` 信息。
+以下示例使用 `jq` 来分析 JSON 响应文档并仅显示结果中的 `health_report` 信息。
 
 ```bash
 curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME" \
@@ -146,7 +146,7 @@ $respObj.Clusters.health_report
 
 ## <a name="example-get-the-fqdn-of-cluster-nodes"></a>示例：获取群集节点的 FQDN
 
-使用 HDInsight 时，可能需要知道群集节点的完全限定域名 (FQDN)。 可以使用以下示例轻松检索群集中各个节点的 FQDN：
+使用 HDInsight 时，可能需要知道群集节点的完全限定域名 (FQDN)。 可使用以下示例轻松检索群集中各个节点的 FQDN：
 
 * **所有节点**
 
@@ -207,11 +207,11 @@ $respObj.Clusters.health_report
 ## <a name="example-get-the-internal-ip-address-of-cluster-nodes"></a>示例：获取群集节点的内部 IP 地址
 
 > [!IMPORTANT]
-> 本部分中的示例返回的 IP 地址不可直接通过 Internet 进行访问。 它们只可在包含 HDInsight 群集的 Azure 虚拟网络内访问。
+> 本部分中的示例所返回的 IP 地址不可直接通过 Internet 进行访问。 仅可在包含 HDInsight 群集的 Azure 虚拟网络内部对其进行访问。
 >
 > 有关将 HDInsight 与虚拟网络配合使用的详细信息，请参阅[使用 Azure 虚拟网络扩展 HDInsight 功能](hdinsight-extend-hadoop-virtual-network.md)。
 
-要查找 IP 地址，必须知道群集节点的内部完全限定的域名 (FQDN)。 在知悉 FQDN 后，可以获取主机的 IP 地址。 以下示例首先从 Ambari 查询所有主机节点的 FQDN，然后从 Ambari 查询每个主机的 IP 地址。
+要查找 IP 地址，必须知道群集节点的内部完全限定的域名 (FQDN)。 拥有 FQDN 后即可获取主机的 IP 地址。 下面的示例首先会向 Ambari 查询所有主机节点的 FQDN，再向 Ambari 查询每个主机的 IP 地址。
 
 ```bash
 for HOSTNAME in $(curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/hosts" | jq -r '.items[].Hosts.host_name')
@@ -259,9 +259,9 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 > [!IMPORTANT]
 > 这些示例将返回应用于服务器的第一个配置 (`service_config_version=1`)，其中包含此信息。 如果要检索创建群集后修改的值，可能需要列出配置版本并检索最新版本。
 
-返回值类似于下列示例之一：
+返回值类似于以下其中一个示例：
 
-* `wasb://CONTAINER@ACCOUNTNAME.blob.core.chinacloudapi.cn` - 此值表示群集使用 Azure 存储帐户作为默认存储。 `ACCOUNTNAME` 值是存储帐户的名称。 `CONTAINER` 部分是存储帐户中的 blob 容器的名称。 该容器是群集的 HDFS 兼容存储的根目录。
+* `wasb://CONTAINER@ACCOUNTNAME.blob.core.chinacloudapi.cn` - 此值表示群集使用 Azure 存储帐户作为默认存储。 值 `ACCOUNTNAME` 是存储帐户的名称。 `CONTAINER` 部分是存储帐户中 Blob 容器的名称。 容器是群集的 HDFS 兼容存储的根。
 
 > [!NOTE]
 > [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 提供的 `Get-AzureRmHDInsightCluster` cmdlet 也返回群集的存储信息。
@@ -327,7 +327,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
         -Credential $creds
     ```
 
-    此示例将返回一个 JSON 文档，其中包含群集上安装的组件的当前配置（由 *tag* 值标识）。 以下示例是从 Spark 群集类型返回的数据摘录。
+    此示例将返回一个 JSON 文档，其中包含群集上安装的组件的当前配置（由 *tag* 值标识）。 下面的示例是从 Spark 群集类型返回的数据摘录。
 
     ```json
     "spark-metrics-properties" : {
@@ -368,9 +368,9 @@ $respObj.items.configurations.properties.'fs.defaultFS'
     > [!NOTE]
     > 将 **spark-thrift-sparkconf** 和 **INITIAL** 替换为要检索其配置的组件和标记。
 
-    Jq 用来将从 HDInsight 检索到的数据转变为新的配置模板。 具体而言，这些示例执行以下操作：
+    Jq 用于将从 HDInsight 中检索的数据转换成新的配置模板。 具体而言，这些示例会执行以下操作：
 
-    * 创建包含字符串“version”和日期并存储在 `newtag` 中的唯一值。
+    * 创建一个包含字符串“version”和日期并存储在 `newtag`中的唯一值。
 
     * 为新的所需配置创建根文档。
 
@@ -380,7 +380,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 
     * 添加一个值为 `version#################` 的 `tag` 元素。 数字部分基于当前日期。 每个配置必须有唯一的标记。
 
-    最后，将数据保存到 `newconfig.json` 文档。 文档结构应该类似于以下示例：
+    最后，数据将保存到 `newconfig.json` 文档。 文档结构应该类似于以下示例：
 
      ```json
     {
@@ -421,13 +421,13 @@ $respObj.items.configurations.properties.'fs.defaultFS'
     $resp.Content
     ```
 
-    这些命令将 **newconfig.json** 文件的内容作为新的所需配置提交到群集。 该请求会返回一个 JSON 文档。 此文档中的 versionTag 元素应该与提交的版本相匹配，并且 configs 对象包含你请求的配置更改。
+    这些命令会将 **newconfig.json** 文件的内容提交到群集作为所需的新配置。 该请求会返回一个 JSON 文档。 此文档中的 **versionTag** 元素应该与提交的版本相匹配，并且 **configs** 对象包含你请求的配置更改。
 
 ### <a name="example-restart-a-service-component"></a>示例：重新启动服务组件
 
 此时，如果查看 Ambari Web UI，会发现 Spark 服务指出需要将它重新启动才能使新配置生效。 使用以下步骤重新启动该服务。
 
-1. 使用以下命令启用 Spark 服务的维护模式：
+1. 使用以下命令启用 Spark 服务的维护模式。
 
     ```bash
     curl -u admin -sS -H "X-Requested-By: ambari" \
@@ -444,7 +444,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
     $resp.Content
     ```
 
-    这些命令将向服务器发送用于开启维护模式的 JSON 文档。 可以使用以下请求来验证服务当前是否处于维护模式：
+    这些命令将 JSON 文档发送到启用了维护模式的服务器。 可以使用以下请求来验证服务当前是否处于维护模式：
 
     ```bash
     curl -u admin -sS -H "X-Requested-By: ambari" \
@@ -461,7 +461,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 
     返回值为 `ON`。
 
-2. 接下来，使用以下命令关闭该服务：
+2. 接下来，使用以下命令关闭服务：
 
     ```bash
     curl -u admin -sS -H "X-Requested-By: ambari" \
@@ -478,7 +478,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
     $resp.Content
     ```
 
-    响应类似于以下示例：
+    其响应类似于如下示例：
 
     ```json
     {
@@ -491,7 +491,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
     ```
 
     > [!IMPORTANT]
-    > 值 `href` 值正在使用群集节点的内部 IP 地址。 要从群集外部使用该地址，请将“10.0.0.18:8080”部分替换为群集的 FQDN。 
+    > 值 `href` 值正在使用群集节点的内部 IP 地址。 若要从群集外部使用该地址，请将“10.0.0.18:8080”部分替换为群集的 FQDN。 
 
     以下命令检索请求状态：
 
@@ -508,7 +508,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
     $respObj.Requests.request_status
     ```
 
-    响应 `COMPLETED` 表示请求已完成。
+    响应 `COMPLETED` 指示请求已完成。
 
 3. 完成前一个请求后，请使用以下命令来启动服务。
 

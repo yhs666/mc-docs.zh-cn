@@ -52,7 +52,7 @@
 #### [删除用户](manage-apps/remove-user-or-group-access-portal.md)
 #### [从用户体验中隐藏应用程序](manage-apps/hide-application-from-user-portal.md)
 
-### [了解 Azure AD 应用程序许可体验](application-consent-experience.md)
+### [了解 Azure AD 应用程序许可体验](develop/application-consent-experience.md)
 
 #### 应用程序注册
 ##### [为应用程序对象填写字段](develop/registration-config-specific-application-property-how-to.md)
@@ -87,17 +87,16 @@
 
 
 ## 管理目录
-### [Azure AD Connect](./connect/active-directory-aadconnect.md)
+### [Azure AD Connect](hybrid/whatis-hybrid-identity.md)
 ### 自定义域名
 #### [快速入门](fundamentals/add-custom-domain.md)
 ### [管理目录](fundamentals/active-directory-administer.md)
 
 
 
-### [使用 Azure AD Connect 集成本地标识](./connect/active-directory-aadconnect.md)
 
 
-## [在 Azure 中部署 AD FS](active-directory-aadconnect-azure-adfs.md)
+## [在 Azure 中部署 AD FS](hybrid/how-to-connect-fed-azure-adfs.md)
 ### [高可用性](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [更改签名哈希算法](active-directory-federation-sha256-guidance.md)
 
@@ -116,7 +115,7 @@
 
 # 相关内容
 ## [多重身份验证](/multi-factor-authentication/)
-## [Azure AD Connect](./connect/active-directory-aadconnect.md)
+## [Azure AD Connect](hybrid/whatis-hybrid-identity.md)
 ## [面向开发人员的 Azure AD](./develop/active-directory-how-to-integrate.md)
 
 # 资源

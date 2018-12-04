@@ -16,11 +16,11 @@ origin.date: 01/09/2017
 ms.author: v-yiso
 ms.date: 10/08/2018
 ms.openlocfilehash: fd342d22d863bd3a17c0b8c73db84d331c27772f
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523892"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653900"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Azure API 管理中的 API 模板
 通过 Azure API 管理，用户能够使用一组用于配置内容的模板自定义开发人员门户页的内容。 使用 [DotLiquid](http://dotliquidmarkup.org/) 语法和所选编辑器（例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)），以及提供的一组本地化[字符串资源](./api-management-template-resources.md#strings)、[字形资源](./api-management-template-resources.md#glyphs)和[页面控件](./api-management-page-controls.md)，即可根据这些模板的使用需要非常灵活地配置页面内容。  

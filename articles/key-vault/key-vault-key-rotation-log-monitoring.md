@@ -16,11 +16,11 @@ origin.date: 06/12/2018
 ms.date: 10/22/2018
 ms.author: v-biyu
 ms.openlocfilehash: dd907a2146c06a24cfe788092e6be53052f5a605
-ms.sourcegitcommit: 2fdf25eb4b978855ff2832bcdcca093c141be261
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49120604"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648993"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>使用密钥轮换和审核设置 Azure Key Vault
 

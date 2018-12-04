@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 10/23/2017
-ms.date: 10/15/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 4b88ba9765673ecef4b5d27589ebbc08bfb9d224
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.openlocfilehash: cbc77fd2b835c23c62e899b48d29bc59583651ba
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089204"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650665"
 ---
 # <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>快速入门：将 Java Reliable Services 应用程序部署到 Service Fabric
 
@@ -99,7 +99,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 Service Fabric 提供多种可以用来管理群集及其应用程序的工具：
 
 * Service Fabric Explorer，一种基于浏览器的工具。
-* Service Fabric 命令行界面 (CLI)，在 Azure CLI 2.0 基础上运行。
+* Service Fabric 命令行界面 (CLI)，在 Azure CLI 基础上运行。
 * PowerShell 命令。
 
 在本快速入门中，请使用 Service Fabric CLI 和 Service Fabric Explorer。

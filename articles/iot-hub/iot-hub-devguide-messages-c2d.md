@@ -12,11 +12,11 @@ origin.date: 03/15/2018
 ms.author: v-yiso
 ms.date: 10/29/2018
 ms.openlocfilehash: 2e17858123e5bdeec52fe2792c3941b5587684eb
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453801"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650432"
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>从 IoT 中心发送云到设备的消息
 

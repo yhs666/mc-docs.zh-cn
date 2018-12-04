@@ -17,11 +17,11 @@ origin.date: 02/27/2018
 ms.date: 05/28/2018
 ms.author: v-yiso
 ms.openlocfilehash: 1288b955aa2530d5c20b7585b1fbb3473fc6ce37
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34449935"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652159"
 ---
 # <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>使用 Ambari 视图来调试 HDInsight 上的 Tez 作业
 
@@ -108,7 +108,7 @@ Tez 视图提供进程的历史信息，还提供正在运行的进程的相关�
 
 ## <a name="next-steps"></a>后续步骤
 
-既然已了解如何使用 Tez 视图，接下来将详细了解如何[使用 Hive on HDInsight](hadoop/hdinsight-use-hive.md)。
+现在，已了解如何使用 Tez 视图，因此可以详细了解如何 [使用 HDInsight 上的 Hive](hadoop/hdinsight-use-hive.md)。
 
 有关 Tez 的更详细的技术信息，请参阅 [Hortonworks 的 Tez 页](http://hortonworks.com/hadoop/tez/)。
 

@@ -18,11 +18,11 @@ ms.date: 07/03/2017
 ms.author: v-dazen
 ms.custom: mvc
 ms.openlocfilehash: 70564337753ee62296ad3fc2afd99e312674462d
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
-ms.locfileid: "20187338"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653593"
 ---
 # <a name="create-a-virtual-machine-from-a-snapshot-with-powershell"></a>使用 PowerShell 从快照创建虚拟机
 
@@ -101,12 +101,12 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 此脚本使用以下命令获取快照属性、从快照创建托管磁盘并创建 VM。 表中的每一项均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [Get-AzureRmSnapshot](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermsnapshot) | 使用快照名称获取快照。 |
 | [New-AzureRmDiskConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermdiskconfig) | 创建磁盘配置。 在磁盘创建过程中将使用此配置。 |
 | [New-AzureRmDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermdisk) | 创建托管磁盘。 |
-| [New-AzureRmVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig) | 创建 VM 配置。 此配置包括 VM 名称、操作系统和管理凭据等信息。 在创建 VM 期间将使用此配置。 |
+| [New-AzureRmVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig) | 创建 VM 配置。 此配置包括 VM 名称、操作系统和管理凭据等信息。 在创建 VM 期间使用此配置。 |
 | [Set-AzureRmVMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk) | 将托管磁盘作为 OS 磁盘附加到虚拟机 |
 | [New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermpublicipaddress) | 创建公共 IP 地址。 |
 | [New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworkinterface) | 创建网络接口。 |

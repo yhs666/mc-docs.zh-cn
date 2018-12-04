@@ -18,11 +18,11 @@ ms.date: 04/02/2018
 ms.author: v-yiso
 ms.custom: mvc
 ms.openlocfilehash: 92ebc077170994eb874ce5eba46cd8c1444964af
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30155473"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653491"
 ---
 # <a name="connect-a-web-app-to-a-sql-database"></a>将 Web 应用连接到 SQL 数据库
 

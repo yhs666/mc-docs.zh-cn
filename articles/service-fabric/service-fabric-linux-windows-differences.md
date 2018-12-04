@@ -16,11 +16,11 @@ origin.date: 02/23/2018
 ms.date: 10/15/2018
 ms.author: v-yeche
 ms.openlocfilehash: 5a3ea04f83a2923146c899ecf96601c3f42297cb
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49088967"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651491"
 ---
 # <a name="differences-between-service-fabric-on-linux-and-windows"></a>Linux 上的 Service Fabric 与 Windows 上的 Service Fabric 之间的差异
 

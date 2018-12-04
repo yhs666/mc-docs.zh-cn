@@ -12,14 +12,14 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 10/06/2017
-ms.date: 09/03/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: b037d931c8e94a88e90243a1a6bc8b06dd191a4f
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: 0115d91ba792768bc4d607c1a3815e206daa6a0b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43171529"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651420"
 ---
 # <a name="use-the-azure-cli-to-manage-azure-resources-and-resource-groups"></a>使用 Azure CLI 管理 Azure 资源和资源组
 

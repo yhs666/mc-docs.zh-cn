@@ -16,11 +16,11 @@ origin.date: 07/24/2018
 ms.date: 10/19/2018
 ms.author: v-lingwu
 ms.openlocfilehash: e6a7fda36aa29a141752661c4f55a707612a3b91
-ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477768"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650320"
 ---
 # <a name="update-the-azure-backup-central-reporting-content-pack"></a>更新 Azure 备份中心报告内容包 
 

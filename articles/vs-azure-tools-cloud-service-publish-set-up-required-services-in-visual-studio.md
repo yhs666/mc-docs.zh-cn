@@ -14,18 +14,18 @@ origin.date: 11/10/2017
 ms.date: 09/10/2018
 ms.author: v-junlch
 ms.openlocfilehash: be90498d11e72777b7e3b095fb80e011fb2d6425
-ms.sourcegitcommit: 40456700212200e707d6cb3147cf96ad161d3ff2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44269516"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652824"
 ---
 # <a name="prepare-to-publish-or-deploy-a-cloud-service-from-visual-studio"></a>准备从 Visual Studio 发布或部署云服务
 
 若要发布云服务项目，必须设置本文描述的以下服务：
 
 - 一个云服务，用于在 Azure 环境中运行角色，和 
-- 一个**存储帐户**，提供对 Blob、队列和表服务的访问权限。
+- 一个 **存储帐户** ，提供对 Blob、队列和表服务的访问权限。
 
 ## <a name="create-a-cloud-service"></a>创建云服务
 

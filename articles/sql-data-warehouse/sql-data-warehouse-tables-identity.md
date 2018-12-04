@@ -12,11 +12,11 @@ ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: 007328fe9a9f44a7407bc12502ef6c6e33e86ca9
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089009"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651888"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>使用 IDENTITY 在 Azure SQL 数据仓库中创建代理键
 关于如何使用 IDENTITY 属性在 Azure SQL 数据仓库中创建基于表的代理键的建议和示例。

@@ -10,11 +10,11 @@ ms.date: 08/06/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
 ms.openlocfilehash: 99db00c420d1bbaaaae5b9f3337793005716f76f
-ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487841"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650458"
 ---
 # <a name="quickstart-create-a-server---portal"></a>快速入门：创建服务器 - 门户
 

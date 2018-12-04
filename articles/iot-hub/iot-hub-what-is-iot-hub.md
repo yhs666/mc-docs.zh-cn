@@ -17,11 +17,11 @@ ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
 ms.date: 03/12/2018
 ms.openlocfilehash: 5261c2e24cc9160bfbfb0a3803bfc138a3b8d38f
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870458"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649597"
 ---
 # <a name="overview-of-the-azure-iot-hub-service"></a>Azure IoT 中心服务概述
 欢迎使用 Azure IoT 中心。 本文概述 Azure IoT 中心，并描述应该使用此服务实现物联网 (IoT) 解决方案的原因。 Azure IoT 中心是一项完全托管的服务，可在数百万个 IoT 设备和一个解决方案后端之间实现安全可靠的双向通信。 Azure IoT 中心：
@@ -65,7 +65,7 @@ Azure IoT 中心提供了一组丰富的[设备到云][lnk-d2c-guidance]和[云�
 
 * **每个设备的身份验证和安全连接性**。 可以为每个设备设置独有的 [安全密钥][lnk-devguide-security]，让它连接到 IoT 中心。 [IoT 中心标识注册表][lnk-devguide-identityregistry] 会在解决方案中存储设备标识和密钥。 解决方案后端可将单个设备添加到允许或拒绝列表，以便完全掌控设备访问权限。
 
-* **基于声明性规则将设备到云的消息路由到 Azure 服务**。 IoT 中心根据路由规则定义消息路由，用于控制中心发送设备到云消息的位置。 路由规则不要求用户编写任何代码，并且可以代替自定义的引入后消息调度程序。
+* **基于声明性规则，将设备到云消息路由到 Azure 服务**。 IoT 中心根据路由规则定义消息路由，用于控制中心发送设备到云消息的位置。 路由规则不要求用户编写任何代码，并且可以代替自定义的引入后消息调度程序。
 
 * **将 IoT 中心事件集成到商业应用程序中**。 IoT 中心与 Azure 事件网格集成。 使用此集成来配置其他 Azure 服务或第三方应用程序，以便侦听 IoT 中心事件。 使用 Azure 事件网格可以采用可靠、可缩放且安全的方式快速响应关键事件。
 

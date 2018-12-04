@@ -12,11 +12,11 @@ ms.assetid: 40ce621e-4925-4653-93bb-71ab9abcbdf1
 tags: connectors
 ms.date: 08/24/2018
 ms.openlocfilehash: cfcb53b6e95250a1ccbebfdfcfbff5ec8479504b
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455181"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652860"
 ---
 # <a name="manage-project-online-projects-tasks-and-resources-by-using-azure-logic-apps"></a>使用 Azure 逻辑应用管理 Project Online 项目、任务和资源
 

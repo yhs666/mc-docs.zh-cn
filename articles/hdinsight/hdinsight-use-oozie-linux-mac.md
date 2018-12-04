@@ -14,11 +14,11 @@ origin.date: 06/26/2018
 ms.date: 08/27/2018
 ms.author: v-yiso
 ms.openlocfilehash: def28bfc451ad49ec35df32382d054d21206fc2d
-ms.sourcegitcommit: bae4e9e500e3e988ef8fa0371777ca9cc49b4e94
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45584863"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651205"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>在基于 Linux 的 Azure HDInsight 中将 Oozie 与 Hadoop 配合使用以定义和运行工作流
 
@@ -56,10 +56,10 @@ ms.locfileid: "45584863"
 
     有关 Hive 的详细信息，请参阅[将 Hive 与 HDInsight 配合使用][hdinsight-use-hive]。
 
-2. Sqoop 操作将新 Hive 表的内容导出到在 Azure SQL 数据库中创建的表。 有关 Sqoop 的详细信息，请参阅[将 Hadoop Sqoop 与 HDInsight 配合使用][hdinsight-use-sqoop]。
+2. Sqoop 操作将新 Hive 表的内容导出到在 Azure SQL 数据库中创建的表。 有关 Sqoop 的详细信息，请参阅 [将 Hadoop Sqoop 与 HDInsight 配合使用][hdinsight-use-sqoop]。
 
 > [!NOTE]
-> 有关 HDInsight 群集上支持的 Oozie 版本，请参阅 [HDInsight 提供的 Hadoop 群集版本有哪些新增功能][hdinsight-versions]。
+> 有关在 HDInsight 群集上支持的 Oozie 版本，请参阅 [HDInsight 提供的 Hadoop 群集版本有哪些新增功能？][hdinsight-versions]。
 
 ## <a name="create-the-working-directory"></a>创建工作目录
 
@@ -71,7 +71,7 @@ Oozie 希望将作业所需的所有资源存储在同一个目录中。 此示�
     ssh sshuser@clustername-ssh.azurehdinsight.cn
     ```
 
-    将 `sshuser` 替换为群集的 SSH 用户名。 将 `clustername` 替换为群集的名称。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
+    将 `sshuser` 替换为群集的 SSH 用户名。 将 `clustername` 替换为群集的名称。 有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 2. 若要创建此目录，请使用以下命令：
 
@@ -267,7 +267,7 @@ Oozie 工作流定义以 Hadoop 过程定义语言（缩写为 hPDL，一种 XML
     GO
     ```
 
-    输入 `GO` 语句后，将评估前面的语句。 这些语句创建一个名为 **mobiledata** 的表，供工作流使用。
+    输入 `GO` 语句后，会评估前面的语句。 这些语句创建一个名为 **mobiledata** 的表，供工作流使用。
 
     若要验证是否已创建该表，请使用以下命令：
 
@@ -287,7 +287,7 @@ Oozie 工作流定义以 Hadoop 过程定义语言（缩写为 hPDL，一种 XML
 
 ## <a name="create-the-job-definition"></a>创建作业定义
 
-作业定义说明可在何处找到 workflow.xml。 它还说明可在何处找到工作流使用的其他文件（例如 `useooziewf.hql`）。 此外，它还定义工作流中使用的属性值以及关联的文件。
+作业定义说明了可在何处找到 workflow.xml。 它还说明可在何处找到工作流使用的其他文件（例如 `useooziewf.hql`）。 此外，它还定义工作流中使用的属性值以及关联的文件。
 
 1. 若要获取默认存储的完整地址，请使用以下命令。 在下一步骤中创建的配置文件中会使用此地址。
 
@@ -393,7 +393,7 @@ Oozie 工作流定义以 Hadoop 过程定义语言（缩写为 hPDL，一种 XML
 
 ## <a name="submit-and-manage-the-job"></a>提交和管理作业
 
-以下步骤使用 Oozie 命令提交和管理群集上的 Oozie 工作流。 Oozie 命令是基于 [Oozie REST API](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html) 的友好界面。
+以下步骤使用 Oozie 命令提交和管理群集上的 Oozie 工作流。 Oozie 命令是基于 [Oozie REST API](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html)的友好界面。
 
 > [!IMPORTANT]
 > 使用 Oozie 命令时，必须使用 HDInsight 头节点的 FQDN。 只能从群集访问此 FQDN，如果群集位于 Azure 虚拟网络中，则必须从同一个网络中的其他计算机来访问它。
@@ -556,7 +556,7 @@ Oozie Web UI 提供基于 Web 的视图来显示群集上 Oozie 作业的状态�
 
     ![操作信息](./media/hdinsight-use-oozie-linux-mac/action.png)
 
-8. 可以看到操作的详细信息，例如指向“控制台 URL”的链接。 使用此链接可查看作业的作业跟踪器信息。
+8. 可以看到操作的详细信息，例如**控制台 URL** 的链接。 使用此链接可查看作业的作业跟踪器信息。
 
 ## <a name="schedule-jobs"></a>计划作业
 
@@ -642,7 +642,7 @@ Oozie Web UI 提供基于 Web 的视图来显示群集上 Oozie 作业的状态�
         </property>
         ```
 
-       这些值将开始时间设置为 2017 年 5 月 10 日中午 12:00，将结束时间设置为 2017 年 5 月 12 日。 此作业的运行时间间隔已设置为“每日”。 作业运行的频率以分钟为单位，因此是 24 小时 x 60 分钟 = 1440 分钟。 最后，将时区设置为 UTC。
+       这些值将开始时间设置为 2017 年 5 月 10 日中午 12:00，将结束时间设置为 2017 年 5 月 12 日。 此作业的运行时间间隔已设置为“每日”。 频率以分钟为单位，因此 24 小时 x 60 分钟 = 1440 分钟。 最后，将时区设置为 UTC。
 
 5. 若要保存文件，请按 Ctrl+X，输入 `Y`，再按 **Enter**。
 
@@ -699,7 +699,7 @@ Oozie Web UI 提供基于 Web 的视图来显示群集上 Oozie 作业的状态�
 
 **原因**：当前的权限设置不允许 Oozie 模拟指定的用户帐户。
 
-**解决方法**：允许 Oozie 模拟“用户”组中的用户。 使用 `groups USERNAME` 查看用户帐户所属的组。 如果该用户不是“用户”组的成员，请使用以下命令将该用户添加到该组：
+**解决方法**：允许 Oozie 模拟“用户”组中的用户。 使用 `groups USERNAME` 查看用户帐户所属的组。 如果该用户不是**用户**组的成员，请使用以下命令将该用户添加到该组：
 
     sudo adduser USERNAME users
 
@@ -737,8 +737,8 @@ Oozie Web UI 提供基于 Web 的视图来显示群集上 Oozie 作业的状态�
 * [将基于时间的 Oozie 协调器与 HDInsight 配合使用][hdinsight-oozie-coordinator-time]
 * [在 HDInsight 中上传 Hadoop 作业的数据][hdinsight-upload-data]
 * [将 Sqoop 与 HDInsight 中的 Hadoop 配合使用][hdinsight-use-sqoop]
-* [将 Hive 与 Hadoop on HDInsight 配合使用][hdinsight-use-hive]
-* [将 Pig 与 Hadoop on HDInsight 配合使用][hdinsight-use-pig]
+* [将 Hive 与 HDInsight 上的 Hadoop 配合使用][hdinsight-use-hive]
+* [将 Pig 与 HDInsight 上的 Hadoop 配合使用][hdinsight-use-pig]
 * [为 HDInsight 开发 Java MapReduce 程序][hdinsight-develop-mapreduce]
 
 [hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563

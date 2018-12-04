@@ -15,11 +15,11 @@ origin.date: 10/01/2016
 ms.date: 07/30/2018
 ms.author: v-yiso
 ms.openlocfilehash: 1ae698543179ed997a5cecb8dc36ef7974ff78be
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167920"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653822"
 ---
 # <a name="enable-offline-sync-for-your-xamarinandroid-mobile-app"></a>为 Xamarin.Android 移动应用启用脱机同步
 
@@ -68,7 +68,7 @@ ms.locfileid: "39167920"
 
 ## <a name="update-online-app"></a>更新应用以重新连接移动应用后端
 
-本部分将应用重新连接到移动应用后端。 首次运行该应用程序时，`OnCreate` 事件处理程序将调用 `OnRefreshItemsSelected`。 而此方法将调用 `SyncAsync`，将本地存储与后端数据库同步。
+本部分将应用重新连接到移动应用后端。 首次运行该应用程序时，`OnCreate` 事件处理程序将调用 `OnRefreshItemsSelected`。 而此方法会调用 `SyncAsync` ，将本地存储与后端数据库同步。
 
 1. 在共享项目中，打开 ToDoActivity.cs，撤消对 **applicationURL** 属性所作的更改。
 

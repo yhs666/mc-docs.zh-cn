@@ -16,11 +16,11 @@ origin.date: 12/15/2016
 ms.author: v-yiso
 ms.date: 06/18/2018
 ms.openlocfilehash: 0f5eb49e30ddaefe923d85ec17c3481d5b9a86f3
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487002"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649197"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>如何委派用户注册和产品订阅
 可以通过委派使用现有网站处理开发人员的登录/注册和产品订阅事项，不需使用开发人员门户中的内置功能。 这样就可以让网站拥有用户数据，并通过自定义方式对这些步骤进行验证。
@@ -72,7 +72,7 @@ ms.locfileid: "39487002"
    * 通过 API 管理 REST API [请求单一登录 (SSO) 令牌]
    * 将 returnUrl 查询参数追加到从上述 API 调用接收的 SSO URL：
      
-     > 例如，https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
+     > 例如， https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
      > 
      > 
      

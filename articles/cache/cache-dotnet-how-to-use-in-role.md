@@ -12,15 +12,15 @@ origin.date: 08/11/2015
 ms.date: 06/21/2017
 ms.author: v-yiso
 ms.openlocfilehash: 8dbc02c0d373b9883275ff6746eb6c1e14779806
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20184670"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652290"
 ---
 # <a name="how-to-use-in-role-cache-for-azure-cache"></a>如何使用 Azure 缓存的角色中缓存
 
-本指南说明了如何开始使用 **Azure 缓存的角色中缓存**。 示例是用 C\# 代码编写的且使用了 .NET API。 涉及的应用场景包括**配置缓存群集**、**配置缓存客户端**、**在缓存中添加和删除对象、在缓存中存储 ASP.NET 会话状态**以及**使用缓存启用 ASP.NET 页面输出缓存**。 有关使用角色中缓存的详细信息，请参阅[后续步骤][]部分。
+本指南说明了如何开始使用 **Azure 缓存的角色中缓存**。 相关示例用 C\# 代码编写且使用 .NET API。 涉及的应用场景包括**配置缓存群集**、**配置缓存客户端**、**在缓存中添加和删除对象、在缓存中存储 ASP.NET 会话状态**以及**使用缓存启用 ASP.NET 页面输出缓存**。 有关使用角色中缓存的详细信息，请参阅[后续步骤][]部分。
 
 >[!NOTE]
 > 有关为应用程序选择正确的 Azure 缓存产品的指导，请参阅[哪种 Azure 缓存产品适合我？][]
@@ -45,7 +45,7 @@ ms.locfileid: "20184670"
 - 消除了缓存配额和限制。
 - 提供了更强的控制和隔离措施。 
 - 提高了性能。
-- 在向内或向外扩展角色时，会自动调整缓存大小。 在添加或删除角色实例时，有效地缩放可用于缓存的内存。
+- 在向内或向外扩展角色时，会自动调整缓存大小。在添加或删除角色实例时，有效地缩放可用于缓存的内存。
 - 提供了完全无损的开发时调试。 
 - 支持 memcache 协议。
 
@@ -105,7 +105,7 @@ ms.locfileid: "20184670"
 
 ![RoleCache1][RoleCache1]
 
-切换到“配置”选项卡。 默认的“实例计数”为 1，默认的“VM 大小”为“小型”。
+切换到“配置”选项卡。默认的“实例计数”为 1，默认的“VM 大小”为“小型”。
 
 ![RoleCache3][RoleCache3]
 
@@ -137,9 +137,9 @@ VM 大小的总内存如下：
 
 NuGet 包可执行多项操作：将所需配置添加到角色的配置文件中，将缓存客户端诊断级别设置添加到 Azure 应用程序的 ServiceConfiguration.cscfg 文件中，并添加所需的程序集引用。
 
->对于 ASP.NET Web 角色，缓存 NuGet 包还将两个注释掉的节添加到 web.config 中。 第一个节允许会话状态存储在缓存中，第二个节启用 ASP.NET 页面输出缓存。 有关详细信息，请参阅[如何在缓存中存储 ASP.NET 会话状态]和[如何在缓存中存储 ASP.NET 页面输出缓存][]。
+>对于 ASP.NET Web 角色，缓存 NuGet 包还将两个注释掉的节添加到 web.config 中。第一个节允许会话状态存储在缓存中，第二个节启用 ASP.NET 页面输出缓存。 有关详细信息，请参阅[如何在缓存中存储 ASP.NET 会话状态]和[如何在缓存中存储 ASP.NET 页面输出缓存][]。
 
-NuGet 包将以下配置元素添加到角色的 web.config 或 app.config 中。 将 **dataCacheClients** 节和 **cacheDiagnostics** 节添加到 **configSections** 元素之下。 如果 **configSections** 元素不存在，则会创建一个作为 **configuration** 元素的子级。
+NuGet 包将以下配置元素添加到角色的 web.config 或 app.config 中。将 **dataCacheClients** 节和 **cacheDiagnostics** 节添加到 **configSections** 元素之下。 如果 **configSections** 元素不存在，则会创建一个作为 **configuration** 元素的子级。
 
 ```
 <configSections>
@@ -225,7 +225,7 @@ NuGet 包还添加了对以下程序集的引用：
 using Microsoft.ApplicationServer.Caching;
 ```
 
->如果在安装了添加必要引用的 Caching NuGet 包后，Visual Studio 仍不能识别 using 语句中的类型，请确保项目的目标配置文件是 .NET Framework 4.0 或更高版本，并确保选择没有指定**客户端配置文件**的配置文件之一。 有关配置缓存客户端的说明，请参阅[配置缓存客户端][]。
+>如果在安装了添加必要引用的 Caching NuGet 包后，Visual Studio 仍不能识别 using 语句中的类型，请确保项目的目标配置文件是 .NET Framework 4.0 或更高版本，并确保选择没有指定**客户端配置文件**的配置文件之一。 有关配置缓存客户端的说明，请参阅 [配置缓存客户端][]。
 
 创建 **DataCache** 对象有两种方法。 第一种方法是仅创建 **DataCache**，并传入所需缓存的名称。
 
@@ -233,9 +233,9 @@ using Microsoft.ApplicationServer.Caching;
 DataCache cache = new DataCache("default");
 ```
 
-在实例化 **DataCache** 后，你可以使用它来与缓存交互，如以下各部分中所述。
+在实例化 **DataCache** 后，可以使用它来与缓存交互，如以下各部分所述。
 
-若要使用第二种方法，请在你的应用程序中使用默认构造函数创建新的 **DataCacheFactory** 对象。 这会导致缓存客户端使用配置文件中的设置。 调用新的 **DataCacheFactory** 实例的 **GetDefaultCache** 方法，该方法返回 **DataCache** 对象，或调用 **GetCache** 方法并传入你的缓存的名称。 这些方法返回以后可用于以编程方式访问缓存的 **DataCache** 对象。
+若要使用第二种方法，请在应用程序中使用默认构造函数创建新的 **DataCacheFactory** 对象。 这会导致缓存客户端使用配置文件中的设置。 调用新的 **DataCacheFactory** 实例的 **GetDefaultCache** 方法，该方法返回 **DataCache** 对象，或调用 **GetCache** 方法并传入缓存的名称。 这些方法返回以后可用于以编程方式访问缓存的 **DataCache** 对象。
 
 ```
 // Cache client configured by settings in application configuration file.
@@ -331,7 +331,7 @@ TimeSpan timeRemaining = item.Timeout;
 </system.web>-->
 ```
 
->如果在安装 Caching NuGet 包后，web.config 没有包含此注释掉的节，请确保从 [安装 NuGet 包管理器][] 安装了最新的 NuGet 包管理器，然后卸载并重新安装该包。
+>如果在安装 Caching NuGet 包后，web.config 没有包含此注释掉的节，请确保从 [NuGet 包管理器安装][] 安装了最新的 NuGet 包管理器，卸载并重新安装该包。
 
 若要启用用于角色中缓存的会话状态提供程序，请取消注释指定的节。 在提供的代码段中指定了默认缓存。 若要使用不同的缓存，请在 **cacheName** 属性中指定所需缓存。
 
@@ -357,7 +357,7 @@ TimeSpan timeRemaining = item.Timeout;
 </caching>-->
 ```
 
->如果在安装 Caching NuGet 包后，web.config 没有包含此注释掉的节，请确保从 [安装 NuGet 包管理器][] 安装了最新的 NuGet 包管理器，然后卸载并重新安装该包。
+>如果在安装 Caching NuGet 包后，web.config 没有包含此注释掉的节，请确保从 [NuGet 包管理器安装][] 安装了最新的 NuGet 包管理器，然后卸载并重新安装该包。
 
 若要启用用于角色中缓存的输出缓存提供程序，请取消注释指定的节。 在提供的代码段中指定了默认缓存。 若要使用不同的缓存，请在 **cacheName** 属性中指定所需缓存。
 
@@ -421,7 +421,7 @@ TimeSpan timeRemaining = item.Timeout;
 [角色中缓存示例]: http://msdn.microsoft.com/zh-cn/library/jj189876.aspx
 [角色中缓存]: https://msdn.microsoft.com/zh-cn/library/azure/gg278356
 [迁移到角色中缓存]: http://msdn.microsoft.com/zh-cn/library/hh914163.aspx
-[安装 NuGet 包管理器]: http://go.microsoft.com/fwlink/?LinkId=240311
+[NuGet 包管理器安装]: http://go.microsoft.com/fwlink/?LinkId=240311
 [用于角色中缓存的输出缓存提供程序]: http://msdn.microsoft.com/zh-cn/library/azure/gg185662.aspx
 [OutputCache 指令]: https://msdn.microsoft.com/zh-cn/library/hdxfb6cy.aspx
 [角色中缓存概述]: https://msdn.microsoft.com/zh-cn/library/hh914161

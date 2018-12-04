@@ -16,11 +16,11 @@ origin.date: 05/07/2017
 ms.date: 06/25/2018
 ms.author: v-yiso
 ms.openlocfilehash: 605d90d70c612ca57f0221abafbfa81bb95a5faf
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747339"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650455"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>Azure HDInsight 中的 Apache Spark 是什么
 

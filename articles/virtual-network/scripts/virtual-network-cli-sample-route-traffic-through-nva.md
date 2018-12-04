@@ -13,15 +13,15 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-origin.date: 05/07/2018
-ms.date: 05/07/2018
+origin.date: 03/20/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: b376387bed3619846c23b3001a1ddf1e4b78660c
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 45947e79588bec84f3bff6059245828c2ecc4064
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815494"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650036"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance-script-sample"></a>通过网络虚拟设备脚本示例路由流量
 
@@ -224,9 +224,11 @@ az group delete --name MyResourceGroup --yes
 | [az network route-table route create](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az-network-route-table-route-create)| 创建路由，通过 VM 在子网和 Internet 之间路由流量。 |
 | [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) | 创建虚拟机并向其附加 NIC。 此命令还指定要使用的虚拟机映像和管理凭据。 |
 | [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-delete) | 删除资源组及其包含的所有资源。 |
+
 ## <a name="next-steps"></a>后续步骤
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/zh-cn/cli/overview?view=azure-cli-latest)。
+
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/zh-cn/cli/index?view=azure-cli-latest)。
+
 可在[虚拟网络 CLI 示例](../cli-samples.md)中查找其他虚拟网络 CLI 脚本示例。
 
-<!-- Update_Description: new articles on virtual network cli sample route traffic through nva script -->
-<!--ms.date: 05/07/2018-->
+<!-- Update_Description: update meta properties, wording update -->

@@ -16,11 +16,11 @@ origin.date: 02/10/2017
 ms.date: 03/26/2018
 ms.author: makohli
 ms.openlocfilehash: 9e15896101d870430cf447143336a7879ae7242d
-ms.sourcegitcommit: 9b4669fe42e0dd7e3b463423ae4f58143af2b111
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30082170"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651698"
 ---
 # <a name="get-started-with-azure-advisor"></a>Azure 顾问入门
 

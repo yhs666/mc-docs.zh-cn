@@ -19,11 +19,11 @@ ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 23faf0072b0213144735b5cc82c6d1f2a12195fd
-ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103598"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651414"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>快速入门：使用 Azure 门户诊断虚拟机网络流量筛选器问题
 

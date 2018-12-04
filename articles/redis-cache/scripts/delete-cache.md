@@ -17,11 +17,11 @@ origin.date: 08/30/2017
 ms.date: 10/10/2017
 ms.author: v-junlch
 ms.openlocfilehash: 6ea70a5878059b2643297cacb946ce39968657d0
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939528"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653720"
 ---
 # <a name="delete-an-azure-redis-cache"></a>删除 Azure Redis 缓存
 

@@ -17,11 +17,11 @@ origin.date: 06/28/2018
 ms.date: 08/13/2018
 ms.author: v-yiso
 ms.openlocfilehash: dee32b90736b2a532d92e810bba689a03cbc627f
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486983"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649536"
 ---
 # <a name="move-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model-using-powershell"></a>使用 PowerShell 将 ExpressRoute 线路从经典部署模型移动到 Resource Manager 部署模型
 

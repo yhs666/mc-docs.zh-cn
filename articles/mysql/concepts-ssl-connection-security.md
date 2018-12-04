@@ -10,11 +10,11 @@ ms.service: mysql
 ms.topic: article
 ms.date: 06/16/2018
 ms.openlocfilehash: f461ce4bba2d10329dd08579c2ae651c2e9c68df
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723055"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649336"
 ---
 # <a name="ssl-connectivity-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的 SSL 连接
 

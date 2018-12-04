@@ -16,11 +16,11 @@ origin.date: 03/26/2018
 ms.date: 06/04/2018
 ms.author: v-yeche
 ms.openlocfilehash: bbcdcae3804ec993a0db90c868875ae2a6d3648c
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702903"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650322"
 ---
 # <a name="vm-snapshot-linux-extension-for-azure-backup"></a>Azure 备份的 VM 快照 Linux 扩展
 
@@ -35,11 +35,11 @@ Azure 备份支持从本地将工作负载备份到云以及将云资源备份�
 
 ### <a name="internet-connectivity"></a>Internet 连接
 
-VM 快照扩展要求用户在获取虚拟机的备份时，目标虚拟机已连接到 Internet。
+VM 快照扩展要求在我们获取虚拟机的备份时，目标虚拟机已连接到 Internet。
 
 ## <a name="extension-schema"></a>扩展架构
 
-以下 JSON 显示 VM 快照扩展的架构。 该扩展需要任务 ID（它标识了在 VM 上已触发快照的备份作业）、状态 Blob URI（其中写入快照操作状态）、快照的计划开始时间、日志 Blob URI（写入与快照任务对应的日志），以及表示 VM 磁盘和元数据的 objstr。  由于应将这些设置视为敏感数据，因此它应存储在受保护的设置配置中。 Azure VM 扩展的受保护设置数据已加密，并且只能在目标虚拟机上解密。 请注意，建议仅将这些设置作为备份作业的一部分从 Azure 备份服务传递。
+以下 JSON 显示 VM 快照扩展的架构。 该扩展需要任务 ID（它标识了在 VM 上已触发快照的备份作业）、状态 Blob URI（其中写入快照操作状态）、快照的计划开始时间、日志 Blob URI（写入与快照任务对应的日志），以及表示 VM 磁盘和元数据的 objstr。  由于应将这些设置视为敏感数据，因此它应存储在受保护的设置配置中。 Azure VM 扩展保护的设置数据已加密，并且只能在目标虚拟机上解密。 请注意，建议仅将这些设置作为备份作业的一部分从 Azure 备份服务传递。
 
 ```json
 {
@@ -70,7 +70,7 @@ VM 快照扩展要求用户在获取虚拟机的备份时，目标虚拟机已�
 
 ### <a name="property-values"></a>属性值
 
-| Name | 值/示例 | 数据类型 |
+| 名称 | 值/示例 | 数据类型 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | 日期 |
 | taskId | e07354cf-041e-4370-929f-25a319ce8933_1 | 字符串 |
@@ -82,7 +82,7 @@ VM 快照扩展要求用户在获取虚拟机的备份时，目标虚拟机已�
 
 ## <a name="template-deployment"></a>模板部署
 
-可使用 Azure Resource Manager 模板部署 Azure VM 扩展。 但是，建议通过在虚拟机上启用备份，将 VM 快照扩展添加到虚拟机。 可以通过资源管理器模板来实现此操作。  在虚拟机上启用备份的示例资源管理器模板可以在 [Azure 快速入门库](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-backup-vms/)中找到。
+可使用 Azure 资源管理器模板部署 Azure VM 扩展。 但是，建议通过在虚拟机上启用备份，将 VM 快照扩展添加到虚拟机。 可以通过资源管理器模板来实现此操作。  在虚拟机上启用备份的示例资源管理器模板可以在 [Azure 快速入门库](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-backup-vms/)中找到。
 
 ## <a name="azure-cli-deployment"></a>Azure CLI 部署
 

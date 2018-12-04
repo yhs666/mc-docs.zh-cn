@@ -18,11 +18,11 @@ origin.date: 01/23/2018
 ms.date: 03/26/2018
 ms.author: v-yiso
 ms.openlocfilehash: 53c78ade6e0e606a1e70d078dffadaaf00fb6c83
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30076929"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649896"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>管理 Azure HDInsight 上 Apache Spark 群集的资源 
 

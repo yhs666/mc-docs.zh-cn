@@ -16,11 +16,11 @@ origin.date: 01/05/2017
 ms.date: 09/25/2017
 ms.author: v-johch
 ms.openlocfilehash: 33050f20a548c967d9a0eb205a35714192741ad2
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426262"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650311"
 ---
 # <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>使用 NewTek TriCaster 编码器发送单比特率实时流
 > [!div class="op_single_selector"]
@@ -121,7 +121,7 @@ ms.locfileid: "47426262"
     如果流信息已添加到 FMLE 配置文件，则也可以通过一下方式将其导入此部分：单击“导入设置” ，导航到已保存的 FMLE 配置文件，然后单击“确定” 。 相关的“闪存服务器”字段应使用 FMLE 中的信息进行填充。
 
     ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster7.png)
-10. 完成后，单击屏幕底部的“确定”  。 当输入到 Tricaster 中的视频和音频已就绪时，则可单击“流”按钮开始将其流式传输到 AMS。
+10. 完成后，单击屏幕底部的“确定”  。 当输入到 Tricaster 中的视频和音频已就绪时，则可单击“流”  按钮开始将其流式传输到 AMS。
 
      ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster11.png)
 

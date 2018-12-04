@@ -9,11 +9,11 @@ origin.date: 04/26/2018
 ms.date: 09/10/2018
 ms.author: v-jay
 ms.openlocfilehash: 343c7efd68ace7b2256aacc01c50918a279d6a6e
-ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43650757"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651990"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>使用 Linux 上的 AzCopy 传输数据
 

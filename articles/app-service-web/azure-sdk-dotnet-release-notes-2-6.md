@@ -15,16 +15,16 @@ origin.date: 02/24/2017
 ms.date: 06/20/2017
 ms.author: v-dazen
 ms.openlocfilehash: f191829022727c5e6035cc357b9042f82e6ca84c
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20184298"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650552"
 ---
 # <a name="azure-sdk-for-net-26-release-notes"></a>Azure SDK for .NET 2.6 发行说明
 本文档包含 Azure SDK for .NET 2.6 发行版的发行说明。 
 
-使用 Azure SDK 2.6，你可以开发针对 .NET 4.5.2 或 .NET 4.6 的云服务应用程序 (PaaS)，前提是你在云服务角色上手动安装目标 .NET Framework。 请参阅[在云服务角色上安装 .NET](/cloud-services/cloud-services-dotnet-install-dotnet)。
+使用 Azure SDK 2.6，可以开发针对 .NET 4.5.2 或 .NET 4.6 的云服务应用程序 (PaaS)，前提是你在云服务角色上手动安装目标 .NET Framework。 请参阅[在云服务角色上安装 .NET](/cloud-services/cloud-services-dotnet-install-dotnet)。
 
 ## <a name="service-bus-updates"></a>Service Bus 更新
 * 事件中心： 
@@ -36,19 +36,19 @@ ms.locfileid: "20184298"
 ## <a name="hdinsight-tools-for-visual-studio-updates"></a>用于 Visual Studio 的 HDInsight 工具更新
 * **IntelliSense 增强功能**：远程元数据建议
 
-    现在，用于 Visual Studio 的 HDInsight 工具支持在你编辑 Hive 脚本时获取远程元数据。 例如，键入 **SELECT * FROM** 即会显示所有表名称。 另外，在指定表后，还会显示列名称。
+    现在，用于 Visual Studio 的 HDInsight 工具支持在编辑 Hive 脚本时获取远程元数据。 例如，键入 **SELECT * FROM** 即会显示所有表名称。 另外，在指定表后，还会显示列名称。
 * **HDInsight Emulator 支持**
 
-    HDInsight Tools for Visual Studio 现在支持连接到 HDInsight Emulator，因此，你可以在本地开发 Hive 脚本而不会引入任何成本，然后再针对 HDInsight 群集执行这些脚本即可。 
+    HDInsight Tools for Visual Studio 现在支持连接到 HDInsight Emulator，因此，用户可以在本地开发 Hive 脚本而不会引入任何成本，再针对 HDInsight 群集执行这些脚本即可。 
 
     有关详细信息，请参阅[此手册](/hdinsight/hdinsight-hadoop-emulator-get-started)。
 * **针对泛型 Hadoop 群集的用于 Visual Studio 的 HDInsight 工具支持**（预览版）
 
-    HDInsight Tools for Visual Studio 现在支持泛型 Hadoop 群集，因此，你可以使用 HDInsight Tools for Visual Studio 执行以下操作：
+    HDInsight Tools for Visual Studio 现在支持泛型 Hadoop 群集，因此，可以使用 HDInsight Tools for Visual Studio 执行以下操作：
 
-  * 连接到你的群集； 
+  * 连接到群集； 
   * 通过增强型 IntelliSense/自动完成支持编写 Hive 查询； 
-  * 在你的群集中通过直观的 UI 查看所有作业。 
+  * 在群集中通过直观的 UI 查看所有作业。 
 
     有关详细信息，请参阅[此手册](/hdinsight/hdinsight-hadoop-emulator-get-started)。
 
@@ -60,7 +60,7 @@ ms.locfileid: "20184298"
     目前已计划在 2016 年 8 月 1 日删除 Azure 存储版本 2011-08-18。 从 Azure SDK 2.5 或更低版本到 2.6 的任何角色中缓存迁移必须在该日期之前完成。 有关停用 Azure 存储版本 2011-08-18 的详细信息，请参阅[有关删除 Microsoft Azure 存储服务版本的最新信息：延期到 2016 年](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx)。
 
 > [!IMPORTANT]
-> 我们特此宣布将在 2016 年 11 月 30 日停用 Azure 托管缓存服务和 Azure 角色中缓存。 我们建议你迁移到 Azure Redis 缓存，以便为这次停用做好准备。 有关日期和迁移指导的详细信息，请参阅[哪种 Azure 缓存产品适合我？](../redis-cache/cache-faq.md#which-azure-cache-offering-is-right-for-me)
+> 我们特此宣布在 2016 年 11 月 30 日停用 Azure 托管缓存服务和 Azure 角色中缓存。 我们建议迁移到 Azure Redis 缓存，以便为这次停用做好准备。 有关日期和迁移指导的详细信息，请参阅[哪种 Azure 缓存产品适合我？](../redis-cache/cache-faq.md#which-azure-cache-offering-is-right-for-me)
 > 
 > 
 
@@ -77,7 +77,7 @@ ms.locfileid: "20184298"
 Azure Resource Manager 工具已更新，现在包括适用于虚拟机、网络和存储的模板。 JSON 编辑体验已更新，现在包括新的模板概况视图，并且可以使用 JSON 代码段来编辑模板。 从 Visual Studio 部署的模板使用随项目提供的 PowerShell 脚本，因此对脚本所做的更改会被 Visual Studio 使用。
 
 ## <a name="diagnostics-improvements-for-cloud-services"></a>针对云服务的诊断改进
-Azure SDK 2.6 重新支持在 Azure 计算模拟器中收集诊断日志，并可将其传输到开发存储空间中。 当应用程序在模拟器中运行时生成的任何诊断日志（包括应用程序跟踪日志、Windows 事件跟踪 (ETW) 日志、性能计数器、基础结构日志和 Windows 事件日志）都可以传输到开发存储空间中，以便验证你的诊断日志功能在本地计算机上是否正常工作。 
+Azure SDK 2.6 重新支持在 Azure 计算模拟器中收集诊断日志，并可将其传输到开发存储空间中。 当应用程序在模拟器中运行时生成的任何诊断日志（包括应用程序跟踪日志、Windows 事件跟踪 (ETW) 日志、性能计数器、基础结构日志和 Windows 事件日志）都可以传输到开发存储空间中，以便验证诊断日志功能在本地计算机上是否正常工作。 
 
 现在，诊断存储帐户可以在服务配置 (.cscfg) 文件中指定，因此可以更轻松地针对不同环境使用不同的诊断存储帐户。 链接字符串在 Azure SDK 2.4 和 Azure SDK 2.6 中的工作方式有明显的区别。 如需详细了解如何使用诊断存储连接字符串以及它如何影响项目，请参阅[针对 Azure 云服务配置诊断](/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)。
 

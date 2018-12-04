@@ -10,11 +10,11 @@ origin.date: 05/15/2017
 ms.date: 08/23/2018
 ms.author: v-junlch
 ms.openlocfilehash: fd96704b04727fa641f410fe702debae336d643b
-ms.sourcegitcommit: 85cdb61361dc61147bac991d4907f454f0684ea0
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42709700"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649887"
 ---
 # <a name="install-azure-backup-server-v2"></a>安装 Azure 备份服务器 v2
 

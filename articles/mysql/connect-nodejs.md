@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 origin.date: 02/28/2018
 ms.date: 08/13/2018
-ms.openlocfilehash: 0d1623b50ac76215083b28e2718dec56f39ab60e
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.openlocfilehash: e60bf594c73e6b58f427dce850d9e7cfd9d57697
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723048"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649815"
 ---
 # <a name="azure-database-for-mysql-use-nodejs-to-connect-and-query-data"></a>适用于 MySQL 的 Azure 数据库：使用 Node.js 进行连接并查询数据
 
@@ -90,7 +90,7 @@ ms.locfileid: "39723048"
 ## <a name="get-connection-information"></a>获取连接信息
 获取连接到 Azure Database for MySQL 所需的连接信息。 需要完全限定的服务器名称和登录凭据。
 
-1. 登录到 [Azure 门户](https://portal.azure.com/)。
+1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 2. 在 Azure 门户的左侧菜单中，单击“所有资源”，然后搜索已创建的服务器（例如 mydemoserver）。
 3. 单击服务器名称。
 4. 从服务器的“概览”面板中记下“服务器名称”和“服务器管理员登录名”。 如果忘记了密码，也可通过此面板来重置密码。

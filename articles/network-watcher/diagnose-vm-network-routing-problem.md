@@ -19,11 +19,11 @@ ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: dd362d853fa60c93c8e90c22afd580d9cb4cbfff
-ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103603"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651690"
 ---
 # <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>教程：使用 Azure 门户诊断虚拟机网络路由问题
 

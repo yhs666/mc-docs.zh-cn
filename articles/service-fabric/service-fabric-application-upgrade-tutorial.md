@@ -16,11 +16,11 @@ origin.date: 02/23/2018
 ms.date: 05/28/2018
 ms.author: v-yeche
 ms.openlocfilehash: 73693b795f38cc4e38e7c84a93bcae94dadd5ba0
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554221"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651913"
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>使用 Visual Studio 进行 Service Fabric 应用程序升级的教程
 > [!div class="op_single_selector"]

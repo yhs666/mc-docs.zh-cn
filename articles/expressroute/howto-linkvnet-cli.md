@@ -17,11 +17,11 @@ origin.date: 03/08/2018
 ms.author: v-yiso
 ms.date: 11/12/2018
 ms.openlocfilehash: 3463d91e7a078bc9b2e15046526e07de197b7e70
-ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50919084"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649600"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>使用 CLI 将虚拟网络连接到 ExpressRoute 线路
 

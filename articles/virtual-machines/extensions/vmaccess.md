@@ -17,11 +17,11 @@ origin.date: 05/10/2018
 ms.date: 10/22/2018
 ms.author: v-yeche
 ms.openlocfilehash: 7f654b082cb610ff648e4cfb5cce427bc335d231
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453775"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649994"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>配合使用 VMAccess 扩展和 Azure CLI 管理管理用户、SSH，并检查或修复 Linux VM 上的磁盘
 ## <a name="overview"></a>概述

@@ -11,11 +11,11 @@ origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-nany
 ms.openlocfilehash: 48d67d16b7bbf59f33c477b31aa0331ab8baa0d2
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913937"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651650"
 ---
 # <a name="performing-disaster-recovery-drill"></a>执行灾难恢复演练
 建议定期对恢复工作流执行应用程序就绪性验证。 验证应用程序的行为以及数据丢失和/或涉及到故障转移的中断所造成的影响，是一种良好的工程实践。 许多行业标准在涉及到业务连续性认证方面也会提出此要求。

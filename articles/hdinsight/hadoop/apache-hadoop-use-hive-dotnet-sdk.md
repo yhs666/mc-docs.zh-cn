@@ -16,11 +16,11 @@ origin.date: 05/16/2018
 ms.date: 08/27/2018
 ms.author: v-yiso
 ms.openlocfilehash: 948fabdca9979c41272817bde75fb319d5f7c8e0
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41704788"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651217"
 ---
 # <a name="run-hive-queries-using-hdinsight-net-sdk"></a>使用 HDInsight .NET SDK 运行 Hive 查询
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]

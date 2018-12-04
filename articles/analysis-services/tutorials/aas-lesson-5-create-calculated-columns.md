@@ -10,11 +10,11 @@ ms.date: 08/06/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
 ms.openlocfilehash: 03517f525218a24e32aab78e83d1eaaa4f9f534c
-ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487790"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649411"
 ---
 # <a name="create-calculated-columns"></a>创建计算列
 

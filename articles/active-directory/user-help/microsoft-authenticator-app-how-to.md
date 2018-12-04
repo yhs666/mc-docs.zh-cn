@@ -5,20 +5,20 @@ services: active-directory
 author: eross-msft
 manager: mtillman
 ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba
-ms.service: active-directoary
+ms.service: active-directory
 ms.workload: identity
 ms.component: user-help
 ms.topic: conceptual
 origin.date: 07/30/2018
-ms.date: 08/27/2018
+ms.date: 11/13/2018
 ms.author: v-junlch
 ms.reviewer: librown
-ms.openlocfilehash: a92db674f48a923604052f6b5261927303a4493d
-ms.sourcegitcommit: 75c2b5cdaf25ede92e080f6c48ca17d2f4ded4fb
+ms.openlocfilehash: 793cf51815d95c90d9f221bcd40025609d80470f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43115526"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650020"
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Microsoft 验证器应用入门
 
@@ -52,7 +52,7 @@ Microsoft Authenticator 应用适用于 [Android](https://go.microsoft.com/fwlin
 
 ### <a name="add-a-work-or-school-account"></a>添加工作或学校帐户
 
-1. 如果可能，请在另一台电脑或设备上转到[其他安全性验证](http://aka.ms/mfasetup)屏幕。 有关如何转到此屏幕的信息，请参阅[更改安全设置](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page)，或者与管理员联系。
+1. 如果可能，请在另一台电脑或设备上转到[其他安全性验证](http://account.activedirectory.windowsazure.cn/proofup.aspx?culture=en-US)屏幕。 有关如何转到此屏幕的信息，请参阅[更改安全设置](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page)，或者与管理员联系。
 
 2. 选择“移动应用”，然后选择“设置”。
 
