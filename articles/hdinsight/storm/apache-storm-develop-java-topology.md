@@ -19,11 +19,11 @@ ms.date: 03/26/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 ms.openlocfilehash: 7dc7c85dc2cfd559bd3c0d9e392d31a152119dc8
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41705294"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667164"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>以 Java 语言创建 Apache Storm 拓扑
 
@@ -86,7 +86,7 @@ mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupI
 
 ## <a name="add-maven-repositories"></a>添加 Maven 存储库
 
-由于 HDInsight 基于 Hortonworks Data Platform (HDP)，因此我们建议使用 Hortonworks 存储库来下载 Apache Storm 项目的依赖项。 在 __pom.xml__ 文件中，在 `<url>http://maven.apache.org</url>` 行后添加以下 XML：
+由于 HDInsight 基于 Hortonworks Data Platform (HDP)，因此我们建议使用 Hortonworks 存储库来下载 Apache Storm 项目的依赖项。 在 __pom.xml__ 文件中，在 `<url> http://maven.apache.org</url>` 行后添加以下 XML：
 
 ```xml
 <repositories>
@@ -224,7 +224,7 @@ Maven 插件可用于自定义项目的生成阶段。 例如，如何编译项�
 
 ### <a name="configure-resources"></a>配置资源
 
-使用 resources 节可以包含非代码资源，例如拓扑中组件所需的配置文件。 本示例会在 `pom.xml 文件的 `<resources>` 节中添加以下文本。
+使用 resources 节可以包含非代码资源，例如拓扑中组件所需的配置文件。 本示例在 pom.xml 文件的 `<resources>` 节中添加以下文本。
 
 ```xml
 <resource>

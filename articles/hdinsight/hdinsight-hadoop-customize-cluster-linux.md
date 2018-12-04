@@ -2,25 +2,20 @@
 title: 使用脚本操作自定义 HDInsight 群集 - Azure | Azure
 description: 使用脚本操作将自定义组件添加到基于 Linux 的 HDInsight 群集。 脚本操作是一些 Bash 脚本，可用于自定义群集配置，或者添加 Hue、Solr 或 R 等其他服务和实用工具。
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 48e85f53-87c1-474f-b767-ca772238cc13
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/01/2018
-ms.date: 07/23/2018
+ms.date: 11/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: 9742236c61100434ca60aa77276dd4ec86634b95
-ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
+ms.openlocfilehash: 56689b59e44230f1f12b4b0c69844d2038b6782c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39031773"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661876"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>使用脚本操作自定义基于 Linux 的 HDInsight 群集
 
@@ -87,7 +82,7 @@ HDInsight 提供一个称为**脚本操作**的配置方法，该方法可调用
 * 可以接受脚本在执行期间使用的 **参数** 。
 * 在群集节点上 **以 root 级权限** 运行。
 
-* 可以通过 **Azure 门户**、**Azure PowerShell**、**Azure CLI v1.0** 或 **HDInsight .NET SDK** 使用
+* 可以通过 Azure 门户、Azure PowerShell、Azure 经典 CLI 或 HDInsight .NET SDK 使用
 
 群集保留所有已运行脚本的历史记录。 需要查找用于升级或降级操作的脚本的 ID 时，该历史记录很有用。
 
@@ -142,19 +137,19 @@ HDInsight 提供一个称为**脚本操作**的配置方法，该方法可调用
 
 * Azure 门户
 * Azure PowerShell
-* Azure CLI v1.0
+* Azure 经典 CLI
 * HDInsight .NET SDK
 
 HDInsight 提供了脚本用于在 HDInsight 群集上安装以下组件：
 
 | Name | 脚本 |
 | --- | --- |
-| **添加 Azure 存储帐户** |https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh。请参阅 [将其他存储添加到 HDInsight 群集中](hdinsight-hadoop-add-storage.md). |
-| **安装 Hue** |https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh。请参阅[在 HDInsight 群集上安装并使用 Hue](hdinsight-hadoop-hue-linux.md)。 |
-| **安装 Presto** |https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh。请参阅[在 HDInsight 群集上安装并使用 Presto](hdinsight-hadoop-install-presto.md)。 |
-| **安装 Solr** |https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh。请参阅[在 HDInsight 群集上安装并使用 Solr](hdinsight-hadoop-solr-install-linux.md)。 |
-| **安装 Giraph** |https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh。请参阅[在 HDInsight 群集上安装并使用 Giraph](hdinsight-hadoop-giraph-install-linux.md)。 |
-| **预加载 Hive 库** |https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh。请参阅[在 HDInsight 群集上添加 Hive 库](hdinsight-hadoop-add-hive-libraries.md)。 |
+| **添加 Azure 存储帐户** |https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh。请参阅将其他存储添加到 HDInsight 群集中](hdinsight-hadoop-add-storage.md)。 |
+| **安装 Hue** |https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh。请参阅在 HDInsight 群集上安装并使用 Hue](hdinsight-hadoop-hue-linux.md)。 |
+| **安装 Presto** |https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh。请参阅在 HDInsight 群集上安装并使用 Presto](hdinsight-hadoop-install-presto.md)。 |
+| **安装 Solr** |https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh。请参阅在 HDInsight 群集上安装并使用 Solr](hdinsight-hadoop-solr-install-linux.md)。 |
+| **安装 Giraph** |https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh。请参阅在 HDInsight 群集上安装并使用 Giraph](hdinsight-hadoop-giraph-install-linux.md)。 |
+| **预加载 Hive 库** |https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh。请参阅在 HDInsight 群集上添加 Hive 库](hdinsight-hadoop-add-hive-libraries.md)。 |
 | **安装或更新 Mono** | https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash。 请参阅[在 HDInsight 上安装或更新 Mono](hdinsight-hadoop-install-mono.md)。 |
 
 ## <a name="use-a-script-action-during-cluster-creation"></a>在创建群集期间使用脚本操作
@@ -388,10 +383,9 @@ Submit-AzureRmHDInsightScriptAction -ClusterName $clusterName `
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-cli"></a>从 Azure CLI 将脚本操作应用到正在运行的群集
 
-在继续前，确保已安装并配置 Azure CLI。 有关详细信息，请参阅[安装 Azure CLI 1.0](../cli-install-nodejs.md)。
+在继续前，确保已安装并配置 Azure CLI。 有关详细信息，请参阅[安装 Azure 经典 CLI](../cli-install-nodejs.md)。
 
-> [!IMPORTANT]
-> HDInsight 需要 Azure CLI 1.0。 目前 Azure CLI 2.0 未提供针对使用 HDInsight 的命令。
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 1. 要切换到 Azure 资源管理器模式，请在命令行中使用以下命令：
 
@@ -495,7 +489,7 @@ Remove-AzureRmHDInsightPersistedScriptAction -ClusterName mycluster `
     -Name "Install Giraph"
 ```
 
-### <a name="using-the-azure-cli"></a>使用 Azure CLI
+### <a name="using-the-azure-classic-cli"></a>使用 Azure 经典 CLI
 
 | 使用以下 cmdlet... | 可以... |
 | --- | --- |
@@ -523,8 +517,7 @@ Azure HDInsight 服务使用围绕 Hadoop 形成的开源技术生态系统。 A
 HDInsight 服务中有两种类型的开放源代码组件：
 
 * **内置组件** - 这些组件预先安装在 HDInsight 群集上，并提供在群集的核心功能。 例如，Yarn ResourceManager、Hive 查询语言 (HiveQL) 及 Mahout 库均属于此类别。 [HDInsight 提供的 Hadoop 群集版本有哪些新功能](hdinsight-component-versioning.md)中提供了群集组件的完整列表。
-* 
-            **自定义组件** - 作为群集用户，可以安装，或者在工作负荷中使用由社区提供的或自己创建的任何组件。
+* **自定义组件** - 作为群集用户，可以安装，或者在工作负荷中使用由社区提供的或自己创建的任何组件。
 
 > [!WARNING]
 > 完全支持通过 HDInsight 群集提供的组件。 Azure 支持部门将帮助找出并解决与这些组件相关的问题。
@@ -632,7 +625,7 @@ sudo pip install azure-storage==0.20.0
 * [为 HDInsight 开发脚本操作脚本](hdinsight-hadoop-script-actions-linux.md)
 * [在 HDInsight 群集上安装并使用 Solr](hdinsight-hadoop-solr-install-linux.md)
 * [在 HDInsight 群集上安装并使用 Giraph](hdinsight-hadoop-giraph-install-linux.md)
-* [将其他存储添加到 HDInsight 群集中](hdinsight-hadoop-add-storage.md)
+* [向 HDInsight 群集添加其他存储](hdinsight-hadoop-add-storage.md)
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "群集创建过程中的阶段"
 <!--Update_Description: wording update: change 'blade' into 'sections'-->

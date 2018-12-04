@@ -11,11 +11,11 @@ origin.date: 02/02/2018
 ms.date: 09/10/2018
 ms.author: v-yiso
 ms.openlocfilehash: 4d8ee6d58b2fcc428ddc7740154b73745c0b4354
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43329171"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666487"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>将 MXChip IoT DevKit 连接到 Azure IoT 远程监视解决方案加速器
 
@@ -52,8 +52,7 @@ ms.locfileid: "43329171"
 
 4. 在预配完成后，单击“启动”。 在预配过程中会为解决方案创建一些模拟设备。 可以单击 **设备** 来了解它们。
 
-  ![仪表板](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution-created.png)
-  ![控制台](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-console.png)
+  ![仪表板](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-console.png)控制台
 
 5. 单击“添加设备”。
 

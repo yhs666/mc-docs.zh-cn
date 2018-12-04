@@ -8,11 +8,11 @@ origin.date: 07/06/2018
 ms.date: 07/23/2018
 ms.author: v-yeche
 ms.openlocfilehash: 8831a9da95f078db328c7044bbdd5d3bcc1e049f
-ms.sourcegitcommit: 74f9f0acb00fb728ff6e9bd67ac86a0c1bcd8d13
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39218923"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661513"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>使用 System Center Configuration Manager 自动执行移动服务安装
 
@@ -189,7 +189,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 ### <a name="deploy-the-package"></a>部署包
 1. 在 Configuration Manager 控制台中，右键单击包，然后选择“分发内容”。
     ![Configuration Manager 控制台的屏幕截图](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
-2. 选择包应复制到的**[分发点](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**。
+2. 选择包应复制到的 **[分发点](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**。
 3. 完成该向导。 包随后开始复制到指定的分发点。
 4. 完成包分发后，右键单击包，然后选择“部署”。
     ![Configuration Manager 控制台的屏幕截图](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
@@ -411,7 +411,7 @@ cd /tmp
 ### <a name="deploy-the-package"></a>部署包
 1. 在 Configuration Manager 控制台中，右键单击包，然后选择“分发内容”。
     ![Configuration Manager 控制台的屏幕截图](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
-2. 选择包应复制到的**[分发点](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**。
+2. 选择包应复制到的 **分发点](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**。
 3. 完成该向导。 包随后开始复制到指定的分发点。
 4. 完成包分发后，右键单击包，然后选择“部署”。
     ![Configuration Manager 控制台的屏幕截图](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)

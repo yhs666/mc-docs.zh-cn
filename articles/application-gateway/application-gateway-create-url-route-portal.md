@@ -12,11 +12,11 @@ origin.date: 03/26/2018
 ms.date: 08/08/2018
 ms.author: v-junlch
 ms.openlocfilehash: a88bd4ee3dab95077202f1a093b78553adb52719
-ms.sourcegitcommit: a1c6a743b4be62477e7debfc9ea5f03afca2bc8f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625176"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653352"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>通过 Azure 门户使用基于路径的路由规则创建应用程序网关
 
@@ -153,7 +153,7 @@ ms.locfileid: "39625176"
 
     ![记下应用程序网关的公共 IP 地址](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。 例如，http://http://40.121.222.19。
+2. 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。 例如， http:// http://40.121.222.19。
 
     ![在应用程序网关中测试基 URL](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 
