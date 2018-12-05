@@ -10,11 +10,11 @@ origin.date: 01/29/2018
 ms.author: v-yiso
 ms.date: 10/29/2018
 ms.openlocfilehash: 6f3c2e354beae50dc8e8a61f29288658e72273b3
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453866"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651464"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT 中心术语表
 本文列出了一些在 IoT 中心文章中使用的常用术语。

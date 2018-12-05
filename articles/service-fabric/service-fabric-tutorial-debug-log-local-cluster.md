@@ -17,11 +17,11 @@ ms.date: 08/20/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 9f61976b96df517eb155e46711a124ce4df2e24b
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41704592"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650855"
 ---
 # <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>教程：调试本地 Service Fabric 群集上部署的 Java 应用程序
 

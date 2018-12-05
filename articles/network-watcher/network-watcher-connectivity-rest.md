@@ -15,11 +15,11 @@ origin.date: 08/02/2017
 ms.date: 10/22/2018
 ms.author: v-lingwu
 ms.openlocfilehash: f73dfb6860a799124eb922d33f301bf280d9a464
-ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652236"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651405"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>通过 Azure REST API 使用 Azure 网络观察程序排查连接问题
 

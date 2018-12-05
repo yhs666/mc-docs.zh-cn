@@ -17,11 +17,11 @@ ms.date: 09/04/2017
 ms.author: v-yiso
 ms.custom: mvc
 ms.openlocfilehash: 417b2d2bc35bb2ea2c0d15e58b55d192b49d2a3c
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939329"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649675"
 ---
 # <a name="create-a-python-web-app-in-azure"></a>在 Azure 中创建 Python Web 应用
 
@@ -178,7 +178,7 @@ git commit -am "updated output"
 git push azure master
 ```
 
-完成部署后，切换回“浏览到应用”[](#browse-to-the-app)步骤中打开的浏览器窗口，然后刷新页面。
+完成部署后，切换回“[浏览到应用](#browse-to-the-app)”步骤中打开的浏览器窗口，然后刷新页面。
 
 ![已更新的在 Azure 中运行的示例应用](media/app-service-web-get-started-python/hello-azure-in-browser.png)
 

@@ -16,11 +16,11 @@ origin.date: 05/11/2018
 ms.date: 06/04/2018
 ms.author: v-yeche
 ms.openlocfilehash: 03f206bde72fb64ba92fb021348f9a08f153eeca
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702847"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653288"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>排查 Linux VM 设备名更改问题
 

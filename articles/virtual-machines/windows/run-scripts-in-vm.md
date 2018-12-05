@@ -10,11 +10,11 @@ ms.date: 06/25/2018
 ms.topic: article
 manager: digimobile
 ms.openlocfilehash: 13b6f78b59e9d26c35873beaf6e90282b11c3334
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315385"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653633"
 ---
 # <a name="run-scripts-in-your-windows-vm"></a>在 Windows VM 中运行脚本
 

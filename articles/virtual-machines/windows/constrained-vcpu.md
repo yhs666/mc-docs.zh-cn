@@ -16,11 +16,11 @@ origin.date: 03/09/2018
 ms.date: 04/16/2018
 ms.author: v-yeche
 ms.openlocfilehash: 8cb0ac15b7f06666067287075e5bced94dbed26f
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31323596"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649844"
 ---
 # <a name="constrained-vcpu-capable-vm-sizes"></a>支持受约束 vCPU 的 VM 大小
 

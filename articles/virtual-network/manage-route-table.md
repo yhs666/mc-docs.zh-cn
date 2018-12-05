@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/09/2018
-ms.date: 09/24/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7ad13b1ca4675f95264a1633054f9ddd3c4d7b52
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: 0c34cfc2dac4c0cef0c40953f99a97d0659081f5
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201449"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655916"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>创建、更改或删除路由表
 
@@ -34,10 +34,11 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
 - 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 - 如果使用门户，请打开 https://portal.azure.cn，并使用 Azure 帐户登录。
 - 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount` 以创建与 Azure 的连接。
+    
     <!--Not Available on [Azure Cloud Shell](https://shell.azure.com/powershell)-->
-- 如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.31 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
-    <!--Not Available on [Azure Cloud Shell](https://shell.azure.com/bash)-->
-登录或连接到 Azure 所用的帐户必须分配有[网络参与者](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)角色或者分配有可执行[权限](#permissions)中列出的适当操作的[自定义角色](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json)。
+- 如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.31 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
+    
+    <!--Not Available on [Azure Cloud Shell](https://shell.azure.com/bash)--> 登录或连接到 Azure 所用的帐户必须分配有[网络参与者](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)角色或者分配有可执行[权限](#permissions)中列出的适当操作的[自定义角色](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json)。
 
 ## <a name="create-a-route-table"></a>创建路由表
 
@@ -46,6 +47,7 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
 1. 在门户左上角选择“+ 创建资源”。
 2. 依次选择“网络”、“路由表”。
 3. 输入路由表的**名称**，选择自己的**订阅**，创建新的**资源组**或选择现有的资源组，选择一个**位置**，然后选择“创建”。
+    
     <!--Not Available on **Disable BGP route propagation**-->
 
 命令
@@ -67,7 +69,7 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
 1. 在门户顶部的搜索框中，输入“路由表”。 当“路由表”出现在搜索结果中时，请选择它。
 2. 在列表中选择要查看其详细信息的路由表。 在“设置”下，可以查看路由表中的“路由”，以及与该路由表关联的“子网”。
 3. 若要详细了解常见的 Azure 设置，请参阅以下信息：
-    *   [活动日志](../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-network%2ftoc.json#activity-logs)
+    *   [活动日志](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
     *   [访问控制 (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-network%2ftoc.json#access-control)
     *   [标记](../azure-resource-manager/resource-group-using-tags.md?toc=%2fvirtual-network%2ftoc.json)
     *   [锁](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fvirtual-network%2ftoc.json)
@@ -254,4 +256,6 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
 ## <a name="next-steps"></a>后续步骤
 
 - 使用 [PowerShell](powershell-samples.md) 或 [Azure CLI](cli-samples.md) 示例脚本或使用 Azure [资源管理器模板](template-samples.md)创建路由表
-- 为虚拟网络创建并应用 [Azure Policy](policy-samples.md)<!-- Update_Description: wording update, update link -->
+- 为虚拟网络创建并应用 [Azure Policy](policy-samples.md)
+
+<!-- Update_Description: wording update, update link -->

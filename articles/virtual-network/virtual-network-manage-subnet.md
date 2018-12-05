@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/09/2018
-ms.date: 07/23/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: daf19f15fa49faa6ffadd665040b9bac96696e5a
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: e7b690378fd0f53f6512aec8dd1820ad73cd0a83
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167808"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647242"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>添加、更改或删除虚拟网络子网
 
@@ -34,9 +34,8 @@ ms.locfileid: "39167808"
 
 - 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 - 如果使用门户，请打开 https://portal.azure.cn，并使用 Azure 帐户登录。
-- 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 以创建与 Azure 的连接。
-- 如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.31 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
-<!-- Not Available Azure Cloud Shell-->
+- 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount` 以创建与 Azure 的连接。
+- 如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.31 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
 
 登录或连接到 Azure 所用的帐户必须分配有[网络参与者](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)角色或者分配有可执行[权限](#permissions)中列出的适当操作的[自定义角色](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json)。
 
@@ -55,7 +54,9 @@ ms.locfileid: "39167808"
     - **网络安全组**：可将零个或一个现有的网络安全组关联到子网，以筛选子网的入站和出站网络流量。 网络安全组必须与虚拟网络位于同一订阅和位置中。 若要详细了解[网络安全组](security-overview.md)，请参阅[如何创建网络安全组](tutorial-filter-network-traffic.md)。
     - **路由表**：可以选择将现有的路由表关联到子网，控制目标为其他网络的网络流量路由。 路由表必须与虚拟网络位于同一订阅和位置中。 详细了解 [Azure 路由](virtual-networks-udr-overview.md)和[如何创建路由表](tutorial-create-route-table-portal.md)
     - **服务终结点：** 子网可以有零个或多个为其启用的服务终结点。 若要启用的服务的服务终结点，选择的服务或服务，想要启用服务终结点从**服务**列表。 系统会自动为终结点配置位置。 默认情况下，系统会为虚拟网络所在的区域配置服务终结点。 对于 Azure 存储，为了支持区域故障转移方案，系统会将终结点自动配置到 Azure 配对区域。
-    <!-- Not Available on [Azure 配对区域](../best-practices-availability-paired-regions.md?toc=%2fvirtual-network%2ftoc.json#what-are-paired-regions)--> 若要删除服务终结点，请取消选择想要删除的服务终结点的服务。 如需详细了解服务终结点以及可为其启用的服务，请参阅[虚拟网络服务终结点概述](virtual-network-service-endpoints-overview.md)。 一旦启用服务的服务终结点，还必须启用与服务创建的资源的子网的网络访问权限。 例如，如果启用的服务终结点*Microsoft.Storage*，还必须启用到你想要授予对网络访问权限的所有 Azure 存储帐户的网络访问权限。 有关如何启用到为启用服务终结点的子网的网络访问的详细信息，请参阅各个启用的服务终结点的服务的文档。
+        
+        <!-- Not Available on [Azure 配对区域](../best-practices-availability-paired-regions.md?toc=%2fvirtual-network%2ftoc.json#what-are-paired-regions)--> <!-- Not Available on - **Subnet delegation:** -->
+      若要删除的服务终结点，请取消选择你想要删除的服务终结点的服务。 如需详细了解服务终结点以及可为其启用的服务，请参阅[虚拟网络服务终结点概述](virtual-network-service-endpoints-overview.md)。 一旦启用服务的服务终结点，还必须启用与服务创建的资源的子网的网络访问权限。 例如，如果启用的服务终结点*Microsoft.Storage*，还必须启用到你想要授予对网络访问权限的所有 Azure 存储帐户的网络访问权限。 有关如何启用到为启用服务终结点的子网的网络访问的详细信息，请参阅各个启用的服务终结点的服务的文档。
 
     要验证是否为某个子网启用了服务终结点，请查看[有效路由](diagnose-network-routing-problem.md)，获取该子网中的任何网络接口。 如果配置了终结点，将会看到服务地址前缀和 nextHopType 为“VirtualNetworkServiceEndpoint”的“默认”路由。 若要了解有关路由的详细信息，请参阅[路由概述](virtual-networks-udr-overview.md)。
 6. 单击“确定”，将子网添加到所选的虚拟网络。
@@ -76,6 +77,7 @@ ms.locfileid: "39167808"
     - **用户**：可以使用内置角色或自己的自定义角色控制对子网的访问。 若要详细了解如何分配访问子网的角色和用户，请参阅[使用角色分配管理对 Azure 资源的访问权限](../role-based-access-control/role-assignments-portal.md?toc=%2fvirtual-network%2ftoc.json#grant-access)。
     - **网络安全组**和**路由表**：请参阅[添加子网](#add-a-subnet)的第 5 步。
     - **服务终结点**：请参阅[添加子网](#add-a-subnet)的第 5 步中的服务终结点。 如果为某个现有子网启用服务终结点，请确保该子网的任何资源上未运行任何关键任务。 服务终结点可将子网每个网络接口上的路由，从使用地址前缀为 0.0.0.0/0 且下一跃点类型为 Internet 的默认路由，切换到使用服务地址前缀且下一跃点类型为 VirtualNetworkServiceEndpoint 的新路由。 切换过程中，可能会终止任何打开的 TCP 连接。 对于使用新路由更新的所有网络接口，除非流量流向服务，否则不会启用服务终结点。 若要了解有关路由的详细信息，请参阅[路由概述](virtual-networks-udr-overview.md)。
+        <!-- Not Available on - **Subnet delegation:** -->
 5. 选择“其他安全性验证” 。
 
 命令
@@ -115,4 +117,6 @@ ms.locfileid: "39167808"
 ## <a name="next-steps"></a>后续步骤
 
 - 使用 [PowerShell](powershell-samples.md) 或 [Azure CLI](cli-samples.md) 示例脚本或使用 Azure [资源管理器模板](template-samples.md)创建虚拟网络和子网
-- 为虚拟网络创建并应用 [Azure 策略](policy-samples.md) <!--Update_Description: wording update, update reference link-->
+- 为虚拟网络创建并应用 [Azure Policy](policy-samples.md)
+
+<!--Update_Description: wording update, update reference link-->

@@ -10,11 +10,11 @@ ms.date: 06/25/2018
 ms.topic: article
 manager: digimobile
 ms.openlocfilehash: 50e6d69cda27d6f59486b31875a8f14b398d5f5e
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315606"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653219"
 ---
 # <a name="run-scripts-in-your-linux-vm"></a>在 Linux VM 中运行脚本
 
@@ -46,7 +46,7 @@ ms.locfileid: "36315606"
 
 详细了解可以用来在 VM 中运行脚本和命令的不同功能。
 
-* [ 自定义脚本扩展 ](../extensions/custom-script-linux.md)
+* [自定义脚本扩展](../extensions/custom-script-linux.md)
 <!-- Not Available on * [Run Command](run-command.md)-->
 <!-- Not Available on * [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md)-->
 * [串行控制台](serial-console.md)

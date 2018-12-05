@@ -17,13 +17,13 @@ ms.date: 10/15/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: b77b326b2d948580be5e1c250435e3f58c86df63
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089088"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650598"
 ---
-# <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>教程：通过 CI/CD 将应用程序部署到 Service Fabric 群集
+# <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>教程：将具有 CI/CD 的应用程序部署到 Service Fabric 群集
 
 本教程是一个系列的第四部分，介绍了如何使用 Azure DevOps 为 Azure Service Fabric 应用程序设置持续集成和部署。  需要一个现有的 Service Fabric 应用程序，并使用在[生成 .NET 应用程序](service-fabric-tutorial-create-dotnet-app.md)中创建的应用程序作为示例。
 
