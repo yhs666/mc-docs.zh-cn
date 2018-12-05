@@ -1,22 +1,22 @@
 ---
-title: Azure SQL 数据仓库速查表 | Azure
+title: Azure SQL 数据仓库速查表 | Microsoft Docs
 description: 查找链接和最佳做法，以便快速生成 Azure SQL 数据仓库解决方案。
 services: sql-data-warehouse
-author: rockboyfor
+author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.component: design
 origin.date: 04/17/2018
-ms.date: 06/25/2018
-ms.author: v-yeche
+ms.date: 11/12/2018
+ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: df03ba8f11a41fce2b6ee55713b385c18eee6be6
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: bfcf7ce04b76b74f880e4d75ad5415bbd88fc661
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315463"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673009"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Azure SQL 数据仓库速查表
 此速查表提供有关生成 Azure SQL 数据仓库解决方案的有用提示和最佳做法。 在开始之前，请阅读 [Azure SQL 数据仓库的工作负荷模式和对立模式](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns)中的每个详细步骤，其中解释了 SQL 数据仓库的定义。
@@ -80,9 +80,7 @@ ms.locfileid: "36315463"
 **提示：**
 * 除了聚集索引，可能还需要向经常用于筛选的列添加非聚集索引。 
 * 注意如何使用 CCI 管理表上的内存。 加载数据时，你希望用户（或查询）受益于大型资源类。 确保避免剪裁和创建许多经过压缩的小型行组。
-<!--Pending on Gen2-->
 * 在第 2 代上，CCI 表在计算节点上本地缓存，以最大限度地提高性能。
-<!--Pending on Gen2-->
 * 对于 CCI，可能因行组压缩不当而出现性能下降的情况。 如果发生此情况，请重新生成或重新整理 CCI。 你希望每个压缩后的行组包含至少 10 万行。 理想状态为一个行组 100 万行。
 * 基于增量加载频率和大小，你想自动执行索引的重新整理或重新生成操作。 彻底清理操作始终有用。
 * 想要剪裁行组时应更具战略性。 打开的行组有多大？ 未来几天希望加载多少数据？
@@ -115,8 +113,7 @@ SQL 数据仓库使用资源组作为将内存分配给查询的一种方式。 
 
 如果发现查询所需时间过长，请确保用户未在大型资源类中运行。 大型资源类会占用许多并发槽。 它们可能导致其他查询排队等待。
 
-<!--Pending on Gen2--> 最后，通过使用第 2 代 SQL 数据仓库，每个资源类可比第 1 代获得多 1.5 倍的内存。
-<!--Pending on Gen2-->
+最后，通过使用第 2 代的 SQL 数据仓库，每个资源类可比第 1 代获得多 2.5 倍的内存。
 
 详细了解如何使用[资源类和并发]。
 
@@ -134,11 +131,6 @@ SQL 数据仓库的一个重要功能是可以[管理计算资源](sql-data-ware
 
 详细了解[利用 SQL 数据仓库的典型体系结构](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/)。
 
-单击一下即可在 SQL 数据仓库的 SQL 数据库中部署辐射型体系结构：
-
-<a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwSpokeDbTemplate%2Fazuredeploy.json" target="_blank">
-<img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
-</a>
 
 <!--Image references-->
 [草图]:media/sql-data-warehouse-cheat-sheet/picture-flow.png
@@ -159,6 +151,6 @@ SQL 数据仓库的一个重要功能是可以[管理计算资源](sql-data-ware
 [typical architectures that take advantage of SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/
 [is and is not]:https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
 [数据迁移]:https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
-<!-- Not Available on [Azure Data Lake Store]: /data-factory/connector-azure-data-lake-store --> [sys.dm_pdw_nodes_db_partition_stats]：https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql [sys.dm_pdw_request_steps]：https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sqll
+<!-- Not Available on [Azure Data Lake Store]: /data-factory/connector-azure-data-lake-store --> [sys.dm_pdw_nodes_db_partition_stats]： https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql [sys.dm_pdw_request_steps]： https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sqll
 
 <!-- Update_Description: update meta properties, wording update -->

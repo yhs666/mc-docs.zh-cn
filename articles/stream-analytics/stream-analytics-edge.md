@@ -2,20 +2,20 @@
 title: IoT Edge 上的 Azure 流分析（预览版）
 description: 在 Azure 流分析中创建 Edge 作业，并将其部署到运行 Azure IoT Edge 的设备。
 services: stream-analytics
-author: rockboyfor
-ms.author: v-yeche
+author: lingliw
+ms.author: v-lingwu
 manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 01/16/2017
-ms.date: 09/10/2018
-ms.openlocfilehash: 21fd2be7043c0c00ea12b67c1cb5ef449b09a7ea
-ms.sourcegitcommit: 4ead6b1d3527373b63c90680b6400a2e95b4064e
+ms.date: 11/26/2018
+ms.openlocfilehash: 619e0c70d3b2729a677c37c463431f2c25023b9c
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49374983"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674259"
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>IoT Edge 上的 Azure 流分析（预览版）
 
@@ -26,7 +26,6 @@ IoT Edge 上的 Azure 流分析 (ASA) 可让开发人员将近乎实时的分析
 
 IoT Edge 上的 Azure 流分析在 Azure IoT Edge 框架中运行。 在 ASA 中创建作业后，便可使用 IoT 中心部署和管理 ASA 作业。 此功能为预览版。 如果你有任何问题或反馈，可使用 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/contact/) 与产品团队联系。 
 
-<!--Not Available on [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/)-->
 ## <a name="scenarios"></a>方案
 ![概要关系图](media/stream-analytics-edge/ASAedge_highlevel.png)
 
@@ -185,16 +184,25 @@ ASA Edge 作业可以从在 IoT Edge 设备上运行的其他模块获取输入�
 ##### <a name="reference-data"></a>引用数据
 参考数据（也称为查找表）是一个静态的或本质上缓慢变化的有限数据集。 可用于执行查找或与数据流相关联。 为了在 Azure 流分析作业中利用参考数据，通常会在查询中使用[参考数据联接](https://msdn.microsoft.com/library/azure/dn949258.aspx)。 有关详细信息，请参阅[关于参考数据的 ASA 文档](/stream-analytics/stream-analytics-use-reference-data)。
 
-若要在 Iot Edge 上使用 ASA 的参考数据，请执行以下步骤： 
-1. 为作业创建一个新输入
+仅支持本地参考数据。 将作业部署到 IoT Edge 设备时，它将从用户定义的文件路径中加载参考数据。
+
+若要在 Edge 上创建包含参考数据的作业，请执行以下操作：
+
+1. 为作业创建一个新输入。
+
 2. 选择“参考数据”作为”源类型“。
-3. 设置文件路径。 文件路径应为在![参考数据创建](media/stream-analytics-edge/ReferenceData.png)设备上的绝对文件路径
-4. 在 Docker 配置中启用“共享驱动器”，并确保在开始部署之前已启用驱动器。
 
-有关详细信息，请参阅此处 [Windows 适用的 Docker 文档](https://docs.docker.com/docker-for-windows/#shared-drives)。
+3. 在设备上将参考数据文件准备就绪。 对于 Windows 容器，请将参考数据文件放置在本地驱动器上并通过 Docker 容器共享本地驱动器。 对于 Linux 容器，请创建一个 Docker 卷并将该数据文件填充到该卷。
 
-> [!Note]
-> 目前仅支持本地参考数据。
+4. 设置文件路径。 对于 Windows 设备，请使用绝对路径。 对于 Linux 设备，请使用卷中的路径。
+
+![为 IoT Edge 上的 Azure 流分析作业新建参考数据输入](./media/stream-analytics-edge/ReferenceDataNewInput.png)
+
+IoT Edge 上的参考数据更新将由部署触发。 在触发后，ASA 模块选取更新的数据且不停止正在运行的作业。
+
+有两种方式可用来更新参考数据：
+* 从 Azure 门户中更新 ASA 作业中的参考数据路径。
+* 更新 IoT Edge 部署。
 
 ## <a name="license-and-third-party-notices"></a>许可证和第三方通知
 * [IoT Edge 预览版许可证上的 Azure 流分析](https://go.microsoft.com/fwlink/?linkid=862827)。 
@@ -215,8 +223,8 @@ ASA Edge 作业可以从在 IoT Edge 设备上运行的其他模块获取输入�
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
+[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
 
 <!-- Update_Description: update meta properties, update link -->
 <!--ms.date: 09/10/2017-->

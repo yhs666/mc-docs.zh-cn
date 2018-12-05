@@ -16,11 +16,11 @@ origin.date: 09/22/2017
 ms.date: 08/27/2018
 ms.author: v-yiso
 ms.openlocfilehash: ececedc7f6bfee447eb50cc79ef3e3023386551b
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41703975"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659875"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 群集的容量规划
 

@@ -8,14 +8,14 @@ manager: digimobile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-origin.date: 10/03/2018
-ms.date: 10/22/2018
-ms.openlocfilehash: cdfbe01fb1bcfad78478065589fa7a299e315da3
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+origin.date: 11/05/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: 704d1025d001818180a7a4fd2fcbd3b37942ec78
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453616"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672526"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>在 Azure Database for MySQL 中进行监视
 
@@ -46,6 +46,7 @@ ms.locfileid: "49453616"
 |seconds_behind_master|复制延迟（秒）|计数|副本服务器滞后于主服务器的秒数。|
 |network_bytes_egress|网络传出|字节|跨活动连接的网络传出。|
 |network_bytes_ingress|网络传入|字节|跨活动连接的网络传入。|
+|backup_storage_used|使用的备份存储|字节|已使用的备份存储量。|
 
 ## <a name="server-logs"></a>服务器日志
 可以在服务器上启用慢查询日志记录。 这些日志也可通过事件中心和存储帐户获得。 若要了解有关日志记录的详细信息，请访问[服务器日志](concepts-server-logs.md)页。

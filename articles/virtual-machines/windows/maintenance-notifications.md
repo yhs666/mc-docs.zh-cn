@@ -16,11 +16,11 @@ origin.date: 07/02/2018
 ms.date: 07/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: 16d399f663db3390055ef6a56c13607060ee62f7
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307014"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662740"
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>处理 Windows 虚拟机的计划内维护通知
 

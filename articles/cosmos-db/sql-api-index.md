@@ -15,11 +15,11 @@ origin.date: 10/25/2017
 ms.date: 04/23/2018
 ms.author: v-yeche
 ms.openlocfilehash: 18d60d3b1fbfbe0b3a0d01c072b047b81da8aac0
-ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43330728"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662310"
 ---
 # <a name="azure-cosmos-db-sql-api-documentation"></a>Azure Cosmos DB：SQL API 文档
 

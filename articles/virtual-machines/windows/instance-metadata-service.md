@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 10/10/2017
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9850fc64018714c583f37c792bbc02532fbccca8
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.openlocfilehash: 7ecace8c578bf89be959016f223c871206afb730
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034889"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674483"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 实例元数据服务
 
@@ -299,7 +299,7 @@ vmSize | [VM 大小](sizes.md) | 2017-04-02
 subscriptionId | 虚拟机的 Azure 订阅 | 2017-08-01
 标记 | 虚拟机的[标记](../../azure-resource-manager/resource-group-using-tags.md)  | 2017-08-01
 resourceGroupName | 虚拟机的[资源组](../../azure-resource-manager/resource-group-overview.md) | 2017-08-01
-计划 | [计划] VM 的 (https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan)，Azure 市场映像，包含名称、产品和发行商 | 2017-04-02
+计划 | 在 Azure 市场映像中 VM 的[计划](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan)，包含名称、产品和发布者 | 2017-04-02
 publicKeys | 公钥的集合 [https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey]，已分配给 VM 和路径 | 2017-04-02
 vmScaleSetName | 虚拟机规模集的[虚拟机规模集名称](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) | 2017-12-01
 ipv4/privateIpAddress | VM 的本地 IPv4 地址 | 2017-04-02
@@ -309,6 +309,7 @@ subnet/prefix | 子网前缀，例如 24 | 2017-04-02
 macAddress | VM mac 地址 | 2017-04-02 
 scheduledevents | 请参阅[计划事件](scheduled-events.md) | 2017-08-01
 
+<!-- Not Available on placementGroupId | [Placement Group](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)-->
 <!-- Not Available on zone | [Availability Zone](../../availability-zones/az-overview.md) of your virtual machine | 2017-12-01 -->
 <!-- Not Available on ipv6/ipAddress | Local IPv6 address of the VM | 2017-04-02 -->
 <!-- Not Available on identity | Managed identities for Azure resources. See [acquire an access token](../../active-directory/managed-service-identity/how-to-use-vm-token.md) | 2018-02-01-->

@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 05/30/2017
-ms.date: 07/30/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: db4f406e7d892d95181bdcfe57b25fba7830ebc4
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.openlocfilehash: 6e4e728558bb948369a47d6d9c6a0e87bd38727c
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307002"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675432"
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Azure 虚拟机中的 SQL Server Business Intelligence
 > [!IMPORTANT] 
@@ -225,7 +225,7 @@ SQL Server 的虚拟机库映像包括安装的 Reporting Services 本机模式�
 2. 在虚拟机的防火墙中打开端口 80。
 3. 使用 Azure 虚拟机 **DNS 名称** 作为 URL 中的服务器名称浏览到 Web 门户。 例如：
 
-    **报表服务器**：http://uebi.chinacloudapp.cn/reportserver **Web 门户**：http://uebi.chinacloudapp.cn/reports
+    **报表服务器**： http://uebi.chinacloudapp.cn/reportserver **Web 门户**： http://uebi.chinacloudapp.cn/reports
 
     [为报表服务器访问配置防火墙](https://msdn.microsoft.com/library/bb934283.aspx)
 
@@ -336,7 +336,7 @@ Analysis Services 的默认实例侦听 TCP 端口 2383。 在虚拟机防火墙
 
 ## <a name="resources"></a>资源
 * 查看在 Azure 虚拟机环境中使用的 Microsoft 服务器软件的支持策略。 以下主题概述了对 BitLocker、故障转移群集和网络负载均衡等功能的支持。 [Microsoft 服务器软件对 Azure 虚拟机的支持](http://support.microsoft.com/kb/2721672)。
-* [Azure 虚拟机上的 SQL Server 概述](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
+* [Azure 虚拟机中的 SQL Server 概述](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 * [虚拟机](/virtual-machines/)
 * [在 Azure 上预配 SQL Server 虚拟机](../sql/virtual-machines-windows-portal-sql-server-provision.md)
 * [如何将数据磁盘附加到虚拟机](../classic/attach-disk-classic.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
@@ -350,5 +350,6 @@ Analysis Services 的默认实例侦听 TCP 端口 2383。 在虚拟机防火墙
 > [通过 Microsoft SQL Server Connect 提交反馈和联系人信息](https://connect.microsoft.com/SQLServer/Feedback)
 
 ### <a name="community-content"></a>社区内容
-* [Azure SQL Database Management with PowerShell](https://azure.microsoft.com/blog/windows-azure-sql-database-management-with-powershell/)
-<!-- Update_Description: wording update, update link -->（使用 PowerShell 管理 Azure SQL 数据库）
+* [使用 PowerShell 管理 Azure SQL 数据库](https://azure.microsoft.com/blog/windows-azure-sql-database-management-with-powershell/)
+
+<!-- Update_Description: wording update, update link -->

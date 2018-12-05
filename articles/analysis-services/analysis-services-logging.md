@@ -10,11 +10,11 @@ ms.date: ''
 ms.author: v-junlch
 ms.reviewer: minewiskan
 ms.openlocfilehash: 36d7c50674ba4c46275151ddd989090f74aac027
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41704906"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664528"
 ---
 <!--Notice: Verify successfully-->
 # <a name="setup-diagnostic-logging"></a>设置诊断日志记录

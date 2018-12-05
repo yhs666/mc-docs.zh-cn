@@ -13,15 +13,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/12/2018
-ms.date: 10/15/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: e4ffd866dfd7fe02aee87ae312d6e64a584669b8
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.openlocfilehash: eec76224cafdc44a463a85f3f80127289c490ec8
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089226"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661697"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>教程：使用 Kestrel 向 ASP.NET Core Web API 前端服务添加 HTTPS 终结点
 
@@ -118,7 +118,7 @@ using Microsoft.Extensions.Configuration;
 using System.Security.Cryptography.X509Certificates;
 ```
 
-更新 `ServiceInstanceListener`，以便使用新的 *EndpointHttps* 终结点并在端口 443 上进行侦听。
+更新 `ServiceInstanceListener`，以便使用新的 *EndpointHttps* 终结点并在端口 443 上进行侦听。 配置使用 Kestrel 服务器的 Web 主机时，须将 Kestrel 配置为针对所有网络接口上的 IPv6 地址进行侦听：`opt.Listen(IPAddress.IPv6Any, port, listenOptions => {...}`。
 
 ```csharp
 new ServiceInstanceListener(
@@ -232,6 +232,7 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\SetCertAccess.ps1"
 ```
 
 修改 *Setup.bat* 文件属性，将“复制到输出目录”设置为“如果较新则复制”。
+
 ![设置文件属性][image1]
 
 在“解决方案资源管理器”中，右键单击“VotingWeb”，选择“添加”->“新建项”，然后添加名为“SetCertAccess.ps1”的新文件。  编辑 *SetCertAccess.ps1* 文件，添加以下脚本：
@@ -280,8 +281,9 @@ if ($cert -eq $null)
     }
 }
 
-#Modify the *SetCertAccess.ps1* file properties to set **Copy to Output Directory** to "Copy if newer".
 ```
+
+修改 *SetCertAccess.ps1* 文件属性，将“复制到输出目录”设置为“如果较新则复制”。
 
 ### <a name="run-the-setup-script-as-a-local-administrator"></a>以管理员身份运行设置脚本
 

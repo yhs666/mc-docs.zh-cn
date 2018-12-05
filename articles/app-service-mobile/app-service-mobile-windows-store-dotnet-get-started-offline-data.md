@@ -16,11 +16,11 @@ origin.date: 10/01/2016
 ms.date: 07/30/2018
 ms.author: v-yiso
 ms.openlocfilehash: fdd469392dc3f02881060c98adc09a12d98aac67
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167965"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645544"
 ---
 # <a name="enable-offline-sync-for-your-windows-app"></a>为 Windows 应用启用脱机同步
 
@@ -74,7 +74,7 @@ ms.locfileid: "39167965"
 
 2. 按 **F5** 生成并运行应用。 请注意，在应用启动时，同步刷新将失败。
 
-3. 输入新项，并注意每次单击“保存”时，推送会失败，并显示 [CancelledByNetworkError] 状态。 但是，新的待办事项在可被推送到移动应用后端之前，将存在于本地存储中。  在生产应用中，如果取消显示这些异常，客户端应用的行为将会像它仍连接到移动应用后端时一样。
+3. 输入新项，并注意每次单击 [CancelledByNetworkError] 时，推送将失败，并显示 **CancelledByNetworkError**状态。 但是，新的待办事项在可被推送到移动应用后端之前，将存在于本地存储中。  在生产应用中，如果取消显示这些异常，客户端应用的行为将会像它仍连接到移动应用后端时一样。
 
 4. 关闭应用程序并重新启动它，以验证你创建的新项目是否已永久保存到本地存储中。
 
@@ -141,7 +141,7 @@ ms.locfileid: "39167965"
 [IMobileServicesSyncContext]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.sync.imobileservicesynccontext(v=azure.10).aspx
 [MobileServicePushFailedException]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.sync.mobileservicepushfailedexception(v=azure.10).aspx
 [Status]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.sync.mobileservicepushcompletionresult.status(v=azure.10).aspx
-[]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.sync.mobileservicepushstatus(v=azure.10).aspx
+[CancelledByNetworkError]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.sync.mobileservicepushstatus(v=azure.10).aspx
 [PullAsync]: https://msdn.microsoft.com/zh-cn/library/azure/mt667558(v=azure.10).aspx
 [PushAsync]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.mobileservicesynccontextextensions.pushasync(v=azure.10).aspx
 [PurgeAsync]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.sync.imobileservicesynctable.purgeasync(v=azure.10).aspx

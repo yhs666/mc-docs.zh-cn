@@ -9,11 +9,11 @@ origin.date: 7/20/2018
 ms.date: 09/17/2018
 ms.author: v-jay
 ms.openlocfilehash: 746c3bf3d85f8eb1a9c8d9fafaf86c7548dfdc13
-ms.sourcegitcommit: 1471663f5f5a1c4e1fbead7c4d351610cb0086bb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44363582"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659655"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>教程：为 Web 应用在自定义域中创建 DNS 记录 
 
@@ -44,7 +44,7 @@ ms.locfileid: "44363582"
 
 ## <a name="prerequisites"></a>先决条件
 
-- [创建应用服务应用](../app-service/app-service-web-get-started-html.md)，或使用为另一教程创建的应用。
+- [创建一个应用服务应用](../app-service/app-service-web-get-started-html.md)，或者使用为其他教程创建的应用。
 
 - 在 Azure DNS 中创建一个 DNS 区域，并将注册机构中的区域委派给 Azure DNS。
 
