@@ -8,21 +8,21 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
 origin.date: 04/17/2018
-ms.date: 10/15/2018
+ms.date: 11/26/2018
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 91e7a015a5cf8ab633e8805660e9d2ce0e4a2411
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.openlocfilehash: bb85601830da6748365144d04630c0fbd60f30d9
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089073"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673043"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL 数据仓库 - 大规模并行处理 (MPP) 体系结构
 了解 Azure SQL 数据仓库如何将大规模并行处理 (MPP) 与 Azure 存储结合，实现高性能和可伸缩性。 
 
 ## <a name="mpp-architecture-components"></a>MPP 体系结构组件
-SQL 数据仓库利用向外扩展体系结构在多个节点间分布数据的计算处理。 缩放单位是抽象的计算能力（称为数据仓库单位）。 SQL 数据仓库将计算与存储分离开来，使用户能够独立于系统中的数据进行规模计算。
+SQL 数据仓库利用向外扩展体系结构在多个节点间分布数据的计算处理。 缩放单位是计算能力（称为[数据仓库单位](what-is-a-data-warehouse-unit-dwu-cdwu.md)）的抽象概念。 SQL 数据仓库将计算与存储分离开来，使用户能够独立于系统中的数据进行规模计算。
 
 ![SQL 数据仓库体系结构](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
@@ -89,7 +89,7 @@ SQL 数据仓库使用 Azure 存储保护用户数据。  由于数据通过 Azu
 ![Replicated table](media/sql-data-warehouse-distributed-data/replicated-table.png "Replicated table") 
 
 ## <a name="next-steps"></a>后续步骤
-对 SQL 数据仓库有了初步的认识后，请学习如何快速创建 SQL 数据仓库和[加载示例数据][加载示例数据]。 如果不熟悉 Azure，遇到新术语时，[Azure 词汇表][Azure 词汇表]可以提供帮助。 或者，查看一下以下一些其他 SQL 数据仓库资源。  
+对 SQL 数据仓库有了初步的认识后，请继续了解如何快速[创建 SQL 数据仓库][创建 SQL 数据仓库]和[加载示例数据][加载示例数据]。 如果不熟悉 Azure，遇到新术语时，[Azure 词汇表][Azure 词汇表]可以提供帮助。 或者，查看一下以下一些其他 SQL 数据仓库资源。  
 
 <!-- Not Available * [Customer success stories] -->
 <!-- Not Available * [Blogs]-->
@@ -105,9 +105,7 @@ SQL 数据仓库使用 Azure 存储保护用户数据。  由于数据通过 Azu
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
 
 <!--Article references-->
-<!-- Not Available [Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md--> [加载示例数据]: ./sql-data-warehouse-load-sample-databases.md <!-- Not Avaialble on [create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md -->
-<!-- Not contains Sample choice in selectbox so that we can not following the process -->
-[迁移文档]: ./sql-data-warehouse-overview-migrate.md <!-- Not Avaialble on [SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md -->
+<!-- Not Available [Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md--> [加载示例数据]: ./sql-data-warehouse-load-sample-databases.md [创建 SQL 数据仓库]: ./sql-data-warehouse-get-started-provision.md [迁移文档]: ./sql-data-warehouse-overview-migrate.md <!-- Not Avaialble on [SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md -->
 [集成工具概述]: ./sql-data-warehouse-overview-integrate.md [备份和还原概述]: ./sql-data-warehouse-restore-database-overview.md [Azure 词汇表]: ../azure-glossary-cloud-terminology.md
 
 <!--MSDN references-->

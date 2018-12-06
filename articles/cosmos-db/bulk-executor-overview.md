@@ -1,22 +1,21 @@
 ---
-title: Azure Cosmos DB 批量执行程序库概述 | Azure
-description: 了解 Azure Cosmos DB 批量执行程序库、使用库的优势以及库的体系结构。
-keywords: Java 批量执行程序
+title: 使用批量执行程序库在 Azure Cosmos DB 中批量导入和更新数据 | Azure
+description: 通过批量执行程序库提供的批量导入和批量更新 API 功能，在 Azure Cosmos DB 中执行批量操作。
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 05/07/2018
-ms.date: 11/05/2018
+origin.date: 10/16/2018
+ms.date: 12/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: ca6e1ba8610c84e76298c6f515648e202b2f6dd7
-ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
+ms.openlocfilehash: 0ed1a3b950e52d1de59af3e5defca642892484e2
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50204824"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675416"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Azure Cosmos DB 批量执行程序库概述
 
@@ -28,7 +27,7 @@ Azure Cosmos DB 是一种快速且灵活的多区域分布式数据库服务，�
 批量执行程序库可助你利用这个极大的吞吐量和存储。 批量执行程序库允许通过批量导入和批量更新 API 在 Azure Cosmos DB 中执行批量操作。 可在以下部分中详细了解批量执行程序库的功能。 
 
 > [!NOTE] 
-> 目前，批量执行程序库支持导入和更新操作，但该库仅受 Azure Cosmos DB SQL API 帐户支持。 有关该库的任何更新，请参阅 [.NET](sql-api-sdk-bulk-executor-dot-net.md) 和 [Java](sql-api-sdk-bulk-executor-java.md) 的发行说明。
+> 目前，批量执行程序库支持导入和更新操作，但该库仅受 Azure Cosmos DB SQL API 帐户支持。
 
 ## <a name="key-features-of-the-bulk-executor-library"></a>批量执行程序库的主要功能  
 
@@ -54,7 +53,7 @@ Azure Cosmos DB 是一种快速且灵活的多区域分布式数据库服务，�
 
 * 若要进行详细了解，请试用那些在 [.NET](bulk-executor-dot-net.md) 和 [Java](bulk-executor-java.md) 中使用批量执行程序库的示例应用程序。  
 * 在 [.NET](sql-api-sdk-bulk-executor-dot-net.md) 和 [Java](sql-api-sdk-bulk-executor-java.md) 中查看批量执行程序 SDK 信息和发行说明。
-* 批量执行程序库已集成到 Cosmos DB Spark 连接器中。若要进行详细的了解，请参阅 [Azure Cosmos DB Spark 连接器](spark-connector.md)一文。  
 * 批量执行程序库也已集成到新版 [Azure Cosmos DB 连接器](https://aka.ms/bulkexecutor-adf-v2)中，可供 Azure 数据工厂复制数据。
 
+<!--Not Available on Line 53 * [Azure Cosmos DB Spark connector](spark-connector.md)-->
 <!-- Update_Description: wording update -->

@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 03/17/2017
-ms.date: 05/22/2017
-ms.author: v-dazen
-ms.openlocfilehash: 213e861395fc6ed4470d64198075ab252d955540
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.date: 11/26/2018
+ms.author: v-yeche
+ms.openlocfilehash: d6927191760c976644c1103a1ebf29544130e48a
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29965353"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675430"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>使用 PowerShell 在 Azure VM 中配置 Always On 可用性组
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ Azure 虚拟机 (VM) 可帮助数据库管理员降低高可用性 SQL Server �
         Get-AzurePublishSettingsFile -Environment AzureChinaCloud
         Import-AzurePublishSettingsFile <publishsettingsfilepath>
 
-    **Get-AzurePublishSettingsFile** 命令通过 Azure 自动生成管理证书并将其下载到计算机。 将自动打开浏览器，并且系统提示输入 Azure 订阅的 Microsoft 帐户凭据。 已下载的 **.publishsettings** 文件包含管理 Azure 订阅所需的所有信息。 将该文件保存到本地目录后，使用 **Import-AzurePublishSettingsFile** 命令将其导入。
+    **Get-AzurePublishSettingsFile** 命令通过 Azure 自动生成管理证书并将其下载到计算机。 将自动打开浏览器，并且系统会提示输入 Azure 订阅的 Azure 帐户凭据。 已下载的 **.publishsettings** 文件包含管理 Azure 订阅所需的所有信息。 将该文件保存到本地目录后，使用 **Import-AzurePublishSettingsFile** 命令将其导入。
 
    > [!NOTE]
    > .publishsettings 文件中包含用于管理 Azure 订阅和服务的凭据（未编码）。 确保此文件安全的最佳做法是，将其暂时存储在用户的源目录的外部（例如存储在 Libraries\Documents 文件夹中），并在导入完成后将其删除。 获得了 .publishsettings 文件访问权的恶意用户可以编辑、创建和删除 Azure 服务。
@@ -85,7 +85,7 @@ Azure 虚拟机 (VM) 可帮助数据库管理员降低高可用性 SQL Server �
     请注意以下几点，以确保后面的命令可以成功执行：
 
    * 变量 **$storageAccountName** 和 **$dcServiceName** 分别用于标识 Internet 上的云存储帐户和云服务器，因此必须唯一。
-   * 为变量 **$affinityGroupName** 和 **$virtualNetworkName** 指定的名称是在稍后将使用的虚拟网络配置文档中配置的。
+   * 为变量 **$affinityGroupName** 和 **$virtualNetworkName** 指定的名称是在稍后使用的虚拟网络配置文档中配置的。
    * **$sqlImageName** 指定包含 SQL Server 2012 Service Pack 1 Enterprise Edition 的 VM 映像的更新名称。
    * 为简单起见，在整个教程中使用同一密码 **Contoso!000**。
 
@@ -288,7 +288,7 @@ Azure 虚拟机 (VM) 可帮助数据库管理员降低高可用性 SQL Server �
     注意与上述命令相关的以下几点：
 
    * **New-AzureVMConfig** 创建具有所需可用性集名称的 VM 配置。 后续 VM 以该可用性集名称创建，因此会加入同一可用性集中。
-   * **Add-AzureProvisioningConfig** 将 VM 加入你创建的 Active Directory 域中。
+   * **Add-AzureProvisioningConfig** 将 VM 加入已创建的 Active Directory 域。
    * **Set-AzureSubnet** 将 VM 放入后端子网。
    * **New-AzureVM** 创建新的云服务，并在新的云服务中创建新的 Azure VM。 **DnsSettings** 参数指定新云服务中的服务器的 DNS 服务器具有 IP 地址 **10.10.0.4**。 这是域控制器服务器的 IP 地址。 需要该参数来启用云服务中的新 VM 才能成功加入 Active Directory 域。 如果没有该参数，预配 VM 后必须在 VM 中手动设置 IPv4 设置才能将域控制器服务器作为主 DNS 服务器，这样 VM 才能加入 Active Directory 域。
 3. 运行以下管接命令来创建名为 **ContosoSQL1** 和 **ContosoSQL2** 的 SQL Server VM。
@@ -352,7 +352,7 @@ Azure 虚拟机 (VM) 可帮助数据库管理员降低高可用性 SQL Server �
     注意与上述命令相关的以下几点：
 
    * **New-AzureVMConfig** 使用与域控制器服务器相同的可用性集名称，并使用虚拟机库中的 SQL Server 2012 Service Pack 1 Enterprise Edition 映像。 它还将操作系统磁盘设置为只读缓存（无写缓存）。 建议将这些数据库文件迁移到一个附加到 VM 的独立数据磁盘中，并将其配置为无读或写缓存。 不过，次优建议是移除操作系统磁盘上的写缓存，因为无法移除操作系统磁盘上的读缓存。
-   * **Add-AzureProvisioningConfig** 将 VM 加入你创建的 Active Directory 域中。
+   * **Add-AzureProvisioningConfig** 将 VM 加入已创建的 Active Directory 域。
    * **Set-AzureSubnet** 将 VM 放入后端子网。
    * **Add-AzureEndpoint** 添加访问端点，以便客户端应用程序能够在 Internet 上访问这些 SQL Server 服务实例。 为 ContosoSQL1 和 ContosoSQL2 提供了不同端口。
    * **New-AzureVM** 在与 ContosoQuorum 相同的云服务中创建新的 SQL Server VM。 如果这些 VM 需要在同一可用性集中，则必须将它们放置在同一云服务中。
@@ -483,7 +483,7 @@ Azure 虚拟机 (VM) 可帮助数据库管理员降低高可用性 SQL Server �
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
         $svc2.Start();
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
-7. 从[为 Azure VM 中的 AlwaysOn 可用性组创建故障转移群集](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)，将 **CreateAzureFailoverCluster.ps1** 下载到本地工作目录中。 使用此脚本创建一个正常运行的故障转移群集。 有关 Windows 故障转移群集如何与 Azure 网络交互的重要信息，请参阅 [Azure 虚拟机中 SQL Server 的高可用性和灾难恢复](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)。
+7. 从[为 Azure VM 中的 AlwaysOn 可用性组创建故障转移群集](https://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)，将 **CreateAzureFailoverCluster.ps1** 下载到本地工作目录中。 使用此脚本创建一个正常运行的故障转移群集。 有关 Windows 故障转移群集如何与 Azure 网络交互的重要信息，请参阅 [Azure 虚拟机中 SQL Server 的高可用性和灾难恢复](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)。
 8. 切换至工作目录并使用下载的脚本创建故障转移群集。
 
         Set-ExecutionPolicy Unrestricted -Force
@@ -570,4 +570,5 @@ Azure 虚拟机 (VM) 可帮助数据库管理员降低高可用性 SQL Server �
 现已通过在 Azure 中创建可用性组成功实现了 SQL Server Always On。 若要为此可用性组配置侦听器，请参阅[在 Azure 中配置 Always On 可用性组的 ILB 侦听器](../classic/ps-sql-int-listener.md)。
 
 有关在 Azure 中使用 SQL Server 的其他信息，请参阅 [SQL Server on Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md)（Azure 虚拟机上的 SQL Server）。
-<!-- Update_Description: wording update -->
+
+<!-- Update_Description: wording update, update meta properties -->

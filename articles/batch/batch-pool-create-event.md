@@ -1,9 +1,9 @@
 ---
-title: Azure Batch 池创建事件 | Microsoft Docs
+title: Azure Batch 池创建事件 | Azure
 description: Batch 池创建事件参考。
 services: batch
-author: dlepow
-manager: jeconnoc
+author: lingliw
+manager: digimobile
 ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 04/20/2017
-ms.date: 05/14/2018
-ms.author: v-junlch
-ms.openlocfilehash: ad3ebece5c2f558ebf8b9546d97f062412c77f5b
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 93f7ad4040527ed2544160fa55d39b4f39e5af97
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173371"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675522"
 ---
 # <a name="pool-create-event"></a>池创建事件
 
@@ -52,7 +52,7 @@ ms.locfileid: "34173371"
 |-------------|----------|-----------|
 |id|String|池的 id。|
 |displayName|String|池的显示名称。|
-|vmSize|String|池中虚拟机的大小。 池中所有虚拟机的大小相同。 <br/><br/> 有关云服务池（使用 cloudServiceConfiguration 创建的池）的虚拟机可用大小的信息，请参阅[云服务的大小](../cloud-services/cloud-services-sizes-specs.md)。 批处理支持除 `ExtraSmall` 以外的所有云服务 VM 大小。<br/><br/> 有关使用虚拟机应用商店中映像的池（使用 virtualMachineConfiguration 创建的池）的可用 VM 大小的信息，请参阅[虚拟机的大小](../virtual-machines/virtual-machines-linux-sizes.md) (Linux) 或[虚拟机的大小](../virtual-machines/virtual-machines-windows-sizes.md) (Windows)。 Batch 支持除 `STANDARD_A0` 和高级存储大小（`STANDARD_GS`、`STANDARD_DS` 和 `STANDARD_DSV2` 系列）以外所有的 Azure VM 大小。|
+|vmSize|String|池中虚拟机的大小。 池中所有虚拟机的大小相同。 <br/><br/> 有关云服务池（使用 cloudServiceConfiguration 创建的池）的虚拟机可用大小的信息，请参阅[云服务的大小](../cloud-services/cloud-services-sizes-specs.md)。 批处理支持除 `ExtraSmall` 以外的所有云服务 VM 大小。<br/><br/> 有关使用虚拟机市场中映像的池（使用 virtualMachineConfiguration 创建的池）的可用 VM 大小的信息，请参阅[虚拟机的大小](../virtual-machines/virtual-machines-linux-sizes.md) (Linux) 或[虚拟机的大小](../virtual-machines/virtual-machines-windows-sizes.md) (Windows)。 Batch 支持除 `STANDARD_A0` 和高级存储大小（`STANDARD_GS`、`STANDARD_DS` 和 `STANDARD_DSV2` 系列）以外所有的 Azure VM 大小。|
 |[cloudServiceConfiguration](#bk_csconf)|复杂类型|池的云服务配置。|
 |[virtualMachineConfiguration](#bk_vmconf)|复杂类型|池的虚拟机配置。|
 |[networkConfiguration](#bk_netconf)|复杂类型|池的网络配置。|
@@ -64,7 +64,8 @@ ms.locfileid: "34173371"
 |maxTasksPerNode|Int32|可在池中单个计算节点上并发运行的任务的最大数目。|
 |vmFillType|String|定义批处理服务如何在池中不同的计算节点之间分配任务。 有效值为 Spread 或 Pack。|
 
-###  <a name="bk_csconf"></a> cloudServiceConfiguration
+<a name="bk_csconf"></a>
+###  <a name="cloudserviceconfiguration"></a>cloudServiceConfiguration
 
 |元素名称|类型|注释|
 |------------------|----------|-----------|
@@ -75,7 +76,7 @@ ms.locfileid: "34173371"
 
 |元素名称|类型|注释|
 |------------------|----------|-----------|
-|[imageReference](#bk_imgref)|复杂类型|指定关于要使用的平台或应用商店映像的信息。|
+|[imageReference](#bk_imgref)|复杂类型|指定关于要使用的平台或市场映像的信息。|
 |nodeAgentSKUId|String|在计算节点上预配的批处理节点代理的 SKU。|
 |[windowsConfiguration](#bk_winconf)|复杂类型|指定虚拟机上的 Windows 操作系统设置。 如果 imageReference 引用 Linux OS 映像，则不能指定此属性。|
 

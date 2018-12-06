@@ -2,19 +2,19 @@
 title: 管理 Azure 恢复服务保管库和服务器
 description: 在 Azure 恢复服务保管库中管理作业和警报。
 services: backup
-author: markgalioto
-manager: carmonm
+author: lingliw
+manager: digimobile
 ms.service: backup
 ms.topic: conceptual
 origin.date: 08/21/2018
-ms.date: 09/25/2018
-ms.author: v-junlch
-ms.openlocfilehash: 36e86c86dff33a4d0b37f516f6659524aaa9809e
-ms.sourcegitcommit: a4d8c8641a6341113532d8770603d4b66cc13ced
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.openlocfilehash: c5a3ce184972fff07e52ddb3daf143dc62d5d0fc
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47114527"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675493"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>监视和管理恢复服务保管库
 
@@ -55,14 +55,14 @@ ms.locfileid: "47114527"
 
 “监视”部分显示预定义的“备份警报”和“备份作业”查询的结果。 “监视”磁贴提供有关以下项的最新信息：
 
-- 备份作业的“严重”和“警告”警报（过去 24 小时）
-- Azure VM 的预检查状态 - 有关预检查状态的完整信息，请参阅[有关备份预检查状态的博客文章](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/)。
-- 正在进行的备份作业，以及失败的作业（过去 24 小时）。
+* 备份作业的“严重”和“警告”警报（过去 24 小时）
+* Azure VM 的预检查状态 - 有关预检查状态的完整信息，请参阅[有关备份预检查状态的博客文章](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/)。
+* 正在进行的备份作业，以及失败的作业（过去 24 小时）。
 
 “使用情况”磁贴提供：
 
-- 为保管库配置的备份项数。
-- 保管库消耗的 Azure 存储量（按 LRS 和 GRS 划分）。
+* 为保管库配置的备份项数。
+* 保管库消耗的 Azure 存储量（按 LRS 和 GRS 划分）。
 
 单击磁贴（“备份存储”除外）可打开关联的菜单。 在上图中，“备份警报”磁贴显示了三个“严重”警报。 在“备份警报”磁贴中单击“严重”警报行会打开根据“严重”警报筛选的“备份警报”。
 
@@ -98,14 +98,14 @@ ms.locfileid: "47114527"
 
 默认情况下，除“最近发生时间”以外所有的详细信息会显示在报告中。
 
-- 警报
-- 备份项
-- 受保护的服务器
-- 严重性
-- 持续时间
-- 创建时间
-- 状态
-- 最近发生时间
+* 警报
+* 备份项
+* 受保护的服务器
+* 严重性
+* 持续时间
+* 创建时间
+* 状态
+* 最近发生时间
 
 ### <a name="change-the-details-in-alerts-report"></a>更改警报报告中的详细信息
 
@@ -211,34 +211,34 @@ ms.locfileid: "47114527"
 
 “项类型”是受保护实例的备份管理类型。 有四种类型，请参阅以下列表。 可以查看所有项类型，或查看一个项类型。 不能选择两个或三个项类型。 可用的“项类型”包括：
 
-- 所有项类型
-- Azure 虚拟机
-- 文件和文件夹
-- Azure 存储
-- Azure 工作负荷
+* 所有项类型
+* Azure 虚拟机
+* 文件和文件夹
+* Azure 存储
+* Azure 工作负荷
 
 #### <a name="operation"></a>操作
 
 可以查看一个操作或所有操作。 不能选择两个或三个操作。 可用的操作包括：
 
-- 所有操作
-- 注册
-- 配置备份
-- Backup
-- 还原
-- 禁用备份
-- 删除备份数据
+* 所有操作
+* 注册
+* 配置备份
+* Backup
+* 还原
+* 禁用备份
+* 删除备份数据
 
 #### <a name="status"></a>状态
 
 可以查看所有状态或一种状态。 不能选择两种或三种状态。 可用的状态包括：
 
-- 所有状态
-- 已完成
-- 正在进行
-- 已失败
-- 已取消
-- 已完成但出现警告
+* 所有状态
+* 已完成
+* 正在进行
+* 已失败
+* 已取消
+* 已完成但出现警告
 
 #### <a name="start-time"></a>开始时间
 
@@ -258,9 +258,8 @@ ms.locfileid: "47114527"
 
 仪表板中的“备份存储”磁贴显示 Azure 中消耗的存储量。 具体提供以下存储使用情况：
 
-- 与保管库关联的 Cloud LRS 存储使用情况
-- 与保管库关联的 Cloud GRS 存储使用情况
-
+* 与保管库关联的 Cloud LRS 存储使用情况
+* 与保管库关联的 Cloud GRS 存储使用情况
 
 ## <a name="frequently-asked-questions"></a>常见问题
 
@@ -276,9 +275,9 @@ ms.locfileid: "47114527"
 
 答 3. 是的。 在以下情况下，不会发送通知：
 
-- 已将通知配置为每小时发送，并且在一小时内引发并解决了警报
-- 取消了作业
-- 由于原始备份作业正在进行，另一个备份作业失败
+* 已将通知配置为每小时发送，并且在一小时内引发并解决了警报
+* 取消了作业
+* 由于原始备份作业正在进行，另一个备份作业失败
 
 ## <a name="troubleshooting-monitoring-issues"></a>排查监视问题
 
@@ -295,8 +294,8 @@ ms.locfileid: "47114527"
    `C:\Program Files\Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`
 
 ## <a name="next-steps"></a>后续步骤
-- [从 Azure 还原 Windows Server 或 Windows 客户端](backup-azure-restore-windows-server.md)
-- 若要了解有关 Azure 备份的详细信息，请参阅 [Azure 备份概述](backup-introduction-to-azure-backup.md)
-- 访问 [Azure 备份论坛](http://go.microsoft.com/fwlink/p/?LinkId=290933)
+* [从 Azure 还原 Windows Server 或 Windows 客户端](backup-azure-restore-windows-server.md)
+* 若要了解有关 Azure 备份的详细信息，请参阅 [Azure 备份概述](backup-introduction-to-azure-backup.md)
+* 访问 [Azure 备份论坛](https://go.microsoft.com/fwlink/p/?LinkId=290933)
 
 <!-- Update_Description: wording update -->

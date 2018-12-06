@@ -17,17 +17,17 @@ origin.date: 08/31/2017
 ms.date: 10/09/2017
 ms.author: v-junlch
 ms.openlocfilehash: 8b3f2548efc6cd799a557815c4ab0791d47b6b50
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
-ms.locfileid: "23407196"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659027"
 ---
 # <a name="how-to-configure-a-spring-boot-initializer-app-to-use-redis-cache"></a>如何配置 Spring Boot Initializer 应用，以使用 Redis 缓存
 
 ## <a name="overview"></a>概述
 
-**[Spring Framework]** 是一种开放源代码解决方案，可帮助 Java 开发人员创建企业级应用程序。 基于该平台构建的其中一个更常用的项目是 [Spring Boot]，该项目提供了一种用于创建独立 Java 应用程序的简化方法。 为帮助开发人员开始使用 Spring Boot，在 <https://github.com/spring-guides/> 网站中提供了几个 Spring Boot 包。 除了从基本的 Spring Boot 项目列表中选择之外，**[Spring Initializr]** 也可帮助开发人员开始创建自定义 Spring Boot 应用程序。
+**[Spring Framework]** 是一种开放源代码解决方案，可帮助 Java 开发人员创建企业级应用程序。 基于该平台构建的其中一个更常用的项目是 [Spring Boot]，该项目提供了一种用于创建独立 Java 应用程序的简化方法。 为帮助开发人员开始使用 Spring Boot，<https://github.com/spring-guides/> 上提供了几个 Spring Boot 示例。 除了从基本的 Spring Boot 项目列表中选择之外，**[Spring Initializr]** 也可帮助开发人员开始创建自定义 Spring Boot 应用程序。
 
 本文提供以下分步指导：使用 Azure 门户创建 Redis 缓存，使用 Spring Initializr 创建自定义应用程序，然后创建使用 Redis 缓存存储并检索数据的 Java web 应用程序。
 
@@ -43,7 +43,7 @@ ms.locfileid: "23407196"
 
 ## <a name="create-a-redis-cache-on-azure"></a>在 Azure 上创建 Redis 缓存
 
-1. 浏览到 Azure 门户 <https://portal.azure.cn/>，然后单击“+新建”项。
+1. 浏览到位于 <https://portal.azure.cn/> 的 Azure 门户，然后单击“+新建”所对应的项。
 
    ![Azure 门户][AZ01]
 
@@ -76,7 +76,7 @@ ms.locfileid: "23407196"
 
 ## <a name="create-a-custom-application-using-the-spring-initializr"></a>使用 Spring Initializr 创建自定义应用程序
 
-1. 浏览到 https://start.spring.io/<>。
+1. 浏览到 <https://start.spring.io/>。
 
 1. 指定要使用 Java 生成的 Maven 项目，输入应用程序的“组”名称和“Aritifact”名称，然后单击链接切换到 Spring Initializr 完整版。
 
@@ -176,14 +176,14 @@ ms.locfileid: "23407196"
 
 1. 保存并关闭 HelloController.java 文件。
 
-1. 使用 Maven 生成 Spring Boot 应用程序，然后运行该程序，例如：
+1. 使用 Maven 生成 Spring Boot 应用程序，并运行该程序，例如：
 
    ```shell
    mvn clean package
    mvn spring-boot:run
    ```
 
-1. 使用 Web 浏览器浏览到 http://localhost:8080 以测试 Web 应用，如果有可用的 Curl，也可使用如以下示例所示的语法：
+1. 使用 Web 浏览器浏览到 http://localhost:8080 以测试 Web 应用；如果有可用的 Curl，也可使用以下示例所示的语法：
 
    ```shell
    curl http://localhost:8080

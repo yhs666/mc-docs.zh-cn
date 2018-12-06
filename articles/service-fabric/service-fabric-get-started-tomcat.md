@@ -15,12 +15,12 @@ ms.workload: NA
 origin.date: 06/08/2018
 ms.date: 09/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 30dfb7240e0f4bfd67d87fe9c8a075ea4311d6ce
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: 288cd0d7c9615e9fe1ae6dde06510872bd494f37
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515803"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675326"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>在 Linux 上创建运行 Apache Tomcat 服务器的 Service Fabric 容器
 Apache Tomcat 是 Java Servlet 和 Java Server 技术的常见开源实现。 本文介绍如何使用 Apache Tomcat 和简单的 Web 应用程序生成容器，然后将该容器部署到运行 Linux 的 Service Fabric 群集并连接到 Web 应用程序。  
@@ -33,7 +33,9 @@ Apache Tomcat 是 Java Servlet 和 Java Server 技术的常见开源实现。 �
   * [适用于 Linux 的 Docker CE](https://docs.docker.com/engine/installation/#prior-releases)。 
   * [Service Fabric CLI](service-fabric-cli.md)
 
-* Azure 容器注册表中的容器注册表。 可以使用 [Azure 门户](../container-registry/container-registry-get-started-portal.md)或 [Azure CLI](./service-fabric-tutorial-create-container-images.md#deploy-azure-container-registry) 在 Azure 订阅中创建容器注册表。 
+* Azure 容器注册表中的容器注册表。 可以使用 [Azure 门户](../container-registry/container-registry-get-started-portal.md)在 Azure 订阅中创建容器注册表。 
+
+<!--Pending on [the Azure CLI](./service-fabric-tutorial-create-container-images.md#deploy-azure-container-registry)-->
 
 ## <a name="build-a-tomcat-image-and-run-it-locally"></a>生成 Tomcat 映像并在本地运行
 按照本部分中的步骤，基于 Apache Tomcat 映像和简单的 Web 应用生成 Docker 映像，然后在本地系统的容器中运行该映像。 
@@ -113,7 +115,7 @@ Apache Tomcat 是 Java Servlet 和 Java Server 技术的常见开源实现。 �
 
 1. 运行 `docker login`，使用[注册表凭据](../container-registry/container-registry-authentication.md)登录到容器注册表。
 
-   以下示例传递了 Azure Active Directory [服务主体](../active-directory/develop/app-objects-and-service-principals.md)的 ID 和密码。 例如，你可能在自动化方案中向注册表分配了服务主体。 或者，可以使用注册表用户名和密码登录。
+   以下示例传递了 Azure Active Directory [服务主体](../active-directory/develop/app-objects-and-service-principals.md)的 ID 和密码。 例如，在自动化方案中，可能已向注册表分配了服务主体。 或者，可以使用注册表用户名和密码登录。
 
    ```bash
    docker login myregistry.azurecr.cn -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -238,7 +240,8 @@ docker rmi myregistry.azurecr.cn/samples/tomcattest
 
 ## <a name="next-steps"></a>后续步骤
 * 有关其他 Linux 容器功能的快速步骤，请参阅[在 Linux 上创建第一个 Service Fabric 容器应用程序](service-fabric-get-started-containers-linux.md)。
-* 有关 Linux 容器的详细步骤，请参阅[创建 Linux 容器应用教程](service-fabric-tutorial-create-container-images.md)。
+
+<!-- Not Available on * For more detailed steps on Linux containers, read the [Create a Linux container app tutorial](service-fabric-tutorial-create-container-images.md) tutorial-->
 * 详细了解如何运行 [Service Fabric 上的容器](service-fabric-containers-overview.md)。
 
 <!-- Update_Description: new articles on service fabric get started tomcat -->

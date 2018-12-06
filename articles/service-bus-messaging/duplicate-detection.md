@@ -1,5 +1,5 @@
 ---
-title: Azure 服务总线重复消息检测
+title: Azure 服务总线重复消息检测 | Azure
 description: 检测重复的服务总线消息
 services: service-bus-messaging
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/25/2018
-ms.date: 10/31/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: e17f596cbe4d5b5de26191deac1a601243554dc7
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.openlocfilehash: da82d354ba907162074d747ffad44880ca740c4d
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409311"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675260"
 ---
 # <a name="duplicate-detection"></a>重复检测
 
@@ -51,7 +51,7 @@ ms.locfileid: "50409311"
 
 通过编程方式，可以结合使用 [QueueDescription.DuplicateDetectionHistoryTimeWindow](/dotnet/api/microsoft.servicebus.messaging.queuedescription.duplicatedetectionhistorytimewindow#Microsoft_ServiceBus_Messaging_QueueDescription_DuplicateDetectionHistoryTimeWindow) 和整个 .NET Framework API，配置重复检测窗口大小，即消息 ID 的保留时长。 借助 Azure 资源管理器 API，可以使用 [queueProperties.duplicateDetectionHistoryTimeWindow](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) 属性设置此值。
 
-请注意，启用重复检测和窗口大小直接影响队列（和主题）的吞吐量，因为必须将记录的所有消息 ID 与新提交的消息标识符进行匹配。
+启用重复检测和窗口大小直接影响队列（和主题）的吞吐量，因为必须将记录的所有消息 ID 都与新提交的消息标识符进行匹配。
 
 一直保持较小的窗口意味着，必须保留和匹配的消息 ID 变少了，吞吐量受到的影响也会降低。 对于需要启用重复检测的高吞吐量实体，设置的窗口应尽可能小。
 

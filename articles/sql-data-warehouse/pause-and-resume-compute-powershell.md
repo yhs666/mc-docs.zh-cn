@@ -8,15 +8,15 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 origin.date: 04/17/2018
-ms.date: 10/15/2018
+ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 258c63b9bec0a3cc42d507b77166348a81e74255
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.openlocfilehash: 6de36fe7406ee16191a22817705aa3d40d356c53
+ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089215"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676906"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>快速入门：使用 PowerShell 暂停和恢复 Azure SQL 数据仓库中的计算
 使用 PowerShell 暂停 Azure SQL 数据仓库中的计算来节约成本。 在准备好使用数据仓库时[还原计算](sql-data-warehouse-manage-compute-overview.md)。
@@ -43,7 +43,7 @@ Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
 Get-AzureRmSubscription
 ```
 
-如果需要使用与默认订阅不同的订阅，请运行 [Select-AzureRmSubscription](https://docs.microsoft.com/en-us/powershell/module/azure/select-azuresubscription?view=azuresmps-4.0.0)。
+如果需要使用与默认订阅不同的订阅，请运行 [Select-AzureRmSubscription]()。
 
 ```powershell
 Select-AzureRmSubscription -SubscriptionName "MySubscription"
@@ -63,34 +63,34 @@ Select-AzureRmSubscription -SubscriptionName "MySubscription"
 
 4. 记下将用作数据库名称的数据仓库名称。 同时记下服务器名称和资源组。 你
 5.  执行暂停和恢复命令时会用到。
-6. 如果服务器是 foo.database.chinacloudapi.cn，请在 PowerShell cmdlet 中仅使用第一部分作为服务器名称。 在上图中，完整的服务器名称为 newserver-20171113.database.chinacloudapi.cn。 删除后缀并使用 newserver-20171113 作为 PowerShell cmdlet 中的服务器名称。
+6. 如果服务器是 foo.database.chinacloudapi.cn，请在 PowerShell cmdlet 中仅使用第一部分作为服务器名称。 在上图中，完整的服务器名称为 newserver-20181129.database.chinacloudapi.cn。 删除后缀并使用“newserver-20181129”作为 PowerShell cmdlet 中的服务器名称。
 
 ## <a name="pause-compute"></a>暂停计算
 为了节省成本，可以按需暂停和恢复计算资源。 例如，如果晚上和周末不使用数据库，那么可以在这些时间暂停数据库的使用，然后在白天时恢复使用。 数据库暂停时，不对计算资源进行收费。 但是，仍将收取存储费用。
 
-若要暂停数据库，请使用 [Suspend-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/suspend-azurermsqldatabase) cmdlet。 以下示例暂停 newserver-20171113 服务器上托管的 mySampleDataWarehouse 数据仓库。 该服务器位于名为 myResourceGroup 的 Azure 资源组中。
+若要暂停数据库，请使用 [Suspend-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/suspend-azurermsqldatabase) cmdlet。 以下示例暂停名为“newserver-20181129”的服务器上托管的名为“mySampleDataWarehouse”的数据仓库。 该服务器位于名为 myResourceGroup 的 Azure 资源组中。
 
 
 ```Powershell
 Suspend-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" `
--ServerName "newserver-20171113" -DatabaseName "mySampleDataWarehouse"
+-ServerName "newserver-20181129" -DatabaseName "mySampleDataWarehouse"
 ```
 
 一种变异，下一个示例将数据库检索到 $database 对象中。 然后，它通过管道将该对象传递给 [Suspend-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/suspend-azurermsqldatabase)。 结果存储在对象 resultDatabase 中。 最后一个命令显示结果。
 
 ```Powershell
 $database = Get-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" `
--ServerName "newserver-20171113" -DatabaseName "mySampleDataWarehouse"
+-ServerName "newserver-20181129" -DatabaseName "mySampleDataWarehouse"
 $resultDatabase = $database | Suspend-AzureRmSqlDatabase
 $resultDatabase
 ```
 
 ## <a name="resume-compute"></a>恢复计算
-若要启动数据库，请使用 [Resume-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/resume-azurermsqldatabase) cmdlet。 以下示例启动 newserver-20171113 服务器上托管的 mySampleDataWarehouse 数据库。 该服务器位于名为 myResourceGroup 的 Azure 资源组中。
+若要启动数据库，请使用 [Resume-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/resume-azurermsqldatabase) cmdlet。 以下示例启动名为“newserver-20181129”的服务器上托管的名为“mySampleDataWarehouse”的数据库。 该服务器位于名为 myResourceGroup 的 Azure 资源组中。
 
 ```Powershell
 Resume-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" `
--ServerName "newserver-20171113" -DatabaseName "mySampleDataWarehouse"
+-ServerName "newserver-20181129" -DatabaseName "mySampleDataWarehouse"
 ```
 
 一种变异，下一个示例将数据库检索到 $database 对象中。 然后，它通过管道将对象传递给 [Resume-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/resume-azurermsqldatabase)，并将结果存储在 $resultDatabase 中。 最后一个命令显示结果。
@@ -119,7 +119,7 @@ $resultDatabase
 
 2. 要删除数据仓库，以便不再为计算或存储付费，请单击“删除”。
 
-3. 若要删除创建的 SQL Server，请单击“mynewserver-20171113.database.chinacloudapi.cn”，然后单击“删除”。  请谨慎执行此删除操作，因为删除服务器的同时也会删除分配给该服务器的所有数据库。
+3. 若要删除创建的 SQL Server，请单击“mynewserver-20181129.database.chinacloudapi.cn”，然后单击“删除”。  请谨慎执行此删除操作，因为删除服务器的同时也会删除分配给该服务器的所有数据库。
 
 4. 要删除资源组，请单击“myResourceGroup”，然后单击“删除资源组”。
 

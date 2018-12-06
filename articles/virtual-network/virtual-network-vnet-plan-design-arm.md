@@ -80,7 +80,7 @@ ms.locfileid: "52646964"
 - 如果子网中不同 VM 需要应用不同的安全规则，则可将 VM 中的网络接口与一个或多个应用程序安全组相关联。 安全规则可以在其源和/或目标中指定应用程序安全组。 该规则仅适用于属于应用程序安全组成员的网络接口。 详细了解[网络安全组](security-overview.md)和[应用程序安全组](security-overview.md#application-security-groups)。
 - Azure 在每个网络安全组中创建了多个默认安全规则。 其中一个默认规则允许所有流量在虚拟网络中的所有资源之间流动。 若要替代此行为，可使用网络安全组和/或自定义路由将流量路由到 NVA。 建议熟悉 Azure 的所有[默认安全规则](security-overview.md#default-security-rules)，并了解网络安全组规则如何应用于资源。
 
-可查看使用 [NVA](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) 或[网络安全组](virtual-networks-dmz-nsg.md)在 Azure 和 Internet 之间实施 DMZ 的示例设计。
+可查看使用 [NVA](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) 或[网络安全组](virtual-networks-dmz-nsg.md)在 Azure 和 Internet 之间实施外围网络的示例设计。
 
 ### <a name="traffic-routing"></a>流量路由
 

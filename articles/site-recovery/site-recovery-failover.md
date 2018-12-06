@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 09/11/2018
 ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 84ed750b90d0b52933f4a8940b8da2f4b2c87a40
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: 80ce8d60cf04b1a0f090c53b43e452f2aa8c9ace
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201454"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675371"
 ---
 # <a name="failover-in-site-recovery"></a>Site Recovery 中的故障转移
 本文介绍了如何对由 Site Recovery 保护的虚拟机和物理服务器进行故障回复。
@@ -40,7 +40,7 @@ ms.locfileid: "47201454"
 1. 选择“**恢复计划**” > “*recoveryplan_name*”。 Click <bpt id="p1">**</bpt>Failover<ept id="p1">**</ept>
 2. 在“故障转移”屏幕上，选择要故障转移到的“恢复点”。 可以使用以下选项之一：
     1.  最新：此选项通过首先处理已发送到 Site Recovery 服务的所有数据来启动作业。 处理数据可为每个虚拟机创建一个恢复点。 虚拟机在故障转移期间使用此恢复点。 此选项提供最低 RPO（恢复点目标），因为故障转移后创建的虚拟机包含触发故障转移时已复制到 Site Recovery 服务的所有数据。
-    1.  **最新处理的**：此选项将恢复计划的所有虚拟机故障转移到已由 Site Recovery 服务处理的最新恢复点。 针对虚拟机执行测试故障转移时，也会显示最新处理的恢复点的时间戳。 如果要针对恢复计划执行故障转移，可以转到单个虚拟机，并查看“最新恢复点”磁贴来获取此信息。 由于不会花费时间来处理未经处理的数据，此选项是 RTO（恢复时间目标）较低的故障转移选项。
+    1.  **最新处理的恢复点**：此选项可将恢复计划的所有虚拟机故障转移到已由 Site Recovery 服务处理的最新恢复点。 针对虚拟机执行测试故障转移时，也会显示最新处理的恢复点的时间戳。 如果要针对恢复计划执行故障转移，可以转到单个虚拟机，并查看“最新恢复点”磁贴来获取此信息。 由于不会花费时间来处理未经处理的数据，此选项是 RTO（恢复时间目标）较低的故障转移选项。
     1.  最新应用一致：此选项将恢复计划的所有虚拟机故障转移到已由 Site Recovery 服务处理的最新应用程序一致恢复点。 对虚拟机执行测试故障转移时，还会显示最新应用一致性恢复点的时间戳。 如果要针对恢复计划执行故障转移，可以转到单个虚拟机，并查看“最新恢复点”磁贴来获取此信息。
     1.  **最新多 VM 已处理**：此选项仅可用于至少有一个虚拟机已启用多 VM 一致性的恢复计划。 属于复制组的虚拟机将故障转移到最新通用多 VM 一致恢复点。 其他虚拟机将故障转移到其最近处理的恢复点。  
     1.  **最新多 VM 应用一致**：此选项仅可用于至少有一个虚拟机已启用多 VM 一致性的恢复计划。 属于复制组的虚拟机将故障转移到最新通用多 VM 应用程序一致恢复点。 其他虚拟机将故障转移到其最新的应用程序一致恢复点。
@@ -106,8 +106,9 @@ ms.locfileid: "47201454"
 在其他所有情况下，此中间步骤都非必需，因而故障转移的耗时会减少。
 
 ## <a name="using-scripts-in-failover"></a>在故障转移中使用脚本
-执行故障转移时，你可能希望自动执行某些操作。 在[恢复计划](site-recovery-create-recovery-plans.md)中使用脚本或 [Azure 自动化 Runbook](site-recovery-runbook-automation.md) 可以实现此目的。
+执行故障转移时，你可能希望自动执行某些操作。 可以使用[恢复计划](site-recovery-create-recovery-plans.md)中的脚本来执行该操作。
 
+<!-- Not Available on [Azure automation runbooks](site-recovery-runbook-automation.md)-->
 ## <a name="post-failover-considerations"></a>故障转移后注意事项
 故障转移后，可能需要考虑以下建议：
 ### <a name="retaining-drive-letter-after-failover"></a>在故障转移后保留驱动器号

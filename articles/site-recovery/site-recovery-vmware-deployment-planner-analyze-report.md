@@ -2,25 +2,19 @@
 title: 适用于 VMware 到 Azure 部署的 Azure Site Recovery Deployment Planner | Azure
 description: 本文介绍如何分析适用于 VMware 到 Azure 方案的 Azure Site Recovery 部署规划器的已生成报表。
 services: site-recovery
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.topic: conceptual
+origin.date: 10/11/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9404eb9e42ddf6445532b023023edf59516a1d96
-ms.sourcegitcommit: f7ff09be9f3be5e3eb795e383c0c670f480f233d
+ms.openlocfilehash: 71cf62dbe43cad270bbf906c386e933aa7ae54d2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39169033"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657183"
 ---
 # <a name="azure-site-recovery-deployment-planner-report"></a>Azure Site Recovery 部署规划器报表
 生成的 Microsoft Excel 报表包含以下工作表：
@@ -136,10 +130,10 @@ VMware 到 Azure 报表的建议表根据选定的所需 RPO 提供以下详细�
 可以通过此摘要了解在使用 Azure Site Recovery 将所有兼容的 VM 转移到 Azure 进行保护时，需要支付的存储、计算、网络和许可证成本。 计算成本时，只针对兼容的 VM，不针对所有受分析的 VM。  
 
 可以按月或按年查看成本。
+
 <!-- Not Avaiable on [supported target regions](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions) -->
 <!-- Not Avaiable on [supported currencies](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies) -->
-
-**按组件成本**：总 DR 成本分为四个部分：计算成本、存储成本、网络成本和 Azure Site Recovery 许可证成本。 成本计算基于在复制时和 DR 演练时上述四个部分（计算、存储（高级和标准）、在本地站点和 Azure 之间配置的 ExpressRoute/VPN，以及 Azure Site Recovery 许可证）所对应的使用量。
+**按组件列出的成本**：总 DR 成本分为四个部分：计算成本、存储成本、网络成本和 Azure Site Recovery 许可证成本。 成本计算基于在复制时和 DR 演练时上述四个部分（计算、存储（高级和标准）、在本地站点和 Azure 之间配置的 ExpressRoute/VPN，以及 Azure Site Recovery 许可证）所对应的使用量。
 
 **按状态成本**：总灾难恢复 (DR) 成本按两种不同的状态（“复制”和“DR 演练”）分类。
 
@@ -169,10 +163,9 @@ VMware 到 Azure 报表的建议表根据选定的所需 RPO 提供以下详细�
 
 **磁盘存储类型**：标准或高级存储帐户，用于复制“要放置的 VM”列中所述的所有相应 VM。
 
-**建议的前缀**：建议的三字符前缀，可用于存储帐户的命名。 可以使用自己的前缀，而该工具的建议则遵循[存储帐户的分区命名约定](https://aka.ms/storage-performance-checklist)。
+**建议的前缀**：建议的三字符前缀，可用于存储帐户的命名。 可以使用自己的前缀，而该工具的建议则遵循 [存储帐户的分区命名约定](https://aka.ms/storage-performance-checklist)。
 
-
-            **建议的帐户名称**：在使用建议的前缀后出现的存储帐户名称。 将尖括号（< 和 >）中的名称替换为自定义输入。
+**建议的帐户名称**：在使用建议的前缀后出现的存储帐户名称。 将尖括号（< 和 >）中的名称替换为自定义输入。
 
 **日志存储帐户**：所有复制日志存储在标准存储帐户中。 对于复制到高级存储帐户的 VM，请设置一个附加的标准存储帐户来进行日志存储。 单个标准日志存储帐户可由多个高级复制存储帐户使用。 复制到标准存储帐户的 VM 为日志使用相同的存储帐户。
 
@@ -297,4 +290,5 @@ VM 上所有磁盘的峰值数据变动量 | 54 MB/秒
 
 ## <a name="next-steps"></a>后续步骤
 详细了解[成本估算](site-recovery-vmware-deployment-planner-cost-estimation.md)。
-<!-- Update_Description: update meta properties, wording update, update link -->
+
+<!-- Update_Description: update meta properties -->

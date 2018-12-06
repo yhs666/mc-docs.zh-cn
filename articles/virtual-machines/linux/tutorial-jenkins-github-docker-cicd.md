@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/27/2017
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: c5cbaf1465993f713e575bec9ab389d38c4182f2
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.openlocfilehash: f44e5cec88ecd3896eaf021aaccc94adc57a8949
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034916"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675556"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>教程：使用 Jenkins、GitHub 和 Docker 在 Azure 中的 Linux VM 上创建开发基础结构
 
@@ -43,12 +43,9 @@ ms.locfileid: "50034916"
 ## <a name="create-jenkins-instance"></a>创建 Jenkins 实例
 在有关[如何在首次启动时自定义 Linux 虚拟机](tutorial-automate-vm-deployment.md)的上一个教程中，你已了解如何使用 cloud-init 自动执行 VM 自定义。 本教程使用 cloud-init 文件在 VM 上安装 Jenkins 和 Docker。 Jenkins 是一种常用的开放源代码自动化服务器，它与 Azure 无缝集成以支持持续集成 (CI) 和持续交付 (CD)。
 
-<!--Not Available [Jenkins in Azure hub](/jenkins/)-->
-
-在当前 shell 中，创建名为 cloud-init.txt 的文件并粘贴下面的配置。 例如，在本地计算机中创建文件。 输入 `sensible-editor cloud-init-jenkins.txt` 以创建文件并查看可用编辑器的列表。请确保已正确复制整个 cloud-init 文件，尤其是第一行：
+<!--Not Available [Jenkins in Azure hub](/jenkins/)--> 在当前 shell 中，创建名为 cloud-init-jenkins.txt 的文件并粘贴下面的配置。 例如，在本地计算机中创建文件。 输入 `sensible-editor cloud-init-jenkins.txt` 以创建文件并查看可用编辑器的列表。 请确保已正确复制整个 cloud-init 文件，尤其是第一行：
 
 <!--Not Available on Cloud Shell -->
-
 ```yaml
 #cloud-config
 package_upgrade: true

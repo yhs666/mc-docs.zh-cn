@@ -1,10 +1,10 @@
 ---
-title: 存储资源管理器入门 | Microsoft Docs
+title: 存储资源管理器入门 | Azure
 description: 利用存储资源管理器来管理 Azure 存储资源
 services: storage
 documentationcenter: na
-author: cawa
-manager: paulyuk
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
 ms.service: storage
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/17/2017
-ms.date: 09/10/2018
-ms.author: v-junlch
-ms.openlocfilehash: 0dd498614289d384f1f2ab23a72c3cd3bf31a8dd
-ms.sourcegitcommit: 40456700212200e707d6cb3147cf96ad161d3ff2
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 186faab50d5df6fcf89fbfe34694b5dd5c794b5e
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44269544"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675425"
 ---
 # <a name="get-started-with-storage-explorer"></a>存储资源管理器入门
 
@@ -36,9 +36,9 @@ Azure 存储资源管理器是一款独立应用，可用于在 Windows、macOS 
 
 以下版本的 Windows 支持 Azure 存储资源管理器：
 
-- Windows 10（推荐）
-- Windows 8
-- Windows 7
+* Windows 10（推荐）
+* Windows 8
+* Windows 7
 
 对于所有 Windows 版本，都需要 .NET Framework 4.6.2 或更高版本。
 
@@ -48,7 +48,7 @@ Azure 存储资源管理器是一款独立应用，可用于在 Windows、macOS 
 
 以下版本的 macOS 支持 Azure 存储资源管理器：
 
-- macOS 10.12“Sierra”及更高版本
+* macOS 10.12“Sierra”及更高版本
 
 [下载并安装存储资源管理器](http://www.storageexplorer.com)
 
@@ -56,9 +56,9 @@ Azure 存储资源管理器是一款独立应用，可用于在 Windows、macOS 
 
 以下 Linux 发行版支持 Azure 存储资源管理器：
 
-- Ubuntu 16.04 x64（推荐）
-- Ubuntu 17.10 x64
-- Ubuntu 14.04 x64
+* Ubuntu 16.04 x64（推荐）
+* Ubuntu 17.10 x64
+* Ubuntu 14.04 x64
 
 Azure 存储资源管理器也许可以在其他发行版上使用，但只有上面列出的是正式受支持的。
 
@@ -77,20 +77,20 @@ Azure 存储资源管理器[发行说明](https://go.microsoft.com/fwlink/?LinkI
 
 ## <a name="connect-to-a-storage-account-or-service"></a>连接到存储帐户或服务
 
-存储资源管理器提供了多种连接到存储帐户的方式。 例如，可以：
+存储资源管理器提供多种连接到存储帐户的方式。 例如，可以：
 
-- 连接到与 Azure 订阅关联的存储帐户。
-- 连接到从其他 Azure 订阅共享的存储帐户和服务。
-- 使用 Azure 存储模拟器连接到本地存储并对其进行管理。
+* 连接到与 Azure 订阅关联的存储帐户。
+* 连接到从其他 Azure 订阅共享的存储帐户和服务。
+* 使用 Azure 存储模拟器连接到本地存储并对其进行管理。
 
 此外，还可以在全球以及各区域 Azure 中使用存储帐户：
 
-- [连接到 Azure 订阅](#connect-to-an-azure-subscription)：管理属于 Azure 订阅的存储资源。
-- [使用本地开发存储](#work-with-local-development-storage)：使用 Azure 存储模拟器管理本地存储。
-- [连接外部存储](#attach-or-detach-an-external-storage-account)：使用存储帐户的名称、密钥和终结点管理属于另一 Azure 订阅或区域 Azure 云的存储资源。
-- [使用 SAS 附加存储帐户](#attach-storage-account-using-sas)：通过共享访问签名 (SAS) 管理属于另一 Azure 订阅的存储资源。
-- [使用 SAS 附加服务](#attach-service-using-sas)：通过 SAS 管理属于另一 Azure 订阅的特定存储服务（Blob 容器、队列或表）。
-- [使用连接字符串连接到 Azure Cosmos DB 帐户](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string)：使用连接字符串管理 Cosmos DB 帐户。
+* [连接到 Azure 订阅](#connect-to-an-azure-subscription)：管理属于 Azure 订阅的存储资源。
+* [使用本地开发存储](#work-with-local-development-storage)：使用 Azure 存储模拟器管理本地存储。
+* [连接外部存储](#attach-or-detach-an-external-storage-account)：使用存储帐户的名称、密钥和终结点管理属于另一 Azure 订阅或区域 Azure 云的存储资源。
+* [使用 SAS 附加存储帐户](#attach-storage-account-using-sas)：通过共享访问签名 (SAS) 管理属于另一 Azure 订阅的存储资源。
+* [使用 SAS 附加服务](#attach-service-using-sas)：通过 SAS 管理属于另一 Azure 订阅的特定存储服务（Blob 容器、队列或表）。
+* [使用连接字符串连接到 Azure Cosmos DB 帐户](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string)：使用连接字符串管理 Cosmos DB 帐户。
 
 ## <a name="connect-to-an-azure-subscription"></a>连接到 Azure 订阅
 
@@ -146,8 +146,8 @@ Azure 存储资源管理器[发行说明](https://go.microsoft.com/fwlink/?LinkI
 
    可以使用此节点创建和使用本地 blob、队列和表。 若要了解如何使用每个存储帐户类型，请参阅以下指南：
 
-   - [管理 Azure Blob 存储资源](vs-azure-tools-storage-explorer-blobs.md)
-   - [管理 Azure 文件存储资源](vs-azure-tools-storage-explorer-files.md)
+   * [管理 Azure Blob 存储资源](vs-azure-tools-storage-explorer-blobs.md)
+   * [管理 Azure 文件存储资源](vs-azure-tools-storage-explorer-files.md)
 
 ## <a name="attach-or-detach-an-external-storage-account"></a>附加或分离外部存储帐户
 
@@ -196,7 +196,7 @@ Azure 存储资源管理器[发行说明](https://go.microsoft.com/fwlink/?LinkI
 
 4. 在“连接摘要”对话框中验证信息。 如果想要更改任何设置，请选择“返回”并重新输入所需的设置。
 
-5. 选择“连接”。
+5. 选择“连接” 。
 
 6. 成功附加存储帐户后，会显示该存储帐户，其名称后面追加了“(外部)”字样。
 
@@ -250,7 +250,7 @@ Azure 订阅的管理员可以通过共享访问签名 ([SAS](storage/common/sto
 
 4. 在“连接摘要”对话框中验证信息。 要进行更改，请选择“上一步”，并输入所需的设置。
 
-5. 选择“连接”。
+5. 选择“连接” 。
 
 6. 成功附加存储帐户后，会显示该存储帐户，其名称后面追加了“(SAS)”字样。
 
@@ -264,7 +264,7 @@ Azure 订阅的管理员可以通过共享访问签名 ([SAS](storage/common/sto
 
 在这种情况下，服务可以是 Blob 容器、队列、表或文件共享。 若要为列出的服务生成 SAS，请参阅：
 
-- [获取 Blob 容器的 SAS](vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
+* [获取 Blob 容器的 SAS](vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
 
 ### <a name="attach-to-the-shared-account-service-by-using-a-sas-uri"></a>使用 SAS URI 附加到共享帐户服务
 
@@ -282,7 +282,7 @@ Azure 订阅的管理员可以通过共享访问签名 ([SAS](storage/common/sto
 
 4. 在“连接摘要”对话框中验证信息。 要进行更改，请选择“上一步”，并输入所需的设置。
 
-5. 选择“连接”。
+5. 选择“连接” 。
 
 6. 成功附加服务后，该服务会显示在“(SAS 附加的服务)”节点下。
 
@@ -298,7 +298,7 @@ Azure 订阅的管理员可以通过共享访问签名 ([SAS](storage/common/sto
 
 2. 选择 Azure Cosmos DB API，粘贴“连接字符串”，然后单击“确定”连接 Azure Cosmos DB 帐户。 有关检索连接字符串的信息，请参阅[获取连接字符串](/cosmos-db/manage-account#get-the--connection-string)。
 
-    ![connection-string][22]
+    ![连接字符串][22]
 
 ## <a name="search-for-storage-accounts"></a>搜索存储帐户
 

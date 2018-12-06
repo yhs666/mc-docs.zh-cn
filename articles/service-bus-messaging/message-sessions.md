@@ -1,5 +1,5 @@
 ---
-title: Azure 服务总线消息会话
+title: Azure 服务总线消息会话 | Azure
 description: 使用会话处理一系列 Azure 服务总线消息。
 services: service-bus-messaging
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/02/2018
-ms.date: 10/31/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 51fab23d65251faf7272d7ef44c7c12f36a14079
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.openlocfilehash: 47efd21987999caefd18f5f914f5f3ed7364acd5
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409307"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675600"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>消息会话：先进先出 (FIFO) 
 

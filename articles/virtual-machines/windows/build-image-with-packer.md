@@ -1,5 +1,5 @@
 ---
-title: 如何使用 Packer 创建 Windows Azure VM 映像 | Azure
+title: 如何使用 Packer 在 Azure 中创建 Windows VM 映像 | Azure
 description: 了解如何使用 Packer 在 Azure 中创建 Windows 虚拟机映像
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 03/29/2018
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 06260d1b6e6928b367795f93feb32233c8e3772b
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.openlocfilehash: 7bfba014169f4bb550524f07b6612660e04aac93
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034898"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675417"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>如何使用 Packer 在 Azure 中创建 Windows 虚拟机映像
 Azure 中的每个虚拟机 (VM) 都是基于定义 Windows 分发和操作系统版本的映像创建的。 映像可以包括预安装的应用程序和配置。 Azure 市场为最常见的操作系统和应用程序环境提供许多第一和第三方映像，或者也可创建满足自身需求的自定义映像。 本文详细介绍了如何使用开源工具 [Packer](https://www.packer.io/) 在 Azure 中定义和生成自定义映像。

@@ -8,18 +8,18 @@ ms.date: 06/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 38c66129ac8244d18b0f94c1485c785015e29ab4
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: 74f0fa0d9c64b62317db4218a7bafa89febfbb14
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068290"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675132"
 ---
 # <a name="use-visual-studio-code-to-debug-multiple-modules-with-azure-iot-edge"></a>使用 Visual Studio Code 通过 Azure IoT Edge 调试多个模块
 本文详细介绍如何使用 [Visual Studio (VS) Code](https://code.visualstudio.com/) 在 IoT Edge 上调试多个模块。
 
 ## <a name="prerequisites"></a>先决条件
-完成[使用 Visual Studio Code 中的多个模块开发 IoT Edge 解决方案](tutorial-multiple-modules-in-vscode.md)教程，并确保在 IoT Edge 设备上至少运行两个模块。
+完成“使用 Visual Studio Code 中的多个模块开发 IoT Edge 解决方案”教程，并确保在 IoT Edge 设备上至少运行两个模块。
 
 ## <a name="multi-target-and-remote-debugging-in-vs-code"></a>VS Code 中的多目标和远程调试
 通过 VS Code 和 Azure IoT Edge 扩展，可将模块进程附加到容器中，无论容器是在开发计算机上运行还是在远程物理 IoT Edge 设备上运行。 调试容器中运行的多个模块，实际上这是在不同的容器中附加多个进程。 调试多个模块时，可使用 VS Code [多目标调试](https://code.visualstudio.com/docs/editor/debugging#_multitarget-debugging)。
@@ -35,7 +35,7 @@ ms.locfileid: "44068290"
 可在 VS Code Docker 资源管理器中检查容器状态，也可通过终端运行 `docker ps` 命令进行检查。
 
 ### <a name="start-debugging-c-function-in-vs-code"></a>开始在 VS Code 中调试 C# 函数
-1. VS Code 将调试配置信息保存在 `launch.json` 文件中，该文件位于工作区的 `.vscode` 文件夹中。 新建 IoT Edge 解决方案时就会生成此 `launch.json` 文件。 每次添加支持调试的新模块时，它都会随之更新。 导航至调试视图，并为 C# 函数模块远程调试选择对应的调试配置文件。
+1. VS Code 将调试配置信息保存在 `launch.json` 文件中，该文件位于工作区的 `.vscode` 文件夹中。 创建新的 IoT Edge 解决方案时就会生成此 `launch.json` 文件。 每次添加支持调试的新模块时，它都会随之更新。 导航至调试视图，并为 C# 函数模块远程调试选择对应的调试配置文件。
 2. 导航到 `run.csx`。 在函数中添加一个断点。
 3. 单击“开始调试”按钮或按 F5，然后选择要附加到的进程。
 4. 在 VS Code 调试视图中，在左侧面板中可以看到变量。 

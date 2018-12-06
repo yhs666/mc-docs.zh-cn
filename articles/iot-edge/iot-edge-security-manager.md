@@ -10,12 +10,12 @@ origin.date: 07/30/2018
 ms.date: 11/05/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: bf70464b4ecbafee009735fbfe311b569a2d9884
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.openlocfilehash: 639657425a5a44189c5f490c25af3834ed75548b
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135810"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675597"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Azure IoT Edge 安全管理器
 
@@ -76,7 +76,7 @@ Edge 安全守护程序的另一个核心原则是最大程度地减小改动。
 
 #### <a name="cloud-interface"></a>云接口
 
-云接口允许 IoT Edge 安全守护程序访问云服务，例如提高设备安全性的云功能（如安全续订）。  例如，IoT Edge 安全守护程序当前使用此接口来访问 Azure IoT 中心[设备预配服务 (DPS)](https://docs.microsoft.com/azure/iot-dps/)，以便进行设备标识生命周期管理。  
+云接口允许 IoT Edge 安全守护程序访问云服务，例如提高设备安全性的云功能（如安全续订）。  例如，IoT Edge 安全守护程序当前使用此接口来访问 Azure IoT 中心设备预配服务 (DPS)，以便进行设备标识生命周期管理。  
 
 #### <a name="management-api"></a>管理 API
 
@@ -124,9 +124,6 @@ IoT Edge 安全管理器的一个主要目标是标识并隔离具有以下任�
 
 阅读博客 [Securing the intelligent edge](https://azure.microsoft.com/blog/securing-the-intelligent-edge/)（保护智能边缘）。
 
-使用 [Linux 虚拟机上的虚拟 TPM](how-to-auto-provision-simulated-device-linux.md) 创建和预配 Edge 设备。
-
-在 Windows 上创建和预配[模拟 TPM Edge 设备](how-to-auto-provision-simulated-device-windows.md)。
 
 <!-- Links -->
 [lnk-edge-blog]: https://azure.microsoft.com/blog/securing-the-intelligent-edge/

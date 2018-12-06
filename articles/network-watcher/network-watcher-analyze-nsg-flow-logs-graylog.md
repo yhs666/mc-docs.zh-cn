@@ -3,7 +3,7 @@ title: 分析 Azure 网络安全组流日志 - Graylog | Azure
 description: 了解如何在 Azure 中使用网络观察程序与 Graylog 来管理和分析网络安全组流日志。
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
+author: lingliw
 manager: digimobile
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/19/2017
-ms.date: 09/30/2018
-ms.author: v-yeche
-ms.openlocfilehash: fc686109cd06ccb835559bb6b1f26814d38f0289
-ms.sourcegitcommit: 432984d85afe6f3da8f211bae0fa98a556785ee8
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.openlocfilehash: ea73e67c98f046fb9526165ccf64fdbddf2be8df
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455396"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675490"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>在 Azure 中使用网络观察程序与 Graylog 来管理和分析网络安全组流日志
 
@@ -39,7 +39,7 @@ ms.locfileid: "47455396"
 
 ### <a name="enable-network-security-group-flow-logging"></a>启用网络安全组流日志记录
 
-对于本方案，必须在帐户的至少一个网络安全组上启用网络安全组流日志记录。 有关启用网络安全组流日志的说明，请参阅以下文章：[网络安全组流日志记录简介](network-watcher-nsg-flow-logging-overview.md)。
+对于本方案，必须在帐户的至少一个网络安全组上启用网络安全组流日志记录。 有关启用网络安全组流日志的说明，请参阅以下文章： [网络安全组流日志记录简介](network-watcher-nsg-flow-logging-overview.md)。
 
 ### <a name="setting-up-graylog"></a>安装 Graylog
 
@@ -52,7 +52,7 @@ ms.locfileid: "47455396"
 
 可根据平台和偏好，以多种方式安装 Graylog。 有关可能的安装方法的完整列表，请参阅 Graylog 的官方[文档](http://docs.graylog.org/en/2.2/pages/installation.html)。 Graylog 服务器应用程序在 Linux 分发版上运行，附带以下先决条件：
 
--  Oracle Java SE 8 或更高版本 - [Oracle 安装文档](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
+-  Java SE 8 或更高版本 - [Azul Azure JDK 文档](https://aka.ms/azure-jdks)
 -  Elastic Search 2.x（2.1.0 或更高版本）– [Elasticsearch 安装文档](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/_installation.html)
 -  MongoDB 2.4 或更高版本 - [MongoDB 安装文档](https://docs.mongodb.com/manual/administration/install-on-linux/)
 
@@ -245,7 +245,7 @@ sudo ./logstash-plugin install logstash-input-azureblob
 
 ## <a name="next-steps"></a>后续步骤
 
-访问[使用 Power BI 可视化网络安全组流日志](network-watcher-visualize-nsg-flow-logs-power-bi.md)，了解如何使用 Power BI 可视化网络安全组流日志。
+访问 [使用 Power BI 可视化网络安全组流日志](network-watcher-visualize-nsg-flow-logs-power-bi.md)，了解如何使用 Power BI 可视化网络安全组流日志。
 
 <!--Update_Description: update meta properties -->
 

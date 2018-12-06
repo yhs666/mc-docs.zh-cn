@@ -2,34 +2,41 @@
 title: 为 Azure 备份配置报表
 description: 使用恢复服务保管库为 Azure 备份配置 Power BI 报表。
 services: backup
-author: adiganmsft
-manager: shivamg
+author: lingliw
+manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-origin.date: 07/26/2018
-ms.date: 10/19/2018
+origin.date: 10/29/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b541f48f9aebadee51a88da708bc2b3dd1143aa4
-ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
+ms.openlocfilehash: 442b24a7aec72ac436b9f378a44a1fa7b714dcd9
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477784"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675632"
 ---
 # <a name="configure-azure-backup-reports"></a>配置 Azure 备份报表
 本文介绍使用恢复服务保管库为 Azure 备份配置报表所需执行的步骤。 另外还介绍如何通过 Power BI 访问报表。 完成这些步骤后，可直接转到 Power BI，以便查看、自定义和创建报表。
 
+> [!IMPORTANT]
+> 从 2018 年 11 月 1 日起，某些客户可能会在 Power BI 的 Azure 备份应用中加载数据时发现问题，其消息指出“我们在 JSON 输入末尾发现额外字符。 此异常由 IDataReader 接口引起。”
+这是由于在将数据加载到存储帐户中时，其格式发生了变化。
+请下载最新的应用（版本 1.8）以避免此问题。
+>
+>
+
 ## <a name="supported-scenarios"></a>支持的方案
 - 使用 Azure 恢复服务代理进行 Azure 虚拟机备份以及将文件和文件夹备份到云时，支持 Azure 备份报表。
-- 暂不支持适用于 Azure SQL 数据库、Data Protection Manager 和 Azure 备份服务器的报表。
+- 目前，Azure SQL 数据库、Azure 文件共享、Data Protection Manager 和 Azure 备份服务器不支持报表。
 - 如果为每个保管库配置同一存储帐户，可以跨保管库和订阅查看报表。 所选存储帐户必须位于恢复服务保管库所在的区域。
 - 在 Power BI 中，报表按计划每 24 小时刷新一次。 也可在 Power BI 中临时刷新报表。 在这种情况下，会使用客户存储帐户中的最新数据来呈现报表。
 
 ## <a name="prerequisites"></a>先决条件
-1. 创建 [Azure 存储帐户](../storage/common/storage-quickstart-create-account.md)，以便为报表配置此帐户。 此存储帐户用于存储报表的相关数据。
-2. [创建 Power BI 帐户](https://powerbi.microsoft.com/landing/signin/)，以便可以使用 Power BI 门户查看、自定义并创建自己的报表。
-3. 向存储帐户订阅和恢复服务保管库订阅注册资源提供程序 Microsoft.insights（如果尚未注册的话），以便报表数据可以流向存储帐户。 同样，必须依次转到 Azure 门户 >“订阅”>“资源提供程序”，并找到此提供程序进行注册。 
+- 创建 [Azure 存储帐户](../storage/common/storage-quickstart-create-account.md)，以便为报表配置此帐户。 此存储帐户用于存储与报表相关的数据。
+- [创建 Power BI 帐户](https://powerbi.microsoft.com/landing/signin/)，以便可以使用 Power BI 门户查看、自定义并创建自己的报表。
+- 注册资源提供程序 Microsoft.insights（如果尚未注册）。 将订阅用于存储帐户和恢复服务保管库，以便报表数据可以流向存储帐户。 要执行此步骤，请转到 Azure 门户，选择“订阅” > “资源提供程序”，并找到此提供程序以进行注册。
 
 ## <a name="configure-storage-account-for-reports"></a>配置报表的存储帐户
 请按以下步骤操作，使用 Azure 门户配置恢复服务保管库的存储帐户。 这是一次性配置。 配置存储帐户后，可以直接转到 Power BI 来查看内容包并使用报表。
@@ -40,7 +47,7 @@ ms.locfileid: "49477784"
 
       ![创建恢复服务保管库步骤 1](./media/backup-azure-vms-encryption/browse-to-rs-vaults.png) <br/>
 
-     此时会显示恢复服务保管库列表。 在恢复服务保管库列表中选择一个保管库。
+   * 此时会显示恢复服务保管库列表。 在恢复服务保管库列表中选择一个保管库。
 
      此时会打开选定的保管库仪表板。
 2. 在保管库下显示的项列表中，选择“监视和报表”部分下的“备份报表”，以配置报表的存储帐户。
@@ -68,23 +75,24 @@ ms.locfileid: "49477784"
       ![查看诊断设置 - 第 9 步](./media/backup-azure-configure-reports/diagnostic-setting-row.png)
 
 > [!NOTE]
-> 通过保存存储帐户完成对报表的配置后，请等待 24 小时，完成初始数据推送。 在该时间之后，才能在 Power BI 中导入 Azure 备份内容包。 有关详细信息，请参阅[“常见问题解答”部分](#frequently-asked-questions)。 
+> 通过保存存储帐户完成对报表的配置后，请等待 24 小时，完成初始数据推送。 仅在此之后才将 Azure 备份应用导入 Power BI。 有关详细信息，请参阅[“常见问题解答”部分](#frequently-asked-questions)。 
 >
 >
 
 ## <a name="view-reports-in-power-bi"></a>在 Power BI 中查看报表 
 使用恢复服务保管库配置报表的存储帐户后，报表数据大约需要 24 小时才会开始流入。 设置存储帐户 24 小时后，请按下列步骤操作，在 Power BI 中查看报表。
-1. [登录](https://powerbi.microsoft.com/landing/signin/) Power BI。
-2. 选择“获取数据”。 在“内容包库”的“服务”下选择“获取”。 按照 [Power BI 文档](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/)中的步骤操作，访问内容包。
+如果要自定义和共享报表，请创建工作区并执行以下步骤
 
-     ![导入内容包](./media/backup-azure-configure-reports/content-pack-import.png)
+1. [登录](https://powerbi.microsoft.com/landing/signin/) Power BI。
+2. 选择“获取数据”。 在“用于创建自己内容的更多方法”中，选择“服务内容包”。 按照 [Power BI 文档](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/)中的步骤连接到服务。
+
 3. 在“搜索”栏中输入“Azure 备份”，然后选择“立即获取”。
 
       ![获取内容包](./media/backup-azure-configure-reports/content-pack-get.png)
 4. 输入在上面的步骤 5 中配置的存储帐户的名称，然后选择“下一步”。
 
     ![输入存储帐户名称](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
-5. 输入此存储帐户的存储帐户密钥。 若要[查看并复制存储访问密钥](../storage/common/storage-account-manage.md#access-keys)，请在 Azure 门户中转到存储帐户。 
+5. 使用身份验证方法“密钥”，输入此存储帐户的存储帐户密钥。 若要[查看并复制存储访问密钥](../storage/common/storage-account-manage.md#access-keys)，请在 Azure 门户中转到存储帐户。 
 
      ![输入存储帐户](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
      
@@ -95,11 +103,9 @@ ms.locfileid: "49477784"
     导入完成后，会看到一条“成功”通知。 如果存储帐户中的数据量很大，则内容包导入时间可能会稍长一点。
     
     ![成功导入内容包](./media/backup-azure-configure-reports/content-pack-import-success.png) <br/>
-    
-7. 成功导入数据后，“Azure 备份”内容包便会显示在导航窗格的“应用”中。 在“仪表板”、“报表”和“数据集”下，此时列表会显示 Azure 备份，带黄色星号表示新导入的报表。
 
-     ![Azure 备份内容包](./media/backup-azure-configure-reports/content-pack-azure-backup.png) <br/>
-     
+7. 成功导入数据后，“Azure 备份”内容包便会显示在导航窗格的“应用”中。 在“仪表板”、“报表”和“数据集”下，该列表现在显示了 Azure 备份。
+
 8. 选择“仪表板”下的“Azure 备份”，显示一组固定的关键报表。
 
       ![Azure 备份仪表板](./media/backup-azure-configure-reports/azure-backup-dashboard.png) <br/>
@@ -110,14 +116,13 @@ ms.locfileid: "49477784"
 
       ![Azure 备份报表选项卡](./media/backup-azure-configure-reports/reports-tab-view.png)
 
-
 ## <a name="frequently-asked-questions"></a>常见问题
 
-1. **如何确定报表数据是否已开始流向存储帐户？**
-    
+**如何确定报表数据是否已开始流向存储帐户？**
+
    转到配置的存储帐户，并选择容器。 如果容器包含 insights-logs-azurebackupreport 条目，则表示报表数据已开始流向存储帐户。
 
-2. **数据多久向存储帐户和 Power BI 中的 Azure 备份内容包推送一次？**
+**数据多久向存储帐户和 Power BI 中的 Azure 备份内容包推送一次？**
 
    在用户配置存储帐户后，数据大约需要 24 小时才能推送到存储帐户。 在这一次初始推送完成后，将按下图中所示频率刷新数据。 
       
@@ -129,22 +134,22 @@ ms.locfileid: "49477784"
 
 * Power BI [计划每天刷新一次](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed)。 对于内容包，可以在 Power BI 中手动刷新数据。
 
-3. **报表可以保留多长时间？** 
+**报表可以保留多长时间？**
 
-   配置存储帐户时，可以在存储帐户中选择报表数据的保持期。 请按照前面所述的“配置报表的存储帐户”部分中的步骤 6 执行操作。 此外，还可以[在 Excel 中分析报表](https://powerbi.microsoft.com/documentation/powerbi-service-analyze-in-excel/)，并保存报表以根据需要延长保持期。
+   配置存储帐户时，可以在存储帐户中选择报表数据的保留期。 请按照前面所述的“配置报表的存储帐户”部分中的步骤 6 执行操作。 此外，还可以[在 Excel 中分析报表](https://powerbi.microsoft.com/documentation/powerbi-service-analyze-in-excel/)，并保存报表以根据需要延长保持期。
 
-4. **配置存储帐户后，报表中是否会显示我的所有数据？**
+**配置存储帐户后，报表中是否会显示我的所有数据？**
 
    配置存储帐户后生成的所有数据都会推送到存储帐户，并会显示在报表中。 不会为报表推送正在进行的作业。 作业完成或失败后，会将其发送到报表。
 
-5. **如果我已配置存储帐户来查看报表，能否更改配置以使用其他存储帐户？**
+**如果我已配置存储帐户来查看报表，能否更改配置以使用其他存储帐户？**
 
    能，可以将配置更改为指向不同的存储帐户。 连接到 Azure 备份内容包时，可使用新配置的存储帐户。 此外，配置其他存储帐户后，新数据便会流向该存储帐户。 更改配置前的旧数据仍会保留在旧存储帐户中。
 
-6. **能否跨保管库和订阅查看报表？** 
+**能否跨保管库和订阅查看报表？**
 
-   能，可以跨各种保管库配置同一存储帐户，以便跨保管库查看报表。 此外，还可以跨订阅为保管库配置同一存储帐户。 然后，可以使用此存储帐户在 Power BI 中连接到 Azure 备份内容包，从而查看报表。 不过，选择的存储帐户应与恢复服务保管库位于同一区域。
-   
+   能，可以跨各种保管库配置同一存储帐户，以便跨保管库查看报表。 此外，还可以跨订阅为保管库配置同一存储帐户。 然后，可以在连接到 Power BI 中的 Azure 备份内容包时使用此存储帐户来查看报表。 所选存储帐户必须位于恢复服务保管库所在的区域。
+
 ## <a name="troubleshooting-errors"></a>排查错误
 | 错误详细信息 | 解决方法 |
 | --- | --- |

@@ -2,20 +2,20 @@
 title: 使用 Azure 流分析实时检测欺诈行为
 description: 了解如何通过流分析创建实时欺诈行为检测解决方案。 使用事件中心进行实时事件处理。
 services: stream-analytics
-author: rockboyfor
-ms.author: v-yeche
+author: lingliw
+ms.author: v-lingwu
 manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 03/28/2017
-ms.date: 08/20/2018
-ms.openlocfilehash: b217add61a2f0d50d8f0d7e3d4c402cf6306f494
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.date: 11/26/2018
+ms.openlocfilehash: aab304eb52d13de4554894e0fb0580bed20cd460
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41705257"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675454"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure 流分析入门：实时检测欺诈行为
 
@@ -40,7 +40,7 @@ ms.locfileid: "41705257"
 在开始之前，请确保具有以下各项：
 
 * 一个 Azure 帐户。
-* 呼叫事件生成器应用 [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip)，可以从 Azure 下载中心下载此应用。 将此包解压缩到计算机上的文件夹中。 如果想要查看源代码，并在调试程序中运行该应用，可从 [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator) 获取应用源代码。 
+* 呼叫事件生成器应用 [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip)，可以从 Azure 下载中心下载此应用。 将此包解压缩到计算机上的文件夹中。 如果想要查看源代码，并在调试程序中运行该应用，可从 [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator) 获取应用源代码。 
 
     >[!NOTE]
     >Windows 可能会阻止下载的 .zip 文件。 如果无法将其解压缩，请右键单击该文件，然后选择“属性”。 如果看到“此文件来自其他计算机，可能被阻止以帮助保护该计算机”的消息，则选择“取消阻止”选项，然后单击“应用”。
@@ -148,7 +148,7 @@ ms.locfileid: "41705257"
 |**记录**|**定义**|
 |----------|--------------|
 |`CallrecTime`|呼叫开始时间的时间戳。 |
-|`SwitchNum`|用于连接呼叫的电话交换机。 在此示例中，交换机是表示来源国家/地区（美国、中国、英国、德国或澳大利亚）的字符串。 |
+|`SwitchNum`|用于连接呼叫的电话交换机。 在此示例中，交换机是表示来源国家/地区（美国、中国、英国或德国）的字符串。 |
 |`CallingNum`|呼叫方的电话号码。 |
 |`CallingIMSI`|国际移动用户标识 (IMSI)。 这是呼叫方的唯一标识符。 |
 |`CalledNum`|呼叫接收人的电话号码。 |
@@ -181,11 +181,10 @@ ms.locfileid: "41705257"
 
 3. 单击“添加流输入”并选择“事件中心”。 然后使用以下信息填充“新建输入”页：
 
-    |**设置**  |建议的值  |**说明**  |
+    |**设置**  |**建议的值**  |**说明**  |
     |---------|---------|---------|
     |输入别名  |  CallStream   |  输入一个名称，用于标识作业的输入。   |
-    |订阅   |  
-            \<订阅\> |  选择包含创建的事件中心的 Azure 订阅。   |
+    |订阅   |  \<订阅\> |  选择包含创建的事件中心的 Azure 订阅。   |
     |事件中心命名空间  |  asa-eh-ns-demo |  输入事件中心命名空间的名称。   |
     |事件中心名称  | asa-eh-frauddetection-demo | 选择事件中心的名称。   |
     |事件中心策略名称  | asa-policy-manage-demo | 选择之前创建的访问策略。   |
@@ -285,11 +284,11 @@ TelcoGenerator 应用正在将呼叫记录发送到事件中心，流分析作�
 
 2. 再次单击“测试”。 在结果中，请注意“WindowEnd”下的时间戳以 5 秒为增量。
 
-    ![用于聚合的流分析作业输出，其中显示生成的 13 条记录](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-aggregation.png)
+   ![用于聚合的流分析作业输出，其中显示生成的 13 条记录](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-aggregation.png)
 
 ### <a name="detect-sim-fraud-using-a-self-join"></a>使用自联接检测 SIM 欺诈
 
-在此示例中，将欺诈使用情况视为来自同一用户的呼叫，但与另一个 5 秒内的呼叫位于不同的位置。 例如，同一用户不能合法地同时从美国和澳大利亚发起呼叫。 
+在此示例中，将欺诈使用情况视为来自同一用户的呼叫，但与另一个 5 秒内的呼叫位于不同的位置。 例如，同一用户不能合法地同时从美国和中国发起呼叫。 
 
 若要检查这些情况，可以使用流数据的自联接基于 `CallRecTime` 值将流联接到自身。 然后，可以查找 `CallingIMSI` 值（始发号码）相同，但 `SwitchNum` 值（来源国家/地区）不同的呼叫记录。
 
@@ -342,11 +341,10 @@ TelcoGenerator 应用正在将呼叫记录发送到事件中心，流分析作�
 
 4. 在“输出”窗格中，单击“添加”，然后选择“BIob 存储”。 使用以下信息填写“新建输出”页：
 
-    |**设置**  |建议的值  |**说明**  |
+    |**设置**  |**建议的值**  |**说明**  |
     |---------|---------|---------|
     |输出别名  |  CallStream-FraudulentCalls   |  输入一个名称，用于标识作业的输出。   |
-    |订阅   |  
-            \<订阅\> |  选择包含已创建的存储帐户的 Azure 订阅。 存储帐户可以在同一订阅中，也可以在另一订阅中。 此示例假定已在同一订阅中创建存储帐户。 |
+    |订阅   |  \<订阅\> |  选择包含已创建的存储帐户的 Azure 订阅。 存储帐户可以在同一订阅中，也可以在另一订阅中。 此示例假定已在同一订阅中创建存储帐户。 |
     |存储帐户  |  asaehstorage |  输入创建的存储帐户的名称。 |
     |容器  | asa-fraudulentcalls-demo | 选择“创建新名称”并输入容器名称。 |
     <br/>

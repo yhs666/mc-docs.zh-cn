@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 06/03/2018
-ms.date: 11/12/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: f1d2dc8362c3f15a58fd3aacc86221540ec498e5
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.openlocfilehash: 6863f76517f7cd885b8723007842c227b5a6959e
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035006"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676029"
 ---
 # <a name="azure-managed-disks-overview"></a>Azure 托管磁盘概述
 
@@ -66,22 +66,26 @@ Azure 磁盘具备 99.999% 的可用性。 数据具有三个副本，高持久�
 
 下面是高级托管磁盘可用的磁盘大小：
 
-| **高级 HDD 托管<br>磁盘类型** | **P4** | **P6** | **P10** | **P15** | **P20** | **P30** | **P40** | **P50** | **P60** | **P70** | **P80** |
-|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
-| 磁盘大小        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB) | 16,384 GiB (16 TiB) | 32,767 GiB (TiB) |
+<!--Notice: P60,P70,P80 are not invalid on mooncake-->
+| **高级 HDD 托管<br>磁盘类型** | **P4** | **P6** | **P10** | **P15** | **P20** | **P30** | **P40** | **P50** |
+|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|
+| 磁盘大小        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) |
 
-下面是标准 SSD 托管磁盘可用的磁盘大小：
+<!--Notice: P60,P70,P80 are not invalid on mooncake--> 下面是标准 SSD 托管磁盘可用的磁盘大小：
 
-| 标准 SSD 托管<br>磁盘类型 | E10 | E15 | E20 | E30 | E40 | E50 | **E60** | **E70** | **E80** |
-|------------------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
-| 磁盘大小        | 128 GiB | 256 GiB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB) | 16,384 GiB (16 TiB) | 32,767 GiB (TiB) |
+<!--Notice: E60,E70,E80 are not invalid on mooncake-->
+| 标准 SSD 托管<br>磁盘类型 | E10 | E15 | E20 | E30 | E40 | E50 |
+|------------------|--------|--------|--------|----------------|----------------|----------------|
+| 磁盘大小        | 128 GiB | 256 GiB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) |
 
-下面是标准 HDD 托管磁盘可用的磁盘大小：
+<!--Notice: E60,E70,E80 are not invalid on mooncake--> 下面是标准 HDD 托管磁盘可用的磁盘大小：
 
-| 标准 HDD 托管<br>磁盘类型 | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60** | **S70** | **S80** |
-|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
-| 磁盘大小        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB) | 16,384 GiB (16 TiB) | 32,767 GiB (TiB) |
+<!--Notice: S60,S70,S80 are not invalid on mooncake-->
+| 标准 HDD 托管<br>磁盘类型 | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** |
+|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|
+| 磁盘大小        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) |
 
+<!--Notice: S60,S70,S80 are not invalid on mooncake-->
 **事务数**：根据在标准托管磁盘上执行的事务数计费。
 
 标准 SSD 盘使用大小为 256 KB 的 IO 单位。 如果要传输的数据小于 256 KB，该数据将被视为 1 个 I/O 单位。 更大的 I/O 大小被视为多个 256 KB 大小的 I/O。 例如，1,100 KB I/O 会被视为 5 个 I/O 单位。
@@ -156,8 +160,8 @@ Azure 磁盘加密允许加密 IaaS 虚拟机使用的 OS 磁盘和数据磁盘�
 * [高级·SSD 盘](../articles/virtual-machines/windows/premium-storage.md)
 
 * [标准 SSD 和 HDD 盘](../articles/virtual-machines/windows/standard-storage.md)
-<!--Not Available on Standard SSD disks -->
 
+<!--Not Available on Standard SSD disks -->
 ### <a name="operational-guidance"></a>操作指南
 
 * [从 AWS 和其他平台迁移到 Azure 中的托管磁盘](../articles/virtual-machines/windows/on-prem-to-azure.md)

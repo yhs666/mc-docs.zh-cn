@@ -7,16 +7,16 @@ manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-origin.date: 08/01/2018
-ms.date: 09/17/2018
+origin.date: 11/15/2018
+ms.date: 11/26/2018
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 5d4761ec72ac8d49a85b895d82ef200d177a4e3f
-ms.sourcegitcommit: 9a82a54c6b6f4d8074139e090011fe05b8018fcf
+ms.openlocfilehash: 1e33b3630862622775dcd94a1d502a08f02edd72
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44363173"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672992"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建和查询 Azure SQL 数据仓库
 
@@ -28,11 +28,11 @@ ms.locfileid: "44363173"
 
 
 > [!NOTE]
-> 创建 SQL 数据仓库可能会导致新的计费服务。  有关详细信息，请参阅 [Azure SQL 数据仓库定价](https://azure.cn/pricing/details/sql-data-warehouse/)。
+> 创建 SQL 数据仓库可能会导致新的计费服务。  有关详细信息，请参阅 [SQL 数据仓库定价](https://azure.cn/pricing/details/sql-data-warehouse/)。
 >
 >
 
-## <a name="log-in-to-azure"></a>登录 Azure
+## <a name="sign-in-to-azure"></a>登录 Azure
 
 使用 [Add-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/add-azurermaccount) 命令登录到 Azure 订阅，并按照屏幕上的说明进行操作。
 
@@ -46,10 +46,10 @@ Add-AzureRmAccount -EnvironmentName AzureChinaCloud
 Get-AzureRmSubscription
 ```
 
-如果需要使用与默认订阅不同的订阅，请运行 [Select-AzureRmSubscription](https://docs.microsoft.com/powershell/module/azurerm.profile/select-azurermsubscription)。
+如果需要使用与默认订阅不同的订阅，请运行 [Set-AzureRmContext](https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext)。
 
 ```powershell
-Select-AzureRmSubscription -SubscriptionName "MySubscription"
+Set-AzureRmContext -SubscriptionName "MySubscription"
 ```
 
 
@@ -63,8 +63,8 @@ $resourcegroupname = "myResourceGroup"
 $location = "ChinaEast"
 # The logical server name: Use a random value or replace with your own value (do not capitalize)
 $servername = "server-$(Get-Random)"
-# Set an admin login and password for your database
-# The login information for the server
+# Set an admin name and password for your database
+# The sign-in information for the server
 $adminlogin = "ServerAdmin"
 $password = "ChangeYourAdminPassword1"
 # The ip address range that you want to allow to access your server - change as appropriate
@@ -94,7 +94,7 @@ New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
 
 ## <a name="configure-a-server-firewall-rule"></a>配置服务器防火墙规则
 
-使用 [New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) 命令创建 [Azure SQL 服务器级防火墙规则](../sql-database/sql-database-firewall-configure.md)。 服务器级防火墙规则允许外部服务器（例如 SQL Server Management Studio 或 SQLCMD 实用程序）通过 SQL 数据仓库服务防火墙连接到 SQL 数据仓库。 在以下示例中，防火墙仅对其他 Azure 资源开放。 要启用外部连接，请将 IP 地址更改为适合你环境的地址。 若要开放所有 IP 地址，请使用 0.0.0.0 作为起始 IP 地址，使用 255.255.255.255 作为结束地址。
+使用 [New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) 命令创建 [Azure SQL 服务器级防火墙规则](../sql-database/sql-database-firewall-configure.md)。 服务器级防火墙规则允许外部服务器（例如 SQL Server Management Studio 或 SQLCMD 实用程序）通过 SQL 数据仓库服务防火墙连接到 SQL 数据仓库。 在以下示例中，防火墙仅对其他 Azure 资源开放。 要启用外部连接，请将 IP 地址更改为适合环境的地址。 若要开放所有 IP 地址，请使用 0.0.0.0 作为起始 IP 地址，使用 255.255.255.255 作为结束地址。
 
 ```powershell
 New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
@@ -103,7 +103,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 ```
 
 > [!NOTE]
-> SQL 数据库和 SQL 数据仓库通过端口 1433 进行通信。 如果尝试从企业网络内部进行连接，则该网络的防火墙可能不允许经端口 1433 的出站流量。 如果是这样，则将无法连接到 Azure SQL 服务器，除非 IT 部门开放了端口 1433。
+> SQL 数据库和 SQL 数据仓库通过端口 1433 进行通信。 如果尝试从企业网络内部进行连接，则该网络的防火墙可能不允许经端口 1433 的出站流量。 如果是这样，则无法连接到 Azure SQL 服务器，除非 IT 部门开放了端口 1433。
 >
 
 
@@ -125,9 +125,9 @@ New-AzureRmSqlDatabase `
 
 * **RequestedServiceObjectiveName**：请求的[数据仓库单位](what-is-a-data-warehouse-unit-dwu-cdwu.md)的数量。 增加此数量会增加计算成本。 有关支持值的列表，请参阅[内存和并发限制](memory-and-concurrency-limits.md)。
 * **DatabaseName**：要创建的 SQL 数据仓库的名称。
-* **ServerName**：用于创建过程的服务器名称。
+* **ServerName**：用于创建过程的服务器的名称。
 * **ResourceGroupName**：要使用的资源组。 若要查找订阅中可用的资源，请使用 Get-AzureResource。
-* **Edition**：必须是“DataWarehouse”才能创建 SQL 数据仓库。
+* **Edition**：必须为“DataWarehouse”才能创建 SQL 数据仓库。
 
 可选参数有：
 
@@ -142,7 +142,7 @@ New-AzureRmSqlDatabase `
 本系列中的其他快速入门教程是在本快速入门的基础上制作的。 
 
 > [!TIP]
-> 如果打算继续使用后续的快速入门教程，请不要清除在本快速入门中创建的资源。 如果不打算继续，请在 Azure 门户中执行以下步骤来删除此快速入门创建的所有资源。
+> 如何打算继续学习后续快速入门教程，请不要清除本快速入门中创建的资源。 如果不打算继续，请在 Azure 门户中执行以下步骤，删除本快速入门创建的所有资源。
 >
 
 ```powershell
@@ -151,6 +151,6 @@ Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 
 ## <a name="next-steps"></a>后续步骤
 
-现已创建数据仓库、防火墙规则、已连接到数据仓库，并运行了几个查询。 若要了解有关 Azure SQL 数据仓库的详细信息，请继续有关加载数据的教程。
+现已创建数据仓库、防火墙规则、连接到数据仓库，并运行了几个查询。 若要了解有关 Azure SQL 数据仓库的详细信息，请继续有关加载数据的教程。
 > [!div class="nextstepaction"]
 >[将数据加载到 SQL 数据仓库](load-data-from-azure-blob-storage-using-polybase.md)

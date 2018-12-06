@@ -1,5 +1,5 @@
 ---
-title: Windows Azure 虚拟机上的 SQL Server 常见问题解答 | Azure
+title: Azure 的 Windows 虚拟机上的 SQL Server 常见问题解答 | Azure
 description: 本文提供有关运行 Azure VM 中的 SQL Server 时遇到的常见问题的解答。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,22 +14,22 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 07/12/2018
-ms.date: 07/30/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1c85ad3fee6684bdb45482023f26865cdcf8def8
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.openlocfilehash: 5b75b50a5bd7b8933bc045512a689bd202e539d3
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306975"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674286"
 ---
-# <a name="frequently-asked-questions-for-sql-server-running-on-windows-azure-virtual-machines"></a>Microsoft Azure 虚拟机上运行的 SQL Server 的常见问题
+# <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Azure 的 Windows 虚拟机上运行的 SQL Server 常见问题解答
 
 > [!div class="op_single_selector"]
 > * [Windows](virtual-machines-windows-sql-server-iaas-faq.md)
 <!-- Not Available on > * [Linux](../../linux/sql/sql-server-linux-faq.md) -->
 
-本文提供有关[在 Windows Azure 虚拟机上运行 SQL Server](https://www.azure.cn/home/features/virtual-machines/#virtual-machine-SQLserver) 时出现的一些最常见问题的解答。
+本文提供有关[在 Azure 的 Windows 虚拟机上运行 SQL Server](https://www.azure.cn/home/features/virtual-machines/#virtual-machine-SQLserver) 时出现的一些最常见问题的解答。
 
 > [!NOTE]
 > 本文重点阐述在 Windows VM 上运行 SQL Server 的特定问题。 
@@ -43,8 +43,8 @@ ms.locfileid: "39306975"
 1. **有哪些 SQL Server 虚拟机库映像可用？**
 
    Azure 为所有 Windows 和 Linux 版本中的所有受支持 SQL Server 主要发行版维护虚拟机映像。 有关更多详细信息，请参阅 [Windows VM 映像](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo)的完整列表。
+   
    <!-- Not Avaiable on [Linux VM images](../../linux/sql/sql-server-linux-virtual-machines-overview.md#create) -->
-
 1. **现有的 SQL Server 虚拟机库映像是否会更新？**
 
    每隔两个月，都会使用最新的 Windows 和 Linux 更新对虚拟机库中的 SQL Server 映像进行更新。 对于 Windows 映像，这包括 Windows 更新中标记为重要的任何更新，以及重要的 SQL Server 安全更新和 Service Pack。 对于 Linux 映像，这包括最新的系统更新。 Linux 和 Windows 的 SQL Server 累积更新以不同的方式进行处理。 对于 Linux，SQL Server 累积更新也包含在刷新中。 但目前，Windows VM 不会连同 SQL Server 或 Windows Server 累积更新一起更新。
@@ -69,7 +69,7 @@ ms.locfileid: "39306975"
 
 1. **如何将本地 SQL Server 数据库迁转到云中？**
 
-   首先，请创建装有 SQL Server 实例的 Azure 虚拟机。 然后将本地数据库迁转到该实例。 有关数据迁移策略，请参阅[将 SQL Server 数据库迁移到 Azure VM 中的 SQL Server](virtual-machines-windows-migrate-sql.md)。
+   首先，请创建装有 SQL Server 实例的 Azure 虚拟机。 然后将本地数据库迁转到该实例。 有关数据迁移策略，请参阅 [将 SQL Server 数据库迁移到 Azure VM 中的 SQL Server](virtual-machines-windows-migrate-sql.md)。
 
 ## <a name="licensing"></a>许可
 
@@ -107,7 +107,7 @@ ms.locfileid: "39306975"
 
 1. **如何将 Azure VM 中的 SQL Server 升级到新版本？**
 
-   目前，对于在 Azure VM 中运行的 SQL Server，不提供就地升级。 因此，请使用所需的 SQL Server 版本创建新的 Azure 虚拟机，然后使用标准[数据迁移技术](virtual-machines-windows-migrate-sql.md)，将数据库迁移到新的服务器。
+   目前，对于在 Azure VM 中运行的 SQL Server，不提供就地升级。 因此，请使用所需的 SQL Server 版本创建新的 Azure 虚拟机，并使用标准 [数据迁移技术](virtual-machines-windows-migrate-sql.md)将数据库迁移到新的服务器。
 
 1. **如何将更新和服务包应用于 SQL Server VM？**
 
@@ -141,11 +141,10 @@ ms.locfileid: "39306975"
 * [Azure 虚拟机中 SQL Server 的性能最佳做法](virtual-machines-windows-sql-performance.md)
 * [Azure 虚拟机中 SQL Server 的应用程序模式和开发策略](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 
-**Linux VM**：
-
-* [Linux VM 上的 SQL Server 概述](../../linux/sql/sql-server-linux-virtual-machines-overview.md)
+<!-- Not Available on **Linux VMs**-->
+<!-- Not Available on * [Overview of SQL Server on a Linux VM](../../linux/sql/sql-server-linux-virtual-machines-overview.md)-->
 <!-- Not Avaiable on * [Provision a SQL Server Linux VM](../../linux/sql/provision-sql-server-linux-virtual-machine.md) -->
 <!-- Not Avaiable on * [FAQ (Linux)](../../linux/sql/sql-server-linux-faq.md) -->
-* [“Linux 上的 SQL Server”文档](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
+<!-- Not Available on * [SQL Server on Linux documentation](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)-->
 
 <!--Update_Description: wording update， update link -->

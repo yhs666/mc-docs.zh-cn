@@ -10,17 +10,17 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 068e2dc7a1519a8002288b20a6964cf809692fd8
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.openlocfilehash: 142acaab08ec0ac0a8c7a8495bcafd1c859a77c6
+ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089233"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676885"
 ---
 # <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>快速入门：在 Azure 门户中暂停和恢复 Azure SQL 数据仓库的计算
 使用 Azure 门户暂停 Azure SQL 数据仓库中的计算来节约成本。 在准备好使用数据仓库时[还原计算](sql-data-warehouse-manage-compute-overview.md)。
 
-如果没有 Azure 订阅，请在开始之前创建一个[免费](https://www.azure.cn/pricing/1rmb-trial/)帐户。
+如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用](https://www.azure.cn/pricing/1rmb-trial/)帐户。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 
@@ -89,7 +89,7 @@ ms.locfileid: "49089233"
 
 2. 要删除数据仓库，以便不再为计算或存储付费，请单击“删除”。
 
-3. 若要删除创建的 SQL Server，请单击“mynewserver-20171113.database.chinacloudapi.cn”，然后单击“删除”。  请谨慎执行此删除操作，因为删除服务器的同时也会删除分配给该服务器的所有数据库。
+3. 若要删除创建的 SQL Server，请单击“mynewserver-20181129.database.chinacloudapi.cn”，然后单击“删除”。  请谨慎执行此删除操作，因为删除服务器的同时也会删除分配给该服务器的所有数据库。
 
 4. 要删除资源组，请单击“myResourceGroup”，然后单击“删除资源组”。
 

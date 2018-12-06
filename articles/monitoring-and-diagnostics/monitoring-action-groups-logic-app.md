@@ -1,23 +1,24 @@
 ---
 title: 如何使用 Azure Monitor 警报触发复杂操作
 description: 了解如何创建逻辑应用操作处理 Azure Monitor 警报。
-author: dkamstra
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 07/18/2018
-ms.author: dukek
+origin.date: 07/18/2018
+ms.date: 11/26/2018
+ms.author: v-lingwu
 ms.component: alerts
-ms.openlocfilehash: 3c1bff98debf426fc02dbd4518c0bb798d7ba96d
-ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
+ms.openlocfilehash: 5fe22b73aae15dbb7bbba49a3f0ed8d4a1f6f22b
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121633"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675231"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>如何使用 Azure Monitor 警报触发复杂操作
 
-本文介绍如何设置和触发逻辑应用，在警报触发时在 Microsoft Teams 中创建对话。
+本文介绍如何设置和触发逻辑应用，在警报触发时在 Azure Teams 中创建对话。
 
 ## <a name="overview"></a>概述
 触发 Azure Monitor 警报时，它将调用[操作组](monitoring-action-groups.md)。 通过操作组可触发一个或多个操作，以告知其他人发生了警报，以及予以补救。
@@ -38,25 +39,25 @@ ms.locfileid: "49121633"
 
 1.  在 Azure 门户的左上角，选择“创建资源”。
 
-2.  搜索并选择“逻辑应用”，然后选择“创建”。
+2.  搜索并选择“逻辑应用”，然后选择“创建”。 **** ****
 
 3.  为逻辑应用指定**名称**，并选择一个**资源组**。
 
-    ![创建逻辑应用](media/monitoring-action-groups/create-logic-app-dialog.png "创建逻辑应用")
+    ![创建逻辑应用](media/monitoring-action-groups-logic-app/create-logic-app-dialog.png "创建逻辑应用")
 
 4.  选择“创建”以创建逻辑应用。 此时会弹出一条消息，指出已创建逻辑应用。 选择“启动资源”打开“逻辑应用设计器”。
 
 5.  选择触发器：“当收到 HTTP 请求时”。
 
-    ![逻辑应用触发器](media/monitoring-action-groups/logic-app-triggers.png "逻辑应用触发器")
+    ![逻辑应用触发器](media/monitoring-action-groups-logic-app/logic-app-triggers.png "逻辑应用触发器")
 
 6.  选择“编辑”更改 HTTP 请求触发器。
 
-    ![HTTP 请求触发器](media/monitoring-action-groups/http-request-trigger-shape.png "HTTP 请求触发器")
+    ![HTTP 请求触发器](media/monitoring-action-groups-logic-app/http-request-trigger-shape.png "HTTP 请求触发器")
 
 7.  选择“使用示例有效负载生成架构”。
 
-    ![使用示例有效负载](media/monitoring-action-groups/use-sample-payload-button.png "使用示例有效负载")
+    ![使用示例有效负载](media/monitoring-action-groups-logic-app/use-sample-payload-button.png "使用示例有效负载")
 
 8.  将以下示例架构复制并粘贴到对话框中。
 
@@ -99,17 +100,17 @@ ms.locfileid: "49121633"
 
 9. “逻辑应用设计器”将显示一个弹出窗口，提醒发送到逻辑应用的请求必须将 **Content-Type** 标头设置为 **application/json**。 关闭该弹出窗口。 Azure Monitor 警报将设置该标头。
 
-    ![设置 Content-Type 标头](media/monitoring-action-groups/content-type-header.png "设置 Content-Type 标头")
+    ![设置 Content-Type 标头](media/monitoring-action-groups-logic-app/content-type-header.png "设置 Content-Type 标头")
 
 10. 依次选择“+ 新建步骤”、“添加操作”。
 
-    ![添加操作](media/monitoring-action-groups/add-action.png "添加操作")
+    ![添加操作](media/monitoring-action-groups-logic-app/add-action.png "添加操作")
 
-11. 搜索并选择 Microsoft Teams 连接器。 选择“Microsoft Teams – 发布消息”操作。
+11. 搜索并选择 Azure Teams 连接器。 选择“Microsoft Teams - 发布消息”操作。
 
-    ![Microsoft Teams 操作](media/monitoring-action-groups/microsoft-teams-actions.png "Microsoft Teams 操作")
+    ![Microsoft Teams 操作](media/monitoring-action-groups-logic-app/microsoft-teams-actions.png "Microsoft Teams 操作")
 
-12. 配置 Microsoft Teams 操作。 “逻辑应用设计器”将要求对 Office 365 帐户进行身份验证。 选择要向其发送消息的“团队 ID”和“通道 ID”。
+12. 配置 Azure Teams 操作。 “逻辑应用设计器”将要求对 Office 365 帐户进行身份验证。 选择要向其发送消息的“团队 ID”和“通道 ID”。
 
 13. 结合使用静态文本和对动态内容中 \<fields\> 的引用来配置消息。 将以下文本复制并粘贴到“消息”字段：
 
@@ -125,13 +126,13 @@ ms.locfileid: "49121633"
     > [!NOTE]
     > 有两个名为 **status** 的动态字段。 将这两个字段添加到消息。 使用 **activityLog** 属性包中的字段，并删除另一个字段。 将鼠标悬停在 **status** 字段上以查看完全限定的字段引用，如以下屏幕截图所示：
 
-    ![Microsoft Teams 操作：发布消息](media/monitoring-action-groups/teams-action-post-message.png "Microsoft Teams 操作：发布消息")
+    ![Microsoft Teams 操作：发布消息](media/monitoring-action-groups-logic-app/teams-action-post-message.png "Microsoft Teams 操作：发布消息")
 
 14. 在“逻辑应用设计器”的顶部，选择“保存”以保存逻辑应用。
 
-15. 打开现有的操作组并添加一个操作，以引用逻辑应用。 如果没有现有的操作组，请参阅[在 Azure 门户中创建和管理操作组](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)以创建一个。 切勿忘记保存更改。
+15. 打开现有的操作组并添加一个操作，以引用逻辑应用。 如果没有现有的操作组，请参阅[在 Azure 门户中创建和管理操作组](/monitoring-and-diagnostics/monitoring-action-groups)以创建一个。 切勿忘记保存更改。
 
-    ![更新操作组](media/monitoring-action-groups/update-action-group.png "更新操作组")
+    ![更新操作组](media/monitoring-action-groups-logic-app/update-action-group.png "更新操作组")
 
 下次警报调用操作组时，将调用该逻辑应用。
 
@@ -192,9 +193,9 @@ Azure Service Health 条目包含在活动日志中。 创建警报的过程类�
        - `eventSource == ServiceHealth`
        - `version == "0.1.1"`
 
-      ![“服务运行状况有效负载条件”](media/monitoring-action-groups/service-health-payload-condition.png "服务运行状况有效负载条件")
+      ![“服务运行状况有效负载条件”](media/monitoring-action-groups-logic-app/service-health-payload-condition.png "服务运行状况有效负载条件")
 
-   1. 在 **if true** 条件中，遵照[创建活动日志警报](#create-an-activity-log-alert-administrative)的步骤 11 到 13 中的说明添加 Microsoft Teams 操作。
+   1. 在 **if true** 条件中，遵照[创建活动日志警报](#create-an-activity-log-alert-administrative)的步骤 11 到 13 中的说明添加 Azure Teams 操作。
 
    1. 使用 HTML 和动态内容的组合定义消息。 将以下内容复制并粘贴到“消息”字段。 将 `[incidentType]`、`[trackingID]`、`[title]` 和 `[communication]` 字段替换为使用相同名称的动态内容标记：
 
@@ -204,22 +205,22 @@ Azure Service Health 条目包含在活动日志中。 创建警报的过程类�
        <strong>Tracking ID:</strong>&nbsp;[trackingId]&nbsp;
        <strong>Title:</strong>&nbsp;[title]</p>
        <p>
-       <a href="https://ms.portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues">For details, log in to the Azure Service Health dashboard.</a>
+       <a href="https://portal.azure.cn/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues">For details, log in to the Azure Service Health dashboard.</a>
        </p>
        <p>[communication]</p>
        ```
 
-       ![“服务运行状况 true 条件下的发布操作”](media/monitoring-action-groups/service-health-true-condition-post-action.png "服务运行状况 true 条件下的发布操作")
+       ![“服务运行状况 true 条件下的发布操作”](media/monitoring-action-groups-logic-app/service-health-true-condition-post-action.png "服务运行状况 true 条件下的发布操作")
 
    1. 对于 **If false** 条件，请提供有用的消息：
 
        ```html
        <p><strong>Service Health Alert</strong></p>
        <p><b>Unrecognized alert schema</b></p>
-       <p><a href="https://ms.portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues">For details, log in to the Azure Service Health dashboard.\</a></p>
+       <p><a href="https://portal.azure.cn/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues">For details, log in to the Azure Service Health dashboard.\</a></p>
        ```
 
-       ![“服务运行状况 false 条件下的发布操作”](media/monitoring-action-groups/service-health-false-condition-post-action.png "服务运行状况 false 条件下的发布操作")
+       ![“服务运行状况 false 条件下的发布操作”](media/monitoring-action-groups-logic-app/service-health-false-condition-post-action.png "服务运行状况 false 条件下的发布操作")
 
 - 步骤 15 相同。 遵照说明保存逻辑应用并更新操作组。
 
@@ -278,20 +279,20 @@ Azure Service Health 条目包含在活动日志中。 创建警报的过程类�
    1. 依次选择“+ 新建步骤”、“添加条件”。 设置以下条件，以便逻辑应用仅在输入数据与下面的值匹配时执行。 在文本框中输入版本值时，请在其周围加上引号 ("2.0") 以确保它被评估为字符串而不是数字类型。  如果返回到该页，系统不会显示引号，但底层代码仍然保持字符串类型。 
        - `schemaId == AzureMonitorMetricAlert`
        - `version == "2.0"`
-       
-       ![“指标警报有效负载条件”](media/monitoring-action-groups/metric-alert-payload-condition.png "指标警报有效负载条件")
 
-   1. 在 **if true** 条件中，添加 **For each** 循环和 Microsoft Teams 操作。 使用 HTML 和动态内容的组合定义消息。
+       ![“指标警报有效负载条件”](media/monitoring-action-groups-logic-app/metric-alert-payload-condition.png "指标警报有效负载条件")
 
-       ![“指标警报 true 件下的发布操作”](media/monitoring-action-groups/metric-alert-true-condition-post-action.png "指标警报 true 件下的发布操作")
+   1. 在 **if true** 条件中，添加 **For each** 循环和 Azure Teams 操作。 使用 HTML 和动态内容的组合定义消息。
 
-   1. 在 **If false** 条件中定义一个 Microsoft Teams 操作，以指出指标警报不符合逻辑应用的预期。 包含 JSON 有效负载。 注意如何在 `json()` 表达式中引用 `triggerBody` 动态内容。
+       ![“指标警报 true 件下的发布操作”](media/monitoring-action-groups-logic-app/metric-alert-true-condition-post-action.png "指标警报 true 件下的发布操作")
 
-       ![“指标警报 false 条件下的发布操作”](media/monitoring-action-groups/metric-alert-false-condition-post-action.png "指标警报 false 条件下的发布操作")
+   1. 在 **If false** 条件中定义一个 Azure Teams 操作，以指出指标警报不符合逻辑应用的预期。 包含 JSON 有效负载。 注意如何在 `json()` 表达式中引用 `triggerBody` 动态内容。
+
+       ![“指标警报 false 条件下的发布操作”](media/monitoring-action-groups-logic-app/metric-alert-false-condition-post-action.png "指标警报 false 条件下的发布操作")
 
 - 步骤 15 相同。 遵照说明保存逻辑应用并更新操作组。
 
-## <a name="calling-other-applications-besides-microsoft-teams"></a>调用除 Microsoft Teams 外的其他应用程序
+## <a name="calling-other-applications-besides-azure-teams"></a>调用除 Azure Teams 外的其他应用程序
 逻辑应用具有大量不同的连接器，可在广泛的应用程序和数据库中触发操作。 Slack、SQL Server、Oracle、Salesforce 只是一些示例。 有关连接器的详细信息，请参阅[逻辑应用连接器](../connectors/apis-list.md)。  
 
 ## <a name="next-steps"></a>后续步骤

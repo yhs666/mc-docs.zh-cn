@@ -7,56 +7,52 @@ manager: digimobile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 09/24/2018
-ms.date: 11/05/2018
+origin.date: 10/26/2018
+ms.date: 12/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: b2f4ef53f591849615498ded57dccfeaae662d82
-ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
+ms.openlocfilehash: 185568014670870630bc868b127fcb9d2863254f
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50204816"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675347"
 ---
 <!-- Notice in meta: 全球分布 to 多个区域分布 -->
 <!-- Notice in meta: 全球范围 to 多个数据中心范围 -->
 # <a name="multiple-region-data-distribution-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 多区域分配数据
-Azure 无所不在 - 遍布多个区域（跨中国的多个地理区域）并且仍在持续扩展中。 凭借其多区域存在和多主数据库支持，Azure 为其开发人员提供的差异化功能之一是能够轻松构建、部署和管理多区域分配式应用程序。
 
-<!-- Notice: 全球 to 多个区域分布 -->
-[Azure Cosmos DB](../cosmos-db/introduction.md) 是 21Vianet 针对任务关键型应用程序提供的多区域分配式多模型数据库服务。 Azure Cosmos DB 在多个区域提供统包多区域分配、[吞吐量和存储弹性缩放](../cosmos-db/partition-data.md)、99% 情况下低至个位数的读写毫秒级延迟、[妥善定义的一致性模型](consistency-levels.md)，以及得到保证的高可用性，所有这些均由[行业领先的综合 SLA](https://www.azure.cn/support/sla/cosmos-db/) 提供支持。 Azure Cosmos DB [自动为所有数据编制索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，无需客户管理架构或索引。
+如今的应用程序需要具备高响应能力并始终联机。 若要实现低延迟和高可用性，需要在与用户关系密切的数据中心内部署这些应用程序的实例。 这些应用程序通常部署在多个数据中心，称为多区域分布式应用程序。 多区域分布式应用程序需要在中国境内都可以以透明方式复制数据的多区域分布式数据库，以确保应用程序能在与用户关系密切的数据副本上执行操作。 Azure Cosmos DB 是一个多区域分布式数据库服务，旨在提供低延迟、吞吐量弹性缩放和妥善定义的语义，以实现数据一致性和高可用性。 简单而言，如果应用程序需要保证在中国任何位置都能提供快速响应、始终联机并需要无限且可弹性缩放的吞吐量和存储，则你应该考虑使用 Azure Cosmos DB 生成应用程序。
 
-<!-- Not Available on Key/Value and Graph -->
-<!-- Notice: 全球分布 to 多个区域分布 -->
-## <a name="multiple-region-distribution-with-multi-master"></a>通过多主数据库功能实现多区域分配
+<!-- Notice: 全球 to 多个区域分布 --> Azure Cosmos DB 是一个基础 Azure 服务，默认可在所有 Azure 区域中使用。 Azure 在中国的 4 个区域运营 Azure 数据中心，并且区域数目在持续增加，以满足不断增长的客户需求。 创建 Azure Cosmos 帐户时，需确定要将其部署在哪些区域。 我们全天候运转 Azure Cosmos DB 服务，让你将工作重心放在自己的应用程序上。
 
-作为云服务，Azure Cosmos DB 经过精心设计，支持将多租户、多区域分配和多主数据库功能用于文档和列系列数据模型。
+<!--Not Available on [Azure regions](https://www.azure.cn/global-infrastructure/regions/)--> 可将数据库配置为多区域分布，并使其可在任何 Azure 中国区域中使用。 为了降低延迟，应将数据定位在靠近用户的位置。 选择所需的区域数目取决于应用程序的多区域覆盖范围以及用户所处的位置。 Azure Cosmos DB 以透明方式将帐户中的所有数据复制到与帐户关联的所有区域。 它提供多区域分布式 Azure Cosmos 数据库和容器的单个系统映像，使应用程序能够在本地读取和写入。 使用 Azure Cosmos DB 可以随时添加或删除与帐户关联的区域。 无需暂停或重新部署应用程序即可添加或删除区域。 得益于该服务提供的多宿主功能，它始终都能保持高可用性。
 
-<!-- Not Available on key-value, graph-->
-![跨 3 个区域进行分区和分布的 Azure Cosmos DB 容器](./media/distribute-data-globally/global-apps.png)
+<!-- Notice: Azure China Regions -->
+## <a name="key-benefits-of-multiple-region-distribution"></a>多区域分布的主要优点
 
-**跨多个 Azure 区域进行分区和分布的一个 Azure Cosmos DB 容器**
+**生成多区域主动-主动应用**：借助多主数据库功能，每个区域都是写入区域（此外还可读）。 多主数据库功能在整个中国保证无限弹性写入可伸缩性、99.999% 的读写可用性，并保证在 99% 的时间内，以小于 10 毫秒的延迟为快速读写提供服务  
 
-正如我们构建 Azure Cosmos DB 时所了解到的那样，添加多区域分发不能事后才进行规划。 不能将其“直接附加”到“单一站点”数据库系统之上。 多区域分布式数据库提供的功能超越了“单一站点”数据库提供的传统地理灾难恢复 (GEO-DR) 提供的功能。 提供异地灾难恢复功能的单站点数据库是分布在多个区域的数据库的严格子集。
+使用 Azure Cosmos DB 的多宿主 API，应用程序始终知道最靠近的区域并将请求发送到该区域。 无需进行任何配置更改就能识别最靠近的区域。 在 Azure Cosmos DB 帐户中添加和删除区域时，无需重新部署应用程序，它会持续保持高可用性。
 
-<!-- Notice: 全球分布 to 多个区域分布 --> 
-<!-- Notice: 全球各地 to 各个区域 --> 
+**生成高响应能力的应用**：可以轻松将应用程序设计为在针对数据库选择的所有区域中，以小于 10 毫秒的延迟执行近实时读取和写入。  Azure Cosmos DB 在内部处理区域之间的数据复制，并保证针对 Azure Cosmos 帐户选择的一致性级别。
 
-使用 Azure Cosmos DB 的统包多区域分配功能，开发人员可以通过数据库日志采用 Lambda 模式，或跨多个区域执行“双写”，而无需构建自己的复制基架。 不建议采用这些方法，因为无法确保此类方法的正确性并提供合理正确的 SLA。
+许多应用程序将受益于多区域（本地）写入功能所带来的性能增强。 某些需要非常一致性的应用程序偏向于将所有写入汇集到单个区域。 为了支持这些应用程序，Azure Cosmos DB 支持单区域和多区域配置。
+
+**生成高度可用的应用**：在多个区域中运行数据库可以提高数据库的可用性。 如果一个区域不可用，其他区域会自动处理应用程序请求。 Azure Cosmos DB 为多区域数据库提供 99.999% 的读取和写入可用性。
+
+**发生区域性服务中断时保持业务连续性**：Azure Cosmos DB 支持区域性服务中断期间的[自动故障转移](how-to-manage-database-account.md#automatic-failover)。 此外，在发生区域性服务中断期间，Azure Cosmos DB 会继续维持其延迟、可用性、一致性和吞吐量方面的 SLA。 为帮助确保整个应用程序高度可用，Azure Cosmos DB 提供手动故障转移 API 来模拟区域性服务中断。 使用此 API 可以执行常规的业务连续性演练。
+
+**多重读取和写入可伸缩性**：使用多主数据库功能，可以在整个中国弹性缩放读取和写入吞吐量。 多主数据库功能保证应用程序针对 Azure Cosmos DB 数据库或容器配置的吞吐量可在所有区域中实现，并受到[有经济保障的 SLA](https://www.azure.cn/support/sla/documentdb/) 的保护。
+
+**多个妥善定义的一致性模型**：Azure Cosmos DB 的复制协议可提供五个妥善定义的、实用且直观的一致性模型。 每个模型在一致性与性能之间提供折衷方案。 使用这些一致性模型可以轻松生成多区域分布式应用程序。
 
 ## <a name="Next Steps"></a>后续步骤
 
-* [Azure Cosmos DB 如何启用统包式多区域分配](distribute-data-globally-turnkey.md)
+阅读以下文章详细了解多区域分布：
 
-* [Azure Cosmos DB 多区域分配的主要优点](distribute-data-globally-benefits.md)
-
-* [如何配置 Azure Cosmos DB 多区域数据库复制](tutorial-global-distribution-sql-api.md)
-
-* [如何为 Azure Cosmos DB 帐户启用多主数据库](enable-multi-master.md)
-
-* [Azure Cosmos DB 中的自动和手动故障转移的工作原理](regional-failover.md)
-
-* [了解 Azure Cosmos DB 中的冲突解决](multi-master-conflict-resolution.md)
-
-* [将多主数据库与开放源代码 NoSQL 数据库结合使用](multi-master-oss-nosql.md)
+* [多区域分布 - 揭秘](global-dist-under-the-hood.md)
+* [如何配置多宿主客户端](how-to-manage-database-account.md#configure-clients-for-multi-homing)
+* [如何在 Azure Cosmos 帐户中添加/删除区域](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+* [如何为 SQL API 帐户创建自定义冲突解决策略](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
 
 <!--Update_Description: update meta properties, wording update, update link -->

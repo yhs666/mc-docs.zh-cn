@@ -1,4 +1,18 @@
-[适用于 .NET 的 Microsoft Azure Configuration Manager 库](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) 提供用于分析配置文件中连接字符串的类。 [CloudConfigurationManager](https://msdn.microsoft.com/library/azure/mt634650.aspx) 类分析配置设置，而不考虑客户端应用程序是在台式计算机、移动设备、Azure 虚拟机还是 Azure 云服务中运行。
+---
+author: rockboyfor
+ms.service: storage
+ms.topic: include
+origin.date: 10/26/2018
+ms.date: 12/03/2018
+ms.author: v-yeche
+ms.openlocfilehash: 928e17a01f48963fc55a2a56affd095a6fa2b54f
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676196"
+---
+[适用于 .NET 的 Azure Configuration Manager 库](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) 提供用于分析配置文件中连接字符串的类。 [CloudConfigurationManager](https://msdn.microsoft.com/library/azure/mt634650.aspx) 类分析配置设置，而不考虑客户端应用程序是在台式计算机、移动设备、Azure 虚拟机还是 Azure 云服务中运行。
 
 若要引用 CloudConfigurationManager 包，请添加以下 `using` 指令：
 
@@ -15,4 +29,3 @@ CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 ```
 
 不一定非要使用 Azure 配置管理器。 也可以使用 API，例如 .NET Framework 的 [ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx) 类。
-

@@ -9,14 +9,14 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 11/15/2017
-ms.date: 09/03/2018
+ms.date: 12/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2fa2c0e6e02097f0cfbb97f0017861c203be23b1
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: 2a5c9a645da88025eda3fc7443b577c440fd9ac7
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164757"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674628"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB 数据库安全性
 
@@ -30,8 +30,8 @@ ms.locfileid: "43164757"
 ## <a name="how-do-i-secure-my-database"></a>如何保护我的数据库？ 
 
 数据安全性的责任由你、客户和数据库提供程序共同分担。 根据所选的数据库提供程序，要承担的责任大小将有所不同。 如果选择本地解决方案，则从终结点保护到硬件物理安全性的所有工作都由你负责 - 这不是一个轻松的任务。 如果选择 Azure Cosmos DB 等 PaaS 云数据库提供程序，要考虑的问题会明显减少。 下图摘自我们的 [Shared Responsibilities for Cloud Computing](https://aka.ms/sharedresponsibility)（云计算的责任分担）白皮书，显示了使用 Azure Cosmos DB 等 PaaS 提供程序时，责任会得到怎样的减轻。
-<!-- Notice: update Microsoft to ours is Correct-->
 
+<!-- Notice: update Microsoft to ours is Correct-->
 ![客户和数据库提供程序的责任](./media/database-security/nosql-database-security-responsibilities.png)
 
 上图显示了高层级的云安全组件，但是，对于数据库解决方案，需要考虑到哪些具体的事项呢？ 如何对不同的解决方案进行比较？ 
@@ -70,7 +70,7 @@ ms.locfileid: "43164757"
 |用户和权限|使用帐户的[主密钥](secure-access-to-data.md#master-key)可为每个数据库创建用户资源和权限资源。 [资源令牌](secure-access-to-data.md#resource-tokens)与数据库中的权限相关联，确定用户是否对数据库中的应用程序资源拥有访问权限（读写、只读或无访问权限）。 应用程序资源包括容器、文档、附件、存储过程、触发器和 UDF。 然后，在身份验证期间，使用资源令牌来允许或拒绝访问资源。<br><br>可以在[保护对 Azure Cosmos DB 资源的访问](secure-access-to-data.md)中了解详细信息。|
 |Active Directory 集成 (RBAC)| 还可以在 Azure 门户中使用访问控制 (IAM) 向数据库帐户提供访问权限，如此表后面的屏幕截图所示。 IAM 提供基于角色的访问控制并与 Active Directory 集成。 对于个人和组，可如下图中所示使用内置角色或自定义角色。|
 |多区域复制|Azure Cosmos DB 提供统包式多区域分发。只需单击一下按钮，就能将数据复制到 Azure 的任何一个跨中国的数据中心。 多区域复制可以实现多区域缩放，以较低的延迟访问中国的数据。<br><br>从安全角度来看，多区域复制可确保数据受到保护，防范区域性故障。<br><br>在[分发多区域数据](distribute-data-globally.md)中了解详细信息。|
-|区域性故障转移|如果已将数据复制到多个数据中心，当区域数据中心脱机时，Azure Cosmos DB 会自动切换操作。 可以使用数据复制到的区域创建故障转移区域的优先级列表。 <br><br>可以在 [Azure Cosmos DB 中的区域性故障转移](regional-failover.md)中了解详细信息。|
+|区域性故障转移|如果已将数据复制到多个数据中心，当区域数据中心脱机时，Azure Cosmos DB 会自动切换操作。 可以使用数据复制到的区域创建故障转移区域的优先级列表。 <br><br>可以在 [Azure Cosmos DB 中的区域性故障转移](high-availability.md)中了解详细信息。|
 |本地复制|即使是在单个数据中心内，Azure Cosmos DB 也会自动复制数据来实现高可用性，并允许选择[一致性级别](consistency-levels.md)。 这可保证为所有单区域帐户和具有松散一致性的所有多区域帐户提供 99.99% 的[可用性 SLA](https://www.azure.cn/support/sla/cosmos-db)，为所有多区域数据库帐户提供 99.999% 的读取可用性。|
 |自动联机备份|Azure Cosmos DB 数据库定期备份并存储在异地冗余的存储中。 <br><br>可以在[使用 Azure Cosmos DB 进行自动联机备份和还原](online-backup-and-restore.md)中了解详细信息。|
 |还原已删除的数据|可以使用自动联机备份来恢复大约 30 天内意外删除的数据。 <br><br>可以在[使用 Azure Cosmos DB 进行自动联机备份和还原](online-backup-and-restore.md)中了解详细信息|
@@ -96,8 +96,6 @@ ms.locfileid: "43164757"
 
 有关主密钥和资源令牌的详细信息，请参阅[保护对 Azure Cosmos DB 数据的访问](secure-access-to-data.md)。
 
-<!-- Not Available on [Azure Cosmos DB diagnostic logging](logging.md) -->
-
-有关 Azure 认证的详细信息，请参阅 [Azure 信任中心](https://www.trustcenter.cn/zh-cn/cloudservices/azure.html)。
+<!-- Not Available on [Azure Cosmos DB diagnostic logging](logging.md) --> 有关 Azure 认证的详细信息，请参阅 [Azure 信任中心](https://www.trustcenter.cn/zh-cn/cloudservices/azure.html)。
 
 <!--Update_Description: update meta properties, wording update, wording update -->

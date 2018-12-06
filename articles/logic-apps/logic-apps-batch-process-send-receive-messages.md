@@ -10,12 +10,12 @@ ms.reviewer: estfan, jonfan, LADocs
 ms.topic: article
 origin.date: 08/19/2018
 ms.date: 11/12/2018
-ms.openlocfilehash: bc1f9692d6ea0bf0db470d147122cd8fdf9fa418
-ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
+ms.openlocfilehash: 2d6bd206c3d4c5f5a997842dcf9eb73fd3b6e27c
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50919111"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675093"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>在 Azure 逻辑应用中发送、接收和批处理消息
 
@@ -59,7 +59,7 @@ ms.locfileid: "50919111"
 
    | 属性 | 说明 | 
    |----------|-------------|
-   | **批处理模式** | - **内联**：用于在批处理触发器中定义发布条件 <br>- **集成帐户**：用于通过[集成帐户](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)定义多个发布条件配置。 使用集成帐户可在一个位置而不是独立的逻辑应用中维护这些配置。 | 
+   | **批处理模式** | **内联**：用于在批处理触发器中定义发布条件  | 
    | **批名称** | 批的名称（在本示例中为“TestBatch”），仅适用于“内联”批处理模式 |  
    | **发布条件** | 仅适用于“内联”批处理模式，选择在处理每个批之前所要满足的条件： <p>- **基于消息计数**：要在批中收集的消息数，例如 10 个消息 <br>- **基于大小**：以字节为单位的最大批大小，例如 100 MB <br>- **基于计划**：发布批的间隔时间和频率，例如 10 分钟。 最小重复周期为 60 秒或 1 分钟。 分数分钟值有效地向上舍入到 1 分钟。 若要指定开始日期和时间，请选择“显示高级选项”。 <br>- **全选**：使用所有指定的条件。 | 
    ||| 

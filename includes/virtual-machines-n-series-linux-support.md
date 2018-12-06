@@ -5,40 +5,37 @@ services: virtual-machines-linux
 author: rockboyfor
 ms.service: virtual-machines-linux
 ms.topic: include
-origin.date: 09/24/2018
-ms.date: 11/12/2018
+origin.date: 11/08/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: e696b531edd4cd8528dd891e01e4aee38a2f4b5e
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.openlocfilehash: fe54c1e16560c68caf1a782ceeec3f65f9367228
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035001"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676155"
 ---
 ## <a name="supported-distributions-and-drivers"></a>支持的分发和驱动程序
 
 ### <a name="nvidia-cuda-drivers"></a>NVIDIA CUDA 驱动程序
 
-仅下表列出的 Linux 发行版支持适用于 NCv3 系列 VM 的 NVIDIA CUDA 驱动程序（对 NV 系列为可选项）。 本文发布时，CUDA 驱动程序信息为最新版本。 有关最新 CUDA 驱动程序，请访问 [NVIDIA](https://developer.nvidia.com/cuda-zone) 网站。 确保安装或升级到最新 CUDA 驱动程序分发软件包。 
+仅下表列出的 Linux 发行版支持适用于 NCv3 系列 VM 的 NVIDIA CUDA 驱动程序。 本文发布时，CUDA 驱动程序信息为最新版本。 有关最新 CUDA 驱动程序，请访问 [NVIDIA](https://developer.nvidia.com/cuda-zone) 网站。 确保安装或升级到最新 CUDA 驱动程序分发软件包。 
 
 <!-- Not Available on NC, NCv2, and ND-series-->
+<!-- Not Available on (optional for NV-series)-->
 
-> [!TIP]
-> 作为一种在 Linux VM 上手动安装 CUDA 驱动程序的替代方法，可以部署 Azure [数据科学虚拟机](../articles/machine-learning/data-science-virtual-machine/overview.md)映像。 用于 Ubuntu 16.04 LTS 或 CentOS 7.4 的 DSVM 版本预安装 NVIDIA CUDA 驱动程序、CUDA 深度神经网络库和其他工具。
+
+<!-- Not Availale on  [Data Science Virtual Machine](../articles/machine-learning/data-science-virtual-machine/overview.md)-->
 
 | 分发 | 驱动程序 |
 | --- | -- | 
-| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 或 7.4<br/><br/> 基于 CentOS 的 7.3 或 7.4 HPC、基于 CentOS 的 7.4 HPC | NVIDIA CUDA 10.0，驱动程序分支为 R410 |
+| Ubuntu 16.04 LTS<br/><br/> 基于 CentOS 的 7.3 或 7.4 HPC、基于 CentOS 的 7.4 HPC | NVIDIA CUDA 10.0，驱动程序分支为 R410 |
 
-### <a name="nvidia-grid-drivers"></a>NVIDIA GRID 驱动程序
+<!-- Not Available on Red Hat Enterprise Linux 7.3 or 7.4-->
 
-Azure 为用作虚拟工作站或用于虚拟应用程序的 NV 系列 VM 重新分发 NVIDIA GRID 驱动程序安装程序。 请仅在下表所列分发上的 Azure NV VM 中安装这些 GRID 驱动程序。 这些驱动程序包括 Azure 中 GRID 虚拟 GPU 软件的授权。
+<!-- Not Available on ### NVIDIA GRID drivers-->
 
-| 分发 | 驱动程序 |
-| --- | -- |
-| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3 或 7.4<br/><br/>基于 CentOS 的 7.3 或 7.4 | NVIDIA GRID 6.2，驱动程序分支为 R390|
-
-> [!WARNING] 
-> 在 Red Hat 产品上安装第三方软件可能会影响 Red Hat 支持条款。 请参阅 [Red Hat 知识库文章](https://access.redhat.com/articles/1067)。
->
+<!-- Not Available on NV-series-->
+<!-- Not Available on [Red Hat Knowledgebase article](https://access.redhat.com/articles/1067)-->
+<!-- Update_Description: update meta properties, wording update -->

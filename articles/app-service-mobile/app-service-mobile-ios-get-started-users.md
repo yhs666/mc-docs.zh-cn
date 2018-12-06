@@ -16,17 +16,17 @@ origin.date: 01/23/2017
 ms.date: 01/29/2018
 ms.author: v-yiso
 ms.openlocfilehash: ad086d6c3d10e05204ac0334b94a6eb59d9f84a6
-ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2018
-ms.locfileid: "27984719"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666705"
 ---
 # <a name="add-authentication-to-your-ios-app"></a>Add authentication to your iOS app（将身份验证添加到 iOS 应用）
 
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-本教程介绍如何使用支持的标识提供者向 [iOS quick start] 项目添加身份验证。 本教程基于 [iOS quick start] （iOS 快速入门）教程，必须先完成该教程。
+本教程介绍如何使用支持的标识提供者向 [iOS 快速入门] 项目添加身份验证。 本教程基于 [iOS 快速入门] 教程，必须先完成该教程。
 
 ##<a name="register"></a>注册应用以进行身份验证并配置应用服务
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
@@ -81,7 +81,7 @@ ms.locfileid: "27984719"
 
     如果未使用 Google 作为标识提供者，请将 google 更改为 microsoftaccount、twitter、facebook 或 windowsazureactivedirectory。 如果使用 Facebook，则必须在应用中[将 Facebook 域添加到允许列表][1]。
 
-    将 **urlScheme** 替换为应用程序的唯一名称。  urlScheme 应与在 Azure 门户中的“允许的外部重定向 URL”字段中指定的 URL 方案协议相同  。 身份验证回调使用 urlScheme 在完成身份验证请求之后切换回到应用。
+    将 **urlScheme** 替换为应用的唯一名称。  urlScheme 应与在 Azure 门户中的“允许的外部重定向 URL”字段中指定的 URL 方案协议相同  。 身份验证回调使用 urlScheme 在完成身份验证请求之后切换回到应用。
 
 2. 将 QSTodoListViewController.m 中 `viewDidLoad` 的 `[self refresh]` 替换为以下代码：
 
@@ -112,7 +112,7 @@ ms.locfileid: "27984719"
     }
     ```
 
-   在行读取 `#pragma mark - Core Data stack`之前直接添加此代码。  用在步骤 1 中使用过的 urlScheme 值替换 _appname_。
+   在行读取 `#pragma mark - Core Data stack`之前直接添加此代码。  将 _appname_ 替换为步骤 1 中使用的 urlScheme 值。
 
 5. 打开 `AppName-Info.plist` 文件（将 AppName 替换为应用的名称），并添加以下代码：
 
@@ -167,7 +167,7 @@ ms.locfileid: "27984719"
 
     如果未使用 Google 作为标识提供者，请将 google 更改为 microsoftaccount、twitter、facebook 或 windowsazureactivedirectory。 如果使用 Facebook，则必须在应用中[将 Facebook 域添加到允许列表][1]。
 
-    将 **urlScheme** 替换为应用程序的唯一名称。  urlScheme 应与在 Azure 门户中的“允许的外部重定向 URL”字段中指定的 URL 方案协议相同  。 身份验证回调使用 urlScheme 在完成身份验证请求之后切换回到应用。
+    将 **urlScheme** 替换为应用的唯一名称。  urlScheme 应与在 Azure 门户中的“允许的外部重定向 URL”字段中指定的 URL 方案协议相同  。 身份验证回调使用 urlScheme 在完成身份验证请求之后切换回到应用。
 
 2. 删除 ToDoTableViewController.swift 中 `viewDidLoad()` 末尾的 `self.refreshControl?.beginRefreshing()` 和 `self.onRefresh(self.refreshControl)` 行。 在其位置上添加对 `loginAndGetData()` 的调用：
 
@@ -220,4 +220,4 @@ ms.locfileid: "27984719"
 [1]: https://developers.facebook.com/docs/ios/ios9#whitelist
 [2]: https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html
 [Azure 门户]: https://portal.azure.cn
-[iOS quick start]: ./app-service-mobile-ios-get-started.md
+[iOS 快速入门]: ./app-service-mobile-ios-get-started.md

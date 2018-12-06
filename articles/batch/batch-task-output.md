@@ -1,9 +1,9 @@
 ---
-title: 将已完成作业和任务的结果或日志持久保存到数据存储 - Azure Batch | Microsoft Docs
+title: 将已完成作业和任务的结果或日志持久保存到数据存储 - Azure Batch | Azure
 description: 了解如何通过不同的选项来持久保存 Batch 任务和作业的输出数据。 可以将数据持久保存到 Azure 存储或其他数据存储。
 services: batch
-author: dlepow
-manager: jeconnoc
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
 ms.service: batch
@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-origin.date: 06/16/2017
-ms.date: 09/26/2018
-ms.author: v-junlch
+origin.date: 11/14/2018
+ms.date: 11/26/2018
+ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e457f120ab5dc0cc7c0eabbd05deb3932541acac
-ms.sourcegitcommit: 5616622f754f3b83c7120a3d1344d0344e03ca61
+ms.openlocfilehash: b536d2b6c2a36054fd4add63e5d6f88dfe5201a8
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47188780"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674743"
 ---
 # <a name="persist-job-and-task-output"></a>持久保存作业和任务输出
 
@@ -29,81 +29,36 @@ ms.locfileid: "47188780"
 任务输出的一些常见示例包括：
 
 - 任务处理输入数据时创建的文件。
-- 与任务执行情况关联的日志文件。 
+- 与任务执行情况关联的日志文件。
 
-本文介绍用于持久保存任务输出的各个选项，以及每个选项最适合的方案。   
-
-## <a name="about-the-batch-file-conventions-standard"></a>关于 Batch 文件约定标准
-
-Batch 定义了一组可选的约定，用于命名 Azure 存储中的任务输出文件。 [Batch 文件约定标准](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)介绍了这些约定。 如果给定的输出文件取决于作业和任务的名称，则文件约定标准决定了 Azure 存储中目标容器和 Blob 路径的名称。
-
-你可以自行决定是否使用文件约定标准来命名输出数据文件。 你还可以任意命名目标容器和 Blob。 如果使用文件约定标准来命名输出文件，则可在 [Azure 门户][portal]中查看输出文件。
-
-可以通过多种不同的方式来使用文件约定标准：
-
-- 如果使用 Batch 服务 API 来持久保存输出文件，则可选择按文件约定标准来命名目标容器和 Blob。 可以使用 Batch 服务 API 通过客户端代码来持久保存输出文件，不需修改任务应用程序。
-- 如果使用 .NET 进行开发，则可使用[适用于 .NET 的 Azure Batch 文件约定库][nuget_package]。 使用此库的一个优点是，可以按 ID 或用途查询输出文件。 可以利用内置的查询功能，轻松地从客户端应用程序或其他任务访问输出文件。 不过，必须修改任务应用程序才能调用文件约定库。 有关详细信息，请查看[适用于 .NET 的文件约定库](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.aspx)的参考。
-- 如果使用 .NET 之外的语言进行开发，则可在应用程序中实现文件约定标准。
-
-## <a name="design-considerations-for-persisting-output"></a>持久保存输出的设计注意事项 
-
-设计 Batch 解决方案时，请考虑以下与作业和任务输出相关的因素。
-
-- **计算节点生存期**：计算节点通常是瞬态的，尤其是在启用了自动缩放的池中。 在某个节点上运行的任务的输出仅在该节点存在时才可用，并且仅在为任务设置的文件保留期内可用。 如果在任务完成以后，可能需要任务生成的输出，则该任务必须将其输出文件上传到某个持久性存储，例如 Azure 存储。
-
-- 输出存储：建议使用 Azure 存储作为任务输出的数据存储，但你可以使用任何持久性存储。 将任务输出写入 Azure 存储的功能已集成到 Batch 服务 API 中。 如果使用其他形式的持久性存储，则需编写应用程序逻辑，自行持久保存任务输出。   
-
-- 输出检索：可以直接从池中的计算节点检索任务输出，也可以从从 Azure 存储或其他数据存储检索，前提是已持久保存任务输出。 若要直接从计算节点检索任务输出，需要获取文件名及其在节点上的输出位置。 如果将任务输出持久保存到 Azure 存储，则需获得 Azure 存储中文件的完整路径，然后才能使用 Azure 存储 SDK 下载输出文件。
-
-- **查看输出**：导航到 Azure 门户中的某个 Batch 任务并选择“节点上的文件”时，将看到与该任务关联的所有文件，而不仅仅是想要查看的输出文件。 同样，计算节点上的文件仅在该节点存在时才可用，并且仅在为任务设置的文件保留时间范围内才可用。 若要查看已持久保存到 Azure 存储的任务输出，可以使用 Azure 门户，也可以使用 Azure 存储客户端应用程序，例如 [Azure 存储资源管理器][storage_explorer]。 若要使用门户或其他工具查看 Azure 存储中的输出数据，必须知道文件的位置，然后直接导航到该位置。
+本文介绍用于持久保存任务输出的各个选项。
 
 ## <a name="options-for-persisting-output"></a>持久保存输出的选项
 
 可以根据方案通过多种不同的方法来持久保存任务输出：
 
-- 使用 Batch 服务 API。  
-- 使用适用于 .NET 的 Batch 文件约定库。  
+- [使用 Batch 服务 API](batch-task-output-files.md)。  
+- [使用适用于 .NET 的 Batch 文件约定库](batch-task-output-file-conventions.md)。  
 - 在应用程序中实现 Batch 文件约定标准。
 - 实现自定义文件移动解决方案。
 
-以下部分更详细地说明了每种方法。
+以下各部分简要介绍每个方法以及持久保存输出的一般设计注意事项。
 
 ### <a name="use-the-batch-service-api"></a>使用 Batch 服务 API
 
-Batch 服务在 2017-05-01 版中增加了支持功能，允许你在[向作业添加单个任务](https://docs.microsoft.com/rest/api/batchservice/add-a-task-to-a-job)或者[向作业添加一组任务](https://docs.microsoft.com/rest/api/batchservice/add-a-collection-of-tasks-to-a-job)时，在 Azure 存储中指定任务数据的输出文件。
+Batch 服务支持在[向作业添加任务](https://docs.microsoft.com/rest/api/batchservice/add-a-task-to-a-job)或[向作业添加任务集合](https://docs.microsoft.com/rest/api/batchservice/add-a-collection-of-tasks-to-a-job)时指定任务数据在 Azure 存储中的输出文件。
 
-Batch 服务 API 允许从使用虚拟机配置创建的池将任务数据持久保存到 Azure 存储帐户。 可以使用 Batch 服务 API 来持久保存任务数据，不需修改任务运行的应用程序。 可以选择按 [Batch 文件约定标准](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)来命名持久保存到 Azure 存储的文件。 
-
-以下情况可以使用 Batch 服务 API 来持久保存任务输出：
-
-- 需要将 Batch 任务和作业管理器任务的数据持久保存在使用虚拟机配置创建的池中。
-- 需要将数据持久保存到使用任意名称的 Azure 存储容器。
-- 需要将数据持久保存到根据 [Batch 文件约定标准](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)命名的 Azure 存储容器。 
-
-> [!NOTE]
-> Batch 服务 API 不允许持久保存在池（使用云服务配置创建）中运行的任务的数据。 若要了解如何在运行云服务配置的池中持久保存任务输出，请参阅[使用适用于 .NET 的 Batch 文件约定库将作业和任务数据持久保存到 Azure 存储](batch-task-output-file-conventions.md)。
-> 
-> 
-
-若要详细了解如何使用 Batch 服务 API 来持久保存任务输出，请参阅[使用 Batch 服务 API 将任务数据持久保存到 Azure 存储](batch-task-output-files.md)。 另请参阅 GitHub 上的 [PersistOutputs][github_persistoutputs] 示例项目，该示例演示了如何使用适用于 .NET 的 Batch 客户端库将任务输出保存到持久存储。
+若要详细了解如何使用 Batch 服务 API 来持久保存任务输出，请参阅[使用 Batch 服务 API 将任务数据持久保存到 Azure 存储](batch-task-output-files.md)。
 
 ### <a name="use-the-batch-file-conventions-library-for-net"></a>使用适用于 .NET 的 Batch 文件约定库
 
+Batch 定义了一组可选的约定，用于命名 Azure 存储中的任务输出文件。 [Batch 文件约定标准](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)介绍了这些约定。 如果给定的输出文件取决于作业和任务的名称，则文件约定标准决定了 Azure 存储中目标容器和 Blob 路径的名称。
+
+你可以自行决定是否使用文件约定标准来命名输出数据文件。 你还可以任意命名目标容器和 Blob。 如果使用文件约定标准来命名输出文件，则可在 [Azure 门户][portal]中查看输出文件。
+
 通过 C# 和 .NET 生成 Batch 解决方案的开发人员可以使用[适用于 .NET 的文件约定库][nuget_package]，按 [Batch 文件约定标准](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)将任务数据持久保存到 Azure 存储帐户。 文件约定库负责将输出文件移至 Azure 存储，并以已知方式对目标容器和 Blob 命名。
 
-文件约定库支持按 ID 或用途查询输出文件，因此，即使没有完整的文件 URI 也可以轻松地找到这些文件。 
-
-以下情况可以使用适用于 .NET 的 Batch 文件约定库来持久保存任务输出：
-
-- 需要在任务仍运行的情况下，将数据流式传输到 Azure 存储。
-- 需要在使用云服务配置或虚拟机配置创建的池中持久保存数据。
-- 客户端应用程序或作业中的其他任务需按 ID 或用途找出并下载任务输出文件。 
-- 想要执行检查点或初始结果的早期上传。
-- 需在 Azure 门户中查看任务输出。
-
-若要详细了解如何使用适用于 .NET 的文件约定库来持久保存任务输出，请参阅[使用适用于 .NET 的 Batch 文件约定库将作业和任务数据持久保存到 Azure 存储](batch-task-output-file-conventions.md)。 另请参阅 GitHub 上的 [PersistOutputs][github_persistoutputs] 示例项目，该示例演示了如何使用适用于 .NET 的文件约定库将任务输出保存到持久存储。
-
-GitHub 上的 [PersistOutputs][github_persistoutputs] 示例项目演示了如何使用适用于 .NET 的 Batch 客户端库将任务输出保存到持久存储。
+有关使用适用于 .NET 的文件约定库保存任务输出的详细信息，请参阅[使用适用于 .NET 的 Batch 文件约定库将作业和任务数据保存到 Azure 存储](batch-task-output-file-conventions.md)。
 
 ### <a name="implement-the-batch-file-conventions-standard"></a>实现 Batch 文件约定标准
 
@@ -117,7 +72,19 @@ GitHub 上的 [PersistOutputs][github_persistoutputs] 示例项目演示了如�
 
 - 需将任务数据持久保存到 Azure 存储之外的其他数据存储。 若要将文件上传到 Azure SQL 或 Azure DataLake 之类的数据存储，可以创建一个自定义脚本或可执行文件，以便将文件上传到该位置。 运行主要的可执行文件以后，即可在命令行中进行调用。 例如，可以在 Windows 节点上调用以下两个命令：`doMyWork.exe && uploadMyFilesToSql.exe`
 - 需对初始结果执行检查点或提前上传操作。
-- 需对错误处理保持精细控制。 例如，如果需要使用任务依赖关系操作根据特定的任务退出代码来执行某些上传操作，则可能需要实现你自己的解决方案。 有关任务依赖关系操作的详细信息，请参阅[创建任务依赖关系，以运行依赖于其他任务的任务](batch-task-dependencies.md)。 
+- 需对错误处理保持精细控制。 例如，如果需要使用任务依赖关系操作根据特定的任务退出代码来执行某些上传操作，则可能需要实现你自己的解决方案。 有关任务依赖关系操作的详细信息，请参阅[创建任务依赖关系，以运行依赖于其他任务的任务](batch-task-dependencies.md)。
+
+## <a name="design-considerations-for-persisting-output"></a>持久保存输出的设计注意事项
+
+设计 Batch 解决方案时，请考虑以下与作业和任务输出相关的因素。
+
+- **计算节点生存期**：计算节点通常是瞬态的，尤其是在启用了自动缩放的池中。 在某个节点上运行的任务的输出仅在该节点存在时才可用，并且仅在为任务设置的文件保留期内可用。 如果在任务完成以后，可能需要任务生成的输出，则该任务必须将其输出文件上传到某个持久性存储，例如 Azure 存储。
+
+- 输出存储：建议使用 Azure 存储作为任务输出的数据存储，但你可以使用任何持久性存储。 将任务输出写入 Azure 存储的功能已集成到 Batch 服务 API 中。 如果使用其他形式的持久性存储，则需编写应用程序逻辑，自行持久保存任务输出。
+
+- 输出检索：可以直接从池中的计算节点检索任务输出，也可以从从 Azure 存储或其他数据存储检索，前提是已持久保存任务输出。 若要直接从计算节点检索任务输出，需要获取文件名及其在节点上的输出位置。 如果将任务输出持久保存到 Azure 存储，则需获得 Azure 存储中文件的完整路径，然后才能使用世纪互联 Azure 存储 SDK 下载输出文件。
+
+- **查看输出**：导航到 Azure 门户中的某个 Batch 任务并选择“节点上的文件”时，会看到与该任务关联的所有文件，而不仅仅是想要查看的输出文件。 同样，计算节点上的文件仅在该节点存在时才可用，并且仅在为任务设置的文件保留时间范围内才可用。 若要查看已持久保存到 Azure 存储的任务输出，可以使用 Azure 门户，也可以使用 Azure 存储客户端应用程序，例如 [Azure 存储资源管理器][storage_explorer]。 若要使用门户或其他工具查看 Azure 存储中的输出数据，必须知道文件的位置，然后直接导航到该位置。
 
 ## <a name="next-steps"></a>后续步骤
 

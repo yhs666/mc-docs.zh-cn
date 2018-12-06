@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/07/2017
-ms.date: 09/30/2018
+ms.date: 12/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 09b3da8ae18360622250323bb188fd5ebbf75709
-ms.sourcegitcommit: 646d5cc64acaa91696537d09858b989336ebd3c3
+ms.openlocfilehash: 2526c3634628314a7dd15f4842d33c88f3be09b9
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49451556"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674732"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Azure Cosmos DB 常见用例
 本文概述了 Azure Cosmos DB 的几个常见用例。  本文中的建议可以作为使用 Cosmos DB 开发应用程序的一个起点。   
@@ -32,6 +32,7 @@ ms.locfileid: "49451556"
 <!-- Notice: 全球 to 多个区域 -->
 
 Azure Cosmos DB 是在各种应用程序和用例中广泛使用的多区域分布式多模型数据库。 它以可扩展的方式原生支持多种数据模型（文档和纵栏式）和许多用于数据访问的 API，包括 [MongoDB API](mongodb-introduction.md) 和 [SQL API](documentdb-introduction.md)。 
+
 <!--Not Available on [Graph API (Gremlin)](graph-introduction.md) -->
 <!--Not Available on  [Tables API](table-introduction.md) -->
 <!-- Notice: 全球 to 多个区域 -->
@@ -70,8 +71,8 @@ Azure Cosmos DB 广泛用于世纪互联旗下运行 Windows 应用商店和 XBo
 ![Azure Cosmos DB 零售目录参考体系结构](./media/use-cases/product-catalog.png)
 
 Azure Cosmos DB 通常用于事件寻源，可使用其[更改源](change-feed.md)功能为事件驱动的体系结构提供动力。 更改源使下游微服务能够可靠地以增量方式读取针对 Azure Cosmos DB 所做的插入和更新（例如订单事件）。 利用此功能可以提供一个持久性的事件存储作为状态不断变化的事件的消息中转站，并驱动许多微服务之间的订单处理工作流。
-<!-- Not Available  [serverless Azure Functions](http://azure.com/serverless)). -->
 
+<!-- Not Available  [serverless Azure Functions](http://azure.com/serverless)). -->
 ![Azure Cosmos DB 订单管道参考体系结构](./media/use-cases/event-sourcing.png)
 
 此外，Azure Cosmos DB 中存储的数据可与 HDInsight 集成，通过 Apache Spark 作业进行大数据分析。

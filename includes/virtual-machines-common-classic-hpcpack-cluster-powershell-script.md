@@ -1,11 +1,25 @@
+---
+author: rockboyfor
+ms.service: virtual-machines
+ms.topic: include
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
+ms.openlocfilehash: 2adeb0b9f9af9f7db470352b211763fe11a372a9
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52677215"
+---
 根据环境和选择，该脚本可以创建所有群集基础结构，包括 Azure 虚拟网络、存储帐户、云服务、域控制器、远程或本地 SQL 数据库、头节点和其他群集节点。 或者，该脚本可以使用预先存在的 Azure 基础结构仅创建 HPC 群集节点。
 
 有关规划 HPC Pack 群集的背景信息，请参阅 HPC Pack 2012 R2 TechNet 库中的[产品评估和规划](https://technet.microsoft.com/library/jj899596.aspx)及[入门](https://technet.microsoft.com/library/jj899590.aspx)内容。
 
 ## <a name="prerequisites"></a>先决条件
-* **Azure 订阅**：可以使用 Azure 全球或 Azure 中国服务中的订阅。 订阅限制会影响可部署的群集节点数目和类型。 
-* **安装并配置了 Azure PowerShell 0.8.10 或更高版本的 Windows 客户端计算机** - 有关安装说明和 Azure 订阅的连接步骤，请参阅 [Azure PowerShell 入门](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。
-* **HPC Pack IaaS 部署脚本**：从 [Microsoft 下载中心](https://www.microsoft.com/download/details.aspx?id=44949)下载并解压缩最新版本的脚本。 通过运行 `New-HPCIaaSCluster.ps1 -Version`检查脚本的版本。 本文基于版本 4.5.2 的脚本。
+* **Azure 订阅**：可以使用 Azure 全球或 Azure 中国服务中的订阅。 订阅限制会影响可以部署的群集节点数量和类型。 有关信息，请参阅 [Azure 订阅和服务限制、配额和约束](../articles/azure-subscription-service-limits.md)。
+* **安装并配置了 Azure PowerShell 0.8.10 或更高版本的 Windows 客户端计算机**：有关安装说明和用于连接到 Azure 订阅的步骤，请参阅 [Azure PowerShell 入门](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) 。
+* **HPC Pack IaaS 部署脚本**：从[下载中心](https://www.microsoft.com/download/details.aspx?id=44949)下载并解压缩最新版本的脚本。 通过运行 `New-HPCIaaSCluster.ps1 -Version`检查脚本的版本。 本文基于版本 4.5.2 的脚本。
 * **脚本配置文件**：创建 XML 文件，以供脚本用来配置 HPC 群集。 有关信息和示例，请参阅本文后面的章节和部署脚本随附的文件 Manual.rtf。
 
 ## <a name="syntax"></a>语法
@@ -17,11 +31,11 @@ New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminP
 > 
 > 
 
-### <a name="parameters"></a>Parameters
+### <a name="parameters"></a>parameters
 * **ConfigFile**：指定描述 HPC 群集的配置文件的路径。 详细了解本主题中的配置文件，或包含该脚本的文件夹中的 Manual.rtf 文件。
 * **AdminUserName**：指定用户名。 如果域林是由脚本创建的，则此用户名会成为所有 VM 的本地管理员用户名以及域管理员名称。 如果域林已存在，则此参数会将域用户指定为安装 HPC Pack 的本地管理员用户名。
 * **AdminPassword**：指定管理员的密码。 如果未在命令行中指定，脚本会提示用户输入密码。
-* **HPCImageName**（可选）：指定用于部署 HPC 群集的 HPC Pack VM 映像名称。 它必须是 Microsoft 通过 Azure 应用商店提供的 HPC Pack 映像。 如果未指定（通常不建议指定），脚本会选择最新发布的 HPC Pack 2012 R2 映像。 最新映像基于装有 HPC Pack 2012 R2 Update 3 的 Windows Server 2012 R2 Datacenter。
+* **HPCImageName**（可选）：指定用于部署 HPC 群集的 HPC Pack VM 映像名称。 它必须是 Microsoft 通过 Azure 市场提供的 HPC Pack 映像。 如果未指定（通常不建议指定），脚本会选择最新发布的 HPC Pack 2012 R2 映像。 最新映像基于装有 HPC Pack 2012 R2 Update 3 的 Windows Server 2012 R2 Datacenter。
 
   > [!NOTE]
   > 指定无效的 HPC Pack 映像会导致部署失败。
@@ -50,3 +64,5 @@ New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminP
 
 ## <a name="configuration-file"></a>配置文件
 部署脚本的配置文件是一个 XML 文件。 架构文件 HPCIaaSClusterConfig.xsd 位于 HPC Pack IaaS 部署脚本文件夹中。 **IaaSClusterConfig** 是配置文件的根元素，其中包含部署脚本文件夹中 Manual.rtf 文件详细描述的子元素。
+
+<!-- Update_Description: update meta properties -->

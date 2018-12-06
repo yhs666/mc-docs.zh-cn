@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-origin.date: 05/11/2018
-ms.date: 10/22/2018
+origin.date: 11/15/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: dc7fe45c96c1ab00a0ddf79bd90915f01892cc81
-ms.sourcegitcommit: 96b58e881dba2fd02665d806d7c27d770326b0cc
+ms.openlocfilehash: d063f8fa2bc0aa41311c94c95b432c1b0ff1939b
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652015"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675109"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>排查 Azure Windows 虚拟机激活问题
 
@@ -30,15 +30,14 @@ ms.locfileid: "49652015"
 Azure 使用不同的终结点进行 KMS 激活，具体取决于 VM 所在的云区域。 使用本故障排除指南时，请使用适用于你所在区域的相应 KMS 终结点。
 
 * Azure 公有云区域：kms.core.windows.net:1688
-
-<!--Notice: Azure public cloud regions is correct on  core.windows.net -->
-* Azure 中国国家云区域：kms.core.chinacloudapi.cn:1688
+* Azure 中国世纪互联国家云区域：kms.core.chinacloudapi.cn:1688
 * Azure 德国国家云区域：kms.core.cloudapi.de:1688
 * Azure US Gov 国家云区域：kms.core.usgovcloudapi.net:1688
 
+<!--Notice on Line 28: Azure public cloud regions is correct on  core.windows.net -->
 ## <a name="symptom"></a>症状
 
-尝试激活 Azure Windows VM 时，会看到类似于以下示例的错误消息：
+尝试激活 Azure Windows VM 时，会收到类似于以下示例的错误消息：
 
 **错误: 0xC004F074 软件授权服务报告无法激活计算机。无法联系任何密钥管理服务(KMS)。有关其他信息，请参阅应用程序事件日志。**
 
@@ -50,9 +49,9 @@ Azure 使用不同的终结点进行 KMS 激活，具体取决于 VM 所在的�
 ## <a name="solution"></a>解决方案
 
 >[!NOTE]
->如果使用的是站点间 VPN 和强制隧道，请参阅[使用 Azure 自定义路由通过强制隧道启用 KMS 激活](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx)。 
+>如果使用的是站点到站点 VPN 和强制隧道，请参阅 [Use Azure custom routes to enable KMS activation with forced tunneling](https://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx)（使用 Azure 自定义路由通过强制隧道启用 KMS 激活）。 
 >
->如果使用的是 ExpressRoute 且已发布默认路由，请参阅 [Azure VM 可能无法通过 ExpressRoute 激活](http://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx)。
+>如果使用的是 ExpressRoute 且已发布默认路由，请参阅 [Azure VM 可能无法通过 ExpressRoute 激活](https://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx)。
 
 ### <a name="step-1-configure-the-appropriate-kms-client-setup-key-for-windows-server-2016-and-windows-server-2012-r2"></a>第 1 步：配置相应的 KMS 客户端安装密钥（对于 Windows Server 2016 和 Windows Server 2012 R2）
 
@@ -60,7 +59,7 @@ Azure 使用不同的终结点进行 KMS 激活，具体取决于 VM 所在的�
 
 这一步不适用于 Windows 2012 或 Windows 2008 R2。 因为使用的自动虚拟机激活 (AVMA) 功能仅受 Windows Server 2016 和 Windows Server 2012 R2 支持。
 
-1. 在提升的命令提示符处，运行 **slmgr.vbs /dlv**。 检查输出中的 Description 值，并确定是通过零售 (RETAIL channel) 还是通过卷 (VOLUME_KMSCLIENT) 许可证介质创建的：
+1. 在提升的命令提示符处，运行 **slmgr.vbs /dlv**。 检查输出中的 Description 值，并确定它是通过零售（RETAIL 渠道）还是批量 (VOLUME_KMSCLIENT) 许可证介质创建的：
 
     ```
     cscript c:\windows\system32\slmgr.vbs /dlv
@@ -91,8 +90,7 @@ Azure 使用不同的终结点进行 KMS 激活，具体取决于 VM 所在的�
 3. 请确保 VM 已配置为使用正确的 Azure KMS 服务器。 为此，请运行以下命令：
 
     ```
-    iex "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms
-    kms.core.chinacloudapi.cn:1688
+    iex "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.chinacloudapi.cn:1688"
     ```
     此命令应返回：密钥管理服务计算机名称已成功设置为 kms.core.chinacloudapi.cn:1688。
 
@@ -108,9 +106,9 @@ Azure 使用不同的终结点进行 KMS 激活，具体取决于 VM 所在的�
 
   请注意，如果从虚拟网络中删除所有 DNS 服务器，VM 会使用 Azure 的内部 DNS 服务。 此服务可以解析 kms.core.chinacloudapi.cn。
 
-此外，还要验证来宾防火墙是否未配置为阻止激活尝试。
+另请验证是否未以会阻止激活尝试的方式配置来宾防火墙。
 
-5. 验证成功连接到 kms.core.chinacloudapi.cn 后，在提升的 Windows PowerShell 提示符处运行以下命令。 此命令可多次尝试激活。
+5. 验证成功连接到 kms.core.chinacloudapi.cn 后，请在提升的 Windows PowerShell 提示符处运行以下命令。 此命令可多次尝试激活。
 
     ```
     1..12 | % { iex "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato" ; start-sleep 5 }
@@ -132,7 +130,7 @@ Azure 使用不同的终结点进行 KMS 激活，具体取决于 VM 所在的�
 
 ### <a name="what-happens-if-windows-activation-period-expires"></a>如果 Windows 激活已过期，会出现什么情况？ 
 
-如果宽限期已过期且 Windows 仍未激活，Windows Server 2008 R2 及更高版本的 Windows 会显示有关激活的其他通知。 桌面壁纸会保持黑色不变，并且 Windows 更新会仅安装安全更新程序和关键更新，而不安装可选更新。 请参阅[授权条件](http://technet.microsoft.com/library/ff793403.aspx)页底部的“通知”部分。   
+如果宽限期已过期且 Windows 仍未激活，Windows Server 2008 R2 及更高版本的 Windows 会显示有关激活的其他通知。 桌面壁纸会保持黑色不变，并且 Windows 更新会仅安装安全更新程序和关键更新，而不安装可选更新。 请参阅[授权条件](https://technet.microsoft.com/library/ff793403.aspx)页底部的“通知”部分。   
 
 ## <a name="need-help-contact-support"></a>需要帮助？ 请联系支持人员。
 如果仍需要帮助，可 [联系支持人员](https://www.azure.cn/support/support-azure/) 来快速解决问题。

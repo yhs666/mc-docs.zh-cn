@@ -12,14 +12,14 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 origin.date: 11/16/2017
-ms.author: v-yiso
-ms.date: 06/18/2018
-ms.openlocfilehash: 3948373a3a7e001806418b48680a92885f3b91e6
-ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
+ms.author: v-biyu
+ms.date: 12/03/2018
+ms.openlocfilehash: c1dea8f555ad3e070c64a44802757d280017acaa
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855402"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674455"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>如何使用用于 Android 的 Azure 移动应用 SDK
 
@@ -303,7 +303,7 @@ List<MyDataTable> results = mDataTable
     .get()              // Converts the async into a sync result
 ```
 
-上面的示例返回所有结果（结果数上限为服务器设置的最大页面大小）。  `.execute()` 方法在后端上执行查询。  查询先转换为 [OData v3][19] 查询，再传输到移动应用后端。  移动应用后端收到查询后，会先将查询转换为 SQL 语句，然后在 SQL Azure 实例上执行该语句。  由于网络活动需要一段时间，因此 `.execute()` 方法将返回 [`ListenableFuture<E>`][18]。
+上面的示例返回所有结果（结果数上限为服务器设置的最大页面大小）。  `.execute()` 方法在后端上执行查询。  查询先转换为 [OData v3][19] 查询，再传输到移动应用后端。  移动应用后端收到查询后，会先将查询转换为 SQL 语句，然后在 SQL Azure 实例上执行该语句。  由于网络活动需要一段时间，因此 `.execute()` 方法返回 [`ListenableFuture<E>`][18]。
 
 ### <a name="filtering"></a>筛选返回的数据
 
@@ -512,7 +512,7 @@ List<ToDoItem> results = mToDoTable
 ```
 
 #### <a name="adapter"></a>定义适配器
-由于视图的数据源是 **ToDoItem** 的数组，因此我们需要基于 **ArrayAdapter&lt;ToDoItem&gt;** 类子类化适配器。 此子类将使用 **row_list_to_do** 布局为每个 **ToDoItem** 生成一个视图。  在代码中，可以定义以下类作为 **ArrayAdapter&lt;E&gt;** 类的扩展：
+由于视图的数据源是 **ToDoItem** 的数组，因此我们需要基于 **ArrayAdapter&lt;ToDoItem&gt;** 类子类化适配器。 此子类使用 **row_list_to_do** 布局为每个 **ToDoItem** 生成一个视图。  在代码中，可以定义以下类作为 **ArrayAdapter&lt;E&gt;** 类的扩展：
 
 ```java
 public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
@@ -858,7 +858,7 @@ private AsyncTask<Void, Void, Void> sync(MobileServiceClient mClient) {
 
 ### <a name="handle-conflicts-during-offline-synchronization"></a>在脱机同步期间处理冲突
 
-如果在执行 `.push()` 操作期间发生冲突，将引发 `MobileServiceConflictException`。   服务器发出的项嵌入在异常中，可以通过针对该异常执行 `.getItem()` 来检索该项。  通过针对 MobileServiceSyncContext 对象调用以下项来调整推送：
+如果在执行 `.push()` 操作期间发生冲突，会引发 `MobileServiceConflictException`。   服务器发出的项嵌入在异常中，可以通过针对该异常执行 `.getItem()` 来检索该项。  通过针对 MobileServiceSyncContext 对象调用以下项来调整推送：
 
 *  `.cancelAndDiscardItem()`
 *  `.cancelAndUpdateItem()`
@@ -1075,7 +1075,8 @@ MobileServiceUser user = mClient
 * 将 **INSERT-RESOURCE-ID-HERE** 替换移动应用后端的客户端 ID。 可以在门户中“Azure Active Directory 设置”下面的“高级”选项卡获取此客户端 ID。
 * 将 **INSERT-CLIENT-ID-HERE** 替换为从本机客户端应用程序复制的客户端 ID。
 
-* 使用 HTTPS 方案将 **INSERT-REDIRECT-URI-HERE** 替换为站点的 _/.auth/login/done_ 终结点。 此值应类似于 _https://contoso.chinacloudsites.cn/.auth/login/done_。
+    * 将 **INSERT-REDIRECT-URI-HERE** 替换为站点的 */.auth/login/done* 终结点（使用 HTTPS 方案）。 此值应类似于 *https://contoso.chinacloudsites.cn/.auth/login/done*。
+  值应类似于 _https://contoso.chinacloudsites.cn/.auth/login/done_。
 
 ```java
 private AuthenticationContext mContext;
@@ -1190,7 +1191,7 @@ private class ProgressFilter implements ServiceFilter {
             public void onSuccess(ServiceFilterResponse response) {
                 runOnUiThread(new Runnable() {
                     @Override
-                    pubic void run() {
+                    public void run() {
                         if (mProgressBar != null)
                             mProgressBar.setVisibility(ProgressBar.GONE);
                     }

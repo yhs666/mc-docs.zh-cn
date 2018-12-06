@@ -1,5 +1,5 @@
 ---
-title: Azure 服务总线高级和标准消息传送定价层概述
+title: Azure 服务总线高级和标准消息传送定价层概述 | Azure
 description: 服务总线高级和标准消息传送层
 services: service-bus-messaging
 documentationcenter: .net
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 08/30/2018
-ms.date: 10/31/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: d5087fce0bbd726f34a9159cde17bb13fc3bc60c
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.openlocfilehash: 47280e3a97debda3fb786ca5c9e31792864a4402
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409305"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675211"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>服务总线高级和标准消息传送层
 

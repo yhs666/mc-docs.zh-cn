@@ -10,15 +10,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 09/07/2018
-ms.date: 09/24/2018
+origin.date: 09/25/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 17462a8a4446af57eb9ec02d49c96289b24e3e42
-ms.sourcegitcommit: f7445ba393a044179d44d2a679b03e5145c7079c
+ms.openlocfilehash: 0152be1fbfd523caa82ea9d93be553677690fbf8
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48876250"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662354"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>将资源移到新资源组或订阅中
 
@@ -38,7 +38,7 @@ ms.locfileid: "48876250"
 
 移动资源之前需执行的一些重要步骤。 验证这些条件可以避免错误。
 
-1. 源订阅与目标订阅必须在同一个 [Azure Active Directory 租户](../active-directory/develop/active-directory-howto-tenant.md)中。 若要检查这两个订阅是否具有相同的租户 ID，请使用 Azure PowerShell 或 Azure CLI。
+1. 源订阅与目标订阅必须在同一个 [Azure Active Directory 租户](../active-directory/develop/quickstart-create-new-tenant.md)中。 若要检查这两个订阅是否具有相同的租户 ID，请使用 Azure PowerShell 或 Azure CLI。
 
     对于 Azure PowerShell，请使用：
 
@@ -56,10 +56,7 @@ ms.locfileid: "48876250"
 
     如果源订阅和目标订阅的租户 ID 不相同，可使用以下方法协调租户 ID：
 
-    <!-- Not Available on * [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md) -->
-
-    <!-- Not Available on * [How to associate or add an Azure subscription to Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)-->
-    
+    <!-- Not Available on * [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md) --> <!-- Not Available on * [How to associate or add an Azure subscription to Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)-->
     
 1. 必须针对要移动的资源的资源提供程序注册目标订阅。 否则，会收到错误，指明 **未针对资源类型注册订阅**。 将资源移到新的订阅时，可能会遇到此问题，但该订阅从未配合该资源类型使用。
 
@@ -107,7 +104,7 @@ ms.locfileid: "48876250"
 * 移动 Resource Manager 资源。
 * 根据 [经典部署限制](#classic-deployment-limitations)移动经典资源。
 
-有以下需要时，请联系[支持人员](https://www.azure.cn/support/support-ticket-form)：
+有以下需要时，请联系[支持人员](https://support.azure.cn/zh-cn/support/support-azure/)：
 
 * 将资源移到新的 Azure 帐户（和 Azure Active Directory 租户），并且对于上一部分中的说明需要帮助。
 * 移动经典资源，但遇到限制问题。
@@ -175,22 +172,23 @@ Authorization: Bearer <access-token>
 * 应用服务证书
 
 <!-- Not Available * Application Insights-->
-
 * 自动化
 
 <!-- Not Available * Azure Active Directory B2C-->
-
 * Azure Cosmos DB
 
+<!--Verify successfully-->
+* Azure Database for MySQL  
+* Azure Database for PostgreSQL
+
+<!--Verify successfully-->
 <!-- Not Available * Azure Maps -->
 <!-- Not Available * Azure Relay -->
-
 * Azure Stack - 注册
 * 批处理
 
 <!-- Not Available * BizTalk Services-->
 <!-- Not Available * Bot Service-->
-
 * CDN
 * 云服务 - 请参阅 [经典部署限制](#classic-deployment-limitations)
 * 认知服务
@@ -207,6 +205,8 @@ Authorization: Bearer <access-token>
 <!-- Not Available * Event Grid-->
 
 * 事件中心
+
+<!-- Not Available * Front Door-->
 * HDInsight 群集 - 请参阅 [HDInsight 限制](#hdinsight-limitations)
 
 <!-- Not Available * Iot Central-->
@@ -216,21 +216,16 @@ Authorization: Bearer <access-token>
 * 负载均衡器 - 请参阅[负载均衡器限制](#lb-limitations)
 
 <!-- Not Available * Log Analytics-->
-
 * Logic Apps
 
 <!-- Not Available * Machine Learning - Machine Learning Studio web services can be moved to a resource group in the same subscription, but not a different subscription. Other Machine Learning resources can be moved across subscriptions.-->
+<!-- Not Available * Managed Disks - see [Virtual Machines limitations for constraints](#virtual-machines-limitations)-->
 <!-- Not Available * Managed Identity - user-assigned-->
-
 * 媒体服务
-
-<!-- Not Available * Mobile Engagement-->
-
 * 通知中心
 
 <!-- Not Available * Operational Insights-->
 <!-- Not Available * Operations Management-->
-
 * 门户仪表板
 * Power BI - Power BI Embedded 和 Power BI 工作区集合
 * 公共 IP - 请参阅[公共 IP 限制](#pip-limitations)
@@ -238,7 +233,6 @@ Authorization: Bearer <access-token>
 * 计划程序
 
 <!-- Not Available * Search-->
-
 * 服务总线
 * Service Fabric
 
@@ -251,7 +245,6 @@ Authorization: Bearer <access-token>
 * SQL 数据库服务器 - 数据库和服务器必须位于同一个资源组中。 移动 SQL 服务器时，也会移动其所有数据库。 此行为适用于 Azure SQL 数据库和 Azure SQL 数据仓库数据库。
 
 <!-- Not Available * Time Series Insights-->
-
 * 流量管理器
 * 虚拟机 - 包含托管磁盘的 VM 无法移动。 请参阅[虚拟机限制](#virtual-machines-limitations)
 * 虚拟机（经典）- 请参阅[经典部署限制](#classic-deployment-limitations)
@@ -267,14 +260,11 @@ Authorization: Bearer <access-token>
 
 * AD 混合运行状况服务
 * 应用程序网关
-* Azure Database for MySQL
-* Azure Database for PostgreSQL
 
 <!-- Not Available * Azure Database Migration-->
 <!-- Not Available * Azure Databricks-->
 <!-- Not Available * Azure Migrate-->
 <!-- Not Available * Batch AI-->
-
 * 证书 - 应用服务证书可以移动，但上传的证书存在[限制](#app-service-limitations)。
 
 <!-- Not Available * Container Instances-->
@@ -283,17 +273,12 @@ Authorization: Bearer <access-token>
 <!-- Not Available * Dev Spaces-->
 <!-- Not Available * Dynamics LCS-->
 
-* Express Route
-
-<!-- Not Available * Kubernetes Service-->
+* Express Route <!-- Not Available * Kubernetes Service-->
 <!-- Not Available * Lab Services-->
 
 * 负载均衡器 - 请参阅[负载均衡器限制](#lb-limitations)
 
 <!-- Not Available * Managed Applications-->
-
-* 托管磁盘 - 请参阅[虚拟机限制](#virtual-machines-limitations)
-
 <!-- Not Available * Azure Genomics-->
 <!-- Not Available * NetApp-->
 
@@ -309,12 +294,14 @@ Authorization: Bearer <access-token>
 
 * 虚拟网络（经典）- 请参阅[经典部署限制](#classic-deployment-limitations)
 
+<!--Notice: Managed disks failed till on 11/12/2018-->
+<!--Notice: Successfull on Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute-->
+<!--Notice: Remove to new group failed on portal-->
 ## <a name="virtual-machines-limitations"></a>虚拟机限制
 
 托管磁盘不支持移动。 此限制意味着，多个相关资源也无法移动。 无法移动以下项：
 
-* 托管磁盘
-* 包含托管磁盘的虚拟机
+* 托管磁盘 <!-- Virtual Macine can moved * Virtual machines with the managed disks-->
 * 基于托管磁盘创建的映像
 * 基于托管磁盘创建的快照
 * 包含托管磁盘的虚拟机的可用性集
@@ -327,6 +314,7 @@ Authorization: Bearer <access-token>
 无法跨资源组或订阅移动基于附加了计划的市场资源创建的虚拟机。 在当前订阅中取消预配虚拟机，并在新的订阅中重新部署虚拟机。
 
 证书存储在 Key Vault 中的虚拟机可以移动到同一订阅中的新资源组，但无法跨订阅进行移动。
+
 
 ## <a name="virtual-networks-limitations"></a>虚拟网络限制
 

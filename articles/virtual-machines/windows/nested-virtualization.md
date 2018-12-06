@@ -7,17 +7,17 @@ author: rockboyfor
 manager: digimobile
 ms.author: v-yeche
 origin.date: 10/09/2017
-ms.date: 08/27/2018
+ms.date: 11/26/2018
 ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: dfd4c89808644976fb8d68c826c29d86bd870dc5
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: f2b4fcafddfc1d4dc2573c2347d3afb2ab22aa69
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872378"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675177"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>如何在 Azure VM 中启用嵌套虚拟化
 

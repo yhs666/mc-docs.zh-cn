@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/10/2018
-ms.date: 10/22/2018
+ms.date: 12/10/2018
 ms.author: v-biyu
-ms.openlocfilehash: ebd2807f96afeea60658aa583c92a5e8b152452e
-ms.sourcegitcommit: 2fdf25eb4b978855ff2832bcdcca093c141be261
+ms.openlocfilehash: bdd703f517a5c8a4e28f4e5c9a884d39dfc221ff
+ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49120618"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676908"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Azure 密钥保管库入门
 本文有助于使用 PowerShell 完成 Azure Key Vault 入门，并详细介绍如何完成以下活动：
@@ -33,7 +33,7 @@ ms.locfileid: "49120618"
 有关跨平台命令行接口说明，请参阅[此对应教程](key-vault-manage-with-cli2.md)。
 
 ## <a name="requirements"></a>要求
-在继续阅读本文之前，请确认是否符合以下条件：
+在继续之前，请确认你具有：
 
 - **一个 Azure 订阅**。 如果没有订阅，可以注册一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 - **Azure PowerShell**，**最低版本为 1.1.0**。 要安装 Azure PowerShell 并将其与 Azure 订阅相关联，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。 如果已安装了 Azure PowerShell，但不知道版本，请在 Azure PowerShell 控制台中键入 `(Get-Module azure -ListAvailable).Version`。 如果已安装 Azure PowerShell 版本 0.9.1 到 0.9.8，仍可以使用本教程，但需要进行一些细微更改。 例如，必须使用 `Switch-AzureMode AzureResourceManager` 命令，并且某些 Azure 密钥保管库命令已更改。 有关版本 0.9.1 到 0.9.8 的 Key Vault cmdlet 的列表，请参阅 [Azure Key Vault Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.keyvault/#key_vault)。
@@ -108,7 +108,7 @@ New-AzureRmKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoReso
 此 cmdlet 的输出显示创建的密钥保管库的属性。 两个最重要的属性是：
 
 - 保管库名称：在本示例中为 ContosoKeyVault。 将在其他密钥保管库 cmdlet 中使用此名称。
-- **保管库 URI**：在本示例中，此项为 https://contosokeyvault.vault.azure.cn/。 通过其 REST API 使用保管库的应用程序必须使用此 URI。
+- **保管库 URI**：在本示例中为 https://contosokeyvault.vault.azure.cn/.in。 通过其 REST API 使用保管库的应用程序必须使用此 URI。
 
 Azure 帐户现已获取在此密钥保管库上执行任何作业的授权。 而且没有其他人有此授权。
 
@@ -136,7 +136,7 @@ $key.id
 
 ### <a name="importing-an-existing-pfx-file-into-azure-key-vault"></a>将现有的 PFX 文件导入 Azure Key Vault
 
-如果现有的密钥存储在 pfx 文件中，而该文件需上传到 Azure Key Vault，则步骤是不同的。 例如：
+如果现有的密钥存储在 pfx 文件中，而该文件需上传到 Azure Key Vault，则执行不同的步骤。 例如：
 - 如果在 .PFX 文件中已经有一个软件保护密钥
 - 该 pfx 文件名为 softkey.pfx 
 - 该文件存储在 C 驱动器中。
@@ -196,27 +196,27 @@ $secret.Id
 ```powershell
 (get-azurekeyvaultsecret -vaultName "Contosokeyvault" -name "SQLPassword").SecretValueText
 ```
-现在，可以在应用程序中使用该密钥保管库以及密钥或机密。 必须授权应用程序使用这些信息。  
+现在，可以在应用程序中使用该密钥保管库以及密钥或机密。 现在可以授权应用程序使用这些信息。  
 
 ## <a id="register"></a>将应用程序注册到 Azure Active Directory
-此步骤通常由开发人员在独立的计算机上完成。 它不是特定于 Azure Key Vault 的。 如需将应用程序注册到 Azure Active Directory 的详细步骤，则应参阅[将应用程序与 Azure Active Directory 集成](../active-directory/develop/active-directory-integrating-applications.md)一文或[使用门户创建可访问资源的 Azure Active Directory 应用程序和服务主体](../azure-resource-manager/resource-group-create-service-principal-portal.md)一文
+此步骤通常由开发人员在独立的计算机上完成。 它不是特定于 Azure Key Vault 的。 如需将应用程序注册到 Azure Active Directory 的详细步骤，则应参阅[将应用程序与 Azure Active Directory 集成](https://docs.azure.cn/zh-cn/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad)一文或[使用门户创建可访问资源的 Azure Active Directory 应用程序和服务主体](../azure-resource-manager/resource-group-create-service-principal-portal.md)一文
 
 > [!IMPORTANT]
 > 要完成本教程，你的帐户、保管库以及要在本步骤中注册的应用程序全都必须位于相同的 Azure 目录中。
 
 
-使用密钥保管库的应用程序必须使用 Azure Active Directory 的令牌进行身份验证。 为此，应用程序的所有者首先必须在其 Azure Active Directory 中注册该应用程序。 注册结束后，应用程序所有者获得以下值：
+使用密钥保管库的应用程序必须使用 Azure Active Directory 的令牌进行身份验证。 应用程序的所有者首先必须在其 Azure Active Directory 中注册该应用程序。 注册结束后，应用程序所有者获得以下值：
 
 - **应用程序 ID** 
 - **身份验证密钥**（也称共享机密）。 
 
-应用程序必须向 Azure Active Directory 提供这两个值才能获取令牌。 如何将应用程序配置为执行此操作取决于应用程序。 对于 [Key Vault 示例应用程序](https://www.microsoft.com/download/details.aspx?id=45343)，应用程序所有者会在 app.config 文件中设置这些值。
+应用程序必须向 Azure Active Directory 提供这两个值才能获取令牌。 应用程序配置取决于应用程序。 对于 [Key Vault 示例应用程序](https://www.microsoft.com/download/details.aspx?id=45343)，应用程序所有者会在 app.config 文件中设置这些值。
 
 
 要在 Azure Active Directory 中注册应用程序，请执行以下操作：
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 在左侧单击“应用注册”。 如果没有看到应用注册，单击“更多服务”即可找到。  
+2. 在左侧单击“应用注册”。 如果没有看到应用注册，请单击“更多服务”。  
 >[!NOTE]
 必须选择包含用于创建 Key Vault 的 Azure 订阅的相同目录。 
 3. 单击“新建应用程序注册”。
@@ -227,7 +227,7 @@ $secret.Id
     请确保选择“WEB 应用程序和/或 WEB API”，否则在设置下看不到“密钥”选项。
 
 5. 单击“创建”  按钮。
-6. 完成应用注册以后，即可看到已注册应用的列表。 找到刚注册的应用，然后单击它。
+6. 完成应用注册以后，可看到已注册应用的列表。 找到注册的应用，然后单击它。
 7. 单击“已注册应用”边栏选项卡，然后复制**应用程序 ID**
 8. 单击“所有设置”
 9. 在“设置”边栏选项卡上，单击“密钥”
@@ -240,7 +240,7 @@ $secret.Id
 ### <a name="using-powershell"></a>使用 PowerShell
 若要使用 PowerShell，可使用 [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) cmdlet。
 
-例如，如果保管库名称是 **ContosoKeyVault**，要授权的应用程序的客户端 ID 为 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed，而希望授权应用程序使用保管库中的密钥来进行解密和签名，请运行以下命令：
+例如，如果保管库名称是 ContosoKeyVault，要授权的应用程序的客户端 ID 为 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed，而你希望授权应用程序使用保管库中的密钥来进行解密和签名，请运行以下 cmdlet：
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign

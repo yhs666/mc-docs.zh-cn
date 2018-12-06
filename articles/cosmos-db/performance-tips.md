@@ -9,14 +9,14 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 01/24/2018
-ms.date: 11/05/2018
+ms.date: 12/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: e9d2d647e370fc91348c2c7affef17b7471dfede
-ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
+ms.openlocfilehash: c4b5fd21b8a11ea699885a94275862546870c8be
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50204855"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675460"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>适用于 Azure Cosmos DB 和 .NET 的性能提示
 
@@ -26,7 +26,7 @@ ms.locfileid: "50204855"
 > * [.NET](performance-tips.md)
 > 
 
-Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供延迟与吞吐量保证的情况下无缝缩放。 凭借 Azure Cosmos DB，无需对体系结构进行重大更改或编写复杂的代码即可缩放数据库。 扩展和缩减操作就像执行单个 API 调用或 [SDK 方法调用](set-throughput.md#set-throughput-sdk)一样简单。 但是，由于 Azure Cosmos DB 是通过网络调用访问的，因此，使用 [SQL .NET SDK](documentdb-sdk-dotnet.md) 时可以通过进行客户端优化来获得最高性能。
+Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供延迟与吞吐量保证的情况下无缝缩放。 凭借 Azure Cosmos DB，无需对体系结构进行重大更改或编写复杂的代码即可缩放数据库。 扩展和缩减操作就像执行单个 API 调用一样简单。 若要了解详细信息，请参阅[如何预配容器吞吐量](how-to-provision-container-throughput.md)或[如何预配数据库吞吐量](how-to-provision-database-throughput.md)。 但是，由于 Azure Cosmos DB 是通过网络调用访问的，因此，使用 [SQL .NET SDK](documentdb-sdk-dotnet.md) 时可以通过进行客户端优化来获得最高性能。
 
 如果有“如何改善数据库性能？”的疑问， 请考虑以下选项：
 
@@ -57,9 +57,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
         |直接    |    HTTPS     |  .Net 和 Java SDK    |    SQL(443)   |
         |直接    |     TCP    |  .NET SDK    | 10,000-20,000 范围内的端口 |
         
-        <!--Not Available on Table(443), Cassandra(443), Graph(443)-->
-    
-    Azure Cosmos DB 提供基于 HTTPS 的简单开放 RESTful 编程模型。 此外，它提供高效的 TCP 协议，该协议在其通信模型中也是 RESTful，可通过 .NET 客户端 SDK 获得。 直接 TCP 和 HTTPS 都使用 SSL 进行初始身份验证和加密流量。 为了获得最佳性能，请尽可能使用 TCP 协议。
+        <!--Not Available on Table(443), Cassandra(443), Graph(443)--> Azure Cosmos DB 提供基于 HTTPS 的简单开放 RESTful 编程模型。 此外，它提供高效的 TCP 协议，该协议在其通信模型中也是 RESTful，可通过 .NET 客户端 SDK 获得。 直接 TCP 和 HTTPS 都使用 SSL 进行初始身份验证和加密流量。 为了获得最佳性能，请尽可能使用 TCP 协议。
 
     连接模式是在构造 DocumentClient 实例期间使用 ConnectionPolicy 参数配置的。 如果使用直接模式，则也可以在 ConnectionPolicy 参数中设置协议。
 
@@ -88,9 +86,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     如果可能，请将任何调用 Azure Cosmos DB 的应用程序放在与 Azure Cosmos DB 数据库所在的相同区域中。  根据请求采用的路由，各项请求从客户端传递到 Azure 数据中心边界时的此类延迟可能有所不同。 通过确保在与预配 Azure Cosmos DB 终结点所在的同一 Azure 区域中调用应用程序，可能会实现最低的延迟。 有关可用区域的列表，请参阅 [Azure Regions](https://www.azure.cn/support/service-dashboard/#services)（Azure 区域）。
     
-    <!--Not Available on time span between East to West coast-->
-    
-    ![Azure Cosmos DB 连接策略演示](./media/performance-tips/same-region.png) <a name="increase-threads"></a>
+    <!--Not Available on time span between East to West coast--> ![Azure Cosmos DB 连接策略演示](./media/performance-tips/same-region.png) <a name="increase-threads"></a>
 4. **增加线程/任务数目**
 
     由于对 Cosmos DB 的调用是通过网络执行的，因此可能需要改变请求的并行度，以便最大程度地减少客户端应用程序等待请求的时间。 例如，如果使用的是 .NET 的[任务并行库](https://msdn.microsoft.com//library/dd460717.aspx)，请创建大约数百个读取或写入 Azure Cosmos DB 的任务。
@@ -123,7 +119,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
     在某些情况下，降低垃圾收集的频率可能会有帮助。 在 .NET 中，应将 [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) 设置为 true。
 6. **按 RetryAfter 间隔实现退让**
 
-    在性能测试期间，应该增加负载，直到系统对小部分请求进行限制为止。 如果受到限制，客户端应用程序应按照服务器指定的重试间隔在限制时退让。 遵循退让可确保最大程度地减少等待重试的时间。 重试策略支持包含在 SQL [.NET](sql-api-sdk-dotnet.md) 和 [Java](sql-api-sdk-java.md) 1.8.0 和更高版本中，以及 [Node.js](sql-api-sdk-node.md) 和 [Python](sql-api-sdk-python.md) 1.9.0 或更高版本以及所有受支持的 [.NET Core](sql-api-sdk-dotnet-core.md) SDK 版本中。 有关详细信息，请参阅[超过保留的吞吐量限制](request-units.md#RequestRateTooLarge)和 [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx)。
+    在性能测试期间，应该增加负载，直到系统对小部分请求进行限制为止。 如果受到限制，客户端应用程序应按照服务器指定的重试间隔在限制时退让。 遵循退让可确保最大程度地减少等待重试的时间。 重试策略支持包含在 SQL [.NET](sql-api-sdk-dotnet.md) 和 [Java](sql-api-sdk-java.md) 1.8.0 和更高版本中，以及 [Node.js](sql-api-sdk-node.md) 和 [Python](sql-api-sdk-python.md) 1.9.0 或更高版本以及所有受支持的 [.NET Core](sql-api-sdk-dotnet-core.md) SDK 版本中。 有关详细信息，请参阅 [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx)。
 
     使用 .NET SDK 1.19 版和更高版本时，存在一种机制来记录附加诊断信息和排查延迟问题，如以下示例所示。 可以记录具有较高读取延迟的请求的诊断字符串。 捕获的诊断字符串将帮助你了解观察到给定请求延迟 429 秒的次数。
     ```csharp

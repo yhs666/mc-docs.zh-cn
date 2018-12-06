@@ -1,5 +1,5 @@
 ---
-title: 如何通过 C++ 使用 Azure 表存储或 Azure Cosmos DB 表 API | Azure
+title: 如何通过 C++ 使用 Azure 表存储 | Azure
 description: 使用 Azure 表存储或 Azure Cosmos DB 表 API 将结构化数据存储在云中。
 services: cosmos-db
 author: rockboyfor
@@ -9,14 +9,14 @@ ms.component: cosmosdb-table
 ms.devlang: cpp
 ms.topic: sample
 origin.date: 04/05/2018
-ms.date: 09/30/2018
+ms.date: 12/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 315dca40d4dde9eef67af791ba00eedb646ddc22
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: c719f7854bfafccf2025d1ccff0750cab32cf082
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201367"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675434"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>如何通过 C++ 使用 Azure 表存储或 Azure Cosmos DB 表 API
 <!-- Not Available on Azure Cosmos DB Table API -->
@@ -459,11 +459,11 @@ if (table.delete_table_if_exists())
   - 将“符合模式”设置为“否”。
 
 ## <a name="next-steps"></a>后续步骤
-单击以下链接详细了解 Azure Cosmos DB 中的 Azure 存储：<!-- Not Avaiable on Table API -->
+单击以下链接详细了解 Azure Cosmos DB 中的 Azure 存储： 
 
+<!-- Not Avaiable on Table API -->
 <!-- Not Available on * [Introduction to the Table API](table-introduction.md) -->
-* [Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)是免费的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。
-<!-- Notice: Remove from Microsoft -->
+* [Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)是 Microsoft 免费提供的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。
 * [使用 C++ 列出 Azure 存储资源](../storage/common/storage-c-plus-plus-enumeration.md)
 * [适用于 C++ 的存储客户端库参考](http://azure.github.io/azure-storage-cpp)
 * [Azure 存储文档](/storage/)

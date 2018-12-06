@@ -1,5 +1,5 @@
 ---
-title: Azure 服务总线主题和订阅入门
+title: Azure 服务总线主题和订阅入门 | Azure
 description: 编写一个 C# .NET Core 控制台应用程序，以便使用服务总线消息传递主题和订阅。
 services: service-bus-messaging
 documentationcenter: .net
@@ -13,14 +13,14 @@ ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 origin.date: 09/03/2018
-ms.date: 10/31/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 5cae821d9de19352694c432368ae9009172e1e17
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.openlocfilehash: 8e7c6422102a3d543713aff14244f35164f49869
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409387"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675433"
 ---
 # <a name="get-started-with-service-bus-topics"></a>服务总线主题入门
 
@@ -36,7 +36,7 @@ ms.locfileid: "50409387"
 
 ## <a name="prerequisites"></a>先决条件
 
-1. [Visual Studio 2017 Update 3（版本 15.3 (26730.01)）](http://www.visualstudio.com/vs)或更高版本。
+1. [Visual Studio 2017 Update 3（版本 15.3 (26730.01)）](https://www.visualstudio.com/vs)或更高版本。
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows) 2.0 或更高版本。
 2. Azure 订阅。
 
@@ -45,7 +45,8 @@ ms.locfileid: "50409387"
 ## <a name="1-create-a-namespace-using-the-azure-portal"></a>1.使用 Azure 门户创建命名空间
 
 > [!NOTE] 
-> 也可使用 [PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps) 创建服务总线命名空间和消息实体。 有关详细信息，请参阅[使用 PowerShell 管理服务总线资源](service-bus-manage-with-ps.md)。
+> 也可使用 [PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) 创建服务总线命名空间和消息实体。 有关详细信息，请参阅[使用 PowerShell 管理服务总线资源](service-bus-manage-with-ps.md)。
+
 如果已创建服务总线消息传递命名空间，请跳转到[使用 Azure 门户创建主题](#2-create-a-topic-using-the-azure-portal)部分。
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]

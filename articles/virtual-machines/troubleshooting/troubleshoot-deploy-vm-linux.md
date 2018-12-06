@@ -13,21 +13,21 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-origin.date: 05/11/2018
-ms.date: 10/22/2018
+origin.date: 11/01/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8fbceea353d876d710df25c682e048764c0ecd49
-ms.sourcegitcommit: 96b58e881dba2fd02665d806d7c27d770326b0cc
+ms.openlocfilehash: 8853760195e92f59e225f9ecccd189fc7f19f224
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652012"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674943"
 ---
 # <a name="troubleshoot-deploying-linux-virtual-machine-issues-in-azure"></a>排查 Azure 中的 Linux 虚拟机部署问题
 
 若要排查 Azure 中虚拟机 (VM) 的部署问题，请查看[常见问题](#top-issues)了解常见故障和解决方法。
 
-如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择“获取支持”。
+如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择“微信支持”。
 
 ## <a name="top-issues"></a>常见问题
 [!INCLUDE [virtual-machines-linux-troubleshoot-deploy-vm-top](../../../includes/virtual-machines-linux-troubleshoot-deploy-vm-top.md)]
@@ -70,7 +70,7 @@ productPesIds="1234, 5678"
 
 ## <a name="is-n-series-vms-available-in-my-region"></a>我所在的区域是否支持 N 系列 VM？
 
-有关可用性，可以参阅[可用产品（按区域）表](https://www.azure.cn/support/service-dashboard/services)；有关定价，可以单击[此处](https://www.azure.cn/pricing/details/virtual-machines/series/#n-series)。
+有关可用性，可以参阅[可用产品（按区域）表](https://www.azure.cn/zh-cn/home/features/products-by-region)；有关定价，可以单击[此处](https://www.azure.cn/pricing/details/virtual-machines)。
 
 ## <a name="i-am-not-able-to-see-vm-size-family-that-i-want-when-resizing-my-vm"></a>重设 VM 大小时，我看不到所需的 VM 大小系列。
 
@@ -95,6 +95,6 @@ productPesIds="1234, 5678"
 ## <a name="next-steps"></a>后续步骤
 如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)上的 Azure 专家。
 
-或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择 **获取支持**。
+或者，也可以提出 Azure 支持事件。 转到 [Azure 支持站点](https://support.windowsazure.cn/support/support-azure)。
 
 <!--Update_Description: wording update, update link  -->

@@ -8,21 +8,21 @@ ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.component: manage
 origin.date: 04/17/2018
-ms.date: 10/15/2018
+ms.date: 11/12/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 422f27a63b8b5d80d4635926be635768278f8387
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.openlocfilehash: d491f3dc2b4ceffb555dae9f2cc90502eaf34fd5
+ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089097"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676887"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>快速入门：使用 PowerShell 在 Azure SQL 数据仓库中缩放计算资源
 
 使用 PowerShell 在 Azure SQL 数据仓库中缩放计算资源 [横向扩展计算](sql-data-warehouse-manage-compute-overview.md)以提高性能或按比例缩减计算以节约成本。
 
-如果没有 Azure 订阅，请在开始之前创建一个[免费](https://www.azure.cn/pricing/1rmb-trial/)帐户。
+如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用](https://www.azure.cn/pricing/1rmb-trial/)帐户。
 
 本教程需要 Azure PowerShell 模块版本 5.1.1 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找当前版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 
 
@@ -44,7 +44,7 @@ Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
 Get-AzureRmSubscription
 ```
 
-如果需要使用与默认订阅不同的订阅，请运行 [Select-AzureRmSubscription](https://docs.microsoft.com/en-us/powershell/module/azure/select-azuresubscription?view=azuresmps-4.0.0)。
+如果需要使用与默认订阅不同的订阅，请运行 [Select-AzureRmSubscription]()。
 
 ```powershell
 Select-AzureRmSubscription -SubscriptionName "MySubscription"
@@ -57,30 +57,30 @@ Select-AzureRmSubscription -SubscriptionName "MySubscription"
 按照以下步骤查找数据仓库的位置信息。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
-2. 在 Azure 门户的左侧页面中，单击“SQL 数据库”。
-3. 从“SQL 数据库”页中选择“mySampleDataWarehouse”。 此操作打开数据仓库。 
+2. 在 Azure 门户的左侧页面中，单击“SQL 数据仓库”。
+3. 从“SQL 数据仓库”页中选择“mySampleDataWarehouse”。 此操作打开数据仓库。
 
     ![服务器名称和资源组](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
 4. 记下将用作数据库名称的数据仓库名称。 请记住，数据仓库是一种数据库。 同时记下服务器名称和资源组。 执行暂停和恢复命令时会用到。
-5. 如果服务器是 foo.database.chinacloudapi.cn，请在 PowerShell cmdlet 中仅使用第一部分作为服务器名称。 在上图中，完整的服务器名称为 newserver-20171113.database.chinacloudapi.cn。 我们将使用 newserver-20180430 作为 PowerShell cmdlet 中的服务器名称。
+5. 如果服务器是 foo.database.chinacloudapi.cn，请在 PowerShell cmdlet 中仅使用第一部分作为服务器名称。 在上图中，完整的服务器名称为 newserver-20181129.database.chinacloudapi.cn。 我们将使用 newserver-20180430 作为 PowerShell cmdlet 中的服务器名称。
 
 ## <a name="scale-compute"></a>缩放计算
 
-在 SQL 数据仓库中，可以通过调整数据仓库单位来增加或减少计算资源。 [创建和 Connect - 门户](create-data-warehouse-portal.md)创建 **mySampleDataWarehouse** 并初始化 400 DWU。 以下步骤调整为 DWU **mySampleDataWarehouse**。
+在 SQL 数据仓库中，可以通过调整数据仓库单位来增加或减少计算资源。 [创建和连接 - 门户](create-data-warehouse-portal.md)创建了 **mySampleDataWarehouse** 并使用 1000 个 DWU 对其进行了初始化。 以下步骤调整为 DWU **mySampleDataWarehouse**。
 
-若要更改数据仓库单位，请使用 [Set-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) PowerShell cmdlet。 以下示例将数据库 **mySampleDataWarehouse**（在服务器 **mynewserver-20180430** 上资源组 **myResourceGroup** 中托管）的数据仓库单位设置为 DW300。
+若要更改数据仓库单位，请使用 [Set-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) PowerShell cmdlet。 以下示例将数据库 **mySampleDataWarehouse**（在服务器 **mynewserver-20180430** 上资源组 **myResourceGroup** 中托管）的数据仓库单位设置为 DW500。
 
 ```Powershell
-Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
+Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20181129" -RequestedServiceObjectiveName "DW500"
 ```
 
 ## <a name="check-data-warehouse-state"></a>检查数据仓库状态
 
-若要查看数据仓库的当前状态，使用 [Get-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabase) PowerShell cmdlet。 此 cmdlet 获取资源组 **myResourceGroup** 和服务器 **mynewserver-20180430.database.chinacloudapi.cn** 中 **mySampleDataWarehouse** 数据库的状态。
+若要查看数据仓库的当前状态，使用 [Get-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabase) PowerShell cmdlet。 此 cmdlet 获取资源组 **myResourceGroup** 和服务器 **mynewserver-20181129.database.chinacloudapi.cn** 中 **mySampleDataWarehouse** 数据库的状态。
 
 ```powershell
-$database = Get-AzureRmSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse
+$database = Get-AzureRmSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20181129 -DatabaseName mySampleDataWarehouse
 $database
 ```
 
@@ -88,7 +88,7 @@ $database
 
 ```powershell
 ResourceGroupName             : myResourceGroup
-ServerName                    : mynewserver-20171113
+ServerName                    : mynewserver-20181129
 DatabaseName                  : mySampleDataWarehouse
 Location                      : China North
 DatabaseId                    : 34d2ffb8-b70a-40b2-b4f9-b0a39833c974
@@ -99,14 +99,14 @@ MaxSizeBytes                  : 263882790666240
 Status                        : Online
 CreationDate                  : 11/20/2017 9:18:12 PM
 CurrentServiceObjectiveId     : 284f1aff-fee7-4d3b-a211-5b8ebdd28fea
-CurrentServiceObjectiveName   : DW300
+CurrentServiceObjectiveName   : DW500
 RequestedServiceObjectiveId   : 284f1aff-fee7-4d3b-a211-5b8ebdd28fea
 RequestedServiceObjectiveName :
 ElasticPoolName               :
 EarliestRestoreDate           :
 Tags                          :
 ResourceId                    : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/
-                                resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/mynewserver-20171113/databases/mySampleDataWarehouse
+                                resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/mynewserver-20181129/databases/mySampleDataWarehouse
 CreateMode                    :
 ReadScale                     : Disabled
 ZoneRedundant                 : False

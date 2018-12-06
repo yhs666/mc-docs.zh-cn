@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 08/14/2018
-ms.date: 11/12/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: d54a8e0f2c8902be8b873dc678428779bca7e50a
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.openlocfilehash: bb9bcf7805c98c6455ec95dff403c80764fac10b
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035090"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675649"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>Azure 虚拟机工作负荷的标准 SSD 托管磁盘
 
@@ -23,7 +23,7 @@ Azure 标准固态硬盘 (SSD) 托管磁盘是经济高效的存储选项，已�
 ## <a name="standard-ssd-features"></a>标准 SSD 的功能
 
 **托管磁盘**：标准 SSD 只可用作托管磁盘。 标准 SSD 不支持非托管磁盘和页 Blob。 创建托管磁盘时，请指定“标准 SSD”作为磁盘类型，并指明所需的磁盘大小，然后，Azure 将自动创建并管理该磁盘。
-标准 SSD 支持托管磁盘提供的所有服务管理操作。 例如，可以像处理托管磁盘一样创建、复制标准 SSD 托管磁盘或生成其快照。
+标准 SSD 支持托管磁盘提供的所有经典部署模型操作。 例如，可以像处理托管磁盘一样创建、复制标准 SSD 托管磁盘或生成其快照。
 
 **虚拟机**：标准 SSD 可用于所有 Azure VM，包括不支持高级磁盘的 VM 类型。 例如，如果使用 A 系列、N 系列、DS 系列 VM 或其他任何 Azure VM 系列，可对该 VM 使用标准 SSD。 随着标准 SSD 的推出，以前使用基于 HDD 的磁盘的各种工作负荷可以过渡到基于 SSD 的磁盘，从而获得 SSD 具有的一致性能、更高可用性、更低的延迟和总体更佳的体验。
 
@@ -35,6 +35,7 @@ Azure 标准固态硬盘 (SSD) 托管磁盘是经济高效的存储选项，已�
 
 下表包含标准 SSD 目前提供的磁盘大小。
 
+<!--Not Available on E60,E70,E80-->
 |标准 SSD 磁盘类型  |磁盘大小  |每个磁盘的 IOPS  |每个磁盘的吞吐量  |
 |---------|---------|---------|---------|
 |E10     |128 GiB         |最大 500         |最高每秒 60 MiB         |
@@ -43,13 +44,10 @@ Azure 标准固态硬盘 (SSD) 托管磁盘是经济高效的存储选项，已�
 |E30     |1,024 GiB       |最大 500         |最高每秒 60 MiB         |
 |E40     |2,048 GiB       |最大 500         |最高每秒 60 MiB         |
 |E50     |4,095 GiB       |最大 500         |最高每秒 60 MiB         |
-|E60     |8,192 GiB       |最多 1,300       |最高每秒 300 MiB        |
-|E70     |16,384 GiB      |最多 2,000       |最高每秒 500 MiB        |
-|E80     |32,767 GiB      |最多 2,000       |最高每秒 500 MiB        |
 
-标准 SSD 可为大多数 IO 操作提供 10 毫秒以下的延迟，并提供不超过上表中所述限制的 IOPS 和吞吐量。 实际 IOPS 和吞吐量有时根据流量模式而异。 相比 HDD 磁盘，标准 SSD 提供更加一致的性能，并且延迟更低。
+<!--Not Available on E60,E70,E80--> 标准 SSD 旨在为大多数 IO 操作提供 10 毫秒以下的延迟，并在 99% 的时间内提供不超过上表中所述限制的 IOPS 和吞吐量。 实际 IOPS 和吞吐量有时根据流量模式而异。 相比 HDD 磁盘，标准 SSD 提供更加一致的性能，并且延迟更低。
 
-另一方面，高级 SSD 的性能比标准 SSD 更优，具有低延迟、高 IOPS/吞吐量，预配磁盘性能的一致性也更好。 对于关键的生产工作负荷，建议使用这种磁盘类型。 如果工作负荷要求高性能、低延迟磁盘支持，则应考虑使用高级存储。
+另一方面，高级 SSD 的性能比标准 SSD 更优，具有低延迟、高 IOPS/吞吐量，预配磁盘性能的一致性也更好。 对于关键的生产工作负荷，建议使用“高级 SSD”磁盘类型。 如果工作负荷要求高性能、低延迟磁盘支持，则应考虑使用高级存储。
 
 与高级 SSD 一样，标准 SSD 也使用 256 KiB 的 IO 单位大小。 如果要传输的数据小于 256 KiB，该数据被视为 1 个 I/O 单位。 更大的 I/O 大小被视为多个 256 KiB 大小的 I/O。 例如，1,100 KiB I/O 被视为 5 个 I/O 单位。
 
@@ -82,5 +80,4 @@ Azure 标准固态硬盘 (SSD) 托管磁盘是经济高效的存储选项，已�
 > [!div class="nextstepaction"]
 > [创建包含多个标准 SSD 的 VM](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/)
 
-<!-- Update_Description: new articles on virtual machines disks standard ssd -->
-<!--ms.date: 10/22/2018-->
+<!-- Update_Description: update meta properties, wording update -->

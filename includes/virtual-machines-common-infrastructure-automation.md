@@ -1,19 +1,41 @@
+---
+author: rockboyfor
+ms.service: virtual-machines
+ms.topic: include
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
+ms.openlocfilehash: 34599b2033c1a6af60f5f90f1ad717924bc108f0
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676396"
+---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>在 Azure 中将基础结构自动化工具与虚拟机配合使用
 若要以一致的方式大规模创建和管理 Azure 虚拟机 (VM)，通常需要某种形式的自动化。 可以通过许多工具和解决方案来自动完成整个 Azure 基础结构部署和管理生命周期。 本文介绍了一些可以在 Azure 中使用的基础结构自动化工具。 这些工具通常适合以下某个方法：
 
 - 自动执行 VM 的配置
-    - 工具包括 [Chef](#chef)。
+    - 工具包括 [Ansible](#ansible)、[Chef](#chef)。
     - 特定于 VM 自定义的工具包括适用于 Linux VM 的 [cloud-init](#cloud-init)、[PowerShell Desired State Configuration (DSC)](#powershell-dsc)，以及适用于所有 Azure VM 的 [Azure 自定义脚本扩展](#azure-custom-script-extension)。
-<!--Not Available [Ansible](#ansible) [Puppet](#puppet) -->
-
+    
+    <!--Not Available [Puppet](#puppet) -->
 - 自动化基础结构管理
     - 工具包括用于自动完成自定义 VM 映像生成的 [Packer](#packer)，以及用于自动完成基础结构生成过程的 [Terraform](#terraform)。
     - [Azure 自动化](#azure-automation)可以跨 Azure 和本地基础结构执行操作。
 
 - 自动执行应用程序部署和交付
-    - 示例包括 [Visual Studio Team Services](#visual-studio-team-services) 和 [Jenkins](#jenkins)。
+    - 示例包括 [Azure DevOps Services](#visual-studio-team-services) 和 [Jenkins](#jenkins)。
 
-<!-- Not Available ## Ansible-->
+## <a name="ansible"></a>Ansible
+[Ansible](https://www.ansible.com/) 是适用于配置管理、VM 创建或应用程序部署的自动化引擎。 Ansible 通常将无代理的模型与 SSH 密钥配合使用，对目标计算机进行身份验证和管理。 配置任务在 playbook 中定义，可以使用多个 Ansible 模块来执行特定任务。 有关详细信息，请参阅 [How Ansible works](https://www.ansible.com/how-ansible-works)（Ansible 工作原理）。
+
+了解如何：
+
+- [在 Linux 上安装和配置与 Azure 配合使用的 Ansible](../articles/virtual-machines/linux/ansible-install-configure.md)。
+- [创建 Linux 虚拟机](../articles/virtual-machines/linux/ansible-create-vm.md)。
+- [管理 Linux 虚拟机](../articles/virtual-machines/linux/ansible-manage-linux-vm.md)。
+
 ## <a name="chef"></a>Chef
 [Chef](https://www.chef.io/) 是一个自动化平台，用于定义基础结构的配置、部署和管理方式。 其他组件包括：Chef Habitat，用于应用程序生命周期自动化而不是基础结构；Chef InSpec，用于自动遵循安全和策略要求。 Chef 客户端安装在目标计算机上，通过一个或多个中心 Chef 服务器来存储和管理配置。 有关详细信息，请参阅 [An Overview of Chef](https://docs.chef.io/chef_overview.html)（Chef 概述）。
 
@@ -37,9 +59,7 @@ Cloud-init 还支持不同的发行版。 例如，不需使用 apt-get install 
 |CoreOS |CoreOS |Stable |最新 |是 |
 |OpenLogic |CentOS |7-CI |最新 |预览 |
 
-<!-- Not Available on RedHat -->
-
-了解有关 Azure 上的 cloud-init 的更多详细信息：
+<!-- Not Available on RedHat --> 了解有关 Azure 上的 cloud-init 的更多详细信息：
 
 - [Cloud-init 对 Azure 中 Linux 虚拟机的支持](../articles/virtual-machines/linux/using-cloud-init.md)
 - [试着学习使用 cloud-init 自动进行 VM 配置的教程](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md)。
@@ -92,13 +112,11 @@ Azure 自动化还提供 Desired State Configuration (DSC) 服务，用于针对
 <!-- Not Avaiable on - [Use Hybrid Runbook Worker to manage on-premises resources](../articles/automation/automation-hybrid-runbook-worker.md) -->
 <!-- Not Available on - [Use Azure Automation DSC](../articles/automation/automation-dsc-getting-started.md) -->
 
-## <a name="visual-studio-team-services"></a>Visual Studio Team Services
-[Team Services](https://www.visualstudio.com/team-services/) 是一套工具，用于共享和跟踪代码、使用自动化生成，以及创建完整的持续集成和开发 (CI/CD) 管道。 Team Services 集成 Visual Studio 和其他编辑器，简化了使用过程。 Team Services 还可以创建和配置 Azure VM，然后向其部署代码。
+## <a name="azure-devops-services"></a>Azure DevOps Services
+[Azure DevOps Services](https://www.visualstudio.com/team-services/) 是一套工具，用于共享和跟踪代码、使用自动化生成，以及创建完整的持续集成和开发 (CI/CD) 管道。 Azure DevOps Services 集成了 Visual Studio 和其他编辑器，简化了使用过程。 Azure DevOps Services 还可以创建和配置 Azure VM，然后向其部署代码。
 
-了解如何：
-
-- [使用 Team Services 创建持续集成管道](../articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md)。
-
+<!--Not Available on Learn more about-->
+<!--Not Available on [Azure DevOps Services](https://docs.microsoft.com/azure/devops/user-guide/index?view=vsts)-->
 ## <a name="jenkins"></a>Jenkins
 [Jenkins](https://www.jenkins.io) 是一种持续集成服务器，用于部署和测试应用程序，以及创建进行代码交付的自动化管道。 可以通过成百上千的插件来扩展核心 Jenkins 平台，还可以通过 Webhook 集成许多其他的产品和解决方案。 可以在 Azure VM 上手动安装 Jenkins，从 Docker 容器内部运行 Jenkins，或者使用预建的 Azure 市场映像。
 

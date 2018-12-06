@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 09/17/2018
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: d0c3ccd46853fa0acacea49c5de2b9c1ae31cde4
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.openlocfilehash: 2dbc428a58dbef4d1776e63761d3f1e46ac9ec67
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034878"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675321"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Azure 中 Linux VM 的时间同步
 
@@ -29,10 +29,11 @@ ms.locfileid: "50034878"
 Azure 受运行 Windows Server 2016 的基础设施的支持。 Windows Server 2016 已改进用于纠正时间和条件的算法，方便本地时钟与 UTC 同步。  Windows Server 2016 的准确时间功能大大改进了 VMICTimeSync 服务的控制方式，可以通过控制 VM 与主机的同步来确保时间准确。 改进包括增强 VM 启动或 VM 还原的初始时间的准确性，以及纠正中断延迟。 
 
 >[!NOTE]
->有关 Windows 时间服务的快速概述，请观看此[简要概述视频](https://aka.ms/WS2016TimeVideo)。
+>
 >
 > 有关详细信息，请参阅 [Windows Server 2016 的准确时间](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)。 
 
+<!-- Not Available on For a quick overview of Windows Time service, take a look at this [high-level overview video](https://aka.ms/WS2016TimeVideo)-->
 ## <a name="overview"></a>概述
 
 计算机时钟的准确性根据计算机时钟与协调世界时 (UTC) 时间标准的接近程度来测量。 UTC 通过精确原子钟的跨国样本来定义，此类原子钟 300 年的偏差只有 1 秒。 但是，直接读取 UTC 需要专用硬件。 而时间服务器与 UTC 同步，可以从其他计算机访问，因此具备可伸缩性和可靠性。 每个计算机都有时间同步服务运行，该服务知道使用什么时间服务器，并定期检查计算机时钟是否需纠正，然后根据需要调整时间。 
@@ -115,9 +116,7 @@ root        391      2  0 17:52 ?        00:00:00 [hv_balloon]
 
 使用较新版的 Linux 时，可以在 VMICTimeSync 提供程序中获得精度时间协议 (PTP) 时钟源。 在较旧版的 CentOS 7.x 上，[Linux Integration Services](https://github.com/LIS/lis-next) 可以在下载后用于安装更新的驱动程序。 使用 PTP 时，Linux 设备的表示形式为 /dev/ptp*x*。 
 
-<!--Not Available on Red Hat Enterprise Linux-->
-
-查看哪些 PTP 时钟源可用。
+<!--Not Available on Red Hat Enterprise Linux--> 查看哪些 PTP 时钟源可用。
 
 ```bash
 ls /sys/class/ptp
@@ -136,16 +135,13 @@ cat /sys/class/ptp/ptp0/clock_name
 在 CentOS 7.x 上，[chrony](https://chrony.tuxfamily.org/) 配置为使用 PTP 源时钟。 网络时间协议守护程序 (ntpd) 不支持 PTP 源，因此建议使用 **chronyd**。 若要启用 PTP，请更新 **chrony.conf**。
 
 <!--Not Available on Red Hat Enterprise Linux-->
-
 ```bash
 refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
 ```
 
 有关 CentOS 和 NTP 的详细信息，请参阅 [Configure NTP](https://access.redhat.com/documentation/red_hat_enterprise_linux/7/html/system_administrators_guide/s1-configure_ntp)（配置 NTP）。 
 
-<!--Not Available on Red Hat -->
-
-有关 chrony 的详细信息，请参阅 [Using chrony](https://access.redhat.com/documentation/red_hat_enterprise_linux/7/html/system_administrators_guide/sect-using_chrony)（使用 chrony）。
+<!--Not Available on Red Hat --> 有关 chrony 的详细信息，请参阅 [Using chrony](https://access.redhat.com/documentation/red_hat_enterprise_linux/7/html/system_administrators_guide/sect-using_chrony)（使用 chrony）。
 
 如果同时启用了 chrony 和 TimeSync 源，则可将一个源标记为“首选”，这样就会将另一个源设置为“备用”。 由于 NTP 服务在遇到大偏差时更新时钟需要很长时间，因此可以使用 VMICTimeSync，后者在出现 VM 暂停事件时恢复时钟的速度远远快于单独使用基于 NTP 的工具的速度。
 
@@ -157,4 +153,4 @@ refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
 
 有关详细信息，请参阅 [Windows Server 2016 的准确时间](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)。
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

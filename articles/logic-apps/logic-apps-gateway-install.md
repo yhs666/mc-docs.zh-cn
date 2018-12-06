@@ -10,12 +10,12 @@ ms.reviewer: yshoukry, LADocs
 ms.topic: article
 origin.date: 07/20/2018
 ms.date: 11/12/2018
-ms.openlocfilehash: 0e46d68faf0826c6cd1e048134b69f00ed7d5f7b
-ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
+ms.openlocfilehash: a1b09441dd555825770457743bafef9ac5bf742b
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50919114"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675256"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>为 Azure 逻辑应用安装本地数据网关
 
@@ -52,7 +52,7 @@ ms.locfileid: "50919114"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 具有[Azure 订阅](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer)的[工作或学校帐户](../active-directory/fundamentals/sign-up-organization.md) 
+* 具有 [Azure 订阅](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer)的工作或学校帐户 
 
   在安装网关期间，需登录到此帐户，以便将网关安装与 Azure 订阅相关联。 
   稍后在 Azure 门户中为网关安装创建 Azure 资源时，也要使用此帐户。 
@@ -65,6 +65,7 @@ ms.locfileid: "50919114"
   * 64 位版本的 Windows 7 或 Windows Server 2008 R2（或更高版本）
 
   **建议的要求**
+
   * 8 核 CPU
   * 8 GB 内存
   * 64 位版本的 Windows Server 2012 R2（或更高版本）
@@ -76,11 +77,11 @@ ms.locfileid: "50919114"
     > [!TIP]
     > 为了尽量降低延迟，可将网关安装在尽可能靠近数据源的位置或同一台计算机上（假设你有相应的权限）。
 
-  * 在连接到 Internet 的计算机上安装网关，始终打开，并且不进入休眠状态。 否则，网关不能运行。 此外，在通过无线网络工作时，性能可能会下降。
+  * 在连接到 Internet 的计算机上安装网关，始终打开，并且不进入休眠状态。 否则，网关不能运行。 
+  此外，在通过无线网络工作时，性能可能会下降。
 
-  * 安装期间，只能使用由 Azure Active Directory (Azure AD) 托管的[工作或学校帐户](../active-directory/sign-up-organization.md)（而不是 Microsoft 帐户）登录。 
-  此外，请确保此帐户不是 Azure B2B（来宾）帐户。 
-  在通过为网关创建 Azure 资源注册网关安装时，必须在 Azure 门户中使用相同的登录帐户。 
+  * 安装期间，只能使用由 Azure Active Directory (Azure AD) 托管的工作或学校帐户，例如 @contoso.onmicrosoft.com，而不能使用 Azure B2B（来宾）帐户或个人 Microsoft 帐户，例如 @hotmail.com 或 @outlook.com。 
+  在通过创建网关资源在 Azure 门户中注册网关安装时，必须使用同一登录帐户。 
   然后，在创建从逻辑应用到本地数据源的连接时，可以选择此网关资源。 
   [为何必须使用 Azure AD 工作或学校帐户？](#why-azure-work-school-account)
 
@@ -97,6 +98,19 @@ ms.locfileid: "50919114"
   * 如果使用版本低于 14.16.6317.4 的安装程序安装了网关，则无法通过运行最新的安装程序更改网关位置。 但是，可以使用最新的安装程序来安装改用所需位置的新网关。
   
     如果网关安装程序的版本低于 14.16.6317.4，但尚未安装网关，则可以下载并改用最新的安装程序。
+
+## <a name="high-availability-support"></a>高可用性支持
+
+如果完成了多个网关安装并将其设置为群集，则本地数据网关支持高可用性。 如果在创建另一个网关时已有一个网关，则可以选择性地创建高可用性群集。 这些群集会将网关组织成组，帮助避免单一故障点。 此外，所有本地数据网关连接器现在都支持高可用性。
+
+若要使用本地数据网关，请查看以下要求和注意事项：
+
+* 主网关所在的同一个 Azure 订阅中必须至少有一个网关安装，并且你能够提供该安装的恢复密钥。 
+
+* 主网关必须运行网关 2017 年 11 月更新版或更高版本。
+
+满足这些要求后，在创建下一个网关时，请选择“添加到现有网关群集”，选择群集的主网关，然后提供该主网关的恢复密钥。
+有关详细信息，请参阅[本地数据网关的高可用性群集](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters)。
 
 <a name="install-gateway"></a>
 
@@ -162,19 +176,6 @@ ms.locfileid: "50919114"
 
 10. 现在，请通过[为网关安装创建 Azure 资源](../logic-apps/logic-apps-gateway-connection.md)，在 Azure 中注册网关。 
 
-## <a name="enable-high-availability"></a>启用高可用性
-
-如果完成了多个网关安装并将其设置为群集，则本地数据网关支持高可用性。 如果在创建另一个网关时已有一个网关，则可以选择性地创建高可用性群集。 这些群集会将网关组织成组，帮助避免单一故障点。 若要使用此功能，请查看以下要求和注意事项：
-
-* 只有一部分连接器支持高可用性，例如文件系统连接器和即将推出的其他连接器。 
-     
-* 主网关所在的同一个 Azure 订阅中必须至少有一个网关安装，并且你能够提供该安装的恢复密钥。 
-
-* 主网关必须运行网关 2017 年 11 月更新版或更高版本。
-
-满足这些要求后，在创建下一个网关时，请选择“添加到现有网关群集”，选择群集的主网关，然后提供该主网关的恢复密钥。
-有关详细信息，请参阅[本地数据网关的高可用性群集](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters)。
-
 <a name="update-gateway-installation"></a>
 
 ## <a name="change-location-migrate-restore-or-take-over-existing-gateway"></a>更改位置或者迁移、还原或接管现有网关
@@ -183,7 +184,7 @@ ms.locfileid: "50919114"
 
 1. 在计算机上的“控制面板”中，转到“程序和功能”。 在程序列表中，依次选择“本地数据网关”、“卸载”。
 
-2. [重新安装本地数据网关](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409)。
+2. [重新安装本地数据网关](https://aka.ms/on-premises-data-gateway-installer)。
 
 3. 安装程序打开后，使用之前用于安装网关的工作或学校帐户登录。
 
@@ -250,11 +251,11 @@ TcpTestSucceeded       : True
 | login.microsoftonline.com | 443 | HTTPS | 
 ||||
 
-在某些情况下，Azure 服务总线连接是使用 IP 地址而不是完全限定的域名建立的。 因此，我们建议将防火墙中数据区域的 IP 地址加入白名单。 若要将 IP 地址而不是域加入白名单，可以下载并使用 [Microsoft Azure 数据中心 IP 范围列表](https://www.microsoft.com/download/details.aspx?id=41653)。 此列表中的 IP 地址采用[无类域间路由 (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 表示法。
+在某些情况下，Azure 服务总线连接是使用 IP 地址而不是完全限定的域名建立的。 因此，我们建议将防火墙中数据区域的 IP 地址加入允许列表。 若要将 IP 地址而不是域加入允许列表，可以下载并使用 [Microsoft Azure 数据中心 IP 范围列表](https://www.microsoft.com/download/details.aspx?id=41653)。 此列表中的 IP 地址采用[无类域间路由 (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 表示法。
 
 ### <a name="force-https-communication-with-azure-service-bus"></a>强制与 Azure 服务总线进行 HTTPS 通信
 
-某些代理仅允许流量发往端口 80 和 443。 默认情况下，与 Azure 服务总线之间的通信在除 443 以外的端口上进行。
+某些代理仅允许发往端口 80 和 443 的流量通过。 默认情况下，与 Azure 服务总线之间的通信在除 443 以外的端口上进行。
 可以强制网关通过 HTTPS 而不是通过直接 TCP 来与 Azure 服务总线通信，但这可能会显著降低性能。 若要执行此任务，请执行以下步骤：
 
 1. 浏览到本地数据网关客户端所在的位置，通常可在此处找到：```C:\Program Files\On-premises data gateway\Microsoft.PowerBI.EnterpriseGateway.exe```
@@ -284,7 +285,7 @@ TcpTestSucceeded       : True
 
 ## <a name="restart-gateway"></a>重启网关
 
-数据网关以 Windows 服务的形式运行，与任何其他 Windows 服务一样，可以通过多种方式启动和停止该网关。 例如，可以在运行网关的计算机上使用提升的权限打开命令提示符，并运行以下任一命令：
+数据网关以 Windows 服务的形式运行，与任何其他 Windows 服务一样，可以通过各种方式启动和停止该网关。 例如，可以在运行网关的计算机上使用提升的权限打开命令提示符，并运行以下任一命令：
 
 * 若要启动该服务，请运行以下命令：
   
@@ -531,5 +532,4 @@ TcpTestSucceeded       : True
 ## <a name="next-steps"></a>后续步骤
     
 * [从逻辑应用连接到本地数据](../logic-apps/logic-apps-gateway-connection.md)
-* [企业集成功能](../logic-apps/logic-apps-enterprise-integration-overview.md)
 * [适用于 Azure 逻辑应用的连接器](../connectors/apis-list.md)

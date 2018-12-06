@@ -1,26 +1,25 @@
 ---
 title: Media Encoder Standard 架构 | Microsoft Docs
 description: 本文概述 Media Encoder Standard 架构。
-author: Juliako
-manager: Hayley244
-editor: digimobile
+author: WenJason
+manager: digimobile
+editor: ''
 services: media-services
 documentationcenter: ''
-ms.assetid: 4c060062-8ef2-41d9-834e-e81e8eafcf2e
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/19/2017
-ms.date: 1/22/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 68f7f23fffb9ab966c760388991c2070b9c1941b
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+origin.date: 10/29/2018
+ms.date: 12/03/2018
+ms.author: v-jay
+ms.openlocfilehash: 3ff6a6e628f7799c91d40539fa59a7f8c0587478
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426283"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672740"
 ---
 # <a name="media-encoder-standard-schema"></a>Media Encoder Standard 架构
 本文介绍 [Media Encoder Standard 预设](media-services-mes-presets-overview.md)基于的 XML 架构的一些元素和类型。 本文将解释元素及其有效值。  
@@ -33,6 +32,7 @@ ms.locfileid: "47426283"
 | --- | --- | --- |
 | **编码** |[编码](media-services-mes-schema.md#Encoding) |根元素，指示要编码的输入源。 |
 | **Outputs** |[输出](media-services-mes-schema.md#Output) |所需输出文件的集合。 |
+| **StretchMode**<br/>minOccurs="0"<br/>default="AutoSize|xs:string|控制输出视频帧大小、填充、像素或显示纵横比。 **StretchMode** 可以是以下值之一：**None**、**AutoSize**（默认值）或 **AutoFit**。<br/><br/>**None**：严格遵循输出分辨率（例如，预设中的**宽度**和**高度**），而不考虑输入视频的像素纵横比或显示纵横比。 建议在[裁剪](media-services-crop-video.md)等方案中使用，其中输出视频的纵横比与输入不同。 <br/><br/>**AutoSize**：输出分辨率将适应预设指定的窗口（宽度 * 高度）。 但是，编码器会生成具有正方形 (1:1) 像素纵横比的输出视频。 因此，可以覆盖输出宽度或输出高度，以便与不包含填充的输入的显示纵横比相匹配。 例如，如果输入为 1920x1080，而编码预设要求提供 1280x1280，则会覆盖预设中的高度值，并且输出将是 1280x720，这样可以保持 16:9 的输入纵横比。 <br/><br/>**AutoFit**：必要时，请填充输出视频（使用上下黑边或左右黑边）以遵循所需的输出分辨率，同时确保输出中活动视频区域的纵横比与输入相同。 例如，假设输入为 1920x1080，并且编码预设要求提供 1280x1280。 那么，输出视频将是 1280x1280，但它包含纵横比为 16:9 的“活动视频”的内部 1280x720 矩形，并在顶部和底部包含高度为 280 像素的上下黑边区域。 另举一例，如果输入为 1440x1080，并且编码预设要求提供 1280x720，则输出将是 1280x720，其中包含纵横比为 4:3 的 960x720 内部矩形，并在左侧和右侧包含宽度为 160 像素的左右黑边区域。 
 
 ### <a name="attributes"></a>属性
 | Name | 类型 | 说明 |
@@ -132,11 +132,10 @@ ms.locfileid: "47426283"
 ### <a name="audio-codec-details"></a>音频编解码器详细信息
 音频编解码器|详细信息  
 -----------------|---  
-**AACLC**|1:<br/><br/> - 11025 : 8 &lt;= 比特率 &lt; 16<br/><br/> - 12000 : 8 &lt;= 比特率 &lt; 16<br/><br/> - 16000 : 8 &lt;= 比特率 &lt;32<br/><br/>- 22050 : 24 &lt;= 比特率 &lt; 32<br/><br/> - 24000 : 24 &lt;= 比特率 &lt; 32<br/><br/> - 32000 : 32 &lt;= 比特率 &lt;= 192<br/><br/> - 44100 : 56 &lt;= 比特率 &lt;= 288<br/><br/> - 48000 : 56 &lt;= 比特率 &lt;= 288<br/><br/> - 88200 : 128 &lt;= 比特率 &lt;= 288<br/><br/> - 96000 : 128 &lt;= 比特率 &lt;= 288<br/><br/> 2:<br/><br/> - 11025 : 16 &lt;= 比特率 &lt; 24<br/><br/> - 12000 : 16 &lt;= 比特率 &lt; 24<br/><br/> - 16000 : 16 &lt;= 比特率 &lt; 40<br/><br/> - 22050 : 32 &lt;= 比特率 &lt; 40<br/><br/> - 24000 : 32 &lt;= 比特率 &lt; 40<br/><br/> - 32000 :  40 &lt;= 比特率 &lt;= 384<br/><br/> - 44100 : 96 &lt;= 比特率 &lt;= 576<br/><br/> - 48000 : 96 &lt;= 比特率 &lt;= 576<br/><br/> - 88200 : 256 &lt;= 比特率 &lt;= 576<br/><br/> - 96000 : 256 &lt;= 比特率 &lt;= 576<br/><br/> 5/6:<br/><br/> - 32000 : 160 &lt;= 比特率 &lt;= 896<br/><br/> - 44100 : 240 &lt;= 比特率 &lt;= 1024<br/><br/> - 48000 : 240 &lt;= 比特率 &lt;= 1024<br/><br/> - 88200 : 640 &lt;= 比特率 &lt;= 1024<br/><br/> - 96000 : 640 &lt;= 比特率 &lt;= 1024<br/><br/> 8:<br/><br/> - 32000 : 224 &lt;= 比特率 &lt;= 1024<br/><br/> - 44100 : 384 &lt;= 比特率 &lt;= 1024<br/><br/> - 48000 : 384 &lt;= 比特率 &lt;= 1024<br/><br/> - 88200 : 896 &lt;= 比特率 &lt;= 1024<br/><br/> - 96000 : 896 &lt;= 比特率 &lt;= 1024  
-**HEAACV1**|1:<br/><br/> - 22050 : 比特率 = 8<br/><br/> - 24000 : 8 &lt;= 比特率 &lt;= 10<br/><br/> - 32000 : 12 &lt;= 比特率 &lt;= 64<br/><br/> - 44100 : 20 &lt;= 比特率 &lt;= 64<br/><br/> - 48000 : 20 &lt;= 比特率 &lt;= 64<br/><br/> - 88200 : 比特率 = 64<br/><br/> 2:<br/><br/> - 32000 : 16 &lt;= 比特率 &lt;= 128<br/><br/> - 44100 : 16 &lt;= 比特率 &lt;= 128<br/><br/> - 48000 : 16 &lt;= 比特率 &lt;= 128<br/><br/> - 88200 : 96 &lt;= 比特率 &lt;= 128<br/><br/> - 96000 : 96 &lt;= 比特率 &lt;= 128<br/><br/> 5/6:<br/><br/> - 32000 : 64 &lt;= 比特率 &lt;= 320<br/><br/> - 44100 : 64 &lt;= 比特率 &lt;= 320<br/><br/> - 48000 : 64 &lt;= 比特率 &lt;= 320<br/><br/> - 88200 : 256 &lt;= 比特率 &lt;= 320<br/><br/> - 96000 : 256 &lt;= 比特率 &lt;= 320<br/><br/> 8:<br/><br/> - 32000 : 96 &lt;= 比特率 &lt;= 448<br/><br/> - 44100 : 96 &lt;= 比特率 &lt;= 448<br/><br/> - 48000 : 96 &lt;= 比特率 &lt;= 448<br/><br/> - 88200 : 384 &lt;= 比特率 &lt;= 448<br/><br/> - 96000 : 384 &lt;= 比特率 &lt;= 448  
-**HEAACV2**|2:<br/><br/> - 22050 : 8 &lt;= 比特率 &lt;= 10<br/><br/> - 24000 : 8 &lt;= 比特率 &lt;= 10<br/><br/> - 32000 : 12 &lt;= 比特率 &lt;= 64<br/><br/> - 44100 : 20 &lt;= 比特率 &lt;= 64<br/><br/> - 48000 : 20 &lt;= 比特率 &lt;= 64<br/><br/> - 88200 : 64 &lt;= 比特率 &lt;= 64  
+**AACLC**|1:<br/><br/> - 11025: 8 &lt;= 比特率 &lt; 16<br/><br/> - 12000: 8 &lt;= 比特率 &lt; 16<br/><br/> - 16000: 8 &lt;= 比特率 &lt;32<br/><br/>- 22050: 24 &lt;= 比特率 &lt; 32<br/><br/> - 24000: 24 &lt;= 比特率 &lt; 32<br/><br/> - 32000: 32 &lt;= 比特率 &lt;= 192<br/><br/> - 44100: 56 &lt;= 比特率 &lt;= 288<br/><br/> - 48000: 56 &lt;= 比特率 &lt;= 288<br/><br/> - 88200 : 128 &lt;= 比特率 &lt;= 288<br/><br/> - 96000 : 128 &lt;= 比特率 &lt;= 288<br/><br/> 2:<br/><br/> - 11025: 16 &lt;= 比特率 &lt; 24<br/><br/> - 12000: 16 &lt;= 比特率 &lt; 24<br/><br/> - 16000: 16 &lt;= 比特率 &lt; 40<br/><br/> - 22050: 32 &lt;= 比特率 &lt; 40<br/><br/> - 24000 : 32 &lt;= 比特率 &lt; 40<br/><br/> - 32000:  40 &lt;= 比特率 &lt;= 384<br/><br/> - 44100: 96 &lt;= 比特率 &lt;= 576<br/><br/> - 48000 : 96 &lt;= 比特率 &lt;= 576<br/><br/> - 88200: 256 &lt;= 比特率 &lt;= 576<br/><br/> - 96000: 256 &lt;= 比特率 &lt;= 576<br/><br/> 5/6:<br/><br/> - 32000: 160 &lt;= 比特率 &lt;= 896<br/><br/> - 44100: 240 &lt;= 比特率 &lt;= 1024<br/><br/> - 48000: 240 &lt;= 比特率 &lt;= 1024<br/><br/> - 88200: 640 &lt;= 比特率 &lt;= 1024<br/><br/> - 96000: 640 &lt;= 比特率 &lt;= 1024<br/><br/> 8:<br/><br/> - 32000 : 224 &lt;= 比特率 &lt;= 1024<br/><br/> - 44100 : 384 &lt;= 比特率 &lt;= 1024<br/><br/> - 48000: 384 &lt;= 比特率 &lt;= 1024<br/><br/> - 88200: 896 &lt;= 比特率 &lt;= 1024<br/><br/> - 96000: 896 &lt;= 比特率 &lt;= 1024  
+**HEAACV1**|1:<br/><br/> - 22050: 比特率 = 8<br/><br/> - 24000: 8 &lt;= 比特率 &lt;= 10<br/><br/> - 32000: 12 &lt;= 比特率 &lt;= 64<br/><br/> - 44100: 20 &lt;= 比特率 &lt;= 64<br/><br/> - 48000: 20 &lt;= 比特率 &lt;= 64<br/><br/> - 88200: 比特率 = 64<br/><br/> 2:<br/><br/> - 32000: 16 &lt;= 比特率 &lt;= 128<br/><br/> - 44100: 16 &lt;= 比特率 &lt;= 128<br/><br/> - 48000: 16 &lt;= 比特率 &lt;= 128<br/><br/> - 88200 : 96 &lt;= 比特率 &lt;= 128<br/><br/> - 96000: 96 &lt;= 比特率 &lt;= 128<br/><br/> 5/6:<br/><br/> - 32000 : 64 &lt;= 比特率 &lt;= 320<br/><br/> - 44100: 64 &lt;= 比特率 &lt;= 320<br/><br/> - 48000: 64 &lt;= 比特率 &lt;= 320<br/><br/> - 88200 : 256 &lt;= 比特率 &lt;= 320<br/><br/> - 96000: 256 &lt;= 比特率 &lt;= 320<br/><br/> 8:<br/><br/> - 32000: 96 &lt;= 比特率 &lt;= 448<br/><br/> - 44100: 96 &lt;= 比特率 &lt;= 448<br/><br/> - 48000: 96 &lt;= 比特率 &lt;= 448<br/><br/> - 88200: 384 &lt;= 比特率 &lt;= 448<br/><br/> - 96000: 384 &lt;= 比特率 &lt;= 448  
+**HEAACV2**|2:<br/><br/> - 22050: 8 &lt;= 比特率 &lt;= 10<br/><br/> - 24000: 8 &lt;= 比特率 &lt;= 10<br/><br/> - 32000: 12 &lt;= 比特率 &lt;= 64<br/><br/> - 44100: 20 &lt;= 比特率 &lt;= 64<br/><br/> - 48000: 20 &lt;= 比特率 &lt;= 64<br/><br/> - 88200: 64 &lt;= 比特率 &lt;= 64  
   
-
 ## <a name="Clip"></a> 剪辑
 ### <a name="attributes"></a>属性
 | Name | 类型 | 说明 |

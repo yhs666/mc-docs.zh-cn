@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 origin.date: 04/11/2018
-ms.date: 09/03/2018
-ms.author: v-yiso
-ms.openlocfilehash: 52e67221b398214311dccaf169f0b5c223bd5070
-ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
+ms.date: 12/03/2018
+ms.author: v-biyu
+ms.openlocfilehash: 0521d9816691abd38b6220aafd7bc68a6fdf3ce8
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42870949"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675424"
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>在 Azure 应用服务 Web 应用中配置 PHP
 ## <a name="introduction"></a>简介
-本指南演示如何执行以下操作：在 [Azure 应用服务](app-service-web-overview.md)中配置 Web 应用的内置 PHP 运行时，提供自定义 PHP 运行时，并启用扩展。 若要使用应用服务，请注册 [试用版]。 要充分利用本指南，应先在应用服务中创建一个 PHP Web 应用。
+本指南演示如何执行以下操作：在 [Azure 应用服务](app-service-web-overview.md)中配置 Web 应用的内置 PHP 运行时，提供自定义 PHP 运行时，并启用扩展。 若要使用应用服务，请注册[试用版]。 要充分利用本指南，应先在应用服务中创建一个 PHP Web 应用。
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -58,7 +58,7 @@ PHP 7.0 和 PHP 7.2 也可用，但它们在默认情况下不启用。 若要�
 
         PS C:\> Get-AzureWebsite -Name {app-name} | findstr PhpVersion
 
-### <a name="azure-cli-20-linux-mac-windows"></a>Azure CLI 2.0（Linux、Mac、Windows）
+### <a name="azure-cli"></a>Azure CLI 
 
 若要使用 Azure 命令行接口，必须已在计算机上[安装 Azure CLI 2.0](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
 
@@ -134,7 +134,7 @@ PHP 7.0 和 PHP 7.2 也可用，但它们在默认情况下不启用。 若要�
     ![Web 应用设置][settings-button]
     
 1. 在“设置”边栏选项卡中选择“应用程序设置”，并滚动到“应用设置”部分。
-6. 在“应用设置”部分中，创建 **PHP_EXTENSIONS** 键。 此键的值将是相对于网站根目录的一个路径：**bin\your-ext-file**。
+6. 在“应用设置”部分中，创建 **PHP_EXTENSIONS** 键。 此键的值会是相对于网站根目录的一个路径：**bin\your-ext-file**。
 
     ![启用应用程序设置中的扩展][php-extensions]
     
@@ -190,7 +190,11 @@ PHP 7.0 和 PHP 7.2 也可用，但它们在默认情况下不启用。 若要�
 ## <a name="next-steps"></a>后续步骤
 有关详细信息，请参阅 [PHP 开发人员中心](/develop/php/)。
 
-[试用版]: https://www.azure.cn/pricing/1rmb-trial/
+> [!NOTE]
+> 如果想要在注册 Azure 帐户之前开始使用 Azure 应用服务，请转到[试用应用服务](https://www.azure.cn/zh-cn/home/features/app-service/)，并在其中立即创建一个生存期较短的入门 Web 应用。 不需要使用信用卡，也不需要做出承诺。
+>
+
+[free trial]: https://www.windowsazure.com/pricing/free-trial/
 [phpinfo()]: http://php.net/manual/en/function.phpinfo.php
 [select-php-version]: ./media/web-sites-php-configure/select-php-version.png
 [php.ini 指令的列表]: http://www.php.net/manual/en/ini.list.php

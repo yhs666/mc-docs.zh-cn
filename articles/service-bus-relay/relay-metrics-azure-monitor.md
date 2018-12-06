@@ -1,10 +1,10 @@
 ---
-title: Azure Monitor 中的 Azure 中继指标（预览版）
+title: Azure Monitor（预览版）中的 Azure 中继指标 | Azure
 description: 使用 Azure 监视来监视 Azure 中继
 services: service-bus-relay
 documentationcenter: .NET
-author: sethmanheim
-manager: timlt
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: service-bus-relay
@@ -13,20 +13,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/23/2018
-ms.date: 09/10/2018
-ms.author: v-yiso
-ms.openlocfilehash: c8b0d58eaa692858601a3907dcb703ff600ca0b8
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 67ae4c06eacd94ede53892981440c8669bac468e
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43328920"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675519"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Azure Monitor 中的 Azure 中继指标（预览版）
 
 Azure 中继指标提供 Azure 订阅中的资源的状态。 通过一组丰富的指标数据，可在命名空间和实体级别评估中继资源的总体运行状况。 这些统计信息非常重要，因为它们能够帮助监视 Azure 中继的状态。 另外，指标也可帮助解决由根本原因造成的问题，而无需联系 Azure 支持。
 
-Azure Monitor 提供了统一的用户界面，可用于监视各种 Azure 服务。 有关详细信息，请参阅 GitHub 上的[在 Microsoft Azure 中进行监视](../monitoring-and-diagnostics/monitoring-overview.md)和[通过 .NET 检索 Azure Monitor 指标](https://github.com/Azure-Samples/monitor-dotnet-metrics-api)示例。
+Azure Monitor 提供了统一的用户界面，可用于监视各种 Azure 服务。 有关详细信息，请参阅 GitHub 上的[在 Azure 中进行监视](../monitoring-and-diagnostics/monitoring-overview.md)和[通过 .NET 检索 Azure Monitor 指标](https://github.com/Azure-Samples/monitor-dotnet-metrics-api)示例。
 
 ## <a name="access-metrics"></a>访问指标
 
@@ -36,7 +36,7 @@ Azure Monitor 提供多种访问指标的方法。 可从 [Azure 门户](https:/
 
 ## <a name="access-metrics-in-the-portal"></a>在门户中访问指标
 
-可在 [Azure 门户](https://portal.azure.com)中监视一段时间内的指标。 以下示例演示了如何在帐户级别查看成功的请求和传入的请求：
+可在 [Azure 门户](https://portal.azure.cn)中监视一段时间内的指标。 以下示例演示了如何在帐户级别查看成功的请求和传入的请求：
 
 ![][1]
 
@@ -95,3 +95,4 @@ Azure 中继支持为 Azure Monitor 中的指标使用以下维度。 为指标�
 
 
 
+<!--Update_Description: Update meta properties  -->

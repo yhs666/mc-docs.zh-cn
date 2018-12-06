@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 09/24/2018
 ms.date: 11/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: fdc364ed01932414a78baf9ae17601a5cb4f7c78
-ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
+ms.openlocfilehash: fbc24a9046fbb1caa33f52c61b8e06c375e9bd26
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50204803"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654338"
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-app-using-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Azure Cosmos DB：使用 JavaScript SDK 生成 Node.js 应用，用于管理 Azure Cosmos DB SQL API 数据
 
@@ -25,10 +25,9 @@ ms.locfileid: "50204803"
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
-> * [Xamarin](create-sql-api-xamarin-dotnet.md)
 >  
 
-Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可快速创建和查询文档数据库，这些数据库受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。 
+<!--Pending on translate * [Xamarin](create-sql-api-xamarin-dotnet.md)--> Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 可快速创建和查询文档数据库，这些数据库受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。 
 
 <!-- NOTICE: 全球分布 TO 多区域分布 -->
 <!-- NOTICE: globally TO multiple-region  -->

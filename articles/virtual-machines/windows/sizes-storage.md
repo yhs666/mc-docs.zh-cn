@@ -17,11 +17,11 @@ origin.date: 01/11/2018
 ms.date: 01/29/2018
 ms.author: v-yeche
 ms.openlocfilehash: 6139d0ff032da1265ce7a83ca5601d31ce292a11
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29285583"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645310"
 ---
 # <a name="storage-optimized-virtual-machine-sizes"></a>存储优化虚拟机大小
 

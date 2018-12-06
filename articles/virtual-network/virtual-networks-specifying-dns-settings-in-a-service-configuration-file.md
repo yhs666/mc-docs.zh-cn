@@ -16,11 +16,11 @@ origin.date: 02/24/2016
 ms.date: 06/11/2018
 ms.author: v-yeche
 ms.openlocfilehash: f858224a7bd81b8a58eb493f0bffbccce4cdfeb5
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34869246"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647205"
 ---
 # <a name="specifying-dns-settings-in-a-service-configuration-file"></a>在服务配置文件中指定 DNS 设置
 ## <a name="dns-elements"></a>DNS 元素

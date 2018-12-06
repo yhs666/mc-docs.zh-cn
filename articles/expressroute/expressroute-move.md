@@ -1,26 +1,19 @@
 ---
 title: 将 ExpressRoute 线路从经典部署模型转移到 Resource Manager 部署模型 | Azure
 description: 本页概述桥接经典部署模型与 Resource Manager 部署模型时所要了解的知识。
-documentationCenter: na
 services: expressroute
 author: ganesr
-manager: carmonm
-editor: ''
-ms.assetid: bdf01217-1a98-4ec0-a08e-d84fd37f78af
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: conceptual
 origin.date: 05/02/2017
 ms.author: v-yiso
-ms.date: 03/26/2018
-ms.openlocfilehash: 0ff577afa064a2062d89157723c63c775fc7bfa1
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.date: 12/10/2018
+ms.openlocfilehash: 70fc3f00b1e219ec534ddd8577e0dcced0354a30
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30073852"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675452"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>将 ExpressRoute 线路从经典部署模型转移到 Resource Manager 部署模型
 
@@ -70,7 +63,7 @@ ms.locfileid: "30073852"
  - 创建/更新/获取/删除到经典虚拟网络的虚拟网络链接
  - 创建/更新/获取/删除跨订阅连接的虚拟网络链接授权
 
-将 **allowClassicOperations** 设置为 TRUE 时，无法执行以下经典操作：
+但是，将 **allowClassicOperations** 设置为 TRUE 时，无法执行以下经典操作：
 
 * 创建/更新/获取/删除针对 Azure 专用对等互连、Azure 公共对等互连和 Microsoft 对等互连的边界网关协议 (BGP) 对等互连
 * 删除 ExpressRoute 线路

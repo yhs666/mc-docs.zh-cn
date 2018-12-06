@@ -6,50 +6,46 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 03/27/2018
-ms.date: 11/12/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 1b2d162c0eb16bd4a59b3c608ce17fe87f5c683f
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.openlocfilehash: 000bfd944cdfce2729ef8a4872c1f4998ca5b4f5
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034991"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676393"
 ---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Azure 中虚拟机的区域和可用性
 Azure 在中国的四个数据中心运行。 这些数据中心分组到地理区域，让用户可灵活选择构建应用程序的位置。 请务必了解 Azure 中虚拟机 (VM) 运行的方式和位置，以及最大化性能、可用性和冗余的选项。 本文提供了 Azure 的可用性和冗余功能的概述。
 
-!--请注意：多个到四个 --> <!--Notice: around the world TO China -->
+<!--Notice: multiple TO four -->
+<!--Notice: around the world TO China -->
 
 ## <a name="what-are-azure-regions"></a>什么是 Azure 区域？
-可以在规定的地理区域（例如“中国东部”、“中国北部”或“中国东部 2”）中创建 Azure 资源。 可查看[区域及其位置的列表](https://www.azure.cn/support/service-dashboard/)。 为了提供冗余和可用性，每个区域都设有多个数据中心。 这样，便可灵活设计应用程序，创建距离用户最近的 VM，满足任何法律、符合性或税务要求。
+可以在规定的地理区域（例如“中国东部”、“中国东部 2”、“中国北部”或“中国北部 2”）中创建 Azure 资源。 可查看[区域及其位置的列表](https://www.azure.cn/support/service-dashboard/)。 为了提供冗余和可用性，每个区域都设有多个数据中心。 这样，便可灵活设计应用程序，创建距离用户最近的 VM，满足任何法律、符合性或税务要求。
 
-## <a name="special-azure-regions"></a>特殊 Azure 区域
-在构建应用程序时，出于符合性或法律方面的考虑，可能需要使用某些特殊的 Azure 区域。 这些特殊区域包括：
+<!-- China Region contains 'China East', 'China East 2 ', 'China North', or 'China North 2 '-->
 
-<!-- Not Available on * **US Gov Virginia** and **US Gov Iowa**-->
-* **中国东部**、**中国东部 2**、**中国北部**、**中国北部 2**
-  * 这些区域在 Microsoft 和 21Vianet 达成唯一合作关系之后可供用户使用，有了这种关系，Microsoft 就不需直接维护相关数据中心。
-  
-<!-- Not Available on * **Germany Central** and **Germany Northeast**-->
+<!-- Not Available on ## Special Azure regions
 
-## <a name="region-pairs"></a>区域对
-每个 Azure 区域都与同一地理位置内的另一区域配对。 此方法适用于跨地域复制资源（例如 VM 存储），降低因自然灾害、社会动乱、电力中断或物理网络中断而同时影响两个区域的可能性。 区域对的其他优点包括：
+## Region pairs
+Each Azure region is paired with another region within the same geography. This approach allows for the replication of resources, such as VM storage, across a geography that should reduce the likelihood of natural disasters, civil unrest, power outages, or physical network outages affecting both regions at once. Additional advantages of region pairs include:
 
-* 出现范围较广的 Azure 区域中断时，每个区域对中有一个区域优先级更高，这样可以缩短应用程序的还原时间。 
-* 将逐一对配对的区域进行计划内 Azure 更新，尽量减少停机时间并降低应用程序中断风险。
-* 出于税务和执法管辖权方面的考虑，数据仍以配对的形式驻留在同一地域内（巴西南部除外）。
+* In the event of a wider Azure outage, one region is prioritized out of every pair to help reduce the time to restore for applications. 
+* Planned Azure updates are rolled out to paired regions one at a time to minimize downtime and risk of application outage.
+* Data continues to reside within the same geography as its pair (except for Brazil South) for tax and law enforcement jurisdiction purposes.
 
-区域对的示例包括：
+Examples of region pairs include:
 
-| 主要 | 次要 |
+| Primary | Secondary |
 |:--- |:--- |
-| 中国北部 |中国东部 |
-| 中国北部 2 |中国东部 2 |
+| China North |China East |
+| China North 2 |China East 2 |
 
 <!-- Not Available on  [list of regional pairs here](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions) -->
 ## <a name="feature-availability"></a>功能可用性
-某些服务或 VM 功能（例如特定的 VM 大小或存储类型）仅在特定区域提供。 也有一些多区域 Azure 服务不需要选择特定的区域，例如 [Azure Active Directory](../articles/active-directory/fundamentals/active-directory-whatis.md)、[流量管理器](../articles/traffic-manager/traffic-manager-overview.md)或 Azure DNS。 若要更好地设计应用程序环境，可查看 [Azure 服务在每个区域的可用性](https://www.azure.cn/support/service-dashboard/#services)。 此外，还可以[以编程方式查询受支持的 VM 大小和每个区域中的限制](../articles/azure-resource-manager/resource-manager-sku-not-available-errors.md)。
+某些服务或 VM 功能（例如特定的 VM 大小或存储类型）仅在特定区域提供。 也有一些全球性 Azure 服务不需要选择特定的区域，例如 [Azure Active Directory](../articles/active-directory/fundamentals/active-directory-whatis.md)、[流量管理器](../articles/traffic-manager/traffic-manager-overview.md)或 Azure DNS。 若要更好地设计应用程序环境，可查看 [Azure 服务在每个区域的可用性](https://www.azure.cn/support/service-dashboard/#services)。 此外，还可以[以编程方式查询受支持的 VM 大小和每个区域中的限制](../articles/azure-resource-manager/resource-manager-sku-not-available-errors.md)。
 
 <!-- URL waiting for release on [Azure DNS](../articles/dns/dns-overview.md) -->
 

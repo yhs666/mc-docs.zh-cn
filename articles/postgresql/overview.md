@@ -9,18 +9,18 @@ editor: jasonwhowell
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-origin.date: 06/15/2018
-ms.date: 10/01/2018
-ms.openlocfilehash: 3cf98dd88fc87f4843d299e52aabb242aa7eabd7
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+origin.date: 11/14/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: c07e34f68aa8bcc71ec422969dc14f660d174d34
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426159"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675533"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>什么是用于 PostgreSQL 的 Azure 数据库？
 
-Azure Database for PostgreSQL 是 Microsoft 云中基于开源 [PostgreSQL](https://www.postgresql.org/) 数据库引擎的社区版本、为开发人员构建的关系数据库服务。 用于 PostgreSQL 的 Azure 数据库提供以下功能：
+Azure Database for PostgreSQL 是云中基于开源 [PostgreSQL](https://www.postgresql.org/) 数据库引擎 9.5、9.6 和 10 版的社区版本的关系数据库服务，专为开发人员构建。 用于 PostgreSQL 的 Azure 数据库提供以下功能：
 
 - 没有额外费用的内置高可用性
 - 使用非独占即用即付定价，实现可预测性能
@@ -41,7 +41,7 @@ Azure Database for PostgreSQL 是 Microsoft 云中基于开源 [PostgreSQL](http
 - [用于 PostgreSQL 的 Azure 数据库的 Azure CLI 示例](./sample-scripts-azure-cli.md)
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>几秒钟内调整性能和规模
-Azure Database for PostgreSQL 服务提供三个定价层：“基本”、“常规用途”和“内存优化”。 每个层提供不同的资源功能以支持数据库工作负荷。 可以在一个月内花费很少的费用基于小型数据库构建第一个应用，然后根据解决方案的需求调整缩放。 动态可伸缩性使得数据库能够以透明方式对不断变化的资源需求做出响应。 只需在需要资源时为所需的资源付费。 有关详细信息，请参阅[定价层](concepts-pricing-tiers.md)。
+Azure Database for PostgreSQL 服务提供三个定价层：“基本”、“常规用途”和“内存优化”。 每个层提供不同的资源功能以支持数据库工作负荷。 可以在一个月内花费很少的费用基于小型数据库构建第一个应用，然后根据解决方案的需求调整缩放。 动态可伸缩性使得数据库能够以透明方式对不断变化的资源需求做出响应。 只需在需要资源时为所需的资源付费。 有关详细信息，请参阅 [定价层](concepts-pricing-tiers.md)。
 
 ## <a name="keep-your-app-and-business-running"></a>使应用和业务持续运转
 Azure 行业领先的 99.99% 可用性服务级别协议 (SLA)（由 Microsoft 管理的数据中心的全球网络提供支持），有助于保持应用全天候运行。 对于每个用于 PostgreSQL 服务器的 Azure 数据库，可以利用内置的安全性、容错和数据保护功能。使用其他产品时可能需要另外购买或设计、构建并管理这些功能。 对于 Azure Database for PostgreSQL，每个定价层都提供了一组全面的业务连续性功能和选项，可以使用这些功能和选项快速进入工作状态并保持运行。 可以使用[时间点还原](howto-restore-server-portal.md)将数据库还原到以前的状态，最长可还原到 35 天前。 此外，如果托管数据库的数据中心发生服务中断，可以通过最新备份的异地冗余副本还原数据库。
@@ -58,10 +58,9 @@ Azure 数据库沿袭了 Azure Database for PostgreSQL 的若干数据安全性�
 
 另外，请酌情考虑以下联系点：
 - 若要联系 Azure 支持，请[从 Azure 门户提交票证](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
-
 - 若要提供反馈或请求新功能，请通过 [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql) 创建条目。
 
 ## <a name="next-steps"></a>后续步骤
-- 有关成本比较和计算器，请参阅[定价页](azure.cn/pricing/details/postgresql/)。
+- 有关成本比较和计算器，请参阅[定价页](https://azure.cn/pricing/details/postgresql/)。
 - 请从[创建第一个用于 PostgreSQL 的 Azure 数据库](./quickstart-create-server-database-portal.md)开始。
 - 使用 Python、PHP、Ruby、C\#、Java、Node.js 构建第一个应用：[连接库](./concepts-connection-libraries.md)

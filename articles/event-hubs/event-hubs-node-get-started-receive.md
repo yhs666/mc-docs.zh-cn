@@ -2,7 +2,7 @@
 title: 使用 Node.js 从 Azure 事件中心接收事件 | Azure description: 了解如何使用 Node.js 从事件中心接收事件。
 services: event-hubs author: ShubhaVijayasarathy manager: kamalb
 
-ms.service: event-hubs ms.workload: core ms.topic: article origin.date:09/18/2018 ms.date: 11/05/2018 ms.author:v-biyu
+ms.service: event-hubs ms.workload: core ms.topic: article origin.date: 09/18/2018 ms.date: 12/10/2018 ms.author:v-biyu
 
 ---
 
@@ -24,7 +24,7 @@ Azure 事件中心是一个具备高度伸缩性的事件管理系统，每秒�
 若要完成本教程，需要满足以下先决条件：
 
 - Node.js 版本 8.x 和更高版本。 从 [https://nodejs.org](https://nodejs.org) 下载最新的 LTS 版本。不要使用 node.js 的旧版 LTS。 
-- 有效的 Azure 帐户。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- 有效的 Azure 帐户。 如果没有 Azure 订阅，请在开始前创建一个[试用帐户][]。
 
 ## <a name="create-a-namespace-and-event-hub"></a>创建命名空间和事件中心
 第一步是使用 Azure 门户创建包含事件中心的事件中心命名空间。 如果没有现成可用的，可以按照[使用 Azure 门户创建事件中心命名空间和事件中心](event-hubs-create.md)中的说明创建这些实体。
@@ -47,7 +47,7 @@ npm install @azure/event-processor-host
 
 1. 在 Visual Studio Code 中打开项目。 
 2. 在 **processor** 文件夹下创建一个名为 **.env** 的文件。 从根文件夹中的 **sample.env** 中复制并粘贴示例环境变量。
-3. 配置你的事件中心连接字符串、事件中心名称和存储终结点。 可以在 Azure 门户中从“事件中心”页面上的 **RootManageSharedAccessKey** 下的“连接字符串-主要”密钥下复制你的事件中心的连接字符串。 有关详细步骤，请参阅[获取连接字符串](event-hubs-quickstart-portal.md#create-an-event-hubs-namespace)。
+3. 配置你的事件中心连接字符串、事件中心名称和存储终结点。 可以在 Azure 门户中从“事件中心”页面上的 **RootManageSharedAccessKey** 下的“连接字符串-主要”密钥下复制你的事件中心的连接字符串。 有关详细步骤，请参阅[获取连接字符串](event-hubs-create.md#create-an-event-hubs-namespace)。
 4. 在 Azure CLI 中，导航到 **processor** 文件夹路径。 通过运行以下命令安装节点程序包并生成项目：
 
     ```nodejs
@@ -131,11 +131,7 @@ export EVENTHUB_NAME="<your-event-hub-name>"
 
 ## <a name="next-steps"></a>后续步骤
 
-若要了解有关事件中心的详细信息，请访问以下页面：
+在本快速入门中，你已创建从事件中心接收消息的 Node.js 应用程序。 若要了解如何使用 Node.js 将事件发送到事件中心，请参阅[从事件中心发送事件 - Node.js](event-hubs-node-get-started-send.md)。
 
-* [使用 Node.js 发送事件](event-hubs-go-get-started-send.md)
-* [事件中心示例](https://github.com/Azure/azure-event-hubs-node/tree/master/processor/examples/)
-* [将事件捕获到 Azure 存储或 Data Lake Store](event-hubs-capture-overview.md)
-* [事件中心常见问题](event-hubs-faq.md)
-
-
+<!-- Links -->
+[试用帐户](https://www.azure.cn/pricing/1rmb-trial)

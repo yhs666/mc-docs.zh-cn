@@ -12,12 +12,12 @@ ms.topic: quickstart
 origin.date: 09/24/2018
 ms.date: 11/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 22f51a6a774c22ca5abef71731857e44a059e7e5
-ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
+ms.openlocfilehash: 3b9603db4be7c761dcf9dc7692c99de0b8f830c2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50204822"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646446"
 ---
 # <a name="azure-cosmos-db-build-a-sql-api-app-with-python-and-the-azure-portal"></a>Azure Cosmos DB：使用 Python 和 Azure 门户生成 SQL API 应用
 
@@ -26,10 +26,9 @@ ms.locfileid: "50204822"
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
-> * [Xamarin](create-sql-api-xamarin-dotnet.md)
 >  
 
-Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可以快速创建和查询文档数据库，这些数据库受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。 
+<!--Pending on translate * [Xamarin](create-sql-api-xamarin-dotnet.md)--> Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 可以快速创建和查询文档数据库，这些数据库受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。 
 <!-- NOTICE: 全球分布 TO 多区域分布 -->
 <!-- NOTICE: globally TO multiple-region  -->
 <!-- Not Available on Key/Value and Graph databases-->

@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 01/11/2017
-ms.date: 08/27/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: aa366257a77c4beea6262ada64ecdb1d6a90c72a
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 2b7df62e28aea5ce9b14d3ae032be2c3302e25af
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872113"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675003"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>使用 PowerShell 创建运行本机模式报表服务器的 Azure VM
 > [!IMPORTANT] 
@@ -39,7 +39,7 @@ ms.locfileid: "42872113"
 
   * 若要验证订阅的内核限制，请在 Azure 门户中单击左侧窗格中的“设置”，然后单击顶部菜单中的“使用情况”。
   * 若要增加核心配额，请联系 [Azure 支持](https://www.azure.cn/support/contact/)。 有关 VM 大小信息，请参阅 [Azure 的虚拟机大小](../sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
-* **Windows PowerShell 脚本**：本主题假定你具有有关 Windows PowerShell 的基础知识。 有关使用 Windows PowerShell 的详细信息，请参阅以下部分：
+* **Windows PowerShell 脚本编写**：本主题假定你具备 Windows PowerShell 的基础应用知识。 有关使用 Windows PowerShell 的详细信息，请参阅以下部分：
 
   * [在 Windows Server 上启动 Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/starting-windows-powershell)
   * [Windows PowerShell 入门](https://technet.microsoft.com/library/hh857337.aspx)
@@ -48,7 +48,7 @@ ms.locfileid: "42872113"
 1. 浏览到 Azure 门户。
 2. 在左侧窗格中单击“虚拟机”。
 
-    ![Azure 虚拟机](./media/virtual-machines-windows-classic-ps-sql-report/IC660124.gif)
+    ![世纪互联 Azure 虚拟机](./media/virtual-machines-windows-classic-ps-sql-report/IC660124.gif)
 3. 单击“新建” 。
 
     ![新建按钮](./media/virtual-machines-windows-classic-ps-sql-report/IC692019.gif)
@@ -66,16 +66,14 @@ ms.locfileid: "42872113"
    * **虚拟机名称**：虚拟机名称在下一个配置页上还用作默认云服务 DNS 名称。 Azure 服务中的 DNS 名称必须唯一。 请考虑为 VM 配置一个描述虚拟机用途的计算机名称。 例如 ssrsnativecloud。
    * **层**：标准
    * **大小：A3** 是 SQL Server 工作负荷的建议 VM 大小。 如果 VM 仅用作报表服务器，A2 的 VM 大小就足够了，除非报表服务器遇到大量工作负荷。 有关 VM 定价信息，请参阅[虚拟机定价](https://www.azure.cn/pricing/details/virtual-machines/)。
-   * 
-            **新用户名**：你将提供的名称创建为 VM 上的管理员。
+   * **新用户名**：你将提供的名称创建为 VM 上的管理员。
    * **新密码**和**确认**。 此密码用于新的管理员帐户并建议使用强密码。
    * 单击“下一步”。 ![next](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 7. 在下一页上，编辑以下字段：
 
    * **云服务**：选择“创建新的云服务”。
    * **云服务 DNS 名称**：这是与 VM 关联的云服务的公共 DNS 名称。 默认名称是为 VM 名称键入的名称。 如果在该主题的后续步骤中创建受信任的 SSL 证书，则该 DNS 名称用于该证书的“颁发给”的值。
-   * 
-            **区域/地缘组/虚拟网络**：选择离最终用户最近的区域。
+   * **区域/地缘组/虚拟网络**：选择离最终用户最近的区域。
    * **存储帐户**：使用自动生成的存储帐户。
    * **可用性集**：无。
    * **终结点**：保留**远程桌面**和 **PowerShell** 终结点，然后添加一个 HTTP 或 HTTPS 终结点，具体取决于你的环境。
@@ -486,9 +484,9 @@ ms.locfileid: "42872113"
 9. 该脚本当前是为 Reporting Services 配置的。 如果要为 Reporting Services 运行该脚本，请在 Get-WmiObject 语句上将命名空间的路径版本部分修改为“v11”。
 10. 运行该脚本。
 
-**验证**：若要验证基本报表服务器功能是否正常工作，请参阅本主题后面的 [验证配置](#verify-the-configuration) 部分。 若要验证证书绑定，请使用管理权限打开命令提示符，并运行以下命令：<!-- URL is CORRECT ON [Verify the configuration](#verify-the-configuration) -->
+**验证**：若要验证基本报表服务器功能是否正常工作，请参阅本主题后面的 [验证配置](#verify-the-configuration) 部分。 如果要验证证书绑定，请使用具有管理权限的身份打开命令提示符，并运行以下命令：
 
-    netsh http show sslcert
+<!-- URL is CORRECT ON [Verify the configuration](#verify-the-configuration) --> netsh http show sslcert
 
 结果将包括以下内容：
 
@@ -610,4 +608,5 @@ ms.locfileid: "42872113"
 
 ### <a name="links-to-other-resources-for-sql-server-in-azure-vms"></a>指向 Azure VM 中 SQL Server 的其他资源的链接
 [Azure 虚拟机上的 SQL Server 概述](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
+
 <!-- Update_Description: update meta properties, wording update， update link -->

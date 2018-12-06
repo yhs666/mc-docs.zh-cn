@@ -9,22 +9,20 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 03/26/2018
-ms.date: 11/05/2018
+ms.date: 12/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 96f17d601217b0a04664c71b688ade0b28f3d909
-ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
+ms.openlocfilehash: 52ccbdb57477b9aa37a031d32b5826bc62f6665f
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50204848"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675642"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB 服务器端编程：存储过程、数据库触发器和 UDF
 
 了解 Azure Cosmos DB 的对 JavaScript 的语言集成式事务执行如何让开发人员使用 [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript 在本机编写存储过程、触发器和用户定义的函数 (UDF)。 可以使用 Javascript 集成编写能够在数据库存储分区中直接传送和执行的程序逻辑。 
 
-<!-- Not Available VIDEO https://channel9.msdn.com-->
-
-本文将说明以下问题的答案：  
+<!-- Not Available VIDEO https://channel9.msdn.com--> 本文将说明以下问题的答案：  
 
 * 如何使用 JavaScript 编写存储过程、触发器或 UDF？
 * Cosmos DB 如何保证 ACID？
@@ -733,7 +731,7 @@ Document createdItem = await client.CreateDocumentAsync(UriFactory.CreateDocumen
     });
 ```
 
-以下示例演示如何创建用户定义的函数 (UDF) 并在 [SQL 查询](sql-api-sql-query.md)中使用它。
+以下示例演示如何创建用户定义的函数 (UDF) 并在 [SQL 查询](how-to-sql-query.md)中使用它。
 
 ```javascript
 UserDefinedFunction function = new UserDefinedFunction()

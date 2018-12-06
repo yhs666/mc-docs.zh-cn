@@ -2,27 +2,27 @@
 title: 将 Windows 系统状态备份到 Azure
 description: 了解如何将 Windows Server 的系统状态和/或 Windows 计算机备份到 Azure。
 services: backup
-author: saurabhsensharma
-manager: shivamg
+author: lingliw
+manager: digimobile
 keywords: 如何备份; 备份文件和文件夹
 ms.service: backup
 ms.topic: conceptual
 origin.date: 05/23/2018
-ms.date: 07/06/2018
-ms.author: v-junlch
-ms.openlocfilehash: 7dafaef59e1882c0b2ca71488833b59c3e53d948
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 01a7155af6b87a8f3b5d479107b1567abaa92785
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873645"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675628"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>备份资源管理器部署中的 Windows 系统状态
 本文介绍了如何将 Windows Server 系统状态备份到 Azure。 本教程旨在引导完成基本操作。
 
 如果想要深入了解 Azure 备份，请阅读此 [概述](backup-introduction-to-azure-backup.md)。
 
-如果没有 Azure 订阅，可以先创建一个 [试用帐户](https://www.azure.cn/pricing/1rmb-trial/) ，这样就可以访问任何 Azure 服务。
+如果没有 Azure 订阅，可以先创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)，这样就可以访问任何 Azure 服务。
 
 ## <a name="create-a-recovery-services-vault"></a>创建恢复服务保管库
 要备份 Windows Server 系统状态，需要在想要存储数据的区域内创建一个恢复服务保管库。 还需确定存储复制方式。
@@ -48,9 +48,9 @@ ms.locfileid: "37873645"
 
 6. 在“资源组”部分：
 
-    - 如果要创建资源组，请选择“新建”。
+    * 如果要创建资源组，请选择“新建”。
     或
-    - 选择“使用现有项”，并单击下拉菜单查看可用资源组列表  。
+    * 选择“使用现有项”，并单击下拉菜单查看可用资源组列表  。
 
   有关资源组的完整信息，请参阅 [Azure 资源管理器概述](../azure-resource-manager/resource-group-overview.md)。
 
@@ -151,14 +151,14 @@ ms.locfileid: "37873645"
 
 2. 完成 Azure 恢复服务代理安装向导。 若要完成该向导，需完成以下操作：
 
-   - 选择安装和缓存文件夹的位置。
-   - 如果使用代理服务器来连接 Internet，请提供代理服务器信息。
-   - 如果使用经过身份验证的代理，请提供用户名和密码详细信息。
-   - 提供已下载的保管库凭据
-   - 将加密通行短语保存在安全的位置。
+   * 选择安装和缓存文件夹的位置。
+   * 如果使用代理服务器来连接 Internet，请提供代理服务器信息。
+   * 如果使用经过身份验证的代理，请提供用户名和密码详细信息。
+   * 提供已下载的保管库凭据
+   * 将加密通行短语保存在安全的位置。
 
      > [!NOTE]
-     > 如果丢失或忘记了通行短语，Microsoft 无法帮助你恢复备份数据。 请将文件保存在安全的位置。 还原备份时需要用到此文件。
+     > 如果丢失或忘记了通行短语，Azure 无法帮助你恢复备份数据。 请将文件保存在安全的位置。 还原备份时需要用到此文件。
      >
      >
 
@@ -167,8 +167,8 @@ ms.locfileid: "37873645"
 ## <a name="back-up-windows-server-system-state"></a>备份 Windows Server 系统状态 
 初始备份包括两个任务：
 
-- 计划备份
-- 首次备份系统状态
+* 计划备份
+* 首次备份系统状态
 
 若要完成初始备份，请使用 Azure 恢复服务代理。
 
@@ -221,11 +221,11 @@ ms.locfileid: "37873645"
   ![IR 完成](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
 
 ## <a name="questions"></a>有疑问？
-如果有疑问，或者希望包含某种功能，请 [给我们反馈](http://aka.ms/azurebackup_feedback)。
+如果有疑问，或者希望包含某种功能，请 [给我们反馈](https://aka.ms/azurebackup_feedback)。
 
 ## <a name="next-steps"></a>后续步骤
-- 详细了解如何 [备份 Windows 计算机](backup-configure-vault.md)。
-- 至此，你已备份 Windows Server 系统状态，接下来可以[管理保管库和服务器](backup-azure-manage-windows-server.md)了。
-- 如果需要还原备份，请参阅[将文件还原到 Windows 计算机](backup-azure-restore-windows-server.md)一文。
+* 详细了解如何 [备份 Windows 计算机](backup-configure-vault.md)。
+* 至此，你已备份 Windows Server 系统状态，接下来可以[管理保管库和服务器](backup-azure-manage-windows-server.md)了。
+* 如果需要还原备份，请参阅[将文件还原到 Windows 计算机](backup-azure-restore-windows-server.md)一文。
 
 <!-- Update_Description: wording update -->

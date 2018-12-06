@@ -1,23 +1,23 @@
 ---
-title: 监视 Azure Batch | Microsoft Docs
+title: 监视 Azure Batch |Azure
 description: 了解 Azure 监视服务、指标、诊断日志以及 Azure Batch 的其他监视功能。
 services: batch
-author: dlepow
-manager: jeconnoc
+author: lingliw
+manager: digimobile
 ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
 origin.date: 04/05/2018
-ms.date: 09/07/2018
-ms.author: v-junlch
-ms.openlocfilehash: 2eaa57d8c2d15707516630e90bed64894bcaebd4
-ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.openlocfilehash: f471e4a8630f8a741603310d10661e360cae5d60
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477786"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675292"
 ---
 # <a name="monitor-batch-solutions"></a>监视 Batch 解决方案
 

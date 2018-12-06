@@ -1,37 +1,33 @@
 ---
-title: Azure 诊断扩展配置架构版本和历史记录
+title: Azure 诊断扩展配置架构版本历史记录
 description: 有关收集 Azure 虚拟机、VM 规模集、Service Fabric 和云服务中的性能计数器的信息。
-services: monitoring-and-diagnostics
-documentationcenter: .net
+services: azure-monitor
 author: lingliw
-manager: carmonm
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
-origin.date: 09/20/2017
-ms.date: 10/22/2018
+ms.topic: reference
+origin.date: 09/20/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: ace59f197dee46d49552f1c77a4b8ca3af8dfb4d
-ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
+ms.component: diagnostic-extension
+ms.openlocfilehash: 7e12860fe6521d389a2f8e6d49908f9d073ad2f9
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652230"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675532"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure 诊断扩展配置架构版本和历史记录
-此页为 Microsoft Azure SDK 附带的 Azure 诊断扩展架构版本编制了索引。  
+此页为 Azure SDK 附带的 Azure 诊断扩展架构版本编制了索引。  
 
 > [!NOTE]
 > Azure 诊断扩展是用来从以下各项收集性能计数器和其他统计信息的组件：
-> - Azure 虚拟机 
+> - Azure 虚拟机
 > - 虚拟机规模集
-> - Service Fabric 
-> - 云服务 
+> - Service Fabric
+> - 云服务
 > - 网络安全组
-> 
+>
 > 在使用以下某个服务时，才需要参阅此页。
 
 Azure 诊断扩展可以与其他 Microsoft 诊断产品（例如 Azure Monitor）结合使用。 有关详细信息，请参阅 [Microsoft 监视工具概述](monitoring-overview.md)。
@@ -72,7 +68,7 @@ Azure 诊断扩展可以与其他 Microsoft 诊断产品（例如 Azure Monitor�
 ### <a name="diagnostics-extension-111"></a>诊断扩展 1.11
 添加了对 Azure Monitor 接收器的支持。 此接收器仅适用于性能计数器。 允许将在 VM、VMSS 或云服务上收集的性能计数器作为自定义指标发送到 Azure Monitor。 Azure Monitor 接收器支持：
 * 通过 [Azure Monitor 指标 API](https://docs.microsoft.com/rest/api/monitor/metrics/list) 检索发送到 Azure Monitor 的所有性能计数器。
-* 通过 Azure Monitor 中新的[统一警报体验](monitoring-overview-unified-alerts.md)根据发送到 Azure Monitor 的所有性能计数器发出警报
+* 通过 Azure Monitor 中新的[统一警报体验](monitoring-overview-alerts.md)根据发送到 Azure Monitor 的所有性能计数器发出警报
 * 将性能计数器中的通配符运算符视为指标上的“实例”维度。 例如，如果你收集了“LogicalDisk(\*)/DiskWrites/sec”计数器，则可以根据“实例”维度进行筛选和拆分，以基于每个逻辑磁盘（C：、D：等）的磁盘写入次数/秒进行绘图或发出警报
 
 将 Azure Monitor 定义为诊断扩展配置中的新接收器
@@ -122,10 +118,8 @@ Azure 诊断扩展可以与其他 Microsoft 诊断产品（例如 Azure Monitor�
 ### <a name="diagnostics-extension-19"></a>诊断扩展 1.9
 添加了 Docker 支持。
 
-
-### <a name="diagnostics-extension-181"></a>诊断扩展 1.8.1 
+### <a name="diagnostics-extension-181"></a>诊断扩展 1.8.1
 可以在专用配置中指定 SAS 令牌而非存储帐户密钥。如果提供了 SAS 令牌，则会忽略存储帐户密钥。
-
 
 ```json
 {
@@ -153,10 +147,8 @@ Azure 诊断扩展可以与其他 Microsoft 诊断产品（例如 Azure Monitor�
 </PrivateConfig>
 ```
 
-
-### <a name="diagnostics-extension-18"></a>诊断扩展 1.8 
+### <a name="diagnostics-extension-18"></a>诊断扩展 1.8
 向 PublicConfig 中添加了 StorageType。 StorageType 可以是 *Table*、*Blob* 或 *TableAndBlob*。 *Table* 是默认值。
-
 
 ```json
 {
@@ -175,11 +167,13 @@ Azure 诊断扩展可以与其他 Microsoft 诊断产品（例如 Azure Monitor�
 </PublicConfig>
 ```
 
-
-### <a name="diagnostics-extension-17"></a>诊断扩展 1.7 
+### <a name="diagnostics-extension-17"></a>诊断扩展 1.7
 添加了路由到 EventHub 的功能。
 
-### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>Azure SDK 2.6 和诊断扩展 1.3 
+### <a name="diagnostics-extension-15"></a>诊断扩展 1.5
+添加了 sinks 元素和将诊断数据发送到 [Application Insights](../application-insights/app-insights-cloudservices.md) 的功能，因此可以更轻松地在应用程序以及系统和基础结构级别诊断问题。
+
+### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>Azure SDK 2.6 和诊断扩展 1.3
 对 Visual Studio 中的云服务项目进行了以下更改。 （这些更改同样适用于更高版本的 Azure SDK。）
 
 * 本地模拟器现在支持诊断。 此更改意味着，在 Visual Studio 中开发和测试时，可以收集诊断数据并确保应用程序正在创建相应的跟踪。 使用 Azure 存储模拟器在 Visual Studio 中运行云服务项目时，连接字符串 `UseDevelopmentStorage=true` 可启用诊断数据收集。 所有诊断数据都在“(开发存储)”存储帐户中收集。
@@ -201,7 +195,7 @@ Azure 诊断扩展可以与其他 Microsoft 诊断产品（例如 Azure Monitor�
 * .cscfg 文件中的诊断连接字符串优先于 .wadcfgx 文件中的存储帐户。 如果在 .cscfg 文件中指定了诊断连接字符串，则 Visual Studio 使用该字符串，而忽略 .wadcfgx 中的存储帐户。
 
 #### <a name="what-does-the-update-development-storage-connection-strings-checkbox-do"></a>“更新开发存储连接字符串...”复选框的作用
-“在发布到 Microsoft Azure 时使用 Microsoft Azure 存储帐户凭据更新诊断和缓存的开发存储连接字符串”复选框提供了使用发布过程中指定的 Azure 存储帐户更新任何开发存储帐户连接字符串的简便方法。
+“在发布到 Azure 时使用 Azure 存储帐户凭据更新诊断和缓存的开发存储连接字符串”复选框提供了使用发布过程中指定的 Azure 存储帐户更新任何开发存储帐户连接字符串的简便方法。
 
 例如，假设你选中此复选框，并且诊断连接字符串指定 `UseDevelopmentStorage=true`。 将项目发布到 Azure 时，Visual Studio 将自动使用发布向导中指定的存储帐户更新诊断连接字符串。 但是，如果已将实际的存储帐户指定为诊断连接字符串，则将改用该帐户。
 
@@ -209,7 +203,6 @@ Azure 诊断扩展可以与其他 Microsoft 诊断产品（例如 Azure Monitor�
 如果要将项目从 Azure SDK 2.4 升级到 Azure SDK 2.5 或更高版本，则应考虑到以下诊断功能差异。
 
 * **配置 API 已弃用** – 诊断的编程配置在 Azure SDK 2.4 或更早版本中可用，但在 Azure SDK 2.5 及更高版本中已弃用。 如果目前在代码中定义了诊断配置，则需在已迁移的项目中从头开始重新配置这些设置，这样才能让诊断正常工作。 Azure SDK 2.4 的诊断配置文件是 diagnostics.wadcfg，而 Azure SDK 2.5 及更高版本的诊断配置文件是 diagnostics.wadcfgx。
-* **云服务应用程序的诊断只能在角色级别配置，而不能在实例级别配置。**
-* **每次部署应用程序时，都会更新诊断配置** – 如果从服务器资源管理器更改诊断配置并重新部署应用，这可能会导致奇偶校验问题。
+* **云服务应用程序的诊断只能在角色级别配置，而不是在实例级别配置。**
+* **每次部署应用时，都会更新诊断配置** – 如果从服务器资源管理器更改诊断配置并重新部署应用，这可能会导致奇偶校验问题。
 * **在 Azure SDK 2.5 及更高版本中，故障转储是在诊断配置文件而非代码中配置的** – 如果在代码中配置了故障转储，则必须手动将配置从代码传输至配置文件，因为故障转储并未在迁移至 Azure SDK 2.6 的过程中传输。
-

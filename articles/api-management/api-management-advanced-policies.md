@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2017
 ms.author: v-yiso
-ms.date: 02/26/2018
-ms.openlocfilehash: cee7e1706e065a90e1b8867de5f731701de6f639
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.date: 12/03/2018
+ms.openlocfilehash: 522d72f7ab1f5f8d2187818a5f16f05262b3312f
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815379"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674791"
 ---
 # <a name="api-management-advanced-policies"></a>API 管理高级策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -156,7 +156,7 @@ ms.locfileid: "33815379"
 -   **策略范围：** 所有范围  
   
 ##  <a name="ForwardRequest"></a> 转发请求  
- `forward-request` 策略将传入请求转发到请求[上下文](./api-management-policy-expressions.md#ContextVariables)中指定的后端服务。 后端服务 URL 在 API [设置](./api-management-howto-create-apis.md#configure-api-settings)中指定，可以使用[设置后端服务](./api-management-transformation-policies.md)策略进行更改。  
+ `forward-request` 策略将传入请求转发到请求[上下文](./api-management-policy-expressions.md#ContextVariables)中指定的后端服务。 后端服务 URL 在 API 设置中指定，可以使用[设置后端服务](./api-management-transformation-policies.md)策略进行更改。  
   
 > [!NOTE]
 >  删除此策略之后，请求就不会转发到后端服务。一旦成功完成入站节中的策略，就会立即对出站节中的策略求值。  
@@ -662,7 +662,7 @@ status code and media type. If no example or schema found, the content is empty.
 |属性|说明|必须|默认|  
 |---------------|-----------------|--------------|-------------|  
 |mode="string"|确定请求是新请求还是当前请求的副本。 在出站模式下，mode=copy 不会初始化请求正文。|否|新建|  
-|response-variable-name="string"|如果不存在，则使用 `context.Response`。|否|不适用|  
+|response-variable-name="string"|将收到响应对象的上下文变量的名称。 如果该变量不存在，则将在成功执行策略时创建该变量，并且可通过 [`context.Variable`](api-management-policy-expressions.md#ContextVariables) 集合访问该变量。|是|不适用|
 |timeout="整数"|以秒为单位的超时间隔，此时间过后对 URL 的调用会失败。|否|60|  
 |ignore-error|如果为 true，请求会导致错误：<br /><br /> -   如果 response-variable-name 已指定，则其中会包含 null 值。<br />-   如果 response-variable-name 未指定，则不会更新 context.Request。|否|false|  
 |name|指定要设置的标头的名称。|是|不适用|  
@@ -1017,5 +1017,5 @@ status code and media type. If no example or schema found, the content is empty.
 有关如何使用策略的详细信息，请参阅：
 + [API 管理中的策略](api-management-howto-policies.md) 
 + [策略表达式](api-management-policy-expressions.md)
-+ [策略参考](api-management-policy-reference.md)，获取策略语句及其设置的完整列表
++ [策略参考](api-management-policies.md)，获取策略语句及其设置的完整列表
 + [策略示例](policy-samples.md)   

@@ -1,4 +1,18 @@
-若要诊断 Azure 云服务的问题，需要在问题发生时收集虚拟机上该服务的日志文件。 可以使用 AzureLogCollector 扩展按需从一个或多个云服务 VM（通过 Web 角色和辅助角色）执行一次性日志收集，并将收集到的文件传输到 Azure 存储帐户，所有这些操作都无需远程登录到任何 VM。
+---
+author: rockboyfor
+ms.service: virtual-machines
+ms.topic: include
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
+ms.openlocfilehash: 4ffff0bc6d0d94844ead50f33f62cb000e836371
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52677123"
+---
+若要诊断 Azure 云服务的问题，需要在问题发生时收集虚拟机上该服务的日志文件。 可以使用 AzureLogCollector 扩展按需从一个或多个云服务 VM（通过 Web 角色和辅助角色）执行一次性日志收集，并将收集到的文件传输到 Azure 存储帐户 - 所有这些操作都无需远程登录到任何 VM。
 
 > [!NOTE]
 > 有关大多数记录的信息的说明，请参阅 http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp。
@@ -293,7 +307,7 @@ param (
 
 $publicConfig = New-Object PSObject
 
-if ($Instances -ne $null -and $Instances.Count -gt 0)  #Instances should be seperated by ,
+if ($Instances -ne $null -and $Instances.Count -gt 0)  #Instances should be separated by ,
 {
   $instanceText = $Instances[0]
   for ($i = 1;$i -lt $Instances.Count;$i++)
@@ -319,7 +333,7 @@ else
 #
 #we need to get the Sasuri from StorageAccount and containers
 #
-$context = New-AzureStorageContext -Protocol https -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+$context = New-AzureStorageContext -Environment AzureChinaCloud -Protocol https -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
 
 $ContainerName = "azurelogcollectordata"
 $existingContainer = Get-AzureStorageContainer -Context $context |  Where-Object { $_.Name -like $ContainerName}
@@ -409,7 +423,7 @@ else
 #
 #we need to get the Sasuri from StorageAccount and containers
 #
-$context = New-AzureStorageContext -Protocol https -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+$context = New-AzureStorageContext -Environment AzureChinaCloud -Protocol https -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
 
 $ContainerName = "azurelogcollectordata"
 $existingContainer = Get-AzureStorageContainer -Context $context |  Where-Object { $_.Name -like $ContainerName}
@@ -512,5 +526,5 @@ else
 
 ## <a name="next-steps"></a>后续步骤
 现在，可以从一个简单的位置查看或复制日志。
-<!--Update_Description: wording update-->
-<!--ms.date: 01/29/2018-->
+
+<!--Update_Description: wording update, update meta properties-->

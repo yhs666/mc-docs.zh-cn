@@ -16,11 +16,11 @@ ms.date: 02/27/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 693d731c0cb4c677f500ca59357013dbb9a1ce2d
-ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2017
-ms.locfileid: "22094901"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659613"
 ---
 # <a name="batch-and-hpc-solutions-for-large-scale-computing-workloads"></a>适用于大规模计算工作负荷的 Batch 和 HPC 解决方案
 
@@ -77,9 +77,9 @@ Azure 还为开发人员和合作伙伴提供一整套功能、体系结构选�
 
 | 方案 | 为什么选择它？ |
 | --- | --- | --- |
-| **将 HPC 群集迸发到 Azure**<br/><br/>[![群集迸发][burst_cluster]](./media/batch-hpc-solutions/burst_cluster.png) <br/><br/> 了解更多：<br/>• [使用 HPC Pack 迸发到 Azure 辅助角色实例](https://technet.microsoft.com/library/gg481749.aspx)<br/><br/>• [使用 HPC Pack 设置混合计算群集](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)<br/><br/>• [使用 HPC Pack 迸发到 Azure Batch](https://technet.microsoft.com/library/mt612877.aspx)<br/><br/> |• 在混合解决方案中组合使用 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) 或其他本地群集以及其他 Azure 资源。<br/><br/>• 扩展大型计算工作负荷，以便在平台即服务 (PaaS) 虚拟机实例上运行（目前仅限 Windows Server）。<br/><br/>• 使用可选的 Azure 虚拟网络访问本地许可证服务器或数据存储 |
-| **完全在 Azure 中创建 HPC 群集**<br/><br/>[![IaaS 中的群集][iaas_cluster]](./media/batch-hpc-solutions/iaas_cluster.png)<br/><br/>了解更多：<br/>• [Azure 中的 HPC 群集解决方案](./big-compute-resources.md)<br/><br/> |• 在标准的或自定义的 Windows 或 Linux 基础结构即服务 (IaaS) 虚拟机上快速一致地部署应用程序和群集工具。<br/><br/>• 使用所选的作业计划解决方案运行各种大型计算工作负荷。<br/><br/>• 使用其他 Azure 服务（包括网络和存储）来创建基于云的完整解决方案。 |
-| **将并行应用程序横向扩展到 Azure**<br/><br/>[![Azure Batch][batch_proc]](./media/batch-hpc-solutions/batch_proc.png)<br/><br/>了解更多：<br/>• [Azure Batch 基础知识](./batch-technical-overview.md)<br/><br/>• [用于 .NET 的 Azure Batch 库入门](./batch-dotnet-get-started.md) |• 使用 [Azure Batch](./index.md)进行开发，横向扩展各种大型计算工作负荷，使其在 Windows 或 Linux 虚拟机池中运行。<br/><br/>• 使用 Azure 平台服务来管理虚拟机的部署和自动缩放、作业计划、灾难恢复、数据移动、依赖项管理以及应用程序部署。 |
+| **将 HPC 群集迸发到 Azure**<br/><br/>[![群集迸发][burst_cluster]](./media/batch-hpc-solutions/burst_cluster.png) <br/><br/> 了解详细信息：<br/>• [使用 HPC Pack 迸发到 Azure 辅助角色实例](https://technet.microsoft.com/library/gg481749.aspx)<br/><br/>• [使用 HPC Pack 设置混合计算群集](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)<br/><br/>• [使用 HPC Pack 迸发到 Azure Batch](https://technet.microsoft.com/library/mt612877.aspx)<br/><br/> |• 在混合解决方案中组合使用 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) 或其他本地群集以及其他 Azure 资源。<br/><br/>• 扩展大型计算工作负荷，以便在平台即服务 (PaaS) 虚拟机实例上运行（目前仅限 Windows Server）。<br/><br/>• 使用可选的 Azure 虚拟网络访问本地许可证服务器或数据存储 |
+| **完全在 Azure 中创建 HPC 群集**<br/><br/>[![IaaS 中的群集][iaas_cluster]](./media/batch-hpc-solutions/iaas_cluster.png)<br/><br/>了解详细信息：<br/>• [Azure 中的 HPC 群集解决方案](./big-compute-resources.md)<br/><br/> |• 在标准的或自定义的 Windows 或 Linux 基础结构即服务 (IaaS) 虚拟机上快速一致地部署应用程序和群集工具。<br/><br/>• 使用所选的作业计划解决方案运行各种大型计算工作负荷。<br/><br/>• 使用其他 Azure 服务（包括网络和存储）来创建基于云的完整解决方案。 |
+| **将并行应用程序横向扩展到 Azure**<br/><br/>[![Azure Batch][batch_proc]](./media/batch-hpc-solutions/batch_proc.png)<br/><br/>了解详细信息：<br/>• [Azure Batch 基础知识](./batch-technical-overview.md)<br/><br/>• [用于 .NET 的 Azure Batch 库入门](./batch-dotnet-get-started.md) |• 使用 [Azure Batch](./index.md)进行开发，横向扩展各种大型计算工作负荷，使其在 Windows 或 Linux 虚拟机池中运行。<br/><br/>• 使用 Azure 平台服务来管理虚拟机的部署和自动缩放、作业计划、灾难恢复、数据移动、依赖项管理以及应用程序部署。 |
 
 ## <a name="azure-services-for-big-compute"></a>用于大型计算的 Azure 服务
 下面是有关计算、数据、网络和相关服务的详细信息，可以将它们组合用于大型计算解决方案和工作流。 有关 Azure 服务的深入指导，请参阅 Azure 服务 [文档](/documentation/)。 本文前面的 [方案](#scenarios) 仅显示了这些服务的部分使用方法。
@@ -95,7 +95,7 @@ Azure 计算服务是大型计算解决方案的核心，不同的计算服务�
 
 | 服务 | 说明 |
 | --- | --- |
-| **[虚拟机](../virtual-machines/index.md)**<br/><br/> |• 使用 Microsoft Hyper-V 技术提供计算基础结构即服务 (IaaS)<br/><br/>• 可让你基于 [Azure Marketplace](https://azure.microsoft.com/marketplace/) 中的 Windows Server 或 Linux 标准映像或者自己提供的映像与数据磁盘灵活预配及管理持久性云计算机<br/><br/>• 能够以 [VM 规模集](../virtual-machine-scale-sets/index.md)的形式进行部署或管理，从相同的虚拟机构建大规模服务，使用自动缩放功能自动增加或减少容量<br/><br/>• 完全在云中运行本地计算群集工具和应用程序<br/><br/> |
+| **[虚拟机](../virtual-machines/index.md)**<br/><br/> |• 使用 Microsoft Hyper-V 技术提供计算基础结构即服务 (IaaS)<br/><br/>• 可让你基于 [Azure 市场](https://azure.microsoft.com/marketplace/)中的 Windows Server 或 Linux 标准映像或者自己提供的映像与数据磁盘灵活预配及管理持久性云计算机<br/><br/>• 能够以 [VM 规模集](../virtual-machine-scale-sets/index.md)的形式进行部署或管理，从相同的虚拟机构建大规模服务，使用自动缩放功能自动增加或减少容量<br/><br/>• 完全在云中运行本地计算群集工具和应用程序<br/><br/> |
 | **[云服务](../cloud-services/index.md)**<br/><br/> |• 可以在辅助角色实例中运行大型计算应用程序，辅助角色实例是运行某个 Windows Server 版本的虚拟机并且完全由 Azure 托管<br/><br/>• 以较低的管理开销支持平台即服务 (PaaS) 模型中运行的可缩放且可靠的应用程序<br/><br/>• 可能需要额外的工具或开发来与现有的本地 HPC 群集解决方案进行集成 |
 | **[Batch](./index.md)**<br/><br/> |• 在完全托管的服务中运行大规模的并行与批处理工作负荷<br/><br/>• 针对虚拟机的托管池提供作业计划和自动缩放<br/><br/>• 允许开发人员以服务形式构建和运行应用程序，或者运行支持云的现有应用程序<br/> |
 
@@ -114,7 +114,7 @@ Azure 计算服务是大型计算解决方案的核心，不同的计算服务�
 ### <a name="additional-services"></a>其他服务
 大型计算解决方案可能需要其他 Azure 服务才能连接到本地或其他环境中的资源。 示例包括：
 
-- [虚拟网络](../virtual-network/index.md) - 在 Azure 中创建逻辑隔离的区域，将 Azure 资源彼此连接或连接到本地数据中心。 有了跨界虚拟网络，大型计算应用程序就可以访问本地数据、Active Directory 服务和许可证服务器
+- [虚拟网络](../virtual-network/index.md) - 在 Azure 在创建一个逻辑隔离的区段，将 Azure 资源互相连接，或将其连接到本地数据中心。 有了跨界虚拟网络，大型计算应用程序就可以访问本地数据、Active Directory 服务和许可证服务器
 - [ExpressRoute](../expressroute/index.md) - 在 Microsoft 数据中心与本地环境或共同租用环境中的基础结构之间创建专用连接。 与基于 Internet 的典型连接相比，ExpressRoute 的安全性更高，可靠性更强，速度更快且延迟更轻微。
 - [服务总线](../service-bus/index.md) - 提供多种机制让应用程序进行通信或交换数据，无论这些应用程序位于 Azure、另一个云平台还是数据中心。
 

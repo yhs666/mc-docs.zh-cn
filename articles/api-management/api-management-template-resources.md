@@ -16,11 +16,11 @@ origin.date: 01/09/2017
 ms.author: v-yiso
 ms.date: 02/26/2018
 ms.openlocfilehash: 93fafad8cac64f6c8a71e12a714edb8c7d7dcf86
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29285360"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651793"
 ---
 # <a name="azure-api-management-template-resources"></a>Azure API 管理模板资源
 Azure API 管理提供以下类型的资源，适用于开发人员门户模板。  
@@ -165,17 +165,17 @@ Azure API 管理提供以下类型的资源，适用于开发人员门户模板�
 |WebDocumentationInvalidHeaderErrorMessage|标头“{0}”无效|  
 |WebDocumentationInvalidRequestErrorMessage|请求 URL 无效|  
 |TextboxLabelAccessToken|访问令牌 *|  
-|DropdownOptionPrimaryKeyFormat|主-{0}|  
-|DropdownOptionSecondaryKeyFormat|辅-{0}|  
+|DropdownOptionPrimaryKeyFormat|Primary-{0}|  
+|DropdownOptionSecondaryKeyFormat|Secondary-{0}|  
 |WebDocumentationSubscriptionKeyText|订阅密钥|  
 |WebDocumentationTemplatesAddHeaders|添加必需的 HTTP 标头|  
 |WebDocumentationTemplatesBasicAuthSample|基本授权示例|  
 |WebDocumentationTemplatesCurlForBasicAuth|适用于基本授权: --user {username}:{password}|  
 |WebDocumentationTemplatesCurlValuesForPath|指定路径参数的值(显示为 {...})、订阅密钥以及查询参数的值|  
 |WebDocumentationTemplatesDeveloperKey|指定订阅密钥|  
-|WebDocumentationTemplatesJavaApache|此示例使用 HTTP 组件中的 Apache HTTP 客户端(http://hc.apache.org/httpcomponents-client-ga/)|  
+|WebDocumentationTemplatesJavaApache|此示例使用 HTTP 组件中的 Apache HTTP 客户端 (http://hc.apache.org/httpcomponents-client-ga/)|  
 |WebDocumentationTemplatesOptionalParams|根据需要指定可选参数的值|  
-|WebDocumentationTemplatesPhpPackage|此示例使用 HTTP_Request2 包。 (有关详细信息，请访问: http://pear.php.net/package/HTTP_Request2)|  
+|WebDocumentationTemplatesPhpPackage|此示例使用 HTTP_Request2 包。 （详细信息： http://pear.php.net/package/HTTP_Request2)|  
 |WebDocumentationTemplatesPythonValuesForPath|根据需要指定路径参数的值(显示为 {...})和请求正文|  
 |WebDocumentationTemplatesRequestBody|指定请求正文|  
 |WebDocumentationTemplatesRequiredParams|指定以下必需参数的值|  
@@ -289,11 +289,11 @@ Azure API 管理提供以下类型的资源，适用于开发人员门户模板�
 |WebDocumentationOAuth2GeneralErrorMessage|发生意外错误。|  
 |AuthorizationServerCommunicationException|出现授权服务器通信异常。 请与管理员联系。|  
 |TextblockSubscriptionKeyHeaderDescription|订阅密钥，用于访问此 API。 在<a href='/developer'\>配置文件</a\>中查找。|  
-|TextblockOAuthHeaderDescription|从 <i\>{0}</i\> 获取的 OAuth 2.0 访问令牌。 支持的授权类型: <i\>{1}</i\>。|  
+|TextblockOAuthHeaderDescription|从 <i\>{0}</i\> 获得的 OAuth 2.0 访问令牌。 支持的授权类型：<i\>{1}</i\>。|  
 |TextblockContentTypeHeaderDescription|发送到 API 的正文的媒体类型。|  
 |ErrorMessageApiNotAccessible|尝试调用的该 API 在此时不可访问。 请在<a href="/issues"\>此处</a\>联系 API 发布者。|  
 |ErrorMessageApiTimedout|尝试调用的 API 获得响应所花的时间超出正常。 请在<a href="/issues"\>此处</a\>联系 API 发布者。|  
-|BadRequestParameterExpected|“应使用“{0}”参数”|  
+|BadRequestParameterExpected|“应使用 '{0}' 参数”|  
 |TooltipTextDoubleClickToSelectAll|双击全选。|  
 |TooltipTextHideRevealSecret|显示/隐藏|  
 |ButtonLinkOpenConsole|试用|  
@@ -304,7 +304,7 @@ Azure API 管理提供以下类型的资源，适用于开发人员门户模板�
 |SectionHeadingRequestHeaders|请求标头|  
 |FormLabelSubtextOptional|可选|  
 |SectionHeadingCodeSamples|代码示例|  
-|TextblockOpenidConnectHeaderDescription|从 <i\>{0}</i\> 获得的 OpenID Connect ID 令牌。 支持的授权类型: <i\>{1}</i\>。|  
+|TextblockOpenidConnectHeaderDescription|从 <i\>{0}</i\> 获得的 OpenID Connect ID 令牌。 支持的授权类型：<i\>{1}</i\>。|  
   
 ###  <a name="ErrorPageStrings"></a> ErrorPageStrings  
   
@@ -333,7 +333,7 @@ Azure API 管理提供以下类型的资源，适用于开发人员门户模板�
 |WebIssuesNotSignin|没有登录。 请{0}，以便报告问题或发表评论。|  
 |WebIssuesReportIssueButton|报告问题|  
 |WebIssuesSignIn|登录|  
-|WebIssuesStatusReportedBy|状态: {0} &#124; 由 {1} 报告|  
+|WebIssuesStatusReportedBy|{1} 报告了状态: {0} &#124;|  
   
 ###  <a name="NotFoundStrings"></a> NotFoundStrings  
   
@@ -364,10 +364,10 @@ Azure API 管理提供以下类型的资源，适用于开发人员门户模板�
 |ButtonLabelAddSubscription|添加订阅|  
 |LinkLabelChangeSubscriptionName|更改|  
 |ButtonLabelConfirm|确认|  
-|TextblockMultipleSubscriptionsCount|有以下产品的 {0} 个订阅:|  
-|TextblockSingleSubscriptionsCount|有以下产品的 {0} 个订阅:|  
-|TextblockSingleApisCount|以下产品包含 {0} 个API:|  
-|TextblockMultipleApisCount|以下产品包含 {0} 个API:|  
+|TextblockMultipleSubscriptionsCount|你有此产品的 {0} 个订阅:|  
+|TextblockSingleSubscriptionsCount|你有此产品的 {0} 个订阅:|  
+|TextblockSingleApisCount|此产品包含 {0} 个 API:|  
+|TextblockMultipleApisCount|此产品包含 {0} 个 API:|  
 |TextblockHeaderSubscribe|订阅产品|  
 |TextblockSubscriptionDescription|将按以下方式创建新订阅:|  
 |TextblockSubscriptionLimitReached|已达订阅限制。|  
@@ -397,7 +397,7 @@ Azure API 管理提供以下类型的资源，适用于开发人员门户模板�
 |ValidationErrorSpecificEmailAlreadyExists|电子邮件“{0}”已注册|  
 |ValidationErrorSpecificEmailInvalid|电子邮件“{0}”无效|  
 |ValidationErrorPasswordInvalid|密码无效。 请更正错误，并重试。|  
-|PropertyTooShort|{0} 过短|  
+|PropertyTooShort|{0} 太短|  
 |WebAuthenticationAddresserEmailInvalidErrorMessage|电子邮件地址无效。|  
 |ValidationMessageNewPasswordConfirmationRequired|确认新密码|  
 |ValidationErrorPasswordConfirmationRequired|确认密码为空|  
@@ -410,7 +410,7 @@ Azure API 管理提供以下类型的资源，适用于开发人员门户模板�
 |TextboxLabelEmail|Email|  
 |ValidationErrorEmailRequired|电子邮件是必需的。|  
 |WebAuthenticationErrorNoticeHeader|错误|  
-|WebAuthenticationFieldLengthErrorMessage|{0} 必须是最大长度 {1}|  
+|WebAuthenticationFieldLengthErrorMessage|{0} 的最大长度必须为 {1}|  
 |TextboxLabelEmailFirstName|名字|  
 |ValidationErrorFirstNameRequired|名字是必需的。|  
 |ValidationErrorFirstNameInvalid|名字无效|  
@@ -464,7 +464,7 @@ Azure API 管理提供以下类型的资源，适用于开发人员门户模板�
 |ValidationErrorAllowedTenantIsRequired|租户必须获得允许|  
 |ValidationErrorTenantIsNotValid|Azure Active Directory 租户“{0}”无效。|  
 |WebAuthenticationActiveDirectoryTitle|Azure Active Directory|  
-|WebAuthenticationLoginUsingYourProvider|请使用 {0} 帐户登录|  
+|WebAuthenticationLoginUsingYourProvider|使用你的 {0} 帐户登录|  
 |WebAuthenticationUserLimitNotice|此服务已达到允许的用户的最大数目。 请`<a href="mailto:{0}"\>contact the administrator</a\>`，让其升级服务并重新启用用户注册。|  
 |WebAuthenticationUserLimitNoticeHeader|已禁用用户注册|  
 |WebAuthenticationUserLimitNoticeTitle|已禁用用户注册|  
@@ -563,7 +563,7 @@ Azure API 管理提供以下类型的资源，适用于开发人员门户模板�
 |SubscriptionStateRejected|已拒绝|  
 |SubscriptionStateRequested|已请求|  
 |SubscriptionStateSuspended|已挂起|  
-|DefaultSubscriptionNameTemplate|{0} (默认值)|  
+|DefaultSubscriptionNameTemplate|{0}  (默认值)|  
 |SubscriptionNameTemplate|开发人员访问权限 {0}|  
 |TextboxLabelSubscriptionName|订阅名称|  
 |ValidationMessageSubscriptionNameRequired|订阅名称不能为空。|  

@@ -1,34 +1,33 @@
 ---
 title: Azure 中的警报和通知监视概述
 description: Azure 中的警报概述。 警报、经典警报、警报界面。
-author: rboucher
-services: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
+author: lingliw
+services: monitoring
+ms.service: azure-monitor
 ms.topic: conceptual
-origin.date: 09/24/2018
-ms.date: 09/17/2018
+origin.date: 10/30/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 39ac8f2fc0068f88021b0203494b1dfa2c8130f7
-ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
+ms.component: alerts
+ms.openlocfilehash: ea7f5a6ae5fa505a7248dd58ea3cf828ad6607e5
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652245"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675053"
 ---
-# <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft Azure 中的警报概述 
+# <a name="overview-of-alerts-in-azure"></a>Azure 中的警报概述 
 
 本文介绍什么是警报及其优点，以及如何开始使用警报。  
 
-
-## <a name="what-are-alerts-in-microsoft-azure"></a>什么是 Microsoft Azure 中的警报？
+## <a name="what-are-alerts-in-azure"></a>Azure 中的警报是什么？
 在监视数据中发现重要情况时，警报会以前摄性的方式通知你。 有了警报，你就可以在系统的用户注意到问题之前确定和解决这些问题。 
 
 本文讨论 Azure Monitor 中的统一警报体验，其现在包括 Log Analytics 和 Application Insights。 [以前的警报体验](monitoring-overview-alerts.md)和警报类型称为“经典警报”。 单击警报页顶部的“查看经典警报”即可查看这个旧的体验和旧的警报类型。 
 
-
 ## <a name="overview"></a>概述
 
-下图表示警报的常规术语和流程。 
+下图表示了警报流。 
 
 ![警报流](media/monitoring-overview-alerts/Azure-Monitor-Alerts.svg)
 
@@ -55,8 +54,6 @@ ms.locfileid: "49652245"
 - 基础 Azure 平台的运行状况
 - 网址可用性测试
 
-
-
 ## <a name="manage-alerts"></a>管理警报
 可以设置警报状态来指定它在解决过程中所处的阶段。 符合警报规则中指定的条件以后，就会创建或触发警报，其状态为“新”。 可以在确认警报和关闭警报时更改状态。 所有状态更改都存储在警报历史记录中。
 
@@ -68,13 +65,12 @@ ms.locfileid: "49652245"
 | 已确认 | 管理员已审查警报，并已开始进行处理。 |
 | 已关闭 | 问题已解决。 关闭某个警报后，可通过将其更改为另一种状态来重新打开它。 |
 
-警报状态不同于监视条件。 警报状态由用户设置，与监视条件无关。 当触发的警报的潜在条件清除以后，警报的监视条件会设置为“已解决”。 尽管系统能将监视条件设置为“已解决”，但在用户更改警报之前，警报状态不会更改。 了解[如何更改警报和智能组的状态](https://aka.ms/managing-alert-smart-group-states)。
+**警报状态**不同于且独立于**监视条件**。 警报状态是由用户设置的。 监视条件是由系统设置的。 当警报触发后，警报的监视条件设置为“已触发”。 当导致警报触发的基础条件解除后，监视条件会设置为“已解决”。 在用户更改警报状态之前，警报状态不会改变。 了解[如何更改警报和智能组的状态](https://aka.ms/managing-alert-smart-group-states)。
 
 ## <a name="smart-groups"></a>智能组 
 智能组为预览版。 
 
 智能组是根据机器学习算法对警报进行的聚合。这些算法有助于降低警报噪音，对故障排除也有帮助。 [详细了解智能组](https://aka.ms/smart-groups)和[如何管理智能组](https://aka.ms/managing-smart-groups)。
-
 
 ## <a name="alerts-experience"></a>警报体验 
 默认的“警报”页提供特定时间范围内创建的警报的摘要。 该页显示每种严重性的警报总数，列中会标识处于每种状态的、具有每种严重性的警报总数。 选择任一严重性可打开按该严重性筛选的“[所有警报](#all-alerts-page)”页。
@@ -113,8 +109,8 @@ ms.locfileid: "49652245"
 1. 选取警报的目标。
 1. 从目标的可用信号中选择信号。
 1. 指定要应用到信号中数据的逻辑。
- 
-这个创作过程经过了简化，用户在选择 Azure 资源之前，不再需要知道受支持的监视源或信号。 可用信号列表会根据选定的目标资源自动筛选，并引导你定义警报规则的逻辑。
+
+这个创作过程经过了简化，用户在选择 Azure 资源之前，不再需要知道受支持的监视源或信号。 可用信号列表会根据你选择的目标资源自动筛选。 另外，还将根据该目标引导你自动定义警报规则的逻辑。  
 
 可以在[使用 Azure Monitor 创建、查看和管理警报](monitor-alerts-unified-usage.md)中详细了解如何创建警报规则。
 
@@ -126,7 +122,6 @@ ms.locfileid: "49652245"
 |-------------|----------------|-------------|
 | 服务运行状况 | 活动日志  | 不支持。 请参阅[创建有关服务通知的活动日志警报](monitoring-activity-log-alerts-on-service-notifications.md)。  |
 | Application Insights | Web 可用性测试 | 不支持。 请参阅 [Web 测试警报](../application-insights/app-insights-monitor-web-app-availability.md)。 适用于任何经检测可将数据发送到 Application Insights 的网站。 网站的可用性或响应度低于预期时，就会收到通知。 |
-
 
 ## <a name="all-alerts-page"></a>“所有警报”页 
 单击“总警报数”即可查看“所有警报”页。 在这里，可以查看在选定时间范围内创建的警报列表。 可以查看各个警报的列表，或包含这些警报的智能组列表。 选择页面顶部的标题可在视图之间进行切换。
@@ -160,9 +155,8 @@ ms.locfileid: "49652245"
 |:---|:---|
 | 概要 | 显示警报的属性和其他重要信息。 |
 | 历史记录 | 列出警报执行的每个操作，以及对警报进行的任何更改。 目前仅限状态更改。 |
-| 智能组 | 有关包含警报的智能组的信息。 “警报计数”表示包含在智能组中的警报数量。 这包括过去 30 天内创建的、同一智能组中的其他警报。  此计数不考虑警报列表页中的时间筛选器。 选择某个警报以查看其详细信息。 |
+| 智能组 | 有关包含警报的智能组的信息。 “警报计数”表示包含在智能组中的警报数量。 包括同一智能组中在过去 30 天内创建的其他警报，无论警报列表页面中的时间筛选器是什么。 选择某个警报以查看其详细信息。 |
 | 更多详细信息 | 显示警报的其他上下文信息，此信息通常特定于创建此警报的源类型。 |
-
 
 ## <a name="classic-alerts"></a>经典警报 
 
@@ -170,15 +164,9 @@ ms.locfileid: "49652245"
 
 有关详细信息，请参阅[经典警报](./monitoring-overview-alerts-classic.md)
 
-
 ## <a name="next-steps"></a>后续步骤
 
 - [详细了解智能组](https://aka.ms/smart-groups)
 - [了解操作组](monitoring-action-groups.md)
 - [在 Azure 中管理警报实例](https://aka.ms/managing-alert-instances)
 - [Managing Smart Groups](https://aka.ms/managing-smart-groups)（管理智能组）
-
-
-
-
-

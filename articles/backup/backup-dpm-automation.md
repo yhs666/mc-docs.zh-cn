@@ -2,19 +2,19 @@
 title: Azure 备份 - 使用 PowerShell 备份 DPM 工作负荷
 description: 了解如何使用 PowerShell 部署和管理 Data Protection Manager (DPM) 的 Azure 备份
 services: backup
-author: NKolli1
-manager: shreeshd
+author: lingliw
+manager: digimobile
 ms.service: backup
 ms.topic: conceptual
 origin.date: 01/23/2017
-ms.date: 07/06/2018
-ms.author: v-junlch
-ms.openlocfilehash: 8bbe4104c184b0c6b48a9cf69a4f3c7f073ab715
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 70b703d4fdace048021de6db737bcc3322289ff7
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873391"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675534"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>使用 PowerShell 部署和管理 Data Protection Manager (DPM) 服务器的 Azure 备份
 本文说明如何使用 PowerShell 在 DPM 服务器上设置 Azure 备份，以及管理备份和恢复。
@@ -49,11 +49,11 @@ PS C:\> Switch-AzureMode AzureResourceManager
 
 使用 PowerShell 可以自动化以下设置和注册任务：
 
-- 创建恢复服务保管库
-- 安装 Azure 备份代理
-- 注册到 Azure 备份服务
-- 网络设置
-- 加密设置
+* 创建恢复服务保管库
+* 安装 Azure 备份代理
+* 注册到 Azure 备份服务
+* 网络设置
+* 加密设置
 
 ## <a name="create-a-recovery-services-vault"></a>创建恢复服务保管库
 以下步骤引导用户创建恢复服务保管库。 恢复服务保管库不同于备份保管库。
@@ -103,7 +103,7 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 
 
 ## <a name="installing-the-azure-backup-agent-on-a-dpm-server"></a>在 DPM 服务器上安装 Azure 备份代理
-在安装 Azure 备份代理之前，必须先将安装程序下载到 Windows Server 上。 可以从 [Microsoft 下载中心](http://aka.ms/azurebackup_agent)或恢复服务保管库的“仪表板”页获取最新版本的安装程序。 将安装程序保存到方便访问的位置，例如 *C:\Downloads\*。
+在安装 Azure 备份代理之前，必须先将安装程序下载到 Windows Server 上。 可以从[下载中心](https://aka.ms/azurebackup_agent)或恢复服务保管库的“仪表板”页获取最新版本的安装程序。 将安装程序保存到方便访问的位置，例如 *C:\Downloads\*。
 
 若要安装代理，请**在 DPM 服务器上**已提升权限的 PowerShell 控制台中运行以下命令：
 
@@ -131,7 +131,7 @@ PS C:\> MARSAgentInstaller.exe /?
 | /q |静默安装 |- |
 | /p:"location" |Azure 备份代理的安装文件夹路径。 |C:\Program Files\Azure Recovery Services Agent |
 | /s:"location" |Azure 备份代理的缓存文件夹路径。 |C:\Program Files\Azure Recovery Services Agent\Scratch |
-| /m |选择启用 Microsoft Update |- |
+| /m |选择加入 Azure 更新 |- |
 | /nu |安装完成后不要检查更新 |- |
 | /d |卸载 Azure 恢复服务代理 |- |
 | /ph |代理主机地址 |- |
@@ -330,9 +330,9 @@ PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 ## <a name="view-the-backup-points"></a>查看备份点
 可以使用 [Get-DPMRecoveryPoint](https://technet.microsoft.com/library/hh881746) cmdlet 来获取数据源的所有恢复点列表。 在本示例中，我们将：
 
-- 获取 DPM 服务器上的和存储在数组 ```$PG```
-- 获取对应于 ```$PG[0]```
-- 获取数据源的所有恢复点。
+* 获取 DPM 服务器上的和存储在数组 ```$PG```
+* 获取对应于 ```$PG[0]```
+* 获取数据源的所有恢复点。
 
 ```
 PS C:\> $PG = Get-DPMProtectionGroup -DPMServerName "TestingServer"
@@ -345,9 +345,9 @@ PS C:\> $RecoveryPoints = Get-DPMRecoverypoint -Datasource $DS[0] -Online
 
 在以下示例中，我们演示如何通过组合备份点与恢复目标，从 Azure 备份还原 Hyper-V 虚拟机。 此示例包括：
 
-- 使用 [New-DPMRecoveryOption](https://technet.microsoft.com/library/hh881592) cmdlet 创建恢复选项。
-- 使用 ```Get-DPMRecoveryPoint``` cmdlet 获取备份点的数组。
-- 选择要从中还原的备份点。
+* 使用 [New-DPMRecoveryOption](https://technet.microsoft.com/library/hh881592) cmdlet 创建恢复选项。
+* 使用 ```Get-DPMRecoveryPoint``` cmdlet 获取备份点的数组。
+* 选择要从中还原的备份点。
 
 ```
 PS C:\> $RecoveryOption = New-DPMRecoveryOption -HyperVDatasource -TargetServer "HVDCenter02" -RecoveryLocation AlternateHyperVServer -RecoveryType Recover -TargetLocation "C:\VMRecovery"
@@ -362,6 +362,6 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 可针对任何数据源类型轻松扩展这些命令。
 
 ## <a name="next-steps"></a>后续步骤
-- 有关 DPM 到 Azure 备份的详细信息，请参阅 [DPM 备份简介](backup-azure-dpm-introduction.md)
+* 有关 DPM 到 Azure 备份的详细信息，请参阅 [DPM 备份简介](backup-azure-dpm-introduction.md)
 
 <!-- Update_Description: update metedata properties -->

@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 origin.date: 08/09/2018
 ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: ca705c77c054fd7b8739c5112c3cfa4e6d660f31
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: b40a80dffc46550807353d6f48ee03a14234f57d
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872384"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674333"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure VM 的定价指南
 
@@ -117,9 +117,9 @@ ms.locfileid: "42872384"
 |-----|-----|
 | 节省费用 | 如果工作负荷将连续运行 SQL Server Standard 或 Enterprise 超过 10 个月，则自带 SQL Server 许可证比按使用情况付费更具成本效益。 |
 | 长期节省 | 通常，若购买或续订 SQL Server 许可证，前 3 年每年要便宜 30%。 此外，3 年之后，无需再续订许可证，只需支付软件保障费用。 此时，它将便宜两倍。 |
-| 免费的被动辅助副本 | 自带许可证的另一项好处是每个 SQL Server [免费许可 1 个被动辅助副本](https://www.azure.cn/pricing/licensing-faq/)以实现高可用性。 这会高度可用的 SQL Server 部署（例如使用 Always On 可用性组）的许可成本减少了一半。 通过故障转移服务器软件保障权益，可享用被动辅助副本的运行权限。 |
+| 免费的被动辅助副本 | 自带许可证的另一项好处是每个 SQL Server 免费许可 1 个被动辅助副本以实现高可用性。 这会高度可用的 SQL Server 部署（例如使用 Always On 可用性组）的许可成本减少了一半。 通过故障转移服务器软件保障权益，可享用被动辅助副本的运行权限。 |
 
-若要使用上述某个自带许可证映像创建 SQL Server 2017 Azure VM，请参阅前缀为“{BYOL}”的 VM：
+<!-- URL is invalid on [free licensing for one passive secondary replica](https://www.azure.cn/pricing/licensing-faq/)--> 若要使用上述某个自带许可映像创建 SQL Server 2017 Azure VM，请参阅前缀为“{BYOL}”的 VM：
 
 - [SQL Server 2017 Enterprise Azure VM](https://portal.azure.cn/#create/Microsoft.BYOLSQLServer2017EnterpriseWindowsServer2016)
 - [SQL Server 2017 Standard Azure VM](https://portal.azure.cn/#create/Microsoft.BYOLSQLServer2017StandardonWindowsServer2016)

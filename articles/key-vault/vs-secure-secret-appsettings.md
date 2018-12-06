@@ -1,9 +1,9 @@
 ---
-title: 安全地保存 Web 应用的密钥应用程序设置 | Microsoft 文档
+title: 安全地保存 Web 应用程序的机密应用程序设置 | Azure
 description: 如何使用 ASP.NET Core 密钥保管库提供程序、用户密钥或 .NET 4.7.1 配置生成器来安全地保存密钥应用程序设置（如 Azure 凭据或第三方 API 密钥）
 services: visualstudio
 documentationcenter: ''
-author: cawa
+author: cawaMS
 manager: paulyuk
 editor: ''
 ms.assetid: ''
@@ -11,16 +11,16 @@ ms.service: ''
 ms.workload: web, azure
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 11/09/2017
-ms.date: 07/10/2018
-ms.author: v-junlch
-ms.openlocfilehash: 36c4bb1e4f0efeb4f5292e98c90560d69dc40c5c
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.date: 12/10/2018
+ms.author: v-biyu
+ms.openlocfilehash: 18f7e90700ba21381e44c75cc95cb4ad66034619
+ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939419"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676921"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>安全地保存 Web 应用的密钥应用程序设置
 
@@ -41,7 +41,7 @@ ms.locfileid: "38939419"
 如果正在运行 .NET Core 控制台应用程序，请使用密钥保管库来安全地保存你的密钥。
 
 ### <a name="save-secret-settings-in-azure-key-vault"></a>在 Azure 密钥保管库中保存密钥设置
-如果正在开发一个团队项目，并需要安全地共享源代码，请使用 [Azure Key Vault](https://www.azure.cn/home/features/key-vault/)。
+如果正在开发一个项目，并需要安全地共享源代码，请使用 [Azure Key Vault](https://www.azure.cn/home/features/key-vault/)。
 
 1. 在 Azure 订阅中创建密钥保管库。 填写 UI 上的所有必填字段，然后单击边栏选项卡底部的“创建”
 
@@ -101,7 +101,7 @@ ms.locfileid: "38939419"
 
 1. 将以下 NuGet 包安装到你的项目
     ```
-    Microsoft.Configuration.ConfigurationBuilders.Basic.1.0.0-alpha1.nupkg
+    Microsoft.Configuration.ConfigurationBuilders.Basic
     ```
 
 2. 创建类似于以下的文件。 将其保存在你的项目文件夹外部的某个位置下。
@@ -147,7 +147,7 @@ ms.locfileid: "38939419"
 
 1. 将以下 NuGet 包安装到你的项目
 ```
-Microsoft.Configuration.ConfigurationBuilders.UserSecrets.1.0.0-preview2.nupkg
+Microsoft.Configuration.ConfigurationBuilders.UserSecrets
 ```
 
 2. 定义 Web.config 中的密钥保管库配置生成器。将该部分置于 appSettings 部分前。 如果密钥保管库位于公共 Azure 中，则将 vaultName 替换为密钥保管库名称，如果正在使用 Sovereign 云，则将其替换为完整的 URI。

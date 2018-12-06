@@ -12,25 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 08/20/2018
-ms.date: 08/27/2018
+origin.date: 11/15/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: a48856c922eadc619862679cd923afd2d51cbe5b
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 4dc5e480bafe2c3e537cddb4832efe24d1191b70
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871799"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675083"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>适用于 Windows 的 NVIDIA GPU 驱动程序扩展
 
 ## <a name="overview"></a>概述
 
-此扩展在 Windows N 系列 VM 上安装 NVIDIA GPU 驱动程序。 根据 VM 系列，此扩展安装 CUDA 或 GRID 驱动程序。 使用此扩展安装 NVIDIA 驱动程序时，即表示你接受并同意 NVIDIA 最终用户许可协议的条款。 在安装过程中，虚拟机可能会重新启动以完成驱动程序安装。
+此扩展在 Windows N 系列 VM 上安装 NVIDIA GPU 驱动程序。 根据 VM 系列，此扩展安装 CUDA 或 GRID 驱动程序。 使用此扩展安装 NVIDIA 驱动程序时，即表示你接受并同意 [NVIDIA 最终用户许可协议](https://go.microsoft.com/fwlink/?linkid=874330)的条款。 在安装过程中，VM 可能会重新启动以完成驱动程序安装。
 
 此扩展也可用于在 [Linux N 系列 VM](hpccompute-gpu-linux.md) 上安装 NVIDIA GPU 驱动程序。
-
-NVIDIA 最终用户许可协议条款位于此处 - https://go.microsoft.com/fwlink/?linkid=874330
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -46,7 +44,7 @@ NVIDIA 最终用户许可协议条款位于此处 - https://go.microsoft.com/fwl
 
 ### <a name="internet-connectivity"></a>Internet 连接
 
-用于 NVIDIA GPU 驱动程序的 Azure 扩展要求目标虚拟机连接到 Internet 并具有访问权限。
+用于 NVIDIA GPU 驱动程序的 Azure 扩展要求目标 VM 连接到 Internet 并具有访问权限。
 
 ## <a name="extension-schema"></a>扩展架构
 
@@ -72,14 +70,23 @@ NVIDIA 最终用户许可协议条款位于此处 - https://go.microsoft.com/fwl
 }
 ```
 
-### <a name="property-values"></a>属性值
+### <a name="properties"></a>属性
 
-| 名称 | 值/示例 | 数据类型 |
+| Name | 值/示例 | 数据类型 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | 日期 |
 | 发布者 | Microsoft.HpcCompute | 字符串 |
 | type | NvidiaGpuDriverWindows | 字符串 |
 | typeHandlerVersion | 1.2 | int |
+
+### <a name="settings"></a>设置
+
+所有设置都是可选的。 默认行为是安装最新支持的驱动程序（如果适用）。
+
+| Name | 说明 | 默认值 | 有效值 | 数据类型 |
+| ---- | ---- | ---- | ---- | ---- |
+| driverVersion | NV：GRID 驱动程序版本<br> NC/ND：CUDA 驱动程序版本 | 最新 | GRID: "391.81", "391.58", "391.03"<br> CUDA: "398.75", "397.44", "390.85" | 字符串 |
+| installGridND | 在 ND 系列 VM 上安装 GRID 驱动程序 | false | true、false | 布尔值 |
 
 ## <a name="deployment"></a>部署
 
@@ -128,6 +135,10 @@ Set-AzureRmVMExtension
 
 ### <a name="azure-cli"></a>Azure CLI
 
+以下示例镜像了上述 ARM 和 PowerShell 示例，并添加了自定义设置作为非默认驱动程序安装的示例。 
+
+<!-- Not Available on Specifically, it installs a specific GRID driver even if an ND series VM is being provisioned.-->
+
 ```azurecli
 az vm extension set `
   --resource-group myResourceGroup `
@@ -136,6 +147,8 @@ az vm extension set `
   --publisher Microsoft.HpcCompute `
   --version 1.2 `
   --settings '{ `
+    "driverVersion": "391.03",
+    "installGridND": true
   }'
 ```
 

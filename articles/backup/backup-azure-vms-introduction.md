@@ -2,23 +2,23 @@
 title: 在 Azure 中计划 VM 备份基础结构
 description: 规划在 Azure 中备份虚拟机时的重要注意事项
 services: backup
-author: markgalioto
-manager: carmonm
+author: lingliw
+manager: digimobile
 keywords: 备份 vm, 备份虚拟机
 ms.service: backup
 ms.topic: conceptual
 origin.date: 08/29/2018
-ms.date: 09/25/2018
-ms.author: v-junlch
-ms.openlocfilehash: 1079c5d5ca9cde027f330cd91a45510c52027da2
-ms.sourcegitcommit: a4d8c8641a6341113532d8770603d4b66cc13ced
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 17fadb1208e5d78183bd2902fe3c4bf149b33aa7
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47114533"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675104"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>在 Azure 中计划 VM 备份基础结构
-本文提供性能和资源建议，帮助规划 VM 备份基础结构。 文中还定义了备份服务的主要方面；这些方面对于决定体系结构、容量规划和计划安排至关重要。 如果已[准备好环境](backup-azure-arm-vms-prepare.md)，请首先进行此规划，然后再开始[备份 VM](backup-azure-arm-vms.md)。 如需有关 Azure 虚拟机的详细信息，请参阅[虚拟机文档](../virtual-machines/index.md)。 
+本文提供性能和资源建议，帮助规划 VM 备份基础结构。 文中还定义了备份服务的主要方面；这些方面对于决定体系结构、容量规划和计划安排至关重要。 如果已[准备好环境](backup-azure-arm-vms-prepare.md)，请首先进行此规划，然后再开始[备份 VM](backup-azure-arm-vms.md)。 如果需要有关 Azure 虚拟机的详细信息，请参阅[虚拟机文档](../virtual-machines/index.md)。 
 
 > [!NOTE]
 > 本文用于托管和非托管磁盘。 如果使用非托管磁盘，我们提供了存储帐户建议。 如果使用 [Azure 托管磁盘](../virtual-machines/windows/managed-disks-overview.md)，无需担心性能或资源利用率问题。 Azure 可优化存储利用率。
@@ -62,7 +62,7 @@ Azure 备份提供一个脚本框架，用于控制备份工作流和环境。 �
 
 | 一致性 | 基于 VSS | 解释和详细信息 |
 | --- | --- | --- |
-| 应用程序一致性 |是（对于 Windows）|应用程序一致性非常适合工作负荷，因为它可确保：<ol><li> VM *启动*。 <li>无数据损坏。 <li>无数据丢失。<li> 对于使用数据的应用程序，数据会保持一致，因为备份时会使用 VSS 或前/后脚本将应用程序纳入考虑。</ol> <li>*Windows VM* - 大多数 Microsoft 工作负载都有 VSS 编写器，负责执行与数据一致性相关的工作负载特定操作。 例如，SQL Server VSS 编写器可确保正确写入事务日志文件和数据库。 对于 IaaS Windows VM 备份，若要创建与应用程序一致的恢复点，备份扩展必须调用 VSS 工作流并且需要在创建 VM 快照前完成调用。 若要确保 Azure VM 快照准确性，则也必须完成所有 Azure VM 应用程序的 VSS 编写器。 （了解 [VSS 基本信息](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx)，并深入了解其[工作原理](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx)详细信息）。 </li> <li> *Linux VM* - 客户可以执行[自定义操作前脚本和操作后脚本，以确保应用程序一致性](/backup/backup-azure-linux-app-consistent)。 </li> |
+| 应用程序一致性 |是（对于 Windows）|应用程序一致性非常适合工作负荷，因为它可确保：<ol><li> VM *启动*。 <li>无数据损坏。 <li>无数据丢失。<li> 对于使用数据的应用程序，数据会保持一致，因为备份时会使用 VSS 或前/后脚本将应用程序纳入考虑。</ol> <li>*Windows VM* - 大多数 Azure 工作负载都有 VSS 编写器，负责执行与数据一致性相关的工作负载特定操作。 例如，SQL Server VSS 编写器可确保正确写入事务日志文件和数据库。 对于 IaaS Windows VM 备份，若要创建与应用程序一致的恢复点，备份扩展必须调用 VSS 工作流并且需要在创建 VM 快照前完成调用。 若要确保 Azure VM 快照准确性，则也必须完成所有 Azure VM 应用程序的 VSS 编写器。 （了解 [VSS 基本信息](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx)，并深入了解其[工作原理](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx)详细信息）。 </li> <li> *Linux VM* - 客户可以执行[自定义操作前脚本和操作后脚本，以确保应用程序一致性](/backup/backup-azure-linux-app-consistent)。 </li> |
 | 文件系统一致性 |是 - 对于基于 Windows 的计算机 |在两种情况下，恢复点可做到文件系统一致：<ul><li>在没有前脚本/后脚本或前脚本/后脚本失败时，Azure 中 Linux VM 的备份。 <li>在 Azure 中备份 Windows VM 时出现 VSS 故障。</li></ul> 在这两种情况下，最佳做法是确保： <ol><li> VM *启动*。 <li>无数据损坏。<li>无数据丢失。</ol> 应用程序需要对还原的数据实施自己的“修复”机制。 |
 | 崩溃一致性 |否 |这种情况相当于虚拟机“崩溃”（通过软重置或硬重置）。 崩溃一致性通常出现在 Azure 虚拟机在备份期间关闭时。 无论是从操作系统还是应用程序角度而言，崩溃一致性恢复点皆无法保证存储媒体上数据的一致性。 仅会捕获和备份备份时磁盘上已存在的数据。 <br/> <br/> 尽管并无保证，但通常情况下，会启动操作系统，并在之后进行 chkdsk 等磁盘检查过程来修复任何损坏错误。 任何未传输到磁盘的内存中数据或写入都将丢失。 如果需要执行数据回滚，应用程序通常会接着执行其自身的验证机制。 <br><br>例如，如果事务日志中有条目不在数据库中，则数据库软件将执行回滚，直到数据一致。 当数据分散在多个虚拟磁盘上时（例如跨区卷），崩溃一致恢复点不保证数据的正确性。 |
 
@@ -89,11 +89,11 @@ Azure 备份提供一个脚本框架，用于控制备份工作流和环境。 �
 ## <a name="total-vm-backup-time"></a>VM 备份总时间
 尽管大部分备份时间花在读取和复制数据上，但其他一些操作也会影响到备份 VM 所需的总时间：
 
-- 花费在[安装或更新备份扩展](backup-azure-arm-vms.md)上的时间。
-- 快照时间，即触发某个快照所花费的时间。 接近计划的备份时间时触发快照。
-- 队列等待时间。 由于备份服务同时处理来自多个客户的作业，快照数据可能无法立即复制到恢复服务保管库。 在负载高峰，最长可能需要八小时才能处理完备份。 但是，每日备份策略规定的 VM 备份总时间不会超过 24 小时。
+* 花费在[安装或更新备份扩展](backup-azure-arm-vms.md)上的时间。
+* 快照时间，即触发某个快照所花费的时间。 接近计划的备份时间时触发快照。
+* 队列等待时间。 由于备份服务同时处理来自多个客户的作业，快照数据可能无法立即复制到恢复服务保管库。 在负载高峰，最长可能需要八小时才能处理完备份。 但是，每日备份策略规定的 VM 备份总时间不会超过 24 小时。
 总备份时间不超过 24 小时对增量备份有效，但可能不适用于第一个备份。 第一个备份的时间是成比例的，可能大于 24 小时，具体取决于数据大小和创建备份的时间。
-- 数据传输时间，备份服务计算上一备份中的增量更改并将更改传输到保管库存储所需的时间。
+* 数据传输时间，备份服务计算上一备份中的增量更改并将更改传输到保管库存储所需的时间。
 
 ### <a name="why-are-backup-times-longer-than-12-hours"></a>为什么备份时间超过 12 个小时？
 
@@ -102,26 +102,25 @@ Azure 备份提供一个脚本框架，用于控制备份工作流和环境。 �
 ## <a name="total-restore-time"></a>总还原时间
 
 还原操作包括两个主要任务：将数据从保管库复制回所选的客户存储帐户和创建虚拟机。 从保管库中复制数据所需的时间取决于备份在 Azure 中存储的位置以及客户存储帐户的位置。 复制数据所花的时间取决于：
-- 队列等待时间 - 由于服务同时处理来自多个客户的还原作业，因此还原请求会排入队列中。
-- 数据复制时间 - 将数据从保管库复制到客户存储帐户。 还原时间取决于 Azure 备份服务在所选客户存储帐户上获取的 IOPS 和吞吐量。 若要减少还原过程期间的复制时间，请选择一个未加载其他应用程序写入和读取的存储帐户。
+* 队列等待时间 - 由于服务同时处理来自多个客户的还原作业，因此还原请求会排入队列中。
+* 数据复制时间 - 将数据从保管库复制到客户存储帐户。 还原时间取决于 Azure 备份服务在所选客户存储帐户上获取的 IOPS 和吞吐量。 若要减少还原过程期间的复制时间，请选择一个未加载其他应用程序写入和读取的存储帐户。
 
 ## <a name="best-practices"></a>最佳实践
 
 在为所有虚拟机配置备份时，建议遵循以下做法：
 
-- 请勿计划同时在同一云服务中备份 10 台以上的经典 VM。 如果要备份同一云服务中的多台 VM，建议将备份开始时间按小时错开。
-- 请勿计划同时在一个保管库中备份 100 台以上的 VM。
-- 将 VM 备份安排在非高峰时间进行。 这样备份服务会使用 IOPS 将数据从客户存储帐户传输到保管库。
-- 请确保 Linux VM 为备份启用的 Python 是 2.7 版或更高版本。
+* 请勿计划同时在同一云服务中备份 10 台以上的经典 VM。 如果要备份同一云服务中的多台 VM，建议将备份开始时间按小时错开。
+* 请勿计划同时在一个保管库中备份 100 台以上的 VM。
+* 将 VM 备份安排在非高峰时间进行。 这样备份服务会使用 IOPS 将数据从客户存储帐户传输到保管库。
+* 请确保 Linux VM 为备份启用的 Python 是 2.7 版或更高版本。
 
 ### <a name="best-practices-for-vms-with-unmanaged-disks"></a>适用于非托管磁盘的 VM 的最佳做法
 
 以下建议仅适用于使用非托管磁盘的 VM。 如果 VM 使用的是托管磁盘，则备份服务将处理所有存储管理活动。
 
-- 确保将备份策略应用于多个存储帐户中的 VM。 同一个备份计划所保护的来自单个存储帐户的磁盘总数不应超过 20 个。 如果存储帐户中的磁盘超过 20 个，可将这些 VM 分散到多个策略中，以便在备份过程的传输阶段能够获得所需的 IOPS。
-- 请勿将高级存储上运行的 VM 还原到同一存储帐户。 如果还原操作过程与备份操作一致，则会减少备份的可用 IOPS。
-- 针对 VM 备份堆栈 V1 上的高级 VM 备份，应仅分配总存储帐户空间的 50%，这样使备份服务能够将快照复制到存储帐户，并将数据从存储帐户传输到保管库。
-
+* 确保将备份策略应用于多个存储帐户中的 VM。 同一个备份计划所保护的来自单个存储帐户的磁盘总数不应超过 20 个。 如果存储帐户中的磁盘超过 20 个，可将这些 VM 分散到多个策略中，以便在备份过程的传输阶段能够获得所需的 IOPS。
+* 请勿将高级存储上运行的 VM 还原到同一存储帐户。 如果还原操作过程与备份操作一致，则会减少备份的可用 IOPS。
+* 针对 VM 备份堆栈 V1 上的高级 VM 备份，应仅分配总存储帐户空间的 50%，这样使备份服务能够将快照复制到存储帐户，并将数据从存储帐户传输到保管库。
 
 ## <a name="data-encryption"></a>数据加密
 在备份过程中，Azure 备份不会加密数据。 但是，可以在 VM 中加密数据，然后无缝备份保护的数据（阅读有关[加密数据备份](backup-azure-vms-encryption.md)的详细信息）。
@@ -147,12 +146,12 @@ VM 备份定价并非基于附加到虚拟机的每个数据磁盘的最大支�
 针对特定虚拟机的计费仅在停止保护并且删除全部备份数据后才会停止。 当停止保护并且没有活动的备份作业时，最后一个成功的 VM 备份的大小成为用于每月帐单的受保护实例大小。
 
 ## <a name="questions"></a>存在疑问？
-如果有疑问，或者希望包含某种功能，请 [给我们反馈](http://aka.ms/azurebackup_feedback)。
+如果有疑问，或者希望包含某种功能，请 [给我们反馈](https://aka.ms/azurebackup_feedback)。
 
 ## <a name="next-steps"></a>后续步骤
-- [备份虚拟机](backup-azure-arm-vms.md)
-- [管理虚拟机备份](backup-azure-manage-vms.md)
-- [恢复虚拟机](backup-azure-arm-restore-vms.md)
-- [解决 VM 备份问题](backup-azure-vms-troubleshoot.md)
+* [备份虚拟机](backup-azure-arm-vms.md)
+* [管理虚拟机备份](backup-azure-manage-vms.md)
+* [恢复虚拟机](backup-azure-arm-restore-vms.md)
+* [解决 VM 备份问题](backup-azure-vms-troubleshoot.md)
 
 <!-- Update_Description: wording update -->

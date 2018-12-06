@@ -1,10 +1,24 @@
+---
+author: rockboyfor
+ms.service: virtual-machines
+ms.topic: include
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
+ms.openlocfilehash: 4e56a8c0367d866d5870268c5c9a6b790d6e43e6
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676184"
+---
 ## <a name="migrate-iaas-resources-from-the-classic-deployment-model-to-azure-resource-manager"></a>将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器
 首先，必须了解在基础结构即服务 (IaaS) 资源上进行的数据平面操作和管理平面操作的差异。
 
 * “管理/控制平面”描述进入管理/控制平面或 API 来修改资源的调用。 例如，创建 VM、重启 VM 以及将虚拟网络更新成新子网等操作均可管理正在运行的资源。 它们并不直接影响到 VM 的连接。
-* “数据平面”（应用程序）描述应用程序本身的运行时，并涉及与不通过 Azure API 的实例的交互。 例如，访问网站或从运行中的 SQL Server 实例或 MongoDB 服务器拉取数据属于数据平面或应用程序交互。 其他示例包括：从存储帐户复制 Blob，以及访问公共 IP 地址，以便使用远程桌面协议 (RDP) 或安全外壳 (SSH) 连接到虚拟机。 这些操作可让应用程序继续跨计算、网络和存储运行。
+* *数据平面*（应用程序）描述应用程序本身的运行时，并涉及与不通过 Azure API 的实例进行交互。 例如，访问网站或从运行中的 SQL Server 实例或 MongoDB 服务器拉取数据属于数据平面或应用程序交互。 其他示例包括：从存储帐户复制 Blob，以及访问公共 IP 地址，以便使用远程桌面协议 (RDP) 或安全外壳 (SSH) 连接到虚拟机。 这些操作可让应用程序继续跨计算、网络和存储运行。
 
-经典部署模型和资源管理器堆栈之间的数据平面是相同的。 区别在于，在迁移过程中，Microsoft 会将资源的表示方式从经典部署模型转换为资源管理器堆栈中的相应模型。 因此，需在资源管理器堆栈中使用新的工具、API 和 SDK 来管理资源。
+经典部署模型和资源管理器堆栈之间的数据平面是相同的。 区别在于，在迁移过程中，Azure 会将资源的表示方式从经典部署模型转换为资源管理器堆栈中的相应模型。 因此，需在资源管理器堆栈中使用新的工具、API 和 SDK 来管理资源。
 
 ![显示管理/控制平面和数据平面之间差异的图](../articles/virtual-machines/media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
 
@@ -39,7 +53,6 @@
 #### <a name="checks-not-done-in-the-validate-operation"></a>不在验证操作中进行的检查
 
 验证操作仅分析经典部署模型中资源的状态。 它可以查看因经典部署模型中配置的不同而导致的所有失败方案和不支持的方案。 它不能检查 Azure 资源管理器堆栈对迁移过程中的资源造成的所有问题。 仅当资源在下一步的迁移过程（准备操作）中进行转换时，才会检查是否存在这些问题。 下表列出了不在验证操作中检查的所有问题：
-
 
 |不在验证操作中进行的网络检查|
 |-|
@@ -98,7 +111,6 @@
 
 ![中止步骤图](../articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-abort.png)
 
-
 > [!NOTE]
 > 触发提交操作后，就无法执行此操作。     
 >
@@ -107,7 +119,7 @@
 完成验证之后，就可以提交迁移。 资源不再出现在经典部署模型中，只在资源管理器部署模型中提供。 只能在新门户中管理迁移的资源。
 
 > [!NOTE]
-> 这是幂等操作。 如果失败，请重试操作。 如果仍失败，请创建支持票证，或在 [VM 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows)上创建标记为“ClassicIaaSMigration”的论坛帖子。
+> 这是幂等操作。 如果失败，请重试操作。 如果仍失败，请创建支持票证，或在 [VM 论坛](https://www.azure.cn/support/contact/)上创建标记为“ClassicIaaSMigration”的论坛帖子。
 >
 >
 
@@ -148,8 +160,8 @@
 | 本地网络站点 |本地网络网关 |本地网络站点属性将原封不动地迁移到名为“本地网关”的新资源。 这表示本地地址前缀和远程网关 IP。 |
 | 连接引用 |连接 |网络配置中网关和本地网络站点之间的连接引用由名为“连接”的新资源表示。 网络配置文件中连接引用的所有属性会原封不动地复制到“连接”资源。 创建两个到本地网络站点（代表虚拟网络）的 IPsec 隧道即可在经典部署模型中的虚拟网络之间进行连接。 无需本地网关，即可将此连接转换为资源管理器模型中的“虚拟网络到虚拟网络”连接类型。 |
 
+<!--Not Available on Line 149 | DNS servers |DNS servers -->
 ## <a name="changes-to-your-automation-and-tooling-after-migration"></a>自动化与工具在迁移之后的变化
 在将资源从经典部署模型迁移到资源管理器部署模型的过程中，必须更新现有的自动化或工具，确保其在迁移之后仍可继续运行。
 
 <!--Update_Description: update meta properties, wording update-->
-<!--ms.date: 10/16/2017-->

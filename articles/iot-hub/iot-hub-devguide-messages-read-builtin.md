@@ -8,13 +8,13 @@ services: iot-hub
 ms.topic: conceptual
 origin.date: 07/18/2018
 ms.author: v-yiso
-ms.date: 09/10/2018
-ms.openlocfilehash: d2210306c850b63a18e0ab8a810ff97060b00639
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.date: 12/03/2018
+ms.openlocfilehash: b4ca8f0522997afa1e92129416b78b29c5ff3993
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453686"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675235"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>从内置终结点读取设备到云的消息
 
@@ -36,7 +36,7 @@ IoT 中心向后端服务公开 **messages/events** 内置终结点，让后端�
 
 ## <a name="read-from-the-built-in-endpoint"></a>从内置终结点读取信息
 
-使用[适用于 .NET 的 Azure 服务总线 SDK][lnk-servicebus-sdk] 或[事件中心 - 事件处理器主机][lnk-eventprocessorhost]时，可以将任何 IoT 中心连接字符串与正确的权限配合使用。 然后使用**消息/事件**作为事件中心名称。
+使用[适用于 .NET 的 Azure 服务总线 SDK][lnk-servicebus-sdk] 或[事件中心 - 事件处理器主机](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)时，可以将任何 IoT 中心连接字符串与正确的权限配合使用。 然后使用**消息/事件**作为事件中心名称。
 
 使用无法识别 IoT 中心的 SDK（或产品集成）时，必须检索与事件中心兼容的终结点和与事件中心兼容的名称：
 
@@ -65,11 +65,13 @@ IoT 中心 SDK 需要 IoT 中心终结点名称，即“终结点”下所示的
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 IoT 中心终结点的详细信息，请参阅 [IoT 中心终结点][lnk-endpoints]。
+* 有关 IoT 中心终结点的详细信息，请参阅 [IoT 中心终结点](iot-hub-devguide-endpoints.md)。
 
-[快速入门][lnk-get-started]教程介绍如何从模拟设备发送设备到云的消息以及如何从内置终结点读取消息。 有关更多详细信息，请参阅[使用路由处理 IoT 中心设备到云的消息][lnk-d2c-tutorial]教程。
+* [快速入门](quickstart-send-telemetry-node.md)介绍如何从模拟设备发送设备到云的消息，以及如何从内置终结点读取消息。 
 
-如果要将设备到云的消息路由到自定义终结点，请参阅[将消息路由和自定义终结点用于设备到云的消息][lnk-custom]。
+有关更多详细信息，请参阅[使用路由处理 IoT 中心设备到云的消息](tutorial-routing.md)教程。
+
+* 如果想要将设备到云的消息路由到自定义终结点，请参阅[对设备到云的消息使用消息路由和自定义终结点](iot-hub-devguide-messages-read-custom.md)。
 
 [img-eventhubcompatible]: ./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png
 
@@ -77,7 +79,7 @@ IoT 中心 SDK 需要 IoT 中心终结点名称，即“终结点”下所示的
 [lnk-get-started]: quickstart-send-telemetry-node.md
 [lnk-endpoints]: ./iot-hub-devguide-endpoints.md
 [lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iothub/iothubresource
-[lnk-event-hubs]: /services/event-hubs/
+[lnk-event-hubs]: /event-hubs/
 [lnk-management-portal]: https://portal.azure.cn
 [lnk-d2c-tutorial]: tutorial-routing.md
 [lnk-event-hub-partitions]: ../event-hubs/event-hubs-features.md#partitions

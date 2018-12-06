@@ -1,10 +1,22 @@
 ---
-title: 使用 Go 从 Azure 事件中心接收事件 | Microsoft Docs description: 开始使用 Go 从事件中心接收事件 services: event-hubs author: ShubhaVijayasarathy manager: kamalb
-
-ms.service: event-hubs ms.workload: core ms.topic: article origin.date:07/23/2018 ms.date: 11/05/2018 ms.author: v-biyu
-
+title: 使用 Go 从 Azure 事件中心接收事件 | Microsoft Docs
+description: 使用 Go 从 Azure 事件中心接收事件入门
+services: event-hubs
+author: ShubhaVijayasarathy
+manager: kamalb
+ms.service: event-hubs
+ms.workload: core
+ms.topic: article
+origin.date: 07/23/2018
+ms.date: 12/10/2018
+ms.author: v-biyu
+ms.openlocfilehash: fbabe776e6519efeb285f93d8b0465d69e7a6439
+ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676917"
 ---
-
 # <a name="receive-events-from-event-hubs-using-go"></a>使用 Go 从事件中心接收事件
 
 Azure 事件中心是一个具备高度伸缩性的事件管理系统，每秒可处理大量事件，从而使应用程序能够处理和分析连接设备和其他系统所产生的海量数据。 收集到事件中心后，可使用进程内处理程序或通过转发到其他分析系统，接收和处理事件。
@@ -22,7 +34,7 @@ Azure 事件中心是一个具备高度伸缩性的事件管理系统，每秒�
 若要完成本教程，需要具备以下先决条件：
 
 * 已本地安装 Go。 若有必要，请按照[以下说明操作](https://golang.org/doc/install)。
-* 有效的 Azure 帐户。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+* 有效的 Azure 帐户。 如果没有 Azure 订阅，请在开始前创建一个[试用帐户][]。
 * 若要接收消息，目标事件中心内必须具有消息。 了解如何发送消息，请参阅[发送教程](event-hubs-go-get-started-send.md)。
 * 现有事件中心（请参阅下一部分）。
 * 现有存储帐户和容器（请参阅下面的第二部分）。
@@ -186,14 +198,8 @@ if err != nil {
 本教程使用单个 **EventProcessorHost**实例。 若要增加吞吐量和可靠性，应在不同系统上运行多个 EventProcessorHost 实例。 租用系统可确保仅关联一个接收器，并且接收指定时间指定分区中的消息。
 
 ## <a name="next-steps"></a>后续步骤
-
-若要了解有关事件中心的详细信息，请访问以下页面：
-
-* [使用 Go 发送事件](event-hubs-go-get-started-send.md)
-* [事件中心概述](event-hubs-about.md)
-* [创建事件中心](event-hubs-create.md)
-* [事件中心常见问题](event-hubs-faq.md)
+在本快速入门中，你已创建从事件中心接收消息的 Go 应用程序。 要了解如何使用 Go 将事件发送到事件中心，请参阅[从事件中心发送事件 - Go](event-hubs-go-get-started-send.md)。
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-about.md
-
+[试用帐户](https://www.azure.cn/pricing/1rmb-trial))

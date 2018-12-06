@@ -10,14 +10,14 @@ ms.date: 09/24/2018
 ms.author: v-jay
 ms.component: files
 ms.openlocfilehash: 2cf43ffe08fbef9a996f1343abeb2b38d0dd7d23
-ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523692"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649302"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>在 Azure 文件中创建文件共享
-可以使用 [Azure 门户](https://portal.azure.cn/)、Azure 存储 PowerShell cmdlet、Azure 存储客户端库或 Azure 存储 REST API 来创建 Azure 文件共享。本教程介绍：
+可以使用  [Azure 门户](https://portal.azure.cn/)、Azure 存储 PowerShell cmdlet、Azure 存储客户端库或 Azure 存储 REST API 来创建 Azure 文件共享。本教程介绍：
 * [如何使用 Azure 门户创建 Azure 文件共享](#create-file-share-through-the-azure-portal)
 * [如何使用 Powershell 创建 Azure 文件共享](#create-file-share-through-powershell)
 * [如何使用 CLI 创建 Azure 文件共享](#create-file-share-through-command-line-interface-cli)
@@ -43,12 +43,12 @@ ms.locfileid: "46523692"
 
 
 ## <a name="create-file-share-through-powershell"></a>通过 PowerShell 创建文件共享
-若要准备使用 PowerShell，请下载并安装 Azure PowerShell cmdlet。 有关安装点和安装说明，请参阅 [如何安装和配置 Azure PowerShell](https://www.azure.cn/documentation/articles/powershell-install-configure/) 。
+若要准备使用 PowerShell，请下载并安装 Azure PowerShell cmdlet。 有关安装点和安装说明，请参阅 [如何安装和配置 Azure PowerShell](https://www.azure.cn/documentation/articles/powershell-install-configure/)。
 
 > [!Note]  
 > 建议下载并安装最新的 Azure PowerShell 模块或升级到最新模块。
 
-1. **为存储帐户和密钥创建上下文**：上下文封装存储帐户名称和帐户密钥。 有关从 [Azure 门户](https://portal.azure.cn/)复制帐户密钥的说明，请参阅[存储帐户访问密钥](../common/storage-account-manage.md#access-keys)。
+1. **为存储帐户和密钥创建上下文**：上下文封装存储帐户名称和帐户密钥。 有关从  [Azure 门户](https://portal.azure.cn/)复制帐户密钥的说明，请参阅 [存储帐户访问密钥](../common/storage-account-manage.md#access-keys)。
 
     ```powershell
     $storageContext = New-AzureStorageContext <storage-account-name> <storage-account-key>
@@ -61,14 +61,14 @@ ms.locfileid: "46523692"
     ```
 
 > [!Note]  
-> 文件共享的名称必须是全部小写。 有关命名文件共享和文件的完整详细信息，请参阅 [命名和引用共享、目录、文件和元数据](https://msdn.microsoft.com/library/azure/dn167011.aspx)。
+> 文件共享的名称必须是全部小写。 若要全面且详细地了解如何为文件共享和文件命名，请参阅 [命名和引用共享、目录、文件和元数据](https://msdn.microsoft.com/library/azure/dn167011.aspx)。
 
 ## <a name="create-file-share-through-command-line-interface-cli"></a>通过命令行接口 (CLI) 创建文件共享
 1. **若要准备使用命令行接口 (CLI)，请下载并安装 Azure CLI。**  
-    请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli) 和 [Azure CLI 2.0 入门](https://docs.azure.cn/cli/get-started-with-azure-cli)。
+    请参阅 [安装 Azure CLI 2.0](/cli/install-azure-cli) 和 [Azure CLI 2.0 入门](https://docs.azure.cn/cli/get-started-with-azure-cli)。
 
 2. **创建可连接到存储帐户的连接字符串，需要在该帐户中创建共享。**  
-    请将以下示例中的 ```<storage-account>``` 和 ```<resource_group>``` 替换为自己的存储帐户名称和资源组：
+    请将以下示例中的  ```<storage-account>``` 和 ```<resource_group>```  替换为自己的存储帐户名称和资源组：
 
    ```azurecli
     current_env_conn_string = $(az storage account show-connection-string -n <storage-account> -g <resource-group> --query 'connectionString' -o tsv)

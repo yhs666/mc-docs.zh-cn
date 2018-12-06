@@ -10,15 +10,15 @@ ms.custom: quick start connect, mvc, devcenter
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 04/10/2018
-ms.date: 11/05/2018
+ms.date: 12/03/2018
 ms.author: v-yeche
 clicktale: true
-ms.openlocfilehash: 8584b9048f47a835f9cb3065330edfcd8c356443
-ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
+ms.openlocfilehash: c0b00aa0d04b53d8846749ade2826a1e05b9e890
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50204796"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675097"
 ---
 # <a name="quickstart-build-a-net-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>快速入门：使用 SQL API 和 Azure 门户生成包含 Azure Cosmos DB 的 .NET Web 应用
 
@@ -27,11 +27,10 @@ ms.locfileid: "50204796"
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
-> * [Xamarin](create-sql-api-xamarin-dotnet.md)
 >  
 > 
 
-Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可快速创建和查询文档数据库，这些数据库受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。 
+<!--Pending on translate * [Xamarin](create-sql-api-xamarin-dotnet.md)--> Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 可快速创建和查询文档数据库，这些数据库受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。 
 
 <!-- NOTICE: 全球分布 TO 多区域分布 -->
 <!-- NOTICE: globally TO multiple-region  -->
@@ -125,7 +124,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
 现在返回到 Azure 门户，获取连接字符串信息，并将其复制到应用。
 
-1. 在 [Azure 门户](http://portal.azure.cn/)的 Azure Cosmos DB 帐户的左侧导航栏中，单击“密钥”，然后单击“读写密钥”。 使用屏幕右侧的复制按钮将 URI 和主密钥复制到下一步的 web.config 文件中。
+1. 在 [Azure 门户](http://portal.azure.cn/)的 Azure Cosmos DB 帐户的左侧导航栏中，选择“密钥”，然后选择“读写密钥”。 使用屏幕右侧的复制按钮将 URI 和主密钥复制到下一步的 web.config 文件中。
 
     ![在 Azure 门户的“密钥”边栏选项卡中查看并复制访问密钥](./media/create-sql-api-dotnet/keys.png)
 
@@ -144,17 +143,17 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
     `<add key="database" value="Tasks" />`    
 
 ## <a name="run-the-web-app"></a>运行 Web 应用
-1. 在 Visual Studio 中，右键单击解决方案资源管理器中的项目，并单击“管理 NuGet 包”。 
+1. 在 Visual Studio 中，右键单击解决方案资源管理器中的项目，然后选择“管理 NuGet 包”。 
 
 2. 在 NuGet“浏览”框中，键入 *DocumentDB*。
 
 3. 从结果中安装“Microsoft.Azure.DocumentDB”库。 这会安装 Microsoft.Azure.DocumentDB 包以及所有依赖项。
 
-4. 单击 Ctrl+F5 运行应用程序。 你的应用会显示在浏览器中。 
+4. 选择 CTRL + F5 以运行应用程序。 你的应用会显示在浏览器中。 
 
-5. 在浏览器中单击“新建”，并在“待办事项”应用中创建一些新任务。
+5. 在浏览器中选择“新建”，并在“待办事项”应用中创建一些新任务。
 
-   ![包含示例数据的“待办事项”应用](./media/create-sql-api-dotnet/azure-comosdb-todo-app-list.png)
+   ![包含示例数据的待办事项应用](./media/create-sql-api-dotnet/azure-comosdb-todo-app-list.png)
 
 现可返回到数据资源管理器，查看查询、修改和处理此新数据。 
 

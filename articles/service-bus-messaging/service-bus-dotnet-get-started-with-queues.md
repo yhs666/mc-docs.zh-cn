@@ -1,5 +1,5 @@
 ---
-title: Azure 服务总线队列入门 | Microsoft Docs
+title: Azure 服务总线队列入门 | Azure
 description: 编写一个 C# 控制台应用程序，以便使用服务总线消息传递队列。
 services: service-bus-messaging
 documentationcenter: .net
@@ -13,14 +13,14 @@ ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 origin.date: 09/07/2018
-ms.date: 10/31/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 1fa580ca1219d39df789afee783da714e1514fe1
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.openlocfilehash: c4bca51040fb282c0f46db2f96de1517a6ba7fbd
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409363"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675412"
 ---
 # <a name="get-started-with-service-bus-queues"></a>服务总线队列入门
 
@@ -35,27 +35,28 @@ ms.locfileid: "50409363"
 
 ## <a name="prerequisites"></a>先决条件
 
-1. [Visual Studio 2017 Update 3（版本 15.3 (26730.01)）](http://www.visualstudio.com/vs)或更高版本。
+1. [Visual Studio 2017 Update 3（版本 15.3 (26730.01)）](https://www.visualstudio.com/vs)或更高版本。
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows) 2.0 或更高版本。
 2. Azure 订阅。
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="1-create-a-namespace-using-the-azure-portal"></a>1.使用 Azure 门户创建命名空间
+## <a name="create-a-namespace-using-the-azure-portal"></a>使用 Azure 门户创建命名空间
 
 > [!NOTE] 
-> 也可使用 [PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps) 创建服务总线命名空间和消息实体。 有关详细信息，请参阅[使用 PowerShell 管理服务总线资源](service-bus-manage-with-ps.md)。
+> 也可使用 [PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) 创建服务总线命名空间和消息实体。 有关详细信息，请参阅[使用 PowerShell 管理服务总线资源](service-bus-manage-with-ps.md)。
 
 如果已创建服务总线消息传递命名空间，请跳转到[使用 Azure 门户创建队列](#2-create-a-queue-using-the-azure-portal)部分。
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="2-create-a-queue-using-the-azure-portal"></a>2.使用 Azure 门户创建队列
-如果你已创建服务总线队列，请跳转到[将消息发送到队列](#3-send-messages-to-the-queue)部分。
+## <a name="create-a-queue-using-the-azure-portal"></a>使用 Azure 门户创建队列
+
+如果已创建服务总线队列，请跳转到[将消息发送到队列](#3-send-messages-to-the-queue)部分。
 
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
-## <a name="3-send-messages-to-the-queue"></a>3.将消息发送到队列
+## <a name="send-messages-to-the-queue"></a>将消息发送到队列
 
 为了将消息发送到队列中，请使用 Visual Studio 编写一个 C# 控制台应用程序。
 

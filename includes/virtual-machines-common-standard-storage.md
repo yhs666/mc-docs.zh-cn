@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: storage
 ms.topic: include
 origin.date: 06/05/2018
-ms.date: 11/12/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 64977ec676839e211afdddd2d5bc635d195859e3
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.openlocfilehash: ae8f578479a605282acdb72e2a6f2b61652d542a
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035023"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676132"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>高性价比标准存储以及非托管和托管 Azure VM 磁盘
 
@@ -117,7 +117,7 @@ Azure 标准存储为运行不区分延迟的工作负荷提供可靠、低成�
 
 使用标准存储时，请注意以下计费方式：
 
-* 标准存储非托管磁盘/数据大小 
+* 标准存储非托管磁盘/数据大小
 * 标准托管磁盘
 * 标准存储快照
 * 出站数据传输
@@ -127,15 +127,17 @@ Azure 标准存储为运行不区分延迟的工作负荷提供可靠、低成�
 
 **托管磁盘**：标准托管磁盘的计费取决于磁盘的预配大小。 Azure 会将预配大小映射（四舍五入）到下面各表中指定的最接近的托管磁盘选项。 每个托管磁盘将映射到其中一种受支持的预配大小并相应地计费。 例如，如果创建了一个标准托管磁盘并将预配大小指定为 200 GiB，则会根据 S15 磁盘类型的定价向你收费。
 
-| 标准 HDD 托管<br>磁盘类型 | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60** | **S70** | **S80** |
-|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
-| 磁盘大小        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB) | 16,385 GiB (16 TiB) | 32,767 GiB (32 TiB) |
+<!--Notice: S60, S70, S80 are not invalid on MC-->
+| 标准 HDD 托管<br>磁盘类型 | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** |
+|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|
+| 磁盘大小        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) |
 
-**快照**：对标准磁盘的快照使用的额外容量计费。 有关快照的详细信息，请参阅 [Creating a Snapshot of a Blob](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)（创建 Blob 的快照）。
+<!--Notice: S60, S70, S80 are not invalid on MC-->
+**快照**：根据快照使用的额外容量对标准磁盘的快照进行计费。 有关快照的详细信息，请参阅 [Creating a Snapshot of a Blob](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)（创建 Blob 的快照）。
 
 **出站数据传输**： [出站数据传输](https://www.azure.cn/pricing/details/data-transfer/) （Azure 数据中心送出的数据）会产生带宽使用费。
 
-**事务**：Azure 对标准存储的每 100,000 个事务收费 0.0036 美元。 事务包括对存储区的读操作和写操作。
+<!-- Not Available on USD **Transaction**: Azure charges $0.0036 per 100,000 transactions for standard storage. Transactions include both read and write operations to storage.-->
 
 有关标准存储、虚拟机和托管磁盘定价的详细信息，请参阅：
 

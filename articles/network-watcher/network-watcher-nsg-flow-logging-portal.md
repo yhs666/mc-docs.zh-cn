@@ -1,26 +1,29 @@
 ---
-title: 使用 Azure 网络观察程序管理网络安全组流日志 | Azure
-description: 此页说明如何在 Azure 网络观察程序中管理网络安全组流日志
+title: 记录出入 VM 的网络流量 - 教程 - Azure 门户 | Azure
+description: 了解如何使用网络观察程序的 NSG 流日志功能记录出入 VM 的网络流量。
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
+author: lingliw
 manager: digimobile
 editor: ''
+tags: azure-resource-manager
+Customer intent: I need to log the network traffic to and from a VM so I can analyze it for anomalies.
 ms.assetid: 01606cbf-d70b-40ad-bc1d-f03bb642e0af
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 02/22/2017
-ms.date: 04/30/2018
-ms.author: v-yeche
-ms.openlocfilehash: dc24c692e882f65a197b3f6722b33768790eb1e7
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+origin.date: 04/30/2018
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.custom: mvc
+ms.openlocfilehash: 3895751e5d26c66a34500912a549311656d8443c
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121264"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675441"
 ---
 # <a name="manage-network-security-group-flow-logs-in-the-azure-portal"></a>在 Azure 门户中管理网络安全组流日志
 

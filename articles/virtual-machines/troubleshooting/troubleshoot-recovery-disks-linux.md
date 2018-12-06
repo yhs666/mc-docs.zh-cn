@@ -12,14 +12,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 02/16/2017
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2ce1145875a45e5f6ea1a7651950376d34bdf6d0
-ms.sourcegitcommit: 96b58e881dba2fd02665d806d7c27d770326b0cc
+ms.openlocfilehash: 3577a006ff49638c3ca28b3a54f7964557b39285
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652016"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675133"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>通过使用 Azure CLI 将 OS 磁盘附加到恢复 VM 来对 Linux VM 进行故障排除
 如果 Linux 虚拟机 (VM) 遇到启动或磁盘错误，则可能需要对虚拟硬盘本身执行故障排除步骤。 一个常见示例是 `/etc/fstab` 中存在无效条目，使 VM 无法成功启动。 本文详细介绍如何使用 Azure CLI 将虚拟硬盘连接到另一个 Linux VM，以修复任何错误，然后重新创建原始 VM。 
@@ -169,7 +169,7 @@ az vm unmanaged-disk attach --resource-group myResourceGroup --vm-name myVMRecov
 该模板使用此前的命令中的 VHD URI 部署 VM。 使用 [az group deployment create](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#az-group-deployment-create)部署模板。 将 URI 提供给原始 VHD，然后指定 OS 类型、VM 大小、VM 名称，如下所示：
 
 > [!NOTE]
-> 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“cloudapp.chinacloudapi.cn”）；更改某些不受支持的 VM 映像；更改某些不受支持的 VM 大小、SKU 以及资源提供程序的 API 版本。
+> 必须修改从 GitHub 存储库“azure-quickstart-templates”下载或参考的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“cloudapp.chinacloudapi.cn”）；更改某些不受支持的 VM 映像；更改某些不受支持的 VM 大小、SKU 以及资源提供程序的 API 版本。
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup --name myDeployment \
@@ -177,8 +177,10 @@ az group deployment create --resource-group myResourceGroup --name myDeployment 
     "osType": {"value": "Linux"},
     "vmSize": {"value": "Standard_DS1_v2"},
     "vmName": {"value": "myDeployedVM"}}' \
-    --template-uri https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json
+    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json
 ```
+
+<!--Notice: template-uri should be https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json-->
 
 ## <a name="re-enable-boot-diagnostics"></a>重新启用启动诊断
 从现有虚拟硬盘创建 VM 时，启动诊断可能不会自动启用。 使用 [az vm boot-diagnostics enable](https://docs.azure.cn/zh-cn/cli/vm/boot-diagnostics?view=azure-cli-latest#az-vm-boot-diagnostics-enable) 启用启动诊断。 以下示例在名为 `myResourceGroup` 的资源组中名为 `myDeployedVM` 的 VM 上启用诊断扩展：

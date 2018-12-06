@@ -15,11 +15,11 @@ origin.date: 12/12/2017
 ms.date: 04/23/2018
 ms.author: v-yeche
 ms.openlocfilehash: 904ab4b06c78f54886ca996459b3372d8e9d908f
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782085"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663254"
 ---
 # <a name="azure-cosmos-db-mongodb-api-documentation"></a>Azure Cosmos DB：MongoDB API 文档
 

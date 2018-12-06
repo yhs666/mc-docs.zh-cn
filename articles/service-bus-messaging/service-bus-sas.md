@@ -1,5 +1,5 @@
 ---
-title: 使用共享访问签名进行 Azure 服务总线访问控制
+title: 使用共享访问签名进行 Azure 服务总线访问控制 | Azure
 description: 根据如何使用共享访问签名进行服务总线访问控制，并详细介绍如何使用 Azure 服务总线进行 SAS 授权。
 services: service-bus-messaging
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/14/2018
-ms.date: 10/31/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 5a269bbdf08e1668b8a5c27db191c0386ab06951
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.openlocfilehash: 695c4a6fbb55933c76d2578e43adce489984beff
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409400"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675263"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>使用共享访问签名进行服务总线访问控制
 
@@ -32,7 +32,7 @@ SAS 可以根据授权规则来保护对服务总线的访问。 可以在命名
 
 共享访问签名是使用简单令牌的基于声明的授权机制。 使用 SAS 时，永远不会通过网络传递密钥。 密钥用于以加密方式将信息签名，以后，服务可以验证这些信息。 可以像使用用户名和密码一样使用 SAS。在用户名和密码方案中，客户端直接拥有授权规则名称和匹配的密钥。 此外，还可以像在联合安全模型中一样使用 SAS。在此模型中，客户端从安全令牌服务接收限时且经过签名的访问令牌，而无需拥有签名密钥。
 
-服务总线中的 SAS 身份验证配置了指定的[共享访问授权规则](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule)，这些规则具有关联的访问权限，以及一对主要和辅助加密密钥。 密钥是采用 Base64 表示法的 256 位值。 在服务总线的[中继](service-bus-fundamentals-hybrid-solutions.md#relays)、[队列](service-bus-fundamentals-hybrid-solutions.md#queues)和[主题](service-bus-fundamentals-hybrid-solutions.md#topics)中，可以在命名空间级别配置规则。
+服务总线中的 SAS 身份验证配置了指定的[共享访问授权规则](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule)，这些规则具有关联的访问权限，以及一对主要和辅助加密密钥。 密钥是采用 Base64 表示法的 256 位值。 在服务总线的中继、队列和主题中，可以在命名空间级别配置规则。
 
 [共享访问签名](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider)令牌包含所选授权规则的名称、应访问的资源的 URI、即时过期时间，以及使用所选授权规则的主要或辅助加密密钥基于这些字段计算的 HMAC-SHA256 加密签名。
 

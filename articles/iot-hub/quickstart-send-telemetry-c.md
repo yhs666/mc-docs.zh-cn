@@ -8,14 +8,15 @@ services: iot-hub
 ms.devlang: c
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 08/27/2018
-ms.author: wesmc
-ms.openlocfilehash: 16d470ec6fa3456daf2c1b769f487c0273c2dbdf
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+origin.date: 08/27/2018
+ms.date: 12/03/2018
+ms.author: v-yiso
+ms.openlocfilehash: 2de228f6bc2af97ad4a0552eafb166f8a8890b6d
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523949"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675344"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-c"></a>快速入门：将遥测数据从设备发送到 IoT 中心并使用后端应用程序从中心读取遥测数据 (C)
 
@@ -113,29 +114,36 @@ IoT 中心是一项 Azure 服务，用于将大量遥测数据从 IoT 设备引�
 
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
 
-[!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>注册设备
 
 必须先将设备注册到 IoT 中心，然后该设备才能进行连接。 在本部分，我们将结合 [IoT 扩展](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest)使用 Azure CLI 来注册模拟设备。
 
-1. 添加 IoT 中心 CLI 扩展并创建设备标识。 将 `{YourIoTHubName}` 替换为 IoT 中心选择的名称：
+1. 运行以下命令，以添加 IoT 中心 CLI 扩展并创建设备标识。 
 
-    ```azurecli-interactive
+   **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
+
+   **MyCDevice**：这是为注册的设备提供的名称。 请按显示的方法使用 MyCDevice。 如果为设备选择不同名称，则可能还需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
+
+    ```azurecli
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyCDevice
+    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyCDevice
     ```
 
-    如果为设备选择不同名称，则在运行示例应用程序之前，请在其中更新设备名称。
+2. 运行以下命令，获取刚注册设备的_设备连接字符串_：
 
-2. 运行以下命令，获取刚注册设备的设备连接字符串：
+   **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
 
-    ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyCDevice --output table
+    ```azurecli
+    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyCDevice --output table
     ```
 
-    记下看起来类似于 `Hostname=...=` 的设备连接字符串。 稍后会在快速入门中用到此值。
+    记下如下所示的设备连接字符串：
 
+   `HostName={YourIoTHubName}.azure-devices.cn;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
+
+    稍后会在快速入门中用到此值。
 
 ## <a name="send-simulated-telemetry"></a>发送模拟遥测数据
 
@@ -155,19 +163,19 @@ IoT 中心是一项 Azure 服务，用于将大量遥测数据从 IoT 设备引�
     ```
     将 `connectionString` 常量的值替换为之前记下的设备连接字符串。 然后保存对 **iothub_convenience_sample.c** 所做的更改。
 
-3. 在终端窗口中，导航到在 Azure IoT C SDK 中创建的 CMake 目录内的 *iothub_convenience_sample* 项目目录。
+3. 在本地终端窗口中，导航到在 Azure IoT C SDK 中创建的 CMake 目录中的 iothub_convenience_sample 项目目录。
 
     ```
     cd /azure-iot-sdk-c/cmake/iothub_client/samples/iothub_convenience_sample
     ```
 
-4. 使用以下命令行运行 CMake，以使用更新的 `connectionString` 值生成示例：
+4. 在本地终端窗口中运行 CMake 以使用更新的 `connectionString` 值生成示例：
 
     ```cmd/sh
     cmake --build . --target iothub_convenience_sample --config Debug
     ```
 
-5. 在命令提示符下运行以下命令，以运行模拟设备应用程序：
+5. 在本地终端窗口中运行以下命令，以便运行模拟设备应用程序：
 
     ```cmd/sh
     Debug\iothub_convenience_sample.exe
@@ -184,8 +192,10 @@ IoT 中心是一项 Azure 服务，用于将大量遥测数据从 IoT 设备引�
 
 1. 使用 Azure CLI 运行以下命令，以建立连接并读取 IoT 中心发送的消息：
 
-    ```azurecli-interactive
-    az iot hub monitor-events --hub-name {YourIoTHubName} --output table
+   **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
+
+    ```azurecli
+    az iot hub monitor-events --hub-name YourIoTHubName --output table
     ```
 
     ![使用 Azure CLI 读取设备消息](media/quickstart-send-telemetry-c/read-device-to-cloud-messages-app.png)

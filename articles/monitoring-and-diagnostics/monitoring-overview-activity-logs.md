@@ -2,29 +2,29 @@
 title: Azure 活动日志概述
 description: 了解什么是 Azure 活动日志，以及如何通过它了解发生在 Azure 订阅中的事件。
 author: lingliw
-services: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
+services: azure-monitor
+ms.service: azure-monitor
 ms.topic: conceptual
 origin.date: 05/30/2018
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 32db1954ecb10a634579a9f69c3da2883be51660
-ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
+ms.component: activitylog
+ms.openlocfilehash: defc66c38d4a5a9f0f281f5ff8b21a9f3e89031b
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652235"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675055"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>使用 Azure 活动日志监视订阅活动
-**Azure 活动日志**是一种方便用户深入了解 Azure 中发生的订阅级别事件的订阅日志。 这包括从 Azure 资源管理器操作数据到服务运行状况事件更新的一系列数据。 活动日志之前称为“审核日志”或“操作日志”，因为“管理”类别报告订阅的控制面事件。 通过活动日志，可确定订阅中资源上进行的任何写入操作 (PUT, POST, DELETE) 的“什么操作、谁操作和操作时间”等信息。 还可以了解该操作和其他相关属性的状态。 活动日志未包括读取 (GET) 操作或针对使用经典/“RDFE”模型的资源的操作。
+
+**Azure 活动日志**是一种方便用户深入了解 Azure 中发生的订阅级别事件的订阅日志。 这包括从 Azure 资源管理器操作数据到服务运行状况事件更新的一系列数据。 活动日志之前称为“审核日志”或“操作日志”，因为“管理”类别报告订阅的控制平面事件。 通过活动日志，可确定订阅中对资源执行的任何写入操作（PUT、POST、DELETE）的“内容、执行者和时间”等信息。 还可以了解该操作和其他相关属性的状态。 活动日志未包括读取 (GET) 操作或针对使用经典/“RDFE”模型的资源的操作。
 
 ![活动日志与其他类型的日志 ](./media/monitoring-overview-activity-logs/Activity_Log_vs_other_logs_v5.png)
 
 图 1：活动日志与其他类型的日志
 
 活动日志不同于[诊断日志](monitoring-overview-of-diagnostic-logs.md)。 活动日志提供有关从外部（“控制面”）对资源所执行操作的数据。 诊断日志由资源发出，并提供有关该资源（“数据面”）的操作信息。
-
-
 
 > [!WARNING]
 > Azure 活动日志主要适用于 Azure Resource Manager 中发生的活动。 它不跟踪使用经典/RDFE 模型的资源。 某些经典资源类型在 Azure Resource Manager 中具有代理资源提供程序（例如 Microsoft.ClassicCompute）。 如果使用这些代理资源提供程序通过 Azure Resource Manager 与经典资源类型交互，相关操作出现在活动日志中。 如果在 Azure 资源管理器代理外部与经典资源类型进行交互，则操作只会记录在操作日志中。 可以在门户的一个单独部分中浏览操作日志。
@@ -33,9 +33,8 @@ ms.locfileid: "49652235"
 可通过 Azure 门户、CLI、PowerShell cmdlet 和 Azure Monitor REST API 从活动日志检索事件。
 
 > [!NOTE]
->  [新型警报](monitoring-overview-unified-alerts.md)在创建和管理活动日志警报规则时提供了增强的体验。  [了解详细信息](monitoring-activity-log-alerts-new-experience.md)。
->
->
+> [新型警报](monitoring-overview-alerts.md)在创建和管理活动日志警报规则时提供了增强的体验。  [了解详细信息](alert-activity-log.md)。
+
 ## <a name="categories-in-the-activity-log"></a>活动日志中的类别
 活动日志包含多个数据类别。 有关这些类别的架构的完整详细信息，请参阅[此文章](monitoring-activity-log-schema.md)。 其中包括：
 * 管理 - 此类别包含通过资源管理器执行的所有创建、更新、删除和行动操作的记录。 此类别中的事件类型的示例包括“创建虚拟机”和“删除网络安全组”。用户或应用程序通过资源管理器所进行的每一个操作都会作为特定资源类型上的操作建模。 如果操作类型为“写入”、“删除”或“操作”，则该操作的开始、成功或失败记录都会记录在管理类别中。 管理类别还包括任何对订阅中基于角色的访问控制进行的更改。
@@ -65,7 +64,7 @@ ms.locfileid: "49652235"
 在 Azure 门户中，可在多个位置查看活动日志：
 * 可通过在左侧导航窗格中的“所有服务”下搜索活动日志进行访问的“活动日志”。
 * 默认情况下在左侧导航窗格中显示的“监视”。 活动日志是 Azure Monitor 的一部分。
-* 任何资源的资源边栏选项卡，例如虚拟机的“配置”边栏选项卡。 活动日志是大多数这些资源边栏选项卡的一部分，单击它可自动筛选出与特定资源相关的事件。
+* 大多数**资源**，例如，虚拟机的配置边栏选项卡。 活动日志是大多数资源边栏选项卡的一部分，单击它可自动筛选出与该特定资源相关的事件。
 
 在 Azure 门户中，可通过以下字段筛选活动日志：
 * 时间跨度 - 事件的开始时间和结束时间。
@@ -97,7 +96,7 @@ ms.locfileid: "49652235"
 可以使用与发出日志的存储帐户或事件中心命名空间不在同一订阅中的存储帐户或事件中心命名空间。 配置设置的用户必须对这两个订阅具有相应的 RBAC 访问权限。
 
 > [!NOTE]
->  当前无法将数据存档到安全虚拟网络中的存储帐户。
+>  当前无法将数据存档到受保护虚拟网络后面的存储帐户。
 
 > [!WARNING]
 > 存储帐户中日志数据的格式将在 2018 年 11 月 1 日更改为 JSON Lines。 [请参阅此文章来了解此影响，以及如何通过更新工具来处理新格式。](./monitor-diagnostic-logs-append-blobs.md) 

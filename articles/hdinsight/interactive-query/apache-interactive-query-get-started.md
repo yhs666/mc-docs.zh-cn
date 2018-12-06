@@ -7,18 +7,15 @@ author: jasonwhowell
 ms.author: v-yiso
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 02/22/2018
-ms.date: 05/21/2018
-ms.openlocfilehash: 3d1c5e2fd6f49ca4fca2bebf224138122273e7eb
-ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
+ms.date: 11/19/2018
+ms.openlocfilehash: a1bb586c3c99584857e2f1057e5c8dcebab22f6b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121519"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666840"
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>将交互式查询与 HDInsight 配合使用
 交互式查询（也称为 Hive LLAP 或[低延迟分析处理](https://cwiki.apache.org/confluence/display/Hive/LLAP)）是一种 Azure HDInsight [群集类型](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types)。 交互式查询支持内存中缓存，可提高 Hive 查询速度和交互性。
@@ -28,7 +25,7 @@ ms.locfileid: "49121519"
 交互式查询群集与 Hadoop 群集有所不同。 交互式 Hive 群集只包含 Hive 服务。 
 
 > [!NOTE]
-> 仅可通过 Ambari Hive 视图、Beeline 和 Microsoft Hive 开放式数据库连接驱动程序 (Hive ODBC) 访问交互式查询群集中的 Hive 服务。 不能通过 Hive 控制台、Templeton、Azure 命令行工具 (Azure CLI) 或 Azure PowerShell 对其进行访问。 
+> 仅可通过 Ambari Hive 视图、Beeline 和 Microsoft Hive 开放式数据库连接驱动程序 (Hive ODBC) 访问交互式查询群集中的 Hive 服务。 不能通过 Hive 控制台、Templeton、Azure 经典 CLI 或 Azure PowerShell 对其进行访问。 
 > 
 > 
 

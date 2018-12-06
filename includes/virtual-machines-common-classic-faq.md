@@ -1,3 +1,17 @@
+---
+author: rockboyfor
+ms.service: virtual-machines
+ms.topic: include
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
+ms.openlocfilehash: f7b8275fdd78bc2759bf7fbc223056ba9d516f8d
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676392"
+---
 本文讨论了通过经典部署模型创建的 Azure 虚拟机的一些用户常见问题。
 
 ## <a name="can-i-migrate-my-vm-created-in-the-classic-deployment-model-to-the-new-resource-manager-model"></a>是否可以将经典部署模型中创建的 VM 迁移到新的 Resource Manager 模型？
@@ -9,7 +23,7 @@
 ## <a name="what-can-i-run-on-an-azure-vm"></a>我可以在 Azure VM 上运行什么程序？
 所有订户都可以在 Azure 虚拟机上运行服务器软件。 可以运行最新版本的 Windows Server 和各种 Linux 发行版。 有关支持详细信息，请参阅：
 
-• 对于Windows VM — [Microsoft 服务器软件对 Azure 虚拟机的支持](http://go.microsoft.com/fwlink/p/?LinkId=393550)
+• 对于Windows VM — [Microsoft 服务器软件对 Azure 虚拟机的支持](https://go.microsoft.com/fwlink/p/?LinkId=393550)
 
 • 对于 Linux VM — [Azure 认可的分发中的 Linux](/virtual-machines/linux/endorsed-distros)
 
@@ -29,7 +43,7 @@ Azure 资源管理器部署模型和 Azure 门户已弃用地缘组功能。 对
 Azure 存储帐户可为操作系统磁盘和任何数据磁盘提供存储空间。 每个磁盘都是一个 .vhd 文件，以页 blob 形式存储。 有关定价详细信息，请参阅 [Storage Pricing Details](https://www.azure.cn/pricing/details/storage/blob/)（存储定价详细信息）。
 
 ## <a name="which-virtual-hard-disk-types-can-i-use"></a>可以使用哪些虚拟硬盘类型？
-Azure 只支持固定的 VHD 格式的虚拟硬盘。 若要在 Azure 中使用 VHDX，需先使用 Hyper-V 管理器或 [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656) cmdlet 对其进行转换。 然后，使用 [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet（在“服务管理”模式下）将 VHD 上传到 Azure 的存储帐户，用于虚拟机。
+Azure 只支持固定的 VHD 格式的虚拟硬盘。 若要在 Azure 中使用 VHDX，需先使用 Hyper-V 管理器或 [convert-VHD](https://go.microsoft.com/fwlink/p/?LinkId=393656) cmdlet 对其进行转换。 然后，使用 [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet（在“服务管理”模式下）将 VHD 上传到 Azure 的存储帐户，用于虚拟机。
 
 * 有关 Linux 说明，请参阅[创建并上传包含 Linux 操作系统的虚拟硬盘](../articles/virtual-machines/linux/classic/create-upload-vhd-classic.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)。
 
@@ -38,7 +52,7 @@ Azure 只支持固定的 VHD 格式的虚拟硬盘。 若要在 Azure 中使用 
 
 * Azure 不提供对虚拟机的控制台访问。 在 VM 完成启动前，无法对其进行访问。
 * 大多数[大小](../articles/virtual-machines/linux/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)的 Azure VM 只有 1 个虚拟网络适配器，这意味着它们也只能具有 1 个外部 IP 地址。 （A8 和 A9 大小的 VM 可使用第二个网络适配器在实例之间进行应用程序通信，但仅限特定方案。）
-* Azure VM 不支持第 2 代 Hyper-V VM 功能。 有关这些功能的详细信息，请参阅 [Hyper-V 虚拟机规范](http://technet.microsoft.com/library/dn592184.aspx)和[第 2 代虚拟机概述](https://technet.microsoft.com/library/dn282285.aspx)。
+* Azure VM 不支持第 2 代 Hyper-V VM 功能。 有关这些功能的详细信息，请参阅 [Hyper-V 虚拟机规范](https://technet.microsoft.com/library/dn592184.aspx)和[第 2 代虚拟机概述](https://technet.microsoft.com/library/dn282285.aspx)。
 
 ## <a name="can-these-virtual-machines-use-my-existing-on-premises-networking-infrastructure"></a>这些虚拟机可否使用现有的本地网络基础结构？
 对于通过经典部署模型创建的虚拟机，可以使用 Azure 虚拟网络扩展现有的基础结构。 该方法类似于设立分支机构。 可以预配和管理 Azure 中的虚拟专用网 (VPN)，并将其安全连接到本地 IT 基础结构。 有关详细信息，请参阅[虚拟网络概述](../articles/virtual-network/virtual-networks-overview.md)。
@@ -65,7 +79,7 @@ Windows VM 的其他选项包括：
 不得使用临时磁盘（Windows 默认的 D: 盘或 Linux 的 /dev/sdb1）存储数据。 这些磁盘只是临时存储空间，因此存在丢失数据且无法恢复数据的风险。 将虚拟机迁移到其他主机时，可能会发生这种情况。 调整虚拟机大小，更新主机和主机硬件故障都是需要迁移动虚拟机的原因。
 
 ## <a name="how-can-i-change-the-drive-letter-of-the-temporary-disk"></a>如何更改临时磁盘的驱动器号？
-在 Windows 虚拟机中，可以通过移动页面文件和重新分配驱动器号更改驱动器号，但需要确保按特定顺序执行这些步骤。 有关说明，请参阅[更改 Windows 临时磁盘的驱动器号](../articles/virtual-machines/windows/change-drive-letter.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
+在 Windows 虚拟机中，可以通过移动页面文件和重新分配驱动器号更改驱动器号，但需要确保按特定顺序执行这些步骤。 有关说明，请参阅 [更改 Windows 临时磁盘的驱动器号](../articles/virtual-machines/windows/change-drive-letter.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
 
 ## <a name="how-can-i-upgrade-the-guest-operating-system"></a>如何升级来宾操作系统？
 术语“升级”通常是指迁移到更新的操作系统版本，同时保留原有硬件。 对于 Azure VM，迁移到更新的 Linux 版本和 Windows 版本是不同过程：
@@ -73,7 +87,7 @@ Windows VM 的其他选项包括：
 * 对于 Linux VM，可使用适用于发行版的包管理工具和过程。
 * 对于 Windows 虚拟机，需要使用类似 Windows Server 迁移工具的工具迁移服务器。 请勿尝试升级来宾 OS（如果驻留在 Azure 上）。 由于存在失去虚拟机访问权限的风险，因此不支持该功能。 如果在升级过程中出现问题，可能无法启动远程桌面会话，并且无法解决这些问题。
 
-有关 Windows Server 迁移工具和过程的一般详细信息，请参阅[将角色和功能迁移到 Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=396940)。
+有关 Windows Server 迁移工具和过程的一般详细信息，请参阅[将角色和功能迁移到 Windows Server](https://go.microsoft.com/fwlink/p/?LinkId=396940)。
 
 ## <a name="whats-the-default-user-name-and-password-on-the-virtual-machine"></a>虚拟机的默认用户名和密码是什么？
 Azure 提供的映像没有预先配置的用户名和密码。 使用其中一个映像创建虚拟机时，需提供用于登录到虚拟机的用户名和密码。
@@ -86,7 +100,7 @@ Azure 提供的映像没有预先配置的用户名和密码。 使用其中一�
 * 对于 Windows 映像，需要在创建 VM 时提供用户名和密码。 该帐户会添加到管理员组。
 
 ## <a name="can-azure-run-anti-virus-on-my-virtual-machines"></a>Azure 能否在虚拟机上运行防病毒软件？
-Azure 针对防病毒解决方案提供多种选项，但需要用户自行管理。 例如，可能需要另外订阅反恶意软件的软件，并需要自行决定运行扫描和安装更新的时间。 可以在创建 Windows 虚拟机时通过适用于 Microsoft 反恶意软件或 TrendMicro Deep Security Agent 的 VM 扩展来添加防病毒支持，也可以稍后进行。 TrendMicro 扩展允许使用免费的限时试用订阅或使用现有的企业订阅。 Microsoft 反恶意软件免费。 有关详细信息，请参阅：
+Azure 针对防病毒解决方案提供多种选项，但需要用户自行管理。 例如，可能需要另外订阅反恶意软件的软件，并需要自行决定运行扫描和安装更新的时间。 可以在创建 Windows 虚拟机时通过适用于 Azure 反恶意软件或 TrendMicro Deep Security Agent 的 VM 扩展来添加防病毒支持，也可以稍后添加。 TrendMicro 扩展允许使用免费的限时试用订阅或使用现有的企业订阅。 Azure 反恶意软件是免费的。 有关详细信息，请参阅：
 
 <!-- Not Available on Symantec -->
 * [如何在 Azure VM 上安装和配置 Trend Micro Deep Security 即服务](/virtual-machines/windows/classic/install-trend)
@@ -125,5 +139,5 @@ Azure 根据 VM 的大小和操作系统按小时进行收费。 对于不足一
 [使用 Azure CLI 创建和管理 Linux VM](../articles/virtual-machines/linux/tutorial-manage-vm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 [使用 Azure PowerShell 创建和管理 Windows VM](../articles/virtual-machines/windows/tutorial-manage-vm.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+
 <!-- Update_Description: wording update, update link -->
-<!--ms.date: 07/30/2018 -->

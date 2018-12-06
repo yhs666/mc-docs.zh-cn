@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/06/2017
-ms.date: 09/03/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0b974ac9165f9bf9cec8cad085ca7cf5b32bc1d3
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: 2fb9ab3ba26e34072137e78d03ad935970e41383
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164969"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653074"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>使用 Resource Manager 模板和 Azure PowerShell 部署资源
 
@@ -74,7 +74,7 @@ New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Ex
 
 前面的示例要求模板的 URI 可公开访问，它适用于大多数情况，因为模板应该不会包含敏感数据。 如果需要指定敏感数据（如管理员密码），请以安全参数的形式传递该值。 但是，如果不希望模板可公开访问，可以通过将其存储在专用存储容器中来保护它。 若要了解如何部署需要共享访问签名 (SAS) 令牌的模板，请参阅[部署具有 SAS 令牌的专用模板](resource-manager-powershell-sas-token.md)。
 
-<!-- Not Available on [!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)] -->
+<!-- Not Available on [!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)] --> 在本地 Shell 中使用以下命令：
 
 ```powershell
 New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "China East"
@@ -215,6 +215,6 @@ Test-AzureRmResourceGroupDeployment : After parsing a value an unexpected charac
 * 若要了解如何在模板中定义参数，请参阅[了解 Azure Resource Manager 模板的结构和语法](resource-group-authoring-templates.md)。
 * 有关解决常见部署错误的提示，请参阅[排查使用 Azure Resource Manager 时的常见 Azure 部署错误](resource-manager-common-deployment-errors.md)。
 * 有关部署需要 SAS 令牌的模板的信息，请参阅[使用 SAS 令牌部署专用模板](resource-manager-powershell-sas-token.md)。
-<!--Not Available on  [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md)-->
+<!--Not Available on  [Azure Deployment Manager](deployment-manager-overview.md)-->
 
 <!--Update_Description: update meta properties, wording update -->

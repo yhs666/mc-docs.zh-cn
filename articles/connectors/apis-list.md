@@ -8,15 +8,15 @@ ms.author: v-yiso
 manager: jeconnoc
 ms.topic: article
 origin.date: 08/23/2018
-ms.date: 10/15/2018
+ms.date: 12/03/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 56cf7eaf4ba2f599510e7d58306372a174658aff
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.openlocfilehash: ad2e712df9a78686b677c05e2b65c07e865cd2ab
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455253"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675542"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>适用于 Azure 逻辑应用的连接器
 
@@ -42,7 +42,8 @@ ms.locfileid: "47455253"
   例如，如果你使用 Microsoft BizTalk Server，则逻辑应用可以使用 [BizTalk Server 连接器](#on-premises-connectors)连接到 BizTalk Server 并与其通信。 
   然后，可以使用[集成帐户连接器](#integration-account-connectors)在逻辑应用中扩展或执行类似于 BizTalk 的操作。 
 
-有关每个连接器的触发器和操作（在 Swagger 说明中定义）的技术信息及任何限制，请参阅[连接器详细信息](/connectors/)。 有关费用信息，请参阅[逻辑应用定价详细信息](https://www.azure.cn/pricing/details/logic-apps/)和[逻辑应用定价模型](../logic-apps/logic-apps-pricing.md)。 
+> [!NOTE] 
+> 有关连接器的完整列表以及每个连接器的参考信息（例如由 Swagger 说明定义的操作和任何触发器以及任何限制），可以在[连接器概述](/connectors/)下找到完整列表。 有关定价信息，请参阅[逻辑应用定价详细信息](https://azure.microsoft.com/pricing/details/logic-apps/)和[逻辑应用定价模型](../logic-apps/logic-apps-pricing.md)。 
 
 <a name="built-ins"></a>
 
@@ -55,7 +56,7 @@ ms.locfileid: "47455253"
 | [![API 图标][schedule-icon]<br/>**计划**][recurrence-doc] | - 使用“重复周期”触发器，按指定的计划以简单到复杂的重复方案运行逻辑应用。 <p>- 使用“延迟”操作，将逻辑应用暂停指定的持续时间。 <p>- 使用“延迟截止时间”操作，将逻辑应用暂停到指定的日期和时间。 | [![API 图标][http-icon]<br/>**HTTP**][http-doc] | 使用适用于 HTTP、HTTP + Swagger 和 HTTP + Webhook 的触发器和操作，通过 HTTP 与任何终结点通信。 | 
 | [![API 图标][http-request-icon]<br/>**请求**][http-request-doc] | - 使用“请求”触发器，使逻辑应用可从其他应用程序或服务调用、针对事件网格资源事件触发，或者针对 Azure 安全中心警报触发。 <p>- 使用“响应”操作将响应发送到应用或服务。 | [![API 图标][batch-icon]<br/>**Batch**][batch-doc] | - 使用“批处理消息”触发器来批量处理消息。 <p>- 使用“发送要批量处理的消息”操作调用具有现有批处理触发器的逻辑应用。 | 
 | [![API 图标][azure-functions-icon]<br/>**Azure Functions**][azure-functions-doc] | 从逻辑应用调用运行自定义代码片段（C# 或 Node.js）的 Azure 函数。 | [![API 图标][azure-api-management-icon]</br>**Azure API 管理**][azure-api-management-doc] | 调用可以使用 Azure API 管理进行管理和发布的自有 API 定义的触发器与操作。 | 
-| [![API icon][azure-app-services-icon]<br/>**Azure 应用服务**][azure-app-services-doc] | 调用 Azure 应用服务上托管的 Azure API 应用或 Web 应用。 包含 Swagger 后，这些应用定义的触发器和操作类似于其他任何第一类触发器和操作。 | [![API 图标][azure-logic-apps-icon]<br/>**Azure<br/>逻辑应用**][nested-logic-app-doc] | 调用使用“请求”触发器启动的其他逻辑应用。 | 
+| ![API 图标][azure-app-services-icon]<br/>**Azure 应用服务** | 调用 Azure 应用服务上托管的 Azure API 应用或 Web 应用。 包含 Swagger 后，这些应用定义的触发器和操作类似于其他任何第一类触发器和操作。 | [![API 图标][azure-logic-apps-icon]<br/>**Azure<br/>逻辑应用**][nested-logic-app-doc] | 调用使用“请求”触发器启动的其他逻辑应用。 | 
 ||||| 
 
 ### <a name="control-workflow"></a>控制工作流
@@ -93,7 +94,7 @@ ms.locfileid: "47455253"
 | [![API 图标][sftp-icon]<br/>**SFTP**][sftp-doc] | 连接到可从 internet 访问的 SFTP 服务器，以便能够处理文件和文件夹。 | [![API 图标][sharepoint-online-icon]<br/>**SharePoint<br/>Online**][sharepoint-online-doc] | 连接到 SharePoint Online，以便能够管理文件、附件、文件夹，等等。 | 
 | [![API 图标][dynamics-365-icon]<br/>**Dynamics 365<br/>CRM Online**][dynamics-365-doc] | 连接到 Dynamics 365 帐户，以便能够创建和管理记录、项，等等。 | [![API 图标][ftp-icon]<br/>**FTP**][ftp-doc] | 连接到可从 internet 访问的 FTP 服务器，以便能够处理文件和文件夹。 | 
 | [![API 图标][salesforce-icon]<br/>**Salesforce**][salesforce-doc] | 连接到 Salesforce 帐户，以便能够创建和管理记录、作业、对象等项。 | [![API 图标][twitter-icon]<br/>**Twitter**][twitter-doc] | 连接到 Twitter 帐户，以便能够管理推文、关注者、时间表、等等。 将推文保存到 SQL、Excel 或 SharePoint。 | 
-| [![API 图标][azure-event-hubs-icon]<br/>**Azure 事件中心**][azure-event-hubs-doc] | 通过事件中心使用和发布事件。 例如，通过事件中心获取逻辑应用的输出，然后将输出发送到实时分析提供程序。 | [![API 图标][azure-event-grid-icon]<br/>**Azure 事件**</br>**网格**][azure-event-grid-doc] | 监视事件网格发布的事件（例如，当 Azure 资源或第三方资源发生更改时）。 | 
+| [![API 图标][azure-event-hubs-icon]<br/>**Azure 事件中心**][azure-event-hubs-doc] | 通过事件中心使用和发布事件。 例如，通过事件中心获取逻辑应用的输出，然后将输出发送到实时分析提供程序。 |  | 
 ||||| 
 
 <a name="on-premises-connectors"></a>
@@ -108,18 +109,6 @@ ms.locfileid: "47455253"
 | [![API 图标][oracle-db-icon]<br/>**Oracle DB**][oracle-db-doc] | ![API 图标][postgre-sql-icon]<br/>**PostgreSQL** | [![API 图标][sharepoint-server-icon]<br/>**SharePoint</br> Server**][sharepoint-server-doc] | [![API 图标][sql-server-icon]<br/>**SQL</br> Server**][sql-server-doc] | ![API 图标][teradata-icon]<br/>**Teradata** | 
 ||||| 
 
-<a name="integration-account-connectors"></a>
-
-## <a name="integration-account-connectors"></a>集成帐户连接器 
-
-创建和付费购买[集成帐户](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)（通过 Azure 中的 Enterprise Integration Pack (EIP) 提供）时，可以使用以下连接器在逻辑应用中生成企业到企业 (B2B) 解决方案。 使用此帐户可以创建和存储 B2B 项目，例如贸易合作伙伴、协议、映射、架构、证书，等等。 若要使用这些项目，请将逻辑应用与集成帐户相关联。 如果你当前使用的是 BizTalk Server，则可能已熟悉这些连接器的用法。
-
-|   |   |   |   | 
-|---|---|---|---| 
-| [![API 图标][as2-icon]<br/>**AS2</br> 解码**][as2-decode-doc] | [![API 图标][as2-icon]<br/>**AS2</br> 编码**][as2-encode-doc] | [![API 图标][edifact-icon]<br/>**EDIFACT</br> 解码**][edifact-decode-doc] | [![API 图标][edifact-icon]<br/>**EDIFACT</br> 编码**][edifact-encode-doc] | 
-| [![API 图标][flat-file-decode-icon]<br/>**平面文件</br>解码**][flat-file-decode-doc] | [![API 图标][flat-file-encode-icon]<br/>**平面文件</br>编码**][flat-file-encode-doc] | [![API 图标][integration-account-icon]<br/>**集成<br/>帐户**][integration-account-doc] | [![API 图标][liquid-icon]<br/>**Liquid**</br>**转换**][json-liquid-transform-doc] | 
-| [![API 图标][x12-icon]<br/>**X12</br> 解码**][x12-decode-doc] | [![API 图标][x12-icon]<br/>**X12</br> 编码**][x12-encode-doc] | [![API 图标][xml-transform-icon]<br/>**XML**</br>**转换**][xml-transform-doc] | [![API 图标][xml-validate-icon]<br/>**XML <br/>验证**][xml-validate-doc] |  
-||||| 
 
 <a name="enterprise-connectors"></a>
 
@@ -153,18 +142,18 @@ ms.locfileid: "47455253"
 ## <a name="custom-apis-and-connectors"></a>自定义 API 和连接器 
 
 若要调用运行自定义代码或者无法作为连接器使用的 API，可以通过[创建自定义 API 应用](../logic-apps/logic-apps-create-api-app.md)来扩展逻辑应用平台。 还可以针对任何基于 REST 或 SOAP 的 API [创建自定义连接器](../logic-apps/custom-connector-overview.md)，使这些 API 可供 Azure 订阅中的任何逻辑应用使用。
-若要使自定义 API 应用或连接器可供任何人在 Azure 中使用，可以[提交连接器进行 Microsoft 认证](../logic-apps/custom-connector-submit-certification.md)。
 
 ## <a name="get-support"></a>获取支持
 
 * 有关问题，请访问 [Azure 逻辑应用论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
 
-* 若要提交或投票有关 Azure 逻辑应用和连接器的想法，请访问[逻辑应用用户反馈站点](http://aka.ms/logicapps-wish)。
+* 若要提交或投票有关 Azure 逻辑应用和连接器的想法，请访问[逻辑应用用户反馈站点](https://aka.ms/logicapps-wish)。
 
 * 文档中是否缺少你认为很重要的文章或详细信息？ 如果是，你可以在现有文章中补充内容或编写自己的文章。 我们的文档是开源的，托管在 GitHub 上。 使用 Azure 文档的 [GitHub 存储库](https://github.com/Microsoft/azure-docs)入门。 
 
 ## <a name="next-steps"></a>后续步骤
 
+* 查找[连接器的完整列表](https://docs.microsoft.com/connectors)
 * [创建第一个逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [为逻辑应用创建自定义连接器](https://docs.microsoft.com/connectors/custom-connectors/)
 * [为逻辑应用创建自定义 API](../logic-apps/logic-apps-create-api-app.md)
@@ -175,7 +164,6 @@ ms.locfileid: "47455253"
 <!--Built-ins doc links-->
 [azure-functions-doc]: ../logic-apps/logic-apps-azure-functions.md "将逻辑应用与 Azure Functions 集成"
 [azure-api-management-doc]: ../api-management/get-started-create-service-instance.md "创建 Azure API 管理服务实例用于管理和发布 API"
-[azure-app-services-doc]: ../logic-apps/logic-apps-custom-hosted-api.md "将逻辑应用与应用服务 API 应用集成"
 [azure-service-bus-doc]: ./connectors-create-api-servicebus.md "从服务总线队列和主题发送消息，并从服务总线队列和订阅接收消息"
 [batch-doc]: ../logic-apps/logic-apps-batch-process-send-receive-messages.md "以组或批的形式处理消息"
 [condition-doc]: ../logic-apps/logic-apps-control-flow-conditional-statement.md "评估条件并根据条件是 true 还是 false 运行不同的操作"
@@ -197,7 +185,6 @@ ms.locfileid: "47455253"
 
 <!--Managed API doc links-->
 [azure-blob-storage-doc]: ./connectors-create-api-azureblobstorage.md "使用 Azure Blob 存储连接器管理 Blob 容器中的文件"
-[azure-event-grid-doc]: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md "监视事件网格发布的事件（例如，当 Azure 资源或第三方资源发生更改时）"
 [azure-event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "连接到 Azure 事件中心。在逻辑应用与事件中心之间接收和发送事件"
 [box-doc]: ./connectors-create-api-box.md "连接到 Box。上传、获取、删除、列出文件，等等"
 [dropbox-doc]: ./connectors-create-api-dropbox.md "连接到 Dropbox。上传、获取、删除、列出文件，等等"
@@ -243,21 +230,6 @@ ms.locfileid: "47455253"
 [yammer-doc]: ./connectors-create-api-yammer.md "连接到 Yammer。发布消息、获取新消息，等等"
 [youtube-doc]: ./connectors-create-api-youtube.md "连接到 YouTube。管理视频和频道"
 
-<!--Enterprise Intregation Pack doc links-->
-[as2-doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "了解企业集成 AS2。"
-[as2-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-as2-decode.md "了解企业集成 AS2 解码"
-[as2-encode-doc]:../logic-apps/logic-apps-enterprise-integration-as2-encode.md "了解企业集成 AS2 编码"
-[edifact-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "了解企业集成 EDIFACT 解码"
-[edifact-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "了解企业集成 EDIFACT 编码"
-[flat-file-decode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "了解企业集成平面文件。"
-[flat-file-encode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "了解企业集成平面文件。"
-[integration-account-doc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "在集成帐户中查找架构、映射、合作伙伴等内容"
-[json-liquid-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "了解使用 Liquid 进行的 JSON 转换"
-[x12-doc]: ../logic-apps/logic-apps-enterprise-integration-x12.md "了解企业集成 X12"
-[x12-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-decode.md "了解企业集成 X12 解码"
-[x12-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-encode.md "了解企业集成 X12 编码"
-[xml-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "了解企业集成转换。"
-[xml-validate-doc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "了解企业集成 XML 验证。"
 
 <!-- Built-ins icons -->
 [azure-api-management-icon]: ./media/apis-list/azure-api-management.png

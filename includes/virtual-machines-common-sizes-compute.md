@@ -5,22 +5,22 @@ services: virtual-machines
 author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
-origin.date: 07/06/2018
-ms.date: 11/12/2018
+origin.date: 11/06/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 91ff00f9786279e0a991e976bbbcb0b41294e6f6
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.openlocfilehash: 66056adde68afac1f15011f46599cdf05b247675
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035010"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676343"
 ---
 <!-- F-series, Fs-series* -->
 
 计算优化的 VM 大小具有较高的 CPU 内存比，适用于中等流量 Web 服务器、网络设备、批处理进程和应用程序服务器。 本文针对此分组中每种大小提供有关 vCPU、数据磁盘和 NIC 的数量，以及存储吞吐量和网络带宽的信息。
 
-Fsv2 系列基于 Intel® Xeon® Platinum 8168 处理器，它具有 2.7 GHz 的基本核心频率和 3.7 GHz 的最大单核超频。 Intel 可扩展处理器上全新的 Intel® AVX-512 指令对于单精度和双精度浮点运算可为向量处理工作负荷提供高达 2 倍的性能提升。 换而言之，对于任何计算工作负荷，它们的处理速度相当快。 
+Fsv2 系列基于 Intel® Xeon® Platinum 8168 处理器，它具有 3.4GHz 的持续全核 Turbo 时钟速度和 3.7 GHz 的最大单核超频。 Intel 可扩展处理器上全新的 Intel® AVX-512 指令对于单精度和双精度浮点运算可为向量处理工作负荷提供高达 2 倍的性能提升。 换而言之，对于任何计算工作负荷，它们的处理速度相当快。 
 
 凭借较低的每小时定价，Fsv2 系列在基于每个 vCPU 的 Azure 计算单位 (ACU) 的 Azure 产品组合中具有最高性价比。 
 
@@ -50,8 +50,9 @@ ACU：195 - 210
 
 <sup>1</sup> Fsv2 系列 VM 的 Intel® 超线程技术功能
 
-<sup>2</sup> 超过 64 vCPU 的 VM 需要以下受支持的来宾 OS 之一：Windows Server 2016、Ubuntu 16.04 LTS、SLES 12 SP2 和 Red Hat Enterprise Linux、CentOS 7.3 或带 LIS 4.2.1 的 Oracle Linux 7.3
+<sup>2</sup> 超过 64 vCPU 的 VM 需要以下受支持的来宾操作系统之一：Windows Server 2016、Ubuntu 16.04 LTS、SLES 12 SP2 或 CentOS 7.3
 
+<!-- Not Available on Red Hat Enterprise Linux or Oracle Linux 7.3 with LIS 4.2.1-->
 <sup>3</sup> 实例与专用于单个客户的硬件隔离。
 
 ## <a name="fs-series-sup1sup"></a>Fs 系列 <sup>1</sup>
@@ -97,3 +98,5 @@ ACU：210 - 250
 <!-- Correct the F-Series Max Disk Count 4,8,16,32,64 -->
 <!-- NOTICE: 最大 NIC 数/预期网络带宽 (Mbps) SHOULD BE (Mbps) -->
 <br>
+
+<!-- Update_Description: update meta properties, wording update -->

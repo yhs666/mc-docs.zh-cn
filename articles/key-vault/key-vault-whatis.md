@@ -13,29 +13,41 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 01/26/2017
-ms.date: 11/05/2018
+ms.date: 12/10/2018
 ms.author: v-biyu
-ms.openlocfilehash: 9e60ff04b6bc254dfc5b5d2410d416e052e53ba9
-ms.sourcegitcommit: 8a68d9275ddb92ea45601fed96e21559999d9579
+ms.openlocfilehash: eae4ca17a4c5fbf93d1d518db0a76951400bf6da
+ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026960"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676900"
 ---
 # <a name="what-is-azure-key-vault"></a>什么是 Azure 密钥保管库？
 Azure Key Vault 有助于解决以下问题
 - **机密管理** - Azure Key Vault 可以用来安全地存储令牌、密码、证书、API 密钥和其他机密，并对其访问进行严格控制
 - **密钥管理** - Azure Key Vault 也可用作密钥管理解决方案。 可以通过 Azure Key Vault 轻松创建和控制用于加密数据的加密密钥。 
+- **证书管理** - Azure Key Vault 也是一项服务，可以用来轻松地预配、管理和部署公用和专用安全套接字层/传输层安全性 (SSL/TLS) 证书，这些证书可以与 Azure 以及你的内部连接资源配合使用。 
 
 ## <a name="basic-concepts"></a>基本概念
 
-Azure Key Vault 是一个用于安全地存储和访问机密的工具。 机密是你希望严格控制对其的访问的任何东西，例如 API 密钥、密码或证书。 **保管库**是机密的逻辑组。 现在，若要使用密钥保管库执行任何操作，首先需要向其进行身份验证。 下面是一些关键术语：
+Azure Key Vault 是一个用于安全地存储和访问机密的工具。 机密是你希望严格控制对其的访问的任何东西，例如 API 密钥、密码或证书。 **保管库**是机密的逻辑组。 现在，若要使用密钥保管库执行任何操作，首先需要向其进行身份验证。 
+
+从根本上说，可通过两种方式向 Key Vault 进行身份验证：
+
+
+1. **使用服务主体和证书：** 第一个选项是使用服务主体和具有 Key Vault 访问权限的关联证书。 应用程序所有者或开发人员负责轮换证书，因此，不建议使用此方式。
+2. **使用服务主体和机密：** 第二个选项（非首选项）是使用服务主体和机密向 Key Vault 进行身份验证。
+
+> [!NOTE]
+> 不应使用上面的第三个选项，因为很难自动轮换用于向 Key Vault 进行身份验证的启动机密。
+
+下面是一些关键术语：
 - **租户** - 租户是拥有和管理特定的 Microsoft 云服务实例的组织。 它通常用来以确切的方式引用组织的 Azure 和 Office 365 服务集。
 - **保管库所有者**：保管库所有者可以创建密钥保管库并获得它的完全访问权限和控制权。 保管库所有者还可以设置审核来记录谁访问了机密和密钥。 管理员可以控制密钥生命周期。 他们可以滚动到密钥的新版本、对其进行备份，以及执行相关的任务。
 - **保管库使用者**：当保管库所有者为保管库使用者授予了访问权限时，使用者可以对密钥保管库内的资产执行操作。 可用操作取决于所授予的权限。
 - **资源**：资源是可通过 Azure 获取的可管理项。 部分常见资源包括虚拟机、存储帐户、Web 应用、数据库和虚拟网络，但这只是其中一小部分。
 - **资源组**：资源组是用于保存 Azure 解决方案相关资源的容器。 资源组可以包含解决方案的所有资源，也可以只包含想要作为组来管理的资源。 根据对组织有利的原则，决定如何将资源分配到资源组。
-- **服务主体** - 可以将服务主体视为应用程序的凭据。
+- **服务主体** - Azure 服务主体是用户创建的应用、服务和自动化工具用来访问特定 Azure 资源的安全标识。 可将其视为具有特定角色，并且权限受到严格控制的“用户标识”（用户名和密码，或者证书）。 与普通的用户标识不同，服务主体只需执行特定的操作。 如果只向它授予执行管理任务所需的最低权限级别，则可以提高安全性。
 - **[Azure Active Directory (Azure AD)](/active-directory/fundamentals/active-directory-whatis)**：Azure AD 是租户的 Active Directory 服务。 每个目录有一个或多个域。 每个目录可以有多个订阅与之关联，但只有一个租户。 
 - **Azure 租户 ID**：租户 ID 是用于在 Azure 订阅中标识 Azure AD 实例的唯一方法。
 
@@ -68,13 +80,7 @@ Azure Key Vault 是一个用于安全地存储和访问机密的工具。 机密
 
 ## <a name="next-steps"></a>后续步骤
 
-有关面向管理员的入门教程，请参阅 [Azure Key Vault 入门](key-vault-get-started.md)。
-
-
-有关将密钥和机密与 Azure Key Vault 配合使用的详细信息，请参阅 [About keys, secrets, and certificates](https://msdn.microsoft.com/library/azure/dn903623\(v=azure.1\).aspx)（关于密钥、机密和证书）。
-
-<!--Image references-->
-[1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
-大多数区域都提供了 Azure 密钥保管库。 有关详细信息，请参阅 [密钥保管库定价页](https://www.azure.cn/pricing/details/key-vault/)。
+了解如何[保护保管库](key-vault-secure-your-key-vault.md)
+<!--Image references--> [1]: ./media/key-vault-whatis/AzureKeyVault_overview.png Azure 密钥保管库已在大多数区域中可用。 有关详细信息，请参阅 [密钥保管库定价页](https://www.azure.cn/pricing/details/key-vault/)。
 
 <!-- Update_Description: wording update -->

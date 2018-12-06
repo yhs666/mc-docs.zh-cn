@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: windows
 ms.workload: ''
 origin.date: 03/26/2018
-ms.date: 09/24/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: bf59d0c3b51283b3e799f2fcb856983c8ac00453
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.openlocfilehash: 1ba467e7e025857b71b02485014543555185dd47
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527184"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674856"
 ---
 # <a name="powershell-dsc-extension"></a>PowerShell DSC 扩展
 
@@ -130,25 +130,28 @@ Windows Server 2016、Windows Server 2012R2、Windows Server 2012、Windows Serv
 
 ## <a name="template-deployment"></a>模板部署
 
-可使用 Azure Resource Manager 模板部署 Azure VM 扩展。 部署需要部署后配置的一个或多个虚拟机时，模板是理想选择。 包含 OMS 代理 VM 扩展的示例 Resource Manager 模板可以在 [Azure 快速入门库](https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/dsc-extension-iis-server-windows-vm)中找到。 
+可使用 Azure Resource Manager 模板部署 Azure VM 扩展。 部署需要部署后配置的一个或多个虚拟机时，模板是理想选择。 
 
-虚拟机扩展的 JSON 配置可以嵌套在虚拟机资源内，或放置在资源管理器 JSON 模板的根级别或顶级别。 JSON 的位置会影响资源名称和类型的值。 
+<!-- Not Available on Log Analytics agent VM extension [Azure Quick Start Gallery](https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/dsc-extension-iis-server-windows-vm)--> 虚拟机扩展的 JSON 配置可以嵌套在虚拟机资源内，或放置在资源管理器 JSON 模板的根级别或顶级别。 JSON 的位置会影响资源名称和类型的值。 
 
 嵌套扩展资源时，JSON 放置在虚拟机的 `"resources": []` 对象中。 将扩展 JSON 放置在模板的根部时，资源名称包括对父虚拟机的引用，并且类型反映了嵌套的配置。  
 
 ## <a name="azure-cli-deployment"></a>Azure CLI 部署
 
-可以使用 Azure CLI 将 OMS 代理 VM 扩展部署到现有的虚拟机。 将 OMS 密钥和 OMS ID 替换为 OMS 工作区中的相应项。 
+可以使用 Azure CLI 将 VM 扩展部署到现有的虚拟机。
 
+<!-- Not Available on Log Analytics key and Log Analytics ID-->
 ```azurecli
 az vm extension set \
   --resource-group myResourceGroup \
   --vm-name myVM \
-  --name Microsoft.Powershell.DSC \
+  --name DSC \
   --publisher Microsoft.Powershell \
   --version 2.73 --protected-settings '{}' \
   --settings '{}'
 ```
+
+<!-- Notice: SHOULD BE --Name DSC NOT Microsoft.Powershell.DSC-->
 
 ## <a name="troubleshoot-and-support"></a>故障排除和支持
 
@@ -189,4 +192,5 @@ C:\WindowsAzure\Logs\Plugins\{Extension_Name}\{Extension_Version}
 ### <a name="support"></a>支持
 
 如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) 上的 Azure 专家。 或者，也可以提交 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择“获取支持”。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
+
 <!-- Update_Description: update meta properties, wording update -->
