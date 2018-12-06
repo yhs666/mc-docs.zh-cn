@@ -1,51 +1,47 @@
 ---
-title: 快速入门：检测图像中的人脸 - 人脸 API，Java
+title: 快速入门：使用 Azure REST API 和 Java 检测图像中的人脸
 titleSuffix: Azure Cognitive Services
-description: 在本快速入门中，你将使用人脸 API 和 Java 检测图像中的人脸。
+description: 在本快速入门中，请使用 Azure 人脸 REST API 和 Java 检测图像中的人脸。
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
-origin.date: 05/10/2018
-ms.date: 10/22/2018
+origin.date: 11/09/2018
+ms.date: 11/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: 3ca381e7848505a789ba76291e8d33e61e06820d
-ms.sourcegitcommit: 44ce337717bb948f5ac08217a156935f663c0f46
+ms.openlocfilehash: d344f67c3612a3a7a329a4e84e17ea16b8aa73cc
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034629"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672749"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-java"></a>快速入门：使用 Java 检测图像中的人脸
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>快速入门：使用 REST API 和 Java 检测图像中的人脸
 
-本快速入门使用人脸 API 检测图像中的人脸。
+在本快速入门中，请使用 Azure 人脸 REST API 和 Java 检测图像中的人脸。
+
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
 
 ## <a name="prerequisites"></a>先决条件
 
-需要一个订阅密钥来运行此示例。 可从 [https://portal.azure.cn](https://portal.azure.cn) 获取订阅密钥。
+- 人脸 API 订阅密钥。 可以按照[创建认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)中的说明订阅人脸 API 服务并获取密钥。
+- 任何所选的 Java IDE。
 
-## <a name="detect-faces-in-an-image"></a>在图像中检测人脸
+## <a name="create-the-java-project"></a>创建 Java 项目
 
-使用[人脸 - 检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)方法检测图像中的人脸并返回人脸属性，包括：
+在 IDE 中创建新的命令行 Java 应用，并使用 **main** 方法添加 **Main** 类。 然后，将以下全局库从 Maven 存储库下载到项目的 `lib` 目录：
+- `org.apache.httpcomponents:httpclient:4.2.4`
+- `org.json:json:20170516`
 
-- 人脸 ID：多个人脸 API 方案中使用的唯一 ID。
-- 人脸矩形：左侧、顶部、宽度和高度，指示人脸在图像中的位置。
-- 地标：27 点人脸地标数组，指向人脸组成部分的重要位置。
-- 人脸属性包括年龄、性别、笑容程度、头部姿态和面部毛发。
+## <a name="add-face-detection-code"></a>添加人脸检测代码
 
-若要运行此示例，请执行以下步骤：
+打开项目的 main 类。 在这里，请添加加载图像和检测人脸所需的代码。
 
-1. 在你最喜欢的 Java IDE 中创建新的命令行应用。
-2. 将 Main 类替换为以下代码（保留所有 `package` 语句）。
-3. 将 `<Subscription Key>` 替换为有效订阅密钥。
-4. 从 Maven 存储库将这些全局库下载到项目中的 `lib` 目录：
-   - `org.apache.httpcomponents:httpclient:4.2.4`
-   - `org.json:json:20170516`
-5. 运行“Main”。
+### <a name="import-packages"></a>导入程序包
 
-### <a name="face---detect-request"></a>人脸 - 检测请求
+将下列 `import` 语句添加到文件顶部。
 
 ```java
 // This sample uses Apache HttpComponents:
@@ -63,79 +59,93 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
+```
 
-public class Main
+### <a name="add-essential-fields"></a>添加必要的字段
+
+将以下字段添加到 Main 类。 该数据指定如何连接到人脸服务，以及在何处获取输入数据。 需使用订阅密钥的值更新 `subscriptionKey` 字段，并且可能需要更改 `uriBase` 字符串，使之包含正确的区域标识符（如需包含所有区域终结点的列表，请参阅[人脸 API 文档](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)）。 可能还需要将 `imageWithFaces` 值设置为一个路径，使之指向另一图像文件。
+
+`faceAttributes` 字段只是一个列表，包含特定类型的属性。 它将指定要检索的有关已检测人脸的信息。
+
+```Java
+// Replace <Subscription Key> with your valid subscription key.
+private static final String subscriptionKey = "<Subscription Key>";
+
+private static final String uriBase = "https://api.cognitive.azure.cn/face/v1.0/detect";
+
+private static final String imageWithFaces =
+    "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}";
+
+private static final String faceAttributes =
+    "age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise";
+```
+
+### <a name="call-the-face-detection-rest-api"></a>调用人脸检测 REST API
+
+将以下方法添加到 **main** 方法。 它构造一个针对人脸 API 的 REST 调用，以便检测远程图像（`faceAttributes` 字符串指定要检索的人脸属性）中的人脸信息。 然后，它将输出数据写入到 JSON 字符串。
+
+```Java
+HttpClient httpclient = new DefaultHttpClient();
+
+try
 {
-    // Replace <Subscription Key> with your valid subscription key.
-    private static final String subscriptionKey = "<Subscription Key>";
+    URIBuilder builder = new URIBuilder(uriBase);
 
-    private static final String uriBase = "https://api.cognitive.azure.cn/face/v1.0/detect";
+    // Request parameters. All of them are optional.
+    builder.setParameter("returnFaceId", "true");
+    builder.setParameter("returnFaceLandmarks", "false");
+    builder.setParameter("returnFaceAttributes", faceAttributes);
 
-    private static final String imageWithFaces =
-        "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}";
+    // Prepare the URI for the REST API call.
+    URI uri = builder.build();
+    HttpPost request = new HttpPost(uri);
 
-    private static final String faceAttributes =
-        "age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise";
+    // Request headers.
+    request.setHeader("Content-Type", "application/json");
+    request.setHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
 
-    public static void main(String[] args)
+    // Request body.
+    StringEntity reqEntity = new StringEntity(imageWithFaces);
+    request.setEntity(reqEntity);
+
+    // Execute the REST API call and get the response entity.
+    HttpResponse response = httpclient.execute(request);
+    HttpEntity entity = response.getEntity();
+```
+
+### <a name="parse-the-json-response"></a>分析 JSON 响应
+
+直接在以前的代码下添加以下块，以便将返回的 JSON 数据转换成更加易于读取的格式，然后再将其输出到控制台。 最后，关闭 try-catch 块。
+
+```Java
+    if (entity != null)
     {
-        HttpClient httpclient = new DefaultHttpClient();
+        // Format and display the JSON response.
+        System.out.println("REST Response:\n");
 
-        try
-        {
-            URIBuilder builder = new URIBuilder(uriBase);
-
-            // Request parameters. All of them are optional.
-            builder.setParameter("returnFaceId", "true");
-            builder.setParameter("returnFaceLandmarks", "false");
-            builder.setParameter("returnFaceAttributes", faceAttributes);
-
-            // Prepare the URI for the REST API call.
-            URI uri = builder.build();
-            HttpPost request = new HttpPost(uri);
-
-            // Request headers.
-            request.setHeader("Content-Type", "application/json");
-            request.setHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
-
-            // Request body.
-            StringEntity reqEntity = new StringEntity(imageWithFaces);
-            request.setEntity(reqEntity);
-
-            // Execute the REST API call and get the response entity.
-            HttpResponse response = httpclient.execute(request);
-            HttpEntity entity = response.getEntity();
-
-            if (entity != null)
-            {
-                // Format and display the JSON response.
-                System.out.println("REST Response:\n");
-
-                String jsonString = EntityUtils.toString(entity).trim();
-                if (jsonString.charAt(0) == '[') {
-                    JSONArray jsonArray = new JSONArray(jsonString);
-                    System.out.println(jsonArray.toString(2));
-                }
-                else if (jsonString.charAt(0) == '{') {
-                    JSONObject jsonObject = new JSONObject(jsonString);
-                    System.out.println(jsonObject.toString(2));
-                } else {
-                    System.out.println(jsonString);
-                }
-            }
+        String jsonString = EntityUtils.toString(entity).trim();
+        if (jsonString.charAt(0) == '[') {
+            JSONArray jsonArray = new JSONArray(jsonString);
+            System.out.println(jsonArray.toString(2));
         }
-        catch (Exception e)
-        {
-            // Display error message.
-            System.out.println(e.getMessage());
+        else if (jsonString.charAt(0) == '{') {
+            JSONObject jsonObject = new JSONObject(jsonString);
+            System.out.println(jsonObject.toString(2));
+        } else {
+            System.out.println(jsonString);
         }
     }
 }
+catch (Exception e)
+{
+    // Display error message.
+    System.out.println(e.getMessage());
+}
 ```
 
-### <a name="face---detect-response"></a>人脸 - 检测响应
+## <a name="run-the-app"></a>运行应用程序
 
-成功响应将以 JSON 格式返回。
+编译并运行代码。 成功的响应会以易于读取的 JSON 格式在控制台窗口中显示人脸数据。 例如：
 
 ```json
 [{
@@ -229,8 +239,9 @@ public class Main
 
 ## <a name="next-steps"></a>后续步骤
 
-了解如何创建使用人脸服务来检测图像中的人脸的 Android 应用程序。 应用程序会在图像上每张人脸的周围绘出一个框。
+在本快速入门中，你创建了一个简单的 Java 控制台应用程序，该应用程序可以将 REST 调用与 Azure 人脸 API 配合使用，以便检测图像中的人脸并返回其属性。 接下来，请了解如何在 Android 应用程序中更充分地使用此功能。
 
 > [!div class="nextstepaction"]
-> [教程：面向 Android 的人脸 API 入门](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
+> [教程：创建一个用于检测和定格人脸的 Android 应用](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
 
+<!-- Update_Description: wording update -->

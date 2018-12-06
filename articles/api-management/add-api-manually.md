@@ -15,13 +15,13 @@ origin.date: 08/27/2018
 ms.date: 10/08/2018
 ms.author: v-yiso
 ms.openlocfilehash: c00e6ac7fad2432597e7a0731424466312473665
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523847"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650757"
 ---
-# <a name="add-an-api-manually"></a>手动添加 API 
+# <a name="add-an-api-manually"></a>手动添加 API 
 
 本文中的步骤说明如何使用 Azure 门户手动将 API 添加到 API 管理 (APIM) 实例。 想要模拟某个 API 时，就往往需要创建一个空白 API 并手动对其进行定义。 有关模拟 API 的详细信息，请参阅[模拟 API 响应](mock-api-responses.md)。
 
@@ -60,7 +60,7 @@ ms.locfileid: "46523847"
 此时，APIM 中没有任何操作映射到后端 API 中的操作。 如果调用通过后端而不是通过 APIM 公开的操作，将收到 **404** 错误。 
 
 >[!NOTE] 
-> 默认情况下，在添加某个 API 时，除非已将某些操作列入白名单，否则即使该 API 已连接到某个后端服务，APIM 也不会公开任何操作。 若要将后端服务的某个操作列入白名单，请创建一个映射到后端操作的 APIM 操作。
+> 默认情况下，在添加某个 API 时，除非已将某些操作列入允许列表，否则即使该 API 已连接到某个后端服务，APIM 也不会公开任何操作。 若要将后端服务的某个操作列入允许列表，请创建一个映射到后端操作的 APIM 操作。
 >
 
 ## <a name="add-and-test-an-operation"></a>添加并测试操作

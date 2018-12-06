@@ -1,19 +1,20 @@
 ---
 title: 存档 Azure 活动日志
 description: 存档 Azure 活动日志，将其长期保留在存储帐户中。
-author: johnkemnetz
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 origin.date: 06/07/2018
-ms.author: v-yiso
-ms.date: 10/22/2018
-ms.openlocfilehash: be4d3d21c19d2e22eb2f5dd92f9cfc8c42ba0114
-ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.component: activitylog
+ms.openlocfilehash: ec7dfbd99fc0c867c02d5af70e7da17b78b7619d
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121544"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674688"
 ---
 # <a name="archive-the-azure-activity-log"></a>存档 Azure 活动日志
 本文介绍如何使用 Azure 门户、PowerShell Cmdlet 或跨平台 CLI 将 [Azure 活动日志](./monitoring-overview-activity-logs.md)存档到存储帐户中。 此选项适用于对保留时长超过 90 天的活动日志进行审核、静态分析或备份（对保留策略具备完全控制权限）。 如果只需将事件保留 90 天或更短的时间，则不需设置到存储帐户的存档，因为在不启用存档的情况下，活动日志事件保留在 Azure 平台中的时间是 90 天。
@@ -27,7 +28,7 @@ ms.locfileid: "49121544"
 在开始之前，需要[创建存储帐户](../storage/common/storage-quickstart-create-account.md)，将活动日志存档到其中。 强烈建议用户不要使用其中存储了其他非监视数据的现有存储帐户，以便更好地控制监视数据所需的访问权限。 但是，如果还要将诊断日志和指标存档到存储帐户，则也可将该存储帐户用于活动日志，使得所有监视数据都位于一个中心位置。 只要配置设置的用户同时拥有两个订阅的相应 RBAC 访问权限，存储帐户就不必与订阅发出日志位于同一订阅中。
 
 > [!NOTE]
->  当前无法将数据存档到安全虚拟网络中的存储帐户。
+>  当前无法将数据存档到在受保护虚拟网络后面创建的存储帐户。
 
 ## <a name="log-profile"></a>日志配置文件
 若要使用下述任意方法存档活动日志，可为订阅设置 **日志配置文件** 。 日志配置文件定义已存储或流式传输的事件的类型，以及输出 - 存储帐户和/或事件中心。 它还定义存储在存储帐户中的事件的保留策略（需保留的天数）。 如果将保留策略设置为零，事件将无限期存储。 如果不想让事件无限期存储，可将保留策略设置为 1 到 2147483647 之间的任何值。 保留策略按天应用，因此在一天结束时 (UTC)，将会删除当天已超过保留策略期限的日志。 例如，假设保留策略的期限为一天，则在今天开始时，会删除前天的日志。 删除过程从 UTC 晚上 12 点开始，但请注意，可能需要最多 24 小时才能将日志从存储帐户中删除。 [可在此处了解日志配置文件的详细信息](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)。 
@@ -67,7 +68,7 @@ ms.locfileid: "49121544"
 | StorageAccountId |是 |应该将活动日志保存到其中的存储帐户的资源 ID。 |
 | 位置 |是 |要为其收集活动日志事件的逗号分隔区域的列表。 可以使用 `(Get-AzureRmLocation).Location` 查看订阅的所有区域列表。 |
 | RetentionInDays |否 |事件的保留天数，介于 1 到 2147483647 之间。 值为零时，将无限期（永久）存储日志。 |
-| 类别 |否 |应收集的事件类别的逗号分隔列表。 可能值包括：Write、Delete 和 Action。  如果未提供，则假定所有可能的值 |
+| Categories |否 |应收集的事件类别的逗号分隔列表。 可能值包括：Write、Delete 和 Action。  如果未提供，则假定所有可能的值 |
 
 ## <a name="archive-the-activity-log-via-cli"></a>通过 CLI 存档活动日志
 
@@ -87,15 +88,15 @@ ms.locfileid: "49121544"
 ## <a name="storage-schema-of-the-activity-log"></a>活动日志的存储架构
 设置存档以后，一旦出现活动日志事件，就会在存储帐户中创建存储容器。 容器中的 blob 在活动日志和诊断日志中采用相同的命名约定，如下所示：
 
-> insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/{订阅 ID}/y={四位数年份}/m={两位数月份}/d={两位数日期}/h={两位数 24 小时制小时}/m=00/PT1H.json
-> 
-> 
+```
+insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/{subscription ID}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
+```
 
 例如，blob 名称可以为：
 
-> insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/y=2016/m=08/d=22/h=18/m=00/PT1H.json
-> 
-> 
+```
+insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/y=2016/m=08/d=22/h=18/m=00/PT1H.json
+```
 
 每个 PT1H.json blob 都包含一个 JSON blob，其中的事件为在 blob URL 中指定的小时（例如 h=12）内发生的。 在当前的小时内发生的事件将附加到 PT1H.json 文件。 分钟值始终为 00 (m=00)，因为活动日志事件按小时细分成单个 blob。
 
@@ -124,7 +125,7 @@ ms.locfileid: "49121544"
                 },
                 "claims": {
                     "aud": "https://management.core.chinacloudapi.cn/",
-                    "iss": "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
+                    "iss": "https://sts.chinacloudapi.cn/72f988bf-86f1-41af-91ab-2d7cd011db47/",
                     "iat": "1421876371",
                     "nbf": "1421876371",
                     "exp": "1421880271",

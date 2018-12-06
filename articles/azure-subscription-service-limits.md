@@ -2,21 +2,21 @@
 title: Azure 订阅限制和配额
 description: 提供常见的 Azure 订阅和服务限制、配额和约束的列表。 这包括有关如何增加限制以及最大值的信息。
 services: multiple
-author: rothja
-manager: jeffreyg
+author: lingliw
+manager: digimobile
 tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-origin.date: 09/11/2018
-ms.date: 09/26/2018
-ms.author: v-junlch
-ms.openlocfilehash: 8e5fb73c06213344764b0669d84237a327cf8665
-ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
+origin.date: 11/05/2018
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 32299e1af53cb5ceb035a5e419f253d5125f40cd
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652238"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674670"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 订阅和服务限制、配额和约束
 本文列出了一些最常见的 Azure 限制，有时也称为配额。 本文当前并不涵盖所有 Azure 服务。 随着时间的推移，此列表将进行扩展和更新，以涵盖更多平台。
@@ -26,7 +26,7 @@ ms.locfileid: "49652238"
 > [!NOTE]
 > 如果想要提高限制或配额，使其超出**默认限制**，可以[打开免费的联机客户支持请求](azure-resource-manager/resource-manager-quota-errors.md)。 无法将限制提高到超过下表中显示的**最大限制**值。 如果没有 **最大限制** 列，则资源没有可调整的限制。
 >
-> [1 元试用订阅](https://www.azure.cn/pricing/1rmb-trial)没有资格增大限制或配额。 如果有 [1 元试用订阅](https://www.azure.cn/pricing/1rmb-trial)，可将其升级到 PIA 订阅。 有关详细信息，请参阅 [1 元试用订阅常见问题解答](https://www.azure.cn/pricing/1rmb-trial/)。
+> [试用订阅](https://www.azure.cn/pricing/1rmb-trial-full)。
 >
 
 ## <a name="limits-and-the-azure-resource-manager"></a>限制和 Azure Resource Manager
@@ -89,7 +89,7 @@ ms.locfileid: "49652238"
 #### <a name="subscription-limits---azure-resource-manager"></a>订阅数限制 - Azure Resource Manager
 使用 Azure Resource Manager 和 Azure 资源组时，以下限制适用。 未使用 Azure Resource Manager 更改的限制不会在下面列出。 请参阅上表了解这些限制。
 
-有关处理资源管理器请求限制的信息，请参阅[限制资源管理器请求](resource-manager-request-limits.md)。
+有关资源管理器 API 读写限制的信息，请参阅[限制资源管理器请求](resource-manager-request-limits.md)。
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../includes/azure-subscription-limits-azure-resource-manager.md)]
 
@@ -230,8 +230,6 @@ Azure Cosmos DB 是全局缩放数据库，可对吞吐量和存储进行缩放�
 
 ### <a name="site-recovery-limits"></a>站点恢复限制
 [!INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
-### <a name="application-insights-limits"></a>Application Insights 限制
-[!INCLUDE [application-insights-limits](../includes/application-insights-limits.md)]
 
 ### <a name="api-management-limits"></a>API 管理限制
 [!INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]

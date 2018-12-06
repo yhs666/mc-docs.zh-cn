@@ -1,10 +1,10 @@
 ---
-title: '在虚拟机计算节点上运行 Linux - Azure Batch | Microsoft 文档 '
+title: 在虚拟机计算节点上运行 Linux - Azure Batch | Azure
 description: 了解如何处理 Azure Batch 中 Linux 虚拟机池上的并行计算工作负荷。
 services: batch
 documentationcenter: python
-author: dlepow
-manager: jeconnoc
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
 ms.service: batch
@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: na
 origin.date: 06/01/2018
-ms.date: 09/07/2018
-ms.author: v-junlch
+ms.date: 11/26/2018
+ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 14e8a7b51f4490ffc717068ae8fca3f171e0ac3f
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: 4d2b69cb52481446a2f42c68287013ced452715f
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068122"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674512"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>在 Batch 池中预配 Linux 计算节点
 
@@ -59,9 +59,9 @@ Batch 服务使用[虚拟机规模集](../virtual-machine-scale-sets/virtual-mac
 ### <a name="node-agent-sku"></a>节点代理 SKU
 Batch 节点代理是一个程序，它在池中的每个节点上运行，并在节点与 Batch 服务之间提供命令和控制接口。 节点代理对于不同操作系统有不同的实现（称为 SKU）。 从根本上讲，在创建虚拟机配置时，需要先指定虚拟机映像引用，并指定要在其上安装映像的代理节点。 通常，每个节点代理 SKU 与多个虚拟机映像兼容。 下面是节点代理 SKU 的几个示例：
 
-- batch.node.ubuntu 14.04
-- batch.node.centos 7
-- batch.node.windows amd64
+* batch.node.ubuntu 14.04
+* batch.node.centos 7
+* batch.node.windows amd64
 
 > [!IMPORTANT]
 > 并非市场中的所有可用虚拟机映像都与当前可用的 Batch 节点代理兼容。 使用 Batch SDK 列出可用的节点代理 SKU 及其兼容的虚拟机映像。 有关详细信息以及如何在运行时检索有效映像列表的示例，请参阅本文后半部分的[虚拟机映像列表](#list-of-virtual-machine-images)。
@@ -71,7 +71,7 @@ Batch 节点代理是一个程序，它在池中的每个节点上运行，并�
 ## <a name="create-a-linux-pool-batch-python"></a>创建 Linux 池：Batch Python
 以下代码片段示范如何使用 [用于 Python 的 Azure Batch 客户端库][py_batch_package] 创建 Ubuntu Server 计算节点池。 有关 Batch Python 模块的参考文档可在“阅读文档”上的 [azure.batch package][py_batch_docs] 处找到。
 
-此代码片段显式创建 [ImageReference][py_imagereference]，并指定它的每个属性（publisher、offer、SKU、version）。 但是，我们建议在生产代码中使用 list_node_agent_skus 方法在运行时从可用映像和节点代理 SKU 组合中做出决定和选择。
+此代码片段显式创建 [ImageReference][py_imagereference]，并指定它的每个属性（publisher、offer、SKU、version）。 但是，我们建议在生产代码中使用 [list_node_agent_skus][py_list_skus] 方法在运行时从可用映像和节点代理 SKU 组合中做出决定和选择。
 
 ```python
 # Import the required modules from the
@@ -127,7 +127,7 @@ new_pool.virtual_machine_configuration = vmc
 client.pool.add(new_pool)
 ```
 
-如上所述，建议不要显式创建 [ImageReference][py_imagereference]，而应使用 list_node_agent_skus 方法从当前支持的节点代理/市场映像组合中动态进行选择。 以下 Python 代码片段演示如何使用此方法。
+如上所述，建议不要显式创建 [ImageReference][py_imagereference]，而应使用 [list_node_agent_skus][py_list_skus] 方法从当前支持的节点代理/市场映像组合中动态进行选择。 以下 Python 代码片段演示如何使用此方法。
 
 ```python
 # Get the list of node agents from the Batch service
@@ -208,7 +208,7 @@ ImageReference imageReference = new ImageReference(
 ```
 
 ## <a name="list-of-virtual-machine-images"></a>虚拟机映像列表
-下表列出了本文上次更新时，与可用 Batch 节点代理兼容的市场虚拟机映像。 请务必注意，此列表并非永久不变，因为可能随时会添加或删除映像和节点代理。 建议 Batch 应用程序和服务始终使用 list_node_agent_skus (Python) 或 [ListNodeAgentSkus][net_list_skus] (Batch .NET)，从当前可用的 SKU 中做出决定和选择。
+下表列出了本文上次更新时，与可用 Batch 节点代理兼容的市场虚拟机映像。 请务必注意，此列表并非永久不变，因为可能随时会添加或删除映像和节点代理。 建议 Batch 应用程序和服务始终使用 [list_node_agent_skus][py_list_skus] (Python) 或 [ListNodeAgentSkus][net_list_skus] (Batch .NET)，从当前可用的 SKU 中做出决定和选择。
 
 > [!WARNING]
 > 以下列表可随时更改。 请始终使用 Batch API 中提供的列出节点代理 SKU 方法来列出运行 Batch 作业时兼容的虚拟机和节点代理 SKU。

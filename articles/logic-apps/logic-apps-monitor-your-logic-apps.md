@@ -15,13 +15,13 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 origin.date: 07/21/2017
 ms.author: v-yiso
-ms.date: 07/30/2018
-ms.openlocfilehash: 73a528dfc741101be9f65fffc2f5903b3a0fd91f
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.date: 12/10/2018
+ms.openlocfilehash: 1b9b2cbc092e4d004677605c848f99bafbcf510b
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167877"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674399"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>针对 Azure 逻辑应用监视状态、设置诊断日志记录，并启用警报
 
@@ -78,9 +78,9 @@ ms.locfileid: "39167877"
 
 ## <a name="turn-on-diagnostics-logging-for-your-logic-app"></a>为逻辑应用启用诊断日志记录
 
-对于针对运行时详细信息和事件的更丰富调试，可以使用 [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 设置诊断日志记录。 Log Analytics 是 Azure 中的一个服务，用于监视云和本地环境，帮助使其保持较高的可用性和性能。 
+对于针对运行时详细信息和事件的更丰富调试，可以使用 Azure Log Analytics 设置诊断日志记录。 Log Analytics 是 Azure 中的一个服务，用于监视云和本地环境，帮助使其保持较高的可用性和性能。 
 
-在开始之前，需要具有 Log Analytics 工作区。 了解[如何创建 Log Analytics 工作区](../log-analytics/log-analytics-quick-create-workspace.md)。
+在开始之前，需要具有一个 Log Analytics 工作区。 
 
 1. 在 [Azure 门户](https://portal.azure.cn)中，查找并选择“逻辑应用”。 
 
@@ -96,7 +96,7 @@ ms.locfileid: "39167877"
 
    1. 选择“发送到 Log Analytics”。 
    2. 在“Log Analytics”下，选择“配置”。 
-   3. 在“OMS 工作区”下，选择要用于日志记录的 Log Analytics 工作区。
+   3. 在“OMS 工作区”下，选择要用于日志记录的工作区。
    4. 在“日志”下，选择“WorkflowRuntime”类别。
    5. 选择指标间隔。
    6. 完成后，选择“保存”。
@@ -129,8 +129,6 @@ ms.locfileid: "39167877"
 
    ![输入搜索字符串](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
 
-   详细了解[如何在 Log Analytics 中查找数据](../log-analytics/log-analytics-log-searches.md)。
-
 6. 在结果页的左侧栏中，选择要查看的时间范围。
 若要通过添加筛选器优化查询，请选择“+添加”。
 
@@ -162,10 +160,9 @@ ms.locfileid: "39167877"
 * [在 Azure 存储中存档 Azure 诊断日志](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
 * [将 Azure 诊断日志流式传输到 Azure 事件中心](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
 
-然后，可通过使用其他服务（如 [Azure 流分析](../stream-analytics/stream-analytics-introduction.md)和 [Power BI](../log-analytics/log-analytics-powerbi.md)）的遥测数据和分析来进行实时监视。 例如：
+然后，可通过使用其他服务（如 [Azure 流分析](../stream-analytics/stream-analytics-introduction.md)）的遥测数据和分析来进行实时监视。 例如：
 
 * [将数据从事件中心流式传输到流分析](../stream-analytics/stream-analytics-define-inputs.md)
-* [在 Power BI 中使用流分析来分析流数据，并创建实时分析仪表板](../stream-analytics/stream-analytics-power-bi-dashboard.md)
 
 根据要设置的选项，确保首先[创建 Azure 存储帐户](../storage/common/storage-create-storage-account.md)或[创建 Azure 事件中心](../event-hubs/event-hubs-create.md)。 然后选择要发送诊断数据的位置选项：
 
@@ -180,7 +177,7 @@ ms.locfileid: "39167877"
 
 要监视逻辑应用的特定指标或超出的阈值，请[在 Azure 中设置警报](../monitoring-and-diagnostics/monitoring-overview-alerts.md)。 了解 [Azure 中的指标](../monitoring-and-diagnostics/monitoring-overview-metrics.md)。 
 
-若要在不使用 [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 的情况下设置警报，请按照下列步骤执行。 有关更高级的警报条件和操作，也可以[设置 Log Analytics](#azure-diagnostics)。
+若要在不使用 Azure Log Analytics 的情况下设置警报，请按照下列步骤执行。 有关更高级的警报条件和操作，也可以[设置 Log Analytics](#azure-diagnostics)。
 
 1. 在“逻辑应用”边栏选项卡菜单的“监视”下，选择“诊断” > “警报规则” > “添加警报”，如下所示：
 
@@ -276,5 +273,4 @@ ms.locfileid: "39167877"
 ## <a name="next-steps"></a>后续步骤
 
 * [创建模板以用于逻辑应用部署和版本管理](../logic-apps/logic-apps-create-deploy-template.md)
-* [具有 Enterprise Integration Pack 的 B2B 方案](../logic-apps/logic-apps-enterprise-integration-overview.md)
-* [监视 B2B 消息](../logic-apps/logic-apps-monitor-b2b-message.md)
+* [具有 Enterprise Integration Pack 的 B2B 方案]

@@ -1,32 +1,34 @@
 ---
-title: Azure 安全服务与技术 | Microsoft Azure
+title: Azure 安全服务与技术 | Azure
 description: 本文提供了一个包含 Azure 安全服务与技术的特选列表。
 services: security
-documentationCenter: na
-authors: LingChen
-manager: langyun
-editor: Lingche
+documentationcenter: na
+author: lingliw
+manager: digimobile
+editor: TomSh
+ms.assetid: a5a7f60a-97e2-49b4-a8c5-7c010ff27ef8
 ms.service: security
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2016
-ms.author: v-johch
-ms.openlocfilehash: 97ce06cb98688d66495a1455e029dc82c8f54337
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 05/25/2018
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 84ae82049f3f6ee1e1f50310a0f0b405ed91e815
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20182189"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674433"
 ---
-# <a name="azure-security-services-and-technologies"></a>Azure 安全服务与技术
+# <a name="security-services-and-technologies-available-on-azure"></a>Azure 上可用的安全服务和技术
 
 在我们与当前和未来 Azure 客户的讨论中，我们经常被问及“你们是否有 Azure 必须提供的所有安全相关服务和技术的列表？”
 
-我们明白，当用户在评估其云服务提供商的技术选项时，有必要使用这样一张列表，在时间适当时进行深入研究。
+了解以下信息有助于评估云服务提供商选项。 因此，我们提供此列表帮助你入门。
 
-下面是我们在提供此类列表方面所做的初步努力。 随着时间的推移，此列表会进行更改，并且会不断变大，就像 Azure 一样。 此列表是分类的，相关类别的列表也会随着时间的推移而不断变大。 请务必时时查看此页面，了解安全相关服务和技术的最新内容。  
+随着时间的推移，此列表会进行更改，并且会不断变大，就像 Azure 一样。 请务必时时查看此页面，了解安全相关服务和技术的最新内容。
 
 ## <a name="azure-security---general"></a>Azure 安全 - 概况
 - [Azure 密钥保管库](../key-vault/key-vault-whatis.md)

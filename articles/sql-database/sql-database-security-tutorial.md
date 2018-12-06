@@ -2,23 +2,25 @@
 title: 保护 Azure SQL 数据库 | Microsoft Docs
 description: 介绍保护 Azure SQL 数据库的技术和功能。
 services: sql-database
-author: WenJason
-manager: digimobile
 ms.service: sql-database
-ms.custom: mvc,security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: tutorial
-origin.date: 09/27/2018
-ms.date: 10/15/2018
+author: WenJason
 ms.author: v-jay
-ms.reviewer: vanto
-ms.openlocfilehash: 8ee670c921b31d046a305d8aafee58af8d3c19c4
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.reviewer: vanto, carlrab
+manager: digimobile
+origin.date: 11/01/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: 736b8d348bd8d98ecd54c77545acf41a04c5890e
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135871"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672940"
 ---
-# <a name="secure-your-azure-sql-database"></a>保护 Azure SQL 数据库
+# <a name="tutorial-secure-your-azure-sql-database"></a>教程：保护 Azure SQL 数据库
 
 SQL 数据库通过以下方式来确保数据的安全： 
 - 使用防火墙规则限制对数据库的访问 
@@ -40,7 +42,7 @@ SQL 数据库还有复杂的监视、审核和威胁检测功能。
 > * 启用 SQL 数据库审核
 > * 启用 SQL 数据库威胁检测
 
-如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -58,7 +60,7 @@ SQL 数据库还有复杂的监视、审核和威胁检测功能。
 
 SQL 数据库受 Azure 中的防火墙保护。 默认情况下，将拒绝与服务器和服务器内数据库的所有连接，连接自其他 Azure 服务的连接除外。 有关详细信息，请参阅 [Azure SQL 数据库服务器级和数据库级防火墙规则](sql-database-firewall-configure.md)。
 
-最安全的配置是将“允许访问 Azure 服务”设置为“关闭”。 如果需要从 Azure VM 或云服务连接到数据库，则应创建[保留 IP](../virtual-network/virtual-networks-reserved-public-ip.md)，仅允许保留的 IP 地址通过防火墙进行访问。 
+最安全的配置是将“允许访问 Azure 服务”设置为“关闭”。 如果需要从 Azure VM 或云服务连接到数据库，则应创建[保留 IP](../virtual-network/virtual-networks-reserved-public-ip.md)（经典部署），且仅允许保留的 IP 地址通过防火墙进行访问。 如果使用[资源管理器](/virtual-network/virtual-network-ip-addresses-overview-arm)部署模型，则会为资源分配专用公共 IP 地址。应该允许此 IP 地址通过防火墙。
 
 按照以下步骤为服务器创建 [SQL 数据库服务器级防火墙规则](sql-database-firewall-configure.md)，允许从特定 IP 地址进行连接。 
 

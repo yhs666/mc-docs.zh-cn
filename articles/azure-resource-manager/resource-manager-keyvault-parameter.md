@@ -10,63 +10,114 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/12/2018
-ms.date: 09/24/2018
+origin.date: 10/10/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: b06bcfae6f50c465711d63dab96324383fd599c4
-ms.sourcegitcommit: 21b81b5cd326b6900fa7274b3b073aecd01111aa
+ms.openlocfilehash: fbc035ad029acbc60e34a7171e8f7e713b236049
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121668"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662738"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>在部署过程中使用 Azure Key Vault 传递安全参数值
 
 在部署过程中，需要将安全值（例如密码）作为参数传递时，可从 [Azure Key Vault](../key-vault/key-vault-whatis.md) 检索值。 通过引用参数文件中的密钥保管库和密钥来检索值。 值永远不会公开，因为仅引用其密钥保管库 ID。 密钥保管库与部署到的资源组不需要位于同一订阅中。
 
-## <a name="enable-access-to-the-secret"></a>启用密钥访问权限
-
-要在部署模板期间访问 Key Vault，必须满足两个重要的条件：
-
-1. Key Vault 属性 `enabledForTemplateDeployment` 必须为 `true`。
-2. 部署模板的用户必须有权访问该机密。 用户必须具有 Key Vault 的 `Microsoft.KeyVault/vaults/deploy/action` 权限。 [所有者](../role-based-access-control/built-in-roles.md#owner)和[参与者](../role-based-access-control/built-in-roles.md#contributor)角色均授予该访问权限。
-
-使用 Key Vault 部署[托管应用程序](../managed-applications/overview.md)的模板时，必须授予对设备资源提供程序服务主体的访问权限。 有关详细信息，请参阅[部署 Azure 托管应用程序时访问 Key Vault 机密](../managed-applications/key-vault-access.md)。
-
 ## <a name="deploy-a-key-vault-and-secret"></a>部署密钥保管库和机密
 
-若要创建密钥保管库和机密，请使用 Azure CLI 或 PowerShell。 请注意，已为模板部署启用密钥保管库。 
+若要创建 key vault 和机密，请使用 Azure CLI 或 PowerShell。 `enabledForTemplateDeployment` 是一个密钥保管库属性。 若要从资源管理器部署访问此密钥保管库内的机密，`enabledForTemplateDeployment` 必须是 `true`。 
+
+以下示例 Azure PowerShell 和 Azure CLI 脚本演示了如何创建密钥保管库和机密。
 
 对于 Azure CLI，请使用：
 
 ```azurecli
-vaultname={your-unique-vault-name}
-password={password-value}
+keyVaultName='{your-unique-vault-name}'
+resourceGroupName='{your-resource-group-name}'
+location='chinaeast'
+userPrincipalName='{your-email-address-associated-with-your-subscription}'
 
-az group create --name examplegroup --location 'China North'
+# Create a resource group
+az group create --name $resourceGroupName --location $location
+
+# Create a Key Vault
 az keyvault create \
-  --name $vaultname \
-  --resource-group examplegroup \
-  --location 'China North' \
+  --name $keyVaultName \
+  --resource-group $resourceGroupName \
+  --location $location \
   --enabled-for-template-deployment true
-az keyvault secret set --vault-name $vaultname --name examplesecret --value $password
+az keyvault set-policy --upn $userPrincipalName --name $keyVaultName --secret-permissions set delete get list
+
+# Create a secret with the name, vmAdminPassword
+password=$(openssl rand -base64 32)
+echo $password
+az keyvault secret set --vault-name $keyVaultName --name 'vmAdminPassword' --value $password
 ```
 
 对于 PowerShell，请使用：
 
-```powershell
-$vaultname = "{your-unique-vault-name}"
-$password = "{password-value}"
+```PowerShell
+$keyVaultName = "{your-unique-vault-name}"
+$resourceGroupName="{your-resource-group-name}"
+$location='China North'
+$userPrincipalName='{your-email-address-associated-with-your-subscription}'
 
-New-AzureRmResourceGroup -Name examplegroup -Location "China North"
+New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+
 New-AzureRmKeyVault `
-  -VaultName $vaultname `
-  -ResourceGroupName examplegroup `
-  -Location "China North" `
+  -VaultName $keyVaultName `
+  -resourceGroupName $resourceGroupName `
+  -Location $location `
   -EnabledForTemplateDeployment
+Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $userPrincipalName -PermissionsToSecrets set,delete,get,list
+
+$password = openssl rand -base64 32
+echo $password
 $secretvalue = ConvertTo-SecureString $password -AsPlainText -Force
-Set-AzureKeyVaultSecret -VaultName $vaultname -Name "examplesecret" -SecretValue $secretvalue
+Set-AzureKeyVaultSecret -VaultName $keyVaultName -Name "vmAdminPassword" -SecretValue $secretvalue
 ```
+<!-- Not Available on Cloud Shell--> 对于使用资源管理器模板：请参阅[教程：在资源管理器模板部署中集成 Azure Key Vault](./resource-manager-tutorial-use-key-vault.md#prepare-the-key-vault)。
+
+> [!NOTE]
+> 每个 Azure 服务具有特定的密码要求。 例如，Azure 虚拟机的要求可以在[创建 VM 时，密码有什么要求？](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)中找到。
+
+## <a name="enable-access-to-the-secret"></a>启用密钥访问权限
+
+不是将 `enabledForTemplateDeployment` 设置为 `true`，部署模板的用户必须在包含密钥保管库的范围内（包括资源组和密钥保管库）具有 `Microsoft.KeyVault/vaults/deploy/action` 权限。 [所有者](../role-based-access-control/built-in-roles.md#owner)和[参与者](../role-based-access-control/built-in-roles.md#contributor)角色均授予该访问权限。 如果你创建密钥保管库，则你是所有者，因此你具有权限。 如果密钥保管库位于不同的订阅中，则密钥保管库的所有者必须授予访问权限。
+
+以下过程展示了如何创建具有最小权限的角色，以及如何分配用户
+1. 创建自定义角色定义 JSON 文件：
+
+    ```json
+    {
+      "Name": "Key Vault resource manager template deployment operator",
+      "IsCustom": true,
+      "Description": "Lets you deploy a resource manager template with the access to the secrets in the Key Vault.",
+      "Actions": [
+        "Microsoft.KeyVault/vaults/deploy/action"
+      ],
+      "NotActions": [],
+      "DataActions": [],
+      "NotDataActions": [],
+      "AssignableScopes": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000"
+      ]
+    }
+    ```
+    将“00000000-0000-0000-0000-000000000000”替换为需要部署模板的用户的订阅 ID。
+
+2. 使用 JSON 文件创建新角色：
+
+    ```azurepowershell
+    $resourceGroupName= "<Resource Group Name>" # the resource group which contains the Key Vault
+    $userPrincipalName = "<Email Address of the deployment operator>"
+    New-AzureRmRoleDefinition -InputFile "<PathToTheJSONFile>" 
+    New-AzureRmRoleAssignment -ResourceGroupName $resourceGroupName -RoleDefinitionName "Key Vault resource manager template deployment operator" -SignInName $userPrincipalName
+    ```
+
+    `New-AzureRmRoleAssignment` 示例在资源组级别为用户分配自定义角色。  
+<!-- Not Available on [Managed Application](../managed-applications/overview.md)-->
 
 ## <a name="reference-a-secret-with-static-id"></a>通过静态 ID 引用机密
 
@@ -144,34 +195,31 @@ Set-AzureKeyVaultSecret -VaultName $vaultname -Name "examplesecret" -SecretValue
 
 现在，部署模板并传入参数文件。 可以使用 GitHub 中的示例模板，但必须使用本地参数文件并将值设置为自己的环境。
 
-> [!NOTE]
-> 必须修改从 GitHub 存储库 [sqlserver.json](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json) 下载的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“cloudapp.chinacloudapi.cn”）；更改某些不受支持的 VM 映像、VM 大小、SKU 和资源提供程序的 API 版本。
-
-对于 Azure CLI，请使用：
+<!-- Verify successful with --template-uri parameter--> 对于 Azure CLI，请使用：
 
 ```azurecli
-az group create --name datagroup --location "China North"
+az group create --name datagroup --location $location
 az group deployment create \
     --name exampledeployment \
     --resource-group datagroup \
-    --template-file /path/to/sqlserver.json \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json \
     --parameters @sqlserver.parameters.json
 ```
 
 对于 PowerShell，请使用：
 
-```powershell
-New-AzureRmResourceGroup -Name datagroup -Location "China North"
+```PowerShell
+New-AzureRmResourceGroup -Name datagroup -Location $location
 New-AzureRmResourceGroupDeployment `
   -Name exampledeployment `
   -ResourceGroupName datagroup `
-  -TemplateFile /path/to/sqlserver.json `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json `
   -TemplateParameterFile sqlserver.parameters.json
 ```
 
 ## <a name="reference-a-secret-with-dynamic-id"></a>通过动态 ID 引用机密
 
-上一部分介绍了如何通过参数传递密钥保管库机密的静态资源 ID。 但是，在某些情况下，需要引用随当前部署而变的密钥保管库机密。 或者，你可能只想将参数值传递给模板，而不是在参数文件中创建引用参数。 在任何一种情况下，均可使用链接模板为密钥保管库机密动态生成资源 ID。
+<!--Verify sucessfully--> 上一部分介绍了如何通过参数传递密钥保管库机密的静态资源 ID。 但是，在某些情况下，需要引用随当前部署而变的密钥保管库机密。 或者，你可能只想将参数值传递给模板，而不是在参数文件中创建引用参数。 在任何一种情况下，均可使用链接模板为密钥保管库机密动态生成资源 ID。
 
 不能在参数文件中动态生成资源 ID，因为参数文件中不允许使用模板表达式。 
 
@@ -274,28 +322,25 @@ New-AzureRmResourceGroupDeployment `
 
 部署前面的模板，并为参数提供值。 可以使用 GitHub 中的示例模板，但必须提供环境的参数值。
 
-> [!NOTE]
-> 必须修改从 GitHub 存储库 [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-key-vault-use-dynamic-id/azuredeploy.json) 下载的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“cloudapp.chinacloudapi.cn”）；更改某些不受支持的 VM 映像、VM 大小、SKU 和资源提供程序的 API 版本。
-
 对于 Azure CLI，请使用：
 
 ```azurecli
-az group create --name datagroup --location "China North"
+az group create --name datagroup --location $location
 az group deployment create \
     --name exampledeployment \
     --resource-group datagroup \
-    --template-file /path/to/azuredeploy.json \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-key-vault-use-dynamic-id/azuredeploy.json \
     --parameters vaultName=<your-vault> vaultResourceGroupName=examplegroup secretName=examplesecret
 ```
 
 对于 PowerShell，请使用：
 
 ```powershell
-New-AzureRmResourceGroup -Name datagroup -Location "China North"
+New-AzureRmResourceGroup -Name datagroup -Location $location
 New-AzureRmResourceGroupDeployment `
   -Name exampledeployment `
   -ResourceGroupName datagroup `
-  -TemplateFile /path/to/azuredeploy.json `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-key-vault-use-dynamic-id/azuredeploy.json `
   -vaultName <your-vault> -vaultResourceGroupName examplegroup -secretName examplesecret
 ```
 

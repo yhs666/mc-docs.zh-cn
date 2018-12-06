@@ -16,11 +16,11 @@ origin.date: 01/15/2017
 ms.date: 01/01/2018
 ms.author: v-nany
 ms.openlocfilehash: 06efa94b1330fa02ce722070b59f9d0ab7092f54
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
-ms.locfileid: "27548269"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652539"
 ---
 # <a name="using-the-azure-importexport-service-rest-api"></a>使用 Azure 导入/导出服务 REST API
 

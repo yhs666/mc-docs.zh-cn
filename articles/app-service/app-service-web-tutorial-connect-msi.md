@@ -1,9 +1,26 @@
 ---
-title: 使用托管标识确保从应用服务进行的 Azure SQL 数据库连接安全  
-description: 了解如何使用托管标识让数据库连接更安全，以及如何将此标识应用到其他 Azure 服务。
-services: app-service\web documentationcenter: dotnet author: cephalin manager: syntaxc4 editor: ''
-
-ms.service: app-service-web ms.workload: web ms.tgt_pltfrm: na ms.devlang: dotnet ms.topic: tutorial origin.date:10/24/2018 ms.date: 10/29/2018 ms.author: v-biyu ms.custom: mvc
+title: 使用托管标识确保从应用服务进行的 Azure SQL 数据库连接安全
+description: 了解如何使用托管标识让数据库连接更安全，以及如何将此应用到其他 Azure 服务。
+services: app-service\web
+documentationcenter: dotnet
+author: cephalin
+manager: syntaxc4
+editor: ''
+ms.service: app-service-web
+ms.workload: web
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: tutorial
+origin.date: 10/24/2018
+ms.date: 10/29/2018
+ms.author: v-biyu
+ms.custom: mvc
+ms.openlocfilehash: fbca101ebb82c516a0563b20d941fcf5493995b3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662474"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>教程：使用托管标识确保从应用服务进行的 Azure SQL 数据库连接的安全
 
@@ -20,7 +37,7 @@ ms.service: app-service-web ms.workload: web ms.tgt_pltfrm: na ms.devlang: dotne
 > [!NOTE]
 > 在本地 Active Directory (AD DS) 中，Azure Active Directory 身份验证_不同_于集成式 Windows 身份验证。 AD DS 和 Azure Active Directory 使用的身份验证协议完全不相同。 有关详细信息，请参阅 [Windows Server AD DS 与 Azure AD 之间的差别](../active-directory/fundamentals/understand-azure-identity-solutions.md#the-difference-between-windows-server-ad-ds-and-azure-ad)。
 
-[!INCLUDE [trial account](https://www.azure.cn/pricing/1rmb-trial)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>先决条件
 

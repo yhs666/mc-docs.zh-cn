@@ -10,39 +10,110 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-origin.date: 09/07/2018
-ms.date: 09/24/2018
+origin.date: 10/09/2018
+ms.date: 11/19/2018
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 2392aac2a84bb6a3fef7713321d60de289ca91a7
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.openlocfilehash: f3d955654ca4a8388fb89599c8f6e3f7a4df4ac6
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527190"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660101"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>教程：使用依赖的资源创建 Azure 资源管理器模板
 
-了解如何创建 Azure 资源管理器模板，以便部署多个资源。  创建模板以后，请通过本地电脑使用 PowerShell 部署该模板。
+了解如何创建 Azure 资源管理器模板，以便部署多个资源。  创建模板以后，你将通过本地电脑使用 Azure CLI 和 PowerShell 部署该模板。
 <!--Not Available on Cloud Shell-->
 
-某些资源的部署依赖于另一资源的存在。 例如，创建虚拟机的前提是其存储帐户和网络接口存在。 可通过将一个资源标记为依赖于其他资源来定义此关系。 Resource Manager 将评估资源之间的依赖关系，并根据其依赖顺序进行部署。 如果资源互不依赖，资源管理器将以并行方式部署资源。 有关详细信息，请参阅[定义 Azure 资源管理器模板中部署资源的顺序](./resource-group-define-dependencies.md)。
+本教程介绍如何创建存储帐户、虚拟机、虚拟网络以及一些其他的依赖资源。 某些资源的部署依赖于另一资源的存在。 例如，创建虚拟机的前提是其存储帐户和网络接口存在。 可通过将一个资源标记为依赖于其他资源来定义此关系。 Resource Manager 将评估资源之间的依赖关系，并根据其依赖顺序进行部署。 如果资源互不依赖，资源管理器将以并行方式部署资源。 有关详细信息，请参阅[定义 Azure 资源管理器模板中部署资源的顺序](./resource-group-define-dependencies.md)。
 
 本教程涵盖以下任务：
 
 > [!div class="checklist"]
+> * 准备 Key Vault
 > * 打开快速入门模板
 > * 浏览模板
+> * 编辑参数文件
 > * 部署模板
 
-本教程介绍如何创建虚拟机、虚拟网络以及一些其他的依赖资源。 
+如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
 ## <a name="prerequisites"></a>先决条件
 
 若要完成本文，需要做好以下准备：
 
-* [Visual Studio Code](https://code.visualstudio.com/)。
-* 资源管理器工具扩展。  请参阅[安装扩展](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
+* 包含资源管理器工具扩展的 [Visual Studio Code](https://code.visualstudio.com/)。  请参阅[安装扩展](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
+
+## <a name="prepare-key-vault"></a>准备 Key Vault
+
+为防止密码喷洒攻击，建议对虚拟机管理员帐户使用自动生成的密码，并使用 Key Vault 来存储密码。 以下过程创建 Key Vault 以及用于存储密码的机密。 它还配置模板部署访问存储在 Key Vault 中的机密时所需的权限。 如果 Key Vault 属于其他 Azure 订阅，则需要其他访问策略。 有关详细信息，请参阅[在部署过程中使用 Azure Key Vault 传递安全参数值](./resource-manager-keyvault-parameter.md)。
+
+<!-- Not Available on [Azure Cloud Shell](https://shell.azure.com)-->
+1. 在本地电脑上运行以下 Azure PowerShell 或 Azure CLI 命令。  
+
+    ```azurecli
+    keyVaultName='<your-unique-vault-name>'
+    resourceGroupName='<your-resource-group-name>'
+    location='China North'
+    userPrincipalName='<your-email-address-associated-with-your-subscription>'
+
+    # Create a resource group
+    az group create --name $resourceGroupName --location $location
+
+    # Create a Key Vault
+    keyVault=$(az keyvault create \
+      --name $keyVaultName \
+      --resource-group $resourceGroupName \
+      --location $location \
+      --enabled-for-template-deployment true)
+    keyVaultId=$(echo $keyVault | jq -r '.id')
+    az keyvault set-policy --upn $userPrincipalName --name $keyVaultName --secret-permissions set delete get list
+
+    # Create a secret
+    password=$(openssl rand -base64 32)
+    az keyvault secret set --vault-name $keyVaultName --name 'vmAdminPassword' --value $password
+
+    # Print the useful property values
+    echo "You need the following values for the virtual machine deployment:"
+    echo "Resource group name is: $resourceGroupName."
+    echo "The admin password is: $password."
+    echo "The Key Vault resource ID is: $keyVaultId."
+    ```
+
+    ```PowerShell
+    $keyVaultName = "<your-unique-vault-name>"
+    $resourceGroupName="<your-resource-group-name>"
+    $location='China North'
+    $userPrincipalName="<your-email-address-associated-with-your-subscription>"
+
+    # Create a resource group
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+
+    # Create a Key Vault
+    $keyVault = New-AzureRmKeyVault `
+      -VaultName $keyVaultName `
+      -resourceGroupName $resourceGroupName `
+      -Location $location `
+      -EnabledForTemplateDeployment
+    Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $userPrincipalName -PermissionsToSecrets set,delete,get,list
+
+    # Create a secret
+    $password = openssl rand -base64 32
+
+    $secretValue = ConvertTo-SecureString $password -AsPlainText -Force
+    Set-AzureKeyVaultSecret -VaultName $keyVaultName -Name "vmAdminPassword" -SecretValue $secretValue
+
+    # Print the useful property values
+    echo "You need the following values for the virtual machine deployment:"
+    echo "Resource group name is: $resourceGroupName."
+    echo "The admin password is: $password."
+    echo "The Key Vault resource ID is: " $keyVault.ResourceID
+    ```
+2. 写下输出值。 本教程后面会用到它们
+
+> [!NOTE]
+> 每个 Azure 服务具有特定的密码要求。 例如，Azure 虚拟机的要求可以在“创建 VM 时，密码有什么要求？”中找到。
 
 ## <a name="open-a-quickstart-template"></a>打开快速入门模板
 
@@ -56,6 +127,7 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
     ```
 3. 选择“打开”以打开该文件。
 4. 选择“文件”>“另存为”，将该文件的副本保存到名为 **azuredeploy.json** 的本地计算机。
+5. 重复步骤 1-4 以打开 **https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.parameters.json**，然后将文件另存为 **azuredeploy.parameters.json**。
 
 ## <a name="explore-the-template"></a>浏览模板
 
@@ -99,56 +171,63 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 
 指定依赖项可以让资源管理器有效地部署此解决方案。 它以并行方式部署存储帐户、公共 IP 地址和虚拟网络，因为这些没有依赖项。 部署公共 IP 地址和虚拟网络资源以后，会创建网络接口。 所有其他的资源都部署以后，资源管理器会部署虚拟机。
 
+## <a name="edit-the-parameters-file"></a>编辑参数文件
+
+无需对模板文件进行任何更改。 但是，需要修改参数文件，以便从 Key Vault 检索管理员密码。
+
+1. 在 Visual Studio Code 中打开 **azuredeploy.parameters.json**（如果尚未打开）。
+2. 将 **adminPassword** 参数更新为：
+
+    ```json
+    "adminPassword": {
+        "reference": {
+            "keyVault": {
+            "id": "/subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>"
+            },
+            "secretName": "vmAdminPassword"
+        }
+    },
+    ```
+    将 **id** 替换为在上一过程中创建的 Key Vault 的资源 ID。 它是输出之一。 
+
+    ![集成 Key Vault 和资源管理器模板虚拟机部署参数文件](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-create-vm-parameters-file.png)
+3. 指定以下值：
+
+    - **adminUsername**：为虚拟机管理员帐户命名。
+    - **dnsLabelPrefix**：为 dnsLablePrefix 命名。
+4. 保存更改。
+
 ## <a name="deploy-the-template"></a>部署模板
 
-可通过多种方法来部署模板。  本教程从本地电脑使用 Azure PowerShell。
+可通过多种方法来部署模板。  在本教程中，你将从本地电脑使用 Azure CLI 和 PowerShell。
+
 <!--Not Available on Cloud Shell-->
+1. 在本地 Shell 中运行以下命令，以验证 JSON 文件的内容。
 
-如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount` 以创建与 Azure 的连接。
-
-1. 在 Azure PowerShell 中运行以下命令，验证 JSON 文件的内容：
-
-    ```PowerShell
+    ```bash
     cat azuredeploy.json
+    cat azuredeploy.parameters.json
     ```
-2. 在本地 PowerShell 中运行以下 PowerShell 命令：
+2. 在本地 Shell 中运行以下 PowerShell 命令。 示例脚本使用为 Key Vault 创建的资源组。 使用同一资源组可以更容易地清理资源。
 
-    ```PowerShell
+    ```powershell
     $resourceGroupName = "<Enter the resource group name>"
-    $location = "<Enter the Azure location>"
-    $vmAdmin = "<Enter the admin username>"
-    $vmPassword = "<Enter the password>"
-    $dnsLabelPrefix = "<Enter the prefix>"
+    $deploymentName = "<Enter a deployment name>"
 
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-    $vmPW = ConvertTo-SecureString -String $vmPassword -AsPlainText -Force
-    New-AzureRmResourceGroupDeployment -Name mydeployment0710 -ResourceGroupName $resourceGroupName `
-        -TemplateFile azuredeploy.json -adminUsername $vmAdmin -adminPassword $vmPW `
-        -dnsLabelPrefix $dnsLabelPrefix
+    New-AzureRmResourceGroupDeployment -Name $deploymentName `
+        -ResourceGroupName $resourceGroupName `
+        -TemplateFile azuredeploy.json `
+        -TemplateparameterFile azuredeploy.parameters.json
     ```
-    下面是示例部署的屏幕截图：
+8. 运行以下 PowerShell 命令，列出新建的虚拟机：
 
-    ![Azure PowerShell 部署模板](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-deploy-template.png)
-
-    屏幕截图中使用了以下值：
-
-    * **$resourceGroupName**：myresourcegroup0710。 
-    * **$location**：chinaeast2
-    * **&lt;DeployName>**：mydeployment0710
-    * **&lt;TemplateFile>**：azuredeploy.json
-    * **模板参数**：
-
-        * **adminUsername**：JohnDole
-        * **adminPassword**：Pass@word123
-        * **dnsLabelPrefix**：myvm0710
-
-10. 运行以下 PowerShell 命令，列出新建的虚拟机：
-
-    ```PowerShell
-    Get-AzureRmVM -Name SimpleWinVM -ResourceGroupName <ResourceGroupName>
+    ```powershell
+    Get-AzureRmVM -Name SimpleWinVM -ResourceGroupName $resourceGroupName
     ```
 
     虚拟机名称在模板中硬编码为 **SimpleWinVM**。
+
+9. 登录到虚拟机，测试管理员的凭据。 
 
 ## <a name="clean-up-resources"></a>清理资源
 
@@ -161,6 +240,9 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 
 ## <a name="next-steps"></a>后续步骤
 
-本教程介绍如何通过开发和部署模板来创建虚拟机、虚拟网络和依赖资源。 若要详细了解模板，请参阅[了解 Azure 资源管理器模板的结构和语法](./resource-group-authoring-templates.md)。
+本教程介绍如何通过开发和部署模板来创建虚拟机、虚拟网络和依赖资源。 若要了解如何根据条件部署 Azure 资源，请参阅：
+
+> [!div class="nextstepaction"]
+> [使用条件](./resource-manager-tutorial-use-conditions.md)
 
 <!-- Update_Description: update link, wording update -->

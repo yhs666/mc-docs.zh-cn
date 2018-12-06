@@ -16,11 +16,11 @@ origin.date: 01/03/2017
 ms.date: 04/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: 91d9da2e697896f76ffcbbee18bc82eccac38a7e
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121619"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657241"
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>实施 Azure 企业基架的示例
 本主题举例说明了企业如何实施 [Azure 企业基架](resource-manager-subscription-governance.md)的建议事项。 其中使用一家虚构公司 Contoso 来演示常见方案的最佳实践。
@@ -71,8 +71,7 @@ Dave 为订阅分配了以下角色：
 * 另外，他还关心成本。 因此，他想要防止应用程序所有者不必要地创建成本不菲的虚拟机。  
 * 由于此应用程序为许多业务单位的开发人员提供服务，因此他想要使用业务单元和应用程序所有者标记每个资源。 使用这些标记，ETS 可向相应的团队计费。
 
-他创建了以下 Azure 策略：
-<!--Not Available on (../azure-policy/azure-policy-introduction.md) -->
+他创建了以下 Azure 策略：<!--Not Available on (../azure-policy/azure-policy-introduction.md) -->
 
 | 字段 | 效果 | 说明 |
 | --- | --- | --- |

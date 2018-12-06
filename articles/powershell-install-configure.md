@@ -14,22 +14,22 @@ ms.topic: article
 ms.date: 09/30/2016
 ms.author: v-junlch
 ms.openlocfilehash: c04d3f7886432fda05acbd6f471abdce324183d4
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
-ms.locfileid: "20453243"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644815"
 ---
 # <a name="how-to-install-and-configure-azure-powershell"></a>如何安装和配置 Azure PowerShell
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/manage/install-and-configure-windows-powershell/" title="PowerShell" class="current">PowerShell</a><a href="/manage/install-and-configure-cli/" title="Azure CLI">Azure CLI</a></div>
 
 ##<a name="what-is-azure-powershell"></a>什么是 Azure PowerShell？
-Azure PowerShell 是一组模块，提供用于通过 Windows PowerShell 管理 Azure 的 cmdlet。 你可以使用 cmdlet 来创建、测试、部署和管理通过 Azure 平台传送的解决方案和服务。 在大多数情况下，这些 cmdlet 可用于执行在 Azure 门户中可以执行的任务，例如创建和配置云服务、虚拟机、虚拟网络和 Web 应用。
+Azure PowerShell 是一组模块，提供用于通过 Windows PowerShell 管理 Azure 的 cmdlet。 可以使用 cmdlet 来创建、测试、部署和管理通过 Azure 平台传送的解决方案和服务。 在大多数情况下，这些 cmdlet 可用于执行在 Azure 门户中可以执行的任务，例如创建和配置云服务、虚拟机、虚拟网络和 Web 应用。
 
 ## <a name="how-versioning-works"></a>版本控制的工作原理
 
-Azure PowerShell 使用语义版本控制，也就是说，如果版本 A 更新为版本 B，则版本 A 包含最新的 API。 这还意味着主要版本的更改表示一个或多个 cmdlet 中有重大更改。  例如，版本 1.7.0 是用于解决 Azure PowerShell 1.x 版本中重大更改问题的修补程序。
+Azure PowerShell 使用语义版本控制，也就是说，如果版本 A 更新为版本 B，则版本 A 包含最新的 API。 这也意味着主要版本发生更改会导致一个或多个 cmdlet 发生重大更改。  例如，版本 1.7.0 是用于解决 Azure PowerShell 1.x 版本中重大更改问题的修补程序。
 
 有关在 Azure PowerShell 中实践语义版本控制的详细信息，请参阅 http://semver.org 上的语义版本控制规范
 
@@ -52,19 +52,19 @@ Azure PowerShell 使用语义版本控制，也就是说，如果版本 A 更新
 <a id="Install"></a>
 ## <a name="step-1-install"></a>步骤 1：安装
 
-以下是安装 Azure PowerShell 的两种方法。 你可以通过 WebPI 或 PowerShell 库进行安装：
+以下是安装 Azure PowerShell 的两种方法。 可以通过 WebPI 或 PowerShell 库进行安装：
 
 ###<a name="installing-azure-powershell-from-webpi"></a>从 WebPI 安装 Azure PowerShell
 
-从 WebPI 安装 Azure PowerShell 1.0 和更高版本的方法与安装 0.9.x 版本是一样的。 下载 [Azure PowerShell](http://aka.ms/webpi-azps) 并开始安装。 如果安装了 Azure PowerShell 0.9.x，将在升级期间卸载版本 0.9.x。 如果从 PowerShell 库安装了 Azure PowerShell 模块，安装程序将在安装之前自动删除这些模块，以确保 Azure PowerShell 环境一致。
+从 WebPI 安装 Azure PowerShell 1.0 和更高版本的方法与安装 0.9.x 版本是一样的。 下载 [Azure PowerShell](http://aka.ms/webpi-azps) 并开始安装。 如果安装了 Azure PowerShell 0.9.x，会在升级期间卸载版本 0.9.x。 如果从 PowerShell 库安装了 Azure PowerShell 模块，安装程序会在安装之前自动删除这些模块，以确保 Azure PowerShell 环境一致。
 
 > [!NOTE]
-> 如果之前从 PowerShell 库安装了 Azure 模块，安装程序将自动删除这些模块。 这是为了防止混淆已安装的模块版本及其所在的位置。 PowerShell 库模块通常安装在 **%ProgramFiles%\WindowsPowerShell\Modules** 中。 相反，WebPI 安装程序将在 **%ProgramFiles(x86)%\Microsoft SDKs\Azure\PowerShell\** 中安装 Azure 模块。如果在安装过程中发生错误，可以手动删除 **%ProgramFiles%\WindowsPowerShell\Modules** 文件夹中的 Azure* 文件夹，然后重试安装。
+> 如果之前从 PowerShell 库安装了 Azure 模块，安装程序将自动删除这些模块。 这是为了防止混淆已安装的模块版本及其所在的位置。 PowerShell 库模块通常安装在 **%ProgramFiles%\WindowsPowerShell\Modules** 中。 相反，WebPI 安装程序将在 **%ProgramFiles(x86)%\Microsoft SDKs\Azure\PowerShell\** 中安装 Azure 模块。 如果在安装过程中发生错误，可以手动删除 **%ProgramFiles%\WindowsPowerShell\Modules** 文件夹中的 Azure* 文件夹，然后重试安装。
 
 安装完成后， ```$env:PSModulePath``` 设置中应会有包含 Azure PowerShell cmdlet 的目录。
 
 > [!NOTE]
-> 从 WebPI 安装时，会发生一个有关 PowerShell **$env:PSModulePath** 的已知问题。 如果计算机因系统更新或其他安装而需要重启，有可能会导致更新 **$env:PSModulePath** 不包含 Azure PowerShell 的安装路径。 如果发生这种情况，当你在安装或升级之后尝试使用 Azure PowerShell cmdlet 时，可能会看到“cmdlet 无法识别”消息。 如果发生这种情况，重启计算机应该可以解决该问题。
+> 从 WebPI 安装时，会发生一个有关 PowerShell **$env:PSModulePath** 的已知问题。 如果计算机因系统更新或其他安装而需要重启，有可能会导致更新 **$env:PSModulePath** 不包含 Azure PowerShell 的安装路径。 如果发生这种情况，在安装或升级之后尝试使用 Azure PowerShell cmdlet 时，可能会看到“cmdlet 无法识别”消息。 如果发生这种情况，重启计算机应该可以解决该问题。
 
 如果尝试加载或执行 cmdlet，会收到如下消息：
 
@@ -152,7 +152,7 @@ cmdlet 需要使用订阅来管理服务。 如果没有 Azure 订阅，可以�
 
 1. 键入 **Login-AzureRmAccount**
 
-2. 键入与帐户关联的电子邮件地址和密码。 Azure 将对凭据信息进行身份验证和保存，然后关闭该窗口。
+2. 键入与帐户关联的电子邮件地址和密码。 Azure 将对凭据信息进行身份验证并保存，然后关闭该窗口。
 
 --或者--
 
@@ -174,11 +174,11 @@ Login-AzureRmAccount -Credential $cred
 
 > 2. 如果目录不存在，请选择“创建目录”，并提供所请求的信息。
 
-> 3. 选择目录，并添加新用户。 这个新用户可以使用工作或学校帐户登录。 创建用户时，系统将为你提供用户电子邮件地址和临时密码。 保存此信息，因为下面的步骤 5 将要用到。
+> 3. 选择目录，并添加新用户。 这个新用户可以使用工作或学校帐户登录。 创建用户时，系统将提供用户电子邮件地址和临时密码。 保存此信息，因为下面的步骤 5 将要用到。
 
 > 4. 从 Azure 经典门户中，选择“设置”，然后选择“管理员”。 选择“添加”，并将新用户添加为共同管理员。 这样工作或学校帐户即可管理 Azure 订阅。
 
-> 5. 最后，从 Azure 经典门户注销，然后使用工作或学校帐户重新登录。 如果这是使用此帐户首次登录，系统将提示更改密码。
+> 5. 最后，从 Azure 经典门户注销，然后使用工作或学校帐户重新登录。 如果这是使用此帐户首次登录，系统会提示更改密码。
 
 > 有关使用工作或学校帐户注册 Microsoft Azure 的详细信息，请参阅[以组织身份注册 Microsoft Azure](./active-directory/sign-up-organization.md)。
 

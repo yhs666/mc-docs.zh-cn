@@ -1,30 +1,30 @@
 ---
-title: 针对任务和节点进行状态计数 - Azure Batch | Microsoft Docs
+title: 针对任务和节点进行状态计数 - Azure Batch | Azure
 description: 对 Azure Batch 任务和计算节点的状态进行计数，以便管理和监视 Batch 解决方案。
 services: batch
-author: dlepow
-manager: jeconnoc
+author: lingliw
+manager: digimobile
 ms.service: batch
 ms.topic: article
 origin.date: 09/07/2018
-ms.date: 09/26/2018
-ms.author: v-junlch
-ms.openlocfilehash: 85630937ea7f8057178dcf191546fcb21b3baca2
-ms.sourcegitcommit: 5616622f754f3b83c7120a3d1344d0344e03ca61
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.openlocfilehash: f0b5bfcbbead08fef11021b5b2f83d1407ff7505
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47188774"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674731"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>通过按状态对任务和节点计数来监视 Batch 解决方案
 
 若要监视和管理大规模的 Azure Batch 解决方案，需对各种状态的资源进行准确的计数。 Azure Batch 提供有效的操作来获取 Batch 任务和计算节点的这些计数。 请使用以下操作而不是可能非常耗时的列表查询来返回大型任务或节点集合的详细信息。
 
-- [获取任务计数][rest_get_task_counts]可以获取一个作业中处于“活动”、“正在运行”和“已完成”状态的任务以及处于“已成功”或“已失败”状态的任务的聚合计数。 
+* [获取任务计数][rest_get_task_counts]可以获取一个作业中处于“活动”、“正在运行”和“已完成”状态的任务以及处于“已成功”或“已失败”状态的任务的聚合计数。 
 
   通过对每种状态的任务计数，可以更轻松地为用户展现作业进度，或检测可能影响作业的意外延迟或故障。 “获取任务计数”功能在 Batch Service API 版本 2017-06-01.5.1 以及相关的 SDK 和工具中提供。
 
-- [列出池节点计数][rest_get_node_counts]获取每个池中处于不同状态（“正在创建”、“空闲”、“脱机”、“已占用”、“正在重启”、“正在重置映像”、“正在启动”、“其他”）的专用计算节点和低优先级计算节点的数目。 
+* [列出池节点计数][rest_get_node_counts]获取每个池中处于不同状态（“正在创建”、“空闲”、“脱机”、“已占用”、“正在重启”、“正在重置映像”、“正在启动”、“其他”）的专用计算节点和低优先级计算节点的数目。 
 
   通过对每种状态的节点计数，你就可以确定是否有足够的计算资源来运行作业，并确定池可能存在的问题。 “列出池节点计数”功能在 Batch Service API 版本 2018-03-01.6.1 以及相关的 SDK 和工具中提供。
 
@@ -43,7 +43,7 @@ ms.locfileid: "47188774"
 以下 .NET 代码示例演示如何按状态检索任务计数： 
 
 ```csharp
-var taskCounts = await batchClient.JobOperations.GetTaskCountsAsync("job-1");
+var taskCounts = await batchClient.JobOperations.GetJobTaskCountsAsync("job-1");
 
 Console.WriteLine("Task count in active state: {0}", taskCounts.Active);
 Console.WriteLine("Task count in preparing or running state: {0}", taskCounts.Running);
@@ -120,9 +120,9 @@ foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts(new ODA
  
 ## <a name="next-steps"></a>后续步骤
 
-- 请参阅[批处理功能概述](batch-api-basics.md)，详细了解处理服务的概念和功能。 本文讨论主要 Batch 资源（例如池、计算节点、作业和任务）并提供该服务的功能概述。
+* 请参阅[批处理功能概述](batch-api-basics.md)，详细了解处理服务的概念和功能。 本文讨论主要 Batch 资源（例如池、计算节点、作业和任务）并提供该服务的功能概述。
 
-- 若要了解如何将筛选器应用于可以列出 Batch 资源的查询，请参阅[创建可高效列出 Batch 资源的查询](batch-efficient-list-queries.md)。
+* 若要了解如何将筛选器应用于可以列出 Batch 资源的查询，请参阅[创建可高效列出 Batch 资源的查询](batch-efficient-list-queries.md)。
 
 
 [rest_get_task_counts]: https://docs.microsoft.com/rest/api/batchservice/job/gettaskcounts

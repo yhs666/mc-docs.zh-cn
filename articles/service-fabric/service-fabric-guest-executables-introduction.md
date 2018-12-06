@@ -16,11 +16,11 @@ origin.date: 03/15/2018
 ms.date: 05/28/2018
 ms.author: v-yeche
 ms.openlocfilehash: baab9594f7c10d1c5b55c9531084effc81b69a88
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554368"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648358"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>将现有可执行文件部署到 Service Fabric
 可以在 Azure Service Fabric 中运行任何类型的代码（如 Node.js、Java 或 C++）作为服务。 Service Fabric 将这些类型的服务称为来宾可执行文件。

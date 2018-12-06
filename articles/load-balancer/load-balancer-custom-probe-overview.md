@@ -4,24 +4,20 @@ description: 了解如何使用运行状况探测来监视负载均衡器后的�
 services: load-balancer
 documentationcenter: na
 author: WenJason
-manager: digimobile
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 46b152c5-6a27-4bfc-bea3-05de9ce06a57
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/04/2018
-ms.date: 11/05/2018
+ms.date: 11/26/2018
 ms.author: v-jay
-ms.openlocfilehash: 0adcef41ed7c5afde9e953f28318ba3e3ec492d8
-ms.sourcegitcommit: 9be84d4dc546d66a0d9d1d2be67dd79c84b2c210
+ms.openlocfilehash: 8df729f768d41b8e2b6b0fab2dae1c4a756de710
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50408839"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672608"
 ---
 # <a name="load-balancer-health-probes"></a>负载均衡器运行状况探测
 
@@ -126,7 +122,7 @@ HTTP 和 HTTPS 探测建立 TCP 连接，并发出包含指定路径的 HTTP GET
 
 ### <a name="guestagent"></a>来宾代理探测（仅限经典模式）
 
-云服务角色（Web 角色）默认使用来宾代理进行探测监视。   应将此方案视为最后一个选项。  始终应该使用 TCP 或 HTTP 探测显式定义运行状况探测。 对于大多数应用程序方案而言，来宾代理探测的有效性不如显式定义的探测。  
+云服务角色默认使用来宾代理进行探测监视。   应将此方案视为最后一个选项。  始终应该使用 TCP 或 HTTP 探测显式定义运行状况探测。 对于大多数应用程序方案而言，来宾代理探测的有效性不如显式定义的探测。  
 
 来宾代理探测是对 VM 中来宾代理执行的检查。 仅当实例处于“就绪”状态时，负载均衡器才侦听并响应“HTTP 200 正常”响应。 （其他状态包括“繁忙”、“正在回收”或“正在停止”。）
 

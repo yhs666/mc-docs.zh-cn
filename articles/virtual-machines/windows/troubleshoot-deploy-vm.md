@@ -17,11 +17,11 @@ origin.date: 05/11/2018
 ms.date: 06/04/2018
 ms.author: v-yeche
 ms.openlocfilehash: 5f762e1959c4ba21f09a8d596ca6f1be706fa9eb
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867628"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657942"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>排查 Azure 中的 Windows 虚拟机部署问题
 
@@ -62,7 +62,7 @@ productPesIds="1234, 5678"
 
 对于企业协议订阅：
 
-•   可从通过 Azure 混合使用权益预配的特定 Marketplace 映像中部署 VM。
+•   可从通过 Azure 混合使用权益预配的特定市场映像中部署 VM。
 
 对于企业协议：
 

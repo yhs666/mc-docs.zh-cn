@@ -7,14 +7,14 @@ ms.suite: integration
 author: ecfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-origin.date: 10/11/2018
-ms.date: 11/12/2018
-ms.openlocfilehash: 2da6b35ccbe1d10ff9aaca9c337baf1b237b6f6a
-ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
+origin.date: 11/16/2018
+ms.date: 12/10/2018
+ms.openlocfilehash: 76a1de6c4d6b6919336e0e5fa0b5f32c38934a0f
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50919110"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674300"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure 逻辑应用的限制和配置信息
 
@@ -236,7 +236,7 @@ ms.locfileid: "50919110"
 
 | Name | 限制 | 注释 | 
 | ---- | ----- | ----- | 
-| 架构 | 8 MB | 若要上传大于 2 MB 的文件，请使用 [blob URI](../logic-apps/logic-apps-enterprise-integration-schemas.md)。 | 
+| 架构 | 8 MB | 若要上传大于 2 MB 的文件，请使用 blob URI。 | 
 | 映射（XSLT 文件） | 2 MB | | 
 | 运行时终结点：每 5 分钟读取的调用数 | 60,000 | 你可根据需要在多个帐户之间分配工作负荷。 | 
 | 运行时终结点：每 5 分钟调用的调用数 | 45,000 | 你可根据需要在多个帐户之间分配工作负荷。 | 
@@ -321,13 +321,17 @@ ms.locfileid: "50919110"
 | 英国西部 | 51.141.48.98, 51.141.51.145, 51.141.53.164, 51.141.119.150 |
 | | |
 
-### <a name="connectors"></a>连接器
+### <a name="managed-connectors"></a>托管的连接器
 
-若要支持[连接器](../connectors/apis-list.md)进行的调用，请根据你的逻辑应用所在的区域设置你的防火墙配置，以使其包含这些出站 IP 地址。
+若要支持 [Microsoft 托管连接器](../connectors/apis-list.md)进行的调用，请根据逻辑应用所在的区域设置防火墙配置，使其包含这些出站 IP 地址。
 
 > [!IMPORTANT]
 >
 > 如果你有现有配置，请于 2018 年 9 月 1 日前尽快对其更新，以使其包含并匹配此列表中针对你的逻辑应用所在的位置对应的 IP 地址。 
+> 
+> 逻辑应用不支持通过防火墙直接连接到 Azure 存储帐户。 若要访问这些存储帐户，请使用以下选项： 
+> 
+> * 如果已使用 API 管理，可以将该服务用于此方案。 有关详细信息，请参阅[简单的企业集成体系结构](https://aka.ms/aisarch)。
 
 | 逻辑应用区域 | 出站 IP | 
 |-------------------|-------------|  

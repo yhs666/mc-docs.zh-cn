@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 01/23/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 31d4fdd47d4725caa37eb3b6f17e82d2ce13ff33
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.openlocfilehash: 0fa5752a20947a490366b092deb11535a711310d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295769"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654913"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>使用 C++ 列出 Azure 存储资源
 使用 Azure 存储进行开发时，很多情况下列表操作很重要。 本文介绍如何使用用于 C++ 的 Azure 存储客户端库中提供的列表 API 最有效率地枚举 Azure 存储中的对象。
@@ -101,7 +101,7 @@ list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, boo
     const blob_request_options& options, operation_context context)
 ```
 
-如果未指定 max_results 参数，则会在单个页面中返回默认的最大值（最多 5000 个结果）。
+如果未指定 *max_results* 参数，则会返回单页的默认最大值。（[请联系技术支持以获取更多详细信息](https://www.azure.cn/zh-cn/support/contact/)）
 
 另请注意，针对 Azure 表存储进行查询时，可能不会返回任何记录，或者返回的记录数小于所指定的 max_results 参数的值，即使继续标记不为空。 可能的一个原因是，查询可能无法在 5 秒钟内完成。 只要继续标记不为空，查询就会继续，代码不应假定分段结果的大小。
 

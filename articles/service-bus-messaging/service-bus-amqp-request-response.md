@@ -1,5 +1,5 @@
 ---
-title: Azure 服务总线基于请求/响应的操作中的 AMQP 1.0
+title: Azure 服务总线基于请求/响应的操作中的 AMQP 1.0 | Azure
 description: Azure 服务总线基于请求/响应的操作的列表。
 services: service-bus-messaging
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/22/2018
-ms.date: 10/31/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 52382e118b14605e052790e712edf541e3c958bb
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.openlocfilehash: fc59e0ef4c72504eb4db1f7743f9e59d965927bf
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409399"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674867"
 ---
 # <a name="amqp-10-in-azure-service-bus-request-response-based-operations"></a>Azure 服务总线中的 AMQP 1.0：基于请求/响应的操作
 
@@ -613,7 +613,7 @@ sql-rule-action 映射必须包含以下条目：
 | 1 | 字符串 | 消息 ID |
 | 2 | 字符串 | 如果 |
 | 3 | 字符串 | 回复 |
-| 4 | 字符串 | 标签 |
+| 4 | 字符串 | Label |
 | 5 | 字符串 | 会话 ID |
 | 6 | 字符串 | 会话 ID 回复|
 | 7 | 字符串 | 内容类型 |

@@ -13,11 +13,11 @@ origin.date: 06/28/2017
 ms.author: junyi
 ms.date: 11/20/2017
 ms.openlocfilehash: e800713fed553d100cda041b9542bbd58f633e3e
-ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
-ms.locfileid: "24058621"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656744"
 ---
 # <a name="create-an-azure-iot-edge-module-with-java"></a>使用 Java 创建 Azure IoT Edge 模块
 
@@ -59,7 +59,7 @@ Azure IoT Edge 平台在很大程度上采用 [Von Neumann 体系结构](https:/
 
 POM 继承自 `com.microsoft.azure.gateway.gateway-module-base` 包，该包声明包含运行时二进制文件、网关配置文件路径和执行行为的模块项目所需的所有依赖项。 这样就可以节省大量的时间，并且无需反复编写和重写数百个代码行。
 
-我们需要根据以下代码片段中所示，通过声明所需的依赖项/插件以及模块要使用的配置文件的名称，来更新 pom.xml 文件。
+我们需要按以下代码片段中所示，通过声明所需的依赖项/插件以及模块要使用的配置文件的名称，来更新 pom.xml 文件。
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0"

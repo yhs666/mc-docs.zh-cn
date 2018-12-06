@@ -1,6 +1,6 @@
 ---
 title: 复制表的设计指南 - Azure SQL 数据仓库 | Microsoft Docs
-description: 在 Azure SQL 数据仓库架构中设计复制表的建议。
+description: 在 Azure SQL 数据仓库架构中设计复制表的建议。 
 services: sql-data-warehouse
 author: WenJason
 manager: digimobile
@@ -12,23 +12,23 @@ ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: 6227214e1267798bceb04293cbb04365565ae2cc
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089050"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667109"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>有关在 Azure SQL 数据仓库中使用复制的表的设计指南
 本文提供了有关在 SQL 数据仓库架构中设计复制的表的建议。 可以使用这些建议通过减少数据移动和降低查询复杂性来提高查询性能。
 
 ## <a name="prerequisites"></a>先决条件
-本文假设读者熟悉 SQL 数据仓库中的数据分布和数据移动概念。  有关详细信息，请参阅[体系结构](massively-parallel-processing-mpp-architecture.md)一文。 
+本文假设读者熟悉 SQL 数据仓库中的数据分布和数据移动概念。  有关详细信息，请参阅[体系结构](massively-parallel-processing-mpp-architecture.md)一文。 
 
-在设计表的过程中，尽可能多地了解数据以及数据查询方式。  例如，请考虑以下问题：
+在设计表的过程中，尽可能多地了解数据以及数据查询方式。  例如，请考虑以下问题：
 
-- 表有多大？   
-- 表的刷新频率是多少？   
-- 数据仓库中是否有事实数据表和维度表？   
+- 表有多大？   
+- 表的刷新频率是多少？   
+- 数据仓库中是否有事实数据表和维度表？   
 
 ## <a name="what-is-a-replicated-table"></a>什么是复制的表？
 复制的表具有可在每个计算节点上访问的完整表副本。 复制表后，在执行联接或聚合前将无需在计算节点之间传输数据。 由于表具有多个副本，因此当表压缩后的大小小于 2 GB 时，复制的表性能最佳。
@@ -43,10 +43,9 @@ ms.locfileid: "49089050"
 
 - 磁盘上的表大小小于 2 GB，无论有多少行。 若要查明表的大小，可以使用 [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql) 命令：`DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`。 
 - 表用于不采用复制的表时将要求移动数据的联接中。 连接未分布在同一列上的表（如将哈希分布式表连接到轮循机制表）时，需要进行数据移动才能完成此查询。  如果其中一个表较小，请考虑使用复制表。 大多数情况下，我们建议使用复制的表而非循环表。 若要查看查询计划中的数据移动操作，请使用 [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql)。  BroadcastMoveOperation 是典型的数据移动操作，可通过使用复制的表来消除。  
- 
-在下列情况下，复制的表可能不会产生最佳查询性能：
+  在下列情况下，复制的表可能不会产生最佳查询性能：
 
-- 表具有频繁的插入、更新和删除操作。 这些数据操作语言 (DML) 操作要求重新生成复制的表。 频繁地重新生成会导致性能降低。
+- 表具有频繁的插入、更新和删除操作。 这些数据操作语言 (DML) 操作要求重新生成复制的表。 频繁地重新生成会导致性能降低。
 - 数据仓库会频繁地进行缩放。 缩放数据仓库会更改计算节点的数目，这将引发重新生成。
 - 表具有大量列，但数据操作通常仅访问少量的列。 在这种情况下，与复制整个表相比，将表分发，然后对经常访问的列创建索引可能更为高效。 当查询需要进行数据移动时，SQL 数据仓库仅移动所请求列中的数据。 
 
@@ -69,7 +68,7 @@ WHERE EnglishDescription LIKE '%frame%comfortable%'
 ```
 
 ## <a name="convert-existing-round-robin-tables-to-replicated-tables"></a>将现有的循环表转换为复制的表
-如果已经具有循环表，如果它们满足本文中列出的条件，建议将其转换为复制的表。 与循环表相比，复制的表可以提高性能，因为它们不要求移动数据。  循环表始终要求为联接移动数据。 
+如果已经具有循环表，如果它们满足本文中列出的条件，建议将其转换为复制的表。 与循环表相比，复制的表可以提高性能，因为它们不要求移动数据。  循环表始终要求为联接移动数据。 
 
 此示例使用 [CTAS](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 将 DimSalesTerritory 表更改为复制的表。 无论 DimSalesTerritory 是哈希分布式表还是循环表，此示例都是可行的。
 
@@ -165,17 +164,17 @@ SQL 数据仓库通过维护表的主版本来实现复制的表。 它将主版
 
 以下查询使用 [sys.pdw_replicated_table_cache_state](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql) DMV 列出已修改但未重新生成的复制的表。
 
-```sql 
+```sql 
 SELECT [ReplicatedTable] = t.[name]
-  FROM sys.tables t  
-  JOIN sys.pdw_replicated_table_cache_state c  
-    ON c.object_id = t.object_id 
-  JOIN sys.pdw_table_distribution_properties p 
-    ON p.object_id = t.object_id 
+  FROM sys.tables t  
+  JOIN sys.pdw_replicated_table_cache_state c  
+    ON c.object_id = t.object_id 
+  JOIN sys.pdw_table_distribution_properties p 
+    ON p.object_id = t.object_id 
   WHERE c.[state] = 'NotReady'
     AND p.[distribution_policy_desc] = 'REPLICATE'
 ```
- 
+ 
 若要触发重新生成，请在上一个输出中的每个表上运行以下语句。 
 
 ```sql

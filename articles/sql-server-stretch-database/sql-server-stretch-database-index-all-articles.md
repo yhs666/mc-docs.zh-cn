@@ -1,6 +1,6 @@
 ---
 title: 有关 SQL Server Stretch Database 服务的所有主题 | Microsoft Azure
-description: 位于 http://azure.microsoft.com/documentation/articles/ 且名为 SQL Server Stretch Database 的 Azure 服务的所有主题的表格，包括标题和描述。
+description: 位于 http://azure.microsoft.com/documentation/articles/ 的有关名为 SQL Server Stretch Database 的 Azure 服务的所有主题的表格，包括标题和说明。
 services: sql-server-stretch-database
 documentationCenter: ''
 authors: DouglasL
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 10/05/2016
 ms.author: v-yeche
 ms.openlocfilehash: 0155e73cd4ba6045cf6838504ee2e612bd667c7e
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20182863"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644065"
 ---
 # <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>有关 Azure SQL Server Stretch Database 服务的所有主题
 
-本主题列出的每个主题都可以直接应用于 Azure **SQL Server Stretch Database** 服务。 您可以使用 **Ctrl+F**来搜索此网页的关键字，以便查找当前感兴趣的主题。
+本主题列出的每个主题都可以直接应用于 Azure **SQL Server Stretch Database** 服务。 可使用 **Ctrl+F** 来搜索此网页的关键字，以便查找当前感兴趣的主题。
 
 ## <a name="get-started"></a>入门
 
@@ -37,8 +37,8 @@ ms.locfileid: "20182863"
 
 | &nbsp; | 标题 | 说明 |
 | --: | :-- | :-- |
-| 5 | [为数据库启用延伸数据库](sql-server-stretch-database-enable-database.md) | 了解如何为延伸数据库配置数据库。 |
-| 6 | [为表启用延伸数据库](sql-server-stretch-database-enable-table.md) | 了解如何为延伸数据库配置表。 |
+| 5 | [为数据库启用延伸数据库](sql-server-stretch-database-enable-database.md) | 了解如何为 Stretch Database 配置数据库。 |
+| 6 | [为表启用延伸数据库](sql-server-stretch-database-enable-table.md) | 了解如何为 Stretch Database 配置表。 |
 | 7 | [使用筛选器函数来选择要迁移的行 (Stretch Database)](sql-server-stretch-database-predicate-function.md) | 了解如何使用筛选器函数来选择要迁移的行。 |
 
 ## <a name="manage"></a>管理
@@ -46,7 +46,7 @@ ms.locfileid: "20182863"
 | &nbsp; | 标题 | 说明 |
 | --: | :-- | :-- |
 | 8 | [禁用延伸数据库和移回远程数据](sql-server-stretch-database-disable.md) | 了解如何为表禁用延伸数据库并选择性地移回远程数据。 |
-| 9 | [延伸数据库的管理和故障排除](sql-server-stretch-database-manage.md) | 如何对延伸数据库进行管理和故障排除。 |
+| 9 | [延伸数据库的管理和故障排除](sql-server-stretch-database-manage.md) | 如何对 Stretch Database 进行管理和故障排除。 |
 | 10 | [数据迁移的监视和故障排除 (Stretch Database)](sql-server-stretch-database-monitor.md) | 了解如何监视数据迁移状态。 |
 | 11 | [暂停和恢复数据迁移 (Stretch Database)](sql-server-stretch-database-pause.md) | 了解如何暂停或继续将数据迁移到 Azure。 |
 

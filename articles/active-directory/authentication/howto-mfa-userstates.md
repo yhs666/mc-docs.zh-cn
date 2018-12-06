@@ -6,21 +6,21 @@ ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
 origin.date: 07/11/2018
-ms.date: 09/04/2018
+ms.date: 11/05/2018
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 7e9492adeee063de30c874d83975db4896193f88
-ms.sourcegitcommit: c237baac64f847301ba7f67082ffffcd81c00142
+ms.openlocfilehash: ec7c44389113b3a4da5348823f0a4143d46d52da
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43850810"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651736"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>如何要求对用户进行双重验证
 
-**通过更改用户状态启用** - 这是需要进行双重验证的传统方法，本文将对此进行讨论。 它与云中的 Azure MFA 配合工作。 使用此方法要求用户**每次**登录时都执行双重验证并重写条件访问策略。
+**通过更改用户状态启用** - 这是需要进行双重验证的传统方法，本文将对此进行讨论。 它与云中的 Azure MFA 配合工作。 使用此方法要求用户**每次**登录时都执行双重验证。
 
 ## <a name="enable-azure-mfa-by-changing-user-status"></a>通过更改用户状态启用 Azure MFA
 
@@ -73,8 +73,17 @@ Azure 多重身份验证中的用户帐户具有以下三种不同状态：
 
 不要直接将用户移动到“强制”状态。 如果这样做了，则非基于浏览器的应用将停止工作，因为用户尚未完成 Azure MFA 注册并获得应用密码。
 
+先使用以下命令安装模块：
+
+       Install-Module MSOnline
+       
+> [!TIP]
+> 不要忘记先使用 **Connect-MsolService -AzureEnvironment AzureChinaCloud** 进行连接
+
+
 当你需要批量启用用户时，使用 PowerShell 是一个不错的选择。 创建一个 PowerShell 脚本，它会循环访问用户列表并启用它们：
 
+        Import-Module MSOnline
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
         $st.RelyingParty = "*"
         $st.State = "Enabled"
@@ -92,6 +101,14 @@ Azure 多重身份验证中的用户帐户具有以下三种不同状态：
         $sta = @($st)
         Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
     }
+    
+若要禁用 MFA，请使用以下脚本：
+
+    Get-MsolUser -UserPrincipalName user@domain.com | Set-MsolUser -StrongAuthenticationRequirements @()
+    
+也可以缩短为：
+
+    Set-MsolUser -UserPrincipalName user@domain.com -StrongAuthenticationRequirements @()
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -99,4 +116,4 @@ Azure 多重身份验证中的用户帐户具有以下三种不同状态：
 
 有关管理 Azure 多重身份验证的用户设置的信息，请参阅[管理云中 Azure 多重身份验证的用户设置](howto-mfa-userdevicesettings.md)一文
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: coding update -->

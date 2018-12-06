@@ -11,27 +11,31 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
 manager: digimobile
-origin.date: 10/02/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: fec05e32160f5500cffdedd6b27a56b3791f8d88
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+origin.date: 10/25/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: 656bec463fcecf225b38958c448a45f16dda2eb9
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135848"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672530"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 数据库审核入门
 
-Azure SQL 数据库审核跟踪数据库事件，并将事件写入 Azure 存储帐户中的审核日志。 审核还可：
+审核 Azure [SQL 数据库](sql-database-technical-overview.md)和 [SQL 数据仓库](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)会跟踪数据库事件，并将这些事件写入 Azure 存储帐户中的审核日志。 审核还可：
 
 - 帮助保持合规性、了解数据库活动，以及深入了解可以指明业务考量因素或疑似安全违规的偏差和异常。
 
 - 实现并促进遵从合规标准，但不能保证合规性。 有关支持标准法规的 Azure 计划的详细信息，请参阅 [Azure 信任中心](https://www.azure.cn/support/trust-center/compliance/)。
 
+
+> [!NOTE] 
+> 本主题适用于 Azure SQL 服务器，同时也适用于在 Azure SQL 服务器中创建的 SQL 数据库和 SQL 数据仓库数据库。 为简单起见，在提到 SQL 数据库和 SQL 数据仓库时，本文统称 SQL 数据库。
+
+
 ## <a id="subheading-1"></a>Azure SQL 数据库审核概述
 
 可使用 SQL 数据库审核来：
-
 
 - **保留** 选定事件的审核痕迹。 可以定义要审核的数据库操作的类别。
 - **报告** 数据库活动。 可以使用预配置的报告和仪表板快速开始使用活动和事件报告。
@@ -53,7 +57,7 @@ Azure SQL 数据库审核跟踪数据库事件，并将事件写入 Azure 存储
 
 - 如果启用服务器 blob 审核，它将一直应用于数据库。 将不考虑数据库审核设置审核数据库。
 
-- 除在服务器上启用 blob 审核外，在数据库上启用 blob 审核也不会替代或更改服务器 blob 审核的任何设置。 这两种审核会并存。 换言之，会并行对数据库执行两次审核；一次按服务器策略审核，一次按数据库策略审核。
+- 除在服务器上启用 blob 审核外，在数据库或数据仓库上启用 blob 审核也不会替代或更改服务器 blob 审核的任何设置。 这两种审核会并存。 换言之，会并行对数据库执行两次审核；一次按服务器策略审核，一次按数据库策略审核。
 
    > [!NOTE]
    > 除非有以下需要，否则应该避免同时启用服务器 Blob 审核和数据库 Blob 审核：
@@ -88,6 +92,11 @@ Azure SQL 数据库审核跟踪数据库事件，并将事件写入 Azure 存储
 6. 单击“保存” 。
 7. 若要自定义已审核的事件，可通过 [PowerShell cmdlet](#subheading-7) 或 [REST API](#subheading-9) 执行此操作。
 8. 配置审核设置后，可打开新威胁检测功能，并配置电子邮件用于接收安全警报。 使用威胁检测时，会接收针对异常数据库活动（可能表示潜在的安全威胁）发出的前瞻性警报。 有关详细信息，请参阅[威胁检测入门](sql-database-threat-detection-get-started.md)。 
+
+
+> [!IMPORTANT]
+>在 Azure SQL 数据仓库或在具有 Azure SQL 数据仓库的服务器上启用审核将导致数据仓库恢复，即使在以前被暂停的情况下也是如此。 **请确保在启用审核后再次暂停数据仓库**。
+
 
 ## <a id="subheading-3"></a>分析审核日志和报告
 如果选择将审核日志写入到 Azure 存储帐户，可以使用多种方法来查看日志：
@@ -200,10 +209,11 @@ Azure SQL 数据库审核跟踪数据库事件，并将事件写入 Azure 存储
 - [获取服务器 Blob 审核策略](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
 支持使用 WHERE 子句执行附加筛选的扩展策略：
+
 - [创建或更新数据库扩展 Blob 审核策略](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
-- [创建或更新服务器扩展 Blob 审核策略](https://docs.microsoft.com/rest/api/sql/server%20extended%20auditing%20settings/createorupdate)
+- [创建或更新服务器扩展 Blob 审核策略](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
 - [获取数据库扩展 Blob 审核策略](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
-- [获取服务器扩展 Blob 审核策略](https://docs.microsoft.com/rest/api/sql/server%20extended%20auditing%20settings/get)
+- [获取服务器扩展 Blob 审核策略](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1

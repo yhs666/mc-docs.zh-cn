@@ -1,24 +1,24 @@
 ---
-title: Azure 安全文档 - 教程 | Azure
-description: 了解如何根据服务部署以及云中数据的要求，在 Azure 服务中自定义安全选项。
+title: Azure 安全文档 | Azure
+description: 安全已集成到 Azure 的各个方面。 Azure 提供了源自全球安全智能、面向客户的完善控制和安全强化基础结构的独特安全优势。 这一功能强大的组合可帮助保护应用程序和数据，为你遵从法规提供支持，并为所有规模的组织提供符合成本效益的安全性。
 services: security
-author: carolz
-manager: carolz
+author: lingliw
+manager: digimobile
 layout: LandingPage
 ms.assetid: ''
 ms.service: security
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-origin.date: 01/23/2017
-ms.date: 06/20/2017
-ms.author: v-johch
-ms.openlocfilehash: 7955d88d23dca49add03a2a355b83f6e340ddbfd
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+origin.date: 03/30/2018
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 70d28480bde67800c6002723a63a28d87a9c63e7
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20185514"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674537"
 ---
 # <a name="security-documentation"></a>安全文档
 

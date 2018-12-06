@@ -16,11 +16,11 @@ origin.date: 12/16/2016
 ms.date: 07/03/2017
 ms.author: v-dazen
 ms.openlocfilehash: 7bac8f582dac4db5f9b4d8d840504966b3fb633f
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
-ms.locfileid: "20634147"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646206"
 ---
 # <a name="deploy-a-sailsjs-web-app-to-azure-app-service"></a>将 Sails.js Web 应用部署到 Azure 应用服务
 
@@ -41,7 +41,7 @@ ms.locfileid: "20634147"
 
 ## <a name="cli-versions-to-complete-the-task"></a>用于完成任务的 CLI 版本
 
-可使用以下 CLI 版本之一完成任务：
+可以使用以下 CLI 版本之一完成任务：
 
 - Azure CLI 1.0 - 适用于经典部署模型和资源管理部署模型的 CLI
 - [Azure CLI 2.0](app-service-web-nodejs-sails.md) - 适用于资源管理部署模型的下一代 CLI
@@ -51,7 +51,7 @@ ms.locfileid: "20634147"
 * [Sails.js](http://sailsjs.org/get-started)
 * [Git](http://www.git-scm.com/downloads)
 * [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2)
-* 一个 Azure 帐户。 如果你没有帐户，可以[注册试用版](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+* 一个 Azure 帐户。 如果没有帐户，可以 [注册试用版](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -156,7 +156,7 @@ ms.locfileid: "20634147"
 
         az appservice web browse --name <app_name> --resource-group my-sailsjs-app-group
 
-    现在，你应会看到相同的 Sails.js 主页。
+    现在，应会看到相同的 Sails.js 主页。
 
     ![](./media/app-service-web-nodejs-sails/sails-in-azure.png)
 
@@ -246,7 +246,7 @@ ms.locfileid: "20634147"
         },
 
     借助 `migrate: 'alter'`，可使用数据库迁移功能轻松创建和更新数据库集合或表。 但是，在 Azure（生产）环境中使用 `migrate: 'safe'`，因为 Sails.js 不允许在生产环境中使用 `migrate: 'alter'`（请参阅 [Sails.js 文档](http://sailsjs.org/documentation/concepts/models-and-orm/model-settings)）。
-8. 和往常一样在终端[生成](http://sailsjs.org/documentation/reference/command-line-interface/sails-generate) Sails.js 的[蓝图 API](http://sailsjs.org/documentation/concepts/blueprints)，然后运行 `sails lift` 使用 Sails.js 数据库迁移功能创建数据库。 例如：
+8. 和往常一样在终端[生成](http://sailsjs.org/documentation/reference/command-line-interface/sails-generate) Sails.js 的[蓝图 API](http://sailsjs.org/documentation/concepts/blueprints)，并运行 `sails lift` 使用 Sails.js 数据库迁移功能创建数据库。 例如：
 
          sails generate api mywidget
          sails lift

@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Cosmos DB 异步 Java SDK 构建 Java 应用程序 | Azure
+title: 使用异步 Java SDK 生成 Java 应用以管理 Azure Cosmos DB SQL API 数据 | Azure
 description: 本教程展示了如何通过异步 Java 应用程序使用 Azure Cosmos DB SQL API 帐户来存储和访问数据。
 keywords: nosql 教程, 联机数据库, java 控制台应用程序
 services: cosmos-db
@@ -10,17 +10,17 @@ ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 origin.date: 06/29/2018
-ms.date: 11/05/2018
+ms.date: 12/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5dcb8d0974b07fdc195d12a09cf628da903288a0
-ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
+ms.openlocfilehash: ea9a1824ec5b8601d5469cada358bb5d97638d56
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50204829"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674586"
 ---
 <!--Verify sucessfully-->
-# <a name="build-a-java-application-by-using-azure-cosmos-db-async-java-sdk"></a>使用 Azure Cosmos DB 异步 Java SDK 构建 Java 应用程序 
+# <a name="tutorial-build-a-java-app-with-async-java-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>教程：使用异步 Java SDK 生成 Java 应用以管理 Azure Cosmos DB SQL API 数据
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
@@ -30,27 +30,27 @@ ms.locfileid: "50204829"
 > * [Node.js](sql-api-nodejs-get-started.md)
 > 
 
-Azure Cosmos DB 是多区域分布式多模型数据库。 本教程展示了如何通过异步 Java 应用程序使用 Azure Cosmos DB SQL API 帐户来存储和访问数据。 
+本教程介绍如何使用异步 Java SDK 生成 Java 应用程序，以便存储和访问 Azure Cosmos DB SQL API 数据。
 
-我们介绍：
+本教程涵盖以下任务：
 
-* 创建并连接到 Azure Cosmos DB 帐户
-* 配置解决方案
-* 创建集合
-* 创建 JSON 文档
-* 查询集合
-
-现在，让我们开始吧！
+> [!div class="checklist"]
+> * 创建并连接到 Azure Cosmos DB 帐户
+> * 配置解决方案
+> * 创建集合
+> * 创建 JSON 文档
+> * 查询集合
 
 ## <a name="prerequisites"></a>先决条件
-确保具有以下内容：
+
+请确保具有以下资源：
 
 * 有效的 Azure 帐户。 如果没有，可以注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [Git](https://git-scm.com/downloads)。
-* [Java 开发工具包 (JDK) 8+](http://www.oracle.com/technetwork/java/javase/downloads/index.html)。
+* [Java 开发工具包 (JDK) 8+](https://docs.azure.cn/zh-cn/java/java-supported-jdk-runtime?view=azure-java-stable)。
 * [Maven](http://maven.apache.org/download.cgi)。
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>步骤 1：创建 Azure Cosmos DB 帐户
@@ -59,7 +59,8 @@ Azure Cosmos DB 是多区域分布式多模型数据库。 本教程展示了如
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 <a name="GitClone"></a>
-## <a name="step-2-clone-the-github-project"></a>步骤 2：克隆 GitHub 项目
+## <a name="step-2-clone-the-github-repository"></a>步骤 2：克隆 GitHub 存储库
+
 首先，可以根据 [Get Started with Azure Cosmos DB and Java](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started)（Azure Cosmos DB 和 Java 入门）中所述克隆 GitHub 存储库。 例如，从本地目录运行以下命令，在本地检索示例项目。
 
 ```bash
@@ -67,9 +68,9 @@ git clone https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-ge
 
 cd azure-cosmos-db-sql-api-async-java-getting-started
 cd azure-cosmosdb-get-started
-
 ```
-该目录包含项目的 `pom.xml`，以及含有 Java 源代码的 `src/main/java/com/microsoft/azure/cosmosdb/sample` 文件夹，其中包括 `Main.java`，说明如何使用 Azure Cosmos DB 执行简单的操作，例如创建文档以及查询集合中的数据。 `pom.xml` 依赖于 [Maven 上的 Azure Cosmos DB Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)。
+
+目录包含 `pom.xml` 和 `src/main/java/com/microsoft/azure/cosmosdb/sample` 文件夹，其中包含 Java 源代码（包括 `Main.java`）。 项目包含的代码是使用 Azure Cosmos DB 执行操作（例如创建文档以及查询集合中的数据）所需的。 `pom.xml` 依赖于 [Maven 上的 Azure Cosmos DB Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)。
 
 ```xml
 <dependency>
@@ -81,9 +82,10 @@ cd azure-cosmosdb-get-started
 
 <a name="Connect"></a>
 ## <a name="step-3-connect-to-an-azure-cosmos-db-account"></a>步骤 3：连接到 Azure Cosmos DB 帐户
-接下来，回到 [Azure 门户](https://portal.azure.cn) ，检索终结点和主要主密钥。 Azure Cosmos DB 终结点和主密钥是必需的，可让应用程序知道要连接的对象，使 Azure Cosmos DB 信任应用程序的连接。 `AccountSettings.java` 文件包含主密钥和 URI 值。 
 
-在 Azure 门户中，导航到 Azure Cosmos DB 帐户，并单击“密钥”。 从门户中复制 URI 和主密钥并将其粘贴到 `AccountSettings.java` 文件中。 
+接下来，返回到 [Azure 门户](https://portal.azure.cn)检索终结点和主密钥。 Azure Cosmos DB 终结点和主密钥是必需的，可让应用程序知道要连接的对象，使 Azure Cosmos DB 信任应用程序的连接。 `AccountSettings.java` 文件包含主密钥和 URI 值。 
+
+在 Azure 门户中，导航到 Azure Cosmos DB 帐户，然后单击“密钥”。 从门户中复制 URI 和主密钥并将其粘贴到 `AccountSettings.java` 文件中。 
 
 ```java
 public class AccountSettings 
@@ -101,9 +103,10 @@ public class AccountSettings
 }
 ```
 
-![NoSQL 教程创建 Java 控制台应用程序时使用的 Azure 门户的屏幕截图。 显示了一个 Azure Cosmos DB 帐户，在“Azure Cosmos DB 帐户”边栏选项卡上突出显示了“ACTIVE”中心、“密钥”按钮，在“密钥”边栏选项卡上突出显示了 URI、主密钥、辅助密钥的值][keys]
+![从门户获取密钥的屏幕截图][keys]
 
 ## <a name="step-4-initialize-the-client-object"></a>步骤 4：初始化客户端对象
+
 通过使用“AccountSettings.java”文件中定义的主机 URI 和主密钥值初始化客户端对象
 
 ```java
@@ -118,7 +121,7 @@ client = new AsyncDocumentClient.Builder()
 <a name="CreateDatabase"></a>
 ## <a name="step-5-create-a-database"></a>步骤 5：创建数据库
 
-可以通过使用 DocumentClient 类的 createDatabaseIfNotExists() 方法来创建 Azure Cosmos DB [数据库](sql-api-resources.md#databases)。 数据库是跨集合分区的 JSON 文档存储的逻辑容器。
+可以通过使用 DocumentClient 类的 createDatabaseIfNotExists() 方法来创建 Azure Cosmos DB [数据库](databases-containers-items.md#azure-cosmos-databases)。 数据库是跨集合分区的 JSON 文档存储的逻辑容器。
 
 ```java
 private void createDatabaseIfNotExists() throws Exception 
@@ -207,7 +210,7 @@ private void createDocumentCollectionIfNotExists() throws Exception
 <a name="CreateDoc"></a>
 ## <a name="step-7-create-json-documents"></a>步骤 7：创建 JSON 文档
 
-可以使用 DocumentClient 类的 createDocument 方法创建[文档](sql-api-resources.md#documents)。 文档是用户定义的（任意）JSON 内容。 现在，我们可以插入一个或多个文档。 “src/main/java/com/microsoft/azure/cosmosdb/sample/Families.java”文件定义系列 JSON 文档 
+可以使用 DocumentClient 类的 createDocument 方法创建文档。 文档是用户定义的（任意）JSON 内容。 现在，我们可以插入一个或多个文档。 “src/main/java/com/microsoft/azure/cosmosdb/sample/Families.java”文件定义系列 JSON 文档 
 
 ```java
 public static Family getJohnsonFamilyDocument() {
@@ -228,8 +231,9 @@ public static Family getJohnsonFamilyDocument() {
 <a name="Query"></a>
 ## <a name="step-8-query-azure-cosmos-db-resources"></a>步骤 8：查询 Azure Cosmos DB 资源
 
-Azure Cosmos DB 支持对存储在每个集合中的 JSON 文档进行各种[查询](sql-api-sql-query.md)。 以下示例代码展示了如何将 SQL 语法与 [queryDocuments](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.rx._async_document_client.querydocuments) 方法一起使用来查询 Azure Cosmos DB 中的文档。
+Azure Cosmos DB 支持对存储在每个集合中的 JSON 文档进行各种[查询](how-to-sql-query.md)。 以下示例代码展示了如何将 SQL 语法与 [queryDocuments](https://docs.microsoft.com/zh-cn/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client.querydocuments?view=azure-java-stable) 方法一起使用来查询 Azure Cosmos DB 中的文档。
 
+<!-- URL is correct on [queryDocuments](https://docs.microsoft.com/zh-cn/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client.querydocuments?view=azure-java-stable)-->
 ```java
 private void executeSimpleQueryAsyncAndRegisterListenerForResult(CountDownLatch completionLatch) 
 {
@@ -261,7 +265,8 @@ private void executeSimpleQueryAsyncAndRegisterListenerForResult(CountDownLatch 
 ```
 
 <a name="Run"></a>
-## <a name="step-9-run-your-java-console-application-all-together"></a>步骤 9：运行整个 Java 控制台应用程序！
+## <a name="step-9-run-your-java-console-application"></a>步骤 9：运行 Java 控制台应用程序
+
 若要从控制台运行应用程序，请导航到项目文件夹，然后使用 Maven 进行编译：
 
 ```bash
@@ -273,13 +278,16 @@ mvn package
 ```bash
 mvn exec:java -DACCOUNT_HOST=<YOUR_COSMOS_DB_HOSTNAME> -DACCOUNT_KEY= <YOUR_COSMOS_DB_MASTER_KEY>
 ```
+
 祝贺！ 现已完成本 NoSQL 教程，并构建了一个正常运行的 Java 控制台应用程序！
 
 ## <a name="next-steps"></a>后续步骤
-* 需要 Java Web 应用教程？ 请参阅[通过 Java 构建使用 Azure Cosmos DB 的 Web 应用程序](sql-api-java-application.md)。
-* 了解如何[监视 Azure Cosmos DB 帐户](monitor-accounts.md)。
-* 在 [Query Playground](https://www.documentdb.com/sql/demo)中对示例数据集运行查询。
+
+本教程介绍了如何通过异步 Java SDK 生成 Java 应用以管理 Azure Cosmos DB SQL API 数据。 你现在可以继续学习下一篇文章：
+
+> [!div class="nextstepaction"]
+> [使用 JavaScript SDK 和 Azure Cosmos DB 生成 Node.js 控制台应用](sql-api-nodejs-get-started.md)
 
 [keys]: media/sql-api-get-started/nosql-tutorial-keys.png
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

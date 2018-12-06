@@ -3,62 +3,55 @@ title: 用于管理 Azure SQL DNS 别名的 PowerShell | Microsoft Docs
 description: PowerShell cmdlet，例如新建 AzureRMSqlServerDNSAlias，可以将新客户端连接重定向到不同的 Azure SQL 数据库服务器，而无需触摸任何客户端配置。
 keywords: dns sql database
 services: sql-database
-author: yunan2016
-manager: digimobile
 ms.service: sql-database
+ms.subservice: operations
 ms.devlang: PowerShell
-ms.topic: article
+ms.topic: conceptual
+author: WenJason
+ms.author: v-jay
+ms.reviewer: genemi,amagarwa,maboja
+manager: digimobile
 origin.date: 02/05/2018
-ms.date: 02/28/2018
-ms.reviewer: genemi;amagarwa;maboja
-ms.author: v-nany
-ms.openlocfilehash: 33c2ec45dae81b6c56be71ae2a70af013d3e49f4
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.date: 12/03/2018
+ms.openlocfilehash: b16bb768e63f6be8395d3df71aed78e0fdadd7d8
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913888"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672708"
 ---
 # <a name="powershell-for-dns-alias-to-azure-sql-database"></a>用于管理 Azure SQL 数据库 DNS 别名的 PowerShell
 
 本文提供如何为 Azure SQL 数据库管理 DNS 别名的 PowerShell 脚本。 该脚本运行以下 cmdlet 采用以下操作：
 
-
 代码示例中使用的 cmdlet 如下：
+
 - [New-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/New-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1)：在 Azure SQL 数据库服务系统中创建新的 DNS 别名。 该别名引用 Azure SQL 数据库服务器 1。
 - [Get-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Get-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1)：获取并列出分配给 SQL 数据库服务器 1 的所有 DNS 别名。
 - [Set-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Set-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1)：修改别名配置为引用的服务器名称，从服务器1 到 SQL 数据库服务器 2。
 - [Remove-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Remove-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1)：使用别名删除 SQL 数据库服务器 2 的 DNS 别名。
 
-
 **AzureRm.Sql** 模块 5.1.1 和更高版本中添加了上述 PowerShell cmdlet。
 
-
-
-
-#### <a name="dns-alias-in-connection-string"></a>连接字符串中的 DNS 别名
+## <a name="dns-alias-in-connection-string"></a>连接字符串中的 DNS 别名
 
 若要连接特定的 Azure SQL 数据库服务器，如 SQL Server Management Studio (SSMS) 客户端可以提供的 DNS 别名名称而不是真正的服务器名称。 在下面的示例服务器字符串中，别名 *any 的唯一别名的名称-* 替换四个节点服务器字符串中的第一个圆点分隔节点：
+
 - 服务器字符串示例：`any-unique-alias-name.database.chinacloudapi.cn`。
-
-
 
 ## <a name="prerequisites"></a>先决条件
 
 如果想要运行演示这篇文章中提供的 PowerShell 脚本，适用以下先决条件：
 
-- Azure 订阅和帐户。 如需试用帐户，请单击 [https://www.azure.cn/pricing/1rmb-trial/][https://www.azure.cn/pricing/1rmb-trial/]。
-
+- Azure 订阅和帐户。 对于 1 元人民币的试用订阅，请单击 [https://www.azure.cn/pricing/1rmb-trial/][https://www.azure.cn/pricing/1rmb-trial/]。
 - Azure PowerShell 模块，使用 cmdlet **New-AzureRMSqlServerDNSAlias**。
-    - 若要进行安装或升级，请参阅[安装 Azure PowerShell 模块][install-azurerm-ps-84p]。
-    - 运行 `Get-Module -ListAvailable AzureRM;`powershell\_ise.exe，若要查找版本。
-
+  - 若要进行安装或升级，请参阅[安装 Azure PowerShell 模块][install-azurerm-ps-84p]。
+  - 运行 `Get-Module -ListAvailable AzureRM;`powershell\_ise.exe，若要查找版本。
 - 两个 Azure SQL 数据库服务器。
 
 ## <a name="code-example"></a>代码示例
 
 以下代码示例通过启动的 PowerShell 将文字值分配给多个变量。 若要运行此代码，必须首先编辑所有占位符值以匹配你的系统中的实际值。 或者，还可以只是学习代码。 操作，还提供代码的控制台输出。
-
 
 ```powershell
 ################################################################
@@ -127,16 +120,14 @@ Remove-AzureRMSqlServerDNSAlias `
     -ServerDNSAliasName $SqlServerDnsAliasName;
 ```
 
-
-#### <a name="actual-console-output-from-the-powershell-example"></a>PowerShell 示例实际控制台输出
+### <a name="actual-console-output-from-the-powershell-example"></a>PowerShell 示例实际控制台输出
 
 下面的控制台输出已复制并粘贴从实际运行。
 
-
-```
+```powershell
 You must log into Azure once per powershell_ise.exe session,
   thus type 'yes' only the first time.
- 
+
 [yes/no]  Do you need to log into Azure now?: yes
 
 
@@ -145,29 +136,26 @@ Account               : gm@acorporation.com
 TenantId              : 72f988bf-1111-1111-1111-111111111111
 SubscriptionId        : 45651c69-2222-2222-2222-222222222222
 SubscriptionName      : mysubscriptionname
-CurrentStorageAccount : 
+CurrentStorageAccount :
 
- 
 [1] Assign a DNS alias to SQL DB server 1.
 [2] Get the DNS alias that is assigned to SQL DB server 1.
 [3] Move the DNS alias from 1 to SQL DB server 2.
 [4] Remove the DNS alias from SQL DB server 2.
-ResourceGroupName ServerName         ServerDNSAliasName    
------------------ ----------         ------------------    
+ResourceGroupName ServerName         ServerDNSAliasName
+----------------- ----------         ------------------
 gm-rg-dns-1       gm-sqldb-dns-1     unique-alias-name-food
 gm-rg-dns-1       gm-sqldb-dns-1     unique-alias-name-food
 gm-rg-dns-2       gm-sqldb-dns-2     unique-alias-name-food
 
 
 [C:\windows\system32\]
->> 
+>>
 ```
 
 ## <a name="next-steps"></a>后续步骤
 
 有关 SQL 数据库的 DNS 别名功能的完整说明，请参阅 [Azure SQL 数据库的 DNS 别名][dns-alias-overview-37v]。
-
-
 
 <!-- Article links. -->
 
@@ -176,4 +164,3 @@ gm-rg-dns-2       gm-sqldb-dns-2     unique-alias-name-food
 [install-azurerm-ps-84p]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 
 [dns-alias-overview-37v]: dns-alias-overview.md
-

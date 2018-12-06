@@ -1,9 +1,9 @@
 ---
-title: Azure 媒体服务功能的跨数据中心方案和可用性 | Azure
+title: Azure 媒体服务功能的跨数据中心方案和可用性 | Microsoft Docs
 description: 本主题概述 Azure 媒体服务功能和服务的跨数据中心方案和可用性。
 services: media-services
 documentationcenter: ''
-author: forester123
+author: WenJason
 manager: digimobile
 editor: ''
 ms.service: media-services
@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-origin.date: 07/10/2017
-ms.date: 09/25/2017
-ms.author: v-johch
-ms.openlocfilehash: 7e629f74b36b5b3a7020d427cf2f005e391f76a0
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+origin.date: 10/15/2018
+ms.date: 12/03/2018
+ms.author: v-jay
+ms.openlocfilehash: 73dfdd246c3a32ab1b1cda8313b973019ba76fc3
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723044"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672874"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>媒体服务功能的跨数据中心方案和可用性
 
@@ -158,7 +158,7 @@ AMS 客户可以缩放其 AMS 帐户中的流式处理终结点、媒体处理�
     有关详细信息，请参阅[缩放媒体处理](media-services-portal-scale-media-processing.md)。
 * 也可以通过向媒体服务帐户添加存储帐户来缩放该帐户。 每个存储帐户大小限制为 500 TB。 要在默认限制之外扩展存储，可选择将多个存储帐户附加到单个媒体服务帐户。 有关详细信息，请参阅[管理存储帐户](meda-services-managing-multiple-storage-accounts.md)。
 
-##<a id="availability"></a>媒体服务功能的跨数据中心可用性
+## <a id="availability"></a>媒体服务功能的跨数据中心可用性
 
 本部分详细说明媒体服务功能的跨数据中心可用性。
 

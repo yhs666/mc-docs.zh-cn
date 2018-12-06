@@ -1,6 +1,6 @@
 ---
 title: 将 Windows AWS VM 移到 Azure | Azure
-description: 使用 Azure PowerShell 将 Amazon Web Services (AWS) EC2 Windows 实例移到 Azure 虚拟机。
+description: 将 Amazon Web Services (AWS) EC2 Windows 实例移到 Azure 虚拟机。
 services: virtual-machines-windows
 documentationcenter: ''
 author: rockboyfor
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/01/2018
-ms.date: 06/25/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: befbcb0ba8fc95014ed459668ff3ddf4fb9ff025
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 247d07e586ad6e1160c8829da2d4d794c308ee7c
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315457"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674570"
 ---
-# <a name="move-a-windows-vm-from-amazon-web-services-aws-to-azure-using-powershell"></a>使用 PowerShell 将 Windows VM 从 Amazon Web Services (AWS) 移到 Azure
+# <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>将 Windows VM 从 Amazon Web Services (AWS) 移到 Azure 虚拟机
 
 如果你正在评估是否要使用 Azure 虚拟机托管工作负荷，可以导出现有的 Amazon Web Services (AWS) EC2 Windows VM 实例，然后将虚拟硬盘 (VHD) 上传到 Azure。 上传 VHD 后，可以在 Azure 中从 VHD 创建新的 VM。 
 
@@ -47,22 +47,23 @@ ms.locfileid: "36315457"
 
 将 EC2 实例导出到 Amazon S3 存储桶中的 VHD。 执行 Amazon 文档[使用 VM导入/导出功能导出实例作为 VM](http://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) 中所述的步骤，然后运行 [create-instance-export-task](http://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) 命令将 EC2 实例导出到 VHD 文件。 
 
-导出的 VHD 文件将保存在你指定的 Amazon S3 存储桶中。 下面是用于导出 VHD 的基本语法，只需将 <brackets> 中的占位符文本替换为你的信息即可。
+导出的 VHD 文件将保存在你指定的 Amazon S3 存储桶中。 导出 VHD 的基本语法如下所示，只需将 <brackets> 中的占位符文本替换为自己的信息。
 
 ```
 aws ec2 create-instance-export-task --instance-id <instanceID> --target-environment Microsoft \
   --export-to-s3-task DiskImageFormat=VHD,ContainerFormat=ova,S3Bucket=<bucket>,S3Prefix=<prefix>
 ```
 
-导出 VHD 后，按照[如何从 S3 存储桶下载对象？](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/download-objects.html)中的说明从 S3 存储桶下载 VHD 文件。 
+<!--Notice: --target-environment invlove vmware|citrix|microsoft--> 导出 VHD 后，按照[如何从 S3 Bucket 下载对象？](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/download-objects.html)中的说明从 S3 Bucket 下载 VHD 文件。 
 
 > [!IMPORTANT]
-> AWS 将收取用于下载 VHD 的数据传输费用。 有关详细信息，请参阅 [Amazon S3 定价](https://aws.amazon.com/s3/pricing/)。
+> AWS 会收取下载 VHD 所产生的数据传输费用。 有关详细信息，请参阅 [Amazon S3 定价](https://aws.amazon.com/s3/pricing/)。
 
 ## <a name="next-steps"></a>后续步骤
 
 现在，可将 VHD 上传到 Azure 并创建新的 VM。 
 
 - 如果导出之前在源上运行了 Sysprep 来将它**通用化**，请参阅[上传已通用化的 VHD 并在 Azure 中使用它来创建新的 VM](upload-generalized-managed.md)
-- 如果在导出之前未运行 Sysprep，VHD 将被视为**已专用化**。请参阅[将已专用的 VHD 上传到 Azure 并创建新的 VM](create-vm-specialized.md)
+- 如果导出之前未运行 Sysprep，VHD 将被视为**已专用化**。请参阅[将已专用的 VHD 上传到 Azure 并创建新的 VM](create-vm-specialized.md)
+
 <!-- Update_Description: update meta properties, wording update -->

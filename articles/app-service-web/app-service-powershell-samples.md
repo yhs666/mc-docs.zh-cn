@@ -18,11 +18,11 @@ ms.date: 04/24/2017
 ms.author: v-dazen
 ms.custom: mvc
 ms.openlocfilehash: 14ba223e257341fa7ccb942226ccb4c57f85d60a
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
-ms.locfileid: "20186780"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658168"
 ---
 # <a name="azure-powershell-samples"></a>Azure PowerShell 示例
 
@@ -42,8 +42,8 @@ ms.locfileid: "20186780"
 | [手动缩放 Web 应用](./scripts/app-service-powershell-scale-manual.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 创建 Azure Web 应用并将其在 2 个实例之间进行缩放。 |
 | [缩放具有高可用性体系结构的全国性 Web 应用](./scripts/app-service-powershell-scale-high-availability.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 在两个不同地理区域中创建两个 Azure Web 应用，并使用 Azure 流量管理器通过单个终结点使其可用。 |
 |**将应用连接到资源**||
-| [将 Web 应用连接到 SQL 数据库](./scripts/app-service-powershell-connect-to-sql.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 创建 Azure Web 应用和 SQL 数据库，然后将数据库连接字符串添加到应用设置。 |
-| [将 Web 应用连接到存储帐户](./scripts/app-service-powershell-connect-to-storage.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 创建 Azure Web 应用和存储帐户，然后将存储连接字符串添加到应用设置。 |
+| [将 Web 应用连接到 SQL 数据库](./scripts/app-service-powershell-connect-to-sql.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 创建 Azure Web 应用和 SQL 数据库，并将数据库连接字符串添加到应用设置。 |
+| [将 Web 应用连接到存储帐户](./scripts/app-service-powershell-connect-to-storage.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 创建 Azure Web 应用和存储帐户，并将存储连接字符串添加到应用设置。 |
 |**监视应用**||
 | [使用 Web 服务器日志监视 Web 应用](./scripts/app-service-powershell-monitor.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 创建 Azure Web 应用，为其启用日志记录，并将日志下载到本地计算机。 |
 | | |

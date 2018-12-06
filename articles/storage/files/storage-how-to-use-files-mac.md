@@ -9,11 +9,11 @@ origin.date: 09/19/2017
 ms.date: 09/10/2018
 ms.author: v-jay
 ms.openlocfilehash: a2998857d4f8e29295143693445a315b18c0c469
-ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43650922"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643889"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>在 macOS 中通过 SMB 装载 Azure 文件共享
 [Azure 文件](storage-files-introduction.md)是易于使用的云文件系统。 Azure 文件共享可以通过 macOS El Capitan 10.11+ 使用标准的 SMB 3 协议进行装载。 本文介绍如何使用两种不同的方法通过 Finder UI 和 Terminal 在 macOS 中装载 Azure 文件共享。
@@ -47,7 +47,7 @@ ms.locfileid: "43650922"
     ![装载的 Azure 文件共享的快照](./media/storage-how-to-use-files-mac/mount-via-finder-3.png)
 
 ## <a name="mount-an-azure-file-share-via-terminal"></a>通过 Terminal 装载 Azure 文件共享
-1. 将 `<storage-account-name>` 替换为存储帐户的名称。 在系统提示时提供存储帐户密钥作为密码。 
+1. 将  `<storage-account-name>`  替换为存储帐户的名称。 在系统提示时提供存储帐户密钥作为密码。 
 
     ```
     mount_smbfs //<storage-account-name>@<storage-account-name>.file.core.chinacloudapi.cn/<share-name> <desired-mount-point>

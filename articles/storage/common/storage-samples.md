@@ -16,11 +16,11 @@ origin.date: 06/03/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
 ms.openlocfilehash: 08cf72c597f21b04018f74beb4b3a18beaf2d905
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870880"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654650"
 ---
 # <a name="azure-storage-samples"></a>Azure 存储示例
 

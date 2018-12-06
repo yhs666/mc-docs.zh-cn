@@ -17,11 +17,11 @@ origin.date: 02/25/2016
 ms.date: 12/12/2016
 ms.author: v-dazen
 ms.openlocfilehash: 9aabe11c1ae60734f5bb9bf672f0c4d731e3da79
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
-ms.locfileid: "20634138"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654578"
 ---
 # <a name="azure-app-service-web-app-advanced-config-and-extensions"></a>Azure 应用服务 Web 应用高级配置和扩展
 
@@ -55,7 +55,7 @@ ms.locfileid: "20634138"
 
 包含转换状态和详细信息的日志文件位于 FTP 根目录 LogFiles\Transform 中。
 
-有关其他示例，请参阅 [https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples](https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples)。
+有关更多示例，请参阅 [https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples](https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples)。
 
 **注意**<br />
 `system.webServer` 下的模块列表中的元素无法删除或重新排序，但列表的附加内容却可以。
@@ -70,9 +70,9 @@ ms.locfileid: "20634138"
 
 Web 应用的内部链接应指向 ApplicationHost.xdt 文件中指定的应用程序路径的相对路径。 对 ApplicationHost.xdt 文件的任何更改都需要 Web 应用回收。
 
-**注意**：有关这些关键元素的更多信息，请参阅 [https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions)。
+**注意**：[https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) 提供了有关这些关键元素的更多信息。
 
-内含一个详细示例，用于说明创建和启用专用 Web 应用扩展的步骤。 可以从 [https://github.com/projectkudu/PHPManager](https://github.com/projectkudu/PHPManager)下载后跟的 PHP Manager 示例的源代码。
+内含一个详细示例，用于说明创建和启用专用 Web 应用扩展的步骤。 可以从 [https://github.com/projectkudu/PHPManager](https://github.com/projectkudu/PHPManager) 下载后跟的 PHP Manager 示例的源代码。
 
 ### <a id="SiteSample"></a> Web 应用扩展示例：PHP Manager
 PHP Manager 是一个 Web 应用扩展，通过该 Web 应用扩展，Web 应用管理员可以轻松地使用 Web 界面来查看和配置 PHP 设置，而无需直接修改 PHP.ini 文件。 PHP 常用配置文件包括位于 Program Files 下的 php.ini 文件和位于 Web 应用根文件夹中的 .user.ini 文件。 由于 php.ini 文件不可在应用服务平台上直接编辑，因此 PHP Manager 扩展使用 .user.ini 文件来应用设置更改。
@@ -181,7 +181,7 @@ Web 应用扩展位于：
 在开发和调查过程中，可以通过添加使用键 `WEBSITE_PRIVATE_EXTENSIONS` 和值 `0` 的应用设置，来禁用 Web 应用的所有专用（非预装）扩展。
 
 ## <a name="whats-changed"></a>发生的更改
-* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为 应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 <!-- IMAGES -->
 [TransformSitePHPUI]: ./media/web-sites-transform-extend/TransformSitePHPUI.png

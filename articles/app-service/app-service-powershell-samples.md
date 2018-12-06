@@ -18,11 +18,11 @@ ms.date: 01/29/2018
 ms.author: v-yiso
 ms.custom: mvc
 ms.openlocfilehash: ed331a13db3ad15d1336e28b2e9b060c5dc04042
-ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2018
-ms.locfileid: "27984781"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646197"
 ---
 # <a name="azure-powershell-samples"></a>Azure PowerShell 示例
 

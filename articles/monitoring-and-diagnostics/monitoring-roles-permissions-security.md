@@ -1,19 +1,20 @@
 ---
 title: Azure 监视器中的角色、权限和安全性入门
 description: 了解如何使用 Azure Monitor 的内置角色和权限限制对监视资源的访问。
-author: johnkemnetz
-services: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
+author: lingliw
+services: azure-monitor
+ms.service: azure-monitor
 ms.topic: conceptual
 origin.date: 10/27/2017
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: eee5167c7d4b81d88edabc7b0a9067e388605c0a
-ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
+ms.component: ''
+ms.openlocfilehash: 3be32a08814a9957381b77d5accb3ccb774843d0
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652252"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674741"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Azure Monitor 的角色、权限和安全入门
 很多团队需要严格控制对监视数据和设置的访问。 例如，如果有专门负责监视的团队成员（支持工程师、DevOps 工程师），或者使用托管服务提供程序，则可能希望向他们授予仅访问监视数据的权限，同时限制其创建、修改或删除资源的能力。 本文说明如何在 Azure 中快速将内置监视 RBAC 角色应用到用户，或针对需要有限监视权限的用户构建自己的自定义角色。 然后讨论与 Azure Monitor 相关资源的安全注意事项，以及如何限制对它们所含数据的访问。
@@ -85,7 +86,7 @@ Azure 监视器的内置角色旨在帮助限制对订阅中资源的访问，�
 > 
 > 
 
-例如，使用上面的表格可以为“Activity Log Reader”创建如下的自定义 RBAC 角色：
+例如，可以使用上表，针对“活动日志读取者”创建类似于下面的自定义 RBAC 角色：
 
 ```powershell
 $role = Get-AzureRmRoleDefinition "Reader"
@@ -117,7 +118,7 @@ New-AzureRmRoleDefinition -Role $role
 当用户或应用程序需要访问存储帐户中的监视数据时，应使用 blob 存储的服务级别的只读访问权限在包含监视数据的存储帐户上[生成帐户 SAS](https://msdn.microsoft.com/library/azure/mt584140.aspx)。 在 PowerShell 中，相应的命令如下所示：
 
 ```powershell
-$context = New-AzureStorageContext -ConnectionString "[connection string for your monitoring Storage Account]"
+$context = New-AzureStorageContext -Environment AzureChinaCloud -ConnectionString "[connection string for your monitoring Storage Account]"
 $token = New-AzureStorageAccountSASToken -ResourceType Service -Service Blob -Permission "rl" -Context $context
 ```
 
@@ -146,7 +147,7 @@ New-AzureRmRoleDefinition -Role $role
 ### <a name="limiting-access-to-monitoring-related-event-hubs"></a>限制对监视相关的事件中心的访问权限
 可对事件中心采用类似的模式，但首先需要创建专用的侦听授权规则。 如果想要将访问权限授予只需侦听与监视相关的事件中心的应用程序，请执行以下操作：
 
-1. 为事件中心创建共享访问策略，该事件中心是为传输仅包含侦听声明的监视数据而创建的。 可以在门户中完成此操作。 例如，可以称它为“monitoringReadOnly”。 如果可能，可以直接将该密钥提供给使用者，并跳过下一步骤。
+1. 为事件中心创建共享访问策略，该事件中心是为传输仅包含侦听声明的监视数据而创建的。 可以在门户中完成此操作。 例如，可以将此策略称为“monitoringReadOnly”。 如果可能，可以直接将该密钥提供给使用者，并跳过下一步骤。
 2. 如果使用者必须能够临时获取密钥，请向用户授予对该事件中心执行 ListKeys 操作的权限。 需要指定诊断设置或者要设置可流式传输到事件中心的日志配置文件的用户必须拥有此权限。 例如，可以创建一条 RBAC 规则：
    
    ```powershell
@@ -168,9 +169,8 @@ Azure Monitor 需要访问 Azure 资源以提供你启用的服务。 如果你�
 
 ### <a name="secured-storage-accounts"></a>安全存储帐户 
 
-监视数据通常会写入到存储帐户。 你可能希望确保未经授权的用户无法访问复制到存储帐户的数据。 为了提高安全性，你可以通过限制存储帐户使用“所选网络”来锁定网络访问权限，以仅允许授权资源和受信任的 Microsoft 服务访问存储帐户。
-![“Azure 存储设置”对话框](./media/monitoring-roles-permissions-security/secured-storage-example.png) Azure Monitor 被视为“受信任的 Microsoft 服务”之一。如果你允许受信任的 Microsoft 服务访问安全存储，则 Azure Monitor 将可以访问安全存储帐户；在这些受保护的条件下，允许将 Azure Monitor 诊断日志、活动日志和指标写入存储帐户。 这还会使 Log Analytics 能够从安全存储中读取日志。   
-
+监视数据通常会写入到存储帐户。 你可能希望确保未经授权的用户无法访问复制到存储帐户的数据。 为了提高安全性，你可以通过限制存储帐户使用“所选网络”来锁定网络访问权限，以仅允许授权资源和受信任的 Azure 服务访问存储帐户。
+![“Azure 存储设置”对话框](./media/monitoring-roles-permissions-security/secured-storage-example.png) Azure Monitor 被视为“受信任的 Azure 服务”之一。如果你允许受信任的 Azure 服务访问安全存储，则 Azure Monitor 将可以访问安全存储帐户；在这些受保护的条件下，允许将 Azure Monitor 诊断日志、活动日志和指标写入存储帐户。 这还会使 Log Analytics 能够从安全存储中读取日志。   
 
 有关详细信息，请参阅[网络安全性和 Azure 存储](../storage/common/storage-network-security.md)
 

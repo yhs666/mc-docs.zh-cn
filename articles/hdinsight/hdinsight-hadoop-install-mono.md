@@ -2,26 +2,22 @@
 title: 在 HDInsight 上安装或更新 Mono - Azure | Azure
 description: 了解如何将特定版本的 Mono 用于 HDInsight 群集。 Mono 用于在基于 Linux 的 HDInsight 群集上运行 .NET 应用程序。
 services: hdinsight
-documentationCenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 04/10/2018
-ms.date: 05/28/2018
+ms.date: 11/19/2018
 ms.author: v-yiso
 ms.custom: hdinsightactive
-ms.openlocfilehash: 22b35199cf9e92683a7b9a8d8e2a59bbcb9372e8
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: 850abe1672acfaa42f108cf090342e0f870dac45
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34449920"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646674"
 ---
 # <a name="install-or-update-mono-on-hdinsight"></a>在 HDInsight 上安装或更新 Mono
 
@@ -51,7 +47,7 @@ __要求__：
 
 ## <a name="to-use-the-script"></a>使用脚本
 
-有关如何在 HDInsight 中使用此脚本的信息，请参阅[使用脚本操作自定义基于 Linux 的 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)一文。 可以通过 Azure 门户、Azure PowerShell 或 Azure CLI 使用此脚本。
+有关如何在 HDInsight 中使用此脚本的信息，请参阅[使用脚本操作自定义基于 Linux 的 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)一文。 可以通过 Azure 门户、Azure PowerShell 或 Azure 经典 CLI 使用该脚本。
 
 按照脚本操作文档进行操作时，请使用以下 URI：
 

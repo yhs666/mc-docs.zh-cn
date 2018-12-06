@@ -9,14 +9,14 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: tutorial
 origin.date: 03/20/2018
-ms.date: 08/13/2018
+ms.date: 11/09/2018
 ms.custom: mvc
-ms.openlocfilehash: 9b0056e6799c125dfb4c56b61e761389f372d8d7
-ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
+ms.openlocfilehash: 820c591da39d189666bcad03ce309b071a320ef2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41704031"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649398"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>教程：使用 Azure 门户设计 Azure Database for MySQL 数据库
 
@@ -37,10 +37,10 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
 > * 还原数据
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
-打开最喜爱的 Web 浏览器，然后访问 [Microsoft Azure 门户](https://portal.azure.cn/)。 输入登录到门户所需的凭据。 默认视图是服务仪表板。
+打开最喜爱的 Web 浏览器，然后访问 [Azure 门户](https://portal.azure.cn/)。 输入登录到门户所需的凭据。 默认视图是服务仪表板。
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>创建 Azure Database for MySQL 服务器
-创建 Azure Database for MySQL 服务器时，会使用定义好的一组[计算和存储资源](./concepts-compute-unit-and-storage.md)。 将在 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)中创建服务器。
+创建 Azure Database for MySQL 服务器时，会使用定义好的一组[计算和存储资源](./concepts-compute-unit-and-storage.md)。 将在 [Azure 资源组](/azure-resource-manager/resource-group-overview)中创建服务器。
 
 1. 导航到**数据库** > **MySQL 的 Azure 数据库**。 如果在“数据库”类别下找不到 MySQL 服务器，请单击“查看全部”显示所有可用的数据库服务。 还可以在搜索框中键入“Azure Database for MySQL”快速查找该服务。
    
@@ -50,7 +50,7 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
    
    ![创建窗体](./media/tutorial-design-database-using-portal/2-create-form.png)
 
-    **设置** | 建议的值 | 字段说明 
+    **设置** | **建议的值** | **字段说明** 
     ---|---|---
     服务器名称 | 唯一的服务器名称 | 选择用于标识 Azure Database for MySQL 服务器的唯一名称。 例如，mydemoserver。 域名 *.mysql.database.chinacloudapi.cn* 追加到所提供的服务器名称后面。 服务器名称只能包含小写字母、数字和连字符 (-) 字符。 必须包含 3 到 63 个字符。
     订阅 | 你的订阅 | 选择要用于服务器的 Azure 订阅。 如果有多个订阅，请选择要计费的资源所在的订阅。
@@ -59,10 +59,9 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
     服务器管理员登录名 | myadmin | 连接到服务器时需使用的登录帐户。 管理员登录名不能是“azure_superuser”、“admin”、“administrator”、“root”、“guest”或“public”。
     密码 | *由用户决定* | 为服务器管理员帐户提供新密码。 必须包含 8 到 128 个字符。 密码必须包含以下字符类别中的三类：英文大写字母、英文小写字母、数字 (0-9) 以及非字母数字字符（!、$、#、% 等）。
     确认密码 | *由用户决定*| 确认管理员帐户密码。
-    位置 | 
-            *离用户最近的区域*| 选择最靠近用户或其他 Azure 应用程序的位置。
+    位置 | *离用户最近的区域*| 选择最靠近用户或其他 Azure 应用程序的位置。
     版本 | 最新版本| 最新版本，有特定要求（即需要其他版本）的除外。
-    定价层 | **常规用途**、**第 5 代**、**2 vCore**、**5 GB**、**7 天**、**异地冗余** | 新服务器的计算、存储和备份配置。 选择“定价层”。 接下来，选择“常规用途”选项卡。“第 5 代”、“2 vCore”、“5 GB”和“7 天”分别是“计算代”、“vCore”、“存储”和“备份保留期”的默认值。 可以将这些滑块保留原样。 若要在异地冗余存储中启用服务器备份，请从**备份冗余选项**中选择“异地冗余”。 若要保存此定价层选择，请选择“确定”。 下一个屏幕截图捕获了这些选择。
+    定价层 | **常规用途**、**第 4 代**、**2 个 vCore**、**5 GB**、**7 天**、**异地冗余** | 新服务器的计算、存储和备份配置。 选择“定价层”。 接下来，选择“常规用途”选项卡。*第 4 代*、*2 个 vCore*、*5 GB*和 *7 天*分别是**计算的代**、**vCore**、**存储**和**备份保留期**的默认值。 可以按原样保留这些滑块。 若要在异地冗余存储中启用服务器备份，请从**备份冗余选项**中选择“异地冗余”。 若要保存此定价层选择，请选择“确定”。 下一个屏幕截图捕获了这些选择。
     
    ![定价层](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
 

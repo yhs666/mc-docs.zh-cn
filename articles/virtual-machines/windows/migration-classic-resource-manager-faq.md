@@ -17,11 +17,11 @@ origin.date: 04/01/2017
 ms.date: 05/21/2018
 ms.author: v-yeche
 ms.openlocfilehash: af1d7125ef8465b1c3b7a284fba16b0411c3cfb3
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305816"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655816"
 ---
 [!INCLUDE [virtual-machines-common-migration-faq](../../../includes/virtual-machines-common-classic-resource-manager-migration-faq.md)]
 

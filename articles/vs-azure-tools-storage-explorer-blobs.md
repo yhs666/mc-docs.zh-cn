@@ -1,10 +1,10 @@
 ---
-title: 使用存储资源管理器管理 Azure Blob 存储资源 | Microsoft Docs
+title: 使用存储资源管理器管理 Azure Blob 存储资源 | Azure
 description: 使用存储资源管理器管理 Azure Blob 容器和 Blob
 services: storage
 documentationcenter: na
-author: cawa
-manager: paulyuk
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: 2f09e545-ec94-4d89-b96c-14783cc9d7a9
 ms.service: storage
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/18/2016
-ms.date: 07/12/2018
-ms.author: v-junlch
-ms.openlocfilehash: 9cb3a34055a8e05c7602fde722bc093a9f0aad3b
-ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 23fbb692c549d0e82147ef4d5bcf943ac737954a
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38999183"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674858"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>使用存储资源管理器管理 Azure Blob 存储资源
 ## <a name="overview"></a>概述
@@ -30,8 +30,8 @@ ms.locfileid: "38999183"
 ## <a name="prerequisites"></a>先决条件
 若要完成本文中的步骤，需要满足以下先决条件：
 
-- [下载并安装存储资源管理器](http://www.storageexplorer.com)
-- [连接到 Azure 存储帐户或服务](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
+* [下载并安装存储资源管理器](http://www.storageexplorer.com)
+* [连接到 Azure 存储帐户或服务](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-blob-container"></a>创建 Blob 容器
 所有 Blob 都必须驻留在 Blob 容器中。简单说来，该容器就是对 Blob 进行逻辑分组。 一个帐户可以包含无限数量的容器，一个容器可以存储无限数量的 Blob。
@@ -133,9 +133,9 @@ Blob 容器包含 Blob 和文件夹（其中也可能包含 Blob）。
    ![“访问策略”选项][12]        
 6. 根据访问策略管理任务完成以下步骤：
 
-   - **添加新的访问策略** - 选择“添加”。 生成后，“访问策略”对话框会显示新添加的访问策略（以及默认设置）。
-   - **编辑访问策略** - 进行需要的编辑，并选择“保存”。
-   - **删除访问策略** - 在要删除的访问策略旁边选择“删除”。
+   * **添加新的访问策略** - 选择“添加”。 生成后，“访问策略”对话框会显示新添加的访问策略（以及默认设置）。
+   * **编辑访问策略** - 进行需要的编辑，并选择“保存”。
+   * **删除访问策略** - 在要删除的访问策略旁边选择“删除”。
 
 ## <a name="set-the-public-access-level-for-a-blob-container"></a>为 Blob 容器设置公共访问级别
 默认情况下，每个 Blob 容器都设置为“无公共访问权限”。
@@ -168,7 +168,7 @@ Blob 容器包含 Blob 和文件夹（其中也可能包含 Blob）。
 6. 主窗格会显示该 Blob 容器的内容。
 7. 根据所要执行的任务完成以下步骤：
 
-   - **将文件上传到 blob 容器**
+   * **将文件上传到 Blob 容器**
 
      1. 在主窗格的工具栏上选择“上载”，并从下拉菜单中选择“上载文件”。
 
@@ -179,7 +179,7 @@ Blob 容器包含 Blob 和文件夹（其中也可能包含 Blob）。
      3. 将类型指定为“Blob 类型”。 有关详细信息，请参阅[创建容器和设置权限](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container)。
      4. （可选）指定要将选定文件上传到其中的目标文件夹。 如果目标文件夹不存在，系统会创建一个。
      5. 选择“上传”。
-   - **将文件夹上传到 Blob 容器**
+   * **将文件夹上传到 Blob 容器**
 
      1. 在主窗格的工具栏上选择“上载”，并从下拉菜单中选择“上载文件夹”。
 
@@ -190,32 +190,32 @@ Blob 容器包含 Blob 和文件夹（其中也可能包含 Blob）。
      3. 将类型指定为“Blob 类型”。 有关详细信息，请参阅[创建容器和设置权限](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container)。
      4. （可选）指定要将选定文件夹的内容上传到其中的目标文件夹。 如果目标文件夹不存在，系统会创建一个。
      5. 选择“上传”。
-   - **将 Blob 下载到本地计算机**
+   * **将 Blob 下载到本地计算机**
 
      1. 选择要下载的 Blob。
      2. 在主窗格的工具栏上，选择“下载”。
      3. 在“指定已下载 Blob 的保存位置”对话框中，指定要将 Blob 下载到其中的位置，以及要为 Blob 提供的名称。  
      4. 选择“保存”。
-   - **在本地计算机上打开 Blob**
+   * **在本地计算机上打开 Blob**
 
      1. 选择要打开的 Blob。
      2. 在主窗格的工具栏上，选择“打开”。
      3. 使用与 Blob 的基础文件类型相关联的应用程序下载和打开 Blob。
-   - **将 Blob 复制到剪贴板**
+   * **将 Blob 复制到剪贴板**
 
      1. 选择要复制的 Blob。
      2. 在主窗格的工具栏上，选择“复制”。
      3. 在左窗格中导航到另一 Blob 容器，并通过双击在主窗格中查看它。
      4. 在主窗格的工具栏上选择“粘贴”，以创建 Blob 的副本。
-   - **删除 Blob**
+   * **删除 Blob**
 
      1. 选择要删除的 Blob。
      2. 在主窗格的工具栏上，选择“删除”。
      3. 出现确认对话框时，选择“是”。
 
 ## <a name="next-steps"></a>后续步骤
-- 查看[最新的存储资源管理器发行说明和视频](http://www.storageexplorer.com)。
-- 了解如何[使用 Azure Blob、表、队列和文件创建应用程序](./storage/index.md)。
+* 查看[最新的存储资源管理器发行说明和视频](http://www.storageexplorer.com)。
+* 了解如何[使用 Azure Blob、表、队列和文件创建应用程序](/storage/)。
 
 [0]: ./media/vs-azure-tools-storage-explorer-blobs/blob-containers-create-context-menu.png
 [1]: ./media/vs-azure-tools-storage-explorer-blobs/blob-container-create.png

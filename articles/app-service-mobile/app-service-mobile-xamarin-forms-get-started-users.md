@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 origin.date: 08/07/2017
 ms.author: v-biyu
-ms.date: 10/29/2018
-ms.openlocfilehash: 34609ae4007791c6b57768c2cc65fce2f2e8c136
-ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
+ms.date: 12/03/2018
+ms.openlocfilehash: 7d5057aef5bc181a61595ded8f40c72e1ca2d2c2
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49451614"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674901"
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>向 Xamarin Forms 应用添加身份验证
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -41,7 +41,7 @@ ms.locfileid: "49451614"
 
 安全身份验证要求为应用定义新的 URL 方案。 此方案允许在完成身份验证过程后，身份验证系统重定向到应用。 在本教程中，我们自始至终使用 URL 方案 _appname_ 。 但是，可以使用任何你所选的 URL 方案。 对于移动应用程序而言，它应是唯一的。 在服务器端启用重定向：
 
-1. 在 [Azure 门户]中，选择应用服务。
+1. 在 [Azure 门户][8] 中，选择应用服务。
 
 2. 单击“身份验证/授权”菜单选项。
 
@@ -219,8 +219,13 @@ ms.locfileid: "49451614"
     This code ensures the authenticator is initialized before the app loads.
 2. Rebuild the app, run it, then sign in with the authentication provider you chose and verify you are able to access data as an authenticated user.
 
-##Add authentication to the iOS app
+### Troubleshooting
 
+**The application crashed with `Java.Lang.NoSuchMethodError: No static method startActivity`**
+
+In some cases, conflicts in the support packages displayed as just a warning in the Visual studio, but the application crashes with this exception at runtime. In this case you need to make sure that all the support packages referenced in your project have the same version. The [Azure Mobile Apps NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) has `Xamarin.Android.Support.CustomTabs` dependency for Android platform, so if your project uses newer support packages you need to install this package with required version directly to avoid conflicts.
+
+## Add authentication to the iOS app
 This section shows how to implement the **IAuthenticate** interface in the iOS app project. Skip this section if you are not supporting iOS devices.
 
 1. In Visual Studio or Xamarin Studio, right-click the **iOS** project, then **Set as StartUp Project**.

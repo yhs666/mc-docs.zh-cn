@@ -1,10 +1,10 @@
 ---
-title: Azure Batch 的指标、警报和诊断日志 | Microsoft Docs
+title: Azure Batch 的指标、警报和诊断日志 | Azure
 description: 记录并分析 Azure Batch 帐户资源（诸如池和任务）的诊断日志事件。
 services: batch
 documentationcenter: ''
-author: dlepow
-manager: jeconnoc
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 origin.date: 04/05/2018
-ms.date: 10/19/2018
-ms.author: v-lingli
+ms.date: 11/26/2018
+ms.author: v-lingwu
 ms.custom: ''
-ms.openlocfilehash: 34dc7a8a6fb1d9a89382aa04bfef0f78be67cf2e
-ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
+ms.openlocfilehash: edf8429d114f24238207b956f8c9d2076527cdef
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477760"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674744"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>用于诊断评估和监视的 Batch 指标、警报和日志
 
@@ -36,9 +36,9 @@ ms.locfileid: "49477760"
 
 指标：
 
-- 无需经过额外的配置，便已在每个 Batch 帐户中默认启用
-- 每分钟生成一次
-- 不会自动保留，但有 30 天的历史记录滚动更新周期。 可将活动指标保留为[诊断日志记录](#work-with-diagnostic-logs)的一部分。
+* 无需经过额外的配置，便已在每个 Batch 帐户中默认启用
+* 每分钟生成一次
+* 不会自动保留，但有 30 天的历史记录滚动更新周期。 可将活动指标保留为[诊断日志记录](#work-with-diagnostic-logs)的一部分。
 
 ### <a name="view-metrics"></a>查看指标
 
@@ -70,9 +70,9 @@ ms.locfileid: "49477760"
 
 诊断日志包含 Azure 资源发出的、描述每个资源的操作的信息。 对于 Batch，可以收集以下日志：
 
-- Azure Batch 服务在单个 Batch 资源（例如池或任务）的生存期内发出的**服务日志**事件。 
+* Azure Batch 服务在单个 Batch 资源（例如池或任务）的生存期内发出的**服务日志**事件。 
 
-- 帐户级别的**指标**日志。 
+* 帐户级别的**指标**日志。 
 
 用于启用诊断日志收集的设置默认未启用。 请针对想要监视的每个 Batch 帐户显式启用诊断日志。
 
@@ -165,8 +165,6 @@ Batch 服务当前会生成以下服务日志事件。 此列表可能不完整�
 | [任务启动](batch-task-start-event.md) |
 | [任务完成](batch-task-complete-event.md) |
 | [任务失败](batch-task-fail-event.md) |
-
-
 
 ## <a name="next-steps"></a>后续步骤
 

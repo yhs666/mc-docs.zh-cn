@@ -16,11 +16,11 @@ origin.date: 12/07/2017
 ms.date: 05/28/2018
 ms.author: v-yeche
 ms.openlocfilehash: d04623537da7d8f378a2bc574f4a6960e7b80970
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554463"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647976"
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>Service Fabric 应用程序和后续步骤
 已创建 Azure Service Fabric 应用程序。 本指南介绍一些可以尝试阅读的教程、项目构成、你可能感兴趣的其他信息，以及可能的后续步骤。

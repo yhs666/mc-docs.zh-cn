@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 origin.date: 01/26/2018
 ms.date: 06/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: 0d7f59fb50a15fb2da8a4bb561b0512281f92dd3
-ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
+ms.openlocfilehash: efe22662e4653c3e74de49653bb694bb3f8d027b
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855771"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673140"
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>使用 Azure 门户创建具有 Web 应用程序防火墙的应用程序网关
 
@@ -45,8 +45,7 @@ ms.locfileid: "34855771"
 3. 输入应用程序网关的以下值：
 
     - *myAppGateway* - 应用程序网关的名称。
-    - *myResourceGroupAG* - 作为新资源组。
-    - 对于应用程序网关的层，选择 *WAF*。
+    - *myResourceGroupAG* - 新资源组。
 
     ![新建应用程序网关](./media/application-gateway-web-application-firewall-portal/application-gateway-create.png)
 
@@ -62,7 +61,10 @@ ms.locfileid: "34855771"
 
 6. 单击“确定”创建虚拟网络和子网。
 7. 依次单击“选择公共 IP 地址”、“新建”，然后输入公共 IP 地址的名称。 在本示例中，公共 IP 地址名为 *myAGPublicIPAddress*。 接受其他设置的默认值，然后单击“确定”。
-8. 接受侦听器配置的默认值，让 Web 应用程序防火墙保留禁用状态，然后单击“确定”。
+8. 对于应用程序网关的层，选择 *WAF*。 接受侦听器配置的默认值，让 Web 应用程序防火墙保留禁用状态，然后单击“确定”。
+
+    ![](./media/application-gateway-web-application-firewall-portal/application-gateway-create2.png)
+
 9. 复查摘要页上的设置，然后单击“确定”以创建网络资源和应用程序网关。 创建应用程序网关可能需要几分钟时间，请等到部署成功完成，然后再转到下一部分。
 
 ### <a name="add-a-subnet"></a>添加子网
@@ -97,9 +99,7 @@ ms.locfileid: "34855771"
 
 ### <a name="install-iis"></a>安装 IIS
 
-1. 打开交互式 shell 并确保它已设置为 **PowerShell**。
-
-    ![安装自定义扩展](./media/application-gateway-web-application-firewall-portal/application-gateway-extension.png)
+1. 打开 powershell 并使用订阅登录。
 
 2. 运行以下命令以在虚拟机上安装 IIS： 
 
@@ -131,7 +131,7 @@ ms.locfileid: "34855771"
 
 ## <a name="create-a-storage-account"></a>创建存储帐户
 
-在本教程中，应用程序网关使用存储帐户来存储用于检测和防范目的的数据。 也可以使用 Log Analytics 或事件中心来记录数据。
+在本教程中，应用程序网关使用存储帐户来存储用于检测和防范目的的数据。
 
 1. 单击 Azure 门户左上角的“新建”。
 2. 选择“存储”，然后选择“存储帐户 - blob、文件、表、队列”。

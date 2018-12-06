@@ -10,12 +10,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 04/20/2017
 ms.date: 09/30/2018
-ms.openlocfilehash: ce28461fcad1d0274aa79f14bbd867c0375501e4
-ms.sourcegitcommit: 432984d85afe6f3da8f211bae0fa98a556785ee8
+ms.openlocfilehash: 530e8953c0c498c3b97541f4a48308c024f43416
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455392"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650797"
 ---
 # <a name="troubleshooting-guide-for-azure-stream-analytics"></a>Azure 流分析故障排除指南
 
@@ -39,7 +39,7 @@ Azure 流分析故障排除可能看上去是一项复杂的工作。 与大量�
 
 4.  调试查询：
     - 使用步骤将查询从简单的 Select 语句逐渐重新生成为更复杂的聚合。 使用 [WITH](https://msdn.microsoft.com/library/azure/dn835049.aspx) 子句逐步生成查询逻辑。
-    - 使用 [SELECT INTO](stream-analytics-select-into.md) 调试查询步骤。
+    - 使用 SELECT INTO 调试查询步骤。
 
 5.  避免常犯的错误，例如：
     - 查询中的一个 [WHERE](https://msdn.microsoft.com/library/azure/dn835048.aspx) 子句筛选掉了所有事件，从而阻止生成输出。
@@ -66,7 +66,7 @@ Azure 流分析故障排除可能看上去是一项复杂的工作。 与大量�
             - 如果“输入事件数”大于 0 且“输出事件数”等于 0，则会出现以下情况之一：
                 - 查询处理导致生成零个输出事件。
                 - 事件或其字段可能出现格式错误，导致完成查询处理后生成零个输入。
-                - 由于连接/身份验证的原因，作业无法将数据推送到[输出接收器](stream-analytics-select-into.md)。
+                - 由于连接或身份验证原因，作业无法将数据推送到输出接收器。
         - 对于前文所述的所有这些错误，操作日志消息会解释其他详细信息（包括发生了什么情况），但如果查询逻辑筛选掉了所有事件，则不提供这些详细信息。 如果处理多个事件时出现错误，流分析会将 10 分钟内类型相同的前 3 个错误消息记录在操作日志中。 随后它将阻止其他的相同错误，并且显示一条“错误发生速度过快，已禁止显示此类错误”消息。
 
 8. 使用审核和诊断日志进行调试：

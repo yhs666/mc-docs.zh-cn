@@ -1,10 +1,10 @@
 ---
-title: 使用 Azure Active Directory 对 Azure Batch 服务解决方案进行身份验证 | Microsoft Docs
+title: 使用 Azure Active Directory 对 Azure Batch 服务解决方案进行身份验证 | Azure
 description: Batch 支持 Azure AD 在 Batch 服务中进行身份验证。
 services: batch
 documentationcenter: .net
-author: dlepow
-manager: jeconnoc
+author: lingliw
+manager: digimobile
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -14,18 +14,18 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 04/18/2018
-ms.date: 09/07/2018
-ms.author: v-junlch
-ms.openlocfilehash: e035147ee28fcb5b2aeef6f4e5ed859e024f60a3
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 51af3773224e6d81c466adfbd697f4b0011085c5
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068059"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674798"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>使用 Active Directory 对 Batch 服务解决方案进行身份验证
 
-Azure Batch 支持使用 [Azure Active Directory][aad_about] (Azure AD) 进行身份验证。 Azure AD 是 Microsoft 提供的基于多租户云的目录和标识管理服务。 Azure 本身使用 Azure AD 对其客户、服务管理员和组织用户进行身份验证。
+Azure Batch 支持使用 [Azure Active Directory][aad_about] (Azure AD) 进行身份验证。 Azure AD 是世纪互联提供的基于多租户云的目录和标识管理服务。 Azure 本身使用 Azure AD 对其客户、服务管理员和组织用户进行身份验证。
 
 在使用 Azure Batch 对 Azure AD 进行身份验证时，可以通过以下两种方式之一进行身份验证：
 
@@ -42,16 +42,16 @@ Azure Batch 支持使用 [Azure Active Directory][aad_about] (Azure AD) 进行�
 
 基础 Azure AD 颁发机构终结点是：
 
-`https://login.partner.microsoftonline.cn/`
+`https://login.chinacloudapi.cn/`
 
 要使用 Azure AD 进行验证，请将此终结点与租户 ID（即目录 ID）一起使用。 租户 ID 用于标识要用于身份验证的 Azure AD 租户。 若要检索租户 ID，请按照[获取 Azure Active Directory 的租户 ID](#get-the-tenant-id-for-your-active-directory)中概述的步骤进行操作：
 
-`https://login.partner.microsoftonline.cn/<tenant-id>`
+`https://login.chinacloudapi.cn/<tenant-id>`
 
 > [!NOTE] 
 > 使用服务主体进行验证时，需要特定于租户的终结点。 
 > 
-> 使用集成身份验证进行验证时，虽然特定于租户的终结点为可选，但仍推荐。 然而，还可以使用 Azure AD 常用终结点。 未提供特定租户时，该常用终结点可提供泛型凭据收集接口。 常用终结点为 `https://login.partner.microsoftonline.cn/common`。
+> 使用集成身份验证进行验证时，虽然特定于租户的终结点为可选，但仍推荐。 然而，还可以使用 Azure AD 常用终结点。 未提供特定租户时，该常用终结点可提供泛型凭据收集接口。 常用终结点为 `https://login.chinacloudapi.cn/common`。
 >
 >
 
@@ -69,7 +69,7 @@ Azure Batch 资源终结点用于获取对 Batch 服务的请求进行身份验�
 
 注册应用程序时，需要向 Azure AD 提供关于应用程序的信息。 然后，Azure AD 将提供一个应用程序 ID（也称为“客户端 ID”），在运行时，可以使用该 ID 将应用程序与 Azure AD 相关联。 若要详细信息应用程序 ID，请参阅 [Azure Active Directory 中的应用程序对象和服务主体对象](../active-directory/develop/app-objects-and-service-principals.md)。
 
-要注册批处理应用程序，请遵循[将应用程序与 Azure Active Directory 集成][aad_integrate]的[添加应用程序](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md#adding-an-application)部分中的步骤。 如果将应用程序注册为本机应用程序，可以为重定向 URI 指定任何有效 URI。 它不需要是实际的终结点。
+要注册批处理应用程序，请遵循[将应用程序与 Azure Active Directory 集成][aad_integrate]的[添加应用程序](../active-directory/develop/quickstart-v1-add-azure-ad-app.md)部分中的步骤。 如果将应用程序注册为本机应用程序，可以为重定向 URI 指定任何有效 URI。 它不需要是实际的终结点。
 
 注册应用程序后，会看到应用程序 ID：
 
@@ -86,7 +86,6 @@ Azure Batch 资源终结点用于获取对 Batch 服务的请求进行身份验�
 3. 复制为“目录 ID”提供的 GUID 值。 该值也称为租户 ID。
 
 ![复制目录 ID](./media/batch-aad-auth/aad-directory-id.png)
-
 
 ## <a name="use-integrated-authentication"></a>使用集成身份验证
 
@@ -186,7 +185,7 @@ using Microsoft.IdentityModel.Clients.ActiveDirectory;
 在代码中引用 Azure AD 终结点，包括租户 ID。 若要检索租户 ID，请按照[获取 Azure Active Directory 的租户 ID](#get-the-tenant-id-for-your-active-directory)中概述的步骤进行操作：
 
 ```csharp
-private const string AuthorityUri = "https://login.partner.microsoftonline.cn/<tenant-id>";
+private const string AuthorityUri = "https://login.chinacloudapi.cn/<tenant-id>";
 ```
 
 引用 Batch 服务资源终结点：
@@ -198,7 +197,7 @@ private const string BatchResourceUri = "https://batch.core.chinacloudapi.cn/";
 引用 Batch 帐户：
 
 ```csharp
-private const string BatchAccountUrl = "https://myaccount.mylocation.batch.chinacloudapi.cn";
+private const string BatchAccountUrl = "https://myaccount.mylocation.batch.azure.com";
 ```
 
 指定应用程序的应用程序 ID（客户端 ID）。 应用程序 ID 在 Azure 门户中的应用注册中提供：
@@ -259,7 +258,7 @@ using Microsoft.IdentityModel.Clients.ActiveDirectory;
 在代码中引用 Azure AD 终结点，包括租户 ID。 使用服务主体时，必须提供特定于租户的终结点。 若要检索租户 ID，请按照[获取 Azure Active Directory 的租户 ID](#get-the-tenant-id-for-your-active-directory)中概述的步骤进行操作：
 
 ```csharp
-private const string AuthorityUri = "https://login.partner.microsoftonline.cn/<tenant-id>";
+private const string AuthorityUri = "https://login.chinacloudapi.cn/<tenant-id>";
 ```
 
 引用 Batch 服务资源终结点：  
@@ -314,7 +313,6 @@ public static async Task PerformBatchOperations()
 ### <a name="code-example-using-an-azure-ad-service-principal-with-batch-python"></a>代码示例：将 Azure AD 服务主体与 Batch Python 一起使用
 
 若要在 Batch Python 中使用服务主体进行身份验证，请安装并引用 [azure-batch](https://pypi.org/project/azure-batch/) 和 [azure-common](https://pypi.org/project/azure-common/) 模块。
-
 
 ```python
 from azure.batch import BatchServiceClient

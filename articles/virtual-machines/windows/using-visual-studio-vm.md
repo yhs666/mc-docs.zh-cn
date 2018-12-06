@@ -15,15 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.prod: vs-devops-alm
 origin.date: 09/12/2018
-ms.date: 09/24/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
 keywords: visualstudio
-ms.openlocfilehash: 5b98c99e094cf5bc1e67e5df9c8fb4599379f890
-ms.sourcegitcommit: cc9e8c76454e7d194505af32c42c0f3e4e0ec9e9
+ms.openlocfilehash: 0aa46558c01c6dcafc4c43ceeddab0ce5fb14588
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49315949"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674529"
 ---
 <a name="top"></a>
 # <a name="visual-studio-images-on-azure"></a>Azure 上的 Visual Studio 映像
@@ -37,14 +37,13 @@ ms.locfileid: "49315949"
 
 | 发行版本                                              | 版本                     |     产品版本     |
 |:------------------------------------------------------------:|:----------------------------:|:-----------------------:|
-| Visual Studio 2017：最新（版本 15.8）                    |    Enterprise、Community     |      版本 15.8.4     |
-| Visual Studio 2017：最新预览版（版本 15.9，预览版 2） |    Enterprise、Community     |      版本 15.9.0     |
+| Visual Studio 2017：最新（版本 15.9）                    |    Enterprise、Community     |      版本 15.9.0     |
 |         Visual Studio 2017：RTW                              |    Enterprise、Community     |      版本 15.0.18    |
 |   Visual Studio 2015：最新 (Update 3)                      |    Enterprise、Community     |  版本 14.0.25431.01  |
 |         Visual Studio 2015：RTW                              |             无             | （已过期，无法进行维护） |
 
 > [!NOTE]
-> 根据 Azure 服务策略，Visual Studio 2015 最初发布的 (RTW) 版本已过期，无法提供服务。 Visual Studio 2015 Update 3 是为 Visual Studio 2015 产品线提供的唯一剩余版本。
+> 根据 Azure 服务策略，Visual Studio 2015 最初发布的 (RTW) 版本已过期，无法提供服务。 Visual Studio 2015 Update 3 是为 Visual Studio 2015 产品线提供的唯一剩余版本。  此外，自 Visual Studio 2017 15.9 版发布以来，我们已停止使用包含 15.9 预览版的“最新预览”映像。
 
 有关详细信息，请参阅 [Visual Studio 维护策略](https://www.visualstudio.com/productinfo/vs-servicing-vs)。
 
@@ -121,4 +120,5 @@ Visual Studio 遵循 Azure 中的“自带许可”模式。 与专有硬件上�
 
 * [通过 Azure 门户创建 VM](quick-create-portal.md)
 * [Windows 虚拟机概述](overview.md)
+
 <!-- Update_Description: update meta properties, wording update-->

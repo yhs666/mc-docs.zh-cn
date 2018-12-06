@@ -1,10 +1,24 @@
 ---
-title: 应用服务和 Azure Functions 中的托管标识 | Azure description: Azure 应用服务和 Azure Functions 中的托管标识的概念性参考和安装指南 services: app-service author: mattchenderson manager: cfowler editor: ''
-
-ms.service: app-service ms.tgt_pltfrm: na ms.devlang: multiple ms.topic: article origin.date:06/25/2018 ms.date: 10/29/2018 ms.author:v-biyu
-
+title: 应用服务和 Azure Functions 中的托管标识 | Azure
+description: Azure 应用服务和 Azure Functions 中的托管标识的概念性参考和安装指南
+services: app-service
+author: mattchenderson
+manager: cfowler
+editor: ''
+ms.service: app-service
+ms.tgt_pltfrm: na
+ms.devlang: multiple
+ms.topic: article
+origin.date: 06/25/2018
+ms.date: 12/03/2018
+ms.author: v-biyu
+ms.openlocfilehash: 67a09bdafac03c3197f25bf9fd19bfff518df237
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674948"
 ---
-
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>如何使用应用服务和 Azure Functions 的托管标识
 
 > [!NOTE] 
@@ -41,7 +55,7 @@ ms.service: app-service ms.tgt_pltfrm: na ms.devlang: multiple ms.topic: article
 
 以下步骤将指导你完成使用 CLI 创建 Web 应用并为其分配标识的操作：
 
-1. 如果在本地控制台中使用 Azure CLI，首先请使用 [az login](cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure。 使用与要在其下部署应用程序的 Azure 订阅关联的帐户：
+1. 如果在本地控制台中使用 Azure CLI，首先请使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure。 使用与要在其下部署应用程序的 Azure 订阅关联的帐户：
 
     ```azurecli-interactive
     az login
@@ -187,7 +201,7 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServi
 > |token_type|指示令牌类型值。 Azure AD 唯一支持的类型是 Bearer。 有关持有者令牌的详细信息，请参阅 [OAuth 2.0 授权框架：持有者令牌用法 (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt)。|
 
 
-
+此响应与 [AAD 服务到服务访问令牌请求的响应](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response)相同。
 
 > [!NOTE] 
 > 进程第一次启动时会设置环境变量，因此为应用程序启用托管标识后，可能需要重启应用程序或重新部署其代码，然后才能在代码中使用 `MSI_ENDPOINT` 和 `MSI_SECRET`。

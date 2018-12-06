@@ -17,25 +17,25 @@ origin.date: 04/25/2017
 ms.date: 03/01/2017
 ms.author: v-dazen
 ms.openlocfilehash: df1761009fbb448ac8bf35ae7057f41e38d20d45
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
-ms.locfileid: "20453129"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645867"
 ---
 # <a name="create-a-php-mysql-web-app-in-azure-app-service-and-deploy-using-git"></a>使用 Git 在 Azure 应用服务中创建和部署 PHP-MySQL Web 应用
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-本教程演示如何创建 PHP-MySQL Web 应用以及如何使用 Git 将该应用部署到[应用服务](/app-service-web/app-service-changes-existing-services)。 需要使用计算机上已安装的 [PHP][install-php]、MySQL 命令行工具（[MySQL][install-mysql] 的一部分）和 [Git][install-git]。 本教程中的说明适用于任何操作系统，包括 Windows、Mac 和 Linux。 完成本指南之后，将获得一个在 Azure 中运行的 PHP/MySQL Web 应用。
+本教程演示如何创建 PHP-MySQL Web 应用以及如何使用 Git 将该应用部署到[应用服务](/app-service-web/app-service-changes-existing-services) 。 需要使用计算机上已安装的 [PHP][install-php]、MySQL 命令行工具（[MySQL][install-mysql] 的一部分）和 [Git][install-git]。 本教程中的说明适用于任何操作系统，包括 Windows、Mac 和 Linux。 完成本指南之后，将拥有一个在 Azure 中运行的 PHP/MySQL Web 应用。
 
-你将学习以下内容：
+学习内容包括：
 
 * 如何使用 [Azure 门户][management-portal]创建 Web 应用和 MySQL 数据库。 由于在[应用服务 Web 应用](/app-service-web/app-service-changes-existing-services)中已默认启用 PHP，因此运行 PHP 代码没有任何特殊要求。
 * 如何使用 Git 将应用程序发布和重新发布到 Azure。
 * 如何启用该编辑器扩展才能在每个 `git push`自动执行编辑器任务。
 
-通过按照本教程中的说明进行操作，你将在 PHP 中构建简单的注册 Web 应用。 将在 Web 应用中托管应用程序。 以下是已完成应用程序的屏幕快照：
+通过按照本教程中的说明进行操作，可在 PHP 中构建简单的注册 Web 应用。 会在 Web 应用中托管应用程序。 以下是已完成应用程序的屏幕截图：
 
 ![Azure PHP 网站][running-app]
 
@@ -49,13 +49,13 @@ ms.locfileid: "20453129"
 
 1. 登录到 [Azure 门户][management-portal]。
 2. 单击“新建”  图标。
-3. 单击“应用商店”旁边的“查看全部”。 
-4. 单击“Web + 移动”，然后单击“Web 应用”。 然后单击 **创建**。
+3. 单击“市场”旁边的“查看全部”。 
+4. 单击“Web + 移动”，并单击“Web 应用”。 然后单击“创建”。
 5. 为资源组输入有效的名称。
 6. 为新的 Web 应用输入值。
 7. 创建 MYSQL，然后在 MYSQL 的仪表板中获取 Web 应用的连接字符串。
-8. 创建 Web 应用程序后，用户将看到新的 Web 应用边栏选项卡。
-9. 在“设置”中，单击“连续部署”，然后单击“配置所需设置”。
+8. 创建 Web 应用程序后，用户会看到新的 Web 应用边栏选项卡。
+9. 在“设置”中，单击“连续部署”，并单击“配置所需设置”。
 
     ![设置 Git 发布][setup-publishing]
 10. 为源选择“本地 Git 存储库”  。
@@ -66,18 +66,18 @@ ms.locfileid: "20453129"
      ![创建发布凭据][credentials]
 
 ## <a name="get-remote-mysql-connection-information"></a>获取远程 MySQL 连接信息
-若要连接到正在 Web 应用中运行的 MySQL 数据库，你将需要连接信息。 若要获取 MySQL 连接信息，请按照以下步骤操作：
+要连接到正在 Web 应用中运行的 MySQL 数据库，需要连接信息。 若要获取 MySQL 连接信息，请按照以下步骤操作：
 
 1. 在 Azure 经典管理门户中，单击“AZURE 上的 MYSQL 数据库” ，并打开 MYSQL 数据库服务器。 在“仪表板”页上的“速览”下，可以获取主机和端口。
 2. 在“帐户”页中，可以获取所有用户 Id，并重置密码。
 3. 在“数据库”  页中，可以获取此 MYSQL 数据库服务器下的所有数据库。
 
-    数据源将为 `<your MYSQL server name>.database.chinacloudapi.cn`
+    数据源为 `<your MYSQL server name>.database.chinacloudapi.cn`
 
 ## <a name="build-and-test-your-app-locally"></a>在本地生成并测试应用
-现在已创建 Web 应用，可以在本地开发应用程序，然后在测试后部署该应用程序。
+现在已创建 Web 应用，可以在本地开发应用程序，并在测试后部署该应用程序。
 
-注册应用程序是一个简单的 PHP 应用程序，在该应用程序中提供姓名和电子邮件地址即可注册事件。 以前的注册者的信息将显示在表中。 注册信息存储在 MySQL 数据库中。 应用程序由一个文件组成（复制/粘贴以下可用代码）：
+注册应用程序是一个简单的 PHP 应用程序，在该应用程序中提供姓名和电子邮件地址即可注册事件。 以前的注册者的信息会显示在表中。 注册信息存储在 MySQL 数据库中。 应用程序由一个文件组成（复制/粘贴以下可用代码）：
 
 * **index.php**：显示一个用于注册的表单和一个包含注册者信息的表。
 
@@ -86,10 +86,10 @@ ms.locfileid: "20453129"
 1. 使用之前检索的 `Data Source`、`User Id`、`Password` 和 `Database` 的值，连接到远程 MySQL 服务器：
 
         mysql -h{Data Source] -u[User Id] -p[Password] -D[Database]
-2. 此时将出现 MySQL 命令提示符：
+2. 此时会出现 MySQL 命令提示符：
 
         mysql>
-3. 粘贴以下 `CREATE TABLE` 命令以在你的数据库中创建 `registration_tbl` 表：
+3. 粘贴以下 `CREATE TABLE` 命令以在数据库中创建 `registration_tbl` 表：
 
         CREATE TABLE registration_tbl(id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(id), name VARCHAR(30), email VARCHAR(30), date DATE);
 4. 在本地应用程序文件夹的根目录中创建 **index.php** 文件。
@@ -186,7 +186,7 @@ ms.locfileid: "20453129"
 现在可以浏览到 **http://localhost:8000/** 来测试此应用程序。
 
 ## <a name="publish-your-app"></a>发布应用
-在本地测试你的应用之后，可以使用 Git 将其发布到 Web 应用。 你将初始化本地 Git 存储库并发布该应用程序。
+在本地测试应用之后，可以使用 Git 将其发布到 Web 应用。 将初始化本地 Git 存储库并发布该应用程序。
 
 > [!NOTE]
 > 这些步骤与 Azure 门户中的“创建 Web 应用并设置 Git 发布”一节的结尾显示的步骤相同。
@@ -202,14 +202,14 @@ ms.locfileid: "20453129"
         git remote add azure [URL for remote repository]
         git push azure master
 
-    系统将提示你输入之前创建的密码。
+    系统提示输入之前创建的密码。
 
     ![通过 Git 初始推送到 Azure][git-initial-push]
-3. 浏览至 **http://[site name].chinacloudsites.cn/index.php** 以开始使用应用程序（此信息将存储在您的帐户仪表板上）：
+3. 浏览至 **http://[site name].chinacloudsites.cn/index.php** 以开始使用应用程序（此信息存储在您的帐户仪表板上）：
 
     ![Azure PHP 网站][running-app]
 
-发布应用之后，你可以开始对其进行更改并使用 Git 发布所做的更改。
+发布应用之后，可以开始对其进行更改并使用 Git 发布所做的更改。
 
 ## <a name="publish-changes-to-your-app"></a>发布对应用所做的更改
 若要发布对应用所做的更改，请执行下列步骤：
@@ -221,7 +221,7 @@ ms.locfileid: "20453129"
         git commit -m "comment describing changes"
         git push azure master
 
-    系统将提示你输入之前创建的密码。
+    系统提示输入之前创建的密码。
 
     ![通过 Git 将网站更改推送到 Azure][git-change-push]
 3. 浏览到 **http://[site name].chinacloudsites.cn/index.php** 以查看应用程序及可能做出的任何更改：
@@ -236,19 +236,19 @@ ms.locfileid: "20453129"
 1. 在 [Azure 门户][management-portal]的 PHP Web 应用的边栏选项卡中，单击“工具” > “扩展”。
 
     ![设置编辑器扩展插件][composer-extension-settings]
-2. 单击“添加”，然后单击“编辑器”。
+2. 单击“添加”，并单击“编辑器”。
 
     ![添加编辑器扩展插件][composer-extension-add]
 3. 单击“确定”  接受法律条款。 再次单击“确定”  以添加该扩展。
 
-    **已安装扩展** 边栏选项卡将不会显示编辑器扩展。  
+    “已安装扩展”边栏选项卡现在将显示“编辑器”扩展。  
     ![查看编辑器扩展插件][composer-extension-view]
-4. 现在，如上一节所示，执行 `git add`、`git commit` 和 `git push`。 现在将看到编辑器正在安装在 composer.json 中定义的依赖项。
+4. 现在，如上一节所示，执行 `git add`、`git commit` 和 `git push`。 现在会看到编辑器正在安装在 composer.json 中定义的依赖项。
 
     ![编辑器扩展插件成功][composer-extension-success]
 
 ## <a name="next-steps"></a>后续步骤
-有关详细信息，请参阅 [PHP 开发人员中心](/develop/php/)。
+有关详细信息，请参阅 [PHP 开发中心](/develop/php/)。
 
 <!-- URL List -->
 

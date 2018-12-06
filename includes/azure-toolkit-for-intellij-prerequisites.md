@@ -5,7 +5,7 @@
 
 - Java 开发人员工具包 (JDK) 1.8 或更高版本。
 
-- Azure 订阅，可从 <https://www.azure.cn/pricing/1rmb-trial> 获得。
+- 一个 Azure 订阅，可从 <https://www.azure.cn/pricing/1rmb-trial> 获取。
 - 操作系统。 用于 IntelliJ 的 Azure 工具包已在以下操作系统上通过测试：
   
   - Windows 10、Windows 8.1、Windows 8 和 Windows 7

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 12/08/2017
-ms.date: 10/15/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 834b8b7d2b9cdc58c3c59656e8c83eb9f152b16f
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.openlocfilehash: a584a32fef18aa49d2e25e53aa460051ddeef57a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089241"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663266"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>想要了解 Service Fabric 吗？
 Service Fabric 是分布式系统平台，可借助它轻松打包、部署和管理可缩放且可靠的微服务。  不过，Service Fabric 的外围应用领域广泛，有很多东西需要学习。  本文简要说明了 Service Fabric，并介绍了核心概念、编程模型、应用程序生命周期、测试、群集和运行状况监视。 请参阅[概述](service-fabric-overview.md)和[什么是微服务？](service-fabric-overview-microservices.md)，概览相关信息，并了解如何使用 Service Fabric 创建微服务。 本文包含的内容列表虽不完整，但确实提供了 Service Fabric 每个应用领域的概述和入门文章链接。 
@@ -161,7 +161,7 @@ Service Fabric 提供一个安装包，用于在本地或者任何云提供程�
 ### <a name="cluster-upgrades"></a>群集升级
 我们会定期发布新版本的 Service Fabric 运行时。 在群集上执行运行时或结构升级，以便始终运行[受支持的版本](service-fabric-support.md)。 除了结构升级，还可以更新群集配置（例如证书或应用程序端口）。
 
-Service Fabric 群集是由你拥有的，但部分由 Azure 管理的资源。  我们负责修补基础 OS 并在群集上执行结构升级。  当我们发布新版本时，可以将群集设置为接收自动结构升级，或选择所需的受支持结构版本。  可通过 Azure 门户或 Resource Manager 设置结构和配置升级。  有关详细信息，请参阅[升级 Service Fabric 群集](service-fabric-cluster-upgrade.md)。  
+Service Fabric 群集是你拥有的，但部分由世纪互联管理的资源。 Azure 负责修补基础 OS 并在群集上执行结构升级。 当 Azure 发布新版本时，可以将群集设置为接收自动结构升级，或选择所需的受支持结构版本。 可通过 Azure 门户或 Resource Manager 设置结构和配置升级。 有关详细信息，请参阅[升级 Service Fabric 群集](service-fabric-cluster-upgrade.md)。 
 <!-- Notice: Microsoft to Azure or we -->
 
 独立群集是你完全拥有的资源。 负责修补基础 OS 和启动结构升级。 如果群集可以连接到 [https://www.microsoft.com/download](https://www.microsoft.com/download)，可以将群集设置为自动下载并预配新的 Service Fabric 运行时包。 然后会启动升级。 如果群集无法访问 [https://www.microsoft.com/download](https://www.microsoft.com/download)，可以从连接 Internet 的计算机手动下载新的运行时包，并启动升级。 有关详细信息，请参阅[升级独立 Service Fabric 群集](service-fabric-cluster-upgrade-windows-server.md)。

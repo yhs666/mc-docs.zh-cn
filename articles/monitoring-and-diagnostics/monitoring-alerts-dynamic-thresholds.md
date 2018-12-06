@@ -1,25 +1,21 @@
 ---
-title: 在 Azure Monitor 中创建具有动态阈值的警报 | Microsoft Docs
+title: 在 Azure Monitor 中创建具有动态阈值的警报
 description: 使用基于机器学习的动态阈值创建警报
-author: antonfrMSFT
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/27/2018
-ms.author: antonfr;mbullwin
-ms.openlocfilehash: 45d2f39ff7fb2e5a22cda74cd0c794db28e351f1
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+author: lingliw
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+origin.date: 04/27/2018
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.reviewer: antonfr
+ms.component: alerts
+ms.openlocfilehash: b7cd412f9b566458c848ec68e7a55b698ef7ab5f
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/09/2018
-ms.locfileid: "35250847"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674239"
 ---
 # <a name="alerts-with-dynamic-thresholds-in-azure-monitor-limited-public-preview"></a>Azure Monitor 中具有动态阈值的警报（受限公开预览版）
 
@@ -70,7 +66,7 @@ ms.locfileid: "35250847"
        - 低于阈值下限。
    - 时间聚合：平均（默认值）、总和、最大最小值。
    - 警报敏感度：
-       - 高 - 较多警报，因为警报将在偏差最小时触发。
+       - 高 - 更多警报，因为警报将在偏差最小时触发。
        - 中 - 相比高敏感度，敏感度更低，警报数量更少（默认值）
        - 低 - 最不敏感的阈值。
 

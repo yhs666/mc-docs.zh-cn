@@ -17,11 +17,11 @@ origin.date: 02/25/2016
 ms.date: 09/26/2016
 ms.author: v-dazen
 ms.openlocfilehash: cc0ed39356544a87ef54207ca47d8cf790baad0d
-ms.sourcegitcommit: e9f431f6ee60196bbae604e7d8152c6ef48ead1a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2017
-ms.locfileid: "21932639"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667051"
 ---
 # <a name="create-a-web-app-in-azure-app-service-using-the-azure-sdk-for-java"></a>使用 Azure SDK for Java 在 Azure 应用服务中创建 Web 应用
 <!-- Azure Active Directory workflow is not yet available on the Azure Portal -->
@@ -48,7 +48,7 @@ ms.locfileid: "21932639"
 1. 从左侧菜单中选择“Active Directory”。 单击“新建”>“目录”>“自定义创建”。
 2. 在“添加目录”中，选择“创建新目录”。
 3. 在“名称”中输入目录名称。
-4. 在“域”中输入域名。 `<domain_name>.partner.onmschina.cn`格式。 可以根据目录名称或你拥有的其他域名将它命名。 以后，可以添加组织已在使用的其他域名。
+4. 在“域”中输入域名。 这是默认情况下目录附带的基本域名，它采用 `<domain_name>.partner.onmschina.cn` 格式。 可以根据目录名称或你拥有的其他域名将它命名。 以后，可以添加组织已在使用的其他域名。
 5. 在“国家或地区”中选择区域设置。
 
 有关 AD 的详细信息，请参阅[什么是 Azure AD 目录][What is an Azure AD directory]？
@@ -60,7 +60,7 @@ Azure SDK for Java 使用管理证书在 Azure 订阅中进行身份验证。 �
 
 * 生成表示客户端证书的 PFX 文件，并将其保存在本地。
 * 从 PFX 文件生成管理证书（CER 文件）。
-* 将 CER 文件上传到 Azure 订阅。
+* 将 CER 文件上传到你的 Azure 订阅。
 * 将 PFX 文件转换为 JKS，因为 Java 以这种格式来使用证书进行身份验证。
 * 编写引用本地 JKS 文件的应用程序身份验证代码。
 
@@ -101,7 +101,7 @@ Azure SDK for Java 使用管理证书在 Azure 订阅中进行身份验证。 �
 若要将自签名证书上传到 Azure，请转到经典管理门户中的“设置”页，然后单击“管理证书”选项卡。单击页面底部的“上传”，并导航到已创建的 CER 文件的所在位置。
 
 #### <a name="convert-the-pfx-file-into-jks"></a>将 PFX 文件转换为 JKS
-在 Windows 命令提示符下（以管理员身份运行），键入 cd 转到包含证书的目录，然后运行以下命令，其中，`<java-install-dir>` 是计算机安装 Java 的目录：
+在 Windows 命令提示符下（以管理员身份运行），键入 cd 转到包含证书的目录，并运行以下命令，其中，`<java-install-dir>` 是计算机安装 Java 的目录：
 
     <java-install-dir>/bin/keytool.exe -importkeystore
      -srckeystore <cert-store-dir>/<cert-file-name>.pfx
@@ -115,7 +115,7 @@ Azure SDK for Java 使用管理证书在 Azure 订阅中进行身份验证。 �
 
 ## <a name="build-a-web-app-creation-application"></a>构建 Web 应用创建应用程序
 ### <a name="create-the-eclipse-workspace-and-maven-project"></a>创建 Eclipse 工作区和 Maven 项目
-在本部分中，你要给名为 AzureWebDemo 的 Web 应用创建应用程序创建工作区和 Maven 项目。
+在本部分中，会要给名为 AzureWebDemo 的 Web 应用创建应用程序创建工作区和 Maven 项目。
 
 1. 创建新的 Maven 项目。 单击“文件”>“新建”>“Maven 项目”。 在“新建 Maven 项目”中，选择“创建简单项目”和“使用默认工作区位置”。
 2. 在“新建 Maven 项目”的第二页上，指定以下信息：
@@ -128,8 +128,8 @@ Azure SDK for Java 使用管理证书在 Azure 订阅中进行身份验证。 �
 
      单击“完成” 。
 3. 在项目资源管理器中打开新项目的 pom.xml 文件。 选择“依赖项”选项卡。由于这是一个新项目，因此尚未列出任何包。
-4. 打开“Maven 存储库”视图。 单击“窗口”>“显示视图”>“其他”>“Maven”>“Maven 存储库”，然后单击“确定”。 “Maven 存储库”视图会出现在 IDE 的底部。
-5. 打开“全局存储库”，右键单击“中央”存储库，然后选择“重新生成索引”。
+4. 打开“Maven 存储库”视图。 单击“窗口”>“显示视图”>“其他”>“Maven”>“Maven 存储库”，并单击“确定”。 “Maven 存储库”视图会出现在 IDE 的底部。
+5. 打开“全局存储库”，右键单击“中央”存储库，并选择“重新生成索引”。
 
     ![][1]
 
@@ -149,7 +149,7 @@ Azure SDK for Java 使用管理证书在 Azure 订阅中进行身份验证。 �
 ### <a name="writing-java-code-to-create-a-web-app-by-calling-the-azure-sdk"></a>编写 Java 代码，以通过调用 Azure SDK 来创建 Web 应用
 接下来，编写调用 Azure SDK for Java 中的 API 来创建应用服务 Web 应用的代码。
 
-1. 创建一个 Java 类以用于包含主入口点代码。 在项目资源管理器中，右键单击项目节点，然后选择“新建”>“类”。
+1. 创建一个 Java 类以用于包含主入口点代码。 在项目资源管理器中，右键单击项目节点，并选择“新建”>“类”。
 2. 在“新建 Java 类”中，将类命名为 `WebCreator`，并选中“public static void main”复选框。 所选内容应如下所示：
 
     ![][2]
@@ -203,15 +203,14 @@ AzureWebDemo 应用程序的目的是创建应用服务 Web 应用，因此请�
 其中：
 
 * `<subscription-id>` 是要用于创建资源的 Azure 订阅 ID。
-* 
-            `<certificate-store-path>` 是本地证书存储区目录中的 JKS 文件的路径和文件名。 例如，对于 Linux，则为 `C:/Certificates/CertificateName.jks`；对于 Windows，则为 `C:\Certificates\CertificateName.jks`。
+* `<certificate-store-path>` 是本地证书存储区目录中的 JKS 文件的路径和文件名。 例如，对于 Linux，则为 `C:/Certificates/CertificateName.jks`；对于 Windows，则为 `C:\Certificates\CertificateName.jks`。
 * `<certificate-password>` 是创建 JKS 证书时指定的密码。
 * `webAppName` 可以是选择的任何名称；此过程使用名称 `WebDemoWebApp`。 完整的域名称是 `webAppName`，并追加了 `domainName`，因此在这种情况下，完整的域是 `webdemowebapp.chinacloudsites.cn`。
 * `domainName` 应按照以上所示进行指定。
 * `webSpaceName` 应是 [WebSpaceNames][WebSpaceNames] 类中定义的值之一。
 * `appServicePlanName` 应按照以上所示进行指定。
 
-> 注意：每次运行此应用程序时，需要更改 `webAppName` 和 `appServicePlanName` 的值（或在 Azure 门户上删除 Web 应用），然后再次运行应用程序。 否则，由于 Azure 上已存在相同的资源，所以执行会失败。
+> **注意：** 每次运行此应用程序时，需要更改 `webAppName` 和 `appServicePlanName` 的值（或在 Azure 门户上删除 Web 应用），并再次运行应用程序。 否则，由于 Azure 上已存在相同的资源，所以执行会失败。
 > 
 > 
 
@@ -321,8 +320,8 @@ AzureWebDemo 应用程序的目的是创建应用服务 Web 应用，因此请�
 1. 单击“文件”>“新建”>“动态 Web 项目”。 将它命名为 `JSPHello`。 不需要在此对话框中更改其他任何设置。 单击“完成” 。
 
     ![][3]
-2. 在项目资源管理器中，展开“JSPHello”项目，右键单击“WebContent”，然后单击“新建”>“JSP 文件”。 在“新建 JSP 文件”对话框中，将新文件命名为 `index.jsp`。 单击“下一步”。
-3. 在“选择 JSP 模板”对话框中，选择“新建 JSP 文件 (html)”，然后单击“完成”。
+2. 在项目资源管理器中，展开“JSPHello”项目，右键单击“WebContent”，并单击“新建”>“JSP 文件”。 在“新建 JSP 文件”对话框中，将新文件命名为 `index.jsp`。 单击“下一步”。
+3. 在“选择 JSP 模板”对话框中，选择“新建 JSP 文件 (html)”，并单击“完成”。
 4. 在 index.jsp 中，在 `<head>` 和 `<body>` 标记部分中添加以下代码：
 
         <head>
@@ -347,7 +346,7 @@ AzureWebDemo 应用程序的目的是创建应用服务 Web 应用，因此请�
     ![][5]
 
     单击“完成” 。
-5. 随后将返回“属性”对话框的“目标运行时”页。 选择“Apache Tomcat v7.0”，然后单击“确定”。
+5. 随后将返回“属性”对话框的“目标运行时”页。 选择“Apache Tomcat v7.0”，并单击“确定”。
 
     ![][6]
 6. 在 Eclipse 的“运行”菜单中，单击“运行”。 在“运行方式”对话框中，选择“在服务器上运行”。 在“在服务器上运行”对话框中，选择“Tomcat v7.0 服务器”：
@@ -367,7 +366,7 @@ AzureWebDemo 应用程序的目的是创建应用服务 Web 应用，因此请�
     index.jsp
 
 1. 右键单击 WebContent 文件夹并选择“导出”。
-2. 在“导出选择”对话框中，单击“Web”>“WAR 文件”，然后单击“下一步”。
+2. 在“导出选择”对话框中，单击“Web”>“WAR 文件”，并单击“下一步”。
 3. 在“WAR 导出”对话框中，选择当前项目中的 src 目录，并在末尾添加 WAR 文件名。 例如：
 
     `<project-path>/JSPHello/src/JSPHello.war`
@@ -441,7 +440,7 @@ AzureWebDemo 应用程序的目的是创建应用服务 Web 应用，因此请�
 
     `https://webdemowebapp.scm.chinacloudsites.cn/DebugConsole`
 2. 从顶部菜单中，选择“调试控制台”>“CMD”。
-3. 在控制台命令行中，导航到 `/site/wwwroot`（或单击 `site`，然后在页面顶部的目录视图中单击 `wwwroot`）：
+3. 在控制台命令行中，导航到 `/site/wwwroot`（或单击 `site`，并在页面顶部的目录视图中单击 `wwwroot`）：
 
     `cd /site/wwwroot`
 4. 指定“Java 版本”后，Tomcat 服务器应会创建 webapps 目录。 在控制台命令行中，导航到 webapps 目录：
@@ -465,7 +464,7 @@ JSPHello.war 自身首先会显示在目录区域中：
 可用于发布应用程序的另一个工具是 FileZilla，这是一个带有便捷式图形 UI 的常用第三方 FTP 客户端。 如果尚未安装，则可从 [http://filezilla-project.org/](http://filezilla-project.org/) 中下载并安装 FileZilla。 有关使用客户端的详细信息，请参阅 [FileZilla 文档](https://wiki.filezilla-project.org/Documentation) 和 [FTP Clients - Part 4: FileZilla](http://blogs.msdn.com/b/robert_mcmurray/archive/2008/12/17/ftp-clients-part-4-filezilla.aspx)（FTP 客户端 - 第 4 部分：FileZilla）上的此博客条目。
 
 1. 在 FileZilla 中，单击“文件”>“站点管理员”。
-2. 在“站点管理员”对话框中，单击“新建站点”。  随后，“选择条目”中会出现新的空白 FTP 站点，提示你提供名称。 `AzureWebDemo-FTP`。
+2. 在“站点管理员”对话框中，单击“新建站点”。 随后，“选择条目”中会出现新的空白 FTP 站点，提示提供名称。 `AzureWebDemo-FTP`。
 
     在“常规”选项卡上指定以下设置：
 
@@ -482,8 +481,8 @@ JSPHello.war 自身首先会显示在目录区域中：
 4. 在“本地”站点面板中，选择 JSPHello.war 文件所在的源目录；路径与以下路径类似：
 
     `<project-path>/JSPHello/src/`
-5. 在“远程”站点面板中，选择目标文件夹。 `webapps` 目录中。 导航到 `/site/wwwroot`，右键单击 `wwwroot`，然后选择“创建目录”。 将目录命名为 `webapps`，并进入该目录。
-6. 将 JSPHello.war 传输到 `/site/wwwroot/webapps`。 在“本地”文件列表中选择 JSPHello.war，右键单击它，然后选择“上传”。 随后它应该会出现在 `/site/wwwroot/webapps` 中。
+5. 在“远程”站点面板中，选择目标文件夹。 WAR 文件会部署到 Web 应用根目录下的 `webapps` 目录中。 导航到 `/site/wwwroot`，右键单击 `wwwroot`，并选择“创建目录”。 将目录命名为 `webapps`，并进入该目录。
+6. 将 JSPHello.war 传输到 `/site/wwwroot/webapps`。 在“本地”文件列表中选择 JSPHello.war，右键单击它，并选择“上传”。 随后它应该会出现在 `/site/wwwroot/webapps` 中。
 7. 将 JSPHello.war 复制到 webapps 目录后，Tomcat 服务器自动解包（解压缩）该 WAR 文件中的文件。 尽管 Tomcat 服务器马上就会解包，但文件可能需要在很长时间（可能是几小时）之后才会出现在 FTP 客户端中。
 
 #### <a name="run-the-hello-world-application-on-the-web-app"></a>在 Web 应用上运行 Hello World 应用程序

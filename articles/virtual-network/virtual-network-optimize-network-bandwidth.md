@@ -16,11 +16,11 @@ origin.date: 11/15/2017
 ms.date: 03/12/2018
 ms.author: v-yeche
 ms.openlocfilehash: ffadc9318c4061f99785de0f7064079c6948fef2
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29871491"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659088"
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>优化 Azure 虚拟机网络吞吐量
 
@@ -29,8 +29,7 @@ Azure 虚拟机 (VM) 的默认网络设置可以进一步针对网络吞吐量�
 
 ## <a name="windows-vm"></a>Windows VM
 
-对于所有其他 Windows VM，与不使用 RSS 的 VM 相比，使用接收方缩放 (RSS) 可达到更高的最大吞吐量。 RSS 在 Windows VM 中默认已禁用。 完成以下步骤以确定是否启用了 RSS 并在处于禁用状态时启用：
-<!-- Not Avaialable virtual-network-create-vm-accelerated-networking.md -->
+对于所有其他 Windows VM，与不使用 RSS 的 VM 相比，使用接收方缩放 (RSS) 可达到更高的最大吞吐量。 RSS 在 Windows VM 中默认已禁用。 若要确定是否启用了 RSS 并在当前处于禁用状态时启用，请完成以下步骤：<!-- Not Avaialable virtual-network-create-vm-accelerated-networking.md -->
 
 1. 使用 `Get-NetAdapterRss` PowerShell 命令查看是否为网络适配器启用了 RSS。 从 `Get-NetAdapterRss`返回的以下示例输出中可以看出，RSS 未启用。
 

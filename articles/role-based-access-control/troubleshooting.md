@@ -17,11 +17,11 @@ ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: seohack1
 ms.openlocfilehash: fba2f35fef6a4f1c0d50c2bd1a6edfe6d98e0f8c
-ms.sourcegitcommit: 64af85591634684abc62e7f79d8270705c95c109
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42866341"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651932"
 ---
 # <a name="troubleshoot-rbac-in-azure"></a>对 Azure 中的 RBAC 进行故障排除
 

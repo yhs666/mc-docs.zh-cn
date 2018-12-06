@@ -5,41 +5,44 @@ services: active-directory
 documentationcenter: ''
 author: barbkess
 manager: mtillman
-ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 07/11/2017
-ms.date: 10/08/2018
+origin.date: 10/01/2018
+ms.date: 11/13/2018
 ms.author: v-junlch
-ms.openlocfilehash: b7d115865de93435f91d6d24d5369843d1be2af6
-ms.sourcegitcommit: b8f424fbff10034c55851618f6564d52257a5e92
+ms.openlocfilehash: 8a68c3e70a14dc4accf53f9d6668f9923ff6be5a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48876427"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664190"
 ---
-# <a name="how-to-assign-users-and-groups-to-an-application"></a>如何将用户和组分配到应用程序
-
-在用户可以对特定应用程序执行下列任何操作之前，需要先**将用户分配给应用程序**以授予其访问权限：
+# <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>向 Azure Active Directory 中的应用程序分配用户和组
+本文介绍如何将用户分配到 Azure Active Directory (Azure AD) 中的应用程序。 首先必须将用户分配给应用程序，然后管理员才能授予这些用户访问权限以执行以下操作：
 
 -   通过**直接导航到应用程序的 URL**（也称为 SP 发起的登录）访问应用程序。
 
 -   通过使用应用程序的“属性”页上的“用户访问 URL”（也称为 IDP 发起的登录）访问应用程序。
 
-
 -   查看显示在其 [Office 365 应用程序启动器](https://support.office.com/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a)中的应用程序。
 
-## <a name="methods-to-assign-applications-with-azure-active-directory"></a>使用 Azure Active Directory 分配应用程序的方法 
+## <a name="prerequisties"></a>先决条件
+在将用户和组分配到应用程序之前，必须要求用户分配。 若要要求用户分配，请执行以下操作：
 
-在 Azure 中国，可以使用 Azure Active Directory 分配应用程序：
+1. 使用管理员帐户登录到 Azure 门户。
+2. 在主菜单中单击“所有服务”项。
+3. 选择要用于应用程序的目录。
+4. 单击“企业应用程序”选项卡。
+5. 从与此目录关联的应用程序列表中选择应用程序。
+6. 单击“属性”选项卡。
+7. 将“需要进行用户分配?”切换为“是”。
+8. 单击屏幕顶部的“保存”按钮。
 
--   [以管理员身份直接将用户分配到应用程序](#assign-a-user-directly-as-an-administrator)
-
-## <a name="assign-a-user-directly-as-an-administrator"></a>以管理员身份直接将用户分配到应用程序
+## <a name="assign-users"></a>分配用户
 
 要直接将一个或多个用户分配到应用程序，请按照以下步骤操作：
 
@@ -57,7 +60,7 @@ ms.locfileid: "48876427"
 
 7.  在应用程序加载后，在应用程序的左侧导航菜单中单击“用户和组”。
 
-8.  单击“用户和组”列表顶部的“添加”按钮，以打开“添加分配”窗格。
+8.  单击“用户和组”列表顶部的“添加用户”按钮，以打开“添加分配”窗格。
 
 9.  在“添加分配”窗格中，单击“用户和组”选择器。
 

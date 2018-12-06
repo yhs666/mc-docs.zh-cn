@@ -1,6 +1,6 @@
 ---
-title: 创建具有多个 NIC 的 VM（经典）- Azure CLI 1.0 | Azure
-description: 了解如何使用 Azure 命令行接口 (CLI) 1.0 创建具有多个 NIC 的 VM（经典）。
+title: 创建具有多个 NIC 的 VM（经典）- Azure 经典 CLI | Azure
+description: 了解如何使用 Azure 经典命令行接口 (CLI) 创建具有多个 NIC 的 VM（经典）。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
@@ -14,17 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/02/2016
-ms.date: 06/11/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 612809d900757a0336da268b3e5f88bd76cdf9d1
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 892aeb55e4d95b9d6583f664054fbf8a0e205f1d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939924"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660801"
 ---
-# <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-cli-10"></a>使用 Azure CLI 1.0 创建具有多个 NIC 的 VM（经典）
+# <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-classic-cli"></a>使用 Azure 经典 CLI 创建具有多个 NIC 的 VM（经典）
 
 [!INCLUDE [virtual-network-deploy-multinic-classic-selectors-include.md](../../includes/virtual-network-deploy-multinic-classic-selectors-include.md)]
 
@@ -52,7 +52,7 @@ ms.locfileid: "38939924"
 ### <a name="step-1---start-your-script"></a>步骤 1 - 启动脚本
 可在 [此处](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-cli.sh)下载所用的完整 bash 脚本。 完成以下步骤，更改脚本，以便用于具体环境：
 
-1. 根据在上述 [先决条件](#Prerequisites)中部署的现有资源组，更改以下变量的值。
+1. 根据在上述 [先决条件](#prerequisites)中部署的现有资源组，更改以下变量的值。
     <!-- Archor is Correct on #prerequisites -->
 
     ```azurecli
@@ -196,6 +196,4 @@ ms.locfileid: "38939924"
 
 Azure DHCP 会将默认网关分配给附加到虚拟机的第一个（主）网络接口。 Azure 不会将默认网关分配给附加到虚拟机的其他（辅助）网络接口。 因此，默认情况下无法与辅助网络接口所在子网的外部资源进行通信。 但是，辅助网络接口可以与其子网之外的资源进行通信。 若要为辅助网络接口配置路由，请参阅[在具有多个网络接口的虚拟机操作系统中进行路由选择](virtual-network-network-interface-vm.md)。
 
-<!--The parent file of includes file of virtual-network-deploy-multinic-classic-selectors-include.md-->
-<!--ms.date:06/11/2018-->
-<!-- Update_Description: update link -->
+<!-- Update_Description: wording update -->

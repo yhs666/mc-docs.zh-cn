@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 11/15/2017
-ms.date: 11/05/2018
+ms.date: 12/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9deff44a7fd2ea89ee69fe1b6c3632840394e2e4
-ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
+ms.openlocfilehash: b6458aa9f3d1ecc94f81ee0258e4aa442430e8cf
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50204820"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674481"
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>使用 Xamarin 和 Azure Cosmos DB 生成移动应用程序
 
@@ -27,7 +27,7 @@ ms.locfileid: "50204820"
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
-大多数移动应用需要在云中存储数据，而 Azure Cosmos DB 正是适用于移动应用的云数据库。 该产品提供移动开发人员所需的一切功能。 它是一个完全托管的数据库即服务，可按需缩放。 它能够以透明方式将你的数据带到你的应用程序，无论你的用户位于多个区域中的任何位置。 使用 [Azure Cosmos DB .NET Core SDK](sql-api-sdk-dotnet-core.md)，可让 Xamarin 移动应用直接与 Azure Cosmos DB 交互，无需中间层。
+大多数移动应用需要在云中存储数据，而 Azure Cosmos DB 正是适用于移动应用的云数据库。 该产品提供移动开发人员所需的一切功能。 它是一个完全托管的数据库即服务，可按需缩放。 无论用户位于中国各地的何处，它都可以透明地将数据传输到应用程序。 使用 [Azure Cosmos DB .NET Core SDK](sql-api-sdk-dotnet-core.md)，可让 Xamarin 移动应用直接与 Azure Cosmos DB 交互，无需中间层。
 
 本文提供有关使用 Xamarin 和 Azure Cosmos DB 生成移动应用的教程。 可在 [GitHub 上的 Xamarin 和 Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin) 中找到本教程的完整源代码，其中包括如何管理用户和权限。
 
@@ -36,10 +36,10 @@ Azure Cosmos DB 为移动应用开发人员提供以下重要功能：
 
 ![移动应用的 Azure Cosmos DB 功能](media/mobile-apps-with-xamarin/documentdb-for-mobile.png)
 
-* 针对无架构数据的丰富查询。 Azure Cosmos DB 将数据以无架构 JSON 文档的形式存储在异构集合中。 它提供[丰富的快速查询](sql-api-sql-query.md)，无需担心架构或索引问题。
+* 针对无架构数据的丰富查询。 Azure Cosmos DB 将数据以无架构 JSON 文档的形式存储在异构集合中。 它提供[丰富的快速查询](how-to-sql-query.md)，无需担心架构或索引问题。
 * 快速吞吐量。 使用 Azure Cosmos DB 时，只需几毫秒就能读取和写入文档。 开发人员可以指定所需的吞吐量，Azure Cosmos DB 对所有单区域帐户和具有松散一致性的所有多区域帐户采用 99.99% 的可用性 SLA，对所有多区域数据库帐户采用 99.999% 的读取可用性。
 * 无限规模。 Azure Cosmos DB 集合[随着应用的增长而增长](partition-data.md)。 一开始可以处理较小规模的数据和每秒几百个请求的吞吐量。 集合或数据库可以增长到 PB 量级的数据和每秒几亿个请求的任意大的吞吐量。
-* 多区域分布。 移动应用用户的特点是经常跨多个区域漫游。 Azure Cosmos DB 是[多区域分布式数据库](distribute-data-globally.md)。 单击地图即可让用户访问数据。
+* 多区域分布。 移动应用用户的特点是经常在中国不同的地点漫游。 Azure Cosmos DB 是[多区域分布式数据库](distribute-data-globally.md)。 单击地图即可让用户访问数据。
 <!-- Notice: 全球 to 多个区域 -->
 * 内置丰富授权。 有了 Azure Cosmos DB，无需使用复杂的自定义授权代码，就能轻松实现常用的模式，例如，[每个用户的数据](https://aka.ms/documentdb-xamarin-todouser)，或者多个共享用户的数据。
 * 地理空间查询。 许多移动应用现在可以提供区分地理环境的体验。 凭借对[地理空间类型](geospatial.md)的一流支持，Azure Cosmos DB 可轻松创建这些体验。
@@ -87,7 +87,7 @@ Azure Cosmos DB 入门容易。 转到 Azure 门户，并创建新的 Azure Cosm
 
   4. 将应用修改为使用 Facebook 对资源令牌代理进行身份验证，请求已登录的 Facebook 用户的资源令牌。 然后，可在 UserItems 集合中访问其数据。  
 
-可在 [GitHub 上的资源令牌代理](http://aka.ms/documentdb-xamarin-todouser)中找到此模式的完整代码示例。 下图演示了该解决方案：
+可在 [GitHub 上的资源令牌代理](https://aka.ms/documentdb-xamarin-todouser)中找到此模式的完整代码示例。 下图演示了该解决方案：
 
 ![Azure Cosmos DB 用户和权限代理](media/mobile-apps-with-xamarin/documentdb-resource-token-broker.png)
 
@@ -99,7 +99,7 @@ Azure Cosmos DB 是托管型数据库即服务。 随着用户群体的扩大，
 ![Azure Cosmos DB 可按需缩放吞吐量](media/mobile-apps-with-xamarin/cosmos-db-xamarin-scale.png)
 
 ### <a name="go-multiple-region-scale"></a>达到多区域规模
-在应用受到广泛欢迎后，可以获得多个区域的用户。 或许需要针对一些不可预见的事件做好准备。 转到 Azure 门户，并打开 Azure Cosmos DB 帐户。 单击地图即可跨多个区域将数据持续复制到任意数目的区域。 此功能可向任意位置的用户提供数据。 还可以添加故障转移策略，针对意外状况做好准备。
+在应用受到广泛欢迎后，可以吸收中国的用户。 或许需要针对一些不可预见的事件做好准备。 转到 Azure 门户，并打开 Azure Cosmos DB 帐户。 单击地图即可将数据持续复制到中国任意数目的区域。 此功能可向任意位置的用户提供数据。 还可以添加故障转移策略，针对意外状况做好准备。
 <!-- Notice: 全球 to 多个区域 -->
 <!-- Notice: 全球各地 to 中国各地 -->
 <!-- Notice: 全球 to 中国 -->
@@ -112,7 +112,7 @@ Azure Cosmos DB 是托管型数据库即服务。 随着用户群体的扩大，
 * 查看 [GitHub 上的 Xamarin 和 Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin) 的源代码。
 * 下载 [Azure Cosmos DB .NET Core SDK](sql-api-sdk-dotnet-core.md)。
 * 查找 [.NET 应用程序](sql-api-dotnet-samples.md)的更多代码示例。
-* 了解 [Azure Cosmos DB 的丰富查询功能](sql-api-sql-query.md)。
+* 了解 [Azure Cosmos DB 的丰富查询功能](how-to-sql-query.md)。
 * 了解 [Azure Cosmos DB 中的地理空间支持](geospatial.md)。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties, wording update, update link -->

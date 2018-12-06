@@ -3,7 +3,7 @@ title: Azure 服务的反向 DNS | Microsoft Docs
 description: 了解如何为 Azure 中托管的服务配置反向 DNS 查找
 services: dns
 documentationcenter: na
-author: yunan2016
+author: WenJason
 manager: digimobile
 ms.service: dns
 ms.devlang: na
@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/29/2017
-ms.date: 12/18/2017
-ms.author: v-nany
-ms.openlocfilehash: 649cf82bb3b3d9f71a950dd24921da54936e3b86
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.date: 11/12/2018
+ms.author: v-jay
+ms.openlocfilehash: 07f5c393969e4671cfbf56744c896086f2fbc49f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426218"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648703"
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>为 Azure 中托管的服务配置反向 DNS
 
@@ -52,7 +52,7 @@ Azure 应用服务目前不支持反向 DNS。
 
 ## <a name="reverse-dns-for-publicipaddress-resources"></a>PublicIpAddress 资源的反向 DNS
 
-本部分提供有关如何使用 Azure PowerShell、Azure CLI 1.0 或 Azure CLI 2.0 在 Resource Manager 部署模型中配置 PublicIpAddress 资源的反向 DNS 的详细说明。 目前不支持通过 Azure 门户配置 PublicIpAddress 资源的反向 DNS。
+本部分提供有关如何使用 Azure PowerShell、Azure 经典 CLI 或 Azure CLI 在资源管理器部署模型中配置 PublicIpAddress 资源的反向 DNS 的详细说明。 目前不支持通过 Azure 门户配置 PublicIpAddress 资源的反向 DNS。
 
 Azure 当前仅支持为 IPv4 PublicIpAddress 资源配置反向 DNS。 IPv6 不支持此操作。
 
@@ -78,7 +78,7 @@ $pip.DnsSettings.ReverseFqdn = "contosoapp1.chinaeast.cloudapp.chinacloudapi.cn.
 Set-AzureRmPublicIpAddress -PublicIpAddress $pip
 ```
 
-#### <a name="azure-cli-10"></a>Azure CLI 1.0
+#### <a name="azure-classic-cli"></a>Azure 经典 CLI
 
 若要将反向 DNS 添加到现有 PublicIpAddress，请执行以下操作：
 
@@ -92,7 +92,7 @@ azure network public-ip set -n PublicIp -g MyResourceGroup -f contosoapp1.chinae
 azure network public-ip set -n PublicIp -g MyResourceGroup -d contosoapp1 -f contosoapp1.chinaeast.cloudapp.chinacloudapi.cn.
 ```
 
-#### <a name="azure-cli-20"></a>Azure CLI 2.0
+#### <a name="azure-cli"></a>Azure CLI
 
 若要将反向 DNS 添加到现有 PublicIpAddress，请执行以下操作：
 
@@ -116,13 +116,13 @@ az network public-ip update --resource-group MyResourceGroup --name PublicIp --r
 New-AzureRmPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup" -Location "China East" -AllocationMethod Dynamic -DomainNameLabel "contosoapp2" -ReverseFqdn "contosoapp2.chinaeast.cloudapp.chinacloudapi.cn."
 ```
 
-#### <a name="azure-cli-10"></a>Azure CLI 1.0
+#### <a name="azure-classic-cli"></a>Azure 经典 CLI
 
 ```azurecli
 azure network public-ip create -n PublicIp -g MyResourceGroup -l chinaeast -d contosoapp3 -f contosoapp3.chinaeast.cloudapp.chinacloudapi.cn.
 ```
 
-#### <a name="azure-cli-20"></a>Azure CLI 2.0
+#### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
 az network public-ip create --name PublicIp --resource-group MyResourceGroup --location chinaeast --dns-name contosoapp1 --reverse-fqdn contosoapp1.chinaeast.cloudapp.chinacloudapi.cn
@@ -138,13 +138,13 @@ az network public-ip create --name PublicIp --resource-group MyResourceGroup --l
 Get-AzureRmPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
 ```
 
-#### <a name="azure-cli-10"></a>Azure CLI 1.0
+#### <a name="azure-classic-cli"></a>Azure 经典 CLI
 
 ```azurecli
 azure network public-ip show -n PublicIp -g MyResourceGroup
 ```
 
-#### <a name="azure-cli-20"></a>Azure CLI 2.0
+#### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
 az network public-ip show --name PublicIp --resource-group MyResourceGroup
@@ -162,13 +162,13 @@ $pip.DnsSettings.ReverseFqdn = ""
 Set-AzureRmPublicIpAddress -PublicIpAddress $pip
 ```
 
-#### <a name="azure-cli-10"></a>Azure CLI 1.0
+#### <a name="azure-classic-cli"></a>Azure 经典 CLI
 
 ```azurecli
 azure network public-ip set -n PublicIp -g MyResourceGroup –f ""
 ```
 
-#### <a name="azure-cli-20"></a>Azure CLI 2.0
+#### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
 az network public-ip update --resource-group MyResourceGroup --name PublicIp --reverse-fqdn ""
@@ -177,7 +177,7 @@ az network public-ip update --resource-group MyResourceGroup --name PublicIp --r
 
 ## <a name="configure-reverse-dns-for-cloud-services"></a>配置云服务的反向 DNS
 
-本部分提供有关如何使用 Azure PowerShell 在经典部署模型中配置云服务的反向 DNS 的详细说明。 不支持通过 Azure 门户、Azure CLI 1.0 或 Azure CLI 2.0 配置云服务的反向 DNS。
+本部分提供有关如何使用 Azure PowerShell 在经典部署模型中配置云服务的反向 DNS 的详细说明。 不支持通过 Azure 门户、Azure 经典 CLI 或 Azure CLI 配置云服务的反向 DNS。
 
 ### <a name="add-reverse-dns-to-existing-cloud-services"></a>将反向 DNS 添加到现有云服务
 
@@ -247,7 +247,7 @@ FQDN 以正向顺序指定，且必须以点号结尾（例如“app1.contoso.co
 
 ### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>是否可以从 Azure 计算服务将电子邮件发送到外部域？
 
-否。 [Azure 计算服务不支持向外部域发送电子邮件](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/)
+直接从 Azure 部署发送电子邮件的技术能力取决于订阅类型。 无论是哪种订阅类型，Azure 都建议使用受信任的邮件中继服务来发送出站邮件。 有关更多详细信息，请参阅 [Enhanced Azure Security for sending Emails – November 2017 Update](https://blogs.msdn.microsoft.com/mast/2017/11/15/enhanced-azure-security-for-sending-emails-november-2017-update/)（增强 Azure 发送电子邮件的安全性 - 2017 年 11 月更新）。
 
 ## <a name="next-steps"></a>后续步骤
 

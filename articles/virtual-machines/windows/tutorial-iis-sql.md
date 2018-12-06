@@ -1,5 +1,5 @@
 ---
-title: 教程 - 在 Azure 中创建运行 SQL&#47;IIS&#47;.NET 堆栈的 VM | Azure
+title: 教程 - 在 Azure 中创建运行 SQL、IIS、.NET 堆栈的 VM | Azure
 description: 本教程介绍如何在 Azure 中的 Windows 虚拟机上安装 Azure SQL、IIS、.NET 堆栈。
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -13,25 +13,27 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 02/27/2018
-ms.date: 09/24/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 9feec7d14827fe68bc1b530dfdedc70d7e3cf0ac
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.openlocfilehash: 53c0e3c9ee678d6d913139523f566a94f52e089e
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527036"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674446"
 ---
-# <a name="tutorial-install-the-sql47iis47net-stack-in-a-windows-vm-with-azure-powershell"></a>教程：使用 Azure PowerShell 在 Windows VM 中安装 SQL&#47;IIS&#47;.NET 堆栈
+# <a name="tutorial-install-the-sql-iis-net-stack-in-a-windows-vm-with-azure-powershell"></a>教程：使用 Azure PowerShell 在 Windows VM 中安装 SQL、IIS、.NET 堆栈
 
-在本教程中，我们将使用 Azure PowerShell 安装 SQL&#47;IIS&#47;.NET 堆栈。 此堆栈包含两个运行 Windows Server 2016 的 VM，一个带有 IIS 和 .NET，另一个带有 SQL Server。
+在本教程中，我们将使用 Azure PowerShell 安装 SQL、IIS、.NET 堆栈。 此堆栈包含两个运行 Windows Server 2016 的 VM，一个带有 IIS 和 .NET，另一个带有 SQL Server。
 
 > [!div class="checklist"]
 > * 创建 VM 
 > * 在 VM 上安装 IIS 和 .NET Core SDK
 > * 创建运行 SQL Server 的 VM
 > * 安装 SQL Server 扩展
+
+<!--[!INCLUDE [cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]-->
 
 如果选择在本地安装并使用 PowerShell，则本教程需要 AzureRM.Compute 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM.Compute` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。
 
@@ -46,7 +48,7 @@ $resourceGroup = "myIISSQLGroup"
 New-AzureRmVm `
     -ResourceGroupName $resourceGroup `
     -Name $vmName `
-    -Location "chinanorth" `
+    -Location "China East" `
     -VirtualNetworkName $vNetName `
     -SubnetName "myIISSubnet" `
     -SecurityGroupName "myNetworkSecurityGroup" `
@@ -55,7 +57,7 @@ New-AzureRmVm `
     -OpenPorts 80,3389 
 ```
 
-使用自定义脚本扩展安装 IIS 和 .NET framework。
+通过 [Set-AzureRmVMExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet 使用自定义脚本扩展安装 IIS 和 .NET Framework。
 
 ```PowerShell
 Set-AzureRmVMExtension `
@@ -66,7 +68,7 @@ Set-AzureRmVMExtension `
     -ExtensionType CustomScriptExtension `
     -TypeHandlerVersion 1.4 `
     -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features"}' `
-    -Location "chinanorth"
+    -Location ChinaEast
 ```
 
 ## <a name="create-another-subnet"></a>创建另一子网
@@ -136,4 +138,5 @@ Set-AzureRmVMSqlServerExtension `
 
 > [!div class="nextstepaction"]
 > [使用 SSL 证书保护 IIS Web 服务器](tutorial-secure-web-server.md)
+
 <!-- Update_Description: update meta properties, wording update -->

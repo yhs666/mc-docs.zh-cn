@@ -1,23 +1,26 @@
 ---
 title: 设计你的第一个 Azure SQL 数据库 - C# | Microsoft Docs
-description: 学习设计你的第一个 Azure SQL 数据库，并使用 ADO.NET 通过 C# 程序连接到它。
+description: 学习设计第一个 Azure SQL 数据库，并使用 ADO.NET 通过 C# 程序连接到它。
 services: sql-database
-author: forester123
-manager: digimobile
 ms.service: sql-database
-ms.custom: develop databases, mvc
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: tutorial
-origin.date: 06/07/2018
-ms.date: 07/02/2018
-ms.author: v-johch
-ms.openlocfilehash: 18fbee6fd10bbe7441a8a2a33991923605128cb1
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+author: WenJason
+ms.author: v-jay
+ms.reviewer: carlrab
+manager: digimobile
+origin.date: 11/01/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: 02448bfd75ebdbdb3ae27fc1a7d33d373c8c86d6
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913974"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672587"
 ---
-# <a name="design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>设计 Azure SQL 数据库，并使用 C# 和 ADO.NET 进行连接
+# <a name="tutorial-design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>教程：设计 Azure SQL 数据库，并使用 C&#x23; 和 ADO.NET 进行连接
 
 Azure SQL 数据库是 Azure 中的关系数据库即服务 (DBaaS)。 本教程介绍如何将 Azure 门户、ADO.NET 与 Visual Studio 结合使用来完成以下操作： 
 
@@ -26,10 +29,10 @@ Azure SQL 数据库是 Azure 中的关系数据库即服务 (DBaaS)。 本教程
 > * 在 Azure 门户中设置服务器级防火墙规则
 > * 使用 ADO.NET 和 Visual Studi 连接至数据库
 > * 使用 ADO.NET 创建表
-> * 使用 ADO.NET 插入、更新和删除数据 
+> * 使用 ADO.NET 插入、更新和删除数据
 > * 查询数据 ADO.NET
 
-如果还没有 Azure 订阅，可以在开始前[创建一个免费帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -41,13 +44,11 @@ And it starts with a ## H2.
 
 [!INCLUDE [sql-database-tutorial-portal-create-firewall-connection-1](../../includes/sql-database-tutorial-portal-create-firewall-connection-1.md)]
 
-
 <!-- The following included .md, sql-database-csharp-adonet-create-query-2.md, is long.
 And it starts with a ## H2.
 -->
 
 [!INCLUDE [sql-database-csharp-adonet-create-query-2](../../includes/sql-database-csharp-adonet-create-query-2.md)]
-
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -64,4 +65,3 @@ And it starts with a ## H2.
 
 > [!div class="nextstepaction"]
 > [将 SQL Server 数据库迁移至 Azure SQL 数据库](sql-database-migrate-your-sql-server-database.md)
-

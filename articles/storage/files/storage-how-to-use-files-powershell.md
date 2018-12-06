@@ -14,15 +14,15 @@ ms.topic: get-started-article
 origin.date: 03/26/2018
 ms.date: 06/11/2018
 ms.author: v-johch
-ms.openlocfilehash: aff35cebba2da4d9079f7930f50452541d910d4c
-ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
+ms.openlocfilehash: c3657514172bf6304e8452f643cec0caaa93310b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523676"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662674"
 ---
 # <a name="managing-azure-file-shares-with-azure-powershell"></a>使用 Azure PowerShell 管理 Azure 文件共享 
-[Azure 文件](storage-files-introduction.md)是 Microsoft 推出的易用云文件系统。 可以在 Windows、Linux 和 macOS 中装载 Azure 文件共享。 本指南介绍通过 PowerShell 来使用 Azure 文件共享的基本知识。 本文介绍如何执行以下操作：
+[Azure 文件](storage-files-introduction.md)是易于使用的云文件系统。 可以在 Windows、Linux 和 macOS 中装载 Azure 文件共享。 本指南介绍通过 PowerShell 来使用 Azure 文件共享的基本知识。 本文介绍如何执行以下操作：
 
 > [!div class="checklist"]
 > * 创建资源组和存储帐户
@@ -92,7 +92,7 @@ New-AzureStorageDirectory `
 ```
 
 ### <a name="upload-a-file"></a>上传文件
-若要演示如何使用 [Set-AzureStorageFileContent](https://docs.microsoft.com/powershell/module/azure.storage/set-azurestoragefilecontent) cmdlet 来上传文件，首先需要在 PowerShell Cloud Shell 的暂存驱动器中创建要上传的文件。 
+若要演示如何使用 [Set-AzureStorageFileContent](https://docs.microsoft.com/powershell/module/azure.storage/set-azurestoragefilecontent) cmdlet 来上传文件，首先需要在 PowerShell 的暂存驱动器中创建要上传的文件。 
 
 此示例将当前的日期和时间置于暂存驱动器的新文件中，然后将文件上传到文件共享。
 
@@ -117,7 +117,7 @@ Get-AzureStorageFile -Context $storageAcct.Context -ShareName "myshare" -Path "m
 ```
 
 ### <a name="download-a-file"></a>下载文件
-可以使用 [Get-AzureStorageFileContent](https://docs.microsoft.com/powershell/module/azure.storage/get-azurestoragefilecontent) cmdlet 下载刚上传到 Cloud Shell 的暂存驱动器的文件的副本。
+可以使用 [Get-AzureStorageFileContent](https://docs.microsoft.com/powershell/module/azure.storage/get-azurestoragefilecontent) cmdlet 下载刚上传到 PowerShell 的暂存驱动器的文件的副本。
 
 ```azurepowershell
 # Delete an existing file by the same name as SampleDownload.txt, if it exists because you've run this example before.
@@ -133,7 +133,7 @@ Get-AzureStorageFileContent `
     -Destination "C:\Users\ContainerAdministrator\CloudDrive\SampleDownload.txt"
 ```
 
-下载文件以后，可以使用 `Get-ChildItem` 来查看该文件是否已下载到 PowerShell Cloud Shell 的暂存驱动器。
+下载文件以后，可以使用 `Get-ChildItem` 来查看该文件是否已下载到 PowerShell 的暂存驱动器。
 
 ```azurepowershell
 Get-ChildItem -Path "C:\Users\ContainerAdministrator\CloudDrive"
@@ -167,7 +167,7 @@ Start-AzureStorageFileCopy `
 Get-AzureStorageFile -Context $storageAcct.Context -ShareName "myshare2" -Path "myDirectory2" 
 ```
 
-虽然 `Start-AzureStorageFileCopy` cmdlet 可以方便地用于 Azure 文件共享和 Azure Blob 存储容器之间的临时文件移动，但我们仍建议你使用 AzCopy 进行较大型的移动（就要移动的文件的数量或大小而言）。 详细了解 [Windows 版 AzCopy](../common/storage-use-azcopy.md) 和 [Linux 版 AzCopy](../common/storage-use-azcopy-linux.md)。 AzCopy 必须安装在本地，在 Cloud Shell 中不可用。 
+虽然 `Start-AzureStorageFileCopy` cmdlet 可以方便地用于 Azure 文件共享和 Azure Blob 存储容器之间的临时文件移动，但我们仍建议你使用 AzCopy 进行较大型的移动（就要移动的文件的数量或大小而言）。 详细了解 [Windows 版 AzCopy](../common/storage-use-azcopy.md) 和 [Linux 版 AzCopy](../common/storage-use-azcopy-linux.md)。 AzCopy 必须安装在本地。 
 
 ## <a name="create-and-modify-share-snapshots"></a>创建和修改共享快照
 可以通过 Azure 文件共享执行的另一项有用的任务是创建共享快照。 快照保存的是 Azure 文件共享的某个时间点。 共享快照类似于你可能已经熟悉的操作系统技术，例如：

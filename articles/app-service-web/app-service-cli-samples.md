@@ -18,11 +18,11 @@ ms.date: 04/24/2017
 ms.author: v-dazen
 ms.custom: mvc
 ms.openlocfilehash: 57573eca975ba88f5dd7dddc7d1f531d6983411a
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
-ms.locfileid: "20463962"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650607"
 ---
 # <a name="azure-cli-samples"></a>Azure CLI 示例
 
@@ -41,9 +41,9 @@ ms.locfileid: "20463962"
 | [手动缩放 Web 应用](./scripts/app-service-cli-scale-manual.md?toc=%2fcli%2fazure%2ftoc.json) | 创建 Azure Web 应用并将其在 2 个实例之间进行缩放。 |
 | [缩放具有高可用性体系结构的全国性 Web 应用](./scripts/app-service-cli-scale-high-availability.md?toc=%2fcli%2fazure%2ftoc.json) | 在两个不同地理区域中创建两个 Azure Web 应用，并使用 Azure 流量管理器通过单个终结点使其可用。 |
 |**将应用连接到资源**||
-| [将 Web 应用连接到 SQL 数据库](./scripts/app-service-cli-app-service-sql.md?toc=%2fcli%2fazure%2ftoc.json)| 创建 Azure Web 应用和 SQL 数据库，然后将数据库连接字符串添加到应用设置。 |
-| [将 Web 应用连接到存储帐户](./scripts/app-service-cli-app-service-storage.md?toc=%2fcli%2fazure%2ftoc.json)| 创建 Azure Web 应用和存储帐户，然后将存储连接字符串添加到应用设置。 |
-| [将 Web 应用连接到 Redis 缓存](./scripts/app-service-cli-app-service-redis.md?toc=%2fcli%2fazure%2ftoc.json) | 创建 Azure Web 应用和 Redis 缓存，然后将 Redis 连接详细信息添加到应用设置。 |
+| [将 Web 应用连接到 SQL 数据库](./scripts/app-service-cli-app-service-sql.md?toc=%2fcli%2fazure%2ftoc.json)| 创建 Azure Web 应用和 SQL 数据库，并将数据库连接字符串添加到应用设置。 |
+| [将 Web 应用连接到存储帐户](./scripts/app-service-cli-app-service-storage.md?toc=%2fcli%2fazure%2ftoc.json)| 创建 Azure Web 应用和存储帐户，并将存储连接字符串添加到应用设置。 |
+| [将 Web 应用连接到 Redis 缓存](./scripts/app-service-cli-app-service-redis.md?toc=%2fcli%2fazure%2ftoc.json) | 创建 Azure Web 应用和 Redis 缓存，并将 Redis 连接详细信息添加到应用设置。 |
 | [将 Web 应用连接到 Cosmos DB](./scripts/app-service-cli-app-service-documentdb.md?toc=%2fcli%2fazure%2ftoc.json) | 创建 Azure Web 应用和 Cosmos DB，然后将 Cosmos DB 连接详细信息添加到应用设置。 |
 |**监视应用**||
 | [使用 Web 服务器日志监视 Web 应用](./scripts/app-service-cli-monitor.md?toc=%2fcli%2fazure%2ftoc.json) | 创建 Azure Web 应用，为其启用日志记录，并将日志下载到本地计算机。 |

@@ -17,11 +17,11 @@ origin.date: 05/16/2016
 ms.date: 01/15/2018
 ms.author: v-yiso
 ms.openlocfilehash: a57b1c5179b0d899fff9b080eca18d4f08af9a52
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
-ms.locfileid: "27781426"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652190"
 ---
 # <a name="scp-programming-guide"></a>SCP 编程指南
 SCP 是一个用于构建实时、可靠、一致和高性能的数据处理应用程序的平台。 它在 [Apache Storm](http://storm.incubator.apache.org/) 的基础上构建而成 -- Storm 是开源软件 (OSS) 社区设计的一个流处理系统。 Storm 由 Nathan Marz 设计，在 Twitter 上进行开源。 其利用 [Apache ZooKeeper](http://zookeeper.apache.org/)（另一个 Apache 项目）来实现高可靠性的分布式协调和状态管理。 
@@ -108,7 +108,7 @@ ISCPTxSpout 是适用于事务性 Spout 的接口。
 
 与非事务性接口一样，如果 C\# 进程的单一线程出现紧凑循环，将会调用 `NextTx()`、`Ack()` 和 `Fail()`。 如果没有要发送的数据，最好短暂地将 `NextTx` 置于休眠状态（例如 10 毫秒），以免浪费太多 CPU。
 
-调用 `NextTx()` 可启动新的事务；输出参数 `seqId` 用于识别事务，该参数也用于 `Ack()` 和 `Fail()` 中。 在 `NextTx()` 中，用户可以将数据发送到 Java 端。 然后，数据会被存储在 ZooKeeper 中，以支持重用。 ZooKeeper 的容量有限，因此，用户应该只发送元数据，而不应该发送事务性 Spout 中的批量数据。
+调用 `NextTx()` 可启动新的事务；输出参数 `seqId` 用于识别事务，该参数也用于 `Ack()` 和 `Fail()` 中。 在 `NextTx()`中，用户可以将数据发送到 Java 端。 然后，数据会被存储在 ZooKeeper 中，以支持重用。 ZooKeeper 的容量有限，因此，用户应该只发送元数据，而不应该发送事务性 Spout 中的批量数据。
 
 如果事务失败，Storm 会自动重新处理失败的事务，因此，一般情况下不应调用 `Fail()` 。 但是，如果 SCP 可以检查事务性 Spout 发送的元数据，当元数据无效时，SCP 可以调用 `Fail()` 。
 
@@ -353,7 +353,7 @@ SCPRuntime 提供以下两种方法：
         }
 
 ## <a name="topology-specification-language"></a>拓扑规范语言
-SCP 拓扑规范是一种特定于域的语言，用于描述和配置 SCP 拓扑。 它基于 Storm 的 Clojure DSL (<http://storm.incubator.apache.org/documentation/Clojure-DSL.html>)，可通过 SCP 进行扩展。
+SCP 拓扑规范是一种特定于域的语言，用于描述和配置 SCP 拓扑。 它基于 Storm 的 Clojure DSL (<http://storm.incubator.apache.org/documentation/Clojure-DSL.html>) 并通过 SCP 进行扩展。
 
 拓扑规范可通过 runspec 命令直接提交到 Storm 群集进行执行。
 

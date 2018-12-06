@@ -12,14 +12,14 @@ ms.custom: Azure Cosmos DB active
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 03/20/2018
-ms.date: 08/13/2018
+ms.date: 12/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3efc0ed23da6570c17f21bc58da0dd1c58059e63
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.openlocfilehash: d5112c280e2a7f3e6bff36d2d629c53cd8fd56ba
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41704010"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674727"
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>在 Azure 存储资源管理器中管理 Azure Cosmos DB
 
@@ -41,8 +41,8 @@ ms.locfileid: "41704010"
    ![插件图标](./media/storage-explorer/plug-in-icon.png)
 
 2. 在“添加 Azure 帐户”中选择值“Azure 中国”，然后单击“登录”。
+    
     <!-- Select the Azure China value in Add an Azure Account -->
-
    ![连接到 Azure 订阅](./media/storage-explorer/connect-to-azure-subscription.png)
 
 2. 在“Azure 登录”对话框中，选择“登录”，然后输入 Azure 凭据。
@@ -132,7 +132,7 @@ ms.locfileid: "41704010"
 
 2. 选择“无限制”以便能够指定分区键，然后单击“确定”完成操作。
 
-    如果在创建集合时使用分区键，则一旦创建完成，便无法对集合更改分区键值。 有关分区键设置的信息，请参阅[分区设计](partition-data.md#designing-for-partitioning)。
+    如果在创建集合时使用分区键，则一旦创建完成，便无法对集合更改分区键值。
 
     ![分区键](./media/storage-explorer/partitionkey.png)
 
@@ -154,7 +154,7 @@ ms.locfileid: "41704010"
 - 单击“删除”按钮以删除所选文档。
 
 #### <a name="query-for-documents"></a>查询文档
-- 通过输入 [SQL 查询](sql-api-sql-query.md)来编辑文档筛选器，然后单击“应用”。
+- 通过输入 [SQL 查询](how-to-sql-query.md)来编辑文档筛选器，然后单击“应用”。
 
     ![文档筛选器](./media/storage-explorer/document-filter.png)
 

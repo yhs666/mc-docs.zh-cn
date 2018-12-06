@@ -9,15 +9,15 @@ ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
 origin.date: 08/28/2017
-ms.date: 10/09/2018
+ms.date: 11/12/2018
 ms.author: v-junlch
 ms.reviewer: piotrci
-ms.openlocfilehash: 7b5dcb582a43cf23ab78d77ed73767aeb160c13f
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.openlocfilehash: eeb5c8537f163153353bf22cd4ffaf6002241410
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913748"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647545"
 ---
 # <a name="learn-about-access-management-using-azure-active-directory-groups"></a>了解如何使用 Azure Active Directory 组进行访问管理
 Azure Active Directory (Azure AD) 可以帮助你使用组织的组来管理基于云的应用、本地应用和资源。 资源可以是目录中的资源（例如用于通过目录中的角色管理对象的权限）、目录外部的资源（例如软件即 Azure 服务和 SharePoint 站点）和本地资源。
@@ -48,4 +48,5 @@ Azure AD 通过向单个用户或整个 Azure AD 组提供访问权限，帮助�
 
 - [使用 Azure AD Connect 将本地组同步到 Azure](../connect/active-directory-aadconnect.md)
 
+- [使用 Azure AD Connect 将本地组同步到 Azure](../hybrid/whatis-hybrid-identity.md)
 <!-- Update_Description: wording update -->

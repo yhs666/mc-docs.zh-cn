@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/11/2018
-ms.date: 08/20/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: cf28f9bf84c6450c790c574836cae3492d017bb8
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.openlocfilehash: 0c066b70f9dc5f86081d2a2ff387d00ee4bc8ae2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41705290"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648982"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>快速入门：将 Linux 容器部署到 Service Fabric
 
@@ -31,7 +31,7 @@ Azure Service Fabric 是一款分布式系统平台，可用于部署和管理�
 
 ![Voting 应用网页][quickstartpic]
 
-在本快速入门中，请在本地 Shell 中使用 Bash 环境来运行 Service Fabric CLI 命令。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+在本快速入门中，请在 Azure 本地 Shell 中使用 Bash 环境来运行 Service Fabric CLI 命令。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -49,11 +49,11 @@ cd service-fabric-containers/Linux/container-tutorial/Voting
 ```
 
 ## <a name="create-a-service-fabric-cluster"></a>创建 Service Fabric 群集
+
 若要将应用程序部署到 Azure，需要通过 Service Fabric 群集来运行该应用程序。 该群集使用单个自签名证书来确保节点到节点和客户端到节点的安全。
 
 <!-- Not Avaiable on Party cluster content -->
-
-若要了解如何创建自己的群集，请参阅[在 Azure 上创建 Service Fabric 群集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)。
+<!-- We customized the content due to there is no Party cluster in Mooncake project-->若要了解如何创建自己的群集，请参阅[在 Azure 上创建 Service Fabric 群集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)。
 
 > [!Note]
 >如果创建自己的群集，请注意，Web 前端服务配置为侦听端口 80 上是否有传入流量。 请确保此端口在群集中处于打开状态。
@@ -64,7 +64,7 @@ cd service-fabric-containers/Linux/container-tutorial/Voting
 Service Fabric 提供多种可以用来管理群集及其应用程序的工具：
 
 - Service Fabric Explorer，一种基于浏览器的工具。
-- Service Fabric 命令行界面 (CLI)，在 Azure CLI 2.0 基础上运行。
+- Service Fabric 命令行界面 (CLI)，在 Azure CLI 基础上运行。 
 - PowerShell 命令。
 
 在本快速入门中，请使用 Service Fabric CLI（在本地 Shell 中）和 Service Fabric Explorer。 以下部分介绍如何安装证书，该证书是使用上述工具连接到安全群集所需的。
@@ -72,10 +72,10 @@ Service Fabric 提供多种可以用来管理群集及其应用程序的工具�
 ### <a name="configure-certificate-for-the-service-fabric-cli"></a>为 Service Fabric CLI 配置证书
 
 若要在本地 Shell 中使用 CLI，需要上传证书 PFX 文件，然后使用它来创建 PEM 文件。
-2. 若要将 PFX 文件转换为 PEM 文件，请使用以下命令。 （对于合作群集，可以从“自述文件”页上的说明中复制特定于 PFX 文件的命令以及密码。）
+1. 若要将 PFX 文件转换为 PEM 文件，请使用以下命令。 
 
     ```bash
-    openssl pkcs12 -in party-cluster-1486790479-client-cert.pfx -out party-cluster-1486790479-client-cert.pem -nodes -passin pass:1486790479
+    openssl pkcs12 -in party-cluster-1486790479-client-cert.pfx -out party-cluster-1486790479-client-cert.pem -nodes -passin pass:<Your-Password-for-pfx-certificate>
     ```
 
 ### <a name="configure-certificate-for-service-fabric-explorer"></a>为 Service Fabric Explorer 配置证书
@@ -94,9 +94,9 @@ Service Fabric 提供多种可以用来管理群集及其应用程序的工具�
 
 1. 在本地 Shell 中，使用 CLI 连接到 Azure 中的 Service Fabric 群集。 此终结点是群集的管理终结点。 已在上一部分创建 PEM 文件。
 
-```bash
-sfctl cluster select --endpoint https://linh1x87d1d.chinanorth.cloudapp.chinacloudapi.cn:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
-```
+    ```bash
+    sfctl cluster select --endpoint https://linh1x87d1d.chinanorth.cloudapp.chinacloudapi.cn:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
+    ```
 
 2. 使用安装脚本将 Voting 应用程序定义复制到群集，注册应用程序类型，并创建应用程序的实例。
 
@@ -104,21 +104,22 @@ sfctl cluster select --endpoint https://linh1x87d1d.chinanorth.cloudapp.chinaclo
     ./install.sh
     ```
 
-2. 打开 Web 浏览器，导航到群集的 Service Fabric Explorer 终结点。 终结点的格式如下：https://\<my-azure-service-fabric-cluster-url>:19080/Explorer，例如 `https://linh1x87d1d.chinanorth.cloudapp.chinacloudapi.cn:19080/Explorer`。 </br>
-
-3. 展开“应用程序”节点，可以看到 Voting 应用程序类型的条目以及创建的实例。
+3. 打开 Web 浏览器，导航到群集的 Service Fabric Explorer 终结点。 终结点的格式如下：**https://\<my-azure-service-fabric-cluster-url>:19080/Explorer**，例如 `https://linh1x87d1d.chinanorth.cloudapp.chinacloudapi.cn:19080/Explorer`。 </br>
+    
+    <!-- Not Available on (For party clusters, you can find the Service Fabric Explorer endpoint for your cluster on the **Welcome** page.)-->
+4. 展开“应用程序”节点，可以看到 Voting 应用程序类型的条目以及创建的实例。
 
     ![Service Fabric Explorer][sfx]
 
-3. 若要连接到正在运行的容器，请打开 Web 浏览器，导航到群集的 URL，例如 `http://linh1x87d1d.chinanorth.cloudapp.chinacloudapi.cn:80`。 浏览器中应会显示该投票应用程序。
+5. 若要连接到正在运行的容器，请打开 Web 浏览器，导航到群集的 URL，例如 `http://linh1x87d1d.chinanorth.cloudapp.chinacloudapi.cn:80`。 浏览器中应会显示该投票应用程序。
 
     ![Voting 应用网页][quickstartpic]
 
-> [!NOTE]
-> 也可使用 Docker Compose 来部署 Service Fabric 应用程序。 例如，可以使用 Docker Compose 通过以下命令在群集上部署和安装应用程序。
->  ```bash
-> sfctl compose create --deployment-name TestApp --file-path ../docker-compose.yml
-> ```
+    > [!NOTE]
+    > 也可使用 Docker Compose 来部署 Service Fabric 应用程序。 例如，可以使用 Docker Compose 通过以下命令在群集上部署和安装应用程序。
+    >  ```bash
+    > sfctl compose create --deployment-name TestApp --file-path ../docker-compose.yml
+    > ```
 
 ## <a name="fail-over-a-container-in-a-cluster"></a>故障转移群集中的容器
 
@@ -167,6 +168,9 @@ Service Fabric 可确保在发生故障时，将容器实例自动转移到群�
    - 在 Windows 上：使用[“证书”MMC 管理单元](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in?view=azure-dotnet)。 在添加管理单元时，确保选择“我的用户帐户”。 导航到 `Certificates - Current User\Personal\Certificates`，然后删除证书。
    - 在 Mac 上：使用 Keychain 应用。
    - 在 Ubuntu 上：按照查看证书时所使用的步骤删除此证书。
+
+3. 如果不希望继续使用本地 Shell，则可删除与之相关联的存储帐户，避免被收取费用。 在 Azure 门户中，单击关联的存储帐户，然后单击页面顶部的“删除”并响应提示。
+
 ## <a name="next-steps"></a>后续步骤
 
 在本快速入门中，你已将 Linux 容器应用程序部署到 Azure 中的 Service Fabric 群集，在应用程序上执行了故障转移，并在群集中缩放了应用程序。 若要详细了解如何在 Service Fabric 中使用 Linux 容器，请继续学习适用于 Linux 容器应用的教程。

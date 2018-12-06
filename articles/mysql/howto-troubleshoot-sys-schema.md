@@ -11,11 +11,11 @@ ms.topic: article
 origin.date: 08/01/2018
 ms.date: 08/27/2018
 ms.openlocfilehash: 185e6db920fc5a2a73a4b66a16926ad8f9c800d3
-ms.sourcegitcommit: 6dd65fba579a2ce25c63ac69ff3b71d814a9d256
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42703855"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643817"
 ---
 # <a name="how-to-use-sysschema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>如何在 Azure Database for MySQL 中使用 sys_schema 进行性能优化和数据库维护
 

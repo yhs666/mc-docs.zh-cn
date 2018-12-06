@@ -22,7 +22,7 @@
 
 1. 浏览到 **iot-edge** 存储库本地副本中的根文件夹。
 
-1. 如下所示运行生成脚本：
+1. 按如下所示运行生成脚本：
 
     ```cmd
     tools\build.cmd --disable-native-remote-modules

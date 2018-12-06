@@ -10,11 +10,11 @@ ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: b6017c03af250348775368ebd20892d2c76be5f2
-ms.sourcegitcommit: 62a0389a743cd18665bd127e9bf14800867008eb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625660"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644307"
 ---
 Azure 定期执行更新，以提高虚拟机的主机基础结构的可靠性、性能及安全性。 此类更新包括修补宿主环境（例如操作系统、虚拟机监控程序以及主机上部署的各种代理）中的软件组件、升级网络组件以及硬件解除授权等多项内容。 大多数此类更新在执行时不会影响托管的虚拟机。 但是，也会存在更新产生影响的情况：
 
@@ -22,7 +22,7 @@ Azure 定期执行更新，以提高虚拟机的主机基础结构的可靠性�
 
 - 如果维护需重新启动，系统会告知计划维护的时间。 在这种情况下，系统还会提供一个时间范围，方便在合适的时间自行启动维护。
 
-本页介绍 Azure 如何执行上述两种类型的维护。 有关非计划事件（故障）的详细信息，请参阅“管理 [Windows](../articles/virtual-machines/windows/manage-availability.md) 或 [Linux](../articles/virtual-machines/linux/manage-availability.md) 虚拟机的可用性”。
+本页介绍 Azure 如何执行上述两种类型的维护。 有关非计划事件（服务中断）的详细信息，请参阅“管理 [Windows](../articles/virtual-machines/windows/manage-availability.md) 或 [Linux](../articles/virtual-machines/linux/manage-availability.md) 虚拟机的可用性”。
 
 在虚拟机中运行的应用程序可以通过适用于 [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) 或 [Linux](../articles/virtual-machines/linux/instance-metadata-service.md) 的 Azure 元数据服务收集即将发布的更新的相关信息。
 
@@ -56,7 +56,7 @@ Azure 定期执行更新，以提高虚拟机的主机基础结构的可靠性�
 
 #### <a name="paired-regions"></a>配对区域
 
-每个 Azure 区域与同一地理位置中另一个区域配对，共同组成一个区域对。 在计划性维护期间，Azure 只会更新一个区域对中单个区域的 VM。 例如，更新中国北部的虚拟机时，Azure 不会同时更新中国东部的任何虚拟机。 了解区域对的工作原理有助于更好地跨区域分配 VM。
+每个 Azure 区域与同一地理位置中另一个区域配对，共同组成一个区域对。 在计划性维护期间，Azure 只会更新一个区域对中单个区域的 VM。 例如，更新中国北部的虚拟机时，Azure 不会同时更新中国东部的任何虚拟机。 了解区域对的工作原理有助于更好地跨区域分配 VM。
 <!-- Not Available on However, other regions such as China North can be under maintenance at the same time as China East. -->
 <!-- Not Available on  For more information, see [Azure region pairs](/best-practices-availability-paired-regions) -->
 
@@ -66,7 +66,7 @@ Azure 定期执行更新，以提高虚拟机的主机基础结构的可靠性�
 
 在可用性集中，各个 VM 可分布在最多 20 个更新域 (UD) 中。 在计划性维护期间，任意时间都只有一个更新域受影响。 请注意，不一定按顺序来影响更新域。 
 
-虚拟机规模集是一种 Azure 计算资源，支持将一组相同的 VM 作为单个资源进行部署和管理。 规模集自动跨更新域进行部署，此类更新域就像可用性集中的 VM 一样。 在计划性维护期间使用规模集时，就像使用可用性集一样，在任意给定的时间都只会影响单个更新域。
+虚拟机规模集是一种 Azure 计算资源，支持将一组相同的 VM 作为单个资源进行部署和管理。 规模集自动跨更新域进行部署，此类更新域就像可用性集中的 VM 一样。 在计划性维护期间使用规模集时，就像使用可用性集一样，在任意给定的时间都只会影响单个更新域。
 
 有关配置虚拟机以实现高可用性的详细信息，请参阅“管理 [Windows](../articles/virtual-machines/windows/manage-availability.md) 或 [Linux](../articles/virtual-machines/linux/manage-availability.md) 虚拟机的可用性”。
 

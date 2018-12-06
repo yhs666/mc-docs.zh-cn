@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/06/2018
-ms.date: 09/03/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9ad48e8c5e1b52c66c1913dbda3178f24fbff1f7
-ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
+ms.openlocfilehash: 330ab072eab4493affe2abf7314af5bcdc364ba8
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50204811"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660089"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>使用 Resource Manager 模板和 Azure CLI 部署资源
 
@@ -76,7 +76,8 @@ az group deployment create \
 
 前面的示例要求模板的 URI 可公开访问，它适用于大多数情况，因为模板应该不会包含敏感数据。 如果需要指定敏感数据（如管理员密码），请以安全参数的形式传递该值。 但是，如果不希望模板可公开访问，可以通过将其存储在专用存储容器中来保护它。 若要了解如何部署需要共享访问签名 (SAS) 令牌的模板，请参阅[部署具有 SAS 令牌的专用模板](resource-manager-cli-sas-token.md)。
 
-<!-- Not Available on Cloud Shell -->
+<!-- Not Available on Cloud Shell --> 在本地 Shell 中使用以下命令：
+
 ```azurecli
 az group create --name examplegroup --location "China East"
 az group deployment create --resource-group examplegroup \
@@ -197,17 +198,6 @@ az group deployment validate \
 }
 ```
 
-若要使用完整模式，请使用 `mode` 参数：
-
-```azurecli
-az group deployment create \
-    --name ExampleDeployment \
-    --mode Complete \
-    --resource-group ExampleGroup \
-    --template-file storage.json \
-    --parameters storageAccountType=Standard_GRS
-```
-
 ## <a name="sample-template"></a>示例模板
 
 本文中的示例使用以下模板。 复制并将其另存为名为 storage.json 的文件。 若要了解如何创建此模板，请参阅[创建第一个 Azure Resource Manager 模板](resource-manager-create-first-template.md)。  
@@ -263,6 +253,6 @@ az group deployment create \
 * 若要了解如何在模板中定义参数，请参阅[了解 Azure Resource Manager 模板的结构和语法](resource-group-authoring-templates.md)。
 * 有关解决常见部署错误的提示，请参阅[排查使用 Azure Resource Manager 时的常见 Azure 部署错误](resource-manager-common-deployment-errors.md)。
 * 有关部署需要 SAS 令牌的模板的信息，请参阅[使用 SAS 令牌部署专用模板](resource-manager-cli-sas-token.md)。
-<!-- Not Available on [Azure enterprise scaffold - prescriptive subscription governance](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/subscription-governance)-->
+<!-- Not Available on [Azure Deployment Manager](deployment-manager-overview.md)-->
 
 <!--Update_Description: update meta properties, wording update, update link-->

@@ -11,14 +11,14 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: ns
 origin.date: 06/19/2018
-ms.date: 10/29/2018
+ms.date: 12/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: f1c075fa52c25d8bdb545f762f462be3adb4ade0
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: f9d624f06084efffc4f7eb7866256fbbc18c12ca
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453751"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674842"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-nodejs"></a>快速入门：将遥测数据从设备发送到 IoT 中心并使用后端应用程序从中心读取遥测数据 (Node.js)
 
@@ -47,15 +47,18 @@ node --version
 
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
 
-[!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>注册设备
 
 必须先将设备注册到 IoT 中心，然后该设备才能进行连接。 在本快速入门中，请使用 Azure CLI 来注册模拟设备。
 
-1. 添加 IoT 中心 CLI 扩展并创建设备标识。 
+1. 运行以下命令，以添加 IoT 中心 CLI 扩展并创建设备标识。 
 
    **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
+
+   **MyNodeDevice**：这是为注册的设备提供的名称。 请按显示的方法使用 MyNodeDevice。 如果为设备选择不同名称，则可能还需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
+
     ```azurecli
     az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyNodeDevice

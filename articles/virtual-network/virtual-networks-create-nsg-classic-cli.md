@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure CLI 1.0 创建网络安全组（经典）| Azure
-description: 了解如何使用 Azure CLI 1.0 创建和部署网络安全组（经典）。
+title: 使用 Azure 经典 CLI 创建网络安全组（经典）| Azure
+description: 了解如何使用 Azure 经典 CLI 创建和部署网络安全组（经典）。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
@@ -14,31 +14,31 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/02/2016
-ms.date: 06/11/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 44a9e7fe8df8d1dc3a78f11d06a439266a38702a
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 5653a06b6718e9a22b7f1adf39329859f3921d38
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939180"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644885"
 ---
-# <a name="create-a-network-security-group-classic-using-the-azure-cli-10"></a>使用 Azure CLI 1.0 创建网络安全组（经典）
+# <a name="create-a-network-security-group-classic-using-the-azure-classic-cli"></a>使用 Azure 经典 CLI 创建网络安全组（经典）
 [!INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-本文介绍经典部署模型。 还可以[在 Resource Manager 部署模型中创建 NSG](tutorial-filter-network-traffic-cli.md)。
+本文介绍经典部署模型。 还可以 [在 Resource Manager 部署模型中创建 NSG](tutorial-filter-network-traffic-cli.md)。
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-下面的示例 Azure CLI 命令需要一个已经基于方案创建的简单环境。 如果想要运行本文档中所显示的命令，首先通过[创建 VNet](virtual-networks-create-vnet-classic-cli.md) 构建测试环境。
+下面的示例 Azure CLI 命令需要一个已经基于方案创建的简单环境。 如果想要运行本文档中所显示的命令，首先通过 [创建 VNet](virtual-networks-create-vnet-classic-cli.md)构建测试环境。
 
 ## <a name="create-an-nsg-for-the-front-end-subnet"></a>为前端子网创建 NSG
 
-1. 如果从未使用过 Azure CLI，请参阅[安装和配置 Azure CLI](../cli-install-nodejs.md)。
+1. 如果从未使用过 Azure CLI，请参阅[安装和配置 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-cli-version-1.0?view=azure-cli-latest)。
 2. 切换到经典模式：
 
     ```azurecli
@@ -96,5 +96,4 @@ ms.locfileid: "38939180"
     ```
 
 <!-- Update_Description: wording update, update link -->
-<!--The parent file of includes file of virtual-networks-create-nsg-selectors-classic-include.md-->
 <!--ms.date:06/11/2018-->

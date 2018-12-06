@@ -16,11 +16,11 @@ origin.date: 01/12/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
 ms.openlocfilehash: 52d5922071312a20c38e1b112ecd359a2c966517
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
-ms.locfileid: "21135866"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663571"
 ---
 # <a name="azure-storage-samples-using-net"></a>使用 .NET 的 Azure 存储示例
 
@@ -51,11 +51,11 @@ ms.locfileid: "21135866"
 </tr> 
 <tr> 
 <td>创建容器</td>
-<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob 存储照片库 Web 应用程序</a></td>
+<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob Storage Photo Gallery Web Application（Azure Blob 存储照片库 Web 应用程序）</a></td>
 </tr> 
 <tr> 
 <td>删除 Blob</td>
-<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob 存储照片库 Web 应用程序</a></td>
+<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob Storage Photo Gallery Web Application（Azure Blob 存储照片库 Web 应用程序）</a></td>
 </tr> 
 <tr> 
 <td>删除容器</td>
@@ -67,14 +67,14 @@ ms.locfileid: "21135866"
 </tr> 
 <tr> 
 <td>容器 ACL/元数据/属性</td>
-<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob 存储照片库 Web 应用程序</a></td>
+<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob Storage Photo Gallery Web Application（Azure Blob 存储照片库 Web 应用程序）</a></td>
 </tr> 
 <tr> 
 <td>获取页面范围</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Blob 入门</a></td>
 </tr> 
 <tr> 
-<td>租用 Blob/容器</td>
+<td>租赁 Blob/容器</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Blob 入门</a></td>
 </tr> 
 <tr> 
@@ -104,7 +104,7 @@ ms.locfileid: "21135866"
 </tr>
 <tr> 
 <td>删除共享/目录/文件</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/master/FileStorage/GettingStarted.cs">Getting Started with Azure File Service in .NET（.NET 中 Azure 文件服务入门）</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/master/FileStorage/GettingStarted.cs">Getting Started with Azure File Service in .NET</a>（.NET 中 Azure 文件服务入门）</td> 
 </tr> 
 <tr> 
 <td>目录属性/元数据</td> 
@@ -149,7 +149,7 @@ ms.locfileid: "21135866"
 </tr> 
 <tr> 
 <td>删除消息/队列</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs">Getting Started with Azure Queue Service in .NET（.NET 中 Azure 队列服务入门）</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs">Getting Started with Azure Queue Service in .NET</a>（.NET 中 Azure 队列服务入门）</td> 
 </tr> 
 <tr> 
 <td>速览消息</td> 
@@ -174,11 +174,11 @@ ms.locfileid: "21135866"
 </tr> 
 <tr> 
 <td>删除实体/表</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/BasicSamples.cs">.NET 中的 Azure 表存储入门</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/BasicSamples.cs">Getting Started with Azure Table Storage in .NET</a></td> 
 </tr> 
 <tr> 
 <td>插入/合并/替换实体</td> 
-<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">使用 Azure 存储管理并发 - 示例应用程序</a></td> 
+<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Managing Concurrency using Azure Storage - Sample Application</a>（使用 Azure 存储管理并发 - 示例应用程序）</td> 
 </tr> 
 <tr> 
 <td>查询实体</td> 
@@ -190,7 +190,7 @@ ms.locfileid: "21135866"
 </tr> 
 <tr> 
 <td>表 ACL/属性</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/AdvancedSamples.cs">.NET 中的 Azure 表存储入门</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/AdvancedSamples.cs">Getting Started with Azure Table Storage in .NET</a></td> 
 </tr> 
 <tr> 
 <td>更新实体</td> 
@@ -220,5 +220,5 @@ ms.locfileid: "21135866"
 了解其他语言的示例：
 
 * Java：[使用 Java 的 Azure 存储示例](storage-samples-java.md)
-* 所有其他语言： [Azure 存储示例](../storage-samples.md)
+* 所有其他语言：[Azure 存储示例](../storage-samples.md)
 <!--Update_Description: update link-->

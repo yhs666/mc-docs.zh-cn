@@ -3,7 +3,7 @@ items:
   href: index.yml
 - name: SQL 数据库服务
   items:
-  - name: 关于 SQL DB
+  - name: 什么是 SQL DB
     href: sql-database-technical-overview.md
   - name: 选择 Azure SQL 版本
     href: sql-database-paas-vs-sql-server-iaas.md
@@ -27,7 +27,7 @@ items:
     - name: SSMS
       href: sql-database-connect-query-ssms.md
     - name: Azure Data Studio
-      href: https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json
+      href: https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database
     - name: Azure 门户
       href: sql-database-connect-query-portal.md
     - name: VS Code
@@ -55,15 +55,11 @@ items:
     href: sql-database-design-first-database.md
   - name: 2 - 使用 .NET 设计 DB
     href: sql-database-design-first-database-csharp.md
-  - name: 3 - 使用 DMA 迁移到 SQL Server DB
-    href: sql-database-migrate-your-sql-server-database.md
-  - name: 4 - 保护 SQL DB
+  - name: 3 - 保护 SQL DB
     href: sql-database-security-tutorial.md
-  - name: 5 - 实现地理分散的数据库
+  - name: 4 - 实现地理分散的数据库
     href: sql-database-implement-geo-distributed-database.md
-  - name: 6 - 使用 DMS 迁移到托管实例
-    href: ../dms/tutorial-sql-server-to-managed-instance.md
-  - name: 7 - 设置 Azure SQL 数据同步
+  - name: 5 - 设置 Azure SQL 数据同步
     href: sql-database-get-started-sql-data-sync.md
 - name: 示例
   items:
@@ -121,13 +117,15 @@ items:
       href: sql-database-dtu-resource-limits-elastic-pools.md
     - name: 缩放资源
       href: sql-database-elastic-pool-scale.md
-  - name: 业务连续性
+  - name: 平台即服务
     items:
+    - name: 平台即服务
+      href: sql-database-paas.yml
     - name: 业务连续性
       href: sql-database-business-continuity.md
     - name: 高可用性
       href: sql-database-high-availability.md
-    - name: 数据库备份
+    - name: 自动备份
       href: sql-database-automated-backups.md
     - name: 长期备份保留
       items:
@@ -145,13 +143,13 @@ items:
         href: sql-database-geo-replication-portal.md
       - name: 为副本配置安全性
         href: sql-database-geo-replication-security-config.md
-    - name: 数据库恢复
+    - name: 数据库恢复选项
       items:
-      - name: 数据库恢复
+      - name: 使用备份进行恢复
         href: sql-database-recovery-using-backups.md
-      - name: 从服务中断恢复
+      - name: 中断恢复指南
         href: sql-database-disaster-recovery.md
-      - name: 执行恢复演练
+      - name: 恢复练习
         href: sql-database-disaster-recovery-drills.md
     - name: 应用设计
       items:
@@ -164,6 +162,8 @@ items:
   - name: 安全性
     items:
     - name: 安全性
+      href: sql-database-security-index.yml
+    - name: 概述
       href: sql-database-security-overview.md
     - name: 高级威胁防护
       items:
@@ -271,29 +271,23 @@ items:
         href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
   - name: SQL 功能比较
     href: sql-database-features.md
-  - name: 性能和优化
+  - name: 监视和性能优化
     items:
+    - name: 监视和优化概述
+      href: sql-database-monitor-tune-overview.md
     - name: 智能性能
       items:
-      - name: 查询
+      - name: 优化顾问
         items:
-        - name: 智能查询处理
-          href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
-        - name: 自适应查询处理
-          href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
-      - name: 监视和优化
-        items:
-        - name: 监视和优化概述
-          href: sql-database-monitor-tune-overview.md
-        - name: 数据库顾问性能建议
-          href: sql-database-advisor.md
         - name: 优化操作和建议
           href: sql-database-performance.md
+        - name: Query Performance Insight
+          href: sql-database-query-performance.md
+        - name: 数据库顾问性能建议
+          href: sql-database-advisor.md
         - name: 应用性能建议
           href: sql-database-advisor-portal.md
-      - name: Query Performance Insight
-        href: sql-database-query-performance.md
-      - name: 自动性能优化
+      - name: 自动优化
         items:
         - name: 自动优化概述
           href: sql-database-automatic-tuning.md
@@ -389,6 +383,8 @@ items:
       href: sql-database-load-from-csv-with-bcp.md
   - name: 管理文件空间
     href: sql-database-file-space-management.md
+  - name: 使用资源运行状况排查连接问题
+    href: sql-database-resource-health.md
   - name: 开发应用
     items:
     - name: 连接
@@ -466,9 +462,9 @@ items:
     href: sql-database-public-data-sets.md
   - name: 定价
     href: https://www.azure.cn/pricing/details/sql-database/
-ms.openlocfilehash: 187e6a7831d1ba2a03adc309c98b979f3965e7bd
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.openlocfilehash: a83cc39d8dbaca2158d27ecaba16e50947537bcc
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135878"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672721"

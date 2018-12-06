@@ -16,11 +16,11 @@ origin.date: 03/16/2018
 ms.date: 05/14/2018
 ms.author: v-nany
 ms.openlocfilehash: 803fdb96dd6b5376631a36b2621bf2fe473f1971
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869406"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662667"
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Azure 自动化图形 Runbook 中的错误处理
 
@@ -36,7 +36,7 @@ Runbook 应包含错误处理。 若要验证活动的输出或通过图形 Runb
 
 * **非终止错误**：在失败情况下仍允许继续执行的非严重错误。 示例包括：操作错误（例如“找不到文件”错误）、权限问题。
 
-Azure 自动化图形 Runbook 已经过改进，能够包含错误处理。 用户现在可以将异常转为非终止错误并在活动之间创建错误链接。 Runbook 作者可以通过此过程捕获错误并管理已实现条件或意外条件。  
+Azure 自动化图形 Runbook 已经过改进，能够包含错误处理。 用户现在可以将异常转为非终止错误并在活动之间创建错误链接。 Runbook 作者可以通过此过程捕获错误并管理已实现条件或意外条件。  
 
 ## <a name="when-to-use-error-handling"></a>何时使用错误处理
 

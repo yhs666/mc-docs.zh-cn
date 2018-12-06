@@ -16,39 +16,39 @@ origin.date: 04/27/2016
 ms.date: 01/03/2017
 ms.author: v-dazen
 ms.openlocfilehash: b2343ebf3f77533d8af250c37c392a7b9a3d539e
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
-ms.locfileid: "20463822"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651869"
 ---
 # <a name="deploy-a-web-app-linked-to-a-github-repository"></a>部署链接到 GitHub 存储库的 Web 应用
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-在本主题中，会学习如何创建 Azure Resource Manager 模板，该模板部署链接到 GitHub 存储库项目的 Web 应用。 你将了解如何定义要部署的资源以及如何定义执行部署时指定的参数。 可将此模板用于自己的部署，或自定义此模板以满足要求。
+在本主题中，会学习如何创建 Azure Resource Manager 模板，该模板部署链接到 GitHub 存储库项目的 Web 应用。 了解如何定义要部署的资源以及如何定义执行部署时指定的参数。 可将此模板用于自己的部署，或自定义此模板以满足要求。
 
-有关创建模板的详细信息，请参阅[创作 Azure Resource Manager 模板](../azure-resource-manager/resource-group-authoring-templates.md)。
+有关创建模板的详细信息，请参阅 [创作 Azure Resource Manager 模板](../azure-resource-manager/resource-group-authoring-templates.md)。
 
 有关完整的模板，请参阅 [链接到 GitHub 的 Web 应用的模板](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-github-deploy/azuredeploy.json)。
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="what-you-will-deploy"></a>将部署的内容
-使用此模板，你将部署包含 GitHub 中项目代码的 Web 应用。
+## <a name="what-you-will-deploy"></a>要部署的内容
+使用此模板，将部署包含 GitHub 中项目代码的 Web 应用。
 
 若要自动运行部署，请单击以下按钮：
 
-[![“部署到 Azure”](./media/app-service-web-arm-from-github-provision/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-github-deploy%2Fazuredeploy.json)
+[![部署到 Azure](./media/app-service-web-arm-from-github-provision/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-github-deploy%2Fazuredeploy.json)
 
 >[!NOTE]
 > 必须修改从 GitHub 存储库“azure-quickstart-templates”部署的模板，以适应 Azure 中国云环境。 例如，替换某些终结点 -- 将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”。
 
-## <a name="parameters"></a>参数
+## <a name="parameters"></a>parameters
 [!INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
 
 ### <a name="repourl"></a>repoURL
-包含要部署项目的 GitHub 存储库的 URL。 此参数包含默认值，但此值仅用于向你展示如何提供存储库的 URL。 测试模板时可以使用此值，但使用模板时你将需要为自己的存储库提供 URL。
+包含要部署项目的 GitHub 存储库的 URL。 此参数包含默认值，但此值仅用于向你展示如何提供存储库的 URL。 测试模板时可以使用此值，但使用模板时需要为自己的存储库提供 URL。
 
     "repoURL": {
         "type": "string",
@@ -71,7 +71,7 @@ ms.locfileid: "20463822"
 
 通过 siteName 参数指定 Web 应用的名称，通过 siteLocation 参数指定 Web 应用的位置。 在 **dependsOn** 元素中，该模板将 Web 应用定义为依赖服务托管计划。 因为它依赖托管计划，所以只有当托管计划创建完成后才会创建 Web 应用。 **dependsOn** 元素仅用于指定部署顺序。 如果未将 Web 应用标记为依赖托管计划，Azure 资源管理器将尝试同时创建两个资源，而如果在创建托管计划之前创建了 Web 应用，则可能会接收到错误。
 
-Web 应用还具有一个子资源，在以下资源部分中对其进行定义。 此子资源为使用 Web 应用部署的项目定义源代码管理。 在此模板中，源代码管理链接到特定的 GitHub 存储库。 使用代码“RepoUrl":"https://github.com/davidebbo-test/Mvc52Application.git”定义 GitHub 存储库。如果要使用最少的参数创建可重复部署单个项目的模板，可以对存储库 URL 进行硬编码。
+Web 应用还具有一个子资源，在以下资源部分中对其进行定义。 此子资源为使用 Web 应用部署的项目定义源代码管理。 在此模板中，源代码管理链接到特定的 GitHub 存储库。 使用代码 "RepoUrl":"https://github.com/davidebbo-test/Mvc52Application.git" 定义 GitHub 存储库。如果要使用最少的参数创建可重复部署单个项目的模板，可以对存储库 URL 进行硬编码。
 如果不对存储库 URL 进行硬编码，可为存储库 URL 添加一个参数，并将该值用作 RepoUrl 属性。
 
     {

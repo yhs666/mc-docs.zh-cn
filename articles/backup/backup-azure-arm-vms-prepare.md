@@ -2,61 +2,57 @@
 title: Azure 备份：准备备份虚拟机
 description: 确保对环境进行准备，以便在 Azure 中备份虚拟机。
 services: backup
-author: markgalioto
-manager: carmonm
+author: lingliw
+manager: digimobile
 keywords: 备份; 备份;
 ms.service: backup
 ms.topic: conceptual
-origin.date: 09/10/2018
-ms.date: 10/19/2018
-ms.author: v-junlch
-ms.openlocfilehash: 1fee52056d1e0422344f8c998dcd4bed61a36097
-ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
+origin.date: 10/23/2018
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 46a06375b79f9e66b760ff011ac58153c4c8112c
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477787"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674829"
 ---
-# <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>准备环境以备份 Resource Manager 部署的虚拟机
+# <a name="prepare-to-back-up-azure-vms"></a>准备备份 Azure VM
 
-本文提供有关准备环境以备份 Azure 资源管理器部署的虚拟机 (VM) 的步骤。 过程中显示的步骤要使用 Azure 门户。 备份虚拟机时，备份数据或恢复点存储在恢复服务保管库。 恢复服务保管库可保存经典部署虚拟机和资源管理器部署虚拟机的备份数据。
-
-> [!NOTE]
-> Azure 有两种用于创建和使用资源的部署模型：[Resource Manager 部署模型和经典部署模型](../azure-resource-manager/resource-manager-deployment-model.md)。
+本文提供有关准备环境以备份 Azure 资源管理器部署的虚拟机 (VM) 的步骤。 过程中显示的步骤要使用 Azure 门户。 备份虚拟机时，备份数据或恢复点存储在恢复服务备份保管库。
 
 在保护（或备份）资源管理器部署虚拟机之前，请确保符合以下先决条件：
 
-- 在虚拟机所在区域创建或标识恢复服务保管库。
-- 选择方案、定义备份策略并定义要保护的项。
-- 检查虚拟机上的 VM 代理（扩展）的安装情况。
-- 检查网络连接。
-- 对于 Linux VM，如果要自定义备份环境以进行应用程序一致的备份，请按照[配置快照前和快照后脚本的步骤](/backup/backup-azure-linux-app-consistent)进行操作。
+* 在虚拟机所在区域创建或标识恢复服务保管库。
+* 选择方案、定义备份策略并定义要保护的项。
+* 检查虚拟机上的 VM 代理（扩展）的安装情况。
+* 检查网络连接。
+* 对于 Linux VM，如果要自定义备份环境以进行应用程序一致的备份，请按照[配置快照前和快照后脚本的步骤](/backup/backup-azure-linux-app-consistent)进行操作。
 
 如果环境已满足这些条件，请转到[备份 VM](backup-azure-arm-vms.md) 一文。 如果需要设置或检查上述任何先决条件，本文将逐步引导你完成各个步骤。
 
 ## <a name="supported-operating-systems-for-backup"></a>支持用于备份的操作系统
 
- - **Linux**：Azure 备份支持 [Azure 认可的分发版列表](../virtual-machines/linux/endorsed-distros.md)，但 CoreOS Linux 除外。 有关支持还原文件的 Linux 操作系统的列表，请参阅[从虚拟机备份恢复文件](backup-azure-restore-files-from-vm.md#for-linux-os)。
+ * **Linux**：Azure 备份支持 [Azure 认可的分发版列表](../virtual-machines/linux/endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)，但 CoreOS Linux 除外。 有关支持还原文件的 Linux 操作系统的列表，请参阅[从虚拟机备份恢复文件](backup-azure-restore-files-from-vm.md#for-linux-os)。
 
-    > [!NOTE] 
+    > [!NOTE]
     > 只要虚拟机上装有 VM 代理且支持 Python，其他自带 Linux 发行版应该也能正常运行。 但是，不支持这些发行版。
     >
- - **Windows Server**、**Windows 客户端**：不支持低于 Windows Server 2008 R2 或 Windows 7 的版本。
+ * **Windows Server**、**Windows 客户端**：不支持低于 Windows Server 2008 R2 或 Windows 7 的版本。
 
 
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>备份和还原 VM 时的限制
 准备环境之前，请务必了解限制：
 
-* 不支持备份超过 32 个数据磁盘的虚拟机。
-* 不支持备份使用保留 IP 地址且未定义终结点的虚拟机。
+* 不支持备份拥有 16 个以上数据磁盘的虚拟机。
 * 不支持备份通过 Linux 统一密钥设置 (LUKS) 加密法加密的 Linux VM。
 * 不建议备份包含群集共享卷 (CSV) 或横向扩展文件服务器配置的 VM。 如果已备份，会造成 CSV 编写器故障。 这些操作涉及到在执行快照任务执行期间包含在群集配置中的所有 VM。 Azure 备份不支持多 VM 一致性。
 * 备份数据不包括连接到 VM 的网络挂载驱动器。
 * 不支持在还原过程中替换现有虚拟机。 如果在 VM 存在时尝试还原 VM，还原操作会失败。
 * 不支持跨区域备份和还原。
 * 配置备份时，请确保“防火墙和虚拟网络”存储帐户设置允许从“所有网络”进行访问。
-* 对于所选的网络，为你的存储帐户配置防火墙和虚拟网络设置后，请选择“允许受信任的 Microsoft 服务访问此存储帐户”作为例外，以允许 Azure 备份服务访问网络受限的存储帐户。 网络受限的存储帐户不支持项级别的恢复。
-* 可以在 Azure 的所有公共区域中备份虚拟机。 （请参阅支持区域的[清单](https://azure.microsoft.com/regions/#services)。）在创建保管库期间，如果要寻找的区域目前不受支持，则不会在下拉列表中显示它。
+* 对于所选的网络，为你的存储帐户配置防火墙和虚拟网络设置后，请选择“允许受信任的 Azure 服务访问此存储帐户”作为例外，以允许 Azure 备份服务访问网络受限的存储帐户。 网络受限的存储帐户不支持项级别的恢复。
+* 可以在 Azure 的所有公共区域中备份虚拟机。 （请参阅支持区域的[清单](https://www.azure.cn/support/service-dashboard/#services)。）在创建保管库期间，如果要寻找的区域目前不受支持，则不会在下拉列表中显示它。
 * 仅支持通过 PowerShell 还原属于多 DC 配置的域控制器 (DC) VM。 有关详细信息，请参阅[还原多 DC 域控制器](backup-azure-arm-restore-vms.md#restore-domain-controller-vms)。
 * 不支持已启用写入加速器的磁盘上的快照。 此限制会导致 Azure 备份服务无法对虚拟机的所有磁盘执行应用程序一致的快照。
 * 仅支持通过 PowerShell 还原采用以下特殊网络配置的虚拟机。 还原操作完成后，在 UI 中通过还原工作流创建的 VM 将不采用这些网络配置。 若要了解详细信息，请参阅[还原采用特殊网络配置的 VM](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations)。
@@ -65,7 +61,7 @@ ms.locfileid: "49477787"
   * 使用多个网络适配器的虚拟机
 
   > [!NOTE]
-  > Azure 备份支持[标准 SSD 托管磁盘](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)，该磁盘是 Microsoft Azure 虚拟机的一种新型持久存储器。 [Azure VM 备份堆栈 V2](backup-upgrade-to-vm-backup-stack-v2.md) 上的托管磁盘支持它。
+  > Azure 备份支持[标准 SSD 托管磁盘](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)，该磁盘是 Azure 虚拟机的一种新型持久存储器。 [Azure VM 备份堆栈 V2](backup-upgrade-to-vm-backup-stack-v2.md) 上的托管磁盘支持它。
 
 ## <a name="create-a-recovery-services-vault-for-a-vm"></a>为 VM 创建恢复服务保管库
 恢复服务保管库是用于存储在不同时间创建的备份和恢复点的实体。 恢复服务保管库还包含与受保护虚拟机关联的备份策略。
@@ -185,8 +181,8 @@ ms.locfileid: "49477787"
 
 | **操作** | **Windows** | **Linux** |
 | --- | --- | --- |
-| 安装 VM 代理 |下载并安装 [代理 MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。 需要管理员权限才能完成安装。 |<li> 安装最新的 [Linux 代理](../virtual-machines/extensions/agent-linux.md)。 需要管理员权限才能完成安装。 我们建议从分发存储库安装代理。 我们 **不建议** 直接从 github 安装 Linux VM 代理。  |
-| 更新 VM 代理 |更新 VM 代理与重新安装 [VM 代理二进制文件](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)一样简单。 <br>确保在更新 VM 代理时，没有任何正在运行的备份操作。 |按照[更新 Linux VM 代理](../virtual-machines/linux/update-agent.md)中的说明进行操作。 我们建议从分发存储库更新代理。 我们**不建议**直接从 github 更新 Linux VM 代理。<br>确保在更新 VM 代理时，没有任何正在运行的备份操作。 |
+| 安装 VM 代理 |下载并安装 [代理 MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。 需要管理员权限才能完成安装。 |<li> 安装最新的 [Linux 代理](../virtual-machines/extensions/agent-linux.md)。 需要管理员权限才能完成安装。 我们建议从分发存储库安装代理。 我们 **不建议** 直接从 github 安装 Linux VM 代理。  |
+| 更新 VM 代理 |更新 VM 代理与重新安装 [VM 代理二进制文件](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)一样简单。 <br>确保在更新 VM 代理时，没有任何正在运行的备份操作。 |按照[更新 Linux VM 代理](../virtual-machines/linux/update-agent.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中的说明进行操作。 我们建议从分发存储库更新代理。 我们**不建议**直接从 github 更新 Linux VM 代理。<br>确保在更新 VM 代理时，没有任何正在运行的备份操作。 |
 | 验证 VM 代理安装 |<li>导航到 Azure VM 中的 *C:\WindowsAzure\Packages* 文件夹。 <li>应会发现 WaAppAgent.exe 文件已存在。<li> 右键单击该文件，转到“**属性**”，并选择“**详细信息**”选项卡。“产品版本”字段应为 2.6.1198.718 或更高。 |不适用 |
 
 ### <a name="backup-extension"></a>备份扩展
@@ -197,8 +193,8 @@ ms.locfileid: "49477787"
 ## <a name="establish-network-connectivity"></a>建立网络连接
 为了管理 VM 快照，备份扩展需要连接 Azure 公共 IP 地址。 如果未建立适当的 Internet 连接，虚拟机的 HTTP 请求会超时，并且备份操作会失败。 如果部署中配置了访问限制（例如，通过网络安全组 (NSG)），请选择其中一个选项来提供备份流量的明确路径：
 
-- [将 Azure 数据中心 IP 范围加入允许列表](http://www.microsoft.com/en-us/download/details.aspx?id=42064)。
-- 部署 HTTP 代理服务器来路由流量。
+* [将 Azure 数据中心 IP 范围加入允许列表](https://www.microsoft.com/download/details.aspx?id=42064)。
+* 部署 HTTP 代理服务器来路由流量。
 
 在确定使用哪个选项时，要取舍的不外乎是易管理性、控制粒度和成本等要素。
 
@@ -208,9 +204,9 @@ ms.locfileid: "49477787"
 | 使用 HTTP 代理 |允许在代理中对存储 URL 进行精细控制。<br><br>在单个位置通过 Internet 访问 VM。<br><br>不受 Azure IP 地址变化的影响。 |通过代理软件运行 VM 带来的额外成本。 |
 
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>Whitelist the Azure datacenter IP ranges
-要将 Azure 数据中心 IP 范围加入允许列表，请参阅 [Azure 网站](http://www.microsoft.com/en-us/download/details.aspx?id=42064)获取有关 IP 范围的详细信息和说明。
+要将 Azure 数据中心 IP 范围加入允许列表，请参阅 [Azure 网站](https://www.microsoft.com/download/details.aspx?id=42064)获取有关 IP 范围的详细信息和说明。
 
-可以允许使用[服务标记](../virtual-network/security-overview.md#service-tags)与特定区域的存储建立连接。 请确保允许访问存储帐户的规则的优先级高于阻止 Internet 访问的规则。 
+可以允许使用[服务标记](../virtual-network/security-overview.md#service-tags)与特定区域的存储建立连接。 请确保允许访问存储帐户的规则的优先级高于阻止 Internet 访问的规则。
 
 ![具有区域存储标记的 NSG](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
@@ -227,9 +223,9 @@ ms.locfileid: "49477787"
 
 以下示例图像显示了使用 HTTP 代理所要执行的三个配置步骤：
 
-- 应用 VM 通过代理 VM 路由所有发往公共 Internet 的 HTTP 流量。
-- 代理 VM 允许来自虚拟网络中 VM 的传入流量。
-- 名为 NSF-lockdown 的网络安全组需要使用一个安全规则允许来自代理 VM 的出站 Internet 流量。
+* 应用 VM 通过代理 VM 路由所有发往公共 Internet 的 HTTP 流量。
+* 代理 VM 允许来自虚拟网络中 VM 的传入流量。
+* 名为 NSF-lockdown 的网络安全组需要使用一个安全规则允许来自代理 VM 的出站 Internet 流量。
 
 若要使用 HTTP 代理来与公共 Internet 通信，请完成以下步骤。
 
@@ -287,11 +283,11 @@ HttpProxy.Port=<proxy port>
 1. 在“新建入站规则向导”中的“规则类型”页上，选择“自定义”选项，然后选择“下一步”。
 1. 在“程序”页上，依次选择“所有程序”、“下一步”。
 1. 在“协议和端口”页上输入以下信息，选择“下一步”：
-   - 对于“协议类型”，请选择“TCP”。
-   - 对于“本地端口”，请选择“特定端口”。 在随后显示的框中，指定已配置的代理端口号。
-   - 对于“远程端口”，请选择“所有端口”。
+   * 对于“协议类型”，请选择“TCP”。
+   * 对于“本地端口”，请选择“特定端口”。 在随后显示的框中，指定已配置的代理端口号。
+   * 对于“远程端口”，请选择“所有端口”。
 
-在向导的余下部分中，请一路接受默认设置。 然后为此规则命名。 
+在向导的余下部分中，请一路接受默认设置。 然后为此规则命名。
 
 #### <a name="step-3-add-an-exception-rule-to-the-nsg"></a>步骤 3：向 NSG 添加例外规则
 以下命令在 NSG 中添加一个例外。 此例外允许从 10.0.0.5 上的任何端口流向端口 80 (HTTP) 或 443 (HTTPS) 上的任何 Internet 地址的 TCP 流量。 如果需要访问公共 Internet 中的特定端口，请务必将该端口添加到 ```-DestinationPortRange```。
@@ -304,13 +300,13 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 ```
 
 ## <a name="questions"></a>存在疑问？
-如有疑问或希望包含某种功能，请[向我们发送反馈](http://aka.ms/azurebackup_feedback)。
+如有疑问或希望包含某种功能，请[向我们发送反馈](https://aka.ms/azurebackup_feedback)。
 
 ## <a name="next-steps"></a>后续步骤
 现在已准备好环境来备份 VM，下一个逻辑步骤是创建备份。 “计划”一文提供了有关备份 VM 的更详细信息。
 
-- [备份虚拟机](backup-azure-arm-vms.md)
-- [规划 VM 备份基础结构](backup-azure-vms-introduction.md)
-- [管理虚拟机备份](backup-azure-manage-vms.md)
+* [备份虚拟机](backup-azure-arm-vms.md)
+* [规划 VM 备份基础结构](backup-azure-vms-introduction.md)
+* [管理虚拟机备份](backup-azure-manage-vms.md)
 
 <!-- Update_Description: wording update -->

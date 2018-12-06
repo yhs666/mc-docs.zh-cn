@@ -16,24 +16,24 @@ origin.date: 04/25/2017
 ms.date: 07/10/2017
 ms.author: v-dazen
 ms.openlocfilehash: ddc8424d97f401b27377acb1f85504d7df015970
-ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
-ms.locfileid: "20228149"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660339"
 ---
 # <a name="create-a-php-mysql-web-app-in-azure-app-service-and-deploy-using-ftp"></a>使用 FTP 在 Azure 应用服务中创建和部署 PHP-MySQL Web 应用
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-本教程演示如何创建 PHP-MySQL Web 应用以及如何使用 FTP 部署该应用。 本教程假定你已在计算机上安装 [PHP][install-php]、[MySQL][install-mysql]、Web 服务器和 FTP 客户端。 本教程中的说明适用于任何操作系统，包括 Windows、Mac 和 Linux。 完成本指南之后，将获得一个在 Azure 中运行的 PHP/MySQL Web 应用。
+本教程演示如何创建 PHP-MySQL Web 应用以及如何使用 FTP 部署该应用。 本教程假定已在计算机上安装 [PHP][install-php]、[MySQL][install-mysql]、Web 服务器和 FTP 客户端。 本教程中的说明适用于任何操作系统，包括 Windows、Mac 和 Linux。 完成本指南之后，将拥有一个在 Azure 中运行的 PHP/MySQL Web 应用。
 
-你将学习以下内容：
+学习内容包括：
 
 * 如何使用 Azure 门户创建 Web 应用和 MySQL 数据库。 由于 Web 应用已默认启用 PHP，因此运行 PHP 代码没有任何特殊要求。
 * 如何使用 FTP 将应用程序发布到 Azure。
 
-通过按照本教程中的说明进行操作，你将在 PHP 中构建简单的注册 Web 应用。 将在 Web 应用中托管应用程序。 以下是已完成应用程序的屏幕快照：
+通过按照本教程中的说明进行操作，可在 PHP 中构建简单的注册 Web 应用。 在 Web 应用中托管应用程序。 以下是已完成应用程序的屏幕快照：
 
 ![Azure PHP 网站][running-app]
 
@@ -44,10 +44,10 @@ ms.locfileid: "20228149"
 2. 单击 Azure 门户左上角的“+ 新建”  图标。
 
     ![创建新的 Azure 网站][new-website]
-3. 在搜索中键入“Web 应用”，然后单击“Web 应用”。
-4. 单击“创建” 。 为资源组和新的服务计划输入唯一且有效的应用服务名称。
+3. 在搜索中键入“Web 应用”，并单击“Web 应用”。
+4. 单击**创建**。 为资源组和新的服务计划输入唯一且有效的应用服务名称。
 5. 创建 MYSQL，然后在 MYSQL 的仪表板中获取 Web 应用的连接字符串。
-6. 创建 Web 应用后，用户将看到新的应用服务边栏选项卡。
+6. 创建 Web 应用后，用户会看到新的应用服务边栏选项卡。
 7. 单击“设置” > “部署凭据”。 
 
     ![设置部署凭据][set-deployment-credentials]
@@ -56,18 +56,18 @@ ms.locfileid: "20228149"
     ![创建发布凭据][portal-ftp-username-password]
 
 ## <a name="build-and-test-your-app-locally"></a>在本地生成并测试应用
-注册应用程序是一个简单的 PHP 应用程序，在该应用程序中提供姓名和电子邮件地址即可注册事件。 以前的注册者的信息将显示在表中。 注册信息存储在 MySQL 数据库中。 该应用由两个文件组成：
+注册应用程序是一个简单的 PHP 应用程序，在该应用程序中提供姓名和电子邮件地址即可注册事件。 以前的注册者的信息会显示在表中。 注册信息存储在 MySQL 数据库中。 该应用由两个文件组成：
 
 * **index.php**：显示注册形式及包含注册者信息的表。
 * **createtable.php**：创建用于应用程序的 MySQL 表。 该文件仅供使用一次。
 
-若要本地构建和运行应用，请执行下列步骤。 请注意，这些步骤假定你已在本地计算机上设置 PHP、MySQL 和 Web 服务器，并且已启用 [MySQL 的 PDO 扩展][pdo-mysql]。
+若要本地构建和运行应用，请执行下列步骤。 请注意，这些步骤假定已在本地计算机上设置 PHP、MySQL 和 Web 服务器，并且已启用 [MySQL 的 PDO 扩展][pdo-mysql]。
 
-1. 创建名为 `registration`的 MySQL 数据库。 你可以在 MySQL 命令提示符中使用此命令执行此操作：
+1. 创建名为 `registration`的 MySQL 数据库。 可以在 MySQL 命令提示符中使用此命令执行此操作：
 
         mysql> create database registration;
 2. 在 Web 服务器的根目录中，创建一个名为 `registration` 的文件夹，并在其中创建两个文件 - 一个名为 `createtable.php`，另一个名为 `index.php`。
-3. 在文本编辑器或 IDE 中打开 `createtable.php` 文件并添加以下代码。 此代码将用于在 `registration` 数据库中创建 `registration_tbl` 表。
+3. 在文本编辑器或 IDE 中打开 `createtable.php` 文件并添加以下代码。 此代码用于在 `registration` 数据库中创建 `registration_tbl` 表。
 
         <?php
         // DB connection info
@@ -96,8 +96,8 @@ ms.locfileid: "20228149"
    > 需要使用本地 MySQL 用户名和密码更新 <code>$user</code> 和 <code>$pwd</code> 的值。
    > 
    > 
-4. 打开 Web 浏览器并浏览到 [http://localhost/registration/createtable.php][localhost-createtable]。 这将在数据库中创建 `registration_tbl` 表。
-5. 在文本编辑器或 IDE 中打开 **index.php** 文件，并为页面添加基本 HTML 和 CSS 代码（将在后续步骤中添加 PHP 代码）。
+4. 打开 Web 浏览器，并浏览到 [http://localhost/registration/createtable.php][localhost-createtable]。 这会在数据库中创建 `registration_tbl` 表。
+5. 在文本编辑器或 IDE 中打开 **index.php** 文件，并为页面添加基本 HTML 和 CSS 代码（会在后续步骤中添加 PHP 代码）。
 
         <html>
         <head>
@@ -191,19 +191,19 @@ ms.locfileid: "20228149"
             echo "<h3>No one is currently registered.</h3>";
         }
 
-你现在可以浏览到 [http://localhost/registration/index.php][localhost-index] 来测试应用。
+现在可以浏览到 [http://localhost/registration/index.php][localhost-index] 来测试此应用。
 
 ## <a name="get-mysql-and-ftp-connection-information"></a>获取 MySQL 和 FTP 连接信息
-若要连接到正在 Web 应用中运行的 MySQL 数据库，你将需要连接信息。 若要获取 MySQL 连接信息，请按照以下步骤操作：
+要连接到正在 Web 应用中运行的 MySQL 数据库，需要连接信息。 若要获取 MySQL 连接信息，请按照以下步骤操作：
 
 1. 在 Azure 经典管理门户中，单击“AZURE 上的 MYSQL 数据库” ，并打开 MYSQL 数据库服务器。 在“仪表板”页上的“速览”下，可以获取主机和端口。
 2. 在“帐户”页中，可以获取所有用户 Id，并重置密码。
 3. 在“数据库”  页中，可以获取此 MYSQL 数据库服务器下的所有数据库。
 
-    数据源将为 `<your MYSQL server name>.database.chinacloudapi.cn`
+    数据源为 `<your MYSQL server name>.database.chinacloudapi.cn`
 
 ## <a name="publish-your-app"></a>发布应用
-在本地测试你的应用之后，你可以使用 FTP 将其发布到 Web 应用。 但是，首先需要更新应用程序中的数据库连接信息。 使用之前获取的数据库连接信息（在“获取 MySQL 和 FTP 连接信息”部分中），使用适当的值在 `createdatabase.php` 和 `index.php` 文件中更新以下信息：
+在本地测试应用之后，可以使用 FTP 将其发布到 Web 应用。 但是，首先需要更新应用程序中的数据库连接信息。 使用之前获取的数据库连接信息（在“获取 MySQL 和 FTP 连接信息”部分中），使用适当的值在 `createdatabase.php` 和 `index.php` 文件中更新以下信息：
 
     // DB connection info
     $host = "value of Data Source";
@@ -218,12 +218,12 @@ ms.locfileid: "20228149"
 3. 将上面记下的 `userName` 和 `userPWD` 属性按原样输入到 FTP 客户端。
 4. 建立连接。
 
-连接后，你可以根据需要上传和下载文件。 确保将文件上传到根目录 `/site/wwwroot`。
+连接后，可以根据需要上传和下载文件。 确保将文件上传到根目录 `/site/wwwroot`。
 
-上传 `index.php` 和 `createtable.php` 之后，浏览到 **http://[site name].chinacloudsites.cn/createtable.php** 以创建用于应用程序的 MySQL 表，然后浏览到 **http://[site name].chinacloudsites.cn/index.php** 以开始使用应用程序。
+上传 `index.php` 和 `createtable.php` 之后，浏览到 **http://[site name].chinacloudsites.cn/createtable.php** 以创建用于应用程序的 MySQL 表，并浏览到 **http://[site name].chinacloudsites.cn/index.php** 以开始使用应用程序。
 
 ## <a name="next-steps"></a>后续步骤
-有关详细信息，请参阅 [PHP 开发人员中心](/develop/php/)。
+有关详细信息，请参阅 [PHP 开发中心](/develop/php/)。
 
 [install-php]: http://www.php.net/manual/en/install.php
 [install-mysql]: http://dev.mysql.com/doc/refman/5.6/en/installing.html

@@ -1,26 +1,20 @@
 ---
 title: 将管理事件的 Azure 警报迁移到活动日志警报
 description: 有关管理事件的警报将于 10 月 1 日删除。 请准备通过迁移现有警报。
-author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: lingliw
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 origin.date: 08/14/2017
-ms.date: 02/26/2018
-ms.author: v-yiso
-ms.openlocfilehash: fce221ae9312a5c26e7a84be147c5bef2786c6bd
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.component: alerts
+ms.openlocfilehash: 4189905e6dc9247e0e7484c17fad1dacb6a63223
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29286094"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675002"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>将管理事件的 Azure 警报迁移到活动日志警报
 
@@ -33,10 +27,10 @@ ms.locfileid: "29286094"
 ## <a name="what-is-changing"></a>有什么变化
 
 Azure Monitor（以前称为 Azure Insights）提供了创建警报的功能，可触发管理事件并生成发送到 webhook URL 或电子邮件地址的通知。 你可能已通过下列任一方式创建了下列任一警报：
-* 在某些资源类型的 Azure 门户中，在“监视”->“警报”->“添加警报”下，其中“警报”被设置为“事件”
+* 在某些资源类型的 Azure 门户中，在“监视”->“警报”->“添加警报”下，其中“警报触发条件”设置为“事件”
 * 通过运行 Add-AzureRmLogAlertRule PowerShell cmdlet
-* 通过直接使用 odata.type = “ManagementEventRuleCondition” 以及 dataSource.odata.type = “RuleManagementEventDataSource” 的[警报 REST API](http://docs.microsoft.com/rest/api/monitor/alertrules)
- 
+* 通过直接使用 odata.type = “ManagementEventRuleCondition”且 dataSource.odata.type =“RuleManagementEventDataSource”的[警报 REST API](https://docs.microsoft.com/rest/api/monitor/alertrules)
+
 以下 PowerShell 脚本将返回订阅中所具有的有关管理事件的所有警报列表，以及每个警报所设置的条件。
 
 ```powershell

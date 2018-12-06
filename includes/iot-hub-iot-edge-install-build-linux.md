@@ -23,13 +23,13 @@ git clone https://github.com/Azure/iot-edge.git
 
 1. 浏览到 **iot-edge** 存储库本地副本中的根文件夹。
 
-1. 如下所示运行生成脚本：
+1. 按如下所示运行生成脚本：
 
     ```sh
     tools/build.sh --disable-native-remote-modules
     ```
 
-此脚本使用 **cmake** 实用工具在 **iot-edge** 存储库本地副本的根文件夹中创建一个名为 **build** 的文件夹，并生成一个生成文件。 然后，该脚本生成解决方案并跳过单元测试和端到端测试。 如果想要生成并运行单元测试，请添加 `--run-unittests` 参数。 如果想要生成并运行端到端测试，请添加 `--run-e2e-tests`。
+此脚本使用  **cmake** 实用工具在  **iot-edge** 存储库本地副本的根文件夹中创建一个名为  **build** 的文件夹，并生成一个生成文件。 然后，该脚本生成解决方案并跳过单元测试和端到端测试。 如果想要生成并运行单元测试，请添加 `--run-unittests` 参数。 如果想要生成并运行端到端测试，请添加 `--run-e2e-tests`。
 
 > [!NOTE]
 > 每次运行 **build.sh** 脚本时，都会删除 **iot-edge** 存储库本地副本的根文件夹中的 **build** 文件夹并重新创建。

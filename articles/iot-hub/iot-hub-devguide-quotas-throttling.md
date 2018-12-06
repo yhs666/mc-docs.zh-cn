@@ -11,12 +11,12 @@ ms.workload: na
 origin.date: 09/05/2018
 ms.author: v-yiso
 ms.date: 10/08/2018
-ms.openlocfilehash: f3ddceb55f2f66f51e3312317e9c9e05313af49c
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: e0e19c061f54fa554145dd387799088a35baf7a2
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453580"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674459"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>参考 - IoT 中心配额和限制
 
@@ -59,7 +59,7 @@ ms.locfileid: "49453580"
 有关 IoT 中心限制行为的深入讨论，请参阅博客文章 [IoT Hub throttling and you][lnk-throttle-blog]（IoT 中心限制与你息息相关）。
 
 > [!IMPORTANT]
-> 标识注册表操作用于设备管理与预配方案中的运行时使用。 通过 [导入和导出作业][lnk-importexport]可以支持读取或更新大量的设备标识。
+> 标识注册表操作用于设备管理与预配方案中的运行时使用。 通过[导入和导出作业][lnk-importexport] 可以支持读取或更新大量的设备标识。
 > 
 > 
 
@@ -76,9 +76,9 @@ IoT 中心强制实施其他操作限制：
 | 设备到云的消息传送 | 最大消息大小 256 KB |
 | 云到设备的消息传递<sup>1</sup> | 最大消息大小为 64 KB。 进行传递的最大挂起消息数为 50。 |
 | 直接方法<sup>1</sup> | 直接方法有效负载的最大大小为 128 KB。 |
-| 配置 | 每个中心 20 个配置。 |
-| Edge 部署 | 每个中心 20 个部署。 每个部署 20 个模块。 |
-| 孪生 | 每个孪生部分（标记、所需属性、报告的属性）的最大大小为 8 KB |
+| 自动设备配置<sup>1</sup> | 每个付费 SKU 中心 100 个配置。 每个免费 SKU 中心 20 个配置。 |
+| 自动 Edge 部署<sup>1</sup> | 每个部署 20 个模块。 每个付费 SKU 中心 100 个部署。 每个免费 SKU 中心 20 个部署。 |
+| 孪生<sup>1</sup> | 每个孪生部分（标记、所需属性、报告的属性）的最大大小为 8 KB |
 
 <sup>1</sup>此功能在 IoT 中心的基本层内不可用。 有关详细信息，请参阅[如何选择正确的 IoT 中心](iot-hub-scaling.md)。
 
@@ -99,14 +99,4 @@ IoT 中心致力于降低所有操作的延迟。 但是，由于网络条件和
 
 此 IoT 中心开发人员指南中的其他参考主题包括：
 
-- [IoT 中心终结点][lnk-devguide-endpoints]
-
-[lnk-pricing]: https://www.azure.cn/pricing/details/iot-hub
-[lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/
-[lnk-importexport]: ./iot-hub-devguide-identity-registry.md#import-and-export-device-identities
-
-[lnk-devguide-endpoints]: ./iot-hub-devguide-endpoints.md
-[lnk-devguide-query]: ./iot-hub-devguide-query-language.md
-[lnk-devguide-mqtt]: ./iot-hub-mqtt-support.md
-
-<!--Update_Description: update meta data and wording-->
+* [IoT 中心终结点](iot-hub-devguide-endpoints.md)

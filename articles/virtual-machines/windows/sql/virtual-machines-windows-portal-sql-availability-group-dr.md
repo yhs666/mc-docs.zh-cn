@@ -18,11 +18,11 @@ origin.date: 05/02/2017
 ms.date: 04/16/2018
 ms.author: v-yeche
 ms.openlocfilehash: e93fd37a873d1abf7e9fbfe9986d92d3e109578a
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31326092"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662835"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>在位于不同区域的 Azure 虚拟机上配置 Always On 可用性组
 

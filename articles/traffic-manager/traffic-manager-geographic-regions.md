@@ -16,15 +16,15 @@ origin.date: 09/11/2017
 ms.date: 09/11/2017
 ms.author: v-yeche
 ms.openlocfilehash: 9f637732d757ba12c93dde2059f17db3f245f01c
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
-ms.locfileid: "22005311"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647718"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Azure 流量管理器将国家/地区层次结构用于地理流量路由方法
 
-本文列出了 Azure 流量管理器中**地理**流量路由方法使用的国家和地区。 还可以通过调用 [ Azure 流量管理器 REST API](https://docs.microsoft.com/rest/api/trafficmanager/) 以编程方式获取此信息。 
+本文列出了 Azure 流量管理器中**地理**流量路由方法使用的国家和地区。 还可以通过调用 [Azure 流量管理器 REST API](https://docs.microsoft.com/rest/api/trafficmanager/) 以编程方式获取此信息。 
 
 - WORLD(全球)
 
@@ -280,7 +280,7 @@ ms.locfileid: "22005311"
 
         - TT(特立尼达和多巴哥)
 
-        - UM(美属外岛)
+        - UM(美属本土外小岛屿)
 
         - US(美国)
 

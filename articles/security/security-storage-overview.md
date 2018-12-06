@@ -1,24 +1,26 @@
 ---
-title: Azure 存储安全概述 | Microsoft Azure
-description: Azure 存储是依赖于持续性、可用性和伸缩性来满足客户需求的现代应用程序的云存储解决方案。 本文提供可与 Azure 存储配合使用的核心 Azure 安全功能概述。
+title: 可与 Azure 存储配合使用的安全功能 | Azure
+description: 本文提供可与 Azure 存储配合使用的核心 Azure 安全功能概述。
 services: security
-documentationCenter: na
-authors: TerryLanfear
-manager: MBaldwin
+documentationcenter: na
+author: lingliw
+manager: digimobile
 editor: TomSh
+ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/16/2016
-ms.author: v-johch
-ms.openlocfilehash: 2cec3d3aacbb3a62f95ac443a9adff0607499d60
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 10/29/2018
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.openlocfilehash: fdfb089886ef35fb4cd3a36f97776c7545361b3a
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20182219"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674900"
 ---
 # <a name="azure-storage-security-overview"></a>Azure 存储安全概述
 
@@ -46,7 +48,7 @@ Azure 存储是依赖于持续性、可用性和伸缩性来满足客户需求�
 
 ## <a name="role-based-access-control-rbac"></a>基于角色的访问控制 (RBAC)
 
-可以使用基于角色的访问控制 (RBAC) 来保护存储帐户。 对于想要实施数据访问安全策略的组织而言，必须根据[需要知道](https://en.wikipedia.org/wiki/Need_to_know)和[最低权限](https://en.wikipedia.org/wiki/Principle_of_least_privilege)安全策略限制访问权限。 这些访问权限是通过将相应的 RBAC 角色分配给特定范围内的组和应用程序来授予的。 可以使用 [内置 RBAC 角色](../active-directory/role-based-access-built-in-roles.md)（例如存储帐户参与者）将权限分配给用户。
+可以使用基于角色的访问控制 (RBAC) 来保护存储帐户。 对于想要实施数据访问安全策略的组织而言，必须根据[需要知道](https://en.wikipedia.org/wiki/Need_to_know)和[最低权限](https://en.wikipedia.org/wiki/Principle_of_least_privilege)安全策略限制访问权限。 这些访问权限是通过将相应的 RBAC 角色分配给特定范围内的组和应用程序来授予的。 可以使用[内置 RBAC 角色](../active-directory/role-based-access-built-in-roles.md)（例如存储帐户参与者）将权限分配给用户。
 
 了解详细信息：
 
@@ -54,7 +56,7 @@ Azure 存储是依赖于持续性、可用性和伸缩性来满足客户需求�
 
 ## <a name="delegated-access-to-storage-objects"></a>存储对象的委托访问权限
 
-共享访问签名 (SAS) 用于对存储帐户中的资源进行委托访问。 使用 SAS 这意味着可以授权客户端在指定时间段内，以一组指定权限有限地访问你的存储帐户中的对象。 可以授予这些有限的权限，而不必共享帐户访问密钥。 SAS 是在其查询参数中包含对存储资源进行验证了身份的访问所需的所有信息的 URI。 若要使用 SAS 访问存储资源，客户端只需将 SAS 传入到相应的构造函数或方法。
+共享访问签名 (SAS) 用于对存储帐户中的资源进行委托访问。 使用 SAS，意味着可以授权客户端在指定时间段内，以一组指定权限有限访问存储帐户中的对象。 可以授予这些有限的权限，而不必共享帐户访问密钥。 SAS 是在其查询参数中包含对存储资源进行验证了身份的访问所需的所有信息的 URI。 要使用 SAS 访问存储资源，客户端只需将 SAS 传入到相应的构造函数或方法。
 
 了解详细信息：
 
@@ -77,7 +79,7 @@ Azure 存储是依赖于持续性、可用性和伸缩性来满足客户需求�
 
 对许多组织而言， [静态数据加密](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) 是实现数据隐私性、合规性和数据所有权的必要措施。 有三项 Azure 功能可提供“静态”数据加密：
 
-- [存储服务加密](../storage/storage-security-guide.md#encryption-at-rest) 可以请求存储服务在将数据写入 Azure 存储时自动加密数据。
+- [存储服务加密](../storage/storage-security-guide.md#encryption-at-rest)可以请求存储服务在将数据写入 Azure 存储时自动加密数据。
 - [客户端加密](../storage/storage-security-guide.md#client-side-encryption) 也提供静态加密功能。
 - [Azure 磁盘加密](../storage/storage-security-guide.md#using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) 允许加密 IaaS 虚拟机使用的 OS 磁盘和数据磁盘。
 
@@ -96,7 +98,7 @@ Azure 存储是依赖于持续性、可用性和伸缩性来满足客户需求�
 
 - [Azure Disk Encryption for Windows and Linux IaaS Virtual Machines（适用于 Windows 和 Linux IaaS 虚拟机的 Azure 磁盘加密）](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
 
-## <a name="azure-key-vault"></a>Azure 密钥保管库
+## <a name="azure-key-vault"></a>Azure Key Vault
 
 Azure 磁盘加密使用 [Azure 密钥保管库](https://www.azure.cn/home/features/key-vault/) 来帮助控制和管理密钥保管库订阅中的磁盘加密密钥和机密，同时确保虚拟机磁盘中的所有数据可在 Azure 存储中静态加密。 应使用密钥保管库来审核密钥和策略用法。
 

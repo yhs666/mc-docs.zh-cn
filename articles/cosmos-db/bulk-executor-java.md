@@ -1,35 +1,38 @@
 ---
-title: 使用批量执行程序 Java 库在 Azure Cosmos DB 中执行批量操作 | Azure
-description: 使用 Azure Cosmos DB 的批量执行程序 Java 库在 Azure Cosmos DB 容器中批量导入和更新文档。
-keywords: Java 批量执行程序
+title: 使用批量执行程序 Java 库在 Azure Cosmos DB 中执行批量导入和更新操作 | Azure
+description: 使用 Bulk Executor Java 库批量导入和更新 Azure Cosmos DB 文档。
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-origin.date: 05/07/2018
-ms.date: 09/30/2018
+origin.date: 10/16/2018
+ms.date: 12/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: a943ed65c13f3345e73e237f7b204244734af614
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: 1c8de8c40cc7add09f5c6ab019e1bd91864201a6
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201369"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674260"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>使用 Bulk Executor Java 库针对 Azure Cosmos DB 数据执行批量操作
 
 本教程说明了如何使用 Azure Cosmos DB 的批量执行程序 Java 库导入和更新 Azure Cosmos DB 文档。 若要了解 Bulk Executor 库及它如何帮助你利用大量吞吐量和存储，请参阅 [Bulk Executor 库概述](bulk-executor-overview.md)一文。 在本教程中，我们将构建一个可生成随机文档的 Java 应用程序，然后将文档批量导入 Azure Cosmos DB 容器。 导入后，我们将批量更新文档的某些属性。 
 
+目前，批量执行程序库仅受 Azure Cosmos DB SQL API 帐户支持。 本文介绍如何配合使用 SQL API 帐户和批量执行程序 .Net 库。 
+
+<!-- Not Available on [perform bulk operations in Azure Cosmos DB Gremlin API](bulk-executor-graph-dotnet.md).-->
+<!-- Not Available on Gremlin API-->
 ## <a name="prerequisites"></a>先决条件
 
 * 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。  
 
 * 可以使用 URI 为 `https://localhost:8081` 的 [Azure Cosmos DB 模拟器](/cosmos-db/local-emulator)。 [对请求进行身份验证](local-emulator.md#authenticating-requests)中提供了主密钥。  
-<!-- Not Available on [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/) -->
 
-* [Java 开发工具包 (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)  
+    <!-- Not Available on [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/) -->
+* [Java 开发工具包 (JDK) 1.7+](https://docs.azure.cn/zh-cn/java/java-supported-jdk-runtime?view=azure-java-stable)  
   - 在 Ubuntu 上运行 `apt-get install default-jdk`，以便安装 JDK。  
 
   - 请确保设置 JAVA_HOME 环境变量，使之指向在其中安装了 JDK 的文件夹。
@@ -213,4 +216,5 @@ ms.locfileid: "47201369"
 
 ## <a name="next-steps"></a>后续步骤
 * 若要了解 maven 包的详细信息以及 Bulk Executor Java 库的发行说明，请参阅 [Bulk Executor SDK 详细信息](sql-api-sdk-bulk-executor-java.md)。
-<!-- Update_Description: update meta properties -->
+
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -1,22 +1,23 @@
 ---
-title: 在 Azure 存储中存储和查看诊断数据 | Microsoft Docs
+title: 在 Azure 存储中存储和查看诊断数据
 description: 将 Azure 诊断数据传输到 Azure 存储并查看
 services: azure-monitor
 author: lingliw
 ms.service: azure-monitor
 ms.topic: conceptual
 origin.date: 08/01/2016
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: dfd20314c892dbbbab1a5762362d4f5be93a2323
-ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
+ms.component: diagnostic-extension
+ms.openlocfilehash: 83c27c5e1f83779bfd1427c4f368d28c27f45427
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652242"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674899"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>在 Azure 存储中存储和查看诊断数据
-诊断数据不会永久存储，除非将其传输到 Microsoft Azure 存储模拟器或 Azure 存储中。 一旦位于存储空间中，诊断数据就可以使用提供的工具之一进行查看。
+诊断数据不会永久存储，除非将其传输到 Azure 存储模拟器或 Azure 存储。 如果诊断数据位于存储中，可以使用提供的工具之一进行查看。
 
 ## <a name="specify-a-storage-account"></a>指定存储帐户
 指定要在 ServiceConfiguration.cscfg 文件中使用的存储帐户。 帐户信息被定义为配置设置中的连接字符串。 以下示例显示的是在 Visual Studio 中针对新的云服务项目创建的默认连接字符串：
@@ -65,7 +66,7 @@ ms.locfileid: "49652242"
 
 **Blob**
 
-* wad-control-container -（仅适用于 SDK 2.4 及更低版本）包含用于控制 Azure 诊断的 XML 配置文件。
+* **wad-control-container** -（仅适用于 SDK 2.4 及更低版本）包含用于控制 Azure 诊断的 XML 配置文件。
 * **wad-iis-failedreqlogfiles** - 包含 IIS 失败请求日志中的信息。
 * **wad-iis-logfiles** - 包含有关 IIS 日志的信息。
 * **"custom"** - 自定义容器，基于配置由诊断监视器监视的目录。  此 blob 容器的名称在 WADDirectoriesTable 中指定。
@@ -73,8 +74,8 @@ ms.locfileid: "49652242"
 ## <a name="tools-to-view-diagnostic-data"></a>用于查看诊断数据的工具
 将数据传输到存储后，可以使用多个工具进行查看。 例如：
 
-* Visual Studio 中的服务器资源管理器 - 如果已安装 Azure Tools for Microsoft Visual Studio，则可以在服务器资源管理器中使用“Azure 存储”节点从 Azure 存储帐户查看只读 Blob 和表数据。 既可以从本地存储模拟器帐户显示数据，也可以从为 Azure 创建的存储帐户显示数据。 有关详细信息，请参阅[使用服务器资源管理器浏览和管理存储资源](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md)。
-* [Microsoft Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md) 是一款独立应用，可用于在 Windows、OSX 和 Linux 上轻松处理 Azure 存储数据。
+* Visual Studio 中的服务器资源管理器 - 如果已安装 21Vianet Azure Tools for Azure Visual Studio，则可以在服务器资源管理器中使用“Azure 存储”节点从 Azure 存储帐户查看只读 Blob 和表数据。 既可以从本地存储模拟器帐户显示数据，也可以从为 Azure 创建的存储帐户显示数据。 有关详细信息，请参阅[使用服务器资源管理器浏览和管理存储资源](https://docs.microsoft.com/zh-cn/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage)。
+* [Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)是一款独立应用，可用于在 Windows、OSX 和 Linux 上轻松处理 Azure 存储数据。
 * [Azure Management Studio](http://www.cerebrata.com/products/azure-management-studio/introduction) 随附 Azure 诊断管理器，可用于查看、下载和管理 Azure 中运行的应用程序收集的诊断数据。
 
 ## <a name="next-steps"></a>后续步骤

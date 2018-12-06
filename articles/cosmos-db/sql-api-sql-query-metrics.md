@@ -10,18 +10,18 @@ ms.component: cosmosdb-sql
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 11/02/2017
-ms.date: 07/02/2018
+ms.date: 12/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: bab2e7cff83b8c4a8219525ca33f9940fd84205c
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: 676cb5e14b36dedcd08b0ea71c200f8a0355214c
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070326"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674480"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>优化 Azure Cosmos DB 的查询性能
 
-Azure Cosmos DB 提供了一个[用于查询数据的 SQL API](sql-api-sql-query.md)，不需要使用架构或辅助索引。 本文为开发者提供了以下信息：
+Azure Cosmos DB 提供了一个[用于查询数据的 SQL API](how-to-sql-query.md)，不需要使用架构或辅助索引。 本文为开发者提供了以下信息：
 
 * 有关 Azure Cosmos DB 的 SQL 查询执行如何工作的概要详细信息
 * 有关查询请求和响应标头以及客户端 SDK 选项的详细信息
@@ -39,7 +39,7 @@ Azure Cosmos DB 提供了一个[用于查询数据的 SQL API](sql-api-sql-query
 * 分析 SQL 查询来确定查询执行计划。 
 * 如果查询包括一个针对分区键的筛选器，例如 `SELECT * FROM c WHERE c.city = "Seattle"`，则它被传送到单个分区。 如果查询没有针对分区键的筛选器，则会在所有分区中执行该查询，并且结果是合并的客户端。
 * 查询会根据客户端配置在每个分区内串行或并行执行。 在每个分区内，查询可能会进行一次或多次往返，具体取决于查询复杂性、所配置的页面大小和预配的集合吞吐量。 每个执行都返回由查询执行使用的[请求单位](request-units.md)数以及可选的查询执行统计信息。 
-* SDK 对跨分区的查询结果进行汇总。 例如，如果查询涉及跨分区的 ORDER BY，则会对来自各个分区的结果进行合并排序以返回全局排序的结果。 如果查询是类似于 `COUNT` 的聚合，则会对来自各个分区的计数进行求和以生成总数。
+* SDK 对跨分区的查询结果进行汇总。 例如，如果查询涉及跨分区的 ORDER BY，则会对来自各个分区的结果进行合并排序以返回多区域排序的结果。 如果查询是类似于 `COUNT` 的聚合，则会对来自各个分区的计数进行求和以生成总数。
 
 SDK 针对查询执行提供了各种选项。 例如，在 .NET 中，`FeedOptions` 类中提供了以下选项。 下表介绍了这些选项以及它们如何影响查询执行时间。 
 
@@ -273,8 +273,8 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 | `SELECT TOP 500 c.Name FROM c WHERE STARTSWITH(LOWER(c.Name), 'den')` | `"IndexLookupTime": "00:00:00", "RetrievedDocumentCount": 2491,  "OutputDocumentCount": 500` | 查询是作为扫描执行的，因为它使用了 `LOWER`，并且返回了所检索的 2491 个文档中的 500 个。 |
 
 ## <a name="next-steps"></a>后续步骤
-* 若要了解受支持的 SQL 查询运算符和关键字，请参阅 [SQL 查询](sql-api-sql-query.md)。 
+* 若要了解受支持的 SQL 查询运算符和关键字，请参阅 [SQL 查询](how-to-sql-query.md)。 
 * 若要了解请求单位，请参阅[请求单位](request-units.md)。
 * 若要了解索引编制策略，请参阅[索引编制策略](indexing-policies.md)
 
-<!-- Update_Description: update meta properties  -->
+<!-- Update_Description: update meta properties, update link -->

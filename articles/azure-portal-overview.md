@@ -16,16 +16,16 @@ origin.date: 12/16/2015
 ms.date: 12/28/2017
 ms.author: v-junlch
 ms.openlocfilehash: d106dfee8466f7995c9c0100055f49263a8caa05
-ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2017
-ms.locfileid: "27547631"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649408"
 ---
 # <a name="azure-portal-overview"></a>Azure 门户概述
 Azure 门户是一个中心位置，可在其中预配和管理 Azure 资源。  本教程将帮助你熟悉此门户，并介绍如何使用以下一些关键功能：
 
-- **综合应用商店**，可在其中浏览数千个来自 Microsoft 和其他供应商的应用，可以购买这些应用和/或对其进行预配。
+- 一个**综合市场**，可以在其中浏览数千个来自 Microsoft 和其他供应商的应用，可以购买这些应用和/或对其进行设置。
 - **统一且可升级的浏览体验**，可以轻松查找关注的资源并执行各种管理操作。
 - **一致的管理页面**（或边栏选项卡），以一致的方式显示设置、操作、计费信息、运行状况监视和使用情况数据等等，使你能够管理 Azure 的各种服务。
 - **个性化体验**，可以创建自定义的开始屏幕，其中显示当你登录时想要看见的信息。  还可以自定义包含磁贴的任意管理边栏选项卡。
@@ -36,7 +36,7 @@ Azure 门户是一个中心位置，可在其中预配和管理 Azure 资源。 
 必须拥有有效的 Azure 订阅才能完整浏览本教程。  如果没有 Azure 订阅，可立即[注册试用版](https://www.azure.cn/pricing/1rmb-trial/)。  拥有订阅后，即可访问门户 <https://portal.azure.cn>。
 
 ## <a name="how-to-create-a-resource"></a>如何创建资源
-Azure 应用商店提供数千商品，你可以在一个位置集中创建商品。  假设你要创建一个新的 Windows Server 2012 VM。  “+新建”中心是从应用商店进入特色类别的精选组的入口点。  每个类别都有少量的特色项目，以及指向完整应用商店（显示所有类别和搜索）的链接。 若要新建 Windows Server 2012 VM，请执行以下操作：  
+Azure 提供了一个包含数千商品的市场，使你可以从一个位置集中创建商品。  假设你要创建一个新的 Windows Server 2012 VM。  “+新”中心是从市场进入特色类别的精选组的入口点。  每个类别都有少量的特色项目，以及指向完整市场（显示所有类别和搜索）的链接。 若要新建 Windows Server 2012 VM，请执行以下操作：  
 
 1. Windows Server 2012 是一种特色类别，可以从计算类别中选择它。  
 2. 在表单上填写一些基本输入信息。

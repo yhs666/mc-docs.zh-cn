@@ -16,11 +16,11 @@ origin.date: 12/06/2017
 ms.date: 09/10/2018
 ms.author: v-yeche
 ms.openlocfilehash: 874539b03b86c9ce12aa7f7efe4c15e5fcfeb856
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515723"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655655"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>独立 Windows 群集的配置设置
 本文介绍如何使用 ClusterConfig.json 文件配置独立的 Azure Service Fabric 群集。 需要使用该文件指定有关群集节点、安全配置以及有关容错域和升级域的网络拓扑信息。
@@ -85,7 +85,7 @@ ms.locfileid: "44515723"
 ClusterConfig.json 中的属性部分用于配置群集，如下所示：
 
 ### <a name="reliability"></a>可靠性
-reliabilityLevel 的概念定义可在群集的主节点上运行的 Service Fabric 系统服务副本或实例数。 它会确定这些服务以及群集的可靠性。 在群集创建和升级过程中，由系统计算该值。
+reliabilityLevel 的概念定义可在群集的主节点上运行的 Service Fabric 系统服务副本或实例数。 它确定这些服务以及群集的可靠性。 在群集创建和升级过程中，由系统计算该值。
 
 ### <a name="diagnostics"></a>诊断
 在 diagnosticsStore 节中可以配置参数，以便能够诊断和排查节点或群集故障，如以下代码片段中所示： 
@@ -108,7 +108,7 @@ metadata 用于描述群集诊断，可以根据具体的情况进行设置。 �
         "connectionstring": "xstore:DefaultEndpointsProtocol=https;AccountName=[AzureAccountName];AccountKey=[AzureAccountKey]"
     }
 
-### <a name="security"></a>安全
+### <a name="security"></a>安全性
 对于安全的 Service Fabric 独立群集，必须使用 security 节。 以下代码片段显示了该部分的一部分内容：
 
     "security": {
@@ -171,7 +171,7 @@ name 是此特定节点类型的友好名称。 要创建这种类型的节点�
 建议使用非 OS 驱动器作为 FabricDataRoot 和 FabricLogRoot。 此类驱动器提供更高的可靠性，可防止 OS 停止响应的情况。 如果只自定义数据根目录，则会将日志根目录放置在比数据根目录低一级的位置。
 
 ### <a name="stateful-reliable-services-settings"></a>有状态 Reliable Services 设置
-在 KtlLogger 节中，可以设置 Reliable Services 的全局配置设置。 有关这些设置的详细信息，请阅读[配置有状态 Reliable Services](service-fabric-reliable-services-configuration.md)。 以下示例演示如何更改创建的共享事务日志，以备份有状态服务的任何可靠集合：
+在 KtlLogger 节中，可以设置 Reliable Services 的全局配置设置。 有关这些设置的详细信息，请阅读[配置有状态 Reliable Services](service-fabric-reliable-services-configuration.md)。 以下示例说明如何更改为支持有状态服务的任何可靠集合而创建的共享事务日志：
 
     "fabricSettings": [{
         "name": "KtlLogger",

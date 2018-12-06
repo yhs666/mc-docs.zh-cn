@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/10/2017
-ms.date: 05/28/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: ec0d33ce7e125acfba0708d6f477adaf427c2ad4
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: f0134d2b50964f9f4f81fa14016ff9e60fc251e6
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554379"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657905"
 ---
 # <a name="upgrade-an-azure-service-fabric-cluster"></a>升级 Azure Service Fabric 群集
 > [!div class="op_single_selector"]
@@ -29,8 +29,8 @@ ms.locfileid: "34554379"
 > 
 > 
 
-对于任何新式系统而言，为可升级性做好规划是实现产品长期成功的关键所在。 Azure Service Fabric 群集是你拥有的，但部分由 Azure 管理的资源。 本文说明自动管理的项目以及可以自行配置的项目。
-<!-- Notice: Change Microsoft to Azure -->
+对于任何新式系统而言，为可升级性做好规划是实现产品长期成功的关键所在。 Azure Service Fabric 群集是你拥有的，但部分由世纪互联管理的资源。 本文说明自动管理的项目以及可以自行配置的项目。
+<!-- Notice: Change Microsoft to 21ViaNet -->
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>控制群集中运行的结构版本
 可以将群集设置为 21ViaNet 发布自动结构升级时接收该升级，也可以选择想要群集安装的受支持结构版本。
@@ -39,7 +39,7 @@ ms.locfileid: "34554379"
 为此，请门户上设置“upgradeMode”群集配置，或者在创建时或稍后在实时群集上使用 Resource Manager 进行设置。 
 
 > [!NOTE]
-> 请确保群集始终运行受支持的结构版本。 当我们公布新版本的 Service Fabric 发布后，则标志着自该日期起至少 60 天以后结束对旧版本的支持。 新版本[在 Service Fabric 团队博客](https://blogs.msdn.microsoft.com/azureservicefabric/)上公布。 之后新版本则可供选择。 
+> 请确保群集始终运行受支持的结构版本。 当我们公布新版本的 Service Fabric 发布后，则标志着自该日期起至少 60 天以后结束对旧版本的支持。 新版发布会在 [Service Fabric 团队博客](https://blogs.msdn.microsoft.com/azureservicefabric/)中通告。 之后新版本则可供选择。 
 > 
 > 
 
@@ -122,8 +122,7 @@ Output:
 ```
 
 ## <a name="fabric-upgrade-behavior-when-the-cluster-upgrade-mode-is-automatic"></a>群集升级模式为“自动”时的结构升级行为
-Azure 将维护 Azure 群集中运行的结构代码和配置。 我们根据需要，对软件执行受监视的自动升级。 升级的部分可能是代码和/或配置。 为了确保应用程序不受这些升级的影响或者将影响降到最低，我们分以下阶段执行升级：
-<!-- Notice: Change Microsoft to Azure-->
+Azure 将维护 Azure 群集中运行的结构代码和配置。 我们根据需要，对软件执行受监视的自动升级。 升级的部分可能是代码和/或配置。 为了确保应用程序不受这些升级的影响或者将影响降到最低，我们分以下阶段执行升级：<!-- Notice: Change Microsoft to Azure-->
 
 ### <a name="phase-1-an-upgrade-is-performed-by-using-all-cluster-health-policies"></a>阶段 1：使用所有群集运行状况策略执行升级
 在此阶段，升级过程将每次升级一个升级域，已在群集中运行的应用程序将继续运行，而不会造成任何停机时间。 升级过程中遵守群集运行状况策略（节点运行状况和所有在群集中运行的应用程序的运行状况的组合）。

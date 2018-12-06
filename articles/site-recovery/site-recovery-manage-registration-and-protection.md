@@ -5,16 +5,16 @@ services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-ms.topic: article
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.topic: conceptual
+origin.date: 10/10/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: fe18c0eac4bb4e23ebfd232da7e6493aa40613ab
-ms.sourcegitcommit: f7ff09be9f3be5e3eb795e383c0c670f480f233d
+ms.openlocfilehash: 48cc59f3f68c002217e295d7ed9089f5376f2db4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39169020"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657150"
 ---
 # <a name="remove-servers-and-disable-protection"></a>删除服务器并禁用保护
 
@@ -39,7 +39,7 @@ ms.locfileid: "39169020"
 5. 在所有辅助 VMM 服务器上，运行清理脚本。
 6. 在任何其他被动 VMM 群集节点（已安装提供程序）上运行清理脚本。
 7. 手动卸载 VMM 服务器上的提供程序。 如果有一个群集，请从所有节点删除。
-8. 若要将虚拟机复制到 Azure，需要在已删除的云中从 Hyper-V 主机中卸载 Microsoft 恢复服务代理。
+8. 若要将虚拟机复制到 Azure，需要在已删除的云中从 Hyper-V 主机中卸载 Azure 恢复服务代理。
 
 ## <a name="unregister-a-hyper-v-host-in-a-hyper-v-site"></a>取消注册 Hyper-V 站点中的 Hyper-V 主机
 
@@ -206,4 +206,4 @@ ms.locfileid: "39169020"
 
         Remove-VMReplication -VMName "SQLVM1"
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

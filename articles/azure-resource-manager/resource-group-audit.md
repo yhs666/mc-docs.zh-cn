@@ -16,11 +16,11 @@ origin.date: 04/04/2018
 ms.date: 05/28/2018
 ms.author: v-yeche
 ms.openlocfilehash: f2c9c6a21ecdd000cf7b9fb89f400f06dfcffa67
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554115"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657374"
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>查看活动日志，以便审核对资源的操作
 
@@ -32,8 +32,7 @@ ms.locfileid: "34554115"
 * 操作的状态
 * 其他可能有助于研究操作的属性的值
 
-<!--Pending role-based-access-control to Release -->
-活动日志包含针对资源执行的所有写入操作（PUT、POST、DELETE）。 它不包含读取操作 (GET)。 有关资源操作的列表，请参阅 [Azure 资源管理器资源提供程序操作](../role-based-access-control/resource-provider-operations.md)。 在进行故障排除或监视组织中的用户如何修改资源时，可以使用审核日志来查找错误。
+<!--Pending role-based-access-control to Release --> 活动日志包含针对资源执行的所有写入操作（PUT、POST、DELETE）。 它不包含读取操作 (GET)。 有关资源操作的列表，请参阅 [Azure 资源管理器资源提供程序操作](../role-based-access-control/resource-provider-operations.md)。 在进行故障排除或监视组织中的用户如何修改资源时，可以使用审核日志来查找错误。
 <!--Pending role-based-access-control to Release -->
 
 活动日志将保留 90 天。 可以查询任何日期范围，只要开始日期不早于过去 90 天。

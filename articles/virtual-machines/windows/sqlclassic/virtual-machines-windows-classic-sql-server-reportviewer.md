@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 01/11/2017
-ms.date: 05/21/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4786cb8e20b55a3dd044bd3fe13297a23183891a
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 8bf4eaec7931ee8378b35f2869743e3e70ff384a
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305813"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674164"
 ---
 # <a name="use-reportviewer-in-a-web-site-hosted-in-azure"></a>在 Azure 中托管的网站中使用 ReportViewer
 > [!IMPORTANT] 
@@ -51,8 +51,7 @@ ms.locfileid: "34305813"
 
 在远程处理模式下，ReportViewer 控件使用以下程序集：
 
-* 
-            **Microsoft.ReportViewer.WebForms.dll**：包含 ReportViewer 代码，需要在页面中使用 ReportViewer。 当你将 ReportViewer 控件拖到项目中的一个 ASP.NET 页时，此程序集的引用会被添加到该项目中。
+* **Microsoft.ReportViewer.WebForms.dll**：包含 ReportViewer 代码，需要在页面中使用 ReportViewer。 当你将 ReportViewer 控件拖到项目中的一个 ASP.NET 页时，此程序集的引用会被添加到该项目中。
 * **Microsoft.ReportViewer.Common.dll**：包含 ReportViewer 控件在运行时使用的类。 它不会自动添加到项目。
 
 ### <a name="to-add-a-reference-to-microsoftreportviewercommon"></a>添加对 Microsoft.ReportViewer.Common 的引用
@@ -64,7 +63,7 @@ ms.locfileid: "34305813"
 3. 为 Microsoft.ReportViewer.WebForms 重复步骤 1 和 2。
 
 ### <a name="to-get-reportviewer-language-pack"></a>获取 ReportViewer 语言包
-1. 安装 [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=317386)中的适当 Microsoft Report Viewer 2012 Runtime 可再发行组件包。
+1. 从[下载中心](https://go.microsoft.com/fwlink/?LinkId=317386)安装适当 Microsoft Report Viewer 2012 运行时可再发行组件包。
 2. 从下拉列表中选择语言，页面会重定向到相应的下载中心页面。
 3. 单击“下载”，开始下载 ReportViewerLP.exe。
 4. 下载 ReportViewerLP.exe 后，单击“运行”立即安装，或单击“保存”将其保存到计算机。 如果单击“保存”，请记住保存该文件的文件夹的名称。
@@ -74,7 +73,7 @@ ms.locfileid: "34305813"
 ### <a name="to-configure-for-localized-reportviewer-control"></a>为本地化 ReportViewer 控件进行配置
 1. 按照上面的指定说明下载并安装 Microsoft Report Viewer 2012 Runtime 可再发行组件包。
 2. 在项目中创建 <language> 文件夹并将关联的资源程序集文件复制到该位置。 要复制的资源程序集文件为：**Microsoft.ReportViewer.Webforms.Resources.dll** 和 **Microsoft.ReportViewer.Common.Resources.dll**。选择资源程序集文件，并在“属性”窗格中将“复制到输出目录”设置为“始终复制”。
-3. 为 Web 项目设置区域性和 UI 区域性。 有关如何为 ASP.NET 网页设置区域性和 UI 区域性的详细信息，请参阅[如何：为 ASP.NET 网页全球化设置区域性和 UI 区域性](http://go.microsoft.com/fwlink/?LinkId=237461)。
+3. 为 Web 项目设置区域性和 UI 区域性。 有关如何为 ASP.NET 网页设置区域性和 UI 区域性的详细信息，请参阅[如何：为 ASP.NET 网页全球化设置区域性和 UI 区域性](https://go.microsoft.com/fwlink/?LinkId=237461)。
 
 ## <a name="configuring-authentication-and-authorization"></a>配置身份验证和授权
 ReportViewer 需要使用正确的凭据向报表服务器进行身份验证，并且凭据必须经报表服务器授权才能访问所需的报表。 有关身份验证的信息，请参阅白皮书 [Reporting Services 报表查看器控件和基于 Azure 虚拟机的报表服务器](https://msdn.microsoft.com/library/azure/dn753698.aspx)。
@@ -90,9 +89,10 @@ ReportViewer 需要使用正确的凭据向报表服务器进行身份验证，�
 > 
 
 ## <a name="resources"></a>资源
-[Microsoft 报表](http://go.microsoft.com/fwlink/?LinkId=205399)
+[Microsoft 报表](https://go.microsoft.com/fwlink/?LinkId=205399)
 
 [Azure 虚拟机中的 SQL Server Business Intelligence](../classic/ps-sql-bi.md)
 
 [使用 PowerShell 创建运行本机模式报表服务器的 Azure VM](../classic/ps-sql-report.md)
+
 <!--Update_Description: update meta properties, update link -->

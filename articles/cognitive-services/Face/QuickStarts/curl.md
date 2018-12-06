@@ -1,57 +1,66 @@
 ---
-title: 快速入门：检测图像中的人脸 - 人脸 API cURL
+title: 快速入门：使用 Azure REST API 和 cURL 检测图像中的人脸
 titleSuffix: Azure Cognitive Services
-description: 在本快速入门中，使用人脸 API 和 cURL 检测图像中的人脸。
+description: 在本快速入门中，请使用 Azure 人脸 REST API 和 cURL 检测图像中的人脸。
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
-origin.date: 05/10/2018
-ms.date: 10/22/2018
+origin.date: 11/09/2018
+ms.date: 11/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: 59969d0b71f5498e95a93790df85af108d3318b2
-ms.sourcegitcommit: 44ce337717bb948f5ac08217a156935f663c0f46
+ms.openlocfilehash: bbf2c5cfe4a82749005c56c6e98b18bfac4f131c
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034665"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672728"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-curl"></a>快速入门：使用 cURL 检测图像中的人脸
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>快速入门：使用人脸 REST API 和 cURL 检测图像中的人脸
 
-在本快速入门中，使用人脸 API 检测图像中的人脸。
+在本快速入门中，请使用 Azure 人脸 REST API 和 cURL 检测图像中的人脸。
+
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
 
 ## <a name="prerequisites"></a>先决条件
 
-需要一个订阅密钥来运行此示例。 可从 [https://portal.azure.cn](https://portal.azure.cn) 获取订阅密钥。
+- 人脸 API 订阅密钥。 可以按照[创建认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)中的说明订阅人脸 API 服务并获取密钥。
 
-## <a name="detect-faces-in-an-image"></a>在图像中检测人脸
-
-使用[人脸 - 检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)方法检测图像中的人脸并返回人脸属性，包括：
-
-- 人脸 ID：多个人脸 API 方案中使用的唯一 ID。
-- 人脸矩形：左侧、顶部、宽度和高度，指示人脸在图像中的位置。
-- 地标：27 点人脸地标数组，指向人脸组成部分的重要位置。
-- 人脸属性包括年龄、性别、笑容程度、头部姿态和面部毛发。
-
-若要运行此示例，请执行以下步骤：
-
-1. 打开命令提示符。
-2. 将 `<Subscription Key>` 替换为有效订阅密钥。
-3. （可选）更改要分析的图像 (`"{\"url\":...`)。
-4. 在命令窗口中粘贴代码。
-5. 运行命令。
-
-### <a name="face---detect-request"></a>人脸 - 检测请求
+## <a name="write-the-command"></a>编写命令
+ 
+将使用如下所示的命令来调用人脸 API 并获取图像中的人脸属性数据。 首先，将代码复制到文本编辑器中&mdash;在运行它之前，需对命令的某些部分进行更改。
 
 ```shell
 curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" "https://api.cognitive.azure.cn/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise" -H "Content-Type: application/json" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}"
 ```
 
-### <a name="face---detect-response"></a>人脸 - 检测响应
+### <a name="subscription-key"></a>订阅密钥
+将 `<Subscription Key>` 替换为有效的人脸订阅密钥。
 
-成功响应将以 JSON 格式返回。
+### <a name="face-endpoint-url"></a>人脸终结点 URL
+
+URL `https://api.cognitive.azure.cn/face/v1.0/detect` 指示要查询的 Azure 人脸终结点。 可能需更改此 URL 的第一部分，使之与订阅密钥的相应区域匹配（如需包含所有区域终结点的列表，请参阅[人脸 API 文档](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)）。
+
+### <a name="url-query-string"></a>URL 查询字符串
+
+人脸终结点 URL 的查询字符串指定要检索的人脸属性。 可能需要更改此字符串，具体取决于预期用途。
+
+```
+?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise
+```
+
+### <a name="image-source-url"></a>图像源 URL
+源 URL 指示将要用作输入的图像。 可以更改此字段，使之指向要分析的任何图像。
+
+```
+https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg
+``` 
+
+## <a name="run-the-command"></a>运行命令
+
+进行更改以后，请打开命令提示符并输入新的命令。 应该会在控制台窗口中看到显示为 JSON 数据的人脸信息。 例如：
 
 ```json
 [
@@ -147,8 +156,9 @@ curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" "https://api.cognitive.a
 
 ## <a name="next-steps"></a>后续步骤
 
-探索用于检测图像中人脸的人脸 API，使用矩形划分人脸，并返回年龄和性别等属性。
+在本快速入门中，你编写了一个 cURL 命令，该命令调用 Azure 人脸 API，以便检测图像中的人脸并返回其属性。 接下来，请浏览人脸 API 参考文档，以便进行详细的了解。
 
 > [!div class="nextstepaction"]
 > [人脸 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
 
+<!-- Update_Description: wording update -->

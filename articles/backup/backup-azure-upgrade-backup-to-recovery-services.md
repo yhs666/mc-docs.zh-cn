@@ -2,19 +2,19 @@
 title: 将备份保管库升级到恢复服务保管库
 description: 将 Azure 备份保管库升级到恢复服务保管库的说明和支持信息。
 services: backup
-author: markgalioto
-manager: carmonm
+author: lingliw
+manager: digimobile
 ms.service: backup
 ms.topic: conceptual
 origin.date: 01/04/2018
-ms.date: 07/06/2018
-ms.author: v-junlch
-ms.openlocfilehash: 9705a48fb5fd0e60a77b26f3037f4fe6fed136d0
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.openlocfilehash: ceda2a38bacfd09acf46df158efa0f820ddf4524
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873410"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674800"
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>将备份保管库升级到恢复服务保管库
 
@@ -64,6 +64,8 @@ RecoveryServicesVaultUpgrade-1.0.2.ps1 **-SubscriptionID** `<subscriptionID>` **
 
 >[!NOTE]
 > 资源组名称具有约束。 请务必遵循指导；否则可能导致保管库升级失败。
+>
+>**Azure 美国政府**客户运行脚本时需要将环境设置为“AzureUSGovernment”。
 >**Azure 中国**客户运行脚本时需要将环境设置为“AzureChinaCloud”。
 
 以下代码片段是 PowerShell 命令大致形式的示例：
@@ -79,7 +81,7 @@ PowerShell 脚本会提示输入凭据。 请输入凭据两次：一次是输�
 ### <a name="pre-requisites-checking"></a>先决条件检查
 输入 Azure 凭据后，Azure 会检查环境是否满足以下先决条件：
 
-- 最低代理版本 - 将备份保管库升级到恢复服务保管库要求 MARS 代理版本至少为 2.0.9083.0。 如果使用版本低于 2.0.9083.0 的代理将项注册到了备份保管库，先决条件检查会失败。 如果先决条件检查失败，请更新代理，并重试升级保管库。 可以从 [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe) 下载代理的最新版本。
+- 最低代理版本 - 将备份保管库升级到恢复服务保管库要求 MARS 代理版本至少为 2.0.9083.0。 如果使用版本低于 2.0.9083.0 的代理将项注册到了备份保管库，先决条件检查会失败。 如果先决条件检查失败，请更新代理，并重试升级保管库。 可以从 [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](https://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe) 下载代理的最新版本。
 - **正在进行的配置作业**：如果某人正在针对设置为要升级的备份保管库配置作业，或者正在注册某个项，先决条件检查会失败。 请先完成配置或完成项的注册，再启动保管库升级过程。
 - **基于存储的计费模型**：恢复服务保管库支持基于实例的计费模型。 如果在使用基于存储的计费模型的备份保管库上运行保管库升级，系统会提示连同保管库一起升级计费模型。 否则，可以先更新计费模型，再运行保管库升级。
 - 标识恢复服务保管库的资源组。 若要利用资源管理器部署功能，必须在资源组中放置一个恢复服务保管库。 如果不知道要使用哪个资源组，请提供一个名称，然后，升级过程会创建该资源组。 升级过程还会将保管库与新资源组相关联。
@@ -115,7 +117,7 @@ PowerShell 脚本会提示输入凭据。 请输入凭据两次：一次是输�
 否。 升级期间和之后，正在进行的备份都会继续，而不会中断。
 
 **如果不尽快规划升级，保管库会发生什么情况？**</br>
-由于所有新功能仅适用于恢复服务保管库，我们强烈建议升级保管库。 自 2017 年 9 月 1 日起，Microsoft 会将备份保管库自动升级为恢复服务保管库。 2017 年 11 月 30 日后，将不再能够使用 PowerShell 创建备份保管库。 保管库可在其间任何时间自动升级。 Microsoft 建议尽快升级保管库。
+由于所有新功能仅适用于恢复服务保管库，我们强烈建议升级保管库。 自 2017 年 9 月 1 日起，Azure 开始将备份保管库自动升级为恢复服务保管库。 2017 年 11 月 30 日后，将不再能够使用 PowerShell 创建备份保管库。 保管库可在其间任何时间自动升级。 Azure 建议尽快升级保管库。
 
 **对于现有的工具而言，此升级有何意义？**</br>
 将工具更新为资源管理器部署模型。 恢复服务保管库是为在资源管理器部署模型使用而创建的。 规划资源管理器部署模型以及记录保管库中的差异十分重要。 
@@ -143,7 +145,7 @@ PowerShell 脚本会提示输入凭据。 请输入凭据两次：一次是输�
 备份监视（MARS 代理 和 IaaS）是将备份保管库升级到恢复服务保管库后获得一项新功能。 监视信息最长需要 12 小时才能与服务同步。
 
 **如何报告问题？**</br>
-如果保管库升级的任何环节失败，请记下错误中列出的 OperationId。 Microsoft 支持部门会主动解决此问题。 可以联系支持部门，或者向 rsvaultupgrade@service.microsoft.com 发送电子邮件并提供订阅 ID、保管库名称和 OperationId。 我们将尝试尽快解决此问题。 除非 Microsoft 明确指示，否则请不要重试操作。
+如果保管库升级的任何环节失败，请记下错误中列出的 OperationId。 Azure 支持部门会主动解决此问题。 可以联系支持部门，或者向 rsvaultupgrade@service.microsoft.com 发送电子邮件并提供订阅 ID、保管库名称和 OperationId。 我们将尝试尽快解决此问题。 除非 Microsoft 明确指示，否则请不要重试操作。
 
 
 ## <a name="next-steps"></a>后续步骤

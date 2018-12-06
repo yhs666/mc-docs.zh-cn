@@ -1,29 +1,23 @@
 ---
-title: 在 Azure 中使用资源管理器模板创建经典指标警报 | Microsoft 文档
+title: 在 Azure 中使用资源管理器模板创建经典指标警报
 description: 了解如何使用资源管理器模板创建经典指标警报，以便通过电子邮件或 Webhook 接收通知。
-author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 41d62044-6bc5-4674-b277-45b919f58efe
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: lingliw
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 origin.date: 04/27/2018
-ms.date: 06/18/2018
-ms.author: v-yiso
-ms.openlocfilehash: 6bbf68cfc36a57f046eef46f6e90692e93e5298f
-ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.component: metric
+ms.openlocfilehash: 39661e91e07e6ff220f37833e198e8467a43d0d3
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855372"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674489"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>使用资源管理器模板创建经典指标警报
-本文说明如何使用 [Azure 资源管理器模板](../azure-resource-manager/resource-group-authoring-templates.md)配置 Azure 指标警报。 这样，便可以在创建资源时自动对资源设置警报，确保正确监视所有资源。
+本文说明如何使用 [Azure Resource Manager 模板](../azure-resource-manager/resource-group-authoring-templates.md) 配置 Azure 指标警报。 这样，便可以在创建资源时自动对资源设置警报，确保正确监视所有资源。
 
 > [!NOTE]
 > 
@@ -193,7 +187,7 @@ ms.locfileid: "34855372"
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "newStorageAccountName": {
@@ -222,7 +216,7 @@ ms.locfileid: "34855372"
         }
     },
     "variables": {
-        "location": "Central US",
+        "location": "China North",
         "imagePublisher": "MicrosoftWindowsServer",
         "imageOffer": "WindowsServer",
         "windowsOSVersion": "2012-R2-Datacenter",
@@ -351,7 +345,7 @@ ms.locfileid: "34855372"
                     "osDisk": {
                         "name": "osdisk",
                         "vhd": {
-                            "uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('OSDiskName'),'.vhd')]"
+                            "uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.chinacloudapi.cn/',variables('vmStorageAccountContainerName'),'/',variables('OSDiskName'),'.vhd')]"
                         },
                         "caching": "ReadWrite",
                         "createOption": "FromImage"
@@ -409,6 +403,6 @@ ms.locfileid: "34855372"
 ```
 
 ## <a name="next-steps"></a>后续步骤
-* [详细了解警报](insights-receive-alert-notifications.md)
-* [将诊断设置添加](monitoring-enable-diagnostic-logs-using-template.md)到 Resource Manager 模板
+* [详细了解警报](monitoring-overview-alerts.md)
+* [将诊断设置添加](monitoring-enable-diagnostic-logs-using-template.md) 到 Resource Manager 模板
 

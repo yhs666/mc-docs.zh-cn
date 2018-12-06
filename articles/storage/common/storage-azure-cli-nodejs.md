@@ -9,12 +9,12 @@ origin.date: 01/30/2017
 ms.date: 09/24/2018
 ms.author: v-jay
 ms.component: common
-ms.openlocfilehash: 062c6f52ae4217ac5c900981970c360a24ceb7e7
-ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
+ms.openlocfilehash: 25e6207996957ddaba69db9f0df4bb9398b29e82
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50743546"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662212"
 ---
 # <a name="using-the-azure-classic-cli-with-azure-storage"></a>结合使用 Azure 经典 CLI 与 Azure 存储
 
@@ -36,7 +36,7 @@ Azure 经典 CLI 提供了一组开源且跨平台的命令，可结合 Azure �
 ## <a name="get-started-with-azure-storage-and-the-azure-classic-cli-in-5-minutes"></a>在 5 分钟内开始使用 Azure 存储和 Azure 经典 CLI
 本指南使用 Ubuntu 作为示例，但其他 OS 平台的操作应与此类似。
 
-**Azure 新用户：** 获取一个 Azure 订阅以及与该订阅关联的 Microsoft 帐户。 有关 Azure 购买选项的信息，请参阅 [1 元试用](https://www.azure.cn/pricing/1rmb-trial/)。
+**Azure 新用户：** 获取一个 Azure 订阅以及与该订阅关联的 Azure 帐户。 有关 Azure 购买选项的信息，请参阅 [1 元试用](https://www.azure.cn/pricing/1rmb-trial/)。
 
 
 **创建 Azure 订阅和帐户之后：**

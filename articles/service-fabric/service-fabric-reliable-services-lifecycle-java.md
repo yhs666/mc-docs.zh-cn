@@ -15,11 +15,11 @@ origin.date: 06/30/2017
 ms.date: 05/28/2018
 ms.author: v-yeche
 ms.openlocfilehash: e0ef48555e3eaba2701f39739e8811ad07e42ccb
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554493"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650881"
 ---
 # <a name="reliable-services-lifecycle"></a>Reliable Services 生命周期
 > [!div class="op_single_selector"]
@@ -138,5 +138,5 @@ Service Fabric 更改有状态服务的主副本的原因有多种。 最常见�
 
 ## <a name="next-steps"></a>后续步骤
 * [Reliable Services 简介](service-fabric-reliable-services-introduction.md)
-* [Reliable Services 快速启动](service-fabric-reliable-services-quick-start-java.md)
+* [Reliable Services 快速入门](service-fabric-reliable-services-quick-start-java.md)
 <!--Update_Description: wording update, wording update -->

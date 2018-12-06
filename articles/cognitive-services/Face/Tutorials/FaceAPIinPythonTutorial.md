@@ -1,42 +1,44 @@
 ---
-title: 教程：检测和定格图像中的人脸 - 人脸 API、Python
+title: 快速入门：使用 Python SDK 检测和定格图像中的人脸
 titleSuffix: Azure Cognitive Services
-description: 了解如何使用人脸 API 和 Python SDK 检测图像中的人脸。
+description: 在本快速入门中，你将创建一个简单的 Python 脚本，它使用人脸 API 来检测和定格远程图像中的人脸。
 services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: tutorial
-origin.date: 03/01/2018
-ms.date: 10/23/2018
+ms.topic: quickstart
+origin.date: 11/13/2018
+ms.date: 11/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: 721c6ce3dffa514b1b9672225d750096056b230d
-ms.sourcegitcommit: 44ce337717bb948f5ac08217a156935f663c0f46
+ms.openlocfilehash: b868d93de8e50d682ca2c6164286595137781e3e
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034645"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672821"
 ---
-# <a name="tutorial-detect-and-frame-faces-with-the-face-api-and-python"></a>教程：使用人脸 API 和 Python 检测和定格人脸 
+# <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>快速入门：创建一个用于检测和定格图像中人脸的 Python 脚本
 
-本教程介绍如何通过 Python SDK 调用人脸 API 来检测图像中的人脸。
+在本快速入门中，你将创建一个简单的 Python 脚本，它通过 Python SDK 使用 Azure 人脸 API 来检测远程图像中的人脸。 此应用程序显示一个选定的图像，然后围绕每个检测到的人脸绘制一个框。
+
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
 
 ## <a name="prerequisites"></a>先决条件
 
-若要使用本教程，需要做好以下准备：
+- 人脸 API 订阅密钥。 可以按照[创建认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)中的说明订阅人脸 API 服务并获取密钥。
+- [Python 2.7+ 或 3.5+](https://www.python.org/downloads/)
+- [pip](https://pip.pypa.io/en/stable/installing/) 工具
+- 人脸 API Python SDK。 通过运行以下命令来安装它：
+    ```bash
+    pip install cognitive_face
+    ```
 
-- 安装 Python 2.7+ 或 Python 3.5+。
-- 安装 pip。
-- 按如下所述安装人脸 API的 Python SDK：
+## <a name="detect-faces-in-an-image"></a>在图像中检测人脸
 
-```bash
-pip install cognitive_face
-```
+创建新 Python 脚本 _FaceQuickstart.py_。 添加以下代码。 这是人脸检测的核心功能。 需将 `<Subscription Key>` 替换为密钥的值。 可能还需更改 `BASE_URL` 的值，以便使用密钥的正确区域标识符（如需包含所有区域终结点的列表，请参阅[人脸 API 文档](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)）。 （可选）将 `img_url` 设置为要使用的图像的 URL。
 
-- 在 Azure 门户中获取 Microsoft 认知服务的订阅密钥。 在本教程中，可以使用主密钥或辅助密钥。 （请注意，若要使用任何人脸 API，必须拥有有效的订阅密钥。）
-
-## <a name="sdk-example"></a>检测图像中的人脸
+此脚本会通过调用 **cognitive_face.face.detect** 方法来检测人脸，该方法可包装[检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API 并返回人脸的列表。
 
 ```python
 import cognitive_face as CF
@@ -53,15 +55,22 @@ faces = CF.face.detect(img_url)
 print(faces)
 ```
 
-下面是示例结果。 它是检测到的人脸的 `list`。 列表中的每项都是一个 `dict` 实例，其中 `faceId` 是检测到的人脸的唯一 ID，`faceRectangle` 说明检测到的人脸的位置。 人脸 ID 的有效期为 24 小时。
+### <a name="try-the-app"></a>试用应用
 
-```python
-[{u'faceId': u'68a0f8cf-9dba-4a25-afb3-f9cdf57cca51', u'faceRectangle': {u'width': 89, u'top': 66, u'height': 89, u'left': 446}}]
+使用 `python FaceQuickstart.py` 命令运行此应用。 此时会在控制台窗口中出现文本响应，如下所示：
+
+```shell
+[{'faceId': '26d8face-9714-4f3e-bfa1-f19a7a7aa240', 'faceRectangle': {'top': 124, 'left': 459, 'width': 227, 'height': 227}}]
 ```
 
-## <a name="draw-rectangles-around-the-faces"></a>在人脸周围绘制矩形
+这是检测到的人脸的列表。 列表中的每项都是一个 **dict** 实例，其中 `faceId` 是检测到的人脸的唯一 ID，`faceRectangle` 说明检测到的人脸的位置。 
 
-使用通过上一命令接收到的 json 坐标，可在图像上绘制矩形，以可视方式呈现每张人脸。 需具备 `pip install Pillow` 才能使用 `PIL` 成像模块。  在该文件的顶部，添加以下代码：
+> [!NOTE]
+> 人脸 ID 在 24 小时后过期；如需长期保存人脸数据，则需对其进行显式存储。
+
+## <a name="draw-face-rectangles"></a>绘制人脸矩形
+
+使用通过上一命令接收到的坐标，可在图像上绘制矩形，以可视方式呈现每张人脸。 需安装 Pillow (`pip install pillow`) 才能使用 Pillow 图像模块。 在 *FaceQuickstart.py* 顶部添加以下代码：
 
 ```python
 import requests
@@ -69,7 +78,7 @@ from io import BytesIO
 from PIL import Image, ImageDraw
 ```
 
-然后，在脚本的 `print(faces)` 后面包括以下代码：
+然后，在脚本底部添加以下代码。 这样会创建一个用于分析矩形坐标的简单函数，并使用 Pillow 在原始图像上绘制矩形。 然后，它会在默认的图像查看器中显示图像。
 
 ```python
 #Convert width height to a point in a rectangle
@@ -94,22 +103,17 @@ for face in faces:
 img.show()
 ```
 
-## <a name='further'></a>深入了解
+## <a name="run-the-app"></a>运行应用程序
 
-为了帮助读者进一步探索人脸 API，本教程提供了 GUI 示例。 若要运行该示例，请先安装 [wxPython](https://wxpython.org/pages/downloads/)，然后运行以下命令。
+系统可能会提示你先选择默认的图像查看器。 然后，会看到如下图像。 还会在控制台窗口中看到输出的矩形数据。
 
-```bash
-git clone https://github.com/Microsoft/Cognitive-Face-Python.git
-cd Cognitive-Face-Python
-python sample
-```
+![一位年轻的妇女，其脸部周围绘制了一个红色矩形](../images/face-rectangle-result.png)
 
-## <a name="summary"></a>摘要
+## <a name="next-steps"></a>后续步骤
 
-本教程介绍了通过调用 Python SDK 使用人脸 API 的基本过程。 有关 API 的详细信息，请参阅操作说明和 [API 参考](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)。
+本快速入门介绍了人脸 API Python SDK 的基本使用过程，并创建了一个脚本来检测并定格图像中的人脸。 接下来，了解如何在更复杂的示例中使用 Python SDK。 请转到 GitHub 上的认知人脸 Python 示例，将其克隆到项目文件夹，然后按 _README.md_ 文件中的说明操作。
 
-## <a name="related"></a>相关主题
+> [!div class="nextstepaction"]
+> [认知人脸 Python 示例](https://github.com/Microsoft/Cognitive-Face-Python)
 
-- [CSharp 中的人脸 API 入门](FaceAPIinCSharpTutorial.md)
-- [Java for Android 中的人脸 API 入门](FaceAPIinJavaForAndroidTutorial.md)
-
+<!-- Update_Description: wording update -->

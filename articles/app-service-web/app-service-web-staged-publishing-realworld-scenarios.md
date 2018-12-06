@@ -16,11 +16,11 @@ origin.date: 10/24/2016
 ms.date: 03/28/2017
 ms.author: v-dazen
 ms.openlocfilehash: dfc2d754aa173db67f26a10b97cf56ef7d304908
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
-ms.locfileid: "20463767"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654394"
 ---
 # <a name="use-devops-environments-effectively-for-your-web-apps"></a>对 Web 应用有效使用 DevOps 环境
 本文说明如何针对应用程序的多个版本处于不同环境（例如开发、过渡、质量保证 (QA) 和生产）的情况，设置和管理 Web 应用程序部署。 应用程序的每个版本均可视为满足部署过程中特定目的的开发环境。 例如，在将更改推送到生产前，开发人员可使用 QA 环境测试应用程序的质量。
@@ -29,8 +29,8 @@ ms.locfileid: "20463767"
 ## <a name="set-up-a-non-production-environment-stage-dev-qa"></a>设置非生产环境（过渡、开发、QA）
 生产 Web 应用启动并运行后，下一步是创建非生产环境。 若要使用部署槽，请确保在标准或高级 Azure 应用服务计划模式下运行。 部署槽是具有自己的主机名的动态 Web 应用。 两个部署槽（包括生产槽）之间的 Web 应用内容与配置元素可以交换。 将应用程序部署到部署槽具有以下优点：
 
-- 可先在过渡部署槽中验证 Web 应用更改，然后再与生产槽交换应用。
-- 先将 Web 应用部署到槽，然后再将其交换到生产时，可确保槽的所有实例都在预热后才交换到生产。 此过程可在部署 Web 应用时避免出现停机。 流量重定向是无缝的，且不会因交换操作而删除任何请求。 若要自动化整个工作流，可在不需要预交换验证时配置[自动交换](web-sites-staged-publishing.md#configure-auto-swap)。
+- 可先在过渡部署槽中验证 Web 应用更改，再与生产槽交换应用。
+- 先将 Web 应用部署到槽，此后再将其交换到生产时，可确保槽的所有实例都在预热后才交换到生产。 此过程可在部署 Web 应用时避免出现停机。 流量重定向是无缝的，且不会因交换操作而删除任何请求。 若要自动化整个工作流，可在不需要预交换验证时配置[自动交换](web-sites-staged-publishing.md#configure-auto-swap)。
 - 交换后，具有以前的过渡 Web 应用的槽现在具有以前的生产 Web 应用。 如果交换到生产槽的更改与预期不同，可立即执行同一交换来取回“上一已知良好的”Web 应用。
 
 若要设置过渡部署槽位，请参阅[为 Azure App Service 中的 Web 应用设置过渡环境](web-sites-staged-publishing.md)。 每个环境都应包括自己的资源集。 例如，如果 Web 应用使用数据库，则生产和过渡 Web 应用应使用不同的数据库。 添加过渡开发环境资源（例如数据库、存储或缓存），设置过渡开发环境。
@@ -252,7 +252,7 @@ require_once(ABSPATH. 'wp-settings.php');
 3. 将过渡部署槽的连接字符串更新为指向新数据库 `wordpress-stage-db`。 生产 Web 应用 `wordpressprodapp` 和过渡 Web 应用 `wordpressprodapp-stage` 必须指向不同的数据库。
 
 #### <a name="configure-environment-specific-app-settings"></a>配置环境特定的应用设置
-开发人员可在 Azure 中将键/值字符串对作为与 Web 应用关联的配置信息的一部分存储，称为 **应用设置**。 在运行时，Web 应用会自动检索这些值，并使这些值可供 Web 应用中运行的代码使用。 从安全角度来看，这可以带来不错的辅助优势，因为包含密码的数据库连接字符串等敏感信息永远不会以明文形式显示在文件（例如 `wp-config.php`）中。
+开发人员可在 Azure 中将键/值字符串对作为与 Web 应用关联的配置信息的一部分存储，称为**应用设置**。 在运行时，Web 应用会自动检索这些值，并使这些值可供 Web 应用中运行的代码使用。 从安全角度来看，这可以带来不错的辅助优势，因为包含密码的数据库连接字符串等敏感信息永远不会以明文形式显示在文件（例如 `wp-config.php`）中。
 
 此过程（在以下各段中进行说明）十分有用，因为它同时包括 WordPress 应用的文件更改和数据库更改：
 
@@ -276,7 +276,7 @@ require_once(ABSPATH. 'wp-settings.php');
 
     ![WordPress Web 应用的 Web Matrix 发布对话框](./media/app-service-web-staged-publishing-realworld-scenarios/4wmpublish.png)
 
-3. 浏览并测试你的过渡 Web 应用。 假设要更新 Web 应用的主题，可以使用以下过渡 Web 应用。
+3. 浏览并测试过渡 Web 应用。 假设要更新 Web 应用的主题，可以使用以下过渡 Web 应用。
 
     ![交换槽之前浏览过渡 Web 应用](./media/app-service-web-staged-publishing-realworld-scenarios/5wpstage.png)
 
@@ -322,7 +322,7 @@ require_once(ABSPATH. 'wp-settings.php');
 务必记住删除应用程序下的 `install` 文件夹，不要将其上传到过渡或生产 Web 应用。 本教程使用 WebMatrix。
 
 #### <a name="set-up-a-staging-environment"></a>设置过渡环境
-1. 假设已启动并运行 Umbraco CMS Web 应用，如前所述，为该应用创建部署槽。 否则，可通过应用商店创建一个。
+1. 假设已启动并运行 Umbraco CMS Web 应用，如前所述，为该应用创建部署槽。 否则，可通过市场创建一个。
 2. 将过渡部署槽的连接字符串更新为指向新的 **umbraco-stage-db** 数据库。 生产 Web 应用 (umbraositecms-1) 和过渡 Web 应用 (umbracositecms-1-stage) 必须指向不同的数据库。
 
     ![使用新的过渡数据库更新过渡 Web 应用的连接字符串](./media/app-service-web-staged-publishing-realworld-scenarios/9umbconnstr.png)
@@ -342,11 +342,11 @@ require_once(ABSPATH. 'wp-settings.php');
 
 #### <a name="set-up-the-courier2-deployment-module"></a>设置 Courier2 部署模块
 借助 Courier2 模块，只需右键单击即可从过渡 Web 应用将内容、样式表和开发模块推送到生产 Web 应用。 此过程可降低部署更新时中断生产 Web 应用的风险。
-为 `*.chinacloudsites.cn` 域和自定义域（例如 http://abc.com）购买 Courier2 许可证。 购买许可证后，将下载的许可证（.LIC 文件）放在 `bin` 文件夹中。
+为 `*.chinacloudsites.cn` 域和自定义域（例如 http://abc.com) 购买 Courier2 许可证。 购买许可证后，将下载的许可证（.LIC 文件）放在 `bin` 文件夹中。
 
 ![将许可证文件放在 bin 文件夹下](./media/app-service-web-staged-publishing-realworld-scenarios/13droplic.png)
 
-1. [下载 Courier2 包](https://our.umbraco.org/projects/umbraco-pro/umbraco-courier-2/)。 登录到过渡 Web 应用（假设为 http://umbracocms-site-stage.chinacloudsites.cn/umbraco），单击“开发人员”菜单，然后单击“包” > “安装本地包”。
+1. [下载 Courier2 包](https://our.umbraco.org/projects/umbraco-pro/umbraco-courier-2/)。 登录到过渡 Web 应用（假设为 http://umbracocms-site-stage.chinacloudsites.cn/umbraco），单击“开发人员”菜单，并单击“包” > “安装本地包”。
 
     ![Umbraco 包安装程序](./media/app-service-web-staged-publishing-realworld-scenarios/14umbpkg.png)
 
@@ -401,7 +401,7 @@ require_once(ABSPATH. 'wp-settings.php');
 
     ![Courier 模块部署对话框](./media/app-service-web-staged-publishing-realworld-scenarios/18dialog1.png)
 
-9. 查看更改，然后单击“继续” 。
+9. 查看更改，并单击“继续” 。
 
     ![在 Courier 模块部署对话框中查看更改](./media/app-service-web-staged-publishing-realworld-scenarios/19dialog2.png)
 
@@ -430,13 +430,13 @@ Courier 不会帮助用户从 Umbraco CMS 的一个版本升级到另一个版�
 以下是交换 Web 应用和数据库的优点：
 
 * 如果应用程序存在任何问题，可使用另一个 **交换** 操作回滚到 Web 应用的前一个版本。
-* 若要升级，需要将文件和数据库从过渡 Web 应用部署到生产 Web 应用和数据库。 部署文件和数据库时，可能会出现很多错误。 通过使用槽的 **交换** 功能，可减少升级过程中的停机时间，并降低部署更改时发生错误的风险。
+* 要升级，需要将文件和数据库从过渡 Web 应用部署到生产 Web 应用和数据库。 部署文件和数据库时，可能会出现很多错误。 通过使用槽的 **交换** 功能，可减少升级过程中的停机时间，并降低部署更改时发生错误的风险。
 
-本示例向你展示了平台的灵活性，你可以生成类似于 Umbraco Courier 模块的自定义模块，来跨环境管理部署。
+本示例向你展示了平台的灵活性，可以生成类似于 Umbraco Courier 模块的自定义模块，来跨环境管理部署。
 
 ## <a name="references"></a>参考
-[使用 Azure App Service 进行敏捷软件开发](app-service-agile-software-development.md)
+[使用 Azure 应用服务进行敏捷软件开发](app-service-agile-software-development.md)
 
-[为 Azure App Service 中的 Web 应用设置过渡环境](web-sites-staged-publishing.md)
+[为 Azure 应用服务中的 Web 应用设置过渡环境](web-sites-staged-publishing.md)
 
 [如何阻止对非生产部署槽的 Web 访问](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)

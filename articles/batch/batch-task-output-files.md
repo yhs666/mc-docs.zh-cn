@@ -1,32 +1,32 @@
 ---
-title: 使用 Azure Batch 服务 API 将作业和任务输出持久保存到 Azure 存储 | Microsoft Docs
+title: 使用 Azure Batch 服务 API 将作业和任务输出持久保存到 Azure 存储 | Azure
 description: 了解如何使用 Batch 服务 API 将 Batch 任务和作业输出持久保存到 Azure 存储。
 services: batch
-author: dlepow
-manager: jeconnoc
+author: lingliw
+manager: digimobile
 editor: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-origin.date: 06/16/2017
-ms.date: 09/26/2018
-ms.author: v-junlch
-ms.openlocfilehash: d28dac2acb6e08894ed15d9e50d32958460b52b1
-ms.sourcegitcommit: 5616622f754f3b83c7120a3d1344d0344e03ca61
+origin.date: 11/14/2018
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 403b5f735fb632a8800a5fc22f9d1283d302a2be
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47188777"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674227"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>使用 Batch 服务 API 将任务数据持久保存到 Azure 存储
 
 [!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 
-从 2017-05-01 版开始，Batch 服务 API 支持将在池（使用虚拟机配置）中运行的 Batch 任务和作业管理器任务的输出数据持久保存到 Azure 存储。 添加任务时，可以在 Azure 存储中指定一个容器，作为该任务的输出目标。 然后，Batch 服务会在任务完成时，将任何输出数据写入该容器。
+Batch 服务 API 支持将在具有虚拟机配置的池上运行的任务和作业管理器任务的输出数据保存到 Azure 存储。 添加任务时，可以在 Azure 存储中指定一个容器，作为该任务的输出目标。 然后，Batch 服务会在任务完成时，将任何输出数据写入该容器。
 
-使用 Batch 服务 API 来持久保存任务输出时，一大优势是不需修复任务正在运行的应用程序， 而只需对客户端应用程序进行一些简单的修改，然后即可通过用于创建任务的代码持久保存任务的输出。   
+使用 Batch 服务 API 来持久保存任务输出时，一大优势是不需修复任务正在运行的应用程序， 只需对客户端应用程序进行几处修改，即可从创建任务的同一代码内部保存任务的输出。
 
 ## <a name="when-do-i-use-the-batch-service-api-to-persist-task-output"></a>何时使用 Batch 服务 API 来持久保存任务输出？
 
@@ -72,7 +72,7 @@ string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken;
 
 若要指定任务的输出文件，请在创建任务时创建 [OutputFile](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.outputfile) 对象的集合，然后将其分配给 [CloudTask.OutputFiles](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) 属性。 
 
-以下 .NET 代码示例创建一个任务，以便将随机数字写入名为 `output.txt` 的文件。 该示例创建一个输出文件，以便将 `output.txt` 写入容器。 对于符合文件模式 `std*.txt` 的日志文件（例如 `stdout.txt` 和 `stderr.txt`），该示例也创建输出文件。 容器 URL 需要此前为容器创建的 SAS。 Batch 服务使用 SAS 来验证容器访问权限： 
+以下 C# 代码示例创建一个将随机数写入名为 `output.txt` 的文件的任务。 该示例创建一个输出文件，以便将 `output.txt` 写入容器。 对于符合文件模式 `std*.txt` 的日志文件（例如 `stdout.txt` 和 `stderr.txt`），该示例也创建输出文件。 容器 URL 需要此前为容器创建的 SAS。 Batch 服务使用 SAS 来验证容器访问权限：
 
 ```csharp
 new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,100000) DO (ECHO !RANDOM!)) > output.txt\"")
@@ -145,7 +145,6 @@ https://myaccount.blob.core.chinacloudapi.cn/mycontainer/task2/output.txt
 ```
 
 有关 Azure 存储中虚拟目录的详细信息，请参阅[列出容器中的 Blob](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container)。
-
 
 ## <a name="diagnose-file-upload-errors"></a>诊断文件上传错误
 

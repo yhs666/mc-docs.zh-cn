@@ -1,11 +1,11 @@
 ---
-title: 更改 Office 365 信赖方信任的签名哈希算法 | Azure
+title: 更改 Office 365 信赖方信任的签名哈希算法 | Microsoft 文档
 description: 本页面提供有关更改 Office 365 联合身份验证信任 SHA 算法的指导
 keywords: SHA1,SHA256,O365,联合,aadconnect,adfs,ad fs,更改 sha,联合身份验证信任,信赖方信任
 services: active-directory
 documentationcenter: ''
 author: anandyadavmsft
-manager: samueld
+manager: mtillman
 editor: ''
 ms.assetid: cf6880e2-af78-4cc9-91bc-b64de4428bbd
 ms.service: active-directory
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/31/2016
+ms.date: 11/13/2018
 ms.author: v-junlch
-ms.date: 12/09/2016
-ms.openlocfilehash: 4b502fb2d3a35d595b772ab55614550125d33279
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 84284641588701fee4fb4f9dd33d676f0fc4a0bf
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29285034"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646365"
 ---
 # <a name="change-signature-hash-algorithm-for-office-365-relying-party-trust"></a>更改 Office 365 信赖方信任的签名哈希算法
 ## <a name="overview"></a>概述
@@ -49,4 +49,6 @@ Active Directory 联合身份验证服务 (AD FS) 将在 Azure Active Directory 
    <code>Set-AdfsRelyingPartyTrust -TargetName 'Microsoft Office 365 Identity Platform' -SignatureAlgorithm 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256'</code>
 
 ## <a name="also-read"></a>另请参阅
-- [使用 Azure AD Connect 修复 Office 365 信任](./connect/active-directory-aadconnect-federation-management.md#repairthetrust)
+- [使用 Azure AD Connect 修复 Office 365 信任](hybrid/how-to-connect-fed-management.md#repairthetrust)
+
+

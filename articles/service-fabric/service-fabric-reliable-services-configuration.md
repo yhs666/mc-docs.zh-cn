@@ -16,11 +16,11 @@ origin.date: 10/02/2017
 ms.date: 10/15/2018
 ms.author: v-yeche
 ms.openlocfilehash: d67f34d944af96e4ab78f0663d41c6c53ba06f42
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089135"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650212"
 ---
 # <a name="configure-stateful-reliable-services"></a>配置有状态 Reliable Services
 有两组配置设置可供 Reliable Services 使用。 一组适用于群集中的所有 Reliable Services，而另一组特定于特定的 Reliable Service。
@@ -37,7 +37,7 @@ ms.locfileid: "49089135"
 | SharedLogPath |完全限定的路径名 |"" |指定完全限定的路径，该路径中的共享日志文件用于群集中所有节点上的所有 Reliable Services（不会在其服务特定配置中指定 SharedLogPath）。 但是如果指定了 SharedLogPath，还必须指定 SharedLogId。 |
 | SharedLogSizeInMB |兆字节 |8192 |指定以静态方式分配给共享日志的磁盘空间 MB 数。 此值必须为 2048 或更大。 |
 
-在 Azure ARM 或本地 JSON 模板中，以下示例演示如何更改创建的共享事务日志，以备份有状态服务的任何可靠集合。
+在 Azure ARM 或本地 JSON 模板中，以下示例说明如何更改为支持有状态服务的任何可靠集合而创建的共享事务日志。
 
     "fabricSettings": [{
         "name": "KtlLogger",

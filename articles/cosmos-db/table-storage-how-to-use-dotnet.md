@@ -1,5 +1,5 @@
 ---
-title: 通过 .NET 开始使用 Azure 表存储和 Azure Cosmos DB 表 API | Azure
+title: 通过 .NET 开始使用 Azure 表存储 | Azure
 description: 使用 Azure 表存储将结构化数据存储在云中。
 services: cosmos-db
 author: rockboyfor
@@ -9,16 +9,17 @@ ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 origin.date: 08/17/2018
-ms.date: 11/05/2018
+ms.date: 12/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: d0e34c238add52ad54b568adc1ee64564f526e6c
-ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
+ms.openlocfilehash: 666254d4014c5c214db4658eb4f7b06f6120e1e2
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50204844"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674526"
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>通过 .NET 开始使用 Azure 表存储
+
 <!--Not Available on Azure Cosmos DB Table API -->
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
@@ -141,15 +142,14 @@ ms.locfileid: "50204844"
     </appSettings>
 </configuration>
 ```
-<!--StroageConnectionString append EndpointSuffix=core.chinacloudapi.cn-->
 
-例如，如果使用的是 Azure 存储帐户，则配置设置应类似于：
+<!--StroageConnectionString append EndpointSuffix=core.chinacloudapi.cn--> 例如，如果使用的是 Azure 存储帐户，则配置设置应类似于：
 
 ```xml
 <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=<account-key>;EndpointSuffix=core.chinacloudapi.cn" />
 ```
-<!-- Add the TableEndPoint configuration-->
 
+<!-- Add the TableEndPoint configuration-->
 <!-- Not Available on Azure Cosmos DB Table -->
 <!-- Cosmos DB Table API should add TableEndpoint=https://chenyetable.table.cosmosdb.azure.cn:443/ in connectionstring -->
 
@@ -571,18 +571,18 @@ do
 ## <a name="next-steps"></a>后续步骤
 现在，已了解有关表存储的基础知识，请按照下面的链接了解更复杂的存储任务：
 
-* [Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)是免费的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。
+* [Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)是 Microsoft 免费提供的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。
 * 有关表存储的更多示例，请参阅[在 .NET 中使用 Azure 表存储入门](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/)
 * 查看表服务参考文档，了解有关可用 API 的完整详情：
-* [.NET 存储客户端库参考](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-* [REST API 参考](http://msdn.microsoft.com/library/azure/dd179355)
+* [.NET 存储客户端库参考](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+* [REST API 参考](https://msdn.microsoft.com/library/azure/dd179355)
 * 了解如何使用 [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)
 * 查看更多功能指南，以了解在 Azure 中存储数据的其他方式。
 * [通过 .NET 开始使用 Azure Blob 存储](../storage/blobs/storage-dotnet-how-to-use-blobs.md) 来存储非结构化数据。
 * [使用.NET (C#) 连接到 SQL 数据库](../sql-database/sql-database-develop-dotnet-simple.md)，存储关系数据。
 
 [Download and install the Azure SDK for .NET]: /develop/net/
-[Creating an Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
+<!--Not Available on [Creating an Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx-->
 
 [blog_post_upsert]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 

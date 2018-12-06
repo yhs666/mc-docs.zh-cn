@@ -5,16 +5,16 @@ services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-ms.topic: article
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.topic: conceptual
+origin.date: 10/10/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 65addd2a93344c6a07f83e267594a5a1ec7fb1dc
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: 04779209630019dc27765de90099e95e48105dee
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168495"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667254"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>为 Hyper-V VM 设置到辅助本地站点的灾难恢复
 
@@ -88,7 +88,7 @@ ms.locfileid: "39168495"
     -  在活动节点上安装提供程序，并完成安装以在保管库中注册 VMM 服务器。
     - 然后在其他节点上安装该提供程序。 所有群集节点应运行相同版本的提供程序。
 2. 安装程序运行几项先决条件检查，并请求停止 VMM 服务的权限。 VMM 服务会在安装程序完成时自动重启。 如果在 VMM 群集上进行安装，系统会提示停止群集角色。
-3. 在“Microsoft 更新”中，可选择指定根据 Microsoft 更新策略安装提供程序更新。
+3. 在“Microsoft 更新”中，可选择指定根据 Azure 更新策略安装提供程序更新。
 4. 在“安装”中接受或修改默认安装位置，然后单击“安装”。
 5. 安装完成后，单击“注册”，以便在保管库中注册服务器。
 
@@ -151,4 +151,4 @@ ms.locfileid: "39168495"
 
 [运行灾难恢复演练](hyper-v-vmm-test-failover.md)
 
-<!-- Update_Description: update meta properties  -->
+<!-- Update_Description: update meta properties, wording update -->

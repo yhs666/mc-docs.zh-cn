@@ -1,5 +1,5 @@
 ---
-title: Azure 服务总线端到端跟踪和诊断
+title: Azure 服务总线端到端跟踪和诊断 | Azure
 description: 服务总线客户端诊断和端到端跟踪概述
 services: service-bus-messaging
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/18/2018
-ms.date: 10/31/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 1f7b3c4c171c8a60ebab8c730af0d83675168ba4
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.openlocfilehash: 18e065f3d9d6a0571129109de8fe4cf5e804d236
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409384"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674983"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>通过服务总线消息传递进行分布式跟踪和关联
 
@@ -28,7 +28,7 @@ ms.locfileid: "50409384"
 
 当生成者通过队列发送消息时，此活动通常发生在其他某个逻辑操作的范围内，并由其他客户端或服务启动。 当使用者收到消息时，会继续相同的操作。 生成者与使用者（以及其他处理该操作的服务）也许会发出遥测事件，以跟踪操作流和结果。 若要将此类事件相关联并以端到端的方式跟踪操作，报告遥测数据的每个服务必须为每个事件提供跟踪上下文戳记。
 
-Microsoft Azure 服务总线消息传递已定义生成者与使用者应该用来传递此类跟踪上下文的有效负载属性。
+Azure 服务总线消息传递已定义生成者与使用者应该用来传递此类跟踪上下文的有效负载属性。
 该协议基于 [HTTP 关联协议](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md)。
 
 | 属性名称        | 说明                                                 |
@@ -182,7 +182,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 #### <a name="logging-additional-properties"></a>记录其他属性
 
-`Activty.Current` 提供当前操作及其父级的详细上下文。 有关更多详细信息，请参阅 [Activity 文档](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md)。
+`Activity.Current` 提供当前操作及其父级的详细上下文。 有关更多详细信息，请参阅 [Activity 文档](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md)。
 服务总线检测在 `Activity.Current.Tags` 中提供其他信息 - 这些信息包含 `MessageId` 和 `SessionId`（如果已提供）。
 
 跟踪“Receive”、“Peek”和“ReceiveDeferred”事件的活动还可能带有 `RelatedTo` 标记。 该标记包含作为结果收到的消息的 `Diagnostic-Id` 相异列表。

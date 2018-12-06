@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 07/06/2018
-ms.date: 09/24/2018
+origin.date: 10/10/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: f6acf1a1f5039523d85d75ae31de5b6109952ebe
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: 4cc6888cf7173b63cae61d0619f74674eebfb133
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201426"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660254"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>针对本地物理服务器设置到 Azure 的灾难恢复
 
@@ -51,7 +51,7 @@ ms.locfileid: "47201426"
 
 ### <a name="set-up-an-azure-account"></a>设置 Azure 帐户
 
-获取 Microsoft [Azure 帐户](https://www.azure.cn/)。
+获取 [Azure 帐户](https://www.azure.cn/)。
 
 - 你可以从[试用版](https://www.azure.cn/pricing/1rmb-trial/)开始。
 - 了解 [Site Recovery 定价](site-recovery-faq.md#pricing)，并获取[定价详细信息](https://www.azure.cn/pricing/details/site-recovery/)。
@@ -128,9 +128,9 @@ ms.locfileid: "47201426"
 基于 IP 地址的防火墙规则应允许通过 HTTPS (443) 端口与上面列出的所有 Azure URL 进行通信。 为了简化和限制 IP 范围，建议进行 URL 筛选。
 
 - **商用 IP**：允许 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/details.aspx?id=42064)和 HTTPS (443) 端口。 允许订阅的 Azure 区域的 IP 地址范围以支持 AAD、备份、复制和存储 URL。  
-- **政府 IP** - 允许 [Azure IP 范围和服务标记 - 中国云](https://www.microsoft.com/download/details.aspx?id=57062)以及所有中国区域的 HTTPS (443) 端口支持 AAD、备份、复制和存储 URL。  
-<!-- Update Government IP for [Azure IP Ranges and Service Tags – China Cloud ](https://www.microsoft.com/download/details.aspx?id=57062)-->
+- **政府 IP** - 允许 [Azure 数据中心 IP 范围 - 中国云](https://www.microsoft.com/download/details.aspx?id=57062)以及所有中国区域的 HTTPS (443) 端口支持 AAD、备份、复制和存储 URL。  
 
+<!-- Update Government IP for [Azure Datacenter IP Ranges – China Cloud](https://www.microsoft.com/download/details.aspx?id=57062)-->
 #### <a name="run-setup"></a>运行安装程序
 以本地管理员身份运行统一安装程序，安装配置服务器。 进程服务器和主目标服务器也默认安装在配置服务器上。
 
@@ -185,4 +185,5 @@ ms.locfileid: "47201426"
 ## <a name="next-steps"></a>后续步骤
 
 [运行灾难恢复演练](tutorial-dr-drill-azure.md)。
+
 <!-- Update_Description: update link, wording update, update meta properties -->

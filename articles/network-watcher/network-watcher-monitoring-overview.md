@@ -3,7 +3,7 @@ title: Azure 网络观察程序 | Azure
 description: 了解 Azure 网络观察程序针对虚拟网络中的资源提供的监视、诊断、指标和日志记录功能。
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
+author: lingliw
 manager: digimobile
 editor: ''
 Customer intent: As someone with basic Azure network experience, I want to understand how Azure Network Watcher can help me resolve some of the network-related problems I've encountered and provide insight into how I use Azure networking.
@@ -14,15 +14,15 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/24/2018
-ms.date: 09/30/2018
-ms.author: v-yeche
+ms.date: 11/26/2018
+ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 864fb42dc34f15de03a9e652e1114af069ffb13a
-ms.sourcegitcommit: 432984d85afe6f3da8f211bae0fa98a556785ee8
+ms.openlocfilehash: 01e675c7c8ac0b4250bfda301b168e705c261207
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455387"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675048"
 ---
 # <a name="what-is-azure-network-watcher"></a>Azure 网络观察程序是什么？
 
@@ -98,12 +98,14 @@ Azure 网络观察程序提供所需的工具用于监视、诊断 Azure 虚拟�
 
 ![流量分析](./media/network-watcher-monitoring-overview/traffic-analytics.png)
 
-通过完成[记录出入虚拟机的网络流量](network-watcher-nsg-flow-logging-portal.md)教程，了解有关 NSG 流日志的更多信息以及如何实现[流量分析](traffic-analytics.md)。
+通过完成[记录出入虚拟机的网络流量](network-watcher-nsg-flow-logging-portal.md)教程，详细了解 NSG 流日志。
 
+<!-- Not Available on [traffic analytics](traffic-analytics.md)-->
 ### <a name="view-diagnostic-logs-for-network-resources"></a>查看网络资源的诊断日志
 
-可以针对网络安全组、公共 IP 地址、负载均衡器、虚拟网络网关和应用程序网关等 Azure 网络资源启用诊断日志记录。 诊断日志功能提供单个界面，用于针对生成诊断日志的任何现有网络资源启用和禁用网络资源诊断日志。 可以使用 Azure Power BI 和 Azure Log Analytics 等工具查看诊断日志。 若要详细了解如何分析 Azure 网络诊断日志，请参阅 [Log Analytics 中的 Azure 网络解决方案](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fnetwork-watcher%2ftoc.json)。
+可以针对网络安全组、公共 IP 地址、负载均衡器、虚拟网络网关和应用程序网关等 Azure 网络资源启用诊断日志记录。 诊断日志功能提供单个界面，用于针对生成诊断日志的任何现有网络资源启用和禁用网络资源诊断日志。 可以使用 Microsoft Power BI 等工具查看诊断日志。
 
+<!-- Not Available on [Azure network solutions in Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fnetwork-watcher%2ftoc.json)-->
 ## <a name="next-steps"></a>后续步骤
 
 上面就是 Azure 网络观察程序的概述。 若要开始使用网络观察程序，请使用 IP 流验证来诊断与虚拟机之间的常见通信问题。 有关操作方法，请参阅[诊断虚拟机网络流量筛选问题](diagnose-vm-network-traffic-filtering-problem.md)快速入门。

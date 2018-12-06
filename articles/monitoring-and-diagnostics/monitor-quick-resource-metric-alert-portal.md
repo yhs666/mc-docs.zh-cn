@@ -1,20 +1,21 @@
 ---
 title: 当指标值满足条件时接收通知
 description: 帮助用户创建逻辑应用的指标的快速入门指南
-author: anirudhcavale
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: quickstart
 origin.date: 02/08/2018
-ms.author: v-yiso
-ms.date: 10/22/2018
+ms.date: 11/26/2018
+ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: fcbb566d08eef60b958d8d886e77674a58dd0b69
-ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
+ms.component: alerts
+ms.openlocfilehash: cab75596da91e254b796ff68349773f147f6d59b
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121530"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674545"
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>当指标值满足条件时接收通知
 
@@ -38,7 +39,6 @@ Azure Monitor 使指标可用于许多 Azure 资源。 这些指标传达相关�
 
     ![在门户中输入有关逻辑应用的基本信息](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
 
-
 4. 逻辑应用应固定到仪表板。 通过单击导航到逻辑应用。
 
 5. 在“逻辑应用”面板中，选择“逻辑应用设计器”
@@ -47,7 +47,7 @@ Azure Monitor 使指标可用于许多 Azure 资源。 这些指标传达相关�
 
 6. 按下图所示设置值。
 
-    ![在门户面板中配置逻辑应用触发器](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-triggers.png)上获取。 
+    ![在门户面板中配置逻辑应用触发器](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-triggers.png) 
 
 7. 在设计器中，选择“重复”触发器。
 
@@ -90,11 +90,11 @@ Azure Monitor 使指标可用于许多 Azure 资源。 这些指标传达相关�
     ![在门户面板中配置逻辑应用警报](./media/monitor-quick-resource-metric-alert-portal/logic-app-metrics-alert-portal.png)
 
 ## <a name="receive-metric-alert-notifications-for-your-logic-app"></a>接收逻辑应用的指标警报通知
-1. 不久之后，就会收到来自“Microsoft Azure 警报”的电子邮件，通知你警报“已激活”。
+1. 不久之后，就会收到来自“Azure 警报”的电子邮件，通知你警报“已激活”。
 
 2. 返回逻辑应用，将重复触发器修改为间隔为 1 且频率为小时。
 
-3. 不久之后，就会收到来自“Microsoft Azure 警报”的电子邮件，通知你警报“已解决”。
+3. 不久之后，就会收到来自“Azure 警报”的电子邮件，通知你警报“已解决”。
 
 ## <a name="clean-up-resources"></a>清理资源
 

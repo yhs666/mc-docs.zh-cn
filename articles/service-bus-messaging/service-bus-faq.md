@@ -6,15 +6,15 @@ author: lingliw
 manager: digimobile
 ms.service: service-bus-messaging
 ms.topic: article
-origin.date: 09/05/2018
-ms.date: 10/31/2018
+origin.date: 11/05/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 18c4c29c9b2973434495834b2b940c2224fea3da
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.openlocfilehash: 115ad6e0109d46cacc8db790baecee5fc8b8074e
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409362"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674568"
 ---
 # <a name="service-bus-faq"></a>服务总线常见问题解答
 
@@ -22,7 +22,7 @@ ms.locfileid: "50409362"
 
 ## <a name="general-questions-about-azure-service-bus"></a>关于 Azure 服务总线的一般问题
 ### <a name="what-is-azure-service-bus"></a>什么是 Azure 服务总线？
-[Azure 服务总线](service-bus-messaging-overview.md) 是一个异步消息传送云平台，可让你在分离的系统之间发送数据。 Azure 以服务的形式提供此功能，这表示不需要托管任何自有硬件就能使用它。
+[Azure 服务总线](service-bus-messaging-overview.md) 是一个异步消息传送云平台，可让你在分离的系统之间发送数据。 Azure 以服务的形式提供此功能，这意味着不需要托管自有硬件就能使用它。
 
 ### <a name="what-is-a-service-bus-namespace"></a>什么是服务总线命名空间？
 [命名空间](service-bus-create-namespace-portal.md)提供了用于对应用程序中的服务总线资源进行寻址的范围容器。 必须创建命名空间才能使用服务总线，而且这也是开始使用的第一步。
@@ -38,7 +38,7 @@ ms.locfileid: "50409362"
 
 使用分区实体时不保证排序。 如果某个分区不可用，仍可从其他分区发送和接收消息。
 
-[高级 SKU](service-bus-premium-messaging.md) 中不再支持分区实体。 
+ [高级 SKU](service-bus-premium-messaging.md) 中不再支持分区实体。 
 
 ## <a name="best-practices"></a>最佳实践
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Azure 服务总线的最佳实践有哪些？

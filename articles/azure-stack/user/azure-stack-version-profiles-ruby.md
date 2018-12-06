@@ -17,11 +17,11 @@ ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: sijuman
 ms.openlocfilehash: 6ab308a3f2f8f10d0d2f4c9afb2643f7e402677c
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869505"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657951"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Ruby 配合使用
 
@@ -73,7 +73,7 @@ gem 'azure_mgmt_network'
 
 ## <a name="usage-of-the-azuresdk-gem"></a>使用 azure_sdk gem
 
-azure_sdk gem 汇总了 Ruby SDK 中所有受支持的 gem。 此 gem 包含的**最新**配置文件支持所有服务的最新版本。 它引入了进行版本控制的 **V2017_03_09** 配置文件，该文件是为 Azure Stack 生成的。
+azure_sdk gem 汇总了 Ruby SDK 中所有受支持的 gem。 此 gem 包含的 **最新** 配置文件支持所有服务的最新版本。 它引入了进行版本控制的  **V2017_03_09**  配置文件，该文件是为 Azure Stack 生成的。
 
 可使用以下命令安装 azure_sdk 汇总 gem：  
 
@@ -89,8 +89,7 @@ azure_sdk gem 汇总了 Ruby SDK 中所有受支持的 gem。 此 gem 包含的*
 | --- | --- | --- | --- |
 | 租户 ID | AZURE_TENANT_ID | Azure Stack [租户 ID](/azure-stack/azure-stack-identity-overview) 的值。 |
 | 客户端 ID | AZURE_CLIENT_ID | 在本文档上一部分创建服务主体时保存的服务主体应用程序 ID。  |
-| 订阅 ID | AZURE_SUBSCRIPTION_ID | 
-  [订阅 ID](/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) 用于访问 Azure Stack 中的套餐。 |
+| 订阅 ID | AZURE_SUBSCRIPTION_ID | [订阅 ID](/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) 用于访问 Azure Stack 中的套餐。 |
 | 客户端机密 | AZURE_CLIENT_SECRET | 创建服务主体时保存的服务主体应用程序机密。 |
 | 资源管理器终结点 | ARM_ENDPOINT | 请参阅 [Azure Stack 资源管理器终结点](#The-azure-stack-resource-manager-endpoint)。  |
 

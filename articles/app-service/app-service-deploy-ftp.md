@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/05/2018
-ms.date: 10/29/2018
+ms.date: 12/03/2018
 ms.author: v-biyu
-ms.openlocfilehash: 0fc2ed9db6c05498e0480514db2c99931459a716
-ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
+ms.openlocfilehash: 49760b0b177e4d18b64fa73dc8878d9479c229cd
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49451600"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674217"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>使用 FTP/S 将应用部署到 Azure 应用服务
 
@@ -46,7 +46,8 @@ ms.locfileid: "49451600"
 
 ## <a name="deploy-files-to-azure"></a>将文件部署到 Azure
 
-1. 从 FTP 客户端（例如 [Visual Studio](https://www.visualstudio.com/vs/community/) 或 [FileZilla](https://filezilla-project.org/download.php?type=client)），使用收集到的连接信息连接到应用。
+1. 从 FTP 客户端（例如 [Visual Studio](https://www.visualstudio.com/vs/community/)、[Cyberduck](https://cyberduck.io/) 或 [WinSCP](https://winscp.net/index.php)），使用收集到的连接信息连接到应用。
+使用收集到的连接信息连接到应用。
 3. 将文件及其各自的目录结构复制到 Azure 中的 [/site/wwwroot 目录](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure)（对于 Web 作业，复制到 /site/wwwroot/App_Data/Jobs/ 目录）。
 4. 浏览到应用的 URL，以验证该应用是否正在正常运行。 
 
@@ -67,7 +68,7 @@ ms.locfileid: "49451600"
 
 如果应用的资源页位于 [Azure 门户](https://portal.azure.cn)中，请在左侧导航中选择“应用设置”。
 
-若要禁用未加密的 FTP，请选择“仅 FTPS”。 若要将 FTP 和 FTPS 都禁用，请选择“禁用”。 完成后，单击“保存”。 如果使用“仅 FTPS”，则必须通过导航到 Web 应用的“SSL 设置”边栏选项卡来强制实施 TLS 1.1 或更高版本。 TLS 1.0 不支持“仅 FTPS”。
+若要禁用未加密的 FTP，请选择“仅 FTPS”。 若要将 FTP 和 FTPS 都禁用，请选择“禁用”。 完成后，单击“保存”。 如果使用“仅 FTPS”，则必须通过导航到 Web 应用的“SSL 设置”边栏选项卡来强制实施 TLS 1.2 或更高版本。 TLS 1.0 和 1.1 不支持“仅 FTPS”。
 
 ![禁用 FTP/S](./media/app-service-deploy-ftp/disable-ftp.png)
 

@@ -11,15 +11,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 origin.date: 09/07/2018
-ms.date: 09/24/2018
+ms.date: 11/19/2018
 ms.topic: quickstart
 ms.author: v-yeche
-ms.openlocfilehash: fb9e527854b4d3f427bcaaecfec615536b008916
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.openlocfilehash: 24523af62ba175a846b2bcaaf2deb72e5af0a04d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527183"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663216"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>快速入门：使用 Visual Studio Code 创建 Azure 资源管理器模板
 
@@ -90,25 +90,25 @@ ms.locfileid: "46527183"
 
 ## <a name="deploy-the-template"></a>部署模板
 
-可通过多种方法来部署模板。  在本快速入门中，使用 Azure CLI 或 Azure PowerShell 部署模板。
+可通过多种方法来部署模板。  在本快速入门中，使用 Azure 本地 Shell 或 Azure PowerShell 部署模板。
 
 <!--Not Available on Cloud Shell-->
-1. 从 Azure 本地 shell 运行以下命令：
+1. 从 Azure 本地 shell 运行以下命令。 选择用于显示 PowerShell 代码或 CLI 代码的选项卡。
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
     ```cli
-    
     az cloud set -n AzureChinaCloud
     az login
-    az group create --name <ResourceGroupName> --location <AzureLocation
+    az group create --name <ResourceGroupName> --location <AzureLocation>
+
     az group deployment create --name <DeploymentName> --resource-group <ResourceGroupName> --template-file <TemplateFileName>
     ```
 
     # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
-
     ```powershell
     Connect-AzureRmAccount -Environment AzureChinaCloud
     New-AzureRmResourceGroup -Name <ResourceGroupName> -Location <AzureLocation>
+
     New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroupName> -TemplateFile <TemplateFileName>
     ```
 
@@ -118,11 +118,11 @@ ms.locfileid: "46527183"
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
 
-    ![Azure 门户 - Cloud Shell - 部署模板](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-deploy-template.png)
+    ![Azure CLI 部署模板](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-deploy-template.png)
 
     # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
 
-    ![Azure 门户 - Cloud Shell - 部署模板](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-deploy-template-powershell.png)
+    ![Azure PowerShell 部署模板](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-deploy-template-powershell.png)
 
     ---
 

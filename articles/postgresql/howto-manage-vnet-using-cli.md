@@ -9,21 +9,21 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-origin.date: 08/15/2018
-ms.date: 10/01/2018
-ms.openlocfilehash: 049ea15594428b0cd9bbe8417a45a1a8613f2a70
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+origin.date: 10/23/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: dd4ff9925c2c9b15c1ff354f175e65aeb1be505d
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426255"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674319"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-vnet-service-endpoints-using-azure-cli"></a>使用 Azure CLI 创建和管理 Azure Database for PostgreSQL VNet 服务终结点
 虚拟网络 (VNet) 服务终结点和规则将虚拟网络的专用地址空间扩展到你的 Azure Database for PostgreSQL 服务器。 使用便捷的 Azure 命令行接口 (CLI) 命令，可创建、更新、删除、列出和显示 VNet 服务终结点和规则，用于管理服务器。 有关 Azure Database for PostgreSQL VNet 服务终结点（包括限制）的概述，请参阅 [Azure Database for PostgreSQL Server VNet 服务终结点](concepts-data-access-and-security-vnet.md)。 在 Azure Database for PostgreSQL 的所有支持区域中，VNet 服务终结点均可用。
 
 ## <a name="prerequisites"></a>先决条件
 若要逐步执行本操作方法指南，需要：
-- 安装 [Azure CLI 2.0](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest) 命令行实用工具或使用浏览器中的 Azure Cloud Shell。
+- 安装 [Azure CLI](/cli/install-azure-cli) 命令行实用程序。
 - [Azure Database for PostgreSQL 服务器和数据库](quickstart-create-server-database-azure-cli.md)。
 
 > [!NOTE]
@@ -34,7 +34,7 @@ ms.locfileid: "47426255"
 
 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
-如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0 版或更高版本。 若要查看安装的版本，请运行 `az --version` 命令。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0]( /cli/install-azure-cli)。 
+如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0 版或更高版本。 若要查看安装的版本，请运行 `az --version` 命令。 如果需要进行安装或升级，请参阅[安装 Azure CLI]( /cli/install-azure-cli)。 
 
 如果在本地运行 CLI，需要使用 [az login](/cli/authenticate-azure-cli?view=azure-cli-latest) 命令登录帐户。 记下与订阅名称相对应的命令输出中的 **id** 属性。
 ```cli
@@ -47,7 +47,7 @@ az login
 
 对虚拟网络拥有写入访问权限的用户可在虚拟网络上单独配置服务终结点。
 
-若要在 VNet 中保护 Azure 服务资源，用户必须对所添加的子网拥有“Microsoft.Network/JoinServicetoaSubnet”权限。 此权限默认包含在内置的服务管理员角色中，可以通过创建自定义角色进行修改。
+若要在 VNet 中保护 Azure 服务资源，用户必须对所添加的子网拥有“Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/”权限。 此权限默认包含在内置的服务管理员角色中，可以通过创建自定义角色进行修改。
 
 详细了解[内置角色](https://docs.azure.cn/active-directory/role-based-access-built-in-roles)以及将特定的权限分配到[自定义角色](https://docs.azure.cn/active-directory/role-based-access-control-custom-roles)。
 
@@ -70,7 +70,7 @@ az account set --subscription <subscription id>
 # Create a resource group
 az group create \
 --name myresourcegroup \
---location chinaeast2
+--location chinaeast
 
 # Create a PostgreSQL server in the resource group
 # Name of a server maps to DNS name and is thus required to be globally unique in Azure.
@@ -78,22 +78,22 @@ az group create \
 az postgres server create \
 --name mydemoserver \
 --resource-group myresourcegroup \
---location chinaeast2 \
+--location chinaeast \
 --admin-user mylogin \
 --admin-password <server_admin_password> \
---sku-name GP_Gen5_2
+--sku-name GP_Gen4_2
 
 # Get available service endpoints for Azure region output is JSON
-# Use the command below to get the list of services supported for endpoints, for an Azure region, say "chinaeast2".
+# Use the command below to get the list of services supported for endpoints, for an Azure region, say "chinaeast".
 az network vnet list-endpoint-services \
--l chinaeast2
+-l chinaeast
 
 # Add Azure SQL service endpoint to a subnet *mySubnet* while creating the virtual network *myVNet* output is JSON
 az network vnet create \
 -g myresourcegroup \
 -n myVNet \
 --address-prefixes 10.0.0.0/16 \
--l chinaeast2
+-l chinaeast
 
 # Creates the service endpoint
 az network vnet subnet create \

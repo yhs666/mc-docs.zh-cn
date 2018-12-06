@@ -3,16 +3,16 @@ title: 安装用于从 Azure 故障转移到本地的 Linux 主目标服务器 |
 description: 在重新保护 Linux 虚拟机之前，需要一个 Linux 主目标服务器。 本文介绍如何安装该服务器。
 author: rockboyfor
 ms.service: site-recovery
-ms.topic: article
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.topic: conceptual
+origin.date: 10/11/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4f74ff259275dc58da5c8f46ccc4abca0573a7a2
-ms.sourcegitcommit: f7ff09be9f3be5e3eb795e383c0c670f480f233d
+ms.openlocfilehash: 1a961c106ab29ed7fdee8e2bb76aaeffd9abfbc1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39169028"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658121"
 ---
 # <a name="install-a-linux-master-target-server"></a>安装 Linux 主目标服务器
 将虚拟机故障转移到 Azure 后，可将虚拟机故障回复到本地站点。 若要故障回复，需要在本地站点中重新保护 Azure 中的虚拟机。 对于此过程，需要安装一个本地主目标服务器用于接收流量。 
@@ -25,7 +25,7 @@ ms.locfileid: "39169028"
 ## <a name="overview"></a>概述
 本文提供 Linux 主目标的相关安装说明。
 
-请在本文末尾或者在 [Azure 恢复服务论坛](https://www.azure.cn/support/contact/)中发表任何评论或问题。
+请在 [Azure 恢复服务论坛](https://www.azure.cn/support/contact/)中发表评论或提出问题。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -343,4 +343,5 @@ Azure Site Recovery 主目标服务器需要特定版本的 Ubuntu，请确保�
 主目标安装和注册完成后，在“Site Recovery 基础结构”中“主目标”部分的配置服务器概述下即会显示此主目标。
 
 现在，可以继续执行[重新保护](vmware-azure-reprotect.md)过程，并执行故障回复。
-<!--Update_Description: update meta properties, wording update, update link -->
+
+<!--Update_Description: update meta properties, wording update -->

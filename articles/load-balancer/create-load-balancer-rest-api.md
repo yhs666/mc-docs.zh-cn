@@ -4,23 +4,20 @@ description: 了解如何使用 REST API 创建 Azure 负载均衡器。
 services: load-balancer
 documentationcenter: na
 author: WenJason
-manager: digimobile
-editor: ''
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: load-balancer
 origin.date: 06/06/2018
-ms.date: 11/05/2018
+ms.date: 11/26/2018
 ms.author: v-jay
-ms.openlocfilehash: 2734915f4a93de911e08b8d11657a530f3a412a3
-ms.sourcegitcommit: 9be84d4dc546d66a0d9d1d2be67dd79c84b2c210
+ms.openlocfilehash: b779634a5fe2ab334c149bfdedaf59250111b237
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50408862"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673000"
 ---
 # <a name="create-an-azure-basic-load-balancer-using-rest-api"></a>使用 REST API 创建 Azure 基本负载均衡器
 
@@ -55,7 +52,11 @@ Azure 负载均衡器根据规则和运行状况探测，将抵达负载均衡�
 
 ## <a name="example-create-and-update-a-basic-load-balancer"></a>示例：创建和更新基本负载均衡器
 
-### <a name="create-a-basic-load-balancer"></a>创建基本负载均衡器
+在此示例中，请首先创建基本负载均衡器及其资源。 接下来，请配置负载均衡器资源，其中包括前端 IP 配置、后端地址池、负载均衡规则、运行状况探测，以及入站 NAT 规则。
+
+在使用下面的示例创建负载均衡器之前，请在“中国东部”位置名为 *rg1* 的资源组中使用名为 *subnetlb* 的子网创建名为 *vnetlb* 的虚拟网络。
+
+### <a name="step-1-create-a-basic-load-balancer"></a>步骤 1. 创建基本负载均衡器
 在此步骤中，请在“中国东部”位置的 *rg1* 资源组中创建名为 *lb* 的基本负载均衡器。
 #### <a name="sample-request"></a>示例请求
 
@@ -69,3 +70,88 @@ Azure 负载均衡器根据规则和运行状况探测，将抵达负载均衡�
     "location": "chinaeast",
    }
   ```
+### <a name="step-2-configure-load-balancer-resources"></a>步骤 2. 配置负载均衡器资源
+在此步骤中，请配置负载均衡器 *lb* 资源，其中包括前端 IP 配置 (*fe-lb*)、后端地址池 (*be-lb*)、负载均衡规则 (*rulelb*)、运行状况探测 (*probe-lb*)，以及入站 NAT 规则 (*in-nat-rule*)。
+#### <a name="sample-request"></a>示例请求
+
+  ```HTTP    
+  PUT https://management.chinacloudapi.cn/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb?api-version=2018-02-01
+  ```
+#### <a name="request-body"></a>请求正文
+
+  ```JSON
+{
+  "location": "China East",
+  "properties": {
+    "frontendIPConfigurations": [
+      {
+        "name": "fe-lb",
+        "properties": {
+          "subnet": {
+            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetlb/subnets/subnetlb"
+          },
+          "loadBalancingRules": [
+            {
+              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/loadBalancingRules/rulelb"
+            }  ],
+          "inboundNatRules": [
+            {
+              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/inboundNatRules/in-nat-rule"
+            }  ]  }  }  ],
+    "backendAddressPools": [
+      {
+        "name": "be-lb",
+        "properties": {
+          "loadBalancingRules": [
+            {
+              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/loadBalancingRules/rulelb"
+            }  ]   }   }   ],
+    "loadBalancingRules": [
+      {
+        "name": "rulelb",
+        "properties": {
+          "frontendIPConfiguration": {
+            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb"
+          },
+          "frontendPort": 80,
+          "backendPort": 80,
+          "enableFloatingIP": true,
+          "idleTimeoutInMinutes": 15,
+          "protocol": "Tcp",
+          "loadDistribution": "Default",
+          "backendAddressPool": {
+            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/be-lb"
+          },
+          "probe": {
+            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/probes/probe-lb"
+          }  }  }  ],
+    "probes": [
+      {
+        "name": "probe-lb",
+        "properties": {
+          "protocol": "Http",
+          "port": 80,
+          "requestPath": "healthcheck.aspx",
+          "intervalInSeconds": 15,
+          "numberOfProbes": 2,
+          "loadBalancingRules": [
+            {
+              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/loadBalancingRules/rulelb"
+            }  ]  }  } ],
+    "inboundNatRules": [
+      {
+        "name": "in-nat-rule",
+        "properties": {
+          "frontendIPConfiguration": {
+            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb"
+          },
+          "frontendPort": 3389,
+          "backendPort": 3389,
+          "enableFloatingIP": true,
+          "idleTimeoutInMinutes": 15,
+          "protocol": "Tcp"
+        } } ],
+    "inboundNatPools": [],
+    "outboundNatRules": []
+  }  }
+```

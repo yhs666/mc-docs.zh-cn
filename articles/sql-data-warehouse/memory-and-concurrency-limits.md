@@ -1,39 +1,38 @@
 ---
-title: 内存和并发限制 - Azure SQL 数据仓库 | Azure
+title: 内存和并发限制 - Azure SQL 数据仓库 | Microsoft Docs
 description: 查看分配给 Azure SQL 数据仓库中的各个性能级别和资源类的内存和并发限制。
 services: sql-data-warehouse
-author: rockboyfor
+author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-origin.date: 07/10/2018
-ms.date: 08/20/2018
-ms.author: v-yeche
+origin.date: 10/04/2018
+ms.date: 11/12/2018
+ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: feecc2d6dceeaf3312d994b8c9a7f3858696f3d7
-ms.sourcegitcommit: 02c4716e07b3d83104fa419b379a15589ae8017e
+ms.openlocfilehash: 141cd39c5f1232e94a1587f6fb11ea18bb25ca7c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41703887"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645370"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Azure SQL 数据仓库的内存和并发限制
 查看分配给 Azure SQL 数据仓库中的各个性能级别和资源类的内存和并发限制。 若要了解详细信息并将这些功能应用于你的工作负荷管理计划，请参阅[用于工作负荷管理的资源类](resource-classes-for-workload-management.md)。 
 
-<!--Pending on Gen2--> 目前有两代 SQL 数据仓库：第 1 代和第 2 代。 建议使用 SQL 数据仓库第 2 代来实现数据仓库工作负荷的最佳性能。 第 2 代引入了一种新的 NVMe 固态磁盘缓存，可将最常访问的数据保留在 CPU 附近。 这样可以为最占用资源和要求最苛刻的工作负荷免除远程 I/O。 除性能外，第 2 代还提供最高级别的扩展能力，允许你扩展至 30,000 个数据仓库单位，并提供无限制的列式存储。 我们仍支持上一代（第 1 代）SQL 数据仓库并保留相同的功能；不过，建议你尽早[升级到第 2 代](upgrade-to-latest-generation.md)。 
-<!--Pending on Gen2-->
+目前有两代 SQL 数据仓库：第 1 代和第 2 代。 建议使用 SQL 数据仓库第 2 代来实现数据仓库工作负荷的最佳性能。 第 2 代引入了一种新的 NVMe 固态磁盘缓存，可将最常访问的数据保留在 CPU 附近。 这样可以为最占用资源和要求最苛刻的工作负荷免除远程 I/O。 除性能外，第 2 代还提供最高级别的扩展能力，允许你扩展至 30,000 个数据仓库单位，并提供无限制的列式存储。 我们仍支持上一代（第 1 代）SQL 数据仓库并保留相同的功能；不过，建议你尽早[升级到第 2 代](upgrade-to-latest-generation.md)。 
 
 ## <a name="data-warehouse-capacity-settings"></a>数据仓库容量设置
 以下各表显示了不同性能级别的数据仓库的最大容量。 若要更改性能级别，请参阅[缩放计算 - 门户](quickstart-scale-compute-portal.md)。
 
-<!--Pending on Gen2-->
 ### <a name="gen2"></a>Gen2
 
-第 2 代为每个查询提供的内存比第 1 代多 2.5 倍。 额外的内存有助于第 2 代提供快速的性能。  第 2 代的性能级别范围为 DW1000c 到 DW30000c。 
+第 2 代为每个查询提供的内存比第 1 代多 2.5 倍。 额外的内存有助于第 2 代提供快速的性能。  第 2 代的性能级别范围为 DW500c 到 DW30000c。 
 
 | 性能级别 | 计算节点 | 每个计算节点的分布区数 | 每个数据仓库的内存 (GB) |
 |:-----------------:|:-------------:|:------------------------------:|:------------------------------:|
+| DW500c            | 1             | 60                             |   300                          |
 | DW1000c           | 2             | 30                             |   600                          |
 | DW1500c           | 3             | 20 个                             |   900                          |
 | DW2000c           | 4             | 15                             |  1200                          |
@@ -66,12 +65,10 @@ ms.locfileid: "41703887"
 | DW2000            | 20 个            | 3                              | 480                            |
 | DW3000            | 30            | 2                              | 720                            |
 | DW6000            | 60            | 1                              | 1440                           |
-<!--Pending on Gen2-->
 
 ## <a name="concurrency-maximums"></a>并发性最大值
 为了确保每个查询都有足够的资源来有效执行，SQL 数据仓库会通过向每个查询分配并发槽位来跟踪资源利用率。 系统将查询放入某个队列，然后，查询在队列中等待有足够的[并发槽位](resource-classes-for-workload-management.md#concurrency-slots)可用。 并发槽位还确定 CPU 优先级。 有关详细信息，请参阅[分析工作负荷](analyze-your-workload.md)。
 
-<!--Pending on Gen2-->
 ### <a name="gen2"></a>Gen2
  
 **静态资源类**
@@ -80,6 +77,7 @@ ms.locfileid: "41703887"
 
 | 服务级别 | 并发查询数上限 | 可用的并发槽位数 |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
+| DW500c        | 20 个                         |   20 个                        | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
 | DW1000c       | 32                         |   40                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
 | DW1500c       | 32                         |   60                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
 | DW2000c       | 48                         |   80                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
@@ -95,7 +93,7 @@ ms.locfileid: "41703887"
 **动态资源类**
 
 > [!NOTE]
-> 第 2 代的 smallrc 资源类随着服务级别的增加而动态增加内存，并且最多只支持 32 个并发查询。  随着服务级别的增加，smallrc 使用的并发槽位和内存也会增加。 
+> 第 2 代的 smallrc 资源类随着服务级别的增加而动态增加内存，性能级别 DW1000c 最多只支持 32 个并发查询，而 DW500c 最多只支持 20 个并发查询。  一旦实例扩展到 DW1500c 以上级别，随着服务级别的增加，smallrc 使用的并发槽位和内存也会增加。 
 >
 >
 
@@ -103,6 +101,7 @@ ms.locfileid: "41703887"
 
 | 服务级别 | 并发查询数上限 | 可用的并发槽位数 | smallrc 使用的槽数 | mediumrc 使用的槽数 | largerc 使用的槽数 | xlargerc 使用的槽数 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
+| DW500c        | 20 个                         |   20 个                        | 1                     |  2                     |  4                    |  14                    |
 | DW1000c       | 32                         |   40                        | 1                     |  4                     |  8                    |  28                    |
 | DW1500c       | 32                         |   60                        | 1                     |  6                     |  13                   |  42                    |
 | DW2000c       | 32                         |   80                        | 2                     |  8                     |  17                   |  56                    |
@@ -111,8 +110,7 @@ ms.locfileid: "41703887"
 | DW5000c       | 32                         |  200                        | 6                     | 20 个                     |  44                   | 140                    |
 | DW6000c       | 32                         |  240                        | 7                     | 24                     |  52                   | 168                    |
 | DW7500c       | 32                         |  300                        | 9                     | 30                     |  66                   | 210                    |
-| DW10000c      | 32                         |  400                        | 12                    | 40                     |  8
-8                   | 280                    |
+| DW10000c      | 32                         |  400                        | 12                    | 40                     |  88                   | 280                    |
 | DW15000c      | 32                         |  600                        | 18                    | 60                     | 132                   | 420                    |
 | DW30000c      | 32                         | 1200                        | 36                    | 120                    | 264                   | 840                    |
 
@@ -164,8 +162,6 @@ ms.locfileid: "41703887"
 
 
 满足其中一个阈值时，就会按“先进先出”原则排队执行新查询。  如果查询已完成并且查询数和槽位数低于限制，则 Azure SQL 数据仓库会释放排队的查询。 
-
-<!--Pending on Gen2-->
 
 ## <a name="next-steps"></a>后续步骤
 

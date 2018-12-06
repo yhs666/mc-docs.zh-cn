@@ -16,11 +16,11 @@ origin.date: 04/25/2018
 ms.date: 05/28/2018
 ms.author: v-yeche
 ms.openlocfilehash: 5e5c357aca97546d6d0a08ee26cba8b42fb61baa
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867481"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667244"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Azure Service Fabric 的监视和诊断
 
@@ -31,8 +31,7 @@ ms.locfileid: "34867481"
 * 确定应用程序负载和用户流量 - 是否需要缩放服务来满足用户需求，或解决应用程序中的潜在瓶颈？
 * 识别服务通信和群集远程控制的问题
 * 判断用户正在使用应用程序做些什么 - 收集应用程序中的遥测数据可能有助于将来的功能开发，以及更好地诊断应用错误
-* 监视运行的容器中发生的情况
-<!-- Not Avaiable on Application Insight(AI) -->
+* 监视运行的容器中发生的情况 <!-- Not Avaiable on Application Insight(AI) -->
 
 ## <a name="platform-cluster-monitoring"></a>平台（群集）监视
 若要确保平台和所有工作负荷按预期运行，监视 Service Fabric 群集至关重要。 Service Fabric 的目标之一是确保应用程序能够灵活应对硬件故障。 为了实现此目的，可以通过平台的系统服务功能检测基础结构问题，并快速将工作负荷故障转移到群集中的其他节点。 但在此特殊情况下，系统服务本身出现问题该怎么办？ 或者，在尝试移动工作负荷时，如果违反服务位置的规则该怎么办？ 监视群集可以随时了解群集中发生的活动，帮助有效诊断和解决问题。 需要分析的一些重要问题包括：

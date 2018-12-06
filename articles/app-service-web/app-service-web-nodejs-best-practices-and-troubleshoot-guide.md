@@ -16,11 +16,11 @@ origin.date: 06/06/2016
 ms.date: 09/26/2016
 ms.author: v-dazen
 ms.openlocfilehash: 2f7703212e3064d7e022e667527f990c2f3ebafc
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
-ms.locfileid: "21134810"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646108"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-web-apps"></a>Azure Web 应用上节点应用程序的最佳做法和故障排除指南
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
@@ -58,7 +58,7 @@ ms.locfileid: "21134810"
     此设置控制 iisnode 用于记录 stdout/stderr 的目录。 默认值是相对于主要脚本目录（主要 server.js 所在的目录）的 iisnode
 * debuggerExtensionDll
 
-    此设置控制 iisnode 在调试节点应用程序时将使用的节点检查器版本。 iisnode-inspector-0.7.3.dll 和 iisnode-inspector.dll 目前是此设置仅有的 2 个有效值。 默认值为 iisnode-inspector-0.7.3.dll。 iisnode-inspector-0.7.3.dll 版本会使用 node-inspector-0.7.3 和 WebSocket，因此，需启用 Azure Webapp 上的 WebSocket 才能使用此版本。 若要详细了解如何将 iisnode 配置为使用新节点检查器，请参阅 <http://www.ranjithr.com/?p=98>。
+    此设置控制 iisnode 在调试节点应用程序时将使用的节点检查器版本。 iisnode-inspector-0.7.3.dll 和 iisnode-inspector.dll 目前是此设置仅有的 2 个有效值。 默认值为 iisnode-inspector-0.7.3.dll。 iisnode-inspector-0.7.3.dll 版本会使用 node-inspector-0.7.3 和 WebSocket，因此，需启用 Azure Webapp 上的 WebSocket 才能使用此版本。 有关如何将 iisnode 配置为使用新 node-inspector 的更多详细信息，请参阅 <http://www.ranjithr.com/?p=98>。
 * flushResponse
 
     IIS 的默认行为是在刷新之前或直到响应结束时（以较早出现者为准），缓冲最多 4MB 的响应数据。 iisnode 会提供配置设置来替代此行为：若要在 iisnode 从 node.exe 收到响应实体主体片段时立刻刷新该片段，需在 web.config 中将 iisnode/@flushResponse 属性设置为“true”：
@@ -107,7 +107,7 @@ ms.locfileid: "21134810"
     默认值为 false。 如果设置为 true，iisnode 会在浏览器上显示 HTTP 状态代码和 Win32 错误代码。 调试特定类型的问题时，win32 代码很有用。
 * debuggingEnabled（请勿在实际生产站点上启用）
 
-    此设置控制调试功能。 Iisnode 与节点检查器集成。 通过启用此设置，可启用节点应用程序的调试功能。 启用此设置后，iisnode 会在对节点应用程序发出第一个调试请求时，在“debuggerVirtualDir”目录中布置所需的节点检查器文件。 可以将请求发送到 http://yoursite/server.js/debug，加载节点检查器。 可以使用“debuggerPathSegment”设置来控制调试 URL 段。 默认情况下，debuggerPathSegment =“debug”。 可以将其设置为 GUID 之类的值，这样，其他人就更难发现。
+    此设置控制调试功能。 Iisnode 与节点检查器集成。 通过启用此设置，可启用节点应用程序的调试功能。 启用此设置后，iisnode 会在对节点应用程序发出第一个调试请求时，在“debuggerVirtualDir”目录中布置所需的节点检查器文件。 可将请求发送到 http://yoursite/server.js/debug，以加载 node-inspector。 可以使用“debuggerPathSegment”设置来控制调试 URL 段。 默认情况下，debuggerPathSegment =“debug”。 可以将其设置为 GUID 之类的值，这样，其他人就更难发现。
 
     访问此[链接](https://tomasz.janczuk.org/2011/11/debug-nodejs-applications-on-windows.html)，更详细地了解调试。
 
@@ -252,11 +252,11 @@ http.createServer(function (req, res) {
 NODE.exe 内有名为 NODE\_PENDING\_PIPE\_INSTANCES 的设置。 默认情况下，此值在 Azure Webapps 外部为 4。 这表示 node.exe 在命名管道上一次只能接受 4 个请求。 在 Azure Webapps 上，此值设置为 5000，应足以满足 Azure Webapps 上运行的大多数节点应用程序。 Azure Webapps 上不应出现 503.1003，因为 NODE\_PENDING\_PIPE\_INSTANCES 的值较高。  |
 
 ## <a name="more-resources"></a>更多资源
-请访问以下链接，详细了解 Azure 应用服务上的 node.js 应用程序。
+请访问以下链接，详细了解 Azure App Service 上的 node.js 应用程序。
 
 * [Azure 应用服务中的 Node.js Web 应用入门](app-service-web-get-started-nodejs.md)
-* [如何在 Azure 应用服务中调试 Node.js Web 应用](web-sites-nodejs-debug.md)
+* [如何在 Azure App Service 中调试 Node.js Web 应用](web-sites-nodejs-debug.md)
 * [将 Node.js 模块与 Azure 应用程序一起使用](../nodejs-use-node-modules-azure-apps.md)
-* [Azure 应用服务 Web 应用：Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
+* [Azure App Service Web 应用：Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Node.js 开发人员中心](../nodejs-use-node-modules-azure-apps.md)
 * [探索神秘无比的 Kudu 调试控制台](/articles/web-mobile/aog-web-app-diagnostics-kudu/)

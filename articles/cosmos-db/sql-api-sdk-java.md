@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB：SQL Java API、SDK 和资源 | Azure
-description: 了解有关 SQL Java API 的所有信息。
+description: 了解有关 SQL Java API 的信息。
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
@@ -10,15 +10,15 @@ ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
 origin.date: 06/29/2018
-ms.date: 08/13/2018
+ms.date: 12/03/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d4e402f41f6d6ec5b13506b3bb46004772f0c849
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.openlocfilehash: 8e79de4c766ce4abc63e103d48cb18fd3c839e2d
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41705077"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674667"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>适用于 SQL API 的 Azure Cosmos DB Java SDK：发行说明和资源
 > [!div class="op_single_selector"]
@@ -34,6 +34,7 @@ ms.locfileid: "41705077"
 > * [SQL](../cosmos-db/sql-api-sql-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+
 <!-- Redirecrt https://msdn.microsoft.com/library/azure/dn782250.aspx to sql-api-sql-query-reference.md -->
 
 SQL API Java SDK 支持同步操作。 如需异步支持，请使用 [SQL API Async Java SDK](sql-api-sdk-async-java.md)。 
@@ -61,4 +62,5 @@ SQL API Java SDK 支持同步操作。 如需异步支持，请使用 [SQL API A
 
 ## <a name="see-also"></a>另请参阅
 若要了解有关 Cosmos DB 的详细信息，请参阅 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 服务页。
+
 <!-- Update_Description: wording update, update link -->

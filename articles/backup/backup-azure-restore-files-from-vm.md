@@ -2,20 +2,20 @@
 title: Azure 备份：从 Azure VM 备份恢复文件和文件夹
 description: 从 Azure 虚拟机恢复点恢复文件
 services: backup
-author: pvrk
-manager: shivamg
+author: lingliw
+manager: digimobile
 keywords: 项级恢复; 从 Azure VM 备份恢复文件; 从 Azure VM 还原文件
 ms.service: backup
 ms.topic: conceptual
 origin.date: 08/22/2018
-ms.date: 09/25/2018
-ms.author: v-junlch
-ms.openlocfilehash: a996ecbb701f069b377f8271b069e73264f40f5d
-ms.sourcegitcommit: a4d8c8641a6341113532d8770603d4b66cc13ced
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 8b41e3cdb3d650be8364fa41aa0b10a5a20a9d81
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47114521"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674434"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>从 Azure 虚拟机备份恢复文件
 
@@ -46,7 +46,7 @@ Azure 备份提供从 Azure VM 备份（也称恢复点）还原 [Azure 虚拟�
 
 4. 从“选择恢复点”下拉菜单中，选择存储所需文件的恢复点。 默认已选择最新的恢复点。
 
-5. 要下载要用于从恢复点复制文件的软件，请单击“下载可执行文件”（适用于 Azure VM）或“下载脚本”（适用于 Linux Azure VM）。
+5. 要下载要用于从恢复点复制文件的软件，请单击“下载可执行文件”（适用于 Microsoft Azure VM）或“下载脚本”（对于 Linux Azure VM，会生成 python 脚本）。
 
     ![生成的密码](./media/backup-azure-restore-files-from-vm/download-executable.png)
 

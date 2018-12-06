@@ -2,19 +2,19 @@
 title: 使用 PowerShell 将 Windows Server 备份到 Azure
 description: 了解如何使用 PowerShell 部署和管理 Azure 备份
 services: backup
-author: saurabhsensharma
-manager: shivamg
+author: lingliw
+manager: digimobile
 ms.service: backup
 ms.topic: conceptual
 origin.date: 05/24/2018
-ms.date: 07/06/2018
-ms.author: v-junlch
-ms.openlocfilehash: ad1cb7690c47968de758e690f8972656f94573be
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 57eb9acd5f5041fa0d9882a4ab871876fff69f11
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873414"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674613"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>使用 PowerShell 部署和管理 Windows Server/Windows 客户端的 Azure 备份
 本文说明如何使用 PowerShell 在 Windows Server 或 Windows 客户端上设置 Azure 备份，以及管理备份和恢复。
@@ -78,11 +78,10 @@ SubscriptionId    : 1234-567f-8910-abc
 Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 
-
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="installing-the-azure-backup-agent"></a>安装 Azure 备份代理
-在安装 Azure 备份代理之前，必须先将安装程序下载到 Windows Server 上。 可以从 [Microsoft 下载中心](http://aka.ms/azurebackup_agent)或恢复服务保管库的“仪表板”页获取最新版本的安装程序。 将安装程序保存到方便访问的位置，例如 *C:\Downloads\*。
+在安装 Azure 备份代理之前，必须先将安装程序下载到 Windows Server 上。 可以从[下载中心](https://aka.ms/azurebackup_agent)或恢复服务保管库的“仪表板”页获取最新版本的安装程序。 将安装程序保存到方便访问的位置，例如 *C:\Downloads\*。
 
 或者，使用 PowerShell 获取下载程序：
  
@@ -119,7 +118,7 @@ PS C:\> MARSAgentInstaller.exe /?
 | /q |静默安装 |- |
 | /p:"location" |Azure 备份代理的安装文件夹路径。 |C:\Program Files\Azure Recovery Services Agent |
 | /s:"location" |Azure 备份代理的缓存文件夹路径。 |C:\Program Files\Azure Recovery Services Agent\Scratch |
-| /m |选择启用 Microsoft Update |- |
+| /m |选择加入 Azure 更新 |- |
 | /nu |安装完成后不要检查更新 |- |
 | /d |卸载 Azure 恢复服务代理 |- |
 | /ph |代理主机地址 |- |
@@ -218,8 +217,8 @@ PS C:\> $newpolicy = New-OBPolicy
 ### <a name="configuring-the-backup-schedule"></a>配置备份计划
 在策略的 3 个组成部分中，第 1 个部分是备份计划，它是使用 [New-OBSchedule](https://technet.microsoft.com/library/hh770401) cmdlet 创建的。 备份计划将定义何时需要备份。 创建计划时，需要指定两个输入参数：
 
-- 应运行备份的“星期日期”。 可以只选一天或选择一周的每天运行备份作业，或选择星期日期的任意组合。
-- **日期时间** 。 最多可以定义一天的 3 个不同日期时间来触发备份
+* 应运行备份的“星期日期”。 可以只选一天或选择一周的每天运行备份作业，或选择星期日期的任意组合。
+* **日期时间** 。 最多可以定义一天的 3 个不同日期时间来触发备份
 
 例如，可以配置在每个星期六和星期日下午 4 点运行备份策略。
 
@@ -267,9 +266,9 @@ PolicyState     : Valid
 ### <a name="including-and-excluding-files-to-be-backed-up"></a>包含和排除要备份的文件
 ```OBFileSpec``` 对象定义要在备份中包含与排除的文件。 这组规则可划分出计算机上要保护的文件和文件夹。 可以设置任意数量的文件包含或排除规则，并将其与策略相关联。 创建新的 OBFileSpec 对象时，可执行以下操作：
 
-- 指定要包含的文件和文件夹
-- 指定要排除的文件和文件夹
-- 指定要递归备份文件夹中的数据，或是否仅备份指定文件夹中的顶级文件。
+* 指定要包含的文件和文件夹
+* 指定要排除的文件和文件夹
+* 指定要递归备份文件夹中的数据，或是否仅备份指定文件夹中的顶级文件。
 
 可以在 New-OBFileSpec 命令中使用 -NonRecursive 标志来完成后一种指定。
 
@@ -316,7 +315,6 @@ RetentionPolicy : Retention Days : 7
 
 State           : New
 PolicyState     : Valid
-
 
 PS C:\> Add-OBFileSpec -Policy $newpolicy -FileSpec $exclusions
 
@@ -498,7 +496,7 @@ ServerName : myserver.microsoft.com
 ```
 
 ### <a name="choosing-a-backup-point-from-which-to-restore"></a>选择要从中还原的备份点
-结合适当的参数运行 [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) cmdlet 可检索备份点列表。 在本示例中，我们选择源卷 *D:* 的最新备份点，并使用它还原特定的文件。
+结合适当的参数运行 [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) cmdlet 可检索备份点列表。 在本示例中，我们选择源卷 *D:* 的最新备份点，并使用它恢复特定文件。
 
 ```
 PS C:> $rps = Get-OBRecoverableItem -Source $source[1]
@@ -605,9 +603,9 @@ PS C:\> .\MARSAgentInstaller.exe /d /q
 
 若要从计算机中卸载代理二进制文件，请注意以下部分后果：
 
-- 这会从计算机中删除文件筛选器，并停止跟踪更改。
-- 所有的策略信息将从计算机中删除，但服务中会继续存储这些策略信息。
-- 将删除所有备份计划，且不会进一步创建备份。
+* 这会从计算机中删除文件筛选器，并停止跟踪更改。
+* 所有的策略信息将从计算机中删除，但服务中会继续存储这些策略信息。
+* 将删除所有备份计划，且不会进一步创建备份。
 
 不过，Azure 中存储的数据会根据你设置的保留策略继续保留。 较旧的恢复点会自动过时。
 
@@ -650,7 +648,7 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## <a name="next-steps"></a>后续步骤
 有关适用于 Windows Server/客户端的 Azure 备份的详细信息，请参阅
 
-- [Azure 备份简介](backup-introduction-to-azure-backup.md)
-- [备份 Windows Server](backup-configure-vault.md)
+* [Azure 备份简介](backup-introduction-to-azure-backup.md)
+* [备份 Windows Server](backup-configure-vault.md)
 
 <!-- Update_Description: code update -->

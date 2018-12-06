@@ -8,13 +8,13 @@ manager: digimobile
 ms.author: v-yeche
 ms.topic: quickstart
 origin.date: 08/22/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: ed14b6f2c25e66943c619ff1ee2111362fbfdf05
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.date: 11/26/2018
+ms.openlocfilehash: 75a1c2bc7ea1d5ae4d5f60b0bead9fe43b8e6b20
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035071"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674482"
 ---
 <!-- Verify successfully-->
 # <a name="use-ansible-to-create-a-linux-virtual-machine-in-azure"></a>使用 Ansible 在 Azure 中创建 Linux 虚拟机
@@ -111,8 +111,9 @@ Ansible 需要一个在其中部署了资源的资源组。 以下示例 Ansible
 ## <a name="create-a-virtual-machine"></a>创建虚拟机
 最后一步是创建虚拟机，该虚拟机使用在本文的前述部分创建的所有资源。 
 
-在此部分提供的示例 Ansible playbook 部分创建名为 `myVM` 的虚拟机，并附加名为 `myNIC` 的虚拟网络接口卡。 将 &lt;your-key-data> 占位符替换为你自己的完整公钥数据。
+在此部分提供的示例 Ansible playbook 部分创建名为 `myVM` 的虚拟机，并附加名为 `myNIC` 的虚拟网络接口卡。 将 &lt;your-ssh-public-key-data> 占位符替换为你自己的完整公钥数据。
 
+<!--Notice: clear for <your-ssh-public-key-data> -->
 ```yaml
 - name: Create VM
   azure_rm_virtualmachine:
@@ -210,15 +211,18 @@ Ansible 需要一个在其中部署了资源的资源组。 以下示例 Ansible
 
 此部分详述如何运行在本文中提供的示例 Ansible playbook。
 
-1. 登录到 [Azure 门户](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
-
-1. 打开 [Cloud Shell](/cloud-shell/overview)。
-
+<!-- Not Available on [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040)-->
+<!-- Not Available on [Cloud Shell](/cloud-shell/overview)-->
+1. 使用 SSH 命令访问已安装的 Linux VM，并在[先决条件](#prerequisites)部分成功配置 Ansible。 将 &lt;ip-address> 占位符替换为 Linux VM 中的 IP 地址。
+    
+    ```bash
+    ssh azureuser@<ip-address>
+    ```
 1. 创建名为 `azure_create_complete_vm.yml` 的文件（用于包含 playbook）并在 VI 编辑器中将其打开，如下所示：
 
-  ```azurecli
-  vi azure_create_complete_vm.yml
-  ```
+    ```azurecli
+    vi azure_create_complete_vm.yml
+    ```
 
 1. 按 **I** 键进入插入模式。
 
@@ -234,57 +238,56 @@ Ansible 需要一个在其中部署了资源的资源组。 以下示例 Ansible
 
 1. 运行示例 Ansible playbook。
 
-  ```bash
-  ansible-playbook azure_create_complete_vm.yml
-  ```
+    ```bash
+    ansible-playbook azure_create_complete_vm.yml
+    ```
 
 1. 输出如下所示，其中可以看到虚拟机已成功创建：
 
-  ```bash
-  PLAY [Create Azure VM] ****************************************************
+    ```bash
+    PLAY [Create Azure VM] ****************************************************
 
-  TASK [Gathering Facts] ****************************************************
-  ok: [localhost]
+    TASK [Gathering Facts] ****************************************************
+    ok: [localhost]
 
-  TASK [Create resource group] *********************************************
-  changed: [localhost]
+    TASK [Create resource group] *********************************************
+    changed: [localhost]
 
-  TASK [Create virtual network] *********************************************
-  changed: [localhost]
+    TASK [Create virtual network] *********************************************
+    changed: [localhost]
 
-  TASK [Add subnet] *********************************************************
-  changed: [localhost]
+    TASK [Add subnet] *********************************************************
+    changed: [localhost]
 
-  TASK [Create public IP address] *******************************************
-  changed: [localhost]
+    TASK [Create public IP address] *******************************************
+    changed: [localhost]
 
-  TASK [Dump public IP for VM which will be created] ********************************************************************
-  ok: [localhost] => {
+    TASK [Dump public IP for VM which will be created] ********************************************************************
+    ok: [localhost] => {
       "msg": "The public IP is <ip-address>."
-  }
+    }
 
-  TASK [Create Network Security Group that allows SSH] **********************
-  changed: [localhost]
+    TASK [Create Network Security Group that allows SSH] **********************
+    changed: [localhost]
 
-  TASK [Create virtual network inteface card] *******************************
-  changed: [localhost]
+    TASK [Create virtual network inteface card] *******************************
+    changed: [localhost]
 
-  TASK [Create VM] **********************************************************
-  changed: [localhost]
+    TASK [Create VM] **********************************************************
+    changed: [localhost]
 
-  PLAY RECAP ****************************************************************
-  localhost                  : ok=8    changed=7    unreachable=0    failed=0
-  ```
+    PLAY RECAP ****************************************************************
+    localhost                  : ok=8    changed=7    unreachable=0    failed=0
+    ```
 
 1. SSH 命令用于访问 Linux VM。 将 &lt;ip-address> 占位符替换为上一步骤中的 IP 地址。
 
-  ```bash
-  ssh azureuser@<ip-address>
-  ```
+    ```bash
+    ssh azureuser@<ip-address>
+    ```
 
 ## <a name="next-steps"></a>后续步骤
 > [!div class="nextstepaction"] 
 > [使用 Ansible 在 Azure 中管理 Linux 虚拟机](./ansible-manage-linux-vm.md)
 
-<!-- Update_Description: new articles on ansible create vm -->
-<!--ms.date: 10/22/2018-->
+<!-- Update_Description: wording update -->

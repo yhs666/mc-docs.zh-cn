@@ -16,11 +16,11 @@ origin.date: 06/14/2016
 ms.date: 03/24/2017
 ms.author: v-yeche
 ms.openlocfilehash: 3b32bab71c39c3b35a6ac03861a29b8de548b398
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
-ms.locfileid: "20188438"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664138"
 ---
 # <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure"></a>为 Azure 上的 Stretch Database 启用透明数据加密 (TDE)
 > [!div class="op_single_selector"]
@@ -37,9 +37,8 @@ TDE 使用称为数据库加密密钥的对称密钥来加密整个数据库的�
 
 1. 在 [Azure 门户](https://portal.azure.cn)
 2. 在数据库边栏选项卡中，单击“设置”按钮 
-3. 选择“透明数据加密”选项  ![][1]
-4. 选择“打开”**** 设置，然后选择“保存”****
-    ![][2]
+3. 选择“透明数据加密”选项 ![][1]
+4. 选择“打开”设置，然后选择“保存” ![][2]
 
 ##<a name="disabling-encryption"></a>禁用加密
 

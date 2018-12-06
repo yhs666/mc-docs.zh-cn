@@ -1,22 +1,23 @@
 ---
 title: 虚拟机、云服务和 Web 应用自动缩放概述
-description: Microsoft Azure 中的自动缩放。 适用于虚拟机、虚拟机规模集、云服务和 Web 应用。
-author: rboucher
-services: rboucher
-ms.service: rboucher
-ms.topic: article
+description: 在 Azure 中自动缩放。 适用于虚拟机、虚拟机规模集、云服务和 Web 应用。
+author: lingliw
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 origin.date: 09/24/2018
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 6656eca2d418fda2bb34a14b4a55583443909754
-ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
+ms.component: autoscale
+ms.openlocfilehash: 9b5a27f4a51f974e8d6d41f4da5f94895684f953
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652218"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674365"
 ---
-# <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Microsoft Azure 虚拟机、云服务和 Web 应用自动缩放概述
-本文介绍了 Microsoft Azure 自动缩放是什么、其对用户的好处，以及如何开始使用它。  
+# <a name="overview-of-autoscale-in-azure-virtual-machines-cloud-services-and-web-apps"></a>Azure 虚拟机、云服务和 Web 应用自动缩放概述
+本文介绍了 Azure 自动缩放是什么、其对用户的好处，以及如何开始使用它。  
 
 Azure Monitor 自动缩放仅适用于[虚拟机规模集](/virtual-machine-scale-sets/)、[云服务](/cloud-services/)、[应用服务 - Web 应用](/app-service/web/)和 [API 管理服务](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)。
 
@@ -74,8 +75,7 @@ Azure Monitor 自动缩放仅适用于[虚拟机规模集](/virtual-machine-scal
 
         可以有多个配置文件，以应对不同的互相重叠的要求。 例如，可以针对一天中的不同时间或者一周中的不同日期设置不同的自动缩放配置文件。
 
-    - **通知设置** ：定义在发生自动缩放事件时应发送的通知，前提是符合某个自动缩放设置的配置文件的条件。 自动缩放可以将通知发送到一个或多个电子邮件地址，也可以对一个或多个 webhook 进行调用。
-
+    - **通知设置**：定义在发生自动缩放事件时应发送的通知，前提是符合某个自动缩放设置的配置文件的条件。 自动缩放可以将通知发送到一个或多个电子邮件地址，也可以对一个或多个 webhook 进行调用。
 
 ![Azure 自动缩放设置、配置文件和规则结构](./media/monitoring-overview-autoscale/AzureResourceManagerRuleStructure3.png)
 

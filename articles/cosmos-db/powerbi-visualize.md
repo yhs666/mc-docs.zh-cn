@@ -9,20 +9,20 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 10/03/2018
-ms.date: 11/05/2018
+ms.date: 12/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: abe310cb468cb5af900921129852cd471e5d4c7a
-ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
+ms.openlocfilehash: b9a7e4a636c4e5eae06e6c277a1c87f9c5951ad6
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50204831"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674633"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>使用 Power BI 连接器可视化 Azure Cosmos DB 数据
 
-[PowerBI](https://powerbi.microsoft.com/) 是一种在线服务，你可以使用它创建和共享仪表板和报表。 Power BI Desktop 是一种报表创作工具，可以从各种数据源检索数据。 Azure Cosmos DB 是可以与 Power BI Desktop 一起使用的一种数据源。 可以使用 Power BI 的 Azure Cosmos DB 连接器将 Power BI Desktop 连接到 Azure Cosmos DB 帐户。  将 Azure Cosmos DB 数据导入到 Power BI 之后，可以对其进行转换，创建报表，以及将报表发布到 Power BI。   
+[Power BI](https://powerbi.microsoft.com/) 是一种在线服务，你可以使用它创建和共享仪表板和报表。 Power BI Desktop 是一种报表创作工具，可以从各种数据源检索数据。 Azure Cosmos DB 是可以与 Power BI Desktop 一起使用的一种数据源。 可以使用 Power BI 的 Azure Cosmos DB 连接器将 Power BI Desktop 连接到 Azure Cosmos DB 帐户。  将 Azure Cosmos DB 数据导入到 Power BI 之后，可以对其进行转换，创建报表，以及将报表发布到 Power BI。   
 
-本文介绍了将 Azure Cosmos DB 帐户连接到 Power BI Desktop 所需执行的步骤。 在连接后，可以导航到某个集合，提取数据，将 JSON 数据转换为表格格式，以及将报表发布到 PowerBI。
+本文介绍了将 Azure Cosmos DB 帐户连接到 Power BI Desktop 所需执行的步骤。 在连接后，可以导航到某个集合，提取数据，将 JSON 数据转换为表格格式，以及将报表发布到 Power BI。
 
 > [!NOTE]
 > Azure Cosmos DB 的 Power BI 连接器连接到 Power BI Desktop。 在 Power BI Desktop 中创建的报表可以发布到 PowerBI.com。 无法从 PowerBI.com 执行 Azure Cosmos DB 数据的直接提取。 
@@ -45,24 +45,7 @@ ms.locfileid: "50204831"
 ## <a name="lets-get-started"></a>让我们开始吧
 本教程假设读者是一位研究世界各地的火山的地理学家。  火山数据存储在一个 Azure Cosmos DB 帐户中，JSON 文档格式如下所示：
 
-<!--Notice: around the world in correct-->
-
-    {
-        "Volcano Name": "Rainier",
-           "Country": "United States",
-          "Region": "US-Washington",
-          "Location": {
-            "type": "Point",
-            "coordinates": [
-              -121.758,
-              46.87
-            ]
-          },
-          "Elevation": 4392,
-          "Type": "Stratovolcano",
-          "Status": "Dendrochronology",
-          "Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
-    }
+<!--Notice: around the world in correct--> { "Volcano Name": "Rainier", "Country": "United States", "Region": "US-Washington", "Location": { "type": "Point", "coordinates": [ -121.758, 46.87 ] }, "Elevation": 4392, "Type": "Stratovolcano", "Status": "Dendrochronology", "Last Known Eruption": "Last known eruption from 1800-1899, inclusive" }
 
 你将从该 Azure Cosmos DB 帐户中检索火山数据并在交互式 Power BI 报表中将数据可视化。
 
@@ -80,11 +63,11 @@ ms.locfileid: "50204831"
 
 5. 在“预览连接器”页中，单击“继续”。 此时会显示“Azure Cosmos DB”窗口。
 
-6. 如下所示指定想要从其中检索数据的 Azure Cosmos DB 帐户终结点 URL，并单击“确定”。 要使用自己的帐户，可以在 Azure 门户的[“密钥”](manage-account.md#keys)边栏选项卡的 URI 框检索 URL。 可选：你可以提供数据库名称、集合名称，也可以使用导航器来选择数据库和集合以标识数据来源。
+6. 如下所示指定想要从其中检索数据的 Azure Cosmos DB 帐户终结点 URL，并单击“确定”。 要使用自己的帐户，可以从 Azure 门户的“密钥”边栏选项卡的 URI 框中取得 URL。 可选：你可以提供数据库名称、集合名称，也可以使用导航器来选择数据库和集合以标识数据来源。
 
-7. 如果是首次连接到此终结点，则会提示输入帐户密钥。 若使用自己的帐户，请从 Azure 门户的[“只读密钥”](manage-account.md#keys)边栏选项卡中的“主密钥”框中检索密钥。 输入相应的密钥，然后单击“连接”。
+7. 如果是首次连接到此终结点，则会提示输入帐户密钥。 若使用自己的帐户，请从 Azure 门户的“只读密钥”边栏选项卡中的“主密钥”框中取得密钥。 输入相应的密钥，然后单击“连接”。
 
-    我们建议在生成报表时使用只读密钥。 这可防止主密钥不必要地暴露于潜在的安全风险中。 可以从 Azure 门户的[密钥](manage-account.md#keys)边栏选项卡获取只读密钥。 
+    我们建议在生成报表时使用只读密钥。 这可防止主密钥不必要地暴露于潜在的安全风险中。 可以从 Azure 门户的**密钥**边栏选项卡获取只读密钥。 
 
 8. 帐户成功连接后，将出现“导航器”窗格。 “导航器”会在帐户下显示数据库的列表。
 
@@ -186,6 +169,7 @@ ms.locfileid: "50204831"
 还可在创建仪表板之前进行即席修改。 但是，我们建议使用 Power BI Desktop 执行修改，并将报表重新发布到 PowerBI.com。
 
 <!-- ## Refresh data in PowerBI.com
+
 There are two ways to refresh data, ad hoc and scheduled.
 
 For an ad hoc refresh, simply click on the eclipses (…) by the **Dataset**, e.g. PowerBITutorial. You should see a list of actions including **Refresh Now**. Click **Refresh Now** to refresh the data.
@@ -204,6 +188,7 @@ For a scheduled refresh, do the following.
 4. Enter the key to connect to the Azure Cosmos DB account for that data set, then click **Sign in**. 
 5. Expand **Schedule Refresh** and set up the schedule you want to refresh the dataset. 
 6. Click **Apply** and you are done setting up the scheduled refresh.
+
 -->
 ## <a name="next-steps"></a>后续步骤
 * 有关 Power BI 的详细信息，请参阅 [Get started with Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/)（Power BI 入门）。

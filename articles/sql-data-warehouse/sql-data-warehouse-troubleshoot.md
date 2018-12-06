@@ -11,12 +11,12 @@ origin.date: 04/17/2018
 ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: b0b2d382515687321c248994201db45c39d06076
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.openlocfilehash: d1b2ccf9cadac2f4a85d44fdf9e3a50e946bb170
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089060"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672732"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>排查 Azure SQL 数据仓库问题
 本文列出了常见的故障排除问题。
@@ -121,6 +121,5 @@ ms.locfileid: "49089060"
 
 <!--Other Web references-->
 [博客]: https://www.azure.cn/blog/tags/SQL%20数据库
-[功能请求]: https://www.azure.cn/support/support-ticket-form/
 [MSDN 论坛]: https://www.azure.cn/support/forums/
 <!-- Update_Description: update meta properties, wording update, update link -->
