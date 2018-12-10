@@ -1,11 +1,11 @@
 ---
-title: "有关 Azure 中 Linux VM 的常见问题 | Azure"
-description: "回答了通过 Resource Manager 模型创建的 Linux 虚拟机的一些常见问题。"
+title: 有关 Azure 中 Linux VM 的常见问题 | Azure
+description: 回答了通过 Resource Manager 模型创建的 Linux 虚拟机的一些常见问题。
 services: virtual-machines-linux
-documentationcenter: 
-author: cynthn
-manager: timlt
-editor: 
+documentationcenter: ''
+author: rockboyfor
+manager: digimobile
+editor: ''
 tags: azure-resource-management
 ms.assetid: 3648e09c-1115-4818-93c6-688d7a54a353
 ms.service: virtual-machines-linux
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2016
-wacn.date: 
-ms.author: v-dazen
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 6785ae9a0898b990f17d6d8406c01887af19cae1
-ms.lasthandoff: 04/14/2017
-
-
+origin.date: 03/22/2018
+ms.date: 08/27/2018
+ms.author: v-yeche
+ms.openlocfilehash: 9ce78136d53adec893be347fee6c2cbf40d3ad84
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643770"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>有关 Linux 虚拟机的常见问题
 本文讨论有关在 Azure 中使用 Resource Manager 部署模型创建的 Linux 虚拟机的一些常见问题。 有关本主题的 Windows 版本，请参阅[有关 Windows 虚拟机的常见问题](../windows/faq.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -30,9 +30,11 @@ ms.lasthandoff: 04/14/2017
 所有订户都可以在 Azure 虚拟机上运行服务器软件。 有关详细信息，请参阅 [Azure 认可的分发版本中的 Linux](endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>使用虚拟机时，我可以使用多少存储？
-每个数据磁盘的容量高达 1 TB。 可以使用的数据磁盘数取决于虚拟机大小。 有关详细信息，请参阅[虚拟机大小](sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+每个数据磁盘的容量高达 4 TB (4,095 GB)。 可以使用的数据磁盘数取决于虚拟机大小。 有关详细信息，请参阅[虚拟机大小](sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
-Azure 存储帐户可为操作系统磁盘和任何数据磁盘提供存储空间。 每个磁盘都是一个 .vhd 文件，以页 blob 形式存储。 有关定价详细信息，请参阅[存储定价详细信息](https://www.azure.cn/pricing/details/storage/)。
+Azure 托管磁盘是推荐用于 Azure 虚拟机的磁盘存储产品，方便永久存储数据。 可对每个虚拟机使用多个托管磁盘。 托管磁盘提供两种类型的持久存储选项：高级托管磁盘和标准托管磁盘。 有关定价信息，请参阅[托管磁盘定价](https://www.azure.cn/pricing/details/storage/)。
+
+Azure 存储帐户还可为操作系统磁盘和任何数据磁盘提供存储空间。 每个磁盘都是一个 .vhd 文件，以页 blob 形式存储。 有关定价详细信息，请参阅 [Storage Pricing Details](https://www.azure.cn/pricing/details/storage/)（存储定价详细信息）。
 
 ## <a name="how-can-i-access-my-virtual-machine"></a>如何访问我的虚拟机？
 使用安全外壳 (SSH) 建立远程连接，登录到虚拟机。 请参阅如何[从 Windows](ssh-from-windows.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 或[从 Linux 和 Mac](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 进行连接的相关说明。 默认情况下，SSH 允许的并发连接最多为 10 个。 通过编辑配置文件，可以增加此数量。
@@ -45,14 +47,19 @@ Azure 存储帐户可为操作系统磁盘和任何数据磁盘提供存储空�
 ## <a name="can-i-copy-or-clone-an-existing-azure-vm"></a>我是否可以复制或克隆现有的 Azure VM？
 是的。 有关说明，请参阅[如何在 Resource Manager 部署模型中创建 Linux 虚拟机的副本](copy-vm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
+<!-- Not Available ## Why am I not seeing Canada Central and Canada East regions through Azure Resource Manager? -->
 ## <a name="can-i-add-a-nic-to-my-vm-after-its-created"></a>创建 VM 后能否向 VM 添加 NIC？
 能，目前可行。 首先需停止解除分配 VM。 然后便可添加或删除 NIC（除非它是 VM 上的最后一个 NIC）。 
 
 ## <a name="are-there-any-computer-name-requirements"></a>是否有任何计算机名称要求？
-是的。 计算机名称的最大长度为 64 个字符。 有关命名资源的详细信息，请参阅[基础结构命名准则](infrastructure-naming-guidelines.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+是的。 计算机名称的最大长度为 64 个字符。 有关命名资源的详细信息，请参阅[命名约定规则和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+
+## <a name="are-there-any-resource-group-name-requirements"></a>是否存在资源组名称要求？
+是的。 资源组名称的最大长度为 90 个字符。 有关资源组的详细信息，请参阅[命名约定规则和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 ## <a name="what-are-the-username-requirements-when-creating-a-vm"></a>创建 VM 时，用户名有什么要求？
-用户名的长度必须为 1 到 64 个字符。
+
+用户名的长度应为 1 到 32 个字符。
 
 不允许使用以下用户名：
 
@@ -61,7 +68,7 @@ Azure 存储帐户可为操作系统磁盘和任何数据磁盘提供存储空�
         <td style="text-align:center">administrator </td><td style="text-align:center"> admin </td><td style="text-align:center"> user </td><td style="text-align:center"> user1</td>
     </tr>
     <tr>
-        <td style="text-align:center">test </td><td style="text-align:center"> user2 </td><td style="text-align:center"> test1 </td><td style="text-align:center"> user3</td>
+        <td style="text-align:center">测试 </td><td style="text-align:center"> user2 </td><td style="text-align:center"> test1 </td><td style="text-align:center"> user3</td>
     </tr>
     <tr>
         <td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> a</td>
@@ -109,3 +116,4 @@ Azure 存储帐户可为操作系统磁盘和任何数据磁盘提供存储空�
         <td style="text-align:center">iloveyou!</td>
     </tr>
 </table>
+<!--Update_Description: update meta properties -->

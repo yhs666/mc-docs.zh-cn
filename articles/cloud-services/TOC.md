@@ -1,3 +1,5 @@
+# [云服务文档](index.md)
+
 # 概述
 ## [什么是云服务？](cloud-services-choose-me.md)
 ## [云服务配置文件和打包](cloud-services-model-and-package.md)
@@ -16,16 +18,9 @@
 ### [创建 PHP Web 角色和辅助角色](../cloud-services-php-create-web-role.md)
 ### [构建和部署 Node.js 应用程序](cloud-services-nodejs-develop-deploy-app.md)
 ### [使用 Express 构建 Node.js Web 应用程序](cloud-services-nodejs-develop-deploy-express-app.md)
-### 存储和 Visual Studio
-#### [Blob 存储和连接的服务](../storage/vs-storage-cloud-services-getting-started-blobs.md)
-#### [队列存储和连接的服务](../storage/vs-storage-cloud-services-getting-started-queues.md)
-#### [表存储和连接的服务](../storage/vs-storage-cloud-services-getting-started-tables.md)
-### 配置持续生成和部署包
-#### [TFS 和 Team Build](cloud-services-dotnet-continuous-delivery.md)
 ### [配置角色的流量规则](cloud-services-enable-communication-role-instances.md)
 ### [处理云服务生命周期事件](cloud-services-role-lifecycle-dotnet.md)
 ### [Socket.io (Node.js)](cloud-services-nodejs-chat-app-socketio.md)
-
 
 ### 配置启动任务
 #### [创建启动任务](cloud-services-startup-tasks.md)
@@ -33,32 +28,23 @@
 #### [使用任务在云服务角色上安装 .NET](cloud-services-dotnet-install-dotnet.md)
 
 ### 配置远程桌面
-#### [Visual Studio](cloud-services-role-enable-remote-desktop.md)
+#### [Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
 #### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
 ## 部署
-### 在门户中创建和部署云服务
-#### [门户](cloud-services-how-to-create-deploy-portal.md)
-#### [经典门户](cloud-services-how-to-create-deploy.md)
+### [在门户中创建和部署云服务](cloud-services-how-to-create-deploy-portal.md)
 ### [在 PowerShell 中创建空云服务容器](cloud-services-powershell-create-cloud-container.md)
-### 配置自定义域名
-#### [门户](cloud-services-custom-domain-name-portal.md)
-#### [经典门户](cloud-services-custom-domain-name.md)
-### [暂存云服务部署 (Node.js)](cloud-services-nodejs-stage-application.md)
+### [配置自定义域名](cloud-services-custom-domain-name-portal.md)
 ### [连接到自定义域控制器](cloud-services-connect-to-custom-domain.md)
 
 ## 管理服务
-### 常见管理任务
-#### [门户](cloud-services-how-to-manage-portal.md)
-#### [经典门户](cloud-services-how-to-manage.md)
-### 配置云服务
-#### [门户](cloud-services-how-to-configure-portal.md)
-#### [经典门户](cloud-services-how-to-configure.md)
+### [常见管理任务](cloud-services-how-to-manage-portal.md)
+### [配置云服务](cloud-services-how-to-configure-portal.md)
 ### [使用 Azure 自动化管理云服务](automation-manage-cloud-services.md)
-### 配置自动缩放
-#### [门户](cloud-services-how-to-scale-portal.md)
-#### [经典门户](cloud-services-how-to-scale.md)
+### [配置自动缩放](cloud-services-how-to-scale-portal.md)
 ### [使用 Python 管理 Azure 资源](cloud-services-python-how-to-use-service-management.md)
+### [防御推理执行](mitigate-se.md)
 
 ### [来宾 OS 修补程序](cloud-services-guestos-msrc-releases.md)
 ### 来宾 OS 停用
@@ -69,25 +55,22 @@
 
 ## 管理证书
 ### [云服务和管理证书](cloud-services-certs-create.md)
-### 配置 SSL 
-#### [门户](cloud-services-configure-ssl-certificate-portal.md)
-#### [经典门户](cloud-services-configure-ssl-certificate.md)
+### [配置 SSL](cloud-services-configure-ssl-certificate-portal.md)
 
 ## 监视
 ### [监视云服务](cloud-services-how-to-monitor.md)
+### [使用性能计数器](diagnostics-performance-counters.md)
 ### [测试性能](../vs-azure-tools-performance-profiling-cloud-services.md)
 #### [使用 Visual Studio 探查器测试](cloud-services-performance-testing-visual-studio-profiler.md)
 ### 启用诊断
-#### [PowerShell](cloud-services-diagnostics-powershell.md)
+#### [Azure PowerShell](cloud-services-diagnostics-powershell.md)
 #### [.NET](cloud-services-dotnet-diagnostics.md)
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
-### [在 Azure 诊断中使用性能计数器](cloud-services-dotnet-diagnostics-performance-counters.md)
 ### [在 Azure 存储中存储和查看诊断数据](cloud-services-dotnet-diagnostics-storage.md)
 ### [使用诊断跟踪云服务](cloud-services-dotnet-diagnostics-trace-flow.md)
 
 ## 故障排除
 ### 调试 
-#### [使用持续传送实现远程调试](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md)
 #### [适用于云服务的选项](../vs-azure-tools-debugging-cloud-services-overview.md)
 #### [使用 Visual Studio 调用本地云服务](../vs-azure-tools-debug-cloud-services-virtual-machines.md)
 ### [云服务分配失败](cloud-services-allocation-failures.md)
@@ -96,16 +79,25 @@
 ### [常见部署问题](cloud-services-troubleshoot-deployment-problems.md)
 ### [角色未能启动](cloud-services-troubleshoot-roles-that-fail-start.md)
 ### [恢复指南](cloud-services-disaster-recovery-guidance.md)
-### [云服务常见问题](cloud-services-faq.md)
+### 云服务常见问题
+#### [应用程序和服务可用性常见问题解答](cloud-services-application-and-service-availability-faq.md)
+#### [配置和管理常见问题解答](cloud-services-configuration-and-management-faq.md)
+#### [连接和网络常见问题解答](cloud-services-connectivity-and-networking-faq.md)
+#### [部署常见问题解答](cloud-services-deployment-faq.md)
 
-# 引用
-## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)
-## [.cscfg XMLSchema](https://msdn.microsoft.com/library/azure/ee758710)
-## [REST](https://msdn.microsoft.com/library/azure/ee460812)
+# 参考
+## [代码示例](https://azure.microsoft.com/en-us/resources/samples/?service=cloud-services)
+## [.csdef XML 架构](schema-csdef-file.md)
+### [LoadBalancerProbe 架构](schema-csdef-loadbalancerprobe.md)
+### [WebRole 架构](schema-csdef-webrole.md)
+### [WebRole 架构](schema-csdef-workerrole.md)
+### [NetworkTrafficRules 架构](schema-csdef-networktrafficrules.md)
+## [.cscfg XML 架构](schema-cscfg-file.md)
+### [Role 架构](schema-cscfg-role.md)
+### [NetworkConfiguration 架构](schema-cscfg-networkconfiguration.md)
+## [REST](https://docs.microsoft.com/en-us/rest/api/compute/cloudservices/)
 
 # 资源
-## [价格](https://azure.microsoft.com/pricing/details/cloud-services/)
 ## [MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
-## [视频](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)
-## [服务更新](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
-## [学习路径](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
+## [价格](https://azure.microsoft.com/pricing/details/cloud-services/)
+## [定价计算器](https://www.azure.cn/pricing/calculator/)

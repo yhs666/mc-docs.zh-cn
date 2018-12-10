@@ -1,26 +1,26 @@
 ---
-title: "Reliable Services 通知 | Microsoft 文档"
-description: "Service Fabric Reliable Services 通知的概念文档"
+title: Reliable Services 通知 | Azure
+description: Service Fabric Reliable Services 通知的概念文档
 services: service-fabric
 documentationcenter: .net
-author: mcoskun
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: masnider,vturecek
 ms.assetid: cdc918dd-5e81-49c8-a03d-7ddcd12a9a76
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/01/2017
-ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: b8292af671d401cfda5f2e722bd2b23a88e4fa40
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+origin.date: 06/29/2017
+ms.date: 11/12/2018
+ms.author: v-yeche
+ms.openlocfilehash: 396e6b81e53a2a6c3588e2158666dda9803302c4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650211"
 ---
 # <a name="reliable-services-notifications"></a>Reliable Services 通知
 通知可让客户端跟踪对它们感兴趣的对象所进行的更改。 两种类型的对象支持通知：*可靠状态管理器*和*可靠字典*。
@@ -51,9 +51,9 @@ ms.lasthandoff: 04/14/2017
 * 完整副本：必须先生成副本，它才能加入配置集。 有时，这需要将主要副本中可靠状态管理器状态的完整副本应用到空闲的次要副本。 次要副本上的可靠状态管理器会使用 **NotifyStateManagerChangedEventArgs** 触发事件，其中包含一组它从主要副本获取的可靠状态。
 * 还原：在灾难恢复方案中，副本的状态可通过 **RestoreAsync**从备份还原。 在这种情况下，主要副本上的可靠状态管理器会使用 **NotifyStateManagerChangedEventArgs** 触发事件，其中包含一组它从备份还原的可靠状态。
 
-若要注册事务通知和/或状态管理器通知，需要在可靠状态管理器上注册 **TransactionChanged** 或 **StateManagerChanged** 事件。 注册这些事件处理程序的常见位置是有状态服务的构造函数。 当你在构造函数上注册时，也不会错过 **IReliableStateManager** 生存期内的更改所导致的任何通知。
+若要注册事务通知和/或状态管理器通知，需要在可靠状态管理器上注册 **TransactionChanged** 或 **StateManagerChanged** 事件。 注册这些事件处理程序的常见位置是有状态服务的构造函数。 在构造函数上注册时，也不会错过 **IReliableStateManager** 生存期内的更改所导致的任何通知。
 
-```C#
+```csharp
 public MyService(StatefulServiceContext context)
     : base(MyService.EndpointName, context, CreateReliableStateManager(context))
 {
@@ -65,13 +65,13 @@ public MyService(StatefulServiceContext context)
 **TransactionChanged** 事件处理程序使用 **NotifyTransactionChangedEventArgs** 来提供有关事件的详细信息。 它包含用于指定更改类型的操作属性（例如，**NotifyTransactionChangedAction.Commit**）。 也包含提供对已更改事务的引用的事务属性。
 
 > [!NOTE]
-> 现在，只有提交事务才会引发 **TransactionChanged** 事件。 此操作等同于 **NotifyTransactionChangedAction.Commit**。 但是在未来，可能会有其他类型的事务状态更改可以引发事件。 建议你检查操作，仅在你预期的事件发生时处理事件。
+> 现在，只有提交事务才会引发 **TransactionChanged** 事件。 此操作等同于 **NotifyTransactionChangedAction.Commit**。 但是在未来，可能会有其他类型的事务状态更改可以引发事件。 建议检查操作，仅在预期的事件发生时处理事件。
 > 
 > 
 
 以下是 **TransactionChanged** 事件处理程序示例。
 
-```C#
+```csharp
 private void OnTransactionChangedHandler(object sender, NotifyTransactionChangedEventArgs e)
 {
     if (e.Action == NotifyTransactionChangedAction.Commit)
@@ -93,12 +93,12 @@ private void OnTransactionChangedHandler(object sender, NotifyTransactionChanged
 
 以下是 **StateManagerChanged** 通知处理程序示例。
 
-```C#
+```csharp
 public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChangedEventArgs e)
 {
     if (e.Action == NotifyStateManagerChangedAction.Rebuild)
     {
-        this.ProcessStataManagerRebuildNotification(e);
+        this.ProcessStateManagerRebuildNotification(e);
 
         return;
     }
@@ -117,9 +117,9 @@ public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChange
 * 删除：在删除 **IReliableDictionary** 中的项之后调用。
 
 若要获取可靠字典通知，需在 **DictionaryChanged** 上注册 **IReliableDictionary** 事件处理程序。 注册这些事件处理程序的常见位置是在 **ReliableStateManager.StateManagerChanged** 添加通知中。
-在将 **IReliableDictionary** 添加到 **IReliableStateManager** 时注册，可确保你不会错过任何通知。
+在将 **IReliableDictionary** 添加到 **IReliableStateManager** 时注册，可确保不会错过任何通知。
 
-```C#
+```csharp
 private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChangedEventArgs e)
 {
     var operation = e as NotifyStateManagerSingleEntityChangedEventArgs;
@@ -131,7 +131,6 @@ private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChang
             var dictionary = (IReliableDictionary<TKey, TValue>)operation.ReliableState;
             dictionary.RebuildNotificationAsyncCallback = this.OnDictionaryRebuildNotificationHandlerAsync;
             dictionary.DictionaryChanged += this.OnDictionaryChangedHandler;
-            }
         }
     }
 }
@@ -144,7 +143,7 @@ private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChang
 
 上述代码会设置 **IReliableNotificationAsyncCallback** 接口以及 **DictionaryChanged**。 由于 **NotifyDictionaryRebuildEventArgs** 包含需要以异步方式枚举的 **IAsyncEnumerable** 接口，因此会通过 **RebuildNotificationAsyncCallback** 而不是 **OnDictionaryChangedHandler** 来触发重新生成通知。
 
-```C#
+```csharp
 public async Task OnDictionaryRebuildNotificationHandlerAsync(
     IReliableDictionary<TKey, TValue> origin,
     NotifyDictionaryRebuildEventArgs<TKey, TValue> rebuildNotification)
@@ -173,7 +172,7 @@ public async Task OnDictionaryRebuildNotificationHandlerAsync(
 * **NotifyDictionaryChangedAction.Update**：**NotifyDictionaryItemUpdatedEventArgs**
 * **NotifyDictionaryChangedAction.Remove**：**NotifyDictionaryItemRemovedEventArgs**
 
-```C#
+```csharp
 public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEventArgs<TKey, TValue> e)
 {
     switch (e.Action)
@@ -213,14 +212,14 @@ public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEve
 
 * 通知会在执行操作的过程中触发。 例如，在还原操作的最后一个步骤触发还原通知。 处理通知事件之前，不会完成还原。
 * 由于通知会在应用操作的过程中触发，因此，客户端只会看见本地提交操作的通知。 而且因为操作只保证会在本地提交（亦即记录），所以它们不一定可在未来恢复。
-* 在恢复路径上，会针对每个应用的操作触发单个通知。 这表示，如果事务 T1 包含 Create(X)、Delete(X) 和 Create(X)，你将依次收到一个针对 X 创建的通知，一个针对删除的通知，然后再收到一个针对创建的通知。
-* 对于包含多个操作的事务，操作将按用户在主要副本上收到它们的顺序应用。
-* 在处理错误进度的过程中，某些操作可能会恢复。 通知会针对这类恢复操作加以触发，将副本状态回滚到稳定的时间点。 恢复通知的一个重要区别，是具有重复键的事件会聚合在一起。 例如，如果恢复事务 T1，你将看到一条针对 Delete(X) 的通知。
+* 在恢复路径上，会针对每个应用的操作触发单个通知。 这表示，如果事务 T1 包含 Create(X)、Delete(X) 和 Create(X)，你将依次收到一个针对 X 创建的通知，一个针对删除的通知，此后再收到一个针对创建的通知。
+* 对于包含多个操作的事务，操作按用户在主要副本上收到它们的顺序应用。
+* 在处理错误进度的过程中，某些操作可能会恢复。 通知会针对这类恢复操作加以触发，将副本状态回滚到稳定的时间点。 恢复通知的一个重要区别，是具有重复键的事件会聚合在一起。 例如，如果恢复事务 T1，可以看到一条针对 Delete(X) 的通知。
 
 ## <a name="next-steps"></a>后续步骤
 * [Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Reliable Services 快速启动](service-fabric-reliable-services-quick-start.md)
 * [Reliable Services 备份和还原（灾难恢复）](service-fabric-reliable-services-backup-restore.md)
-* [Reliable Collections 的开发人员参考](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+* [Reliable Collections 的开发人员参考](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
 
-
+<!--Update_Description: update meta properties, wording update -->

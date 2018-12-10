@@ -1,0 +1,190 @@
+items:
+- name: 用于 PostgreSQL 的 Azure DB 文档
+  href: index.yml
+- name: 概述
+  items:
+  - name: 用于 PostgreSQL 的 Azure DB
+    href: overview.md
+- name: 快速入门
+  items:
+  - name: 创建 DB - 门户
+    href: quickstart-create-server-database-portal.md
+  - name: 创建 DB - Azure CLI
+    href: quickstart-create-server-database-azure-cli.md
+  - name: 连接和查询
+    items:
+    - name: Python
+      href: connect-python.md
+    - name: Node.js
+      href: connect-nodejs.md
+    - name: Java
+      href: connect-java.md
+    - name: Ruby
+      href: connect-ruby.md
+    - name: PHP
+      href: connect-php.md
+    - name: .NET
+      href: connect-csharp.md
+    - name: Go
+      href: connect-go.md
+  expanded: true
+- name: 教程
+  items:
+  - name: 设计数据库
+    items:
+    - name: Azure 门户
+      href: tutorial-design-database-using-azure-portal.md
+    - name: Azure CLI
+      href: tutorial-design-database-using-azure-cli.md
+- name: 示例
+  items:
+  - name: Azure CLI
+    href: sample-scripts-azure-cli.md
+- name: 概念
+  items:
+  - name: 数据库和服务器
+    items:
+    - name: 服务器
+      href: concepts-servers.md
+    - name: 支持的版本
+      href: concepts-supported-versions.md
+    - name: PostgreSQL 扩展
+      href: concepts-extensions.md
+    - name: 高可用性
+      href: concepts-high-availability.md
+  - name: 资源
+    items:
+    - name: 定价层
+      href: concepts-pricing-tiers.md
+    - name: 限制
+      href: concepts-limits.md
+  - name: 数据访问和安全性
+    items:
+    - name: 防火墙规则
+      href: concepts-firewall-rules.md
+    - name: 配置 SSL
+      href: concepts-ssl-connection-security.md
+    - name: VNet
+      href: concepts-data-access-and-security-vnet.md
+  - name: 业务连续性
+    items:
+    - name: 概述
+      href: concepts-business-continuity.md
+    - name: 备份和还原
+      href: concepts-backup.md
+  - name: 监视和优化
+    items:
+    - name: 监视和优化
+      href: concepts-monitoring.md
+    - name: 服务器日志
+      href: concepts-server-logs.md
+    - name: 查询存储
+      items:
+      - name: 查询存储
+        href: concepts-query-store.md
+      - name: Query Store 使用方案
+        href: concepts-query-store-scenarios.md
+      - name: 查询存储最佳做法
+        href: concepts-query-store-best-practices.md
+  - name: 开发
+    items:
+    - name: 连接库
+      href: concepts-connection-libraries.md
+    - name: 连接复原
+      href: concepts-connectivity.md
+- name: 操作指南
+  items:
+  - name: 创建用户
+    href: howto-create-users.md
+  - name: 优化
+    items:
+    - name: 批量插入
+      href: howto-optimize-bulk-inserts.md
+    - name: Autovacuum
+      href: howto-optimize-autovacuum.md
+    - name: 查询统计信息集合
+      href: howto-optimize-query-stats-collection.md
+    - name: Toast 表策略
+      href: howto-optimize-query-time-with-toast-table-storage-strategy.md
+  - name: 管理防火墙
+    items:
+    - name: Azure 门户
+      href: howto-manage-firewall-using-portal.md
+    - name: Azure CLI
+      href: howto-manage-firewall-using-cli.md
+  - name: 还原服务器
+    items:
+    - name: Azure 门户
+      href: howto-restore-server-portal.md
+    - name: Azure CLI
+      href: howto-restore-server-cli.md
+  - name: 迁移数据库
+    items:
+    - name: 转储和还原
+      href: howto-migrate-using-dump-and-restore.md
+    - name: 导入和导出
+      href: howto-migrate-using-export-and-import.md
+  - name: 配置服务器参数
+    items:
+    - name: Azure 门户
+      href: howto-configure-server-parameters-using-portal.md
+    - name: Azure CLI
+      href: howto-configure-server-parameters-using-cli.md
+  - name: 访问服务器日志
+    items:
+    - name: Azure 门户
+      href: howto-configure-server-logs-in-portal.md
+    - name: Azure CLI
+      href: howto-configure-server-logs-using-cli.md
+  - name: 故障排除
+    items:
+    - name: 排查连接错误
+      href: howto-troubleshoot-common-connection-issues.md
+  - name: 虚拟网络
+    items:
+    - name: Azure 门户
+      href: howto-manage-vnet-using-portal.md
+    - name: Azure CLI
+      href: howto-manage-vnet-using-cli.md
+  - name: 重新启动服务器
+    items:
+    - name: Azure 门户
+      href: howto-restart-server-portal.md
+- name: 参考
+  items:
+  - name: Azure CLI
+    href: /cli/postgres
+  - name: REST API
+    href: /rest/api/postgresql
+- name: 资源
+  items:
+  - name: 定价
+    href: https://www.azure.cn/pricing/details/postgresql/
+  - name: MSDN 论坛
+    href: https://social.msdn.microsoft.com/forums/azure/zh-CN/home?forum=AzureDatabaseforPostgreSQL
+  - name: 堆栈溢出
+    href: https://stackoverflow.com/questions/tagged/azure-database-postgresql
+  - name: 视频
+    items:
+    - name: 产品视频
+      href: videos.md
+    - name: 操作方法视频系列
+      items:
+      - name: 了解产品功能和优势
+        href: https://aka.ms/postg-intro-vid
+      - name: 将 PostgreSQL 应用迁移到 Azure
+        href: https://aka.ms/postg-migrate-vid
+      - name: 生成带有认知服务的智能应用
+        href: https://aka.ms/postg-cogsvs-vid
+      - name: 使用 OSBA 连接容器
+        href: https://aka.ms/postg-osba-vid
+      - name: 将应用的数据连接到 Power BI
+        href: https://aka.ms/postg-powerbi-vid
+  - name: 支持选项
+    href: https://www.azure.cn/zh-cn/support/contact/
+ms.openlocfilehash: 31b0d1c4e33896a829020a8fcb2fcf78b8d8ae92
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675071"

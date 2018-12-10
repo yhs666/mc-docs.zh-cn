@@ -1,3 +1,0 @@
----
-redirect_url: /virtual-machines/virtual-machines-linux-azure-overview?toc=%2fvirtual-machines%2flinux%2ftoc.json
----

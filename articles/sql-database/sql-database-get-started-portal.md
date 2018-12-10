@@ -1,162 +1,136 @@
 ---
-title: "Azure 门户：创建 SQL 数据库 | Azure"
-description: "了解如何在 Azure 门户中创建 SQL 数据库逻辑服务器、服务器级防火墙规则和数据库。 同时了解如何使用 Azure 门户查询 Azure SQL 数据库。"
-keywords: "SQL 数据库教程：创建 SQL 数据库"
+title: Azure 门户：创建 SQL 数据库 | Microsoft Docs
+description: 在 Azure 门户中创建 SQL 数据库逻辑服务器、服务器级防火墙规则和数据库，并对其进行查询。
 services: sql-database
-documentationcenter: 
-author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
-ms.custom: quick start create
-ms.workload: data-management
-ms.tgt_pltfrm: portal
-ms.devlang: na
-ms.topic: hero-article
-ms.date: 04/17/2017
-ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: bd2c960d63c334a40092c9a55215d52e8e383c17
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
+ms.topic: quickstart
+author: WenJason
+ms.author: v-jay
+ms.reviewer: carlrab
+manager: digimobile
+origin.date: 11/01/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: d80e562ce95d48a0fd843c40d4578f5df926266e
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672753"
 ---
-# <a name="create-an-azure-sql-database-in-the-azure-portal-preview"></a>在 Azure 门户中创建 Azure SQL 数据库
+# <a name="quickstart-create-an-azure-sql-database-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建 Azure SQL 数据库
 
-本快速入门教程逐步讲解如何在 Azure 中创建 SQL 数据库。 Azure SQL 数据库是一种“数据库即服务”产品，可用于在云中运行和缩放高可用性 SQL Server 数据库。 本快速入门教程介绍如何开始使用 Azure 门户创建 SQL 数据库。
+本快速入门逐步讲解如何使用[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)在 Azure 中创建 SQL 数据库。 Azure SQL 数据库是一种“数据库即服务”产品，可用于在云中运行和缩放高可用性 SQL Server 数据库。 本快速入门介绍如何开始使用 Azure 门户创建 SQL 数据库，然后对其进行查询。
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/1rmb-trial/)。
+如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用](https://www.azure.cn/pricing/1rmb-trial/)帐户。
 
-## <a name="log-in-to-the-azure-portal-preview"></a>登录到 Azure 门户
+  >[!NOTE]
+  >本教程使用的是基于 DTU 的购买模型，但[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)也可用。
+
+## <a name="log-in-to-the-azure-portal"></a>登录到 Azure 门户
 
 登录到 [Azure 门户](https://portal.azure.cn/)。
 
 ## <a name="create-a-sql-database"></a>创建 SQL 数据库
 
-创建 Azure SQL 数据库时，会使用定义好的一组[计算和存储资源](sql-database-service-tiers.md)。 数据库在 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL 数据库逻辑服务器](sql-database-features.md)中创建。 
+创建 Azure SQL 数据库时，会使用定义好的一组[计算和存储资源](sql-database-service-tiers-dtu.md)。 数据库在 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL 数据库逻辑服务器](sql-database-features.md)中创建。
 
-请按以下步骤创建包含 Adventure Works LT 示例数据的 SQL 数据库。 
+请按以下步骤创建包含 Adventure Works LT 示例数据的 SQL 数据库。
 
-1. 单击 Azure 门户左上角的“新建”按钮。
+1. 在 Azure 门户的左上角单击“创建资源”。
 
-2. 从“新建”页中选择“数据库”，然后从“数据库”页中选择“SQL 数据库”。
+2. 从“新建”页中选择“数据库”，然后从“新建”页的“SQL 数据库”中选择“创建”。
 
-    ![创建数据库 - 1](./media/sql-database-get-started-portal/create-database-1.png)
+   ![创建数据库 - 1](./media/sql-database-get-started-portal/create-database-1.png)
 
-3. 如上图所示，在“SQL 数据库”窗体中填写以下信息：     
-   - 数据库名称：**mySampleDatabase**
-   - 资源组：**myResourceGroup**
-   - 源：**示例(AdventureWorksLT)**
+3. 如上图所示，在“SQL 数据库”窗体中填写以下信息：   
+
+   | 设置       | 建议的值 | 说明 |
+   | ------------ | ------------------ | ------------------------------------------------- |
+   | **数据库名称** | mySampleDatabase | 有关有效的数据库名称，请参阅 [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)（数据库标识符）。 |
+   | **订阅** | 你的订阅  | 有关订阅的详细信息，请参阅[订阅](https://account.windowsazure.cn/Subscriptions)。 |
+   | **资源组**  | MyResourceGroup | 有关有效的资源组名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。 |
+   | **选择源** | 示例 (AdventureWorksLT) | 将 AdventureWorksLT 架构和数据加载到新数据库中 |
 
    > [!IMPORTANT]
    > 必须选择此表单中的示例数据库，因为本快速入门中的其余部分会用到它。
-   > 
+   >
 
-4. 单击“服务器”，然后填写“新建服务器”表单，指定全局唯一的服务器名称，提供服务器管理员登录名，然后指定所选的密码。 
+4. 在“服务器”下，单击“配置所需设置”，并在“SQL Server (逻辑服务器)”窗体中填写以下信息，如下图所示：   
+
+   | 设置       | 建议的值 | 说明 |
+   | ------------ | ------------------ | ------------------------------------------------- |
+   | **服务器名称** | 任何全局唯一名称 | 如需有效的服务器名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。 |
+   | 服务器管理员登录名 | 任何有效的名称 | 如需有效的登录名，请参阅 [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)（数据库标识符）。 |
+   | **密码** | 任何有效的密码 | 密码必须至少有 8 个字符，且必须包含以下类别中的三个类别的字符：大写字符、小写字符、数字以及非字母数字字符。 |
+   | **订阅** | 你的订阅 | 有关订阅的详细信息，请参阅[订阅](https://account.windowsazure.cn/Subscriptions)。 |
+   | **资源组** | MyResourceGroup | 如需有效的资源组名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。 |
+   | **位置** | 任何有效的位置 | 中国东部、中国东部 2、中国北部、中国北部 2 |
 
    > [!IMPORTANT]
-   > 在此处指定的服务器管理员登录名和密码是以后在本快速入门中登录到服务器及其数据库所必需的。 请牢记或记录此信息，以后会使用到它。 
+   > 此处指定的服务器管理员登录名和密码是以后在本快速入门中登录到服务器及其数据库所必需的。 请牢记或记录此信息，以后会使用到它。
    >  
 
-    ![创建数据库 - 服务器](./media/sql-database-get-started-portal/create-database-server.png)
+   ![创建数据库 - 服务器](./media/sql-database-get-started-portal/create-database-server.png)
+
 5. 完成表单操作后，单击“选择”。
 
-6. 单击“定价层”为新数据库指定服务层和性能级别。 使用滑块选择“20 DTU”和 **250** GB 的存储。 有关 DTU 的详细信息，请参阅[什么是 DTU？](sql-database-what-is-a-dtu.md)。
+6. 单击“定价层”，指定服务层、DTU 数和存储量。 浏览相关选项，了解适用于每个服务层的 DTU 数和存储量。
 
-    ![创建数据库 - s1](./media/sql-database-get-started-portal/create-database-s1.png)
+7. 对于本快速入门，请选择“标准”服务层，然后使用滑块选择“10 DTU (S0)”和“1”GB 存储。
 
-7. 选择 DTU 的量之后，单击“应用”。  
+   ![创建数据库 - s1](./media/sql-database-get-started-portal/create-database-s1.png)
 
-8. 完成 SQL 数据库表单后，即可单击“创建”对数据库进行预配。 预配需要数分钟。 
+8. 若要使用“附加存储”选项，请接受预览版条款。
 
-9. 在工具栏上，单击“通知”可监视部署过程。
+9. 选择服务器层、DTU 数和存储量后，单击“应用”。  
 
-    ![通知](./media/sql-database-get-started-portal/notification.png)
+10. 完成 SQL 数据库表单后，即可单击“创建”对数据库进行预配。 预配需要数分钟。
 
+11. 在工具栏上，单击“通知”可监视部署过程。
 
-## <a name="create-a-server-level-firewall-rule"></a>创建服务器级防火墙规则
-
-SQL 数据库服务在服务器级别创建一个防火墙。除非创建了防火墙规则来为特定的 IP 地址打开防火墙，否则会阻止外部应用程序和工具连接到服务器或服务器上的任何数据库。 按照以下步骤为客户端 IP 地址创建 [SQL 数据库服务器级防火墙规则](sql-database-firewall-configure.md)，只允许通过 SQL 数据库防火墙进行外部连接，而该防火墙只对你的 IP 地址开放。 
-
-> [!NOTE]
-> 通过端口 1433 进行的 SQL 数据库通信。 如果尝试从企业网络内部进行连接，则该网络的防火墙可能不允许经端口 1433 的出站流量。 如果是这样，则无法连接到 Azure SQL 数据库服务器，除非 IT 部门打开了端口 1433。
->
-
-1. 部署完成后，在左侧菜单中单击“SQL 数据库”，然后在“SQL 数据库”页上单击“mySampleDatabase”。 此时会打开数据库的概览页，显示完全限定的服务器名称（例如 **mynewserver20170411.database.chinacloudapi.cn**），并且会提供进行进一步配置所需的选项。
-
-   > [!IMPORTANT]
-   > 在后续的快速入门中，需提供此完全限定的服务器名称才能连接到服务器及其数据库。
-   > 
-
-      ![服务器名称](./media/sql-database-get-started-portal/server-name.png) 
-
-2. 如上图所示，在工具栏上单击“设置服务器防火墙”。 此时会打开 SQL 数据库服务器的“防火墙设置”页。 
-
-      ![服务器防火墙规则](./media/sql-database-get-started-portal/server-firewall-rule.png) 
-
-
-3. 在工具栏上单击“添加客户端 IP”，将当前的 IP 地址添加到新的防火墙规则。 防火墙规则可以针对单个 IP 地址或一系列 IP 地址打开端口 1433。
-
-4. 单击“保存” 。 此时会针对当前的 IP 地址创建服务器级防火墙规则，在逻辑服务器上打开 端口 1433。
-
-      ![设置服务器防火墙规则](./media/sql-database-get-started-portal/server-firewall-rule-set.png) 
-
-4. 单击“确定”，然后关闭“防火墙设置”页。
-
-现在可以使用之前创建的服务器管理员帐户通过 SQL Server Management Studio 或其他所选工具从此 IP 地址连接到 SQL 数据库服务器及其数据库。
-
-> [!IMPORTANT]
-> 默认情况下，所有 Azure 服务都允许通过 SQL 数据库防火墙进行访问。 在此页上单击“关”即可对所有 Azure 服务执行禁用操作。
+     ![通知](./media/sql-database-get-started-portal/notification.png)
 
 ## <a name="query-the-sql-database"></a>查询 SQL 数据库
 
-在 Azure 中创建示例数据库以后，即可使用 Azure 门户中的内置查询工具确认是否能够连接到数据库并查询数据。 
+在 Azure 中创建示例数据库以后，即可使用 Azure 门户中的内置查询工具确认是否能够连接到数据库并查询数据。
 
-1. 在数据库的“SQL 数据库”页上，单击工具栏上的“工具”。 此时会打开“工具”页。
+1. 在数据库的“SQL 数据库”页上，单击左侧菜单中的“查询编辑器(预览版)”，然后单击“登录”。
 
-     ![工具菜单](./media/sql-database-get-started-portal/tools-menu.png) 
+   ![登录](./media/sql-database-get-started-portal/query-editor-login.png)
 
-2. 依次单击“查询编辑器(预览版)”、“预览条款”复选框、“确定”。 此时会打开“查询编辑器”页。
+2. 选择 SQL Server 身份验证，提供所需的登录信息，然后单击“确定”进行登录。
 
-3. 单击“登录”，然后在出现提示时选择“SQL Server 身份验证”，然后提供前面创建的服务器管理员登录名和密码。
+3. 完成 ServerAdmin 身份验证后，在查询编辑器窗格中键入以下查询。
 
-    ![登录](./media/sql-database-get-started-portal/login.png) 
-
-4. 单击“确定”登录。
-
-5. 完成身份验证后，在查询编辑器窗格中键入以下查询。
-
-   ```
+   ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
    FROM SalesLT.ProductCategory pc
    JOIN SalesLT.Product p
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-6. 单击“运行”，然后在“结果”窗格中查看查询结果。
+4. 单击“运行”，然后在“结果”窗格中查看查询结果。
 
-    ![查询编辑器结果](./media/sql-database-get-started-portal/query-editor-results.png)
+   ![查询编辑器结果](./media/sql-database-get-started-portal/query-editor-results.png)
 
-7. 关闭“查询编辑器”页和“工具”页。
+5. 关闭“查询编辑器”页，单击“确定”放弃未保存的编辑内容。
 
 ## <a name="clean-up-resources"></a>清理资源
 
-本教程系列中的其他快速入门教程是在本文的基础上制作的。 如果计划继续使用后续的快速入门，请勿清除在本快速入门中创建的资源。 如果不打算继续，请在 Azure 门户中执行以下步骤，删除通过此快速入门创建的所有资源。
+若要转到[后续步骤](#next-steps)，以便了解如何使用多种不同的方法连接和查询数据库，请保存这些资源。 但如果希望删除在本快速入门中创建的资源，请执行以下步骤。
 
-1. 在 Azure 门户的左侧菜单中，单击“资源组”，然后单击“myResourceGroup”。 
+
+1. 在 Azure 门户的左侧菜单中，单击“资源组”，然后单击“myResourceGroup”。
 2. 在资源组页上单击“删除”，在文本框中键入 **myResourceGroup**，然后单击“删除”。
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要使用 SQL Server Management Studio 进行连接和查询，请参阅[使用 SSMS 进行连接和查询](sql-database-connect-query-ssms.md)
-- 若要使用 Visual Studio Code 进行连接和查询，请参阅[使用 Visual Studio Code 进行连接和查询](sql-database-connect-query-vscode.md)。
-- 若要使用 .NET 进行连接和查询，请参阅[使用 .NET 进行连接和查询](sql-database-connect-query-dotnet.md)。
-- 若要使用 PHP 进行连接和查询，请参阅[使用 PHP 进行连接和查询](sql-database-connect-query-php.md)。
-- 若要使用 Node.js 进行连接和查询，请参阅[使用 Node.js 进行连接和查询](sql-database-connect-query-nodejs.md)。
-- 若要使用 Java 进行连接和查询，请参阅[使用 Java 进行连接和查询](sql-database-connect-query-java.md)。
-- 若要使用 Python 进行连接和查询，请参阅[使用 Python 进行连接和查询](sql-database-connect-query-python.md)。
-- 若要使用 Ruby 进行连接和查询，请参阅[使用 Ruby 进行连接和查询](sql-database-connect-query-ruby.md)。
-
+- 现在你已有数据库，需要创建服务器级防火墙规则以从本地工具连接到该数据库。 请参阅[创建服务器级防火墙规则](sql-database-get-started-portal-firewall.md)
+- 如果创建服务器级防火墙规则，可以使用你喜欢的工具或语言进行[连接和查询](sql-database-connect-query.md)，包括
+  - [使用 SQL Server Management Studio 连接和查询](sql-database-connect-query-ssms.md)
+  - [使用 Azure Data Studio 连接和查询](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
+- 若要使用 Azure CLI 创建数据库，请参阅 [Azure CLI 示例](sql-database-cli-samples.md)
+- 若要使用 Azure PowerShell 创建数据库，请参阅 [Azure PowerShell 示例](sql-database-powershell-samples.md)

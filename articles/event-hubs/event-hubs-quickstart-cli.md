@@ -1,0 +1,89 @@
+---
+title: Azure 快速入门 - 使用 Azure CLI 创建事件中心 | Azure
+description: 本快速入门介绍如何使用 Azure CLI 创建事件中心，然后使用 Java 发送和接收事件。
+services: event-hubs
+author: ShubhaVijayasarathy
+manager: timlt
+ms.service: event-hubs
+ms.devlang: java
+ms.topic: quickstart
+ms.custom: mvc
+origin.date: 08/16/2018
+ms.date: 12/10/2018
+ms.author: v-biyu
+ms.openlocfilehash: d6dcd85ca8a234644843a708cb09f4c12f476419
+ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676896"
+---
+# <a name="quickstart-create-an-event-hub-using-azure-cli"></a>快速入门：使用 Azure CLI 创建事件中心
+
+Azure 事件中心是一个大数据流式处理平台和事件引入服务，每秒能够接收和处理数百万个事件。 事件中心可以处理和存储分布式软件和设备生成的事件、数据或遥测。 可以使用任何实时分析提供程序或批处理/存储适配器转换和存储发送到数据中心的数据。 有关事件中心的详细概述，请参阅[事件中心概述](event-hubs-about.md)和[事件中心功能](event-hubs-features.md)。
+
+在本快速入门中，请使用 Azure CLI 创建事件中心。
+
+## <a name="prerequisites"></a>先决条件
+若要完成本快速入门，需要一个 Azure 订阅。 如果没有订阅，请在开始之前[创建一个试用帐户][]。
+
+
+如果选择在本地安装并使用 Azure CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 请运行 `az --version` 检查版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
+
+## <a name="sign-in-to-azure"></a>登录 Azure
+
+如果在本地运行 CLI，请按以下步骤登录到 Azure 并设置当前订阅：
+
+运行以下命令来登录到 Azure：
+
+```azurecli
+az cloud set -n AzureChinaCloud
+az login
+```
+
+设置当前订阅上下文。 将 `MyAzureSub` 替换为要使用的 Azure 订阅的名称：
+
+```azurecli
+az account set --subscription MyAzureSub
+``` 
+
+## <a name="create-a-resource-group"></a>创建资源组
+资源组是 Azure 资源的逻辑集合。 所有资源在资源组中进行部署和管理。 运行以下命令创建资源组：
+
+```azurecli
+# Create a resource group. Specify a name for the resource group.
+az group create --name <resource group name> --location chinaeast
+```
+
+## <a name="create-an-event-hubs-namespace"></a>创建事件中心命名空间
+事件中心命名空间提供唯一的范围容器，可以通过其完全限定的域名进行引用，而在该容器中，可以创建一个或多个事件中心。 若要在资源组中创建命名空间，请运行以下命令：
+
+```azurecli
+# Create an Event Hubs namespace. Specify a name for the Event Hubs namespace.
+az eventhubs namespace create --name <Event Hubs namespace> --resource-group <resource group name> -l <region, for example: China East>
+```
+
+## <a name="create-an-event-hub"></a>创建事件中心
+请运行以下命令，以便创建事件中心：
+
+```azurecli
+# Create an event hub. Specify a name for the event hub. 
+az eventhubs eventhub create --name <event hub name> --resource-group <resource group name> --namespace-name <Event Hubs namespace>
+```
+
+祝贺！ 现已使用 Azure CLI 创建了一个事件中心命名空间，并在该命名空间中创建了一个事件中心。 
+
+## <a name="next-steps"></a>后续步骤
+
+在本文中，你已创建一个资源组、一个事件中心命名空间和一个事件中心。 有关如何将事件发送到事件中心（或）从事件中心接收事件的分步说明，请参阅以下教程：  
+
+- 将事件发送到事件中心：[.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)、[.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)、[Java](event-hubs-java-get-started-send.md)、[Python](event-hubs-python-get-started-send.md)、[Node.js](event-hubs-node-get-started-send.md)、[Go](event-hubs-go-get-started-send.md)、[C](event-hubs-c-getstarted-send.md)
+- 从事件中心接收事件：[.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)、[.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)、[Java](event-hubs-java-get-started-receive-eph.md)、[Python](event-hubs-python-get-started-receive.md)、[Node.js](event-hubs-node-get-started-receive.md)、[Go](event-hubs-go-get-started-receive-eph.md)、[Apache Storm](event-hubs-storm-getstarted-receive.md)
+
+[创建一个试用帐户]: https://www.azure.cn/pricing/1rmb-trial/
+[Install Azure CLI 2.0]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+[az group create]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create
+[fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
+
+<!-- Update_Description: update meta properties, wording update -->
+

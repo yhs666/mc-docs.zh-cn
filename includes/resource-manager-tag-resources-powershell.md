@@ -1,85 +1,108 @@
-AzureRm.Resources 模块版本 3.0 包括在使用标记方式方面的重大更改。 在继续之前，请查看版本：
+本文中的示例需要 Azure PowerShell 版本 3.0 或更高版本。 如果没有版本 3.0 或更高版本，请使用 PowerShell 库或 Web 平台安装程序[更新版本](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)。
+
+若要查看*资源组*的现有标记，请使用：
 
 ```powershell
-Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
+(Get-AzureRmResourceGroup -Name examplegroup).Tags
 ```
 
-如果结果显示版本 3.0 或更高版本，则本主题中的示例可用于你的环境。 如果没有版本 3.0 或更高版本，请使用 PowerShell 库或 Web 平台安装程序 [更新版本](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) ，然后再继续完成本主题。
+该脚本返回以下格式：
 
 ```powershell
-Version
--------
-3.5.0
+Name                           Value
+----                           -----
+Dept                           IT
+Environment                    Test
 ```
 
-每次将标记应用到资源或资源组时，都会覆盖该资源或资源组上的现有标记。 因此，必须根据资源或资源组是否具有要保留的现有标记，使用不同的方法。 若要将标记添加到：
-
-* 不带现有标记的资源组。
-
-      Set-AzureRmResourceGroup -Name TagTestGroup -Tag @{ Dept="IT"; Environment="Test" }
-
-* 带有现有标记的资源组。
-
-      $tags = (Get-AzureRmResourceGroup -Name TagTestGroup).Tags
-      $tags += @{Status="Approved"}
-      Set-AzureRmResourceGroup -Tag $tags -Name TagTestGroup
-
-* 不带现有标记的资源。
-
-      Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceName storageexample -ResourceGroupName TagTestGroup -ResourceType Microsoft.Storage/storageAccounts
-
-* 带有现有标记的资源。
-
-      $tags = (Get-AzureRmResource -ResourceName storageexample -ResourceGroupName TagTestGroup).Tags
-      $tags += @{Status="Approved"}
-      Set-AzureRmResource -Tag $tags -ResourceName storageexample -ResourceGroupName TagTestGroup -ResourceType Microsoft.Storage/storageAccounts
-
-若要将资源组中的所有标记应用于其资源，并且 **不保留资源上的现有标记**，请使用以下脚本：
+若要查看具有指定资源 ID 的资源的现有标记，请使用：
 
 ```powershell
-$groups = Get-AzureRmResourceGroup
-foreach ($g in $groups) 
-{
-    Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force } 
-}
+(Get-AzureRmResource -ResourceId {resource-id}).Tags
 ```
 
-若要将资源组中的所有标记应用于其资源，并且 **保留资源上不重复的现有标记**，请使用以下脚本：
+或者，若要查看具有指定名称和资源组的资源的现有标记，请使用：
 
 ```powershell
-$groups = Get-AzureRmResourceGroup
-foreach ($g in $groups) 
-{
-    if ($g.Tags -ne $null) {
-        $resources = Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName 
-        foreach ($r in $resources)
-        {
-            $resourcetags = (Get-AzureRmResource -ResourceId $r.ResourceId).Tags
-            foreach ($key in $g.Tags.Keys)
-            {
-                if ($resourcetags.ContainsKey($key)) { $resourcetags.Remove($key) }
-            }
-            $resourcetags += $g.Tags
-            Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
-        }
-    }
-}
+(Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
 ```
 
-若要删除所有标记，请传递一个空哈希表。
+若要获取具有特定标记的资源组，请使用：
 
 ```powershell
-Set-AzureRmResourceGroup -Tag @{} -Name TagTestGgroup
+(Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name
 ```
 
-若要获取具有特定标记的资源组，请使用 `Find-AzureRmResourceGroup` cmdlet。
-
-```powershell
-(Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name 
-```
-
-若要获取具有特定标记和值的所有资源，请使用 `Find-AzureRmResource` cmdlet。
+若要获取具有特定标记的资源，请使用：
 
 ```powershell
 (Find-AzureRmResource -TagName Dept -TagValue Finance).Name
 ```
+
+每次将标记应用到某个资源或资源组时，都会覆盖该资源或资源组中的现有标记。 因此，必须根据该资源或资源组是否包含现有标记来使用不同的方法。
+
+若要将标记添加到*不包含现有标记的资源组*，请使用：
+
+```powershell
+Set-AzureRmResourceGroup -Name examplegroup -Tag @{ Dept="IT"; Environment="Test" }
+```
+
+若要将标记添加到包含现有标记的资源组，请检索现有标记，添加新标记，然后重新应用标记：
+
+```powershell
+$tags = (Get-AzureRmResourceGroup -Name examplegroup).Tags
+$tags += @{Status="Approved"}
+Set-AzureRmResourceGroup -Tag $tags -Name examplegroup
+```
+
+若要将标记添加到*不包含现有标记的资源*，请使用：
+
+```powershell
+$r = Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup
+Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceId $r.ResourceId -Force
+```
+
+若要将标记添加到包含现有标记的资源，请使用：
+
+```powershell
+$r = Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup
+$r.tags += @{Status="Approved"}
+Set-AzureRmResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
+```
+
+要将资源组中的所有标记应用于其资源，并且*不保留资源上的现有标记*，请使用以下脚本：
+
+```powershell
+$groups = Get-AzureRmResourceGroup
+foreach ($g in $groups)
+{
+    Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force }
+}
+```
+
+要将资源组中的所有标记应用于其资源，并且*保留资源上不重复的现有标记*，请使用以下脚本：
+
+```powershell
+$group = Get-AzureRmResourceGroup "examplegroup"
+if ($group.Tags -ne $null) {
+    $resources = $group | Find-AzureRmResource
+    foreach ($r in $resources)
+    {
+        $resourcetags = (Get-AzureRmResource -ResourceId $r.ResourceId).Tags
+        foreach ($key in $group.Tags.Keys)
+        {
+            if (($resourcetags) -AND ($resourcetags.ContainsKey($key))) { $resourcetags.Remove($key) }
+        }
+        $resourcetags += $group.Tags
+        Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
+    }
+}
+```
+
+若要删除所有标记，请传递一个空哈希表：
+
+```powershell
+Set-AzureRmResourceGroup -Tag @{} -Name examplegroup
+```
+<!--Update_Description: cmdlet update -->
+<!--ms.date: 11/27/2017 -->

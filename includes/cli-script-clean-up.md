@@ -1,7 +1,8 @@
-## <a name="clean-up-deployment"></a>清理部署 
+## <a name="clean-up-deployment"></a>清理部署
 
-运行脚本示例后，可以使用以下命令删除资源组、应用服务应用以及所有相关资源。
+运行示例脚本后，可以使用以下命令删除资源组以及与其关联的所有资源。
 
 ```azurecli
 az group delete --name myResourceGroup
 ```
+<!--ms.date: 12/28/2017 -->

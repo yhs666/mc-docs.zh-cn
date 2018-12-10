@@ -1,189 +1,351 @@
 ---
-title: 密钥保管库机密与 Resource Manager 模板 | Azure
+title: Key Vault 机密与 Azure 资源管理器模板 | Azure
 description: 说明在部署期间如何以参数形式从密钥保管库传递机密。
-services: azure-resource-manager,key-vault
+services: azure-resource-manager
 documentationcenter: na
-author: tfitzmac
-manager: timlt
+author: rockboyfor
 editor: tysonn
-
-ms.assetid: c582c144-4760-49d3-b793-a3e1e89128e2
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2016
-wacn.date: 01/06/2017
+origin.date: 10/10/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
+ms.openlocfilehash: fbc035ad029acbc60e34a7171e8f7e713b236049
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662738"
 ---
+# <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>在部署过程中使用 Azure Key Vault 传递安全参数值
 
-# 在部署过程中使用密钥保管库传递安全参数值
+在部署过程中，需要将安全值（例如密码）作为参数传递时，可从 [Azure Key Vault](../key-vault/key-vault-whatis.md) 检索值。 通过引用参数文件中的密钥保管库和密钥来检索值。 值永远不会公开，因为仅引用其密钥保管库 ID。 密钥保管库与部署到的资源组不需要位于同一订阅中。
 
-在部署过程中，需要将安全值（例如密码）作为参数传递时，可从 [Azure 密钥保管库](../key-vault/key-vault-whatis.md)检索值。通过引用参数文件中的密钥保管库和密钥来检索值。值永远不会公开，因为仅引用其密钥保管库 ID。不需要每次部署资源时手动输入机密的值。密钥保管库与部署到的资源组不需要位于同一订阅中。引用密钥保管库时，需要包括订阅 ID。
+## <a name="deploy-a-key-vault-and-secret"></a>部署密钥保管库和机密
 
-本主题说明如何创建密钥保管库和密钥、为 Resource Manager 模板配置密钥访问权限，以及将密钥作为参数传递。如果已经拥有密钥保管库和密钥，但需要检查模板和用户访问权限，请转到[启用密钥访问权限](#enable-access-to-the-secret)部分。如果已经拥有密钥保管库和密钥，并确定已针对模板和用户访问权限进行配置，请转到[通过静态 ID 引用密钥](#reference-a-secret-with-static-id)部分。
+若要创建 key vault 和机密，请使用 Azure CLI 或 PowerShell。 `enabledForTemplateDeployment` 是一个密钥保管库属性。 若要从资源管理器部署访问此密钥保管库内的机密，`enabledForTemplateDeployment` 必须是 `true`。 
 
-## 部署密钥保管库和机密
+以下示例 Azure PowerShell 和 Azure CLI 脚本演示了如何创建密钥保管库和机密。
 
-可通过 Resource Manager 模板部署密钥保管库和密钥。请在创建密钥保管库时将 **enabledForTemplateDeployment** 属性设置为 **true**，以便从其他 Resource Manager 模板引用它。
+对于 Azure CLI，请使用：
 
-或者，可通过 Azure 门户创建密钥保管库和密钥。
+```azurecli
+keyVaultName='{your-unique-vault-name}'
+resourceGroupName='{your-resource-group-name}'
+location='chinaeast'
+userPrincipalName='{your-email-address-associated-with-your-subscription}'
 
-1. 选择“新建”->“安全性 + 标识”->“密钥保管库”。
+# Create a resource group
+az group create --name $resourceGroupName --location $location
 
-    ![创建新的密钥保管库](./media/resource-manager-keyvault-parameter/new-key-vault.png)  
+# Create a Key Vault
+az keyvault create \
+  --name $keyVaultName \
+  --resource-group $resourceGroupName \
+  --location $location \
+  --enabled-for-template-deployment true
+az keyvault set-policy --upn $userPrincipalName --name $keyVaultName --secret-permissions set delete get list
 
-2. 为密钥保管库提供值。暂时可以忽略“访问策略”和“高级访问策略”设置。相关部分会介绍这些设置。选择“创建”。
+# Create a secret with the name, vmAdminPassword
+password=$(openssl rand -base64 32)
+echo $password
+az keyvault secret set --vault-name $keyVaultName --name 'vmAdminPassword' --value $password
+```
 
-    ![设置密钥保管库](./media/resource-manager-keyvault-parameter/create-key-vault.png)  
+对于 PowerShell，请使用：
 
-3. 现在拥有一个密钥保管库。选择该密钥保管库。
+```PowerShell
+$keyVaultName = "{your-unique-vault-name}"
+$resourceGroupName="{your-resource-group-name}"
+$location='China North'
+$userPrincipalName='{your-email-address-associated-with-your-subscription}'
 
-4. 在密钥保管库边栏选项卡中，选择“密钥”。
+New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 
-    ![选择密钥](./media/resource-manager-keyvault-parameter/select-secret.png)  
+New-AzureRmKeyVault `
+  -VaultName $keyVaultName `
+  -resourceGroupName $resourceGroupName `
+  -Location $location `
+  -EnabledForTemplateDeployment
+Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $userPrincipalName -PermissionsToSecrets set,delete,get,list
 
-5. 选择“添加”。
+$password = openssl rand -base64 32
+echo $password
+$secretvalue = ConvertTo-SecureString $password -AsPlainText -Force
+Set-AzureKeyVaultSecret -VaultName $keyVaultName -Name "vmAdminPassword" -SecretValue $secretvalue
+```
+<!-- Not Available on Cloud Shell--> 对于使用资源管理器模板：请参阅[教程：在资源管理器模板部署中集成 Azure Key Vault](./resource-manager-tutorial-use-key-vault.md#prepare-the-key-vault)。
 
-    ![选择添加](./media/resource-manager-keyvault-parameter/add-secret.png)  
+> [!NOTE]
+> 每个 Azure 服务具有特定的密码要求。 例如，Azure 虚拟机的要求可以在[创建 VM 时，密码有什么要求？](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)中找到。
 
-6. 选择“手动”作为上传选项。为密钥提供名称和值。选择“创建”。
+## <a name="enable-access-to-the-secret"></a>启用密钥访问权限
 
-    ![提供密钥](./media/resource-manager-keyvault-parameter/provide-secret.png)  
+不是将 `enabledForTemplateDeployment` 设置为 `true`，部署模板的用户必须在包含密钥保管库的范围内（包括资源组和密钥保管库）具有 `Microsoft.KeyVault/vaults/deploy/action` 权限。 [所有者](../role-based-access-control/built-in-roles.md#owner)和[参与者](../role-based-access-control/built-in-roles.md#contributor)角色均授予该访问权限。 如果你创建密钥保管库，则你是所有者，因此你具有权限。 如果密钥保管库位于不同的订阅中，则密钥保管库的所有者必须授予访问权限。
 
-现已创建密钥保管库和密钥。
+以下过程展示了如何创建具有最小权限的角色，以及如何分配用户
+1. 创建自定义角色定义 JSON 文件：
 
-## <a name="enable-access-to-the-secret"></a> 启用密钥访问权限
+    ```json
+    {
+      "Name": "Key Vault resource manager template deployment operator",
+      "IsCustom": true,
+      "Description": "Lets you deploy a resource manager template with the access to the secrets in the Key Vault.",
+      "Actions": [
+        "Microsoft.KeyVault/vaults/deploy/action"
+      ],
+      "NotActions": [],
+      "DataActions": [],
+      "NotDataActions": [],
+      "AssignableScopes": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000"
+      ]
+    }
+    ```
+    将“00000000-0000-0000-0000-000000000000”替换为需要部署模板的用户的订阅 ID。
 
-无论使用的是新密钥保管库还是现有密钥保管库，请确保部署模板的用户可以访问密钥。部署引用某个密钥的模板的用户必须具有密钥保管库的 `Microsoft.KeyVault/vaults/deploy/action` 权限。[所有者](../active-directory/role-based-access-built-in-roles.md#owner)和[参与者](../active-directory/role-based-access-built-in-roles.md#contributor)角色都授予此访问权限。也可创建一个授予该权限的[自定义角色](../active-directory/role-based-access-control-custom-roles.md)，然后将用户添加到该角色。此外，必须授予 Resource Manager 在部署过程中访问密钥保管库的能力。
+2. 使用 JSON 文件创建新角色：
 
-可通过门户检查或执行这些步骤。
+    ```azurepowershell
+    $resourceGroupName= "<Resource Group Name>" # the resource group which contains the Key Vault
+    $userPrincipalName = "<Email Address of the deployment operator>"
+    New-AzureRmRoleDefinition -InputFile "<PathToTheJSONFile>" 
+    New-AzureRmRoleAssignment -ResourceGroupName $resourceGroupName -RoleDefinitionName "Key Vault resource manager template deployment operator" -SignInName $userPrincipalName
+    ```
 
-1. 选择“访问控制 (IAM)”。
+    `New-AzureRmRoleAssignment` 示例在资源组级别为用户分配自定义角色。  
+<!-- Not Available on [Managed Application](../managed-applications/overview.md)-->
 
-    ![选择访问控制](./media/resource-manager-keyvault-parameter/select-access-control.png)  
+## <a name="reference-a-secret-with-static-id"></a>通过静态 ID 引用机密
 
-2. 如果想要用于部署模板的帐户尚不是所有者或参与者（或尚未添加到授予 `Microsoft.KeyVault/vaults/deploy/action` 权限的自定义角色），请选择“添加”
+接收密钥保管库机密的模板与任何其他模板一样。 这是因为在参数文件（而不是在模板）中引用 key vault。 下图显示了参数文件如何引用机密并将该值传递到模板。
 
-    ![添加用户](./media/resource-manager-keyvault-parameter/add-user.png)  
+![静态 ID](./media/resource-manager-keyvault-parameter/statickeyvault.png)
 
-3. 选择参与者或所有者角色，然后搜索要分配到该角色的标识。选择“确定”完成将标识添加到角色的操作。
-
-    ![添加用户](./media/resource-manager-keyvault-parameter/search-user.png)  
-
-4. 若要在部署过程中通过模板启用访问权限，请选择“高级访问控制”。选择“启用对 Azure Resource Manager 的访问以进行模板部署”选项。
-
-    ![启用模板访问权限](./media/resource-manager-keyvault-parameter/select-template-access.png)  
-
-## <a name="reference-a-secret-with-static-id"></a> 通过静态 ID 引用机密
-
-从用于将值传递到模板的 **参数文件（而不是模板）** 内部引用密钥。你可以通过传递密钥保管库的资源标识符和机密的名称来引用机密。在以下示例中，密钥保管库机密必须已存在，而且用户提供其资源 ID 的静态值。
+例如，[以下模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver.json)部署包括管理员密码的 SQL 数据库。 密码参数设置为安全字符串。 但是，此模板未指定该值的来源。
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminLogin": {
+      "type": "string"
+    },
+    "adminPassword": {
+      "type": "securestring"
+    },
+    "sqlServerName": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "name": "[parameters('sqlServerName')]",
+      "type": "Microsoft.Sql/servers",
+      "apiVersion": "2015-05-01-preview",
+      "location": "[resourceGroup().location]",
+      "tags": {},
+      "properties": {
+        "administratorLogin": "[parameters('adminLogin')]",
+        "administratorLoginPassword": "[parameters('adminPassword')]",
+        "version": "12.0"
+      }
+    }
+  ],
+  "outputs": {
+  }
+}
+```
+
+现在，为上述模板创建参数文件。 在参数文件中，指定与模板中的参数名称匹配的参数。 对于参数值，请从密钥保管库中引用机密。 可以通过传递密钥保管库的资源标识符和机密的名称来引用机密。 在[以下参数文件](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver.parameters.json)中，Key Vault 机密必须已存在，而且为其资源 ID 提供了静态值。 在本地复制此文件，并设置订阅 ID、保管库名称和 SQL server 名称。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-      "sqlsvrAdminLoginPassword": {
-        "reference": {
-          "keyVault": {
-            "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
-          },
-          "secretName": "adminPassword"
+        "adminLogin": {
+            "value": "exampleadmin"
+        },
+        "adminPassword": {
+            "reference": {
+              "keyVault": {
+                "id": "/subscriptions/<subscription-id>/resourceGroups/examplegroup/providers/Microsoft.KeyVault/vaults/<vault-name>"
+              },
+              "secretName": "examplesecret"
+            }
+        },
+        "sqlServerName": {
+            "value": "<your-server-name>"
         }
-      },
-      "sqlsvrAdminLogin": {
-        "value": "exampleadmin"
-      }
     }
 }
 ```
 
-在模板中，接受密钥的参数应是 **securestring**。以下示例显示了某个模板的相关部分，该模板将部署需要管理员密码的 SQL Server。
+如果需要使用当前版本以外的机密版本，请使用 `secretVersion` 属性。
+
+```json
+"secretName": "examplesecret",
+"secretVersion": "cd91b2b7e10e492ebb870a6ee0591b68"
+```
+
+现在，部署模板并传入参数文件。 可以使用 GitHub 中的示例模板，但必须使用本地参数文件并将值设置为自己的环境。
+
+<!-- Verify successful with --template-uri parameter--> 对于 Azure CLI，请使用：
+
+```azurecli
+az group create --name datagroup --location $location
+az group deployment create \
+    --name exampledeployment \
+    --resource-group datagroup \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json \
+    --parameters @sqlserver.parameters.json
+```
+
+对于 PowerShell，请使用：
+
+```PowerShell
+New-AzureRmResourceGroup -Name datagroup -Location $location
+New-AzureRmResourceGroupDeployment `
+  -Name exampledeployment `
+  -ResourceGroupName datagroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json `
+  -TemplateParameterFile sqlserver.parameters.json
+```
+
+## <a name="reference-a-secret-with-dynamic-id"></a>通过动态 ID 引用机密
+
+<!--Verify sucessfully--> 上一部分介绍了如何通过参数传递密钥保管库机密的静态资源 ID。 但是，在某些情况下，需要引用随当前部署而变的密钥保管库机密。 或者，你可能只想将参数值传递给模板，而不是在参数文件中创建引用参数。 在任何一种情况下，均可使用链接模板为密钥保管库机密动态生成资源 ID。
+
+不能在参数文件中动态生成资源 ID，因为参数文件中不允许使用模板表达式。 
+
+在父模板中添加链接模板，然后传入包含动态生成的资源 ID 的参数。 下图显示链接模板中的参数如何引用机密。
+
+![动态 ID](./media/resource-manager-keyvault-parameter/dynamickeyvault.png)
+
+[以下模板](https://github.com/Azure/azure-quickstart-templates/tree/master/201-key-vault-use-dynamic-id)动态创建 Key Vault ID 并将其作为参数传递。
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "sqlsvrAdminLogin": {
+        "location": {
             "type": "string",
-            "minLength": 4
+            "defaultValue": "[resourceGroup().location]",
+            "metadata": {
+                "description": "The location where the resources will be deployed."
+            }
         },
-        "sqlsvrAdminLoginPassword": {
-            "type": "securestring"
+        "vaultName": {
+            "type": "string",
+            "metadata": {
+                "description": "The name of the keyvault that contains the secret."
+            }
         },
-        ...
+        "secretName": {
+            "type": "string",
+            "metadata": {
+                "description": "The name of the secret."
+            }
+        },
+        "vaultResourceGroupName": {
+            "type": "string",
+            "metadata": {
+                "description": "The name of the resource group that contains the keyvault."
+            }
+        },
+        "vaultSubscription": {
+            "type": "string",
+            "defaultValue": "[subscription().subscriptionId]",
+            "metadata": {
+                "description": "The name of the subscription that contains the keyvault."
+            }
+        },
+        "_artifactsLocation": {
+            "type": "string",
+            "metadata": {
+                "description": "The base URI where artifacts required by this template are located. When the template is deployed using the accompanying scripts, a private location in the subscription will be used and this value will be automatically generated."
+            },
+            "defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-key-vault-use-dynamic-id/"
+        },
+        "_artifactsLocationSasToken": {
+            "type": "securestring",
+            "metadata": {
+                "description": "The sasToken required to access _artifactsLocation.  When the template is deployed using the accompanying scripts, a sasToken will be automatically generated."
+            },
+            "defaultValue": ""
+        }
     },
     "resources": [
         {
-          "name": "[variables('sqlsvrName')]",
-          "type": "Microsoft.Sql/servers",
-          "location": "[resourceGroup().location]",
-          "apiVersion": "2014-04-01-preview",
-          "properties": {
-              "administratorLogin": "[parameters('sqlsvrAdminLogin')]",
-              "administratorLoginPassword": "[parameters('sqlsvrAdminLoginPassword')]"
-          },
-          ...
+            "apiVersion": "2018-05-01",
+            "name": "dynamicSecret",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "contentVersion": "1.0.0.0",
+                    "uri": "[uri(parameters('_artifactsLocation'), concat('./nested/sqlserver.json', parameters('_artifactsLocationSasToken')))]"
+                },
+                "parameters": {
+                    "location": {
+                        "value": "[parameters('location')]"
+                    },
+                    "adminLogin": {
+                        "value": "ghuser"
+                    },
+                    "adminPassword": {
+                        "reference": {
+                            "keyVault": {
+                                "id": "[resourceId(parameters('vaultSubscription'), parameters('vaultResourceGroupName'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
+                            },
+                            "secretName": "[parameters('secretName')]"
+                        }
+                    }
+                }
+            }
         }
     ],
-    "variables": {
-        "sqlsvrName": "[concat('sqlsvr', uniqueString(resourceGroup().id))]"
-    },
-    "outputs": { }
-}
-```
-
-## 通过动态 ID 引用机密
-
-上一部分介绍了如何传递密钥保管库机密的静态资源 ID。但是，在某些情况下，你需要引用随当前部署而变的密钥保管库机密。在这种情况下，不能在参数文件中对资源 ID 进行硬编码。遗憾的是，不能在参数文件中动态生成资源 ID，因为参数文件中不允许模板表达式。
-
-若要动态生成密钥保管库机密的资源 ID，必须将需要机密的资源移至嵌套式模板中。需要在主模板中添加嵌套式模板，然后传入包含动态生成的资源 ID 的参数。
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-      "vaultName": {
-        "type": "string"
-      },
-      "secretName": {
-        "type": "string"
-      }
-    },
-    "resources": [
-    {
-      "apiVersion": "2015-01-01",
-      "name": "nestedTemplate",
-      "type": "Microsoft.Resources/deployments",
-      "properties": {
-        "mode": "incremental",
-        "templateLink": {
-          "uri": "https://www.contoso.com/AzureTemplates/newVM.json",
-          "contentVersion": "1.0.0.0"
-        },
-        "parameters": {
-          "adminPassword": {
-            "reference": {
-              "keyVault": {
-                "id": "[concat(resourceGroup().id, '/providers/Microsoft.KeyVault/vaults/', parameters('vaultName'))]"
-              },
-              "secretName": "[parameters('secretName')]"
-            }
-          }
+    "outputs": {
+        "sqlFQDN": {
+            "type": "string",
+            "value": "[reference('dynamicSecret').outputs.sqlFQDN.value]"
         }
-      }
-    }],
-    "outputs": {}
+    }
 }
 ```
 
-## 后续步骤
-* 有关密钥保管库的一般信息，请参阅 [Azure 密钥保管库入门](../key-vault/key-vault-get-started.md)。
-* 有关对虚拟机使用密钥保管库的信息，请参阅 [Azure Resource Manager 的安全注意事项](./best-practices-resource-manager-security.md)。
-* 有关引用密钥机密的完整示例，请参阅[密钥保管库示例](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples)。
+部署前面的模板，并为参数提供值。 可以使用 GitHub 中的示例模板，但必须提供环境的参数值。
 
-<!---HONumber=Mooncake_0103_2017-->
+对于 Azure CLI，请使用：
+
+```azurecli
+az group create --name datagroup --location $location
+az group deployment create \
+    --name exampledeployment \
+    --resource-group datagroup \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-key-vault-use-dynamic-id/azuredeploy.json \
+    --parameters vaultName=<your-vault> vaultResourceGroupName=examplegroup secretName=examplesecret
+```
+
+对于 PowerShell，请使用：
+
+```powershell
+New-AzureRmResourceGroup -Name datagroup -Location $location
+New-AzureRmResourceGroupDeployment `
+  -Name exampledeployment `
+  -ResourceGroupName datagroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-key-vault-use-dynamic-id/azuredeploy.json `
+  -vaultName <your-vault> -vaultResourceGroupName examplegroup -secretName examplesecret
+```
+
+## <a name="next-steps"></a>后续步骤
+* 有关密钥保管库的一般信息，请参阅 [Azure 密钥保管库入门](../key-vault/key-vault-get-started.md)。
+* 有关引用密钥机密的完整示例，请参阅 [密钥保管库示例](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples)。
+
+<!--Update_Description: update meta properties, wording update, update cmdlet sample -->

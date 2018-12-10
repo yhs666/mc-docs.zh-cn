@@ -1,75 +1,83 @@
 ---
 title: 通过 Azure IoT 中心安排作业 (Node) | Azure
-description: 如何安排 Azure IoT 中心作业实现多台设备上的直接方法调用。使用 Azure IoT SDK for Node.js 实现模拟设备应用以及用于运行作业的服务应用。
-services: iot-hub
-documentationcenter: .net
+description: 如何安排 Azure IoT 中心作业实现多台设备上的直接方法调用。 使用 Azure IoT SDK for Node.js 实现模拟设备应用以及用于运行作业的服务应用。
 author: juanjperez
-manager: timlt
-editor: ''
-
-ms.assetid: 2233356e-b005-4765-ae41-3a4872bda943
+manager: cberlin
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
+services: iot-hub
+ms.devlang: nodejs
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
-wacn.date: 01/13/2017
+origin.date: 10/06/2017
+ms.date: 10/29/2018
 ms.author: v-yiso
+ms.openlocfilehash: 92b5494fc7d1501990cf26bf37e6230226c7ba96
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674458"
 ---
+# <a name="schedule-and-broadcast-jobs-node"></a>计划和广播作业 (Node)
 
-# 计划和广播作业 \(Node\)
+[!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
 
-## 介绍
-Azure IoT 中心是一项完全托管的服务，允许后端应用创建和跟踪用于计划和更新数百万台设备的作业。作业可以用于以下操作：
+Azure IoT 中心是一项完全托管的服务，允许后端应用创建和跟踪用于计划和更新数百万台设备的作业。  作业可以用于以下操作：
 
 * 更新所需属性
 * 更新标记
 * 调用直接方法
 
-从概念上讲，作业包装这些操作之一，并跟踪针对一组设备执行（由设备孪生查询定义）的进度。例如，后端应用可使用作业重启 10,000 台设备（由设备孪生查询指定并计划在将来执行）。该应用程序随后可以在其中每个设备接收和执行重新启动方法时跟踪进度。
+从概念上讲，作业包装这些操作之一，并跟踪针对一组设备执行（由设备孪生查询定义）的进度。  例如，后端应用可使用作业重启 10,000 台设备（由设备孪生查询指定并计划在将来执行）。  该应用程序随后可以在其中每个设备接收和执行重新启动方法时跟踪进度。
 
 可在以下文章中了解有关所有这些功能的详细信息：
 
 * 设备孪生和属性：[设备孪生入门][lnk-get-started-twin]和[教程：如何使用设备孪生属性][lnk-twin-props]
 * 直接方法：[IoT 中心开发人员指南 - 直接方法][lnk-dev-methods]和[教程：直接方法][lnk-c2d-methods]
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
 本教程演示如何：
 
-* 创建一个模拟设备应用，该应用具有可由解决方法后端调用来实现 **lockDoor** 的直接方法。
+* 创建一个具有直接方法的 Node.js 模拟设备应用，启用可由解决方案后端进行调用的 lockDoor。
 * 创建一个 Node.js 控制台应用，该应用使用作业调用模拟设备应用中的 **lockDoor** 直接方法，并使用设备作业更新所需属性。
 
-在本教程结束时，你将拥有两个 Node.js 控制台应用：
+在本教程结束时，会创建两个 Node.js 应用：
 
-**simDevice.js**：使用设备标识连接到 IoT 中心，并接收 **lockDoor** 直接方法。
+**simDevice.js**，它使用设备标识连接到 IoT 中心，并接收 **lockDoor** 直接方法。
 
-**scheduleJobService.js**：调用模拟设备应用中的直接方法，并使用作业更新设备孪生的所需属性。
+scheduleJobService.js，它调用模拟设备应用中的直接方法，并通过作业更新设备孪生的所需属性。
 
-要完成本教程，需要具备以下先决条件：
+要完成本教程，需要以下各项：
 
-* Node.js 版本 0.12.x 或更高版本，<br/>
-* 有效的 Azure 帐户。（如果没有帐户，只需花费几分钟就能创建一个[帐户][lnk-free-trial]。）
+* Node.js 版本 4.0.x 或更高版本； <br/>  [准备开发环境][lnk-dev-setup]介绍了如何在 Windows 或 Linux 上安装本教程所用的 Node.js。
+* 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
 
-[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+## <a name="create-an-iot-hub"></a>创建 IoT 中心
+
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+### <a name="retrieve-connection-string-for-iot-hub"></a>检索 IoT 中心的连接字符串
+
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## 创建模拟设备应用程序
-在本部分中，创建响应云调用的直接方法的 Node.js 控制台应用，这将触发模拟的设备重新启动并使用报告属性启用设备孪生查询，以标识设备和及其上次重新启动的时间。
+## <a name="create-a-simulated-device-app"></a>创建模拟设备应用程序
+本部分将创建一个 Node.js 控制台应用，用于响应通过云调用的方法，这会触发模拟 lockDoor 方法。
 
-1. 新建名为 **simDevice** 的空文件夹。在 **simDevice** 文件夹的命令提示符处，使用以下命令创建 package.json 文件。接受所有默认值：
+1. 新建名为 **simDevice**的空文件夹。  在 **simDevice** 文件夹的命令提示符处，使用以下命令创建 package.json 文件。  接受所有默认值：
 
     ```
     npm init
     ```
-
 2. 在 **simDevice** 文件夹的命令提示符处，运行下述命令以安装 **azure-iot-device** 设备 SDK 包和 **azure-iot-device-mqtt** 包：
 
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-
-3. 在 **simDevice** 文件夹中，利用文本编辑器创建新的 **simDevice.js** 文件。
+3. 在 **simDevice.js** 文件夹中，利用文本编辑器创建新的 **simDevice** 文件。
 4. 在 **simDevice.js** 文件的开头添加以下“require”语句：
 
     ```
@@ -78,14 +86,12 @@ Azure IoT 中心是一项完全托管的服务，允许后端应用创建和跟�
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-
-5. 添加 **connectionString** 变量，并用其创建设备客户端。
+5. 添加 **connectionString** 变量，并使用它创建一个**客户端**实例。  
 
     ```
     var connectionString = 'HostName={youriothostname};DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
-
 6. 添加以下函数以处理 **lockDoor** 方法。
 
     ```
@@ -103,7 +109,6 @@ Azure IoT 中心是一项完全托管的服务，允许后端应用创建和跟�
         console.log('Locking Door!');
     };
     ```
-
 7. 添加以下代码以注册 **lockDoor** 方法的处理程序。
 
     ```
@@ -111,36 +116,33 @@ Azure IoT 中心是一项完全托管的服务，允许后端应用创建和跟�
         if (err) {
             console.error('Could not connect to IotHub client.');
         }  else {
-            console.log('Client connected to IoT Hub.  Waiting for reboot direct method.');
+            console.log('Client connected to IoT Hub. Register handler for lockDoor direct method.');
             client.onDeviceMethod('lockDoor', onLockDoor);
         }
     });
     ```
-
 8. 保存并关闭 **simDevice.js** 文件。
 
 > [!NOTE]
-为简单起见，本教程不实现任何重试策略。在生产代码中，你应该按 MSDN 文章 [Transient Fault Handling][lnk-transient-faults]（暂时性故障处理）中所述实施重试策略（例如指数性的回退）。
+> 为简单起见，本教程不实现任何重试策略。 在生产代码中，应该按文章 [Transient Fault Handling][lnk-transient-faults]（暂时性故障处理）中所述实施重试策略（例如指数退避）。
 > 
 > 
 
-## 安排作业以便调用直接方法并更新设备孪生的属性
+## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>安排作业，用于调用直接方法和更新设备孪生的属性
 在此部分中，会创建一个 Node.js 控制台应用，它使用直接方法对设备启动远程 **lockDoor** 并更新设备孪生的属性。
 
-1. 新建名为 **scheduleJobService** 的空文件夹。在 **scheduleJobService** 文件夹的命令提示符处，使用以下命令创建 package.json 文件。接受所有默认值：
-
+1. 新建名为 **scheduleJobService** 的空文件夹。  在 **scheduleJobService** 文件夹的命令提示符处，使用以下命令创建 package.json 文件。  接受所有默认值：
+   
     ```
     npm init
     ```
-
-2. 在 **scheduleJobService** 文件夹的命令提示符处，运行下述命令以安装 **azure-iothub** 设备 SDK 包和 **azure-iot-device-mqtt** 包：
-
+2. 在 scheduleJobService 文件夹的命令提示符处，运行以下命令安装 azure-iothub 设备 SDK 包和 azure-iot-device-mqtt 包：
+   
     ```
     npm install azure-iothub uuid --save
     ```
-
 3. 在 **scheduleJobService** 文件夹中，利用文本编辑器创建新的 **scheduleJobService.js** 文件。
-4. 在 **dmpatterns\_gscheduleJobServiceetstarted\_service.js** 文件开头添加以下“require”语句：
+4. 在 **dmpatterns_gscheduleJobServiceetstarted_service.js** 文件开头添加以下“require”语句：
 
     ```
     'use strict';
@@ -148,19 +150,17 @@ Azure IoT 中心是一项完全托管的服务，允许后端应用创建和跟�
     var uuid = require('uuid');
     var JobClient = require('azure-iothub').JobClient;
     ```
-
 5. 添加以下变量声明并替换占位符值：
 
     ```
     var connectionString = '{iothubconnectionstring}';
-    var deviceArray = ['myDeviceId'];
+    var queryCondition = "deviceId IN ['myDeviceId']";
     var startTime = new Date();
-    var maxExecutionTimeInSeconds =  3600;
+    var maxExecutionTimeInSeconds =  300;
     var jobClient = JobClient.fromConnectionString(connectionString);
     ```
-
-6. 添加用于监视作业执行的以下函数：
-
+6. 添加以下用于监视作业执行的函数：
+   
     ```
     function monitorJob (jobId, callback) {
         var jobMonitorInterval = setInterval(function() {
@@ -178,20 +178,19 @@ Azure IoT 中心是一项完全托管的服务，允许后端应用创建和跟�
         }, 5000);
     }
     ```
-
 7. 添加以下代码以安排调用设备方法的作业：
 
     ```
     var methodParams = {
         methodName: 'lockDoor',
         payload: null,
-        timeoutInSeconds: 45
+        responseTimeoutInSeconds: 15 // Timeout after 15 seconds if device is unable to process method
     };
 
     var methodJobId = uuid.v4();
     console.log('scheduling Device Method job with id: ' + methodJobId);
     jobClient.scheduleDeviceMethod(methodJobId,
-                                deviceArray,
+                                queryCondition,
                                 methodParams,
                                 startTime,
                                 maxExecutionTimeInSeconds,
@@ -209,23 +208,24 @@ Azure IoT 中心是一项完全托管的服务，允许后端应用创建和跟�
         }
     });
     ```
-
 8. 添加以下代码以安排更新设备孪生的作业：
-
+   
     ```
     var twinPatch = {
-        etag: '*',
-        desired: {
-            building: '43',
-            floor: 3
-        }
+       etag: '*', 
+       properties: {
+           desired: {
+               building: '43', 
+               floor: 3
+           }
+       }
     };
 
     var twinJobId = uuid.v4();
 
     console.log('scheduling Twin Update job with id: ' + twinJobId);
     jobClient.scheduleTwinUpdate(twinJobId,
-                                deviceArray,
+                                queryCondition,
                                 twinPatch,
                                 startTime,
                                 maxExecutionTimeInSeconds,
@@ -243,44 +243,38 @@ Azure IoT 中心是一项完全托管的服务，允许后端应用创建和跟�
         }
     });
     ```
-
 9. 保存并关闭 **scheduleJobService.js** 文件。
 
-## 运行应用程序
-现在，你已准备就绪，可以运行应用程序了。
+## <a name="run-the-applications"></a>运行应用程序
+现在，已准备就绪，可以运行应用程序了。
 
-1. 在 **simDevice** 文件夹的命令提示符处，运行以下命令以开始侦听重新启动直接方法。
-
+1. 在 simDevice 文件夹的命令提示符处，运行以下命令以开始侦听重启直接方法。
+   
     ```
     node simDevice.js
     ```
-
-2. 在 **scheduleJobService** 文件夹的命令提示符处，运行以下命令以触发远程重新启动并查询设备孪生以查找上次重新启动时间。
+2. 在 **scheduleJobService** 文件夹的命令提示符处运行以下命令，以便触发作业进行锁门和孪生项的更新
 
     ```
     node scheduleJobService.js
     ```
-
 3. 可以在控制台中看到设备对直接方法的响应。
 
-## 后续步骤
+## <a name="next-steps"></a>后续步骤
 在本教程中，使用了作业来安排用于设备的直接方法以及设备孪生属性的更新。
 
 若要继续完成 IoT 中心和设备管理模式（如远程无线固件更新）的入门内容，请参阅：
 
 [教程：如何进行固件更新][lnk-fwupdate]
 
-若要继续完成 IoT 中心的入门内容，请参阅 [IoT 网关 SDK 入门][lnk-gateway-SDK]。
+若要继续完成 IoT 中心入门内容，请参阅 [Azure IoT Edge 入门][lnk-iot-edge]。
 
 [lnk-get-started-twin]: ./iot-hub-node-node-twin-getstarted.md
-[lnk-twin-props]: ./iot-hub-node-node-twin-how-to-configure.md
-[lnk-c2d-methods]: ./iot-hub-node-node-direct-methods.md
+[lnk-twin-props]: tutorial-device-twins.md
+[lnk-c2d-methods]: quickstart-control-device-node.md
 [lnk-dev-methods]: ./iot-hub-devguide-direct-methods.md
-[lnk-fwupdate]: ./iot-hub-node-node-firmware-update.md
-[lnk-gateway-SDK]: ./iot-hub-linux-gateway-sdk-get-started.md
-
+[lnk-fwupdate]: ./tutorial-firmware-update.md
+[lnk-iot-edge]: ../iot-edge/quickstart-linux.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-transient-faults]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx
-
-<!---HONumber=Mooncake_0109_2017-->
-<!--Update_Description:update wording-->

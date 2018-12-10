@@ -1,20 +1,26 @@
-# 概述
-## [什么是 Azure 多重身份验证？](./multi-factor-authentication.md)
-## [工作原理](./multi-factor-authentication-how-it-works.md)
+# [多重身份验证文档](index.md)
 
-# 入门
-## [云中的 MFA](./multi-factor-authentication-get-started-cloud.md)
-## [O365 用户的 MFA](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)
+# 概述
+
+## [什么是 Azure 多重身份验证？](../active-directory/authentication/multi-factor-authentication.md)
+## [工作原理](../active-directory/authentication/concept-mfa-howitworks.md)
+## [如何获取 Azure MFA](../active-directory/authentication/concept-mfa-licensing.md)
 
 # 如何
-## 部署和使用
-### [配置设置](./multi-factor-authentication-whats-next.md)
 
-## 管理用户
-### [启用或禁用 MFA](./multi-factor-authentication-get-started-user-states.md)
-### [用户和设备设置](./multi-factor-authentication-manage-users-and-devices.md)
+## Azure MFA
+### [部署基于云的 MFA](../active-directory/authentication/howto-mfa-getstarted.md)
+### [启用或禁用 MFA](../active-directory/authentication/howto-mfa-userstates.md)
+### [用户和设备设置](../active-directory/authentication/howto-mfa-userdevicesettings.md)
+### [配置设置](../active-directory/authentication/howto-mfa-mfasettings.md)
 
+## [MFA 用户指南](../active-directory/user-help/multi-factor-authentication-end-user.md)
 
 ## 故障排除
-### [常见问题](./multi-factor-authentication-faq.md)
+### [常见问题](../active-directory/authentication/multi-factor-authentication-faq.md)
 ### [提问](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
+
+# 资源
+## [定价计算器](https://www.azure.cn/pricing/calculator/)
+
+<!-- Update_Description: wording update -->

@@ -1,237 +1,105 @@
 ---
-title: "使用 cloud-init 自定义 Linux VM | Azure"
-description: "如何通过 Azure CLI 2.0 预览版使用 cloud-init 在创建期间自定义 Linux VM"
+title: cloud-init 对 Azure 中 Linux 虚拟机的支持概述 | Azure
+description: Azure 中的 cloud-init 功能概述
 services: virtual-machines-linux
-documentationcenter: 
-author: iainfoulds
-manager: timlt
-editor: 
+documentationcenter: ''
+author: rockboyfor
+manager: digimobile
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 195c22cd-4629-4582-9ee3-9749493f1d72
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
-ms.date: 02/10/2017
-wacn.date: 
-ms.author: v-dazen
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: b08255187104d87ae59dbb6974f895ea4c8cfb9e
-ms.lasthandoff: 04/14/2017
-
-
+origin.date: 11/29/2017
+ms.date: 09/24/2018
+ms.author: v-yeche
+ms.openlocfilehash: 15caa1a9241888dd22d944c95d13169df3b3f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655330"
 ---
-# <a name="use-cloud-init-to-customize-a-linux-vm-during-creation"></a>在创建期间使用 cloud-init 自定义 Linux VM
-本文说明如何使用 Azure CLI 2.0 制作 cloud-init 脚本来设置主机名、更新已安装的包及管理用户帐户。  可以在创建 VM 时从 Azure CLI 调用 cloud-init 脚本。  还可以使用 [Azure CLI 1.0](using-cloud-init-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。
+# <a name="cloud-init-support-for-virtual-machines-in-azure"></a>cloud-init 对 Azure 中虚拟机的支持
+本文介绍了在 Azure 中使用 [cloud-init](https://cloudinit.readthedocs.io) 在预配时间配置虚拟机 (VM) 或虚拟机缩放集 (VMSS) 的现有支持。 Azure 预配资源后，这些 cloud-init 脚本即会在第一次启动时运行。  
 
-## <a name="quick-commands"></a>快速命令
-创建 cloud-init.txt 脚本，用于设置主机名、更新所有包，并将 sudo 用户添加到 Linux。
+## <a name="cloud-init-overview"></a>Cloud-init 概述
+[Cloud-init](https://cloudinit.readthedocs.io) 是一种广泛使用的方法，用于在首次启动 Linux VM 时对其进行自定义。 可使用 cloud-init 来安装程序包和写入文件，或者配置用户和安全性。 由于是在初始启动过程中调用 cloud-init，因此无需额外的步骤且无需代理来应用配置。  有关如何正确设置 `#cloud-config` 文件格式的详细信息，请参阅 [cloud-init 文档站点](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data)。  `#cloud-config` 文件是采用 base64 编码的文本文件。
 
-```sh
-#cloud-config
-hostname: myVMhostname
-apt_upgrade: true
-users:
-  - name: myNewAdminUser
-    groups: sudo
-    shell: /bin/bash
-    sudo: ['ALL=(ALL) NOPASSWD:ALL']
-    ssh-authorized-keys:
-      - ssh-rsa AAAAB3<snip>==myAdminUser@myVM
-```
+Cloud-init 还支持不同的发行版。 例如，不需使用 apt-get install 或 yum install 来安装包， 而是可定义要安装的程序包的列表。 Cloud-init 将对所选发行版自动使用本机包管理工具。
 
-使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 创建一个要在其中启动 VM 的资源组。 以下示例创建名为 `myResourceGroup` 的资源组：
+ 我们正在积极地与我们认可的 Linux 发行版合作伙伴合作，以便在 Azure 市场中提供已启用 cloud-init 的映像。 这些映像可使 cloud-init 部署和配置无缝地应用于 VM 和 VM 规模集 (VMSS)。 下表概述了当前启用了 cloud-init 的映像在 Azure 平台上的可用性：
+
+| 发布者 | 产品/服务 | SKU | 版本 | cloud-init 就绪 |
+|:--- |:--- |:--- |:--- |:--- |
+|Canonical |UbuntuServer |18.04-LTS |最新 |是 | 
+|Canonical |UbuntuServer |17.1 |最新 |是 | 
+|Canonical |UbuntuServer |16.04-LTS |最新 |是 | 
+|Canonical |UbuntuServer |14.04.5-LTS |最新 |是 |
+|CoreOS |CoreOS |Stable |最新 |是 |
+|OpenLogic |CentOS |7-CI |最新 |预览 |
+<!-- Not Available on Red Hat --> 目前，Azure Stack 不支持使用 cloud-init 预配 CentOS 7.4。
+
+## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>cloud-init 和 Linux 代理 (WALA) 之间的区别是什么？
+WALA 是一种特定于 Azure 平台的代理，用于预配和配置 VM 并处理 Azure 扩展。 我们正在优化配置 VM 的任务以使用 cloud-init 代替 Linux 代理，目的是让现有 cloud-init 客户可以使用他们当前的 cloud-init 脚本。  如果当前已使用 cloud-init 脚本来配置 Linux 系统，则不需要任何额外的设置就可以启用它们。 
+
+如果在预配时未提供 Azure CLI `--custom-data` 开关，WALA 将采用所需的最小 VM 预配参数来预配 VM 并使用默认值完成部署。  如果引用 cloud-init `--custom-data` 开关，自定义数据中包含的任何内容（单个设置或完整脚本）都将替代 WALA 默认值。 
+
+VM 的 WALA 配置的时限为最大 VM 预配时间。  cloud-init 配置应用于 VM 时没有时限，也不会因为超时导致部署失败。 
+
+## <a name="deploying-a-cloud-init-enabled-virtual-machine"></a>部署已启用 cloud-init 的虚拟机
+部署已启用 cloud-init 的虚拟机就和在部署期间引用已启用 cloud-init 的分发一样简单。  Linux 分发 Maintainer 需要选择启用 cloud-init，并将 cloud-init 集成到其基本 Azure 已发布映像中。 确认想要部署的映像已启用 cloud-init 之后，就可以使用 AzureCLI 部署映像。 
+
+部署此映像的第一步是使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-```azurecli
-az group create --name myResourceGroup --location chinanorth
+以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组。
+
+```azurecli 
+az group create --name myResourceGroup --location chinaeast
 ```
+下一步是在当前 shell 中创建名为 cloud-init.txt 的文件并粘贴以下配置。 对于此示例，请在不处于本地计算机上的 Cloud Shell 中创建文件。 可使用任何想要使用的编辑器。 输入 `sensible-editor cloud-init.txt` 以创建文件并查看可用编辑器的列表。 选择 #1 以使用 nano 编辑器。 请确保已正确复制整个 cloud-init 文件，尤其是第一行：
 
-使用 cloud-init 通过 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建要在启动过程中进行配置的 Linux VM。
+```yaml
+#cloud-config
+package_upgrade: true
+packages:
+  - httpd
+```
+按 `ctrl-X` 退出该文件，键入 `y` 以保存文件，并按 `enter` 确认退出时的文件名。
 
-```azurecli
+最后一步是使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 命令创建 VM。 
+
+以下示例创建一个名为 centos74 的 VM，并且在默认密钥位置中不存在 SSH 密钥时创建这些密钥。 若要使用特定的一组密钥，请使用 `--ssh-key-value` 选项。  使用 `--custom-data` 参数传入 cloud-init 配置文件。 如果未将 cloud-init.txt 配置文件保存在现有工作目录中，请提供该文件的完整路径。 以下示例创建一个名为 centos74 的 VM：
+
+```azurecli 
 az vm create \
-    --resource-group myResourceGroup \
-    --name myVM \
-    --image UbuntuLTS \
-    --admin-username azureuser \
-    --ssh-key-value ~/.ssh/id_rsa.pub \
-    --custom-data cloud-init.txt
+  --resource-group myResourceGroup \
+  --name centos74 \
+  --image OpenLogic:CentOS:7-CI:latest \
+  --custom-data cloud-init.txt \
+  --generate-ssh-keys 
 ```
 
-## <a name="detailed-walkthrough"></a>详细演练
-### <a name="introduction"></a>介绍
-启动新 Linux VM 时，将获得一个未经过任何自定义或者不能够现成地满足需求的标准 Linux VM。 [Cloud-init](https://cloudinit.readthedocs.org) 是在首次启动 Linux VM 时在其中注入脚本或配置设置的标准方法。
+创建 VM 后，Azure CLI 会显示部署的特定信息。 记下 `publicIpAddress`。 此地址用于访问 VM。  创建 VM、安装程序包和启动应用需要一些时间。 在 Azure CLI 返回提示之后，仍然存在继续运行的后台任务。 你可以使用 SSH 连接到 VM 并使用故障排除部分中所述的步骤来查看 cloud-init 日志。 
 
-Azure 有三种不同的方法可在部署或启动 Linux VM 时对其进行更改。
-
-* 使用 cloud-init 注入脚本。
-* 使用 Azure [VMAccess 扩展](using-vmaccess-extension.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)注入脚本。
-* 使用 cloud-init 的 Azure 模板。
-* 使用 [CustomScriptExtention](extensions-customscript.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 的 Azure 模板。
-
-若要在启动后随时注入脚本，请执行以下操作：
-
-* 直接通过 SSH 运行命令
-* 以命令方式或在 Azure 模板中使用 Azure [VMAccess 扩展](using-vmaccess-extension.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)注入脚本
-* Ansible、Salt、Chef 和 Puppet 等配置管理工具。
+## <a name="troubleshooting-cloud-init"></a>对 cloud-init 进行故障排除
+VM 预配完成后，会在 `--custom-data` 中定义的所有模块和脚本上运行 cloud-init，以便配置 VM。  若要对配置中存在的任何错误或遗漏进行故障排除，需要在位于 /var/log/cloud-init.log 的 cloud-init 日志中搜索模块名称（例如 `disk_setup` 或 `runcmd`）。
 
 > [!NOTE]
-> VMAccess 扩展以使用 SSH 可以进行的相同方式以根用户身份执行脚本。  但是，使用 VM 扩展可以启用 Azure 提供的几项功能，这些功能可以很有用，具体取决于用户的方案。
-> 
-> 
+> 并不是每个模块故障都会导致严重的 cloud-init 整体配置故障。 例如使用 `runcmd` 模块，如果脚本发生故障，cloud-init 依然会报告预配成功，因为 runcmd 模块已执行。
 
-## <a name="cloud-init-availability-on-azure-vm-quick-create-image-aliases"></a>Azure VM 上的 Cloud-init 可用性快速创建映像别名：
-| 别名 | 发布者 | 产品 | SKU | 版本 | Cloud-init |
-|:--- |:--- |:--- |:--- |:--- |:--- |
-| CentOS |OpenLogic |Centos |7.2 |最新 |否 |
-| CoreOS |CoreOS |CoreOS |Stable |最新 |是 |
-| Debian |credativ |Debian |8 |最新 |否 |
-| openSUSE |SUSE |openSUSE |13.2 |最新 |否 |
-| UbuntuLTS |Canonical |UbuntuServer |14.04.3-LTS |最新 |是 |
-
-Microsoft 正在与合作伙伴协作将 cloud-init 包含在用户向 Azure 提供的映像中并让它在其中正常工作。
-
-## <a name="add-a-cloud-init-script-to-the-vm-creation-with-the-azure-cli"></a>将 cloud-init 脚本添加使用 Azure CLI 创建 VM 的操作中
-在 Azure 中创建 VM 时，若要启动 cloud-init 脚本，请使用 Azure CLI `--custom-data` 开关来指定 cloud-init 文件。
-
-创建要在其中启动 VM 的资源组。
-
-使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 创建一个要在其中启动 VM 的资源组。 以下示例创建名为 `myResourceGroup` 的资源组：
-
-```azurecli
-az group create --name myResourceGroup --location chinanorth
-```
-
-使用 cloud-init 通过 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建要在启动过程中进行配置的 Linux VM。
-
-```azurecli
-az vm create \
-    --resource-group myResourceGroup \
-    --name myVM \
-    --image UbuntuLTS \
-    --admin-username azureuser \
-    --ssh-key-value ~/.ssh/id_rsa.pub \
-    --custom-data cloud-init.txt
-```
-
-## <a name="create-a-cloud-init-script-to-set-the-hostname-of-a-linux-vm"></a>创建 cloud-init 脚本以设置 Linux VM 的主机名
-对任何 Linux VM 而言，其中一个最简单且最重要的设置就是主机名。 使用 cloud-init 和此脚本就可以轻松设置此项。  
-
-### <a name="example-cloud-init-script-named-cloudconfighostnametxt"></a>名为 `cloud_config_hostname.txt`的示例 cloud-init 脚本。
-```sh
-#cloud-config
-hostname: myservername
-```
-
-初始启动 VM 期间，此 cloud-init 脚本将主机名设置为 `myservername`。 使用 cloud-init 通过 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建要在启动过程中进行配置的 Linux VM。
-
-```azurecli
-az vm create \
-    --resource-group myResourceGroup \
-    --name myVM \
-    --image UbuntuLTS \
-    --admin-username azureuser \
-    --ssh-key-value ~/.ssh/id_rsa.pub \
-    --custom-data cloud-init.txt \
-    --use-unmanaged-disk
-```
-
-登录并验证新 VM 的主机名。
-
-```bash
-ssh myVM
-hostname
-myservername
-```
-
-## <a name="create-a-cloud-init-script-to-update-linux"></a>创建 cloud-init 脚本以更新 Linux
-为了安全，用户希望 Ubuntu VM 在首次启动时更新。  根据所用的 Linux 分发，我们可以使用 cloud-init 和以下脚本执行此操作。
-
-### <a name="example-cloud-init-script-cloudconfigaptupgradetxt-for-the-debian-family"></a>适用于 Debian 系列的示例 cloud-init 脚本 `cloud_config_apt_upgrade.txt`
-```sh
-#cloud-config
-apt_upgrade: true
-```
-
-启动 Linux 后，所有已安装的包将通过 `apt-get` 进行更新。 使用 cloud-init 通过 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建要在启动过程中进行配置的 Linux VM。
-
-```azurecli
-az vm create \
-    --resource-group myResourceGroup \
-    --name myVM \
-    --image UbuntuLTS \
-    --admin-username azureuser \
-    --ssh-key-value ~/.ssh/id_rsa.pub \
-    --custom-data cloud_config_apt_upgrade.txt \
-    --use-unmanaged-disk
-```
-
-登录并验证所有包是否都已更新。
-
-```bash
-ssh myUbuntuVM
-sudo apt-get upgrade
-Reading package lists... Done
-Building dependency tree
-Reading state information... Done
-Calculating upgrade... Done
-The following packages have been kept back:
-  linux-generic linux-headers-generic linux-image-generic
-0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
-```
-
-## <a name="create-a-cloud-init-script-to-add-a-user-to-linux"></a>创建 cloud-init 脚本以将用户添加到 Linux
-任何新 Linux VM 的首要任务之一，就是为自己添加用户或避免使用 `root`。 对于安全性和易用性来说，SSH 密钥是最佳做法，可以使用此 cloud-init 脚本将它们添加到 `~/.ssh/authorized_keys` 文件。
-
-### <a name="example-cloud-init-script-cloudconfigadduserstxt-for-debian-family"></a>适用于 Debian 系列的示例 cloud-init 脚本 `cloud_config_add_users.txt`
-```sh
-#cloud-config
-users:
-  - name: myCloudInitAddedAdminUser
-    groups: sudo
-    shell: /bin/bash
-    sudo: ['ALL=(ALL) NOPASSWD:ALL']
-    ssh-authorized-keys:
-      - ssh-rsa AAAAB3<snip>==myAdminUser@myUbuntuVM
-```
-
-Linux 启动后，所有列出的用户都已创建并添加到 sudo 组。 使用 cloud-init 通过 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建要在启动过程中进行配置的 Linux VM。
-
-```azurecli
-az vm create \
-    --resource-group myResourceGroup \
-    --name myVM \
-    --image UbuntuLTS \
-    --admin-username azureuser \
-    --ssh-key-value ~/.ssh/id_rsa.pub \
-    --custom-data cloud_config_add_users.txt \
-    --use-unmanaged-disk
-```
-
-登录并验证新建的用户。
-
-```bash
-ssh myVM
-cat /etc/group
-```
-
-输出
-
-```bash
-root:x:0:
-<snip />
-sudo:x:27:myCloudInitAddedAdminUser
-<snip />
-myCloudInitAddedAdminUser:x:1000:
-```
+有关 cloud-init 日志的更多详细信息，请参阅 [cloud-init 文档](http://cloudinit.readthedocs.io/en/latest/topics/logging.html) 
 
 ## <a name="next-steps"></a>后续步骤
-Cloud-init 正在成为一种在 Linux VM 启动时对其进行修改的标准方法。 Azure 还提供 VM 扩展，使用这些扩展可以在 LinuxVM 启动或运行时对其进行修改。 例如，可以使用 Azure VMAccessExtension 在 VM 运行时重置 SSH 或用户信息。 使用 cloud-init，需要重新启动才能重置密码。
+有关配置更改的 cloud-init 示例，请参阅以下文档：
 
-[关于虚拟机扩展和功能](extensions-features.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
-
-[管理用户、SSH，并使用 VMAccess 扩展检查或修复 Azure Linux VM 上的磁盘](using-vmaccess-extension.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+- [向 VM 添加其他 Linux 用户](cloudinit-add-user.md)
+- [运行包管理器以在首次启动时更新现有包](cloudinit-update-vm.md)
+- [更改 VM 本地主机名](cloudinit-update-vm-hostname.md) 
+- [安装应用程序包、更新配置文件和注入密钥](tutorial-automate-vm-deployment.md)
+<!--Update_Description: update meta properties, wording update -->

@@ -1,49 +1,51 @@
 ---
-title: Azure 门户快捷键 | Azure
-description: 本文始终列出可在整个 Azure 门户中使用的最新快捷键。单个服务可能有其自身的专用快捷键。
+title: Azure 门户快捷键 | Microsoft Docs
+description: 了解 Azure 门户中使用的键盘快捷方式。
 services: azure-portal
-documentationCenter: ''
-authors: flanakin
+documentationcenter: ''
+author: flanakin
 manager: lwelicki
 editor: ''
-
+ms.assetid: d9f58c69-9163-458d-a339-ab0855e342c6
 ms.service: multiple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/07/2016
-wacn.date: 06/21/2016
-ms.author: v-yiso
+origin.date: 08/24/2017
+ms.author: micflan
+ms.custom: accessibility
+ms.date: 08/13/2018
+ms.openlocfilehash: fda6c45ccbff8a15262723b9ff1eb37b82f5f879
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658173"
 ---
+# <a name="keyboard-shortcuts-in-the-azure-portal"></a>Azure 门户中的键盘快捷方式
+本文介绍了 Azure 门户中使用的键盘快捷方式。 各个服务可能有其自己的键盘快捷方式。
 
-# Azure 门户快捷键
+## <a name="actions"></a>操作
+|要执行此操作 |按 |
+| --- | --- |
+|创建新资源|G+N|
+|打开“所有服务”窗格|G+B|
+|搜索资源|G+/| 
+|搜索资源菜单项|CTRL+/ |
+|上移所选的左窗格项 |ALT+Shift+向上键|
+|下移所选的左窗格项 |ALT+Shift+向下键|
 
-## 打开中心
+## <a name="navigation"></a>导航
+|要执行此操作 |按 |
+| --- | --- |
+|将焦点移到命令栏 |G+, |
+|在上栏和侧边栏之间切换焦点 | G+. |
 
-| 快捷方式 | 操作 |
-|--------|----------|
-| N | 通知 |
-| / | 浏览服务 |
-| A | 活动会话 |
-| B | 计费 |
-| C | 创建 |
-
-## 导航
-
-| 快捷方式 | 操作 |
-|--------|----------|
-| H | Azure“开始”仪表板 |
-| F | 第一个打开的边栏选项卡 |
-| J | 前面打开的边栏选项卡 |
-| K | 下一个打开的边栏选项卡 |
-| L | 最后一个打开的边栏选项卡 |
-| - | 最小化边栏选项卡或者从最大化状态恢复 |
-| + | 最大化边栏选项卡或者从最小化状态恢复 |
-| # | 关闭当前的边栏选项卡 |
-| ¦ | 关闭所有边栏选项卡 |
-| , | 将焦点移到命令栏 |
-| . | 将焦点移到导航栏 |
-| ? | 查看快捷键 |
-
-<!---HONumber=Mooncake_0613_2016-->
+## <a name="go-to"></a>转到
+|要执行此操作 |按 |
+| --- | --- |
+|转到仪表板 |G+D |
+|转到所有资源|G+A |
+|转到资源组|G+R |
+|打开此位置的左窗格项 |G+数字|

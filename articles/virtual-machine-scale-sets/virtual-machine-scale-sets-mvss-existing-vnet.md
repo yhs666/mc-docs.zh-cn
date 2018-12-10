@@ -1,11 +1,11 @@
 ---
-title: "引用 Azure 规模集模板中的虚拟网络 | Azure"
-description: "如何将虚拟网络添加到现有 Azure 虚拟机规模集模板"
+title: 在 Azure 规模集模板中引用现有虚拟网络 | Microsoft Docs
+description: 如何将虚拟网络添加到现有 Azure 虚拟机规模集模板
 services: virtual-machine-scale-sets
-documentationcenter: 
-author: gatneil
-manager: timlt
-editor: 
+documentationcenter: ''
+author: mayanknayar
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -13,26 +13,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
-wacn.date: 
-ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 3bff289e88eae1889c7a324092bf7d66493d9cd4
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
+origin.date: 06/27/2017
+ms.date: 11/30/2018
+ms.author: v-junlch
+ms.openlocfilehash: 5a8db113ea162548bfe605849b77adcb224b365f
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673131"
 ---
-
-# <a name="add-reference-to-a-virtual-network-to-an-azure-scale-set-template"></a>将虚拟网络引用添加到 Azure 规模集模板
+# <a name="add-reference-to-an-existing-virtual-network-in-an-azure-scale-set-template"></a>在 Azure 规模集模板中添加对现有虚拟网络的引用
 
 本文介绍了如何修改[最小可行规模集模板](./virtual-machine-scale-sets-mvss-start.md)，以便部署到现有虚拟网络而非创建新的虚拟网络。
 
 ## <a name="change-the-template-definition"></a>更改模板定义
 
-可以[在此处](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json)查看最小可行规模集模板，可以[在此处](https://raw.githubusercontent.com/gatneil/mvss/existing-vnet/azuredeploy.json)查看用于将规模集部署到现有虚拟网络的模板。 让我们逐一查看创建此模板 (`git diff master minimum-viable-scale-set`) 时使用的差异内容：
+可以[在此处](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json)查看最小可行规模集模板，可以[在此处](https://raw.githubusercontent.com/gatneil/mvss/existing-vnet/azuredeploy.json)查看用于将规模集部署到现有虚拟网络的模板。 让我们逐一查看创建此模板 (`git diff minimum-viable-scale-set existing-vnet`) 时使用的差异内容：
 
-首先，我们添加一个 `subnetId` 参数。 此字符串将传递到规模集配置，使得规模集能够识别要将虚拟机部署到的预先创建的子网。 此字符串必须采用以下格式：`/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`。 例如，若要将规模集部署到具有名称 `myvnet`、子网 `mysubnet`、资源组 `myrg` 和订阅 `00000000-0000-0000-0000-000000000000` 的现有虚拟网络，则 subnetId 将是：`/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`。
+首先，添加一个 `subnetId` 参数。 此字符串将传递到规模集配置，使得规模集能够识别要将虚拟机部署到的预先创建的子网。 此字符串必须采用以下格式：`/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`。 例如，要将规模集部署到具有名称 `myvnet`、子网 `mysubnet`、资源组 `myrg` 和订阅 `00000000-0000-0000-0000-000000000000` 的现有虚拟网络，则 subnetId 将是：`/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`。
 
 ```diff
      },
@@ -45,7 +44,7 @@ ms.lasthandoff: 04/22/2017
    },
 ```
 
-接下来，我们可以从 `resources` 阵列中删除虚拟网络资源，因为我们使用现有虚拟网络，不需要部署新的虚拟网络。
+接下来，从 `resources` 阵列中删除虚拟网络资源，由于使用现有虚拟网络，因此不需要部署新的虚拟网络。
 
 ```diff
    "variables": {},
@@ -73,7 +72,7 @@ ms.lasthandoff: 04/22/2017
 -    },
 ```
 
-虚拟网络在部署模板前已存在，因此不需要指定从规模集到虚拟网络的 dependsOn 子句。 因此，我们删除以下行：
+虚拟网络在部署模板前已存在，因此不需要指定从规模集到虚拟网络的 dependsOn 子句。 删除以下行：
 
 ```diff
      {
@@ -89,7 +88,7 @@ ms.lasthandoff: 04/22/2017
          "capacity": 2
 ```
 
-最后，我们传入用户设置的 `subnetId` 参数（而非使用 `resourceId` 来获取同一部署中某个 vnet 的 id，这是最小可行规模集模板执行的操作）。
+最后，传入用户设置的 `subnetId` 参数（而非使用 `resourceId` 获取同一部署中某个 vnet 的 ID，这是最小可行规模集模板执行的操作）。
 
 ```diff
                        "name": "myIpConfig",
@@ -102,7 +101,11 @@ ms.lasthandoff: 04/22/2017
                      }
 ```
 
+
+
+
 ## <a name="next-steps"></a>后续步骤
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
 
+<!-- Update_Description: update metedata properties -->

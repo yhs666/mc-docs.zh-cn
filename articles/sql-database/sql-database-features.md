@@ -1,158 +1,151 @@
 ---
-title: "Azure SQL 数据库功能概述 | Microsoft 文档"
-description: "此页面概述了 Azure SQL 数据库逻辑服务器和数据库，并且包括了功能支持矩阵和所列出的每项功能的链接。"
+title: Azure SQL 数据库功能比较 | Microsoft Docs
+description: 本文比较了不同风格的 Azure SQL 数据库中可用的 SQL Server 功能。
 services: sql-database
-documentationcenter: na
-author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: d1a46fa4-53d2-4d25-a0a7-92e8f9d70828
 ms.service: sql-database
-ms.custom: overview
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.date: 03/03/2017
-ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 990378f47398b8840171075bcd3164701a3ad5d7
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
-
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: WenJason
+ms.author: v-jay
+ms.reviewer: bonova, carlrab
+manager: digimobile
+origin.date: 09/25/2018
+ms.date: 10/29/2018
+ms.openlocfilehash: 2895f54df6f38653db1fe5beaa936ddc1af3b8cf
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643750"
 ---
-# <a name="azure-sql-database-features"></a>Azure SQL 数据库功能
-本主题概述 Azure SQL 数据库逻辑服务器和数据库，并提供带有每个列出功能的链接的功能支持矩阵。 
+# <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>功能比较：Azure SQL 数据库与 SQL Server 
 
-## <a name="what-is-an-azure-sql-database-logical-server"></a>什么是 Azure SQL 数据库逻辑服务器？
-Azure SQL 数据库逻辑服务器充当多个数据库的中心管理点。 在 SQL 数据库中，服务器是一个逻辑构造，它不同于在本地环境中可能很熟悉的 SQL Server 实例。 具体而言，SQL 数据库服务对数据库相对于其逻辑服务器的位置不做出任何保证，并且不公开任何实例级访问权限或功能。 有关 Azure SQL 逻辑服务器的详细信息，请参阅[逻辑服务器](sql-database-server-overview.md)。 
+Azure SQL 数据库与 SQL Server 共享一个通用代码库。 Azure SQL 数据库支持的 SQL Server 功能取决于创建的 Azure SQL 数据库类型。 使用 Azure SQL 数据库时，可以创建一个数据库作为逻辑服务器的一部分，并将其放入弹性池（可选）。 
 
-## <a name="what-is-an-azure-sql-database"></a>什么是 Azure SQL 数据库？
-Azure SQL 数据库中的每个数据库都与逻辑服务器相关联。 数据库可以是：
+我们会继续向 Azure SQL 数据库添加功能。 访问针对 Azure 的服务更新网页，并使用以下筛选器获取最新更新：
 
-- 具有其[自己的一组资源](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTU) 的单一数据库
-- [共享一组资源](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus) (eDTU) 的[数据库池](sql-database-elastic-pool.md)的一部分
-- [向外扩展的一组共享数据库](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling)的一部分，可以是单一数据库，也可以是入池数据库
-- 参与[多租户 SaaS 设计模式](sql-database-design-patterns-multi-tenancy-saas-applications.md)的一组数据库的一部分，该模式中可以包含单一数据库或池中的数据库（或两者） 
+* 筛选为 [SQL 数据库服务](https://azure.microsoft.com/updates/?service=sql-database)。
+* 筛选为针对 SQL 数据库功能的正式发布版 [(GA) 公告](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability)。
 
-有关 Azure SQL 数据库的详细信息，请参阅 [SQL 数据库](sql-database-overview.md)。
+## <a name="sql-server-feature-support-in-azure-sql-database"></a>Azure SQL 数据库中的 SQL Server 功能支持
 
-## <a name="what-features-are-supported"></a>支持哪些功能？
+下表列出了 SQL Server 的主要功能，并说明该功能是否部分或完全受支持，同时提供更详细介绍该功能的链接。 
 
-下表列出了 Azure SQL 数据库和 SQL Server 的主要功能，指定其可支持性，并提供每个平台上有关功能的详细信息的链接。 对于 Transact-SQL 功能，请打开表中的链接了解功能的类别。 有关不支持某些类型的功能的原因，另请参阅 [Azure SQL 数据库 Transact-SQL 差异](sql-database-transact-sql-information.md)来了解详细背景。
-
-> [!TIP]
-> 若要测试现有数据库与 Azure SQL 数据库的兼容性，请参阅[将 SQL Server 数据库迁移到 Azure](sql-database-cloud-migrate.md)。
->
-
-| **功能** | **SQL Server** | **Azure SQL 数据库** | 
-| --- | :---: | :---: | 
-| 活动异地复制 | 不支持 - 请参阅 [AlwaysOn 可用性组](https://msdn.microsoft.com/library/hh510230.aspx) | [支持](sql-database-geo-replication-overview.md)
-| 始终加密 | [支持](https://msdn.microsoft.com/library/mt163865.aspx) | [支持](sql-database-always-encrypted.md) |
-| AlwaysOn 可用性组 | [支持](https://msdn.microsoft.com/library/hh510230.aspx) | 不支持 - 请参阅[活动异地复制](sql-database-geo-replication-overview.md) |
-| 附加数据库 | [支持](https://msdn.microsoft.com/library/ms190209.aspx) | 不支持 |
-| 应用程序角色 | [支持](https://msdn.microsoft.com/library/ms190998.aspx) | [支持](https://msdn.microsoft.com/library/ms190998.aspx) |
-| 自动缩放 | 不支持 | [支持](sql-database-service-tiers.md) |
-| Azure Active Directory | 不支持 | [支持](sql-database-aad-authentication.md) |
-| 审核 | [支持](https://msdn.microsoft.com/library/cc280386.aspx) | [支持](sql-database-auditing.md) |
-| BACPAC 文件（导出） | [支持](https://msdn.microsoft.com/library/hh213241.aspx) | [支持](sql-database-export.md) |
-| BACPAC 文件（导入） | [支持](https://msdn.microsoft.com/library/hh710052.aspx) | [支持](sql-database-import-portal.md) |
-| 备份和还原语句 | [支持](https://msdn.microsoft.com/library/ff848768.aspx) | 不支持 |
-| 内置函数 | [支持](https://msdn.microsoft.com/library/ms174318.aspx) | [大多数](https://msdn.microsoft.com/library/ms174318.aspx) |
-| 更改数据捕获 | [支持](https://msdn.microsoft.com/library/cc645937.aspx) | 不支持 |
-| 更改跟踪 | [支持](https://msdn.microsoft.com/library/bb933875.aspx) | [支持](https://msdn.microsoft.com/library/bb933875.aspx) |
-| 排序规则语句 | [支持](https://msdn.microsoft.com/library/ff848763.aspx) | [支持](https://msdn.microsoft.com/library/ff848763.aspx) |
-| 列存储索引 | [支持](https://msdn.microsoft.com/library/gg492088.aspx) | [仅限 Premium Edition](https://msdn.microsoft.com/library/gg492088.aspx) |
-| 公共语言运行时 (CLR) | [支持](https://msdn.microsoft.com/library/ms131102.aspx) | 不支持 |
-| 包含的数据库 | [支持](https://msdn.microsoft.com/library/ff929071.aspx) | 内置 |
-| 包含用户 | [支持](https://msdn.microsoft.com/library/ff929188.aspx) | [支持](sql-database-manage-logins.md#non-administrator-users) |
-| 控制流语言关键字 | [支持](https://msdn.microsoft.com/library/ms174290.aspx) | [支持](https://msdn.microsoft.com/library/ms174290.aspx) |
-| 跨数据库查询 | [支持](https://msdn.microsoft.com/library/dn584627.aspx) | [弹性查询](sql-database-elastic-query-overview.md) |
-| 游标 | [支持](https://msdn.microsoft.com/library/ms181441.aspx) | [支持](https://msdn.microsoft.com/library/ms181441.aspx) | 
-| 数据压缩 | [支持](https://msdn.microsoft.com/library/cc280449.aspx) | [支持](https://msdn.microsoft.com/library/cc280449.aspx) |
-| 数据库备份 | [为用户公开](https://msdn.microsoft.com/library/ms187048.aspx) | [内置](sql-database-automated-backups.md) |
-| 数据库邮件 | [支持](https://msdn.microsoft.com/library/ms189635.aspx) | 不支持 |
-| 数据库镜像 | [支持](https://msdn.microsoft.com/library/ms189852.aspx) | 不支持 |
-| 数据库配置选项 | [支持](https://msdn.microsoft.com/library/mt629158.aspx) | [支持](https://msdn.microsoft.com/library/mt629158.aspx) |
-| Data Quality Services (DQS) | [支持](https://msdn.microsoft.com/library/ff877925.aspx) | 不支持 |
-| 数据库快照 | [支持](https://msdn.microsoft.com/library/ms175158.aspx) | 不支持 |
-| 数据类型 | [支持](https://msdn.microsoft.com/library/ms187752.aspx) | [支持](https://msdn.microsoft.com/library/ms187752.aspx) |  
-| DBCC 语句 | [全部](https://msdn.microsoft.com/library/ms188796.aspx) | [部分](https://msdn.microsoft.com/library/ms188796.aspx) |
-| DDL 语句 | [支持](https://msdn.microsoft.com/library/ff848799.aspx) | [大多数](https://msdn.microsoft.com/library/ff848799.aspx)
-| DDL 触发器 | [支持](https://msdn.microsoft.com/library/ms175941.aspx) | [仅限数据库](https://msdn.microsoft.com/library/ms175941.aspx) |
-| 分布式事务 | [MS DTC](https://msdn.microsoft.com/library/ms131665.aspx) | 仅限受限制的 SQL 数据库内方案 |
-| DML 语句 | [支持](https://msdn.microsoft.com/library/ff848766.aspx) | [大多数](https://msdn.microsoft.com/library/ff848766.aspx) |
-| DML 触发器 | [支持](https://msdn.microsoft.com/library/ms178110.aspx) | [支持](https://msdn.microsoft.com/library/ms178110.aspx) |
-| DMV | [全部](https://msdn.microsoft.com/library/ms188754.aspx) | [部分](https://msdn.microsoft.com/library/ms188754.aspx) |
-| 弹性池 | 不支持 | [支持](sql-database-elastic-pool.md) |
-| 弹性作业 | 不支持 - 请参阅 [SQL Server 代理](https://msdn.microsoft.com/library/ms189237.aspx) | 不支持 | 
-| 弹性查询 | 不支持 - 请参阅[跨数据库查询](https://msdn.microsoft.com/library/dn584627.aspx) | [支持](sql-database-elastic-query-overview.md) |
-| 事件通知 | [支持](https://msdn.microsoft.com/library/ms186376.aspx) | [支持](sql-database-insights-alerts-portal.md) |
-| 表达式 | [支持](https://msdn.microsoft.com/library/ms190286.aspx) | [支持](https://msdn.microsoft.com/library/ms190286.aspx) |
-| 扩展的事件 | [支持](https://msdn.microsoft.com/library/bb630282.aspx) | [部分](sql-database-xevent-db-diff-from-svr.md) |
-| 扩展的存储过程 | [支持](https://msdn.microsoft.com/library/ms164627.aspx) | 不支持 |
-| 文件组 | [支持](https://msdn.microsoft.com/library/ms189563.aspx#Anchor_2) | [仅限主文件组](https://msdn.microsoft.com/library/ms189563.aspx#Anchor_2) |
-| 文件流 | [支持](https://msdn.microsoft.com/library/gg471497.aspx) | 不支持 |
-| 全文搜索 | [支持](https://msdn.microsoft.com/library/ms142571.aspx) | [不支持第三方断字符](https://msdn.microsoft.com/library/ms142571.aspx) |
-| 函数 | [支持](https://msdn.microsoft.com/library/ms174318.aspx) | [大多数](https://msdn.microsoft.com/library/ms174318.aspx) |
-| 内存中优化 | [支持](https://msdn.microsoft.com/library/dn133186.aspx) | [仅限 Premium Edition](https://msdn.microsoft.com/library/dn133186.aspx) |
-| 作业 | [SQL Server 代理](https://msdn.microsoft.com/library/ms189237.aspx) | 不支持 |
-| JSON 数据支持 | [支持](https://msdn.microsoft.com/library/dn921897.aspx) | [支持](sql-database-json-features.md) |
-| 语言元素 | [支持](https://msdn.microsoft.com/library/ff848807.aspx) | [大多数](https://msdn.microsoft.com/library/ff848807.aspx) |  
-| 链接的服务器 | [支持](https://msdn.microsoft.com/library/ms188279.aspx) | 不支持 - 请参阅[弹性查询](sql-database-elastic-query-horizontal-partitioning.md) |
-| 日志传送 | [支持](https://msdn.microsoft.com/library/ms187103.aspx) | 不支持 - 请参阅[活动异地复制](sql-database-geo-replication-overview.md) |
-| 管理命令 | [支持](https://msdn.microsoft.com/library/ms190286.aspx)| [不支持](https://msdn.microsoft.com/library/ms190286.aspx) |
-| Master Data Services (MDS) | [支持](https://msdn.microsoft.com/library/ff487003.aspx) | 不支持 |
-| 批量导入时的最小日志记录 | [支持](https://msdn.microsoft.com/library/ms190422.aspx) | 不支持 |
-| 修改系统数据 | [支持](https://msdn.microsoft.com/library/ms178028.aspx) | 不支持 |
-| 联机索引操作 | [支持](https://msdn.microsoft.com/library/ms177442.aspx) | [按服务层限制的事务大小](https://msdn.microsoft.com/library/ms177442.aspx) |
-| 运算符 | [支持](https://msdn.microsoft.com/library/ms174986.aspx) | [大多数](https://msdn.microsoft.com/library/ms174986.aspx) |
-| 数据库时间点还原 | [支持](https://msdn.microsoft.com/library/ms179451.aspx) | [支持](sql-database-recovery-using-backups.md#point-in-time-restore) |
-| Polybase | [支持](https://msdn.microsoft.com/library/mt143171.aspx) | [不支持]
-| 基于策略的管理 | [支持](https://msdn.microsoft.com/library/bb510667.aspx) | 不支持 |
-| 谓词 | [支持](https://msdn.microsoft.com/library/ms189523.aspx) | [大多数](https://msdn.microsoft.com/library/ms189523.aspx)
-| R 服务 | [支持](https://msdn.microsoft.com/library/mt604845.aspx)
-| 资源调控器 | [支持](https://msdn.microsoft.com/library/bb933866.aspx) | 不支持 |
-| 从备份还原数据库 | [支持](https://msdn.microsoft.com/library/ms187048.aspx#anchor_6) | [仅限从内置备份还原](sql-database-recovery-using-backups.md) |
-| 行级别安全性 | [支持](https://msdn.microsoft.com/library/dn765131.aspx) | [支持](https://msdn.microsoft.com/library/dn765131.aspx) |
-| 安全语句 | [支持](https://msdn.microsoft.com/library/ff848791.aspx) | [部分](https://msdn.microsoft.com/library/ff848791.aspx) |
-| 语义搜索 | [支持](https://msdn.microsoft.com/library/gg492075.aspx) | 不支持 |
-| 序列号 | [支持](https://msdn.microsoft.com/library/ff878058.aspx) | [支持](https://msdn.microsoft.com/library/ff878058.aspx) |
-| 服务中转站 | [支持](https://msdn.microsoft.com/library/bb522893.aspx) | 不支持 |
-| 服务器配置选项 | [支持](https://msdn.microsoft.com/library/ms189631.aspx) | 不支持 - 请参阅[数据库配置选项](https://msdn.microsoft.com/library/mt629158.aspx) |
-| Set 语句 | [支持](https://msdn.microsoft.com/library/ms190356.aspx) | [大多数](https://msdn.microsoft.com/library/ms190356.aspx) 
-| 空间 | [支持](https://msdn.microsoft.com/library/bb933790.aspx) | [支持](https://msdn.microsoft.com/library/bb933790.aspx) |
-| SQL Server 代理 | [支持](https://msdn.microsoft.com/zh-cn/library/ms189237.aspx) | 不支持 |
-| SQL Server Analysis Services (SSAS) | [支持](https://msdn.microsoft.com/library/bb522607.aspx) | 不支持|
-| SQL Server 集成服务 (SSIS) | [支持](https://msdn.microsoft.com/library/ms141026.aspx) | 不支持  |
-| SQL Server PowerShell | [支持](https://msdn.microsoft.com/library/hh245198.aspx) | [支持](https://msdn.microsoft.com/library/hh245198.aspx) |
-| SQL Server 事件探查器 | [支持](https://msdn.microsoft.com/library/ms181091.aspx) | 不支持 - 请参阅[扩展的事件](https://msdn.microsoft.com/library/ms181091.aspx) |
-| SQL Server 复制 | [支持](https://msdn.microsoft.com/library/ms151198.aspx) | [仅限事务性和快照复制订户](sql-database-cloud-migrate.md) |
-| SQL Server Reporting Services (SSRS) | [支持](https://msdn.microsoft.com/library/ms159106.aspx) | 不支持 |
-| 存储过程 | [支持](https://msdn.microsoft.com/library/ms190782.aspx) | [支持](https://msdn.microsoft.com/library/ms190782.aspx) |
-| 系统存储函数 | [支持](https://msdn.microsoft.com/library/ff848780.aspx) | [部分](https://msdn.microsoft.com/library/ff848780.aspx) |
-| 系统存储过程 | [支持](https://msdn.microsoft.com/library/ms187961.aspx) | [部分](https://msdn.microsoft.com/library/ms187961.aspx) |
-| 系统表 | [支持](https://msdn.microsoft.com/library/ms179932.aspx) | [部分](https://msdn.microsoft.com/library/ms179932.aspx) |
-| 系统视图 | [支持](https://msdn.microsoft.com/library/ms177862.aspx) | [部分](https://msdn.microsoft.com/library/ms177862.aspx)
-| 表分区 | [支持](https://msdn.microsoft.com/library/ms190787.aspx) | [仅限主文件组](https://msdn.microsoft.com/library/ms190787.aspx) |
-| 临时表 | [本地和全局](https://msdn.microsoft.com/library/ms174979.aspx#Anchor_4) | [仅限本地](https://msdn.microsoft.com/library/ms174979.aspx#Anchor_4) |
-| 临时表 | [支持](https://msdn.microsoft.com/library/dn935015.aspx) | [支持](sql-database-temporal-tables.md) |
-| 事务语句 | [支持](https://msdn.microsoft.com/library/ms174377.aspx) | [支持](https://msdn.microsoft.com/library/ms174377.aspx) |
-| 变量 | [支持](https://msdn.microsoft.com/library/ff848809.aspx) | | [支持](https://msdn.microsoft.com/library/ff848809.aspx) | 
-| 透明数据加密 (TDE)  | [支持](https://msdn.microsoft.com/library/bb934049.aspx) | [支持](https://msdn.microsoft.com/dn948096.aspx) |
-| Windows Server 故障转移群集 | [支持](https://msdn.microsoft.com/library/hh270278.aspx) | 不支持 - 请参阅[活动异地复制](sql-database-geo-replication-overview.md) |
-| XML 索引 | [支持](http://msdn.microsoft.com/library/bb934097.aspx) | [支持](http://msdn.microsoft.com/library/bb934097.aspx) |
-| XML 语句 | [支持](https://msdn.microsoft.com/library/ff848798.aspx) | [支持](https://msdn.microsoft.com/library/ff848798.aspx) |
+| **SQL 功能** | **在 Azure SQL 数据库/逻辑服务器中受支持** | 
+| --- | --- |
+| [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | 是 - 请参阅[证书存储](sql-database-always-encrypted.md)和[密钥保管库](sql-database-always-encrypted-azure-key-vault.md) |
+| [AlwaysOn 可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | 每个数据库均包含[高可用性](sql-database-high-availability.md)。 [简要介绍如何使用 Azure SQL 数据库确保业务连续性](sql-database-business-continuity.md)中对灾难恢复进行了讨论 |
+| [附加数据库](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | 否 |
+| [应用程序角色](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) | 是 |
+|[审核](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [是](sql-database-auditing.md)|
+| [自动备份](sql-database-automated-backups.md) | 是 |
+| [自动优化（强制执行计划）](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [是](sql-database-automatic-tuning.md)|
+| [自动优化（索引）](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [是](sql-database-automatic-tuning.md)|
+| [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) | 是 |
+| [BACPAC 文件（导出）](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | 是 - 请参阅 [SQL 数据库导出](sql-database-export.md) |
+| [BACPAC 文件（导入）](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | 是 - 请参阅 [SQL 数据库导入](sql-database-import.md) |
+| [备份命令](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql) | 否，仅系统启动的自动备份 - 请参阅[自动备份](sql-database-automated-backups.md) |
+| [内置函数](https://docs.microsoft.com/sql/t-sql/functions/functions) | 大多数 - 请参阅单个函数 |
+| [更改数据捕获](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | 否 |
+| [更改跟踪](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) | 是 |
+| [排序规则语句](https://docs.microsoft.com/sql/t-sql/statements/collations) | 是 |
+| [列存储索引](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | 是 - [高级层、标准层 - S3 及以上层、常规用途层和业务关键层](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |
+| [公共语言运行时 (CLR)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | 否 |
+| [包含的数据库](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | 是 |
+| [包含的用户](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | 是 |
+| [流控制语言关键字](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow) | 是 |
+| [跨数据库查询](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | 否 - 请参阅[弹性查询](sql-database-elastic-query-overview.md) |
+| [跨数据库事务](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | 否 |
+| [游标](https://docs.microsoft.com/sql/t-sql/language-elements/cursors-transact-sql) | 是 |
+| [Data compression](https://docs.microsoft.com/sql/relational-databases/data-compression/data-compression)（数据压缩） | 是 |
+| [数据库邮件](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail) | 否 |
+| [数据迁移服务 (DMS)](https://docs.microsoft.com/sql/dma/dma-overview) | 是 |
+| [数据库镜像](https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server) | 否 |
+| [数据库配置设置](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) | 是 |
+| [Data Quality Services (DQS)](https://docs.microsoft.com/sql/data-quality-services/data-quality-services) | 否 |
+| [数据库快照](https://docs.microsoft.com/sql/relational-databases/databases/database-snapshots-sql-server) | 否 |
+| [数据类型](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql) | 是 |
+| [DBCC 语句](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-transact-sql) | 大多数 - 请参阅单个语句 |
+| [DDL 语句](https://docs.microsoft.com/sql/t-sql/statements/statements) | 大多数 - 请参阅单个语句 |
+| [DDL 触发器](https://docs.microsoft.com/sql/relational-databases/triggers/ddl-triggers) | 仅数据库 |
+| [分布式分区视图](https://docs.microsoft.com/sql/t-sql/statements/create-view-transact-sql#partitioned-views) | 否 |
+| [分布式事务 - MS DTC](https://docs.microsoft.com/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | 否 - 请参阅[弹性事务](sql-database-elastic-transactions-overview.md) |
+| [DML 语句](https://docs.microsoft.com/sql/t-sql/queries/queries) | 是 |
+| [DML 触发器](https://docs.microsoft.com/sql/relational-databases/triggers/create-dml-triggers) | 大多数 - 请参阅单个语句 |
+| [DMV](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | 大多数 - 请参阅单个 DMV |
+|[动态数据屏蔽](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)|[是](sql-database-dynamic-data-masking-get-started.md)|
+| [弹性池](sql-database-elastic-pool.md) | 是 |
+| [事件通知](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | 否 - 请参阅[警报](sql-database-insights-alerts-portal.md) |
+| [表达式](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |是 |
+| [扩展的事件](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | 部分 - 请参阅 [SQL 数据库中的扩展事件](sql-database-xevent-db-diff-from-svr.md) |
+| [扩展的存储过程](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | 否 |
+[文件和文件组](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | 仅限主文件组 |
+| [文件流](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | 否 |
+| [全文搜索](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |  不支持第三方断字符 |
+| [函数](https://docs.microsoft.com/sql/t-sql/functions/functions) | 大多数 - 请参阅单个函数 |
+| [异地还原](sql-database-recovery-using-backups.md#geo-restore) | 是 - 仅限“常规用途”和“业务关键”服务层 |
+| [异地复制](sql-database-geo-replication-overview.md) | 是 - 仅限“常规用途”和“业务关键”服务层|
+| [图形处理](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | 是 |
+| [内存中优化](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | 是 - [仅限高级层和业务关键层](sql-database-in-memory.md) |
+| [JSON 数据支持](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [是](https://docs.azure.cn/sql-database/sql-database-json-features) |
+| [语言元素](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | 大多数 - 请参阅单个元素 |
+| [链接服务器](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | 否 - 请参阅[弹性查询](sql-database-elastic-query-horizontal-partitioning.md) |
+| [日志传送](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | 每个数据库均包含[高可用性](sql-database-high-availability.md)。 [简要介绍如何使用 Azure SQL 数据库确保业务连续性](sql-database-business-continuity.md)中对灾难恢复进行了讨论 |
+| [Master Data Services (MDS)](https://docs.microsoft.com/sql/master-data-services/master-data-services-overview-mds) | 否 |
+| [批量导入中的最小日志记录](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | 否 |
+| [修改系统数据](https://docs.microsoft.com/sql/relational-databases/databases/system-databases) | 否 |
+| [联机索引操作](https://docs.microsoft.com/sql/relational-databases/indexes/perform-index-operations-online) | 是 |
+| [OPENDATASOURCE](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql)|否|
+| [OPENJSON](https://docs.microsoft.com/sql/t-sql/functions/openjson-transact-sql)|是|
+| [OPENQUERY](https://docs.microsoft.com/sql/t-sql/functions/openquery-transact-sql)|否|
+| [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql)|否|
+| [OPENXML](https://docs.microsoft.com/sql/t-sql/functions/openxml-transact-sql)|是|
+| [运算符](https://docs.microsoft.com/sql/t-sql/language-elements/operators-transact-sql) | 大多数 - 请参阅单个运算符 |
+| [分区](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes) | 是 |
+| [数据库时间点还原](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | 是 - 仅限“常规用途”和“业务关键”服务层 - 请参阅 [SQL 数据库恢复](sql-database-recovery-using-backups.md#point-in-time-restore) |
+| [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) | 否 |
+| [基于策略的管理](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | 否 |
+| [Predicates](https://docs.microsoft.com/sql/t-sql/queries/predicates)（谓词） | 是 |
+| [R Services](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | 预览版；请参阅[机器学习中的新增功能](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  |
+| [资源调控器](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | 否 |
+| [RESTORE 语句](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | 否 |
+| [从备份还原数据库](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | 仅从自动备份 - 请参阅 [SQL 数据库恢复](sql-database-recovery-using-backups.md) |
+| [行级别安全性](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) | 是 |
+| [语义搜索](https://docs.microsoft.com/sql/relational-databases/search/semantic-search-sql-server) | 否 |
+| [序列号](https://docs.microsoft.com/sql/relational-databases/sequence-numbers/sequence-numbers) | 是 |
+| [Service Broker](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker) | 否 |
+| [服务器配置设置](https://docs.microsoft.com/sql/database-engine/configure-windows/server-configuration-options-sql-server) | 否 |
+| [SET 语句](https://docs.microsoft.com/sql/t-sql/statements/set-statements-transact-sql) | 大多数 - 请参阅单个语句 |
+| [SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | 是 |
+| [Spatial](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) | 是 |
+| [SQL 数据同步](sql-database-get-started-sql-data-sync.md) | 是 |
+| [SQL Server 代理](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | 否 - 请参阅[弹性作业](sql-database-elastic-jobs-getting-started.md) |
+| [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | 否 - 请参阅 [Azure Analysis Services](https://www.azure.cn/home/features/analysis-services/) |
+| [SQL Server 审核](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | 否 - 请参阅 [SQL 数据库审核](sql-database-auditing.md) |
+| [SQL Server Data Tools (SSDT)] (https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) | 是 |
+| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | 是，使用 Azure 数据工厂 (ADF) 环境中的托管 SSIS ，其中程序包存储在由 Azure SQL 数据库承载的 SSISDB 中并在 Azure SSIS Integration Runtime 上执行。 |
+| [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | 是 |
+| [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | 是 |
+| [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | 否 - 请参阅[扩展事件](sql-database-xevent-db-diff-from-svr.md) |
+| [SQL Server 复制](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [仅限事务性和快照复制订户](sql-database-cloud-migrate.md) |
+| [SQL Server Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | 否 |
+| [存储过程](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) | 是 |
+| [系统存储函数](https://docs.microsoft.com/sql/relational-databases/system-functions/system-functions-for-transact-sql) | 大多数 - 请参阅单个函数 |
+| [系统存储过程](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/system-stored-procedures-transact-sql) | 部分 - 请参阅单个存储过程 |
+| [系统表](https://docs.microsoft.com/sql/relational-databases/system-tables/system-tables-transact-sql) | 部分 - 请参阅单个表 |
+| [系统目录视图](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/catalog-views-transact-sql) | 部分 - 请参阅单个视图 |
+| [临时表](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql#database-scoped-global-temporary-tables-azure-sql-database) |
+| [临时表](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | [是](/sql-database/sql-database-temporal-tables) |
+|威胁检测|  [是](sql-database-threat-detection.md)|
+| [跟踪标志](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | 否 |
+| [变量](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | 是 |
+| [透明数据加密 (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | 是 - 仅限“常规用途”和“业务关键”服务层|
+[VNet](../virtual-network/virtual-networks-overview.md) | 部分 - 请参阅 [VNet 终结点](sql-database-vnet-service-endpoint-rule-overview.md) |
+| [Windows Server 故障转移群集](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | 每个数据库均包含[高可用性](sql-database-high-availability.md)。 [简要介绍如何使用 Azure SQL 数据库确保业务连续性](sql-database-business-continuity.md)中对灾难恢复进行了讨论 |
+| [XML 索引](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql) | 是 |
 
 ## <a name="next-steps"></a>后续步骤
 
 - 有关 Azure SQL 数据库服务的信息，请参阅[什么是 SQL 数据库？](sql-database-technical-overview.md)
-- 有关 Azure SQL 逻辑服务器的概述，请参阅 [SQL 数据库逻辑服务器概述](sql-database-server-overview.md)
-- 有关 Azure SQL 数据库的概述，请参阅 [SQL 数据库概述](sql-database-overview.md)
-- 有关 Transact-SQL 支持和差异的信息，请参阅 [Azure SQL 数据库 Transact-SQL 差异](sql-database-transact-sql-information.md)。
-- 按 **服务层**了解具体的资源配额和限制。 有关服务层的概述，请参阅 [SQL 数据库服务层](sql-database-service-tiers.md)。
-- 有关安全概述，请参阅 [Azure SQL 数据库安全概述](sql-database-security-overview.md)。
-- 有关驱动程序可用性和 SQL 数据库支持的信息，请参阅[用于 SQL 数据库和 SQL Server 的连接库](sql-database-libraries.md)。
-

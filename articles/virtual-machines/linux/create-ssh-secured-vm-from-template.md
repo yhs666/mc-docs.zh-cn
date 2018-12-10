@@ -1,84 +1,77 @@
 ---
-title: 使用 Azure 模板创建 Linux VM | Azure
-description: 使用 Azure Resource Manager 模板在 Azure 上创建 Linux VM。
+title: 基于模板在 Azure 中创建 Linux VM | Azure
+description: 如何使用 Azure CLI 基于资源管理器模板创建 Linux VM
 services: virtual-machines-linux
 documentationcenter: ''
-author: vlivech
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
-tags: azure-service-management,azure-resource-manager
-
+tags: azure-resource-manager
 ms.assetid: 721b8378-9e47-411e-842c-ec3276d3256a
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
-ms.topic: hero-article
-ms.date: 10/24/2016
-wacn.date: 12/20/2016
-ms.author: v-dazen
+ms.devlang: azurecli
+ms.topic: article
+origin.date: 05/30/2018
+ms.date: 10/22/2018
+ms.author: v-yeche
+ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 2ed6cf4f57a3e609fb975333dc77b31be0b1a005
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653283"
 ---
+# <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>如何使用 Azure Resource Manager 模板创建 Linux 虚拟机
 
-# 使用 Azure 模板创建 Linux VM
-本文说明如何使用 Azure 模板在 Azure 上快速部署 Linux 虚拟机。本文要求满足以下条件：
+本文介绍如何使用 Azure 资源管理器模板和 Azure CLI 快速部署 Linux 虚拟机 (VM)。 还可以使用 [Azure 经典 CLI](create-ssh-secured-vm-from-template-nodejs.md) 执行这些步骤。
 
-* 一个 Azure 帐户（[获取试用版](https://www.azure.cn/pricing/1rmb-trial/)）
-* 已使用 `azure login -e AzureChinaCloud` 登录 [Azure CLI](../../xplat-cli-install.md)。
-* Azure CLI *必须处于* Azure Resource Manager 模式`azure config mode arm`。
+本文介绍如何使用 Azure 资源管理器模板和 Azure CLI 快速部署 Linux 虚拟机 (VM)。 
 
-也可以使用 [Azure 门户](quick-create-portal.md)快速部署 Linux VM 模板。
+## <a name="templates-overview"></a>模板概述
+Azure Resource Manager 模板是 JSON 文件，其中定义了 Azure 解决方案的基础结构和配置。 使用模板可以在解决方案的整个生命周期内重复部署该解决方案，确保以一致的状态部署资源。 若要详细了解模板的格式及其构造方法，请参阅[创建第一个 Azure Resource Manager 模板](../../azure-resource-manager/resource-manager-create-first-template.md)。 若要查看资源类型的 JSON 语法，请参阅[定义 Azure Resource Manager 模板中的资源](https://docs.microsoft.com/zh-cn/azure/templates/)。
 
-## 快速命令摘要
+## <a name="create-a-resource-group"></a>创建资源组
+Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 必须在创建虚拟机前创建资源组。 以下示例在 *chinaeast* 区域中创建名为 *myResourceGroupVM* 的资源组：
 
-```
-azure group create \
-    -n myResourceGroup \
-    -l chinanorth \
-    --template-file /path/to/azuredeploy.json
-```
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-## 详细演练
-使用模板可以在 Azure 上创建具有所需设置的 VM，这些设置可在启动过程中自定义，例如用户名和主机名。对于本文，我们将推出一个利用 Ubuntu VM 和网络安全组 (NSG) 并打开端口 22 用于 SSH 的 Azure 模板。
-
-Azure Resource Manager 模板是可用于一次性简易任务（如启动 Ubuntu VM）的 JSON 文件，如本文所述。Azure 模板还可用于构造整个环境的复杂 Azure 配置，如测试、开发或生产部署堆栈。
-
-## 创建 Linux VM
-下面的代码示例演示如何调用 `azure group create` 创建资源组，并同时使用[此 Azure Resource Manager 模板](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json)部署受 SSH 保护的 Linux VM。请记住，在示例中必须使用环境中唯一的名称。此示例使用 `myResourceGroup` 作为资源组名称，使用 `myVM` 作为 VM 名称。
-
->[!NOTE]
-> 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；更改某些不受支持的 VM 映像；更改某些不受支持的 VM 大小。
-
-```
-azure group create \
-    --name myResourceGroup \
-    --location chinanorth \
-    --template-file /path/to/azuredeploy.json
+```azurecli
+az group create --name myResourceGroup --location chinaeast
 ```
 
-输出应类似于以下输出块：
+## <a name="create-a-virtual-machine"></a>创建虚拟机
+以下示例使用 [az group deployment create](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#az-group-deployment-create) 基于[此 Azure Resource Manager 模板](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json)创建 VM。 仅允许 SSH 身份验证。 出现提示时，提供自己的 SSH 公钥的值，例如 *~/.ssh/id_rsa.pub* 的内容。 如果需要创建 SSH 密钥对，请参阅[如何为 Azure 中的 Linux VM 创建和使用 SSH 密钥对](mac-create-ssh-keys.md)。
 
-```
-info:    Executing command group create
-+ Getting resource group myResourceGroup
-+ Creating resource group myResourceGroup
-info:    Created resource group myResourceGroup
-info:    Supply values for the following parameters
-sshKeyData: ssh-rsa AAAAB3Nza<..ssh public key text..>VQgwjNjQ== myAdminUser@myVM
-+ Initializing template configurations and parameters
-+ Creating a deployment
-info:    Created template deployment "azuredeploy"
-data:    Id:                  /subscriptions/<..subid text..>/resourceGroups/myResourceGroup
-data:    Name:                myResourceGroup
-data:    Location:            chinanorth
-data:    Provisioning State:  Succeeded
-data:    Tags: null
-data:
-info:    group create command OK
+```azurecli
+az group deployment create \
+    --resource-group myResourceGroup \
+    --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
 ```
 
-该示例使用 `--template-file` 参数（模板文件的路径为自变量）部署了一个 VM。如果你确信该模板适用于 Azure 中国区，也可以使用 `--template-uri` 直接从 github 原始文件部署该模板。Azure CLI 将提示你输入模板所需的参数。
+在前面的示例中，指定了 GitHub 中存储的一个模板。 还可以下载或创建模板并使用 `--template-file` 参数指定本地路径。
 
-## 后续步骤
-搜索[模板库](https://github.com/Azure/azure-quickstart-templates/)以发现下一步要部署哪些应用框架。
+## <a name="connect-to-virtual-machine"></a>连接到虚拟机
+若要通过 SSH 连接到 VM，请使用 [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-show) 获取公共 IP 地址：
 
-<!---HONumber=Mooncake_1212_2016-->
+```azurecli
+az vm show \
+    --resource-group myResourceGroup \
+    --name sshvm \
+    --show-details \
+    --query publicIps \
+    --output tsv
+```
+
+然后，可以通过 SSH 照常连接到 VM。 在上述命令中提供自己的公共 IP 地址：
+
+```bash
+ssh azureuser@<ipAddress>
+```
+
+## <a name="next-steps"></a>后续步骤
+在此示例中，创建了一个基本的 Linux VM。 若要获取包括应用程序框架或创建更复杂环境的 Resource Manager 模板，请浏览 [Azure 快速入门模板库](https://github.com/Azure/azure-quickstart-templates/)。
+
+<!--Update_Description: update meta properties, wording update  -->

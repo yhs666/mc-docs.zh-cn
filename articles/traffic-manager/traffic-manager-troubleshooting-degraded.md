@@ -1,27 +1,26 @@
 ---
-title: "Azure 流量管理器上的降级状态故障排除"
-description: "如何在流量管理器显示为降级状态时对流量管理器配置文件进行故障排除。"
+title: Azure 流量管理器上的降级状态故障排除
+description: 如何在流量管理器显示为降级状态时对流量管理器配置文件进行故障排除。
 services: traffic-manager
-documentationcenter: 
-author: kumudd
-manager: timlt
+documentationcenter: ''
+author: rockboyfor
+manager: digimobile
 ms.assetid: 8af0433d-e61b-4761-adcc-7bc9b8142fc6
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2017
-wacn.date: 
-ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 0da9143dcdf5b998b7c06425a8db43f97ceec9f1
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
+origin.date: 05/03/2017
+ms.date: 09/17/2018
+ms.author: v-yeche
+ms.openlocfilehash: 71623a933a3c0416b1c0acbe32bc31cc41a6571c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660398"
 ---
-
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Azure 流量管理器上的降级状态故障排除
 
 本文介绍如何对显示降级状态的 Azure 流量管理器配置文件进行故障排除。 在此方案中，假设已配置了一个指向某些 chinacloudapp.cn 托管服务的流量管理器配置文件。 如果流量管理器的运行状况显示“已降级”的状态，则一个或多个终结点的状态可能为“已降级”：
@@ -36,7 +35,7 @@ ms.lasthandoff: 05/19/2017
 
 * 仅当探测从探测路径收到 HTTP 200 响应时，流量管理器才将终结点视为“联机”。 其他任何非 200 响应都被视为失败。
 * 即使重定向 URL 返回 200，30x 重定向也会失败。
-* 对于 HTTPS 探测器，证书错误将被忽略。
+* 对于 HTTPS 探测器，证书错误会被忽略。
 * 只要返回 200，就无需在意探测器路径的实际内容。 常用的技巧是探测某些静态内容的 URL，例如“/favicon.ico”。 即使应用程序处于正常状态，ASP 页等动态内容也不一定会返回 200。
 * 最佳实践是将探测路径设置为提供足够逻辑来确定站点是启动还是关闭的值。 在上述示例中，如果将路径设置为“/favicon.ico”，则只会测试 w3wp.exe 是否有响应。 这种探测可能不会指示 Web 应用程序是否正常。 更好的做法是将路径设置为类似于“/Probe.aspx”的值，通过某个逻辑来确定站点的运行状况。 例如，可以使用性能计数器来查看 CPU 利用率，或者测量失败请求的数目。 或者，可以尝试访问数据库资源或会话状态，确保 Web 应用程序正常工作。
 * 如果配置文件中的所有终结点都已降级，流量管理器会将所有终结点视为处于正常状态，并将流量路由到所有终结点。 此行为可确保探测机制中的问题不会导致服务完全中断。
@@ -51,7 +50,7 @@ ms.lasthandoff: 05/19/2017
 
 也可以在 Internet Explorer 中使用“F12 调试工具”的“网络”标签页查看 HTTP 响应。
 
-在本示例中，我们想要查看探测 URL 返回的响应：http://watestsdp2008r2.chinacloudapp.cn:80/Probe 。 以下 PowerShell 示例演示了该问题。
+在本示例中，我们想要查看探测 URL 返回的响应： http://watestsdp2008r2.chinacloudapp.cn:80/Probe。 以下 PowerShell 示例演示了该问题。
 
 ```powershell
 Invoke-WebRequest 'http://watestsdp2008r2.chinacloudapp.cn/Probe' -MaximumRedirection 0 -ErrorAction SilentlyContinue | Select-Object StatusCode,StatusDescription
@@ -90,11 +89,12 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 [云服务](/cloud-services/)
 
-[Azure Web 应用](/app-service-web/)
+[Azure Web 应用](/app-service/web/)
 
-[流量管理器上的操作（REST API 参考）](https://msdn.microsoft.com/library/hh758255.aspx)
+[流量管理器上的操作（REST API 参考）](http://go.microsoft.com/fwlink/?LinkId=313584)
 
 [Azure 流量管理器 Cmdlet][1]
 
-[1]: https://msdn.microsoft.com/library/mt125941(v=azure.200).aspx
+[1]: https://docs.microsoft.com/powershell/module/azurerm.trafficmanager
 
+<!--Update_Description: update meta properties, wording update-->

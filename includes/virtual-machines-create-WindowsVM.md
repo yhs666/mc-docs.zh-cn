@@ -1,6 +1,24 @@
-1. 登录 [Azure 门户](https://portal.azure.cn)。
+---
+title: include 文件
+description: include 文件
+services: virtual-machines
+author: rockboyfor
+ms.service: virtual-machines
+ms.topic: include
+origin.date: 03/09/2018
+ms.date: 04/16/2018
+ms.author: v-yeche
+ms.custom: include file
+ms.openlocfilehash: 4292b12fca12c9674c558e78fab328eddd7fa075
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659603"
+---
+1. 登录到 [Azure 门户](https://portal.azure.cn)。
 
-2. 首先在左上角单击“新建”>“计算”>“Windows Server 2016 Datacenter”。
+2. 首先在左上角单击“创建资源” > “计算” > “Windows Server 2016 Datacenter”。
 
     ![在门户中导航到 Azure VM 映像](./media/virtual-machines-common-portal-create-fqdn/marketplace-new.png)
 
@@ -16,7 +34,7 @@
 
 2. 输入用于在 VM 上创建本地帐户的“用户名”和强“密码”。 该本地帐户用于登录和管理 VM。 在示例中， _azureuser_ 是用户名。
 
-    密码的长度必须为 8 到 123 个字符，并且必须符合以下四个复杂性要求中的三个要求：1 个小写字符、1 个大写字符、1 个数字和 1 个特殊字符。 了解有关[用户名和密码要求](../articles/virtual-machines/windows/faq.md)的详细信息。
+ 密码的长度必须为 8 到 123 个字符，并且必须符合以下四个复杂性要求中的三个要求：1 个小写字符、1 个大写字符、1 个数字和 1 个特殊字符。 查看有关 [用户名和密码要求](../articles/virtual-machines/windows/faq.md)的更多信息。
 
 3. “订阅”  是可选的。 一个常用设置是“即用即付”。
 
@@ -32,13 +50,13 @@
 
 “大小”边栏选项卡标识 VM 的配置详情，并列出操作系统、处理器数量、磁盘存储类型和每月估计使用成本等各种选项。  
 
-选择 VM 大小，然后单击“选择”以继续。 在此示例中，_DS1_\__V2 标准_是 VM 的大小。
+选择 VM 大小，并单击“选择”以继续。 在此示例中，_DS1_\__V2 标准_是 VM 的大小。
 
-![显示可以选择的 Azure VM 大小的“大小”边栏选项卡的屏幕截图](./media/virtual-machines-common-portal-create-fqdn/vm-size-classic.png)
+  ![显示可以选择的 Azure VM 大小的“大小”边栏选项卡的屏幕截图](./media/virtual-machines-common-portal-create-fqdn/vm-size-classic.png)
 
-## <a name="3-settings-blade"></a>3.“设置”边栏选项卡
+## <a name="3-settings-blade"></a>3.设置边栏选项卡
 
-“设置”边栏选项卡可请求存储和网络选项。 可以接受默认设置。 Azure 可根据需要创建适当的条目。
+“设置”边栏选项卡请求存储和网络选项。 可以接受默认设置。 必要时，Azure 会创建相应的条目。
 
 如果选择了支持它的虚拟机大小，则可通过在“磁盘类型”中选择“高级(SSD)”来试用 Azure 高级存储。
 
@@ -48,8 +66,9 @@
 
 “摘要”边栏选项卡列出在之前的边栏选项卡中指定的设置。 准备好制作映像时，请单击“确定”。
 
-![列出虚拟机的指定设置的“摘要”边栏选项卡报表](./media/virtual-machines-common-portal-create-fqdn/summary-blade-classic.png)
+ ![列出虚拟机的指定设置的“摘要”边栏选项卡报表](./media/virtual-machines-common-portal-create-fqdn/summary-blade-classic.png)
 
-创建虚拟机后，门户将在“所有资源”下列出新的虚拟机，并在仪表板上显示虚拟机的磁贴。 此外，还会创建和列出相应的云服务和存储帐户。 虚拟机和云服务都会自动启动，其状态将显示为“正在运行”。
+创建虚拟机后，门户会在“所有资源”下列出新的虚拟机，并在仪表板上显示虚拟机的磁贴。 此外，还会创建和列出相应的云服务和存储帐户。 虚拟机和云服务都会自动启动，其状态显示为“正在运行”。
 
-![配置虚拟机的 VM 代理和终结点](./media/virtual-machines-common-portal-create-fqdn/portal-with-new-vm.png)
+ ![配置虚拟机的 VM 代理和终结点](./media/virtual-machines-common-portal-create-fqdn/portal-with-new-vm.png)
+<!-- Update_Description: update meta properties -->

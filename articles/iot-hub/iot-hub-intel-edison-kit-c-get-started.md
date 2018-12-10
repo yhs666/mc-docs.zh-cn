@@ -1,33 +1,28 @@
 ---
-title: "Intel Edison 到云 (C) - 将 Intel Edison 连接到 Azure IoT 中心 | Azure"
-description: "将 Intel Edison 连接到 Azure IoT 中心，以便 Intel Edison 向 Azure 云发送数据。"
-services: iot-hub
-documentationcenter: 
-author: shizn
-manager: timtl
-tags: 
-keywords: "azure iot intel edison, intel edison iot 中心, intel edison 发送数据到云, intel edison 到云"
-ms.assetid: 4885fa2c-c2ee-4253-b37f-ccd55f92b006
+title: Intel Edison 到云 (C) - 将 Intel Edison 连接到 Azure IoT 中心 | Azure
+description: 在本教程中了解如何设置 Intel Edison 并将其连接到 Azure IoT 中心，使 Intel Edison 能够将数据发送到 Azure 云平台。
+author: rangv
+manager: ''
+keywords: azure iot intel edison, intel edison iot 中心, intel edison 发送数据到云, intel edison 到云
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: c
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/07/2016
-wacn.date: 
+ms.topic: conceptual
+origin.date: 04/11/2018
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 82e414b0ee547bc4110bc80b768c077d950e3be4
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
+ms.date: 09/10/2018
+ms.openlocfilehash: 9bf7b1b49c72a3c1da93b0b18287f668e973390b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660207"
 ---
 # <a name="connect-intel-edison-to-azure-iot-hub-c"></a>将 Intel Edison 连接到 Azure IoT 中心 (C)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-在本教程中，从学习如何使用 Intel Edison 的基础知识开始。 然后将学习如何使用 [Azure IoT 中心](./iot-hub-what-is-iot-hub.md)将设备无缝连接到云。
+在本教程中，从学习如何使用 Intel Edison 的基础知识开始。 然后学习如何使用 [Azure IoT 中心](about-iot-hub.md)将设备无缝连接到云。
 
 还没有工具包？ 从 [此处](https://www.azure.cn/develop/iot/iot-starter-kits)
 
@@ -38,7 +33,7 @@ ms.lasthandoff: 05/26/2017
 * 在 IoT 中心内为 Edison 注册设备。
 * 在 Edison 上运行示例应用程序，以将传感器数据发送到 IoT 中心。
 
-将 Intel Edison 连接到创建的 IoT 中心。 然后，在 Edison 上运行示例应用程序，以从 Grove 温度传感器收集温度和湿度数据。 最后，将传感器数据发送到 IoT 中心。
+将 Intel Edison 连接到创建的 IoT 中心。 然后，在 Edison 上运行示例应用程序，从 Grove 温度传感器收集温度和湿度数据。 最后，将传感器数据发送到 IoT 中心。
 
 ## <a name="what-you-learn"></a>学习内容
 
@@ -53,8 +48,8 @@ ms.lasthandoff: 05/26/2017
 
 * Intel Edison 开发板
 * Arduino 扩展板
-* 一个有效的 Azure 订阅。 如果没有 Azure 帐户，只需花费几分钟就能创建一个 [Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
-* 运行 Windows 或 Linux 的 Mac 或 PC。
+* 一个有效的 Azure 订阅。 如果没有 Azure 帐户，只需花费几分钟就能[创建一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* 运行 Windows 或 Linux 的 Mac 或电脑。
 * Internet 连接。
 * Micro B - Type A USB 线缆
 * 直流 (DC) 电源。 电源应符合以下条件：
@@ -64,18 +59,13 @@ ms.lasthandoff: 05/26/2017
 
 以下项可选：
 
-### <a name="create-and-deploy-the-blink-application"></a>创建和部署 blink 应用程序
-克隆 GitHub 提供的示例 blink 应用程序，并使用 gulp 将此应用程序部署到 Intel Edison 板。 此示例应用程序每隔两秒让连接到板的 LED 闪烁一次。
-
-以下项可选：
-
 * Grove Base Shield V2
 * Grove - 温度传感器
 * Grove 电缆
-* 垫条或螺钉（随附在工具包内），其中包括两颗螺钉（用于将模块固定到扩展板上）以及四组螺钉和塑料垫片。
+* 任何垫条或螺钉（随附在工具包内），其中包括两颗螺钉（用于将模块固定到扩展板上）以及四组螺钉和塑料垫片。
 
 > [!NOTE] 
-上述项可选，因为代码示例支持模拟的传感器数据。
+上述项为可选项，因为代码示例支持模拟的传感器数据。
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
@@ -85,9 +75,9 @@ ms.lasthandoff: 05/26/2017
 
 本部分包括将 Intel® Edison 模块连接到扩展板的步骤。
 
-1. 将 Intel® Edison 模块放在扩展板的白色区域内，将模块上的孔对准扩展板上的螺钉。
+1. 将 Intel® Edison 模块放在扩展板的白色边框内，将模块上的孔对准扩展板上的螺钉。
 
-2. 将手指放在 `What will you make?` 文字上方，按压模板，直至感觉模块已就位。
+2. 将手指放在 `What will you make?` 文字下方，按压模块，直至感觉模块已就位。
 
    ![组装开发板 2](./media/iot-hub-intel-edison-kit-c-get-started/1_assemble_board2.jpg)
 
@@ -135,15 +125,15 @@ ms.lasthandoff: 05/26/2017
 
 ### <a name="connect-edison-to-your-computer"></a>将 Edison 连接到计算机
 
-1. 向下扳动微动开关，使之朝向两个 micro USB 端口，将 Edison 设置为设备模式。 有关设备模式与主机模式的区别，请参阅 [此处](https://software.intel.com/en-us/node/628233#usb-device-mode-vs-usb-host-mode)。
+1. 向下拨动微动开关，使之朝向两个 micro USB 端口，将 Edison 设置为设备模式。 有关设备模式与主机模式的区别，请参阅 [此处](https://software.intel.com/en-us/node/628233#usb-device-mode-vs-usb-host-mode)。
 
    ![向下扳动微动开关](./media/iot-hub-intel-edison-kit-c-get-started/9_toggle_down_microswitch.jpg)
 
-2. 将 micro USB 线缆插入顶部的 micro USB 端口。
+2. 将 micro USB 电缆插入顶部的 micro USB 端口。
 
    ![顶部的 micro USB 端口](./media/iot-hub-intel-edison-kit-c-get-started/10_top_usbport.jpg)
 
-3. 将 USB 线缆的另一端插入计算机。
+3. 将 USB 电缆的另一端插入计算机。
 
    ![计算机 USB](./media/iot-hub-intel-edison-kit-c-get-started/11_computer_usb.jpg)
 
@@ -153,23 +143,23 @@ ms.lasthandoff: 05/26/2017
 请从[此链接](https://software.intel.com/en-us/iot/hardware/edison/downloads)（在 `Installers` 标题下列出）获取最新配置工具。 运行该工具，并按照屏幕上的说明进行操作，在需要时单击“下一步”
 
 ### <a name="flash-firmware"></a>刷写固件
-1. 在 `Set up options` 页上，单击 `Flash Firmware`。
+1. 在`Set up options`页面上，单击`Flash Firmware`。
 2. 执行以下操作之一选择要刷写到开发板上的映像：
    - 若要下载 Intel 提供的最新固件映像并使用该映像来刷写开发板，请选择 `Download the latest image version xxxx`。
    - 若要使用计算机上已保存的映像来刷写开发板，请选择 `Select the local image`。 浏览到要刷写到开发板的映像并选择。
 3. 安装工具将尝试刷写开发板。 整个刷写过程最长可能需要 10 分钟。
 
 ### <a name="set-password"></a>设置密码
-1. 在 `Set up options` 页上，单击 `Enable Security`。
+1. 在`Set up options`页面上，单击`Enable Security`。
 2. 可为 Intel® Edison 开发板设置自定义名称。 这是可选的。
-3. 为开发板键入密码，然后单击 `Set password`。
+3. 为开发板键入密码，并单击 `Set password`。
 4. 记下密码，稍后会用到此密码。
 
 ### <a name="connect-wi-fi"></a>连接 Wi-Fi
-1. 在 `Set up options` 页上，单击 `Connect Wi-Fi`。 计算机将扫描可用的 Wi-Fi 网络，此过程最长可能需要 1 分钟。
+1. 在`Set up options`页面上，单击`Connect Wi-Fi`。 计算机将扫描可用的 Wi-Fi 网络，此过程最长可能需要 1 分钟。
 2. 从 `Detected Networks` 下拉列表中，选择网络。
 3. 从 `Security` 下拉列表中，选择网络的安全类型。
-4. 提供登录名和密码信息，然后单击 `Configure Wi-Fi`。
+4. 提供登录名和密码信息，并单击 `Configure Wi-Fi`。
 5. 记下 IP 地址，稍后会用到此地址。
 
 > [!NOTE]
@@ -177,7 +167,7 @@ ms.lasthandoff: 05/26/2017
 
    ![连接到温度传感器](./media/iot-hub-intel-edison-kit-c-get-started/12_configuration_tool.png)
 
-祝贺你！ Edison 已配置成功。
+祝贺！ Edison 已配置成功。
 
 ## <a name="run-a-sample-application-on-intel-edison"></a>在 Intel Edison 上运行示例应用程序
 
@@ -185,7 +175,7 @@ ms.lasthandoff: 05/26/2017
 
 1. 使用主计算机的以下任一 SSH 客户端连接到 Intel Edison。 IP 地址来自配置工具，密码与该工具中设置的相同。
     - [PuTTY](http://www.putty.org/) for Windows。
-    - Ubuntu 或 macOS 上的内置 SSH 客户端。
+    - Ubuntu 或 macOS 上的内置 SSH 客户端（运行 `ssh root@"the IP address"`）。
 
 2. 将示例客户端应用克隆到设备中。 
    
@@ -245,3 +235,6 @@ ms.lasthandoff: 05/26/2017
 此时已运行示例应用程序，收集传感器数据并将其发送到 IoT 中心。
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+
+
+<!--Update_Description: update wording -->

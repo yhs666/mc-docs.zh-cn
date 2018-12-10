@@ -1,27 +1,26 @@
 ---
-title: "Azure CLI Redis 缓存示例 | Azure"
-description: "适用于 Azure Redis 缓存的 Azure CLI 示例。"
+title: Azure CLI Redis 缓存示例 | Microsoft Docs
+description: Azure Redis 缓存的 Azure CLI 示例。
 services: redis-cache
-documentationcenter: 
-author: steved0x
-manager: douge
-editor: 
+documentationcenter: ''
+author: wesmc7777
+manager: cfowler
+editor: ''
 ms.assetid: 8d2de145-50c0-4f76-bf8f-fdf679f03698
 ms.service: cache
 ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 04/14/2017
-wacn.date: 
-ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 4ab299350d0f55999a6a77c041d9cebe392dcc6d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+origin.date: 04/14/2017
+ms.date: 11/14/2018
+ms.author: v-junlch
+ms.openlocfilehash: a192894e2999106c8e837be5096573f4ffc76425
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648352"
 ---
 # <a name="azure-cli-samples-for-azure-redis-cache"></a>适用于 Azure Redis 缓存的 Azure CLI 示例
 
@@ -35,9 +34,11 @@ ms.lasthandoff: 04/22/2017
 | [获取缓存详细信息](./scripts/show-cache.md) | 获取 Azure Redis 缓存实例的详细信息，包括预配状态。 |
 | [获取主机名、端口和密钥](./scripts/cache-keys-ports.md) | 获取 Azure Redis 缓存实例的主机名、端口和密钥。 |
 |**Web 应用和缓存**||
-| [将 Web 应用连接到 Redis 缓存](./../app-service-web/scripts/app-service-cli-app-service-redis.md) | 创建 Azure Web 应用和 Redis 缓存，然后将 Redis 连接详细信息添加到应用设置。 |
+| [将 Web 应用连接到 Redis 缓存](../app-service/scripts/app-service-cli-app-service-redis.md) | 创建 Azure Web 应用和 Redis 缓存，然后将 Redis 连接详细信息添加到应用设置。 |
 |**删除缓存**||
 | [删除缓存](./scripts/delete-cache.md) | 删除 Azure Redis 缓存实例  |
 | | |
 
-有关 Azure CLI 2.0 的详细信息，请参阅 [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)（安装 Azure CLI 2.0）和 [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)（Azure CLI 2.0 入门）。
+有关 Azure CLI 的详细信息，请参阅[安装 Azure CLI](/cli/install-azure-cli) 和 [Azure CLI 入门](/cli/get-started-with-azure-cli)。
+
+<!--Update_Description: link update-->

@@ -1,86 +1,70 @@
 ---
-title: "Azure 事件中心示例 | Azure"
-description: "事件中心示例"
+title: Azure 事件中心示例 | Azure
+description: Azure 事件中心示例
 services: event-hubs
 documentationcenter: na
-author: jtaubensee
+author: ShubhaVijayasarathy
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/07/2017
-wacn.date: 
-ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 28b600cc68f3bc3fe5bc7545d0a9427e4b2770ce
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
+origin.date: 07/17/2018
+ms.date: 12/10/2018
+ms.author: v-biyu
+ms.openlocfilehash: a411dbb8101cb576c8bd7ad40b616e2ba1ce1558
+ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676899"
 ---
-
 # <a name="event-hubs-samples"></a>事件中心示例 
+可以在 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples) 上找到事件中心示例。 这些示例演示了 [Azure 事件中心](/event-hubs/)的主要功能。 本文对可用示例进行了分类和介绍，每个示例均具有链接。
 
-事件中心示例演示了 [Azure 事件中心](./index.md)中的主要功能。 本文对可用示例进行了分类和介绍，每个示例均具有链接。
+## <a name="net-samples"></a>.NET 示例
 
-撰写本文时，事件中心示例位于多个不同位置：
+| 示例名称 | 说明 | 
+| ----------- | ----------- | 
+| [SampleSender](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) | 此示例演示如何编写将一组事件发送到事件中心的 .NET Core 控制台应用程序。 |
+| [SampleEHReceiver](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) | 此示例介绍如何编写 .NET Core 控制台应用程序，以使用事件处理程序主机库从事件中心接收事件。  | 
 
-- [MSDN 开发人员代码示例](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
-- [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs)
+## <a name="java-samples"></a>Java 示例
 
-若要深入了解 .NET Framework 的不同版本，请参阅 [框架和目标](https://docs.microsoft.com/dotnet/articles/standard/frameworks)。
+| 示例名称 | 说明 | 
+| ----------- | ----------- | 
+| [SendBatch](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SendBatch)  | 此示例说明了如何将批量事件引入到事件中心。 | 
+| [SimpleSend](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend) | 此示例说明了如何将事件引入到事件中心。 |
+| [AdvanceSendOptions](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/AdvancedSendOptions) | 此示例说明了可用于事件中心以引入事件的选项。 |
+| [ReceiveByDateTime](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/ReceiveByDateTime) | 此示例说明了如何使用特定的日期时间偏移量从事件中心分区接收事件。 |
+| [ReceiveUsingOffset](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/ReceiveUsingOffset) | 此示例说明了如何使用特定的数据偏移量从事件中心分区接收事件。 |  
+| [ReceiveUsingSequenceNumber](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/ReceiveUsingSequenceNumber) | 此示例说明了如何使用序列号从事件中心分区进行接收。 |   
+| [EventProcessorSample](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/EventProcessorSample) |此示例说明了如何使用事件处理程序主机从事件中心接收事件，其中该主机提供跨多个并发接收器的自动分区选择和故障转移功能。 | 
+| [AutoScaleOnIngress](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Benchmarks/AutoScaleOnIngress) | 此示例说明了事件中心如何自动在高负载中纵向扩展。 该示例将以刚好超过事件中心配置速率的速率发送事件，使导致事件中心纵向扩展。 | 
+| [IngressBenchmark](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Benchmarks/IngressBenchmark) | 此示例允许测量入口速率。 | 
 
-后续将添加更多示例，因此请时常回访本网站获取更新。
+## <a name="python-samples"></a>Python 示例
+可在 [azure-event-hubs-python](https://github.com/Azure/azure-event-hubs-python/tree/master/examples) GitHub 存储库中找到 Azure 事件中心的 Python 示例。
 
-## <a name="net-standard"></a>.NET Standard
+## <a name="nodejs-samples"></a>Node.js 示例
+可在 [azure-event-hubs-node](https://github.com/Azure/azure-event-hubs-node) GitHub 存储库中找到 Azure 事件中心的 Node.js 示例。
 
-下面的示例演示如何使用 [.NET Standard 库](https://docs.microsoft.com/dotnet/articles/standard/library)的[事件中心客户端](https://github.com/Azure/azure-event-hubs-dotnet/blob/master/readme.md)发送和接收事件。
+## <a name="go-samples"></a>Go 示例
+可在 [azure-event-hubs-go](https://github.com/Azure/azure-event-hubs-go/tree/master/_examples) GitHub 存储库中找到 Azure 事件中心的 Go 示例。
 
-### <a name="send-events"></a>发送事件 
+## <a name="azure-cli-samples"></a>Azure CLI 示例
+可在 [azure-event-hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/CLI) GitHub 存储库中找到 Azure 事件中心的 Azure CLI 示例。
 
-[发送入门](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender)示例演示如何编写可将事件发送到事件中心的 .NET Core 控制台应用程序。
-
-### <a name="receive-events"></a>接收事件 
-
-[使用事件处理程序主机接收入门](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver)示例是一个使用 `Event Processor Host` 从事件中心接收消息的 .NET Core 控制台应用程序。
-
-## <a name="net-framework"></a>.NET framework    
-
-这些示例针对 [.NET Framework 库](https://msdn.microsoft.com/zh-cn/library/w0x726c2.aspx)，演示 Azure 事件中心的各种其他功能。
-
-### <a name="notify-users-of-events-received"></a>通知用户已收到事件
-
-[AppToNotifyUsers](https://github.com/Azure-Samples/event-hubs-dotnet-user-notifications) 示例通知用户已收到传感器或其他系统发出的数据。
-
-### <a name="get-started-with-event-hubs"></a>事件中心入门 
-
-[事件中心入门](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097)示例演示事件中心的基本功能，如如何创建事件中心、将事件发送到事件中心，以及使用[事件处理器主机](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/)处理事件。
-
-### <a name="scale-out-event-processing"></a>扩大事件处理 
-
-[扩大事件处理](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3)示例演示如何使用[事件处理器主机](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/)分配事件中心流消耗工作负荷。 它演示如何实现用于管理事件流的 **EventProcessor** 和 **EventProcessorFactory** 对象。 
-
-###  <a name="pull-data-from-sql-into-an-event-hub"></a>将数据从 SQL 提取到事件中心
-
-[提取 SQL 数据](https://github.com/Azure-Samples/event-hubs-dotnet-import-from-sql) 示例演示如何从 SQL 表中提取数据并将其推送到事件中心，以便用作下游分析应用程序中的输入。
-
-### <a name="pull-web-data-into-an-event-hub"></a>将 Web 数据提取到事件中心 
-
-[从 Web 导入数据](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb)示例演示如何从公共源（例如运输部的流量信息源）提取数据，并将其推送到事件中心。
-
+## <a name="azure-powershell-samples"></a>Azure PowerShell 示例
+可在 [azure-event-hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/PowerShell) GitHub 存储库中找到 Azure 事件中心的 Azure PowerShell 示例。
 ## <a name="next-steps"></a>后续步骤
-
-访问以下链接，了解有关 .NET Framework 版本的详细信息：
-
-- [框架和目标](https://docs.microsoft.com/zh-cn/dotnet/articles/standard/frameworks)
-- [.NET Framework 4.6 和 4.5](https://msdn.microsoft.com/zh-cn/library/w0x726c2.aspx)
-
 可在以下文章中了解有关事件中心的详细信息：
 
-- [事件中心概述](./event-hubs-what-is-event-hubs.md)
-- [创建事件中心](./event-hubs-create.md)
-- [事件中心常见问题](./event-hubs-faq.md)
+- [事件中心概述](event-hubs-what-is-event-hubs.md)
+- [事件中心功能](event-hubs-features.md)
+- [事件中心常见问题](event-hubs-faq.md)
+
+<!--Update_Description: update meta properties, wording update, update reference link-->

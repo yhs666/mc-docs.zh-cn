@@ -1,30 +1,25 @@
 ---
-title: "Hadoop 的高可用性 - Azure HDInsight | Azure"
-description: "了解 HDInsight 群集如何使用附加的头节点提高可靠性和可用性。 了解这种方式对 Ambari 和 Hive 等 Hadoop 服务造成怎样的影响，以及如何使用 SSH 分别连接到每个头节点。"
+title: Hadoop 的高可用性 - Azure HDInsight
+description: 了解 HDInsight 群集如何使用附加的头节点提高可靠性和可用性。 了解这种方式对 Ambari 和 Hive 等 Hadoop 服务造成怎样的影响，以及如何使用 SSH 分别连接到每个头节点。
 services: hdinsight
-editor: cgronlun
-manager: jhubbard
-author: Blackmist
-documentationcenter: 
-tags: azure-portal
-keywords: "hadoop 高可用性"
-ms.assetid: 99c9f59c-cf6b-4529-99d1-bf060435e8d4
+ms.reviewer: jasonh
+author: jasonwhowell
+keywords: hadoop 高可用性
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
-ms.topic: article
-ms.date: 04/03/2017
-wacn.date: 
-ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: c1d3e6d57a21c5ace31a2e74b875db63f3156288
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.topic: conceptual
+origin.date: 03/22/2018
+ms.date: 11/19/2018
+ms.author: v-yiso
+ms.openlocfilehash: 500b325b292c00ee04d0e1ce9647f9b14fff672e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651353"
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>HDInsight 中 Hadoop 群集的可用性和可靠性
 
@@ -35,16 +30,14 @@ Hadoop 通过将服务和数据复制到群集中的多个节点来实现高可�
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
+> Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="availability-and-reliability-of-nodes"></a>节点的可用性和可靠性
 
-HDInsight 群集中的节点是使用 Azure 虚拟机实现的。 如果一个节点发生故障，该节点将会脱机，同时会创建一个新节点来取代有故障的节点。 当节点脱机时，将使用相同类型的另一个节点，直到新节点联机。
+HDInsight 群集中的节点是使用 Azure 虚拟机实现的。 以下部分介绍可配合 HDInsight 使用的节点类型。 
 
 > [!NOTE]
-> 如果节点发生故障时正在分析数据，其作业进度将会丢失。 作业将重新提交到另一个节点。
-
-以下部分介绍可配合 HDInsight 使用的节点类型。 并非所有节点类型都可用于某个群集类型。 例如，Hadoop 群集类型就没有任何 Nimbus 节点。 有关 HDInsight 群集类型使用的节点详细信息，请参阅[在 HDInsight 中创建基于 Linux 的 Hadoop 群集](hdinsight-hadoop-provision-linux-clusters.md#cluster-types)文档的“群集类型”部分。
+> 并非所有节点类型都可用于某个群集类型。 例如，Hadoop 群集类型就没有任何 Nimbus 节点。 有关 HDInsight 群集类型使用的节点详细信息，请参阅[在 HDInsight 中创建基于 Linux 的 Hadoop 群集](hdinsight-hadoop-provision-linux-clusters.md#cluster-types)文档的“群集类型”部分。
 
 ### <a name="head-nodes"></a>头节点
 
@@ -71,9 +64,9 @@ Storm 群集提供了 Nimbus 节点。 Nimbus 节点通过在辅助角色节点�
 
 边缘节点不主动参与群集内的数据分析。 在使用 Hadoop 时，它由开发人员或数据科学家使用。 边缘节点与群集中的其他节点一样驻留在同一个 Azure 虚拟网络中，可直接访问其他所有节点。 可以在不将资源带离关键的 Hadoop 服务或分析作业的情况下使用边缘节点。
 
-目前，HDInsight 上的 R Server 是默认提供边缘节点的唯一群集类型。 对于 R Server on HDInsight 而言，边缘节点用于在将 R 代码提交到群集进行分布式处理之前，在本地节点上对这些代码进行测试。
+目前，HDInsight 上的 ML Services 是默认提供边缘节点的唯一群集类型。 对于 HDInsight 上的 ML Services 而言，边缘节点用于在将 R 代码提交到群集进行分布式处理之前，在本地节点上对这些代码进行测试。
 
-若要了解如何将边缘节点与 R 服务器之外的群集类型配合使用，请参阅[在 HDInsight 中使用边缘节点](hdinsight-apps-use-edge-node.md)文档。
+若要了解如何将边缘节点与其他群集类型配合使用，请参阅[在 HDInsight 中使用边缘节点](hdinsight-apps-use-edge-node.md)文档。
 
 ## <a name="accessing-the-nodes"></a>访问节点
 
@@ -109,7 +102,7 @@ HDInsight 群集中的节点具有内部 IP 地址和 FQDN，这些只能从群�
 
 * **SSH**：使用 SSH 连接到头节点后，可以从头节点使用 SSH 连接到群集中的其他节点。 有关详细信息，请参阅[将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)文档。
 
-* **SSH 隧道**：如果需要访问托管在某个节点上的 Web 服务，并且该服务不在 Internet 上公开，则必须使用 SSH 隧道。 有关详细信息，请参阅[将 SSH 隧道与 HDInsight 配合使用](hdinsight-linux-ambari-ssh-tunnel.md)文档。
+* **SSH 隧道**：如果需要访问托管在某个节点上的 Web 服务，并且该服务不在 Internet 上公开，则必须使用 SSH 隧道。 有关详细信息，请参阅 [将 SSH 隧道与 HDInsight 配合使用](hdinsight-linux-ambari-ssh-tunnel.md)文档。
 
 * **Azure 虚拟网络**：如果 HDInsight 群集是 Azure 虚拟网络的一部分，则同一虚拟网络中的任何资源都可以直接访问该群集中的所有节点。 有关详细信息，请参阅[使用 Azure 虚拟网络扩展 HDInsight](hdinsight-extend-hadoop-virtual-network.md) 文档。
 
@@ -119,9 +112,9 @@ HDInsight 群集中的节点具有内部 IP 地址和 FQDN，这些只能从群�
 
 ### <a name="ambari-web-ui"></a>Ambari Web UI
 
-Ambari Web UI 在 https://CLUSTERNAME.azurehdinsight.cn 上显示。 将 **CLUSTERNAME** 替换为群集名称。 如果出现提示，请输入群集的 HTTP 用户凭据。 默认 HTTP 用户名为 **admin**，密码是创建群集时输入的密码。
+可在 https://CLUSTERNAME.azurehdinsight.cn 处查看 Ambari Web UI。 将 **CLUSTERNAME** 替换为群集名称。 如果出现提示，请输入群集的 HTTP 用户凭据。 默认 HTTP 用户名为 **admin**，密码是创建群集时输入的密码。
 
-出现 Ambari 页面时，该页的左侧将列出已安装的服务。
+出现 Ambari 页面时，该页的左侧列出已安装的服务。
 
 ![已安装的服务](./media/hdinsight-high-availability-linux/services.png)
 
@@ -146,7 +139,7 @@ Ambari REST API 可以通过 Internet 使用。 HDInsight 公共网关处理以�
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/services/SERVICENAME?fields=ServiceInfo/state
 
 * 将 **PASSWORD** 替换为 HTTP 用户 (admin) 帐户密码。
-* 将 **CLUSTERNAME** 替换为群集的名称。
+* 将 CLUSTERNAME 替换为群集的名称。
 * 将 **SERVICENAME** 替换为要检查其状态的服务的名称。
 
 例如，若要检查名为 **mycluster** 的群集上的、密码为 **password** 的 **HDFS** 服务的状态，可使用以下命令：
@@ -176,7 +169,7 @@ Ambari REST API 可以通过 Internet 使用。 HDInsight 公共网关处理以�
 
 #### <a name="service-components"></a>服务组件
 
-服务可能包含你想要单独检查状态的组件。 例如，HDFS 包含 NameNode 组件。 若要查看有关组件的信息，请使用以下命令：
+服务可能包含想要单独检查其状态的组件。 例如，HDFS 包含 NameNode 组件。 若要查看有关组件的信息，请使用以下命令：
 
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/services/SERVICE/components/component
 
@@ -190,7 +183,7 @@ Ambari REST API 可以通过 Internet 使用。 HDInsight 公共网关处理以�
 
 通过 SSH 连接到头节点时，可以在 **/var/log**中找到日志文件。 例如， **/var/log/hadoop-yarn/yarn** 包含 YARN 的日志。
 
-每个头节点可能具有唯一的日志条目，因此你应该检查两个头节点上的日志。
+每个头节点可能具有唯一的日志条目，因此应该检查两个头节点上的日志。
 
 ### <a name="sftp"></a>SFTP
 
@@ -198,7 +191,7 @@ Ambari REST API 可以通过 Internet 使用。 HDInsight 公共网关处理以�
 
 与使用 SSH 客户端一样，在连接到群集时，必须提供 SSH 用户帐户名和群集的 SSH 地址。 例如，`sftp username@mycluster-ssh.azurehdinsight.cn`。 在出现提示时，提供帐户密码或使用 `-i` 参数提供公钥。
 
-建立连接后，会出现 `sftp>` 提示符。 在此提示符下，可以更改目录以及上传和下载文件。 例如：以下命令将目录切换到 **/var/log/hadoop/hdfs** 目录，然后下载该目录中的所有文件。
+建立连接后，会出现 `sftp>` 提示符。 在此提示符下，可以更改目录以及上传和下载文件。 例如：以下命令将目录切换到 **/var/log/hadoop/hdfs** 目录，并下载该目录中的所有文件。
 
     cd /var/log/hadoop/hdfs
     get *
@@ -213,7 +206,7 @@ Ambari REST API 可以通过 Internet 使用。 HDInsight 公共网关处理以�
 > [!NOTE]
 > 若要通过 Ambari 访问日志文件，必须使用 SSH 隧道。 单个服务的 Web 界面不在 Internet 上公开。 有关使用 SSH 隧道的信息，请参阅[使用 SSH 隧道](hdinsight-linux-ambari-ssh-tunnel.md)文档。
 
-在 Ambari Web UI 中选择要查看其日志的服务（例如 YARN）。 然后，使用“快速链接”选择要查看其日志的头节点。
+在 Ambari Web UI 中选择要查看其日志的服务（例如 YARN）。 然后使用“快速链接”选择要查看其日志的头节点。
 
 ![使用快速链接查看日志](./media/hdinsight-high-availability-linux/viewlogs.png)
 
@@ -221,13 +214,13 @@ Ambari REST API 可以通过 Internet 使用。 HDInsight 公共网关处理以�
 
 只能在创建群集期间选择节点大小。 可以在 [HDInsight 定价页](https://www.azure.cn/pricing/details/hdinsight/)上找到 HDInsight 可用的不同 VM 大小的列表。
 
-创建群集时，可以指定节点的大小。 以下信息介绍了如何使用 [Azure 门户][preview-portal]、[Azure PowerShell][azure-powershell] 和 [Azure CLI][azure-cli] 指定大小：
+创建群集时，可以指定节点的大小。 以下信息介绍了如何使用 [Azure 门户][preview-portal]、[Azure PowerShell][azure-powershell] 和 [Azure 经典 CLI][azure-cli] 指定大小：
 
 * **Azure 门户**：创建群集时，可以设置群集所用节点的大小：
 
     ![群集创建向导的图像，其中包含节点大小选项](./media/hdinsight-high-availability-linux/headnodesize.png)
 
-* **Azure CLI**：使用 `azure hdinsight cluster create` 命令时，可以使用 `--headNodeSize`、`--workerNodeSize` 和 `--zookeeperNodeSize` 参数设置头节点、辅助角色节点与 ZooKeeper 节点的大小。
+* Azure 经典 CLI：使用 `azure hdinsight cluster create` 命令时，可以使用 `--headNodeSize`、`--workerNodeSize` 和 `--zookeeperNodeSize` 参数设置头节点、辅助角色节点与 ZooKeeper 节点的大小。
 
 * **Azure PowerShell**：使用 `New-AzureRmHDInsightCluster` cmdlet 时，可以使用 `-HeadNodeVMSize`、`-WorkerNodeSize` 和 `-ZookeeperNodeSize` 参数设置头节点、辅助角色节点与 ZooKeeper 节点的大小。
 
@@ -236,7 +229,7 @@ Ambari REST API 可以通过 Internet 使用。 HDInsight 公共网关处理以�
 请使用以下链接深入了解本文档中所述的内容。
 
 * [Ambari REST 参考](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-* [安装和配置 Azure CLI](../cli-install-nodejs.md)
+* [安装和配置 Azure 经典 CLI](../cli-install-nodejs.md)
 * [安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 * [使用 Ambari 管理 HDInsight](hdinsight-hadoop-manage-ambari.md)
 * [配置基于 Linux 的 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)
@@ -245,3 +238,4 @@ Ambari REST API 可以通过 Internet 使用。 HDInsight 公共网关处理以�
 [azure-powershell]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [azure-cli]: ../cli-install-nodejs.md
 
+<!--Update_Description: wording update-->

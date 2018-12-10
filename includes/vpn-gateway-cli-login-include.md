@@ -1,11 +1,14 @@
-使用 [az login](https://docs.microsoft.com/cli/azure/#login) 命令登录到 Azure 订阅，并按照屏幕上的说明进行操作。 有关登录的详细信息，请参阅 [Azure CLI 2.0 入门](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)。
+---
+ title: include 文件 description: include 文件 services: vpn-gateway author: cherylmc ms.service: vpn-gateway ms.topic: include origin.date: 03/21/2018 ms.date: 08/13/2018 ms.author: v-junlch ms.custom: include file
+---
+使用 [az login](/cli/#login) 命令登录到 Azure 订阅，并按照屏幕上的说明进行操作。 有关登录的详细信息，请参阅 [Azure CLI 2.0 入门](/cli/get-started-with-azure-cli)。
 
 ```azurecli
 az login
 ```
 
 > [!NOTE]
-> 在 Azure 中国区使用 Azure CLI 2.0 之前，需修改 Azure 配置文件。 运行 `az configure` 即可查看配置文件的路径，该路径在 Windows 中类似于 `C:\Users\<user name>\.azure\config`，在 Linux 中类似于 `/var/users/<username>/.azure/config`。 打开文件，将 `AzureCloud` 替换为 `AzureChinaCloud`。
+> 在 Azure China 中使用 Azure CLI 2.0 之前，请首先运行 `az cloud set -n AzureChinaCloud` 更改云环境。 如果要切换回全局 Azure，请再次运行 `az cloud set -n AzureCloud`。
 
 如果有多个 Azure 订阅，请列出该帐户的订阅。
 
@@ -18,3 +21,5 @@ az account list --all
 ```azurecli
 az account set --subscription <replace_with_your_subscription_id>
 ```
+
+<!-- ms.date: 08/13/2018 -->

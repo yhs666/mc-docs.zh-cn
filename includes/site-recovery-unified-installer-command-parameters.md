@@ -13,6 +13,4 @@
 |DataTransferSecurePort|可选|用于复制数据的 PSIP 上的端口号| 有效端口号（默认值为 9433）|
 |/SkipSpaceCheck|可选|跳过缓存磁盘的空间检查| |
 |/AcceptThirdpartyEULA|必需|该标志表示接受第三方 EULA| |
-|/ShowThirdpartyEULA|可选|显示第三方 EULA。如果作为输入提供，将忽略所有其他参数| |
-
-<!---HONumber=Mooncake_0327_2017-->
+|/ShowThirdpartyEULA|可选|显示第三方 EULA。 如果作为输入提供，将忽略所有其他参数| |

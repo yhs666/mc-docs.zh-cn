@@ -1,30 +1,25 @@
 ---
-title: "Azure 应用程序网关 Web 应用程序防火墙 CRS 规则组和规则 | Azure"
-description: "本页提供有关 Web 应用程序防火墙 CRS 规则组和规则的信息。"
+title: Azure 应用程序网关 Web 应用程序防火墙 CRS 规则组和规则
+description: 本页提供有关 Web 应用程序防火墙 CRS 规则组和规则的信息。
 documentationcenter: na
 services: application-gateway
-author: georgewallace
-manager: timlt
-editor: tysonn
-ms.assetid: e5ea5cf9-3b41-4b85-a12c-e758bff7f3ec
+author: vhorne
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.custom: 
+ms.custom: ''
 ms.workload: infrastructure-services
-ms.date: 03/28/2017
-wacn.date: 
-ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8d9ebf488efbf22957f23f3ca28f83f5ea8266f4
-ms.openlocfilehash: 96f858a7de6370cdb39421ae8a96e95af217fabb
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/09/2017
-
-
+origin.date: 04/16/2018
+ms.date: 06/07/2018
+ms.author: v-junlch
+ms.openlocfilehash: 1896a1ad5e5c0f3779cacd7a89aa32a80ada3d0e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648310"
 ---
-
 # <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>提供的 Web 应用程序防火墙 CRS 规则组和规则列表
 
 出现常见的漏洞和攻击时，应用程序网关 Web 应用程序防火墙 (WAF) 可保护 Web 应用程序。 这种保护是由根据 OWASP 核心规则集 2.2.9 或 3.0 定义的规则实现的。 可以逐个禁用这些规则。 本文包含当前提供的规则和规则集。
@@ -33,26 +28,6 @@ ms.lasthandoff: 05/09/2017
 
 ## <a name="owasp30"></a> OWASP_3.0
 
-### <a name="crs910"></a>  <p x-ms-format-detection="none">REQUEST-910-IP-REPUTATION</p>
-
-|RuleId|说明|
-|---|---|
-|910011|规则 910011|
-|910012|规则 910012|
-|910000|来自已知恶意客户端（根据以前的流量违规判断）的请求。|
-|910100|来自高风险国家/地区的客户端 IP。|
-|910120|规则 910120|
-|910130|规则 910130|
-|910150|搜索引擎 IP 的 HTTP 方块列表匹配项|
-|910160|垃圾邮件发送者 IP 的 HTTP 方块列表匹配项|
-|910170|可疑 IP 的 HTTP 方块列表匹配项|
-|910180|搜集者 IP 的 HTTP 方块列表匹配项|
-|910013|规则 910013|
-|910014|规则 910014|
-|910015|规则 910015|
-|910016|规则 910016|
-|910017|规则 910017|
-|910018|规则 910018|
 
 ### <a name="crs911"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
 
@@ -68,26 +43,6 @@ ms.lasthandoff: 05/09/2017
 |911017|规则 911017|
 |911018|规则 911018|
 
-### <a name="crs912"></a> <p x-ms-format-detection="none">REQUEST-912-DOS-PROTECTION</p>
-
-|RuleId|说明|
-|---|---|
-|912100|规则 912100|
-|912012|规则 912012|
-|912120|从 %@{tx.real_ip} 识别的拒绝服务 (DoS) 攻击（自上次警报以来触发了 %@{tx.dos_block_counter} 次）|
-|912130|规则 912130|
-|912140|规则 912140|
-|912150|规则 912150|
-|912160|规则 912160|
-|912170|来自 %@{tx.real_ip} 的潜在拒绝服务 (DoS) 攻击 - 请求喷发数 = %@{ip.dos_burst_counter}|
-|912013|规则 912013|
-|912014|规则 912014|
-|912019|规则 912019|
-|912171|来自 %@{tx.real_ip} 的潜在拒绝服务 (DoS) 攻击 - 请求喷发数 = %@{ip.dos_burst_counter}|
-|912015|规则 912015|
-|912016|规则 912016|
-|912017|规则 912017|
-|912018|规则 912018|
 
 ### <a name="crs913"></a> <p x-ms-format-detection="none">REQUEST-913-SCANNER-DETECTION</p>
 
@@ -338,7 +293,7 @@ ms.lasthandoff: 05/09/2017
 |943017|规则 943017|
 |943018|规则 943018|
 
-## <a name="owasp229"></a> OWASP_2.2.9
+##<a name="owasp229"></a> OWASP_2.2.9
 
 ### <a name="crs20"></a> crs_20_protocol_violations
 
@@ -358,7 +313,7 @@ ms.lasthandoff: 05/09/2017
 |958291|范围 = 字段存在并以 0 开始。|
 |958230|范围 = 最后一个字节值无效。|
 |958295|找到了多个/有冲突的连接标头数据。|
-|950107|URL 编码滥用攻击尝试|
+|950107|URL 编码滥用攻击企图|
 |950109|检测到多个 URL 编码|
 |950108|URL 编码滥用攻击尝试|
 |950801|UTF8 编码滥用攻击企图|
@@ -373,7 +328,7 @@ ms.lasthandoff: 05/09/2017
 |960008|请求缺少 Host 标头|
 |960007|Host 标头为空|
 |960015|请求缺少 Accept 标头|
-|960021|请求包含空的 Accept 标头|
+|960021|请求包含空 Accept 标头|
 |960009|请求缺少用户代理标头|
 |960006|用户代理标头为空|
 |960904|请求包含内容但缺少 Content-Type 标头|
@@ -599,3 +554,5 @@ ms.lasthandoff: 05/09/2017
 访问[自定义 WAF 规则](application-gateway-customize-waf-rules-portal.md)，了解如何禁用 WAF 规则
 
 [1]: ./media/application-gateway-integration-security-center/figure1.png
+
+<!-- Update_Description: wording update -->

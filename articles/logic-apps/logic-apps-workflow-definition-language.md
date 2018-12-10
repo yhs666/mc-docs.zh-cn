@@ -1,0 +1,223 @@
+---
+title: 工作流定义语言的架构引用 - Azure 逻辑应用 | Microsoft Docs
+description: 使用工作流定义语言编写 Azure 逻辑应用的自定义工作流定义
+services: logic-apps
+ms.service: logic-apps
+author: ecfan
+manager: jeconnoc
+ms.topic: reference
+origin.date: 04/30/2018
+ms.author: v-yiso
+ms.date: 09/03/2018
+ms.openlocfilehash: 4f436bf045f1e7f73c3a5d3eaf37979de5df6ee4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662547"
+---
+# <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure 逻辑应用中工作流定义语言的架构引用
+
+使用 [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)创建逻辑应用工作流时，工作流的基础定义将描述针对逻辑应用运行的实际逻辑。 此描述遵循工作流定义语言架构定义和验证的、使用 [JavaScript 对象表示法 (JSON)](https://www.json.org/) 的结构。 
+  
+## <a name="workflow-definition-structure"></a>工作流定义结构
+
+工作流定义至少包含一个用于实例化逻辑应用的触发器，以及逻辑应用运行的一个或多个操作。 
+
+下面是工作流定义的高级结构：  
+  
+```json
+"definition": {
+  "$schema": "<workflow-definition-language-schema-version>",
+  "contentVersion": "<workflow-definition-version-number>",
+  "parameters": { "<workflow-parameter-definitions>" },
+  "triggers": { "<workflow-trigger-definitions>" },
+  "actions": { "<workflow-action-definitions>" },
+  "outputs": { "<workflow-output-definitions>" }
+}
+```
+  
+| 元素 | 必须 | 说明 | 
+|---------|----------|-------------| 
+| 定义 | 是 | 工作流定义的起始元素 | 
+| $schema | 仅当在外部引用工作流定义时才使用 | 描述工作流定义语言版本的 JSON 架构文件的位置。可在以下位置找到该文件： <p>`https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json`</p> |   
+| contentVersion | 否 | 工作流定义的版本号，默认为“1.0.0.0”。 为了帮助在部署工作流时识别并确认正确的定义，请指定要使用的值。 | 
+| 参数 | 否 | 用于将数据传入工作流的一个或多个参数的定义 <p><p>参数数目上限：50 | 
+| 触发器 | 否 | 用于实例化工作流的一个或多个触发器的定义 可以定义多个触发器，但只能使用工作流定义语言来定义，而不能通过逻辑应用设计器以可视方式进行定义。 <p><p>触发器数目上限：10 | 
+| actions | 否 | 要在工作流运行时执行的一个或多个操作的定义 <p><p>操作数目上限：250 | 
+| outputs | 否 | 从工作流运行返回的输出的定义 <p><p>输出数目上限：10 |  
+|||| 
+
+## <a name="parameters"></a>parameters
+
+在 `parameters` 节中，定义逻辑应用在部署时用来接受输入的所有工作流参数。 部署时需要参数声明和参数值。 在其他工作流节中使用这些参数之前，请确保声明这些节中的所有参数。 
+
+下面是参数定义的一般结构：  
+
+```json
+"parameters": {
+  "<parameter-name>": {
+    "type": "<parameter-type>",
+    "defaultValue": "<default-parameter-value>",
+    "allowedValues": [ <array-with-permitted-parameter-values> ],
+    "metadata": { 
+      "key": { 
+        "name": "<key-value>"
+      } 
+    }
+  }
+},
+```
+
+| 元素 | 必须 | 类型 | 说明 |  
+|---------|----------|------|-------------|  
+| type | 是 | int、float、string、securestring、bool、array、JSON 对象、secureobject <p><p>**注意**：对于所有密码、密钥和机密，请使用 `securestring` 和 `secureobject` 类型，因为 `GET` 操作不会返回这些类型。 | 参数的类型 |
+| defaultValue | 否 | 与 `type` 相同 | 在工作流实例化时未指定值的情况下使用的默认参数值 | 
+| allowedValues | 否 | 与 `type` 相同 | 包含参数可接受的值的数组 |  
+| metadata | 否 | JSON 对象 | 其他任何参数详细信息，例如，逻辑应用的名称或可读说明，或者 Visual Studio 或其他工具使用的设计时数据 |  
+||||
+
+## <a name="triggers-and-actions"></a>触发器和操作  
+
+在工作流定义中，`triggers` 和 `actions` 节定义工作流执行期间发生的调用。 有关这些节的语法和详细信息，请参阅[工作流触发器和操作](../logic-apps/logic-apps-workflow-actions-triggers.md)。
+  
+## <a name="outputs"></a>Outputs  
+
+在 `outputs` 节中，定义工作流在完成运行时可以返回的数据。 例如，若要跟踪每次运行的特定状态或值，请指定工作流输出应返回该数据。 
+
+> [!NOTE]
+> 在响应来自服务 REST API 的传入请求时，请不要使用 `outputs`。 请改用 `Response` 操作类型。 有关详细信息，请参阅[工作流触发器和操作](../logic-apps/logic-apps-workflow-actions-triggers.md)。
+
+下面是输出定义的一般结构： 
+
+```json
+"outputs": {
+  "<key-name>": {  
+    "type": "<key-type>",  
+    "value": "<key-value>"  
+  }
+} 
+```
+
+| 元素 | 必须 | 类型 | 说明 | 
+|---------|----------|------|-------------| 
+| <*key-name*> | 是 | String | 输出返回值的密钥名称 |  
+| type | 是 | int、float、string、securestring、bool、array、JSON 对象 | 输出返回值的类型 | 
+| value | 是 | 与 `type` 相同 | 输出返回值 |  
+||||| 
+
+若要从工作流运行中获取输出，请在 Azure 门户中查看逻辑应用的运行历史记录和详细信息，或使用[工作流 REST API](https://docs.microsoft.com/rest/api/logic/workflows)。 也可以将输出传递给 PowerBI 等外部系统，以便可以创建仪表板。 
+
+<a name="expressions"></a>
+
+## <a name="expressions"></a>表达式
+
+使用 JSON 可以获取设计时存在的文本值，例如：
+
+```json
+"customerName": "Sophia Owen", 
+"rainbowColors": ["red", "orange", "yellow", "green", "blue", "indigo", "violet"], 
+"rainbowColorsCount": 7 
+```
+
+还可以获取在运行时之前不存在的值。 若要表示这些值，可以使用运行时计算的表达式。 表达式是可以包含一个或多个[函数](#functions)、[运算符](#operators)、变量、显式值或常量的序列。 在工作流定义中，可以在 JSON 字符串值中的任何位置使用表达式，只需为表达式加上 \@ 符号前缀即可。 计算表示 JSON 值的表达式时，会通过删除 \@ 字符来提取表达式主体，并且始终生成另一个 JSON 值。 
+
+例如，对于前面定义的 `customerName` 属性，可以通过在表达式中使用 [parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) 函数来获取属性值，并将该值分配给 `accountName` 属性：
+
+```json
+"customerName": "Sophia Owen", 
+"accountName": "@parameters('customerName')"
+```
+
+字符串内插还允许在字符串中使用由 \@ 字符和大括号 ({}) 包装的多个表达式。 语法如下：
+
+```json
+@{ "<expression1>", "<expression2>" }
+```
+
+结果始终是一个字符串。因此，此功能类似于 `concat()` 函数，例如： 
+
+```json
+"customerName": "First name: @{parameters('firstName')} Last name: @{parameters('lastName')}"
+```
+
+如果某个文本字符串以 \@ 字符开头，请加上 \@ 字符作为前缀，并加上另一个 \@ 字符作为转义符：\@\@
+
+这些示例演示如何计算表达式：
+
+| JSON 值 | 结果 |
+|------------|--------| 
+| "Sophia Owen" | 返回这些字符：'Sophia Owen' |
+| "array[1]" | 返回这些字符：'array[1]' |
+| "\@\@" | 以单字符字符串的形式返回这些字符：'\@' |   
+| " \@" | 以双字符字符串的形式返回这些字符：' \@' |
+|||
+
+这些示例假设定义了 "myBirthMonth" 等于 "January"，"myAge" 等于数字 42：  
+  
+```json
+"myBirthMonth": "January",
+"myAge": 42
+```
+
+这些示例演示如何计算以下表达式：
+
+| JSON 表达式 | 结果 |
+|-----------------|--------| 
+| "\@parameters('myBirthMonth')" | 返回此字符串："January" |  
+| "\@{parameters('myBirthMonth')}" | 返回此字符串："January" |  
+| "\@parameters('myAge')" | 返回此数字：42 |  
+| "\@{parameters('myAge')}" | 以字符串形式返回此数字："42" |  
+| "My age is \@{parameters('myAge')}" | 返回此字符串："My age is 42" |  
+| "\@concat('我的年龄是 ', string(parameters('myAge')))" | 返回此字符串："My age is 42" |  
+| "My age is \@\@{parameters('myAge')}" | 返回包含表达式的此字符串："My age is \@{parameters('myAge')}` | 
+||| 
+
+在逻辑应用设计器中以可视方式操作时，可以通过表达式生成器创建表达式，例如： 
+
+![逻辑应用设计器 > 表达式生成器](./media/logic-apps-workflow-definition-language/expression-builder.png)
+
+完成后，将为工作流定义中的相应属性显示表达式，例如，下面的 `searchQuery` 属性：
+
+```json
+"Search_tweets": {
+  "inputs": {
+    "host": {
+      "connection": {
+       "name": "@parameters('$connections')['twitter']['connectionId']"
+      }
+    }
+  },
+  "method": "get",
+  "path": "/searchtweets",
+  "queries": {
+    "maxResults": 20,
+    "searchQuery": "Azure @{concat('firstName','', 'LastName')}"
+  }
+},
+```
+
+<a name="operators"></a>
+
+## <a name="operators"></a>运算符
+
+在[表达式](#expressions)和[函数](#functions)中，运算符执行特定的任务，例如，引用数组中的某个属性或值。 
+
+| 运算符 | 任务 | 
+|----------|------|
+| ' | 若要使用字符串文本作为输入，或者在表达式和函数中使用字符串文本，请仅使用单引号包装该字符串，例如 `'<myString>'`。 不要使用双引号 ("")，否则与整个表达式两侧的 JSON 格式相冲突。 例如： <p>**正确**：length('Hello') </br>**错误**：length("Hello") <p>如果传递数组或数字，则不需要包装标点符号。 例如： <p>**正确**：length([1, 2, 3]) </br>**错误**：length("[1, 2, 3]") | 
+| [] | 若要引用数组中特定位置（索引）处的某个值，请使用方括号。 例如，若要获取数组中的第二个项： <p>`myArray[1]` | 
+| 上获取。 | 若要引用对象中的属性，请使用点运算符。 例如，若要获取 `customer` JSON 对象的 `name` 属性： <p>`"@parameters('customer').name"` | 
+| ? | 若要引用未发生运行时错误的对象中的 null 属性，请使用问号运算符。 例如，若要处理触发器中的 null 输出，可使用以下表达式： <p>`@coalesce(trigger().outputs?.body?.<someProperty>, '<property-default-value>')` | 
+||| 
+
+<a name="functions"></a>
+
+## <a name="functions"></a>函数
+
+某些表达式从运行时操作获取其值，而这些操作在逻辑应用开始执行时可能不存在。 若要在表达式中引用或处理这些值，可以使用工作流定义语言提供的[*函数*](../logic-apps/workflow-definition-language-functions-reference.md)。 
+
+## <a name="next-steps"></a>后续步骤
+
+* 了解[工作流定义语言操作和触发器](../logic-apps/logic-apps-workflow-actions-triggers.md)
+* 了解如何使用[工作流 REST API](https://docs.microsoft.com/rest/api/logic/workflows) 以编程方式创建和管理逻辑应用

@@ -1,30 +1,28 @@
 ---
-title: "任务失败事件 - Azure | Microsoft Docs"
-ms.custom: 
-ms.date: 2017-02-01
-ms.prod: azure
-ms.reviewer: 
+title: Azure Batch 任务失败事件 | Microsoft Docs
+description: Batch 任务失败事件参考。
+services: batch
+author: dlepow
+manager: jeconnoc
+ms.assetid: ''
 ms.service: batch
-ms.suite: 
-ms.tgt_pltfrm: 
-ms.topic: reference
-ms.assetid: 8c16a533-1ac7-4b65-a84e-8eafb937b3d7
-caps.latest.revision: 3
-author: tamram
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: ''
+ms.workload: big-compute
+origin.date: 04/20/2017
+ms.date: 05/15/2018
 ms.author: v-junlch
-manager: timlt
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 64974442ca406525f43401e95c68aedeed3e4879
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: 354e38f3299b1fe8f373815f06a2db1f9fe9578e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658017"
 ---
 # <a name="task-fail-event"></a>任务失败事件
-任务失败事件日志正文
 
-## <a name="remarks"></a>备注
- 当任务以失败结束时，会发出此事件。 当前，所有非零退出代码都视为失败。 *除了*任务完成事件，还将发出此事件，该事件可用于检测任务失败的时间。
+ 当任务以失败结束时，会发出此事件。 当前，所有非零退出代码都视为失败。 *除了*任务完成事件，还会发出此事件，该事件可用于检测任务失败的时间。
 
 
  以下示例显示了任务失败事件的正文。
@@ -55,7 +53,7 @@ ms.lasthandoff: 05/05/2017
 }
 ```
 
-|元素名称|类型|说明|
+|元素名称|类型|注释|
 |------------------|----------|-----------|
 |jobId|String|包含任务的作业的 id。|
 |id|String|任务的 id。|
@@ -68,27 +66,27 @@ ms.lasthandoff: 05/05/2017
 
 ###  <a name="nodeInfo"></a> nodeInfo
 
-|元素名称|类型|说明|
+|元素名称|类型|注释|
 |------------------|----------|-----------|
 |poolId|String|运行任务的池的 id。|
 |nodeId|String|运行任务的节点的 id。|
 
 ###  <a name="multiInstanceSettings"></a> multiInstanceSettings
 
-|元素名称|类型|说明|
+|元素名称|类型|注释|
 |------------------|----------|-----------|
 |numberOfInstances|Int32|任务所需的计算节点数。|
 
 ###  <a name="constraints"></a> constraints
 
-|元素名称|类型|说明|
+|元素名称|类型|注释|
 |------------------|----------|-----------|
-|maxTaskRetryCount|Int32|可以重试任务的最大次数。 批处理服务在其退出代码非零时重试任务。<br /><br /> 请注意，此值专门用于控制重试的次数。 批处理服务将尝试任务一次，然后重试，直至达到此上限为止。 例如，如果最大重试计数为 3，则批处理任务最多尝试任务 4 次（一次是初始尝试，其余 3 次是重试）。<br /><br /> 如果最大重试计数为 0，则批处理服务不会重试任务。<br /><br /> 如果最大重试计数为 -1，则批处理服务会无限制地重试任务。<br /><br /> 默认值为 0（不重试）。|
+|maxTaskRetryCount|Int32|可以重试任务的最大次数。 批处理服务在其退出代码非零时重试任务。<br /><br /> 请注意，此值专门用于控制重试的次数。 批处理服务将尝试任务一次，并重试，直至达到此上限为止。 例如，如果最大重试计数为 3，则批处理任务最多尝试任务 4 次（一次是初始尝试，其余 3 次是重试）。<br /><br /> 如果最大重试计数为 0，则批处理服务不会重试任务。<br /><br /> 如果最大重试计数为 -1，则批处理服务会无限制地重试任务。<br /><br /> 默认值为 0（不重试）。|
 
 
 ###  <a name="executionInfo"></a> executionInfo
 
-|元素名称|类型|说明|
+|元素名称|类型|注释|
 |------------------|----------|-----------|
 |startTime|DateTime|任务开始运行的时间。 “Running”对应于**正在运行**状态，因此如果任务指定资源文件或应用程序包，则开始时间反映了任务开始下载或部署这些内容的时间。  如果任务已重启或重试，该时间是任务开始运行的最近时间。|
 |endTime|DateTime|任务完成的时间。|
@@ -96,3 +94,4 @@ ms.lasthandoff: 05/05/2017
 |retryCount|Int32|批处理服务重试任务的次数。 如果任务使用非零退出代码退出，该任务会重试，直至达到指定的 MaxTaskRetryCount。|
 |requeueCount|Int32|批处理服务因用户请求而对任务进行重新排队的次数。<br /><br /> 当用户从池中删除节点（通过调整池的大小或缩小池）或作业已禁用时，用户可以指定节点上运行的任务重新排队等待执行。 此计数跟踪由于这些原因而重新排队任务的次数。|
 
+<!-- Update_Description: update metedata properties -->

@@ -1,0 +1,85 @@
+items:
+- name: 身份验证文档
+  href: index.yml
+- name: 概述
+  items:
+  - name: 什么是身份验证？
+    href: overview-authentication.md
+- name: 快速入门
+  items:
+  - name: 配置密码重置
+    href: quickstart-sspr.md
+- name: 教程
+  items:
+  - name: 2 启用 SSPR 试点
+    href: tutorial-sspr-pilot.md
+- name: 概念
+  items:
+  - name: 身份验证方法
+    href: concept-authentication-methods.md
+  - name: 密码重置
+    items:
+    - name: 密码重置工作原理
+      href: concept-sspr-howitworks.md
+    - name: 密码重置策略
+      href: concept-sspr-policy.md
+  - name: 多重身份验证
+    items:
+    - name: MFA 工作原理
+      href: concept-mfa-howitworks.md
+    - name: 为用户授予许可
+      href: concept-mfa-licensing.md
+    - name: MFA 常见问题解答
+      href: multi-factor-authentication-faq.md
+  expanded: true
+- name: 操作指南
+  items:
+  - name: 基于云的 MFA
+    items:
+    - name: 部署基于云的 MFA
+      href: howto-mfa-getstarted.md
+    - name: 每用户 MFA
+      href: howto-mfa-userstates.md
+    - name: 用户和设备设置
+      href: howto-mfa-userdevicesettings.md
+    - name: 配置设置
+      href: howto-mfa-mfasettings.md
+    - name: Directory 联合身份验证
+      items:
+      - name: Windows Server 2016 AD FS 适配器
+        href: https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa
+  - name: 无密码的手机登录
+    href: howto-authentication-phone-sign-in.md
+  - name: 基于证书的身份验证
+    items:
+    - name: 开始使用证书身份验证
+      href: active-directory-certificate-based-authentication-get-started.md
+      items:
+      - name: Android 设备上的 CBA
+        href: active-directory-certificate-based-authentication-android.md
+      - name: iOS 设备上的 CBA
+        href: active-directory-certificate-based-authentication-ios.md
+  - name: 故障排除
+    items:
+    - name: MFA 常见问题解答
+      href: multi-factor-authentication-faq.md
+- name: 参考
+  items:
+  - name: Azure PowerShell cmdlet
+    href: https://docs.microsoft.com/powershell/azure/overview
+  - name: 服务限制和局限性
+    href: ../users-groups-roles/directory-service-limits-restrictions.md
+- name: 资源
+  items:
+  - name: Azure 反馈论坛
+    href: https://feedback.azure.com/forums/169401-azure-active-directory
+  - name: MSDN 论坛
+    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD
+  - name: 定价
+    href: https://www.azure.cn/pricing/details/active-directory/
+ms.openlocfilehash: 2331c5a55424b3187148ca406c3b0cfa954b9c50
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646504"

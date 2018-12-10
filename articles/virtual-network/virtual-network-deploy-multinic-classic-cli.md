@@ -1,59 +1,65 @@
 ---
-title: 使用 Azure CLI 创建具有多个 NIC 的 VM（经典）| Azure
-description: 了解如何使用 Azure CLI 通过经典部署模型创建具有多个 NIC 的 VM。
+title: 创建具有多个 NIC 的 VM（经典）- Azure 经典 CLI | Azure
+description: 了解如何使用 Azure 经典命令行接口 (CLI) 创建具有多个 NIC 的 VM（经典）。
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-service-management
-
 ms.assetid: b436e41e-866c-439f-a7c7-7b4b041725ef
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/02/2016
-wacn.date: 12/26/2016
-ms.author: v-dazen
+origin.date: 02/02/2016
+ms.date: 11/12/2018
+ms.author: v-yeche
+ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 892aeb55e4d95b9d6583f664054fbf8a0e205f1d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660801"
 ---
+# <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-classic-cli"></a>使用 Azure 经典 CLI 创建具有多个 NIC 的 VM（经典）
 
-# 使用 Azure CLI 创建具有多个 NIC 的 VM（经典）
 [!INCLUDE [virtual-network-deploy-multinic-classic-selectors-include.md](../../includes/virtual-network-deploy-multinic-classic-selectors-include.md)]
 
-你可以在 Azure 中创建虚拟机 (VM)，然后将多个网络接口 (NIC) 附加到每个 VM。有多个 NIC 时，可跨各个 NIC 分隔不同的流量类型。例如，一个 NIC 可能会与 Internet 通信，而另一个 NIC 则只与未连接到 Internet 的内部资源通信。跨多个 NIC 分隔网络流量是许多网络虚拟设备（例如应用程序交付和 WAN 优化解决方案）所需的功能。
+用户可以在 Azure 中创建虚拟机 (VM)，并将多个网络接口 (NIC) 附加到每个 VM。 有多个 NIC 时，可跨各个 NIC 分隔不同的流量类型。 例如，一个 NIC 可能会与 Internet 通信，而另一个 NIC 则只与未连接到 Internet 的内部资源通信。 许多网络虚拟设备（例如应用程序交付和 WAN 优化解决方案）都需要具备跨多个 NIC 分离网络流量的能力。
 
 > [!IMPORTANT]
-> Azure 具有两种不同的部署模型，用于创建和处理资源：[Resource Manager 模型和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍使用经典部署模型的情况。Azure 建议大多数新部署使用 Resource Manager 模型。了解如何使用 [Resource Manager 部署模型](./virtual-network-deploy-multinic-arm-cli.md)执行这些步骤。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../resource-manager-deployment-model.md)。 本文介绍使用经典部署模型的情况。 Azure 建议大多数新部署使用 Resource Manager 模型。 了解如何使用 [Resource Manager 部署模型](../virtual-machines/linux/multiple-nics.md)执行这些步骤。
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-以下步骤将名为 *IaaSStory* 的资源组用于 Web 服务器，并将名为 *IaaSStory-BackEnd* 的资源组用于数据库服务器。
+以下步骤使用名为 *IaaSStory* 的资源组作为主资源组，并在名为 *IaaSStory-BackEnd* 的资源组中实现后端服务器。
 
-## <a name="Prerequisites"></a> 先决条件
-需要先创建具有此方案需要的所有资源的 *IaaSStory* 资源组，然后才能创建数据库服务器。若要创建这些资源，请完成以下步骤。若要创建虚拟网络，请完成[创建虚拟网络](./virtual-networks-create-vnet-classic-cli.md)一文中的步骤。
+## <a name="prerequisites"></a>先决条件
+创建数据库服务器之前，需要先使用此方案的所有必需资源创建 *IaaSStory* 资源组。 若要创建这些资源，请完成以下步骤。 若要创建 VNet，请完成[创建虚拟网络](virtual-networks-create-vnet-classic-cli.md)一文中的步骤。
 
 [!INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
-## 部署后端 VM
+## <a name="deploy-the-back-end-vms"></a>部署后端 VM
 后端 VM 取决于以下资源的创建：
 
-* **数据磁盘的存储帐户**。为了提高性能，数据库服务器上的数据磁盘将使用固态驱动器 (SSD) 技术，这需要高级存储帐户。请确保部署到的 Azure 位置支持高级存储。
-* **NIC**。每个 VM 都将具有两个 NIC，一个用于数据库访问，另一个用于管理。
-* **可用性集**。所有数据库服务器都将添加到单个可用性集，以确保在维护期间至少有一个 VM 已启动且正在运行。
+* **数据磁盘的存储帐户**。 为了提高性能，数据库服务器上的数据磁盘使用固态驱动器 (SSD) 技术，这需要高级存储帐户。 请确保部署到的 Azure 位置支持高级存储。
+* **NIC**。 每个 VM 都会具有两个 NIC，一个用于数据库访问，另一个用于管理。
+* **可用性集**。 所有数据库服务器都会添加到单个可用性集，以确保在维护期间至少有一个 VM 已启动且正在运行。
 
-### 步骤 1 - 启动脚本
-可在[此处](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-cli.sh)下载所用的完整 bash 脚本。完成以下步骤，更改脚本，以便用于具体环境：
+### <a name="step-1---start-your-script"></a>步骤 1 - 启动脚本
+可在 [此处](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-cli.sh)下载所用的完整 bash 脚本。 完成以下步骤，更改脚本，以便用于具体环境：
 
-1. 根据在上述[先决条件](#Prerequisites)中部署的现有资源组，更改以下变量的值。
+1. 根据在上述 [先决条件](#prerequisites)中部署的现有资源组，更改以下变量的值。
+    <!-- Archor is Correct on #prerequisites -->
 
     ```azurecli
     location="chinaeast"
     vnetName="WTestVNet"
     backendSubnetName="BackEnd"
     ```
-
 2. 根据要用于后端部署的值，更改以下变量的值。
 
     ```azurecli
@@ -73,15 +79,15 @@ ms.author: v-dazen
     numberOfVMs=2
     ```
 
-### 步骤 2 - 为 VM 创建必要的资源
-1. 为所有后端 VM 创建新的云服务。请注意，使用 `$backendCSName` 变量表示资源组名称，使用 `$location` 表示 Azure 区域。
+### <a name="step-2---create-necessary-resources-for-your-vms"></a>步骤 2 - 为 VM 创建必要的资源
+1. 为所有后端 VM 创建新的云服务。 请注意使用 `$backendCSName` 变量表示资源组名称，使用 `$location` 表示 Azure 区域。
 
     ```azurecli
     azure service create --serviceName $backendCSName \
         --location $location
     ```
 
-2. 为 VM 将使用的 OS 和数据磁盘创建高级存储帐户。
+2. 为 VM 要使用的 OS 和数据磁盘创建高级存储帐户。
 
     ```azurecli
     azure storage account create $prmStorageAccountName \
@@ -89,7 +95,7 @@ ms.author: v-dazen
         --type PLRS
     ```
 
-### 步骤 3 - 创建具有多个 NIC 的 VM
+### <a name="step-3---create-vms-with-multiple-nics"></a>步骤 3 - 创建具有多个 NIC 的 VM
 1. 启动循环，根据 `numberOfVMs` 变量创建多个 VM。
 
     ```azurecli
@@ -109,7 +115,7 @@ ms.author: v-dazen
     ipAddress2=$ipAddressPrefix$x
     ```
 
-3. 创建 VM。请注意 `--nic-config` 参数的用法，其中包含所有 NIC 的列表（包含名称、子网和 IP 地址）。
+3. 创建 VM。 请注意 `--nic-config` 参数的用法，其中包含所有 NIC 的列表（包含名称、子网和 IP 地址）。
 
     ```azurecli
     azure vm create $backendCSName $image $username $password \
@@ -136,58 +142,58 @@ ms.author: v-dazen
     done
     ```
 
-### 步骤 4 - 运行脚本
+### <a name="step-4---run-the-script"></a>步骤 4 - 运行脚本
 既已根据需要下载并更改脚本，可运行该脚本以创建具有多个 NIC 的后端数据库 VM。
 
-1. 保存该脚本并从 **Bash** 终端运行它。最初的输出将如下所示。
+1. 保存该脚本并从 **Bash** 终端运行它。 会看到最初的输出，如下所示。
 
-    ```
-    info:    Executing command service create
-    info:    Creating cloud service
-    data:    Cloud service name IaaSStory-Backend
-    info:    service create command OK
-    info:    Executing command storage account create
-    info:    Creating storage account
-    info:    storage account create command OK
-    info:    Executing command vm create
-    info:    Looking up image 0b11de9248dd4d87b18621318e037d37__RightImage-Ubuntu-14.04-x64-v14.2.1
-    info:    Looking up virtual network
-    info:    Looking up cloud service
-    info:    Getting cloud service properties
-    info:    Looking up deployment
-    info:    Creating VM
-    ```
+        info:    Executing command service create
+        info:    Creating cloud service
+        data:    Cloud service name IaaSStory-Backend
+        info:    service create command OK
+        info:    Executing command storage account create
+        info:    Creating storage account
+        info:    storage account create command OK
+        info:    Executing command vm create
+        info:    Looking up image 0b11de9248dd4d87b18621318e037d37__RightImage-Ubuntu-14.04-x64-v14.2.1
+        info:    Looking up virtual network
+        info:    Looking up cloud service
+        info:    Getting cloud service properties
+        info:    Looking up deployment
+        info:    Creating VM
 
 2. 几分钟后，执行将结束，其余输出如下所示。
 
-    ```
-    info:    OK
-    info:    vm create command OK
-    info:    Executing command vm disk attach-new
-    info:    Getting virtual machines
-    info:    Adding Data-Disk
-    info:    vm disk attach-new command OK
-    info:    Executing command vm disk attach-new
-    info:    Getting virtual machines
-    info:    Adding Data-Disk
-    info:    vm disk attach-new command OK
-    info:    Executing command vm create
-    info:    Looking up image 0b11de9248dd4d87b18621318e037d37__RightImage-Ubuntu-14.04-x64-v14.2.1
-    info:    Looking up virtual network
-    info:    Looking up cloud service
-    info:    Getting cloud service properties
-    info:    Looking up deployment
-    info:    Creating VM
-    info:    OK
-    info:    vm create command OK
-    info:    Executing command vm disk attach-new
-    info:    Getting virtual machines
-    info:    Adding Data-Disk
-    info:    vm disk attach-new command OK
-    info:    Executing command vm disk attach-new
-    info:    Getting virtual machines
-    info:    Adding Data-Disk
-    info:    vm disk attach-new command OK
-    ```
+        info:    OK
+        info:    vm create command OK
+        info:    Executing command vm disk attach-new
+        info:    Getting virtual machines
+        info:    Adding Data-Disk
+        info:    vm disk attach-new command OK
+        info:    Executing command vm disk attach-new
+        info:    Getting virtual machines
+        info:    Adding Data-Disk
+        info:    vm disk attach-new command OK
+        info:    Executing command vm create
+        info:    Looking up image 0b11de9248dd4d87b18621318e037d37__RightImage-Ubuntu-14.04-x64-v14.2.1
+        info:    Looking up virtual network
+        info:    Looking up cloud service
+        info:    Getting cloud service properties
+        info:    Looking up deployment
+        info:    Creating VM
+        info:    OK
+        info:    vm create command OK
+        info:    Executing command vm disk attach-new
+        info:    Getting virtual machines
+        info:    Adding Data-Disk
+        info:    vm disk attach-new command OK
+        info:    Executing command vm disk attach-new
+        info:    Getting virtual machines
+        info:    Adding Data-Disk
+        info:    vm disk attach-new command OK
 
-<!---HONumber=Mooncake_1219_2016-->
+### <a name="step-5---configure-routing-within-the-vms-operating-system"></a>步骤 5 - 在 VM 的操作系统中配置路由
+
+Azure DHCP 会将默认网关分配给附加到虚拟机的第一个（主）网络接口。 Azure 不会将默认网关分配给附加到虚拟机的其他（辅助）网络接口。 因此，默认情况下无法与辅助网络接口所在子网的外部资源进行通信。 但是，辅助网络接口可以与其子网之外的资源进行通信。 若要为辅助网络接口配置路由，请参阅[在具有多个网络接口的虚拟机操作系统中进行路由选择](virtual-network-network-interface-vm.md)。
+
+<!-- Update_Description: wording update -->

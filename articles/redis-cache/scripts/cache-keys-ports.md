@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI 脚本示例 - 获取 Azure Redis 缓存的主机名、端口和密钥 | Azure"
-description: "Azure CLI 脚本示例 - 获取 Azure Redis 缓存实例的主机名、端口和密钥"
+title: Azure CLI 脚本示例 - 获取 Azure Redis 缓存的主机名、端口和密钥 | Microsoft Docs
+description: Azure CLI 脚本示例 - 获取 Azure Redis 缓存实例的主机名、端口和密钥
 services: redis-cache
-documentationcenter: 
-author: steved0x
-manager: douge
-editor: 
+documentationcenter: ''
+author: alexchen2016
+manager: digimobile
+editor: ''
 tags: azure-service-management
 ms.assetid: 761eb24e-2ba7-418d-8fc3-431153e69a90
 ms.service: cache-redis
@@ -13,17 +13,16 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 04/14/2017
-wacn.date: 
-ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 8f3c01ff7ef37eedae66496ab4891bfb2cb7023a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
+origin.date: 08/30/2017
+ms.date: 10/10/2017
+ms.author: v-junlch
+ms.openlocfilehash: e9d06e6af38ed21f825aaeeeff26f6f4e1371efd
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664544"
 ---
-
 # <a name="get-the-hostname-ports-and-keys-for-azure-redis-cache"></a>获取 Azure Redis 缓存的主机名、端口和密钥
 
 本方案介绍如何检索用于连接到 Azure Redis 缓存实例的主机名、端口和密钥。
@@ -56,13 +55,16 @@ echo "Secondary Key:" ${keys[1]}
 
 此脚本使用以下命令检索 Azure Redis 缓存实例的主机名、密钥和端口。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
-| [az redis show](https://docs.microsoft.com/cli/azure/redis#show) | 检索 Azure Redis 缓存实例的详细信息。 |
-| [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#list-keys) | 检索 Azure Redis 缓存实例的访问密钥。 |
+| [az redis show](/cli/redis#az_redis_show) | 检索 Azure Redis 缓存实例的详细信息。 |
+| [az redis list-keys](/cli/redis#az_redis_list_keys) | 检索 Azure Redis 缓存实例的访问密钥。 |
+
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](/cli/overview)。
 
 可以在 [Azure Redis 缓存文档](../cli-samples.md)中找到其他 Azure Redis 缓存 CLI 脚本示例。
+
+<!--Update_Description: wording update-->

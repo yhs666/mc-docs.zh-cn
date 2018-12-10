@@ -1,34 +1,28 @@
 ---
-title: "将数据迁移到 SQL 数据仓库 | Azure"
-description: "有关在开发解决方案时将数据迁移到 Azure SQL 数据仓库的技巧。"
+title: 将数据迁移到 SQL 数据仓库 | Microsoft 文档
+description: 有关在开发解决方案时将数据迁移到 Azure SQL 数据仓库的技巧。
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
-ms.assetid: d78f954a-f54c-4aa4-9040-919bc6414887
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: migrate
-ms.date: 10/31/2016
-wacn.date: 
-ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: e0c0e7e7994d1fc8b985dc54b7bdcd9fb17a0136
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
+ms.topic: conceptual
+ms.component: implement
+origin.date: 04/17/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: eae5a65cb358403c6e6263a612b9bf994b25fe2c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666836"
 ---
-
 # <a name="migrate-your-data"></a>迁移数据
-数据可以使用各种工具从不同源移动到 SQL 数据仓库中。  ADF 复制、SSIS 和 bcp 都可用来实现此目标。 但是，随着数据量的增加，你应该考虑将数据迁移过程划分成多个步骤。 这样，你便有机会优化每个步骤以提高性能和弹性，确保顺利迁移数据。
+数据可以使用各种工具从不同源移动到 SQL 数据仓库中。 SSIS 和 bcp 都可用来实现此目标。 但是，随着数据量的增加，应该考虑将数据迁移过程划分成多个步骤。 这样，便有机会优化每个步骤以提高性能和弹性，确保顺利迁移数据。
 
 本文首先讨论 SSIS 和 bcp 的简单迁移方案。 然后稍微深入讨论如何优化迁移。
-<!-- Azure Data Factory (ADF) Not supported in ACN-->
+<!-- Not Available ## Azure Data Factory (ADF) copy-->
 
 ## <a name="integration-services"></a>Integration Services
 集成服务 (SSIS) 是一个功能强大且灵活的提取、转换和加载 (ETL) 工具，支持复杂的工作流、数据转换，以及多个数据加载选项。 使用 SSIS 可以单纯将数据传输到 Azure，或作为更广泛迁移的一部分。
@@ -38,7 +32,7 @@ ms.lasthandoff: 04/14/2017
 > 
 > 
 
-SSIS 将连接到 SQL 数据仓库，就像连接到 SQL Server 部署一样。 但是，你的连接需要使用 ADO.NET 连接管理器。 你还应谨慎配置“可用时使用批量插入”设置，以最大化吞吐量。 请参阅 [ADO.NET 目标适配器][ADO.NET destination adapter] 一文以深入了解此属性
+SSIS 连接到 SQL 数据仓库，就像连接到 SQL Server 部署一样。 但是，连接需要使用 ADO.NET 连接管理器。 还应谨慎配置“可用时使用批量插入”设置，以最大化吞吐量。 请参阅 [ADO.NET 目标适配器][ADO.NET destination adapter] 一文以深入了解此属性
 
 > [!NOTE]
 > 不支持使用 OLEDB 连接到 Azure SQL 数据仓库。
@@ -69,7 +63,7 @@ bcp 的限制包括：
 * 当通过 Internet 加载数据时，bcp 的设计尚不够健全。 任何网络不稳定状况都可能导致加载错误。
 * bcp 依赖于加载之前存在于目标数据库中的架构
 
-有关详细信息，请参阅 [使用 bcp 将数据载入 SQL 数据仓库][Use bcp to load data into SQL Data Warehouse]。
+有关详细信息，请参阅[使用 bcp 将数据载入 SQL 数据仓库][使用 bcp 将数据载入 SQL 数据仓库]。
 
 ## <a name="optimizing-data-migration"></a>优化数据迁移
 SQLDW 数据迁移过程可以有效地划分成三个独立的步骤：
@@ -106,7 +100,7 @@ SQL 数据仓库只使用 PolyBase 从 Azure Blob 存储加载数据。 因此�
 幸运的是，有多个选项可以提升此过程的速度和恢复能力：
 
 ### <a name="expressrouteexpressroute"></a>[ExpressRoute][ExpressRoute]
-你可以考虑使用 [ExpressRoute][ExpressRoute] 加速传输。 [ExpressRoute][ExpressRoute] 为你提供可靠的 Azure 专用连接，这种连接不经由公共 Internet。 这不是一项强制措施。 但是，从本地或归置设备向 Azure 推送数据时，它会改善吞吐量。
+可以考虑使用 [ExpressRoute][ExpressRoute] 加速传输。 [ExpressRoute][ExpressRoute] 提供可靠的 Azure 专用连接，这种连接不经由公共 Internet。 这不是一项强制措施。 但是，从本地或归置设备向 Azure 推送数据时，它会改善吞吐量。
 
 使用 [ExpressRoute][ExpressRoute] 的优点包括：
 
@@ -117,7 +111,7 @@ SQL 数据仓库只使用 PolyBase 从 Azure Blob 存储加载数据。 因此�
 
 [ExpressRoute][ExpressRoute] 有利于许多情况，而不只是迁移。
 
-感兴趣吗？ 有关详细信息和定价，请访问 [ExpressRoute 文档][ExpressRoute documentation]。
+感兴趣吗？ 有关详细信息和定价，请访问 [ExpressRoute 文档][ExpressRoute 文档]。
 
 ### <a name="azure-import-and-export-service"></a>Azure 导入和导出服务
 Azure 导入和导出服务是一个数据传输进程，用于将大量 (GB++) 和巨量 (TB++) 的数据传输到 Azure。 它涉及到将数据写入磁盘并传送到 Azure 数据中心。 然后代用户将磁盘内容载入 Azure 存储 Blob。
@@ -129,11 +123,11 @@ Azure 导入和导出服务是一个数据传输进程，用于将大量 (GB++) 
 3. 使用 [Azure 导入/导出工具] 将数据复制到 3.5 英寸 SATA II/III 硬盘驱动器
 4. 使用 Azure 导入和导出服务，并提供 [Azure 导入/导出工具] 生成的日记文件，创建导入作业
 5. 将磁盘寄送到指定的 Azure 数据中心
-6. 你的数据将传输到 Azure Blob 存储容器
+6. 数据将传输到 Azure Blob 存储容器
 7. 使用 PolyBase 将数据载入 SQLDW
 
 ### <a name="azcopyazcopy-utility"></a>[AZCopy][AZCopy] 实用工具
-[AZCopy][AZCopy] 实用程序是将数据传输到 Azure 存储 Blob 的一个极佳工具。 它旨在用于少量 (MB++) 到极大量 (GB++) 的数据传输。 将数据传输到 Azure 时，[AZCopy] 还能提供高度灵活的吞吐量，因此是数据传输措施的理想选择。 传输后，你可以使用 PolyBase 将数据载入 SQL 数据仓库。 你还可以使用“执行进程”任务将 AZCopy 合并到 SSIS 包中。
+[AZCopy][AZCopy] 实用工具是将数据传输到 Azure 存储 Blob 的一个极佳工具。 它旨在用于少量 (MB++) 到极大量 (GB++) 的数据传输。 将数据传输到 Azure 时，[AZCopy] 还能提供高度灵活的吞吐量，因此是数据传输措施的理想选择。 传输后，可以使用 PolyBase 将数据载入 SQL 数据仓库。 还可以使用“执行进程”任务将 AZCopy 合并到 SSIS 包中。
 
 若要使用 AZCopy，必须先下载并安装它。 可用版本包括[生产版][production version]和[预览版][preview version]。
 
@@ -153,44 +147,38 @@ AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.chinacloudapi.cn/my
 提供的完整文档： [AZCopy][AZCopy]的一部分。
 
 ## <a name="optimizing-data-export"></a>优化数据导出
-除了确保导出符合 PolyBase 规定的要求外，你还可以设法优化数据导出，以进一步改善过程。
+除了确保导出符合 PolyBase 规定的要求外，还可以设法优化数据导出，以进一步改善过程。
 
 ### <a name="data-compression"></a>数据压缩
-PolyBase 可以读取 gzip 压缩数据。 如果你可以将数据压缩成 gzip 文件，就能将网络上推送的数据量减到最少。
+PolyBase 可以读取 gzip 压缩数据。 如果可以将数据压缩成 gzip 文件，就能将网络上推送的数据量减到最少。
 
 ### <a name="multiple-files"></a>多个文件
 将大型表分割成多个文件不仅有助于改善导出速度，还有助于重新开始传输，以及数据进入 Azure Blob 存储之后的整体易管理性。 PolyBase 的众多优点之一是可以读取文件夹内的所有文件，并将其视为一个表。 因此，最好将每个表的文件隔离到它自身的文件夹中。
 
-PolyBase 还支持名为“递归文件夹遍历”的功能。 你可以使用此功能进一步增强所导出数据的组织方式，以改善数据管理。
+PolyBase 还支持名为“递归文件夹遍历”的功能。 可以使用此功能进一步增强所导出数据的组织方式，以改善数据管理。
 
-若要深入了解如何使用 PolyBase 加载数据，请参阅 [使用 PolyBase 将数据载入 SQL 数据仓库][Use PolyBase to load data into SQL Data Warehouse]。
+要深入了解如何使用 PolyBase 加载数据，请参阅[使用 PolyBase 将数据载入 SQL 数据仓库][使用 PolyBase 将数据载入 SQL 数据仓库]。
 
 ## <a name="next-steps"></a>后续步骤
-有关迁移的详细信息，请参阅 [将解决方案迁移到 SQL 数据仓库][Migrate your solution to SQL Data Warehouse]。
-有关更多开发技巧，请参阅 [开发概述][development overview]。
+有关迁移的详细信息，请参阅[将解决方案迁移到 SQL 数据仓库][将解决方案迁移到 SQL 数据仓库]。
+有关更多开发技巧，请参阅[开发概述][开发概述]。
 
 <!--Image references-->
-<!--Azure Data Factory (ADF) Not supported in ACN-->
+
 <!--Article references-->
-[AZCopy]: ../storage/storage-use-azcopy.md
-<!-- [ADF Copy]: ../data-factory/data-factory-data-movement-activities.md -->
-<!-- [ADF samples]: ../data-factory/data-factory-samples.md-->
-<!-- [ADF Copy examples]: ../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md-->
-[development overview]: sql-data-warehouse-overview-develop.md
-[Migrate your solution to SQL Data Warehouse]: sql-data-warehouse-overview-migrate.md
-[SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
-[Use bcp to load data into SQL Data Warehouse]: sql-data-warehouse-load-with-bcp.md
-[Use PolyBase to load data into SQL Data Warehouse]: sql-data-warehouse-get-started-load-with-polybase.md
+[AZCopy]: ../storage/common/storage-use-azcopy.md
+<!-- Not Available [ADF Copy]: ../data-factory/data-factory-data-movement-activities.md -->
+<!-- Not Available [ADF samples]: ../data-factory/data-factory-samples.md-->
+<!-- Not Available [ADF Copy examples]: ../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md--> [开发概述]: sql-data-warehouse-overview-develop.md [迁移架构]: sql-data-warehouse-migrate-schema.md [将解决方案迁移到 SQL 数据仓库]: sql-data-warehouse-overview-migrate.md [SQL 数据仓库开发概述]: sql-data-warehouse-overview-develop.md [使用 bcp 将数据载入 SQL 数据仓库]: https://docs.microsoft.com/sql/tools/bcp-utility [使用 PolyBase 将数据载入 SQL 数据仓库]: load-data-wideworldimportersdw.mdd
 
 <!--MSDN references-->
 
 <!--Other Web references-->
-<!--Azure Data Factory (ADF) Not supported in ACN-->
-<!--[Azure Data Factory]: http://azure.microsoft.com/services/data-factory/-->
-[ExpressRoute]: http://azure.microsoft.com/services/expressroute/
-[ExpressRoute documentation]: /expressroute/
+<!-- Not Available [Azure Data Factory]: https://www.azure.cn/home/features/data-factory/ --> [ExpressRoute]: https://www.azure.cn/home/features/expressroute/ [ExpressRoute 文档]: /expressroute/
 
 [production version]: http://aka.ms/downloadazcopy/
 [preview version]: http://aka.ms/downloadazcopypr/
 [ADO.NET destination adapter]: https://msdn.microsoft.com/library/bb934041.aspx
 [SSIS documentation]: https://msdn.microsoft.com/library/ms141026.aspx
+
+<!--Update_Description: update meta properties, wording update -->

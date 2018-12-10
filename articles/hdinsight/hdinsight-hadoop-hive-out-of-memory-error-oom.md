@@ -1,9 +1,9 @@
 ---
-title: "解决 Auzre HDInsight 中的 Hive 内存不足错误 | Azure"
-description: "解决 HDInsight 中的 Hive 内存不足错误。 客户方案为跨多个大型表运行查询。"
-keywords: "内存不足错误, OOM, Hive 设置"
+title: 解决 Azure HDInsight 中的 Hive 内存不足错误 | Azure
+description: 解决 HDInsight 中的 Hive 内存不足错误。 客户方案为跨多个大型表运行查询。
+keywords: 内存不足错误, OOM, Hive 设置
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -11,25 +11,24 @@ ms.assetid: 7bce3dff-9825-4fa0-a568-c52a9f7d1dad
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/25/2017
-wacn.date: 
-ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 1cf4862bb5c418e1ee6fa422cfab7712931effa9
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+origin.date: 05/14/2018
+ms.date: 06/25/2018
+ms.author: v-yiso
+ms.openlocfilehash: 651ab7d52d7a183f3f173393be59091ec971427c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662334"
 ---
 # <a name="fix-a-hive-out-of-memory-error-in-azure-hdinsight"></a>解决 Azure HDInsight 中的 Hive 内存不足错误
 
 了解处理大型表时如何通过配置 Hive 内存设置解决 Hive 内存不足错误。
 
-## <a name="scenario-run-a-hive-query-against-large-tables"></a>方案：对大型表运行 Hive 查询
+## <a name="run-hive-query-against-large-tables"></a>针对大型表运行 Hive 查询
 
 客户运行了 Hive 查询：
 
@@ -94,7 +93,7 @@ Hive 查询在 24 节点 A3 HDInsight 群集上用了 26 分钟才完成。 客�
 
     When hive.auto.convert.join.noconditionaltask = true we check noconditionaltask.size and if the sum  of tables sizes in the map join is less than noconditionaltask.size the plan would generate a Map join, the issue with this is that the calculation doesnt take into account the overhead introduced by different HashTable implementation as results if the sum of input sizes is smaller than the noconditionaltask size by a small margin queries will hit OOM.
 
-hive-site.xml 文件中的 **hive.auto.convert.join.noconditionaltask** 已设置为 **true**：
+hive-site.xml 文件中的 **Hive.auto.convert.join.noconditionaltask** 已设置为 **true**：
 
     <property>
         <name>hive.auto.convert.join.noconditionaltask</name>
@@ -124,11 +123,6 @@ hive-site.xml 文件中的 **hive.auto.convert.join.noconditionaltask** 已设�
 
 使用新设置，查询可在 10 分钟内成功运行。
 
-## <a name="conclusion-oom-errors-and-container-size"></a>结论：OOM 错误和容器大小
-
-遇到 OOM 错误不一定表示容器太小。 相反地，应该配置内存设置，以便将堆大小增加为至少是容器内存大小的 80%。
-
 ## <a name="next-steps"></a>后续步骤
 
-- 有关优化 Hive 查询，请参阅[在 HDInsight 中优化 Hadoop 的 Hive 查询](hdinsight-hadoop-optimize-hive-query.md)。
-
+遇到 OOM 错误不一定表示容器太小。 相反地，应该配置内存设置，以便将堆大小增加为至少是容器内存大小的 80%。 有关优化 Hive 查询，请参阅[在 HDInsight 中优化 Hadoop 的 Hive 查询](hdinsight-hadoop-optimize-hive-query.md)。

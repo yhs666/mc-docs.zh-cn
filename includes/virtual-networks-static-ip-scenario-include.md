@@ -1,5 +1,5 @@
 ## <a name="scenario"></a>方案
-为了更好地说明如何为 VM 配置静态 IP 地址，本文档将使用以下方案。
+为了更好地说明如何为 VM 配置静态 IP 地址，本文档使用以下方案。
 
 ![VNet 方案](./media/virtual-networks-static-ip-scenario-include/static-ip-scenario.png)
 

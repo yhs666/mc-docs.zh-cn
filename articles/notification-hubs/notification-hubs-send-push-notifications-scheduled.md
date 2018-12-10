@@ -1,42 +1,42 @@
 ---
-title: 如何发送预定通知 | Azure
+title: 如何发送预定通知 | Microsoft 文档
 description: 本主题介绍如何使用 Azure 通知中心发送预定通知。
 services: notification-hubs
-documentationCenter: .net
+documentationcenter: .net
 keywords: 推送通知,push notification,计划推送通知
-authors: wesmc7777
-manager: erikre
-editor: ''
-
+author: dimazaid
+manager: kpiteira
+editor: spelluru
+ms.assetid: 6b718c75-75dd-4c99-aee3-db1288235c1a
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/29/2016
-wacn.date: 01/19/2017
+origin.date: 04/14/2018
+ms.date: 07/09/2018
 ms.author: v-junlch
+ms.openlocfilehash: 4726e94ffba09cf8ce0b79d6cf04939b760612bc
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653489"
 ---
+# <a name="how-to-send-scheduled-notifications"></a>如何：发送预定通知
+## <a name="overview"></a>概述
+如果在你的方案中，需要在将来的某个时间点发送通知，但却无法轻松地唤醒后端代码来发送该通知。 标准层通知中心支持安排最多未来 7 天的通知。
 
-# 如何：发送预定通知
+发送通知时，只需如以下示例中所示，使用通知中心 SDK 中的 [ScheduledNotification](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) 类：
 
-##概述
+    Notification notification = new AppleNotification("{\"aps\":{\"alert\":\"Happy birthday!\"}}");
+    var scheduled = await hub.ScheduleNotificationAsync(notification, new DateTime(2014, 7, 19, 0, 0, 0));
 
-如果在你的方案中，你需要在将来的某个时间点发送通知，但却无法轻松地唤醒后端代码来发送该通知。标准层通知中心支持一种功能，可让你提前最多 7 天计划好通知。
+此外，可以使用其 notificationId 取消以前计划的通知：
 
-发送通知时，只需如以下示例中所示，使用通知中心 SDK 中的 [ScheduledNotification](https://msdn.microsoft.com/zh-cn/library/microsoft.azure.notificationhubs.schedulednotification.aspx) 类：
-
-```
-Notification notification = new AppleNotification("{\"aps\":{\"alert\":\"Happy birthday!\"}}");
-var scheduled = await hub.ScheduleNotificationAsync(notification, new DateTime(2014, 7, 19, 0, 0, 0));
-```
-
-此外，你可以使用其 notificationId 取消以前计划的通知：
-
-```
-await hub.CancelNotificationAsync(scheduled.ScheduledNotificationId);
-```
+    await hub.CancelNotificationAsync(scheduled.ScheduledNotificationId);
 
 可以发送的预定通知数没有限制。
 
-<!---HONumber=Mooncake_0808_2016-->
+
+<!-- Update_Description: wording update -->

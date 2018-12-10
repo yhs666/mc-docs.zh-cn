@@ -1,64 +1,75 @@
 ---
-title: "关于 ExpressRoute 虚拟网络网关 | Azure"
-description: "了解 ExpressRoute 的虚拟网络网关。"
+title: 关于 Azure ExpressRoute 虚拟网络网关 | Azure
+description: 了解 ExpressRoute 的虚拟网络网关。
 services: expressroute
-documentationCenter: na
-authors: cherylmc
-manager: carmonm
-editor: 
-tags: azure-resource-manager, azure-service-management
+author: cherylmc
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/20/2017
+ms.topic: conceptual
+origin.date: 11/13/2018
 ms.author: v-yiso
-wacn.date: 
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 66ef625947f8cb0aecc75ee5e1609950057e137c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
+ms.date: 12/10/2018
+ms.openlocfilehash: b4956b963eef0f0881f967f22b780da6c858b1a3
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674383"
 ---
-
 # <a name="about-virtual-network-gateways-for-expressroute"></a>关于 ExpressRoute 的虚拟网络网关
+虚拟网络网关用于在 Azure 虚拟网络和本地位置之间发送网络流量。 可以使用虚拟网络网关发送 ExpressRoute 流量或 VPN 流量。 本文重点介绍 ExpressRoute 虚拟网络网关。
 
-虚拟网络网关用于在 Azure 虚拟网络和本地位置之间发送网络流量。 配置 ExpressRoute 连接时，必须创建并配置虚拟网络网关和虚拟网络网关连接。
+## <a name="gateway-types"></a>网关类型
 
-创建虚拟网络网关时，需要指定几项设置。 其中一个必要设置为，指定是否将网关用于 ExpressRoute 或站点到站点 VPN 流量。 在 Resource Manager 部署模型中，该设置为“-GatewayType”。
+创建虚拟网络网关时，需要指定几项设置。 其中一个必要设置“-GatewayType”指定是否将网关用于 ExpressRoute 或 VPN 流量。 两种网关类型是：
 
-如果网络流量是在专用连接上发送，可以使用网关类型“ExpressRoute”， 也称为 ExpressRoute 网关。 如果网络流量通过公共 Internet 以加密形式发送，可以使用网关类型“Vpn”。 称为 VPN 网关。 站点到站点、点到站点和 VNet 到 VNet 连接都使用 VPN 网关。 
+* **Vpn** - 若要通过公共 Internet 发送加密流量，请使用网关类型“Vpn”。 这也称为 VPN 网关。 站点到站点、点到站点和 VNet 到 VNet 连接都使用 VPN 网关。
 
-对于每种网关类型，每个虚拟网络只能有一个虚拟网络网关。 例如，一个虚拟网络网关使用 -GatewayType Vpn，另一个使用 -GatewayType ExpressRoute。 本文重点介绍 ExpressRoute 虚拟网络网关。
+* **ExpressRoute** - 若要在专用连接上发送网络流量，请使用网关类型“ExpressRoute”。 这也称为 ExpressRoute 网关，是配置 ExpressRoute 时使用的网关类型。
+
+
+对于每种网关类型，每个虚拟网络只能有一个虚拟网络网关。 例如，一个虚拟网络网关使用 -GatewayType Vpn，另一个使用 -GatewayType ExpressRoute。
 
 ## <a name="gwsku"></a>网关 SKU
 
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-如果想要将网关升级为功能更强大的网关 SKU，在大多数情况下，可以使用“Resize-AzureRmVirtualNetworkGateway”PowerShell cmdlet。 此方法适用于升级到 Standard 和 HighPerformance SKU。 但是，若要升级到 UltraPerformance SKU，需要重新创建网关。
+如果想要将网关升级为功能更强大的网关 SKU，在大多数情况下，可以使用“Resize-AzureRmVirtualNetworkGateway”PowerShell cmdlet。 此方法适用于升级到 Standard 和 HighPerformance SKU。 但是，若要升级到 UltraPerformance SKU，需要重新创建网关。 重新创建网关会导致停机。
 
-###  <a name="aggthroughput"></a>按网关 SKU 列出的估计聚合吞吐量
-
-下表显示网关类型和估计的聚合吞吐量。 此表适用于 Resource Manager 与经典部署模型。
+### <a name="aggthroughput"></a>预估性能（按网关 SKU）
+下表显示网关类型和估计性能。 此表适用于 Resource Manager 与经典部署模型。
 
 [!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)] 
 
 > [!IMPORTANT]
-> 应用程序吞吐量取决于多种因素，例如端到端延迟和应用程序打开的流量数。 表中的数字表示应用程序在理想环境下理论上可达到的上限。 
+> 应用程序性能取决于多种因素，例如端到端延迟和应用程序打开的流量数。 表中的数字表示应用程序在理想环境下理论上可达到的上限。 
 > 
 >
 
-## <a name="resources"></a>REST API 和 PowerShell cmdlet
+### <a name="zrgw"></a>区域冗余型网关 SKU
 
+也可以在 Azure 可用性区域中部署 ExpressRoute 网关。 这在物理上和逻辑上将它们分成不同的可用区域，从而保护本地网络与 Azure 的连接免受区域级故障的影响。
+
+![区域冗余型 ExpressRoute 网关](./media/expressroute-about-virtual-network-gateways/zone-redundant.png)
+
+区域冗余型网关使用 ExpressRoute 网关的特定新网关 SKU。
+
+* ErGw1AZ
+* ErGw2AZ
+* ErGw3AZ
+
+新的网关 SKU 还支持其他部署选项，以最好地满足你的需求。 使用新网关 SKU 创建虚拟网络网关时，还可以选择在特定区域中部署网关。 这称为区域网关。 部署区域网关时，网关的所有实例都部署在同一可用性区域中。
+
+## <a name="resources"></a>REST API 和 PowerShell cmdlet
 有关将 REST API 和 PowerShell cmdlet 用于虚拟网络网关配置的其他技术资源和特定语法要求，请参阅以下页面：
 
-|**经典** | **Resource Manager**|
-|-----|----|
-|[PowerShell](https://msdn.microsoft.com/library/mt270335.aspx)|[PowerShell](https://msdn.microsoft.com/zh-cn/library/mt163510.aspx)|
-|[REST API](https://msdn.microsoft.com/library/jj154113.aspx)||
+| **经典** | **Resource Manager** |
+| --- | --- |
+| [PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#azure) |[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network#networking) |
+| [REST API](https://msdn.microsoft.com/library/jj154113.aspx) |[REST API](https://msdn.microsoft.com/library/mt163859.aspx) |
 
 ## <a name="next-steps"></a>后续步骤
 
 有关可用连接配置的详细信息，请参阅 [ExpressRoute 概述](./expressroute-introduction.md)。
+
+有关创建 ExpressRoute 网关的详细信息，请参阅[创建 ExpressRoute 的虚拟网络网关](expressroute-howto-add-gateway-resource-manager.md)。
+

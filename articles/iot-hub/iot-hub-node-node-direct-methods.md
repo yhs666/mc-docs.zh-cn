@@ -1,32 +1,32 @@
 ---
-title: "Azure IoT 中心直接方法 (Node) | Azure"
-description: "如何使用 Azure IoT 中心直接方法。 使用 Azure IoT SDK for Node.js 实现包含直接方法的模拟设备应用和调用直接方法的服务应用。"
+title: Azure IoT 中心直接方法 (Node) | Azure
+description: 如何使用 Azure IoT 中心直接方法。 使用 Azure IoT SDK for Node.js 实现包含直接方法的模拟设备应用和调用直接方法的服务应用。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: nberdy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ea9c73ca-7778-4e38-a8f1-0bee9d142f04
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2017
+origin.date: 08/25/2017
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: b28f398b50145202513c2aa5189ce9fd75f698e5
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.date: 11/20/2017
+ms.openlocfilehash: dbb058e961ecc9d04354fcb80eaefc59cd74e288
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652781"
 ---
 # <a name="use-direct-methods-on-your-iot-device-with-nodejs"></a>通过 Node.js 使用 IoT 设备上的直接方法
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
 
-在本教程结束时，将会创建两个 Node.js 控制台应用：
+本教程结束时，会创建两个 Node.js 控制台应用：
 
 * **CallMethodOnDevice.js**，用于在模拟设备应用上调用方法并显示响应。
 * **SimulatedDevice.js**，可使用前面创建的设备标识连接到 IoT 中心，并响应通过云调用的方法。
@@ -36,9 +36,9 @@ ms.lasthandoff: 04/28/2017
 > 
 > 
 
-要完成本教程，需要具备以下先决条件：
+要完成本教程，需要以下各项：
 
-* Node.js 0.10.x 或更高版本。
+* Node.js 版本 4.0.x 或更高版本。
 * 有效的 Azure 帐户。 （如果没有帐户，只需花费几分钟就能创建一个[帐户][lnk-free-trial]。）
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -182,7 +182,7 @@ ms.lasthandoff: 04/28/2017
     ![][9]
 
 ## <a name="next-steps"></a>后续步骤
-本教程中，在 Azure 门户中配置了新的 IoT 中心，然后在 IoT 中心的标识注册表中创建了设备标识。 你已通过此设备标识启用模拟设备应用的相关功能，使之能够响应通过云调用的方法。 你还创建了一个应用，用于调用设备上的方法并显示来自设备的响应。 
+本教程中，在 Azure 门户中配置了新的 IoT 中心，并在 IoT 中心的标识注册表中创建了设备标识。 已通过此设备标识启用模拟设备应用的相关功能，使之能够响应通过云调用的方法。 还创建了一个应用，用于调用设备上的方法并显示来自设备的响应。 
 
 若要继续了解 IoT 中心入门知识并浏览其他 IoT 方案，请参阅：
 

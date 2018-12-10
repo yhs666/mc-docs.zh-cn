@@ -1,0 +1,82 @@
+---
+title: 如何将用户和组分配到应用程序 | Microsoft Docs
+description: 将用户分配到应用程序以授予访问权限
+services: active-directory
+documentationcenter: ''
+author: barbkess
+manager: mtillman
+ms.service: active-directory
+ms.component: app-mgmt
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: conceptual
+origin.date: 10/01/2018
+ms.date: 11/13/2018
+ms.author: v-junlch
+ms.openlocfilehash: 8a68c3e70a14dc4accf53f9d6668f9923ff6be5a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664190"
+---
+# <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>向 Azure Active Directory 中的应用程序分配用户和组
+本文介绍如何将用户分配到 Azure Active Directory (Azure AD) 中的应用程序。 首先必须将用户分配给应用程序，然后管理员才能授予这些用户访问权限以执行以下操作：
+
+-   通过**直接导航到应用程序的 URL**（也称为 SP 发起的登录）访问应用程序。
+
+-   通过使用应用程序的“属性”页上的“用户访问 URL”（也称为 IDP 发起的登录）访问应用程序。
+
+-   查看显示在其 [Office 365 应用程序启动器](https://support.office.com/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a)中的应用程序。
+
+## <a name="prerequisties"></a>先决条件
+在将用户和组分配到应用程序之前，必须要求用户分配。 若要要求用户分配，请执行以下操作：
+
+1. 使用管理员帐户登录到 Azure 门户。
+2. 在主菜单中单击“所有服务”项。
+3. 选择要用于应用程序的目录。
+4. 单击“企业应用程序”选项卡。
+5. 从与此目录关联的应用程序列表中选择应用程序。
+6. 单击“属性”选项卡。
+7. 将“需要进行用户分配?”切换为“是”。
+8. 单击屏幕顶部的“保存”按钮。
+
+## <a name="assign-users"></a>分配用户
+
+要直接将一个或多个用户分配到应用程序，请按照以下步骤操作：
+
+1.  打开 [**Azure 门户**](https://portal.azure.cn/)，并以“全局管理员”身份登录。
+
+2.  选择“Azure Active Directory” 。
+
+4.  在 Azure Active Directory 的左侧导航菜单中，单击“企业应用程序”。
+
+5.  单击“所有应用程序”，查看所有应用程序的列表。
+
+    - 如果未看到要在此处显示的应用程序，请使用“所有应用程序列表”顶部的“筛选器”控件，并将“显示”选项设置为“所有应用程序”。
+
+6.  从列表中选择要向其分配用户的应用程序。
+
+7.  在应用程序加载后，在应用程序的左侧导航菜单中单击“用户和组”。
+
+8.  单击“用户和组”列表顶部的“添加用户”按钮，以打开“添加分配”窗格。
+
+9.  在“添加分配”窗格中，单击“用户和组”选择器。
+
+10. 在“按名称或电子邮件地址搜索”搜索框中，键入要分配的用户的**全名**或**电子邮件地址**。
+
+11. 将鼠标悬停在列表中的“用户”上方以显示“复选框”。 单击用户个人资料头像或徽标旁边的复选框，将用户添加到“已选择”列表。
+
+12. **可选：** 如果想要**添加多个用户**，请在“按名称或电子邮件地址搜索”搜索框中，键入其他**全名**或**电子邮件地址**，然后单击复选框以将此用户添加到“已选择”列表。
+
+13. 在完成用户的选择后，单击“选择”按钮将他们添加到要分配给应用程序的用户和组列表。
+
+14. **可选：** 单击“添加分配”窗格中的“选择角色”选择器，选择一个角色来分配给所选用户。
+
+15. 单击“分配”按钮，将应用程序分配给选定用户。
+
+在一段很短的时间后，所选用户能够使用解决方案描述部分中所述的方法启动这些应用程序。
+
+
+

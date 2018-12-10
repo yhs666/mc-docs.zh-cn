@@ -1,73 +1,49 @@
 ---
-title: 设置命名的身份验证凭据 | Azure
+title: 设置命名的身份验证凭据 | Microsoft Docs
 description: 了解如何提供 Visual Studio 可用于验证对 Azure 的请求的凭据，以便从 Visual Studio 将应用程序发布到 Azure 或者监视现有云服务。
 services: visual-studio-online
-documentationcenter: na
-author: TomArcher
+author: ghogen
 manager: douge
-editor: ''
-
-ms.assetid: 61570907-42a1-40e8-bcd6-952b21a55786
-ms.service: multiple
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
-ms.date: 11/18/2016
-wacn.date: 03/30/2017
+assetId: 61570907-42a1-40e8-bcd6-952b21a55786
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.custom: vs-azure
+ms.workload: azure-vs
+ms.topic: conceptual
+origin.date: 11/11/2017
+ms.date: 09/10/2018
 ms.author: v-junlch
+ms.openlocfilehash: 19b78f186c2462069289e2d3618a42b026e1895d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644244"
 ---
+# <a name="set-up-named-authentication-credentials"></a>设置命名的身份验证凭据
 
-# 设置命名的身份验证凭据
-若要从 Visual Studio 中将应用程序发布到 Azure，或是要监视现有云服务，必须提供 Visual Studio 可用于验证对 Azure 的请求的凭据。Visual Studio 中有几个位置可以供你登录来提供这些凭据。例如，从服务器资源管理器，你可以打开“Azure”节点的快捷菜单，然后选择“连接到 Azure”。当你登录时，在 Visual Studio 中提供与你的 Azure 帐户关联的订阅信息，你什么也不需要做。
+若要将应用程序发布到 Azure 或监视现有云服务，Visual Studio 需要凭据以对向 Azure 发出的请求进行身份验证，即你的 Azure 订阅 ID 和带至少 2048 位密钥的有效 X.509 v3 证书。 可通过以下某个方法提供这些凭据：
 
-Azure Tools 还支持以前提供凭据的方式，即使用订阅文件（.publishsettings 文件）。本主题介绍了此方法，它在 Azure SDK 2.2 中仍受支持。
+- 在 Visual Studio 中，选择“视图 > 服务器资源管理器”，右键单击 Azure 节点，选择“连接到 Azure 订阅”，然后登录。
+- 创建一个订阅文件 (`.publishsettings`)，其中包含证书公钥。 如本文所述，该订阅文件可以包含多个订阅的凭据。
 
-在 Azure 中进行身份验证需要做好以下准备：
+注意：这些凭据与用于对 Azure 存储服务的请求进行身份验证的凭据不同。
 
-- 你的订阅 ID
-- 有效的 X.509 v3 证书
+## <a name="create-a-subscription-file"></a>创建订阅文件
 
-> [!NOTE]
-X.509 v3 证书的密钥长度必须至少为 2048 位。Azure 将拒绝所有不符合此要求或无效的证书。
->
->
+在“服务器资源管理器”中，右键单击 Azure 节点，并选择“管理和筛选订阅”。 然后选择“证书”选项卡，然后执行以下任一操作：
 
-Visual Studio 使用订阅 ID 和证书数据作为凭据。订阅文件（.publishsettings 文件）中引用了适当的凭据，该文件包含证书的公共密钥。该订阅文件可以包含多个订阅的凭据。
+- 选择“导入”以打开“导入 Microsoft Azure 订阅”对话框。 选择“下载订阅文件”链接，然后在浏览器中将下载的文件保存到临时位置。 返回对话框，浏览到下载位置，然后将其导入，以便在身份验证中使用。
+- 选择一个有效订阅，并选择“编辑”，随即打开一个对话框，可在其中编辑在身份验证中使用的现有订阅。
+- 选择“新建”，打开“新建订阅”对话框，并提供所需的详细信息。 若要将证书上传到对话框中注明的云服务中，登录到 Azure 门户，导航到云服务，选择“设置 > 管理证书”，选择“上传”，然后指定 `.cer` 文件路径。
 
-从“新建/编辑订阅”对话框中，可以编辑订阅信息，如本主题后面所述。
+如果要自行创建证书，可以参阅[创建并上传 Azure 管理证书](/cloud-services/cloud-services-certs-create)中的说明，然后将证书手动上传到 [Azure 门户](https://portal.azure.cn/)。
 
-如果想要自行创建证书，可参阅[创建并上传 Azure 管理证书](./cloud-services/cloud-services-certs-create.md)中的说明，然后将证书手动上传到 [Azure 经典管理门户](https://manage.windowsazure.cn)。
+## <a name="next-steps"></a>后续步骤
 
-> [!NOTE]
-Visual Studio 管理云服务所需的凭据不同于针对 Azure 存储空间服务验证请求所需的凭据。
->
->
+- [Web 应用一般概述](/app-service/)
+- [将应用部署到 Azure 应用服务](/app-service/app-service-deploy-local-git) 
+- [使用 Visual Studio 部署 Web 作业](/app-service/websites-dotnet-deploy-webjobs)
+- [创建和部署云服务](/cloud-services/cloud-services-how-to-create-deploy-portal)
 
-## 在 Visual Studio 中修改或导出身份验证凭据
-在“新建订阅”对话框中，还可以设置、修改或导出身份验证凭据。该对话框在执行下列任一操作时出现：
-
-- 在“服务器资源管理器”中，打开“Azure”节点的快捷菜单，选择“管理订阅”，选择“证书”选项卡，然后选择“添加”或“编辑”按钮。
-- 从“发布 Azure 应用程序”向导发布 Azure 云服务时，请在“选择订阅”列表中选择“管理”，选择“证书”选项卡，然后选择“添加”或“编辑”按钮。
-
-以下过程假设“新建订阅”对话框已打开。
-
-### 在 Visual Studio 中设置身份验证凭据
-1. 在身份验证列表的“选择现有证书”中选择一个证书。
-2. 选择“复制完整路径”按钮。证书路径（.cer 文件）会复制到剪贴板。
-
-    > [!IMPORTANT]
-    若要通过 Visual Studio 发布 Azure 应用程序，必须将此证书上传到 [Azure 经典管理门户](https://manage.windowsazure.cn)。
-    >
-    >
-3. 若要将证书上传到 [Azure 经典管理门户](https://manage.windowsazure.cn)，请执行以下操作：
-
-   1. 登录 [Azure 经典管理门户](https://manage.windowsazure.cn)，然后选择“云服务”按钮。
-   2. 选择所需的云服务。
-
-        此时将打开该服务的页面。
-   3. 在“证书”选项卡上选择“上载”按钮。
-   4. 粘贴刚刚创建 .cer 文件的完整路径，然后输入指定的密码。
-
-<!---HONumber=Mooncake_0320_2017-->
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

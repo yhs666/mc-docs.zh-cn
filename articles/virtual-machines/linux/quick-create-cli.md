@@ -1,74 +1,70 @@
 ---
-title: "Azure 快速入门 - 创建 VM CLI | Azure"
-description: "快速了解如何使用 Azure CLI 创建虚拟机。"
+title: 快速入门 - 使用 Azure CLI 创建 Linux VM | Azure
+description: 本快速入门介绍了如何使用 Azure CLI 创建 Linux 虚拟机
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: azurecli
-ms.topic: hero-article
+ms.devlang: na
+ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/03/2017
-wacn.date: 
-ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 4c9cf54d89a91e980d749eaa80c4e235cda7ef25
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
+origin.date: 10/09/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
+ms.custom: mvc
+ms.openlocfilehash: c1ff53537fc493f00b2fe1ef90200a605ee0ad88
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675461"
 ---
+# <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>快速入门：使用 Azure CLI 创建 Linux 虚拟机
 
-# <a name="create-a-linux-virtual-machine-with-the-azure-cli"></a>使用 Azure CLI 创建 Linux 虚拟机
+Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 本快速入门介绍了如何使用 Azure CLI 在 Azure 中部署 Linux 虚拟机 (VM)。 在本教程中，我们将安装 Ubuntu 16.04 LTS。 为了显示运转中的 VM，我们将使用 SSH 连接到它并安装 NGINX Web 服务器。
 
-Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 本指南详细介绍了如何使用 Azure CLI 部署运行 Ubuntu 16.04 LTS 的虚拟机。 部署服务器后，可通过 SSH 登录到 VM 以安装 NGINX。 
-
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
-
-另请确保已安装 Azure CLI。 有关详细信息，请参阅 [Azure CLI 安装指南](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
-
-## <a name="log-in-to-azure"></a>登录 Azure 
-
-使用 [az login](https://docs.microsoft.com/cli/azure/#login) 命令登录到 Azure 订阅，并按照屏幕上的说明进行操作。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-```azurecli
-az login
-```
+## <a name="launch-azure-cloud-shell"></a>启动 Azure 本地 Shell
+如果希望在本地安装并使用 CLI，则本快速入门需要 Azure CLI version 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 
-
-以下示例在 `chinanorth` 位置创建名为 `myResourceGroup` 的资源组。
+使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组：
 
 ```azurecli
-az group create --name myResourceGroup --location chinanorth
+az group create --name myResourceGroup --location chinaeast
 ```
 
 ## <a name="create-virtual-machine"></a>创建虚拟机
 
-使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 命令创建 VM。 
+使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 命令创建 VM。
 
-下面的示例创建一个名为 `myVM` 的 VM，并且在默认密钥位置中不存在 SSH 密钥时创建这些密钥。 若要使用特定的一组密钥，请使用 `--ssh-key-value` 选项。  
+以下示例创建一个名为 *myVM* 的 VM 并添加一个名为 *azureuser* 的用户帐户。 `--generate-ssh-keys` 参数用来自动生成一个 SSH 密钥，并将其放置在默认密钥位置 (*~/.ssh*) 中。 若要改为使用一组特定的密钥，请使用 `--ssh-key-value` 选项。
 
 ```azurecli
-az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys --use-unmanaged-disk
+az vm create \
+  --resource-group myResourceGroup \
+  --name myVM \
+  --image UbuntuLTS \
+  --admin-username azureuser \
+  --generate-ssh-keys
 ```
 
-创建 VM 后，Azure CLI 将显示类似于以下示例的信息。 记下 `publicIpAddress`。 此地址用于访问 VM。
+创建 VM 和支持资源需要几分钟时间。 以下示例输出表明 VM 创建操作已成功。
 
-```azurecli
+```
 {
   "fqdns": "",
-  "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
-  "location": "chinanorth",
+  "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
+  "location": "chinaeast",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
   "privateIpAddress": "10.0.0.4",
@@ -77,45 +73,44 @@ az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --ge
 }
 ```
 
-## <a name="open-port-80-for-web-traffic"></a>为 Web 流量打开端口 80 
+记下 VM 输出中自己的 `publicIpAddress`。 在后续步骤中，将使用此地址访问 VM。
 
-默认情况下，仅允许通过 SSH 连接登录到 Azure 中部署的 Linux 虚拟机。 如果此 VM 将用作 Web 服务器，则需要从 Internet 打开端口 80。  需要使用单个命令打开所需的端口。  
+## <a name="open-port-80-for-web-traffic"></a>为 Web 流量打开端口 80
 
- ```azurecli 
+默认情况下，在 Azure 中创建 Linux VM 时仅打开 SSH 连接。 使用 [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-open-port) 打开 TCP 端口 80 以供 NGINX Web 服务器使用：
+
+```azurecli
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
 
-## <a name="ssh-into-your-vm"></a>通过 SSH 连接到你的 VM
+## <a name="connect-to-virtual-machine"></a>连接到虚拟机
 
-使用以下命令创建与虚拟机的 SSH 会话。 确保将 `<publicIpAddress>` 替换为你的虚拟机的相应公共 IP 地址。  在上例中，我们的 IP 地址为 `40.68.254.142`。
+通过 SSH 照常连接到 VM。 将 publicIpAddress 替换为 VM 的公共 IP 地址（在 VM 的上一输出中记下）：
 
-```bash 
-ssh <publicIpAddress>
+```bash
+ssh azureuser@publicIpAddress
 ```
 
-## <a name="install-nginx"></a>安装 NGINX
+## <a name="install-web-server"></a>安装 Web 服务器
 
-使用以下 bash 脚本更新包源并安装最新的 NGINX 包。 
+若要查看运行中的 VM，请安装 NGINX Web 服务器。 更新程序包来源，然后安装最新的 NGINX 程序包。
 
-```bash 
-#!/bin/bash
-
-# update package source
-apt-get -y update
-
-# install NGINX
-apt-get -y install nginx
+```bash
+sudo apt-get -y update
+sudo apt-get -y install nginx
 ```
 
-## <a name="view-the-ngix-welcome-page"></a>查看 NGIX 欢迎页
+完成后，键入 `exit` 以离开 SSH 会话。
 
-NGINX 已安装，并且现在已从 Internet 打开 VM 上的端口 80 - 可以使用所选的 Web 浏览器查看默认的 NGINX 欢迎页。 请务必使用前面记录的 `publicIpAddress` 访问默认页面。 
+## <a name="view-the-web-server-in-action"></a>查看运行中的 Web 服务器
 
-![NGINX 默认站点](./media/quick-create-cli/nginx.png) 
+使用所选的 Web 浏览器查看默认的 NGINX 欢迎页。 使用你的 VM 的公用 IP 地址作为 Web 地址。 以下示例演示了默认 NGINX 网站：
 
-## <a name="delete-virtual-machine"></a>删除虚拟机
+![NGINX 默认站点](./media/quick-create-cli/nginx.png)
 
-如果不再需要资源组、VM 和所有相关的资源，可以使用以下命令将其删除。
+## <a name="clean-up-resources"></a>清理资源
+
+如果不再需要资源组、VM 和所有相关的资源，可以使用 [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-delete) 命令将其删除。 
 
 ```azurecli
 az group delete --name myResourceGroup
@@ -123,7 +118,9 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>后续步骤
 
-[创建高可用性虚拟机教程](create-cli-complete.md)
+在本快速入门中，你部署了简单的虚拟机，打开了 Web 流量的网络端口，并安装了一个基本 Web 服务器。 若要详细了解 Azure 虚拟机，请继续学习 Linux VM 的教程。
 
-[浏览 VM 部署 CLI 示例](cli-samples.md)
+> [!div class="nextstepaction"]
+> [Azure Linux 虚拟机教程](./tutorial-manage-vm.md)
 
+<!--Update_Description: update meta properties, wording update -->

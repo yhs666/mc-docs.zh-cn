@@ -1,28 +1,21 @@
 ---
-title: "了解流分析作业监视 | Azure"
-description: "了解流分析作业监视"
-keywords: "查询监视器"
+title: 了解 Azure 流分析中的作业监视
+description: 本文介绍如何在 Azure 流分析中监视作业
 services: stream-analytics
-documentationcenter: 
-author: jeffstokes72
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 5f5cc00f-4a7b-491e-89e1-dbafea46d399
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
-wacn.date: 
+author: rockboyfor
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 72b3cbde0dab542ebc8530f8ce56c4b025b47acd
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 03/28/2017
+ms.date: 05/07/2018
+ms.openlocfilehash: 3c86ce76896528a51f0131f708d744a1bab6eefb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650794"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>了解流分析作业监视以及如何监视查询
 
@@ -36,14 +29,14 @@ Azure 门户提供了可用于监视和排查查询和作业性能问题的关�
 ![监视作业仪表板](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
 
 ## <a name="metrics-available-for-stream-analytics"></a>可用于流分析的指标
-| 度量值                 | 定义                               |
+| 指标                 | 定义                               |
 | ---------------------- | ---------------------------------------- |
 | 流单元利用率 %       | 从作业的“比例”选项卡向一个作业分配的流单元利用率。 如果此指标达到 80% 或以上，则很可能会出现事件处理延迟或停止处理的情况。 |
 | 输入事件数           | 流分析作业收到的数据量，以事件计数来衡量。 这可以用于验证正在发送到输入源的事件。 |
 | 输出事件数          | 流分析作业发送到输出目标的数据量，以事件计数来衡量。 |
 | 无序事件数    | 收到的无序事件的数目，系统根据事件排序策略来删除这些事件，或者为其提供一个经过调整的时间戳。 这可能会受“无序容错时段”设置的影响。 |
 | 数据转换错误数 | 流分析作业导致的数据转换错误的数目。 |
-| 运行时错误         | 执行流分析作业的过程中发生的错误总数。 |
+| 运行时错误         | 与查询处理相关的错误总数（不包括引入事件或输出结果时发现的错误） |
 | 延迟输入事件数      | 延迟到达的事件的数目，系统根据延迟到达容错时段设置的事件排序策略配置删除这些事件，或者调整其时间戳。 |
 | 函数请求数      | Azure 机器学习函数（如果存在）的调用数。 |
 | 失败的函数请求数 | 失败的 Azure 机器学习函数（如果存在）调用数。 |
@@ -55,12 +48,18 @@ Azure 门户提供了可用于监视和排查查询和作业性能问题的关�
 
   ![查询监视器时间关系图](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
 
+## <a name="latest-output"></a>最新输出
+对作业进行监视时需要关注的另一个数据点是最后的输出的时间（显示在“概述”页面中）。
+此时间是作业的最新输出的应用程序时间（即，使用来自事件数据的时间戳的时间）。
+
 ## <a name="get-help"></a>获取帮助
-如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://www.azure.cn/support/contact/)
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)
-* [Azure 流分析入门](stream-analytics-get-started.md)
+* [Azure 流分析入门](stream-analytics-real-time-fraud-detection.md)
 * [缩放 Azure 流分析作业](stream-analytics-scale-jobs.md)
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+
+<!--Update_Description: update meta properties, update link -->

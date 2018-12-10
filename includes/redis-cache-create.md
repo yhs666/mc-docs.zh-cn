@@ -1,33 +1,43 @@
-若要创建缓存，请先登录到 [Azure 门户](https://portal.azure.cn)，然后单击“新建” > “数据库” > “Redis 缓存”。
+---
+title: include 文件
+description: include 文件
+services: redis-cache
+author: wesmc7777
+ms.service: cache
+ms.topic: include
+origin.date: 03/28/2018
+ms.date: 07/10/2018
+ms.author: v-junlch
+ms.custom: include file
+ms.openlocfilehash: 2e26f3cf47e394a8bf1f388a1a82140a16dc126f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647320"
+---
+1. 若要创建缓存，请首先登录到 [Azure 门户](https://portal.azure.cn)。 然后选择“创建资源” > “数据库” > “Redis 缓存”。
 
-> [!NOTE]
-> 如果没有 Azure 帐户，只需花费几分钟就能[建立一个 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=redis_cache_hero)。
-> 
-> 
+    ![新建缓存](./media/redis-cache-create/redis-cache-new-cache-menu.png)
 
-![新建缓存](./media/redis-cache-create/redis-cache-new-cache-menu.png)
+2. 在“新建 Redis 缓存”中，配置新缓存的设置。
 
-> [!NOTE]
-> 除了在 Azure 门户中创建缓存以外，也可以使用 Resource Manager 模板、PowerShell 或 Azure CLI 来创建。
->
-> * 若要使用 Resource Manager 模板创建缓存，请参阅[使用模板创建 Redis 缓存](../articles/redis-cache/cache-redis-cache-arm-provision.md)。
-> * 若要使用 Azure PowerShell 创建缓存，请参阅[使用 Azure PowerShell 管理 Azure Redis 缓存](../articles/redis-cache/cache-howto-manage-redis-cache-powershell.md)。
-> * 若要使用 Azure CLI 创建缓存，请参阅[如何使用 Azure 命令行界面 (Azure CLI) 创建和管理 Azure Redis 缓存](../articles/redis-cache/cache-manage-cli.md)。
+    | 设置      | 建议的值  | 说明 |
+    | ------------ |  ------- | -------------------------------------------------- |
+    | **DNS 名称** | 全局唯一名称 | 缓存名称。 必须是 1 到 63 个字符的字符串，只能包含数字、字母和 `-` 字符。 缓存名称的开头或末尾不能是 `-` 字符，并且连续的 `-` 字符无效。  | 
+    | **订阅** | 你的订阅 | 要在其下创建此新 Azure Redis 缓存实例的订阅。 | 
+    | **资源组** |  TestResources | 要在其中创建缓存的新资源组的名称。 通过将应用的所有资源都放在一个组中，可以一起管理它们。 例如，删除资源组会删除与该应用关联的所有资源。 | 
+    | **位置** | 中国北部 | 选择将使用缓存的其他服务附近的[区域](https://azure.microsoft.com/regions/)。 |
+    | **[定价层](https://www.azure.cn/pricing/details/redis-cache/)** |  基本 C0（250 MB 缓存） |  定价层决定可用于缓存的大小、性能和功能。 有关详细信息，请参阅 [Azure Redis 缓存概述](../articles/redis-cache/cache-overview.md)。 |
+    | **固定到仪表板** |  选定 | 将新缓存固定到仪表板，使其容易被找到。 |
 
-在“新建 Redis 缓存”边栏选项卡中，指定所需的缓存配置  。
+    ![创建缓存](./media/redis-cache-create/redis-cache-cache-create.png) 
 
-![创建缓存](./media/redis-cache-create/redis-cache-cache-create.png) 
+3. 配置了新缓存设置后，选择“创建”。 
 
-* 在“DNS 名称”中，输入用于缓存终结点的唯一缓存名称。 缓存名称必须是包含 1 到 63 个字符的字符串，只能包含数字、字母和 `-` 字符。 缓存名称的开头或末尾不能是 `-` 字符，并且连续的 `-` 字符无效。
-* 对于“订阅”，请选择需要用于缓存的 Azure 订阅。 如果帐户只有一个订阅，将自动选择该订阅并且不显示“订阅”下拉菜单。
-* 在“资源组” 中，为缓存选择或创建资源组。 有关详细信息，请参阅[使用资源组管理 Azure 资源](../articles/azure-resource-manager/resource-group-overview.md)。 
-* 使用“位置”指定在其中托管你的缓存的地理位置  。 Microsoft 强烈推荐的最佳做法，是在与缓存客户端应用程序相同的区域中创建缓存。
-* 使用“定价层”  选择所需的缓存大小和功能。
-* **Redis 群集** 允许你创建大于 53 GB 的缓存，以及将数据分散到多个 Redis 节点。 有关详细信息，请参阅 [如何为高级 Azure Redis 缓存配置群集功能](../articles/redis-cache/cache-how-to-premium-clustering.md)。
-* **Redis 持久性** 可让你将缓存保存到 Azure 存储帐户。 有关配置暂留的说明，请参阅 [《How to configure persistence for a Premium Azure Redis Cache》](../articles/redis-cache/cache-how-to-premium-persistence.md)（如何为高级 Azure Redis 缓存配置暂留）。
-* **虚拟网络** 通过将缓存访问权限限制于指定的 Azure 虚拟网络内的客户端，提供增强的安全性和隔离度。 可以使用 VNet 的所有功能，例如子网、访问控制策略和其他功能，进一步限制对 Redis 的访问。 有关详细信息，请参阅 [如何为高级 Azure Redis 缓存配置虚拟网络支持](../articles/redis-cache/cache-how-to-premium-vnet.md)。
-* 默认情况下，为新缓存禁用非 SSL 访问。 若要启用非 SSL 端口，请选中“取消阻止端口 6379 (非 SSL 加密)”。
+    创建缓存可能耗时几分钟。 若要检查状态，可以监视仪表板上的进度。 缓存在创建后会显示状态为“正在运行”，可供用户使用。
 
-在配置了新的缓存选项后，单击“创建” 。 创建缓存可能耗时几分钟。 要检查的状态，可以监视开始板上的进度。 创建缓存后，新缓存的状态为“正在运行”  并且随时可与 [默认设置](../articles/redis-cache/cache-configure.md#default-redis-server-configuration)搭配使用。
+    ![创建的缓存](./media/redis-cache-create/redis-cache-cache-created.png)
 
-![创建的缓存](./media/redis-cache-create/redis-cache-cache-created.png)
+
+<!-- ms.date: 07/10/2018 -->

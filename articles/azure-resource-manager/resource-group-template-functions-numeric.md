@@ -1,27 +1,26 @@
 ---
-title: "Azure Resource Manager 模板函数 - 数值 | Azure"
-description: "介绍可在 Azure Resource Manager 模板中使用的用于处理数值的函数。"
+title: Azure Resource Manager 模板函数 - 数值 | Azure
+description: 介绍可在 Azure Resource Manager 模板中使用的用于处理数值的函数。
 services: azure-resource-manager
 documentationcenter: na
-author: tfitzmac
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
-wacn.date: 
+origin.date: 11/08/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: d70e119169690b52b1ccd2b244f98d234677aa7d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 1dcf30f1b99d76a7773735b754405be20352078e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654795"
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的数值函数
 
@@ -32,27 +31,33 @@ Resource Manager 提供以下用于处理整数的函数：
 * [div](#div)
 * [float](#float)
 * [int](#int)
-* [min](#min)
 * [max](#max)
+* [min](#min)
 * [mod](#mod)
 * [mul](#mul)
 * [sub](#sub)
 
-## <a id="add"></a> 添加
+<a id="add" />
+
+## <a name="add"></a>添加
 `add(operand1, operand2)`
 
 返回提供的两个整数的总和。
 
-### <a name="parameters"></a>Parameters
+### <a name="parameters"></a>parameters
 
-| 参数 | 必选 | 类型 | 说明 |
+| 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- | 
 |operand1 |是 |int |被加数。 |
 |operand2 |是 |int |加数。 |
 
-### <a name="examples"></a>示例
+### <a name="return-value"></a>返回值
 
-以下示例将添加两个参数。
+一个整数，包含参数的总和。
+
+### <a name="example"></a>示例
+
+以下[示例模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/add.json)将添加两个参数。
 
 ```json
 {
@@ -61,12 +66,14 @@ Resource Manager 提供以下用于处理整数的函数：
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 5,
             "metadata": {
                 "description": "First integer to add"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Second integer to add"
             }
@@ -83,31 +90,49 @@ Resource Manager 提供以下用于处理整数的函数：
 }
 ```
 
-### <a name="return-value"></a>返回值
+上述示例中使用默认值的输出为：
 
-一个整数，包含参数的总和。
+| Name | 类型 | 值 |
+| ---- | ---- | ----- |
+| addResult | int | 8 |
 
-## <a id="copyindex"></a> copyIndex
+要使用 Azure CLI 部署此示例模板，请使用：
+
+```cli
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/add.json
+```
+
+要使用 PowerShell 部署此示例模板，请使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/add.json 
+```
+
+<a id="copyindex" />
+
+## <a name="copyindex"></a>copyIndex
 `copyIndex(loopName, offset)`
 
-返回迭代循环的索引。 
+返回一个迭代循环的索引。 
 
-### <a name="parameters"></a>Parameters
+### <a name="parameters"></a>parameters
 
-| 参数 | 必选 | 类型 | 说明 |
+| 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | loopName | 否 | 字符串 | 用于获取迭代的循环的名称。 |
-| offset |否 |int |要添加到的从零开始的迭代值的数字。 |
+| offset |否 |int |要添加到从零开始的迭代值的数。 |
 
 ### <a name="remarks"></a>备注
 
-此函数始终用于 **copy** 对象。 如果没有提供任何值作为 **偏移量**，则返回当前迭代值。 迭代值从零开始。
+此函数始终用于 **copy** 对象。 如果没有提供任何值作为 **偏移量**，则返回当前迭代值。 迭代值从零开始。 定义资源或变量时，你可以使用迭代循环。
 
 **loopName** 属性可用于指定 copyIndex 是引用资源迭代还是引用属性迭代。 如果没有为 **loopName** 提供值，则将使用当前的资源类型迭代。 在属性上迭代时，请为 **loopName** 提供值。 
 
 有关如何使用 **copyIndex** 的完整说明，请参阅 [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md)（在 Azure Resource Manager 中创建多个资源实例）。
 
-### <a name="examples"></a>示例
+有关定义变量时使用“copyIndex”的示例，请参阅[变量](resource-group-authoring-templates.md#variables)。
+
+### <a name="example"></a>示例
 
 以下示例显示名称中包含 copy 循环和索引值。 
 
@@ -129,21 +154,27 @@ Resource Manager 提供以下用于处理整数的函数：
 
 一个表示迭代的当前索引的整数。
 
-## <a id="div"></a> div
+<a id="div" />
+
+## <a name="div"></a>div
 `div(operand1, operand2)`
 
 返回提供的两个整数在整除后的商。
 
-### <a name="parameters"></a>Parameters
+### <a name="parameters"></a>parameters
 
-| 参数 | 必选 | 类型 | 说明 |
+| 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | operand1 |是 |int |被除数。 |
 | operand2 |是 |int |除数。 不能为 0。 |
 
-### <a name="examples"></a>示例
+### <a name="return-value"></a>返回值
 
-以下示例将一个参数除以另一个参数。
+一个表示商的整数。
+
+### <a name="example"></a>示例
+
+以下[示例模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/div.json)将一个参数除以另一个参数。
 
 ```json
 {
@@ -152,12 +183,14 @@ Resource Manager 提供以下用于处理整数的函数：
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 8,
             "metadata": {
                 "description": "Integer being divided"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Integer used to divide"
             }
@@ -174,22 +207,41 @@ Resource Manager 提供以下用于处理整数的函数：
 }
 ```
 
-### <a name="return-value"></a>返回值
+上述示例中使用默认值的输出为：
 
-一个表示商的整数。
+| Name | 类型 | 值 |
+| ---- | ---- | ----- |
+| divResult | int | 2 |
 
-## <a id="float"></a> float
+要使用 Azure CLI 部署此示例模板，请使用：
+
+```cli
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/div.json
+```
+
+要使用 PowerShell 部署此示例模板，请使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/div.json 
+```
+
+<a id="float" />
+
+## <a name="float"></a>float
 `float(arg1)`
 
 将值转换为浮点数。 仅当将自定义参数传递给应用程序（例如，逻辑应用）时，才使用此函数。
 
-### <a name="parameters"></a>Parameters
+### <a name="parameters"></a>parameters
 
-| 参数 | 必选 | 类型 | 说明 |
+| 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | arg1 |是 |字符串或整数 |要转换为浮点数的值。 |
 
-### <a name="examples"></a>示例
+### <a name="return-value"></a>返回值
+一个浮点数。
+
+### <a name="example"></a>示例
 
 以下示例演示如何使用 float 将参数传递给逻辑应用：
 
@@ -199,114 +251,94 @@ Resource Manager 提供以下用于处理整数的函数：
     "properties": {
         ...
         "parameters": {
-        "custom1": {
-            "value": "[float('3.0')]"
-        },
-        "custom2": {
-            "value": "[float(3)]"
-        },
+            "custom1": {
+                "value": "[float('3.0')]"
+            },
+            "custom2": {
+                "value": "[float(3)]"
+            },
 ```
 
-### <a name="return-value"></a>返回值
-一个浮点数。
+<a id="int" />
 
-## <a id="int"></a> int
+## <a name="int"></a>int
 `int(valueToConvert)`
 
 将指定的值转换为整数。
 
-### <a name="parameters"></a>Parameters
+### <a name="parameters"></a>parameters
 
-| 参数 | 必选 | 类型 | 说明 |
+| 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |是 |字符串或整数 |要转换为整数的值。 |
+| valueToConvert |是 |string 或 int |要转换为整数的值。 |
 
-### <a name="examples"></a>示例
+### <a name="return-value"></a>返回值
 
-以下示例将用户提供的参数值转换为整数。
+转换后的值的整数。
+
+### <a name="example"></a>示例
+
+以下[示例模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/int.json)将用户提供的参数值转换为整数。
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "appId": { "type": "string" }
-    },
-    "variables": { 
-        "intValue": "[int(parameters('appId'))]"
+        "stringToConvert": { 
+            "type": "string",
+            "defaultValue": "4"
+        }
     },
     "resources": [
     ],
     "outputs": {
-        "divResult": {
+        "intResult": {
             "type": "int",
-            "value": "[variables('intValue')]"
+            "value": "[int(parameters('stringToConvert'))]"
         }
     }
 }
 ```
 
-### <a name="return-value"></a>返回值
+上述示例中使用默认值的输出为：
 
-一个整数。
+| Name | 类型 | 值 |
+| ---- | ---- | ----- |
+| intResult | int | 4 |
 
-## <a id="min"></a> min
-`min (arg1)`
+要使用 Azure CLI 部署此示例模板，请使用：
 
-返回整数数组或逗号分隔的整数列表中的最小值。
-
-### <a name="parameters"></a>Parameters
-
-| 参数 | 必选 | 类型 | 说明 |
-|:--- |:--- |:--- |:--- |
-| arg1 |是 |整数数组或逗号分隔的整数列表 |要获取最小值的集合。 |
-
-### <a name="examples"></a>示例
-
-以下示例演示如何对整数数组和整数列表使用 min：
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "arrayToTest": {
-            "type": "array",
-            "defaultValue": [0,3,2,5,4]
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "arrayOutput": {
-            "type": "int",
-            "value": "[min(parameters('arrayToTest'))]"
-        },
-        "intOutput": {
-            "type": "int",
-            "value": "[min(0,3,2,5,4)]"
-        }
-    }
-}
+```cli
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/int.json
 ```
 
-### <a name="return-value"></a>返回值
+要使用 PowerShell 部署此示例模板，请使用：
 
-一个整数，表示集合中的最小值。
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/int.json
+```
 
-## <a id="max"></a> max
+<a id="max" />
+
+## <a name="max"></a>max
 `max (arg1)`
 
 返回整数数组或逗号分隔的整数列表中的最大值。
 
-### <a name="parameters"></a>Parameters
+### <a name="parameters"></a>parameters
 
-| 参数 | 必选 | 类型 | 说明 |
+| 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | arg1 |是 |整数数组或逗号分隔的整数列表 |要获取最大值的集合。 |
 
-### <a name="examples"></a>示例
+### <a name="return-value"></a>返回值
 
-以下示例演示如何对整数数组和整数列表使用 max：
+一个整数，表示集合中的最大值。
+
+### <a name="example"></a>示例
+
+以下[示例模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/max.json)演示如何对整数数组和整数列表使用 max：
 
 ```json
 {
@@ -332,25 +364,109 @@ Resource Manager 提供以下用于处理整数的函数：
 }
 ```
 
+上述示例中使用默认值的输出为：
+
+| Name | 类型 | 值 |
+| ---- | ---- | ----- |
+| arrayOutput | int | 5 |
+| intOutput | int | 5 |
+
+要使用 Azure CLI 部署此示例模板，请使用：
+
+```cli
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
+```
+
+要使用 PowerShell 部署此示例模板，请使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
+```
+
+<a id="min" />
+
+## <a name="min"></a>min
+`min (arg1)`
+
+返回整数数组或逗号分隔的整数列表中的最小值。
+
+### <a name="parameters"></a>parameters
+
+| 参数 | 必须 | 类型 | 说明 |
+|:--- |:--- |:--- |:--- |
+| arg1 |是 |整数数组或逗号分隔的整数列表 |要获取最小值的集合。 |
+
 ### <a name="return-value"></a>返回值
 
-一个整数，表示集合中的最大值。
+一个整数，表示集合中的最小值。
 
-## <a id="mod"></a> mod
+### <a name="example"></a>示例
+
+以下[示例模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/min.json)演示如何对整数数组和整数列表使用 min：
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "arrayToTest": {
+            "type": "array",
+            "defaultValue": [0,3,2,5,4]
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "arrayOutput": {
+            "type": "int",
+            "value": "[min(parameters('arrayToTest'))]"
+        },
+        "intOutput": {
+            "type": "int",
+            "value": "[min(0,3,2,5,4)]"
+        }
+    }
+}
+```
+
+上述示例中使用默认值的输出为：
+
+| Name | 类型 | 值 |
+| ---- | ---- | ----- |
+| arrayOutput | int | 0 |
+| intOutput | int | 0 |
+
+要使用 Azure CLI 部署此示例模板，请使用：
+
+```cli
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
+```
+
+要使用 PowerShell 部署此示例模板，请使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
+```
+
+<a id="mod" />
+
+## <a name="mod"></a>mod
 `mod(operand1, operand2)`
 
 返回使用提供的两个整数整除后的余数。
 
-### <a name="parameters"></a>Parameters
+### <a name="parameters"></a>parameters
 
-| 参数 | 必选 | 类型 | 说明 |
+| 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | operand1 |是 |int |被除数。 |
 | operand2 |是 |int |除数，不能为 0。 |
 
-### <a name="examples"></a>示例
+### <a name="return-value"></a>返回值
+一个表示余数的整数。
 
-以下示例将返回一个参数除以另一个参数后所得的余数。
+### <a name="example"></a>示例
+
+以下[示例模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mod.json)将返回一个参数除以另一个参数后所得的余数。
 
 ```json
 {
@@ -359,12 +475,14 @@ Resource Manager 提供以下用于处理整数的函数：
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 7,
             "metadata": {
                 "description": "Integer being divided"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Integer used to divide"
             }
@@ -381,24 +499,45 @@ Resource Manager 提供以下用于处理整数的函数：
 }
 ```
 
-### <a name="return-value"></a>返回值
-一个表示余数的整数。
+上述示例中使用默认值的输出为：
 
-## <a id="mul"></a> mul
+| Name | 类型 | 值 |
+| ---- | ---- | ----- |
+| modResult | int | 1 |
+
+要使用 Azure CLI 部署此示例模板，请使用：
+
+```cli
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mod.json
+```
+
+要使用 PowerShell 部署此示例模板，请使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mod.json
+```
+
+<a id="mul" />
+
+## <a name="mul"></a>mul
 `mul(operand1, operand2)`
 
 返回提供的两个整数的积。
 
-### <a name="parameters"></a>Parameters
+### <a name="parameters"></a>parameters
 
-| 参数 | 必选 | 类型 | 说明 |
+| 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | operand1 |是 |int |被乘数。 |
 | operand2 |是 |int |乘数。 |
 
-### <a name="examples"></a>示例
+### <a name="return-value"></a>返回值
 
-以下示例将一个参数乘以另一个参数。
+一个表示积的整数。
+
+### <a name="example"></a>示例
+
+以下[示例模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mul.json)将一个参数乘以另一个参数。
 
 ```json
 {
@@ -407,12 +546,14 @@ Resource Manager 提供以下用于处理整数的函数：
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 5,
             "metadata": {
                 "description": "First integer to multiply"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Second integer to multiply"
             }
@@ -429,25 +570,44 @@ Resource Manager 提供以下用于处理整数的函数：
 }
 ```
 
-### <a name="return-value"></a>返回值
+上述示例中使用默认值的输出为：
 
-一个表示积的整数。
+| Name | 类型 | 值 |
+| ---- | ---- | ----- |
+| mulResult | int | 15 |
 
-## <a id="sub"></a> sub
+要使用 Azure CLI 部署此示例模板，请使用：
+
+```cli
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mul.json
+```
+
+要使用 PowerShell 部署此示例模板，请使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mul.json
+```
+
+<a id="sub" />
+
+## <a name="sub"></a>sub
 `sub(operand1, operand2)`
 
 返回提供的两个整数在相减后的结果。
 
-### <a name="parameters"></a>Parameters
+### <a name="parameters"></a>parameters
 
-| 参数 | 必选 | 类型 | 说明 |
+| 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | operand1 |是 |int |被减数。 |
 | operand2 |是 |int |减数。 |
 
-### <a name="examples"></a>示例
+### <a name="return-value"></a>返回值
+一个表示减后结果的整数。
 
-以下示例将一个参数减另一个参数。
+### <a name="example"></a>示例
+
+以下[示例模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/sub.json)将一个参数与另一个参数相减。
 
 ```json
 {
@@ -456,12 +616,14 @@ Resource Manager 提供以下用于处理整数的函数：
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 7,
             "metadata": {
                 "description": "Integer subtracted from"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Integer to subtract"
             }
@@ -478,11 +640,28 @@ Resource Manager 提供以下用于处理整数的函数：
 }
 ```
 
-### <a name="return-value"></a>返回值
-一个表示减后结果的整数。
+上述示例中使用默认值的输出为：
+
+| Name | 类型 | 值 |
+| ---- | ---- | ----- |
+| subResult | int | 4 |
+
+要使用 Azure CLI 部署此示例模板，请使用：
+
+```cli
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/sub.json
+```
+
+要使用 PowerShell 部署此示例模板，请使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/sub.json
+```
 
 ## <a name="next-steps"></a>后续步骤
-* 有关 Azure Resource Manager 模板中各部分的说明，请参阅[创作 Azure Resource Manager 模板](resource-group-authoring-templates.md)。
+* 有关 Azure 资源管理器模板中各部分的说明，请参阅[创作 Azure 资源管理器模板](resource-group-authoring-templates.md)。
 * 若要合并多个模板，请参阅[将链接的模板与 Azure Resource Manager 配合使用](resource-group-linked-templates.md)。
 * 若要在创建资源类型时迭代指定的次数，请参阅[在 Azure Resource Manager 中创建多个资源实例](resource-group-create-multiple.md)。
 * 若要查看如何部署已创建的模板，请参阅[使用 Azure Resource Manager 模板部署应用程序](resource-group-template-deploy.md)。
+
+<!--Update_Description: update meta properties, wording update -->

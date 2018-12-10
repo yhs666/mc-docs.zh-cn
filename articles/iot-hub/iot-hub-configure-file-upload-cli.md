@@ -1,0 +1,173 @@
+---
+title: 使用 Azure CLI (az.py) 配置到 IoT 中心的文件上传 | Azure
+description: 如何使用跨平台 Azure CLI 配置到 Azure IoT 中心的文件上传。
+author: dominicbetts
+ms.service: iot-hub
+services: iot-hub
+ms.topic: conceptual
+origin.date: 08/08/2017
+ms.author: v-yiso
+ms.date: 09/10/2018
+ms.openlocfilehash: 7e6ca8c2ccf03701707d7fbf69df4aef4abdd4d9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656480"
+---
+# <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>使用 Azure CLI 配置 IoT 中心文件上传
+
+[!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
+
+若要[从设备上传文件](iot-hub-devguide-file-upload.md)，必须先将 Azure 存储帐户与 IoT 中心关联。 可以使用现有存储帐户，也可以创建新的存储帐户。
+
+要完成本教程，需要以下各项：
+
+* 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。
+
+* Azure IoT 中心。 如果没有 IoT 中心，可以使用 [`az iot hub create` 命令](https://docs.azure.cn/zh-cn/cli/iot/hub#az-iot-hub-create)创建一个，或[使用门户创建 IoT 中心](iot-hub-create-through-portal.md)。
+
+* 一个 Azure 存储帐户。 如果没有 Azure 存储帐户，可以使用 [Azure CLI - 管理存储帐户](../storage/common/storage-azure-cli.md#manage-storage-accounts)创建一个，或使用门户[创建存储帐户](../storage/common/storage-create-storage-account.md)。
+
+## <a name="sign-in-and-set-your-azure-account"></a>登录并设置 Azure 帐户
+
+登录到 Azure 帐户，并选择订阅。
+
+1. 在命令提示符中，运行 [login 命令](https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-latest)：
+
+    ```azurecli
+    az login
+    ```
+
+    按照说明使用代码进行身份验证，并通过 Web 浏览器登录 Azure 帐户。
+
+1. 如果有多个 Azure 订阅，登录 Azure 可获得与凭据关联的所有 Azure 帐户的访问权限。 使用以下 [命令，列出可供使用的 Azure 帐户][lnk-az-account-command] ：
+
+    ```azurecli
+    az account list
+    ```
+
+    使用以下命令，选择想要用于运行命令以创建 IoT 中心的订阅。 可使用上一命令输出中的订阅名称或 ID：
+
+    ```azurecli
+    az account set --subscription {your subscription name or id}
+    ```
+
+## <a name="retrieve-your-storage-account-details"></a>检索存储帐户详细信息
+
+以下步骤假设已使用 **Resource Manager** 部署模型而不**经典**部署模型创建了存储帐户。
+
+若要从设备配置文件上传，需要 Azure 存储帐户的连接字符串。 存储帐户必须与 IoT 中心位于同一订阅中。 还需要存储帐户中 Blob 容器的名称。 使用以下命令检索存储帐户密钥：
+
+```azurecli
+az storage account show-connection-string --name {your storage account name} --resource-group {your storage account resource group}
+```
+
+记下 **connectionString** 值。 在后续步骤中需要用到它。
+
+可将现有的 Blob 容器用于文件上传，或新建一个容器：
+
+* 若要列出存储帐户中的现有 Blob 容器，请使用以下命令：
+
+    ```azurecli
+    az storage container list --connection-string "{your storage account connection string}"
+    ```
+
+* 若要在存储帐户中创建 Blob 容器，请使用以下命令：
+
+    ```azurecli
+    az storage container create --name {container name} --connection-string "{your storage account connection string}"
+    ```
+
+## <a name="file-upload"></a>文件上传
+
+现在可以使用存储帐户详细信息配置 IoT 中心以[将文件上传到 IoT 中心](iot-hub-devguide-file-upload.md)。
+
+配置需要以下值：
+
+**存储容器**：当前 Azure 订阅中要与 IoT 中心关联的 Azure 存储帐户中的 Blob 容器。 检索在上一部分中必要的存储帐户信息。 IoT 中心会自动生成对此 Blob 容器具有写入权限的 SAS URI，以供设备上传文件时使用。
+
+**接收已上传文件的通知**：启用或禁用文件上传通知。
+
+**SAS TTL**：此设置是 IoT 中心返回给设备的 SAS URI 生存时间。 默认设置为一小时。
+
+**文件通知设置默认 TTL**：文件上传通知到期前的生存时间。 默认设置为一天。
+
+**文件通知最大传送数**：IoT 中心将尝试传送文件上传通知的次数。 默认设置为 10。
+
+使用以下 Azure CLI 命令在 IoT 中心内配置文件上传设置：
+
+在 bash shell 中使用：
+
+```azurecli
+az iot hub update --name {your iot hub name} \
+  --set properties.storageEndpoints.'$default'.connectionString="{your storage account connection string}"
+
+az iot hub update --name {your iot hub name} \
+  --set properties.storageEndpoints.'$default'.containerName="{your storage container name}"
+
+az iot hub update --name {your iot hub name} \
+  --set properties.storageEndpoints.'$default'.sasTtlAsIso8601=PT1H0M0S
+
+az iot hub update --name {your iot hub name} \
+  --set properties.enableFileUploadNotifications=true
+
+az iot hub update --name {your iot hub name} \
+  --set properties.messagingEndpoints.fileNotifications.maxDeliveryCount=10
+
+az iot hub update --name {your iot hub name} \
+  --set properties.messagingEndpoints.fileNotifications.ttlAsIso8601=PT1H0M0S
+```
+
+可以使用以下命令在 IoT 中心内查看文件上传配置：
+
+```azurecli
+az iot hub show --name {your iot hub name}
+```
+
+## <a name="next-steps"></a>后续步骤
+
+有关 IoT 中心文件上传功能的详细信息，请参阅[从设备上传文件](iot-hub-devguide-file-upload.md)。
+
+若要了解有关如何管理 Azure IoT 中心的详细信息，请参阅以下链接：
+
+* [批量管理 IoT 设备](iot-hub-bulk-identity-mgmt.md)
+* [IoT 中心指标](iot-hub-metrics.md)
+* [操作监视](iot-hub-operations-monitoring.md)
+
+若要进一步探索 IoT 中心的功能，请参阅：
+
+* [IoT 中心开发人员指南](iot-hub-devguide.md)
+* [使用 Azure IoT Edge 将 AI 部署到边缘设备][lnk-iotedge]
+* [从根本上保护 IoT 解决方案][lnk-securing]
+
+[13]: ./media/iot-hub-configure-file-upload/file-upload-settings.png
+[14]: ./media/iot-hub-configure-file-upload/file-upload-container-selection.png
+[15]: ./media/iot-hub-configure-file-upload/file-upload-selected-container.png
+
+[lnk-upload]: ./iot-hub-devguide-file-upload.md
+
+[lnk-bulk]: ./iot-hub-bulk-identity-mgmt.md
+[lnk-metrics]: ./iot-hub-metrics.md
+[lnk-monitor]: ./iot-hub-operations-monitoring.md
+
+[lnk-devguide]: ./iot-hub-devguide.md
+[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md
+[lnk-securing]: ./iot-hub-security-ground-up.md
+
+
+[lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
+[lnk-CLI-install]: https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-lastest
+[lnk-login-command]: https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-lastest
+[lnk-az-account-command]: https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest
+[lnk-az-register-command]: https://docs.azure.cn/zh-cn/cli/provider?view=azure-cli-latest
+[lnk-az-addcomponent-command]: https://docs.azure.cn/zh-cn/cli/component?view=azure-cli-latest
+[lnk-az-resource-command]: https://docs.azure.cn/zh-cn/cli/resource?view=azure-cli-latest
+[lnk-az-iot-command]: https://docs.azure.cn/zh-cn/cli/iot?view=azure-cli-latest
+[lnk-iot-pricing]: https://www.azure.cn/pricing/details/iot-hub/
+[lnk-manage-storage]:../storage/common/storage-azure-cli.md#manage-storage-accounts
+[lnk-portal-storage]:../storage/common/storage-create-storage-account.md
+[lnk-cli-create-iothub]: https://docs.azure.cn/zh-cn/cli/iot/hub?view=azure-cli-latest#az_iot_hub_create
+
+<!--Update_Description: update meta data only-->

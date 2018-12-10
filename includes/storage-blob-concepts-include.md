@@ -1,27 +1,60 @@
-## <a name="what-is-blob-storage"></a>什么是 Blob 存储
+---
+title: include 文件
+description: include 文件
+services: storage
+author: WenJason
+ms.service: storage
+ms.topic: include
+origin.date: 04/09/2018
+ms.date: 09/24/2018
+ms.author: v-jay
+ms.custom: include file
+ms.openlocfilehash: 3051500cdc603df9211b1efd32fe732819a74f04
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651137"
+---
+Azure Blob 存储是 Azure 的适用于云的对象存储解决方案。 Blob 存储最适合存储巨量的非结构化数据，例如文本或二进制数据。
 
-Azure Blob 存储是用于存储大量非结构化对象数据（例如文本或二进制数据）的服务，这些数据可通过 HTTP 或 HTTPS 从世界各地进行访问。 你可以使用 Blob 存储向外公开数据，或者私下存储应用程序数据。
+高度可缩放的非结构化数据对象存储
 
-Blob 存储的常见用途包括：
+Blob 存储最适合用于：
 
-* 直接向浏览器提供图像或文档
-* 存储文件以供分布式访问
-* 对视频和音频进行流式处理
-* 存储数据以用于备份和还原、灾难恢复及存档
-* 存储数据以供本地或 Azure 托管服务执行分析
+* 直接向浏览器提供图像或文档。
+* 存储文件以供分布式访问。
+* 对视频和音频进行流式处理。
+* 向日志文件进行写入。
+* 存储用于备份和还原、灾难恢复及存档的数据。
+* 存储数据以供本地或 Azure 托管服务执行分析。
+
+可以通过 HTTP 或 HTTPS 从世界上的任何位置访问 Blob 存储中的对象。 用户或客户端应用程序可以通过 URL、[Azure 存储 REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api)、[Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage)、[Azure CLI](https://docs.azure.cn/cli/storage) 或 Azure 存储客户端库访问 Blob。 存储客户端库以多种语言提供，包括 [.NET](https://docs.azure.cn/dotnet/api/overview/storage/client)、[Java](https://docs.azure.cn/java/api/storage/clientlibrary)、[Node.js](http://azure.github.io/azure-storage-node)、[Python](https://docs.microsoft.com/python/azure/)、[PHP](http://azure.github.io/azure-storage-php/) 和 [Ruby](http://azure.github.io/azure-storage-ruby)。
 
 ## <a name="blob-service-concepts"></a>Blob 服务概念
-Blob 服务包含以下组件：
 
-![Blob 体系结构](./media/storage-blob-concepts-include/blob1.png)
+Blob 存储公开了三种资源：存储帐户、帐户中的容器，以及容器中的 blob。 以下图示显示了这些资源之间的关系。
 
-* **存储帐户：** 对 Azure 存储服务的所有访问都要通过存储帐户来完成。 此存储帐户可以是**常规用途存储帐户**，也可以是专用于存储对象/Blob 的 **Blob 存储帐户**。 有关详细信息，请参阅[关于 Azure 存储帐户](../articles/storage/storage-create-storage-account.md)。
-* **容器：** 一个容器包含一组 blob 集。 所有 blob 必须位于相应的容器中。 一个帐户可以包含无限个容器。 一个容器可以存储无限个 Blob。 请注意，容器名称必须小写。
-* **Blob：** 任何类型和大小的文件。 Azure 存储提供三种类型的 Blob：块 Blob、页 Blob 和追加 Blob。
-  
-    *块 Blob* 特别适用于存储短的文本或二进制文件，例如文档和媒体文件。 *追加 Blob* 类似于块 Blob，因为它们是由块组成的，但针对追加操作对它们进行了优化，因此它们适用于日志记录方案。 单个块 Blob 可以包含最多 50000 个块，每个块最大 100 MB，总大小稍微大于 4.75 TB (100 MB X 50000)。 单个追加 Blob 可以包含最多 50000 个块，每个块最大 4 MB，总大小稍微大于 195 GB (4 MB X 50000)。
-  
-    *页 Blob* 最大可达 1 TB 大小，并且对于频繁的读/写操作更加高效。 Azure 虚拟机使用页 Blob 作为 OS 和数据磁盘。
-  
-    有关命名容器和 Blob 的详细信息，请参阅 [命名和引用容器、Blob 和元数据](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata)。
+![Blob（对象）存储体系结构的图示](./media/storage-blob-concepts-include/blob1.png)
 
+### <a name="storage-account"></a>存储帐户
+
+对 Azure 存储中所有数据对象的访问都是通过存储帐户进行的。 有关详细信息，请参阅 [Azure 存储帐户概述](../articles/storage/common/storage-account-overview.md?toc=%2fstorage%2fblobs%2ftoc.json)。
+
+### <a name="container"></a>容器
+
+容器对一组 blob 进行组织，类似于文件系统中的文件夹。 所有 Blob 都驻留在容器中。 一个存储帐户可以包含无限数量的容器，一个容器可以存储无限数量的 Blob。 请注意，容器名称必须小写。
+
+### <a name="blob"></a>Blob
+ 
+Azure 存储提供三种类型的 Blob：块 Blob、追加 Blob 和[页 Blob](../articles/storage/blobs/storage-blob-pageblob-overview.md)（用于 VHD 文件）。
+
+* 块 Blob 存储文本和二进制数据，最多约为 4.7 TB。 块 Blob 由可以分别管理的数据块构成。
+* 与块 Blob 一样，追加 Blob 也由块构成，但针对追加操作进行了优化。 追加 Blob 非常适用于诸如记录来自虚拟机的数据之类的场景。
+* 页 Blob 用于存储最大 8 TB 的随机访问文件。 页 Blob 存储着为 VM 提供支撑的 VHD 文件。
+
+所有 Blob 都驻留在容器中。 容器类似于文件系统中的文件夹。 你可以进一步将 Blob 组织到虚拟目录中，并遍历它们，就像对待文件系统一样。 
+
+如果使用的是极大型数据集，并且因网络限制而无法通过网络向 Blob 存储上传数据或从其下载数据，则可将一组硬盘驱动器寄送给我们，以便直接通过数据中心导入或导出数据。 有关详细信息，请参阅[使用 Azure 导入/导出服务将数据传输到 Blob 存储中](../articles/storage/common/storage-import-export-service.md)。
+  
+有关命名容器和 Blob 的详细信息，请参阅 [命名和引用容器、Blob 和元数据](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata)。

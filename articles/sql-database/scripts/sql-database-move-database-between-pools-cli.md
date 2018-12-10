@@ -1,36 +1,32 @@
 ---
-title: "Azure CLI 脚本 - 移动 SQL 数据库和弹性池 | Azure"
-description: "Azure CLI 脚本示例 - 使用 Azure CLI 在弹性池之间移动 SQL 数据库"
+title: CLI 示例 - 移动 Azure SQL 数据库 - SQL 弹性池 | Microsoft Docs
+description: 在 SQL 弹性池中移动 SQL 数据库的 Azure CLI 示例脚本
 services: sql-database
-documentationcenter: sql-database
-author: janeng
-manager: jstrauss
-editor: carlrab
-tags: azure-service-management
-ms.assetid: 
 ms.service: sql-database
-ms.custom: sample
+ms.subservice: data-movement
+ms.custom: ''
 ms.devlang: azurecli
-ms.topic: article
-ms.tgt_pltfrm: sql-database
-ms.workload: database
-ms.date: 04/04/2017
-ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 15b8fd5fc1753828fa596e062b791108a26c8db4
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+ms.topic: sample
+author: WenJason
+ms.author: v-jay
+ms.reviewer: ''
+manager: digimobile
+origin.date: 09/20/2018
+ms.date: 10/29/2018
+ms.openlocfilehash: 5fda81efba9380a7f93984f72e4e3d7aec3df700
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666471"
 ---
+# <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>使用 CLI 在 SQL 弹性池中移动 Azure SQL 数据库
 
-# <a name="create-elastic-pools-and-move-databases-between-pools-and-out-of-a-pool-using-the-azure-cli"></a>使用 Azure CLI 创建弹性池，并在池之间和池外移动数据库
+此 Azure CLI 脚本示例创建两个弹性池，将 Azure SQL 数据库从一个 SQL 弹性池移到另一个 SQL 弹性池中，然后将数据库移出弹性池，并转为单一 Azure 数据库计算大小。 
 
-此示例 CLI 脚本创建两个弹性池，将数据库从一个弹性池移到另一个弹性池中，然后将数据库移出弹性池，移到单一数据库性能级别。 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-必要时，请使用 [Azure CLI 安装指南](https://docs.microsoft.com/cli/azure/install-azure-cli)中的说明安装 Azure CLI，然后运行 `az login` 创建与 Azure 的连接。
-
-此示例在 Bash shell 中正常工作。 有关在 Windows 上运行 Azure CLI 脚本的选项，请参阅[在 Windows 中运行 Azure CLI](../../virtual-machines/virtual-machines-windows-cli-options.md)。
+本主题需要运行 Azure CLI 版本 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0]( https://docs.azure.cn/cli/install-azure-cli)。 
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -38,10 +34,10 @@ ms.lasthandoff: 05/12/2017
 #!/bin/bash
 
 # Set an admin login and password for your database
-adminlogin=ServerAdmin
-password=ChangeYourAdminPassword1
+export adminlogin=ServerAdmin
+export password=ChangeYourAdminPassword1
 # The logical server name has to be unique in the system
-servername=server-$RANDOM
+export servername=server-$RANDOM
 
 # Create a resource group
 az group create \
@@ -106,20 +102,19 @@ az group delete --name myResourceGroup
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | 创建用于存储所有资源的资源组。 |
-| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#create) | 创建用于托管数据库或弹性池的逻辑服务器。 |
-| [az sql elastic-pools create](https://docs.microsoft.com/cli/azure/sql/elastic-pools#create) | 在逻辑服务器中创建弹性池。 |
-| [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#create) | 在逻辑服务器中创建数据库作为单一数据库或入池数据库。 |
-| [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#update) | 更新数据库属性，或者将数据库移入、移出弹性池或在弹性池之间移动。 |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#set) | 删除资源组，包括所有嵌套的资源。 |
+| [az group create](/cli/group#az-group-create) | 创建用于存储所有资源的资源组。 |
+| [az sql server create](/cli/sql/server#az-sql-server-create) | 创建用于托管数据库或弹性池的逻辑服务器。 |
+| [az sql elastic-pools create](/cli/sql/elastic-pool#az-sql-elastic-pool-create) | 在逻辑服务器中创建弹性池。 |
+| [az sql db create](/cli/sql/db#az-sql-db-create) | 在逻辑服务器中创建数据库作为单一数据库或入池数据库。 |
+| [az sql db update](/cli/sql/db#az-sql-db-update) | 更新数据库属性，或者将数据库移入、移出弹性池或在弹性池之间移动。 |
+| [az group delete](/cli/vm/extension#az-vm-extension-set) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/cli/)。
 
 其他 SQL 数据库 CLI 脚本示例可以在 [Azure SQL 数据库文档](../sql-database-cli-samples.md)中找到。
 
-
-
+<!--Update_Description: update Global CLI 2.O links to Mooncake CLI 2.O links-->

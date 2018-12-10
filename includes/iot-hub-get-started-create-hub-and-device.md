@@ -1,52 +1,28 @@
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
 
-1. 在 [Azure 门户](https://portal.azure.cn/)中，依次单击“新建” > “物联网” > “IoT 中心”。
+[!INCLUDE [iot-hub-create-hub](iot-hub-create-hub.md)]
 
-   ![在 Azure 门户中创建 IoT 中心](../articles/iot-hub/media/iot-hub-create-hub-and-device/1_create-azure-iot-hub-portal.png)
-1. 在“IoT 中心”窗格中，输入 IoT 中心的以下信息：
+创建 IoT 中心以后，即可找到将设备和应用程序连接到 IoT 中心时需要使用的重要信息。 
 
-   **名称**：它是 IoT 中心的名称。 如果输入的名称有效，将显示一个绿色复选标记。
+在 IoT 中心导航菜单中，打开“共享访问策略”。 选择“iothubowner”策略，然后复制 IoT 中心的“连接字符串---主密钥”。 有关详细信息，请参阅[控制对 IoT 中心的访问](../articles/iot-hub/iot-hub-devguide-security.md)。
 
-   **定价和缩放级别**：选择免费的 F1 级别。 此选项对于本演示来说已足够。 请参阅[定价和缩放级别](https://www.azure.cn/pricing/details/iot-hub/)。
+   > [!NOTE] 
+   > 本设置教程不需要 iothubowner 连接字符串。 不过，在完成此设置以后，可能需要将其用于某些介绍其他 IoT 方案的教程。
 
-   **资源组**：创建用于托管 IoT 中心的资源组，或使用现有的资源组。 请参阅[使用资源组管理 Azure 资源](../articles/azure-resource-manager/resource-group-portal.md)。
+   ![获取 IoT 中心连接字符串](./media/iot-hub-get-started-create-hub-and-device/create-iot-hub5.png)
 
-   **位置**：选择与创建的 IoT 中心最靠近的位置。
+## <a name="register-your-device-in-the-iot-hub"></a>在 IoT 中心内注册设备
 
-   **固定仪表板**：选中此选项可以方便地从仪表板访问 IoT 中心。
+1. 在 IoT 中心导航菜单中，打开“IoT 设备”，然后单击“添加”，在 IoT 中心注册设备。
 
-   ![填充用于创建 Azure IoT 中心的字段](../articles/iot-hub/media/iot-hub-create-hub-and-device/2_fill-in-fields-for-azure-iot-hub-portal.png)
+   ![在 IoT 中心的“IoT 设备”中添加设备](./media/iot-hub-get-started-create-hub-and-device/create-identity-portal.png)
 
-1. 单击“创建” 。 创建 IoT 中心可能需要几分钟时间。 可在“通知”窗格中查看进度。
+2. 输入新设备的“设备 ID”。 设备 ID 区分大小写。
 
-   ![请查看通知，了解 IoT 中心的创建进度](../articles/iot-hub/media/iot-hub-create-hub-and-device/3_notification-azure-iot-hub-creation-progress-portal.png)
+   [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-1. 创建 IoT 中心后，请在仪表板中单击它。 记下“主机名”，然后单击“共享访问策略”。
+4. 单击“保存” 。
+5. 创建设备后，在“IoT 设备”窗格的列表中打开该设备。
+6. 复制“连接字符串 ---主密钥”供以后使用。
 
-   ![获取 IoT 中心的主机名](../articles/iot-hub/media/iot-hub-create-hub-and-device/4_get-azure-iot-hub-hostname-portal.png)
-
-1. 在“共享访问策略”窗格中单击“iothubowner”策略，然后复制并记下 IoT 中心的**连接字符串**。 有关详细信息，请参阅[控制对 IoT 中心的访问](../articles/iot-hub/iot-hub-devguide-security.md)。
-
-   ![获取 IoT 中心连接字符串](../articles/iot-hub/media/iot-hub-create-hub-and-device/5_get-azure-iot-hub-connection-string-portal.png)
-
-## <a name="register-a-device-in-the-iot-hub-for-the-your-device"></a>在 IoT 中心为设备进行设备注册
-
-1. 在 [Azure 门户](https://portal.azure.cn/)中打开 IoT 中心。
-1. 单击“设备资源管理器”。
-1. 在“设备资源管理器”窗格中，单击“添加”将设备添加到你的 IoT 中心。
-
-   **设备 ID**：新设备的 ID。
-
-   **身份验证类型**：选择“对称密钥”。
-
-   **自动生成密钥**：选中此字段。
-
-   **将设备连接到 IoT 中心**：单击“启用”。
-
-   ![在 IoT 中心的设备资源管理器中添加设备](../articles/iot-hub/media/iot-hub-create-hub-and-device/6_add-device-in-azure-iot-hub-device-explorer-portal.png)
-
-1. 单击“保存” 。
-1. 创建设备后，在“设备资源管理器”窗格中打开设备。
-1. 记下连接字符串的主密钥。
-
-   ![获取设备连接字符串](../articles/iot-hub/media/iot-hub-create-hub-and-device/7_get-device-connection-string-in-device-explorer-portal.png)
+   ![获取设备连接字符串](./media/iot-hub-get-started-create-hub-and-device/device-connection-string.png)

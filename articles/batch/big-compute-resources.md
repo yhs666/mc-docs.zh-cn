@@ -1,11 +1,11 @@
 ---
-title: "Azure 云中的 Batch 和 HPC 的资源 | Microsoft Docs"
-description: "列出了旨在帮助你在 Azure 中运行大规模并行批处理和高性能计算 (HPC) 工作负荷的技术资源。"
+title: Azure 云中的 Batch 和 HPC 的资源 | Microsoft Docs
+description: 列出了旨在帮助你在 Azure 中运行大规模并行批处理和高性能计算 (HPC) 工作负荷的技术资源。
 services: batch, cloud-services, virtual-machines
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6f8be911-c841-41ae-88d3-3bcfc029eb7f
 ms.service: multiple
 ms.devlang: multiple
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: big-compute
 ms.date: 03/17/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 9d585f7048e0ddefe1b1743ed3df42b7b1f2f78c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: d0269c23d05b7cdd6901eaf909348878eae75f6e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644005"
 ---
 # <a name="big-compute-in-azure-technical-resources-for-batch-and-high-performance-computing"></a>Azure 中的大型计算：用于批处理和高性能计算的技术资源
 此为技术资源指南，旨在帮助用户在 Azure 中运行大规模并行批处理和高性能计算 (HPC) 工作负荷。 可以使用各种 Azure 服务将现有的批处理或 HPC 工作负荷扩展到 Azure 云，或者生成新的大型计算解决方案。
@@ -28,15 +27,15 @@ ms.lasthandoff: 04/14/2017
 ## <a name="solutions-options"></a>解决方案选项
 了解 Azure 中的大型计算选项，并根据工作负荷和业务需要选择适当的方法。
 
-- [Batch 和 HPC 解决方案](batch-hpc-solutions.md)
+- [Batch 和 HPC 解决方案](./batch-hpc-solutions.md)
 
 ## <a name="azure-batch"></a>Azure Batch
-[Batch](https://azure.microsoft.com/services/batch/) 是一种平台服务，可让用户轻松地在 Linux 和 Windows 应用程序中启用云功能并运行作业，而无需设置和管理群集与作业计划程序。 使用 SDK 可将不同语言的客户端应用与 Azure 批处理集成，将数据迁移到 Azure，以及生成作业运行管道。
+[Batch](https://azure.microsoft.com/services/batch/) 是一种平台服务，可让用户轻松地在 Linux 和 Windows 应用程序中启用云功能并运行作业，而无需设置和管理群集与作业计划程序。 使用 SDK 可将不同语言的客户端应用与 Azure Batch 集成，将数据迁移到 Azure，以及生成作业运行管道。
 
 - [文档](./index.md)
-- [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx)、 Python、[Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/)、[Java](http://azure.github.io/azure-sdk-for-java/) 和 [REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) API 参考
+- [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx)、[Python](http://azure-sdk-for-python.readthedocs.io/latest/)、[Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/)、[Java](http://azure.github.io/azure-sdk-for-java/) 和 [REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) API 参考
 - [Batch 管理 .NET 库](https://msdn.microsoft.com/library/mt463120.aspx)参考
-- 教程：[用于 .NET 的 Azure Batch 库](batch-dotnet-get-started.md)入门和 [Batch Python 客户端](batch-python-tutorial.md)入门
+- 教程：[用于 .NET 的 Azure Batch 库](./batch-dotnet-get-started.md)入门和 [Batch Python 客户端](./batch-python-tutorial.md)入门
 - [Batch 论坛](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=azurebatch)
 
 ## <a name="hpc-cluster-solutions"></a>HPC 群集解决方案
@@ -82,7 +81,7 @@ Azure 提供适合运行 Linux 和 Windows HPC 工作负荷的 [VM 大小范围]
 
 ## <a name="samples-and-demos"></a>示例和演示
 - [Azure Batch C# 和 Python 代码示例](https://github.com/Azure/azure-batch-samples)
-- [ Shipyard](https://azure.github.io/batch-shipyard/) 工具包，可以轻松地将批处理样式的 Dockerized 工作负荷部署到 Azure Batch
+- [批处理 Shipyard](https://azure.github.io/batch-shipyard/) 工具包，可以轻松地将批处理样式的 Dockerized 工作负荷部署到 Azure Batch
 - 基于 Azure Batch 构建的 [doAzureParallel](http://www.github.com/Azure/doAzureParallel) R 包
 - [Test drive SUSE Linux Enterprise Server for HPC](https://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver12optimizedforhighperformancecompute/)（试用 SUSE Linux Enterprise Server for HPC）
 
@@ -113,6 +112,4 @@ Azure 提供适合运行 Linux 和 Windows HPC 工作负荷的 [VM 大小范围]
 ## <a name="next-steps"></a>后续步骤
 - 有关最新通告，请参阅 [Microsoft HPC 和批处理团队博客](http://blogs.technet.com/b/windowshpc/)与 [Azure 博客](https://azure.microsoft.com/blog/tag/hpc/)。
 - 另请参阅 [Batch 中的新增功能](https://azure.microsoft.com/updates/?service=batch)或订阅 [RSS 源](https://azure.microsoft.com/updates/feed/?service=batch)。
-
-
 

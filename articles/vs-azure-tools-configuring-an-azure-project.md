@@ -1,27 +1,24 @@
 ---
-title: "使用 Visual Studio 配置 Azure 云服务项目 | Microsoft Docs"
-description: "了解如何根据你对该项目的要求在 Visual Studio 中配置 Azure 云服务项目。"
+title: 使用 Visual Studio 配置 Azure 云服务项目 | Microsoft Docs
+description: 了解如何根据你对该项目的要求在 Visual Studio 中配置 Azure 云服务项目。
 services: visual-studio-online
-documentationcenter: na
-author: TomArcher
+author: ghogen
 manager: douge
-editor: 
-ms.assetid: 609d6965-05cc-47b1-82dc-c76a92d4f295
-ms.service: multiple
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
-ms.date: 03/06/2017
-wacn.date: 
+assetId: 609d6965-05cc-47b1-82dc-c76a92d4f295
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.custom: vs-azure
+ms.workload: azure-vs
+ms.topic: conceptual
+origin.date: 03/06/2017
+ms.date: 09/10/2018
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 38459df54bd5b0e8927b8b5ba1389d419849f408
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: 53e9cc2f23870c10d8e5950d4a79aed9f704b442
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659151"
 ---
 # <a name="configure-an-azure-cloud-service-project-with-visual-studio"></a>使用 Visual Studio 配置 Azure 云服务项目
 可根据你对 Azure 云服务项目的要求来对其进行配置。 可针对以下类别设置项目的属性：
@@ -33,7 +30,7 @@ ms.lasthandoff: 05/12/2017
 ## <a name="steps-to-configure-an-azure-cloud-service-project"></a>配置 Azure 云服务项目的步骤
 1. 在 Visual Studio 中打开或创建 Azure 云服务项目
 
-2. 在“解决方案资源管理器”中右键单击项目，然后从上下文菜单中选择“属性”。
+2. 在“解决方案资源管理器”中右键单击项目，并从上下文菜单中选择“属性”。
    
 3. 在项目的属性页中，选择“开发”选项卡。
 
@@ -43,11 +40,11 @@ ms.lasthandoff: 05/12/2017
 
 5. 若要指示在本地运行或调试云服务时要使用的服务配置，请选择所需**服务配置**。 有关如何修改角色的服务配置的详细信息，请参阅[如何使用 Visual Studio 配置 Azure 云服务的角色](./vs-azure-tools-configure-roles-for-cloud-service.md)。
 
-6. 若要在本地运行或调试云服务时启动 Azure 存储模拟器，请将“启动 Azure 存储模拟器”设为“True”。
+6. 要在本地运行或调试云服务时启动 Azure 存储模拟器，请将“启动 Azure 存储模拟器”设为“True”。
 
-7. 若要确保在出现包验证错误时无法发布，请将“将警告视为错误”设为“True”。
+7. 要确保在出现包验证错误时无法发布，请将“将警告视为错误”设为“True”。
 
-8. 若要确保 Web 角色每次在 IIS Express 中本地启动时都使用同一端口，请将“使用 Web 项目端口”设为“True”。
+8. 要确保 Web 角色每次在 IIS Express 中本地启动时都使用同一端口，请将“使用 Web 项目端口”设为“True”。
 
 9. 从 Visual Studio 工具栏中，选择“保存”。
 
@@ -55,4 +52,4 @@ ms.lasthandoff: 05/12/2017
 - [使用多种服务配置来配置 Azure 项目](vs-azure-tools-multiple-services-project-configurations.md)
 
 
-
+<!-- Update_Description: update metedata properties -->

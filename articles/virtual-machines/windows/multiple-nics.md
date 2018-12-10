@@ -1,212 +1,299 @@
 ---
-title: "创建具有多个 NIC 的 Windows VM | Azure"
-description: "了解如何使用 Azure PowerShell 或 Resource Manager 模板创建附有多个 NIC 的 Windows VM。"
+title: 在 Azure 中创建并管理使用多个 NIC 的 Windows VM | Azure
+description: 了解如何使用 Azure PowerShell 或资源管理器模板创建并管理附有多个 NIC 的 Windows VM。
 services: virtual-machines-windows
-documentationcenter: 
-author: iainfoulds
-manager: timlt
-editor: 
+documentationcenter: ''
+author: rockboyfor
+manager: digimobile
+editor: ''
 ms.assetid: 9bff5b6d-79ac-476b-a68f-6f8754768413
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 03/14/2017
-wacn.date: 
-ms.author: v-dazen
-translationtype: Human Translation
-ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
-ms.openlocfilehash: 7bcdde23873d8f59de7770dc55f1195a29846d72
-ms.lasthandoff: 04/06/2017
-
-
+origin.date: 09/26/2017
+ms.date: 08/27/2018
+ms.author: v-yeche
+ms.openlocfilehash: 3cfed98c90c3dea2480937dba0af2aea13e4e68b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658472"
 ---
-# <a name="create-a-windows-vm-with-multiple-nics"></a>创建具有多个 NIC 的 Windows VM
-可以在 Azure 中创建附有多个虚拟网络接口 (NIC) 的虚拟机 (VM)。 一种常见方案是为前端和后端连接使用不同的子网，或者为监视或备份解决方案使用一个专用网络。 本文提供用于创建附有多个 NIC 的 VM 的快速命令。 有关详细信息，包括如何在自己的 PowerShell 脚本中创建多个 NIC，请阅读[部署具有多个 NIC 的 VM](../../virtual-network/virtual-network-deploy-multinic-arm-ps.md)。 不同的 [VM 大小](../virtual-machines-windows-sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)支持不同数目的 NIC，因此请相应地调整 VM 的大小。
+# <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>创建并管理具有多个 NIC 的 Windows 虚拟机
+Azure 中的虚拟机 (VM) 可附有多个虚拟网络接口卡 (NIC)。 一种常见方案是为前端和后端连接设置不同的子网。 可以将 VM 上的多个 NIC 关联到多个子网，但这些子网必须全都位于同一个虚拟网络 (vNet) 中。 本文详述了如何创建附有多个 NIC 的 VM。 还可以了解如何从现有 VM 中添加或删除 NIC。 不同的 [VM 大小](sizes.md)支持不同数目的 NIC，因此请相应地调整 VM 的大小。
 
-## <a name="create-core-resources"></a>创建核心资源
-确保[已安装并配置最新的 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。 登录 Azure 帐户：
+## <a name="prerequisites"></a>先决条件
+确保[已安装并配置最新版本的 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
 
-```powershell
-Login-AzureRmAccount -EnvironmentName AzureChinaCloud
-```
+在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括 *myResourceGroup*、*myVnet* 和 *myVM*。
 
-在以下示例中，请将示例参数名称替换为你自己的值。 示例参数名称包括 `myResourceGroup`、`mystorageaccount` 和 `myVM`。
-
-首先创建一个资源组。 以下示例在 `WestUs` 位置创建名为 `myResourceGroup` 的资源组：
+## <a name="create-a-vm-with-multiple-nics"></a>创建具有多个 NIC 的 VM
+首先创建一个资源组。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组：
 
 ```powershell
-New-AzureRmResourceGroup -Name "myResourceGroup" -Location "ChinaNorth"
+New-AzureRmResourceGroup -Name "myResourceGroup" -Location "chinaeast"
 ```
 
-创建一个存储帐户用于存放 VM。 以下示例创建名为 `mystorageaccount`的存储帐户：
+### <a name="create-virtual-network-and-subnets"></a>创建虚拟网络和子网
+虚拟网络的一种常见方案是具有两个或多个子网。 一个子网可能用于前端流量，另一个用于后端流量。 若要连接两个子网，可在 VM 上使用多个 NIC。
 
-```powershell
-$storageAcc = New-AzureRmStorageAccount -ResourceGroupName "myResourceGroup" `
-    -Location "ChinaNorth" -Name "mystorageaccount" `
-    -Kind "Storage" -SkuName "Premium_LRS" 
-```
+1. 通过 [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) 定义两个虚拟网络子网。 以下示例分别定义 *mySubnetFrontEnd* 和 *mySubnetBackEnd* 的子网：
 
-## <a name="create-virtual-network-and-subnets"></a>创建虚拟网络和子网
-定义两个虚拟网络子网 - 一个用于前端流量，一个用于后端流量。 以下示例定义两个子网，分别名为 `mySubnetFrontEnd` 和 `mySubnetBackEnd`：
+    ```powershell
+    $mySubnetFrontEnd = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnetFrontEnd" `
+        -AddressPrefix "192.168.1.0/24"
+    $mySubnetBackEnd = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnetBackEnd" `
+        -AddressPrefix "192.168.2.0/24"
+    ```
 
-```powershell
-$mySubnetFrontEnd = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnetFrontEnd" `
-    -AddressPrefix "192.168.1.0/24"
-$mySubnetBackEnd = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnetBackEnd" `
-    -AddressPrefix "192.168.2.0/24"
-```
+2. 通过 [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork) 创建虚拟网络和子网。 以下示例创建一个名为 *myVnet* 的虚拟网络：
 
-创建虚拟网络和子网。 以下示例创建名为 `myVnet`的虚拟网络：
+    ```powershell
+    $myVnet = New-AzureRmVirtualNetwork -ResourceGroupName "myResourceGroup" `
+        -Location "chinaeast" `
+        -Name "myVnet" `
+        -AddressPrefix "192.168.0.0/16" `
+        -Subnet $mySubnetFrontEnd,$mySubnetBackEnd
+    ```
 
-```powershell
-$myVnet = New-AzureRmVirtualNetwork -ResourceGroupName "myResourceGroup" `
-    -Location "ChinaNorth" -Name "myVnet" -AddressPrefix "192.168.0.0/16" `
-    -Subnet $mySubnetFrontEnd,$mySubnetBackEnd
-```
-
-## <a name="create-multiple-nics"></a>创建多个 NIC
-创建两个 NIC，并将其中一个 NIC 附加到前端子网，将另一个 NIC 附加到后端子网。 以下示例创建两个 NIC，分别名为 `myNic1` 和 `myNic2`：
+### <a name="create-multiple-nics"></a>创建多个 NIC
+通过 [New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworkinterface) 创建两个 NIC。 将其中一个 NIC 附加到前端子网，将另一个 NIC 附加到后端子网。 以下示例创建名为 *myNic1* 和 *myNic2* 的 NIC：
 
 ```powershell
 $frontEnd = $myVnet.Subnets|?{$_.Name -eq 'mySubnetFrontEnd'}
 $myNic1 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
-    -Location "ChinaNorth" -Name "myNic1" -SubnetId $frontEnd.Id
+    -Name "myNic1" `
+    -Location "chinaeast" `
+    -SubnetId $frontEnd.Id
 
 $backEnd = $myVnet.Subnets|?{$_.Name -eq 'mySubnetBackEnd'}
 $myNic2 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
-    -Location "ChinaNorth" -Name "myNic2" -SubnetId $backEnd.Id
+    -Name "myNic2" `
+    -Location "chinaeast" `
+    -SubnetId $backEnd.Id
 ```
 
-通常，还会创建[网络安全组](../../virtual-network/virtual-networks-nsg.md)或[负载均衡器](../../load-balancer/load-balancer-overview.md)来帮助管理流量以及跨 VM 分布流量。 [更详细的多 NIC VM](../../virtual-network/virtual-network-deploy-multinic-arm-ps.md) 一文将指导你创建网络安全组和分配 NIC。
+通常还会创建用于筛选流向 VM 的网络流量的[网络安全组](../../virtual-network/security-overview.md)和用于在多个 VM 间分配流量的[负载均衡器](../../load-balancer/load-balancer-overview.md)。
 
-## <a name="create-the-virtual-machine"></a>创建虚拟机
-立即开始构建 VM 配置。 每种 VM 大小限制了可添加到 VM 的 NIC 数目。 有关详细信息，请阅读 [Windows VM 大小](../virtual-machines-windows-sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 
+### <a name="create-the-virtual-machine"></a>创建虚拟机
+立即开始构建 VM 配置。 每种 VM 大小限制了可添加到 VM 的 NIC 数目。 有关详细信息，请参阅 [Windows VM 大小](sizes.md)。
 
-首先，将你的 VM 凭据设置为 `$cred` 变量，如下所示：
+1. 将 VM 凭据设置为 `$cred` 变量，如下所示：
 
-```powershell
-$cred = Get-Credential
-```
+    ```powershell
+    $cred = Get-Credential
+    ```
 
-以下示例定义名为 `myVM` 的 VM，使用最多支持两个 NIC 的 VM 大小 (`Standard_DS2_v2`)：
+2. 通过 [New-AzureRmVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig) 定义 VM。 以下示例定义名为 *myVM* 的 VM，并使用支持两个以上 NIC 的 VM 大小(*Standard_DS3_v2*)：
 
-```powershell
-$vmConfig = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_DS2_v2"
-```
+    ```powershell
+    $vmConfig = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_DS3_v2"
+    ```
 
-创建 VM 配置的其余部分。 以下示例创建一个 Windows Server 2012 R2 VM：
+3. 通过 [Set-AzureRmVMOperatingSystem](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) 和 [Set-AzureRmVMSourceImage](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsourceimage) 创建 VM 配置的其余部分。 以下示例创建一个 Windows Server 2016 VM：
 
-```powershell
-$vmConfig = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName "myVM" `
-    -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-$vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName "MicrosoftWindowsServer" `
-    -Offer "WindowsServer" -Skus "2012-R2-Datacenter" -Version "latest"
-```
+    ```powershell
+    $vmConfig = Set-AzureRmVMOperatingSystem -VM $vmConfig `
+        -Windows `
+        -ComputerName "myVM" `
+        -Credential $cred `
+        -ProvisionVMAgent `
+        -EnableAutoUpdate
+    $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig `
+        -PublisherName "MicrosoftWindowsServer" `
+        -Offer "WindowsServer" `
+        -Skus "2016-Datacenter" `
+        -Version "latest"
+   ```
 
-附加前面创建的两个 NIC：
+4. 通过 [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmnetworkinterface) 附加两个之前创建的 NIC：
 
-```powershell
-$vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $myNic1.Id -Primary
-$vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $myNic2.Id
-```
+    ```powershell
+    $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $myNic1.Id -Primary
+    $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $myNic2.Id
+    ```
 
-为新 VM 配置存储和虚拟磁盘：
+5. 使用 [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) 创建 VM：
 
-```powershell
-$blobPath = "vhds/WindowsVMosDisk.vhd"
-$osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + $blobPath
-$diskName = "windowsvmosdisk"
-$vmConfig = Set-AzureRmVMOSDisk -VM $vmConfig -Name $diskName -VhdUri $osDiskUri `
-    -CreateOption "fromImage"
-```
+    ```powershell
+    New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "chinaeast"
+    ```
 
-最后，创建 VM：
-
-```powershell
-New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "ChinaNorth"
-```
+6. 通过完成[为多个 NIC 配置操作系统](#configure-guest-os-for-multiple-nics)中的步骤，将辅助 NIC 的路由添加到 OS。
 
 ## <a name="add-a-nic-to-an-existing-vm"></a>向现有 VM 添加 NIC
+若要向现有 VM 添加虚拟 NIC，解除分配 VM，添加虚拟 NIC，并启动 VM。 不同的 [VM 大小](sizes.md)支持不同数目的 NIC，因此请相应地调整 VM 的大小。 如果需要，可[调整 VM 的大小](resize-vm.md)。
 
-现在可以向现有 VM 添加 NIC。 若要使用此功能，首先需要使用下面的 Stop-AzureRmVM cmdlet 对 VM 解除分配。
+1. 通过 [Stop-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/stop-azurermvm) 解除分配 VM。 以下示例解除分配 *myResourceGroup* 中名为 *myVM* 的 VM：
 
-```powershell
-Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
-```
+    ```powershell
+    Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
+    ```
 
-接下来，使用 Get-AzureRmVM cmdlet 获取 VM 的现有配置
+2. 通过 [Get-AzureRmVm](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvm) 获取 VM 的现有配置。 以下示例从“myResourceGroup”中获取名为“myVM”的信息：
 
-```powershell
-$vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
-```
+    ```powershell
+    $vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
+    ```
 
-你可以在 **VM 所处的同一 VNET** 中创建新的 NIC（如本文开头部分所述）或附加现有 NIC。 我们假设你在 VNET 中附加现有 NIC `MyNic3`。 
+3. 以下示例通过 [New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworkinterface) 创建附加到 *mySubnetBackEnd* 的名为 *myNic3* 的虚拟 NIC。 然后，通过 [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmnetworkinterface) 将虚拟 NIC 附加到 *myResourceGroup* 中名为 *myVM* 的 VM：
 
-```powershell
-$nicId = (Get-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" -Name "MyNic3").Id
-Add-AzureRmVMNetworkInterface -VM $vm -Id $nicId -Primary | Update-AzureRmVm -ResourceGroupName "myResourceGroup"
-```
+    ```powershell
+    # Get info for the back end subnet
+    $myVnet = Get-AzureRmVirtualNetwork -Name "myVnet" -ResourceGroupName "myResourceGroup"
+    $backEnd = $myVnet.Subnets|?{$_.Name -eq 'mySubnetBackEnd'}
 
-> [!NOTE]
-> 多 NIC VM 上的其中一个 NIC 必须是主要 NIC，因此我们将新 NIC 设置为主要 NIC。 如果 VM 上以前的 NIC 是主要 NIC，则无需指定 -Primary 开关。 如果要切换 VM 上的主要 NIC，请按照下面的步骤操作
+    # Create a virtual NIC
+    $myNic3 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
+        -Name "myNic3" `
+        -Location "chinaeast" `
+        -SubnetId $backEnd.Id
 
-```powershell
-$vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
+    # Get the ID of the new virtual NIC and add to VM
+    $nicId = (Get-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" -Name "MyNic3").Id
+    Add-AzureRmVMNetworkInterface -VM $vm -Id $nicId | Update-AzureRmVm -ResourceGroupName "myResourceGroup"
+    ```
 
-# Find out all the NICs on the VM and find which one is Primary
-$vm.NetworkProfile.NetworkInterfaces
+    ### <a name="primary-virtual-nics"></a>主虚拟 NIC
+    具有多个 NIC 的 VM 上其中一个需为主 NIC。 如果 VM 上现有虚拟 NIC 之一已设置为主 NIC，则可跳过此步骤。 以下示例假设 VM 上现在存在两个虚拟NIC，并且想要将第一个 NIC (`[0]`) 添加为主 NIC：
 
-# Set the NIC 0 to be primary
-$vm.NetworkProfile.NetworkInterfaces[0].Primary = $true
-$vm.NetworkProfile.NetworkInterfaces[1].Primary = $false
+    ```powershell
+    # List existing NICs on the VM and find which one is primary
+    $vm.NetworkProfile.NetworkInterfaces
 
-# Update the VM state in Azure
-Update-AzureRmVM -VM $vm -ResourceGroupName "myResourceGroup"
-```
+    # Set NIC 0 to be primary
+    $vm.NetworkProfile.NetworkInterfaces[0].Primary = $true
+    $vm.NetworkProfile.NetworkInterfaces[1].Primary = $false
+
+    # Update the VM state in Azure
+    Update-AzureRmVM -VM $vm -ResourceGroupName "myResourceGroup"
+    ```
+
+4. 通过 [Start-AzureRmVm](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm) 启动 VM：
+
+    ```powershell
+    Start-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
+    ```
+
+5. 通过完成[为多个 NIC 配置操作系统](#configure-guest-os-for-multiple-nics)中的步骤，将辅助 NIC 的路由添加到 OS。
 
 ## <a name="remove-a-nic-from-an-existing-vm"></a>从现有 VM 中删除 NIC
+若要从现有 VM 中删除虚拟 NIC，解除分配 VM，删除虚拟 NIC，并启动 VM。
 
-还可以从 VM 中删除 NIC。 若要使用此功能，首先需要使用下面的 Stop-AzureRmVM cmdlet 对 VM 解除分配。
+1. 通过 [Stop-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/stop-azurermvm) 解除分配 VM。 以下示例解除分配 *myResourceGroup* 中名为 *myVM* 的 VM：
 
-```powershell
-Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
-```
+    ```powershell
+    Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
+    ```
 
-接下来，使用 Get-AzureRmVM cmdlet 获取 VM 的现有配置
+2. 通过 [Get-AzureRmVm](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvm) 获取 VM 的现有配置。 以下示例从 *myResourceGroup* 中获取名为 *myVM* 的 VM 的信息：
 
-```powershell
-$vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
-```
+    ```powershell
+    $vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
+    ```
 
-现在查看 VM 上的所有 NIC，并复制要删除的 NIC 的名称
+3. 通过 [Get-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkinterface) 获取有关删除 NIC 的信息。 以下示例获取有关“myNic3”的信息：
 
-```powershell
-$vm.NetworkProfile.NetworkInterfaces
+    ```powershell
+    # List existing NICs on the VM if you need to determine NIC name
+    $vm.NetworkProfile.NetworkInterfaces
 
-Remove-AzureRmNetworkInterface -Name "myNic3" -ResourceGroupName "myResourceGroup"
-```
+    $nicId = (Get-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" -Name "myNic3").Id   
+    ```
 
-## <a name="creating-multiple-nics-using-resource-manager-templates"></a>使用 Resource Manager 模板创建多个 NIC
-Azure Resource Manager 模板使用声明性 JSON 文件来定义环境。 可以阅读 [Azure Resource Manager 概述](../../azure-resource-manager/resource-group-overview.md)。 Resource Manager 模板可让你在部署期间创建资源的多个实例，例如，创建多个 NIC。 使用 *copy* 指定要创建的实例数：
+4. 通过 [Remove-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.compute/remove-azurermvmnetworkinterface) 删除 NIC，并通过 [Update-AzureRmVm](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvm) 更新 VM。 以下示例删除上一步中由 `$nicId` 获得的“myNic3”：
+
+    ```powershell
+    Remove-AzureRmVMNetworkInterface -VM $vm -NetworkInterfaceIDs $nicId | `
+        Update-AzureRmVm -ResourceGroupName "myResourceGroup"
+    ```   
+
+5. 通过 [Start-AzureRmVm](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm) 启动 VM：
+
+    ```powershell
+    Start-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
+    ```   
+
+## <a name="create-multiple-nics-with-templates"></a>使用模板创建多个 NIC
+使用 Azure 资源管理器模板可在部署期间创建资源的多个实例，例如，创建多个 NIC。 资源管理器模板使用声明性 JSON 文件来定义环境。 有关详细信息，请参阅 [Azure 资源管理器概述](../../azure-resource-manager/resource-group-overview.md)。 使用“copy”指定要创建的实例数：
 
 ```json
 "copy": {
-    "name": "multiplenics"
+    "name": "multiplenics",
     "count": "[parameters('count')]"
 }
 ```
 
-阅读有关[使用 *copy* 创建多个实例](../../azure-resource-manager/resource-group-create-multiple.md)的详细信息。 
+有关详细信息，请参阅[使用“copy”创建多个实例](../../resource-group-create-multiple.md)。 
 
-也可以使用 `copyIndex()` 并在资源名称中追加一个数字，来创建 `myNic1`、`MyNic2`，等等。下面显示了追加索引值的示例：
+也可使用 `copyIndex()` 向资源名追加数字。 然后可创建“myNic1”、“MyNic2”等。 以下代码显示了追加索引值的示例：
 
 ```json
 "name": "[concat('myNic', copyIndex())]", 
 ```
 
-可以阅读[使用 Resource Manager 模板创建多个 NIC](../../virtual-network/virtual-network-deploy-multinic-arm-template.md) 的完整示例。
+可以阅读有关[使用 Resource Manager 模板创建多个 NIC](../../virtual-network/template-samples.md) 的完整示例。
+
+通过完成[为多个 NIC 配置操作系统](#configure-guest-os-for-multiple-nics)中的步骤，将辅助 NIC 的路由添加到 OS。
+
+## <a name="configure-guest-os-for-multiple-nics"></a>为多个 NIC 配置来宾 OS
+
+Azure 会将默认网关分配给附加到虚拟机的第一个（主）网络接口。 Azure 不会将默认网关分配给附加到虚拟机的其他（辅助）网络接口。 因此，默认情况下无法与辅助网络接口所在子网的外部资源进行通信。 但是，辅助网络接口可以与子网外部的资源进行通信，尽管对不同操作系统而言，启用通信的步骤有所不同。
+
+1. 从 Windows 命令提示符下，运行 `route print` 命令，这将返回类似于以下虚拟机输出的输出，该虚拟机包含两个附加的网络接口：
+
+    ```
+    ===========================================================================
+    Interface List
+    3...00 0d 3a 10 92 ce ......Microsoft Hyper-V Network Adapter #3
+    7...00 0d 3a 10 9b 2a ......Microsoft Hyper-V Network Adapter #4
+    ===========================================================================
+    ```
+
+    在本例中，Microsoft Hyper-V 网络适配器 #4（接口 7）是辅助网络接口，系统不会向其分配默认网关。
+
+2. 从命令提示符处，运行 `ipconfig` 命令查看分配给辅助网络接口的 IP 地址。 在本例中，192.168.2.4 被分配到接口 7。 辅助网络接口没有返回任何默认网关地址。
+
+3. 若要将发往辅助网络接口子网外部地址的所有流量路由到子网网关，请运行以下命令：
+
+    ```
+    route add -p 0.0.0.0 MASK 0.0.0.0 192.168.2.1 METRIC 5015 IF 7
+    ```
+
+    子网的网关地址是为该子网定义的地址范围中的第一个 IP 地址（以 .1 结尾）。 如果不想路由子网外部的所有流量，可改为向特定目标添加单独的路由。 例如，如果只想将流量从辅助网络接口路由到 192.168.3.0 网络，请输入以下命令：
+
+      ```
+      route add -p 192.168.3.0 MASK 255.255.255.0 192.168.2.1 METRIC 5015 IF 7
+      ```
+
+4. 例如，若要确认与 192.168.3.0 网络中资源的通信是否成功，请输入以下命令使用接口 7 (192.168.2.4) 对 192.168.3.4 执行 ping 操作：
+
+    ```
+    ping 192.168.3.4 -S 192.168.2.4
+    ```
+
+    可能需要使用以下命令通过正在 ping 的设备的 Windows 防火墙打开 ICMP：
+
+      ```
+      netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
+      ```
+
+5. 若要确认已添加的路由是否在路由表中，请输入 `route print` 命令，它将返回一个类似于以下文本的输出：
+
+    ```
+    ===========================================================================
+    Active Routes:
+    Network Destination        Netmask          Gateway       Interface  Metric
+              0.0.0.0          0.0.0.0      192.168.1.1      192.168.1.4     15
+              0.0.0.0          0.0.0.0      192.168.2.1      192.168.2.4   5015
+    ```
+
+    “网关”下列出的路由 192.168.1.1 是主网络接口的默认路由。 “网关”下列出的路由 192.168.2.1 是你所添加的路由。
 
 ## <a name="next-steps"></a>后续步骤
-尝试创建具有多个 NIC 的 VM 时，请务必查看 [Windows VM 大小](../virtual-machines-windows-sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 注意每个 VM 大小支持的 NIC 数目上限。
+尝试创建具有多个 NIC 的 VM 时，请查看 [Windows VM 大小](sizes.md)。 注意每个 VM 大小支持的 NIC 数目上限。
+
+<!--Update_Description: update meta properties, wording update -->

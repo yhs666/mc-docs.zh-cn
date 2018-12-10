@@ -1,31 +1,30 @@
 ---
-title: "Azure 服务总线 SQLFilter 语法参考 | Azure"
-description: "有关 SqlFilter 语法的详细信息。"
+title: Azure 服务总线 SQLFilter 语法参考 | Azure
+description: 有关 SqlFilter 语法的详细信息。
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
-manager: timlt
-editor: 
-ms.assetid: 
+author: lingliw
+manager: digimobile
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
-ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 9805cca82a357990eebbbdd3bbbb8e8e36253bfd
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+origin.date: 09/05/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 2572838b30e2a1b2332463426ced640ca1012c4a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654198"
 ---
-
 # <a name="sqlfilter-syntax"></a>SQLFilter 语法
 
-*SqlFilter* 是 [SqlFilter 类](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter)的实例，代表基于 SQL 语言的筛选器表达式，该表达式针对 [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 进行计算。 SqlFilter 支持 SQL-92 标准的子集。  
+SqlFilter 对象是 [SqlFilter 类](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)的实例，代表基于 SQL 语言的筛选器表达式，该表达式针对 [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 进行计算。 SqlFilter 支持 SQL-92 标准的子集。  
   
  本主题列出有关 SqlFilter 语法的详细信息。  
   
@@ -62,11 +61,11 @@ ms.lasthandoff: 05/12/2017
   
 ## <a name="arguments"></a>参数  
   
--   `<scope>` 是一个可选字符串，指示 `<property_name>` 的范围。 有效值为 `sys` or `user`进行求值的基于 SQL 语言的筛选器表达式。 `sys` 值指示系统范围，其中 `<property_name>` 是 [BrokeredMessage 类](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)的公共属性名称。 `user` 指示用户范围，其中 `<property_name>` 是 [BrokeredMessage 类](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)字典的项。 `user` 范围是默认范围（如果 `<scope>` 未指定）。  
+-   `<scope>` 是一个可选字符串，指示 `<property_name>` 的范围。 有效值为 `sys` or `user`进行求值的基于 SQL 语言的筛选器表达式。 `sys` 值指示系统范围，其中 `<property_name>` 是 [BrokeredMessage 类](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)的公共属性名称。 `user` 指示用户范围，其中 `<property_name>` 是 [BrokeredMessage 类](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)字典的项。 `user` 范围是默认范围（如果 `<scope>` 未指定）。  
   
 ## <a name="remarks"></a>备注
 
-访问不存在的系统属性的尝试是错误，访问不存在的用户属性的尝试不是错误。 相反，不存在的用户属性在内部作为未知值进行求值。 运算符求值期间会对未知值进行特殊处理。  
+访问不存在的系统属性的尝试是错误，访问不存在的用户属性的尝试不是错误。 相反，不存在的用户属性在内部作为未知值进行求值。 在运算符求值过程中，未知值的处理方式很特殊。  
   
 ## <a name="propertyname"></a>property_name  
   
@@ -88,15 +87,15 @@ ms.lasthandoff: 05/12/2017
 [[:IsLetter:]][_[:IsLetter:][:IsDigit:]]*  
 ```  
   
-这是指以字母开头且后跟一个或多个下划线/字母/数字的任何字符串。  
+此语法是指任何以字母开头且后跟一个或多个下划线/字母/数字的字符串。  
   
-`[:IsLetter:]` 是指分类为 Unicode 字母的任何 Unicode 字符。 `System.Char.IsLetter(c)` 返回 `true`（如果 `c` 为 Unicode 字母）。  
+`[:IsLetter:]` 是指其类别为 Unicode 字母的任何 Unicode 字符。 `System.Char.IsLetter(c)` 返回 `true`（如果 `c` 为 Unicode 字母）。  
   
 `[:IsDigit:]` 是指分类为十进制数字的任何 Unicode 字符。 `System.Char.IsDigit(c)` 返回 `true`（如果 `c` 为 Unicode 数字）。  
   
 `<regular_identifier>` 不能是保留关键字。  
   
-`<delimited_identifier>` 是用左/右方括号 ([]) 括起来的任何字符串。 右方括号以两个右方括号表示。 下面是 `<delimited_identifier>`的示例：  
+`<delimited_identifier>` 是用左/右方括号 ([]) 括起来的任何字符串。 右方括号采用两个右方括号的形式。 下面是 `<delimited_identifier>`的示例：  
   
 ```  
 [Property With Space]  
@@ -104,7 +103,7 @@ ms.lasthandoff: 05/12/2017
   
 ```  
   
-`<quoted_identifier>` 是指使用双引号引起来的任何字符串。 标识符中的双引号以两个双引号表示。 不建议使用带引号的标识符，因为很容易将其与字符串常量混淆。 如果可能，请使用分隔标识符。 下面是 `<quoted_identifier>`的示例：  
+`<quoted_identifier>` 是指使用双引号引起来的任何字符串。 标识符中的双引号以两个双引号表示。 建议不要使用带引号的标识符，因为很容易与字符串常量混淆。 如果可能，请使用分隔标识符。 下面是 `<quoted_identifier>`的示例：  
   
 ```  
 "Contoso & Northwind"  
@@ -134,7 +133,7 @@ ms.lasthandoff: 05/12/2017
   
 ### <a name="remarks"></a>备注  
 
-`<escape_char>` 必须是作为长度为 1 的字符串进行求值的表达式。 它用作 LIKE 运算符的转义符。  
+`<escape_char>` 必须是作为长度为 1 的字符串进行求值的表达式。 作为转义符用于 LIKE 运算符。  
   
  例如，`property LIKE 'ABC\%' ESCAPE '\'` 匹配 `ABC%`，而不匹配以 `ABC` 开头的字符串。  
   
@@ -149,7 +148,7 @@ ms.lasthandoff: 05/12/2017
   
 -   `<integer_constant>` 是指不使用引号引起来且不包含小数点的数字字符串。 这些值作为 `System.Int64` 在内部存储，并具有相同的作用域。  
   
-     下面是长整数常量的示例：  
+     下面是长常量的示例：  
   
     ```  
     1894  
@@ -211,13 +210,13 @@ ms.lasthandoff: 05/12/2017
   
 ## <a name="considerations"></a>注意事项
   
-请注意以下 [SqlFilter](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter) 语义：  
+请注意以下 [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) 语义：  
   
--   属性名称区分大小写。  
+-   属性名称不区分大小写。  
   
 -   运算符尽可能遵循 C# 隐式转换语义。  
   
--   系统属性是值在 [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 实例中公开的公共属性。  
+-   系统属性是值在 [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 实例中公开的公共属性。  
   
     请注意以下 `IS [NOT] NULL` 语义：  
   
@@ -225,9 +224,9 @@ ms.lasthandoff: 05/12/2017
   
 ### <a name="property-evaluation-semantics"></a>属性求值语义  
   
--   对不存在的系统属性进行求值的尝试会引发 [FilterException](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.filterexception) 异常。  
+-   尝试对不存在的系统属性求值会引发 [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) 异常。  
   
--   不存在的属性在内部作为 **未知**进行求值。  
+-   不存在的属性在进行内部求值时会被视为**未知**。  
   
  算术运算符中的未知求值：  
   
@@ -241,11 +240,11 @@ ms.lasthandoff: 05/12/2017
   
  `[NOT] LIKE`中的未知求值：  
   
--   如果任何操作数的求值结果为**未知**，则结果为**未知**。  
+-   如果任何操作数的求值结果为“未知”，则结果为“未知”。  
   
  `[NOT] IN`中的未知求值：  
   
--   如果左侧操作数的求值结果为**未知**，则结果为**未知**。  
+-   如果左侧操作数的求值结果为“未知”，则结果为“未知”。  
   
  **AND** 运算符中的未知求值：  
   
@@ -283,5 +282,6 @@ ms.lasthandoff: 05/12/2017
 
 ## <a name="next-steps"></a>后续步骤
 
-- [SQLFilter 类](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
-- [SQLRuleAction 类](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
+- [SQLFilter 类 (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
+- [SQLFilter 类 (.NET Framework)](/dotnet/api/microsoft.azure.servicebus.sqlfilter)
+- [SQLRuleAction 类](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)

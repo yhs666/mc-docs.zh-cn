@@ -1,146 +1,107 @@
 ---
-title: "Azure 应用服务计划深入概述 | Azure"
-description: "了解针对 Azure 应用服务的应用服务计划的工作原理，以及如何利用它们进行管理。"
-keywords: "应用服务, azure 应用服务, 缩放, 可缩放, 应用服务计划, 应用服务成本"
+title: Azure 应用服务计划概述
+description: 了解针对 Azure 应用服务的应用服务计划的工作原理，以及如何利用它们进行管理。
+keywords: 应用服务, azure 应用服务, 缩放, 可缩放, 可伸缩性, 应用服务计划, 应用服务成本
 services: app-service
-documentationcenter: 
-author: btardif
-manager: erikre
-editor: 
+documentationcenter: ''
+author: cephalin
+manager: cfowler
+editor: ''
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/02/2016
-wacn.date: 
-ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: af9e05d9e78edc06c423843b7408279c529f4645
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+origin.date: 11/09/2017
+ms.date: 01/29/2018
+ms.author: v-yiso
+ms.openlocfilehash: e76b04b0ab89aa42f90c97d87aaaa15e35c1f19d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649013"
 ---
-# <a name="azure-app-service-plans-in-depth-overview"></a>Azure 应用服务计划深入概述
-应用服务计划代表用于托管应用的物理资源的集合。
+# <a name="azure-app-service-plan-overview"></a>Azure 应用服务计划概述
 
-应用服务计划定义：
+在应用服务中，应用在应用服务计划中运行。 应用服务计划为要运行的 Web 应用定义一组计算资源。 这些计算资源类似于传统 Web 托管方案中的[_服务器场_](https://wikipedia.org/wiki/Server_farm)。 可将一个或多个应用配置为在相同的计算资源中（或相同的应用服务计划中）运行。 
 
-- 区域（中国北部、中国东部）
-- 规模计数（一个、两个、三个实例等）
-- 实例大小（小、中、大）
-- SKU（免费、共享、基本、标准、高级）
+在特定的区域（例如“中国东部”）中创建应用服务计划时，将为该区域中的该计划创建一组计算资源。 放入此应用服务计划的任何应用都在应用服务计划定义的这些计算资源中运行。 每个应用服务计划定义：
 
-[Azure 应用服务](/app-service-web/app-service-changes-existing-services)中的 Web 应用、移动应用、API 应用均在应用服务计划中运行。  同一订阅、区域和资源组中的应用可共享应用服务计划。 
+- 区域（中国东部、中国北部）
+- VM 实例数
+- VM 实例大小（“小型”、“中型”、“大型”）
+- 定价层（免费、共享、基本、标准、高级）
 
-分配到**应用服务计划**的所有应用程序将共享该计划定义的资源。 在单个应用服务计划中托管多个应用时，此共享操作可节省成本。
+应用服务计划的定价层确定了所提供的应用服务功能和计划费用。 定价层有以下几个类别：
 
-**应用服务计划**可以从**免费**和**共享** SKU 扩展到**基本**、**标准**和 **高级** SKU，让用户随着不断的发展访问更多的资源和功能。 
+- **共享计算**：“免费”和“共享”，这两个基本层在其他应用服务应用（包括其他客户的应用）所在的同一个 Azure VM 上运行应用。 这些层为共享资源中运行的每个应用分配 CPU 配额，且资源不可横向扩展。
+- **专用计算**：“基本”、“标准”、“高级”层在专用的 Azure VM 上运行应用。 只有同一应用服务计划中的应用可以共享相同的计算资源。 层越高，可用于横向扩展的 VM 实例就越多。
 
-如果应用服务计划设置为**基本** SKU 或更高版本，则可控制 VM 的**大小**和规模计数。
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-例如，如果计划配置为使用标准服务层的两个“小型”实例，则与该计划关联的所有应用都会在这两个实例上运行。 应用还可访问标准服务层功能。 运行应用的计划实例是完全托管的，且可用性高。 
+每个层还提供应用服务功能的特定子集。 这些功能包括自定义域和 SSL 证书、自动缩放、部署槽位、备份、流量管理器集成，等等。 层越高，可用的功能越多。 若要了解每个定价层支持的功能，请参阅[应用服务计划详细信息](https://azure.microsoft.com/pricing/details/app-service/plans/)。
 
-> [!IMPORTANT]
-> 应用服务计划的 **SKU** 和**规模**确定成本，而不是托管的应用数目。
 
-本文介绍应用服务计划的主要特征（例如层和缩放），以及在管理应用时这些特征如何起作用。
 
-## <a name="apps-and-app-service-plans"></a>应用和应用服务计划
-应用服务中的应用在任何特定的时刻只能与一个应用服务计划相关联。
 
-应用和计划都包含在**资源组**中。 资源组充当该组中每个资源的生命周期界限。 可以使用资源组来同时管理应用程序的所有组件。
+## <a name="how-does-my-app-run-and-scale"></a>应用如何运行和缩放？
 
-由于一个资源组可以有多个应用服务计划，因此用户可以将不同的应用分配给不同的物理资源。 
+在“免费”和“共享”层中，应用遵循共享 VM 实例上的 CPU 分钟配额，且不能横向扩展。在其他层中，应用按如下所述运行和缩放。
 
-例如，可以将资源分到开发环境、测试环境和生产环境中。 生产和开发/测试具有各自的环境，因此资源是被隔离的。 这样，对新版应用进行负载测试时，不会与为真正的客户提供服务的生产应用竞争相同的资源。
+在应用服务中创建某个应用时，该应用将被放入应用服务计划。 该应用运行时，将在应用服务计划中配置的所有 VM 实例上运行。 如果同一应用服务计划中包含多个应用，这些应用将共享相同的 VM 实例。 如果对某个应用使用多个部署槽位，所有部署槽位也在相同的 VM 实例上运行。 如果启用诊断日志、执行备份或运行 Web 作业，它们也使用这些 VM 实例上的 CPU 周期和内存。
 
-单个资源组中存在多个计划时，也可定义一个跨多个地理区域的应用程序。 
+于是，应用服务计划便成了应用服务应用的缩放单元。 如果将计划配置为运行五个 VM 实例，该计划中的所有应用将在所有五个实例上运行。 如果为计划配置了自动缩放，该计划中的所有应用将会根据自动缩放设置一起横向扩展。
 
-例如，在两个区域中运行的高度可用的应用可以包括至少两个计划，一个区域一个计划，一个计划关联一个应用。 在这种情况下，应用的所有副本都包含在单个资源组中。 一个资源组中有多个计划和多个应用可以轻松管理、控制和查看应用程序的运行状况。
+有关横向扩展应用的信息，请参阅[手动或自动缩放实例计数](../monitoring-and-diagnostics/insights-how-to-scale.md)。
 
-## <a name="create-an-app-service-plan-or-use-existing-one"></a>创建应用服务计划或使用现有应用服务计划
-创建应用时，应考虑创建资源组。 另一方面，如果该应用是另一个更大型应用程序的组件，则应在后者所属的资源组内创建前者。
+<a name="cost"></a>
 
-无论应用是完整的新应用程序还是更大型应用程序的一部分，均可选择使用现有计划进行托管，或选择创建新计划。 该决定主要取决于容量和预期的负载。
+## <a name="how-much-does-my-app-service-plan-cost"></a>应用服务计划的费用是多少？
 
-我们建议在以下情况下将应用放在新应用服务计划中：
+本部分介绍应用服务应用的计费方式。 有关区域特定的详细定价信息，请参阅[应用服务定价](https://www.azure.cn/pricing/details/app-service/)。
 
-- 应用占用大量资源。 
-- 应用与现有计划中托管的其他应用的比例系数不同。
-- 应用需要其他地理区域中的资源。
+除“免费”层外，应用服务计划会根据所用的计算资源量产生小时费用。
+
+- 在“共享”层中，每个应用遵循 CPU 分钟配额，因此，每个应用会根据 CPU 配额产生小时费用。
+- 在专用计算层（“基本”、“标准”、“高级”）中，应用服务计划定义了应用可缩放到的 VM 实例数，因此，应用服务计划中的每个 VM 实例会产生小时费用。 不管这些 VM 实例上运行了多少个应用，其计费方式都是相同的。 为了避免意外的费用，请参阅[清理应用服务计划](app-service-plan-manage.md#delete)。
+使用随附的应用服务功能（配置自定义域、SSL 证书、部署槽位、备份等）不会产生费用。 例外情况包括：
+
+- 应用服务域 - 在 Azure 中购买以及每年续订时付费。
+- 应用服务证书 - 在 Azure 中购买以及每年续订时付费。
+- 基于 IP 的 SSL 连接 - 每个基于 IP 的 SSL 连接会产生小时费用，但“标准”或更高类别的某些层免费提供了一个基于 IP 的 SSL 连接。 基于 SNI 的 SSL 连接免费。
+
+> [!NOTE]
+> 如果将应用服务与其他 Azure 服务集成，可能需要考虑这些服务的费用。 例如，如果使用 Azure 流量管理器在特定的地理位置缩放应用，则 Azure 流量管理器也会根据用量收取费用。 若要估算 Azure 中的跨服务费用，请参阅[定价计算器](https://www.azure.cn/pricing/calculator/)。 
+>
+>
+
+## <a name="what-if-my-app-needs-more-capabilities-or-features"></a>如果应用需要更多的功能怎么办？
+
+随时可以提高和降低应用服务计划。 只需更改计划的定价层即可。 一开始可以选择一个较低的定价层，以后需要更多的应用服务功能时，可以提高层。
+
+例如，可以在“免费”应用服务计划中开始免费测试 Web 应用。 想要将[自定义 DNS 名称](app-service-web-tutorial-custom-domain.md)添加到 Web 应用时，只需将计划提高到“共享”层。 以后想要添加[自定义 SSL 证书](app-service-web-tutorial-custom-ssl.md)时，可将计划提高到“基本”层。 想要部署[过渡环境](web-sites-staged-publishing.md)时，可提高到“标准”层。 需要更多的核心、内存或存储时，可提高到同一层中的更大 VM 大小。
+
+反之亦然。 如果觉得自己不再需要较高层的功能，可以降低到更低的层，从而节省资金。
+
+有关提高应用服务计划的信息，请参阅[纵向扩展 Azure 中的应用](web-sites-scale.md)。
+
+如果你的应用与其他应用在同一个应用服务计划中，可以通过隔离计算资源来提高你的应用的性能。 为此，可将应用移到单独的应用服务计划中。 有关详细信息，请参阅[将应用移到另一个应用服务计划](app-service-plan-manage.md#move)。
+
+## <a name="should-i-put-an-app-in-a-new-plan-or-an-existing-plan"></a>应该将应用放入新计划还是现有计划中？
+
+由于应用服务计划分配的计算资源会产生费用（请参阅[应用服务计划的费用是多少？](#cost)），将多个应用放入一个应用服务计划可能会节省资金。 只要现有的计划能够提供足够的资源来处理负载，就可以持续将应用添加到该计划。 但请记住，同一应用服务计划中的所有应用共享相同的计算资源。 若要确定新的应用是否能够获得所需的资源，需要了解现有应用服务计划的容量，以及新应用预期的负载。 应用服务计划过载可能会导致新应用和现有应用停机。
+
+在以下情况下，请将应用隔离到新应用服务计划中：
+
+- 该应用占用大量资源。
+- 想要独立于现有计划中的其他应用缩放该应用。
+- 该应用需要其他地理区域中的资源。
 
 这样一来，可以为应用分配新的资源集，并更好地控制应用。
 
-## <a name="create-an-app-service-plan"></a>创建应用服务计划
+## <a name="manage-an-app-service-plan"></a>管理应用服务计划
 
-可以在浏览应用服务计划或创建应用的过程中创建空的应用服务计划。
-
-在 [Azure 门户](https://portal.azure.cn)中，单击**“新建”** > 
-**“Web + 移动”**，然后选择**“Web 应用”**或其他应用服务应用类型。
-![在 Azure 门户中创建应用。][createWebApp]
-
-然后即可为新应用选择或创建应用服务计划。
-
- ![创建应用服务计划。][createASP]
-
-若要创建应用服务计划，可单击“[+] 新建”，键入“应用服务计划”名称，然后选择相应的“位置”。 单击“定价层”，然后为服务选择适当的服务定价层。 选择“全部查看”以查看其他定价选项，例如“免费”和“共享”。 选择定价层后，单击“选择”按钮。
-
-## <a name="move-an-app-to-a-different-app-service-plan"></a>将应用移到其他应用服务计划
-可在 [Azure 门户](https://portal.azure.cn)中将应用移到其他应用服务计划。 只要计划属于同一资源组和同一地理区域，即可在计划之间移动应用。
-
-若要将应用移到另一计划，请执行以下操作：
-
-- 导航到要移动的应用。 
-- 在“菜单”中，查找“应用服务计划”部分。
-- 选择“更改应用服务计划”启动该过程。
-
-“更改应用服务计划”将打开“应用服务计划”选择器。 此时，你可以选取现有计划，然后将该应用移到其中。 
-
-> [!IMPORTANT]
-> 仅显示位于相同资源组和地理位置的有效计划。
-
-![应用服务计划选择器。][change]
-
-每个计划都有自己的定价层。 例如，将站点从免费层移到标准层时，分配给站点的所有应用都可使用标准层的功能和资源。
-
-## <a name="clone-an-app-to-a-different-app-service-plan"></a>将应用克隆到其他应用服务计划
-若要将应用移到其他区域，也可以使用应用克隆。 克隆可以复制任何区域的新的或现有的应用服务计划中的应用。
-
-可以在菜单的“开发工具”部分找到“克隆应用”。
-
-> [!IMPORTANT]
-> 有关克隆的某些限制，可阅读[使用 Azure 门户进行 Azure 应用服务应用克隆](../app-service-web/app-service-web-app-cloning-portal.md)。
-
-## <a name="scale-an-app-service-plan"></a>缩放应用服务计划
-可通过三种方式缩放一个计划：
-
-* **更改计划的定价层**。 基本层中的计划可转换为标准层中的计划，分配给它的所有应用可转换为使用标准层的功能。
-* **更改计划的实例大小**。 例如，可以将“基本”层中使用小型实例的计划改为使用大型实例。 与该计划关联的所有应用即可使用实例大小提高以后带来的更多内存和 CPU 资源。
-* **更改计划的实例计数**。 例如，可以将最大规模为 3 个实例的“标准”计划扩展到 10 个实例。 “高级”计划可以扩展到 20 个实例（取决于可用性）。 与该计划关联的所有应用即可使用实例数量提高以后带来的更多内存和 CPU 资源。
-
-单击应用或应用服务计划设置下的“向上缩放”项即可更改定价层和实例大小。 更改会应用到应用服务计划并影响其所托管的所有应用。
-
- ![设置向上缩放应用的值。][pricingtier]
-
-## <a name="app-service-plan-cleanup"></a>应用服务计划清理
-> [!IMPORTANT]
->未与任何应用关联的**应用服务计划**仍会产生费用，因为它们继续保留计算容量。
-
-若要避免意想不到的费用，当应用服务计划中托管的最后一个应用被删除时，也要删除此空的应用服务计划。
-
-## <a name="summary"></a>摘要
-应用服务计划表示一组可在应用间共享的功能和容量。 可以通过应用服务计划灵活地将特定应用分配给一组资源，并进一步优化 Azure 资源的使用情况。 若要节省测试环境的资金，可通过这种方式跨多个应用共享一个计划。 也可跨多个区域和计划进行伸缩，实现生产环境吞吐量的最大化。
-
-## <a name="whats-changed"></a>发生的更改
-* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
-
-[pricingtier]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/appserviceplan-pricingtier.png
-[assign]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/assing-appserviceplan.png
-[change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
-[createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
-[createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
-
+> [!div class="nextstepaction"]
+> [管理应用服务计划](app-service-plan-manage.md)

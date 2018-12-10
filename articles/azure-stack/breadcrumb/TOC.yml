@@ -1,0 +1,17 @@
+items:
+- name: Azure
+  tocHref: https://docs.azure.cn/
+  topicHref: /index
+  items:
+  - name: Azure Stack
+    tocHref: /site-recovery/
+    topicHref: /azure-stack/index
+  - name: Azure Stack
+    tocHref: /backup/
+    topicHref: /azure-stack/index
+ms.openlocfilehash: 1b51915d79b8aaa9a71ac2c2c95b553134d1f368
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652243"

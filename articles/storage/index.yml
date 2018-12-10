@@ -1,0 +1,100 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: c0c365b6cd61ac4a14a3846487bf832ffaed5c71
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643894"
+documentType: LandingData
+title: Azure 存储文档
+metadata:
+  title: Azure 存储文档 - 教程和 API 参考 | Microsoft 文档
+  description: Azure 存储是 Microsoft 托管的云服务，其所提供存储的可用性、安全性、持久性、可伸缩性和冗余性都很高。 Azure 存储包括 Azure Blob、Azure 文件、Azure 队列和 Azure 表。
+  services: storage
+  author: WenJason
+  manager: digimobile
+  ms.service: storage
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  origin.date: 06/27/2018
+  ms.date: 09/10/2018
+  ms.author: v-jay
+abstract:
+  description: Azure 存储是一项 Microsoft 托管服务，其提供的云存储的可用性、安全性、持久性、可伸缩性和冗余性都很高。 Azure 存储包括 Azure Blob（对象）、Azure 文件、Azure 队列和 Azure 表。 使用快速入门和教程了解如何在应用程序中利用 Azure 存储。
+sections:
+- title: 5 分钟快速入门
+  items:
+  - type: paragraph
+    text: 通过浏览这些快速入门了解如何使用 Azure 存储。
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/portal.svg
+        text: 门户
+    - image:
+        src: media/index/logo_powershell.svg
+        text: Powershell
+    - image:
+        src: media/index/cli.svg
+        text: Azure CLI
+    - image:
+        src: media/index/logo_net.svg
+    - image:
+        src: media/index/logo_java.svg
+    - image:
+        src: media/index/logo_python.svg
+    - image:
+        src: media/index/logo_nodejs.svg
+    rows:
+    - title: 创建存储帐户
+      values:
+      - href: /storage/common/storage-quickstart-create-account?tabs=portal
+      - href: /storage/common/storage-quickstart-create-account?tabs=powershell
+      - href: /storage/common/storage-quickstart-create-account?tabs=azure-cli
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+    - title: Blob 快速入门
+      values:
+      - href: /storage/blobs/storage-quickstart-blobs-portal
+      - href: /storage/blobs/storage-quickstart-blobs-powershell
+      - href: /storage/blobs/storage-quickstart-blobs-cli
+      - href: /storage/blobs/storage-quickstart-blobs-dotnet
+      - href: /storage/blobs/storage-quickstart-blobs-java
+      - href: /storage/blobs/storage-quickstart-blobs-python
+      - href: /storage/blobs/storage-quickstart-blobs-nodejs
+- title: 分步教程
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Blob
+      html: <p>在云中上传和处理图像数据</p><ul><li><a href="/storage/blobs/storage-upload-process-images">上传和检索云中的图像数据</a></li><li><a href="/storage/blobs/storage-monitor-troubleshoot-storage-application">监视存储和排查其问题</a></li></ul><p>针对高可用性设计应用程序</p><ul><li><a href="/storage/blobs/storage-create-geo-redundant-storage">使应用程序数据的可用性高</a></li><li><a href="/storage/blobs/storage-simulate-failure-ragrs-account-app">模拟访问读取访问冗余存储时发生的故障</a></li></ul>
+- title: 示例
+  items:
+  - type: paragraph
+    text: 查找常见管理任务的脚本。
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: .NET &#58; <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=dotnet">Blob</a> | <a     href="https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=dotnet">文件</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=dotnet">队列</a>
+    - html: Java &#58; <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=java">Blob</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=java">文件</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=java">队列</a>
+    - html: <a href="/storage/blobs/storage-samples-blobs-powershell">Azure PowerShell</a>
+    - html: <a href="/storage/blobs/storage-samples-blobs-cli">Azure CLI</a>
+- title: 参考
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: 命令行
+      html: <p><a href="https://docs.microsoft.com/powershell/storage">PowerShell</a></p><p><a href="/cli/storage">Azure CLI</a></p>
+    - title: 语言
+      html: <p><a href="https://docs.azure.cn/zh-cn/dotnet/api/overview/storage/client?view=azure-dotnet">.NET</a></p><p><a href="https://docs.azure.cn/java/api/storage/clientlibrary?view=azure-java-stable">Java</a></p><p><a href="https://docs.microsoft.com/javascript/api/overview/azure/storage?view=azure-node-latest">Node.js</a></p><p><a href="https://docs.microsoft.com/python/api/overview/azure/storage">Python</a></p><p><a href="http://azure.github.io/azure-storage-php/">PHP</a></p><p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p><p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p><p><a href="https://github.com/Azure/azure-storage-ios">iOS</a></p><p><a href="http://azure.github.io/azure-storage-android">Android</a></p>
+    - title: REST
+      html: <p><a href="https://docs.microsoft.com/rest/api/storageservices">Blob、队列、表和文件 API</a></p><p><a href="https://docs.microsoft.com/rest/api/storagerp">存储资源提供程序 API</a></p><p><a href="https://docs.microsoft.com/rest/api/storageimportexport">导入/导出服务 API</a></p>

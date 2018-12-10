@@ -1,23 +1,23 @@
 ---
-title: "Azure 服务总线文档 - 教程和 API 参考 | Microsoft Docs"
-description: "了解如何设置消息传送，用于连接跨本地和云环境的应用程序与服务。  教程、视频、API 参考和其他资源。"
+title: Azure 服务总线文档 - 教程和 API 参考 | Microsoft Docs
+description: 了解如何设置消息传送，用于连接跨本地和云环境的应用程序与服务。  教程、视频、API 参考和其他资源。
 services: service-bus
 author: carolz
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-bus
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 7297b2099e1dfc75c1f4dc3f41fa7c8426b0a48f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: ba10e377e8e27a54c8a5d3f2290dce2317ea1082
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658600"
 ---
 #<a name="service-bus-documentation"></a>服务总线文档
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 05/12/2017
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/service-bus-messaging/service-bus-queues-topics-subscriptions">
+        <a href="/azure/service-bus-messaging/service-bus-queues-topics-subscriptions">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -43,7 +43,25 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
     <li>
-        <a href="/service-bus-messaging/service-bus-create-namespace-portal">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=service-bus">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/video-library.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Azure 服务总线视频库</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/service-bus-messaging/service-bus-create-namespace-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -61,7 +79,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
     <li>
-        <a href="/service-bus-messaging/service-bus-dotnet-get-started-with-queues">
+        <a href="/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -79,7 +97,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
      <li>
-        <a href="/service-bus-messaging/service-bus-java-how-to-use-queues">
+        <a href="/azure/service-bus-messaging/service-bus-java-how-to-use-queues">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -97,7 +115,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
      <li>
-        <a href="/service-bus-messaging/service-bus-nodejs-how-to-use-queues">
+        <a href="/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -115,7 +133,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
      <li>
-        <a href="/service-bus-messaging/service-bus-php-how-to-use-queues">
+        <a href="/azure/service-bus-messaging/service-bus-php-how-to-use-queues">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -133,7 +151,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
      <li>
-        <a href="/service-bus-messaging/service-bus-python-how-to-use-queues">
+        <a href="/azure/service-bus-messaging/service-bus-python-how-to-use-queues">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -151,7 +169,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
      <li>
-        <a href="/service-bus-messaging/service-bus-ruby-how-to-use-queues">
+        <a href="/azure/service-bus-messaging/service-bus-ruby-how-to-use-queues">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

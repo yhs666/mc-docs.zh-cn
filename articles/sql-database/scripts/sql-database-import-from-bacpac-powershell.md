@@ -1,95 +1,107 @@
 ---
-title: "Azure PowerShell 脚本 - 导入 bacpac SQL 数据库 | Microsoft 文档"
-description: "Azure PowerShell 脚本示例 - 使用 PowerShell 从 bacpac 导入 SQL 数据库"
+title: 将 BACPAC 文件导入 Azure SQL 数据库的PowerShell 示例 | Microsoft Docs
+description: 将 BACPAC 文件导入 SQL 数据库的 Azure PowerShell 示例脚本
 services: sql-database
 documentationcenter: sql-database
-author: janeng
-manager: jstrauss
+author: WenJason
+manager: digimobile
 editor: carlrab
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: sql-database
-ms.custom: sample
+ms.custom: load & move data, mvc
 ms.devlang: PowerShell
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 03/07/2017
-ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: e8c26bd7df9703fcc26a90c62c096d39409ed27d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
+origin.date: 09/07/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.openlocfilehash: aff513510d46a853cc17882cefb75a4eb210ea34
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647037"
 ---
+# <a name="use-powershell-to-import-a-bacpac-file-into-an-azure-sql-database"></a>使用 PowerShell 将 BACPAC 文件导入 Azure SQL 数据库
 
-# <a name="import-from-a-bacpac-into-a-sql-database-using-powershell"></a>使用 PowerShell 从 bacpac 导入 SQL 数据库
+以下 PowerShell 脚本示例将数据库从 BACPAC 文件导入 Azure SQL 数据库。  
 
-此示例 PowerShell 脚本从 bacpac 导入数据库。  
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-在运行此脚本前，请确保已使用 `Add-AzureRmAccount` cmdlet 创建与 Azure 的连接。
+本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 此外，还需要运行 `Connect-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
 
 ## <a name="sample-script"></a>示例脚本
 
 ```powershell
-# Set an admin login and password for your database
+# Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+# Set the resource group name and location for your server
+$resourcegroupname = "myResourceGroup-$(Get-Random)"
+$location = "China East"
+# Set an admin login and password for your server
 $adminlogin = "ServerAdmin"
 $password = "ChangeYourAdminPassword1"
-# The logical server name has to be unique in the system
-$servername = "server-$($(Get-AzureRMContext).Subscription.SubscriptionId)"
-# The storage account name has to be unique in the system
-$storageaccountname = $("sql$($(Get-AzureRMContext).Subscription.SubscriptionId)").substring(0,23).replace("-", "")
-# The ip address range that you want to allow to access your DB
+# Set server name - the logical server name has to be unique in the system
+$servername = "server-$(Get-Random)"
+# The sample database name
+$databasename = "myImportedDatabase"
+# The storage account name and storage container name
+$storageaccountname = "sqlimport$(Get-Random)"
+$storagecontainername = "importcontainer$(Get-Random)"
+# BACPAC file name
+$bacpacfilename = "sample.bacpac"
+# The ip address range that you want to allow to access your server
 $startip = "0.0.0.0"
-$endip = "255.255.255.255"
+$endip = "0.0.0.0"
 
-# Create a new resource group
-New-AzureRmResourceGroup -Name "myResourceGroup" -Location "China East"
+# Create a resource group
+$resourcegroup = New-AzureRmResourceGroup -Name $resourcegroupname -Location $location
 
-# Create a new Storage Account 
-New-AzureRmStorageAccount -ResourceGroupName "myResourceGroup" `
+# Create a storage account 
+$storageaccount = New-AzureRmStorageAccount -ResourceGroupName $resourcegroupname `
     -AccountName $storageaccountname `
-    -Location "China East" `
+    -Location $location `
     -Type "Standard_LRS"
 
-# Create a new storage container 
-New-AzureStorageContainer -Name "importsample" `
+# Create a storage container 
+$storagecontainer = New-AzureStorageContainer -Name $storagecontainername `
     -Context $(New-AzureStorageContext -StorageAccountName $storageaccountname `
-        -StorageAccountKey $(Get-AzureRmStorageAccountKey -ResourceGroupName "myResourceGroup" -StorageAccountName $storageaccountname).Value[0])
+        -StorageAccountKey $(Get-AzureRmStorageAccountKey -ResourceGroupName $resourcegroupname -StorageAccountName $storageaccountname).Value[0])
 
 # Download sample database from Github
-Invoke-WebRequest -Uri "https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bacpac" -OutFile "sample.bacpac"
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 #required by Github
+Invoke-WebRequest -Uri "https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bacpac" -OutFile $bacpacfilename
 
 # Upload sample database into storage container
-Set-AzureStorageBlobContent -Container "importsample" `
-    -File "sample.bacpac" `
+Set-AzureStorageBlobContent -Container $storagecontainername `
+    -File $bacpacfilename `
     -Context $(New-AzureStorageContext -StorageAccountName $storageaccountname `
-        -StorageAccountKey $(Get-AzureRmStorageAccountKey -ResourceGroupName "myResourceGroup" -StorageAccountName $storageaccountname).Value[0])
+        -StorageAccountKey $(Get-AzureRmStorageAccountKey -ResourceGroupName $resourcegroupname -StorageAccountName $storageaccountname).Value[0])
 
 # Create a new server with a system wide unique server name
-New-AzureRmSqlServer -ResourceGroupName "myResourceGroup" `
+$server = New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
-    -Location "China East" `
-    -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList "ServerAdmin", $(ConvertTo-SecureString -String "ASecureP@assw0rd" -AsPlainText -Force))
+    -Location $location `
+    -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 
-# Open up the server firewall so we can connect
-New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
+# Create a server firewall rule that allows access from the specified IP range
+$serverfirewallrule = New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
-    -FirewallRuleName "AllowAll" -StartIpAddress $startip -EndIpAddress $endip
+    -FirewallRuleName "AllowedIPs" -StartIpAddress $startip -EndIpAddress $endip
 
-# Import bacpac
-$importRequest = New-AzureRmSqlDatabaseImport -ResourceGroupName "myResourceGroup" `
+# Import bacpac to database with an S3 performance level
+$importRequest = New-AzureRmSqlDatabaseImport -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
-    -DatabaseName "MyImportSample" `
+    -DatabaseName $databasename `
     -DatabaseMaxSizeBytes "262144000" `
     -StorageKeyType "StorageAccessKey" `
-    -StorageKey $(Get-AzureRmStorageAccountKey -ResourceGroupName "myResourceGroup" -StorageAccountName $storageaccountname).Value[0] `
-    -StorageUri "http://$storageaccountname.blob.core.chinacloudapi.cn/importsample/sample.bacpac" `
+    -StorageKey $(Get-AzureRmStorageAccountKey -ResourceGroupName $resourcegroupname -StorageAccountName $storageaccountname).Value[0] `
+    -StorageUri "http://$storageaccountname.blob.core.chinacloudapi.cn/$storagecontainername/$bacpacfilename" `
     -Edition "Standard" `
-    -ServiceObjectiveName "S0" `
-    -AdministratorLogin "ServerAdmin" `
-    -AdministratorLoginPassword $(ConvertTo-SecureString -String "ASecureP@assw0rd" -AsPlainText -Force)
+    -ServiceObjectiveName "S3" `
+    -AdministratorLogin "$adminlogin" `
+    -AdministratorLoginPassword $(ConvertTo-SecureString -String $password -AsPlainText -Force)
 
 # Check import status and wait for the import to complete
 $importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
@@ -102,29 +114,41 @@ while ($importStatus.Status -eq "InProgress")
 }
 [Console]::WriteLine("")
 $importStatus
+
+# Scale down to S0 after import is complete
+Set-AzureRmSqlDatabase -ResourceGroupName $resourcegroupname `
+    -ServerName $servername `
+    -DatabaseName $databasename  `
+    -Edition "Standard" `
+    -RequestedServiceObjectiveName "S0"
+
+# Clean up deployment 
+# Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
+
 ## <a name="clean-up-deployment"></a>清理部署
 
 运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 ## <a name="script-explanation"></a>脚本说明
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-4.0.0) | 创建用于存储所有资源的资源组。 |
-| [New-AzureRmSqlServer](https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/new-azurermsqlserver?view=azurermps-4.0.0) | 创建用于托管 SQL 数据库的逻辑服务器。 |
-| [New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.0.0) | 创建一个防火墙规则，以允许从输入的 IP 地址范围访问服务器上的所有 SQL 数据库。 |
-| [New-AzureRmSqlDatabase](https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/new-azurermsqldatabase?view=azurermps-4.0.0) | 在逻辑服务器中创建 SQL 数据库。 |
-| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup?view=azurermps-4.0.0) | 删除资源组，包括所有嵌套的资源。 |
+| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 |
+| [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlserver) | 创建用于托管 SQL 数据库的逻辑服务器。 |
+| [New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) | 创建一个防火墙规则，以允许从输入的 IP 地址范围访问服务器上的所有 SQL 数据库。 |
+| [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaseimport) | 导入 BACPAC 文件，并在服务器上创建一个新数据库。 |
+| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/)。
+有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure SQL 数据库 PowerShell 脚本](../sql-database-powershell-samples.md)中找到更多 SQL 数据库 PowerShell 脚本示例。
+<!--Update_Description: wording update-->

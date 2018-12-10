@@ -1,81 +1,73 @@
-## <a name="memory-preserving-updates"></a>内存保留更新
-对于 Azure 中的某一类更新，客户发现它们不会对正在运行的虚拟机产生任何影响。 其中一些更新主要面向组件或服务，更新时不会干扰正在运行的实例。 还有一些更新是主机操作系统的平台基础结构更新，应用时无需完全重启虚拟机。
+---
+title: include 文件
+description: include 文件
+services: virtual-machines
+author: rockboyfor
+ms.service: virtual-machines
+ms.topic: include
+origin.date: 07/05/2018
+ms.date: 07/30/2018
+ms.author: v-yeche
+ms.custom: include file
+ms.openlocfilehash: b6017c03af250348775368ebd20892d2c76be5f2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644307"
+---
+Azure 定期执行更新，以提高虚拟机的主机基础结构的可靠性、性能及安全性。 此类更新包括修补宿主环境（例如操作系统、虚拟机监控程序以及主机上部署的各种代理）中的软件组件、升级网络组件以及硬件解除授权等多项内容。 大多数此类更新在执行时不会影响托管的虚拟机。 但是，也会存在更新产生影响的情况：
 
-这些更新通过启用就地实时迁移的技术（也称为“内存保留”更新）实现。 更新时，虚拟机进入“暂停”状态，以保留 RAM 中的内存，而基础主机操作系统接收必要的更新和修补程序。 虚拟机在暂停后 30 秒内恢复正常。 恢复后，虚拟机的时钟将自动同步。
+- 如果可进行无需重启的更新，则在更新主机或虚拟机完全移动到已更新主机时，Azure 会使用内存保留维护来暂停 VM。
 
-并非所有更新都可以通过使用此机制进行部署，但如果短暂时间较短，使用此方法部署更新可大大减少对虚拟机的影响。
+- 如果维护需重新启动，系统会告知计划维护的时间。 在这种情况下，系统还会提供一个时间范围，方便在合适的时间自行启动维护。
 
-多实例更新（针对可用性集中的虚拟机）一次应用一个更新域。  
+本页介绍 Azure 如何执行上述两种类型的维护。 有关非计划事件（服务中断）的详细信息，请参阅“管理 [Windows](../articles/virtual-machines/windows/manage-availability.md) 或 [Linux](../articles/virtual-machines/linux/manage-availability.md) 虚拟机的可用性”。
 
-## <a name="virtual-machine-configurations"></a>虚拟机配置
-可选择两种虚拟机配置：多实例和单实例。 在多实例配置中，相似的虚拟机放置在可用性集中。
+在虚拟机中运行的应用程序可以通过适用于 [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) 或 [Linux](../articles/virtual-machines/linux/instance-metadata-service.md) 的 Azure 元数据服务收集即将发布的更新的相关信息。
 
-多实例配置可跨物理计算机、电源和网络提供冗余，若要确保应用程序的可用性，建议采用此配置。 可用性集中的所有虚拟机应对应用程序具有相同的用途。
+有关管理计划维护的“操作说明”信息，请参阅 [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) 或 [Windows](../articles/virtual-machines/windows/maintenance-notifications.md) 的“处理计划维护通知”。
 
-有关配置虚拟机以实现高可用性的详细信息，请参阅[管理 Windows 虚拟机的可用性](../articles/virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)或[管理 Linux 虚拟机的可用性](../articles/virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+## <a name="memory-preserving-maintenance"></a>内存保留维护
 
-相反，单实例配置用于未放置在可用性集中的独立虚拟机。 这些虚拟机不符合服务级别协议 (SLA) 的要求，SLA 要求在同一可用性集中部署两个或更多虚拟机。
+如果更新不需要完全重新启动，则会使用内存保留维护机制来限制对虚拟机的影响。 虚拟机会暂停最多 30 秒，保留在 RAM 中的内存，而宿主环境则会应用必需的更新和修补程序，或将 VM 移动到已更新的主机。 然后，虚拟机会进行恢复，其时钟会自动同步。 
 
-有关 SLA 的详细信息，请参阅[服务级别协议](https://www.azure.cn/support/legal/sla/)中的“云服务和虚拟机”部分。
+这些非重启型维护操作会一个容错域接着一个容错域地应用。如果收到任何警告性运行状况信号，则进度会停止。
 
-## <a name="multi-instance-configuration-updates"></a>多实例配置更新
-在计划内维护期间，Azure 平台首先更新托管在多实例配置中的虚拟机集。 更新将导致这些虚拟机重新启动，从而有大约 15 分钟的停机时间。
+这些类型的更新可能会影响某些应用程序。 执行实时事件处理（例如媒体流或转码）或高吞吐量网络方案的应用程序可能无法容忍暂停 30 秒钟。 <!-- sooooo, what should they do? --> 如果将 VM 移动到不同的主机，则某些敏感的工作负荷可能会在导致虚拟机暂停的几分钟内出现略微的性能下降。 
 
-多实例配置更新假定每个虚拟机在可用性集中发挥的功能与其他虚拟机类似。 在此设置中，虚拟机进行更新时采用的方式可确保整个过程中的可用性。
+## <a name="maintenance-requiring-a-reboot"></a>需要重新启动的维护
 
-基础 Azure 平台为可用性集中的每个虚拟机分配一个更新域和一个容错域。 每个更新域是在同一时间内重新启动的一组虚拟机。 每个容错域是共享公共电源和网络交换机的一组虚拟机。
+如果计划内维护需要重新启动 VM，系统会提前告知。 计划内维护有两个阶段：自助式时段和计划维护时段。
 
-有关更新域和容错域的详细信息，请参阅[配置可用性集中的多个虚拟机以实现冗余](../articles/virtual-machines/virtual-machines-windows-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)。
+**自助式时段**允许在 VM 上启动维护。 在此时段内，可以通过查询每个 VM 来了解其状态，并查看上次维护请求的结果。
 
-为了通过更新保持可用性，Azure 通过更新域进行维护，一次更新一个域。 在更新域中进行维护时，其步骤包括：关闭域中的每个虚拟机，对主机应用更新，然后重新启动虚拟机。 当域中的维护完成以后，Azure 对下一个更新域重复此过程，继续对每个域进行操作，直至所有域都进行了更新。
+启动自助式维护时，VM 会转到已更新的某个节点，并重启。 由于 VM 重新启动，临时磁盘会丢失，而与虚拟网络接口关联的动态 IP 地址会更新。
 
-在计划内维护期间，更新域的重启顺序可能不会按序进行，但一次只能重启一个更新域。 现在，Azure 可为多实例配置中虚拟机的计划内维护提供 1 周提前通知功能。
+如果在启动自助式维护的过程中出错，系统会停止操作，不更新 VM，并让你选择是否重试自助维护。 
 
-虚拟机还原后，下述示例演示了 Windows 事件查看器可能会显示的内容：
+自助式维护时段过后，就会开始**计划维护时段**。 在这段时间内，仍可以查询维护时段，但不能再自行启动维护。
 
-<!--Image reference-->
-![][image2]
+有关管理需要重启的维护的信息，请参阅 [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) 或 [Windows](../articles/virtual-machines/windows/maintenance-notifications.md)的“处理计划维护通知”。 
 
-使用查看器报告在使用 Azure 门户、Azure PowerShell 或 Azure CLI 的多实例配置中配置的虚拟机。 例如，可以使用 Azure 门户将“可用性集”添加到“虚拟机(经典)”浏览器对话框。 用于报告同一可用性集的虚拟机是多实例配置的一部分。 在以下示例中，多实例配置包含虚拟机 SQLContoso01 和 SQLContoso02。
+### <a name="availability-considerations-during-scheduled-maintenance"></a>计划性维护期间的可用性注意事项 
 
-<!--Image reference-->
-  ![Azure 门户中的“虚拟机(经典)”视图][image4]
+如果决定一直等到计划性维护时段，则为了保持 VM 的最高可用性，需注意一些事项。 
 
-## <a name="single-instance-configuration-updates"></a>单实例配置更新
-完成多实例配置更新后，Azure 将执行单实例配置更新。 这些更新也会导致不在可用性集中运行的虚拟机重新启动。
+#### <a name="paired-regions"></a>配对区域
 
-> [!NOTE]
-> 如果可用性集只有一个虚拟机实例在运行，Azure 平台会将其视作多实例配置更新。
->
+每个 Azure 区域与同一地理位置中另一个区域配对，共同组成一个区域对。 在计划性维护期间，Azure 只会更新一个区域对中单个区域的 VM。 例如，更新中国北部的虚拟机时，Azure 不会同时更新中国东部的任何虚拟机。 了解区域对的工作原理有助于更好地跨区域分配 VM。
+<!-- Not Available on However, other regions such as China North can be under maintenance at the same time as China East. -->
+<!-- Not Available on  For more information, see [Azure region pairs](/best-practices-availability-paired-regions) -->
 
-在单实例配置中进行维护时，其步骤包括：关闭在主机上运行的每个虚拟机，更新主机，然后重新启动虚拟机。 维护需要大约 15 分钟的停机时间。 计划内维护事件在单个维护时段内跨某个区域中的所有虚拟机运行。
+#### <a name="availability-sets-and-scale-sets"></a>可用性集和规模集
 
-对于单实例配置，计划内维护事件可能会对应用程序的可用性产生影响。 Azure 可为单实例配置中虚拟机的计划内维护提供一周高级通知功能。
+在 Azure VM 上部署工作负荷时，可以在可用性集中创建 VM，向应用程序提供高可用性。 这样可确保在发生故障或重启性维护事件期间，至少有一个虚拟机可用。
 
-## <a name="email-notification"></a>电子邮件通知
-Azure 会提前发送电子邮件通信，提醒用户即将执行计划内维护（提前一周），该功能仅适用于单实例和多实例虚拟机配置。 此电子邮件发送到订阅管理员和共同管理员的电子邮件帐户。 下面是这类电子邮件的示例：
+在可用性集中，各个 VM 可分布在最多 20 个更新域 (UD) 中。 在计划性维护期间，任意时间都只有一个更新域受影响。 请注意，不一定按顺序来影响更新域。 
 
-<!--Image reference-->
-![][image1]
+虚拟机规模集是一种 Azure 计算资源，支持将一组相同的 VM 作为单个资源进行部署和管理。 规模集自动跨更新域进行部署，此类更新域就像可用性集中的 VM 一样。 在计划性维护期间使用规模集时，就像使用可用性集一样，在任意给定的时间都只会影响单个更新域。
 
-## <a name="region-pairs"></a>区域对
+有关配置虚拟机以实现高可用性的详细信息，请参阅“管理 [Windows](../articles/virtual-machines/windows/manage-availability.md) 或 [Linux](../articles/virtual-machines/linux/manage-availability.md) 虚拟机的可用性”。
 
-执行维护时，Azure 只更新区域对中单个区域的虚拟机实例。 例如，更新中国北部的虚拟机时，Azure 不会同时更新中国东部的任何虚拟机。 后者会安排在其他时间进行，以便在区域之间进行故障转移或负载均衡。 但是，中国北部等其他区域可以与中国东部同时进行维护。
-
-请参阅下表以了解当前区域对：
-
-| 区域 1 | 区域 2 |
-|:--- | ---:|
-| 中国北部 |中国东部 |
-| 中国东部 |中国北部 |
-
-<!--Anchors-->
-[image1]: ./media/virtual-machines-common-planned-maintenance/vmplanned1.png
-[image2]: ./media/virtual-machines-common-planned-maintenance/EventViewerPostReboot.png
-[image3]: ./media/virtual-machines-planned-maintenance/RegionPairs.PNG
-[image4]: ./media/virtual-machines-common-planned-maintenance/availabilitysetexample.png
-
-<!--Link references-->
-[Virtual Machines Manage Availability]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
-
-[Understand planned versus unplanned maintenance]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md#Understand-planned-versus-unplanned-maintenance
+<!--Update_Description: update meta properties, wording update, update link -->

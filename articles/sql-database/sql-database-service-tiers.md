@@ -1,117 +1,91 @@
 ---
-title: "SQL 数据库性能：服务层 | Microsoft Docs"
-description: "比较 SQL 数据库服务层。"
-keywords: "数据库选项,数据库性能"
+title: Azure SQL 数据库购买模型 | Microsoft Docs
+description: 了解 Azure SQL 数据库服务中提供的数据库的购买模型。
 services: sql-database
-documentationcenter: 
-author: janeng
-manager: jhubbard
-editor: 
-ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
 ms.service: sql-database
-ms.custom: overview
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.date: 03/06/2017
-ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: c23aa7ddec65c64ff8dc8fdf41902e1795327898
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
-
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: WenJason
+ms.author: v-jay
+ms.reviewer: ''
+manager: digimobile
+origin.date: 10/19/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: f61c4eca51af848bc4b7c6843f5ef77cf8a4df4b
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673063"
 ---
-# <a name="sql-database-options-and-performance-understand-whats-available-in-each-service-tier"></a>SQL 数据库选项和性能：了解每个服务层提供的功能
+# <a name="azure-sql-database-purchasing-models"></a>Azure SQL 数据库购买模型
 
-[Azure SQL 数据库](sql-database-technical-overview.md)提供四个服务层：**基本**、**标准**、**高级**和**高级 RS**。 每个服务层提供多个性能级别来处理不同的工作负荷。 更高的性能级别提供更多的资源，旨在逐级提高吞吐量。 可在不停机的情况下动态更改服务层和性能级别。 基本、标准和高级服务层都提供 99.99% 的运行时间 SLA、灵活的业务连续性选项、安全功能和按小时计费功能。 高级 RS 层提供的性能级别、安全功能和业务连续性功能与高级层相同，但 SLA 更低。
+使用 Azure SQL 数据库，可以轻松购买适合你的性能和成本要求的完全托管的 PaaS 数据库引擎。 你可以根据 Azure SQL 数据库的部署模型选择适合你的需求的购买模型：
 
-> [!IMPORTANT]
-> 与高级或标准数据库相比，高级 RS 数据库以更少的冗余副本运行。 因此，在发生服务故障时，可能需要从备份中恢复数据库，这最长会出现 5 分钟的滞后时间。
->
+- [Azure SQL 数据库](sql-database-technical-overview.md)中的[逻辑服务器](sql-database-logical-servers.md)为计算、存储和 IO 资源提供了两种购买模型：[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)和[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)。 在此购买模型中，可以选择[单一数据库](sql-database-single-databases-manage.md)或[弹性池](sql-database-elastic-pool.md)。
 
-可以使用服务层中具有特定[性能级别](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels)的专用资源创建单一数据库。 还可以在[弹性池](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus)中创建数据库，弹性池中的资源在多个数据库之间共享。 可用于单一数据库的资源以数据库事务单位 (DTU) 表示，可用于弹性池的资源则以弹性数据库事务单位 (eDTU) 表示。 有关 DTU 和 eDTU 的详细信息，请参阅[什么是 DTU？](sql-database-what-is-a-dtu.md) 
+以下表格和图表对这两种购买模型做了对比。
 
-## <a name="choosing-a-service-tier"></a>选择服务层
-下表提供了最适用于不同应用程序工作负荷的层的示例。
+|**购买模型**|**说明**|**最适用于**|
+|---|---|---|
+|基于 DTU 的模型|此模型基于计算、存储和 IO 资源的捆绑度量。 单一数据库的计算大小以数据库事务单位 (DTU) 表示，弹性池则以弹性数据库事务单位 (eDTU) 表示。 有关 DTU 和 eDTU 的详细信息，请参阅[什么是 DTU 和 eDTU？](sql-database-service-tiers.md#dtu-based-purchasing-model)|最适合希望获得简单预配置资源选项的客户。|
+|基于 vCore 的模型|此模型允许单独选择计算和存储资源。 此外，它还允许使用面向 SQL Server 的 Azure 混合权益来节省成本。|最适合注重灵活性、控制度和透明度的客户。|
+||||  
 
-| 服务层 | 目标工作负荷 |
-| :--- | --- |
-| **基本** | 最适合小型数据库，通常支持在给定时间执行一个活动操作。 示例包括用于开发或测试的数据库，或不常使用的小型应用程序。 |
-| **标准** |云应用程序的转到选项，提供低到中等的 IO 性能要求，并支持多个并发查询。 示例包括工作组或 Web 应用程序。 |
-| **高级** | 专为高事务量设计，提供高 IO 性能要求，并支持许多并发用户。 示例包括支持任务关键型应用程序的数据库。 |
-| **高级 RS** | 专为不需要最高可用性保证的 IO 密集型工作负荷设计。 示例包括测试高性能工作负荷或数据库不是记录系统的分析工作负荷。 |
-|||
+![定价模型](./media/sql-database-service-tiers/pricing-model.png)
 
-首先请确定是要运行包含定义数量的专用资源的单一数据库，还是要在一组数据库之间共享某个资源池。 查看[弹性池注意事项](sql-database-elastic-pool-guidance.md)。 若要确定服务层，首先确定需要的最少数据库功能：
+## <a name="vcore-based-purchasing-model"></a>基于 vCore 的购买模型
 
-| **服务层功能** | **基本** | **标准** | **高级** | **高级 RS**|
-| :-- | --: | --: | --: | --: |
-| 单个数据库的最大大小 | 2 GB | 250 GB | 4 TB*  | 500 GB  |
-| 弹性池中的最大总存储 | 117 GB | 1200 GB | 750 GB | 750 GB |
-| 每个池的数据库数目上限 | 400  | 400 | 50 | 50 |
-| 数据库备份保留期 | 7 天 | 35 天 | 35 天 | 35 天 |
-||||||
+虚拟核心表示通过一个选项提供的逻辑 CPU，该选项允许在硬件的层代和硬件的物理特性（例如，核心数、内存、存储大小）之间进行选择。 基于 vCore 的购买模型提供单项资源消耗的灵活性、控制度和透明度，并提供简单明了的方法将本地工作负荷要求转换到云。 此模型允许根据工作负荷需求来选择计算、内存和存储。 在基于 vCore 的购买模型中，你可为[单一数据库](sql-database-single-database-scale.md)和[弹性池](sql-database-elastic-pool.md)选择[常规用途](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability)或[业务关键](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability)服务层。 
 
-确定最低服务层后，就可以确定数据库的性能级别（DTU 数）。 通常情况下，一开始可以使用标准 S2 和 S3 性能级别。 对于具有较高 CPU 或 IO 要求的数据库，高级性能级别是合适的起点。 与最高的标准性能级别相比，高级性能级别提供更多 CPU 和至少高 10 倍的 IO。
+使用基于 vCore 的购买模型，可以单独选择计算和存储资源，匹配本地性能，以及优化价格。 在基于 vCore 的购买模型中，客户的费用包括：
 
-## <a name="single-database-service-tiers-and-performance-levels"></a>单一数据库服务层和性能级别
-对于单一数据库，每个服务层内都具有多个性能级别。 可以使用 [Azure 门户](sql-database-manage-single-databases-portal.md)、[PowerShell](sql-database-manage-single-databases-powershell.md)、[Transact-SQL](sql-database-manage-single-databases-tsql.md)、C# 和 REST API 灵活选择最适合工作负荷要求的级别。 
-
-尽管有多个托管的数据库，你的数据库仍可确保获得一组资源，并且数据库的预期性能特征不受影响。
-
-[!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
-
-> [!NOTE]
-> 如需本服务层表中所有其他行的详细说明，请参阅 [服务层功能和限制](sql-database-performance-guidance.md#service-tier-capabilities-and-limits)。
-> 
-
-## <a name="scaling-up-or-scaling-down-a-single-database"></a>上下缩放单一数据库
-
-在一开始选取服务层和性能级别以后，即可根据实际经验对单一数据库动态地进行上下缩放。 如果需要向上或向下缩放，可以使用 [Azure 门户](sql-database-manage-single-databases-portal.md)、[PowerShell](sql-database-manage-single-databases-powershell.md)、[Transact-SQL](sql-database-manage-single-databases-tsql.md)、C# 和 REST API 轻松更改数据库层。 
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
->
-
-更改数据库的服务层和/或性能级别将在新的性能级别创建原始数据库的副本，然后将连接切换到副本。 在此过程中不会丢失任何数据，但在切换到副本的短暂瞬间，将禁用与数据库的连接，因此可能回滚某些处于进行状态的事务。 此时间范围因具体情况而异，但平均低于 4 秒，并且在超过 99%的情况下低于 30 秒。 在禁用连接的瞬间有大量事务正在进行时，此时间范围可能更长。  
-
-整个扩展过程的持续时间同时取决于更改前后数据库的大小和服务层。 例如，250 GB 的数据库以标准服务层为源和/或目标的更改应在 6 小时内完成。 而同样大小的数据库在高级服务层内更改性能级别应在 3 小时内完成。
-
-* 若要对数据库进行降级，数据库应小于目标服务层允许的最大大小。 
-* 在启用了[异地复制](sql-database-geo-replication-portal.md)的情况下升级数据库时，必须先将辅助数据库升级到所需的性能层，然后再升级主数据库。
-* 从高级服务层降级时，必须先终止所有异地复制关系。 可以按照[在中断后恢复](sql-database-disaster-recovery.md)主题中所述的步骤停止主数据库与活动次要数据库之间的复制过程。
-* 各服务层的还原服务不同。 如果降级，可能无法再还原到某个时间点，或者备份保留期变短。 有关详细信息，请参阅 [Azure SQL 数据库备份和还原](sql-database-business-continuity.md)。
-* 更改完成前不会应用数据库的新属性。
+- 计算（服务层 + vCore 数目和内存量 + 硬件层代）
+- 数据和日志存储的类型与数量
+- 备份存储 (RA-GRS)
 
 > [!IMPORTANT]
-> 如需详细步骤，请参阅[在 Azure 门户中管理单一数据库](sql-database-manage-single-databases-portal.md)、[使用 PowerShell 管理单一数据库](sql-database-manage-single-databases-powershell.md)或[使用 Transact-SQL 管理单一数据库](sql-database-manage-single-databases-tsql.md)。
->
+> 计算、IO、数据和日志存储按数据库或弹性池收费。 备份存储按每个数据库收费。
 
-## <a name="elastic-pool-service-tiers-and-performance-in-edtus"></a>弹性池服务层和性能 (eDTU)
+如果数据库或弹性池消耗的 DTU 超过 300 个，则转换到 vCore 可以降低成本。 可以使用所选的 API 或 Azure 门户进行转换，无需停机。 但是，不一定非要转换。 如果 DTU 购买模型满足性能和业务需求，应继续使用它。 如果决定从 DTU 模型转换到 vCore 模型，则应该根据以下经验法则选择计算大小：标准层中的每 100 个 DTU 至少需要常规用途层中的 1 个 vCore，高级层中的每 125 个 DTU 至少需要业务关键层中的 1 个 vCore。
 
-池允许数据库共享和使用 eDTU 资源，而无需为该池中的每个数据库分配特定性能级别。 例如，标准池中的单一数据库可使用 0 个 eDTU 到最大数据库 eDTU 数（配置池时设置的）运转。 弹性池允许多个具有不同工作负荷的数据库有效地使用在整个池中都可用的 eDTU 资源。 有关详细信息，请参阅 [弹性池的价格和性能注意事项](sql-database-elastic-pool-guidance.md) 。
+## <a name="dtu-based-purchasing-model"></a>基于 DTU 的购买模型
 
-下表描述了池服务层的特征。
+数据库事务单位 (DTU) 表示 CPU、内存、读取和写入的混合度量。 基于 DTU 的购买模型提供一组预配置的计算资源套件和随附的存储，以促成不同级别的应用程序性能。 偏爱预配置套件简易性和每月定价付款的客户，可能会发现基于 DTU 的模型更适合其需求。 在基于 DTU 的购买模型中，客户可为[单一数据库](sql-database-single-database-scale.md)和[弹性池](sql-database-elastic-pool.md)选择“基本”、“标准”或“高级”服务层。 
 
-[!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
+### <a name="database-transaction-units-dtus"></a>数据库事务单位 (DTU)
 
-池中的每个数据库也遵循该层的单一数据库特征。 例如，基本池具有每池最大会话数为 4800 - 28800 的限制，但该基本池中单个数据库具有 300 个会话数的数据库限制。
+对于[服务层](sql-database-single-database-scale.md)内特定计算大小的单个 Azure SQL 数据库，Azure 保证该数据库（独立于 Azure 云中的任何其他数据库）可获得一定级别的资源，从而提供可预测的性能级别。 此资源量是以若干数据库事务单位或 DTU 计算的，是计算资源、存储资源和 IO 资源的捆绑度量值。 这些资源之间的比例最初由 [OLTP 基准工作负荷](sql-database-benchmark-overview.md)确定，该工作负荷是一种典型的真实 OLTP 工作负荷。 工作负荷超过任何以上资源量时，吞吐量将受到限制，从而导致性能下降和超时。 工作负荷使用的资源不会影响 Azure 云中其他 SQL 数据库可用的资源，而其他工作负荷使用的资源也不会影响用户自己的 SQL 数据库可用的资源。
 
-## <a name="scaling-up-or-scaling-down-an-elastic-pool"></a>上下缩放弹性池
+![边界框](./media/sql-database-what-is-a-dtu/bounding-box.png)
 
-在一开始选取服务层和性能级别以后，即可根据实际经验对弹性池动态地进行上下缩放。 
+要了解 Azure SQL 数据库在不同计算大小和服务层之间的资源相对数量，DTU 将最为有用。 例如，提高数据库的计算大小可使 DTU 加倍，这等同于使该数据库可用的资源集增加一倍。 例如，具有 1750 个 DTU 的高级 P11 数据库提供的 DTU 计算能力是具有 5 个 DTU 的基本数据库的 350 倍。  
 
-* 更改每个数据库的最小 eDTU 数或每个数据库的最大 eDTU 数通常可在五分钟或更少的时间内完成。
-* 更改池大小 (eDTU) 所需的时间取决于池中所有数据库的总大小。 每 100 GB 的更改平均需要 90 分钟或更短的时间。 例如，如果池中所有数据库的总空间为 200 GB，则更改每个池的池 eDTU 时，预计延迟为 3 小时或更短的时间。
+若要更深入了解工作负荷的资源 (DTU) 消耗，请使用 [Azure SQL 数据库 Query Performance Insight](sql-database-query-performance.md) 执行以下操作：
 
-如需详细步骤，请参阅[在 Azure 门户中管理弹性池](sql-database-elastic-pool-manage-portal.md)、[使用 Powershell 管理弹性池](sql-database-elastic-pool-manage-powershell.md)、[使用 Transact-SQL 管理弹性池](sql-database-elastic-pool-manage-tsql.md)或[使用 C# 管理弹性池](sql-database-elastic-pool-manage-csharp.md)。
+- 按 CPU/持续时间/执行计数确定热门查询，可以对这些查询进行调整来提高性能。 例如，IO 密集型查询可能会受益于使用[内存中优化技术](sql-database-in-memory.md)，以便通过特定的服务层和计算大小更好地利用可用内存。
+- 深入了解查询详情，查看其文本和资源使用历史记录。
+- 访问性能优化建议，这些建议可显示 [SQL 数据库顾问](sql-database-advisor.md)执行的操作。
+
+### <a name="elastic-database-transaction-units-edtus"></a>弹性数据库事务单位 (eDTU)
+
+可将数据库放在 SQL 数据库服务器上的[弹性池](sql-database-elastic-pool.md)中，该服务器在这些数据库之间共享资源池，而不必为 SQL 数据库提供一组始终可用的专用资源 (DTU)，因为有时可能并不需要。 弹性池中的共享资源用弹性数据库事务单位或 eDTU 度量。 弹性池提供一种简单的低成本高效益的解决方案，用于管理使用模式变化很大且不可预测的多个数据库的性能目标。 弹性池可保证不出现一个数据库使用池中所有资源的情况，同时确保池中的每个数据库始终可以使用最少量的必需资源。
+
+为池提供的 eDTU 的数量和价格是固定的。 在弹性池中，单独的数据库都被赋予了在配置的边界内自动缩放的灵活性。 负载较重的数据库消耗较多的 eDTU 来满足需求。 负载较轻的数据库消耗较少的 eDTU。 无负载的数据库不消耗任何 eDTU。 为整个池而不是每个数据库预配资源可以简化管理任务，使池的预算可预测。
+
+可以向现有池添加额外的 eDTU，不会造成数据库关闭，对池中的数据库也不会有影响。 同样，可以随时从现有池中删除不再需要的额外 eDTU。 可以在池中添加或删除数据库，或者限制重负载数据库的 eDTU 用量，以便为其他数据库预留 eDTU。 如果可以预见到某个数据库的资源利用率不高，可将其移出池，并使用所需的可预测资源量将它配置为单一数据库。
+
+### <a name="determine-the-number-of-dtus-needed-by-a-workload"></a>确定工作负荷所需的 DTU 数
+
+如果要将现有的本地或 SQL Server 虚拟机工作负荷迁移到 Azure SQL 数据库，可以使用 [DTU 计算器](http://dtucalculator.azurewebsites.net/) 来估算所需的 DTU 数目。 对于现有的 Azure SQL 数据库工作负荷，可以使用 [SQL 数据库 Query Performance Insight](sql-database-query-performance.md) 来了解数据库资源使用量 (DTU)，更深入地了解如何优化工作负荷。 也可以使用 [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) DMV 查看最近一小时的资源消耗。 目录视图 [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) 也可显示最近 14 天的资源消耗，不过，五分钟平均值的准确性较低。
+
+### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>受益于资源弹性池的工作负荷
+
+池很适合具有特定使用模式的大量数据库。 对于给定的数据库，此模式的特征是低平均使用量与相对不频繁的使用高峰。 SQL数据库自动评估现有 SQL 数据库服务器中数据库的历史资源使用率，并在 Azure 门户中推荐适当的池配置。 有关详细信息，请参阅[何时使用弹性池？](sql-database-elastic-pool.md)
 
 ## <a name="next-steps"></a>后续步骤
 
-* 详细了解[弹性池](sql-database-elastic-pool-guidance.md)和[弹性池的价格和性能注意事项](sql-database-elastic-pool-guidance.md)。
-* 了解如何[监视、管理弹性池和调整其大小](sql-database-elastic-pool-manage-portal.md)以及如何[监视单一数据库的性能](sql-database-single-database-monitor.md)。
-* 现在，你已了解有关 SQL 数据库层的信息，可使用 [1 元帐户](https://www.azure.cn/pricing/1rmb-trial/)来试用这些层，并了解[如何创建你的第一个 SQL 数据库](sql-database-get-started.md)。
-* 对于迁移方案，请使用 [DTU 计算器](http://dtucalculator.azurewebsites.net/) 估计所需的 DTU 数。 
-
+- 若要了解基于 vCore 的购买模型，请参阅[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)
+- 有关基于 DTU 的购买模型，请参阅[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)。

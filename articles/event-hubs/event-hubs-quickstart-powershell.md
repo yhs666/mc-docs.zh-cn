@@ -1,0 +1,83 @@
+---
+title: Azure 快速入门 - 使用 PowerShell 创建事件中心 | Azure
+description: 本快速入门介绍如何使用 Azure PowerShell 创建事件中心，然后使用 .NET Standard SDK 发送和接收事件。
+services: event-hubs
+author: ShubhaVijayasarathy
+manager: timlt
+editor: ''
+ms.service: event-hubs
+ms.devlang: na
+ms.topic: quickstart
+ms.custom: mvc
+origin.date: 08/16/2018
+ms.date: 12/10/2018
+ms.author: v-biyu
+ms.openlocfilehash: c5ce7f8bf9e49a8a1bae6bf4d8c1747b398553bf
+ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676891"
+---
+# <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建事件中心
+
+Azure 事件中心是一个大数据流式处理平台和事件引入服务，每秒能够接收和处理数百万个事件。 事件中心可以处理和存储分布式软件和设备生成的事件、数据或遥测。 可以使用任何实时分析提供程序或批处理/存储适配器转换和存储发送到数据中心的数据。 有关事件中心的详细概述，请参阅[事件中心概述](event-hubs-about.md)和[事件中心功能](event-hubs-features.md)。
+
+在本快速入门中，请使用 Azure PowerShell 创建事件中心。
+
+## <a name="prerequisites"></a>先决条件
+
+若要完成本教程，请确保做好以下准备：
+
+- Azure 订阅。 如果没有订阅，请在开始之前[创建一个试用帐户][]。
+- [Visual Studio 2017 Update 3（版本 15.3 (26730.01)）](https://www.visualstudio.com/vs)或更高版本。
+- [.NET Standard SDK](https://www.microsoft.com/net/download/windows) 2.0 或更高版本。
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
+如果在本地使用 PowerShell，必须运行最新版本的 PowerShell 才能完成本快速入门。 如需进行安装或升级，请参阅[安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0)。
+
+## <a name="create-a-resource-group"></a>创建资源组
+
+资源组是 Azure 资源的逻辑集合，需有一个资源组才能创建事件中心。 
+
+以下示例在中国东部区域中创建一个资源组。 将 `myResourceGroup` 替换为要使用的资源组的名称：
+
+```PowerShell
+New-AzureRmResourceGroup -Name myResourceGroup -Location chinaeast
+```
+
+## <a name="create-an-event-hubs-namespace"></a>创建事件中心命名空间
+
+创建资源组后，在该资源组中创建事件中心命名空间。 事件中心命名空间提供唯一的完全限定域名，可在其中创建事件中心。 将 `namespace_name` 替换为命名空间的唯一名称：
+
+```PowerShell
+New-AzureRmEventHubNamespace -ResourceGroupName myResourceGroup -NamespaceName namespace_name -Location chinaeast
+```
+
+## <a name="create-an-event-hub"></a>创建事件中心
+
+创建事件中心命名空间后，在该命名空间中创建事件中心：
+
+```PowerShell
+New-AzureRmEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_name -EventHubName eventhub_name
+```
+
+祝贺！ 现已使用 Azure PowerShell 创建了一个事件中心命名空间，并在该命名空间中创建了一个事件中心。 
+
+## <a name="next-steps"></a>后续步骤
+
+在本文中，我们已创建事件中心命名空间，并使用示例应用程序从事件中心发送和接收事件。 有关如何将事件发送到事件中心（或）从事件中心接收事件的分步说明，请参阅以下教程： 
+
+- 将事件发送到事件中心：[.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)、[.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)、[Java](event-hubs-java-get-started-send.md)、[Python](event-hubs-python-get-started-send.md)、[Node.js](event-hubs-node-get-started-send.md)、[Go](event-hubs-go-get-started-send.md)、[C](event-hubs-c-getstarted-send.md)
+- 从事件中心接收事件：[.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)、[.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)、[Java](event-hubs-java-get-started-receive-eph.md)、[Python](event-hubs-python-get-started-receive.md)、[Node.js](event-hubs-node-get-started-receive.md)、[Go](event-hubs-go-get-started-receive-eph.md)、[Apache Storm](event-hubs-storm-getstarted-receive.md)
+
+[create a free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[Install and Configure Azure PowerShell]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[New-AzureRmResourceGroup]: https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup
+[fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
+[3]: ./media/event-hubs-quickstart-powershell/sender1.png
+[4]: ./media/event-hubs-quickstart-powershell/receiver1.png
+[5]: ./media/event-hubs-quickstart-powershell/metrics.png
+
+<!-- Update_Description: update meta properties, wording update  -->

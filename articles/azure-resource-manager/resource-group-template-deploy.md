@@ -1,37 +1,38 @@
 ---
-title: "使用 PowerShell 和模板部署资源 | Azure"
-description: "使用 Azure Resource Manager 和 Azure PowerShell 将资源部署到 Azure。 资源在 Resource Manager 模板中定义。"
+title: 使用 PowerShell 和模板部署资源 | Azure
+description: 使用 Azure Resource Manager 和 Azure PowerShell 将资源部署到 Azure。 资源在 Resource Manager 模板中定义。
 services: azure-resource-manager
 documentationcenter: na
-author: tfitzmac
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 ms.assetid: 55903f35-6c16-4c6d-bf52-dbf365605c3f
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/15/2017
-wacn.date: 
+origin.date: 12/06/2017
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: cbe4c40035641dde40d499a4d9881b66759c68a7
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 2fb9ab3ba26e34072137e78d03ad935970e41383
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653074"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>使用 Resource Manager 模板和 Azure PowerShell 部署资源
 
-本主题介绍如何将 Azure PowerShell 与 Resource Manager 模板配合使用向 Azure 部署资源。 如果不熟悉部署和管理 Azure 解决方案的概念，请参阅 [Azure Resource Manager 概述](resource-group-overview.md)。
+本文介绍如何配合使用 Azure PowerShell 与资源管理器模板，以将资源部署到 Azure。 如果不熟悉部署和管理 Azure 解决方案的概念，请参阅 [Azure Resource Manager 概述](resource-group-overview.md)。
 
 所部署的 Resource Manager 模板可以是计算机上的本地文件，也可以是位于 GitHub 等存储库中的外部文件。 本文中部署的模板可在[示例模板](#sample-template)部分找到，也可作为 [GitHub 中的存储帐户模板](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json)。
 
-[!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install.md)]
+必要时，请使用 [Azure PowerShell 指南](https://docs.microsoft.com/powershell/azure/overview)中的说明安装 Azure PowerShell 模块，然后运行 `Connect-AzureRmAccount` 创建与 Azure 的连接。
 
-## <a id="deploy-local-template"></a> 从本地计算机部署模板
+<a name="deploy-local-template" />
+
+## <a name="deploy-a-template-from-your-local-machine"></a>从本地计算机部署模板
 
 将资源部署到 Azure 时，执行以下操作：
 
@@ -44,14 +45,16 @@ ms.lasthandoff: 05/26/2017
 以下示例将创建一个资源组，并从本地计算机部署模板：
 
 ```powershell
-Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+Connect-AzureRmAccount -Environment AzureChinaCloud
+
+Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
 
 New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "China East"
 New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateFile c:\MyTemplates\storage.json -storageAccountType Standard_GRS
 ```
 
-部署可能需要几分钟才能完成。 完成之后，你将看到一条包含以下结果的消息：
+部署可能需要几分钟才能完成。 完成之后，会看到一条包含以下结果的消息：
 
 ```powershell
 ProvisioningState       : Succeeded
@@ -70,6 +73,21 @@ New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Ex
 ```
 
 前面的示例要求模板的 URI 可公开访问，它适用于大多数情况，因为模板应该不会包含敏感数据。 如果需要指定敏感数据（如管理员密码），请以安全参数的形式传递该值。 但是，如果不希望模板可公开访问，可以通过将其存储在专用存储容器中来保护它。 若要了解如何部署需要共享访问签名 (SAS) 令牌的模板，请参阅[部署具有 SAS 令牌的专用模板](resource-manager-powershell-sas-token.md)。
+
+<!-- Not Available on [!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)] --> 在本地 Shell 中使用以下命令：
+
+```powershell
+New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "China East"
+New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
+  -TemplateUri <copied URL> `
+  -storageAccountType Standard_GRS
+```
+
+## <a name="deploy-to-more-than-one-resource-group-or-subscription"></a>部署到多个资源组或订阅
+
+通常情况下，将模板中的所有资源部署到单个资源组。 不过，在某些情况下，你可能希望将一组资源部署在一起但将其放置在不同的资源组或订阅中。 在单个部署中可以仅部署到五个资源组。 有关详细信息，[将 Azure 资源部署到多个订阅或资源组](resource-manager-cross-resource-group-deployment.md)。
+
+<a name="parameter-file" />
 
 ## <a name="parameter-files"></a>参数文件
 
@@ -109,7 +127,7 @@ New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Ex
 
 可以在同一部署操作中使用内联参数和本地参数文件。 例如，可以在本地参数文件中指定某些值，并在部署期间添加其他内联值。 如果同时为本地参数文件中的参数和内联参数提供值，则内联值优先。
 
-但是，使用外部参数文件时，不能传递是内联值的或本地文件中的其他值。 如果在 **TemplateParameterUri** 参数中指定参数文件，则将忽略所有内联参数。 提供外部文件中的所有参数值。 如果模板包括参数文件中无法包括的敏感值，可将该值添加到密钥保管库，或者动态地以内联方式提供所有参数值。
+但是，使用外部参数文件时，不能传递是内联值的或本地文件中的其他值。 如果在 **TemplateParameterUri** 参数中指定参数文件，则忽略所有内联参数。 提供外部文件中的所有参数值。 如果模板包括参数文件中无法包括的敏感值，可将该值添加到密钥保管库，或者动态地以内联方式提供所有参数值。
 
 如果模板包括的一个参数与 PowerShell 命令中的某个参数同名，PowerShell 使用后缀 FromTemplate 显示模板的参数。 例如，模板中名为 **ResourceGroupName** 的参数与 [New-AzureRmResourceGroupDeployment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet 中的 **ResourceGroupName** 参数冲突。 系统会提示提供 **ResourceGroupNameFromTemplate** 的值。 通常，不应将参数命名为与用于部署操作的参数的名称相同以避免这种混乱。
 
@@ -118,7 +136,7 @@ New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Ex
 若要测试模板和参数值而不实际部署任何资源，请使用 [Test-AzureRmResourceGroupDeployment](https://docs.microsoft.com/powershell/module/azurerm.resources/test-azurermresourcegroupdeployment)。 
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateFile c:\MyTemplates\storage.json -storageAccountType Standard_GRS
 ```
 
@@ -142,18 +160,9 @@ Test-AzureRmResourceGroupDeployment : After parsing a value an unexpected charac
   ". Path 'variables', line 31, position 3.
 ```
 
-[!INCLUDE [resource-manager-deployments](../../includes/resource-manager-deployments.md)]
-
-若要使用完整模式，请使用 `Mode` 参数：
-
-```powershell
-New-AzureRmResourceGroupDeployment -Mode Complete -Name ExampleDeployment `
-  -ResourceGroupName ExampleResourceGroup -TemplateFile c:\MyTemplates\storage.json 
-```
-
 ## <a name="sample-template"></a>示例模板
 
-本主题中的示例使用以下模板。 复制并将其另存为名为 storage.json 的文件。 若要了解如何创建此模板，请参阅[创建第一个 Azure Resource Manager 模板](resource-manager-create-first-template.md)。  
+本文中的示例使用以下模板。 复制并将其另存为名为 storage.json 的文件。 若要了解如何创建此模板，请参阅[创建第一个 Azure Resource Manager 模板](resource-manager-create-first-template.md)。  
 
 ```json
 {
@@ -202,8 +211,10 @@ New-AzureRmResourceGroupDeployment -Mode Complete -Name ExampleDeployment `
 
 ## <a name="next-steps"></a>后续步骤
 * 本文中的示例将资源部署到默认订阅中的资源组。 若要使用其他订阅，请参阅[管理多个 Azure 订阅](https://docs.microsoft.com/powershell/azure/manage-subscriptions-azureps)。
-* 有关用于部署模板的完整示例脚本，请参阅 [Resource Manager 模板部署脚本](resource-manager-samples-powershell-deploy.md)。
+* 若要指定如何处理存在于资源组中但未在模板中定义的资源，请参阅 [Azure 资源管理器部署模式](deployment-modes.md)。
 * 若要了解如何在模板中定义参数，请参阅[了解 Azure Resource Manager 模板的结构和语法](resource-group-authoring-templates.md)。
 * 有关解决常见部署错误的提示，请参阅[排查使用 Azure Resource Manager 时的常见 Azure 部署错误](resource-manager-common-deployment-errors.md)。
 * 有关部署需要 SAS 令牌的模板的信息，请参阅[使用 SAS 令牌部署专用模板](resource-manager-powershell-sas-token.md)。
-* 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](resource-manager-subscription-governance.md)。
+<!--Not Available on  [Azure Deployment Manager](deployment-manager-overview.md)-->
+
+<!--Update_Description: update meta properties, wording update -->

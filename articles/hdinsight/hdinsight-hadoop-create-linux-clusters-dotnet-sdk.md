@@ -1,38 +1,33 @@
 ---
-title: "使用 .NET 创建 Azure HDInsight (Hadoop) | Azure"
-description: "了解如何使用 HDInsight .NET SDK 在 Linux 中为 HDInsight 创建 Hadoop、HBase、Storm 或 Spark 群集。"
+title: 使用 .NET 创建 Hadoop 群集 - Azure HDInsight | Azure
+description: 了解如何使用 HDInsight .NET SDK 在 Linux 中为 HDInsight 创建 Hadoop、HBase、Storm 或 Spark 群集。
 services: hdinsight
-documentationcenter: 
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 9c74e3dc-837f-4c90-bbb1-489bc7124a3d
+author: mamccrea
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/27/2017
-wacn.date: 
-ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 661ad713c0bef030de5efcd683cf12ca05042b8f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+origin.date: 08/16/2018
+ms.date: 10/22/2018
+ms.author: v-yiso
+ms.openlocfilehash: f74e94815f47303a1decf06e9df159a06e0cffe1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652158"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>使用 .NET SDK 在 HDInsight 中创建基于 Linux 的群集
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET Framework 应用程序使用 HDInsight 的操作。 本文演示如何使用 .NET SDK 创建基于 Linux 的 HDInsight 群集。
+
+了解如何使用 .NET SDK 在 Azure HDInsight 群集中创建 Hadoop 群集。
 
 > [!IMPORTANT]
-> 本文中的步骤创建了包含一个工作节点的群集。 如果你计划使用 32 个以上的工作节点（在创建群集时或是在创建之后通过扩展群集进行），则必须选择至少具有 8 个核心和 14GB ram 的头节点大小。
+> 本文中的步骤创建了包含一个工作节点的群集。 如果计划使用 32 个以上的工作节点（在创建群集时或是在创建之后通过扩展群集进行），则需要选择至少具有 8 个核心和 14GB RAM 的头节点大小。
 >
 > 有关节点大小和相关费用的详细信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。
 
@@ -41,14 +36,14 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET Framework 应用
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 * **一个 Azure 订阅**。 请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
-* **一个 Azure 存储帐户**。 请参阅[创建存储帐户](../storage/storage-create-storage-account.md#create-a-storage-account)。
+* **一个 Azure 存储帐户**。 请参阅[创建存储帐户](../storage/common/storage-quickstart-create-account.md)。
 * **Visual Studio 2013、Visual Studio 2015 或 Visual Studio 2017**。
 
 ## <a name="create-clusters"></a>创建群集
 
 1. 打开 Visual Studio 2017。
 2. 创建新的 Visual C# 控制台应用程序。
-3. 在“工具”菜单中，单击“Nuget 程序包管理器”，然后单击“程序包管理器控制台”。
+3. 在“工具”菜单中，单击“NuGet 包管理器”，并单击“包管理器控制台”。
 4. 在控制台中运行下列命令以安装程序包：
 
     ```powershell
@@ -58,7 +53,7 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET Framework 应用
     ```
 
     这些命令将 .NET 库以及对这些库的引用添加到当前 Visual Studio 项目中。
-5. 在解决方案资源管理器中双击 **Program.cs** 将它打开，粘贴以下代码，并提供变量的值：
+5. 在解决方案资源管理器中，双击 **Program.cs** 将其打开、粘贴以下代码，并提供变量的值：
 
     ```csharp
     using System;
@@ -93,12 +88,12 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET Framework 应用
             private const string NewClusterLocation = "CHINA EAST"; // Must be the same as the default Storage account
             private const OSType NewClusterOSType = OSType.Linux;
             private const string NewClusterType = "Hadoop";
-            private const string NewClusterVersion = "3.5";
+            private const string NewClusterVersion = "3.6";
             private const string NewClusterUsername = "admin";
             private const string NewClusterPassword = "<Enter HTTP User Password>";
             private const string NewClusterSshUserName = "sshuser";
 
-            // You can use eitehr password or public key.  See https://www.azure.cn/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/
+            // You can use eitehr password or public key. See https://docs.azure.cn/hdinsight/hdinsight-hadoop-linux-use-ssh-unix
             private const string NewClusterSshPassword = "<Enter SSH User Password>";
             private const string NewClusterSshPublicKey = @"---- BEGIN SSH2 PUBLIC KEY ----
                 Comment: ""rsa-key-20150731""
@@ -169,12 +164,12 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET Framework 应用
             static TokenCloudCredentials GetTokenCloudCredentials(string TenantId, string ClientId, string SubscriptionId)
             {
                 var authContext = new AuthenticationContext("https://login.chinacloudapi.cn/" + TenantId);
-                var tokenAuthResult = authContext.AcquireToken("https://management.core.chinacloudapi.cn/", 
+                var tokenAuthResult = authContext.AcquireTokenAsync("https://management.core.chinacloudapi.cn/", 
                     ClientId, 
                     new Uri("urn:ietf:wg:oauth:2.0:oob"), 
-                    PromptBehavior.Always, 
+                    new PlatformParameters(PromptBehavior.Always), 
                     UserIdentifier.AnyUser);
-                return new TokenCloudCredentials(SubscriptionId, tokenAuthResult.AccessToken);
+                return new TokenCloudCredentials(SubscriptionId, tokenAuthResult.Result.AccessToken);
             }
             /// <summary>
             /// Marks your subscription as one that can use HDInsight, if it has not already been marked as such.
@@ -195,11 +190,11 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET Framework 应用
     ```
 
 6. 替换类成员值。
-7. 按 **F5** 运行应用程序。 控制台窗口应打开并显示应用程序的状态。 系统还会提示你输入 Azure 帐户凭据。 创建一个 HDInsight 群集可能需要几分钟时间，通常为 15 分钟。
+7. 按 **F5** 运行应用程序。 控制台窗口应打开并显示应用程序的状态。 系统会提示输入 Azure 帐户凭据。 创建一个 HDInsight 群集可能需要几分钟时间，通常为 15 分钟。
 
 ## <a name="use-bootstrap"></a>使用 bootstrap
 
-使用 bootstrap，可以在群集创建过程中配置添加设置。  有关详细信息，请参阅[使用 Bootstrap 自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-bootstrap.md)。
+使用 bootstrap，可以在群集创建过程中配置添加设置。  有关详细信息，请参阅 [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)（使用 Bootstrap 自定义 HDInsight 群集）。
 
 修改[创建群集](#create-clusters)中的示例以配置 Hive 设置：
 
@@ -232,7 +227,7 @@ static void Main(string[] args)
 
     var coreConfigs = new Dictionary<string, string>
     {
-        {"fs.defaultFS", string.Format("wasbs://{0}@{1}", ExistingBlobContainer, ExistingStorageName)},
+        {"fs.defaultFS", string.Format("wasb://{0}@{1}", ExistingBlobContainer, ExistingStorageName)},
         {
             string.Format("fs.azure.account.key.{0}", ExistingStorageName),
             ExistingStorageKey
@@ -382,29 +377,27 @@ static void Main(string[] args)
 成功创建 HDInsight 群集后，请参考以下主题来了解如何使用群集。 
 
 ### <a name="hadoop-clusters"></a>Hadoop 群集
-* [将 Hive 与 HDInsight 配合使用](hdinsight-use-hive.md)
-* [将 Pig 与 HDInsight 配合使用](hdinsight-use-pig.md)
-* [将 MapReduce 与 HDInsight 配合使用](hdinsight-use-mapreduce.md)
+* [将 Hive 与 HDInsight 配合使用](hadoop/hdinsight-use-hive.md)
+* [将 Pig 与 HDInsight 配合使用](hadoop/hdinsight-use-pig.md)
+* [将 MapReduce 与 HDInsight 配合使用](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="hbase-clusters"></a>HBase 群集
-* [HBase on HDInsight 入门](hdinsight-hbase-tutorial-get-started-linux.md)
-* [为 HBase on HDInsight 开发 Java 应用程序](hdinsight-hbase-build-java-maven-linux.md)
+* [HBase on HDInsight 入门](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [为 HBase on HDInsight 开发 Java 应用程序](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Storm 群集
-* [为 Storm on HDInsight 开发 Java 拓扑](hdinsight-storm-develop-java-topology.md)
-* [在 Storm on HDInsight 中使用 Python 组件](hdinsight-storm-develop-python-topology.md)
-* [使用 Storm on HDInsight 部署和监视拓扑](hdinsight-storm-deploy-monitor-topology-linux.md)
+* [为 Storm on HDInsight 开发 Java 拓扑](storm/apache-storm-develop-java-topology.md)
+* [在 Storm on HDInsight 中使用 Python 组件](storm/apache-storm-develop-python-topology.md)
+* [使用 Storm on HDInsight 部署和监视拓扑](storm/apache-storm-deploy-monitor-topology-linux.md)
 
 ### <a name="spark-clusters"></a>Spark 群集
-* [使用 Scala 创建独立的应用程序](hdinsight-apache-spark-create-standalone-application.md)
-* [使用 Livy 在 Spark 群集中远程运行作业](hdinsight-apache-spark-livy-rest-interface.md)
-* [Spark 和 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](hdinsight-apache-spark-use-bi-tools.md)
-* [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [Spark 流式处理：使用 HDInsight 中的 Spark 生成实时流式处理应用程序](hdinsight-apache-spark-eventhub-streaming.md)
-
+* [使用 Scala 创建独立的应用程序](spark/apache-spark-create-standalone-application.md)
+* [使用 Livy 在 Spark 群集中远程运行作业](spark/apache-spark-livy-rest-interface.md)
+* [Spark 和 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](spark/apache-spark-use-bi-tools.md)
+* [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](spark/apache-spark-machine-learning-mllib-ipython.md)
 ### <a name="run-jobs"></a>运行作业
-* [使用.NET SDK 在 HDInsight 中运行 Hive 作业](hdinsight-hadoop-use-hive-dotnet-sdk.md)
-* [使用.NET SDK 在 HDInsight 中运行 Pig 作业](hdinsight-hadoop-use-pig-dotnet-sdk.md)
-* [使用.NET SDK 在 HDInsight 中运行 Sqoop 作业](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
+* [使用.NET SDK 在 HDInsight 中运行 Hive 作业](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
+* [使用.NET SDK 在 HDInsight 中运行 Pig 作业](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)
+* [使用.NET SDK 在 HDInsight 中运行 Sqoop 作业](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)
 * [在 HDInsight 中运行 Oozie 作业](hdinsight-use-oozie.md)
 

@@ -1,0 +1,66 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 7119a6a20cdb80b26ae527cf16e3ec736ad9b372
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663451"
+documentType: LandingData
+title: 虚拟网络文档
+metadata:
+  document_id: 44409b3f-ab8c-053d-cdf4-5d7e823a275f
+  title: 虚拟网络文档 - 教程、快速入门和 API 参考 | Azure
+  meta.description: Learn how to use Azure Virtual Network. Quickstarts, tutorials, samples, and more, show you how to deploy a virtual network, control traffic filtering and routing, and connect a virtual network to other virtual networks.
+  services: virtual-network
+  author: rockboyfor
+  manager: digimobile
+  ms.service: virtual-network
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  origin.date: 03/23/2018
+  ms.date: 11/12/2018
+  ms.author: v-yeche
+abstract:
+  description: 了解如何使用 Azure 虚拟网络。 快速入门、教程和示例等等，显示了如何部署虚拟网络，如何控制流量筛选和路由，以及如何将虚拟网络连接到其他虚拟网络。
+sections:
+- title: 5 分钟快速入门
+  items:
+  - type: paragraph
+    text: 了解如何创建虚拟网络，如何将虚拟机部署到其中，以及如何在虚拟机与 Internet 之间进行通信。
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: https://docs.azure.cn/virtual-network/media/index/portal.svg
+      text: Azure 门户
+      href: /virtual-network/quick-create-portal
+    - image:
+        src: https://docs.azure.cn/virtual-network/media/index/powershell.svg
+      text: Azure PowerShell
+      href: /virtual-network/quick-create-powershell
+    - image:
+        src: https://docs.azure.cn/virtual-network/media/index/cli.svg
+      text: Azure CLI
+      href: /virtual-network/quick-create-cli
+- title: 分步教程
+  items:
+  - type: paragraph
+    text: 了解如何创建和连接虚拟网络以及如何控制路由和筛选。
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/virtual-network/tutorial-filter-network-traffic">筛选网络流量</a>
+    - html: <a href="/virtual-network/tutorial-create-route-table-portal">路由网络流量</a>
+    - html: <a href="/virtual-network/tutorial-restrict-network-access-to-resources">限制对资源的网络访问</a>
+    - html: <a href="/virtual-network/tutorial-connect-virtual-networks-portal">连接虚拟网络</a>
+- title: 示例
+  items:
+  - type: paragraph
+    text: 常见任务的脚本示例。
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/virtual-network/cli-samples">Azure CLI</a>
+    - html: <a href="/virtual-network/powershell-samples">PowerShell</a>

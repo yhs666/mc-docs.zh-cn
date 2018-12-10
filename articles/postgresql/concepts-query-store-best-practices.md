@@ -1,0 +1,51 @@
+---
+title: Azure Database for PostgreSQL 中的查询存储最佳做法
+description: 本文介绍了 Azure Database for PostgreSQL 中查询存储的最佳做法。
+services: postgresql
+author: WenJason
+ms.author: v-jay
+ms.service: postgresql
+ms.topic: conceptual
+origin.date: 09/26/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: 17b2c76e320a96d7c561182b63ada460bc24edea
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675213"
+---
+# <a name="best-practices-for-query-store"></a>查询存储的最佳做法
+
+**适用于：** Azure Database for PostgreSQL 9.6 和 10
+
+> [!IMPORTANT]
+> 查询存储功能目前以公共预览版提供。
+
+
+本文概述了在 Azure Database for PostgreSQL 中使用查询存储的最佳做法。
+
+## <a name="set-the-optimal-query-capture-mode"></a>设置最佳查询捕获模式
+让查询存储捕获重要的数据。 
+
+|**pg_qs.query_capture_mode** | **方案**|
+|---|---|
+|_全部_  |根据所有查询及其执行频率和其他统计信息彻底分析工作负荷。 识别工作负荷中的新查询。 检测是否使用即席查询来识别用户或自动参数化的机会。 “全部”会增加资源消耗成本。 |
+|顶部  |将注意力集中在热门查询 - 客户发布的查询上。
+|_无_ |已捕获了要调查的查询集和时间窗口，并且希望消除其他查询可能引入的干扰。 “无”适用于测试和基准测试环境。 由于可能错过了跟踪和优化重要新查询的机会，因此应谨慎使用“无”。 无法恢复那些过去时间窗口上的数据。 |
+
+查询存储还包括等待统计信息库。 还有一个额外的捕获模式查询可管理等待统计信息：可将 pgms_wait_sampling.query_capture_mode 设置为“无”或“全部”。 
+
+> [!NOTE] 
+> 将 pgms_wait_sampling.query_capture_mode 替代为 pg_qs.query_capture_mode。 若 pg_qs.query_capture_mode 设置为“无”，则 pgms_wait_sampling.query_capture_mode 设置无效。 
+
+
+## <a name="keep-the-data-you-need"></a>保留所需的数据
+该 pg_qs.retention_period_in_days 参数指定查询存储的数据保留期（以天为单位）。 删除较旧的查询和统计信息数据。 默认情况下，查询存储配置为将数据保留 7 天。 避免保留不打算使用的历史数据。 若需要将数据保留更长时间，请增大保留期的值。
+
+
+## <a name="set-the-frequency-of-wait-stats-sampling"></a>设置等待统计信息采样频率 
+该 pgms_wait_sampling.history_period 参数指定等待事件的采样频率（以毫秒为单位）。 周期越短，采样越频繁。 可检索到更多信息，但这会导致更多资源消耗。 若服务器负载不足或不需要粒度，请增加此时间段
+
+## <a name="next-steps"></a>后续步骤
+- 了解如何使用 [Azure 门户](howto-configure-server-parameters-using-portal.md)或 [Azure CLI](howto-configure-server-parameters-using-cli.md) 获取或设置参数。

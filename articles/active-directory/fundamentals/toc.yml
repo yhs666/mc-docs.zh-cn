@@ -1,0 +1,77 @@
+items:
+- name: 基础知识文档
+  href: index.yml
+- name: 概述
+  items:
+  - name: 什么是 Azure Active Directory？
+    href: active-directory-whatis.md
+  expanded: true
+- name: 快速入门
+  items:
+  - name: 访问门户并创建租户
+    href: active-directory-access-create-new-tenant.md
+  - name: 查看包含已分配成员的组
+    href: active-directory-groups-view-azure-portal.md
+- name: 概念
+  items:
+  - name: 标识安全分数
+    href: identity-secure-score.md
+  - name: 组和访问管理
+    href: active-directory-manage-groups.md
+  - name: Azure AD 体系结构
+    href: active-directory-architecture.md
+  - name: 默认用户权限
+    href: users-default-permissions.md
+- name: 操作指南
+  items:
+  - name: 组织
+    items:
+    - name: 以组织身份注册 Azure AD
+      href: sign-up-organization.md
+    - name: 添加自定义域名
+      href: add-custom-domain.md
+    - name: 添加隐私信息
+      href: active-directory-properties-area.md
+  - name: 组
+    items:
+    - name: 创建组并添加成员
+      href: active-directory-groups-create-azure-portal.md
+    - name: 添加或删除组成员
+      href: active-directory-groups-members-azure-portal.md
+    - name: 删除组及其成员
+      href: active-directory-groups-delete-group.md
+    - name: 从另一个组中添加或删除组
+      href: active-directory-groups-membership-azure-portal.md
+    - name: 编辑组信息
+      href: active-directory-groups-settings-azure-portal.md
+    - name: 添加或删除组所有者
+      href: active-directory-accessmanagement-managing-group-owners.md
+  - name: 用户
+    items:
+    - name: 添加或删除新用户
+      href: add-users-azure-active-directory.md
+    - name: 添加或更改用户配置文件信息
+      href: active-directory-users-profile-azure-portal.md
+    - name: 重置用户的密码
+      href: active-directory-users-reset-password-azure-portal.md
+    - name: 向用户分配角色
+      href: active-directory-users-assign-role-azure-portal.md
+    - name: 还原已删除的用户
+      href: active-directory-users-restore.md
+  expanded: true
+- name: 资源
+  items:
+  - name: 获取对 Azure Active Directory 的支持
+    href: https://support.azure.cn/en-us/support/support-azure/
+  - name: Azure Active Directory 常见问题
+    href: active-directory-faq.md
+  - name: 管理 Azure AD 目录
+    href: active-directory-administer.md
+  - name: Azure 标识解决方案
+    href: understand-azure-identity-solutions.md
+ms.openlocfilehash: e47a9ef1d205c705003f69bbd2a4d60b57f2ec1d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654876"

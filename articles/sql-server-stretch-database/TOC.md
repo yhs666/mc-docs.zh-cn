@@ -1,25 +1,29 @@
+# [SQL Server Stretch Database 文档](index.md)
+
 # 概述
-## [什么是 Stretch Database？](sql-server-stretch-database-overview.md)
-## [限制条件和阻止问题](sql-server-stretch-database-limitations.md)
+## [什么是 Stretch Database？](https://docs.microsoft.com/sql/sql-server/stretch-database/stretch-database)
+## [限制条件和阻止问题](https://docs.microsoft.com/sql/sql-server/stretch-database/limitations-for-stretch-database)
 
 # 入门
-## [标识数据库和表](sql-server-stretch-database-identify-databases.md)
-## [运行向导](sql-server-stretch-database-wizard.md)
+## [标识数据库和表](https://docs.microsoft.com/sql/sql-server/stretch-database/stretch-database-databases-and-tables-stretch-database-advisor)
+## [运行向导](https://docs.microsoft.com/sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard)
 
 # 如何
 ## 启用
-### [启用数据库](sql-server-stretch-database-enable-database.md)
-### [启用表](sql-server-stretch-database-enable-table.md)
-### [选择要迁移的行](sql-server-stretch-database-predicate-function.md)
+### [启用数据库](https://docs.microsoft.com/sql/sql-server/stretch-database/enable-stretch-database-for-a-database)
+### [启用表](https://docs.microsoft.com/sql/sql-server/stretch-database/enable-stretch-database-for-a-table)
+### [选择要迁移的行](https://docs.microsoft.com/sql/sql-server/stretch-database/select-rows-to-migrate-by-using-a-filter-function-stretch-database)
 ## 管理
-### [监视数据迁移](sql-server-stretch-database-monitor.md)
-### [暂停和继续迁移](sql-server-stretch-database-pause.md)
-### [管理和故障排除](sql-server-stretch-database-manage.md)
-### [备份和还原](sql-server-stretch-database-backup.md)
-### [禁用 Stretch Database](sql-server-stretch-database-disable.md)
+### [监视数据迁移](https://docs.microsoft.com/sql/sql-server/stretch-database/monitor-and-troubleshoot-data-migration-stretch-database)
+### [暂停和继续迁移](https://docs.microsoft.com/sql/sql-server/stretch-database/pause-and-resume-data-migration-stretch-database)
+### [管理和故障排除](https://docs.microsoft.com/sql/sql-server/stretch-database/manage-and-troubleshoot-stretch-database)
+### [备份](https://docs.microsoft.com/sql/sql-server/stretch-database/backup-stretch-enabled-databases-stretch-database)
+### [Restore](https://docs.microsoft.com/sql/sql-server/stretch-database/restore-stretch-enabled-databases-stretch-database)
+### [禁用 Stretch Database](https://docs.microsoft.com/sql/sql-server/stretch-database/disable-stretch-database-and-bring-back-remote-data)
 
 # 资源
 ## [价格](https://www.azure.cn/pricing/details/sql-server-stretch-database/)
-## [博客](https://blogs.technet.microsoft.com/dataplatforminsider/tag/stretch-database/)
-## [服务更新](https://azure.microsoft.com/updates/?product=sql-server-stretch-database)
-## [视频](https://azure.microsoft.com/documentation/videos/index/?services=sql-server-stretch-database)
+## [定价计算器](https://www.azure.cn/pricing/calculator/)
+## [服务更新](https://www.azure.cn/what-is-new/)
+## [视频](https://www.azure.cn/video-center/)
+<!--ms.date: 04/09/2018 -->

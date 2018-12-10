@@ -1,42 +1,41 @@
 ---
-title: "创建 Azure 虚拟机规模集 | Azure"
-description: "使用 Azure CLI、PowerShell、模板或 Visual Studio 创建和部署 Linux 或 Windows Azure 虚拟机规模集。"
+title: 创建 Azure 虚拟机规模集 | Azure
+description: 使用 Azure CLI、PowerShell、模板或 Visual Studio 创建和部署 Linux 或 Windows Azure 虚拟机规模集。
 services: virtual-machine-scale-sets
-documentationcenter: 
-author: Thraka
-manager: timlt
-editor: 
+documentationcenter: ''
+author: hayley244
+manager: digimobile
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 03/30/2017
-wacn.date: 
-ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: dc829203d0b4d093bcdc004ec7444499f4692134
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
+origin.date: 07/21/2017
+ms.date: 08/28/2017
+ms.author: v-haiqya
+ms.openlocfilehash: ec3c143c8c7a6112c116cdb6da196271df3b969a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657023"
 ---
-
 # <a name="create-and-deploy-a-virtual-machine-scale-set"></a>创建和部署虚拟机规模集
 使用虚拟机规模集可以轻松地将相同的虚拟机作为集来进行部署和管理。 规模集为超大规模应用程序提供高度可缩放且可自定义的计算层，并且它们支持 Windows 平台映像、Linux 平台映像、自定义映像和扩展。 有关规模集的详细信息，请参阅[虚拟机规模集](virtual-machine-scale-sets-overview.md)。
 
 本教程介绍如何**不**使用 Azure 门户就创建虚拟机规模集。 有关如何使用 Azure 门户的信息，请参阅[如何使用 Azure 门户创建虚拟机规模集](virtual-machine-scale-sets-portal-create.md)。
 
 >[!NOTE]
->有关 Azure Resource Manager 资源的详细信息，请参阅 [Azure Resource Manager 与经典部署](../azure-resource-manager/resource-manager-deployment-model.md)。
+>有关 Azure 资源管理器资源的详细信息，请参阅 [Azure 资源管理器与经典部署](../azure-resource-manager/resource-manager-deployment-model.md)。
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
 若要使用 Azure CLI 2.0 或 Azure PowerShell 创建规模集，首先需要登录到订阅。
 
-有关如何使用 Azure CLI 或 PowerShell 安装、设置和登录到 Azure 的详细信息，请参阅 [Azure CLI 2.0 入门](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)或 [Azure PowerShell cmdlet 入门](https://docs.microsoft.com/powershell/resourcemanager/)。
+有关如何使用 Azure CLI 或 PowerShell 安装、设置和登录到 Azure 的详细信息，请参阅 [Azure CLI 2.0 入门](/cli/get-started-with-azure-cli)或 [Azure PowerShell cmdlet 入门](https://docs.microsoft.com/powershell/azure/overview)。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -53,16 +52,16 @@ Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 首先需要创建虚拟机规模集所关联的资源组。
 
 ```azurecli
-az group create --location chinanorth --name vmss-test-1
+az group create --location chinanorth --name MyResourceGroup1
 ```
 
 ```powershell
-New-AzureRmResourceGroup -Location chinanorth -Name vmss-test-1
+New-AzureRmResourceGroup -Location chinanorth -Name MyResourceGroup1
 ```
 
 ## <a name="create-from-azure-cli"></a>从 Azure CLI 创建
 
-使用 Azure CLI，只需最少的工作量就可创建虚拟机规模集。 如果你省略默认值，系统会自动提供这些值。 例如，如果你未指定任何虚拟网络信息，系统将自动创建一个虚拟网络。 如果你省略以下组成部分，系统会自动予以创建： 
+使用 Azure CLI，只需最少的工作量就可创建虚拟机规模集。 如果省略默认值，则将为你提供它们。 例如，如果未指定任何虚拟网络信息，系统会自动创建一个虚拟网络。 如果省略以下组成部分，系统会自动予以创建： 
 - 负载均衡器
 - 虚拟网络
 - 公共 IP 地址
@@ -91,20 +90,20 @@ HTTP URI 的路径：
 若要创建虚拟机规模集，必须指定以下各项：
 
 - 资源组 
-- 名称
+- Name
 - 操作系统映像
 - 身份验证信息 
 
 以下示例创建基本虚拟机规模集（此步骤可能需要几分钟）。
 
 ```azurecli
-az vmss create --resource-group vmss-test-1 --name MyScaleSet --image UbuntuLTS --authentication-type password --admin-username azureuser --admin-password P@ssw0rd!
+az vmss create --resource-group MyResourceGroup1 --name MyScaleSet --image UbuntuLTS --authentication-type password --admin-username azureuser --admin-password P@ssw0rd! --vm-sku Standard_DS1
 ```
 
-完成该命令后，即已创建虚拟机规模集。 你可能需要获取虚拟机的 IP 地址，以便能够与它建立连接。 可以使用以下命令获取有关虚拟机的各种不同信息（包括 IP 地址）。 
+完成该命令后，即已创建虚拟机规模集。 可能需要获取虚拟机的 IP 地址，以便能够与它建立连接。 可以使用以下命令获取有关虚拟机的各种不同信息（包括 IP 地址）。 
 
 ```azurecli
-az vmss list-instance-connection-info --resource-group vmss-test-1 --name MyScaleSet
+az vmss list-instance-connection-info --resource-group MyResourceGroup1 --name MyScaleSet
 ```
 
 ## <a name="create-from-powershell"></a>从 PowerShell 创建
@@ -115,7 +114,7 @@ PowerShell 的用法比 Azure CLI 更复杂。 Azure CLI 为网络相关的资�
 2. Get-AzureRMVMImageOffer
 3. Get-AzureRmVMImageSku
 
-cmdlet 的运行结果可以按顺序通过管道传送。 以下示例演示如何获取其发布服务器包含名称 **microsoft** 的**中国北部**的所有映像。
+cmdlet 的运行结果可以按顺序通过管道传送。 以下示例演示如何获取其发布服务器包含名称 **microsoft** 的“中国北部”区域的所有映像。
 
 ```powershell
 Get-AzureRMVMImagePublisher -Location ChinaNorth | Where-Object PublisherName -Like *microsoft* | Get-AzureRMVMImageOffer | Get-AzureRmVMImageSku | Select-Object PublisherName, Offer, Skus
@@ -145,8 +144,12 @@ MicrosoftRServer           RServer-WS2016 Enterprise
 本示例为装有 Windows Server 2016 的计算机创建一个基本的双实例规模集。
 
 ```powershell
+# Resource group name from above
+$rg = "MyResourceGroup1"
+$location = "ChinaNorth"
+
 # Create a config object
-$vmssConfig = New-AzureRmVmssConfig -Location ChinaNorth -SkuCapacity 2 -SkuName Standard_A0  -UpgradePolicyMode Automatic
+$vmssConfig = New-AzureRmVmssConfig -Location $location -SkuCapacity 2 -SkuName Standard_A0  -UpgradePolicyMode Automatic
 
 # Reference a virtual machine image from the gallery
 Set-AzureRmVmssStorageProfile $vmssConfig -ImageReferencePublisher MicrosoftWindowsServer -ImageReferenceOffer WindowsServer -ImageReferenceSku 2016-Datacenter -ImageReferenceVersion latest
@@ -155,34 +158,58 @@ Set-AzureRmVmssStorageProfile $vmssConfig -ImageReferencePublisher MicrosoftWind
 Set-AzureRmVmssOsProfile $vmssConfig -AdminUsername azureuser -AdminPassword P@ssw0rd! -ComputerNamePrefix myvmssvm
 
 # Create the virtual network resources
-$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name "my-subnet" -AddressPrefix 10.0.0.0/24
-$vnet = New-AzureRmVirtualNetwork -Name "my-network" -ResourceGroupName "vmss-test-1" -Location "chinanorth" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
-$ipConfig = New-AzureRmVmssIpConfig -Name "my-ip-address" -LoadBalancerBackendAddressPoolsId $null -SubnetId $vnet.Subnets[0].Id
 
-# Attach the virtual network to the config object
+## Basics
+$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name "my-subnet" -AddressPrefix 10.0.0.0/24
+$vnet = New-AzureRmVirtualNetwork -Name "my-network" -ResourceGroupName $rg -Location $location -AddressPrefix 10.0.0.0/16 -Subnet $subnet
+
+## Load balancer
+$publicIP = New-AzureRmPublicIpAddress -Name "PublicIP" -ResourceGroupName $rg -Location $location -AllocationMethod Static -DomainNameLabel "myuniquedomain"
+$frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name "LB-Frontend" -PublicIpAddress $publicIP
+$backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "LB-backend"
+$probe = New-AzureRmLoadBalancerProbeConfig -Name "HealthProbe" -Protocol Tcp -Port 80 -IntervalInSeconds 15 -ProbeCount 2
+$inboundNATRule1= New-AzureRmLoadBalancerRuleConfig -Name "webserver" -FrontendIpConfiguration $frontendIP -Protocol Tcp -FrontendPort 80 -BackendPort 80 -IdleTimeoutInMinutes 15 -Probe $probe -BackendAddressPool $backendPool
+$inboundNATPool1 = New-AzureRmLoadBalancerInboundNatPoolConfig -Name "RDP" -FrontendIpConfigurationId $frontendIP.Id -Protocol TCP -FrontendPortRangeStart 53380 -FrontendPortRangeEnd 53390 -BackendPort 3389
+
+New-AzureRmLoadBalancer -ResourceGroupName $rg -Name "LB1" -Location $location -FrontendIpConfiguration $frontendIP -LoadBalancingRule $inboundNATRule1 -InboundNatPool $inboundNATPool1 -BackendAddressPool $backendPool -Probe $probe
+
+## IP address config
+$ipConfig = New-AzureRmVmssIpConfig -Name "my-ipaddress" -LoadBalancerBackendAddressPoolsId $backendPool.Id -SubnetId $vnet.Subnets[0].Id -LoadBalancerInboundNatPoolsId $inboundNATPool1.Id
+
+# Attach the virtual network to the IP object
 Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmssConfig -Name "network-config" -Primary $true -IPConfiguration $ipConfig
 
 # Create the scale set with the config object (this step might take a few minutes)
-New-AzureRmVmss -ResourceGroupName vmss-test-1 -Name my-scale-set -VirtualMachineScaleSet $vmssConfig
+New-AzureRmVmss -ResourceGroupName $rg -Name "MyScaleSet1" -VirtualMachineScaleSet $vmssConfig
+```
+
+### <a name="using-a-custom-virtual-machine-image"></a>使用自定义虚拟机映像
+如果要从自己的自定义映像创建规模集，而不是从库中引用虚拟机映像，Set-AzureRmVmssStorageProfile 命令将如下所示：
+```PowerShell
+Set-AzureRmVmssStorageProfile -OsDiskCreateOption FromImage -ManagedDisk PremiumLRS -OsDiskCaching "None" -OsDiskOsType Linux -ImageReferenceId (Get-AzureRmImage -ImageName $VMImage -ResourceGroupName $rg).id
 ```
 
 ## <a name="create-from-a-template"></a>从模板创建
 
-可以使用 Azure Resource Manager 模板部署虚拟机规模集。 可以创建你自己的模板，也可以使用[模板存储库](https://www.github.com/Azure/azure-quickstart-templates/)中的模板。 可直接将这些模板部署到 Azure 订阅。
+可以使用 Azure Resource Manager 模板部署虚拟机规模集。 可以创建自己的模板，也可以使用[模板存储库](https://github.com/Azure/azure-quickstart-templates/?term=vmss)中的模板。 可以直接将这些模板部署到 Azure 订阅。
 
 >[!NOTE]
 >若要创建自己的模板，请创建一个 JSON 文本文件。 有关如何创建和自定义模板的常规信息，请参阅 [Azure Resource Manager 模板](../azure-resource-manager/resource-group-authoring-templates.md)。
 
-[GitHub 上](https://github.com/gatneil/mvss/tree/minimum-viable-scale-set)提供了一个示例模板。 有关如何创建和使用该示例的详细信息，请参阅[最小的可行规模集](./virtual-machine-scale-sets-mvss-start.md)。
+[GitHub 上](https://github.com/gatneil/mvss/tree/minimum-viable-scale-set)提供了一个示例模板。 有关如何创建和使用该示例的详细信息，请参阅[最小的可行规模集](.\virtual-machine-scale-sets-mvss-start.md)。
 
 ## <a name="create-from-visual-studio"></a>从 Visual Studio 创建
 
-使用 Visual Studio 可以创建 Azure 资源组项目，并在其中添加虚拟机规模集模板。 可以选择是要从 GitHub 还是 Azure Web 应用程序库导入该模板。 还会为你生成部署 PowerShell 脚本。 有关详细信息，请参阅[如何使用 Visual Studio 创建虚拟机规模集](virtual-machine-scale-sets-vs-create.md)。
+使用 Visual Studio 可以创建 Azure 资源组项目，并在其中添加虚拟机规模集模板。 可以选择是要从 GitHub 还是 Azure Web 应用程序库导入该模板。 还会生成部署 PowerShell 脚本。 有关详细信息，请参阅[如何使用 Visual Studio 创建虚拟机规模集](virtual-machine-scale-sets-vs-create.md)。
 
-## <a name="create-from-the-azure-portal-preview"></a>在 Azure 门户中创建
+## <a name="create-from-the-azure-portal"></a>从 Azure 门户中创建
 
 Azure 门户提供了快速创建规模集的简便方式。 有关详细信息，请参阅[如何使用 Azure 门户创建虚拟机规模集](virtual-machine-scale-sets-portal-create.md)。
 
 ## <a name="next-steps"></a>后续步骤
 
+了解有关[数据磁盘](virtual-machine-scale-sets-attached-disks.md)的详细信息。
+
 了解如何[管理应用](virtual-machine-scale-sets-deploy-app.md)。
+
+<!--Update_Description: Add Using a custom virtual machine image-->

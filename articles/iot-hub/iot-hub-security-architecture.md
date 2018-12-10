@@ -1,35 +1,40 @@
 ---
-title: IoT 安全体系结构 | Azure
-description: IoT 安全体系结构指导原则和注意事项（包括威胁模型）
+title: Azure IoT 安全体系结构 | Microsoft Docs
+description: IoT 安全体系结构指导原则和注意事项（包括威胁模型）。
 services: iot-hub
-documentationCenter: ''
-authors: YuriDio
+documentationcenter: ''
+author: dominicbetts
 manager: timlt
 editor: ''
-
+ms.assetid: 6c28b173-0d3c-415a-a9ea-02908ff87b3b
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/16/2017
-wacn.date: 03/10/2017
+origin.date: 01/17/2018
 ms.author: v-yiso
+ms.date: 03/19/2018
+ms.openlocfilehash: cafd03e2d6afb273f5acf0736e8cf63de2f42671
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664300"
 ---
-
 [!INCLUDE [iot-security-architecture](../../includes/iot-security-architecture.md)]
 
-## 另请参阅
+## <a name="see-also"></a>另请参阅
 
-若要详细了解如何保护 IoT 解决方案，请参阅[保护你的 IoT 部署][lnk-security-deployment]。
+要详细了解如何保护 IoT 解决方案，请参阅[保护 IoT 部署][lnk-security-deployment]
 
 若要进一步探索 IoT 中心的功能，请参阅：
 
-- [使用网关 SDK 模拟设备][lnk-gateway]
+* [使用 Azure IoT Edge 将 AI 部署到边缘设备][lnk-iotedge]
 
 [lnk-security-deployment]: ./iot-hub-security-deployment.md
 
-[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md
 
-<!---HONumber=Mooncake_0109_2017-->
-<!--Update_Description:update wording-->
+
+<!--Update_Description:update meta properties only-->

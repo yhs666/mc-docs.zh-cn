@@ -1,36 +1,35 @@
 ---
-title: 在 SQL 数据仓库中分配变量 | Azure
-description: 有关在开发解决方案时于 Azure SQL 数据仓库中分配 Transact-SQL 变量的技巧。
+title: 在 Azure SQL 数据仓库中分配变量 | Microsoft Docs
+description: 有关开发解决方案时在 Azure SQL 数据仓库中分配 T-SQL 变量的技巧。
 services: sql-data-warehouse
-documentationCenter: NA
-authors: jrowlandjones
-manager: barbkess
-editor: ''
-
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.date: 10/31/2016
-wacn.date: 01/17/2017
-ms.author: v-yeche
+ms.topic: conceptual
+ms.component: implement
+origin.date: 04/17/2017
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: 120c7a6d83f9068b84e1d72683d63398ff17b9f4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666518"
 ---
+# <a name="assigning-variables-in-azure-sql-data-warehouse"></a>在 Azure SQL 数据仓库中分配变量
+有关开发解决方案时在 Azure SQL 数据仓库中分配 T-SQL 变量的技巧。
 
-# 在 SQL 数据仓库中分配变量
-SQL 数据仓库中的变量是使用 `DECLARE` 语句或 `SET` 语句设置的。
-
-以下各项是设置变量值的完全有效方式：
-
-## 使用 DECLARE 设置变量
-使用 DECLARE 初始化变量是在 SQL 数据仓库中设置变量值的最灵活方式之一。
+## <a name="setting-variables-with-declare"></a>使用 DECLARE 设置变量
+SQL 数据仓库中的变量是使用 `DECLARE` 语句或 `SET` 语句设置的。 使用 DECLARE 初始化变量是在 SQL 数据仓库中设置变量值的最灵活方式之一。
 
 ```sql
 DECLARE @v  int = 0
 ;
 ```
 
-你还可以使用 DECLARE 一次性设置多个变量。可以使用 `SELECT` 或 `UPDATE` 来实现此目的：
+还可以使用 DECLARE 一次性设置多个变量。 不能使用 SELECT 或 UPDATE 执行以下操作：
 
 ```sql
 DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 'Smith')
@@ -38,7 +37,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 ;
 ```
 
-你无法在同一 DECLARE 语句中初始化和使用某个变量。为了演示要点，**不**允许出现以下示例中的情况，因为 @p1 已在同一个 DECLARE 语句中初始化和使用。这会导致错误。
+不能在同一 DECLARE 语句中初始化和使用某个变量。 为了演示要点，**不**允许出现以下示例中的情况，因为同一 DECLARE 语句中初始化和使用了 @p1。 下面的示例会出错。
 
 ```sql
 DECLARE @p1 int = 0
@@ -46,10 +45,10 @@ DECLARE @p1 int = 0
 ;
 ```
 
-## 使用 SET 设置值
-SET 是设置单个变量的很常见方法。
+## <a name="setting-values-with-set"></a>使用 SET 设置值
+SET 是设置单个变量的常见方法。
 
-以下所有示例都是使用 SET 设置变量的有效方式：
+以下语句是使用 SET 设置变量的有效方法：
 
 ```sql
 SET     @v = (Select max(database_id) from sys.databases);
@@ -58,21 +57,11 @@ SET     @v = @v+1;
 SET     @v +=1;
 ```
 
-一次只能使用 SET 设置一个变量。但是，如上所示，允许使用复合运算符。
+一次只能使用 SET 设置一个变量。 但是可使用复合运算符。
 
-## 限制
+## <a name="limitations"></a>限制
 不能使用 SELECT 或 UPDATE 来分配变量。
 
-## 后续步骤
-有关更多开发技巧，请参阅[开发概述][development overview]。
+## <a name="next-steps"></a>后续步骤
+有关更多开发技巧，请参阅 [开发概述](sql-data-warehouse-overview-develop.md)。
 
-<!--Image references-->
-
-<!--Article references-->
-[development overview]: ./sql-data-warehouse-overview-develop.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->
-
-<!---HONumber=Mooncake_Quality_Review_0117_2017-->

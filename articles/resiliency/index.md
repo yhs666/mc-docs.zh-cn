@@ -1,11 +1,11 @@
 ---
-title: "待提交 | Microsoft Azure"
-description: "待提交。"
-services: 
-documentationcenter: 
+title: 待提交 | Azure
+description: 待提交。
+services: ''
+documentationcenter: ''
 author: squillace
 manager: timlt
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 0ff41bee-1606-4adc-94e6-92fd80dc286b
 ms.service: resiliency
@@ -13,15 +13,14 @@ ms.devlang: na
 ms.topic: landing-page
 ms.tgt_pltfrm: na
 ms.workload: na
+origin.date: 10/21/2016
 ms.date: 10/21/2016
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 310083543575f01adb960356350db2351fd992d8
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: c8bc43ff6b3f54a45dd974689d83441981761609
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651246"
 ---
 # <a name="to-be-submitted"></a>待提交。
-

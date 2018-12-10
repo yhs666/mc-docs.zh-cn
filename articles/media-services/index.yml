@@ -1,0 +1,36 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 9343817c23d00e44709458ceca928dd3637ffc90
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672469"
+documentType: LandingData
+title: Azure 媒体服务文档
+metadata:
+  document_id: 
+  title: Azure 媒体服务文档 | Microsoft Docs
+  meta.description: Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more.
+  services: media-services
+  author: WenJason
+  manager: digimobile
+  ms.service: media-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  origin.date: 09-24-2018
+  ms.date: 12-03-2018
+  ms.author: v-jay
+abstract:
+  description: Azure 媒体服务 (AMS) 是一个基于云的平台，可用于生成解决方案，以便实现观众可在大多数受欢迎的设备上体验的高清晰度视频编码和广播品质视频流。
+sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 1
+    items:
+      html: <p>了解如何使用媒体服务 v2 对视频进行编码、按需流式处理和实时直播。</p>
+      image:
+        src: media/index/AMSIcons-media_servicesV2.svg
+      title: Azure 媒体服务 v2

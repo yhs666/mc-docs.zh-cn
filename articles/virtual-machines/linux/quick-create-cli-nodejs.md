@@ -1,34 +1,33 @@
 ---
-title: "使用 Azure CLI 1.0 创建 Linux VM | Azure"
-description: "使用 Azure CLI 1.0 在 Azure 上创建 Linux VM"
+title: 使用 Azure 经典 CLI 创建 Linux VM | Azure
+description: 使用 Azure 经典 CLI 在 Azure 上创建 Linux VM
 services: virtual-machines-linux
-documentationcenter: 
-author: vlivech
-manager: timlt
-editor: 
+documentationcenter: ''
+author: rockboyfor
+manager: digimobile
+editor: ''
 ms.assetid: facb1115-2b4e-4ef3-9905-330e42beb686
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/15/2016
-wacn.date: 
-ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 0745557de0d4d46ef91b856b5e78e26a614e88fb
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+origin.date: 12/15/2016
+ms.date: 10/22/2018
+ms.author: v-yeche
+ms.openlocfilehash: 8743c77f4501a1f35d47b410ce6b3a2fecaaadad
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644288"
 ---
-# <a name="create-a-linux-vm-using-the-azure-cli-10"></a>使用 Azure CLI 1.0 创建 Linux VM
+# <a name="create-a-linux-vm-using-the-azure-classic-cli"></a>使用 Azure 经典 CLI 创建 Linux VM
 
 本文说明如何使用 Azure 命令行接口 (LI ) 中的 `azure vm quick-create` 命令在 Azure 上快速部署 Linux 虚拟机 (VM)。 `quick-create` 命令可将 VM 部署在基本且安全的基础结构内，可让你快速构建原型或测试概念。
 
 > [!NOTE]
-> 若要使用 Azure CLI 2.0 创建 VM，请参阅[使用 Azure CLI 创建 VM](../windows/quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+若要使用 Azure CLI 创建 VM，请参阅[使用 Azure CLI 创建 VM](../windows/quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 也可以使用 [Azure 门户](quick-create-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)快速部署 Linux VM。
 
@@ -38,7 +37,7 @@ ms.lasthandoff: 05/05/2017
 
 ## <a name="quick-commands"></a>快速命令
 
-以下示例演示如何部署 CoreOS VM 并附加安全外壳 (SSH) 密钥（你的参数可能与此不同）：
+以下示例演示如何部署 CoreOS VM 并附加安全外壳 (SSH) 密钥（参数可能与此不同）：
 
 ```azurecli
 azure vm quick-create -M ~/.ssh/id_rsa.pub -Q CoreOS
@@ -50,19 +49,19 @@ azure vm quick-create -M ~/.ssh/id_rsa.pub -Q CoreOS
 
 ## <a name="vm-quick-create-aliases"></a>VM quick-create 别名
 
-选择分发的便捷方法是使用映射到最常见 OS 分发的 Azure CLI 别名。 下表列出了别名（截止到 Azure 0.10 版）。 使用 `quick-create` 的所有部署默认为部署到由固态硬盘 (SSD) 存储提供支持的 VM，这些 VM 提供更快的预配性能和高性能磁盘访问。 （这些别名表示 Azure 上的一小部分可用分发。 在 Azure 应用商店中查找更多映像（可以[在 PowerShell 中搜索映像](../windows/cli-ps-findimage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)），或者[上传自己的自定义映像](create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。）
+选择分发的便捷方法是使用映射到最常见 OS 分发的 Azure CLI 别名。 下表列出了别名（截止到 Azure 0.10 版）。 使用 `quick-create` 的所有部署默认为部署到由固态硬盘 (SSD) 存储提供支持的 VM，这些 VM 提供更快的预配性能和高性能磁盘访问。 （这些别名表示 Azure 上的一小部分可用分发。 在 Azure 市场中查找更多映像（[可以在 PowerShell 中搜索映像](../windows/cli-ps-findimage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)，或者[在 Web 上搜索](https://market.azure.cn/zh-cn/marketplace/virtual-machines/)），或者[上传自己的自定义映像](create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。）
 
-| 别名 | 发布者 | 产品 | SKU | 版本 |
+| 别名 | 发布者 | 产品/服务 | SKU | 版本 |
 |:--- |:--- |:--- |:--- |:--- |
 | CentOS |OpenLogic |CentOS |7.2 |最新 |
 | CoreOS |CoreOS |CoreOS |Stable |最新 |
 | Debian |credativ |Debian |8 |最新 |
 | openSUSE |SUSE |openSUSE |13.2 |最新 |
-| UbuntuLTS |Canonical |Ubuntu Server |14.04.3-LTS |最新 |
+| UbuntuLTS |Canonical |Ubuntu Server |14.04.4-LTS |最新 |
 
-以下各节对 **ImageURN** 选项 (`-Q`) 使用 `UbuntuLTS` 别名来部署 Ubuntu 14.04.3 LTS Server。
+<!-- Not Available image of RHEL --> 以下各节对 **ImageURN** 选项 (`-Q`) 使用 `UbuntuLTS` 别名来部署 Ubuntu 14.04.4 LTS Server。
 
-上一个 `quick-create` 示例在禁用 SSH 密码时仅调出 `-M` 标志来标识要上传的 SSH 公钥，因此系统将提示输入以下参数：
+上一个 `quick-create` 示例在禁用 SSH 密码时仅调出 `-M` 标志来标识要上传的 SSH 公钥，因此系统会提示输入以下参数：
 
 * 资源组名称（通常适用于第一个 Azure 资源组的任何字符串）
 * VM 名称
@@ -93,25 +92,25 @@ info:    Verifying the public key SSH file: /Users/ahmet/.ssh/id_rsa.pub
 info:    Using the VM Size "Standard_DS1"
 info:    The [OS, Data] Disk or image configuration requires storage account
 + Looking up the storage account cli16330708391032639673
-+ Looking up the NIC "examp-china-1633070839-nic"
-info:    An nic with given name "examp-china-1633070839-nic" not found, creating a new one
-+ Looking up the virtual network "examp-china-1633070839-vnet"
++ Looking up the NIC "examp-chinanorth-1633070839-nic"
+info:    An nic with given name "examp-chinanorth-1633070839-nic" not found, creating a new one
++ Looking up the virtual network "examp-chinanorth-1633070839-vnet"
 info:    Preparing to create new virtual network and subnet
-/ Creating a new virtual network "examp-china-1633070839-vnet" [address prefix: "10.0.0.0/16"] with subnet "examp-china-1633070839-snet" [address prefix: "10.+.1.0/24"]
-+ Looking up the virtual network "examp-china-1633070839-vnet"
-+ Looking up the subnet "examp-china-1633070839-snet" under the virtual network "examp-china-1633070839-vnet"
+/ Creating a new virtual network "examp-chinanorth-1633070839-vnet" [address prefix: "10.0.0.0/16"] with subnet "examp-chinanorth-1633070839-snet" [address prefix: "10.+.1.0/24"]
++ Looking up the virtual network "examp-chinanorth-1633070839-vnet"
++ Looking up the subnet "examp-chinanorth-1633070839-snet" under the virtual network "examp-chinanorth-1633070839-vnet"
 info:    Found public ip parameters, trying to setup PublicIP profile
-+ Looking up the public ip "examp-china-1633070839-pip"
-info:    PublicIP with given name "examp-china-1633070839-pip" not found, creating a new one
-+ Creating public ip "examp-china-1633070839-pip"
-+ Looking up the public ip "examp-china-1633070839-pip"
-+ Creating NIC "examp-china-1633070839-nic"
-+ Looking up the NIC "examp-china-1633070839-nic"
++ Looking up the public ip "examp-chinanorth-1633070839-pip"
+info:    PublicIP with given name "examp-chinanorth-1633070839-pip" not found, creating a new one
++ Creating public ip "examp-chinanorth-1633070839-pip"
++ Looking up the public ip "examp-chinanorth-1633070839-pip"
++ Creating NIC "examp-chinanorth-1633070839-nic"
++ Looking up the NIC "examp-chinanorth-1633070839-nic"
 + Looking up the storage account clisto1710997031examplev
 + Creating VM "myVM"
 + Looking up the VM "myVM"
-+ Looking up the NIC "examp-china-1633070839-nic"
-+ Looking up the public ip "examp-china-1633070839-pip"
++ Looking up the NIC "examp-chinanorth-1633070839-nic"
++ Looking up the public ip "examp-chinanorth-1633070839-pip"
 data:    Id                              :/subscriptions/2<--snip-->d/resourceGroups/exampleResourceGroup/providers/Microsoft.Compute/virtualMachines/exampleVMName
 data:    ProvisioningState               :Succeeded
 data:    Name                            :exampleVMName
@@ -125,7 +124,7 @@ data:    Storage Profile:
 data:      Image reference:
 data:        Publisher                   :Canonical
 data:        Offer                       :UbuntuServer
-data:        Sku                         :14.04.3-LTS
+data:        Sku                         :14.04.4-LTS
 data:        Version                     :latest
 data:
 data:      OS Disk:
@@ -148,10 +147,10 @@ data:        Network Interface #1:
 data:          Primary                   :true
 data:          MAC Address               :00-0D-3A-33-42-FB
 data:          Provisioning State        :Succeeded
-data:          Name                      :examp-china-1633070839-nic
+data:          Name                      :examp-chinanorth-1633070839-nic
 data:          Location                  :chinanorth
 data:            Public IP address       :138.91.247.29
-data:            FQDN                    :examp-china-1633070839-pip.chinanorth.chinacloudapp.cn
+data:            FQDN                    :examp-chinanorth-1633070839-pip.chinanorth.cloudapp.chinacloudapi.cn
 data:
 data:    Diagnostics Profile:
 data:      BootDiagnostics Enabled       :true
@@ -172,7 +171,7 @@ ssh -i ~/.ssh/id_rsa.pub ahmet@138.91.247.29
 
 ```bash
 Warning: Permanently added '138.91.247.29' (ECDSA) to the list of known hosts.
-Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.19.0-65-generic x86_64)
+Welcome to Ubuntu 14.04.4 LTS (GNU/Linux 3.19.0-65-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com/
 
@@ -203,7 +202,9 @@ myAdminUser@myVM:~$
 ## <a name="next-steps"></a>后续步骤
 使用 `azure vm quick-create` 命令可以快速部署 VM，以便可以登录到 bash shell 开始工作。 但是，使用 `vm quick-create` 不会为用户提供广泛的控制，也不会让用户创建更复杂的环境。  若要部署针对基础结构自定义的 Linux VM，可以遵循下列任一文章操作：
 
-* [使用 Azure Resource Manager 模板创建特定部署](../windows/cli-deploy-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [直接使用 Azure CLI 命令创建自定义的 Linux VM 环境](create-cli-complete.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [使用模板在 Azure 上创建受 SSH 保护的 Linux VM](create-ssh-secured-vm-from-template.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
+还可以[将 `docker-machine` Azure 驱动程序与各种命令配合使用，快速创建 Linux VM 作为 docker 主机](docker-machine.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+
+<!--Update_Description: update meta properties, wording update-->

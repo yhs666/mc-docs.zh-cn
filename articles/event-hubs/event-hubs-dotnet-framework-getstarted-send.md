@@ -1,123 +1,115 @@
 ---
-title: "使用 .NET Framework 将事件发送到 Azure 事件中心 | Azure"
-description: "使用 .NET Framework 将事件发送到事件中心入门"
+title: 使用 .NET Framework 将事件发送到 Azure 事件中心 | Azure
+description: 使用 .NET Framework 将事件发送到事件中心入门
 services: event-hubs
-documentationcenter: 
-author: jtaubensee
+documentationcenter: ''
+author: ShubhaVijayasarathy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c4974bd3-2a79-48a1-aa3b-8ee2d6655b28
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 03/08/2017
-wacn.date: 
-ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: dd1f8f2156e7deda4680d881762d58273bcbd9b2
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
+ms.topic: article
+origin.date: 07/03/2018
+ms.date: 12/10/2018
+ms.author: v-biyu
+ms.openlocfilehash: cd038c62a835eb0c1398fb872cb2c5c30b56c006
+ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676886"
 ---
-
 # <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>使用 .NET Framework 将事件发送到 Azure 事件中心
+Azure 事件中心是一个大数据流式处理平台和事件引入服务，每秒能够接收和处理数百万个事件。 事件中心可以处理和存储分布式软件和设备生成的事件、数据或遥测。 可以使用任何实时分析提供程序或批处理/存储适配器转换和存储发送到数据中心的数据。 有关事件中心的详细概述，请参阅[事件中心概述](event-hubs-about.md)和[事件中心功能](event-hubs-features.md)。
 
-## <a name="introduction"></a>介绍
-事件中心是一个服务，可用于处理来自连接设备和应用程序的大量事件数据（遥测）。 将数据采集到事件中心后，可以使用任何实时分析提供程序或存储群集来转换和存储数据。 这种大规模事件收集和处理功能是现代应用程序体系结构（包括物联网 (IoT)）的重要组件。
+本教程介绍如何使用控制台应用程序（通过 .NET Framework 以 C# 编写）将事件发送到事件中心。 
 
-本教程介绍如何使用 [Azure 门户](https://portal.azure.cn) 创建事件中心。 此外，还介绍如何使用控制台应用程序（通过 .NET Framework 用 C# 编写）将事件发送到事件中心。 若要使用 .NET Framework 接收事件，请参阅[使用 .NET Framework 接收事件](./event-hubs-dotnet-framework-getstarted-receive-eph.md)一文，或者单击左侧目录中的相应接收语言。
+## <a name="prerequisites"></a>先决条件
+若要完成本教程，需要满足以下先决条件：
 
-若要完成本教程，你需要以下各项：
-
-* [Microsoft Visual Studio 2015 或更高版本](http://visualstudio.com)。 本教程中的屏幕截图使用 Visual Studio 2017。
-* 有效的 Azure 帐户。 如果没有帐户，只需几分钟时间就可以创建一个免费帐户。 有关详细信息，请参阅 [Azure 试用](https://www.azure.cn/pricing/1rmb-trial/)。
+* [Microsoft Visual Studio 2017 或更高版本](https://visualstudio.com)。
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>创建事件中心命名空间和事件中心
-
-第一步是使用 [Azure 门户](https://portal.azure.cn)创建事件中心类型的命名空间，并获取应用程序与事件中心进行通信所需的管理凭据。 若要创建命名空间和事件中心，请按照[本文](./event-hubs-create.md)中的步骤进行操作，然后继续执行以下步骤。
+第一步是使用 [Azure 门户](https://portal.azure.cn)创建事件中心类型的命名空间，并获取应用程序与事件中心进行通信所需的管理凭据。 若要创建命名空间和事件中心，请按照[本文](event-hubs-create.md)中的步骤进行操作，然后继续执行本教程的以下步骤。
 
 ## <a name="create-a-console-application"></a>创建控制台应用程序
-在此部分中，你将编写用于将事件发送到事件中心的 Windows 控制台应用。
 
-1. 在 Visual Studio 中，使用 **控制台应用程序** 项目模板创建一个新的 Visual C# 桌面应用项目。 将该项目命名为 **Sender**。
+在 Visual Studio 中，使用 **控制台应用程序** 项目模板创建一个新的 Visual C# 桌面应用项目。 将该项目命名为 **Sender**。
+   
+![](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp1.png)
 
-    ![](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp1.png)
+## <a name="add-the-event-hubs-nuget-package"></a>添加事件中心 NuGet 包
 
-2. 在解决方案资源管理器中，右键单击“Sender”项目，然后单击“为解决方案管理 NuGet 包”。 
-
-3. 单击“浏览”选项卡，然后搜索 `Azure Service Bus`。 单击“安装” 并接受使用条款。 
-
+1. 在解决方案资源管理器中，右键单击“Sender”项目，并单击“为解决方案管理 NuGet 包”。 
+2. 单击“浏览”选项卡，并搜索 `WindowsAzure.ServiceBus`。 单击“安装” 并接受使用条款。 
+   
     ![](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp2.png)
-
+   
     Visual Studio 下载、安装 [Azure 服务总线库 NuGet 包](https://www.nuget.org/packages/WindowsAzure.ServiceBus)并添加对它的引用。
 
-4. 在 **Program.cs** 文件顶部添加以下 `using` 语句：
+## <a name="write-code-to-send-messages-to-the-event-hub"></a>编写代码以将消息发送到事件中心
 
+1. 在 **Program.cs** 文件顶部添加以下 `using` 语句：
+   
     ```csharp
     using System.Threading;
     using Microsoft.ServiceBus.Messaging;
     ```
-
-5. 将以下字段添加到 **Program** 类，并将占位符值分别替换为你在上一节中创建的事件中心的名称和前面保存的命名空间级别连接字符串。
-
+2. 将以下字段添加到 **Program** 类，并将占位符值分别替换为在上一节中创建的事件中心的名称和前面保存的命名空间级别连接字符串。
+   
     ```csharp
-    static string eventHubName = "{Event Hub name}";
-    static string connectionString = "{send connection string}";
+    static string eventHubName = "Your Event Hub name";
+    static string connectionString = "namespace connection string";
     ```
-
-6. 将以下方法添加到 **Program** 类：
-
-    ```csharp
-    static void SendingRandomMessages()
-    {
-        var eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, eventHubName);
-        while (true)
-        {
-            try
-            {
-                var message = Guid.NewGuid().ToString();
-                Console.WriteLine("{0} > Sending message: {1}", DateTime.Now, message);
-                eventHubClient.Send(new EventData(Encoding.UTF8.GetBytes(message)));
-            }
-            catch (Exception exception)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("{0} > Exception: {1}", DateTime.Now, exception.Message);
-                Console.ResetColor();
-            }
-
-            Thread.Sleep(200);
-        }
-    }
-    ```
-
-    此方法会不断地将事件发送到事件中心，迟延为 200 毫秒。
-
-7. 最后，在 **Main** 方法中添加以下行：
-
-    ```csharp
-    Console.WriteLine("Press Ctrl-C to stop the sender process");
-    Console.WriteLine("Press Enter to start now");
-    Console.ReadLine();
-    SendingRandomMessages();
-    ```
-
-8. 运行程序，并确保没有任何错误。
-
-祝贺你！ 现在已将消息发送到事件中心。
+3. 将以下方法添加到 **Program** 类：
+   
+      ```csharp
+      static void SendingRandomMessages()
+      {
+          var eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, eventHubName);
+          while (true)
+          {
+              try
+              {
+                  var message = Guid.NewGuid().ToString();
+                  Console.WriteLine("{0} > Sending message: {1}", DateTime.Now, message);
+                  eventHubClient.Send(new EventData(Encoding.UTF8.GetBytes(message)));
+              }
+              catch (Exception exception)
+              {
+                  Console.ForegroundColor = ConsoleColor.Red;
+                  Console.WriteLine("{0} > Exception: {1}", DateTime.Now, exception.Message);
+                  Console.ResetColor();
+              }
+       
+              Thread.Sleep(200);
+          }
+      }
+      ```
+   
+      此方法不断将事件发送到事件中心，延迟为 200 毫秒。
+4. 最后，在 **Main** 方法中添加以下行：
+   
+      ```csharp
+      Console.WriteLine("Press Ctrl-C to stop the sender process");
+      Console.WriteLine("Press Enter to start now");
+      Console.ReadLine();
+      SendingRandomMessages();
+      ```
+5. 运行程序，并确保没有任何错误。
+  
+祝贺！ 现在已向事件中心发送消息。
 
 ## <a name="next-steps"></a>后续步骤
-现在已生成了一个可以创建事件中心以及发送数据的有效应用程序，接下来请继续学习以下方案：
-
-* [使用事件处理程序主机接收事件](./event-hubs-dotnet-framework-getstarted-receive-eph.md)
-* [事件处理程序主机参考](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
-* [事件中心概述](./event-hubs-what-is-event-hubs.md)
+在此快速入门中，已使用 .NET Framework 向事件中心发送消息。 若要了解如何使用 .NET Framework 从事件中心接收事件，请参阅[从事件中心接收事件 - .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)。
 
 <!-- Images. -->
 [19]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj1.png
 [20]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj2.png
 [21]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs1.png
 [22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
+
+<!--Update_Description: update meta properties, wording update -->

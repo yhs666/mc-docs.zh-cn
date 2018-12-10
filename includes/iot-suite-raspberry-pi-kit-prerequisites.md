@@ -28,5 +28,5 @@
 - 电阻
 - LED
 
-[lnk-starter-kits]: /develop/iot/iot-starter-kits/
+[lnk-starter-kits]: https://www.azure.cn/develop/iot/iot-starter-kits/
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/

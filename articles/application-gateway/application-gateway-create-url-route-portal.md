@@ -1,95 +1,181 @@
 ---
-title: "创建基于路径的规则 - Azure 应用程序网关 - Azure 门户 | Azure"
-description: "了解如何使用门户为应用程序网关创建基于路径的规则"
+title: 使用基于 URL 路径的路由规则创建应用程序网关 - Azure 门户
+description: 了解如何使用 Azure 门户为应用程序网关和虚拟机规模集创建基于 URL 路径的路由规则。
 services: application-gateway
-documentationcenter: na
-author: georgewallace
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
 tags: azure-resource-manager
-ms.assetid: 87bd93bc-e1a6-45db-a226-555948f1feb7
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/03/2017
-wacn.date: 
-ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 9de5dbb36c36e3b3934697e817011e3a5e5d19d1
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+origin.date: 03/26/2018
+ms.date: 08/08/2018
+ms.author: v-junlch
+ms.openlocfilehash: a88bd4ee3dab95077202f1a093b78553adb52719
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653352"
 ---
-# <a name="create-a-path-based-rule-for-an-application-gateway-by-using-the-portal"></a>使用门户为应用程序网关创建基于路径的规则
+# <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>通过 Azure 门户使用基于路径的路由规则创建应用程序网关
 
-> [!div class="op_single_selector"]
-> * [Azure 门户](application-gateway-create-url-route-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-create-url-route-arm-ps.md)
+创建[应用程序网关](application-gateway-introduction.md)时，可以使用 Azure 门户配置[基于 URL 路径的路由规则](application-gateway-url-route-overview.md)。 本教程中使用虚拟机创建后端池。 然后创建路由规则，以确保 Web 流量到达池中的相应服务器。
 
-借助基于 URL 路径的路由，可根据 Http 请求的 URL 路径来关联路由。 它将检查是否有路由连接到为应用程序网关中列出的 URL 配置的后端池，并将网络流量发送到定义的后端池。 基于 URL 的路由的常见用法是将不同内容类型的请求负载均衡到不同的后端服务器池。
+在本文中，学习如何：
 
-基于 URL 的路由将新的规则类型引入应用程序网关。 应用程序网关有两种规则类型：基本规则和基于路径的规则。 基本规则类型针对后端池提供轮循机制服务，而基于路径的规则除了轮循机制分发以外，还在选择适当的后端池时考虑请求 URL 的路径模式。
+> [!div class="checklist"]
+> * 创建应用程序网关
+> * 为后端服务器创建虚拟机
+> * 使用后端服务器创建后端池
+> * 创建后端侦听器
+> * 创建基于路径的路由规则
 
-## <a name="scenario"></a>方案
+![URL 路由示例](./media/application-gateway-create-url-route-portal/scenario.png)
 
-以下方案演示如何在现有应用程序网关中创建基于路径的规则。
-该方案假定已按相关步骤[创建应用程序网关](application-gateway-create-gateway-portal.md)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
-![url 路由][scenario]
+## <a name="log-in-to-azure"></a>登录 Azure
 
-## <a name="createrule"></a>创建基于路径的规则
+在 [http://portal.azure.cn](http://portal.azure.cn) 登录 Azure 门户
 
-基于路径的规则需要自己的侦听器，在创建该规则之前，请务必确认有侦听器可供使用。
+## <a name="create-an-application-gateway"></a>创建应用程序网关
 
-### <a name="step-1"></a>步骤 1
+若要在创建的资源之间实现通信，需要设置虚拟网络。 在本示例中创建了两个子网：一个用于应用程序网关，另一个用于后端服务器。 可以在创建应用程序网关的同时创建虚拟网络。
 
-导航到 [Azure 门户](http://portal.azure.cn) ，然后选择现有的应用程序网关。 单击“规则” 
+1. 单击 Azure 门户左上角的“新建”。
+2. 选择“网络”，然后在“特色”列表中选择“应用程序网关”。
+3. 输入应用程序网关的以下值：
 
-![应用程序网关概述][1]
+    - *myAppGateway* - 应用程序网关的名称。
+    - *myResourceGroupAG* - 新资源组。
 
-### <a name="step-2"></a>步骤 2
+    ![新建应用程序网关](./media/application-gateway-create-url-route-portal/application-gateway-create.png)
 
-单击“基于路径”  按钮，添加新的基于路径的规则。
+4. 接受其他设置的默认值，然后单击“确定”。
+5. 依次单击“选择虚拟网络”、“新建”，然后输入虚拟网络的以下值：
 
-### <a name="step-3"></a>步骤 3
+    - *myVNet* - 虚拟网络的名称。
+    - *10.0.0.0/16* - 虚拟网络地址空间。
+    - *myAGSubnet* - 子网名称。
+    - *10.0.0.0/24* - 子网地址空间。
 
-“添加基于路径的规则”  边栏选项卡分为两个部分。 第一个部分可供定义侦听器、规则的名称和默认路径设置。 默认路径设置适用于不属于基于路径的自定义路由的路由。 “添加基于路径的规则”  边栏选项卡的第二个部分可供定义基于路径的规则本身。
+    ![创建虚拟网络](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
 
-**基本设置**
+6. 单击“确定”创建虚拟网络和子网。
+7. 依次单击“选择公共 IP 地址”、“新建”，然后输入公共 IP 地址的名称。 在本示例中，公共 IP 地址名为 *myAGPublicIPAddress*。 接受其他设置的默认值，然后单击“确定”。
+8. 接受侦听器配置的默认值，让 Web 应用程序防火墙保留禁用状态，然后单击“确定”。
+9. 检查摘要页上的设置，然后单击“确定”创建网络资源和应用程序网关。 创建应用程序网关可能需要几分钟时间，请等到部署成功完成，然后转到下一部分。
 
-* **名称** - 这是可在门户中访问的规则的友好名称。
-* **侦听器** - 这是用于规则的侦听器。
-* **默认后端池** - 此设置可定义要用于默认规则的后端
-* **默认 HTTP 设置** - 此设置可定义要用于默认规则的 HTTP 设置。
+### <a name="add-a-subnet"></a>添加子网
 
-**基于路径的规则**
+1. 单击左侧菜单中的“所有资源”，然后从资源列表中单击“myVNet”。
+2. 单击“子网”，然后单击“子网”。
 
-* **名称** - 这是基于路径的规则的友好名称。
-* **路径** - 此设置可定义规则在转发流量时将要寻找的路径
-* **后端池** - 此设置可定义要用于规则的后端
-* **HTTP 设置** - 此设置可定义要用于规则的 HTTP 设置。
+    ![创建子网](./media/application-gateway-create-url-route-portal/application-gateway-subnet.png)
 
-> [!IMPORTANT]
-> 路径：要匹配的路径模式列表。 每个模式必须以 / 开头，“\*”只允许放在末尾处。 有效示例包括 /xyz、/xyz* 或 /xyz/*。  
+3. 输入 *myBackendSubnet* 作为子网的名称，然后单击“确定”。
 
-![添加填写了信息的“基于路径的规则”边栏选项卡][2]
+## <a name="create-virtual-machines"></a>创建虚拟机
 
-将基于路径的规则添加到现有应用程序网关是可以通过门户完成的简单过程。 创建基于路径的规则后，即可对其进行编辑，以便轻松地添加其他规则。 
+本示例将创建三个虚拟机，用作应用程序网关的后端服务器。 还可以在虚拟机上安装 IIS，以验证是否已成功创建应用程序网关。
 
-![添加其他基于路径的规则][3]
+1. 单击“新建” 。
+2. 单击“计算”，然后在“特色”列表中选择“Windows Server 2016 Datacenter”。
+3. 输入虚拟机的以下值：
 
-这会配置基于路径的路由。 务必要知道，不会重新编写请求，因为请求进入应用程序网关时，URL 模式上的基本规则会检查请求并将请求发送到相应的后端。
+    - *myVM1* - 虚拟机的名称。
+    - *azureuser* - 管理员用户名。
+    - *Azure123456!* - 密码。
+    - 选择“使用现有资源组”，然后选择“myResourceGroupAG”。
+
+4. 单击 **“确定”**。
+5. 选择“DS1_V2”作为虚拟机的大小，然后单击“选择”。
+6. 请确保选择 **myVNet** 作为虚拟网络，子网是 **myBackendSubnet**。 
+7. 单击“禁用”以禁用启动诊断。
+8. 创建“确定”，检查“摘要”页上的设置，然后单击“创建”。
+
+### <a name="install-iis"></a>安装 IIS
+
+1. 在 powershell 中运行命令 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
+
+2. 运行以下命令以在虚拟机上安装 IIS： 
+
+    ```azurepowershell
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    Set-AzureRmVMExtension `
+      -ResourceGroupName myResourceGroupAG `
+      -Location chinanorth `
+      -ExtensionName IIS `
+      -VMName myVM1 `
+      -Publisher Microsoft.Compute `
+      -ExtensionType CustomScriptExtension `
+      -TypeHandlerVersion 1.4 `
+      -Settings $publicSettings
+    ```
+
+3. 使用刚刚完成的步骤创建另外两个虚拟机并安装 IIS。 在 Set-AzureRmVMExtension 中输入 *myVM2* 和 *myVM3* 作为名称，并输入 VMName 值。
+
+## <a name="create-backend-pools-with-the-virtual-machines"></a>使用虚拟机创建后端池
+
+1. 单击“所有资源”，然后单击“myAppGateway”。
+2. 单击“后端池”。 默认池已随应用程序网关自动创建。 单击 **appGatewayBackendPool**。
+3. 单击“添加目标”，将 *myVM1* 添加到 appGatewayBackendPool。
+
+    ![添加后端服务器](./media/application-gateway-create-url-route-portal/application-gateway-backend.png)
+
+4. 单击“保存” 。
+5. 依次单击“后端池”、“添加”。
+6. 输入名称 *imagesBackendPool*，并使用“添加目标”添加 *myVM2*。
+7. 单击 **“确定”**。
+8. 再次单击“添加”以添加名为 *videoBackendPool* 的另一个后端池，并在其中添加 *myVM3*。
+
+## <a name="create-a-backend-listener"></a>创建后端侦听器
+
+1. 依次单击“侦听器”、“基本”。
+2. 输入 *myBackendListener* 作为名称，输入 *myFrontendPort* 作为前端端口的名称，输入 *8080* 作为侦听器的端口。
+3. 单击 **“确定”**。
+
+## <a name="create-a-path-based-routing-rule"></a>创建基于路径的路由规则
+
+1. 依次单击“规则”、“基于路径”。
+2. 输入 *rule2* 作为名称。
+3. 输入 *Images* 作为第一个路径的名称。 输入 */images/*\* 作为路径。 选择后端池的 **imagesBackendPool**。
+4. 输入 *Video* 作为第二个路径的名称。 输入 */video/*\* 作为路径。 选择后端池的 **videoBackendPool**。
+
+    ![创建基于路径的规则](./media/application-gateway-create-url-route-portal/application-gateway-route-rule.png)
+
+5. 单击 **“确定”**。
+
+## <a name="test-the-application-gateway"></a>测试应用程序网关
+
+1. 单击“所有资源”，然后单击“myAGPublicIPAddress”。
+
+    ![记下应用程序网关的公共 IP 地址](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
+
+2. 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。 例如， http:// http://40.121.222.19。
+
+    ![在应用程序网关中测试基 URL](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
+
+3. 将 URL 更改为 http://&lt;ip-address&gt;:8080/images/test.htm（请将 &lt;ip-address&gt; 替换为自己的 IP 地址），然后，应会看到如以下示例所示的内容：
+
+    ![在应用程序网关中测试映像 URL](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
+
+4. 将 URL 更改为 http://&lt;ip-address&gt;:8080/video/test.htm（请将 &lt;ip-address&gt; 替换为自己的 IP 地址），然后，应会看到如以下示例所示的内容：
+
+    ![在应用程序网关中测试视频 URL](./media/application-gateway-create-url-route-portal/application-gateway-iistest-video.png)
 
 ## <a name="next-steps"></a>后续步骤
 
-若要了解如何通过 Azure 应用程序网关来配置 SSL 卸载，请参阅 [配置 SSL 卸载](application-gateway-ssl-portal.md)
+本文介绍了如何执行以下操作：
 
-[1]: ./media/application-gateway-create-url-route-portal/figure1.png
-[2]: ./media/application-gateway-create-url-route-portal/figure2.png
-[3]: ./media/application-gateway-create-url-route-portal/figure3.png
-[scenario]: ./media/application-gateway-create-url-route-portal/scenario.png
+> [!div class="checklist"]
+> * 创建应用程序网关
+> * 为后端服务器创建虚拟机
+> * 使用后端服务器创建后端池
+> * 创建后端侦听器
+> * 创建基于路径的路由规则
 
+若要详细了解应用程序网关及其关联的资源，请继续阅读操作指南文章。
+
+<!-- Update_Description: code update -->

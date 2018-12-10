@@ -1,104 +1,122 @@
 ---
-title: "创建、更改或删除 Azure 虚拟网络子网 | Azure"
-description: "了解如何创建、更改或删除虚拟网络子网。"
+title: 添加、更改或删除 Azure 虚拟网络子网 | Azure
+description: 了解如何在 Azure 中添加、更改或删除虚拟网络子网。
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
-editor: 
+author: rockboyfor
+manager: digimobile
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/10/2017
-wacn.date: 
-ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: fa17b03412492ffde2c5f9c092619451eca7b291
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+origin.date: 02/09/2018
+ms.date: 11/12/2018
+ms.author: v-yeche
+ms.openlocfilehash: e7b690378fd0f53f6512aec8dd1820ad73cd0a83
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647242"
 ---
-# <a name="create-change-or-delete-virtual-network-subnets"></a>创建、更改或删除虚拟网络子网
+# <a name="add-change-or-delete-a-virtual-network-subnet"></a>添加、更改或删除虚拟网络子网
 
-了解如何创建、更改或删除虚拟网络 (VNet) 子网。 如果不熟悉 VNet，建议你在创建、更改或删除子网之前，阅读[虚拟网络概述](virtual-networks-overview.md)和[创建、更改或删除虚拟网络](virtual-network-manage-network.md)这两篇文章。 可以连接到 VNet 的 Azure 资源连接到 VNet 中的子网。 在 VNet 中创建多个子网通常是出于以下目的：
-- 筛选子网之间的流量：可以对子网应用网络安全组 (NSG)，为所有连接到 VNet 的资源（例如虚拟机）筛选入站和出站网络流量。 若要详细了解如何创建 NSG，请阅读[创建网络安全组](virtual-networks-create-nsg-arm-pportal.md)一文。
-- 控制子网之间的路由：Azure 创建默认路由，用于在子网之间自动路由流量。 可以通过创建用户定义的路由 (UDR) 来重写默认的 Azure 路由。 若要详细了解 UDR，请阅读[创建用户定义的路由](virtual-network-create-udr-arm-ps.md)一文。 
+了解如何添加、更改或删除虚拟网络子网。 部署到虚拟网络的所有 Azure 资源都将部署到虚拟网络内的子网中。 如果不熟悉虚拟网络，可在[虚拟网络概述](virtual-networks-overview.md)中或通过完成[教程](quick-create-portal.md)了解相关详细信息。 若要创建、更改或删除虚拟网络，请参阅[管理虚拟网络](manage-virtual-network.md)。
 
-本文介绍如何为通过 Azure Resource Manager 部署模型创建的 VNet 创建、更改和删除子网。
-
-## <a name="before"></a>准备工作
+<a name="before"></a>
+## <a name="before-you-begin"></a>准备阶段
 
 在完成本文任何部分中的步骤之前，请完成以下任务：
 
-- 如果不熟悉 Azure 中的 VNet 和子网，建议你在阅读本文之前，先完成[创建你的第一个 Azure 虚拟网络](virtual-network-get-started-vnet-subnet.md)中的练习。 该练习可帮助你熟悉 VNet 和子网。
-- 查看 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)一文，了解子网和 VNet 的限制。
-- 使用 Azure 帐户登录到 Azure 门户、Azure 命令行界面 (CLI) 或 Azure PowerShell。 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
-- 如果使用 Azure PowerShell 命令来完成本文中的任务，首先必须[安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json)。 确保已安装最新版本的 Azure PowerShell cmdlet。 若要获取 PowerShell 命令的帮助和示例，请键入 `get-help <command> -full`。
-- 如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，首先必须[安装和配置 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)。 确保已安装最新版本的 Azure CLI。 若要获取 CLI 命令的帮助，请键入 `az <command> --help`。
+- 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- 如果使用门户，请打开 https://portal.azure.cn，并使用 Azure 帐户登录。
+- 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount` 以创建与 Azure 的连接。
+- 如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.31 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
 
-## <a name="create-subnet"></a>创建子网
+登录或连接到 Azure 所用的帐户必须分配有[网络参与者](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)角色或者分配有可执行[权限](#permissions)中列出的适当操作的[自定义角色](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json)。
 
-1. 使用已分配订阅的“网络参与者”角色权限（最低权限）的帐户登录到[门户](https://portal.azure.cn)。 请参阅[用于 Azure 基于角色的访问控制的内置角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)一文，详细了解如何将角色和权限分配给帐户。
-2. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“虚拟网络”。 当“虚拟网络”出现在搜索结果中时，请单击它。
-3. 在显示的“虚拟网络”边栏选项卡中，单击要向其添加子网的虚拟网络。
-4. 在针对所选虚拟网络显示的窗格中，单击“子网”。
-5. 单击“+ 子网”。
-6. 在“添加子网”边栏选项卡中，输入以下参数的值：
-    - 名称：名称在虚拟网络中必须唯一。
-    - 地址范围：此范围在 VNet 的地址空间中必须唯一，不能与 VNet 中的其他子网地址范围重叠。 必须使用 CIDR 表示法指定地址空间。 例如，在地址空间为 10.0.0.0/16 的 VNet 中，可以将子网地址空间定义为 10.0.0.0/24。 可以指定的最小范围为 /29，为子网提供八个 IP 地址。 Azure 保留每个子网中的第一个地址和最后一个地址，以确保协议一致性。 此外还会保留三个地址供 Azure 服务使用。 因此，使用 /29 地址范围定义子网时，子网中会有三个可用 IP 地址。 如果计划将 VNet 连接到 VPN 网关，则必须创建网关子网。 详细了解[网关子网地址范围具体考虑事项](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fvirtual-network%2ftoc.json#gwsub)。 在特定条件下，可以在子网创建后更改地址范围。 若要了解如何更改子网地址范围，请阅读本文的[更改子网](#change-subnet)部分。
-    - 网络安全组 (NSG)：可以选择将现有 NSG 关联到子网，控制子网的入站和出站网络流量筛选。 NSG 必须与 VNet 存在于同一订阅和位置中，且必须通过 Resource Manager 部署模型创建。 若要详细了解如何创建 NSG，请阅读[网络安全组](virtual-networks-create-nsg-arm-pportal.md)一文。
-    - 路由表：可以选择将现有的路由表关联到子网，控制目标为其他网络的网络流量路由。 路由表必须与 VNet 存在于同一订阅和位置中，且必须通过 Resource Manager 部署模型创建。 若要详细了解如何创建路由表，请阅读[用户定义的路由](virtual-network-create-udr-arm-ps.md)一文。
-    - 用户：可以使用内置角色或自己的自定义角色控制对子网的访问。 若要详细了解如何分配访问子网的角色和用户，请阅读[使用角色分配管理对 Azure 资源的访问权限](../active-directory/role-based-access-control-configure.md?toc=%2fvirtual-network%2ftoc.json#add-access)一文。
-7. 单击“确定”按钮，将子网添加到所选 VNet。
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-命令
+<a name="create-subnet"></a>
+## <a name="add-a-subnet"></a>添加子网
 
-|工具|命令|
-|---|---|
-|CLI|[az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig?view=azurermps-3.8.0?toc=%2fvirtual-network%2ftoc.json)New-AzureRmVirtualNetworkSubnetConfig、[](https://docs.microsoft.com/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig?view=azurermps-3.8.0?toc=%2fvirtual-network%2ftoc.json)Add-AzureRmVirtualNetworkSubnetConfig|
+1. 在门户顶部的搜索框中，输入“虚拟网络”。 当“虚拟网络”出现在搜索结果中时，请将其选中。
+2. 从虚拟网络列表中，选择要将子网添加到的虚拟网络。
+3. 在“设置”下选择“子网”。
+4. 选择“+子网”。
+5. 输入以下参数的值：
+    - **名称**：此名称在虚拟网络中必须唯一。 为了最大程度地兼容其他 Azure 服务，我们建议使用字母作为名称的第一个字符。 例如，Azure 应用程序网关不会部署到名称以数字开头的子网中。
+    - **地址范围**：此范围在虚拟网络的地址空间中必须唯一。 此范围不能与虚拟网络中的其他子网地址范围重叠。 必须使用无类域间路由 (CIDR) 表示法指定地址空间。 例如，在地址空间为 10.0.0.0/16 的虚拟网络中，可将子网地址空间定义为 10.0.0.0/24。 可以指定的最小范围为 /29，为子网提供八个 IP 地址。 Azure 保留每个子网中的第一个地址和最后一个地址，以确保协议一致性。 此外还会保留三个地址供 Azure 服务使用。 因此，使用 /29 地址范围定义子网时，子网中会有三个可用 IP 地址。 如果你打算将虚拟网络连接到 VPN 网关，则必须创建网关子网。 详细了解[网关子网地址范围具体考虑事项](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fvirtual-network%2ftoc.json#gwsub)。 在特定条件下，可在添加子网后更改地址范围。 若要了解有关如何更改子网地址范围的相关信息，请参阅[更改子网设置](#change-subnet-settings)。
+    - **网络安全组**：可将零个或一个现有的网络安全组关联到子网，以筛选子网的入站和出站网络流量。 网络安全组必须与虚拟网络位于同一订阅和位置中。 若要详细了解[网络安全组](security-overview.md)，请参阅[如何创建网络安全组](tutorial-filter-network-traffic.md)。
+    - **路由表**：可以选择将现有的路由表关联到子网，控制目标为其他网络的网络流量路由。 路由表必须与虚拟网络位于同一订阅和位置中。 详细了解 [Azure 路由](virtual-networks-udr-overview.md)和[如何创建路由表](tutorial-create-route-table-portal.md)
+    - **服务终结点：** 子网可以有零个或多个为其启用的服务终结点。 若要启用的服务的服务终结点，选择的服务或服务，想要启用服务终结点从**服务**列表。 系统会自动为终结点配置位置。 默认情况下，系统会为虚拟网络所在的区域配置服务终结点。 对于 Azure 存储，为了支持区域故障转移方案，系统会将终结点自动配置到 Azure 配对区域。
+        
+        <!-- Not Available on [Azure 配对区域](../best-practices-availability-paired-regions.md?toc=%2fvirtual-network%2ftoc.json#what-are-paired-regions)--> <!-- Not Available on - **Subnet delegation:** -->
+      若要删除的服务终结点，请取消选择你想要删除的服务终结点的服务。 如需详细了解服务终结点以及可为其启用的服务，请参阅[虚拟网络服务终结点概述](virtual-network-service-endpoints-overview.md)。 一旦启用服务的服务终结点，还必须启用与服务创建的资源的子网的网络访问权限。 例如，如果启用的服务终结点*Microsoft.Storage*，还必须启用到你想要授予对网络访问权限的所有 Azure 存储帐户的网络访问权限。 有关如何启用到为启用服务终结点的子网的网络访问的详细信息，请参阅各个启用的服务终结点的服务的文档。
 
-## <a name="change-subnet"></a>更改子网设置
-
-可以在有资源连接到子网的情况下，更改子网的 NSG、路由表和用户访问权限。 若要了解这些设置，请阅读本文[创建子网](#create-subnet)部分的步骤 6。 若要更改子网的地址空间，则不能有资源连接到该子网。 如果有资源连接到子网，则必须先删除连接到子网的资源，然后才能更改地址范围。 资源删除说明因资源而异。 若要了解如何删除连接到子网的资源，请阅读要删除的每个资源类型的文档。 完成以下步骤，更改子网的地址范围：
-
-1. 使用已分配订阅的“网络参与者”角色权限（最低权限）的帐户登录到[门户](https://portal.azure.cn)。 请参阅[用于 Azure 基于角色的访问控制的内置角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)一文，详细了解如何将角色和权限分配给帐户。
-2. 在门户顶部包含“搜索资源”文本的框中，键入“虚拟网络”。 当“虚拟网络”出现在搜索结果中时，请单击它。
-3. 在显示的“虚拟网络”边栏选项卡中，单击要更改子网地址范围的 VNet。
-4. 单击要更改地址范围的子网。
-5. 在为所选子网显示的边栏选项卡的“地址范围”框中，输入新的地址范围。 此范围在 VNet 的地址空间中必须唯一，不能与 VNet 中的其他子网地址范围重叠。 必须使用 CIDR 表示法指定地址空间。 例如，在地址空间为 10.0.0.0/16 的 VNet 中，可以将子网地址空间定义为 10.0.0.0/24。 可以指定的最小范围为 /29，为子网提供八个 IP 地址。 Azure 保留每个子网中的第一个地址和最后一个地址，以确保协议一致性。 此外还会保留三个地址供 Azure 服务使用。 因此，地址范围为 /29 的子网有三个可用 IP 地址。 如果计划将 VNet 连接到 VPN 网关，则必须创建网关子网。 详细了解[网关子网地址范围具体考虑事项](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fvirtual-network%2ftoc.json#gwsub)。 在特定条件下，可以在子网创建后更改地址范围。 若要了解如何更改子网地址范围，请阅读本文的[更改子网](#change-subnet)部分。
-6. 单击“保存” 。
+    要验证是否为某个子网启用了服务终结点，请查看[有效路由](diagnose-network-routing-problem.md)，获取该子网中的任何网络接口。 如果配置了终结点，将会看到服务地址前缀和 nextHopType 为“VirtualNetworkServiceEndpoint”的“默认”路由。 若要了解有关路由的详细信息，请参阅[路由概述](virtual-networks-udr-overview.md)。
+6. 单击“确定”，将子网添加到所选的虚拟网络。
 
 命令
 
-|工具|命令|
-|---|---|
-|CLI|[az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|PowerShell|[Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig?view=azurermps-3.8.0?toc=%2fvirtual-network%2ftoc.json)|
+- Azure CLI：[az network vnet subnet create](https://docs.azure.cn/zh-cn/cli/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-create)
+- PowerShell：[Add-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig)
 
-## <a name="delete-subnet"></a>删除子网
+## <a name="change-subnet-settings"></a>更改子网设置
 
-只有在没有资源连接到子网的情况下，才能删除该子网。 如果有资源连接到子网，则必须先删除连接到子网的资源。 资源删除说明因资源而异。 若要了解如何删除连接到子网的资源，请阅读要删除的每个资源类型的文档。
+1. 在门户顶部的搜索框中，输入“虚拟网络”。 当“虚拟网络”出现在搜索结果中时，请将其选中。
+2. 从虚拟网络列表中，选择要为其更改对等设置的虚拟网络。
+3. 在“设置”下选择“子网”。
+4. 在子网的列表中，选择想要更改设置的子网。 可以更改以下设置：
 
-1. 使用已分配订阅的“网络参与者”角色权限（最低权限）的帐户登录到[门户](https://portal.azure.cn)。 请参阅[用于 Azure 基于角色的访问控制的内置角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)一文，详细了解如何将角色和权限分配给帐户。
-2. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“虚拟网络”。 当“虚拟网络”出现在搜索结果中时，请单击它。
-3. 在显示的“虚拟网络”边栏选项卡中，单击要从其删除子网的 VNet。
-4. 在针对所选 VNet 显示的边栏选项卡的“设置”下，单击“子网”。
-5. 在子网边栏选项卡的子网列表中，右键单击要删除的子网，然后依次单击“删除”、“是”删除该子网。
+    - **地址范围：** 如果没有资源部署在子网内，可以更改的地址范围。 如果子网中存在的任何资源，必须将资源移到另一个子网，或从子网中先删除它们。 删除资源所采取的步骤因资源而异。 若要了解如何删除子网中的资源，请阅读针对要删除的每种资源类型的相关文档。 请参阅[添加子网](#add-a-subnet)步骤 5 中的**地址范围**约束。
+    - **用户**：可以使用内置角色或自己的自定义角色控制对子网的访问。 若要详细了解如何分配访问子网的角色和用户，请参阅[使用角色分配管理对 Azure 资源的访问权限](../role-based-access-control/role-assignments-portal.md?toc=%2fvirtual-network%2ftoc.json#grant-access)。
+    - **网络安全组**和**路由表**：请参阅[添加子网](#add-a-subnet)的第 5 步。
+    - **服务终结点**：请参阅[添加子网](#add-a-subnet)的第 5 步中的服务终结点。 如果为某个现有子网启用服务终结点，请确保该子网的任何资源上未运行任何关键任务。 服务终结点可将子网每个网络接口上的路由，从使用地址前缀为 0.0.0.0/0 且下一跃点类型为 Internet 的默认路由，切换到使用服务地址前缀且下一跃点类型为 VirtualNetworkServiceEndpoint 的新路由。 切换过程中，可能会终止任何打开的 TCP 连接。 对于使用新路由更新的所有网络接口，除非流量流向服务，否则不会启用服务终结点。 若要了解有关路由的详细信息，请参阅[路由概述](virtual-networks-udr-overview.md)。
+        <!-- Not Available on - **Subnet delegation:** -->
+5. 选择“其他安全性验证” 。
 
 命令
 
-|工具|命令|
-|---|---|
-|CLI|[az network vnet delete](https://docs.microsoft.com/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
-|PowerShell|[Remove-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermvirtualnetworksubnetconfig?view=azurermps-3.8.0?toc=%2fvirtual-network%2ftoc.json)|
+- Azure CLI：[az network vnet subnet update](https://docs.azure.cn/zh-cn/cli/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update)
+- PowerShell：[Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig)
+
+<a name="delete-subnet"></a>
+## <a name="delete-a-subnet"></a>删除子网
+
+仅当子网中无任何资源时，才可删除该子网。 如果子网中存在资源，则必须先删除子网中的资源，然后才能删除该子网。 删除资源所采取的步骤因资源而异。 若要了解如何删除子网中的资源，请阅读针对要删除的每种资源类型的相关文档。
+
+1. 在门户顶部的搜索框中，输入“虚拟网络”。 当“虚拟网络”出现在搜索结果中时，请将其选中。
+2. 从虚拟网络列表中，选择要删除子网的虚拟网络。
+3. 在“设置”下选择“子网”。
+4. 在子网的列表中，选择要删除的子网右侧的“...”。
+5. 依次选择“删除”、“是”。
+
+命令
+
+- Azure CLI：[az network vnet delete](https://docs.azure.cn/zh-cn/cli/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-delete)
+- PowerShell：[Remove-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermvirtualnetworksubnetconfig?toc=%2fvirtual-network%2ftoc.json)
+
+## <a name="permissions"></a>权限
+
+若要在子网中执行任务，必须将帐户分配到[网络参与者](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)角色或分配到下表中所列出的适当操作的[自定义](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json)角色：
+
+|操作                                                                   |   Name                                       |
+|-----------------------------------------------------------------------  |   -----------------------------------------  |
+|Microsoft.Network/virtualNetworks/subnets/read                           |   读取虚拟网络子网              |
+|Microsoft.Network/virtualNetworks/subnets/write                          |   创建或更新虚拟网络子网  |
+|Microsoft.Network/virtualNetworks/subnets/delete                         |   删除虚拟网络子网            |
+|Microsoft.Network/virtualNetworks/subnets/join/action                    |   加入虚拟网络                     |
+|Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action  |   为子网启用服务终结点     |
+|Microsoft.Network/virtualNetworks/subnets/virtualMachines/read           |   获取子网中的虚拟机       |
 
 ## <a name="next-steps"></a>后续步骤
 
-若要创建 VM 并将其连接到子网，请阅读[创建 VNet 并连接 VM](virtual-network-get-started-vnet-subnet.md#create-vms) 一文。
+- 使用 [PowerShell](powershell-samples.md) 或 [Azure CLI](cli-samples.md) 示例脚本或使用 Azure [资源管理器模板](template-samples.md)创建虚拟网络和子网
+- 为虚拟网络创建并应用 [Azure Policy](policy-samples.md)
+
+<!--Update_Description: wording update, update reference link-->

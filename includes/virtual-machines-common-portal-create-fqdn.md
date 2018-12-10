@@ -1,20 +1,25 @@
-<!-- need to be verified -->
+---
+author: rockboyfor
+ms.service: virtual-machines
+ms.topic: include
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
+ms.openlocfilehash: 9d0715c380394d35d305ab799b8accc5f13136ab
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676101"
+---
+1. 在门户中选择 VM。 在“DNS 名称”下，单击“配置”。
 
-## 快速步骤
-本文假设你已在门户中登录到你的订阅，并使用 Resource Manager 部署模型创建了一个具有可用映像的虚拟机。虚拟机开始运行后可按照以下步骤操作。
+   ![单击“DNS 名称”下的“配置”](./media/virtual-machines-common-portal-create-fqdn/configure.png)
 
-1. 在门户中选择你的虚拟机。DNS 名称为空白。单击“公共 IP 地址”：
+2. 输入所需的 DNS 名称，并选择“保存”。
 
-    ![在门户中单击公共 IP 资源](./media/virtual-machines-common-portal-create-fqdn/locatePublicIP.PNG)  
+   ![输入公共 IP 资源的 DNS 名称标签](./media/virtual-machines-common-portal-create-fqdn/configure-pane.png)
 
-2. 输入所需的 DNS 名称标签，然后单击“保存”。
+3. 若要返回到 VM 概览边栏选项卡，请关闭“公共 IP 地址”边栏选项卡。 验证现在是否显示“DNS 名称”。
 
-    ![输入公共 IP 资源的 DNS 名称标签](./media/virtual-machines-common-portal-create-fqdn/dnsNameLabel.PNG)  
-
-    公共 IP 资源现在会在其边栏选项卡上显示此新的 DNS 标签。
-
-3. 关闭“公共 IP”边栏选项卡，然后返回到门户中的“VM 概述”边栏选项卡。几秒钟后，门户应更新设置。验证 DNS 名称/FQDN 是否显示在“公共 IP 地址”资源的 IP 地址旁边。
-
-    ![确认已设置新的 DNS 标签](./media/virtual-machines-common-portal-create-fqdn/fqdnCreated.PNG)  
-
-<!---HONumber=Mooncake_1212_2016-->
+<!-- Update_Description: update meta properties -->

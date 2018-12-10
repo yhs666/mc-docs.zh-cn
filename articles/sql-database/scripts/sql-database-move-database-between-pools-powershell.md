@@ -1,90 +1,113 @@
 ---
-title: "Azure PowerShell 脚本 - 移动 SQL 数据库和弹性池 | Microsoft 文档"
-description: "Azure PowerShell 脚本示例 - 使用 PowerShell 在弹性池之间移动 SQL 数据库"
+title: PowerShell 示例 - 移动 Azure SQL 数据库 - SQL 弹性池 | Microsoft Docs
+description: 使用 PowerShell 在弹性池之间移动 SQL 数据库的 Azure PowerShell 示例脚本
 services: sql-database
 documentationcenter: sql-database
-author: janeng
-manager: jstrauss
+author: WenJason
+manager: digimobile
 editor: carlrab
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: sql-database
-ms.custom: sample
+ms.custom: monitor & tune, mvc
 ms.devlang: PowerShell
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 03/07/2017
-ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 095f5d1efd57400ebdd21e05da4f7241ec9fba5c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
+origin.date: 09/14/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.openlocfilehash: 9376bb0b37b3207c039931a51d22d7ffe7cc8511
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663656"
 ---
+# <a name="use-powershell-to-create-elastic-pools-and-move-databases-between-elastic-pools"></a>使用 PowerShell 创建弹性池，并在弹性池之间移动数据库
 
-# <a name="create-elastic-pools-and-move-databases-between-pools-and-out-of-a-pool-using-powershell"></a>使用 PowerShell 创建弹性池，并将数据库在池之间移动和移出池
+此 PowerShell 脚本示例创建两个弹性池，将数据库从一个弹性池移到另一个弹性池中，再将数据库移出弹性池，以实现单一数据库计算大小。 
 
-此示例 PowerShell 脚本创建两个弹性池，将数据库从一个弹性池移到另一个弹性池中，然后将数据库移出弹性池，移到单一数据库性能级别。 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-在运行此脚本前，请确保已使用 `Add-AzureRmAccount` cmdlet 创建与 Azure 的连接。
+本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 此外，还需要运行 `Connect-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
 
 ## <a name="sample-script"></a>示例脚本
 
 ```powershell
-# Set an admin login and password for your database
+# Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+# Set the resource group name and location for your server
+$resourcegroupname = "myResourceGroup-$(Get-Random)"
+$location = "China East"
+# Set elastic poool names
+$firstpoolname = "MyFirstPool"
+$secondpoolname = "MySecondPool"
+# Set an admin login and password for your server
 $adminlogin = "ServerAdmin"
 $password = "ChangeYourAdminPassword1"
 # The logical server name has to be unique in the system
-$servername = "server-$($(Get-AzureRMContext).Subscription.SubscriptionId)"
+$servername = "server-$(Get-Random)"
+# The sample database names
+$firstdatabasename = "myFirstSampleDatabase"
+$seconddatabasename = "mySecondSampleDatabase"
+# The ip address range that you want to allow to access your server
+$startip = "0.0.0.0"
+$endip = "0.0.0.0"
 
 # Create a new resource group
-New-AzureRmResourceGroup -Name "myResourceGroup" -Location "China East"
+$resourcegroup = New-AzureRmResourceGroup -Name $resourcegroupname -Location $location
 
 # Create a new server with a system wide unique server name
-New-AzureRmSqlServer -ResourceGroupName "myResourceGroup" `
+$server = New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
-    -Location "China East" `
+    -Location $location `
     -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 
-# Create two elastic database pools
-New-AzureRmSqlElasticPool -ResourceGroupName "myResourceGroup" `
+# Create a server firewall rule that allows access from the specified IP range
+$serverfirewallrule = New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
-    -ElasticPoolName "MyFirstPool" `
+    -FirewallRuleName "AllowedIPs" -StartIpAddress $startip -EndIpAddress $endip
+
+# Create two elastic database pools
+$firstpool = New-AzureRmSqlElasticPool -ResourceGroupName $resourcegroupname `
+    -ServerName $servername `
+    -ElasticPoolName $firstpoolname `
     -Edition "Standard" `
     -Dtu 50 `
     -DatabaseDtuMin 10 `
     -DatabaseDtuMax 20
-New-AzureRmSqlElasticPool -ResourceGroupName "myResourceGroup" `
+$secondpool = New-AzureRmSqlElasticPool -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
-    -ElasticPoolName "MySecondPool" `
+    -ElasticPoolName $secondpoolname `
     -Edition "Standard" `
     -Dtu 50 `
     -DatabaseDtuMin 10 `
     -DatabaseDtuMax 50
 
 # Create two blank databases in the first pool
-New-AzureRmSqlDatabase  -ResourceGroupName "myResourceGroup" `
+$firstdatabase = New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
-    -DatabaseName "MySampleDatabase" `
-    -ElasticPoolName "MyFirstPool"
-New-AzureRmSqlDatabase  -ResourceGroupName "myResourceGroup" `
+    -DatabaseName $firstdatabasename `
+    -ElasticPoolName $firstpoolname
+$seconddatabase = New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
     -DatabaseName "MySecondSampleDatabase" `
-    -ElasticPoolName "SamplePool"
-
-# Move the database to the second pool
-Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" `
-    -ServerName $servername `
-    -DatabaseName "MySampleDatabase" `
     -ElasticPoolName "MySecondPool"
 
-# Move the database into a standalone performance level
-Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" `
+# Move the database to the second pool
+$firstdatabase = Set-AzureRmSqlDatabase -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
-    -DatabaseName "MySampleDatabase" `
+    -DatabaseName $firstdatabasename `
+    -ElasticPoolName $secondpoolname
+
+# Move the database into a standalone performance level
+$firstdatabase = Set-AzureRmSqlDatabase -ResourceGroupName $resourcegroupname `
+    -ServerName $servername `
+    -DatabaseName $firstdatabasename `
     -RequestedServiceObjectiveName "S0"
+
+# Clean up deployment 
+# Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署
@@ -92,26 +115,26 @@ Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" `
 运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 ## <a name="script-explanation"></a>脚本说明
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 |
-| [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserver) | 创建用于托管数据库或弹性池的逻辑服务器。 |
-| [New-AzureRmSqlElasticPool](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlelasticpool) | 在逻辑服务器中创建弹性池。 |
-| [New-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqldatabase) | 在逻辑服务器中创建数据库作为单一数据库或入池数据库。 |
-| [Set-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/set-azurermsqldatabase) | 更新数据库属性，或者将数据库移入、移出弹性池或在弹性池之间移动。 |
-| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/remove-azurermresourcegroup) | 删除资源组，包括所有嵌套的资源。 |
+| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 |
+| [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlserver) | 创建用于托管数据库或弹性池的逻辑服务器。 |
+| [New-AzureRmSqlElasticPool](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlelasticpool) | 在逻辑服务器中创建弹性池。 |
+| [New-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) | 在逻辑服务器中创建数据库作为单一数据库或入池数据库。 |
+| [Set-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) | 更新数据库属性，或者将数据库移入、移出弹性池或在弹性池之间移动。 |
+| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) | 删除资源组，包括所有嵌套的资源。 |
 |||
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/)。
+有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure SQL 数据库 PowerShell 脚本](../sql-database-powershell-samples.md)中找到更多 SQL 数据库 PowerShell 脚本示例。
-
+<!--Update_Description: update "Clean up deployment" script-->

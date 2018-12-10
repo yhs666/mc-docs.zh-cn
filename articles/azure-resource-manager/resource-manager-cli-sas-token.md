@@ -1,31 +1,30 @@
 ---
-title: "使用 SAS 令牌和 Azure CLI 部署 Azure 模板 | Azure"
-description: "使用 Azure Resource Manager 和 Azure CLI 从使用 SAS 令牌保护的模板将资源部署到 Azure。"
+title: 使用 SAS 令牌和 Azure CLI 部署 Azure 模板 | Azure
+description: 使用 Azure Resource Manager 和 Azure CLI 从使用 SAS 令牌保护的模板将资源部署到 Azure。
 services: azure-resource-manager
 documentationcenter: na
-author: tfitzmac
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2017
-wacn.date: 
+origin.date: 05/31/2017
+ms.date: 07/03/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: aefeee4a130bdcb6daacf6af640b5216146a4b5a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 946f2a198904746006f8fdf32e2e1d8c429b8426
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663567"
 ---
 # <a name="deploy-private-resource-manager-template-with-sas-token-and-azure-cli"></a>使用 SAS 令牌和 Azure CLI 部署专用 Resource Manager 模板
 
-如果模板驻留在存储帐户中，你可以限制对该模板的访问，并在部署过程中提供共享访问签名 (SAS) 令牌。 本主题介绍如何将 Azure PowerShell 与 Resource Manager 模板配合使用在部署过程中提供 SAS 令牌。 
+如果模板驻留在存储帐户中，可以限制对该模板的访问，并在部署过程中提供共享访问签名 (SAS) 令牌。 本主题介绍如何将 Azure PowerShell 与 Resource Manager 模板配合使用在部署过程中提供 SAS 令牌。 
 
 ## <a name="add-private-template-to-storage-account"></a>将专用模板添加到存储帐户
 
@@ -62,11 +61,10 @@ az storage blob upload \
 ```
 
 ### <a name="provide-sas-token-during-deployment"></a>在部署期间提供 SAS 令牌
-若要在存储帐户中部署专用模板，请生成 SAS 令牌，并将其包括在模板的 URI 中。 设置到期时间以允许足够的时间来完成部署。
+要在存储帐户中部署专用模板，请生成 SAS 令牌，并将其包括在模板的 URI 中。 设置到期时间以允许足够的时间来完成部署。
 
 ```azurecli
-seconds='@'$(( $(date +%s) + 1800 ))
-expiretime=$(date +%Y-%m-%dT%H:%MZ --date=$seconds)
+expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
 connection=$(az storage account show-connection-string \
     --resource-group ManageGroup \
     --name {your-unique-name} \

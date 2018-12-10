@@ -1,26 +1,25 @@
 ---
-title: "Azure Resource Manager 文档 - 教程和 API 参考 | Azure"
-description: "了解如何使用 Resource Manager 以组的方式部署和管理解决方案资源并创建模板，以便进行一致且可重复的资源部署。"
+title: Azure Resource Manager 文档 - 教程和 API 参考 | Azure
+description: 了解如何使用 Resource Manager 以组的方式部署和管理解决方案资源并创建模板，以便进行一致且可重复的资源部署。
 services: azure-resource-manager
-author: carolz
-manager: carolz
+author: rockboyfor
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
-wacn.date: 
+origin.date: 07/16/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 2bb3abc05566effa9a95f7514e2de30079e7b3d5
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: 8bfddd8df8e5e4801c6ae7e02eddf121f6cf6ddc
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663211"
 ---
-#<a name="azure-resource-manager-documentation"></a>Azure Resource Manager 文档
+# <a name="azure-resource-manager-documentation"></a>Azure Resource Manager 文档
 
 了解如何使用 Resource Manager 以组的形式部署、监视和管理解决方案资源。 教程、API 参考和其他文档介绍了如何设置资源组并创建模板，以便进行一致且可重复的部署。
 

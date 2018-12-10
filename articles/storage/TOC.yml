@@ -1,0 +1,29 @@
+items:
+- name: Azure 存储文档
+  href: index.yml
+- name: 概述
+  items:
+  - name: 简介
+    href: ./common/storage-introduction.md
+  - name: 选择 Blob、文件或磁盘
+    href: ./common/storage-decide-blobs-files-disks.md
+- name: Blob
+  href: ./blobs/storage-blobs-introduction.md
+- name: 文件
+  href: ./files/storage-files-introduction.md
+- name: 队列
+  href: ./queues/storage-queues-introduction.md
+- name: 表
+  href: ./tables/table-storage-overview.md
+- name: 磁盘
+  items:
+  - name: Windows
+    href: ../virtual-machines/windows/about-disks-and-vhds.md
+  - name: Linux
+    href: ../virtual-machines/linux/about-disks-and-vhds.md
+ms.openlocfilehash: a2ff3c05c44573596051a87b431db2de44eb4dd2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652363"

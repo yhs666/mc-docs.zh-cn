@@ -1,12 +1,28 @@
-## 方案
+---
+title: include 文件
+description: include 文件
+services: virtual-network
+author: rockboyfor
+ms.service: virtual-network
+ms.topic: include
+origin.date: 04/13/2018
+ms.date: 06/11/2018
+ms.author: v-yeche
+ms.custom: include file
+ms.openlocfilehash: 23c513b21f992e364f35f1a8b8269edbf1807476
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654377"
+---
+## <a name="scenario"></a>方案
 
-为了更好地说明如何创建 VNet 和子网，本文档将使用以下方案。
+为了说明如何创建 VNet 和子网，本文档使用以下方案：
 
 ![VNet 方案](./media/virtual-networks-create-vnet-scenario-include/vnet-scenario.png)
 
-在此方案中你将使用保留 CIDR 块 **192.168.0.0./16** 创建名为 **TestVNet** 的 VNet。你的 VNet 将包含以下子网：
+在此方案中，将创建名为 **TestVNet** 的 VNet，其中有保留 CIDR 块 **192.168.0.0./16**。 该 VNet 包含以下子网： 
 
-- **FrontEnd**，使用 **192.168.1.0/24** 作为其 CIDR 块。
-- **BackEnd**，使用 **192.168.2.0/24** 作为其 CIDR 块。
-
-<!---HONumber=69-->
+* FrontEnd，使用 192.168.1.0/24 作为其 CIDR 块。
+* BackEnd，使用 192.168.2.0/24 作为其 CIDR 块。

@@ -1,32 +1,34 @@
 ---
-title: "部署多个 Azure 资源实例 | Azure"
-description: "在部署资源时使用 Azure Resource Manager 模板中的复制操作和数组执行多次迭代。"
+title: 部署多个 Azure 资源实例 | Azure
+description: 在部署资源时使用 Azure Resource Manager 模板中的复制操作和数组执行多次迭代。
 services: azure-resource-manager
 documentationcenter: na
-author: tfitzmac
-manager: timlt
-editor: 
-ms.assetid: 94d95810-a87b-460f-8e82-c69d462ac3ca
+author: rockboyfor
+editor: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/12/2017
-wacn.date: 
+origin.date: 07/10/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 1d3e15aec90696698d71054c8e0805282c1c0504
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: ff0b821397eaa22b71b55706e93a5d5249c4e265
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660994"
 ---
-# <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>在 Azure Resource Manager 模板中部署资源或属性的多个实例
-本主题演示如何在您的 Azure Resource Manager 模板中进行迭代操作，以创建多个资源实例。
+# <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>在 Azure 资源管理器模板中部署资源或属性的多个实例
+
+本文介绍了如何在 Azure 资源管理器模板中进行迭代操作，以创建多个资源实例。 如需指定究竟是否部署资源，请参阅 [condition 元素](resource-manager-templates-resources.md#condition)。
+
+有关教程，请参阅[教程：使用资源管理器模板创建多个资源实例](./resource-manager-tutorial-create-multiple-instances.md)。
 
 ## <a name="resource-iteration"></a>资源迭代
-若要创建某个资源类型的多个实例，请向该资源类型添加 `copy` 元素。 在 copy 元素中，为此循环指定迭代次数和名称。 计数值必须是不超过 800 的正整数。 Resource Manager 将并行创建资源。 因此，创建顺序是不确定的。 若要在序列中创建迭代的资源，请参阅[串行复制](#serial-copy)。 
+
+当必须在部署过程中决定是创建资源的一个实例还是多个实例时，请将 `copy` 元素添加到资源类型。 在 copy 元素中，为此循环指定迭代次数和名称。 计数值必须是不超过 800 的正整数。 
 
 要多次创建的资源将采用以下格式：
 
@@ -110,150 +112,235 @@ ms.lasthandoff: 05/26/2017
 * storagefabrikam
 * storagecoho
 
-## <a name="serial-copy"></a>串行复制
+默认情况下，资源管理器并行创建资源。 因此，不保证创建的顺序。 但是，你可能希望将资源指定为按顺序部署。 例如，在更新生产环境时，可能需要错开更新，使任何一次仅更新一定数量。
 
-使用 copy 元素创建某种资源类型的多个实例时，默认情况下，Resource Manager 并行部署这些实例。 但是，你可能希望将资源指定为按顺序部署。 例如，在更新生产环境时，可能需要错开更新，使任何一次仅更新一定数量。
+若要按顺序部署资源的多个实例，请将 `mode` 设置为 **serial**，将 `batchSize` 设置为要一次部署的实例数。 在串行模式下，资源管理器会在循环中创建早前实例的依赖项，以便在前一个批处理完成之前它不会启动一个批处理。
 
-Resource Manager 在 copy 元素上提供了相关的属性，使用这些属性可以按顺序部署多个实例。 在 copy 元素中，将 `mode` 设置为 **serial**，将 `batchSize` 设置为一次要部署的实例数。 在串行模式下，Resource Manager 将在循环中创建早前实例的依赖项，以便在前一个批处理完成之前它不会启动一个批处理。
-
-```json
-"copy": {
-    "name": "iterator",
-    "count": "[parameters('numberToDeploy')]",
-    "mode": "serial",
-    "batchSize": 2
-},
-```
-
-mode 属性也接受 **parallel**（它是默认值）。
-
-若要在不创建实际资源的情况下测试串行复制，请使用以下模板部署空的嵌套模板：
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "numberToDeploy": {
-      "type": "int",
-      "minValue": 2,
-      "defaultValue": 5
-    }
-  },
-  "resources": [
-    {
-      "apiVersion": "2015-01-01",
-      "type": "Microsoft.Resources/deployments",
-      "name": "[concat('loop-', copyIndex())]",
-      "copy": {
-        "name": "iterator",
-        "count": "[parameters('numberToDeploy')]",
-        "mode": "serial",
-        "batchSize": 1
-      },
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {},
-          "variables": {},
-          "resources": [],
-          "outputs": {
-          }
-        }
-      }
-    }
-  ],
-  "outputs": {
-  }
-}
-```
-
-在部署历史记录中，请注意，嵌套部署将按顺序处理。
-
-![串行部署](./media/resource-group-create-multiple/serial-copy.png)
-
-对于更现实的方案，以下示例将从嵌套模板一次部署 Linux VM 的两个实例：
+例如，若要按顺序一次部署两个存储帐户，请使用：
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {
-        "adminUsername": {
-            "type": "string",
-            "metadata": {
-                "description": "User name for the Virtual Machine."
-            }
-        },
-        "adminPassword": {
-            "type": "securestring",
-            "metadata": {
-                "description": "Password for the Virtual Machine."
-            }
-        },
-        "dnsLabelPrefix": {
-            "type": "string",
-            "metadata": {
-                "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
-            }
-        },
-        "ubuntuOSVersion": {
-            "type": "string",
-            "defaultValue": "16.04.0-LTS",
-            "allowedValues": [
-                "12.04.5-LTS",
-                "14.04.5-LTS",
-                "15.10",
-                "16.04.0-LTS"
-            ],
-            "metadata": {
-                "description": "The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version."
-            }
-        }
-    },
-    "variables": {
-        "templatelink": "https://raw.githubusercontent.com/rjmax/Build2017/master/Act1.TemplateEnhancements/Chapter03.LinuxVM.json"
-    },
     "resources": [
         {
-            "apiVersion": "2015-01-01",
-            "name": "[concat('nestedDeployment',copyIndex())]",
-            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2016-01-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {},
             "copy": {
-                "name": "myCopySet",
+                "name": "storagecopy",
                 "count": 4,
                 "mode": "serial",
                 "batchSize": 2
-            },
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "[variables('templatelink')]",
-                    "contentVersion": "1.0.0.0"
-                },
-                "parameters": {
-                    "adminUsername": {
-                        "value": "[parameters('adminUsername')]"
-                    },
-                    "adminPassword": {
-                        "value": "[parameters('adminPassword')]"
-                    },
-                    "dnsLabelPrefix": {
-                        "value": "[parameters('dnsLabelPrefix')]"
-                    },
-                    "ubuntuOSVersion": {
-                        "value": "[parameters('ubuntuOSVersion')]"
-                    },
-                    "index":{
-                        "value": "[copyIndex()]"
+            }
+        }
+    ],
+    "outputs": {}
+}
+``` 
+
+mode 属性也接受 **parallel**（它是默认值）。
+
+## <a name="property-iteration"></a>属性迭代
+
+若要为资源中的某个属性创建多个值，请在 properties 元素中添加 `copy` 数组。 此数组包含对象，每个对象具有以下属性：
+
+* name - 要为其创建多个值的属性的名称
+* count - 要创建的值数
+* input - 一个对象，其中包含要赋给该属性的值  
+
+以下示例演示如何将 `copy` 应用到虚拟机上的 dataDisks 属性：
+
+```json
+{
+  "name": "examplevm",
+  "type": "Microsoft.Compute/virtualMachines",
+  "apiVersion": "2017-03-30",
+  "properties": {
+    "storageProfile": {
+      "copy": [{
+          "name": "dataDisks",
+          "count": 3,
+          "input": {
+              "lun": "[copyIndex('dataDisks')]",
+              "createOption": "Empty",
+              "diskSizeGB": "1023"
+          }
+      }],
+      ...
+```
+
+请注意，在属性迭代中使用 `copyIndex` 时，必须提供迭代的名称。 与资源迭代一起使用时，无需提供名称。
+
+Resource Manager 在部署期间会扩展 `copy` 数组。 该数组的名称将成为属性的名称。 输入值将成为对象属性。 已部署的模板将成为：
+
+```json
+{
+  "name": "examplevm",
+  "type": "Microsoft.Compute/virtualMachines",
+  "apiVersion": "2017-03-30",
+  "properties": {
+    "storageProfile": {
+      "dataDisks": [
+          {
+              "lun": 0,
+              "createOption": "Empty",
+              "diskSizeGB": "1023"
+          },
+          {
+              "lun": 1,
+              "createOption": "Empty",
+              "diskSizeGB": "1023"
+          },
+          {
+              "lun": 2,
+              "createOption": "Empty",
+              "diskSizeGB": "1023"
+          }
+      }],
+      ...
+```
+
+copy 元素是一个数组，因此，可以为资源指定多个属性。 为要创建的每个属性添加一个对象。
+
+```json
+{
+    "name": "string",
+    "type": "Microsoft.Network/loadBalancers",
+    "apiVersion": "2017-10-01",
+    "properties": {
+        "copy": [
+          {
+              "name": "loadBalancingRules",
+              "count": "[length(parameters('loadBalancingRules'))]",
+              "input": {
+                ...
+              }
+          },
+          {
+              "name": "probes",
+              "count": "[length(parameters('loadBalancingRules'))]",
+              "input": {
+                ...
+              }
+          }
+        ]
+    }
+}
+```
+
+可将资源迭代和属性迭代结合使用。 按名称引用属性迭代。
+
+```json
+{
+    "type": "Microsoft.Network/virtualNetworks",
+    "name": "[concat(parameters('vnetname'), copyIndex())]",
+    "apiVersion": "2018-04-01",
+    "copy":{
+        "count": 2,
+        "name": "vnetloop"
+    },
+    "location": "[resourceGroup().location]",
+    "properties": {
+        "addressSpace": {
+            "addressPrefixes": [
+                "[parameters('addressPrefix')]"
+            ]
+        },
+        "copy": [
+            {
+                "name": "subnets",
+                "count": 2,
+                "input": {
+                    "name": "[concat('subnet-', copyIndex('subnets'))]",
+                    "properties": {
+                        "addressPrefix": "[variables('subnetAddressPrefix')[copyIndex('subnets')]]"
                     }
                 }
             }
-        }
-    ]
+        ]
+    }
 }
+```
+
+## <a name="variable-iteration"></a>变量迭代
+
+若要创建某个变量的多个实例，请在 variables 节使用 `copy` 元素。 可以使用相关的值创建对象的多个实例，然后将这些值分配给资源的实例。 可以使用复制创建带数组属性的对象，或者创建数组。 下例说明了这两种方法：
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {
+    "disk-array-on-object": {
+      "copy": [
+        {
+          "name": "disks",
+          "count": 5,
+          "input": {
+            "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
+            "diskSizeGB": "1",
+            "diskIndex": "[copyIndex('disks')]"
+          }
+        }
+      ]
+    },
+    "copy": [
+      {
+        "name": "disks-top-level-array",
+        "count": 5,
+        "input": {
+          "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
+          "diskSizeGB": "1",
+          "diskIndex": "[copyIndex('disks-top-level-array')]"
+        }
+      }
+    ]
+  },
+  "resources": [],
+  "outputs": {
+    "exampleObject": {
+      "value": "[variables('disk-array-on-object')]",
+      "type": "object"
+    },
+    "exampleArrayOnObject": {
+      "value": "[variables('disk-array-on-object').disks]",
+      "type" : "array"
+    },
+    "exampleArray": {
+      "value": "[variables('disks-top-level-array')]",
+      "type" : "array"
+    }
+  }
+}
+```
+
+在这两种方法中，copy 元素是一个数组，因此，可以指定多个变量。 为要创建的每个变量添加一个对象。
+
+```json
+"copy": [
+  {
+    "name": "first-variable",
+    "count": 5,
+    "input": {
+      "demoProperty": "[concat('myProperty', copyIndex('first-variable'))]",
+    }
+  },
+  {
+    "name": "second-variable",
+    "count": 3,
+    "input": {
+      "demoProperty": "[concat('myProperty', copyIndex('second-variable'))]",
+    }
+  },
+]
 ```
 
 ## <a name="depend-on-resources-in-a-loop"></a>依赖于循环中的资源
@@ -292,8 +379,10 @@ mode 属性也接受 **parallel**（它是默认值）。
 }
 ```
 
-## <a name="create-multiple-instances-of-a-child-resource"></a>创建子资源的多个实例
-不能对子资源使用 copy 循环。 若要创建子资源的多个实例，而该子资源通常在其他资源中定义为嵌套资源，则必须将该资源创建为顶级资源。 可以通过 type 和 name 属性定义与父资源的关系。
+<a name="looping-on-a-nested-resource" />
+
+## <a name="iteration-for-a-child-resource"></a>子资源的迭代
+不能对子资源使用 copy 循环。 要创建子资源的多个实例，而该子资源通常在其他资源中定义为嵌套资源，则必须将该资源创建为顶级资源。 可以通过 type 和 name 属性定义与父资源的关系。
 
 例如，假设用户通常会将某个数据集定义为数据工厂中的子资源。
 
@@ -315,7 +404,7 @@ mode 属性也接受 **parallel**（它是默认值）。
 }]
 ```
 
-若要创建数据集的多个实例，请将数据集移出数据工厂。 数据集必须与数据工厂位于同一层级，但仍属数据工厂的子资源。 可以通过 type 和 name 属性保留数据集和数据工厂之间的关系。 由于类型不再可以从其在模板中的位置推断，因此必须按以下格式提供完全限定的类型： `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`。
+要创建数据集的多个实例，请将数据集移出数据工厂。 数据集必须与数据工厂处于同一级别，但它仍是数据工厂的子资源。 可以通过 type 和 name 属性保留数据集和数据工厂之间的关系。 由于类型不再可以从其在模板中的位置推断，因此必须按以下格式提供完全限定的类型： `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`。
 
 若要与数据工厂的实例建立父/子关系，提供的数据集的名称应包含父资源名称。 使用以下格式： `{parent-resource-name}/{child-resource-name}`。  
 
@@ -342,6 +431,23 @@ mode 属性也接受 **parallel**（它是默认值）。
 }]
 ```
 
+## <a name="example-templates"></a>示例模板
+
+以下示例显示了创建多个资源或属性的常用方案。
+
+|模板  |说明  |
+|---------|---------|
+|[复制存储](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |部署多个名称中有索引号的存储帐户。 |
+|[串行复制存储](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |以一次一个的方式部署多个存储帐户。 名称包含索引号。 |
+|[使用数组的复制存储](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |部署多个存储帐户。 名称包含数组中的值。 |
+|[数据磁盘数可变的 VM 部署](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |通过虚拟机部署多个数据磁盘。 |
+|[复制变量](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |演示循环访问变量的不同方式。 |
+|[多项安全规则](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |将多项安全规则部署到网络安全组。 它从参数构造安全规则。 有关参数，请参阅[多个 NSG 参数文件](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json)。 |
+
 ## <a name="next-steps"></a>后续步骤
+
+* 要查看教程，请参阅[教程：使用资源管理器模板创建多个资源实例](./resource-manager-tutorial-create-multiple-instances.md)。
 * 若要了解有关模板区段的信息，请参阅[创作 Azure Resource Manager 模板](resource-group-authoring-templates.md)。
 * 若要了解如何部署模板，请参阅 [使用 Azure Resource Manager 模板部署应用程序](resource-group-template-deploy.md)。
+
+<!--Update_Description: update meta properties, wording update, update link -->

@@ -1,8 +1,8 @@
 ---
-title: "优化 Azure HDInsight 中的 Hive 查询 | Azure"
-description: "了解如何为 HDInsight 中的 Hadoop 优化 Hive 查询。"
+title: 优化 Azure HDInsight 中的 Hive 查询 | Azure
+description: 了解如何为 HDInsight 中的 Hadoop 优化 Hive 查询。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -11,19 +11,18 @@ ms.assetid: d6174c08-06aa-42ac-8e9b-8b8718d9978e
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/26/2016
-wacn.date: 
-ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 0eac1d08102d4c1839849a9a2b090401e0960ba0
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+origin.date: 05/14/2018
+ms.date: 06/25/2018
+ms.author: v-yiso
+ms.openlocfilehash: bd79e9d5acd51165fdb53228a19a10e599895be9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647701"
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>优化 Azure HDInsight 中的 Hive 查询
 
@@ -33,7 +32,7 @@ ms.lasthandoff: 05/26/2017
 
 增加群集中的辅助节点数目，即可利用更多并行运行的映射器和化简器。 在 HDInsight 中，可通过两种方式增加扩大的数目：
 
-* 在预配时，可以使用 Azure 门户、Azure PowerShell 或跨平台命令行界面指定辅助节点的数目。  有关详细信息，请参阅[创建 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)。 以下屏幕截图显示了 Azure 门户上的辅助节点配置：
+* 在预配时，可以使用 Azure 门户、Azure PowerShell 或跨平台命令行接口指定工作节点的数目。  有关详细信息，请参阅[创建 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)。 以下屏幕截图显示了 Azure 门户上的工作节点配置：
 
     ![scaleout_1][image-hdi-optimize-hive-scaleout_1]
 * 在运行时，也可以扩大群集，而无需重新创建群集：
@@ -56,7 +55,7 @@ Tez 速度更快，因为：
 * **重复使用容器**。 Tez 会尽可能地重复使用容器，以确保降低由于启动容器而产生的延迟。
 * **连续优化技术**。 传统上，优化是在编译阶段完成的。 但是，由于可以提供有关输入的详细信息，因此可以在运行时更好地进行优化。 Tez 使用连续优化技术，从而可以在运行时阶段进一步优化计划。
 
-有关这些概念的更多详细信息，请参阅 [Apache TEZ](http://hortonworks.com/hadoop/tez/)。
+有关这些概念的详细信息，请参阅 [Apache TEZ](http://hortonworks.com/hadoop/tez/)。
 
 可以在查询前加上以下设置作为前缀，执行 Tez 支持的任何 Hive 查询：
 
@@ -92,7 +91,7 @@ Hive 分区的实现方法是将原始数据刷新成新的目录，而每个分
 
 创建分区表后，可以创建静态分区或动态分区。
 
-* **静态分区** 表示已在相应目录中创建了分片数据，你可以请求根据目录位置在 Hive 中手动分区。 以下代码片段是一个示例。
+* **静态分区** 表示已在相应目录中创建了分片数据，可以请求根据目录位置在 Hive 中手动分区。 以下代码片段是一个示例。
 
         INSERT OVERWRITE TABLE lineitem_part
         PARTITION (L_SHIPDATE = '5/23/1996 12:00:00 AM')
@@ -100,8 +99,8 @@ Hive 分区的实现方法是将原始数据刷新成新的目录，而每个分
         WHERE lineitem.L_SHIPDATE = '5/23/1996 12:00:00 AM'
 
         ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = '5/23/1996 12:00:00 AM'))
-        LOCATION 'wasbs://sampledata@ignitedemo.blob.core.chinacloudapi.cn/partitions/5_23_1996/'
-* **动态分区** 表示你希望 Hive 自动创建分区。 由于已基于暂存表创建了分区表，因此需要做的就是将数据插入分区表：
+        LOCATION 'wasb://sampledata@ignitedemo.blob.core.chinacloudapi.cn/partitions/5_23_1996/'
+* **动态分区** 表示希望 Hive 自动创建分区。 由于已基于暂存表创建了分区表，因此需要做的就是将数据插入分区表：
 
         SET hive.exec.dynamic.partition = true;
         SET hive.exec.dynamic.partition.mode = nonstrict;
@@ -112,7 +111,7 @@ Hive 分区的实现方法是将原始数据刷新成新的目录，而每个分
               L_QUANTITY as L_QUANTITY, L_EXTENDEDPRICE as L_EXTENDEDPRICE,
              L_DISCOUNT as L_DISCOUNT, L_TAX as L_TAX, L_RETURNFLAG as           L_RETURNFLAG, L_LINESTATUS as L_LINESTATUS, L_SHIPDATE as           L_SHIPDATE_PS, L_COMMITDATE as L_COMMITDATE, L_RECEIPTDATE as      L_RECEIPTDATE, L_SHIPINSTRUCT as L_SHIPINSTRUCT, L_SHIPMODE as      L_SHIPMODE, L_COMMENT as L_COMMENT, L_SHIPDATE as L_SHIPDATE FROM lineitem;
 
-有关更多详细信息，请参阅 [分区表](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables)。
+有关详细信息，请参阅[分区表](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables)。
 
 ## <a name="use-the-orcfile-format"></a>使用 ORCFile 格式
 Hive 支持不同的文件格式。 例如：
@@ -166,7 +165,7 @@ ORC（优化行纵栏式）格式是存储 Hive 数据的高效方式。 与其�
 
 向量化可让 Hive 以批的形式同时处理 1024 行，而不是一次处理一行。 这意味着，简单的操作可以更快地完成，因为需要运行的内部代码更少。
 
-要启用向量化，请在 Hive 查询的前面加上以下设置作为前缀：
+若要启用向量化，请在 Hive 查询的前面加上以下设置作为前缀：
 
     set hive.vectorized.execution.enabled = true;
 
@@ -180,15 +179,15 @@ ORC（优化行纵栏式）格式是存储 Hive 数据的高效方式。 与其�
 * **增加化简器**。
 
 ## <a name="next-steps"></a>后续步骤
-在本文中，你学习了几种常见的 Hive 查询优化方法。 要了解更多信息，请参阅下列文章：
+在本文中，学习了几种常见的 Hive 查询优化方法。 要了解更多信息，请参阅下列文章：
 
-* [使用 HDInsight 中的 Apache Hive](hdinsight-use-hive.md)
+* [使用 HDInsight 中的 Apache Hive](hadoop/hdinsight-use-hive.md)
 * [使用 HDInsight 中的 Hive 分析航班延误数据](hdinsight-analyze-flight-delay-data.md)
-* [使用 HDInsight 中 Hadoop上的 Hive 查询控制台分析传感器数据](hdinsight-hive-analyze-sensor-data.md)
-* [将 Hive 与 HDInsight 配合使用来分析来自网站的日志](hdinsight-hive-analyze-website-log.md)
+* [使用 HDInsight 中 Hadoop上的 Hive 查询控制台分析传感器数据](hadoop/apache-hive-analyze-sensor-data.md)
+* [将 Hive 与 HDInsight 配合使用来分析来自网站的日志](hadoop/apache-hive-analyze-website-log.md)
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
 [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
-
+<!--Update_Description: change 'wasbs' into 'wasb'-->

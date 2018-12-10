@@ -1,82 +1,142 @@
 ---
-title: Azure 备份 - 备份包含加密磁盘的 Azure IaaS VM | Azure
-description: 了解 Azure 备份在备份 IaaS VM 期间如何处理使用 BitLocker 或 dmcrypt 加密的数据。本文帮助你预先了解在处理加密的磁盘时，备份和还原体验的差异。
+title: 使用 Azure 备份来备份和还原已加密的 VM
+description: 本文介绍如何备份和还原使用 Azure 磁盘加密功能加密的 VM。
 services: backup
-documentationCenter: ''
-authors: pallavijoshi
-manager: vijayts
-editor: ''
-
+author: lingliw
+manager: digimobile
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 01/18/2017
-wacn.date: 03/31/2017
-ms.author: v-junlch
+ms.topic: conceptual
+origin.date: 07/10/2018
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: cef55ea03491f53606d7f4ecf861165884cdc01c
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675127"
 ---
+# <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>使用 Azure 备份来备份和还原已加密的虚拟机
+本文介绍使用 Azure 备份来备份和还原虚拟机 (VM) 的步骤。 此外，提供有关受支持的方案、先决条件以及针对错误案例的疑难解答步骤的详细信息。
 
-# VM 备份期间处理加密的磁盘
+## <a name="supported-scenarios"></a>支持的方案
 
-如果企业想要在 Azure 中加密其 VM 数据，解决方案是在 Windows 计算机上使用 Bitlocker，在 Linux 计算机上使用 dmcrypt。
+ 只有使用 Azure 资源管理器部署模型的已加密 VM 才支持备份和还原。 使用经典部署模型的 VM 不支持备份和还原。 使用 Azure 磁盘加密的 Windows 和 Linux VM 支持备份和还原加密的 VM。 磁盘加密使用 Windows 的行业标准 BitLocker 功能和 Linux 的 dm-crypt 功能提供磁盘加密。 下表显示了加密类型和对 VM 的支持。
 
-> [!NOTE]
->  Azure 备份支持对使用 Azure 磁盘加密 (ADE) 加密的 VM 进行备份和还原。<br>
-1. 如果 VM 是使用 BEK 和 KEK 加密的，则可使用 PowerShell 来进行此操作。<br>
-2. 如果 VM 只使用 BEK 加密，则不支持备份和还原。<br> 
-请参阅 Azure 备份 [PowerShell 文档](./backup-azure-vms-automation.md)，了解如何备份和还原使用 ADE 加密的 VM。
+   |  | BEK + KEK VM | 仅限 BEK 的 VM |
+   | --- | --- | --- |
+   | **非托管 VM**  | 是 | 是  |
+   | **托管 VM**  | 是 | 是  |
 
-本文讨论使用 CloudLink 加密的 Azure VM。
+## <a name="prerequisites"></a>先决条件
+* 已使用 [Azure 磁盘加密](../security/azure-security-disk-encryption.md)将 VM 加密。
 
-## 备份工作原理
+* 已创建恢复服务保管库，并已遵循[为备份准备环境](backup-azure-arm-vms-prepare.md)中的步骤设置存储复制。
 
-整体解决方案包括两个层：VM 层和存储层。
+* 备份功能已获得 [Key Vault 的访问权限](#provide-permissions-to-backup)，其中包含加密 VM 的秘钥和机密。
 
-1. VM 层处理来宾操作系统和虚拟机中运行的应用程序所看到的数据。它也是运行加密软件（Bitlocker 或 dmcrypt），以透明方式加密卷上的数据，然后将数据写入磁盘的层。
-2. 存储层处理附加到 VM 的页 Blob 和磁盘。它不知道正在将哪些数据写入磁盘，也不知道数据是否已加密。这是运行 VM 备份功能所在的层。
+## <a name="backup-encrypted-vm"></a>备份加密的 VM
+使用以下步骤设置备份目标、定义策略、配置项目和触发备份。
 
-![Bitlocker 加密和 Azure VM 备份如何共存](./media/backup-azure-vms-encryption/how-it-works.png)
+### <a name="configure-backup"></a>配置备份
+1. 如果已打开恢复服务保管库，请转到下一步。 如果未打开恢复服务保管库，而是位于 Azure 门户中，请选择“所有服务”。
 
-整个数据加密以透明方式在 VM 层中无缝进行。因此，写入附加到 VM 的页 Blob 的数据是加密的数据。当 [Azure 备份创建 VM 的磁盘快照和传输数据](./backup-azure-vms-introduction.md#how-does-azure-back-up-virtual-machines)时，将复制页 Blob 上的加密数据。
+   a. 在资源列表中，键入“恢复服务”。
 
-## 解决方案组件
+   b. 开始键入时，会根据输入筛选该列表。 出现“恢复服务保管库”时，请选择它。
 
-若要使此解决方案正常运行，需要正确配置和管理它包含的许多组件：
+      ![恢复服务保管库](./media/backup-azure-vms-encryption/browse-to-rs-vaults.png) <br/>
 
-| 函数 | 使用的软件 | 附加说明 |
-| -------- | ------------- | ------- |
-| 加密 | Bitlocker 或 dmcrypt | 由于相比于 Azure 备份，这种加密在*不同的*层中进行，因此可以使用任何加密软件。尽管如此，我们只使用 Bitlocker 和 dmcrypt 通过 CloudLink 验证了这种体验。<br><br> 加密数据需要使用密钥。必须将密钥存放在安全的位置，以确保对数据的访问经过授权。 |
-| 密钥管理 | CloudLink SecureVM | 密钥是加密或解密数据的关键所在。如果没有正确的密钥，就无法检索数据。这对以下操作*极其*重要：<br><li>密钥滚动更新<li>长期保留<br><br>例如，用于备份 7 年前数据的密钥可能与当天使用的密钥不同。如果没有 7 年前的密钥，就无法使用从该时间还原的数据。|
-| 数据备份 | Azure 备份 | 使用 Azure 备份并配合 [Azure 经典管理门户](http://manage.windowsazure.cn)或 PowerShell 来备份 Azure IaaS VM |
-| 数据还原 | Azure 备份 | 使用 Azure 备份从恢复点还原磁盘或整个 VM。在执行还原操作过程中，Azure 备份不会解密数据。|
-| 解密 | Bitlocker 或 dmcrypt | 为了从还原的数据磁盘或还原的 VM 读取数据，软件需有密钥管理软件提供的密钥。如果没有正确的密钥，就无法解密数据。 |
+    c. 此时显示恢复服务保管库列表。 从列表中选择保管库。
 
-> [!IMPORTANT]
->  密钥管理（包括密钥滚动更新）不是 Azure 备份的一部分。这一方面需要分开管理，但对整体备份/还原操作很重要。
+     此时会打开选定的保管库仪表板。
+1. 从保管库下显示的项目列表中，选择“备份”开始备份加密的 VM。
 
-### 支持的方案
+    ![“备份”边栏选项卡](./media/backup-azure-vms-encryption/select-backup.png)
+1. 在“备份”磁贴中，选择“备份目标”。
 
-| &nbsp; | 备份保管库 | 恢复服务保管库 |
-| :-- | :-- | :-- |
-| Azure IaaS V1 VM | 是 | 否 |
-| Azure IaaS V2 VM | 不适用 | 否 |
+    ![“方案”边栏选项卡](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
+1. 在“工作负荷在哪里运行?”下，选择“Azure”。 在“要备份哪些内容?”下，选择“虚拟机”。 然后选择“确定”。
 
-## CloudLink SecureVM
+    ![打开“方案”边栏选项卡](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
+1. 在“选择备份策略”下，选择要应用到保管库的备份策略。 然后选择“确定”。
 
-[CloudLink SecureVM](http://www.cloudlinktech.com/choose-your-cloud/microsoft-azure/) 是 VM 加密解决方案，可用于保护 Azure IaaS VM 数据。CloudLink SecureVM 可以配合 Azure 备份使用。
+    ![选择备份策略](./media/backup-azure-vms-encryption/setting-rs-backup-policy-new.png)
 
-### 支持信息
+    将会列出默认策略的详细信息。 如果要创建策略，请从下拉列表中选择“新建”。 选择“确定”后，备份策略将与保管库相关联。
 
-- CloudLink SecureVM 版本 4.0（内部版本 21536.121 或更高）
-- Azure PowerShell 0.9.8 或更高版本
+1. 选择要与指定策略关联的已加密 VM，并选择“确定”。
 
-### 密钥管理
+    ![选择加密型 VM](./media/backup-azure-vms-encryption/selected-encrypted-vms.png)
+1. 此页面显示与所选加密 VM 相关联的 Key Vault 的消息。 备份需要 Key Vault 中密钥和机密的只读访问权限。 它使用这些权限来备份密钥和机密以及关联的 VM。<br>
+    如果你是**成员用户**，“启用备份”过程将无缝获得密钥保管库的访问权限，以便备份加密的 VM 而无需任何用户干预。
 
-当你需要滚动更新或更改已有备份的 VM 的密钥时，需要确保备份时所用的密钥可用。建议的方法之一是创建密钥存储区或整个 SecureVM 系统的备份。
+    ![加密型 VM 消息](./media/backup-azure-vms-encryption/member-user-encrypted-vm-warning-message.png)
 
-### 文档和资源
+    对于**来宾用户**，必须授予备份服务访问密钥保管库的权限，才能进行备份。 可按照[下一部分所述步骤](#provide-permissions-to-backup)提供这些权限
 
-- [部署指南 - PDF](http://www.cloudlinktech.com/Azure/CL_SecureVM_4_0_DG_EMC_Azure_R2.pdf)
+    ![加密型 VM 消息](./media/backup-azure-vms-encryption/guest-user-encrypted-vm-warning-message.png)
+ 
+    现已定义保管库的所有设置，接下来请选择页面底部的“启用备份”。 “启用备份”会将策略部署到保管库和 VM。
+  
+1. 下一个阶段的准备工作是安装 VM 代理，或确保 VM 代理已安装。 若要执行相同的操作，请遵循[为备份准备环境](backup-azure-arm-vms-prepare.md)中的步骤。
 
-<!---HONumber=Mooncake_1017_2016-->
+### <a name="trigger-a-backup-job"></a>触发备份作业
+遵循[将 Azure VM 备份到恢复服务保管库](backup-azure-arm-vms.md)中的步骤触发备份作业。
+
+### <a name="continue-backups-of-already-backed-up-vms-with-encryption-enabled"></a>继续备份已备份的启用了加密的 VM  
+如果 VM 已在恢复服务保管库中备份，并且之后对其启用了加密，则必须向备份服务提供访问 Key Vault 的权限，备份才能继续。 可遵循[下一部分中的步骤](#provide-permissions-to-azure-backup)提供这些权限。 或者，可以遵循 [PowerShell 文档](backup-azure-vms-automation.md)的“启用备份”部分中的 PowerShell 步骤。 
+
+<a name="provide-permissions-to-azure-backup"></a>
+## <a name="provide-permissions-to-backup"></a>为备份提供权限
+使用以下步骤为备份提供相关权限，以访问 Key Vault 并对加密 VM 执行备份。
+1. 选择“所有服务”并搜索“Key Vault”。
+
+    ![Key Vault](./media/backup-azure-vms-encryption/search-key-vault.png)
+    
+1. 从 Key Vault 列表中，选择与加密 VM 关联的且需要备份的 Key Vault。
+
+     ![Key Vault 选择](./media/backup-azure-vms-encryption/select-key-vault.png)
+     
+1. 依次选择“访问策略”、“新增”。
+
+    ![新增](./media/backup-azure-vms-encryption/select-key-vault-access-policy.png)
+    
+1. 选择“选择主体”，在搜索框中键入“备份管理服务”。 
+
+    ![备份服务搜索](./media/backup-azure-vms-encryption/search-backup-service.png)
+    
+1. 依次选择“备份管理服务”、“选择”。
+
+    ![备份服务选择](./media/backup-azure-vms-encryption/select-backup-service.png)
+    
+1. 在“从模板配置(可选)”下，选择“Azure 备份”。 “密钥权限”和“机密权限”中已预先填充所需的权限。 如果 VM 是使用“仅限 BEK”加密的，则仅机密权限是必需的，因此必须删除“密钥权限”的选择内容。
+
+    ![Azure 备份选择](./media/backup-azure-vms-encryption/select-backup-template.png)
+    
+1. 选择“确定” 。 请注意，“备份管理服务”已添加到“访问策略”中。 
+
+    ![访问策略](./media/backup-azure-vms-encryption/backup-service-access-policy.png)
+    
+1. 选择“保存”，为备份服务授予所需的权限。
+
+    ![备份访问策略](./media/backup-azure-vms-encryption/save-access-policy.png)
+
+成功提供权限后，可继续为加密的 VM 启用备份。
+
+## <a name="restore-an-encrypted-vm"></a>还原已加密的 VM
+若要还原已加密的 VM，请先遵循[选择 VM 还原配置](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration)的“还原已备份的磁盘”部分中所述的步骤来还原磁盘。 之后，可以使用以下选项之一：
+
+* 遵循[从已还原的磁盘创建 VM](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) 中的 PowerShell 步骤从已还原的磁盘创建完整 VM。
+* 或者，[使用模板自定义已还原的 VM](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm)，以便从已还原的磁盘创建 VM。 只能对 2017 年 4 月 26 日以后创建的恢复点使用模板。
+
+## <a name="troubleshooting-errors"></a>排查错误
+| 操作 | 错误详细信息 | 解决方法 |
+| --- | --- | --- |
+|Backup | 备份服务对 Key Vault 没有足够的权限，无法备份已加密的 VM。 | 应遵循[上一部分中的步骤](#provide-permissions-to-azure-backup)为备份服务提供这些权限。 或者，可以按照本文“启用保护”部分中的 PowerShell 步骤进行操作，[使用 PowerShell 备份和还原虚拟机](backup-azure-vms-automation.md#enable-protection)。 |  
+| 还原 |无法还原此加密的 VM，因为与此 VM 关联的 Key Vault 不存在。 |参考 [Azure Key Vault 入门](../key-vault/key-vault-get-started.md)创建 Key Vault。 参阅[使用 Azure 备份还原 Key Vault 密钥和机密](backup-azure-restore-key-secret.md)来还原密钥和机密（如果不存在）。 |
+| 还原 |无法还原此加密的 VM，因为与此 VM 关联的密钥和机密不存在。 |参阅[使用 Azure 备份还原 Key Vault 密钥和机密](backup-azure-restore-key-secret.md)来还原密钥和机密（如果不存在）。 |
+| 还原 |备份服务未获授权访问订阅中的资源。 |如前所述，请先遵循[选择 VM 还原配置](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration)的“还原已备份的磁盘”部分中所述的步骤来还原磁盘。 之后，使用 PowerShell [从已还原的磁盘创建 VM](backup-azure-vms-automation.md#create-a-vm-from-restored-disks)。 |
+
+<!-- Update_Description: wording update -->

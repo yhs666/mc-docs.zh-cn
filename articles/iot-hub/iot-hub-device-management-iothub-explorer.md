@@ -1,38 +1,40 @@
 ---
-title: "使用 iothub-explorer 进行 Azure IoT 设备管理 | Azure"
-description: "使用 iothub-explorer CLI 工具进行 Azure IoT 中心设备管理，该特点是使用直接方法并提供孪生所需的属性管理选项。"
+title: 使用 iothub-explorer 进行 Azure IoT 设备管理 | Azure
+description: 使用 iothub-explorer CLI 工具进行 Azure IoT 中心设备管理，该特点是使用直接方法并提供孪生的所需属性管理选项。
 services: iot-hub
-documentationcenter: 
-author: shizn
-manager: timtl
-tags: 
-keywords: "azure iot 设备管理, azure iot 中心设备管理, 设备管理 iot, iot 中心设备管理"
+documentationcenter: ''
+author: rangv
+manager: timlt
+tags: ''
+keywords: azure iot 设备管理, azure iot 中心设备管理, 设备管理 iot, iot 中心设备管理
 ms.assetid: b34f799a-fc14-41b9-bf45-54751163fffe
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/10/2017
+origin.date: 04/11/2018
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: b65765fda66304ea49c6c0fcc15a69148e8d6756
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.date: 05/07/2018
+ms.openlocfilehash: 50bbb79fdffd4d86766f941f4da7a0ee3f57c953
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647233"
 ---
 # <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>使用 iothub-explorer 进行 Azure IoT 中心设备管理
 
-![端到端关系图](./media/iot-hub-get-started-e2e-diagram/2.png)
+![端到端关系图](media/iot-hub-get-started-e2e-diagram/2.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 [iothub-explorer](https://github.com/azure/iothub-explorer) 是一种在主机上运行的 CLI 工具，用于管理 IoT 中心注册表中的设备标识。 它附带了可用于执行各种任务的管理选项。
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
 | 管理选项          | 任务                                                                                                                            |
-|----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+|----------------------------|------------------------------------------------------------------------------------------------------------------------------|
 | 直接方法             | 让设备执行操作，如开始或停止发送消息或重新启动设备。                                        |
 | 孪生所需属性    | 让设备进入特定状态，例如将 LED 设置为绿色，或将遥测发送间隔设置为 30 分钟。         |
 | 孪生报告属性   | 获取报告的设备状态。 例如，设备报告 LED 现在正在闪烁。                                    |
@@ -42,12 +44,11 @@ ms.lasthandoff: 05/26/2017
 
 有关这些选项的差异和使用指导的更详细说明，请参阅[设备到云通信指南](./iot-hub-devguide-d2c-guidance.md)和[云到设备通信指南](./iot-hub-devguide-c2d-guidance.md)。
 
-> [!NOTE]
-> 设备孪生是存储设备状态信息（元数据、配置和条件）的 JSON 文档。 IoT 中心为连接到它的每台设备保留一个设备孪生。 有关设备孪生的详细信息，请参阅[设备孪生入门](./iot-hub-node-node-twin-getstarted.md)。
+设备孪生是存储设备状态信息（元数据、配置和条件）的 JSON 文档。 IoT 中心为连接到它的每台设备保留一个设备孪生。 有关设备孪生的详细信息，请参阅[设备孪生入门](iot-hub-node-node-twin-getstarted.md)。
 
 ## <a name="what-you-learn"></a>学习内容
 
-将通过结合使用 iothub-explorer 和各种管理选项来进行了解。
+学习在开发计算机上结合使用 iothub-explorer 与各种管理选项。
 
 ## <a name="what-you-do"></a>准备工作
 
@@ -59,7 +60,8 @@ ms.lasthandoff: 05/26/2017
   - 一个有效的 Azure 订阅。
   - 已在订阅中创建一个 Azure IoT 中心。
   - 一个可向 Azure IoT 中心发送消息的客户端应用程序。
-- iothub-explorer。 （[安装 iothub-explorer](https://github.com/azure/iothub-explorer)）
+- 在学习本教程期间，确保设备与客户端应用程序均处于运行状态。
+- iothub-explorer, 在开发计算机上[安装 iothub-explorer](https://github.com/azure/iothub-explorer)。
 
 ## <a name="connect-to-your-iot-hub"></a>连接到 IoT 中心
 
@@ -83,12 +85,12 @@ iothub-explorer device-method <your device Id> start
 iothub-explorer device-method <your device Id> stop
 ```
 
-## <a name="use-iothub-explorer-with-twins-desired-properties"></a>结合使用 iothub-explorer 和孪生所需的属性
+## <a name="use-iothub-explorer-with-twins-desired-properties"></a>结合使用 iothub-explorer 和孪生的所需属性
 
 通过运行以下命令将所需属性间隔设置为 3000：
 
 ```bash
-iothub-explorer update-twin mydevice {\"properties\":{\"desired\":{\"interval\":3000}}}
+iothub-explorer update-twin <your device id> {\"properties\":{\"desired\":{\"interval\":3000}}}
 ```
 
 可通过设备读取此属性。
@@ -114,7 +116,8 @@ iothub-explorer get-twin <your device id>
 通过运行以下命令向设备添加字段角色 = 温度和湿度：
 
 ```bash
-iothub-explorer update-twin <your device id> {\"tags\":{\"role\":\"temperature&humidity\"}}
+iothub-explorer update-twin <your device id> "{\"tags\":{\"role\":\"temperature&humidity\"}}"
+
 ```
 
 ## <a name="use-iothub-explorer-with-cloud-to-device-messages"></a>使用 iothub-explorer 发送云到设备的消息
@@ -146,3 +149,5 @@ iothub-explorer query-twin "SELECT * FROM devices WHERE tags.role != 'temperatur
 现已了解如何结合使用 iothub-explorer 和各种管理选项。
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+
+<!--Update_Description: update wording-->

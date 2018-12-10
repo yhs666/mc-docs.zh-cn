@@ -1,46 +1,48 @@
 ---
-title: "Azure CLI 脚本示例 - 管理批处理中的池 | Microsoft Docs"
-description: "Azure CLI 脚本示例 - 管理批处理中的池"
+title: Azure CLI 脚本示例 - 管理批处理中的池 | Microsoft Docs
+description: Azure CLI 脚本示例 - 管理批处理中的池
 services: batch
-documentationcenter: 
-author: annatisch
-manager: daryls
+documentationcenter: ''
+author: alexchen2016
+manager: digimobile
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/20/2017
+origin.date: 05/02/2017
+ms.date: 07/04/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 7eabcfa49cb707fb7b0f6da438ef0ef44e1433bb
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: 853ec4f49e6099eaaed1760181bb19f437f8000e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646554"
 ---
+# <a name="managing-azure-batch-pools-with-azure-cli"></a>使用 Azure CLI 管理 Azure Batch 池
 
-# <a name="managing-azure-batch-pools-with-azure-cli"></a>使用 Azure CLI 管理 Azure 批处理池
-
-这些脚本演示了 Azure CLI 中一些可用于在 Azure 批处理服务中创建和管理计算节点池的工具。
-
-运行这些脚本的假设条件是，已设置批处理帐户，并且已配置应用程序。 有关详细信息，请参阅涵盖上述每个主题的[示例脚本](../batch-cli-samples.md)。
+这些脚本演示了 Azure CLI 中一些可用于在 Azure Batch 服务中创建和管理计算节点池的工具。
 
 > [!NOTE]
 > 本示例中的命令创建 Azure 虚拟机。 运行中的 VM 会在帐户中产生费用。 若要尽可能减少这些费用，请在运行完本示例后删除 VM。 请参阅[清理池](#clean-up-pools)。
 
-如果需要，请使用 [Azure CLI 安装指南](https://docs.microsoft.com/cli/azure/install-azure-cli)中的说明安装 Azure CLI，然后运行 `az login` 登录到 Azure。
+可通过两种方式配置批处理池：使用云服务配置（仅适用于 Windows），或使用虚拟机配置（适用于 Windows 和 Linux）。 以下示例脚本显示如何使用这两个配置创建池。
 
-可通过两种方式配置批处理池：使用云服务配置（仅适用于 Windows），或使用虚拟机配置（适用于 Windows 和 Linux）。
+## <a name="prerequisites"></a>先决条件
+
+- 按照 [Azure CLI 安装指南](/cli/install-azure-cli)中提供的说明安装 Azure CLI（如果尚未这样做）。
+- 创建 Batch 帐户（如果还没有帐户）。 有关创建帐户的示例脚本，请参阅[使用 Azure CLI 创建 Batch 帐户](/batch/scripts/batch-cli-sample-create-account/)。
+- 将应用程序配置为从启动任务运行（如果尚未这样做）。 有关用于创建应用程序并将应用程序包上传到 Azure 的示例脚本，请参阅[使用 Azure CLI 将应用程序添加到 Azure Batch](/batch/scripts/batch-cli-sample-add-application/)。
 
 ## <a name="pool-with-cloud-service-configuration-sample-script"></a>使用云服务配置来配置池的示例脚本
 ```azurecli
 #!/bin/bash
 
 # Authenticate Batch account CLI session.
-az batch account login -g myresource group -n mybatchaccount
+az batch account login -g myresourcegroup -n mybatchaccount
 
 # We want to add an application package reference to the pool, so first
 # we'll list the available applications.
@@ -80,7 +82,7 @@ az batch pool autoscale disable --pool-id mypool-windows
 #!/bin/bash
 
 # Authenticate Batch account CLI session.
-az batch account login -g myresource group -n mybatchaccount
+az batch account login -g myresourcegroup -n mybatchaccount
 
 # Retrieve a list of available images and node agent SKUs.
 az batch pool node-agent-skus list
@@ -130,27 +132,26 @@ az batch pool delete --pool-id mypool-linux
 此脚本使用以下命令创建和操作批处理池。
 表中的每条命令链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
-| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login) | 针对批处理帐户进行身份验证。  |
-| [az batch application summary list](https://docs.microsoft.com/cli/azure/batch/application/summary#list) | 列出批处理帐户中可用的应用程序。  |
-| [az batch pool create](https://docs.microsoft.com/cli/azure/batch/pool#create) | 创建 VM 池。  |
-| [az batch pool set](https://docs.microsoft.com/cli/azure/batch/pool#set) | 更新池的属性。  |
-| [az batch pool node-agent-skus list](https://docs.microsoft.com/cli/azure/batch/pool/node-agent-skus#list) | 列出可用节点代理 SKU 和映像信息。  |
-| [az batch pool resize](https://docs.microsoft.com/cli/azure/batch/pool#resize) | 调整指定池中正在运行的 VM 数目。  |
-| [az batch pool show](https://docs.microsoft.com/cli/azure/batch/pool#show) | 显示池的属性。  |
-| [az batch pool delete](https://docs.microsoft.com/cli/azure/batch/pool#delete) | 删除指定的池。  |
-| [az batch pool autoscale enable](https://docs.microsoft.com/cli/azure/batch/pool/autoscale#enable) | 对池启用自动缩放并应用公式。  |
-| [az batch pool autoscale disable](https://docs.microsoft.com/cli/azure/batch/pool/autoscale#disable) | 对池禁用自动缩放。  |
-| [az batch node list](https://docs.microsoft.com/cli/azure/batch/node#list) | 列出指定池中的所有计算节点。  |
-| [az batch node reboot](https://docs.microsoft.com/cli/azure/batch/node#reboot) | 重新启动指定的计算节点。  |
-| [az batch node delete](https://docs.microsoft.com/cli/azure/batch/node#delete) | 从指定的池中删除列出的节点。  |
+| [az batch account login](/cli/batch/account#login) | 针对批处理帐户进行身份验证。  |
+| [az batch application summary list](/cli/batch/application/summary#list) | 列出批处理帐户中可用的应用程序。  |
+| [az batch pool create](/cli/batch/pool#create) | 创建 VM 池。  |
+| [az batch pool set](/cli/batch/pool#set) | 更新池的属性。  |
+| [az batch pool node-agent-skus list](/cli/batch/pool/node-agent-skus#list) | 列出可用节点代理 SKU 和映像信息。  |
+| [az batch pool resize](/cli/batch/pool#resize) | 调整指定池中正在运行的 VM 数目。  |
+| [az batch pool show](/cli/batch/pool#show) | 显示池的属性。  |
+| [az batch pool delete](/cli/batch/pool#delete) | 删除指定的池。  |
+| [az batch pool autoscale enable](/cli/batch/pool/autoscale#enable) | 对池启用自动缩放并应用公式。  |
+| [az batch pool autoscale disable](/cli/batch/pool/autoscale#disable) | 对池禁用自动缩放。  |
+| [az batch node list](/cli/batch/node#list) | 列出指定池中的所有计算节点。  |
+| [az batch node reboot](/cli/batch/node#reboot) | 重新启动指定的计算节点。  |
+| [az batch node delete](/cli/batch/node#delete) | 从指定的池中删除列出的节点。  |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](/cli/overview)。
 
-可以在 [Azure 批处理 CLI 文档](../batch-cli-samples.md)中找到其他批处理 CLI 脚本示例。
-
+可以在 [Azure Batch CLI 文档](../batch-cli-samples.md)中找到其他批处理 CLI 脚本示例。
 
 

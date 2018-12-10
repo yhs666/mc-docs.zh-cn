@@ -1,86 +1,88 @@
 ---
-title: 如何使用 Azure 门户在经典模式下设置静态专用 IP | Azure
-description: 了解静态专用 IP 以及如何使用 Azure 门户在经典模式下管理它们
+title: 为 VM 配置专用 IP 地址（经典）- Azure 门户 | Azure
+description: 了解如何使用 Azure 门户为虚拟机（经典）配置专用 IP 地址。
 services: virtual-network
-documentationCenter: na
-authors: telmosampaio
-manager: carmonm
+documentationcenter: na
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: b8ef8367-58b2-42df-9f26-3269980950b8
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/04/2016
-wacn.date: 12/26/2016
-ms.author: v-dazen
+origin.date: 02/04/2016
+ms.date: 06/11/2018
+ms.author: v-yeche
+ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 48134f94a31512fe1e353c3daca7e46cf6d4b656
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664245"
 ---
-
-# 如何在 Azure 门户中设置静态专用 IP 地址（经典）
+# <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-portal"></a>使用 Azure 门户为虚拟机（经典）配置专用 IP 地址
 
 [!INCLUDE [virtual-networks-static-private-ip-selectors-classic-include](../../includes/virtual-networks-static-private-ip-selectors-classic-include.md)]
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
->[!IMPORTANT]
->在使用 Azure 资源之前，请务必了解 Azure 当前使用两种部署模型：Azure Resource Manager 部署模型和经典部署模型。在使用任何 Azure 资源之前，请确保你了解[部署模型和工具](../azure-classic-rm.md)。可以通过单击本文顶部的选项卡来查看不同工具的文档。本文介绍经典部署模型。还可[在 Resource Manager 部署模型中管理静态专用 IP 地址](./virtual-networks-static-private-ip-arm-pportal.md)。
+[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
+
+本文介绍经典部署模型。 还可以 [管理 Resource Manager 部署模型中的静态专用 IP 地址](virtual-networks-static-private-ip-arm-pportal.md)。
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-下面的示例步骤需要已创建简单的环境。若要运行本文档中所示步骤，首先需要生成[创建 Vnet](./virtual-networks-create-vnet-classic-pportal.md) 中所述的测试环境。
+后面的示例步骤需要一个已创建的简单环境。 如果想要运行本文档中所显示的步骤，首先需要生成 [创建 Vnet](virtual-networks-create-vnet-classic-pportal.md)中所述的测试环境。
 
-## 如何在创建 VM 时指定静态专用 IP 地址
-若要在名为 *TestVNet* 的 VNet 的 *FrontEnd* 子网中使用静态专用 IP *192.168.1.101* 创建名为 *DNS01* 的 VM，请按照以下步骤进行操作：
+## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>如何在创建 VM 时指定静态专用 IP 地址
+若要在名为 *TestVNet* 的 VNet 的 *FrontEnd* 子网中使用静态专用 IP *192.168.1.101* 创建名为 *DNS01* 的 VM，请完成以下步骤：
 
-1. 从浏览器导航到 http://portal.azure.cn ，根据需要使用 Azure 帐户登录。
-2. 单击“新建”>“计算”>“Windows Server 2012 R2 数据中心”（注意“选择部署模型”列表已显示“经典”），然后单击“创建”。
+1. 在浏览器中导航到 https://portal.azure.cn，并在必要时使用 Azure 帐户登录。
+2. 选择“新建” > “计算” > “Windows Server 2012 R2 Datacenter”（注意“选择部署模型”列表已显示“经典”），然后选择“创建”。
 
     ![在 Azure 门户中创建 VM](./media/virtual-networks-static-ip-classic-pportal/figure01.png)
-
-3. 在“创建 VM”边栏选项卡中，输入要创建的 VM 的名称（在本例中即 *DNS01*）、本地管理员帐户和密码。
+3. 在“创建 VM”下，输入要创建的 VM 的名称（在此方案中为 *DNS01*）、本地管理员帐户和密码。
 
     ![在 Azure 门户中创建 VM](./media/virtual-networks-static-ip-classic-pportal/figure02.png)
-
-4. 单击“可选配置”>“网络”>“虚拟网络”，然后单击“TestVNet”。如果 **TestVNet** 不可用，请确保你使用的位置为“中国北部”，并已创建本文开头所述的测试环境。
+4. 选择“可选配置” > “网络” > “虚拟网络”，然后选择“TestVNet”。 如果 **TestVNet** 不可用，请确保你使用的位置为“华北”，并已创建本文开头所述的测试环境。
 
     ![在 Azure 门户中创建 VM](./media/virtual-networks-static-ip-classic-pportal/figure03.png)
+5. 在“网络”下，确保当前选定的子网为“FrontEnd”，选择“IP 地址”，在“IP 地址分配”下选择“静态”，并输入 *192.168.1.101* 作为“IP 地址”，如下所示。
 
-5. 在“网络”边栏选项卡中，确保当前选定的子网为 FrontEnd，然后单击“IP 地址”，在“IP 地址分配”下单击“静态”，然后输入 192.168.1.101 作为“IP 地址”，如下所示。
-
-    ![在 Azure 门户中创建 VM](./media/virtual-networks-static-ip-classic-pportal/figure04.png)
-
-6. 依次在“IP 地址”、“网络”和“可选配置”边栏选项卡中单击“确定”。
-7. 在“创建 VM”边栏选项卡中，单击“创建”。注意仪表板中显示以下磁贴。
+    ![在 Azure 门户中创建 VM](./media/virtual-networks-static-ip-classic-pportal/figure04.png)    
+6. 在“IP 地址”下选择“确定”，在“网络”下选择“确定”，然后在“可选配置”下选择“确定”。
+7. 在“创建 VM”下，选择“创建”。 注意，以下磁贴会显示在仪表板中：
 
     ![在 Azure 门户中创建 VM](./media/virtual-networks-static-ip-classic-pportal/figure05.png)
 
-## 如何检索 VM 的静态专用 IP 地址信息
-
+## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>如何检索 VM 的静态专用 IP 地址信息
 若要查看使用以上步骤创建的 VM 的静态专用 IP 地址信息，请执行以下步骤。
 
-1. 在 Azure 门户中，单击“浏览全部”>“虚拟机(经典)”>“DNS01”>“所有设置”>“IP 地址”，注意如下所示的 IP 地址分配和 IP 地址。
+1. 在 Azure 门户中，选择“浏览全部” > “虚拟机（经典）” > “DNS01” > “所有设置” > “IP 地址”，并请注意如下所示的 IP 地址分配和 IP 地址。
 
     ![在 Azure 门户中创建 VM](./media/virtual-networks-static-ip-classic-pportal/figure06.png)
 
-## 如何从 VM 中删除静态专用 IP 地址
-若要从上面创建的 VM 中删除静态专用 IP 地址，请按照以下步骤操作。
+## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>如何从 VM 中删除静态专用 IP 地址
 
-1. 从上示“IP 地址”边栏选项卡中“IP 地址分配”右侧，依次单击“动态”、“保存”和“是”。
+在“IP 地址”下，在“IP 地址分配”右侧选择“动态”，选择“保存”，然后选择“是”，如下图中所示：
 
-    ![在 Azure 门户中创建 VM](./media/virtual-networks-static-ip-classic-pportal/figure07.png)
+    ![Create VM in Azure portal](./media/virtual-networks-static-ip-classic-pportal/figure07.png)
 
-## 如何将静态专用 IP 地址添加到现有 VM
-若要将静态专用 IP 地址添加到使用上面步骤创建的 VM，请按照以下步骤操作：
+## <a name="how-to-add-a-static-private-ip-address-to-an-existing-vm"></a>如何将静态专用 IP 地址添加到现有 VM
 
-1. 从上面所示的“IP 地址”边栏选项卡中“IP 地址分配”右侧，单击“静态”。
-2. 键入 *192.168.1.101* 作为“IP 地址”，然后单击“保存”，再单击“是”。
+1. 在前面显示的“IP 地址”下，在“IP 地址分配”右侧选择“静态”。
+2. 对于“IP 地址”，键入 *192.168.1.101*，选择“保存”，然后选择“是”。
 
-## 后续步骤
+## <a name="set-ip-addresses-within-the-operating-system"></a>在操作系统中设置 IP 地址
 
-- 了解[保留公共 IP](./virtual-networks-reserved-public-ip.md) 地址。
-- 了解[实例层级公共 IP (ILPIP)](./virtual-networks-instance-level-public-ip.md) 地址。
-- 查阅[保留 IP REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn722420.aspx)。
+我们建议，除非有必要，否则不要以静态方式在 VM 的操作系统中分配已分配给 Azure 虚拟机的专用 IP。 如果确实需要在操作系统中手动设置该专用 IP 地址，请确保它是分配给 Azure VM 的同一专用 IP 地址，否则可能会丢失与虚拟机的连接。 切勿在虚拟机的操作系统中手动分配已分配给 Azure 虚拟机的公共 IP 地址。
 
-<!---HONumber=Mooncake_Quality_Review_1215_2016-->
+## <a name="next-steps"></a>后续步骤
+* 了解[保留公共 IP](virtual-networks-reserved-public-ip.md) 地址。
+* 了解[实例层级公共 IP (ILPIP) 地址](virtual-networks-instance-level-public-ip.md)。
+* 查阅[保留 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)。
+<!--Update_Description: wording update, update reference link-->

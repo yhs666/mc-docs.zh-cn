@@ -1,54 +1,58 @@
 ---
-title: 在 Java 中创建第一个可靠的 Azure 微服务 | Azure
+title: 在 Java 中创建第一个 Azure Service Fabric 可靠服务 | Azure
 description: 介绍如何创建包含无状态服务和有状态服务的 Azure Service Fabric 应用程序。
 services: service-fabric
-documentationcenter: .net
-author: vturecek
-manager: timlt
+documentationcenter: java
+author: rockboyfor
+manager: digimobile
 editor: ''
-
 ms.assetid: 7831886f-7ec4-4aef-95c5-b2469a5b7b5d
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
-wacn.date: 03/03/2017
-ms.author: v-johch
+origin.date: 11/02/2017
+ms.date: 10/15/2018
+ms.author: v-yeche
+ms.openlocfilehash: d7e2304d4a32ec1c7ab3d3d0dad61b979e0fafa8
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659630"
 ---
-
-# Reliable Services 入门
-
+# <a name="get-started-with-reliable-services"></a>Reliable Services 入门
 > [!div class="op_single_selector"]
->- [Windows 上的 C#](./service-fabric-reliable-services-quick-start.md)
->- [Linux 上的 Java](./service-fabric-reliable-services-quick-start-java.md)
+> * [Windows 上的 C#](service-fabric-reliable-services-quick-start.md)
+> * [Linux 上的 Java](service-fabric-reliable-services-quick-start-java.md)
+>
+>
 
-本文介绍 Azure Service Fabric Reliable Services 的基础知识，并演示如何创建和部署以 Java 编写的简单 Reliable Service 应用程序。此微软虚拟学院视频还说明如何创建无状态可靠服务：
-<center><a target="_blank" href="https://mva.microsoft.com/en-us/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965"> <img src="./media/service-fabric-reliable-services-quick-start-java/ReliableServicesJavaVid.png" WIDTH="360" HEIGHT="244"> </a></center>
+本文介绍 Azure Service Fabric Reliable Services 的基础知识，并演示如何创建和部署以 Java 编写的简单 Reliable Service 应用程序。
 
-## 安装和设置
-在开始之前，请确保已在计算机上设置 Service Fabric 开发环境。如果需要设置环境，请转到[在 Mac 上开始使用](./service-fabric-get-started-mac.md)或[在 Linux 上开始使用](./service-fabric-get-started-linux.md)。
+<!-- Not Available  This Microsoft Virtual Academy -->
 
-## 基本概念
+## <a name="installation-and-setup"></a>安装和设置
+在开始之前，请确保已在计算机上设置 Service Fabric 开发环境。
+如果需要设置环境，请转到[在 Mac 上开始使用](service-fabric-get-started-mac.md)或[在 Linux 上开始使用](service-fabric-get-started-linux.md)。
+
+## <a name="basic-concepts"></a>基本概念
 了解几个基本概念，即可开始使用 Reliable Services：
 
- - **服务类型**：这是服务实现。它由你编写的可扩展 `StatelessService` 的类、其中使用的任何其他代码或依赖项以及名称和版本号定义。
+* **服务类型**：这是服务实现。 它由编写的可扩展 `StatelessService` 的类、其中使用的任何其他代码或依赖项以及名称和版本号定义。
+* **命名服务实例**：若要运行服务，需要创建服务类型的命名实例，就像创建类类型的对象实例一样。 事实上，服务实例是编写的服务类的对象实例化。
+* **服务宿主**：创建的命名服务实例需在宿主中运行。 服务宿主是可以运行服务实例的进程。
+* **服务注册**：通过注册可将所有对象融合在一起。 只有在服务宿主中将服务类型注册 Service Fabric 运行时，Service Fabric 才能创建该类型的可运行实例。  
 
- - **命名服务实例**：若要运行服务，需要创建服务类型的命名实例，就像创建类类型的对象实例一样。事实上，服务实例是编写的服务类的对象实例化。
-
- - **服务宿主**：创建的命名服务实例需在宿主中运行。服务宿主是可以运行服务实例的进程。
-
- - **服务注册**：通过注册可将所有对象融合在一起。只有在服务宿主中将服务类型注册 Service Fabric 运行时，Service Fabric 才能创建该类型的可运行实例。
-
-## 创建无状态服务
-首先创建 Service Fabric 应用程序。适用于 Linux 的 Service Fabric SDK 包括一个 Yeoman 生成器，它为包含无状态服务的 Service Fabric 应用程序提供基架。首先，请运行以下 Yeoman 命令：
+## <a name="create-a-stateless-service"></a>创建无状态服务
+首先创建 Service Fabric 应用程序。 适用于 Linux 的 Service Fabric SDK 包括一个 Yeoman 生成器，它为包含无状态服务的 Service Fabric 应用程序提供基架。 首先，请运行以下 Yeoman 命令：
 
 ```bash
 $ yo azuresfjava
 ```
 
-按照说明创建**可靠无状态服务**。本教程将应用程序命名为“HelloWorldApplication”，将服务命名为“HelloWorld”。结果包含 `HelloWorldApplication` 和 `HelloWorld` 的目录。
+按照说明创建 **可靠无状态服务**。 本教程将应用程序命名为“HelloWorldApplication”，将服务命名为“HelloWorld”。 结果包含 `HelloWorldApplication` 和 `HelloWorld` 的目录。
 
 ```bash
 HelloWorldApplication/
@@ -74,69 +78,8 @@ HelloWorldApplication/
 ├── settings.gradle
 └── uninstall.sh
 ```
-
-## 实现服务
-
-打开 **HelloWorldApplication/HelloWorld/src/statelessservice/HelloWorldService.java**。此类定义服务类型，可以运行任何代码。服务 API 为你的代码提供两个入口点：
-
-* 名为 `runAsync()` 的开放式入口点方法，可在其中开始执行任何工作负荷，包括长时间运行的计算工作负荷。
-
-    @Override
-    protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
-        ...
-    }
-
-* 一个通信入口点，可在其中插入选择的通信堆栈。可在其中开始接收来自用户和其他服务的请求。
-
-    @Override
-    protected List<ServiceInstanceListener> createServiceInstanceListeners() {
-        ...
-    }
-
-在本教程中，我们重点介绍 `runAsync()` 入口点方法。可在其中立即开始运行代码。
-
-### RunAsync
-当服务实例已放置并且可以执行时，平台将调用此方法。对于无状态服务，这就意味着打开服务实例。需要关闭服务实例时，将提供取消标记进行协调。在 Service Fabric 中，服务的整个生存期内可能多次出现服务实例的这一打开-关闭循环。发生这种情况的原因多种多样，包括：
-
-- 系统可能会移动服务实例以实现资源平衡。
-- 代码中发生错误。
-- 应用程序或系统升级。
-- 基础硬件遇到中断。
-
-Service Fabric 将管理此业务流程，以便保持服务的高度可用和适当均衡。
-
-`runAsync()` 不应以同步方式阻止。RunAsync 实现应返回 CompletableFuture，以允许运行时继续执行。如果工作负荷需要实现应在 CompletableFuture 内部完成的长时间运行任务。
-
-#### 取消
-取消工作负荷是一项协同操作，由提供的取消标记进行协调。系统会等待任务结束（成功完成、取消或出现故障），然后再执行下一步操作。当系统请求取消时，请务必接受取消标记，完成所有任务，然后尽快退出 `runAsync()`。以下示例演示如何处理取消事件：
-
-```java
-    @Override
-    protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
-
-        // TODO: Replace the following sample code with your own logic
-        // or remove this runAsync override if it's not needed in your service.
-
-        CompletableFuture.runAsync(() -> {
-          long iterations = 0;
-          while(true)
-          {
-            cancellationToken.throwIfCancellationRequested();
-            logger.log(Level.INFO, "Working-{0}", ++iterations);
-
-            try
-            {
-              Thread.sleep(1000);
-            }
-            catch (IOException ex) {}
-          }
-        });
-    }
-```
-
-### 服务注册
-
-必须将服务类型注册到 Service Fabric 运行时。服务类型在 `ServiceManifest.xml` 中以及实现 `StatelessService` 的服务类中定义。服务注册在进程主入口点中执行。在本示例中，进程主入口点为 `HelloWorldServiceHost.java`：
+### <a name="service-registration"></a>服务注册
+必须将服务类型注册到 Service Fabric 运行时。 服务类型在 `ServiceManifest.xml` 中以及实现 `StatelessService` 的服务类中定义。 服务注册在进程主入口点中执行。 在本示例中，进程主入口点为 `HelloWorldServiceHost.java`：
 
 ```java
 public static void main(String[] args) throws Exception {
@@ -144,7 +87,7 @@ public static void main(String[] args) throws Exception {
         ServiceRuntime.registerStatelessServiceAsync("HelloWorldType", (context) -> new HelloWorldService(), Duration.ofSeconds(10));
         logger.log(Level.INFO, "Registered stateless service type HelloWorldType.");
         Thread.sleep(Long.MAX_VALUE);
-    } 
+    }
     catch (Exception ex) {
         logger.log(Level.SEVERE, "Exception in registration:", ex);
         throw ex;
@@ -152,18 +95,184 @@ public static void main(String[] args) throws Exception {
 }
 ```
 
-## 运行应用程序
-Yeoman 基架包含用于构建应用程序的 gradle 脚本，以及用于部署和取消部署应用程序的 bash 脚本。若要运行应用程序，请先使用 gradle 构建应用程序：
+## <a name="implement-the-service"></a>实现服务
+
+打开 **HelloWorldApplication/HelloWorld/src/statelessservice/HelloWorldService.java**。 此类定义服务类型，可以运行任何代码。 服务 API 为代码提供两个入口点：
+
+* 名为 `runAsync()`的开放式入口点方法，可在其中开始执行任何工作负荷，包括长时间运行的计算工作负荷。
+
+```java
+@Override
+protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
+    ...
+}
+```
+
+* 一个通信入口点，可在其中插入选择的通信堆栈。 这就是可以开始接收来自用户和其他服务请求的位置。
+
+```java
+@Override
+protected List<ServiceInstanceListener> createServiceInstanceListeners() {
+    ...
+}
+```
+
+本教程将重点放在 `runAsync()` 入口点方法上。 可在其中立即开始运行代码。
+
+### <a name="runasync"></a>RunAsync
+当服务实例已放置并且可以执行时，平台将调用此方法。 对于无状态服务，这表示打开服务实例的时间。 需要关闭服务实例时，将提供取消标记进行协调。 在 Service Fabric 中，服务的整个生存期内可能多次出现服务实例的这一打开-关闭循环。 发生这种情况的原因多种多样，包括：
+
+* 系统可能会移动服务实例以实现资源平衡。
+* 代码中发生错误。
+* 应用程序或系统升级。
+* 基础硬件遇到中断。
+
+Service Fabric 会管理此业务流程，以便保持服务的高度可用和适当均衡。
+
+`runAsync()` 不应以同步方式阻止。 RunAsync 实现应返回 CompletableFuture，以允许运行时继续执行。 如果工作负荷需要实现应在 CompletableFuture 内部完成的长时间运行任务。
+
+#### <a name="cancellation"></a>取消
+取消工作负荷是一项由所提供的取消标记协调的协同操作。 系统会等任务结束后（成功完成、取消或出现故障）再执行下一步操作。 当系统请求取消时，请务必接受取消标记，完成所有任务，并尽快退出 `runAsync()` 。 以下示例演示如何处理取消事件：
+
+```java
+@Override
+protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
+
+    // TODO: Replace the following sample code with your own logic
+    // or remove this runAsync override if it's not needed in your service.
+
+    return CompletableFuture.runAsync(() -> {
+        long iterations = 0;
+        while(true)
+        {
+        cancellationToken.throwIfCancellationRequested();
+        logger.log(Level.INFO, "Working-{0}", ++iterations);
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException ex){}
+        }
+    });
+}
+```
+
+在此无状态服务示例中，计数存储在本地变量中。 不过，由于这是无状态服务，因此，所存储的值仅在其所在服务实例的当前生命周期中存在。 当服务移动或重新启动时，值就会丢失。
+
+## <a name="create-a-stateful-service"></a>创建有状态服务
+Service Fabric 引入了一种新的有状态服务。 有状态服务能够可靠地在服务本身内部保持状态，并与使用它的代码共置。 Service Fabric 无需将状态保存到外部存储，便可实现状态的高可用性。
+
+要将计数器值从无状态转换为即使在服务移动或重新启动时仍高度可用并持久存在，你需要有状态服务。
+
+在 HelloWorld 应用程序所在的同一个目录中，可通过运行 `yo azuresfjava:AddService` 命令添加新服务。 选择“可靠的有状态服务”作为框架，并将服务命名为“HelloWorldStateful”。 
+
+应用程序现在应该有两个服务：无状态服务 HelloWorld 和有状态服务 HelloWorldStateful。
+
+有状态服务具有与无状态服务相同的入口点。 主要区别是是否有能够可靠地存储状态的状态提供程序。 Service Fabric 附带名为 Reliable Collections 的状态提供程序实现，可让你通过 Reliable State Manager 创建复制的数据结构。 有状态可靠服务默认使用此状态提供程序。
+
+打开 **HelloWorldStateful -> src** 中的 HelloWorldStateful.java，该文件包含以下 RunAsync 方法：
+
+```java
+@Override
+protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
+    Transaction tx = stateManager.createTransaction();
+    return this.stateManager.<String, Long>getOrAddReliableHashMapAsync("myHashMap").thenCompose((map) -> {
+        return map.computeAsync(tx, "counter", (k, v) -> {
+            if (v == null)
+                return 1L;
+            else
+                return ++v;
+            }, Duration.ofSeconds(4), cancellationToken)
+                .thenCompose((r) -> tx.commitAsync())
+                .whenComplete((r, e) -> {
+            try {
+                tx.close();
+            } catch (Exception e) {
+                logger.log(Level.SEVERE, e.getMessage());
+            }
+        });
+    });
+}
+```
+
+### <a name="runasync"></a>RunAsync
+`RunAsync()` 在有状态服务和无状态服务中的运行方式类似。 只不过在有状态服务中，平台将先代表用户执行额外的工作，再执行 `RunAsync()`。 这项工作可能包括确保可靠状态管理器和可靠集合随时可供使用。
+
+### <a name="reliable-collections-and-the-reliable-state-manager"></a>可靠集合与可靠状态管理器
+```java
+ReliableHashMap<String,Long> map = this.stateManager.<String, Long>getOrAddReliableHashMapAsync("myHashMap")
+```
+
+[ReliableHashMap](https://docs.azure.cn/java/api/microsoft.servicefabric.data.collections._reliable_hash_map) 是一种字典实现，可用于将状态可靠地存储在服务中。 利用 Service Fabric 和 Reliable HashMaps，可以将数据直接存储在服务中而无需外部持久性存储。 Reliable HashMaps 可让数据具备高可用性。 Service Fabric 通过创建和管理服务的多个 *副本* 来实现此目的。 它还提供一个抽象 API，消除了管理这些副本及其状态转换所存在的复杂性。
+
+Reliable Collections 可以存储任何 Java 类型（包括自定义类型），但需要注意以下几点：
+
+* Service Fabric 通过跨节点复制状态，使状态具备高可用性；而 Reliable HashMap 会将数据存储到每个副本上的本地磁盘中。 这意味着 Reliable HashMaps 中存储的所有内容都必须可序列化。 
+* 在 Reliable HashMaps 上提交事务时，将复制对象以实现高可用性。 存储在 Reliable HashMaps 中的对象保留在服务的本地内存中。 这意味着对对象进行本地引用。
+
+   切勿转变这些对象的本地实例而不在事务中的可靠集合上执行更新操作。 这是因为对对象的本地实例的更改不会自动复制。 必须将对象重新插回字典中，或在字典上使用其中一个*更新*方法。
+
+可靠状态管理器自动管理 Reliable HashMaps。 无论何时何地，都可以根据名称向可靠状态管理器请求服务中的某个可靠集合。 可靠状态管理器可确保能取回引用。 建议不要将可靠集合实例的引用保存到类成员变量或属性中。 请特别小心，确保在服务生命周期中始终将引用设置为某个实例。 可靠状态管理器会代为处理此工作，且已针对重复访问对其进行优化。
+
+### <a name="transactional-and-asynchronous-operations"></a>事务和异步操作
+```java
+return map.computeAsync(tx, "counter", (k, v) -> {
+    if (v == null)
+        return 1L;
+    else
+        return ++v;
+    }, Duration.ofSeconds(4), cancellationToken)
+        .thenCompose((r) -> tx.commitAsync())
+        .whenComplete((r, e) -> {
+    try {
+        tx.close();
+    } catch (Exception e) {
+        logger.log(Level.SEVERE, e.getMessage());
+    }
+});
+```
+
+Reliable HashMaps 上的操作是异步的。 这是因为可靠集合的写入操作执行 I/O 操作，以将数据复制并保存到磁盘。
+
+Reliable HashMap 操作是事务性的，因此可以跨多个 Reliable HashMaps 和操作保持状态一致。 例如，可以在单个事务中，从一个可靠字典中获取工作项、对其执行操作并将结果保存在另一个 Reliable HashMap 中。 事务被视为基本操作，它可以保证整个操作要么成功，要么回滚。 如果将项取消排队之后、保存结果之前发生错误，则会回滚整个事务，并将该项保留在队列中待处理。
+
+## <a name="build-the-application"></a>构建应用程序
+
+Yeoman 基架包含用于生成应用程序的 gradle 脚本，以及用于部署和删除应用程序的 bash 脚本。 若要运行应用程序，请先使用 gradle 构建应用程序：
 
 ```bash
 $ gradle
 ```
 
-这会生成可以使用 Service Fabric Azure CLI 部署的 Service Fabric 应用程序包。Install.sh 脚本包含用于部署应用程序包的 Azure CLI 命令。运行 install.sh 脚本进行部署：
+这会生成可以使用 Service Fabric CLI 部署的 Service Fabric 应用程序包。
 
-```bash
-$ ./install.sh
-```
+## <a name="deploy-the-application"></a>部署应用程序
 
-<!---HONumber=Mooncake_0227_2017-->
-<!--Update_Description: sample code update; add a MVA video-->
+生成应用程序后，可以将其部署到本地群集。
+
+1. 连接到本地 Service Fabric 群集。
+
+    ```bash
+    sfctl cluster select --endpoint http://localhost:19080
+    ```
+
+2. 运行模板中提供的安装脚本可将应用程序包复制到群集的映像存储区、注册应用程序类型和创建应用程序实例。
+
+    ```bash
+    ./install.sh
+    ```
+
+部署生成的应用程序时，其方式与部署任何其他 Service Fabric 应用程序相同。 如需详细的说明，请参阅相关文档，了解如何[使用 Service Fabric CLI 管理 Service Fabric 应用程序](service-fabric-application-lifecycle-sfctl.md)。
+
+这些命令的参数可以在应用程序包内的生成清单中找到。
+
+应用程序部署完以后，请打开浏览器并导航到 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)，其地址为 [http://localhost:19080/Explorer](http://localhost:19080/Explorer)。 然后，展开“应用程序”节点，注意现在有一个条目是用于应用程序类型，另一个条目用于该类型的第一个实例。
+
+> [!IMPORTANT]
+> 必须将证书配置为向 Service Fabric 运行时验证应用程序，才能将应用程序部署到 Azure 中的安全 Linux 群集。 这样做可允许 Reliable Services 服务与基础 Service Fabric 运行时 API 通信。 若要了解详细信息，请参阅[将 Reliable Services 应用程序配置为在 Linux 群集上运行](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters)。  
+>
+
+## <a name="next-steps"></a>后续步骤
+
+* [Service Fabric CLI 入门](service-fabric-cli.md)
+
+<!--Update_Description: update meta properties, wording update -->

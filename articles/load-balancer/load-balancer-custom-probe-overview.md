@@ -1,95 +1,199 @@
 ---
-title: 负载均衡器自定义探测和监视运行状况 | Azure
-description: 了解如何使用 Azure Load Balancer 的自定义探测来监视负载均衡器后面的实例
+title: 使用负载均衡器运行状况探测保护服务 | Microsoft Docs
+description: 了解如何使用运行状况探测来监视负载均衡器后的实例
 services: load-balancer
-documentationCenter: na
-authors: sdwheeler
-manager: carmonm
-editor: ''
-tags: azure-resource-manager
-
+documentationcenter: na
+author: WenJason
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
-wacn.date: 12/05/2016
-ms.author: v-yeche
+origin.date: 09/04/2018
+ms.date: 11/26/2018
+ms.author: v-jay
+ms.openlocfilehash: 8df729f768d41b8e2b6b0fab2dae1c4a756de710
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672608"
 ---
+# <a name="load-balancer-health-probes"></a>负载均衡器运行状况探测
 
-# 了解负载均衡器探测
+Azure 负载均衡器使用运行状况探测来确定要接收新流的后端池实例。 可以使用运行状况探测来检测后端实例上应用程序的故障。 还可以对运行状况探测生成自定义响应，并使用运行状况探测进行流控制和向负载均衡器发出信号，指明是继续向后端实例发送新流还是停止发送新流。 此方法可用于管理负载或计划内停机时间。 运行状况探测失败时，负载均衡器停止向各个不正常的实例发送新流。
 
-Azure Load Balancer 提供相应的功能让你使用探测来监视服务器实例的运行状况。当探测无法响应时，负载均衡器将会停止向状况不良的实例发送新连接。现有连接不受影响，新连接将发送到状况良好的实例。
+可用的运行状况探测类型以及运行状况探测的行为方式取决于所用的负载均衡器 SKU。 例如，新流和现有流的行为取决于流是 TCP 还是 UDP，以及使用的负载均衡器 SKU。
 
-云服务角色（辅助角色和 Web 角色）使用来宾代理探测监视。当在负载均衡器后面使用虚拟机时，必须配置 TCP 或 HTTP 自定义探测。
+| | 标准 SKU | 基本 SKU |
+| --- | --- | --- |
+| [探测类型](#types) | TCP、HTTP、HTTPS | TCP、HTTP |
+| [探测停止行为](#probedown) | 所有探测停止，所有 TCP 流继续。 | 所有探测停止，所有 TCP 流终止。 | 
 
-## 了解探测计数和超时
+> [!IMPORTANT]
+> 负载均衡器运行状况探测源自 IP 地址 168.63.129.16，要使探测将实例标记为运行，不得阻止这些探测。  有关详细信息，请查看[探测源 IP 地址](#probesource)。
+
+## <a name="types"></a>探测类型
+
+运行状况探测可以观测后端实例上的任何端口，包括提供实际服务的端口。 可为三种不同类型的运行状况探测配置运行状况探测协议：
+
+- [TCP 侦听器](#tcpprobe)
+- [HTTP 终结点](#httpprobe)
+- [HTTPS 终结点](#httpsprobe)
+
+可用的运行状况探测类型取决于所选的负载均衡器 SKU：
+
+|| TCP | HTTP | HTTPS |
+| --- | --- | --- | --- |
+| 标准 SKU |    &#9989; |   &#9989; |   &#9989; |
+| 基本 SKU |   &#9989; |   &#9989; | &#10060; |
+
+对于 UDP 负载均衡，应使用 TCP、HTTP 或 HTTPS 运行状况探测为后端实例生成自定义运行状况探测信号。
+
+
+不应通过接收运行状况探测的实例在 VNet 中的另一个实例上 NAT 或代理某个运行状况探测，因为这可能导致方案中出现连锁失败。
+
+如果想要测试运行状况探测失败或者将单个实例标记为关闭，可以使用安全组显式阻止该运行状况探测（目标或[源](#probesource)）。
+
+### <a name="tcpprobe"></a>TCP 探测
+
+TCP 探测通过使用定义的端口执行三方开放式 TCP 握手来初始化连接。  然后，执行四方封闭式 TCP 握手。
+
+最小探测间隔为 5 秒，不正常响应的最小数目为 2。  总持续时间不能超过 120 秒。
+
+如果出现以下情况，TCP 探测将会失败：
+* 实例上的 TCP 侦听器在超时期限内根本未做出响应。  根据失败的探测请求（配置为标记探测停止之前未获应答的请求）数目，已将探测标记为停止。
+* 探测从实例接收 TCP 重置。
+
+#### <a name="resource-manager-template"></a>Resource Manager 模板
+
+```json
+    {
+      "name": "tcp",
+      "properties": {
+        "protocol": "Tcp",
+        "port": 1234,
+        "intervalInSeconds": 5,
+        "numberOfProbes": 2
+      },
+```
+
+### <a name="httpprobe"></a> <a name="httpsprobe"></a> HTTP/HTTPS 探测
+
+> [!NOTE]
+> HTTPS 探测仅适用于[标准负载均衡器](load-balancer-standard-overview.md)。
+
+HTTP 和 HTTPS 探测建立 TCP 连接，并发出包含指定路径的 HTTP GET。 这两个探测都支持 HTTP GET 的相对路径。 与 HTTP 探测一样，HTTPS 探测中也添加了传输层安全性（TLS，前称为 SSL）包装器。 如果实例在超时期限内做出响应并返回 HTTP 状态 200，则将运行状况探测标记为运行。  默认情况下，这些运行状况探测每隔 15 秒尝试检查配置的运行状况探测端口。 最小探测间隔为 5 秒。 总持续时间不能超过 120 秒。 
+
+如果想要实现自己的逻辑以便从负载均衡器轮转中删除实例，则 HTTP/HTTPS 探测也可能很有用。 例如，如果实例的 CPU 利用率超过 90% 并返回非 200 HTTP 状态，则你可以决定删除该实例。 
+
+如果使用云服务，并且现有的 Web 角色使用 w3wp.exe，则你还可以实现自动网站监视。 网站代码中的错误会将非 200 状态返回给负载均衡器探测。  HTTP 探测替代默认的来宾代理探测。 
+
+如果出现以下情况，HTTP/HTTPS 探测将会失败：
+* 探测终结点返回非 200 的 HTTP 响应代码（例如，403、404 或 500）。 这会立即标记运行状况探测停止。 
+* 在 31 秒超时期限内，探测终结点根本未做出响应。 根据设置的超时值，在探测标记为未运行之前（也就是说，在发送 SuccessFailCount 探测之前），多个探测请求可能不会收到响应。
+* 探测终结点通过 TCP 重置关闭连接。
+
+#### <a name="resource-manager-templates"></a>Resource Manager 模板
+
+```json
+    {
+      "name": "http",
+      "properties": {
+        "protocol": "Http",
+        "port": 80,
+        "requestPath": "/",
+        "intervalInSeconds": 5,
+        "numberOfProbes": 2
+      },
+```
+
+```json
+    {
+      "name": "https",
+      "properties": {
+        "protocol": "Https",
+        "port": 443,
+        "requestPath": "/",
+        "intervalInSeconds": 5,
+        "numberOfProbes": 2
+      },
+```
+
+### <a name="guestagent"></a>来宾代理探测（仅限经典模式）
+
+云服务角色默认使用来宾代理进行探测监视。   应将此方案视为最后一个选项。  始终应该使用 TCP 或 HTTP 探测显式定义运行状况探测。 对于大多数应用程序方案而言，来宾代理探测的有效性不如显式定义的探测。  
+
+来宾代理探测是对 VM 中来宾代理执行的检查。 仅当实例处于“就绪”状态时，负载均衡器才侦听并响应“HTTP 200 正常”响应。 （其他状态包括“繁忙”、“正在回收”或“正在停止”。）
+
+有关详细信息，请参阅[配置运行状况探测的服务定义文件 (csdef)](https://msdn.microsoft.com/library/azure/ee758710.aspx) 或[开始为云服务创建公共负载均衡器](load-balancer-get-started-internet-classic-cloud.md#check-load-balancer-health-status-for-cloud-services)。
+
+如果来宾代理无法使用“HTTP 200 正常”响应，则负载均衡器会将实例标记为无响应。 然后停止向该实例发送流。 负载均衡器继续检查实例。 
+
+如果来宾代理使用 HTTP 200 做出响应，则负载均衡器会再次向该实例发送新流。
+
+使用 Web 角色时，网站代码通常在不受 Azure 结构或来宾代理监视的 w3wp.exe 中运行。 这系统不会向来宾代理报告 w3wp.exe 中的失败（例如，HTTP 500 响应）。 因此，负载均衡器不会将该实例退出轮转。
+
+## <a name="probehealth"></a>探测运行状况
+
+在以下情况下，会将 TCP、HTTP 和 HTTPS 运行状况探测视为正常，并将角色实例标记为正常：
+
+* VM 首次启动时，运行状况探测成功。
+* SuccessFailCount 的数字（如前所述）定义了将角色实例标记为状况良好所需的成功探测值。 如果已删除角色实例，成功且连续的探测数目必须大于或等于 SuccessFailCount 的值才能将角色实例标记为正在运行。
+
+> [!NOTE]
+> 如果角色实例的运行状况有波动，负载均衡器会等待更长时间，然后将角色实例恢复正常状态。 这段额外的等待时间可保护用户和基础结构，是在策略中有意指定的。
+
+## <a name="probe-count-and-timeout"></a>探测计数和超时
 
 探测行为取决于：
 
-* 允许实例标记为已开启的成功探测数目。
-* 导致实例标记为已关闭的失败探测数目。
+* 允许将实例标记为运行所要成功的探测次数。
+* 导致将实例标记为关闭的失败探测数目。
 
-在 SuccessFailCount 中设置的超时和频率值可确定是将实例判定为正在运行还是未运行。在 Azure 门户中，超时设置为频率值的两倍。
+在 SuccessFailCount 中设置的超时和频率值可确定是将实例判定为正在运行还是未运行。 在 Azure 门户中，超时设置为频率值的两倍。
 
-终结点（即负载均衡集）的所有负载均衡实例的探测配置必须相同。这意味着，对于同一托管服务中特定终结点组合的每个角色实例或虚拟机而言，不能使用不同的探测配置。例如，每个实例必须有相同的本地端口和超时。
+负载均衡规则包含单个定义了相应后端池的运行状况探测。
 
->[!IMPORTANT]
-> 负载均衡器探测使用 IP 地址 168.63.129.16。此公共 IP 地址有助于自带 IP Azure 虚拟网络方案中内部平台资源的通信。虚拟公共 IP 地址 168.63.129.16 用于所有区域，且不会更改。建议在所有本地防火墙策略中允许此 IP 地址。不应将它视为安全风险，因为只有内部 Azure 平台可以从该地址获取消息源。如果不这样做，各种不同的方案中将出现意外的行为，例如配置相同的 IP 地址范围 168.63.129.16 和出现重复的 IP 地址。
+## <a name="probedown"></a>探测停止行为
 
-## 了解探测类型
+### <a name="tcp-connections"></a>TCP 连接
 
-### 来宾代理探测
+正常且包含能够接受新流的来宾 OS 和应用程序的后端实例会成功建立新的 TCP 连接。
 
-此探测仅适用于 Azure 云服务。仅当实例处于就绪状态（即，不处于其他状态，例如“繁忙”、“正在回收”或“正在停止”）时，负载均衡器才利用虚拟机内部的来宾代理，然后侦听并以“HTTP 200 正常”作为响应。
+如果后端实例的运行状况探测失败，与此后端实例建立的 TCP 连接会继续。
 
-有关详细信息，请参阅 [Configuring the service definition file (csdef) for health probes](https://msdn.microsoft.com/library/zh-cn/Ee758710.aspx)（配置运行状况探测的服务定义文件 (csdef)）或 [Get started creating an Internet-facing load balancer for cloud services](./load-balancer-get-started-internet-classic-cloud.md#check-load-balancer-health-status-for-cloud-services)（开始为云服务创建面向 Internet 的负载均衡器）。
+如果后端池中所有实例的所有探测都失败，则不会将任何新流发送到后端池。 标准负载均衡器将允许已建立的 TCP 流继续。  基本负载均衡器会终止发往后端池的所有现有 TCP 流。
+ 
+由于流始终在客户端与 VM 的来宾 OS 之间传送，所有探测均停止的池会导致前端不会对 TCP 连接打开尝试做出响应，因为没有任何正常的后端实例可以接收流。
 
-### 来宾代理探测将实例标记为状况不良的原因有哪些？
+### <a name="udp-datagrams"></a>UDP 数据报
 
-如果来宾代理无法使用“HTTP 200 正常”响应，则负载均衡器会将实例标记为无响应，并停止向该实例发送流量。负载均衡器将继续 ping 实例。如果来宾代理使用 HTTP 200 响应，则负载均衡器会再次向该实例发送流量。
+UDP 数据报将传送到正常的后端实例。
 
-使用 Web 角色时，网站代码通常在不受 Azure 结构或来宾代理监视的 w3wp.exe 中运行。这意味着，系统不会向来宾代理报告 w3wp.exe 中的失败（例如，HTTP 500 响应），并且负载均衡器不会将该实例退出轮转。
+UDP 是无连接的，并且系统不会跟踪 UDP 的流状态。 如果后端实例的任何运行状况探测失败，现有的 UDP 流可以转移到后端池中的另一个正常实例。
 
-### HTTP 自定义探测
+如果后端池中所有实例的所有探测都失败，则基本和标准负载均衡器的现有 UDP 流将会终止。
 
-自定义 HTTP 负载均衡器探测会取代默认来宾代理探测，这意味着，你可以创建自己的自定义逻辑来确定角色实例的运行状况。默认情况下，负载均衡器每 15 秒探测一次终结点。如果实例在超时期限（默认为 31 秒）内使用 HTTP 200 响应，则认为该实例在负载均衡器轮转阵容中。
+## <a name="probesource"></a>探测源 IP 地址
 
-如果想要实现自己的逻辑以便从负载均衡器轮转中删除实例，则这种方案可能很有用。例如，如果实例的 CPU 利用率超过 90% 并返回非 200 状态，则你可以决定删除该实例。如果拥有使用 w3wp.exe 的 Web 角色，则这也意味着可以自动监视网站，因为网站代码中的错误会将非 200 状态返回给负载均衡器探测。
+负载均衡器对其内部运行状况模型使用分布式探测服务。 可以对 VM 所在的每个主机进行编程，以根据客户的配置生成运行状况探测。 运行状况探测流量直接位于生成运行状况探测的基础结构组件和客户 VM 之间。 所有负载均衡器运行状况探测源自 IP 地址 168.63.129.16（源）。  将自己的 IP 地址放入 Azure 虚拟网络时，可以保证此运行状况探测源 IP 地址是唯一的，因为 Azure 会全局保留此地址。  此地址在所有区域中相同，并且不会更改。 不应将它视为安全风险，因为只有内部 Azure 平台可以从此 IP 地址获取数据包源。 
 
->[!NOTE]
-> HTTP 自定义探测仅支持相对路径和 HTTP 协议。不支持 HTTPS。
+要使负载均衡器的运行状况探测将实例标记为运行，**必须**在任何 Azure [安全组](../virtual-network/security-overview.md)和本地防火墙策略中允许此 IP 地址。
 
-### HTTP 自定义探测将实例标记为状况不良的原因有哪些？
+如果在防火墙策略中不允许此 IP 地址，运行状况探测将会失败，因为它无法访问实例。  而由于发生运行状况探测失败，负载均衡器会将实例标记为关闭。  这会导致负载均衡服务失败。 
 
-* HTTP 应用程序返回非 200 的 HTTP 响应代码（例如，403、404 或 500）。这是应用程序实例应立即被带离服务的肯定回答。
-* HTTP 服务器在超时期限之后完全无响应。根据设置的超时值，这可能表示在探测标记为未运行之前（也就是说，在发送 SuccessFailCount 探测之前），多个探测请求并未获得响应。
-* 服务器通过 TCP 重置关闭连接。
+此外，不应使用包含 168.63.129.16 的、使用 Azure 拥有的 IP 地址范围来配置 VNet。  此地址范围与运行状况探测的 IP 地址相冲突。
 
-### TCP 自定义探测
+如果 VM 上有多个接口，则需要确保能够响应收到请求的接口上的探测。  这可能需要基于每个接口，以唯一的方式对 VM 中的此地址执行源 NAT。
 
-TCP 探测通过使用定义的端口执行三方握手来初始化连接。
+## <a name="limitations"></a>限制
 
-### TCP 自定义探测将实例标记为状况不良的原因有哪些？
+-  HTTPS 探测不支持使用客户端证书的相互身份验证。
+-  SDK 和 PowerShell 目前不支持 HTTPS 探测。
 
-* TCP 服务器在超时期限之后完全无响应。当探测标记为未运行的时机取决于失败探测的数目，即，在将探测标记为未运行之前，这些请求未获得答复的次数。
-* 探测从角色实例接收 TCP 重置。
+## <a name="next-steps"></a>后续步骤
 
-有关配置 HTTP 运行状况探测或 TCP 探测的详细信息，请参阅 [Get started creating an Internet-facing load balancer in Resource Manager using PowerShell](./load-balancer-get-started-internet-arm-ps.md)（开始使用 PowerShell 在 Resource Manager 中创建面向 Internet 的负载均衡器）。
-
-## 将状况良好的实例添加回负载均衡器轮转
-
-在以下情况下，会将 TCP 和 HTTP 探测视为状况良好，并将角色实例标记为状况良好：
-
-* 负载均衡器在 VM 首次启动时获得有效探测。
-* SuccessFailCount 的数字（如前所述）定义了将角色实例标记为状况良好所需的成功探测值。如果已删除角色实例，成功且连续的探测数目必须大于或等于 SuccessFailCount 的值才能将角色实例标记为正在运行。
-
->[!NOTE]
-> 如果角色实例的运行状况有波动，负载均衡器会等待更长时间，然后将角色实例恢复正常状态。这是通过使用策略保护用户和基础结构来实现的。
-
-## 使用适用于负载均衡器的 Log Analytics
-
-可以使用[适用于负载均衡器的 Log Analytics](./load-balancer-monitor-log.md) 来检查探测运行状况和探测计数。可以配合 Power BI 或 Azure Operation Insights 使用日志记录，以提供有关负载均衡器运行状况的统计信息。
-
-<!---HONumber=Mooncake_1128_2016-->
+- 详细了解[标准负载均衡器](load-balancer-standard-overview.md)
+- [使用 PowerShell 在资源管理器中开始创建公共负载均衡器](load-balancer-get-started-internet-arm-ps.md)
+- [运行状况探测的 REST API](https://docs.microsoft.com/rest/api/load-balancer/loadbalancerprobes/)
