@@ -2,19 +2,19 @@
 title: 恢复服务保管库概述
 description: 恢复服务保管库和 Azure 备份保管库的概述和比较。
 services: backup
-author: markgalioto
-manager: carmonm
+author: lingliw
+manager: digimobile
 ms.service: backup
 ms.topic: conceptual
 origin.date: 08/10/2018
-ms.date: 10/19/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: d3e63ef882b2d2fca6499f1859a0c6f973f2e3aa
-ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
+ms.openlocfilehash: 0bb84579d326a01b545b63e066e50b9da947f4b7
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477763"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52674700"
 ---
 # <a name="recovery-services-vaults-overview"></a>恢复服务保管库概述
 
@@ -30,7 +30,7 @@ ms.locfileid: "49477763"
 
 - **有助于确保备份数据安全的增强功能**：使用恢复服务保管库时，Azure 备份提供用于保护云备份的安全功能。 这些安全功能确保可以保护备份并安全地恢复数据，即使生产服务器和备份服务器受到危害。 [了解详细信息](backup-azure-security-feature.md)
 
-- **针对混合 IT 环境进行集中监视**：使用恢复服务保管库时，可以通过中心门户监视 [Azure IaaS VM](backup-azure-manage-vms.md) 和[本地资产](backup-azure-manage-windows-server.md#manage-backup-items)。 [了解详细信息](http://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
+- **针对混合 IT 环境进行集中监视**：使用恢复服务保管库时，可以通过中心门户监视 [Azure IaaS VM](backup-azure-manage-vms.md) 和[本地资产](backup-azure-manage-windows-server.md#manage-backup-items)。 [了解详细信息](https://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
 
 - **基于角色的访问控制 (RBAC)**：RBAC 在 Azure 中提供精细的访问管理控制。 [Azure 提供各种内置角色](../role-based-access-control/built-in-roles.md)，而 Azure 备份具有三个[用于管理恢复点的内置角色](backup-rbac-rs-vault.md)。 恢复服务保管库与 RBAC 兼容，后者会限制对已定义用户角色集的备份和还原访问权限。 [了解详细信息](backup-rbac-rs-vault.md)
 
@@ -72,8 +72,6 @@ ms.locfileid: "49477763"
 
 ### <a name="secure-the-vault"></a>保护保管库
 - [保护恢复服务保管库中的云备份数据](backup-azure-security-feature.md)
-
-
 
 ## <a name="next-steps"></a>后续步骤
 使用以下文章了解相关操作：</br>
