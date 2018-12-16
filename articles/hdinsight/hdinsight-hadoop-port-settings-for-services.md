@@ -16,12 +16,12 @@ ms.workload: big-data
 origin.date: 04/20/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 5314f69da548257aa5a3be912afa56496badb5d7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 32ca5479711f6b0d7e681518441b62f447ae5ad8
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659042"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028716"
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>由 HDInsight 上的 Hadoop 服务使用的端口
 
@@ -47,7 +47,6 @@ HDInsight 群集中的所有节点都在 Azure 虚拟网络中，无法直接从
 | sshd |22 |SSH |将客户端连接到主头节点上的 sshd。 有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。 |
 | sshd |22 |SSH |将客户端连接到边缘节点上的 sshd。 有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。 |
 | sshd |23 |SSH |将客户端连接到辅助头节点上的 sshd。 有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。 |
-| Ambari |443 |HTTPS |Ambari Web UI。 请参阅[使用 Ambari Web UI 管理 HDInsight](hdinsight-hadoop-manage-ambari.md) |
 | Ambari |443 |HTTPS |Ambari REST API。 请参阅[使用 Ambari REST API 管理 HDInsight](hdinsight-hadoop-manage-ambari-rest-api.md) |
 | WebHCat |443 |HTTPS |HCatalog REST API。 请参阅[将 Hive 与 Curl 配合使用](hadoop/apache-hadoop-use-pig-curl.md)、[将 Pig 与 Curl 配合使用](hadoop/apache-hadoop-use-pig-curl.md)、[将 MapReduce 与 Curl 配合使用](hadoop/apache-hadoop-use-mapreduce-curl.md) |
 | HiveServer2 |443 |ODBC |使用 ODBC 连接到 Hive。 请参阅[使用 Microsoft ODBC 驱动程序将 Excel 连接到 HDInsight](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)。 |

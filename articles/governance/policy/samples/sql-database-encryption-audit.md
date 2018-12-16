@@ -7,15 +7,15 @@ manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 origin.date: 04/27/2018
-ms.date: 11/12/2018
+ms.date: 12/17/2018
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: 39dee439defe426dbc7d596cf1a3191c21c6e2a9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d51e30e052c1b323607a04097bdbb1e2953ec6c2
+ms.sourcegitcommit: 6e07735318eb5f6ea319b618863259088eab3722
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666887"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52981685"
 ---
 # <a name="audit-sql-database-encryption"></a>审核 SQL 数据库加密
 
@@ -27,33 +27,54 @@ ms.locfileid: "52666887"
 
 ```json
 {
-  "if": {
-    "allOf": [
-      {
-        "field": "type",
-        "equals": "Microsoft.Sql/servers/databases"
+   "properties": {
+      "displayName": "Audit transparent data encryption status",
+      "description": "Audit transparent data encryption status for SQL databases",
+      "mode": "Indexed",
+      "parameters": {
+         "effect": {
+            "type": "string",
+            "defaultValue": "AuditIfNotExists",
+            "allowedValues": [
+               "AuditIfNotExists",
+               "Disabled"
+            ],
+            "metadata": {
+               "displayName": "Effect",
+               "description": "Enable or disable the execution of the policy"
+            }
+         }
       },
-      {
-        "field": "name",
-        "notEquals": "master"
+      "policyRule": {
+         "if": {
+            "allOf": [
+               {
+                  "field": "type",
+                  "equals": "Microsoft.Sql/servers/databases"
+               },
+               {
+                  "field": "name",
+                  "notEquals": "master"
+               }
+            ]
+         },
+         "then": {
+            "effect": "[parameters('effect')]",
+            "details": {
+               "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
+               "name": "current",
+               "existenceCondition": {
+                  "allOf": [
+                     {
+                        "field": "Microsoft.Sql/transparentDataEncryption.status",
+                        "equals": "enabled"
+                     }
+                  ]
+               }
+            }
+         }
       }
-    ]
-  },
-  "then": {
-    "effect": "AuditIfNotExists",
-    "details": {
-      "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
-      "name": "current",
-      "existenceCondition": {
-        "allOf": [
-          {
-            "field": "Microsoft.Sql/transparentDataEncryption.status",
-            "equals": "enabled"
-          }
-        ]
-      }
-    }
-  }
+   }
 }
 ```
 

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 09/11/2018
-ms.date: 10/08/2018
+ms.date: 12/04/2018
 ms.author: v-junlch
-ms.openlocfilehash: 5c730b81d8642488c7974d32da4723eedf59c048
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1daf6401b6911299c21245c401a2659b49be9c7f
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654409"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028807"
 ---
-# <a name="how-to-select-permissions-for-a-given-api"></a>如何为给定 API 选择权限
+# <a name="how-to-configure-endpoints"></a>如何配置终结点
 
 可以在 [Azure 门户](https://portal.azure.cn)中找到应用程序的身份验证终结点。
 
@@ -39,3 +39,4 @@ ms.locfileid: "52654409"
 ## <a name="next-steps"></a>后续步骤
 [Azure Active Directory 开发人员指南](/active-directory/develop/active-directory-developers-guide#authentication-and-authorization-protocols)
 
+<!-- Update_Description: wording update -->

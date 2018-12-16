@@ -14,19 +14,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/27/2017
-ms.date: 09/03/2018
+ms.date: 11/30/2018
 ms.author: v-junlch
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 0ba40c66203aa5b1a5ed42744f6781909480248b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c1b4d6cc0403f5ef6e75bc481826621a219b8178
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654337"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028447"
 ---
 # <a name="azure-active-directory-authentication-protocols"></a>Azure Active Directory 身份验证协议
-Azure Active Directory (Azure AD) 支持多个最广泛使用的身份验证和授权协议。 本部分中的主题介绍 Azure AD 中支持的协议及其实现。 这些主题包括支持的声明类型的回顾、联合元数据的使用简介、详细的 OAuth 2.0. 和 SAML 2.0 协议参考文档，以及故障排除部分。
+Azure Active Directory (Azure AD) 支持多个最广泛使用的身份验证和授权协议。 本部分中的主题介绍 Azure AD 中支持的协议及其实现。 这些主题包括支持的声明类型的回顾、联合元数据的使用简介、详细的 OAuth 2.0。 和 SAML 2.0 协议参考文档，以及故障排除部分。
 
 ## <a name="authentication-protocols-articles-and-reference"></a>身份验证协议文章和参考
 - [有关 Azure AD 中签名密钥滚动更新的重要信息](active-directory-signing-key-rollover.md) - 了解 Azure AD 的签名密钥滚动更新频率、可以进行的自动更新密钥的更改，以及针对如何更新最常见的应用程序方案的讨论。
@@ -39,7 +39,7 @@ Azure Active Directory (Azure AD) 支持多个最广泛使用的身份验证和�
 - [SAML 协议参考](active-directory-saml-protocol-reference.md) - 了解 Azure AD 的单一登录和单一注销 SAML 配置文件。
 
 ## <a name="see-also"></a>另请参阅
-[Azure Active Directory 开发人员指南](azure-ad-developers-guide.md)
+[Azure Active Directory 开发人员指南](v1-overview.md)
 
 [Active Directory 代码示例](sample-v1-code.md)
 

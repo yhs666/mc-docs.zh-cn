@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 origin.date: 05/15/2018
-ms.date: 11/26/2018
+ms.date: 12/11/2018
 ms.author: v-jay
-ms.openlocfilehash: 0a803b58289eeee5896afaca3d2aca82852cd6e9
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: b7876fa1d7dd7bb2913ee7ba90d34a4811da8978
+ms.sourcegitcommit: 5c059fe358e1298ef96450b2c620054afe89de1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672602"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53234111"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli"></a>使用 Azure CLI 管理 Azure DNS 中的 DNS 记录和记录集
 
@@ -256,7 +256,7 @@ az network dns record-set soa update --resource-group myresourcegroup --zone-nam
 以下示例展示如何向区域顶点处的 NS 记录集添加其他名称服务器：
 
 ```azurecli
-az network dns record-set ns add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --nsdname ns1.myotherdnsprovider.com 
+az network dns record-set ns add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --nsdname ns1.myotherdnsprovider.cn
 ```
 
 ### <a name="to-modify-the-ttl-of-an-existing-record-set"></a>修改现有记录集的 TTL

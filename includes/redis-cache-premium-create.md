@@ -1,3 +1,17 @@
+---
+author: wesmc7777
+ms.service: redis-cache
+ms.topic: include
+origin.date: 11/09/2018
+ms.date: 11/30/2018
+ms.author: v-junlch
+ms.openlocfilehash: 3c582cbc835bbdb2bb38b3dc829da438be53b7c2
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53070267"
+---
 若要创建高级缓存，请登录到 [Azure 门户](https://portal.azure.cn)，并单击“创建资源” > “数据库” > “Redis 缓存”。
 
 ![创建缓存](./media/redis-cache-premium-create/redis-cache-new-cache-menu.png)
@@ -12,4 +26,3 @@
 ![选择定价层](./media/redis-cache-premium-create/redis-cache-premium-pricing-tier.png)
 
 
-<!-- ms.date: 08/13/2018 -->

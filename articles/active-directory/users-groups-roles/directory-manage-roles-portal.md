@@ -10,27 +10,35 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-origin.date: 09/25/2018
-ms.date: 11/13/2018
+origin.date: 11/06/2018
+ms.date: 12/07/2018
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: de426dcb388593fd8f596e712ace02556d4af58b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 28c5d29cb990468d6cb7611659821aa13e4ff3d2
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655389"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029040"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>在 Azure Active Directory 中查看和分配管理员角色
 
 现在，可在 Azure Active Directory 门户中查看和管理管理员角色的所有成员。 如果你经常需要管理角色分配，也许更乐意使用此体验。 如果曾经有过“这些角色究竟有什么用？”这样的疑问，可查看每个 Azure AD 管理员角色的详细权限列表。
 
-也可轻松查看自己的权限。 单击“你的角色”可以快速访问用户页，其中列出了分配的所有有效角色。 单击每行右侧的省略号会打开角色的详细说明。
+## <a name="view-all-roles"></a>查看所有角色
+
+在 Azure Active Directory 中，选择“角色和管理员”以查看所有可用角色列表。 
+
+单击每行右侧的省略号会打开角色的详细说明。
 
 ![Azure AD 门户中的角色列表](./media/directory-manage-roles-portal/role-list.png)
 
-## <a name="view-role-permissions"></a>查看角色权限
+## <a name="view-my-roles"></a>查看我的角色
+
+也可轻松查看自己的权限。 在“角色和管理员”页上选择“你的角色”，可查看当前分配给你的角色。
+
+## <a name="view-a-users-role-permissions"></a>查看用户的角色权限
 
 查看某个角色的成员时，选择“说明”可以查看角色分配授予的权限的完整列表。 该页包含相关文档的链接，引导你对目录角色进行管理。
 

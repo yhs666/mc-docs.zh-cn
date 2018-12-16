@@ -6,16 +6,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 10/10/2018
-ms.date: 11/19/2018
+origin.date: 10/29/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 685a331ca4d880b38355bb79cd5015960551f24d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: edb7b10c0b56d1a412f9be44fcecd2aadf44c87d
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52667121"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028313"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>针对本地 VMware VM 设置到 Azure 的灾难恢复
 
@@ -98,7 +98,7 @@ ms.locfileid: "52667121"
 8. 在“准备完成”上，若要使用默认设置来设置 VM，请选择“部署后打开” > “完成”。
 
     > [!TIP]
-    若要添加其他 NIC，请清除“部署后打开” > “完成”。 默认情况下，模板包含单个 NIC。 可以在部署后添加其他 NIC。
+    > 若要添加其他 NIC，请清除“部署后打开” > “完成”。 默认情况下，模板包含单个 NIC。 可以在部署后添加其他 NIC。
 
 ## <a name="add-an-additional-adapter"></a>添加其他适配器
 
@@ -189,4 +189,4 @@ Site Recovery 会使用指定的设置连接到 VMware 服务器，并且会发�
 > [!div class="nextstepaction"]
 > [运行灾难恢复演练](site-recovery-test-failover-to-azure.md)
 
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties -->

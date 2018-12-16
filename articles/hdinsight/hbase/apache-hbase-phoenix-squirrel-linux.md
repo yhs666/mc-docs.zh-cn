@@ -1,5 +1,5 @@
 ---
-title: 在 Azure HDInsight 中将 Apache Phoenix 和 SQuirreL 用于 HBase
+title: 在 Azure HDInsight 中将 Apache Phoenix 和 SQLLine 与 HBase 配合使用
 description: 了解如何在 HDInsight 中使用 Apache Phoenix。 此外，了解如何在计算机上安装和设置 SQLLine 以连接到 HDInsight 中的 HBase 群集。
 services: hdinsight
 documentationcenter: ''
@@ -16,15 +16,15 @@ ms.workload: big-data
 origin.date: 01/03/2018
 ms.date: 02/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 7d322219111823057b1ac16fbaecf05d1befeafe
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 083aafa01fc69f04bf4023adbe072543f98dd013
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652656"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028753"
 ---
 # <a name="use-apache-phoenix-with-linux-based-hbase-clusters-in-hdinsight"></a>将 Apache Phoenix 与 HDinsight 中基于 Linux 的 HBase 群集配合使用
-了解如何在 Azure HDInsight 中使用 [Apache Phoenix](http://phoenix.apache.org/)，以及如何使用 SQLLine。 有关 Phoenix 的详细信息，请参阅 [在 15 分钟或以下了解 Phoenix](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)。 有关 Phoenix 语法，请参阅 [Phoenix 语法](http://phoenix.apache.org/language/index.html)。
+了解如何在 Azure HDInsight 中使用 [Apache Phoenix](http://phoenix.apache.org/)，以及如何使用 SQLLine。 有关 Phoenix 的详细信息，请参阅[在 15 分钟或更短时间内了解 Phoenix](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)。 有关 Phoenix 语法，请参阅 [Phoenix 语法](http://phoenix.apache.org/language/index.html)。
 
 > [!NOTE]
 > 有关 HDInsight 的 Phoenix 版本信息，请参阅 [HDInsight 提供的 Hadoop 群集版本的新增功能](../hdinsight-component-versioning.md)。
@@ -50,7 +50,7 @@ ms.locfileid: "52652656"
 
 **使用 SQLLine**
 
-1. 使用 SSH 连接到群集。 有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)。
+1. 使用 SSH 连接到群集。 有关详细信息，请参阅 [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
 2. 在 SSH 中，运行以下命令以运行 SQLLine：
 
@@ -83,7 +83,7 @@ ms.locfileid: "52652656"
 [azure-portal]: https://portal.azure.cn
 [vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT
 
-[hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp
+[hdinsight-manage-portal]: ../hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp
 [hdinsight-hbase-provision-vnet]:apache-hbase-provision-vnet.md
 [hdinsight-hbase-overview]:apache-hbase-overview.md
 

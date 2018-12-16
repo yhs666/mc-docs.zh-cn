@@ -10,15 +10,15 @@ ms.topic: conceptual
 origin.date: 08/29/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 17fadb1208e5d78183bd2902fe3c4bf149b33aa7
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 8f2c19c402fe7db58446229544da4fe245443583
+ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675104"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53219559"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>在 Azure 中计划 VM 备份基础结构
-本文提供性能和资源建议，帮助规划 VM 备份基础结构。 文中还定义了备份服务的主要方面；这些方面对于决定体系结构、容量规划和计划安排至关重要。 如果已[准备好环境](backup-azure-arm-vms-prepare.md)，请首先进行此规划，然后再开始[备份 VM](backup-azure-arm-vms.md)。 如果需要有关 Azure 虚拟机的详细信息，请参阅[虚拟机文档](../virtual-machines/index.md)。 
+本文提供性能和资源建议，帮助规划 VM 备份基础结构。 文中还定义了备份服务的主要方面；这些方面对于决定体系结构、容量规划和计划安排至关重要。 如果已[准备好环境](backup-azure-arm-vms-prepare.md)，请首先进行此规划，然后再开始[备份 VM](backup-azure-arm-vms.md)。 如果需要有关 Azure 虚拟机的详细信息，请参阅[虚拟机文档](../virtual-machines/index.yml)。 
 
 > [!NOTE]
 > 本文用于托管和非托管磁盘。 如果使用非托管磁盘，我们提供了存储帐户建议。 如果使用 [Azure 托管磁盘](../virtual-machines/windows/managed-disks-overview.md)，无需担心性能或资源利用率问题。 Azure 可优化存储利用率。

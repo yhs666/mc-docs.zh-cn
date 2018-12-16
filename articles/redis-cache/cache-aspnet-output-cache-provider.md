@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 origin.date: 02/14/2017
-ms.date: 11/14/2018
+ms.date: 11/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: b90885f07ed51b0dc6c5a54ef698bcc07ff89a99
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 106a069586f195d9be638074a22ce1ea7b9daf1e
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644831"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028538"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-redis-cache"></a>Azure Redis 缓存的 ASP.NET 输出缓存提供程序
 Redis 输出缓存提供程序是用于输出缓存数据的进程外存储机制。 此数据专门用于完整 HTTP 响应（页面输出缓存）。 此提供程序会插入 ASP.NET 4 中引入的新输出缓存提供程序扩展点。
@@ -90,8 +90,8 @@ NuGet 包会下载并添加所需的程序集引用，并将以下节添加到 w
   - 默认情况下，为新缓存禁用非 SSL 端口。 为此设置指定 true 可使用 SSL 端口。 有关启用非 SSL 端口的详细信息，请参阅[配置缓存](cache-configure.md)主题中的[访问端口](cache-configure.md#access-ports)部分。
 - **databaseId** - 指定要用于缓存输出数据的数据库。 如果未指定，则使用默认值 0。
 - **applicationName** - 密钥存储在 Redis 中作为 `<AppName>_<SessionId>_Data`。 此命名方案使多个应用程序可以共享同一密钥。 此参数是可选的，如果未提供它，则使用默认值。
-- **connectionTimeoutInMilliseconds** - 此设置允许覆盖 StackExchange.Redis 客户端中的 connectTimeout 设置。 如果未指定，则使用默认 connectTimeout 设置 5000。 有关详细信息，请参阅 [StackExchange.Redis 配置模型](http://go.microsoft.com/fwlink/?LinkId=398705)。
-- **operationTimeoutInMilliseconds** - 此设置允许覆盖 StackExchange.Redis 客户端中的 syncTimeout 设置。 如果未指定，则使用默认 syncTimeout 设置 1000。 有关详细信息，请参阅 [StackExchange.Redis 配置模型](http://go.microsoft.com/fwlink/?LinkId=398705)。
+- **connectionTimeoutInMilliseconds** - 此设置允许覆盖 StackExchange.Redis 客户端中的 connectTimeout 设置。 如果未指定，则使用默认 connectTimeout 设置 5000。 有关详细信息，请参阅 [StackExchange.Redis 配置模型](https://go.microsoft.com/fwlink/?LinkId=398705)。
+- **operationTimeoutInMilliseconds** - 此设置允许覆盖 StackExchange.Redis 客户端中的 syncTimeout 设置。 如果未指定，则使用默认 syncTimeout 设置 1000。 有关详细信息，请参阅 [StackExchange.Redis 配置模型](https://go.microsoft.com/fwlink/?LinkId=398705)。
 
 将 OutputCache 指令添加到希望为其缓存输出的每个页面中。
 
@@ -99,11 +99,11 @@ NuGet 包会下载并添加所需的程序集引用，并将以下节添加到 w
 <%@ OutputCache Duration="60" VaryByParam="*" %>
 ```
 
-在上例中，缓存的页面数据可在缓存中保留 60 秒，并且为每个参数组合缓存不同版本的页面。 有关 OutputCache 指令的详细信息，请参阅 [@OutputCache](http://go.microsoft.com/fwlink/?linkid=320837)。
+在上例中，缓存的页面数据可在缓存中保留 60 秒，并且为每个参数组合缓存不同版本的页面。 有关 OutputCache 指令的详细信息，请参阅 [@OutputCache](https://go.microsoft.com/fwlink/?linkid=320837)。
 
 执行这些步骤后，应用程序已配置为使用 Redis 输出缓存提供程序。
 
 ## <a name="next-steps"></a>后续步骤
 了解 [Azure Redis 缓存的 ASP.NET 会话状态提供程序](cache-aspnet-session-state-provider.md)。
 
-<!--Update_Description: wording update -->
+<!--Update_Description: links update -->

@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 09/26/2018
 ms.date: 10/31/2018
 ms.author: v-lingwu
-ms.openlocfilehash: d5933f5d0c11a6d07680107a474c7d6b8e377069
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 49651dd3d840270591602ad05e4402e7d4cd4bf4
+ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651031"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53219538"
 ---
 # <a name="use-ip-filters"></a>使用 IP 筛选器
 
@@ -106,14 +106,9 @@ IP 筛选器规则按顺序应用，与 IP 地址匹配的第一条规则决定�
 
 若要部署模板，请按照 [Azure 资源管理器][lnk-deploy]的说明进行操作。
 
-## <a name="next-steps"></a>后续步骤
-
-若要限制服务总线到 Azure 虚拟网络的访问，请参阅以下链接：
-
-- [服务总线的虚拟网络服务终结点][lnk-vnet]
 
 <!-- Links -->
 
 [lnk-deploy]: ../azure-resource-manager/resource-group-template-deploy.md
-[lnk-vnet]: service-bus-service-endpoints.md
+
 [express-route]:  /expressroute/expressroute-faqs#supported-services

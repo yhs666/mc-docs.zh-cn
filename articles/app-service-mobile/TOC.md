@@ -90,7 +90,6 @@
 #### [使用 Web 作业运行后台任务](../app-service/web-sites-create-web-jobs.md?toc=%2fapp-service-mobile%2ftoc.json)
 ## 迁移
 ### [应用服务与移动服务相比如何？](app-service-mobile-value-prop-migration-from-mobile-services.md)
-### [将现有移动服务迁移到应用服务](app-service-mobile-migrating-from-mobile-services.md)
 ### 将现有移动服务升级到应用服务
 #### [.NET 后端](app-service-mobile-net-upgrading-from-mobile-services.md)
 #### [Node.js backend](app-service-mobile-node-backend-upgrading-from-mobile-services.md)

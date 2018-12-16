@@ -1,25 +1,21 @@
 ---
-title: 表存储简介 - Azure 中的对象存储 | Azure
+title: 表存储简介 - Azure 中的对象存储 | Microsoft Docs
 description: 使用 Azure 表存储（一种 NoSQL 数据存储）将结构化数据存储在云中。
 services: storage
-documentationcenter: .net
 author: WenJason
-manager: digimobile
-ms.assetid: fe46d883-7bed-49dd-980e-5c71df36adb3
 ms.service: storage
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: overview
 origin.date: 04/23/2018
-ms.date: 07/02/2018
-ms.author: sngun
-ms.openlocfilehash: edadbaad51dac56ecedc0b9561f4121768546ed9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/10/2018
+ms.author: v-jay
+ms.component: tables
+ms.openlocfilehash: 16f2a1143853d827e50229f4bd116d67006734de
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650039"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028836"
 ---
 # <a name="introduction-to-table-storage-in-azure"></a>Azure 中的表存储简介
 
@@ -41,4 +37,4 @@ Azure 表存储是一项用于在云中存储结构化 NoSQL 数据的服务，�
 
     * [.NET 存储客户端库参考](https://docs.azure.cn/zh-cn/dotnet/api/overview/storage)
 
-    * [REST API 参考](http://msdn.microsoft.com/library/azure/dd179355)
+    * [REST API 参考](https://msdn.microsoft.com/library/azure/dd179355)

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 05/08/2018
-ms.date: 10/15/2018
+origin.date: 10/23/2018
+ms.date: 12/17/2018
 ms.author: v-jay
 ms.reviewer: ''
-ms.openlocfilehash: e3503ad75b5314ed7e0ca5cc305061a2a843527e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 697a83d3a63bf67e357febbedd56fb02e0d16644
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644238"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396076"
 ---
 # <a name="azure-stack-validation-report"></a>Azure Stack 验证报表
 使用 Azure Stack 就绪性检查器工具运行验证来为 Azure Stack 环境的部署和维护提供支持。 该工具将结果写入到 .json 报表文件。 该报表显示有关 Azure Stack 部署的先决条件状态的详细数据和汇总数据。 该报表还显示有关现有 Azure Stack 部署的机密轮换的信息。  
@@ -41,19 +41,81 @@ ms.locfileid: "52644238"
 若要在 PowerShell 中查看报表，请将报表路径提供为 **-ReportPath** 的值。 此命令显示报表内容，并指明尚没有结果的验证。
 
 例如，若要从打开到报表所在位置的 PowerShell 提示符查看报表，请运行以下命令： 
-   > `Start-AzsReadinessChecker -ReportPath .\AzsReadinessReport.json` 
+   > `Read-AzsReadinessReport -ReportPath .\AzsReadinessReport.json` 
 
-输出如下图所示：
+输出如下所示：
 
-![查看报表](./media/azure-stack-validation-report/view-report.png)
+````PowerShell
+Reading All Validation(s) from Report C:\Contoso-AzsReadinessCheckerReport.json
+
+############### Certificate Validation Summary ###############
+
+Certificate Validation results not available.
+
+############### Registration Validation Summary ###############
+
+Azure Registration Validation results not available.
+
+############### Azure Identity Results ###############
+
+Test                          : ServiceAdministrator
+Result                        : OK
+AAD Service Admin             : admin@contoso.partner.onmschina.cn
+Azure Environment             : AzureChinaCloud
+Azure Active Directory Tenant : contoso.partner.onmschina.cn
+Error Details                 : 
+
+############### Azure Identity Validation Summary ###############
+
+    Azure Identity Validation found no errors or warnings.
+
+############### Azure Stack Graph Validation Summary ###############
+
+Azure Stack Graph Validation results not available.
+
+############### Azure Stack ADFS Validation Summary ###############
+
+Azure Stack ADFS Validation results not available.
+
+############### AzsReadiness Job Summary ###############
+
+Index             : 0
+Operations        : 
+StartTime         : 2018/10/22 14:24:16
+EndTime           : 2018/10/22 14:24:19
+Duration          : 3
+PSBoundParameters : 
+````
 
 ## <a name="view-the-report-summary"></a>查看报表摘要
 若要查看报表摘要，可以在 PowerShell 命令行的末尾添加 **-Summary** 开关。 例如： 
- > `Start-AzsReadinessChecker -ReportPath .\AzsReadinessReport.json -summary`  
+ > `Read-AzsReadinessReport -ReportPath .\Contoso-AzsReadinessReport.json -summary`  
 
-摘要会显示没有结果的验证并且会指明已完成的验证是通过还是失败。 输出如下图所示：
+摘要会显示没有结果的验证并且会指明已完成的验证是通过还是失败。 输出如下所示：
 
-![报表摘要](./media/azure-stack-validation-report/report-summary.png)
+```PowerShell
+Reading All Validation(s) from Report C:\Contoso-AzsReadinessCheckerReport.json
+
+############### Certificate Validation Summary ###############
+
+    Certificate Validation found no errors or warnings.
+    
+############### Registration Validation Summary ###############
+
+    Registration Validation found no errors or warnings.
+
+############### Azure Identity Validation Summary ###############
+
+    Azure Identity Validation found no errors or warnings.
+
+############### Azure Stack Graph Validation Summary ###############
+
+Azure Stack Graph Validation results not available.
+
+############### Azure Stack ADFS Validation Summary ###############
+
+Azure Stack ADFS Validation results not available.
+```
 
 
 ## <a name="view-a-filtered-report"></a>查看经筛选的报表
@@ -61,11 +123,13 @@ ms.locfileid: "52644238"
 - 证书
 - AzureRegistration
 - AzureIdentity
+- Graph
+- ADFS
 - 作业   
 - 全部  
 
 例如，若要仅查看证书的报表摘要，请使用以下 PowerShell 命令行： 
- > `Start-AzsReadinessChecker -ReportPath .\AzsReadinessReport.json -ReportSections Certificate - Summary`
+ > `Read-AzsReadinessReport -ReportPath .\Contoso-AzsReadinessReport.json -ReportSections Certificate - Summary`
 
 
 ## <a name="see-also"></a>另请参阅

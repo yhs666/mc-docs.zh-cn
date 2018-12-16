@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: c45236fa9320c33e04656a3cbea7e876c903b5a5
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c4c4ef46825469ba55b6ce42f0b2f929d655e505
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655873"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028855"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>关于 Azure 到 Azure 复制的网络
 
@@ -58,17 +58,18 @@ login.chinacloudapi.cn | 对于 Site Recovery 服务 URL 的授权和身份验�
 - 对应于源区域中存储帐户的所有 IP 地址范围
     - 为源区域创建基于[存储服务标记](../virtual-network/security-overview.md#service-tags)的 NSG 规则。
     - 允许这些地址，才能从 VM 将数据写入到缓存存储帐户。
-- 对应于 Office 365 [身份验证和标识 IP V4 终结点](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)的所有 IP 地址范围。
-    - 如果将来向 Office 365 范围添加新地址，则需要创建新的 NSG 规则。
-- Site Recovery 服务终结点 IP 地址。
+- 创建一个基于 [Azure Active Directory (AAD) 服务标记](../virtual-network/security-overview.md#service-tags)的 NSG 规则以允许访问与 AAD 对应的所有 IP 地址
+    - 如果将来要向 Azure Active Directory (AAD) 添加新地址，则需要创建新的 NSG 规则。
+
 <!-- Notice: Pending the Manager's respond [XML file](https://aka.ms/site-recovery-public-ips)-->
--  可以[下载并使用此脚本](https://aka.ms/nsg-rule-script)，以在 NSG 上自动创建所需的规则。
 - 在生产 NSG 中创建所需的 NSG 规则之前，建议先在测试 NSG 中创建这些规则，并确保没有任何问题。
 
 
 <!-- Notice: Source Location: US East, China East To target location:　US Central, China North -->
-<!-- Not Available
+<!-- Not Available 
+
 Waiting for the PM reply
+
 
 ## Example NSG configuration
 

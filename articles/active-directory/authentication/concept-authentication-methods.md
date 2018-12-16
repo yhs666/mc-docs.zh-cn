@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
 origin.date: 07/11/2018
-ms.date: 09/04/2018
+ms.date: 11/30/2018
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: cb44156dc14dcf1e542cb6bd2f71c62bbbbc1e9c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 76eba3fb8f04f233f064e8fa4ead56f612d1e5a0
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658511"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028848"
 ---
 # <a name="what-are-authentication-methods"></a>有哪些身份验证方法？
 
@@ -122,7 +122,7 @@ Microsoft 建议使用无需提供用户 Azure AD 密码即可访问的电子邮
 
 Microsoft Authenticator 应用为 Azure AD 工作或学校帐户或 Microsoft 帐户提供附加的安全级别。
 
-Microsoft Authenticator 应用适用于 [Android](https://go.microsoft.com/fwlink/?linkid=866594)、[iOS](https://go.microsoft.com/fwlink/?linkid=866594) 和 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)。
+Microsoft Authenticator 应用适用于 [Android](https://go.microsoft.com/fwlink/?linkid=866594)、[iOS](https://go.microsoft.com/fwlink/?linkid=866594) 和 [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071)。
 
 > [!NOTE]
 > 用户在注册自助密码重置时，无法选择注册其移动应用。 用户可以改为在 [https://account.activedirectory.windowsazure.cn/proofup.aspx?culture=en-US](https://account.activedirectory.windowsazure.cn/proofup.aspx?culture=en-US) 中注册其移动应用。
@@ -201,3 +201,5 @@ Microsoft Authenticator 应用或其他第三方应用可用作生成 OATH 验�
 [为组织启用自助密码重置](quickstart-sspr.md)
 
 [为组织启用 Azure 多重身份验证](howto-mfa-getstarted.md)
+
+<!-- Update_Description: link update -->

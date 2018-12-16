@@ -11,12 +11,12 @@ origin.date: 09/06/2018
 ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 883a0317d94cb244817d99b8b3d2339763b51eb4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 0468bf045edb69552844845474f700b5b11dacb1
+ms.sourcegitcommit: 6e07735318eb5f6ea319b618863259088eab3722
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666692"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52981654"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Azure SQL 数据仓库中的备份和还原
 了解 Azure SQL 数据仓库中备份和还原的工作方式。 使用数据仓库快照可将数据仓库恢复或复制到主要区域中以前的某个还原点。 使用数据仓库异地冗余备份可还原到不同的地理区域。 
@@ -29,7 +29,7 @@ ms.locfileid: "52666692"
 ## <a name="automatic-restore-points"></a>自动还原点
 快照是创建还原点的服务的内置功能。 不需要启用此功能。 目前用户无法删除自动还原点，因为服务使用这些还原点来维持恢复 SLA。
 
-SQL 数据仓库为数据仓库创建全天快照，并创建可用 7 天的还原点。 无法更改此保留期。 SQL 数据仓库支持八小时恢复点目标 (RPO)。 可以根据过去七天捕获的任意一个快照，还原主要区域中的数据仓库。
+SQL 数据仓库为数据仓库创建全天快照，并创建可用 7 天的还原点。 无法更改此保留期。 SQL 数据仓库支持八小时恢复点目标 (RPO)。 可从过去 7 天创建的任一快照还原主要区域中的数据仓库。
 
 若要查看上一个快照的启动时间，可对联机 SQL 数据仓库运行以下查询。 
 
@@ -41,7 +41,7 @@ order by run_id desc
 ```
 
 ## <a name="user-defined-restore-points"></a>用户定义的还原点
-使用此功能，可以在大型修改之前和之后手动触发快照，以便创建数据仓库的还原点。 此功能可确保在出现工作负荷中断或用户错误的情况下，还原点在逻辑上是一致的，这样可以提供额外的数据保护，缩短恢复时间。 用户定义的还原点可用 7 天，7 天后系统会自动将其删除。 无法更改用户定义的还原点的保留期。 无论在任何时间点，均会保证 **42 个用户定义的还原点**，因此，它们必须在创建另一个还原点之前[删除](https://go.microsoft.com/fwlink/?linkid=875299)。 可以通过 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint?view=azurermps-6.2.0#examples) 或 Azure 门户触发快照来创建用户定义的还原点。
+使用此功能可以手动触发快照，以便在进行大规模修改之前和之后创建数据仓库的还原点。 此功能确保还原点保持逻辑一致性，可在发生任何工作负荷中断或用户错误时提供额外的数据保护，并加快恢复速度。 用户定义的还原点可用 7 天，7 天后系统会自动将其删除。 无法更改用户定义的还原点的保留期。 无论在任何时间点，均会保证 **42 个用户定义的还原点**，因此，它们必须在创建另一个还原点之前[删除](https://go.microsoft.com/fwlink/?linkid=875299)。 可以通过 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint?view=azurermps-6.2.0#examples) 或 Azure 门户触发快照来创建用户定义的还原点。
 
 ### <a name="restore-point-retention"></a>还原点保留期
 下面介绍有关还原点保留期的详细信息：
@@ -59,7 +59,7 @@ order by run_id desc
 >
 
 ## <a name="geo-backups"></a>异地备份
-SQL 数据仓库对[已配对数据中心](../best-practices-availability-paired-regions.md)每天执行一次异地备份。 异地还原的 RPO 为 24 小时。 你可以将异地备份恢复到支持 SQL 数据仓库的任何其他地区的服务器。 使用异地备份可在无法访问主要区域中的还原点时还原数据仓库。
+SQL 数据仓库每天执行一次异地备份，将内容备份到配对的数据中心。 异地还原的 RPO 为 24 小时。 你可以将异地备份恢复到支持 SQL 数据仓库的任何其他地区的服务器。 使用异地备份可在无法访问主要区域中的还原点时还原数据仓库。
 
 <!--Pending on Gen2--> 默认情况下，异地备份处于启用状态。 如果数据仓库为 Gen1，则可按需[选择退出](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy)。 不能为 Gen2 禁用异地备份，因为数据保护是固有的保证。
 <!--Pending on Gen2-->
@@ -74,7 +74,7 @@ Azure 帐单上将列出存储的明细项目，以及灾难恢复存储的明�
 有关 SQL 数据仓库定价的详细信息，请参阅 [SQL 数据仓库定价](https://www.azure.cn/pricing/details/sql-data-warehouse/)。
 
 ## <a name="restoring-from-restore-points"></a>从还原点还原
-每个快照创建一个代表快照开始时间的还原点。 如果要还原数据仓库，请选择一个还原点，并发出还原命令。  
+每个快照创建一个代表快照开始时间的还原点。 要还原数据仓库，请选择一个还原点，并发出还原命令。  
 
 可以保留还原的数据仓库和当前的数据仓库，也可以删除其中一个。 如果希望使用已还原数据仓库替换当前数据仓库，可使用 [ALTER DATABASE（Azure SQL 数据仓库）](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-data-warehouse)的“修改名称”选项对其进行重命名。 
 

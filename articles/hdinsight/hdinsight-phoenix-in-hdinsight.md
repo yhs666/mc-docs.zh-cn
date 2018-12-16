@@ -2,26 +2,19 @@
 title: HDInsight 中的 Apache Phoenix - Azure HDInsight
 description: ''
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-origin.date: 01/19/2018
-ms.author: v-yiso
-ms.openlocfilehash: 95bde6ade5aa85d06a32c20dabfb859dc5b16e9d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.topic: conceptual
+ms.date: 01/19/2018
+ms.author: ashishth
+ms.openlocfilehash: d86600dd000d3e9c71a38b632aa75e82239401dd
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660137"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029037"
 ---
 # <a name="apache-phoenix-in-hdinsight"></a>HDInsight 中的 Apache Phoenix
 
@@ -133,7 +126,7 @@ CREATE TABLE Saltedweblogs (
 
 HDInsight HBase 群集提供 [Ambari UI](hdinsight-hadoop-manage-ambari.md) 用于进行配置更改。
 
-1. 若要启用或禁用 Phoenix 并控制 Phoenix 的查询超时设置，请使用 Hadoop 用户凭据登录到 Ambari Web UI (`https://YOUR_CLUSTER_NAME.azurehdinsight.cn`)。
+1. 若要启用或禁用 Phoenix 并控制 Phoenix 的查询超时设置，请使用 Hadoop 用户凭据登录到 Ambari Web UI (`https://YOUR_CLUSTER_NAME.azurehdinsight.net`)。
 
 2. 在左侧菜单中的服务列表内选择“HBase”，然后选择“配置”选项卡。
 

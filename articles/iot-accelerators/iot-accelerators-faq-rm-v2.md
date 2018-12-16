@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 02/15/2018
 ms.date: 11/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 1c427986c51a992c5cd26c8b170937e8445a08e7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 77ca3b47a084e7ec0ff65e286acad28a1d92de3c
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654224"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028451"
 ---
 # <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>远程监视解决方案加速器的常见问题解答
 
@@ -48,4 +48,4 @@ ms.locfileid: "52654224"
 还可以浏览 IoT 解决方案加速器的一些其他特性和功能：
 
 * [探索远程监视解决方案加速器的功能](quickstart-remote-monitoring-deploy.md)
-* [预测性维护解决方案加速器概述](iot-accelerators-predictive-overview.md)
+* [预测性维护解决方案加速器概述](quickstart-predictive-maintenance-deploy.md)

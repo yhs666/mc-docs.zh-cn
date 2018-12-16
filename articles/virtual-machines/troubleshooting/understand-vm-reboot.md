@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 10/31/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: eda43362eedfae5288fbbb4d7905e55f08e8a65c
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: f1d41d241210de761d6069ce027ce7500554a720
+ms.sourcegitcommit: 6cd0a8d22061aba7390579a80e19cb9d2f7faf12
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674996"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53233776"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>了解 Azure VM 的系统重启
 
@@ -37,8 +37,9 @@ Azure 虚拟机 (VM) 有时可能会在没有明显原因（没有证据表明�
 - [配置 VM 的可用性](../windows/classic/configure-availability.md)
 
 ## <a name="resource-health-information"></a>资源运行状况信息 
-Azure 资源运行状况是一项服务，用于公开各个 Azure 资源的运行状况，并为排查问题提供可行的指南。 在不可直接访问服务器或基础结构元素的云环境中，资源运行状况的目标是减少你排除故障花费的时间。 具体说来，目的是减少确定问题根源在于应用程序还是在于 Azure 平台内事件所花的时间。 有关详细信息，请参阅[了解和使用资源运行状况](../../resource-health/resource-health-overview.md)。
+Azure 资源运行状况是一项服务，用于公开各个 Azure 资源的运行状况，并为排查问题提供可行的指南。 在不可直接访问服务器或基础结构元素的云环境中，资源运行状况的目标是减少你排除故障花费的时间。 具体说来，目的是减少确定问题根源在于应用程序还是在于 Azure 平台内事件所花的时间。 有关详细信息，请参阅[了解和使用资源运行状况](../../service-health/resource-health-overview.md)。
 
+<!--URL from (../../resource-health/resource-health-overview.md) to (../../service-health/resource-health-overview.md)-->
 ## <a name="actions-and-events-that-can-cause-the-vm-to-reboot"></a>可能导致 VM 重启的操作和事件
 
 ### <a name="planned-maintenance"></a>计划内维护
@@ -71,11 +72,7 @@ Azure 在全球范围内定期执行更新，提高 VM 所基于主机基础结�
 
 通常导致 VM 重启的其他方案包括多个配置更改操作。 通常会看到一条指示执行特定操作将导致 VM 重启的警告消息。 示例包括任意 VM 大小调整操作、更改管理帐户密码和设置静态 IP 地址。
 
-### <a name="azure-security-center-and-windows-update"></a>Azure 安全中心和 Windows 更新
-Azure 安全中心每天对 Windows 和 Linux VM 进行监控，以找出缺少的操作系统更新。 安全中心从 Windows Update 或 Windows Server Update Services (WSUS) 检索可用的安全更新和关键更新的列表，具体取决于 Windows VM 上配置的服务。 安全中心还可检查 Linux 系统的最新更新。 如果 VM 缺少系统更新，安全中心会建议你应用系统更新。 通过 Azure 门户中的安全中心控制这些系统更新的应用情况。 应用某些更新后，可能需要重启 VM。 有关详细信息，请参阅[在 Azure 安全中心应用系统更新](../../security-center/security-center-apply-system-updates.md)。
-
-与本地服务器一样，Azure 不会向 Windows VM 推送 Windows 更新提供的更新，因为这些虚拟机应由用户进行管理。 但是，我们依然建议启用 Windows 自动更新设置。 自动安装 Windows 更新提供的更新也会导致应用更新后发生重启。 有关详细信息，请参阅 [Windows 更新常见问题解答](https://support.microsoft.com/help/12373/windows-update-faq)。
-
+<!-- Not Available on ### Azure Security Center and Windows Update-->
 ### <a name="other-situations-affecting-the-availability-of-your-vm"></a>影响 VM 可用性的其他情况
 在其他情况下，Azure 可能主动暂停使用 VM。 你会在执行此操作前收到电子邮件通知，因此有机会解决该基础问题。 举例来说，影响 VM 可用性的问题包括：违反安全规范、付款方式过期。
 

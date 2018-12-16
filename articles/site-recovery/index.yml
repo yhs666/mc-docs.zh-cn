@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 547b11fad80ba726693ee7b9941b080397655f16
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: bf7df414415cc907d2ff10f1da2820214358916b
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644727"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028362"
 documentType: LandingData
 title: Site Recovery 文档
 metadata:
@@ -18,7 +18,7 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   origin.date: 09/23/2017
-  ms.date: 09/24/2018
+  ms.date: 12/10/2018
   ms.author: v-yeche
 abstract:
   description: Azure Site Recovery 可以协调和管理 Azure VM、本地 VM 与物理服务器的灾难恢复。 使用快速入门和教程了解如何复制、故障转移与故障回复。
@@ -55,6 +55,7 @@ sections:
     - html: <a href="tutorial-prepare-on-premises-vmware">准备本地 VMware</a>
     - html: <a href="tutorial-vmware-to-azure">设置灾难恢复</a>
     - html: <a href="tutorial-dr-drill-azure">运行灾难恢复演练</a>
+    - html: <a href="vmware-azure-tutorial-failover-failback">运行故障转移和故障回复</a>
   - type: text
     html: <h3>Hyper-V</h3>
   - type: list

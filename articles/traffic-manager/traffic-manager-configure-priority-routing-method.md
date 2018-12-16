@@ -3,24 +3,21 @@ title: 使用 Azure 流量管理器配置优先级流量路由方法 | Azure
 description: 本文介绍如何在流量管理器中配置优先级流量路由方法
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
-manager: timlt
-editor: ''
-ms.assetid: 6dca6de1-18f7-4962-bd98-6055771fab22
+author: rockboyfor
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/20/2017
-ms.date: 05/02/2017
-ms.author: v-dazen
-ms.openlocfilehash: 81c52a8888d30f011bd989bffa5f36a568f826ad
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/17/2018
+ms.author: v-yeche
+ms.openlocfilehash: 9653fc57655ff4b5484ba0bd9613980014f6c276
+ms.sourcegitcommit: 1b6a310ba636b6dd32d7810821bcb79250393499
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647694"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53389406"
 ---
 # <a name="configure-priority-traffic-routing-method-in-traffic-manager"></a>在流量管理器中配置优先级流量路由方法
 
@@ -41,7 +38,7 @@ ms.locfileid: "52647694"
         3. 在页面顶部，单击“保存”。
 5. 在“设置”部分，单击“终结点”。
 6. 在“终结点”边栏选项卡中，查看终结点的优先级顺序。 如果选择了“优先级”流量路由方法，则所选终结点的顺序很重要。 验证终结点的优先级顺序。  主终结点位于顶部。 请仔细检查显示的顺序。 所有请求均会路由到第一个终结点；如果流量管理器检测到其处于不正常状态，则流量会自动故障转移到下一终结点。 
-7. 如果要更改终结点优先级顺序，请单击该终结点，并在显示的“终结点”边栏选项卡中，单击“编辑”并根据需要更改“优先级”值。 
+7. 要更改终结点优先级顺序，请单击该终结点，并在显示的“终结点”边栏选项卡中，单击“编辑”并根据需要更改“优先级”值。 
 8. 单击“保存”以保存更改的终结点设置。
 9. 完成配置更改后，单击页面底部的“保存”。
 10. 按如下方式测试配置更改：
@@ -61,3 +58,5 @@ ms.locfileid: "52647694"
 
 <!--Image references-->
 [1]: ./media/traffic-manager-priority-routing-method/traffic-manager-priority-routing-method.png
+
+<!-- Update_Description: wording update, update link -->

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 origin.date: 10/23/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 67816676e67c5d7da54b53f3022be41e3e2f98e1
-ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
+ms.openlocfilehash: a36384ab6cd1a9b530d523cdadb53491d3a070b9
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676966"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029010"
 ---
 # <a name="remote-desktop-license-server-isnt-available-when-you-connect-to-an-azure-vm"></a>连接到 Azure VM 时，远程桌面许可证服务器不可用
 
@@ -62,20 +62,7 @@ mstsc /v:<Server>[:<Port>] /admin
    mstsc /v:<Server>[:<Port>] /admin
    ```
 
-    如果无法使用管理会话连接到 VM，可以使用 [Azure 上的虚拟机串行控制台](serial-console-windows.md)访问 VM，如下所述：
-
-    1. 选择“支持和故障排除” > “串行控制台(预览版)”访问串行控制台。 如果在 VM 上启用了该功能，则可以成功连接 VM。
-
-    2. 为 CMD 实例创建新通道。 输入 **CMD** 启动通道，并获取通道名称。
-
-    3. 切换到运行 CMD 实例的通道。 在本例中，它应该是通道 1：
-
-       ```
-       ch -si 1
-       ```
-
-    4. 再次按 **Enter** 并输入 VM 的有效用户名和密码，以及本地 ID 或域 ID。
-
+   <!-- Not Availabl one [Virtual Machine Serial Console on Azure](serial-console-windows.md)-->
 2. 检查 VM 上是否已启用远程桌面会话主机角色。 如果启用了该角色，请确保它正常运行。 打开权限提升的 CMD 实例并执行以下步骤：
 
     1. 使用以下命令检查远程桌面会话主机角色的状态：
@@ -131,6 +118,7 @@ mstsc /v:<Server>[:<Port>] /admin
 ## <a name="need-help-contact-support"></a>需要帮助？ 联系支持人员
 
 如果仍需帮助，请[联系支持人员](https://www.azure.cn/support/support-azure/)解决问题。
+
 
 <!-- Update_Description: new articles on troubleshoot -->
 <!--ms.date: 12/03/2018-->

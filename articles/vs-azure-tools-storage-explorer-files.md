@@ -15,12 +15,12 @@ ms.topic: get-started-article
 origin.date: 03/09/2017
 ms.date: 09/10/2018
 ms.author: v-junlch
-ms.openlocfilehash: 94614241c67192a39cbbbc8039006592e6e01d60
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 90968dca6261f9447bfabe7b03138c03c5a63ce5
+ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660367"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53219523"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>将存储资源管理器与 Azure 文件存储配合使用
 
@@ -158,7 +158,7 @@ Azure 文件存储是一种使用标准服务器消息块 (SMB) 协议在云中�
 
     ![“管理访问策略”上下文菜单](./media/vs-azure-tools-storage-explorer-files/image13.png)
 
-1. “访问策略”对话框列出为所选文件共享创建的任何访问策略。
+1. “访问策略”对话框将列出为所选文件共享创建的任何访问策略。
     
     ![访问策略](./media/vs-azure-tools-storage-explorer-files/image14.png)
 
@@ -212,7 +212,7 @@ Azure 文件存储是一种使用标准服务器消息块 (SMB) 协议在云中�
 
     - **将文件夹上传到文件共享**
         
-        a. 在主窗格的工具栏上选择“上传”，并从下拉菜单中选择“上传文件夹”。
+        a. 在主窗格的工具栏上选择“上载”，并从下拉菜单中选择“上载文件夹”。
 
         ![“上传文件夹”菜单](./media/vs-azure-tools-storage-explorer-files/image20.png)
 
@@ -230,7 +230,7 @@ Azure 文件存储是一种使用标准服务器消息块 (SMB) 协议在云中�
         
         c. 在“指定已下载文件的保存位置”对话框中，指定要将文件下载到其中的位置，以及要为文件提供的名称。
 
-        d. 选择“其他安全性验证” 。
+        d. 选择“保存”。
 
     - **在本地计算机上打开文件**
         
@@ -238,7 +238,7 @@ Azure 文件存储是一种使用标准服务器消息块 (SMB) 协议在云中�
         
         b.  在主窗格的工具栏上，选择“打开”。
         
-        c.  会使用与文件的基础文件类型相关联的应用程序下载和打开文件。
+        c.  将使用与文件的基础文件类型相关联的应用程序下载和打开文件。
 
     - **将文件复制到剪贴板**
 
@@ -262,6 +262,6 @@ Azure 文件存储是一种使用标准服务器消息块 (SMB) 协议在云中�
 
 - 查看[最新的存储资源管理器发行说明和视频](http://www.storageexplorer.com/)。
 
-- 了解如何[使用 Azure Blob、表、队列和文件创建应用程序](storage/index.md)。
+- 了解如何[使用 Azure Blob、表、队列和文件创建应用程序](storage/index.yml)。
 
 <!-- Update_Description: wording update -->

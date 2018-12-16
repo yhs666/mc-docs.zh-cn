@@ -11,20 +11,20 @@ ms.topic: article
 origin.date: 11/05/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 32299e1af53cb5ceb035a5e419f253d5125f40cd
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 6023991b107672a7940a2335c43f1039b455fd18
+ms.sourcegitcommit: 0544706ab2ff239fb09fbeedc5910644301ad029
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674670"
+ms.lasthandoff: 12/03/2018
+ms.locfileid: "52745215"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 订阅和服务限制、配额和约束
 本文列出了一些最常见的 Azure 限制，有时也称为配额。 本文当前并不涵盖所有 Azure 服务。 随着时间的推移，此列表将进行扩展和更新，以涵盖更多平台。
 
-若要了解有关 Azure 定价的详细信息，请访问 [Azure 定价概述](https://www.azure.cn/pricing/)。 在那里可以使用[定价计算器](https://www.azure.cn/pricing/calculator/)或访问某服务（例如，[Windows VM](https://www.azure.cn/pricing/details/virtual-machines/#Windows)）的定价详细信息页估计成本。 有关帮助管理成本的提示，请参阅[通过 Azure 计费和成本管理来防止意外成本](billing/billing-getting-started.md)。
+若要了解有关 Azure 定价的详细信息，请访问 [Azure 定价概述](https://www.azure.cn/pricing/)。 在那里可以使用[定价计算器](https://www.azure.cn/pricing/calculator/)或访问某服务（例如，[Windows VM](https://www.azure.cn/pricing/details/virtual-machines/#Windows)）的定价详细信息页估计成本。
 
 > [!NOTE]
-> 如果想要提高限制或配额，使其超出**默认限制**，可以[打开免费的联机客户支持请求](azure-resource-manager/resource-manager-quota-errors.md)。 无法将限制提高到超过下表中显示的**最大限制**值。 如果没有 **最大限制** 列，则资源没有可调整的限制。
+> 如果想要提高限制或配额，使其超出**默认限制**，可以[打开免费的联机客户支持请求](azure-resource-manager/resource-manager-quota-errors.md)。 无法将限制提高到超过下表中显示的**最大限制值**。 如果没有 **最大限制** 列，则资源没有可调整的限制。
 >
 > [试用订阅](https://www.azure.cn/pricing/1rmb-trial-full)。
 >
@@ -32,7 +32,7 @@ ms.locfileid: "52674670"
 ## <a name="limits-and-the-azure-resource-manager"></a>限制和 Azure Resource Manager
 现在可以将多个 Azure 资源合并到单个 Azure 资源组中。 在使用资源组时，以前针对全局的限制会通过 Azure Resource Manager 在区域级别进行管理。 有关 Azure 资源组的详细信息，请参阅 [Azure Resource Manager 概述](azure-resource-manager/resource-group-overview.md)。
 
-在下面的限制中，添加了一个新表以反映在使用 Azure Resource Manager 时限制中的任何差异。 例如，会存在一个**订阅限制**表和一个**订阅数限制 - Azure Resource Manager** 表。 如果某个限制同时适用于这两种方案，它会仅显示在第一个表中。 除非另有说明，否则限制是跨所有区域的全局限制。
+在下面的限制中，添加了一个新表以反映在使用 Azure Resource Manager 时限制中的任何差异。 例如，会存在一个**订阅限制**表和一个**订阅数限制 - Azure Resource Manager** 表。 如果某个限制同时适用于这两种方案，它将仅显示在第一个表中。 除非另有说明，否则限制是跨所有区域的全局限制。
 
 > [!NOTE]
 > 请务必强调 Azure 资源组中的资源配额是用户的订阅可以访问的每个区域，而不像服务管理配额那样是可以访问的每个订阅。 让我们以 vCPU 配额为例。 如果要根据对 vCPU 的支持请求增加配额，则需要决定要在哪些区域中使用多少 vCPU，然后针对所需的 Azure 资源组 vCPU 配额的数量和区域发出特定请求。 因此，如果需要在中国北部使用 30 个 vCPU 在那里运行应用程序，则应专门在中国北部请求 30 个 vCPU。 但这不会增加任何其他区域的 vCPU 配额 - 仅中国北部会有 30 个 vCPU 配额。
@@ -65,7 +65,7 @@ ms.locfileid: "52674670"
 - [媒体服务](#media-services-limits)
 - [移动服务](#mobile-services-limits)
 - [多重身份验证](#multi-factor-authentication)
-- [联网](#networking-limits)
+- [网络](#networking-limits)
 - [网络观察程序](#network-watcher-limits)
 - [通知中心服务](#notification-hub-service-limits)
 - [资源组](#resource-group-limits)
@@ -87,7 +87,7 @@ ms.locfileid: "52674670"
 [!INCLUDE [azure-subscription-limits](../includes/azure-subscription-limits.md)]
 
 #### <a name="subscription-limits---azure-resource-manager"></a>订阅数限制 - Azure Resource Manager
-使用 Azure Resource Manager 和 Azure 资源组时，以下限制适用。 未使用 Azure Resource Manager 更改的限制不会在下面列出。 请参阅上表了解这些限制。
+使用 Azure 资源管理器和 Azure 资源组时，以下限制适用。 未使用 Azure Resource Manager 更改的限制不会在下面列出。 请参阅上表了解这些限制。
 
 有关资源管理器 API 读写限制的信息，请参阅[限制资源管理器请求](resource-manager-request-limits.md)。
 

@@ -53,8 +53,6 @@ items:
     href: apache-kafka-connect-vpn-gateway.md
   - name: 复制 Kafka 数据
     href: apache-kafka-mirroring.md
-  - name: 分析 Kafka 日志
-    href: apache-kafka-log-analytics-operations-management.md
   - name: 创建流式处理管道
     items:
     - name: Spark、Kafka 和 Azure Cosmos DB
@@ -106,9 +104,6 @@ items:
     - name: 将 SSH 与 HDInsight 配合使用
       href: ../hdinsight-hadoop-linux-use-ssh-unix.md
       maintainContext: true
-    - name: 使用 SSH 隧道
-      href: ../hdinsight-linux-ambari-ssh-tunnel.md
-      maintainContext: true
   - name: 管理
     items:
     - name: 创建 Linux 群集
@@ -146,16 +141,6 @@ items:
         href: ../hdinsight-administer-use-command-line.md
         maintainContext: true
       maintainContext: true
-    - name: 使用 Ambari Web UI 管理群集
-      href: ../hdinsight-hadoop-manage-ambari.md
-      items:
-      - name: 使用 Ambari Web UI 优化群集
-        href: ../hdinsight-changing-configs-via-ambari.md
-        maintainContext: true
-      - name: 使用 Ambari REST API
-        href: ../hdinsight-hadoop-manage-ambari-rest-api.md
-        maintainContext: true
-      maintainContext: true
     - name: 管理 HDInsight 群集的日志
       href: ../hdinsight-log-management.md
       maintainContext: true
@@ -164,9 +149,6 @@ items:
       maintainContext: true
     - name: 上传 Hadoop 作业的数据
       href: ../hdinsight-upload-data.md
-      maintainContext: true
-    - name: 将多个 HDInsight 群集与 Data Lake Store 配合使用
-      href: ../hdinsight-multiple-clusters-data-lake-store.md
       maintainContext: true
     - name: 群集及服务端口和 URI
       href: ../hdinsight-hadoop-port-settings-for-services.md
@@ -243,9 +225,9 @@ items:
   - name: 适用于 HDInsight 的 Windows 工具
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 8f3b788b8c4b5344866c56d53e53dea83426330c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6f3b451b8d4a1b73a078735be961529d81cb3d73
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660835"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028720"

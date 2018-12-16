@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 10/01/2016
 ms.date: 01/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: ad9caef97d3d494a7f8a0221a70ac19ab520aa99
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 40e704bff63819f96acafaf4a1c1b27bd6f29577
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643981"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028966"
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>将现有 Node.js Azure 移动服务升级到应用服务
 
@@ -33,11 +33,6 @@ ms.locfileid: "52643981"
 ## <a name="migrate-vs-upgrade"></a>迁移与升级
 
 [!INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
-
-> [!TIP]
-> 建议在升级之前先[执行迁移](app-service-mobile-migrating-from-mobile-services.md)。 这样，就能在同一个应用服务计划中放置两个版本的应用程序，且无需支付额外的费用。
->
->
 
 ### <a name="improvements-in-mobile-apps-nodejs-server-sdk"></a>移动应用 Node.js 服务器 SDK 改进
 升级到新版[移动应用 SDK](https://www.npmjs.com/package/azure-mobile-apps) 可获得许多改进，包括：

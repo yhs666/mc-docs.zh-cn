@@ -5,16 +5,16 @@ services: azure-policy
 author: DCtheGeek
 ms.author: v-biyu
 origin.date: 05/24/2018
-ms.date: 11/12/2018
+ms.date: 12/17/2018
 ms.topic: conceptual
 ms.service: azure-policy
-manager: digimobile
-ms.openlocfilehash: 1796810cf7e80c516ea433c8adf037212e1f92a1
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+manager: carmonm
+ms.openlocfilehash: 6aa9c120a3547da1964ecc356f031ea5b7261a27
+ms.sourcegitcommit: 6e07735318eb5f6ea319b618863259088eab3722
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650260"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52981692"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>以编程方式创建策略和查看符合性数据
 
@@ -34,7 +34,7 @@ ms.locfileid: "52650260"
   Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
   ```
 
-  有关注册和查看资源提供程序的详细信息，请参阅[资源提供程序和类型](../azure-resource-manager/resource-manager-supported-services.md)。
+   有关注册和查看资源提供程序的详细信息，请参阅[资源提供程序和类型](../../../azure-resource-manager/resource-manager-supported-services.md)。
 4. 安装 Azure CLI（如果尚未安装）。 可以通过[在 Windows 上安装 Azure CLI 2.0](/cli/install-azure-cli-windows) 获取最新版本。
 
 ## <a name="create-and-assign-a-policy-definition"></a>创建并分配策略定义
@@ -71,8 +71,15 @@ ms.locfileid: "52650260"
   New-AzureRmPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy 'AuditStorageAccounts.json'
   ```
 
-  该命令创建名为 _Audit Storage Accounts Open to Public Networks_ 的策略定义。 有关可用的其他参数的详细信息，请参阅 [New-AzureRmPolicyDefinition](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermpolicydefinition)。
-3. 创建策略定义后，可运行以下命令创建策略分配：
+   该命令创建名为 _Audit Storage Accounts Open to Public Networks_ 的策略定义。
+   有关可用的其他参数的详细信息，请参阅 [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition)。
+
+   在没有位置参数的情况下调用时，`New-AzureRmPolicyDefinition` 默认将策略定义保存在会话上下文的选定订阅中。 若要将定义保存到其他位置，请使用以下参数：
+
+   - **SubscriptionId** - 保存到其他订阅。 需要 _GUID_ 值。
+   - **ManagementGroupName** - 保存到管理组。 需要_字符串_值。
+
+1. 创建策略定义后，可运行以下命令创建策略分配：
 
   ```powershell
   $rg = Get-AzureRmResourceGroup -Name 'ContosoRG'
@@ -82,7 +89,14 @@ ms.locfileid: "52650260"
 
   将 _ContosoRG_ 替换为所需资源组的名称。
 
-有关使用 Azure 资源管理器 PowerShell 模块管理资源策略的详细信息，请参阅 [AzureRM.Resources](https://docs.microsoft.com/powershell/module/azurerm.resources/#policies)。
+   `New-AzureRmPolicyAssignment` 上的 **Scope** 参数也可用于订阅和管理组。 该参数使用完整资源路径，它将返回 `Get-AzureRmResourceGroup` 的 **ResourceId** 属性。 每个容器的**范围**模式如下所示。
+   将 `{rgName}`、`{subId}` 和 `{mgName}` 分别替换为你的资源组名称、订阅 ID 和管理组名称。
+
+   - 资源组 - `/subscriptions/{subId}/resourceGroups/{rgName}`
+   - 订阅 - `/subscriptions/{subId}/`
+   - 管理组 - `/providers/Microsoft.Management/managementGroups/{mgName}`
+
+有关使用 Azure 资源管理器 PowerShell 模块管理资源策略的详细信息，请参阅 [AzureRM.Resources](/powershell/module/azurerm.resources/#policies)。
 
 ### <a name="create-and-assign-a-policy-definition-using-armclient"></a>使用 ARMClient 创建并分配策略定义
 
@@ -126,9 +140,9 @@ ms.locfileid: "52650260"
    armclient PUT "/providers/Microsoft.Management/managementgroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
    ```
 
-   将前面的 {subscriptionId} 替换为你的订阅的 ID，或将 {managementGroupId} 替换为你的[管理组](../../management-groups/overview.md)的 ID。
+   将前面的 {subscriptionId} 替换为你的订阅的 ID，或将 {managementGroupId} 替换为你的[管理组](../../management-groups/index.md)的 ID。
 
-有关查询结构的详细信息，请参阅[策略定义 – 创建或更新](https://docs.microsoft.com/rest/api/resources/policydefinitions/createorupdate)。
+有关查询结构的详细信息，请参阅[策略定义 – 创建或更新](https://docs.microsoft.com/rest/api/resources/policydefinitions/createorupdate)和[策略定义 – 在管理组中创建或更新](https://docs.microsoft.com/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
 
 使用以下过程创建策略分配，并在资源组级别分配策略定义。
 
@@ -215,4 +229,4 @@ az policy definition show --name 'Audit Storage Accounts with Open Public Networ
 - [Azure RM PowerShell 模块](https://docs.microsoft.com/powershell/module/azurerm.resources/#policies)
 - [Azure CLI 策略命令](/cli/policy?view=azure-cli-latest)
 - [策略见解资源提供程序 REST API 参考](https://docs.microsoft.com/rest/api/policy-insights)
-- [使用 Azure 管理组来组织资源](../../management-groups/overview.md)
+- [使用 Azure 管理组来组织资源](../../management-groups/index.md)

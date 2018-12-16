@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 12/21/2016
 ms.date: 11/12/2018
 ms.author: v-jay
-ms.openlocfilehash: 45401414b4aaf46d0c6ac9c34776cfcc3f978303
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8d8422398813001bbfb6728faf519ca6191f79ab
+ms.sourcegitcommit: 5c059fe358e1298ef96450b2c620054afe89de1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651710"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53234112"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>使用 Azure PowerShell 管理 Azure DNS 中的 DNS 记录和记录集
 
@@ -321,7 +321,7 @@ Set-AzureRmDnsRecordSet -RecordSet $rs
 
 ```powershell
 $rs = Get-AzureRmDnsRecordSet -Name "@" -RecordType NS -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
-Add-AzureRmDnsRecordConfig -RecordSet $rs -Nsdname ns1.myotherdnsprovider.com
+Add-AzureRmDnsRecordConfig -RecordSet $rs -Nsdname ns1.myotherdnsprovider.cn
 Set-AzureRmDnsRecordSet -RecordSet $rs
 ```
 

@@ -13,14 +13,14 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/06/2018
-ms.date: 09/24/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: b22b38546742167564aa8bac62871253a57b73cb
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 2cc7b273ff168427f66e756eab2dc0d1d667b516
+ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657136"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53286767"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的资源函数
 
@@ -119,11 +119,10 @@ ListKeys 返回的对象采用以下格式：
             "type": "string",
             "defaultValue": "chinaeast"
         },
-        "requestContent": {
+        "accountSasProperties": {
             "type": "object",
             "defaultValue": {
                 "signedServices": "b",
-                "signedResourceType": "c",
                 "signedPermission": "r",
                 "signedExpiry": "2018-08-20T11:00:00Z",
                 "signedResourceTypes": "s"
@@ -165,7 +164,7 @@ ListKeys 返回的对象采用以下格式：
         },
         "accountSAS": {
             "type": "object",
-            "value": "[listAccountSas(parameters('storagename'), '2018-02-01', parameters('requestContent'))]"
+            "value": "[listAccountSas(parameters('storagename'), '2018-02-01', parameters('accountSasProperties'))]"
         }
     }
 }

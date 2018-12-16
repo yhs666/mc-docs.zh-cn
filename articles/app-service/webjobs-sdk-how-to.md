@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 04/27/2018
 ms.date: 06/04/2018
 ms.author: tdykstra
-ms.openlocfilehash: 13f1c26aae63de63f37dd265d23617e093d23524
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c504b8c27e89f3ecfe432730f8c4a154b53456c9
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666999"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028899"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>如何使用 Azure WebJobs SDK 进行事件驱动的后台处理
 
@@ -30,8 +30,6 @@ ms.locfileid: "52666999"
 > * Azure Functions 版本 1.x 对应于 WebJobs SDK 版本 2.x，Azure Functions 2.x 对应于 WebJobs SDK 3.x。 源代码存储库遵循 WebJobs SDK 编号方案，许多存储库具有 v2.x 分支，其中的主分支当前包含 3.x 代码。
 > * Azure Functions C# 类库的示例代码类似于 WebJobs SDK 代码，不过，在 WebJobs SDK 项目中，无需指定 `FunctionName` 特性。
 > * 某些绑定类型（例如 HTTP、Webhook 以及基于 HTTP 的事件网格）只在 Functions 中受支持。 
-> 
-> 有关详细信息，请参阅 [WebJobs SDK 和 Azure Functions 的比较](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs)。 
 
 ## <a name="prerequisites"></a>先决条件
 

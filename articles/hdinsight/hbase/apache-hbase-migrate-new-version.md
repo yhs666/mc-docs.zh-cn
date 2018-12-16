@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 01/22/2018
 ms.author: ashishth
 ms.date: 07/23/2018
-ms.openlocfilehash: 9d9289c573d11dde51375517bb77e79c9b19c169
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: de4e440cbdef7ff60c91c069e6f81c58f05d0cea
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659964"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028765"
 ---
 # <a name="migrate-an-hbase-cluster-to-a-new-version"></a>将 HBase 群集迁移到新版本
 
@@ -193,7 +193,7 @@ ms.locfileid: "52659964"
     
 4. 停止引入到旧 HBase 群集。
 5. 为确保刷新 memstore 中的所有最新数据，请再次运行前面的脚本。
-6. 在旧群集上登录到 Ambari (https://OLDCLUSTERNAME.azurehdidnsight.cn) 并停止 HBase 服务。 当系统提示确认想要停止服务时，请选中为 HBase 启用维护模式的框。 有关连接和使用 Ambari 的详细信息，请参阅[使用 Ambari Web UI 管理 HDInsight 群集](../hdinsight-hadoop-manage-ambari.md)。
+6. 在旧群集 (https://OLDCLUSTERNAME.azurehdidnsight.cn) 上登录到 Ambari，并停止 HBase 服务。 当系统提示确认想要停止服务时，请选中为 HBase 启用维护模式的框。 
 
     ![在 Ambari 中单击“服务”选项卡，在左侧菜单中选择“HBase”，然后在“服务操作”下选择“停止”](./media/apache-hbase-migrate-new-version/stop-hbase-services.png)
 
@@ -220,6 +220,5 @@ ms.locfileid: "52659964"
 有关 HBase 和升级 HDInsight 群集的详细信息，请参阅以下文章：
 
 * [将 HDInsight 群集升级到更新版本](../hdinsight-upgrade-cluster.md)
-* [使用 Ambari Web UI 监视和管理 Azure HDInsight](../hdinsight-hadoop-manage-ambari.md)
 * [Hadoop 组件和版本](../hdinsight-component-versioning.md)
 * [使用 Ambari 优化配置](../hdinsight-changing-configs-via-ambari.md#hbase-optimization-with-the-ambari-web-ui)

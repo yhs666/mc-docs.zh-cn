@@ -9,12 +9,12 @@ services: iot-accelerators
 origin.date: 10/05/2018
 ms.date: 11/26/2018
 ms.topic: conceptual
-ms.openlocfilehash: bec525b3297f8a811ba0431754f05b567d172e6d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1fc47c7a1ef97bec8e4de7df0c233fe0bdce64ef
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658247"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028424"
 ---
 # <a name="add-a-custom-flyout-to-the-remote-monitoring-solution-accelerator-web-ui"></a>向远程监视解决方案加速器 Web UI 添加自定义浮出控件
 
@@ -50,11 +50,11 @@ ms.locfileid: "52658247"
 
 **exampleFlyout.container.js**
 
-[!code-javascript[Example flyout container](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithFlyout/flyouts/exampleFlyout/exampleFlyout.container.js?name=flyoutcontainer "Example flyout container")]
+
 
 **exampleFlyout.js**
 
-[!code-javascript[Example flyout](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithFlyout/flyouts/exampleFlyout/exampleFlyout.js?name=flyout "Example flyout")]
+
 
 将 src/walkthrough/components/pages/pageWithFlyout/flyouts 文件夹复制到 src/components/pages/example 文件夹。
 

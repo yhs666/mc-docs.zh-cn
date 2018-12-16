@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/26/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: dc87079083b8f07ad18f5f871bff64de8d492ebd
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 2f19fe82ded380ebd03ff8aa4388a301c379f7eb
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658861"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53070286"
 ---
 ## <a name="the-parts-of-the-device-model-schema"></a>设备模型架构的组成部分
 
@@ -57,7 +57,7 @@ ms.locfileid: "52658861"
 
 以下部分介绍 JSON 架构中的其他节：
 
-## <a name="simulation"></a>仿真
+## <a name="simulation"></a>模拟
 
 在 `Simulation` 节中定义模拟设备的内部状态。 设备发送的任何遥测值必须是此设备状态的一部分。
 
@@ -66,7 +66,6 @@ ms.locfileid: "52658861"
 * `InitialState` 定义设备状态对象的所有属性的初始值。
 * `Script` 标识按计划运行的、更新设备状态的 JavaScript 文件。 可以使用此脚本来随机化设备发送的遥测值。
 
-若要详细了解用于更新设备状态对象的 JavaScript 文件，请参阅[了解设备模型行为](../articles/iot-accelerators/iot-accelerators-device-simulation-device-behavior.md)。
 
 以下示例演示模拟冷却器设备的设备状态对象定义：
 
@@ -142,7 +141,7 @@ ms.locfileid: "52658861"
 * 对象 - 使用 JSON 序列化
 * 二进制 - 使用 base64 序列化
 * 文本
-* 布尔
+* Boolean
 * Integer
 * Double
 * DateTime
@@ -188,7 +187,6 @@ ms.locfileid: "52658861"
 
 模拟设备将它支持的方法列表发送到它连接到的 IoT 中心。
 
-若要详细了解用于实现设备行为的 JavaScript 文件，请参阅[了解设备模型行为](../articles/iot-accelerators/iot-accelerators-device-simulation-device-behavior.md)。
 
 以下示例指定三个支持的方法，以及用于实现这些方法的 JavaScript 文件：
 

@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 05/30/2018
 ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: a0ac704b6898625e13440f2fa9bc6dbca2d448a0
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e0bde0d41923219d44556f28d91070be31da91cd
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645779"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028890"
 ---
 # <a name="resize-a-windows-vm"></a>调整 Windows VM 的大小
 
@@ -107,7 +107,7 @@ foreach ($vmId in $vmIDs){
     } 
 ```
 
-调整可用性集中 VM 的大小并重新启动。
+调整可用性集中 VM 的大小并重新启动 VM。
 
 ```powershell
 $newSize = "<newVmSize>"
@@ -123,9 +123,9 @@ $vmIds = $as.VirtualMachinesReferences
     }
 ```
 
-## <a name="next-steps"></a>后续步骤
+<!-- Not Available on ## Next steps-->
 
-若要提高可伸缩性，请运行多个 VM 实例并进行横向扩展。有关详细信息，请参阅[自动缩放虚拟机规模集中的 Windows 计算机](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)。
+<!-- Not Available on [Automatically scale Windows machines in a Virtual Machine Scale Set](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-powershell.md)-->
 
 <!-- Update_Description: update meta properties, update link -->
 <!-- REDIRECT virtual-machine-scale-sets-windows-autoscale.md to virtual-machine-scale-sets-autoscale-powershell.md -->

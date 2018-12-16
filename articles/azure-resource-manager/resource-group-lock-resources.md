@@ -12,15 +12,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 02/21/2018
-ms.date: 09/03/2018
+origin.date: 11/08/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: 31cad67b96c58d79ef9c4b79e750e391ec33c9c6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 27d41f31cb77a4135b2a9297725da04444ceda7b
+ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661452"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53286734"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>锁定资源，以防止意外更改 
 
@@ -105,7 +105,7 @@ Resource Manager 锁仅适用于管理平面内发生的操作，包括发送到
 
 要使用 PowerShell 部署此示例模板，请使用：
 
-```powershell
+```PowerShell
 New-AzureRmResourceGroup -Name sitegroup -Location chinaeast
 New-AzureRmResourceGroupDeployment -ResourceGroupName sitegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/lock.json -hostingPlanName plan0103
 ```
@@ -122,37 +122,37 @@ az group deployment create --resource-group sitegroup --template-uri https://raw
 
 若要锁定某个资源，请提供该资源的名称、其资源类型及其资源组名称。
 
-```powershell
+```PowerShell
 New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
 ```
 
 若要锁定某个资源组，请提供该资源组的名称。
 
-```powershell
+```PowerShell
 New-AzureRmResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName exampleresourcegroup
 ```
 
 若要获取有关某个锁的信息，请使用 [Get-AzureRmResourceLock](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermresourcelock)。 若要获取订阅中的所有锁，请使用：
 
-```powershell
+```PowerShell
 Get-AzureRmResourceLock
 ```
 
 若要获取某个资源的所有锁，请使用：
 
-```powershell
+```PowerShell
 Get-AzureRmResourceLock -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
 ```
 
 若要获取某个资源组的所有锁，请使用：
 
-```powershell
+```PowerShell
 Get-AzureRmResourceLock -ResourceGroupName exampleresourcegroup
 ```
 
 若要删除锁，请使用：
 
-```powershell
+```PowerShell
 $lockId = (Get-AzureRmResourceLock -ResourceGroupName exampleresourcegroup -ResourceName examplesite -ResourceType Microsoft.Web/sites).LockId
 Remove-AzureRmResourceLock -LockId $lockId
 ```
@@ -220,6 +220,7 @@ az lock delete --ids $lockid
 * 有关使用逻辑方式组织资源的信息，请参阅[使用标记来组织资源](resource-group-using-tags.md)
 * 若要更改资源位于哪个资源组，请参阅[将资源移到新的资源组](resource-group-move-resources.md)
 * 可以使用自定义策略对订阅应用限制和约定。 有关详细信息，请参阅[什么是 Azure Policy？](../azure-policy/azure-policy-introduction.md)。
+
 <!-- Not Available on [Azure enterprise scaffold - prescriptive subscription governance](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/subscription-governance)-->
 
 <!--Update_Description: update meta properties, wording update, update cmdlet-->

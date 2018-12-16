@@ -20,42 +20,44 @@ items:
     href: container-registry-skus.md
   - name: 图像存储
     href: container-registry-storage.md
+  - name: 内容格式
+    href: container-registry-image-formats.md
   - name: 注册最佳做法
     href: container-registry-best-practices.md
 - name: 操作指南
   items:
-  - name: 推送和拉取映像
-    href: container-registry-get-started-docker-cli.md
-  - name: 查看存储库
-    href: container-registry-repositories.md
-  - name: 删除容器映像
-    href: container-registry-delete.md
-  - name: 升级经典注册表
-    href: container-registry-upgrade.md
-  - name: 使用 ACR webhook
-    href: container-registry-webhook.md
+  - name: 注册表操作
+    items:
+    - name: 推送和拉取映像
+      href: container-registry-get-started-docker-cli.md
+    - name: 查看存储库
+      href: container-registry-repositories.md
+    - name: 删除容器映像
+      href: container-registry-delete.md
+    - name: 升级经典注册表
+      href: container-registry-upgrade.md
+    - name: 使用 ACR webhook
+      href: container-registry-webhook.md
   - name: 身份验证
     items:
     - name: 身份验证概述
       href: container-registry-authentication.md
     - name: 服务主体身份验证
       href: container-registry-auth-service-principal.md
-    - name: Azure 容器实例
-      href: container-registry-auth-aci.md
 - name: 参考
   items:
   - name: Azure CLI
     href: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest
   - name: REST
-    href: http://docs.microsoft.com/rest/api/containerregistry
+    href: https://docs.microsoft.com/rest/api/containerregistry
   - name: PowerShell
-    href: http://docs.microsoft.com/powershell/module/azurerm.containerregistry#container_registry
+    href: https://docs.microsoft.com/powershell/module/azurerm.containerregistry#container_registry
   - name: .NET
-    href: http://docs.microsoft.com/dotnet/api/overview/azure/containerregistry
+    href: https://docs.microsoft.com/dotnet/api/overview/azure/containerregistry
   - name: Python
     href: https://docs.microsoft.com/python/api/overview/azure/container-registry
   - name: Java
-    href: http://docs.microsoft.com/java/api/overview/azure/containerregistry
+    href: https://docs.microsoft.com/java/api/overview/azure/containerregistry
   - name: Node.js
     href: http://docs.microsoft.com/javascript/api/overview/azure/container-registry
   - name: Webhook 架构
@@ -70,9 +72,9 @@ items:
     href: https://www.azure.cn/support/support-azure/
   - name: 视频
     href: https://www.azure.cn/video-center/
-ms.openlocfilehash: 366cf1f9e388231c1fa2db0df0b5eb632df6a2e5
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 87ea841224242515180cb536917572699a5c540f
+ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662164"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53286731"

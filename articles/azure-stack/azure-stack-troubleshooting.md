@@ -3,8 +3,8 @@ title: Azure Stack 故障排除 | Microsoft Docs
 description: Azure Stack 故障排除。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: a20bea32-3705-45e8-9168-f198cfac51af
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/09/2018
-ms.date: 07/20/2018
-ms.author: v-junlch
+origin.date: 10/16/2018
+ms.date: 12/17/2018
+ms.author: v-jay
 ms.reviewer: unknown
-ms.openlocfilehash: e134360813310c43c401640de8c103f51d8e52b7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b8f60b0091ab2317f68dc694b6a16017e0ed8e3b
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647447"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396068"
 ---
 # <a name="azure-stack-troubleshooting"></a>Azure Stack 故障排除
 
@@ -56,8 +56,8 @@ ms.locfileid: "52647447"
 ### <a name="i-have-deleted-some-virtual-machines-but-still-see-the-vhd-files-on-disk-is-this-behavior-expected"></a>我已删除某些虚拟机，但仍在磁盘上看到 VHD 文件。 这是预期行为吗？
 是的，这是预期的行为。 设计此行为的原因如下：
 
-- 删除 VM 时，不会删除 VHD。 磁盘是资源组中的独立资源。
-- 删除存储帐户后，Azure 资源管理器会立即反映删除结果，但其中的磁盘仍保留在存储中，直到运行垃圾收集为止。
+* 删除 VM 时，不会删除 VHD。 磁盘是资源组中的独立资源。
+* 删除存储帐户后，Azure 资源管理器会立即反映删除结果，但其中的磁盘仍保留在存储中，直到运行垃圾收集为止。
 
 如果看到“孤立的”VHD，必须知道它们是否包含在已删除的存储帐户的文件夹中。 如果未删除存储帐户，则正常情况下，这些 VHD 仍在存储帐户中。
 

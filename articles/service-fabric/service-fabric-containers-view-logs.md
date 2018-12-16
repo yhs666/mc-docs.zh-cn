@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 05/15/2018
-ms.date: 07/09/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1a3d546caa0316e695eb5364f118b403deba810a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 94509823367ac8f0eb6cc7e0dd15837ebceddbe4
+ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657898"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52901023"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>查看 Service Fabric 容器服务的日志
 Azure Service Fabric 是一种容器业务流程协调程序，支持 [Linux 和 Windows 容器](service-fabric-containers-overview.md)。  本文介绍如何查看正在运行的容器服务或不活动容器的容器日志，以便诊断和排查问题。
@@ -35,7 +35,15 @@ Azure Service Fabric 是一种容器业务流程协调程序，支持 [Linux 和
 ![Service Fabric 平台][Image1]
 
 ## <a name="access-the-logs-of-a-dead-or-crashed-container"></a>访问不活动或故障容器的日志
-从 v6.2 开始，还可以使用 [REST API](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index) 或 [Service Fabric CLI (SFCTL)](service-fabric-cli.md) 命令获取死容器或故障容器的日志。
+从 v6.2 开始，还可以使用 [REST API](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index) 或 [Service Fabric CLI (SFCTL)](service-fabric-cli.md) 命令提取不活动或故障容器的日志。
+
+### <a name="set-container-retention-policy"></a>设置容器保留策略
+为了帮助诊断容器启动故障，Service Fabric（6.1 或更高版本）支持保留终止的或无法启动的容器。 此策略可以在 ApplicationManifest.xml 文件中设置，如以下代码片段所示：
+```xml
+ <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
+ ```
+
+ContainersRetentionCount 设置指定在容器故障时需保留的容器数。 如果指定一个负值，则会保留所有故障容器。 如果不指定 ContainersRetentionCount 属性，则不会保留任何容器。 ContainersRetentionCount 属性还支持应用程序参数，因此用户可以为测试性群集和生产群集指定不同的值。 使用此功能时可使用放置约束，将容器服务的目标设置为特定的节点，防止将容器服务移至其他节点。 使用此功能保留的容器必须手动删除。
 
 ### <a name="rest"></a>REST
 使用[获取部署在节点上的容器日志](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode)操作，来获取故障容器的日志。 指定运行该容器的节点名称、应用程序名称、服务清单名称和代码包名称。  指定 `&Previous=true`。 该响应将包含该代码包实例中不活动容器的容器日志。
@@ -72,4 +80,5 @@ sfctl service get-container-logs --node-name _Node_0 --application-id SimpleHttp
 - 详细了解 [Service Fabric 和容器](service-fabric-containers-overview.md)
 
 [Image1]: media/service-fabric-containers-view-logs/view-container-logs-sfx.png
+
 <!-- Update_Description: wording update, update meta properties  -->

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/03/2018
-ms.date: 11/19/2018
+origin.date: 10/17/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: d2de66bbbaabf4c9ce2cee5ca6fb739fc2b4cd29
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e220ca900108d906f10e1bb63c57f7aa1cf215d5
+ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664193"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53286732"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>部署 Azure 资源时使用链接模版和嵌套模版
 
@@ -402,7 +402,7 @@ ms.locfileid: "52664193"
 
 部署后，可使用以下 PowerShell 脚本检索输出值：
 
-```powershell
+```PowerShell
 $loopCount = 3
 for ($i = 0; $i -lt $loopCount; $i++)
 {
@@ -412,9 +412,11 @@ for ($i = 0; $i -lt $loopCount; $i++)
 }
 ```
 
-或使用 Azure CLI 脚本：
+还可以使用 Bash shell 中的 Azure CLI 脚本：
 
 ```azurecli
+#!/bin/bash
+
 for i in 0 1 2;
 do
     name="linkedTemplate$i";
@@ -460,16 +462,18 @@ done
 
 在 PowerShell 中，使用以下命令获取容器的令牌并部署模板。 注意，**containerSasToken** 参数是在模板中定义的。 它不是 New-AzureRmResourceGroupDeployment 命令中的参数。
 
-```powershell
+```PowerShell
 Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
 $token = New-AzureStorageContainerSASToken -Name templates -Permission r -ExpiryTime (Get-Date).AddMinutes(30.0)
 $url = (Get-AzureStorageBlob -Container templates -Blob parent.json).ICloudBlob.uri.AbsoluteUri
 New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ($url + $token) -containerSasToken $token
 ```
 
-在 Azure CLI 中，使用以下代码获取容器的令牌并部署模板：
+对于 Bash Shell 中的 Azure CLI，使用以下代码获取容器的令牌并部署模板：
 
 ```azurecli
+#!/bin/bash
+
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
 connection=$(az storage account show-connection-string \
     --resource-group ManageGroup \
@@ -507,4 +511,4 @@ az group deployment create --resource-group ExampleGroup --template-uri $url?$to
 * 若要了解如何定义一个资源而创建多个实例，请参阅[在 Azure 资源管理器中创建多个资源实例](resource-group-create-multiple.md)。
 * 有关在存储帐户中设置模板和生成 SAS 令牌的步骤，请参阅[使用 Resource Manager 模板和 Azure PowerShell 部署资源](resource-group-template-deploy.md)或[使用 Resource Manager 模板和 Azure CLI 部署资源](resource-group-template-deploy-cli.md)。
 
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties, wording update -->

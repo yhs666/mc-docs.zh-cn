@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 11/16/2017
-ms.date: 11/06/2018
+ms.date: 12/03/2018
 ms.author: v-junlch
 ms.custom: aaddev
 ms.reviewer: elisol
-ms.openlocfilehash: 95b4874b0db356a46ef2d2350ba34a6a2c1e475e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5eef3dafbae34217f59a48ac512ceb0986469e35
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650503"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028327"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory 开发人员词汇表
 
@@ -240,7 +240,7 @@ Azure AD 目录的实例称为 Azure AD 租户。 它提供的一些功能包括
 [AZURE-portal]: https://portal.azure.cn
 [AAD-RBAC]: ../../role-based-access-control/role-assignments-portal.md
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
-[Microsoft-Graph]: https://graph.microsoft.io
+[Microsoft-Graph]: https://developer.microsoft.com/graph
 [O365-Perm-Ref]: https://msdn.microsoft.com/office/office365/howto/application-manifest
 [OAuth2-Access-Token-Scopes]: https://tools.ietf.org/html/rfc6749#section-3.3
 [OAuth2-AuthZ-Endpoint]: https://tools.ietf.org/html/rfc6749#section-3.1

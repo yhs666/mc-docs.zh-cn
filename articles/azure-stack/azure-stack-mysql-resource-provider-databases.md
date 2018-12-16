@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/12/2018
-ms.date: 10/15/2018
+origin.date: 10/16/2018
+ms.date: 12/17/2018
 ms.author: v-jay
-ms.reviewer: jeffgo
-ms.openlocfilehash: b2b83807d8d6bf457ec6d6553ce08c640e149e58
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.reviewer: quying
+ms.openlocfilehash: b9556669550b00a7f2b27604bf307c96830f1c57
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654037"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396158"
 ---
 # <a name="create-mysql-databases"></a>创建 MySQL 数据库
 

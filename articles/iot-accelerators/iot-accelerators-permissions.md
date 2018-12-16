@@ -9,20 +9,20 @@ ms.topic: conceptual
 origin.date: 11/10/2017
 ms.author: v-yiso
 ms.date: 11/26/2018
-ms.openlocfilehash: d4e16ad399b4e892e45705ef38ced75a618e5f9a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: aba70eb07ea1de75f3c3414858534bd660558aad
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656323"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028434"
 ---
 # <a name="permissions-on-the-azureiotsuitecn-site"></a>azureiotsuite.cn 站点权限
 ## <a name="what-happens-when-you-sign-in"></a>登录时发生的情况
 在 [azureiotsuite.cn][lnk-azureiotsolutions] 上首次登录时，站点会基于当前所选 Azure Active Directory (AAD) 租户和 Azure 订阅来确定所拥有的权限级别。
 
-1. 首先，为了填充用户名旁边显示的租户列表，该站点会从 Azure 中找到用户所属的 AAD 租户。 当前，该站点一次只能获取一个租户的用户令牌。 因此，当用户使用右上角的下拉列表切换租户时，该站点会将用户登录到该租户，以获取该租户的令牌。
+1. 站点首先从 Azure 查明用户所属的 AAD 租户以填充用户名旁显示的租户列表。 当前，站点一次只能获取一个租户的用户令牌。 因此，当使用右上角的下拉列表切换租户时，站点会使你登录到该租户，以获取该租户的令牌。
 
-2. 接下来，站点从 Azure 查明你所具有的与所选租户关联的订阅。 创建新的解决方案加速器时，会看到可用订阅。
+2. 接下来，站点从 Azure 查明你已与所选租户关联的订阅。 创建新的解决方案加速器时，会看到可用订阅。
 
 3. 最后，站点检索标记为解决方案加速器的订阅和资源组中的所有资源，并填充主页上的磁贴。
 
@@ -32,18 +32,18 @@ ms.locfileid: "52656323"
 
 AAD 角色控制预配解决方案加速器，以及在解决方案加速器中管理用户和一些 Azure 服务的能力。
 
-有关 AAD 中的管理员角色的详细信息，请参阅 [在 Azure AD 中分配管理员角色][lnk-aad-admin]。 本文重点介绍解决方案加速器使用的**全局管理员**和**用户**目录角色。
+有关 AAD 中的管理员角色的详细信息，可参阅[在 Azure AD 中分配管理员角色][lnk-aad-admin]。 本文重点介绍解决方案加速器使用的**全局管理员**和**用户**目录角色。
 
 ### <a name="global-administrator"></a>全局管理员
 
-对于每个 AAD 租户，可以存在许多个全局管理员。
+对于每个 AAD 租户，可以有多个全局管理员：
 
 * 在创建某个 AAD 租户时，默认情况下会成为该租户的全局管理员。
 * 全局管理员可以预配基本和标准解决方案加速器（一个基本部署使用单个 Azure 虚拟机）。
 
 ### <a name="domain-user"></a>域用户
 
-每个 AAD 租户可以有多个域用户。
+每个 AAD 租户可以有多个域用户：
 
 * 域用户可以通过 [azureiotsolutions.cn][lnk-azureiotsolutions] 站点预配基本解决方案加速器。
 * 域用户可以使用 CLI 创建基本解决方案加速器。
@@ -52,7 +52,7 @@ AAD 角色控制预配解决方案加速器，以及在解决方案加速器中�
 
 每个 AAD 租户可以有多个来宾用户。 来宾用户在 AAD 租户中拥有有限的权利集。 因此，来宾用户无法在 AAD 租户中预配解决方案加速器。
 
-有关 AAD 中的用户和角色的详细信息，请参阅以下资源：
+有关 AAD 中用户及角色的详细信息，请参阅以下资源：
 
 * [在 Azure AD 中创建用户][lnk-create-edit-users]
 * [将用户分配到应用][lnk-assign-app-roles]
@@ -61,20 +61,17 @@ AAD 角色控制预配解决方案加速器，以及在解决方案加速器中�
 
 Azure 管理员角色可控制将 Azure 订阅映射到 AAD 租户的能力。
 
-有关 Azure 管理员角色的更多信息，请参阅文章[添加或更改 Azure 订阅管理员][lnk-admin-roles]。
 
-## <a name="faq"></a>常见问题
 
-### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-aad-tenant-how-do-i-complete-this-task"></a>我是服务管理员，要更改我的订阅与特定 AAD 租户之间的目录映射。 如何完成此任务？
+## <a name="faq"></a>常见问题解答
 
-请参阅[如何将现有订阅添加到 Azure AD 目录](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory)
 
 ### <a name="i-want-to-change-a-service-administrator-or-co-administrator-when-logged-in-with-an-organizational-account"></a>我在使用组织帐户登录时要更改服务管理员或共同管理员
 
 请参阅支持文章[使用组织帐户登录时更改服务管理员和共同管理员][lnk-service-admins]。
 
 ### <a name="why-am-i-seeing-this-error-your-account-does-not-have-the-proper-permissions-to-create-a-solution-please-check-with-your-account-administrator-or-try-with-a-different-account"></a>为何会出现以下错误？ “你的帐户没有创建解决方案的正确权限。 请咨询帐户管理员或使用其他帐户进行尝试。”
-请查看下图以获得指南：
+请查看以下指南示意图：
 
 ![][img-flowchart]
 
@@ -98,7 +95,6 @@ Azure 管理员角色可控制将 Azure 订阅映射到 AAD 租户的能力。
 [lnk-create-edit-users]:../active-directory/fundamentals/active-directory-users-profile-azure-portal.md
 [lnk-assign-app-roles]:../active-directory/manage-apps/assign-user-or-group-access-portal.md
 [lnk-service-admins]: https://www.azure.cn/support/changing-service-admin-and-co-admin/
-[lnk-admin-roles]: ../billing/billing-add-change-azure-subscription-administrator.md
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
 [lnk-help-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
 [lnk-customize]: iot-accelerators-remote-monitoring-customize.md

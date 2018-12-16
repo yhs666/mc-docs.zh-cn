@@ -25,9 +25,6 @@ items:
   - name: 执行 ETL 操作
     href: ../hdinsight-analyze-flight-delay-data-linux.md
     maintainContext: true
-  - name: 创建按需群集
-    href: ../hdinsight-hadoop-create-linux-clusters-adf.md
-    maintainContext: true
 - name: 概念
   items:
   - name: 群集容量规划
@@ -44,9 +41,6 @@ items:
     items:
     - name: 使用 Azure 存储
       href: ../hdinsight-hadoop-use-blob-storage.md
-      maintainContext: true
-    - name: 使用 Azure Data Lake Store
-      href: ../hdinsight-hadoop-use-data-lake-store.md
       maintainContext: true
   - name: 使用 Hadoop 执行批处理查询
     items:
@@ -160,16 +154,10 @@ items:
       href: apache-hadoop-connect-hive-jdbc-driver.md
     - name: 分析存储的传感器数据
       href: apache-hive-analyze-sensor-data.md
-    - name: 分析存储的推文
-      href: ../hdinsight-analyze-twitter-data-linux.md
-      maintainContext: true
     - name: 使用 Mahout 生成建议
       href: apache-hadoop-mahout-linux-mac.md
     - name: 使用 Hive 分析网站日志
       href: apache-hive-analyze-website-log.md
-    - name: 分析 Application Insights 遥测日志
-      href: ../spark/apache-spark-analyze-application-insight-logs.md
-      maintainContext: true
     - name: 适用于 HDInsight 的高级分析
       href: apache-hadoop-deep-dive-advanced-analytics.md
     - name: HDInsight 中的大规模流式处理
@@ -237,14 +225,8 @@ items:
     - name: 将 SSH 与 HDInsight 配合使用
       href: ../hdinsight-hadoop-linux-use-ssh-unix.md
       maintainContext: true
-    - name: 使用 SSH 隧道
-      href: ../hdinsight-linux-ambari-ssh-tunnel.md
-      maintainContext: true
     - name: 限制数据访问
       href: ../hdinsight-storage-sharedaccesssignature-permissions.md
-      maintainContext: true
-    - name: 授权用户访问 Ambari 视图
-      href: ../hdinsight-authorize-users-to-ambari.md
       maintainContext: true
   - name: 管理
     items:
@@ -283,16 +265,6 @@ items:
         href: ../hdinsight-administer-use-command-line.md
         maintainContext: true
       maintainContext: true
-    - name: 使用 Ambari Web UI 管理群集
-      href: ../hdinsight-hadoop-manage-ambari.md
-      items:
-      - name: 使用 Ambari Web UI 优化群集
-        href: ../hdinsight-changing-configs-via-ambari.md
-        maintainContext: true
-      - name: 使用 Ambari REST API
-        href: ../hdinsight-hadoop-manage-ambari-rest-api.md
-        maintainContext: true
-      maintainContext: true
     - name: 缩放 HDInsight 群集
       href: ../hdinsight-scaling-best-practices.md
       maintainContext: true
@@ -307,9 +279,6 @@ items:
       maintainContext: true
     - name: 上传 Hadoop 作业的数据
       href: ../hdinsight-upload-data.md
-      maintainContext: true
-    - name: 将多个 HDInsight 群集与 Data Lake Store 配合使用
-      href: ../hdinsight-multiple-clusters-data-lake-store.md
       maintainContext: true
     - name: 使用 Sqoop 导入和导出数据
       href: hdinsight-use-sqoop.md
@@ -466,9 +435,6 @@ items:
     - name: 开发脚本操作
       href: ../hdinsight-hadoop-script-actions.md
       maintainContext: true
-    - name: 分析 Twitter 数据
-      href: ../hdinsight-analyze-twitter-data.md
-      maintainContext: true
     - name: 使用 Azure 门户管理群集
       href: ../hdinsight-administer-use-management-portal.md
       maintainContext: true
@@ -489,9 +455,9 @@ items:
   - name: 适用于 HDInsight 的 Windows 工具
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 867223826be2365a8af8a566a36ba9ba3ad46b04
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5cbeaa73dcbd2f1ff28d0746ba027614aa4b3787
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661127"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028912"

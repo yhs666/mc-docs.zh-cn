@@ -3,8 +3,8 @@ title: 管理 Azure 终结点访问控制列表 | PowerShell | 经典 | Azure
 description: 了解如何使用 PowerShell 管理 ACL
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 ms.assetid: c84e40af-f351-4572-b3f0-d572d46bafe7
 ms.service: virtual-network
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/15/2016
-ms.date: 12/12/2016
-ms.author: v-dazen
-ms.openlocfilehash: ec0b144b3d413f4bd4aaa45c58ad59b6268c305f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/17/2018
+ms.author: v-yeche
+ms.openlocfilehash: 33e6f161b7fd6f932f371b0584345a80ebf339df
+ms.sourcegitcommit: 1b6a310ba636b6dd32d7810821bcb79250393499
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660791"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53389382"
 ---
 # <a name="manage-endpoint-access-control-lists-using-powershell-in-the-classic-deployment-model"></a>在典型部署模型中使用 PowerShell 管理终结点访问控制列表
-可以使用 Azure PowerShell 或在管理门户中为终结点创建和管理网络访问控制列表 (ACL)。 在本主题中，你会了解可使用 PowerShell 完成的 ACL 常见任务的过程。 有关 Azure PowerShell cmdlet 的列表，请参阅 [Azure 管理 Cmdlet](http://go.microsoft.com/fwlink/?LinkId=317721)。 有关 ACL 的详细信息，请参阅[什么是网络访问控制列表 (ACL)？](virtual-networks-acl.md)。 如果要使用管理门户管理 ACL，请参阅[如何设置虚拟机的终结点](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
+可以使用 Azure PowerShell 或在管理门户中为终结点创建和管理网络访问控制列表 (ACL)。 在本主题中，将了解可使用 PowerShell 完成的 ACL 常见任务的过程。 有关 Azure PowerShell cmdlet 的列表，请参阅 [Azure 管理 Cmdlet](https://go.microsoft.com/fwlink/?LinkId=317721)。 有关 ACL 的详细信息，请参阅[什么是网络访问控制列表 (ACL)？](virtual-networks-acl.md)。 如果要使用管理门户管理 ACL，请参阅[如何设置虚拟机的终结点](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
 
 ## <a name="manage-network-acls-by-using-azure-powershell"></a>使用 Azure PowerShell 管理网络 ACL
 可以使用 Azure PowerShell cmdlet 创建、删除和配置（设置）网络访问控制列表 (ACL)。 我们已提供一些示例，介绍了通过 PowerShell 配置 ACL 的多种方法。
@@ -34,7 +34,7 @@ ms.locfileid: "52660791"
     Get-Command -Noun AzureACLConfig
 
 ### <a name="create-a-network-acl-with-rules-that-permit-access-from-a-remote-subnet"></a>创建包含允许从远程子网进行访问的规则的网络 ACL
-以下示例演示了创建包含规则的新 ACL 的方法。 此 ACL 随后会应用于虚拟机终结点。 以下示例中的 ACL 规则允许从远程子网进行访问。 若要为远程子网创建一个包含允许规则的新网络 ACL，请打开 Azure PowerShell ISE。 复制并粘贴下面的脚本，使用用户自己的值配置该脚本，并运行该脚本。
+以下示例演示了创建包含规则的新 ACL 的方法。 此 ACL 随后会应用于虚拟机终结点。 以下示例中的 ACL 规则将允许从远程子网进行访问。 若要为远程子网创建一个包含允许规则的新网络 ACL，请打开 Azure PowerShell ISE。 复制并粘贴下面的脚本，使用自己的值配置该脚本，然后运行该脚本。
 
 1. 创建新的网络 ACL 对象。
 
@@ -49,7 +49,7 @@ ms.locfileid: "52660791"
         Set-AzureAclConfig -AddRule -ACL $acl1 -Order 200 `
             -Action permit -RemoteSubnet "157.0.0.0/8" `
             -Description "web frontend ACL config"
-4. 接下来，可以创建新终结点（添加）或为现有终结点设置 ACL（设置）。 在本例中，我们添加名为“web”的新的虚拟机终结点并更新具有 ACL 设置的虚拟机终结点。
+4. 接下来，可以创建新终结点（添加）或为现有终结点设置 ACL（设置）。 在本例中，我们将添加称为“Web”的新虚拟机终结点并更新具有 ACL 设置的虚拟机终结点。
 
         Get-AzureVM -ServiceName $serviceName -Name $vmName `
         | Add-AzureEndpoint -Name "web" -Protocol tcp -Localport 80 - PublicPort 80 -ACL $acl1 `
@@ -68,7 +68,7 @@ ms.locfileid: "52660791"
         |Update-AzureVM
 
 ### <a name="remove-a-network-acl-rule-that-permits-access-from-a-remote-subnet"></a>删除允许从远程子网进行访问的网络 ACL 规则
-以下示例演示删除网络 ACL 规则的方法。  若要为远程子网删除包含允许规则的网络 ACL 规则，请打开 Azure PowerShell ISE。 复制并粘贴下面的脚本，使用用户自己的值配置该脚本，并运行该脚本。
+以下示例演示删除网络 ACL 规则的方法。  若要为远程子网删除包含允许规则的网络 ACL 规则，请打开 Azure PowerShell ISE。 复制并粘贴下面的脚本，使用自己的值配置该脚本，然后运行该脚本。
 
 1. 第一步是获取虚拟机终结点的网络 ACL 对象。 然后，删除 ACL 规则。 在此示例中，我们将按规则 ID 删除它。 这只会从 ACL 中删除规则 ID 0， 而不会从虚拟机终结点中删除 ACL 对象。
 
@@ -82,7 +82,7 @@ ms.locfileid: "52660791"
         | Update-AzureVM
 
 ### <a name="remove-a-network-acl-from-a-virtual-machine-endpoint"></a>从虚拟机终结点中删除网络 ACL
-在某些情况下，你可能希望从虚拟机终结点中删除网络 ACL 对象。 为此，请打开 Azure PowerShell ISE。 复制并粘贴下面的脚本，使用用户自己的值配置该脚本，并运行该脚本。
+在某些情况下，你可能希望从虚拟机终结点中删除网络 ACL 对象。 为此，请打开 Azure PowerShell ISE。 复制并粘贴下面的脚本，使用自己的值配置该脚本，然后运行该脚本。
 
         Get-AzureVM -ServiceName $serviceName -Name $vmName `
         | Remove-AzureAclConfig -EndpointName "web" `
@@ -90,3 +90,5 @@ ms.locfileid: "52660791"
 
 ## <a name="next-steps"></a>后续步骤
 [什么是网络访问控制列表 (ACL)？](virtual-networks-acl.md)
+
+<!-- Update_Description: update meta properties -->

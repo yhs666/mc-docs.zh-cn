@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 08/17/2017
 ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 39b3b81093524a6a138eb9441318858a1ee81952
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6355fbfcf64afafc4ff1d22999b4d8462302e01d
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654629"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028631"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>在 Azure 云服务中使用 Socket.IO 生成 Node.js 聊天应用程序
 
@@ -189,7 +189,7 @@ Socket.IO 在 node.js 服务器和客户端之间提供实时通信。 本教程
 
 有关详细信息，另请参阅 [Node.js 开发人员中心](https://www.azure.cn/develop/nodejs/)。
 
-  [chatwebsite]: ../app-service/app-service-web-get-started-nodejs
+  [chatwebsite]: ../app-service/app-service-web-get-started-nodejs.md
 
   [Azure SLA]: https://www.azure.cn/support/legal/sla/
   [Azure SDK for Node.js GitHub repository]: https://github.com/WindowsAzure/azure-sdk-for-node

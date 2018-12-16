@@ -5,31 +5,31 @@ services: azure-policy
 author: DCtheGeek
 ms.author: v-biyu
 origin.date: 08/16/2018
-ms.date: 11/12/2018
+ms.date: 12/17/2018
 ms.topic: conceptual
 ms.service: azure-policy
-manager: digimobile
-ms.openlocfilehash: d57c53cb8fc40980dba18ad67d0d7f5e9cbdd6ff
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+manager: carmonm
+ms.openlocfilehash: a2684134ae409ee85e84245499d43f93e21f1a2d
+ms.sourcegitcommit: 6e07735318eb5f6ea319b618863259088eab3722
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655954"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52981648"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 定义结构
 
-Azure Policy 使用的资源策略定义，可使你通过描述何时强制实施策略和要实现的效果为组织中的资源建立约定。 通过定义约定，可以控制成本并更轻松地管理资源。 例如，可指定仅允许特定类型的虚拟机。 或者，可要求所有资源都拥有特定标记。 策略由所有子资源继承。 因此，如果将策略应用到资源组，则其适用于该资源组中的所有资源。
+Azure Policy 使用的资源策略定义，可使你通过描述何时强制实施策略和要实现的效果为组织中的资源建立约定。 通过定义约定，可以控制成本并更轻松地管理资源。 例如，可指定仅允许特定类型的虚拟机。 或者，可要求所有资源都拥有特定标记。 策略由所有子资源继承。 因此，如果将策略应用到资源组，则会将其应用到该资源组中的所有资源。
 
 可以在此处找到 Azure Policy 使用的架构：[https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json](https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json)
 
-使用 JSON 创建策略定义。 策略定义包含以下各项的元素：
+使用 JSON 创建策略定义。 策略定义包含以下项的元素：
 
-- 模式
-- 参数
+- mode
+- parameters
 - 显示名称
 - description
 - 策略规则
-  - 逻辑求值
+  - 逻辑评估
   - 效果
 
 例如，以下 JSON 说明限制资源部署位置的策略：
@@ -121,12 +121,12 @@ Azure Policy 使用的资源策略定义，可使你通过描述何时强制实�
 
 ## <a name="definition-location"></a>定义位置
 
-创建计划或策略定义时，指定定义位置非常重要。
+创建计划或策略时，需要指定定义位置。 定义位置必须是一个管理组或订阅，并且决定了可以将计划或策略分配到的范围。 资源必须是用于分配的目标定义位置的层次结构中的直系成员或子代。
 
-定义位置确定计划或策略定义可分配到的范围。 位置可以指定为管理组或订阅。
+如果定义位置是：
 
-> [!NOTE]
-> 若要将此策略定义应用到多个订阅，则位置必须是计划或策略要分配到的订阅所在的管理组。
+- **订阅** - 只能将该订阅中的资源分配给策略。
+- **管理组** - 只能将子管理组和子订阅中的资源分配给策略。 如果计划将策略定义应用于多个订阅，则位置必须是包含那些订阅的管理组。
 
 ## <a name="display-name-and-description"></a>显示名称和说明
 
@@ -134,7 +134,7 @@ Azure Policy 使用的资源策略定义，可使你通过描述何时强制实�
 
 ## <a name="policy-rule"></a>策略规则
 
-策略规则包括 **If** and **Then** 块。 在 **If** 块中，定义强制执行策略时指定的一个或多个条件。 可以对这些条件应用逻辑运算符，以精确定义策略的方案。
+策略规则包括 **If** 和 **Then** 块。 在 **If** 块中，定义强制执行策略时指定的一个或多个条件。 可以对这些条件应用逻辑运算符，以精确定义策略的方案。
 
 在 **Then** 块中，定义满足 **If** 条件时产生的效果。
 
@@ -177,7 +177,7 @@ Azure Policy 使用的资源策略定义，可使你通过描述何时强制实�
 },
 ```
 
-### <a name="conditions"></a>Conditions
+### <a name="conditions"></a>条件
 
 条件评估字段是否符合特定的准则。 支持的条件有：
 
@@ -198,7 +198,7 @@ Azure Policy 使用的资源策略定义，可使你通过描述何时强制实�
 使用 like 和 notLike 条件时，可以在值中指定通配符 `*`。
 值不得包含多个通配符 `*`。
 
-当使用 match 和 notMatch 条件时，请提供 `#` 来表示数字，提供 `?` 来表示字母，提供任何其他字符来表示该实际字符。 例如，请参阅[允许多名称模式](../samples/allow-multiple-name-patterns.md)。
+当使用 match 和 notMatch 条件时，请提供 `#` 来表示数字，提供 `?` 来表示字母，提供 `.` 来匹配所有字符，并提供任何其他字符来表示该实际字符。 例如，请参阅[允许多名称模式](../samples/allow-multiple-name-patterns.md)。
 
 ### <a name="fields"></a>字段
 
@@ -219,15 +219,15 @@ Azure Policy 使用的资源策略定义，可使你通过描述何时强制实�
 - `tags[<tagName>]`
   - 此括号语法支持包含句点的标记名称。
   - 其中 **\<tagName\>** 是要验证其条件的标记的名称。
-  - 示例：`tags.[Acct.CostCenter]`，其中 **Acct.CostCenter** 是标记的名称。
-- 属性别名 - 若要查看列表，请参阅[别名](#aliases)。
+  - 示例：`tags[Acct.CostCenter]`，其中 **Acct.CostCenter** 是标记的名称。
+- 属性别名 - 有关列表，请参阅[别名](#aliases)。
 
 ### <a name="effect"></a>效果
 
 策略支持以下类型的效果：
 
-- **Deny**：会在审核日志中生成一个事件，并使请求失败
-- **Audit**：会在审核日志中生成一个警告事件，但不会使请求失败
+- **Deny**：会在活动日志中生成一个事件，并使请求失败
+- **Audit**：会在活动日志中生成一个警告事件，但不会使请求失败
 - **Append**：会将定义的字段集添加到请求
 - **AuditIfNotExists**：如果资源不存在，则启用审核
 - **DeployIfNotExists**：如果资源不存在，则部署一个资源。 
@@ -251,12 +251,12 @@ Azure Policy 使用的资源策略定义，可使你通过描述何时强制实�
 
 ### <a name="policy-functions"></a>策略函数
 
-[资源管理器模板函数](../azure-resource-manager/resource-group-template-functions.md)的子集可在策略规则中使用。 目前支持的函数如下：
+[资源管理器模板函数](../../../azure-resource-manager/resource-group-template-functions.md)的子集可在策略规则中使用。 目前支持的函数如下：
 
-- [参数](../azure-resource-manager/resource-group-template-functions-deployment.md#parameters)
-- [concat](../azure-resource-manager/resource-group-template-functions-array.md#concat)
-- [resourceGroup](../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)
-- [subscription](../azure-resource-manager/resource-group-template-functions-resource.md#subscription)
+- [parameters](../../../azure-resource-manager/resource-group-template-functions-deployment.md#parameters)
+- [concat](../../../azure-resource-manager/resource-group-template-functions-array.md#concat)
+- [resourceGroup](../../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)
+- [subscription](../../../azure-resource-manager/resource-group-template-functions-resource.md#subscription)
 
 此外，`field` 函数可用于策略规则。 此函数主要用于 **AuditIfNotExists** 和 **DeployIfNotExists**，以引用所评估资源上的字段。 可以在 [DeployIfNotExists 示例](effects.md#deployifnotexists-example)中看到此函数的示例。
 
@@ -298,7 +298,7 @@ Azure Policy 使用的资源策略定义，可使你通过描述何时强制实�
 
 ## <a name="aliases"></a>别名
 
-使用属性别名来访问资源类型的特定属性。 通过别名，可限制允许用于特定资源属性的值和条件。 每个别名会映射到给定资源类型不同 API 版本的路径。 在策略评估期间，策略引擎会获取该 API 版本的属性路径。
+可以使用属性别名来访问资源类型的特定属性。 通过别名，可限制允许用于特定资源属性的值和条件。 每个别名会映射到给定资源类型不同 API 版本的路径。 在策略评估期间，策略引擎会获取该 API 版本的属性路径。
 
 别名列表始终不断增长。 要发现 Azure Policy 当前支持哪些别名，请使用以下方法之一：
 
@@ -488,4 +488,4 @@ Azure Policy 使用的资源策略定义，可使你通过描述何时强制实�
 - 查看[了解策略效果](effects.md)
 - 了解如何[以编程方式创建策略](../how-to/programmatically-create.md)
 - 了解如何[获取符合性数据](../how-to/getting-compliance-data.md)
-- 参阅[使用 Azure 管理组来组织资源](../../management-groups/overview.md)，了解什么是管理组
+- 参阅[使用 Azure 管理组来组织资源](../../management-groups/index.md)，了解什么是管理组

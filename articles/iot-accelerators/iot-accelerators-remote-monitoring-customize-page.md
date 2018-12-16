@@ -9,12 +9,12 @@ services: iot-accelerators
 origin.date: 10/02/2018
 ms.date: 11/26/2018
 ms.topic: conceptual
-ms.openlocfilehash: cdb632958e2e1b5c4dc2e46d4c0978fc0c94c296
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f14ce9d82b37bad78867d7012b7a76b905ead54d
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644004"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028983"
 ---
 # <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>向远程监视解决方案加速器 Web UI 添加自定义页面
 
@@ -54,19 +54,18 @@ git clone https://github.com/Azure/pcs-remote-monitoring-webui.git
 
 **basicPage.container.js**
 
-[!code-javascript[Page container source](~/remote-monitoring-webui/src/walkthrough/components/pages/basicPage/basicPage.container.js?name=container "Page container source")]
+
 
 **basicPage.js**
 
-[!code-javascript[Basic page](~/remote-monitoring-webui/src/walkthrough/components/pages/basicPage/basicPage.js?name=page "Basic page")]
+
 
 **basicPage.scss**
 
-[!code-javascript[Page styling](~/remote-monitoring-webui/src/walkthrough/components/pages/basicPage/basicPage.scss?name=styles "Page styling")]
+
 
 **basicPage.test.js**
 
-[!code-javascript[Test code for basic page](~/remote-monitoring-webui/src/walkthrough/components/pages/basicPage/basicPage.test.js?name=test "Test code for basic page")]
 
 创建新文件夹 src/components/pages/example 并将此四个文件复制到其中。
 

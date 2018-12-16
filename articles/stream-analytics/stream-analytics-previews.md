@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 10/05/2018
 ms.date: 11/06/18
-ms.openlocfilehash: 07406a57a492b05ef3aed3d010091ef3a6734cf9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: bb549fedb429ec163a2ec847c3a493f5b64fe3cc
+ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643701"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53219552"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure 流分析预览功能
 
@@ -30,7 +30,7 @@ ms.locfileid: "52643701"
 
 ### <a name="integration-with-azure-machine-learning"></a>与 Azure 机器学习集成
 
-可使用机器学习 (ML) 函数缩放流分析作业。 若要详细了解如何在流分析作业中使用 ML 函数，请访问[使用 Azure 机器学习函数缩放流分析作业](stream-analytics-scale-with-machine-learning-functions.md)。 查看[使用 Azure 流分析和 Azure 机器学习执行情绪分析](stream-analytics-machine-learning-integration-tutorial.md)的实际方案。
+可使用机器学习 (ML) 函数缩放流分析作业。 若要详细了解如何在流分析作业中使用 ML 函数，请访问[使用 Azure 机器学习函数缩放流分析作业](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-scale-with-machine-learning-functions)。 
 
 ### <a name="session-windows"></a>会话窗口
 

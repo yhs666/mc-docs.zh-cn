@@ -10,17 +10,15 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 05/22/2018
 ms.date: 11/26/2018
-ms.openlocfilehash: 13524a0948f3a43316c46c5665a269374e145c10
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 3ca9cfec36933ee009251f5fe13602b106268b13
+ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675234"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53219580"
 ---
 # <a name="install-azure-stream-analytics-tools-for-visual-studio"></a>安装适用于 Visual Studio 的 Azure 流分析工具
 Azure 流分析工具支持 Visual Studio 2017、2015 和 2013。 本文介绍如何安装和卸载工具。
-
-有关如何使用工具的详细信息，请参阅[适用于 Visual Studio 的流分析工具](stream-analytics-quick-create-vs.md)。
 
 ## <a name="install"></a>安装
 ### <a name="visual-studio-2017"></a>Visual Studio 2017

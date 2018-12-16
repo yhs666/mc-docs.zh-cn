@@ -4,7 +4,7 @@ items:
 - name: v1.0
   items:
   - name: 概述
-    href: azure-ad-developers-guide.md
+    href: v1-overview.md
   - name: 快速入门
     items:
     - name: 设置开发环境
@@ -30,7 +30,7 @@ items:
       - name: Java
         href: https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect
       - name: NodeJS
-        href: quickstart-v1-openid-connect-code.md
+        href: https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS
       - name: Python
         href: https://github.com/Azure-Samples/active-directory-python-webapp-graphapi
     - name: Web API
@@ -143,6 +143,12 @@ items:
       items:
       - name: 将单租户应用转换为多租户应用
         href: howto-convert-app-to-be-multi-tenant.md
+      - name: 创建服务主体
+        items:
+        - name: 使用 Azure PowerShell
+          href: howto-authenticate-service-principal-powershell.md
+        - name: 使用 Azure 门户
+          href: howto-create-service-principal-portal.md
       - name: 将应用限制为一组用户
         href: howto-restrict-your-app-to-a-set-of-users.md
       - name: 在应用程序中添加应用角色
@@ -195,9 +201,9 @@ items:
     href: https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory
   - name: 获取帮助
     href: developer-support-help-options.md
-ms.openlocfilehash: 2259efe20555c8265c3bffcdfebe53f4452501b7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: cf7a8988ade7f7da691d71318762f62b58416cf1
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644632"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028877"

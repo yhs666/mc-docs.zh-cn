@@ -1,11 +1,27 @@
 ---
-title: H264 单比特率 1080p Audio 5.1 | Microsoft Docs description: 本主题概述了 **H264 单比特率 1080p Audio 5.1** 任务预设。
-author: WenJason manager: digimobile editor: '' services: media-services documentationcenter: ''
-
-ms.assetid: b42238de-2a3c-4683-ae7f-7ce19ad5162e ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: article origin.date:10/30/2018 ms.date: 12/03/2018 ms.author: v-jay
-
+title: H264 单比特率 1080p Audio 5.1 | Microsoft 文档
+description: 本主题概述了“H264 单比特率 1080p Audio 5.1”任务预设。
+author: WenJason
+manager: digimobile
+editor: ''
+services: media-services
+documentationcenter: ''
+ms.assetid: b42238de-2a3c-4683-ae7f-7ce19ad5162e
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+origin.date: 10/30/2018
+ms.date: 12/03/2018
+ms.author: v-jay
+ms.openlocfilehash: 94563793f83fe1765b0c294a3f260a49605ef159
+ms.sourcegitcommit: 6e07735318eb5f6ea319b618863259088eab3722
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52981695"
 ---
-
 # <a name="h264-single-bitrate-1080p-audio-51"></a>H264 单比特率 1080p 音频 5.1
 `Media Encoder Standard` 定义一组可在创建编码作业时使用的编码预设。 可以使用 `preset name` 指定编码媒体文件采用的格式。 也可以创建自己的 JSON 或基于 XML 的预设（使用 UTF-8 或 UTF-16 编码）。 然后，将自定义预设传递到编码器。 有关此 `Media Encoder Standard` 编码器支持的所有预设名称的列表，请参阅 [Media Encoder Standard 的任务预设](media-services-mes-presets-overview.md)。  
   

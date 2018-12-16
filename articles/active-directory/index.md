@@ -13,12 +13,12 @@ ms.topic: landing-page
 origin.date: 08/16/2018
 ms.date: 10/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: 37427e60ae86fc7898f356ab90a9111d2ef74196
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f455925c4853db71ee536261e05f8d9eaa027763
+ms.sourcegitcommit: 6cd0a8d22061aba7390579a80e19cb9d2f7faf12
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657199"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53233770"
 ---
 # <a name="azure-active-directory-documentation"></a>Azure Active Directory 文档
 
@@ -34,6 +34,7 @@ Azure Active Directory (Azure AD) 是多租户、基于云的目录和标识管�
                         <p>
                         <a href="/active-directory/fundamentals/active-directory-whatis">什么是 Azure AD？</a><br/>
                         <a href="/active-directory/fundamentals/understand-azure-identity-solutions">标识解决方案</a><br/>
+                        <a href="fundamentals/index.yml"><i>查看更多 &gt;</i></a>
                         </p>
                     </div>
                 </div>
@@ -66,7 +67,8 @@ Azure Active Directory (Azure AD) 是多租户、基于云的目录和标识管�
                         <p>
                         <a href="/active-directory/authentication/concept-sspr-howitworks">密码</a><br/>
                         <a href="/active-directory/authentication/concept-mfa-howitworks">多重身份验证</a><br/>
-                        <a href="/active-directory/authentication/active-directory-certificate-based-authentication-get-started">基于证书的身份验证</a>
+                        <a href="/active-directory/authentication/active-directory-certificate-based-authentication-get-started">基于证书的身份验证</a><br/>
+                        <a href="authentication/index.yml"><i>查看更多 &gt;</i></a>
                         </p>
                     </div>
                 </div>
@@ -96,7 +98,8 @@ Azure Active Directory (Azure AD) 是多租户、基于云的目录和标识管�
                         <p>
                         <a href="/active-directory/develop/active-directory-authentication-scenarios">身份验证基础知识</a><br/>
                         <a href="/active-directory/develop/active-directory-integrating-applications">应用集成</a><br/>
-                        <a href="/active-directory/develop/active-directory-code-samples">代码示例</a>
+                        <a href="/active-directory/develop/active-directory-code-samples">代码示例</a><br/>
+                        <a href="develop/index.yml"><i>查看更多 &gt;</i></a>
                         </p>
                     </div>
                 </div>

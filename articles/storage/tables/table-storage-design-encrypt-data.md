@@ -1,25 +1,20 @@
 ---
-title: 对 Azure 存储表数据进行加密 | Azure
+title: 对 Azure 存储表数据进行加密 | Microsoft Docs
 description: 了解 Azure 存储中的表数据加密。
 services: storage
-documentationcenter: na
 author: WenJason
-manager: digimobile
-ms.assetid: 8e228b0c-2998-4462-8101-9f16517393ca
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
 origin.date: 04/11/2018
-ms.date: 07/02/2018
+ms.date: 12/10/2018
 ms.author: v-jay
-ms.openlocfilehash: d7e87940c2ed8f9fcf603f50ee9fb30816d671e9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.component: tables
+ms.openlocfilehash: 21805e6e888b272d51f2b05e923bf24f2050a2ba
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646508"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029096"
 ---
 # <a name="encrypt-table-data"></a>对表数据进行加密
 .NET Azure 存储客户端库支持对插入和替换操作的字符串实体属性进行加密。 加密的字符串作为二进制属性存储在服务中，并在解密之后转换回字符串。    

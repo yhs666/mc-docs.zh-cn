@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 04/27/2018
 ms.date: 07/30/2018
 ms.author: v-yiso
-ms.openlocfilehash: 803df68d085dc05d02004245c747ebedc05a68e8
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: bcdbafa3bbf9d5eb4bb8b007a2085920e0b17b41
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649081"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029033"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>用于事件驱动的后台处理的 Azure WebJobs SDK 入门
 
@@ -51,7 +51,7 @@ public static void Run(
 
 ### <a name="azure-functions"></a>Azure Functions
 
-[Azure Functions](../azure-functions/functions-overview.md) 基于 WebJobs SDK，在无需直接使用 WebJobs SDK 时可以选择它。 Azure Functions 1.x 使用 WebJobs SDK 2.x。 有关详细信息，请参阅 [Azure Functions 与 WebJobs SDK 之间的比较](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs)。
+[Azure Functions](../azure-functions/functions-overview.md) 基于 WebJobs SDK，在无需直接使用 WebJobs SDK 时可以选择它。 Azure Functions 1.x 使用 WebJobs SDK 2.x。 
 
 ## <a name="prerequisites"></a>先决条件
 

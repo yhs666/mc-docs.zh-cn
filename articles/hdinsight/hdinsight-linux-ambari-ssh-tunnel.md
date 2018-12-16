@@ -1,27 +1,20 @@
 ---
-title: 使用 SSH 隧道访问 Azure HDInsight | Azure
+title: 使用 SSH 隧道访问 Azure HDInsight
 description: 了解如何使用 SSH 隧道来安全浏览基于 Linux 的 HDInsight 节点上托管的 Web 资源。
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 879834a4-52d0-499c-a3ae-8d28863abf65
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
-origin.date: 04/30/2018
-ms.date: 10/22/2018
-ms.author: v-yiso
-ms.openlocfilehash: 3f7c1dc7cb1ba9d62dcf38ef9486f72d469f82bc
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 04/30/2018
+ms.author: hrasheed
+ms.openlocfilehash: 947192bfe997b0151e88e6277893223edba7b234
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645868"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028893"
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>使用 SSH 隧道访问 Ambari Web UI、JobHistory、NameNode、Oozie 和其他 Web UI
 
@@ -92,13 +85,13 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 2. 在对话框左侧的“类别”部分中，依次展开“连接”和“SSH”，并选择“隧道”。
 
 3. 提供以下有关“用于控制 SSH 端口转发的选项”窗体的信息：
-
+   
    * **源端口** - 客户端上要转发的端口。 例如 **9876**。
 
-   * **目标** - 基于 Linux 的 HDInsight 群集的 SSH 地址。 例如 **mycluster-ssh.azurehdinsight.cn**。
+   * **目标** - 基于 Linux 的 HDInsight 群集的 SSH 地址。 例如， **mycluster-ssh.azurehdinsight.net**。
 
    * **动态** - 启用动态 SOCKS 代理路由。
-
+     
      ![隧道选项图像](./media/hdinsight-linux-ambari-ssh-tunnel/puttytunnel.png)
 
 4. 单击“添加”以添加设置，并单击“打开”以打开 SSH 连接。
@@ -111,22 +104,22 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 > 本部分中的步骤使用 Mozilla FireFox 浏览器，因为它在所有平台中提供相同的代理设置。 对于其他新式浏览器（如 Google Chrome），可能需要 FoxyProxy 等扩展才能使用隧道。
 
 1. 将浏览器配置为使用 **localhost**，并将创建隧道时使用的端口配置为 **SOCKS v5** 代理。 Firefox 中的设置如下所示。 如果使用的端口不是 9876，请将端口更改为所用的端口：
-
+   
     ![Firefox 设置图像](./media/hdinsight-linux-ambari-ssh-tunnel/firefoxproxy.png)
-
+   
    > [!NOTE]
    > 通过选择“远程 DNS”，可使用 HDInsight 群集解析域名系统 (DNS) 请求。 此设置使用群集的头节点解析 DNS。
 
-2. 通过访问 [http://www.whatismyip.com/](http://www.whatismyip.com/) 等网站验证隧道是否正常工作。 返回的 IP 应是 Azure 数据中心使用的 IP。
+2. 通过访问 [http://www.whatismyip.com/](http://www.whatismyip.com/) 等网站验证隧道是否正常工作。 返回的 IP 应是 Microsoft Azure 数据中心使用的 IP。
 
 ## <a name="verify-with-ambari-web-ui"></a>Ambari Web UI 访问验证
 
 建立群集后，请通过以下步骤验证是否可以从 Ambari Web 访问服务 Web UI：
 
-1. 在浏览器中转到 http://headnodehost:8080。 `headnodehost` 地址会通过隧道发送到群集，并解析为运行 Ambari 的头节点。 出现提示时，请输入群集的管理员用户名 (admin) 和密码。 Ambari Web UI 可能会再次出现提示。 如果出现，请重新输入信息。
+1. 在浏览器中转到 http://headnodehost:8080。 `headnodehost` 地址通过隧道发送到群集，并解析为运行 Ambari 的头节点。 出现提示时，请输入群集的管理员用户名 (admin) 和密码。 Ambari Web UI 可能会再次出现提示。 如果出现，请重新输入信息。
 
    > [!NOTE]
-   > 如果使用 http://headnodehost:8080 地址连接到群集，则将通过隧道进行连接。 通信是使用 SSH 隧道而不是 HTTPS 保护的。 若要使用 HTTPS 通过 Internet 进行连接，请使用 https://CLUSTERNAME.azurehdinsight.cn，其中 **CLUSTERNAME** 是群集的名称。
+   > 如果使用 http://headnodehost:8080 地址连接到群集，则将通过隧道进行连接。 通信是使用 SSH 隧道而不是 HTTPS 保护的。 若要使用 HTTPS 通过 Internet 进行连接，请使用 https://clustername.azurehdinsight.net，其中 **clustername** 是群集的名称。
 
 2. 在 Ambari Web UI 中，请选择页面左侧列表中的“HDFS”。
 
@@ -146,7 +139,7 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
     ![NameNode UI 的截图](./media/hdinsight-linux-ambari-ssh-tunnel/namenode.png)
 
    > [!NOTE]
-   > 请注意此页的 URL；它应类似于 **http://hn1-CLUSTERNAME.randomcharacters.cx.internal.chinacloudapp.cn:8088/cluster**。 此 URI 使用节点的内部完全限定域名 (FQDN)，只能在使用 SSH 隧道的情况下访问它。
+   > 请注意此页的 URL；它应类似于 **http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster**。 此 URI 使用节点的内部完全限定域名 (FQDN)，只能在使用 SSH 隧道的情况下访问它。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -155,4 +148,4 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 * [使用 Ambari 管理 HDInsight 群集](hdinsight-hadoop-manage-ambari.md)
 
 有关将 SSH 与 HDInsight 配合使用的详细信息，请参阅[将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
-<!--Update_Description: wording update-->
+

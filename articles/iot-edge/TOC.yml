@@ -20,8 +20,6 @@ items:
       href: tutorial-deploy-function.md
     - name: 使用 ASA 查找平均值
       href: tutorial-deploy-stream-analytics.md
-    - name: 使用 Azure ML 给数据评分
-      href: tutorial-deploy-machine-learning.md
     - name: 使用 SQL 在本地存储数据
       href: tutorial-store-data-sql-server.md
     - name: 开发自定义代码模块
@@ -58,7 +56,7 @@ items:
     href: offline-capabilities.md
   - name: 使用 IoT Edge 设备作为网关
     href: iot-edge-as-gateway.md
-  - name: 安全性
+  - name: 安全
     items:
     - name: 确保 Azure IoT Edge 安全
       href: security.md
@@ -162,7 +160,7 @@ items:
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
     - name: 时序见解
       href: /azure/time-series-insights
-  - name: Edge
+  - name: Microsoft Edge
     items:
     - name: IoT Edge
       href: /azure/iot-edge
@@ -202,15 +200,15 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: 服务更新
     href: https://azure.microsoft.com/updates/?product=iot-hub
-  - name: Stack Overflow
+  - name: 堆栈溢出
     href: http://stackoverflow.com/questions/tagged/azure-iot-hub
   - name: 技术案例研究
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: 视频
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: 6e4f8668b8510be2eb575cc8a4ffeceaff729ffc
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: d5759a50f0000db53abb39cce2f363fe909a12f5
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674652"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028247"

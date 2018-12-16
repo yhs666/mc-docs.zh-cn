@@ -9,18 +9,18 @@ editor: tysonn
 ms.assetid: 3c7a6fe4-371a-40da-9ebe-b574f583305b
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 07/25/2017
-ms.date: 03/26/2018
+origin.date: 11/08/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: 84be7c8219db646ca6eca0745ca9a293a5567c2c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 630c07f98768595a48c6b77f0bcb411dcdfd7f1e
+ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651578"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53286729"
 ---
 # <a name="resource-providers-and-types"></a>资源提供程序和类型
 
@@ -39,7 +39,7 @@ ms.locfileid: "52651578"
 
 若要查看 Azure 中的所有资源提供程序和订阅的注册状态，请使用：
 
-```powershell
+```PowerShell
 Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
 ```
 
@@ -57,7 +57,7 @@ Microsoft.CognitiveServices      Registered
 
 通过注册资源提供程序来配置订阅，以供资源提供程序使用。 注册的作用域始终是订阅。 默认情况下，将自动注册许多资源提供程序。 但可能需要手动注册某些资源提供程序。 若要注册资源提供程序，必须具备为资源提供程序执行 `/register/action` 操作的权限。 此操作包含在“参与者”和“所有者”角色中。
 
-```powershell
+```PowerShell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
 ```
 
@@ -74,7 +74,7 @@ Locations         : {China North, China East, China East 2, China North...}
 
 若要查看特定资源提供程序的信息，请使用：
 
-```powershell
+```PowerShell
 Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
 ```
 
@@ -91,7 +91,7 @@ Locations         : {China North, China East, China East 2, China North...}
 
 若要查看资源提供程序的资源类型，请使用：
 
-```powershell
+```PowerShell
 (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes.ResourceTypeName
 ```
 
@@ -104,11 +104,11 @@ locations
 locations/quotas
 ```
 
-API 版本对应于资源提供程序发布的 REST API 操作版本。 资源提供程序启用新功能时，会发布 REST API 的新版本。 
+API 版本对应于资源提供程序发布的 REST API 操作版本。 资源提供程序启用新功能时，会发布 REST API 的新版本。
 
 若要获取资源类型的可用 API 版本，请使用：
 
-```powershell
+```PowerShell
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).ApiVersions
 ```
 
@@ -122,11 +122,11 @@ API 版本对应于资源提供程序发布的 REST API 操作版本。 资源�
 2015-07-01
 ```
 
-所有区域都支持 Resource Manager，但部署的资源可能无法在所有区域中受到支持。 此外，订阅可能存在一些限制，以防止用户使用某些支持该资源的区域。 
+所有区域都支持 Resource Manager，但部署的资源可能无法在所有区域中受到支持。 此外，订阅可能存在一些限制，以防止用户使用某些支持该资源的区域。
 
 若要获取资源类型支持的位置，请使用：
 
-```powershell
+```PowerShell
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).Locations
 ```
 
@@ -135,9 +135,12 @@ API 版本对应于资源提供程序发布的 REST API 操作版本。 资源�
 ```powershell
 China North
 China East
+China East 2
+China North 2
 ```
 
 ## <a name="azure-cli"></a>Azure CLI
+
 若要查看 Azure 中的所有资源提供程序和订阅的注册状态，请使用：
 
 ```azurecli
@@ -202,7 +205,7 @@ locations
 locations/quotas
 ```
 
-API 版本对应于资源提供程序发布的 REST API 操作版本。 资源提供程序启用新功能时，会发布 REST API 的新版本。 
+API 版本对应于资源提供程序发布的 REST API 操作版本。 资源提供程序启用新功能时，会发布 REST API 的新版本。
 
 若要获取资源类型的可用 API 版本，请使用：
 
@@ -222,7 +225,7 @@ Result
 2015-07-01
 ```
 
-所有区域都支持 Resource Manager，但部署的资源可能无法在所有区域中受到支持。 此外，订阅可能存在一些限制，以防止用户使用某些支持该资源的区域。 
+所有区域都支持 Resource Manager，但部署的资源可能无法在所有区域中受到支持。 此外，订阅可能存在一些限制，以防止用户使用某些支持该资源的区域。
 
 若要获取资源类型支持的位置，请使用：
 
@@ -237,6 +240,9 @@ Result
 ---------------
 China North
 China East
+China East 2
+China North 2
+...
 ```
 
 ## <a name="portal"></a>门户

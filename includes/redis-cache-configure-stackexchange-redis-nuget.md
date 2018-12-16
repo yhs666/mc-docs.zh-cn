@@ -1,3 +1,17 @@
+---
+author: wesmc7777
+ms.service: redis-cache
+ms.topic: include
+origin.date: 11/09/2018
+ms.date: 11/30/2018
+ms.author: v-junlch
+ms.openlocfilehash: 750388caef042606d4e195562df2fd60a7ad2344
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53070306"
+---
 .NET 应用程序可以使用 **StackExchange.Redis** 缓存客户端，可使用 NuGet 包在 Visual Studio 中进行配置，以简化缓存客户端应用程序的配置。 
 
 > [!NOTE]
@@ -31,4 +45,3 @@ NuGet 程序包会给客户端应用程序下载并添加所需的程序集引�
 Install-Package StackExchange.Redis
 ```
 
-<!-- ms.date: 08/13/2018 -->

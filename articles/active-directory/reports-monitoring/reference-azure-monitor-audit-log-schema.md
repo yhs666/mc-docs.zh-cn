@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-origin.date: 07/13/2018
-ms.date: 08/28/2018
+origin.date: 11/13/2018
+ms.date: 12/06/2018
 ms.author: v-junlch
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 499f960dce7cbfe0fc526eef1a1703ded48d7b9b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a266f4c89942bc29ec933076415a2f9fef7facdb
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647178"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028561"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>解释 Azure Monitor 中的 Azure AD 审核日志架构（预览版）
 
@@ -135,5 +135,6 @@ ms.locfileid: "52647178"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [详细了解 Azure 诊断日志](/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
+- [Azure 诊断日志](/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 
+<!-- Update_Description: wording update -->

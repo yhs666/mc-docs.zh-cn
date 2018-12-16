@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 09/24/2018
-ms.date: 11/06/2018
+ms.date: 12/03/2018
 ms.author: v-junlch
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: fe35f1236998cde88b0d3dcef6b264dc0a3646f6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 258a60779dd5ebbe1a72392af9c6f58167cfb4c9
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650547"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028409"
 ---
 # <a name="terms-of-service-and-privacy-statement-for-registered-azure-active-directory-apps"></a>已注册 Azure Active Directory 应用的服务条款和隐私声明
 
@@ -75,7 +75,8 @@ ms.locfileid: "52650547"
 
 ```json
     "informationalUrls": { 
-        "termsOfService": “<your_terms_of_service_url>”, 
-        "privacy": “<your_privacy_statement_url>” 
+        "termsOfService": "<your_terms_of_service_url>", 
+        "privacy": "<your_privacy_statement_url>" 
     }
 ```
+<!-- Update_Description: code update -->

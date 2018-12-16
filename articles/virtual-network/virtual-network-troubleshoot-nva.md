@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 08/02/2018
-ms.date: 09/10/2018
+origin.date: 10/26/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: 09dd0f657a6a96217ff8557690d21920bdd5d086
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 9c11843c5b47a65e245ad7a4eb922a15fb155d30
+ms.sourcegitcommit: 1b6a310ba636b6dd32d7810821bcb79250393499
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647219"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53389389"
 ---
 #  <a name="network-virtual-appliance-issues-in-azure"></a>Azure 中的网络虚拟设备问题
 
@@ -78,14 +78,14 @@ NVA 供应商提供了对第三方 NVA 及其与 Azure 平台集成的技术支�
 **检查流量是否可路由到 NVA**
 
 1. 在 [Azure 门户](https://portal.azure.cn)上，打开“网络观察程序”，选择“下一跃点”。
-2. 指定要作为下一跃点的 NVA 的 VM，以及用于查看下一跃点的目标 IP 地址。 
+2. 指定配置为将流量重定向到 NVA 的 VM，以及用于查看下一跃点的目标 IP 地址。 
 3. 如果 NVA 未列为“下一跃点”，请检查并更新 Azure 路由表。
 
 **检查流量是否可到达 NVA**
 
 1.  在 [Azure 门户](https://portal.azure.cn)中，打开“网络观察程序”，然后选择“IP 流验证”。 
 2.  指定 VM 和 NVA 的 IP 地址，然后检查是否有任何网络安全组 (NSG) 阻止该流量。
-3.  如果存在阻止流量的 NSG 规则，请在“有效安全”规则中找到 NSG，并更新它以允许流量通过。 然后再次运行“IP 流验证”并使用“连接性检查”测试从 VM 到内部或外部 IP 地址的 TCP 通信。
+3.  如果存在阻止流量的 NSG 规则，请在“有效安全”规则中找到 NSG，并更新它以允许流量通过。 然后再次运行“IP 流验证”并使用“连接故障排除”测试从 VM 到内部或外部 IP 地址的 TCP 通信。
 
 **检查 NVA 和 VM 是否正在侦听预期的流量**
 
@@ -135,5 +135,4 @@ NVA 供应商提供了对第三方 NVA 及其与 Azure 平台集成的技术支�
 
 如果看到数据包传入但没有响应，则可能需要解决 VM 应用程序或防火墙问题。 对于上述任意问题，如有需要[请联系 NVA 供应商以获取帮助](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)。
 
-<!-- Update_Description: new articles on virtual network troubleshoot nva -->
-<!--ms.date: 09/10/2018-->
+<!-- Update_Description: update meta properties -->

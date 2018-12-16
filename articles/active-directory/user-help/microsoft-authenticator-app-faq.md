@@ -10,21 +10,21 @@ ms.workload: identity
 ms.component: user-help
 ms.topic: conceptual
 origin.date: 07/30/2018
-ms.date: 11/13/2018
+ms.date: 12/10/2018
 ms.author: v-junlch
 ms.reviewer: librown
-ms.openlocfilehash: fa51817db2815a866550c95a2189e8b2cfc69025
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 88f2fb3efeca6661dae0d8273d3f977b8978bf25
+ms.sourcegitcommit: 6cd0a8d22061aba7390579a80e19cb9d2f7faf12
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662240"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53233773"
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Microsoft 验证器应用常见问题
 
 本文解答了有关 Microsoft Authenticator 应用的常见问题。 如果问题在此处没有解答，请访问 [Microsoft 验证器应用论坛](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp)。
 
-Microsoft Authenticator 应用替代了 Azure Authenticator 应用，建议使用 Azure Multi-Factor Authentication 时使用该应用。 Microsoft Authenticator 应用适用于 [Android](https://go.microsoft.com/fwlink/?linkid=866594)、[iOS](https://go.microsoft.com/fwlink/?linkid=866594) 和 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)。
+Microsoft Authenticator 应用替代了 Azure Authenticator 应用，建议使用 Azure Multi-Factor Authentication 时使用该应用。 Microsoft Authenticator 应用适用于 [Android](https://go.microsoft.com/fwlink/?linkid=866594)、[iOS](https://go.microsoft.com/fwlink/?linkid=866594) 和 [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071)。
 
 ## <a name="frequently-asked-questions"></a>常见问题
 |问题|解决方案|
@@ -54,4 +54,4 @@ Microsoft Authenticator 应用替代了 Azure Authenticator 应用，建议使�
 
 - 如果在此处找不到问题的答案，请告诉我们。 转到 [Microsoft 验证器应用论坛](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) 发布问题并从社区获取帮助或者在此页面上留言，我们会尽快解答相关问题。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

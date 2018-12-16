@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 05/25/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 84ae82049f3f6ee1e1f50310a0f0b405ed91e815
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 11923c60d5d4ade6c78c9629572297871fd24f8c
+ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674433"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53219569"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Azure 上可用的安全服务和技术
 
@@ -47,7 +47,6 @@ ms.locfileid: "52674433"
 ## <a name="azure-networking"></a>Azure 网络
 - [网络安全组](../virtual-network/virtual-networks-nsg.md)
 - [Azure VPN 网关](../vpn-gateway/vpn-gateway-about-vpngateways.md)
-- [Azure 应用程序网关](../application-gateway/application-gateway-introduction.md)
 - [Azure 负载均衡器](../load-balancer/load-balancer-overview.md)
 - [Azure ExpressRoute](../expressroute/expressroute-introduction.md)
 - [Azure 流量管理器](../traffic-manager/traffic-manager-overview.md)

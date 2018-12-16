@@ -4,30 +4,27 @@ description: 本文介绍如何在流量管理器中使用轮循机制方法加�
 services: traffic-manager
 documentationcenter: ''
 author: rockboyfor
-manager: digimobile
-editor: ''
-ms.assetid: 6dca6de1-18f7-4962-bd98-6055771fab22
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/20/2017
-ms.date: 11/12/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9842200209cb73aaf850c9f78612d9dfa21153ed
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 9138b5704d1ce0baf34ff1023e3bf47645b84301
+ms.sourcegitcommit: 1b6a310ba636b6dd32d7810821bcb79250393499
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654067"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53389372"
 ---
 # <a name="configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>在流量管理器中配置加权流量路由方法
 
-一种常见的流量路由方法模式是提供一组相同的终结点（包括云服务和网站），并以循环方式向每个终结点发送流量。 以下步骤概述如何配置这种类型的流量路由方法。
+一种常见的流量路由方法模式是提供一组相同的终结点（包括云服务和网站），并均匀地向每个终结点发送流量。 以下步骤概述如何配置这种类型的流量路由方法。
 
 > [!NOTE]
-> Azure Web 应用已经为 Azure 区域内的网站（包含多个数据中心）提供了循环负载均衡功能。 可以使用流量管理器为不同数据中心内的网站指定轮询机制流量路由方法。
+> Azure Web 应用已经为 Azure 区域内的网站（可能包含多个数据中心）提供了循环负载均衡功能。 流量管理器允许你在不同数据中心的网站之间分配流量。
 
 ## <a name="to-configure-the-weighted-traffic-routing-method"></a>配置加权流量路由方法
 
@@ -52,7 +49,6 @@ ms.locfileid: "52654067"
 
 - 了解[优先级流量路由方法](traffic-manager-configure-priority-routing-method.md)。
 - 了解[性能流量路由方法](traffic-manager-configure-performance-routing-method.md)。
-
 <!-- Not Available on - Learn about [geographic routing method](traffic-manager-configure-geographic-routing-method.md)-->
 - 了解如何[测试流量管理器设置](traffic-manager-testing-settings.md)。
 

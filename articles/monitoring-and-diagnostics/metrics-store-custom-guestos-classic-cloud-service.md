@@ -9,12 +9,12 @@ origin.date: 09/24/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
 ms.component: metrics
-ms.openlocfilehash: 66b3023d11bb63ccec9a3d1a3dc1137b2d2b4862
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: f05044633f26882257ff2f36cdab449148bc9f74
+ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675027"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53219517"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>将来宾 OS 指标发送到 Azure Monitor 指标存储经典云服务 
 
@@ -28,7 +28,6 @@ ms.locfileid: "52675027"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 你必须是 Azure 订阅的[服务管理员或共同管理员](~/articles/billing/billing-add-change-azure-subscription-administrator.md)。 
 
 - 你的订阅必须已注册到 [Microsoft.Insights](/azure-resource-manager/resource-manager-supported-services#portal)。 
 

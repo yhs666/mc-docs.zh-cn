@@ -9,12 +9,12 @@ origin.date: 10/04/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
 ms.component: alerts
-ms.openlocfilehash: 49f61e3a4875de5c4ff29b33820df616f20fcf25
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: cc3dd1c9730a5ce093b4a8db807969da74291042
+ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674738"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53219568"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Azure Monitor 中的统一警报和监视替换经典警报和监视
 
@@ -32,9 +32,6 @@ Azure Monitor 的新指标平台现将支持来自 Application Insights 的监�
 
 新的适用于 Application Insights 的统一监视和警报将包含：
 
-- **Application Insights 平台指标** - 提供 Application Insights 产品中常用的预建指标。 有关详细信息，请参阅这篇有关如何使用[新 Azure Monitor 上的 Application Insights 平台指标](../application-insights/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics)的文章。
-- **Application Insights 可用性和 Web 测试** - 提供可评估 Web 应用或服务器的响应能力和可用性的功能。 有关详细信息，请参阅这篇有关如何使用[新 Azure Monitor 上 Application Insights 的可用性测试和警报](../application-insights/app-insights-monitor-web-app-availability.md)的文章。
-- **Application Insights 自定义指标** - 使你能够定义和发出自己的监视和警报指标。 有关详细信息，请参阅这篇有关如何使用[新 Azure Monitor 上 Application Insights 的自定义指标](../application-insights/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation)的文章。
 - **Application Insights 故障异常（智能检测的一部分）**- 如果 Web 应用的失败 HTTP 请求速率或依赖项调用速率出现异常上升，Application Insights 会准实时地自动通知你。 我们即将发布作为新 Azure Monitor 的一部分的 Application Insights 故障异常（智能检测的一部分），并将更新这篇包含下一次迭代链接的文档，因为它将在接下来几个月内推出。
 
 ## <a name="unified-metrics--alerts-for-other-azure-resources"></a>其他 Azure 资源的统一指标和警报
@@ -52,7 +49,6 @@ Azure 资源的新指标按以下形式提供：
 
 - 当前可通过 Azure 门户的[警报(经典)部分](monitoring-overview-alerts-classic.md)使用 Azure 资源的旧（经典）指标和警报；可作为 [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) 资源访问
 - 当前可通过 Azure 门户的[警报(经典)部分](monitoring-overview-alerts-classic.md)使用 Application Insights 的旧（经典）平台和自定义指标以及相关警报；可作为 [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) 资源访问
-- 旧（经典）故障异常警报当前在 Azure 门户中作为 [Application Insights 内的智能检测](../application-insights/app-insights-proactive-diagnostics.md)提供；其中配置的警报显示在 Azure 门户的[警报(经典)部分](monitoring-overview-alerts-classic.md)
 
 所有经典监视和警报系统（包括相应的 [API](https://msdn.microsoft.com/library/azure/dn931945.aspx)、[CLI](insights-alerts-command-line-interface.md)、[Azure 门户页面]和[资源模板](monitoring-enable-alerts-using-template.md)）在 2019 年 6 月前都可继续使用。 此日期之后，经典监视和警报服务将被停用并不再可用；而 2019 年 6 月后在警报(经典)中继续存在的任何警报规则都将继续执行，但不能进行修改。
 
@@ -71,5 +67,4 @@ Azure 资源的新指标按以下形式提供：
 
 ## <a name="next-steps"></a>后续步骤
 
-* 了解[新的统一 Azure Monitor](../azure-monitor/overview.md)。
-* 了解新的 [Azure 警报](monitoring-overview-unified-alerts.md)。
+* 了解新的 [Azure 警报](monitoring-overview-alerts.md)。

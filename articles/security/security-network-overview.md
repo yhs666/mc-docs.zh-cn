@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 10/29/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: a3da53b23ccd2f237dc946c442404fd2100f7090
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 8bd8f3dbd496a9ae97565006b862cc9d6f4ec6df
+ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674913"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53219572"
 ---
 # <a name="azure-network-security-overview"></a>Azure 网络安全概述
 
@@ -43,10 +43,6 @@ ms.locfileid: "52674913"
 ## <a name="azure-networking"></a>Azure 网络
 
 Azure 要求将虚拟机连接到 Azure 虚拟网络。 虚拟网络是一个构建于物理 Azure 网络结构之上的逻辑构造。 每个虚拟网络与其他所有虚拟网络相互隔离。 这可帮助确保其他 Azure 客户无法访问部署中的流量。
-
-了解详细信息：
-
-* [虚拟网络概述](../virtual-network/virtual-networks-overview.md)
 
 ## <a name="network-access-control"></a>网络访问控制
 
@@ -109,10 +105,6 @@ Azure 防火墙是托管的基于云的网络安全服务，可保护 Azure 虚�
 * 云可伸缩性
 * 应用程序 FQDN 筛选规则
 * 网络流量筛选规则
-
-了解详细信息：
-
-* [Azure 防火墙概述](../firewall/overview.md)
 
 ## <a name="secure-remote-access-and-cross-premises-connectivity"></a>安全远程访问和跨界连接
 
@@ -201,10 +193,6 @@ Azure 应用程序网关为基于 Web 的服务提供了基于 HTTP 的负载均
 * 基于 Cookie 的会话关联。 此功能可确保建立到负载均衡器后面的某个服务器的连接在客户端和服务器之间保持不变。 此操作确保了事务的稳定性。
 * SSL 卸载。 当客户端与负载均衡器连接时，会话使用 HTTPS (SSL) 协议进行加密。 但是，为了提高性能，可以使用 HTTP（未加密）协议在负载均衡器和该负载均衡器后面的 Web 服务器之间进行连接。 这称为“SSL 卸载”，因为负载均衡器后面的 Web 服务器不会遇到涉及加密的处理器开销。 因此 Web 服务器可更快地为请求提供服务。
 * 基于 URL 的内容路由。 此功能可使负载均衡器决定在哪里转接基于目标 URL 的连接。 它提供的弹性大于基于 IP 地址做出负载均衡决策的解决方案。
-
-了解详细信息：
-
-* [应用程序网关概述](../application-gateway/application-gateway-introduction.md)
 
 ### <a name="network-level-load-balancing"></a>网络级别负载均衡
 

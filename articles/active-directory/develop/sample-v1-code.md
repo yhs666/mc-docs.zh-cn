@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 09/24/2018
-ms.date: 11/07/2018
+ms.date: 12/04/2018
 ms.author: v-junlch
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: ec63b43ade7801ee30193dff54db2a7f5d065f88
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 38304132060b4fe6e7dddad35c41b80f424d3ba6
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647297"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028289"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Azure Active Directory 代码示例（v1.0 终结点）
 
@@ -123,7 +123,7 @@ ASP.NET Web 应用  | ![.NET](./media/sample-v2-code/logo_NETframework.png) | �
 
 ## <a name="see-also"></a>另请参阅
 
-[Azure Active Directory 开发人员指南](azure-ad-developers-guide.md)
+[Azure Active Directory 开发人员指南](v1-overview.md)
 
 [Azure Active Directory 身份验证库](active-directory-authentication-libraries.md)
 
@@ -131,3 +131,4 @@ ASP.NET Web 应用  | ![.NET](./media/sample-v2-code/logo_NETframework.png) | �
 
 [Azure AD 图形 API 帮助程序库](https://www.nuget.org/packages/Microsoft.Azure.ActiveDirectory.GraphClient)
 
+<!-- Update_Description: link update -->

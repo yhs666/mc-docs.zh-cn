@@ -1,32 +1,34 @@
 ---
-title: 快速入门：使用 Node.js 上传、下载和列出 Blob - Azure 存储
-description: 在对象 (Blob) 存储中创建存储帐户和容器。 然后，使用适用于 Node.js 的存储客户端库将一个 Blob 上传到 Azure 存储，下载一个 Blob，然后列出容器中的 Blob。
+title: 如何使用 Node.js SDK v2 在 Azure 存储中创建 Blob
+description: 在对象 (Blob) 存储中创建存储帐户和容器。 随后，使用适用于 Node.js v2 的 Azure 存储客户端库将一个 Blob 上传到 Azure 存储，下载一个 Blob，然后列出容器中的 Blob。
 services: storage
 author: WenJason
 ms.custom: mvc
 ms.service: storage
-ms.topic: quickstart
-origin.date: 09/20/2018
-ms.date: 11/05/2018
+ms.topic: conceptual
+origin.date: 11/14/2018
+ms.date: 12/10/2018
 ms.author: v-jay
-ms.openlocfilehash: 8bd68e7a7d6887aff8ad5c2b5d8b4705c7e81be4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 188e9928954715882a5ad6df615a2674d3933cb2
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647683"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028888"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>快速入门：使用 Node.js 上传、下载和列出 Blob
+# <a name="how-to-upload-download-and-list-blobs-using-nodejs-sdk-v2"></a>如何使用 Node.js SDK v2 上传、下载和列出 Blob
 
-本快速入门介绍如何使用 Node.js 通过 Azure Blob 存储来上传、下载和列出 Blob 并管理容器。
+本操作说明指南介绍如何使用 Node.js 通过 Azure Blob 存储来上传、下载和列出 Blob 并管理容器。
 
-若要完成本快速入门，需要一个 [Azure 订阅](https://www.azure.cn/pricing/1rmb-trial)。
+## <a name="prerequisites"></a>先决条件
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
+如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+
+在 [Azure 门户](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM)中创建 Azure 存储帐户。 有关如何创建帐户的帮助，请参阅[创建存储帐户](../common/storage-quickstart-create-account.md)。
 
 ## <a name="download-the-sample-application"></a>下载示例应用程序
 
-本快速入门中的[示例应用程序](https://github.com/Azure-Samples/storage-blobs-node-quickstart.git)是简单的 Node.js 控制台应用程序。 若要开始，请使用以下命令将存储库克隆到计算机：
+[示例应用程序](https://github.com/Azure-Samples/storage-blobs-node-quickstart.git)是简单的 Node.js 控制台应用程序。 若要开始，请使用以下命令将存储库克隆到计算机：
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-blobs-node-quickstart.git
@@ -73,7 +75,7 @@ Container "demo" is deleted
 Done
 ```
 
-请注意，如果为此快速入门使用新的存储帐户，则可能无法看到“*Containers*”标签下列出的容器名称。
+如果为此示例使用新的存储帐户，则可能无法看到“*Containers*”标签下列出的任何容器名称。
 
 ## <a name="understanding-the-code"></a>了解代码
 第一个表达式用于将值加载到环境变量中。
@@ -166,7 +168,7 @@ const uploadString = async (containerName, blobName, text) => {
 ```
 ### <a name="upload-a-local-file"></a>上传本地文件
 
-*uploadLocalFile* 函数通过 [createBlockBlobFromLocalFile](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromlocalfile) 将文件从文件系统上传和写入（或覆盖）到 Blob 存储中。 
+*uploadLocalFile* 函数通过 [createBlockBlobFromLocalFile](https://docs.microsoft.com/en-us/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createappendblobfromlocalfile-string--string--string--createblobrequestoptions--errororresult-blobresult--) 将文件从文件系统上传和写入（或覆盖）到 Blob 存储中。 
 
 ```javascript
 const uploadLocalFile = async (containerName, filePath) => {
@@ -183,7 +185,7 @@ const uploadLocalFile = async (containerName, filePath) => {
     });
 };
 ```
-其他适用于将内容上传到 Blob 中的方法涉及到使用[文本](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest)和[流](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest)。 为了验证文件是否已上传到 Blob 存储，可以使用 [Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)查看帐户中的数据。
+其他适用于将内容上传到 Blob 中的方法涉及到使用[文本](https://docs.microsoft.com/zh-cn/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromtext-string--string--string---buffer--errororresult-blobresult--)和[流](https://docs.microsoft.com/zh-cn/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromstream-string--string--stream-readable--number--errororresult-blobresult--)。 为了验证文件是否已上传到 Blob 存储，可以使用 [Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)查看帐户中的数据。
 
 ### <a name="list-the-blobs"></a>列出 Blob
 
@@ -227,7 +229,7 @@ const downloadBlob = async (containerName, blobName) => {
 
 ### <a name="delete-a-blob"></a>删除 Blob
 
-*deleteBlob* 函数调用 [deleteBlobIfExists]() 函数。 顾名思义，如果 Blob 已删除，此函数不返回错误。
+*deleteBlob* 函数调用 [deleteBlobIfExists](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#deleteblobifexists-string--string--errororresult-boolean--) 函数。 顾名思义，如果 Blob 已删除，此函数不返回错误。
 
 ```javascript
 const deleteBlob = async (containerName, blobName) => {
@@ -354,7 +356,7 @@ console.log(`Container "${containerName}" is deleted`);
 
 ## <a name="next-steps"></a>后续步骤
 
-本快速入门介绍了如何使用 Node.js 将文件从本地磁盘上传到 Azure Blob 存储。 若要深入了解如何使用 Blob 存储，请转到 GitHub 存储库。
+本文介绍了如何使用 Node.js 在本地磁盘和 Azure Blob 存储之间上传文件。 若要深入了解如何使用 Blob 存储，请转到 GitHub 存储库。
 
 > [!div class="nextstepaction"]
 > [用于 JavaScript 的 Azure 存储 SDK 存储库](https://github.com/Azure/azure-storage-node)

@@ -6,26 +6,26 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 06/27/2018
-ms.date: 08/27/2018
+ms.date: 12/10/2018
 ms.author: v-jay
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: f37aedd73222eff0a06468d54ec9fd88662650af
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 900528c7d4769a205084fffa791f062221eb2fc0
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661683"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028732"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>将 HDFS CLI 与 Data Lake Storage Gen2 配合使用
 
-使用 Azure Data Lake Storage Gen2 预览版，可以像使用 [Hadoop 分布式文件系统 (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html) 一样管理和访问数据。 无论你是附加 HDInsight 群集还是使用 Azure Databricks 运行 Apache Spark 作业来对 Azure Data Lake Storage Gen2 中存储的数据执行分析，都可以使用命令行接口 (CLI) 来检索和操作所加载的数据。 
+使用 Azure Data Lake Storage Gen2 预览版，可以像使用 [Hadoop 分布式文件系统 (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html) 一样管理和访问数据。 无论你是附加 HDInsight 群集还是使用 Azure Databricks 运行 Apache Spark 作业来对 Azure 存储帐户中存储的数据执行分析，都可以使用命令行接口 (CLI) 来检索和操作所加载的数据。
 
 ## <a name="hdfs-cli-with-hdinsight"></a>将 HDFS CLI 与 HDInsight 配合使用
 
 HDInsight 提供对在本地附加到计算节点的分布式文件系统的访问权限。 可以使用直接与 HDFS 以及与 Hadoop 支持的其他文件系统进行交互的 shell 来访问此文件系统。 下面是常用的命令和有用资源的链接。
 
 >[!IMPORTANT]
->HDInsight 群集计费在创建群集之后便会开始，删除群集后才会停止。 群集以每分钟为单位按比例收费，因此无需再使用群集时，应始终将其删除（了解如何[删除群集](../../hdinsight/hdinsight-delete-cluster.md)）。 但是，即使删除了 HDInsight 群集，Azure Data Lake Storage Gen2 中存储的数据仍然会保留。
+>创建群集后便开始 HDInsight 群集计费，删除群集后停止计费。 HDInsight 群集按分钟收费，因此不再需要使用群集时，应将其删除。 若要了解如何删除群集，请参阅我们的[有关该主题的文章](../../hdinsight/hdinsight-delete-cluster.md)。 但是，即使删除了 HDInsight 群集，在启用了 Data Lake Storage Gen2 的存储帐户中存储的数据仍然会保留。
 
 若要获取文件或目录的列表，请使用以下命令：
 

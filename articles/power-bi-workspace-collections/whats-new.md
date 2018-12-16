@@ -9,14 +9,14 @@ ms.service: power-bi-embedded
 ms.topic: article
 ms.workload: powerbi
 origin.date: 09/20/2017
-ms.date: 09/26/2018
+ms.date: 11/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: 3f28df31680f34d25719a7cfbaae02d60d5b5d24
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8d6da85e6b7059a340c77b5675b267f2792f873f
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644768"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028744"
 ---
 # <a name="whats-new-in-power-bi-workspace-collections"></a>Power BI 工作区集合中的新增功能
 
@@ -50,7 +50,7 @@ ms.locfileid: "52644768"
 
 ## <a name="december-2016"></a>2016 年 12 月
 
-- [新 JavaScript 嵌入示例](https://microsoft.github.io/PowerBI-JavaScript/demo/)
+- [新的 JavaScript 嵌入式示例](https://microsoft.github.io/PowerBI-JavaScript/demo/)
 
 ## <a name="october-2016"></a>2016 年 10 月
 
@@ -72,8 +72,8 @@ ms.locfileid: "52644768"
 - 对应用令牌和嵌入的报表的行级别安全性 (RLS) 支持。 若要了解详细信息，请参阅[将行级别安全性用于 Power BI 工作区集合](row-level-security.md)。
 - 为所有 **v1.0** API 调用更新了示例应用程序。
 - 提供了对 Azure SDK、PowerShell 和 CLI 的 Power BI 工作区集合支持。
-- 用户可以将可视化数据导出到 **.csv**文件。
-- 现在，所有支持 Azure 的语言/区域都支持 Power BI 工作区集合。 若要了解详细信息，请参阅 [Azure - 语言](http://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx)。
+- 用户可以将可视化数据导出到 **.csv** 文件。
+- 现在，所有支持 Azure 的语言/区域都支持 Power BI 工作区集合。 若要了解详细信息，请参阅 [Azure - 语言](https://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx)。
 
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: link update -->

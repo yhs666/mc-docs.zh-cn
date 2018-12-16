@@ -15,12 +15,12 @@ ms.topic: get-started-article
 origin.date: 10/01/2016
 ms.author: v-yiso
 ms.date: 03/12/2018
-ms.openlocfilehash: 0e3c3890c8f7f74cd4aabddddaa477390b4f338e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 552a26e34948459e8f6a268ee8c0c7696e5c25b1
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645529"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028690"
 ---
 # <a name="getting-started"> </a>使用移动服务时，应用服务有何作用？
 
@@ -64,7 +64,5 @@ ms.locfileid: "52645529"
 
 ## <a name="ready-stage-go"></a>各就位，预备，跑！
 使用 *Azure 应用服务*，可以为移动应用创建多个专用测试和过渡环境。 可以在部署之前使用这些环境执行测试。 无需停机即可切换到生产环境。 预先加载 Web 应用，确保最佳客户体验。
-
-可以遵循此[教程](app-service-mobile-migrating-from-mobile-services.md)，开始将*应用服务*用于现有移动服务。
 
 <!--Update_Description: update meta data only-->

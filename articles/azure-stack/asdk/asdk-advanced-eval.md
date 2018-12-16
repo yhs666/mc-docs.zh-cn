@@ -3,8 +3,8 @@ title: 高级 Azure Stack 评估任务 | Microsoft Docs
 description: 本文介绍高级 Azure Stack 评估任务。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/16/2018
-ms.date: 03/22/2018
-ms.author: v-junlch
+origin.date: 10/16/2018
+ms.date: 12/17/2018
+ms.author: v-jay
 ms.reviewer: misainat
-ms.openlocfilehash: 2c12854267482ced2913e6488247c9cc2ac8edb8
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5379f90aa388127fccc20679e4f31197202ecb31
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649813"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396161"
 ---
 # <a name="advanced-azure-stack-development-kit-evaluation-tasks"></a>高级 Azure Stack 开发工具包评估任务
 在熟悉 Azure Stack 开发工具包 (ASDK) 服务的基本功能后，可以通过测试更高级的方案，来进一步加深对 Azure Stack 的了解。 Azure Stack 操作员文档中全面阐述了这些更高级的评估任务。
@@ -46,4 +46,3 @@ Azure Stack 操作员可以创建套餐，使用户（租户）能够创建 Azur
 
 ## <a name="next-steps"></a>后续步骤
 [详细了解如何使用 Azure Stack 集成系统提供服务](../azure-stack-offer-services-overview.md)
-

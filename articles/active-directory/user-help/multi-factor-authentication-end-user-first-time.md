@@ -12,14 +12,14 @@ ms.service: active-directory
 ms.component: user-help
 ms.topic: conceptual
 origin.date: 05/15/2017
-ms.date: 11/13/2018
+ms.date: 12/10/2018
 ms.author: v-junlch
-ms.openlocfilehash: 4cbc388b5deaa3ba42c4c9ef1b0b88be133b025f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 57edb2f531c0b6bf476e4fe47c0a389fd23eff35
+ms.sourcegitcommit: 6cd0a8d22061aba7390579a80e19cb9d2f7faf12
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645665"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53233775"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>为帐户设置双重验证
 双重验证是一种额外的安全步骤，可使帐户更难被其他人攻破，从而帮助保护帐户。 如果正在阅读本文，可能会收到来自工作或学校管理员的有关多重身份验证的电子邮件。 或者，也许会在尝试登录时收到消息，要求设置其他安全性验证。 如果是这种情况， **在完成自动注册过程之前无法登录**。
@@ -42,12 +42,12 @@ ms.locfileid: "52645665"
 
 | 联系方法 | 说明 |
 | --- | --- |
-| [移动应用](#use-a-mobile-app-as-the-contact-method) |- **接收验证通知。** 此选项会将通知推送到智能手机或平板电脑上的验证器应用。 查看通知，如果合法，则在应用中选择“身份验证”。 公司或学校可能要求在身份验证之前，输入 PIN。<br>- **使用验证码。** 在此模式下，验证器应用生成每隔 30 秒更新一次的验证码。 在登录界面中输入最新验证码。<br>Microsoft Authenticator 应用适用于 [Android](https://go.microsoft.com/fwlink/?linkid=866594)、[iOS](https://go.microsoft.com/fwlink/?linkid=866594) 和 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)。 |
+| [移动应用](#use-a-mobile-app-as-the-contact-method) |- **接收验证通知。** 此选项会将通知推送到智能手机或平板电脑上的验证器应用。 查看通知，如果合法，则在应用中选择“身份验证”。 公司或学校可能要求在身份验证之前，输入 PIN。<br>- **使用验证码。** 在此模式下，验证器应用生成每隔 30 秒更新一次的验证码。 在登录界面中输入最新验证码。<br>Microsoft Authenticator 应用适用于 [Android](https://go.microsoft.com/fwlink/?linkid=866594)、[iOS](https://go.microsoft.com/fwlink/?linkid=866594) 和 [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071)。 |
 | [移动电话呼叫或短信](#use-your-mobile-phone-as-the-contact-method) |- **电话呼叫**向已提供的手机号码进行自动语音呼叫。 接听电话，并按电话键盘上的 # 进行身份验证。<br>- **短信**发送包含验证码的短信。 遵循短信中的提示，回复短信或在登录界面中输入提供的验证码。 |
 | [办公电话呼叫](#use-your-office-phone-as-the-contact-method) |向已提供的电话号码进行自动语音呼叫。 接听电话并按电话拨号键盘中的 # 进行身份验证。 |
 
 ## <a name="use-a-mobile-app-as-the-contact-method"></a>使用移动应用作为联系方法
-使用此方法要求在手机或平板电脑上安装验证器应用。 本文中介绍的步骤基于 Microsoft Authenticator 应用，可用于 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)、[Android](http://go.microsoft.com/fwlink/?Linkid=825072) 和 [iOS](http://go.microsoft.com/fwlink/?Linkid=825073)。
+使用此方法要求在手机或平板电脑上安装验证器应用。 本文中介绍的步骤基于 Microsoft Authenticator 应用，可用于 [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071)、[Android](https://go.microsoft.com/fwlink/?Linkid=825072) 和 [iOS](https://go.microsoft.com/fwlink/?Linkid=825073)。
 
 >[!NOTE]
 >你不必使用 Microsoft Authenticator 应用。 如果你已经在使用另一个身份验证器应用，可以继续使用它。
@@ -102,4 +102,4 @@ ms.locfileid: "52645665"
 - 更改首选项和[管理双重验证设置](multi-factor-authentication-end-user-manage-settings.md)
 - 使用 [Microsoft Authenticator 应用](microsoft-authenticator-app-how-to.md)完成快速、安全的身份验证（即使没有手机网络服务）。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

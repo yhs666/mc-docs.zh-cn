@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 07/11/2018
-ms.date: 08/13/2018
+origin.date: 10/22/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: 62e590443938214d66a1d0533b222c03533954f6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e3a769cfc09ae4078426521349d81cc82f877c68
+ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655695"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53286764"
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Azure 资源管理器模板的 Resources 节
 
@@ -101,7 +101,9 @@ ms.locfileid: "52655695"
 
 ## <a name="condition"></a>条件
 
-如果必须在部署期间决定是否创建资源，请使用 `condition` 元素。 此元素的值将解析为 true 或 false。 如果值为 true，将创建资源。 如果值为 false，将不会创建资源。 通常，当要创建新资源或使用现有资源时，可以使用此值。 例如，若要指定是要部署新的存储帐户还是使用现有存储帐户，请使用：
+如果必须在部署期间决定是否创建资源，请使用 `condition` 元素。 此元素的值将解析为 true 或 false。 如果值为 true，则创建了该资源。 如果值为 false，则未创建该资源。 值只能应用到整个资源。
+
+通常，当要创建新资源或使用现有资源时，可以使用此值。 例如，若要指定是要部署新的存储帐户还是使用现有存储帐户，请使用：
 
 ```json
 {
@@ -434,6 +436,7 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 * 有关用户可以使用的来自模板中的函数的详细信息，请参阅 [Azure Resource Manager Template Functions](resource-group-template-functions.md)（Azure Resource Manager 模板函数）。
 * 若要在部署期间使用多个模板，请参阅[将已链接的模板与 Azure 资源管理器配合使用](resource-group-linked-templates.md)。
 * 可能需要使用不同资源组中的资源。 使用跨多个资源组共享的存储帐户或虚拟网络时，此方案很常见。 有关详细信息，请参阅 [resourceId 函数](resource-group-template-functions-resource.md#resourceid)。
+
 <!--Not Available on [Recommended naming conventions for Azure resources](../guidance/guidance-naming-conventions.md) -->
 
 <!-- Update_Description: update meta properties， wording update -->

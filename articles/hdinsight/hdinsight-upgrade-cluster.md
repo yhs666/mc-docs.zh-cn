@@ -3,20 +3,17 @@ title: 将 HDInsight 群集升级到最新版本 - Azure
 description: 了解如何将 HDInsight 群集升级到较新版本。
 services: hdinsight
 ms.service: hdinsight
+author: omidm1
+ms.author: omidm
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-origin.date: 04/04/2017
-ms.date: 09/24/2018
-ms.author: v-yiso
-ms.openlocfilehash: 5e0ef7ffab4bc3b8783458b122857b67b4c77295
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.topic: conceptual
+ms.date: 04/04/2017
+ms.openlocfilehash: cab2c7aabf23ba8636f46a92c8d864b1c9b74120
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653223"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028571"
 ---
 # <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>将 HDInsight 群集升级到更新版本
 要利用最新的 HDInsight 功能，我们建议将 HDInsight 群集升级到最新版本。 按照以下准则升级 HDInsight 群集版本。
@@ -36,6 +33,7 @@ ms.locfileid: "52653223"
 3. 将现有作业、数据源及接收器复制到新环境。 有关详细信息，请参阅[将数据复制到测试环境](hdinsight-migrate-from-windows-to-linux.md#copy-data-to-the-test-environment) 。
 4. 执行验证测试，以确保作业在新群集上按预期工作。
 
+
 验证一切都按预期工作后，请为迁移安排停机时间。 在此停机期间，请执行以下操作：
 
 1.  备份所有存储在本地群集节点上的暂时性数据。 例如，如果数据直接存储在头节点上。
@@ -48,3 +46,4 @@ ms.locfileid: "52653223"
 * [了解如何创建基于 Linux 的 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)
 * [使用 SSH 连接到 HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [使用 Ambari 管理基于 Linux 的群集](hdinsight-hadoop-manage-ambari.md)
+

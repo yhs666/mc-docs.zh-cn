@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/05/2017
 ms.date: 09/17
 ms.author: v-yiso
-ms.openlocfilehash: 58336ece5413e81f49bafaa481f86287c9a4030d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 298ae8bca53266e3630dcda75f99e70df1760030
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648704"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028307"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>在 Azure 门户中管理云服务
 在 Azure 门户的“云服务”区域中，可以：
@@ -91,7 +91,7 @@ ms.locfileid: "52648704"
 
 **应用程序的交换是否会导致停机？应如何处理它？**
 
-如上一部分中所述，部署交换通常非常快，因为它只更改 Azure 负载均衡器中的配置。 在某些情况下，它会需要 10 秒或更长时间并导致暂时性连接故障。 若要减少对客户的影响，请考虑实施 [客户端重试逻辑](../best-practices-retry-general.md)。
+如上一部分中所述，部署交换通常非常快，因为它只更改 Azure 负载均衡器中的配置。 在某些情况下，它会需要 10 秒或更长时间并导致暂时性连接故障。 
 
 ## <a name="delete-deployments-and-a-cloud-service"></a>删除部署和云服务
 

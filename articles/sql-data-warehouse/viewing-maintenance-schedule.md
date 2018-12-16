@@ -11,12 +11,12 @@ origin.date: 10/06/2018
 ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: c540067e1ae6e3f79977b07f6917a9d0c3c0f761
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 6b14892f6816ef46d03d128a0ccc9bc65f83beaf
+ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673040"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53219529"
 ---
 # <a name="view-a-maintenance-schedule"></a>查看维护计划 
 
@@ -33,6 +33,6 @@ ms.locfileid: "52673040"
 ![概述边栏选项卡](media/sql-data-warehouse-maintenance-scheduling/clear-overview-blade.PNG)
 
 ## <a name="next-steps"></a>后续步骤
-[详细了解](https://docs.microsoft.com/azure/service-health/service-health-overview) Azure 服务运行状况。
+[详细了解](/service-health/service-health-overview) Azure 服务运行状况。
 
 

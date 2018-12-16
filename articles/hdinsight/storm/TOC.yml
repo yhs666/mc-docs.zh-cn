@@ -89,9 +89,6 @@ items:
     - name: 将 SSH 与 HDInsight 配合使用
       href: ../hdinsight-hadoop-linux-use-ssh-unix.md
       maintainContext: true
-    - name: 使用 SSH 隧道
-      href: ../hdinsight-linux-ambari-ssh-tunnel.md
-      maintainContext: true
     - name: 限制数据访问
       href: ../hdinsight-storage-sharedaccesssignature-permissions.md
       maintainContext: true
@@ -132,16 +129,6 @@ items:
         href: ../hdinsight-administer-use-command-line.md
         maintainContext: true
       maintainContext: true
-    - name: 使用 Ambari Web UI 管理群集
-      href: ../hdinsight-hadoop-manage-ambari.md
-      items:
-      - name: 使用 Ambari Web UI 优化群集
-        href: ../hdinsight-changing-configs-via-ambari.md
-        maintainContext: true
-      - name: 使用 Ambari REST API
-        href: ../hdinsight-hadoop-manage-ambari-rest-api.md
-        maintainContext: true
-      maintainContext: true
     - name: 管理 HDInsight 群集的日志
       href: ../hdinsight-log-management.md
       maintainContext: true
@@ -150,9 +137,6 @@ items:
       maintainContext: true
     - name: 上传 Hadoop 作业的数据
       href: ../hdinsight-upload-data.md
-      maintainContext: true
-    - name: 将多个 HDInsight 群集与 Data Lake Store 配合使用
-      href: ../hdinsight-multiple-clusters-data-lake-store.md
       maintainContext: true
     - name: 使用 Sqoop 导入和导出数据
       href: ../hdinsight-use-sqoop.md
@@ -295,9 +279,9 @@ items:
   - name: 适用于 HDInsight 的 Windows 工具
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 9d6bd26d12a246c81c9d840495e91dae9165ee02
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f55d3c62747647dd8163bc8307216ff5d9e28762
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646686"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028892"

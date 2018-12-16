@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 08/13/2018
 ms.date: 10/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: 3bc4d4ba7d04c7e6f408c9423233e8598bd7bf92
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ed9f74a26ae47e1847c3c3368b9dca8f97bdc058
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655375"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028446"
 ---
 # <a name="use-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>使用消息路由将设备到云的消息发送到不同的终结点
 
@@ -36,7 +36,7 @@ IoT 中心有一个默认的内置终结点（消息/事件），此终结点与
 
 ### <a name="built-in-endpoint"></a>内置终结点
 
-可以使用标准[事件中心集成和 SDK](iot-hub-devguide-messages-read-builtin.md) 接收来自内置终结点（消息/事件）的设备到云的消息。 请注意，在创建一个路由后，数据将停止流向内置终结点，除非创建了到该终结点的路由。
+可以使用标准[事件中心集成和 SDK](iot-hub-devguide-messages-read-builtin.md) 接收来自内置终结点（消息/事件）的设备到云的消息。 请注意，在创建一个路由后，数据将停止流向内置终结点，除非已向该终结点创建了一个路由。
 
 ### <a name="azure-blob-storage"></a>Azure Blob 存储
 
@@ -52,7 +52,7 @@ IoT 中心默认为以下文件命名约定：
 
 ### <a name="service-bus-queues-and-service-bus-topics"></a>服务总线队列和服务总线主题
 
-用作 IoT 中心终结点的服务总线队列和主题不能启用“会话”或“重复项检测”。 如果启用了其中任一选项，该终结点将在 Azure 门户中显示为“无法访问”。
+用作 IoT 中心终结点的服务总线队列和主题不得启用**会话**或**重复检测**选项。 如果启用了其中任一选项，该终结点会在 Azure 门户中显示为**无法访问**。
 
 ### <a name="event-hubs"></a>事件中心
 
@@ -68,7 +68,6 @@ IoT 中心默认为以下文件命名约定：
 
 * 从[内置终结点](quickstart-send-telemetry-node.md)进行读取
 
-* 从 [Blob 存储](../storage/blobs/storage-blob-event-quickstart.md)进行读取
 
 * 从[事件中心](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)进行读取
 
@@ -91,7 +90,7 @@ IoT 中心默认为以下文件命名约定：
 
 在创建新路由或编辑现有路由时，应通过示例消息来测试路由查询。 可以测试单个路由或一次测试所有路由，并且在测试期间，不会有消息被路由到终结点。 可以使用 Azure 门户、Azure 资源管理器、Azure PowerShell 和 Azure CLI 来进行测试。 测试结果有助于确定示例消息是否与查询相匹配，或者测试是否因为示例消息或查询语法错误而无法运行。 若要了解详细信息，请参阅[测试路由](https://docs.microsoft.com/en-us/rest/api/iothub/iothubresource/testroute)和[测试所有路由](https://docs.microsoft.com/en-us/rest/api/iothub/iothubresource/testallroutes)。
 
-## <a name="latency"></a>延迟
+## <a name="latency"></a>Latency
 
 使用内置终结点路由设备到云遥测消息时，在创建第一个路由后，端到端延迟略微增大。
 

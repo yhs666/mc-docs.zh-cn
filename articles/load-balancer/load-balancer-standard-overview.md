@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/24/2018
-ms.date: 11/26/2018
+ms.date: 12/06/2018
 ms.author: v-jay
-ms.openlocfilehash: 98b28141812adee0cc9809a13c1025ffb237b083
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: ab36de59be6ff537aa4cd384d90b82862f629849
+ms.sourcegitcommit: 6e07735318eb5f6ea319b618863259088eab3722
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674357"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52981647"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Azure 负载均衡器标准版概述
 
@@ -41,7 +41,7 @@ ms.locfileid: "52674357"
 负载均衡器资源是一些对象，可在其中表述 Azure 应如何设定其多租户基础结构，以实现想要创建的场景。  负载均衡器资源与实际基础结构之间不存在直接的关系，创建负载均衡器不会创建实例，可始终使用容量，且无需考虑启动或缩放延迟。 
 
 >[!NOTE]
-> Azure 为方案提供了一套完全托管的负载均衡解决方案。  若要寻求 TLS 终止（“SSL 卸载”）或每个 HTTP/HTTPS 请求的应用层处理，请查看[应用程序网关](../application-gateway/application-gateway-introduction.md)。  若要寻求全局 DNS 负载均衡，请查看[流量管理器](../traffic-manager/traffic-manager-overview.md)。  端到端方案可从结合所需的解决方案中受益。
+> Azure 为方案提供了一套完全托管的负载均衡解决方案。  若要寻求 TLS 终止（“SSL 卸载”）或每个 HTTP/HTTPS 请求的应用层处理，请查看[应用程序网关](../application-gateway/overview.md)。  若要寻求全局 DNS 负载均衡，请查看[流量管理器](../traffic-manager/traffic-manager-overview.md)。  端到端方案可从结合所需的解决方案中受益。
 
 ## <a name="why-use-standard-load-balancer"></a>为何使用标准负载均衡器？
 

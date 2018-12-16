@@ -1,34 +1,34 @@
 ---
 title: Azure Site Recovery 中的 Azure 到 Azure 复制体系结构 | Azure
-description: 本文概述使用 Azure Site Recovery 服务在 Azure 区域之间复制 Azure VM 时所用的组件和体系结构。
+description: 本文概述了使用 Azure Site Recovery 服务在 Azure 区域之间为 Azure VM 设置灾难恢复时使用的组件和体系结构。
 services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 10/10/2018
-ms.date: 11/19/2018
+origin.date: 10/28/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 62619c62b441b2689c488f94d65ffcfa1adba52c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 30840802996008ba75d40e569189006db96e80fd
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645312"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028774"
 ---
-# <a name="azure-to-azure-replication-architecture"></a>Azure 到 Azure 复制体系结构
+# <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure 到 Azure 的灾难恢复体系结构
 
-本文介绍了使用 [Azure Site Recovery](site-recovery-overview.md) 服务在 Azure 区域之间对 Azure 虚拟机 (VM) 进行复制、故障转移和恢复时使用的体系结构。
+本文介绍使用 [Azure Site Recovery](site-recovery-overview.md) 服务在 Azure 区域之间通过复制、故障转移和恢复 Azure虚拟机 (VM) 部署灾难恢复时使用的体系结构。
 
 ## <a name="architectural-components"></a>体系结构组件
 
 下面的概要视图展示了某个特定区域（在此示例中为“中国东部”位置）中的 Azure VM 环境。 在 Azure VM 环境中：
 - 应用可在托管磁盘或非托管磁盘跨存储帐户分布的 VM 上运行。
-- VM 可以包含在虚拟网络中的一个或多个子网中。
+- VM 可包含在虚拟网络的一个或多个子网内。
 
 **Azure 到 Azure 复制**
 
-![客户环境](./media/concepts-azure-to-azure-architecture/source-environment.png)
+![customer-environment](./media/concepts-azure-to-azure-architecture/source-environment.png)
 
 ## <a name="replication-process"></a>复制过程
 
@@ -40,41 +40,41 @@ ms.locfileid: "52645312"
 
 **资源** | **详细信息**
 --- | ---
-目标资源组 | 故障转移后复制的 VM 所属的资源组。 此资源组的位置可以是除托管源虚拟机区域以外的任何 Azure 区域。
-目标虚拟网络 | 故障转移后复制的 VM 所在的虚拟网络。 创建源虚拟网络与目标虚拟网络之间的网络映射，反之亦然。
-缓存存储帐户 | 在源 VM 更改复制到目标存储帐户前，系统会跟踪这些更改并将更改发送到源位置中的缓存存储帐户。 此步骤可最大限度地降低对在 VM 上运行的生产应用程序的影响。
-**目标存储帐户（如果源 VM 不使用托管磁盘）**  | 目标位置中的存储帐户，将向其中复制数据。
+**目标资源组** | 复制的 VM 在故障转移后所属的资源组。 此资源组的位置可以是除托管源虚拟机区域以外的任何 Azure 区域。
+**目标虚拟网络** | 复制的 VM 在故障转移后所处的虚拟网络。 系统会在源虚拟网络和目标虚拟网络之间创建网络映射，反之亦然。
+**缓存存储帐户** | 在源 VM 更改复制到目标存储帐户前，系统会跟踪这些更改并将更改发送到源位置的缓存存储帐户。 此步骤可确保将对 VM 上运行的生产应用程序产生的影响降至最低。
+**目标存储帐户（如果源 VM 不使用托管磁盘）**  | 向其复制数据的目标位置的存储帐户。
 **副本托管磁盘（如果源 VM 在托管磁盘上）**  | 向其复制数据的目标位置的托管磁盘。
-目标可用性集  | 故障转移后复制的 VM 所在的可用性集。
+**目标可用性集**  | 复制的 VM 在故障转移后所处的可用性集。
 
 ### <a name="step-2"></a>步骤 2
 
 由于启用了复制，Site Recovery 扩展移动服务会自动安装在 VM 上：
 
-1. 向 Site Recovery 注册 VM。
+1. VM 会注册到 Site Recovery。
 
-2. 为 VM 配置连续复制。 在 VM 磁盘上写入的数据会连续传输到源位置的缓存存储帐户。
+2. VM 会配置连续复制。 在 VM 磁盘上写入的数据会连续传输到源位置的缓存存储帐户。
 
    ![启用复制过程，步骤 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2.png)
 
- Site Recovery 不必与 VM 建立入站连接。 以下项仅需要出站连接。
+ Site Recovery 不需要与 VM 进行入站连接。 以下项仅需要出站连接。
 
- - Site Recovery 服务 URL/IP 地址
- - Office 365 身份验证 RUL/IP 地址
+ - 站点恢复服务 URL/IP 地址
+ - Office 365 身份验证 URL/IP 地址
  - 缓存存储帐户 IP 地址
 
-如果启用了多 VM 一致性，则复制组中的计算机将通过端口 20004 相互通信。 确保防火墙设备没有阻止 VM 之间通过端口 20004 进行的内部通信。
+如果启用了多 VM 一致性，则复制组中的计算机将通过端口 20004 相互通信。 请确保没有防火墙设备阻止 VM 之间通过端口 20004 进行的内部通信。
 
 > [!IMPORTANT]
 如果想要 Linux VM 成为复制组的一部分，请确保按照特定 Linux 版本的指南手动打开端口 20004 上的出站流量。
 
 ### <a name="step-3"></a>步骤 3
 
-正在连续复制时，磁盘写入内容会立即传输到缓存存储帐户。 Site Recovery 处理数据，并将其发送到目标存储帐户或副本托管磁盘。 处理数据后，每隔几分钟就会在目标存储帐户中生成恢复点。
+正在连续复制时，磁盘写入内容会立即传输到缓存存储帐户。 Site Recovery 处理数据，并将其发送到目标存储帐户或副本托管磁盘。 处理数据后，目标存储帐户中每隔几分钟就会生成恢复点。
 
 ## <a name="failover-process"></a>故障转移过程
 
-如果启动故障转移，系统会在目标资源组、目标虚拟网络、目标子网和目标可用性集中创建 VM。 可在故障转移过程中使用任意恢复点。
+如果启动故障转移，系统会在目标资源组、目标虚拟网络、目标子网和目标可用性集中创建 VM。 在故障转移期间，可使用任何恢复点。
 
 ![故障转移过程](./media/concepts-azure-to-azure-architecture/failover.png)
 

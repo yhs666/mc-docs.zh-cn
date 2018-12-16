@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 85a0908b26152f7e136df12b600855832404ba42
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d7dd0e98ecc5778994e5dd11c5fad956fb84dae4
+ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646409"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53245760"
 ---
 ### <a name="code-walkthrough"></a>代码演练
 
@@ -26,7 +26,7 @@ ms.locfileid: "52646409"
 - 设备支持的方法列表。
 - 设备发送的遥测消息的架构。
 
-[!code-cpp[Define data structures for Chiller](~/iot-samples-c/samples/solutions/remote_monitoring_client/remote_monitoring.c?name=datadefinition "Define data structures for Chiller")]
+
 
 示例包括了一个 **serializeToJson** 函数，它使用 Parson 库对此数据结构进行序列化。
 
@@ -39,15 +39,15 @@ ms.locfileid: "52646409"
 
 以下代码片段显示了 **device_method_callback** 函数。 此函数确定当从解决方案加速器收到方法调用时要执行的操作。 此函数在 **userContextCallback** 参数中接收对 **Chiller** 数据结构的引用。 **userContextCallback** 的值是在 **main** 函数中配置回调函数时设置的：
 
-[!code-cpp[Device method callback](~/iot-samples-c/samples/solutions/remote_monitoring_client/remote_monitoring.c?name=devicemethodcallback "Device method callback")]
+
 
 当解决方案加速器调用固件更新方法时，示例会对 JSON 有效负载进行反序列化，并启动一个后台线程来完成更新过程。 以下代码片段显示了在该线程上运行的 **do_firmware_update**：
 
-[!code-cpp[Firmware update thread](~/iot-samples-c/samples/solutions/remote_monitoring_client/remote_monitoring.c?name=firmwareupdate "Firmware update thread")]
+
 
 以下代码片段展示了客户端如何将遥测消息发送给解决方案加速器。 消息属性包括了消息架构，以帮助解决方案加速器在仪表板上显示遥测数据：
 
-[!code-cpp[Send telemetry](~/iot-samples-c/samples/solutions/remote_monitoring_client/remote_monitoring.c?name=sendmessage "Send telemetry")]
+
 
 示例中的 **main** 函数：
 
@@ -57,4 +57,4 @@ ms.locfileid: "52646409"
 - 配置设备方法回调函数。
 - 将模拟的遥测数据值发送给解决方案加速器。
 
-[!code-cpp[Main](~/iot-samples-c/samples/solutions/remote_monitoring_client/remote_monitoring.c?name=main "Main")]
+

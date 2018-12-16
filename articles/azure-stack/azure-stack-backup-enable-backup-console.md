@@ -12,15 +12,16 @@ ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/05/2018
-ms.date: 10/15/2018
+origin.date: 11/05/2018
+ms.date: 12/17/2018
 ms.author: v-jay
-ms.openlocfilehash: 176ddaf4ea429127f74b92fb81033357ee00eb4b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.reviewer: hectorl
+ms.openlocfilehash: 2fe33b8a8cf2e8bd686bd96e5c4c4d51821f2169
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648554"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396122"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>从管理门户为 Azure Stack 启用备份
 通过管理门户启用基础结构备份服务，以便 Azure Stack 可以生成备份。 出现[灾难性故障](.\azure-stack-backup-recover-data.md)时，可以通过云恢复使用这些备份还原环境。 云恢复的目的是为了确保操作员和用户在恢复完成后可以重新登录回门户。 用户将恢复其订阅，包括基于角色的访问权限和角色、原始计划、套餐以及先前定义的计算、存储和网络配额。

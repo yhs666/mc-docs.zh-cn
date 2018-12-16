@@ -6,12 +6,12 @@ origin.date: 05/16/2018
 ms.date: 10/29/2018
 ms.topic: conceptual
 ms.service: iot-hub
-ms.openlocfilehash: ed006d834d75b87c15fa510379d64e44dfe9ce34
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: daf2e9fb8d829530483da4683fd23be31faa6a68
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658986"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028360"
 ---
 # <a name="summary-of-customer-data-request-features"></a>客户数据请求功能摘要
 
@@ -26,8 +26,6 @@ Azure IoT 中心是一项基于 REST API 的云服务，其目标是企业客户
 租户管理员可以使用 Azure 门户或服务的 REST API 来处理信息请求，只需导出或删除与设备 ID 相关联的数据即可。
 
 如果使用 Azure IoT 中心服务的路由功能将设备消息转发给其他服务，则若要完成给定设备的完整请求，必须由每个路由终结点的租户管理员执行数据请求。 如需更多详细信息，请参阅每个终结点的参考文档。 有关支持的终结点的详细信息，请参阅[参考 - IoT 中心终结点](iot-hub-devguide-endpoints.md)。
-
-如果使用 Azure IoT 中心服务的 Azure 事件网格集成功能，则必须由这些事件的每个订阅服务器的租户管理员执行数据请求操作。 有关详细信息，请参阅[使用事件网格响应 IoT 中心事件](iot-hub-event-grid.md)。
 
 如果使用 Azure IoT 中心服务的 Azure Monitor 集成功能来创建诊断日志，则必须由租户管理员针对存储的日志执行数据请求操作。 有关详细信息，请参阅[监视 Azure IoT 中心的运行状况](iot-hub-monitor-resource-health.md)。
 

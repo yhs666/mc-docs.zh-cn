@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: baa089b545ab23dcef859711af46acc7b4f25368
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 2299f2f45c3774777c15a1af4f3955823d408602
+ms.sourcegitcommit: 5c059fe358e1298ef96450b2c620054afe89de1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660313"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53234079"
 documentType: LandingData
 title: Azure DNS 文档
 metadata:
@@ -20,7 +20,7 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   origin.date: 06/13/2018
-  ms.date: 10/01/2018
+  ms.date: 12/11/2018
   ms.author: v-jay
 abstract:
   description: 了解如何使用 Azure DNS。 快速入门、教程、示例等介绍了如何设置和管理域名的 DNS 区域和记录。
@@ -33,48 +33,27 @@ sections:
     style: icon48
     items:
     - image:
-        src: https://docs.microsoft.com/en-us/media/common/i_portal.svg
+        src: https://docs.microsoft.com/media/common/i_portal.svg
       text: Azure 门户
-      href: /azure/dns/dns-getstarted-portal
+      href: /dns/dns-getstarted-portal
     - image:
-        src: https://docs.microsoft.com/en-us/media/logos/logo_powershell.svg
+        src: https://docs.microsoft.com/media/logos/logo_powershell.svg
       text: Azure PowerShell
-      href: /azure/dns/dns-getstarted-powershell
+      href: /dns/dns-getstarted-powershell
     - image:
-        src: https://docs.microsoft.com/en-us/media/common/cli.svg
+        src: https://docs.microsoft.com/media/common/cli.svg
       text: Azure CLI
-      href: /azure/dns/dns-getstarted-cli
+      href: /dns/dns-getstarted-cli
 - title: 分步教程
   items:
   - type: paragraph
-    text: 了解如何在 Azure DNS 中托管域名、如何使用 Azure DNS 为 Web 应用创建自定义 DNS 记录，以及如何创建专用 DNS 区域和记录。
+    text: 了解如何将域托管到 Azure DNS 中，如何使用 Azure DNS 为 Web 应用创建自定义 DNS 记录，以及如何创建专用 DNS 区域和记录。
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/dns/dns-delegate-domain-azure-dns">在 Azure DNS 中托管域</a>
-    - html: <a href="/azure/dns/dns-web-sites-custom-domain">为 Web 应用创建自定义 DNS 记录</a>
-    - html: <a href="/azure/dns/private-dns-getstarted-powershell">创建专用 DNS 区域和记录</a>
-- title: 免费 Pluralsight 视频培训
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
-    items:
-    - title: Azure 管理员
-      href: https://go.microsoft.com/fwlink/?linkid=2012827
-      image:
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://go.microsoft.com/fwlink/?linkid=2012827
-    - title: Azure 解决方案架构师
-      href: https://go.microsoft.com/fwlink/?linkid=2012824
-      image:
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://go.microsoft.com/fwlink/?linkid=2012824
-    - title: 面向 AWS 管理员的 Azure 管理
-      href: https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents
-      image:
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents
+    - html: <a href="/dns/dns-delegate-domain-azure-dns">在 Azure DNS 中托管域</a>
+    - html: <a href="/dns/dns-web-sites-custom-domain">为 Web 应用创建自定义 DNS 记录</a>
+    - html: <a href="/dns/private-dns-getstarted-powershell">创建专用 DNS 区域和记录</a>
 - title: 示例
   items:
   - type: paragraph
@@ -83,7 +62,7 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="/azure/dns/cli-samples">Azure CLI</a>
+    - html: <a href="/dns/cli-samples">Azure CLI</a>
 - title: 参考
   items:
   - type: list
@@ -91,8 +70,8 @@ sections:
     className: cardsD
     items:
     - title: 命令行
-      html: <p><a href="/powershell/module/azurerm.dns">PowerShell</a></p><p><a href="/cli/azure/network/traffic-manager">Azure CLI</a></p>
+      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.dns">PowerShell</a></p><p><a href="/cli/network/traffic-manager">Azure CLI</a></p>
     - title: 语言
-      html: <p><a href="/dotnet/api/microsoft.azure.management.dns.models">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.dns">Java</a></p><p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/">Node.js</a></p><p><a href="http://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0">Ruby</a></p><p><a href="https://docs.microsoft.com/python/api/azure.mgmt.dns">Python</a></p>
+      html: <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.dns.models">.NET</a></p><p><a href="https://docs.microsoft.com/java/api/com.microsoft.azure.management.dns">Java</a></p><p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/">Node.js</a></p><p><a href="http://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0">Ruby</a></p><p><a href="https://docs.microsoft.com/python/api/azure.mgmt.dns">Python</a></p>
     - title: REST
-      html: <p><a href="/rest/api/dns/">REST API 参考</a></p>
+      html: <p><a href="https://docs.microsoft.com/rest/api/dns/">REST API 参考</a></p>

@@ -12,26 +12,26 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/19/2018
-ms.date: 11/12/2018
+ms.date: 12/11/2018
 ms.author: v-jay
-ms.openlocfilehash: 1144a566889a415a3bfa82e16b4ee70a4bc41b01
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 9a0a7cb124ee81c9b5928bf03b893802e4b121fa
+ms.sourcegitcommit: 5c059fe358e1298ef96450b2c620054afe89de1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660813"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53234083"
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>如何使用 PowerShell 管理 DNS 区域
 
 > [!div class="op_single_selector"]
-> * [Portal](dns-operations-dnszones-portal.md)
+> * [门户](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
 > * [Azure 经典 CLI](dns-operations-dnszones-cli-nodejs.md)
 > * [Azure CLI](dns-operations-dnszones-cli.md)
 
 本文介绍如何使用 Azure PowerShell 管理 DNS 区域。 也可使用跨平台的 [Azure CLI](dns-operations-dnszones-cli.md) 或 Azure 门户管理 DNS 区域。
 
-本指南专门介绍公共 DNS 区域。 有关使用 Azure PowerShell 管理 Azure DNS 中专用区域的详细信息，请参阅[通过 Azure PowerShell 开始使用 Azure DNS 专用区域](private-dns-getstarted-powershell.md)。
+本指南专门介绍公共 DNS 区域。
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
@@ -54,8 +54,6 @@ New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @{ project="demo"; env="test" }
 ```
 
-Azure DNS 现在还支持专用 DNS 区域（当前为公开预览版）。  若要详细了解专用 DNS 区域，请参阅[将 Azure DNS 用于专用域](private-dns-overview.md)。 有关如何创建专用 DNS 区域的示例，请参阅 [Azure DNS 专用区域入门（使用 PowerShell）](./private-dns-getstarted-powershell.md)。
-
 ## <a name="get-a-dns-zone"></a>获取 DNS 区域
 
 若要检索 DNS 区域，请使用 `Get-AzureRmDnsZone` cmdlet。 此操作将返回与 Azure DNS 中现有区域相对应的 DNS 区域对象。 此对象包含有关区域的数据（例如记录集数），但不包含记录集本身（请参见 `Get-AzureRmDnsRecordSet`）。
@@ -67,8 +65,8 @@ Name                  : contoso.com
 ResourceGroupName     : myresourcegroup
 Etag                  : 00000003-0000-0000-8ec2-f4879750d201
 Tags                  : {project, env}
-NameServers           : {ns1-01.azure-dns.com., ns2-01.azure-dns.net., ns3-01.azure-dns.org.,
-                        ns4-01.azure-dns.info.}
+NameServers           : {ns1-01.azure-dns.cn., ns2-01.azure-dns.cn., ns3-01.azure-dns.cn.,
+                        ns4-01.azure-dns.cn.}
 NumberOfRecordSets    : 2
 MaxNumberOfRecordSets : 5000
 ```

@@ -16,12 +16,12 @@ ms.workload: big-compute
 origin.date: 04/27/2017
 ms.date: 09/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: 9b40d7cb51ffbac673639d6bebebfb945ccaf80d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 13b7b184f076c8bb33ad5972afd11cc90afd1152
+ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648337"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53219548"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>使用 Active Directory 对 Batch 管理解决方案进行身份验证
 
@@ -136,7 +136,7 @@ AuthenticationResult authResult = authContext.AcquireToken(ResourceUri,
 [aad_about]:../active-directory/fundamentals/active-directory-whatis.md
 [aad_adal]: ../active-directory/develop/active-directory-authentication-libraries.md
 [aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md
-[aad_integrate]: ../active-directory/develop/active-directory-integrating-applications.md
+[aad_integrate]: ../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
 [azure_portal]: http://portal.azure.cn
 [resman_overview]: ../azure-resource-manager/resource-group-overview.md

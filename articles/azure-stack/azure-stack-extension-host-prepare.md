@@ -4,19 +4,19 @@ description: 了解如何准备扩展主机，它是通过将来的一个 Azure 
 services: azure-stack
 keywords: ''
 author: WenJason
-ms.author: digimobile
-origin.date: 09/26/2018
-ms.date: 11/12/2018
+ms.author: v-jay
+origin.date: 11/09/2018
+ms.date: 12/17/2018
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: digimobile
-ms.openlocfilehash: 04186e022b9325783cf3241e23028be29fe6880a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 46f13bca44538fce13aff17564730c3539de0e44
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644383"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396209"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>为 Azure Stack 准备扩展主机
 
@@ -71,7 +71,7 @@ Azure Stack 就绪性检查器工具能够为两个新的必需 SSL 证书创建
     ```PowerShell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
-    Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD -ExtensionHostFeature
+    Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
     ```
 
 5. 将证书放在合适的目录中。
@@ -85,8 +85,7 @@ Azure Stack 就绪性检查器工具能够为两个新的必需 SSL 证书创建
 
 1. 使用可以连接到 Azure Stack 特权终结点的计算机执行后续步骤。 请确保可以从该计算机访问新的证书文件。
 2. 打开 PowerShell ISE 以执行接下来的脚本块
-3. 导入用于托管终结点的证书。 调整脚本以匹配你的环境。
-4. 导入用于管理托管终结点的证书。
+3. 导入用于管理托管终结点的证书。
 
     ```PowerShell  
 
@@ -105,7 +104,7 @@ Azure Stack 就绪性检查器工具能够为两个新的必需 SSL 证书创建
             Import-AdminHostingServiceCert $AdminHostingCertContent $certPassword
     }
     ```
-5. 导入用于托管终结点的证书。
+4. 导入用于托管终结点的证书。
     ```PowerShell  
     $CertPassword = read-host -AsSecureString -prompt "Certificate Password"
 

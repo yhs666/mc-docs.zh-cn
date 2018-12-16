@@ -4,23 +4,20 @@ description: 本文介绍如何从 Azure 流量管理器中添加、删除、启
 services: traffic-manager
 documentationcenter: ''
 author: rockboyfor
-manager: digimobile
-editor: ''
-ms.assetid: ade2bbc2-35a7-43c5-8001-4698f7254526
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/08/2017
-ms.date: 01/15/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: 025fe1676dd9b149664069bd9b20a5a83e8d06f6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 79684ae767697d3ba42f11f151782c2b27a38e7a
+ms.sourcegitcommit: 1b6a310ba636b6dd32d7810821bcb79250393499
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650193"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53389392"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>添加、禁用、启用或删除终结点
 
@@ -44,7 +41,7 @@ ms.locfileid: "52650193"
     4. 如需**目标资源**，请单击“选择...”选择器，在“资源”边栏选项卡中列出同一订阅下的资源。 在显示的“资源”边栏选项卡中，选取要添加为第一个终结点的服务。
     5. 对于**优先级**，选为 **1**。 如果此终结点处于正常状态，这会导致所有流量转到此终结点。
     6. 使“添加为已禁用”保持未选中状态。
-    7. 单击“确定” 
+    7. 单击 **“确定”**
 6.  重复步骤 4 和 5，添加下一个 Azure 终结点。 确保添加该终结点时将其**优先级**值设为 **2**。
 7.  添加完这两个终结点后，这两个终结点会显示在“流量管理器配置文件”边栏选项卡中，并且其监视状态为“联机”。
 
@@ -66,7 +63,7 @@ ms.locfileid: "52650193"
 2. 在门户的搜索栏中，搜索要修改的**流量管理器配置文件**名称，并在显示的结果中单击该流量管理器配置文件。
 3. 在“流量管理器配置文件”边栏选项卡的“设置”部分中，单击“终结点”。 
 4. 单击要禁用的终结点，并在显示的“终结点”边栏选项卡中，单击“编辑”。
-5. 在“终结点”边栏选项卡中，将终结点的状态更改为“已启用”，并单击“保存”。
+5. 在“终结点”边栏选项卡中，将终结点的状态更改为“已启用”，然后单击“保存”。
 6. 在生存时间 (TTL) 的持续时间内，客户端会继续将流量发送到终结点。 可以在流量管理器配置文件的“配置”页上更改 TTL。
 
 ## <a name="to-delete-an-endpoint"></a>删除终结点
@@ -83,6 +80,6 @@ ms.locfileid: "52650193"
 * [配置路由方法](traffic-manager-configure-routing-method.md)
 * [流量管理器降级状态疑难解答](traffic-manager-troubleshooting-degraded.md)
 * [流量管理器性能注意事项](traffic-manager-performance-considerations.md)
-* [流量管理器上的操作（REST API 参考）](http://go.microsoft.com/fwlink/p/?LinkID=313584)
+* [流量管理器上的操作（REST API 参考）](https://go.microsoft.com/fwlink/p/?LinkID=313584)
 
 <!-- Update_Description: update meta properties, wording update -->

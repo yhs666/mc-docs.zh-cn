@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-origin.date: 10/15/2018
-ms.date: 11/12/2018
+origin.date: 11/05/2018
+ms.date: 12/17/2018
 ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: 4697a36fa298abd021d5845d24c39781de9c207c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.reviewer: misainat
+ms.openlocfilehash: e0961dd595d37dac3ec47e447b8d3a703d843886
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52667029"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396172"
 ---
 # <a name="quickstart-evaluate-the-azure-stack-development-kit"></a>快速入门：评估 Azure Stack 开发工具包
 

@@ -1,40 +1,32 @@
 ---
-title: 监视群集性能 - Azure HDInsight | Microsoft Docs
+title: 监视群集性能 - Azure HDInsight
 description: 如何监视 HDInsight 群集的容量和性能。
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
 author: maxluk
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-origin.date: 09/27/2017
-ms.date: 12/25/2017
-ms.author: v-yiso
-ms.openlocfilehash: e3268eb00f8e2139dfe5a61566cc3175ef49519f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.topic: conceptual
+ms.date: 11/06/2018
+ms.author: arindamc
+ms.openlocfilehash: 4ce88df0307551090e3dff7b04c07dac0c78b266
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659032"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028234"
 ---
 # <a name="monitor-cluster-performance"></a>监视群集性能
 
-监视 HDInsight 群集的运行状况和性能对于维持最大性能和资源利用率来说至关重要。 此外，监视还有助于处理潜在的编码或群集配置错误。
+监视 HDInsight 群集的运行状况和性能对于维持最佳性能和资源利用率来说至关重要。 监视还可以帮助你检测并解决群集配置错误和用户代码问题。
 
-以下部分描述如何优化群集负载、YARN 队列效率及存储可访问性。
+以下各部分介绍了如何监视和优化你的群集上的负载、YARN 队列，并检测存储限制问题。
 
-## <a name="cluster-loading"></a>群集负载
+## <a name="monitor-cluster-load"></a>监视群集负载
 
-Hadoop 群集应平衡群集节点间的负载。 这种平衡阻止 RAM、CPU 或磁盘资源限制正在处理的任务。
+当群集上的负载均匀分布在所有节点中时，Hadoop 群集可以提供最佳性能。 这使得处理任务在运行时可以不受个体节点上的 RAM、CPU 或磁盘资源约束。
 
-若要更为详细地查看群集的节点及其负载，请登录 [Ambari Web UI](hdinsight-hadoop-manage-ambari.md)，然后选择“主机”选项卡。将按主机完全限定域名列出主机。 每个主机的运行状态由一个彩色运行状况指示器进行显示：
+若要概括地查看群集的节点及其负载，请登录到 [Ambari Web UI](hdinsight-hadoop-manage-ambari.md)，然后选择“主机”选项卡。将按主机完全限定域名列出主机。 每个主机的运行状态由一个彩色运行状况指示器进行显示：
 
 | 颜色 | 说明 |
 | --- | --- |
@@ -55,15 +47,15 @@ Hadoop 群集应平衡群集节点间的负载。 这种平衡阻止 RAM、CPU �
 
 ## <a name="yarn-queue-configuration"></a>YARN 队列配置
 
-Hadoop 跨其分布式平台运行各种服务。 YARN（另一种资源协调者）协调这些服务、分配群集资源和管理对常见数据集的访问。
+Hadoop 跨其分布式平台运行各种服务。 YARN (Yet Another Resource Negotiator) 协调这些服务并分配群集资源以确保任何负载都均匀地分布在群集中。
 
-YARN 将 JobTracker、资源管理和作业计划/监视的两种责任划分为两个守护程序：全局 ResourceManager 和每应用程序 ApplicationMaster (AM)。
+YARN 将 JobTracker、资源管理和作业计划/监视的两种责任划分为两个守护程序：一个全局资源管理器和一个每应用程序 ApplicationMaster (AM)。
 
-ResourceManager 是一种纯计划程序，且仅仲裁所有竞争应用程序之间的可用资源。 ResourceManager 确保所有资源都处于使用状态，并针对各种常量（如 SLA、容量保障等）进行优化。 ApplicationMaster 处理来自于 ResourceManager 的资源，并与 NodeManager 一起执行和监视容器及其资源消耗。
+资源管理器是一个纯计划程序，且仅仲裁所有竞争应用程序之间的可用资源。 资源管理器确保所有资源都处于使用状态，并针对各种常量（如 SLA、容量保障等）进行优化。 ApplicationMaster 处理来自于 ResourceManager 的资源，并与 NodeManager 一起执行和监视容器及其资源消耗。
 
 如果多个租户共享一个大型群集，则产生针对群集资源的竞争。 CapacityScheduler 是一种可插入计划程序，通过对请求进行排队来协助资源共享。 CapacityScheduler 还支持分层队列，确保在允许其他应用程序的队列使用可用资源之前，在组织的子队列之间共享资源。
 
-YARN 允许我们将资源分配给这些队列，并显示是否已分配所有可用资源。 若要查看有关队列的信息，请登录 Ambari Web UI，然后从顶部菜单选择“YARN 队列管理器”。
+YARN 允许我们将资源分配给这些队列，并显示是否已分配所有可用资源。 若要查看有关队列的信息，请登录到 Ambari Web UI，然后从顶部菜单选择“YARN 队列管理器”。
 
 ![YARN 队列管理器](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager.png)
 
@@ -71,21 +63,20 @@ YARN 队列管理器页的左侧显示队列的列表，以及分配给每个队
 
 ![YARN 队列管理器详细信息页](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager-details.png)
 
-若要更加详细地查看队列，在 Ambari 仪表板中，从左侧列表选择“YARN”服务。 然后，在“快速链接”下拉菜单下，选择活动节点下的“ResourceManager UI”。
+若要更加详细地查看队列，在 Ambari 仪表板中，从左侧列表选择“YARN”服务。 然后，在“快速链接”下拉菜单下，选择活动节点下的“资源管理器 UI”。
 
-![ResourceManager UI 菜单链接](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
+![“资源管理器 UI”菜单链接](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
 
-在 ResourceManager UI 中，从左侧菜单选择“计划程序”。 “应用程序队列”下将显示队列的列表。 此处可看到用于每个队列的容量、作业在队列之间的分布情况，以及作业是否受资源约束。
+在资源管理器 UI 中，从左侧菜单中选择“计划程序”。 “应用程序队列”下将显示队列的列表。 此处可看到用于每个队列的容量、作业在队列之间的分布情况，以及作业是否受资源约束。
 
-![ResourceManager UI 菜单链接](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
+![“资源管理器 UI”菜单链接](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
 
 ## <a name="storage-throttling"></a>存储限制
 
-群集的性能瓶颈可能发生于存储级别。 出现此类瓶颈的最常见原因为阻止输入/输出 (IO) 操作，这发生在当正在运行的任务发送的 IO 超过了存储服务可以处理的 IO 数时。 这种阻止将创建等待处理完当前 IO 后再进行处理的 IO 请求队列。 发生此阻止的原因为存储限制，这并非物理限制，而是由存储服务通过服务级别协议 (SLA) 施加的限制。 此限制确保单个客户端或租户无法独占服务。 SLA 限制 Azure 存储的每秒 IO 数 (IOPS)。有关详细信息，请参阅 [Azure 存储可缩放性和性能目标](../storage/common/storage-scalability-targets.md)。
+群集的性能瓶颈可能发生于存储级别。 出现此类瓶颈的最常见原因为阻止输入/输出 (IO) 操作，这发生在当正在运行的任务发送的 IO 超过了存储服务可以处理的 IO 数时。 这种阻止将创建等待处理完当前 IO 后再进行处理的 IO 请求队列。 发生此阻止的原因为存储限制，这并非物理限制，而是由存储服务通过服务级别协议 (SLA) 施加的限制。 此限制确保单个客户端或租户无法独占服务。 SLA 限制 Azure 存储的每秒 IO 数 (IOPS)。有关详细信息，请参阅 [Azure 存储可缩放性和性能目标](https://docs.microsoft.com/azure/storage/storage-scalability-targets)。
 
-如果使用 Azure 存储，有关监视与存储相关问题（包括限制）的信息，请参阅[监视、诊断和排查 Microsoft Azure 存储问题](../storage/common/storage-monitoring-diagnosing-troubleshooting.md)。
+如果使用 Azure 存储，有关监视与存储相关问题（包括限制）的信息，请参阅[监视、诊断和排查 Microsoft Azure 存储问题](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting)。
 
-* [Storm on HDInsight 和 Azure Data Lake Store 性能优化指南](../data-lake-store/data-lake-store-performance-tuning-storm.md)
 
 ## <a name="next-steps"></a>后续步骤
 

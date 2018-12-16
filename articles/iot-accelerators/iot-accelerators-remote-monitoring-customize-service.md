@@ -9,12 +9,12 @@ services: iot-accelerators
 origin.date: 10/02/2018
 ms.date: 11/26/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8511cab9a1aa33d7897e1dd140aad8bd16c0d066
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 19db19880f867350f566cf506eda0342aeb2d15d
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666781"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028286"
 ---
 # <a name="add-a-custom-service-to-the-remote-monitoring-solution-accelerator-web-ui"></a>向远程监视解决方案加速器 Web UI 添加自定义服务
 
@@ -48,13 +48,13 @@ ms.locfileid: "52666781"
 
 **exampleService.js**
 
-[!code-javascript[Example service](~/remote-monitoring-webui/src/walkthrough/services/exampleService.js?name=service "Example service")]
+
 
 若要详细了解如何实现服务，请参阅 [The introduction to Reactive Programming you've been missing](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754)（你一直错过的反应式编程简介）。
 
 **model/exampleModels.js**
 
-[!code-javascript[Example model](~/remote-monitoring-webui/src/walkthrough/services/models/exampleModels.js?name=models "Example model")]
+
 
 将 **exampleService.js** 复制到 **src/services** 文件夹，将 **exampleModels.js** 复制到 **src/services/models** 文件夹。
 
@@ -76,7 +76,7 @@ export * from './exampleModels';
 
 **exampleReducer.js**
 
-[!code-javascript[Example reducer](~/remote-monitoring-webui/src/walkthrough/store/reducers/exampleReducer.js?name=reducer "Example reducer")]
+
 
 将 **exampleReducer.js** 复制到 **src/store/reducers** 文件夹。
 

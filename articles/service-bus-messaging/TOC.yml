@@ -127,7 +127,7 @@ items:
         href: service-bus-sas.md
     - name: 主题筛选器和操作
       href: topic-filters.md
-    - name: 分区队列和主题
+    - name: 分区的队列和主题
       href: service-bus-partitioning.md
     - name: 消息会话
       href: message-sessions.md
@@ -138,7 +138,7 @@ items:
       - name: .NET
         href: service-bus-amqp-dotnet.md
       - name: Java
-        href: service-bus-amqp-java.md
+        href: service-bus-java-how-to-use-queues.md
       - name: Java 消息服务和 AMQP
         href: service-bus-java-how-to-use-jms-api-amqp.md
       - name: AMQP 协议指南
@@ -210,7 +210,7 @@ items:
     href: https://docs.microsoft.com/en-us/powershell/module/azurerm.servicebus
   - name: REST
     href: https://docs.microsoft.com/en-us/rest/api/servicebus
-  - name: 异常
+  - name: 例外
     href: service-bus-messaging-exceptions.md
   - name: 配额
     href: service-bus-quotas.md
@@ -220,7 +220,7 @@ items:
     href: service-bus-messaging-sql-rule-action.md
 - name: 资源
   items:
-  - name: 常见问题
+  - name: 常见问题解答
     href: service-bus-faq.md
   - name: Azure 路线图
     href: https://azure.microsoft.com/roadmap/?category=enterprise-integration
@@ -234,9 +234,9 @@ items:
     href: https://www.azure.cn/pricing/calculator/
   - name: 定价详细信息
     href: service-bus-pricing-billing.md
-ms.openlocfilehash: a046348ec4584adddcf7782c6cff7afe2e9a116e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d9b47f33c344a3b987116b40e9f54a25f280668d
+ms.sourcegitcommit: d3b05039466ddf239c9134f002a034d4e75b03db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657826"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53234011"

@@ -8,23 +8,23 @@ manager: digimobile
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 01/19/2018
-ms.date: 03/26/2018
+origin.date: 10/30/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: d555637acd85c7b261d748a678382fffbfd0c0ec
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 2656d900b72b3b4202547a173dd60ad3253cfa89
+ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662311"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53286769"
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Azure 资源管理器模板的 Parameters 节
 在模板的 parameters 节中，可以指定在部署资源时能够输入的值。 提供针对特定环境（例如开发、测试和生产环境）定制的参数值可以自定义部署。 无需在模板中提供参数，但如果没有参数，模板始终部署具有相同名称、位置和属性的相同资源。
 
-在模板中使用的参数不能超过 255 个。 可根据本文所述，使用包含多个属性的对象来减少参数的数目。
+一个模板中最多可以有 256 个参数。 如本文中所示，可以通过使用包含多个属性的对象来减少参数的数量。
 
 ## <a name="define-and-use-a-parameter"></a>定义和使用参数
 
@@ -87,18 +87,18 @@ ms.locfileid: "52662311"
 | 元素名称 | 必须 | 说明 |
 |:--- |:--- |:--- |
 | parameterName |是 |参数的名称。 必须是有效的 JavaScript 标识符。 |
-| type |是 |参数值的类型。 允许的类型和值为 **string**、**secureString**、**int**、**bool**、**object**、**secureObject** 和 **array**。 |
+| type |是 |参数值的类型。 允许的类型和值为 **string**、**securestring**、**int**、**bool**、**object**、**secureObject** 和 **array**。 |
 | defaultValue |否 |参数的默认值，如果没有为参数提供任何值。 |
 | allowedValues |否 |用来确保提供正确值的参数的允许值数组。 |
 | minValue |否 |int 类型参数的最小值，此值是包容性的。 |
 | maxValue |否 |int 类型参数的最大值，此值是包容性的。 |
-| minLength |否 |字符串、secureString 和数组类型参数的最小长度（含）。 |
-| maxLength |否 |字符串、secureString 和数组类型参数的最大长度（含）。 |
+| minLength |否 |string、securestring 和 array 类型参数的最小长度，此值是包容性的。 |
+| maxLength |否 |string、securestring 和 array 类型参数的最大长度，此值是包容性的。 |
 | 说明 |否 |通过门户向用户显示的参数的说明。 |
 
 ## <a name="template-functions-with-parameters"></a>包含参数的模板函数
 
-提供参数的默认值时，可以使用大多数模板函数。 可以使用另一个参数值生成默认值。 以下模板演示了如何在默认值中使用函数：
+为参数指定默认值时，可以使用大多数模板函数。 可以使用另一个参数值生成默认值。 以下模板演示了如何在默认值中使用函数：
 
 ```json
 "parameters": {
@@ -119,7 +119,7 @@ ms.locfileid: "52662311"
 }
 ```
 
-不能在 parameters 节中使用 `reference` 函数。 参数在部署之前计算，因此，`reference` 函数无法获取资源的运行时状态。 
+不能在 parameters 节中使用 `reference` 函数。 参数在部署之前进行评估，因此，`reference` 函数无法获取资源的运行时状态。 
 
 ## <a name="objects-as-parameters"></a>用作参数的对象
 
@@ -213,7 +213,7 @@ ms.locfileid: "52662311"
    }
    ```
 
-* 定义参数（密码和 SSH 密钥除外）的默认值。 如果提供了默认值，则参数在部署期间是可选的。 默认值可以是空字符串。 
+* 定义参数（密码和 SSH 密钥除外）的默认值。 通过指定默认值，参数在部署过程中会成为可选项。 默认值可以是空字符串。 
 
    ```json
    "parameters": {
@@ -227,7 +227,7 @@ ms.locfileid: "52662311"
    }
    ```
 
-* 对所有密码和机密使用 **SecureString**。 要将敏感数据传入 JSON 对象，请使用 **secureObject** 类型。 部署资源后，无法读取 secureString 或 secureObject 类型的模板参数。 
+* 为所有密码和机密使用 **securestring** 。 要将敏感数据传入 JSON 对象，请使用 **secureObject** 类型。 部署资源后，无法读取 securestring 或 secureObject 类型的模板参数。 
 
    ```json
    "parameters": {

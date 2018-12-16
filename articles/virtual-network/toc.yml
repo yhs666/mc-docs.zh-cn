@@ -30,7 +30,7 @@ items:
     href: cli-samples.md
   - name: Azure PowerShell
     href: powershell-samples.md
-  - name: Resource Manager 模板
+  - name: 资源管理器模板
     href: template-samples.md
   - name: Azure Policy 模板
     href: policy-samples.md
@@ -50,8 +50,6 @@ items:
     href: virtual-network-disaster-recovery-guidance.md
   - name: IP 寻址
     href: virtual-network-ip-addresses-overview-arm.md
-  - name: DDOS 保护
-    href: ddos-protection-overview.md
   - name: 经典
     items:
     - name: IP 寻址
@@ -288,7 +286,7 @@ items:
   - name: .NET
     href: https://docs.azure.cn/zh-cn/dotnet/api/overview/virtual-network?view=azure-dotnet
   - name: Java
-    href: https://docs.azure.cn/zh-cn/java/api/overview/network
+    href: https://docs.azure.cn/java/api/
   - name: Node.js
     href: https://docs.microsoft.com/javascript/azure#azure-sdk
   - name: Python
@@ -305,11 +303,11 @@ items:
     href: https://www.azure.cn/pricing/details/networking/
   - name: 定价计算器
     href: https://www.azure.cn/pricing/calculator/
-  - name: 常见问题
+  - name: 常见问题解答
     href: virtual-networks-faq.md
-ms.openlocfilehash: ea84a68bd73e4741ece4511eeecbfcfa1039ecef
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1cb3197161003c33c17a4377b26a7f3e848a8957
+ms.sourcegitcommit: 1b6a310ba636b6dd32d7810821bcb79250393499
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655032"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53389400"

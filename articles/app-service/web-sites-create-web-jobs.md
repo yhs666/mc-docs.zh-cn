@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 09/09/2017
 ms.date: 09/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: a4ed4c899b6503b247898450a1a734ae1440dfdb
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1180f5e06578825279cf18b0c83897eed1e004ca
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663036"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028883"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>在 Azure 应用服务中使用 WebJobs 运行后台任务
 
@@ -30,8 +30,6 @@ WebJobs 是 [Azure 应用服务](https://docs.azure.cn/zh-cn/app-service/)的一
 本文介绍如何使用 [Azure 门户](https://portal.azure.com)部署 WebJobs，以便上传可执行文件或脚本。 有关如何使用 Visual Studio 开发和部署 WebJobs 的信息，请参阅[使用 Visual Studio 部署 WebJobs](websites-dotnet-deploy-webjobs.md)。
 
 可以结合 WebJobs 使用 Azure WebJobs SDK 来简化许多编程任务。 有关详细信息，请参阅[什么是 WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)。
-
-Azure Functions 提供了运行程序和脚本的另一种方式。 有关 WebJobs 与 Functions 之间的比较，请参阅[在 Flow、逻辑应用、Functions 与 WebJobs 之间选择](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md)。
 
 ## <a name="webjob-types"></a>Web 作业类型
 
@@ -72,11 +70,11 @@ when making changes in one don't forget the other two.
 
    ![选择“Web 作业”](./media/web-sites-create-web-jobs/select-webjobs.png)
 
-2. 在“Web 作业”页中，选择“添加”。
+3. 在“Web 作业”页中，选择“添加”。
 
     ![“Web 作业”页](./media/web-sites-create-web-jobs/wjblade.png)
 
-3. 使用表中指定的“添加 Web 作业” 设置。
+4. 使用表中指定的“添加 Web 作业” 设置。
 
    ![“添加 Web 作业”页](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
@@ -87,13 +85,13 @@ when making changes in one don't forget the other two.
    | **类型** | 连续 | 本文前面介绍了 [Web 作业类型](#webjob-types)。 |
    | **缩放** | 多实例 | 仅适用于连续 Web 作业。 确定程序或脚本是在所有实例还是只在一个实例上运行。 指定要在多个实例上运行的选项不适用于免费或共享[定价层](https://www.azure.cn/pricing/details/app-service/)。 |
 
-4. 单击 **“确定”**。
+5. 单击 **“确定”**。
 
    新的 Web 作业随即显示在“Web 作业”页上。
 
    ![Web 作业列表](./media/web-sites-create-web-jobs/listallwebjobs.png)
 
-2. 要停止或重启某个连续 Web 作业，请在列表中右键单击该 Web 作业，并单击“停止”或“启动”。
+6. 要停止或重启某个连续 Web 作业，请在列表中右键单击该 Web 作业，并单击“停止”或“启动”。
 
     ![停止连续 Web 作业](./media/web-sites-create-web-jobs/continuousstop.png)
 

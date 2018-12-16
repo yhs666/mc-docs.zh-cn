@@ -9,39 +9,42 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/07/2018
-ms.date: 09/03/2018
+origin.date: 11/08/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: f5a3ea65c567ccecc2e7e656322517140e228b6b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6d3e125ec21dd5171c8294ad0a905ceed20c5dc7
+ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651413"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53286756"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure 资源管理器部署模式
-部署资源时，可以指定部署为增量更新还是完整更新。  这两种模式的主要区别是资源管理器如何处理资源组中不在模板中的现有资源。
-默认模式为增量模式。
+
+部署资源时，可以指定部署为增量更新还是完整更新。  这两种模式的主要区别是资源管理器如何处理资源组中不在模板中的现有资源。 默认模式为增量模式。
 
 ## <a name="incremental-and-complete-deployments"></a>增量部署和完整部署
+
 资源部署时：
 
-* 在完整模式下，资源管理器删除资源组中已存在但尚未在模板中指定的资源。 
+* 在完整模式下，资源管理器删除资源组中已存在但尚未在模板中指定的资源。
 * 在增量模式下，资源管理器保留资源组中已存在但尚未在模板中指定的未更改资源。
 
-对于这两种模式，Resource Manager 都会尝试预配在模板中指定的所有资源。 如果资源已存在于资源组中且其设置未更改，该操作不会导致任何更改。 如果更改某个资源的设置，则会使用这些新设置预配资源。 如果尝试更新现有资源的位置或类型，则部署会失败并出现错误。 请改用所需的位置或类型部署新资源。
+对于这两种模式，资源管理器都会尝试创建模板中指定的所有资源。 如果资源已存在于资源组中且其设置未更改，该操作不会导致任何更改。 如果更改资源的属性值，则使用这些新值更新资源。 如果尝试更新现有资源的位置或类型，则部署会失败并出现错误。 请改用所需的位置或类型部署新资源。
+
+以增量模式重新部署资源时，请指定资源的所有属性值，而不仅仅是要更新的属性值。 如果未指定某些属性，资源管理器会将更新解释为覆盖这些值。
 
 ## <a name="example-result"></a>示例结果
 
 为了说明增量模式和完整模式的差异，请考虑以下方案。
 
-**现有资源组**包含：
+**资源组**包含：
 
 * 资源 A
 * 资源 B
 * 资源 C
 
-**模板**定义：
+**模板**包含：
 
 * 资源 A
 * 资源 B
@@ -64,12 +67,12 @@ ms.locfileid: "52651413"
 
 在使用 PowerShell 部署时若要设置部署模式，请使用 `Mode` 参数。
 
-```powershell
+```PowerShell
 New-AzureRmResourceGroupDeployment `
   -Mode Complete `
   -Name ExampleDeployment `
   -ResourceGroupName ExampleResourceGroup `
-  -TemplateFile c:\MyTemplates\storage.json 
+  -TemplateFile c:\MyTemplates\storage.json
 ```
 
 在使用 Azure CLI 部署时若要设置部署模式，请使用 `mode` 参数。
@@ -100,9 +103,9 @@ az group deployment create \
 ```
 
 ## <a name="next-steps"></a>后续步骤
+
 * 若要了解如何创建 Resource Manager 模板，请参阅[创作 Azure Resource Manager 模板](resource-group-authoring-templates.md)。
 * 若要了解如何部署资源，请参阅[使用 Azure Resource Manager 模板部署应用程序](resource-group-template-deploy.md)。
 * 若要查看资源提供程序的操作，请参阅 [Azure REST API](https://docs.microsoft.com/rest/api/)。
 
-<!-- Update_Description: new articles on azure resource manager deployment modes -->
-<!--ms.date: 09/03/2018-->
+<!-- Update_Description: update meta properties, wording update -->

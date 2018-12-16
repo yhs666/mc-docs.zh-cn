@@ -12,15 +12,15 @@ ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 09/17/2018
-ms.date: 11/05/2018
+ms.date: 12/07/2018
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: ad3150ecec00a4f6582b7e0263192968aec52088
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 7cb5a7ca0917c93a0ee2eea7bfcf17f0065836de
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663222"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53070276"
 ---
 ## <a name="add-the-applications-registration-information-to-your-app"></a>向应用添加应用程序的注册信息
 
@@ -30,12 +30,11 @@ ms.locfileid: "52663222"
 
 使用基于 Web 服务器的 index.html 页的 URL 配置 `Redirect URL` 字段，然后单击“更新”。
 
-
 > #### <a name="visual-studio-instructions-for-obtaining-the-redirect-url"></a>用于获取重定向 URL 的 Visual Studio 说明
 > 按照以下步骤获取重定向 URL：
 > 1. 在解决方案资源管理器中，选择项目并查看“属性”窗口。 如果没有看到“属性”窗口，请按 **F4**。
 > 2. 将 **URL** 中的值复制到剪贴板：<br/> ![项目属性](./media/active-directory-develop-guidedsetup-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
-> 3. 将此值粘贴为此页面顶部的“重定向 URL”字段，然后单击“更新”
+> 3. 将此值粘贴为此页顶部的“重定向 URL”，然后选择“更新”。
 
 <p/>
 
@@ -55,4 +54,4 @@ ms.locfileid: "52663222"
     };
     ```
 
-<!-- ms.date: 11/05/2018 -->
+<!-- ms.date: 12/07/2018 -->

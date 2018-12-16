@@ -1,20 +1,20 @@
 ---
 title: Blob 存储简介 - Azure 中的对象存储
-description: Azure Blob 存储可以存储巨量的非结构化对象数据，例如文本或二进制数据。 Azure Blob 存储具有高度可伸缩性和可用性。 客户端可以通过 PowerShell 或 Azure CLI 以编程方式通过 Azure 存储客户端库或 REST 访问 Blob 存储中的数据对象。
+description: Azure Blob 存储可以存储巨量的非结构化对象数据，例如文本或二进制数据。 Azure Blob 存储高度可缩放且高度可用。 客户端可以通过 PowerShell 或 Azure CLI 以编程方式通过 Azure 存储客户端库或 REST 访问 Blob 存储中的数据对象。
 services: storage
-author: forester123
-manager: josefree
+author: WenJason
 ms.service: storage
 ms.topic: overview
-origin.date: 03/27/2018
-ms.date: 06/11/2018
-ms.author: v-johch
-ms.openlocfilehash: 0632e17cd2aae1d33c4bd9b90b36a8f69a1f1b9b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 10/17/2018
+ms.date: 12/10/2018
+ms.author: v-jay
+ms.component: blobs
+ms.openlocfilehash: 7b78a30421a703b6f05b461e2f2785632e79ee8e
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644061"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028562"
 ---
 # <a name="introduction-to-object-storage-in-azure"></a>Azure 中的对象存储简介
 

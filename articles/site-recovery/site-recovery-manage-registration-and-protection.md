@@ -1,20 +1,19 @@
 ---
 title: 删除服务器并禁用保护 | Azure
 description: 本文介绍如何从 Site Recovery 保管库中注销服务器，以及如何禁用虚拟机和物理服务器的保护。
-services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 10/10/2018
-ms.date: 11/19/2018
+origin.date: 10/29/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 48cc59f3f68c002217e295d7ed9089f5376f2db4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 738d636d05ce3ca29c0e1af04fb1bd35180f5876
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657150"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028260"
 ---
 # <a name="remove-servers-and-disable-protection"></a>删除服务器并禁用保护
 
@@ -35,7 +34,7 @@ ms.locfileid: "52657150"
 3. 记下 VMM 服务器的 ID。
 4. 取消复制策略与要删除的 VMM 服务器上的云的关联。  在“Site Recovery 基础结构” > “对于 System Center VMM” >  “复制策略”中，右键单击关联的策略。 右键单击云 >“取消关联”。
 5. 删除 VMM 服务器或主动节点。 在“Site Recovery 基础结构” > “对于 System Center VMM” > “VMM 服务器”中，右键单击服务器 >“删除”。
-6. 如果 VMM 服务器处于“已断开连接”状态，请对 VMM 服务器下载并运行[清理脚本](http://aka.ms/asr-cleanup-script-vmm)。 使用“以管理员身份运行”选项打开 PowerShell，以更改默认 (LocalMachine) 范围的执行策略。 在脚本中，指定要删除的 VMM 服务器的 ID。 脚本会从服务器中删除注册和云配对信息。
+6. 如果 VMM 服务器处于“已断开连接”状态，请对 VMM 服务器下载并运行[清理脚本](https://aka.ms/asr-cleanup-script-vmm)。 使用“以管理员身份运行”选项打开 PowerShell，以更改默认 (LocalMachine) 范围的执行策略。 在脚本中，指定要删除的 VMM 服务器的 ID。 脚本会从服务器中删除注册和云配对信息。
 5. 在所有辅助 VMM 服务器上，运行清理脚本。
 6. 在任何其他被动 VMM 群集节点（已安装提供程序）上运行清理脚本。
 7. 手动卸载 VMM 服务器上的提供程序。 如果有一个群集，请从所有节点删除。
@@ -51,6 +50,7 @@ ms.locfileid: "52657150"
 4. 从 Hyper-V 站点中删除所有主机后，将该站点删除。 依次转到“Site Recovery 基础结构” > “对于 Hyper-V 站点” > “Hyper-V 站点”，右键单击站点，再单击“删除”。
 5. 如果 Hyper-V 主机处于“已断开连接”状态，请对已删除的每个 Hyper-V 主机运行以下脚本。 该脚本清理服务器上的设置，并从保管库中取消注册该服务器。
 
+    ```powershell
         pushd .
         try
         {
@@ -111,7 +111,7 @@ ms.locfileid: "52657150"
                 "Registry keys removed."
             }
 
-            # First retrive all the certificates to be deleted
+            # First retrieve all the certificates to be deleted
             $ASRcerts = Get-ChildItem -Path cert:\localmachine\my | where-object {$_.friendlyname.startswith('ASR_SRSAUTH_CERT_KEY_CONTAINER') -or $_.friendlyname.startswith('ASR_HYPER_V_HOST_CERT_KEY_CONTAINER')}
             # Open a cert store object
             $store = New-Object System.Security.Cryptography.X509Certificates.X509Store("My","LocalMachine")
@@ -130,6 +130,7 @@ ms.locfileid: "52657150"
             Write-Host "FAILED" -ForegroundColor "Red"
         }
         popd
+    ```
 
 ## <a name="disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure"></a>禁用对 VMware VM 或物理服务器（VMware 到 Azure）的保护
 
@@ -155,10 +156,12 @@ ms.locfileid: "52657150"
     > 如果选择“删除”选项，请运行下面的一组脚本，清理本地 Hyper-V 服务器上的复制设置。
 3. 在源 Hyper-V 主机服务器上，取消复制虚拟机。 将 SQLVM1 替换为虚拟机名称，并通过管理 PowerShell 运行以下脚本
 
-        $vmName = "SQLVM1"
-        $vm = Get-WmiObject -Namespace "root\virtualization\v2" -Query "Select * From Msvm_ComputerSystem Where ElementName = '$vmName'"
-        $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"
-        $replicationService.RemoveReplicationRelationship($vm.__PATH)
+    ```powershell
+    $vmName = "SQLVM1"
+    $vm = Get-WmiObject -Namespace "root\virtualization\v2" -Query "Select * From Msvm_ComputerSystem Where ElementName = '$vmName'"
+    $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"
+    $replicationService.RemoveReplicationRelationship($vm.__PATH)
+    ```
 
 <a name="disable-protection-for-a-hyper-v-virtual-machine-replicating-using-the-system-centet-vmm-to-azure-scenario"></a>
 ## <a name="disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario"></a>禁用对使用 System Center VMM 到 Azure 方案复制到 Azure 的 Hyper-V 虚拟机的保护
@@ -171,17 +174,19 @@ ms.locfileid: "52657150"
 
     > [!NOTE]
     > 如果选择“删除”选项，请运行下面的脚本，清理本地 VMM 服务器上的复制设置。
-3. 在 VMM 控制台中使用 PowerShell（需要 管理员权限），在源 VMM 服务器上运行此脚本。 将占位符 SQLVM1 替换为虚拟机名称。
+3. 从源 VMM 服务器上的 VMM 控制台使用 PowerShell（需要管理员权限）运行此脚本。 将占位符 SQLVM1 替换为虚拟机名称。
 
         $vm = get-scvirtualmachine -Name "SQLVM1"
         Set-SCVirtualMachine -VM $vm -ClearDRProtection
 4. 上述步骤清理 VMM 服务器上的复制设置。 若要停止运行在 Hyper-V 主机服务器上的虚拟机的复制，请运行以下脚本。 将 SQLVM1 替换为你的虚拟机的名称，将 host01.contoso.com 替换为 Hyper-V 主机服务器的名称。
 
-        $vmName = "SQLVM1"
-        $hostName  = "host01.contoso.com"
-        $vm = Get-WmiObject -Namespace "root\virtualization\v2" -Query "Select * From Msvm_ComputerSystem Where ElementName = '$vmName'" -computername $hostName
-        $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"  -computername $hostName
-        $replicationService.RemoveReplicationRelationship($vm.__PATH)
+    ```powershell
+    $vmName = "SQLVM1"
+    $hostName  = "host01.contoso.com"
+    $vm = Get-WmiObject -Namespace "root\virtualization\v2" -Query "Select * From Msvm_ComputerSystem Where ElementName = '$vmName'" -computername $hostName
+    $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"  -computername $hostName
+    $replicationService.RemoveReplicationRelationship($vm.__PATH)
+    ```
 
 ## <a name="disable-protection-for-a-hyper-v-virtual-machine-replicating-to-secondary-vmm-server-using-the-system-center-vmm-to-vmm-scenario"></a>禁用对使用 System Center VMM 到 VMM 方案复制到辅助 VMM 服务器的 Hyper-V 虚拟机的保护
 
@@ -193,7 +198,7 @@ ms.locfileid: "52657150"
 > [!NOTE]
 > 如果选择“删除”选项，请运行下面的脚本，清理本地 VMM 服务器上的复制设置。
 
-3. 在 VMM 控制台中使用 PowerShell（需要 管理员权限），在源 VMM 服务器上运行此脚本。 将占位符 SQLVM1 替换为虚拟机名称。
+3. 从源 VMM 服务器上的 VMM 控制台使用 PowerShell（需要管理员权限）运行此脚本。 将占位符 SQLVM1 替换为虚拟机名称。
 
         $vm = get-scvirtualmachine -Name "SQLVM1"
         Set-SCVirtualMachine -VM $vm -ClearDRProtection

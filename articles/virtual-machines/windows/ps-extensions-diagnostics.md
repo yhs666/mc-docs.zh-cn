@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 12/15/2015
 ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: c82dcde95c1fcad3a9245fd57c4dc524fa7542b7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f3ca211343bc48e3e405e863303fa382f7175392
+ms.sourcegitcommit: 6cd0a8d22061aba7390579a80e19cb9d2f7faf12
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655821"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53233772"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>使用 PowerShell 在运行 Windows 的虚拟机中启用 Azure 诊断
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -88,7 +88,8 @@ Azure 诊断是 Azure 中可对部署的应用程序启用诊断数据收集的�
       ```
       <Metrics resourceId="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyWindowsVM" >
       ```
-  * 有关如何根据性能计数器和指标配置生成指标的详细信息，请参阅 [Azure Diagnostics metrics table in storage](extensions-diagnostics-template.md#wadmetrics-tables-in-storage)（存储中的 Azure 诊断指标表）。
+  * 有关如何根据性能计数器和指标配置生成指标的详细信息，请参阅 [Azure Diagnostics metrics table in storage](extensions-diagnostics-template.md)（存储中的 Azure 诊断指标表）。
+    <!--Anchor is not Available on #wadmetrics-tables-in-storage-->
 * 需要使用诊断存储帐户的名称对 **StorageAccount** 元素进行更新。
 
     ```

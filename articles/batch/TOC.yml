@@ -94,8 +94,6 @@ items:
     items:
     - name: 使用指标和诊断日志
       href: batch-diagnostics.md
-    - name: 使用 Application Insights 进行监视
-      href: monitor-application-insights.md
     - name: 按状态对资源计数
       href: batch-get-resource-counts.md
     - name: 有效查询资源
@@ -192,9 +190,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-batch
   - name: 视频
     href: https://azure.microsoft.com/documentation/videos/index/?services=batch
-ms.openlocfilehash: 392aae39b8be835d7eecc0ac599d6101a9a07816
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 89497025811b97676cb64471eba09c21c67dc0ef
+ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653153"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53219561"

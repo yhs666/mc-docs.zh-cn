@@ -9,12 +9,12 @@ services: iot-accelerators
 origin.date: 10/04/2018
 ms.date: 11/26/2018
 ms.topic: conceptual
-ms.openlocfilehash: 565443d36846f3ff8320996ada82dbf8aadefb70
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 032736d31282965795e4ca4dea45a647e8aadf56
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648140"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028604"
 ---
 # <a name="add-a-custom-grid-to-the-remote-monitoring-solution-accelerator-web-ui"></a>向远程监视解决方案加速器 Web UI 添加自定义网格
 
@@ -49,11 +49,11 @@ ms.locfileid: "52648140"
 
 **exampleGrid.js**
 
-[!code-javascript[Example grid](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithGrid/exampleGrid/exampleGrid.js?name=grid "Example grid")]
+
 
 **exampleGridConfig.js**
 
-[!code-javascript[Example grid configuration](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithGrid/exampleGrid/exampleGridConfig.js?name=gridconfig "Example grid configuration")]
+
 
 将 src/walkthrough/components/pages/pageWithGrid/exampleGrid 文件夹复制到 src/components/pages/example 文件夹。
 

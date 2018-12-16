@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/30/2018
-ms.date: 09/24/2018
+origin.date: 10/22/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1e8f36dbee1204e35c53379e7a3ede9bcccf2933
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: cc14e70dfa2d81baaae1b7402befeedc4ba99c1c
+ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663098"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53286741"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>了解 Azure 资源管理器模板的结构和语法
 本文介绍 Azure 资源管理器模板的结构。 演示了模板的不同部分，以及可在相应部分使用的属性。 模板中包含可用于为部署构造值的 JSON 和表达式。 有关创建模板的分步教程，请参阅[创建第一个 Azure Resource Manager 模板](resource-manager-create-first-template.md)。
+
+[!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
 
 ## <a name="template-format"></a>模板格式
 使用最简单的结构时，模板有以下元素：
@@ -39,7 +41,6 @@ ms.locfileid: "52663098"
     "outputs": {  }
 }
 ```
-<!-- the schema link is correct to download the http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json# -->
 
 | 元素名称 | 必须 | 说明 |
 |:--- |:--- |:--- |
@@ -281,7 +282,7 @@ ms.locfileid: "52663098"
 ],
 ```
 
-有关详细信息，请参阅 [Azure 资源管理器模板的 Resources 节](resource-manager-templates-resources.md)。
+若要在部署过程中有条件地包括或排除资源，请使用 [Condition 元素](resource-manager-templates-resources.md#condition)。 有关资源部分的详细信息，请参阅 [Azure 资源管理器模板的资源部分](resource-manager-templates-resources.md)。
 
 ## <a name="outputs"></a>Outputs
 在 Outputs 节中，可以指定从部署返回的值。 例如，可能会返回用于访问已部署资源的 URI。
@@ -309,7 +310,7 @@ ms.locfileid: "52663098"
 * 64 个输出值
 * 模板表达式中不超过 24,576 个字符
 
-通过使用嵌套模板，可超出某些模板限制。 有关详细信息，请参阅[部署 Azure 资源时使用链接的模板](resource-group-linked-templates.md)。 若要减少参数、变量或输出的数量，可以将几个值合并为一个对象。 
+通过使用嵌套模板，可超出某些模板限制。 有关详细信息，请参阅[部署 Azure 资源时使用链接的模板](resource-group-linked-templates.md)。 若要减少参数、变量或输出的数量，可以将几个值合并为一个对象。
 
 ## <a name="next-steps"></a>后续步骤
 * 若要查看许多不同类型的解决方案的完整模型，请参阅 [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/)（Azure 快速入门模板）。

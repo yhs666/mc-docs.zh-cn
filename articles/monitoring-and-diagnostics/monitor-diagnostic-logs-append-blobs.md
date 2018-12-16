@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 654c458c419db9e2849b55df45f389dd5d282f00
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d861e37873082728ac6b88051f7e2c4ad477e40a
+ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661209"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53219520"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>为存档到存储帐户的 Azure Monitor 诊断日志的格式更改做准备
 
@@ -32,7 +32,6 @@ Azure Monitor 提供的功能可将资源诊断数据和活动日志数据发送
 * 此更改将同时在所有公有云区域中发生。 Azure 中国、Azure 德国或 Azure 政府云中不会发生此更改。
 * 此更改会影响以下数据类型：
   * [Azure 资源诊断日志](./monitoring-archive-diagnostic-logs.md)（[请参阅此处的资源列表](./monitoring-diagnostic-logs-schema.md)）
-  * [由诊断设置导出的 Azure 资源指标](./monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)
   * [由日志配置文件导出的 Azure 活动日志数据](./monitoring-archive-activity-log.md)
 * 此更改不会影响：
   * 网络流日志
