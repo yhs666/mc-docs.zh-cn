@@ -1,21 +1,19 @@
 ---
 title: 将网络安全组与 Azure Site Recovery 配合使用 | Azure
 description: 介绍如何将网络安全组与 Azure Site Recovery 配合使用来实现灾难恢复和迁移
-services: site-recovery
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-ms.topic: article
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.topic: conceptual
+origin.date: 10/16/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 01d58acf08ba902a97464551b68e438c2d4df9dd
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ea8fac956dd8b34a1370927449e8b5840c6b008a
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52667249"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028547"
 ---
 # <a name="network-security-groups-with-azure-site-recovery"></a>将网络安全组与 Azure Site Recovery 配合使用
 

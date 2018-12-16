@@ -4,16 +4,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 07/03/2018
-ms.date: 08/06/2018
+origin.date: 10/18/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 98f80ef3560985308102494cb0c16a14c5a46ccb
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8c572b8abb4a36cb3fa9258d4cd23ca31f2b31a0
+ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660981"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53157396"
 ---
 # <a name="automation-with-service-principals"></a>使用服务主体进行自动化
 
@@ -45,7 +45,7 @@ ms.locfileid: "52660981"
 
 ### <a name="powershell"></a>PowerShell
 
-将服务主体与 [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices) 模块配合使用以进行资源管理操作时，请使用 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` cmdlet。 将服务主体与 [SQLServer](https://www.powershellgallery.com/packages/SqlServer) 模块配合使用以进行服务器操作时，请使用 `Add-AzureAnalysisServicesAccount` cmdlet。 
+将服务主体与 [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices) 模块配合使用以进行资源管理操作时，请使用 `Login-AzureRmAccount` cmdlet。 将服务主体与 [SQLServer](https://www.powershellgallery.com/packages/SqlServer) 模块配合使用以进行服务器操作时，请使用 `Add-AzureAnalysisServicesAccount` cmdlet。 
 
 以下示例使用 appID 和密码执行模型数据库刷新操作：
 
@@ -86,4 +86,5 @@ db.Model.SaveChanges();
 ## <a name="next-steps"></a>后续步骤
 [使用 Azure PowerShell 登录](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
 [将服务主体添加到服务器管理员角色](analysis-services-addservprinc-admins.md)
+
 <!-- Update_Description: update meta porperties -->

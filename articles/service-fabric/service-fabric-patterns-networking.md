@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/19/2018
-ms.date: 05/28/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: a381d2f146d5fcb8c4cc91fc1807481843559b5a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 0ac8f71a330295e25e9ca87ce51a845dbe851898
+ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664435"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52901159"
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric 网络模式
 可将 Azure Service Fabric 群集与其他 Azure 网络功能集成。 本文说明如何创建使用以下功能的群集：
@@ -107,14 +107,20 @@ DnsSettings              : {
         },*/
     ```
 
-2. 将 `vnetID` 变量更改为指向现有虚拟网络：
+2. 注释掉 `Microsoft.Compute/virtualMachineScaleSets` 的 `nicPrefixOverride` 属性，因为你使用的是现有子网，并且已在步骤 1 中禁用了此变量。
+
+    ```
+    /*"nicPrefixOverride": "[parameters('subnet0Prefix')]",*/
+    ```
+
+3. 将 `vnetID` 变量更改为指向现有虚拟网络：
 
     ```
     /*old "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",*/
     "vnetID": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', parameters('existingVNetRGName'), '/providers/Microsoft.Network/virtualNetworks/', parameters('existingVNetName'))]",
     ```
 
-3. 从资源中删除 `Microsoft.Network/virtualNetworks`，使 Azure 不会创建新的虚拟网络：
+4. 从资源中删除 `Microsoft.Network/virtualNetworks`，使 Azure 不会创建新的虚拟网络：
 
     ```
     /*{
@@ -144,7 +150,7 @@ DnsSettings              : {
     },*/
     ```
 
-4. 从 `Microsoft.Compute/virtualMachineScaleSets` 的 `dependsOn` 属性中注释掉虚拟网络，避免非得要创建新的虚拟网络：
+5. 从 `Microsoft.Compute/virtualMachineScaleSets` 的 `dependsOn` 属性中注释掉虚拟网络，避免非得要创建新的虚拟网络：
 
     ```
     "apiVersion": "[variables('vmssApiVersion')]",
@@ -158,7 +164,7 @@ DnsSettings              : {
 
     ```
 
-5. 部署模板：
+6. 部署模板：
 
     ```powershell
     New-AzureRmResourceGroup -Name sfnetworkingexistingvnet -Location chinanorth
@@ -599,4 +605,4 @@ DnsSettings              : {
 ## <a name="next-steps"></a>后续步骤
 [创建群集](service-fabric-cluster-creation-via-arm.md)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, add comment out content -->

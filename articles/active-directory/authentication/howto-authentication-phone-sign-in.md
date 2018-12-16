@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
 origin.date: 09/20/2018
-ms.date: 11/05/2018
+ms.date: 11/30/2018
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: librown
-ms.openlocfilehash: 258a80554f553d05976a3cc811ddf579e3675bb7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 42e56bd7f4a45e0098760b778f6084395813083e
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646932"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028662"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>使用 Microsoft Authenticator 应用（公共预览版）进行无密码手机登录
 
@@ -38,11 +38,16 @@ ms.locfileid: "52646932"
 
 ### <a name="steps-to-enable"></a>启用步骤
 
-1. 安装 [Azure Active Directory V2 PowerShell 模块公共预览版](https://www.powershellgallery.com/packages/AzureADPreview/)。  
-2. 在 PowerShell 中运行两条命令：
-   1. `Connect-AzureAD -AzureEnvironmentName AzureChinaCloud`
-      1. 在身份验证对话框中，使用租户中的帐户登录。 该帐户必须是安全管理员或全局管理员。
-   2. `New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn`
+确保已安装 Azure Active Directory V2 PowerShell 模块的最新公共预览版。 你可能希望通过执行以下命令卸载并重新安装以确认这一点：
+
+1. `Uninstall-Module -Name AzureADPreview`
+2. `Install-Module -Name AzureADPreview`
+
+可以使用以下 PowerShell 命令启用无密码电话登录预览：
+
+1. `Connect-AzureAD -AzureEnvironmentName AzureChinaCloud`
+   1. 在身份验证对话框中，使用租户中的帐户登录。 该帐户必须是安全管理员或全局管理员。
+1. `New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn`
 
 ## <a name="how-do-my-end-users-enable-phone-sign-in"></a>我的最终用户如何启用手机登录？
 
@@ -60,3 +65,4 @@ ms.locfileid: "52646932"
 
 [了解 Azure 多重身份验证](../authentication/howto-mfa-getstarted.md)
 
+<!-- Update_Description: wording update -->

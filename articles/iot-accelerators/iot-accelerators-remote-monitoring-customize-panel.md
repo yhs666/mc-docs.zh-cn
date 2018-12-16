@@ -9,12 +9,12 @@ services: iot-accelerators
 origin.date: 10/05/2018
 ms.date: 11/26/2018
 ms.topic: conceptual
-ms.openlocfilehash: 12ec7288b6b1946c6a160601cfcfd5c8f9fe2baa
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 142110d0c9c4ef85ea6ac149a731c20d69f82a38
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645298"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028508"
 ---
 # <a name="add-a-custom-panel-to-the-dashboard-in-the-remote-monitoring-solution-accelerator-web-ui"></a>向远程监视解决方案加速器 Web UI 中的仪表板上添加自定义面板
 
@@ -46,7 +46,6 @@ ms.locfileid: "52645298"
 
 **examplePanel.js**
 
-[!code-javascript[Example panel](~/remote-monitoring-webui/src/walkthrough/components/pages/dashboard/panels/examplePanel/examplePanel.js?name=panel "Example panel")]
 
 将 src/walkthrough/components/pages/dashboard/panels/examplePanel 文件夹复制到 src/components/pages/dashboard/panels 文件夹。
 

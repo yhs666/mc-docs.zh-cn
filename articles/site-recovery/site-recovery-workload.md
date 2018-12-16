@@ -1,23 +1,22 @@
 ---
 title: 可以通过 Azure Site Recovery 保护哪些工作负荷？ | Azure
 description: 介绍可以通过将灾难恢复与 Azure Site Recovery 服务配合使用来保护的工作负荷。
-services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 07/22/2018
-ms.date: 09/17/2018
+origin.date: 10/29/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: d281b23f58f03917eb8664e6ba983f8230bfdc97
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: cffb9d8212839a942f87d242d76b57797050d5ef
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658123"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028676"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>可以通过 Azure Site Recovery 保护哪些工作负荷？
 
-本文介绍可以使用 [Azure Site Recovery](site-recovery-overview.md) 服务复制的工作负荷和应用程序。
+本文介绍了可以使用 [Azure Site Recovery](site-recovery-overview.md) 服务为灾难恢复保护的工作负荷和应用程序。
 
 ## <a name="overview"></a>概述
 
@@ -26,6 +25,7 @@ ms.locfileid: "52658123"
 Site Recovery 就是能够帮助实现 BCDR 策略的一个 Azure 服务。 使用 Site Recovery，可将应用程序感知的复制部署到云或辅助站点中。 无论应用是基于 Windows 还是 Linux，是在物理服务器、VMware 还是 Hyper-V 上运行，都可以使用 Site Recovery 协调复制、执行灾难恢复测试，以及运行故障转移和故障回复。
 
 Site Recovery 集成 Microsoft 应用程序，其中包括 SharePoint、Exchange、Dynamics、SQL Server 和 Active Directory。
+
 <!-- Not Available on  Microsoft also works closely with leading vendors including Oracle, SAP, and Red Hat. You can customize replication solutions on an app-by-app basis. -->
 
 ## <a name="why-use-site-recovery-for-application-replication"></a>为何使用 Site Recovery 复制应用程序？
@@ -141,7 +141,7 @@ Azure Site Recovery 可以将环境中的关键组件复制到冷远程站点或
 -   能够对 Web 服务器上的多个 Web 应用程序进行一键式故障转移，因此在发生灾难时不会造成混淆。
 -   能够在适用于 DR 演练的隔离环境中测试恢复计划。
 
-[详细了解](/site-recovery/site-recovery-iis.md)如何保护 IIS Web 场。
+[详细了解](site-recovery-iis.md)如何保护 IIS Web 场。
 <!-- https://aka.ms/asr-iis Redirect to ../site-recovery/site-recovery-iis.md -->
 
 ## <a name="protect-citrix-xenapp-and-xendesktop"></a>保护 Citrix XenApp 和 XenDesktop
@@ -157,4 +157,5 @@ Azure Site Recovery 可以将环境中的关键组件复制到冷远程站点或
 ## <a name="next-steps"></a>后续步骤
 
 Azure VM 复制[入门](azure-to-azure-quickstart.md)。
+
 <!--Update_Description: update meta properties, wording update, update link -->

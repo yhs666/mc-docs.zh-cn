@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 08/31/2017
 ms.date: 10/09/2017
 ms.author: v-junlch
-ms.openlocfilehash: 8b3f2548efc6cd799a557815c4ab0791d47b6b50
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ddb420655de509e2f4bde495d9c64f0d4bd95500
+ms.sourcegitcommit: a3cde3b41ed4d3f39a30eb4e562d6436a3e4d9d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659027"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53131747"
 ---
 # <a name="how-to-configure-a-spring-boot-initializer-app-to-use-redis-cache"></a>如何配置 Spring Boot Initializer 应用，以使用 Redis 缓存
 
@@ -192,11 +192,6 @@ ms.locfileid: "52659027"
    应会看到“Hello World!” 消息在示例控制器中显示，这是从 Redis 缓存中动态检索到的。
 
 ## <a name="next-steps"></a>后续步骤
-
-有关使用 Azure 上的 Spring Boot 应用程序的详细信息，请参阅以下文章：
-
-- [将 Spring Boot 应用程序部署到 Azure 应用服务](../app-service/app-service-deploy-spring-boot-web-app-on-azure.md)
-
 有关将 Azure 与 Java 配合使用的详细信息，请参阅 [Azure Java 开发人员中心]和[用于 Visual Studio Team Services 的 Java 工具]。
 
 若要深入了解如何在 Azure 上开始将 Redis 缓存用于 Java，请参阅[如何将 Azure Redis 缓存用于 Java][Redis Cache with Java]。

@@ -11,12 +11,12 @@ ms.workload: na
 origin.date: 10/10/2017
 ms.author: v-yiso
 ms.date: 10/29/2018
-ms.openlocfilehash: 59b0a25413cebf3e265078d6fe23cd07ae99103c
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: fd878e1292f0d328573d41a7760b7b23c4b3aa0c
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674385"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028483"
 ---
 # <a name="iot-hub-operations-monitoring"></a>IoT 中心操作监视
 IoT 中心操作监视可让你实时监视其 IoT 中心上的操作状态。 IoT 中心可跨多个类别的操作跟踪事件。 可选择将一个或多个类别的事件发送到 IoT 中心终结点进行处理。 可以监视数据中是否有错误，或根据数据模式设置更复杂的处理行为。
@@ -281,7 +281,6 @@ class Program
 [lnk-get-started]: quickstart-send-telemetry-dotnet.md
 [lnk-diagnostic-metrics]: ./iot-hub-metrics.md
 [lnk-scaling]: ./iot-hub-scaling.md
-[lnk-dr]: ./iot-hub-ha-dr.md
 
 [lnk-devguide]: ./iot-hub-devguide.md
 [lnk-iotedge]: ../iot-edge/quickstart-linux.md

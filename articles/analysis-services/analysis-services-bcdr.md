@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 07/03/2018
-ms.date: 08/06/2018
+origin.date: 10/18/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3279eaea7553229d257f034e7feb98600b94c875
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 33610e79f827539ec31e178810b22d604f0f5423
+ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652480"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53157392"
 ---
 # <a name="analysis-services-high-availability"></a>Analysis Services 高可用性
 本文说明如何确保 Azure Analysis Services 服务器的高可用性。 
@@ -33,5 +33,6 @@ ms.locfileid: "52652480"
 ## <a name="related-information"></a>相关信息
 [备份和还原](analysis-services-backup.md)   
 [管理 Azure Analysis Services](analysis-services-manage.md)   
-[服务器别名](analysis-services-server-alias.md)
+[别名服务器名称](analysis-services-server-alias.md)
+
 <!--Update_Description: update meta properties -->

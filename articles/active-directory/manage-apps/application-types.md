@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/11/2017
-ms.date: 10/08/2018
+ms.date: 12/10/2018
 ms.author: v-junlch
-ms.openlocfilehash: cb6513f187b3cc797d05c53691666bb3c63cc649
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c13286985984eb1a0ccf022554bf4d71bd3bab82
+ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645568"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53157415"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>应用程序列表中意料之外的应用程序
 
@@ -48,11 +48,11 @@ ms.locfileid: "52645568"
 
 1.  注册或登录与 Azure Active Directory 集成的<sup></sup>第三方应用程序时。 [Smartsheet](https://app.smartsheet.com/b/home) 或 [DocuSign](https://www.docusign.net/member/MemberLogin.aspx) 就是一个示例。
 
-2.  注册第一方应用程序或者将用户或组的许可证添加到其中时，例如 [Microsoft Office 365](http://products.office.com/)
+2.  注册第一方应用程序或者将用户或组的许可证添加到其中时，例如 [Microsoft Office 365](https://products.office.com/)
 
 3.  当通过使用[应用程序注册表](/active-directory/active-directory-app-registration)创建以自定义方式开发的应用程序，来添加新应用程序注册之时
 
-5.  添加正在使用 Visual Studio 的 [ASP.net 身份验证方法](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions)或[连接的服务](http://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)开发的应用程序时
+4.  添加正在使用 Visual Studio 的 [ASP.net 身份验证方法](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions)或[连接的服务](https://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)开发的应用程序时
 
 6.  使用 [Azure AD PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-adv2?view=azureadps-2.0)创建服务主体对象时
 
@@ -93,3 +93,4 @@ ms.locfileid: "52645568"
 7.  加载应用程序后，在应用程序顶部的“概述”窗格中，单击“删除”图标。
 
 
+<!-- Update_Description: link update -->

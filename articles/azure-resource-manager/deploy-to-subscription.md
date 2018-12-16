@@ -12,16 +12,18 @@ ms.workload: na
 origin.date: 10/10/2018
 ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 910868dd8d6ba45462feaa35ec2d8190fbe2005a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: caedf5c4f3da90250368fe6d25f51209455cf76d
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656288"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028658"
 ---
 # <a name="deploy-resources-to-an-azure-subscription"></a>将资源部署到 Azure 订阅
 
-通常将资源部署到 Azure 订阅中的资源组。 但是，某些资源可以在 Azure 订阅级别部署。 这些资源可以跨订阅应用。 [策略](../azure-policy/azure-policy-introduction.md)和[基于角色的访问控制](../role-based-access-control/overview.md)是可能需要在订阅级别而不是资源组级别应用的服务。
+通常将资源部署到 Azure 订阅中的资源组。 但是，某些资源可以在 Azure 订阅级别部署。 这些资源可以跨订阅应用。 [策略](../governance/policy/overview.md)和[基于角色的访问控制](../role-based-access-control/overview.md)是可能需要在订阅级别而不是资源组级别应用的服务。
+
+<!-- URL direct From ../azure-policy/azure-policy-introduction.md to ../governance/policy/overview.md-->
 <!--Not Available on [Azure Security Center](../security-center/security-center-intro.md)-->
 
 本文使用 Azure CLI 和 PowerShell 来部署模板。
@@ -134,8 +136,9 @@ New-AzureRmDeployment `
 
 ## <a name="define-and-assign-policy"></a>定义和分配策略
 
-可以在同一模板中[定义](../azure-policy/policy-definition.md)和分配策略。
+可以在同一模板中[定义](../governance/policy/concepts/definition-structure.md)和分配策略。
 
+<!-- URL direct From ../azure-policy/policy-definition.md to ../governance/policy/concepts/definition-structure.md-->
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",

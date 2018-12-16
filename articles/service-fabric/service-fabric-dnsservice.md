@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/20/2018
-ms.date: 11/12/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5b20fa4506ab12bb0b8b49de06bdceb031b5c08b
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 511642c74e63d4fb5b824ea1877cbd1b70af23f9
+ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674139"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52901136"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Azure Service Fabric 中的 DNS 服务
 DNS 服务是可选的系统服务，可以在群集中启用，用于发现使用 DNS 协议的其他服务。 
@@ -44,6 +44,9 @@ DNS 服务将 DNS 名称映射到服务名称，命名服务将服务名称进�
 DNS 服务不支持动态端口。 若要解析在动态端口上公开的服务，请使用[反向代理服务](./service-fabric-reverseproxy.md)。
 
 ## <a name="enabling-the-dns-service"></a>启用 DNS 服务
+> [!NOTE]
+> 在 Linux 上尚不支持用于 Service Fabric 服务的 DNS 服务。
+
 使用门户创建群集时，默认情况下，会在“群集配置”菜单的“包括 DNS 服务”复选框中启用 DNS 服务：
 
 ![通过门户启用 DNS 服务](./media/service-fabric-dnsservice/enable-dns-service.png)
@@ -253,7 +256,9 @@ public class ValuesController : Controller
 ## <a name="known-issues"></a>已知问题
 * 对于 Service Fabric 版本 6.3 及更高版本，对于 DNS 名称中包含连字符的服务名称，DNS 查找存在问题。 有关此问题的详细信息，请跟踪以下 [GitHub 问题](https://github.com/Azure/service-fabric-issues/issues/1197)。 此问题的修补程序将在接下来的 6.3 更新中提供。 
 
+* 在 Linux 上尚不支持用于 Service Fabric 服务的 DNS 服务。 Linux 上的容器支持 DNS 服务。 使用 Fabric 客户端/ServicePartitionResolver 进行手动解析是另一种选择。
+
 ## <a name="next-steps"></a>后续步骤
 通过[连接服务并与服务进行通信](service-fabric-connect-and-communicate-with-services.md)，了解有关群集内服务通信的详细信息
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update  -->

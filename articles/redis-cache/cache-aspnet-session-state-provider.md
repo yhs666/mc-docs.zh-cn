@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 origin.date: 05/01/2017
-ms.date: 09/27/2018
+ms.date: 11/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: 2cbe290098a3e48e88b20a6cae978d120ec731b7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5a09e8b00bc64edb8a816d582a879175de0b88d3
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663576"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028685"
 ---
 # <a name="aspnet-session-state-provider-for-azure-redis-cache"></a>Azure Redis 缓存的 ASP.NET 会话状态提供程序
 Azure Redis 缓存提供了一个会话状态提供程序，可以使用该提供程序通过 Redis 缓存将会话状态存储在内存中而不是存储在 SQL Server 数据库中。 如果要使用缓存会话状态提供程序，首先配置缓存，然后使用 Redis 缓存会话状态 NuGet 包为缓存配置 ASP.NET 应用程序。
@@ -95,11 +95,11 @@ NuGet 包会下载并添加所需的程序集引用，并将以下节添加到 w
 - **retryTimeoutInMilliseconds** - 在此时间间隔内重试失败的操作，以毫秒为单位指定。 首次重试在 20 毫秒后进行，并重试每隔一秒进行，直到 retryTimeoutInMilliseconds 间隔到期。 在此时间间隔过后，立即重试操作最后一次。 如果操作仍失败，则会将异常返回给调用方，具体取决于 throwOnError 设置。 默认值为 0，这意味着不重试。
 - **databaseId** - 指定要用于缓存输出数据的数据库。 如果未指定，则使用默认值 0。
 - **applicationName** - 密钥存储在 Redis 中作为 `{<Application Name>_<Session ID>}_Data`。 此命名方案使多个应用程序可以共享同一 Redis 实例。 此参数是可选的，如果未提供它，则使用默认值。
-- **connectionTimeoutInMilliseconds** - 此设置允许覆盖 StackExchange.Redis 客户端中的 connectTimeout 设置。 如果未指定，则使用默认 connectTimeout 设置 5000。 有关详细信息，请参阅 [StackExchange.Redis 配置模型](http://go.microsoft.com/fwlink/?LinkId=398705)。
-- **operationTimeoutInMilliseconds** - 此设置允许覆盖 StackExchange.Redis 客户端中的 syncTimeout 设置。 如果未指定，则使用默认 syncTimeout 设置 1000。 有关详细信息，请参阅 [StackExchange.Redis 配置模型](http://go.microsoft.com/fwlink/?LinkId=398705)。
+- **connectionTimeoutInMilliseconds** - 此设置允许覆盖 StackExchange.Redis 客户端中的 connectTimeout 设置。 如果未指定，则使用默认 connectTimeout 设置 5000。 有关详细信息，请参阅 [StackExchange.Redis 配置模型](https://go.microsoft.com/fwlink/?LinkId=398705)。
+- **operationTimeoutInMilliseconds** - 此设置允许覆盖 StackExchange.Redis 客户端中的 syncTimeout 设置。 如果未指定，则使用默认 syncTimeout 设置 1000。 有关详细信息，请参阅 [StackExchange.Redis 配置模型](https://go.microsoft.com/fwlink/?LinkId=398705)。
 - **redisSerializerType** - 此设置允许你为发送到 Redis 的会话内容指定自定义序列化。 指定的类型必须实现 `Microsoft.Web.Redis.ISerializer` 并且必须声明公共无参数构造函数。 默认情况下使用 `System.Runtime.Serialization.Formatters.Binary.BinaryFormatter`。
 
-有关这些属性的详细信息，请参阅 [宣布推出适用于 Redis 的 ASP.NET 会话状态提供程序](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx)中的原始博客文章公告。
+有关这些属性的详细信息，请参阅 [宣布推出适用于 Redis 的 ASP.NET 会话状态提供程序](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx)中的原始博客文章公告。
 
 别忘了在 web.config 中注释掉标准 InProc 会话状态提供程序部分。
 
@@ -133,4 +133,4 @@ NuGet 包会下载并添加所需的程序集引用，并将以下节添加到 w
 ## <a name="next-steps"></a>后续步骤
 请查看 [Azure Redis 缓存的 ASP.NET 输出缓存提供程序](cache-aspnet-output-cache-provider.md)。
 
-<!--Update_Description: wording update -->
+<!--Update_Description: link update -->

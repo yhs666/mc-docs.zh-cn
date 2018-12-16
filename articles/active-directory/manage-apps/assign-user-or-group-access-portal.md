@@ -2,41 +2,37 @@
 title: 在 Azure Active Directory 中向企业应用分配用户或组 | Microsoft Docs
 description: 如何选择企业应用，在 Azure Active Directory 中向其分配用户或组
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-origin.date: 06/06/2018
-ms.date: 08/29/2018
+origin.date: 11/15/2018
+ms.date: 12/10/2018
 ms.author: v-junlch
 ms.reviewer: luleon
-ms.openlocfilehash: 5f41b0c3ebd620c5d8181d734f6fbc8e26fa874d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d9304aacd861861fffb812837976ca45a3f2f4e5
+ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660013"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53157431"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>在 Azure Active Directory 中向企业应用分配用户或组
 若要将用户或组分配到企业应用，必须具有适当的权限才能管理企业应用，并且必须是目录的全局管理员。
 
 > [!NOTE]
-> 本文中讨论的功能需要使用 Azure Active Directory Premium P1 或 Premium P2 许可证。 有关详细信息，请参阅 [Azure Active Directory 定价页](https://www.azure.cn/pricing/details/identity)。
+> 有关本文中讨论的功能的许可要求，请参阅 [Azure Active Directory 定价页](https://www.azure.cn/pricing/details/active-directory)。
 
 > [!NOTE]
 > 对于 Microsoft 应用程序（例如 Office 365 应用），请使用 PowerShell 将用户分配到企业应用。
 
 
-## <a name="how-do-i-assign-user-access-to-an-enterprise-app-in-the-azure-portal"></a>如何在 Azure 门户中分配用户对企业应用的访问权限？
+## <a name="assign-a-user-to-an-app---portal"></a>将用户分配到应用 - 门户
 1. 使用目录全局管理员的帐户登录到 [Azure 门户](https://portal.azure.cn) 。
 2. 选择“所有服务”，在文本框中输入 Azure Active Directory，并选择“Enter”。
-3. 在“Azure Active Directory - 目录名”边栏选项卡（即，正在管理的目录的 Azure AD 边栏选项卡）中，选择“企业应用程序”。
+3. 选择“企业应用程序”。
 
     ![打开企业应用](./media/assign-user-or-group-access-portal/open-enterprise-apps.png)
 4. 在“企业应用程序”边栏选项卡中，选择“所有应用程序”。 随后会列出你可以管理的应用。
@@ -126,4 +122,4 @@ ms.locfileid: "52660013"
 - [Disable user sign-ins for an enterprise app](disable-user-sign-in-portal.md)
 - [Change the name or logo of an enterprise app](change-name-or-logo-portal.md)
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

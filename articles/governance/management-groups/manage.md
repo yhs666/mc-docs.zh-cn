@@ -11,17 +11,17 @@ ms.workload: na
 origin.date: 09/18/2018
 ms.date: 10/29/2018
 ms.author: v-yeche
-ms.openlocfilehash: f4d502001e74f453d59a4f0e8d896644cad38c6c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 980c5f59d88c7b0d5e302a12e03a2efe17dcb0ac
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651830"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028466"
 ---
 <!--Verify successfully-->
 # <a name="manage-your-resources-with-management-groups"></a>使用管理组管理资源
 
-管理组是一些容器，可以帮助跨多个订阅管理访问权限、策略和符合性。 可以更改、删除和管理这些容器来构建可与 [Azure Policy](../policy/overview.md) 和 [Azure 基于角色的访问控制 (RBAC)](../../role-based-access-control/overview.md) 配合使用的层次结构。 有关管理组的详细信息，请参阅[使用 Azure 管理组整理资源](overview.md)。
+管理组是一些容器，可以帮助跨多个订阅管理访问权限、策略和符合性。 可以更改、删除和管理这些容器来构建可与 [Azure Policy](../policy/overview.md) 和 [Azure 基于角色的访问控制 (RBAC)](../../role-based-access-control/overview.md) 配合使用的层次结构。 有关管理组的详细信息，请参阅[使用 Azure 管理组整理资源](index.md)。
 
 若要对管理组进行更改，必须在管理组中拥有“所有者”或“参与者”角色。 若要查看自己拥有哪些权限，请选择管理组，然后选择“IAM”。 有关 RBAC 角色的详细信息，请参阅[使用 RBAC 管理访问权限和权限](../../role-based-access-control/overview.md)。
 
@@ -277,7 +277,7 @@ az account management-group update --name 'Contoso' --parent 'Contoso Tenant'
 
 若要详细了解管理组，请参阅：
 
-- [使用 Azure 管理组来组织资源](overview.md)
+- [使用 Azure 管理组来组织资源](index.md)
 - [创建管理组来组织 Azure 资源](create.md)
 - [安装 Azure PowerShell 模块](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
 - [查看 REST API 规范](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)

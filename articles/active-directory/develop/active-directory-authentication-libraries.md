@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 10/04/2018
-ms.date: 11/06/2018
+ms.date: 11/30/2018
 ms.author: v-junlch
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e81edde80a4333e44b6b50e1217b171c1b1194f8
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 34114eb29fe4ab609582332eee3325954d030147
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645164"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028454"
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Azure Active Directory 身份验证库
 
@@ -79,7 +79,7 @@ ms.locfileid: "52645164"
 
 ## <a name="see-also"></a>另请参阅
 
-- [Azure Active Directory 开发人员指南](azure-ad-developers-guide.md)
+- [Azure Active Directory 开发人员指南](v1-overview.md)
 - [Azure Active directory 的身份验证方案](authentication-scenarios.md)
 - [Azure Active Directory 代码示例](sample-v1-code.md)
 

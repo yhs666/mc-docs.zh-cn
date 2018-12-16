@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 08/17/2017
 ms.date: 12/03/2018
 ms.author: v-biyu
-ms.openlocfilehash: eaf61d05bf8e150b0f13dba870f55b28c5b003f5
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 7a4c5cadbb532cf35bd1bd7f20795b4d04b71363
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674502"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028481"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>使用流量管理器为 Azure 应用服务中的 Web 应用配置自定义域名
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
@@ -46,10 +46,6 @@ ms.locfileid: "52674502"
 <a name="bkmk_configurecname"></a>
 
 ## <a name="add-a-dns-record-for-your-custom-domain"></a>为自定义域添加 DNS 记录
-> [!NOTE]
-> 如果已通过 Azure 应用服务 Web 应用购买了域，请跳过下面的步骤并参阅[为 Web 应用购买域](custom-dns-web-site-buydomains-web-app.md)文章的最后一个步骤。
-> 
-> 
 
 要将自定义域与 Azure 应用服务中的 Web 应用关联，必须在 DNS 表中为自定义域添加新条目。 请通过使用来自域提供商的管理工具执行此操作。
 

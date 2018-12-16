@@ -18,12 +18,12 @@ ms.workload: big-data
 origin.date: 05/16/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: d76d837d9f8c6af88e990f596c7b3a92198d9ed2
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: fc58cfbe630ac820980040ec2ae784c9587a01b3
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658366"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028430"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-hive-queries"></a>使用用于 Visual Studio 的 Data Lake 工具连接到 Azure HDInsight 并运行 Hive 查询
 
@@ -33,7 +33,7 @@ ms.locfileid: "52658366"
 
 有关连接到 Storm 群集的详细信息，请参阅[使用 Visual Studio 为 Apache Storm on HDInsight 开发 C# 拓扑](../storm/apache-storm-develop-csharp-visual-studio-topology.md)。
 
-可以使用用于 Visual Studio 的 Data Lake 工具访问 Azure Data Lake Analytics 和 HDInsight。 有关 Data Lake 工具的信息，请参阅[使用用于 Visual Studio 的 Data Lake 工具开发 U-SQL 脚本](../../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md)。
+可以使用用于 Visual Studio 的 Data Lake 工具访问 Azure Data Lake Analytics 和 HDInsight。 
 
 ## <a name="prerequisites"></a>先决条件
 

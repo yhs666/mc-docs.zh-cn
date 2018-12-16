@@ -15,12 +15,12 @@ ms.workload: big-data
 origin.date: 05/08/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 59df2c715ca33433bf9846c25a0e9afe79873772
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 334f6b75ed93e529151ad39b748232afe264d86a
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657024"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029080"
 ---
 # <a name="use-kafka-on-hdinsight-from-an-azure-function-app"></a>通过 Azure 函数应用使用 Kafka on HDInsight
 
@@ -234,7 +234,7 @@ Kafka 在__主题__中存储数据。 将数据从 Azure 函数发送到 Kafka �
 
     使用“保存”按钮保存所做的更改。
 
-5. 若要安装 `kafka-node` 包，请参阅 [Azure Functions JavaScript 开发人员指南](../../azure-functions/functions-reference-node.md#node-version-and-package-management)的 _Node 版本和包管理_部分。
+5. 若要安装 `kafka-node` 包，请参阅 [Azure Functions JavaScript 开发人员指南](../../azure-functions/functions-reference-node.md)的 _Node 版本和包管理_部分。
 
     > [!NOTE]
     > 安装 kafka-node 包后，可能会收到多个错误。 可以安全地忽略这些错误。

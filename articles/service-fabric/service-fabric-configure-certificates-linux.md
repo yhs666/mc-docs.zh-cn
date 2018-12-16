@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/26/2018
-ms.date: 09/10/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 151c2230bb429234fd7cf07d8c71710cb8ef4f4d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 742d63d9d3565a9164b5dd1b956b54a3cafa343e
+ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652441"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52901076"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Linux 群集上的证书和安全性
 
@@ -116,4 +116,3 @@ Service Fabric 通常要求在 Linux 群集节点上的 */var/lib/sfcerts* 目�
 可以引用群集证书，或每个群集节点上安装的证书。 在 Linux 上，证书文件必须位于 */var/lib/sfcerts* 目录中。 有关详细信息，请参阅 [Linux 节点上的 X.509 证书的位置和格式](#location-and-format-of-x509-certificates-on-linux-nodes)。
 
 <!-- Update_Description: Update meta properties -->
-<!--ms.date: 08/20/2018-->

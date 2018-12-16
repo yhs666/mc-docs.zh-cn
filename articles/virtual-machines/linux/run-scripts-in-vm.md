@@ -9,12 +9,12 @@ origin.date: 05/02/2018
 ms.date: 06/25/2018
 ms.topic: article
 manager: digimobile
-ms.openlocfilehash: 50e6d69cda27d6f59486b31875a8f14b398d5f5e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c5f12e20e9b670a87864a9a8216205384a33dc49
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653219"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029139"
 ---
 # <a name="run-scripts-in-your-linux-vm"></a>在 Linux VM 中运行脚本
 
@@ -32,22 +32,14 @@ ms.locfileid: "52653219"
 
 <!-- Not Available on ## Run command-->
 <!-- Not Available on ## Hybrid Runbook Worker-->
-
-## <a name="serial-console"></a>串行控制台
-
-可以通过[串行控制台](serial-console.md)直接访问 VM，类似于将键盘连接到 VM。
-
-* 在 Azure 虚拟机中运行命令。
-* 可以在 Azure 门户中使用计算机的基于文本的控制台来运行。
-* 使用本地用户帐户登录到计算机。
-* 适用于需要访问虚拟机的情况（不管计算机的网络或操作系统状态如何）。
-
+<!-- Not Available on ## Serial console-->
 ## <a name="next-steps"></a>后续步骤
 
 详细了解可以用来在 VM 中运行脚本和命令的不同功能。
 
 * [自定义脚本扩展](../extensions/custom-script-linux.md)
+
 <!-- Not Available on * [Run Command](run-command.md)-->
 <!-- Not Available on * [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md)-->
-* [串行控制台](serial-console.md)
+<!-- Not Available on * [Serial console](serial-console.md)-->
 <!-- Update_Description: wording update, update link -->

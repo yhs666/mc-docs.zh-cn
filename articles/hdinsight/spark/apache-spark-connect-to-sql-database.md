@@ -15,12 +15,12 @@ ms.workload: big-data
 origin.date: 05/01/2018
 ms.date: 06/25/2018
 ms.author: nitinme
-ms.openlocfilehash: 137111760005a039e6e9a4618b5b247a457ee2d0
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ff8ac10a1e8d8f836a8cfbacd90f0adb5fb50724
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660438"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028314"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>使用 HDInsight Spark 群集在 Azure SQL 数据库中读取和写入数据
 
@@ -246,6 +246,5 @@ ms.locfileid: "52660438"
 
 ## <a name="next-steps"></a>后续步骤
 
-* [使用 HDInsight Spark 群集分析 Data Lake Store 中的数据](apache-spark-use-with-data-lake-store.md)
-* [使用事件中心处理结构化流事件](apache-spark-eventhub-structured-streaming.md)
+
 * [将 Spark 结构化流与 HDInsight 上的 Kafka 配合使用](../hdinsight-apache-kafka-spark-structured-streaming.md)

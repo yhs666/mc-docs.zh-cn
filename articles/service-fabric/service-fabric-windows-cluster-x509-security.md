@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/15/2017
-ms.date: 10/15/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4d2eb4d68ed14b4d4fc3ebddda5d95e242a9cf37
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 2fa90aa72e7ad8ce97fcd30cd12c5d6e6b99f5ff
+ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657845"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52901130"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>使用 X.509 证书在 Windows 上保护独立群集
 本文介绍如何保护独立 Windows 群集的不同节点之间的通信。 此外，还介绍如何使用 X.509 证书针对连接到此群集的客户端进行身份验证。 身份验证可确保只有经过授权的用户才能访问该群集和部署的应用程序，以及执行管理任务。 创建群集时，应在该群集上启用证书安全性。  
@@ -257,7 +257,7 @@ ms.locfileid: "52657845"
 ## <a name="acquire-the-x509-certificates"></a>获取 X.509 证书
 若要保护群集内部的通信，首先需要获取群集节点的 X.509 证书。 此外，如果只想允许经过授权的计算机/用户连接到此群集，需要获得并安装客户端计算机的证书。
 
-对于运行生产工作负荷的群集，请使用[证书颁发机构 (CA)](https://en.wikipedia.org/wiki/Certificate_authority) 签名的 X.509 证书来保护群集。 有关如何获取这些证书的详细信息，请参阅[如何获取证书](http://msdn.microsoft.com/library/aa702761.aspx)。
+对于运行生产工作负荷的群集，请使用[证书颁发机构 (CA)](https://en.wikipedia.org/wiki/Certificate_authority) 签名的 X.509 证书来保护群集。 有关如何获取这些证书的详细信息，请参阅[如何获取证书](https://msdn.microsoft.com/library/aa702761.aspx)。
 
 对于用于测试的群集，可以选择使用自签名证书。
 
@@ -367,4 +367,4 @@ Connect-ServiceFabricCluster $ConnectArgs
 > 
 > 
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update -->

@@ -11,17 +11,17 @@ ms.workload: na
 origin.date: 10/10/2018
 ms.date: 10/29/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1974515c20794881c3b14f66f1a3f10a5a1d1e21
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 0e8eb4f54cbef1eddffc1ec63731eaf67efe0fa9
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650874"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028482"
 ---
 <!--Verify successfully-->
 # <a name="create-management-groups-for-resource-organization-and-management"></a>创建用来组织和管理资源的管理组
 
-管理组是一些容器，可以帮助你跨多个订阅管理访问权限、策略和符合性。 可以创建这些容器来构建可以与 [Azure Policy](../policy/overview.md) 和 [Azure 基于角色的访问控制](../../role-based-access-control/overview.md)配合使用的有效且高效的层次结构。 若要详细了解管理组，请参阅[使用 Azure 管理组整理资源](overview.md)。
+管理组是一些容器，可以帮助你跨多个订阅管理访问权限、策略和符合性。 可以创建这些容器来构建可以与 [Azure Policy](../policy/overview.md) 和 [Azure 基于角色的访问控制](../../role-based-access-control/overview.md)配合使用的有效且高效的层次结构。 若要详细了解管理组，请参阅[使用 Azure 管理组整理资源](index.md)。
 
 在目录中创建的第一个管理组可能需要最多 15 分钟才能完成。 一些进程会首次运行以在 Azure 中为目录设置管理组服务。 在进程完成后将显示通知。
 
@@ -78,7 +78,7 @@ az account management-group create --name 'Contoso'
 
 若要详细了解管理组，请参阅：
 
-- [使用 Azure 管理组来组织资源](overview.md)
+- [使用 Azure 管理组来组织资源](index.md)
 - [如何更改、删除或管理管理组](manage.md)
 - [安装 Azure Powershell 模块](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
 - [查看 REST API 规范](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)

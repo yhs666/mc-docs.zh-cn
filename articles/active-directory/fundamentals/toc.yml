@@ -65,13 +65,9 @@ items:
     href: https://support.azure.cn/en-us/support/support-azure/
   - name: Azure Active Directory 常见问题
     href: active-directory-faq.md
-  - name: 管理 Azure AD 目录
-    href: active-directory-administer.md
-  - name: Azure 标识解决方案
-    href: understand-azure-identity-solutions.md
-ms.openlocfilehash: e47a9ef1d205c705003f69bbd2a4d60b57f2ec1d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: fce5695bbd2a4403e3aec9f0bc90e0d015eeb41e
+ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654876"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53157418"

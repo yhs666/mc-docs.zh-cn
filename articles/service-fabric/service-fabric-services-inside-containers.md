@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 05/23/2018
-ms.date: 10/15/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 752df5e2244cfe7d5e2090f1eaf33b061548fda9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 05fe6f7953a8501783c340cf6b4aed3f8dcaced1
+ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647045"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52901104"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>在 Windows 上容器化 Service Fabric Reliable Services 和 Reliable Actors
 
@@ -142,4 +142,4 @@ Service Fabric 支持容器化 Service Fabric 微服务（基于 Reliable Servic
 * 详细了解如何运行 [Service Fabric 上的容器](service-fabric-get-started-containers.md)。
 * 了解 Service Fabric [应用程序生命周期](service-fabric-application-lifecycle.md)。
 
-<!--Update_Description: update meta properties, update link, wording update -->
+<!--Update_Description: update meta properties -->

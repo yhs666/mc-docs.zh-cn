@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/11/2017
-ms.date: 10/08/2018
+ms.date: 12/10/2018
 ms.author: v-junlch
-ms.openlocfilehash: 201e2e6f4c305a7994d13e7826b7c8a9effc9a28
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 874e15b1ee3016b2a67d6990d57d2aa7f49d349b
+ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656691"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53157395"
 ---
 # <a name="how-to-assign-users-to-applications"></a>如何将用户分配给应用程序
 
@@ -42,11 +42,14 @@ ms.locfileid: "52656691"
 
   - [所有用户](/active-directory/fundamentals/active-directory-groups-create-azure-portal)组
 
-7.  对于第一方应用程序，如 [ Microsoft Office 365](http://products.office.com/)，管理员直接为用户分配许可证
+7.  对于第一方应用程序，如 [ Microsoft Office 365](https://products.office.com/)，管理员直接为用户分配许可证
 
-8.  对于第一方应用程序，如 [ Microsoft Office 365](http://products.office.com/)，管理员直接为用户是其成员的组分配许可证
+8.  对于第一方应用程序，如 [ Microsoft Office 365](https://products.office.com/)，管理员直接为用户是其成员的组分配许可证
 
 9.  [管理员同意](/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)所有用户均可使用某个应用程序，然后用户登录该应用程序
 
 10. 通过登录应用程序，用户自己[同意使用应用程序](/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)
+
+<!-- Update_Description: link update -->
+
 

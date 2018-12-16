@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/31/2017
 ms.date: 09/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: d0ea97eba6b0cf619c34b6a03de73cba29e4a8da
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 51405acbaf1416dd51eb3e567afc4a143f423a1c
+ms.sourcegitcommit: a3cde3b41ed4d3f39a30eb4e562d6436a3e4d9d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658296"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53131766"
 ---
 # <a name="import-and-export-data-in-azure-redis-cache"></a>在 Azure Redis 缓存中导入和导出数据
 导入/导出是一种 Azure Redis 缓存数据管理操作，可用于通过从高级缓存导入 Redis 缓存数据库 (RDB) 快照以及将 Redis 缓存数据库 (RDB) 快照导出到 Azure 存储帐户中的 blob 来相应地将数据导入到 Azure Redis 缓存以及从 Azure Redis 缓存导出数据。 
@@ -157,7 +157,7 @@ Azure Redis 缓存持久性能够将 Redis 中存储的数据长期保存在 Azu
 若要解决此问题，请在经过 15 分钟前发起导入或导出操作。
 
 ### <a name="i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened"></a>在将数据导出到 Azure Blob 存储时收到错误。 发生了什么情况？
-导出仅适用于以页 blob 形式存储的 RDB 文件。 目前不支持其他 blob 类型，包括带有热层和冷层的 blob 存储帐户。 有关详细信息，请参阅 [Blob 存储帐户](../storage/common/storage-account-options.md#blob-storage-accounts)。
+导出仅适用于以页 blob 形式存储的 RDB 文件。 目前不支持其他 blob 类型，包括带有热层和冷层的 blob 存储帐户。 有关详细信息，请参阅 [Blob 存储帐户](../storage/common/storage-account-options.md)。
 
 ## <a name="next-steps"></a>后续步骤
 了解如何使用更多的高级缓存功能。

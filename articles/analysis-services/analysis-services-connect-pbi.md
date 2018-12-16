@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 07/03/2018
-ms.date: 08/06/2018
+origin.date: 10/18/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1960c418d4d60363fd711587470b2408051496e5
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6965ae462a28698c0fb70dad693960c05a628676
+ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655876"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53157401"
 ---
 # <a name="connect-with-power-bi"></a>使用 Power BI 进行连接
 
@@ -30,8 +30,8 @@ ms.locfileid: "52655876"
 1. 在 Power BI Desktop 中，单击“获取数据” > “Azure” > “Azure Analysis Services 数据库”。
 
 2. 在“服务器”中，输入服务器名称。 请务必包括完整的 URL，例如，asazure://chinanorth.asazure.chinacloudapi.cn/advworks。
-<!-- Not Available on China East -->
 
+<!-- Not Available on China East -->
 3. 在“数据库”中，如果知道要连接到的表格模型数据库或透视的名称，请将其粘贴在此处。 如果不知道，可以将此字段留空，并在稍后选择数据库或透视。
 
 4. 选择连接选项，然后按“连接”。 

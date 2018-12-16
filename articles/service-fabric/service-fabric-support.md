@@ -13,14 +13,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/24/2018
-ms.date: 10/15/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: bb9363abdf69221ac233a3d8a4fe03ad8f222539
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 7cca5fbdfa47c714e70a1729a400e653acc568bc
+ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651940"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52901054"
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric 支持选项
 
@@ -38,7 +38,6 @@ ms.locfileid: "52651940"
 - [世纪互联对 Azure 的支持](https://www.azure.cn/support/plans/)。
 
 <!--Not Available on - [Microsoft premier support](https://support.microsoft.com/premier).-->
-
 <a name="getlivesitesupportonprem"></a>
 
 ## <a name="report-production-issues-or-request-paid-support-for-standalone-service-fabric-clusters"></a>报告生产问题，或者请求独立 Service Fabric 群集的付费支持
@@ -46,11 +45,10 @@ ms.locfileid: "52651940"
 若要报告部署在本地或其他云上的 Service Fabric 群集的问题，请通过 [Azure 支持门户](https://www.azure.cn/support/support-ticket-form)开具专业支持票证。
 
 <!--Not Available on - [Professional Support from Microsoft for on-premises](https://support.microsoft.com/gp/offerprophone?wa=wsignin1.0)-->
-
 <!--Not Available on - [Microsoft premier support](https://support.microsoft.com/premier)-->
 
 <a name="getsupportonissues"></a>
-## <a name="report-azure-service-fabric-issues"></a>报告 Azure Service Fabric 问题 
+## <a name="report-azure-service-fabric-issues"></a>报告 Azure Service Fabric 问题
 
 我们已设置 GitHub 存储库，用于报告 Service Fabric 问题。  我们还积极监视以下论坛。
 

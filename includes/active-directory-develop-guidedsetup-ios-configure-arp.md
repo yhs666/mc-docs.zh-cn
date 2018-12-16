@@ -12,15 +12,15 @@ ms.topic: include
 ms.tgt_pltfrm: ios
 ms.workload: identity
 origin.date: 09/19/2018
-ms.date: 11/05/2018
+ms.date: 12/07/2018
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: ee48d4f8443c7f004a6f205e1dcb41746d0bea37
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ed57800f708202292a37861f9ce0d957e143d689
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649698"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53070264"
 ---
 ## <a name="add-the-applications-registration-information-to-your-app"></a>向应用添加应用程序的注册信息
 
@@ -37,6 +37,8 @@ ms.locfileid: "52649698"
 </li>
 <li>
 在 <code>dict</code> 根节点下添加以下代码：
+</li>
+</ol>
 
 ```xml
 <key>CFBundleURLTypes</key>
@@ -53,9 +55,5 @@ ms.locfileid: "52649698"
     </dict>
 </array>
 ```
-</li>
-</ol>
 
-
-
-<!-- ms.date: 11/05/2018 -->
+<!-- ms.date: 12/07/2018 -->

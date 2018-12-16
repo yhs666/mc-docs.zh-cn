@@ -15,12 +15,12 @@ ms.topic: conceptual
 origin.date: 05/14/2018
 ms.date: 08/27/2018
 ms.author: v-yiso
-ms.openlocfilehash: b19071710ba25a335bf9e833397f33e4717ea53d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 3b5221e7de27ced463fe438a0d732f1b16f9e9f3
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661722"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029057"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>使用 .NET SDK 管理 HDInsight 中的 Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -119,6 +119,7 @@ You shall see a prompt when you run this program.  If you don't want to see the 
 ## Create clusters
 See [Create Linux-based clusters in HDInsight using the .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
 
+<a name="list-clusters"></a>
 ## List clusters
 The following code snippet lists clusters and some properties:
 

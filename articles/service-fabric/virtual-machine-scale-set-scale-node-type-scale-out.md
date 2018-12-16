@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/21/2018
-ms.date: 10/15/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1a0e042270027c52e08f5e762bc95e602c011a9a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 7a261828dcc39d9441a4de2925c4699162bda34d
+ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663659"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52901059"
 ---
 # <a name="scale-a-service-fabric-cluster-out-by-adding-a-virtual-machine-scale-set"></a>通过添加虚拟机规模集扩大 Service Fabric 群集
 本文介绍如何通过将新的虚拟机规模集添加到现有群集来扩大 Azure Service Fabric 群集。 Service Fabric 群集是通过网络连接在一起的一组虚拟机或物理机，可在其中部署和管理微服务。 属于群集一部分的计算机或 VM 称为节点。 虚拟机规模集是一种 Azure 计算资源，用于将一组 VM 作为一个集进行部署和管理。 Azure 群集中定义的每个节点类型[设置为独立的规模集](service-fabric-cluster-nodetypes.md)。 然后可以单独管理每个节点类型。 创建 Service Fabric 群集后，可以纵向缩放群集节点类型（更改节点资源）、升级节点类型 VM 的操作系统或将新的虚拟机规模集添加到现有群集。  随时可以缩放群集，即使该群集上正在运行工作负荷。  在缩放群集的同时，应用程序也会随之自动缩放。
@@ -35,7 +35,7 @@ ms.locfileid: "52663659"
 以下是主节点类型 VM 的 VM 大小和操作系统的更新过程。  升级后，主节点类型 VM 的大小为标准 D4_V2，并且运行带容器的 Windows Server 2016 Datacenter。
 
 > [!WARNING]
-> 在生产群集上尝试执行此过程之前，建议先研究示例模板并对测试群集验证此过程。 该群集也会有段时间不可用。 你不能并行对声明为同一 NodeType 的多个 VMSS 进行更改；需要执行单独的部署操作，才能单独将更改应用于每个 NodeType VMSS。
+> 在生产群集上尝试执行此过程之前，建议先研究示例模板并对测试群集验证此过程。 该群集也会有段时间不可用。 不能并行对声明为相同 NodeType 的多个 VMSS 执行更改，需要执行单独的部署操作来单独为每个 NodeType VMSS 应用更改。
 
 1. 使用这些示例[模板](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.json)和[参数](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.parameters.json)文件部署包含两种节点类型和两个规模集（每种节点类型一个规模集）的初始群集。  这两个规模集的大小均为标准 D2_V2，并且都运行 Windows Server 2012 R2 Datacenter。  等待群集完成基线升级。   
 2. 可选：向群集部署有状态示例。
@@ -200,7 +200,6 @@ NodeTypeRef 属性在虚拟机规模集 Service Fabric 扩展属性中声明：
 * 了解[应用程序可伸缩性](service-fabric-concepts-scalability.md)。
 * [横向扩展或缩减 Azure 群集](service-fabric-tutorial-scale-cluster.md)
 * 使用 fluent Azure 计算 SDK [以编程方式缩放 Azure 群集](service-fabric-cluster-programmatic-scaling.md)。
-* [横向扩展或缩减独立群集](service-fabric-cluster-windows-server-add-remove-nodes.md)
+* [横向扩展或缩减独立群集](service-fabric-cluster-windows-server-add-remove-nodes.md)。
 
-<!-- Update_Description: new articles node type scale out -->
-<!--ms.date: 10/15/2018-->
+<!-- Update_Description: update meta properties, wording update -->

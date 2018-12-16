@@ -1,25 +1,20 @@
 ---
-title: 在 Azure 存储表设计中对关系建模 | Azure
+title: 在 Azure 存储表设计中对关系建模 | Microsoft Docs
 description: 了解设计桌面存储解决方案时的建模流程。
 services: storage
-documentationcenter: na
 author: WenJason
-manager: digimobile
-ms.assetid: 8e228b0c-2998-4462-8101-9f16517393ca
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
 origin.date: 04/23/2018
-ms.date: 07/02/2018
+ms.date: 12/10/2018
 ms.author: v-jay
-ms.openlocfilehash: b84777e93ca78392dd4af41040706c3d7ac72f5f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.component: tables
+ms.openlocfilehash: e65d7c58867d5d8560f86a675fe823fee3b3b52c
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657456"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028325"
 ---
 # <a name="modeling-relationships"></a>为关系建模
 本文讨论可帮助设计 Azure 表存储解决方案的建模流程。

@@ -9,14 +9,14 @@ ms.service: power-bi-embedded
 ms.topic: article
 ms.workload: powerbi
 origin.date: 09/20/2017
-ms.date: 09/26/2018
+ms.date: 11/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: 8021014896a3a2a97edb48102024ea8b23feeebc
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: bee8067d25e5870a00e969384d8026f65b477f0b
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644813"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029131"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>通过 Power BI 工作区集合进行身份验证和授权
 
@@ -171,7 +171,7 @@ Body
    
    ![应用令牌流 - 服务将报表发送给用户](./media/get-started-sample/token-6.png)
 
-在 **Power BI 工作区集合**将报表发送给用户后，用户可以在自定义应用中查看报表。 例如，如果导入了[分析销售数据 PBIX 示例](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix)，该示例 Web 应用将如下所示：
+在 **Power BI 工作区集合**将报表发送给用户后，用户可以在自定义应用中查看报表。 例如，如果导入了[分析销售数据 PBIX 示例](https://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix)，该示例 Web 应用将如下所示：
 
 ![应用中嵌入的报表的示例](./media/get-started-sample/sample-web-app.png)
 
@@ -185,4 +185,4 @@ Body
 
 有更多问题？ [试用 Power BI 社区](http://community.powerbi.com/)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: link update -->

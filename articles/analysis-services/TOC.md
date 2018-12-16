@@ -22,7 +22,7 @@
 ## [使用服务主体进行自动化](analysis-services-service-principal.md)
 ## [客户端库](analysis-services-data-providers.md)
 ## [兼容级别](analysis-services-compat-level.md)
-<!-- Not Available on ## [Connecting to on-premises data sources](analysis-services-gateway.md)-->
+## [连接到本地数据源](analysis-services-gateway.md)
 ## [连接到服务器](analysis-services-connect.md)
 ## [高可用性](analysis-services-bcdr.md)
 ## [支持的数据源](analysis-services-datasource.md)
@@ -33,8 +33,8 @@
 ### [备份和还原](analysis-services-backup.md)
 ### [配置服务器名称别名](analysis-services-server-alias.md)
 <!-- Not Available on ### [Configure scale-out](analysis-services-scale-out.md)-->
-<!-- Not Available on ### [Install and configure an on-premises data gateway](analysis-services-gateway-install.md)-->
-<!-- Not Available on ### [Use gateway for data sources on an Azure Virtual Network](analysis-services-vnet-gateway.md)-->
+### [安装并配置本地数据网关](analysis-services-gateway-install.md)
+### [对 Azure 虚拟网络上的数据源使用网关](analysis-services-vnet-gateway.md)
 ### [管理服务器](analysis-services-manage.md)
 ### [监视服务器指标](analysis-services-monitor.md)
 ### [设置诊断日志记录](analysis-services-logging.md)
@@ -96,4 +96,4 @@
 ## [定价计算器](https://www.azure.cn/pricing/calculator/)
 <!-- Not Availabel ## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)-->
 ## [视频](https://www.azure.cn/zh-cn/video-center/)
-<!--ms.date: 09/24/2018 -->
+<!--ms.date: 12/17/2018 -->

@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 06/05/2018
 ms.date: 07/02/2018
 ms.author: v-yiso
-ms.openlocfilehash: 197196f2f469cbc28932de209121005fb9caa8f9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8130c74a932cfbc27a8abf32976ec3d2be5d0b86
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52667176"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028901"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>持续部署到 Azure 应用服务
 本文展示了如何为 [Azure 应用服务](app-service-web-overview.md)配置持续部署。 应用服务可以使用 BitBucket、GitHub 和 [Azure DevOps Services](https://www.visualstudio.com/team-services/) 实现持续部署，方法是从上述服务之一中的现有存储库拉取最新的更新。
@@ -63,7 +63,7 @@ ms.locfileid: "52667176"
 
 在“测试”页面中，选择是否要启用负载测试，然后单击“继续”。
 
-根据应用服务计划的[定价层](www.azure.cn/pricing/details/app-service/plans/)，可能还会看到“部署到过渡环境”页。 选择是否[要启用部署槽位](web-sites-staged-publishing.md)，然后单击“继续”。
+根据应用服务计划的[定价层](https://www.azure.cn/zh-cn/pricing/details/app-service/)，可能还会看到“部署到过渡环境”页。 选择是否[要启用部署槽位](web-sites-staged-publishing.md)，然后单击“继续”。
 
 ### <a name="finish-configuration"></a>完成配置
 

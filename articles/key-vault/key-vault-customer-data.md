@@ -14,12 +14,12 @@ ms.topic: reference
 origin.date: 05/22/2018
 ms.date: 09/17/2018
 ms.author: v-biyu
-ms.openlocfilehash: 20b657a8ed9e1f611b5dac22b7252a2c7150fd23
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 32760ed3f261a045d98054cd5a8759ff4f4fce57
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659625"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029059"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Azure Key Vault 客户数据功能
 
@@ -38,7 +38,6 @@ Azure Key Vault 在创建或更新保管库、密钥、机密、证书和托管�
 - 证书联系人可能包含用户电子邮件地址、姓名或电话号码
 - 证书颁发者可能包含电子邮件地址、姓名、电话号码、帐户凭据和组织详细信息
 - 可以向 Azure Key Vault 中的对象应用任意标记。 这些对象包括保管库、密钥、机密、证书和存储帐户。 使用的标记可能包含个人数据
-- Azure Key Vault 访问日志包含每个 REST API 调用的对象 ID、[UPN](../active-directory/connect/active-directory-aadconnect-userprincipalname.md) 和 IP 地址
 - Azure Key Vault 诊断日志可能包含 REST API 调用的对象 ID 和 IP 地址
 
 ## <a name="deleting-customer-data"></a>删除客户数据

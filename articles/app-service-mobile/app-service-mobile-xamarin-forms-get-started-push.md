@@ -1,8 +1,26 @@
 ---
-title: 向 Xamarin.Forms 应用添加推送通知 description: 了解如何使用 Azure 服务将多平台推送通知发送到 Xamarin.Forms 应用。
-services: app-service\mobile documentationcenter: xamarin author: conceptdev manager: crdun editor: ''
-
-ms.assetid: d9b1ba9a-b3f2-4d12-affc-2ee34311538b ms.service: app-service-mobile ms.workload: mobile ms.tgt_pltfrm: mobile-xamarin ms.devlang: dotnet ms.topic: article origin.date:10/12/2016 ms.date: 10/29/2018 ms.author: v-biyu
+title: 向 Xamarin.Forms 应用添加推送通知
+description: 了解如何使用 Azure 服务将多平台推送通知发送到 Xamarin.Forms 应用。
+services: app-service\mobile
+documentationcenter: xamarin
+author: conceptdev
+manager: crdun
+editor: ''
+ms.assetid: d9b1ba9a-b3f2-4d12-affc-2ee34311538b
+ms.service: app-service-mobile
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-xamarin
+ms.devlang: dotnet
+ms.topic: article
+origin.date: 10/12/2016
+ms.date: 10/29/2018
+ms.author: v-biyu
+ms.openlocfilehash: 1e9088894463acf929b8118b2590473ec0c204f6
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028335"
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>向 Xamarin.Forms 应用添加推送通知
 

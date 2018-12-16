@@ -1,5 +1,5 @@
 ---
-title: 快速入门 - Azure Service Fabric（预览版）中的定期备份和还原 | Azure
+title: Azure Service Fabric（预览版）中的定期备份和还原 | Azure
 description: 使用 Service Fabric 的定期备份和还原功能来实现应用程序数据的定期数据备份。
 services: service-fabric
 documentationcenter: .net
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 04/04/2018
-ms.date: 08/20/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1df33528d80c4e8dbd7379a5bd29696986470b35
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a692f5b87a2a5b920db1113d1c46e2a6fb9851ab
+ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666845"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52901155"
 ---
-# <a name="quickstart-periodic-backup-and-restore-in-azure-service-fabric-preview"></a>快速入门：Azure Service Fabric（预览版）中的定期备份和还原
+# <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Azure Service Fabric（预览版）中的定期备份和还原
 > [!div class="op_single_selector"]
 > * [Azure 上的群集](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
 > * [独立群集](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
@@ -235,4 +235,5 @@ FailureError            :
 - [备份还原 REST API 参考](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/PartitionBackedUpHealthEvent_Azure.png
-<!-- Update_Description: wording update, update link -->
+
+<!-- Update_Description: wording update, wording update -->

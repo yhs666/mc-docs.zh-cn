@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 07/03/2018
-ms.date: 08/06/2018
+origin.date: 10/18/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 51e104931598825c46d3beb72f4730033f7304b4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 801788a06990ca9a28d98d29a916a95ba04fad66
+ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664513"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53157416"
 ---
 # <a name="backup-and-restore"></a>备份和还原
 
@@ -24,7 +24,6 @@ ms.locfileid: "52664513"
 > 创建存储帐户可能会导致新的计费服务。 若要了解详细信息，请参阅 [Azure 存储定价](https://www.azure.cn/pricing/details/storage/)。
 > 
 > 
-<!-- Valid Storage Price: https://www.azure.cn/pricing/details/storage/-->
 
 使用 abf 扩展名保存备份。 对于内存中表格模型，将存储模型数据和元数据。 对于 DirectQuery 表格模型，将仅存储模型元数据。 备份可以进行压缩和加密，具体取决于选择的选项。 
 

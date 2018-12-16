@@ -17,12 +17,12 @@ origin.date: 04/11/2017
 ms.date: 04/11/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 48e4e3ee007867630bac82db77c0381ab1d430a1
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1df4ad2957fa15cbc8b6837e608709a10e292e6a
+ms.sourcegitcommit: a3cde3b41ed4d3f39a30eb4e562d6436a3e4d9d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645064"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53131773"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>通过 Azure 门户创建 Function App
 
@@ -53,7 +53,7 @@ Azure Function App 使用 Azure 应用服务基础结构。 本主题演示如�
 >[!NOTE]
 >使用消耗托管计划时，函数代码和绑定配置文件存储在主存储帐户的 Azure 文件存储中。 删除主存储帐户时，此内容将随之删除且无法恢复。
 
-若要了解有关存储帐户类型的详细信息，请参阅 [Azure 存储服务简介](../storage/common/storage-introduction.md#introducing-the-azure-storage-services)。 
+若要了解有关存储帐户类型的详细信息，请参阅 [Azure 存储服务简介](../storage/common/storage-introduction.md)。 
 
 ## <a name="next-steps"></a>后续步骤
 

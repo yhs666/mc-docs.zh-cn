@@ -38,7 +38,3 @@
 
 > [!NOTE]
 > 若要跟踪解决方案中作业的状态，请选择“查看”。
-
-## <a name="next-steps"></a>后续步骤
-
-[自定义远程监视预配置的解决方案](../articles/iot-suite/iot-suite-remote-monitoring-customize.md)一文中介绍了自定义预配置的解决方案的一些方法。

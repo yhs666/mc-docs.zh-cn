@@ -13,14 +13,14 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 origin.date: 04/11/2017
-ms.date: 09/07/2018
+ms.date: 11/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: 0869c95da36b8c5580cc12ad89485af23d547fb6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 722829c9e97644c23748ebbd83884106fa6e5dfd
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653250"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028671"
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>如何缩放 Azure Redis 缓存
 Azure Redis 缓存具有不同的缓存产品/服务，使缓存大小和功能的选择更加灵活。 创建缓存后，如果应用程序的要求发生更改，可以缩放缓存的大小和定价层。 本文演示如何使用 Azure 门户以及 Azure PowerShell 和 Azure CLI 等工具来缩放缓存。
@@ -82,7 +82,7 @@ Azure Redis 缓存具有不同的缓存产品/服务，使缓存大小和功能�
 有关使用 Azure CLI 进行缩放的详细信息，请参阅[更改现有 Redis 缓存的设置](cache-manage-cli.md#scale)。
 
 ### <a name="scale-using-maml"></a>使用 MAML 进行缩放
-若要使用 [Azure 管理库 (MAML)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/) 缩放 Azure Redis 缓存实例，请调用 `IRedisOperations.CreateOrUpdate` 方法并传入 `RedisProperties.SKU.Capacity` 的新大小。
+若要使用 [Azure 管理库 (MAML)](https://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/) 缩放 Azure Redis 缓存实例，请调用 `IRedisOperations.CreateOrUpdate` 方法并传入 `RedisProperties.SKU.Capacity` 的新大小。
 
     static void Main(string[] args)
     {

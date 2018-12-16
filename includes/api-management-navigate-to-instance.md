@@ -5,8 +5,6 @@
 3. 在搜索框中输入 **api**。
 4. 在搜索结果中，选择“API 管理服务”。
 
-    ![在搜索结果中选择“API 管理服务”](./media/api-management-navigate-to-instance/navigate-to-api-management-services.png)
-
 5. 选择自己的 API 管理服务实例。
 
 > [!TIP]

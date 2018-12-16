@@ -5,16 +5,16 @@ author: WenJason
 services: storage
 ms.service: storage
 ms.topic: article
-origin.date: 10/04/2018
-ms.date: 11/05/2018
+origin.date: 10/15/2018
+ms.date: 12/10/2018
 ms.author: v-jay
 ms.component: common
-ms.openlocfilehash: c6b81f09025abaed992bc46172d26f3bfb36ec2d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c5f79ada88955d8c6cf2f42e10af82696796174d
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656570"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029129"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure 导入/导出系统要求
 
@@ -29,6 +29,13 @@ ms.locfileid: "52656570"
 |---------|---------|
 |Windows     | Windows 7 企业版、Windows 7 旗舰版 <br> Windows 8 专业版、Windows 8 企业版、Windows 8.1 专业版、Windows 8.1 企业版 <br> Windows 10        |
 |Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012、Windows Server 2012 R2         |
+
+## <a name="other-required-software-for-windows-client"></a>Windows 客户端所需的其他软件
+
+|平台 |版本 |
+|---------|---------|
+|.NET framework    | 4.5.1       |
+| BitLocker        |  _          |
 
 
 ## <a name="supported-storage-accounts"></a>支持的存储帐户

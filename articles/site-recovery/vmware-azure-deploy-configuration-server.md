@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 07/06/2018
-ms.date: 09/24/2018
+origin.date: 11/18/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: fd0034f9043c19fb53dcfbaa02fd81e6f3adffc3
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ff82eaaa980c923779485185d6e98d83848691e0
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645331"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028602"
 ---
 # <a name="deploy-a-configuration-server"></a>部署配置服务器
 
@@ -119,6 +119,14 @@ ms.locfileid: "52645331"
 8. 选择“完成配置”以完成注册。
 9. 完成注册后，打开 Azure 门户，验证配置服务器和 VMware 服务器是否在“恢复服务保管库” > “管理” > “Site Recovery 基础结构” > “配置服务器”中列出。
 
+## <a name="upgrade-the-configuration-server"></a>升级配置服务器
+
+若要将配置服务器升级到最新版本，请按照这些[步骤](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)进行操作。
+
+## <a name="manage-the-configuration-server"></a>管理配置服务器
+
+为避免正在进行的复制中断，请确保在配置服务器注册到保管库后配置服务器的 IP 地址不会更改。 可以在[此处](vmware-azure-manage-configuration-server.md)了解有关常见配置服务器管理任务的详细信息。
+
 ## <a name="faq"></a>常见问题
 
 1. 可以使用安装有配置服务器的 VM 实现其他用途吗？
@@ -143,14 +151,6 @@ ms.locfileid: "52645331"
 
     在“恢复服务保管库”中，“管理” > “Site Recovery 基础结构” > “配置服务器”。 在“服务器”中，选择“下载注册密钥”以下载保管库凭据文件。
 
-## <a name="upgrade-the-configuration-server"></a>升级配置服务器
-
-若要将配置服务器升级到最新版本，请按照这些[步骤](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)进行操作。
-
-## <a name="manage-the-configuration-server"></a>管理配置服务器
-
-为避免正在进行的复制中断，请确保在配置服务器注册到保管库后配置服务器的 IP 地址不会更改。 可以在[此处](vmware-azure-manage-configuration-server.md)了解有关常见配置服务器管理任务的详细信息。
-
 ## <a name="troubleshoot-deployment-issues"></a>排查部署问题
 
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
@@ -159,4 +159,4 @@ ms.locfileid: "52645331"
 
 设置 [VMware VM](vmware-azure-tutorial.md) 到 Azure 的灾难恢复。
 
-<!-- Update_Description: update meta properties, wording update, add FAQ content -->
+<!-- Update_Description: update meta properties, wording update -->

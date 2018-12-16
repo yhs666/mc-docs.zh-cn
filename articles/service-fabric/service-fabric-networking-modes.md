@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/23/2018
-ms.date: 08/20/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5d2ab499764d8d205ddb3d631b9c603cae590cfa
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b9c11f50cf19862c7fdd8bc96aba47afece404c7
+ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658584"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52901109"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric 容器网络模式
 
