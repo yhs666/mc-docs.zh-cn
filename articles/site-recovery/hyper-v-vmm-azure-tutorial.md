@@ -4,17 +4,17 @@ description: 了解如何使用 Azure Site Recovery 服务设置 System Center V
 services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
-ms.topic: article
-origin.date: 07/06/2018
-ms.date: 09/17/2018
+ms.topic: conceptual
+origin.date: 10/28/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: d546d810389609038005884a9da65146feac540f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f1045844797f8bd1bc555e9ddf503bd0ba4fc3ac
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648425"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029122"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>设置 VMM 云中的本地 Hyper-V VM 到 Azure 的灾难恢复
 
@@ -124,4 +124,5 @@ Site Recovery 检查是否有一个或多个兼容的 Azure 存储帐户和网�
 
 ## <a name="next-steps"></a>后续步骤
 [运行灾难恢复演练](tutorial-dr-drill-azure.md)
+
 <!--Update_Description: update meta properties, wording update  -->

@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 10/01/2016
 ms.date: 01/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: 07c7dbe5f914657e5e19d597e105b162901863a2
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 591a2669ee224b01d7c4399957178ffa785aa781
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659773"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029056"
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>将现有 .NET Azure 移动服务升级到应用服务
 
@@ -33,11 +33,6 @@ ms.locfileid: "52659773"
 ##<a name="migrate-vs-upgrade"></a>迁移与升级
 
 [!INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
-
-> [!TIP]
-> 建议在升级之前先[执行迁移](app-service-mobile-migrating-from-mobile-services.md)。 这样，就能在同一个应用服务计划中放置两个版本的应用程序，且无需支付额外的费用。
->
->
 
 ###<a name="improvements-in-mobile-apps-net-server-sdk"></a>移动应用 .NET 服务器 SDK 改进
 
@@ -308,7 +303,5 @@ traceWriter.Info("Hello, World");
 [Azure 计划程序]: ../scheduler/index.md
 [Web 作业]: https://github.com/Azure/azure-webjobs-sdk/wiki
 [如何使用 .NET 服务器 SDK]: ./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Migrate from Mobile Services to an App Service Mobile App]: ./app-service-mobile-migrating-from-mobile-services.md
-[Migrate your existing Mobile Service to App Service]: ./app-service-mobile-migrating-from-mobile-services.md
 [应用服务定价]: https://www.azure.cn/pricing/details/app-service/
 [.NET 服务器 SDK 概述]: ./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
