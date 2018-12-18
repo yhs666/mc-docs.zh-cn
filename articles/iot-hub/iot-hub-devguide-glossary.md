@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 01/29/2018
 ms.author: v-yiso
 ms.date: 10/29/2018
-ms.openlocfilehash: 6f3c2e354beae50dc8e8a61f29288658e72273b3
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 42508446dd730ce0a093f2cdc2219546a97c8f1d
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651464"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028950"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT 中心术语表
 本文列出了一些在 IoT 中心文章中使用的常用术语。
@@ -184,7 +184,7 @@ IoT 中心是一项完全托管的 Azure 服务，可在数百万个设备和一
 使用 [IoT 中心资源 REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource)，可以管理 [Azure 订阅](#subscription)中的 IoT 中心，包括创建、更新和删除中心等操作。
 
 ## <a name="iot-solution-accelerators"></a>IoT 解决方案加速器
-Azure IoT 解决方案加速器将多个 Azure 服务一起打包到解决方案中。 利用这些解决方案，能够快速开始使用常用 IoT 方案的端到端实现。 有关详细信息，请参阅 [什么是 Azure IoT 套件？](../iot-suite/iot-suite-overview.md)
+Azure IoT 解决方案加速器将多个 Azure 服务一起打包到解决方案中。 利用这些解决方案，能够快速开始使用常用 IoT 方案的端到端实现。 
 
 ## <a name="the-iot-extension-for-azure-cli"></a>适用于 Azure CLI 的 IoT 扩展 
 [适用于 Azure CLI 的 IoT 扩展](https://github.com/Azure/azure-iot-cli-extension)是一个跨平台的命令行工具。 使用该工具可以管理 [标识注册表](#identity-registry)中的设备、向设备发送消息和文件和接收来自设备的消息和文件，以及监视 IoT 中心的操作。

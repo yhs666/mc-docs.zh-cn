@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/24/2016
-ms.date: 06/11/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: f858224a7bd81b8a58eb493f0bffbccce4cdfeb5
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 2ff2c72ad6d8383f033207df5dfb30c90f4d0adc
+ms.sourcegitcommit: 1b6a310ba636b6dd32d7810821bcb79250393499
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647205"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53389366"
 ---
 # <a name="specifying-dns-settings-in-a-service-configuration-file"></a>在服务配置文件中指定 DNS 设置
 ## <a name="dns-elements"></a>DNS 元素
@@ -42,8 +42,8 @@ ms.locfileid: "52647205"
 ## <a name="see-also"></a>另请参阅
 [Azure 服务配置架构 (.cscfg)](https://msdn.microsoft.com/library/azure/ee758710)
 
-[Azure 虚拟网络配置架构](http://go.microsoft.com/fwlink/?LinkId=248093)
+[Azure 虚拟网络配置架构](https://go.microsoft.com/fwlink/?LinkId=248093)
 
 [使用网络配置文件配置虚拟网络](/virtual-network/virtual-networks-create-vnet-classic-portal)
-<!-- Not Available on [About Virtual Network settings in the Management Portal](http://go.microsoft.com/fwlink/?LinkId=248092) -->
+<!-- Not Available on [About Virtual Network settings in the Management Portal](https://go.microsoft.com/fwlink/?LinkId=248092) -->
 <!-- Update_Description: update meta properties -->

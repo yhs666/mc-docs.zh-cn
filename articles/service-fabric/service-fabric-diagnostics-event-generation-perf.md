@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/16/2018
-ms.date: 05/28/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 976903e609f78a44ec5cf5ca515a57a16b57b636
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 93fbc7755599fd146fa569f8f8ad893813fdaf6b
+ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660904"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52901147"
 ---
 # <a name="performance-metrics"></a>性能指标
 
@@ -83,6 +83,6 @@ Service Fabric 生成大量自定义性能计数器。 如果已安装 SDK，可
 
 ## <a name="next-steps"></a>后续步骤
 
-* 详细了解 Service Fabric 中的[平台级事件生成情况](service-fabric-diagnostics-event-generation-infra.md) <!-- Not Available on [OMS Agent](service-fabric-diagnostics-oms-agent.md)-->
+* 详细了解 Service Fabric 中的[平台级事件生成情况](service-fabric-diagnostics-event-generation-infra.md) <!-- Not Available on [Log Analytics agent](service-fabric-diagnostics-oms-agent.md)-->
 
-<!--Update_Description: update meta properties, update link  -->
+<!--Update_Description: update meta properties -->

@@ -9,12 +9,12 @@ origin.date: 10/30/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
 ms.component: alerts
-ms.openlocfilehash: ea7f5a6ae5fa505a7248dd58ea3cf828ad6607e5
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: b832a4151d116c28f4ba92ee14612eaf7ea57e85
+ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675053"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53219550"
 ---
 # <a name="overview-of-alerts-in-azure"></a>Azure 中的警报概述 
 
@@ -121,7 +121,7 @@ ms.locfileid: "52675053"
 | **监视器源** | **信号类型**  | **说明** | 
 |-------------|----------------|-------------|
 | 服务运行状况 | 活动日志  | 不支持。 请参阅[创建有关服务通知的活动日志警报](monitoring-activity-log-alerts-on-service-notifications.md)。  |
-| Application Insights | Web 可用性测试 | 不支持。 请参阅 [Web 测试警报](../application-insights/app-insights-monitor-web-app-availability.md)。 适用于任何经检测可将数据发送到 Application Insights 的网站。 网站的可用性或响应度低于预期时，就会收到通知。 |
+| Application Insights | Web 可用性测试 | 不支持。 适用于任何经检测可将数据发送到 Application Insights 的网站。 网站的可用性或响应度低于预期时，就会收到通知。 |
 
 ## <a name="all-alerts-page"></a>“所有警报”页 
 单击“总警报数”即可查看“所有警报”页。 在这里，可以查看在选定时间范围内创建的警报列表。 可以查看各个警报的列表，或包含这些警报的智能组列表。 选择页面顶部的标题可在视图之间进行切换。

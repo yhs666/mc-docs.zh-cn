@@ -4,21 +4,20 @@ description: 本文介绍如何配置流量管理器以将流量路由到 A/AAAA
 services: traffic-manager
 documentationcenter: ''
 author: rockboyfor
-manager: digimobile
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/10/2018
-ms.date: 11/12/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0bde336d2cc4470031e0d7d4feedea9bc2f7b6c2
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1aa6f84e64f31a0120596817c38df4e1e9002d6c
+ms.sourcegitcommit: 1b6a310ba636b6dd32d7810821bcb79250393499
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644417"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53389385"
 ---
 <!-- Verify sucessfully-->
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>在流量管理器中配置多值路由方法
@@ -81,5 +80,4 @@ ms.locfileid: "52644417"
 <!-- Not Available on [geographic routing method](traffic-manager-configure-geographic-routing-method.md)-->
 
 
-<!-- Update_Description: new articles on traffic manager configure multivalue routing method -->
-<!--ms.date: 11/12/2018-->
+<!-- Update_Description: update meta properties -->
