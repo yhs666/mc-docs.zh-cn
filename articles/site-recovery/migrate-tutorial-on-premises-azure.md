@@ -1,26 +1,25 @@
 ---
 title: 使用 Azure Site Recovery 将本地计算机迁移到 Azure | Azure
 description: 本文将介绍如何使用 Azure Site Recovery 将本地计算机迁移到 Azure。
-services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 09/12/2018
-ms.date: 09/24/2018
+origin.date: 10/28/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 83a9cb87b45869f23e11942e80af73d14b75592f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: cbcd0af1c93b20791b27a43cc6cb3b46d0c7f119
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666627"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028762"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>将本地计算机迁移到 Azure
 
 除了使用 [Azure Site Recovery](site-recovery-overview.md) 服务管理和协调本地计算机和 Azure VM 的灾难恢复以实现业务连续性和灾难恢复 (BCDR) 外，还可以使用 Site Recovery 管理本地计算机到 Azure 的迁移。
 
-本教程介绍如何将本地 VM 和物理服务器迁移到 Azure。 本教程介绍如何执行下列操作：
+本教程演示如何将本地 VM 和物理服务器迁移到 Azure。 本教程介绍如何执行下列操作：
 
 > [!div class="checklist"]
 > * 选择复制目标
@@ -33,7 +32,7 @@ ms.locfileid: "52666627"
 此教程为系列教程中的第三个教程。 本教程假设你已完成前面教程中的以下任务：
 
 1. [准备 Azure](tutorial-prepare-azure.md)
-2. 在本地准备 [VMware](vmware-azure-tutorial-prepare-on-premises.md) 或 [Hyper-V] (hyper-v-prepare-on-premises-tutorial.md) 服务器。
+2. 准备本地 [VMware](vmware-azure-tutorial-prepare-on-premises.md) 服务器或 [Hyper-V](hyper-v-prepare-on-premises-tutorial.md) 服务器。
 
 在开始之前，查看用于灾难恢复的 [VMware](vmware-azure-architecture.md) 或 [Hyper-V](hyper-v-azure-architecture.md) 体系结构会有所帮助。
 
@@ -58,11 +57,11 @@ ms.locfileid: "52666627"
 
 选择要复制的内容以及要复制到的位置。
 1. 单击“恢复服务保管库”> 保管库。
-2. 在“资源”菜单中，单击“Site Recovery” > “准备基础结构” > “保护目标”。
+2. 在“资源”菜单中，依次单击“Site Recovery” > “准备基础结构” > “保护目标”。
 3. 在“保护目标”中，选择要迁移的内容。
-    - VMware：选择“到 Azure” > “是，使用 VMWare vSphere 虚拟机监控程序”。
-    - “物理计算机”：选择“到 Azure” > “未虚拟化/其他”。
-    - Hyper-V：选择“到 Azure” > “是，使用 Hyper-V”。 如果 Hyper-V VM 由 VMM 管理，则选择“是”。
+    - **VMware**：选择“到 Azure” > “是，使用 VMWare vSphere 虚拟机监控程序”。
+    - **物理计算机**：选择“到 Azure” > “未虚拟化/其他”。
+    - **Hyper-V**：选择“到 Azure” > “是，使用 Hyper-V”。 如果 Hyper-V VM 由 VMM 管理，则选择“是”。
 
 ## <a name="set-up-the-source-environment"></a>设置源环境
 
@@ -74,9 +73,9 @@ ms.locfileid: "52666627"
 
 选择并验证目标资源。
 
-1. 单击“准备基础结构” > “目标”，然后选择要使用的 Azure 订阅。
+1. 单击“准备基础结构” > “目标”，并选择要使用的 Azure 订阅。
 2. 指定资源管理器部署模型。
-3. Site Recovery 检查是否有一个或多个兼容的 Azure 存储帐户和网络。
+3. Site Recovery 会检查是否有一个或多个兼容的 Azure 存储帐户和网络。
 
 ## <a name="set-up-a-replication-policy"></a>设置复制策略
 
@@ -103,7 +102,10 @@ ms.locfileid: "52666627"
 3. 加密密钥设置与此方案无关。
 4. 选择“在开始故障转移前关闭计算机”。 在触发故障转移之前，Site Recovery 会尝试关闭虚拟机。 即使关机失败，故障转移也仍会继续。 可以在“作业”页上跟踪故障转移进度。
 5. 检查 Azure VM 是否在 Azure 中按预期显示。
-6. 在“复制的项”中，右键单击 VM >“完成迁移”。 该操作将完成迁移过程、停止 VM 的复制，并停止对 VM 的 Site Recovery 计费。
+6. 在“复制的项”中，右键单击 VM >“完成迁移”。 这样会执行以下操作：
+
+    - 完成迁移过程，停止 AWS VM 复制，并停止 VM 的 Site Recovery 计费。
+    - 此步骤清除复制数据。 它不删除迁移的 VM。
 
     ![完成迁移](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
 
@@ -114,26 +116,26 @@ ms.locfileid: "52666627"
 
 ## <a name="after-migration"></a>迁移之后
 
-在计算机迁移到 Azure 后，应当完成许多步骤。
+计算机迁移到 Azure 后，有多个应完成的步骤。
 
 <!-- Not Available on [recovery plans]( https://docs.azure.cn/site-recovery/site-recovery-runbook-automation)-->
 
 ### <a name="post-migration-steps-in-azure"></a>Azure 中的迁移后步骤
 
-- 执行任何迁移后应用微调，例如，更新数据库连接字符串和 Web 服务器配置。 
-- 在当前在 Azure 中运行的迁移后应用程序上执行最终的应用程序和迁移验收测试。
-- [Azure VM 代理](/virtual-machines/extensions/agent-windows)管理 VM 与 Azure 结构控制器之间的交互。 它是某些 Azure 服务所必需的，例如 Azure 备份、Site Recovery 和 Azure 安全。
-    - 如果是迁移 VMware 计算机和物理服务器，则移动服务安装程序会在 Windows 计算机上安装可用的 Azure VM 代理。 在 Linux VM 上，建议你在故障转移后安装代理。 a
+- 执行任何迁移后的应用调整，例如更新数据库连接字符串和 Web 服务器配置。 
+- 对 Azure 中当前运行的迁移应用程序执行最终的应用程序和迁移验收测试。
+- [Azure VM 代理](/virtual-machines/extensions/agent-windows)可管理 VM 与 Azure 结构控制器之间的交互。 某些 Azure 服务（例如 Azure 备份、Site Recovery 和 Azure 安全）需要 Azure VM 代理。
+    - 如果要迁移 VMware 机和物理服务器，移动服务安装程序会在 Windows 计算机上安装可用的 Azure VM 代理。 在 Linux VM 上，我们建议在故障转移后安装代理。 a
     - 如果是将 Azure VM 迁移到次要区域，则必须在迁移之前在 VM 上预配 Azure VM 代理。
     - 如果是将 Hyper-V VM 迁移到 Azure，请在迁移之后在 Azure VM 上安装 Azure VM 代理。
-- 手动从 VM 中删除任何 Site Recovery 提供程序/代理。 如果迁移 VMware VM 或物理服务器，请从 Azure VM 中[卸载移动服务][vmware-azure-install-mobility-service.md#uninstall-mobility-service-on-a-windows-server-computer]。
-- 为增强恢复能力，请采取以下措施：
-    - 通过使用 Azure 备份服务备份 Azure VM 来确保数据安全。 [了解详细信息]( https://docs.azure.cn/backup/quick-backup-vm-portal)。
-    - 通过使用 Site Recovery 将 Azure VM 复制到次要区域，使工作负荷保持运行并持续可用。 [了解详细信息](azure-to-azure-quickstart.md)。
-- 为提高安全性，请采取以下措施：
+- 手动从 VM 中删除任何 Site Recovery 提供程序/代理。 如果要迁移 VMware VM 或物理服务器，请从 Azure VM 中[卸载移动服务][vmware-azure-install-mobility-service.md#uninstall-mobility-service-on-a-windows-server-computer]。
+- 为提高恢复能力，请执行以下操作：
+    - 使用 Azure 备份服务备份 Azure VM 以保证数据安全。 [了解详细信息]( https://docs.azure.cn/backup/quick-backup-vm-portal)。
+    - 使用 Site Recovery 将 Azure VM 复制到次要区域以保证工作负荷运行且持续可用。 [了解详细信息](azure-to-azure-quickstart.md)。
+- 为提高安全性，请执行以下操作：
 
     <!-- Not Available on  [Just in time administration]( https://docs.azure.cn/security-center/security-center-just-in-time)-->
-    - 使用[网络安全组](/virtual-network/security-overview)限制到管理终结点的网络流量。
+    - 使用[网络安全组](/virtual-network/security-overview)限制流入管理终结点的网络流量。
     
     <!-- Not Available on  [Azure Disk Encryption](/security/azure-security-disk-encryption-overview)--> <!-- Not Available on  [securing IaaS resources]( https://www.azure.cn/services/virtual-machines/secure-well-managed-iaas/ )-->
     <!-- Not Available on  [Azure Security Center](https://www.azure.cn/home/features/security-center/ )-->
@@ -142,13 +144,13 @@ ms.locfileid: "52666627"
 
 ### <a name="post-migration-steps-on-premises"></a>本地的迁移后步骤
 
-- 将应用流量转移到在迁移后的 Azure VM 实例上运行的应用。
+- 将应用流量转移到在已迁移的 Azure VM 实例上运行的应用。
 - 从本地 VM 清单中删除本地 VM。
 - 从本地备份中删除本地 VM。
-- 更新任何内部文档，以显示 Azure VM 的新位置和 IP 地址。
+- 更新所有内部文档，以显示新的位置和 Azure VM 的 IP 地址。
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，我们已将本地 VM 迁移到 Azure VM。 现在，你可以为 Azure VM [设置到次要 Azure 区域的灾难恢复](azure-to-azure-replicate-after-migration.md)。
+在本教程中，已将本地 VM 迁移到 Azure VM。 现在可以为 Azure 区域设置到辅助 Azure 区域的[灾难恢复](azure-to-azure-replicate-after-migration.md)。
 
 <!-- Update_Description: update meta properties, update link, wording update -->
