@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 07/03/2018
-ms.date: 11/12/2018
+origin.date: 10/18/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: a18e6944af952b212e2f55fe8a35d0f94605f683
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c2eb04a2aef2ef818c468b6d8d7d28bf79bf8e5d
+ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653914"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53157400"
 ---
 # <a name="manage-analysis-services"></a>管理 Analysis Services
 在 Azure 中创建 Analysis Services 服务器后，可能会有一些需要立即执行或在稍后操作期间执行的管理任务。 例如，处理刷新数据、控制谁有权访问服务器上的模型，或者监视服务器的运行状况。 某些管理任务仅可在 Azure 门户中执行，而其他一些可在 SQL Server Management Studio (SSMS) 中执行，还有部分在两者中均可执行。
@@ -48,9 +48,7 @@ ms.locfileid: "52653914"
     > [!NOTE]
     > 如果使用 Microsoft 帐户、Live ID、Yahoo 等登录，请将密码字段留空。 单击“连接”后，系统将提示你输入密码。
     
-    <!-- Not Available on Gmail-->
-    
-    选择“Windows 身份验证”，以使用 Windows 域\用户名和密码凭据。
+    <!-- Not Available on Gmail--> 选择“Windows 身份验证”，以使用 Windows 域\用户名和密码凭据。
 
     **Active Directory 密码身份验证**，其使用组织帐户。 例如，从未加入域的计算机进行连接时。
 
@@ -66,8 +64,7 @@ Azure Analysis Services 中存在两种类型的用户，即服务器管理员�
 若在使用 SSMS 进行连接时遇到问题，则可能需要清除登录缓存。 光盘中不缓存任何内容。若要清除缓存，请关闭并重启连接进程。 
 
 ## <a name="next-steps"></a>后续步骤
-<!--Not Available on [Deploy to Azure Analysis Services](analysis-services-deploy.md)-->
 
-如果已将模型部署到服务器，可使用客户端或浏览器连接到该模型。 有关详细信息，请参阅[从 Azure Analysis Services 获取数据](analysis-services-connect.md)。
+<!--Not Available on [Deploy to Azure Analysis Services](analysis-services-deploy.md)--> 如果已将模型部署到服务器，可使用客户端或浏览器连接到该模型。 有关详细信息，请参阅[从 Azure Analysis Services 获取数据](analysis-services-connect.md)。
 
 <!--Update_Description: update meta properties -->

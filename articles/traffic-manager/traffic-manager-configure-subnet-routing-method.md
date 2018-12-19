@@ -4,21 +4,20 @@ description: 本文介绍了如何配置流量管理器以从特定子网路由�
 services: traffic-manager
 documentationcenter: ''
 author: rockboyfor
-manager: digimobile
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/17/2018
-ms.date: 11/12/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: bf655511be33a2359b575636661d5e10c2110dca
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f0d2412348baf15a750c1a9cf34356e33cbde50b
+ms.sourcegitcommit: 1b6a310ba636b6dd32d7810821bcb79250393499
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645858"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53389414"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>使用流量管理器，基于用户子网，将流量定向到特定终结点
 
@@ -90,7 +89,7 @@ ms.locfileid: "52645858"
 1. 在左侧菜单中选择“所有资源”，然后在资源列表中，单击位于 *myResourceGroupTM1* 资源组中的“myIISVMChinaEast”。
 2. 在“概述”页上单击“连接”，然后在“连接到虚拟机”中选择“下载 RDP 文件”。 
 3. 打开下载的 rdp 文件。 出现提示时，选择“连接”。 输入在创建 VM 时指定的用户名和密码。 可能需要选择“更多选择”，然后选择“使用其他帐户”，以指定在创建 VM 时输入的凭据。 
-4. 选择“确定” 。
+4. 选择“确定”。
 5. 你可能会在登录过程中收到证书警告。 如果收到警告，请选择“是”或“继续”以继续连接。
 6. 在服务器桌面上导航到“Windows 管理工具”>“服务器管理器”。
 7. 在 myIISVMChinaEast 上启动 Windows PowerShell，使用以下命令安装 IIS 服务器并更新默认的 htm 文件。
@@ -199,8 +198,8 @@ ms.locfileid: "52645858"
 4. 重复步骤 2 和 3，为名为 *myIISVMChinaNorth* 的 IIS 服务器 VM 所关联的公共 IP 地址 *myIISVMChinaNorth-ip* 添加名为 *myProductionEndpoint* 的另一个终结点。 对于“子网路由”设置，添加测试 VM myVMWestEurope 的 IP 地址。 源自此测试 VM 的任何用户查询都将路由到终结点 myProductionWebsiteEndpoint。
 5.  添加完这两个终结点后，这两个终结点会显示在“流量管理器配置文件”中，并且其监视状态为“联机”。
 
-    ![添加流量管理器终结点](./media/traffic-manager-subnet-routing-method/customize-endpoint-with-subnet-routing-chinaeast.png)
-
+    ![添加流量管理器终结点](./media/traffic-manager-subnet-routing-method/customize-endpoint-with-subnet-routing-eastus.png)
+    <!--Notice: should be routing-eastus.png-->
 ## <a name="test-traffic-manager-profile"></a>测试流量管理器配置文件
 本部分测试流量管理器如何将用户流量从给定子网路由到特定终结点。 若要查看流量管理器的运作方式，请完成以下步骤：
 1. 确定流量管理器配置文件的 DNS 名称。
@@ -225,7 +224,7 @@ ms.locfileid: "52645858"
 1. 在左侧菜单中选择“所有资源”，然后在资源列表中，单击位于 *myResourceGroupTM1* 资源组中的“myVMChinaEast”。
 2. 在“概述”页上单击“连接”，然后在“连接到虚拟机”中选择“下载 RDP 文件”。 
 3. 打开下载的 rdp 文件。 出现提示时，选择“连接”。 输入在创建 VM 时指定的用户名和密码。 可能需要选择“更多选择”，然后选择“使用其他帐户”，以指定在创建 VM 时输入的凭据。 
-4. 选择“确定” 。
+4. 选择“确定”。
 5. 你可能会在登录过程中收到证书警告。 如果收到警告，请选择“是”或“继续”以继续连接。 
 1. 在 VM *myVMChinaEast* 上的 Web 浏览器中，键入流量管理器配置文件的 DNS 名称，以查看网站。 由于 VM myVMChinaEast IP 地址与终结点 myIISVMChinaEast 关联，因此 Web 浏览器启动测试网站服务器 myIISVMChinaEast。
 
@@ -242,5 +241,4 @@ ms.locfileid: "52645858"
 - 了解[优先级路由方法](traffic-manager-configure-priority-routing-method.md)。
 <!-- Not Available on [geographic routing method](traffic-manager-configure-geographic-routing-method.md)-->
 
-<!-- Update_Description: new articles on traffic manager configure subnet routing method -->
-<!--ms.date: 11/12/2018-->
+<!-- Update_Description: wording update, update link -->

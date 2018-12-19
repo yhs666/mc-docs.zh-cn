@@ -10,23 +10,23 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-origin.date: 10/02/2018
-ms.date: 11/19/2018
+origin.date: 11/13/2018
+ms.date: 12/17/2018
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 5be337cb35773d61cd2dd890cf7ad0a4c73155be
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 095e9abdb597b6025738d7ffb171e6723fe3f8d4
+ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650701"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53286743"
 ---
 <!--Verify sucessfully-->
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>教程：在 Azure 资源管理器模板中使用条件
 
-了解如何根据条件部署 Azure 资源。 
+了解如何根据条件部署 Azure 资源。
 
-本教程中使用的方案类似于[教程：使用依赖资源创建 Azure 资源管理器模板](./resource-manager-tutorial-create-templates-with-dependent-resources.md)中使用的方案。 本教程介绍如何创建存储帐户、虚拟机、虚拟网络以及其他一些依赖资源。 无需创建新的存储帐户，可让用户选择创建新的存储帐户，或者使用现有的存储帐户。 为实现此目的，需定义附加的参数。 如果参数值为“new”，则创建新存储帐户。
+[设置资源部署顺序](./resource-manager-tutorial-create-templates-with-dependent-resources.md)教程介绍如何创建虚拟机、虚拟网络以及其他一些依赖资源（包括存储帐户）。 无需每次都创建新的存储帐户，可让用户选择是创建新的存储帐户还是使用现有的存储帐户。 为实现此目的，需定义附加的参数。 如果参数值为“new”，则创建新存储帐户。
 
 本教程涵盖以下任务：
 
@@ -42,7 +42,13 @@ ms.locfileid: "52650701"
 
 若要完成本文，需要做好以下准备：
 
-* 包含[资源管理器工具扩展](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)的 [Visual Studio Code](https://code.visualstudio.com/)
+* 包含[资源管理器工具扩展](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)的 [Visual Studio Code](https://code.visualstudio.com/)。
+* 若要提高安全性，请使用为虚拟机管理员帐户生成的密码。 以下是密码生成示例：
+
+    ```azurecli
+    openssl rand -base64 32
+    ```
+    Azure Key Vault 旨在保护加密密钥和其他机密。 有关详细信息，请参阅[教程：在资源管理器模板部署中集成 Azure Key Vault](./resource-manager-tutorial-use-key-vault.md)。 我们还建议你每三个月更新一次密码。
 
 ## <a name="open-a-quickstart-template"></a>打开快速入门模板
 
@@ -55,14 +61,29 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
 3. 选择“打开”以打开该文件。
-4. 选择“文件”>“另存为”，将该文件的副本保存到名为 **azuredeploy.json** 的本地计算机。
+4. 有五个通过此模板定义的资源：
+
+    * `Microsoft.Storage/storageAccounts`。
+    * `Microsoft.Network/publicIPAddresses`。
+    * `Microsoft.Network/virtualNetworks`。
+    * `Microsoft.Network/networkInterfaces`。
+    * `Microsoft.Compute/virtualMachines`。
+    
+    <!-- Not Available on  [template reference](https://docs.microsoft.com/zh-cn/azure/templates/Microsoft.Storage/storageAccounts)--> <!-- Not Available on  [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/publicipaddresses)-->
+    <!-- Not Available on  [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/virtualnetworks)-->
+    <!-- Not Available on  [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/networkinterfaces)-->
+    <!-- Not Available on  [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.compute/virtualmachines)-->
+    在自定义模板之前，不妨对其进行一些基本的了解。
+5. 选择“文件”>“另存为”，将该文件的副本保存到名为 **azuredeploy.json** 的本地计算机。
 
 ## <a name="modify-the-template"></a>修改模板
 
 对现有模板进行两项更改：
 
-* 添加用于提供存储帐户名称的参数。 此参数可让用户选择指定现有的存储帐户名称。 它也可以用作新存储帐户名称。
+* 添加存储帐户名称参数。 用户可以指定新的存储帐户名称或现有的存储帐户名称。
 * 添加名为 **newOrExisting** 的新参数。 部署使用此参数来确定是要创建新存储帐户还是使用现有的存储帐户。
+
+下面是进行更改的过程：
 
 1. 在 Visual Studio Code 中打开 **azuredeploy.json**。
 2. 在整个模板中，将 **variables('storageAccountName')** 替换为 **parameters('storageAccountName')**。  **variables('storageAccountName')** 有三种外观。
@@ -74,11 +95,15 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 4. 将以下两个参数添加到模板：
 
     ```json
-    "newOrExisting": {
-      "type": "string"
-    },
     "storageAccountName": {
       "type": "string"
+    },
+    "newOrExisting": {
+      "type": "string", 
+      "allowedValues": [
+        "new", 
+        "existing"
+      ]
     },
     ```
     更新的参数定义如下所示：
@@ -88,7 +113,7 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 5. 将以下行添加到存储帐户定义的开头。
 
     ```json
-    "condition": "[equals(parameters('newOrExisting'),'yes')]",
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
     ```
 
     该条件检查名为 **newOrExisting** 的参数的值。 如果参数值为 **new**，则部署将创建存储帐户。
@@ -96,28 +121,41 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
     更新的存储帐户定义如下所示：
 
     ![在资源管理器中使用条件](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
+6. 将 **storageUri** 更新为以下值：
 
-6. 保存更改。
+    ```json
+    "storageUri": "[concat('https://', parameters('storageAccountName'), '.blob.core.chinacloudapi.cn')]"
+    ```
+
+    如果使用另一资源组中的现有存储帐户，则此更改是必需的。
+
+7. 保存更改。
 
 ## <a name="deploy-the-template"></a>部署模板
 
 遵照[部署模板](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template)中的说明部署模板。
 
-使用 Azure PowerShell 部署模板时，需要指定一个附加参数：
+使用 Azure PowerShell 部署模板时，需要指定一个附加参数。 若要提高安全性，请使用为虚拟机管理员帐户生成的密码。 请参阅[先决条件](#prerequisites)。
 
 ```powershell
-$resourceGroupName = "<Enter the resource group name>"
-$storageAccountName = "Enter the storage account name>"
-$location = "<Enter the Azure location>"
-$vmAdmin = "<Enter the admin username>"
-$vmPassword = "<Enter the password>"
-$dnsLabelPrefix = "<Enter the prefix>"
+$deploymentName = Read-Host -Prompt "Enter the name for this deployment"
+$resourceGroupName = Read-Host -Prompt "Enter the resource group name"
+$storageAccountName = Read-Host -Prompt "Enter the storage account name"
+$newOrExisting = Read-Host -Prompt "Create new or use existing (Enter new or existing)"
+$location = Read-Host -Prompt "Enter the Azure location (i.e. chinaeast)"
+$vmAdmin = Read-Host -Prompt "Enter the admin username"
+$vmPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
+$dnsLabelPrefix = Read-Host -Prompt "Enter the DNS Label prefix"
 
 New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-$vmPW = ConvertTo-SecureString -String $vmPassword -AsPlainText -Force
-New-AzureRmResourceGroupDeployment -Name mydeployment0710 -ResourceGroupName $resourceGroupName `
-    -TemplateFile azuredeploy.json -adminUsername $vmAdmin -adminPassword $vmPW `
-    -dnsLabelPrefix $dnsLabelPrefix -storageAccountName $storageAccountName -newOrExisting "new"
+New-AzureRmResourceGroupDeployment -Name $deploymentName `
+    -ResourceGroupName $resourceGroupName `
+    -adminUsername $vmAdmin `
+    -adminPassword $vmPassword `
+    -dnsLabelPrefix $dnsLabelPrefix `
+    -storageAccountName $storageAccountName `
+    -newOrExisting $newOrExisting `
+    -TemplateFile azuredeploy.json
 ```
 
 > [!NOTE]
@@ -136,10 +174,9 @@ New-AzureRmResourceGroupDeployment -Name mydeployment0710 -ResourceGroupName $re
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，我们开发了一个允许用户选择创建新存储帐户或使用现有存储帐户的模板。 本教程中创建的虚拟机需要管理员用户名和密码。 在部署期间无需传递密码，可以使用 Azure Key Vault 预先存储密码，并在部署期间检索该密码。 若要了解如何从 Azure Key Vault 检索机密并在模板部署中使用这些机密，请参阅：
+在本教程中，我们开发了一个允许用户选择创建新存储帐户或使用现有存储帐户的模板。 若要了解如何从 Azure Key Vault 检索机密并在模板部署中使用这些机密作为密码，请参阅：
 
 > [!div class="nextstepaction"]
 > [在模板部署中集成 Key Vault](./resource-manager-tutorial-use-key-vault.md)
 
-<!-- Update_Description: new articles on resource manager turorial use conditions -->
-<!--ms.date: 11/19/2018-->
+<!-- Update_Description: update meta properties, wording update -->

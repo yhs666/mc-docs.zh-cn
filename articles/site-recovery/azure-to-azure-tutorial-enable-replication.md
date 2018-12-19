@@ -6,20 +6,20 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 10/10/2018
-ms.date: 11/19/2018
+origin.date: 11/18/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: dacc04f2551e0b532e18a0889622207eb6383ed9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 7f405008454ed403cc6365a9b3f95fb2fdddc5dc
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644917"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028665"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>为 Azure VM 设置到 Azure 次要区域的灾难恢复
 
-[Azure Site Recovery](site-recovery-overview.md) 服务可管理和协调本地计算机和 Azure 虚拟机 (VM) 的复制、故障转移和故障回复，进而有利于灾难恢复策略。
+[Azure Site Recovery](site-recovery-overview.md) 服务可管理和协调本地计算机和 Azure 虚拟机 (VM) 的复制、故障转移和故障回复，因而有利于灾难恢复策略。
 
 本教程演示了如何为 Azure VM 设置到辅助 Azure 区域的灾难恢复。 本教程介绍如何执行下列操作：
 
@@ -28,6 +28,9 @@ ms.locfileid: "52644917"
 > * 验证目标资源设置
 > * 为 VM 设置出站访问
 > * 为虚拟机启用复制
+
+> [!NOTE]
+> 本文说明了如何使用最简单的设置来部署灾难恢复。 若要了解自定义的设置，请查看[“操作方法”部分](azure-to-azure-how-to-enable-replication.md)的文章。 o
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -52,20 +55,19 @@ ms.locfileid: "52644917"
 
 ## <a name="verify-target-resources"></a>验证目标资源
 
-1. 验证 Azure 订阅是否允许在用于灾难恢复的目标区域中创建 VM。 请联系支持部门，启用所需配额。
-
-2. 确保订阅中有足够的资源，能够支持大小与源 VM 匹配的 VM。 Site Recovery 会为目标 VM 选择相同的大小或尽可能接近的大小。
+1. 验证 Azure 订阅是否允许在目标区域中创建 VM。 请联系支持部门，启用所需配额。
+2. 确保订阅中有足够的资源，能够支持与源 VM 匹配的 VM 大小。 Site Recovery 会为目标 VM 选择相同的大小或尽可能接近的大小。
 
 ## <a name="configure-outbound-network-connectivity"></a>配置出站网络连接
 
-要使 Site Recovery 按预期工作，需在希望复制的 VM 中对出站网络连接进行一些更改。
+若要使 Site Recovery 按预期工作，需在要复制的 VM 中对出站网络连接进行修改。
 
-- Site Recovery 不支持使用身份验证代理来控制网络连接。
-- 如果使用身份验证代理，则无法启用复制。
+> [!NOTE]
+> Site Recovery 不支持使用身份验证代理来控制网络连接。
 
 ### <a name="outbound-connectivity-for-urls"></a>URL 的出站连接
 
-如果使用基于 URL 的防火墙代理来控制出站连接，请允许访问 Site Recovery 使用的以下 URL。
+如果使用基于 URL 的防火墙代理来控制出站连接，请允许访问以下 URL。
 
 | **URL** | **详细信息** |
 | ------- | ----------- |
@@ -76,22 +78,20 @@ ms.locfileid: "52644917"
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>IP 地址范围的出站连接
 
-如果想要使用 IP 地址而不是 URL 控制出站连接，请将相应的数据中心范围、Office 365 地址和服务终结点地址加入到基于 IP 的防火墙、代理或 NSG 规则的允许列表。
+如果想要使用 IP 地址而不是 URL 来控制出站连接，请允许将这些地址用于基于 IP 的防火墙、代理或 NSG 规则。
 
-  - [Azure 数据中心 IP 范围](http://www.microsoft.com/download/details.aspx?id=42064)
-  - [德国的 Windows Azure 数据中心 IP 范围](http://www.microsoft.com/download/details.aspx?id=54770)
-  - [中国的 Windows Azure 数据中心 IP 范围](http://www.microsoft.com/download/details.aspx?id=42064)
+  <!--Not Available on - [Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=42064)--> <!--Not Available on - [Windows Azure Datacenter IP Ranges in Germany](http://www.microsoft.com/download/details.aspx?id=54770)-->
+  - [中国的 Windows Azure 数据中心 IP 范围](https://www.microsoft.com/download/details.aspx?id=42064)
   - [Office 365 URL 和 IP 地址范围](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
-  - [Site Recovery 服务终结点 IP 地址](https://aka.ms/site-recovery-public-ips)
+  <!--Not Available on - [Site Recovery service endpoint IP addresses](https://aka.ms/site-recovery-public-ips)-->
 
 可以使用此[脚本](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702)创建所需的 NSG 规则。
 
 ## <a name="verify-azure-vm-certificates"></a>验证 Azure VM 证书
 
-检查所有最新的根证书是否在想要复制的 Windows 或 Linux VM 上。 如果没有最新的根证书，则 VM 会由于安全约束而无法注册到 Site Recovery。
+检查要复制的 VM 是否有最新的根证书。 如果没有，则 VM 会由于安全约束而无法注册到 Site Recovery。
 
 - 对于 Windows VM，请在 VM 上安装所有最新的 Windows 更新，使所有受信任的根证书位于该计算机上。 在未联网的环境中，请按照你的组织的标准 Windows 更新和证书更新过程执行操作。
-
 - 对于 Linux VM，请遵循 Linux 分销商提供的指导，在 VM 上获取最新的受信任根证书和证书吊销列表。
 
 ## <a name="set-permissions-on-the-account"></a>设置帐户权限
@@ -113,10 +113,9 @@ Azure Site Recovery 提供了三个用于控制 Site Recovery 管理操作的内
 1. 在“恢复服务保管库”中，单击保管库名称 >“+复制”。
 2. 在“源”中，选择“Azure”。
 3. 在“源位置”中，选择当前运行 VM 的 Azure 源区域。
-4. 为 VM 选择 Azure 虚拟机部署模型：“资源管理器”或“经典”。
-5. 选择运行虚拟机的**源订阅**。 这可以是存在恢复服务保管库的同一 Azure Active Directory 租户中的任何订阅。
-6. 为资源管理器 VM 选择“源资源组”，为经典 VM 选择“云服务”。
-7. 单击“确定”  保存设置。
+4. 选择运行虚拟机的**源订阅**。 这可以是存在恢复服务保管库的同一 Azure Active Directory 租户中的任何订阅。
+5. 为资源管理器 VM 选择“源资源组”，为经典 VM 选择“云服务”。
+6. 单击“确定”  保存设置。
 
 ### <a name="select-the-vms"></a>选择 VM
 
@@ -127,74 +126,65 @@ Site Recovery 检索与订阅和资源组/云服务关联的 VM 列表。
 
 ### <a name="configure-replication-settings"></a>配置复制设置
 
-Site Recovery 会针对目标区域创建默认设置和复制策略。 你可以根据需要更改设置。
+Site Recovery 会针对目标区域创建默认设置和复制策略。 可以根据需要更改设置。
 
 1. 单击“设置”查看目标设置和复制设置。
 2. 若要重写默认目标设置，请单击“资源组、网络、存储和可用性集”旁边的“自定义”。
 
   ![配置设置](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
-- **目标订阅**：用于灾难恢复的目标订阅。 默认情况下，目标订阅将与源订阅相同。 单击“自定义”以在同一 Azure Active Directory 租户中选择其他目标订阅。
+3. 自定义目标设置如下：
 
-- **目标位置**：用于灾难恢复的目标区域。 建议选择与 Site Recovery 保管库位置匹配的目标位置。
+    - **目标订阅**：用于灾难恢复的目标订阅。 默认情况下，目标订阅将与源订阅相同。 单击“自定义”以在同一 Azure Active Directory 租户中选择其他目标订阅。
+    - **目标位置**：用于灾难恢复的目标区域。 建议选择与 Site Recovery 保管库位置匹配的目标位置。
+    - **目标资源组**：故障转移后，目标区域中用于容纳 Azure VM 的资源组。 默认情况下，Site Recovery 会在目标位置中创建一个带有“asr”后缀的新资源组。 目标资源组的资源组位置可以是除托管源虚拟机的区域以外的任何区域。
+    - **目标虚拟网络**：故障转移后，目标区域中 VM 所位于的网络。
+      默认情况下，Site Recovery 会在目标位置中创建一个带有“asr”后缀的新虚拟网络（以及子网）。
+    - **缓存存储帐户**：Site Recovery 使用源区域中的一个存储帐户。 复制到目标位置之前，对源 VM 的更改将发送到此帐户。
+    - **目标存储帐户（如果源 VM 不使用托管磁盘）**：默认情况下，Site Recovery 会在目标区域中创建新存储帐户，从而形成源 VM 存储帐户的镜像。
+    - **副本托管磁盘（如果源 VM 使用托管磁盘）**：默认情况下，Site Recovery 在目标区域创建托管磁盘副本，以生成和源 VM 的托管磁盘存储类型一致（标准或高级）的镜像磁盘。
+    - **目标可用性集**：默认情况下，Site Recovery 会在目标区域中创建一个带有“asr”后缀的新可用性集。 如果 VM 是源区域中一个集的一部分，则仅可添加可用性集。
 
-- **目标资源组**：故障转移后，目标区域中用于容纳 Azure VM 的资源组。 默认情况下，Site Recovery 会在目标位置中创建一个带有“asr”后缀的新资源组。 目标资源组的资源组位置可以是除托管源虚拟机的区域以外的任何区域。
+4. 若要自定义复制策略设置，请单击“复制策略”旁边的“自定义”，然后根据需要修改以下设置。
 
-- **目标虚拟网络**：故障转移后，目标区域中 VM 所位于的网络。
-  默认情况下，Site Recovery 会在目标位置中创建一个带有“asr”后缀的新虚拟网络（以及子网）。
+    - **复制策略名称**：策略名称。
+    - **恢复点保留期**：默认情况下，Site Recovery 会将恢复点保留 24 小时。 可将此值配置为 1 - 72 小时。
+    - **应用一致性快照频率**：默认情况下，Site Recovery 每隔 4 小时创建应用一致性快照。 可将此值配置为 1 - 12 小时之间的任何值。 “应用一致”快照是 VM 内应用程序数据的时间点快照。 卷影复制服务 (VSS) 确保 VM 上的应用在拍摄快照时处于一致状态。
+    - **复制组**：如果应用程序需要跨 VM 的多 VM 一致性，可为这些 VM 创建一个复制组。 默认情况下，所选的 VM 不属于任何复制组。
 
-- **缓存存储帐户**：Site Recovery 使用源区域中的一个存储帐户。 复制到目标位置之前，对源 VM 的更改将发送到此帐户。
+5. 若要将 VM 添加到新的或现有的复制组，请在“自定义”中选择“是”以确保多 VM 一致性。 使 VM 成为复制组的一部分。 。
 
-- **目标存储帐户（如果源 VM 不使用托管磁盘）**：默认情况下，Site Recovery 会在目标区域中创建新存储帐户，从而形成源 VM 存储帐户的镜像。
-
-- **托管磁盘副本（如果源 VM 使用托管磁盘）**：默认情况下，Site Recovery 在目标区域新建托管磁盘副本，以生成和源 VM 的托管磁盘存储类型一致（标准或高级）的镜像磁盘。
-
-- **目标可用性集**：默认情况下，Site Recovery 会在目标区域中创建一个带有“asr”后缀的新可用性集。 如果 VM 是源区域中一个集的一部分，则仅可添加可用性集。
-
-若要重写默认复制策略设置，请单击“复制策略”旁边的“自定义”。  
-
-- **复制策略名称**：策略名称。
-
-- **恢复点保留期**： 默认情况下，Site Recovery 会将恢复点保留 24 小时。 可将此值配置为 1 - 72 小时。
-
-- **“应用一致”快照频率**：默认情况下，Site Recovery 每隔 4 小时拍摄 1 次“应用一致”快照。 可将此值配置为 1 - 12 小时之间的任何值。 “应用一致”快照是 VM 内应用程序数据的时间点快照。 卷影复制服务 (VSS) 确保 VM 上的应用在拍摄快照时处于一致状态。
-
-- **复制组**：如果应用程序需要跨 VM 的多 VM 一致性，可为这些 VM 创建一个复制组。 默认情况下，所选的 VM 不属于任何复制组。
-
-  单击“复制策略”旁边的“自定义”，然后对于多 VM 一致性选择“是”，使 VM 成为复制组的一部分。 可以创建新的复制组，也可以使用现有复制组。 选择要属于复制组的 VM，并单击“确定”。
-
-> [!IMPORTANT]
-  故障转移时，复制组中的所有计算机将具有共享的崩溃一致性恢复点和应用程序一致性恢复点。 启用多 VM 一致性可能会影响工作负荷性能，因此，仅当计算机运行相同的工作负荷并且需要跨多个计算机的一致性时，才应使用该设置。
-
-> [!IMPORTANT]
-  如果启用了多 VM 一致性，则复制组中的计算机将通过端口 20004 相互通信。 确保防火墙设备没有阻止 VM 之间通过端口 20004 进行的内部通信。 如果想要 Linux VM 成为复制组的一部分，请确保按照特定 Linux 版本的指南手动打开端口 20004 上的出站流量。
+    - 故障转移时，复制组中的所有计算机将具有共享的崩溃一致性恢复点和应用程序一致性恢复点。 启用多 VM 一致性可能会影响工作负荷性能，因此，仅当计算机运行相同的工作负荷并且需要跨多个计算机的一致性时，才应使用该设置。
+    - 如果启用了多 VM 一致性，则复制组中的计算机将通过端口 20004 相互通信。 确保防火墙设备没有阻止 VM 之间通过端口 20004 进行的内部通信。 如果想要 Linux VM 成为复制组的一部分，请确保按照特定 Linux 版本的指南手动打开端口 20004 上的出站流量。
 
 <!--Pending for Verify later-->
 ### <a name="configure-encryption-settings"></a>配置加密设置
 
-如果源虚拟机启用了 Azure 磁盘加密 (ADE)，则会显示以下加密设置部分。
+如果源虚拟机启用了 Azure 磁盘加密 (ADE)，则加密设置会如下所示：
 
-- **磁盘加密密钥保管库**：默认情况下，Azure Site Recovery 会在目标区域中创建新的密钥保管库，其名称具有基于源 VM 磁盘加密密钥的“asr”后缀。 如果 Azure Site recovery 创建的密钥保管库已存在，则会重复使用。
-- **密钥加密密钥保管库**：默认情况下，Azure Site Recovery 会在目标区域中创建新的密钥保管库，其名称具有基于源 VM 密钥加密密钥的“asr”后缀。 如果 Azure Site recovery 创建的密钥保管库已存在，则会重复使用。
+1. 查看加密设置。
+    - **磁盘加密 Key Vault**：默认情况下，Azure Site Recovery 会在目标区域中创建新的 Key Vault，其名称具有基于源 VM 磁盘加密密钥的“asr”后缀。 如果 Azure Site recovery 创建的密钥保管库已存在，则会重复使用。
+    - **密钥加密 Key Vault**：默认情况下，Azure Site Recovery 会在目标区域中创建新的 Key Vault，其名称具有基于源 VM 密钥加密密钥的“asr”后缀。 如果 Azure Site recovery 创建的密钥保管库已存在，则会重复使用。
 
-单击加密设置旁边的“自定义”可替代默认值并选择自定义密钥保管库。
+2. 单击“自定义”，选择自定义密钥保管库。
 
 >[!NOTE]
->Azure Site Recovery 目前仅支持运行 Windows OS 且[已使用 Azure AD 应用启用加密](https://aka.ms/ade-aad-app)的 Azure VM。
+>Azure Site Recovery 目前仅支持运行 Windows 操作系统且已使用 Azure AD 应用启用加密的 Azure VM。
 >
+
+<!--Not Available on [enabled for encryption with Azure AD app](/security/azure-security-disk-encryption-windows-aad)-->
 <!--Pending for Verify later-->
 
 ### <a name="track-replication-status"></a>跟踪复制状态
 
 1. 在“设置”中，单击“刷新”以获取最新状态。
-
-2. 可以在“设置”>“作业”>“Site Recovery 作业”中，跟踪“启用保护”作业的进度。
-
-3. 在“设置” > “复制的项”中，可以查看 VM 的状态和初始复制进度。 单击 VM，向下钻取其设置。
+2. 跟踪进度和状态，如下所示：
+    - 在“设置” > “作业” > “Site Recovery 作业”中，跟踪“启用保护”作业的进度。
+    - 在“设置” > “复制的项”中，可以查看 VM 的状态和初始复制进度。 单击 VM，向下钻取其设置。
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，已经为 Azure VM 配置了灾难恢复。 下一步骤是对配置进行测试。
+在本教程中，已经为 Azure VM 配置了灾难恢复。 现在可以启动一个灾难恢复演练，检查故障转移是否按预期工作。
 
 > [!div class="nextstepaction"]
 > [运行灾难恢复演练](azure-to-azure-tutorial-dr-drill.md)
