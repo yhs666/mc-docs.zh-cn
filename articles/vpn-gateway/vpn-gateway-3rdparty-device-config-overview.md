@@ -3,8 +3,8 @@ title: 用于连接到 Azure VPN 网关的合作伙伴 VPN 设备配置 | Micros
 description: 本文提供用于连接到 Azure VPN 网关的合作伙伴 VPN 设备配置的概述。
 services: vpn-gateway
 documentationcenter: na
-author: yushwang
-manager: rossort
+author: WenJason
+manager: digimobile
 editor: ''
 tags: ''
 ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/20/2017
-ms.date: 06/14/2018
-ms.author: v-junlch
-ms.openlocfilehash: 04a4dd5a7655bfd027ce6783b30a96eddb0b064c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/10/2018
+ms.author: v-jay
+ms.openlocfilehash: 35e7cce78f33162f5bc53abd87b61f9437d8e4f0
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646811"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028246"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>合作伙伴 VPN 设备配置概述
 本文提供有关配置用于连接到 Azure VPN 网关的本地 VPN 设备的概述。 示例 Azure 虚拟网络和 VPN 网关设置用于演示如何使用相同参数连接到不同的本地 VPN 设备配置。
@@ -58,7 +58,7 @@ Azure VPN 网关使用标准 IPsec/IKE 协议套件建立站点到站点 (S2S) V
 ```powershell
 # Declare your variables
 
-$Sub1          = "Replace_With_Your_Subcription_Name"
+$Sub1          = "Replace_With_Your_Subscription_Name"
 $RG1           = "TestRG1"
 $Location1     = "China North"
 $VNetName1     = "TestVNet1"
@@ -126,8 +126,8 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupNam
 
 
 示例脚本使用以下算法和参数创建 IPsec/IKE 策略：
-- IKEv2：AES256、SHA384、DHGroup24
-- IPsec：AES256、SHA1、PFS24、SA 生存期 7200 秒和 20480000KB (20GB)
+* IKEv2：AES256、SHA384、DHGroup24
+* IPsec：AES256、SHA1、PFS24、SA 生存期 7,200 秒和 20,480,000 KB (20 GB)
 
 该脚本应用 IPsec/IKE 策略，并对连接启用“UsePolicyBasedTrafficSelectors”选项。
 
@@ -143,13 +143,13 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupNam
 ### <a name ="bgp"></a>（可选）在 S2S VPN 连接中使用 BGP
 创建 S2S VPN 连接时，可选择性地使用[用于 VPN 网关的 BGP](vpn-gateway-bgp-resource-manager-ps.md)。 这种方法有两点不同：
 
-- 本地地址前缀可以是单个主机地址。 本地 BGP 对等 IP 地址指定如下：
+* 本地地址前缀可以是单个主机地址。 本地 BGP 对等 IP 地址指定如下：
 
     ```powershell
     New-AzureRmLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG1 -Location $Location1 -GatewayIpAddress $LNGIP5 -AddressPrefix $LNGPrefix50 -Asn $LNGASN5 -BgpPeeringAddress $BGPPeerIP5
     ```
 
-- 在创建连接时，必须将“-EnableBGP”选项设置为 $True：
+* 在创建连接时，必须将“-EnableBGP”选项设置为 $True：
 
     ```powershell
     New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $True

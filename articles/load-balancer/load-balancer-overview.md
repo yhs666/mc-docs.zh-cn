@@ -11,14 +11,14 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/20/2018
-ms.date: 11/26/2018
+ms.date: 12/06/2018
 ms.author: v-jay
-ms.openlocfilehash: 7c2bef85b024232601c451af253988664e539120
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: c22507466fcb023e42ed8d701f742cce8c57de53
+ms.sourcegitcommit: 6e07735318eb5f6ea319b618863259088eab3722
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673159"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52981652"
 ---
 # <a name="what-is-azure-load-balancer"></a>什么是 Azure 负载均衡器？
 
@@ -41,7 +41,7 @@ Azure 负载均衡器以两种 SKU 提供：“基本”和“标准”。 规�
 
 
 >[!NOTE]
-> Azure 为方案提供了一套完全托管的负载均衡解决方案。 若要寻求传输层安全性 (TLS) 协议终止（“SSL 卸载”）或每个 HTTP/HTTPS 请求的应用层处理，请查看[应用程序网关](../application-gateway/application-gateway-introduction.md)。 若要寻求全局 DNS 负载均衡，请查看[流量管理器](../traffic-manager/traffic-manager-overview.md)。 端到端场景可从结合所需的解决方案中受益。
+> Azure 为方案提供了一套完全托管的负载均衡解决方案。 若要寻求传输层安全性 (TLS) 协议终止（“SSL 卸载”）或每个 HTTP/HTTPS 请求的应用层处理，请查看[应用程序网关](../application-gateway/overview.md)。 若要寻求全局 DNS 负载均衡，请查看[流量管理器](../traffic-manager/traffic-manager-overview.md)。 端到端场景可从结合所需的解决方案中受益。
 
 ## <a name="what-are-load-balancer-resources"></a>什么是负载均衡器资源？
 
@@ -63,7 +63,7 @@ Azure 负载均衡器以两种 SKU 提供：“基本”和“标准”。 规�
 
     ![基于哈希的分发](./media/load-balancer-overview/load-balancer-distribution.png)
 
-    *图：基于哈希的分配*
+    *图：基于哈希的分发*
 
 * **端口转发**
 
@@ -163,7 +163,7 @@ Azure 负载均衡器以两种 SKU 提供：“基本”和“标准”。 规�
 ## <a name="limitations"></a>限制
 
 - 负载均衡器属于 TCP 或 UDP 产品，用于对这些特定的 IP 协议进行负载均衡和端口转发。  负载均衡规则和入站 NAT 规则支持 TCP 和 UDP，但不支持其他 IP 协议（包括 ICMP）。 负载均衡器不会终止、响应 UDP 或 TCP 流的有效负载，也不与之交互。 它不是一个代理。 必须使用负载均衡或入站 NAT 规则（TCP 或 UDP）中所用的同一协议在带内成功验证与前端的连接，并且必须至少有一个虚拟机为客户端生成了响应，这样才能看到前端发出的响应。  未从前端负载均衡器收到带内响应即表明没有任何虚拟机能够做出响应。  在虚拟机都不能做出响应的情况下，无法与负载均衡器前端交互。  这一点也适用于出站连接，其中的[端口伪装 SNAT](load-balancer-outbound-connections.md#snat) 仅支持 TCP 和 UDP；其他任何 IP 协议（包括 ICMP）也会失败。  分配实例级公共 IP 地址即可缓解问题。
-- 公共负载均衡器在将虚拟网络中的专用 IP 地址转换为公共 IP 地址时提供[出站连接](load-balancer-outbound-connections.md)，而内部负载均衡器则与此不同，它不会将出站发起连接转换为内部负载均衡器的前端，因为两者都位于专用 IP 地址空间中。  这可以避免不需要转换的唯一内部 IP 地址空间内发生 SNAT 端口耗尽。  负面影响是，如果来自后端池中 VM 的出站流尝试流向其所在池中的内部负载均衡器前端，并映射回到自身，则这两个流的分支不会匹配，并且该流将会失败。  如果该流未映射回到后端池中的同一 VM（在前端中创建了流的 VM），则该流将会成功。   如果流映射回到自身，则出站流显示为源自 VM 并发往前端，并且相应的入站流显示为源自 VM 并发往自身。 从来宾 OS 的角度看，同一流的入站和出站部分在虚拟机内部不匹配。 TCP 堆栈不会将同一流的这两半看作是同一流的组成部分，因为源和目标不匹配。  当流映射到后端池中的任何其他 VM 时，流的两半将会匹配，且 VM 可以成功响应流。  此方案的缺点在于，当流返回到发起该流的同一后端时将出现间歇性的连接超时。 可通过几种常用解决方法来可靠地实现此方案（从后端池发起流，并将其传送到后端池的相应内部负载均衡器前端），包括在内部负载均衡器后方插入代理层，或[使用 DSR 式规则](load-balancer-multivip-overview.md)。  客户可将内部负载均衡器与任何第三方代理相结合，或使用内部[应用程序网关](../application-gateway/application-gateway-introduction.md)替代限制为 HTTP/HTTPS 的代理方案。 尽管可以使用公共负载均衡器来缓解问题，但最终的方案很容易导致 [SNAT 耗尽](load-balancer-outbound-connections.md#snat)，除非有精心的管理，否则应避免这种做法。
+- 公共负载均衡器在将虚拟网络中的专用 IP 地址转换为公共 IP 地址时提供[出站连接](load-balancer-outbound-connections.md)，而内部负载均衡器则与此不同，它不会将出站发起连接转换为内部负载均衡器的前端，因为两者都位于专用 IP 地址空间中。  这可以避免不需要转换的唯一内部 IP 地址空间内发生 SNAT 端口耗尽。  负面影响是，如果来自后端池中 VM 的出站流尝试流向其所在池中的内部负载均衡器前端，并映射回到自身，则这两个流的分支不会匹配，并且该流将会失败。  如果该流未映射回到后端池中的同一 VM（在前端中创建了流的 VM），则该流将会成功。   如果流映射回到自身，则出站流显示为源自 VM 并发往前端，并且相应的入站流显示为源自 VM 并发往自身。 从来宾 OS 的角度看，同一流的入站和出站部分在虚拟机内部不匹配。 TCP 堆栈不会将同一流的这两半看作是同一流的组成部分，因为源和目标不匹配。  当流映射到后端池中的任何其他 VM 时，流的两半将会匹配，且 VM 可以成功响应流。  此方案的缺点在于，当流返回到发起该流的同一后端时将出现间歇性的连接超时。 可通过几种常用解决方法来可靠地实现此方案（从后端池发起流，并将其传送到后端池的相应内部负载均衡器前端），包括在内部负载均衡器后方插入代理层，或[使用 DSR 式规则](load-balancer-multivip-overview.md)。  客户可将内部负载均衡器与任何第三方代理相结合，或使用内部[应用程序网关](../application-gateway/overview.md)替代限制为 HTTP/HTTPS 的代理方案。 尽管可以使用公共负载均衡器来缓解问题，但最终的方案很容易导致 [SNAT 耗尽](load-balancer-outbound-connections.md#snat)，除非有精心的管理，否则应避免这种做法。
 
 ## <a name="next-steps"></a>后续步骤
 

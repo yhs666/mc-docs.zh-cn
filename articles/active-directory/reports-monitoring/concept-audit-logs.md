@@ -13,38 +13,36 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-origin.date: 04/19/2018
-ms.date: 08/28/2018
+origin.date: 11/13/2018
+ms.date: 12/06/2018
 ms.author: v-junlch
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d28b1c842010674e348da72f38947e2884e63bc5
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a53648627cdd2ee02a064c1055af5ff4be02660b
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652445"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028608"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 门户中的“审核活动”报告 
 
-通过 Azure Active Directory (Azure AD) 中的报告，可以获取确定环境运行状况所需的信息。
+通过 Azure Active Directory (Azure AD) 报告，可以获取确定环境运行状况所需的信息。
 
-Azure AD 中的报告体系结构由以下部分组成：
+报告体系结构包括以下组件：
 
 - **活动** 
-    - **审核日志** - 针对 Azure AD 中的各种功能所做的所有更改进行日志记录，通过这些日志提供可跟踪性。 审核日志的示例包括对 Azure AD 中的任何资源（例如用户、应用、组、角色、策略、身份验证等）所做的更改。
+    - **审核日志** - 针对 Azure AD 中的各种功能所做的所有更改进行日志记录，通过这些日志提供可跟踪性。 审核日志的示例包括对 Azure AD 中的任何资源（例如添加或删除用户、应用、组、角色和策略）所做的更改。
 
-本主题对审核活动进行了概述。
+本文概述了审核报告。
  
 ## <a name="who-can-access-the-data"></a>谁可以访问该数据？
-- 安全管理员或安全读者角色中的用户
-- 全局管理员
-- 各用户（非管理员）可以查看自己的活动
 
+- 具有**安全管理员**、**安全读者**或**全局管理员**角色的用户
+- 此外，所有用户（非管理员）都可以都查看其自己的审核活动
 
 ## <a name="audit-logs"></a>审核日志
 
-Azure Active Directory 中的审核日志为符合性提供系统活动的记录。  
-所有审核数据的第一个入口点为 **Azure Active Directory** 的“活动”部分中的“审核日志”。
+Azure AD 审核日志提供系统活动的记录以实现符合性。 若要访问审核数据，请在 **Azure Active Directory** 的“活动”部分中选择“审核日志”。 
 
 ![审核日志](./media/concept-audit-logs/61.png "审核日志")
 
@@ -65,15 +63,14 @@ Azure Active Directory 中的审核日志为符合性提供系统活动的记录
 
 ![审核日志](./media/concept-audit-logs/21.png "审核日志")
 
-
-通过单击列表视图中的项，可以获得已提供的所有相关详情。
+选择列表视图中的某个项可获得更详细的信息。
 
 ![审核日志](./media/concept-audit-logs/22.png "审核日志")
 
 
 ## <a name="filtering-audit-logs"></a>筛选审核日志
 
-要将所报告数据的范围缩小到适当的级别，可以使用以下字段筛选审核数据：
+可以根据以下字段筛选审核数据：
 
 - 日期范围
 - 发起者（参与者/执行组件）
@@ -93,7 +90,7 @@ Azure Active Directory 中的审核日志为符合性提供系统活动的记录
 
 选择自定义时间范围时，可以配置开始时间和结束时间。
 
-“发起者”筛选器用于定义参与者的名称或其通用主体名称 (UPN)。
+“发起者”筛选器用于定义参与者的名称或通用主体名称 (UPN)。
 
 “类别”筛选器用于选择下述筛选器之一：
 
@@ -123,14 +120,14 @@ Azure Active Directory 中的审核日志为符合性提供系统活动的记录
 
 “活动”筛选器基于类别以及所做的活动资源类型选择。 可以选择要查看的特定活动，也可以全选。 
 
-若要获取所有审核活动的列表，可以使用图形 API https://graph.chinacloudapi.cn/$tenantdomain/activities/auditActivityTypes?api-version=beta，其中， $tenantdomain 为域名，也可以参阅[审核报告事件](concept-audit-logs.md)一文。
+若要获取所有审核活动的列表，可以使用图形 API https://graph.chinacloudapi.cn/$tenantdomain/activities/auditActivityTypes?api-version=beta，其中， $tenantdomain 为域名，也可以参阅[审核报告事件](reference-audit-activities.md)一文。
 
 
 ## <a name="audit-logs-shortcuts"></a>审核日志快捷方式
 
 除了 **Azure Active Directory**，Azure 门户还提供了两个额外的进行数据审核的入口点：
 
-- 用户
+- 用户和组
 - 企业应用程序
 
 ### <a name="users-and-groups-audit-logs"></a>用户和组审核日志
@@ -153,7 +150,7 @@ Azure Active Directory 中的审核日志为符合性提供系统活动的记录
 
 - 向组或用户分配了哪些许可证？
 
-如果只想查看与用户相关的审核数据，可以在“用户”的“活动”部分中的“审核日志”下方查找筛选视图。 此入口点已将“用户”作为预先选择的“活动资源类型”。
+如果只想查看与用户和组相关的审核数据，可以在“用户”和“组”的“活动”部分中的“审核日志”下方查找筛选视图。 
 
 ![审核日志](./media/concept-audit-logs/93.png "审核日志")
 
@@ -161,24 +158,23 @@ Azure Active Directory 中的审核日志为符合性提供系统活动的记录
 
 通过基于应用程序的审核报表，可以获得如下问题的答案：
 
-- 已添加或更新的应用程序有哪些？
-- 已删除的应用程序有哪些？
-- 应用程序的服务原则是否有变化？
+- 添加或更新了哪些应用程序？
+- 删除了哪些应用程序？
+- 应用程序的服务主体是否有变化？
 - 应用程序的名称是否已更改？
 - 哪些用户同意使用应用程序？
 
-如果只想查看与应用程序相关的审核数据，可以在“企业应用程序”边栏选项卡的“活动”部分中的“审核日志”下方查找筛选视图。 此入口点已将“企业应用程序”作为预先选择的“活动资源类型”。
+如果希望查看与应用程序相关的审核数据，可以在“企业应用程序”边栏选项卡的“活动”部分中的“审核日志”下方查找筛选视图。 此入口点已将“企业应用程序”预先选择为“活动资源类型”。
 
 ![审核日志](./media/concept-audit-logs/134.png "审核日志")
+
+可以将此视图向下筛选到“组”或“用户”。
 
 ![审核日志](./media/concept-audit-logs/25.png "审核日志")
 
 
-
 ## <a name="next-steps"></a>后续步骤
 
-- 有关报告的概述，请参阅 [Azure Active Directory 报告](overview-reports.md)。
-
-- 有关所有审核活动的完整列表，请参阅 [Azure AD 审核活动参考](reference-audit-activities.md)。
-
+- [Azure AD 审核活动参考](reference-audit-activities.md)
+- [Azure AD 日志延迟参考](reference-reports-latencies.md)
 

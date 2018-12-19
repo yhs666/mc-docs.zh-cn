@@ -1,5 +1,5 @@
 ---
-title: 安装已发布的应用程序 - StreamSets Data Collector - Azure HDInsight
+title: 安装已发布应用程序 - StreamSets 数据收集器 - Azure HDInsight
 description: 安装并使用 StreamSets Data Collector 第三方 Hadoop 应用程序。
 services: hdinsight
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.workload: big-data
 origin.date: 01/10/2018
 ms.author: v-yiso
 ms.date: 03/26/2018
-ms.openlocfilehash: 43d771e0b13eb898f07d2b166f5fe8efd13cf75c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a23f663c79a95c36d4447aec18dbbf61aa01cc43
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659960"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028423"
 ---
 # <a name="install-published-application---streamsets-data-collector"></a>安装已发布应用程序 - StreamSets Data Collector
 
@@ -82,7 +82,6 @@ StreamSets Data Collector 旨在在管道中从逻辑上隔离每个阶段，因
 
 * [StreamSets Data Collector 文档](https://streamsets.com/documentation/datacollector/latest/help/#Getting_Started/GettingStarted_Title.html#concept_htw_ghg_jq)。
 * [安装自定义 HDInsight 应用程序](hdinsight-apps-install-custom-applications.md)：了解如何将未发布的 HDInsight 应用程序部署到 HDInsight。
-* [发布 HDInsight 应用程序](hdinsight-apps-publish-applications.md)：了解如何将自定义 HDInsight 应用程序发布到 Azure 市场。
 * [MSDN：安装 HDInsight 应用程序](https://msdn.microsoft.com/library/mt706515.aspx)：了解如何定义 HDInsight 应用程序。
 * [使用脚本操作自定义基于 Linux 的 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)：了解如何使用脚本操作安装其他应用程序。
 * [在 HDInsight 中使用空边缘节点](hdinsight-apps-use-edge-node.md)：了解如何使用空边缘节点访问 HDInsight 群集、测试和托管 HDInsight 应用程序。

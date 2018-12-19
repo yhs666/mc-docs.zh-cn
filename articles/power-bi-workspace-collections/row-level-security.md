@@ -8,14 +8,14 @@ ms.service: power-bi-embedded
 ms.topic: article
 ms.workload: powerbi
 origin.date: 09/20/2017
-ms.date: 09/26/2018
+ms.date: 11/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: da843851df4b37e5a7ecc0485c66d5d72ce75c07
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 17e607e34da71c712c0ea57bde5dd64ea713a9b4
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666624"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028282"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>将行级别安全性用于 Power BI 工作区集合
 
@@ -36,7 +36,7 @@ ms.locfileid: "52666624"
 
 ### <a name="example"></a>示例
 
-本文的余下部分将提供编写 RLS，然后在嵌入式应用程序中使用 RLS 的示例。 本例使用[零售分析示例](http://go.microsoft.com/fwlink/?LinkID=780547) PBIX 文件。
+本文的余下部分将提供编写 RLS，然后在嵌入式应用程序中使用 RLS 的示例。 本例使用[零售分析示例](https://go.microsoft.com/fwlink/?LinkID=780547) PBIX 文件。
 
 ![示例销售报表](./media/row-level-security/scenario-2.png)
 
@@ -88,7 +88,7 @@ RLS 是在 Power BI Desktop 中编写的。 打开数据集和报表时，可以
 1. “文件” -> “选项和设置” -> “预览功能” -> “为 DirectQuery 启用两个方向的交叉筛选”。
 2. “文件” -> “选项和设置” -> “DirectQuery” -> “允许 DirectQuery 模式下不受限制的度量”。
 
-若要了解有关双向交叉筛选的详细信息，请下载 [Bidirectional cross-filtering in SQL Server Analysis Services 2016 and Power BI Desktop](http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional%20cross-filtering%20in%20Analysis%20Services%202016%20and%20Power%20BI.docx)（SQL Server Analysis Services 2016 和 Power BI Desktop 中的双向交叉筛选）白皮书。
+若要了解有关双向交叉筛选的详细信息，请下载 [Bidirectional cross-filtering in SQL Server Analysis Services 2016 and Power BI Desktop](https://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional%20cross-filtering%20in%20Analysis%20Services%202016%20and%20Power%20BI.docx)（SQL Server Analysis Services 2016 和 Power BI Desktop 中的双向交叉筛选）白皮书。
 
 这就是需要在 Power BI Desktop 中完成的所有工作，但要使定义的 RLS 规则能够在 Power BI Embedded 中正常运行，还有一个小问题需要解决。 用户由应用程序进行身份验证和授权，应用令牌用于授予用户对特定 Power BI Embedded 报表的访问权限。 Power BI Embedded 并不具体地知道谁是用户。 要使 RLS 正常运行，需要将一些附加上下文作为应用令牌的一部分传递：
 
@@ -122,4 +122,4 @@ to
 
 有更多问题？ [试用 Power BI 社区](http://community.powerbi.com/)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: link update -->

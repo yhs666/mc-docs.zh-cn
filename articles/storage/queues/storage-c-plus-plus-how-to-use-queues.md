@@ -1,26 +1,22 @@
 ---
-title: 如何使用队列存储 (C++) | Azure
+title: 如何使用队列存储 (C++) | Microsoft Docs
 description: 了解如何在 Azure 中使用队列存储服务。 示例用 C++ 编写。
 services: storage
-documentationcenter: .net
-author: hayley244
-manager: digimobile
-editor: tysonn
-ms.assetid: c8a36365-29f6-404d-8fd1-858a7f33b50a
+author: WenJason
 ms.service: storage
-ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: cpp
 ms.topic: article
 origin.date: 05/11/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 54cf3edb205b22709f10efbbb7f248f6dcd31191
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/10/2018
+ms.author: v-jay
+ms.component: queues
+ms.openlocfilehash: 68032747eab23ff0c644491d6b41ae5e96e14c48
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52667215"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028277"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>如何通过 C++ 使用队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -47,7 +43,7 @@ ms.locfileid: "52667215"
 若要安装适用于 C++ 的 Azure 存储客户端库，可使用以下方法：
 
 * **Linux：** 按照[适用于 C++ 的 Azure 存储客户端库自述文件](https://github.com/Azure/azure-storage-cpp/blob/master/README.md)页中提供的说明操作。
-* **Windows：** 在 Visual Studio 中，单击“工具”>“NuGet 包管理器”>“程序包管理器控制台”。 在 [NuGet 包管理器控制台](http://docs.nuget.org/docs/start-here/using-the-package-manager-console)中，键入以下命令，并按 **ENTER**。
+* **Windows:** 在 Visual Studio 中，单击“工具”>“NuGet 包管理器”>“包管理器控制台”。 在 [NuGet 包管理器控制台](http://docs.nuget.org/docs/start-here/using-the-package-manager-console)中，键入以下命令，并按 **ENTER**。
 
 ```  
 Install-Package wastorage
@@ -81,7 +77,7 @@ const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;
 下面的示例假定使用了这两个方法之一来获取存储连接字符串。
 
 ## <a name="retrieve-your-connection-string"></a>检索连接字符串
-可使用 **cloud_storage_account** 类来表示存储帐户信息。 若要从存储连接字符串中检索存储帐户信息，可以使用 **parse** 方法。
+可使用 **cloud_storage_account** 类来表示存储帐户信息。 要从存储连接字符串中检索存储帐户信息，可以使用 **parse** 方法。
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -176,7 +172,7 @@ queue.update_message(changed_message, std::chrono::seconds(60), true);
 std::wcout << U("Changed message content: ") << changed_message.content_as_string() << std::endl;  
 ```
 
-## <a name="how-to-de-queue-the-next-message"></a>如何：取消下一条消息的排队
+## <a name="how-to-de-queue-the-next-message"></a>如何：取消对下一条消息的排队
 代码通过两个步骤来取消对队列中某条消息的排队。 调用 **get_message** 时，会获得队列中的下一条消息。 从 **get_message** 返回的消息对从此队列读取消息的其他任何代码不可见。 若要完成从队列中删除消息，还必须调用 **delete_message**。 此删除消息的两步过程可确保，如果代码因硬件或软件故障而无法处理消息，则代码的其他实例可以获取相同消息并重试。 代码在处理消息后会立即调用 **delete_message**。
 
 ```cpp

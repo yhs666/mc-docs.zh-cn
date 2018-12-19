@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/11/2018
-ms.date: 11/12/2018
+origin.date: 11/19/2018
+ms.date: 12/17/2018
 ms.author: v-jay
 ms.reviewer: misainat
-ms.openlocfilehash: 9a6f25e7b0589ba3ff3854c252d8859714e60942
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: bcafc0f40da9ca9e0899904455ab8790138dbe9b
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660082"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396104"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack 注册
 可将 Azure Stack 开发工具包 (ASDK) 安装注册到 Azure，以便从 Azure 下载市场项，并设置向 Microsoft 报告商务数据的功能。 需要注册才能支持完整的 Azure Stack 功能，包括市场联合。 之所以建议注册，是因为这样可以测试重要的 Azure Stack 功能，例如市场联合和使用情况报告。 注册 Azure Stack 之后，使用情况将报告给 Azure 商业组件。 用于注册的订阅下会显示此信息。 但是，ASDK 用户无需付费，不管他们报告的用量是多少。
@@ -50,7 +50,7 @@ $ExecutionContext.SessionState.LanguageMode
 
     ```PowerShell  
     # Add the Azure cloud subscription environment name. 
-    # Supported environment names are AzureCloud or AzureChinaCloud depending which Azure subscription you are using.
+    # Supported environment name is AzureChinaCloud depending which Azure subscription you are using.
     Add-AzureRmAccount -EnvironmentName "AzureChinaCloud"
 
     # Register the Azure Stack resource provider in your Azure subscription
@@ -63,17 +63,98 @@ $ExecutionContext.SessionState.LanguageMode
     $AzureContext = Get-AzureRmContext
     $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
     $RegistrationName = "<unique-registration-name>"
-    $UsageReporting = $true # Set to $false if using the Capacity Billing model
     Set-AzsRegistration `
     -PrivilegedEndpointCredential $CloudAdminCred `
     -PrivilegedEndpoint AzS-ERCS01 `
     -BillingModel Development `
     -RegistrationName $RegistrationName `
-    -UsageReportingEnabled:$UsageReporting
+    -UsageReportingEnabled:$true
     ```
 3. 该脚本完成后，会显示以下消息：“现已使用提供的参数注册并激活环境”。
 
     ![环境现已注册](media/asdk-register/1.PNG)
+
+
+## <a name="register-in-disconnected-environments"></a>在离线环境中注册
+若要在离线环境（未建立 Internet 连接）中注册 Azure Stack，需要从 Azure Stack 环境获取注册令牌，然后在可连接到 Azure 的计算机上使用该令牌，并为 ASDK 环境创建激活资源。
+ 
+ > [!IMPORTANT]
+ > 在遵照这些说明注册 Azure Stack 之前，请确保根据[部署后的配置](asdk-post-deploy.md)一文中所述，在 ASDK 主机以及可访问 Internet 的、用于连接到 Azure 和注册的计算机上，安装适用于 Azure Stack 的 PowerShell 并下载 Azure Stack 工具。
+
+### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>从 Azure Stack 环境获取注册令牌
+在 ASDK 主机上，以管理员身份启动 PowerShell，并导航到下载 Azure Stack 工具时所创建的 **AzureStack-Tools-master** 目录中的 **Registration** 文件夹。 使用以下 PowerShell 命令导入 **RegisterWithAzure.psm1** 模块，然后使用 **Get-AzsRegistrationToken** cmdlet 获取注册令牌：  
+
+   ```PowerShell  
+   Import-Module .\RegisterWithAzure.psm1
+   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
+   $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
+   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $CloudAdminCred `
+   -UsageReportingEnabled:$false `
+   -PrivilegedEndpoint AzS-ERCS01 `
+   -BillingModel Development `
+   -MarketplaceSyndicationEnabled:$false `
+   -TokenOutputFilePath $FilePathForRegistrationToken
+   ```
+默认情况下，注册令牌保存在为 *$FilePathForRegistrationToken* 参数指定的文件中。 可以自行更改文件路径或文件名。
+
+保存此注册令牌，以便在连接到 Internet 的计算机上使用。 可以从 $FilePathForRegistrationToken 复制文件或文本。
+
+### <a name="connect-to-azure-and-register"></a>连接到 Azure 并注册
+在已连接到 Internet 的计算机上，以管理员身份启动 PowerShell，并导航到下载 Azure Stack 工具时所创建的 **AzureStack-Tools-master** 目录中的 **Registration** 文件夹。 使用以下 PowerShell 命令导入 **RegisterWithAzure.psm1** 模块，然后提供刚刚创建的注册令牌和唯一的注册名称，使用 **Register-AzsEnvironment** cmdlet 注册到 Azure：  
+
+  ```PowerShell  
+  $registrationToken = "<your registration token>"
+  $RegistrationName = "<unique registration name>"
+  Register-AzsEnvironment -RegistrationToken $registrationToken `
+  -RegistrationName $RegistrationName
+  ```
+
+或者，可以使用 **Get-Content** cmdlet 指向包含注册令牌的文件：
+
+  ```PowerShell  
+  $registrationToken = Get-Content -Path '<path>\<registration token file>'
+  Register-AzsEnvironment -RegistrationToken $registrationToken `
+  -RegistrationName $RegistrationName
+  ```
+
+保存注册令牌和注册资源名称，供以后参考。
+
+### <a name="retrieve-an-activation-key-from-the-azure-registration-resource"></a>从 Azure 注册资源检索激活密钥
+
+仍使用已连接到 Internet 的计算机，从注册到 Azure 时创建的注册资源中检索激活密钥。
+
+若要获取激活密钥，请运行以下 PowerShell 命令，使用在上一步骤中注册到 Azure 时提供的同一个唯一注册名称值：  
+
+  ```Powershell
+  $RegistrationResourceName = "<unique-registration-name>"
+  $KeyOutputFilePath = "$env:SystemDrive\ActivationKey.txt"
+  $ActivationKey = Get-AzsActivationKey -RegistrationName $RegistrationResourceName `
+  -KeyOutputFilePath $KeyOutputFilePath
+  ```
+
+激活密钥保存在为 *$KeyOutputFilePath* 指定的文件中。 可以自行更改文件路径或文件名。
+
+### <a name="create-an-activation-resource-in-azure-stack"></a>在 Azure Stack 中创建激活资源
+
+使用 **Get-AzsActivationKey** 从创建的激活密钥中获取文件或文本后，返回到 Azure Stack 环境。 运行以下 PowerShell 命令，使用该激活密钥在 Azure Stack 中创建激活资源：   
+
+  ```Powershell
+  $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
+  $ActivationKey = "<activation key>"
+  New-AzsActivationResource -PrivilegedEndpointCredential $CloudAdminCred `
+  -PrivilegedEndpoint AzS-ERCS01 `
+  -ActivationKey $ActivationKey
+  ```
+
+或者，可以使用 **Get-Content** cmdlet 指向包含注册令牌的文件：
+
+  ```Powershell
+  $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
+  $ActivationKey = Get-Content -Path '<path>\<Activation Key File>'
+  New-AzsActivationResource -PrivilegedEndpointCredential $CloudAdminCred `
+  -PrivilegedEndpoint AzS-ERCS01 `
+  -ActivationKey $ActivationKey
+  ```
 
 ## <a name="verify-the-registration-was-successful"></a>验证注册是否成功
 遵循以下步骤来验证 ASDK 是否已成功注册到 Azure。

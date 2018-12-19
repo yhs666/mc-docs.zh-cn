@@ -13,16 +13,17 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/30/2018
-ms.date: 08/20/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 4d571c0a0ada48db9d7d05327da94d4d4c016d3f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1f5cf245361bcc54af8dedc16881b1782e012d4a
+ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658502"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52901056"
 ---
+<!--Verify Successfully-->
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>快速入门：将 Windows 容器部署到 Service Fabric
 
 Azure Service Fabric 是一款分布式系统平台，可用于部署和管理可缩放的可靠微服务和容器。
@@ -51,24 +52,25 @@ Service Fabric SDK 和工具提供服务模板，用于将容器部署到 Servic
 
 以“管理员”身份启动 Visual Studio。  选择“文件” > “新建” > “项目”。
 
-选择“Service Fabric 应用程序”，将其命名为“MyFirstContainer”，并单击“确定”。
+选择“云” > “Service Fabric 应用程序”，将其命名为“MyFirstContainer”，并单击“确定”。
 
-从“托管的容器和应用程序”模板中选择“容器”。
+<!--Notice: We add **Cloud** to help user search **Service Fabric application**->
+Select **Container** from the **Hosted Containers and Applications** templates.
 
-在“映像名称”中输入“microsoft/iis:nanoserver”，即 [Windows Server Nano Server 和 IIS 基映像](https://hub.docker.com/r/microsoft/iis/)。
+In **Image Name**, enter "microsoft/iis:nanoserver", the [Windows Server Nano Server and IIS base image](https://hub.docker.com/r/microsoft/iis/).
 
-配置容器的“端口到主机”端口映射，使端口 80 上针对服务的传入请求映射到容器上的端口 80。  将“容器端口”设置为“80”并将“主机端口”设置为“80”。  
+Configure the container port-to-host port mapping so that incoming requests to the service on port 80 are mapped to port 80 on the container.  Set **Container Port** to "80" and set **Host Port** to "80".  
 
-将服务命名为“MyContainerService”，然后单击“确定”。
+Name your service "MyContainerService", and click **OK**.
 
-![新服务对话框][new-service]
+![New service dialog][new-service]
 
-## <a name="specify-the-os-build-for-your-container-image"></a>为容器映像指定 OS 版本
-使用特定 Windows Server 版本生成的容器可能无法在运行不同 Windows Server 版本的主机上运行。 例如，使用 Windows Server 版本 1709 生成的容器不会在运行 Windows Server 2016 的主机上运行。 若要了解更多信息，请参阅 [Windows Server 容器 OS 与主机 OS 的兼容性](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility)。 
+## Specify the OS build for your container image
+Containers built with a specific version of Windows Server may not run on a host running a different version of Windows Server. For example, containers built using Windows Server version 1709 do not run on hosts running Windows Server 2016. To learn more, see [Windows Server container OS and host OS compatibility](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility). 
 
-使用 Service Fabric 运行时版本 6.1 及更新版本，可以为每个容器指定多个 OS 映像，并使用它应该部署到的 OS 的内部版本来标记每个 OS 映像。 这有助于确保应用程序能够在运行不同版本 Windows 操作系统的主机上运行。 若要了解详细信息，请参阅[指定特定于 OS 内部版本的容器映像](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)。 
+With version 6.1 of the Service Fabric runtime and newer, you can specify multiple OS images per container and tag each with the build version of the OS that it should be deployed to. This helps to make sure that your application will run across hosts running different versions of Windows OS. To learn more, see [Specify OS build specific container images](service-fabric-get-started-containers.md#specify-os-build-specific-container-images). 
 
-Azure 为不同版本的 Windows Server 上生成的 IIS 版本发布不同的映像。 若要确保 Service Fabric 部署的容器与在部署应用程序的群集节点上运行的 Windows Server 版本兼容，请将以下行添加到 *ApplicationManifest.xml* 文件。 Windows Server 2016 的内部版本为 14393，Windows Server 版本 1709 的内部版本为 16299。 
+Azure publishes different images for versions of IIS built on different versions of Windows Server. To make sure that Service Fabric deploys a container compatible with the version of Windows Server running on the cluster nodes where it deploys your application, add the following lines to the *ApplicationManifest.xml* file. The build version for Windows Server 2016 is 14393 and the build version for Windows Server version 1709 is 16299. 
 
 ```xml
     <ContainerHostPolicies CodePackageRef="Code"> 
@@ -81,28 +83,11 @@ Azure 为不同版本的 Windows Server 上生成的 IIS 版本发布不同的�
     </ContainerHostPolicies> 
 ```
 
-服务清单继续为 nanoserver (`microsoft/iis:nanoserver`) 只指定一个映像。 
+The service manifest continues to specify only one image for the nanoserver, `microsoft/iis:nanoserver`. 
 
-## <a name="create-a-cluster"></a>创建群集
-
-若要将应用程序部署到 Azure 中的群集，该群集将使用单个自签名证书来确保节点到节点和客户端到节点的安全性。 如果决定设置并使用自己的群集，该群集必须在支持容器的 SKU（例如，包含容器的 Windows Server 2016 Datacenter）上运行。
-
+<!-- Not Available on ## Create a cluster-->
 <!-- Not Available on Join Party-->
 <!-- Not Available on [join a Windows cluster](http://aka.ms/tryservicefabric)-->
-
-在 Windows 计算机上，将 PFX 安装到 *CurrentUser\My* 证书存储中。
-
-```powershell
-PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:\CurrentUser\My -Password (ConvertTo-SecureString 873689604 -AsPlainText -Force)
-
-  PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
-
-Thumbprint                                Subject
-----------                                -------
-3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn
-```
-
-请记住以下步骤的指纹。
 
 ## <a name="deploy-the-application-to-azure-using-visual-studio"></a>使用 Visual Studio 将应用程序部署到 Azure
 
@@ -110,15 +95,39 @@ Thumbprint                                Subject
 
 在解决方案资源管理器中右键单击“MyFirstContainer”，选择“发布”。 此时，“发布”对话框显示。
 
-将 Party 群集页面中的“连接终结点”复制到“连接终结点”字段。 例如，`zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn:19000`。 单击“高级连接参数”，验证连接参数信息。  *FindValue* 和 *ServerCertThumbprint* 值必须与前一步骤中安装的证书的指纹匹配。
+1. 在“连接终结点”列表中选择 `<Create New Cluster...>` 的项。
+    ![创建新群集](./media/service-fabric-quickstart-containers/publish-app-chenye-step-1-create-new-cluster.png)
+    
+2. 设置“群集”选项卡信息。
+    ![设置群集信息](./media/service-fabric-quickstart-containers/publish-app-chenye-step-2-set-cluster.png)
+    
+3. 设置“证书”选项卡信息。
+    ![设置证书信息](./media/service-fabric-quickstart-containers/publish-app-chenye-step-3-set-certificate.png)
+    
+4. 设置“VM”选项卡信息，然后选择“创建”。
+    ![设置证书信息](./media/service-fabric-quickstart-containers/publish-app-chenye-step-4-set-vm.png)
 
-![“发布”对话框](./media/service-fabric-quickstart-containers/publish-app.png)
+5. 群集中的每个应用程序都必须具有唯一名称。 如果存在名称冲突，请重命名 Visual Studio 项目并重新部署。
+    <!--Not Available on Party clusters are a public, shared environment however and there may be a conflict with an existing application.-->
 
-单击“发布”。
+6. 登录到 [Azure 门户](https://portal.azure.cn)。 通过单击 **PFX** 链接，将 PFX 证书下载到计算机。 单击“如何连接到安全合作群集?”链接并复制证书密码。 后续步骤中需要使用证书、证书密码和“连接终结点”值。
 
-群集中的每个应用程序都必须具有唯一名称。  Party 群集是一个公共、共享的环境，但是可能与现有应用程序存在冲突。  如果存在名称冲突，请重命名 Visual Studio 项目并重新部署。
+    ![PFX 和连接终结点](./media/service-fabric-quickstart-containers/publish-app-chenye-download-certificate.png)
 
-打开浏览器并导航到“合作群集”页中指定的“连接终结点”。 可以选择性地在 URL 的前面添加方案标识符 `http://`，并在后面追加端口 `:80`。 例如， http://zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn:80。 此时会看到 IIS 默认网页：![IIS 默认网页][iis-default]
+    在 Windows 计算机上，将 PFX 安装到 *CurrentUser\My* 证书存储中。
+
+    ```powershell
+    PS C:\mycertificates> Import-PfxCertificate -FilePath .\<your-saved-certificate-name>.pfx -CertStoreLocation Cert:\CurrentUser\My -Password (ConvertTo-SecureString 873689604 -AsPlainText -Force)
+
+      PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+
+    Thumbprint                                Subject
+    ----------                                -------
+    3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn
+    ```
+
+
+7. 打开浏览器并导航到在群集页中指定的“连接终结点”。 可以选择性地在 URL 的前面添加方案标识符 `http://`，并在后面追加端口 `:80`。 例如， http://zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn:80。 此时会看到 IIS 默认网页：![IIS 默认网页][iis-default]
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -137,4 +146,5 @@ Thumbprint                                Subject
 [iis-default]: ./media/service-fabric-quickstart-containers/iis-default.png
 [publish-dialog]: ./media/service-fabric-quickstart-containers/publish-dialog.png
 [new-service]: ./media/service-fabric-quickstart-containers/NewService.png
+
 <!--Update_Description: wording update, update link -->

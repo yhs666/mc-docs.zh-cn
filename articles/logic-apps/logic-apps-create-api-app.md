@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 05/26/2017
 ms.date: 03/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: 4fa0a144bafcf4f93b9d87df5eb7ee3d11695456
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ea34aa9faae6d3124e03d6e78b83e7ea2d612f8c
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656515"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028696"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>创建可从 Azure 逻辑应用调用的自定义 API
 
@@ -44,8 +44,6 @@ ms.locfileid: "52656515"
 > * [Java](../app-service/app-service-web-get-started-java.md)
 > * [Node.js](../app-service/app-service-web-get-started-nodejs.md)
 > * [PHP](../app-service/app-service-web-get-started-php.md)
-> * [Python](../app-service/containers/quickstart-python.md)
-> * [Ruby](../app-service/containers/quickstart-ruby.md)
 >
 > 有关为逻辑应用生成的 API 应用示例，请访问 [Azure 逻辑应用 GitHub 存储库](http://github.com/logicappsio)或[博客](http://aka.ms/logicappsblog)。
 
@@ -64,8 +62,6 @@ ms.locfileid: "52656515"
 有关自定义连接器的详细信息，请参阅 
 
 * [自定义连接器概述](../logic-apps/custom-connector-overview.md)
-* [从 Web API 创建自定义连接器](../logic-apps/custom-connector-build-web-api-app-tutorial.md)
-* [在 Azure 逻辑应用中注册自定义连接器](../logic-apps/logic-apps-custom-connector-register.md)
 
 ## <a name="helpful-tools"></a>有用的工具
 
@@ -110,9 +106,9 @@ ms.locfileid: "52656515"
    
    `202 ACCEPTED` 响应应包含这些标头：
    
-   * 必需：用于指定逻辑应用引擎检查 API 作业状态的 URL 的绝对路径的 `location` 标头
+   * *必需*：用于指定逻辑应用引擎检查 API 作业状态的 URL 的绝对路径的 `location` 标头
 
-   * 可选：用于指定引擎检查 `location` URL 获知作业状态之前应等待秒数的 `retry-after` 标头。 
+   * *可选*：用于指定引擎检查 `location` URL 获知作业状态之前应等待秒数的 `retry-after` 标头。 
 
      默认情况下，引擎每隔 20 秒检查一次。 若要指定不同的时间间隔，请包括 `retry-after` 标头和下次轮询前的秒数。
 
@@ -142,7 +138,7 @@ ms.locfileid: "52656515"
 
 *  `subscribe` 终结点：当执行到达工作流中的 API 操作时，逻辑应用引擎调用 `subscribe` 终结点。 此步骤导致逻辑应用创建 API 将存储的回叫 URL，然后等待工作完成时 API 的回叫。 API 通过 HTTP POST 回叫 URL，并将任何返回的内容和标头作为输入传递到逻辑应用。
 
-* `unsubscribe` 终结点： 如果逻辑应用运行已取消，逻辑应用引擎将调用 `unsubscribe` 终结点。 然后 API 可以取消注册回叫 URL，并根据需要停止任何进程。
+* `unsubscribe` 终结点：如果逻辑应用运行已取消，逻辑应用引擎将调用 `unsubscribe` 终结点。 然后 API 可以取消注册回叫 URL，并根据需要停止任何进程。
 
 ![Webhook 操作模式](./media/logic-apps-create-api-app/custom-api-webhook-action-pattern.png)
 

@@ -1,22 +1,22 @@
 ---
-title: Azure Stack 网络的差异和注意事项 | Azure
+title: Azure Stack 网络的差异和注意事项 | Microsoft Docs
 description: 了解 Azure Stack 中网络的差异和用法注意事项。
 services: azure-stack
 keywords: ''
-author: mattbriggs
-manager: femila
-ms.author: v-junlch
-origin.date: 08/02/2018
-ms.date: 08/27/2018
+author: WenJason
+manager: digimobile
+origin.date: 10/22/2018
+ms.date: 12/17/2018
 ms.topic: article
 ms.service: azure-stack
+ms.author: v-jay
 ms.reviewer: scottnap
-ms.openlocfilehash: 10d5686b5c548475d26019a569a0409f9c32cb61
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 53e5204e9e9d3524a888b5506ee13b511827685c
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654658"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396165"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Azure Stack 网络注意事项
 
@@ -80,5 +80,3 @@ Azure Stack 网络具有许多由 Azure 网络提供的功能。 但是，在部
 ## <a name="next-steps"></a>后续步骤
 
 [Azure Stack 中的 DNS](azure-stack-dns.md)
-
-<!-- Update_Description: update sheet -->

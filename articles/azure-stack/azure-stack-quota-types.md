@@ -1,10 +1,10 @@
 ---
-title: Azure Stack 中的配额类型 | Azure
+title: Azure Stack 中的配额类型 | Microsoft Docs
 description: 查看可用于 Azure Stack 中的服务和资源的不同配额类型。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 07/30/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
+origin.date: 11/15/2018
+ms.date: 12/17/2018
+ms.author: v-jay
 ms.reviewer: xiaofmao
-ms.openlocfilehash: f4d9520c88a350815c684b1d82a95c06e5ae104e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b13fc2f46336a088afbb8456b9617abda61fe623
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666681"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396169"
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure Stack 中的配额类型
 
@@ -32,15 +32,17 @@ ms.locfileid: "52666681"
 ## <a name="compute-quota-types"></a>计算配额类型 
 | **类型** | **默认值** | **说明** |
 | --- | --- | --- |
-| 虚拟机的数目上限 | 20 个 | 订阅可以在此位置创建的虚拟机数目上限。 |
-| 虚拟机核心的数目上限 | 50 | 订阅可以在此位置创建的核心数目上限（例如，A3 VM 有四个核心）。 |
+| 虚拟机的数目上限 | 50 | 订阅可以在此位置创建的虚拟机数目上限。 |
+| 虚拟机核心的数目上限 | 100 | 订阅可以在此位置创建的核心数目上限（例如，A3 VM 有四个核心）。 |
 | 可用性集的数目上限 | 10 个 | 可以在此位置创建的可用性集数目上限。 |
-| 虚拟机规模集的数目上限 | 20 个 | 可以在此位置创建的虚拟机规模集数目上限。 |
+| 虚拟机规模集的数目上限 | 100 | 可以在此位置创建的虚拟机规模集数目上限。 |
+| 标准托管磁盘的最大容量 (GB) | 2048 | 可以在此位置中创建的标准托管磁盘的最大容量。 |
+| 高级托管磁盘的最大容量 (GB) | 2048 | 可以在此位置中创建的高级托管磁盘的最大容量。 |
 
 ## <a name="storage-quota-types"></a>存储配额类型 
 | **项目** | **默认值** | **说明** |
 | --- | --- | --- |
-| 最大容量 (GB) |500 |可供此位置的订阅使用的总存储容量。 |
+| 最大容量 (GB) |2048 |可供此位置的订阅使用的总存储容量。 |
 | 存储帐户的总数 |20 个 |订阅可以在此位置创建的存储帐户数目上限。 |
 
 > [!NOTE]  
@@ -50,13 +52,13 @@ ms.locfileid: "52666681"
 ## <a name="network-quota-types"></a>网络配额类型
 | **项目** | **默认值** | **说明** |
 | --- | --- | --- |
-| 公共 IP 的数目上限 |50 |订阅可以在此位置创建的公共 IP 数目上限。 |
-| 虚拟网络的数目上限 |50 |订阅可以在此位置创建的虚拟网络数目上限。 |
-| 虚拟网络网关的数目上限 |1 |订阅可以在此位置创建的虚拟网络网关（VPN 网关）数目上限。 |
-| 网络连接的数目上限 |2 |订阅可以在此位置跨所有虚拟网络网关创建的网络连接（点到点或站点到站点）数目上限。 |
-| 负载均衡器的数目上限 |50 |订阅可以在此位置创建的负载均衡器数目上限。 |
-| 最大 NIC 数 |100 |订阅可以在此位置创建的网络接口数目上限。 |
-| 网络安全组的数目上限 |50 |订阅可以在此位置创建的网络安全组数目上限。 |
+| 公共 IP 数目上限 |50 |订阅可以在此位置创建的公共 IP 数目上限。 |
+| 虚拟网络数目上限 |50 |订阅可以在此位置创建的虚拟网络数目上限。 |
+| 虚拟网络网关数目上限 |1 |订阅可以在此位置创建的虚拟网络网关（VPN 网关）数目上限。 |
+| 网络连接数目上限 |2 |订阅可以在此位置跨所有虚拟网络网关创建的网络连接（点到点或站点到站点）数目上限。 |
+| 负载均衡器数目上限 |50 |订阅可以在此位置创建的负载均衡器数目上限。 |
+| NIC 数目上限 |100 |订阅可以在此位置创建的网络接口数目上限。 |
+| 网络安全组数目上限 |50 |订阅可以在此位置创建的网络安全组数目上限。 |
 
 ## <a name="view-an-existing-quota"></a>查看现有配额
 1. 在管理门户的默认仪表板上，找到“资源提供程序”磁贴。

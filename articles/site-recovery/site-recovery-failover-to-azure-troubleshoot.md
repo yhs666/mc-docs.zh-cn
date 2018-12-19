@@ -1,26 +1,19 @@
 ---
-title: 对故障转移到 Azure 的故障进行排除 | Azure
-description: 本指南介绍如何解决在故障转移到 Azure 中的常见错误
-services: site-recovery
-documentationcenter: ''
+title: 对故障转移到 Azure 进行故障排除 | Azure
+description: 本文介绍如何排查使用 Azure Site Recovery 故障转移到 Azure 期间的常见问题。
 author: rockboyfor
 manager: digimobile
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
 origin.date: 09/11/2018
-ms.date: 09/24/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8c5eebd9b81c505d3f38b18abd5807307b1b6c5e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 42b2b642e07d8d984dd3ed3a7c7a22a6b148d9d3
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662206"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028515"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>解决从虚拟机到 Azure 的故障转移时出现的错误
 
@@ -30,7 +23,7 @@ ms.locfileid: "52662206"
 
 Site Recovery 无法在 Azure 中创建故障转移的虚拟机。 以下其中一个原因也可能导致此情况的发生：
 
-* 创建虚拟机的可用配额不足：你可以通过转到“订阅” -> “使用情况 + 配额”来检查可用配额。 可以打开 [新的支持请求](http://aka.ms/getazuresupport) 来增加此配额。
+* 没有足够的配额可用于创建虚拟机：可以通过转到“订阅” -> “使用情况 + 配额”来检查可用配额。 可以打开 [新的支持请求](https://support.windowsazure.cn/support/support-azure) 来增加此配额。
 
 * 尝试在同一个可用性集中故障转移不同大小系列的虚拟机。 确保在同一个可用性集中选择相同大小系列的所有虚拟机。 可以转到虚拟机的“计算和网络”设置来更改大小，然后重试故障转移。
 
@@ -38,7 +31,7 @@ Site Recovery 无法在 Azure 中创建故障转移的虚拟机。 以下其中�
 
 ## <a name="failover-failed-with-error-id-28092"></a>故障转移失败，错误 ID 为 28092
 
-Site Recovery 无法为故障转移的虚拟机创建网络接口。 请确保订阅中有足够的配额来创建网络接口。 可以通过转到“订阅” -> “使用情况 + 配额”来检查可用配额。 可以打开 [新的支持请求](http://aka.ms/getazuresupport) 来增加此配额。 如果你拥有足够的配额，则这可能是一个间歇性的问题，请重试该操作。 如果即使在重试后问题仍然存在，请在本文档结尾处留下注释。  
+Site Recovery 无法为故障转移的虚拟机创建网络接口。 请确保订阅中有足够的配额来创建网络接口。 可以通过转到“订阅” -> “使用情况 + 配额”来检查可用配额。 可以打开 [新的支持请求](https://support.windowsazure.cn/support/support-azure) 来增加此配额。 如果你拥有足够的配额，则这可能是一个间歇性的问题，请重试该操作。 如果即使在重试后问题仍然存在，请在本文档结尾处留下注释。  
 
 ## <a name="failover-failed-with-error-id-70038"></a>故障转移失败，错误 ID 为 70038
 
@@ -94,8 +87,7 @@ Site Recovery 无法在 Azure 中创建故障转移的经典虚拟机。 这可�
 - 对[到 Windows VM 的 RDP 连接](../virtual-machines/windows/troubleshoot-rdp-connection.md)进行故障排除
 - 对[到 Linux VM 的 SSH 连接](../virtual-machines/linux/detailed-troubleshoot-ssh-connection.md)进行故障排除
 
-如需更多帮助，请在 [Site Recovery 论坛](https://www.azure.cn/support/contact/)提出询问。
-<!--Notice: Remove   or leave a comment at the end of this document-->
-<!--Notice: Remove   We have an active community that should be able to assist you.-->
+如需更多帮助，请在 [Site Recovery 论坛](https://www.azure.cn/support/contact/)提出疑问。 我们的活动社区应能够为你提供帮助。
 
+<!--Notice: Remove   or leave a comment at the end of this document-->
 <!--Update_Description: update meta properties, wording update, update link -->

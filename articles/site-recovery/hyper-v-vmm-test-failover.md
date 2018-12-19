@@ -1,20 +1,19 @@
 ---
 title: 使用 Azure Site Recovery 运行将 Hyper-V VM 灾难恢复到辅助站点的演练 | Azure
-description: 了解如何使用 Azure Site Recovery 运行将 VMM 云中的 Hyper-V VM 灾难恢复到辅助数据中心的演练。
-services: site-recovery
+description: 了解如何使用 Azure Site Recovery 运行将 VMM 云中的 Hyper-V VM 灾难恢复到本地辅助数据中心的演练。
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 47bf35c204ee17907a8eb4355f5631539093dc28
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 50574b0fbf4154c5b0e73470cbd1248999436ff7
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664455"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028306"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>运行将 Hyper-V VM 灾难恢复到辅助站点的演练
 
@@ -34,8 +33,8 @@ ms.locfileid: "52664455"
     - **最新处理**：此选项将 VM 故障转移到由 Site Recovery 处理的最新恢复点。 此选项提供低 RTO（恢复时间目标），因为无需费时处理未经处理的数据。
     - **最新的应用一致**：此选项将 VM 故障转移到由 Site Recovery 处理的最新应用程序一致恢复点。 
     - **最新**：此选项首先处理已发送到 Site Recovery 服务的所有数据，为每个 VM 创建恢复点，然后将其故障转移到该恢复点。 此选项提供最低的 RPO（恢复点目标），因为故障转移后创建的 VM 具有触发故障转移时复制到 Site Recovery 的所有数据。
-    - **最新多 VM 已处理**：适用于包含一个或多个已启用多 VM 一致性的 VM 的恢复计划。 已启用该设置的 VM 会故障转移到最新的常用多 VM 一致恢复点。 其他 VM 故障转移到最新的已处理恢复点。
-    - **最新多 VM 应用一致性**：此选项适用于包含一个或多个已启用多 VM 一致性的 VM 的恢复计划。 属于复制组的 VM 会故障转移到最新的常用多 VM 应用程序一致恢复点。 其他 VM 故障转移到其最新的应用程序一致恢复点。
+    - **最新处理的多 VM**：适用于包含一个或多个已启用多 VM 一致性的 VM 的恢复计划。 已启用该设置的 VM 会故障转移到最新的常用多 VM 一致恢复点。 其他 VM 故障转移到最新的已处理恢复点。
+    - **最新的多 VM 应用一致**：此选项适用于包含一个或多个已启用多 VM 一致性的 VM 的恢复计划。 属于复制组的 VM 会故障转移到最新的常用多 VM 应用程序一致恢复点。 其他 VM 故障转移到其最新的应用程序一致恢复点。
     - **自定义**：使用此选项可将特定的 VM 故障转移到特定的恢复点。
 
 ## <a name="prepare-networking"></a>准备网络
@@ -94,8 +93,8 @@ ms.locfileid: "52664455"
 ### <a name="prepare-dns"></a>准备 DNS
 按如下所述准备 DNS 服务器以进行测试故障转移：
 
-* DHCP：如果虚拟机使用 DHCP，则应在测试 DHCP 服务器上更新测试 DNS 的 IP 地址。 如果使用的网络类型为 Windows 网络虚拟化，则 VMM 服务器充当 DHCP 服务器。 因此，应在测试性故障转移网络中更新 DNS 的 IP 地址。 在这种情况下，虚拟机向相关的 DNS 服务器注册自身。
-* 静态地址：如果虚拟机使用静态 IP 地址，则应在测试故障转移网络中更新测试 DNS 服务器的 IP 地址。 可能需要使用测试虚拟机的 IP 地址更新 DNS。 可以使用以下示例脚本实现此目的：
+* **DHCP**：如果虚拟机使用 DHCP，则应在测试 DHCP 服务器上更新测试 DNS 的 IP 地址。 如果使用的网络类型为 Windows 网络虚拟化，则 VMM 服务器充当 DHCP 服务器。 因此，应在测试性故障转移网络中更新 DNS 的 IP 地址。 在这种情况下，虚拟机向相关的 DNS 服务器注册自身。
+* **静态地址**：如果虚拟机使用静态 IP 地址，则应在测试故障转移网络中更新测试 DNS 服务器的 IP 地址。 可能需要使用测试虚拟机的 IP 地址更新 DNS。 可以使用以下示例脚本实现此目的：
 
         Param(
             [string]$Zone,
@@ -132,4 +131,5 @@ ms.locfileid: "52664455"
 
 ## <a name="next-steps"></a>后续步骤
 成功运行灾难恢复演练后，可以[运行完整故障转移](site-recovery-failover.md)。
+
 <!-- Update_Description: update meta properties -->

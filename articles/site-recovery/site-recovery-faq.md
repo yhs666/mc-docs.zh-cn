@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 10/10/2018
-ms.date: 11/19/2018
+origin.date: 10/28/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6d20a9b7fc59b6c4b5137e8655e2fe5596ea0725
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5eca4e208e7b6afd04fbd475d82fa44dd1e97063
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654657"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028521"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery：常见问题解答 (FAQ)
 本文包含有关 Azure Site Recovery 的常见问题。 如果在阅读本文后有任何问题，请在 [Azure 恢复服务论坛](https://www.azure.cn/support/contact/)上发布这些问题。
@@ -27,7 +27,7 @@ Site Recovery 可通过协调和自动运行区域之间的 Azure VM 复制、�
 * **Azure VM**：Site Recovery 可复制任意在支持的 Azure VM 上运行的工作负荷
 * **Hyper-V 虚拟机**：Site Recovery 可以保护 Hyper-V VM 上运行的任何工作负荷。
 * **物理服务器**：Site Recovery 可以保护运行 Windows 或 Linux 的物理服务器。
-* **VMware 虚拟机**：Site Recovery 可以保护 VMware VM 上运行的任何工作负荷。
+* **VMware 虚拟机**：Site Recovery 可以保护在 VMware VM 中运行的任何工作负荷。
 
 ### <a name="can-i-replicate-azure-vms"></a>我能否复制 Azure VM？
 可以，用户可在 Azure 区域间复制受支持的 Azure VM。 [了解详细信息](site-recovery-azure-to-azure.md)。
@@ -89,16 +89,16 @@ Azure Site Recovery 通过公共终结点将数据复制到 Azure 存储帐户�
 
 ### <a name="can-i-use-expressroute-to-replicate-virtual-machines-to-azure"></a>能否使用 ExpressRoute 将虚拟机复制到 Azure？
 能，[可以使用 ExpressRoute](concepts-expressroute-with-site-recovery.md) 将本地虚拟机复制到 Azure。 Azure Site Recovery 通过公共终结点将数据复制到 Azure 存储帐户。 需要设置[公共对等互连](../expressroute/expressroute-circuit-peerings.md#public-peering)将 ExpressRoute 用于 Site Recovery 复制。 在复制时，建议使用 Microsoft 对等互连作为路由域。 将虚拟机故障转移到 Azure 虚拟网络以后，即可使用通过 Azure 虚拟网络设置的[专用对等互连](../expressroute/expressroute-circuit-peerings.md#private-peering)对其进行访问。 私有对等互连不支持复制。
+
 <!-- Not Available on [Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoft-peering)-->
 <!-- Archor is correct on #public-peering and #private-peering -->
-
 ### <a name="are-there-any-prerequisites-for-replicating-virtual-machines-to-azure"></a>将虚拟机复制到 Azure 需要满足任何先决条件吗？
 要复制到 Azure 的 [VMware VM](vmware-physical-azure-support-matrix.md#replicated-machines) 和 [Hyper-V VM](hyper-v-azure-support-matrix.md#replicated-vms) 应符合 Azure 要求。
 
 Azure 用户帐户需要具有某些[权限](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines)，才能启用新的虚拟机到 Azure 的复制。
 
 ### <a name="can-i-replicate-hyper-v-generation-2-virtual-machines-to-azure"></a>可以将 Hyper-V 第 2 代虚拟机复制到 Azure 吗？
-是的。 Site Recovery 在故障转移过程中将从第 2 代转换成第 1 代。 在故障回复时，计算机将转换回到第 2 代。 [了解详细信息](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)。
+是的。 Site Recovery 在故障转移过程中将从第 2 代转换成第 1 代。 在故障回复时，计算机将转换回到第 2 代。 [了解详细信息](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)。
 
 ### <a name="if-i-replicate-to-azure-how-do-i-pay-for-azure-vms"></a>如果复制到 Azure，要支付哪些 Azure VM 费用？
 在常规复制期间，数据将复制到异地冗余的 Azure 存储，不需要支付任何 Azure IaaS 虚拟机费用（提供一个明显的优势）。 当故障转移到 Azure 时，Site Recovery 自动创建 Azure IaaS 虚拟机，此后，需要为在 Azure 中使用的计算资源付费。
@@ -114,8 +114,8 @@ Azure 用户帐户需要具有某些[权限](site-recovery-role-based-linked-acc
 需要 LRS 或 GRS 存储帐户。 建议使用 GRS，以便在发生区域性故障或无法恢复主要区域时，能够复原数据。 该帐户必须位于与恢复服务保管库相同的区域中。 在 Azure 门户中部署 Site Recovery 时，支持将高级存储用于 VMware VM、Hyper-V VM 和物理服务器复制。
 
 ### <a name="how-often-can-i-replicate-data"></a>可以多久复制数据一次？
-* **Hyper-V**：可以每隔 30 秒（高级存储除外）、5 分钟或 15 分钟复制一次 Hyper-V VM。 如果已设置 SAN 复制，则复制是同步的。
-* **VMware 和物理服务器：** 复制频率无关紧要。 复制是连续的。
+* **Hyper-V：** 可以每隔 30 秒（高级存储除外）、5 分钟或 15 分钟复制一次 Hyper-V VM。 如果已设置 SAN 复制，则复制是同步的。
+* **VMware 和物理服务器：** 在这里，复制频率无关紧要。 复制是连续的。
 
 ### <a name="can-i-extend-replication-from-existing-recovery-site-to-another-tertiary-site"></a>可以将复制从现有的恢复站点扩展到其他站点吗？
 不支持扩展扩展或链式复制。

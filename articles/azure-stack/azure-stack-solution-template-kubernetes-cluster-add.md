@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/08/2018
-ms.date: 11/12/2018
+origin.date: 10/29/2018
+ms.date: 12/17/2018
 ms.author: v-jay
 ms.reviewer: waltero
-ms.openlocfilehash: 553f02333908f47559580be814a60650be3d5573
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 69c501bae9f4d9ee02423987b0e769595459c9cb
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660763"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396149"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>将 Kubernetes 添加到 Azure Stack 市场
 
@@ -73,9 +73,10 @@ ms.locfileid: "52660763"
 
 4. 输入 `UbuntuServer`。
 
-5. 使用以下配置文件选择最新版本的服务器：
+5. 选择最新版本的服务器。 检查完整版本并确保已安装最新版本：
     - **发布者**：Canonical
-    - **套餐**：UbuntuServer
+    - **产品/服务**：UbuntuServer
+    - **版本**：16.04.201806120
     - **SKU**：16.04-LTS
 
 6. 选择“下载”。
@@ -93,7 +94,7 @@ ms.locfileid: "52660763"
 4. 输入 `Custom Script for Linux`。
 
 5. 选择具有以下配置文件的服务器：
-    - **套餐**：适用于 Linux 2.0 的自定义脚本
+    - **产品/服务**：适用于 Linux 的自定义脚本 2.0
     - **版本**：2.0.6
     - **发布者**：Microsoft Corp
 

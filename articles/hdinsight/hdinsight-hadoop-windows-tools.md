@@ -11,12 +11,12 @@ ms.date: 12/25/2017
 ms.topic: article
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 574fc99dc25809de58ae41ec50e4bea95b872319
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e9b1028dd17fba27f3568d1ca1baf735747a706c
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655431"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028572"
 ---
 # <a name="work-in-the-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>使用 Windows 电脑在 HDInsight 上的 Hadoop 生态系统中工作
 
@@ -35,13 +35,6 @@ Azure PowerShell 是一个脚本编写环境，使用它可以通过 Windows 在
 
 请遵循[安装和配置 Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) 的步骤来获取最新版本。 如果脚本需要修改后才能使用 Azure Resource Manager 的新 cmdlet，请参阅[迁移到基于 Azure Resource Manager 的面向 HDInsight 群集的开发工具](hdinsight-hadoop-development-using-azure-resource-manager.md)。
 
-## <a name="utilities-you-can-run-in-a-browser"></a>可在浏览器中运行的实用工具
-以下实用工具提供可在浏览器中运行的 Web UI：
-
-* **[Ambari Web UI](hdinsight-hadoop-manage-ambari.md)** 是 Azure 门户中提供的管理和监视实用工具，可用于管理不同类型的作业，例如：
-    * [将 Ambari 与 REST API 配合使用](hdinsight-hadoop-manage-ambari-rest-api.md)
-    * [Ambari 中的 Hive 视图](hadoop/apache-hadoop-use-hive-ambari-view.md)
-    * [Ambari 中的 Tez 视图](hdinsight-debug-ambari-tez-view.md)
 
 ## <a name="data-lake-hadoop-tools-for-visual-studio"></a>用于 Visual Studio 的 Data Lake (Hadoop) 工具
 使用用于 Visual Studio 的 Data Lake 工具可以部署和管理 Storm 拓扑。 Data Lake 工具还会安装 SCP.NET SDK 用于通过 Visual Studio 开发 C# Storm 拓扑。
@@ -70,8 +63,8 @@ Azure PowerShell 是一个脚本编写环境，使用它可以通过 Windows 在
 * 本地开发和运行 Scala Spark 应用程序。
 
 以下文章介绍了相关信息： 
-* Intellij IDEA：[使用用于 Intellij 的 Azure 工具包插件和 Scala SDK 创建 Spark 应用程序。](spark/apache-spark-intellij-tool-plugin.md)
-* 用于 Eclipse 的 Eclipse IDE 或 Scala IDE：[创建 Spark 应用程序和用于 Eclipse 的 Azure 工具包](spark/apache-spark-eclipse-tool-plugin.md) 
+* Intellij IDEA：[使用 Azure Toolkit for Intellij 插件和 Scala SDK 创建 Spark 应用程序](spark/apache-spark-intellij-tool-plugin.md)。
+* Eclipse IDE 或 Scala IDE for Eclipse：[创建 Spark 应用程序和 Azure Toolkit for Eclipse](spark/apache-spark-eclipse-tool-plugin.md) 
 
 ## <a name="notebooks-on-spark-for-data-scientists"></a>Spark 上面向数据科研人员的 Notebook 
 HDInsight 中的 Apache Spark 群集包含可与 Jupyter Notebook 配合使用的 Zeppelin Notebook 和内核。 

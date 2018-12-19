@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 通知中心向 iOS 应用推送通知 | Microsoft Docs
+title: 使用 Azure 通知中心向 iOS 应用推送通知 | Azure Docs
 description: 在本教程中，将了解如何使用 Azure 通知中心将推送通知发送到 iOS 应用程序。
 services: notification-hubs
 documentationcenter: ios
@@ -15,14 +15,14 @@ ms.devlang: objective-c
 ms.topic: tutorial
 ms.custom: mvc
 origin.date: 04/14/2018
-ms.date: 09/26/2018
-ms.author: v-junlch
-ms.openlocfilehash: c17cf152e94b956686581367c066ad560b24cbb5
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/17/2018
+ms.author: v-biyu
+ms.openlocfilehash: 66559db35959a1bbeb68681ecc3b08f2014715f3
+ms.sourcegitcommit: 6e07735318eb5f6ea319b618863259088eab3722
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655205"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52981698"
 ---
 # <a name="tutorial-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向 iOS 应用推送通知
 
@@ -46,7 +46,7 @@ ms.locfileid: "52655205"
 ## <a name="prerequisites"></a>先决条件
 
 - 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)，只需几分钟即可完成。 
-- [Azure Messaging Framework]
+- [Windows Azure Messaging Framework]
 - 最新版本的 [Xcode]
 - 支持 iOS 10（或更高版本）的设备
 - [Apple 开发人员计划](https://developer.apple.com/programs/) 成员身份。
@@ -96,7 +96,7 @@ ms.locfileid: "52655205"
 
     ![Xcode - 推送功能][12]
 
-5. 下载 [Azure Messaging Framework]，然后解压缩该文件。 在 Xcode 中，右键单击项目，然后单击“将文件添加到”选项，将 WindowsAzureMessaging.framework 文件夹添加到 Xcode 项目。 选择“选项”，确保选中“根据需要复制项目”，然后单击“添加”。
+5. 下载 [Windows Azure Messaging Framework]，然后解压缩该文件。 在 Xcode 中，右键单击项目，然后单击“将文件添加到”选项，将 WindowsAzureMessaging.framework 文件夹添加到 Xcode 项目。 选择“选项”，确保选中“根据需要复制项目”，然后单击“添加”。
 
     ![解压缩 Azure SDK][10]
 
@@ -148,9 +148,10 @@ ms.locfileid: "52655205"
 
     -(void)MessageBox:(NSString *) title message:(NSString *)messageText
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:messageText delegate:self
-            cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alert show];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:messageText preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:okAction];
+        [[[[UIApplication sharedApplication] keyWindow] rootViewController] presentViewController:alert animated:YES completion:nil];
     }
     ```
 
@@ -217,7 +218,7 @@ ms.locfileid: "52655205"
 
 
 <!-- URLs. -->
-[Azure Messaging Framework]: http://go.microsoft.com/fwlink/?LinkID=799698&clcid=0x409
+[Windows Azure Messaging Framework]: http://go.microsoft.com/fwlink/?LinkID=799698&clcid=0x409
 [Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039

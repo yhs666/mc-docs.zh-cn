@@ -1,24 +1,23 @@
 ---
-title: 使用 Azure Site Recovery 将 VMware VM 或物理服务器复制到辅助 VMware 站点时的支持矩阵 | Azure
-description: 汇总了对通过 Azure Site Recovery 将 VMware/物理服务器复制到辅助站点的支持
-services: site-recovery
+title: 使用 Azure Site Recovery 将 VMware VM 或物理服务器灾难恢复到辅助 VMware 站点时的支持矩阵 | Azure
+description: 总结了对使用 Azure Site Recovery 将 VMware VM 或物理服务器灾难恢复到辅助站点的支持。
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 07/06/2018
-ms.date: 09/24/2018
+origin.date: 10/29/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 268a604cb7e36ca689c0754a40a84d06ecd1fd87
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 2b73de2cfcd908da9ae57f962bd37dbb9d6abfc5
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646838"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028522"
 ---
-# <a name="support-matrix-for-replication-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>将 VMware VM 或物理服务器复制到辅助站点时的支持矩阵
+# <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>将 VMware VM 和物理服务器灾难恢复到辅助站点时的支持矩阵
 
-本文汇总了使用 [Azure Site Recovery](site-recovery-overview.md) 服务将 VMware VM 或 Windows/Linux 物理服务器复制到辅助 VMware 站点时所支持的内容。
+本文汇总了使用 [Azure Site Recovery](site-recovery-overview.md) 服务将 VMware VM 或 Windows/Linux 物理服务器灾难恢复到辅助 VMware 站点时所支持的内容。
 
 - 如果要将 VMware VM 或物理服务器复制到 Azure，请查看[此支持矩阵](vmware-physical-azure-support-matrix.md)。
 - 如果要将 Hyper-V VM 复制到辅助站点，请查看[此支持矩阵](hyper-v-azure-support-matrix.md)。
@@ -38,11 +37,11 @@ vCenter 服务器 | vCenter 5.5、6.0 和 6.5<br/><br/> 如果运行 6.0 或 6.5
 
 **操作系统** | **详细信息**
 --- | ---
-Windows Server | 64 位 Windows Server 2016、Windows Server 2012 R2、Windows Server 2012、带 SP1（或更高版本）的 Windows Server 2008 R2。
-Linux | Centos 6.5、6.6、6.7、6.8、6.9、7.0、7.1、7.2 <br/><br/>  SUSE Linux Enterprise Server 11 SP3、11 SP4 
+Windows Server | 64 位 Windows Server 2016、Windows Server 2012 R2、Windows Server 2012、带 SP1（或更高版本）的 Windows Server 2008 R2。|
+Linux | Centos 6.5、6.6、6.7、6.8、6.9、7.0、7.1、7.2 <br/><br/>  SUSE Linux Enterprise Server 11 SP3、11 SP4 |
+
 <!-- Not Available on Red Hat Enterprise Linux: 5.2 to 5.11, 6.1 to 6.9, 7.0 to 7.4<br/><br/> -->
 <!-- Not Available on Oracle Enterprise Linux 6.4, 6.5, 6.8 running the Red Hat compatible kernel, or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> -->
-
 ## <a name="linux-machine-storage"></a>Linux 计算机存储
 
 仅有以下存储的 Linux 计算机可以复制：
@@ -124,4 +123,4 @@ Scout 更新 | [了解和下载](vmware-physical-secondary-disaster-recovery.md#
 - [将 VMM 云中的 Hyper-V VM 复制到辅助站点](tutorial-vmm-to-vmm.md)
 - [将 VMware VM 和物理服务器复制到辅助站点](tutorial-vmware-to-vmware.md)
 
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties -->

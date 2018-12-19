@@ -11,32 +11,38 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/13/2018
-ms.date: 10/15/2018
+origin.date: 11/15/2018
+ms.date: 12/17/2018
 ms.author: v-jay
-ms.reviewer: jeffgo
-ms.openlocfilehash: fefd3bc8ebf02dc47a8f0fdec35da128f2a4cbbd
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.reviewer: quying
+ms.openlocfilehash: 7ec6bae458ac6a0df70e0de4af8f2d4ec3541557
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661294"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396146"
 ---
 # <a name="remove-the-sql-resource-provider"></a>删除 SQL 资源提供程序
 
 删除 SQL 资源提供程序之前，必须删除该提供程序的所有依赖项。 你还需要用来安装资源提供程序的部署包的副本。
 
-在运行 _DeploySqlProvider.ps1_ 脚本来删除资源提供程序之前，需要执行几个清理任务：
-租户负责执行以下清理任务：
+> [!NOTE]
+> 可以在[部署资源提供程序先决条件](.\azure-stack-sql-resource-provider-deploy.md#prerequisites)中找到资源提供程序安装程序的下载链接。
+
+## <a name="dependency-cleanup"></a>依赖项清理
+
+在运行 DeploySqlProvider.ps1 脚本来删除资源提供程序之前，需要执行几个清理任务。
+
+Azure Stack 租户用户负责执行以下清理任务：
 
 * 从资源提供程序中删除其所有数据库。 （删除租户数据库不会删除数据。）
-* 从资源提供程序命名空间中取消注册。
+* 从提供程序命名空间中取消注册。
 
-管理员负责执行以下清理任务：
+Azure Stack 操作员负责执行以下清理任务：
 
-* 从 SQL 资源提供程序中删除宿主服务器。
-* 删除引用了 SQL 资源提供程序的所有计划。
-* 删除与 SQL 资源提供程序关联的所有配额。
+* 从 MySQL 适配器中删除宿主服务器。
+* 删除引用 MySQL 适配器的所有计划。
+* 删除与 MySQL 适配器关联的所有配额。
 
 ## <a name="to-remove-the-sql-resource-provider"></a>删除 SQL 资源提供程序
 

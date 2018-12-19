@@ -1,20 +1,19 @@
 ---
-title: 准备目标（物理到 Azure）| Azure
-description: 本文介绍如何准备 Azure 环境，以便开始将运行 Windows 或 Linux 的物理服务器复制到 Azure 中。
-services: site-recovery
+title: 设置用于将本地物理服务器灾难恢复到 Azure 的目标环境 | Azure
+description: 本文介绍如何使用 Azure Site Recovery 设置目标 Azure 环境以进行物理服务器的灾难恢复。
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: e9e626cee7d171bdb27cd177e662e13e3caa0abb
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: bb0649f662c6e2b7aa8e77bf010203b6dc161a20
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644450"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028457"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>准备目标（VMware 到 Azure）
 
@@ -32,8 +31,8 @@ ms.locfileid: "52644450"
 
 ![准备目标](./media/physical-azure-set-up-target/prepare-target-physical-to-azure.png)
 
-1. 订阅：从下拉菜单中，选择要将物理服务器复制到的“订阅”。
-2. **部署模型：** 选择部署模型（经典或资源管理器）
+1. **订阅：** 从下拉菜单中，选择要向其复制物理服务器的订阅。
+2. **部署模型：** 选择部署模型（“经典”或“资源管理器”）
 
 根据选择的部署模型，系统会运行验证来确保目标订阅至少拥有一个兼容的存储帐户和虚拟网络，可供将物理服务器复制和故障转移到其中。
 
@@ -44,4 +43,4 @@ ms.locfileid: "52644450"
 ## <a name="next-steps"></a>后续步骤
 [配置复制设置](vmware-azure-set-up-replication.md)。
 
-<!--Update_Description: update meta properties, wording udpate, update link  -->
+<!--Update_Description: update meta properties, wording udpate  -->

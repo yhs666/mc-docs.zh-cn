@@ -1,24 +1,23 @@
 ---
-title: 规划容量和缩放以便使用 Azure Site Recovery 将 VMware 复制到 Azure | Azure
-description: 请阅读本文了解如何规划容量和缩放，以便使用 Azure Site Recovery 将 VMware VM 复制到 Azure
-services: site-recovery
+title: 规划容量和缩放以便使用 Azure Site Recovery 将 VMware 灾难恢复到 Azure | Azure
+description: 请阅读本文了解在使用 Azure Site Recovery 设置 VMware VM 到 Azure 的灾难恢复时，如何规划容量和缩放
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-origin.date: 10/10/2018
-ms.date: 11/19/2018
+origin.date: 10/28/2018
+ms.date: 12/10/2018
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: 73cafb4f947c2f9777e690441d3e3332231998e7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: cb27dfa71df033bb49921cc983bf204d3960a064
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657153"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028941"
 ---
-# <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>通过 Azure Site Recovery，针对 VMware 复制规划容量和缩放
+# <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>规划容量和缩放以便将 VMware 灾难恢复到 Azure
 
-请阅读本文，了解如何规划容量和缩放，以便使用 [Azure Site Recovery](site-recovery-overview.md) 将本地 VMware VM 和物理服务器复制到 Azure。
+请阅读本文，了解将本地 VMware VM 和物理服务器复制到 Azure 时，如何使用 [Azure Site Recovery](site-recovery-overview.md) 规划容量和缩放。
 
 ## <a name="how-do-i-start-capacity-planning"></a>如何开始容量规划？
 
@@ -28,7 +27,7 @@ ms.locfileid: "52657153"
 
 **组件** | **详细信息** |
 --- | --- | ---
-**复制** | **每日最大更改率：** 一台受保护的计算机只能使用一个进程服务器，一个进程服务器可处理的每日更改率最高可达 2 TB。 因此，2 TB 是受保护计算机支持的每日数据更改率上限。<br/><br/> **最大吞吐量：** 在 Azure 中，一个复制的计算机可能属于一个存储帐户。 标准存储帐户每秒最多可以处理 20,000 个请求，因此建议将源计算机中的每秒输入/输出操作数 (IOPS) 保持在 20,000。 例如，如果源计算机有 5 个磁盘，每个磁盘在源计算机上生成 120 IOPS（8K 大小），则 Azure 中单磁盘 IOPS 限制为 500。 （所需的存储帐户数等于源计算机总 IOPS 除以 20,000。）
+**复制** | **最大每日更改率：** 一台受保护的计算机只能使用一个进程服务器，一个进程服务器可处理的每日更改率最高可达 2 TB。 因此，2 TB 是受保护计算机支持的每日数据更改率上限。<br/><br/> **最大吞吐量：** 在 Azure 中，一个复制的计算机可能属于一个存储帐户。 标准存储帐户每秒最多可以处理 20,000 个请求，因此建议将源计算机中的每秒输入/输出操作数 (IOPS) 保持在 20,000。 例如，如果源计算机有 5 个磁盘，每个磁盘在源计算机上生成 120 IOPS（8K 大小），则 Azure 中单磁盘 IOPS 限制为 500。 （所需的存储帐户数等于源计算机总 IOPS 除以 20,000。）
 **配置服务器** | 配置服务器应该能够处理跨所有工作负荷（运行在受保护的计算机上）的每日更改率容量，并需要有足够的带宽，才能持续将数据复制到 Azure 存储。<br/><br/> 最佳做法是，将配置服务器置于与所要保护的计算机相同的网络和 LAN 网段上。 可以将配置服务器置于另一网络中，但所要保护的计算机应可通过第 3 层网络来查看它。<br/><br/> 以下部分的表中汇总了配置服务器的建议大小。
 **进程服务器** | 默认情况下，第一个进程服务器安装在配置服务器上。 可以部署更多的进程服务器以扩展环境。 <br/><br/> 进程服务器接收受保护计算机提供的复制数据，并对其通过缓存、压缩和加密进行优化。 然后将数据发送到 Azure。 进程服务器计算机应有足够的资源来执行这些任务。<br/><br/> 进程服务器使用基于磁盘的缓存。 在出现网络瓶颈或中断时，使用单独的大小至少为 600 GB 的缓存磁盘来处理存储的数据更改。
 
@@ -73,7 +72,7 @@ ms.locfileid: "52657153"
 
 ## <a name="control-network-bandwidth"></a>控制网络带宽
 
-使用[部署计划器工具](site-recovery-deployment-planner.md)计算复制（初始复制和增量复制）所需的带宽后，可以使用下列几个选项来控制用于复制的带宽量：
+使用 [Deployment Planner 工具](site-recovery-deployment-planner.md)计算复制（初始复制和增量复制）所需的带宽后，可以使用下列几个选项来控制用于复制的带宽量：
 
 * **限制带宽**：复制到 Azure 的 VMware 流量会经过特定的进程服务器。 可以在运行进程服务器的计算机上限制带宽。
 * **控制带宽**：可以使用几个注册表项来控制用于复制的带宽：
@@ -82,7 +81,7 @@ ms.locfileid: "52657153"
 
 ### <a name="throttle-bandwidth"></a>限制带宽
 
-1. 在作为进程服务器的计算机上打开 Azure 备份 MMC 管理单元。 默认情况下，备份的快捷方式位于桌面上或在以下文件夹中：C:\Program Files\Azure Recovery Services Agent\bin\wabadmin 中。
+1. 在作为进程服务器的计算机上打开 Azure 备份 MMC 管理单元。 默认情况下，“备份”的快捷方式位于桌面上，或者在以下文件夹中：C:\Program Files\Azure Recovery Services Agent\bin\wabadmin。
 2. 在管理单元中，单击“更改属性”。
 
     ![Azure 备份 MMC 管理单元选项（用于更改属性）的屏幕截图](./media/site-recovery-vmware-to-azure/throttle1.png)

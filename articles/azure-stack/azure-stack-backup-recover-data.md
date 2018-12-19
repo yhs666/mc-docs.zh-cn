@@ -1,10 +1,10 @@
 ---
-title: 使用基础结构备份服务在 Azure Stack 中发生灾难性数据丢失后进行恢复 | Azure
+title: 使用基础结构备份服务在 Azure Stack 中发生灾难性数据丢失后进行恢复 | Microsoft Docs
 description: 当灾难性故障导致 Azure Stack 失败后，在重新建立 Azure Stack 部署时可以还原基础结构数据。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: 2ECE8580-0BDE-4D4A-9120-1F6771F2E815
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/17/2017
-ms.date: 08/27/2018
-ms.author: v-junlch
+origin.date: 11/05/2018
+ms.date: 12/17/2018
+ms.author: v-jay
 ms.reviewer: hectorl
-ms.openlocfilehash: 7d65d2ec4adbf274e4286a03c3ae671f86a9fa64
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: da3cabfbc197c771a3eb31316da1a86ce513f0c8
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654042"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396147"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>在发生灾难性数据丢失后进行恢复
 
@@ -74,6 +74,6 @@ Azure Stack 支持称为云恢复模式的部署类型。 只有当灾难或产�
 
 ## <a name="next-steps"></a>后续步骤
 
- - 了解[使用基础结构备份服务](azure-stack-backup-best-practices.md)的最佳做法。
+了解[使用基础结构备份服务](azure-stack-backup-best-practices.md)的最佳做法。
 
 <!-- Update_Description: update metedata properties -->

@@ -1,21 +1,21 @@
 ---
-title: 适用于 Hyper-V 到 Azure 部署的 Azure Site Recovery 部署规划器 | Azure
-description: 本文介绍如何运行 Site Recovery 部署规划器，以实现 Hyper-V 到 Azure 的复制。
+title: 运行用于从 Hyper-V 灾难恢复到 Azure 的 Azure Site Recovery 部署规划器 | Azure
+description: 本文介绍如何运行用于从 Hyper-V 灾难恢复到 Azure 的 Azure Site Recovery 部署规划器。
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 10/11/2018
-ms.date: 11/19/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: f03e9edf44016589a3f5e3f48b2e5fa8d781a98d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 0fc7b4d8005b5dd7bdd0ff764306e4093e9a0d2f
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666567"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029111"
 ---
-# <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>运行适用于 Hyper-V 到 Azure 部署的 Azure Site Recovery 部署规划器
+# <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>运行用于从 Hyper-V 灾难恢复到 Azure 的 Azure Site Recovery 部署规划器
 
 可使用以下四种模式之一运行 Site Recovery 部署规划器命令行工具 (ASRDeploymentPlanner.exe)： 
 -   [获取虚拟机 (VM) 列表](#get-vm-list-for-profiling-hyper-v-vms)
@@ -98,7 +98,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Password|（可选）连接到 Hyper-V 主机所需的密码。 如果未将密码指定为参数，则在运行命令时，系统会提示你输入它。|
 |-StorageAccountName|（可选）存储帐户名称，用于确定在将数据从本地复制到 Azure 时可实现的吞吐量。 该工具会将测试数据上传到此存储帐户来计算吞吐量。 存储帐户必须是常规用途 v1 (GPv1) 类型。|
 |-StorageAccountKey|（可选）用于访问存储帐户的密钥。 转到 Azure 门户 >“存储帐户” > *存储帐户名称* > “设置” > “访问密钥” > **Key1**（或经典存储帐户的主访问密钥）。|
-|-Environment|（可选）Azure 存储帐户的目标环境。 它可能采用下述三个值之一：AzureCloud、AzureUSGovernment、AzureChinaCloud。 默认值为 AzureCloud。 当目标区域为 Azure 美国政府或 Azure 中国时，请使用此参数。|
+|-Environment|（可选）Azure 存储帐户的目标环境。 它可以是以下三个值之一：AzureCloud、AzureUSGovernment、AzureChinaCloud。 默认值为 AzureCloud。 当目标区域为 Azure 美国政府或 Azure 中国时，请使用此参数。|
 
 建议在分析 VM 时，分析 7 天以上。 如果变动量模式在某个月发生变化，建议在看到最大变动量的一周内进行分析。 最好的方式是分析 31 天，以便获取更好的建议。 
 
@@ -180,14 +180,15 @@ ASRDeploymentPlanner.exe -Operation GenerateReport /?
 | -StartDate | （可选）采用 MM-DD-YYYY:HH:MM（24 小时）格式的开始日期和时间。 StartDate 必须与 EndDate 一起指定。 如果指定 StartDate，会根据从 StartDate 到 EndDate 收集的分析数据生成报告。 |
 | -EndDate | （可选）采用 MM-DD-YYYY:HH:MM（24 小时）格式的结束日期和时间。 EndDate 必须与 StartDate 一起指定。 如果指定 EndDate，会根据从 StartDate 到 EndDate 收集的分析数据生成报告。 |
 | -GrowthFactor | （可选）增长系数，以百分比表示。 默认值为 30%。 |
-| -UseManagedDisks | （可选）UseManagedDisks：是/否。 默认值为“是”。 计算可放置到单个存储帐户中的虚拟机数量时，需考虑到对虚拟机进行的故障转移/测试性故障转移是否是在托管磁盘而不是非托管磁盘上完成的。 |
+| -UseManagedDisks | （可选）UseManagedDisks：Yes/No。 默认值为“Yes”。 计算可放置到单个存储帐户中的虚拟机数量时，需考虑到对虚拟机进行的故障转移/测试性故障转移是否是在托管磁盘而不是非托管磁盘上完成的。 |
 |-SubscriptionId |（可选）订阅 GUID。 可以根据订阅、与订阅相关联的套餐、目标 Azure 区域和指定的货币，按照最新的价格使用此参数生成成本估算报表。|
 |-TargetRegion|（可选）充当复制目标的 Azure 区域。 由于 Azure 的成本因区域而异，因此可使用此参数来生成特定目标 Azure 区域的报表。 默认值为 ChinaNorth 或上次使用的目标区域。 |
-|-OfferId|（可选）与订阅关联的产品/服务。 默认值为 MS-AZR-0003P（即用即付）。|
+|-OfferId|（可选）与订阅关联的产品/服务。 默认值为 MS-MC-ARZ-33P（标准预付款产品/服务）。|
 |-Currency|（可选）在生成的报表中显示的成本所采用的货币。 |
 
 <!-- Not Avaiable on Refer to the list of [supported target regions](hyper-v-deployment-planner-cost-estimation.md#supported-target-regions) -->
 <!-- Not Avaiable on Refer to the list of [supported currencies](hyper-v-deployment-planner-cost-estimation.md#supported-currencies) -->
+<!-- Notice: Offerid should be The default is MS-MC-ARZ-33P (Standard Pay-In-Advance Offer)-->
 
 
 默认情况下，此工具配置为在分析后为最多 1,000 个 VM 生成报表。 若要更改限制，可以更改 ASRDeploymentPlanner.exe.config 文件中的 MaxVMsSupported 项值。
@@ -281,8 +282,9 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 | -StorageAccountName | 存储帐户名称，用于确定在将数据从本地复制到 Azure 时消耗的带宽。 该工具会将测试数据上传到此存储帐户来确定消耗的带宽。 存储帐户必须是常规用途 v1 (GPv1) 类型。|
 | -StorageAccountKey | 用于访问存储帐户的存储帐户密钥。 转到 Azure 门户 >“存储帐户” > *存储帐户名称* > “设置” > “访问密钥” > **Key1**。|
 | -VMListFile | 一个文件，其中包含一系列可以通过分析来计算所消耗带宽的 VM。 文件路径可以是绝对或相对路径。 对于 Hyper-V，此文件是 GetVMList 操作的输出文件。 如果手动进行准备，此文件应包含一个服务器名称或 IP 地址，后跟 VM 名称（每一行都由 \ 分隔）。 该文件中指定的 VM 名称应与 Hyper-V 主机上的 VM 名称相同。<br><br>**示例：** VMList.txt 包含以下 VM：<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
-|-Environment|（可选）Azure 存储帐户的目标环境。 它可能采用下述三个值之一：AzureCloud、AzureUSGovernment、AzureChinaCloud。 默认值为 AzureCloud。 当目标 Azure 区域为 Azure 美国政府或 Azure 中国时，请使用此参数。|
+|-Environment|（可选）Azure 存储帐户的目标环境。 它可以是以下三个值之一：AzureCloud、AzureUSGovernment、AzureChinaCloud。 默认值为 AzureCloud。 当目标 Azure 区域为 Azure 中国时，请使用此参数。|
 
+<!-- Not Available on either Azure US Government or-->
 ### <a name="example"></a>示例
 ```
 ASRDeploymentPlanner.exe -Operation GetThroughput -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"  -StorageAccountName  asrspfarm1 -StorageAccountKey by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
@@ -308,4 +310,4 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Virtualization Hyper-V -Direc
 ## <a name="next-steps"></a>后续步骤
 * [分析生成的报表](hyper-v-deployment-planner-analyze-report.md)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

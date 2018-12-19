@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/01/2017
-ms.date: 05/28/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: aacbec5bcc788be04361758b216255557df53a5d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c3e1333ef077d17270af3859ba5f4726d44c22d2
+ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653675"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52901121"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Service Fabric Reliable Actors 简介
-Reliable Actors 是基于 [虚拟执行组件](http://research.microsoft.com/projects/orleans/) 模式的 Service Fabric 应用程序框架。 Reliable Actors API 提供单一线程编程模型，该模型是基于 Service Fabric 所提供的可扩展性和可靠性保证构建的。
+Reliable Actors 是基于 [虚拟执行组件](https://research.microsoft.com/projects/orleans/) 模式的 Service Fabric 应用程序框架。 Reliable Actors API 提供单一线程编程模型，该模型是基于 Service Fabric 所提供的可扩展性和可靠性保证构建的。
 
 <a name="actors"></a>
 ## <a name="what-are-actors"></a>什么是执行组件？
@@ -39,7 +39,7 @@ Service Fabric Reliable Actors 是执行组件设计模式的实现。 与任何
 * 执行组件实例不会通过发出 I/O 操作，用不可预测的延迟阻止调用方。
 
 ## <a name="actors-in-service-fabric"></a>Service Fabric 中的执行组件
-在 Service Fabric 中，执行组件在 Reliable Actors 框架（在 [Service Fabric Reliable Services](service-fabric-reliable-services-introduction.md) 的基础上构建而成的基于执行组件模式的应用程序框架）中实现。 所编写的每个 Reliable Actor 服务实际上都是分区的有状态 Reliable Service。
+在 Service Fabric 中，执行组件在 Reliable Actors 框架中实现：此应用程序框架以执行组件模式为依据，在 [Service Fabric Reliable Services](service-fabric-reliable-services-introduction.md) 的基础之上构建而成。 所编写的每个 Reliable Actor 服务实际上都是分区的有状态 Reliable Service。
 
 每个执行组件定义为执行组件类型的一个实例，与 .NET 对象是 .NET 类型的一个实例类同。 例如，可能存在用于实现计算器功能的执行组件类型，该类型的很多执行组件分布于群集中各个节点。 每个此类执行组件都由执行组件 ID 唯一标识。
 

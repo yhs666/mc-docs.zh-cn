@@ -1,20 +1,20 @@
 ---
-title: 使用 Azure Site Recovery 将 Azure ExpressRoute 与 Azure VM 的灾难恢复集成 | Azure
+title: 使用 Azure Site Recovery 服务将 Azure ExpressRoute 与 Azure VM 的灾难恢复相集成 | Azure
 description: 介绍如何使用 Azure Site Recovery 和 Azure ExpressRoute 来设置 Azure VM 的灾难恢复
 services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-ms.topic: article
-origin.date: 10/02/2018
-ms.date: 11/19/2018
+ms.topic: conceptual
+origin.date: 10/16/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: b175041ca331da7a33c081a668576c21e95ed8b3
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: dbc063b965ce9dd39ebf22b98d6991c4f8003115
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645359"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028953"
 ---
 <!-- NOTICE:  THIS ARTICLE CHANGE ASIA EAST TO CHINA EAST REGION AND HONG KONG TO GUANG ZHOU-->
 <!-- Notice:  Target Location CHANGE TO Azure China North with Singpore to Tian Jing -->
@@ -22,7 +22,7 @@ ms.locfileid: "52645359"
 
 本文介绍在将 Azure VM 的灾难恢复设置为次要 Azure 区域时，如何将 Azure ExpressRoute 与 [Azure Site Recovery](site-recovery-overview.md) 相集成。
 
-Site Recovery 通过将 Azure VM 数据复制到 Azure 来实现 Azure VM 的灾难恢复。 
+Site Recovery 通过将 Azure VM 数据复制到 Azure 来实现 Azure VM 的灾难恢复。
 
 - 如果 Azure VM 使用 [Azure 托管磁盘](../virtual-machines/windows/managed-disks-overview.md)，则 VM 数据将复制到次要区域中复制的托管磁盘。
 - 如果 Azure VM 没有使用托管磁盘，则 VM 数据将复制到 Azure 存储帐户。
@@ -75,7 +75,7 @@ Site Recovery 通过将 Azure VM 数据复制到 Azure 来实现 Azure VM 的灾
     - Azure 的 Azure VM 复制的默认系统路由为 0.0.0.0/0。
     - 通常，NVA 部署还会定义默认路由 (0.0.0.0/0)，用于强制出站 Internet 流量流经 NVA。 如果找不到其他特定路由配置，则将使用默认路由。
     - 在这种情况下，如果所有复制流量都通过 NVA，则 NVA 可能会过载。
-    - 使用默认路由将所有 Azure VM 流量路由到本地部署时，也存在这种限制。 
+    - 使用默认路由将所有 Azure VM 流量路由到本地部署时，也存在这种限制。
     - 在本方案中，建议在虚拟网络中为 Microsoft.Storage 服务[创建网络服务终结点](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage)，以便复制流量不会离开 Azure 边界。
 
 ## <a name="replication-example"></a>复制示例
@@ -86,10 +86,10 @@ Site Recovery 通过将 Azure VM 数据复制到 Azure 来实现 Azure VM 的灾
 
 - **区域**。 应用部署在 Azure 中国东部区域。
 - **分支 VNet**。 应用部署在两个分支 vNet 中：
-    - **源 vNet1**：10.1.0.0/24。 
-    - **源 vNet2**：10.2.0.0/24。 
+    - **源 vNet1**：10.1.0.0/24。
+    - **源 vNet2**：10.2.0.0/24。
     - 每个分支虚拟网络都连接到“中心 vNet”。
-- **中心 vNet**。 中心 vNet“源中心 vNet”：10.10.10.0/24。
+- **中心 vNet**。 有一个中心 vNet **源中心 vNet**：10.10.10.0/24。
     - 此中心 vNet 充当网关守卫。
     - 跨子网的所有通信都通过此中心进行。
  - ****中心 vNet 子网**。 中心 vNet 具有两个子网：
@@ -124,14 +124,14 @@ Site Recovery 通过将 Azure VM 数据复制到 Azure 来实现 Azure VM 的灾
 
  ![中心到分支对等互连配置](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)
 
-### <a name="example-steps"></a>示例步骤 
+### <a name="example-steps"></a>示例步骤
 
 在本示例中，当在源网络中为 Azure VM 启用复制时，将发生以下情况：
 
 1. 为 VM [启用复制](azure-to-azure-tutorial-enable-replication.md)。
 2. Site Recovery 将在目标区域中创建副本 vNet、子网和网关子网。
 3. Site Recovery 将在源网络和它创建的副本目标网络之间创建映射。
-4. 手动创建虚拟网络网关、虚拟网络网关连接、虚拟网络对等互连，或者其他任何网络资源或连接。 
+4. 手动创建虚拟网络网关、虚拟网络网关连接、虚拟网络对等互连，或者其他任何网络资源或连接。
 
 ## <a name="fail-over-azure-vms-when-using-expressroute"></a>在使用 ExpressRoute 时对 Azure VM 进行故障转移
 
@@ -146,14 +146,14 @@ Site Recovery 通过将 Azure VM 数据复制到 Azure 来实现 Azure VM 的灾
 
 此配置有助于保护 ExpressRoute 线路免遭区域性灾难。 如果主要对等互连位置发生故障，可以从其他位置继续连接。
 
-- 连接到生产环境的线路通常为主要线路。 次要线路的带宽通常较低，如果发生灾难，可以增加此带宽。 
+- 连接到生产环境的线路通常为主要线路。 次要线路的带宽通常较低，如果发生灾难，可以增加此带宽。
 - 故障转移后，可以建立从次要 ExpressRoute 线路到目标 vNet 的连接。 或者，可以在发生灾难时设置并准备好连接，以减少总体恢复时间。
 - 在同时连接到主要和目标 vNet 时，请确保本地路由仅在故障转移后才使用次要线路和连接。
 - 故障转移后，源和目标 vNet 可以接收新的 IP 地址，或保留相同的 IP 地址。 在这两种情况下，都可在故障转移之前建立次要连接。
 
 #### <a name="two-circuits-with-single-peering-location"></a>具有单个对等互连位置的两条线路
 
-此配置有助于防止主要 ExpressRoute 线路出现故障，但如果单个 ExpressRoute 对等互连位置发生故障，则会影响两条线路。 
+此配置有助于防止主要 ExpressRoute 线路出现故障，但如果单个 ExpressRoute 对等互连位置发生故障，则会影响两条线路。
 
 - 可以从本地数据中心同时使用主要线路连接到源 vNEt 和使用次要线路连接到目标 vNet。
 - 在同时连接到主要和目标 vNet 时，请确保本地路由仅在故障转移后才使用次要线路和连接。
@@ -181,7 +181,7 @@ Site Recovery 通过将 Azure VM 数据复制到 Azure 来实现 Azure VM 的灾
 - 目标恢复区域是 Azure 中国北部。
 - ExpressRoute 次要线路连接是通过天津的合作伙伴边缘建立的。
 
-<!-- Notice: Target Location CHANGE TO Azure China North with Singpore to Tian Jing --> 有关在故障转移后使用具有相同 IP 地址的单条 ExpressRoute 线路的简单拓扑，请[查看本文](site-recovery-retain-ip-azure-vm-failover.md#on-premises-to-azure-connectivity)。
+    <!-- Notice: Target Location CHANGE TO Azure China North with Singpore to Tian Jing --> 有关在故障转移后使用具有相同 IP 地址的单条 ExpressRoute 线路的简单拓扑，请[查看本文](site-recovery-retain-ip-azure-vm-failover.md#hybrid-resources-full-failover)。
 
 ### <a name="example-steps"></a>示例步骤
 若要在本示例中自动执行恢复，需要执行以下操作：

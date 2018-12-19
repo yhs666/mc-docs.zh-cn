@@ -1,20 +1,20 @@
 ---
-title: 排查使用 Azure Site Recovery 执行 Hyper-V 到 Azure 的复制的问题 | Azure
-description: 介绍如何排查使用 Azure Site Recovery 执行 Hyper-V 到 Azure 的复制的问题
+title: 常见问题 - 使用 Azure Site Recovery 对 Hyper-V 到 Azure 的灾难恢复进行故障排除 | Azure
+description: 介绍如何排查使用 Azure Site Recovery 执行 Hyper-V 到 Azure 的复制时遇到的灾难恢复问题
 services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 10/10/2018
-ms.date: 11/19/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3bd4c263ab05210c5e080b7a0cabd8808743c14b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 0382cee407db172490b0f4c74cf4ffd270d9e130
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653102"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028496"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>排查 Hyper-V 到 Azure 的复制和故障转移的问题
 
@@ -111,7 +111,7 @@ ms.locfileid: "52653102"
 7. 检查 VM 是否遇到较高的变动率：
     - 可以使用 Hyper-V 主机上的性能计数器，测量来宾 VM 的每日数据更改率。 若要测量数据更改率，请启用以下计数器。 聚合所有 VM 磁盘的此值的 5-15 分钟样本，即可得出 VM 变动率。
         - 类别：“Hyper-V Virtual Storage Device”
-        - 计数器：“Write Bytes / Sec”</br>
+        - 计数器：“写入字节数 / 秒”</br>
         - 根据 VM 或其应用的繁忙程度，此数据变动率将会提高或保持在较高级别。
         - 对于 Site Recovery 的标准存储，平均源磁盘数据变动率为 2 MB/秒。 [了解详细信息](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
     - 此外，可以[验证存储可伸缩性目标](/storage/common/storage-scalability-targets#scalability-targets-for-a-storage-account)。
@@ -123,7 +123,7 @@ ms.locfileid: "52653102"
 1. 在事件日志中检查 VSS 错误和建议：
     - 在 Hyper-V 主机服务器上，通过“事件查看器” > “应用程序和服务日志” > “Microsoft” > “Windows” > “Hyper-V” > “管理”打开 Hyper-V 管理事件日志。
     - 检查是否有任何事件指示发生应用一致的快照失败。
-    - 典型的错误为：“Hyper-V 无法为虚拟机 'XYZ' 生成 VSS 快照集: 编写器遇到非暂时性错误。 如果服务无响应，重启 VSS 服务可能会解决问题。”
+    - 典型的错误消息如下：“Hyper-V 无法为虚拟机 'XYZ' 生成 VSS 快照集:编写器遇到非暂时性错误。 如果服务无响应，重启 VSS 服务可能会解决问题。”
 
 2. 若要为 VM 生成 VSS 快照，请检查 VM 上是否已安装 Hyper-V Integration Services，并已启用备份 (VSS) 集成服务。
     - 确保 Integration Services VSS 服务/守护程序在来宾上运行，并处于“正常”状态。
@@ -134,7 +134,7 @@ ms.locfileid: "52653102"
 
 **错误代码** | **消息** | **详细信息**
 --- | --- | ---
-**0x800700EA** | “Hyper-V 无法为虚拟机生成 VSS 快照集: 更多数据可用。 (0x800700EA)。 如果备份操作正在进行，VSS 快照集生成可能失败。<br/><br/> 虚拟机复制操作失败: 更多数据可用。” | 检查是否在 VM 上启用了动态磁盘。 不支持此操作。
+**0x800700EA** | “Hyper-V 无法为虚拟机生成 VSS 快照集:有更多数据可用。 (0x800700EA)。 如果备份操作正在进行，VSS 快照集生成可能失败。<br/><br/> 虚拟机的复制操作失败:有更多数据可用。” | 检查是否在 VM 上启用了动态磁盘。 不支持此操作。
 **0x80070032** | “由于版本与 Hyper-V 预期的版本不匹配，Hyper-V 卷影复制请求程序无法连接到虚拟机 <./VMname>” | 检查是否安装了最新的 Windows 更新。<br/><br/> [升级](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date)到最新版本的 Integration Services。
 
 ## <a name="collect-replication-logs"></a>收集复制日志
@@ -162,7 +162,7 @@ ms.locfileid: "52653102"
 
 以下工具可帮助进行高级故障排除：
 
--   对于 VMM，请使用[支持诊断平台 (SDP) 工具](http://social.technet.microsoft.com/wiki/contents/articles/28198.asr-data-collection-and-analysis-using-the-vmm-support-diagnostics-platform-sdp-tool.aspx)执行 Site Recovery 日志收集。
+-   对于 VMM，请使用[支持诊断平台 (SDP) 工具](https://social.technet.microsoft.com/wiki/contents/articles/28198.asr-data-collection-and-analysis-using-the-vmm-support-diagnostics-platform-sdp-tool.aspx)执行 Site Recovery 日志收集。
 -   对于不带 VMM 的 Hyper-V，请[下载此工具](https://dcupload.microsoft.com/tools/win7files/DIAG_ASRHyperV_global.DiagCab)，并在 Hyper-V 主机上运行该工具来收集日志。
 
-<!-- Update_Description: update meta properties  -->
+<!-- Update_Description: update meta properties, wording update  -->

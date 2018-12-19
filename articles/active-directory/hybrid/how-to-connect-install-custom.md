@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect：自定义安装 | Microsoft 文档
+title: Azure AD Connect：自定义安装 | Microsoft Docs
 description: 本文档详细介绍了 Azure AD Connect 的自定义安装选项。 使用本文中的说明来通过 Azure AD Connect 安装 Active Directory。
 services: active-directory
 keywords: 什么是 Azure AD Connect, 安装 Active Directory, Azure AD 所需的组件
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 10/04/2018
-ms.date: 11/09/2018
+ms.date: 12/05/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 03af217ba077c05351de5b8017fde1313cb21218
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: bdcff5c7e490dd75e291cffa3cf8ab27d443c80a
+ms.sourcegitcommit: a3cde3b41ed4d3f39a30eb4e562d6436a3e4d9d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656572"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53131771"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect 的自定义安装
 如果希望有更多的安装选项，可以使用 Azure AD Connect“自定义设置”。 如果拥有多个林或希望配置未覆盖在快速安装中的可选功能，可以使用它。 它适用于[**快速安装**](how-to-connect-install-express.md)不能满足部署或拓扑的所有情况。
 
-开始安装 Azure AD Connect 之前，确保[下载 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)，完成 [Azure AD Connect：硬件和先决条件](how-to-connect-install-prerequisites.md)中的预备步骤。 此外请确保拥有 [Azure AD Connect 帐户和权限](reference-connect-accounts-permissions.md)所述的可用的必需帐户。
+开始安装 Azure AD Connect 之前，请务必[下载 Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)，并完成 [Azure AD Connect：硬件和先决条件](how-to-connect-install-prerequisites.md)。 此外请确保拥有 [Azure AD Connect 帐户和权限](reference-connect-accounts-permissions.md)所述的可用的必需帐户。
 
 ## <a name="custom-settings-installation-of-azure-ad-connect"></a>Azure AD Connect 的自定义设置安装
 ### <a name="express-settings"></a>快速设置
@@ -90,15 +90,13 @@ ms.locfileid: "52656572"
 
 **UserPrincipalName** - 属性 userPrincipalName 是用户登录 Azure AD 和 Office 365 时使用的属性。 应在同步处理用户前在 Azure AD 中对使用的域（也称为 UPN 后缀）进行验证。 Microsoft 建议保留默认属性 userPrincipalName。 如果此属性不可路由且无法验证，可以选择另一个属性。 例如，可以选择 email 作为保存登录 ID 的属性。 使用除 userPrincipalName 以外的其他属性被称为“替代 ID” 。 “替代 ID”属性值必须遵循 RFC822 标准。 替代 ID 可以配合密码同步和联合使用。 不得在 Active Directory 中将该属性定义为多值，即使它只有单个值。
 
->[!NOTE]
-> 启用直通身份验证时必须具有至少一个已验证的域，以便继续完成此向导。
 
 > [!WARNING]
 > 所有 Office 365 工作负荷都不允许使用替代 ID。 有关详细信息，请参阅 [配置替代登录 ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)。
 >
 >
 
-### <a name="domain-and-ou-filtering"></a>域和 OU 筛选
+### 域和 OU 筛选 <a name="domain-and-ou-filtering"></a>
 默认情况下会同步所有域和 OU。 如果不想将某些域或 OU 同步到 Azure AD，可以取消选择这些域和 OU。  
 ![DomainOU 筛选](./media/how-to-connect-install-custom/domainoufiltering.png)  
 向导中的此页面用于配置基于域和基于 OU 的筛选。 如果打算进行更改，请在更改之前参阅[基于域的筛选](how-to-connect-sync-configure-filtering.md#domain-based-filtering)和[基于 OU 的筛选](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering)。 某些 OU 对功能至关重要，不应取消选中。
@@ -131,12 +129,12 @@ sourceAnchor 属性是一个在用户对象的生命周期内不会改变的属�
 
 | 设置 | 说明 |
 | --- | --- |
-| 让 Azure 为我管理源定位点 | 如果希望 Azure AD 为你选取属性，请选择此选项。 如果选择此选项，Azure AD Connect 向导会应用 sourceAnchor 属性选择逻辑，该逻辑在相关文章的 [Azure AD Connect: Design concepts - Using ms-DS-ConsistencyGuid as sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor)（Azure AD Connect：设计概念 - 使用 ms-DS-ConsistencyGuid 作为 sourceAnchor）部分进行了说明。 自定义安装完成后，向导会通知已选取哪个属性作为“源定位点”属性。 |
+| 让 Azure 为我管理源定位点 | 如果希望 Azure AD 为你选取属性，请选择此选项。 如果选择此选项，Azure AD Connect 向导会应用以下部分所述的 sourceAnchor 属性选择逻辑：[Azure AD Connect：设计概念 - 将 ms-DS-ConsistencyGuid 用作 sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor) 部分。 自定义安装完成后，向导会通知已选取哪个属性作为“源定位点”属性。 |
 | 特定的属性 | 如果希望指定现有的 AD 属性作为 sourceAnchor 属性，请选择此选项。 |
 
 由于无法更改该属性，因此必须规划好要使用的合适属性。 objectGUID 就是不错的候选项。 除非在林/域之间移动用户帐户，否则此属性不会更改。 避免某人结婚时会改变的属性，或会更改分配的属性。 由于不可以使用带有 @-sign 符号的属性，因此无法使用 email 和 userPrincipalName。 属性也区分大小写，因此在林间移动对象时，请务必保留大写/小写。 二进制属性采用 base64 编码，但其他属性类型会保留未编码状态。 在联合方案和某些 Azure AD 接口中，此属性也称为 immutableID。 可以在[设计概念](plan-connect-design-concepts.md#sourceanchor)中找到有关源定位点的详细信息。
 
-### <a name="sync-filtering-based-on-groups"></a>根据组同步筛选
+### 根据组同步筛选 <a name="sync-filtering-based-on-groups"></a>
 使用按组筛选功能可以只同步一小部分的对象来进行试验。 若要使用此功能，请在本地 Active Directory 中针对此目的创建一个组。 然后添加应该以直属成员身份与 Azure AD 同步的用户和组。 稍后可以在此组中添加和删除用户，以维护应该要在 Azure AD 中显示的对象列表。 要同步的所有对象必须是组的直属成员。 用户、组、联系人和计算机/设备都必须是直属成员。 系统不会解析嵌套组成员身份。 添加某个组作为成员时，只会添加该组本身，而不添加其成员。
 
 ![同步筛选](./media/how-to-connect-install-custom/filter2.png)
@@ -159,7 +157,7 @@ sourceAnchor 属性是一个在用户对象的生命周期内不会改变的属�
 | Exchange 混合部署 |Exchange 混合部署功能使 Exchange 邮箱能够在本地和 Office 365 中共存。 Azure AD Connect 将特定的[属性](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback)集从 Azure AD 同步回到本地目录。 |
 | Exchange 邮件公用文件夹 | “Exchange 邮件公用文件夹”功能可以将支持邮件功能的公用文件夹对象从本地 Active Directory 同步到 Azure AD。 |
 | Azure AD 应用程序和属性筛选 |通过启用 Azure AD 应用和属性筛选，可以定制同步的属性集。 此选项会在向导中额外添加两个配置页。 有关详细信息，请参阅 [Azure AD 应用程序和属性筛选](#azure-ad-app-and-attribute-filtering)。 |
-| 密码哈希同步 |如果选择了联合作为登录解决方案，则可以启用此选项。 然后，可将密码哈希同步用作备份选项。 有关更多信息，请参阅[密码哈希同步](how-to-connect-password-hash-synchronization.md)。 </br></br>如果选择了“传递身份验证”，则也可以启用此选项来确保支持旧客户端并将其用作备份选项。 有关更多信息，请参阅[密码哈希同步](how-to-connect-password-hash-synchronization.md)。|
+| 密码哈希同步 |如果选择了联合作为登录解决方案，则可以启用此选项。 然后，可将密码哈希同步用作备份选项。 有关更多信息，请参阅[密码哈希同步](how-to-connect-password-hash-synchronization.md)。 </br>|
 | 目录扩展属性同步 |通过启用目录扩展属性同步，可将指定的属性同步到 Azure AD。 有关详细信息，请参阅[目录扩展](how-to-connect-sync-feature-directory-extensions.md)。 |
 
 ### <a name="azure-ad-app-and-attribute-filtering"></a>Azure AD 应用程序和属性筛选
@@ -187,36 +185,7 @@ sourceAnchor 属性是一个在用户对象的生命周期内不会改变的属�
 有关详细信息，请参阅[目录扩展](how-to-connect-sync-feature-directory-extensions.md)。
 
 ### <a name="enabling-single-sign-on-sso"></a>启用单一登录 (SSO)
-配置单一登录以将其用于密码同步或直通身份验证是一个简单的过程，只需为要同步到 Azure AD 的每个林完成一次即可。 配置过程包括以下两个步骤：
-
-1.  在本地 Active Directory 中创建所需的计算机帐户。
-2.  配置客户端计算机的 Intranet 区域来支持单一登录。
-
-#### <a name="create-the-computer-account-in-active-directory"></a>在 Active Directory 中创建计算机帐户
-对于在 Azure AD Connect 中添加的每个林，需要提供域管理员凭据，以便在每个林中创建计算机帐户。 凭据仅用于创建帐户，而不会存储，也不会用于其他任何操作。 只需在 Azure AD Connect 向导的“启用单一登录”页上添加凭据，如下所示： 
-
-![启用单一登录](./media/how-to-connect-install-custom/enablesso.png)
-
->[!NOTE]
->如果不想要对某个特定的林使用单一登录，可以跳过该林。
-
-#### <a name="configure-the-intranet-zone-for-client-machines"></a>配置客户端计算机的 Intranet 区域
-为了确保客户端在 Intranet 区域中自动登录，需确保两个 URL 是 Intranet 区域的一部分。 这样就可以确保已加入域的计算机在连接到企业网络后，向 Azure AD 自动发送 Kerberos 票证。
-在安装了组策略管理工具的计算机上执行以下操作。
-
-1.  打开组策略管理工具
-2.  编辑要应用到所有用户的组策略。 例如默认的域策略。
-3.  导航到“用户配置\管理模板\Windows 组件\Internet Explorer\Internet 控制面板\安全性”页，并选择“区域分配列表的站点”，如下图所示。
-4.  启用策略，并在对话框中输入以下项。
-
-        Value: `https://autologon.microsoftazuread-sso.com`  
-        Data: 1  
-
-
-5.  结果如下图所示：  
-![Intranet 区域](./media/how-to-connect-install-custom/sitezone.png)
-
-6.  单击“确定”两次。
+Azure 中国区目前不支持单一登录 (SSO)。
 
 ## <a name="configuring-federation-with-ad-fs"></a>配置与 AD FS 的联合
 使用 Azure AD Connect 配置 AD FS 非常简单，只需单击几下鼠标即可。 配置之前需要做好以下准备。
@@ -341,7 +310,7 @@ Azure AD Connect 将尝试验证从上一步中的 PingFederate 元数据检索�
 ![已准备好配置](./media/how-to-connect-install-custom/readytoconfigure2.png)
 
 ### <a name="staging-mode"></a>过渡模式
-在过渡模式下，可以同时设置新的同步服务器。 系统仅支持一台同步服务器导出到云中的一个目录。 但如果想要从另一台服务器（例如运行 DirSync 的服务器）迁移，则可以启用过渡模式的 Azure AD Connect。 启用后，同步引擎将像平时一样导入并同步数据，但不会将任何内容导出到 Azure AD。 密码同步和密码写回功能在过渡模式下禁用。
+在过渡模式下，可以同时设置新的同步服务器。 系统仅支持一台同步服务器导出到云中的一个目录。 但如果想要从另一台服务器（例如运行 DirSync 的服务器）迁移，则可以启用过渡模式的 Azure AD Connect。 启用后，同步引擎将像平时一样导入并同步数据，但不会将任何内容导出到 Azure AD。 密码同步功能在过渡模式下已禁用。
 
 ![暂存模式](./media/how-to-connect-install-custom/stagingmode.png)
 
@@ -352,7 +321,7 @@ Azure AD Connect 将尝试验证从上一步中的 PingFederate 元数据检索�
 ### <a name="verify-your-federation-configuration"></a>验证联合配置
 单击“验证”按钮时，Azure AD Connect 会验证 DNS 设置。
 
-Intranet 连接检查
+**Intranet 连接检查**
 
 - 解析联合 FQDN：Azure AD Connect 会检查是否可以通过 DNS 解析联合 FQDN，以确保连接性。 如果 Azure AD Connect 无法解析 FQDN，验证会失败。 确保提供联合身份验证服务 FQDN 的 DNS 记录，以便成功完成验证。
 - DNS A 记录：Azure AD Connect 会检查是否存在联合身份验证服务的 A 记录。 在没有 A 记录的情况下，验证会失败。 请为联合 FQDN 创建 A 记录而不是 CNAME 记录，以便成功完成验证。
@@ -397,9 +366,10 @@ Intranet 连接检查
 
 安装 Azure AD Connect 后，可以[验证安装并分配许可证](how-to-connect-post-installation.md)。
 
-若要了解在安装过程中启用的这些功能，请参阅[防止意外删除](how-to-connect-sync-feature-prevent-accidental-deletes.md)。
+若要了解在安装过程中启用的这些功能，请参阅：[防止意外删除](how-to-connect-sync-feature-prevent-accidental-deletes.md)。
 
 若要了解有关这些常见主题的详细信息，请参阅[计划程序以及如何触发同步](how-to-connect-sync-feature-scheduler.md)。
 
 了解有关[将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)的详细信息。
 
+<!-- Update_Description: link update -->

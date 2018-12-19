@@ -17,12 +17,12 @@ ms.date: 10/08/2018
 ms.author: v-junlch
 ms.custom: aaddev
 ms.reviewer: celested
-ms.openlocfilehash: 4546619f1a1195355252ba934db66be0b5ca0bb5
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: daf84626a0780c8f2573d9447203a96668c9a8a5
+ms.sourcegitcommit: a3cde3b41ed4d3f39a30eb4e562d6436a3e4d9d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658696"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53131769"
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>将应用程序与 Azure Active Directory 集成
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -45,11 +45,11 @@ ms.locfileid: "52658696"
 
 4. 出现“创建”页后，请输入应用程序的注册信息： 
 
-    - **名称：** 输入一个有意义的应用程序名称
+    - **名称：** 输入有意义的应用程序名称
     - **应用程序类型：** 
       - 为安装在设备本地的[客户端应用程序](developer-glossary.md#client-application)选择“本机”。 此设置用于 OAuth 公共[本机客户端](developer-glossary.md#native-client)。
       - 为安装在安全服务器上的[客户端应用程序](developer-glossary.md#client-application)和[资源/API 应用程序](developer-glossary.md#resource-server)选择“Web 应用/API”。 此设置用于 OAuth 机密性 [Web 客户端](developer-glossary.md#web-client)和公共的[基于用户代理的客户端](developer-glossary.md#user-agent-based-client)。 相同的应用程序还可以公开客户端和资源/API。
-    - **登录 URL：** 对于“Web 应用/API”应用程序，请提供应用的基 URL。 例如，`http://localhost:31544` 可以是本地计算机上运行的 Web 应用的 URL。 用户将使用此 URL 登录到 Web 客户端应用程序。 
+    - **登录 URL：** 对于“Web 应用 / API”应用程序，请提供应用的基 URL。 例如，`http://localhost:31544` 可以是本地计算机上运行的 Web 应用的 URL。 用户将使用此 URL 登录到 Web 客户端应用程序。 
     - **重定向 URI：** 对于“本机”应用程序，请提供 Azure AD 返回令牌响应时所用的 URI。 输入特定于应用程序的值，例如 `http://MyFirstAADApp`
 
       ![注册新应用程序 - 创建](./media/quickstart-v1-integrate-apps-with-azure-ad/add-app-registration-create.png)
@@ -94,7 +94,7 @@ ms.locfileid: "52658696"
    
     ![用户同意体验](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
 
-5. 用户授予许可后，授权代码会返回到应用程序，应用程序可凭此获取访问令牌和刷新令牌。 有关此流程的详细信息，请参阅[“Azure AD 的身份验证方案”中的“从 Web 应用程序到 Web API”部分](authentication-scenarios.md#web-application-to-web-api)。
+5. 用户授予许可后，授权代码会返回到应用程序，应用程序可凭此获取访问令牌和刷新令牌。 
 
 6. 作为管理员，还可以代表租户中的所有用户同意应用程序的委派权限。 管理许可可防止针对租户中的每个用户显示许可对话框，可通过具有管理员角色的用户在 [Azure 门户](https://portal.azure.cn)中执行。 在应用程序的“设置”页，单击“所需权限”，再单击“授予权限”按钮。 
 

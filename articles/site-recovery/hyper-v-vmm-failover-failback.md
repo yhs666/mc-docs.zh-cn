@@ -1,20 +1,20 @@
 ---
-title: 使用 Site Recovery 对复制到辅助数据中心的 Hyper-V VM 进行故障转移和故障回复 | Azure
-description: 了解如何使用 Azure Site Recovery 将 Hyper-V VM 故障转移到辅助本地站点以及故障回复到主站点
+title: 在灾难恢复期间使用 Azure Site Recovery 故障转移并故障回复复制到辅助数据中心的 Hyper-V VM | Azure
+description: 了解如何在灾难恢复期间使用 Azure Site Recovery 将 Hyper-V VM 故障转移到辅助本地站点以及故障回复到主站点。
 services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 10/10/2018
-ms.date: 11/19/2018
+origin.date: 10/28/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: f603758c918b93866be7ae6346e9561ca838d130
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 4a6dffe453bb68d2fc6b2645ea2c410ba74b789e
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655001"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029035"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>对复制到辅助本地站点的 Hyper-V VM 进行故障转移和故障回复
 
@@ -55,7 +55,7 @@ ms.locfileid: "52655001"
 4. 验证 VM 后，“提交”故障转移。 这会删除所有可用的恢复点。
 
 > [!WARNING]
-> **请勿取消正在进行的故障转移**：在故障转移开始前，停止 VM 复制。 如果取消正在进行的故障转移，故障转移会停止，但 VM 将不再进行复制。  
+> **请勿取消正在进行的故障转移**：在故障转移开始前，VM 复制已停止。 如果取消正在进行的故障转移，故障转移会停止，但 VM 将不再进行复制。  
 
 ## <a name="reverse-replicate-and-failover"></a>反向复制和故障转移
 

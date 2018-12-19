@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/14/2018
-ms.date: 10/15/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: cf83317e916a9223c5af69c9ab3da71e71ceb591
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 54701d5e7fec99944e829f805f74a089fca7d97c
+ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664485"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52901137"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Service Fabric 群集安全方案
 Azure Service Fabric 群集是你拥有的资源。 保护群集以阻止未经授权的用户连接到它们是你的职责。 当在群集上运行生产工作负荷时，安全的群集环境尤为重要。 尽管可以创建不安全的群集，但当该群集向公共 Internet 公开管理终结点时，匿名用户可与它建立连接。 不支持将不安全群集用于生产工作负荷。 
@@ -86,7 +86,7 @@ Service Fabric 群集提供其管理功能的各种入口点，包括基于 Web 
 创建群集时，请设置管理员和用户客户端角色。 通过提供单独的标识（例如使用证书或 Azure AD），为每种角色类型分配角色。 若要详细了解默认访问控制设置以及如何更改默认设置，请参阅 [Service Fabric 客户端的基于角色的访问控制](service-fabric-cluster-security-roles.md)。
 
 ## <a name="x509-certificates-and-service-fabric"></a>X.509 证书和 Service Fabric
-X.509 数字证书通常用于验证客户端与服务器。 它们还用于对消息进行加密和数字签名。 Service Fabric 使用 X.509 证书保护群集，提供应用程序安全功能。 有关 X.509 数字证书的详细信息，请参阅[使用证书](http://msdn.microsoft.com/library/ms731899.aspx)。 可以使用 [Key Vault](../key-vault/key-vault-get-started.md) 管理 Azure 中 Service Fabric 群集的证书。
+X.509 数字证书通常用于验证客户端与服务器。 它们还用于对消息进行加密和数字签名。 Service Fabric 使用 X.509 证书保护群集，提供应用程序安全功能。 有关 X.509 数字证书的详细信息，请参阅[使用证书](https://msdn.microsoft.com/library/ms731899.aspx)。 可以使用 [Key Vault](../key-vault/key-vault-get-started.md) 管理 Azure 中 Service Fabric 群集的证书。
 
 要考虑的几个要点：
 
@@ -110,7 +110,7 @@ X.509 数字证书通常用于验证客户端与服务器。 它们还用于对�
 
 * “使用者”字段可有多个值。 每个值都以名称首字母为前缀，指示值的类型。 常见的名称首字母是“CN”（表示公用名），例如 CN = www.contoso.com。 
 * “使用者”字段可为空。 
-* 如果可选的“使用者可选名称”字段已填充数据，则此字段必须包含证书的公用名，以及每个 SAN 的一个条目。 这些内容作为“DNS 名称”值输入。 要了解如何生成具有 SAN 的证书，请参阅[如何向安全 LDAP 证书添加使用者可选名称](http://support.microsoft.com/kb/931351)。
+* 如果可选的“使用者可选名称”字段已填充数据，则此字段必须包含证书的公用名，以及每个 SAN 的一个条目。 这些内容作为“DNS 名称”值输入。 要了解如何生成具有 SAN 的证书，请参阅[如何向安全 LDAP 证书添加使用者可选名称](https://support.microsoft.com/kb/931351)。
 * 证书的“预期目的”字段值应包含适当的值，例如“服务器身份验证”或“客户端身份验证”。
 
 ### <a name="application-certificates-optional"></a>应用程序证书（可选）

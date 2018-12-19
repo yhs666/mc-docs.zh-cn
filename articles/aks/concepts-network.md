@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 10/16/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5e2009dcd9f25ffa9d53704063c350accbb12584
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 3d259d8e1f18a46effc5ab2ec8393ff388249415
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676618"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029051"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中应用程序的网络概念
 
@@ -104,7 +104,9 @@ Azure 平台还有助于简化 AKS 群集的虚拟网络。 创建 Kubernetes �
 
 在 AKS 中，可以使用 NGINX 之类的服务器创建入口资源，或使用 AKS HTTP 应用程序路由功能。 为 AKS 群集启用 HTTP 应用程序路由时，Azure 平台会创建入口控制器和 External-DNS 控制器。 在 Kubernetes 中创建新的入口资源时，系统会在特定于群集的 DNS 区域中创建所需的 DNS A 记录。 有关详细信息，请参阅[部署 HTTP 应用程序路由][aks-http-routing]。
 
-入口的另一个常见功能是 SSL/TLS 终止。 在通过 HTTPS 访问的大型 Web 应用程序上，TLS 终止可以由入口资源处理，而不是在应用程序自身内部处理。 要提供自动 TLS 认证生成和配置，可以将入口资源配置为使用 Let's Encrypt 之类的提供程序。 有关使用 Let's Encrypt 配置 NGINX 入口控制器的详细信息，请参阅 [Ingress 和 TLS ][aks-ingress-tls]。
+入口的另一个常见功能是 SSL/TLS 终止。 在通过 HTTPS 访问的大型 Web 应用程序上，TLS 终止可以由入口资源处理，而不是在应用程序自身内部处理。 要提供自动 TLS 认证生成和配置，可以将入口资源配置为使用 Let's Encrypt 之类的提供程序。 
+
+<!-- Not Available on [Ingress and TLS][aks-ingress-tls]-->
 
 ## <a name="network-security-groups"></a>网络安全组
 
@@ -118,11 +120,11 @@ Azure 平台还有助于简化 AKS 群集的虚拟网络。 创建 Kubernetes �
 
 有关核心 Kubernetes 和 AKS 概念的详细信息，请参阅以下文章：
 
-- [Kubernetes/AKS 群集和工作负荷][aks-concepts-clusters-workloads]
-- [Kubernetes/AKS 访问和标识][aks-concepts-identity]
-- [Kubernetes/AKS 安全性][aks-concepts-security]
-- [Kubernetes/AKS 存储][aks-concepts-storage]
-- [Kubernetes/AKS 规模][aks-concepts-scale]
+- [Kubernetes / AKS 群集和工作负荷][aks-concepts-clusters-workloads]
+- [Kubernetes / AKS 访问和标识][aks-concepts-identity]
+- [Kubernetes / AKS 安全性][aks-concepts-security]
+- [Kubernetes / AKS 存储][aks-concepts-storage]
+- [Kubernetes / AKS 缩放][aks-concepts-scale]
 
 <!-- IMAGES -->
 [aks-clusterip]: ./media/concepts-network/aks-clusterip.png
@@ -137,10 +139,4 @@ Azure 平台还有助于简化 AKS 群集的虚拟网络。 创建 Kubernetes �
 
 <!-- LINKS - Internal -->
 [aks-http-routing]: http-application-routing.md
-[aks-ingress-tls]: ingress.md
-[aks-configure-advanced-networking]: configure-advanced-networking.md
-[aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
-[aks-concepts-security]: concepts-security.md
-[aks-concepts-scale]: concepts-scale.md
-[aks-concepts-storage]: concepts-storage.md
-[aks-concepts-identity]: concepts-identity.md
+<!-- Not Available on [aks-ingress-tls]: ingress.md--> [aks-configure-advanced-networking]: configure-advanced-networking.md [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md [aks-concepts-security]: concepts-security.md [aks-concepts-scale]: concepts-scale.md [aks-concepts-storage]: concepts-storage.md [aks-concepts-identity]: concepts-identity.mdd

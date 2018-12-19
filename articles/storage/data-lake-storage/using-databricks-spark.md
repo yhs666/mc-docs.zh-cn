@@ -7,18 +7,18 @@ ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
 origin.date: 6/27/2018
-ms.date: 11/05/2018
+ms.date: 12/10/2018
 ms.author: v-jay
-ms.openlocfilehash: 57247bfbaedabb3bf0eb9a2c97ce1e63053ef770
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c272148d92809611391f517f522518e4ca0a320d
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666545"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028760"
 ---
 # <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>教程：使用 Spark 通过 Azure Databricks 访问 Azure Data Lake Storage Gen2 预览版数据
 
-本教程介绍如何在 Azure Databricks 群集上运行 Spark 查询，以便查询支持 Azure Data Lake Storage Gen2 预览版的帐户中的数据。
+本教程介绍如何在 Azure Databricks 群集上运行 Spark 查询，以便查询启用了 Azure Data Lake Storage Gen2 预览版的 Azure 存储帐户中的数据。
 
 > [!div class="checklist"]
 > * 创建 Databricks 群集
@@ -32,9 +32,9 @@ ms.locfileid: "52666545"
 > [!NOTE]
 > 单击“预压缩的文件”复选框，选择所有数据字段。 下载内容的大小将是数个 GB，但这种数量的数据是进行分析所必需的。
 
-## <a name="create-an-azure-data-lake-storage-gen2-account"></a>创建 Azure Data Lake Storage Gen2 帐户
+## <a name="create-an-azure-storage-account-with-analytic-capabilities"></a>创建具有分析功能的 Azure 存储帐户
 
-若要开始本教程，请创建新的 [Azure Data Lake Storage Gen2 帐户](quickstart-create-account.md)并为其提供唯一名称。 然后导航到存储帐户，以便检索配置设置。
+首先，创建一个[具有分析功能的新存储帐户](quickstart-create-account.md)，并为其指定唯一名称。 然后导航到存储帐户，以便检索配置设置。
 
 1. 在“设置”下，单击“访问密钥”。
 2. 单击 **key1** 旁边的“复制”按钮，复制密钥值。
@@ -71,7 +71,7 @@ ms.locfileid: "52666545"
 
 ### <a name="copy-source-data-into-the-storage-account"></a>将源数据复制到存储帐户中
 
-下一任务是使用 AzCopy 将数据从 *.csv* 文件复制到 Azure 存储中。 打开命令提示符窗口，输入以下命令。 确保将占位符 `<DOWNLOAD_FILE_PATH>`、`<ACCOUNT_NAME>`、`<ACCOUNT_KEY>` 替换为在前面的步骤中存储的相应值。
+下一任务是使用 AzCopy 将数据从 *.csv* 文件复制到 Azure 存储中。 打开命令提示符窗口，输入以下命令。 确保将占位符 `<DOWNLOAD_FILE_PATH>` 和 `<ACCOUNT_KEY>` 替换为在前面的步骤中存储的相应值。
 
 ```bash
 set ACCOUNT_NAME=<ACCOUNT_NAME>
@@ -95,7 +95,7 @@ azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.chinacloudapi.c
     #you need to specify a storage account and container to connect to. 
     #use a SAS token or an account key to connect to Blob Storage.  
     accountname = "<insert account name>"
-    accountkey = "<insert account key>"
+    accountkey = " <insert account key>"
     fullname = "fs.azure.account.key." +accountname+ ".dfs.core.chinacloudapi.cn"
     accountsource = "abfs://dbricks@" +accountname+ ".dfs.core.chinacloudapi.cn/folder1"
     #create a dataframe to read data
@@ -138,11 +138,12 @@ dbutils.fs.help()
 dbutils.fs.put(source + "/temp/1.txt", "Hello, World!", True)
 dbutils.fs.ls(source + "/temp/parquet/flights")
 ```
-你已经通过这些代码示例使用存储在支持 Azure Data Lake Storage Gen2 的帐户中的数据探讨了 HDFS 的层次结构性质。
+
+通过这些代码示例，你已使用启用了 Data Lake Storage Gen2 的存储帐户中存储的数据探讨了 HDFS 的层次结构性质。
 
 ## <a name="query-the-data"></a>查询数据
 
-接下来，可以开始查询上传到 Azure Data Lake Storage 中的数据。 将下面的每个代码块输入到 **Cmd 1** 中，然后按 **Cmd + Enter** 运行 Python 脚本。
+接下来，可以开始查询上传到存储帐户中的数据。 将下面的每个代码块输入到 **Cmd 1** 中，然后按 **Cmd + Enter** 运行 Python 脚本。
 
 ### <a name="simple-queries"></a>简单查询
 

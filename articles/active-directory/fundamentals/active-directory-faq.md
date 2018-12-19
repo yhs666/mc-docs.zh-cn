@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-origin.date: 12/14/2017
-ms.date: 11/12/2018
+origin.date: 11/12/2018
+ms.date: 12/10/2018
 ms.author: v-junlch
-ms.openlocfilehash: 5a07c46f5fad69ef23094e90643329bf9d7e9486
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 53a6a5f8724353fe6b8b13ab512cb4b08bdb5119
+ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645570"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53157424"
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory 常见问题
 Azure Active Directory (Azure AD) 是综合性的标识即服务 (IDaaS) 解决方案，涉及到标识、访问管理和安全的方方面面。
@@ -28,7 +28,7 @@ Azure Active Directory (Azure AD) 是综合性的标识即服务 (IDaaS) 解决�
 ## <a name="access-azure-and-azure-active-directory"></a>访问 Azure 和 Azure Active Directory
 **问：尝试在 Azure 门户中访问 Azure AD 时，为何出现“找不到订阅”错误？**
 
-**答：** 若要访问 Azure 门户，每个用户都需要 Azure 订阅的权限。 否则需要激活 [Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/) 或付费型订阅。
+**答：** 若要访问 Azure 门户，每个用户都需要 Azure 订阅的权限。 如果订阅为付费型 Office 365 订阅或 Azure AD 订阅，请访问 [https://account.windowsazure.cn/Home/Index](https://account.windowsazure.cn/Home/Index)，了解一次性激活步骤。 否则需要激活一个试用版 [Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)或付费版订阅。
 
 - - -
 **问：Azure AD、Office 365 与 Azure 之间是什么关系？**
@@ -54,7 +54,7 @@ Azure AD 付费型服务（例如企业移动性 + 安全性）可通过综合�
 - - -
 **问：是否可以通过报告来查看我的 Azure AD 用户许可证何时过期？**
 
-**答：** 不可以。  此功能目前不可用。
+**答：** 否。  此功能目前不可用。
 
 - - -
 
@@ -71,37 +71,14 @@ Azure AD 付费型服务（例如企业移动性 + 安全性）可通过综合�
 
 有关详细信息，请参阅[将本地标识与 Azure Active Directory 集成](../hybrid/whatis-hybrid-identity.md)。
 
-- - -
-**问：如何在本地目录与云应用程序之间设置 SSO？**
 
-**答：** 只需在本地目录与 Azure AD 之间设置单一登录 (SSO)。 只要通过 Azure AD 访问云应用程序，该服务就会自动让用户使用其本地凭据正确进行身份验证。
-
-可以通过联合身份验证解决方案（例如 Active Directory 联合身份验证服务 (AD FS)）或通过配置密码哈希同步，轻松地从本地实现 SSO。可以使用 Azure AD Connect 配置向导轻松部署这两个选项。
-
-有关详细信息，请参阅[将本地标识与 Azure Active Directory 集成](../hybrid/whatis-hybrid-identity.md)。
-
-- - -
-## <a name="password-management"></a>密码管理
-**问：是否可以使用 Azure AD 密码写回但不使用密码同步？（在这种情况下，是否可以结合密码写回使用 Azure AD 自助密码重置 (SSPR)，而不将密码存储在云中？）**
-
-**答：** 无需将 Active Directory 密码同步到 Azure AD 即可启用写回。 在联合环境中，Azure AD 单一登录 (SSO) 依赖本地目录对用户进行身份验证。 在这种情况下，并不需要在 Azure AD 中跟踪本地密码。
-
-- - -
-**问：需要多长时间才能将密码写回到 Active Directory 本地？**
-
-**答：** 密码写回实时运行。
-
-- - -
-**问：是否可以对管理员管理的密码使用密码写回？**
-
-**答：** 可以。如果已启用密码写回，管理员执行的密码操作将写回到用户的本地环境。  
 
 - - -
 **问：如果尝试更改 Office 365/Azure AD 密码时忘记了现有的密码，该怎么办？**
 
 **答：** 对于这种情况，有几个选项。  在可用的情况下，使用自助密码重置 (SSPR)。  SSPR 是否适用取决于其配置方式。  
 
-对于 Office 365 用户，管理员可以使用 [重置用户密码](https://support.office.com/en-us/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US)中所述的步骤重置密码。
+对于 Office 365 用户，管理员可以使用 [重置用户密码](https://support.office.com/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US)中所述的步骤重置密码。
 
 对于 Azure AD 帐户，管理员可以使用以下选项之一重置密码：
 
@@ -113,7 +90,7 @@ Azure AD 付费型服务（例如企业移动性 + 安全性）可通过综合�
 ## <a name="security"></a>安全性
 **问：是将在失败尝试次数达到特定数字后锁定帐户，还是会使用更复杂的策略？**
 
-我们使用更复杂的策略来锁定帐户。  此策略基于请求的 IP 和输入的密码。 根据存在攻击的可能性，锁定持续时间也会增加。  
+我们使用更复杂的策略锁定帐户。  此策略基于请求的 IP 和输入的密码。 根据存在攻击的可能性，锁定持续时间也会增加。  
 
 **问：某些（常用）密码被拒绝并显示消息“此密码已使用多次”，这是指当前 Active Directory 中使用的密码吗？**
 
@@ -121,9 +98,6 @@ Azure AD 付费型服务（例如企业移动性 + 安全性）可通过综合�
 
 ## <a name="application-access"></a>应用程序访问
 
-**问：在哪里可以找到与 Azure AD 预先集成的应用程序及其功能的列表？**
-
-**答：** Azure AD 中包含 Microsoft、应用程序服务提供商和合作伙伴提供的 2600 多个预先集成的应用程序。 所有预先集成的应用程序都支持单一登录 (SSO)。 SSO 允许用户使用组织凭据来访问应用。 某些应用程序还支持自动预配和自动取消预配。
 
 有关预先集成的应用程序的完整列表，请参阅 [Active Directory 市场](https://azure.microsoft.com/marketplace/active-directory/)。
 
@@ -150,13 +124,13 @@ Azure AD 付费型服务（例如企业移动性 + 安全性）可通过综合�
 
 - - -
 
-**问：SaaS 应用的自动用户预配是什么？**
+**问：什么是 SaaS 应用的自动化用户预配？**
 
 **答：** 使用 Azure AD 可在许多流行的云 (SaaS) 应用程序中自动创建、维护和删除用户标识。
 
 - - -
 **问：是否可以通过 Azure AD 设置安全的 LDAP 连接？**
 
-**答：** 不可以。 Azure AD 不支持 LDAP 协议。
+**答：** 否。 Azure AD 不支持 LDAP 协议。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

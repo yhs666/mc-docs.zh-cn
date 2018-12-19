@@ -1,18 +1,18 @@
 ---
-title: 使用 Azure Site Recovery 从保护项中排除磁盘 | Azure
-description: 介绍在从 Hyper-V 复制到 Azure 时，为何需要从复制中排除 VM 磁盘，以及如何这样做。
+title: 使用 Azure Site Recovery 服务设置灾难恢复时，从复制中排除磁盘 | Azure
+description: 介绍如何在灾难恢复到 Azure 期间将 VM 磁盘从复制中排除。
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 10/11/2018
-ms.date: 11/19/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 781f1ecfd28c8bf6d9c5158859db0b6600c57fd1
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d023f08c793b2e9bbd7d86f868509fee05ddcd67
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52667272"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028555"
 ---
 # <a name="exclude-disks-from-replication"></a>从复制中排除磁盘
 本文介绍如何从复制中排除磁盘。 这种排除可以优化消耗的复制带宽，或者优化此类磁盘利用的目标端资源。
@@ -59,7 +59,7 @@ ms.locfileid: "52667272"
 - 页面文件 (pagefile.sys) 磁盘
 
 ## <a name="excample-1-exclude-the-sql-server-tempdb-disk"></a>示例 1：排除 SQL Server tempdb 磁盘
-让我们假设存在一台拥有可被排除的 tempdb 的 SQL Server 虚拟机。
+假设有一台拥有可被排除的 tempdb 的 SQL Server 虚拟机。
 
 虚拟磁盘的名称为 SalesDB。
 

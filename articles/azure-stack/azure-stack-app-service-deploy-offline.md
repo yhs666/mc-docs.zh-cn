@@ -12,22 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/12/2018
-ms.date: 10/15/2018
+origin.date: 11/13/2018
+ms.date: 12/17/2018
 ms.author: v-jay
-ms.openlocfilehash: 18c940ad98b86df37c54394155fd39c4cd9dfdf5
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5cc2f3fa02688888b205e7e507ced11f9722faae
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655463"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396246"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>将应用服务资源提供程序添加到受 AD FS 保护且已断开连接的 Azure Stack 环境
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 > [!IMPORTANT]
-> 请将 1807 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包，然后部署 Azure 应用服务 1.3。
+> 请将 1809 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包，然后部署 Azure 应用服务 1.4。
 >
 >
 
@@ -85,8 +85,7 @@ ms.locfileid: "52655463"
     2. 在“Azure Stack 订阅”框中，选择“默认提供商订阅”。
     
     > [!NOTE]
-    > 目前，应用服务只能部署到“默认提供程序订阅”。  在将来的更新中，应用服务将部署到 Azure Stack 1804 中引入的新“计量订阅”，所有现有部署也会迁移到此新订阅。
-    >
+    > 应用服务只能部署到“默认提供程序订阅”。
     >
     
     3. 在“Azure Stack 位置”框中，选择要部署到的区域所对应的位置。 例如，如果要部署到 Azure Stack 开发工具包，请选择“本地”。
@@ -171,7 +170,7 @@ ms.locfileid: "52655463"
     ![应用服务安装程序][14]
 
     > [!NOTE]
-    > **不支持将 Windows Server 2016 Core 平台映像与 Azure Stack 上的 Azure 应用服务配合使用。请勿将评估映像用于生产部署。Azure Stack上的 Azure 应用服务要求在用于部署的映像上激活 Microsoft.Net 3.5.1 SP1。 通过“市场”发布的 Windows Server 2016 映像未启用此功能。**
+    > **不支持将 Windows Server 2016 Core 平台映像与 Azure Stack 上的 Azure 应用服务配合使用。请勿将评估映像用于生产部署。Azure Stack上的 Azure 应用服务要求在用于部署的映像上激活 Microsoft.Net 3.5.1 SP1。 市场联合 Windows Server 2016 映像未启用此功能，因此必须在预先启用此功能的情况下创建并使用 Windows Server 2016 映像。**
 
 14. 在“选择平台映像”框中选择部署型 Windows Server 2016 虚拟机映像，该映像由应用服务云的计算资源提供程序提供。 单击“下一步”。
 
@@ -199,16 +198,16 @@ ms.locfileid: "52655463"
 
 1. 在 Azure Stack 管理员门户中，转到“管理 - 应用服务”。
 
-2. 在状态下的概览中，检查“状态”是否显示“所有角色已就绪”。
+2. 在“概述”中，在“状态”下，检查“状态”是否显示了“所有角色已就绪”。
 
     ![应用服务管理](media/azure-stack-app-service-deploy/image12.png)
     
 > [!NOTE]
 > 如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加出站安全规则，以便在工作子网和文件服务器之间启用 SMB 流量。  为此，请转到管理门户中的 WorkersNsg 并添加具有以下属性的出站安全规则：
-> * 源：任何
+> * 源：任意
 > * 源端口范围：*
 > * 目标：IP 地址
-> * 目标 IP 地址范围：文件服务器的 IP 范围
+> * 目标 IP 地址范围：你的文件服务器的 IP 范围
 > * 目标端口范围：445
 > * 协议：TCP
 > * 操作：允许

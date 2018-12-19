@@ -1,8 +1,8 @@
 ---
-title: 使用 Azure 管理组来组织资源 | Azure
+title: 使用 Azure 管理组来组织资源
 description: 了解管理组以及如何使用它们。
-author: rockboyfor
-manager: digimobile
+author: rthorn17
+manager: rithorn
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
 ms.devlang: na
@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/28/2018
-ms.date: 10/29/2018
-ms.author: v-yeche
-ms.openlocfilehash: af05d038bf862afafbb85c901facc4fafdc00aa3
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/17/2018
+ms.author: v-biyu
+ms.openlocfilehash: 5a270e24d0ce0d35e79efe5f1c1cb01bccb27a3d
+ms.sourcegitcommit: 6e07735318eb5f6ea319b618863259088eab3722
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660343"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52981696"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>使用 Azure 管理组来组织资源
 
@@ -48,7 +48,7 @@ ms.locfileid: "52660343"
 ## <a name="root-management-group-for-each-directory"></a>每个目录的根管理组
 
 为每个目录指定了一个称为“根”管理组的顶级管理组。
-此根管理组内置在层次结构中，包含其所有下级管理组和订阅。 此根管理组允许在目录级别应用全局策略和 RBAC 分配。 [目录管理员最初需要提升自身的权限](../role-based-access-control/elevate-access-global-admin.md)才能成为此根组的所有者。 当管理员成为组的所有者后，可将任何 RBAC 角色分配给其他目录用户或组来管理层次结构。
+此根管理组内置在层次结构中，包含其所有下级管理组和订阅。 此根管理组允许在目录级别应用全局策略和 RBAC 分配。 [目录管理员最初需要提升自身的权限](../../role-based-access-control/elevate-access-global-admin.md)才能成为此根组的所有者。 当管理员成为组的所有者后，可将任何 RBAC 角色分配给其他目录用户或组来管理层次结构。
 
 ### <a name="important-facts-about-the-root-management-group"></a>关于根管理组的重要事实
 
@@ -70,7 +70,7 @@ ms.locfileid: "52660343"
 
 ## <a name="initial-setup-of-management-groups"></a>管理组的初始设置
 
-任何用户都需在开始使用管理组时进行初始设置。 第一步是在目录中创建根管理组。 创建此组后，目录中存在的所有现有订阅都成为根管理组的子级。 执行此过程是为了确保一个目录中只有一个管理组层次结构。 目录中的单个层次结构可让管理客户应用目录内其他客户无法绕开的全局访问权限和策略。 通过在目录中包含一个层次结构，在根上分配的任何内容都适用于该目录中的所有管理组、订阅、资源组和资源。  
+任何用户都需在开始使用管理组时进行初始设置。 第一步是在目录中创建根管理组。 创建此组后，目录中存在的所有现有订阅都成为根管理组的子级。 执行此过程是为了确保一个目录中只有一个管理组层次结构。 目录中的单个层次结构可让管理客户应用目录内其他客户无法绕开的全局访问权限和策略。 通过在目录中包含一个层次结构，在根上分配的任何内容都适用于该目录中的所有管理组、订阅、资源组和资源。
 
 ## <a name="trouble-seeing-all-subscriptions"></a>查看所有订阅时遇到问题
 

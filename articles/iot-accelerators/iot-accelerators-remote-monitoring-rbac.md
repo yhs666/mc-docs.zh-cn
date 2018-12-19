@@ -9,12 +9,12 @@ services: iot-accelerators
 origin.date: 08/06/2018
 ms.date: 11/26/2018
 ms.topic: conceptual
-ms.openlocfilehash: 88b46a9dc14818347a9c9ae7e574c98d89cea1aa
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 442b57bc2c9a1c1c1eb1cc5d8a3a4ab7a01eca94
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644784"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028688"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>在远程监视解决方案加速器中配置基于角色的访问控制
 
@@ -46,7 +46,7 @@ ms.locfileid: "52644784"
 
 ## <a name="add-or-remove-users"></a>添加或删除用户
 
-使用 Azure 门户在远程监视解决方案中添加或删除用户。 以下步骤使用当你部署远程监视解决方案时系统为你创建的 [Azure Active Directory 企业应用程序](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application)。
+使用 Azure 门户在远程监视解决方案中添加或删除用户。 以下步骤使用当你部署远程监视解决方案时系统为你创建的 Azure Active Directory 企业应用程序。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 
@@ -242,7 +242,6 @@ public async Task DeleteAsync(string id)
 
 本文已介绍如何在远程监视解决方案加速器中实现基于角色的访问控制。
 
-请参阅[配置时序见解资源管理器的访问控制](iot-accelerators-remote-monitoring-rbac-tsi.md)，了解有关如何在远程监视解决方案加速器中管理时序见解资源管理器的访问权限信息。
 
 有关远程监视解决方案加速器的其他概念性信息，请参阅[远程监视体系结构](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 

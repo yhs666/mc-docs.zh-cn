@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.component: authentication
 ms.topic: article
 origin.date: 01/15/2018
-ms.date: 11/05/2018
+ms.date: 11/30/2018
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: annaba
-ms.openlocfilehash: 4349d9471239c3d5d311c47cdcfda6abf155359c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 0b68d2702d81ac2e7e6ab878a57d5e51bada0acc
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660139"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028549"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Azure Active Directory 中基于证书的身份验证入门
 
@@ -29,7 +29,7 @@ ms.locfileid: "52660139"
 
 本主题：
 
-- 提供的步骤介绍如何为 Office 365 企业版、商业版、教育版和美国政府版计划中租户的用户配置并使用基于证书的身份验证。 可在 Office 365 China（Office 365 中国版）、Office 365 US Government Defense（Office 365 美国政府国防版）和 Office 365 US Government Federal（Office 365 美国政府联邦版）计划中使用此功能。
+- 提供的步骤介绍如何为 Office 365 企业版、商业版和教育版中租户的用户配置并使用基于证书的身份验证。 此功能在 Office 365 中国中以预览版提供。
 - 假设已配置[公钥基础结构 (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) 和 [AD FS](../hybrid/how-to-connect-fed-whatis.md)。
 
 ## <a name="requirements"></a>要求
@@ -39,7 +39,7 @@ ms.locfileid: "52660139"
 - 仅使用新式身份验证 (ADAL) 的浏览器应用程序或本机客户端的联合环境支持基于证书的身份验证 (CBA)。 用于 Exchange Online (EXO) 的 Exchange Active Sync (EAS) 除外，它可用于联合帐户和托管帐户。
 - 必须在 Azure Active Directory 中配置根证书颁发机构和任何中间证书颁发机构。
 - 每个证书颁发机构必须有一个可通过面向 Internet 的 URL 引用的证书吊销列表 (CRL)。
-- 必须在 Azure Active Directory 中至少配置一个证书颁发机构。 可以在 [配置证书颁发机构](#step-2-configure-the-certificate-authorities) 部分查找相关步骤。
+- 必须已在 Azure Active Directory 中至少配置一个证书颁发机构。 可以在 [配置证书颁发机构](#step-2-configure-the-certificate-authorities) 部分查找相关步骤。
 - 对于 Exchange ActiveSync 客户端，客户端证书的“使用者可选名称”字段的主体名称或 RFC822 名称值必须为 Exchange Online 中用户的可路由电子邮件地址。 Azure Active Directory 会将 RFC822 值映射到目录中的“代理地址”属性。
 - 客户端设备必须能够访问至少一个颁发客户端证书的证书颁发机构。
 - 必须已向客户端颁发用于客户端身份验证的客户端证书。
@@ -116,7 +116,7 @@ ms.locfileid: "52660139"
     $new_ca=New-Object -TypeName Microsoft.Open.AzureAD.Model.CertificateAuthorityInformation
     $new_ca.AuthorityType=0
     $new_ca.TrustedCertificate=$cert
-    $new_ca.crlDistributionPoint=”<CRL Distribution URL>”
+    $new_ca.crlDistributionPoint="<CRL Distribution URL>"
     New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca
 
 ### <a name="remove"></a>删除

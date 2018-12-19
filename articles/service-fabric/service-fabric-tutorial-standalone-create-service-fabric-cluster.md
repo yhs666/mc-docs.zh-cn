@@ -13,15 +13,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 05/11/2018
-ms.date: 09/10/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 2017878c44909b71a2cc31c3a4fa831794e358cc
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f4f137d1a888f431cd8fb595c845664df5a63b98
+ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662427"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52901145"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>教程：安装并创建 Service Fabric 群集
 
@@ -38,7 +38,7 @@ Service Fabric 独立群集提供相应的选项让我们选择自己的环境�
 
 ## <a name="download-the-service-fabric-for-windows-server-package"></a>下载用于 Windows Server 的 Service Fabric 包
 
-Service Fabric 提供了一个安装程序包，用于创建独立的 Service Fabric 群集。  在本地计算机上[下载安装程序包](http://go.microsoft.com/fwlink/?LinkId=730690)。  成功下载后，通过 RDP 连接将其复制到 EC2 实例，并将其粘贴到桌面上。
+Service Fabric 提供了一个安装程序包，用于创建独立的 Service Fabric 群集。  在本地计算机上[下载安装程序包](https://go.microsoft.com/fwlink/?LinkId=730690)。  成功下载后，通过 RDP 连接将其复制到 EC2 实例，并将其粘贴到桌面上。
 
 选择 zip 文件并打开上下文菜单，然后选择“全部提取” > “提取”。  提取文件时，将在桌面上生成一个与 zip 文件名相同的文件夹。
 
@@ -152,4 +152,5 @@ Your cluster is successfully created! You can connect and manage your cluster us
 
 <!--Image references-->
 [Trusted Zone]: ./media/service-fabric-cluster-creation-for-windows-server/TrustedZone.png
+
 <!-- Update_Description: update meta properties, wording update -->

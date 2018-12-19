@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/10/2018
-ms.date: 10/15/2018
+origin.date: 10/22/2018
+ms.date: 12/17/2018
 ms.author: v-jay
 ms.reviewer: fiseraci
-ms.openlocfilehash: dc7d809b1b95382e8d712f8fe6baf5dcb35104ae
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e07918f4b64b450810ccadd318f53e97a558eb6f
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660059"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396152"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>使用 Azure Stack 中的特权终结点
 
@@ -56,7 +56,7 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
-    - 如果运行的是 ADSK，请登录到开发工具包主机。
+    - 如果运行的是 ASDK，请登录到开发工具包主机。
 
 2. 在硬件生命周期主机或特权工作站上运行的强化虚拟机中，打开 Windows PowerShell 会话。 运行以下命令，在托管 PEP 的虚拟机上建立远程会话：
  
@@ -68,7 +68,7 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ````
       `ComputerName` 参数可以是托管 PEP 的某个虚拟机的 IP 地址或 DNS 名称。 
-    - 如果运行的是 ADSK：
+    - 如果运行的是 ASDK：
      
       ````PowerShell
         $cred = Get-Credential
@@ -84,7 +84,7 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
     > [!NOTE]
     > 如果无法连接到 ERCS 终结点，请使用尚未尝试连接到的 ERCS VM 的 IP 地址重试步骤 1 和 2。
 
-3.  连接后，系统会根据环境将提示符更改为 **[*IP 地址或 ERCS VM 名称*]: PS>** 或 **[azs-ercs01]: PS>**。 在此处运行 `Get-Command` 可查看可用的 cmdlet 列表。
+3.  在连接后，提示符将更改为 **[*IP 地址或 ERCS VM 名称*]:PS>** 或 **[azs-ercs01]:PS>**，具体取决于环境。 在此处运行 `Get-Command` 可查看可用的 cmdlet 列表。
 
     其中的许多 cmdlet 仅供集成系统环境使用（例如与数据中心集成相关的 cmdlet）。 在 ASDK 中，以下 cmdlet 已经过验证：
 

@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 04/18/2017
 ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: 7a34493a80ef072d13dafab31312a602574befa3
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: abf39531575b53870a44b4f457c2baceb5b9efa1
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651014"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028340"
 ---
 # <a name="using-shared-access-signatures-sas"></a>使用共享访问签名 (SAS)
 
@@ -147,8 +147,8 @@ https://myaccount.blob.core.chinacloudapi.cn/?restype=service&comp=properties&sv
 ## <a name="controlling-a-sas-with-a-stored-access-policy"></a>使用存储访问策略控制 SAS
 共享访问签名可以采取以下两种形式的一种：
 
-* 临时 SAS：创建临时 SAS 时，针对该 SAS 的开始时间、到期时间和权限都在 SAS URI 中指定（在省略开始时间的情况下，也可以是暗示的）。 这种类型的 SAS 可以创建为帐户 SAS 或服务 SAS。
-* 具有存储访问策略的 SAS：存储访问策略是对资源容器（Blob 容器、表、队列或文件共享）定义的，可用于管理针对一个或多个共享访问签名的约束。 将某一 SAS 与一个存储访问策略相关联时，该 SAS 将继承对该存储访问策略定义的约束：开始时间、到期时间和权限。
+* **临时 SAS：** 创建临时 SAS 时，针对该 SAS 的开始时间、到期时间和权限都在 SAS URI 中指定（在省略开始时间的情况下，也可以是暗示的）。 这种类型的 SAS 可以创建为帐户 SAS 或服务 SAS。
+* **具有存储访问策略的 SAS：** 存储访问策略在资源容器（Blob 容器、表、队列或文件共享）上定义，可用于管理针对一个或多个共享访问签名的约束。 将某一 SAS 与一个存储访问策略相关联时，该 SAS 将继承对该存储访问策略定义的约束：开始时间、到期时间和权限。
 
 > [!NOTE]
 > 目前，帐户 SAS 必须是一个临时 SAS。 帐户 SAS 尚不支持存储访问策略。
@@ -229,8 +229,8 @@ catch (StorageException e)
 6. **对要访问的资源要具体。** 一种安全性最佳做法是向用户提供所需最小权限。 如果某一用户仅需要对单个实体的读取访问权限，则向该用户授予对该单个实体的读取访问权限，而不要授予针对所有实体的读取/写入/删除访问权限。 如果 SAS 泄露，这也有助于降低损失，因为攻击者手中掌握的 SAS 的权限较为有限。
 7. **了解对任何使用都会向你的帐户收费，包括使用 SAS 所做的工作。** 如果向你提供了针对某一 Blob 的写访问权限，用户可以选择上传 200GB Blob。 如果还向用户提供了对 Blob 的读访问权限，他们可能会选择下载 Blob 10 次，对你产生 2 TB 的传出费用。 此外，提供受限权限，帮助降低恶意用户的潜在操作威胁。 使用短期 SAS 以便减少这一威胁（但要注意结束时间上的时钟偏移）。
 8. **验证使用 SAS 写入的数据。** 在某一客户端应用程序将数据写入存储帐户时，请记住对于这些数据可能存在问题。 如果应用程序要求在数据可供使用前对数据进行验证或授权，应该在写入数据后、但在应用程序使用这些数据前执行此验证。 这一实践还有助于防止损坏的数据或恶意数据写入帐户，这些数据可能是正常要求 SAS 的用户写入的，也可能是利用泄露的 SAS 的用户写入的。
-9. **不要总是使用 SAS。** 有时候，与针对存储帐户的特定操作相关联的风险要超过 SAS 所带来的好处。 对于此类操作，应创建一个中间层服务，该服务在执行业务规则验证、身份验证和审核后写入存储帐户。 此外，有时候以其他方式管理访问会更简单。 例如，如果想要使某一容器中的所有 Blob 都可以公开读取，则可以使该容器成为公共的，而不是为每个客户端都提供 SAS 以便进行访问。
-10. **使用存储分析监视应用程序。** 可以使用日志记录和指标来观察由于 SAS 提供程序服务中断或无意中删除存储访问策略而导致身份验证失败的任何高发情形。 有关其他信息，请参阅 [Azure 存储团队博客](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx)。
+9. **不要总是使用 SAS。** 有时候，与针对存储帐户的特定操作相关联的风险要超过 SAS 所带来的好处。 对于此类操作，应创建一个中间层服务，该服务在执行业务规则验证、身份验证和审核后写入存储帐户。 此外，有时候以其他方式管理访问会更简单。 例如，如果想要使某一容器中的所有 Blob 都可以公开读取，则可以使该容器成为公共的，而不是为每个客户端都提供 SAS 来进行访问。
+10. **使用存储分析监视应用程序。** 可以使用日志记录和指标来观察由于 SAS 提供程序服务中断或无意中删除存储访问策略而导致身份验证失败的任何高发情形。 有关其他信息，请参阅 [Azure 存储团队博客](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx)。
 
 ## <a name="sas-examples"></a>SAS 示例
 下面是两种类型的共享访问签名（帐户 SAS 和服务 SAS）的一些示例。
@@ -428,8 +428,8 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 共享访问签名用于将存储帐户的受限权限提供给不应具有帐户密钥的客户端。 因此，它们是安全模型的重要环节，适合使用 Azure 存储的任何应用程序。 如果按照本文中介绍的最佳实践执行，则可以使用 SAS 更灵活地访问存储帐户中的资源，且不会影响应用程序的安全性。
 
 ## <a name="next-steps"></a>后续步骤
-* [共享访问签名，第 2 部分：创建 SAS 并将 SAS 用于 Blob 存储](../blobs/storage-dotnet-shared-access-signature-part-2.md)
+* [共享访问签名第 2 部分：创建 SAS 并将其用于 Blob 存储](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 * [管理对容器和 blob 的匿名读取访问](../blobs/storage-manage-access-to-resources.md)
-* [使用共享访问签名委托访问](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-* [介绍表和队列 SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
+* [使用共享访问签名委托访问](https://msdn.microsoft.com/library/azure/ee395415.aspx)
+* [介绍表和队列 SAS](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
 <!--Update_Description:add one link next step-->

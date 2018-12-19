@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/10/2017
-ms.date: 10/15/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: b81dd98c4ce2228c721f9023cdca8ca205cf806d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 3a8a97f671d027815e3e20930ea928b39be47aef
+ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647942"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52901153"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>创建在 Windows Server 上运行的独立群集
 可以使用 Azure Service Fabric 在运行 Windows Server 的任何虚拟机或计算机上创建 Service Fabric 群集。 这意味着，可以在包含一组相互连接的 Windows Server 计算机的任何环境（无论是本地环境还是任何云提供商所提供的环境）中部署和运行 Service Fabric 应用程序。 Service Fabric 提供了一个安装程序包，用于创建名为“Windows Server 独立包”的 Service Fabric 群集。
@@ -28,7 +28,7 @@ ms.locfileid: "52647942"
 本文逐步讲解如何创建 Service Fabric 独立群集。
 
 > [!NOTE]
-> 此独立的 Windows Server 包已经可供购买，并且可用于生产部署。 此包可能包含“预览”形式的新 Service Fabric 功能。 向下滚动到 [此包中包括的预览功能](#previewfeatures_anchor) 预览功能列表部分。 可以立即 [下载一份 EULA](http://go.microsoft.com/fwlink/?LinkID=733084) 。
+> 此独立的 Windows Server 包已经可供购买，并且可用于生产部署。 此包可能包含“预览”形式的新 Service Fabric 功能。 向下滚动到 [此包中包括的预览功能](#previewfeatures_anchor) 预览功能列表部分。 可以立即 [下载一份 EULA](https://go.microsoft.com/fwlink/?LinkID=733084) 。
 > 
 > 
 
@@ -41,14 +41,13 @@ ms.locfileid: "52647942"
 * 若要出于支持目的收集日志，请运行 [Service Fabric 独立日志收集器](service-fabric-cluster-standalone-package-contents.md)。
 
 <!-- Not Available on [here](https://support.microsoft.com/gp/offerprophone?wa=wsignin1.0)-->
-
 <!-- Not Available on [Microsoft Premier Support](https://support.microsoft.com/premier)-->
 
 <a name="downloadpackage"></a>
 
 ## <a name="download-the-service-fabric-for-windows-server-package"></a>下载用于 Windows Server 的 Service Fabric 包
 若要创建群集，请使用可在此处找到的用于 Windows Server 的 Service Fabric 包（Windows Server 2012 R2 和更高版本）： <br>
-[下载链接 - Service Fabric 独立包 - Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690)
+[下载链接 - Service Fabric 独立包 - Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690)
 
 在 [此处](service-fabric-cluster-standalone-package-contents.md)查找有关包内容的详细信息。
 
@@ -114,7 +113,7 @@ ms.locfileid: "52647942"
     ```
 
 > [!NOTE]
-> 部署跟踪已写入运行 CreateServiceFabricCluster.ps1 PowerShell 脚本的 VM/计算机。 可在运行脚本的目录中的子文件夹 DeploymentTraces 中找到这些信息。 要确定是否已将 Service Fabric 正确部署到计算机，请根据群集配置文件 FabricSettings 部分中的详述找到 FabricDataRoot 目录（默认为 c:\ProgramData\SF）中安装的文件。 同样，可以看到 FabricHost.exe 和 Fabric.exe 进程在任务管理器中运行。
+> 部署跟踪已写入运行 CreateServiceFabricCluster.ps1 PowerShell 脚本的 VM/计算机。 可在运行脚本的目录中的子文件夹 DeploymentTraces 中找到这些信息。 要确定是否已将 Service Fabric 正确部署到计算机，请根据群集配置文件 FabricSettings 部分中的详述找到 FabricDataRoot 目录（默认为 c:\ProgramData\SF）中安装的文件。 在任务管理器中也可以看到 FabricHost.exe 和 Fabric.exe 进程正在运行。
 > 
 > 
 
@@ -128,7 +127,7 @@ ms.locfileid: "52647942"
 
 *.\ClusterConfig.json* 和 *.\MicrosoftAzureServiceFabric.cab* 分别是群集配置和运行时 .cab 文件的路径。
 
-### <a name="step-2-connect-to-the-cluster"></a>步骤 2：连接到群集
+### <a name="step-2-connect-to-the-cluster"></a>步骤 2：连接至群集
 连接到群集以验证群集是否正在运行且可用。 ServiceFabric PowerShell 模块与运行时一起安装。  可以从其中一个群集节点或使用 Service Fabric 运行时从远程计算机连接到群集。  [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet 可建立到群集的连接。
 
 若要连接到非安全群集，请运行以下 PowerShell 命令：
@@ -154,7 +153,7 @@ NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion  ConfigVersi
                      vm0      localhost       NodeType0 5.6.220.9494 0                     Up 00:02:43   00:00:00              OK
 ```
 
-### <a name="step-3-visualize-the-cluster-using-service-fabric-explorer"></a>步骤 3：使用 Service Fabric Explorer 直观显示群集
+### <a name="step-3-visualize-the-cluster-using-service-fabric-explorer"></a>步骤 3：使用 Service Fabric Explorer 可视化群集
 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 是一项很好的工具，适用于可视化群集和管理应用程序。  Service Fabric Explorer 是一项在群集中运行的服务，使用浏览器导航到 [http://localhost:19080/Explorer](http://localhost:19080/Explorer) 即可访问该服务。
 
 群集仪表板提供了群集的概览，包括应用程序和节点运行状况的摘要。 节点视图显示群集的物理布局。 对于给定的节点，可以检查已在该节点上部署代码的应用程序。
@@ -205,8 +204,8 @@ NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion  ConfigVersi
 * FailoverUnitQueueLength
 * CommitQueueLength
 * Nodes 数目
-* IsContextComplete: True/False
-* ClusterId：为每个群集随机生成的 GUID。
+* IsContextComplete：True/False
+* ClusterId：这是为每个群集随机生成的 GUID
 * ServiceFabricVersion
 * 从其上传遥测数据的虚拟机或计算机的 IP 地址
 

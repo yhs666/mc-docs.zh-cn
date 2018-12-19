@@ -12,24 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 09/12/2018
-ms.date: 10/15/2018
+origin.date: 10/24/2018
+ms.date: 12/17/2018
 ms.author: v-jay
 ms.reviewer: scottnap
-ms.openlocfilehash: 8928d8b4696d77865e8ef973be934e82c4a3ba58
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a5433291e481968f161ea61019e71fbbb52aabaf
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656331"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396224"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>使用 VPN 将 Azure Stack 连接到 Azure
 
-*适用于：Azure Stack 集成系统*
+适用于：Azure Stack 集成系统
 
 本文介绍如何创建站点到站点 VPN，将 Azure Stack 中的虚拟网络连接到 Azure 中的虚拟网络。
 
-## <a name="before-you-begin"></a>准备阶段
+## <a name="before-you-begin"></a>开始之前
 
 若要完成连接配置，请确保在开始之前准备好以下各项：
 
@@ -44,9 +44,7 @@ ms.locfileid: "52656331"
 
 ### <a name="network-configuration-example-values"></a>网络配置示例值
 
-网络配置示例表显示本文中用于示例的值。 可以使用这些值或参考这些值，以更好地了解本文中的示例。
-
-**网络配置示例**
+网络配置示例表显示本文中用于示例的值。 可以使用这些值或参考这些值，以更好地了解本文中的示例：
 
 |   |Azure Stack|Azure|
 |---------|---------|---------|
@@ -58,19 +56,19 @@ ms.locfileid: "52656331"
 
 ## <a name="create-the-network-resources-in-azure"></a>在 Azure 中创建网络资源
 
-首先为 Azure 创建网络资源。 以下说明介绍如何使用 [Azure 门户](http://portal.azure.cn/)来创建资源。
+首先为 Azure 创建网络资源。 以下说明介绍如何使用 [Azure 门户](https://portal.azure.cn/)来创建资源。
 
 ### <a name="create-the-virtual-network-and-virtual-machine-vm-subnet"></a>创建虚拟网络和虚拟机 (VM) 子网
 
-1. 使用 Azure 帐户登录到 [Azure 门户](http://portal.azure.cn/)。
+1. 使用 Azure 帐户登录到 [Azure 门户](https://portal.azure.cn/)。
 2. 在用户门户中，选择“+ 创建资源”。
 3. 转到**市场**，然后选择“网络”。
 4. 选择“虚拟网络”。
 5. 使用网络配置表中的信息来识别 Azure 的“名称”、“地址空间”、“子网名称”和“子网地址范围”的值。
 6. 对于“资源组”，可以创建新的资源组，也可以选择“使用现有项”（如果已有了一个）。
-7. 选择 VNet 的**位置**。  如果使用示例值，请选择“中国北部”，或使用偏好的另一个位置。
+7. 选择 VNet 的**位置**。  如果使用示例值，请选择“中国北部”，或使用另一个位置。
 8. 选择“固定到仪表板”。
-9. 选择“创建” 。
+9. 选择“创建”。
 
 ### <a name="create-the-gateway-subnet"></a>创建网关子网
 
@@ -80,7 +78,7 @@ ms.locfileid: "52656331"
 4. 默认情况下，子网的名称设置为 **GatewaySubnet**。
 
    >[!IMPORTANT]
-   >网关子网很特殊，**必须**使用该特定名称才能正常运行。
+   >网关子网很特殊，必须使用该特定名称才能正常运行。
 
 5. 在“地址范围”字段中，检查地址是否为 **10.100.1.0/24**。
 6. 选择“确定”创建网关子网。
@@ -95,7 +93,7 @@ ms.locfileid: "52656331"
 6. 选择“公共 IP 地址”。 当“选择公共 IP 地址”部分打开时，选择“新建”。
 7. 在“名称”中键入 **Azure-GW-PiP**，然后选择“确定”。
 8. 对于“VPN 类型”，默认已选择“基于路由”。 保留“基于路由”VPN 类型。
-9. 验证“订阅”和“位置”是否正确。 可将资源固定到仪表板。 选择“创建” 。
+9. 验证“订阅”和“位置”是否正确。 可将资源固定到仪表板。 选择“创建”。
 
 ### <a name="create-the-local-network-gateway-resource"></a>创建本地网关资源
 
@@ -117,7 +115,7 @@ ms.locfileid: "52656331"
 6. 在“设置”部分，依次选择“虚拟网络网关”、“Azure-GW”。
 7. 依次选择“本地网络网关”、“Azs-GW”。
 8. 在“连接名称”中，键入 **Azure-Azs**。
-9. 在“共享密钥(PSK)”中，键入 **12345**。 选择“确定” 。
+9. 在“共享密钥(PSK)”中键入 **12345**，然后选择“确定”。
 
    >[!NOTE]
    >如果将另一值用于共享密钥，请记住，该值必须与在连接另一端创建的共享密钥值匹配。
@@ -140,7 +138,7 @@ ms.locfileid: "52656331"
    * **AzureVnet** 虚拟网络已选中。
    * 子网已设置为 **10.100.0.0/24**。
 
-   选择“确定” 。
+   选择“确定”。
 
 9. 在“摘要”部分检查设置，然后选择“确定”。
 
@@ -157,7 +155,7 @@ ms.locfileid: "52656331"
 1. 使用用户帐户登录到用户门户。
 2. 在用户门户中，选择“+ 创建资源”。
 
-    ![创建新虚拟网络](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
+    ![创建新虚拟网络](media/azure-stack-connect-vpn/image3.png)
 
 3. 转到**市场**，然后选择“网络”。
 4. 选择“虚拟网络”。
@@ -166,7 +164,7 @@ ms.locfileid: "52656331"
 7. 对于“资源组”，可以创建资源组，也可以选择“使用现有项”（如果已有了一个）。
 8. 验证默认位置。
 9. 选择“固定到仪表板”。
-10. 选择“创建” 。
+10. 选择“创建”。
 
 ### <a name="create-the-gateway-subnet"></a>创建网关子网
 
@@ -174,9 +172,9 @@ ms.locfileid: "52656331"
 2. 在“设置”部分中选择“子网”。
 3. 若要将网关子网添加到虚拟网络，请选择“网关子网”。
 
-    ![添加网关子网](media/azure-stack-create-vpn-connection-one-node-tp2/image4.png)
+    ![添加网关子网](media/azure-stack-connect-vpn/image4.png)
 
-4. 子网名称默认设置为 **GatewaySubnet**。 网关子网相当特殊。 若要正常运行，它们必须使用 *GatewaySubnet* 名称。
+4. 子网名称默认设置为 **GatewaySubnet**。 要使网关子网正常运行，它们必须使用 **GatewaySubnet** 名称。
 5. 在“地址范围”中，确认地址是 **10.1.1.0/24**。
 6. 选择“确定”创建网关子网。
 
@@ -190,15 +188,15 @@ ms.locfileid: "52656331"
 6. 选择“公共 IP 地址”菜单项。 当“选择公共 IP 地址”部分打开时，选择“新建”。
 7. 在“名称”中键入 **Azs-GW-PiP**，然后选择“确定”。
 8. 对于“VPN 类型”，默认选择“基于路由”。 保留“基于路由”VPN 类型。
-9. 验证“订阅”和“位置”是否正确。 可将资源固定到仪表板。 选择“创建” 。
+9. 验证“订阅”和“位置”是否正确。 可将资源固定到仪表板。 选择“创建”。
 
 ### <a name="create-the-local-network-gateway"></a>创建本地网关
 
 在 Azure Stack 中，“本地网关”的概念稍微不同于 Azure 部署。
 
-在 Azure 部署中，本地网关代表一个本地（位于用户位置）物理设备，可连接到 Azure 中的虚拟网关。 但在 Azure Stack 中，连接的两端都是虚拟网关！
+在 Azure 部署中，本地网关代表一个本地（位于用户位置）物理设备，可连接到 Azure 中的虚拟网关。 但在 Azure Stack 中，连接的两端都是虚拟网关。
 
-从更通用的角度来看，存在本地网关资源通常意味着在连接的另一端存在远程网关。
+更通俗的解释是，存在本地网络网关资源往往意味着在连接的另一端存在远程网关。
 
 ### <a name="create-the-local-network-gateway-resource"></a>创建本地网关资源
 
@@ -209,7 +207,7 @@ ms.locfileid: "52656331"
 5. 在“名称”中，键入 **Azure-GW**。
 6. 在“IP 地址”中，键入 Azure **Azure-GW-PiP** 中的虚拟网络网关公共 IP 地址。 此地址已显示在前面的网络配置表中。
 7. 在“地址空间”中，键入 **10.100.0.0/24** 和 **10.100.1.0/24**，用作创建的 Azure VNET 的地址空间。
-8. 确认“订阅”、“资源组”和“位置”正确无误，然后选择“创建”。
+8. 确认“订阅”、“资源组”和“位置”值正确无误，然后选择“创建”。
 
 ### <a name="create-the-connection"></a>创建连接
 
@@ -226,7 +224,7 @@ ms.locfileid: "52656331"
 
 ### <a name="create-a-virtual-machine-vm"></a>创建虚拟机 (VM)
 
-若要检查 VPN 连接，需创建两个 VM，一个在 Azure 中，一个在 Azure Stack 中。 创建这些 VM 以后，即可使用它们通过 VPN 隧道发送和接收数据。
+若要检查 VPN 连接，请创建两个 VM：一个在 Azure 中，一个在 Azure Stack 中。 创建这些 VM 以后，即可使用它们通过 VPN 隧道发送和接收数据。
 
 1. 在 Azure 门户中，选择“+ 创建资源”。
 2. 转到“市场”，选择“计算”。
@@ -255,10 +253,10 @@ ms.locfileid: "52656331"
 3. 在 VM 列表中，找到前面创建的 **Azs-VM**，并选择它。
 4. 在虚拟机部分选择“连接”，然后打开 Azs-VM.rdp 文件。
 
-     ![“连接”按钮](media/azure-stack-create-vpn-connection-one-node-tp2/image17.png)
+     ![“连接”按钮](media/azure-stack-connect-vpn/image17.png)
 
 5. 使用创建虚拟机时所配置的帐户登录。
-6. 打开权限提升的 **Windows PowerShell** 窗口。
+6. 打开提升的 Windows PowerShell 提示符。
 7. 键入 **ipconfig /all**。
 8. 在输出中找到“IPv4 地址”，然后保存该地址供稍后使用。 这是要从 Azure ping 的地址。 在示例环境中，该地址为 **10.1.0.4**，但用户环境中的该地址可能有所不同。 该地址应在此前创建的 **10.1.0.0/24** 子网范围内。
 9. 若要创建允许虚拟机响应 ping 的防火墙规则，请运行以下 PowerShell 命令：
@@ -289,11 +287,11 @@ ms.locfileid: "52656331"
 
 10. 在 Azure 上的虚拟机中，通过隧道 ping Azure Stack 中的虚拟机。 为此，请 ping 从 Azs-VM 中记录的 DIP。 在示例环境中，该地址为 **10.1.0.4**，但请确保 ping 实验室中记下的地址。 会看到以下屏幕捕获所示的结果：
 
-    ![ping 成功](media/azure-stack-create-vpn-connection-one-node-tp2/image19b.png)
+    ![ping 成功](media/azure-stack-connect-vpn/image19b.png)
 
-11. 获得远程虚拟机的答复表示测试成功！ 可以关闭虚拟机窗口。
+11. 获得远程虚拟机的答复表示测试成功。 可以关闭虚拟机窗口。
 
-此外还应进行更严格的数据传输测试。 例如，在两个方向复制不同大小的文件。
+还应执行更严格的数据传输测试；例如，朝两个方向复制不同大小的文件。
 
 ### <a name="viewing-data-transfer-statistics-through-the-gateway-connection"></a>通过网关连接查看数据传输统计信息
 

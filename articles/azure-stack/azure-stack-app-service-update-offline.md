@@ -1,10 +1,10 @@
 ---
-title: 离线更新 Azure 应用服务 | Azure
+title: 离线更新 Azure 应用服务 | Microsoft Docs
 description: 有关离线更新 Azure Stack 上的 Azure 应用服务的详细指导
 services: azure-stack
 documentationcenter: ''
-author: apwestgarth
-manager: stefsch
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,22 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/15/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
-ms.openlocfilehash: 83bfe30151014ccc3263ecedf66f7cc71a33f10a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 11/13/2018
+ms.date: 12/17/2018
+ms.author: v-jay
+ms.openlocfilehash: b6de26bb476bed83627b566e8f3d2671ef7abcff
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657589"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396227"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>离线更新 Azure Stack 上的 Azure 应用服务
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 > [!IMPORTANT]
-> 请将 1807 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包，然后部署 Azure 应用服务 1.3。
+> 请将 1809 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包，然后部署 Azure 应用服务 1.4。
 >
 >
 
@@ -45,7 +45,7 @@ ms.locfileid: "52657589"
 
 若要升级 Azure Stack 环境中的应用服务资源提供程序，必须完成以下任务：
 
-1. 下载[应用服务安装程序](https://aka.ms/appsvcupdate3installer)
+1. 下载[应用服务安装程序](https://aka.ms/appsvcupdate4installer)
 2. 创建离线升级包。
 3. 运行应用服务安装程序 (appservice.exe) 并完成升级。
 
@@ -94,7 +94,7 @@ ms.locfileid: "52657589"
 
 5. 查看并接受第三方许可条款，然后单击“下一步”。
 
-6. 确保 Azure Stack Azure 资源管理器终结点和 Active Directory 租户信息正确。 如果在 Azure Stack 开发工具包部署过程中使用了默认设置，可以接受此处的默认值。 但是，如果在部署 Azure Stack 时自定义了选项，则必须根据自定义的情况编辑此窗口中的值。 例如，如果使用域后缀 *mycloud.com*，则必须将“Azure Stack”Azure 资源管理器终结点更改为 *management.region.mycloud.com*。 确认信息后，单击“下一步”。
+6. 确保 Azure Stack Azure 资源管理器终结点和 Active Directory 租户信息正确。 如果在 Azure Stack 开发工具包部署过程中使用了默认设置，可以接受此处的默认值。 但是，如果在部署 Azure Stack 时自定义了选项，则必须编辑此窗口中的值。 例如，如果使用域后缀 *mycloud.com*，则必须将“Azure Stack”Azure 资源管理器终结点更改为 *management.region.mycloud.com*。 确认信息后，单击“下一步”。
 
     ![Azure Stack 云信息][3]
 
@@ -105,7 +105,7 @@ ms.locfileid: "52657589"
         * 如果使用 Active Directory 联合身份验证服务 (AD FS)，请提供管理员帐户。 例如，*cloudadmin@azurestack.local*。 输入密码，并单击“登录”。
    2. 在“Azure Stack 订阅”框中，选择“默认提供商订阅”。
    3. 在“Azure Stack 位置”框中，选择要部署到的区域所对应的位置。 例如，如果要部署到 Azure Stack 开发工具包，请选择“本地”。
-   4. 如果发现了现有的应用服务部署，则资源组和存储帐户将被填充并灰显。
+   4. 如果检测到现有的应用服务部署，则资源组和存储帐户将被填充并灰显。
    5. 按“下一步”查看升级摘要。
 
     ![检测到应用服务安装][4]

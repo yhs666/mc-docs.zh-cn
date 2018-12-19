@@ -1,10 +1,10 @@
 ---
-title: 在 Azure Stack 上部署应用服务之前 | Azure
+title: 在 Azure Stack 上部署应用服务之前 | Microsoft Docs
 description: 在 Azure Stack 上部署应用服务之前需要完成的步骤
 services: azure-stack
 documentationcenter: ''
-author: apwestgarth
-manager: stefsch
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,24 +12,24 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/20/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
-ms.openlocfilehash: 2323da50d1a5fbfbc4d5a57b580a460bfd15b642
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 11/13/2018
+ms.date: 12/17/2018
+ms.author: v-jay
+ms.openlocfilehash: 7f29d815a76d5c4956f38fcc5a7a42f53f4c408e
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650727"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396237"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>在 Azure Stack 上开始使用应用服务之前
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+适用于：Azure Stack 集成系统和 Azure Stack 开发工具包
 
 在 Azure Stack 上部署 Azure 应用服务之前，必须完成本文中的先决条件步骤。
 
 > [!IMPORTANT]
-> 请将 1807 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包 (ASDK)，然后部署 Azure 应用服务 1.3。
+> 请将 1809 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包 (ASDK)，然后部署 Azure 应用服务 1.4。
 
 ## <a name="download-the-installer-and-helper-scripts"></a>下载安装程序与帮助器脚本
 
@@ -45,6 +45,10 @@ ms.locfileid: "52650727"
    - Remove-AppService.ps1
    - 模块文件夹
      - GraphAPI.psm1
+
+## <a name="syndicate-the-custom-script-extension-from-the-marketplace"></a>从市场合成自定义脚本扩展版本
+
+Azure Stack 上的 Azure 应用服务需要自定义脚本扩展 v1.9.0。  开始部署或升级 Azure Stack 上的 Azure 应用服务之前，必须先[从市场合成](/azure-stack/azure-stack-download-azure-marketplace-item)该扩展
 
 ## <a name="high-availability"></a>高可用性
 
@@ -152,6 +156,9 @@ API 证书放在“管理”角色上。 资源提供程序使用它来帮助保
 
 ## <a name="virtual-network"></a>虚拟网络
 
+> [!NOTE]
+> 预先创建自定义虚拟网络是可选操作，因为 Azure Stack 上的 Azure 应用服务可以创建所需的虚拟网络，但之后需要通过公共 IP 地址来与 SQL 和文件服务器通信。
+
 Azure Stack 上的 Azure 应用服务允许将资源提供程序部署到现有的虚拟网络，或者允许在部署时创建虚拟网络。 使用现有虚拟网络可以通过内部 IP 连接到 Azure Stack 上的 Azure 应用服务所需的文件服务器和 SQL Server。 在 Azure Stack 上安装 Azure 应用服务之前，必须为虚拟网络配置以下地址范围和子网：
 
 虚拟网络 - /16
@@ -168,12 +175,20 @@ Azure Stack 上的 Azure 应用服务允许将资源提供程序部署到现有�
 
 Azure 应用服务需要使用文件服务器。 在生产部署中，必须将文件服务器配置为高度可用，且能够应对故障。
 
+### <a name="quickstart-template-for-file-server-for-deployments-of-azure-app-service-on-asdk"></a>用于部署 ASDK 上的 Azure应用服务的文件服务器快速入门模板。
+
 如果只部署 Azure Stack 开发工具包，则可以使用[示例 Azure 资源管理器部署模板](https://aka.ms/appsvconmasdkfstemplate)来部署已配置的单节点文件服务器。 单节点文件服务器位于工作组中。
+
+### <a name="quickstart-template-for-highly-available-file-server-and-sql-server"></a>高可用性文件服务器和 SQL Server 的快速入门模板
+
+现已推出一个[参考体系结构快速入门模板](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha)，用于部署文件服务器、SQL Server，并在配置为支持 Azure Stack 上的 Azure 应用服务高可用性部署的虚拟网络中支持 Active Directory 基础结构。  
+
+### <a name="steps-to-deploy-a-custom-file-server"></a>部署自定义文件服务器的步骤
 
 >[!IMPORTANT]
 > 如果选择在现有虚拟网络中部署应用服务，应将文件服务器部署到独立于应用服务的子网中。
 
-### <a name="provision-groups-and-accounts-in-active-directory"></a>在 Active Directory 中预配组和帐户
+#### <a name="provision-groups-and-accounts-in-active-directory"></a>在 Active Directory 中预配组和帐户
 
 1. 创建以下 Active Directory 全局安全组：
 
@@ -196,7 +211,7 @@ Azure 应用服务需要使用文件服务器。 在生产部署中，必须将�
    - 将 **FileShareOwner** 添加到 **FileShareOwners** 组。
    - 将 **FileShareUser** 添加到 **FileShareUsers** 组。
 
-### <a name="provision-groups-and-accounts-in-a-workgroup"></a>在工作组中预配组和帐户
+#### <a name="provision-groups-and-accounts-in-a-workgroup"></a>在工作组中预配组和帐户
 
 >[!NOTE]
 > 配置文件服务器时，请通过**管理员命令提示符**运行以下所有命令。 <br>***请勿使用 PowerShell。***
@@ -226,7 +241,7 @@ Azure 应用服务需要使用文件服务器。 在生产部署中，必须将�
    net localgroup FileShareOwners FileShareOwner /add
    ```
 
-### <a name="provision-the-content-share"></a>预配内容共享
+#### <a name="provision-the-content-share"></a>预配内容共享
 
 内容共享包含租户网站内容。 在单个文件服务器上预配内容共享的过程与在 Active Directory 和工作组环境中相同。 但是对于 Active Directory 中的故障转移群集则不同。
 
@@ -333,7 +348,7 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 | AzureStackAdminCredential | 必须 | Null | Azure AD 服务管理员凭据。 |
 | CertificateFilePath | 必须 | Null | 前面生成的标识应用程序证书文件的**完整路径**。 |
 | CertificatePassword | 必须 | Null | 帮助保护证书私钥的密码。 |
-| 环境 | 可选 | AzureChinaCloud | 其中目标 Azure Active Directory Graph 服务可用的受支持云环境的名称。  允许的值：“AzureCloud”、“AzureChinaCloud”。|
+| 环境 | 可选 | AzureChinaCloud | 其中目标 Azure Active Directory Graph 服务可用的受支持云环境的名称。  允许的值：'AzureChinaCloud'。|
 
 ## <a name="create-an-active-directory-federation-services-application"></a>创建 Active Directory 联合身份验证服务应用程序
 

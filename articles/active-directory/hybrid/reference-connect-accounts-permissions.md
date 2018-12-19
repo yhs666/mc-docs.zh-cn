@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/18/2018
-ms.date: 11/12/2018
+origin.date: 10/12/2018
+ms.date: 12/05/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: b10eb5d15184c977a145ee812db23d60e2cde830
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 68af0befc40e48590bb9edaefd51175b375478f9
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663522"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028596"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect：帐户和权限
 
@@ -113,7 +113,13 @@ AD DS 企业管理员帐户用于配置本地 Active Directory。 这些凭据�
 | 代理信任凭据 |联合身份验证服务信任凭据（代理用来注册 FS 信任证书的凭据） |作为 AD FS 服务器本地管理员的域帐户 |初始注册 FS-WAP 信任证书。 |
 | “AD FS 服务帐户”页上的“使用域用户帐户选项” |AD 用户帐户凭据 |域用户 |提供了其凭据的 AD 用户帐户用作 AD FS 服务的登录帐户。 |
 
-### 创建 AD DS 连接器帐户 <a name="create-the-ad-dso-connector-account"></a>
+### <a name="create-the-ad-ds-connector-account"></a>创建 AD DS 连接器帐户
+
+>[!IMPORTANT]
+>内部版本 1.1.880.0（发布于 2018 年 8 月）中引入了名为 ADSyncConfig.psm1 的新 PowerShell 模块，其中包括有助于为 Azure AD DS 连接器帐户配置正确 Active Directory 权限的 cmdlet 集合。
+>
+>有关详细信息，请参阅 [Azure AD Connect：配置 AD DS 连接器帐户权限](how-to-connect-configure-ad-ds-connector-account.md)
+
 “连接目录”页上指定的帐户必须在安装之前存在于 Active Directory 中。  Azure AD Connect 版本 1.1.524.0 及更高版本提供了相应选项，让 Azure AD Connect 向导创建用于连接 Active Directory 的 AD DS 连接器帐户。  
 
 还必须向它授予所需的权限。 安装向导不会验证权限，任何问题只能在同步期间发现。
@@ -138,7 +144,7 @@ AD DS 企业管理员帐户用于配置本地 Active Directory。 这些凭据�
 | --- | --- | --- |
 | 运行安装向导的用户 |本地服务器的管理员 |更新二进制文件 |
 | 运行安装向导的用户 |ADSyncAdmins 的成员 |对同步规则和其他配置进行更改。 |
-| 运行安装向导的用户 |如果使用完整 SQL 服务器：需有同步引擎数据库的 DBO 权限（或类似权限） |进行数据库级别的更改，例如使用新列更新表。 |
+| 运行安装向导的用户 |如果使用完整的 SQL Server：需要同步引擎数据库的 DBO（或类似权限） |进行数据库级别的更改，例如使用新列更新表。 |
 
 ## <a name="more-about-the-created-accounts"></a>有关所创建帐户的详细信息
 ### <a name="ad-ds-connector-account"></a>AD DS 连接器帐户
@@ -233,12 +239,13 @@ Azure AD 将同步服务帐户数目限制为 20 个。 若要在 Azure AD 中�
 
 |主题 |链接|  
 | --- | --- |
-|下载 Azure AD Connect | [下载 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)|
+|下载 Azure AD Connect | [下载 Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |使用快速设置安装 | [Azure AD Connect 的快速安装](how-to-connect-install-express.md)|
-|使用自定义设置安装 | [Azure AD Connect 的自定义安装](how-to-connect-install-custom.md)|
+|使用自定义设置安装 | [Azure AD Connect 的自定义安装](./how-to-connect-install-custom.md)|
 |从 DirSync 升级 | [从 Azure AD 同步工具 (DirSync) 升级](how-to-dirsync-upgrade-get-started.md)|
 |安装后 | [验证安装并分配许可证 ](how-to-connect-post-installation.md)|
 
 ## <a name="next-steps"></a>后续步骤
 了解有关 [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)的详细信息。
 
+<!-- Update_Description: wording update -->

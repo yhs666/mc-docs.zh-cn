@@ -11,31 +11,34 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/13/2018
-ms.date: 10/15/2018
+origin.date: 11/14/2018
+ms.date: 12/17/2018
 ms.author: v-jay
-ms.reviewer: jeffgo
-ms.openlocfilehash: a540976b95957ddb5e789f2812760fa175afba3c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.reviewer: quying
+ms.openlocfilehash: 19e7d0cc17d1cb3f966165232ad40043394acc9a
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653729"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396168"
 ---
 # <a name="remove-the-mysql-resource-provider"></a>删除 MySQL 资源提供程序
 
 删除 MySQL 资源提供程序之前，必须删除该提供程序的所有依赖项。 你还需要用来安装资源提供程序的部署包的副本。
 
+> [!NOTE]
+> 可以在[部署资源提供程序先决条件](.\azure-stack-mysql-resource-provider-deploy.md#prerequisites)中找到资源提供程序安装程序的下载链接。
+
 ## <a name="dependency-cleanup"></a>依赖项清理
 
 在运行 DeployMySqlProvider.ps1 脚本来删除资源提供程序之前，需要执行几个清理任务：
 
-租户负责执行以下清理任务：
+Azure Stack 租户用户负责执行以下清理任务：
 
 * 从资源提供程序中删除其所有数据库。 （删除租户数据库不会删除数据。）
 * 从提供程序命名空间中取消注册。
 
-管理员负责执行以下清理任务：
+Azure Stack 操作员负责执行以下清理任务：
 
 * 从 MySQL 适配器中删除宿主服务器。
 * 删除引用 MySQL 适配器的所有计划。

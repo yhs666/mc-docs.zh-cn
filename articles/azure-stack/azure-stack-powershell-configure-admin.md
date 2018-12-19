@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-origin.date: 09/17/2018
-ms.date: 10/15/2018
+origin.date: 11/08/2018
+ms.date: 12/17/2018
 ms.author: v-jay
 ms.reviewer: thoroet
-ms.openlocfilehash: 98558270aa2c31df101d8593664cd10035de9129
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 338383ba90ee48a08259d35474230eeb50cdc333
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660943"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396154"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>以操作员身份使用 PowerShell 连接到 Azure Stack
 
@@ -30,7 +30,7 @@ ms.locfileid: "52660943"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果已[通过 VPN 建立连接](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)，请通过[开发工具包](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop)或基于 Windows 的外部客户端运行以下先决条件操作。 
+如果已[通过 VPN 连接到 ASDK](.\asdk\asdk-connect.md#connect-with-vpn)，请通过[开发工具包](.\asdk\asdk-connect.md#connect-with-rdp)或基于 Windows 的外部客户端运行以下先决条件操作。 
 
  - 安装 [Azure Stack 兼容的 Azure PowerShell 模块](azure-stack-powershell-install.md)。  
  - 下载[使用 Azure Stack 所需的工具](azure-stack-powershell-download.md)。  
@@ -45,11 +45,12 @@ ms.locfileid: "52660943"
     $ArmEndpoint = "<Admin Resource Manager endpoint for your environment>"
 
     # Register an AzureRM environment that targets your Azure Stack instance
-    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
+    Add-AzureRmEnvironment -Name "AzureStackAdmin" -ARMEndpoint $ArmEndpoint -AzureKeyVaultDnsSuffix adminvault.local.azurestack.external -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
+
 
     # After signing in to your environment, Azure Stack cmdlets
     # can be easily targeted at your Azure Stack instance.
-    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"
+    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $tenantId
 ````
 
 ## <a name="test-the-connectivity"></a>测试连接

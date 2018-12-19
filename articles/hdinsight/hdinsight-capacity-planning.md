@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 09/22/2017
 ms.date: 08/27/2018
 ms.author: v-yiso
-ms.openlocfilehash: ececedc7f6bfee447eb50cc79ef3e3023386551b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d714a3d0bc647a7580ee3755f318230582ed5401
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659875"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028697"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 群集的容量规划
 
@@ -77,9 +77,9 @@ Azure 存储具有一些[容量限制](../azure-subscription-service-limits.md#s
 
 VM 大小和类型由 CPU 处理能力、RAM 大小和网络延迟决定：
 
-* CPU：VM 大小支配核心数。 核心越多，每个节点可实现的并行计算度就越大。 此外，某些 VM 类型的核心更快。
+* CPU：VM 大小决定了核心数。 核心越多，每个节点可实现的并行计算度就越大。 此外，某些 VM 类型的核心更快。
 
-* RAM：VM 大小还支配 VM 中可用的 RAM 量。 对于在内存中存储而不是从磁盘读取待处理数据的工作负荷，请确保工作节点能够提供足够的内存来容纳这些数据。
+* RAM：VM 大小还决定了 VM 中可用的 RAM 量。 对于在内存中存储而不是从磁盘读取待处理数据的工作负荷，请确保工作节点能够提供足够的内存来容纳这些数据。
 
 * 网络：对于大多数群集类型，群集处理的数据并不在本地磁盘上，而是在 Azure 存储等外部存储服务中。 考虑节点 VM 与存储服务之间的网络带宽和吞吐量。 通常，更大 VM 的可用网络带宽越高。 有关详细信息，请参阅 [VM 大小概述](https://docs.microsoft.com/azure/virtual-machines/linux/sizes)。
 
@@ -93,7 +93,8 @@ VM 大小和类型由 CPU 处理能力、RAM 大小和网络延迟决定：
 
 ### <a name="cluster-lifecycle"></a>群集生命周期
 
-在群集的生存期内会产生费用。 如果仅在特定时间需要群集启动且正在运行，<!-- [create on-demand clusters using Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). -->
+在群集的生存期内会产生费用。 如果仅在特定时间需要群集启动且正在运行， 
+
 可以创建 PowerShell 脚本用于预配和删除群集，然后使用 [Azure 自动化](/automation/)计划这些脚本。
 
 > [!NOTE]
@@ -116,5 +117,5 @@ VM 大小和类型由 CPU 处理能力、RAM 大小和网络延迟决定：
 
 ## <a name="next-steps"></a>后续步骤
 
-* [使用 Hadoop、Spark、Kafka 等在 HDInsight 中设置群集](hdinsight-hadoop-provision-linux-clusters.md)：了解如何使用 Hadoop、Spark、Kafka、交互式 Hive、HBase、ML Services 或 Storm 在 HDInsight 中设置和配置群集。
+* [使用 Hadoop、Spark、Kafka 等在 HDInsight 中设置群集](hdinsight-hadoop-provision-linux-clusters.md)：了解如何使用 Hadoop、Spark、Kafka、Interactive Hive、HBase、ML Services 或 Storm 在 HDInsight 中设置和配置群集。
 * [监视群集性能](hdinsight-key-scenarios-to-monitor.md)：了解要在 HDInsight 群集中监视的、可能会影响群集容量的关键情况。

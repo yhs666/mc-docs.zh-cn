@@ -5,16 +5,16 @@ services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-ms.topic: article
-origin.date: 07/06/2018
-ms.date: 11/19/2018
+ms.topic: conceptual
+origin.date: 10/29/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 13235a4757a3dc378fbb988c07d47266635682ad
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 9e2fe8a96587ba6d8f784a38ee56492f3363e326
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666602"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028900"
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>将 Azure 虚拟机复制到另一个 Azure 区域
 
@@ -27,9 +27,9 @@ ms.locfileid: "52666602"
 ## <a name="enable-replication"></a>启用复制
 
 启用复制。 此过程假设主要 Azure 区域是中国东部，次要区域是中国北部。
+
 <!--Notice: Change Source Location East Asia, China East Map TO South East Asia, China North-->
 <!--Notice: Change as and the secondary region is China North-->
-
 1. 在保管库中，单击“+复制”。
 2. 指定以下字段：
     - **源**：VM 的起始点，在本例中为 **Azure**。
@@ -47,12 +47,12 @@ ms.locfileid: "52666602"
 
     - **目标位置**：要在其中复制源虚拟机数据的位置。 根据所选的计算机位置，Site Recovery 会提供合适目标区域的列表。 我们建议将目标位置与恢复服务保管库位置保持相同。
     - **目标订阅**：用于灾难恢复的目标订阅。 默认情况下，目标订阅将与源订阅相同。
-    - **目标资源组**：所有复制虚拟机所属的资源组。 默认情况下，Azure Site Recovery 在目标位置创建一个名称带有“asr”后缀的新资源组。 如果 Azure Site recovery 创建的资源组已存在，则会重复使用。 还可以选择对其进行自定义，如以下部分中所示。 目标资源组的位置可以是除托管源虚拟机区域以外的任何 Azure 区域。
+    - **目标资源组**：复制的虚拟机所属的资源组。 默认情况下，Azure Site Recovery 在目标位置创建一个名称带有“asr”后缀的新资源组。 如果 Azure Site recovery 创建的资源组已存在，则会重复使用。 还可以选择对其进行自定义，如以下部分中所示。 目标资源组的位置可以是除托管源虚拟机区域以外的任何 Azure 区域。
     - **目标虚拟网络**：默认情况下，Site Recovery 会在目标区域中创建一个名称带有“asr”后缀的新虚拟网络。 这会映射到源网络并会用于任何将来的保护。 [详细了解](site-recovery-network-mapping-azure-to-azure.md)网络映射。
     - **目标存储帐户（如果源 VM 不使用托管磁盘）**：默认情况下，Site Recovery 会创建模拟源 VM 存储配置的新目标存储帐户。 如果存储帐户已存在，则重复使用。
-    - **托管磁盘副本（如果源 VM 使用托管磁盘）**：Site Recovery 在目标区域新建托管磁盘副本，以生成和源 VM 的托管磁盘存储类型一致（标准或高级）的镜像磁盘。
+    - **副本托管磁盘（如果源 VM 使用托管磁盘）**：Site Recovery 在目标区域新建托管磁盘副本，以生成和源 VM 的托管磁盘存储类型一致（标准或高级）的镜像磁盘。
     - **缓存存储帐户**：Site Recovery 需要源区域中称为“缓存存储”的额外存储帐户。 在复制到目标位置前，系统会跟踪源 VM 上发生的所有更改并发送到缓存存储帐户。
-    - **可用性集**：默认情况下，Azure Site Recovery 会在目标区域中创建一个名称带有“asr”后缀的新可用性集。 如果 Azure Site recovery 创建的可用性集已存在，则重复使用它。
+    - **可用性集**：默认情况下，Azure Site Recovery 在目标区域中创建一个名称带有“asr”后缀的新可用性集。 如果 Azure Site recovery 创建的可用性集已存在，则重复使用它。
     - **复制策略**：定义恢复点保留期历史记录和应用一致性快照频率的设置。 默认情况下，Azure Site Recovery 使用恢复点保留期为“24 小时”、应用一致性快照频率为“60 分钟”的默认设置创建新的复制策略。
 
     ![启用复制](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)

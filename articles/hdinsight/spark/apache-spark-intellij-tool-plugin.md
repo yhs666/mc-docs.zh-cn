@@ -1,5 +1,5 @@
 ---
-title: 用于 IntelliJ 的 Azure 工具包：为 HDInsight 群集创建 Spark 应用程序 | Azure
+title: Azure Toolkit for IntelliJ：为 HDInsight 群集创建 Spark 应用程序 | Azure
 description: 使用用于 IntelliJ 的 Azure 工具包开发以 Scala 编写的 Spark 应用程序，并将其提交到 HDInsight Spark 群集。
 services: hdinsight
 author: jasonwhowell
@@ -13,12 +13,12 @@ ms.topic: conceptual
 origin.date: 10/11/2018
 ms.date: 11/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: 6ed7879641bc96c00389f1b2995b3c3c0a98aa59
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 2dac9eb7272e180713f19cb2bb81f84a87223d59
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646715"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028347"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>使用用于 IntelliJ 的 Azure 工具包为 HDInsight 群集创建 Spark 应用程序
 
@@ -182,21 +182,21 @@ ms.locfileid: "52646715"
 
       * 从 IntelliJ 项目或硬盘中选择一个项目。
 
-    * **主类名**字段：默认值是所选文件中的主类。 可选择省略号 (...) 并选择其他类来更改类。   
+    * “Main 类名”字段：默认值是所选文件中的 main 类。 可选择省略号 (...) 并选择其他类来更改类。   
 
-    * **作业配置**字段：默认值设置如上图所示。 可更改值或为作业提交添加新的键/值。 有关详细信息：[Apache Livy REST API](http://livy.incubator.apache.org./docs/latest/rest-api.html)
+    * “作业配置”字段：默认值设置如上图所示。 可更改值或为作业提交添加新的键/值。 更多相关信息：[Apache Livy REST API](http://livy.incubator.apache.org./docs/latest/rest-api.html)
 
       ![Spark 提交对话框作业配置含义](./media/apache-spark-intellij-tool-plugin/submit-job-configurations.png)
 
-    * **命令行参数**字段：如有需要，可为主类输入按空格分隔的参数值。
+    * “命令行参数”字段：如有需要，可为 main 类输入按空格分隔的参数值。
 
-    * **引用的 Jars** 和**引用的文件**字段：可输入引用的 Jars 和文件的路径（如果有）。 有关详细信息，请参阅 [Spark 配置](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) 
+    * “引用的 Jar”和“引用的文件”字段：可以输入引用的 Jar 和文件（如果有）的路径。 更多相关信息：[Spark 配置](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) 
 
       ![Spark 提交对话框 jar 文件含义](./media/apache-spark-intellij-tool-plugin/jar-files-meaning.png)
 
        > [!NOTE]
        > 若要上传引用的 JAR 和引用的文件，请参阅：[如何将资源上传到群集](/storage/blobs/storage-quickstart-blobs-storage-explorer)
-    * **上传路径**：可指示 Jar 或 Scala 项目资源提交的存储位置。 支持三种存储类型：Azure Blob、使用 Spark 交互式会话上传项目，以及使用群集默认存储帐户。 下面的屏幕截图是 Azure Blob 的示例。
+    * **上传路径**：可指示 Jar 或 Scala 项目资源提交的存储位置。 支持三种存储类型：“Azure Blob”、“使用 Spark 交互式会话上传项目”和“使用群集默认存储帐户”。 下面的屏幕截图是 Azure Blob 的示例。
 
         ![“Spark 提交”对话框](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-upload-storage-types.png)
 
@@ -257,9 +257,6 @@ ms.locfileid: "52646715"
 ### <a name="spark-local-consolescala"></a>Spark Local Console(Scala)
 1. 需手动添加依赖项。 在菜单中，依次选择“文件”->“项目结构”->“项目设置”->“库”，然后单击 +，选择“从 Maven...”。然后在弹出式对话框中输入 org.apache.spark:spark-repl_2.11:2.1.0。 在库中添加依赖项之后，需要将依赖项移动到“项目结构”窗口的“模块”中的第一行。 在移动之前，将“范围”更改为“运行时”。
 
-    ![Local Console 添加依赖项库](./media/apache-spark-intellij-tool-plugin/local-console-add-dependency-libraries.png)
-
-    ![Local Console 移动到第一行](./media/apache-spark-intellij-tool-plugin/local-console-move-first-line.png)
 
 2. 如果之前未设置配置，请设置配置。 在“运行/调试配置”窗口中，单击 +->“Azure HDInsight Spark”，选择“本地运行”选项卡，并选择主类，然后单击“确定”。
 
@@ -303,7 +300,7 @@ ms.locfileid: "52646715"
 
 ## <a name="troubleshooting"></a>故障排除
 
-### <a name="error-in-local-run-please-use-a-larger-heap-size"></a>本地运行出错：“请使用更大的堆大小”
+### <a name="error-in-local-run-please-use-a-larger-heap-size"></a>本地运行中的错误：“请使用更大的堆大小”
 在 Spark 1.6 中，如果在本地运行期间使用 32 位 Java SDK，可能会遇到以下错误：
 
     Exception in thread "main" java.lang.IllegalArgumentException: System memory 259522560 must be at least 4.718592E8. Please use a larger heap size.
@@ -349,7 +346,7 @@ ms.locfileid: "52646715"
 
 ### <a name="scenarios"></a>方案
 * [Spark 和 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](apache-spark-use-bi-tools.md)
-* [Spark 和机器学习：使用 HDInsight 中的 Spark 结合 HVAC 数据分析建筑物温度](apache-spark-ipython-notebook-machine-learning.md)
+* [Spark 和机器学习：通过 HDInsight 中的 Spark 使用 HVAC 数据分析建筑物温度](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](apache-spark-machine-learning-mllib-ipython.md)
 * [使用 HDInsight 中的 Spark 分析网站日志](apache-spark-custom-library-website-log-analysis.md)
 

@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/15/2018
-ms.date: 11/12/2018
+ms.date: 12/05/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 7efbddee2f92c9f8514e3cea158adfb20da6e809
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b68ac95c79788f135a0e428600f20111577c4305
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655688"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028370"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>标识同步和重复属性复原
 重复属性复原是 Azure Active Directory 的一项功能，可在运行 Microsoft 的同步工具之一时消除 **UserPrincipalName** 和 **ProxyAddress** 冲突所造成的不便。
@@ -123,7 +123,7 @@ Azure Active Directory 并不是完全无法预配或更新具有重复属性的
 
 ![活动用户](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1234.png "活动用户")
 
-有关如何在 Office 365 管理中心查看目录同步错误的说明，请参阅 [识别 Office 365 中的目录同步错误](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)。
+有关如何在 Office 365 管理中心查看目录同步错误的说明，请参阅 [识别 Office 365 中的目录同步错误](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)。
 
 ### <a name="identity-synchronization-error-report"></a>标识同步错误报告
 使用此新行为处理具有重复属性冲突的对象时，通知包含在标准标识同步错误报告电子邮件中，而该电子邮件将发送给租户的技术通知联系人。 但是，此行为有一项重大变化。 在过去，有关重复属性冲突的信息包含在每个后续错误报告中，直到解决冲突为止。 使用此新行为，给定冲突的错误通知只出现一次 - 在冲突属性被隔离时。
@@ -134,7 +134,7 @@ ProxyAddress 冲突的电子邮件通知示例如下所示：
 ## <a name="resolving-conflicts"></a>解决冲突
 针对这些错误的故障排除策略和解决技巧不应与过去处理重复属性错误的方式不同。 唯一的差别在于，计时器任务将扫描服务端的租户，以便在冲突解决后，自动将有问题的属性添加到适当的对象。
 
-以下文章概述了各种故障排除和解决策略： [重复或无效的属性阻止 Office 365 中的目录同步](https://support.microsoft.com/kb/2647098)。
+以下文章概述了各种故障排除和解决方案策略：[Duplicate or invalid attributes prevent directory synchronization in Office 365](https://support.microsoft.com/kb/2647098)（Office 365 中的重复或无效属性导致无法进行目录同步）。
 
 ## <a name="known-issues"></a>已知问题
 没有任何已知问题导致数据丢失或服务降级。 其中有些问题是外观问题，有些问题会导致引发标准的“*复原前*”重复属性错误，而不是隔离冲突属性，还有一些问题导致特定错误需要额外的手动修复。
@@ -174,6 +174,7 @@ ProxyAddress 冲突的电子邮件通知示例如下所示：
 ## <a name="see-also"></a>另请参阅
 - [Azure AD Connect 同步](how-to-connect-sync-whatis.md)
 - [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)
-- [识别 Office 365 中的目录同步错误](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
+- [识别 Office 365 中的目录同步错误](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
 
 
+<!-- Update_Description: link update -->

@@ -1,22 +1,19 @@
 ---
 title: 使用 Azure Site Recovery 将 VMware VM 或物理服务器设置为灾难恢复到辅助站点 | Azure
 description: 了解如何使用 Azure Site Recovery 将 VMware VM 或 Windows 和 Linux 物理服务器的灾难恢复设置到辅助站点。
-services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-ms.workload: backup-recovery
-ms.tgt_pltfrm: na
-ms.topic: article
-origin.date: 08/01/2018
-ms.date: 09/17/2018
+ms.topic: conceptual
+origin.date: 10/29/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 03182cdd27aaec5b2a341083b9560e87255bf5fd
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 76df1287dee0384546bd081622912c1aca4349fd
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666797"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028565"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>将本地 VMware 虚拟机或物理服务器的灾难恢复设置到辅助站点
 
@@ -32,7 +29,7 @@ Azure Site Recovery 方案（在本地 VMware 或物理数据中心之间进行�
 
 在 2018 年和 2019 年期间，将发布两个更新： 
 
--   更新 7：修复了网络配置和符合性问题，并提供 TLS 1.2 支持。
+-   更新 7：修复了网络配置与合规性问题，并提供 TLS 1.2 支持。
 -   更新 8：添加了对 Linux 操作系统 RHEL/CentOS 7.3/7.4/7.5 和 SUSE 12 的支持
 
 更新 8 之后，不会再发布进一步更新。 针对更新 8 中添加的操作系统，修补程序支持有限，会尽最大努力修复错误。
@@ -99,18 +96,18 @@ Azure Site Recovery 为 VMware 和 Hyper-V 客户提供一流的无缝 DRaaS 解
   - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
   - UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
   - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
-  - 对于 RHEL5、OL5、OL6、SUSE 10、SUSE 11 的 UA update4 位：UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+  - RHEL5、OL5、OL6、SUSE 10、SUSE 11 的 UA update4 软件：UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
 1. 解压缩 .zip 文件。
-2. RX 服务器：将 RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz 复制到 RX 服务器并将其解压缩。 在解压缩的文件夹中运行 **/Install**。
-3. 配置服务器和进程服务器：将 CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe 复制到配置服务器和进程服务器。 双击以运行该文件。<br>
-4. Windows 主目标服务器：要更新统一代理，请将 UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe 复制到该服务器。 双击以运行该文件。 相同的统一代理更新也适用于源服务器。 如果源尚未更新到 Update 4，则应更新统一代理。
+2. **RX 服务器**：将 **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** 复制到 RX 服务器并将其解压缩。 在解压缩的文件夹中运行 **/Install**。
+3. **配置服务器和进程服务器**：将 **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** 复制到配置服务器和进程服务器。 双击以运行该文件。<br>
+4. **Windows 主目标服务器**：若要更新统一代理，请将 **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** 复制到服务器。 双击以运行该文件。 相同的统一代理更新也适用于源服务器。 如果源尚未更新到 Update 4，则应更新统一代理。
   更新不需要应用于备有 InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe 的主目标服务器，因为这是拥有所有最新更改的新 GA 安装程序。
-5. vContinuum 服务器：将 vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe 复制到该服务器。  确保已关闭 vContinuum 向导。 双击以运行该文件。
+5. **vContinuum 服务器**：将 **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** 复制到服务器。  确保已关闭 vContinuum 向导。 双击以运行该文件。
     更新不需要应用于备有 InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe 的主目标服务器，因为这是拥有所有最新更改的新 GA 安装程序。
-6. Linux 主目标服务器：要更新统一代理，请将 UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz 复制到主目标服务器并将其解压缩。 在解压缩的文件夹中运行 **/Install**。
-7. Windows 源服务器：要更新统一代理，请将 UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe 复制到该源服务器。 双击以运行该文件。 
+6. **Linux 主目标服务器**：若要更新统一代理，请将 **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** 复制到主目标服务器并将其解压缩。 在解压缩的文件夹中运行 **/Install**。
+7. **Windows 源服务器**：要更新统一代理，请将 **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** 复制到源服务器。 双击以运行该文件。 
     如果源服务器已更新到 Update 4 或源代理已安装有最新的基本安装程序 InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe，则不需要在源服务器上安装 Update 5 代理。
-8. Linux 源服务器：要更新统一代理，请将相应版本的统一代理文件复制到 Linux 服务器并将其解压缩。 在解压缩的文件夹中运行 **/Install**。  
+8. **Linux 源服务器**：若要更新统一代理，请将相应版本的统一代理文件复制到 Linux 服务器并将其解压缩。 在解压缩的文件夹中运行 **/Install**。  
     <!-- Not Available on Example: For RHEL 6.7 64 bit server, copy **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** to the server, and extract it. In the extracted folder, run **/Install**.-->
     
 ## <a name="enable-replication"></a>启用复制
@@ -204,7 +201,7 @@ Scout Update 4 是累积更新。 其中包含从 Update 1 到 Update 3 的所�
 * 在故障转移和灾难恢复演练期间，针对网络配置更改添加了其他检查和日志。
 * 修复了导致保留信息无法报告给配置服务器的问题。  
 * 对于物理群集，修复了在 vContinuum 向导中收缩源卷时导致卷大小调整失败的问题。
-* 修复了当群集磁盘为 PRDM 磁盘时，群集保护失败并出现“未能找到磁盘签名”错误的问题。
+* 修复了当群集磁盘为 PRDM 磁盘时，群集保护失败并出现以下错误的问题：“找不到磁盘签名”。
 * 修复了 cxps 传输服务器由于超出范围的异常而崩溃的问题。
 * 在 vContinuum 向导的“推送安装”页面中，现在可对服务器名称列和 IP 地址列的大小进行调整。
 * RX API 的增强功能：
@@ -247,7 +244,7 @@ Update 3 修复了以下问题：
 * 配置服务器和 RX 控制台现在显示进入位图模式的对的通知。
 * 已将以下安全修复程序添加到 RX 中：
     * 通过参数篡改绕过授权：已将访问权限限制为不适用的用户。
-    * 跨网站请求伪造：实现页令牌概念，将为每一页随机生成。 这意味着同一用户只有一个登录实例，并且页面刷新不起作用。 相反，它将重定向到仪表板。
+    * 跨站点请求伪造：已实施页面令牌的概念，它会针对每个页面随机生成。 这意味着同一用户只有一个登录实例，并且页面刷新不起作用。 相反，它将重定向到仪表板。
     * 恶意文件上传：限制文件使用特定的扩展名：z、aiff、asf、avi、bmp、csv、doc、docx、fla、flv、gif、gz、gzip、jpeg、jpg、log、mid、mov、mp3、mp4、mpc、mpeg、mpg、ods、odt、pdf、png、ppt、pptx、pxd、qt、ram、rar、rm、rmi、rmvb、rtf、sdc、sitd、swf、sxc、sxw、tar、tgz、tif、tiff、txt、vsd、wav、wma、wmv、xls、xlsx、xml 和 zip。
     * 持久性跨站点脚本：添加了输入验证。
 
@@ -255,8 +252,8 @@ Update 3 修复了以下问题：
 
 Update 2 中的修复包括：
 
-* 配置服务器：在将配置服务器注册到 Azure Site Recovery 保管库时阻止 31 天免费计量功能正常使用的问题。
-* 统一代理：修复了 Update 1 中导致从版本 8.0 升级到 8.0.1 期间，更新无法安装在主目标服务器上的问题。
+* **配置服务器**：在将配置服务器注册到 Azure Site Recovery 保管库时阻止 31 天免费计量功能正常使用的问题。
+* **统一代理**：修复了 Update 1 中导致从版本 8.0 升级到 8.0.1 期间，更新无法安装在主目标服务器上的问题。
 
 ### <a name="azure-site-recovery-scout-801-update-1"></a>Azure Site Recovery Scout 8.0.1 Update 1
 Update 1 包含以下 bug 修复和新功能：

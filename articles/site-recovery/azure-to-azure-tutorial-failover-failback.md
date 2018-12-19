@@ -1,21 +1,21 @@
 ---
-title: 使用 Azure Site Recovery 对复制到 Azure 次要区域的 Azure VM 进行故障转移和故障回复
-description: 了解如何使用 Azure Site Recovery 对复制到 Azure 次要区域的 Azure VM 进行故障转移和故障回复
+title: 使用 Azure Site Recovery 服务对复制到 Azure 次要区域的 Azure IaaS VM 进行故障转移和故障回复，以便实现灾难恢复。
+description: 了解如何使用 Azure Site Recovery 服务对复制到 Azure 次要区域的 Azure VM 进行故障转移和故障回复，以便实现灾难恢复。
 services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 10/10/2018
-ms.date: 11/19/2018
+origin.date: 10/28/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 6dfd4817b61d02bc391faebee0394cc037b73a9d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 7ad1d89238ca61fdbfd6471abf3b179a20fe8047
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655872"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028623"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>在 Azure 区域之间故障转移和故障回复 Azure VM
 
@@ -29,10 +29,13 @@ ms.locfileid: "52655872"
 > * 故障回复辅助 VM
 > * 重新保护主 VM，以便它复制回次要区域
 
+> [!NOTE]
+> 本教程旨在引导用户完成相关步骤，以便在尽量减少自定义的情况下故障转移到目标区域并进行故障回复；如果需要详细了解与故障转移相关联的各个方面（包括网络注意事项、自动化或故障排除），请参阅适用于 Azure VM 的“操作方法”下面的文档。
+
 ## <a name="prerequisites"></a>先决条件
 
 - 确保已完成[灾难恢复演练](azure-to-azure-tutorial-dr-drill.md)，检查所有内容是否都按预期工作。
-- 在运行测试故障转移之前，验证 VM 属性。 该 VM 必须符合 [Azure 要求](azure-to-azure-support-matrix.md#support-for-replicated-machine-os-versions)。
+- 在运行测试故障转移之前，验证 VM 属性。 该 VM 必须符合 [Azure 要求](azure-to-azure-support-matrix.md#replicated-machine-operating-systems)。
 
 <a name="run-a-failover"></a>
 ## <a name="run-a-failover-to-the-secondary-region"></a>运行到次要区域的故障转移

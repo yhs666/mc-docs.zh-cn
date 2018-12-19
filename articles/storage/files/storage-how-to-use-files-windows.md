@@ -6,14 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: get-started-article
 origin.date: 06/07/2018
-ms.date: 09/24/2018
+ms.date: 12/10/2018
 ms.author: v-jay
-ms.openlocfilehash: 2d03631d28ea9806558c63dabe5e24efb634d19e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.component: files
+ms.openlocfilehash: 0340a8259208f036c4b0deb4042df74bfaa49365
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653510"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028559"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>在 Windows 中使用 Azure 文件共享
 [Azure 文件](storage-files-introduction.md)是易于使用的云文件系统。 可以在 Windows 和 Windows Server 中无缝使用 Azure 文件共享。 本文介绍在 Windows 和 Windows Server 中使用 Azure 文件共享时的注意事项。
@@ -46,10 +47,10 @@ ms.locfileid: "52653510"
 
 * **存储帐户密钥**：若要装载 Azure 文件共享，需要主（或辅助）存储密钥。 目前不支持使用 SAS 密钥进行装载。
 
-* **确保端口 445 处于打开状态**：SMB 协议要求 TCP 端口 445 处于打开状态；如果端口 445 已阻止，连接将会失败。 可以使用 `Test-NetConnection` cmdlet 检查防火墙是否阻止了端口 445。 记得将 `your-storage-account-name` 替换为存储帐户的相应名称。
+* **确保端口 445 处于打开状态**：SMB 协议要求 TCP 端口 445 处于打开状态；如果端口 445 已被阻止，连接将会失败。 可以使用 `Test-NetConnection` cmdlet 检查防火墙是否阻止了端口 445。 记得将 `your-storage-account-name` 替换为存储帐户的相应名称。
 
     ```PowerShell
-    Test-NetConnection -ComputerName <your-storage-account-name>.core.chinacloudapi.cn -Port 445
+    Test-NetConnection -ComputerName <your-storage-account-name>.file.core.chinacloudapi.cn -Port 445
     
     ```
 

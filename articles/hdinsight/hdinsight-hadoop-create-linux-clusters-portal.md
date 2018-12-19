@@ -17,12 +17,12 @@ ms.workload: big-data
 origin.date: 02/21/2018
 ms.date: 08/27/2018
 ms.author: v-yiso
-ms.openlocfilehash: 5fea9d533e47c37cb38eaf4caac6c2215a622566
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e8d5eab756fc4d37d7bf931fbbd69a2dbbea023b
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659053"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028715"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>使用 Azure 门户在 HDInsight 中创建基于 Linux 的群集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -49,16 +49,13 @@ Azure 门户会公开大部分的群集属性。 使用 Azure 资源管理器模
 
     ![在 Azure 门户中创建新群集](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-basics.png "在 Azure 门户中创建新群集")
 
-    * 输入“群集名称” ：此名称必须全局唯一。
+    * 输入**群集名称**：此名称必须全局唯一。
 
     * 从“订阅”下拉列表中选择要用于此群集的 Azure 订阅。
 
     * 单击“群集类型”，然后选择要创建的群集类型（Hadoop、Spark 等）。 对于“操作系统”，请单击“Linux”并选择版本。 如果不知道要选择哪个版本，请使用默认版本。 有关详细信息，请参阅 [HDInsight 群集版本](hdinsight-component-versioning.md)。
 
-        对于 Hadoop、Spark 和 Interactive Query 群集类型，也可以选择安装“企业安全数据包”。 企业安全数据包启用安全功能，例如 Azure Active Directory 集成和适用于群集的 Apache Ranger。 有关详细信息，请参阅 [Azure HDInsight 中的企业安全数据包](./domain-joined/apache-domain-joined-introduction.md)。
-
-        ![启用企业安全数据包](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-enable-enterprise-security-package.png "Enable Enterprise Security Package")
-     
+    
         > [!IMPORTANT]
         > HDInsight 群集有各种类型，分别与针对其优化群集的工作负荷或技术相对应。 不支持在一个群集上创建合并了多个类型（如 Storm 和 HBase）的群集。 
         > 

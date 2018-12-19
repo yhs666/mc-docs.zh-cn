@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/15/2018
-ms.date: 11/12/2018
+origin.date: 10/23/2018
+ms.date: 12/17/2018
 ms.author: v-jay
 ms.reviewer: ''
-ms.openlocfilehash: cf451083c5ade727b1c3d5e641fa61a7f7534385
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e78b090581d69c4f77a89fa0ee6412a063cd25fc
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652259"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396218"
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Azure Stack 中的重要功能和概念
 如果你不太熟悉 Azure Stack，本文的术语和功能说明可能会有所帮助。
@@ -90,7 +90,7 @@ Azure Stack 区域是规模与管理的基本要素。 组织可以创建多个�
 
 对于管理员而言，默认提供程序订阅是在部署期间创建的。 此订阅可用于管理 Azure Stack、部署其他资源提供程序，以及为租户创建计划和套餐。 不应使用此订阅来运行客户工作负荷和应用程序。 从版本 1804 开始，两个额外的订阅对默认提供程序订阅进行了补充；它们是计量订阅和消耗订阅。 这些附加项有助于将核心基础结构的管理与其他资源提供程序和工作负荷隔离开来。  
 
-## <a name="azure-resource-manager"></a>Azure Resource Manager
+## <a name="azure-resource-manager"></a>Azure 资源管理器
 借助 Azure 资源管理器，可在基于模板的声明性模型中使用基础结构资源。   资源管理器提供单个界面用于部署和管理解决方案组件。 有关完整信息和指南，请参阅 [Azure 资源管理器概述](../azure-resource-manager/resource-group-overview.md)。
 
 ### <a name="resource-groups"></a>资源组
@@ -98,7 +98,7 @@ Azure Stack 区域是规模与管理的基本要素。 组织可以创建多个�
 
 与 [Azure](../azure-resource-manager/resource-group-move-resources.md) 不同，无法在资源组之间移动资源。 在 Azure Stack 管理门户中查看资源或资源组的属性时，“移动”按钮是灰显的并且不可用。 
  
-### <a name="azure-resource-manager-templates"></a>Azure Resource Manager 模板
+### <a name="azure-resource-manager-templates"></a>Azure 资源管理器模板
 使用 Azure 资源管理器可以创建一个模板（采用 JSON 格式），用于定义应用程序的部署和配置。 此模板称为 Azure 资源管理器模板，让你以声明性方式定义部署。 使用模板可以在整个应用程序生命周期内反复部署该应用程序，并确保以一致的状态部署资源。
 
 ## <a name="resource-providers-rps"></a>资源提供程序 (RP)
@@ -124,13 +124,13 @@ Blob 存储可存储任意数据集。 Blob 可以是任何类型的文本或二
 表存储是 Microsoft 的 NoSQL 键/属性存储 – 它采用无架构设计，因此不同于传统的关系数据库。 由于数据存储没有架构，因此可以随着应用程序需求的变化，使数据适应存储。 表存储易于使用，因此开发人员可以快速创建应用程序。 表存储是一种“键-属性”存储，这意味着表中的每个值都是随所键入的一个属性名称存储的。 属性名称可以用来筛选和指定选择条件。 属性集合及其值构成了实体。 由于表存储没有架构，因此同一表中的两个实体可以包含不同的属性集合，并且这些属性可以属于不同的类型。 可以使用表存储来存储灵活的数据集，例如 Web 应用程序的用户数据、通讯簿、设备信息，以及服务需要的任何其他类型的元数据。 可以在表中存储任意数量的实体，并且一个存储帐户可以包含任意数量的表，直至达到存储帐户的容量极限。
 
 #### <a name="queue-storage"></a>队列存储
-Azure 队列存储用于在应用程序组件之间进行云消息传送。 在设计应用程序以实现可伸缩性时，通常要将各个应用程序组件分离，使其可以独立地进行伸缩。 队列存储提供的异步消息传送适用于在应用程序组件之间进行通信，无论这些应用程序组件是运行在云中、桌面上、本地服务器上还是移动设备上。 队列存储还支持管理异步任务以及构建过程工作流。
+Azure 队列存储用于在应用程序组件之间进行云消息传送。 在设计应用程序以实现伸缩性时，通常要将各个应用程序组件分离，使其可以独立地进行伸缩。 队列存储提供的异步消息传送适用于在应用程序组件之间进行通信，无论这些应用程序组件是运行在云中、桌面上、本地服务器上还是移动设备上。 队列存储还支持管理异步任务以及构建过程工作流。
 
 ### <a name="keyvault"></a>KeyVault
 KeyVault RP 针对密码和证书等机密提供管理与审核。 例如，在 VM 部署期间，租户可以使用 KeyVault RP 来提供管理员密码或密钥。
 
 ## <a name="high-availability-for-azure-stack"></a>Azure Stack 的高可用性
-适用于：Azure Stack 1802 或更高版本
+*适用于：Azure Stack 1802 或更高版本*
 
 为了在 Azure 中实现多 VM 生产系统的高可用性，可以将 VM 置于横跨多个容错域和更新域的可用性集中。 这样可确保[部署在可用性集中的 VM](/virtual-machines/windows/tutorial-availability-sets) 在物理上彼此隔离（位于不同的服务器架上），因此可以进行故障还原，如下图所示：
 
@@ -151,18 +151,10 @@ KeyVault RP 针对密码和证书等机密提供管理与审核。 例如，在 
 ## <a name="role-based-access-control-rbac"></a>基于角色的访问控制 (RBAC)
 可以使用 RBAC 向已获授权的用户、组和服务授予系统访问权限：在订阅、资源组或单个资源的级别为其分配角色即可。 每个角色定义了用户、组或服务对 Azure Stack 资源拥有的访问级别。
 
-Azure RBAC 有三个适用于所有资源类型的基本角色：“所有者”、“参与者”和“读取者”。 “所有者”拥有对所有资源的完全访问权限，包括将访问权限委派给其他用户的权限。 “参与者”可以创建和管理所有类型的 Azure 资源，但不能将访问权限授予其他用户。 “读取者”只能查看现有 Azure 资源。 Azure 中的其他 RBAC 角色允许对特定的 Azure 资源进行管理。 例如，“虚拟机参与者”角色允许创建和管理虚拟机，但不允许管理虚拟机连接到的虚拟网络或子网。
+Azure RBAC 有三种适用于所有资源类型的基本角色：所有者、参与者和读者。 “所有者”拥有对所有资源的完全访问权限，包括将访问权限委派给其他用户的权限。 “参与者”可以创建和管理所有类型的 Azure 资源，但不能将访问权限授予其他用户。 “读取者”只能查看现有 Azure 资源。 Azure 中的其他 RBAC 角色允许对特定的 Azure 资源进行管理。 例如，“虚拟机参与者”角色允许创建和管理虚拟机，但不允许管理虚拟机连接到的虚拟网络或子网。
 
 ## <a name="usage-data"></a>使用情况数据
 Azure Stack 从所有资源提供程序收集聚合用量数据，并将其传输到 Azure 供 Azure 商业组件进行处理。 可以通过 REST API 查看 Azure Stack 中收集的用量数据。 可以使用 Azure 一致的租户 API 以及提供程序和委派提供程序 API 从所有租户订阅获取使用情况数据。 可以使用这些数据来集成外部工具或服务，以实现计费或费用分摊。 用量经 Azure 商业组件处理后，可以在 Azure 计费门户中查看。
-
-## <a name="in-development-build-of-azure-stack-development-kit"></a>开发中的 Azure Stack 工具包内部版本
-开发中内部版本可让前期采用者评估 Azure Stack 开发工具包的最新版本。 它们是基于最新主要版本的增量内部版本。 主要版本每隔几个月持续发布，开发中内部版本在主要版本的发布间隔期间歇性发布。
-
-开发中内部版本提供以下好处：
-- Bug 修复
-- 新增功能
-- 其他改进
 
 ## <a name="next-steps"></a>后续步骤
 [管理基础知识](azure-stack-manage-basics.md)

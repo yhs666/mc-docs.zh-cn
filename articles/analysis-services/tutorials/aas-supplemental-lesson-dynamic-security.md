@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 07/03/2018
-ms.date: 08/06/2018
+origin.date: 10/18/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 89edbe8d76b706c3b70f7cdf05de3a3f1365e3c1
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ce65b5c14a559bb3ac8acaa0a719785f146f31b2
+ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663928"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53157439"
 ---
 # <a name="supplemental-lesson---dynamic-security"></a>补充课程 - 动态安全性
 
@@ -22,11 +22,11 @@ ms.locfileid: "52663928"
 
 要实现动态安全性，需要将一个表添加到模型，该表包含用户名以及可连接到模型和浏览模型对象与数据的用户。 使用本教程创建的模型在 Adventure Works 的上下文中；但是，要完成本课程，必须从自己的域添加一个包含用户的表。 不需要已添加的用户名的密码。 要使用来自自己域中的少量用户示例创建 EmployeeSecurity 表，可以使用“粘贴”功能粘贴 Excel 电子表格中的员工数据。 在实际方案中，包含用户名的表通常是用作数据源的数据库中的某个表；例如，实际的 DimEmployee 表。  
 
-若要实现动态安全性，可以使用两个 DAX 函数：[USERNAME 函数 (DAX)](http://msdn.microsoft.com/22dddc4b-1648-4c89-8c93-f1151162b93f) 和 [LOOKUPVALUE 函数 (DAX)](http://msdn.microsoft.com/73a51c4d-131c-4c33-a139-b1342d10caab)。 在行筛选器公式中应用的这些函数在新角色中定义。 该公式通过使用 LOOKUPVALUE 函数，指定 EmployeeSecurity 表中的值。 公式随后将该值传递给 USERNAME 函数，该函数指定登录用户的用户名属于此角色。 然后，用户可以只浏览角色的行筛选器指定的数据。 在此方案中，将指定销售员工只能浏览他们所属销售区域的 Internet 销售数据。  
+若要实现动态安全性，可以使用两个 DAX 函数：[USERNAME 函数 (DAX)](https://msdn.microsoft.com/22dddc4b-1648-4c89-8c93-f1151162b93f) 和 [LOOKUPVALUE 函数 (DAX)](https://msdn.microsoft.com/73a51c4d-131c-4c33-a139-b1342d10caab)。 在行筛选器公式中应用的这些函数在新角色中定义。 该公式通过使用 LOOKUPVALUE 函数，指定 EmployeeSecurity 表中的值。 公式随后将该值传递给 USERNAME 函数，该函数指定登录用户的用户名属于此角色。 然后，用户可以只浏览角色的行筛选器指定的数据。 在此方案中，将指定销售员工只能浏览他们所属销售区域的 Internet 销售数据。  
 
 本 Adventure Works 表格模型方案特有的、但不一定适用于真实方案的任务就是以这种形式确定的。 每个任务包括附加的信息用于描述任务的目的。  
 
-本课程预计完成时间：**30 分钟**  
+本课预计完成时间：**30 分钟**  
 
 ## <a name="prerequisites"></a>先决条件  
 本补充课程主题是表格建模教程的一部分，应当按顺序完成。 在执行本补充课程中的任务之前，应已完成前面的课程。  
@@ -183,4 +183,4 @@ AdventureWorksDW 示例数据库中的 DimEmployee 表包含 AdventureWorks 域�
 [LOOKUPVALUE 函数 (DAX)](https://msdn.microsoft.com/library/gg492170.aspx)  
 [CUSTOMDATA 函数 (DAX)](https://msdn.microsoft.com/library/hh213140.aspx)
 
-<!--Update_Description: update meta properties  -->
+<!--Update_Description: update meta properties, update link  -->

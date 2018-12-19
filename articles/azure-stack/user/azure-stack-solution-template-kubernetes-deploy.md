@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/09/2018
-ms.date: 11/12/2018
+origin.date: 10/29/2018
+ms.date: 12/17/2018
 ms.author: v-jay
 ms.reviewer: waltero
-ms.openlocfilehash: 237e8bf317a71c4d937d5068c1159fdd4466e061
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f3676c582d6502444b302488c3bb45bfd95bb840
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658820"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396194"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>将 Kubernetes 部署到 Azure Stack
 
@@ -29,7 +29,7 @@ ms.locfileid: "52658820"
 > [!Note]  
 > Azure Stack 上的 Kubernetes 现为预览版。
 
-下面的文章着眼于使用 Azure 资源管理器解决方案模板通过单个协调的操作为 Kubernetes 部署和预配资源。 需收集有关 Azure Stack 安装的必需信息，生成模板，然后再部署到云。
+下面的文章着眼于使用 Azure 资源管理器解决方案模板通过单个协调的操作为 Kubernetes 部署和预配资源。 需收集有关 Azure Stack 安装的必需信息，生成模板，然后再部署到云。 请注意，该模板与 Azure 中提供的托管 AKS 服务不同。
 
 ## <a name="kubernetes-and-containers"></a>Kubernetes 和容器
 
@@ -79,9 +79,9 @@ ms.locfileid: "52658820"
 
     d. 输入 `http://localhost` 作为“登录 URL”。
 
-    c. 单击**创建**。
+    c. 单击“创建”。
 
-4. 记下“应用程序 ID”。 在创建群集时需要此 ID。 此 ID 称为“服务主体客户端 ID”。
+4. 请记下**应用程序 ID**。 在创建群集时需要此 ID。 此 ID 称为“服务主体客户端 ID”。
 
 5. 选择“设置” > “密钥”。
 
@@ -89,7 +89,7 @@ ms.locfileid: "52658820"
 
     b. 对于“过期”这一项，请选择“永不过期”。
 
-    c. 选择“其他安全性验证” 。 记下密钥字符串。 在创建群集时需要此密钥字符串。 此密钥称为“服务主体客户端机密”。
+    c. 选择“保存”。 记下密钥字符串。 在创建群集时需要此密钥字符串。 此密钥称为“服务主体客户端机密”。
 
 
 ## <a name="give-the-service-principal-access"></a>为服务主体提供访问权限
@@ -108,17 +108,17 @@ ms.locfileid: "52658820"
 
 6. 选择为服务主体创建的应用程序名称。 可能需要在搜索框中键入名称。
 
-7. 单击“保存” 。
+7. 单击“ **保存**”。
 
 ## <a name="deploy-a-kubernetes"></a>部署 Kubernetes
 
 1. 打开 [Azure Stack 门户](https://portal.local.azurestack.external)。
 
-2. 选择“+ 创建资源” > “计算” > “Kubernetes 群集”。 单击**创建**。
+2. 选择“+ 创建资源” > “计算” > “Kubernetes 群集”。 单击“创建”。
 
     ![部署解决方案模板](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
-### <a name="1-basics"></a>1.基础知识
+### <a name="1-basics"></a>1.基础
 
 1. 在“创建 Kubernetes 群集”中选择“基本信息”。
 

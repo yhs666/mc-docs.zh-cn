@@ -2,25 +2,21 @@
 title: 如何通过 Ruby 使用队列存储 | Microsoft Docs
 description: 了解如何使用 Azure 队列服务创建和删除队列，以及插入、获取和删除消息。 用 Ruby 编写的相关示例。
 services: storage
-documentationcenter: ruby
-author: forester123
-manager: digimobile
-editor: tysonn
-ms.assetid: 59c2d81b-db9c-46ee-ade2-2f0caae6b1e6
+author: WenJason
 ms.service: storage
-ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
 origin.date: 12/08/2016
-ms.date: 10/16/2017
-ms.author: v-johch
-ms.openlocfilehash: 4ec28e40076b0136c6e90f17e1ba9218e593ed63
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/10/2018
+ms.author: v-jay
+ms.component: queues
+ms.openlocfilehash: d15443a6cefc4b5d0f7db12f1619b93ecf1bb70c
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649457"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028283"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>如何通过 Ruby 使用队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -124,7 +120,7 @@ pop_receipt, time_next_visible = azure_queue_service.update_message(
   30)
 ```
 
-## <a name="how-to-additional-options-for-dequeuing-messages"></a>如何：用于对消息取消排队的其他选项
+## <a name="how-to-additional-options-for-dequeuing-messages"></a>如何：用于取消对消息进行排队的其他选项
 可通过两种方式自定义队列中消息的检索。
 
 1. 可获取一批消息。
@@ -141,7 +137,7 @@ end
 ```
 
 ## <a name="how-to-get-the-queue-length"></a>如何：获取队列长度
-可以获取队列中消息数的估计值。 **get\_queue\_metadata()** 方法要求队列服务返回有关队列的大概消息数和元数据。
+可获取队列中消息数的估计值。 **get\_queue\_metadata()** 方法要求队列服务返回有关队列的大概消息数和元数据。
 
 ```ruby
 message_count, metadata = azure_queue_service.get_queue_metadata(
@@ -158,7 +154,7 @@ azure_queue_service.delete_queue("test-queue")
 ## <a name="next-steps"></a>后续步骤
 既已了解有关队列存储的基础知识，可单击以下链接以了解更复杂的存储任务。
 
-* 访问 [Azure 存储团队博客](http://blogs.msdn.com/b/windowsazurestorage/)
+* 访问 [Azure 存储团队博客](https://blogs.msdn.com/b/windowsazurestorage/)
 * 访问 GitHub 上的 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) 存储库
 
-若要了解 Azure 队列服务（本文所述）和 Azure 服务总线队列（[如何使用服务总线队列](../../service-bus-messaging/service-bus-ruby-how-to-use-queues.md)文章中所述）之间的比较，请参阅 [Azure 队列和服务总线队列 - 比较与对照](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+若要了解 Azure 队列服务（本文所述）和 Azure 服务总线队列（[如何使用服务总线队列](/service-bus-messaging/service-bus-ruby-how-to-use-queues)文章中所述）之间的比较，请参阅 [Azure 队列和服务总线队列 - 比较与对照](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)

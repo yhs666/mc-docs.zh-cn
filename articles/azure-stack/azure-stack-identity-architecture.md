@@ -1,10 +1,10 @@
 ---
-title: Azure Stack 的标识体系结构 | Azure
+title: Azure Stack 的标识体系结构 | Microsoft Docs
 description: 了解可与 Azure Stack 配合使用的标识体系结构。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 08/01/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
+origin.date: 11/07/2018
+ms.date: 12/17/2018
+ms.author: v-jay
 ms.reviewer: ''
-ms.openlocfilehash: 8200f5ceda13bad1e291ef2863e2973ddfe7f7a4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d5dec5331bd36f7574f8e0b7030951b18fdf06bf
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664403"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396211"
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Azure Stack 的标识体系结构
 在选择要与 Azure Stack 配合使用的标识提供者之前，请了解 Azure Active Directory (Azure AD) 的选项与 Active Directory 联合身份验证服务 (AD FS) 的选项之间的重要区别。 

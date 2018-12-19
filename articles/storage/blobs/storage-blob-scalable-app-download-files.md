@@ -13,12 +13,12 @@ origin.date: 02/20/2018
 ms.date: 05/07/2018
 ms.author: v-johch
 ms.custom: mvc
-ms.openlocfilehash: 24380785c6288c2e76ada56ee3387650dfcb02cf
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 38867bb89f467402fa939678181fa735a25ae1ee
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656979"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028489"
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>从 Azure 存储下载大量随机数据
 
@@ -33,7 +33,7 @@ ms.locfileid: "52656979"
 
 ## <a name="prerequisites"></a>先决条件
 
-若要完成本教程，必须先完成上一存储教程：[将大量随机数据并行上传到 Azure 存储][previous-tutorial]。
+若要完成本教程，必须先完成以前的“存储”教程：[将大量随机数据以并行方式上传到 Azure 存储][previous-tutorial]。
 
 ## <a name="remote-into-your-virtual-machine"></a>远程登录到虚拟机
 
@@ -73,7 +73,7 @@ public static void Main(string[] args)
     }
     finally
     {
-        // The following function will delete the container and all files contained in them.  This is commented out initialy
+        // The following function will delete the container and all files contained in them.  This is commented out initially
         // As the tutorial at https://docs.azure.cn/storage/blobs/storage-blob-scaleable-app-download-files has you upload only for one tutorial and download for the other. 
         if (!exception)
         {
@@ -116,7 +116,7 @@ private static async Task DownloadFilesAsync()
 {
     CloudBlobClient blobClient = GetCloudBlobClient();
 
-    // Define the BlobRequestionOptions on the download, including disabling MD5 hash validation for this example, this improves the download speed.
+    // Define the BlobRequestOptions on the download, including disabling MD5 hash validation for this example, this improves the download speed.
     BlobRequestOptions options = new BlobRequestOptions
     {
         DisableContentMD5Validation = true,

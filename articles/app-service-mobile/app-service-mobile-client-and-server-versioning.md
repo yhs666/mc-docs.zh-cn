@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 10/01/2016
 ms.date: 01/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: 8d1b6dafad19b4b1c157eb53edf1105cf7153467
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 680a4b68b113745f25541322e402a3a947d80d8a
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661164"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028495"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>移动应用和移动服务中的客户端与服务器版本控制
 
@@ -31,8 +31,6 @@ Azure 移动服务的最新版本是 Azure 应用服务的 **移动应用** 功�
 
 注意：每当本文档提到 *移动服务* 后端时，该后端不一定要托管在移动服务中。 现在，可以将移动服务迁移到应用服务上运行，而无需更改任何代码，但服务还是使用移动服务 SDK 版本。
 
-有关如何迁移到应用服务而不更改任何代码的详细信息，请参阅[将移动服务迁移到 Azure App Service] 一文。
-
 ## <a name="header-specification"></a>标头规范
 
 可以在 HTTP 标头或查询字符串中指定键 `ZUMO-API-VERSION` 。 值为版本字符串，格式为 **x.y.z**。
@@ -41,7 +39,7 @@ Azure 移动服务的最新版本是 Azure 应用服务的 **移动应用** 功�
 
 GET https://service.chinacloudsites.cn/tables/TodoItem
 
-HEADERS: ZUMO-API-VERSION: 2.0.0
+标头：ZUMO-API-VERSION：2.0.0
 
 POST https://service.chinacloudsites.cn/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
@@ -136,10 +134,7 @@ POST https://service.chinacloudsites.cn/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 ## <a name="next-steps"></a>后续步骤
 
-- [将移动服务迁移到 Azure App Service]
-
 [移动服务客户端]: #MobileServicesClients
 [移动应用客户端]: #MobileAppsClients
 
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
-[将移动服务迁移到 Azure App Service]: ./app-service-mobile-migrating-from-mobile-services.md

@@ -16,19 +16,17 @@ ms.workload: big-data
 origin.date: 04/23/2018
 ms.date: 09/24/2018
 ms.author: v-yiso
-ms.openlocfilehash: c4b30ebe484f4fc94d46093869fd0d4150e8f527
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: cc853bde3b5453030e3c46e52ac043dd2bfd8dfd
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662143"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028557"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>使用 Azure 存储共享访问签名来限制访问 HDInsight 中的数据
 
 HDInsight 对群集关联的 Azure 存储帐户中的数据拥有完全访问权限。 可以使用 Blob 容器中的共享访问签名来限制对数据的访问。 共享访问签名 (SAS) 是可用于限制数据访问权限的一项 Azure 存储帐户功能。 例如，它可以提供对数据的只读访问。
 
-> [!IMPORTANT]
-> 对于使用 Apache Ranger 的解决方案，请考虑使用已加入域的 HDInsight。 有关详细信息，请参阅[配置已加入域的 HDInsight](./domain-joined/apache-domain-joined-configure.md) 文档。
 
 > [!WARNING]
 > HDInsight 必须对群集的默认存储拥有完全访问权限。
@@ -58,7 +56,7 @@ HDInsight 对群集关联的 Azure 存储帐户中的数据拥有完全访问权
 
 * 即席：针对该 SAS 的开始时间、到期时间和权限全都在 SAS URI 上指定。
 
-* 存储的访问策略：在资源容器（例如 Blob 容器）中定义存储的访问策略。 可以使用策略来管理一个或多个共享访问签名的约束。 将某一 SAS 与一个存储访问策略相关联时，该 SAS 会继承对该存储访问策略定义的约束：开始时间、到期时间和权限。
+* 存储访问策略：在资源容器（例如 Blob 容器）中定义存储的访问策略。 可以使用策略来管理一个或多个共享访问签名的约束。 将某一 SAS 与一个存储访问策略相关联时，该 SAS 会继承对该存储访问策略定义的约束：开始时间、到期时间和权限。
 
 这两种形式之间的差异对于一个关键情形而言十分重要：吊销。 SAS 就是 URL，因此获取该 SAS 的任何人都可以使用它，而与谁请求它开始操作无关。 如果某一 SAS 是公开发布的，则世界上的任何人都可以使用它。 在发生以下四种情况之一前分发的 SAS 有效：
 

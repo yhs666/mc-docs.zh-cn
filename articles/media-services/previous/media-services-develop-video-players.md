@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/17/2017
-ms.date: 09/04/2017
+ms.date: 12/06/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 0c3abb1f331a8ff422ffa1488e30eb1795445b7b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c964dc5208b857abb98a28437ed9cc8c1db835c5
+ms.sourcegitcommit: 6e07735318eb5f6ea319b618863259088eab3722
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662714"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52981704"
 ---
 # <a name="develop-video-player-applications"></a>开发视频播放器应用程序
 ## <a name="overview"></a>概述
@@ -62,9 +62,9 @@ Azure 媒体服务通过“Windows 媒体平台：播放器框架”提供广告
 
 随播 - 在播放器之外显示的广告
 
-广告可置于主视频时间线中的任何一个时间点。 必须告知播放器何时播放广告以及播放哪些广告。 完成该操作需使用一组标准的基于 XML 的文件：视频广告服务模板 (VAST)、数字视频多广告播放列表 (VMAP)、媒体抽象排序模板 (MAST) 和数字视频播放器广告接口定义 (VPAID)。 VAST 文件用于指定要显示哪些广告。 VMAP 文件用于指定何时播放各种广告并且包含 VAST XML。 MAST 文件是对包含 VAST XML 的广告进行排序的另一种方法。 VPAID 文件用于定义视频播放器与广告或广告服务器之间的接口。 有关详细信息，请参阅 [插入广告](https://msdn.microsoft.com/library/dn387398.aspx)。
+广告可置于主视频时间线中的任何一个时间点。 必须告知播放器何时播放广告以及播放哪些广告。 这使用一组标准的基于 XML 的文件来完成：视频广告服务模板 (VAST)、数字视频多广告播放列表 (VMAP)、媒体抽象排序模板 (MAST) 和数字视频播放器广告接口定义 (VPAID)。 VAST 文件用于指定要显示哪些广告。 VMAP 文件用于指定何时播放各种广告并且包含 VAST XML。 MAST 文件是对包含 VAST XML 的广告进行排序的另一种方法。 VPAID 文件用于定义视频播放器与广告或广告服务器之间的接口。 有关详细信息，请参阅 [插入广告](https://msdn.microsoft.com/library/dn387398.aspx)。
 
-有关在实时传送视频流视频中隐藏式字幕和广告支持的信息，请参阅 [支持的隐藏式字幕和广告插入标准](./media-services-manage-channels-overview.md#closed-captioning-and-ad-insertion)。
+有关在实时传送视频流视频中隐藏式字幕和广告支持的信息，请参阅 [支持的隐藏式字幕和广告插入标准](./media-services-manage-channels-overview.md)。
 
 ## <a name="see-also"></a>另请参阅
 [使用 DASH.js 在 HTML5 应用程序中嵌入 MPEG-DASH 自适应流式处理视频](media-services-embed-mpeg-dash-in-html5.md)

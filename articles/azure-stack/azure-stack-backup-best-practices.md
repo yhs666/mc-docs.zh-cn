@@ -1,10 +1,10 @@
 ---
-title: Azure Stack 的基础结构备份服务最佳做法 | Azure
+title: Azure Stack 的基础结构备份服务最佳做法 | Microsoft Docs
 description: 在数据中心内部署和管理 Azure Stack 时可以遵守一套最佳做法，以便在发生灾难性故障时帮助减轻数据损失。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: 221FDE40-3EF8-4F54-A075-0C4D66EECE1A
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/01/2017
-ms.date: 08/27/2018
-ms.author: v-junlch
+origin.date: 11/05/2018
+ms.date: 12/17/2018
+ms.author: v-jay
 ms.reviewer: hectorl
-ms.openlocfilehash: 3d01b25420d01534bf65dfdbfb67800a7fa93132
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 2bf35149fb2d1d38f0994488ded526824f262ad0
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651640"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396203"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>基础结构备份服务最佳做法
 
@@ -41,7 +41,7 @@ ms.locfileid: "52651640"
 
 路径的通用命名约定 (UNC) 字符串必须使用完全限定的域名 (FQDN)。 如果无法使用名称解析，可以使用 IP 地址。 UNC 字符串指定资源（例如共享文件或设备）的位置。
 
-### <a name="encryption"></a>Encryption
+### <a name="encryption"></a>加密
 
 加密密钥用来对导出到外部存储的备份数据进行加密。 密钥将在[使用 PowerShell 为 Azure Stack 启用备份](azure-stack-backup-enable-backup-powershell.md)的过程中生成。
 
@@ -53,7 +53,6 @@ ms.locfileid: "52651640"
 
 ### <a name="backups"></a>备份
 
- - 基础结构备份控制器需要按需触发。 建议每天至少备份两次。
  - 备份作业在系统正在运行时执行，因此，管理体验和用户应用程序不会经历停机时间。 对于负载合理的解决方案，备份作业预计要花费 20-40 分钟。
  - 根据 OEM 提供的说明，手动备份网络交换机，并且硬件生命周期主机 (HLH) 应当存储在基础结构备份控制器在其中存储控制层备份数据的同一备份共享中。 请考虑将交换机和 HLH 配置存储在区域文件夹中。 如果在同一区域中有多个 Azure Stack 实例，请考虑为属于某个缩放单元的每个配置使用一个标识符。
 
@@ -96,7 +95,8 @@ MASBackup 文件夹是 Azure Stack 存储其备份数据的地方。 不应使�
 
 ## <a name="next-steps"></a>后续步骤
 
- - 查看[基础结构备份服务](azure-stack-backup-reference.md)的参考资料。  
- - 启用[基础结构备份服务](azure-stack-backup-enable-backup-console.md)。
+查看[基础结构备份服务](azure-stack-backup-reference.md)的参考资料。
+
+启用[基础结构备份服务](azure-stack-backup-enable-backup-console.md)。
 
 <!-- Update_Description: wording update -->

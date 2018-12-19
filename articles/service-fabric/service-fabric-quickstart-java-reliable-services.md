@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 10/23/2017
-ms.date: 11/12/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
 ms.custom: mvc, devcenter
-ms.openlocfilehash: cbc77fd2b835c23c62e899b48d29bc59583651ba
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 41b6019ac5c05d2b950e7b3a4ad17bbc5a0c63fd
+ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650665"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52901106"
 ---
 # <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>快速入门：将 Java Reliable Services 应用程序部署到 Service Fabric
 

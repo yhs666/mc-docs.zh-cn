@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/30/2018
-ms.date: 11/09/2018
+ms.date: 12/05/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: bea7a22ff330d040a5fad87a26d1f615419b08bd
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a26f1f22ef06d0f7395ecf56ced17cf6e08975ce
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656522"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028497"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>使用 Azure AD Connect 同步实现密码哈希同步
 本文提供将用户密码从本地 Active Directory 实例同步到基于云的 Azure Active Directory (Azure AD) 实例时所需的信息。
@@ -133,7 +133,7 @@ Active Directory 域服务以实际用户密码的哈希值表示形式存储密
 ## <a name="enable-password-hash-synchronization"></a>启用密码哈希同步
 
 >[!IMPORTANT]
->如果要从 AD FS（或其他联合技术）迁移到密码哈希同步，我们强烈建议你按照[此处](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Password%20Hash%20Synchronization.docx)发布的详细部署指南进行操作。
+>如果要从 AD FS（或其他联合技术）迁移到密码哈希同步，我们强烈建议你按照[此处](https://aka.ms/adfstophsdpdownload)发布的详细部署指南进行操作。
 
 使用“快速设置”选项安装 Azure AD Connect 时，会自动启用密码哈希同步。 有关详细信息，请参阅[通过快速设置开始使用 Azure AD Connect](how-to-connect-install-express.md)。
 
@@ -172,3 +172,4 @@ Active Directory 域服务以实际用户密码的哈希值表示形式存储密
 - [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)
 - [获取有关从 ADFS 迁移到密码哈希同步的分步部署计划](https://aka.ms/authenticationDeploymentPlan)
 
+<!-- Update_Description: link update -->

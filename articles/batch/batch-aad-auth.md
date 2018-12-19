@@ -16,12 +16,12 @@ ms.workload: big-compute
 origin.date: 04/18/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 51af3773224e6d81c466adfbd697f4b0011085c5
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 20fb1bd12c2b2e611c50c5fa9c8349079114ec79
+ms.sourcegitcommit: 0544706ab2ff239fb09fbeedc5910644301ad029
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674798"
+ms.lasthandoff: 12/03/2018
+ms.locfileid: "52745207"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>使用 Active Directory 对 Batch 服务解决方案进行身份验证
 
@@ -381,8 +381,8 @@ credentials = ServicePrincipalCredentials(
 
 [aad_about]:../active-directory/fundamentals/active-directory-whatis.md
 [aad_adal]: ../active-directory/develop/active-directory-authentication-libraries.md
-[aad_auth_scenarios]: ../active-directory/develop/active-directory-authentication-scenarios.md
-[aad_integrate]: ../active-directory/develop/active-directory-integrating-applications.md
+[aad_auth_scenarios]: ../active-directory/develop/authentication-scenarios.md
+[aad_integrate]: ../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md
 [azure_portal]: http://portal.azure.cn
 
 <!-- Update_Description: link update -->

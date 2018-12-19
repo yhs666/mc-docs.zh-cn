@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 08/24/2018
 ms.date: 10/29/2018
 ms.author: v-biyu
-ms.openlocfilehash: 7d8a59e70e89efe762b020dc4cbc25f1f460694c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 295ee9260e57dcc528f7d8decd8cc3ee61595884
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656208"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028595"
 ---
 # <a name="security-in-azure-app-service-and-azure-functions"></a>Azure 应用服务和 Azure Functions 中的安全性
 
@@ -43,22 +43,20 @@ ms.locfileid: "52656208"
 
 应用服务允许通过 [HTTPS](https://wikipedia.org/wiki/HTTPS) 保护应用。 创建应用后，便可使用 HTTPS 访问其默认域名 (\<app_name>.azurewebsites.net)。 如果[为应用配置自定义域](app-service-web-tutorial-custom-domain.md)，则还应该[使用自定义证书对其进行保护](app-service-web-tutorial-custom-ssl.md)，以便客户端浏览器与自定义域建立安全的 HTTPS 连接。 可通过两种方式来执行此操作：
 
-- **应用服务证书**：直接在 Azure 中创建证书。 该证书在 [Azure Key Vault](/azure/key-vault/) 中受到保护，并且可以导入到应用服务应用中。 有关详细信息，请参阅[为 Azure 应用服务购买和配置 SSL 证书](web-sites-purchase-ssl-web-site.md)。
+- **应用服务证书**：直接在 Azure 中创建证书。 该证书在 [Azure Key Vault](/azure/key-vault/) 中受到保护，并且可以导入到应用服务应用中。 
 - **第三方证书**：上传从可信证书颁发机构购买的自定义 SSL 证书，并将其绑定到应用服务应用。 应用服务既支持单域证书，也支持通配型证书。 它还支持用于测试目的的自签名证书。 有关详细信息，请参阅[将现有的自定义 SSL 证书绑定到 Azure Web 应用](app-service-web-tutorial-custom-ssl.md)。
 
 ## <a name="insecure-protocols-http-tls-10-ftp"></a>不安全的协议（HTTP、TLS 1.0、FTP）
 
 为了保护应用免受所有未加密 (HTTP) 连接的攻击，应用服务提供一键式配置以实施 HTTPS。 不安全的请求在到达你的应用程序代码之前就会被拒绝。 有关详细信息，请参阅[实施 HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https)。
 
-[PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard) 等行业标准已不再将 [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 视为安全协议。 应用服务允许通过[实施 TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-1112) 来禁用过时的协议。
+[PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard) 等行业标准已不再将 [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 视为安全协议。 应用服务允许通过[实施 TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md) 来禁用过时的协议。
 
 应用服务支持使用 FTP 和 FTPS 来部署文件。 但是，如果可能的话，应使用 FTPS 而不是 FTP。 如果未使用这两种协议或其中一种协议，则应[将其禁用](app-service-deploy-ftp.md#enforce-ftps)。
 
 ## <a name="static-ip-restrictions"></a>静态 IP 限制
 
 默认情况下，应用服务应用接受来自 Internet 的所有 IP 地址的请求，但你可以将该访问权限限定于一小部分 IP 地址。 通过 Windows 上的应用服务，可定义允许访问应用的 IP 地址的列表。 允许列表可包括单个 IP 地址或由子网掩码定义的 IP 地址范围。 有关详细信息，请参阅 [Azure 应用服务静态 IP 限制](app-service-ip-restrictions.md)。
-
-对于 Windows 上的应用服务，还可以通过配置 _web.config_ 来动态限制 IP 地址。有关详细信息，请参阅[动态 IP 安全性<dynamicIpSecurity>](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/)。
 
 ## <a name="client-authentication-and-authorization"></a>客户端身份验证和授权
 
@@ -87,13 +85,9 @@ Azure 应用服务提供用户或客户端应用的统包身份验证和授权�
 
 当应用连接到 Azure 资源（例如 [SQL 数据库](/services/sql-database/)和 [Azure 存储](/storage/)）时，连接一直保持在 Azure 中，不会跨越任何网络边界。 但是，连接经过 Azure 中的共享网络，因此请务必确保连接已加密。 
 
-如果应用托管在[应用服务环境](environment/intro.md)中，则应该[使用虚拟网络服务终结点连接到受支持的 Azure 服务](../virtual-network/virtual-network-service-endpoints-overview.md)。
-
 ### <a name="resources-inside-an-azure-virtual-network"></a>Azure 虚拟网络中的资源
 
 应用可以通过[虚拟网络集成](web-sites-integrate-with-vnet.md)访问 [Azure 虚拟网络](/virtual-network/)中的资源。 该集成通过点到站点 VPN 随虚拟网络一起建立。 之后，应用可以使用虚拟网络资源的专用 IP 地址来访问这些资源。 但是，点到站点连接仍然会遍历 Azure 中的共享网络。 
-
-若要将资源连接与 Azure 中的共享网络完全隔离，请在[应用服务环境](environment/intro.md)中创建应用。 由于应用服务环境始终部署到专用虚拟网络，因此，应用与虚拟网络资源之间的连接是完全隔离的。 有关应用服务环境中网络安全的其他方面，请参阅[网络隔离](#network-isolation)。
 
 ### <a name="on-premises-resources"></a>本地资源
 
@@ -101,7 +95,6 @@ Azure 应用服务提供用户或客户端应用的统包身份验证和授权�
 
 - [混合连接](app-service-hybrid-connections.md)：通过 TCP 隧道建立到远程资源的点到点连接。 TCP 隧道是使用 TLS 1.2 通过共享访问签名 (SAS) 密钥建立的。
 - 通过站点到站点 VPN 建立的[虚拟网络集成](web-sites-integrate-with-vnet.md)：如 [Azure 虚拟网络中的资源](#resources-inside-an-azure-virtual-network)中所述，但虚拟网络可通过[站点到站点 VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) 连接到本地网络。 在这种网络拓扑中，应用可以像连接到虚拟网络中的其他资源一样连接到本地资源。
-- 带有站点到站点 VPN 的[应用服务环境](environment/intro.md)：如 [Azure 虚拟网络中的资源](#resources-inside-an-azure-virtual-network)中所述，但虚拟网络可通过[站点到站点 VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) 连接到本地网络。 在这种网络拓扑中，应用可以像连接到虚拟网络中的其他资源一样连接到本地资源。
 
 ## <a name="application-secrets"></a>应用程序密钥
 
@@ -111,11 +104,8 @@ Azure 应用服务提供用户或客户端应用的统包身份验证和授权�
 
 ## <a name="network-isolation"></a>网络隔离
 
-除了**独立**定价层，所有层都在应用服务的共享网络基础结构上运行应用。 例如，公共 IP 地址和前端负载均衡器与其他租户共享。 通过在专用的[应用服务环境](environment/intro.md)中运行应用，**独立**层可提供完整的网络隔离。 应用服务环境在你自己的 [Azure 虚拟网络](/azure/virtual-network/)实例中运行。 它允许： 
+除了**独立**定价层，所有层都在应用服务的共享网络基础结构上运行应用。 例如，公共 IP 地址和前端负载均衡器将与其他租户共享。应用服务环境在你自己的 [Azure 虚拟网络](/azure/virtual-network/)实例中运行。 它允许： 
 
 - 使用[网络安全组](../virtual-network/virtual-networks-dmz-nsg.md)限制网络访问权限。 
 - 通过专用的公共终结点为应用提供专用前端。
 - 使用内部负载均衡器 (ILB) 为内部应用程序提供服务，该内部负载均衡器仅允许从 Azure 虚拟网络内部进行访问。 ILB 有一个来自专用子网的 IP 地址，它可以让应用与 Internet 完全隔离。
-- [在 Web 应用程序防火墙 (WAF) 后面使用 ILB](environment/integrate-with-application-gateway.md)。 WAF 为面向公众的应用程序提供企业级保护，例如 DDoS 防护、URI 筛选和 SQL 注入防护。
-
-有关详细信息，请参阅 [Azure 应用服务环境简介](environment/intro.md)。

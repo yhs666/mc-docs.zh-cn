@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 10/10/2018
-ms.date: 11/19/2018
+origin.date: 10/28/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4cc6888cf7173b63cae61d0619f74674eebfb133
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 557e75ff68bee2d94984c5c7263ad65261b85949
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660254"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028484"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>针对本地物理服务器设置到 Azure 的灾难恢复
 
@@ -128,7 +128,7 @@ ms.locfileid: "52660254"
 基于 IP 地址的防火墙规则应允许通过 HTTPS (443) 端口与上面列出的所有 Azure URL 进行通信。 为了简化和限制 IP 范围，建议进行 URL 筛选。
 
 - **商用 IP**：允许 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/details.aspx?id=42064)和 HTTPS (443) 端口。 允许订阅的 Azure 区域的 IP 地址范围以支持 AAD、备份、复制和存储 URL。  
-- **政府 IP** - 允许 [Azure 数据中心 IP 范围 - 中国云](https://www.microsoft.com/download/details.aspx?id=57062)以及所有中国区域的 HTTPS (443) 端口支持 AAD、备份、复制和存储 URL。  
+- **政府 IP** - 允许 [Azure 中国云数据中心 IP 范围](https://www.microsoft.com/download/details.aspx?id=57062)以及所有中国区域的 HTTPS (443) 端口支持 AAD、备份、复制和存储 URL。  
 
 <!-- Update Government IP for [Azure Datacenter IP Ranges – China Cloud](https://www.microsoft.com/download/details.aspx?id=57062)-->
 #### <a name="run-setup"></a>运行安装程序

@@ -13,15 +13,16 @@ ms.topic: article
 origin.date: 08/29/2018
 ms.date: 09/25/2018
 ms.author: v-junlch
-ms.openlocfilehash: 7dfe3c615bed6bf2cea1a301adc1e038153379f1
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 43be96a33cafeed174ed9d14968a0b04c4485400
+ms.sourcegitcommit: 0544706ab2ff239fb09fbeedc5910644301ad029
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654142"
+ms.lasthandoff: 12/03/2018
+ms.locfileid: "52745377"
 ---
 ## <a name="upgrade-the-mars-agent"></a>升级 MARS 代理
 
-低于 2.0.9083.0 的 Azure 恢复服务 (MARS) 代理版本依赖于 Azure 访问控制服务 (ACS)。 MARS 代理也称为 Azure 备份代理。 在 2018 年，Azure [弃用了 Azure 访问控制服务 (ACS)](../articles/active-directory/develop/active-directory-acs-migration.md)。 从 2018 年 3 月 19 日开始，低于 2.0.9083.0 的所有 MARS 代理版本会遇到备份失败。 若要避免或解决备份失败，请[将 MARS 代理升级到最新版本](https://go.microsoft.com/fwlink/?linkid=229525)。 若要确定需要 MARS 代理升级的服务器，请按照[用于升级 MARS 代理的备份博客](https://blogs.technet.microsoft.com/srinathv/2018/01/17/updating-azure-backup-agents/)中的步骤操作。 MARS 代理用于将文件、文件夹和系统状态数据备份到 Azure。 System Center DPM 和 Azure 备份服务器使用 MARS 代理将数据备份到 Azure。
+低于 2.0.9083.0 的 Azure 恢复服务 (MARS) 代理版本依赖于 Azure 访问控制服务 (ACS)。 MARS 代理也称为 Azure 备份代理。 在 2018 年，Azure [弃用了 Azure 访问控制服务 (ACS)][1]。 从 2018 年 3 月 19 日开始，低于 2.0.9083.0 的所有 MARS 代理版本会遇到备份失败。 若要避免或解决备份失败，请[将 MARS 代理升级到最新版本](https://go.microsoft.com/fwlink/?linkid=229525)。 若要确定需要 MARS 代理升级的服务器，请按照[用于升级 MARS 代理的备份博客](https://blogs.technet.microsoft.com/srinathv/2018/01/17/updating-azure-backup-agents/)中的步骤操作。 MARS 代理用于将文件、文件夹和系统状态数据备份到 Azure。 System Center DPM 和 Azure 备份服务器使用 MARS 代理将数据备份到 Azure。
 
+[1]: ../articles/active-directory/develop/active-directory-acs-migration.md
 <!-- ms.date: 09/25/2018 -->

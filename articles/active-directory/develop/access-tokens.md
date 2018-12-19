@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 10/02/2018
-ms.date: 11/07/2018
+origin.date: 10/23/2018
+ms.date: 11/30/2018
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 2c34ab36103a60953637adba429fa0351b1c85c7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 2e312d4a6fd0de7eb56f85964ef3a3cbb3f6c344
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644602"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028624"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Azure Active Directory 访问令牌
 
@@ -124,7 +124,7 @@ Microsoft 标识可以通过与应用程序相关的多种方式进行身份验�
 | 值 | 说明 |
 |-----|-------------|
 | `pwd` | 密码身份验证，用户的 Microsoft 密码或应用的客户端机密。 |
-| `rsa` | 身份验证基于 RSA 密钥的证明，例如，使用 [Microsoft Authenticator 应用](https://aka.ms/AA2kvvu)。这包括，身份验证是否是使用服务拥有的 X509 证书通过自签名的 JWT 执行的。 |
+| `rsa` | 身份验证基于 RSA 密钥的证明，例如，使用 [Microsoft Authenticator 应用](https://aka.ms/AA2kvvu)。 这包括，身份验证是否是使用服务拥有的 X509 证书通过自签名的 JWT 执行的。 |
 | `otp` | 使用电子邮件或短信的一次性密码。 |
 | `fed` | 使用了联合身份验证断言（例如 JWT 或 SAML）。 |
 | `wia` | Windows 集成身份验证 |
@@ -137,7 +137,7 @@ Microsoft 标识可以通过与应用程序相关的多种方式进行身份验�
 
 若要验证 id_token 或 access_token，应用应该验证该令牌的签名和声明。 若要验证访问令牌，应用还需验证颁发者、受众和签名令牌。 这些需要根据 OpenID 发现文档中的值进行验证。 例如，文档的租户独立版本位于 [https://login.partner.microsoftonline.cn/common/.well-known/openid-configuration](https://login.partner.microsoftonline.cn/common/.well-known/openid-configuration)。 
 
-Azure AD 中间件具有用于验证访问令牌的内置功能。 有关如何显式验证 JWT 令牌的详细信息，请参阅[手动 JWT 验证示例](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation)。 
+Azure AD 中间件具有验证访问令牌的内置功能，可以浏览我们的[示例](/active-directory/develop/sample-v1-code)，以所选语言进行查找。 有关如何显式验证 JWT 令牌的详细信息，请参阅[手动 JWT 验证示例](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation)。 
 
 我们提供了库和代码示例用于演示如何轻松处理令牌验证。 我们还提供了以下信息以帮助用户了解基础过程。 另外，还有多个第三方开源库可用于 JWT 验证 - 几乎每个平台和语言都至少有一个选项。 有关 Azure AD 身份验证库和代码示例的详细信息，请参阅 [v1.0 身份验证库](active-directory-authentication-libraries.md)。
 
@@ -167,7 +167,7 @@ https://login.partner.microsoftonline.cn/common/.well-known/openid-configuration
 ```
 
 > [!TIP]
-> 在浏览器中尝试打开此 URL！
+> 在浏览器中尝试打开此 [URL](https://login.partner.microsoftonline.cn/common/.well-known/openid-configuration)！
 
 此元数据文档：
 
@@ -190,7 +190,7 @@ https://login.partner.microsoftonline.cn/common/.well-known/openid-configuration
 - 检查 `tid` 是否与允许调用该 API 的租户相匹配。
 - 使用 `acr` 声明验证已执行 MFA 的用户。 请注意，应使用条件访问强制实施此步骤。
 - 如果在访问令牌中请求了 `roles` 或 `groups` 声明，请验证用户是否在允许执行此操作的组中。
-  - 对于使用隐式流检索的令牌，可能需要在 [Graph](https://developer.microsoft.com/graph/) 中查询此数据，因为该数据通常很庞大，无法放到令牌中。 
+  - 对于使用隐式流检索的令牌，可能需要在 [Microsoft Graph](https://developer.microsoft.com/graph/) 中查询此数据，因为该数据通常很庞大，无法放到令牌中。 
 
 ## <a name="user-and-application-tokens"></a>用户和应用程序令牌
 
@@ -233,3 +233,4 @@ https://login.partner.microsoftonline.cn/common/.well-known/openid-configuration
 - 了解 [Azure AD 中的 `id_tokens`](id-tokens.md)。
 - 了解 [v1.0](v1-permissions-and-consent.md) 中的权限与许可。
 
+<!-- Update_Description: wording update -->

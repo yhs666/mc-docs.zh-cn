@@ -13,12 +13,12 @@ ms.topic: article
 origin.date: 01/09/2018
 ms.date: 11/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: d871669ba71a3cc83a01c68a70c12c247ac5aa17
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 038eaa4219b0ea8b22f9934d9b09ee0cc88b3db3
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662356"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028915"
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>HDInsight 提供了哪些 Hadoop 组件和版本？
 
@@ -112,32 +112,6 @@ Azure HDInsight 支持多个可随时部署的 Hadoop 群集版本。 每个版�
 > [!NOTE]
 > 对于 HDInsight 2.1 和更高版本，默认情况下会集部署具有两个头节点的高度可用群集。 它们不适用于 HDInsight 1.6 版本的群集。
 
-## <a name="enterprise-security-package-for-hdinsight"></a>适用于 HDInsight 的 Enterprise Security 包
-
-Enterprise Security 是一种可选包，可在 HDInsight 群集上作为创建群集工作流的一部分添加。 Enterprise Security 包支持：
-
-- 与 Active Directory 集成进行身份验证。
-
-    在过去，只能创建包含本地管理员用户和本地 SSH 用户的 HDInsight 群集。 本地管理员用户可以访问所有文件、文件夹、表和列。  如果使用 Enterprise Security 包，可通过将 HDInsight 群集与你自己的 Active Directory（包括本地 Active Directory、Azure Active Directory 域服务或 IaaS 虚拟机上的 Active Directory）集成，来启用基于角色的访问控制。 群集上的域管理员可以授权用户使用他们自己的公司（域）用户名和密码来访问群集。 
-
-    有关详细信息，请参阅：
-
-    - [已加入域的 HDInsight 群集的 Hadoop 安全性简介](./domain-joined/apache-domain-joined-introduction.md)
-    - [在 HDInsight 中计划 Azure 已加入域的 Hadoop 群集](./domain-joined/apache-domain-joined-architecture.md)
-    - [配置已加入域的沙盒环境](./domain-joined/apache-domain-joined-configure.md)
-    - [使用 Azure Active Directory 域服务配置已加入域的 HDInsight 群集](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
-
-- 数据授权
-
-    - 与 Apache Ranger 集成以对 Hive、Spark SQL 和 Yarn 队列授权。
-    - 可以对文件和文件夹设置访问控制。
-
-    有关详细信息，请参阅：
-
-    - [在已加入域的 HDInsight 中配置 Hive 策略](./domain-joined/apache-domain-joined-run-hive.md)
-
-- 查看审核日志以监视访问和配置的策略。 
-
 ### <a name="supported-cluster-types"></a>支持的群集类型
 
 目前只有以下群集类型支持 Enterprise Security 包：
@@ -221,8 +195,8 @@ _停用日期_是指在此后不能在 HDInsight 上创建此群集版本的日�
   * Apache 网站上提供了 [Apache Hive 发行说明](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12332384&styleName=Text&projectId=12310843)。
 * HDInsight 群集版本 3.2 使用基于 [Hortonworks 数据平台 2.2][hdp-2-2] 的 Hadoop 分发版。  
 
-  * 具体 Apache 组件的发行说明提供如下：[Hive 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310843&version=12326450)、[Pig 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310730&version=12326954)、[HBase 0.98.4](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310753&version=12326810)、[Phoenix 4.2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12315120&version=12327581)、[M/R 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310941&version=12327180)、[HDFS 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310942&version=12327181)、[YARN 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12313722&version=12327197)、[Common](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310240&version=12327179)、[Tez 0.5.2](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314426&version=12328742)、[Ambari 2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12312020&version=12327486)、[Storm 0.9.3](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314820&version=12327112) 和 [Oozie 4.1.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12324960&projectId=12311620)。
-* HDInsight 群集版本 3.1 使用基于 [Hortonworks 数据平台 2.1.7][hdp-2-1-7] 的 Hadoop 分发版。 在 2014 年 11 月 7 日之前创建的 HDInsight 3.1 群集基于 [Hortonworks 数据平台 2.1.1][hdp-2-1-1]。
+  * 特定 Apache 组件的发行说明提供如下：[Hive 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310843&version=12326450)、[Pig 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310730&version=12326954)、[HBase 0.98.4](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310753&version=12326810)、[Phoenix 4.2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12315120&version=12327581)、[M/R 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310941&version=12327180)、[HDFS 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310942&version=12327181)、[YARN 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12313722&version=12327197)、[Common](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310240&version=12327179)、[Tez 0.5.2](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314426&version=12328742)、[Ambari 2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12312020&version=12327486)、[Storm 0.9.3](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314820&version=12327112) 和 [Oozie 4.1.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12324960&projectId=12311620)。
+* HDInsight 群集版本 3.1 使用基于 [Hortonworks 数据平台 2.1.7][hdp-2-1-7]的 Hadoop 分发版。 在 2014 年 11 月 7 日之前创建的 HDInsight 3.1 群集基于 [Hortonworks 数据平台 2.1.1][hdp-2-1-1]。
 * HDInsight 群集版本 3.0 使用基于 [Hortonworks 数据平台 2.0][hdp-2-0-8] 的 Hadoop 分发版。
 * HDInsight 群集版本 2.1 使用基于 [Hortonworks 数据平台 1.3][hdp-1-3-0]的 Hadoop 分发版。
 * HDInsight 群集版本 1.6 使用基于 [Hortonworks 数据平台 1.1][hdp-1-1-0]的 Hadoop 分发版。
@@ -243,8 +217,8 @@ _停用日期_是指在此后不能在 HDInsight 上创建此群集版本的日�
   | --- | --- | --- | --- | --- | --- | --- |
   | 头：默认 VM 大小 |D3 v2 |D3 v2 | D13、D14 |A4 v2 |D12 v2 |
   | 头：建议的 VM 大小 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2  | D13、D14 |A4 v2、A8 v2、A2m v2 |D12 v2、D13 v2、D14 v2 |
-  | 辅助角色：默认 VM 大小 |D3 v2 |D3 v2  | D13、D14 |D3 v2 |Windows：D12 v2；Linux：D4 v2 |
-  | 辅助角色：建议的 VM 大小 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2  | D13、D14 |D3 v2、D4 v2、D12 v2 |Windows：D12 v2、D13 v2、D14 v2；Linux：D4 v2、D12 v2、D13 v2、D14 v2 |
+  | 辅助角色：默认 VM 大小 |D3 v2 |D3 v2  | D13、D14 |D3 v2 |Windows:D12 v2；Linux：D4 v2 |
+  | 辅助角色：建议的 VM 大小 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2  | D13、D14 |D3 v2、D4 v2、D12 v2 |Windows:D12 v2、D13 v2、D14 v2；Linux：D4 v2、D12 v2、D13 v2、D14 v2 |
   | Zookeeper：默认 VM 大小 | |A4 v2 | |A2 v2 | |
   | Zookeeper：建议的 VM 大小 | |A4 v2、A8 v2、A2m v2 | | A2 v2、A4 v2、A8 v2 | |
   | 边缘：默认 VM 大小 | | | | | |

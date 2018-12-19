@@ -11,22 +11,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-origin.date: 09/12/2018
-ms.date: 10/15/2018
+origin.date: 10/22/2018
+ms.date: 17/12/2018
 ms.author: v-jay
 ms.reviewer: shnatara
-ms.openlocfilehash: ddbddaa8b97d29031f5592fb98bea40a6eb22848
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 4e4664738d8124a26f9d36cd5b73f4ead9be8e7e
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646648"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396105"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>在 Azure Stack 中部署 Service Fabric 群集
 
 使用 Azure 市场中的“Service Fabric 群集”项在 Azure Stack 中部署受保护的 Service Fabric 群集。 
 
-有关使用 Service Fabric 的详细信息，请参阅 Azure 文档中的 [Azure Service Frabric 概述](/service-fabric/service-fabric-overview)和 [Service Fabric 群集安全方案](/service-fabric/service-fabric-cluster-security)。
+有关使用 Service Fabric 的详细信息，请参阅 Azure 文档中的 [Azure Service Fabric 概述](/service-fabric/service-fabric-overview)和 [Service Fabric 群集安全方案](/service-fabric/service-fabric-cluster-security)。
+
+Azure Stack 中的 Service Fabric 群集不使用资源提供程序 Microsoft.ServiceFabric。 相反，在 Azure Stack 中，Service Fabric 群集是一个虚拟机规模集，具有使用所需状态配置 (DSC) 设置的预安装软件。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -49,7 +51,7 @@ ms.locfileid: "52646648"
 
 
 ## <a name="add-a-secret-to-key-vault"></a>向 Key Vault 添加机密
-若要部署 Service Fabric 群集，必须指定正确的 KeyVault 机密标识符，或 Service Fabric 群集的 URL。 Azure 资源管理器模板使用 KeyVault 作为输入，然后在安装 Service Fabric 群集的过程中检索群集证书。 
+若要部署 Service Fabric 群集，必须指定正确的 KeyVault 机密标识符，或 Service Fabric 群集的 URL。 Azure 资源管理器模板接受一个 KeyVault 作为输入。 然后，该模板在安装 Service Fabric 群集时检索群集证书。
 
 > [!IMPORTANT]  
 > 必须使用 PowerShell 在 KeyVault 中添加一个要用于 Service Fabric 的机密。 不要使用门户。  
@@ -140,7 +142,7 @@ ms.locfileid: "52646648"
    - 源 Key Vault：指定脚本结果中的完整 *keyVault id* 字符串。 
    - 群集证书 URL：指定脚本结果中的 *Secret Id* 中的完整 URL。 
    - 群集证书指纹：指定脚本结果中的 *Cluster Certificate Thumbprint*（群集证书指纹）。
-   - 管理客户端证书指纹：指定在先决条件部分创建的管理客户端证书指纹。 
+   - 管理客户端证书指纹：指定在先决条件中创建的*管理客户端证书指纹*。 
 
    ![脚本输出](media/azure-stack-solution-template-service-fabric-cluster/image5.png)
 

@@ -1,26 +1,25 @@
 ---
-title: Azure Stack 中支持的虚拟机大小 | Azure
+title: Azure Stack 中支持的虚拟机大小 | Microsoft Docs
 description: Azure Stack 中支持的 VM 大小参考。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
-manager: femila
-editor: ''
-ms.assetid: ''
+author: WenJason
+manager: digimobile
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/15/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
-ms.openlocfilehash: 84e05dd95260327e3112f4c13f70e7a1bd26653d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 10/23/2018
+ms.date: 12/17/2018
+ms.author: v-jay
+ms.reviewer: kivenkat
+ms.openlocfilehash: e54d40a24684cd270bff7e8cdbc014f7a8913b52
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664196"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396226"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Azure Stack 中支持的虚拟机大小
 
@@ -33,6 +32,10 @@ ms.locfileid: "52664196"
 常规用途 VM 大小提供均衡的 CPU 与内存之比。 它们用于测试和开发小到中型数据库和低到中等流量 Web 服务器。
 
 ### <a name="basic-a"></a>基本 A
+
+> [!NOTE]
+> 通过门户[创建虚拟机规模集](../azure-stack-compute-add-scalesets.md) (VMSS) 时，不再使用“基本 A”虚拟机大小。 若要按照此大小来创建 VMSS，请使用 PowerShell 或模板。
+
 |大小 - 大小\名称 |vCPU     |内存 | 最大临时磁盘大小 | 最大 OS 磁盘吞吐量：(IOPS) | 最大临时存储吞吐量 (IOPS) | 最大数据磁盘吞吐量 (IOPS) | 最大 NIC 数 |    
 |-----------------|-----|---------|---------|-----|------|-----------|----|
 |**A0\Basic_A0**  |1    |768 MB   | 20 GB   |300  | 300  |1 / 1x300  |1   |
@@ -44,7 +47,7 @@ ms.locfileid: "52664196"
 ### <a name="standard-a"></a>标准 A 
 |大小     |vCPU     |内存 (GiB) | 临时存储 (GiB)  | 最大 OS 磁盘吞吐量 (IOPS) | 最大临时存储吞吐量 (IOPS) | 最大数据磁盘数/吞吐量 (IOPS) | 最大 NIC 数/预期网络带宽 (MBps) |    
 |----------------|--|------|----|----|----|-------|---------|
-|**Standard_A0** |1 |0.768 |20 个  |500 |500 |1x500  |1/100  |
+|**Standard_A0** |1 |0.768 |20  |500 |500 |1x500  |1/100  |
 |**Standard_A1** |1 |1.75  |70  |500 |500 |2x500  |1/500  |
 |**Standard_A2** |2 |3.5   |135 |500 |500 |4x500  |1/500  |
 |**Standard_A3** |4 |7     |285 |500 |500 |8x500  |2 / 1000 |
@@ -58,11 +61,11 @@ ms.locfileid: "52664196"
 
 |大小     |vCPU     |内存 (GiB) | 临时存储 (GiB)  | 最大 OS 磁盘吞吐量 (IOPS) | 最大临时存储吞吐量 (IOPS) | 最大数据磁盘数/吞吐量 (IOPS) | 最大 NIC 数/预期网络带宽 (MBps) |
 |-----------------|----|----|-----|-----|------|--------------|---------|
-|**Standard_A1_v2**  |1   |2   |10 个   |500 |1000  |2/2x500   |2 / 250  |
-|**Standard_A2_v2**  |2   |4   |20 个   |500 |2000  |4/4x500   |2 / 500  |
+|**Standard_A1_v2**  |1   |2   |10   |500 |1000  |2/2x500   |2 / 250  |
+|**Standard_A2_v2**  |2   |4   |20   |500 |2000  |4/4x500   |2 / 500  |
 |**Standard_A4v2**   |4   |8   |40   |500 |4000  |8/8x500   |4 / 1000 |
 |**Standard_A8_v2**  |8   |16  |80   |500 |8000  |16/16x500 |8 / 2000 |
-|**Standard_A2m_v2** |2   |16  |20 个   |500 |2000  |4/4x500   |2 / 500  |
+|**Standard_A2m_v2** |2   |16  |20   |500 |2000  |4/4x500   |2 / 500  |
 |**Standard_A4m_v2** |4   |32  |40   |500 |4000  |8/8x500   |4 / 1000 |
 |**Standard_A8m_v2** |8   |64  |80   |500 |8000  |16/16x500 |8 / 2000 |
 
@@ -92,7 +95,7 @@ ms.locfileid: "52664196"
 |**Standard_D4_v2** |8   |28  |400  |500 |24000 |32/32x500 |8 / 4000 |
 |**Standard_D5_v2** |16  |56  |800  |500 |48000 |64/64x500 |8 / 8000 |
 
-### <a name="dsv2-series"></a>DSv2 系列
+### <a name="dsv2-series"></a>DSv2-series
 |大小     |vCPU     |内存 (GiB) | 临时存储 (GiB)  | 最大 OS 磁盘吞吐量 (IOPS) | 最大临时存储吞吐量 (IOPS) | 最大数据磁盘数/吞吐量 (IOPS) | 最大 NIC 数/预期网络带宽 (MBps) |
 |--------------------|----|----|----|-----|------|-------------|---------|
 |**Standard_DS1_v2** |1   |3.5 |7   |1000 |4000  |4 / 4x2300   |1/750  |

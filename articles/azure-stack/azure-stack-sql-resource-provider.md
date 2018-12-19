@@ -3,37 +3,34 @@ title: 在 Azure Stack 中使用 SQL 数据库 | Microsoft Docs
 description: 了解如何在 Azure Stack 中部署 SQL 数据库即服务，并通过便捷的步骤部署 SQL Server 资源提供程序适配器。
 services: azure-stack
 documentationCenter: ''
-author: jeffgilb
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/21/2018
-ms.date: 07/20/2018
-ms.author: v-junlch
-ms.reviewer: jeffgo
-ms.openlocfilehash: 3087fa62131dbf93e4c065c49b423ac7f875a953
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 10/25/2018
+ms.date: 12/17/2018
+ms.author: v-jay
+ms.reviewer: quying
+ms.openlocfilehash: 5d671f5af385fab42210a196ba21ba28777fe261
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652293"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396156"
 ---
 # <a name="use-sql-databases-on-azure-stack"></a>在 Azure Stack 中使用 SQL 数据库
 
-使用 SQL Server 资源提供程序适配器 API 可以公开 [Azure Stack](azure-stack-poc.md) 的 SQL 数据库即服务。 安装资源提供程序并将它连接到一个或多个 SQL Server 实例之后，你和用户可以创建：
+使用 SQL Server 资源提供程序适配器将 SQL 数据库提供为 [Azure Stack](azure-stack-poc.md) 的一项服务。 安装资源提供程序并将它连接到一个或多个 SQL Server 实例之后，你和用户可以创建：
 
 - 适用于云原生应用的数据库。
 - 使用 SQL 的网站。
 - 使用 SQL 的工作负荷。
 
-该资源提供程序并未提供 [Azure SQL 数据库](https://www.azure.cn/home/features/sql-database/)的所有数据库管理功能。 例如，它不支持自动分配资源的弹性池。 但是，该资源提供程序支持对 SQL Server 数据库执行类似的创建、读取、更新和删除 (CRUD) 操作。 有关资源提供程序 API 的详细信息，请参阅 [Azure Pack SQL Server 资源提供程序 REST API 参考](https://msdn.microsoft.com/library/dn528529.aspx)。
-
->[!NOTE]
-SQL Server 资源提供程序 API 与 Azure SQL 数据库不兼容。
+该资源提供程序并未提供 [Azure SQL 数据库](https://www.azure.cn/home/features/sql-database/)的所有数据库管理功能。 例如，它不支持自动分配资源的弹性池。 但是，该资源提供程序支持对 SQL Server 数据库执行类似的创建、读取、更新和删除 (CRUD) 操作。
 
 ## <a name="sql-resource-provider-adapter-architecture"></a>SQL 资源提供程序适配器体系结构
 

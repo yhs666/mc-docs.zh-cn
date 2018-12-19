@@ -12,12 +12,12 @@ ms.workload: big-data
 origin.date: 08/09/2018
 ms.date: 11/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: 0858aab8d01cb291911a3b6955795c134113f914
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: caa97341c6423e22a85a59111d4dc0b55d82e371
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646144"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028295"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>有关在 Linux 上使用 HDInsight 的信息
 
@@ -34,11 +34,6 @@ Azure HDInsight 群集在熟悉的 Linux 环境中提供可在 Azure 云中运�
 * [jq](https://stedolan.github.io/jq/) - 用于分析 JSON 文档
 * [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest) - 用于远程管理 Azure 服务
 
-## <a name="users"></a>用户
-
-除非[加入域](./domain-joined/apache-domain-joined-introduction.md)，HDInsight 应被视为**单用户**系统。 单一 SSH 用户帐户是使用具有管理员级别权限的群集创建的。 可以创建其他 SSH 帐户，但这些帐户也具有对群集的管理员访问权限。
-
-已加入域的 HDInsight 支持使用多个用户，并支持对权限和角色进行更精细的设置。 有关详细信息，请参阅[管理已加入域的 HDInsight 群集](./domain-joined/apache-domain-joined-manage.md)。
 
 ## <a name="domain-names"></a>域名
 
@@ -95,7 +90,7 @@ Azure HDInsight 群集在熟悉的 Linux 环境中提供可在 Azure 云中运�
 Hadoop 相关文件可在群集节点上的 `/usr/hdp`中找到。 此目录包含以下子目录：
 
 * **2.2.4.9-1**：目录名称是 HDInsight 使用的 Hortonworks 数据平台的版本。 群集上的数字可能与这里列出的有所不同。
-* **当前**：此目录包含 **2.2.4.9-1** 目录下的子目录的链接。 由于该目录存在，因此无需记住版本号。
+* **current**：此目录包含 **2.2.4.9-1** 目录下的子目录的链接。 由于该目录存在，因此无需记住版本号。
 
 示例数据和 JAR 文件可以在 Hadoop 分布式文件系统上的 `/example` 和 `/HdiSamples` 处找到。
 
@@ -123,9 +118,9 @@ Hadoop 相关文件可在群集节点上的 `/usr/hdp`中找到。 此目录包�
 
 使用 __Azure 存储__时，可以使用以下 URI 方案之一：
 
-* `wasb:///`：使用未经加密的通信访问默认存储。
+* `wasb:///`：使用未加密的通信访问默认存储。
 
-* `wasbs:///`：使用加密通信访问默认存储。  仅 HDInsight 3.6 及以上版本支持 wasbs 方案。
+* `wasbs:///`：使用加密的通信访问默认存储。  仅 HDInsight 3.6 及以上版本支持 wasbs 方案。
 
 * `wasb://<container-name>@<account-name>.blob.core.chinacloudapi.cn/`：与非默认存储帐户通信时使用。 例如，具有其他存储帐户或访问可公开访问的存储帐户中存储的数据时。
 
@@ -157,7 +152,7 @@ Hadoop 相关文件可在群集节点上的 `/usr/hdp`中找到。 此目录包�
 如果使用的是 __Azure 存储__，请参阅以下链接了解可用于访问数据的方式：
 
 * [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest)：适用于 Azure 的命令行接口命令。 在安装后，使用 `az storage` 命令获取有关使用存储的帮助，或者使用 `az storage blob` 获取特定于 Blob 的命令。
-* [blobxfer.py](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage)：用于 Azure 存储中的 blob 的 python 脚本。
+* [blobxfer.py](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage)：用于处理 Azure 存储中的 blob 的 python 脚本。
 * 多种 SDK：
 
     * [Java](https://github.com/Azure/azure-sdk-for-java)
@@ -187,7 +182,7 @@ Hadoop 相关文件可在群集节点上的 `/usr/hdp`中找到。 此目录包�
 
             balancer
 
-* **Storm**：应在执行缩放操作后重新平衡任何正在运行的 Storm 拓扑。 重新平衡允许拓扑根据群集中的新节点数重新调整并行度设置。 若要重新平衡正在运行的拓扑，请使用下列选项之一：
+* **Storm**：你应在执行缩放操作后重新平衡任何正在运行的 Storm 拓扑。 重新平衡允许拓扑根据群集中的新节点数重新调整并行度设置。 若要重新平衡正在运行的拓扑，请使用下列选项之一：
 
     * **SSH**：连接到服务器并使用以下命令来重新平衡拓扑：
 
@@ -239,7 +234,7 @@ HDInsight 是一个托管服务。 如果 Azure 检测到群集存在问题，�
 > [!WARNING]
 > 完全支持通过 HDInsight 群集提供的组件，Azure 支持部门帮助找出并解决与这些组件相关的问题。
 >
-> 自定义组件可获得合理范围的支持，有助于进一步解决问题。 这可能会促进解决问题，或要求使用可用的开源技术渠道，在渠道中可找到该技术的深厚的专业知识。 有许多可以使用的社区站点，例如：[HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)和 [Azure CSDN](http://azure.csdn.net)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如 [Hadoop](http://hadoop.apache.org/)、[Spark](http://spark.apache.org/)。
+> 自定义组件可获得合理范围的支持，有助于进一步解决问题。 这可能会促进解决问题，或要求使用可用的开源技术渠道，在渠道中可找到该技术的深厚的专业知识。 有许多可以使用的社区站点，例如：[面向 HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)、[Azure CSDN](http://azure.csdn.net)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如：[Hadoop](http://hadoop.apache.org/)、[Spark](http://spark.apache.org/)。
 
 ## <a name="next-steps"></a>后续步骤
 

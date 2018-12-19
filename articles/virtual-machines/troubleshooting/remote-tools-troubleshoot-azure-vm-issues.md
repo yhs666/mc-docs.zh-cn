@@ -15,20 +15,20 @@ ms.devlang: azurecli
 origin.date: 01/11/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1949afd1cca8e822142100502aaa655e7a44111f
-ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
+ms.openlocfilehash: 28badb92b28da26c9ec9a22f268fc63148f0bedc
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676968"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028488"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>使用远程工具排查 Azure VM 问题
 
 排查 Azure 虚拟机 (VM) 的问题时，可以使用本文所述的远程工具而不是远程桌面协议 (RDP) 连接到 VM。
 
-## <a name="serial-console"></a>串行控制台
+<!--Not Available on ## Serial Console-->
 
-使用[虚拟机串行控制台](serial-console-windows.md)可在远程 Azure VM 上运行命令。
+<!--Not Available on Use [Virtual Machine Serial Console](serial-console-windows.md)-->
 
 ## <a name="remote-cmd"></a>远程 CMD
 
@@ -44,9 +44,9 @@ psexec \\<computer>-u user -s cmd
 >* -s 参数确保使用系统帐户（管理员权限）调用命令。
 >* PsExec 使用 TCP 端口 135 和 445。 因此，需要在防火墙中打开这两个端口。
 
-## <a name="run-commands"></a>运行命令
+<!-- Not Available on ## Run Commands-->
 
-有关如何使用“运行命令”功能在 VM 上运行脚本的详细信息，请参阅[使用“运行命令”在 Windows VM 中运行 PowerShell 脚本](../windows/run-command.md)。
+<!-- Not Available on [Run PowerShell scripts in your Windows VM with Run Command](../windows/run-command.md)-->
 
 ## <a name="customer-script-extension"></a>自定义脚本扩展
 
@@ -258,5 +258,5 @@ PsExec 包含在 [PSTools Suite](https://download.sysinternals.com/files/PSTools
 
 有关 PSTools Suite 的详细信息，请参阅 [PSTools Suite](/sysinternals/downloads/pstools)。
 
-<!-- Update_Description: new articles on troubleshoot -->
+sss <!-- Update_Description: new articles on troubleshoot -->
 <!--ms.date: 12/03/2018-->

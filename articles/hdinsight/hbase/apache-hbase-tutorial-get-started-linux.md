@@ -1,7 +1,7 @@
 ---
 title: HDInsight 上的 HBase 入门示例
 description: 按照此 Apache HBase 示例，开始在 HDInsight 上使用 Hadoop。 从 HBase shell 创建表，并使用 Hive 查询这些表。
-keywords: hbasecommand,hbase 示例
+keywords: hbasecommand，hbase 示例
 services: hdinsight
 documentationcenter: ''
 author: mumian
@@ -15,12 +15,12 @@ ms.topic: conceptual
 origin.date: 02/22/2018
 ms.date: 05/21/2018
 ms.author: v-yiso
-ms.openlocfilehash: 27220c742727df699f118daa7b321b45c1a48a5c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: de71685410ab082c2bacd86bbc758e23629ed5ef
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645999"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028465"
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>HDInsight 中的 Apache HBase 入门示例
 
@@ -38,21 +38,21 @@ ms.locfileid: "52645999"
 ## <a name="create-hbase-cluster"></a>创建 HBase 群集
 以下过程使用 Azure 资源管理器模板创建 HBase 群集以及相关的默认 Azure 存储帐户。 若要了解该过程与其他群集创建方法中使用的参数，请参阅 [在 HDInsight 中创建基于 Linux 的 Hadoop 群集](../hdinsight-hadoop-provision-linux-clusters.md)。
 
-1. 单击下面的图像可在 Azure 门户中打开模板。 该模板位于 [Azure 快速启动模板](https://azure.microsoft.com/resources/templates/)中。
+1. 单击下面的图像即可在 Azure 门户中打开该模板。 该模板位于 [Azure 快速启动模板](https://azure.microsoft.com/resources/templates/)中。
 
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
     >[!NOTE]
     > 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。 例如，替换一些终结点 - 将“blob.core.chinacloudapi.cn”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”；将允许的位置更改为“中国北部”和“中国东部”；将 HDInsight Linux 版本更改为 Azure 中国区支持的版本：3.5。
 
-2. 在“自定义部署”  边栏选项卡中，输入以下信息：
+2. 在“自定义部署”边栏选项卡中输入以下值：
 
    * **订阅**：选择用于创建群集的 Azure 订阅。
    * **资源组**：创建 Azure 资源管理组，或使用现有的组。
    * **位置**：指定资源组的位置。 
    * **ClusterName**：输入 HBase 群集的名称。
-   * **群集登录名和密码**：默认登录名是 **admin**。
-   * **SSH 用户名和密码**：默认用户名是 **sshuser**。  可以重命名它。
+   * **群集登录名和密码**：默认登录名为“admin”。
+   * **SSH 用户名和密码**：默认用户名为“sshuser”。  可以重命名它。
 
      其他参数是可选的。  
 
@@ -60,18 +60,18 @@ ms.locfileid: "52645999"
 3. 选择“我同意上述条款和条件”，并单击“购买”。 创建群集大约需要 20 分钟时间。
 
 > [!NOTE]
-> 删除 HBase 群集后，可使用同一默认 Blob 容器创建另一 HBase 群集。 新群集会选取在原始群集中创建的 HBase 表。 为了避免不一致，建议在删除群集之前先禁用 HBase 表。
+> 在删除 HBase 群集后，可以通过使用相同的默认 Blob 容器创建另一个 HBase 群集。 新群集将选取已在原始群集中创建的 HBase 表。 为了避免不一致，建议在删除群集之前先禁用 HBase 表。
 > 
 > 
 
 ## <a name="create-tables-and-insert-data"></a>创建表和插入数据
-可以使用 SSH 连接到 HBase 群集，并使用 HBase Shell 来创建 HBase 表以及插入和查询数据。 有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)。
+可以使用 SSH 连接到 HBase 群集，并使用 HBase Shell 来创建 HBase 表以及插入和查询数据。 有关详细信息，请参阅 [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
-对大多数用户而言，数据以表格形式显示：
+对于大多数人而言，数据以表格形式显示：
 
 ![HDInsight HBase 表格数据][img-hbase-sample-data-tabular]
 
-在 HBase（BigTable 的一种实现）中，相同的数据如下所示：
+在 HBase（BigTable 的一种实现）中，相同的数据看起来类似于：
 
 ![HDInsight HBase BigTable 数据][img-hbase-sample-data-bigtable]
 
@@ -108,7 +108,7 @@ ms.locfileid: "52645999"
 
     将会看到与使用扫描命令相同的结果，因为只有一个行。
 
-    有关 Hbase 表架构的详细信息，请参阅 [HBase 架构设计简介][hbase-schema]。 有关 HBase 命令的详细信息，请参阅 [Apache HBase 参考指南][hbase-quick-start]。
+    有关 HBase 表架构的详细信息，请参阅 [HBase 架构设计简介][hbase-schema]。 有关 HBase 命令的详细信息，请参阅 [Apache HBase 参考指南][hbase-quick-start]。
 5. 退出 shell
 
     ```hbaseshell
@@ -119,7 +119,7 @@ ms.locfileid: "52645999"
 
 HBase 提供了多种方法用于将数据载入表中。  有关详细信息，请参阅 [批量加载](http://hbase.apache.org/book.html#arch.bulk.load)。
 
-可在公共 Blob 容器 *wasb://hbasecontacts@hditutorialdata.blob.core.chinacloudapi.cn/contacts.txt* 中找到示例数据文件。  该数据文件的内容为：
+可在公共 Azure Blob 容器 *wasb://hbasecontacts@hditutorialdata.blob.core.chinacloudapi.cn/contacts.txt* 中找到示例数据文件。  该数据文件的内容为：
 
     8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.
     16600   Karen Wu         646-555-0113    230-555-0192    9265 La Paz
@@ -132,7 +132,7 @@ HBase 提供了多种方法用于将数据载入表中。  有关详细信息，
     4761    Caleb Alexander  670-555-0141    230-555-0199    4775 Kentucky Dr.
     16443   Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
 
-可以选择创建一个文本文件并将该文件上传到自己的存储帐户。 有关说明，请参阅 [在 HDInsight 中为 Hadoop 作业上传数据][hdinsight-upload-data]。
+可以选择创建一个文本文件并将该文件上传到自己的存储帐户。 有关说明，请参阅[在 HDInsight 中为 Hadoop 作业上载数据][hdinsight-upload-data]。
 
 > [!NOTE]
 > 此过程使用在上一个过程中创建的“联系人”HBase 表。
@@ -174,7 +174,7 @@ HBase 提供了多种方法用于将数据载入表中。  有关详细信息，
     TBLPROPERTIES ('hbase.table.name' = 'Contacts');
     ```
 
-4. 运行以下 HiveQL 脚本，以查询 HBase 表中的数据：
+4. 运行以下 HiveQL 脚本，查询 HBase 表中的数据：
 
     ```hiveql   
     SELECT count(rowkey) FROM hbasecontacts;
@@ -214,11 +214,11 @@ REST API 通过 [基本身份验证](http://en.wikipedia.org/wiki/Basic_access_a
     -v
     ```
 
-    必须使用 base64 来为 -d 参数中指定的值编码。 在此示例中：
+    必须使用 base64 来为 -d 参数中指定的值编码。 在示例中：
 
-   * MTAwMA==: 1000
-   * UGVyc29uYWw6TmFtZQ==: Personal:Name
-   * Sm9obiBEb2xl: John Dole
+   * MTAwMA==:1000
+   * UGVyc29uYWw6TmFtZQ==:Personal:Name
+   * Sm9obiBEb2xl:John Dole
 
      [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) 允许插入多个（批处理）值。
 5. 使用以下命令获取行：
@@ -280,7 +280,7 @@ HDInsight 中的 HBase 随附了一个 Web UI 用于监视群集。 使用该 We
 
 * [HDInsight HBase 概述][hdinsight-hbase-overview]：HBase 是构建于 Hadoop 上的 Apache 开源 NoSQL 数据库，用于为大量非结构化和半结构化数据提供随机访问和高度一致性。
 
-[hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
+[hdinsight-manage-portal]: ../hdinsight-administer-use-management-portal.md
 [hdinsight-upload-data]: ../hdinsight-upload-data.md
 [hbase-reference]: http://hbase.apache.org/book.html#importtsv
 [hbase-schema]: http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/9353-login1210_khurana.pdf

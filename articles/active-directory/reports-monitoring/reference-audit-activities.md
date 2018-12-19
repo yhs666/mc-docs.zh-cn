@@ -13,25 +13,25 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-origin.date: 04/19/2018
-ms.date: 08/28/2018
+origin.date: 11/13/2018
+ms.date: 12/06/2018
 ms.author: v-junlch
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ba6cadd15dd3bc9a48ccfa9e5157e0e2c14c2791
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 43e5334992a4dd7c29d93f46ab2611ff3be73278
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663135"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028401"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Azure AD 审核活动参考
 
-通过 Azure Active Directory (Azure AD) 中的报告，可以获取确定环境运行状况所需的信息。
+通过 Azure Active Directory (Azure AD) 报告，可以获取确定环境运行状况所需的信息。
 
 Azure AD 中的报告体系结构由以下部分组成：
 
-- **活动** 
-    - **审核日志** - 针对 Azure AD 中的各种功能所做的所有更改进行日志记录，通过这些日志提供可跟踪性。 审核日志的示例包括对 Azure AD 中的任何资源（例如用户、应用、组、角色、策略、身份验证等）所做的更改。
+- **活动报告** 
+    - [审核日志](concept-audit-logs.md) - 针对 Azure AD 中的各种功能所做的所有更改进行日志记录，通过这些日志提供可跟踪性。 
 
 本文列出了可以在审核日志中记录的审核活动。
 
@@ -67,9 +67,6 @@ Azure AD 中的报告体系结构由以下部分组成：
 |用户管理|获取 V1 应用程序|
 |用户管理|获取 V2 应用程序|
 |用户管理|获取 V2 应用程序|
-
-
-
 
 ## <a name="account-provisioning"></a>帐户预配
 
@@ -231,17 +228,17 @@ Azure AD 中的报告体系结构由以下部分组成：
 |目录管理|获取租户信息|
 |目录管理|获取租户允许的功能|
 |目录管理|获取 tenantDomains|
-|键|获取租户的类型|
-|键|验证是否已启用 B2C 功能|
-|键|验证是否已启用功能|
-|键|将合作伙伴添加到公司|
-|键|添加未验证的域|
-|键|添加已验证的域|
-|键|创建公司|
-|键|创建公司设置|
-|键|删除公司设置|
-|键|降级合作伙伴|
-|键|目录已删除|
+|密钥|获取租户的类型|
+|密钥|验证是否已启用 B2C 功能|
+|密钥|验证是否已启用功能|
+|密钥|将合作伙伴添加到公司|
+|密钥|添加未验证的域|
+|密钥|添加已验证的域|
+|密钥|创建公司|
+|密钥|创建公司设置|
+|密钥|删除公司设置|
+|密钥|降级合作伙伴|
+|密钥|目录已删除|
 |其他|目录已永久删除|
 |其他|目录已计划删除|
 |资源|将公司提升为合作伙伴|
@@ -523,14 +520,9 @@ Azure AD 中的报告体系结构由以下部分组成：
 |策略管理|用户已注册自助密码重置|
 
 
-
-
 ## <a name="next-steps"></a>后续步骤
 
-如需大致了解
+- [Azure AD 报告概述](overview-reports.md)。
+- [审核日志报告](concept-audit-logs.md)。 
 
-- 报表，请参阅 [Azure Active Directory 报表](overview-reports.md)。
-
-- 审核活动报表，请参阅 [Azure Active Directory 门户中的审核活动报表](concept-audit-logs.md)。 
-
-
+<!-- Update_Description: wording update -->

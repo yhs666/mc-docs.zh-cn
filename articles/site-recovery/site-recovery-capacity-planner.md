@@ -1,28 +1,21 @@
 ---
-title: 估算 Azure 中的复制容量 | Azure
-description: 参考本文估算使用 Azure Site Recovery 进行复制时可用的容量
-services: site-recovery
-documentationcenter: ''
+title: 使用 Azure Site Recovery 为 Hyper-V 灾难恢复规划容量 | Azure
+description: 利用本文在使用 Azure Site Recovery 服务设置灾难恢复时估算容量。
 author: rockboyfor
 manager: digimobile
-editor: ''
-ms.assetid: 0a1cd8eb-a8f7-4228-ab84-9449e0b2887b
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-origin.date: 10/11/2018
-ms.date: 11/19/2018
+origin.date: 10/28/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 34aa59ffdc32258fefdfe213e242c0d8d164afae
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b14dc1b100081de2641686b4e5754be575da5028
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663310"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028281"
 ---
-# <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>计划用于使用 Site Recovery 保护 Hyper-V VM 的容量
+# <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>为 Hyper-V VM 灾难恢复规划容量 
 
 [适用于 Hyper-V 到 Azure 部署的 Azure Site Recovery 部署规划器](site-recovery-hyper-v-deployment-planner.md)的新增强版本现已可用。 它取代了旧工具。 使用新工具规划部署。
 该工具提供以下指导原则：
@@ -49,7 +42,7 @@ Azure Site Recovery Capacity Planner 工具可帮助用户确定通过 Azure Sit
 * 确定已复制数据的每日更改（改动）率。 下载 [Hyper-V 容量计划工具](https://www.microsoft.com/download/details.aspx?id=39057)以获取更改率。 [详细了解](site-recovery-capacity-planning-for-hyper-v-replication.md)此工具。 我们建议运行此工具一周以上的时间以获取平均值。
 
 ## <a name="run-the-quick-planner"></a>运行快速规划器
-1. 下载并打开 [Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel) 工具。 需要运行宏。 在出现提示时，请选择启用编辑内容的选项。
+1. 下载并打开 [Site Recovery Capacity Planner](https://aka.ms/asr-capacity-planner-excel) 工具。 需要运行宏。 在出现提示时，请选择启用编辑内容的选项。
 
 2. 在“选择规划器类型”列表框中，选择“快速规划器”。
 
@@ -72,22 +65,22 @@ Azure Site Recovery Capacity Planner 工具可帮助用户确定通过 Azure Sit
 4. 输入源环境的值以后，显示的输出将包括：
 
    * **增量复制所需的带宽(MB/秒)**：根据每日数据更改率的平均值计算增量复制的网络带宽。
-   * **初始复制所需的带宽(MB/秒)**：根据输入的初始复制值计算初始复制的网络带宽。
-   * **所需存储空间(GB)**：所需的总 Azure 存储空间。
-   * **标准存储帐户的总 IOPS**：根据所有标准存储帐户的 8K IOPS 单元大小计算的数字。 对于快速规划器，该数字根据所有源 VM 磁盘数以及每日数据更改率来计算。 对于详细规划器，该数字根据映射到标准 Azure VM 的 VM 总数以及这些 VM 的数据更改率来计算。
-   * **所需的标准存储帐户数**：提供对 VM 进行保护所需的标准存储帐户的总数。 标准存储帐户最高可以在标准存储的所有 VM 中保持 20000 IOPS。 每个磁盘支持的最大 IOPS 为 500
-   * **所需 Blob 磁盘数**：要在 Azure 存储中创建的磁盘数。
-   * **所需高级存储帐户数**：对 VM 进行保护所需的高级存储帐户的总数。 IOPS 较高（高于 20,000）的源 VM 需要高级存储帐户。 高级存储帐户最高可支持 80,000 IOPS。
-   * **高级存储的总 IOPS**：根据高级存储帐户总数按 256K 的 IOPS 单元大小计算的数字。 对于快速规划器，该数字根据所有源 VM 磁盘数以及每日数据更改率来计算。 对于详细规划器，该数字根据映射到高级 Azure VM（DS 和 GS 系列）的 VM 总数以及这些 VM 的数据更改率来计算。
-   * **所需配置服务器数**：显示需要多少个配置服务器才能完成该部署。
-   * **所需其他进程服务器数**：显示除了默认在配置服务器上运行的进程服务器外，是否还需要其他进程服务器。
-   * **100% 源的其他存储**：显示源位置是否需要其他存储。
+   * **初始复制所需的带宽(MB/秒)**：根据你输入的初始复制值计算初始复制的网络带宽。
+   * **所需存储(GB)**：所需的总 Azure 存储。
+   * **标准存储的总 IOPS**：根据所有标准存储帐户的 8K IOPS 单元大小计算的数字。 对于快速规划器，该数字根据所有源 VM 磁盘数以及每日数据更改率来计算。 对于详细规划器，该数字根据映射到标准 Azure VM 的 VM 总数以及这些 VM 的数据更改率来计算。
+   * **所需的标准存储帐户数**：保护 VM 所需的标准存储帐户总数。 标准存储帐户最高可以在标准存储的所有 VM 中保持 20000 IOPS。 每个磁盘支持的最大 IOPS 为 500
+   * **所需的 Blob 磁盘数**：在 Azure 存储中创建的磁盘数。
+   * **所需的高级存储帐户数**：保护 VM 所需的高级存储帐户总数。 IOPS 较高（高于 20,000）的源 VM 需要高级存储帐户。 高级存储帐户最高可支持 80,000 IOPS。
+   * **高级存储的总 IOPS**：根据所有高级存储帐户的 256K IOPS 单元大小计算的数字。 对于快速规划器，该数字根据所有源 VM 磁盘数以及每日数据更改率来计算。 对于详细规划器，该数字根据映射到高级 Azure VM（DS 和 GS 系列）的 VM 总数以及这些 VM 的数据更改率来计算。
+   * **所需的配置服务器数**：显示需要多少个配置服务器才能完成该部署。
+   * **所需的其他进程服务器数**：显示除了默认在配置服务器上运行的进程服务器外，是否还需要其他进程服务器。
+   * **源中的 100% 附加存储**：显示源位置是否需要其他存储。
 
       ![输出](./media/site-recovery-capacity-planner/output.png)
 
 ## <a name="run-the-detailed-planner"></a>运行详细规划器
 
-1. 下载并打开 [Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel) 工具。 需要运行宏。 在出现提示时，请选择启用编辑内容的选项。
+1. 下载并打开 [Site Recovery Capacity Planner](https://aka.ms/asr-capacity-planner-excel) 工具。 需要运行宏。 在出现提示时，请选择启用编辑内容的选项。
 
 2. 在“选择规划器类型”中，从列表框中选择“详细规划器”。
 

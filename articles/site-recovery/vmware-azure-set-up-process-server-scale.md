@@ -1,22 +1,21 @@
 ---
-title: 在 Azure 中设置进程服务器，以便使用 Azure Site Recovery 进行 VMware VM 和物理服务器故障回复 | Azure
-description: 本文介绍如何在 Azure 中设置进程服务器，以便将 Azure VM 故障回复到 VMware。
-services: site-recovery
+title: 在 Azure 中设置进程服务器，以便在使用 Azure Site Recovery 进行 VMware VM 和物理服务器灾难恢复期间进行故障回复 | Azure
+description: 本文介绍如何在 Azure 中设置进程服务器，以便在 VMware VM 和物理服务器灾难恢复期间从 Azure 故障回复到本地。
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 10/10/2018
-ms.date: 11/19/2018
+origin.date: 11/19/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6245d00772cca91b2a1b868e07a189f220d7623b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: cf6e4095a33245d5b2248fe7f5e1731e36cf04bf
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646601"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028413"
 ---
-# <a name="set-up-additional-process-servers-for-scalability"></a>设置额外的进程服务器以实现可伸缩性
+# <a name="scale-for-failback-with-additional-process-servers"></a>为故障回复使用更多进程服务器进行扩展
 
 默认情况下，当使用 [Site Recovery](site-recovery-overview.md) 将 VMware VM 或物理服务器复制到 Azure 时，进程服务器将安装在配置服务器计算机上，并且将用于协调 Site Recovery 和本地基础结构之间的数据传输。 若要增加容量并横向扩展复制部署，可以添加额外的独立进程服务器。 本文介绍如何执行此操作。
 
@@ -53,7 +52,7 @@ ms.locfileid: "52646601"
 3. 选择配置服务器以向下钻取到配置服务器详细信息。 然后单击“+ 进程服务器”。
 4. 在“添加进程服务器” >  “选择要部署进程服务器的位置”中，选择“在本地部署横向扩展进程服务器”。
 
-    ![“添加服务器”页](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
+    ![添加服务器页](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
 5. 单击“下载 Azure Site Recovery 统一安装程序”。 这会下载最新版本的安装文件。
 
     > [!WARNING]
@@ -80,7 +79,7 @@ UnifiedSetup.exe [/ServerMode <CS/PS>] [/InstallDrive <DriveLetter>] [/MySQLCred
 例如：
 
 ```
-MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /xC:\Temp\Extracted
+MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extracted
 cd C:\Temp\Extracted
 UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "PS" /InstallLocation "D:\" /EnvType "VMWare" /CSIP "10.150.24.119" /PassphraseFilePath "C:\Users\Administrator\Desktop\Passphrase.txt" /DataTransferSecurePort 443
 ```

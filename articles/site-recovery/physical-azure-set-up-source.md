@@ -1,21 +1,21 @@
 ---
-title: 设置源环境（物理服务器到 Azure）| Azure
-description: 本文介绍如何设置本地环境，以便开始将运行 Windows 或 Linux 的物理服务器复制到 Azure 中。
+title: 使用 Azure Site Recovery 设置配置服务器，以便将物理服务器灾难恢复到 Azure | Azure
+description: 本文介绍如何设置本地配置服务器，以便将本地物理服务器灾难恢复到 Azure。
 services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
-ms.topic: article
-origin.date: 07/21/2018
-ms.date: 09/17/2018
+ms.topic: conceptual
+origin.date: 10/28/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 91cc163399e8f61be55a59edfe7462a046dc1604
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 9a8957ef16c908683141bcbd2b0ffa4a9dfc373e
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656649"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028638"
 ---
-# <a name="set-up-the-source-environment-physical-server-to-azure"></a>设置源环境（物理服务器到 Azure）
+# <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>设置配置服务器，以便将物理服务器灾难恢复到 Azure
 
 本文介绍如何设置本地环境，以便开始将运行 Windows 或 Linux 的物理服务器复制到 Azure 中。
 
@@ -73,4 +73,4 @@ ms.locfileid: "52656649"
 
 下一步涉及在 Azure 中[设置目标环境](physical-azure-set-up-target.md)。
 
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties -->

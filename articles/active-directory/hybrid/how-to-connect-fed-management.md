@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/18/2017
-ms.date: 11/08/2018
+ms.date: 12/05/2018
 ms.component: hybrid
 ms.author: v-junlch
 ms.custom: seohack1
-ms.openlocfilehash: 52481a28fc73b946500e3fa9f4e745b82d5b3868
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: bab0b8bc8718132bfd33f9c48fd372d57f0430dd
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659622"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028369"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>使用 Azure AD Connect 管理和自定义 Active Directory 联合身份验证服务
 本文介绍如何使用 Azure Active Directory (Azure AD) Connect 管理和自定义 Active Directory 联合身份验证服务 (AD FS)。 另外，还介绍了可能需要针对完整的 AD FS 场配置执行的其他常见 AD FS 任务。
@@ -82,7 +82,7 @@ ms.locfileid: "52659622"
 
     ![警告：2012R2 上缺少知识库 (KB)](./media/how-to-connect-fed-management/kbwarning.png)
 
-    要纠正缺少知识库 (KB) 情况下的配置，请安装所需的 [KB2919355](http://go.microsoft.com/fwlink/?LinkID=396590)，并借助[修复 AAD 和 AD FS 信任](#repairthetrust)修复信任。
+    要纠正缺少知识库 (KB) 情况下的配置，请安装所需的 [KB2919355](https://go.microsoft.com/fwlink/?LinkID=396590)，并借助[修复 AAD 和 AD FS 信任](#repairthetrust)修复信任。
 
 > [!NOTE]
 > 有关 AlternateID 和手动配置步骤的详细信息，请阅读[配置备用登录 ID](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configuring-alternate-login-id)
@@ -195,7 +195,7 @@ ms.locfileid: "52659622"
     Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.PNG"}
 
 > [!NOTE]
-> *TargetName* 参数是必填参数。 随 AD FS 一起发布的默认主题名为“默认”。
+> *TargetName* 参数是必需参数。 随 AD FS 一起发布的默认主题名为“默认”。
 
 ## <a name="addsignindescription"></a>添加登录说明 
 若要将登录页说明添加到“登录”页，请使用以下 Windows PowerShell cmdlet 和语法。
@@ -226,7 +226,7 @@ AD FS 支持丰富的声明语言，让你用来创建自定义声明规则。 �
     NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"])
     => add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
 
-此规则定义名为 **idflag** 的临时标志，当没有为用户填充的 **ms-ds-consistencyguid** 时，该标志设置为 **useguid**。 这背后的逻辑在于 AD FS 不允许空的声明。 因此，在规则 1 中添加声明 http://contoso.com/ws/2016/02/identity/claims/objectguid 和 http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid 时，仅当填充了用户值时，才会获得 **msdsconsistencyguid** 声明。 如果未填充该值，在 AD FS 中它就会作为空值出现，并立即删除。 所有对象都具有 **objectGuid**，因此在执行规则 1 后声明将始终存在。
+此规则定义名为 **idflag** 的临时标志，当没有为用户填充的 **ms-ds-consistencyguid** 时，该标志设置为 **useguid**。 这背后的逻辑在于 AD FS 不允许空的声明。 因此，在规则 1 中添加声明 http://contoso.com/ws/2016/02/identity/claims/objectguid 和 http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid 时，仅当填充了用户值时，才会获得 **msdsconsistencyguid** 声明。 如果未填充该值，在 AD FS 中它就会作为空值出现，并立即删除。 所有对象都具有 **objectGuid**，因此在执行规则 1 后声明始终存在。
 
 **规则 3：如果存在，将 ms-ds-consistencyguid 作为不可变 ID 发出**
 
@@ -253,3 +253,4 @@ AD FS 支持丰富的声明语言，让你用来创建自定义声明规则。 �
 ## <a name="next-steps"></a>后续步骤
 了解有关[用户登录选项](plan-connect-user-signin.md)的详细信息。
 
+<!-- Update_Description: link update -->

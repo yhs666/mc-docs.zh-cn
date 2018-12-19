@@ -12,15 +12,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/22/2018
-ms.date: 10/15/2018
+ms.date: 12/17/2018
 ms.author: v-jay
 ms.reviewer: thoroet
-ms.openlocfilehash: 960f2abf24cce8c627d1a9e0f1ddae0f1cc38b46
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d82f19517ae735a1c2924af1bc813374ed6253cf
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658809"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396196"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>通过创建服务主体向应用程序授予对 Azure Stack 资源的访问权限
 
@@ -58,7 +58,7 @@ ms.locfileid: "52658809"
 如果你的 Azure Stack 使用 Azure AD 作为标识存储，则可以通过 Azure 门户使用与 Azure 中相同的步骤来创建服务主体。
 
 >[!NOTE]
-在开始创建服务主体之前，请检查你是否具有[所需的 Azure AD 权限](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions)。
+在开始创建服务主体之前，请检查你是否具有[所需的 Azure AD 权限](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)。
 
 ### <a name="create-service-principal"></a>创建服务主体
 
@@ -77,9 +77,9 @@ ms.locfileid: "52658809"
 2. 复制“应用程序 ID”并将其存储在应用程序代码中。 在引用**应用程序 ID** 时，[示例应用程序](#sample-applications)中的应用程序使用了**客户端 id**。
 
      ![应用程序的应用程序 ID](./media/azure-stack-create-service-principal/image12.png)
-3. 若要生成身份验证密钥，请选择“密钥” 。
+3. 若要生成身份验证密钥，请选择“密钥”。
 
-4. 提供密钥说明和密钥持续时间。 完成后，选择“保存” 。
+4. 提供密钥说明和密钥持续时间。 完成后，选择“保存”。
 
 >[!IMPORTANT]
 保存密钥后，将显示密钥**值**。 请记下此值，因为以后无法检索密钥。 将密钥值存储在应用程序可检索的位置。
@@ -103,11 +103,11 @@ ms.locfileid: "52658809"
 要访问订阅中的资源，必须将应用程序分配到角色。 决定哪个角色表示应用程序的相应权限。 若要了解有关可用角色的信息，请参阅 [RBAC：内置角色](../../role-based-access-control/built-in-roles.md)。
 
 >[!NOTE]
-可以在订阅、资源组或资源级别设置角色的作用域。 较低级别的作用域会继承权限。 例如，如果应用具有某个资源组的“读者”角色，则意味着该应用可以读取该资源组中的任何资源。
+可以在订阅、资源组或资源级别设置角色的作用域。 较低级别的作用域将继承权限。 例如，如果应用具有某个资源组的“读者”角色，则意味着该应用可以读取该资源组中的任何资源。
 
 请使用以下步骤作为指南来为服务主体分配角色。
 
-1. 在 Azure Stack 门户中，导航到要将应用程序分配到的作用域级别。 例如，若要在订阅范围内分配角色，选择“订阅” 。
+1. 在 Azure Stack 门户中，导航到要将应用程序分配到的作用域级别。 例如，若要在订阅范围内分配角色，选择“订阅”。
 
 2. 选择要将应用程序分配到的订阅。 在此示例中，该订阅是 Visual Studio Enterprise。
 
@@ -117,13 +117,13 @@ ms.locfileid: "52658809"
 
      ![选择“访问控制”](./media/azure-stack-create-service-principal/image17.png)
 
-4. 选择“设置” （应用程序对象和服务主体对象）。
+4. 选择 **添加** 。
 
 5. 选择要分配到应用程序的角色。
 
-6. 搜索用户的应用程序，并选择它。
+6. 搜索你的应用程序，并选择它。
 
-7. 选择“确定”  完成角色分配。 该应用程序将显示在分配到该作用域的某个角色的用户列表中。
+7. 选择“确定”完成角色分配。 该应用程序将显示在分配到该作用域的某个角色的用户列表中。
 
 现在，你已创建了服务主体并分配了角色，你的应用程序可以访问 Azure Stack 资源了。
 

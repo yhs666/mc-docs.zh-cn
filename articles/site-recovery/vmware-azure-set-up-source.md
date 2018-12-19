@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+origin.date: 10/29/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 34ad8aff9245cb3c491aef6b35fd4ffbbc358062
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 436d4ab4285b09010b8e6884a6462d5e3b6c51d0
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648913"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028686"
 ---
 <a name="set-up-the-source-environment"></a>
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>设置源环境以便从 VMware 复制到 Azure
@@ -24,18 +24,18 @@ ms.locfileid: "52648913"
 ## <a name="prerequisites"></a>先决条件
 
 本文假设已完成以下操作：
+
+- 借助 [Azure Site Recovery 部署规划器](site-recovery-deployment-planner.md)规划了你的部署。 这可以帮助你根据每日数据更改率分配足够的带宽以满足你需要的恢复点目标 (RPO)。
 - 在 [Azure 门户](http://portal.azure.cn)中[设置资源](tutorial-prepare-azure.md)。
 - [设置本地 VMware](vmware-azure-tutorial-prepare-on-premises.md)，包括用于自动发现的专用帐户。
 
 ## <a name="choose-your-protection-goals"></a>选择保护目标
 
-1. 在 Azure 门户中，浏览到“恢复服务保管库”边栏选项卡，并选择保管库。
-2. 在保管库的资源菜单中，转到“开始使用” > “Site Recovery” > “步骤 1: 准备基础结构” > “保护目标”。
-
-    ![选择目标](./media/vmware-azure-set-up-source/choose-goals.png)
-3. 在“保护目标”中选择“到 Azure”，并选择“是，使用 VMware vSphere 虚拟机监控程序”。 。
-
-    ![选择目标](./media/vmware-azure-set-up-source/choose-goals2.png)
+1. 在“恢复服务保管库”中，选择保管库名称。 我们在此方案中使用 **ContosoVMVault**。
+2. 在“入门”中，选择“Site Recovery”， 然后选择“准备基础结构”。
+3. 在“保护目标” > “计算机所在位置”中，选择“本地”。
+4. 在“要将计算机复制到何处?”中，选择“复制到 Azure”。
+5. 在“计算机是否已虚拟化”中，选择“是，已使用 VMware vSphere 虚拟机监控程序虚拟化”。 然后选择“确定”。
 
 ## <a name="set-up-the-configuration-server"></a>设置配置服务器
 
@@ -46,22 +46,49 @@ ms.locfileid: "52648913"
 3. [下载](vmware-azure-deploy-configuration-server.md#download-the-template)并[导入](vmware-azure-deploy-configuration-server.md#import-the-template-in-vmware) OVA 模板，设置运行配置服务器的本地 VMware VM。 通过模板提供的许可证是评估许可证，有效期为 180 天。 超过有效期之后，客户需要使用购买的许可证来激活 Windows。
 4. 打开 VMware VM，并将其[注册](vmware-azure-deploy-configuration-server.md#register-the-configuration-server-with-azure-site-recovery-services)到恢复服务保管库中。
 
-## <a name="add-the-vmware-account-for-automatic-discovery"></a>添加用于自动发现的 VMware 帐户
+## <a name="azure-site-recovery-folder-exclusions-from-antivirus-program"></a>从防病毒程序中排除 Azure Site Recovery 文件夹
 
-[!INCLUDE [site-recovery-add-vcenter-account](../../includes/site-recovery-add-vcenter-account.md)]
+### <a name="if-antivirus-software-is-active-on-source-machine"></a>如果防病毒软件在源计算机上处于活动状态
 
-## <a name="connect-to-the-vmware-server"></a>连接到 VMware 服务器
+如果源计算机具有处于活动状态的防病毒软件，则应排除安装文件夹。 因此，为了平稳进行复制，请排除文件夹 *C:\ProgramData\ASR\agent*。
 
-为使 Azure Site Recovery 能够发现本地环境中运行的虚拟机，需要将 VMware vCenter 服务器或 vSphere ESXi 主机连接到 Site Recovery。
+### <a name="if-antivirus-software-is-active-on-configuration-server"></a>如果防病毒软件在配置服务器上处于活动状态
 
-选择“+vCenter”开始连接 VMware vCenter 服务器或 VMware vSphere ESXi 主机。
+为了平稳进行复制并避免出现连接问题，请从防病毒软件中排除以下文件夹
 
-[!INCLUDE [site-recovery-add-vcenter](../../includes/site-recovery-add-vcenter.md)]
+- C:\Program Files\Azure Recovery Services Agent。
+- C:\Program Files\Azure Site Recovery Provider
+- C:\Program Files\Azure Site Recovery Configuration Manager 
+- C:\Program Files\Azure Site Recovery Error Collection Tool 
+ - C:\thirdparty
+ - C:\Temp
+ - C:\strawberry
+ - C:\ProgramData\MySQL
+ - C:\Program Files (x86)\MySQL
+ - C:\ProgramData\ASR
+ - C:\ProgramData\Azure Site Recovery
+ - C:\ProgramData\ASRLogs
+ - C:\ProgramData\ASRSetupLogs
+ - C:\ProgramData\LogUploadServiceLogs
+ - C:\inetpub
+ - ASR 服务器安装目录。 例如：E:\Program Files (x86)\Azure Site Recovery
+
+### <a name="if-antivirus-software-is-active-on-scale-out-process-servermaster-target"></a>如果防病毒软件在横向扩展流程服务器/主目标上处于活动状态
+
+请从防病毒软件中排除以下文件夹
+
+1. C:\Program Files\Azure Recovery Services Agent
+2. C:\ProgramData\ASR
+3. C:\ProgramData\ASRLogs
+4. C:\ProgramData\ASRSetupLogs
+5. C:\ProgramData\LogUploadServiceLogs
+6. C:\ProgramData\Azure Site Recovery
+7. ASR 负载均衡的进程服务器安装目录，示例：C:\Program Files (x86)\Azure Site Recovery
 
 ## <a name="common-issues"></a>常见问题
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
 
 ## <a name="next-steps"></a>后续步骤
-在 Azure 中[设置目标环境](./vmware-azure-set-up-target.md)。
+[设置目标环境](./vmware-azure-set-up-target.md)
 
 <!--Update_Description: update meta properties, wording update  -->

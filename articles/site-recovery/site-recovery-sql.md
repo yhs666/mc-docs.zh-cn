@@ -1,21 +1,22 @@
 ---
-title: 使用 Azure Site Recovery 复制采用 SQL Server 的应用程序 | Microsoft Docs
-description: 本文介绍了如何使用针对 SQL Server 的 Azure Site Recovery 灾难功能来复制 SQL Server。
+title: 使用 SQL Server 和 Azure Site Recovery 为 SQL Server 设置灾难恢复 | Azure
+description: 本文介绍如何使用 SQL Server 和 Azure Site Recovery 为 SQL Server 设置灾难恢复。
 services: site-recovery
 author: rockboyfor
+manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 07/22/2018
-ms.date: 09/24/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: f2db8487dc4a35d86dadf9168a2221b243249cd1
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 743a41e14ea58086be062ac9dec84f6d34f40ab3
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645356"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028536"
 ---
-# <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>使用 SQL Server 灾难恢复和 Azure Site Recovery 来保护 SQL Server
+# <a name="set-up-disaster-recovery-for-sql-server"></a>为 SQL Server 设置灾难恢复 
 
 本文介绍如何结合使用 SQL Server 业务连续性和灾难恢复 (BCDR) 技术与 [Azure Site Recovery](site-recovery-overview.md) 来保护应用程序的 SQL Server 后端。
 
@@ -26,8 +27,8 @@ ms.locfileid: "52645356"
 许多工作负荷使用 SQL Server 作为基础。可将 SQL Server 与 SharePoint、Dynamics 和 SAP 等应用集成来实现数据服务。  可通过多种方式部署 SQL Server：
 
 * **独立 SQL Server**：SQL Server 和所有数据库都托管在一台计算机（物理或虚拟）上。 虚拟化时，主机群集用于本地高可用性。 不会实现来宾级别的高可用性。
-* **SQL Server 故障转移群集实例 (Always On FCI)**：在一个 Windows 故障转移群集中配置两个或更多个运行带共享磁盘的 SQL Server 实例的节点。 如果某个节点关闭，群集可将 SQL Server 故障转移到其他实例。 此设置通常用于在主站点上实现高可用性。 此部署不能防止共享存储层中出现故障或中断。 共享磁盘可以使用 iSCSI、光纤通道或共享 vhdx 来实现。
-* **SQL Always On 可用性组**：使用同步复制与自动故障转移在可用性组中配置 SQL Server 数据库时，在不共享任何内容的群集中设置两个或更多个节点。
+* **SQL Server 故障转移群集实例 (AlwaysOn FCI)**：在一个 Windows 故障转移群集中配置两个或更多个运行带共享磁盘的 SQL Server 实例的节点。 如果某个节点关闭，群集可将 SQL Server 故障转移到其他实例。 此设置通常用于在主站点上实现高可用性。 此部署不能防止共享存储层中出现故障或中断。 共享磁盘可以使用 iSCSI、光纤通道或共享 vhdx 来实现。
+* **SQL Always On 可用性组**：使用同步复制与自动故障转移在可用性组中配置了 SQL Server 数据库时，将在不共享任何内容的群集中设置两个或更多节点。
 
  本文利用以下本机 SQL 灾难恢复技术将数据库恢复到远程站点：
 

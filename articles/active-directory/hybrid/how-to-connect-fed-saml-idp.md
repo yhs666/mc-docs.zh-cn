@@ -11,15 +11,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/13/2017
-ms.date: 11/08/2018
+ms.date: 12/05/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: ac73c4ceba129e52ee1bed16de5496f4db26ff10
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5693ee1bf12b382c787e162f6c19d11d18fa3231
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666637"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028717"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>使用 SAML 2.0 标识提供者 (IdP) 进行单一登录
 
@@ -168,7 +168,7 @@ SAML 2.0 标识提供者需遵循有关 Azure AD 信赖方的信息要求。 Azu
 ## <a name="install-windows-powershell-for-sign-on-with-saml-20-identity-provider"></a>安装 Windows PowerShell 以使用 SAML 2.0 标识提供者进行登录
 配置用于 Azure AD 登录的 SAML 2.0 标识提供者以后，下一步是下载并安装用于 Windows PowerShell 的 Azure Active Directory 模块。 安装以后，即可使用这些 cmdlet 将 Azure AD 域配置为联合域。
 
-用于 Windows PowerShell 的 Azure Active Directory 模块在下载后可用于管理 Azure AD 中的组织数据。 该模块可将一组 cmdlet 安装到 Windows PowerShell；运行这些 cmdlet 即可设置对 Azure AD 以及所有已订阅云服务的单一登录访问。 有关如何下载并安装 cmdlet 的说明，请参阅：[http://technet.microsoft.com/library/jj151815.aspx](http://technet.microsoft.com/library/jj151815.aspx)
+用于 Windows PowerShell 的 Azure Active Directory 模块在下载后可用于管理 Azure AD 中的组织数据。 该模块可将一组 cmdlet 安装到 Windows PowerShell；运行这些 cmdlet 即可设置对 Azure AD 以及所有已订阅云服务的单一登录访问。 有关如何下载并安装 cmdlet 的说明，请参阅：[http://technet.microsoft.com/library/jj151815.aspx](https://technet.microsoft.com/library/jj151815.aspx)
 
 ## <a name="set-up-a-trust-between-your-saml-identity-provider-and-azure-ad"></a>在 SAML 标识提供者与 Azure AD 之间建立信任
 在 Azure AD 域上配置联合身份验证之前，必须已配置自定义域。 不能联合 Microsoft 提供的默认域。 Microsoft 提供的默认域以“partner.onmschina.cn”结尾。
@@ -212,12 +212,12 @@ SAML 2.0 标识提供者需遵循有关 Azure AD 信赖方的信息要求。 Azu
 
     `<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"> <KeyDescriptor use="signing"> <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#"> <X509Data> <X509Certificate>MIIC5jCCAc6gAwIBAgIQLnaxUPzay6ZJsC8HVv/QfTANBgkqhkiG9w0BAQsFADAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwHhcNMTMxMTA0MTgxMzMyWhcNMTQxMTA0MTgxMzMyWjAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwMdVLTr5YTSRp+ccbSpuuFeXMfABD9mVCi2wtkRwC30TIyPdORz642MkurdxdPCWjwgJ0HW6TvXwcO9afH3OC5V//wEGDoNcI8PV4enCzTYFe/h//w51uqyv48Fbb3lEXs+aVl8155OAj2sO9IX64OJWKey82GQWK3g7LfhWWpp17j5bKpSd9DBH5pvrV+Q1ESU3mx71TEOvikHGCZYitEPywNeVMLRKrevdWI3FAhFjcCSO6nWDiMqCqiTDYOURXIcHVYTSof1YotkJ4tG6mP5Kpjzd4VQvnR7Pjb47nhIYG6iZ3mR1F85Ns9+hBWukQWNN2hcD/uGdPXhpdMVpBAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAK7h7jF7wPzhZ1dPl4e+XMAr8I7TNbhgEU3+oxKyW/IioQbvZVw1mYVCbGq9Rsw4KE06eSMybqHln3w5EeBbLS0MEkApqHY+p68iRpguqa+W7UHKXXQVgPMCpqxMFKonX6VlSQOR64FgpBme2uG+LJ8reTgypEKspQIN0WvtPWmiq4zAwBp08hAacgv868c0MM4WbOYU0rzMIR6Q+ceGVRImlCwZ5b7XKp4mJZ9hlaRjeuyVrDuzBkzROSurX1OXoci08yJvhbtiBJLf3uPOJHrhjKRwIt2TnzS9ElgFZlJiDIA26Athe73n43CT0af2IG6yC7e6sK4L3NEXJrwwUZk=</X509Certificate> </X509Data> </KeyInfo> </KeyDescriptor>` 
 
-有关“Set-MsolDomainAuthentication”的详细信息，请参阅：[http://technet.microsoft.com/library/dn194112.aspx](http://technet.microsoft.com/library/dn194112.aspx)。
+有关“Set-MsolDomainAuthentication”的详细信息，请参阅：[http://technet.microsoft.com/library/dn194112.aspx](https://technet.microsoft.com/library/dn194112.aspx)。
 
 >[!NOTE]
->仅当为标识提供者设置了 ECP 扩展时，才必须使用“$ecpUrl ="https://WS2012R2-0.contoso.com/PAOS"” 来运行。 除 Outlook Web Application (OWA) 之外的 Exchange Online 客户端依赖于基于 POST 的活动终结点。 如果 SAML 2.0 STS 实现的活动终结点类似于 Shibboleth 对活动终结点的 ECP 实现，则这些富客户端可能会与 Exchange Online 服务交互。
+>仅当为标识提供者设置了 ECP 扩展时，才必须使用“$ecpUrl = "https://WS2012R2-0.contoso.com/PAOS"”来运行。 除 Outlook Web Application (OWA) 之外的 Exchange Online 客户端依赖于基于 POST 的活动终结点。 如果 SAML 2.0 STS 实现的活动终结点类似于 Shibboleth 对活动终结点的 ECP 实现，则这些富客户端可能会与 Exchange Online 服务交互。
 
-配置联合后，可切换回“非联合”（或“托管”），但是此更改最长需要两个小时才能完成，并且需要为每个用户分配新的随机密码以用于基于云的登录。 在某些情况下，可能需切换回“托管”模式才能在设置中重置错误。 有关域转换的详细信息，请参阅：[http://msdn.microsoft.com/library/windowsazure/dn194122.aspx](http://msdn.microsoft.com/library/windowsazure/dn194122.aspx)。
+配置联合后，可切换回“非联合”（或“托管”），但是此更改最长需要两个小时才能完成，并且需要为每个用户分配新的随机密码以用于基于云的登录。 在某些情况下，可能需切换回“托管”模式才能在设置中重置错误。 有关域转换的详细信息，请参阅：[http://msdn.microsoft.com/library/windowsazure/dn194122.aspx](https://msdn.microsoft.com/library/windowsazure/dn194122.aspx)。
 
 ## <a name="provision-user-principals-to-azure-ad--office-365"></a>预配 Azure AD/Office 365 的用户主体
 在对 Office 365 进行用户身份验证之前，必须向 Azure AD 预配与 SAML 2.0 声明中的断言相对应的用户主体。 如果 Azure AD 事先无法识别这些用户主体，则它们无法用于联合登录。 可以使用 Azure AD Connect 或 Windows PowerShell 来预配用户主体。
@@ -242,7 +242,7 @@ SAML 2.0 标识提供者需遵循有关 Azure AD 信赖方的信息要求。 Azu
         -LicenseAssignment "samlp2test:ENTERPRISEPACK" 
         -UsageLocation "China North" ` 
 
-有关“New-MsolUser”签出的详细信息，请参阅：[http://technet.microsoft.com/library/dn194096.aspx](http://technet.microsoft.com/library/dn194096.aspx)
+有关“New-MsolUser”签出的详细信息，请参阅：[http://technet.microsoft.com/library/dn194096.aspx](https://technet.microsoft.com/library/dn194096.aspx)
 
 >[!NOTE]
 >“UserPrinciplName”值必须与将在 SAML 2.0 声明中为“IDPEmail”发送的值匹配，“ImmutableID”值必须与在“NameID”断言语句中发送的值匹配。
@@ -284,7 +284,7 @@ Microsoft 提供了一种工具，用于测试基于 SAML 2.0 的标识提供者
 7. 此窗口显示失败的测试结果。 单击“查看详细结果”会显示所执行的每次测试的结果的相关信息。 也可将结果保存到磁盘，以便进行共享。
  
 >[!NOTE]
->Connectivity Analyzer 也使用基于 WS* 的协议和 ECP/PAOS 协议测试活动联合身份验证。 如果不使用这些，则可忽略以下错误：正在使用标识提供者的活动联合身份验证终结点测试活动登录流。
+>Connectivity Analyzer 也使用基于 WS* 的协议和 ECP/PAOS 协议测试活动联合身份验证。 如果你未使用这些项，则可以忽略以下错误：使用你的标识提供者的活动联合身份验证终结点测试活动登录流。
 
 ### <a name="manually-verify-that-single-sign-on-has-been-set-up-correctly"></a>手动验证单一登录是否已正确设置
 手动验证提供更多的步骤，可以利用这些步骤来确保 SAML 2.0 标识提供者在多种情形下正常运行。
@@ -292,7 +292,7 @@ Microsoft 提供了一种工具，用于测试基于 SAML 2.0 的标识提供者
 
 
 1. 在已加入域的计算机上，使用企业凭据所用的相同登录名称登录到云服务。
-2. 在密码框内单击。 如果设置了单一登录，密码框将会灰显，并且你将看到以下消息：“你现在需要在&lt;你的公司&gt;登录。”
+2. 在密码框内单击。 如果设置了单一登录，则密码框会灰显，同时会显示以下消息：“你现在需在&lt;你的公司&gt;登录。”
 3. 单击&lt;你的公司&gt;链接中的登录。 如果能够登录，则已设置好单一登录。
 
 ## <a name="next-steps"></a>后续步骤
@@ -302,3 +302,4 @@ Microsoft 提供了一种工具，用于测试基于 SAML 2.0 的标识提供者
 - [Azure AD 联合身份验证兼容性列表](how-to-connect-fed-compatibility.md)
 - [Azure AD Connect 自定义安装](how-to-connect-install-custom.md)
 
+<!-- Update_Description: wording update -->

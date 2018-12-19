@@ -13,28 +13,59 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 09/18/2018
-ms.date: 11/12/2018
+origin.date: 11/02/2018
+ms.date: 12/05/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 8bf3eced55b250624a34cd0aa0fc51b5119961d3
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 166dae723f7538844255c4b26ee6ae561455e03c
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653667"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028268"
 ---
-# <a name="hybrid-identity-and-microsofts-identity-solutions"></a>混合标识和 Microsoft 的标识解决方案
-如今，企业和公司越来越成为本地应用程序和云应用程序的混合体。  如果应用程序和用户需要访问位于本地和云中的那些应用程序，这将成为一个具有挑战性的场景。
+# <a name="hybrid-identity-and-microsoft-identity-solutions"></a>混合标识和 Microsoft 标识解决方案
+使用 [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) 混合标识解决方案可将本地目录与 Azure AD 同步，同时仍可在本地管理用户。 如果计划将本地 Windows Server Active Directory 与 Azure AD 进行同步，首先需要决定是使用托管标识还是使用联合标识。 
 
-Microsoft 的标识解决方案跨越本地和基于云的功能，创建单一用户标识对所有资源进行身份验证和授权，而不考虑其位置。 我们称此为混合标识。
+- **托管标识** - 从本地 Active Directory 同步的用户帐户和组以及用户身份验证由 Azure 进行管理。   
+- **联合标识**可以对用户进行更多的控制，其方法是将用户身份验证与 Azure 隔离开，将身份验证委托给受信任的本地标识提供者。 
+
+有多个选项可用于配置混合标识。 当考虑哪个标识模型最适合组织需求时，还需考虑时间、现有基础结构、复杂性和成本。 这些因素对每个组织都不同，并可能随时间变化。 但是，如果需求确实发生更改，则还可灵活切换到不同的标识模型。
+
+## <a name="managed-identity"></a>托管标识 
+
+托管标识是将本地目录对象（用户和组）与 Azure AD 同步的最简单方法。 
+
+![同步混合标识](./media/whatis-hybrid-identity/managed.png)
+
+尽管托管标识是最简单且最快速的方法，你的用户将仍需针对基于云的资源维护一个单独的密码。 若要避免此问题，还可以（可选）将[用户密码哈希同步](how-to-connect-password-hash-synchronization.md)到 Azure AD 目录中。 同步密码哈希使用户能够使用与本地使用的相同用户名和密码登录基于云的组织资源。 Azure AD Connect 会定期检查本地目录是否发生更改，并保持 Azure AD 目录同步。 如果本地 Active Directory 的用户属性或密码已更改，则会在 Azure AD 中自动更新此信息。 
+
+由于大多数组织只想让用户登录 Office 365 和其他基于 Azure AD 的资源，因此建议使用默认的密码哈希同步选项。 
+
+> [!TIP]
+> 用户密码以表示实际用户密码的哈希值形式存储在本地 Windows Server Active Directory 中。 哈希值是单向数学函数（哈希算法）的计算结果。 没有任何方法可将单向函数的结果还原为纯文本版本的密码。 无法使用密码哈希来登录本地网络。 如果选择同步密码，Azure AD Connect 会从本地 Active Directory 提取密码哈希，并在同步到 Azure AD 之前将额外安全处理应用于密码哈希。 
+>
+
+## <a name="federated-identity-ad-fs"></a>联合标识 (AD FS)
+
+使用 AD FS 联合验证用户的登录时，可将身份验证委托给验证用户凭据的本地服务器。 在此模型中，本地 Active Directory 凭据永远不会传递到 Azure AD 中。
+
+![联合标识](./media/whatis-hybrid-identity/federated-identity.png)
+
+也称为“联合身份验证”，这种登录方法可确保所有用户身份验证均在本地得以控制，并且允许管理员实施更严格的访问控制。 使用 AD FS 的联合身份验证是最复杂的选项，需要在本地环境中部署其他服务器。 联合身份验证还承诺为 Active Directory 和 AD FS 基础结构提供全天候支持。 如果本地 Internet 访问、域控制器或 AD FS 服务器不可用，用户无法登录云服务，此时就需要这种高级支持。
+
+> [!TIP]
+> 如果决定使用 Active Directory 联合身份验证服务 (AD FS) 进行联合身份验证，则可以选择性地设置密码哈希同步，作为在 AD FS 基础结构发生故障时的备用身份验证方式。
+>
 
 ## <a name="what-is-azure-ad-connect"></a>什么是 Azure AD Connect？
 
-Azure AD Connect 专用于满足和完成混合标识目标的 Microsoft 工具。  这样便可以为集成到 Azure AD 的 Office 365、Azure 应用程序的用户提供一个通用标识。  它提供以下功能：
+Azure AD Connect 专用于满足和完成混合标识目标的 Microsoft 工具。  这样便可以为集成到 Azure AD 的 Office 365、Azure 和 SaaS 应用程序的用户提供一个通用标识。  它提供以下功能：
     
 - [同步](how-to-connect-sync-whatis.md) - 此组件负责创建用户、组和其他对象。 它还负责确保本地用户和组的标识信息与云匹配。  它负责将密码哈希与 Azure AD 进行同步。
--   [AD FS 和联合身份验证集成](how-to-connect-fed-whatis.md) - 联合身份验证是 Azure AD Connect 的可选部件，可用于使用本地 AD FS 基础结构配置混合环境。 它还提供了 AD FS 管理功能，例如证书续订和其他 AD FS 服务器部署。
+- [密码哈希同步](how-to-connect-password-hash-synchronization.md) - 一个可选组件，可以将用户密码哈希与 Azure AD 同步，这样用户就可以在本地和云中使用相同的密码。
+- [AD FS 和联合身份验证集成](how-to-connect-fed-whatis.md) - 联合身份验证是 Azure AD Connect 的可选部件，可用于使用本地 AD FS 基础结构配置混合环境。 它还提供了 AD FS 管理功能，例如证书续订和其他 AD FS 服务器部署。
+- [PingFederate 和联合身份验证集成](how-to-connect-install-custom.md#configuring-federation-with-pingfederate) - 另一联合身份验证选项，允许你使用 PingFederate 作为标识提供者。
 
 ![什么是 Azure AD Connect](./media/whatis-hybrid-identity/arch.png)
  
@@ -55,7 +86,7 @@ Azure AD Connect 专用于满足和完成混合标识目标的 Microsoft 工具�
 - [版本历史记录](reference-connect-version-history.md)
 - [Azure AD Connect 常见问题解答](reference-connect-faq.md)
 
-
+<!-- Update_Description: wording update -->
 
 
 

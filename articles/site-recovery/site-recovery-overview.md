@@ -1,20 +1,20 @@
 ---
 title: 关于 Azure Site Recovery | Azure
-description: 简要介绍 Azure Site Recovery 服务并概述讲解部署方案。
+description: 简要介绍 Azure Site Recovery 服务并概述灾难恢复和迁移部署方案。
 services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: overview
-origin.date: 10/10/2018
-ms.date: 11/19/2018
+origin.date: 10/28/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 1f63a5776650b83a9a3a801e673ca5083933ceda
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1c6c48ed7641487c92c2d68bfd8d1617c6eb17ab
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645892"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028516"
 ---
 # <a name="about-site-recovery"></a>关于 Site Recovery
 
@@ -25,12 +25,12 @@ ms.locfileid: "52645892"
 Azure 恢复服务有助于制定 BCDR 策略：
 
 - **Site Recovery 服务**：Site Recovery 有助于保持业务应用和工作负荷在停机期间的正常运行，从而确保业务连续性。 Site Recovery 将在物理机和虚拟机 (VM) 上运行的工作负荷从主站点复制到辅助位置。 主站点发生停机时，可以故障转移到辅助位置，从该位置访问应用。 在主位置再次运行后，可以故障回复到该位置。  
-- **备份服务**：[Azure 备份](/backup/)服务还会将数据备份到 Azure，从而确保其安全并使之可以恢复。
+- **备份服务**：[Azure 备份](/backup/)服务会将数据备份到 Azure，从而确保其安全并使之可以恢复。
 
 Site Recovery 可以为以下计算机管理复制：
 
 - 在 Azure 区域之间进行复制的 Azure VM。
-- 将数据复制到 Azure 或辅助站点的本地 VM 和物理服务器。
+- 本地 VM、 Azure Stack VM 和物理服务器。
 
 ## <a name="what-does-site-recovery-provide"></a>Site Recovery 的功能是什么？
 
@@ -54,14 +54,13 @@ Site Recovery 可以为以下计算机管理复制：
 
 **支持** | **详细信息**
 --- | ---
-**复制方案** | 将 Azure VM 从一个 Azure 区域复制到另一个 Azure 区域。<br/><br/>  将本地 VMware VM、Hyper-V VM、物理服务器（Windows 和 Linux）复制到 Azure。<br/><br/> 将本地 VMware VM、System Center VMM 托管的 Hyper-V VM 以及物理服务器复制到辅助站点。
+**复制方案** | 将 Azure VM 从一个 Azure 区域复制到另一个 Azure 区域。<br/><br/>  将本地 VMware VM、Hyper-V VM、物理服务器（Windows 和 Linux）、Azure Stack VM 复制到 Azure。<br/><br/> 将本地 VMware VM、System Center VMM 托管的 Hyper-V VM 以及物理服务器复制到辅助站点。
 **区域** | 查看 Site Recovery [支持的区域](https://www.azure.cn/support/service-dashboard/)。 |
-**复制的计算机** | 查看 [Azure VM](azure-to-azure-support-matrix.md#support-for-replicated-machine-os-versions) 复制、[本地 VMware VM 和物理服务器](vmware-physical-azure-support-matrix.md#replicated-machines)以及[本地 Hyper-V VM](hyper-v-azure-support-matrix.md#replicated-vms) 的复制要求。
-**VMware 服务器/主机** | 要复制的 VMware VM 可以位于[支持的主机和虚拟化服务器](vmware-physical-azure-support-matrix.md)上。
+**复制的计算机** | 查看 [Azure VM](azure-to-azure-support-matrix.md#replicated-machine-operating-systems) 复制、[本地 VMware VM 和物理服务器](vmware-physical-azure-support-matrix.md#replicated-machines)以及[本地 Hyper-V VM](hyper-v-azure-support-matrix.md#replicated-vms) 的复制要求。
 **工作负荷** | 可以在支持复制的计算机上复制运行的任何工作负荷。 另外，Site Recovery 团队已针对[多个应用](site-recovery-workload.md#workload-summary)执行了特定于应用的测试。
 
 ## <a name="next-steps"></a>后续步骤
 * 阅读有关[工作负荷支持](site-recovery-workload.md)的更多内容。
 * [区域之间的 Azure VM 复制](azure-to-azure-quickstart.md)入门。
 
-<!--Update_Description: update meta properties  -->
+<!--Update_Description: update meta properties, wording update  -->

@@ -1,21 +1,21 @@
 ---
-title: 通过 Azure Site Recovery 管理配置服务器，以便进行 VMware 灾难恢复 | Azure
-description: 本文介绍了如何通过 Azure Site Recovery 管理现有配置服务器，以便执行 VMware 到 Azure 的 灾难恢复。
+title: 使用 Azure Site Recovery 管理配置服务器，以便进行 VMware 和物理服务器灾难恢复 | Azure
+description: 本文介绍如何使用 Azure Site Recovery 管理现有配置服务器，以便将 VMware VM 和物理服务器灾难恢复到 Azure。
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-ms.topic: article
-origin.date: 10/10/2018
-ms.date: 11/19/2018
+ms.topic: conceptual
+origin.date: 11/11/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: aa6fa418c6d5035fc8e53547a81ac91f2e1acccd
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 776fd835cfa9c5941969064d19c057a25bfa836e
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663690"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028833"
 ---
-# <a name="manage-the-configuration-server-for-vmware-vms"></a>为 VMware VM 管理配置服务器
+# <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>为 VMware VM 灾难恢复管理配置服务器
 
 使用 [Azure Site Recovery](site-recovery-overview.md) 进行 VMware VM 和物理服务器到 Azure 的灾难恢复时，需要设置本地配置服务器。 配置服务器协调本地 VMware 与 Azure 之间的通信并管理数据复制。 本文概述了在部署配置服务器后对其进行管理时要执行的常见任务。
 
@@ -123,7 +123,7 @@ ms.locfileid: "52663690"
 2. 打开管理员 PowerShell 命令窗口并运行以下命令：
 
     ```
-    reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
+    reg delete "HKLM\Software\Microsoft\Azure Site Recovery\Registration"
     net stop dra
     ```
 3. 使用桌面上的快捷方式启动配置服务器设备浏览器门户。
@@ -137,6 +137,9 @@ ms.locfileid: "52663690"
 - 如果运行的是 9.6 版或更早版本并且想要升级到 9.11 版，则必须先升级到 9.7 版， 然后再升级到 9.11 版。
 
 [wiki 更新页](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)中提供了用于升级到配置服务器的所有版本的更新汇总的链接。
+
+> [!IMPORTANT]
+> 对于每一新版“N”的已发布 Azure Site Recovery 组件，“N-4”以下的所有版本都被视为不受支持。 始终建议升级到可用的最新版本。
 
 按如下所示升级服务器：
 
@@ -170,7 +173,7 @@ ms.locfileid: "52663690"
 还可以选择使用 PowerShell 删除配置服务器。
 
 1. [安装](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell 模块。
-2. 使用以下命令登录到 Azure 帐户：
+2. 使用以下命令登录到你的 Azure 帐户：
 
     `Connect-AzureRmAccount`
 3. 选择保管库订阅。
@@ -217,9 +220,16 @@ ms.locfileid: "52663690"
 2. 到期日期显示在“配置服务器运行状况”下。
 3. 选择“续订证书”。
 
-## <a name="update-windows-licence"></a>更新 Windows 许可证
+## <a name="refresh-configuration-server"></a>刷新配置服务器
 
-通过 OVF 模板提供的许可证是有效期为 180 天的评估许可证。 为了不间断的使用，必须使用已采购的许可证来激活 Windows。
+1. 在 Azure 门户中，导航至“恢复服务保管库” > “管理” > “站点恢复基础结构” > “对于 VMware 和物理机” > “配置服务器”
+2. 单击要刷新的配置服务器。
+3. 在包含所选配置服务器详细信息的边栏选项卡上，单击“更多” > “刷新服务器”。
+4. 在“恢复服务保管库” > “监控” > “站点恢复作业”下监控作业进度。
+
+## <a name="update-windows-license"></a>更新 Windows 许可证
+
+通过 OVF 模板提供的许可证是有效期为 180 天的评估许可证。 为确保不间断使用，必须使用采购的许可证来激活 Windows。
 
 ## <a name="failback-requirements"></a>故障回复要求
 

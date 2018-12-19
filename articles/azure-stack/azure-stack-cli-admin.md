@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/28/2018
-ms.date: 11/12/2018
+ms.date: 12/06/2018
 ms.author: v-jay
-ms.openlocfilehash: e39e50b8d6dbbe7d2271ad3990358d95945ca989
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 76bfe797149aecca57146353fde651bec118c15e
+ms.sourcegitcommit: 6e07735318eb5f6ea319b618863259088eab3722
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654566"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52981657"
 ---
 # <a name="enable-azure-cli-for-azure-stack-users"></a>为 Azure Stack 用户启用 Azure CLI
 
@@ -69,7 +69,7 @@ Azure Stack 操作员应设置可公开访问的终结点来托管虚拟机别�
 
 ## <a name="next-steps"></a>后续步骤
 
-- [使用 Azure CLI 部署模板](../user/azure-stack-deploy-template-command-line.md)
+- [使用 Azure CLI 部署模板](./user/azure-stack-deploy-template-command-line.md)
 - [使用 PowerShell 连接](azure-stack-connect-powershell.md)
 - [管理用户权限](azure-stack-manage-permissions.md)
 <!-- Update_Description: wording update -->

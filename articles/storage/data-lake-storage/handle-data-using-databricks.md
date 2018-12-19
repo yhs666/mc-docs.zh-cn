@@ -8,17 +8,18 @@ ms.author: v-jay
 ms.reviewer: jasonwhowell
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/27/2018
-ms.openlocfilehash: afe74702778b4b9ef82b13c0b704b7eb2c48c0d6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 06/27/2018
+ms.date: 12/10/2018
+ms.openlocfilehash: fe6b1aaad7b2bafb075398ed0b0b864565259ffc
+ms.sourcegitcommit: 6e07735318eb5f6ea319b618863259088eab3722
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643745"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52981667"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>教程：使用 Azure Databricks 提取、转换和加载数据
 
-在本教程中，你将使用 Azure Databricks 执行 ETL（提取、转换并加载数据）操作来将数据从 Azure Data Lake Storage Gen2 预览版移动到 Azure SQL 数据仓库中。
+在本教程中，你将使用 Azure Databricks 执行 ETL（提取、转换和加载数据）操作来将数据从启用了 Azure Data Lake Storage Gen2 的 Azure 存储帐户移动到 Azure SQL 数据仓库中。
 
 下图演示了应用程序流：
 
@@ -34,7 +35,7 @@ ms.locfileid: "52643745"
 > * 在 Azure Databricks 中创建 Notebook
 > * 从 Data Lake Storage Gen2 提取数据
 > * 在 Azure Databricks 中转换数据
-> * 将数据载入 Azure SQL 数据仓库
+> * 将数据加载到 Azure SQL 数据仓库
 
 如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
@@ -42,7 +43,7 @@ ms.locfileid: "52643745"
 
 完成本教程：
 
-* 创建 Azure SQL 数据仓库、创建服务器级防火墙规则并以服务器管理员身份连接到服务器。按[快速入门：创建 Azure SQL 数据仓库](../../sql-data-warehouse/create-data-warehouse-portal.md)中的说明操作
+* 创建 Azure SQL 数据仓库、创建服务器级防火墙规则并以服务器管理员身份连接到服务器。按照以下文章中的说明操作：[快速入门：创建 Azure SQL 数据仓库](../../sql-data-warehouse/create-data-warehouse-portal.md)
 * 为 Azure SQL 数据仓库创建数据库主密钥。 按[创建数据库主密钥](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key)中的说明操作。
 * [创建 Azure Data Lake Storage Gen2 帐户](quickstart-create-account.md)
 
@@ -52,7 +53,7 @@ ms.locfileid: "52643745"
 
 ## <a name="create-an-azure-databricks-workspace"></a>创建 Azure Databricks 工作区
 
-在本部分，使用 Azure 门户创建 Azure Databricks 工作区。 
+在本部分，使用 Azure 门户创建 Azure Databricks 工作区。
 
 1. 在 Azure 门户中，选择“创建资源” > “分析” > “Azure Databricks”。
 
@@ -94,7 +95,7 @@ ms.locfileid: "52643745"
 
     * 输入群集的名称。
     * 在本文中，请创建采用 **4.2** 版运行时的群集。
-    * 请务必选中**在不活动超过 ____ 分钟后终止**复选框。 提供一个持续时间（以分钟为单位），如果群集在这段时间内一直未被使用，则会将其终止。
+    * 请务必选中**在不活动超过 \_\_ 分钟后终止**复选框。 提供一个持续时间（以分钟为单位），如果群集在这段时间内一直未被使用，则会将其终止。
 
     选择“创建群集”。 群集运行后，可将笔记本附加到该群集，并运行 Spark 作业。
 
@@ -138,7 +139,7 @@ ms.locfileid: "52643745"
 
 2. 接下来，将示例数据上传到存储帐户中。 用来将数据上传到存储帐户的方法根据是否启用了分层命名空间而有所不同。
 
-    如果在为 Gen2 帐户创建的 Azure 存储帐户中启用了分层命名空间，则可以使用 Azure 数据工厂、distp 或 AzCopy（版本 10）来处理上传。 AzCopy 版本 10 仅可供预览版客户使用。 若要使用 AzCopy，请将以下代码粘贴到命令窗口中：
+    如果在 Azure 存储帐户中启用了分层命名空间，则可以使用 Azure 数据工厂、distp 或 AzCopy（版本 10）来处理上传。 AzCopy 版本 10 目前仅可通过预览版进行预览。 若要使用 AzCopy，请将以下代码粘贴到命令窗口中：
 
     ```bash
     set ACCOUNT_NAME=<ACCOUNT_NAME>
@@ -333,23 +334,5 @@ ms.locfileid: "52643745"
 
 ![停止 Databricks 群集](./media/handle-data-using-databricks/terminate-databricks-cluster.png "停止 Databricks 群集")
 
-如果不手动终止群集，但在创建群集时选中了“在不活动 __ 分钟后终止”复选框，则该群集会自动停止。 在这种情况下，群集在处于非活动状态一定时间后会自动停止。
+如果不手动终止群集，但在创建群集时选中了“在不活动 \_\_ 分钟后终止”复选框，则该群集会自动停止。 在这种情况下，群集在处于非活动状态一定时间后会自动停止。
 
-## <a name="next-steps"></a>后续步骤
-
-本教程介绍了如何：
-
-> [!div class="checklist"]
-> * 创建 Azure Databricks 工作区
-> * 在 Azure Databricks 中创建 Spark 群集
-> * 创建支持 Azure Data Lake Storage Gen2 的帐户
-> * 将数据上传到 Azure Data Lake Storage Gen2
-> * 在 Azure Databricks 中创建 Notebook
-> * 从 Data Lake Storage Gen2 提取数据
-> * 在 Azure Databricks 中转换数据
-> * 将数据加载到 Azure SQL 数据仓库
-
-请继续学习下一教程，了解如何使用 Azure 事件中心将实时数据流式传输到 Azure Databricks 中。
-
-> [!div class="nextstepaction"]
->[使用事件中心将数据流式传输到 Azure Databricks](../../azure-databricks/databricks-stream-from-eventhubs.md)

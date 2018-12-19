@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/23/2017
-ms.date: 11/12/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 9c477e838ef84c0d892ed2b66763e467718e3d4f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 505c20264f9698079acdb089d1c93b0a486f89a0
+ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662399"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52901123"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>快速入门：将 Java Spring Boot 应用程序部署到 Service Fabric
 
@@ -175,14 +175,14 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 
 若要将应用程序部署到 Azure 中的群集，可创建自己的群集。
 
-<!-- Not Avaialble on Party cluster -->
+<!-- Not Avaialble on Party cluster --> 登录并加入一个 Linux 群集。 通过单击 **PFX** 链接，将 PFX 证书下载到计算机。
 
-登录并加入 Linux 群集。 通过单击 **PFX** 链接，将 PFX 证书下载到计算机。
 > [!Note]
-> Spring Boot 服务配置为侦听端口 8080 上的传入流量。 请确保此端口在群集中处于打开状态。 如果使用的是合作群集，此端口已处于打开状态。
+> 可以按照[在 Azure 上创建 Service Fabric 群集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)中的这些步骤在订阅中创建群集。
+> Spring Boot 服务配置为侦听端口 8080 上的传入流量。 请确保此端口在群集中处于打开状态。
 >
 
-Service Fabric 提供多种可以用来管理群集及其应用程序的工具：
+<!--Not Available on If you are using the Party Cluster, this port is open.--> Service Fabric 提供了多种可以用来管理群集及其应用程序的工具：
 
 * Service Fabric Explorer，一种基于浏览器的工具。
 * Service Fabric 命令行界面 (CLI)，在 Azure CLI 基础上运行。
@@ -200,8 +200,8 @@ openssl pkcs12 -in party-cluster-1486790479-client-cert.pfx -out party-cluster-1
 
 请使用最熟悉的方法将证书导入到系统中。 例如：
 
-* 在 Windows 上：双击 PFX 文件，按提示在个人存储 `Certificates - Current User\Personal\Certificates` 中安装证书。 也可以使用**自述文件**说明中的 PowerShell 命令。
-* 在 Mac 上：双击 PFX 文件，按提示在 Keychain 中安装证书。
+* 在 Windows 上：双击 PFX 文件，并按照提示在个人存储 `Certificates - Current User\Personal\Certificates` 中安装证书。 也可以使用**自述文件**说明中的 PowerShell 命令。
+* 在 Mac 上：双击 PFX 文件，并按照提示在 Keychain 中安装证书。
 * 在 Ubuntu 上：Mozilla Firefox 是 Ubuntu 16.04 中的默认浏览器。 若要将证书导入 Firefox，请单击浏览器右上角的菜单按钮，然后单击“选项”。 在“首选项”页上，使用搜索框搜索“证书”。 单击“查看证书”，选择“你的证书”选项卡，单击“导入”，然后按提示导入证书。
 
    ![在 Firefox 上安装证书](./media/service-fabric-quickstart-java-spring-boot/install-cert-firefox.png)

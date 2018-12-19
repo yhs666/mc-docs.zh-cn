@@ -7,15 +7,15 @@ author: WenJason
 ms.topic: article
 ms.author: v-jay
 origin.date: 06/27/2018
-ms.date: 08/27/2018
+ms.date: 12/10/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 79ccc32af1109856dd22989e45995aec552be374
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 596c2703a0a456c1076afe7b53eef652170a5fde
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662187"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028553"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>使用 Azure Data Lake Storage Gen2 URI
 
@@ -37,7 +37,7 @@ Data Lake Storage Gen2 的 URI 语法依赖于存储帐户是否设置为将 Dat
 
 4. **路径**：目录结构采用正斜杠分隔 (`/`) 表示形式。
 
-5. **文件名称**：单个文件的名称。 如果对目录寻址，则此参数是可选的。
+5. **文件名**：单个文件的名称。 如果对目录寻址，则此参数是可选的。
 
 但是，如果希望寻址的帐户在帐户创建期间设为默认文件系统，则简写 URI 语法为：
 
@@ -45,7 +45,7 @@ Data Lake Storage Gen2 的 URI 语法依赖于存储帐户是否设置为将 Dat
 
 1. **路径**：目录结构采用正斜杠分隔 (`/`) 表示形式。
 
-2. **文件名称**：单个文件的名称。
+2. **文件名**：单个文件的名称。
 
 
 ## <a name="next-steps"></a>后续步骤

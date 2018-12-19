@@ -5,26 +5,26 @@ services: azure-policy
 author: DCtheGeek
 ms.author: v-biyu
 origin.date: 07/31/2018
-ms.date: 11/12/2018
+ms.date: 12/17/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 6d743be1359ba81bd4b1277ce1d76ba43ea00efe
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 67d6e873cacc73aa5b5725efb3d5c3a8a2c9b0b1
+ms.sourcegitcommit: 6e07735318eb5f6ea319b618863259088eab3722
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662235"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52981683"
 ---
 # <a name="what-is-azure-policy"></a>什么是 Azure Policy？
 
-IT 治理可确保组织能够通过有效且高效地使用 IT 来实现其目标。 其实现方法是厘清业务目标和 IT 项目的差异。
+IT 治理可确保组织能够通过有效且高效地使用 IT 来实现其目标。 它通过区分业务目标和 IT 项目来实现这一点。
 
 你的公司是否正遇到了大量似乎难以解决的 IT 问题？
-良好的 IT 治理涉及在战略级别规划各项举措和设置优先级，以便管理和预防问题。 这是 Azure Policy 传入的位置。
+良好的 IT 治理涉及在战略级别上规划各项举措和设置优先级，以便管理和预防问题。 这是 Azure Policy 传入的位置。
 
-Azure Policy 是 Azure 中的一项服务，可用于创建、分配和管理策略。 这些策略将在整个资源中强制实施不同的规则和效果，使这些资源符合公司标准和服务级别协议。 为此，Azure Policy 会对资源进行评估，通过扫描来查找与所创建策略不相符的资源。 例如，可以制定一项策略，只允许环境中存在特定 SKU 大小的虚拟机。 实施此策略以后，即可在创建和更新资源时对其进行评估，以及针对已经存在的资源对其进行评估。 本文档后面会更详细地介绍如何通过 Azure Policy 来创建和实施策略。
+Azure Policy 是 Azure 中的一项服务，可用于创建、分配和管理策略。 这些策略将在整个资源中强制实施不同的规则和效果，以便这些资源符合公司标准和服务级别协议。 为此，Azure Policy 会对资源进行评估，找出那些与所创建的策略不符的资源。 例如，可以设置一项策略，仅允许环境中有特定 SKU 大小的虚拟机。 实施此策略以后，会在创建和更新资源时对其进行评估，并会针对现有资源对其进行评估。 本文档后面会更详细地讲述如何使用 Azure Policy 创建和实施策略。
 
 > [!IMPORTANT]
 > 现在，无论定价层如何，为所有分配都提供了 Azure Policy 的符合性评估。 如果分配未显示符合性数据，请确保已向 Microsoft.PolicyInsights 资源提供程序注册订阅。
@@ -36,37 +36,39 @@ Azure Policy 是 Azure 中的一项服务，可用于创建、分配和管理策
 
 ### <a name="rbac-permissions-in-azure-policy"></a>Azure Policy 中的 RBAC 权限
 
-Azure Policy 让权限在两个不同的资源提供程序中以操作的形式呈现：
+Azure Policy 在两个资源提供程序中具有多个权限（称为操作）：
 
-- [Microsoft.Authorization](../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
-- [Microsoft.PolicyInsight](../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
+- [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
+- [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-多个内置角色对 Azure Policy 资源的权限各不相同，例如**安全管理员**可以管理策略分配和定义，但不能查看符合性信息，而**读取者**可以阅读有关策略分配和定义的详细信息，但不能进行更改，也不能查看符合性信息。 **所有者**有完全权限，而**参与者**则没有任何 Azure Policy 权限。 若要授予查看策略符合性详细信息的权限，请创建[自定义角色](../role-based-access-control/custom-roles.md)。
+许多内置角色可授予对 Azure Policy 资源的权限。 **资源策略参与者(预览版)** 角色包括大多数 Policy 操作，**所有者**具有完全权限。 **参与者**和**读者**都可以读取有关 Policy 的所有详细信息，但**参与者**还可以触发修正。
+
+如果没有任何内置角色具有所需的权限，可创建[自定义角色](../../role-based-access-control/custom-roles.md)。
 
 ## <a name="policy-definition"></a>策略定义
 
-若要在 Azure Policy 中创建和实施策略，首先请创建策略定义。 每种策略定义在其特定的条件下将被强制执行。 并且，在满足条件时将出现随附效果。
+若要在 Azure Policy 中创建并实施策略，请先创建策略定义。 每种策略定义在其特定的条件下将被强制执行。 并且，在满足条件时将出现随附效果。
 
 在 Azure Policy 中，我们将提供一些默认可供使用的内置策略。 例如：
 
-- 需要 SQL Server 12.0：此策略定义具有条件/规则，以确保所有 SQL Server 均使用版本 12.0。 其效果是拒绝所有不符合这些条件的服务器。
-- 允许的存储帐户 SKU：此策略定义具有一组条件/规则，可确定正在部署的存储帐户是否在 SKU 大小集内。 其效果是拒绝所有不符合一组定义的 SKU 大小的存储帐户。
-- 允许的资源类型：此策略定义具有一组条件/规则，以指定贵组织可以部署的资源类型。 其效果是拒绝所有不属于此定义列表的资源。
+- **需要 SQL Server 12.0**：此策略定义具有条件/规则，以确保所有 SQL Server 均使用版本 12.0。 其效果是拒绝所有不符合这些条件的服务器。
+- **允许的存储帐户 SKU**：此策略定义具有一组条件/规则，可确定正在部署的存储帐户是否在 SKU 大小集内。 其效果是拒绝所有不符合定义的 SKU 大小集的存储帐户。
+- **允许的资源类型**：此策略定义具有一组条件/规则，以指定贵组织可以部署的资源类型。 其效果是拒绝所有不属于此定义列表的资源。
 - **允许的位置**：通过此策略，可限制组织在部署资源时可指定的位置。 其效果是用于强制执行异地符合性要求。
-- **允许的虚拟机 SKU**：通过此策略，可指定组织可部署的一组虚拟机 SKU。
-- 应用标记及其默认值：若用户未指定所需的标记及其默认值，则通过此策略来应用所需的标记及其默认值。
-- **强制执行标记和值**：此策略将对资源强制执行所需的标记和值。
-- **不允许的资源类型**：此策略用于指定组织不得部署的资源类型。
+- **允许的虚拟机 SKU**：此策略可用于指定组织可部署的一组虚拟机 SKU。
+- **应用标记及其默认值**：此策略应用一个必需的标记及其默认值（如果用户未指定其值）。
+- **强制实施标记及其值**：此策略向资源强制应用一个必需的标记及其值。
+- **不允许的资源类型**：此策略可用于指定组织无法部署的资源类型。
 
-若要实施这些策略定义（包括内置定义和自定义定义），需先分配它们。 可通过 Azure 门户、PowerShell 或 Azure CLI 来分配上述任意策略。
+若要实现这些策略定义（包括内置定义和自定义定义），需将其分配出去。 可通过 Azure 门户、PowerShell 或 Azure CLI 来分配上述任意策略。
 
-请记住，策略重新评估大约一小时进行一次，也就是说，如果在实施策略（创建策略分配）后更改策略定义，则会在一小时内针对资源重新评估该策略。
+请记住，策略重新评估大约一小时进行一次，这意味着，如果在实施策略（创建策略分配）后更改策略定义，则会在一小时内针对资源重新评估该策略。
 
 若要了解有关策略定义结构的详细信息，请查看[策略定义结构](./concepts/definition-structure.md)。
 
 ## <a name="policy-assignment"></a>策略分配
 
-策略分配是在特定作用域内发生的已分配的策略定义。 此作用域的范围是从[管理组](../management-groups/overview.md)到资源组。 术语“作用域”指分配到策略定义的所有资源组、订阅或管理组。 策略分配由所有子资源继承。 这意味着，如果将策略应用到资源组，则会将其应用到该资源组中的所有资源。 但是，可以从策略分配中排除子作用域。
+策略分配是在特定作用域内发生的已分配的策略定义。 此作用域的范围是从[管理组](../management-groups/index.md)到资源组。 术语“作用域”指分配到策略定义的所有资源组、订阅或管理组。 策略分配由所有子资源继承。 这意味着，如果将策略应用到资源组，则会将其应用到该资源组中的所有资源。 但是，可以从策略分配中排除子作用域。
 
 例如，可以在订阅作用域中分配阻止创建网络资源的策略。 但排除订阅中用于网络基础结构的一个资源组。 可以向信任的用户授予此网络资源组的访问权限，包括创建网络资源。
 
@@ -84,7 +86,7 @@ Azure Policy 让权限在两个不同的资源提供程序中以操作的形式�
 
 ## <a name="initiative-definition"></a>计划定义
 
-计划定义是策略定义的集合，是为实现单一的总体目标量身定制的。 计划定义可以简化管理和分配策略定义。 它们通过将一组策略组合为一个单独的项来实现简化。 例如，可以创建一个标题为“启用 Azure 安全中心中的监视”的计划，用于专门监视 Azure 安全中心中的所有可用的安全建议。
+计划定义是策略定义的集合，专为实现一个单一的总体目标而量身定制。 计划定义可以简化管理和分配策略定义。 它们通过将一组策略组合为一个单独的项来实现简化。 例如，可以创建一个标题为“启用 Azure 安全中心中的监视”的计划，用于专门监视 Azure 安全中心中的所有可用的安全建议。
 
 在此计划中，将具有特定策略定义，例如：
 
@@ -103,16 +105,16 @@ Azure Policy 让权限在两个不同的资源提供程序中以操作的形式�
 
 类似于策略参数，计划参数通过减少冗余来帮助简化计划管理。 实质上，计划参数是计划内的策略定义正在使用的参数列表。
 
-例如，在实施某个方案时，有一个计划定义 **initiativeC**，此外还有策略定义 **policyA** 和 **policyB**，每个都会使用不同类型的参数：
+例如，假设出现这样一种情况，有一个带有两个策略定义（**policyA** 和 **policyB**，每个都需要不同类型的参数）的计划定义 - initiativeC：
 
 | 策略 | 参数的名称 |参数的类型  |注意 |
 |---|---|---|---|
 | policyA | allowedLocations | 数组  |此参数要求将值设置为字符串列表，因为参数类型已定义为数组 |
 | policyB | allowedSingleLocation |字符串 |此参数要求将值设置为一个字词，因为参数类型已定义为字符串 |
 
-在此情况下，定义 initiativeC 的计划参数时，有三个选项可供选择：
+在此情况下，定义 **initiativeC** 的计划参数时，有三个选项可供选择：
 
-- 使用此计划中的策略定义参数：在此示例中，allowedLocations 和 allowedSingleLocation 为 initiativeC 的计划参数。
+- 使用此计划中的策略定义参数：在此示例中，*allowedLocations* 和 *allowedSingleLocation* 成为 **initiativeC** 的计划参数。
 - 向此计划定义中策略定义的参数提供值。 在此示例中，可以向 policyA 的参数 – allowedLocations 和 policyB 的参数 – allowedSingleLocation 提供位置列表。 此外，也可在分配此计划时提供值。
 - 分配此计划时，提供可供使用的值列表选项。 在分配此计划时，从计划内的策略定义继承的参数只能具有此提供列表中的值。
 
@@ -124,7 +126,7 @@ Azure Policy 让权限在两个不同的资源提供程序中以操作的形式�
 
 ## <a name="recommendations-for-managing-policies"></a>管理策略的建议
 
-以下是在创建和管理策略定义和分配时建议遵循的几个要点以及需要注意的提示：
+以下是在创建和管理策略定义及分配时建议遵循的几个指标以及需注意的提示：
 
 - 如果在环境中创建策略定义，我们建议从审核效果（而不是拒绝效果）开始，以跟踪环境中资源上策略定义的影响。 如果有用于自动纵向扩展应用程序的脚本，那么设置拒绝效果可能会影响这些已经执行的自动化任务。
 - 请务必在创建定义和分配时考虑组织的层次结构。 我们建议在更高级别创建定义，例如，在管理组或订阅级别进行创建，并在下一子级别进行分配。 例如，如果在管理组级别创建策略定义，则可以在管理组中将该定义的一个策略分配缩小到订阅级别。
@@ -134,15 +136,15 @@ Azure Policy 让权限在两个不同的资源提供程序中以操作的形式�
 
 ## <a name="video-overview"></a>视频概述
 
-以下 Azure Policy 概述来自 Build 2018。 若要下载幻灯片或视频，请访问第 9 频道的 [Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030)（通过 Azure Policy 治理 Azure 环境）。
+以下 Azure Policy 概述来自 Build 2018。 如需下载幻灯片或视频，请访问第 9 频道的 [Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030)（通过 Azure Policy 治理 Azure 环境）。
 
 
 
 ## <a name="next-steps"></a>后续步骤
 
-大致了解 Azure Policy 和一些关键概念后，建议执行后续步骤：
+现在，你已大致了解 Azure 策略以及一些关键概念，下面是建议的后续步骤：
 
 - [使用门户分配策略定义](assign-policy-portal.md)
 - [使用 Azure CLI 分配策略定义](assign-policy-azurecli.md)
 - [使用 PowerShell 分配策略定义](assign-policy-powershell.md)
-- 参阅[使用 Azure 管理组来组织资源](..//management-groups/overview.md)，了解什么是管理组
+- 参阅[使用 Azure 管理组来组织资源](../management-groups/index.md)，了解什么是管理组

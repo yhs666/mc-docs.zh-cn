@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/09/2017
-ms.date: 05/28/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6220c8b1eedf41a271004f598d30d2b03f13f240
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 819ca4ad07fae94ca1517739f1259213403f9e50
+ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650864"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52901102"
 ---
 # <a name="resource-governance"></a>资源调控 
 
@@ -34,9 +34,9 @@ ms.locfileid: "52650864"
 
 根据[服务包](service-fabric-application-model.md)，Service Fabric 支持资源治理。 可以在代码包之间进一步划分分配到服务包的资源。 指定的资源限制也意味着资源保留。 Service Fabric 支持使用两个内置[指标](service-fabric-cluster-resource-manager-metrics.md)，为每个服务包指定 CPU 和内存：
 
-* CPU（指标名称 `servicefabric:/_CpuCores`）：主机计算机上可用的逻辑内核。 所有节点上的全部内核都进行了相同的加权。
+* *CPU*（指标名称 `servicefabric:/_CpuCores`）：主机计算机上可用的逻辑核心。 所有节点上的全部内核都进行了相同的加权。
 
-* 内存（指标名称 `servicefabric:/_MemoryInMB`）：内存以 MB 为单位，映射到计算机上可用的物理内存。
+* *内存*（指标名称 `servicefabric:/_MemoryInMB`）：内存以 MB 表示，并映射到计算机上可用的物理内存。
 
 对于这两个指标，[群集资源管理器](service-fabric-cluster-resource-manager-cluster-description.md)跟踪总群集容量、群集中每个节点上的负载以及群集中剩余的资源。 这两个指标等同于其他任何用户指标或自定义指标。 现有全部功能都可以与它们结合使用：
 * 群集可根据这两个指标进行[均衡](service-fabric-cluster-resource-manager-balancing.md)（默认行为）。
@@ -57,9 +57,9 @@ Service Fabric 运行时当前不提供资源保留。 当进程或容器打开�
 
 不过，在两种情况下，其他进程可能会争用 CPU。 在这种情况下，示例中的进程和容器可能会遇到邻近干扰问题：
 
-* 混用治理和非治理服务和容器：如果用户创建服务时没有指定任何资源治理，运行时将它视为不占用任何资源，能够将它放置在示例中的节点上。 在这种情况下，这一新进程实际上会占用部分 CPU，占用的是已在节点上运行的服务的份额。 此问题有两种解决方案。 在同一群集中不混用治理和非治理服务，或使用[放置约束](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)，阻止这两种类型的服务最终位于同一组节点上。
+* *混用调控和非调控服务与容器*：如果用户创建服务时没有指定任何资源治理，运行时将它视为不占用任何资源，能够将它放置在示例中的节点上。 在这种情况下，这一新进程实际上会占用部分 CPU，占用的是已在节点上运行的服务的份额。 此问题有两种解决方案。 在同一群集中不混用治理和非治理服务，或使用[放置约束](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)，阻止这两种类型的服务最终位于同一组节点上。
 
-* 其他进程在 Service Fabric 外的节点上启动（例如，OS 服务）：在这种情况下，Service Fabric 外的进程也会与现有服务争用 CPU。 此问题的解决方案是，考虑 OS 开销以正确设置节点容量，如下一部分中所示。
+* *其他进程在 Service Fabric 外的节点上启动（例如 OS 服务）*：在这种情况下，Service Fabric 外的进程也会与现有服务争用 CPU。 此问题的解决方案是，考虑 OS 开销以正确设置节点容量，如下一部分中所示。
 
 ## <a name="cluster-setup-for-enabling-resource-governance"></a>启用资源治理所需的群集设置
 
@@ -188,12 +188,12 @@ Service Fabric 运行时当前不提供资源保留。 当进程或容器打开�
 ## <a name="other-resources-for-containers"></a>容器的其他资源
 除了 CPU 和内存之外，还可以为容器指定其他资源限制。 这些限制是在代码包一级指定，并在容器启动时应用。 这些资源与 CPU 和内存不同，群集资源管理器不会注意到它们，也不会针对它们进行任何容量检查或负载均衡。 
 
-* MemorySwapInMB：容器可使用的交换内存量。
-* MemoryReservationInMB：内存治理软限制，仅当在节点上检测到内存争用时，才强制执行此限制。
-* CpuPercent：容器可使用的 CPU 百分比。 如果为服务包指定了 CPU 限制，将有效忽略此参数。
-* MaximumIOps：容器可使用（读取和写入）的最大 IOPS。
-* MaximumIOBytesps：容器可使用（读取和写入）的最大 IO（字节/秒）。
-* BlockIOWeight：相对于其他容器的块 IO 权重。
+* *MemorySwapInMB*：容器可使用的交换内存量。
+* *MemoryReservationInMB*：内存调控软限制，仅当在节点上检测到内存争用时才强制执行此限制。
+* *CpuPercent*：容器可使用的 CPU 百分比。 如果为服务包指定了 CPU 限制，将有效忽略此参数。
+* *MaximumIOps*：容器可使用的最大 IOPS（读取和写入）。
+* *MaximumIOBytesps*：容器可使用（读取和写入）的最大 IO（字节/秒）。
+* *BlockIOWeight*：相对于其他容器的块 IO 权重。
 
 这些资源可与 CPU 和内存组合。 以下示例显示如何为容器指定其他资源：
 

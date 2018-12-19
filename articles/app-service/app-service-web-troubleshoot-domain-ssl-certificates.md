@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 04/18/2018
 ms.date: 10/08/2018
 ms.author: v-yiso
-ms.openlocfilehash: c771b3cd4e3339f59a1b3d9f8a85c82a8eceda16
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: bd4cc895e4f7dc9ae623ce735fa30aa21e07ff13
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645965"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028922"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-web-apps"></a>排查 Azure Web 应用中的域和 SSL 证书问题
 
@@ -68,33 +68,32 @@ ms.locfileid: "52645965"
 ### <a name="you-cant-purchase-an-app-service-certificate"></a>无法购买应用服务证书 
 
 #### <a name="symptom"></a>症状
-无法从 Azure 门户购买 [Azure 应用服务证书](./web-sites-purchase-ssl-web-site.md)。
 
 #### <a name="cause-and-solution"></a>原因和解决方法
 此问题可能是由以下任何原因导致的：
 
 - 应用服务计划的层级为“免费”或“共享”。 这些定价层不支持 SSL。 
 
-    **解决方法**：将 Web 应用的应用服务计划升级到“标准”。
+    **解决方案**：将 Web 应用的应用服务计划升级到“标准”。
 
 - 订阅中没有有效的信用卡。
 
-    **解决方法**：将有效的信用卡添加到订阅。 
+    **解决方案**：将有效的信用卡添加到订阅。 
 
 - 该订阅套餐不支持购买“Microsoft 学生”等应用服务证书。  
 
-    **解决方法**：升级订阅。 
+    **解决方案**：升级你的订阅。 
 
 - 订阅已达到允许的购买限制。
 
-    **解决方法**：对于即用即付和 EA 订阅类型，可购买的应用服务证书限制为 10 个。 对于其他订阅类型，限制为 3 个。 若要提高限制，请联系 [Azure 支持](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
-- 应用服务证书标记为欺诈。 收到以下错误消息：“证书已被标记为可能存在欺诈。 请求当前正在审查中。 如果证书未在 24 小时内变为可用，请联系 Azure 支持部门。”
+    **解决方案**：对于即用即付和 EA 订阅类型，可购买的应用服务证书限制为 10 个。 对于其他订阅类型，限制为 3 个。 若要提高限制，请联系 [Azure 支持](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
+- 应用服务证书标记为欺诈。 收到以下错误消息：“你的证书已被标记为可能存在欺诈。 请求当前正在审查中。 如果证书未在 24 小时内变为可用，请联系 Azure 支持部门。”
 
-    **解决方法**：如果证书标记为欺诈，并且在 24 小时后未得到解决，请执行以下步骤：
+    **解决方案**：如果证书标记为欺诈，并且在 24 小时后未得到解决，请执行以下步骤：
 
     1. 登录到 [Azure 门户](https://portal.azure.cn)。
     2. 转到“应用服务证书”，选择该证书。
-    3. 选择“证书配置” > “步骤 2: 验证” > “域验证”。 此步骤会向 Azure 证书提供者发送一份电子邮件通知，让他们解决问题。
+    3. 选择“证书配置” > “步骤 2：验证” > “域验证”。 此步骤会向 Azure 证书提供者发送一份电子邮件通知，让他们解决问题。
 
 ## <a name="domain-problems"></a>域问题
 
@@ -125,7 +124,7 @@ Azure 应用服务的 Web 应用功能每隔 8 小时运行一个后台作业，
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。 选择“应用服务证书”，然后选择该证书。
 2. 选择“重新生成密钥并同步”，然后选择“同步”。同步过程需要一段时间才能完成。 
-3. 完成同步后，会看到以下通知：“已成功使用最新的证书更新了所有资源”。
+3. 同步完成后，会看到以下通知：“已成功使用最新的证书更新了所有资源。”
 
 ### <a name="domain-verification-is-not-working"></a>域验证无法进行 
 
@@ -164,17 +163,17 @@ Azure 应用服务的 Web 应用功能每隔 8 小时运行一个后台作业，
 
 - Azure 订阅中没有信用卡，或信用卡无效。
 
-    **解决方法**：将有效的信用卡添加到订阅。
+    **解决方案**：将有效的信用卡添加到订阅。
 
 - 你不是订阅所有者，因此无权购买域。
 
     **解决方案**：向帐户[分配“所有者”角色](../role-based-access-control/role-assignments-portal.md)。 或者联系订阅管理员以获取购买域的权限。
 - 已达到订阅中可购买域数的限制。 当前限制为 20 个。
 
-    **解决方法**：若要请求提高限制，请联系 [Azure 支持](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
+    **解决方案**：若要请求提高限制，请联系 [Azure 支持](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
 - Azure 订阅类型不支持购买应用服务域。
 
-    **解决方法**：将 Azure 订阅升级到其他订阅类型，例如即用即付订阅。
+    **解决方案**：将 Azure 订阅升级到其他订阅类型，例如即用即付订阅。
 
 ### <a name="you-cant-add-a-host-name-to-a-web-app"></a>无法将主机名添加到 Web 应用 
 
@@ -188,10 +187,10 @@ Azure 应用服务的 Web 应用功能每隔 8 小时运行一个后台作业，
 
 - 无权添加主机名。
 
-    **解决方法**：让订阅管理员为你授予添加主机名的权限。
+    **解决方案**：让订阅管理员为你授予添加主机名的权限。
 - 无法验证域所有权。
 
-    **解决方法**：验证是否已正确配置 CNAME 或 A 记录。 若要将自定义域映射到 Web 应用，请创建 CNAME 记录或 A 记录。 若要使用根域，必须使用 A 记录和 TXT 记录：
+    **解决方案**：验证是否已正确配置 CNAME 或 A 记录。 若要将自定义域映射到 Web 应用，请创建 CNAME 记录或 A 记录。 若要使用根域，必须使用 A 记录和 TXT 记录：
 
     |记录类型|主机|指向|
     |------|------|-----|

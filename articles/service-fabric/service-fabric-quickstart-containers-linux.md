@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/11/2018
-ms.date: 11/12/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 0c066b70f9dc5f86081d2a2ff387d00ee4bc8ae2
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6440df30343f4e3f179b6c2624aa3955c135863c
+ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648982"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52901128"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>快速入门：将 Linux 容器部署到 Service Fabric
 
@@ -171,12 +171,9 @@ Service Fabric 可确保在发生故障时，将容器实例自动转移到群�
 
 3. 如果不希望继续使用本地 Shell，则可删除与之相关联的存储帐户，避免被收取费用。 在 Azure 门户中，单击关联的存储帐户，然后单击页面顶部的“删除”并响应提示。
 
-## <a name="next-steps"></a>后续步骤
+<!--Pending on ## Next steps-->
 
-在本快速入门中，你已将 Linux 容器应用程序部署到 Azure 中的 Service Fabric 群集，在应用程序上执行了故障转移，并在群集中缩放了应用程序。 若要详细了解如何在 Service Fabric 中使用 Linux 容器，请继续学习适用于 Linux 容器应用的教程。
-
-> [!div class="nextstepaction"]
-> [创建 Linux 容器应用](./service-fabric-tutorial-create-container-images.md)
+<!--Pending on [Create a Linux container app](./service-fabric-tutorial-create-container-images.md)-->
 
 [sfx]: ./media/service-fabric-quickstart-containers-linux/containersquickstartappinstance.png
 [quickstartpic]: ./media/service-fabric-quickstart-containers-linux/votingapp.png

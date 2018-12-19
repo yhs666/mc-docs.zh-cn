@@ -8,20 +8,20 @@ ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 origin.date: 06/27/2018
-ms.date: 11/05/2018
+ms.date: 12/10/2018
 ms.author: v-jay
-ms.openlocfilehash: 4ea25da821f238869516b35757bf58336ff29c07
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6a84aa70e17541a54788439db00098c245ac5cc9
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643738"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028456"
 ---
-# <a name="quickstart-create-an-azure-data-lake-storage-gen2-preview-storage-account"></a>快速入门：创建 Azure Data Lake Storage Gen2 预览版存储帐户
+# <a name="quickstart-create-a-storage-account-for-analytics"></a>快速入门：创建用于分析的存储帐户
 
-Azure Data Lake Storage Gen2 预览版帐户[支持分层命名空间服务](introduction.md)，该服务提供了一个适合与 Hadoop 分布式文件系统 (HDFS) 配合使用的基于原生目录的文件系统。 可以通过 [ABFS 驱动程序](abfs-driver.md)从 HDFS 访问 Data Lake Storage Gen2 数据。
+启用了 Data Lake Storage Gen2 预览版的存储帐户[支持分层命名空间服务](introduction.md)，该服务提供了一个适合与 Hadoop 分布式文件系统 (HDFS) 配合使用的基于本机目录的文件系统。 可以通过 [ABFS 驱动程序](abfs-driver.md)从 HDFS 访问 Data Lake Storage Gen2 数据。
 
-若要在存储帐户上启用 Data Lake Storage Gen2 功能，请[填写预览版调查来请求访问](https://aka.ms/adlsgen2signup)。 得到批准后，你将能够创建新的 Data Lake Storage Gen2 帐户。 本快速入门展示了如何使用 [Azure 门户](https://portal.azure.cn/)、[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 或通过 [Azure CLI](/cli/?view=azure-cli-latest) 创建帐户。
+若要在存储帐户上启用 Data Lake Storage Gen2 功能，请[填写预览版调查来请求访问](https://aka.ms/adlsgen2signup)。 得到批准后，你将能够创建启用了 Data Lake Storage Gen2 的存储帐户。 本快速入门展示了如何使用 [Azure 门户](https://portal.azure.com/)、[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 或通过 [Azure CLI](/cli?view=azure-cli-latest) 创建帐户。
 
 > [!NOTE]
 > 当你获批创建 Data Lake Storage Gen2 帐户后，Azure 门户中的创建帐户 UI 将会更新。 同样，与 Data Lake Storage Gen2 相关的 PowerShell 和 CLI 参数只有在你获批使用此预览版后才起作用。
@@ -34,15 +34,13 @@ Azure Data Lake Storage Gen2 预览版帐户[支持分层命名空间服务](int
 |-----------|--------------|
 |门户     | 无         |
 |PowerShell | 本快速入门需要 Azure PowerShell 模块 **5.0.4-preview** 版或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找当前版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 |
-|CLI        | 可以登录到 Azure，然后在 PowerShell 中运行 Azure CLI 命令 |
-
-使用命令行时，可以选择在本地安装 CLI。
+|CLI        | 可以登录到 Azure，然后采用以下两种方式之一运行 Azure CLI 命令： <ul><li>可以安装 CLI 并在本地运行 CLI 命令</li></ul>|
 
 ### <a name="install-the-cli-locally"></a>在本地安装 CLI
 
-可在本地安装和使用 Azure CLI。 本快速入门需要运行 Azure CLI 2.0.38 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。
+也可在本地安装和使用 Azure CLI。 本快速入门需要运行 Azure CLI 2.0.38 或更高版本。 运行 `az --version` 即可查找版本。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
-## <a name="overview-of-creating-an-azure-data-lake-storage-gen2-account"></a>创建 Azure Data Lake Storage Gen2 帐户概述
+## <a name="create-a-storage-account-with-azure-data-lake-storage-gen2-enabled"></a>创建启用了 Azure Data Lake Storage Gen2 的存储帐户
 
 在创建帐户前，首先创建一个资源组，使其充当你创建的存储帐户或任何其他 Azure 资源的逻辑容器。 若要清理本快速入门创建的资源，可以直接删除资源组。 删除资源组也会删除相关联的存储帐户，以及与资源组相关联的任何其他资源。 有关资源组的详细信息，请参阅 [Azure 资源管理器概述](../../azure-resource-manager/resource-group-overview.md)。
 
@@ -77,16 +75,13 @@ Azure Data Lake Storage Gen2 预览版帐户[支持分层命名空间服务](int
 
 若要在 Azure 门户中创建常规用途 v2 存储帐户，请执行以下步骤：
 
-> [!NOTE]
-> 只有美国西部 2 和美国中西部启用了分层命名空间。 在创建存储帐户时，请确保指定这两个位置之一。
-
 1. 在 Azure 门户中展开左侧的菜单，打开服务菜单，然后选择“所有服务”。 然后向下滚动到“存储”，接着选择“存储帐户”。 在显示的“存储帐户”窗口中，选择“添加”。
 2. 输入存储帐户的名称。
 3. 将“部署模型”保留设置为默认值。
 4. 将“帐户类型”字段设置为“StorageV2 (常规用途 v2)”。
 5. 将“位置”设置为“美国西部 2”。
 6. 将“复制”字段保持设置为“本地冗余存储(LRS)”。
-7. 将以下字段保留设置为其默认值：“复制”、 “性能”、“访问层”。
+7. 将这些字段保留设置为其默认值：**复制**。 “性能”、“访问层”。
 8. 选择要在其中创建存储帐户的订阅。
 9. 在“资源组”部分选择“使用现有资源组”，然后选择在上一部分创建的资源组。
 10. 保留“虚拟网络”的默认值。
@@ -124,9 +119,6 @@ Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 ### <a name="create-a-resource-group"></a>创建资源组
 
 若要通过 PowerShell 创建新的资源组，请使用 [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) 命令： 
-
-> [!NOTE]
-> 只有中国东部 2 和中国北部启用了分层命名空间。 在创建存储帐户时，请确保指定这两个位置之一。
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -185,9 +177,6 @@ az group create \
     --name storage-quickstart-resource-group \
     --location chinaeast2
 ```
-
-> [!NOTE]
-> 只有中国东部 2 和中国北部启用了分层命名空间。 在创建存储帐户时，请确保指定这两个位置之一。
 
 ### <a name="create-a-general-purpose-v2-storage-account"></a>创建常规用途 v2 存储帐户
 

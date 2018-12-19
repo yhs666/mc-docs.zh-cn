@@ -1,32 +1,25 @@
 ---
-title: 使用 Java 的 Azure 存储示例 | Azure
+title: 使用 Java 的 Azure 存储示例 | Microsoft 文档
 description: 查看、下载和运行 Azure 存储的示例代码和应用程序。 使用 Java 存储客户端库发现 blob、队列、表和文件的入门示例。
 services: storage
-documentationcenter: na
-author: seguler
-manager: jahogg
-editor: tysonn
-ms.assetid: ''
+author: WenJason
 ms.service: storage
 ms.devlang: java
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 origin.date: 01/12/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: eadacd15814fbc6f353272eb7e18a2f7a4176cbb
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/03/2018
+ms.author: v-jay
+ms.component: common
+ms.openlocfilehash: c20674989558f6c9a3b17c25450f3b772ffbe1c8
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647649"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028333"
 ---
 # <a name="azure-storage-samples-using-java"></a>使用 Java 的 Azure 存储示例
 
 ## <a name="java-sample-index"></a>Java 示例索引
->[!IMPORTANT]
-> 若要使用本文中提供的示例，请将终结点 `windows.net` 替换为 `chinacloudapi.cn`（如果存在）。
 
 下表概述了我们的示例存储库以及每个示例中介绍的方案。 单击链接可查看 GitHub 中相应的示例代码。
 
@@ -169,31 +162,31 @@ ms.locfileid: "52647649"
 <tr> 
 <td rowspan="7"><b>表</b></td>
 <td>创建表</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/TableBasics.java">Getting Started with Azure Table Service in Java</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java</a></td> 
 </tr> 
 <tr> 
 <td>删除实体/表</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/TableBasics.java">Getting Started with Azure Table Service in Java</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java</a></td> 
 </tr> 
 <tr> 
 <td>插入/合并/替换实体</td> 
-<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/table/gettingtstarted/TableBasics.java">Storage Java Client Library Samples</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java</a></td> 
 </tr> 
 <tr> 
 <td>查询实体</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/TableBasics.java">Getting Started with Azure Table Service in Java</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java</a></td> 
 </tr> 
 <tr> 
 <td>查询表</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/TableBasics.java">Getting Started with Azure Table Service in Java</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java</a></td> 
 </tr> 
 <tr> 
 <td>表 ACL/属性</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/TableAdvanced.java">Getting Started with Azure Table Service in Java</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableAdvanced.java">Getting Started with Azure Table Service in Java</a></td> 
 </tr> 
 <tr> 
 <td>更新实体</td> 
-<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/table/gettingtstarted/TableBasics.java">Storage Java Client Library Samples</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java</a></td> 
 </tr> 
 </tbody> 
 </table>
@@ -218,5 +211,5 @@ ms.locfileid: "52647649"
 
 了解其他语言的示例：
 
-* .NET：[使用 .NET 的 Azure 存储示例](storage-samples-dotnet.md)
-* 所有其他语言： [Azure 存储示例](storage-samples.md)
+* .NET:[使用 .NET 的 Azure 存储示例](storage-samples-dotnet.md)
+* 所有其他语言：[Azure 存储示例](storage-samples.md)

@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/28/2018
-ms.date: 11/12/2018
+origin.date: 10/16/2018
+ms.date: 12/17/2018
 ms.author: v-jay
 ms.reviewer: ppacent
-ms.openlocfilehash: 4f7d5bb6c9ea2d23cbab4334cd5e481e83a26448
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ccfc5598de27451ae1e7d32ca5337b76cca660e4
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661510"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396221"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack 公钥基础结构证书要求
 
@@ -32,7 +32,7 @@ Azure Stack 有一个公共基础结构网络，该网络使用分配给少量 A
 - 如何在部署期间准备、验证和使用这些证书
 
 > [!Note]  
-> 在部署期间，必须将证书复制到与要部署的标识提供者（Azure AD 或 AD FS）匹配的部署文件夹中。 如果将单个证书用于所有终结点，必须将该证书文件复制到下表所述的每个部署文件夹。 该文件夹的结构已预先在部署虚拟机中构建，路径为：C:\CloudDeployment\Setup\Certificates。 
+> 在部署期间，必须将证书复制到与要部署的标识提供者（Azure AD 或 AD FS）匹配的部署文件夹中。 如果将单个证书用于所有终结点，必须将该证书文件复制到下表所述的每个部署文件夹。 部署虚拟机中已预先构建了文件夹结构，路径为：C:\CloudDeployment\Setup\Certificates。 
 
 ## <a name="certificate-requirements"></a>证书要求
 以下列表描述了部署 Azure Stack 时需要满足的证书要求： 
@@ -41,8 +41,10 @@ Azure Stack 有一个公共基础结构网络，该网络使用分配给少量 A
 - 轮换证书时，证书必须由签署部署时提供的证书的同一内部证书颁发机构颁发，或者由上述任何公共证书颁发机构颁发
 - 不支持使用自签名证书
 - 对于部署和轮换，可以使用单一证书覆盖证书的“使用者名称”和“使用者可选名称(SAN)”字段中的所有命名空间，也可以为下面你计划使用的 Azure Stack 服务所需的每个命名空间使用单独的证书。 这两种方法都需要将通配符用于需要它们的终结点，例如 **KeyVault** 和 **KeyVaultInternal**。 
-- 证书签名算法必须是 3DES。 算法不能是 SHA1，因为算法必须更可靠。 
-- 证书格式必须是 PFX，因为安装 Azure Stack 时需要公钥和私钥。 
+- 证书的 PFX 加密应当为 3DES。 
+- 证书签名算法不能为 SHA1。 
+- 证书格式必须是 PFX，因为安装 Azure Stack 时需要公钥和私钥。 私钥必须设置本地计算机密钥属性。
+- PFX 加密必须是 3DES（从 Windows 10 客户端或 Windows Server 2016 证书存储进行导出时，这是默认值）。
 - 证书 pfx 文件的“密钥用途”字段中必须包含“数字签名”和“KeyEncipherment”值。
 - 证书 pfx 文件的“增强型密钥使用”字段中必须包含“服务器身份验证(1.3.6.1.5.5.7.3.1)”和“客户端身份验证(1.3.6.1.5.5.7.3.2)”值。
 - 证书的“颁发给:”字段不能与其“颁发者:”字段相同。
@@ -64,18 +66,18 @@ Azure Stack 有一个公共基础结构网络，该网络使用分配给少量 A
 对于部署，[region] 和 [externalfqdn] 值必须与针对 Azure Stack 系统选择的区域和外部域名相匹配。 例如，如果区域名称为 *Redmond*，外部域名为 *contoso.com*，则 DNS 名称的格式为 *&lt;prefix>.redmond.contoso.com*。 *&lt;prefix>* 值由 Microsoft 预先指定，描述证书保护的终结点。 此外，外部基础结构终结点的 *&lt;prefix>* 值取决于使用特定终结点的 Azure Stack 服务。 
 
 > [!note]  
-> 可以提供证书作为已复制到所有目录的单个通配符证书，其中涵盖“使用者”和“使用者可选名称”(SAN) 字段中的所有命名空间；也可以作为每个终结点的、已复制到相应目录的单个证书。 请记住，这两个选项都要求对 **acs** 和 Key Vault 等需要通配符证书的终结点使用此类证书。 
+> 对于生产环境，我们建议为每个终结点生成单独的证书并将其复制到相应的目录中。 对于开发环境，可以提供单个通配符证书作为证书，在其中涵盖“使用者”和“使用者可选名称”(SAN) 字段中的所有命名空间，并将该证书复制到所有目录中。 使用涵盖所有终结点和服务的单个证书是一种不安全的方式，因此仅用于开发。 请记住，这两个选项都要求对 **acs** 和 Key Vault 等需要通配符证书的终结点使用此类证书。 
 
 | 部署文件夹 | 所需的证书使用者和使用者可选名称 (SAN) | 范围（按区域） | 子域命名空间 |
 |-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|
 | 公共门户 | portal.&lt;region>.&lt;fqdn> | 门户 | &lt;region>.&lt;fqdn> |
 | 管理门户 | adminportal.&lt;region>.&lt;fqdn> | 门户 | &lt;region>.&lt;fqdn> |
-| Azure 资源管理器公共门户 | management.&lt;region>.&lt;fqdn> | Azure Resource Manager | &lt;region>.&lt;fqdn> |
-| Azure 资源管理器管理门户 | adminmanagement.&lt;region>.&lt;fqdn> | Azure Resource Manager | &lt;region>.&lt;fqdn> |
+| Azure 资源管理器公共门户 | management.&lt;region>.&lt;fqdn> | Azure 资源管理器 | &lt;region>.&lt;fqdn> |
+| Azure 资源管理器管理门户 | adminmanagement.&lt;region>.&lt;fqdn> | Azure 资源管理器 | &lt;region>.&lt;fqdn> |
 | ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>（通配符 SSL 证书） | Blob 存储 | blob.&lt;region>.&lt;fqdn> |
 | ACSTable | *.table.&lt;region>.&lt;fqdn><br>（通配符 SSL 证书） | 表存储 | table.&lt;region>.&lt;fqdn> |
 | ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>（通配符 SSL 证书） | 队列存储 | queue.&lt;region>.&lt;fqdn> |
-| KeyVault | *.vault.&lt;region>.&lt;fqdn><br>（通配符 SSL 证书） | 密钥保管库 | vault.&lt;region>.&lt;fqdn> |
+| KeyVault | *.vault.&lt;region>.&lt;fqdn><br>（通配符 SSL 证书） | Key Vault | vault.&lt;region>.&lt;fqdn> |
 | KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>（通配符 SSL 证书） |  内部 Key Vault |  adminvault.&lt;region>.&lt;fqdn> |
 | 管理扩展主机 | *.adminhosting.\<region>.\<fqdn>（通配符 SSL 证书） | 管理扩展主机 | adminhosting.\<region>.\<fqdn> |
 | 公共扩展主机 | *.hosting.\<region>.\<fqdn>（通配符 SSL 证书） | 公共扩展主机 | hosting.\<region>.\<fqdn> |
@@ -85,7 +87,7 @@ Azure Stack 有一个公共基础结构网络，该网络使用分配给少量 A
 |部署文件夹|所需的证书使用者和使用者可选名称 (SAN)|范围（按区域）|子域命名空间|
 |-----|-----|-----|-----|
 |ADFS|adfs.*&lt;region>.&lt;fqdn>*<br>（SSL 证书）|ADFS|*&lt;region>.&lt;fqdn>*|
-|Graph|graph.*&lt;region>.&lt;fqdn>*<br>（SSL 证书）|Graph|*&lt;region>.&lt;fqdn>*|
+|图形|graph.*&lt;region>.&lt;fqdn>*<br>（SSL 证书）|图形|*&lt;region>.&lt;fqdn>*|
 |
 
 > [!IMPORTANT]

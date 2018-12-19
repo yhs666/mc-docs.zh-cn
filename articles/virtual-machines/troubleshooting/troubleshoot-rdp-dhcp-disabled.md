@@ -14,12 +14,12 @@ ms.workload: infrastructure
 origin.date: 11/13/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: aba1bf7612681781ceb3d013b2ad7825ee4fb670
-ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
+ms.openlocfilehash: 0c75b19d0aec6ced4371e400a58158f5d8769433
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676957"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028464"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>因 DHCP 客户端服务已禁用而无法通过 RDP 连接到 Azure 虚拟机
 
@@ -33,9 +33,9 @@ ms.locfileid: "52676957"
 
 **日志名称**：系统 </br>
 **源**：服务控制管理器 </br>
-**日期**：2015 年 12 月 16 日上午 11:19:36 </br>
+**日期**：2015/12/16 11:19:36 AM </br>
 **事件 ID**：7022 </br>
-**任务类别**: 无 </br>
+**任务类别**：无 </br>
 **级别**：错误 </br>
 **关键字**：经典</br> 
 **用户**：不适用 </br>
@@ -59,124 +59,9 @@ DHCP 客户端服务未在 VM 上运行。
 
 在执行这些步骤之前，请创建受影响 VM 的 OS 磁盘的快照作为备份。 有关详细信息，请参阅[拍摄磁盘快照](../windows/snapshot-copy-managed-disk.md)。
 
-若要解决此问题，请使用串行控制台启用 DHCP 或者为 VM [重置网络接口](reset-network-interface.md)。
+若要解决此问题，请对 VM 使用[重置网络接口](reset-network-interface.md)。
 
-### <a name="use-serial-control"></a>使用串行控制台
-
-1. 连接到[串行控制台并打开 CMD 实例](./serial-console-windows.md#open-cmd-or-powershell-in-serial-console
-)。 如果未在 VM 上启用串行控制台，请参阅[重置网络接口](reset-network-interface.md)。
-2. 在网络接口上检查是否禁用了 DHCP：
-
-        sc query DHCP
-3. 如果 DHCP 停止，请尝试启动该服务
-
-        sc start DHCP
-
-4. 再次查询服务，确保它已成功启动。
-
-        sc query DHCP
-
-    尝试连接到 VM 并查看问题是否得以解决。
-5. 如果服务未启动，请根据所接收到的错误消息，使用以下适当的解决方案：
-
-    | 错误  |  解决方案 |
-    |---|---|
-    | 5- 访问被拒绝  | 请参阅 [DHCP 客户端服务由于访问被拒绝错误而停止](#dhcp-client-service-is-stopped-because-of-an-access-denied-error)。  |
-    |1053 - ERROR_SERVICE_REQUEST_TIMEOUT   | 请参阅 [DHCP 客户端服务崩溃或挂起](#dhcp-client-service-crashes-or-hangs)。  |
-    | 1058 - ERROR_SERVICE_DISABLED  | 请参阅 [DHCP 客户端服务被禁用](#dhcp-client-service-is-disabled)。  |
-    | 1059 - ERROR_CIRCULAR_DEPENDENCY  |请[联系支持人员](https://www.azure.cn/support/support-azure/)以快速解决问题。   |
-    | 1067 - ERROR_PROCESS_ABORTED |请参阅 [DHCP 客户端服务崩溃或挂起](#dhcp-client-service-crashes-or-hangs)。   |
-    |1068 - ERROR_SERVICE_DEPENDENCY_FAIL   | 请[联系支持人员](https://www.azure.cn/support/support-azure/)以快速解决问题。  |
-    |1069 - ERROR_SERVICE_LOGON_FAILED   |  请参阅 [DHCP 客户端服务由于登录失败而失败](#dhcp-client-service-fails-because-of-logon-failure) |
-    | 1070 - ERROR_SERVICE_START_HANG  | 请参阅 [DHCP 客户端服务崩溃或挂起](#dhcp-client-service-crashes-or-hangs)。  |
-    | 1077 - ERROR_SERVICE_NEVER_STARTED  | 请参阅 [DHCP 客户端服务被禁用](#dhcp-client-service-is-disabled)。  |
-    |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   | 请[联系支持人员](https://www.azure.cn/support/support-azure/)以快速解决问题。  | 
-    |1053 | 请[联系支持人员](https://www.azure.cn/support/support-azure/)以快速解决问题。  |
-
-#### <a name="dhcp-client-service-is-stopped-because-of-an-access-denied-error"></a>DHCP 客户端服务由于访问被拒绝错误而停止
-
-1. 连接到[串行控制台](serial-console-windows.md#)并打开 PowerShell 实例。
-2. 运行以下脚本下载进程监视器工具：
-
-   ```
-   remove-module psreadline  
-   $source = "https://download.sysinternals.com/files/ProcessMonitor.zip" 
-   $destination = "c:\temp\ProcessMonitor.zip" 
-   $wc = New-Object System.Net.WebClient 
-   $wc.DownloadFile($source,$destination) 
-   ```
-3. 现在启动 **procmon** 跟踪：
-
-   ```
-   procmon /Quiet /Minimized /BackingFile c:\temp\ProcMonTrace.PML 
-   ```
-4. 通过启动生成“拒绝被访问”消息的服务来再现问题： 
-
-   ```
-   sc start DHCP
-   ```
-
-   如果启动失败，请终止进程监视器跟踪：
-
-   ```   
-   procmon /Terminate 
-   ```
-5. 收集 **c:\temp\ProcMonTrace.PML** 文件：
-
-    1. [将数据磁盘附加到 VM](../windows/attach-managed-disk-portal.md
-)。
-    2. 使用串行控制台可将文件复制到新驱动器。 例如，`copy C:\temp\ProcMonTrace.PML F:\`。 在此命令中，F 是附加的数据磁盘的驱动程序号。 使用正确的值适当地替换该字母。
-    3. 分离数据驱动器，然后将其附加到已安装进程监视器 ubstakke 的正常 VM。
-
-6. 在正常的 VM 上使用进程监视器打开 **ProcMonTrace.PML**。 然后按“结果为‘访问被拒绝’”进行筛选，如以下屏幕截图所示： ****
-
-    ![在进程监视器中按结果进行筛选](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
-
-7. 修复输出中的注册表项、文件夹或文件。 通常，出现此问题的原因是服务中使用的登录帐户没有 ACL 权限，因此无法访问这些对象。 若要确定登录帐户的正确 ACL 权限，可以在正常的 VM 上检查。 
-
-#### <a name="dhcp-client-service-is-disabled"></a>DHCP 客户端服务被禁用
-
-1. 将服务还原为其默认启动值：
-
-   ```
-   sc config DHCP start= auto
-   ```
-
-2. 启动服务：
-
-   ```
-   sc start DHCP
-   ```
-
-3. 再次查询服务状态，确保它正在运行：
-
-   ```
-   sc query DHCP
-   ```
-
-4. 尝试使用远程桌面连接到 VM。
-
-#### <a name="dhcp-client-service-fails-because-of-logon-failure"></a>DHCP 客户端服务由于登录失败而失败
-
-1. 由于此服务的启动帐户一经更改便会出现此问题，因此请将帐户还原为其默认状态： 
-
-        sc config DHCP obj= 'NT Authority\Localservice'
-2. 启动服务：
-
-        sc start DHCP
-3. 尝试使用远程桌面连接到 VM。
-
-#### <a name="dhcp-client-service-crashes-or-hangs"></a>DHCP 客户端服务崩溃或挂起
-1. 如果服务状态卡在“正在启动”或“正在停止”状态，请尝试停止服务： 
-
-        sc stop DHCP
-2. 在服务自身的“svchost”容器中隔离该服务：
-
-        sc config DHCP type= own
-3. 启动服务：
-
-        sc start DHCP
-4. 如果服务仍未启动，请[联系支持人员](https://www.azure.cn/support/support-azure/)。
+<!-- Not Available on ### Use Serial control-->
 
 ### <a name="repair-the-vm-offline"></a>修复 VM 脱机
 
@@ -205,6 +90,7 @@ DHCP 客户端服务未在 VM 上运行。
 ## <a name="next-steps"></a>后续步骤
 
 如果仍需帮助，请[联系支持人员](https://www.azure.cn/support/support-azure/)以快速解决问题。
+
 
 <!-- Update_Description: new articles on troubleshoot -->
 <!--ms.date: 12/03/2018-->

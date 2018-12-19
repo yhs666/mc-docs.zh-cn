@@ -1,10 +1,10 @@
 ---
-title: Azure Stack 基础结构备份服务参考 | Azure
+title: Azure Stack 基础结构备份服务参考 | Microsoft Docs
 description: 本文包含 Azure Stack 基础结构备份服务的参考资料。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: D6EC0224-97EA-446C-BC95-A3D32F668E2C
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/17/2017
-ms.date: 08/27/2018
-ms.author: v-junlch
+origin.date: 10/25/2018
+ms.date: 12/17/2018
+ms.author: v-jay
 ms.reviewer: hectorl
-ms.openlocfilehash: 248349f02dfb355a6b0a19b227267e068ab42783
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 235e3157cc7467e4273ff27e659d529907e5456b
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644384"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396123"
 ---
 # <a name="infrastructure-backup-service-reference"></a>基础结构备份服务参考
 
@@ -90,7 +90,7 @@ Azure Stack 由许多服务构成，其中包括门户、Azure 资源管理器�
 
 | 环境规模 | 预计的备份大小 | 所需的空间总量 |
 |-------------------|--------------------------|--------------------------------|
-| 4-12 个节点        | 10 GB                     | 140 GB                          |
+| 4-16 个节点        | 10 GB                     | 140 GB                          |
 
 ### <a name="network-requirements"></a>网络要求
 | 存储位置                                                                 | 详细信息                                                                                                                                                                                 |

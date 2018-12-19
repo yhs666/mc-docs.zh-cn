@@ -10,12 +10,12 @@ origin.date: 01/10/2017
 ms.date: 11/26/2018
 ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a1872984b275449738c82bc30adcad13d9d3b3e4
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: f9a07faeb563d43c72d3eb7d367a45e6b2f20e74
+ms.sourcegitcommit: 0544706ab2ff239fb09fbeedc5910644301ad029
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674756"
+ms.lasthandoff: 12/03/2018
+ms.locfileid: "52745221"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>将长期存储从磁带移动到 Azure 云
 Azure 备份和 System Center Data Protection Manager 客户可以：
@@ -45,7 +45,7 @@ Azure 备份和 System Center Data Protection Manager 客户可以：
 ## <a name="example---putting-both-together"></a>示例 - 组合策略
 ![示例屏幕](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
-1. **每天保留策略**：每天创建的备份存储 7 天。
+1. **每日保留策略**：每日创建的备份存储 7 天。
 2. **每周保留策略**：每天午夜和星期六下午 6 点创建的备份保留 4 周
 3. **每月保留策略**：每个月最后一个星期六午夜和下午 6 点创建的备份保留 12 个月
 4. **每年保留策略**：每年三月最后一个星期六午夜执行的备份保留 10 年
@@ -73,6 +73,6 @@ Azure 备份和 System Center Data Protection Manager 客户可以：
 关于 Azure 备份的详细信息，请参阅：
 
 * [Azure 备份简介](backup-introduction-to-azure-backup.md)
-* [尝试 Azure 备份](backup-try-azure-backup-in-10-mins.md)
+* [尝试 Azure 备份](backup-configure-vault.md)
 
 <!-- Update_Description: update metedata properties -->

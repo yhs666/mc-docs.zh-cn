@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/12/2018
-ms.date: 11/12/2018
+origin.date: 11/12/2018
+ms.date: 12/17/2018
 ms.author: v-jay
 ms.reviewer: justini
-ms.openlocfilehash: 25821396c83d8d7e1d813fcab81bdd4a6b3ef152
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8fa646590096eb2e864264d7cf69f509fc8974d2
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652310"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396208"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 更新
 
-*适用于：Azure Stack 集成系统*
+适用于：Azure Stack 集成系统
 
 本文介绍 1808 更新包的内容。 此更新包包含此版 Azure Stack 的改进、修复和已知问题。 本文还包含一个用于下载更新的链接。 已知问题分为与更新过程直接相关的问题，以及内部版本（安装后）的问题。
 
@@ -65,12 +65,13 @@ Azure Stack 1808 更新内部版本号为 **1.1808.0.97**。
 - **Kubernetes 市场项**。 现在可以使用 [Kubernetes 市场项](azure-stack-solution-template-kubernetes-cluster-add.md)来部署 Kubernetes 群集。 用户可以选择 Kubernetes 项并填充一些参数，以便将 Kubernetes 群集部署到 Azure Stack。 模板的用途是方便用户在几个步骤中设置开发/测试型 Kubernetes 部署。
 
 <!-- | IS ASDK--> 
-- **Blockchain 模板**。 现在可以在 Azure Stack 上执行[以太坊联盟部署](azure-stack-ethereum.md)。 可以在 [Azure Stack 快速入门模板](https://github.com/Azure/AzureStack-QuickStart-Templates)中找到三个新的模板。 有了这些模板，用户不需多少 Azure 和以太坊知识即可部署和配置多成员联盟以太坊网络。 模板的用途是方便用户在几个步骤中设置开发/测试型 Blockchain 部署。
+- **Blockchain 模板**。 现在可以在 Azure Stack 上执行[以太坊联盟部署](user/azure-stack-ethereum.md)。 可以在 [Azure Stack 快速入门模板](https://github.com/Azure/AzureStack-QuickStart-Templates)中找到三个新的模板。 有了这些模板，用户不需多少 Azure 和以太坊知识即可部署和配置多成员联盟以太坊网络。 模板的用途是方便用户在几个步骤中设置开发/测试型 Blockchain 部署。
 
 <!-- | IS ASDK--> 
 - **API 版本配置文件 2017-03-09-profile 已更新到 2018-03-01-hybrid**。 API 配置文件指定 Azure 资源提供程序和 Azure REST 终结点的 API 版本。 有关配置文件的详细信息，请参阅[在 Azure Stack 中管理 API 版本配置文件](/azure-stack/user/azure-stack-version-profiles)。
 
- ### <a name="fixed-issues"></a>修复的问题
+### <a name="fixed-issues"></a>修复的问题
+
 <!-- IS ASDK--> 
 - 我们修复了在门户中创建可用性集的问题，该问题导致集只能有 1 个容错域和 1 个更新域。 
 
@@ -158,8 +159,12 @@ Azure Stack 1808 更新内部版本号为 **1.1808.0.97**。
 - 在某些情况下，当某个更新需要关注时，相应的警报可能没有生成。 准确的状态仍会反映在门户中，不受影响。
 
 ### <a name="post-update-steps"></a>更新后步骤
+
+> [!Important]  
+> 让 Azure Stack 部署准备好使用扩展主机。 遵照[为 Azure Stack 准备扩展主机](azure-stack-extension-host-prepare.md)中的指导准备系统。
+
 安装此更新之后，请安装所有适用的修补程序。 有关详细信息，请查看以下知识库文章，以及我们的[服务策略](azure-stack-servicing-policy.md)。 
-- [KB 4467062 – Azure Stack 修补程序 1.1808.4.108](https://support.microsoft.com/help/4467062/)
+- [知识库文章 4468920 – Azure Stack 修补程序 1.1808.7.113](https://support.microsoft.com/help/4471992/)
 
 
 ## <a name="known-issues-post-installation"></a>已知问题（安装后）
@@ -216,6 +221,8 @@ Azure Stack 1808 更新内部版本号为 **1.1808.0.97**。
    
   请运行 [Test-AzureStack](azure-stack-diagnostic-test.md) cmdlet 来验证基础结构角色实例和缩放单元节点的运行状况。 如果 [Test-AzureStack](azure-stack-diagnostic-test.md) 未检测到问题，则可以忽略这些警报。 如果检测到问题，则可以尝试使用管理门户或 PowerShell 启动基础结构角色实例或节点。
 
+  此问题已在最新的 [1808 修补程序版本](https://support.microsoft.com/help/4471992/)中修复，因此如果遇到此问题，请务必安装此修补程序。
+
 <!-- 1264761 - IS ASDK --> 
 - 可能会看到包含以下详细信息的“运行状况控制器”组件的警报：  
 
@@ -229,7 +236,7 @@ Azure Stack 1808 更新内部版本号为 **1.1808.0.97**。
    - 名称：基础结构角色不正常
    - 严重性：警告
    - 组件：运行状况控制器
-   - 说明：运行状况控制器故障扫描仪不可用。 这可能会影响运行状况报告和指标。
+   - 说明：运行状况控制器故障扫描程序不可用。 这可能会影响运行状况报告和指标。
 
   可以放心忽略这两条警报，它们在一段时间后会自动关闭。  
 
@@ -237,10 +244,10 @@ Azure Stack 1808 更新内部版本号为 **1.1808.0.97**。
 <!-- 2812138 | IS --> 
 - 可能会看到包含以下详细信息的**存储**组件警报：
 
-   - 名称: 存储服务内部通信错误  
+   - 名称：存储服务内部通信错误  
    - 严重性：严重  
-   - 组件: 存储  
-   - 说明: 将请求发送到以下节点时发生存储服务内部通信错误。  
+   - 组件：存储  
+   - 说明：将请求发送到以下节点时发生存储服务内部通信错误。  
 
     可以放心地忽略此警报，但需手动关闭它。
 
@@ -250,8 +257,11 @@ Azure Stack 1808 更新内部版本号为 **1.1808.0.97**。
 
 ### <a name="compute"></a>计算
 
+<!-- 3164607 – IS, ASDK -->
+- 将分离的磁盘重新附加到具有相同名称和 LUN 的同一虚拟机 (VM) 失败，并发生类似于“无法将数据磁盘 'datadisk' 附加到 VM 'vm1'”的错误。 之所以发生该错误，是原因该磁盘目前已分离，或上次分离操作失败。 请等到磁盘完全分离后重试，或再次显式删除/分离磁盘。 解决方法是使用其他名称，或者在其他 LUN 上重新附加磁盘。 
+
 <!-- 3099544 – IS, ASDK --> 
-- 使用 Azure Stack 门户创建新的虚拟机 (VM) 并选择 VM 大小时，“美元/月”列在显示时会出现“不可用”消息。 此列不应显示；Azure Stack 不支持显示 VM 定价列。
+- 使用 Azure Stack 门户创建新的 VM 并选择 VM 大小时，“美元/月”列在显示时会出现“不可用”消息。 此列不应显示；Azure Stack 不支持显示 VM 定价列。
 
 <!-- 3090289 – IS, ASDK --> 
 - 应用 1808 更新后，可能会在通过托管磁盘部署 VM 时遇到以下问题：
@@ -260,21 +270,25 @@ Azure Stack 1808 更新内部版本号为 **1.1808.0.97**。
       1. 在租户门户中转到“订阅”，找到相应订阅。 依次单击“资源提供程序”、“Microsoft.Compute”、“重新注册”。
       2. 在同一订阅下，转到“访问控制(标识和访问管理)”，验证“Azure Stack - 托管磁盘”是否已列出。
    2. 如果已配置多租户环境，在与来宾目录相关联的订阅中部署 VM 可能会失败并出现内部错误消息。 若要解决该错误，请执行以下步骤：
-      1. 应用 [1808 Azure Stack 修补程序](https://support.microsoft.com/help/4467062/)。
+      1. 应用 [1808 Azure Stack 修补程序](https://support.microsoft.com/help/4471992/)。
       2. 执行[此文](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)中的步骤，重新配置每个来宾目录。
+      
+<!-- 3179561 - IS --> 
+- 根据 [Azure Stack 使用情况常见问题解答](azure-stack-usage-related-faq.md#managed-disks)中所述，数小时内会报告托管磁盘的使用情况。 但是，Azure Stack 计费使用每月价格，因此，在 9 月 27 日或之前向你收取的托管磁盘使用费可能有误。 我们已在 9 月 27 日之后暂停收取托管磁盘的费用，直到计费问题解决为止。 如果向你收取的托管磁盘使用费有误，请联系 Azure 计费支持人员。
+从 Azure Stack 使用情况 API 生成的使用情况报告显示正确的数量并且可供使用。
 
 <!-- 2869209 – IS, ASDK --> 
-- 使用 [**Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0) 时，必须使用 **-OsUri** 参数作为存储帐户 URI（在其中上传磁盘）。 如果使用磁盘的本地路径，则此 cmdlet 会失败并显示以下错误：长时间运行的操作失败，状态为“失败”。 
+- 使用 [**Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0) 时，必须使用 **-OsUri** 参数作为存储帐户 URI（在其中上传磁盘）。 如果使用磁盘的本地路径，则此 cmdlet 会失败并显示以下错误：长时间运行的操作失败，状态为 'Failed'。 
 
 <!--  2966665 – IS, ASDK --> 
-- 将 SSD 数据磁盘附加到“高级”大小托管磁盘虚拟机（DS、DSv2、Fs、Fs_V2）失败，出现以下错误：无法更新虚拟机 ‘vmname’ 的磁盘。错误: 请求的操作无法执行，因为 VM 大小 ‘Standard_DS/Ds_V2/FS/Fs_v2’ 不支持存储帐户类型 ‘Premium_LRS’
+- 将 SSD 数据磁盘附加到高级大小的托管磁盘虚拟机（DS、DSv2、Fs、Fs_V2）失败并出现以下错误：无法更新虚拟机 ‘vmname’ 的磁盘。错误:由于 VM 大小 ‘Standard_DS/Ds_V2/FS/Fs_v2’ 不支持存储帐户类型 ‘Premium_LRS’，因此请求的操作无法执行
 
    若要解决此问题，请使用 *Standard_LRS* 数据磁盘而不是 *Premium_LRS* 磁盘。 使用 *Standard_LRS* 数据磁盘不会造成 IOPS 或账单费用变化。 
 
 <!--  2795678 – IS, ASDK --> 
 - 通过门户创建“高级”VM 大小（DS、Ds_v2、FS、FSv2）的虚拟机 (VM) 时，该 VM 在标准存储帐户中创建。 在标准存储帐户中创建不影响功能、IOPS 或计费。 
 
-   可以放心地忽略以下内容的警告：*在 VM 大小需要高级磁盘的情况下，你选择了使用标准磁盘。这可能影响操作系统性能，建议不要这样做。考虑改用高级存储(SSD)。*
+   可以放心忽略带有以下字样的警告：*在 VM 大小需要高级磁盘的情况下，你选择了使用标准磁盘。这可能影响操作系统性能，建议不要这样做。考虑改用高级存储(SSD)。*
 
 <!-- 2967447 - IS, ASDK --> 
 - 虚拟机规模集 (VMSS) 创建体验提供基于 CentOS 的 7.2 作为部署选项。 由于该映像在 Azure Stack 上不可用，因此请为部署选择另一 OS，或者使用一个 Azure 资源管理器模板，指定另一个已在部署之前由操作员从市场下载的 CentOS 映像。  

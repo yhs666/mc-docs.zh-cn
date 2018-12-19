@@ -1,6 +1,6 @@
 ---
 title: 创建 Azure 自动化集成模块
-description: 本教程指导你在 Azure 自动化中创建、测试以及通过示例方式使用集成模块。
+description: 本教程指导用户在 Azure 自动化中创建、测试以及通过示例方式使用集成模块。
 services: automation
 author: mgoedtel
 manager: jwhit
@@ -12,18 +12,18 @@ ms.topic: get-started-article
 origin.date: 03/16/2018
 ms.date: 05/14/2018
 ms.author: v-dazen
-ms.openlocfilehash: ab9f93f502d4d708e4abca6baf929c33c8b49833
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5258f33095a5ca19b45175fcf49775efa06fa4fb
+ms.sourcegitcommit: 6e07735318eb5f6ea319b618863259088eab3722
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645783"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52981676"
 ---
 # <a name="azure-automation-integration-modules"></a>Azure 自动化集成模块
-PowerShell 是 Azure 自动化背后的基本技术。 由于 Azure 自动化是基于 PowerShell 构建的，因此 PowerShell 模块对于 Azure 自动化的可扩展性很重要。 本文将详细介绍 Azure 自动化如何使用 PowerShell 模块（也称“集成模块”），以及如何根据最佳做法创建自己的 PowerShell 模块，确保这些模块在 Azure 自动化中作为集成模块来运行。 
+PowerShell 是 Azure 自动化背后的基本技术。 由于 Azure 自动化是基于 PowerShell 构建的，因此 PowerShell 模块对于 Azure 自动化的可扩展性很重要。 在本文中，我们将向你详细介绍 Azure 自动化如何使用 PowerShell 模块（也称“集成模块”），以及如何根据最佳做法创建自己的 PowerShell 模块，确保这些模块在 Azure 自动化中作为集成模块来运行。 
 
 ## <a name="what-is-a-powershell-module"></a>什么是 PowerShell 模块？
-PowerShell 模块是指一组可以通过 PowerShell 控制台、脚本、工作流、Runbook 使用的 PowerShell cmdlet（例如 **Get-Date** 或 **Copy-Item**），以及可以通过 PowerShell DSC 配置使用的 PowerShell DSC 资源（例如 WindowsFeature 或文件）。 PowerShell 的所有功能都是通过 cmdlet 和 DSC 资源公开的，所有 cmdlet/DSC 资源都受 PowerShell 模块支持，许多模块是 PowerShell 自带的。 例如，**Get-Date** cmdlet 属于 Microsoft.PowerShell.Utility PowerShell 模块，**Copy-Item** cmdlet 属于 Microsoft.PowerShell.Management PowerShell 模块，Package DSC 资源属于 PSDesiredStateConfiguration PowerShell 模块。 这些模块都是 PowerShell 附带的。 但是，许多 PowerShell 模块不是 PowerShell 附带的，而是通过第一方或第三方产品（例如 System Center 2012 Configuration Manager）分发的，或者由广大的 PowerShell 社区在 PowerShell 库这样的地方分发的。 这些模块很有用，因为模块可以通过封装的功能简化复杂的任务。  你可以 [在 MSDN 上详细了解 PowerShell 模块](https://msdn.microsoft.com/library/dd878324%28v=vs.85%29.aspx)。 
+PowerShell 模块是指一组可以通过 PowerShell 控制台、脚本、工作流、Runbook 使用的 PowerShell cmdlet（例如 **Get-Date** 或 **Copy-Item**），以及可以通过 PowerShell DSC 配置使用的 PowerShell DSC 资源（例如 WindowsFeature 或文件）。 PowerShell 的所有功能都是通过 cmdlet 和 DSC 资源公开的，所有 cmdlet/DSC 资源都受 PowerShell 模块支持，许多模块是 PowerShell 自带的。 例如，**Get-Date** cmdlet 属于 Microsoft.PowerShell.Utility PowerShell 模块，**Copy-Item** cmdlet 属于 Microsoft.PowerShell.Management PowerShell 模块，Package DSC 资源属于 PSDesiredStateConfiguration PowerShell 模块。 这些模块都是 PowerShell 附带的。 但是，许多 PowerShell 模块不是 PowerShell 附带的，而是通过第一方或第三方产品（例如 System Center 2012 Configuration Manager）分发的，或者由广大的 PowerShell 社区在 PowerShell 库这样的地方分发的。 这些模块很有用，因为模块可以通过封装的功能简化复杂的任务。  可以详细了解 [MSDN 上的 PowerShell 模块](https://msdn.microsoft.com/library/dd878324%28v=vs.85%29.aspx)。 
 
 ## <a name="what-is-an-azure-automation-integration-module"></a>什么是 Azure 自动化集成模块？
 集成模块与 PowerShell 模块并没有很大不同。 集成模块就是 PowerShell 模块，只是选择性地包含了另一个文件 - 元数据文件，该文件指定的 Azure 自动化连接类型需要在 Runbook 中用于模块的 cmdlet。 不管是否为选择性文件，这些 PowerShell 模块均可导入到 Azure 自动化中，这样其 cmdlet 就可以在 Runbook 中使用，其 DSC 资源就可以在 DSC 配置中使用。 Azure 自动化在后台存储这些模块，在执行 Runbook 作业和 DSC 编译作业时将其载入 Azure 自动化沙盒中，并在其中执行 Runbook 以及编译 DSC 配置。 此外还会自动将模块中的任何 DSC 资源放置在自动化 DSC 拉取服务器上，供那些尝试应用 DSC 配置的计算机拉取。  
@@ -35,7 +35,7 @@ PowerShell 模块是指一组可以通过 PowerShell 控制台、脚本、工作
 
 导入集成模块包时，采用压缩文件格式，文件名与模块名相同，使用 .zip 扩展名。 该包包含 Windows PowerShell 模块以及任何支持文件，包括一个清单文件 (.psd1)，如果模块有的话。
 
-如果模块应包含 Azure 自动化连接类型，则还必须包含名为 `<ModuleName>-Automation.json` 的文件，以便指定连接类型属性。 该文件为 json 文件，放置在 .zip 压缩文件的模块文件夹中，其中包含的“connection”字段是连接到模块所代表的系统或服务所必需的。 该文件最终会在 Azure 自动化中创建一个连接类型。 你可以使用此文件为模块的连接类型设置字段名称、类型，以及这些字段是否应加密和/或可选。 下面是一个采用 json 文件格式的模板：
+如果模块应包含 Azure 自动化连接类型，则还必须包含名为 `<ModuleName>-Automation.json` 的文件，以便指定连接类型属性。 该文件为 json 文件，放置在 .zip 压缩文件的模块文件夹中，其中包含的“connection”字段是连接到模块所代表的系统或服务所必需的。 该文件最终会在 Azure 自动化中创建一个连接类型。 可以使用此文件为模块的连接类型设置字段名称、类型，以及这些字段是否应加密和/或可选。 下面是一个采用 json 文件格式的模板：
 
 ```
 { 
@@ -65,7 +65,7 @@ PowerShell 模块是指一组可以通过 PowerShell 控制台、脚本、工作
 
 如果已经部署过 Service Management Automation 并为自动化 Runbook 创建过集成模块包，则该模板对你来说应该很熟悉。 
 
-## <a name="authoring-best-practices"></a>创作最佳做法
+## <a name="authoring-best-practices"></a>创作最佳实践
 虽然集成模块本质上是 PowerShell 模块，但建议在进行 PowerShell 模块的创作时注意某些事项，尽量提高其在 Azure 自动化中的可用性。 其中一些事项是特定于 Azure 自动化的，而另一些事项在得到妥当处理后可以提高模块在 PowerShell 工作流中的运行效率，与自动化的使用无关。 
 
 1. 在模块中为每个 cmdlet 提供摘要、说明和帮助 URI。 可以在 PowerShell 中为 cmdlet 定义特定的帮助信息，使用户可以通过 **Get-Help** cmdlet 获取这些 cmdlet 的使用帮助。 例如，下面说明了如何为 .psm1 文件中编写的 PowerShell 模块定义摘要和帮助 URI。<br>  
@@ -134,7 +134,7 @@ PowerShell 模块是指一组可以通过 PowerShell 控制台、脚本、工作
     }
     ```
    
-    若要启用 cmdlet 的此类行为，你可以允许 cmdlet 以参数的形式直接接受连接对象，而不是只接受连接字段作为参数。 通常情况下，需要为每个 cmdlet 提供一个参数集，这样不使用 Azure 自动化的用户在调用 cmdlet 时就不需要构造一个哈希表来充当连接对象。 下面的参数集 **SpecifyConnectionFields** 可用于逐个传递连接字段属性。 **UseConnectionObject** 允许你将连接一直传下去。 你可以看到， [Twilio PowerShell 模块](https://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8) 中的 Send-TwilioSMS cmdlet 允许通过任一种方式进行传递： 
+    要启用 cmdlet 的此类行为，可以允许 cmdlet 以参数的形式直接接受连接对象，而不是只接受连接字段作为参数。 通常情况下，需要为每个 cmdlet 提供一个参数集，这样不使用 Azure 自动化的用户在调用 cmdlet 时就不需要构造一个哈希表来充当连接对象。 下面的参数集 **SpecifyConnectionFields** 可用于逐个传递连接字段属性。 **UseConnectionObject** 允许你将连接一直传下去。 你可以看到， [Twilio PowerShell 模块](https://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8) 中的 Send-TwilioSMS cmdlet 允许通过任一种方式进行传递： 
    
     ```
     function Send-TwilioSMS {

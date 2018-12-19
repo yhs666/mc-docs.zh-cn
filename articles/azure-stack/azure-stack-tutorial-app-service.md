@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-origin.date: 10/15/2018
-ms.date: 11/12/2018
+origin.date: 11/15/2018
+ms.date: 12/17/2018
 ms.author: v-jay
-ms.reviewer: ''
+ms.reviewer: anwestg
 ms.custom: mvc
-ms.openlocfilehash: 83f0a0253ecee4afd07d7b60015ac7bccf9b9b80
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 3c0f55cc3cdbf793b0c97ef2a4e0299185f94b40
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650077"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396174"
 ---
 # <a name="tutorial-make-web-and-api-apps-available-to-your-azure-stack-users"></a>教程：将 Web 和 API 应用提供给 Azure Stack 用户使用
 
@@ -78,7 +78,7 @@ Azure Stack 云管理员可以创建套餐，使用户（租户）能够创建 A
 
 3. 选择“登录设置”，输入数据库的凭据，然后选择“确定”。 本教程稍后要用到这些凭据。
 4. 在“SKU”下，选择为 SQL 宿主服务器创建的 SQL SKU，然后选择“确定”。
-5. 选择“创建” 。
+5. 选择“创建”。
 
 ### <a name="create-a-dnn-app"></a>创建 DNN 应用
 
@@ -87,6 +87,6 @@ Azure Stack 云管理员可以创建套餐，使用户（租户）能够创建 A
 3. 选择“配置所需的设置” > “新建”，输入**应用服务计划**的名称。
 4. 选择“定价层” > “F1 免费” > “选择” > “确定”。
 5. 选择“数据库”并输入前面创建的 SQL 数据库的凭据。
-6. 选择“创建” 。
+6. 选择“创建”。
 
 <!-- Update_Description: wording update -->

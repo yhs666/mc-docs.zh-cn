@@ -11,12 +11,12 @@ ms.devlang: na
 origin.date: 05/14/2018
 ms.date: 11/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: 7e859778f2b207e4726d4194fc865c43892f5f7c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a0c9737f01abf7c8a2722a16087e1687fc1564db
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654485"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028475"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>将 Azure 存储与 Azure HDInsight 群集配合使用
 
@@ -57,7 +57,7 @@ HDInsight 提供对在本地附加到计算节点的分布式文件系统的访�
 
     wasb[s]://<containername>@<accountname>.blob.core.chinacloudapi.cn/<path>
 
-以下是将 Azure 存储帐户与 HDInsight 群集配合使用时的一些注意事项。
+下面是将 Azure 存储帐户与 HDInsight 群集配合使用时的一些注意事项。
 
 * **连接到群集的存储帐户中的容器：** 由于在创建过程中帐户名称和密钥会与群集相关联，因此你对这些容器中的 Blob 具有完全访问权限。
 
@@ -67,9 +67,9 @@ HDInsight 提供对在本地附加到计算节点的分布式文件系统的访�
   > 利用公共容器，可以获得该容器中可用的所有 Blob 的列表以及容器元数据。 利用公共 Blob，仅在知道正确 URL 时才可访问 Blob。 有关详细信息，请参阅<a href="/storage/blobs/storage-manage-access-to-resources">管理对容器和 Blob 的访问</a>。
   > 
   > 
-* **没有连接到群集的存储帐户中的私有容器：** 不能访问这些容器中的 Blob，除非在提交 WebHCat 作业时定义存储帐户。 本文后面对此做了解释。
+* **没有连接到群集的存储帐户中的专用容器：** 不能访问这些容器中的 Blob，除非在提交 WebHCat 作业时定义存储帐户。 本文后面对此做了解释。
 
-创建过程中定义的存储帐户及其密钥存储在群集节点上的 %HADOOP/_HOME%/conf/core-site.xml 中。 HDInsight 的默认行为是使用 core-site.xml 文件中定义的存储帐户。 可以使用 [Ambari](./hdinsight-hadoop-manage-ambari.md) 修改此设置
+创建过程中定义的存储帐户及其密钥存储在群集节点上的 %HADOOP/_HOME%/conf/core-site.xml 中。 HDInsight 的默认行为是使用 core-site.xml 文件中定义的存储帐户。 
 
 多个 WebHCat 作业，包括 Hive、MapReduce、Hadoop 流和 Pig，都可以带有存储帐户和元数据的说明。 （它目前对带有存储帐户的 Pig 有效，但对元数据无效。）有关详细信息，请参阅[将 HDInsight 群集与备用存储帐户和元存储配合使用](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx)。
 
@@ -83,7 +83,7 @@ Blob 可用于结构化和非结构化数据。 Blob 容器将数据存储为键
 * **数据重用和共享：** HDFS 中的数据位于计算群集内。 仅有权访问计算群集的应用程序才能通过 HDFS API 使用数据。 Azure 存储中的数据可通过 HDFS API 或 [Blob 存储 REST API][blob-storage-restAPI] 访问。 因此，可使用大量应用程序（包括其他 HDInsight 群集）和工具来生成和使用此类数据。
 * **数据存档：** 通过在 Azure 存储中存储数据，可以安全地删除用于计算的 HDInsight 群集而不会丢失用户数据。
 * **数据存储成本：** 与在 Azure 存储中存储数据相比，在 DFS 中长期存储数据的成本更高，因为计算群集的成本高于 Azure 存储的成本。 此外，由于数据无需在每次生成计算群集时重新加载，也节省了数据加载成本。
-* **弹性扩展：** 尽管 HDFS 提供扩展文件系统，但规模由为群集创建的节点数量决定。 与依靠自动获得的 Azure 存储的弹性缩放功能相比，更改规模的过程可能更复杂。
+* **弹性横向扩展：** 尽管 HDFS 提供扩展文件系统，但规模由为群集创建的节点数量决定。 与依靠自动获得的 Azure 存储的弹性缩放功能相比，更改规模的过程可能更复杂。
 * **异地复制：** 可对 Azure 存储进行异地复制。 尽管这可为你提供地理恢复和数据冗余功能，但针对异地复制位置的故障转移将大大影响你的性能，并且可能会产生额外成本。 因此，我们建议你仅在数据的价值值得你支付额外成本时才选择适当的异地复制。
 
 某些 MapReduce 作业和包可能会产生中间结果，并不想在 Azure 存储中存储这些结果。 在此情况下，仍可以选择将数据存储在本地 HDFS 中。 实际上，HDInsight 在 Hive 作业和其他过程中会为其中某些中间结果使用 DFS。

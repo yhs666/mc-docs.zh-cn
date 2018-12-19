@@ -1,49 +1,50 @@
 ---
-title: 将 Azure CLI 2.0 用于 Azure 存储 | Microsoft Docs
-description: 了解如何将 Azure 命令行接口 (Azure CLI) 2.0 用于 Azure 存储，以便创建和管理存储帐户并处理 Azure blob 和文件。 Azure CLI 2.0 是使用 Python 编写的跨平台工具。
+title: 将 Azure CLI 用于 Azure 存储 | Microsoft Docs
+description: 了解如何将 Azure 命令行界面 (Azure CLI) 用于 Azure 存储，以便创建和管理存储帐户并处理 Azure blob 和文件。
 services: storage
 author: WenJason
 ms.service: storage
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 06/02/2017
-ms.date: 09/24/2018
+ms.date: 12/10/2018
 ms.author: v-jay
-ms.openlocfilehash: 32f3ee792ced5a49de432ad735534a895180f25a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.component: common
+ms.openlocfilehash: d564181e15b9afbd2469d7f79a0d7e6345f35736
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663439"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028422"
 ---
-# <a name="using-the-azure-cli-20-with-azure-storage"></a>将 Azure CLI 2.0 用于 Azure 存储
+# <a name="using-the-azure-cli-with-azure-storage"></a>将 Azure CLI 用于 Azure 存储
 
-开源跨平台 Azure CLI 2.0 提供一组可在 Azure 平台上运行的命令。 它提供 [Azure 门户](https://portal.azure.cn)所提供的很多相同功能，包括各种数据访问功能。
+开源且跨平台的 Azure CLI 提供了一组可在 Azure 平台上运行的命令。 它提供 [Azure 门户](https://portal.azure.cn)所提供的很多相同功能，包括各种数据访问功能。
 
-本指南介绍如何使用 [Azure CLI 2.0](https://docs.azure.cn/cli/get-started-with-azure-cli?view=azure-cli-latest) 执行多个使用 Azure 存储帐户中的资源的任务。 在使用本指南之前，我们建议下载并安装或者升级到 CLI 2.0 的最新版。
+本指南介绍如何使用 [Azure CLI](https://docs.azure.cn/cli/get-started-with-azure-cli?view=azure-cli-latest) 执行多个使用 Azure 存储帐户中的资源的任务。 在使用本指南之前，我们建议下载并安装或者升级到最新版 CLI。
 
-指南中的示例假设在 Ubuntu 上使用 Bash shell，但其他平台的执行情况应与此类似。 
+指南中的示例假定在 Ubuntu 上使用 Bash shell，但其他平台的执行情况应与此类似。 
 
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
 ## <a name="prerequisites"></a>先决条件
-本指南假设读者了解 Azure 存储的基本概念。 本指南还假设读者能够满足下面针对 Azure 和存储服务指定的帐户创建要求。
+本指南假设读者了解 Azure 存储的基本概念。 本指南还假定，用户能够满足下面为 Azure 和存储服务指定的帐户创建要求。
 
 ### <a name="accounts"></a>帐户
 * **Azure 帐户**：如果没有 Azure 订阅，可以[创建一个试用 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 * **存储帐户**：请参阅[关于 Azure 存储帐户](storage-create-storage-account.md)中的[创建存储帐户](storage-quickstart-create-account.md)。
 
-### <a name="install-the-azure-cli-20"></a>安装 Azure CLI 2.0
+### <a name="install-the-azure-cli"></a>安装 Azure CLI
 
-按照 [安装 Azure CLI 2.0](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)中的概要说明，下载并安装 Azure CLI 2.0。
+按照[安装 Azure CLI](/cli/install-az-cli2) 中的概要说明，下载和安装 Azure CLI。
 
 > [!TIP]
-> 如果在安装时遇到问题，请查看本文的[安装故障排除](https://docs.azure.cn/cli/install-azure-cli#installation-troubleshooting)部分以及 GitHub 上的 [Install Troubleshooting](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md)（安装故障排除）指南。
+> 如果在安装时遇到问题，请查看本文的[安装故障排除](/cli/install-az-cli2#installation-troubleshooting)部分以及 GitHub 上的 [Install Troubleshooting](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md)（安装故障排除）指南。
 >
 
 ## <a name="working-with-the-cli"></a>使用 CLI
 
-安装 CLI 之后，可以在命令行接口（Bash、终端、命令提示符）中使用 `az` 命令访问 Azure CLI 命令。 键入 `az` 命令以查看基本命令的完整列表（下面的示例输出已被截断）：
+安装 CLI 之后，可以在命令行界面（Bash、终端、命令提示符）中使用 `az` 命令访问 Azure CLI 命令。 键入 `az` 命令以查看基本命令的完整列表（下面的示例输出已被截断）：
 
 ```
      /\
@@ -65,7 +66,7 @@ Here are the base commands:
     ...
 ```
 
-在命令行接口中，执行命令 `az storage --help` 列出 `storage` 命令子组。 子组的说明概述了 Azure CLI 提供的用于使用存储资源的功能。
+在命令行接口中，执行命令 `az storage --help` 列出 `storage` 命令子组。 子组说明概述了 Azure CLI 提供的用于使用存储资源的功能。
 
 ```
 Group
@@ -89,16 +90,16 @@ Subgroups:
 
 ## <a name="connect-the-cli-to-your-azure-subscription"></a>将 CLI 连接到 Azure 订阅
 
-若要使用 Azure 订阅中的资源，必须首先使用 `az login`登录到 Azure 帐户。 登录方法有多种：
+若要使用 Azure 订阅中的资源，必须首先使用 `az login` 登录到 Azure 帐户。 登录方法有多种：
 
-* 交互式登录：`az login`
-* 使用用户名和密码登录：`az login -u johndoe@contoso.com -p VerySecret`
+* **交互式登录**：`az login`
+* **使用用户名和密码登录**：`az login -u johndoe@contoso.com -p VerySecret`
   * 这不能用于 Microsoft 帐户或使用多重身份验证的帐户。
 * **使用服务主体登录**：`az login --service-principal -u http://azure-cli-2016-08-05-14-31-15 -p VerySecret --tenant contoso.partner.onmschina.cn`
 
-## <a name="azure-cli-20-sample-script"></a>Azure CLI 2.0 示例脚本
+## <a name="azure-cli-sample-script"></a>Azure CLI 示例脚本
 
-接下来，我们将使用一个小型 shell 脚本，该脚本会发出一些基本的 Azure CLI 2.0 命令与 Azure 存储资源进行交互。 该脚本首先在存储帐户中创建新容器，再将现有文件（作为 Blob）上传到该容器。 然后，列出容器中的所有 Blob，最后，将文件下载到指定的本地计算机上的目标。
+接下来，我们将使用一个小型 shell 脚本，该脚本会发出一些基本的 Azure CLI 命令与 Azure 存储资源进行交互。 该脚本首先在存储帐户中创建新容器，然后将现有文件（作为 Blob）上传到该容器。 然后，它列出容器中的所有 Blob，最后，将文件下载到指定的本地计算机上的目标。
 
 ```bash
 #!/bin/bash
@@ -129,24 +130,24 @@ echo "Done"
 
 **配置并运行脚本**
 
-1. 打开偏好的文本编辑器，将前面的脚本复制并粘贴到编辑器中。
+1. 打开最喜欢的文本编辑器，然后将前面的脚本复制并粘贴到编辑器中。
 
 2. 接下来，更新脚本的变量以反映用户的配置设置。 按照明确的说明替换以下值：
 
    * \<storage_account_name\>：存储帐户的名称。
-   * \<storage_account_key\>：存储帐户的主访问密钥或辅助访问密钥。
-   * \<container_name\>：要创建的新容器的名称，例如“azure-cli-sample-container”。
-   * \<blob_name\>：容器中的目标 Blob 的名称。
-   * \<file_to_upload\>：本地计算机上小文件的路径，例如：“~/images/HelloWorld.png”。
+   * **\<storage_account_key\>**：存储帐户的主访问密钥或辅助访问密钥。
+   * **\<container_name\>**：要创建的新容器的名称，例如“azure-cli-sample-container”。
+   * **\<blob_name\>**：容器中目标 Blob 的名称。
+   * **\<file_to_upload\>**：本地计算机上小文件的路径，例如：“~/images/HelloWorld.png”。
    * \<destination_file\>：目标文件路径，如“~/downloadedImage.png”。
 
-3. 更新了必要的变量后，保存脚本并退出编辑器。 后续步骤假定已将脚本命名为 my_storage_sample.sh。
+3. 更新了必要的变量后，保存脚本并退出编辑器。 后续步骤假定已将脚本命名为 **my_storage_sample.sh**。
 
 4. 如有必要，将脚本标记为可执行文件：`chmod +x my_storage_sample.sh`
 
-5. 执行该脚本。 例如，在 Bash 中： `./my_storage_sample.sh`
+5. 执行脚本。 例如，在 Bash 中：`./my_storage_sample.sh`
 
-应看到类似于以下内容的输出，在脚本中指定的 \<destination_file\> 应出现在本地计算机上。
+应看到类似于以下内容的输出，在脚本中指定的 **\<destination_file\>** 应出现在本地计算机上。
 
 ```
 Creating the container...
@@ -167,13 +168,13 @@ Done
 ```
 
 > [!TIP]
-> 前面的输出采用 **表** 格式。 可以通过在 CLI 命令中指定 `--output` 参数来指定要使用的输出格式，或使用 `az configure` 进行全局设置。
+> 前面的输出采用**表**格式。 可以通过在 CLI 命令中指定 `--output` 参数来指定要使用的输出格式，或使用 `az configure` 进行全局设置。
 >
 
 ## <a name="manage-storage-accounts"></a>管理存储帐户
 
 ### <a name="create-a-new-storage-account"></a>新建存储帐户
-若要使用 Azure 存储，需创建一个存储帐户。 可以在将计算机配置为[连接到订阅](#connect-to-your-azure-subscription)之后创建新的 Azure 存储帐户。
+若要使用 Azure 存储，用户需要一个存储帐户。 可以在将计算机配置为[连接到订阅](#connect-to-your-azure-subscription)之后，创建新的 Azure 存储帐户。
 
 ```azurecli
 az storage account create \
@@ -183,10 +184,10 @@ az storage account create \
     --sku <account_sku>
 ```
 
-* `--location` [必填]：位置。 例如“China East”。
-* `--name` [必填]：存储帐户名称。 名称的长度必须为 3 到 24 个字符，只能包含小写字母数字字符。
-* `--resource-group` [必填]：资源组的名称。
-* `--sku` [必填]：存储帐户 SKU。 允许的值：
+* `--location` [必需]：位置。 例如“China East”。
+* `--name` [必需]：存储帐户名称。 名称长度必须为 3 到 24 个字符，并且名称只能包含小写字母数字字符。
+* `--resource-group` [必需]：资源组的名称。
+* `--sku` [必需]：存储帐户 SKU。 允许的值：
   * `Premium_LRS`
   * `Standard_GRS`
   * `Standard_LRS`
@@ -221,14 +222,14 @@ az storage account show-connection-string \
     --resource-group <resource_group>
 ```
 
-然后复制输出连接字符串，并设置 `AZURE_STORAGE_CONNECTION_STRING` 环境变量（可能需要将连接字符串括在引号中）：
+然后复制输出连接字符串，并且设置 `AZURE_STORAGE_CONNECTION_STRING` 环境变量（可能需要将连接字符串括在引号中）：
 
 ```azurecli
 export AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
 ```
 
 > [!NOTE]
-> 本文以下部分中的所有示例均假设已设置 `AZURE_STORAGE_ACCOUNT` 和 `AZURE_STORAGE_KEY` 环境变量。
+> 本文下列部分中的所有示例均假定已设置 `AZURE_STORAGE_ACCOUNT` 和 `AZURE_STORAGE_KEY` 环境变量。
 
 ## <a name="create-and-manage-blobs"></a>创建并管理 blob
 Azure Blob 存储是用于存储大量非结构化数据（例如文本或二进制数据）的服务，这些数据可通过 HTTP 或 HTTPS 从世界各地进行访问。 本部分假设读者熟悉 Azure Blob 存储的概念。 有关详细信息，请参阅[通过 .NET 开始使用 Azure Blob 存储](../blobs/storage-dotnet-how-to-use-blobs.md)和 [Blob 服务概念](https://docs.microsoft.com/rest/api/storageservices/blob-service-concepts)。
@@ -243,8 +244,8 @@ az storage container create --name <container_name>
 可以通过指定可选 `--public-access` 参数，为新容器设置读取访问权限的三个级别之一：
 
 * `off`（默认值）：容器数据是帐户所有者私有的。
-* `blob`：对 Blob 的公共读取访问权限。
-* `container`：对整个容器的公共读取和列出访问权限。
+* `blob`：Blob 的公共读取访问权限。
+* `container`：对整个容器的公共读取和列表访问权限。
 
 有关详细信息，请参阅[管理对容器和 Blob 的匿名读取访问](../blobs/storage-manage-access-to-resources.md)。
 
@@ -258,11 +259,11 @@ az storage blob upload \
     --name <blob_name>
 ```
 
-如果想要直接上传到存储帐户中容器内的文件夹，请将 `--name <blob_name>` 替换为 `--name <folder/blob_name>`。
+如果想直接上载到存储帐户中容器内的文件夹，请将 `--name <blob_name>` 替换为 `--name <folder/blob_name>`。
 
- 默认情况下，`blob upload` 命令将 *.vhd 文件上传到页 Blob 或块 Blob。 若要在上传 Blob 时指定另一种类型，可以使用 `--type` 参数，允许的值为 `append`、`block` 和 `page`。
+ 默认情况下，`blob upload` 命令将 *.vhd 文件上传到页 Blob 或块 Blob。 若要在上传 Blob 时指定另一种类型，可以使用 `--type` 参数，允许的值为 `append`、 `block` 和 `page`。
 
- 有关不同 Blob 类型的详细信息，请参阅 [了解块 Blob、追加 Blob 和页 Blob](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs)。
+ 有关不同 Blob 类型的详细信息，请参阅 [Understanding Block Blobs, Append Blobs, and Page Blobs](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs)（了解块 Blob、追加 Blob 和页 Blob）。
 
 
 ### <a name="download-a-blob-from-a-container"></a>从容器下载 Blob
@@ -288,7 +289,7 @@ az storage blob list \
 ### <a name="copy-blobs"></a>复制 blob
 可以在存储帐户和区域内或跨存储帐户和区域异步复制 Blob。
 
-以下示例演示如何将一个存储帐户中的 Blob 复制到另一个存储帐户。 我们首先在源存储帐户中创建容器，并指定对其 blob 的公共读取访问权限。 接下来，将文件上传到该容器，最后，将 Blob 从该容器复制到目标存储帐户中的容器。
+以下示例演示如何将一个存储帐户中的 Blob 复制到另一个存储帐户。 我们首先在源存储帐户中创建一个容器，指定对其 blob 的公共读取访问权限。 接下来，我们将文件上传到该容器，最后，将 blob 从该容器复制到目标存储帐户中的一个容器。
 
 ```azurecli
 # Create container in source account
@@ -315,7 +316,7 @@ az storage blob copy start \
     --source-uri https://sourceaccountname.blob.core.chinacloudapi.cn/sourcecontainer/sourcefile.png
 ```
 
-在上面的示例中，目标容器必须已存在于目标存储帐户中，复制操作才能成功。 此外，`--source-uri` 参数中指定的源 blob 必须包含共享访问签名 (SAS) 令牌，或可公开访问，如此示例所示。
+在上面的示例中，目标容器必须已存在于目标存储帐户中，复制操作才会成功。 另外，在 `--source-uri` 参数中指定的源 blob 必须包括一个共享的访问签名 (SAS) 令牌，或者可供公开访问，如此示例中所示。
 
 ### <a name="delete-a-blob"></a>删除 Blob
 若要删除 Blob，请使用 `blob delete` 命令：
@@ -328,7 +329,7 @@ az storage blob delete --container-name <container_name> --name <blob_name>
 Azure 文件使用服务器消息块 (SMB) 协议为应用程序提供共享存储。 Azure 虚拟机和云服务以及本地应用程序可以通过装载的共享来共享文件数据。 可以通过 Azure CLI 管理文件共享和文件数据。 有关 Azure 文件的详细信息，请参阅 [Azure 文件简介](../files/storage-files-introduction.md)。
 
 ### <a name="create-a-file-share"></a>创建文件共享
-Azure 文件共享是 Azure 中的 SMB 文件共享。 所有目录和文件都必须在文件共享中创建。 一个帐户可以包含无限数量的共享，一个共享可以存储无限数量的文件，直到达到存储帐户的容量限制为止。 下面的示例创建名为 **myshare**的文件共享。
+Azure 文件共享是 Azure 中的 SMB 文件共享。 所有目录和文件都必须在文件共享中创建。 一个帐户可以包含无限数量的共享，一个共享可以存储无限数量的文件，直到达到存储帐户的容量限制为止。 下面的示例创建名为 **myshare** 的文件共享。
 
 ```azurecli
 az storage share create --name myshare
@@ -341,7 +342,7 @@ az storage share create --name myshare
 az storage directory create --name myDir --share-name myshare
 ```
 
-目录路径可以包括多个级别，例如 dir1/dir2。 但在创建子目录之前，必须确保所有父目录都存在。 例如，对于路径 dir1/dir2，必须先创建目录 dir1，然后再创建目录 dir2。
+目录路径可以包括多个级别，例如 **dir1/dir2**。 但是，必须在创建子目录之前确保所有父目录都存在。 例如，对于路径 **dir1/dir2**，必须先创建目录 **dir1**，再创建目录 **dir2**。
 
 ### <a name="upload-a-local-file-to-a-share"></a>将本地文件上传到共享
 以下示例将文件从 **~/temp/samplefile.txt** 上传到 **myshare** 文件共享的根目录。 `--source` 参数指定要上传的现有本地文件。
@@ -356,10 +357,10 @@ az storage file upload --share-name myshare --source ~/temp/samplefile.txt
 az storage file upload --share-name myshare/myDir --source ~/temp/samplefile.txt
 ```
 
-共享中的文件最大可为 1 TB。
+共享中的文件最大可以为 1 TB。
 
 ### <a name="list-the-files-in-a-share"></a>列出共享中的文件
-可以使用 `az storage file list` 命令列出共享中的文件和目录：
+可以通过使用 `az storage file list` 命令列出共享中的文件和目录：
 
 ```azurecli
 # List the files in the root of a share
@@ -373,7 +374,7 @@ az storage file list --share-name myshare --path myDir/mySubDir/MySubDir2 --outp
 ```
 
 ### <a name="copy-files"></a>复制文件      
-可将一个文件复制到另一个文件，将一个文件复制到一个 Blob，或将一个 Blob 复制到一个文件。 例如，要将文件复制到不同共享中的目录，请执行以下操作：        
+可以将一个文件复制到另一个文件，将一个文件复制到一个 Blob，或将一个 Blob 复制到一个文件。 例如，要将文件复制到不同共享中的目录，请执行以下操作：        
         
 ```azurecli
 az storage file copy start \
@@ -519,8 +520,8 @@ az storage share delete -n <share name> --snapshot '2017-10-04T23:28:35.0000000Z
 ```
 
 ## <a name="next-steps"></a>后续步骤
-可以参考以下附加资源详细了解如何使用 Azure CLI 2.0。
+下面是一些用于详细了解如何使用 Azure CLI 的附加资源。 
 
-* [Azure CLI 2.0 入门](https://docs.azure.cn/cli/get-started-with-azure-cli)
-* [Azure CLI 2.0 命令参考](https://docs.azure.cn/cli)
-* [GitHub 上的 Azure CLI 2.0](https://github.com/Azure/azure-cli)
+* [Azure CLI 入门](https://docs.azure.cn/cli/get-started-with-az-cli2)
+* [Azure CLI 命令参考](https://docs.azure.cn/cli)
+* [GitHub 上的 Azure CLI](https://github.com/Azure/azure-cli)

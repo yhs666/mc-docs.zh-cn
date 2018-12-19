@@ -1,11 +1,22 @@
 ---
-title: 使用 Node.js 将事件发送到 Azure 事件中心 | Azure description: 开始使用 Node.js 将事件发送到事件中心。
-services: event-hubs author: ShubhaVijayasarathy manager: kamalb
-
-ms.service: event-hubs ms.workload: core ms.topic: article origin.date: 09/18/2018 ms.date: 12/10/2018 ms.author:v-biyu
-
+title: 使用 Node.js 将事件发送到 Azure 事件中心 | Azure
+description: 使用 Node.js 将事件发送到事件中心入门。
+services: event-hubs
+author: ShubhaVijayasarathy
+manager: kamalb
+ms.service: event-hubs
+ms.workload: core
+ms.topic: article
+origin.date: 09/18/2018
+ms.date: 12/10/2018
+ms.author: v-biyu
+ms.openlocfilehash: 7c893330842a5cbd1f14717e1736751ff525e131
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028679"
 ---
-
 # <a name="send-events-to-azure-event-hubs-using-nodejs"></a>使用 Node.js 将事件发送到 Azure 事件中心
 
 Azure 事件中心是一个大数据流式处理平台和事件引入服务，每秒能够接收和处理数百万个事件。 事件中心可以处理和存储分布式软件和设备生成的事件、数据或遥测。 可以使用任何实时分析提供程序或批处理/存储适配器转换和存储发送到数据中心的数据。 有关事件中心的详细概述，请参阅[事件中心概述](event-hubs-about.md)和[事件中心功能](event-hubs-features.md)。

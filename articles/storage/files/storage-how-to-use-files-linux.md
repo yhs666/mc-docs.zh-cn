@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 03/29/2018
 ms.date: 09/10/2018
 ms.author: v-jay
-ms.openlocfilehash: c9413ec95d6d0e9cb493886dd732f1389ab7352c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 3236fd738e20743a69077b009c7bc8f44703de1a
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650857"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028589"
 ---
 # <a name="use-azure-files-with-linux"></a>通过 Linux 使用 Azure 文件
 [Azure 文件](storage-files-introduction.md)是易于使用的云文件系统。 可以使用 [SMB 内核客户端](https://wiki.samba.org/index.php/LinuxCIFS)在 Linux 分发版中装载 Azure 文件共享。 本文介绍装载 Azure 文件共享的两种方法：使用 `mount` 命令按需装载，以及通过在 `/etc/fstab` 中创建一个条目在启动时装载。
@@ -71,22 +71,22 @@ ms.locfileid: "52650857"
     
 * **确定已装载共享的目录/文件权限**：在以下示例中，权限 `0777` 用于向所有用户授予读取、写入和执行权限。 可以根据需要将这些权限替换为其他 [chmod 权限](https://en.wikipedia.org/wiki/Chmod)。 
 
-* **存储帐户名称**：需提供存储帐户的名称才能装载 Azure 文件共享。
+* **存储帐户名称**：若要装载 Azure 文件共享，你需要具有存储帐户的名称。
 
-* **存储帐户密钥**：需提供主要（或辅助）存储密钥才能装载 Azure 文件共享。 目前不支持使用 SAS 密钥进行装载。
+* **存储帐户密钥**：若要装载 Azure 文件共享，你需要具有主（或辅助）存储密钥。 目前不支持使用 SAS 密钥进行装载。
 
-* **确保已打开端口 445**：SMB 通过 TCP 端口 445 通信 - 请查看防火墙是否未阻止 TCP 端口 445 与客户端计算机通信。
+* **确保端口 445 处于打开状态**：SMB 通过 TCP 端口 445 通信 - 请查看防火墙是否未阻止 TCP 端口 445 与客户端计算机通信。
 
 ## <a name="mount-the-azure-file-share-on-demand-with-mount"></a>使用 `mount` 按需装载 Azure 文件共享
 1. **[安装适用于 Linux 分发版的 cifs-utils 包](#install-cifs-utils)**。
 
-2. **为装入点创建文件夹**：可以在文件系统上的任何位置创建装入点的文件夹，但是通用约定是在 `/mnt` 文件夹下创建此文件夹。 例如：
+2. **为装入点创建一个文件夹**：可以在文件系统上的任何位置创建装入点的文件夹，但是通用约定是在 `/mnt` 文件夹下创建此文件夹。 例如：
 
     ```bash
     mkdir /mnt/MyAzureFileShare
     ```
 
-3. **使用 mount 命令装载 Azure 文件共享**：记得将 `<storage-account-name>`、`<share-name>`、`<smb-version>`、`<storage-account-key>` 和 `<mount-point>` 替换为适用于你环境的相应信息。 如果你的 Linux 分发版支持带加密的 SMB 3.0（有关详细信息，请参阅[了解 SMB 客户端要求](#smb-client-reqs)），则将 `3.0` 用于 `<smb-version>`。 对于不支持带加密的 SMB 3.0 的 Linux 分发版，将 `2.1` 用于 `<smb-version>`。 请注意，只能使用 SMB 3.0 在 Azure 区域外部（包括本地或不同 Azure 区域中）装载 Azure 文件共享。 
+3. **使用装载命令来装载 Azure 文件共享**：请记得将 `<storage-account-name>`、`<share-name>`、`<smb-version>`、`<storage-account-key>` 和 `<mount-point>` 替换为适合你的环境的信息。 如果你的 Linux 分发版支持带加密的 SMB 3.0（有关详细信息，请参阅[了解 SMB 客户端要求](#smb-client-reqs)），则将 `3.0` 用于 `<smb-version>`。 对于不支持带加密的 SMB 3.0 的 Linux 分发版，将 `2.1` 用于 `<smb-version>`。 请注意，只能使用 SMB 3.0 在 Azure 区域外部（包括本地或不同 Azure 区域中）装载 Azure 文件共享。 
 
     ```bash
     sudo mount -t cifs //<storage-account-name>.file.core.chinacloudapi.cn/<share-name> <mount-point> -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
@@ -98,7 +98,7 @@ ms.locfileid: "52650857"
 ## <a name="create-a-persistent-mount-point-for-the-azure-file-share-with-etcfstab"></a>使用 `/etc/fstab` 为 Azure 文件共享创建持久装入点
 1. **[安装适用于 Linux 分发版的 cifs-utils 包](#install-cifs-utils)**。
 
-2. **为装入点创建文件夹**：可以在文件系统上的任何位置创建装入点的文件夹，但是通用约定是在 `/mnt` 文件夹下创建此文件夹。 无论在何处创建此文件夹，请记下此文件夹的绝对路径。 例如，以下命令在 `/mnt` 下创建新文件夹（路径为绝对路径）。
+2. **为装入点创建一个文件夹**：可以在文件系统上的任何位置创建装入点的文件夹，但是通用约定是在 `/mnt` 文件夹下创建此文件夹。 无论在何处创建此文件夹，请记下此文件夹的绝对路径。 例如，以下命令在 `/mnt` 下创建新文件夹（路径为绝对路径）。
 
     ```bash
     sudo mkdir /mnt/MyAzureFileShare
@@ -123,7 +123,7 @@ ms.locfileid: "52650857"
     sudo chmod 600 /etc/smbcredentials/<storage-account-name>.cred
     ```
 
-5. **使用以下命令将以下代码行追加到 `/etc/fstab`**：记得将 `<storage-account-name>`、`<share-name>`、`<smb-version>` 和 `<mount-point>` 替换为适合你的环境的信息。 如果你的 Linux 分发版支持带加密的 SMB 3.0（有关详细信息，请参阅[了解 SMB 客户端要求](#smb-client-reqs)），则将 `3.0` 用于 `<smb-version>`。 对于不支持带加密的 SMB 3.0 的 Linux 分发版，将 `2.1` 用于 `<smb-version>`。 请注意，只能使用 SMB 3.0 在 Azure 区域外部（包括本地或不同 Azure 区域中）装载 Azure 文件共享。 
+5. **使用以下命令将以下行追加到 `/etc/fstab`**：请记得将 `<storage-account-name>`、`<share-name>`、`<smb-version>` 和 `<mount-point>` 替换为适合你的环境的信息。 如果你的 Linux 分发版支持带加密的 SMB 3.0（有关详细信息，请参阅[了解 SMB 客户端要求](#smb-client-reqs)），则将 `3.0` 用于 `<smb-version>`。 对于不支持带加密的 SMB 3.0 的 Linux 分发版，将 `2.1` 用于 `<smb-version>`。 请注意，只能使用 SMB 3.0 在 Azure 区域外部（包括本地或不同 Azure 区域中）装载 Azure 文件共享。 
 
     ```bash
     sudo bash -c 'echo "//<storage-account-name>.file.core.chinacloudapi.cn/<share-name> <mount-point> cifs nofail,vers=<smb-version>,credentials=/etc/smbcredentials/<storage-account-name>.cred,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/23/2018
-ms.date: 05/28/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: a330655163ceaf2b56e1dc9bebdee78b0aa7e737
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5cb34cf8aed3be93133f9d2ff0209f35807d2e89
+ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650859"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52901103"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>在服务清单中指定资源
 ## <a name="overview"></a>概述
@@ -107,7 +107,10 @@ HTTPS 协议提供服务器身份验证，用于对客户端-服务器通信进�
 > [!NOTE]
 > 在应用程序升级期间不能更改服务的协议。 如果在升级期间进行了更改，那会是一项重大的更改。
 > 
-> 
+
+> [!WARNING] 
+> 使用 HTTPS 时，请勿将同一端口和证书用于已部署到同一节点的不同服务实例（独立于应用程序）。 在不同的应用程序实例中使用相同的端口升级两个不同的服务将导致升级失败。 有关详细信息，请参阅[使用 HTTPS 终结点升级多个应用程序](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints)。
+>
 
 下面是需要为 HTTPS 设置的一个示例 ApplicationManifest。 必须提供证书的指纹。 EndpointRef 是对 ServiceManifest 中 EndpointResource 的引用，为其设置 HTTPS 协议。 可以添加多个 EndpointCertificate。  
 
@@ -155,11 +158,11 @@ HTTPS 协议提供服务器身份验证，用于对客户端-服务器通信进�
 
 ## <a name="overriding-endpoints-in-servicemanifestxml"></a>重写 ServiceManifest.xml 中的终结点
 
-在 ApplicationManifest 中，添加一个 ResourceOverrides 节，作为 ConfigOverrides 节的同级。 在此节中，可以为服务清单中指定的 resources 节中的 Endpoints 节指定替代。 运行时 5.7.217/SDK 2.7.217 及更高版本支持替代终结点。
+在 ApplicationManifest 中，添加一个 ResourceOverrides 部分，作为 ConfigOverrides 部分的同级。 在本部分中，可以为服务清单中指定的资源部分中的终结点部分指定替代。 运行时 5.7.217/SDK 2.7.217 及更高版本支持替代终结点。
 
 若要使用 ApplicationParameter 重写 ServiceManifest 中的终结点，请更改 ApplicationManifest，如下所示：
 
-在 ServiceManifestImport 节中添加一个新节“ResourceOverrides”
+在 ServiceManifestImport 部分添加一个新部分“ResourceOverrides”。
 
 ```xml
 <ServiceManifestImport>
@@ -189,7 +192,7 @@ HTTPS 协议提供服务器身份验证，用于对客户端-服务器通信进�
   </Parameters>
 ```
 
-部署应用程序时，现可传入这些值作为 ApplicationParameters，例如：
+部署应用程序时，可以传入这些值作为 ApplicationParameter。  例如：
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}

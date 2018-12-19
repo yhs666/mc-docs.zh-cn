@@ -10,12 +10,12 @@ ms.reviewer: estfan, jonfan, LADocs
 ms.topic: article
 origin.date: 08/19/2018
 ms.date: 11/12/2018
-ms.openlocfilehash: 2d6bd206c3d4c5f5a997842dcf9eb73fd3b6e27c
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 44894c0e16ebd97413b29f4be47b66858476d717
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675093"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028367"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>在 Azure 逻辑应用中发送、接收和批处理消息
 
@@ -49,9 +49,9 @@ ms.locfileid: "52675093"
 
 在将消息发送到某个批之前，该批必须存在且充当这些消息要发送到的目标。 因此，首先必须创建可以通过“批处理”触发器启动的“批接收方”逻辑应用。 这样，在创建“批发送方”逻辑应用时，便可以选择批接收方逻辑应用。 批接收方会持续收集消息，直到满足发布和处理这些消息的指定条件。 尽管批接收方不需要知道有关批发送方的任何信息，但批发送方必须知道要将消息发送到的目标。 
 
-1. 在 [Azure 门户](https://portal.azure.com)或 Visual Studio 中，创建名为“BatchReceiver”的逻辑应用 
+1. 在 [Azure 门户](https://portal.azure.com)或 Visual Studio 中，创建具有以下名称的一个逻辑应用：“BatchReceiver” 
 
-2. 在逻辑应用设计器中，添加**批**触发器，这会启动逻辑应用工作流。 在搜索框中，输入“批”作为筛选器。 选择此触发器：“批处理消息”
+2. 在逻辑应用设计器中，添加**批**触发器，这会启动逻辑应用工作流。 在搜索框中，输入“批”作为筛选器。 选择此触发器：**批处理消息**
 
    ![添加“批处理消息”触发器](./media/logic-apps-batch-process-send-receive-messages/add-batch-receiver-trigger.png)
 
@@ -82,7 +82,7 @@ ms.locfileid: "52675093"
       如果具有 Gmail 帐户，则选择 Gmail 连接器。 
       本示例使用 Office 365 Outlook。 
 
-   3. 选择此操作：“发送电子邮件”- <电子邮件提供程序>
+   3. 选择以下操作：**发送电子邮件 - <*电子邮件提供程序*>**
 
       例如：
 
@@ -131,7 +131,7 @@ ms.locfileid: "52675093"
 1. 创建具有以下名称的另一个逻辑应用：“BatchSender”
 
    1. 在搜索框中，输入“定期”作为筛选器。 
-   选择此触发器：“定期 - 计划”
+   选择此触发器：**定期 - 计划**
 
       ![添加“定期 - 计划”触发器](./media/logic-apps-batch-process-send-receive-messages/add-schedule-trigger-batch-sender.png)
 
@@ -144,7 +144,7 @@ ms.locfileid: "52675093"
    1. 在定期触发器下，选择“新建步骤”。
 
    2. 在搜索框中，输入“批”作为筛选器。 
-   选择“操作”列表，然后选择此操作：“选择具有批处理触发器的逻辑应用工作流 - 将消息发送到批”
+   选择“操作”列表，然后选择以下操作：**选择具有批触发器的逻辑应用工作流 - 将消息发送到批**
 
       ![选择“选择具有批处理触发器的逻辑应用工作流”](./media/logic-apps-batch-process-send-receive-messages/send-messages-batch-action.png)
 
@@ -157,9 +157,9 @@ ms.locfileid: "52675093"
       > 
       > 如果使用 Visual Studio 中并且看不到任何可供选择的批接收方，请检查是否已将批接收方部署到 Azure。 如果未部署，请了解如何[将批接收方逻辑应用部署到 Azure](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure)。 
 
-   4. 选择此操作：“Batch_messages - <批接收方>”
+   4. 选择以下操作：**Batch_messages - <*your-batch-receiver*>**
 
-      ![选择此操作：“Batch_messages - <逻辑应用>”](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch.png)
+      ![选择以下操作：“Batch_messages - <your-logic-app>”](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch.png)
 
 3. 设置批发送方的属性：
 
@@ -215,7 +215,6 @@ ms.locfileid: "52675093"
 
 ## <a name="next-steps"></a>后续步骤
 
-* [批处理和发送 EDI 消息](../logic-apps/logic-apps-scenario-edi-send-batch-messages.md)
 * [使用 JSON 构建逻辑应用定义](../logic-apps/logic-apps-author-definitions.md)
 * [使用 Azure 逻辑应用和 Azure Functions 在 Visual Studio 中构建无服务器应用](../logic-apps/logic-apps-serverless-get-started-vs.md)
 * [逻辑应用的异常处理和错误日志记录](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)

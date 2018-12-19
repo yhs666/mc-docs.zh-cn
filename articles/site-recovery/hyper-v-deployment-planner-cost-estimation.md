@@ -1,22 +1,22 @@
 ---
-title: 适用于 Hyper-V 到 Azure 部署的 Azure Site Recovery 部署规划器成本估算详细信息 | Azure
-description: 本文介绍使用适用于 Hyper-V 到 Azure 方案的 Azure Site Recovery 部署规划器生成的报表的成本估算详细信息。
+title: 查看用于将 Hyper-V VM 灾难恢复到 Azure 的 Azure Site Recovery 部署规划器成本估算报告 | Azure
+description: 本文介绍如何查看 Azure Site Recovery 部署规划器生成的针对从 Hyper-V 灾难恢复到 Azure 的成本估算报告。
 services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 10/11/2018
-ms.date: 11/19/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 309cddf2490529717f2b8e70253e2258d74d1c82
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 17d3ad370ee073db78d07d7a880cb70cbd8b5c04
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662707"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028723"
 ---
-# <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Azure Site Recovery 部署规划器成本估算报表 
+# <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Azure Site Recovery 部署规划器成本估算报告 
 
 Azure Site Recovery 部署规划器报表以[建议](hyper-v-deployment-planner-analyze-report.md#recommendations)表的形式提供成本估算摘要，以“成本估算”表的形式提供详细的成本分析。 它按 VM 提供详细的成本分析。 
 
@@ -29,9 +29,9 @@ Azure Site Recovery 部署规划器报表以[建议](hyper-v-deployment-planner-
 
 可以按月或按年查看成本。 详细了解[支持的目标区域](./hyper-v-deployment-planner-cost-estimation.md#supported-target-regions)和[支持的货币](./hyper-v-deployment-planner-cost-estimation.md#supported-currencies)。
 
-**按组件成本**：总 DR 成本分为四个部分：计算成本、存储成本、网络成本和 Site Recovery 许可证成本。 成本计算取决于在复制和 DR 演练时相关资源的使用情况。 用于计算的资源包括计算、存储（高级和标准）、在本地站点和 Azure 之间配置的 ExpressRoute/VPN、Site Recovery 许可证。
+**按组件列出的成本**：总 DR 成本分为四个部分：计算成本、存储成本、网络成本和 Site Recovery 许可证成本。 成本计算取决于在复制和 DR 演练时相关资源的使用情况。 用于计算的资源包括计算、存储（高级和标准）、在本地站点和 Azure 之间配置的 ExpressRoute/VPN、Site Recovery 许可证。
 
-**按状态成本**：总灾难恢复 (DR) 成本类别基于两种不同的状态：“复制”和“DR 演练”。 
+**按状态列出的成本**：总灾难恢复 (DR) 成本类别基于两种不同的状态：“复制”和“DR 演练”。 
 
 **复制成本**：复制期间产生的成本， 涵盖存储成本、网络成本、Site Recovery 许可证成本。 
 
@@ -52,7 +52,7 @@ Azure Site Recovery 部署规划器报表以[建议](hyper-v-deployment-planner-
 ### <a name="overall-dr-costs-by-components"></a>按组件估算的总体 DR 成本
 第一部分显示按组件估算的总体 DR 成本和按状态估算的总体 DR 成本。 
 
-**计算**：根据 DR 需要在 Azure 上运行的 IaaS VM 的成本。 它包括在 DR 演练（测试性故障转移）期间由 Site Recovery 创建的 VM。 它还包括在 Azure 上运行的 VM，例如包含 Always On 可用性组和域控制器或域名服务器的 SQL Server。
+**计算**：根据 DR 需要在 Azure 上运行的 IaaS VM 的成本， 它包括在 DR 演练（测试性故障转移）期间由 Site Recovery 创建的 VM。 它还包括在 Azure 上运行的 VM，例如包含 Always On 可用性组和域控制器或域名服务器的 SQL Server。
 
 **存储**：符合 DR 需要的 Azure 存储使用成本， 其中包括用于复制和 DR 演练的存储。
 
@@ -63,9 +63,9 @@ Azure Site Recovery 部署规划器报表以[建议](hyper-v-deployment-planner-
 ### <a name="overall-dr-costs-by-states"></a>按状态估算的总体 DR 成本
 总 DR 成本按两种不同的状态（“复制”和“DR 演练”）分类。
 
-**复制**：在复制时产生的成本。 涵盖存储成本、网络成本、Site Recovery 许可证成本。 
+**复制**：复制时产生的成本。 涵盖存储成本、网络成本、Site Recovery 许可证成本。 
 
-**DR 演练**：在进行 DR 演练时产生的成本。 Site Recovery 在 DR 演练期间启动 VM。 DR 演练成本涵盖正在运行的 VM 的计算和存储成本。
+**DR 演练**：进行 DR 演练时产生的成本。 Site Recovery 在 DR 演练期间启动 VM。 DR 演练成本涵盖正在运行的 VM 的计算和存储成本。
 
 * 一年的总 DR 演练持续时间 = DR 演练次数 x 每次 DR 演练的持续时间（天）
 * 平均 DR 演练成本（每月）= 总 DR 演练成本/12
@@ -80,7 +80,7 @@ Azure Site Recovery 部署规划器报表以[建议](hyper-v-deployment-planner-
 
 **VPN 网关类型**：选择 Azure VPN 网关（如果环境中有）。 默认为不可用。
 
-**目标区域**：指定用于 DR 的 Azure 区域。 报表中使用的计算、存储、网络和许可证价格基于该区域的 Azure 定价。 
+**目标区域**：为 DR 指定的 Azure 区域。 报表中使用的计算、存储、网络和许可证价格基于该区域的 Azure 定价。 
 
 ### <a name="vm-running-on-azure"></a>在 Azure 上运行的 VM
 也许你有一个域控制器、DNS VM 或 SQL Server VM，其 Always On 可用性组在适用于 DR 的 Azure 上运行。 在考虑总 DR 成本中的计算成本时，可以提供 VM 的数目和大小。 
@@ -94,7 +94,7 @@ Azure Site Recovery 部署规划器报表以[建议](hyper-v-deployment-planner-
 ### <a name="settings"></a>设置 
 **使用托管磁盘**：此设置指定是否在 DR 演练时使用托管磁盘。 默认值为“是”。 如果已将 **-UseManagedDisks** 设置为“No”，则会使用非托管磁盘价格来计算成本。
 
-**货币**：生成报表时使用的货币。
+**货币**：生成报告时使用的货币。
 
 **成本持续时间**：可以查看一个月或一整年的所有成本。 
 
@@ -143,7 +143,7 @@ Azure Site Recovery 部署规划器报表以[建议](hyper-v-deployment-planner-
 
 **VM 总存储大小(GB)**：VM 的总存储。
 
-**一年的 DR 演练次数**：一年中进行 DR 演练的次数， 默认为一年 4 次。 可以修改特定 VM 的期间，或者对所有 VM 应用新值。 在顶行中输入新值，然后选择“应用到所有项”。 可以根据一年的 DR 演练次数和每次 DR 演练的持续时间来计算总 DR 演练成本。 
+**一年的 DR 演练次数**：一年中执行 DR 演练的次数， 默认为一年 4 次。 可以修改特定 VM 的期间，或者对所有 VM 应用新值。 在顶行中输入新值，然后选择“应用到所有项”。 可以根据一年的 DR 演练次数和每次 DR 演练的持续时间来计算总 DR 演练成本。 
 
 **每次 DR 演练的持续时间(天)**：每次 DR 演练的持续时间。 默认情况下，根据[灾难恢复软件保障权益](https://www.azure.cn/pricing/details/site-recovery/)的规定，每 90 天演练一次，每次演练的持续时间为 7 天。 可以修改特定 VM 的期间，也可以对所有 VM 应用新值。 在顶行中输入新值，然后选择“应用到所有项”。 可以根据一年的 DR 演练次数和每次 DR 演练的持续时间来计算总 DR 演练成本。
 
@@ -155,7 +155,7 @@ Azure Site Recovery 部署规划器报表以[建议](hyper-v-deployment-planner-
 
 **总 Azure 使用量**：用于 DR 的计算、存储和 Site Recovery 许可证成本。 此项会根据你的选择显示每月或每年的成本。
 
-**稳定状态复制成本**：复制的存储成本。
+**稳定状态复制成本**：用于复制的存储成本。
 
 **总 DR 演练成本(平均)**：DR 演练的计算和存储成本。
 
@@ -168,5 +168,5 @@ Azure Site Recovery 部署规划器报表以[建议](hyper-v-deployment-planner-
 ## <a name="next-steps"></a>后续步骤
 详细了解如何[使用 Site Recovery 将 Hyper-V VM 转移到 Azure 进行保护](hyper-v-azure-tutorial.md)。
 
-<!-- Update_Description: update meta properties  -->
+<!-- Update_Description: update meta properties -->
 

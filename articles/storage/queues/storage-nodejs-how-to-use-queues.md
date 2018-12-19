@@ -1,26 +1,22 @@
 ---
-title: 如何通过 Node.js 使用队列存储 | Azure
+title: 如何通过 Node.js 使用队列存储 | Microsoft Docs
 description: 了解如何使用 Azure 队列服务创建和删除队列，以及插入、获取和删除消息。 相关示例是使用 Node.js 编写的。
 services: storage
-documentationcenter: nodejs
-author: forester123
-manager: digimobile
-editor: tysonn
-ms.assetid: a8a92db0-4333-43dd-a116-28b3147ea401
+author: WenJason
 ms.service: storage
-ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 origin.date: 12/08/2016
-ms.date: 3/20/2018
-ms.author: v-johch
-ms.openlocfilehash: a6ec91fdeaac72f42afa2cc2c7bb60cdda1350fe
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/10/2018
+ms.author: v-jay
+ms.component: queues
+ms.openlocfilehash: 8e3ef3d2db52d78d0de129bd818a632f6e1c507a
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662350"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028699"
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>如何通过 Node.js 使用队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -186,7 +182,7 @@ queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
 });
 ```
 
-## <a name="how-to-additional-options-for-dequeuing-messages"></a>如何：用于对消息取消排队的其他选项
+## <a name="how-to-additional-options-for-dequeuing-messages"></a>如何：用于取消对消息进行排队的其他选项
 可以通过两种方式自定义队列中的消息检索：
 
 * `options.numOfMessages` - 获取一批消息（最多 32 条）。

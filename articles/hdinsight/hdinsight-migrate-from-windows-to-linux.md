@@ -1,23 +1,20 @@
 ---
-title: 从基于 Windows 的 HDInsight 迁移到基于 Linux 的 HDInsight -Azure | Azure
+title: 从基于 Windows 的 HDInsight 迁移到基于 Linux 的 HDInsight - Azure
 description: 了解如何从基于 Windows 的 HDInsight 群集迁移到基于 Linux 的 HDInsight 群集。
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
-origin.date: 05/30/2018
-ms.date: 11/19/2018
-ms.author: v-yiso
-ms.openlocfilehash: 19ce08157d056f44481225c2573a77d23b68bc79
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 05/30/2018
+ms.author: hrasheed
+ms.openlocfilehash: a5db1214ae43fb204a4c7c48c5ad34bb6e72ff0c
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652172"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028354"
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>从基于 Windows 的 HDInsight 群集迁移到基于 Linux 的群集
 
@@ -82,7 +79,7 @@ ms.locfileid: "52652172"
 6. 从 SSH 会话中，使用以下命令来将文件从链接的存储帐户复制到新的默认存储帐户。 将 CONTAINER 替换为 PowerShell 返回的容器信息。 将 __ACCOUNT__ 替换为帐户名称。 将数据的路径替换为数据文件的路径。
 
     ```bash
-    hdfs dfs -cp wasb://CONTAINER@ACCOUNT.blob.core.chinacloudapi.cn/path/to/old/data /path/to/new/location
+    hdfs dfs -cp wasb://CONTAINER@ACCOUNT.blob.core.windows.net/path/to/old/data /path/to/new/location
     ```
 
     > [!NOTE]
@@ -100,7 +97,7 @@ ms.locfileid: "52652172"
 
 ## <a name="client-side-technologies"></a>客户端技术
 
-[Azure PowerShell cmdlet](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)、[Azure 经典 CLI](../cli-install-nodejs.md) 或 [.NET SDK for Hadoop](https://hadoopsdk.codeplex.com/) 等客户端技术将继续操作基于 Linux 的群集。 这些技术依赖于在两种群集操作系统类型上都一致的 REST API。
+[Azure PowerShell cmdlet](/powershell/azureps-cmdlets-docs)、[Azure 经典 CLI](../cli-install-nodejs.md) 或 [.NET SDK for Hadoop](https://hadoopsdk.codeplex.com/) 等客户端技术将继续操作基于 Linux 的群集。 这些技术依赖于在两种群集操作系统类型上都一致的 REST API。
 
 ## <a name="server-side-technologies"></a>服务器端技术
 
@@ -109,7 +106,7 @@ ms.locfileid: "52652172"
 | 如果使用此技术... | 请执行此操作... |
 | --- | --- |
 | **PowerShell**（服务器端脚本，包含群集创建期间使用的脚本操作） |重新编写为 Bash 脚本。 有关脚本操作的信息，请参阅[使用脚本操作自定义基于 Linux 的 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)和[针对基于 Linux 的 HDInsight 的脚本操作开发](hdinsight-hadoop-script-actions-linux.md)。 |
-| **Azure 经典 CLI**（服务器端脚本） |虽然可在 Linux 上使用 Azure 经典 CLI，但它并未预装到 HDInsight 群集头节点上。 要详细了解如何安装 Azure 经典 CLI，请参阅 [Azure 经典 CLI 入门](/cli/get-started-with-azure-cli)。 |
+| **Azure 经典 CLI**（服务器端脚本） |虽然可在 Linux 上使用 Azure 经典 CLI，但它并未预装到 HDInsight 群集头节点上。 要详细了解如何安装 Azure 经典 CLI，请参阅 [Azure 经典 CLI 入门](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)。 |
 | **.NET 组件** |.NET 在基于 Linux 的 HDInsight 上通过 [Mono](https://mono-project.com) 受支持。 有关详细信息，请参阅[将 .NET 解决方案迁移到基于 Linux 的 HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md)。 |
 | **Win32 组件或其他仅限 Windows 的技术** |指南取决于组件或技术。 你也许能够找到与 Linux 兼容的版本。 如果未找到，则必须找到一个替代解决方案或重写此组件。 |
 
@@ -146,7 +143,7 @@ ms.locfileid: "52652172"
 
 ## <a name="management-and-monitoring"></a>监视和管理
 
-与基于 Windows 的 HDInsight 配合使用的许多 Web UI（例如作业历史记录或 Yarn UI）均可通过 Ambari 使用。 此外，Ambari Hive 视图提供使用 Web 浏览器运行 Hive 查询的方法。 Ambari Web UI 可在基于 Linux 的群集 (https://CLUSTERNAME.azurehdinsight.cn) 上获得。
+与基于 Windows 的 HDInsight 配合使用的许多 Web UI（例如作业历史记录或 Yarn UI）均可通过 Ambari 使用。 此外，Ambari Hive 视图提供使用 Web 浏览器运行 Hive 查询的方法。 Ambari Web UI 可在基于 Linux 的群集 (https://CLUSTERNAME.azurehdinsight.net) 上获得。
 
 有关使用 Ambari 的详细信息，请参阅以下文档：
 
@@ -232,7 +229,7 @@ Oozie 工作流支持 shell 操作。 shell 操作将默认 shell 用于操作�
 | 对于基于 Windows 的群集，我使用... | 对于基于 Linux 的群集... |
 | --- | --- |
 | Storm 仪表板 |Storm 仪表板不可用。 请参阅[在基于 Linux 的 HDInsight 上部署和管理 Storm 拓扑](storm/apache-storm-deploy-monitor-topology-linux.md)，了解提交拓扑的方法 |
-| Storm UI |Storm UI 在 https://CLUSTERNAME.azurehdinsight.cn/stormui 上提供 |
+| Storm UI |Storm UI 在 https://CLUSTERNAME.azurehdinsight.net/stormui 上提供 |
 | 使用 Visual Studio 创建、部署和管理 C# 或混合拓扑 |可以使用 Visual Studio 在基于 Linux 的 Storm on HDInsight 上创建、部署和管理 C# (SCP.NET) 或混合拓扑。 它只能与在 2016 年 10 月 28 日之后创建的群集一起使用。 |
 
 ## <a name="hbase"></a>HBase
@@ -246,6 +243,7 @@ Oozie 工作流支持 shell 操作。 shell 操作将默认 shell 用于操作�
 在预览期间，Spark 群集在 Windows 群集上可用。 Spark GA 仅适用于基于 Linux 的群集。 基于 Windows 的 Spark 预览群集与基于 Linux 的 Spark 正式版群集之间没有迁移路径。
 
 ## <a name="known-issues"></a>已知问题
+
 
 ### <a name="line-endings"></a>行尾
 
@@ -265,7 +263,7 @@ Oozie 工作流支持 shell 操作。 shell 操作将默认 shell 用于操作�
     [IO.File]::WriteAllText($original_file, $text)
     ```
 
-* **在上传到群集后**：使用基于 Linux 的群集中 SSH 会话的以下命令修改脚本。
+* **在上传到群集后**：从基于 Linux 的群集的 SSH 会话使用以下命令修改脚本。
 
     ```bash
     hdfs dfs -get wasb:///path/to/script.py oldscript.py
@@ -278,5 +276,3 @@ Oozie 工作流支持 shell 操作。 shell 操作将默认 shell 用于操作�
 * [了解如何创建基于 Linux 的 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)
 * [使用 SSH 连接到 HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [使用 Ambari 管理基于 Linux 的群集](hdinsight-hadoop-manage-ambari.md)
-
-<!--Update_Description: change 'wasbs' into 'wasb'-->

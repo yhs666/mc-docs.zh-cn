@@ -8,17 +8,17 @@ ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
 origin.date: 06/27/2018
-ms.date: 08/27/2018
+ms.date: 12/10/2018
 ms.author: v-jay
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: 982322c7c7eba6d85488b85159f4a477043d884e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 00d14e96bb90ba1e699adf22eb4a0383591f52ff
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661698"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028634"
 ---
-# <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>教程：在 Azure HDInsight 上使用 Apache Hive 提取、转换和加载数据
+# <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>教程：使用 Apache Hive on Azure HDInsight 提取、转换和加载数据
 
 在此教程中，需将原始 CSV 数据文件导入 HDInsight 群集，然后在 Azure HDInsight 上使用 Apache Hive 转换数据。 数据转换完毕后，使用 Apache Sqoop 将数据加载到 Azure SQL 数据库。 本文使用公开提供的航班数据。
 
@@ -68,7 +68,7 @@ ms.locfileid: "52661698"
 
 ## <a name="upload-data-to-an-hdinsight-cluster"></a>将数据上传到 HDInsight 群集
 
-可通过多种方式将数据上传到与 HDInsight 群集相关的存储。 本部分使用 `scp` 上传数据。 若要了解上传数据的其他方式，请参阅[使用 Distcp 在 Azure 存储 Blob 与 Data Lake Storage Gen2 预览版之间复制数据](use-distcp.md)。
+可通过多种方式将数据上传到与 HDInsight 群集相关的存储。 本部分使用 `scp` 上传数据。 若要了解上传数据的其他方式，请参阅[使用 Distcp 在现有存储帐户和启用了 Data Lake Storage Gen2 的新存储帐户之间复制数据](use-distcp.md)。
 
 1. 打开命令提示符，使用以下命令将 zip 文件上传到 HDInsight 群集头节点：
 

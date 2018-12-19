@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/08/2018
-ms.date: 09/10/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 92fbdb4956050616c5f07734b1b9cebf4faf5ad9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a84c1ded93751e00ca2bb5fea21d4f7a765dac29
+ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52667246"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52901105"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric 和容器
 
@@ -52,7 +52,7 @@ Service Fabric 是 21Vianet 推出的跨计算机群集部署微服务的[容器
 * **小**：容器使用单个存储空间和层的版本与更新提高了效率。
 * **快**：容器无需启动整个操作系统，因此启动速度更快，通常在几秒内即可启动。
 * **可移植性**：容器化的应用程序映像可以移植到云中或本地运行、移植到虚拟机中运行，或者直接在物理机上运行。
-* **资源监管**：容器可限制在其主机上消耗的物理资源。
+* **资源调控**：容器可限制在其主机上消耗的物理资源。
 
 ### <a name="container-types-and-supported-environments"></a>容器类型和受支持的环境
 
@@ -79,7 +79,7 @@ Windows Server 2016 提供两种不同类型的容器，它们的隔离程度有
 
 * **IIS 直接迁移**：可将现有 [ASP.NET MVC](https://www.asp.net/mvc) 应用放在容器中，而无需将其迁移到 ASP.NET Core。 这些 ASP.NET MVC 应用都依赖于 Internet Information Services (IIS)。 可以从预先创建的 IIS 映像将这些应用打包到容器映像，然后使用 Service Fabric 进行部署。 有关 Windows 容器的信息，请参阅 [Windows Server 上的容器映像](https://docs.microsoft.com/zh-cn/virtualization/windowscontainers/quick-start/quick-start-windows-server)。
 
-* **混合使用容器和 Service Fabric 微服务**：将现有容器映像用于应用程序的一部分。 例如，对于应用程序的 Web 前端，可以使用 [NGINX 容器](https://hub.docker.com/_/nginx/) ；对于更密集的后端计算，可以使用有状态服务。
+* **将容器与 Service Fabric 微服务混合使用**：将现有容器映像用于应用程序的一部分。 例如，对于应用程序的 Web 前端，可以使用 [NGINX 容器](https://hub.docker.com/_/nginx/) ；对于更密集的后端计算，可以使用有状态服务。
 
 * **减少“噪声邻居”服务的影响**：可以使用容器的资源监管功能来限制服务在主机上使用的资源。 如果某些服务可能会消耗许多资源，因而影响其他服务的性能（例如，长时间运行的类似于查询的操作），请考虑将这些服务放入具有资源监管功能的容器中。
 
@@ -114,4 +114,4 @@ Service Fabric 提供多种容器功能，可帮助构建由容器化的微服�
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties -->

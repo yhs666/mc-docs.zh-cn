@@ -5,25 +5,23 @@ services: azure-policy
 author: DCtheGeek
 ms.author: v-biyu
 origin.date: 05/24/2018
-ms.date: 11/12/2018
+ms.date: 12/17/2018
 ms.topic: conceptual
 ms.service: azure-policy
-manager: digimobile
+manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 0b0048629f9fd23735d0a97c0b2d448538612f8b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 79c4daf9d6e381bd2fa198d38d43f1c58ecc966e
+ms.sourcegitcommit: 6e07735318eb5f6ea319b618863259088eab3722
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645832"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52981650"
 ---
 # <a name="understand-policy-effects"></a>了解 Policy 效果
 
-Azure Policy 中的每个策略定义都具有单一效果，在策略规则的 if 段评估为匹配正在扫描的资源时，该效果决定扫描期间会发生的
+Azure Policy 中的每个策略定义都具有单一效果，在策略规则的 if 段评估为匹配正在扫描的资源时，该效果决定扫描期间会发生的情况。 如果这些效果适用于新资源、更新的资源或现有资源，则它们的行为也会有所不同。
 
-情况。 如果这些效果适用于新资源、更新的资源或现有资源，则它们的行为也会有所不同。
-
-目前在策略定义中支持五种效果：
+目前在策略定义中支持六种效果：
 
 - 附加
 - 审核
@@ -58,7 +56,7 @@ Azure Policy 中的每个策略定义都具有单一效果，在策略规则的 
 
 ### <a name="append-examples"></a>附加示例
 
-示例 1：单个字段/值对附加一个标记。
+示例 1：使用单个字段/值对追加一个标记。
 
 ```json
 "then": {
@@ -70,7 +68,7 @@ Azure Policy 中的每个策略定义都具有单一效果，在策略规则的 
 }
 ```
 
-示例 2：多个字段/值对附加一组标记。
+示例 2：使用多个字段/值对追加一组标记。
 
 ```json
 "then": {
@@ -273,6 +271,10 @@ DeployIfNotExists 效果的“details”属性具有可定义要匹配的相关�
     "details": {
         "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
         "name": "current",
+        "roleDefinitionIds": [
+            "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+            "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
+        ],
         "existenceCondition": {
             "field": "Microsoft.Sql/transparentDataEncryption.status",
             "equals": "Enabled"
@@ -335,4 +337,4 @@ DeployIfNotExists 效果的“details”属性具有可定义要匹配的相关�
 - 了解如何[以编程方式创建策略](../how-to/programmatically-create.md)
 - 了解如何[获取符合性数据](../how-to/getting-compliance-data.md)
 
-- 参阅[使用 Azure 管理组来组织资源](../../management-groups/overview.md)，了解什么是管理组
+- 参阅[使用 Azure 管理组来组织资源](../../management-groups/index.md)，了解什么是管理组

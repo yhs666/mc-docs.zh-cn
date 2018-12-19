@@ -16,12 +16,12 @@ ms.custom: H1Hack27Feb2017
 origin.date: 07/21/2017
 ms.author: v-yiso
 ms.date: 12/10/2018
-ms.openlocfilehash: 1b9b2cbc092e4d004677605c848f99bafbcf510b
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: add481df5613f935f1f144c7d74fff1c6fbdc2e3
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674399"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028554"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>针对 Azure 逻辑应用监视状态、设置诊断日志记录，并启用警报
 
@@ -149,7 +149,8 @@ ms.locfileid: "52674399"
 
    ![返回到包含筛选结果的查询](media/logic-apps-monitor-your-logic-apps/log-search-query-filtered-results.png)
 
-10. 若要保存查询供将来使用，请选择“保存”。 了解[如何保存查询](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md#save-oms-query)。
+10. 若要保存查询供将来使用，请选择“保存”。 
+
 
 <a name="extend-diagnostic-data"></a>
 

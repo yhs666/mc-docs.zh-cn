@@ -1,24 +1,20 @@
 ---
 title: 使用 Azure Site Recovery 保护文件服务器
 description: 本文介绍如何使用 Azure Site Recovery 保护文件服务器
-services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: c9526c50638fc880f3e41dd48bc3b8e131625225
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: aff78f1694c9af3aa2041b79ee50ff0be6199ecc
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663066"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028650"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 保护文件服务器 
 

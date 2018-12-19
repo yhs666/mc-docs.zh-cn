@@ -1,22 +1,22 @@
 ---
-title: 使用 PowerShell 将 Virtual Machine Manager 云中的 Hyper-V VM 复制到辅助站点（Azure 资源管理器）| Azure
-description: 介绍如何使用 PowerShell 将 Virtual Machine Manager 云中的 Hyper-V VM 复制到辅助 Virtual Machine Manager 站点（资源管理器）
+title: 使用 Azure Site Recovery 和 PowerShell 设置 VMM 云中的 Hyper-V VM 到辅助站点的灾难恢复 | Azure
+description: 介绍如何使用 Azure Site Recovery 和 PowerShell 设置 VMM 云中的 Hyper-V VM 到辅助 VMM 站点的灾难恢复。
 services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 07/06/2018
-ms.date: 11/19/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 669d586c7430df3eda1d89ac3c6c35687a93bfbb
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e67869f0926fa15dc9d0719f150f3562995a6634
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658399"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028837"
 ---
-# <a name="replicate-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>使用 PowerShell 将 Hyper-V VM 复制到辅助站点（资源管理器）
+# <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>使用 PowerShell（资源管理器）设置 Hyper-V VM 到辅助站点的灾难恢复
 
 本文介绍如何使用 [Azure Site Recovery](site-recovery-overview.md) 来自动完成相关步骤，以便将 System Center Virtual Machine Manager 云中的 Hyper-V VM 复制到辅助本地站点中的 Virtual Machine Manager 云。
 
@@ -61,7 +61,6 @@ ms.locfileid: "52658399"
         $Cred = New-Object System.Management.Automation.PSCredential -ArgumentList $UserName, $SecurePassword
         Connect-AzureRmAccount -Environment AzureChinaCloud -Credential $Cred
     
-    <
     <!--Notice: Update username format for Azure.cn-->
 2. 使用订阅 ID 检索订阅列表。 记下要在其中创建恢复服务保管库的订阅的 ID。 
 
@@ -76,7 +75,7 @@ ms.locfileid: "52658399"
         New-AzureRmResourceGroup -Name #ResourceGroupName -Location #location
 2. 创建新的恢复服务保管库。 将保管库对象保存在后面会用到的变量中。 
 
-        $vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResouceGroupName #ResourceGroupName -Location #location
+        $vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResourceGroupName #ResourceGroupName -Location #location
 
     可以在创建保管库对象后使用 Get-AzureRMRecoveryServicesVault cmdlet 来检索它。
 

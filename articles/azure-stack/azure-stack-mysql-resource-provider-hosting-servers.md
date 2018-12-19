@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/27/2018
-ms.date: 11/12/2018
+origin.date: 10/16/2018
+ms.date: 12/17/2018
 ms.author: v-jay
 ms.reviewer: quying
-ms.openlocfilehash: af1568cf7990f1c1a528feacf76f22b17524f8e9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 79a7021bbdc430404c6fa2eaac2a71b03bfcfc4b
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666949"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396207"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>为 MySQL 资源提供程序添加托管服务器
 
@@ -76,6 +76,24 @@ ms.locfileid: "52666949"
 ## <a name="increase-backend-database-capacity"></a>提高后端数据库容量
 
 可以在 Azure Stack 门户中部署更多的 MySQL 服务器，以便提高后端数据库容量。 将这些服务器添加到新的或现有的 SKU。 如果向现有的 SKU 添加服务器，请确保该服务器的特征与 SKU 中其他服务器的特征相同。
+
+## <a name="sku-notes"></a>SKU 说明
+使用可以描述 SKU 中服务器容量（例如容量和性能）的 SKU 名称。 名称可以协助用户将其数据库部署到相应的 SKU。 例如，可以使用 SKU 名称通过以下特征来区分服务产品/服务：
+  
+* 高容量
+* 高性能
+* 高可用性
+
+最佳做法是使 SKU 中的所有宿主服务器具有相同的资源和性能特征。
+
+无法将 SKU 分配到特定的用户或组。
+
+SKU 最长可能需要在一小时后才显示在门户中。 在完全创建 SKU 之前，用户无法创建数据库。
+
+若要编辑某个 SKU，请转到“所有服务” > “MySQL 适配器” > “SKU”。 选择要修改的 SKU，进行任何必要的更改，然后单击“保存”以保存更改。 若要删除不再需要的 SKU，请转到“所有服务” > “MySQL 适配器” > “SKU”。 右键单击 SKU 名称，然后选择“删除”将其删除。
+
+> [!TIP]
+> 可以在同一位置中编辑或删除 MySQL 资源提供程序配额。
 
 ## <a name="make-mysql-database-servers-available-to-your-users"></a>将 MySQL 数据库服务器提供给用户使用
 

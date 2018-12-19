@@ -1,5 +1,5 @@
 ---
-title: 通过快速设置开始使用 Azure AD Connect | Microsoft 文档
+title: Azure AD Connect：使用快速设置入门 | Microsoft Docs
 description: 了解如何下载、安装和运行 Azure AD Connect 的设置向导。
 services: active-directory
 author: billmath
@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 09/28/2018
-ms.date: 11/09/2018
+ms.date: 12/05/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: f54a2f3b05123d444ff6658b9608794f4c7f6817
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 20693ac644f649e03c5a18541a4c030f48aaa7a6
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662651"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028373"
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>通过快速设置开始使用 Azure AD Connect
 采用单林拓扑并将**密码哈希同步**用于身份验证时，可以使用 Azure AD Connect [快速设置](how-to-connect-password-hash-synchronization.md)。 **快速设置** 是默认选项，用于最常见的部署方案。 只需按几下鼠标即可将本地目录扩展到云中。
 
-开始安装 Azure AD Connect 之前，确保[下载 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)，完成 [Azure AD Connect：硬件和先决条件](how-to-connect-install-prerequisites.md)中的预备步骤。
+开始安装 Azure AD Connect 之前，确保[下载 Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)，并完成 [Azure AD Connect：硬件和先决条件](how-to-connect-install-prerequisites.md)中的预备步骤。
 
 如果快速设置与拓扑不匹配，请参阅 [相关文档](#related-documentation) 中的其他方案。
 
@@ -54,7 +54,7 @@ ms.locfileid: "52662651"
 ## <a name="next-steps"></a>后续步骤
 安装 Azure AD Connect 后，可以[验证安装并分配许可证](how-to-connect-post-installation.md)。
 
-若要了解在安装过程中启用的这些功能，请参阅[自动升级](how-to-connect-install-automatic-upgrade.md)和[防止意外删除](how-to-connect-sync-feature-prevent-accidental-deletes.md)。
+若要了解在安装过程中启用的这些功能，请参阅：[自动升级](how-to-connect-install-automatic-upgrade.md)、[防止意外删除](how-to-connect-sync-feature-prevent-accidental-deletes.md)。
 
 若要了解有关这些常见主题的详细信息，请参阅[计划程序以及如何触发同步](how-to-connect-sync-feature-scheduler.md)。
 
@@ -69,3 +69,4 @@ ms.locfileid: "52662651"
 | 从 DirSync 升级 | [从 Azure AD 同步工具 (DirSync) 升级](how-to-dirsync-upgrade-get-started.md)|
 | 用于安装的帐户 | [有关 Azure AD Connect 凭据和权限的详细信息](reference-connect-accounts-permissions.md) |
 
+<!-- Update_Description: link update -->

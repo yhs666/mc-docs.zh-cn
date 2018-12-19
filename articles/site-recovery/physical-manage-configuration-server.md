@@ -1,19 +1,19 @@
 ---
-title: " 使用 Azure Site Recovery 管理配置服务器，以便进行物理服务器灾难恢复 | Azure"
-description: 本文介绍了如何通过 Azure Site Recovery 服务管理现有配置服务器，以便进行物理服务器到 Azure 的灾难恢复。
+title: 使用 Azure Site Recovery 管理配置服务器，以便将本地物理服务器灾难恢复到 Azure | Azure
+description: 本文介绍如何管理 Azure Site Recovery 配置服务器，以便将物理服务器灾难恢复到 Azure。
 services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: article
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+origin.date: 10/29/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 69d78fb1434394fc3f55724af91318acb07cf453
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 0599ee1f0bb2bf2c4780975b4f4d64cc84004d5d
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645013"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028556"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>为物理服务器灾难恢复管理配置服务器
 
@@ -43,7 +43,7 @@ ms.locfileid: "52645013"
 
 ## <a name="download-the-latest-installation-file"></a>下载最新的安装文件
 
-Site Recovery 门户中提供了配置服务器安装文件的最新版本。 另外，还可以直接从[下载中心](http://aka.ms/unifiedsetup)下载该文件。
+Site Recovery 门户中提供了配置服务器安装文件的最新版本。 另外，还可以直接从[下载中心](https://aka.ms/unifiedsetup)下载该文件。
 
 1. 登录到 Azure 门户并浏览到恢复服务保管库。
 2. 浏览到“Site Recovery 基础结构” > “配置服务器”（在“针对 VMware 和物理计算机”下面）。
@@ -302,4 +302,5 @@ ProxyPassword="Password"
 ## <a name="next-steps"></a>后续步骤
 
 查看有关设置[物理服务器](tutorial-physical-to-azure.md)到 Azure 的灾难恢复的教程。
+
 <!-- Update_Description: wording update, update link -->

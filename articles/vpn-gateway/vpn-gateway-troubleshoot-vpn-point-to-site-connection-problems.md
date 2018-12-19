@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 05/11/2018
-ms.date: 11/05/2018
+origin.date: 11/06/2018
+ms.date: 12/10/2018
 ms.author: v-jay
-ms.openlocfilehash: d9da3af901bebbf39a23bce7f349e1a6b6310480
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 2e8a931433a7086525b969fc27ff04623c26cf4b
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661226"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028756"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>故障排除：Azure 点到站点连接问题
 
 本文列举了可能会出现的常见点到站点连接问题。 此外，还介绍了这些问题的可能原因和解决方案。
 
-## <a name="vpn-client-error-a-certificate-could-not-be-found"></a>VPN 客户端错误：找不到证书
+## <a name="vpn-client-error-a-certificate-could-not-be-found"></a>VPN 客户端错误：找不到证书。
 
 ### <a name="symptom"></a>症状
 
@@ -59,7 +59,7 @@ ms.locfileid: "52661226"
 > [!NOTE]
 > 导入客户端证书时，请勿选择“启用强私钥保护”选项。
 
-## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>VPN 客户端错误：接收到的消息异常，或格式不正确
+## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>VPN 客户端错误：收到意外或格式不当的消息
 
 ### <a name="symptom"></a>症状
 
@@ -82,7 +82,7 @@ ms.locfileid: "52661226"
 1. 删除网关子网上的 UDR。 请确保 UDR 正确地转发所有流量。
 2. 请在 Azure 门户中检查根证书的状态，确定它是否已吊销。 如果未吊销，请尝试删除并重新上传根证书。 有关详细信息，请参阅[创建证书](vpn-gateway-howto-point-to-site-classic-azure-portal.md#generatecerts)。
 
-## <a name="vpn-client-error-a-certificate-chain-processed-but-terminated"></a>VPN 客户端错误：已处理证书链，但被终止 
+## <a name="vpn-client-error-a-certificate-chain-processed-but-terminated"></a>VPN 客户端错误：证书链已处理，但被终止 
 
 ### <a name="symptom"></a>症状 
 
@@ -157,7 +157,7 @@ VPN 网关类型必须是 **VPN**，VPN 类型必须是 **RouteBased**。
 
 尝试在 Azure 门户中保存 VPN 网关的更改时，看到以下错误消息：
 
-**无法保存虚拟网络网关 &lt;*网关名称*&gt;。证书 &lt;*证书 ID*&gt; 的数据无效。**
+无法保存虚拟网络网关 &lt;网关名称&gt;**。证书 &lt;证书 ID&gt; 的数据无效**。
 
 ### <a name="cause"></a>原因 
 
@@ -192,7 +192,7 @@ VPN 网关类型必须是 **VPN**，VPN 类型必须是 **RouteBased**。
 
 尝试在 Azure 门户中保存 VPN 网关的更改时，看到以下错误消息： 
 
-**无法保存虚拟网络网关 &lt;*网关名称*&gt;。资源名称 &lt;*尝试上传的证书名称*&gt; 无效**。
+无法保存虚拟网络网关 &lt;网关名称&gt;**。资源名称 &lt;尝试上传的证书名称 无效&gt;**。
 
 ### <a name="cause"></a>原因
 
@@ -204,7 +204,7 @@ VPN 网关类型必须是 **VPN**，VPN 类型必须是 **RouteBased**。
 
 尝试下载 VPN 客户端配置包时，看到以下错误消息：
 
-**无法下载文件。错误详细信息: 错误 503。服务器正忙。**
+**无法下载文件。错误详细信息:错误 503。服务器正忙。**
  
 ### <a name="solution"></a>解决方案
 
@@ -222,7 +222,7 @@ VPN 网关类型必须是 **VPN**，VPN 类型必须是 **RouteBased**。
 
 ## <a name="too-many-vpn-clients-connected-at-once"></a>一次性连接的 VPN 客户端过多
 
-对于每个 VPN 网关，最多可以连接 128 个客户端。 可以在 Azure 门户中查看连接的客户端总数。
+已达到允许的最大连接数。 可以在 Azure 门户中查看连接的客户端总数。
 
 ## <a name="point-to-site-vpn-incorrectly-adds-a-route-for-100008-to-the-route-table"></a>点到站点 VPN 将 10.0.0.0/8 路由错误添加到路由表
 
@@ -283,7 +283,7 @@ SMB 协议用于文件共享访问。 连接启动时，VPN 客户端添加了�
 
 ### <a name="symptom"></a>症状
 
-当客户端使用点到站点 VPN 连接来连接到 Azure 时，它无法解析本地域中的资源的 FQND。
+当客户端使用点到站点 VPN 连接来连接到 Azure 时，它无法解析本地域中的资源的 FQDN。
 
 ### <a name="cause"></a>原因
 
@@ -306,11 +306,11 @@ SMB 协议用于文件共享访问。 连接启动时，VPN 客户端添加了�
 ## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>错误：“吊销功能无法检查吊销，因为吊销服务器已脱机。(错误 0x80092013)”
 
 ### <a name="causes"></a>原因
-如果客户端无法访问 http://crl3.digicert.com/ssca-sha2-g1.crl 和 http://crl4.digicert.com/ssca-sha2-g1.crl，则会出现此错误消息。  进行吊销检查需要访问这两个站点。  此问题通常发生在配置了代理服务器的客户端上。 在某些环境中，如果请求不通过代理服务器，则在边缘防火墙处会被拒绝。
+如果客户端无法访问 http://crl3.digicert.com/ssca-sha2-g1.crl 和 http://crl4.digicert.com/ssca-sha2-g1.crl，则会发生此错误消息。  进行吊销检查需要访问这两个站点。  此问题通常发生在配置了代理服务器的客户端上。 在某些环境中，如果请求不通过代理服务器，则在边缘防火墙处会被拒绝。
 
 ### <a name="solution"></a>解决方案
 
-请检查代理服务器设置，确保客户端可以访问 http://crl3.digicert.com/ssca-sha2-g1.crl 和 http://crl4.digicert.com/ssca-sha2-g1.crl。
+请检查代理服务器设置，请确保客户端可以访问 http://crl3.digicert.com/ssca-sha2-g1.crl 和 http://crl4.digicert.com/ssca-sha2-g1.crl。
 
 ## <a name="error-405-when-you-download-root-certificate-from-vpn-gateway"></a>从 VPN 网关下载根证书时出现“错误 405”
 
@@ -359,6 +359,4 @@ Azure VPN 网关类型必须是 VPN，VPN 类型必须是 RouteBased。
 ### <a name="solution"></a>解决方案
 
 在 VPN 客户端运行的计算机中检查睡眠和休眠设置。
-
-
 <!-- Update_Description: wording update -->

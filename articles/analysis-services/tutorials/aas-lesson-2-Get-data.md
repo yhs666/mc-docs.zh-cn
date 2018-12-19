@@ -5,22 +5,22 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 07/03/2018
-ms.date: 08/27/2018
+origin.date: 10/18/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 345e05e1a7a2ef8afd5d451c1edf695de8816cb3
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1f6f54a673d4e48a85d417cfd025caa96b990668
+ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652594"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53157435"
 ---
 # <a name="get-data"></a>获取数据
 
 在本课中，可以使用 SSDT 中的“获取数据”功能来连接到 Adventure Works 示例数据库，选择数据，预览并筛选，然后将数据导入到模型工作区。  
 
-使用“获取数据”，可以从各种源导入数据：Azure SQL 数据库、Oracle、Sybase、OData Feed、Teradata，文件和其他源。 还可以使用 Power Query M 公式表达式查询数据。
+使用“获取数据”，可以从各种源导入数据：Azure SQL 数据库、Oracle、Sybase、OData 源、Teradata、文件和其他源。 还可以使用 Power Query M 公式表达式查询数据。
 
 > [!NOTE]
 > 本教程中的任务和映像演示了如何连接到本地服务器上的 AdventureWorksDW2014 数据库。 某些情况下，Azure 上的 Adventure Works 数据库可能有所不同。
@@ -28,7 +28,7 @@ ms.locfileid: "52652594"
 本课预计完成时间：**10 分钟**  
 
 ## <a name="prerequisites"></a>先决条件  
-本主题是表格建模教程的一部分，应当按顺序完成。 在执行本课中的任务之前，应当已完成上一课：[第 1 课：创建新的表格模型项目](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)。  
+本主题是表格建模教程的一部分，应当按顺序完成。 在执行本课中的任务之前，应当已完成上一课：[课程 1：创建新的表格模型项目](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)。  
 
 ## <a name="create-a-connection"></a>创建连接  
 
@@ -53,7 +53,7 @@ ms.locfileid: "52652594"
 
 5.  在导航器中，选择“AdventureWorksDW2014”数据库，并单击“确定”。这会创建到该数据库的连接。 
 
-6.  在导航器中，选中下列表的复选框：“DimCustomer”、“DimDate”、“DimGeography”、“DimProduct”、“DimProductCategory”、“DimProductSubcategory”和“FactInternetSales”，并单击“编辑”。
+6.  在导航器中，选中以下表的复选框：**DimCustomer**、**DimDate**、**DimGeography**、**DimProduct**、**DimProductCategory**、**DimProductSubcategory** 和 **FactInternetSales**，然后单击“编辑”。
 
     ![aas-lesson2-select-tables](../tutorials/media/aas-lesson2-select-tables.png)
 
@@ -150,6 +150,6 @@ AdventureWorksDW2014 示例数据库中的表具有不需要包括在模型中�
 -   单击“文件” > “全部保存”。  
 
 ## <a name="whats-next"></a>后续步骤
-[第 3 课：标记为日期表](../tutorials/aas-lesson-3-mark-as-date-table.md)。
+[课程 3：标记为日期表](../tutorials/aas-lesson-3-mark-as-date-table.md)。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

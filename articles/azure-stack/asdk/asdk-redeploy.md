@@ -1,10 +1,10 @@
 ---
-title: 重新部署 Azure Stack 开发工具包 (ASDK) | Azure
+title: 重新部署 Azure Stack 开发工具包 (ASDK) | Microsoft Docs
 description: 本文介绍如何重新安装 ASDK。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: ''
-origin.date: 08/01/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
+origin.date: 11/05/2018
+ms.date: 12/17/2018
+ms.author: v-jay
 ms.reviewer: misainat
-ms.openlocfilehash: bc5e2ffe29bb77a4492cca6a541fcb1fb4dd810d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e2e4f65bd8b1e6efcc8b7798375313f454c1c787
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656977"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396074"
 ---
 # <a name="redeploy-the-asdk"></a>重新部署 ASDK
 本文介绍如何在非生产环境中重新部署 Azure Stack 开发工具包 (ASDK)。 由于不支持 ASDK 升级，因此若要改用较新的版本，需彻底地进行重新部署。 也可随时根据需要从头开始重新部署 ASDK。
@@ -99,7 +99,7 @@ ms.locfileid: "52656977"
 
 
 ## <a name="next-steps"></a>后续步骤
-[安装 ASDK 后的配置任务](asdk-post-deploy.md)
+[ASDK 后部署任务](asdk-post-deploy.md)
 
 
 

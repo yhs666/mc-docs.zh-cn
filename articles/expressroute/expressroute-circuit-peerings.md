@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 11/05/2018
 ms.author: v-yiso
 ms.date: 12/10/2018
-ms.openlocfilehash: 1433cfdb63829b0f42f05bf576fe1dee9b4346cc
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 28234ace77c7cb6edf21158774d09919f7a0f420
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675042"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028719"
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>ExpressRoute 线路和路由域
  使用 ExpressRoute 线路，可通过连接提供商将本地基础结构连接到 Microsoft。 下图展示了 WAN 与 Microsoft 之间连接的逻辑表示。
@@ -37,7 +37,7 @@ ExpressRoute 线路最多可以有两个独立的对等互连：Azure 公共、A
 
 ![](./media/expressroute-circuit-peerings/expressroute-peerings.png)
 
-### <a name="azure-private-peering"></a>Azure 专用对等互连
+### <a name="private-peering"></a>Azure 专用对等互连
 可以通过专用对等域来连接虚拟网络内部署的 Azure 计算服务（即虚拟机 (IaaS) 和云服务 (PaaS)）。 专用对等域被视为进入 Microsoft Azure 的核心网络的受信任扩展。 可以在核心网络和 Azure 虚拟网络 (VNet) 之间设置双向连接。 利用此对等互连，可以使用专用 IP 地址直接连接到虚拟机和云服务。  
 
 可以将多个虚拟网络连接到专用对等域。 有关限制和局限性的信息，请查看[常见问题解答页](expressroute-faqs.md)。 有关限制的最新信息，请访问 [Azure 订阅和服务限制、配额与约束](../azure-subscription-service-limits.md)。  有关路由配置的详细信息，请参阅[路由](expressroute-routing.md)页。
@@ -50,7 +50,7 @@ ExpressRoute 线路最多可以有两个独立的对等互连：Azure 公共、A
 
 有关支持的服务、费用和配置的更多详细信息，请参阅[常见问题解答](expressroute-faqs.md)页。 有关提供 Microsoft 对等互连支持的连接提供商列表的信息，请参阅 [ExpressRoute Locations](expressroute-locations.md) （ExpressRoute 位置）页。
 
-### <a name="azure-public-peering"></a>Azure 公共对等互连（新的线路已弃用）
+### <a name="public-peering"></a>Azure 公共对等互连（新的线路已弃用）
 
 Azure 存储、SQL 数据库和网站等服务是通过公共 IP 地址提供的。 可以通过公共对等路由域私下连接到公共 IP 地址（包括云服务的 VIP）上托管的服务。 可以将公共对等域连接到外围网络，并从 WAN 连接到公共 IP 地址上的所有 Azure 服务，而无需通过 Internet 连接。
 

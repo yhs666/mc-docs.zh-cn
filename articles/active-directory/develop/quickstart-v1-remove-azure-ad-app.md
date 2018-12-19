@@ -13,16 +13,16 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 09/24/2018
-ms.date: 11/07/2018
+ms.date: 12/04/2018
 ms.author: v-junlch
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 23a279ae5864fa3a8f48f4fa425b30776e4f46c8
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 257f10bcebef1ea7a46461d9e074f635cca32c8d
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652763"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028244"
 ---
 # <a name="quickstart-remove-an-application-from-azure-active-directory"></a>快速入门：从 Azure Active Directory 中删除应用程序
 
@@ -70,7 +70,7 @@ ms.locfileid: "52652763"
 
 从技术上讲，这些多租户应用程序来自另一个租户，并已在许可过程中注册到你的租户。 更具体地说，它们仅由租户中的服务主体对象表示，没有相应的应用程序对象。 有关应用程序对象与服务主体对象之间的差别的详细信息，请参阅 [Azure AD 中的应用程序对象和服务主体对象](app-objects-and-service-principals.md)。
 
-若要删除多租户应用程序对目录的访问权限（在授予许可后），公司管理员必须删除该应用程序的服务主体。 管理员必须拥有全局管理员访问权限，并可以通过 Azure 门户或使用 [Azure AD PowerShell Cmdlet](http://go.microsoft.com/fwlink/?LinkId=294151) 删除访问权限。
+若要删除多租户应用程序对目录的访问权限（在授予许可后），公司管理员必须删除该应用程序的服务主体。 管理员必须拥有全局管理员访问权限，并可以通过 Azure 门户或使用 [Azure AD PowerShell Cmdlet](https://go.microsoft.com/fwlink/?LinkId=294151) 删除访问权限。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -79,3 +79,4 @@ ms.locfileid: "52652763"
 - [向 Azure AD 中添加应用程序](quickstart-v1-integrate-apps-with-azure-ad.md)
 - [在 Azure AD 中更新应用程序](quickstart-v1-update-azure-ad-app.md)
 
+<!-- Update_Description: link update -->

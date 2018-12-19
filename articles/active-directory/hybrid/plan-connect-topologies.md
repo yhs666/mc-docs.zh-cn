@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
 origin.date: 10/09/2018
-ms.date: 11/12/2018
+ms.date: 12/05/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 7b7a3c7f17cd47a9b35c646516dfbfb4df5ccda4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5232d6d41a1f668b60025d4467e24fdc76202d1b
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659426"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028700"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect 的拓扑
 本文介绍了使用 Azure AD Connect 同步作为关键集成解决方案的各种本地拓扑和 Azure Active Directory (Azure AD) 拓扑。 此外，介绍支持和不支持的配置。
@@ -88,7 +88,7 @@ Azure AD Connect 同步中的默认配置假设：
 ### <a name="multiple-forests-separate-topologies"></a>多个林，独立的拓扑
 ![表示用户在所有目录中只出现一次的选项](./media/plan-connect-topologies/MultiForestUsersOnce.png)
 
-![描述多个林和独立的拓扑](./media/plan-connect-topologies/MultiForestSeperateTopologies.png)
+![描述多个林和独立的拓扑](./media/plan-connect-topologies/MultiForestSeparateTopologies.png)
 
 在此环境中，所有本地林都被视为独立的实体。 没有用户出现在任何其他林中。 每个林都有其自己的 Exchange 组织，并且林之间没有任何 GALSync。 合并/收购之后或者如果组织中的每个业务单位独立运营，可能会出现这种拓扑。 在 Azure AD 中，这些林位于相同的组织中并与统一的 GAL 一起出现。 在上图中，每个林中的每个对象会在 Metaverse 中出现一次，并在目标 Azure AD 租户中聚合。
 
@@ -159,12 +159,6 @@ DNS 域只能在单个 Azure AD 租户中注册。 本地 Active Directory 实�
 
 - 只有一个 Azure AD 租户可以使用本地 Active Directory 实例启用 Exchange 混合部署。
 - Windows 10 设备只能与一个 Azure AD 租户相关联。
-- 用于密码哈希同步和直通身份验证的单一登录 (SSO) 选项只能由一个 Azure AD 租户使用。
-
-对象互斥集的要求也适用于写回。 此拓扑不支持某些写回功能，因为这些功能采用单个本地配置。 这些功能包括：
-
-- 使用默认配置进行组写回。
-- 设备写回。
 
 ### <a name="each-object-multiple-times-in-an-azure-ad-tenant"></a>每个对象在 Azure AD 租户中运行多次
 ![单个林和多个租户不支持的拓扑](./media/plan-connect-topologies/SingleForestMultiDirectoryUnsupported.png) ![单个林和多个连接器不支持的拓扑](./media/plan-connect-topologies/SingleForestMultiConnectorsUnsupported.png)
@@ -195,3 +189,4 @@ Azure AD 租户在设计上是隔离的。 不支持以下任务：
 
 了解有关[将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)的详细信息。
 
+<!-- Update_Description: link update -->

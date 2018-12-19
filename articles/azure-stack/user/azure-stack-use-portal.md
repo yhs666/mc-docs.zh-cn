@@ -14,12 +14,12 @@ origin.date: 09/12/2018
 ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: efemmano
-ms.openlocfilehash: 56177abaf0d0a5a7d8ac3f493299c505377e3208
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 85b4eed1de84d561ef7159b2536f0d0faecf9457
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656449"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396219"
 ---
 # <a name="use-the-azure-stack-portal"></a>使用 Azure Stack 门户
 
@@ -33,12 +33,13 @@ Azure Stack 操作员（服务提供商或组织中的管理员）将会告知�
 
 - 对于集成系统，URL 根据操作员所在的区域和外部域名的不同而异，格式为 https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;。
 - 如果使用的是 Azure Stack 开发工具包，则门户地址为 https://portal.local.azurestack.external。
-
-![Azure Stack 用户门户的屏幕截图](media/azure-stack-use-portal/UserPortal.png)
+- 所有 Azure Stack 部署的默认时区都设置为协调世界时 (UTC)。 在安装 Azure Stack 时，你可以选择时区，但是，在安装期间，它将自动恢复为默认设置 UTC。
 
 ## <a name="customize-the-dashboard"></a>自定义仪表板
 
 仪表板包含一组默认磁贴。 可以选择“编辑仪表板”来修改默认仪表板，或者选择“新建仪表板”来创建自定义仪表板。 通过添加或删除磁贴来轻松自定义仪表板。 例如，若要添加“计算”磁贴，请选择“+ 创建资源”。 右键单击“计算”，然后选择“固定到仪表板”。
+
+![Azure Stack 用户门户的屏幕截图](media/azure-stack-use-portal/userportal.png)
 
 ## <a name="create-subscription-and-browse-available-resources"></a>创建订阅和浏览可用资源
 
@@ -60,7 +61,7 @@ Azure Stack 操作员（服务提供商或组织中的管理员）将会告知�
 
     具体而言，我们建议查看以下入门文章：
 
-    - [重要注意事项：使用 Azure Stack 的服务或开发适用于 Azure Stack 的应用](azure-stack-considerations.md)
+    - [重要注意事项：使用 Azure Stack 的服务或构建适用于 Azure Stack 的应用](azure-stack-considerations.md)
     - 在文档的“使用服务”部分中，针对每项服务都提供了注意事项文章。 “注意事项”页面描述了 Azure 中提供的服务与 Azure Stack 中提供的相同服务之间的差异。 有关示例，请参阅 [VM 注意事项](azure-stack-vm-considerations.md)。 “使用服务”部分中可能包含特定于 Azure Stack 的其他信息。
 
       可以使用 Azure 文档来大致了解服务，但必须注意这些差异。 请注意，“快速入门教程”磁贴中的文档链接指向 Azure 文档。
@@ -73,6 +74,6 @@ Azure Stack 操作员（服务提供商或组织中的管理员）将会告知�
 
 ## <a name="next-steps"></a>后续步骤
 
-[重要注意事项：使用 Azure Stack 的服务或开发适用于 Azure Stack 的应用](azure-stack-considerations.md)
+[重要注意事项：使用 Azure Stack 的服务或构建适用于 Azure Stack 的应用](azure-stack-considerations.md)
 
 <!-- Update_Description: wording update -->

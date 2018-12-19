@@ -1,20 +1,19 @@
 ---
 title: 监视 Azure Site Recovery | Azure
 description: 使用门户监视和排查 Azure Site Recovery 复制问题与操作
-services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: troubleshooting
 origin.date: 07/19/2018
-ms.date: 09/24/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: dca8df3175188dc1045f76be42a2ba8e6a833f1d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b791caeacc98bf110611b43da0b35854a4f58983
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643769"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028379"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>监视和排查 Site Recovery 问题
 
@@ -193,4 +192,4 @@ Healthy | 复制正常进行。 未检测到任何错误或警告症状。
 
     ![电子邮件通知](./media/site-recovery-monitor-and-troubleshoot/email.png)
     
-<!-- Update_Description: wording update, update meta propreties -->
+<!-- Update_Description: update meta propreties -->

@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/26/2018
-ms.date: 11/12/2018
+origin.date: 10/24/2018
+ms.date: 12/17/2018
 ms.author: v-jay
 ms.reviewer: ''
-ms.openlocfilehash: edf4cd42dbecffa2166861c97e342079fc7799eb
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 64498458c76f5f8f2c4de5307361b55a67300231
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652105"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396166"
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>使用发布工具添加市场项
 
@@ -29,11 +29,11 @@ ms.locfileid: "52652105"
 
 ## <a name="prerequisites"></a>先决条件
 
- - 必须在 Azure Stack 主机上运行此工具包，或在运行此工具的计算机上建立 [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) 连接。
+ - 必须在 Azure Stack 主机上运行此工具包，或者已从运行此工具的计算机到 ASDK 主机建立 [VPN](.\asdk\asdk-connect.md#connect-with-vpn) 连接。
 
  - 下载 [Azure Stack 快速入门模板](https://github.com/Azure/AzureStack-QuickStart-Templates/archive/master.zip)并解压缩。
 
- - 下载 [Azure 库包工具](http://aka.ms/azurestackmarketplaceitem) (AzureGalleryPackage.exe)。 
+ - 下载 [Azure 库包工具](https://aka.ms/azurestackmarketplaceitem) (AzureGalleryPackage.exe)。 
 
  - 要发布到市场需有图标和缩略图文件。 可以使用自己的文件，或者将本示例的[示例](azure-stack-marketplace-publisher.md#support-files)文件保存在本地。
 

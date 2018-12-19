@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 10/10/2016
 ms.author: v-yiso
 ms.date: 03/26/2018
-ms.openlocfilehash: 6f58dcf3bff55071c8277316af58bd0b516b0d01
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d20c3e3ba91b9bd619fbb9389f3d0d6ab1cf0afa
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655603"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028600"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>用于设置和管理 NAT 的路由器配置示例
 本页提供 Cisco ASA 和 Juniper SRX 系列路由器的 NAT 配置示例。 这些示例仅供指导，不能按原样使用。 可以与供应商合作，以便为网络指定适当的配置。 
@@ -30,7 +30,7 @@ ms.locfileid: "52655603"
 > 
 > 
 
-* 以下路由器配置示例适用于 Azure 公共与 Microsoft 对等互连。 不得为 Azure 专用对等互连配置 NAT。 有关更多详细信息，请查看 [ExpressRoute 对等互连](expressroute-circuit-peerings.md)和 [ExpressRoute NAT 要求](expressroute-nat.md)。
+* 以下路由器配置示例适用于 Azure 公共与 Microsoft 对等互连。 不得为 Azure 专用对等互连配置 NAT。 有关更多详细信息，请查看 [ExpressRoute 对等互连](expressroute-circuit-peerings.md)。
 
 * 必须使用独立的 NAT IP 池来连接到 Internet 和 ExpressRoute。 在 Internet 与 ExpressRoute 中使用相同的 NAT IP 池会导致非对称路由和连接断开。
 

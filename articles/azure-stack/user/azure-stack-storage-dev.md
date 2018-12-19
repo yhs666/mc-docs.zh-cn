@@ -4,18 +4,18 @@ description: 使用 Azure Stack 存储开发工具的入门指南
 services: azure-stack
 author: WenJason
 ms.author: v-jay
-origin.date: 10/10/2018
-ms.date: 11/12/2018
+origin.date: 11/05/2018
+ms.date: 12/17/2018
 ms.topic: get-started-article
 ms.service: azure-stack
 manager: digimobile
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 6f23f3c9d89c1b8c95dc48a86a231f5edeb28496
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 53e9eb2ccdbd86bc9335b0fcddd918bc09ee2f14
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659555"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396244"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Azure Stack 存储开发工具入门
 

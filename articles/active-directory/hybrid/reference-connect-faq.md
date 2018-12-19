@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/05/2018
-ms.date: 11/12/2018
+origin.date: 11/02/2018
+ms.date: 12/05/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: d293071ec6a89497cf3fa5d821f86519aee7f6d4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 95c73bd88221a6a5e7b26f1315c0bdde1180237f
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656353"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028581"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect 常见问题解答
 
@@ -61,7 +61,7 @@ ms.locfileid: "52656353"
 **问：我的防火墙、网络设备或其他软硬件会限制在网络上打开连接的时间。使用 Azure AD Connect 时，客户端超时阈值应设为多少？**  
 所有网络软件、物理设备或其他软硬件限制最长连接时间的阈值应该至少为 5 分钟 (300 秒)，使装有 Azure AD Connect 客户端的服务器能够与 Azure Active Directory 连接。 此项建议同样适用于以前发布的所有 Microsoft 标识同步工具。
 
-**是否支持单一标签域 (SLD)？**  
+**问：是否支持单一标签域 (SLD)？**  
 虽然我们强烈建议不要使用此网络配置（[请参阅相关文章](https://support.microsoft.com/help/2269810/microsoft-support-for-single-label-domains)），但只要单级域的网络配置正常发挥作用，将 Azure AD Connect 同步与单标签域配合使用就是受支持的。
 
 **问：是否支持具有非连续 AD 域的林？**  
@@ -73,8 +73,11 @@ Azure AD Connect 不支持 NetBIOS 名称包含点号 (.) 的本地林或域。
 **问：是否支持纯 IPv6 环境？**  
 Azure AD Connect 不支持纯 IPv6 环境。
 
+**问：我有一个多林环境，两个林之间的网络使用 NAT（网络地址转换）。是否支持在这两个林之间使用 Azure AD Connect？**</br>
+ 否，不支持通过 NAT 使用 Azure AD Connect。 
+
 ## <a name="federation"></a>联合
-**问：如果我收到一封电子邮件，要求我续订 Office 365 证书，我该怎么办？**  
+**问：如果我收到一封电子邮件，要求我续订 Office 365 证书，该怎么办？**  
 有关续订证书的指导，请参阅[续订证书](how-to-connect-fed-o365-certs.md)。
 
 **问：我为 Office 365 信赖方设置了“自动更新信赖方”。当我的令牌签名证书自动滚动时，我是否需要采取任何措施？**  
@@ -189,3 +192,4 @@ Azure AD Connect 服务偶尔会在升级以后无法启动。 在这种情况�
 
 [获取 Azure AD 支持](https://support.azure.cn/en-us/support/support-azure/)
 
+<!-- Update_Description: wording update -->

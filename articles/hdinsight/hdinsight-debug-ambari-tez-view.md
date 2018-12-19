@@ -16,12 +16,12 @@ ms.workload: big-data
 origin.date: 02/27/2018
 ms.date: 05/28/2018
 ms.author: v-yiso
-ms.openlocfilehash: 1288b955aa2530d5c20b7585b1fbb3473fc6ce37
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 69b53f72b7f2fd63e5459305046ecc4f3638e6ae
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652159"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028355"
 ---
 # <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>使用 Ambari 视图来调试 HDInsight 上的 Tez 作业
 
@@ -112,6 +112,5 @@ Tez 视图提供进程的历史信息，还提供正在运行的进程的相关�
 
 有关 Tez 的更详细的技术信息，请参阅 [Hortonworks 的 Tez 页](http://hortonworks.com/hadoop/tez/)。
 
-要了解如何将 Ambari 与 HDInsight 配合使用，请参阅[使用 Ambari Web UI 管理 HDInsight 群集](hdinsight-hadoop-manage-ambari.md)
 
 <!--Update_Description: wording update-->

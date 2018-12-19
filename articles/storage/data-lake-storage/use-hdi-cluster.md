@@ -1,31 +1,27 @@
 ---
 title: 在 Azure HDInsight 群集上使用 Azure Data Lake Storage Gen2 预览版
 description: 了解如何从 Azure Data Lake Storage Gen2 预览版查询数据，以及存储分析结果。
-keywords: hdfs,结构化数据,非结构化数据,data lake store,Hadoop 输入,Hadoop 输出, hadoop 存储, hdfs 输入,hdfs 输出,hdfs 存储,wasb azure
-services: hdinsight,storage
-tags: azure-portal
 author: WenJason
 ms.component: data-lake-storage-gen2
 ms.service: storage
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: article
 origin.date: 06/27/2018
-ms.date: 08/27/2018
+ms.date: 12/10/2018
 ms.author: v-jay
-ms.openlocfilehash: 37a7611889494953e45b0a787ed096ecc72fd6f3
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 575ae3e161188b732ed4578a24dc7dfa293529bd
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643746"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028993"
 ---
 # <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>在 Azure HDInsight 群集上使用 Azure Data Lake Storage Gen2 预览版
 
-若要分析 HDInsight 群集中的数据，可将数据存储在 Azure 存储、Azure Data Lake Storage Gen1 和Azure Data Lake Storage Gen2 预览版的任意组合中。 使用所有存储选项都能安全地删除用于计算的 HDInsight 群集，而不会丢失用户数据。
+若要分析 HDInsight 群集中的数据，可将数据存储在 Azure Blob 存储、启用了 Azure Data Lake Storage Gen2 预览版的 Azure Blob 存储或 Azure Data Lake Storage Gen1 的任意组合中。 使用所有存储选项都能安全地删除用于计算的 HDInsight 群集，而不会丢失用户数据。
 
-Hadoop 支持默认文件系统的概念。 默认文件系统意指默认方案和授权。 它还可用于解析相对路径。 在 HDInsight 群集创建过程中，可以指定 Azure 存储中的 Blob 容器或者 Azure Data Lake Storage 作为默认文件系统。 或者在 HDInsight 3.5 中，可以选择 Azure 存储或者 Azure Data Lake Storage 作为默认文件系统，但存在几种例外情况。
+Hadoop 支持默认文件系统的概念。 默认文件系统意指默认方案和授权。 它还可用于解析相对路径。 在 HDInsight 群集创建过程中，可以指定 Azure 存储中的 Blob 容器或者指定 Data Lake Storage Gen2 提供的分层命名空间作为默认文件系统。 另外，使用 HDInsight 3.5 时，可以选择容器或分层命名空间作为默认文件系统，但存在几种例外情况。
 
-本文介绍如何在 HDInsight 群集上使用 Azure Data Lake Storage Gen2。 有关如何创建 HDInsight 群集的详细信息，请参阅[将 Azure Data Lake Storage 与 Hadoop、Spark、Kafka 等配合使用来设置 HDInsight 群集](quickstart-create-connect-hdi-cluster.md)。
+本文介绍了如何在 HDInsight 群集上使用 Data Lake Storage Gen2。 有关如何创建 HDInsight 群集的详细信息，请参阅[将 Azure Data Lake Storage 与 Hadoop、Spark、Kafka 等配合使用来设置 HDInsight 群集](quickstart-create-connect-hdi-cluster.md)。
 
 Azure 存储是一种稳健、通用的存储解决方案，它与 HDInsight 无缝集成。 HDInsight 可将 Azure Data Lake Storage 用作群集的默认文件系统。 通过 Hadoop 分布式的文件系统 (HDFS) 界面，可以针对 Azure Data Lake Storage 中的文件直接运行 HDInsight 中的整套组件。
 
@@ -60,7 +56,7 @@ HDInsight 提供对在本地附加到计算节点的分布式文件系统的访�
 
 创建过程中定义的存储帐户及其密钥存储在群集节点上的 %HADOOP_HOME%/conf/core-site.xml 中。 HDInsight 的默认行为是使用 core-site.xml 文件中定义的存储帐户。 可以使用 [Ambari](../../hdinsight/hdinsight-hadoop-manage-ambari.md) 修改此设置
 
-多个 WebHCat 作业，包括 Hive、MapReduce、Hadoop 流和 Pig，都可以带有存储帐户和元数据的说明。 （此方法目前对带有存储帐户的 Pig 有效，但对元数据无效。）有关详细信息，请参阅 [将 HDInsight 群集与备用存储帐户和元存储配合使用](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx)。
+多个 WebHCat 作业，包括 Hive、MapReduce、Hadoop 流和 Pig，都可以带有存储帐户和元数据的说明。 （此方法目前对带有存储帐户的 Pig 有效，但对元数据无效。）有关详细信息，请参阅 [将 HDInsight 群集与备用存储帐户和元存储配合使用](https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx)。
 
 ## <a id="benefits"></a>Azure 存储的优点
 
@@ -74,7 +70,7 @@ HDInsight 提供对在本地附加到计算节点的分布式文件系统的访�
 
 * **数据存储成本：** 与在 Azure 存储中存储数据相比，在本机 HDFS 中长期存储数据的成本更高，因为计算群集的成本高于 Azure 存储的成本。 此外，由于数据无需在每次生成计算群集时重新加载，也节省了数据加载成本。
 
-* **弹性扩展：** 尽管 HDFS 提供扩展文件系统，但规模由为群集创建的节点数量决定。 与依靠自动获得的 Azure 存储的弹性缩放功能相比，更改规模的过程可能更复杂。
+* **弹性横向扩展：** 尽管 HDFS 提供扩展文件系统，但规模由为群集创建的节点数量决定。 与依靠自动获得的 Azure 存储的弹性缩放功能相比，更改规模的过程可能更复杂。
 
 * **异地复制：** 可对 Azure 存储数据进行异地复制。 尽管这种能力可提供地理恢复和数据冗余功能，但支持故障转移到异地复制位置将大大影响性能，并且可能会产生额外成本。 因此，请谨慎选择异地复制，并仅在数据的价值值得支付额外成本时才选择。
 
@@ -85,13 +81,13 @@ HDInsight 提供对在本地附加到计算节点的分布式文件系统的访�
 > [!NOTE]
 > 大多数 HDFS 命令（例如 `ls`、`copyFromLocal` 和 `mkdir`）仍按预期工作。 只有特定于 DFS 的命令（例如 `fschk` 和 `dfsadmin`）在 Azure 存储中会显示不同的行为。
 
-## <a name="create-an-data-lake-storage-file-system"></a>创建 Data Lake Storage 文件系统
+## <a name="create-a-data-lake-storage-file-system"></a>创建 Data Lake Storage 文件系统
 
 若要使用文件系统，请先创建 [Azure 存储帐户][azure-storage-create]。 在此过程中，可指定在其中创建存储帐户的 Azure 区域。 群集和存储帐户必须位于同一区域。 Hive 元存储 SQL Server 数据库和 Oozie 元存储 SQL Server 数据库也必须位于同一区域。
 
-无论所创建的每个 Blob 位于何处，它都属于 Azure Data Lake Storage 帐户中的某个文件系统。 
+无论所创建的每个 Blob 位于何处，它都属于你的存储帐户中的某个文件系统。
 
-默认的 Data Lake Storage 文件系统存储群集特定的信息，例如作业历史记录和日志。 请不要在多个 HDInsight 群集之间共享默认的 Data Lake Storage 文件系统。 这可能会损坏作业历史记录。 建议对每个群集使用不同的文件系统，并将共享数据放入在所有相关群集的部署中指定的链接存储帐户，而不是放入默认存储帐户。 有关配置链接存储帐户的详细信息，请参阅 [创建 HDInsight 群集][hdinsight-creation]。 但是，在删除原始的 HDInsight 群集后，可以重用默认存储文件系统。 对于 HBase 群集，可以通过使用已删除的 HBase 群集使用的默认 Blob 容器创建新的 HBase 群集，从而保留 HBase 表架构和数据。
+默认的 Data Lake Storage Gen2 文件系统存储群集特定的信息，例如作业历史记录和日志。 请不要在多个 HDInsight 群集之间共享默认的 Data Lake Storage Gen2 文件系统。 这可能会损坏作业历史记录。 建议对每个群集使用不同的文件系统，并将共享数据放入在所有相关群集的部署中指定的链接存储帐户，而不是放入默认存储帐户。 有关配置链接存储帐户的详细信息，请参阅 [创建 HDInsight 群集][hdinsight-creation]。 但是，在删除原始的 HDInsight 群集后，可以重用默认存储文件系统。 对于 HBase 群集，可以通过使用已删除的 HBase 群集使用的默认 Blob 容器创建新的 HBase 群集，从而保留 HBase 表架构和数据。
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../../includes/hdinsight-secure-transfer.md)]
 
@@ -137,7 +133,7 @@ HDInsight 提供对在本地附加到计算节点的分布式文件系统的访�
     New-AzureStorageContainer -Name $containerName -Context $destContext
 
 > [!NOTE]
-> 创建容器类似于在 Azure Data Lake Storage 中创建文件系统。
+> 创建容器类似于在 Data Lake Storage Gen2 中创建文件系统。
 
 ### <a name="use-azure-cli"></a>使用 Azure CLI
 
@@ -169,7 +165,7 @@ az storage account create \
     azure storage container create <CONTAINER_NAME> --account-name <STORAGE_ACCOUNT_NAME> --account-key <STORAGE_ACCOUNT_KEY>
 
 > [!NOTE]
-> 创建容器类似于在 Azure Data Lake Storage 中创建文件系统。
+> 创建容器类似于在 Data Lake Storage Gen2 中创建文件系统。
 
 ## <a name="address-files-in-azure-storage"></a>确定 Azure 存储中文件的地址
 
@@ -179,7 +175,7 @@ az storage account create \
 
 URI 方案提供了使用 *abfs:* 前缀的未加密访问和使用 *abfss* 的 SSL 加密访问。 建议尽量使用 *abfss* ，即使在访问位于同一 Azure 区域内的数据时也是如此。
 
-* &lt;FILE_SYSTEM_NAME&gt; 标识文件系统 Azure Data Lake Storage 的路径。
+* &lt;FILE_SYSTEM_NAME&gt; 标识文件系统 Data Lake Storage Gen2 的路径。
 * &lt;ACCOUNT_NAME&gt; 标识 Azure 存储帐户名。 完全限定域名 (FQDN) 是必需的。
 
     如果 &lt;FILE_SYSTEM_NAME&gt; 和 &lt;ACCOUNT_NAME&gt; 的值都未指定，则使用默认文件系统。 对于默认文件系统中的文件，可以使用相对路径或绝对路径。 例如，可以使用以下任一路径引用随 HDInsight 群集提供的 *hadoop-mapreduce-examples.jar* 文件：
@@ -210,9 +206,9 @@ URI 方案提供了使用 *abfs:* 前缀的未加密访问和使用 *abfss* 的 
 有关详细信息，请参阅：
 
 * [适用于 Azure Data Lake Storage Gen2 的 ABFS Hadoop 文件系统驱动程序](abfs-driver.md)
-* [Azure Data Lake Storage 简介](introduction.md)
-* [配合 Hadoop、Spark、Kafka 等使用 Azure Data Lake Storage 创建 HDInsight 群集](quickstart-create-connect-hdi-cluster.md)
-* [使用 distcp 将数据引入 Azure Data Lake Storage](use-distcp.md)
+* [Azure Data Lake Storage Gen2 简介](introduction.md)
+* [配合 Hadoop、Spark、Kafka 等使用 Azure Data Lake Storage Gen2 创建 HDInsight 群集](quickstart-create-connect-hdi-cluster.md)
+* [使用 distcp 将数据引入到 Azure Data Lake Storage Gen2 中](use-distcp.md)
 
 [powershell-install]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [hdinsight-creation]: ../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md

@@ -1,25 +1,21 @@
 ---
 title: 使用 Azure Site Recovery 迁移本地 Windows Server 2008 服务器 | Azure
 description: 本文将介绍如何使用 Azure Site Recovery 将本地 Windows Server 2008 计算机迁移到 Azure。
-services: site-recovery
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: raynew
-ms.assetid: ''
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 origin.date: 09/22/2018
-ms.date: 11/19/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 24b06482d13f5bb87cf32324934b5114f654ab2f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.custom: MVC
+ms.openlocfilehash: 21fbf08a5860ccf836dbc4d9e26d2ceadf1d5496
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666481"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028592"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>将运行 Windows Server 2008 的服务器迁移到 Azure
 
@@ -150,7 +146,10 @@ ms.locfileid: "52666481"
 2. 在“故障转移”中，选择要故障转移到的“恢复点”。 选择最新恢复点。
 3. 选择“在开始故障转移前关闭计算机”。 Site Recovery 在触发故障转移之前会尝试关闭服务器。 即使关机失败，故障转移也仍会继续。 可以在“作业”页上跟踪故障转移进度。
 4. 检查 Azure VM 是否在 Azure 中按预期显示。
-5. 在“复制的项”中，右键单击 VM >“完成迁移”。 该操作将完成迁移过程、停止 VM 的复制，并停止对 VM 的 Site Recovery 计费。
+5. 在“复制的项”中，右键单击 VM >“完成迁移”。 这样会执行以下操作：
+
+    - 完成迁移过程，停止 AWS VM 复制，并停止 VM 的 Site Recovery 计费。
+    - 此步骤清除复制数据。 它不删除迁移的 VM。
 
    ![完成迁移](media/migrate-tutorial-windows-server-2008/complete-migration.png)
 

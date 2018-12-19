@@ -1,23 +1,43 @@
+---
+title: include 文件
+description: include 文件
+services: storage
+author: WenJason
+ms.service: storage
+ms.topic: include
+origin.date: 10/23/2018
+ms.date: 12/10/2018
+ms.author: v-jay
+ms.custom: include file
+ms.openlocfilehash: 5ef2c559ac021d5d4a5d33d6820cc0eaf0a5caa1
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53070303"
+---
+下表介绍 Azure 存储的默认限制。 “传入”限制是指发送到存储帐户的所有数据（请求）。 “传出”限制是指从存储帐户接收的所有数据（响应）。
+
 | 资源 | 默认限制 |
 | --- | --- |
-| 每个区域的存储帐户数 | 200<sup>1</sup> |
-| 最大存储帐户容量 | 500 TiB<sup>2</sup> |
+| 每个订阅每个区域的存储帐户数 | 250 |
+| 最大存储帐户容量 |  500 TB |
 | 每个存储帐户的 Blob 容器、Blob、文件共享、表、队列、实体或消息数上限 | 无限制 |
-| 每个存储帐户的最大请求速率 | 每秒 20,000 个请求<sup>2</sup> |
-| 每个存储帐户的最大入口<sup>3</sup>（美国区域） | 如果已启用 RA-GRS/GRS，则为 10 Gbps；对于 LRS<sup>4</sup>，为 20 Gbps |
-| 每个存储帐户的最大出口<sup>3</sup>（美国区域） | 如果已启用 RA-GRS/GRS，则为 20 Gbps；对于 LRS<sup>4</sup>，为 30 Gbps |
-| 每个存储帐户的最大入口<sup>3</sup>（非美国区域） | 如果已启用 RA-GRS/GRS，则为 5 Gbps；对于 LRS<sup>4</sup>，为 10 Gbps |
-| 每个存储帐户的最大出口<sup>3</sup>（非美国区域） | 如果已启用 RA-GRS/GRS，则为 10 Gbps；对于 LRS<sup>4</sup>，为 15 Gbps |
+| 每个存储帐户的最大请求速率<sup>1</sup> | 每秒 20,000 个请求 |
+| 每个存储帐户的最大入口<sup>1</sup> | 如果已启用 RA-GRS/GRS，则为 10 Gbps；对于 LRS，为 20 Gbps<sup>2</sup> |
+| 每个存储帐户的最大入口<sup>1</sup> | 如果已启用 RA-GRS/GRS，则为 5 Gbps；对于 LRS，为 10 Gbps<sup>2</sup> |
+| 常规用途 v2 存储帐户和 Blob 存储帐户的最大出口 | 50 Gbps |
+| 常规用途 v1 存储帐户的最大出口 | 如果已启用 RA-GRS/GRS，则为 20 Gbps；对于 LRS，为 30 Gbps<sup>2</sup> |
+| 常规用途 v1 存储帐户的最大出口 | 如果已启用 RA-GRS/GRS，则为 10 Gbps；对于 LRS，为 15 Gbps<sup>2</sup> |
 
-<sup>1</sup>包括标准存储帐户和高级存储帐户。 如果需要的存储帐户超过 200 个，请通过 [Azure 支持](https://www.azure.cn/support/contact/)提出请求。 Azure 存储团队将评审你的业务案例，最多可以批准 250 个存储帐户。 
+<sup>1</sup> Azure 存储帐户根据请求支持更高的入口上限。 若要请求提高帐户入口上限，请与 [Azure 支持](https://www.azure.cn/support/contact/)联系。
 
-<sup>2</sup> 如果需要扩大存储帐户的限制，请联系 [Azure 支持](https://www.azure.cn/support/contact/)。 Azure 存储团队会对请求进行审核，根据具体情况批准提高限制的请求。 通用和 Blob 存储帐户请求支持都可按请求提高容量、流入量/流出量和请求速率。 有关 Blob 存储帐户的新最大值，请参阅[宣布推出更大、更高规模的存储帐户](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)。
-
-<sup>3</sup> 仅受帐户的传入/传出限制的限制。 传入是指发送到存储帐户的所有数据（请求）。 “传出”是指从存储帐户接收的所有数据（响应）。  
-
-<sup>4</sup>Azure 存储冗余选项包括：
+<sup>2</sup>[Azure 存储复制](/storage/common/storage-redundancy)选项包括：
 * **RA-GRS**：读取访问异地冗余存储。 如果已启用 RA-GRS，辅助位置的出口目标与主要位置的出口目标相同。
-* **GRS**：异地冗余存储空间。 
-* **LRS**：本地冗余存储空间。 
+* **GRS**：异地冗余存储。 
+* **LRS**：本地冗余存储。 
 
+如果应用程序的需求超过单个存储帐户的伸缩性目标，则可以构建使用多个存储帐户的应用程序。 然后，可以将数据对象分布到这些存储帐户中。 有关批量定价的信息，请参阅 [Azure 存储定价](https://azure.cn/pricing/details/storage/) 。
+
+所有存储帐户都在扁平网络拓扑上运行，无论它们创建于何时，都支持本文所述的可伸缩性和性能目标。 有关 Azure 存储的扁平网络体系结构和可伸缩性的详细信息，请参阅 [Azure 存储：具有高度一致性的高可用云存储服务](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)。
 

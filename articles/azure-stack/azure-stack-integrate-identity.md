@@ -6,17 +6,17 @@ author: WenJason
 manager: digimobile
 ms.service: azure-stack
 ms.topic: article
-origin.date: 10/02/2018
-ms.date: 11/12/2018
+origin.date: 11/08/2018
+ms.date: 12/17/2018
 ms.author: v-jay
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: a906868f0e130fad47e65bd46052a4ec11799c67
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e65f8ab07a7e303debd0a2815ba415ec2b4c05d7
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648146"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396217"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 数据中心集成 - 标识
 可以使用 Azure Active Directory (Azure AD) 或 Active Directory 联合身份验证服务 (AD FS) 作为标识提供者来部署 Azure Stack。 必须在部署 Azure Stack 之前做出选择。 使用 AD FS 的部署也称为在断开连接模式下部署 Azure Stack。
@@ -54,10 +54,9 @@ ms.locfileid: "52648146"
 
 要求：
 
-
 |组件|要求|
 |---------|---------|
-|Graph|Microsoft Active Directory 2012/2012 R2/2016|
+|图形|Microsoft Active Directory 2012/2012 R2/2016|
 |AD FS|Windows Server 2012/2012 R2/2016|
 
 ## <a name="setting-up-graph-integration"></a>设置 Graph 集成
@@ -66,11 +65,21 @@ Graph 仅支持与单个 Active Directory 林集成。 如果存在多个林，�
 
 需要使用以下信息作为自动化参数的输入：
 
-
 |参数|说明|示例|
 |---------|---------|---------|
 |CustomADGlobalCatalog|要与之集成的目标 Active Directory<br>林的 FQDN|Contoso.com|
 |CustomADAdminCredentials|拥有 LDAP“读取”权限的用户|YOURDOMAIN\graphservice|
+
+### <a name="configure-active-directory-sites"></a>配置 Active Directory 站点
+
+如果 Active Directory 部署包含多个站点，请配置最靠近 Azure Stack 部署的 Active Directory 站点。 这种配置可以避免让 Azure Stack Graph 服务使用全局目录服务器从远程站点解析查询。
+
+将 Azure Stack [公共 VIP 网络](azure-stack-network.md#public-vip-network)子网添加到最靠近 Azure Stack 的 Azure AD 站点。 例如，如果 Active Directory 包含 Seattle 和 Redmond 两个站点，且 Azure stack 部署在 Seattle 站点，则应将 Azure Stack 公共 VIP 网络子网添加到 Seattle 的 Azure AD 站点。
+
+有关 Active Directory 站点的详细信息，请参阅[设计站点拓扑](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology)。
+
+> [!Note]  
+> 如果 Active Directory 只有一个站点，则可以跳过此步骤。 如果配置了全方位的子网，请验证 Azure Stack 公共 VIP 网络子网是否不属于该子网。
 
 ### <a name="create-user-account-in-the-existing-active-directory-optional"></a>在现有 Active Directory 中创建用户帐户（可选）
 
@@ -172,9 +181,11 @@ Azure Stack 中的 Graph 服务使用以下协议和端口来与目标 Active Di
 1. 打开权限提升的 Windows PowerShell 会话，并使用适用于环境的参数运行以下命令：
 
    ```PowerShell  
-    $metadata = (Invoke-WebRequest -URI " https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml " -UseBasicParsing).Content
-    Set-Content -Path c:\metadata.xml -Encoding Unicode -Value $metadata 
-
+    $url = "https://win-SQOOJN70SGL.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml"
+    $webclient = New-Object System.Net.WebClient
+    $webclient.Encoding = [System.Text.Encoding]::UTF8
+    $metadataAsString = $webclient.DownloadString($url)
+    Set-Content -Path c:\metadata.xml -Encoding UTF8 -Value $metadataAsString
    ```
 
 2. 将元数据文件复制到可以与特权终结点通信的计算机。
@@ -197,6 +208,9 @@ Azure Stack 中的 Graph 服务使用以下协议和端口来与目标 Active Di
    ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
    ```
+
+   > [!Note]  
+   > 在现有的 AD FS（帐户 STS）中轮换证书时，必须重新设置 AD FS 集成。 即使元数据终结点可访问，或已通过提供元数据文件进行配置，也需要设置集成。
 
 ## <a name="configure-relying-party-on-existing-ad-fs-deployment-account-sts"></a>在现有 AD FS 部署上配置信赖方（帐户 STS）
 
@@ -262,7 +276,7 @@ Microsoft 提供了用于配置信赖方信任（包括声明转换规则）的�
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -TokenLifeTime 1440
    ```
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > 使用 Windows Server 2012 或 2012 R2 AD FS 时，必须使用 AD FS MMC 管理单元来配置颁发授权规则。
 
 4. 使用 Internet Explorer 或 Edge 浏览器访问 Azure Stack 时，必须忽略令牌绑定。 否则登录尝试会失败。 在 AD FS 实例或场成员上运行以下命令：

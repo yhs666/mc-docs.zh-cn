@@ -16,21 +16,21 @@ origin.date: 04/05/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
 ms.custom: ''
-ms.openlocfilehash: edf8429d114f24238207b956f8c9d2076527cdef
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 94ce4f0e7300fc5a1292253e93cd55201370fd17
+ms.sourcegitcommit: 0544706ab2ff239fb09fbeedc5910644301ad029
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674744"
+ms.lasthandoff: 12/03/2018
+ms.locfileid: "52745204"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>用于诊断评估和监视的 Batch 指标、警报和日志
 
  
-本文介绍如何使用 [Azure Monitor](../azure-monitor/overview.md) 的功能监视 Batch 帐户。 Azure Monitor 收集 Batch 帐户中资源的[指标](../monitoring/monitoring-data-collection.md#metrics)和[诊断日志](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)。 以各种方法收集和使用此数据可以监视 Batch 帐户及诊断问题。 还可以配置[指标警报](../monitoring-and-diagnostics/monitoring-overview-alerts.md)，以便在某项指标达到指定值时收到通知。 
+本文介绍如何使用 Azure Monitor 的功能监视 Batch 帐户。 Azure Monitor 收集 Batch 帐户中资源的[指标](https://docs.microsoft.com/zh-cn/azure/azure-monitor/platform/data-collection)和[诊断日志](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)。 以各种方法收集和使用此数据可以监视 Batch 帐户及诊断问题。 还可以配置[指标警报](../monitoring-and-diagnostics/monitoring-overview-alerts.md)，以便在某项指标达到指定值时收到通知。 
 
 ## <a name="batch-metrics"></a>Batch 指标
 
-指标是 Azure Monitor 服务使用的 Azure 资源发出的 Azure 遥测数据（也称为性能计数器）。 Batch 帐户中的指标示例包括：“池创建事件”、“低优先级节点计数”和“任务完成事件”。 
+指标是 Azure Monitor 服务使用的 Azure 资源发出的 Azure 遥测数据（也称为性能计数器）。 Batch 帐户中的示例指标包括：“池创建事件”、“低优先级节点计数”和“任务完成事件”。 
 
 请参阅[支持的 Batch 指标列表](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftbatchbatchaccounts)。
 

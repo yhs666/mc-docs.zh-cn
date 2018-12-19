@@ -9,12 +9,12 @@ origin.date: 09/10/2018
 ms.date: 09/24/2018
 ms.author: v-jay
 ms.component: common
-ms.openlocfilehash: 766d11cd772cc507f886a7ba828e701a48717255
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1d0fa76ed6e3da004d53e6a04c0ab1d2e15aed3b
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644067"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029137"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>使用 Azure 导入/导出服务将数据导入到 Azure 文件
 
@@ -132,7 +132,7 @@ ms.locfileid: "52644067"
     
     - 上传你在前面的[步骤 1：准备驱动器](#step-1-prepare-the-drives)中创建的日志文件。 
     - 选择要将数据导入到的存储帐户。 
-    - 放置位置根据选定存储帐户所属的区域自动进行填充。
+    - 放置位置会根据选定存储帐户所属的区域自动进行填充。
    
        ![创建导入作业 - 步骤 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 
@@ -163,7 +163,7 @@ ms.locfileid: "52644067"
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
-## <a name="step-5-verify-data-upload-to-azure"></a>步骤 5：验证数据上传到 Azure
+## <a name="step-5-verify-data-upload-to-azure"></a>步骤 5：验证 Azure 中的数据上传
 
 跟踪作业直至完成。 作业完成后，验证数据已上传到 Azure。 仅在已确认上传成功后才删除本地数据。
 

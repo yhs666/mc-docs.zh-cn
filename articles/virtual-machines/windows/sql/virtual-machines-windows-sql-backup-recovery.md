@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 origin.date: 06/04/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2b7a547c753abe043b407ae201192abadfcd683b
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 298e4f18b23b71b4db71ce6aa0d3797f733bfc37
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675268"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028436"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Azure 虚拟机中 SQL Server 的备份和还原
 
@@ -37,7 +37,7 @@ ms.locfileid: "52675268"
 |---|---|---|---|
 | [自动备份](#automated) | 2014<br/> 2016<br/> 2017 | 使用自动备份可以针对 SQL Server VM 上的所有数据库计划定期备份。 备份在 Azure 存储中最多存储 30 天。 从 SQL Server 2016 开始，自动备份 v2 提供更多选项，例如，配置手动计划，以及完整备份和日志备份的频率。 |
 | [适用于 SQL VM 的 Azure 备份](#azbackup) | 2012<br/> 2014<br/> 2016<br/> 2017 | Azure 备份为 Azure VM 中运行的 SQL Server 提供企业级备份功能。 使用此服务，可以集中管理多个服务器和数千个数据库的备份。 可在门户中将数据库还原到特定的时间点。 此服务提供可将备份保留数年之久的可自定义保留策略。 此功能目前处于公开预览状态。 |
-| [手动备份](#manual) | 全部 | 根据所用的 SQL Server 版本，可通过不同的方法手动备份和还原 Azure VM 上运行的 SQL Server。 在这种情况下，你需要负责指定数据库的备份方式和存储位置，并管理这些备份。 |
+| [手动备份](#manual) | All | 根据所用的 SQL Server 版本，可通过不同的方法手动备份和还原 Azure VM 上运行的 SQL Server。 在这种情况下，你需要负责指定数据库的备份方式和存储位置，并管理这些备份。 |
 
 以下部分更详细地介绍了每个选项。 本文的最后一个部分以功能矩阵的形式提供了摘要。
 
@@ -67,7 +67,7 @@ SQL Server 2016 和更高版本的 VM 提供更多的自定义选项，以及自
 [Azure 备份](/backup/)为 Azure VM 中运行的 SQL Server 提供企业级备份功能。 在恢复服务保管库中存储和管理所有备份。 此解决方案提供许多优势，尤其是针对企业：
 
 - **零基础结构备份**：无需管理备份服务器或存储位置。
-- **规模**：保护大量的 SQL VM 和数千个数据库。
+- **缩放**：保护大量的 SQL VM 和数千个数据库。
 - **即用即付**：此功能是 Azure 备份提供的独立服务，但与所有 Azure 服务，你只需为使用的功能付费。
 - **集中式管理和监视**：通过 Azure 中的单个仪表板集中管理所有备份，包括 Azure 备份支持的其他工作负荷。
 - **策略驱动的备份和保留**：为定期备份创建标准备份策略。 建立保留策略，将备份保留数年之久。
@@ -79,7 +79,9 @@ SQL Server 2016 和更高版本的 VM 提供更多的自定义选项，以及自
 
 <!-- Not Available on [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2dNbw]-->
 
-适用于 SQL VM 的此 Azure 备份解决方案目前以公共预览版提供。 有关详细信息，请参阅[将 SQL Server 数据库备份到 Azure](../../../backup/backup-azure-sql-database.md)。
+适用于 SQL VM 的此 Azure 备份解决方案目前以公共预览版提供。
+
+<!-- Not Available on [Back up SQL Server database to Azure](../../../backup/backup-azure-sql-database.md)-->
 
 <a name="manual"></a>
 ##  <a name="manual-backup"></a>手动备份
@@ -96,7 +98,7 @@ SQL Server 2016 和更高版本的 VM 提供更多的自定义选项，以及自
 
 ### <a name="backup-to-attached-disks"></a>备份到附加的磁盘
 
-对于 Azure VM 中运行的 SQL Server，可以使用 VM 上附加的磁盘作为备份文件目标，通过本机备份和还原技术实现此目的。 不过，你只能根据[虚拟机的大小](../sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)，将有限数量的磁盘附加到 Azure 虚拟机。 磁盘管理开销也是一个考虑因素。
+对于 Azure VM 中运行的 SQL Server，可以使用 VM 上附加的磁盘作为备份文件目标，通过本机备份和还原技术实现此目的。 不过，只能[根据虚拟机的大小](../sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)，将有限数量的磁盘附加到 Azure 虚拟机。 磁盘管理开销也是一个考虑因素。
 
 有关如何使用 SQL Server Management Studio (SSMS) 或 Transact-SQL 手动创建完整数据库备份的示例，请参阅[创建完整数据库备份](https://docs.microsoft.com/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server)。
 
@@ -107,13 +109,13 @@ SQL Server 2016 和更高版本的 VM 提供更多的自定义选项，以及自
 | 2016 增强功能 | 详细信息 |
 | --- | --- |
 | **条带化** |当备份到 Azure Blob 存储时，SQL Server 2016 支持备份到多个 Blob，以便能够备份高达 12.8 TB 的大型数据库。 |
-| **快照备份** |通过使用 Azure 快照，SQL Server 文件快照备份为使用 Azure Blob 存储服务存储的数据库文件提供近实时备份和快速还原。 使用此功能可简化备份和还原策略。 文件快照备份还支持时间点还原。 有关详细信息，请参阅 [Azure 中针对数据库文件的快照备份](https://docs.microsoft.com/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure)。 |
+| **快照备份** |通过使用 Azure 快照，SQL Server 快照备份为使用 Azure Blob 存储服务中存储的数据库文件提供接近实时的备份和更快速的还原。 使用此功能可简化备份和还原策略。 文件快照备份还支持时间点还原。 有关详细信息，请参阅 [Azure 中针对数据库文件的快照备份](https://docs.microsoft.com/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure)。 |
 
 有关详细信息，请根据所用的 SQL Server 版本参阅以下文章之一：
 
-- **SQL Server 2016/2017**：[将 SQL Server 备份到 URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)
-- **SQL Server 2014**：[将 SQL Server 2014 备份到 URL](https://msdn.microsoft.com/library/jj919148%28v=sql.120%29.aspx)
-- **SQL Server 2012**：[将 SQL Server 2012 备份到 URL](https://msdn.microsoft.com/library/jj919148%28v=sql.110%29.aspx)
+- **SQL Server 2016/2017**：[SQL Server 备份到 URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)
+- **SQL Server 2014**：[SQL Server 2014 备份到 URL](https://msdn.microsoft.com/library/jj919148%28v=sql.120%29.aspx)
+- **SQL Server 2012**：[SQL Server 2012 备份到 URL](https://msdn.microsoft.com/library/jj919148%28v=sql.110%29.aspx)
 
 ### <a name="managed-backup"></a>托管备份
 

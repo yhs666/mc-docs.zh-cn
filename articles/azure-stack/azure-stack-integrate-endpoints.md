@@ -7,16 +7,16 @@ manager: digimobile
 ms.service: azure-stack
 ms.topic: article
 origin.date: 09/13/2018
-ms.date: 11/12/2018
+ms.date: 12/17/2018
 ms.author: v-jay
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: 4ef9325484dca725aeb4a5242259c5ac49880cb1
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 125b4323c5b572f8cc4cb5b8fd23ebf5d3138666
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656226"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396150"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack 数据中心集成 - 发布终结点
 
@@ -71,15 +71,15 @@ Azure Stack 仅支持透明代理服务器。 如果部署中的透明代理上�
 
 |目的|URL|协议|端口|
 |---------|---------|---------|---------|
-|标识|login.chinacloudapi.cn<br>login.partner.microsoftonline.cn<br>graph.chinacloudapi.cn<br>https://secure.aadcdn.microsoftonline-p.com|HTTP<br>HTTPS|80<br>443|
+|标识|login.chinacloudapi.cn<br>login.partner.microsoftonline.cn<br>graph.chinacloudapi.cn<br>https://secure.aadcdn.microsoftonline-p.com<br>office.com|HTTP<br>HTTPS|80<br>443|
 |市场联合|https://management.chinacloudapi.cn<br>https://&#42;.blob.core.chinacloudapi.cn<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|
 |修补程序和更新|https://&#42;.azureedge.net|HTTPS|443|
 |注册|https://management.chinacloudapi.cn|HTTPS|443|
 |使用情况|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.cn|HTTPS|443|
 |Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>http://www.microsoft.com/pkiops/crl<br>http://www.microsoft.com/pkiops/certs<br>http://crl.microsoft.com/pki/crl/products<br>http://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|
-|NTP|     |UDP|123|
-|DNS|     |TCP<br>UDP|53|
-|CRL|     |HTTPS|443|
+|NTP|（为部署提供的 NTP 服务器的 IP）|UDP|123|
+|DNS|（为部署提供的 DNS 服务器的 IP）|TCP<br>UDP|53|
+|CRL|（证书上的 CRL 分发点下的 URL）|HTTP|80|
 |     |     |     |     |
 
 > [!Note]  

@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/25/2018
-ms.date: 11/12/2018
+ms.date: 12/05/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 53a62f09a64539e2c7040820579e5a037a1af3d6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: dfc05f3e071c911323ca2c74334ecfd40bc00bf9
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650118"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028724"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect 同步服务功能
 Azure AD Connect 的同步功能有两个组件：
@@ -31,7 +31,7 @@ Azure AD Connect 的同步功能有两个组件：
 
 本主题说明以下 **Azure AD Connect 同步服务** 功能的工作原理，以及如何使用 Windows PowerShell 来配置这些功能。
 
-这些设置通过 [用于 Windows PowerShell 的 Azure Active Directory 模块](https://aka.ms/aadposh)进行配置。 请从 Azure AD Connect 单独下载并安装此模块。 [2016 年 3 月版（内部版本 9031.1）](http://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1)中引入了本主题所述的 cmdlet。 如果没有本主题中所述的 cmdlet，或者它们不生成相同的结果，请确保运行最新的版本。
+这些设置通过 [用于 Windows PowerShell 的 Azure Active Directory 模块](https://aka.ms/aadposh)进行配置。 请从 Azure AD Connect 单独下载并安装此模块。 [2016 年 3 月版（内部版本 9031.1）](https://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1)中引入了本主题所述的 cmdlet。 如果没有本主题中所述的 cmdlet，或者它们不生成相同的结果，请确保运行最新的版本。
 
 若要查看 Azure AD 目录中的配置，请运行 `Get-MsolDirSyncFeatures`。  
 ![Get-MsolDirSyncFeatures 结果](./media/how-to-connect-syncservice-features/getmsoldirsyncfeatures.png)
@@ -109,3 +109,4 @@ Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 - [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)。
 
 
+<!-- Update_Description: link update -->

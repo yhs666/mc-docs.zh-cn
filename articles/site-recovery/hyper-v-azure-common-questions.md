@@ -1,22 +1,22 @@
 ---
-title: 常见问题 - 使用 Azure Site Recovery 进行 Hyper-V 到 Azure 的复制 | Azure
-description: 本文汇总了有关使用 Azure Site Recovery 将本地 Hyper-V VM 复制到 Azure 的常见问题。
+title: 常见问题 - 使用 Azure Site Recovery 进行 Hyper-V 到 Azure 的灾难恢复 | Azure
+description: 本文汇总了有关使用 Azure Site Recovery 站点设置本地 Hyper-V VM 到 Azure 的灾难恢复的常见问题。
 services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-origin.date: 10/10/2018
-ms.date: 11/19/2018
+origin.date: 10/28/2018
+ms.date: 12/10/2018
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: 7515a0a614cb6612df21bfd81de6dc7ff90e809e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6d4c82a8ef3421099d2d2e810dabc1ece3200a24
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648435"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028501"
 ---
-# <a name="common-questions---hyper-v-to-azure-replication"></a>常见问题 - Hyper-V 到 Azure 的复制
+# <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>常见问题 - Hyper-V 到 Azure 的灾难恢复
 
 本文提供将本地 Hyper-V VM 复制到 Azure 时可能遇到的常见问题的解答。 
 
@@ -196,4 +196,4 @@ Azure 具有复原能力。 Site Recovery 能够根据 Azure SLA 故障转移到
 ### <a name="can-i-fail-back-to-a-different-location"></a>是否可以故障回复到不同位置？
 可以。故障转移到 Azure 后，如果原始位置不可用，可以故障回复到不同的位置。 [了解详细信息](hyper-v-azure-failback.md#failback-to-an-alternate-location-in-hyper-v-environment)。
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

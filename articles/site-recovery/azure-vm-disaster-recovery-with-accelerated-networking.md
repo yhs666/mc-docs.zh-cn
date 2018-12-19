@@ -6,16 +6,16 @@ documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-ms.topic: article
-origin.date: 08/24/2018
-ms.date: 08/24/2018
+ms.topic: conceptual
+origin.date: 10/16/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 22083a6540d2cb460e1d25e4707d859a110791fe
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d7901af2d374286954433042b0facafe022e259c
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655878"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028649"
 ---
 # <a name="accelerated-networking-with-azure-virtual-machine-disaster-recovery"></a>将加速网络与 Azure 虚拟机灾难恢复配合使用
 
@@ -42,9 +42,9 @@ ms.locfileid: "52655878"
 * **Windows Server 2012 R2 Datacenter**
 
 ### <a name="supported-vm-instances"></a>支持的 VM 实例
-大多数常规用途实例以及具有 2 个或更多 vCPU 的计算优化实例都支持加速网络。  这些受支持的系列包括 D/DSv2 和 F/Fs
+大多数常规用途实例以及具有 2 个或更多 vCPU 的计算优化实例都支持加速网络。  这些受支持的系列包括：D/DSv2 和 F/Fs
 
-在支持超线程的实例上，具有 4 个或更多 vCPU 的 VM 实例支持加速网络。 受支持的系列包括 D/DSv3、E/ESv3、Fsv2 和 Ms/Mms
+在支持超线程的实例上，具有 4 个或更多 vCPU 的 VM 实例支持加速网络。 受支持的系列包括：D/DSv3、E/ESv3、Fsv2 和 Ms/Mms
 
 有关 VM 实例的详细信息，请参阅[Windows VM 大小](../virtual-machines/windows/sizes.md?toc=%2fvirtual-network%2ftoc.json)。
 
@@ -63,9 +63,9 @@ ms.locfileid: "52655878"
 <!-- Not Available on * **RHEL 7.4**-->
 <!-- Not Available on * **Oracle Linux 7.4**-->
 ### <a name="supported-vm-instances"></a>支持的 VM 实例
-大多数常规用途实例以及具有 2 个或更多 vCPU 的计算优化实例都支持加速网络。  这些受支持的系列包括 D/DSv2 和 F/Fs
+大多数常规用途实例以及具有 2 个或更多 vCPU 的计算优化实例都支持加速网络。  这些受支持的系列包括：D/DSv2 和 F/Fs
 
-在支持超线程的实例上，具有 4 个或更多 vCPU 的 VM 实例支持加速网络。 受到支持的系列包括 D/DSv3、E/ESv3、Fsv2 和 Ms/Mms。
+在支持超线程的实例上，具有 4 个或更多 vCPU 的 VM 实例支持加速网络。 受支持的系列包括：D/DSv3、E/ESv3、Fsv2 和 Ms/Mms。
 
 有关 VM 实例的详细信息，请参阅[Linux VM 大小](../virtual-machines/linux/sizes.md?toc=%2fvirtual-network%2ftoc.json)。
 
@@ -91,5 +91,4 @@ ms.locfileid: "52655878"
 - 详细了解针对 [Windows 虚拟机](../virtual-network/create-vm-accelerated-networking-powershell.md#limitations-and-constraints)和 [Linux 虚拟机](../virtual-network/create-vm-accelerated-networking-cli.md#limitations-and-constraints)的加速网络限制和约束。
 - 详细了解如何使用[恢复计划](site-recovery-create-recovery-plans.md)自动执行应用程序故障转移。
 
-<!-- Update_Description: new articles on azure vm disaster recovery with accelerated networking -->
-<!--ms.date: 09/30/2018-->
+<!-- Update_Description: update meta properties, wording update -->

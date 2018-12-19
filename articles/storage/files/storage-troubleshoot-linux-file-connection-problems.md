@@ -6,15 +6,16 @@ author: WenJason
 tags: storage
 ms.service: storage
 ms.topic: article
-origin.date: 05/11/2018
-ms.date: 09/10/2018
+origin.date: 10/16/2018
+ms.date: 12/10/2018
 ms.author: v-jay
-ms.openlocfilehash: 04e62ec04ae418bc30909e11cdf1f38a64fd60ee
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.component: files
+ms.openlocfilehash: 0d7ebedd2e0776ee5195907bddd90543c97aab6e
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662596"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028861"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>在 Linux 中排查 Azure 文件问题
 
@@ -65,7 +66,7 @@ Linux 内核中的此重新连接问题现已在以下更改中进行了修复�
 - [CIFS：修复重新连接期间潜在的内存损坏](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
 - [CIFS：修复重新连接期间潜在的互斥双锁（对于内核 v4.9 及更高版本）](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183)
 
-但是，这些更改可能尚未移植到所有的 Linux 发行版。 在以下常用 Linux 内核中执行了此修复和其他重新连接修复： 4.4.40、4.8.16 和 4.9.1。 可以通过升级到建议的这些内核版本之一来完成此修复。
+但是，这些更改可能尚未移植到所有的 Linux 发行版。 在以下常用 Linux 内核中执行了此修复和其他重新连接修复：4.4.40、4.8.16 和 4.9.1。 可以通过升级到建议的这些内核版本之一来完成此修复。
 
 ### <a name="workaround"></a>解决方法
 
@@ -82,7 +83,7 @@ Linux 内核中的此重新连接问题现已在以下更改中进行了修复�
 
 ### <a name="solution"></a>解决方案
 
-4.11 内核中引入了适用于 Linux 的 SMB 3.0 加密功能。 使用此功能可从本地或不同 Azure 区域装载 Azure 文件共享。 在发布时，此功能已向后移植到 Ubuntu 17.04 和 Ubuntu 16.10。 如果 Linux SMB 客户端不支持加密，请使用 SMB 2.1 从文件存储帐户所在的同一数据中心上的 Azure Linux VM 装载 Azure 文件。
+4.11 内核中引入了适用于 Linux 的 SMB 3.0 加密功能。 使用此功能可从本地或不同 Azure 区域装载 Azure 文件共享。 在发布时，此功能已向后移植到 Ubuntu 17.04 和 Ubuntu 16.10。 如果 Linux SMB 客户端不支持加密，请使用 SMB 2.1 从文件共享所在的同一数据中心上的 Azure Linux VM 装载 Azure 文件，并验证存储帐户上是否禁用了[需要安全传输]( /storage/common/storage-require-secure-transfer)设置。 
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Linux VM 上装载的 Azure 文件共享的性能低下
@@ -150,16 +151,17 @@ COPYFILE 中的强制标志 **f** 导致在 Unix 上执行 **cp -p -f**。 此�
 - 客户端不支持 SMB 3.0 加密。 SMB 3.0 加密在 Ubuntu 16.4 及更高版本、SUSE 12.3 及更高版本中可用。 其他分发要求内核 4.11 及更高版本。
 - 试图通过不支持的 TCP 端口 445 连接到存储帐户。
 - 试图从 Azure VM 连接到 Azure 文件共享，而该 VM 并非与存储帐户处于同一区域。
+- 如果在存储帐户上启用了[需要安全转移]( /storage/common/storage-require-secure-transfer)设置，则 Azure 文件仅允许使用带加密的 SMB 3.0 进行连接。
 
 ### <a name="solution"></a>解决方案
 
 若要解决此问题，请使用 [Troubleshooting tool for Azure Files mounting errors on Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089)（用于 Linux 上 Azure 文件装载错误的故障排除工具）。 此工具可在以下方面提供帮助：验证客户端运行环境，检测会导致 Azure 文件访问失败的不兼容客户端配置，为自行修复提供规范指导，以及收集诊断跟踪。
 
-## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: 无法访问 '&lt;path&gt;': 输入/输出错误
+## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: cannot access '&lt;path&gt;':Input/output error
 
 尝试使用 ls 命令列出 Azure 文件共享中的文件时，ls 命令挂起并出现以下错误：
 
-**ls: 无法访问 '&lt;path&gt;': 输入/输出错误**
+**ls: cannot access'&lt;path&gt;':Input/output error**
 
 
 ### <a name="solution"></a>解决方案
@@ -170,7 +172,7 @@ COPYFILE 中的强制标志 **f** 导致在 Unix 上执行 **cp -p -f**。 此�
 - 4.12.11+
 - 4.13 或更高的所有版本
 
-## <a name="cannot-create-symbolic-links---ln-failed-to-create-symbolic-link-t-operation-not-supported"></a>无法创建符号链接 - ln: 未能创建符号链接 't': 操作不受支持
+## <a name="cannot-create-symbolic-links---ln-failed-to-create-symbolic-link-t-operation-not-supported"></a>无法创建符号链接 - ln: failed to create symbolic link 't':Operation not supported
 
 ### <a name="cause"></a>原因
 默认情况下，使用 CIFS 在 Linux 上装载 Azure 文件共享不会启用对符号链接的支持。 将会出现如下所示的错误链接：
@@ -179,7 +181,7 @@ ln -s linked -n t
 ln: failed to create symbolic link 't': Operation not supported
 ```
 ### <a name="solution"></a>解决方案
-Linux CIFS 客户端不支持通过 SMB2/3 协议创建 Windows 样式符号链接。 Linux 客户端目前支持使用称作 [Mishall+French 符号链接] (https://wiki.samba.org/index.php/UNIX_Extensions#Minshall.2BFrench_symlinks) 的另一种样式的符号链接来执行创建和跟踪操作。 需要符号链接的客户可以使用“mfsymlinks”装载选项。 通常建议使用“mfsymlinks”，因为这也是 Mac 使用的格式。
+Linux CIFS 客户端不支持通过 SMB2/3 协议创建 Windows 样式符号链接。 Linux 客户端目前支持使用称作 [Mishall+French 符号链接](https://wiki.samba.org/index.php/UNIX_Extensions#Minshall.2BFrench_symlinks) 的另一种样式的符号链接来执行创建和跟踪操作。 需要符号链接的客户可以使用“mfsymlinks”装载选项。 通常建议使用“mfsymlinks”，因为这也是 Mac 使用的格式。
 
 若要使用符号链接，请将以下代码添加到 CIFS 装载命令的末尾：
 
@@ -190,7 +192,7 @@ Linux CIFS 客户端不支持通过 SMB2/3 协议创建 Windows 样式符号链�
 因此，命令如下所示：
 
 ```
-sudo mount -t cifs //<storage-account-name>.file.core.chinacloudapi.cn/<share-name> <mount-point> -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino,mfsynlinks
+sudo mount -t cifs //<storage-account-name>.file.core.chinacloudapi.cn/<share-name> <mount-point> -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino,mfsymlinks
 ```
 
 添加后，即可根据 [Wiki](https://wiki.samba.org/index.php/UNIX_Extensions#Storing_symlinks_on_Windows_servers) 中的建议创建符号链接。

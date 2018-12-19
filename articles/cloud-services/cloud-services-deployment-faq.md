@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure 云服务部署常见问题解答 | Microsoft Docs
-description: 本文将介绍一些关于 Microsoft Azure 云服务部署的常见问题解答。
+description: 本文列出有关 Microsoft Azure 云服务的部署的常见问题。
 services: cloud-services
 documentationcenter: ''
 author: genlin
@@ -16,14 +16,14 @@ ms.topic: article
 origin.date: 05/11/2018
 ms.author: v-yiso
 ms.date: 06/11/2018
-ms.openlocfilehash: dd4f032a71c8f467849a593e3ef842f0ce08257e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: fa151804afeb43ba1b445b6c90e79bfa5823216e
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666561"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028661"
 ---
-# <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 云服务的部署问题：常见问题解答 (FAQ)
+# <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 云服务的部署问题：常见问题 (FAQ)
 
 本文包含 [Microsoft Azure 云服务](/cloud-services/)的常见部署问题。 还可以参阅[云服务 VM 大小页面](./cloud-services-sizes-specs.md)，了解大小信息。
 
@@ -55,11 +55,10 @@ ms.locfileid: "52666561"
 ## <a name="why-does-deploying-a-cloud-service-sometime-fail-due-to-limitsquotasconstraints-on-my-subscription-or-service"></a>部署云服务时，有时为何由于订阅或服务上的限制/配额/约束而发生失败？
 如果需要分配的资源超过区域/数据中心级别的服务允许的默认或最大配额，部署云服务可能会失败。 有关详细信息，请参阅[云服务限制](../azure-subscription-service-limits.md#cloud-services-limits)。
 
-你还可以在门户网站上跟踪订阅的当前使用情况/配额：Azure门户 => 订阅 => \<相应订阅> =>“使用情况 + 配额”。
+还可以在门户上跟踪订阅的当前使用情况/配额：Azure 门户 => 订阅 => \<相应订阅> =>“使用情况 + 配额”。
 
-资源使用情况/相关消耗信息也可以通过 Azure 计费 API 检索。 请参阅 [Azure 资源使用状况 API（预览）](../billing/billing-usage-rate-card-overview.md#azure-resource-usage-api-preview)。
 
-## <a name="how-can-i-change-the-size-of-a-deployed-cloud-service-vm-without-redeploying-it"></a>如何在不重新部署已部署云服务虚拟机的情况下更改其大小？
+## <a name="how-can-i-change-the-size-of-a-deployed-cloud-service-vm-without-redeploying-it"></a>如何更改已部署的云服务 VM 的大小而不用重新部署它？
 在不重新部署的情况下，无法更改已部署的云服务的 VM 大小。 VM 大小内置在 CSDEF 中，只能通过重新部署来更新。
 
 有关详细信息，请参阅[如何更新云服务](./cloud-services-update-azure-service.md)。

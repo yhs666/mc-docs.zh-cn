@@ -17,12 +17,12 @@ ms.workload: big-data
 origin.date: 02/27/2018
 ms.date: 11/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: cc29816f2494405d59f9ffe23dd171c57bf43514
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 25428dd03096ab126b0b2333f00969a87ecf95c9
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658154"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028462"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>什么是 Azure HDInsight 上的 Apache Storm？
 
@@ -36,11 +36,11 @@ ms.locfileid: "52658154"
 
 Storm on HDInsight 提供以下功能：
 
-* __关于 Storm 正常运行时间的 99% 服务级别协议 (SLA)__：有关详细信息，请参阅 [HDInsight 的 SLA 信息](https://www.azure.cn/support/sla/hdinsight/)文档。
+* __Storm 99% 正常运行时间的服务级别协议 (SLA)__：有关详细信息，请参阅 [HDInsight 的 SLA 信息](https://www.azure.cn/support/sla/hdinsight/)文档。
 
 * 支持在 Storm 群集创建期间或者创建之后，通过对该群集运行脚本轻松进行自定义。 有关详细信息，请参阅[使用脚本操作自定义 HDInsight 群集](../hdinsight-hadoop-customize-cluster-linux.md)。
 
-* **创建多种语言的解决方案**：可以根据所选语言（例如 Java、C#、Python）编写 Storm 组件。
+* **以多种语言创建解决方案**：可以根据所选语言（例如 Java、C#、Python）编写 Storm 组件。
 
     * 将 Visual Studio 与 HDInsight 集成，以便开发、管理和监视 C# 拓扑。 有关详细信息，请参阅 [Develop C# Storm topologies with the HDInsight Tools for Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md)（使用用于 Visual Studio 的 HDInsight 工具开发 C# Storm 拓扑）。
 
@@ -91,9 +91,7 @@ Apache Storm 群集的默认配置是只能有一个 Nimbus 节点。 HDInsight 
 
 * __Web 连接__：所有 HDInsight 群集都提供 Ambari Web UI。 可以使用 Ambari Web UI 在群集上轻松监视、配置和管理服务。 Storm 群集还提供 Storm UI。 可以使用 Storm UI，通过浏览器监视和管理 Storm 拓扑的运行。
 
-  有关详细信息，请参阅[使用 Ambari Web UI 管理 HDInsight](../hdinsight-hadoop-manage-ambari.md) 和[使用 Storm UI 进行监视和管理](apache-storm-deploy-monitor-topology-linux.md#monitor-and-manage-storm-ui)这两篇文档。
-
-* __Azure PowerShell 和 Azure 经典 CLI__：PowerShell 和 经典 CLI 都提供命令行实用工具，可在客户端系统中使用这些工具来操作 HDInsight 和其他 Azure 服务。
+* __Azure PowerShell 和 Azure 经典 CLI__：PowerShell 和经典 CLI 都提供命令行实用工具，可在客户端系统中使用这些工具来操作 HDInsight 和其他 Azure 服务。
 
 * __Visual Studio 集成__：针对 Visual Studio 的 Azure Data Lake 工具包含用于通过 SCP.Net Framework 创建 C# Storm 拓扑的项目模板。 Data Lake 工具还提供用于通过 Storm on HDInsight 部署、监视和管理解决方案的工具。
 

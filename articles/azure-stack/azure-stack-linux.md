@@ -3,24 +3,24 @@ title: 将 Linux 映像添加到 Azure Stack
 description: 了解如何将 Linux 映像添加到 Azure Stack。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/08/2018
-ms.date: 05/24/2018
-ms.author: v-junlch
-ms.reviewer: jeffgo
-ms.openlocfilehash: ecd19b38bf49f687f46a5a95d42edfa080f31b49
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 11/16/2018
+ms.date: 12/17/2018
+ms.author: v-jay
+ms.reviewer: ''
+ms.openlocfilehash: 6cf973407d61cc2c94b04c6093659f7f2ab12b95
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647759"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396127"
 ---
 # <a name="add-linux-images-to-azure-stack"></a>将 Linux 映像添加到 Azure Stack
 
@@ -30,25 +30,23 @@ ms.locfileid: "52647759"
 
 ## <a name="marketplace-management"></a>市场管理
 
-若要从 Azure 市场下载 Linux 映像，请使用以下文章中的过程。 选择要在 Azure Stack 上提供给用户的 Linux 映像。 
-
-[将市场项从 Azure 下载到 Azure Stack](azure-stack-download-azure-marketplace-item.md)。
+若要从 Azure 市场下载 Linux 映像，请使用[将市场项从 Azure 下载到 Azure Stack](azure-stack-download-azure-marketplace-item.md) 一文中的过程。 选择要在 Azure Stack 上提供给用户的 Linux 映像。 
 
 请注意，这些映像频繁更新，因此请经常查看市场管理以保持最新。
 
 ## <a name="prepare-your-own-image"></a>准备自己的映像
 
- 只要有可能，请下载通过市场管理提供的映像，这些映像已针对 Azure Stack 进行了准备和测试。 
+只要有可能，请下载通过市场管理提供的映像，这些映像已针对 Azure Stack 进行了准备和测试。 
  
- Azure Linux 代理（通常称为 `WALinuxAgent` 或 `walinuxagent`）是必需的，并非所有代理版本都可以在 Azure Stack 上正常工作。 如果创建自己的映像，则应该使用版本 2.2.18 或更高版本。 请注意，目前 Azure Stack 不支持 [cloud-init](https://cloud-init.io/)。
+Azure Linux 代理（通常称为 `WALinuxAgent` 或 `walinuxagent`）是必需的，并非所有代理版本都可以在 Azure Stack 上正常工作。 如果创建自己的映像，则应该使用版本 2.2.18 或更高版本。 请注意，目前 Azure Stack 不支持 [cloud-init](https://cloud-init.io/)。
 
- 可以按照以下说明准备自己的 Linux 映像：
+可以按照以下说明准备自己的 Linux 映像：
 
-   - [基于 CentOS 的分发版](../virtual-machines/linux/create-upload-centos.md)
-   - [Debian Linux](../virtual-machines/linux/debian-create-upload-vhd.md)
-   - [Red Hat Enterprise Linux](azure-stack-redhat-create-upload-vhd.md)
-   - [SLES 和 openSUSE](../virtual-machines/linux/suse-create-upload-vhd.md)
-   - [Ubuntu Server](../virtual-machines/linux/create-upload-ubuntu.md)
+* [基于 CentOS 的分发版](../virtual-machines/linux/create-upload-centos.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [Debian Linux](../virtual-machines/linux/debian-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [Red Hat Enterprise Linux](azure-stack-redhat-create-upload-vhd.md)
+* [SLES 和 openSUSE](../virtual-machines/linux/suse-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [Ubuntu Server](../virtual-machines/linux/create-upload-ubuntu.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
     
 ## <a name="add-your-image-to-the-marketplace"></a>将映像添加到市场
@@ -57,4 +55,9 @@ ms.locfileid: "52647759"
 
 将映像添加到市场 后，便会创建市场项，用户就可以部署 Linux 虚拟机了。
 
-<!-- Update_Description: wording update -->
+## <a name="next-steps"></a>后续步骤
+
+有关详细信息，请参阅以下文章：
+
+- [将市场项从 Azure 下载到 Azure Stack](azure-stack-download-azure-marketplace-item.md)
+- [Azure Stack 市场概述](azure-stack-marketplace.md)

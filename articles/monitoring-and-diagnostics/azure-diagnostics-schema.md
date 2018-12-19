@@ -10,12 +10,12 @@ origin.date: 09/20/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
 ms.component: diagnostic-extension
-ms.openlocfilehash: 7e12860fe6521d389a2f8e6d49908f9d073ad2f9
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: f713d5dbdec02ac23f5ed102e89d2430a67c4dba
+ms.sourcegitcommit: 0544706ab2ff239fb09fbeedc5910644301ad029
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675532"
+ms.lasthandoff: 12/03/2018
+ms.locfileid: "52745224"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure 诊断扩展配置架构版本和历史记录
 此页为 Azure SDK 附带的 Azure 诊断扩展架构版本编制了索引。  
@@ -171,7 +171,7 @@ Azure 诊断扩展可以与其他 Microsoft 诊断产品（例如 Azure Monitor�
 添加了路由到 EventHub 的功能。
 
 ### <a name="diagnostics-extension-15"></a>诊断扩展 1.5
-添加了 sinks 元素和将诊断数据发送到 [Application Insights](../application-insights/app-insights-cloudservices.md) 的功能，因此可以更轻松地在应用程序以及系统和基础结构级别诊断问题。
+添加了 sinks 元素和将诊断数据发送到 Application Insights 的功能，因此可以更轻松地在应用程序以及系统和基础结构级别诊断问题。
 
 ### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>Azure SDK 2.6 和诊断扩展 1.3
 对 Visual Studio 中的云服务项目进行了以下更改。 （这些更改同样适用于更高版本的 Azure SDK。）

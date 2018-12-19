@@ -1,26 +1,26 @@
 ---
-title: Azure Stack 中的缩放单元节点操作 | Azure
+title: Azure Stack 中的缩放单元节点操作 | Microsoft Docs
 description: 了解如何在 Azure Stack 集成系统中查看节点状态，以及使用开机、关机、清空和恢复节点操作。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/14/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
+origin.date: 10/22/2018
+ms.date: 12/17/2018
+ms.author: v-jay
 ms.reviewer: ppacent
-ms.openlocfilehash: 73f46eb608f574f2d1d1e583e3428976483a4fa8
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a36d8ff5cf94af3731229301773b61b7a3e4a8b4
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657630"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396200"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure Stack 中的缩放单元节点操作
 
@@ -32,7 +32,7 @@ ms.locfileid: "52657630"
 > 本文中所述的所有节点操作每次应该针对一个节点。
 
 
-## <a name="view-the-status-of-a-scale-unit-and-its-nodes"></a>查看缩放单元及其节点的状态
+## <a name="view-the-node-status"></a>查看节点状态
 
 在管理员门户中，可以轻松查看缩放单元及其关联节点的状态。
 
@@ -48,18 +48,18 @@ ms.locfileid: "52657630"
 - 系统类型
 - 逻辑核心总数
 - 总内存量
-- 各个节点的列表及其状态：“正在运行”或“已停止”。
+- 各个节点及其状态的列表：“正在运行”或“已停止”。
 
 ![显示每个节点运行状态的缩放单元磁贴](media/azure-stack-node-actions/ScaleUnitStatus.PNG)
 
-## <a name="view-information-about-a-scale-unit-node"></a>查看缩放单元节点的相关信息
+## <a name="view-node-information"></a>查看节点信息
 
 如果选择单个节点，可以查看以下信息：
 
 - 区域名称
 - 服务器模型
 - 基板管理控制器 (BMC) 的 IP 地址
-- 工作状态
+- 操作状态
 - 内核总数
 - 总内存量
  

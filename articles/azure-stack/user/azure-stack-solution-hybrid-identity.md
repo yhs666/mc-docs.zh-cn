@@ -3,24 +3,24 @@ title: 为 Azure 和 Azure Stack 应用程序配置混合云标识 | Microsoft D
 description: 了解如何为 Azure 和 Azure Stack 应用程序配置混合云标识。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-origin.date: 05/22/2018
-ms.date: 06/27/2018
-ms.author: v-junlch
+origin.date: 09/28/2018
+ms.date: 12/17/2018
+ms.author: v-jay
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 5cc8d8d5cf880651909c424368c5f20b6f549bc9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 296ede1da44cb4c762b3be9b91485135e944e121
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650358"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396215"
 ---
 # <a name="tutorial-configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>教程：为 Azure 和 Azure Stack 应用程序配置混合云标识
 
@@ -75,7 +75,7 @@ ms.locfileid: "52650358"
 若要使用代码连接到 Azure Stack，请使用 Azure 资源管理器终结点 API 来获取 Azure Stack 安装的身份验证和 Graph 终结点，然后使用 REST 请求进行身份验证。 可在 [GitHub](https://github.com/shriramnat/HybridARMApplication) 中找到示例客户端应用程序。
 
 >[!Note]
->除非所选语言的 Azure SDK 支持 Azure API 配置文件，否则 SDK 可能无法与 Azure Stack 一起使用。 有关 Azure API 配置文件的详细信息，请参阅[管理 API 版本配置文件](https://docs.microsoft.com/da-dk/azure/azure-stack/user/azure-stack-version-profiles)一文。
+>除非所选语言的 Azure SDK 支持 Azure API 配置文件，否则 SDK 可能无法与 Azure Stack 一起使用。 有关 Azure API 配置文件的详细信息，请参阅[管理 API 版本配置文件](/azure-stack/user/azure-stack-version-profiles)一文。
 
 ## <a name="next-steps"></a>后续步骤
 

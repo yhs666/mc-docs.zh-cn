@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 03/15/2018
 ms.date: 10/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 87256aad79871adc6d86e13b5388eabfd190e11f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a31f5fcec4a60ceeb80bfba03635892f48456e4b
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652091"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029113"
 ---
 # <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>使用 Azure 逻辑应用和 Azure Functions 创建流式处理客户见解仪表板
 
@@ -39,7 +39,7 @@ Azure 逻辑应用在云中提供无服务器工作流引擎，以便能够跨�
 
    如果你不熟悉逻辑应用，请查看 [Azure 门户快速入门](../logic-apps/quickstart-create-first-logic-app-workflow.md)或 [Visual Studio 快速入门](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)。
 
-2. 在逻辑应用设计器中，找到并添加可执行以下操作的 Twitter 触发器：“发布新推文时”
+2. 在逻辑应用设计器中，找到并添加可执行以下操作的 Twitter 触发器：**发布新推文时**
 
 3. 将此触发器设置为根据关键字或井号标签侦听推文。
 
@@ -65,7 +65,7 @@ Azure 逻辑应用在云中提供无服务器工作流引擎，以便能够跨�
 
 获取推文数据以及有关推文的见解后，可以使用其他许多相关的连接器及其操作：
 
-* **Power BI - 向流式处理数据集添加行**：在 Power BI 仪表板上查看传入的推文。
+* **Power BI - 向流式处理数据集中添加行**：在 Power BI 仪表板上查看传入的推文。
 * **Azure Data Lake - 追加文件**：将客户数据添加到要包括在分析作业中的 Azure Data Lake 数据集。
 * **SQL - 添加行**：将数据存储在数据库中，方便以后检索。
 * **Slack - 发送消息**：告知 Slack 通道存在负面反馈，可能需要采取措施。
@@ -74,7 +74,7 @@ Azure 逻辑应用在云中提供无服务器工作流引擎，以便能够跨�
 
 ## <a name="process-data-with-azure-functions"></a>使用 Azure Functions 处理数据
 
-在创建函数之前，请在 Azure 订阅中创建一个函数应用。 此外，要让逻辑应用直接调用某个函数，该函数必须具有 HTTP 触发器绑定，例如，使用 **HttpTrigger** 模板。 了解[如何在 Azure 门户中创建第一个函数应用和函数](../azure-functions/functions-create-first-azure-function-azure-portal.md)。
+在创建函数之前，请在 Azure 订阅中创建一个函数应用。 此外，要让逻辑应用直接调用某个函数，该函数必须具有 HTTP 触发器绑定，例如，使用 **HttpTrigger** 模板。 
 
 对于此场景，请使用推文文本作为 Azure 函数的请求正文。 在函数代码中，定义用于确定推文文本是否包含某个关键字或短语的逻辑。 可以根据场景的需要来决定函数的简单或复杂程度。
 在函数末尾，使用一些数据为逻辑应用返回响应，例如，该响应可以是简单的布尔值（如 `containsKeyword`）或复杂的对象。

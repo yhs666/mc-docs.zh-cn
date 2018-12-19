@@ -1,23 +1,21 @@
 ---
-title: 排除 Azure Site Recovery 代理故障：来宾代理状态不可用 | Azure
-description: 与代理和扩展相关的 Azure Site Recovery 故障的症状、原因及解决方法
-services: site-recovery
+title: 对 Azure Site Recovery 代理问题进行故障排除 | Azure
+description: 提供有关 Azure Site Recovery 代理故障的症状、原因和解决方法的信息。
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.topic: troubleshooting
+origin.date: 10/29/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 44a305b66145c5d82fe14771d2307176b7a535cb
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 0f60e9d0496af9f4eab1a3ef000d7c6076881156
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652446"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028525"
 ---
-# <a name="troubleshoot-azure-site-recovery-extension-failures-issues-with-the-agent-or-extension"></a>排除 Azure Site Recovery 扩展故障：代理或扩展的问题
+# <a name="troubleshoot-issues-with-the-azure-site-recovery-agent"></a>对 Azure Site Recovery 代理问题进行故障排除
 
 本文提供故障排查步骤，可帮助解决与 VM 代理和扩展相关的 Azure Site Recovery 错误。
 
@@ -66,7 +64,7 @@ VM 代理可能已损坏或服务可能已停止。 重新安装 VM 代理可帮
 1. 确定“Windows Azure 来宾代理服务”是否在 VM 服务中运行 (services.msc)。 尝试重启“Windows Azure 来宾代理服务”。    
 2. 如果服务中未显示 Windows Azure 来宾代理服务，请在“控制面板”中转到“程序和功能”，确定是否已安装 Windows 来宾代理服务。
 4. 如果“程序和功能”中显示了 Windows Azure 来宾代理，请将其卸载。
-5. 下载并安装[最新版本的代理 MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。 必须拥有管理员权限才能完成安装。
+5. 下载并安装[最新版本的代理 MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。 必须拥有管理员权限才能完成安装。
 6. 检查服务中是否显示了 Windows Azure 来宾代理服务。
 7. 重启保护作业。
 
@@ -104,4 +102,5 @@ VM 代理可能已损坏或服务可能已停止。 重新安装 VM 代理可帮
 对于 Linux VM，如果 VMSnapshot 扩展未显示在 Azure 门户中，请[更新 Azure Linux 代理](../virtual-machines/linux/update-agent.md)，然后运行保护。 
 
 完成这些步骤可在保护期间重新安装扩展。
+
 <!-- Update_Description: new articles on site recovery extension troubleshoot -->

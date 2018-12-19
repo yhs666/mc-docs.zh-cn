@@ -1,19 +1,19 @@
 ---
-title: 使用 Site Recovery 对复制到 Azure 的物理服务器进行故障转移和故障回复 | Azure
-description: 了解如何使用 Azure Site Recovery 将物理服务器故障转移到 Azure 以及如何故障回复到本地站点
+title: 使用 Site Recovery 对物理服务器进行故障转移和故障回复以灾难恢复到 Azure | Azure
+description: 了解如何使用 Azure Site Recovery 将物理服务器故障转移到 Azure 以及故障回复到本地站点以进行灾难恢复
 services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: article
-origin.date: 09/11/2018
-ms.date: 09/24/2018
+origin.date: 10/28/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 56224fee22f65582fae04fa40318b2595df6d491
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 33c36a182b2d1cd4f9520dd4406ff000ec6e03aa
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649309"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028853"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>对复制到 Azure 的物理服务器进行故障转移和故障回复
 
@@ -27,7 +27,7 @@ ms.locfileid: "52649309"
 
 1. **故障转移到 Azure**：将计算机从本地站点故障转移到 Azure。
 2. **重新保护 Azure VM**：重新保护 Azure VM，使之开始复制回本地 VMware VM。
-3. 故障转移到本地：运行故障转移以从 Azure 进行故障回复。
+3. **故障转移到本地**：运行故障转移以从 Azure 进行故障回复。
 4. **重新保护本地 VM**：对数据进行故障回复以后，对故障回复到的本地 VMware VM 进行重新保护，使之开始复制到 Azure。
 
 ## <a name="verify-server-properties"></a>验证服务器属性
@@ -48,7 +48,7 @@ ms.locfileid: "52649309"
    - **最新**：此选项会首先处理发送到 Site Recovery 的所有数据。 它提供最低的 RPO（恢复点对象），因为故障转移后创建的 Azure VM 具有触发故障转移时复制到 Site Recovery 的所有数据。
    - **最新处理**：此选项将计算机故障转移到由 Site Recovery 处理的最新恢复点。 此选项提供低 RTO（恢复时间目标），因为无需费时处理未经处理的数据。
    - **最新的应用一致**：此选项将计算机故障转移到由 Site Recovery 处理的最新应用一致恢复点。
-   - 自定义：指定恢复点。
+   - **自定义**：指定一个恢复点。
 
 3. 如果希望 Site Recovery 在触发故障转移之前尝试关闭源计算机，请选择“在开始故障转移前关闭计算机”。 即使关机失败，故障转移也仍会继续。 可以在“作业”页上跟踪故障转移进度。
 4. 如果已准备好连接到 Azure VM，请进行连接，以在故障转移后对其进行验证。
@@ -125,4 +125,5 @@ ms.locfileid: "52649309"
 2. 选择用于将复制数据发送到 Azure 的进程服务器，然后单击“确定”。
 
 重新保护完成后，该 VM 将复制回 Azure，此时可按需运行故障转移。
-<!-- Update_Description: update meta propeties, update link, wording update -->
+
+<!-- Update_Description: update meta propeties, wording update -->

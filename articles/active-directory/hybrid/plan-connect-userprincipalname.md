@@ -5,17 +5,17 @@ author: billmath
 ms.component: hybrid
 ms.author: v-junlch
 origin.date: 06/26/2018
-ms.date: 11/12/2018
+ms.date: 12/05/2018
 ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
 manager: mtillman
-ms.openlocfilehash: 73662b9462e2f3a128ddf715f18594070b74bb0c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 11bc4d1757860362daa11c6f782c7cedf6394aa0
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647650"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028310"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Azure AD UserPrincipalName 填充
 
@@ -85,7 +85,7 @@ Azure AD 使用 UPN 让用户登录。  用户可以使用的 UPN 取决于域�
 ## <a name="upn-scenarios"></a>UPN 方案
 下面是根据给定的方案计算 UPN 的示例方案。
 
-### <a name="scenario-1-non-verified-upn-suffix---initial-synchronization"></a>方案 1：未验证的 UPN 后缀 – 初始同步
+### <a name="scenario-1-non-verified-upn-suffix---initial-synchronization"></a>方案 1：未验证的 UPN 后缀 - 初始同步
 
 ![方案 1](./media/plan-connect-userprincipalname/example1.png)
 
@@ -105,7 +105,7 @@ Azure AD 租户用户对象：
 - UserPrincipalName：us1@contoso.partner.onmschina.cn
 
 
-### <a name="scenario-2-non-verified-upn-suffix---set-on-premises-mailnickname-attribute"></a>方案 2：未验证的 UPN 后缀 – 设置本地 mailNickName 属性
+### <a name="scenario-2-non-verified-upn-suffix---set-on-premises-mailnickname-attribute"></a>方案 2：未验证的 UPN 后缀 - 设置本地 mailNickName 属性
 
 ![方案 2](./media/plan-connect-userprincipalname/example2.png)
 
@@ -123,7 +123,7 @@ Azure AD 租户用户对象：
 - MailNickName：us4
 - UserPrincipalName：us1@contoso.partner.onmschina.cn
 
-### <a name="scenario-3-non-verified-upn-suffix---update-on-premises-userprincipalname-attribute"></a>方案 3：未验证的 UPN 后缀 – 更新本地 userPrincipalName 属性
+### <a name="scenario-3-non-verified-upn-suffix---update-on-premises-userprincipalname-attribute"></a>方案 3：未验证的 UPN 后缀 - 更新本地 userPrincipalName 属性
 
 ![方案 3](./media/plan-connect-userprincipalname/example3.png)
 
@@ -142,7 +142,7 @@ Azure AD 租户用户对象：
 - MailNickName：us4
 - UserPrincipalName：us4@contoso.partner.onmschina.cn
 
-### <a name="scenario-4-non-verified-upn-suffix---update-primary-smtp-address-and-on-premises-mail-attribute"></a>方案 4：未验证的 UPN 后缀 – 更新主要 SMTP 地址和本地 mail 属性
+### <a name="scenario-4-non-verified-upn-suffix---update-primary-smtp-address-and-on-premises-mail-attribute"></a>方案 4：未验证的 UPN 后缀 - 更新主要 SMTP 地址和本地 mail 属性
 
 ![方案 4](./media/plan-connect-userprincipalname/example4.png)
 
@@ -159,7 +159,7 @@ Azure AD 租户用户对象：
 - MailNickName：us4
 - UserPrincipalName：us4@contoso.partner.onmschina.cn
 
-### <a name="scenario-5-verified-upn-suffix---update-on-premises-userprincipalname-attribute-suffix"></a>方案 5：已验证的 UPN 后缀 – 更新本地 userPrincipalName 属性后缀
+### <a name="scenario-5-verified-upn-suffix---update-on-premises-userprincipalname-attribute-suffix"></a>方案 5：已验证的 UPN 后缀 - 更新本地 userPrincipalName 属性后缀
 
 ![方案 5](./media/plan-connect-userprincipalname/example5.png)
 
@@ -167,7 +167,7 @@ Azure AD 租户用户对象：
 - mailNickName：us4
 - proxyAddresses：{SMTP:us6@contoso.com}
 - mail：us7@contoso.com
-- serPrincipalName：us5@verified.contoso.com
+- userPrincipalName：us5@verified.contoso.com
 
 将本地 userPrincipalName 属性更新同步到 Azure AD 租户
 - 本地 userPrincipalName 属性更新触发 Azure AD UserPrincipalName 属性的重新计算。
@@ -181,3 +181,4 @@ Azure AD 租户用户对象：
 - [将本地目录与 Azure Active Directory 进行集成](whatis-hybrid-identity.md)
 - [Azure AD Connect 的自定义安装](how-to-connect-install-custom.md)
 
+<!-- Update_Description: wording update -->

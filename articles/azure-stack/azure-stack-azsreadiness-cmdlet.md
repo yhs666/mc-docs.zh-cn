@@ -16,12 +16,12 @@ origin.date: 09/26/2018
 ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: ''
-ms.openlocfilehash: 5fbf68236fac383f0735a5776930325f9e449153
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6b2e253e05cfcfb9b1d9783e65b82c3a7d8d9f4c
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649760"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396212"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Start-AzsReadinessChecker cmdlet 参考
 
@@ -447,7 +447,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 |键入：                       |String   |
 |位置：                   |名为    |
 |默认值：              |无     |
-|有效值：               |'AzureCloud'、'AzureChinaCloud'、'AzureGermanCloud' |
+|有效值：               |“AzureChinaCloud” |
 |接受管道输入：      |False    |
 |接受通配符： |False    |
 
@@ -480,7 +480,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 |----------------------------|---------|
 |键入：                       |String   |
 |位置：                   |名为    |
-|默认值：              |全部      |
+|默认值：              |All      |
 |接受管道输入：      |False    |
 |接受通配符： |False    |
 
@@ -530,7 +530,7 @@ ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、G
 |----------------------------|---------|
 |键入：                       |String   |
 |位置：                   |名为    |
-|默认值：              |全部      |
+|默认值：              |All      |
 |有效值：               |'Certificate'、'AzureRegistration'、'AzureIdentity'、'Jobs'、'All' |
 |接受管道输入：      |False    |
 |接受通配符： |False    |
@@ -575,7 +575,7 @@ ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、G
 
 > -Confirm  
 
-在运行 cmdlet 之前提示确认。
+提示你在运行 cmdlet 之前进行确认。
 |  |  |
 |----------------------------|------------------|
 |键入：                       |SwitchParameter   |
@@ -588,7 +588,7 @@ ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、G
 
 > -WhatIf  
 
-显示运行该 cmdlet 时会发生什么情况。 cmdlet 未运行。
+显示在此 cmdlet 运行的情况下将会发生什么。 此 cmdlet 未运行。
 |  |  |
 |----------------------------|------------------|
 |键入：                       |SwitchParameter   |

@@ -1,26 +1,22 @@
 ---
-title: 如何通过 Python 使用队列存储 | Azure
+title: 如何通过 Python 使用队列存储 | Microsoft Docs
 description: 了解如何通过 Python 使用 Azure 队列服务创建和删除队列，以及插入、获取和删除消息。
 services: storage
-documentationcenter: python
-author: forester123
-manager: digimobile
-editor: tysonn
-ms.assetid: cc0d2da2-379a-4b58-a234-8852b4e3d99d
+author: WenJason
 ms.service: storage
-ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 origin.date: 12/08/2016
-ms.date: 01/01/2018
-ms.author: v-johch
-ms.openlocfilehash: df69c0392497a8b5cc50a10190699564c609aaea
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/10/2018
+ms.author: v-jay
+ms.component: queues
+ms.openlocfilehash: 18e79b44592ad98edd4310ceac2e0619a2b174ee
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657881"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028319"
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>如何通过 Python 使用队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -133,7 +129,7 @@ queue_service.delete_queue('taskqueue')
 在了解了队列存储的基础知识后，可单击下面的链接了解详细信息。
 
 * [Python 开发人员中心](/develop/python/)
-* [Azure 存储服务 REST API](http://msdn.microsoft.com/library/azure/dd179355)
+* [Azure Storage Services REST API（Azure 存储服务 REST API）](https://msdn.microsoft.com/library/azure/dd179355)
 * [Azure 存储团队博客]
 * [Azure Storage SDK for Python]
 

@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 origin.date: 04/17/2018
 ms.date: 09/17/2018
-ms.openlocfilehash: e8c5fbc33d6dccca27a924e81f5220a8491f0746
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8c7e2d60325ff98ba96db33a2f0e065e205a7852
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650525"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028633"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>教程：Apache Kafka Streams API
 
@@ -258,5 +258,4 @@ public class Stream
 
 在本文档中，已了解如何将 Kafka Streams API 与 Kafka on HDInsight 配合使用。 请参阅以下资源了解有关使用 Kafka 的详细信息：
 
-* [分析 Kafka 日志](apache-kafka-log-analytics-operations-management.md)
 * [在 Kafka 群集之间复制数据](apache-kafka-mirroring.md)

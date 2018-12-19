@@ -13,16 +13,16 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-origin.date: 09/13/2018
-ms.date: 11/13/2018
+origin.date: 11/13/2018
+ms.date: 12/06/2018
 ms.author: v-junlch
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 711773c31424da5b079735914c5c6d7370b36767
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 2e6b6310a9b47191d9d3be36dc50a9e49d951e38
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655081"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028485"
 ---
 # <a name="quickstart-download-an-audit-report-using-the-azure-portal"></a>快速入门：使用 Azure 门户下载审核报告
 
@@ -33,9 +33,9 @@ ms.locfileid: "52655081"
 需要：
 
 - 一个 Azure Active Directory 租户。 
-- 属于租户的“安全管理员”、“安全读者”或“全局管理员”角色的用户。 此外，租户中的任何用户都可以访问自己的审核日志。
+- 一位属于该租户的安全管理员、安全读者或全局管理员角色的用户。 此外，租户中的任何用户都可以访问自己的审核日志。
 
-## <a name="quickstart-download-an-audit-report"></a>快速入门：下载审核报告
+## <a name="quickstart-download-an-audit-report"></a>快速入门：下载审核报表
 
 1. 导航到 [Azure 门户](https://portal.azure.cn)。
 2. 从左侧导航窗格中选择 **Azure Active Directory**，然后使用“切换目录”按钮选择活动目录。
@@ -49,3 +49,4 @@ ms.locfileid: "52655081"
 
 - [Azure Active Directory 报告延迟](reference-reports-latencies.md)
 
+<!-- Update_Description: wording update -->

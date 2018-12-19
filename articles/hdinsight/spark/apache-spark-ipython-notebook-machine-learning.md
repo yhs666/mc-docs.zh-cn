@@ -15,12 +15,12 @@ ms.topic: tutorial
 origin.date: 05/07/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 3092cba426a5ef85230fc8e87a0587f8fa264c8d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6e5537fc8a3c37735b5107da4694e254d35c310a
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662285"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028298"
 ---
 # <a name="tutorial-build-a-spark-machine-learning-application-in-hdinsight"></a>教程：在 HDInsight 中生成 Spark 机器学习应用程序 
 
@@ -43,8 +43,6 @@ ms.locfileid: "52662285"
 ## <a name="understand-the-data-set"></a>了解数据集
 
 应用程序默认使用所有群集提供的 HVAC.csv 数据示例。 该文件位于 \HdiSamples\HdiSamples\SensorSampleData\hvac。 数据显示了安装有 HVAC 系统的一些建筑物的目标温度和实际温度。 **System** 列代表系统 ID，**SystemAge** 列代表建筑物安装 HVAC 系统的年数。 在指定系统 ID 和系统年数的情况下，可使用这些数据来预测建筑物的温度比目标温度高还是低。
-
-![用于 Spark 机器学习示例的数据的快照](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "用于 Spark 机器学习示例的数据的快照")
 
 ## <a name="develop-a-spark-machine-learning-application-using-spark-mllib"></a>使用 Spark MLlib 开发 Spark 机器学习应用程序
 
@@ -146,11 +144,9 @@ ms.locfileid: "52662285"
     +----------+----------+-----+
     ```
 
-    将输出与原始 CSV 文件进行比较。 例如，CSV 文件中第一行包含此数据：
+    将输出与原始 CSV 文件进行比较。 
 
-    ![Spark 机器学习示例的输出数据快照](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png "Spark 机器学习示例的输出数据快照")
-
-    请注意，实际温度比目标温度低的情况表示建筑物处于低温状态。 因此在训练输出中，第一行中的 **label** 值为 **0.0**，表示建筑物并非处于高温状态。
+    请注意，实际温度比目标温度低表示建筑物处于低温状态。 因此在训练输出中，第一行中的 **label** 值为 **0.0**，表示建筑物并非处于高温状态。
 
 7. 准备要对其运行训练模型的数据集。 为此，将传递系统 ID 和系统年数（以训练输出中的 **SystemInfo** 表示），模型将预测具有该系统 ID 和系统年数的建筑物的温度是较高（以 1.0 表示）还是较低（以 0.0 表示）。
    

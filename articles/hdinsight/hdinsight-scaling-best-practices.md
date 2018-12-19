@@ -7,15 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-origin.date: 02/02/2018
-ms.author: v-yiso
-ms.date: 11/19/2018
-ms.openlocfilehash: a225cc493bf29babd78a8b119de10d12f57ca547
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 02/02/2018
+ms.author: ashish
+ms.openlocfilehash: 93eb6fb0da86909dfc880db2a9bb2331abe4418a
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661790"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028577"
 ---
 # <a name="scale-hdinsight-clusters"></a>缩放 HDInsight 群集
 
@@ -37,7 +36,7 @@ HDInsight 提供弹性，可让你选择扩展和缩减群集中的工作节点�
 
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
     
-* 若要通过 [Azure 门户](https://portal.azure.cn)缩放群集，请打开 HDInsight 群集的窗格，在左侧菜单中选择“缩放群集”，然后在“缩放群集”窗格中键入工作节点数并选择“保存”。
+* 若要通过 [Azure 门户](https://portal.azure.com)缩放群集，请打开 HDInsight 群集的窗格，在左侧菜单中选择“缩放群集”，然后在“缩放群集”窗格中键入工作节点数并选择“保存”。
 
     ![缩放群集](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
 
@@ -53,14 +52,14 @@ HDInsight 提供弹性，可让你选择扩展和缩减群集中的工作节点�
 
 若要查看挂起的和正在运行的作业列表，可以遵循以下步骤使用 YARN ResourceManager UI：
 
-1. 登录到 [Azure 门户](https://portal.azure.cn)。
+1. 登录到 [Azure 门户](https://portal.azure.com)。
 2. 在左侧菜单中，依次选择“浏览”、“HDInsight 群集”和自己的群集。
 3. 在 HDInsight 群集窗格中，选择顶部菜单中的“仪表板”打开 Ambari UI。 输入群集登录凭据。
 4. 在左侧菜单中的服务列表内单击“YARN”。 在“YARN”页上选择“快速链接”，将鼠标悬停在活动头节点上，然后单击“ResourceManager UI”。
 
     ![ResourceManager UI](./media/hdinsight-scaling-best-practices/resourcemanager-ui.png)
 
-可以使用 `https://<HDInsightClusterName>.azurehdinsight.cn/yarnui/hn/cluster` 直接访问 ResourceManager UI。
+可以使用 `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster` 直接访问 ResourceManager UI。
 
 可以看到作业的列表及其当前状态。 在屏幕截图中，当前有一个作业正在运行：
 
@@ -118,13 +117,13 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
 
 ### <a name="example-errors-when-safe-mode-is-turned-on"></a>启用安全模式时的错误示例
 
-* H070 无法打开 Hive 会话。 org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **Cannot create directory** /tmp/hive/hive/819c215c-6d87-4311-97c8-4f0b9d2adcf0. 名称节点处于安全模式。 报告的块数为 75，需要额外的 12 个块才能达到总块数 87 的阈值 0.9900。 实时数据节点数 10 已达到最小数字 0。 达到阈值后，安全模式会自动禁用。
+* H070 无法打开 Hive 会话。 org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException:**无法创建目录** /tmp/hive/hive/819c215c-6d87-4311-97c8-4f0b9d2adcf0。 名称节点处于安全模式。 报告的块数为 75，需要额外的 12 个块才能达到总块数 87 的阈值 0.9900。 实时数据节点数 10 已达到最小数字 0。 达到阈值后，安全模式会自动禁用。
 
-* H100 Unable to submit statement show databases: org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException: Connect to hn0-clustername.servername.internal.chinacloudapp.cn:10001 [hn0-clustername.servername. internal.chinacloudapp.cn/1.1.1.1] failed: **Connection refused**
+* H100 无法提交语句 show databases: org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException:连接到 hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername. internal.cloudapp.net/1.1.1.1] 失败:**连接被拒绝**
 
-* H020 Could not establish connection to hn0-hdisrv.servername.bx.internal.chinacloudapp.cn:10001: org.apache.thrift.transport.TTransportException: Could not create http connection to http://hn0-hdisrv.servername.bx.internal.chinacloudapp.cn:10001/. org.apache.http.conn.HttpHostConnectException: Connect to hn0-hdisrv.servername.bx.internal.chinacloudapp.cn:10001 [hn0-hdisrv.servername.bx.internal.chinacloudapp.cn/10.0.0.28] failed: Connection refused: org.apache.thrift.transport.TTransportException: Could not create http connection to http://hn0-hdisrv.servername.bx.internal.chinacloudapp.cn:10001/. org.apache.http.conn.HttpHostConnectException: Connect to hn0-hdisrv.servername.bx.internal.chinacloudapp.cn:10001 [hn0-hdisrv.servername.bx.internal.chinacloudapp.cn/10.0.0.28] failed: **Connection refused**
+* H020 无法建立到 hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 的连接: org.apache.thrift.transport.TTransportException:无法创建到 http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/ 的 http 连接。 org.apache.http.conn.HttpHostConnectException:连接到 hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] 失败:连接被拒绝: org.apache.thrift.transport.TTransportException:无法创建到 http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/ 的 http 连接。 org.apache.http.conn.HttpHostConnectException:连接到 hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] 失败:**连接被拒绝**
 
-* From the Hive logs: WARN [main]: server.HiveServer2 (HiveServer2.java:startHiveServer2(442)) – Error starting HiveServer2 on attempt 21, will retry in 60 seconds java.lang.RuntimeException: Error applying authorization policy on hive configuration: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **Cannot create directory** /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374. 名称节点处于安全模式。
+* 从 Hive 日志中：警告 [main]: server.HiveServer2 (HiveServer2.java:startHiveServer2(442)) – 在 attempt 21 上启动 HiveServer2 时出错，将在 60 秒内重试 java.lang.RuntimeException:在 hive 配置上应用授权策略时出错: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException:**无法创建目录** /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374。 名称节点处于安全模式。
     报告的块数为 0，需要额外的 9 个块才能达到总块数 9 的阈值 0.9900。
     实时数据节点数 10 已达到最小数字 0。 **达到阈值后，安全模式会自动禁用**。
     at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkNameNodeSafeMode(FSNamesystem.java:1324)
@@ -174,7 +173,7 @@ hdfs fsck -D 'fs.default.name=hdfs://mycluster/' /tmp/hive/hive
 在未出现块复制数量不足的正常 HDFS 文件系统上执行此命令时，可以看到如下所示的输出：
 
 ```
-Connecting to namenode via http://hn0-scalin.name.bx.internal.chinacloudapp.cn:30070/fsck?ugi=sshuser&path=%2Ftmp%2Fhive%2Fhive
+Connecting to namenode via http://hn0-scalin.name.bx.internal.cloudapp.net:30070/fsck?ugi=sshuser&path=%2Ftmp%2Fhive%2Fhive
 FSCK started by sshuser (auth:SIMPLE) from /10.0.0.21 for path /tmp/hive/hive at Thu Jul 06 20:07:01 UTC 2017
 ..Status: HEALTHY
  Total size:    53 B
@@ -201,7 +200,7 @@ The filesystem under path '/tmp/hive/hive' is HEALTHY
 相反，在出现块复制数量不足的 HDFS 文件系统上执行 `fsck` 命令时，将看到如下所示的输出：
 
 ```
-Connecting to namenode via http://hn0-scalin.name.bx.internal.chinacloudapp.cn:30070/fsck?ugi=sshuser&path=%2Ftmp%2Fhive%2Fhive
+Connecting to namenode via http://hn0-scalin.name.bx.internal.cloudapp.net:30070/fsck?ugi=sshuser&path=%2Ftmp%2Fhive%2Fhive
 FSCK started by sshuser (auth:SIMPLE) from /10.0.0.21 for path /tmp/hive/hive at Thu Jul 06 20:13:58 UTC 2017
 .
 /tmp/hive/hive/4f3f4253-e6d0-42ac-88bc-90f0ea03602c/inuse.info:  Under replicated BP-1867508080-10.0.0.21-1499348422953:blk_1073741826_1002. Target Replicas is 3 but found 1 live replica(s), 0 decommissioned replica(s) and 0 decommissioning replica(s).
@@ -238,7 +237,7 @@ FSCK ended at Thu Jul 06 20:13:58 UTC 2017 in 28 milliseconds
 The filesystem under path '/tmp/hive/hive' is CORRUPT
 ```
 
-也可以在 Ambari UI 中（选择左侧的“HDFS”服务）或使用 `https://<HDInsightClusterName>.azurehdinsight.cn/#/main/services/HDFS/summary` 查看 HDFS 状态。
+也可以在 Ambari UI 中（选择左侧的“HDFS”服务）或使用 `https://<HDInsightClusterName>.azurehdinsight.net/#/main/services/HDFS/summary` 查看 HDFS 状态。
 
 ![Ambari HDFS 状态](./media/hdinsight-scaling-best-practices/ambari-hdfs.png)
 

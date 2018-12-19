@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 origin.date: 10/15/2018
-ms.date: 11/12/2018
+ms.date: 12/17/2018
 ms.author: v-jay
 ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: 711878e937c3d861f77ddd87876515deac443af3
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c342a4acbe0c16461864f194805bd6f1e922c384
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661760"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396073"
 ---
 # <a name="what-is-azure-stack"></a>什么是 Azure Stack？
 
@@ -31,7 +31,7 @@ Azure Stack 是一种混合云平台，用于在数据中心提供 Azure 服务�
 Azure Stack 以两个部署选项提供，以满足你的需求。
 
 ## <a name="azure-stack-integrated-systems"></a>Azure Stack 集成系统
-Azure Stack 集成系统通过 Microsoft 与[硬件合作伙伴](https://azure.microsoft.com/overview/azure-stack/integrated-systems/)的合作关系提供，它创建的解决方案兼顾云时代的创新与计算管理的简化。 由于 Azure Stack 以集成式硬件和软件系统的形式提供，因此你可以获得所需的灵活性和控制度，以及云中的创新能力。 Azure Stack 集成系统的大小范围从 4 个节点到 12 个节点，由硬件合作伙伴和 Microsoft 共同提供支持。  使用 Azure Stack 集成系统可以创建新的方案，以及为生产工作负荷部署新解决方案。
+Azure Stack 集成系统通过 Azure 与[硬件合作伙伴](https://azure.microsoft.com/overview/azure-stack/integrated-systems/)的合作关系提供，它创建的解决方案兼顾云时代的创新与计算管理的简化。 由于 Azure Stack 以集成式硬件和软件系统的形式提供，因此你可以获得所需的灵活性和控制度，以及云中的创新能力。 Azure Stack 集成系统的大小范围从 4 个节点到 12 个节点，由硬件合作伙伴和 Microsoft 共同提供支持。  使用 Azure Stack 集成系统可以创建新的方案，以及为生产工作负荷部署新解决方案。
 
 ## <a name="azure-stack-development-kit"></a>Azure Stack 开发工具包
 

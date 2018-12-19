@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/27/2018
-ms.date: 11/12/2018
+origin.date: 10/16/2018
+ms.date: 12/17/2018
 ms.author: v-jay
 ms.reviewer: quying
-ms.openlocfilehash: ce0f29268f96be18423632617b82a5340d535ecc
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 738057fbd0b364ec0d272acf31ea8a2dbb2140f2
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650093"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396240"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>为 SQL 资源提供程序添加托管服务器
 
@@ -64,7 +64,7 @@ ms.locfileid: "52650093"
 
 * 数据库：创建、更改、使用包含（仅限 Always On）、删除、备份
 * 可用性组：更改、联接、添加/删除数据库
-* 登录：创建、选择、更改、删除、吊销
+* 登录名：创建、选择、更改、删除、撤销
 * 选择操作：\[master\].\[sys\].\[availability_group_listeners\] (AlwaysOn)、sys.availability_replicas (AlwaysOn)、sys.databases、\[master\].\[sys\].\[dm_os_sys_memory\]、SERVERPROPERTY、\[master\].\[sys\].\[availability_groups\] (AlwaysOn)、sys.master_files
 
 ### <a name="additional-security-information"></a>其他安全信息
@@ -174,23 +174,24 @@ ms.locfileid: "52650093"
    > 不能在同一 SKU 中混合使用独立服务器与 Always On 实例。 尝试在添加第一个托管服务器后混合类型会导致错误。
 
 ## <a name="sku-notes"></a>SKU 说明
-
-可以使用 SKU 来区分服务套餐。 例如，可以使用具有以下特征的 SQL Enterprise 实例：
+使用可以描述 SKU 中服务器容量（例如容量和性能）的 SKU 名称。 名称可以协助用户将其数据库部署到相应的 SKU。 例如，可以使用 SKU 名称通过以下特征来区分服务产品/服务：
   
 * 高容量
 * 高性能
 * 高可用性
 
-在此版本中，无法将 SKU 分配到特定的用户或组。
-
- SKU 最长可能需要在一小时后才显示在门户中。 在完全创建 SKU 之前，用户无法创建数据库。
-
->[!TIP]
->使用可以反映和描述 SKU 中服务器容量（例如容量和性能）的 SKU 名称。 名称可以协助用户将其数据库部署到相应的 SKU。
-
 最佳做法是使 SKU 中的所有宿主服务器具有相同的资源和性能特征。
 
-## <a name="make-the-sql-databases-available-to-users"></a>将 SQL 数据库提供给用户使用
+无法将 SKU 分配到特定的用户或组。
+
+SKU 最长可能需要在一小时后才显示在门户中。 在完全创建 SKU 之前，用户无法创建数据库。
+
+若要编辑某个 SKU，请转到“所有服务” > “SQL 适配器” > “SKU”。 选择要修改的 SKU，进行任何必要的更改，然后单击“保存”以保存更改。 若要删除不再需要的 SKU，请转到“所有服务” > “SQL 适配器” > “SKU”。 右键单击 SKU 名称，然后选择“删除”将其删除。
+
+> [!TIP]
+> 可以在同一位置中编辑或删除 SQL 资源提供程序配额。
+
+## <a name="make-sql-databases-available-to-users"></a>将 SQL 数据库提供给用户使用
 
 创建计划和套餐，使用户能够使用 SQL 数据库。 将 **Microsoft.SqlAdapter** 服务添加到计划，并创建新配额。
 

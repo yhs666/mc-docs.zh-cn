@@ -17,12 +17,12 @@ ms.topic: article
 origin.date: 01/22/2018
 ms.author: v-yiso
 ms.date: 03/26/2018
-ms.openlocfilehash: 53bd4b98ab9f994d48415e5a50805df17e7e8c99
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 317144d353a93ff3db6c0113ae833876d37c8917
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649650"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028381"
 ---
 # <a name="set-up-backup-and-replication-for-hbase-and-phoenix-on-hdinsight"></a>为 HDInsight 上的 HBase 和 Phoenix 设置备份与复制
 
@@ -65,7 +65,7 @@ HDInsight 中的 HBase 使用创建群集时选择的默认存储：Azure 存储
 
 * 创建指向当前存储位置的新 HDInsight 实例。 新实例是使用所有现有数据创建的。
 
-* 将 `hbase` 文件夹复制到不同的 Azure 存储 Blob 容器或 Data Lake Store 位置，然后使用该数据启动新群集。 对于 Azure 存储，可以使用 [AzCopy](../../storage/common/storage-use-azcopy.md)；对于 Data Lake Store，可以使用 [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md)。
+* 将 `hbase` 文件夹复制到不同的 Azure 存储 Blob 容器或 Data Lake Store 位置，然后使用该数据启动新群集。 对于 Azure 存储，请使用 [AzCopy](../../storage/common/storage-use-azcopy.md)。
 
 ## <a name="export-then-import"></a>导出再导入
 

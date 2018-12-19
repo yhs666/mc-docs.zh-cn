@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: fa02bd26adb72686c795477246223cbccf0b8c05
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: fa26f7c95e8c5dd0e7c4cb8e2a07869c8248a6c2
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672855"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396155"
 documentType: LandingData
 title: Azure Stack 用户文档
 metadata:
@@ -12,15 +12,15 @@ metadata:
   title: Azure Stack 文档 - 教程和 API 参考
   description: 了解如何使用 Azure Stack 服务，以及如何生成适用于 Azure Stack 的应用。
   services: azure-stack
-  author: jeffgilb
-  manager: femila
+  author: WenJason
+  manager: digimobile
   ms.service: azure-stack
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-origin.date: 09/25/2018
-ms.date: 11/12/2018
-ms.author: v-junlch
+origin.date: 10/16/2018
+ms.date: 12/17/2018
+ms.author: v-jay
 abstract:
   description: Azure Stack 是一个混合云平台，可用于通过公司或服务提供商的数据中心使用 Azure 服务。 开发人员可以在 Azure Stack 上生成应用。 然后，可将这些应用部署到 Azure Stack 或 Azure，或者，可以生成利用 Azure Stack 云与 Azure 之间的连接的真正混合式应用。 使用快速入门和教程了解如何创建资源和部署应用。<br/><br/>如果你是 Azure Stack 操作员并想要管理基础结构和提供服务，请参阅<a href="/azure-stack/">操作员文档</a>。<br/><br/>如果你是对 Azure Stack 开发工具包 (ASDK) 感兴趣的 Azure Stack 操作员，可以免费下载和使用 Azure Stack 的单节点部署，请参阅我们的 <a href="/azure-stack/asdk">ASDK 文档</a>。
 sections:
@@ -69,7 +69,10 @@ sections:
     items:
     - html: <a href="/azure-stack/user/azure-stack-solution-hybrid-identity">使用 Azure 和 Azure Stack 应用程序配置混合云标识</a>
     - html: <a href="/azure-stack/user/azure-stack-solution-hybrid-connectivity">使用 Azure 和 Azure Stack 配置混合云连接</a>
-    - html: <a href="/azure/azure-stack/user/azure-stack-solution-staged-data-analytics">使用 Azure 和 Azure Stack 创建临时数据分析解决方案</a>
+    - html: <a href="/azure-stack/user/azure-stack-solution-staged-data-analytics">使用 Azure 和 Azure Stack 创建临时数据分析解决方案</a>
+    - html: <a href="/azure-stack/user/azure-stack-solution-cloud-burst">使用 Azure 创建跨云缩放解决方案</a>
+    - html: <a href="/azure-stack/user/azure-stack-solution-geo-distributed">使用 Azure 和 Azure Stack 创建异地分布式应用解决方案</a>
+    - html: <a href="/azure-stack/user/azure-stack-solution-hybrid-cloud">使用 Azure 和 Azure Stack 部署混合云解决方案</a>
 - title: 参考
   items:
   - type: list

@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: azure-vs
 origin.date: 03/26/2018
-ms.date: 10/15/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: fac4c9891e457aa5d98971fcc9da4032c45a2198
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d72afd78938bc08ae067a841bb9c80d50e6dea94
+ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666783"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52901122"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>快速入门：将 .NET Reliable Services 应用程序部署到 Service Fabric
 
@@ -47,7 +47,7 @@ Azure Service Fabric 是一款分布式系统平台，可用于部署和管理�
 
 1. [安装 Visual Studio 2017](https://www.visualstudio.com/)，其中包含 Azure 开发以及 ASP.NET 和 Web 开发工作负荷。
 2. [安装 Git](https://git-scm.com/)
-3. [安装 Azure Service Fabric SDK](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK)
+3. [安装 Azure Service Fabric SDK](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK)
 4. 运行以下命令，以便 Visual Studio 将应用程序部署到本地 Service Fabric 群集：
     ```powershell
     Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
@@ -139,7 +139,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 <a name="join-a-party-cluster"></a>
 ### <a name="join-a-cluster"></a>加入群集
-登录并加入 Windows 群集。 通过单击 **PFX** 链接，将 PFX 证书下载到计算机。 在 Windows 计算机上，将 PFX 安装到 *CurrentUser\My* 证书存储中。
+登录 [Azure 门户](https://portal.azure.cn)并加入 Windows 群集。 通过单击 **PFX** 链接，将 PFX 证书下载到计算机。 在 Windows 计算机上，将 PFX 安装到 *CurrentUser\My* 证书存储中。
 
 ```powershell
 PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:\CurrentUser\My -Password (ConvertTo-SecureString 873689604 -AsPlainText -Force)

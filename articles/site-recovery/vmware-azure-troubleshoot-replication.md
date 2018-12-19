@@ -1,20 +1,19 @@
 ---
-title: 解决使用 Azure Site Recovery 将 VMware VM 和物理服务器复制到 Azure 的复制问题 | Azure
-description: 本文提供针对使用 Azure Site Recovery 将 VMware VM 和物理服务器复制到 Azure 时的常见复制问题的疑难解答。
-services: site-recovery
+title: 使用 Azure Site Recovery 排查将 VMware VM 和物理服务器灾难恢复到 Azure 时的复制问题 | Azure
+description: 本文针对使用 Azure Site Recovery 将 VMware VM 和物理服务器灾难恢复到 Azure 期间遇到的常见复制问题提供故障排除信息。
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 07/06/2018
-ms.date: 09/17/2018
+origin.date: 10/29/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2759c208a7b24a1247964ada96a520b013fdd8a7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 02a2fbe20ad22fadf922936716ac9c23753b5722
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648916"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028761"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>解决 VMware VM 和物理服务器的复制问题
 
@@ -45,7 +44,7 @@ ms.locfileid: "52648916"
 
 如果不是，请执行下列步骤：
 
-* **检查进程服务器是否能够连接 Azure Blob**：选择并勾选 cbengine.exe，查看“TCP 连接”，检查是否存在从进程服务器到 Azure 存储 Blob URL 的连接。
+* **检查进程服务器是否能够连接 Azure Blob**：选择并勾选 cbengine.exe 来查看“TCP 连接”，以检查是否存在从进程服务器到 Azure 存储 Blob URL 的连接。
 
 ![启用复制](./media/vmware-azure-troubleshoot-replication/rmonitor.png)
 
@@ -61,7 +60,7 @@ ms.locfileid: "52648916"
 
 * **检查进程服务器是否能通过端口 443 连接到 Azure 公共 IP 地址**
 
-从 `%programfiles%\Azure Recovery Services Agent\Temp` 打开最新的 CBEngineCurr.errlog，然后搜索 :443 和失败的连接尝试。
+从 `%programfiles%\Azure Recovery Services Agent\Temp` 打开最新的 CBEngineCurr.errlog，然后搜索：443 和失败的连接尝试。
 
 ![启用复制](./media/vmware-azure-troubleshoot-replication/logdetails1.png)
 
@@ -86,8 +85,9 @@ ms.locfileid: "52648916"
 
 将其打开，再单击“操作”>“更改属性”。 “代理配置”选项卡下应显示代理地址，其应与注册表设置中显示的代理地址相同。 如果不同，请将其更改为相同的地址。
 
-* **检查进程服务器上的限制带宽是否不受约束**：增加带宽，并检查问题是否仍然存在。
+* **检查进程服务器上是否未约束限制带宽**：增加带宽，然后检查问题是否仍然出现。
 
 ## <a name="next-steps"></a>后续步骤
-如需更多帮助，请在 [Azure Site Recovery 论坛](https://www.azure.cn/support/contact/)提出疑问。 我们的社区非常活跃，工程师会提供帮助。
-<!--Update_Description: update meta properties, wording update, update link -->
+如需更多帮助，请在 [Azure Site Recovery 论坛](https://www.azure.cn/support/contact/)提出疑问。 我们的社区非常活跃，我们的工程师将为你提供帮助。
+
+<!--Update_Description: update meta properties, wording update -->

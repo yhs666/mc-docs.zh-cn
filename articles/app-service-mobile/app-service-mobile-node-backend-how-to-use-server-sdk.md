@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 10/01/2016
 ms.author: v-yiso
 ms.date: 10/08/2018
-ms.openlocfilehash: 1c0cb0a47201b3dd9d9a23572241528b034f0721
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: dea32b549cb3a9be7261da767a804b7fe6ad3924
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662509"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028863"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>如何使用移动应用 Node.js SDK
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -904,10 +904,10 @@ Node.js 应用程序可访问各种诊断日志工具。 在内部，移动应�
 
 * **更改权限**：修改在表中读取、插入、更新和删除操作的权限。
  选项包括允许匿名访问、要求身份验证，或禁用对操作的所有访问。
-* **编辑脚本**：在应用服务编辑器中打开表的脚本文件。
+* **编辑脚本**：在“应用服务编辑器”中打开表的脚本文件。
 * **管理架构**：添加或删除列，或者更改表索引。
 * **清除表**：截断现有表可能会删除所有行，但架构保持不变。
-* **删除行**：删除单个数据行。
+* **删除行**：删除各个数据行。
 * **查看流式处理日志**：连接到站点的流式处理日志服务。
 
 ### <a name="work-easy-apis"></a>在 Azure 门户中使用简易 API
@@ -952,7 +952,7 @@ Node.js 应用程序可访问各种诊断日志工具。 在内部，移动应�
 [监视 Azure 应用服务]: ../app-service/web-sites-monitor.md
 [在 Azure 应用服务中启用诊断日志记录]: ../app-service/web-sites-enable-diagnostic-log.md
 [在 Visual Studio 中对 Azure 应用服务进行故障排除]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
-[指定 Node 版本]: ../nodejs-specify-node-version-azure-apps.md
+[指定 Node 版本]: https://docs.azure.cn/zh-cn/nodejs-specify-node-version-azure-apps
 [使用 Node 模块]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps

@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-origin.date: 09/05/2018
-ms.date: 10/15/2018
+origin.date: 11/05/2018
+ms.date: 12/17/2018
 ms.author: v-jay
-ms.reviewer: ''
+ms.reviewer: quying
 ms.custom: mvc
-ms.openlocfilehash: 3421b91b4febc278066698c206a92eab3743d4e9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e6cf5e8c21e3035318855c11a00ee86929fb980a
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652250"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396222"
 ---
 # <a name="tutorial-make-sql-databases-available-to-your-azure-stack-users"></a>教程：将 SQL 数据库提供给 Azure Stack 用户使用
 
@@ -73,11 +73,11 @@ Azure Stack 云管理员可以创建套餐，使用户（租户）能够创建 S
     - **资源组**：SQL-RG
 3. 选择“登录设置”，输入数据库的凭据，然后选择“确定”。
 4. 选择“SKU”，选择为 SQL 宿主服务器创建的 SQL SKU，然后选择“确定”。
-5. 选择“创建” 。
+5. 选择“创建”。
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，你已学习了如何执行以下操作：
+本教程介绍了如何：
 
 > [!div class="checklist"]
 > * 部署 SQL Server 资源提供程序

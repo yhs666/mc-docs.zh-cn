@@ -9,14 +9,14 @@ ms.service: power-bi-embedded
 ms.topic: article
 ms.workload: powerbi
 origin.date: 09/25/2017
-ms.date: 09/26/2018
+ms.date: 11/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: de0f1ba703fdc7f37b722fdf871571db39e7feec
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 72f43e02f64f721d3762d34c88517e217028a951
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654799"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029117"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Power BI 工作区集合入门示例
 
@@ -25,11 +25,11 @@ ms.locfileid: "52654799"
 > [!IMPORTANT]
 > Power BI 工作区集合已弃用，到 2018 年 6 月 或合同指示时可用。 建议你规划到 Power BI Embedded 的迁移以避免应用程序中断。 有关如何将数据迁移到 Power BI Embedded 的信息，请参阅[如何将 Power BI 工作区集合内容迁移到 Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)。
 
-往下继续之前，要保存以下资源：在将 Power BI 报表集成到示例应用以及自己的应用时，它们会有所帮助。
+在继续之前，需要保存以下资源：将 Power BI 报表集成到示例应用和你自己的应用中时，这些资源都可以提供帮助。
 
 - [示例工作区 Web 应用](https://github.com/kustbilla/Mooncake_PowerBI_Embedded)
 - [Power BI 工作区集合 API 参考](https://msdn.microsoft.com/library/azure/mt711507.aspx)
-- [Power BI .NET SDK](http://go.microsoft.com/fwlink/?LinkId=746472)（通过 NuGet 提供）
+- [Power BI .NET SDK](https://go.microsoft.com/fwlink/?LinkId=746472)（通过 NuGet 提供）
 - [JavaScript 报表嵌入示例](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 > [!NOTE]
@@ -39,7 +39,7 @@ ms.locfileid: "52654799"
 
 下面引导完成 Visual Studio 开发环境的设置，以便访问运行示例应用时所需的组件。
 
-1. 下载并解压缩 GitHub 上的 [Power BI 工作区集合 - 将报表集成到 Web 应用中](http://go.microsoft.com/fwlink/?LinkId=761493)示例。
+1. 下载并解压缩 GitHub 上的 [Power BI 工作区集合 - 将报表集成到 Web 应用中](https://go.microsoft.com/fwlink/?LinkId=761493)示例。
 
     >[!IMPORTANT]
     > 本示例中的某些 URL 只能在全球环境中使用。 若要在 Azure 中国区环境中使用它，必须执行一些替换。
@@ -57,7 +57,7 @@ ms.locfileid: "52654799"
 8. 复制并保存新创建的 **工作区 ID** 以便在本文后面部分使用。 创建**工作区 ID** 之后，可以在 **Azure 门户**中找到该数据。
 
     ![Azure 门户中的工作区 ID](./media/get-started-sample/workspace-id.png)
-9. 要将 PBIX 文件导入到**工作区**，请选择选项 6 **。**“将 PBIX 文件导入到现有工作区”。 如果没有现有的 PBIX 文件，则可以下载 [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547)（零售分析示例 PBIX）。
+9. 要将 PBIX 文件导入到**工作区**，请选择选项 6 **。**“将 PBIX 文件导入到现有工作区”。 如果没有现有的 PBIX 文件，则可以下载 [Retail Analysis Sample PBIX](https://go.microsoft.com/fwlink/?LinkID=780547)（零售分析示例 PBIX）。
 10. 如果出现提示，请为**数据集**输入一个易记的名称。
 
 应该会看到如下所示的响应：
@@ -77,7 +77,7 @@ Checking import state... Succeeded
 Web 应用示例是一个示例应用程序，用于呈现**工作区**中导入的报表。 下面介绍了如何配置 Web 应用示例。
 
 1. 在 **PowerBI Embedded** Visual Studio 解决方案中，右键单击“EmbedSample”Web 应用程序，并选择“设为启动项目”。
-2. 在 **web.config** 的 **EmbedSample** Web 应用程序中，编辑 **appSettings** 中的 **AccessKey** 和 **WorkspaceCollection** 名称，以及 **WorkspaceId**。
+2. 在 **web.config** 中，在 **EmbedSample** Web 应用程序中，编辑 **appSettings**：**AccessKey**、**WorkspaceCollection** 名称和 **WorkspaceId**。
 
     ```
     <appSettings>
@@ -89,7 +89,7 @@ Web 应用示例是一个示例应用程序，用于呈现**工作区**中导入
     ```
 3. 运行 **EmbedSample** Web 应用程序。
 
-运行 **EmbedSample** Web 应用程序后，左侧的导航面板应包含“报表”菜单。 如果要查看导入的报表，请展开“报表” ，并单击任一报表。 如果已导入了 [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547)（零售分析示例 PBIX），则示例 Web 应用将如下所示：
+运行 **EmbedSample** Web 应用程序后，左侧的导航面板应包含“报表”菜单。 如果要查看导入的报表，请展开“报表” ，并单击任一报表。 如果已导入了 [Retail Analysis Sample PBIX](https://go.microsoft.com/fwlink/?LinkID=780547)（零售分析示例 PBIX），则示例 Web 应用将如下所示：
 
 ![示例应用程序中的示例左导航栏](./media/get-started-sample/sample-left-nav.png)
 
@@ -138,9 +138,9 @@ public classReportViewModel
 Data Source=tcp:MyServer.database.chinacloudapi.cn,1433;Initial Catalog=MyDatabase
 ```
 
-使用一般的服务器和数据库属性会失败。 例如：Server=tcp:MyServer.database.chinacloudapi.cn,1433;Database=MyDatabase。
+使用一般的服务器和数据库属性会失败。 例如：Server=tcp:MyServer.database.chinacloudapi.cn,1433;Database=MyDatabase,
 
-### <a name="view"></a>查看
+### <a name="view"></a>视图
 
 **视图**用于管理多个 Power BI **报表**或一个 Power BI **报表**的显示情况。
 
@@ -275,4 +275,4 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 
 有更多问题？ [试用 Power BI 社区](http://community.powerbi.com/)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: link update -->

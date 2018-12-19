@@ -16,12 +16,12 @@ ms.topic: conceptual
 origin.date: 08/27/2018
 ms.date: 11/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: b1dd2e414188e1f84efbcec0040d4b35a767ed04
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1674ae7509d17bf91e9127f81b1d56019e66945a
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664593"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028907"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>使用 Hadoop、Spark、Kafka 等等在 HDInsight 中设置群集
 
@@ -87,26 +87,18 @@ Azure HDInsight 目前提供以下群集类型，每种类型都具有一组用�
 ### <a name="hdinsight-version"></a>HDInsight 版本
 选择此群集的 HDInsight 版本。 有关详细信息，请参阅[支持的 HDInsight 版本](hdinsight-component-versioning.md#supported-hdinsight-versions)。
 
-### <a name="enterprise-security-package"></a>企业安全数据包
-
-对于 Hadoop、Spark 和交互式查询群集类型，可选择启用“企业安全数据包”。 启用此数据包，可通过使用 Apache Ranger 并与 Azure Active Direcotry 集成来实现更安全的群集设置。 有关详细信息，请参阅 [Azure HDInsight 中的企业安全数据包](./domain-joined/apache-domain-joined-introduction.md)。
-
-![hdinsight 创建选项 选择企业安全数据包](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-enterprise-security-package.png)
-
-有关如何创建已加入域的 HDInsight 群集的详细信息，请参阅[创建已加入域的 HDInsight 沙盒环境](./domain-joined/apache-domain-joined-configure.md)。
-
 
 ## <a name="cluster-login-and-ssh-user-name"></a>群集登录名和 SSH 用户名
 使用 HDInsight 群集时，可以在群集创建期间配置两个用户帐户：
 
-* HTTP 用户：默认用户名为 *admin*。它使用 Azure 门户上的基本配置。 有时称为“群集用户”。
-* SSH 用户（Linux 群集）：用于通过 SSH 连接到群集。 有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
+* HTTP 用户：默认的用户名为 *admin*。它使用 Azure 门户上的基本配置。 有时称为“群集用户”。
+* SSH 用户（Linux 群集）：用来通过 SSH 连接到群集。 有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 使用企业安全包可将 HDInsight 与 Active Directory 和 Apache Ranger 集成。 可以使用企业安全包创建多个用户。
 
 ## <a name="location"></a>群集和存储的位置（区域）
 
-无需显式指定群集位置：群集位于默认存储所在的位置。 有关受支持区域的列表，请单击 [HDInsight 定价](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)中的“区域”下拉列表。
+不需要显式指定群集位置：群集与默认存储在相同的位置。 有关受支持区域的列表，请单击 [HDInsight 定价](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)中的“区域”下拉列表。
 
 ## <a name="storage-endpoints-for-clusters"></a>群集的存储终结点
 
@@ -117,7 +109,7 @@ Hadoop 的本地安装对群集上的存储使用 Hadoop 分布式文件系统 (
 
 在配置期间，请为默认存储终结点指定 Azure 存储帐户的某个 Blob 容器。 默认存储包含应用程序日志和系统日志。 也可以选择指定群集可访问的其他 Azure 存储链接帐户。 HDInsight 群集和相关的存储帐户必须在同一个 Azure 位置。
 
-![群集存储设置：HDFS 兼容的存储终结点](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-creation-storage.png)
+![群集存储设置：与 HDFS 兼容的存储终结点](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-creation-storage.png)
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
 
@@ -194,8 +186,8 @@ HDInsight 群集的成本取决于节点数和节点的虚拟机大小。
 
 ### <a name="virtual-machine-sizes"></a>虚拟机大小 
 部署群集时，请根据要部署的解决方案选择计算资源。 以下 VM 用于 HDInsight 群集：
-* A 和 D1-4 系列 VM：[常规用途 Linux VM 的大小](/virtual-machines/linux/sizes-general)
-* D11-14 系列 VM：[内存优化的 Linux VM 大小](/virtual-machines/linux/sizes-memory)
+* A 系列和 D1-4 系列 VM：[常规用途 Linux VM 大小](/virtual-machines/linux/sizes-general)
+* D11-14 系列 VM：[内存优化 Linux VM 大小](/virtual-machines/linux/sizes-memory)
 
 使用不同的 SDK 或使用 Azure PowerShell 创建群集时，若要确定应该使用哪个值来指定 VM 大小，请参阅[用于 HDInsight 群集的 VM 大小](../cloud-services/cloud-services-sizes-specs.md#size-tables)。 请使用此链接本章的“大小”列中的值。
 
@@ -240,7 +232,7 @@ HDInsight 群集的成本取决于节点数和节点的虚拟机大小。
 有关详细信息，请参阅 [使用 Bootstrap 自定义 HDInsight 群集 ](hdinsight-hadoop-customize-cluster-bootstrap.md)。
 
 ## <a name="advanced-settings-extend-clusters-with-a-virtual-network"></a>高级设置：使用虚拟网络扩展群集
-如果解决方案需要分布在多种 HDInsight 群集类型上的技术，可以使用 [Azure 虚拟网络](/virtual-network)连接所需的群集类型。 此配置允许群集以及部署到群集的任何代码直接相互通信。
+如果解决方案需要分布在多种 HDInsight 群集类型上的技术，可以使用 [Azure 虚拟网络 ](/virtual-network)连接所需的群集类型。 此配置允许群集以及部署到群集的任何代码直接相互通信。
 
 有关将 Azure 虚拟网络与 HDInsight 配合使用的详细信息，请参阅[使用 Azure 虚拟网络扩展 HDInsight](hdinsight-extend-hadoop-virtual-network.md)。
 

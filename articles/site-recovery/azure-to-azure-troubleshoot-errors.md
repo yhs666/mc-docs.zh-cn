@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 origin.date: 08/09/2018
-ms.date: 09/17/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: caa9f9f9a0cf2f828db372c476ff723be92463b7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 89d5f72a317041ffc2898ddbea6c8af3b626212c
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645355"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028486"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 到 Azure VM 复制问题故障排除
 
@@ -26,13 +26,12 @@ ms.locfileid: "52645355"
 
 错误代码 | **可能的原因** | 建议
 --- | --- | ---
-150097<br></br>消息：无法为虚拟机 VmName 启用复制。 | - 可能未启用订阅 ID，无法在目标区域位置中创建任何 VM。</br></br>- 可能未启用订阅 ID 或没有足够的配额，无法在目标区域位置中创建特定大小的 VM。</br></br>- 对于订阅 ID，在目标区域位置中找不到与源 VM NIC 计数 (2) 匹配的合适的目标 VM 大小。| 联系 [Azure 计费支持](https://support.windowsazure.cn/support/support-azure)，对订阅启用 VM 创建，以便在目标位置中创建所需大小的 VM。 启用后，重试失败的操作。
+150097<br></br>**消息**：无法为虚拟机 VmName 启用复制。 | - 可能未启用订阅 ID，无法在目标区域位置中创建任何 VM。</br></br>- 可能未启用订阅 ID 或没有足够的配额，无法在目标区域位置中创建特定大小的 VM。</br></br>- 对于订阅 ID，在目标区域位置中找不到与源 VM NIC 计数 (2) 匹配的合适的目标 VM 大小。| 联系 [Azure 计费支持](https://support.windowsazure.cn/support/support-azure)，对订阅启用 VM 创建，以便在目标位置中创建所需大小的 VM。 启用后，重试失败的操作。
 
 ### <a name="fix-the-problem"></a>解决问题
 可联系 [Azure 计费支持](https://support.windowsazure.cn/support/support-azure)启用订阅，以便在目标位置中创建所需大小的 VM。
-<!-- SHOUD BE https://support.windowsazure.cn/support/support-azure FOR /azure-supportability/resource-manager-core-quotas-request -->
 
-如果目标位置存在容量约束，可禁用复制然后在订阅拥有充足配额的其他位置启用复制，以便创建所需大小的 VM.
+<!-- SHOUD BE https://support.windowsazure.cn/support/support-azure FOR /azure-supportability/resource-manager-core-quotas-request --> 如果目标位置存在容量约束，可禁用复制然后在订阅拥有充足配额的其他位置启用复制，以便创建所需大小的 VM.
 
 ## <a name="trusted-root-certificates-error-code-151066"></a>受信任的根证书（错误代码 151066）
 
@@ -40,7 +39,7 @@ ms.locfileid: "52645355"
 
 错误代码 | 可能的原因 | **建议**
 --- | --- | ---
-151066<br></br>消息：Site Recovery 配置失败。 | 计算机上不存在用于授权和身份验证的必需受信根证书。 | - 对于运行 Windows 操作系统的 VM，请确保计算机上存在受信任的根证书。 有关信息，请参阅[配置受信任根和不允许的证书](https://technet.microsoft.com/library/dn265983.aspx)。<br></br>- 对于运行 Linux 操作系统的 VM，请按照 Linux 操作系统版本分发商发布的受信任的根证书指南进行操作。
+151066<br></br>**消息**：Site Recovery 配置失败。 | 计算机上不存在用于授权和身份验证的必需受信根证书。 | - 对于运行 Windows 操作系统的 VM，请确保计算机上存在受信任的根证书。 有关信息，请参阅[配置受信任根和不允许的证书](https://technet.microsoft.com/library/dn265983.aspx)。<br></br>- 对于运行 Linux 操作系统的 VM，请按照 Linux 操作系统版本分发商发布的受信任的根证书指南进行操作。
 
 ### <a name="fix-the-problem"></a>解决问题
 **Windows**
@@ -157,8 +156,8 @@ ms.locfileid: "52645355"
 
 - **解决方法**
    - 如果使用防火墙代理来控制 VM 的出站网络连接，请确保已将必备 URL 或数据中心 IP 范围加入允许列表。 有关信息，请参阅[防火墙代理指南](https://aka.ms/a2a-firewall-proxy-guidance)。
-   - 如果使用 NSG 规则来控制 VM 的出站网络连接，请确保已将必备数据中心 IP 范围加入允许列表。 有关信息，请参阅[网络安全组指南](https://aka.ms/a2a-nsg-guidance)。
-   - 要将[所需 URL](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) 或[所需 IP 范围](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)列入允许列表，请按照[网络指南文档](site-recovery-azure-to-azure-networking-guidance.md)中的步骤进行操作。
+   - 如果使用 NSG 规则来控制 VM 的出站网络连接，请确保已将必备数据中心 IP 范围加入允许列表。 有关信息，请参阅[网络安全组指南](azure-to-azure-about-networking.md)。
+   - 要将[所需 URL](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) 或[所需 IP 范围](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)列入允许列表，请按照[网络指南文档](azure-to-azure-about-networking.md)中的步骤进行操作。
 
 ### <a name="issue-2-site-recovery-configuration-failed-151072"></a>问题 2：Site Recovery 配置失败 (151072)
 - 可能的原因 </br>
@@ -169,7 +168,7 @@ ms.locfileid: "52645355"
    - 如果使用 NSG 规则来控制 VM 的出站网络连接，请确保已将必备数据中心 IP 范围加入允许列表。 有关信息，请参阅[网络安全组指南](https://aka.ms/a2a-nsg-guidance)。
    - 要将[所需 URL](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) 或[所需 IP 范围](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)列入允许列表，请按照[网络指南文档](site-recovery-azure-to-azure-networking-guidance.md)中的步骤进行操作。
 
-### <a name="issue-3-a2a-replication-failed-when-the-network-traffic-goes-through-on-premise-proxy-server-151072"></a>问题 3：当网络流量通过本地代理服务器时A2A 复制失败 (151072)
+### <a name="issue-3-a2a-replication-failed-when-the-network-traffic-goes-through-on-premise-proxy-server-151072"></a>问题 3：当网络流量通过本地代理服务器时 A2A 复制失败 (151072)
  - 可能的原因 </br>
    - 自定义代理设置无效，并且 ASR 移动服务代理未在 IE 中自动检测到代理设置
 
@@ -193,12 +192,12 @@ ms.locfileid: "52645355"
 
 错误代码 | 可能的原因 | 建议
 --- | --- | ---
-150039<br></br>**消息**：逻辑单元号 (LUN) 为 (LUNValue) 的 Azure 数据磁盘 (DiskName) (DiskURI) 未映射到具有相同 LUN 值的 VM 报告的相应磁盘。 | - 新的数据磁盘已附加到 VM，但未初始化。</br></br>- VM 中的数据磁盘未正确报告附加到 VM 的磁盘的 LUN 值。| 确保数据磁盘已初始化，然后重试该操作。</br></br>对于 Windows：[附加并初始化新磁盘](/virtual-machines/windows/attach-managed-disk-portal)。</br></br>对于 Linux：[在 Linux 中初始化新数据磁盘](/virtual-machines/linux/add-disk)。
+150039<br></br>**消息**：逻辑单元号 (LUN) 为 (LUNValue) 的 Azure 数据磁盘 (DiskName) (DiskURI) 未映射到具有相同 LUN 值的 VM 报告的相应磁盘。 | - 新的数据磁盘已附加到 VM，但未初始化。</br></br>- VM 中的数据磁盘未正确报告附加到 VM 的磁盘的 LUN 值。| 确保数据磁盘已初始化，然后重试该操作。</br></br>对于 Windows：[附加并初始化新的磁盘](/virtual-machines/windows/attach-managed-disk-portal)。</br></br>对于 Linux：[在 Linux 中初始化新的数据磁盘](/virtual-machines/linux/add-disk)。
 
 ### <a name="fix-the-problem"></a>解决问题
 确保数据磁盘已初始化，然后重试该操作：
 
-- 对于 Windows：[附加并初始化新磁盘](/virtual-machines/windows/attach-managed-disk-portal)。
+- 对于 Windows：[附加并初始化新的磁盘](/virtual-machines/windows/attach-managed-disk-portal)。
 - 对于 Linux：[在 Linux 中添加新数据磁盘](/virtual-machines/linux/add-disk)。
 
 如果问题仍然存在，请联系支持部门。
@@ -268,4 +267,5 @@ Azure Site Recovery 当前强制要求源区域资源组和虚拟机应位于同
 
 ## <a name="next-steps"></a>后续步骤
 [复制 Azure 虚拟机](site-recovery-replicate-azure-to-azure.md)
-<!-- Update_Description: update meta properties, wording update -->
+
+<!-- Update_Description: update meta properties, wording update, update link -->

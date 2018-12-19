@@ -1,26 +1,21 @@
 ---
-title: 在 Windows 中排查 Azure 文件问题 | Azure
+title: 在 Windows 中排查 Azure 文件问题 | Microsoft Docs
 description: 在 Windows 中排查 Azure 文件问题
 services: storage
-documentationcenter: ''
-author: forester123
-manager: digimobile
-editor: na
+author: WenJason
 tags: storage
 ms.service: storage
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-origin.date: 05/11/2018
-ms.date: 06/11/2018
-ms.author: v-johch
-ms.openlocfilehash: 345be249dca710e060154598d8a778e92e737944
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 10/30/2018
+ms.date: 12/10/2018
+ms.author: v-jay
+ms.component: files
+ms.openlocfilehash: 425f004fa8520c579e7102f5c5dbd0072b10cf55
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666659"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028290"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>在 Windows 中排查 Azure 文件问题
 
@@ -38,20 +33,21 @@ ms.locfileid: "52666659"
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>原因 1：通信通道未加密
 
-出于安全原因，如果信道未加密，且未从 Azure 文件共享所在的数据中心尝试连接，则到 Azure 文件共享的连接将受阻。 仅当用户的客户端 OS 支持 SMB 加密时，才会提供信道加密。
+出于安全原因，如果信道未加密，且未从 Azure 文件共享所在的数据中心尝试连接，则到 Azure 文件共享的连接将受阻。 如果在存储帐户中启用[需要安全传输](/storage/common/storage-require-secure-transfer)设置，则还可以阻止同一数据中心中未加密的连接。 仅当用户的客户端 OS 支持 SMB 加密时，才会提供信道加密。
 
 Windows 8、Windows Server 2012 及更高版本的每次系统协商均要求其包含支持加密的 SMB 3.0。
 
 ### <a name="solution-for-cause-1"></a>原因 1 的解决方案
 
-从符合下述某个条件的客户端进行连接：
+1. 验证是否已在存储帐户中禁用[需要安全传输](/storage/common/storage-require-secure-transfer)设置。
+2. 从符合下述某个条件的客户端进行连接：
 
-- 满足使用 Windows 8 和 Windows Server 2012 或更高版本这一要求
-- 从虚拟机进行连接时，该虚拟机所在的数据中心必须是用于 Azure 文件共享的 Azure 存储帐户所在的数据中心
+    - 满足使用 Windows 8 和 Windows Server 2012 或更高版本这一要求
+    - 从虚拟机进行连接时，该虚拟机所在的数据中心必须是用于 Azure 文件共享的 Azure 存储帐户所在的数据中心
 
-### <a name="cause-2-port-445-is-blocked"></a>原因 2：端口 445 被阻
+### <a name="cause-2-port-445-is-blocked"></a>原因 2：端口 445 被阻止
 
-如果端口 445 到 Azure 文件数据中心的出站通信受阻，可能会发生系统错误 53 或 67。 如需大致了解允许或禁止从端口 445 进行访问的 ISP，请访问 [TechNet](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx)。
+如果端口 445 到 Azure 文件数据中心的出站通信受阻，可能会发生系统错误 53 或 67。 如需大致了解允许或禁止从端口 445 进行访问的 ISP，请访问 [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx)。
 
 若要了解是否由此造成“系统错误 53”，可使用 Portqry 查询 TCP:445 终结点。 如果 TCP:445 终结点显示为“已筛选”，则 TCP 端口被阻止。 示例查询如下：
 
@@ -178,7 +174,7 @@ net use 命令将正斜杠 (/) 解释为命令行选项。 如果用户帐户名
 <a id="doesnotsupportencryption"></a>
 ## <a name="error-you-are-copying-a-file-to-a-destination-that-does-not-support-encryption"></a>“正在将文件复制到不支持加密的目标”错误
 
-通过网络复制文件时，会在源计算机上解密该文件，以明文形式进行传输，然后在目标计算机上重新加密该文件。 但是，你可能会在尝试复制加密的文件时看到以下错误：“正在将文件复制到不支持加密的目标。”
+通过网络复制文件时，会在源计算机上解密该文件，以明文形式进行传输，然后在目标计算机上重新加密该文件。 但是，尝试复制加密的文件时可能会看到以下错误：“正在将文件复制到不支持加密的目标。”
 
 ### <a name="cause"></a>原因
 如果你使用的是加密文件系统 (EFS)，则可能会出现此问题。 可将 BitLocker 加密的文件复制到 Azure 文件。 不过，Azure 文件不支持 NTFS EFS。
@@ -193,7 +189,25 @@ net use 命令将正斜杠 (/) 解释为命令行选项。 如果用户帐户名
   - 名称= CopyFileAllowDecryptedRemoteDestination
   - 值= 1
 
-请注意，设置注册表项会影响对网络共享进行的所有复制操作。
+请注意，设置注册表项会影响所有针对网络共享进行的复制操作。
+
+## <a name="slow-enumeration-of-files-and-folders"></a>文件和文件夹的枚举速度变慢
+
+### <a name="cause"></a>原因
+
+如果客户端计算机上用于大型目录的缓存不足，则可能会出现此问题。
+
+### <a name="solution"></a>解决方案
+
+若要解决此问题，请调整 DirectoryCacheEntrySizeMax 注册表值以允许在客户端计算机上缓存较大的目录列表：
+
+- 位置：HKLM\System\CCS\Services\Lanmanworkstation\Parameters
+- 值名称：DirectoryCacheEntrySizeMax 
+- 值类型：DWORD
+ 
+ 
+例如，可将其设置为 0x100000，并查看性能是否有所提高。
+
 
 ## <a name="need-help-contact-support"></a>需要帮助？ 请联系支持人员。
 如果仍需帮助，请[联系支持人员](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)，以快速解决问题。

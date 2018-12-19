@@ -5,21 +5,21 @@ services: azure-policy
 author: DCtheGeek
 ms.author: v-biyu
 origin.date: 07/29/2018
-ms.date: 11/12/2018
+ms.date: 12/17/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 8c640d86e791e6c061ee15716eb542b65eba0252
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 71eabb9b319519d2644c600ac13d115135e942a8
+ms.sourcegitcommit: 6e07735318eb5f6ea319b618863259088eab3722
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654624"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52981690"
 ---
 # <a name="getting-compliance-data"></a>获取符合性数据
 
-Azure Policy 的最大优势之一在于它针对订阅或订阅[管理组](../../management-groups/overview.md)中的资源提供的见解和控制度。 可通过许多不同的方式运用这种控制，例如，防止在错误的位置创建资源、强制实施常见且一致的标记用法，或者审核相应配置和设置的现有资源。 在所有情况下，数据都由策略生成，使你能够了解环境的符合性状态。
+Azure Policy 的最大优势之一在于它针对订阅或订阅[管理组](../../management-groups/index.md)中的资源提供的见解和控制度。 可通过许多不同的方式运用这种控制，例如，防止在错误的位置创建资源、强制实施常见且一致的标记用法，或者审核相应配置和设置的现有资源。 在所有情况下，数据都由策略生成，使你能够了解环境的符合性状态。
 
 可通过多种方式访问策略和计划分配生成的符合性信息：
 
@@ -41,6 +41,44 @@ Azure Policy 的最大优势之一在于它针对订阅或订阅[管理组](../.
 - 更新了已分配到某个范围的策略或计划。 此场景的评估周期和计时与新的范围分配相同。
 - 资源将通过资源管理器、REST、Azure CLI 或 Azure PowerShell 部署到包含分配的范围。 在此场景中，个体资源的效果事件（追加、审核、拒绝、部署）和符合性状态将在大约 15 分钟后出现在门户与 SDK 中。 此事件不会导致对其他资源进行评估。
 - 标准符合性评估周期。 分配每隔 24 小时自动重新评估一次。 针对大范围的资源评估的大型策略或计划可能需要花费一段时间，因此，在评估周期何时完成方面，无法预先定义预期目标。 完成评估后，更新的符合性结果会在门户和 SDK 中提供。
+- 按需扫描
+
+### <a name="on-demand-evaluation-scan"></a>按需评估扫描
+
+可以通过调用 REST API 来启动订阅或资源组的评估扫描。 这是一个异步过程。 因此，启动扫描的 REST 终结点不是等到扫描完成才能响应。 而是提供一个 URI，用于查询请求的评估的状态。
+
+在每个 REST API URI 中，包含替换为自己的值所使用的变量：
+
+- `{YourRG}` - 替换为资源组的名称
+- `{subscriptionId}` - 替换为订阅 ID
+
+扫描支持评估订阅或资源组中的资源。 使用以下 URI 结构，通过 REST API POST 命令开始扫描所需范围：
+
+- 订阅
+
+  ```http
+  POST https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
+  ```
+
+- 资源组
+
+  ```http
+  POST https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
+  ```
+
+该调用返回“202 Accepted”状态。 响应标头中包含 Location 属性，格式如下：
+
+```http
+https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2018-07-01-preview
+```
+
+以静态方式为请求的范围生成了 `{ResourceContainerGUID}`。 如果某个范围已在执行按需扫描，则不会启动新扫描。 而是为新请求的状态提供相同的 `{ResourceContainerGUID}` 位置 URI。 在评估过程中，位置 URI 的 REST API GET 命令返回“202 Accepted”状态。 评估扫描完成后，返回“200 OK”状态。 已完成的扫描的正文为 JSON 响应，其状态为：
+
+```json
+{
+    "status": "Succeeded"
+}
+```
 
 ## <a name="how-compliance-works"></a>符合性的工作原理
 
@@ -63,6 +101,19 @@ Azure Policy 的最大优势之一在于它针对订阅或订阅[管理组](../.
 在此示例中，需要慎重考虑安全风险。 创建策略分配后，将会针对 ContosoRG 资源组中的所有存储帐户评估该分配。 系统会审核三个不合规的存储帐户，因而将其状态更改为“不合规”。
 
 ![已审核不合规的存储帐户](../media/getting-compliance-data/resource-group03.png)
+
+除“合规”和“不合规”外，政策和资源还有 3 种状态：
+
+- **冲突**：两项或多项策略的规则存在冲突（例如，两项策略向不同的值附加了相同的标记）。
+- **未启动**：尚未针对策略或资源启动评估周期。
+- **未注册**：尚未注册 Azure Policy 资源提供程序，或者登录的帐户无权读取符合性数据。
+
+策略使用策略规则定义中的“类型”和“名称”字段来确定资源是否匹配。 如果匹配，则被视为适用，状态为“合规”或“不合规”。 如果“类型”或“名称”是策略规则定义中的唯一属性，则将所有资源视为适用并对其进行评估。
+
+符合百分比是合规资源与总资源之比。
+根据定义，总资源是指合规资源、不合规资源和冲突资源的总和。 整体符合性是不同合规资源的总和除以所有唯一资源。 在下图中，有 20 种不同的资源适用，只有一种资源“不合规”。 因此，资源的整体符合性为 19/20 或 95%。
+
+![简单的符合性示例](../media/getting-compliance-data/simple-compliance.png)
 
 ## <a name="portal"></a>门户
 
@@ -351,4 +402,4 @@ Trent Baker
 - 查看[策略定义结构](../concepts/definition-structure.md)
 - 查看[了解策略效果](../concepts/effects.md)
 - 了解如何[以编程方式创建策略](programmatically-create.md)
-- 参阅[使用 Azure 管理组来组织资源](../../management-groups/overview.md)，了解什么是管理组
+- 参阅[使用 Azure 管理组来组织资源](../../management-groups/index.md)，了解什么是管理组

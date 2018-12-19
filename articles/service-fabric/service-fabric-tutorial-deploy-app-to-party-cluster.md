@@ -13,15 +13,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 07/12/2018
-ms.date: 10/15/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 9ecec5f0a30b3e8eae89e031af3cd32bcee5aedd
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 02a3add0f70183e15c0f5fee60a62279708994c7
+ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675228"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52901063"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>教程：将 Service Fabric 应用程序部署到 Azure 中的群集
 
@@ -91,7 +91,8 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
     ![发布 Service Fabric 应用程序](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
     群集中的每个应用程序都必须具有唯一名称。  如果存在名称冲突，请重命名 Visual Studio 项目并将其重新部署。
-
+    
+    <!-- Not Available on Party clusters are a public-->
 3. 选择“发布”。
 
 4. 若要转到群集中的投票应用程序，请打开浏览器并输入群集地址，后跟 **:8080**。 或者输入另一端口（如果已配置一个）。 例如 `http://zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn:8080`。 会看到应用程序在 Azure 群集中运行。 在投票网页中，尝试添加和删除投票选项，并针对这些选项中的一个或多个进行投票。

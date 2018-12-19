@@ -1,26 +1,25 @@
 ---
-title: 在 HDInsight 中上传 Hadoop 作业的数据
-description: 了解如何使用 Azure 经典 CLI、Azure 存储资源管理器、Azure PowerShell、Hadoop 命令行或 Sqoop 在 HDInsight 中上传和访问 Hadoop 作业的数据。
+title: 在 HDInsight 中上传 Apache Hadoop 作业的数据
+description: 了解如何使用 Azure 经典 CLI、Azure 存储资源管理器、Azure PowerShell、Hadoop 命令行或 Sqoop 在 HDInsight 中上传和访问 Apache Hadoop 作业的数据。
 keywords: etl hadoop, 将数据引入 hadoop, hadoop 加载数据
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
-origin.date: 05/14/2018
-ms.date: 11/19/2018
-ms.author: v-yiso
-ms.openlocfilehash: 5261691198d1b3e2be203910e871073aa231cf77
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 11/06/2018
+ms.openlocfilehash: ba22344267009d0557492cea589b0f2d70b28fd2
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644159"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028603"
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>在 HDInsight 中上传 Hadoop 作业的数据
-Azure HDInsight 在 Azure 存储之上提供了一个功能完备的 Hadoop 分布式文件系统 (HDFS)。 该系统为一个 HDFS 扩展，可为客户提供无缝体验。 在该系统的帮助下，Hadoop 生态系统中的整套组件能够直接操作其管理的数据。 Azure 存储是独立的文件系统，已针对数据的存储和计算进行优化。 有关使用 Azure 存储的益处的信息，请参阅[将 Azure 存储与 HDInsight 配合使用][hdinsight-storage]。
+
+Azure HDInsight 提供一个基于 Azure 存储和 Azure Data Lake Storage（Gen1 和 Gen2）的功能完备的 Hadoop 分布式文件系统 (HDFS)。 Azure 存储以及 Data lake Storage Gen1 和 Data lake Storage Gen2 设计为一个 HDFS 扩展，为客户提供无缝体验。 它们通过启用 Hadoop 生态系统中的整套组件以直接操作其管理的数据。 Azure 存储、Data Lake Storage Gen1 和 Data lake Storage Gen2 是独特的文件系统，并且已针对数据的存储和计算进行了优化。 
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -30,6 +29,7 @@ Azure HDInsight 在 Azure 存储之上提供了一个功能完备的 Hadoop 分�
 * 学习以下两篇文章：
 
     - [将 Azure 存储与 HDInsight 配合使用][hdinsight-storage]
+    - [将 Data Lake Storage Gen2 与 HDInsight 配合使用](../storage/data-lake-storage/use-hdi-cluster.md)   
 
 ## <a name="upload-data-to-azure-storage"></a>将数据上传到 Azure 存储
 
@@ -57,7 +57,7 @@ Azure 经典 CLI 是一个跨平台工具，可用于管理 Azure 服务。 使�
 2. 打开命令提示符、bash 或其他 shell，并使用以下方法对 Azure 订阅进行身份验证。
 
     ```cli
-    azure login -e AzureChinaCloud
+    azure login
     ```
 
     出现提示时，输入订阅的用户名和密码。
@@ -97,19 +97,19 @@ Azure 经典 CLI 是一个跨平台工具，可用于管理 Azure 服务。 使�
 > [!NOTE]
 > 如果始终使用同一个存储帐户，可以设置以下环境变量，而无需为每条命令指定帐户和密钥：
 >
-> * AZURE\_STORAGE\_ACCOUNT：存储帐户名称
-> * AZURE\_STORAGE\_ACCESS\_KEY：存储帐户密钥
+> * **AZURE\_STORAGE\_ACCOUNT**：存储帐户名称
+> * **AZURE\_STORAGE\_ACCESS\_KEY**：存储帐户密钥
 >
 >
 
 #### <a id="powershell"></a>Azure PowerShell
-Azure PowerShell 是一个脚本编写环境，可用于在 Azure 中控制和自动执行工作负荷的部署和管理。 有关配置工作站运行 Azure PowerShell 的信息，请参阅[安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
+Azure PowerShell 是一个脚本编写环境，可用于在 Azure 中控制和自动执行工作负荷的部署和管理。 有关配置工作站运行 Azure PowerShell 的信息，请参阅[安装和配置 Azure PowerShell](/powershell/azure/overview)。
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell.md)]
 
 **将本地文件上传到 Azure 存储**
 
-1. 根据[安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 中的说明打开 Azure PowerShell 控制台。
+1. 根据[安装和配置 Azure PowerShell](/powershell/azure/overview) 中的说明打开 Azure PowerShell 控制台。
 2. 设置以下脚本中前五个变量的值：
 
     ```powershell
@@ -151,7 +151,7 @@ AzCopy on Linux 预览版已推出。  请参阅[宣布推出 AzCopy on Linux �
 
 若要使用 Hadoop 命令，必须先使用以下方法之一连接到头节点：
 
-* **基于 Windows 的 HDInsight**：[使用远程桌面连接](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
+* **基于 Windows 的 HDInsight**：[使用远程桌面进行连接](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
 * **基于 Linux 的 HDInsight**：使用 [SSH 或 PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md) 进行连接。
 
 连接之后，可以使用以下语法将文件上传到存储。
@@ -168,7 +168,7 @@ hadoop -copyFromLocal <localFilePath> <storageFilePath>
 
 或
 
-    wasb://<ContainerName>@<StorageAccountName>.blob.core.chinacloudapi.cn/example/data/davinci.txt
+    wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
 
 若要查看可用于文件的其他 Hadoop 命令的列表，请参阅 [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
@@ -195,7 +195,7 @@ hadoop -copyFromLocal <localFilePath> <storageFilePath>
 #### <a id="storageexplorer"></a>Azure 存储资源管理器
 *Azure 存储资源管理器* 是一种用于在 Blob 中检查和更改数据的实用工具。 它是免费的开源工具，可从 [http://storageexplorer.com/](http://storageexplorer.com/) 下载。 也可以从此链接获取源代码。
 
-使用该工具之前，必须知道 Azure 存储帐户名和帐户密钥。 有关如何获取此信息的说明，请参阅[创建、管理或删除存储帐户][azure-create-storage-account]中的“如何：查看、复制和重新生成存储访问密钥”部分。
+使用该工具之前，必须知道 Azure 存储帐户名和帐户密钥。 有关如何获取此信息的说明，请参阅：[创建、管理或删除存储帐户][azure-create-storage-account]中的“如何：查看、复制和重新生成存储访问密钥”部分。
 
 1. 运行 Azure 存储资源管理器。 首次运行存储资源管理器时，系统会提示输入“存储帐户名”和“存储帐户密钥”。 如果以前运行过存储资源管理器，请使用  “添加”按钮添加一个新的存储帐户名和密钥。
 
@@ -213,9 +213,15 @@ hadoop -copyFromLocal <localFilePath> <storageFilePath>
     上传完文件后，可以通过 HDInsight 群集中的作业来使用该文件。
 
 ### <a name="mount-azure-storage-as-local-drive"></a>将 Azure 存储装载为本地驱动器
-请参阅[将 Azure 存储装载为本地驱动器](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx)。
+请参阅[将 Azure 存储装载为本地驱动器](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx)。
 
 ### <a name="upload-using-services"></a>使用服务上传
+#### <a name="azure-data-factory"></a>Azure 数据工厂
+Azure 数据工厂服务是完全托管的服务，可将数据存储、数据处理及数据移动服务组合成有效、可缩放且可靠的数据生产管道。
+
+Azure 数据工厂可用于将数据移到 Azure 存储，或创建数据管道来直接使用 HDInsight 功能，例如 Hive 和 Pig。
+
+有关详细信息，请参阅 [Azure 数据工厂文档](https://azure.microsoft.com/documentation/services/data-factory/)。
 
 #### <a id="sqoop"></a>Apache Sqoop
 Sqoop 是一种专用于在 Hadoop 和关系数据库之间传输数据的工具。 可以使用此工具将数据从关系数据库管理系统 (RDBMS)（如 SQL Server、MySQL 或 Oracle）中导入到 Hadoop 分布式文件系统 (HDFS)，在 Hadoop 中使用 MapReduce 或 Hive 转换数据，然后回过来将数据导出到 RDBMS。
@@ -232,7 +238,7 @@ Sqoop 是一种专用于在 Hadoop 和关系数据库之间传输数据的工具
 * Python
 * Ruby
 
-有关安装 Azure SDK 的详细信息，请参阅 [Azure 下载](/downloads/)
+有关安装 Azure SDK 的详细信息，请参阅 [Azure 下载](https://azure.microsoft.com/downloads/)
 
 ### <a name="troubleshooting"></a>故障排除
 #### <a id="storageexception"></a>写入 blob 时的存储异常
@@ -260,7 +266,7 @@ Sqoop 是一种专用于在 Hadoop 和关系数据库之间传输数据的工具
 
 **原因**：HBase on HDInsight 群集在写入 Azure 存储时默认阻止 256KB 大小的块。 尽管这对 HBase API 或 REST API 来说可良好运行，但使用 `hadoop` 或 `hdfs dfs` 命令行实用工具时则会导致错误。
 
-解决方法：使用 `fs.azure.write.request.size` 指定更大的块大小。 可以使用 `-D` 参数基于使用情况执行此操作。 以下命令是将此参数用于 `hadoop` 命令的示例：
+**解决方法**：使用 `fs.azure.write.request.size` 指定更大的块大小。 可以使用 `-D` 参数基于使用情况执行此操作。 以下命令是将此参数用于 `hadoop` 命令的示例：
 
 ```bash
 hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file.bin /example/data
@@ -268,7 +274,7 @@ hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file
 
 还可以使用 Ambari 全局增加 `fs.azure.write.request.size` 的值。 可以使用以下步骤在 Ambari Web UI 中更改该值：
 
-1. 在浏览器中，转到群集的 Ambari Web UI。 该地址为 https://CLUSTERNAME.azurehdinsight.cn，其中“CLUSTERNAME”是群集名称。
+1. 在浏览器中，转到群集的 Ambari Web UI。 该地址为 https://CLUSTERNAME.azurehdinsight.net，其中“CLUSTERNAME”是群集名称。
 
     出现提示时，输入群集的管理员名称和密码。
 2. 在屏幕左侧选择“HDFS”，然后选择“配置”选项卡。
@@ -287,10 +293,10 @@ hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file
 * [将 Hive 与 HDInsight 配合使用][hdinsight-use-hive]
 * [将 Pig 与 HDInsight 配合使用][hdinsight-use-pig]
 
-[azure-management-portal]: https://portal.azure.cn
+[azure-management-portal]: https://porta.azure.com
 [azure-powershell]: http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 
-[azure-storage-client-library]: ../storage/blobs/storage-dotnet-how-to-use-blobs.md
+[azure-storage-client-library]: /develop/net/how-to-guides/blob-storage/
 [azure-create-storage-account]:../storage/common/storage-create-storage-account.md
 [azure-azcopy-download]:../storage/common/storage-use-azcopy.md
 [azure-azcopy]:../storage/common/storage-use-azcopy.md
@@ -308,11 +314,11 @@ hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file
 
 [apache-sqoop-guide]: http://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-[Powershell-install-configure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
+[Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 [azurecli]: ../cli-install-nodejs.md
+
 
 [image-azure-storage-explorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
-<!--Update_Description: update storage link and wording-->

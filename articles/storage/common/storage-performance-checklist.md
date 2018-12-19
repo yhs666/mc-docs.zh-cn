@@ -1,30 +1,24 @@
 ---
-title: Azure 存储的性能和可伸缩性清单 | Azure
+title: Azure 存储性能和伸缩性清单 | Microsoft Docs
 description: 在开发使用 Azure 存储的高性能应用程序时，一个经过验证的检查表。
 services: storage
-documentationcenter: ''
-author: forester123
-manager: digimobile
-editor: tysonn
-ms.assetid: 959d831b-a4fd-4634-a646-0d2c0c462ef8
+author: WenJason
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 12/08/2016
-ms.date: 10/16/2017
-ms.author: v-johch
-ms.openlocfilehash: a0e7b0c3fdb4f5922d416aabbbf2105e457d55c7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/10/2018
+ms.author: v-jay
+ms.component: common
+ms.openlocfilehash: 7d44213a8e5e627304cc8b6ba2e2533ddbef4d91
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646731"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028392"
 ---
 # <a name="azure-storage-performance-and-scalability-checklist"></a>Azure 存储性能和可伸缩性清单
 ## <a name="overview"></a>概述
-自 Azure 存储服务发布以来，Microsoft 已经积累了大量经过验证的做法，用于提高这些服务的使用效率。本文将其中最重要的一些做法进行了总结，并以“清单”的形式列出。 本文的目的在于确保应用程序开发人员在使用 Azure 存储时，采用的是经过验证的做法，并帮助他们确认其他经过验证的、可以考虑采用的做法。 本文不会全盘介绍所有可能的性能与伸缩性优化内容，那些影响不大或适用范围不广的内容不在本文所覆盖的范围之内。 必须在设计过程中确保应用程序的行为是可预测到的，因此应早些了解这些经过验证的做法，避免进行那些会引发性能问题的设计。  
+自 Azure 存储服务发布以来，Azure 已经积累了大量经过验证的做法，用于提高这些服务的使用效率。本文将其中最重要的一些做法进行了总结，并以“清单”的形式列出。 本文的目的在于确保应用程序开发人员在使用 Azure 存储时，采用的是经过验证的做法，并帮助他们确认其他经过验证的、可以考虑采用的做法。 本文不会全盘介绍所有可能的性能与伸缩性优化内容，那些影响不大或适用范围不广的内容不在本文所覆盖的范围之内。 必须在设计过程中确保应用程序的行为是可预测到的，因此应早些了解这些经过验证的做法，避免进行那些会引发性能问题的设计。  
 
 每一位使用 Azure 存储的应用程序开发人员都应抽时间阅读本文，确保其应用程序的设计遵循下面列出的每一项经过验证的做法。  
 
@@ -111,7 +105,7 @@ ms.locfileid: "52646731"
 以下链接提供了有关可伸缩性目标的更多详细信息：
 
 * 有关可伸缩性目标的信息，请参阅 [Azure 存储可伸缩性和性能目标](storage-scalability-targets.md)。
-* 有关存储冗余选项的信息，请参阅 [Azure 存储复制](storage-redundancy.md)和博客文章 [Azure Storage Redundancy Options and Read Access Geo Redundant Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)（Azure 存储冗余选项和读取访问异地冗余存储）。
+* 有关存储冗余选项的信息，请参阅 [Azure 存储复制](storage-redundancy.md)和博客文章 [Azure Storage Redundancy Options and Read Access Geo Redundant Storage](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)（Azure 存储冗余选项和读取访问异地冗余存储）。
 * 有关 Azure 服务定价的最新信息，请参阅 [Azure 定价](https://www.azure.cn/pricing/overview/)。  
 
 ### <a name="subheading47"></a>分区命名约定
@@ -156,7 +150,7 @@ Azure 存储使用基于范围的分区方案来对系统进行缩放和负载�
 #### <a name="useful-resources"></a>有用的资源
 有关 SAS 的详细信息，请参阅[共享访问签名，第 1 部分：了解 SAS 模型](../storage-dotnet-shared-access-signature-part-1.md)。  
 
-有关 CORS 的详细信息，请参阅 [Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services](http://msdn.microsoft.com/library/azure/dn535601.aspx)（对 Azure 存储服务的跨域资源共享 (CORS) 支持）。  
+有关 CORS 的详细信息，请参阅 [Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dn535601.aspx)（对 Azure 存储服务的跨域资源共享 (CORS) 支持）。  
 
 ### <a name="caching"></a>缓存
 #### <a name="subheading7"></a>获取数据
@@ -166,7 +160,7 @@ Azure 存储使用基于范围的分区方案来对系统进行缩放和负载�
 
 配置、查看以及始终由应用程序使用的其他数据都非常适合进行缓存。  
 
-有关如何通过使用 .NET 获取 Blob 的属性来发现上次修改日期的示例，请参阅[设置和检索属性与元数据](../blobs/storage-properties-metadata.md)。 有关条件性下载的详细信息，请参阅[有条件地刷新 Blob 的本地副本](http://msdn.microsoft.com/library/azure/dd179371.aspx)。  
+有关如何通过使用 .NET 获取 Blob 的属性来发现上次修改日期的示例，请参阅[设置和检索属性与元数据](../blobs/storage-properties-metadata.md)。 有关条件性下载的详细信息，请参阅[有条件地刷新 Blob 的本地副本](https://msdn.microsoft.com/library/azure/dd179371.aspx)。  
 
 #### <a name="subheading8"></a>批量上传数据
 在某些应用程序方案中，可以将数据聚合在本地，然后定期批量进行上传，而不必立即上传每个数据片段。 例如，Web 应用程序可以保留一个有关活动的日志文件：应用程序可以在活动发生时以表实体的形式上传每项活动的详细信息（这需要许多存储操作），也可以将活动详细信息保存到本地日志文件中，然后定期将所有活动详细信息作为带分隔符的文件上传到某个 Blob。 如果每个日志条目的大小为 1KB，则可以在单个“放置 Blob”事务处理中上传数千个这样的条目（可以在单个事务处理中上传一个最大大小为 64MB 的 Blob）。 当然，如果本地计算机在上传之前崩溃，则可能会丢失某些日志数据：应用程序开发人员必须针对可能发生的客户端设备故障或上传失败情况进行相应的设计。  如果活动数据需要在不同的时间范围进行下载（不仅仅是单个活动），则建议使用 Blob 而非表。
@@ -185,7 +179,7 @@ ServicePointManager.DefaultConnectionLimit = 100; //(Or More)
 
 对于其他编程语言，请参阅该语言的文档以确定如何设置连接限制。  
 
-有关其他信息，请参阅博客文章 [Web Services: Concurrent Connections](http://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx)（Web 服务：并发连接）。  
+有关其他信息，请参阅博客文章 [Web Services:Concurrent Connections](https://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx)（Web 服务：并发连接）。  
 
 #### <a name="subheading10"></a>如果对异步任务使用同步代码，则请增加线程池最小线程数
 此代码会增加线程池最小线程数：  
@@ -194,12 +188,12 @@ ServicePointManager.DefaultConnectionLimit = 100; //(Or More)
 ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
 ```
 
-有关详细信息，请参阅 [ThreadPool.SetMinThreads 方法](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads%28v=vs.110%29.aspx)。  
+有关详细信息，请参阅 [ThreadPool.SetMinThreads 方法](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads%28v=vs.110%29.aspx)。  
 
 #### <a name="subheading11"></a>充分利用 .NET 4.5 的垃圾回收功能
 将 .NET 4.5 或更高版本用于客户端应用程序，以便充分利用在服务器垃圾回收方面的性能改进。
 
-有关详细信息，请参阅以下文章： [.NET 4.5 性能改进概述](http://msdn.microsoft.com/magazine/hh882452.aspx)。  
+有关详细信息，请参阅以下文章： [.NET 4.5 性能改进概述](https://msdn.microsoft.com/magazine/hh882452.aspx)。  
 
 ### <a name="subheading12"></a>不受限制的并行度
 虽然提高并行度可以大幅提高性能，但在使用不受限制的并行度（对线程数和/或并行请求数没有限制）来上传或下载数据，以及使用多个辅助角色来访问同一存储帐户中的多个分区（容器、队列或表分区）或访问同一分区中的多个项目时，应小心谨慎。 如果并行度不受限制，应用程序则可能会超出客户端设备的承受程度或超出存储帐户的可伸缩性目标，导致延迟和限制时间增长。  
@@ -217,7 +211,7 @@ ThreadPool.SetMinThreads(100,100); //(Determine the right number for your applic
 客户端库了解哪些错误可以重试，哪些不能。 不过，如果针对存储 REST API 编写自己的代码，则应记住某些错误不应重试：例如，400（请求错误）响应表示客户端应用程序发送的请求因格式不正确而无法处理。 重新发送此请求每次都会导致相同的响应，因此没必要重试。 如果针对存储 REST API 编写自己的代码，则需了解错误代码的意义，以及每个错误代码的合适重试方式（或者不进行重试）。  
 
 #### <a name="useful-resources"></a>有用的资源
-有关存储错误代码的详细信息，请参阅 Azure 网站上的 [Status and Error Codes](http://msdn.microsoft.com/library/azure/dd179382.aspx) （状态和错误代码）。  
+有关存储错误代码的详细信息，请参阅 Azure 网站上的 [Status and Error Codes](https://msdn.microsoft.com/library/azure/dd179382.aspx) （状态和错误代码）。  
 
 ## <a name="blobs"></a>Blob
 除了前面所述的适用于 [所有服务](#allservices) 的经过验证的做法，还有以下经过验证的做法，这些做法尤其适用于 Blob 服务。  
@@ -243,13 +237,13 @@ ThreadPool.SetMinThreads(100,100); //(Determine the right number for your applic
 
 请注意，在同一存储帐户内的复制通常会快速完成。  
 
-有关详细信息，请参阅 [Copy Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx)（复制 Blob）。  
+有关详细信息，请参阅 [Copy Blob](https://msdn.microsoft.com/library/azure/dd894037.aspx)（复制 Blob）。  
 
 #### <a name="subheading18"></a>使用 AzCopy
 Azure 存储团队发布了命令行工具“AzCopy”，该工具用于通过存储帐户来回批量传输多个 Blob，以及跨多个存储帐户进行批量传输。  该工具已针对此方案进行了优化，可以实现较高的传输速率。  建议将其用于需要批量上传、批量下载和批量复制的情况。 若要了解关于它的详细信息并下载它，请参阅 [使用 AzCopy 命令行实用程序传输数据](storage-use-azcopy.md)。  
 
 #### <a name="subheading19"></a>Azure 导入/导出服务
-对于超大量的数据（超过 1TB），Azure 存储提供了导入/导出服务，允许用户通过寄送硬盘驱动器的方式从 Blob 存储上传和下载数据。  用户可以将数据置于硬盘驱动器上，并将其寄送到 Microsoft 进行上传，也可以将空的硬盘驱动器寄给 Microsoft 来下载数据。  有关详细信息，请参阅[使用 Azure 导入/导出服务将数据传输到 Blob 存储](../storage-import-export-service.md)。  对于这种大小的数据，此方式可能比通过网络上传/下载要高效得多。  
+对于超大量的数据（超过 1TB），Azure 存储提供了导入/导出服务，允许用户通过寄送硬盘驱动器的方式从 Blob 存储上传和下载数据。  用户可以将数据置于硬盘驱动器上，并将其寄送到 Azure 进行上传，也可以将空的硬盘驱动器寄给 Azure 来下载数据。  有关详细信息，请参阅[使用 Azure 导入/导出服务将数据传输到 Blob 存储中](../storage-import-export-service.md)。  对于这种大小的数据，此方式可能比通过网络上传/下载要高效得多。  
 
 ### <a name="subheading20"></a>使用元数据
 Blob 服务支持 head 请求，这其中可能包含有关 Blob 的元数据。 例如，如果应用程序需要某张照片中的 EXIF 数据，则可以检索该照片，并从中提取数据。 为了节省带宽并改进性能，应用程序可能会在上传照片时将 EXIF 数据存储在 Blob 的元数据中：随后只需使用 HEAD 请求便可检索元数据中的 EXIF 数据，这样就可以在每次读取 Blob 时，显著节省带宽和提取 EXIF 数据所需的处理时间。 在只需元数据而不需要 Blob 的完整内容时，这种方法很有用。  请注意，每个 Blob 只能存储 8 KB 的元数据（该服务不会接受数据大小超过此要求的存储请求），因此如果数据大小不符合该要求，则可能无法使用此方法。  
@@ -262,7 +256,7 @@ Blob 服务支持 head 请求，这其中可能包含有关 Blob 的元数据。
 #### <a name="subheading21"></a>快速上传一个大型 Blob
 若要快速上传单个大型 Blob，客户端应用程序应并行上传其块或页（需考虑各个 Blob 的可伸缩性目标并综合考虑存储帐户的情况）。  请注意，Microsoft 提供的正式的 RTM 存储客户端库（.NET、Java）具有此方面的功能。  每个库均应使用下面指定的对象/属性来设置并发级别：  
 
-* .NET：将 BlobRequestOptions 对象上的 ParallelOperationThreadCount 设置为“used”。
+* .NET:将 BlobRequestOptions 对象上的 ParallelOperationThreadCount 设置为“used”。
 * Java/Android：使用 BlobRequestOptions.setConcurrentRequestCount()
 * Node.js：将 parallelOperationThreadCount 用于请求选项或 Blob 服务。
 * C++：使用 blob_request_options::set_parallelism_factor 方法。
@@ -273,7 +267,7 @@ Blob 服务支持 head 请求，这其中可能包含有关 Blob 的元数据。
 ### <a name="subheading23"></a>选择正确的 Blob 类型
 Azure 存储支持两种类型的 Blob：页 Blob 和块 Blob。 在给定的使用方案中，对 Blob 类型的选择会影响到解决方案的执行情况和可伸缩性。 需要以高效方式上传大量数据时，适合选择块 Blob：例如，客户端应用程序可能需要将照片或视频上传到 Blob 存储中。 如果应用程序需要对数据执行随机写入，则应选择页 Blob：例如，Azure VHD 以页 Blob 方式存储。  
 
-有关详细信息，请参阅 [Understanding Block Blobs, Append Blobs, and Page Blobs](http://msdn.microsoft.com/library/azure/ee691964.aspx)（了解块 Blob、追加 Blob 和页 Blob）。  
+有关详细信息，请参阅 [Understanding Block Blobs, Append Blobs, and Page Blobs](https://msdn.microsoft.com/library/azure/ee691964.aspx)（了解块 Blob、追加 Blob 和页 Blob）。  
 
 ## <a name="tables"></a>表
 除了前面所述的适用于 [所有服务](#allservices) 的经过验证的做法，还有以下经过验证的做法，这些做法尤其适用于表服务。  
@@ -293,12 +287,12 @@ Azure 存储支持两种类型的 Blob：页 Blob 和块 Blob。 在给定的使
 #### <a name="subheading25"></a>使用 JSON
 从存储服务 2013-08-15 版开始，表服务就支持使用 JSON 而非基于 XML 的 AtomPub 格式来传输表数据。 这最多可以减少 75% 的负载大小，可以显著改进应用程序的性能。
 
-有关详细信息，请参阅文章 [Azure 表：JSON 简介](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx)和[表服务操作的有效负载格式](http://msdn.microsoft.com/library/azure/dn535600.aspx)。
+有关详细信息，请参阅文章 [Azure 表：JSON 简介](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx)和[表服务操作的有效负载格式](https://msdn.microsoft.com/library/azure/dn535600.aspx)。
 
 #### <a name="subheading26"></a>关闭 Nagle
 Nagle 的算法已跨 TCP/IP 网络进行了广泛的实施，是一种改进网络性能的方法。 不过，该方法并非适用于所有情况（例如高度交互式的环境）。 对于 Azure 存储，Nagle 的算法会对表请求和队列服务请求的执行造成负面影响，因此应尽可能禁用。  
 
-有关详细信息，请参阅我们的博客文章：[Nagle’s Algorithm is Not Friendly towards Small Requests](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx)（Nagle 的算法不适用于小型请求），其中解释了为什么 Nagle 的算法不能很好地与表和队列请求进行交互，并说明了如何在客户端应用程序中禁用该算法。  
+有关详细信息，请参阅我们的博客文章：[Nagle’s Algorithm is Not Friendly towards Small Requests](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx)（Nagle 的算法不适用于小型请求），其中解释了为什么 Nagle 的算法不能很好地与表和队列请求进行交互，并说明了如何在客户端应用程序中禁用该算法。  
 
 ### <a name="schema"></a>架构
 数据的呈现和查询方式是影响表服务性能的单个最大因素。 虽然每个应用程序都不同，但本部分仍概要列出了一些通用的经过验证的做法，这些做法适用于：  
@@ -310,7 +304,7 @@ Nagle 的算法已跨 TCP/IP 网络进行了广泛的实施，是一种改进网
 #### <a name="subheading27"></a>表和分区
 表划分为分区。 存储在分区中的每个实体共享相同的分区键，并具有唯一的行键，用于在该分区中标识自己。 分区具有好处，但也带来了可伸缩性限制。  
 
-* 优点：可以在同一分区中更新单个事务、原子事务和批处理事务的实体，每种事务最多包含 100 个单独的存储操作（总大小限制为 4MB）。 此外，假定需要检索相同数量的实体，则在单个分区中查询数据要比跨多个分区查询数据更高效（不过，如果需要查询表数据，则请继续阅读以获取更进一步的建议）。
+* 好处：可以在同一分区中更新单个事务、原子事务和批处理事务的实体，每种事务最多包含 100 个单独的存储操作（总大小限制为 4MB）。 此外，假定需要检索相同数量的实体，则在单个分区中查询数据要比跨多个分区查询数据更高效（不过，如果需要查询表数据，则请继续阅读以获取更进一步的建议）。
 * 可伸缩性限制：对存储在单个分区中的实体的访问不能进行负载均衡，因为分区支持原子批处理事务。 因此，总体说来单个表分区的可伸缩性目标低于表服务的相应目标。  
 
 考虑到表和分区的这些特点，应该采用以下设计原则：  
@@ -366,8 +360,8 @@ Nagle 的算法已跨 TCP/IP 网络进行了广泛的实施，是一种改进网
 ##### <a name="subheading36"></a>Upsert
 尽可能使用表的“Upsert”  操作。 有两种类型的“Upsert”，两种都可能比传统的“插入”和“更新”操作更高效：  
 
-* **InsertOrMerge**：当需要上传一部分实体的属性，但不确定该实体是否存在时，可使用此操作。 如果实体存在，则该调用会更新包含在“Upsert”操作中的属性，保留所有现有的属性不变，而如果实体不存在，则会插入新的实体。 这类似于在查询中使用投影，因为只需上传在更改的属性。
-* **InsertOrReplace**：当需要上传某个全新的实体，却又不确定该实体是否存在时，可使用此操作。 仅当知道这个刚上传的实体完全正确时，才应使用此操作，因为该实体会完全覆盖旧实体。 例如，需要更新用于存储用户当前位置的实体，而不管应用程序以前是否存储过该用户的位置数据；新位置实体是完整的，不需要任何旧实体提供的任何信息。
+* **InsertOrMerge**：需要上传一部分实体的属性，但不确定该实体是否存在时，可使用此操作。 如果实体存在，则该调用会更新包含在“Upsert”  操作中的属性，保留所有现有的属性不变，而如果实体不存在，则会插入新的实体。 这类似于在查询中使用投影，因为只需上传在更改的属性。
+* **InsertOrReplace**：需要上传某个全新的实体，却又不确定该实体是否存在时，可使用此操作。 仅当知道这个刚上传的实体完全正确时，才应使用此操作，因为该实体会完全覆盖旧实体。 例如，需要更新用于存储用户当前位置的实体，而不管应用程序以前是否存储过该用户的位置数据；新位置实体是完整的，不需要任何旧实体提供的任何信息。
 
 ##### <a name="subheading37"></a>将数据系列存储在单个实体中
 有时候，应用程序会存储一系列需要频繁进行一次性检索的数据：例如，应用程序可能会跟踪一段时间内的 CPU 使用情况，以便绘制过去 24 小时内数据的滚动图表。 一种方法是每小时构建一个表实体，每个实体代表一个具体的小时，并存储该小时的 CPU 使用情况。 为了针对该数据绘图，应用程序需要检索保留过去 24 小时内数据的实体。  
@@ -402,7 +396,7 @@ Nagle 的算法已跨 TCP/IP 网络进行了广泛的实施，是一种改进网
 ### <a name="subheading44"></a>UpdateMessage
 可以使用 **UpdateMessage** 来增加不可见性超时或更新消息的状态信息。 虽然此功能很强大，但请记住，每项“UpdateMessage”  操作都会计入可伸缩性目标。 不过，与作业每完成一步就将其从一个队列传到下一个队列的工作流相比，此方法可能要高效得多。 使用 **UpdateMessage** 操作可以让应用程序将作业状态保存到消息，然后又可以继续工作，而不必在作业的每一步完成的时候，为了执行作业的下一步而将消息重新排队。  
 
-有关详细信息，请参阅文章[如何：更改已排队消息的内容](../queues/storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message)。  
+有关详细信息，请参阅[如何：更改已排队消息的内容](../queues/storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message)。  
 
 ### <a name="subheading45"></a>应用程序体系结构
 应该使用队列，让应用程序体系结构具有可伸缩性。 下面列出了一些方法，可以通过这些方法，使用队列来提高应用程序的可伸缩性：  

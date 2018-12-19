@@ -1,22 +1,23 @@
 ---
-title: Azure Site Recovery 中的 VMware/物理服务器复制体系结构 | Azure
-description: 本文概述使用 Azure Site Recovery 将本地 VMware VM 或物理 Windows/Linux 服务器复制到辅助 VMware 站点时使用的组件和体系结构
+title: 使用 Azure Site Recovery 将 VMware/物理服务器灾难恢复到辅助站点时的体系结构 | Azure
+description: 本文概述使用 Azure Site Recovery 将本地 VMware VM 或物理 Windows/Linux 服务器灾难恢复到辅助 VMware 站点时使用的组件和体系结构。
 author: rockboyfor
+manager: digimobile
 ms.service: site-recovery
-ms.topic: article
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.topic: conceptual
+origin.date: 10/29/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: c29dddbacc17e8b7f528d404b194f698a7428ae5
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 4fecd98fedf0e8c88ee448ca19de1984e56b82be
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653967"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028391"
 ---
-# <a name="vmware-vmphysical-server-to-vmware-replication-architecture"></a>执行 VMware VM/物理服务器到 VMware 的复制的体系结构
+# <a name="architecture-for-vmwarephysical-server-replication-to-a-secondary-on-premises-site"></a>将 VMware/物理服务器复制到辅助本地站点的体系结构
 
-本文介绍了使用 [Azure Site Recovery](site-recovery-overview.md) 将本地 VMware 虚拟机 (VM) 或物理 Windows/Linux 服务器复制、故障转移和恢复到辅助 VMware 站点时使用的体系结构和过程。
+本文介绍使用 [Azure Site Recovery](site-recovery-overview.md) 设置将本地 VMware 虚拟机 (VM) 或物理 Windows/Linux 服务器复制（用于灾难恢复）、故障转移以及恢复到辅助 VMware 站点时使用的体系结构和过程。
 
 ## <a name="architectural-components"></a>体系结构组件
 

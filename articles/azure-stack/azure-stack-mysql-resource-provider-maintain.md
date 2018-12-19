@@ -3,24 +3,24 @@ title: 在 Azure Stack 上维护 MySQL 资源提供程序 | Microsoft Docs
 description: 了解如何在 Azure Stack 上维护 MySQL 资源提供程序服务。
 services: azure-stack
 documentationCenter: ''
-author: jeffgilb
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/29/2018
-ms.date: 07/20/2018
-ms.author: v-junlch
-ms.reviewer: jeffgo
-ms.openlocfilehash: ade733a9630b8836335bf2b9ef4202d190228c87
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 10/16/2018
+ms.date: 12/17/2018
+ms.author: v-jay
+ms.reviewer: quying
+ms.openlocfilehash: 53b41ddeab0871c453859115a49be7704239f3aa
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661488"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396120"
 ---
 # <a name="mysql-resource-provider-maintenance-operations"></a>MySQL 资源提供程序维护操作
 
@@ -93,9 +93,9 @@ $session | Remove-PSSession
 
 ## <a name="secrets-rotation"></a>机密轮换
 
-这些说明仅适用于 Azure Stack 集成系统 1804 和更高版本。*请勿在 1804 以前的 Azure Stack 版本上尝试轮换机密。*
+*这些说明仅适用于 Azure Stack 集成系统。*
 
-将 SQL 和 MySQL 资源提供程序与 Azure Stack 集成系统配合使用时，可以轮换以下基础结构（部署）机密：
+在 Azure Stack 集成系统中使用 SQL 和 MySQL 资源提供程序时，Azure Stack 操作员负责轮换以下资源提供程序基础结构机密以确保它们不会过期：
 
 - [部署期间提供的](azure-stack-pki-certs.md)外部 SSL 证书。
 - 部署期间提供的资源提供程序 VM 本地管理员帐户密码。
@@ -191,8 +191,8 @@ $session | Remove-PSSession
 
 使用 **FromDate** 和 **ToDate** 参数设置日志收集的时间跨度。 如果未指定上述一个或两个参数，将使用以下默认值：
 
-- FromDate 为当前时间之前的四个小时。
-- ToDate 为目前时间。
+* FromDate 为当前时间之前的四个小时。
+* ToDate 为目前时间。
 
 **用于收集日志的 PowerShell 脚本示例。**
 

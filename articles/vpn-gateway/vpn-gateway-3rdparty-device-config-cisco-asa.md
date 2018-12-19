@@ -2,26 +2,18 @@
 title: 将 Cisco ASA 设备连接到 Azure VPN 网关的示例配置 | Microsoft Docs
 description: 本文提供将 Cisco ASA 设备连接到 Azure VPN 网关的示例配置。
 services: vpn-gateway
-documentationcenter: na
-author: yushwang
-manager: rossort
-editor: ''
-tags: ''
-ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
+author: WenJason
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 06/20/2017
-ms.date: 03/12/2018
-ms.author: v-junlch
-ms.openlocfilehash: f858f878be9f53258188baaffcf9561eb7c491e2
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 10/19/2018
+ms.date: 12/10/2018
+ms.author: v-jay
+ms.openlocfilehash: 1266fdacc43b05e4978fd4300fb33831f30708a0
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644370"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028490"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>示例配置：Cisco ASA 设备（IKEv2/无 BGP）
 本文提供将 Cisco 自适应安全 (ASA) 设备连接到 Azure VPN 网关的示例配置。 该示例适用于运行 IKEv2 而不使用边界网关协议 (BGP) 的 Cisco ASA 设备。 
@@ -96,11 +88,11 @@ Azure VPN 网关使用标准 IPsec/IKE 协议套件建立站点到站点 (S2S) V
 
 ### <a name="asa-device-support"></a>ASA 设备支持
 
-- IKEv2 支持需要 ASA 8.4 和更高版本。
+* IKEv2 支持需要 ASA 8.4 和更高版本。
 
-- DH 和超过 5 个组的 PFS 组支持需要 ASA 版本 9.x。
+* DH 和超过 5 个组的 PFS 组支持需要 ASA 版本 9.x。
 
-- 需要 ASA 9.x 版本，才能使用 AES GCM 实现 IPsec 加密，并使用 SHA-256、SHA-384 或 SHA-512 实现 IPsec 完整性。 此支持要求适用于较新的 ASA 设备。 在发布时，ASA 型号 5505、5510、5520、5540、5550 和 5580 不支持这些算法。 请查阅 VPN 设备规范，验证 VPN 设备型号和固件版本支持的算法。
+* 需要 ASA 9.x 版本，才能使用 AES GCM 实现 IPsec 加密，并使用 SHA-256、SHA-384 或 SHA-512 实现 IPsec 完整性。 此支持要求适用于较新的 ASA 设备。 在发布时，ASA 型号 5505、5510、5520、5540、5550 和 5580 不支持这些算法。 请查阅 VPN 设备规范，验证 VPN 设备型号和固件版本支持的算法。
 
 
 ### <a name="sample-device-configuration"></a>示例设备配置
@@ -115,16 +107,16 @@ Azure VPN 网关使用标准 IPsec/IKE 协议套件建立站点到站点 (S2S) V
 > [!IMPORTANT]
 > 在使用示例脚本之前，请完成以下步骤。 将脚本中的占位符值替换为你置配的设备设置。
 
-- 指定内部和外部接口的接口配置。
-- 标识内部/专用和外部/公共网络的路由。
-- 确保所有名称和策略编号在设备上唯一。
-- 确保设备支持加密算法。
-- 将以下“占位符值”替换为你配置的实际值：
+* 指定内部和外部接口的接口配置。
+* 标识内部/专用和外部/公共网络的路由。
+* 确保所有名称和策略编号在设备上唯一。
+* 确保设备支持加密算法。
+* 将以下“占位符值”替换为你配置的实际值：
   - 外部接口名称："outside"
   - Azure_Gateway_Public_IP
   - OnPrem_Device_Public_IP
-  - IKE：IKE Pre_Shared_Key
-  - 虚拟网络和本地网络网关名称："VNetName" 和 "LNGName"
+  - IKE：**Pre_Shared_Key**
+  - 虚拟网络和本地网络网关名称：**VNetName** 和 **LNGName**
   - 虚拟网络和本地网络地址前缀
   - 正确的网络掩码
 
@@ -285,20 +277,20 @@ sysopt connection tcpmss 1350
 
 使用以下用于调试的 ASA 命令：
 
-- 显示 IPsec 或 IKE 安全关联 (SA)：
+* 显示 IPsec 或 IKE 安全关联 (SA)：
     ```
     show crypto ipsec sa
     show crypto ikev2 sa
     ```
 
-- 进入“调试模式”：
+* 进入“调试模式”：
     ```
     debug crypto ikev2 platform <level>
     debug crypto ikev2 protocol <level>
     ```
     `debug` 命令可在控制台上生成大量输出。
 
-- 在设备上显示当前配置：
+* 在设备上显示当前配置：
     ```
     show run
     ```
@@ -311,5 +303,4 @@ sysopt connection tcpmss 1350
 
 ## <a name="next-steps"></a>后续步骤
 若要配置主动-主动跨界和 VNet 到 VNet 连接，请参阅[配置主动-主动 VPN 网关](vpn-gateway-activeactive-rm-powershell.md)。
-
 <!--Update_Description: wording update -->

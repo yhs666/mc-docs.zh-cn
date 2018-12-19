@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/26/2018
-ms.date: 11/12/2018
+origin.date: 11/09/2018
+ms.date: 12/17/2018
 ms.author: v-jay
 ms.reviewer: ppacent
-ms.openlocfilehash: a7307ed1b133c165a36e207203151f444c0337fa
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 7e22fe73f068e38cbc2371c8cb03d94754df9eb5
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664206"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396241"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>验证 Azure Stack PKI 证书
 
@@ -75,7 +75,7 @@ ms.locfileid: "52664206"
     ```PowerShell  
     New-Item C:\Certificates -ItemType Directory
     
-    $directories = 'ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal'
+    $directories = 'ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal','Admin Extension Host','Public Extension Host'
     
     $destination = 'c:\certificates'
     
@@ -95,49 +95,58 @@ ms.locfileid: "52664206"
     ```PowerShell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
-    Start-AzsReadinessChecker  -extensionshostfeature -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD 
+    Invoke-AzsCertificateValidation -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD  
     ```
 
 4. 检查输出和所有证书是否通过所有测试。 例如：
 
-    ```PowerShell  
-    AzsReadinessChecker v1.1803.405.3 started
-    Starting Certificate Validation
+```PowerShell
+Invoke-AzsCertificateValidation v1.1809.1005.1 started.
+Testing: ARM Public\ssl.pfx
+Thumbprint: 7F6B27****************************E9C35A
+    PFX Encryption: OK
+    Signature Algorithm: OK
+    DNS Names: OK
+    Key Usage: OK
+    Key Size: OK
+    Parse PFX: OK
+    Private Key: OK
+    Cert Chain: OK
+    Chain Order: OK
+    Other Certificates: OK
+Testing: Admin Extension Host\ssl.pfx
+Thumbprint: A631A5****************************35390A
+    PFX Encryption: OK
+    Signature Algorithm: OK
+    DNS Names: OK
+    Key Usage: OK
+    Key Size: OK
+    Parse PFX: OK
+    Private Key: OK
+    Cert Chain: OK
+    Chain Order: OK
+    Other Certificates: OK
+Testing: Public Extension Host\ssl.pfx
+Thumbprint: 4DBEB2****************************C5E7E6
+    PFX Encryption: OK
+    Signature Algorithm: OK
+    DNS Names: OK
+    Key Usage: OK
+    Key Size: OK
+    Parse PFX: OK
+    Private Key: OK
+    Cert Chain: OK
+    Chain Order: OK
+    Other Certificates: OK
 
-    Starting Azure Stack Certificate Validation 1.1803.405.3
-    Testing: ARM Public\ssl.pfx
-        Read PFX: OK
-        Signature Algorithm: OK
-        Private Key: OK
-        Cert Chain: OK
-        DNS Names: OK
-        Key Usage: OK
-        Key Size: OK
-        Chain Order: OK
-        Other Certificates: OK
-    Testing: ACSBlob\ssl.pfx
-        Read PFX: OK
-        Signature Algorithm: OK
-        Private Key: OK
-        Cert Chain: OK
-        DNS Names: OK
-        Key Usage: OK
-        Key Size: OK
-        Chain Order: OK
-        Other Certificates: OK
-    Detailed log can be found C:\AzsReadinessChecker\CertificateValidation\CertChecker.log
-
-    Finished Certificate Validation
-
-    AzsReadinessChecker Log location: C:\AzsReadinessChecker\AzsReadinessChecker.log
-    AzsReadinessChecker Report location: 
-    C:\AzsReadinessChecker\AzsReadinessReport.json
-    AzsReadinessChecker Completed
-    ```
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+Invoke-AzsCertificateValidation Completed
+```
 
 ### <a name="known-issues"></a>已知问题
 
-**症状**：已跳过测试
+**症状**：跳过了测试
 
 **原因**：如果不符合依赖关系，AzsReadinessChecker 会跳过某些测试：
 
@@ -159,11 +168,9 @@ ms.locfileid: "52664206"
     The Other Certificates check was skipped because Cert Chain and/or DNS Names failed. Follow the guidance to remediate those issues and recheck. 
     Detailed log can be found C:\AzsReadinessChecker\CertificateValidation\CertChecker.log
 
-    Finished Certificate Validation
-
-    AzsReadinessChecker Log location: C:\AzsReadinessChecker\AzsReadinessChecker.log
-    AzsReadinessChecker Report location (for OEM): C:\AzsReadinessChecker\AzsReadinessChecker.log
-    AzsReadinessChecker Completed
+    Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+    Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+    Invoke-AzsCertificateValidation Completed
     ```
 
 **解决方法**：遵循针对每个证书的每组测试下的详细信息部分中的工具指导。
@@ -193,18 +200,15 @@ ms.locfileid: "52664206"
 3.  更改 **RegionName** 和 **FQDN** 的值以匹配 Azure Stack 环境来启动验证。 运行：
 
     ```PowerShell  
-    Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates -RegionName east -FQDN azurestack.contoso.com 
+    Invoke-AzsCertificateValidation -PaaSCertificates $PaaSCertificates -RegionName east -FQDN azurestack.contoso.com 
     ```
 4.  检查输出和所有证书是否通过所有测试。
 
     ```PowerShell
-    AzsReadinessChecker v1.1805.425.2 started
-    Starting PaaS Certificate Validation
-    
-    Starting Azure Stack Certificate Validation 1.0 
-    Testing: PaaSCerts\wildcard.appservice.pfx
-        Read PFX: OK
+    Invoke-AzsCertificateValidation v1.0 started.
+    Thumbprint: 95A50B****************************FA6DDA
         Signature Algorithm: OK
+        Parse PFX: OK
         Private Key: OK
         Cert Chain: OK
         DNS Names: OK
@@ -212,9 +216,9 @@ ms.locfileid: "52664206"
         Key Size: OK
         Chain Order: OK
         Other Certificates: OK
-    Testing: PaaSCerts\api.appservice.pfx
-        Read PFX: OK
+    Thumbprint: EBB011****************************59BE9A
         Signature Algorithm: OK
+        Parse PFX: OK
         Private Key: OK
         Cert Chain: OK
         DNS Names: OK
@@ -222,9 +226,9 @@ ms.locfileid: "52664206"
         Key Size: OK
         Chain Order: OK
         Other Certificates: OK
-    Testing: PaaSCerts\wildcard.dbadapter.pfx
-        Read PFX: OK
+    Thumbprint: 76AEBA****************************C1265E
         Signature Algorithm: OK
+        Parse PFX: OK
         Private Key: OK
         Cert Chain: OK
         DNS Names: OK
@@ -232,15 +236,31 @@ ms.locfileid: "52664206"
         Key Size: OK
         Chain Order: OK
         Other Certificates: OK
-    Testing: PaaSCerts\sso.appservice.pfx
-        Read PFX: OK
+    Thumbprint: 8D6CCD****************************DB6AE9
         Signature Algorithm: OK
+        Parse PFX: OK
         Private Key: OK
         Cert Chain: OK
         DNS Names: OK
         Key Usage: OK
         Key Size: OK
     ```
+
+## <a name="certificates"></a>证书
+
+| 目录 | 证书 |
+| ---    | ----        |
+| acsBlob | wildcard_blob_\< region>\< externalFQDN> |
+| ACSQueue  |  wildcard_queue\< region>\< externalFQDN> |
+| ACSTable  |  wildcard_table\< region>\< externalFQDN> |
+| Admin Extension Host  |  wildcard_adminhosting\< region>\< externalFQDN> |
+| Admin Portal  |  adminportal\< region>\< externalFQDN> |
+| ARM Admin  |  adminmanagement\< region>\< externalFQDN> |
+| ARM Public  |  management\< region>\< externalFQDN> |
+| KeyVault  |  wildcard_vault\< region>\< externalFQDN> |
+| KeyVaultInternal  |  wildcard_adminvault\< region>\< externalFQDN> |
+| Public Extension Host  |  wildcard_hosting\< region>\< externalFQDN> |
+| Public Portal  |  portal\< region>_\< externalFQDN> |
 
 ## <a name="using-validated-certificates"></a>使用已验证的证书
 

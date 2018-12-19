@@ -1,27 +1,19 @@
 ---
 title: 创建基于路由的 VPN 网关：Azure 门户 | Microsoft Docs
-description: 使用 Azure 门户快速创建基于路由的 VPN 网关
+description: 使用 Azure 门户创建基于路由的 VPN 网关
 services: vpn-gateway
-documentationcenter: na
-author: cherylmc
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
+author: WenJason
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 04/04/2018
-ms.date: 05/08/2018
-ms.author: v-junlch
-ms.openlocfilehash: 9b9b1ebad0e16f7dfaa157a843db369a66f772e5
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 10/18/2018
+ms.date: 12/10/2018
+ms.author: v-jay
+ms.openlocfilehash: 69759289c3670f3e292382a9b494ab71a2b1ace7
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657765"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028772"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>使用 Azure 门户创建基于路由的 VPN 网关
 
@@ -36,15 +28,15 @@ ms.locfileid: "52657765"
 3. 从靠近“虚拟网络”页底部的“选择部署模型”列表中，确认已从下拉列表中选择“资源管理器”，然后单击“创建”。 这会打开“创建虚拟网络”页。
 4. 在“创建虚拟网络”页上，配置 VNet 设置。 填写字段时，如果在字段中输入的字符有效，红色感叹号标记会变成绿色对钩标记。 使用以下值：
 
-    - **名称**：TestVNet1
-    - **地址空间**：10.1.0.0/16
-    - **订阅**：确认列出的订阅是你想要使用的订阅。 可以使用下拉列表更改订阅。
-    - **资源组**：TestRG1
-    - **位置**：中国北部
-    - **子网**：Frontend
-    - **地址范围**：10.1.0.0/24
+  - **名称**：TestVNet1
+  - **地址空间**：10.1.0.0/16
+  - **订阅**：确认列出的订阅是你想要使用的订阅。 可以使用下拉列表更改订阅。
+  - **资源组**：TestRG1
+  - **位置**：中国东部
+  - **子网**：前端
+  - **地址范围**：10.1.0.0/24
 
-    ![“创建虚拟网络”页](./media/create-routebased-vpn-gateway-portal/create-virtual-network.png "“创建虚拟网络”页")
+  ![创建虚拟网络页](./media/create-routebased-vpn-gateway-portal/create-virtual-network.png "创建虚拟网络页")
 5. 输入值后，选择“固定到仪表板”，以便可以方便地在仪表板中找到你的 VNet，然后单击“创建”。 单击“创建”后，将看到仪表板上的磁贴反映了 VNet 的进度。 创建 VNet 时，该磁贴会更改。
 
 ## <a name="gwsubnet"></a>添加网关子网
@@ -55,12 +47,12 @@ ms.locfileid: "52657765"
 2. 在“虚拟网络”页上，单击“子网”以展开“VNet1 - 子网”页。
 3. 单击顶部的“+网关子网”打开“添加子网”页。
 
-    ![添加网关子网](./media/create-routebased-vpn-gateway-portal/add-gateway-subnet.png "添加网关子网")
+  ![添加网关子网](./media/create-routebased-vpn-gateway-portal/gateway-subnet.png "添加网关子网")
 4. 子网的“名称”会自动填充为所需值“GatewaySubnet”。 调整自动填充的**地址范围**值，使其匹配以下值：
 
-    **地址范围(CIDR 块)**：10.1.255.0/27
+  **地址范围(CIDR 块)**：10.1.255.0/27
 
-    ![添加网关子网](./media/create-routebased-vpn-gateway-portal/gateway-subnet.png "添加网关子网")
+  ![添加网关子网](./media/create-routebased-vpn-gateway-portal/add-gateway-subnet.png "添加网关子网")
 5. 若要创建网关子网，请单击页底部的“确定”。
 
 ## <a name="gwvalues"></a>配置网关设置
@@ -69,49 +61,35 @@ ms.locfileid: "52657765"
 2. 在“虚拟网关”页的底部，单击“创建”打开“创建虚拟网关”页。
 3. 在“创建虚拟网关”页中，指定虚拟网关的值。
 
-    - **名称**：Vnet1GW
-    - **网关类型**：VPN 
-    - **VPN 类型**：基于路由
-    - **SKU**：VpnGw1
-    - **位置**：中国北部
-    - **虚拟网络**：单击“虚拟网络/选择虚拟网络”打开“选择虚拟网络”页。 选择 **VNet1**。
+  - **名称**：Vnet1GW
+  - **网关类型**：VPN 
+  - **VPN 类型**：基于路由
+  - **SKU**：VpnGw1
+  - **位置**：中国东部
+  - **虚拟网络**：单击“虚拟网络/选择虚拟网络”打开“选择虚拟网络”页。 选择 **VNet1**。
+  - **公共 IP 地址**：此设置指定与 VPN 网关关联的公共 IP 地址对象。 创建 VPN 网关后，会将公共 IP 地址动态分配给此对象。 VPN 网关当前仅支持动态公共 IP 地址分配。 但这并不意味着 IP 地址在分配到 VPN 网关后会更改。 公共 IP 地址只在删除或重新创建网关时更改。 该地址不会因为 VPN 网关大小调整、重置或其他内部维护/升级而更改。
 
-    ![配置网关设置](./media/create-routebased-vpn-gateway-portal/configure-gateway.png "配置网关设置")
+    - 让“新建”保持选中状态。
+    - 在文本框中，键入公共 IP 地址的**名称**。 对于此练习，使用 **VNet1GWIP**。<br>
 
-## <a name="pip"></a>创建公共 IP 地址
-
-VPN 网关必须具有动态分配的公共 IP 地址。 创建与 VPN 网关的连接时，这是本地设备所连接到的 IP 地址。
-
-1. 选择“第一个 IP 配置：创建网关 IP 配置”以请求一个公共 IP 地址。
-
-    ![第一个 IP 配置](./media/create-routebased-vpn-gateway-portal/add-public-ip-address.png "第一个 IP 配置")
-2. 在“选择公共 IP”页上，单击“+新建”打开“创建公共 IP 地址”页。
-3. 为设置配置以下值：
-
-    - **名称**：**VNet1GWIP**
-    - **SKU**：**基本**
-
-    ![创建公共 IP](./media/create-routebased-vpn-gateway-portal/public-ip-address-name.png "创建 PIP")
-4. 单击此页底部的“确定”，保存所做的更改。
+    ![配置网关设置](./media/create-routebased-vpn-gateway-portal/gw.png "配置网关设置")
 
 ## <a name="creategw"></a>创建 VPN 网关
 
 1. 在“创建虚拟网关”页上验证设置。 如有必要，请调整值。
-
-    ![创建 VPN 网关](./media/create-routebased-vpn-gateway-portal/create-vpn-gateway.png "创建 VPN 网关")
 2. 在页面底部单击“创建”。
 
-单击“创建”后，将会验证这些设置，并会在仪表板上显示“正在部署虚拟网关”磁贴。 VPN 网关可能最多需要 45 分钟。 可能需要刷新门户页才能看到完成状态。
+  单击“创建”后，将会验证这些设置，并会在仪表板上显示“正在部署虚拟网关”磁贴。 VPN 网关可能最多需要 45 分钟。 可能需要刷新门户页才能看到完成状态。
 
 ## <a name="viewgw"></a>查看 VPN 网关
 
 1. 创建网关后，请在门户中导航到 VNet1。 VPN 网关将作为已连接的设备显示在概述页上。
 
-    ![已连接的设备](./media/create-routebased-vpn-gateway-portal/view-connected-devices.png "已连接的设备")
+  ![已连接的设备](./media/create-routebased-vpn-gateway-portal/view-connected-devices.png "已连接的设备")
 
 2. 在设备列表中，单击 **VNet1GW** 可查看详细信息。
 
-    ![查看 VPN 网关](./media/create-routebased-vpn-gateway-portal/view-gateway.png "查看 VPN 网关")
+  ![查看 VPN 网关](./media/create-routebased-vpn-gateway-portal/view-gateway.png "查看 VPN 网关")
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -121,4 +99,3 @@ VPN 网关必须具有动态分配的公共 IP 地址。 创建与 VPN 网关的
 > [创建站点到站点连接](vpn-gateway-howto-site-to-site-resource-manager-portal.md)<br><br>
 > [创建点到站点连接](vpn-gateway-howto-point-to-site-resource-manager-portal.md)<br><br>
 > [创建与另一个 VNet 的连接](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-

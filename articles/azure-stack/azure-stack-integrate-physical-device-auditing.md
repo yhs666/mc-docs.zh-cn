@@ -6,25 +6,26 @@ author: WenJason
 manager: digimobile
 ms.service: azure-stack
 ms.topic: article
-origin.date: 08/01/2018
-ms.date: 08/27/2018
+origin.date: 11/05/2018
+ms.date: 12/17/2018
 ms.author: v-jay
 ms.reviewer: fiseraci
 keywords: ''
-ms.openlocfilehash: a0ac22553037743da9030e388922e5f357c7f317
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 49efde658f01fc558ad2238a04b5d4ad33cf1111
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659254"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396145"
 ---
 # <a name="azure-stack-datacenter-integration---physical-device-auditing"></a>Azure Stack 数据中心集成 - 物理设备审核
 
-Azure Stack 中的所有物理设备（例如基板管理控制器 (BMC) 和网络交换机）都会发出审核日志，应当将它们集成到你的整体审核解决方案中。 由于设备因不同的 Azure Stack OEM 硬件供应商而异，所以请联系你的供应商来获取有关审核集成的文档。 以下各部分提供了有关 Azure Stack 中的物理设备审核的一些常规信息。  
+Azure Stack 中的所有物理设备（例如基板管理控制器 (BMC) 和网络交换机）都会发出审核日志。 可以将它们集成到整体审核解决方案中。 由于设备因不同的 Azure Stack OEM 硬件供应商而异，所以请联系你的供应商来获取有关审核集成的文档。
+以下各部分提供了有关 Azure Stack 中的物理设备审核的一些常规信息。  
 
 ## <a name="physical-device-access-auditing"></a>物理设备访问审核
 
-Azure Stack 中的所有物理设备都支持使用 TACACS 或 RADIUS。 这包括访问基板管理控制器 (BMC) 和网络交换机。
+Azure Stack 中的所有物理设备都支持使用 TACACS 或 RADIUS。 支持包括访问基板管理控制器 (BMC) 和网络交换机。
 
 Azure Stack 解决方案在推出时并未内置 RADIUS 或 TACACS。 但是，经验证，这些解决方案支持使用市面上现有的 RADIUS 或 TACACS 解决方案。
 

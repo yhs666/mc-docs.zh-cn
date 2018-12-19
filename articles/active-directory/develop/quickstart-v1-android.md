@@ -14,24 +14,24 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: quickstart
 origin.date: 09/24/2018
-ms.date: 11/07/2018
+ms.date: 12/04/2018
 ms.author: v-junlch
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 5ba31fcf6e2534cd9d01f2fa45ced4936bf1a6ac
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 84054df5724046df437a76e316863f03d5bdfa9d
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660012"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028421"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>快速入门：从 Android 应用将用户登录并调用 Microsoft Graph API
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>快速入门：从 Android 应用登录用户并调用 Microsoft Graph API
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
 如果你要开发 Android 应用程序，Microsoft 可让 Azure Active Directory (Azure AD) 用户拥有简单直接的登录体验。 Azure AD 允许应用程序通过 Microsoft Graph 或你自己的受保护 Web API 访问用户数据。
 
-Azure AD 身份验证库 (ADAL) Android 库使用行业标准的 OAuth 2.0 和 OpenID Connect 来支持 [Azure Active Directory 帐户](https://www.azure.cn/home/features/active-directory/)，从而使你的应用能够开始使用 [Azure 云](https://cloud.microsoft.com) & [Microsoft Graph API](https://graph.microsoft.io)。
+Azure AD 身份验证库 (ADAL) Android 库使用行业标准的 OAuth 2.0 和 OpenID Connect 来支持 [Azure Active Directory 帐户](https://www.azure.cn/home/features/active-directory/)，从而使你的应用能够开始使用 [Azure 云](https://cloud.microsoft.com) & [Microsoft Graph API](https://developer.microsoft.com/graph)。
 
 在本快速入门中，你将学习如何：
 
@@ -42,7 +42,7 @@ Azure AD 身份验证库 (ADAL) Android 库使用行业标准的 OAuth 2.0 和 O
 
 ## <a name="prerequisites"></a>先决条件
 
-若要开始操作，你需要一个可在其中创建用户和注册应用程序的 Azure AD 租户。 如果还没有租户，请 [了解如何获取租户](quickstart-create-new-tenant.md)。
+若要开始操作，你需要一个可在其中创建用户和注册应用程序的 Azure AD 租户。 如果还没有租户，请[了解如何获取租户](quickstart-create-new-tenant.md)。
 
 ## <a name="scenario-sign-in-users-and-call-the-microsoft-graph"></a>方案：让用户登录并调用 Microsoft Graph
 
@@ -140,4 +140,4 @@ ADAL 库公开身份验证遥测来帮助应用开发人员了解其应用的行
 
 若要了解有关身份验证遥测的详细信息，请查看 [ADAL Android auth telemetry](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/Telemetry)（ADAL Android 身份验证遥测）。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

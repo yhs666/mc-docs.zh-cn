@@ -1,21 +1,21 @@
 ---
-title: 使用 Azure Site Recovery 将 AWS 中的 VM 迁移到 Azure | Azure
+title: 使用 Azure Site Recovery 服务将 AWS VM 迁移到 Azure | Azure
 description: 本文介绍如何使用 Azure Site Recovery 将 Amazon Web Services (AWS) 中运行的 Windows VM 迁移到 Azure。
 services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 10/10/2018
-ms.date: 11/19/2018
+origin.date: 10/28/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: dd93d25c7a1b1f152aefc6ff9ca021fdd252c11b
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 4e69aec2e223fa8d559cdbc9059d195d4d985682
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674402"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028344"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>将 Amazon Web Services (AWS) VM 迁移到 Azure
 
@@ -103,7 +103,7 @@ ms.locfileid: "52674402"
 
 在 Azure 门户的保管库页的“入门”部分选择“Site Recovery”，然后选择“准备基础结构”。 完成以下步骤。
 
-### <a name="1-protection-goal"></a>1：保护目标
+### <a name="1-protection-goal"></a>1:保护目标
 
 在“保护目标”页上选择以下值：
 
@@ -115,13 +115,13 @@ ms.locfileid: "52674402"
 
 完成后，选择“确定”即可转到下一部分。
 
-### <a name="2-prepare-source"></a>2：准备源
+### <a name="2-prepare-source"></a>2:准备源
 
 在“准备源”页上，选择“+ 配置服务器”。
 
 1. 使用运行 Windows Server 2012 R2 的 EC2 实例创建配置服务器，并将它注册到恢复保管库。
 2. 在用作配置服务器的 EC2 实例 VM 上配置代理，以便它可以访问[服务 URL](site-recovery-support-matrix-to-azure.md)。
-3. 下载 [Azure Site Recovery 统一安装程序](http://aka.ms/unifiedinstaller_wus)。 可以将它下载到本地计算机，然后复制到用作配置服务器的 VM。
+3. 下载 [Azure Site Recovery 统一安装程序](https://aka.ms/unifiedinstaller_wus)。 可以将它下载到本地计算机，然后复制到用作配置服务器的 VM。
 4. 选择“下载”按钮，下载保管库注册密钥。 将下载的文件复制到用作配置服务器的 VM。
 5. 在该 VM 上，右键单击为 Azure Site Recovery 统一安装程序下载的安装程序，然后选择“以管理员身份运行”。
 
@@ -138,9 +138,9 @@ ms.locfileid: "52674402"
     11. “安装进度”显示有关安装过程的信息。 完成后，选择“完成”。 此时会出现一个显示重启消息的窗口。 选择“确定” 。 接下来会出现一个窗口，显示有关配置服务器连接通行短语的消息。 将通行短语复制到剪贴板，然后保存到其他安全位置。
 6. 在 VM 上运行 cspsconfigtool.exe，以在配置服务器上创建一个或多个管理帐户。 请确保管理帐户在要迁移的 EC2 实例上具有管理员权限。
 
-完成配置服务器设置后，请返回门户，选择为**配置服务器**创建的服务器。 选择“确定”，转到“3：准备目标”。
+完成配置服务器设置后，请返回门户，选择为**配置服务器**创建的服务器。 选择“确定”以转到“3:准备目标”。
 
-### <a name="3-prepare-target"></a>3：准备目标
+### <a name="3-prepare-target"></a>3:准备目标
 
 在本部分，请输入在本教程前面的[准备 Azure 资源](#prepare-azure-resources)中创建的资源的相关信息。
 
@@ -149,7 +149,7 @@ ms.locfileid: "52674402"
 3. Site Recovery 会验证你是否有一个或多个兼容的 Azure 存储帐户和网络。 这些应该是在本教程前面的[准备 Azure 资源](#prepare-azure-resources)中创建的资源。
 4. 完成后，请选择“确定”。
 
-### <a name="4-prepare-replication-settings"></a>4：准备复制设置
+### <a name="4-prepare-replication-settings"></a>4:准备复制设置
 
 必须先创建复制策略，然后才能启用复制。
 
@@ -157,7 +157,7 @@ ms.locfileid: "52674402"
 2. 在“名称”中输入 **myReplicationPolicy**。
 3. 其余选项均保留默认设置，然后选择“确定”以创建策略。 新策略会自动与配置服务器关联。
 
-### <a name="5-select-deployment-planning"></a>5：选择部署规划
+### <a name="5-select-deployment-planning"></a>5:选择部署规划
 
 在“是否已完成部署规划”中选择“我将稍后进行”，然后选择“确定”。
 
@@ -169,8 +169,8 @@ ms.locfileid: "52674402"
 
 1. 转到 [Azure 门户](https://portal.azure.cn)。
 1. 在保管库相应页面的“入门”下，选择“Site Recovery”。
-2. 在“适用于本地计算机和 Azure VM”下，选择“步骤 1: 复制应用程序”。 使用以下信息完成向导页面。 完成后，在每个页面上选择“确定”：
-    - 1：配置源
+2. 在“适用于本地计算机和 Azure VM”下，选择“步骤 1:复制应用程序”。 使用以下信息完成向导页面。 完成后，在每个页面上选择“确定”：
+    - 1:配置源
 
     |  |  |
     |-----|-----|
@@ -179,7 +179,7 @@ ms.locfileid: "52674402"
     |计算机类型： | 选择“物理计算机”。|
     | 进程服务器： | 从下拉列表中选择配置服务器。|
 
-    - 2：配置目标
+    - 2:配置目标
 
     |  |  |
     |-----|-----|
@@ -192,15 +192,15 @@ ms.locfileid: "52674402"
     | 故障转移后的 Azure 网络： | 选择在[准备 Azure 资源](#prepare-azure-resources)中创建的网络。|
     | 子网： | 在下拉列表中选择“默认”。|
 
-    - 3：选择物理计算机
+    - 3:选择物理计算机
 
       选择“物理计算机”，然后输入要迁移的 EC2 实例的“名称”、“IP 地址”和“OS 类型”的值。 选择“确定” 。
 
-    - 4：配置属性
+    - 4:配置属性
 
       选择在配置服务器上创建的帐户，然后选择“确定”。
 
-    - 5：配置复制设置
+    - 5:配置复制设置
 
       确保在下拉列表中选定的复制策略是“myReplicationPolicy”，然后选择“确定”。
 
@@ -241,7 +241,10 @@ ms.locfileid: "52674402"
 1. 在“受保护的项” > “复制的项”中选择 AWS 实例，然后选择“故障转移”。
 2. 在“故障转移”中，选择要故障转移到其中的“恢复点”。 选择最新的恢复点，然后启动故障转移。 可以在“作业”页上跟踪故障转移进度。
 1. 确保 VM 出现在“复制的项”中。
-2. 右键单击每个 VM，然后选择“完成迁移”。 此操作将完成迁移过程，停止 AWS VM 复制，并停止 VM 的 Site Recovery 计费。
+2. 右键单击每个 VM，然后选择“完成迁移”。 这样会执行以下操作：
+
+    - 此操作将完成迁移过程，停止 AWS VM 复制，并停止 VM 的 Site Recovery 计费。
+    - 此步骤清除复制数据。 它不删除迁移的 VM。 
 
     ![完成迁移](./media/migrate-tutorial-aws-azure/complete-migration.png)
 

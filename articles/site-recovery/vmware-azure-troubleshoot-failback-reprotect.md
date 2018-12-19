@@ -1,23 +1,21 @@
 ---
-title: 解决使用 Azure Site Recovery 将 Azure VM 故障回复到本地 VMware 时出现的错误 | Azure
-description: 本文介绍了使用 Azure Site Recovery 从 Azure 故障回复到 VMware 时常见的故障回复和重新保护错误的解决方法。
-services: site-recovery
-documentationcenter: ''
+title: 在 VMware VM 灾难恢复到 Azure 期间使用 Azure Site Recovery ，对故障回复到本地进行故障排除 | Azure
+description: 本文介绍了在 VMware VM 灾难恢复到 Azure 期间使用 Azure Site Recovery 排查故障回复和重新保护问题的方法。
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 68f1c7b984dbe887a3f55776387588a70b4d955c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 3724e9c37272e84f8df8c8a92ef4b04ba84c24af
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653968"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028612"
 ---
-# <a name="troubleshoot-failback-from-azure-to-vmware"></a>从 Azure 故障回复到 VMware 时进行故障排除
+# <a name="troubleshoot-failback-to-on-premises-from-azure"></a>排查从 Azure 到本地的故障回复问题
 
 本文介绍了如何对使用 [Azure Site Recovery](site-recovery-overview.md) 故障转移到 Azure 后将 Azure VM 故障回复到本地 VMware 基础结构时可能会遇到的问题进行故障排除。
 
@@ -84,4 +82,4 @@ VM 未运行，它处于挂起状态或无法访问。
 * 可以在 ESXi 主机上预配更多内存。
 * 另外，可以使用 vMotion 将 VM 迁移到另一台有足够内存的 ESXi 主机上以启动 VM。
 
-<!-- Update_Description: update meta properties  -->
+<!-- Update_Description: update meta properties, wording update -->

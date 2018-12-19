@@ -15,17 +15,19 @@ ms.workload: storage-backup-recovery
 origin.date: 07/06/2018
 ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8062401ae4937c72c3032ddfa5ad29c602dcf6b0
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8c56fecaa7e64fc298c9b0d6f2b81fdd5697be0d
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644198"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028334"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>将 Azure 自动化 Runbook 添加到恢复计划
 本文将介绍 Azure Site Recovery 如何与 Azure 自动化集成，以便扩展恢复计划。 恢复计划可以安排恢复受 Site Recovery 保护的 VM。 恢复计划支持复制到辅助云和复制到 Azure。 恢复计划还有助于实现恢复的**一致准确性**、**可重复性**和**自动化**。 如果从 VM 故障转移到 Azure，与 Azure 自动化集成可以扩展恢复计划。 可用于执行 Runbook，从而提供功能强大的自动化任务。
 
-如果刚开始接触 Azure 自动化，可以[注册](https://www.azure.cn/home/features/automation/)和[下载示例脚本](../automation/automation-runbook-gallery.md)。 有关详细信息，以及若要了解如何使用[恢复计划](./site-recovery-create-recovery-plans.md)来安排恢复到 Azure，请参阅 [Azure Site Recovery](https://www.azure.cn/home/features/site-recovery/)。
+如果刚开始接触 Azure 自动化，可以[注册](https://www.azure.cn/home/features/automation/)并下载示例脚本。 有关详细信息，以及若要了解如何使用[恢复计划](./site-recovery-create-recovery-plans.md)来安排恢复到 Azure，请参阅 [Azure Site Recovery](https://www.azure.cn/home/features/site-recovery/)。
+
+<!-- Not Available on [download sample scripts](../automation/automation-runbook-gallery.md)-->
 <!-- Redirect https://azure.microsoft.com/documentation/scripts/ TO ../automation/automation-runbook-gallery.md -->
 
 本文介绍如何将 Azure 自动化 Runbook 集成到恢复计划中。 我们使用示例，自动执行以前需要手动干预的基本任务。 本文还将介绍如何将多步骤恢复过程转换为一键式恢复操作。
@@ -37,7 +39,7 @@ ms.locfileid: "52644198"
 
 2. 右键单击“组 1: 启动”，再选择“添加后操作”。
 
-    ![右键单击“组 1: 启动”，并添加后操作](media/site-recovery-runbook-automation-new/customize-rp.png)
+    ![右键单击“组 1: 启动”并添加后操作](media/site-recovery-runbook-automation-new/customize-rp.png)
 
 3. 单击“选择脚本”。
 
@@ -51,7 +53,7 @@ ms.locfileid: "52644198"
 
 6. 在自动化帐户中，选择一个 Runbook。 此 Runbook 是在恢复第一组后执行恢复计划期间运行的脚本。
 
-7. 选择“确定”，保存脚本。 此时，脚本添加到“组 1: 后步骤”。
+7. 选择“确定”，保存脚本。 此时，脚本将添加到“组 1: 后步骤”。
 
     ![“组 1: 启动”后操作](media/site-recovery-runbook-automation-new/addedscript-rp.PNG)
 

@@ -1,20 +1,20 @@
 ---
-title: Azure 存储中用于实现低成本冗余的本地冗余存储 (LRS) | Azure
+title: Azure 存储中用于实现低成本冗余的本地冗余存储 (LRS) | Microsoft Docs
 description: 默认情况下，新的 Azure 存储帐户使用本地冗余存储 (LRS) 进行复制。 LRS 是成本最低的复制选项。 它针对数据中心内的硬件故障提供保护，但不针对数据中心级灾难提供保护。
 services: storage
 author: WenJason
-manager: digimobile
 ms.service: storage
 ms.topic: article
-origin.date: 03/20/2018
-ms.date: 06/11/2018
-ms.author: v-nany
-ms.openlocfilehash: 19e908d1d9ac56b1e4b430972983af8ae5971caf
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 10/24/2018
+ms.date: 12/10/2018
+ms.author: jeking
+ms.component: common
+ms.openlocfilehash: 556b048905d44e567a929b34cc2e82b5709bbd12
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644890"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028311"
 ---
 # <a name="locally-redundant-storage-lrs-low-cost-data-redundancy-for-azure-storage"></a>本地冗余存储 (LRS)：Azure 存储的低成本数据冗余
 

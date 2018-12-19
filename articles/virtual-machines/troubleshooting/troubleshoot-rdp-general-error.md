@@ -14,12 +14,12 @@ ms.workload: infrastructure
 origin.date: 10/31/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2ddd2b607b32968fc63fd722f23c3f823bf9698d
-ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
+ms.openlocfilehash: 7c907a8559edf69e52dd2ad8354a0aaf7d7c0522
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676955"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028348"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>排查 Azure VM 的常规 RDP 错误
 
@@ -64,113 +64,7 @@ RDP 侦听器配置不当。
 
 若要解决此问题，请[备份操作系统磁盘](../windows/snapshot-copy-managed-disk.md)，[将操作系统磁盘附加到救援 VM](troubleshoot-recovery-disks-portal-windows.md)，然后按步骤操作。
 
-### <a name="serial-console"></a>串行控制台
-
-#### <a name="step-1-open-cmd-instance-in-serial-console"></a>步骤 1：在串行控制台中打开 CMD 实例
-
-1. 选择“支持和故障排除” > “串行控制台(预览版)”访问 [串行控制台](serial-console-windows.md) 。 如果在 VM 上启用了该功能，则可以成功连接 VM。
-
-2. 为 CMD 实例创建新通道。 键入 **CMD** 启动通道，以获取通道名称。
-
-3. 切换到运行 CMD 实例的通道（在本例中应是通道 1）。
-
-   ```
-   ch -si 1
-   ```
-
-#### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>步骤 2：检查 RDP 注册表项的值：
-
-1. 检查策略是否禁用 RDP。
-
-      ```
-      REM Get the local policy 
-      reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server " /v fDenyTSConnections
-
-      REM Get the domain policy if any
-      reg query "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections
-      ```
-
-      - 如果存在域策略，则会覆盖本地策略中的设置。
-      - 如果域策略指出 RDP 已禁用 (1)，请从域控制器更新 AD 策略。
-      - 如果域策略指出 RDP 已启用 (0)，则无需更新。
-      - 如果域策略不存在，并且本地策略指出 RDP 已禁用 (1)，请使用以下命令启用 RDP： 
-
-            reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
-
-2. 检查终端服务器的当前配置。
-
-      ```
-      reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled
-      ```
-
-      如果该命令返回 0，则表示终端服务器已禁用。 在这种情况下，请按如下所示启用终端服务器：
-
-      ```
-      reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled /t REG_DWORD /d 1 /f
-      ```
-
-3. 如果服务器位于终端服务器场（RDS 或 Citrix）中，终端服务器模块将设置为排出模式。 检查终端服务器模块的当前模式。
-
-      ```
-      reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSServerDrainMode
-      ```
-
-      如果该命令返回 1，则表示终端服务器模块已设置为排出模式。 在这种情况下，请按如下所示将该模块设置为工作模式：
-
-      ```
-      reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSServerDrainMode /t REG_DWORD /d 0 /f
-      ```
-
-4. 检查是否可以连接到终端服务器。
-
-      ```
-      reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSUserEnabled
-      ```
-
-      如果该命令返回 1，则表示无法连接到终端服务器。 在这种情况下，请按如下所示启用连接：
-
-      ```
-      reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSUserEnabled /t REG_DWORD /d 0 /f
-      ```
-5. 检查 RDP 侦听器的当前配置。
-
-      ```
-      reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation
-      ```
-
-      如果该命令返回 0，则表示 RDP 侦听器已禁用。 在这种情况下，请按如下所示启用侦听器：
-
-      ```
-      reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation /t REG_DWORD /d 1 /f
-      ```
-
-6. 检查是否可以连接到 RDP 侦听器。
-
-      ```
-      reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled
-      ```
-
-   如果该命令返回 1，则表示无法连接到 RDP 侦听器。 在这种情况下，请按如下所示启用连接：
-
-      ```
-      reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled /t REG_DWORD /d 0 /f
-      ```
-
-7. 重启 VM。
-
-8. 键入 `exit` 并按 **Enter** 两次，从 CMD 实例退出。
-
-9. 通过键入 `restart` 重启 VM，然后连接到 VM。
-
-如果仍发生此问题，请转到步骤 2。
-
-#### <a name="step-2-enable-remote-desktop-services"></a>步骤 2：启用远程桌面服务
-
-有关详细信息，请参阅[远程桌面服务在 Azure VM 上不启动](troubleshoot-remote-desktop-services-issues.md)。
-
-#### <a name="step-3-reset-rdp-listener"></a>步骤 3：重置 RDP 侦听器
-
-有关详细信息，请参阅[远程桌面经常在 Azure VM 中断开连接](troubleshoot-rdp-intermittent-connectivity.md)。
+<!-- Not Available on ### Serial Console-->
 
 ### <a name="offline-repair"></a>脱机修复
 
@@ -244,6 +138,7 @@ RDP 侦听器配置不当。
 ## <a name="need-help-contact-support"></a>需要帮助？ 联系支持人员
 
 如果仍需帮助，请[联系支持人员](https://www.azure.cn/support/support-azure/)以快速解决问题。
+
 
 <!-- Update_Description: new articles on troubleshoot -->
 <!--ms.date: 12/03/2018-->

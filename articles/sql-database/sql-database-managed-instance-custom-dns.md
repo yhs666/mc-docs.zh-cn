@@ -13,12 +13,12 @@ ms.reviewer: bonova, carlrab
 manager: digimobile
 origin.date: 09/23/2018
 ms.date: 10/29/2018
-ms.openlocfilehash: 23d485379a1d8d59b1fb99110b41260adeb64bba
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6c64d9c366cf2d5ede0776260d3b7bde7dd7a95e
+ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661366"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52901033"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>为 Azure SQL 数据库托管实例配置自定义 DNS
 

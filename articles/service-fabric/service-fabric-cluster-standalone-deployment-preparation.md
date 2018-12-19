@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 09/11/2018
-ms.date: 10/15/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: e8e9ede91c882f7527ab5b021292c6c7a2271930
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a5e311bb3759de93a3fb120f09e5ffeea9fef04b
+ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657907"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52901131"
 ---
 <a name="preparemachines"></a>
 
@@ -44,10 +44,10 @@ ms.locfileid: "52657907"
 
 在 ClusterConfig.json 中指定 UD 时，可以选择每个 UD 的名称。 例如，以下名称是有效的：
 
-* "upgradeDomain": "UD0"
-* "upgradeDomain": "UD1A"
-* "upgradeDomain": "DomainRed"
-* "upgradeDomain": "Blue"
+* "upgradeDomain":"UD0"
+* "upgradeDomain":"UD1A"
+* "upgradeDomain":"DomainRed"
+* "upgradeDomain":"Blue"
 
 有关 FD 和 UD 的更多详细信息，请参阅 [Service Fabric 群集介绍](service-fabric-cluster-resource-manager-cluster-description.md)。
 
@@ -75,7 +75,7 @@ ms.locfileid: "52657907"
 部署和配置群集的群集管理员必须拥有每台计算机的 [管理员权限](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) 。 不能在域控制器上安装 Service Fabric。
 
 ## <a name="download-the-service-fabric-standalone-package-for-windows-server"></a>下载适用于 Windows Server 的 Service Fabric 独立包
-[下载链接 - Service Fabric 独立包 - Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) ，将包解压缩到群集外的一台部署计算机中或解压缩到群集内的其中一台计算机中。
+[下载链接 - Service Fabric 独立包 - Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690) ，将包解压缩到群集外的一台部署计算机中或解压缩到群集内的其中一台计算机中。
 
 ## <a name="modify-cluster-configuration"></a>修改群集配置
 若要创建独立群集，必须创建独立群集配置 ClusterConfig.json 文件，其中描述群集的规范。 可以基于在以下链接中找到的模板创建配置文件。 <br>
@@ -103,14 +103,14 @@ ms.locfileid: "52657907"
 * 已启用 Windows 防火墙服务 (mpssvc)
 * 已启用远程注册表服务（远程注册表）
 * 已启用文件共享 (SMB)
-* 已基于群集配置端口打开所需的端口
+* 已基于群集配置端口打开了必要的端口
 * 已为 Windows SMB 和远程注册表服务打开了必要的端口：135、137、138、139 和 445
-* 已相互建立网络连接
+* 已将网络彼此互连
 3. 群集节点计算机不应为域控制器。
 4. 如果要部署的群集是安全群集，请验证是否已具备必需的安全先决条件，以及是否已根据配置进行正确配置。
 5. 如果群集计算机无法访问 Internet，请在群集配置中设置以下项：
-* 禁用遥测：在“属性”下，设置 *"enableTelemetry": false*
-* 禁用自动下载 Fabric 版本和禁用通知当前群集版本支持即将终止：在“属性”下，设置 *"fabricClusterAutoupgradeEnabled": false*
+* 禁用遥测： 在“属性”下，设置 *"enableTelemetry": false*
+* 禁用自动下载 Fabric 版本和禁用通知当前群集版本支持即将终止： 在“属性”下，设置 *"fabricClusterAutoupgradeEnabled": false*
 * 或者，如果网络 Internet 访问仅限于允许列表中的域，则需要自动升级以下域：go.microsoft.com   download.microsoft.com
 
 6. 设置适当的 Service Fabric 防病毒排除项：

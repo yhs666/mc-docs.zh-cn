@@ -14,14 +14,14 @@ ms.devlang: multiple
 ms.topic: overview
 ms.custom: mvc
 origin.date: 04/14/2018
-ms.date: 07/09/2018
-ms.author: v-junlch
-ms.openlocfilehash: 36c404a15395927faa84c63d0ad63b92c6c3f1b4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/17/2018
+ms.author: v-biyu
+ms.openlocfilehash: d37392b741ad063b4936390f5f538a4af27739ca
+ms.sourcegitcommit: 6e07735318eb5f6ea319b618863259088eab3722
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661686"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52981688"
 ---
 # <a name="what-is-azure-notification-hubs"></a>什么是 Azure 通知中心？
 Azure 通知中心提供易于使用且横向扩展的推送引擎，可用于从任何后端（云或本地）向任何平台（iOS、Android、Windows、Kindle、百度等）发送通知。 通知中心非常适合用于企业和消费者方案。 下面是一些示例方案：
@@ -39,9 +39,9 @@ Azure 通知中心提供易于使用且横向扩展的推送引擎，可用于�
 推送通知对于提高消费型应用的应用参与度与使用量以及在企业应用中传达最新业务信息至关重要。 它是最佳的应用到用户通信形式，因为它对于移动设备而言能效较高，对于发送方而言具有弹性，即使相应的应用程序处于非活动状态时，也能使用推送通知。
 
 有关一些流行平台中的推送通知的详细信息，请参阅以下主题： 
-- [iOS](https://developer.apple.com/notifications/)
-- [Android](https://developer.android.com/guide/topics/ui/notifiers/notifications.html)
-- [Windows](http://msdn.microsoft.com/library/windows/apps/hh779725.aspx)
+* [iOS](https://developer.apple.com/notifications/)
+* [Android](https://developer.android.com/guide/topics/ui/notifiers/notifications.html)
+* [Windows](https://msdn.microsoft.com/library/windows/apps/hh779725.aspx)
 
 ## <a name="how-push-notifications-work"></a>推送通知的工作原理是什么？
 推送通知通过称为*平台通知系统* (PNS) 的特定于平台的基础结构进行传送。 它们只是单纯的推送功能，使用提供的句柄向设备传送消息，而没有通用接口。 若要跨应用的 iOS、Android 和 Windows 版本将通知发送给所有客户，开发人员必须使用 Apple Push Notification 服务 (APNS) 和 Windows 通知服务 (WNS)。
@@ -83,26 +83,26 @@ PNSes 非常强大。 但应用开发人员仍然需要完成大量工作才能�
     - 云或本地
     - .NET、Node.js、Java 等。
 - **丰富的传送模式集**
-    - 广播到一个或多个平台：只需调用 API 一次，便可立即广播到数百万台跨平台设备。
+    - 广播到一个或多个平台：只需调用 API 一次，即可立即广播到数百万台跨平台设备。
     - 推送到设备：可将通知定位到单个设备。
     - 推送到用户：可以借助标记和模板功能将通知传入用户的所有跨平台设备。
     - 使用动态标记推送到目标段：可以借助标记功能根据需要将设备分段并向其推送通知，不管是要发送到一个段还是段的表达式（例如，active AND lives in Seattle NOT new user）。 可以不受发布-订阅的限制，随时随地更新设备标记。
     - 本地化推送：可以借助模板功能实现本地化，而不会影响到后端代码。
     - 静默推送：可以通过向设备发送静默通知并触发设备完成特定的拉取或操作，来实现推送-拉取模式。
-    - 计划推送：可以计划随时发出通知。
+    - 计划的推送：可以计划随时发出通知。
     - 直接推送：可以跳过将设备注册到通知中心服务的步骤，直接批量推送到设备句柄列表。
     - 个性化推送：可以借助设备推送变量，使用自定义的键值对发送设备特定的个性化推送通知。
 - **丰富的遥测**
     - 可在 Azure 门户中或者以编程方式使用常规的推送、设备、错误和操作遥测。
     - 每项消息遥测会跟踪从发出初始请求调用，到通知中心服务成功批处理外推操作的每个推送过程。
     - 平台通知系统反馈会传达来自平台通知系统的所有反馈以帮助调试。
-- **可伸缩性** 
+- **伸缩性** 
     - 无需重建体系结构或者将设备分片，即可快速向数百万台设备发送消息。
 - **安全性**
     - 共享访问机密 (SAS) 或联合身份验证。
 
-## <a name="integration-with-app-service-mobile-apps"></a>与应用服务 Mobile Apps 集成
-为了帮助在 Azure 服务之间提供无缝且统一的体验， [应用服务移动应用](../app-service-mobile/app-service-mobile-value-prop.md) 原生支持使用通知中心来推送通知。 [应用服务 Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) 提供面向企业开发人员和系统集成商的高度可缩放、全局可用的移动应用程序平台，该平台向移动开发人员提供一组丰富的功能。
+## <a name="integration-with-app-service-mobile-apps"></a>与应用服务移动应用集成
+为了在 Azure 服务之间促成完美且统一的体验， [应用服务移动应用](../app-service-mobile/app-service-mobile-value-prop.md) 原生支持使用通知中心推送通知。 [应用服务 Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) 提供面向企业开发人员和系统集成商的高度可缩放、全局可用的移动应用程序平台，该平台向移动开发人员提供一组丰富的功能。
 
 移动应用开发人员可以借助以下工作流来利用通知中心：
 
@@ -115,13 +115,14 @@ PNSes 非常强大。 但应用开发人员仍然需要完成大量工作才能�
 
 以下是这种集成为开发人员带来的便利：
 
-- **移动应用客户端 SDK**：这些多平台 SDK 提供简单的 API 用于注册，并自动与链接到移动应用的通知中心联系。 开发人员不需要深入了解通知中心凭据和使用其他服务。
-    - *推送到用户*：SDK 使用移动应用的经过身份验证的用户 ID 来自动标记给定设备，实现推送到用户的方案。
-    - *推送到设备*：SDK 自动使用移动应用安装 ID 作为 GUID 注册到通知中心，省去了开发人员维护多个服务 GUID 的麻烦。
+- **移动应用客户端 SDK**： 这些多平台 SDK 提供简单的 API 用于注册，并自动与链接到移动应用的通知中心联系。 开发人员不需要深入了解通知中心凭据和使用其他服务。
+    - *推送到用户*：SDK 将使用移动应用的已经过身份验证的用户 ID 来自动标记给定设备，以实现推送到用户的方案。
+    - *推送到设备*：SDK 自动使用移动应用安装 ID 作为 GUID 来注册到通知中心，省去了开发人员维护多个服务 GUID 的麻烦。
 - **安装模型**：移动应用使用通知中心的最新推送模型来呈现 JSON 安装中所有与设备关联的推送属性，该模型与推送通知密切合作且易于使用。
-- **灵活性**：即使在集成环境中，开发人员也始终可以选择直接使用通知中心。
+- **灵活性**： 即使是就地集成的，开发人员也始终可以选择直接使用通知中心。
 - **[Azure 门户](https://portal.azure.cn)中的集成体验**：移动应用以可视化方式呈现推送功能，开发人员可以通过移动应用轻松使用关联的通知中心。
 
+## <a name="next-steps"></a>后续步骤
 
 [0]: ./media/notification-hubs-overview/registration-diagram.png
 [1]: ./media/notification-hubs-overview/notification-hub-diagram.png

@@ -2,26 +2,18 @@
 title: 创建基于路由的 Azure VPN 网关：CLI | Microsoft Docs
 description: 快速了解如何使用 CLI 创建 VPN 网关
 services: vpn-gateway
-documentationcenter: na
 author: WenJason
-manager: digimobile
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 04/04/2018
-ms.date: 10/01/2018
+origin.date: 10/04/2018
+ms.date: 12/10/2018
 ms.author: v-jay
-ms.openlocfilehash: 8a0cffb5821cd3249aa27947d432bf31ca61dfe5
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 13f04e7a441b4e161705d6328a7ff6bbd23fa837
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660784"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028221"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>使用 CLI 创建基于路由的 VPN 网关
 
@@ -29,7 +21,7 @@ ms.locfileid: "52660784"
 
 本文中的步骤将创建 VNet、子网、网关子网和基于路由的 VPN 网关（虚拟网络网关）。 创建虚拟网络网关可能需要 45 分钟或更长时间。 完成网关创建后，可以创建连接。 执行这些步骤需要 Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
-如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0.4 或更高版本。 要查找已安装的版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。
+本文要求运行 Azure CLI 2.0.4 或更高版本。 要查找已安装的版本，请运行 `az --version`。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 

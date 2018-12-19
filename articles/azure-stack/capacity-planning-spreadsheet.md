@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/18/2018
-ms.date: 11/12/2018
+origin.date: 10/31/2018
+ms.date: 12/17/2018
 ms.author: v-jay
 ms.reviewer: prchint
-ms.openlocfilehash: 8704b996d6e198862f709b833460fb4aee9756a1
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: cf123ba2663a439782f5eaef4ad44df706a5ba5e
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666952"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396151"
 ---
 # <a name="azure-stack-capacity-planner"></a>Azure Stack Capacity Planner
 Azure Stack Capacity Planner 是用于 Azure Stack 资源容量规划的电子表格。 使用该容量规划器可以设计计算资源的各种分配，并查看这些分配如何与所选的硬件产品/服务相适应。 下面提供了有关如何使用 Azure Stack 计算器的详细说明。
 
 ## <a name="worksheet-descriptions"></a>工作表说明
-下面是可以从 [http://aka.ms/azstackcapacityplanner](http://aka.ms/azstackcapacityplanner) 下载的 Azure Stack Capacity Planner 电子表格中所含工作表的简短说明：
+下面是可以从 [http://aka.ms/azstackcapacityplanner](https://aka.ms/azstackcapacityplanner) 下载的 Azure Stack Capacity Planner 电子表格中所含工作表的简短说明：
 
 |标签名称|说明|
 |-----|-----|
@@ -45,7 +45,7 @@ Azure Stack Capacity Planner 是用于 Azure Stack 资源容量规划的电子�
 Azure Stack 作为由解决方案合作伙伴安装了软件的集成系统提供。 这些解决方案合作伙伴将拥有自己的 Azure Stack 容量计划工具授权版本，并且这些工具应当用来结束解决方案容量讨论。
 
 ### <a name="multiple-ways-to-model-computing-resources"></a>用于对计算资源建模的多种方式
-Azure Stack 规划器内用于资源建模的基本构建基块是各种大小的 Azure Stack 虚拟机 (VM)。 这些 VM 的大小在最小的“基本 0”的大小到当前最大 VM“Standard_F16”的大小之间。 根据你的需求，可以采用两种不同方式，通过此工具来使用各种数量的不同 VM 创建计算资源分配。
+Azure Stack 规划器内用于资源建模的基本构建基块是各种大小的 Azure Stack 虚拟机 (VM)。 这些 VM 大小的范围从最小的“基本 0”到当前最大的 VM“Standard_Fsv2”。 根据你的需求，可以采用两种不同方式，通过此工具来使用各种数量的不同 VM 创建计算资源分配。
 
 1. 规划器用户选择特定的硬件产品/服务，然后查看各种资源的哪些组合适合此硬件资源。 
 
@@ -57,7 +57,7 @@ Azure Stack 规划器内用于资源建模的基本构建基块是各种大小�
 ## <a name="definebyvmfootprint-instructions"></a>DefineByVMFootprint 说明
 若要使用各种大小和数量的 VM 的单个集合创建模型，请选择“DefineByVMFootprint”标签并执行这一序列的步骤。
 
-1. 在此工作表的右上角，使用提供的下拉列表框控件选择想要安装在每个硬件系统 (SKU) 中的服务器的初始数量（在 4 到 12 之间）。 在建模过程可以随时修改此服务器数量，以便查看此值如何影响资源分配模型的整体可用资源。
+1. 在此工作表的右上角，使用提供的下拉列表框控件选择想要安装在每个硬件系统 (SKU) 中的服务器的初始数量（在 4 到 16 之间）。 在建模过程可以随时修改此服务器数量，以便查看此值如何影响资源分配模型的整体可用资源。
 2. 如果要针对一个特定的硬件配置为各种 VM 资源分配建模，请在页面的右上角找到“当前 SKU”标签正下方的蓝色下拉列表框。 下拉此列表框，然后选择所需的硬件 SKU。
 3. 现在就可以开始将各种大小的 VM 添加到模型了。 若要包含特定 VM 类型，请将数量值输入到该 VM 条目左侧的蓝色空心框中。
 
@@ -74,7 +74,7 @@ Azure Stack 规划器内用于资源建模的基本构建基块是各种大小�
 > [!TIP]
 > 若要为 Azure Stack VM 更改提供的存储大小，请参阅上一部分的步骤 3 中的说明。
 
-1. 在此页面的右上角，使用提供的下拉列表框控件选择想要安装在每个硬件系统 (SKU) 中的服务器的初始数量（在 4 到 12 之间）。
+1. 在此页面的右上角，使用提供的下拉列表框控件选择想要安装在每个硬件系统 (SKU) 中的服务器的初始数量（在 4 到 16 之间）。
 2. 如果要针对一个特定的硬件配置为各种 VM 资源分配建模，请在页面的右上角找到“当前 SKU”标签正下方的蓝色下拉列表框。 下拉此列表框，然后选择所需的硬件 SKU。
 3. 在 DefineByVMFootprint 页上为每个所需的 Azure Stack VM 选择适当的大小，如上面 DefineByVMFootprint 说明的步骤 3 所述。 每个 VM 的存储大小在 DefineByVMFootprint 工作表中定义。
 4. 从 DefineByWorkloadFootprint 页的左上角开始，通过输入每一工作负荷中包含的每个 VM 类型的数量，为最多六个不同工作负荷类型创建配置。 这通过将数值放入该工作负荷的名称正下方的列中完成。 可以修改工作负荷名称以反映此特定配置将支持的工作负荷类型。

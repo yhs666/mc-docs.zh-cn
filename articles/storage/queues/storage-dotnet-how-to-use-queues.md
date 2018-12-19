@@ -1,21 +1,21 @@
 ---
-title: 通过 .NET 开始使用 Azure 队列存储 | Azure
+title: 通过 .NET 开始使用 Azure 队列存储 | Microsoft Docs
 description: Azure 队列用于在应用程序组件之间进行可靠的异步消息传送。 应用程序组件可以利用云消息传送进行独立缩放。
 services: storage
-author: forester123
-manager: josefree
+author: WenJason
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: hero-article
 origin.date: 06/13/2018
-ms.date: 07/02/2018
-ms.author: v-johch
-ms.openlocfilehash: fb204867fd0a85f325cf6ffec0b9e257f16ff3a9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/10/2018
+ms.author: v-jay
+ms.component: queues
+ms.openlocfilehash: 07b83107263ae6d699ad65825d4be4a2bc905154
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651955"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028622"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>通过 .NET 开始使用 Azure 队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -278,8 +278,8 @@ queue.Delete();
 现在，了解了有关队列存储的基础知识，可单击下面的链接来了解更复杂的存储任务。
 
 * 查看队列服务参考文档，了解有关可用 API 的完整详细信息：
-  * [.NET 存储客户端库参考](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-  * [REST API 参考](http://msdn.microsoft.com/library/azure/dd179355)
+  * [.NET 存储客户端库参考](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+  * [REST API 参考](https://msdn.microsoft.com/library/azure/dd179355)
 * 了解如何通过使用 [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) 简化为使用 Azure 存储而写的代码。
 * 查看更多功能指南，以了解在 Azure 中存储数据的其他方式。
   * [通过 .NET 开始使用 Azure 表存储](../../cosmos-db/table-storage-how-to-use-dotnet.md) 来存储结构化数据。

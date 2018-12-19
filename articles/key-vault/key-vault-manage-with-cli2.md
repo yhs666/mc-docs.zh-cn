@@ -15,12 +15,12 @@ ms.topic: conceptual
 origin.date: 06/22/2018
 ms.date: 11/05/2018
 ms.author: v-biyu
-ms.openlocfilehash: d8d99ab16f2f6bd77ae23c3e73517d38df18afdb
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 66b940e01c1d0b541f8781db95c68c36ce320bfd
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645522"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028975"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>使用 Azure CLI 管理密钥保管库 
 
@@ -132,7 +132,7 @@ az keyvault create --name 'ContosoKeyVault' --resource-group 'ContosoResourceGro
 此命令的输出会显示创建的 Key Vault 的属性。 两个最重要的属性是：
 
 - **name**：在本示例中，名称为 ContosoKeyVault。 将在其他 Key Vault 命令中使用此名称。
-- **vaultUri**：在本示例中， URI 为 https://contosokeyvault.vault.azure.cn。 通过其 REST API 使用保管库的应用程序必须使用此 URI。
+- **vaultUri**：在本示例中，URI 为 https://contosokeyvault.vault.azure.cn。 通过其 REST API 使用保管库的应用程序必须使用此 URI。
 
 Azure 帐户现已获取在此密钥保管库上执行任何作业的授权。 到目前为止，尚未授权其他任何人。
 
@@ -197,7 +197,7 @@ az keyvault certificate list --vault-name 'ContosoKeyVault'
 
 应用程序必须向 Azure Active Directory 提供这两个值才能获取令牌。 如何将应用程序配置为获取令牌取决于应用程序。 对于 [Key Vault 示例应用程序](https://www.microsoft.com/download/details.aspx?id=45343)，应用程序所有者会在 app.config 文件中设置这些值。
 
-有关将应用程序注册到 Azure Active Directory 的详细步骤，请参阅文章[将应用程序与 Azure Active Directory 集成](../active-directory/develop/active-directory-integrating-applications.md)、[使用门户创建可访问资源的 Azure Active Directory 应用程序和服务主体](../azure-resource-manager/resource-group-create-service-principal-portal.md)以及[使用 Azure CLI 2.0 创建 Azure 服务主体](/cli/create-an-azure-service-principal-azure-cli)。
+有关将应用程序注册到 Azure Active Directory 的详细步骤，请参阅文章[将应用程序与 Azure Active Directory 集成](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)、[使用门户创建可访问资源的 Azure Active Directory 应用程序和服务主体](../azure-resource-manager/resource-group-create-service-principal-portal.md)以及[使用 Azure CLI 2.0 创建 Azure 服务主体](/cli/create-an-azure-service-principal-azure-cli)。
 
 在 Azure Active Directory 中注册应用程序：
 
@@ -231,13 +231,13 @@ az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec
  az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-deployment 'true'
  ``` 
 
-为磁盘加密启用 Key Vault：为 Azure 磁盘加密使用保管库时需要执行此操作。
+为磁盘加密启用 Key Vault：将保管库用于 Azure 磁盘加密时必需。
 
  ```azurecli
  az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-disk-encryption 'true'
  ```  
 
-为模板部署启用 Key Vault：允许资源管理器从保管库中检索机密。
+为模板部署启用 Key Vault：允许资源管理器从保管库检索机密。
  ```azurecli 
  az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-template-deployment 'true'
  ```

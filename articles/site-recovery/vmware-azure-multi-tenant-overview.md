@@ -1,25 +1,23 @@
 ---
-title: 使用 Azure Site Recovery 将 VMware VM 复制到 Azure (CSP) 的多租户支持概述 | Azure
-description: 介绍通过 CSP 计划，在多租户环境中为租户订阅提供 Azure Site Recovery 支持的概述。
-services: site-recovery
+title: 使用 Azure Site Recovery 将 VMware VM 灾难恢复到 Azure (CSP) 的多租户支持概述 | Azure
+description: 概述了在多租户环境 (CSP) 程序对从 VMWare 灾难恢复到 Azure 的 Azure Site Recovery 支持。
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.topic: conceptual
+origin.date: 10/16/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: c360cc60d5a213345918a45b9bc0a4393b8a9931
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: fb584591b7357ff1c8e135628a70a0ee09bb9afb
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653972"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028835"
 ---
-# <a name="overview-of-multi-tenant-support-for-vmware-replication-to-azure-with-csp"></a>使用 CSP 将 VMware 复制到 Azure 的多租户支持的概述
+# <a name="overview-of-multi-tenant-support-for-vmware-fisaster-recovery-to-azure-with-csp"></a>使用 CSP 从 VMware 灾难恢复到 Azure 的多租户支持概述
 
-[Azure Site Recovery](site-recovery-overview.md) 支持适用于租户订阅的多租户环境。 它还支持适用于租户订阅的多租户，这些租户订阅通过 Microsoft 云解决方案提供商 (CSP) 计划创建和管理。
+[Azure Site Recovery](site-recovery-overview.md) 支持适用于租户订阅的多租户环境。 它还支持适用于租户订阅的多租户，这些租户订阅通过 Azure 云解决方案提供商 (CSP) 计划创建和管理。
 
 本文提供了实现和管理多租户 VMware 到 Azure 复制的概述。
 
@@ -29,9 +27,9 @@ ms.locfileid: "52653972"
 
 * **共享托管服务提供程序 (HSP)**：合作伙伴拥有物理基础结构，并使用共享资源（vCenter、数据中心、物理存储等）在同一基础结构上托管多个租户的 VM。 合作伙伴可以提供灾难恢复管理作为托管服务，租户也可以拥有灾难恢复作为自助解决方案。
 
-* **专用托管服务提供程序**：合作伙伴拥有物理基础结构，但使用专用资源（多个 vCenter、物理数据存储等）在单独的基础结构上托管每个租户的 VM。 合作伙伴可以提供灾难恢复管理作为托管服务，租户也可以拥有它作为自助解决方案。
+* **专业托管服务提供商**：合作伙伴拥有物理基础结构，但使用专用资源（多个 vCenter、物理数据存储等）在单独的基础结构上托管每个租户的 VM。 合作伙伴可以提供灾难恢复管理作为托管服务，租户也可以拥有它作为自助解决方案。
 
-* **托管服务提供程序 (MSP)**：客户拥有托管 VM 的物理基础结构，合作伙伴提供灾难恢复启用和管理功能。
+* **托管服务提供商 (MSP)**：客户拥有托管 VM 的物理基础结构，合作伙伴提供灾难恢复启用和管理功能。
 
 ## <a name="shared-hosting-services-provider-hsp"></a>共享托管服务提供程序 (HSP)
 
@@ -78,11 +76,11 @@ ms.locfileid: "52653972"
 1. 通过克隆预定义的“只读”角色创建新角色，然后为其提供一个方便的名称（例如此示例中显示的 Azure_Site_Recovery）。
 2. 将以下权限分配给该角色：
 
-    * **数据存储**：分配空间、浏览数据存储、低级别文件操作、删除文件、更新虚拟机文件
+    * **数据存储**：分配空间、浏览数据存储、降低文件操作级别、删除文件、更新虚拟机文件
     * **网络**：网络分配
-    * **资源**：将 VM 分配到资源池、迁移已关机的 VM、迁移已开机的 VM
+    * **资源**：将 VM 分配到资源池、迁移关闭的 VM、迁移打开的 VM
     * **任务**：创建任务、更新任务
-    * **VM - 配置**：全部
+    * **VM - 配置**All
     - **VM - 交互**>回答问题、设备连接、配置 CD 介质、配置软盘介质、关机、开机、VMware 工具安装
     - **VM - 清单**> 从现有项创建、新建、注册、注销
     - **VM - 预配**>允许虚拟机下载、允许虚拟机文件上传
@@ -112,7 +110,7 @@ vCenter 帐户访问现已完成。 此步骤可满足完成故障回复操作�
 
 ### <a name="deploy-resources-to-the-tenant-subscription"></a>将资源部署到租户订阅
 
-1. 在 Azure 门户中，按照常规过程创建资源组，部署恢复服务保管库。
+1. 在 Azure 门户中，按照常规过程创建资源组，然后部署恢复服务保管库。
 2. 下载保管库注册密钥。
 3. 使用保管库注册密钥为租户注册 CS。
 4. 为两个访问帐户输入凭据，一个是用于访问 vCenter 服务器的帐户，另一个是用于访问 VM 的帐户。
@@ -130,7 +128,7 @@ vCenter 帐户访问现已完成。 此步骤可满足完成故障回复操作�
 如下图所示，专用托管解决方案中的体系结构差异在于，每个租户的基础结构是专为该租户设置的。
 
 ![architecture-shared-hsp](./media/vmware-azure-multi-tenant-overview/dedicated-hosting-scenario.png)  
-**包含多个 vCenter 的专用托管方案**
+**多个 vCenter 的专用托管方案**
 
 ## <a name="managed-service-solution"></a>托管服务解决方案
 
@@ -142,6 +140,7 @@ vCenter 帐户访问现已完成。 此步骤可满足完成故障回复操作�
 ## <a name="next-steps"></a>后续步骤
 - [详细了解](site-recovery-role-based-linked-access-control.md) Site Recovery 中基于角色的访问控制。
 - 了解如何[设置 VMware VM 到 Azure 的灾难恢复](vmware-azure-tutorial.md)。
-- 了解有关[使用 CSP 且适用于 VMWare VM 的多租户](vmware-azure-multi-tenant-csp-disaster-recovery.md)的详细信息。
+
+<!-- Not Available on [multi-tenancy with CSP for VMWare VMs](vmware-azure-multi-tenant-csp-disaster-recovery.md)-->
 
 <!-- Update_Description: update meta properties -->

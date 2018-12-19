@@ -13,21 +13,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 09/24/2018
-ms.date: 11/06/2018
+ms.date: 11/30/2018
 ms.author: v-junlch
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 85860b1d3795010b48fad134c96c74193e3fa9fa
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 769eda773d7111d97dd711ecc257b883c603d4f4
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650553"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028839"
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory 图形 API
 
 > [!IMPORTANT]
-> 强烈建议使用 [Microsoft Graph](https://graph.microsoft.io/)（而非 Azure AD 图形 API）访问 Azure Active Directory 资源。 目前，我们在集中开发 Microsoft Graph，未计划进一步改进 Azure AD Graph API。 Azure AD 图形 API 仍可能适用的方案非常有限；有关详细信息，请参阅 Office 开发人员中心的 [Microsoft Graph or the Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph)（Microsoft Graph 或 Azure AD Graph）博客文章。
+> 强烈建议使用 [Microsoft Graph](https://developer.microsoft.com/graph/)（而非 Azure AD 图形 API）访问 Azure Active Directory 资源。 目前，我们在集中开发 Microsoft Graph，未计划进一步改进 Azure AD Graph API。 Azure AD 图形 API 仍可能适用的方案非常有限；有关详细信息，请参阅 Office 开发人员中心的 [Microsoft Graph or the Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph)（Microsoft Graph 或 Azure AD Graph）博客文章。
 
 本文适用于 Azure AD 图形 API。 有关与 Microsoft Graph API 相关的类似信息，请参阅[使用 Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/concepts/use_the_api)。 
 
@@ -48,7 +48,7 @@ Azure Active Directory 图形 API 通过 REST API 终结点提供对 Azure AD �
 Azure AD 图形 API 提供以下功能：
 
 - **REST API 终结点**：Azure AD 图形 API 是一个 RESTful 服务，该服务由使用标准 HTTP 请求访问的终结点组成。 Azure AD 图形 API 支持对请求和响应使用 XML 或 Javascript 对象表示法 (JSON) 内容类型。 有关详细信息，请参阅 [Azure AD Graph REST API 参考](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)。
-- **向 Azure AD 进行身份验证**：必须在请求的 Authorization 标头中追加 JSON Web 令牌 (JWT)，以便对向 Azure AD 图形 API 发出的每个请求进行身份验证。 可通过向 Azure AD 的令牌终结点发出请求并提供有效的凭据来获取此令牌。 可以使用 OAuth 2.0 客户端凭据流或授权代码授予流来获取调用 Graph 所需的令牌。 有关详细信息，请参阅 [Azure AD 中的 OAuth 2.0](/active-directory/develop/active-directory-protocols-oauth-code)。
+- **使用 Azure AD 进行身份验证**：必须在请求的 Authorization 标头中追加 JSON Web 令牌 (JWT)，以便对向 Azure AD 图形 API 发出的每个请求进行身份验证。 可通过向 Azure AD 的令牌终结点发出请求并提供有效的凭据来获取此令牌。 可以使用 OAuth 2.0 客户端凭据流或授权代码授予流来获取调用 Graph 所需的令牌。 有关详细信息，请参阅 [Azure AD 中的 OAuth 2.0](/active-directory/develop/active-directory-protocols-oauth-code)。
 - **基于角色的授权 (RBAC)**：安全组用于在 Azure AD 图形 API 中执行 RBAC。 例如，如果要确定用户是否有权访问特定资源，应用程序可以调用[检查组成员身份(可传递)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/functions-and-actions#checkMemberGroups)操作，该操作将返回 true 或 false。
 - **差异查询**：如果要查看两个时间段之间对目录所做的更改，而不对 Azure AD 图形 API 进行频繁的查询，可以发出差异查询请求。 这种类型的请求将只返回在上一个差异查询请求与当前请求之间所做的更改。 有关详细信息，请参阅 [Azure AD 图形 API 差异查询](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query)。
 - **目录扩展**：可将自定义属性添加到目录对象，而无需外部数据存储。 例如，如果应用程序需要每个用户的 Skype ID 属性，则可以在目录中注册新属性，即可在每个用户对象上获取该属性。 有关详细信息，请参阅 [Azure AD 图形 API 目录架构扩展](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions)。
@@ -73,4 +73,4 @@ Azure AD 图形 API 可实现许多应用程序方案。 以下方案最常见�
 - [Azure AD 图形 API 快速入门指南](active-directory-graph-api-quickstart.md)
 - [Azure AD Graph REST 文档](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

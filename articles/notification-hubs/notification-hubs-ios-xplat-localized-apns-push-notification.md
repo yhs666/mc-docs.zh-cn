@@ -13,14 +13,14 @@ ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 origin.date: 04/14/2018
-ms.date: 09/26/2018
-ms.author: v-junlch
-ms.openlocfilehash: ece55824945bb50722b5f38372bd0effd4313ae2
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/17/2018
+ms.author: v-biyu
+ms.openlocfilehash: 4e8a408195b403aa4d811d87bfd7210f0c827341
+ms.sourcegitcommit: 6e07735318eb5f6ea319b618863259088eab3722
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662159"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52981693"
 ---
 # <a name="tutorial-push-localized-notifications-to-ios-devices-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向 iOS 设备推送本地化通知 
 
@@ -115,7 +115,7 @@ ms.locfileid: "52662159"
     }
     ````
 
-    然后修改 *subscribe* 方法以包括该区域设置：
+    然后修改 subscribe 方法以包括该区域设置：
 
     ```objc
     - (void) subscribeWithLocale: (int) locale categories:(NSSet *)categories completion:(void (^)(NSError *))completion{
@@ -140,7 +140,7 @@ ms.locfileid: "52662159"
     }
     ```
 
-    请使用 *registerTemplateWithDeviceToken* 而非 *registerNativeWithDeviceToken* 方法。 注册一个模板时，必须提供 json 模板并指定其名称（因为应用可能需要注册不同的模板）。 确保将类别作为标记注册，因为需确保接收有关这些新闻的通知。
+    使用 *registerTemplateWithDeviceToken* 方法而非 *registerNativeWithDeviceToken*。 注册模板时，必须提供 json 模板，还要指定其名称（因为应用可能要注册不同的模板）。 确保将类别作为标记注册，因为要确保接收有关这些新闻的通知。
 
     添加一个方法以从用户默认设置中检索区域设置：
 
@@ -280,6 +280,7 @@ ms.locfileid: "52662159"
 <!-- URLs. -->
 [How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
 [使用通知中心发送突发新闻]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
+[Notify users with Notification Hubs: ASP.NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 

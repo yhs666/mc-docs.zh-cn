@@ -1,5 +1,5 @@
 ---
-title: 如何为 ExpressRoute 线路配置路由（对等互连）：Azure：经典
+title: 如何配置 ExpressRoute 线路的路由（对等互连）：Azure：经典
 description: 本文指导完成创建和预配 ExpressRoute 线路的专用、公共和 Microsoft 对等互连的步骤。 本文还介绍了如何检查状态，以及如何更新或删除线路的对等互连。
 services: expressroute
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 07/27/2018
 ms.author: v-yiso
 ms.date: 09/17/2018
-ms.openlocfilehash: d5321d24b353855111f86a18ff61cdd8af6383bd
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 0b11c6ce16ed5537cd18571e1c7eac9912d6ecbf
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645263"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029062"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>创建和修改 ExpressRoute 线路的对等互连（经典）
 > [!div class="op_single_selector"]
@@ -189,7 +189,7 @@ Remove-AzureBGPPeering -AccessType Private -ServiceKey "************************
 
 1. **创建 ExpressRoute 线路**
 
-  请按说明创建 [ExpressRoute 线路](epressroute-howto-circuit-classic.md) ，并由连接服务提供商进行预配。 如果连接服务提供商提供第 3 层托管服务，可以请求连接服务提供商启用 Azure 公共对等互连。 在这种情况下，不需要遵循后续部分中所列的说明。 但是，如果连接服务提供商不管理路由，请在创建线路后遵循以下说明。
+  请按说明创建 [ExpressRoute 线路](expressroute-howto-circuit-arm.md) ，并由连接服务提供商进行预配。 如果连接服务提供商提供第 3 层托管服务，可以请求连接服务提供商启用 Azure 公共对等互连。 在这种情况下，不需要遵循后续部分中所列的说明。 但是，如果连接服务提供商不管理路由，请在创建线路后遵循以下说明。
   
 2. **检查 ExpressRoute 线路以确认它已预配**
 

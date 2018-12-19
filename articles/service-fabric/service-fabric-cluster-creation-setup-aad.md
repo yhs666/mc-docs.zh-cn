@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/15/2018
-ms.date: 09/10/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 13b4eb27cdcac12453db98f7f66a1491dd89f05b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 10185f393d00135578f269b4e3908c01b68ca792
+ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666947"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52901133"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>为客户端身份验证设置 Azure Active Directory
 
@@ -40,10 +40,10 @@ Service Fabric 群集提供其管理功能的各种入口点，包括基于 Web 
 4. 运行 `SetupApplications.ps1` 并提供 TenantId、ClusterName 和 WebApplicationReplyUrl 作为参数。 例如：
 
 ```PowerShell
-.\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.chinanorth.cloudapp.chinacloudapi.cn:19080/Explorer/index.html' -location china
+.\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.chinanorth.cloudapp.chinacloudapi.cn:19080/Explorer/index.html' -location china -AddResourceAccess
 ```
-<!-- Add location parameter in cmdlet-->
 
+<!-- Add location parameter in cmdlet-->
 > [!NOTE]
 > 对于 Azure 中国云，还应指定 `-Location` 参数。
 
@@ -110,16 +110,16 @@ Azure AD 的设置和使用可能有一定难度，可以参考下面的一些�
 #### <a name="solution"></a>解决方案
 遵循有关设置 Azure AD 的说明操作，并为用户分配角色。 此外，我们建议打开“访问应用需要的用户分配”，如 `SetupApplications.ps1` 所示。
 
-### <a name="connection-with-powershell-fails-with-an-error-the-specified-credentials-are-invalid"></a>使用 PowerShell 连接失败并出现错误：“指定的凭据无效”
+### <a name="connection-with-powershell-fails-with-an-error-the-specified-credentials-are-invalid"></a>使用 PowerShell 进行连接失败并出现错误：“指定的凭据无效”
 #### <a name="problem"></a>问题
-使用 PowerShell 以“AzureActiveDirectory”安全模式连接到群集时，成功登录到 Azure AD 后，连接失败并显示错误：“指定的凭据无效”。
+使用 PowerShell 以“AzureActiveDirectory”安全模式连接到群集时，成功登录到 Azure AD 后，连接失败并显示错误：“指定的凭据无效。”
 
 #### <a name="solution"></a>解决方案
 解决方案同上。
 
 ### <a name="service-fabric-explorer-returns-a-failure-when-you-sign-in-aadsts50011"></a>登录时，Service Fabric Explorer 返回失败信息：“AADSTS50011”
 #### <a name="problem"></a>问题
-用户尝试登录到 Service Fabric Explorer 中的 Azure AD 时，页面返回故障：“AADSTS50011：回复地址 &lt;url&gt; 与针对应用程序 &lt;guid&gt; 配置的回复地址不匹配”。
+尝试登录到 Service Fabric Explorer 中的 Azure AD 时，页面将返回失败信息：“AADSTS50011：回复地址 &lt;url&gt; 与为应用程序 &lt;guid&gt; 配置的回复地址不匹配。”
 
 ![SFX 回复地址不匹配][sfx-reply-address-not-match]
 
@@ -169,5 +169,5 @@ FabricClient 和 FabricGateway 执行相互身份验证。 使用 Azure AD 身�
 [sfx-reply-address-not-match]: ./media/service-fabric-cluster-creation-setup-aad/sfx-reply-address-not-match.png
 [web-application-reply-url]: ./media/service-fabric-cluster-creation-setup-aad/web-application-reply-url.png
 
-<!-- Update_Description: new articles on service fabric cluster creation setup aad -->
+<!-- Update_Description: wording update, update meta properties -->
 <!--ms.date: 09/10/2018-->

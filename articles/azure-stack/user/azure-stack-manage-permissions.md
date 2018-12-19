@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/15/2018
-ms.date: 10/15/2018
+origin.date: 11/19/2018
+ms.date: 12/17/2018
 ms.author: v-jay
 ms.reviewer: ''
-ms.openlocfilehash: 5283225088c8ac29042c69c52d9dfd2a886baafc
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1b1a51182577ef9b7421bc4e4549846ad1485cd4
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646626"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396117"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>使用 Azure Stack 基于角色的访问控制管理对资源的访问权限
 
@@ -105,5 +105,3 @@ Azure [角色分配](/role-based-access-control/role-assignments-portal)一文�
 ## <a name="next-steps"></a>后续步骤
 
 [创建服务主体](azure-stack-create-service-principals.md)
-
-<!-- Update_Description: wording update -->

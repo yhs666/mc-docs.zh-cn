@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 10/15/2018
 ms.date: 11/26/2018
-ms.openlocfilehash: 2a5458fb892d57b8f3cf6ccc8db9fd0d3c196503
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 09318171a9d8dc0c46029908a4ceb63891ea45c2
+ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674889"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53219567"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure 流分析作业的兼容性级别
 
@@ -68,9 +68,7 @@ ms.locfileid: "52674889"
   * **当前版本：** 不再将包含日期/时间/时区信息的字符串值自动向上转换为日期/时间类型。 因此会保留时区信息。 
 
 ## <a name="next-steps"></a>后续步骤
-* [Azure 流分析输入的故障排除](stream-analytics-troubleshoot-input.md)
-* [流分析“资源运行状况”边栏选项卡](stream-analytics-resource-health.md)
-
+* [对 Azure 流分析输入进行故障排除](stream-analytics-troubleshoot-input.md)
 <!-- Update_Description: update meta properties -->
 
 <!--ms.date: 06/18/2018-->

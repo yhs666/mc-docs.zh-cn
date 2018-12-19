@@ -9,6 +9,8 @@ items:
     items:
     - name: 最新更新
       href: azure-stack-servicing-policy.md#update-package-release-cadence
+    - name: 1809 更新
+      href: azure-stack-update-1809.md
     - name: 1808 更新
       href: azure-stack-update-1808.md
     - name: 1807 更新
@@ -28,8 +30,6 @@ items:
     href: azure-stack-tutorial-sql-server.md
   - name: 提供 Web 应用
     href: azure-stack-tutorial-app-service.md
-  - name: 部署 Ethereum
-    href: azure-stack-ethereum.md
 - name: 概念
   items:
   - name: 容量规划
@@ -72,6 +72,10 @@ items:
         href: azure-stack-integrate-identity.md
       - name: 验证 Azure 标识
         href: azure-stack-validate-identity.md
+      - name: 验证 ADFS 集成
+        href: azure-stack-validate-adfs.md
+      - name: 验证图形集成
+        href: azure-stack-validate-graph.md
     - name: Azure Stack 部署 PKI 要求
       href: azure-stack-pki-certs.md
       items:
@@ -120,8 +124,6 @@ items:
       href: azure-stack-region-management.md
     - name: 使用管理员门户
       href: azure-stack-manage-portals.md
-    - name: 连接到 Azure Stack
-      href: azure-stack-connect-azure-stack.md
     - name: 连接到 Azure
       items:
       - name: 使用 VPN 进行连接
@@ -224,6 +226,8 @@ items:
       href: azure-stack-add-vm-image.md
     - name: 提供虚拟机规模集
       href: azure-stack-compute-add-scalesets.md
+    - name: 市场中的 Windows Server 常见问题解答
+      href: azure-stack-windows-server-faq.md
     - name: 提供 Linux 虚拟机
       href: azure-stack-linux.md
     - name: 添加 Red Hat 虚拟机
@@ -247,6 +251,10 @@ items:
       href: azure-stack-sql-resource-provider-maintain.md
     - name: 删除 SQL Server 资源提供程序
       href: azure-stack-sql-resource-provider-remove.md
+    - name: SQL 资源提供程序发行说明
+      items:
+      - name: SQL 资源提供程序 1.1.30.0 发行说明
+        href: azure-stack-sql-resource-provider-11300.md
   - name: 提供 MySQL 作为 PaaS
     href: azure-stack-mysql-resource-provider.md
     items:
@@ -262,6 +270,10 @@ items:
       href: azure-stack-mysql-resource-provider-maintain.md
     - name: 删除 MySQL Server 资源提供程序
       href: azure-stack-mysql-resource-provider-remove.md
+    - name: MySQL 资源提供程序发行说明
+      items:
+      - name: MySQL 资源提供程序 1.1.30.0 发行说明
+        href: azure-stack-mysql-resource-provider-11300.md
   - name: 提供应用服务作为 PaaS
     href: azure-stack-app-service-overview.md
     items:
@@ -291,6 +303,8 @@ items:
         href: azure-stack-app-service-release-notes-update-two.md
       - name: 基于 Azure Stack 的应用服务 Update 3 发行说明
         href: azure-stack-app-service-release-notes-update-three.md
+      - name: 基于 Azure Stack 的应用服务 Update 4 发行说明
+        href: azure-stack-app-service-release-notes-update-four.md
   - name: 创建计划、套餐和配额
     items:
     - name: 计划、套餐、配额和订阅概述
@@ -357,7 +371,7 @@ items:
 - name: 参考
   items:
   - name: Azure Stack PowerShell
-    href: https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
+    href: https://docs.microsoft.com/powershell/azure/azure-stack/overview
 - name: 相关内容
   items:
   - name: Azure Stack 用户文档
@@ -376,9 +390,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: 培训和认证
     href: /azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 450b96da38b0b43dc5944d188df7d38df82c3764
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 27d1dce53e3d0066071d5bdfe21e0061ca9b17bc
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660106"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396124"

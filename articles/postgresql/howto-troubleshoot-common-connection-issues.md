@@ -11,12 +11,12 @@ ms.service: postgresql
 ms.topic: article
 origin.date: 11/09/2018
 ms.date: 12/03/2018
-ms.openlocfilehash: 46bc60f9e0b66cfa2375095a790f5e2b547773dd
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 5cd7becbc494a37e77381efa881d10cadbec58d6
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676833"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396239"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql"></a>排查 Azure Databases for PostgreSQL 的连接问题
 
@@ -51,7 +51,7 @@ ms.locfileid: "52676833"
 如果应用程序一直无法连接到 Azure Database for PostgreSQL，通常表示下列其中一项出现了问题：
 
 * 防火墙配置：Azure Database for PostgreSQL 服务器或客户端防火墙正在阻止连接。
-* 在客户端重新配置了网络：例如，添加了新的 IP 地址或代理服务器。
+* 客户端上的网络重新配置：添加了新的 IP 地址或代理服务器。
 * 用户失误：例如，连接参数的键入错误（例如，在连接字符串中键入了服务器名称，或者在用户名中遗漏了 *@servername* 后缀）。
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>解决永久性连接问题的步骤

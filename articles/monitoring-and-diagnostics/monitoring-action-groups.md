@@ -9,12 +9,12 @@ origin.date: 09/12/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
 ms.component: alerts
-ms.openlocfilehash: 02b09bde1bb7f4976dc261a8f579279a5069643c
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 55f608b89da24dcfda90b6a920c81f635b8199c7
+ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675348"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53219530"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>在 Azure 门户中创建和管理器操作组
 ## <a name="overview"></a>概述
@@ -24,7 +24,7 @@ ms.locfileid: "52675348"
 
 每个操作包含以下属性：
 
-* 名称：操作组中的唯一标识符。  
+* **名称**：操作组中的唯一标识符。  
 * **操作类型**：要执行的操作。 示例包括发送语音呼叫、短信、电子邮件，或者触发各种类型的自动化操作。 请参阅本文下文中的“类型”。 
 * **详细信息**：因“操作类型”而异的相应详细信息。 
 
@@ -51,7 +51,7 @@ ms.locfileid: "52675348"
 
 1. 通过为每个操作提供以下项来定义操作列表：
 
-    a. 名称：输入此操作的唯一标识符。
+    a. **名称**：输入此操作的唯一标识符。
 
     b. **操作类型**：选择“电子邮件/短信”、“Webhook”或“自动化 Runbook”。
 
@@ -75,7 +75,7 @@ ms.locfileid: "52675348"
 
 一个操作组中最多可以有 1000 个电子邮件操作。 请参阅[速率限制信息](./monitoring-alerts-rate-limiting.md)一文
 
-**ITSM** - 在需要 ITSM 连接的操作组 ITSM 操作中最多可以有 10 个 ITSM 连接。 了解如何创建 [ITSM 连接](../log-analytics/log-analytics-itsmc-overview.md)。
+**ITSM** - 在需要 ITSM 连接的操作组 ITSM 操作中最多可以有 10 个 ITSM 连接。 了解如何创建 [ITSM 连接](https://docs.microsoft.com/zh-cn/azure/azure-monitor/platform/itsmc-overview)。
 
 **逻辑应用** - 一个操作组中最多可以有 10 个逻辑应用操作。
 
@@ -86,7 +86,7 @@ ms.locfileid: "52675348"
 **语音** - 一个操作组中最多可以有 10 个语音操作</dd>
 请参阅[速率限制信息](./monitoring-alerts-rate-limiting.md)一文</dd>
 
-**Webhook** - 一个操作组中最多可以有 10 个 Webhook 操作。 重试逻辑 - 响应的超时期限为 10 秒。 返回的 HTTP 状态代码为 408、429、503、504 时，或者 HTTP 终结点没有响应时，最多可以重试 2 次 Webhook 调用。 首次重试在 10 秒后发生。 第二次（也是最后一次）重试在 100 秒后发生。
+**Webhook** - 一个操作组中最多可以有 10 个 Webhook 操作。 重试逻辑 - 响应的超时期限为 10 秒。 当返回的 HTTP 状态代码为 408、429、503、504 或者 HTTP 终结点未响应时，最多将重试 2 次 Webhook 调用。 首次重试在 10 秒后发生。 第二次（也是最后一次）重试在 100 秒后发生。
 
 源 IP 地址范围
     - 13.106.57.181

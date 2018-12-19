@@ -16,12 +16,12 @@ origin.date: 09/01/2018
 ms.date: 10/15/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 4741d4972d6a31065abee66079e326cccddd39a5
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: fdec42ee5735ba0ea7d6be831539024a2e8363ff
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651987"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028672"
 ---
 # <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>教程：在 Service Fabric 上创建包含 Java Web API 前端服务和有状态后端服务的应用程序
 
@@ -42,9 +42,9 @@ ms.locfileid: "52651987"
 > * 生成 Java Service Fabric Reliable Services 应用程序
 > * [在本地群集上部署和调试应用程序](service-fabric-tutorial-debug-log-local-cluster.md)
 > * [将应用程序部署到 Azure 群集](service-fabric-tutorial-java-deploy-azure.md)
-> * [设置监视和诊断应用程序](service-fabric-tutorial-java-elk.md)
 > * [设置 CI/CD](service-fabric-tutorial-java-jenkins.md)
 
+<!-- Not Available on > * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-java-elk.md)-->
 ## <a name="prerequisites"></a>先决条件
 
 在开始学习本教程之前：
@@ -891,7 +891,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
 
 2. 运行本地 Service Fabric 群集。 此步骤取决于开发环境（Mac 或 Linux）。
 
-    如果运行的是 Mac，则请通过以下命令运行本地群集：将传入到 **-v** 参数中的命令替换为你自己的工作区的路径。
+    如果使用的是 Mac，则使用以下命令运行本地群集：将传入 **-v** 参数的命令替换为自己工作区的路径。
 
     ```bash
     docker run -itd -p 19080:19080 -p 8080:8080 -p --name sfonebox servicefabricoss/service-fabric-onebox

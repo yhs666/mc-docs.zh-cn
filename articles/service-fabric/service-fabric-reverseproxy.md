@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 11/03/2017
-ms.date: 11/12/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1cabf2caa140344e926f329c8ccff6946433813e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c1983a7178da513359a6cdeb661ef911bdafdcb4
+ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660324"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52901134"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric 中的反向代理
 借助 Azure Service Fabric 中内置的反向代理，Service Fabric 群集中运行的微服务可以发现包含 http 终结点的其他服务，并与之通信。
@@ -45,8 +45,8 @@ Service Fabric 中的微服务在群集中的部分节点上运行，可以出�
 > **支持的平台**
 >
 > Service Fabric 中的反向代理目前支持以下平台
-> * Windows 群集：Windows 8 及更高版本，或 Windows Server 2012 及更高版本
-> * Linux 群集：反向代理暂不适用于 Linux 群集
+> * *Windows 群集*：Windows 8 及更高版本，或 Windows Server 2012 及更高版本
+> * *Linux 群集*：反向代理暂不适用于 Linux 群集
 >
 
 ## <a name="reaching-microservices-from-outside-the-cluster"></a>从群集外部访问微服务
@@ -80,14 +80,14 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 * **ServiceInstanceName：** 在不使用“fabric:/”方案的情况下尝试访问的已部署服务实例的完全限定名称。 例如，若要访问 *fabric:/myapp/myservice/* 服务，可以使用 *myapp/myservice*。
 
     服务实例名称要区分大小写。 若 URL 中的服务实例名称大小写不同，则会导致请求失败，并显示 404（未找到）。
-* **Suffix path：** 要连接到的服务的实际 URL 路径，例如 *myapi/values/add/3*。
+* **后缀路径：** 要连接到的服务的实际 URL 路径，例如 *myapi/values/add/3*。
 * **PartitionKey：** 对于分区服务，这是针对要访问的分区计算出的分区键。 请注意，这*不*是分区 ID GUID。 对于使用单独分区方案的服务，此参数不是必需的。
 * **PartitionKind：** 服务分区方案。 该方案可以是“Int64Range”或“Named”。 对于使用单独分区方案的服务，此参数不是必需的。
 * **ListenerName** 服务中的终结点采用以下形式：{"Endpoints":{"Listener1":"Endpoint1","Listener2":"Endpoint2" ...}}。 当服务公开了多个终结点时，此参数标识应将客户端请求转发到的终结点。 如果服务只有一个侦听器，则可以省略此项。
 * **TargetReplicaSelector** 这指定应当如何选择目标副本或实例。
   * 当目标服务为有状态服务时，TargetReplicaSelector 可以是下列其中一项：“PrimaryReplica”、“RandomSecondaryReplica”或“RandomReplica”。 如果未指定此参数，默认值为“PrimaryReplica”。
   * 当目标服务为无状态服务时，反向代理将选择服务分区的一个随机实例来将实例转发到其中。
-* **Timeout：** 此参数指定反向代理针对服务创建的 HTTP 请求（代表客户端请求）的超时。 默认值为 60 秒。 这是一个可选参数。
+* **超时：** 此参数指定反向代理针对服务创建的 HTTP 请求（代表客户端请求）的超时。 默认值为 60 秒。 这是一个可选参数。
 
 ### <a name="example-usage"></a>用法示例
 以 *fabric:/MyApp/MyService* 服务为例，该服务可针对以下 URL 打开一个 HTTP 侦听器：
@@ -171,4 +171,4 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
 [0]: ./media/service-fabric-reverseproxy/external-communication.png
 [1]: ./media/service-fabric-reverseproxy/internal-communication.png
 
-<!-- Update_Description: update meta properties, wording update, updte link  -->
+<!-- Update_Description: update meta properties, wording update  -->

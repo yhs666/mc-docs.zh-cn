@@ -1,5 +1,5 @@
 ---
-title: 如何更新 Azure Stack 套餐和计划 | Azure
+title: 如何更新 Azure Stack 套餐和计划 | Microsoft Docs
 description: 本文介绍如何查看和修改现有的 Azure Stack 套餐和计划。
 services: azure-stack
 documentationcenter: ''
@@ -17,12 +17,12 @@ origin.date: 07/30/2018
 ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: ''
-ms.openlocfilehash: 6bd268087b66477b3dd4bfedc09002079fbec6af
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e9f28a65d7fb60e2680eb96d5d1d19afe9c1e63f
+ms.sourcegitcommit: 6e07735318eb5f6ea319b618863259088eab3722
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653332"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52981702"
 ---
 # <a name="azure-stack-add-on-plans"></a>Azure Stack 附加计划
 
@@ -33,7 +33,7 @@ ms.locfileid: "52653332"
 使用附加计划的另一个原因是帮助用户记住其资源使用情况。 若要执行此操作，可以从一个包括相对较小的配额（取决于所需的服务）的基本计划开始。 然后，当用户达到容量时，将会向用户发送通知，指出他们已消耗完了根据其已分配计划分配的资源。 从那里，用户可以选择一个提供了附加资源的附加计划。
 
 > [!NOTE]
-> 如果不希望使用附加计划来扩配额，则还可以选择[编辑配额的原始配置](azure-stack-quota-types.md#to-edit-a-quota)。 
+> 如果不希望使用附加计划来扩展配额，则还可以选择[编辑配额的原始配置](azure-stack-quota-types.md#to-edit-a-quota)。 
 
 当用户将附加计划添加到现有的套餐订阅时，可能需要长达一小时的时间才会显示附加资源。 
 

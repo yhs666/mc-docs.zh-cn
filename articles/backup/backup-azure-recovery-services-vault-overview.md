@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 08/10/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 0bb84579d326a01b545b63e066e50b9da947f4b7
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 12b66214f6182ad81d971648bda7190fc2854674
+ms.sourcegitcommit: 0544706ab2ff239fb09fbeedc5910644301ad029
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674700"
+ms.lasthandoff: 12/03/2018
+ms.locfileid: "52745213"
 ---
 # <a name="recovery-services-vaults-overview"></a>恢复服务保管库概述
 
@@ -34,7 +34,7 @@ ms.locfileid: "52674700"
 
 - **基于角色的访问控制 (RBAC)**：RBAC 在 Azure 中提供精细的访问管理控制。 [Azure 提供各种内置角色](../role-based-access-control/built-in-roles.md)，而 Azure 备份具有三个[用于管理恢复点的内置角色](backup-rbac-rs-vault.md)。 恢复服务保管库与 RBAC 兼容，后者会限制对已定义用户角色集的备份和还原访问权限。 [了解详细信息](backup-rbac-rs-vault.md)
 
-- **保护 Azure 虚拟机的所有配置**：恢复服务保管库保护基于 Resource Manager 的 VM，其中包括高级磁盘、托管磁盘和加密 VM。 将备份保管库升级到恢复服务保管库以后，即可将基于 Service Manager 的 VM 升级到基于 Resource Manager 的 VM。 在升级保管库的同时，可以保留基于 Service Manager 的 VM 恢复点，并为已升级（已启用 Resource Manager）的 VM 配置保护。 [了解详细信息](http://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
+- **保护 Azure 虚拟机的所有配置**：恢复服务保管库保护基于资源管理器的 VM，其中包括高级磁盘、托管磁盘和加密 VM。 将备份保管库升级到恢复服务保管库以后，即可将基于 Service Manager 的 VM 升级到基于 Resource Manager 的 VM。 在升级保管库的同时，可以保留基于 Service Manager 的 VM 恢复点，并为已升级（已启用 Resource Manager）的 VM 配置保护。 [了解详细信息](http://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
 
 - **适用于 IaaS VM 的即时还原**：使用恢复服务保管库时，可以从 IaaS VM 还原文件和文件夹，不需还原整个 VM，从而缩短还原时间。 适用于 IaaS VM 的即时还原可用于 Windows 和 Linux VM。 [了解详细信息](http://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
 
@@ -58,7 +58,7 @@ ms.locfileid: "52674700"
 
 ### <a name="back-up-data"></a>备份数据
 - [备份 Azure VM](backup-azure-vms-first-look-arm.md)
-- [备份 Windows Server 或 Windows 工作站](backup-try-azure-backup-in-10-mins.md)
+- [备份 Windows Server 或 Windows 工作站](backup-configure-vault.md)
 - [将 DPM 工作负荷备份到 Azure](backup-azure-dpm-introduction.md)
 - [准备使用 Azure 备份服务器来备份工作负荷](backup-azure-microsoft-azure-backup.md)
 

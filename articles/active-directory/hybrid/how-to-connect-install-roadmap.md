@@ -10,15 +10,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 09/18/2018
-ms.date: 11/09/2018
+ms.date: 12/05/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: cacf248cc2f5b4330e61d3adc4110cfc237ba6d0
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: eee13f34fed61fe90e6870b3b27655f4b3cccea7
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647333"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028652"
 ---
 # <a name="azure-ad-connect-installation-roadmap"></a>Azure AD Connect 安装路线图
 
@@ -27,13 +27,13 @@ ms.locfileid: "52647333"
 > [!IMPORTANT]
 > Microsoft 不支持在正式记录的这些操作之外修改或操作 Azure AD Connect 同步。 其中的任何操作都可能会导致 Azure AD Connect 同步出现不一致或不受支持状态。因此，Microsoft 无法提供这种部署的技术支持。
 
-可以在 [Microsoft 下载中心](http://go.microsoft.com/fwlink/?LinkId=615771)找到 Azure AD Connect 的下载文件。
+可以在 [Microsoft 下载中心](https://go.microsoft.com/fwlink/?LinkId=615771)找到 Azure AD Connect 的下载文件。
 
 | 解决方案 | 方案 |
 | --- | --- |
 | 开始之前 - [硬件和先决条件](how-to-connect-install-prerequisites.md) |<li>开始安装 Azure AD Connect 之前所要完成的步骤。</li> |
 | [快速设置](how-to-connect-install-express.md) |<li>如果只有一个林 AD，我们建议使用此选项。</li> <li>使用密码同步以同一密码进行用户登录。</li> |
-| [自定义设置](how-to-connect-install-custom.md) |<li>有多个林时使用。 支持许多本地[拓扑](plan-connect-topologies.md)。</li> <li>自定义登录选项，例如直通身份验证、用于联合身份验证的 ADFS，或使用第三方标识提供者。</li> <li>自定义同步功能，例如筛选和写回。</li> |
+| [自定义设置](how-to-connect-install-custom.md) |<li>有多个林时使用。 支持许多本地[拓扑](plan-connect-topologies.md)。</li> <li>自定义登录选项，例如用于联合身份验证的 ADFS，或使用第三方标识提供者。</li> <li>自定义同步功能，例如筛选和写回。</li> |
 | [从 DirSync 升级](how-to-dirsync-upgrade-get-started.md) |<li>在已有 DirSync 服务器运行的情况下使用。</li> |
 | [从 Azure AD Sync 或 Azure AD Connect 升级](how-to-upgrade-previous-version.md) |<li>可以根据偏好选择多种不同的方法。</li> |
 
@@ -42,7 +42,7 @@ ms.locfileid: "52647333"
 ### <a name="next-steps-to-install-azure-ad-connect"></a>Azure AD Connect 安装后续步骤
 |主题 |链接|  
 | --- | --- |
-|下载 Azure AD Connect | [下载 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)|
+|下载 Azure AD Connect | [下载 Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |使用快速设置安装 | [Azure AD Connect 的快速安装](./how-to-connect-install-express.md)|
 |使用自定义设置安装 | [Azure AD Connect 的自定义安装](./how-to-connect-install-custom.md)|
 |从 DirSync 升级 | [从 Azure AD 同步工具 (DirSync) 升级](./how-to-dirsync-upgrade-get-started.md)|
@@ -129,3 +129,4 @@ Azure AD Connect 提供多项功能，简化了使用 AD FS 通过 Azure AD 进�
 - [Azure AD Connect 和联合身份验证](how-to-connect-fed-whatis.md)
 - [Azure AD Connect 同步](how-to-connect-sync-whatis.md)
 
+<!-- Update_Description: link update -->

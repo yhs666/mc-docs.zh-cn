@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 06/27/2017
 ms.date: 12/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: 07a752bf5974ce913b41cee4e68c7dfbb5d4f602
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8234fc7d46a19352e33382ae6fc23c1520255c3c
+ms.sourcegitcommit: bd105c3e9db2b0e39594cdf574d2566d771f0e78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658381"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53330004"
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Azure VM 上的 Ruby on Rails Web 应用程序
 本教程介绍如何在 Azure 中使用 Linux 虚拟机托管 Ruby on Rails 网站。  
@@ -29,7 +29,7 @@ ms.locfileid: "52658381"
 本教程使用 Ubuntu Server 14.04 LTS 进行验证。 如果使用其他 Linux 发行版，可能需要修改安装 Rails 的步骤。
 
 > [!IMPORTANT]
-> Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../../../azure-resource-manager/resource-manager-deployment-model.md)。  本文介绍使用经典部署模型的情况。 Azure 建议大多数新部署使用 Resource Manager 模型。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器部署模型和经典部署模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。  本文介绍使用经典部署模型的情况。 Azure 建议大多数新部署使用 Resource Manager 模型。
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 >
 
@@ -41,7 +41,7 @@ ms.locfileid: "52658381"
 ### <a name="azure-portal"></a>Azure 门户
 1. 登录到 [Azure 门户](https://portal.azure.cn)
 2. 单击“新建”，再在搜索框中键入“Ubuntu Server 14.04”。 单击搜索返回的条目。 对于部署模型，选择“经典”，再单击“创建”。
-3. 在“基本信息”边栏选项卡中，输入以下必填字段的值：“名称”（用于 VM）、“用户名”、“身份验证类型”和相应凭据、“Azure 订阅”、“资源组”和“位置”。
+3. 在“基本信息”边栏选项卡中，提供以下必填字段的值：“名称”（用于 VM）、“用户名”、“身份验证类型”和相应凭据、“Azure 订阅”、“资源组”和“位置”。
 
    ![创建新的 Ubuntu 映像](./media/virtual-machines-linux-classic-ruby-rails-web-app/createvm.png)
 
@@ -50,9 +50,9 @@ ms.locfileid: "52658381"
    ![默认终结点](./media/virtual-machines-linux-classic-ruby-rails-web-app/endpointsnewportal.png)
 
 ### <a name="azure-cli"></a>Azure CLI
-执行 [创建运行 Linux 的虚拟机][vm-instructions]中的步骤。
+执行“创建运行 Linux 的虚拟机”中的步骤。
 
-预配 VM 后，可通过运行以下命令获取 SSH 终结点：
+<!-- Not Available on [Create a Virtual Machine Running Linux][vm-instructions]--> 预配 VM 后，可通过运行以下命令获取 SSH 终结点：
 
     azure vm endpoint list <vm-name>  
 
@@ -144,7 +144,7 @@ ms.locfileid: "52658381"
 [blobs]:../../../storage/blobs/storage-ruby-how-to-use-blob-storage.md
 [cdn-howto]:/develop/ruby/app-services/
 [tables]:../../../cosmos-db/table-storage-how-to-use-ruby.md
-[vm-instructions]:createportal.md
+<!-- Not Available on [vm-instructions]:createportal.md-->
 
 <!-- External Links -->
 [rails-guides]:http://guides.rubyonrails.org/

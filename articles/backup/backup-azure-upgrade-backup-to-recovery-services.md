@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 01/04/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: ceda2a38bacfd09acf46df158efa0f820ddf4524
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 59e66de05a4c0253a9b83c1fa7d4dcaf6ee3fd80
+ms.sourcegitcommit: 0544706ab2ff239fb09fbeedc5910644301ad029
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674800"
+ms.lasthandoff: 12/03/2018
+ms.locfileid: "52745219"
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>将备份保管库升级到恢复服务保管库
 
@@ -40,7 +40,7 @@ ms.locfileid: "52674800"
 
 - **最低代理版本**：若要升级保管库，请确保 Azure 恢复服务 (MARS) 代理的版本至少为 2.0.9083.0。 如果 MARS 代理版本低于 2.0.9083.0，请在启动升级过程之前更新该代理。
 - **基于实例的计费模型**：恢复服务保管库仅支持基于实例的计费模型。 如果备份保管库使用旧式基于存储的计费模型，请在升级期间转换计费模型。
-- **没有正在进行的备份配置操作**：升级期间，对管理平面的访问会受到限制。 完成所有管理平面操作，然后开始升级。
+- **没有正在进行的备份配置操作**：在升级期间，对管理平面的访问受到限制。 完成所有管理平面操作，然后开始升级。
 
 ## <a name="using-powershell-scripts-to-upgrade-your-vaults"></a>使用 PowerShell 脚本升级保管库
 
@@ -103,7 +103,7 @@ PowerShell 脚本会提示输入凭据。 请输入凭据两次：一次是输�
 
 ## <a name="enhanced-security"></a>增强的安全性
 
-备份保管库升级到恢复服务保管库后，会自动启用该保管库的安全设置。 启用安全设置后，某些操作（如删除备份或更改密码）需要 [Azure 多重身份验证](../active-directory/authentication/multi-factor-authentication.md) PIN。 关于增强的安全性的详细信息，请参阅[用于保护混合备份的安全性功能](backup-azure-security-feature.md)一文。 
+备份保管库升级到恢复服务保管库后，会自动启用该保管库的安全设置。 启用安全设置后，某些操作（如删除备份或更改密码）需要 [Azure 多重身份验证](../active-directory/authentication/concept-mfa-howitworks.md) PIN。 关于增强的安全性的详细信息，请参阅[用于保护混合备份的安全性功能](backup-azure-security-feature.md)一文。 
 
 启用增强的安全性后，数据会在恢复点信息从保管库中删除之后至多保留 14 天。 为此安全数据的存储对客户计费。 安全数据保留期适用于针对 Azure 备份代理、Azure 备份服务器和 System Center Data Protection Manager 的恢复点。 
 

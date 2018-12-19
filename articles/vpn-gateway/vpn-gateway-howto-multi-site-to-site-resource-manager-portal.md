@@ -1,5 +1,5 @@
 ---
-title: 向 VNet 添加多个 VPN 网关站点到站点连接：Azure 门户：Resource Manager | Microsoft Docs
+title: 向 VNet 添加多个 VPN 网关站点到站点连接：Azure 门户：资源管理器 | Microsoft Docs
 description: 将多站点 S2S 连接添加到包含现有连接的 VPN 网关
 services: vpn-gateway
 documentationcenter: na
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 02/14/2018
 ms.date: 03/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: 1b7677554d3449c3b2b03689510e65c17e923d24
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6c0e20df4fb0d060ca172514abdfaae007553f23
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657762"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028361"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>将站点到站点连接添加到包含现有 VPN 网关连接的 VNet
 
@@ -36,7 +36,7 @@ ms.locfileid: "52657762"
 本文适用于具有基于路由的 VPN 网关的资源管理器 VNet。 本文中的步骤不适用于 ExpressRoute/站点到站点共存连接配置。 有关共存连接的信息，请参阅 [ExpressRoute/S2S 共存连接](../expressroute/expressroute-howto-coexist-resource-manager.md)。
 
 ### <a name="deployment-models-and-methods"></a>部署模型和方法
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 当我们发布有关此配置的新文章和其他可用工具时，会更新此表格。 有相关的文章发布时，我们会直接从此表格链接到该文章。
 

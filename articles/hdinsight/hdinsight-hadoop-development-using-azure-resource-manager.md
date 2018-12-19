@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 02/21/2018
 ms.date: 11/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: d6ccf7f6fc9d24be47b055ef6f9352add185434b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f6a53bbd01bf02672098e44fcf033a3b0d08cc0d
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653166"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028353"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>迁移到适用于 HDInsight 群集的基于 Azure Resource Manager 的开发工具
 
@@ -140,11 +140,11 @@ Azure PowerShell 资源管理器 cmdlet 可与 ASM cmdlet 一同安装。 两种
 
 **与脚本操作相关的 cmdlet：**
 
-* Get-AzureRmHDInsightPersistedScriptAction：获取群集的持久性脚本操作，并按时间顺序列出这些操作，或获取有关指定持久性脚本操作的详细信息。 
-* Get-AzureRmHDInsightScriptActionHistory：获取群集的脚本操作历史记录，并按时间顺序逆序列出这些操作，或获取有关以前执行的脚本操作的详细信息。 
-* Remove-AzureRmHDInsightPersistedScriptAction：从 HDInsight 群集中删除持久性脚本操作。
-* Set-AzureRmHDInsightPersistedScriptAction：将以前执行的脚本操作设置为持久性脚本操作。
-* Submit-AzureRmHDInsightScriptAction：将新的脚本操作提交到 Azure HDInsight 群集。 
+* **Get-AzureRmHDInsightPersistedScriptAction**：获取群集的持久性脚本操作，并按时间顺序列出这些操作，或获取有关指定持久性脚本操作的详细信息。 
+* **Get-AzureRmHDInsightScriptActionHistory**：获取群集的脚本操作历史记录，并按时间顺序逆序列出这些操作，或获取有关以前执行的脚本操作的详细信息。 
+* **Remove-AzureRmHDInsightPersistedScriptAction**：从 HDInsight 群集中删除持久性脚本操作。
+* **Set-AzureRmHDInsightPersistedScriptAction**：将以前执行的脚本操作设置为持久性脚本操作。
+* **Submit-AzureRmHDInsightScriptAction**：将新的脚本操作提交到 Azure HDInsight 群集。 
 
 有关其他用法信息，请参阅[使用脚本操作自定义基于 Linux 的 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。
 
@@ -235,7 +235,7 @@ Azure PowerShell 资源管理器 cmdlet 可与 ASM cmdlet 一同安装。 两种
 | 使用 .NET SDK 提交 Hive 作业 |请参阅[提交 Hive 作业](hadoop/apache-hadoop-use-hive-dotnet-sdk.md) |
 | 使用 .NET SDK 提交 Pig 作业 |请参阅[提交 Pig 作业](hadoop/apache-hadoop-use-pig-dotnet-sdk.md) |
 | 使用 .NET SDK 提交 Sqoop 作业 |请参阅[提交 Sqoop 作业](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md) |
-| 使用 .NET SDK 列出 HDInsight 群集 |请参阅[列出 HDInsight 群集](hdinsight-administer-use-dotnet-sdk.md#list-clusters) |
+| 使用 .NET SDK 列出 HDInsight 群集 |请参阅[列出 HDInsight 群集](hdinsight-administer-use-dotnet-sdk.md) |
 | 使用 .NET SDK 缩放 HDInsight 群集 |请参阅[缩放 HDInsight 群集](hdinsight-administer-use-dotnet-sdk.md#scale-clusters) |
 | 使用 .NET SDK 授予/吊销对 HDInsight 群集的访问权限 |请参阅[授予/吊销对 HDInsight 群集的访问权限](hdinsight-administer-use-dotnet-sdk.md#grantrevoke-access) |
 | 使用 .NET SDK 更新 HDInsight 群集的 HTTP 用户凭据 |请参阅[更新 HDInsight 群集的 HTTP 用户凭据](hdinsight-administer-use-dotnet-sdk.md#update-http-user-credentials) |

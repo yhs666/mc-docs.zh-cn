@@ -1,26 +1,19 @@
 ---
-title: 在 Azure Site Recovery 中将脚本添加到恢复计划 | Azure
-description: 了解在 Azure 中将新的 System Center Virtual Machine Manager (VMM) 脚本添加到还原计划的先决条件。
-services: site-recovery
-documentationcenter: ''
+title: 使用 Azure Site Recovery 将脚本添加到灾难恢复的恢复计划中 | Azure
+description: 了解如何将 VMM 脚本添加到恢复计划中，以便在 VMM 云中对 Hyper-V VM 进行灾难恢复。
 author: rockboyfor
 manager: digimobile
-editor: ''
-ms.assetid: 72408c62-fcb6-4ee2-8ff5-cab1218773f2
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 origin.date: 07/06/2018
-ms.date: 09/17/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: d11b66ddfe30b4e9fd8a8114da917adc4433e54e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b1ecb0d1117f297aa3de3c2346e78e86fcff0818
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52667252"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028567"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>将 VMM 脚本添加到还原计划
 
@@ -85,4 +78,5 @@ ms.locfileid: "52667252"
 
 ## <a name="next-steps"></a>后续步骤
 * 详细了解如何[运行故障转移](site-recovery-failover.md)。
+
 <!-- Update_Description: update meta properties -->
