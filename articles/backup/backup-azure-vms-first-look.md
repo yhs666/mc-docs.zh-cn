@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 08/02/2017
 ms.date: 09/04/2017
 ms.author: v-junlch
-ms.openlocfilehash: b200998be97e6c8e2d20726fb288273e958cd04f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: fe22e9644a6457499f793dc784d079f8f44b2fb4
+ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656243"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53219556"
 ---
 # <a name="first-look-backing-up-azure-virtual-machines"></a>初步了解：备份 Azure 虚拟机
 > [!div class="op_single_selector"]
@@ -36,11 +36,11 @@ ms.locfileid: "52656243"
 若要顺利完成本教程，必须满足以下先决条件：
 
 - 已在 Azure 订阅中创建了一个 VM。
-- VM 已连接到 Azure 公共 IP 地址。 有关更多信息，请参阅[网络连接](backup-azure-vms-prepare.md#network-connectivity)。
+- VM 已连接到 Azure 公共 IP 地址。 有关更多信息，请参阅[网络连接](backup-azure-vms-prepare.md)。
 
 
 > [!NOTE]
-> Azure 有两种用于创建和使用资源的部署模型： [Resource Manager 部署模型和经典部署模型](../azure-resource-manager/resource-manager-deployment-model.md)。 本教程适用于在经典管理门户中创建的虚拟机。
+> Azure 有两种用于创建和使用资源的部署模型：[资源管理器部署模型和经典部署模型](../azure-resource-manager/resource-manager-deployment-model.md)。 本教程适用于在经典管理门户中创建的虚拟机。
 >
 >
 
@@ -104,7 +104,7 @@ ms.locfileid: "52656243"
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>在虚拟机中安装 VM 代理
 Azure VM 代理必须安装在 Azure 虚拟机上，备份扩展才能运行。 如果 VM 是从 Azure 库创建的，则该 VM 上已存在 VM 代理；可以跳到[保护 VM](backup-azure-vms-first-look.md#create-the-backup-policy)。
 
-如果 VM 是从本地数据中心迁移的，则该 VM 上可能尚未安装 VM 代理。 必须先在虚拟机上安装 VM 代理，才能继续保护 VM。 有关安装 VM 代理的详细步骤，请参阅 [“备份 VMs”一文中“VM 代理”部分](backup-azure-vms-prepare.md#vm-agent)。
+如果 VM 是从本地数据中心迁移的，则该 VM 上可能尚未安装 VM 代理。 必须先在虚拟机上安装 VM 代理，才能继续保护 VM。 有关安装 VM 代理的详细步骤，请参阅 [“备份 VMs”一文中“VM 代理”部分](backup-azure-vms-prepare.md)。
 
 ## 创建备份策略 <a name="create-the-backup-policy"></a>
 在触发初始备份作业之前，请设置计划来规定何时创建备份快照。 规定备份快照创建时间以及快照保留时长的计划就是备份策略。 保留期信息基于祖父-父-子备份轮转方案。

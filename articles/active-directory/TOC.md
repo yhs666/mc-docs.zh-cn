@@ -50,7 +50,6 @@
 #### [自定义品牌](manage-apps/change-name-or-logo-portal.md)
 #### [禁用用户登录](manage-apps/disable-user-sign-in-portal.md)
 #### [删除用户](manage-apps/remove-user-or-group-access-portal.md)
-#### [从用户体验中隐藏应用程序](manage-apps/hide-application-from-user-portal.md)
 
 ### [了解 Azure AD 应用程序许可体验](develop/application-consent-experience.md)
 
@@ -73,7 +72,6 @@
 
 #### 权限
 ##### [选择 API 的权限](develop/perms-for-given-api.md)
-##### [为应用授予权限](develop/registration-config-grant-permissions-how-to.md)
 ##### [委派权限与应用程序权限](develop/delegated-and-app-perms.md)
 ##### [应用程序许可](develop/consent-framework.md)
 
@@ -83,7 +81,6 @@
 ##### [登录到 Microsoft 应用时出现问题](manage-apps/application-sign-in-problem-first-party-microsoft.md)
 ##### [登录自定义开发的应用时出现的问题](manage-apps/application-sign-in-problem-custom-dev.md)
 
-### [开发应用](active-directory-applications-guiding-developers-for-lob-applications.md)
 
 
 ## 管理目录
@@ -96,9 +93,6 @@
 
 
 
-## [在 Azure 中部署 AD FS](hybrid/how-to-connect-fed-azure-adfs.md)
-### [高可用性](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
-### [更改签名哈希算法](active-directory-federation-sha256-guidance.md)
 
 
 ## 部署 Azure AD 概念证明 (PoC)

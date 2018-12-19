@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 07/03/2018
-ms.date: 08/06/2018
+origin.date: 10/18/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 163ef36db7bd134a9f6a0daf59e93a75f35fc61b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: fb8bcf0b064042b6babdbc82a86ceaf201860590
+ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662319"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53157405"
 ---
 # <a name="connect-with-excel"></a>使用 Excel 进行连接
 
@@ -35,9 +35,8 @@ ms.locfileid: "52662319"
 
     > [!IMPORTANT]
     > 如果使用 Microsoft 帐户、Live ID、Yahoo 等登录或被要求使用多重身份验证登录，请将密码字段留空。 单击“下一步”后，系统会提示输入密码。
-    <!--Not Available on Gmail -->
-
-    ![“从 Excel 中连接”登录](./media/analysis-services-connect-excel/aas-connect-excel-logon.png)
+    
+    <!--Not Available on Gmail --> ![“从 Excel 中连接”登录](./media/analysis-services-connect-excel/aas-connect-excel-logon.png)
 
 3. 在“选择数据库和表”中，选择数据库和模型或透视，并单击“完成”。
 

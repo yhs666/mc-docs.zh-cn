@@ -1,9 +1,9 @@
 ---
 title: DNS 区域和记录概述 - Azure DNS | Microsoft Docs
-description: 对在 Microsoft Azure DNS 中托管 DNS 区域和记录的支持的概述。
+description: 对在 Azure DNS 中托管 DNS 区域和记录的支持的概述。
 services: dns
 documentationcenter: na
-author: yunan2016
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: be4580d7-aa1b-4b6b-89a3-0991c0cda897
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 origin.date: 12/18/2017
-ms.date: 12/18/2017
-ms.author: v-nany
-ms.openlocfilehash: 54ddc877e5814d6db6abee60437e75352115a3a6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/11/2018
+ms.author: v-jay
+ms.openlocfilehash: 3c5e08ea62433c59686dea0f5b1589b54bc05f89
+ms.sourcegitcommit: 5c059fe358e1298ef96450b2c620054afe89de1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651595"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53234109"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>DNS 区域和记录概述
 
@@ -71,13 +71,13 @@ CAA 记录允许域所有者指定哪些证书颁发机构 (CA) 有权为其域�
 
 CNAME 记录集不能与其他具有相同名称的记录集共存。 例如，不能同时创建具有相对名称“www”的 CNAME 记录集和具有相对名称“www”的 A 记录。
 
-由于区域顶点（名称 =“@”）始终包含创建区域时创建的 NS 和 SOA 记录集，因此不能在区域顶点创建 CNAME 记录集。
+由于区域顶点（名称 =“\@”）始终包含创建区域时创建的 NS 和 SOA 记录集，因此不能在区域顶点创建 CNAME 记录集。
 
 这些约束起源于 DNS 标准，并非 Azure DNS 的限制。
 
 ### <a name="ns-records"></a>NS 记录
 
-区域顶点（名称“@”）处的 NS 记录集随每个 DNS 区域自动创建，并在删除该区域时自动删除（不能单独删除）。
+区域顶点（名称“\@”）处的 NS 记录集随每个 DNS 区域自动创建，并在删除该区域时自动删除（不能单独删除）。
 
 此记录集包含分配给该区域的 Azure DNS 名称服务器名称。 可向此 NS 记录集添加其他名称服务器，从而支持与多个 DNS 提供商共同托管域。 还可修改此记录集的 TTL 和元数据。 但是，无法删除或修改预填充的 Azure DNS 名称服务器。 
 
@@ -85,7 +85,7 @@ CNAME 记录集不能与其他具有相同名称的记录集共存。 例如，�
 
 ### <a name="soa-records"></a>SOA 记录
 
-SOA 记录集在每个区域（名称 =“@”）的顶点处自动创建，并在删除该区域时自动删除。  无法单独创建或删除 SOA 记录。
+SOA 记录集在每个区域（名称 =“\@”）的顶点处自动创建，并在删除该区域时自动删除。  无法单独创建或删除 SOA 记录。
 
 用户可以修改 SOA 记录的所有属性，但“主机”属性除外，此属性预配置为引用 Azure DNS 所提供的主名称服务器名。
 
@@ -97,7 +97,7 @@ SOA 记录集在每个区域（名称 =“@”）的顶点处自动创建，并�
 
 多种服务使用 [SRV 记录](https://en.wikipedia.org/wiki/SRV_record)指定服务器位置。 在 Azure DNS 中指定 SRV 记录时：
 
-* 服务和协议 必须指定为前面带下划线的记录集名称的一部分。  例如，“\_sip.\_tcp.name”。  对于区域顶点处的记录，无需在记录名称中指定“@”，只需使用服务和协议，例如“\_sip.\_tcp”。
+* 服务和协议 必须指定为前面带下划线的记录集名称的一部分。  例如，“\_sip.\_tcp.name”。  对于区域顶点处的记录，无需在记录名称中指定“\@”，只需使用服务和协议，例如“\_sip.\_tcp”。
 * 将 priority、weight、port 和 target 指定为记录集中每个记录的参数。
 
 ### <a name="txt-records"></a>TXT 记录

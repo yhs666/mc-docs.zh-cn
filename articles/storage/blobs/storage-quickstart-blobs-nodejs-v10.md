@@ -6,23 +6,23 @@ author: WenJason
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-origin.date: 09/19/2018
-ms.date: 11/05/2018
+origin.date: 11/14/2018
+ms.date: 12/10/2018
 ms.author: v-jay
-ms.openlocfilehash: 16cd7afee563f8aa5beeac348fb87e7eb4f20242
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 45fe7d224a339b5f9d6b7c259c837397614e5294
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661189"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028955"
 ---
 # <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript-preview"></a>快速入门：使用 Azure Storage v10 SDK for JavaScript 上载、下载、列出和删除 blob（预览版）
 
 本快速入门介绍如何在 Node.js 中使用 [Azure Storage v10 SDK for JavaScript](https://github.com/Azure/azure-storage-js) 来上载、下载、列出和删除 blob 以及管理容器。
 
-若要完成本快速入门，需要一个 [Azure 试用版订阅](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+## <a name="prerequisites"></a>先决条件
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 ## <a name="download-the-sample-application"></a>下载示例应用程序
 
@@ -350,3 +350,4 @@ console.log(`Container "${containerName}" is deleted`);
 
 > [!div class="nextstepaction"]
 > [Azure Storage v10 SDK for JavaScript 存储库](https://github.com/Azure/azure-storage-js)
+> [JavaScript API 参考](https://docs.microsoft.com/javascript/api/overview/azure/storage/client?view=azure-node-preview)

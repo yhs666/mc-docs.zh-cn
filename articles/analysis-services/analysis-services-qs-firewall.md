@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-origin.date: 07/03/2018
-ms.date: 11/12/2018
+origin.date: 10/18/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2bbad8dd441f4e7529e2925579d3ad57cb68e13f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 0f03e06a6b720a4a49dc7e1498ab3cc6ce82411d
+ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651359"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53157397"
 ---
 <!--Notice: Verified successfully-->
 # <a name="quickstart-configure-server-firewall---portal"></a>快速入门：配置服务器防火墙 - 门户
@@ -50,4 +50,4 @@ ms.locfileid: "52651359"
 > [!div class="nextstepaction"]
 > [教程：将示例模型添加到服务器](analysis-services-create-sample-model.md)
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

@@ -15,18 +15,18 @@ origin.date: 10/24/2018
 ms.date: 10/29/2018
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: fbca101ebb82c516a0563b20d941fcf5493995b3
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1ae1b515efa39454e90123b2402c3d9b4191083b
+ms.sourcegitcommit: d3b05039466ddf239c9134f002a034d4e75b03db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662474"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53234019"
 ---
-# <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>教程：使用托管标识确保从应用服务进行的 Azure SQL 数据库连接的安全
+# <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>教程：使用托管标识确保从应用服务进行的 Azure SQL 数据库连接安全
 
-[应用服务](app-service-web-overview.md)在 Azure 中提供高度可缩放、自修补的 Web 托管服务。 它还为应用提供[托管标识](app-service-managed-service-identity.md)，这是一项统包解决方案，可以确保安全地访问 [Azure SQL 数据库](/azure/sql-database/)和其他 Azure 服务。 应用服务中的托管标识可以让应用更安全，因为不需在应用中存储机密，例如连接字符串中的凭据。 在本教程中，请将托管标识添加到在[教程：使用 SQL 数据库在 Azure 中构建 ASP.NET 应用](app-service-web-tutorial-dotnet-sqldatabase.md)中构建的示例 ASP.NET Web 应用。 完成后，示例应用就可以安全地连接到 SQL 数据库，不需用户名和密码。
+[应用服务](app-service-web-overview.md)在 Azure 中提供高度可缩放、自修补的 Web 托管服务。 它还为应用提供[托管标识](app-service-managed-service-identity.md)，这是一项统包解决方案，可以确保安全地访问 [Azure SQL 数据库](/azure/sql-database/)和其他 Azure 服务。 应用服务中的托管标识可以让应用更安全，因为不需在应用中存储机密，例如连接字符串中的凭据。 在本教程中，会将托管标识添加到在[教程：使用 SQL 数据库在 Azure 中构建 ASP.NET 应用](app-service-web-tutorial-dotnet-sqldatabase.md)中构建的示例 ASP.NET Web 应用。 完成后，示例应用就可以安全地连接到 SQL 数据库，不需用户名和密码。
 
-学习如何：
+你将学习如何：
 
 > [!div class="checklist"]
 > * 启用托管标识
@@ -35,7 +35,7 @@ ms.locfileid: "52662474"
 > * 在 SQL 数据库中向托管标识授予最低特权
 
 > [!NOTE]
-> 在本地 Active Directory (AD DS) 中，Azure Active Directory 身份验证_不同_于集成式 Windows 身份验证。 AD DS 和 Azure Active Directory 使用的身份验证协议完全不相同。 有关详细信息，请参阅 [Windows Server AD DS 与 Azure AD 之间的差别](../active-directory/fundamentals/understand-azure-identity-solutions.md#the-difference-between-windows-server-ad-ds-and-azure-ad)。
+> 在本地 Active Directory (AD DS) 中，Azure Active Directory 身份验证_不同_于集成式 Windows 身份验证。 AD DS 和 Azure Active Directory 使用的身份验证协议完全不相同。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -71,7 +71,7 @@ az ad sp show --id <principalid>
 
 ## <a name="grant-database-access-to-identity"></a>授予数据库访问标识的权限
 
-接下来，请在 Cloud Shell 中使用 [`az sql server ad-admin create`](cli/sql/server/ad-admin?view=azure-cli-latest) 命令授予数据库访问应用的托管标识的权限。 在以下命令中，替换 *\<server_name>* 和 <principalid_from_last_step>。 键入 *\<admin_user>* 的管理员名称。
+接下来，请在 Cloud Shell 中使用 [`az sql server ad-admin create`](https://docs.azure.cn/zh-cn/cli/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin-create) 命令授予数据库访问应用的托管标识的权限。 在以下命令中，替换 *\<server_name>* 和 <principalid_from_last_step>。 键入 *\<admin_user>* 的管理员名称。
 
 ```azurecli-interactive
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server_name> --display-name <admin_user> --object-id <principalid_from_last_step>
@@ -136,7 +136,7 @@ private MyDatabaseContext db = new MyDatabaseContext(new System.Data.SqlClient.S
 
 现在，剩下的操作是将更改发布到 Azure。
 
-在“解决方案资源管理器”中，右键单击 “DotNetAppSqlDb”项目，然后选择“发布”。
+在“解决方案资源管理器”中，右键单击 “DotNetAppSqlDb”项目，并选择“发布”。
 
 ![从解决方案资源管理器发布](./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png)
 
@@ -191,7 +191,7 @@ GO
 
 ## <a name="next-steps"></a>后续步骤
 
-现已了解：
+你已了解：
 
 > [!div class="checklist"]
 > * 启用托管标识

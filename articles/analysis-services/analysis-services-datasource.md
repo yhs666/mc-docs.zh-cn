@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 07/03/2018
-ms.date: 08/06/2018
+origin.date: 10/18/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9ce374191d2899d8277c93085cc509ff49316560
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 75aee3300a001538d37d071a9cffbf458969a334
+ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657318"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53157423"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支持的数据源
 
@@ -110,6 +110,7 @@ ms.locfileid: "52657318"
 * 如果使用 SQL 身份验证，则模拟应为服务帐户。
 
 ## <a name="next-steps"></a>后续步骤
-<!--Not Available [On-premises gateway](analysis-services-gateway.md)--> 
+[本地网关](analysis-services-gateway.md)   
 [管理服务器](analysis-services-manage.md)
+
 <!--Update_Description: wording update, update link -->

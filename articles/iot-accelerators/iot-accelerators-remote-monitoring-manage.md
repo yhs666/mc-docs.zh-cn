@@ -10,14 +10,14 @@ origin.date: 07/19/2018
 ms.date: 11/26/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 0e5aa3579b6efff093928570270207dd3591054f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 9f93c04a893fddb5ed91415fdec8f7d29f758b19
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653748"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028944"
 ---
-# <a name="tutorial-configure-and-manage-devices-connected-to-your-monitoring-solution"></a>教程：配置和管理连接到监视解决方案的设备
+# <a name="tutorial-configure-and-manage-devices-connected-to-your-monitoring-solution"></a>教程：配置并管理连接到监视解决方案的设备
 
 在本教程中，你将使用远程监视解决方案加速器来配置和管理连接的 IoT 设备。 将新设备添加到解决方案加速器、配置设备，并更新设备的固件。
 
@@ -64,7 +64,7 @@ Contoso 购置了新的机器以扩建其某处生产场地。 在等待交付�
 
 ## <a name="act-on-a-device"></a>操作设备
 
-若要测试模拟引擎设备是否正确响应从仪表板发起的操作，请运行 **FirmwareUpdate** 方法。 若要通过运行某个方法来操作某个设备，请在设备列表中选择该设备，然后单击“作业”。 如果想要操作多个设备，可以选择多个设备。 在“作业”面板中，选择“运行方法”。 “引擎”设备模型指定三个方法：**FirmwareUpdate**、**FillTank** 和 **EmptyTank**。
+若要测试模拟引擎设备是否正确响应从仪表板发起的操作，请运行 **FirmwareUpdate** 方法。 若要通过运行某个方法来操作某个设备，请在设备列表中选择该设备，然后单击“作业”。 如果想要操作多个设备，可以选择多个设备。 在“作业”面板中，选择“运行方法”。 **引擎**设备模型指定三个方法：**FirmwareUpdate**、**FillTank** 和 **EmptyTank**：
 
 [![引擎方法](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-expanded.png#lightbox)
 
@@ -143,9 +143,3 @@ Contoso 购置了新的机器以扩建其某处生产场地。 在等待交付�
 
 [!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
-## <a name="next-steps"></a>后续步骤
-
-本教程介绍了如何配置和管理与远程监视解决方案加速器连接的设备。 若要了解如何使用解决方案加速器对意外警报执行根本原因分析，请继续学习下一个教程。
-
-> [!div class="nextstepaction"]
-> [对警报执行根本原因分析](iot-accelerators-remote-monitoring-root-cause-analysis.md)

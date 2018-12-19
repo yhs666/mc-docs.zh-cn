@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 07/03/2018
-ms.date: 08/06/2018
+origin.date: 10/18/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: db2b354f3c1cbcd3673f5574f1437b94a26f52a9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 26319e02a9af878166c95701d175cb64284eefa1
+ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657114"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53157428"
 ---
 # <a name="deploy"></a>部署
 
@@ -30,8 +30,7 @@ ms.locfileid: "52657114"
 > 必须在远程 Analysis Services 服务器上拥有[管理员权限](../analysis-services-server-admins.md)才能向其进行部署。  
 
 > [!IMPORTANT]  
-> 如果在本地 SQL Server 上安装了 AdventureWorksDW2014 示例数据库，并且要将模型部署到 Azure Analysis Services 服务器，则需要本地数据网关。
-<!--Not Available on [On-premises data gateway](../analysis-services-gateway.md) -->
+> 如果在本地 SQL Server 上安装了 AdventureWorksDW2014 示例数据库，并且要将模型部署到 Azure Analysis Services 服务器，则需要[本地数据网关](../analysis-services-gateway.md)。
 
 ## <a name="deploy-the-model"></a>部署模型  
 
@@ -76,4 +75,4 @@ ms.locfileid: "52657114"
 [补充课程 - 详细信息行](../tutorials/aas-supplemental-lesson-detail-rows.md)   
 [补充课程 - 不规则层次结构](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, update link -->

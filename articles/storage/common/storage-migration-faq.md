@@ -5,15 +5,16 @@ services: storage
 author: WenJason
 ms.service: storage
 ms.topic: article
-origin.date: 05/11/2018
-ms.date: 09/24/2018
+origin.date: 10/31/2018
+ms.date: 12/10/2018
 ms.author: v-jay
-ms.openlocfilehash: 2c523c580115b8ca57fb285a5067a66932b3818c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.component: common
+ms.openlocfilehash: 45d8969dbae88a4cf81fc659f7b94eb8c7424e9c
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647309"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029126"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>有关 Azure 存储迁移的常见问题
 
@@ -56,8 +57,8 @@ AzCopy 将使用[复制 Blob API](https://docs.microsoft.com/rest/api/storageser
 
     - `/Source`：提供源存储帐户的 URI（直至容器）。  
     - `/Dest`：提供目标存储帐户的 URI（直至容器）。  
-    - `/SourceKey`：提供源存储帐户的主键。 可通过选择存储帐户从 Azure 门户复制此键值。  
-    - `/DestKey`：提供目标存储帐户的主键。 可通过选择存储帐户从门户复制此键值。
+    - `/SourceKey`：提供源存储帐户的主密钥。 可通过选择存储帐户从 Azure 门户复制此键值。  
+    - `/DestKey`：提供目标存储帐户的主密钥。 可通过选择存储帐户从门户复制此键值。
 
 运行此命令后，容器文件会移到目标存储帐户。
 
@@ -274,7 +275,7 @@ AzCopy 安装在什么位置？
 
 -   如果使用的是读取访问异地冗余存储，可以随时从次要区域访问数据。 使用以下方法之一：  
       
-    - **AzCopy**：为 URL 中的存储帐户名追加 -secondary 以访问辅助终结点。 例如：  
+    - **AzCopy**：在 URL 中的存储帐户名后追加 -secondary 以访问辅助终结点。 例如：  
      
       https://storageaccountname-secondary.blob.core.chinacloudapi.cn/vhds/BlobName.vhd
 

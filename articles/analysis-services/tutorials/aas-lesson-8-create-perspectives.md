@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 07/03/2018
-ms.date: 08/06/2018
+origin.date: 10/18/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3ef5b3a34b0d23866b2821fd547ca06dedcff7b3
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a93320653a4b282a4b1aaaa844fd08df0d4e191b
+ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657967"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53157417"
 ---
 # <a name="create-perspectives"></a>创建透视
 
@@ -24,7 +24,7 @@ ms.locfileid: "52657967"
 
 本课的目的是介绍如何创建透视并熟悉表格模型创作工具。 如果之后扩展此模型以包括其他表，可以创建其他透视来定义模型的不同视点，例如“库存”和“销售”。  
 
-本课预计完成时间：**5 分钟**  
+本课预计完成时间：**五分钟**  
 
 ## <a name="prerequisites"></a>先决条件  
 本主题是表格建模教程的一部分，应当按顺序完成。 在执行本课中的任务之前，应当已完成上一课：[第 7 课：创建关键绩效指标](../tutorials/aas-lesson-7-create-key-performance-indicators.md)。  

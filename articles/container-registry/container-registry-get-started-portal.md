@@ -5,23 +5,22 @@ services: container-registry
 author: rockboyfor
 ms.service: container-registry
 ms.topic: quickstart
-origin.date: 03/03/2018
-ms.date: 11/12/2018
+origin.date: 11/06/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 1182e6045a39a7f2e1d15bbbb4ba4c937d116287
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: da610eca2c7a6fdb9ed914f408200175d4714a64
+ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655244"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53286742"
 ---
 # <a name="quickstart-create-a-container-registry-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建容器注册表
 
 Azure 容器注册表是 Azure 中的专用 Docker 注册表，你可在其中存储和管理专用 Docker 容器映像。 在本快速入门中，请使用 Azure 门户创建容器注册表，然后将容器映像推送到注册表中。 
-<!--Not Available on and finally deploy the container from your registry into Azure Container Instances (ACI).-->
 
-要完成本快速入门，必须在本地安装 Docker。 Docker 提供的包可在任何 [Mac][docker-mac]、[Windows][docker-windows] 或 [Linux][docker-linux] 系统上轻松配置 Docker。
+<!--Not Available on and finally deploy the container from your registry into Azure Container Instances (ACI).--> 要完成本快速入门，必须在本地安装 Docker。 Docker 提供的包可在任何 [Mac][docker-mac]、[Windows][docker-windows] 或 [Linux][docker-linux] 系统上轻松配置 Docker。
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
@@ -29,11 +28,19 @@ Azure 容器注册表是 Azure 中的专用 Docker 注册表，你可在其中�
 
 ## <a name="create-a-container-registry"></a>创建容器注册表
 
-选择“创建资源” > “容器” > “Azure 容器注册表”。
+<!-- Notice:  Customized to match MC--> 选择“创建资源”，在搜索筛选器中键入“容器注册表”，然后单击返回键。
 
 ![在 Azure 门户中创建容器注册表][qs-portal-01]
 
-在“注册表名称”和“资源组”中输入值。 注册表名称在 Azure 中必须唯一，并且包含 5-50 个字母数字字符。 创建名为 `myResourceGroup` 的新资源组，对于 SKU 选择“Basic”。 选择“创建”，部署 ACR 实例。
+在搜索结果中选择“容器注册表”项。
+
+![在 Azure 门户中创建容器注册表](./media/container-registry-get-started-portal/qs-portal-chenye-click-item.png)
+
+选择“创建” 。 
+
+![在 Azure 门户中创建容器注册表](./media/container-registry-get-started-portal/qs-portal-chenye-click-create.png)
+
+<!-- Notice:  Customized to match MC--> 为“注册表名称”和“资源组”输入值。 注册表名称在 Azure 中必须唯一，并且包含 5-50 个字母数字字符。 对于本快速入门，在 `China North` 位置创建名为 `myResourceGroup` 的新资源组，对于 **SKU**，选择“基本”。 选择“创建”，部署 ACR 实例。
 
 ![在 Azure 门户中创建容器注册表][qs-portal-03]
 
@@ -73,29 +80,29 @@ docker login --username <username> --password <password> <login server>
 docker pull microsoft/aci-helloworld
 ```
 
-将映像推送到注册表之前，必须使用 ACR 登录服务器名称标记映像。 使用 [docker tag][docker-tag] 命令标记映像。 使用之前记录的登录服务器名称替换登录服务器。
+将映像推送到注册表之前，必须使用 ACR 登录服务器名称标记映像。 使用 [docker tag][docker-tag] 命令标记映像。 使用之前记录的登录服务器名称替换登录服务器。 添加“存储库名称”，例如 **`myrepo`**，以便将映像放入存储库。
 
 ```bash
-docker tag microsoft/aci-helloworld <login server>/aci-helloworld:v1
+docker tag microsoft/aci-helloworld <login server>/<repository name>/aci-helloworld:v1
 ```
 
-最后，使用 [docker push][docker-push] 将映像推送到 ACR 实例。 使用 ACR 实例的登录服务器名称替换登录服务器。
+最后，使用 [docker push][docker-push] 将映像推送到 ACR 实例。 将“登录服务器”替换为 ACR 实例的登录服务器名称，并将“存储库名称”替换为在上一个命令中使用的存储库名称。
 
 ```bash
-docker push <login server>/aci-helloworld:v1
+docker push <login server>/<repository name>/aci-helloworld:v1
 ```
 
 成功的 `docker push` 命令的输出类似于：
 
 ```
-The push refers to a repository [uniqueregistryname.azurecr.cn/aci-helloworld]
-7c701b1aeecd: Pushed
-c4332f071aa2: Pushed
-0607e25cc175: Pushed
+The push refers to repository [specificregistryname.azurecr.cn/myrepo/aci-helloworld]
+31ba1ebd9cf5: Pushed
+cd07853fe8be: Pushed
+73f25249687f: Pushed
 d8fbd47558a8: Pushed
 44ab46125c35: Pushed
 5bef08742407: Pushed
-v1: digest: sha256:f2867748615cc327d31c68b1172cc03c0544432717c4d2ba2c1c2d34b18c62ba size: 1577
+v1: digest: sha256:565dba8ce20ca1a311c2d9485089d7ddc935dd50140510050345a1b0ea4ffa6e size: 1576
 ```
 
 ## <a name="list-container-images"></a>列出容器映像
@@ -108,15 +115,12 @@ v1: digest: sha256:f2867748615cc327d31c68b1172cc03c0544432717c4d2ba2c1c2d34b18c6
 
 <!-- Not Available on ## Deploy image to ACI-->
 <!-- Notice: Microsoft/Container-Instance is invalid on MC-->
-
-
 <!-- Not Available on ## View the application-->
-
 ## <a name="clean-up-resources"></a>清理资源
 
 若要清理资源，请导航到门户中的 **myResourceGroup** 资源组。 加载资源组以后，请单击“删除资源组”，以便删除资源组、Azure 容器注册表以及所有 Azure 容器实例。
 
-![在 Azure 门户中创建容器注册表][qs-portal-08]
+![在 Azure 门户中删除资源组][qs-portal-08]
 
 <!-- Not Availble on ## Next steps-->
 
@@ -152,5 +156,4 @@ v1: digest: sha256:f2867748615cc327d31c68b1172cc03c0544432717c4d2ba2c1c2d34b18c6
 <!-- Not Availble on [container-instances-tutorial-prepare-app]: ../container-instances/container-instances-tutorial-prepare-app.md-->
 
 [container-registry-skus]: container-registry-skus.md
-
 <!-- Update_Description: update link, wording update -->

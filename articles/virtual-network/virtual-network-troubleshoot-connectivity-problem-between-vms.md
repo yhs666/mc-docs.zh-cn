@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 05/11/2018
-ms.date: 11/12/2018
+origin.date: 10/30/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: 94c785110d5f7f6fcc582033d6224da83065b81c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1625459a59cbba194cf25547e212571b801667b4
+ms.sourcegitcommit: 1b6a310ba636b6dd32d7810821bcb79250393499
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662856"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53389396"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>排查 Azure VM 间的连接问题
 
@@ -110,7 +110,7 @@ Azure 虚拟机 (VM) 间可能出现连接问题。 本文提供解决此问题�
 
 使用[网络观察程序 IP 流验证](../network-watcher/network-watcher-ip-flow-verify-overview.md)和 [NSG 流日志记录](../network-watcher/network-watcher-nsg-flow-logging-overview.md)确定是否存在干扰流量流的 NSG 或 UDR。 还可在[此处](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)验证 Vnet 间配置。
 
-### <a name="need-help-contact-support"></a>需要帮助？ 请联系支持人员。
+### <a name="need-help-contact-support"></a>需要帮助？ 联系支持人员。
 如果仍需要帮助，可 [联系支持人员](https://www.azure.cn/support/support-azure/) 来快速解决问题。
 
-<!--Update_Description: wording update, update links-->
+<!--Update_Description: wording update -->

@@ -1,22 +1,22 @@
 ---
-title: 用于 Hyper-V 到 Azure 的复制的支持矩阵 | Azure
-description: 汇总了使用 Azure Site Recovery 执行 Hyper-V 到 Azure 的复制时支持的组件和相关要求
+title: 将本地 Hyper-V VM 灾难恢复到 Azure 时的支持矩阵 | Azure
+description: 汇总了使用 Azure Site Recovery 执行 Hyper-V VM 到 Azure 的灾难恢复时支持的组件和相关要求
 services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 10/10/2018
-ms.date: 11/19/2018
+origin.date: 10/28/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4cd99b43a90b320a49b2f57f60916881836a8ab2
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 3858e26333d691a14c31d9ee3127f04f43160683
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649738"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029112"
 ---
-# <a name="support-matrix-for-hyper-v-replication-to-azure"></a>用于 Hyper-V 到 Azure 的复制的支持矩阵
+# <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>将本地 Hyper-V VM 灾难恢复到 Azure 时的支持矩阵
 
 本文汇总了使用 [Azure Site Recovery](site-recovery-overview.md) 执行本地 Hyper-V VM 到 Azure 的灾难恢复时支持的组件和设置。
 
@@ -103,7 +103,7 @@ NFS | 不可用 | 不可用
 SMB 3.0 | 否 | 否
 RDM | 不可用 | 不可用
 磁盘 > 1 TB | 是，最大 4,095 GB | 是，最大 4,095 GB
-磁盘：4K 逻辑和物理扇区 | 不支持：第 1 代/第 2 代 | 不支持：第 1 代/第 2 代
+磁盘：4K 逻辑和物理扇区 | 不支持：Gen 1/Gen 2 | 不支持：Gen 1/Gen 2
 磁盘：4K 逻辑扇区和 512 字节物理扇区 | 是 |  是
 逻辑卷管理 (LVM)。 仅数据磁盘支持 LVM。 Azure 仅提供单个 OS 磁盘。 | 是 | 是
 包含条带化磁盘的卷 > 1 TB | 是 | 是
@@ -169,7 +169,7 @@ VM 类型 | 第 1 代<br/><br/> 第 2 代 - Windows | OS 磁盘类型为“基�
 
 **名称** | **说明** | **详细信息**
 --- | --- | --- | --- | ---
-Azure Site Recovery 提供程序 | 协调本地服务器与 Azure 之间的通信 <br/><br/> 使用 Virtual Machine Manager 的 Hyper-V：在 Virtual Machine Manager 服务器上安装<br/><br/> 不使用 Virtual Machine Manager 的 Hyper-V：在 Hyper-V 主机上安装| 最新版本：5.1.2700.1（可从 Azure 门户获取）<br/><br/> [最新功能和修复](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
+Azure Site Recovery 提供程序 | 协调本地服务器与 Azure 之间的通信 <br/><br/> 使用 Virtual Machine Manager 的 Hyper-V：安装在 Virtual Machine Manager 服务器上<br/><br/> 不使用 Virtual Machine Manager 的 Hyper-V：安装在 Hyper-V 主机上| 最新版本：5.1.2700.1（可从 Azure 门户获得）<br/><br/> [最新功能和修复](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
 Azure 恢复服务代理 | 协调 Hyper-V VM 与 Azure 之间的复制<br/><br/> 在本地 Hyper-V 服务器（使用或不使用 Virtual Machine Manager）上安装 | 可从门户获取最新代理
 
 ## <a name="next-steps"></a>后续步骤

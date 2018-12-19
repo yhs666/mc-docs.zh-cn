@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 07/03/2018
-ms.date: 08/06/2018
+origin.date: 10/18/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: ccdff55c3e61bfbf15251ed1b0acc70b67c8dabe
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 97f9a7c2a081e06d560961e50e1e34ab62e9f7ae
+ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653099"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53157420"
 ---
 # <a name="create-partitions"></a>创建分区
 

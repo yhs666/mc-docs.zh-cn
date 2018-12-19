@@ -1,11 +1,22 @@
 ---
-title: 使用 Node.js 从 Azure 事件中心接收事件 | Azure description: 了解如何使用 Node.js 从事件中心接收事件。
-services: event-hubs author: ShubhaVijayasarathy manager: kamalb
-
-ms.service: event-hubs ms.workload: core ms.topic: article origin.date: 09/18/2018 ms.date: 12/10/2018 ms.author:v-biyu
-
+title: 使用 Node.js 从 Azure 事件中心接收事件 | Azure
+description: 了解如何使用 Node.js 从事件中心接收事件。
+services: event-hubs
+author: ShubhaVijayasarathy
+manager: kamalb
+ms.service: event-hubs
+ms.workload: core
+ms.topic: article
+origin.date: 09/18/2018
+ms.date: 12/10/2018
+ms.author: v-biyu
+ms.openlocfilehash: 4b0063029921bc952d3ca9439982d89483d8de8c
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028947"
 ---
-
 # <a name="receive-events-from-azure-event-hubs-using-nodejs"></a>使用 Node.js 从 Azure 事件中心接收事件
 
 Azure 事件中心是一个具备高度伸缩性的事件管理系统，每秒可处理大量事件，从而使应用程序能够处理和分析连接设备和其他系统所产生的海量数据。 收集到事件中心后，可使用进程内处理程序或通过转发到其他分析系统，接收和处理事件。 还可以在处理事件数据之前在 Azure 存储或 Azure Data Lake Store 中捕获该数据。  

@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 09/10/2018
-ms.date: 11/22/2018
+origin.date: 10/18/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 25085568e037b5892c0a7ea4b86697961b877114
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 7fd40dcc0733a00210d49ef08be86cc59581649a
+ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647761"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53157429"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>安装并配置本地数据网关
 当同一区域中的一个或多个 Azure Analysis Services 服务器连接到本地数据源时，需要本地数据网关。 若要了解有关网关的详细信息，请参阅[本地数据网关](analysis-services-gateway.md)。
@@ -41,8 +41,8 @@ ms.locfileid: "52647761"
 * 安装网关时，你用来登录到计算机的用户帐户必须具有“作为服务登录”权限。 安装完成后，本地数据网关服务使用 NT SERVICE\PBIEgwService 帐户作为服务登录。 可以在安装期间指定一个不同的帐户，也可以在安装完成后在“服务”中指定一个不同的帐户。 请确保组策略设置同时允许你在安装时登录的帐户以及你选择的具有“作为服务登录”权限的服务帐户。
 * 在 Azure AD 中使用与要在其中注册网关的订阅相同[租户](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)的帐户登录到 Azure。 安装和注册网关时不支持 Azure B2B（来宾）帐户。
 * 如果数据源位于 Azure 虚拟网络 (VNet) 上，则必须配置 [AlwaysUseGateway](analysis-services-vnet-gateway.md) 服务器属性。
-<!-- * The (unified) gateway described here is not supported in Azure China Cloud, Azure Germany, and Azure China sovereign regions. Use **Dedicated On-premises gateway for Azure Analysis Services**, installed from your server's **Quick Start** in the portal. -->
 
+<!-- * The (unified) gateway described here is not supported in Azure China Cloud, Azure Germany, and Azure China sovereign regions. Use **Dedicated On-premises gateway for Azure Analysis Services**, installed from your server's **Quick Start** in the portal. -->
 <a name="download"></a>
 ## <a name="download"></a>下载
  [下载网关](https://aka.ms/azureasgateway)
@@ -94,7 +94,7 @@ ms.locfileid: "52647761"
 
       默认订阅取决于用来登录的 Azure 帐户。
 
-    * **资源组**：创建资源组或选择现有资源组。
+    * **资源组**：创建资源组，或选择现有资源组。
 
     * **位置**：选择网关的注册区域。
 

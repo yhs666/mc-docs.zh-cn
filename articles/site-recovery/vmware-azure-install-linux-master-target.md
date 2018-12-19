@@ -1,20 +1,20 @@
 ---
-title: 安装用于从 Azure 故障转移到本地的 Linux 主目标服务器 | Azure
-description: 在重新保护 Linux 虚拟机之前，需要一个 Linux 主目标服务器。 本文介绍如何安装该服务器。
+title: 安装 Linux 主目标服务器以便故障回复到本地站点 | Azure
+description: 了解如何设置 Linux 主目标服务器，以便在使用 Azure Site Recovery 将 VMware VM 灾难恢复到 Azure 期间故障回复到本地站点。
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 10/11/2018
-ms.date: 11/19/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1a961c106ab29ed7fdee8e2bb76aaeffd9abfbc1
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ec5e0aff9da3d31f1c149e09689bee480c77581d
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658121"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029109"
 ---
-# <a name="install-a-linux-master-target-server"></a>安装 Linux 主目标服务器
+# <a name="install-a-linux-master-target-server-for-failback"></a>安装用于故障回复的 Linux 主目标服务器
 将虚拟机故障转移到 Azure 后，可将虚拟机故障回复到本地站点。 若要故障回复，需要在本地站点中重新保护 Azure 中的虚拟机。 对于此过程，需要安装一个本地主目标服务器用于接收流量。 
 
 如果受保护的虚拟机是 Windows 虚拟机，则需要安装 Windows 主目标。 对于 Linux 虚拟机，需要安装 Linux 主目标。 请阅读以下步骤，了解如何创建和安装 Linux 主目标。
@@ -41,8 +41,8 @@ ms.locfileid: "52658121"
 根据下列大小调整准则创建主目标：
 - **RAM**：6GB 或更多
 - **OS 磁盘大小**：100 GB 或更多（用于安装 OS）
-- **保留驱动器的附加磁盘大小**：1TB
-- **CPU 核心数**：4 个核心或更多
+- **保留驱动器的附加磁盘大小**：1 TB
+- **CPU 核心数**：4 核或更多
 
 支持以下受支持的 Ubuntu 内核。
 

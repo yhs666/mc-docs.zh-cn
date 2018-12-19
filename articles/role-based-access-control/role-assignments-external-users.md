@@ -17,12 +17,12 @@ ms.date: 09/25/2018
 ms.author: v-junlch
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 278a2cbd32396d95154041f8e2c126ab4446c481
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b8509d0b8c41a8672b1b2a1263f8a190fa903508
+ms.sourcegitcommit: a3cde3b41ed4d3f39a30eb4e562d6436a3e4d9d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654171"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53131751"
 ---
 # <a name="manage-access-for-external-users-using-rbac"></a>使用 RBAC 管理外部用户的访问权限
 
@@ -43,7 +43,7 @@ ms.locfileid: "52654171"
 RBAC 角色只能由订阅的“所有者”授予。 因此，管理员必须使用已预先分配有此角色或已创建 Azure 订阅的用户身份登录。
 
 在 Azure 门户中以管理员身份登录后，选择“订阅”，并选择所需的订阅。
-![Azure 门户中的订阅边栏选项卡](./media/role-assignments-external-users/0.png)默认情况下，如果管理员用户购买了 Azure 订阅，则该用户将显示为“帐户管理员”，即订阅角色。 有关 Azure 订阅角色的详细信息，请参阅[添加或更改 Azure 订阅管理员](../billing/billing-add-change-azure-subscription-administrator.md)。
+![Azure 门户中的订阅边栏选项卡](./media/role-assignments-external-users/0.png)默认情况下，如果管理员用户购买了 Azure 订阅，则该用户将显示为“帐户管理员”，即订阅角色。 
 
 在此示例中，用户“alflanigan@outlook.com”是 AAD 租户“默认租户 Azure”中某个订阅的“所有者”。 由于此用户是使用最初的 Microsoft 帐户“Outlook”（Microsoft 帐户 = Outlook、Live 等）创建 Azure 订阅的用户，因此，添加到此租户的其他所有用户的默认域名将是“\@alflaniganuoutlook.partner.onmschina.cn”。 根据设计，新域的语法格式是将创建租户的用户的用户名和域名组合在一起，并加上扩展 **.partner.onmschina.cn**。
 此外，在为新租户添加并验证自定义域名后，用户可以在租户中使用该域名登录。 有关如何在 Azure Active Directory 租户中验证自定义域名的详细信息，请参阅[将自定义域名添加到目录](/active-directory/active-directory-add-domain)。

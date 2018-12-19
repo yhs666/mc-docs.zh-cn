@@ -15,15 +15,15 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/20/2018
-ms.date: 11/05/2018
+ms.date: 12/11/2018
 ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: ac0275e52e555360f6cb69933e41145dc4799dd9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d7bbd824a0508c07e803e2669389b0b4eb2a6d49
+ms.sourcegitcommit: 5c059fe358e1298ef96450b2c620054afe89de1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661948"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53234100"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>快速入门：使用 Azure CLI 创建标准负载均衡器以对 VM 进行负载均衡
 
@@ -35,7 +35,7 @@ ms.locfileid: "52661948"
 
 使用 [az group create](/cli/group#create) 创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 
-以下示例在 *eastus* 位置创建名为 *myResourceGroupSLB* 的资源组：
+以下示例在“chinanorth”位置创建名为“myResourceGroupSLB”的资源组：
 
 ```cli
   az group create \

@@ -10,12 +10,12 @@ origin.date: 07/11/2018
 ms.date: 09/10/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: da806cba3e79cd809dce9e40d3db862b7a951680
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 20318338cbecc385532c76e25457ac9d160ca848
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664451"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029019"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>教程：为 IoT 中心执行手动故障转移（公共预览版）
 
@@ -70,7 +70,7 @@ ms.locfileid: "52664451"
 
    ![显示 IoT 中心属性窗格的屏幕截图](./media/tutorial-manual-failover/trigger-failover-01.png)
 
-3. 在“手动故障转移”窗格中，可以看到“IoT 中心主位置”和“IoT 中心辅助位置”。 主位置一开始设置为你在创建 IoT 中心时指定的位置，并且始终表示中心当前处于活动状态时的位置。 辅助位置是标准的 [Azure 异地配对区域](../best-practices-availability-paired-regions.md)，与主位置配对。 不能更改位置值。 在本教程中，主位置为 `chinaeast`，辅助位置为 `chinanorth`。
+3. 在“手动故障转移”窗格中，可以看到“IoT 中心主位置”和“IoT 中心辅助位置”。 主位置一开始设置为你在创建 IoT 中心时指定的位置，并且始终表示中心当前处于活动状态时的位置。 辅助位置是标准的 Azure 异地配对区域，与主位置配对。 不能更改位置值。 在本教程中，主位置为 `chinaeast`，辅助位置为 `chinanorth`。
 
    ![显示“手动故障转移”窗格的屏幕截图](./media/tutorial-manual-failover/trigger-failover-02.png)
 

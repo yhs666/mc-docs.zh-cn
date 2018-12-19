@@ -15,12 +15,12 @@ origin.date: 09/24/2018
 ms.date: 11/21/2018
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 101afa6d1d1b22c6528ad0d32ae4aaf5d7b74ed7
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 47fa436f3365f0ba051e5d0052fcd45563edf16c
+ms.sourcegitcommit: a3cde3b41ed4d3f39a30eb4e562d6436a3e4d9d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672938"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53131752"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>什么是基于角色的访问控制 (RBAC)？
 
@@ -35,11 +35,11 @@ RBAC 是在 [Azure 资源管理器](../azure-resource-manager/resource-group-ove
 - 让一个用户管理订阅中的虚拟机，另一个用户管理虚拟网络
 - 让 DBA 组管理订阅中的 SQL 数据库
 - 让某个用户管理资源组中的所有资源，例如虚拟机、网站和子网
-- 让某个应用程序访问资源组中的所有资源
+- 允许某个应用程序访问资源组中的所有资源
 
 ## <a name="best-practice-for-using-rbac"></a>使用 RBAC 的最佳做法
 
-使用 RBAC，可以在团队中对职责进行分配，仅向用户授予执行作业所需的访问权限。 请勿向每个人授予 Azure 订阅或资源的无限制权限，只能允许他们在特定的范围执行某些操作。
+使用 RBAC，可以在团队中实现职责分离，仅向用户授予执行作业所需的访问权限。 无需向每个人授予 Azure 订阅或资源的无限制权限，可以仅允许在特定的范围执行某些操作。
 
 规划访问控制策略时，最佳做法是授予用户完成工作所需的最低权限。 下图显示了与 RBAC 使用有关的建议模式。
 
@@ -80,7 +80,7 @@ Azure 引入了数据操作（目前以预览版提供），用于授予对对�
 
 范围是访问权限适用的边界。 分配角色时，可以通过定义范围来进一步限制允许的操作。 若要将某人分配为[网站参与者](built-in-roles.md#website-contributor)，但只针对一个资源组执行此分配，则可使用范围。
 
-在 Azure 中，可在多个级别指定范围：[管理组](../azure-resource-manager/management-groups-overview.md)、订阅、资源组或资源。 范围采用父子关系结构。
+在 Azure 中，可在多个级别指定范围：管理组、订阅、资源组或资源。 范围采用父子关系结构。
 
 ![角色分配的范围](./media/overview/rbac-scope.png)
 
@@ -88,7 +88,7 @@ Azure 引入了数据操作（目前以预览版提供），用于授予对对�
 
 - 如果将[所有者](built-in-roles.md#owner)角色分配给管理组范围的用户，则该用户可以在管理组中管理所有订阅中的一切内容。
 - 如果在订阅范围向某个组分配了[读取者](built-in-roles.md#reader)角色，则该组的成员可以查看订阅中的每个资源组和资源。
-- 如果在资源组范围向某个应用程序分配了[参与者](built-in-roles.md#contributor)角色，则该应用程序可以管理该资源组中所有类型的资源，但不能管理订阅中其他资源组的资源。
+- 如果在资源组范围向某个应用程序分配了[参与者](built-in-roles.md#contributor)角色，则该应用程序可以管理该资源组中所有类型的资源，但不能管理订阅中的其他资源组资源。
 
 ### <a name="role-assignments"></a>角色分配
 
@@ -128,7 +128,7 @@ Azure 引入了数据操作（目前以预览版提供），用于授予对对�
 
 ## <a name="next-steps"></a>后续步骤
 
-- [快速入门：使用 RBAC 和 Azure 门户授予用户的访问权限](quickstart-assign-role-user-portal.md)
+- [快速入门：使用 RBAC 和 Azure 门户为用户授予访问权限](quickstart-assign-role-user-portal.md)
 - [使用 RBAC 和 Azure 门户管理访问权限](role-assignments-portal.md)
 - [了解 Azure 中的不同角色](rbac-and-directory-admin-roles.md)
 

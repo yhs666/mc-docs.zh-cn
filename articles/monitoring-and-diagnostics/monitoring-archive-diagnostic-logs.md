@@ -9,12 +9,12 @@ origin.date: 07/18/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
 ms.component: logs
-ms.openlocfilehash: 56cd486ddecd517ae4f0f6e599990737be4bc6f7
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 74f370a908e35a34eab44bb36a981d459fd31b2e
+ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674678"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53219525"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>存档 Azure 诊断日志
 本文介绍如何使用 Azure 门户、PowerShell Cmdlet、CLI 或 REST API 将 [Azure 诊断日志](monitoring-overview-of-diagnostic-logs.md)存档到存储帐户中。 此选项适用于实施可选保留策略的诊断日志，将其保留下来进行审核、静态分析或备份。 只要配置设置的用户同时拥有两个订阅的相应 RBAC 访问权限，存储帐户就不必与资源发出日志位于同一订阅中。
@@ -161,5 +161,4 @@ insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/s1id1234
 
 * [下载 blob 进行分析](../storage/storage-dotnet-how-to-use-blobs.md)
 * [将诊断日志流式传输到事件中心命名空间](monitoring-stream-diagnostic-logs-to-event-hubs.md)
-* [使用 Azure Monitor 存档 Azure Active Directory 日志](../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 * [详细了解诊断日志](monitoring-overview-of-diagnostic-logs.md)

@@ -15,18 +15,16 @@ ms.workload: big-data
 origin.date: 07/09/2018
 ms.date: 08/27/2018
 ms.author: ashish
-ms.openlocfilehash: 75173d59380d819d60794e7184e98052b81b859d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d6d82b0d6bc57da1d1462ff91265f3fb7c9d24a3
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663781"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028946"
 ---
 # <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>使用 Ambari 优化 HDInsight 群集配置
 
 HDInsight 为大规模数据处理应用程序提供 Apache Hadoop 群集。 对这些复杂的多节点群集进行管理、监视和优化可能存在一定的难度。 [Apache Ambari](http://ambari.apache.org/) 是可用于管理和监视 HDInsight Linux 群集的 Web 界面。  对于 Windows 群集，可以使用 Ambari [REST API](hdinsight-hadoop-manage-ambari-rest-api.md)。
-
-有关使用 Ambari Web UI 的简介，请参阅[使用 Ambari Web UI 管理 HDInsight 群集](hdinsight-hadoop-manage-ambari.md)
 
 使用群集凭据通过 `https://CLUSTERNAME.azurehdidnsight.cn` 登录到 Ambari。 初始屏幕显示了概述仪表板。
 
@@ -402,9 +400,9 @@ HBase 堆大小指定区域服务器和主服务器要使用的最大堆数量�
 
 所有编辑内容都存储在称作 *Memstore* 的内存缓冲区中。 此机制增大了可在单个操作中写入磁盘的总数据量，并可加速以后对最近编辑内容的访问。 Memstore 大小由以下两个参数定义：
 
-* `hbase.regionserver.global.memstore.UpperLimit`：定义 Memstore 总共可以使用的区域服务器最大内存百分比。
+* `hbase.regionserver.global.memstore.UpperLimit`：定义 Memstore 总共可以使用的最大区域服务器百分比。
 
-* `hbase.regionserver.global.memstore.LowerLimit`：定义 Memstore 总共可以使用的区域服务器最小内存百分比。
+* `hbase.regionserver.global.memstore.LowerLimit`：定义 Memstore 总共可以使用的最小区域服务器百分比。
 
 若要优化随机读取，可以减小 Memstore 的上限和下限。
 
@@ -460,5 +458,5 @@ Memstore 本地分配缓冲区使用率由 `hbase.hregion.memstore.mslab.enabled
 
 ## <a name="next-steps"></a>后续步骤
 
-* [使用 Ambari Web UI 管理 HDInsight 群集](hdinsight-hadoop-manage-ambari.md)
+
 * [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)

@@ -12,12 +12,12 @@ origin.date: 09/22/2018
 ms.date: 11/26/2018
 ms.custom: mvc
 ms.author: v-lingwu
-ms.openlocfilehash: daacc27748f2cc3d9e2086256de785eda0c377b9
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 248387f37157a4be3a13ece1d998d679d0f31291
+ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674303"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53219521"
 ---
 # <a name="what-is-azure-service-bus"></a>什么是 Azure 服务总线？
 
@@ -62,7 +62,7 @@ Azure 服务总线是一种完全托管的企业集成消息中转站。 服务�
 
 ### <a name="auto-forwarding"></a>自动转发
 
-通过[自动转发](service-bus-auto-forwarding.md)功能，可以将队列或订阅链接到属于同一命名空间的另一个队列或主题。 启用自动转发时，服务总线会自动删除放置在第一个队列或订阅（源）中的消息，并将其放入第二个队列或主题（目标）中。
+[通过自动转发](service-bus-auto-forwarding.md)功能可将队列或订阅连接到作为相同命名空间组成部分的另一个队列或主题。 启用自动转发时，服务总线会自动删除放置在第一个队列或订阅（源）中的消息，并将其放入第二个队列或主题（目标）中。
 
 ### <a name="dead-lettering"></a>死信
 
@@ -82,7 +82,7 @@ Azure 服务总线是一种完全托管的企业集成消息中转站。 服务�
 
 ### <a name="transactions"></a>事务
 
-一个[事务](service-bus-transactions.md)将两个或更多操作组合成执行作用域。 服务总线支持对事务范围内的消息传送实体（队列、主题、订阅）执行分组操作。
+一个[事务](service-bus-transactions.md)将两个或更多操作组合成执行作用域。 服务总线支持对事务作用域内的消息传送实体（队列、主题、订阅）执行分组操作。
 
 ### <a name="filtering-and-actions"></a>筛选和操作
 
@@ -98,13 +98,13 @@ Azure 服务总线是一种完全托管的企业集成消息中转站。 服务�
 
 ### <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>适用于 Azure 资源的 SAS、RBAC 和托管标识
 
-服务总线支持多种安全协议，例如[共享访问签名](service-bus-sas.md) (SAS)、[基于角色的访问控制](service-bus-role-based-access-control.md) (RBAC)、[适用于 Azure 资源的托管标识](service-bus-managed-service-identity.md)。
+服务总线支持多种安全协议，例如[共享访问签名](service-bus-sas.md) (SAS)、[基于角色的访问控制](service-bus-role-based-access-control.md) (RBAC)。
 
 ### <a name="geo-disaster-recovery"></a>异地灾难恢复
 
-在 Azure 区域数据中心遭遇停机的情况下，可以使用[异地灾难恢复](service-bus-geo-dr.md)在其他区域或数据中心进行数据处理，以实现连续运行。
+在 Azure 区域或数据中心遭遇停机的情况下，可以使用异地灾难恢复在其他区域或数据中心进行数据处理，以实现连续运行。
 
-### <a name="security"></a>安全性
+### <a name="security"></a>安全
 
 服务总线支持标准的 [AMQP 1.0](service-bus-amqp-overview.md) 和 [HTTP/REST](https://docs.microsoft.com/en-us/rest/api/servicebus/) 协议。
 

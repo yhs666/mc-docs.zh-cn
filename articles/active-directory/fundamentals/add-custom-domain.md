@@ -9,16 +9,16 @@ ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
 origin.date: 09/18/2018
-ms.date: 11/12/2018
+ms.date: 12/10/2018
 ms.author: v-junlch
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: a7a2a3c5ba496b7bc30a791abe5252b7c33b5fb1
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6f17cffee54b01f46dd955069d9fc16f4d43e7cf
+ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648779"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53157433"
 ---
 # <a name="how-to-add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>如何：使用 Azure Active Directory 门户添加自定义域名
 每个新的 Azure AD 租户都附带了一个初始域名 *domainname*.partner.onmschina.cn。 无法更改或删除初始域名，但可以将组织的名称添加到列表中。 添加自定义域名有助于创建用户所熟悉的用户名，例如 *alain@contoso.com*。
@@ -29,12 +29,12 @@ ms.locfileid: "52648779"
 ## <a name="create-your-directory-in-azure-ad"></a>在 Azure AD 中创建目录
 获取域名后，可以创建第一个 Azure AD 目录。
 
-1. 使用目录的订阅所有者帐户登录到 [Azure 门户](https://portal.azure.cn/)，然后选择“Azure Active Directory”。
+1. 使用具有订阅“所有者”角色的帐户登录到 [Azure 门户](https://portal.azure.cn/)，然后选择“Azure Active Directory”。 有关订阅角色的详细信息，请参阅[经典订阅管理员角色、Azure RBAC 角色和 Azure AD 管理员角色](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles)。
 
     ![Azure 门户屏幕](./media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 
     >[!TIP]
-    > 如果计划使用 Azure AD 联合你的本地 Windows Server AD，则需要在运行 Azure AD Connect 工具来同步目录时选中“我计划将此域配置为使用本地 Active Directory 进行单一登录”复选框。 还需要在向导的“Azure AD 域”步骤中注册选择用于与本地目录进行联合的域名。 [这些说明](../hybrid/how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation)中示范了向导中该步骤的大致情形。 如果没有 Azure AD Connect 工具，可以 [在此处下载](http://go.microsoft.com/fwlink/?LinkId=615771)。
+    > 如果计划使用 Azure AD 联合你的本地 Windows Server AD，则需要在运行 Azure AD Connect 工具来同步目录时选中“我计划将此域配置为使用本地 Active Directory 进行单一登录”复选框。 还需要在向导的“Azure AD 域”步骤中注册选择用于与本地目录进行联合的域名。 [这些说明](../hybrid/how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation)中示范了向导中该步骤的大致情形。 如果没有 Azure AD Connect 工具，可以 [在此处下载](https://go.microsoft.com/fwlink/?LinkId=615771)。
 
 2. 遵循[为组织创建新租户](active-directory-access-create-new-tenant.md#create-a-new-tenant-for-your-organization)中的步骤创建新目录。
 
@@ -107,3 +107,4 @@ ms.locfileid: "52648779"
 
 - 若要结合 Azure Active Directory 使用 Windows Server 的本地版本，请参阅[将本地目录与 Azure Active Directory 集成](../connect/active-directory-aadconnect.md)。
 
+<!-- Update_Description: wording update -->

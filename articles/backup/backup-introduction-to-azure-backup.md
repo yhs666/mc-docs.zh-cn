@@ -11,12 +11,12 @@ origin.date: 08/02/2018
 ms.date: 08/23/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: de24fc8c80454623a4d9b6ba5cfd824acf88ef0a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 2c3b6cd9625405329fbe065684a3c1365c491a00
+ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662254"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53219566"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure 备份功能概述
 Azure 备份是基于 Azure 的服务，可用于备份（或保护）和还原 Azure 云中的数据。 Azure 备份取代了现有的本地或异地备份解决方案，并且是可靠、安全、高性价比的基于云的解决方案。 Azure 备份提供多个组件，可将其下载并部署到适当的计算机、服务器或云中。 依据要保护的内容选择部署的组件或代理。 无论是保护本地数据还是云中数据，所有 Azure 备份组件均可用于将数据备份到 Azure 的恢复服务保管库中。 请参阅本文稍后部分的 [Azure 备份组件表格](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use)，了解保护特定数据、应用程序或工作负荷所用的组件。
@@ -87,7 +87,7 @@ Azure 备份是基于 Azure 的服务，可用于备份（或保护）和还原 
 | Azure IaaS VM 备份 |应用程序一致性备份，使用[前脚本和后脚本框架](backup-azure-linux-app-consistent.md)<br/> [精细文件恢复](backup-azure-restore-files-from-vm.md)<br/> [还原所有 VM 磁盘](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [VM 还原](backup-azure-arm-restore-vms.md#create-a-new-vm-from-a-restore-point) |
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>结合使用高级存储 VM 和 Azure 备份
-Azure 备份会保护高级存储 VM。 Azure 高级存储是基于固态硬盘 (SSD) 的存储，用于支持 I/O 密集型工作负荷。 高级存储很适合虚拟机 (VM) 工作负荷。 有关高级存储的详细信息，请参阅[高级存储：Azure 虚拟机工作负荷的高性能存储](../virtual-machines/windows/premium-storage.md)一文。
+Azure 备份会保护高级存储 VM。 Azure 高级存储是基于固态硬盘 (SSD) 的存储，用于支持 I/O 密集型工作负荷。 高级存储很适合虚拟机 (VM) 工作负荷。 有关高级存储的详细信息，请参阅文章：[高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../virtual-machines/windows/premium-storage.md)。
 
 ### <a name="back-up-premium-storage-vms"></a>备份高级存储 VM
 在备份高级存储 VM 时，备份服务在高级存储帐户中创建名为“AzureBackup-”的临时暂存位置。 暂存位置大小与恢复点快照大小相同。 请确保高级存储帐户有足够的可用空间，可以容纳临时暂存位置。 有关详细信息，请参阅[高级存储限制](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets)一文。 备份作业完成后，会删除暂存位置。 用于暂存位置的存储的价格与所有 [高级存储定价](../virtual-machines/windows/premium-storage.md#pricing-and-billing)一致。
@@ -233,7 +233,7 @@ Azure 备份保护本地和云端的数据。 Azure Site Recovery 就虚拟机�
 ## <a name="next-steps"></a>后续步骤
 请参阅下述某个教程，详细了解在 Windows Server 上保护数据或在 Azure 中保护虚拟机 (VM) 的分步说明。
 
-- [备份文件和文件夹](backup-try-azure-backup-in-10-mins.md)
+- [备份文件和文件夹](backup-configure-vault.md)
 - [备份 Azure 虚拟机](backup-azure-vms-first-look-arm.md)
 
 有关保护其他工作负荷的详细信息，请尝试阅读以下文章之一：

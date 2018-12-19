@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/19/2016
-ms.date: 11/12/2018
+ms.date: 12/11/2018
 ms.author: v-jay
-ms.openlocfilehash: e2a820b7cf9556b743db54b5513419c9ddaccd24
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5e37ad8b3416a892a256c7de422de62b6c575b1b
+ms.sourcegitcommit: 5c059fe358e1298ef96450b2c620054afe89de1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652457"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53234102"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>使用 .NET SDK 创建 DNS 区域和记录集
 
@@ -64,14 +64,15 @@ using Microsoft.Azure.Management.Dns.Models;
 
 ```cs
 // Build the service credentials and DNS management client
-var serviceCreds = await ApplicationTokenProvider.LoginSilentAsync(tenantId, clientId, secret);
+var serviceCreds = await ApplicationTokenProvider.LoginSilentAsync(tenantId, clientId, secret, ActiveDirectoryServiceSettings.AzureChina);
 var dnsClient = new DnsManagementClient(serviceCreds);
 dnsClient.SubscriptionId = subscriptionId;
+dnsClient.BaseUri= new System.Uri("https://management.chinacloudapi.cn");
 ```
 
 ## <a name="create-or-update-a-dns-zone"></a>创建或更新 DNS 区域
 
-若要创建 DNS 区域，首先创建一个 "Zone" 对象来包含 DNS 区域参数。 因为 DNS 区域未链接到某一特定区域，此位置会被设置为 'global'。 在此示例中，还会将 [Azure 资源管理器“标记”](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/)添加到此区域。
+若要创建 DNS 区域，首先创建一个 "Zone" 对象来包含 DNS 区域参数。 因为 DNS 区域未链接到某一特定区域，此位置会被设置为 'global'。 在此示例中，还会将 [Azure 资源管理器“标记”](/azure-resource-manager/resource-group-using-tags)添加到此区域。
 
 要实际创建或更新 Azure DNS 中的区域，会将包含区域参数的区域对象传递给 `DnsManagementClient.Zones.CreateOrUpdateAsyc` 方法。
 

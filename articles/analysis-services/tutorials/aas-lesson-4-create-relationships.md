@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 07/03/2018
-ms.date: 08/06/2018
+origin.date: 10/18/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: ae67bd770986b6f6a2df5a0f8959d5c474d617f5
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 7e94930325543377bc51ebbaa704d8da01047b40
+ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646714"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53157427"
 ---
 # <a name="create-relationships"></a>创建关系
 
@@ -23,7 +23,7 @@ ms.locfileid: "52646714"
 本课预计完成时间：**10 分钟**  
 
 ## <a name="prerequisites"></a>先决条件  
-本主题是表格建模教程的一部分，应当按顺序完成。 在执行本课程中的任务之前，应已完成上一课：[第 3 课：标记为日期表](../tutorials/aas-lesson-3-mark-as-date-table.md)。 
+本主题是表格建模教程的一部分，应当按顺序完成。 在执行本课中的任务之前，应当已完成上一课：[第 3 课：标记为日期表](../tutorials/aas-lesson-3-mark-as-date-table.md)。 
 
 ## <a name="review-existing-relationships-and-add-new-relationships"></a>查看现有关系和添加新关系  
 使用“获取数据”导入数据时，可以从 AdventureWorksDW2014 数据库获取 7 个表。 一般情况下，从关系型源导入数据时，现有关系会连同数据一起自动导入。 若要通过“获取数据”自动在数据模型中创建关系，必须在数据源的表之间存在关系。

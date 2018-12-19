@@ -4,23 +4,20 @@ description: 了解流量管理器的性能以及如何测试使用流量管理�
 services: traffic-manager
 documentationcenter: ''
 author: rockboyfor
-manager: digimobile
-editor: ''
-ms.assetid: 3ba5dfa1-2922-43f1-9a23-d06969c4a516
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/16/2017
-ms.date: 09/17/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0c3c23ab1d31ca217c750fcb7a32d7c1233dec59
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b36b143c5037658f62d4cf41f2e2b0bfca3fc7bb
+ms.sourcegitcommit: 1b6a310ba636b6dd32d7810821bcb79250393499
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656733"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53389368"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>流量管理器的性能注意事项
 
@@ -30,18 +27,15 @@ ms.locfileid: "52656733"
 
 ## <a name="performance-considerations-for-traffic-manager"></a>流量管理器的性能注意事项
 
-流量管理器对网站产生的唯一性能影响是初始 DNS 查找。 针对流量管理器配置文件名称发出的 DNS 请求由托管 trafficmanager.cn 区域的 Azure DNS 根服务器处理。 流量管理器根据流量管理器策略和探测结果填充并定期更新 Microsoft DNS 根服务器。 因此，即使在初始 DNS 查找期间，也不会将 DNS 查询发送到流量管理器。
+流量管理器对网站产生的唯一性能影响是初始 DNS 查找。 针对流量管理器配置文件名称发出的 DNS 请求由托管 trafficmanager.cn 区域的 Azure DNS 根服务器处理。 流量管理器根据流量管理器策略和探测结果填充并定期更新世纪互联的 DNS 根服务器。 因此，即使在初始 DNS 查找期间，也不会将 DNS 查询发送到流量管理器。
 
-<!-- Notice: Currently is Microsoft correct -->
-
-流量管理器由多个组件构成：DNS 名称服务器、API 服务、存储层和终结点监视服务。 如果流量管理器服务组件发生故障，与流量管理器配置文件关联的 DNS 名称不会受到影响。 Azure DNS 服务器中的记录将保持不变。 但是，终结点监视和 DNS 更新不会发生。 因此，当主站点关闭时，流量管理器无法将 DNS 更新为指向故障转移站点。
+<!-- Notice: Currently is Microsoft correct --> 流量管理器由多个组件构成：DNS 名称服务器、API 服务、存储层和终结点监视服务。 如果流量管理器服务组件发生故障，与流量管理器配置文件关联的 DNS 名称不会受到影响。 Azure DNS 服务器中的记录将保持不变。 但是，终结点监视和 DNS 更新不会发生。 因此，当主站点关闭时，流量管理器无法将 DNS 更新为指向故障转移站点。
 
 DNS 名称解析速度会加快，结果将被缓存。 初始 DNS 查找速度取决于客户端用于名称解析的 DNS 服务器。 通常，客户端可在大约 50 毫秒内完成一个 DNS 查找。 查找结果在 DNS 生存时间 (TTL) 期间内缓存。 流量管理器的默认 TTL 为 300 秒。
 
 流量不会通过流量管理器。 完成 DNS 查找后，客户端便获得了网站实例的 IP 地址。 客户端直接连接到该地址，而不通过流量管理器。 选择的流量管理器策略对 DNS 性能没有影响。 但是，“性能”路由方法可能会对应用程序体验产生负面影响。 例如，如果策略将来自中国北部的流量重定向到亚洲托管的实例，这些会话的网络延迟可能会造成性能问题。
 
 <!--Notice: Currently is 中国北部-->
-
 ## <a name="measuring-traffic-manager-performance"></a>测量流量管理器性能
 
 可以使用多个网站了解流量管理器配置文件的性能和行为。 其中的许多站点可以免费使用，但可能附带限制。 某些站点以收费形式提供增强型监视和报告。
@@ -49,7 +43,6 @@ DNS 名称解析速度会加快，结果将被缓存。 初始 DNS 查找速度�
 这些站点上的工具可以测量 DNS 延迟，并显示中国各地客户端位置的已解析 IP 地址。 其中的大多数工具不会缓存 DNS 结果。 因此，每次运行测试时，这些工具会显示完整的 DNS 查找。 从自己的客户端测试时，只能在 TTL 持续期间内体验完整的 DNS 查找性能一次。
 
 <!-- Notice Currently is 全国各地-->
-
 ## <a name="sample-tools-to-measure-dns-performance"></a>用于测量 DNS 性能的工具示例
 
 * [SolveDNS](http://www.solvedns.com/dns-comparison/)
@@ -92,7 +85,8 @@ DNS 名称解析速度会加快，结果将被缓存。 初始 DNS 查找速度�
 
 [测试流量管理器设置](traffic-manager-testing-settings.md)
 
-[流量管理器上的操作（REST API 参考）](http://go.microsoft.com/fwlink/?LinkId=313584)
+[流量管理器上的操作（REST API 参考）](https://go.microsoft.com/fwlink/?LinkId=313584)
 
 [Azure 流量管理器 Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager)
+
 <!--Update_Description: update meta properties, wording update, update link-->

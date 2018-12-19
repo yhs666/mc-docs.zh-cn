@@ -1,25 +1,20 @@
 ---
-title: 在 Azure 表存储中设计可伸缩的高性能表。 | Azure
+title: 在 Azure 表存储中设计可伸缩的高性能表。 | Microsoft Docs
 description: 在 Azure 表存储中设计可伸缩的高性能表。
 services: storage
-documentationcenter: na
 author: WenJason
-manager: digimobile
-ms.assetid: 8e228b0c-2998-4462-8101-9f16517393ca
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
 origin.date: 04/23/2018
-ms.date: 07/02/2018
+ms.date: 12/10/2018
 ms.author: v-jay
-ms.openlocfilehash: f8c2d34fae1a45cf270d007f5ebd0913b8bfb570
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.component: tables
+ms.openlocfilehash: 909eacd6c922615e9c1c58a3f1928e7217b96b5f
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648678"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028891"
 ---
 # <a name="design-scalable-and-performant-tables"></a>设计可伸缩的高性能表
 
@@ -127,7 +122,7 @@ ms.locfileid: "52648678"
 </table>
 
 
-到目前为止，此数据看起来非常类似于关系数据库中的表，主要区别是有必需的列，以及能够在同一个表中存储多种实体类型。 此外，**FirstName** 或 **Age** 等用户定义的每个属性还具有数据类型（如 integer 或 string），就像关系数据库中的列一样。 虽然与关系数据库中不同，表服务的架构灵活性质意味着每个实体的属性不需要具有相同的数据类型。 若要在单个属性中存储复杂数据类型，必须使用序列化格式（例如，JSON 或 XML）。 若要深入了解表服务（例如支持的数据类型、支持的日期范围、命名规则和大小限制），请参阅 [Understanding the Table Service Data Model](http://msdn.microsoft.com/library/azure/dd179338.aspx)（了解表服务数据模型）。
+到目前为止，此数据看起来非常类似于关系数据库中的表，主要区别是有必需的列，以及能够在同一个表中存储多种实体类型。 此外，**FirstName** 或 **Age** 等用户定义的每个属性还具有数据类型（如 integer 或 string），就像关系数据库中的列一样。 虽然与关系数据库中不同，表服务的架构灵活性质意味着每个实体的属性不需要具有相同的数据类型。 若要在单个属性中存储复杂数据类型，必须使用序列化格式（例如，JSON 或 XML）。 若要深入了解表服务（例如支持的数据类型、支持的日期范围、命名规则和大小限制），请参阅 [Understanding the Table Service Data Model](https://msdn.microsoft.com/library/azure/dd179338.aspx)（了解表服务数据模型）。
 
 对 **PartitionKey** 和 **RowKey** 的选择是实现良好的表设计的基础。 表中存储的每个实体都必须具有唯一的 **PartitionKey** 和 **RowKey**。 与关系数据库表中的键一样，将为 **PartitionKey** 和 **RowKey** 值编制索引来创建聚集索引以便快速地进行查找。 但是，表服务不创建任何辅助索引，因此，**PartitionKey** 和 **RowKey** 是唯一具有索引的属性。 [表设计模式](table-storage-design-patterns.md)中介绍的一些模式展示了可以如何解决此明显的限制。  
 
@@ -138,7 +133,7 @@ ms.locfileid: "52648678"
 
 在表服务中，单个节点为一个或多个完整的分区提供服务，并且该服务可通过对节点上的分区进行动态负载均衡来进行缩放。 如果某节点负载过轻，表服务将该节点针对的分区范围*拆分*为不同节点；流量下降时，该服务可将无操作的节点的分区范围*合并*为单个节点。  
 
-若要深入了解表服务的内部细节（特别是服务管理分区的方式），请参阅文章 [Microsoft Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)（Microsoft Azure 存储：具有高度一致性的高可用云存储服务）。  
+有关表服务内部细节的详细信息（特别是该服务如何管理分区），请参阅文章 [Microsoft Azure 存储：具有高度一致性的高可用云存储服务](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)。  
 
 ## <a name="entity-group-transactions"></a>实体组事务
 在表服务中，实体组事务 (EGT) 是唯一内置机制，用于对多个实体执行原子更新。 EGT 有时也被称为“批处理事务”。 EGT 只能对存储在同一分区中的实体（也就是说，在给定的表中共享同一分区键）执行操作。 因此，任何时候需要实现跨多个实体的原子事务行为时，必须确保那些实体位于同一分区中。 这通常是将多个实体类型保存在同一个表（和分区）中，而不是对不同实体类型使用多个表的原因。 单个 EGT 最多可应用于 100 个实体。  若要提交多个并发 EGT 进行处理，请务必确保不在 EGT 共用实体上操作这些 EGT，否则会造成延迟处理。
@@ -158,7 +153,7 @@ EGT 还引入了一个在设计时需要评估的潜在权衡。 那就是，使
 | **RowKey** 的大小 |大小最大为 1 KB 的字符串 |
 | 实体组事务的大小 |一个事务最多可包含 100 个实体，并且负载大小必须小于 4 MB。 EGT 只能更新一次实体。 |
 
-有关详细信息，请参阅 [了解表服务数据模型](http://msdn.microsoft.com/library/azure/dd179338.aspx)。  
+有关详细信息，请参阅 [了解表服务数据模型](https://msdn.microsoft.com/library/azure/dd179338.aspx)。  
 
 ## <a name="cost-considerations"></a>成本注意事项
 表存储的价格相对便宜，但在评估任何表服务解决方案时，应同时针对容量使用情况和事务数量进行成本估算。 但是，在许多情况下，为提高解决方案的性能或可伸缩性，存储非规范化或重复的数据是一种有效方法。 有关定价的详细信息，请参阅 [Azure 存储定价](https://azure.cn/pricing/details/storage/)。  

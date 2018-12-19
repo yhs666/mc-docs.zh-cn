@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-origin.date: 07/03/2018
-ms.date: 08/06/2018
+origin.date: 10/18/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2bc266c2dba00975fdac34f47d62c7769930f9b4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b15b8a183c4f12e2eafd48d3834581b5bcf99223
+ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656446"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53157404"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>教程：从门户添加示例模型
 
@@ -56,9 +56,9 @@ ms.locfileid: "52656446"
 
 示例模型使用了缓存内存资源。 如果不使用示例模型进行测试，则应将其从服务器中删除。
 
-下面的步骤介绍了如何使用 SSMS 从服务器中删除模型。
-<!-- Not Available on You can also delete a model by using the preview Web designer feature.-->
+下面的步骤介绍了如何使用 SSMS 从服务器中删除模型。 
 
+<!-- Not Available on You can also delete a model by using the preview Web designer feature.-->
 1. 在 SSMS >“对象资源管理器”中，单击“连接” > “Analysis Services”。
 
 2. 在“连接到服务器”中，粘贴服务器名称，然后在“身份验证”中选择“Active Directory - 支持 MFA 的通用身份验证”，输入你的用户名，然后单击“连接”。
@@ -75,4 +75,5 @@ ms.locfileid: "52656446"
 
 > [!div class="nextstepaction"]
 > [教程：配置服务器管理员和用户角色](analysis-services-database-users.md)
+
 <!-- Update_Description: udpate meta properties, wording update -->

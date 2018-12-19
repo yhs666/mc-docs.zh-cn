@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 09/14/2018
 ms.date: 10/31/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 56cd474c8ad4a9741d6aafa1a9ab2831415871bf
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 192f0c99fa6ed1b678eceaf8a94a5e8f1d40b764
+ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646318"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53219527"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>使应用程序免受服务总线中断和灾难影响的最佳实践
 
@@ -27,7 +27,7 @@ ms.locfileid: "52646318"
 ## <a name="current-architecture"></a>当前体系结构
 服务总线使用多个消息存储空间来存储发送到队列或主题的消息。 将未分区的队列或主题分配到一个消息存储空间。 如果此消息存储空间不可用，则针对该队列或主题的所有操作都会失败。
 
-所有服务总线消息传送实体（队列、主题、中继）都位于隶属于数据中心的同一服务命名空间中。 当前，[服务总线支持命名空间级别的异地灾难恢复和异地复制](service-bus-geo-dr.md)。
+所有服务总线消息传送实体（队列、主题、中继）都位于隶属于数据中心的同一服务命名空间中。 当前，服务总线支持命名空间级别的异地灾难恢复和异地复制。
 
 ## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>保护队列和主题免受消息存储空间故障的影响
 将未分区的队列或主题分配到一个消息存储空间。 如果此消息存储空间不可用，则针对该队列或主题的所有操作都会失败。 另一方面，分区的队列包括多个片段。 每个片段存储在不同的消息存储空间中。 当向分区的队列或主题发送消息时，服务总线会将该消息分配到其中一个片段。 如果相应的消息存储空间不可用，则服务总线会将消息写入另一片段（如有可能）。 [高级 SKU](service-bus-premium-messaging.md) 中不再支持分区实体。 
@@ -73,7 +73,7 @@ ms.locfileid: "52646318"
 
 -   **消息延迟或丢失**：假定发送方将消息 m1 成功发送到主要队列，而该队列在接收方接收 m1 之前变为不可用。 发送方将后续消息 m2 发送给辅助队列。 如果主要队列是暂时不可用，则接收方会在该队列恢复可用后接收 m1。 如果发生灾难，则接收方可能永远无法接收 m1。
 
--   **重复接收**：假定发件人将消息 m 发送给主要队列。 服务总线成功处理了 m 但无法发送响应。 发送操作超时后，发送方将向辅助队列发送 m 的一份相同副本。 如果接收方能够在主要队列变为不可用之前接收 m 的第一个副本，则接收方会在几乎同一时间接收 m 的两个副本。 如果接收方不能在主要队列变为不可用之前接收 m 的第一个副本，则接收方首先仅接收 m 的第二个副本，但在主要队列变为可用后接收 m 的另一个副本。
+-   **重复接收**：假定发送方将消息 m 发送到主要队列。 服务总线成功处理了 m 但无法发送响应。 发送操作超时后，发送方将向辅助队列发送 m 的一份相同副本。 如果接收方能够在主要队列变为不可用之前接收 m 的第一个副本，则接收方会在几乎同一时间接收 m 的两个副本。 如果接收方不能在主要队列变为不可用之前接收 m 的第一个副本，则接收方首先仅接收 m 的第二个副本，但在主要队列变为可用后接收 m 的另一个副本。
 
 [使用服务总线中转消息进行异地复制][Geo-replication with Service Bus Brokered Messages]示例演示了消息传送实体的被动复制。
 

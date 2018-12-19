@@ -13,12 +13,12 @@ ms.reviewer: vanto, carlrab
 manager: craigg
 origin.date: 10/05/2018
 ms.date: 12/03/2018
-ms.openlocfilehash: c8ea078e6a2ac64dedffd518a892019b82fb4039
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: c0c5eef0cfc1f137da7d2048d04082eb21864225
+ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675562"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53219562"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>使用 SQL 配置和管理 Azure Active Directory 身份验证
 
@@ -33,7 +33,7 @@ ms.locfileid: "52675562"
 
 创建 Azure AD 并对其填充用户和组。 Azure AD 可以是初始 Azure AD 托管域。 Azure AD 也可以是本地 Active Directory 域服务，该服务可以与 Azure AD 联合。
 
-有关详细信息，请参阅[将本地标识与 Azure Active Directory 集成](../active-directory/hybrid/whatis-hybrid-identity.md)、[将自己的域名添加到 Azure AD](/active-directory/fundamentals/add-custom-domain)、[Microsoft Azure 现在支持与 Windows Server Active Directory 联合](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)、[管理 Azure AD 目录](../active-directory/fundamentals/active-directory-administer.md)、[使用 Windows PowerShell 管理 Azure AD](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0) 和[混合标识所需端口和协议](../active-directory/hybrid/reference-connect-ports.md)。
+有关详细信息，请参阅[将本地标识与 Azure Active Directory 集成](../active-directory/hybrid/whatis-hybrid-identity.md)、[将自己的域名添加到 Azure AD](/active-directory/fundamentals/add-custom-domain)、[Microsoft Azure 现在支持与 Windows Server Active Directory 联合](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)、[管理 Azure AD 目录](../active-directory/fundamentals/active-directory-whatis.md)、[使用 Windows PowerShell 管理 Azure AD](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0) 和[混合标识所需端口和协议](../active-directory/hybrid/reference-connect-ports.md)。
 
 ## <a name="create-an-azure-ad-administrator-for-azure-sql-server"></a>为 Azure SQL Server 创建 Azure AD 管理员
 

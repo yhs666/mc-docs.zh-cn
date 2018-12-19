@@ -6,22 +6,20 @@ author: WenJason
 ms.service: dns
 ms.topic: quickstart
 origin.date: 07/16/2018
-ms.date: 07/23/2018
+ms.date: 12/11/2018
 ms.author: v-jay
-ms.openlocfilehash: e87050bb40536e6b226104cc54bd04fa74d54a8e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 70295fd0ce43d4c7720934e770bbe9669c3ad922
+ms.sourcegitcommit: 5c059fe358e1298ef96450b2c620054afe89de1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654568"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53234094"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建 Azure DNS 区域和记录
 
 在本快速入门中，你将使用 Azure PowerShell 创建你的第一个 DNS 区域和记录。 也可以使用 [Azure 门户](dns-getstarted-portal.md)或 [Azure CLI](dns-getstarted-cli.md) 执行这些步骤。 
 
 DNS 区域用来托管某个特定域的 DNS 记录。 若要开始在 Azure DNS 中托管域，需要为该域名创建 DNS 区域。 随后会在此 DNS 区域内为每个 DNS 记录创建域。 最后，要将 DNS 区域发布到 Internet，需要为域配置名称服务器。 以下描述了上述每一个步骤。
-
-Azure DNS 还支持创建专用域。 有关如何创建第一个专用 DNS 区域和记录的分步说明，请参阅 [Azure DNS 专用区域入门（使用 PowerShell）](private-dns-getstarted-powershell.md)。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
@@ -71,7 +69,7 @@ Name                  : contoso.com
 ResourceGroupName     : myresourcegroup
 Etag                  : 00000003-0000-0000-b40d-0996b97ed101
 Tags                  : {}
-NameServers           : {ns1-01.azure-dns.com., ns2-01.azure-dns.net., ns3-01.azure-dns.org., ns4-01.azure-dns.info.}
+NameServers           : {ns1-01.azure-dns.cn., ns2-01.azure-dns.cn., ns3-01.azure-dns.cn., ns4-01.azure-dns.cn.}
 NumberOfRecordSets    : 3
 MaxNumberOfRecordSets : 5000
 ```

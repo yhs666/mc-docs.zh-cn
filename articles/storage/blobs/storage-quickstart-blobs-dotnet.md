@@ -9,12 +9,12 @@ ms.topic: quickstart
 origin.date: 08/27/2018
 ms.date: 11/08/2018
 ms.author: v-jay
-ms.openlocfilehash: 0e9137a73f9db4b645cfb02ae9ca8634551c5456
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a38e275e5a04b278d26a5321b5cb3ce91c07c3db
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652929"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029015"
 ---
 # <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>快速入门：使用 .NET 在对象存储中创建 blob
 
@@ -22,9 +22,7 @@ ms.locfileid: "52652929"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
-
-若要完成此快速入门，请首先在 [Azure 门户](https://portal.azure.cn/#create/Microsoft.StorageAccount-ARM)中创建 Azure 存储帐户。 有关如何创建帐户的帮助，请参阅[创建存储帐户](../common/storage-quickstart-create-account.md)。
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 接下来，请下载并安装适用于操作系统的 .NET Core 2.0。 如果运行的是 Windows，可以安装 Visual Studio 并根据偏好使用 .NET Framework。 也可选择安装一个可以在操作系统中使用的编辑器。
 

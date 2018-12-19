@@ -4,27 +4,24 @@ description: 本快速入门文章介绍如何创建流量管理器配置文件�
 services: traffic-manager
 documentationcenter: ''
 author: rockboyfor
-manager: digimobile
-editor: ''
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
-ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/18/2018
-ms.date: 09/17/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: 171281d9f2444a193bb1b2b1773cf9e630ae5beb
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 424ad6c9703a7d210f72b39da0abde9babe14190
+ms.sourcegitcommit: 1b6a310ba636b6dd32d7810821bcb79250393499
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52667098"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53389381"
 ---
 <!--Verify successfully-->
-# <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application"></a>快速入门：为高度可用的 Web 应用程序创建流量管理器配置文件。
+# <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application"></a>快速入门：为高度可用的 Web 应用程序创建流量管理器配置文件
 
 本快速入门介绍如何创建流量管理器配置文件，以便实现 Web 应用程序的高度可用性。 
 
@@ -49,7 +46,7 @@ ms.locfileid: "52667098"
     |      位置  |   中国东部        |
     |||
 
-3. 选择“创建” 。
+3. 选择“创建”。
 4. 默认网站在 Web 应用成功部署时创建。
 5. 重复步骤 1-3，使用以下设置在另一 Azure 区域创建另一个网站：
 
@@ -92,7 +89,7 @@ ms.locfileid: "52667098"
     | Name           | myPrimaryEndpoint                                        |
     | 目标资源类型           | 应用服务                          |
     | 目标资源          | **选择应用服务**可显示同一订阅下的 Web 应用的列表。 在“资源”中，选取要添加为第一个终结点的应用服务。 |
-    | Priority               | 选择“1”。 如果此终结点处于正常状态，这会导致所有流量转到此终结点。    |
+    | 优先度               | 选择“1”。 如果此终结点处于正常状态，这会导致所有流量转到此终结点。    |
 
 4. 针对下一个 Web 应用终结点重复步骤 2 和步骤 3。 确保添加该终结点时将其**优先级**值设为 **2**。
 5.  添加完这两个终结点后，这两个终结点会显示在“流量管理器配置文件”中，并且其监视状态为“联机”。
@@ -129,5 +126,4 @@ ms.locfileid: "52667098"
 > [!div class="nextstepaction"]
 > [流量管理器教程](tutorial-traffic-manager-improve-website-response.md)
 
-<!-- Update_Description: new articles on quickstart create traffic manager profile -->
-<!--ms.date: 09/17/2018-->
+<!-- Update_Description: update meta properties -->

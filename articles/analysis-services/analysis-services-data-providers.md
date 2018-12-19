@@ -6,15 +6,15 @@ manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 10/12/2018
-ms.date: 11/12/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 790f542137d9573cb4d6043380109785ca451c17
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 006e1cc00bde8e71a5dfa16660d7768dfda082da
+ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654152"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53157436"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>用于连接到 Azure Analysis Services 的客户端库
 

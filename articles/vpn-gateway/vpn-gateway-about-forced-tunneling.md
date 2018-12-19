@@ -14,20 +14,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/01/2017
-ms.date: 11/05/2018
+ms.date: 12/10/2018
 ms.author: v-jay
-ms.openlocfilehash: f8246434c712adbb3c258d360e468b311b889817
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c63511f4ba6d939ccd05f6c3a6d811f4fce971b5
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660618"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028942"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>使用经典部署模型配置强制隧道
 
 借助强制隧道，可以通过站点到站点 VPN 隧道，将全部 Internet 绑定流量重定向或“强制”返回到本地位置，以进行检查和审核。 这是很多企业 IT 策略的关键安全要求。 如果没有强制隧道，来自 Azure 中 VM 的 Internet 绑定流量会始终通过 Azure 网络基础设施直接连接到 Internet，而无法选择对流量进行检查或审核。 未经授权的 Internet 访问可能会导致信息泄漏或其他类型的安全漏洞。
 
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 本文逐步演示如何配置虚拟网络（使用经典部署模型创建）的强制隧道。 强制隧道可以使用 PowerShell（不通过门户）来配置。 如果想要配置用于 Resource Manager 部署模型的强制隧道，请通过下面的下拉列表选择与经典模型相关的文章：
 
@@ -42,8 +42,8 @@ ms.locfileid: "52660618"
 
 * 每个虚拟网络子网具有内置的系统路由表。 系统路由表具有以下三组路由：
 
-  * 本地 VNet 路由：直接路由到同一个虚拟网络中的目标 VM。
-  * 本地路由：路由到 Azure VPN 网关。
+  * **本地 VNet 路由：** 直接路由到同一个虚拟网络中的目标 VM。
+  * **本地路由：** 路由到 Azure VPN 网关。
   * **默认路由：** 直接路由到 Internet。 如果要将数据包发送到不包含在前面两个路由中的专用 IP 地址，数据包会被删除。
 * 随着用户定义路由的发布，可以创建路由表来添加默认路由，然后将路由表关联到 VNet 子网，在这些子网启用强制隧道。
 * 需要在连接到虚拟网络的跨界本地站点中，设置一个“默认站点”。
@@ -67,7 +67,7 @@ ms.locfileid: "52660618"
 ## <a name="configure-forced-tunneling"></a>配置强制隧道
 以下过程帮助您为虚拟网络指定强制隧道。 配置步骤与 VNet 网络配置文件相对应。
 
-```
+```xml
 <VirtualNetworkSite name="MultiTier-VNet" Location="China North">
      <AddressSpace>
       <AddressPrefix>10.1.0.0/16</AddressPrefix>
@@ -105,7 +105,7 @@ ms.locfileid: "52660618"
     </VirtualNetworkSite>
 ```
 
-在本示例中，虚拟网络“MultiTier-VNet”具有三个子网：“前端”、“中间层”和“后端子网”，并且具有四个跨界连接：一个“DefaultSiteHQ” 和三个 Branch。 
+在此示例中，虚拟网络“MultiTier-VNet”具有三个子网：“Frontend”、“Midtier”和“Backend”子网，并具有四个跨界连接：“DefaultSiteHQ”和三个分支。 
 
 以下步骤将“DefaultSiteHQ”设置为使用强制隧道的默认站点连接，并将中间层和后端子网配置为使用强制隧道。
 

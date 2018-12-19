@@ -1,21 +1,18 @@
 ---
-title: 在 Azure Site Recovery 中创建并自定义恢复计划以进行故障转移和恢复 | Azure
-description: 了解如何在 Azure Site Recovery 中创建和自定义恢复计划。 本文介绍如何故障转移和恢复 VM 及物理服务器。
-services: site-recovery
-documentationcenter: ''
-author: rockboyfor
+title: 使用 Azure Site Recovery 创建和自定义灾难恢复的恢复计划 | Azure
+description: 了解如何使用 Azure Site Recovery 服务创建和自定义灾难恢复的恢复计划。
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 07/06/2018
-ms.date: 09/17/2018
+origin.date: 10/28/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: cfd67ac46023b836b5dda8ea5db311a54b8805ee
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: e356cc631af2563aa6a9b6ae84dcf6427530c495
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674177"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029034"
 ---
 # <a name="create-and-customize-recovery-plans"></a>创建和自定义恢复计划
 
@@ -85,4 +82,5 @@ ms.locfileid: "52674177"
 ## <a name="next-steps"></a>后续步骤
 
 详细了解如何[运行故障转移](site-recovery-failover.md)。
-<!--Update_Description: update meta properties, wording update, update link -->
+
+<!--Update_Description: update meta properties, wording update -->

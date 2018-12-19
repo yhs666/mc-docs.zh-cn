@@ -12,15 +12,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 07/20/2018
-ms.date: 11/19/2018
+origin.date: 11/08/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: 575adef3a17267c9a6dc3735a53d5ccd85c57a8c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 4983c4aadfd3f13be4116b8cf9a1197cf267a0ba
+ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660977"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53286750"
 ---
 # <a name="manage-resources-with-azure-powershell"></a>使用 Azure PowerShell 管理资源
 
@@ -28,7 +28,7 @@ ms.locfileid: "52660977"
 
 <!--[!INCLUDE [cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]-->
 
-如果选择在本地安装并使用 PowerShell，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount` 以创建与 Azure 的连接。
+如果选择在本地安装并使用 PowerShell，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount` 来创建与 Azure 的连接。
 
 ## <a name="understand-scope"></a>了解范围
 
@@ -57,11 +57,11 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location ChinaEast
 * [网络参与者](../role-based-access-control/built-in-roles.md#network-contributor)
 * [存储帐户参与者](../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-通常情况下，与其向单个用户分配角色，不如为需要进行相似操作的用户[创建一个 Azure Active Directory 组](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)， 然后向该组分配相应的角色。 为了简单起见，本文创建一个没有成员的 Azure Active Directory 组。 仍然可以为该组分配一个负责某个范围的角色。 
+通常情况下，与其向单个用户分配角色，不如为需要进行相似操作的用户[创建一个 Azure Active Directory 组](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)， 然后向该组分配相应的角色。 为了简单起见，本文创建一个没有成员的 Azure Active Directory 组。 仍然可以为该组分配一个负责某个范围的角色。
 
 以下示例创建一个组，然后为其分配了资源组的“虚拟机参与者”角色。 若要运行 `New-AzureAdGroup` 命令，必须[下载 Azure AD PowerShell 模块](https://www.powershellgallery.com/packages/AzureAD/)。
-<!-- Not Available on [Azure Cloud Shell](/cloud-shell/overview)-->
 
+<!-- Not Available on [Azure Cloud Shell](/cloud-shell/overview)-->
 ```PowerShell
 $adgroup = New-AzureADGroup -DisplayName VMDemoContributors `
   -MailNickName vmDemoGroup `
@@ -76,8 +76,9 @@ New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
 
 ## <a name="azure-policy"></a>Azure Policy
 
-[Azure Policy](../azure-policy/azure-policy-introduction.md) 可帮助确保订阅中的所有资源符合企业标准。 订阅已经有多个策略定义。 若要查看可用的策略定义，请使用：
+[Azure Policy](../governance/policy/concepts/definition-structure.md) 可帮助确保订阅中的所有资源符合企业标准。 订阅已经有多个策略定义。 若要查看可用的策略定义，请使用：
 
+<!-- URL direct From ../azure-policy/policy-definition.md to ../governance/policy/concepts/definition-structure.md-->
 ```PowerShell
 (Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType
 ```
@@ -201,11 +202,12 @@ Remove-AzureRmResourceLock -LockName LockNSG `
 
 如果不再需要资源组、VM 和所有相关的资源，可以使用 [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) 命令将其删除。
 
-```powershell
+```PowerShell
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>后续步骤
+
 * 若要了解如何监视虚拟机，请参阅[使用 Azure PowerShell 监视和更新 Windows 虚拟机](../virtual-machines/windows/tutorial-monitoring.md)。
 * 可以将现有资源移动到新的资源组。 有关示例，请参阅[将资源移动到新的资源组或订阅中](resource-group-move-resources.md)。
 

@@ -17,14 +17,14 @@ origin.date: 07/13/2017
 ms.date: 11/09/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 64477255faaed67fe2283cdb20d7b5a64315d6af
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 67cc85a3c459b59741b7c7ce4b45886498ca6e83
+ms.sourcegitcommit: a3cde3b41ed4d3f39a30eb4e562d6436a3e4d9d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658043"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53131768"
 ---
-# <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect 同步：第二次运行安装向导
+# <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect 同步：再次运行安装向导
 首次运行 Azure AD Connect 安装向导时，该向导将逐步引导配置安装。 如果再次运行安装向导，它会提供维护选项。
 
 可以在“开始”菜单中找到名为 **Azure AD Connect**的安装向导。
@@ -35,7 +35,7 @@ ms.locfileid: "52658043"
 
 ![列出其他任务的页面](./media/how-to-connect-installation-wizard/additionaltasks.png)
 
-如果已使用 Azure AD Connect 安装 ADFS，则会有更多选项。 [ADFS 管理](how-to-connect-fed-management.md#manage-ad-fs)中记录了可用于 ADFS 的其他选项。
+如果已使用 Azure AD Connect 安装 ADFS，则会有更多选项。 [ADFS 管理](how-to-connect-fed-management.md#ad-fs-management)中记录了可用于 ADFS 的其他选项。
 
 请选择其中一项任务，然后单击“下一步”继续。
 
@@ -84,7 +84,7 @@ ms.locfileid: "52658043"
 ## <a name="change-user-sign-in"></a>更改用户登录
 通过此选项，可将用户登录方式改为密码哈希同步或联合。 但不能更改为“不配置”。
 
-有关此选项的详细信息，请参阅[用户登录](plan-connect-user-signin.md#changing-the-user-sign-in-method)。
+有关此选项的详细信息，请参阅[用户登录](plan-connect-user-signin.md#changing-user-sign-in-method)。
 
 ## <a name="next-steps"></a>后续步骤
 - 在[了解声明性设置](concept-azure-ad-connect-sync-declarative-provisioning.md)中了解 Azure AD Connect 同步使用的配置模型的详细信息。

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2016
 ms.author: v-junlch
-ms.openlocfilehash: c04d3f7886432fda05acbd6f471abdce324183d4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6b918796a9b9de21921a6c152de4b8493df10e45
+ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644815"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53219547"
 ---
 # <a name="how-to-install-and-configure-azure-powershell"></a>如何安装和配置 Azure PowerShell
 
@@ -104,7 +104,7 @@ Install-Module Azure
 - 每个 Azure Resource Manager 模块的特定版本范围。 包含的版本范围可以确保在安装同一主要版本的 AzureRM 模块时，不包含重大的模块更改。 安装 AzureRM 模块时，会从 PowerShell 库下载并安装先前未安装的所有 Azure Resource Manager 模块。 有关 Azure PowerShell 模块所用的语义版本控制的详细信息，请参阅 [semver.org](http://semver.org)。 
 - **Install-Module Azure** 安装 Azure 模块。 此模块是 Azure PowerShell 0.9.x 中的服务管理模块。 这应该没有任何重要更改，而且可与前一版本的 Azure 模块互换。
 
-## <a name="step-2-start"></a>步骤 2：启动
+## <a name="step-2-start"></a>步骤 2：开始
 可以通过标准的 Windows PowerShell 控制台或 PowerShell 集成脚本环境 (ISE) 运行 cmdlet。
 用于打开控制台的方法取决于正在运行的 Windows 的版本：
 
@@ -147,7 +147,7 @@ Get-AzureRmContext
 Get-AzureRmStorageAccount | Get-AzureStorageContainer | Get-AzureStorageBlob
 ```
 
-## <a name="how-to-connect-to-your-subscription"></a>步骤 3：连接<a name="Connect"></a>
+## <a name="how-to-connect-to-your-subscription"></a> 步骤 3：连接 <a name="Connect"></a>
 cmdlet 需要使用订阅来管理服务。 如果没有 Azure 订阅，可以购买一个。 有关说明，请参阅[如何购买 Azure](http://go.microsoft.com/fwlink/p/?LinkId=320795)。
 
 1. 键入 **Login-AzureRmAccount**
@@ -179,8 +179,6 @@ Login-AzureRmAccount -Credential $cred
 > 4. 从 Azure 经典门户中，选择“设置”，然后选择“管理员”。 选择“添加”，并将新用户添加为共同管理员。 这样工作或学校帐户即可管理 Azure 订阅。
 
 > 5. 最后，从 Azure 经典门户注销，然后使用工作或学校帐户重新登录。 如果这是使用此帐户首次登录，系统会提示更改密码。
-
-> 有关使用工作或学校帐户注册 Microsoft Azure 的详细信息，请参阅[以组织身份注册 Microsoft Azure](./active-directory/sign-up-organization.md)。
 
 > 有关 Azure 中的身份验证和订阅管理的详细信息，请参阅[管理帐户、订阅和管理角色](http://go.microsoft.com/fwlink/?LinkId=324796)。
 

@@ -11,12 +11,12 @@ ms.workload: na
 origin.date: 04/02/2018
 ms.author: v-yiso
 ms.date: 12/03/2018
-ms.openlocfilehash: d8d9cbe5efb95249b3b8fec580896d31f229345c
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: d95c9d75d08d05f881b6c028d17e6df68050c76a
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674470"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028948"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>选择适用于解决方案的 IoT 中心层
 
@@ -40,7 +40,7 @@ IoT 中心的标准层启用了所有功能，是任何需要使用双向通信�
 | ---------- | ---------- | ------------- |
 | [设备到云的遥测](iot-hub-devguide-messaging.md) | 是 | 是 |
 | [每设备标识](iot-hub-devguide-identity-registry.md) | 是 | 是 |
-| [消息路由](iot-hub-devguide-messages-read-custom.md)和[事件网格集成](iot-hub-event-grid.md) | 是 | 是 |
+| [消息路由](iot-hub-devguide-messages-read-custom.md) | 是 | 是 |
 | [HTTP、AMQP 和 MQTT 协议](iot-hub-devguide-protocols.md) | 是 | 是 |
 | [监视和诊断](iot-hub-monitor-resource-health.md) | 是 | 是 |
 | [云到设备的消息传递](iot-hub-devguide-c2d-guidance.md) |   | 是 |

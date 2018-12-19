@@ -10,15 +10,15 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 04/25/2018
 ms.date: 11/26/2018
-ms.openlocfilehash: 33f281b2be2528cdf754caae6f7548dfdad14e41
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 9a6f9e5d039220affa8ddba9be285e6fea9202bb
+ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674249"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53219570"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>使用参考数据在流分析中查找
-参考数据（也称为查找表）是一个静态的或本质上缓慢变化的有限数据集，用于执行查找或与数据流相关联。 Azure 流分析在内存中加载参考数据以实现低延迟流处理。 为了在 Azure 流分析作业中利用引用数据，通常会在查询中使用[引用数据联合](https://msdn.microsoft.com/library/azure/dn949258.aspx)。 流分析使用 Azure Blob 存储作为引用数据的存储层，并且通过 Azure 数据工厂，可以从[基于云和本地的任意数量的数据存储](../data-factory/copy-activity-overview.md)将引用数据转换和/或复制到 Azure Blob 存储，以用作引用数据。 引用数据建模为 blob 序列（在输入配置中定义），这些 blob 按blob 名称中指定的日期/时间顺序升序排列。 它**仅**支持使用**大于**序列中最后一个 blob 指定的日期/时间的日期/时间添加到序列的末尾。
+参考数据（也称为查找表）是一个静态的或本质上缓慢变化的有限数据集，用于执行查找或与数据流相关联。 Azure 流分析在内存中加载参考数据以实现低延迟流处理。 为了在 Azure 流分析作业中利用引用数据，通常会在查询中使用[引用数据联合](https://msdn.microsoft.com/library/azure/dn949258.aspx)。 流分析使用 Azure Blob 存储作为引用数据的存储层，并且通过 Azure 数据工厂，可以将引用数据转换和/或复制到 Azure Blob 存储。 引用数据建模为 blob 序列（在输入配置中定义），这些 blob 按blob 名称中指定的日期/时间顺序升序排列。 它**仅**支持使用**大于**序列中最后一个 blob 指定的日期/时间的日期/时间添加到序列的末尾。
 
 流分析支持**最大大小为 300 MB** 的参考数据。 只有简单的查询才能达到参考数据最大大小 300 MB 限制。 随着查询复杂性增加以包括有状态处理（如开窗聚合、临时联接接和临时分析函数），预计参考数据的最大支持大小将减少。 如果 Azure 流分析无法加载参考数据并执行复杂操作，则作业将耗尽内存并失败。 在这种情况下，SU % 利用率指标将达到 100%。    
 
@@ -43,7 +43,7 @@ ms.locfileid: "52674249"
 |存储容器   | 容器对存储在 Azure Blob 服务中的 blob 进行逻辑分组。 将 blob 上传到 Blob 服务时，必须为该 blob 指定一个容器。   |
 |路径模式   | 用于对指定容器中的 Blob 进行定位的路径。 在路径中，可以选择指定一个或多个使用以下 2 个变量的实例：<BR>{date}、{time}<BR>示例 1：products/{date}/{time}/product-list.csv<BR>示例 2：products/{date}/product-list.csv<BR><br> 如果指定路径中不存在 blob，流分析作业将无限期地等待 blob 变为可用状态。   |
 |日期格式 [可选]   | 如果在指定的路径模式中使用了 {date}，则可以从支持格式的下拉列表中选择组织 Blob 所用的日期格式。<BR>示例：YYYY/MM/DD、MM/DD/YYYY 等。   |
-|时间格式 [可选]   | 如果在指定的路径模式中使用了 {time}，则可以从支持格式的下拉列表中选择组织 Blob 所用的时间格式。<BR>示例：HH、HH/mm、或 HH-mm。  |
+|时间格式 [可选]   | 如果在指定的路径模式中使用了 {time}，则可以从支持格式的下拉列表中选择组织 Blob 所用的时间格式。<BR>示例：HH、HH/mm 或 HH-mm。  |
 |事件序列化格式   | 为确保查询按预计的方式运行，流分析需要了解你对传入数据流使用哪种序列化格式。 对于引用数据，所支持的格式是 CSV 和 JSON。  |
 |编码   | 目前只支持 UTF-8 这种编码格式。  |
 

@@ -1,5 +1,5 @@
 ---
-title: 部署应用服务：Azure Stack | Microsoft Docs
+title: 部署应用程序服务：Azure Stack | Microsoft Docs
 description: 在 Azure Stack 中部署应用服务的详细指南
 services: azure-stack
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/12/2018
-ms.date: 11/12/2018
+origin.date: 11/13/2018
+ms.date: 12/17/2018
 ms.author: v-jay
-ms.openlocfilehash: d03d57f90c07c22dcd2596275c8fb34acc06edde
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5dbb3780c922991dbafd4816457456d5a674a246
+ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655123"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53396220"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>将应用服务资源提供程序添加到 Azure Stack
 
@@ -29,7 +29,7 @@ ms.locfileid: "52655123"
 根据本文中的指南在 Azure Stack 中部署应用服务。
 
 > [!IMPORTANT]  
-> 请将 1807 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包 (ASDK)，然后部署 Azure 应用服务 1.3。
+> 请将 1809 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包 (ASDK)，然后部署 Azure 应用服务 1.4。
 
 可以让用户能够创建 Web 应用程序和 API 应用程序。 若要让用户创建这些应用程序，必须：
 
@@ -75,8 +75,8 @@ ms.locfileid: "52655123"
 
    b. 在“Azure Stack 订阅”中，选择“默认提供程序订阅”。
 
-     >[!NOTE]
-     >目前，应用服务只能部署到“默认提供程序订阅”。
+     > [!IMPORTANT]  
+     > 应用服务**必须**部署到**默认提供程序订阅**。
 
    c. 在“Azure Stack 位置”中，选择要部署到的区域所对应的位置。 例如，如果要部署到 Azure Stack 开发工具包，请选择“本地”。
 
@@ -152,7 +152,7 @@ ms.locfileid: "52655123"
     >[!NOTE]
     >对于生产部署，请按照 [Azure Stack 中 Azure 应用服务服务器角色的容量规划](azure-stack-app-service-capacity-planning.md)中的指南进行操作。
 
-    | 角色 | 最小实例数 | 最小 SKU | 注释 |
+    | 角色 | 最小实例数 | 最小 SKU | 说明 |
     | --- | --- | --- | --- |
     | 控制器 | 1 | Standard_A2 -（2 个 vCPU，3584 MB） | 管理和维护应用服务云的运行状况。 |
     | 管理 | 1 | Standard_A2 -（2 vCPU，3584 MB） | 管理应用服务 Azure 资源管理器和 API 终结点、门户扩展（管理员门户、租户门户、Functions 门户）和数据服务。 为了支持故障转移，已将建议的实例数增加到 2 个。 |
@@ -199,13 +199,13 @@ ms.locfileid: "52655123"
 
 1. 在 Azure Stack 管理员门户中，转到“管理 - 应用服务”。
 
-2. 在状态下的概览中，检查“状态”是否显示“所有角色已就绪”。
+2. 在状态下的概述中，检查“状态”是否显示“所有角色已就绪”。
 
     ![应用服务管理](media/azure-stack-app-service-deploy/image12.png)
 
    >[!IMPORTANT]
    >如果部署到现有虚拟网络并使用内部 IP 地址连接到文件服务器，则必须添加出站安全规则。 此规则允许辅助角色子网和文件服务器之间的 SMB 流量。  为此，请转到管理门户中的 WorkersNsg 并添加具有以下属性的出站安全规则：<br>
-    >  - 源：任何
+    >  - 源：任意
     >  - 源端口范围：*
     >  - 目标：IP 地址
     >  - 目标 IP 地址范围：文件服务器的 IP 范围
@@ -213,7 +213,7 @@ ms.locfileid: "52655123"
     >  - 协议：TCP
     >  - 操作：允许
     >  - 优先级：700
-    >  - 名称：Outbound_Allow_SMB445
+    >  - 姓名：Outbound_Allow_SMB445
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>体验 Azure Stack 上的应用服务
 

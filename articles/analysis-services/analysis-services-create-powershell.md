@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-origin.date: 07/03/2018
-ms.date: 08/06/2018
+origin.date: 10/18/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8720378873c6df5d149cba014c3162a5f0b473b8
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8ae76af7c9b3e9dd5438947848abff6f2543366e
+ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644609"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53157391"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>快速入门：创建服务器 - PowerShell
 
@@ -22,7 +22,7 @@ ms.locfileid: "52644609"
 
 ## <a name="prerequisites"></a>先决条件
 
-- **Azure 订阅**：访问 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial-full)以创建帐户。
+- **Azure 订阅**：访问 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial-full)，以创建帐户。
 - **Azure Active Directory**：订阅必须与 Azure Active Directory 租户相关联，且该目录中必须有一个帐户。 若要了解详细信息，请参阅[身份验证和用户权限](analysis-services-manage-users.md)。
 - **Azure PowerShell 模块 4.0 版或更高版本**。 若要查找版本，请运行 ` Get-Module -ListAvailable AzureRM`。 若要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
 
@@ -36,7 +36,7 @@ Import-Module AzureRM.AnalysisServices
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
-使用 [Connect-AzureRmAccount -Environment AzureChinaCloud](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) 命令登录到 Azure 订阅。 按屏幕说明操作。
+使用 [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) 命令登录到 Azure 订阅。 按屏幕指令操作。
 
 ```powershell
 Connect-AzureRmAccount -Environment AzureChinaCloud
@@ -53,7 +53,7 @@ New-AzureRmResourceGroup -Name "myResourceGroup" -Location "ChinaNorth"
 ## <a name="create-a-server"></a>创建服务器
 
 使用 [New-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) 命令创建新的服务器。 以下示例在 ChinaNorth 区域的 myResourceGroup 中的 B0 层创建名为 myServer 的服务器，并指定 philipc@adventureworks.com 为服务器管理员。
-<!--Notice: -Sku should be B0,B1,S0-S4-->
+<!--Notice: ChinaNorth is valid and -Sku should be B0,B1,S0-S4-->
 
 ```powershell
 New-AzureRmAnalysisServicesServer -ResourceGroupName "myResourceGroup" -Name "myserver" -Location ChinaNorth -Sku B0 -Administrator "philipc@adventure-works.com"

@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 07/03/2018
-ms.date: 08/06/2018
+origin.date: 10/18/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: f8bd64e5c1edddd8b9bfd52295453a51ace943fb
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 32be8392b3004fb2fcb7bba086881df4fff9d245
+ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644633"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53157406"
 ---
 # <a name="mark-as-date-table"></a>标记为日期表
 
@@ -26,7 +26,7 @@ ms.locfileid: "52644633"
 
 在标记日期表和日期列之前，最好做一些整理工作以使模型更容易理解。 请注意“DimDate”表中名为“FullDateAlternateKey”的列。 此列包含的每一行表示表中每个日历年的每一天。 在度量值公式和报表中将大量使用此列。 但是，对于此列，FullDateAlternateKey 实际上不是一个很好的标识符。 将其重命名为“Date”，使其更容易识别以及包括在公式中。 只要有可能，最好对表和列之类的对象进行重命名使其在 SSDT 和客户端报告应用程序（例如 Power BI 和 Excel）中更容易识别。 
 
-本课预计完成时间：3 分钟  
+本课预计完成时间：**3 分钟**  
 
 ## <a name="prerequisites"></a>先决条件  
 本主题是表格建模教程的一部分，应当按顺序完成。 在执行本课中的任务之前，应当已完成上一课：[第 2 课：获取数据](../tutorials/aas-lesson-2-get-data.md)。 

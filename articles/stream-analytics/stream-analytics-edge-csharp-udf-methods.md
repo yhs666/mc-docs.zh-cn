@@ -10,12 +10,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 09/24/2018
 ms.date: 11/06/18
-ms.openlocfilehash: 721235ef12b7ba4520e946f8c529cbdd90ccdf68
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: dc8d12dd3ac35691715d4e2861a2c50abd7af457
+ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649359"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53219571"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-edge-jobs-preview"></a>为 Azure 流分析 Edge 作业开发 .NET Standard 用户定义函数（预览版）
 
@@ -134,6 +134,5 @@ UDF 预览目前有以下限制：
 
 ## <a name="next-steps"></a>后续步骤
 
-* [教程：为 Azure 流分析 Edge 作业编写 C# 用户定义函数（预览版）](stream-analytics-edge-csharp-udf.md)
+* [教程：为 Azure 流分析 Edge 作业（预览版）编写 C# 用户定义函数](stream-analytics-edge-csharp-udf.md)
 * [教程：Azure 流分析 JavaScript 用户定义的函数](stream-analytics-javascript-user-defined-functions.md)
-* [使用 Visual Studio 查看 Azure 流分析作业](stream-analytics-vs-tools.md)

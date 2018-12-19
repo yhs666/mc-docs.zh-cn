@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/13/2017
 ms.date: 11/14/2018
 ms.author: v-junlch
-ms.openlocfilehash: 7d235d79c777328308fe5b595eee24b4122ad163
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 553866b9ffc068b5bcbbcf4936f7786a47ce01fe
+ms.sourcegitcommit: a3cde3b41ed4d3f39a30eb4e562d6436a3e4d9d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659309"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53131755"
 ---
 # <a name="how-to-monitor-azure-redis-cache"></a>如何监视 Azure Redis 缓存
 Azure Redis 缓存使用 [Azure Monitor](/monitoring-and-diagnostics/) 提供用于监视缓存实例的几个选项。 可以查看度量值、将度量值图表固定到启动板、自定义监视图表的日期和时间范围、在图表中添加和删除度量值，以及设置符合特定条件时发出的警报。 借助这些工具，可以监视 Azure Redis 缓存实例的运行状况，以及管理缓存应用程序。
@@ -62,7 +62,7 @@ Azure Redis 缓存使用 [Azure Monitor](/monitoring-and-diagnostics/) 提供用
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## <a name="export-cache-metrics"></a>导出缓存指标
-默认情况下，Azure Monitor 中的缓存指标将被[存储 30 天](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#store-and-archive)，然后将被删除。 若要延长缓存指标的保存时间，使其超过 30 天，可以为缓存指标[指定存储帐户](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)，并指定“保留期（天）”策略。 
+默认情况下，Azure Monitor 中的缓存指标将被[存储 30 天](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md)，然后将被删除。 若要延长缓存指标的保存时间，使其超过 30 天，可以为缓存指标[指定存储帐户](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)，并指定“保留期（天）”策略。 
 
 若要配置缓存指标的存储帐户：
 
@@ -100,7 +100,7 @@ Azure Redis 缓存使用 [Azure Monitor](/monitoring-and-diagnostics/) 提供用
 | 指标 | 说明 |
 | --- | --- |
 | 缓存命中数 |在指定的报告间隔期间，成功的键查找次数。 此值映射到 Redis [INFO](http://redis.io/commands/info) 命令输出中的 `keyspace_hits`。 |
-| 缓存延迟（预览） | 基于缓存的节点间延迟计算缓存的延迟。 该指标以微秒为单位，具有三个维度：“Avg”、“Min”和“Max”，分别表示指定的报告间隔期间缓存的平均延迟、最小延迟和最大延迟。 |
+| 缓存延迟（预览） | 基于缓存的节点间延迟计算缓存的延迟。 此指标以微秒为单位，具有三个维度：“Avg”、“Min”和“Max”，分别表示指定的报告间隔期间缓存的平均延迟、最小延迟和最大延迟。 |
 | 缓存未命中数 |在指定的报告间隔期间，失败的键查找次数。 此值映射到 Redis INFO 命令输出中的 `keyspace_misses` 。 缓存未命中并不一定意味着缓存出现了问题。 例如，在使用缓存端编程模式时，应用程序会首先查找缓存中的项。 如果该项不存在（缓存未命中），则将从数据库中检索该项并将其添加到下一次缓存中。 对于缓存端编程模式，缓存未命中是正常行为。 如果缓存未命中数大于预期值，请检查从缓存中填充并读取的应用程序逻辑。 如果由于内存压力而导致项目从缓存中逐出，则可能存在一些缓存未命中的情况，但指标 `Used Memory` 或 `Evicted Keys` 可以更好的监视内存压力。 |
 | 缓存读取量 |指定报告间隔期间，从缓存中读取的数据量，以每秒兆字节数（MB/秒）为单位。 此值来源于支持虚拟机的网络接口卡，该虚拟机托管缓存，但并不特定于 Redis。 **此值对应于该缓存使用的网络带宽。如果要针对服务器端网络带宽限制设置警报，则可使用此 `Cache Read` 计数器来创建警报。请参阅[此表](cache-faq.md#cache-performance)，了解各种缓存定价层和大小所遵循的带宽限制。** |
 | 缓存写入量 |指定报告间隔期间，写入缓存中的数据量，以每秒兆字节数（MB/秒）为单位。 此值来源于支持虚拟机的网络接口卡，该虚拟机托管缓存，但并不特定于 Redis。 此值对应于从客户端发送到缓存的数据的网络带宽。 |

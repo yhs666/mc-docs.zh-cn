@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 01/23/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 67ae4c06eacd94ede53892981440c8669bac468e
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: d1e6506d79b293e06a2edcce7fe85b8e88828fae
+ms.sourcegitcommit: d3b05039466ddf239c9134f002a034d4e75b03db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675519"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53234009"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Azure Monitor 中的 Azure 中继指标（预览版）
 
@@ -30,9 +30,7 @@ Azure Monitor 提供了统一的用户界面，可用于监视各种 Azure 服�
 
 ## <a name="access-metrics"></a>访问指标
 
-Azure Monitor 提供多种访问指标的方法。 可从 [Azure 门户](https://portal.azure.com)、Azure Monitor API（REST 和 .Net）与分析解决方案（例如 Operation Management Suite 和事件中心）访问指标。 有关详细信息，请参阅 [Azure Monitor 指标](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api)。
-
-默认情况下，已启用指标，并且可访问最近 30 天的数据。 如需将数据保留更长一段时间，可将指标数据存档到 Azure 存储帐户。 可在 Azure Monitor 的 [诊断设置](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) 中完成这种配置。
+Azure Monitor 提供多种访问指标的方法。 可从 [Azure 门户](https://portal.azure.com)、Azure Monitor API（REST 和 .Net）与分析解决方案（例如 Operation Management Suite 和事件中心）访问指标。 默认情况下，已启用指标，并且可访问最近 30 天的数据。 如需将数据保留更长一段时间，可将指标数据存档到 Azure 存储帐户。 可在 Azure Monitor 的 [诊断设置](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) 中完成这种配置。
 
 ## <a name="access-metrics-in-the-portal"></a>在门户中访问指标
 
@@ -59,16 +57,16 @@ Azure Monitor 提供多种访问指标的方法。 可从 [Azure 门户](https:/
 
 | 指标名称 | 说明 |
 | ------------------- | ----------------- |
-| ListenerConnections-Success（预览版） | 在指定的期间内成功与 Azure 中继建立的侦听器连接数。 <br/><br/> 单位：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName|
-|ListenerConnections-ClientError（预览版）|在指定的期间内在侦听器连接上发生的客户端错误数。<br/><br/> 单位：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName|
-|ListenerConnections-ServerError（预览版）|在指定的期间内在侦听器连接上发生的服务器错误数。<br/><br/> 单位：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName|
-|SenderConnections-Success（预览版）|在指定的期间内成功建立的发送者连接数。<br/><br/> 单位：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName|
-|SenderConnections-ClientError（预览版）|在指定的期间内在发送者连接上发生的客户端错误数。<br/><br/> 单位：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName|
-|SenderConnections-ServerError（预览版）|在指定的期间内在发送者连接上发生的服务器错误数。<br/><br/> 单位：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName|
-|ListenerConnections-TotalRequests（预览版）|指定的期间内的侦听器连接总数<br/><br/> 单位：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName|
-|SenderConnections-TotalRequests（预览版）|在指定的期间内由发送者发出的连接请求数。<br/><br/> 单位：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName|
-|ActiveConnections（预览版）|指定的期间内的活动连接数。<br/><br/> 单位：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName|
-|ActiveListeners（预览版）|指定的期间内的活动侦听器数。<br/><br/> 单位：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName|
+| ListenerConnections-Success（预览版） | 在指定的期间内成功与 Azure 中继建立的侦听器连接数。 <br/><br/> 单元：Count <br/> 聚合类型：总计 <br/> 维度：EntityName|
+|ListenerConnections-ClientError（预览版）|在指定的期间内在侦听器连接上发生的客户端错误数。<br/><br/> 单元：Count <br/> 聚合类型：总计 <br/> 维度：EntityName|
+|ListenerConnections-ServerError（预览版）|在指定的期间内在侦听器连接上发生的服务器错误数。<br/><br/> 单元：Count <br/> 聚合类型：总计 <br/> 维度：EntityName|
+|SenderConnections-Success（预览版）|在指定的期间内成功建立的发送者连接数。<br/><br/> 单元：Count <br/> 聚合类型：总计 <br/> 维度：EntityName|
+|SenderConnections-ClientError（预览版）|在指定的期间内在发送者连接上发生的客户端错误数。<br/><br/> 单元：Count <br/> 聚合类型：总计 <br/> 维度：EntityName|
+|SenderConnections-ServerError（预览版）|在指定的期间内在发送者连接上发生的服务器错误数。<br/><br/> 单元：Count <br/> 聚合类型：总计 <br/> 维度：EntityName|
+|ListenerConnections-TotalRequests（预览版）|指定的期间内的侦听器连接总数<br/><br/> 单元：Count <br/> 聚合类型：总计 <br/> 维度：EntityName|
+|SenderConnections-TotalRequests（预览版）|在指定的期间内由发送者发出的连接请求数。<br/><br/> 单元：Count <br/> 聚合类型：总计 <br/> 维度：EntityName|
+|ActiveConnections（预览版）|指定的期间内的活动连接数。<br/><br/> 单元：Count <br/> 聚合类型：总计 <br/> 维度：EntityName|
+|ActiveListeners（预览版）|指定的期间内的活动侦听器数。<br/><br/> 单元：Count <br/> 聚合类型：总计 <br/> 维度：EntityName|
 |ListenerDisconnects（预览版）|指定的期间内断开连接的侦听器数。<br/><br/> 单元：字节 <br/> 聚合类型：总计 <br/> 维度：EntityName|
 |SenderDisconnects（预览版）|指定的期间内断开连接的发送者数。<br/><br/> 单元：字节 <br/> 聚合类型：总计 <br/> 维度：EntityName|
 

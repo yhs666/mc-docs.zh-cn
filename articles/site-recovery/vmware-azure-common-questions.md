@@ -1,24 +1,23 @@
 ---
-title: 常见问题 - 使用 Azure Site Recovery 进行 VMware 到 Azure 的复制 | Azure
-description: 本文汇总了使用 Azure Site Recovery 将本地 VMware VM 复制到 Azure 时的常见问题
-services: site-recovery
+title: 常见问题 - 使用 Azure Site Recovery 进行 VMware 到 Azure 的灾难恢复 | Azure
+description: 本文汇总了使用 Azure Site Recovery 设置将本地 VMware VM 灾难恢复到 Azure 时的常见问题
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-origin.date: 07/19/2018
-ms.date: 09/24/2018
+origin.date: 11/19/2018
+ms.date: 12/10/2018
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: 9ddf29ceddc8bd3902116852f55c36f691a09719
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 4f1515f6d8075bd9cc859b4397603b3bf7cf4d96
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645342"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028923"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>常见问题 - VMware 到 Azure 的复制
 
-本文提供将本地 VMware VM 复制到 Azure 时可能遇到的常见问题的解答。 如果在阅读本文后有任何问题，请在 [Azure 恢复服务论坛](https://www.azure.cn/support/contact/)上发布这些问题。
+本文提供将本地 VMware VM 的灾难恢复部署到 Azure 时可能遇到的常见问题的解答。 如果在阅读本文后有任何问题，请在 [Azure 恢复服务论坛](https://www.azure.cn/support/contact/)上发布这些问题。
 
 ## <a name="general"></a>常规
 ### <a name="how-is-site-recovery-priced"></a>Site Recovery 如何计费？
@@ -44,17 +43,23 @@ ms.locfileid: "52645342"
 ## <a name="on-premises"></a>本地
 
 ### <a name="what-do-i-need-on-premises"></a>需要在本地做好哪些准备？
-在本地，需要在单个 VMware VM 上安装 Site Recovery 组件。 还需要至少包含一台 ESXi 主机的 VMware 基础结构。我们建议使用 vCenter 服务器。 此外，需要提供一个或多个可供复制的 VMware VM。 [详细了解](vmware-azure-architecture.md) VMware 到 Azure 复制体系结构。
 
-本地配置服务器可通过以下两种方式之一进行部署
+在本地，你需要：
+- 在单个 VMware VM 上安装 Site Recovery 组件。
+- 至少包含一台 ESXi 主机的 VMware 基础结构。我们建议使用 vCenter 服务器。
+- 一个或多个可供复制的 VMware VM。
 
-1. 使用预先安装了配置服务器的 VM 模板进行部署。 在[此处](vmware-azure-tutorial.md#download-the-vm-template)了解详细信息。
-2. 使用选定的 Windows Server 2016 计算机上的安装程序进行部署。 在[此处](physical-azure-disaster-recovery.md#set-up-the-source-environment)了解详细信息。
+[详细了解](vmware-azure-architecture.md) VMware 到 Azure 复制体系结构。
 
-若要了解在自己的 Windows Server 计算机上部署配置服务器的入门步骤，请在“启用保护”的保护目标中，选择“转到 Azure”>“不虚拟化/其他”。
+本地配置服务器可通过如下所示方式进行部署：
+
+- 我们建议使用预先安装了配置服务器的 OVA 模板将配置服务器部署为 VMware VM。
+- 如果由于任何原因无法使用模板，则可以手动设置配置服务器。 [了解详细信息](physical-azure-disaster-recovery.md#set-up-the-source-environment)。
 
 ### <a name="where-do-on-premises-vms-replicate-to"></a>本地 VM 将复制到哪个位置？
 数据将复制到 Azure 存储。 运行故障转移时，Site Recovery 会自动从存储帐户创建 Azure VM。
+
+## <a name="replication"></a>复制
 
 ### <a name="what-apps-can-i-replicate"></a>可以复制哪些应用？
 可以复制 VMware VM 中运行的、符合[复制要求](vmware-physical-azure-support-matrix.md##replicated-machines)的任何应用或工作负荷。 Site Recovery 支持应用程序感知型复制，因此，应用可以故障转移或故障回复到智能状态。 Site Recovery 与 SharePoint、Exchange、Dynamics、SQL Server 和 Active Directory 等 Microsoft 应用程序集成，并与领先的供应商密切合作。 [详细了解](site-recovery-workload.md)工作负荷保护。
@@ -71,17 +76,17 @@ Site Recovery 通过公共终结点或使用 ExpressRoute 公共对等互连将�
 
 复制到 Azure 时，复制流量会到达 Azure 存储帐户的公共终结点，因此，只能使用 ExpressRoute（公共对等互连）通过公共 Internet 进行复制，而不能使用 VPN。
 
-## <a name="what-are-the-replicated-vm-requirements"></a>复制的 VM 要满足哪些要求？
+### <a name="what-are-the-replicated-vm-requirements"></a>复制的 VM 要满足哪些要求？
 
 若要复制某个 VMware VM，该 VM 必须运行受支持的操作系统。 此外，该 VM 必须满足 Azure VM 的要求。 在支持矩阵中[了解详细信息](vmware-physical-azure-support-matrix.md##replicated-machines)。
 
-## <a name="how-often-can-i-replicate-to-azure"></a>可以多久复制到 Azure 一次？
+### <a name="how-often-can-i-replicate-to-azure"></a>可以多久复制到 Azure 一次？
 将 VMware VM 复制到 Azure 时，复制是持续性的。
 
-## <a name="can-i-extend-replication"></a>是否可以扩展复制？
+### <a name="can-i-extend-replication"></a>是否可以扩展复制？
 不支持扩展扩展或链式复制。 请在[反馈论坛](https://www.azure.cn/support/contact/)中请求此功能。
 
-## <a name="can-i-do-an-offline-initial-replication"></a>是否可以执行脱机初始复制？
+### <a name="can-i-do-an-offline-initial-replication"></a>是否可以执行脱机初始复制？
 不支持此操作。 请在[反馈论坛](https://www.azure.cn/support/contact/)中请求此功能。
 
 ### <a name="can-i-exclude-disks"></a>是否可以排除磁盘？
@@ -105,6 +110,8 @@ Site Recovery 通过公共终结点或使用 ExpressRoute 公共对等互连将�
 - 充当复制网关的进程服务器。 该服务器接收复制数据；使用缓存、压缩和加密来优化数据；将数据发送到 Azure 存储。进程服务器还在要复制的 VM 上安装移动服务，并执行本地 VMware VM 的自动发现。
 - 处理从 Azure 进行故障回复期间生成的复制数据的主目标服务器。
 
+[详细了解](vmware-azure-architecture.md)配置服务器组件和流程。
+
 ### <a name="where-do-i-set-up-the-configuration-server"></a>要在哪个位置设置配置服务器？
 需要为配置服务器提供一个高度可用的本地 VMware VM。
 
@@ -121,14 +128,33 @@ Site Recovery 通过公共终结点或使用 ExpressRoute 公共对等互连将�
 ### <a name="can-i-host-a-configuration-server-in-azure"></a>是否可以在 Azure 中托管配置服务器？
 虽然可以这样做，但运行配置服务器的 Azure VM 需要与本地的 VMware 基础结构和 VM 通信。 这可能会增加延迟并影响正在进行的复制。
 
-### <a name="where-can-i-get-the-latest-version-of-the-configuration-server-template"></a>在哪里可以获取最新版本的配置服务器模板？
-可以从[下载中心](https://aka.ms/asrconfigurationserver_bjb)下载最新版本。
-
 ### <a name="how-do-i-update-the-configuration-server"></a>如何更新配置服务器？
-请安装更新汇总。 可以在 [wiki 更新页](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)中找到最新的更新信息。
+[了解](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)如何更新配置服务器。 可以在 [Azure 更新页](https://www.azure.cn/what-is-new/)中找到最新的更新信息。 另外，还可以直接从[下载中心](https://aka.ms/asrconfigurationserver_bjb)下载最新版本的配置服务器。
 
 ### <a name="should-i-backup-the-deployed-configuration-server"></a>是否应该备份部署的配置服务器？
 建议定期备份配置服务器。 若想成功进行故障回复，进行故障回复的虚拟机必须存在于配置服务器数据库中，并且配置服务器必须正在运行且处于已连接状态。 可以在[此处](vmware-azure-manage-configuration-server.md)了解有关常见配置服务器管理任务的详细信息。
+
+### <a name="when-im-setting-up-the-configuration-server-can-i-download-and-install-mysql-manually"></a>设置配置服务器时，是否可以手动下载并安装 MySQL？
+是的。 请下载 MySQL 并将其置于 **C:\Temp\ASRSetup** 文件夹中。 然后手动安装它。 设置配置服务器 VM 并接受条款后，MySQL 在“下载并安装”中将列出为“已安装”。
+
+### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>我是否可以避免下载 MySQL 但让 Site Recovery 安装它？
+是的。 请下载 MySQL 安装程序并将其置于 **C:\Temp\ASRSetup** 文件夹中。  在设置配置服务器 VM 时，接受条款并单击“下载并安装”后，门户将使用你添加的安装程序来安装 MySQL。
+
+### <a name="canl-i-use-the-configuration-server-vm-for-anything-else"></a>是否可以将配置服务器 VM 用于任何其他项？
+否，只能将该 VM 用于配置服务器。 
+
+### <a name="can-i-change-the-vault-registered-in-the-configuration-server"></a>是否可以更改在配置服务器中注册的保管库？
+否。 将保管库注册到配置服务器后，它无法更改。
+
+### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>是否可以将同一配置服务器同时用于 VMware VM 和物理服务器的灾难恢复？
+可以，但请注意，物理计算机仅可故障回复到 VMware VM。
+
+### <a name="where-can-i-download-the-passphrase-for-the-configuration-server"></a>在哪里可以下载配置服务器的密码？
+请[查看此文章](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase)来了解如何下载该通行短语。
+
+### <a name="where-can-i-download-vault-registration-keys"></a>在哪里可以下载保管库注册密钥？
+
+在“恢复服务保管库”中，“管理” > “Site Recovery 基础结构” > “配置服务器”。 在“服务器”中，选择“下载注册密钥”以下载保管库凭据文件。
 
 ## <a name="mobility-service"></a>移动服务
 
@@ -136,7 +162,7 @@ Site Recovery 通过公共终结点或使用 ExpressRoute 公共对等互连将�
 安装程序保存在配置服务器上的 **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository** 文件夹中。
 
 ## <a name="how-do-i-install-the-mobility-service"></a>如何安装移动服务？
-可以使用[推送安装](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery)、在 [UI](vmware-azure-install-mobility-service.md#install-mobility-service-manually-by-using-the-gui) 中使用手动安装或者[使用 PowerShell](vmware-azure-install-mobility-service.md#install-mobility-service-manually-at-a-command-prompt)，在要复制的每个 VM 上安装移动服务。 或者，可以使用 [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md) 或 [Azure 自动化和 DSC](vmware-azure-mobility-deploy-automation-dsc.md) 等部署工具进行部署。
+可以使用[推送安装](vmware-azure-install-mobility-service.md)，或者通过 UI 或 Powershell 使用[手动安装](vmware-physical-mobility-service-install-manual.md)，在要复制的每个 VM 上安装移动服务。 或者，可以使用 [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md) 等部署工具进行部署。
 
 ## <a name="security"></a>安全性
 

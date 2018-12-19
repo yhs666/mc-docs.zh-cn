@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 07/03/2018
-ms.date: 08/27/2018
+origin.date: 10/18/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: b270fb9fd0783340c8039d4d7d83f62e74c2910c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f9cdd7d76482fd0725b0dcb72428cf4fe4289477
+ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662398"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53157437"
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services - Adventure Works 教程
 
@@ -46,9 +46,8 @@ ms.locfileid: "52662398"
 
 -   包含**示例 AdventureWorksDW 数据库**的 [Azure SQL 数据仓库](../../sql-data-warehouse/create-data-warehouse-portal.md)，或者包含 [Adventure Works 示例数据库](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks)的 SQL Server 数据仓库。
 
-    **重要说明：** 如果在本地 SQL Server 数据仓库上安装示例数据库，并且将模型部署到 Azure Analysis Services 服务器，则需要本地数据网关。
-    <!--Not Available on [On-premises data gateway](../analysis-services-gateway.md)-->
-    
+    **重要提示：** 如果在本地 SQL Server 数据仓库上安装示例数据库，并且将模型部署到 Azure Analysis Services 服务器，则需要[本地数据网关](../analysis-services-gateway.md)。
+
 -   最新版本的用于 Visual Studio 的 [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)。
 
 -   最新版本的 [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)。    
@@ -93,6 +92,6 @@ ms.locfileid: "52662398"
 |[不规则层次结构](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)|20 分钟| 
 
 ## <a name="next-steps"></a>后续步骤  
-若要开始，请参阅[第 1 课：创建新的表格模型项目](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)。
+若要入门，请参阅[第 1 课：创建新的表格模型项目](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)。
 
 <!--Update_Description: update meta properties， wording update, update link -->

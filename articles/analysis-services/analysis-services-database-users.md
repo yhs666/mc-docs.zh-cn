@@ -5,20 +5,20 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 07/03/2018
-ms.date: 08/06/2018
+origin.date: 10/18/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: f7471174350d14df3e96c8860a8601747b8ee922
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 71c9c02b36587ac859562f4b5bcaecb2bf448236
+ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650482"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53157422"
 ---
 # <a name="manage-database-roles-and-users"></a>管理数据库角色和用户
 
-在模型数据库级别，所有用户都必须属于一个角色。 角色可针对模型数据库定义具有特定权限的用户。 添加到角色的任何用户或安全组都必须在与服务器相同的订阅的 Azure AD 租户中具有一个帐户。
+在模型数据库级别，所有用户都必须属于一个角色。 角色可针对模型数据库定义具有特定权限的用户。 添加到角色的任何用户或安全组都必须在与服务器相同的订阅的 Azure AD 租户中具有一个帐户。 
 
 定义角色的方式根据使用的工具有所差异，但效果却是相同的。
 
@@ -130,9 +130,8 @@ ms.locfileid: "52650482"
 可仅为具有“读取”和“读取和处理”权限的角色定义行筛选器。 默认情况下，如果没有为特定表定义行筛选器，除非交叉筛选其他表中的适用项，否则成员可以查询表中的所有行。
 
  行筛选器需要 DAX 公式，该公式的求值结果必须为 TRUE/FALSE，以定义该特定角色的成员可以查询的行。 无法查询未包含在 DAX 公式中的行。 例如，具有以下行筛选器表达式的 Customers 表：*=Customers [Country] = "CHINA"*，Sales 角色的成员只能查看中国境内的客户。  
- <!-- Notice: Should Be China-->
 
-行筛选器适用于指定的行和相关行。 如果表具有多个关系，筛选器将对处于活动状态的关系应用安全性。 行筛选器与为相关表定义的其他行筛选器相交，示例如下：  
+<!-- Notice: Should Be China--> 行筛选器适用于指定的行和相关行。 如果表具有多个关系，筛选器将对处于活动状态的关系应用安全性。 行筛选器与为相关表定义的其他行筛选器相交，示例如下：  
 
 |表|DAX 表达式|  
 |-----------|--------------------|  
@@ -141,9 +140,8 @@ ms.locfileid: "52650482"
 |事务|=Transactions[Year]=2016|  
 
  净效果是成员可以查询若干行数据，其中客户位于中国，产品类别为自行车，年份是 2016 年。 用户无法查询中国之外的事务、不是自行车的事务或非 2016 年的事务，除非他们属于授予这些权限的另一角色。
-<!-- Notice: Should Be China-->
 
- 可以使用筛选器 =FALSE() 拒绝访问整个表的所有行。
+<!-- Notice: Should Be China--> 可以使用筛选器 =FALSE() 拒绝访问整个表的所有行。
 
 ## <a name="next-steps"></a>后续步骤
   [管理服务器管理员](analysis-services-server-admins.md)   

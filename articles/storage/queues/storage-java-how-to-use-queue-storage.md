@@ -1,26 +1,22 @@
 ---
-title: 如何通过 Java 使用队列存储 | Azure
+title: 如何通过 Java 使用队列存储 | Microsoft Docs
 description: 了解如何使用 Azure 队列服务创建和删除队列，以及插入、获取和删除消息。 用 Java 编写的示例。
 services: storage
-documentationcenter: java
-author: hayley244
-manager: digimobile
-editor: tysonn
-ms.assetid: 68cecc8e-38c9-4a24-99e8-cb722bc63cf9
+author: WenJason
 ms.service: storage
-ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 origin.date: 12/08/2016
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 2c5fde85dc4812765d8878aa66fe49a3d982fd6e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/10/2018
+ms.author: v-jay
+ms.component: queues
+ms.openlocfilehash: 7e68dc8ecd6119014d32a1568cf4afe01efa7c58
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651773"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029140"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>如何通过 Java 使用队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -30,7 +26,7 @@ ms.locfileid: "52651773"
 ## <a name="overview"></a>概述
 本指南演示如何使用 Azure 队列存储服务执行常见方案。 这些示例用 Java 编写并使用[用于 Java 的 Azure 存储 SDK][Azure Storage SDK for Java]。 介绍的方案包括**插入**、**扫视**、**获取**和**删除**队列消息以及**创建**和**删除**队列。 有关队列的详细信息，请参阅[后续步骤](#Next-Steps)部分。
 
-注意：为在 Android 设备上使用 Azure 存储的开发人员提供了 SDK。 有关详细信息，请参阅 [Azure Storage SDK for Android][Azure Storage SDK for Android]。
+注意：SDK 提供给在 Android 设备上使用 Azure 存储的开发人员。 有关详细信息，请参阅 [Azure Storage SDK for Android][Azure Storage SDK for Android]。
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -73,7 +69,7 @@ String storageConnectionString =
 下面的示例假定使用了这两个方法之一来获取存储连接字符串。
 
 ## <a name="how-to-create-a-queue"></a>如何：创建队列
-利用 CloudQueueClient 对象，可以获取队列的引用对象。 以下代码将创建 CloudQueueClient 对象。 （注意：还有其他方式可创建 CloudStorageAccount 对象；有关详细信息，请参阅 [Azure 存储客户端 SDK 参考]中的 CloudStorageAccount。）
+利用 CloudQueueClient 对象，可以获取队列的引用对象。 以下代码将创建 CloudQueueClient 对象。 （注意：还有其他方式来创建 CloudStorageAccount 对象；有关详细信息，请参阅 [Azure 存储客户端 SDK 参考]中的 CloudStorageAccount。
 
 使用 **CloudQueueClient** 对象获取对要使用的队列的引用。 如果队列不存在，可以创建它。
 

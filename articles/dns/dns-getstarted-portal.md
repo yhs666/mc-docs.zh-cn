@@ -6,14 +6,14 @@ author: WenJason
 manager: digimobile
 ms.service: dns
 ms.topic: quickstart
-ms.date: 11/12/2018
+ms.date: 12/11/2018
 ms.author: v-jay
-ms.openlocfilehash: 0df819108d30c5e9d56b999f9476d2244c96675b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: aab6706ea4e4ee689f56f514788a065a0d7dcc2e
+ms.sourcegitcommit: 5c059fe358e1298ef96450b2c620054afe89de1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660314"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53234108"
 ---
 # <a name="quickstart-configure-azure-dns-for-name-resolution-using-the-azure-portal"></a>快速入门：使用 Azure 门户配置用于名称解析的 Azure DNS
 
@@ -34,7 +34,7 @@ DNS 区域用来存储某个特定域的 DNS 条目。 若要开始在 Azure DNS
 ## <a name="create-a-dns-zone"></a>创建 DNS 区域
 
 1. 登录到 Azure 门户。
-2. 在左上角依次单击“+ 创建资源”、“网络”、“DNS 区域”，以便打开“创建 DNS 区域”页。
+2. 在左上角单击“+ 创建资源”，然后搜索“DNS 区域”以打开“创建 DNS 区域”页。
 
     ![DNS 区域](./media/dns-getstarted-portal/openzone650.png)
 
@@ -89,7 +89,7 @@ DNS 区域用来存储某个特定域的 DNS 条目。 若要开始在 Azure DNS
    
    For example:
 
-   nslookup www.contoso.xyz ns1-08.azure-dns.com
+   nslookup www.contoso.xyz ns1-05.azure-dns-1.cn
    ```
 
 应该会看到类似于以下屏幕截图的内容：

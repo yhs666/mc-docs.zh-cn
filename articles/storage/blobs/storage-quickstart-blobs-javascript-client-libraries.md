@@ -7,22 +7,26 @@ author: WenJason
 ms.custom: mvc
 ms.service: storage
 ms.author: v-jay
-origin.date: 04/06/2018
-ms.date: 11/08/2018
+origin.date: 11/14/2018
+ms.date: 12/10/2018
 ms.topic: quickstart
-ms.openlocfilehash: cb789b3d177330df989fcfa3271a23291d49175d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.component: blobs
+ms.openlocfilehash: 9a502ba1127143cb1f2694f06124ef19a791ccac
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649922"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029005"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
 # <a name="quickstart-upload-list-and-delete-blobs-using-javascripthtml-in-the-browser"></a>快速入门：在浏览器中使用 JavaScript/HTML 上传、列出和删除 Blob
+
 本快速入门演示如何通过完全在浏览器中运行的代码管理 blob。 此处使用的方法演示如何使用所需的安全措施确保对 blob 存储帐户的受保护访问。 若要完成本快速入门，需要一个 [Azure 订阅](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
+## <a name="prerequisites"></a>先决条件
+
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 ## <a name="setting-up-storage-account-cors-rules"></a>设置存储帐户 CORS 规则 
 必须先将帐户配置为启用[跨域资源共享](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)（简称 CORS），然后 Web 应用程序才能从客户端访问 Blob 存储。 
@@ -59,6 +63,8 @@ ms.locfileid: "52649922"
 
 以下脚本使用了 Azure CLI 来创建可以传递给 JavaScript Blob 服务的 SAS。
 
+> [!NOTE]
+> 为了获得最佳结果，请在将命令粘贴到 Azure Powershell 中之前删除参数之间的多余空格。
 
 ```bash
 az storage account generate-sas
@@ -132,7 +138,7 @@ npm start
         
         <button id="delete-button">Delete</button>
     </body>
-    <script src="scripts/azure-storage.blob.min.js"></script>
+    <script src="scripts/azure-storage.blob.min.js" charset="utf-8"></script>
     <script>
         // Blob-related code goes here
     </script>
@@ -244,7 +250,7 @@ document.getElementById('delete-button').addEventListener('click', () => {
 > 若要使用此代码示例，需为 *blobName* 提供字符串值。
 
 ## <a name="clean-up-resources"></a>清理资源
-若要清理在本快速入门过程中创建的资源，请返回到 [Azure 门户](https://portal.azure.cn)，然后选择存储帐户。 选中以后，即可转到“概览”>“删除存储帐户”来删除该存储帐户。
+若要清理在本快速入门过程中创建的资源，请返回到 [Azure 门户](https://portal.azure.cn)，然后选择存储帐户。 选中以后，即可转到以下位置来删除该存储帐户：“概述”>“删除存储帐户”。
 
 ## <a name="next-steps"></a>后续步骤
 浏览示例，了解如何下载 Blob 以及如何在文件上传过程中报告进度。

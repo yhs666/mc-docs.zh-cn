@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 origin.date: 03/30/2018
-ms.date: 05/25/2018
+ms.date: 11/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: f8a3adc61dbae55540b68593ce02bfae5d2a68b6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: babb619d00195b32c068d883d40d8659fca23ad7
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666549"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029110"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>教程：在 ASP.NET 中创建缓存端排行榜
 
@@ -151,7 +151,7 @@ ms.locfileid: "52666549"
     }
     ```
 
-1. 在“解决方案资源管理器”中，双击“web.config”将其打开。
+1. 在“解决方案资源管理器”中，双击“Web.config”将其打开。
 
     ![Web.config](./media/cache-web-app-cache-aside-leaderboard/cache-web-config.png)
 
@@ -747,3 +747,4 @@ ms.locfileid: "52666549"
 > [!div class="nextstepaction"]
 > [如何缩放 Azure Redis 缓存](./cache-how-to-scale.md)
 
+<!-- Update_Description: wording update -->

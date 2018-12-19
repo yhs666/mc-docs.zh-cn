@@ -2,27 +2,19 @@
 title: Azure VPN 网关 | Microsoft Docs
 description: 了解什么是 VPN 网关，以及可以通过什么方式将 VPN 网关用于连接到 Azure 虚拟网络。 包括 IPsec/IKE 站点到站点跨界解决方案和 VNet 到 VNet 解决方案，以及点到站点 VPN。
 services: vpn-gateway
-documentationcenter: na
-author: cherylmc
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
+author: WenJason
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
-ms.assetid: 2358dd5a-cd76-42c3-baf3-2f35aadc64c8
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 04/19/2018
-ms.date: 06/14/2018
-ms.author: v-junlch
-ms.openlocfilehash: 1f265c59d905a9adc6c998513967f5b0f9cdadb5
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 10/19/2018
+ms.date: 12/10/2018
+ms.author: v-jay
+ms.openlocfilehash: 76066361352ca66f8f86e2c515b7b1f9715d697c
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654007"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028981"
 ---
 # <a name="what-is-vpn-gateway"></a>什么是 VPN 网关？
 
@@ -68,9 +60,9 @@ VPN 网关连接需依赖于多个具有特定设置的资源。 大多数资源
 
 必须知道，VPN 网关连接可以使用不同的配置。 必须确定哪种配置最适合自己的需要。 在下面的部分中，可以查看有关以下 VPN 网关连接的信息和拓扑示意图：以下部分包含一些表格，其中列出了：
 
-- 可用的部署模型
-- 可用的配置工具
-- 直接转到某篇文章的链接（如果有）
+* 可用的部署模型
+* 可用的配置工具
+* 直接转到某篇文章的链接（如果有）
 
 使用图示和描述来帮助选择符合要求的连接拓扑。 这些图示显示主要基准拓扑，但也可以使用这些图示作为指导来构建更复杂的配置。
 
@@ -111,9 +103,9 @@ VPN 网关连接需依赖于多个具有特定设置的资源。 大多数资源
 
 连接的 VNet 可以：
 
-- 在相同或不同的区域中
-- 在相同或不同订阅中 
-- 在相同或不同部署模型中
+* 在相同或不同的区域中
+* 在相同或不同订阅中 
+* 在相同或不同部署模型中
 
 ![Azure VPN 网关 VNet 到 VNet 连接示例](./media/vpn-gateway-about-vpngateways/vpngateway-vnet-to-vnet-connection-diagram.png)
 
@@ -165,5 +157,4 @@ ExpressRoute 是从 WAN （不通过公共 Internet）到 Microsoft 服务（包
 - 有关更多信息，请查看 [VPN 网关常见问题](vpn-gateway-vpn-faq.md)。
 - 查看[订阅和服务限制](../azure-subscription-service-limits.md#networking-limits)。
 - 了解 Azure 的一些其他关键[网络功能](../virtual-network/virtual-networks-overview.md)。
-
 <!--Update_Description: wording update-->

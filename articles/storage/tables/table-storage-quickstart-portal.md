@@ -1,25 +1,20 @@
 ---
-title: Azure 表存储概述 | Azure
+title: Azure 表存储概述 | Microsoft Docs
 description: 在 Azure 门户中创建一个 Azure 存储表服务表。
 services: storage
-documentationcenter: ''
 author: WenJason
-manager: digimobile
-ms.assetid: ''
 ms.service: storage
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: ''
 ms.topic: quickstart
 origin.date: 04/23/2018
-ms.date: 07/02/2018
+ms.date: 12/10/2018
 ms.author: v-jay
-ms.openlocfilehash: ba95f6a1b62aea5f5bed9edc14fc305d3e2ac775
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.component: tables
+ms.openlocfilehash: fa94b804b21d93f6f2140d8b9f0c54d76b722e42
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648664"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029004"
 ---
 # <a name="quickstart-create-an-azure-storage-table-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建 Azure 存储表 
 

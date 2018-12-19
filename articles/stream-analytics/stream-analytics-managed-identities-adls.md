@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 09/27/2018
 ms.date: 11/26/2018
-ms.openlocfilehash: 93f590eab316d4dc79dbe8526f432deccd6200fa
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 644d280ef186c342f7f613a92f9c0d961bc6176f
+ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675094"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53219536"
 ---
 # <a name="use-managed-identities-to-authenticate-azure-stream-analytics-jobs-to-azure-data-lake-storage-gen1-output-preview"></a>使用托管标识在 Azure Data Lake Storage Gen1 输出（预览版）中对 Azure 流分析作业进行身份验证
 
@@ -39,7 +39,7 @@ Azure 流分析支持使用 Azure Data Lake Storage (ADLS) Gen1 输出进行托�
 
 3. 在 ADLS Gen1 输出接收器的输出属性窗口中，单击“身份验证模式”下拉列表并选择“托管标识(预览版)”。
 
-4. 填写其余的属性。 若要详细了解如何创建 ADLS 输出，请参阅[使用流分析创建 Data Lake Store 输出](../data-lake-store/data-lake-store-stream-analytics.md)。 完成后，单击“保存”。
+4. 填写其余的属性。 若要详细了解如何创建 ADLS 输出，请参阅“使用流分析创建 Data Lake Store 输出”。 完成后，单击“保存”。
 
    ![配置 Azure Data Lake Storage](./media/stream-analytics-managed-identities-adls/stream-analytics-configure-adls.png)
 
@@ -63,7 +63,7 @@ Azure 流分析支持使用 Azure Data Lake Storage (ADLS) Gen1 输出进行托�
 
    ![访问列表](./media/stream-analytics-managed-identities-adls/stream-analytics-access-list.png)
 
-   若要详细了解 Data Lake Storage Gen1 文件系统权限，请参阅 [Azure Data Lake Storage Gen1 中的访问控制](../data-lake-store/data-lake-store-access-control.md)。
+   若要详细了解 Data Lake Storage Gen1 文件系统权限，请参阅 [Azure Data Lake Storage Gen1 中的访问控制](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-access-control)。
 
 ## <a name="resource-manager-template-deployment"></a>资源管理器模板部署
 
@@ -152,5 +152,6 @@ Azure 流分析支持使用 Azure Data Lake Storage (ADLS) Gen1 输出进行托�
 
 ## <a name="next-steps"></a>后续步骤
 
-* [使用流分析创建 Data Lake Store 输出](../data-lake-store/data-lake-store-stream-analytics.md)
+* [使用流分析创建 Data Lake Store 输出](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-stream-analytics)
+
 <!-- Update Description: Update meta properties-->

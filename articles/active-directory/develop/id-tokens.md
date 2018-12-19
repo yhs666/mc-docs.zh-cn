@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/05/2018
-ms.date: 11/06/2018
+ms.date: 12/03/2018
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 73fec17bf255a436088314fd1dc95841d1305035
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a326ca6a1e6240703f18fc357a3203a02795e7e1
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655723"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029024"
 ---
 # <a name="id-tokens"></a>ID 令牌
 
@@ -69,6 +69,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IjdfWnVmMXR2a3dMeFlhSFMzcTZsVWpVWUlH
 |`at_hash`| String |仅当 ID 令牌随 OAuth 2.0 访问令牌一起颁发时，访问令牌哈希才包含在 ID 令牌中。 它可用于验证访问令牌的真实性。 有关执行此验证的详细信息，请参阅 [OpenID Connect 规范](http://openid.net/specs/openid-connect-core-1_0.html)。 |
 |`aio` | 不透明字符串 | 一个内部声明，Azure AD 用它来记录有关重复使用令牌的数据。 应忽略。|
 |`preferred_username` | String | 表示用户的主用户名。 可以是电子邮件地址、电话号码或未指定格式的一般用户名。 其值是可变的，可能随时改变。 由于此值是可变的，因此它不能用于做出授权决定。 需要 `profile` 范围才能接收此声明。|
+|`email` | String | 对于具有电子邮件地址的来宾帐户，默认情况下会提供 `email` 声明。 电子邮件声明仅支持来自用户个人资料信息的可寻址邮件。 |
 |`name` | String | 此 `name` 声明提供了标识令牌使用者的用户可读值。 该值不一定唯一，而且可变，只能用于显示目的。 需要 `profile` 范围才能接收此声明。 |
 |`nonce`| String | nonce 与发送给 IDP 的原始 /authorize 请求中包含的参数匹配。 如果不匹配，应用程序会拒绝此令牌。 |
 |`oid` | 字符串，GUID | 在 Microsoft 标识系统中，对象的不可变标识符在这种情况下是用户帐户。 此 ID 唯一标识应用程序中的用户 - 同一个用户登录两个不同的应用程序会在 `oid` 声明中收到相同值。 Microsoft Graph 将返回此 ID 作为给定用户帐户的 `id` 属性。 因为 `oid` 允许多个应用关联用户，需要 `profile` 作用域才能收到此声明。 请注意，如果单个用户存在于多个租户中，该用户将包含每个租户中的不同对象 ID - 它们将视为不同帐户，即使用户使用相同的凭据登录到每个帐户，也是如此。 |
@@ -93,3 +94,4 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IjdfWnVmMXR2a3dMeFlhSFMzcTZsVWpVWUlH
 
 - 了解 [Azure AD 访问令牌](access-tokens.md)
 
+<!-- Update_Description: wording update -->

@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/29/2017
-ms.date: 11/12/2018
+ms.date: 12/11/2018
 ms.author: v-jay
-ms.openlocfilehash: 6f1dafda2973e6159d3342c106541ede4aa1e5c0
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a1a8d5e5dc5ee79bbf253f0863e7fdd1cf355178
+ms.sourcegitcommit: 5c059fe358e1298ef96450b2c620054afe89de1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663131"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53234107"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>在 Azure DNS 中托管反向 DNS 查找区域
 
@@ -33,7 +33,7 @@ ms.locfileid: "52663131"
 ## <a name="create-a-reverse-lookup-dns-zone"></a>创建反向查找 DNS 区域
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-1. 在“中心”菜单上，单击“新建” > “网络”，然后单击“DNS 区域”。
+1. 在“中心”菜单上，选择“新建”> 搜索“DNS 区域”，然后选择“DNS 区域”。
 
    ![“DNS 区域”选项](./media/dns-reverse-dns-hosting/figure1.png)
 
@@ -254,7 +254,7 @@ Get-AzureRmDnsRecordSet -ZoneName 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -Reso
 
 ### <a name="how-much-does-hosting-my-reverse-dns-lookup-zone-cost"></a>托管反向 DNS 查找区域的成本是多少？
 
-在 Azure DNS 中托管 ISP 分配的 IP 块的反向 DNS 查找区域根据[标准 Azure DNS 费率](https://azure.microsoft.com/pricing/details/dns/)收费。
+在 Azure DNS 中托管 ISP 分配的 IP 块的反向 DNS 查找区域根据[标准 Azure DNS 费率](https://azure.cn/pricing/details/dns/)收费。
 
 ### <a name="can-i-host-reverse-dns-lookup-zones-for-both-ipv4-and-ipv6-addresses-in-azure-dns"></a>是否可以在 Azure DNS 中托管 IPv4 和 IPv6 地址的反向 DNS 查找区域？
 

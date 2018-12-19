@@ -9,12 +9,12 @@ origin.date: 10/11/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
 ms.component: logs
-ms.openlocfilehash: e6dab4af1c8f66864648a8970dcf199dcb5f27d2
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 680d75f5e4362f0144c37f8e5cb408311842b323
+ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675426"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53219575"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 诊断日志支持的服务、架构和类别
 
@@ -48,30 +48,20 @@ ms.locfileid: "52675426"
 
 | 服务 | 架构和文档 |
 | --- | --- |
-| Azure Active Directory | [概述](../active-directory/reports-monitoring/overview-activity-logs-in-azure-monitor.md)、[审核日志架构](../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md)和[登录架构](../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
+| Azure Active Directory | [概述](../active-directory/index.md)、[审核日志架构](../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) |
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | API 管理 | [API 管理诊断日志](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | 应用程序网关 |[应用程序网关的诊断日志记录](../application-gateway/application-gateway-diagnostics.md) |
-| Azure 自动化 |[适用于 Azure 自动化的 Log Analytics](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch 诊断日志记录](../batch/batch-diagnostics.md) |
 | Azure Database for MySQL | [Azure Database for MySQL 诊断日志](../mysql/concepts-server-logs.md#diagnostic-logs) |
 | Azure Database for PostgreSQL | [Azure Database for PostgreSQL 诊断日志](../postgresql/concepts-server-logs.md#diagnostic-logs) |
 | 认知服务 | 架构不可用。 |
-| CosmosDB | [Azure Cosmos DB 日志记录](../cosmos-db/logging.md) |
 | 适用于 PostgreSQL 的 DB |  架构不可用。 |
-| 事件中心 |[Azure 事件中心诊断日志](../event-hubs/event-hubs-diagnostic-logs.md) |
 | Express Route | 架构不可用。 |
 | IoT 中心 | [IoT 中心操作](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
-| 密钥保管库 |[Azure 密钥保管库日志记录](../key-vault/key-vault-logging.md) |
-| 负载均衡器 |[Azure 负载均衡器的 Log Analytics](../load-balancer/load-balancer-monitor-log.md) |
-| 网络安全组 |[网络安全组 (NSG) 的 Log Analytics](../virtual-network/virtual-network-nsg-manage-log.md) |
-| DDOS 保护 | [管理 Azure DDoS 防护标准](../virtual-network/manage-ddos-protection.md) |
 | PowerBI 专用 | 架构不可用。 |
 | 恢复服务 | [Azure 备份的数据模型](../backup/backup-azure-reports-data-model.md)|
-| 搜索 |[允许并使用搜索流量分析](../search/search-traffic-analytics.md) |
 | 服务总线 |[Azure 服务总线诊断日志](../service-bus-messaging/service-bus-diagnostic-logs.md) |
-| SQL 数据库 | [Azure SQL 数据库诊断日志记录](../sql-database/sql-database-metrics-diag-logging.md) |
-| 流分析 |[作业诊断日志](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | 流量管理器 | 架构不可用。 |
 | 虚拟网络 | 架构不可用。 |
 | 虚拟网络网关 | 架构不可用。 |

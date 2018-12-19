@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
-origin.date: 08/28/2018
-ms.date: 10/09/2018
+origin.date: 10/19/2018
+ms.date: 12/10/2018
 ms.author: v-junlch
 ms.custom: it-pro
 ms.reviewer: krbain
-ms.openlocfilehash: 51535943ec62fbef3d248fcc08d5718ac5ee551e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ca146352965a9e478573ae0b6cca1810629724e3
+ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648163"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53157399"
 ---
 # <a name="how-to-add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>如何：使用 Azure Active Directory 在组中添加或删除其他组
 本文帮助你使用 Azure Active Directory 在组中添加和删除其他组。
@@ -26,10 +26,13 @@ ms.locfileid: "52648163"
 >[!Note]
 >如果尝试删除父组，请参阅[如何更新或删除组及其成员](active-directory-groups-delete-group.md)。
 
-## <a name="add-a-group-as-a-member-to-another-group"></a>将一个组作为成员添加到另一个组
-可以将现有组添加到另一个组，从而创建成员组（子组）和父组。 成员组继承父组的特性和属性，节省了配置时间。
+## <a name="add-a-group-to-another-group"></a>将组添加到另一个组
+可以将现有安全组添加到其他现有安全组（也称为“嵌套组”），以创建成员组（子组）和父组。 成员组继承父组的特性和属性，节省了配置时间。
 
-### <a name="to-add-a-group-as-a-member-to-another-group"></a>要将组作为成员添加到其他组
+>[!Important]
+>当前不支持：<ul><li>将安全组添加到 Office 365 组</li><li>将 Office 365 组添加到安全组或其他 Office 365 组</li><li>将应用分配到嵌套组</li><li>将许可证应用于嵌套组</li></ul>
+
+### <a name="to-add-a-group-as-a-member-of-another-group"></a>若要将组作为成员添加到其他组
 
 1. 使用目录的全局管理员帐户登录到 [Azure 门户](https://portal.azure.cn)。
 
@@ -56,8 +59,8 @@ ms.locfileid: "52648163"
 
     ![组成员身份页面，其中显示了成员和组详细信息](./media/active-directory-groups-membership-azure-portal/group-membership-review.png)
 
-## <a name="remove-a-member-group-from-another-group"></a>删除组中的成员组
-可以删除组中的现有成员组。 但是，删除成员身份还会为用户删除任何继承的特性和属性。
+## <a name="remove-a-group-from-another-group"></a>从另一个组中删除组
+可以从其他安全组中删除现有安全组。 但是，删除组也会删除其成员的所有继承特性和属性。
 
 ### <a name="to-remove-a-member-group-from-another-group"></a>删除组中的成员组
 1. 在“组 - 所有组”页面上，搜索并选择要删除的属于另一个组的成员的组。 对于本练习，我们再次使用“MDM 策略 - 西部”组。

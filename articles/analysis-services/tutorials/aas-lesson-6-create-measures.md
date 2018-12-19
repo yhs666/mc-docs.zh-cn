@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 07/03/2018
-ms.date: 08/06/2018
+origin.date: 10/18/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: fda2dd4a5789b9de09335ca8f17b998827e76693
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 2b405472a006ef90ceb18720436ef6ed03f3fd0c
+ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664502"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53157430"
 ---
 # <a name="create-measures"></a>创建度量值
 
@@ -26,7 +26,7 @@ ms.locfileid: "52664502"
 
 在本课中，通过在公式栏中输入 DAX 公式和使用“自动求和”功能这两种方式创建度量值。  
 
-本课程预计完成时间：**30 分钟**  
+本课预计完成时间：**30 分钟**  
 
 ## <a name="prerequisites"></a>先决条件  
 本主题是表格建模教程的一部分，应当按顺序完成。 在执行本课中的任务之前，应当已完成上一课：[第 5 课：创建计算列](../tutorials/aas-lesson-5-create-calculated-columns.md)。  

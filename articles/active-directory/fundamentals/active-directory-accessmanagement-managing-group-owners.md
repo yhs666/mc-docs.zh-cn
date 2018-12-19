@@ -9,15 +9,15 @@ ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
 origin.date: 09/11/2018
-ms.date: 11/12/2018
+ms.date: 12/10/2018
 ms.author: v-junlch
 ms.custom: it-pro
-ms.openlocfilehash: 66b5c006674b2acce14e7560d4e1deea1ed1ecf0
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 7351b8dc4c72842c749c375de2a4582b96867b21
+ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647735"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53157389"
 ---
 # <a name="how-to-add-or-remove-group-owners-in-azure-active-directory"></a>如何：在 Azure Active Directory 中添加或删除组所有者
 Azure Active Directory (Azure AD) 组由组所有者拥有和管理。 组所有者是由资源所有者（管理员）分配的，用来管理组及其成员。 组所有者并非必须是组的成员。 在分配组所有者后，只有资源所有者可以添加或删除这些所有者。
@@ -48,7 +48,7 @@ Azure Active Directory (Azure AD) 组由组所有者拥有和管理。 组所有
 ### <a name="to-remove-an-owner"></a>删除所有者
 1. 使用目录的全局管理员帐户登录到 [Azure 门户](https://portal.azure.cn)。
 
-2. 依次选择“Azure Active Directory”、“组”以及要添加所有者的组（例如此示例为“MDM 策略 - 西部”）。
+2. 依次选择“Azure Active Directory”、“组”以及要删除所有者的组（对于此示例为“MDM 策略 - 西部”）。
 
 3. 在“MDM 策略 - 西部概述”页面上选择“所有者”。
 
@@ -67,4 +67,4 @@ Azure Active Directory (Azure AD) 组由组所有者拥有和管理。 组所有
 
 - [用于配置组设置的 Azure Active Directory cmdlet](../users-groups-roles/groups-settings-v2-cmdlets.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

@@ -17,12 +17,12 @@ ms.workload: iaas-sql-server
 origin.date: 05/02/2017
 ms.date: 04/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: e93fd37a873d1abf7e9fbfe9986d92d3e109578a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 30e4bde28414bcadbb708875f7b9426cbc6e8903
+ms.sourcegitcommit: bd105c3e9db2b0e39594cdf574d2566d771f0e78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662835"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53330001"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>在位于不同区域的 Azure 虚拟机上配置 Always On 可用性组
 
@@ -70,9 +70,9 @@ ms.locfileid: "52662835"
    >[!NOTE]
    >在某些情况下，可能需要使用 PowerShell 创建 VNet 到 VNet 连接。 例如，使用不同的 Azure 帐户时无法在门户中配置连接。 这种情况请参阅[使用 Azure 门户配置 VNet 到 VNet 连接](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)。
 
-1. [在新区域中创建域控制器](../../../active-directory/active-directory-new-forest-virtual-machine.md)。
+1. [在新区域中创建域控制器](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100)。
 
-   如果主站点中的域控制器不可用，此域控制器可提供身份验证。
+    <!--Notice: URL ture /active-directory/active-directory-new-forest-virtual-machine.md to https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100--> 如果主站点中的域控制器不可用，此域控制器可提供身份验证。
 
 1. [在新区域中创建 SQL Server 虚拟机](virtual-machines-windows-portal-sql-server-provision.md)。
 

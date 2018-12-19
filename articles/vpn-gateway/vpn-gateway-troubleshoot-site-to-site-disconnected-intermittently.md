@@ -3,8 +3,8 @@ title: 排查 Azure 站点到站点 VPN 间歇性地断开连接的问题 | Micr
 description: 了解如何排查站点到站点 VPN 定期连接断开的问题。
 services: vpn-gateway
 documentationcenter: na
-author: chadmath
-manager: cshepard
+author: WenJason
+manager: digimobile
 editor: ''
 tags: ''
 ms.service: vpn-gateway
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 05/11/2018
-ms.date: 06/13/2018
-ms.author: v-junlch
-ms.openlocfilehash: 06910551ba95c963a73973d7a57b8677495fa7b0
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 10/30/2018
+ms.date: 12/10/2018
+ms.author: v-jay
+ms.openlocfilehash: 6a0d2d5dbddf10ea9340dd5b2a872ea160378a0a
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644217"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029087"
 ---
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>故障排除：Azure 站点到站点 VPN 间歇性断开连接
 
@@ -75,6 +75,5 @@ ms.locfileid: "52644217"
 
 - [配置与虚拟网络的站点到站点连接](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 - [配置站点到站点 VPN 连接的 IPsec/IKE 策略](vpn-gateway-ipsecikepolicy-rm-powershell.md)
-
 
 <!-- Update_Description: wording update -->

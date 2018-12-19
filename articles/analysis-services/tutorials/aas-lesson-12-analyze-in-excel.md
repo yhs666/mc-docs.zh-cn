@@ -1,20 +1,20 @@
 ---
-title: Azure Analysis Services 教程第 12 课：在 Excel 中分析 | Azure
+title: Azure Analysis Services 教程第 12 课：在 Excel 中分析 |Azure
 description: 介绍如何在 Azure Analysis Services 教程项目中使用“在 Excel 中分析”功能。
 author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 07/03/2018
-ms.date: 08/06/2018
+origin.date: 10/18/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2578ac7194362b848e6eef1e60dee31e167df29d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: bae07f21ca13396b8be067f4ff6b61d993643bb9
+ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644638"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53157412"
 ---
 # <a name="analyze-in-excel"></a>在 Excel 中分析
 
@@ -22,7 +22,7 @@ ms.locfileid: "52644638"
 
 若要完成本课，必须将 Excel 安装在 Visual Studio 所在的计算机上。
 
-本课预计完成时间：**5 分钟**  
+本课预计完成时间：**五分钟**  
 
 ## <a name="prerequisites"></a>先决条件  
 本主题是表格建模教程的一部分，应当按顺序完成。 在执行本课中的任务之前，应当已完成上一课：[第 11 课：创建角色](../tutorials/aas-lesson-11-create-roles.md)。  

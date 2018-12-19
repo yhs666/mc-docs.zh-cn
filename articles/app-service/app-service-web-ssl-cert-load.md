@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 12/01/2017
 ms.date: 07/30/2018
 ms.author: v-yiso
-ms.openlocfilehash: dfefff37d8ac51d6d1d43c6735ad63f181745b35
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5fecb9770f4a663e11ac966e5fe080258ad61e8c
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657091"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029000"
 ---
 # <a name="use-an-ssl-certificate-in-your-application-code-in-azure-app-service"></a>在 Azure 应用服务的应用程序代码中使用 SSL 证书
 
@@ -35,7 +35,7 @@ ms.locfileid: "52657091"
 
 - [创建应用服务应用](/app-service/)
 - [将自定义 DNS 名称映射到 Web 应用](app-service-web-tutorial-custom-domain.md)
-- [将 SSL 证书上传](app-service-web-tutorial-custom-ssl.md)或者[将应用服务证书导入](web-sites-purchase-ssl-web-site.md)到 Web 应用
+- [将 SSL 证书上传到 Web 应用](app-service-web-tutorial-custom-ssl.md)
 
 
 ## <a name="load-your-certificates"></a>加载证书

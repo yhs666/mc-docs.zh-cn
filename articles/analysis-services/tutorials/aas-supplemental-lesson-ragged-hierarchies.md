@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 07/03/2018
-ms.date: 08/06/2018
+origin.date: 10/18/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: d382a93dc7991c04479da0c914f6e8e78ed76ada
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 61d1bcbe8f0212f7a0596601b3cb617612638b85
+ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653815"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53157426"
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>补充课程 - 不规则层次结构
 
@@ -89,7 +89,7 @@ ms.locfileid: "52653815"
     =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],5,1)) 
     ```
 
-6.  在“DimEmployee”表中，创建一个名为“Organization”的[层次结构](../tutorials/aas-lesson-9-create-hierarchies.md)。 按顺序添加以下列：“Level1”、“Level2”、“Level3”、“Level4”、“Level5”。
+6.  在“DimEmployee”表中，创建一个名为“Organization”的[层次结构](../tutorials/aas-lesson-9-create-hierarchies.md)。 按顺序添加以下列：**Level1**、**Level2**、**Level3**、**Level4**、**Level5**。
 
 7.  在“FactResellerSales”表中，创建以下[度量值](../tutorials/aas-lesson-6-create-measures.md)：
 

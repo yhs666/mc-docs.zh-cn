@@ -10,12 +10,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 07/10/2018
 ms.date: 09/30/2018
-ms.openlocfilehash: 634309ca71aa6ac9d6c9d855bee899636e7dd35d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c48f6b53fde0546db0a50fafa00b612af15f332c
+ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657915"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53219534"
 ---
 <!-- Verify successfully-->
 
@@ -23,7 +23,7 @@ ms.locfileid: "52657915"
 
 可使用针对 Visual Studio 的 Azure 流分析工具通过示例数据在本地测试流分析作业。
 
-使用此[快速入门](stream-analytics-quick-create-vs.md)了解如何使用 Visual Studio 创建流分析作业。
+使用此[快速入门](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-quick-create-vs)了解如何使用 Visual Studio 创建流分析作业。
 
 ## <a name="test-your-query"></a>测试查询
 
@@ -76,9 +76,8 @@ ms.locfileid: "52657915"
 
 ## <a name="next-steps"></a>后续步骤
 
-* [使用 Visual Studio 查看 Azure 流分析作业](stream-analytics-vs-tools.md)
-* [快速入门：使用 Visual Studio 创建流分析作业](stream-analytics-quick-create-vs.md)
-* [教程：使用 Azure DevOps 通过 CI/CD 部署 Azure 流分析作业](stream-analytics-tools-visual-studio-cicd-vsts.md)
+* [使用 Visual Studio 查看 Azure 流分析作业](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-vs-tools)
+* [快速入门：使用 Visual Studio 创建流分析作业](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-quick-create-vs)
 * [使用流分析工具进行持续集成和开发](stream-analytics-tools-for-visual-studio-cicd.md)
 
 <!-- Update_Description: new articles on stream analytics vs tools local run -->

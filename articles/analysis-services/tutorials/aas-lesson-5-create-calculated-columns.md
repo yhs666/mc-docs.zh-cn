@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 07/03/2018
-ms.date: 08/06/2018
+origin.date: 10/18/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 03517f525218a24e32aab78e83d1eaaa4f9f534c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1dc171254e54280fe913a104c04f5d448b36570b
+ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649411"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53157425"
 ---
 # <a name="create-calculated-columns"></a>创建计算列
 
@@ -43,7 +43,7 @@ ms.locfileid: "52649411"
 
     一个名为“Calculated Column 1”的新列将插入到“Calendar Quarter”列的左侧。  
 
-4.  在表上方的编辑栏中，键入以下 DAX 公式：“自动完成”，这可帮助键入列和表的完全限定名称，并列出可用函数。  
+4.  在表上方的公式栏中，键入以下 DAX 公式：“自动完成”可帮助你键入列和表的完全限定名称，并将列出可用的函数。  
 
     ```  
     =RIGHT(" " & FORMAT([MonthNumberOfYear],"#0"), 2) & " - " & [EnglishMonthName]  

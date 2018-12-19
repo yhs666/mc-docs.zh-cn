@@ -11,16 +11,16 @@ ms.topic: overview
 origin.date: 05/10/2018
 ms.date: 11/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: 766de3e09e6354ca0a3ce5b78c78f9db9846a635
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 113cf48f669b15543cb5750e357617baa9b4caaa
+ms.sourcegitcommit: a3cde3b41ed4d3f39a30eb4e562d6436a3e4d9d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673350"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53131746"
 ---
 # <a name="what-is-translator-text-api"></a>什么是文本翻译 API？
 
-文本翻译 API 可以轻松地集成到应用程序、网站、工具和解决方案中。 它允许你使用 [60 多种语言](languages.md)添加多语言用户体验，可以在任何硬件平台上使用，以及在任何操作系统中使用，用于文本到文本语言翻译。
+文本翻译 API 可以轻松地集成到应用程序、网站、工具和解决方案中。 它允许你使用 60 多种语言添加多语言用户体验，可以在任何硬件平台上使用，以及在任何操作系统中使用，用于文本到文本语言翻译。
 
 文本翻译 API 是云中机器学习和 AI 算法的 Azure [认知服务 API](https://docs.microsoft.com/azure/#pivot=products&panel=ai) 集合的一部分，可随时在开发项目中使用。
 
@@ -56,8 +56,6 @@ NMT 模型是该 API 的核心，对最终用户不可见。 唯一明显的区�
 - 了解[定价详细信息](https://www.azure.cn/pricing/details/cognitive-services/)。
 
 - [注册](translator-text-how-to-signup.md)访问密钥。
-
-- [快速入门](quickstarts/csharp.md)演练了以 C# 编写的 REST API 调用。 了解如何使用最少的代码将一种语言的文本翻译为另一种语言。
 
 - [API 参考文档](/cognitive-services/Translator/reference/v3-0-reference)提供了 API 的技术文档。
 

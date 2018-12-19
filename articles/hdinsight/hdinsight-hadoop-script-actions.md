@@ -15,12 +15,12 @@ origin.date: 05/25/2017
 ms.date: 08/27/2018
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 05682020355968bf9ec0eb9f53e4f0739b9da9c9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: cad9a5e387ccc8dba3de4284df307fc8b53212b0
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663136"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028887"
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>为 HDInsight 基于 Windows 的群集开发脚本操作脚本
 了解如何为 HDInsight 编写脚本操作脚本。 有关如何使用脚本操作脚本的信息，请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster.md)。 有关为基于 Linux 的 HDInsight 群集编写的同一篇文章，请参阅[为 HDInsight 开发脚本操作脚本](hdinsight-hadoop-script-actions-linux.md)。
@@ -35,7 +35,7 @@ ms.locfileid: "52663136"
 > [!NOTE]
 > 如果遇到以下错误消息：
 >
-> System.Management.Automation.CommandNotFoundException；ExceptionMessage: 术语“Save-HDIFile”无法识别为 cmdlet、函数、脚本文件或可操作程序的名称。 请检查名称的拼写，如果包含路径，请验证该路径是否正确，并重试。
+> System.Management.Automation.CommandNotFoundException; ExceptionMessage:无法将“Save-HDIFile”一词识别为 cmdlet、函数、脚本文件或可运行程序的名称。 请检查名称的拼写，如果包含路径，请验证该路径是否正确，并重试。
 > 这是你没有包括帮助器方法。  请参阅[自定义脚本的帮助程序方法](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts)。
 >
 >
@@ -101,7 +101,6 @@ HDInsight 提供了多个脚本用于在 HDInsight 群集上安装附加组件�
 | Name | 脚本 |
 | --- | --- |
 | **安装 Spark** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1`。 请参阅 [在 HDInsight 群集上安装并使用 Spark][hdinsight-install-spark]。 |
-| **安装 R** | `https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1`。 请参阅[在 HDInsight 群集上安装并使用 R](r-server/r-server-hdinsight-manage.md#install-additional-r-packages-on-the-cluster)。 |
 | **安装 Solr** | `https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1`。 请参阅[在 HDInsight 群集上安装并使用 Solr](hdinsight-hadoop-solr-install.md)。 |
 | **安装 Giraph** | `https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1`。 请参阅[在 HDInsight 群集上安装并使用 Giraph](hdinsight-hadoop-giraph-install.md)。 |
 | **预加载 Hive 库** | `https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1`。 请参阅[在 HDInsight 群集上添加 Hive 库](hdinsight-hadoop-add-hive-libraries.md) |

@@ -6,19 +6,19 @@ author: WenJason
 tags: azure-resource-manager
 ms.service: vpn-gateway
 ms.topic: conceptual
-origin.date: 09/06/2018
-ms.date: 11/05/2018
+origin.date: 10/24/2018
+ms.date: 12/10/2018
 ms.author: v-jay
-ms.openlocfilehash: 785f0b2525fec3daa4e38c9b20b6560530b46e27
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 59b467c104c159385825c22c7bc57fb8672a7c04
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646085"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029044"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>使用本机 Azure 证书身份验证配置与 VNet 的点到站点连接：Azure 门户
 
-本文介绍如何将运行 Windows 或 Mac OS X 的单个客户端安全地连接到 Azure VNet。 若要从远程位置连接到 VNet，例如从家里或会议室进行远程通信，则可使用点到站点 VPN。 如果只有一些客户端需要连接到 VNet，也可使用 P2S VPN 来代替站点到站点 VPN。 点到站点连接不需要 VPN 设备或面向公众的 IP 地址。 P2S 基于 SSTP（安全套接字隧道协议）或 IKEv2 创建 VPN 连接。 有关点到站点 VPN 的详细信息，请参阅[关于点到站点 VPN](point-to-site-about.md)。
+本文介绍如何将运行 Windows、Linux 或 Mac OS X 的单个客户端安全地连接到 Azure VNet。 若要从远程位置连接到 VNet，例如从家里或会议室进行远程通信，则可使用点到站点 VPN。 如果只有一些客户端需要连接到 VNet，也可使用 P2S VPN 来代替站点到站点 VPN。 点到站点连接不需要 VPN 设备或面向公众的 IP 地址。 P2S 基于 SSTP（安全套接字隧道协议）或 IKEv2 创建 VPN 连接。 有关点到站点 VPN 的详细信息，请参阅[关于点到站点 VPN](point-to-site-about.md)。
 
 ![将计算机连接到 Azure VNet - 点到站点连接示意图](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeportal.png)
 
@@ -36,21 +36,21 @@ ms.locfileid: "52646085"
 
 可使用以下值创建测试环境，或参考这些值以更好地理解本文中的示例：
 
-* VNet 名称：VNet1
-* 地址空间：192.168.0.0/16<br>对于此示例，我们只使用一个地址空间。 VNet 可以有多个地址空间。
-* 子网名称：FrontEnd
-* 子网地址范围：192.168.1.0/24
+* **VNet 名称：** VNet1
+* **地址空间：** 192.168.0.0/16<br>对于此示例，我们只使用一个地址空间。 对于 VNet，可以有多个地址空间。
+* **子网名称：** FrontEnd
+* **子网地址范围：** 192.168.1.0/24
 * **订阅：** 如果有多个订阅，请确保使用正确的订阅。
-* 资源组：TestRG
+* **资源组：** TestRG
 * **位置：** 中国北部
-* 网关子网：192.168.200.0/24<br>
+* **网关子网：** 192.168.200.0/24<br>
 * DNS 服务器：（可选）要用于名称解析的 DNS 服务器的 IP 地址。
-* 虚拟网关名称：VNet1GW
-* 网关类型：VPN
-* VPN 类型：基于路由
-* 公共 IP 地址名称：VNet1GWpip
-* 连接类型：点到站点
-* 客户端地址池：172.16.201.0/24<br>使用此点到站点连接连接到 VNet 的 VPN 客户端接收来自客户端地址池的 IP 地址。
+* **虚拟网络网关名称：** VNet1GW
+* **网关类型：** VPN
+* **VPN 类型：** 基于路由
+* **公共 IP 地址名称：** VNet1GWpip
+* **连接类型：** 点到站点
+* **客户端地址池：** 172.16.201.0/24<br>使用此点到站点连接连接到 VNet 的 VPN 客户端接收来自客户端地址池的 IP 地址。
 
 ## <a name="createvnet"></a>1.创建虚拟网络
 
@@ -74,7 +74,7 @@ ms.locfileid: "52646085"
 [!INCLUDE [create-gateway](../../includes/vpn-gateway-add-gw-p2s-rm-portal-include.md)]
 
 >[!NOTE]
->基本 SKU 不支持 IKEv2 或 RADIUS 身份验证。
+>基本 SKU 不支持 IKEv2 或 RADIUS 身份验证。 如果计划让 Mac 客户端连接到虚拟网络，请不要使用基本 SKU。
 >
 
 ## <a name="generatecert"></a>5.生成证书
@@ -173,7 +173,7 @@ VPN 客户端配置文件包含的设置用来对设备进行配置以通过 P2S
 
 在“网络”对话框中，找到要使用的客户端配置文件，在 [VpnSettings.xml](point-to-site-vpn-client-configuration-azure-cert.md#installmac) 中指定设置，然后单击“连接”。
 
-请查看[安装 - Mac (OS X)](/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) 获取详细说明。
+请查看[安装 - Mac (OS X)](/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) 获取详细说明。 如果连接有问题，请验证虚拟网络网关是否未使用基本 SKU。 Mac 客户端不支持基本 SKU。
 
   ![Mac 连接](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 

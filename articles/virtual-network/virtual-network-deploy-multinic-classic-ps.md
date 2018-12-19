@@ -13,25 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 05/22/2018
-ms.date: 07/23/2018
+origin.date: 10/31/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d571b5d5f90bce7667d92cee39e026ca8c400991
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e26257fdf493b80e7acd1ad74aa7efaeab39e8da
+ms.sourcegitcommit: 1b6a310ba636b6dd32d7810821bcb79250393499
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647216"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53389383"
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-powershell"></a>使用 PowerShell 创建具有多个 NIC 的 VM（经典）
 
 [!INCLUDE [virtual-network-deploy-multinic-classic-selectors-include.md](../../includes/virtual-network-deploy-multinic-classic-selectors-include.md)]
 
-用户可以在 Azure 中创建虚拟机 (VM)，并将多个网络接口 (NIC) 附加到每个 VM。 有多个 NIC 时，可跨各个 NIC 分隔不同的流量类型。 例如，一个 NIC 可能会与 Internet 通信，而另一个 NIC 则只与未连接到 Internet 的内部资源通信。 许多网络虚拟设备（例如应用程序交付和 WAN 优化解决方案）都需要具备跨多个 NIC 分离网络流量的能力。
+可以在 Azure 中创建虚拟机 (VM)，并将多个网络接口 (NIC) 附加到每个 VM。 通过多个 NIC 可分离跨 NIC 的流量类型。 例如，一个 NIC 可与 Internet 通信，而另一个 NIC 仅与未连接到 Internet 的内部资源通信。 许多网络虚拟设备（例如应用程序交付和 WAN 优化解决方案）都需要具备跨多个 NIC 分离网络流量的能力。
 
 > [!IMPORTANT]
-> Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../resource-manager-deployment-model.md)。 本文介绍使用经典部署模型的情况。 Azure 建议大多数新部署使用 Resource Manager 模型。 了解如何使用 [Resource Manager 部署模型](../virtual-machines/windows/multiple-nics.md)执行这些步骤。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器部署模型和经典部署模型](../resource-manager-deployment-model.md)。 本文介绍使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 了解如何使用 [Resource Manager 部署模型](../virtual-machines/windows/multiple-nics.md)执行这些步骤。
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
@@ -39,30 +39,30 @@ ms.locfileid: "52647216"
 
 ## <a name="prerequisites"></a>先决条件
 
-创建数据库服务器之前，需要先使用此方案的所有必需资源创建 *IaaSStory* 资源组。 若要创建这些资源，请完成以下步骤。 若要创建虚拟网络，请完成[创建虚拟网络](virtual-networks-create-vnet-classic-netcfg-ps.md)一文中的步骤。
+创建数据库服务器之前，需要先使用此方案的所有必需资源创建 *IaaSStory* 资源组。 若要创建这些资源，请完成如下步骤。 若要创建虚拟网络，请完成[创建虚拟网络](virtual-networks-create-vnet-classic-netcfg-ps.md)一文中的步骤。
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
 ## <a name="create-the-back-end-vms"></a>创建后端 VM
 后端 VM 取决于以下资源的创建：
 
-* **后端子网**。 各数据库服务器将分别属于各个子网，以便隔离流量。 以下脚本需要在名为 *WTestVnet*的虚拟网络中存在此子网。
+* **后端子网**。 各数据库服务器将分别属于各个子网，以便隔离流量。 以下脚本期望此子网存在于名为 *WTestVnet* 的虚拟网络中。
 * **数据磁盘的存储帐户**。 为了提高性能，数据库服务器上的数据磁盘使用固态驱动器 (SSD) 技术，这需要高级存储帐户。 请确保部署到的 Azure 位置支持高级存储。
-* **可用性集**。 所有数据库服务器都会添加到单个可用性集，以确保在维护期间至少有一个 VM 已启动且正在运行。
+* **可用性集**。 所有数据库服务器都将添加到单个可用性集，以确保在维护期间至少有一个 VM 已启动且正在运行。
 
 ### <a name="step-1---start-your-script"></a>步骤 1 - 启动脚本
-可在 [此处](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-ps.ps1)下载所用的完整 PowerShell 脚本。 按照以下步骤更改脚本，以便用于具体环境。
+可以在[此处](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-ps.ps1)下载所用的完整 PowerShell 脚本。 请按以下步骤更改要在环境中使用的脚本。
 
-1. 根据在上述 [先决条件](#prerequisites)中部署的现有资源组，更改以下变量的值。
-<!-- Archor is correct on #prerequisites -->
-
+1. 基于在上面[先决条件](#prerequisites)中部署的现有资源组更改以下变量的值。
+    
+    <!-- Archor is correct on #prerequisites -->
     ```powershell
     $location              = "China North"
     $vnetName              = "WTestVNet"
     $backendSubnetName     = "BackEnd"
     ```
 
-2. 根据要用于后端部署的值，更改以下变量的值。
+2. 基于要用于后端部署的值更改以下变量的值。
 
     ```powershell
     $backendCSName         = "IaaSStory-Backend"
@@ -186,7 +186,7 @@ ms.locfileid: "52647216"
 ### <a name="step-4---run-the-script"></a>步骤 4 - 运行脚本
 既已根据需要下载并更改脚本，请运行该脚本以创建具有多个 NIC 的后端数据库 VM。
 
-1. 保存脚本并从 **PowerShell** 命令提示符或 **PowerShell ISE** 运行它。 会看到最初的输出，如下所示。
+1. 保存脚本并从 **PowerShell** 命令提示符或 **PowerShell ISE** 运行它。 将看到最初的输出，如下所示。
 
         OperationDescription    OperationId                          OperationStatus
 
@@ -206,4 +206,5 @@ Azure DHCP 会将默认网关分配给附加到虚拟机的第一个（主）网
 - [为多个 NIC 配置 Windows VM](../virtual-machines/windows/multiple-nics.md#configure-guest-os-for-multiple-nics)
 
 - [为多个 NIC 配置 Linux VM](../virtual-machines/linux/multiple-nics.md#configure-guest-os-for-multiple-nics)
-<!--Update_Description: update link  -->
+
+<!--Update_Description: update meta properties -->

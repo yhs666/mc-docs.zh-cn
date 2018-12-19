@@ -10,28 +10,29 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-origin.date: 09/07/2018
-ms.date: 11/19/2018
+origin.date: 11/13/2018
+ms.date: 12/17/2018
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: bffdda21188211dbbf681ed59f1dcd555b8f486c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 51ac5f7ab2e272fd6839bfd85f70bb75a8661197
+ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662737"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53286744"
 ---
-# <a name="tutorial-create-an-azure-resource-manager-template-for-deploying-an-encrypted-storage-account"></a>教程：创建用于部署已加密存储帐户的 Azure 资源管理器模板
+# <a name="tutorial-deploy-an-encrypted-azure-storage-account-with-resource-manager-template"></a>教程：使用资源管理器模板部署加密的 Azure 存储帐户
 
-了解如何查找相关信息，以便完成 Azure 资源管理器模板。
+了解如何查找模板架构信息，以及如何使用该信息创建 Azure 资源管理器模板。
 
-在本教程中，请使用 Azure 快速入门模板中提供的基础模板来创建 Azure 存储帐户。  根据模板参考文档自定义基础模板，以便创建加密的存储帐户。
+在本教程中，请使用 Azure 快速入门模板中提供的基础模板。 根据模板参考文档自定义模板，以便创建加密的存储帐户。
 
 本教程涵盖以下任务：
 
 > [!div class="checklist"]
 > * 打开快速入门模板
 > * 了解模板
+> * 查找模板参考
 > * 编辑模板
 > * 部署模板
 
@@ -41,12 +42,11 @@ ms.locfileid: "52662737"
 
 若要完成本文，需要做好以下准备：
 
-* [Visual Studio Code](https://code.visualstudio.com/)。
-* 资源管理器工具扩展。 若要进行安装，请参阅[安装资源管理器扩展](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)。
+* 包含[资源管理器工具扩展](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)的 [Visual Studio Code](https://code.visualstudio.com/)。
 
 ## <a name="open-a-quickstart-template"></a>打开快速入门模板
 
-本快速入门中使用的模板称为[创建标准存储帐户](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/)。 该模板定义 Azure 存储帐户资源。
+[Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/)是资源管理器模板的存储库。 无需从头开始创建模板，只需找到一个示例模板并对其自定义即可。 本快速入门中使用的模板称为[创建标准存储帐户](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/)。 该模板定义 Azure 存储帐户资源。
 
 1. 在 Visual Studio Code 中，选择“文件”>“打开文件”。
 2. 在“文件名”中粘贴以下 URL：
@@ -57,77 +57,42 @@ ms.locfileid: "52662737"
 3. 选择“打开”以打开该文件。
 4. 选择“文件”>“另存为”，将该文件作为 **azuredeploy.json** 保存到本地计算机。
 
-## <a name="understand-the-format"></a>了解格式
+## <a name="understand-the-schema"></a>了解架构
 
-在 VS Code 中将模板折叠到根级别。 你使用最简单的结构，其中包含以下元素：
+1. 在 VS Code 中将模板折叠到根级别。 你使用最简单的结构，其中包含以下元素：
 
-![资源管理器模板的最简单结构](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-simplest-structure.png)
+    ![资源管理器模板的最简单结构](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-simplest-structure.png)
 
-* **$schema**：指定描述模板语言版本的 JSON 架构文件所在的位置。
-* **contentVersion**：为此元素指定任意值，以便记录模板中的重要更改。
-* **parameters**：指定执行部署以自定义资源部署时提供的值。
-* **variables**：指定在模板中用作 JSON 片段以简化模板语言表达式的值。
-* **resources**：指定已在资源组中部署或更新的资源类型。
-* **outputs**：指定部署后返回的值。
+    * **$schema**：指定描述模板语言版本的 JSON 架构文件所在的位置。
+    * **contentVersion**：为此元素指定任意值，以便记录模板中的重要更改。
+    * **parameters**：指定执行部署以自定义资源部署时提供的值。
+    * **variables**：指定在模板中用作 JSON 片段以简化模板语言表达式的值。
+    * **resources**：指定已在资源组中部署或更新的资源类型。
+    * **outputs**：指定部署后返回的值。
 
-## <a name="use-parameters-in-template"></a>使用模板中的参数
+2. 展开“resources”。 已定义 `Microsoft.Storage/storageAccounts` 资源。 此模板创建非加密存储帐户。
 
-可以使用参数提供针对特定环境定制的值，以便自定义部署。 为存储帐户设置值时，请使用模板中定义的参数。
+    ![资源管理器模板存储帐户定义](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resource.png)
 
-![资源管理器模板参数](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-parameters.png)
-
-在此模板中，定义了两个参数。 注意，一个模板函数用在 location.defaultValue 中：
-
-```json
-"defaultValue": "[resourceGroup().location]",
-```
-
-resourceGroup() 函数返回表示当前资源组的对象。 有关模板函数的列表，请参阅 [Azure 资源管理器模板函数](./resource-group-template-functions.md)。
-
-若要使用模板中定义的参数，请执行以下代码：
-
-```json
-"location": "[parameters('location')]",
-"name": "[parameters('storageAccountType')]"
-```
-
-## <a name="use-variables-in-template"></a>使用模板中的变量
-
-变量用于构造可在整个模板中使用的值。 变量有助于减轻模板的复杂性。
-
-![资源管理器模板变量](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-variables.png)
-
-此模板定义 *storageAccountName* 变量。 在定义中，使用两个模板函数：
-
-- **concat()**：连接多个字符串。 有关详细信息，请参阅 [concat](./resource-group-template-functions-string.md#concat)。
-- **uniqueString()**：根据作为参数提供的值创建确定性哈希字符串。 每个 Azure 存储帐户都必须有在整个 Azure 中都唯一的名称。 此函数提供一个唯一字符串。 如需更多的字符串函数，请参阅[字符串函数](./resource-group-template-functions-string.md)。
-
-若要使用模板中定义的变量，请执行以下代码：
-
-```json
-"name": "[variables('storageAccountName')]"
-```
-
-## <a name="edit-the-template"></a>编辑模板
-
-本教程的目标是定义一个模板，以便创建加密的存储帐户。  示例模板仅创建基本的非加密型存储帐户。 若要查找与加密相关的配置，可以使用 Azure 存储帐户的模板参考。
-
-<!--Not Available on [Azure Templates](https://docs.microsoft.com/zh-cn/azure/templates/)-->
-1. 在存储帐户资源定义的 properties 元素中，添加以下 json：
+    <!-- Not Available on ## Find the template reference--> 加密对象应如下所示：
 
     ```json
     "encryption": {
-        "keySource": "Microsoft.Storage",
         "services": {
             "blob": {
                 "enabled": true
+            },
+            "file": {
+              "enabled": true
             }
-        }
+        },
+        "keySource": "Microsoft.Storage"
     }
     ```
-    此部分启用 Blob 存储服务的加密功能。
 
-在 Visual Studio Code 中修改模板，使最终的资源元素如下所示：
+## <a name="edit-the-template"></a>编辑模板
+
+在 Visual Studio Code 中修改模板，使 resources 元素如下所示：
 
 ![资源管理器模板加密的存储帐户资源](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
 

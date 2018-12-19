@@ -1,28 +1,21 @@
 ---
-title: 使用 Azure Site Recovery 复制多层 SharePoint 应用程序 | Azure
-description: 本文介绍如何使用 Azure Site Recovery 功能复制多层 SharePoint 应用程序。
-services: site-recovery
-documentationcenter: ''
+title: 使用 Azure Site Recovery 为多层 SharePoint 应用程序设置灾难恢复 | Azure
+description: 本文介绍如何使用 Azure Site Recovery 功能为多层 SharePoint 应用程序设置灾难恢复。
 author: rockboyfor
 manager: digimobile
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 57d6ead1648502cf2796ccfa504ee59630f56f64
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: baeab20e7e7fc2becefe14af388aaa87fba1890c
+ms.sourcegitcommit: bd105c3e9db2b0e39594cdf574d2566d771f0e78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654934"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53330002"
 ---
-# <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>使用 Azure Site Recovery 复制多层 SharePoint 应用程序以实现灾难恢复
+# <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>使用 Azure Site Recovery 为多层 SharePoint 应用程序设置灾难恢复
 
 本文详细介绍如何使用 [Azure Site Recovery](site-recovery-overview.md) 保护 SharePoint 应用程序。
 
@@ -124,7 +117,9 @@ Microsoft SharePoint 是一个功能强大的应用程序，可帮助小组或�
 
 ## <a name="creating-a-recovery-plan"></a>创建恢复计划
 
-使用恢复计划可将多层应用程序中各个层的故障转移排序，从而可以保持应用程序一致性。 为多层 Web 应用程序创建恢复计划时，请遵循以下步骤。 [详细了解如何创建恢复计划](site-recovery-runbook-automation.md#customize-the-recovery-plan)。
+使用恢复计划可将多层应用程序中各个层的故障转移排序，从而可以保持应用程序一致性。 为多层 Web 应用程序创建恢复计划时，请遵循以下步骤。
+
+<!-- Not Available on  [Learn more about creating a recovery plan](site-recovery-runbook-automation.md#customize-the-recovery-plan)-->
 
 ### <a name="adding-virtual-machines-to-failover-groups"></a>将虚拟机添加到故障转移组
 

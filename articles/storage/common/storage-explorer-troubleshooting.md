@@ -9,12 +9,12 @@ origin.date: 06/15/2018
 ms.date: 09/10/2017
 ms.author: v-jay
 ms.component: common
-ms.openlocfilehash: 94a65d89ce2e446949ec0e1c8a22fa8c8d68dcb3
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 161e81513107ac1ac62d494097d9ea828de36742
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645289"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029016"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 存储资源管理器故障排除指南
 
@@ -75,11 +75,11 @@ Azure 存储资源管理器是一款独立应用，可用于在 Windows、macOS 
 7. 请尝试登录。
 
 ### <a name="general-sign-in-troubleshooting-steps"></a>常规登录故障排除步骤
-* 如果你在 macOS 上且“正在等待身份验证...”对话框上从不出现登录窗口，则尝试执行[这些步骤](#Mac-Keychain-Errors)
+* 如果你在 macOS 上且“正在等待身份验证...”对话框上从不出现登录窗口，则尝试执行[这些步骤](#mac-keychain-errors)
 * 重启存储资源管理器
 * 如果身份验证窗口为空，请等待至少一分钟，然后关闭身份验证对话框。
 * 确保为计算机和存储资源管理器正确配置了代理和证书设置。
-* 如果在 Windows 中操作，有权访问同一台计算机上的 Visual Studio 2017 并且可以登录，请尝试登录到 Visual Studio 2017。 成功登录 Visual Studio 2017 后，应该可以打开存储资源管理器并在帐户面板中查看帐户。 
+* 如果在 Windows 中操作，有权访问同一台计算机上的 Visual Studio 2017 并且可以登录，请尝试登录到 Visual Studio 2017。 成功登录 Visual Studio 2017 后，应该可以打开存储资源管理器并在帐户面板中查看帐户。
 
 如果这些方法均不起作用，请[在 GitHub 上提出问题](https://github.com/Microsoft/AzureStorageExplorer/issues)。
 
@@ -114,6 +114,8 @@ Azure 存储资源管理器是一款独立应用，可用于在 Windows、macOS 
 * 代理 URL 和端口号
 * 用户名和密码（如果代理需要）
 
+请注意，存储资源管理器不支持使用 .pac 文件来配置代理设置。
+
 ### <a name="common-solutions"></a>常见解决方法
 
 如果仍遇到问题，请尝试以下故障排除方法：
@@ -144,6 +146,12 @@ Azure 存储资源管理器是一款独立应用，可用于在 Windows、macOS 
 ## <a name="unable-to-retrieve-children-error-message"></a>“无法检索子级”错误消息
 
 如果通过代理连接到 Azure，请确认代理设置正确无误。 如果已获得对订阅或帐户所有者的资源的访问权限，请确认具有读取或列出该资源的权限。
+
+## <a name="connection-string-does-not-have-complete-configuration-settings"></a>连接字符串没有完整的配置设置
+
+如果收到此错误消息，则表示你可能没有所需的权限来获取你的存储帐户的密钥。 若要确认是否如此，请转到门户并找到你的存储帐户。 可以通过右键单击你的存储帐户的节点并单击“在门户中打开”来快速执行此操作。 执行此操作后，转到“访问密钥”边栏选项卡。 如果你无权查看密钥，则会看到其中显示了消息“你没有访问权限”的页面。 若要解决此问题，可以从其他人那里获取帐户密钥并通过名称和密钥进行附加，还可以向某人索要存储帐户的 SAS 并使用它来附加存储帐户。
+
+如果看到了帐户密钥，请在 GitHub 上记录问题，以便我们可以帮助你解决问题。
 
 ## <a name="issues-with-sas-url"></a>SAS URL 的问题
 如果使用 SAS URL 连接到服务并遇到以下错误：

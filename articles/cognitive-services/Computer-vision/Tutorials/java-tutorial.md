@@ -1,7 +1,7 @@
 ---
 title: 教程：计算机视觉 API Java
 titlesuffix: Azure Cognitive Services
-description: 介绍一款使用 Azure 认知服务中的计算机视觉 API 的基本 Java Swing 应用。 执行 OCR、创建缩略图，并处理图像中的视觉特征。
+description: 介绍一款使用 Azure 认知服务中的计算机视觉 API 的基本 Java Swing 应用。 执行 OCR，创建缩略图，并处理图像中的视觉特征。
 services: cognitive-services
 author: KellyDF
 manager: cgronlun
@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.author: v-junlch
 origin.date: 09/21/2017
 ms.date: 10/30/2018
-ms.openlocfilehash: 4f65794f50ed5f4fdfaa036374eb53c3a9e72499
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 947833899dd23a0993b4fdcad1f0448b9a674541
+ms.sourcegitcommit: a3cde3b41ed4d3f39a30eb4e562d6436a3e4d9d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652057"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53131756"
 ---
 # <a name="tutorial-computer-vision-api-java"></a>教程：计算机视觉 API Java
 
@@ -848,6 +848,5 @@ HandwritingImage 方法包装两个进行图像分析所需的 REST API 调用�
 
 ## <a name="next-steps"></a>后续步骤
 
-- [计算机视觉 API C&#35; 教程](CSharpTutorial.md)
 - [计算机视觉 API Python 教程](PythonTutorial.md)
 

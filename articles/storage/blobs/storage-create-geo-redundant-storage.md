@@ -1,24 +1,23 @@
 ---
-title: 使应用程序数据在 Azure 中高度可用 | Azure
-description: 利用读取访问异地冗余存储，使应用程序数据高度可用
+title: 使应用程序数据在 Azure 中高度可用 | Microsoft Docs
+description: 使用读取访问异地冗余存储实现应用程序数据的高可用性
 services: storage
-author: forester123
-manager: josefree
+author: WenJason
 ms.service: storage
-ms.workload: web
 ms.topic: tutorial
 origin.date: 03/26/2018
-ms.date: 07/02/2018
-ms.author: v-nany
+ms.date: 12/10/2018
+ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: 307afd1c2ca521efcde1191fa7cd3a35adb33940
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.component: blobs
+ms.openlocfilehash: 3c4eee1f1a3c377b173fdc23cd85191733f3718d
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662503"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029120"
 ---
-# <a name="make-your-application-data-highly-available-with-azure-storage"></a>使应用程序数据在 Azure 存储中高度可用
+# <a name="tutorial-make-your-application-data-highly-available-with-azure-storage"></a>教程：使应用程序数据在 Azure 存储中高度可用
 
 本教程是一个教程系列的第一部分，介绍了如何在 Azure 中实现应用程序数据的高可用性。 完成后，你会有一个控制台应用程序，用于将 blob 上传到[读取访问异地冗余](../common/storage-redundancy-grs.md) (RA-GRS) 存储帐户并对其进行检索。 RA-GRS 的工作方式是将事务从主要区域复制到次要区域。 此复制过程可确保次要区域中的数据最终一致。 应用程序使用[断路器](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker)模式来确定要连接到的终结点。 对故障进行模拟时，应用程序切换到辅助终结点。
 
@@ -51,7 +50,7 @@ ms.locfileid: "52662503"
 # <a name="java-tabjava"></a>[Java] (#tab/java)
 
 * 从命令行安装和配置要使用的 [Maven](http://maven.apache.org/download.cgi)
-* 安装并配置 [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* 安装并配置 [JDK](https://docs.azure.cn/zh-cn/java/java-supported-jdk-runtime?view=azure-java-stable)
 
 ---
 

@@ -12,26 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 05/18/2018
-ms.date: 06/11/2018
+origin.date: 10/31/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: 82caaf33ae461f40980a8ea1c6250c9b7e8a30d7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 679114b43a7056422e6f8c9feda508848e1b8829
+ms.sourcegitcommit: 1b6a310ba636b6dd32d7810821bcb79250393499
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645073"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53389376"
 ---
 # <a name="how-to-set-a-static-internal-private-ip-address-using-powershell-classic"></a>如何使用 PowerShell（经典）设置静态内部专用 IP 地址
-大多数情况下，不需要指定虚拟机的静态内部 IP 地址。 虚拟网络中的 VM 自动从指定的范围接收内部 IP 地址。 但在某些情况下，需要为特定 VM 指定静态 IP 地址。 例如，在你的 VM 需要运行 DNS 或将要成为域控制器的情况下。 静态内部 IP 地址会始终与 VM 关联在一起，即使经历“停止/取消预配”状态变化。 
+大多数情况下，不需要指定虚拟机的静态内部 IP 地址。 虚拟网络中的 VM 会自动从指定的范围接收内部 IP 地址。 但在某些情况下，需要为特定 VM 指定静态 IP 地址。 例如，在 VM 需要运行 DNS 或将要成为域控制器的情况下。 静态内部 IP 地址会始终与 VM 关联在一起，即使经历“停止/取消预配”状态变化。 
 
 > [!IMPORTANT]
-> Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍使用经典部署模型的情况。 Azure 建议大多数新部署使用 [Resource Manager 部署模型](virtual-networks-static-private-ip-arm-ps.md)。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器部署模型和经典部署模型](../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍使用经典部署模型。 Azure 建议大多数新部署使用 [Resource Manager 部署模型](virtual-networks-static-private-ip-arm-ps.md)。
 > 
 > 
+## <a name="install-the-azure-powershell-service-management-module"></a>安装 Azure PowerShell 服务管理模块
+
+在运行以下命令之前，请确保计算机上已安装 [Azure PowerShell 服务管理模块](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0
+)。 有关 Azure PowerShell 服务管理模块的版本历史记录，请参阅 [PowerShell 库中的 Azure 模块](https://www.powershellgallery.com/packages/Azure/5.3.0)。
 
 ## <a name="how-to-verify-if-a-specific-ip-address-is-available"></a>如何验证特定 IP 地址是否可用：
-若要验证 IP 地址 *10.0.0.7* 在名为 *TestVNet* 的 VNet 中是否可用，请运行以下 PowerShell 命令并验证 *IsAvailable* 的值：
+若要验证 IP 地址 *10.0.0.7* 是否在名为 *TestVNet* 的 VNet 中可用，请运行以下 PowerShell 命令并验证 *IsAvailable* 的值。
 
     Test-AzureStaticVNetIP -VNetName TestVNet -IPAddress 10.0.0.7 
 
@@ -42,7 +46,7 @@ ms.locfileid: "52645073"
     OperationStatus      : Succeeded
 
 > [!NOTE]
-> 若要在安全环境中测试上面的命令，请按照[创建虚拟网络（经典）](virtual-networks-create-vnet-classic-pportal.md)中的指南，创建名为“TestVnet”的 VNet，并确保它使用“10.0.0.0/8”地址空间。
+> 若要在安全环境中测试上面的命令，请遵循[创建虚拟网络（经典）](virtual-networks-create-vnet-classic-pportal.md)中的指南，创建名为“TestVnet”的 VNet，并确保它使用“10.0.0.0/8”地址空间。
 > 
 > 
 
@@ -109,4 +113,5 @@ ms.locfileid: "52645073"
 [实例层级公共 IP (ILPIP)](virtual-networks-instance-level-public-ip.md)
 
 [保留 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)
-<!-- Update_Description: update meta properties -->
+
+<!-- Update_Description: update meta properties, wording update -->

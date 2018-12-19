@@ -2,31 +2,22 @@
 title: 使用 Ambari Web UI 监视和管理 Azure HDInsight
 description: 了解如何使用 Ambari 监视和管理基于 Linux 的 HDInsight 群集。 本文档介绍如何使用 HDInsight 群集附带的 Ambari Web UI。
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 4787f3cc-a650-4dc3-9d96-a19a67aad046
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-origin.date: 03/23/2018
-ms.date: 09/24/2018
-ms.author: v-yiso
-ms.openlocfilehash: 812cb5cb4e78202210a250cdafcda7f2d0d816d4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.topic: conceptual
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: f68e9bf2fc23cf27272b34761384f1ea550d325a
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649303"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028943"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>使用 Ambari Web UI 管理 HDInsight 群集
 
-[!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
 Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Hadoop 群集的管理和监视。 基于 Linux 的 HDInsight 群集包含 Ambari，用于监视群集和进行配置更改。
 
@@ -43,7 +34,7 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Hadoop 群集�
 
 ## <a name="connectivity"></a>连接
 
-在 HDInsight 群集上从 HTTPS://CLUSTERNAME.azurehdinsight.cn 可获得 Ambari Web UI，其中 CLUSTERNAME 是你的群集名称。
+在 HDInsight 群集上从 HTTPS://CLUSTERNAME.azurehdinsight.net 可获得 Ambari Web UI，其中 CLUSTERNAME 是你的群集名称。
 
 > [!IMPORTANT]
 > 连接到 HDInsight 上的 Ambari 需要 HTTPS。 当提示进行身份验证时，请使用在创建群集时提供的管理员帐户名称和密码。
@@ -151,12 +142,6 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Hadoop 群集�
 
 ## <a name="management"></a>管理
 
-### <a name="ambari-users-groups-and-permissions"></a>Ambari 用户、组和权限
-
-使用[已加入域](./domain-joined/apache-domain-joined-introduction.md)的 HDInsight 群集时，支持使用用户、组和权限。 若要深入了解如何在已加入域的群集上使用 Ambari 管理 UI，请参阅[管理已加入域的 HDInsight 群集](./domain-joined/apache-domain-joined-introduction.md)。
-
-> [!WARNING]
-> 不要在基于 Linux 的 HDInsight 群集上更改 Ambari 监视程序 (hdinsightwatchdog) 的密码。 更改密码将导致无法通过群集使用脚本操作或执行缩放操作。
 
 ### <a name="hosts"></a>主机
 
@@ -237,7 +222,7 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Hadoop 群集�
 Ambari 视图允许开发人员使用 [Ambari 视图框架](https://cwiki.apache.org/confluence/display/AMBARI/Views)将 UI 元素插入到 Ambari Web UI 中。 HDInsight 为 Hadoop 群集类型提供了以下视图：
 
 
-* Hive 视图：Hive 视图允许用户直接从 Web 浏览器运行 Hive 查询。 可保存查询、查看结果、将结果保存到群集存储中或将结果下载到本地系统。 有关使用 Hive 视图的详细信息，请参阅[将 Hive 视图与 HDInsight 配合使用](hadoop/apache-hadoop-use-hive-ambari-view.md)。
+* Hive 视图：Hive 视图允许用户直接从 Web 浏览器运行 Hive 查询。 用户可以保存查询、查看结果、将结果保存到群集存储，或者将结果下载到本地系统。 有关使用 Hive 视图的详细信息，请参阅[将 Hive 视图与 HDInsight 配合使用](hadoop/apache-hadoop-use-hive-ambari-view.md)。
 
 * Tez 视图：使用 Tez 视图可以更好地理解和优化作业。 可以查看与 Tez 作业的执行情况以及使用了哪些资源有关的信息。
 

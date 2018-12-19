@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/30/2017
-ms.date: 11/09/2018
+ms.date: 12/05/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 86c9beda41b6acbf374ea10c33b7c979aab2f241
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 4b009c5523914434d17a862da42472e3b1d2b855
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655390"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029012"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>使用现有 ADSync 数据库安装 Azure AD Connect
 Azure AD Connect 要求使用 SQL Server 数据库来存储数据。 可以使用随 Azure AD Connect 一起安装的默认 SQL Server 2012 Express LocalDB，也可以使用自己的完整版本 SQL。 以前，当安装 Azure AD Connect 时，始终会创建一个名为 ADSync 的新数据库。 使用 Azure AD Connect 版本 1.1.613.0（或更高版本），可以选择通过将 Azure AD Connect 指向现有的 ADSync 数据库来安装 Azure AD Connect。
@@ -87,10 +87,21 @@ Azure AD Connect 要求使用 SQL Server 数据库来存储数据。 可以使�
  
 11. 安装完成后，Azure AD Connect 服务器自动启用暂存模式。 建议在禁用暂存模式之前，查看服务器配置和意外更改的挂起导出。 
 
+## <a name="post-installation-tasks"></a>安装后任务
+还原使用低于 1.2.65.0 版本的 Azure AD Connect 创建的数据库备份时，暂存服务器会自动选择登录方法“不配置”。 尽管会还原密码哈希同步首选项，但随后必须更改登录方法，以便与活动同步服务器的其他生效策略匹配。  如果不完成这些步骤，当此服务器变为活动状态时，用户可能无法登录。  
+
+使用下表来确认是否需要执行其他任何步骤。
+
+|功能|步骤|
+|-----|-----|
+|密码哈希同步| 从 Azure AD Connect 版本 1.2.65.0 开始，密码哈希同步设置将完全还原。  如果使用早期版本的 Azure AD Connect 还原，请查看这些功能的同步选项设置，以确保它们与活动的同步服务器匹配。  不必要执行其他任何配置步骤。|
+|使用 AD FS 进行联合身份验证|Azure 身份验证将继续使用针对活动同步服务器配置的 AD FS 策略。  如果使用 Azure AD Connect 来管理 AD FS 场，则可以选择性地将登录方法更改为 AD FS 联合身份验证，以应对备用服务器变成活动同步实例时的情况。   如果在活动同步服务器上启用了设备选项，请通过运行“配置设备选项”任务，在此服务器上配置这些选项。|
+|使用 PingFederate 进行联合身份验证|Azure 身份验证将继续使用针对活动同步服务器配置的 PingFederate 策略。  可以选择性地将登录方法更改为 PingFederate，以应对备用服务器变成活动同步实例时的情况。  可将此步骤推迟到需要使用 PingFederate 联合其他域为止。|
 ## <a name="next-steps"></a>后续步骤
 
 - 安装 Azure AD Connect 后，可以[验证安装并分配许可证](how-to-connect-post-installation.md)。
-- 若要了解在安装过程中启用的这些功能，请参阅[防止意外删除](how-to-connect-sync-feature-prevent-accidental-deletes.md)。
+- 若要了解在安装过程中启用的这些功能，请参阅：[防止意外删除](how-to-connect-sync-feature-prevent-accidental-deletes.md)。
 - 若要了解有关这些常见主题的详细信息，请参阅[计划程序以及如何触发同步](how-to-connect-sync-feature-scheduler.md)。
 - 了解有关[将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)的详细信息。
 
+<!-- Update_Description: wording update -->

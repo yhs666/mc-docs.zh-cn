@@ -9,12 +9,12 @@ origin.date: 09/27/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
 ms.component: alerts
-ms.openlocfilehash: 331a4e150a6ee8bbd5e2cf79b4b19dd0ae4b1cd4
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 3e039c6a0503dfbf5df92199f940f4db441d56af
+ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675140"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53219545"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>使用 Resource Manager 模板创建指标警报
 本文介绍如何在 Azure Monitor 中使用 [Azure 资源管理器模板](../azure-resource-manager/resource-group-authoring-templates.md)配置[较新的指标警报](monitoring-near-real-time-metric-alerts.md)。 使用资源管理器模板可以通过编程方式在多个环境中设置一致且可重现的警报。 较新的指标警报当前适用于[这套资源类型](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported)。
@@ -1367,5 +1367,4 @@ az group deployment create \
 ```
 
 ## <a name="next-steps"></a>后续步骤
-* 详细了解 [Azure 中的警报](monitoring-overview-unified-alerts.md)
 * 了解如何[使用资源管理器模板创建操作组](monitoring-create-action-group-with-resource-manager-template.md)

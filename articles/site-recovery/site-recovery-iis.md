@@ -1,22 +1,21 @@
 ---
-title: 使用 Azure Site Recovery 复制基于 IIS 的多层 Web 应用程序 | Azure
+title: 使用 Azure Site Recovery 为基于 IIS 的多层 Web 应用程序设置灾难恢复 | Azure
 description: 了解如何使用 Azure Site Recovery 复制 IIS Web 场虚拟机。
-services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2a9abd809df5339b10db6d1600d9b638e10ab5aa
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 395cf75936387a7abe288453516d5cf47fc90b88
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674745"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029008"
 ---
-# <a name="replicate-a-multi-tier-iis-based-web-application"></a>复制基于 IIS 的多层 Web 应用程序
+# <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>为基于 IIS 的多层 Web 应用程序设置灾难恢复
 
 应用程序软件是组织中业务生产力的引擎。 各种 Web 应用程序可在组织中发挥不同的作用。 某些应用程序，例如工资单处理应用程序、财务应用程序和面向客户的网站，对于组织而言可能至关重要。 组织必须不间断地运转这些应用程序以防止工作中断。 更重要的是，使这些应用程序保持连续运行有助于防止组织的品牌形象受到损害。
 
@@ -93,8 +92,9 @@ Azure|不可用|是
 <!-- Not Available on [Customize the recovery plan](site-recovery-runbook-automation.md#customize-the-recovery-plan)-->
 
 ### <a name="add-a-script-to-the-recovery-plan"></a>将脚本添加到恢复计划
-在故障转移后或测试故障转移期间，可能需要在 Azure 虚拟机上执行一些操作才能让 IIS Web 场正常工作。 可将某些故障转移后的操作自动化。 例如，可在恢复计划中添加相应的脚本，来更新 DNS 条目、更改站点绑定或更改连接字符串。 [将 VMM 脚本添加到恢复计划](site-recovery-how-to-add-vmmscript.md)介绍了如何使用脚本来设置自动化任务。
+在故障转移后或测试故障转移期间，可能需要在 Azure 虚拟机上执行一些操作才能让 IIS Web 场正常工作。 可将某些故障转移后的操作自动化。 例如，可在恢复计划中添加相应的脚本，来更新 DNS 条目、更改站点绑定或更改连接字符串。 “将 VMM 脚本添加到恢复计划”介绍了如何使用脚本来设置自动化任务。
 
+<!--Not Available on [Add a VMM script to a recovery plan](site-recovery-how-to-add-vmmscript.md)-->
 #### <a name="dns-update"></a>DNS 更新
 如果为 DNS 配置了动态 DNS 更新，则虚拟机在启动时，通常会使用新的 IP 地址更新 DNS。 如果想要添加一个明确的步骤来使用虚拟机的新 IP 地址更新 DNS，请添加这个[用于更新 DNS 中的 IP 的脚本](https://aka.ms/asr-dns-update)，作为恢复计划组中的故障转移后操作。  
 
@@ -161,4 +161,5 @@ Azure|不可用|是
 
 ## <a name="next-steps"></a>后续步骤
 * 详细了解如何使用 Site Recovery [复制其他应用程序](site-recovery-workload.md)。
-<!--Update_Description: update meta properties  -->
+
+<!--Update_Description: update meta properties, wording update -->

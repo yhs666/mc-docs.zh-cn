@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: container-registry
 ms.topic: quickstart
 origin.date: 03/03/2018
-ms.date: 11/12/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: ca3065da2033be9d4c35c421962aa962e165ad7f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d3f14dcfa60bff283f6a6569832538e6d6bc20db
+ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648115"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53286730"
 ---
 # <a name="quickstart-create-a-container-registry-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建容器注册表
 
@@ -156,10 +156,8 @@ az group delete --name myResourceGroup
 ```
 
 <!-- Not Available on ## Next steps-->
-
 <!-- Not Available on  Continue to the Azure Container Instances tutorial for a deeper look at ACI.-->
 <!-- Not Available on  > [Azure Container Instances tutorial][container-instances-tutorial-prepare-app]-->
-
 <!-- IMAGES> -->
 <!-- Not Available on [aci-app-browser]: ../container-instances/media/container-instances-quickstart/aci-app-browser.png-->
 
@@ -183,5 +181,5 @@ az group delete --name myResourceGroup
 
 [container-registry-skus]: container-registry-skus.md
 
-<!--Not Available on [container-registry-auth-aci]: container-registry-auth-aci.md-->
+<!-- Not Available on [container-registry-auth-aci]: container-registry-auth-aci.md-->
 <!-- Update_Description: wording update, updat meta properties -->

@@ -12,15 +12,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 09/26/2018
-ms.date: 11/19/2018
+origin.date: 11/08/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: e64811521dd1d40cda5e8e8819520637e17673dd
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 0f0096d69f74e3de0f3019da02442467232dfd1a
+ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656875"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53286745"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>使用标记整理 Azure 资源
 
@@ -36,7 +36,7 @@ ms.locfileid: "52656875"
 
 若要查看*资源组*的现有标记，请使用：
 
-```powershell
+```PowerShell
 (Get-AzureRmResourceGroup -Name examplegroup).Tags
 ```
 
@@ -51,31 +51,31 @@ Environment                    Test
 
 若要查看具有指定资源 ID 的资源的现有标记，请使用：
 
-```powershell
+```PowerShell
 (Get-AzureRmResource -ResourceId /subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>).Tags
 ```
 
 或者，若要查看具有指定名称和资源组的资源的现有标记，请使用：
 
-```powershell
+```PowerShell
 (Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
 ```
 
 若要获取具有特定标记的资源组，请使用：
 
-```powershell
+```PowerShell
 (Get-AzureRmResourceGroup -Tag @{ Dept="Finance" }).ResourceGroupName
 ```
 
 若要获取具有特定标记的资源，请使用：
 
-```powershell
+```PowerShell
 (Get-AzureRmResource -Tag @{ Dept="Finance"}).Name
 ```
 
 若要获取具有特定标记名称的资源，请使用：
 
-```powershell
+```PowerShell
 (Get-AzureRmResource -TagName Dept).Name
 ```
 
@@ -83,13 +83,13 @@ Environment                    Test
 
 若要将标记添加到*不包含现有标记的资源组*，请使用：
 
-```powershell
+```PowerShell
 Set-AzureRmResourceGroup -Name examplegroup -Tag @{ Dept="IT"; Environment="Test" }
 ```
 
 若要将标记添加到包含现有标记的资源组，请检索现有标记，添加新标记，然后重新应用标记：
 
-```powershell
+```PowerShell
 $tags = (Get-AzureRmResourceGroup -Name examplegroup).Tags
 $tags.Add("Status", "Approved")
 Set-AzureRmResourceGroup -Tag $tags -Name examplegroup
@@ -97,22 +97,22 @@ Set-AzureRmResourceGroup -Tag $tags -Name examplegroup
 
 若要将标记添加到*不包含现有标记的资源*，请使用：
 
-```powershell
+```PowerShell
 $r = Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup
 Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceId $r.ResourceId -Force
 ```
 
 若要将标记添加到包含现有标记的资源，请使用：
 
-```powershell
+```PowerShell
 $r = Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup
-$r.Tags.Add("Status", "Approved") 
+$r.Tags.Add("Status", "Approved")
 Set-AzureRmResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
 ```
 
 要将资源组中的所有标记应用于其资源，并且*不保留资源上的现有标记*，请使用以下脚本：
 
-```powershell
+```PowerShell
 $groups = Get-AzureRmResourceGroup
 foreach ($g in $groups)
 {
@@ -122,9 +122,9 @@ foreach ($g in $groups)
 
 要将资源组中的所有标记应用于其资源，并且*保留资源上不重复的现有标记*，请使用以下脚本：
 
-```powershell
+```PowerShell
 $group = Get-AzureRmResourceGroup "examplegroup"
-if ($group.Tags -ne $null) {
+if ($null -ne $group.Tags) {
     $resources = Get-AzureRmResource -ResourceGroupName $group.ResourceGroupName
     foreach ($r in $resources)
     {
@@ -150,7 +150,7 @@ if ($group.Tags -ne $null) {
 
 若要删除所有标记，请传递一个空哈希表：
 
-```powershell
+```PowerShell
 Set-AzureRmResourceGroup -Tag @{} -Name examplegroup
 ```
 
@@ -209,7 +209,7 @@ az group update -n examplegroup --set tags.Environment=Test tags.Dept=IT
 az resource tag --tags Dept=IT Environment=Test -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-若要将标记添加到已带标记的资源，请检索现有标记，重新格式化该值，然后重新应用现有标记和新标记： 
+若要将标记添加到已带标记的资源，请检索现有标记，重新格式化该值，然后重新应用现有标记和新标记：
 
 ```azurecli
 jsonrtag=$(az resource show -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks" --query tags)
@@ -265,17 +265,14 @@ Azure 门户和 PowerShell 均在后台使用[资源管理器 REST API](https://
 
 ## <a name="tags-and-billing"></a>标记和计费
 
-可使用标记对计费数据进行分组。 例如，如果要针对不同组织运行多个 VM，可以使用标记，对使用情况按成本中心进行分组。 还可使用标记根据运行时环境（例如，在生产环境中运行的 VM 的计费使用情况）对成本进行分类。
+可使用标记对计费数据进行分组。 例如，如果针对不同组织运行多个 VM，可以使用标记根据成本中心对使用情况进行分组。 还可使用标记根据运行时环境（例如，在生产环境中运行的 VM 的计费使用情况）对成本进行分类。
 
-可以检索有关使用情况逗号分隔值 (CSV) 文件的信息。 可以从 [Azure 帐户门户](https://account.windowsazure.cn/)下载使用情况文件。 有关 REST API 操作，请参阅 [Azure 计费 REST API 参考](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)。
+可以通过使用情况逗号分隔值 (CSV) 文件检索有关标记的信息。 可以从 [Azure 帐户门户](https://account.windowsazure.cn/)下载使用情况文件。
+
+<!-- Not Available [Azure Billing REST API Reference](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)-->
 <!-- Not Available [Azure Resource Usage and RateCard APIs](../billing/billing-usage-rate-card-overview.md) -->
-<!-- Not Available [EA portal](https://ea.azure.com) -->
-<!-- Not Available [Gain insights into your Azure resource consumption](../billing/billing-usage-rate-card-overview.md) -->
 
-为支持标记和计费的服务下载使用情况 CSV 时，标记将显示在“标记”列中。
-<!-- Not Available on [Understand your bill for Azure](../billing/billing-understand-your-bill.md) -->
-
-![在计费中查看标记](./media/resource-group-using-tags/billing_csv.png)
+有关 REST API 操作，请参阅 [Azure 计费 REST API 参考](https://docs.microsoft.com/rest/api/billing/)。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -283,6 +280,6 @@ Azure 门户和 PowerShell 均在后台使用[资源管理器 REST API](https://
 * 有关部署资源时使用 Azure PowerShell 的说明，请参阅[将 Azure PowerShell 与 Azure 资源管理器配合使用](powershell-azure-resource-manager.md)。
 * 有关部署资源时使用 Azure CLI 的说明，请参阅[将适用于 Mac、Linux 和 Windows 的 Azure CLI 与 Azure 资源管理器配合使用](xplat-cli-azure-resource-manager.md)。
 * 有关使用门户的说明，请参阅[使用 Azure 门户管理 Azure 资源](resource-group-portal.md)。  
-<!-- Not Available on [Azure enterprise scaffold - prescriptive subscription governance](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/subscription-governance)-->
 
+<!-- Not Available on [Azure enterprise scaffold - prescriptive subscription governance](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/subscription-governance)-->
 <!--Update_Description: update meta properties, wording update, update link -->

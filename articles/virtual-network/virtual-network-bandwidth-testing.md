@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/21/2017
-ms.date: 03/12/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: cc14a4862c3c724b544b636839da84b1cdee436e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 4decb7ccf490a25d90817bfc7c12ea6442b0a155
+ms.sourcegitcommit: 1b6a310ba636b6dd32d7810821bcb79250393499
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662998"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53389364"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>带宽/吞吐量测试 (NTTTCP)
 
@@ -168,7 +168,7 @@ ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300
 
 ## <a name="next-steps"></a>后续步骤
 * 根据得到的结果，也许能够为方案[优化网络吞吐量计算机](virtual-network-optimize-network-bandwidth.md)。
-* 阅读有关如何 [将带宽分配给虚拟机] (virtual-machine-network-throughput.md) 的信息
+* 阅读有关如何[为虚拟机分配带宽](virtual-machine-network-throughput.md)的信息
 * 通过 [Azure 虚拟网络常见问题解答 (FAQ)](virtual-networks-faq.md) 了解详细信息
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

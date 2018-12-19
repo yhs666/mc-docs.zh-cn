@@ -1,10 +1,10 @@
 ---
 title: 适用于外围网络的 Azure 示例应用程序 | Azure
-description: 在创建外围网络后部署这一简单 Web 应用程序，以测试流量传送方案
+description: 在创建外围网络后部署此简单的 Web 应用程序以测试流量流方案
 services: virtual-network
 documentationcenter: na
-author: tracsman
-manager: rossort
+author: rockboyfor
+manager: digimobile
 editor: ''
 ms.assetid: 60340ab7-b82b-40e0-bd87-83e41fe4519c
 ms.service: virtual-network
@@ -13,20 +13,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/03/2017
-ms.date: 02/10/2017
-ms.author: v-dazen
-ms.openlocfilehash: 2a150a001aee5c25135e0ee0769fb426fc1863dd
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/17/2018
+ms.author: v-yeche
+ms.openlocfilehash: eb4efc53197818704a8f570c486a0be78eec76af
+ms.sourcegitcommit: 1b6a310ba636b6dd32d7810821bcb79250393499
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645652"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53389374"
 ---
 # <a name="sample-application-for-use-with-dmzs"></a>适用于外围网络的示例应用程序
 
 这些 PowerShell 脚本可以在 IIS01 和 AppVM01 服务器本地上运行，用于安装和设置简单的 Web 应用程序，显示来自前端 IIS01 服务器的 HTML 页面和来自后端 AppVM01 服务器的内容。
 
-此应用程序提供简单的测试环境，可测试许多外围网络示例，以及终结点、NSG、UDR 和防火墙规则的更改如何影响流量。
+此应用程序为许多 DMZ 示例提供简单的测试环境，并演示终结点、NSG、UDR 和防火墙规则的更改如何影响流量流。
 
 ## <a name="firewall-rule-to-allow-icmp"></a>允许 ICMP 的防火墙规则
 此简单的 PowerShell 语句可以在任意 Windows VM 上运行以允许 ICMP (Ping) 流量。 通过允许 ping 协议通过 Windows 防火墙（对于大部分 Linux 发行版而言，ICMP 默认打开），此防火墙更新将简化测试和故障排除。
@@ -37,15 +37,15 @@ New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
     -Protocol ICMPv4 -Enabled True -Profile Any -Action Allow
 ```
 
-如果使用以下脚本，则第一个语句是添加这一防火墙规则。
+如果使用以下脚本，则此防火墙规则添加是第一条语句。
 
 ## <a name="iis01---web-application-installation-script"></a>IIS01 - Web 应用程序安装脚本
-此脚本执行以下操作：
+此脚本将：
 
 1. 打开本地服务器 Windows 防火墙上的 IMCPv4 (Ping) 以简化测试
-2. 安装 IIS 和 .Net Framework v4.5
+2. 安装 IIS 和.Net Framework v4.5
 3. 创建 ASP.NET 网页和 Web.config 文件
-4. 更改默认应用程序池以方便访问文件
+4. 更改默认应用程序池以简化文件访问
 5. 将匿名用户设置为管理员帐户和密码
 
 通过 RDP 访问 IIS01 时，此 PowerShell 脚本应在本地运行。
@@ -132,8 +132,8 @@ New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
     $MainPage | Out-File -FilePath "C:\inetpub\wwwroot\Home.aspx" -Encoding ascii
     $WebConfig | Out-File -FilePath "C:\inetpub\wwwroot\Web.config" -Encoding ascii
 
-# Set App Pool to Clasic Pipeline to remote file access will work easier
-    Write-Host "Updaing IIS Settings" -ForegroundColor Cyan
+# Set App Pool to Classic Pipeline to remote file access will work easier
+    Write-Host "Updating IIS Settings" -ForegroundColor Cyan
     c:\windows\system32\inetsrv\appcmd.exe set app "Default Web Site/" /applicationPool:".NET v4.5 Classic"
     c:\windows\system32\inetsrv\appcmd.exe set config "Default Web Site/" /section:system.webServer/security/authentication/anonymousAuthentication /userName:$theAdmin /password:$thePassword /commit:apphost
 
@@ -147,16 +147,16 @@ New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
 ```
 
 ## <a name="appvm01---file-server-installation-script"></a>AppVM01 - 文件服务器安装脚本
-此脚本设置此简单应用程序的后端。 此脚本执行以下操作：
+此脚本为此简单的应用程序设置后端。 此脚本将：
 
 1. 打开防火墙上的 IMCPv4 (Ping) 以简化测试
-2. 为网站创建目录
-3. 创建网页要远程访问的文本文件
-4. 将目录和文件的权限设为匿名以允许访问
-5. 关闭 IE 增强的安全性以方便从此服务器浏览 
+2. 为网站创建一个目录
+3. 创建一个通过 Web 页面远程访问的文本文件
+4. 将目录和文件上的权限设置为“匿名”以允许访问
+5. 关闭 IE Enhanced Security 以允许更轻松地从此服务器浏览 
 
 > [!IMPORTANT]
-> **最佳实践**：切勿在生产服务器上关闭“IE 增强的安全性”，并且通常不应从生产服务器浏览网页。 此外，最好不要向匿名访问公开文件共享，此处这样做是为了简单起见。
+> **最佳做法**：切勿在生产服务器上关闭“IE 增强的安全性”，并且通常不应从生产服务器浏览网页。 另外，打开文件共享以进行匿名访问不是个好主意，但在此处为简单起见进行了此操作。
 > 
 > 
 
@@ -194,7 +194,7 @@ New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
 ```
 
 ## <a name="dns01---dns-server-installation-script"></a>DNS01 - DNS 服务器安装脚本
-本示例应用程序中未包含设置 DNS 服务器的脚本。 如果测试防火墙规则、NSG 或 UDR 需要包含 DNS 流量，则需手动安装 DNS01 服务器。 这两个示例的网络配置 XML 文件和 Resource Manager 模板都包含 DNS01 作为主要 DNS 服务器，且包含第 3 级托管的公共 DNS 服务器则作为备份 DNS 服务器。 第 3 级 DNS 服务器是非本地流量使用的实际 DNS 服务器，若未安装 DNS01，就不会有本地网络 DNS。
+此示例应用程序中没有包括设置 DNS 服务器的脚本。 如果防火墙规则、NSG 或 UDR 测试需要包括 DNS 流量，则需要手动设置 DNS01 服务器。 两个示例的网络配置 xml 文件和 Resource Manager 模板都包括 DNS01（作为主 DNS 服务器）和由级别 3 托管的公共 DNS 服务器（作为备份 DNS 服务器）。 第 3 级 DNS 服务器是非本地流量使用的实际 DNS 服务器，若未安装 DNS01，就不会有本地网络 DNS。
 
 ## <a name="next-steps"></a>后续步骤
 * 在 IIS 服务器上运行 IIS01 脚本
@@ -202,3 +202,4 @@ New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
 * 浏览到 IIS01 上的公共 IP 来验证生成
 
 <!--Link References-->
+<!-- Update_Description: update meta properties -->

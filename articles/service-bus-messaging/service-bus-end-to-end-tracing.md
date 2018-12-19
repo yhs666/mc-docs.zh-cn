@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 09/18/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 18e065f3d9d6a0571129109de8fe4cf5e804d236
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 5ca8348ee53184eea436aa213f59e267e88fc6a0
+ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674983"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53219554"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>通过服务总线消息传递进行分布式跟踪和关联
 
@@ -44,11 +44,6 @@ Azure 服务总线消息传递已定义生成者与使用者应该用来传递�
 ### <a name="tracking-with-azure-application-insights"></a>使用 Azure Application Insights 进行跟踪
 
 [Microsoft Application Insights](https://azure.microsoft.com/services/application-insights/) 提供丰富的性能监视功能，包括自动请求和依赖项跟踪。
-
-请根据项目类型安装 Application Insights SDK：
-- [ASP.NET](../application-insights/app-insights-asp-net.md) - 安装版本 2.5-beta2 或更高版本
-- [ASP.NET Core](../application-insights/app-insights-asp-net-core.md) - 安装版本 2.2.0-beta2 或更高版本。
-这些链接提供了有关安装 SDK、创建资源和配置 SDK（如果需要）的详细信息。 针对非 ASP.NET 应用程序，请参阅[适用于控制台应用程序的 Azure Application Insights](../application-insights/application-insights-console.md) 一文。
 
 如果使用[消息处理程序模式](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler)来处理消息，则无需执行其他操作，系统会自动跟踪由服务所完成的所有服务总线调用，并将其与其他遥测项关联。 否则，请参考以下示例手动进行消息处理跟踪。
 
@@ -225,9 +220,3 @@ serviceBusLogger.LogInformation($"{currentActivity.OperationName} is finished, D
 也可以使用 `IsEnabled` 来实现采样策略。 基于 `Activity.Id` 或 `Activity.RootId` 的采样可确保在所有尝试都获取一致的采样结果（前提是采样内容由跟踪系统或你自己的代码传播）。
 
 如果同一个源存在多个 `DiagnosticSource` 侦听器，只需其中一个侦听器接受事件便已足够，因此无法保证调用 `IsEnabled`。
-
-## <a name="next-steps"></a>后续步骤
-
-* [Application Insights 关联](../application-insights/application-insights-correlation.md)
-* 参阅 [Application Insights 监视依赖项](../application-insights/app-insights-asp-net-dependencies.md)，了解 REST、SQL 或其他外部资源是否会降低性能。
-* [使用 Application Insights .NET SDK 跟踪自定义操作](../application-insights/application-insights-custom-operations-tracking.md)

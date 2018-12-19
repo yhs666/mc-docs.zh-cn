@@ -14,18 +14,18 @@ ms.workload: infrastructure
 origin.date: 10/22/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 642532091824a0e873ed7d5793b15b1b7ad24b5d
-ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
+ms.openlocfilehash: 859f23b4efe27226c8d9ee87acc4ab0009335722
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676953"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028910"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>尝试通过远程桌面连接到 Azure VM 时发生内部错误 
 
 本文介绍了尝试连接到 Azure 中的虚拟机 (VM) 时可能会遇到的错误。
 > [!NOTE] 
-> Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍如何使用资源管理器部署模型。建议对新部署使用该模型，而不要使用经典部署模型。 
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器部署模型和经典部署模型](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍如何使用资源管理器部署模型。建议对新部署使用该模型，而不要使用经典部署模型。 
 
 ## <a name="symptoms"></a>症状 
 
@@ -47,102 +47,9 @@ ms.locfileid: "52676953"
 
 在执行这些步骤之前，请创建受影响 VM 的 OS 磁盘的快照作为备份。 有关详细信息，请参阅[拍摄磁盘快照](../windows/snapshot-copy-managed-disk.md)。
 
-若要排查此问题，请使用串行控制台，或通过将 VM 的 OS 磁盘附加到恢复 VM 来[修复 VM 脱机](#repair-the-vm-offline)。
+若要排查此问题，可通过将 VM 的 OS 磁盘附加到恢复 VM 来使用[修复 VM 脱机](#repair-the-vm-offline)。
 
-### <a name="use-serial-control"></a>使用串行控制台
-
-连接到[串行控制台并打开 PowerShell 实例](./serial-console-windows.md#open-cmd-or-powershell-in-serial-console
-)。 如果 VM 上未启用串行控制台，请转到[修复 VM 脱机](#repair-the-vm-offline)部分。
-
-#### <a name="step-1-check-the-rdp-port"></a>步骤 1：检查 RDP 端口
-
-1. 在 PowerShell 实例中，使用 [NETSTAT](https://docs.microsoft.com/windows-server/administration/windows-commands/netstat
-) 检查端口 8080 是否被其他应用程序占用：
-
-        Netstat -anob |more
-2. 如果 Termservice.exe 正在使用端口 8080，请转到步骤 2。 如果除 Termservice.exe 以外的其他服务或应用程序正在使用端口 8080，请执行以下步骤：
-
-    A. 停止正在使用 3389 服务的应用程序的服务： 
-
-        Stop-Service -Name <ServiceName>
-
-    B. 启动终端服务： 
-
-        Start-Service -Name Termservice
-
-2. 如果无法停止该应用程序或者此方法不适用，请更改 RDP 的端口：
-
-    A. 更改端口：
-
-        Set-ItemProperty -Path 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name PortNumber -value <Hexportnumber>
-
-        Stop-Service -Name Termservice Start-Service -Name Termservice
-
-    B. 设置新端口的防火墙：
-
-        Set-NetFirewallRule -Name "RemoteDesktop-UserMode-In-TCP" -LocalPort <NEW PORT (decimal)>
-
-    C. 在 Azure 门户的“RDP 端口”中[更新新端口的网络安全组](../../virtual-network/security-overview.md)。
-
-#### <a name="step-2-set-correct-permissions-on-the-rdp-self-signed-certificate"></a>步骤 2：设置对 RDP 自签名证书的正确权限
-
-1.  在 PowerShell 实例中逐条运行以下命令，以续订 RDP 自签名证书：
-
-        Import-Module PKI Set-Location Cert:\LocalMachine $RdpCertThumbprint = 'Cert:\LocalMachine\Remote Desktop\'+((Get-ChildItem -Path 'Cert:\LocalMachine\Remote Desktop\').thumbprint) Remove-Item -Path $RdpCertThumbprint 
-
-        Stop-Service -Name "SessionEnv" 
-
-        Start-Service -Name "SessionEnv"
-
-2. 如果无法使用此方法续订证书，请尝试远程续订 RDP 自签名证书：
-
-    1. 在已连接到有问题 VM 的正常 VM 上，在“运行”框中键入 **mmc** 打开 Azure 管理控制台。
-    2. 在“文件”菜单中，依次选择“添加/删除管理单元”、“证书”、“添加”。
-    3. 依次选择“计算机帐户”、“另一台计算机”，然后添加有问题 VM 的 IP 地址。
-    4. 转到“远程桌面\证书”文件夹，右键单击证书，然后选择“删除”。
-    5. 在串行控制台上的 PowerShell 实例中，重启“远程桌面配置”服务： 
-
-            Stop-Service -Name "SessionEnv" 
-
-            Start-Service -Name "SessionEnv"
-3. 重置 MachineKeys 文件夹的权限。
-
-        remove-module psreadline icacls 
-
-        md c:\temp
-
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt takeown /f "C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r 
-
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\System:(F)" 
-
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\NETWORK SERVICE:(R)" 
-
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "BUILTIN\Administrators:(F)" 
-
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\AfterScript_permissions.txt Restart-Service TermService -Force
-
-4. 重启 VM，然后尝试开始与 VM 建立远程桌面连接。 如果仍然出错，请转到下一步。
-
-步骤 3：启用所有受支持的 TLS 版本
-
-RDP 客户端使用 TLS 1.0 作为默认协议。 但是，可将此协议更改为新标准协议 TLS 1.1。 如果在 VM 上禁用了 TLS 1.1，则连接将会失败。
-1.  在 CMD 实例中启用 TLS 协议：
-
-        reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f 
-
-        reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f 
-
-        reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWORD /d 1 /f
-2.  为了防止 AD 策略覆盖所做的更改，请暂时停止组策略更新：
-
-        REG add "HKLM\SYSTEM\CurrentControlSet\Services\gpsvc" /v Start /t REG_DWORD /d 4 /f
-3.  重启 VM，使更改生效。 如果解决了问题，请运行以下命令重新启用组策略：
-
-        sc config gpsvc start= auto sc start gpsvc
-
-        gpupdate /force
-    如果更改已还原，则表示公司域中存在 Active Directory 策略。 必须更改该策略才能避免此问题再次发生。
-
+<!-- Not Available on ### Use Serial control-->
 ### <a name="repair-the-vm-offline"></a>修复 VM 脱机
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>将 OS 磁盘附加到恢复 VM
@@ -251,6 +158,7 @@ RDP 客户端使用 TLS 1.0 作为默认协议。 但是，可将此协议更改
 
         REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f reg unload HKLM\BROKENSYSTEM
 5.  [拆离 OS 磁盘并重新创建 VM](../windows/troubleshoot-recovery-disks-portal.md)，然后检查问题是否得以解决。
+
 
 <!-- Update_Description: new articles on troubleshoot -->
 <!--ms.date: 12/03/2018-->

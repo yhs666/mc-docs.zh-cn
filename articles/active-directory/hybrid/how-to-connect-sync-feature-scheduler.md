@@ -1,6 +1,6 @@
 ---
 title: Azure AD Connect 同步：计划程序 | Microsoft Docs
-description: 本主题介绍 Azure AD Connect 同步中的内置计划程序。
+description: 本主题介绍 Azure AD Connect 同步中的内置计划程序功能。
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,12 +16,12 @@ origin.date: 07/12/2017
 ms.date: 11/09/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: fd92cbfeb45ea089d7d32b9471199b3ff3f7963c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 2fc6d963801836d9320c25f83027114d983df111
+ms.sourcegitcommit: a3cde3b41ed4d3f39a30eb4e562d6436a3e4d9d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653640"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53131753"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect 同步：计划程序
 本主题介绍 Azure AD Connect 同步（也称为同步引擎）中的 内置计划程序。
@@ -89,7 +89,7 @@ d - 天，HH - 小时，mm - 分钟，ss - 秒
 
 在完成更改后，请不要忘记通过 `Set-ADSyncScheduler -SyncCycleEnabled $true`再次启用计划程序。
 
-## <a name="start-the-scheduler"></a>启动计划程序
+## 启动计划程序 <a name="start-the-scheduler"></a>
 默认情况下，计划程序每 30 分钟运行一次。 在某些情况下，可能想要在已计划的周期之间运行同步周期，或者需要运行不同的类型。
 
 **增量同步周期**  

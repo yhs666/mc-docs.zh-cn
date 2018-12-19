@@ -3,22 +3,18 @@ title: 排查 HDInsight 群集速度慢或故障问题 - Azure HDInsight
 description: 诊断和排查 HDInsight 群集速度慢或故障问题。
 services: hdinsight
 author: ashishthaps
-ms.assetid: ''
+ms.author: ashishth
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-origin.date: 01/11/2018
-ms.date: 11/19/2018
-ms.author: v-yiso
-ms.openlocfilehash: 50406904c6f4810e08520a70531238cc508e05ab
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 01/11/2018
+ms.openlocfilehash: 6c9e980e4f448f705743b2e6dce268c671ffe9b6
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653571"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028445"
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>排查 HDInsight 群集速度慢或故障问题
 
@@ -53,7 +49,7 @@ HDInsight 提供了许多工具用于识别和排查群集问题。 下面逐步
 重要的群集信息包括：
 
 * 群集名称。
-* 群集区域 - 检查[区域中断](https://www.azure.cn/support/service-dashboard/)。
+* 群集区域 - 检查[区域中断](https://azure.microsoft.com/status/)。
 * HDInsight 群集类型和版本。
 * 为头节点和工作节点指定的 HDInsight 实例的类型和数量。
 
@@ -78,7 +74,7 @@ Azure 门户可以提供此信息：
 ### <a name="service-details"></a>服务详细信息
 
 * 检查开源库发行版本
-* 检查 [Azure 服务中断](https://www.azure.cn/support/service-dashboard/) 
+* 检查 [Azure 服务中断](https://azure.microsoft.com/status/) 
 * 检查 Azure 服务使用限制 
 * 检查 Azure 虚拟网络子网配置 
 
@@ -96,8 +92,8 @@ HDInsight 依赖于多个 Azure 服务。 它在 Azure HDInsight 中运行虚拟
 
 #### <a name="check-azure-service-usage-limits"></a>检查 Azure 服务使用限制
 
-在启动大型群集或同时启动多个群集时，如果超出 Azure 服务限制，则群集可能发生故障。 服务限制因 Azure 订阅而异。 有关详细信息，请参阅 [Azure 订阅和服务限制、配额与约束](../azure-subscription-service-limits.md)。
-可以使用提高资源管理器核心配额的请求，向 Microsoft 请求增加可用 HDInsight 资源（例如 VM 核心和 VM 实例）的数量。
+在启动大型群集或同时启动多个群集时，如果超出 Azure 服务限制，则群集可能发生故障。 服务限制因 Azure 订阅而异。 有关详细信息，请参阅 [Azure 订阅和服务限制、配额与约束](https://docs.microsoft.com/azure/azure-subscription-service-limits)。
+可以使用[资源管理器提高核心配额请求](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)，向 Microsoft 请求增加可用 HDInsight 资源（例如 VM 核心和 VM 实例）的数量。
 
 #### <a name="check-the-release-version"></a>检查发行版本
 
@@ -117,7 +113,7 @@ HDInsight 群集由虚拟机实例上运行的不同类型的节点组成。 可
 
 ### <a name="get-a-snapshot-of-the-cluster-health-using-the-ambari-ui-dashboard"></a>使用 Ambari UI 仪表板获取群集运行状况的快照
 
-[Ambari UI 仪表板](#view-cluster-configuration-settings-with-the-ambari-ui) (`https://<clustername>.azurehdinsight.cn`) 提供群集运行状况的概述，例如运行时间、内存、网络和 CPU 使用率、HDFS 磁盘使用率，等等。 使用 Ambari 的“主机”部分可以查看主机级别的资源。 还可以停止和重启服务。
+[Ambari UI 仪表板](#view-cluster-configuration-settings-with-the-ambari-ui) (`https://<clustername>.azurehdinsight.net`) 提供群集运行状况的概述，例如运行时间、内存、网络和 CPU 使用率、HDFS 磁盘使用率，等等。 使用 Ambari 的“主机”部分可以查看主机级别的资源。 还可以停止和重启服务。
 
 ### <a name="check-your-webhcat-service"></a>检查 WebHCat 服务
 
@@ -128,7 +124,7 @@ Hive、Pig 或 Sqoop 作业失败的常见场合之一是 [WebHCat](hdinsight-ha
 这是来自网关节点的常规消息，也是最常见的故障状态代码。 发生此故障的可能原因之一是活动头节点上的 WebHCat 服务已关闭。 若要检查是否存在这种情况，请使用以下 CURL 命令：
 
 ```bash
-$ curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.cn/templeton/v1/status?user.name=admin
+$ curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.net/templeton/v1/status?user.name=admin
 ```
 
 Ambari 将显示一条警报，其中指出了 WebHCat 服务已在哪些主机上关闭。 可以通过在相应的主机上重启 WebHCat 服务使其恢复运行。

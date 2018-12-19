@@ -1,8 +1,27 @@
 ---
-title: Azure 门户支持的浏览器和设备 | Azure description: 介绍适合运行 Azure 门户的浏览器和设备。
-services: azure-portal documentationcenter: '' author: adamabmsft manager: lwelicki editor: ''
-
-ms.assetid: 35fa18ec-21d8-41bf-af2b-e5e92703401d ms.service: azure-portal ms.workload: multiple ms.tgt_pltfrm: ibiza ms.devlang: na ms.topic: conceptual origin.date:04/02/2018 ms.date: 11/05/2018 ms.author: v-biyu ms.custom: accessibility
+title: Azure 门户支持的浏览器和设备 | Azure
+description: 介绍适合运行 Azure 门户的浏览器和设备。
+services: azure-portal
+documentationcenter: ''
+author: adamabmsft
+manager: lwelicki
+editor: ''
+ms.assetid: 35fa18ec-21d8-41bf-af2b-e5e92703401d
+ms.service: azure-portal
+ms.workload: multiple
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: conceptual
+origin.date: 04/02/2018
+ms.date: 11/05/2018
+ms.author: v-biyu
+ms.custom: accessibility
+ms.openlocfilehash: a68a48869e24ea7b89e7c2a135c84b3bd51803bd
+ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53219555"
 ---
 # <a name="supported-browsers-and-devices-for-the-azure-portal"></a>Azure 门户支持的浏览器和设备
 可在所有新式台式机、平板电脑设备和浏览器上运行 [Azure 门户](https://portal.azure.cn)。

@@ -5,20 +5,20 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 07/03/2018
-ms.date: 08/06/2018
+origin.date: 10/18/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 0ae886a7ccfa0f0e06d255e6017d3dbc42beb779
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 849dd4db5a96b3b792f14b178c2e70e0867dc517
+ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645357"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53157409"
 ---
 # <a name="create-roles"></a>创建角色
 
-在本课中，将创建角色。 角色通过仅允许属于角色成员的用户进行访问，提供模型数据库对象和数据安全性。 每个角色都定义有单一权限：无、读取、读取和处理、处理，或管理员。 在创作模型期间，可以使用角色管理器来定义角色。 在部署模型后，可以使用 SQL Server Management Studio (SSMS) 来管理角色。 若要了解详细信息，请参阅[角色](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular)。
+在本课中，将创建角色。 角色通过仅允许属于角色成员的用户进行访问，提供模型数据库对象和数据安全性。 每个角色都定义有单一权限：“无”、“读取”、“读取和处理”、“处理”或“管理员”。 在创作模型期间，可以使用角色管理器来定义角色。 在部署模型后，可以使用 SQL Server Management Studio (SSMS) 来管理角色。 若要了解详细信息，请参阅[角色](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular)。
 
 > [!NOTE]  
 > 创建角色不是完成本教程所必需的。 默认情况下，当前用来登录的帐户具有对模型的管理员权限。 不过，若要允许组织中的其他用户使用某个报告客户端来进行浏览，则必须至少创建一个具有读取权限的角色并将那些用户添加为其成员。  

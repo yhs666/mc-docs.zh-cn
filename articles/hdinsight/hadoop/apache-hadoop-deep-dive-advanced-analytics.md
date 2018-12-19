@@ -17,12 +17,12 @@ ms.workload: big-data
 origin.date: 11/14/2017
 ms.date: 09/24/2018
 ms.author: v-yiso
-ms.openlocfilehash: fe697ff78b4103febdb4657629fde9e9f467d7ea
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c86e1e128f6fdcaf5b979301e2389f60bada4e88
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662681"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028945"
 ---
 # <a name="deep-dive---advanced-analytics"></a>深入探讨 - 高级分析
 
@@ -123,19 +123,12 @@ HDInsight 提供多个适用于高级分析工作流的机器学习选项：
 
 ## <a name="next-steps"></a>后续步骤
 
-Hive 和 Azure 机器学习
-
-* [Hive 和 Azure 机器学习端到端教程](../../machine-learning/team-data-science-process/hive-walkthrough.md)
-* [针对 1 TB 数据集使用 Azure HDInsight Hadoop 群集](../../machine-learning/team-data-science-process/hive-criteo-walkthrough.md)
-
 Spark 和 MLLib
 
-* [在 Spark on HDInsight 中使用机器学习](../../machine-learning/team-data-science-process/spark-overview.md)
-* [Spark 和机器学习：使用 HDInsight 中的 Spark 对使用 HVAC 数据生成温度进行分析](../spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Spark 和机器学习：使用 HDInsight 中的 Spark 结合 HVAC 数据分析建筑物温度](../spark/apache-spark-ipython-notebook-machine-learning.md)
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](../spark/apache-spark-machine-learning-mllib-ipython.md)
 
 深度学习、认知工具包和其他技术
 
 * [在 Azure HDInsight Spark 上使用认知工具包和 TensorFlow 执行易并行图像分类](https://blogs.technet.microsoft.com/machinelearning/2017/04/12/embarrassingly-parallel-image-classification-using-cognitive-toolkit-tensorflow-on-azure-hdinsight-spark/)
-* [Azure 数据科学虚拟机](../../machine-learning/data-science-virtual-machine/overview.md)
 * [Azure HDInsight 上的 H2O.ai 简介](https://azure.microsoft.com/blog/introducing-h2o-ai-with-on-azure-hdinsight-to-bring-the-most-robust-ai-platform-for-enterprises/)

@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 06/06/2017
 ms.author: v-yiso
 ms.date: 03/19/2018
-ms.openlocfilehash: e6ce98f944ab2d2cba02fd941d24ca669576085c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 0c090c8ce0a09538ec968d6d30fb862492e1f99e
+ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655663"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53219576"
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>手动或自动缩放实例计数
 
@@ -141,7 +141,4 @@ ms.locfileid: "52655663"
 12. 最后，单击“保存”。
 
 ## <a name="next-steps"></a>后续步骤
-* [监视服务指标](./insights-how-to-customize-monitoring.md)，确保服务可用且响应迅速。
-* [启用监视和诊断](./insights-how-to-use-diagnostics.md) 以收集服务的详细高频指标。
-* [接收警报通知](insights-receive-alert-notifications.md) 。
-* [查看事件和活动日志](./insights-debugging-with-events.md)，可了解服务中发生的所有事件。
+* [监视服务指标](./insights-how-to-customize-monitoring.md)以确保服务可用且响应迅速。

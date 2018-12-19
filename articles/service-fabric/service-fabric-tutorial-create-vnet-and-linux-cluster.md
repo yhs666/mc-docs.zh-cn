@@ -16,12 +16,12 @@ origin.date: 09/27/2018
 ms.date: 11/12/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 9c301b2e2b3745a84e3f98c91c29c474d5818c24
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 3a97fac7756ec82508c1a2e5ceaeefd7b43fc35a
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650865"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029021"
 ---
 # <a name="tutorial-deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>教程：将 Linux Service Fabric 群集部署到 Azure 虚拟网络
 
@@ -82,6 +82,11 @@ Azure Key Vault 用于管理 Azure 中 Service Fabric 群集的证书。  在 Az
 * [AzureDeploy.json][template]
 * [AzureDeploy.Parameters.json][parameters]
 
+<!--Notice: Change storageAccountEndPoint as https://core.chinacloudapi.cn/-->
+> [!NOTE]
+> 成功下载模板文件 `vnet-cluster.json` 后，在第 499 行将 `"storageAccountEndPoint": "https://core.windows.net/"` 替换为 `"storageAccountEndPoint": "https://core.chinacloudapi.cn/"` 以匹配 Azure 中国云环境。
+
+
 此模板将包含五个虚拟机和单个节点类型的安全群集部署到虚拟网络中。  其他示例模板可以在 [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates) 上找到。 [AzureDeploy.json][template] 部署一些资源，包括以下资源。
 
 ### <a name="service-fabric-cluster"></a>Service Fabric 群集
@@ -102,7 +107,7 @@ Azure Key Vault 用于管理 Azure 中 Service Fabric 群集的证书。  在 Az
 
 在 **Microsoft.Network/loadBalancers** 资源中，配置了负载均衡器，并为以下端口设置了探测和规则：
 
-* 连接终结点:19000
+* 客户端连接终结点：19000
 * HTTP 网关终结点：19080
 * 应用程序端口：80
 * 应用程序端口：443
@@ -195,7 +200,7 @@ sfctl cluster health
 
 ## <a name="clean-up-resources"></a>清理资源
 
-本教程系列中的其他文章将使用刚才创建的群集。 如果不立即转到下一篇文章，可能需要[删除该群集](service-fabric-cluster-delete.md)，以避免产生费用。
+本教程系列中的其他文章将使用刚才创建的群集。 如果不立即转到下一篇文章，可能需要[删除该群集](service-fabric-tutorial-delete-cluster.md)，以避免产生费用。
 
 ## <a name="next-steps"></a>后续步骤
 

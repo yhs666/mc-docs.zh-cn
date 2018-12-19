@@ -10,20 +10,20 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-origin.date: 09/10/2018
-ms.date: 11/19/2018
+origin.date: 11/13/2018
+ms.date: 12/17/2018
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 9a18c7f96f4dd6294d323ea5381c4835270a91b5
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 4e96832fd6265565625c54b44f9e9a303a8c5e8d
+ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649820"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53286768"
 ---
-# <a name="tutorial-create-multiple-resource-instances-using-resource-manager-templates"></a>教程：使用资源管理器模板创建多个资源实例
+# <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>教程：使用资源管理器模板创建多个资源实例
 
-了解如何在 Azure 资源管理器模板中进行迭代操作，以创建 Azure 资源的多个实例。 在最后一篇教程中，我们修改了现有模板以创建加密的 Azure 存储帐户。 在本教程中，我们将修改同一模板以创建三个存储帐户实例。
+了解如何在 Azure 资源管理器模板中进行迭代操作，以创建 Azure 资源的多个实例。 在本教程中，你将修改一个模板，以便创建三个存储帐户实例。
 
 > [!div class="checklist"]
 > * 打开快速入门模板
@@ -36,12 +36,11 @@ ms.locfileid: "52649820"
 
 若要完成本文，需要做好以下准备：
 
-* [Visual Studio Code](https://code.visualstudio.com/)。
-* 资源管理器工具扩展。 若要进行安装，请参阅[安装资源管理器扩展](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)。
+* 包含[资源管理器工具扩展](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)的 [Visual Studio Code](https://code.visualstudio.com/)。
 
 ## <a name="open-a-quickstart-template"></a>打开快速入门模板
 
-本快速入门中使用的模板称为[创建标准存储帐户](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/)。 该模板定义 Azure 存储帐户资源。
+[Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/)是资源管理器模板的存储库。 无需从头开始创建模板，只需找到一个示例模板并对其自定义即可。 本快速入门中使用的模板称为[创建标准存储帐户](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/)。 该模板定义 Azure 存储帐户资源。
 
 1. 在 Visual Studio Code 中，选择“文件”>“打开文件”。
 2. 在“文件名”中粘贴以下 URL：
@@ -50,20 +49,22 @@ ms.locfileid: "52649820"
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
 3. 选择“打开”以打开该文件。
-4. 选择“文件”>“另存为”，将该文件作为 **azuredeploy.json** 保存到本地计算机。
+4. 在模板中定义了一个“Microsoft.Storage/storageAccounts”资源。
+    <!-- Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/Microsoft.Storage/storageAccounts)-->
+5. 选择“文件”>“另存为”，将该文件作为 **azuredeploy.json** 保存到本地计算机。
 
 ## <a name="edit-the-template"></a>编辑模板
 
-本教程旨在使用资源迭代创建三个存储帐户。  示例模板仅创建一个存储帐户。 
+现有模板创建一个存储帐户。 请通过自定义模板来创建三个存储帐户。  
 
 在 Visual Studio Code 中进行以下四项更改：
 
 ![Azure 资源管理器创建多个实例](./media/resource-manager-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances.png)
 
-1. 将 `copy` 元素添加到存储帐户资源定义。 在 copy 元素中，为此循环指定迭代次数和名称。 计数值必须是不超过 800 的正整数。
-2. `copyIndex()` 函数返回循环中的当前迭代。 `copyIndex()` 从零开始。 若要偏移索引值，可以在 copyIndex() 函数中传递一个值。 例如 *copyIndex(1)*。
+1. 将 `copy` 元素添加到存储帐户资源定义。 在 copy 元素中，为此循环指定迭代次数和变量。 计数值必须是不超过 800 的正整数。
+2. `copyIndex()` 函数返回循环中的当前迭代。 使用索引作为名称前缀。 `copyIndex()` 从零开始。 若要偏移索引值，可以在 copyIndex() 函数中传递一个值。 例如 *copyIndex(1)*。
 3. 删除 **variables** 元素，因为不再需要使用它。
-4. 删除 **outputs** 元素。
+4. 删除 **outputs** 元素。 不再需要它。
 
 完成的模板如下所示：
 
@@ -123,13 +124,16 @@ ms.locfileid: "52649820"
 
 # <a name="clitabcli"></a>[CLI](#tab/CLI)
 ```cli
-az storage account list --resource-group <ResourceGroupName>
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az storage account list --resource-group $resourceGroupName
 ```
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
 
 ```powershell
-Get-AzureRmStorageAccount -ResourceGroupName <ResourceGroupName>
+$resourceGroupName = Read-Host -Prompt "Enter the resource group name"
+Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName
 ```
 
 ---
@@ -152,4 +156,4 @@ Get-AzureRmStorageAccount -ResourceGroupName <ResourceGroupName>
 > [!div class="nextstepaction"]
 > [创建依赖资源](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: wording update, update meta properties -->

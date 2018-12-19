@@ -17,16 +17,15 @@ ms.workload: big-data
 origin.date: 04/23/2018
 ms.date: 09/24/2018
 ms.author: v-yiso
-ms.openlocfilehash: 0365cdafbbc49dcb4170c17cf1c79a017adf2337
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a08b1a649e1c5f4fed23e03ba65285f67d29bc54
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650368"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028996"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-rest-api"></a>使用 Ambari REST API 管理 HDInsight 群集
 
-[!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
 了解如何使用 Ambari REST API 监视和管理 Azure HDInsight 中的 Hadoop 群集。
 
@@ -72,7 +71,7 @@ Ambari REST API 在 HDInsight 上的基 URI 是 https://CLUSTERNAME.azurehdinsig
 
 连接到 HDInsight 上的 Ambari 需要 HTTPS。 使用在群集创建过程中提供的管理员帐户名称（默认值是 **admin**）和密码。
 
-## <a name="examples-authentication-and-parsing-json"></a>示例：身份验证和解析 JSON
+## <a name="examples-authentication-and-parsing-json"></a>示例:身份验证和分析 JSON
 
 以下示例演示如何针对基本 Ambari REST API 发出 GET 请求：
 
@@ -268,7 +267,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 
 ## <a name="example-get-configuration"></a>示例：获取配置
 
-1. 获取适用于群集的配置。
+1. 获取可用于群集的配置。
 
     ```bash
     curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME?fields=Clusters/desired_configs"
@@ -423,7 +422,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 
     这些命令会将 **newconfig.json** 文件的内容提交到群集作为所需的新配置。 该请求会返回一个 JSON 文档。 此文档中的 **versionTag** 元素应该与提交的版本相匹配，并且 **configs** 对象包含你请求的配置更改。
 
-### <a name="example-restart-a-service-component"></a>示例：重新启动服务组件
+### <a name="example-restart-a-service-component"></a>示例：重启服务组件
 
 此时，如果查看 Ambari Web UI，会发现 Spark 服务指出需要将它重新启动才能使新配置生效。 使用以下步骤重新启动该服务。
 

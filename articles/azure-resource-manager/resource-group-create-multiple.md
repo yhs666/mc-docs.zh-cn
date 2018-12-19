@@ -10,17 +10,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 07/10/2018
-ms.date: 11/19/2018
+origin.date: 11/02/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: ff0b821397eaa22b71b55706e93a5d5249c4e265
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: fdf82580771e999e6b9d582c38b640d1b58e52a5
+ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660994"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53286751"
 ---
-# <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>在 Azure 资源管理器模板中部署资源或属性的多个实例
+# <a name="deploy-more-than-one-instance-of-a-resource-or-property-in-azure-resource-manager-templates"></a>在 Azure 资源管理器模板中部署资源或属性的多个实例
 
 本文介绍了如何在 Azure 资源管理器模板中进行迭代操作，以创建多个资源实例。 如需指定究竟是否部署资源，请参阅 [condition 元素](resource-manager-templates-resources.md#condition)。
 
@@ -30,7 +30,7 @@ ms.locfileid: "52660994"
 
 当必须在部署过程中决定是创建资源的一个实例还是多个实例时，请将 `copy` 元素添加到资源类型。 在 copy 元素中，为此循环指定迭代次数和名称。 计数值必须是不超过 800 的正整数。 
 
-要多次创建的资源将采用以下格式：
+要多次创建的资源采用以下格式：
 
 ```json
 {
@@ -112,9 +112,9 @@ ms.locfileid: "52660994"
 * storagefabrikam
 * storagecoho
 
-默认情况下，资源管理器并行创建资源。 因此，不保证创建的顺序。 但是，你可能希望将资源指定为按顺序部署。 例如，在更新生产环境时，可能需要错开更新，使任何一次仅更新一定数量。
+默认情况下，资源管理器并行创建资源。 不会保证它们的创建顺序。 但是，你可能希望将资源指定为按顺序部署。 例如，在更新生产环境时，可能需要错开更新，使任何一次仅更新一定数量。
 
-若要按顺序部署资源的多个实例，请将 `mode` 设置为 **serial**，将 `batchSize` 设置为要一次部署的实例数。 在串行模式下，资源管理器会在循环中创建早前实例的依赖项，以便在前一个批处理完成之前它不会启动一个批处理。
+若要按顺序部署多个资源实例，请将 `mode` 设置为“串行”，并将 `batchSize` 设置为一次要部署的实例数量。 在串行模式下，资源管理器会在循环中创建早前实例的依赖项，以便在前一个批处理完成之前它不会启动一个批处理。
 
 例如，若要按顺序一次部署两个存储帐户，请使用：
 
@@ -149,10 +149,10 @@ mode 属性也接受 **parallel**（它是默认值）。
 
 ## <a name="property-iteration"></a>属性迭代
 
-若要为资源中的某个属性创建多个值，请在 properties 元素中添加 `copy` 数组。 此数组包含对象，每个对象具有以下属性：
+若要为资源上的属性创建多个值，请在属性元素中添加一个 `copy` 数组。 此数组包含对象，每个对象具有以下属性：
 
-* name - 要为其创建多个值的属性的名称
-* count - 要创建的值数
+* 名称 - 要创建多个值的属性的名称
+* 计数 - 要创建的值的数目。 计数值必须是不超过 800 的正整数。
 * input - 一个对象，其中包含要赋给该属性的值  
 
 以下示例演示如何将 `copy` 应用到虚拟机上的 dataDisks 属性：
@@ -382,7 +382,7 @@ copy 元素是一个数组，因此，可以为资源指定多个属性。 为�
 <a name="looping-on-a-nested-resource" />
 
 ## <a name="iteration-for-a-child-resource"></a>子资源的迭代
-不能对子资源使用 copy 循环。 要创建子资源的多个实例，而该子资源通常在其他资源中定义为嵌套资源，则必须将该资源创建为顶级资源。 可以通过 type 和 name 属性定义与父资源的关系。
+不能对子资源使用 copy 循环。 要创建通常定义为嵌套在另一个资源中的资源的多个实例，必须将该资源创建为顶级资源。 可以通过 type 和 name 属性定义与父资源的关系。
 
 例如，假设用户通常会将某个数据集定义为数据工厂中的子资源。
 
@@ -404,7 +404,7 @@ copy 元素是一个数组，因此，可以为资源指定多个属性。 为�
 }]
 ```
 
-要创建数据集的多个实例，请将数据集移出数据工厂。 数据集必须与数据工厂处于同一级别，但它仍是数据工厂的子资源。 可以通过 type 和 name 属性保留数据集和数据工厂之间的关系。 由于类型不再可以从其在模板中的位置推断，因此必须按以下格式提供完全限定的类型： `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`。
+若要创建多个数据集，请将其移出数据工厂。 数据集必须与数据工厂处于同一级别，但它仍是数据工厂的子资源。 可以通过 type 和 name 属性保留数据集和数据工厂之间的关系。 由于类型不再可以从其在模板中的位置推断，因此必须按以下格式提供完全限定的类型： `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`。
 
 若要与数据工厂的实例建立父/子关系，提供的数据集的名称应包含父资源名称。 使用以下格式： `{parent-resource-name}/{child-resource-name}`。  
 
@@ -433,20 +433,25 @@ copy 元素是一个数组，因此，可以为资源指定多个属性。 为�
 
 ## <a name="example-templates"></a>示例模板
 
-以下示例显示了创建多个资源或属性的常用方案。
+以下示例展示了创建资源或属性的多个实例的常见方案。
+
+> [!NOTE]
+> 必须修改从 GitHub 存储库下载或引用的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；必要时更改某些不受支持的位置、VM 映像、VM 大小、SKU 以及资源提供程序的 API 版本。
+> 
 
 |模板  |说明  |
 |---------|---------|
-|[复制存储](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |部署多个名称中有索引号的存储帐户。 |
-|[串行复制存储](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |以一次一个的方式部署多个存储帐户。 名称包含索引号。 |
+|[复制存储](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |部署名称中带索引号的多个存储帐户。 |
+|[串行复制存储](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |一次部署多个存储帐户。 名称包含索引号。 |
 |[使用数组的复制存储](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |部署多个存储帐户。 名称包含数组中的值。 |
 |[数据磁盘数可变的 VM 部署](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |通过虚拟机部署多个数据磁盘。 |
 |[复制变量](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |演示循环访问变量的不同方式。 |
-|[多项安全规则](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |将多项安全规则部署到网络安全组。 它从参数构造安全规则。 有关参数，请参阅[多个 NSG 参数文件](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json)。 |
+|[多项安全规则](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |将多个安全规则部署到网络安全组。 它从参数构造安全规则。 有关参数，请参阅[多个 NSG 参数文件](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json)。 |
 
 ## <a name="next-steps"></a>后续步骤
 
 * 要查看教程，请参阅[教程：使用资源管理器模板创建多个资源实例](./resource-manager-tutorial-create-multiple-instances.md)。
+
 * 若要了解有关模板区段的信息，请参阅[创作 Azure Resource Manager 模板](resource-group-authoring-templates.md)。
 * 若要了解如何部署模板，请参阅 [使用 Azure Resource Manager 模板部署应用程序](resource-group-template-deploy.md)。
 

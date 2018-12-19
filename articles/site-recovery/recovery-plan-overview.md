@@ -1,22 +1,19 @@
 ---
-title: 使用 Azure Site Recovery 中的恢复计划 | Azure
-description: 了解 Azure Site Recovery 中的恢复计划。
-services: site-recovery
-documentationcenter: ''
+title: 在灾难恢复中将恢复计划与 Azure Site Recovery 配合使用 | Azure
+description: 了解如何通过 Azure Site Recovery 服务使用恢复计划进行灾难恢复。
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+origin.date: 10/28/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: e421f556c0647715901db76bd8374b44646d3d25
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 073a7d14a697078a539c74884f7e74ea3dbe2619
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660239"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029089"
 ---
 # <a name="about-recovery-plans"></a>关于恢复计划
 
@@ -64,7 +61,7 @@ ms.locfileid: "52660239"
     * 在 Azure VM 上创建一个公用 IP 地址。
     * 将一个网络安全组分配给 Azure VM 的网络适配器。
     * 将负载均衡器添加到可用性集。
-* **故障转移后 VM 内的任务**：这些任务通常重新配置在计算机上运行的应用，让应用程序能够在新的环境中继续正常运行。 例如：
+* **故障转移后 VM 内的任务**：这些任务通常重新配置在计算机上运行的应用，让应用能够在新的环境中继续正常运行。 例如：
     * 在计算机内修改数据库连接字符串。
     * 更改 Web 服务器配置或规则。
 
@@ -87,5 +84,6 @@ ms.locfileid: "52660239"
 
 - [创建](site-recovery-create-recovery-plans.md)恢复计划。
 * 了解如何[运行故障转移](site-recovery-failover.md)。
+
 <!-- Update_Description: update meta properties -->
 

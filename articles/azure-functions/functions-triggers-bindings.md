@@ -12,12 +12,12 @@ ms.topic: reference
 origin.date: 09/24/2018
 ms.date: 11/22/2018
 ms.author: v-junlch
-ms.openlocfilehash: 0bb2ae48c069db25b2790e8035225b8fb170b9bf
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 59763c32365ff367979e9becb99342b4fce71543
+ms.sourcegitcommit: a3cde3b41ed4d3f39a30eb4e562d6436a3e4d9d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673120"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53131772"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 触发器和绑定概念
 
@@ -178,7 +178,7 @@ function generateRandomId() {
 
 [!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 
-<a name="local-csharp"></a>
+<a name="local-csharp"></a><a name="local-c-development-using-visual-studio-or-vs-code"></a>
 ### <a name="c-class-library-with-visual-studio-2017"></a>使用 Visual Studio 2017 的 C# 类库
 
 在“Visual Studio 2017”中，可使用 [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) 命令从包管理器控制台安装包，如以下示例所示：

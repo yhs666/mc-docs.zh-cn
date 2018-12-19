@@ -16,12 +16,12 @@ ms.date: 11/21/2018
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: a936fcc1348aa501cff1045d9dddcda4439327ca
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 62b08885610947ff2346f1f849239b0d05d087b7
+ms.sourcegitcommit: a3cde3b41ed4d3f39a30eb4e562d6436a3e4d9d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672905"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53131754"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>经典订阅管理员角色、Azure RBAC 角色和 Azure AD 管理员角色
 
@@ -45,15 +45,13 @@ ms.locfileid: "52672905"
 
 | 经典订阅管理员 | 限制 | 权限 | 说明 |
 | --- | --- | --- | --- |
-| 帐户管理员 | 每个 Azure 帐户有 1 个 | <ul><li>访问 [Azure 帐户中心](https://account.windowsazure.cn/Subscriptions)</li><li>管理帐户中的所有订阅</li><li>创建新订阅</li><li>取消订阅</li><li>更改订阅的计费</li><li>更改服务管理员</li></ul> | 在概念上是订阅的账单所有者。<br>帐户管理员无权访问 Azure 门户。 |
-| 服务管理员 | 每个 Azure 订阅有 1 个 | <ul><li>在 [Azure 门户](https://portal.azure.cn)中管理服务</li><li>将用户分配到共同管理员角色</li></ul> | 默认情况下，新订阅的帐户管理员也是服务管理员。<br>服务管理员拥有在订阅范围内分配有“所有者”角色的用户的等效访问权限。<br>服务管理员有权访问 Azure 门户。 |
+| 帐户管理员 | 每个 Azure 帐户有 1 个 | <ul><li>访问 [Azure 帐户中心](https://account.windowsazure.cn/Subscriptions)</li><li>管理帐户中的所有订阅</li><li>创建新订阅</li><li>取消订阅</li><li>更改订阅的计费</li><li>更改服务管理员</li></ul> | 在概念上是订阅的计费所有者。<br>帐户管理员无权访问 Azure 门户。 |
+| 服务管理员 | 每个 Azure 订阅有 1 个 | <ul><li>在 [Azure 门户](https://portal.azure.cn)中管理服务</li><li>将用户分配到共同管理员角色</li></ul> | 默认情况下，新订阅的帐户管理员也是服务管理员。<br>服务管理员拥有在订阅范围内分配有“所有者”角色的用户的等效访问权限。<br>服务管理员具有 Azure 门户的完全访问权限。 |
 | 共同管理员 | 每个订阅有 200 个 | <ul><li>与服务管理员的访问特权相同，但无法更改订阅与 Azure 目录之间的关联。</li><li>将用户分配到共同管理员角色，但无法更改服务管理员</li></ul> | 共同管理员拥有在订阅范围内分配有“所有者”角色的用户的等效访问权限。 |
 
 在 Azure 门户中，可以通过查看订阅的属性，来查看已将谁分配为帐户管理员和服务管理员。
 
 ![Azure 门户中的帐户管理员和服务管理员](./media/rbac-and-directory-admin-roles/account-admin-service-admin.png)
-
-有关如何添加或更改经典订阅管理员的信息，请参阅 Azure 计费文档中的[添加或更改 Azure 订阅管理员](../billing/billing-add-change-azure-subscription-administrator.md)。
 
 ### <a name="azure-account-and-azure-subscriptions"></a>Azure 帐户和 Azure 订阅
 

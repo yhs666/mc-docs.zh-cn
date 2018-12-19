@@ -11,12 +11,12 @@ ms.topic: tutorial
 origin.date: 09/19/2017
 ms.date: 10/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: aad8e0ee2fbb0a630ea89b84efd94e6f7f2362f4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 624bf9e839111ee96809a8088d134fd66048ff79
+ms.sourcegitcommit: a3cde3b41ed4d3f39a30eb4e562d6436a3e4d9d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661643"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53131749"
 ---
 # <a name="tutorial-computer-vision-api-javascript"></a>教程：计算机视觉 API JavaScript
 
@@ -745,6 +745,5 @@ function ReadHandwrittenImage(sourceImageUrl, responseTextArea) {
 
 ## <a name="next-steps"></a>后续步骤
 
-- [计算机视觉 API C&#35; 教程](CSharpTutorial.md)
 - [计算机视觉 API Python 教程](PythonTutorial.md)
 

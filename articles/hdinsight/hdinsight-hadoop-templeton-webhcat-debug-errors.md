@@ -17,12 +17,12 @@ ms.workload: big-data
 origin.date: 05/16/2018
 ms.date: 08/27/2018
 ms.author: v-yiso
-ms.openlocfilehash: d8449d33af805144e4e6d474df1a51258d682773
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d08de8308340c7b38e73e7e515fe9da48e823a28
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652126"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028999"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>了解和解决从 HDInsight 上的 WebHCat 收到的错误
 
@@ -38,8 +38,6 @@ ms.locfileid: "52652126"
 > 本文档中列出的几大错误之所以发生，是因为超出了配置的最大值。 当解决步骤提到可以更改一个值时，必须使用下列选项之一来执行更改：
 
 * 对于 **Windows** 群集：使用脚本操作在群集创建过程中配置值。 有关详细信息，请参阅[开发脚本操作](hdinsight-hadoop-script-actions.md)。
-
-* 对于 **Linux** 群集：使用 Ambari（Web 或 REST API）修改值。 有关详细信息，请参阅[使用 Ambari 管理 HDInsight](hdinsight-hadoop-manage-ambari.md)
 
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
@@ -72,7 +70,7 @@ ms.locfileid: "52652126"
 | --- | --- |
 | 此状态代码通常发生在群集的主要和辅助 HeadNode 之间进行故障转移时 |等待两分钟，并重试该操作 |
 
-## <a name="bad-request-content-could-not-find-job"></a>请求内容错误：找不到作业
+## <a name="bad-request-content-could-not-find-job"></a>错误的请求内容：找不到作业
 
 **HTTP 状态代码**：400
 

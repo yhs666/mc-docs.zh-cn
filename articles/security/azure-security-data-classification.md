@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/18/2017
 ms.author: v-johch
-ms.openlocfilehash: 3cd5662b6bc2b3f31b2f88d442e43f55f529d030
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 75974cf8c99b149d6dda754e8a77f289fe863078
+ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658188"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53219581"
 ---
 # <a name="data-classification-for-azure"></a>Azure 的数据分类
 本文介绍数据分类基础知识并强调其价值，特别是在云计算环境下和使用 Microsoft Azure 时。 
@@ -55,7 +55,7 @@ ms.locfileid: "52658188"
 身份验证通常至少包括两个组成部分：用于标识用户的用户名或用户 ID，以及用于确认用户名凭据是否有效的令牌，如密码。 该过程不会给经过身份验证的用户提供访问任何项或服务的权限；它只是验证该用户声明的身份。   
 
 > [!TIP]
-> [Azure Active Directory](../active-directory/active-directory-whatis.md) 提供基于云的标识服务，可让你对用户进行身份验证和授权。 
+> [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) 提供基于云的标识服务，可让你对用户进行身份验证和授权。 
 > 
 > 
 
@@ -249,7 +249,7 @@ DLP 技术可以通过关键字匹配、字典匹配、正则表达式求值和�
 某些 DLP 技术还提供覆盖 DLP 配置的功能（例如，组织需要将社会安全号码传输给工资出纳员时）。 此外，还可以配置 DLP，以便在用户尝试发送不能传输的敏感信息之前，向用户发出通知。 
 
 > [!TIP]
-> 可以使用 Office 365 DLP 功能保护文档。 有关详细信息，请参阅 [Office 365 compliance controls: Data Loss Prevention（Office 365 符合性控制：数据丢失防护）](https://blogs.office.com/2013/10/28/office-365-compliance-controls-data-loss-prevention/)。
+> 可以使用 Office 365 DLP 功能保护文档。 有关详细信息，请参阅 [Office 365 合规性控制：数据丢失预防](https://blogs.office.com/2013/10/28/office-365-compliance-controls-data-loss-prevention/)。
 > 
 > 
 

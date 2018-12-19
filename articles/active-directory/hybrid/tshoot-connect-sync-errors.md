@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/31/2018
-ms.date: 11/12/2018
+origin.date: 10/29/2018
+ms.date: 12/05/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 54be1e72c809276622b0ce9fa5d87bd21af677a8
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 0ce45fca4d9aa713ec00dd0c930992f853a9d0e1
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663865"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028970"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>排查同步过程中发生的错误
 将标识数据从 Windows Server Active Directory (AD DS) 同步到 Azure Active Directory (Azure AD) 时可能会发生错误。 本文概述不同类型的同步错误、导致这些错误的某些可能情况，以及这些错误的可能解决方法。 本文介绍常见错误类型，不一定涵盖所有可能的错误。
@@ -175,7 +175,7 @@ b. UserPrincipalName 属性不符合所需的格式。
 a. 确保 userPrincipalName 属性包含支持的字符并使用所需的格式。
 
 #### <a name="related-articles"></a>相关文章
-- [Prepare to provision users through directory synchronization to Office 365（准备在 Office 365 中通过目录同步来预配用户）](https://support.office.com/en-us/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
+- [Prepare to provision users through directory synchronization to Office 365（准备在 Office 365 中通过目录同步来预配用户）](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
 ### <a name="federateddomainchangeerror"></a>FederatedDomainChangeError
 #### <a name="description"></a>说明
@@ -217,7 +217,31 @@ a. 确保 userPrincipalName 属性包含支持的字符并使用所需的格式�
 ### <a name="how-to-fix"></a>如何解决
 1. 确保导致错误的属性在允许的限制范围内。
 
+## <a name="existing-admin-role-conflict"></a>现有的管理员角色冲突
+
+### <a name="description"></a>说明
+当用户对象具有以下项时，同步期间用户对象上将发生“现有管理员角色冲突”：
+
+- 管理权限和
+- 与现有 Azure AD 对象相同的 UserPrincipalName
+
+不允许 Azure AD Connect 将本地 AD 中的用户对象与 Azure AD 中分配有管理角色的用户对象进行软匹配。  有关详细信息，请参阅 [Azure AD UserPrincipalName 填充](plan-connect-userprincipalname.md)
+
+![现有管理员](./media/tshoot-connect-sync-errors/existingadmin.png)
+
+
+### <a name="how-to-fix"></a>如何解决
+若要解决此问题，请执行以下任一操作：
+
+
+- 将 UserPrincipalName 更改为与 Azure AD 中的管理员用户不匹配的值 - 这将在 Azure AD 中使用匹配的 UserPrincipalName 创建新用户
+- 从 Azure AD 的管理员用户中删除管理角色，这将启用本地用户对象与现有 Azure AD 用户对象之间的软匹配。
+
+>[!NOTE]
+>当本地用户对象与 Azure AD 用户对象之间的软匹配完成后，可以再次将管理角色分配给现有用户对象。
+
 ## <a name="related-links"></a>相关链接
 - [Locate Active Directory Objects in Active Directory Administrative Center（在 Active Directory 管理中心查找 Active Directory 对象）](https://technet.microsoft.com/library/dd560661.aspx)
 - [How to query Azure Active Directory for an object using Azure Active Directory PowerShell（如何使用 Azure Active Directory PowerShell 在 Azure Active Directory 中查询对象）](https://msdn.microsoft.com/library/azure/jj151815.aspx)
 
+<!-- Update_Description: wording update -->

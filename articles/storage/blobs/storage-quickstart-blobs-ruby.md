@@ -6,15 +6,15 @@ author: WenJason
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-origin.date: 04/09/2018
-ms.date: 11/05/2018
+origin.date: 11/14/2018
+ms.date: 12/10/2018
 ms.author: v-jay
-ms.openlocfilehash: 74e76b86fbe7751f474a852e15a5c69425e1be6b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d6f5c16eb1914685e3d0c9d17ad76dfe0d5e2385
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644060"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028930"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>快速入门：使用 Ruby 上传、下载和列出 Blob
 
@@ -22,18 +22,17 @@ ms.locfileid: "52644060"
 
 ## <a name="prerequisites"></a>先决条件
 
-若要完成本快速入门教程，需先执行以下操作： 
-* 安装 [Ruby](https://www.ruby-lang.org/en/downloads/)
-* 使用 rubygem 包安装[用于 Ruby 的 Azure 存储库](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage#configure-your-application-to-access-storage)。 
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-```
-gem install azure-storage-blob
-```
+请确保已安装下述额外的必备组件：
 
-如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+* [Ruby](https://www.ruby-lang.org/en/downloads/)
+* 使用 rubygem 包安装[用于 Ruby 的 Azure 存储库](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage#configure-your-application-to-access-storage)： 
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
-
+    ```
+    gem install azure-storage-blob
+    ```
+    
 ## <a name="download-the-sample-application"></a>下载示例应用程序
 本快速入门中使用的[示例应用程序](https://github.com/Azure-Samples/storage-blobs-ruby-quickstart.git)是基本的 Ruby 应用程序。  
 
