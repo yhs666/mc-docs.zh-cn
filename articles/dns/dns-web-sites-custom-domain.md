@@ -8,12 +8,12 @@ ms.topic: tutorial
 origin.date: 7/20/2018
 ms.date: 09/17/2018
 ms.author: v-jay
-ms.openlocfilehash: 746c3bf3d85f8eb1a9c8d9fafaf86c7548dfdc13
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 380432814f2400b6a9c0de25c1050241d0c7bdf3
+ms.sourcegitcommit: 5c059fe358e1298ef96450b2c620054afe89de1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659655"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53234082"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>教程：为 Web 应用在自定义域中创建 DNS 记录 
 
@@ -44,7 +44,7 @@ ms.locfileid: "52659655"
 
 ## <a name="prerequisites"></a>先决条件
 
-- [创建一个应用服务应用](../app-service/app-service-web-get-started-html.md)，或者使用为其他教程创建的应用。
+- [创建应用服务应用](../app-service/app-service-web-get-started-html.md)，或使用为另一教程创建的应用。
 
 - 在 Azure DNS 中创建一个 DNS 区域，并将注册机构中的区域委派给 Azure DNS。
 
@@ -82,7 +82,7 @@ New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
 ```powershell
 New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup `
  -Name `"@" -RecordType "txt" -Ttl 600 `
- -DnsRecords (New-AzureRmDnsRecordConfig -Value  "contoso.azurewebsites.net")
+ -DnsRecords (New-AzureRmDnsRecordConfig -Value  "contoso.chinacloudsites.cn")
 ```
 
 ## <a name="create-the-cname-record"></a>创建 CNAME 记录
@@ -130,7 +130,7 @@ Name:    <instance of web app service>.chinacloudapp.cn
 Address:  <ip of web app service>
 Aliases:  www.contoso.com
 contoso.chinacloudsites.cn
-<instance of web app service>.vip.azurewebsites.windows.net
+<instance of web app service>.chinacloudsites.cn
 
 > contoso.com
 Server:  default server

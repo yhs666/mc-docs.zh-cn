@@ -12,16 +12,16 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 12/13/2017
-ms.date: 10/15/2018
+origin.date: 11/15/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: b77b326b2d948580be5e1c250435e3f58c86df63
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e84a2e318fb8f8a8d87d8a3b297208e10cbda659
+ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650598"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52901118"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>教程：将具有 CI/CD 的应用程序部署到 Service Fabric 群集
 
@@ -50,7 +50,7 @@ ms.locfileid: "52650598"
 * [安装 Visual Studio 2017](https://www.visualstudio.com/)，并安装 **Azure 开发**以及 **ASP.NET 和 Web 开发**工作负荷。
 * [安装 Service Fabric SDK](service-fabric-get-started.md)
 * 在 Azure 上创建一个 Windows Service Fabric 群集，例如[根据此教程](service-fabric-tutorial-create-vnet-and-windows-cluster.md)创建
-* 创建一个 [Azure DevOps 组织](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/create-organization?view=vsts)。
+* 创建一个 [Azure DevOps 组织](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/create-organization-msa-or-work-student)。
 
 ## <a name="download-the-voting-sample-application"></a>下载投票示例应用程序
 
@@ -62,7 +62,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="prepare-a-publish-profile"></a>准备一个发布配置文件
 
-你已[创建了一个应用程序](service-fabric-tutorial-create-dotnet-app.md)并已[将该应用程序部署到了 Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md)，现在可以设置持续集成了。  首先，在应用程序中准备一个发布配置文件，供要在 Azure DevOps 中执行的部署进程使用。  应当将发布配置文件配置为以之前创建的群集为目标。  启动 Visual Studio 并打开一个现有的 Service Fabric 应用程序项目。  在“解决方案资源管理器”中，右键单击该应用程序并选择“发布...”。
+你已[创建了一个应用程序](service-fabric-tutorial-create-dotnet-app.md)并已[将该应用程序部署到了 Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md)，现在可以设置持续集成了。  首先，在应用程序中准备一个发布配置文件，供要在 Azure DevOps 中执行的部署进程使用。  应当将发布配置文件配置为以你之前创建的群集为目标。  启动 Visual Studio 并打开一个现有的 Service Fabric 应用程序项目。  在“解决方案资源管理器”中，右键单击该应用程序并选择“发布...”。
 
 在应用程序项目中选择一个要用于持续集成工作流的目标配置文件，例如 Cloud。  指定群集连接终结点。  选中“升级应用程序”复选框，以便应用程序针对 Azure DevOps 中的每个部署进行升级。  单击“保存”超链接将设置保存到发布配置文件，然后单击“取消”关闭对话框。
 
@@ -94,31 +94,31 @@ Azure DevOps 发布管道描述了将应用程序程序包部署到群集的工�
 
 打开 Web 浏览器并导航到你的新项目：[https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting)。
 
-依次选择“生成和发布”选项卡、“生成”，然后单击“新建管道”。
+选择“管道”选项卡，接着选择“生成”，然后单击“新建管道”。
 
 ![新建管道][new-pipeline]
 
-选择 **Azure DevOps Git** 作为源，选择“Voting”项目、“Voting”存储库和**主**默认分支或手动和计划的生成。  然后单击“继续”。
+选择 **Azure Repos Git** 作为源，选择“Voting”团队项目、“Voting”存储库和 **master** 默认分库作为手动的和计划的生成。  然后单击“继续”。
+
+![选择存储库][select-repo]
 
 在“选择模板”中，选择“Azure Service Fabric 应用程序”模板，然后单击“应用”。
 
 ![选择“生成模板”][select-build-template]
 
-在“任务”中，为“代理队列”输入“Hosted VS2017”。
+在“任务”中，输入“Hosted VS2017”作为代理池。
 
 ![选择任务][save-and-queue]
 
-在“触发器”下，选中“启用持续集成”来启用持续集成。 在**分支筛选器**中，单击“+ 添加”，**分支规范**将默认为“主”。 选择“保存并排队”以手动启动生成。
-
-在“保存生成管道和队列”对话框中，单击“保存并排队”。
+在“触发器”下，选中“启用持续集成”来启用持续集成。 在“分库筛选器”中，，“分库规格”默认为“master”。 选择“保存并排队”以手动启动生成。
 
 ![选择触发器][save-and-queue2]
 
-推送或签入时也会触发生成操作。 若要检查生成进度，请切换到“生成”选项卡。在验证生成成功执行后，请定义用于将应用程序部署到群集的发布管道。
+在推送或签入时也会触发生成。 若要检查生成进度，请切换到“生成”选项卡。在验证生成成功执行后，请定义用于将应用程序部署到群集的发布管道。
 
 ### <a name="create-a-release-pipeline"></a>创建发布管道
 
-依次选择“生成和发布”选项卡、“发布”、“+ 新建管道”。  在“选择模板”中，从列表中选择“Azure Service Fabric 部署”模板，然后单击“应用”。
+依次选择“管道”选项卡、“发布”、“+ 新建管道”。  在“选择模板”中，从列表中选择“Azure Service Fabric 部署”模板，然后单击“应用”。
 
 ![选择发布模板][select-release-template]
 
@@ -144,7 +144,7 @@ Azure DevOps 发布管道描述了将应用程序程序包部署到群集的工�
 
 选择“+ 发布” -> “创建发布” -> “创建”，手动创建发布。 可以在“发布”选项卡中监视发布进度。
 
-验证部署是否已成功以及应用程序是否正在群集中运行。  打开 Web 浏览器并导航到 [http://mysftestcluster.chinaeast.cloudapp.chinacloudapi.cn:19080/Explorer/](http://mysftestcluster.chinaeast.cloudapp.chinacloudapi.cn:19080/Explorer/)。  记下应用程序版本，在本例中为“1.0.0.20170616.3”。
+验证部署是否已成功且应用程序是否正在群集中运行。  打开 Web 浏览器并导航到 [http://mysftestcluster.chinaeast.cloudapp.chinacloudapi.cn:19080/Explorer/](http://mysftestcluster.chinaeast.cloudapp.chinacloudapi.cn:19080/Explorer/)。  记下应用程序版本，在本例中为“1.0.0.20170616.3”。
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>提交并推送更改，触发发布
 
@@ -176,7 +176,7 @@ Azure DevOps 发布管道描述了将应用程序程序包部署到群集的工�
 
 ![Service Fabric Explorer][sfx2]
 
-应用程序升级可能要花费几分钟时间才能完成。 当升级完成后，应用程序会运行下一版本。  在本例中为“1.0.0.20170815.4”。
+应用程序升级可能要花费几分钟时间才能完成。 当升级完成后，应用程序将运行下一版本。  在本例中为“1.0.0.20170815.4”。
 
 ![Service Fabric Explorer][sfx3]
 
@@ -197,6 +197,7 @@ Azure DevOps 发布管道描述了将应用程序程序包部署到群集的工�
 [push-git-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishGitRepo.png
 [publish-code]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishCode.png
 [new-pipeline]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewPipeline.png
+[select-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectRepo.png
 [select-build-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectBuildTemplate.png
 [save-and-queue]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue.png
 [save-and-queue2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue2.png

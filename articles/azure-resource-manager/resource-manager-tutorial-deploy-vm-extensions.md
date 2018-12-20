@@ -14,12 +14,12 @@ origin.date: 11/13/2018
 ms.date: 12/17/2018
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 1d2d3536189cfa798299d38754b4bac6cf896d2e
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 61edebd7586f0fb9b33d57ede43f16f06d88eb10
+ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676752"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53286763"
 ---
 <!-- Verify Successfully-->
 # <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>教程：使用 Azure 资源管理器模板部署虚拟机扩展
@@ -78,10 +78,10 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
     * `Microsoft.Network/networkInterfaces`。 
     * `Microsoft.Compute/virtualMachines`。 
     
-        <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/Microsoft.Storage/storageAccounts)--> <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/publicipaddresses)-->
-        <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/virtualnetworks)-->
-        <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/networkinterfaces)-->
-        <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.compute/virtualmachines)-->
+    <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/Microsoft.Storage/storageAccounts)--> <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/publicipaddresses)-->
+    <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/virtualnetworks)-->
+    <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/networkinterfaces)-->
+    <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.compute/virtualmachines)-->
 
     在自定义模板之前，不妨对其进行一些基本的了解。
 5. 选择“文件”>“另存为”，将该文件的副本保存到名为 **azuredeploy.json** 的本地计算机。
@@ -118,7 +118,7 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 
 * **name**：由于扩展资源是虚拟机对象的子资源，因此其名称必须有虚拟机名称前缀。 请参阅[子资源](./resource-manager-templates-resources.md#child-resources)。
 * **dependsOn**：必须在创建虚拟机以后才能创建扩展资源。
-* **fileUris**：存储脚本文件的位置。 如果选择不使用提供的值，则需更新这些值。
+* **fileUris**：这些是存储脚本文件的位置。 如果选择不使用提供的值，则需更新这些值。
 * **commandToExecute**：这是调用脚本的命令。  
 
 ## <a name="deploy-the-template"></a>部署模板
@@ -147,5 +147,4 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 > [!div class="nextstepaction"]
 > [](./resource-manager-tutorial-deploy-vm-extensions.md)
 
-<!-- Update_Description: new articles on resource manager tutorial deploy vm extensions -->
-<!--ms.date: 11/26/2018-->
+<!-- Update_Description: update meta properties -->

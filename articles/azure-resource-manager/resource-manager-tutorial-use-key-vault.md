@@ -10,23 +10,23 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-origin.date: 10/10/2018
-ms.date: 11/19/2018
+origin.date: 11/13/2018
+ms.date: 12/17/2018
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 0f7e598d77ac4ee2aef5d658b4947c1aca0297a3
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c22b609909160c0db970ef409369bfda884cca16
+ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645578"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53286746"
 ---
 <!-- Verify successfully-->
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>教程：在资源管理器模板部署中集成 Azure Key Vault
 
 了解如何在资源管理器部署期间从 Azure Key Vault 检索机密值，并将机密值作为参数传递。 该值永远不会公开，因为只会引用其 Key Vault ID。 有关详细信息，请参阅[在部署过程中使用 Azure Key Vault 传递安全参数值](./resource-manager-keyvault-parameter.md)。
 
-在本教程中，我们将使用[教程：使用依赖资源创建 Azure 资源管理器模板](./resource-manager-tutorial-create-templates-with-dependent-resources.md)中所用的同一个模板创建虚拟机和一些依赖资源。 从 Azure Key Vault 检索虚拟机管理员密码。
+[设置资源部署顺序](./resource-manager-tutorial-create-templates-with-dependent-resources.md)教程介绍如何创建虚拟机、虚拟网络以及其他一些依赖资源。 在本教程中，请自定义模板，以便从 Azure Key Vault 检索虚拟机管理员密码。
 
 本教程涵盖以下任务：
 
@@ -44,13 +44,19 @@ ms.locfileid: "52645578"
 
 若要完成本文，需要做好以下准备：
 
-* 包含[资源管理器工具扩展](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)的 [Visual Studio Code](https://code.visualstudio.com/)
+* 包含[资源管理器工具扩展](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)的 [Visual Studio Code](https://code.visualstudio.com/)。
+* 若要提高安全性，请使用为虚拟机管理员帐户生成的密码。 以下是密码生成示例：
+
+    ```azurecli
+    openssl rand -base64 32
+    ```
+    Azure Key Vault 旨在保护加密密钥和其他机密。 有关详细信息，请参阅[教程：在资源管理器模板部署中集成 Azure Key Vault](./resource-manager-tutorial-use-key-vault.md)。 我们还建议你每三个月更新一次密码。
 
 ## <a name="prepare-the-key-vault"></a>准备 Key Vault
 
 在本部分，我们使用资源管理器模板创建 Key Vault 和机密。 此模板：
 
-* 创建启用 **enabledForTemplateDeployment** 属性的 Key Vault。 此属性必须为 true，这样，模板部署过程才能访问此 Key Vault 中定义的机密。
+* 创建启用了 `enabledForTemplateDeployment` 属性的 Key Vault。 此属性必须为 true，这样，模板部署过程才能访问此 Key Vault 中定义的机密。
 * 将机密添加到 Key Vault。  该机密存储虚拟机管理员密码。
 
 如果你（要部署虚拟机模板的用户）不是 Key Vault 的所有者或参与者，则 Key Vault 的所有者或参与者必须向你授予对 Key Vault 的 Microsoft.KeyVault/vaults/deploy/action 访问权限。 有关详细信息，请参阅[在部署过程中使用 Azure Key Vault 传递安全参数值](./resource-manager-keyvault-parameter.md)。
@@ -60,7 +66,9 @@ ms.locfileid: "52645578"
 1. 运行以下 Azure PowerShell 或 Azure CLI 命令。  
 
     ```azurecli
-    az ad user show --upn-or-object-id "<Your User Principle Name>" --query "objectId"
+    echo "Enter your email address that is associated with your Azure subscription):" &&
+    read upn &&
+    az ad user show --upn-or-object-id $upn --query "objectId" &&
     openssl rand -base64 32
     ```
     ```PowerShell
@@ -96,7 +104,7 @@ ms.locfileid: "52645578"
     * **租户 ID**：模板函数会自动检索租户 ID。不要更改默认值。
     * **AD 用户 ID**：输入在上一过程中检索到的 Azure AD 用户对象 ID。
     * **机密名称**：默认名称为 **mAdminPassword**。 如果更改机密名称，则需要在部署虚拟机时更新机密名称。
-    * **机密值**：输入机密。  机密是用于登录虚拟机的密码。 建议使用在上一过程中创建的生成密码。
+    * **机密值**：输入你的机密。  机密是用于登录虚拟机的密码。 建议使用在上一过程中创建的生成密码。
     * **我同意上述条款和条件**：选中。
 3. 选择左窗格中的“编辑模板”以查看模板。
 
@@ -107,7 +115,7 @@ ms.locfileid: "52645578"
     ```json
     "enabledForTemplateDeployment": true,
     ```
-    `enabledForTemplateDeployment` 是 Key Vault 属性。 此属性必须为 true，这样才能在部署期间从此 Key Vault 中检索机密。 
+    `enabledForTemplateDeployment` 是 Key Vault 属性。 此属性必须为 true，这样才能在部署期间从此 Key Vault 中检索机密。
 6. 浏览到第 89 行。 这是 Key Vault 机密的定义。
 7. 选择页面底部的“放弃”。 未进行任何更改。
 7. 从左窗格选择“法律条款”，在确认参数值后单击“创建”。
@@ -116,14 +124,14 @@ ms.locfileid: "52645578"
     <!-- Notice: We ADD NEW PAGE due to Mooncake is different with global site.-->
 8. 根据上面屏幕截图中所示检查是否已提供所有值，然后单击页面底部的“购买”。
 9. 选择页面顶部的铃铛图标（通知）打开“通知”窗格。 等到出现资源已成功部署的消息。
-8. 在“通知”窗格中选择“转到资源组”。 
-9. 选择 Key Vault 名称将其打开。
-10. 在左窗格中选择“访问策略”。 此时应会列出你的名称 (Active Directory)，否则表示你无权访问 Key Vault。
-11. 选择“单击以显示高级访问策略”。 注意“启用对 Azure 资源管理器的访问以进行模板部署”处于选中状态。 要正常进行 Key Vault 集成，也必须满足此条件。
+10. 在“通知”窗格中选择“转到资源组”。 
+11. 选择 Key Vault 名称将其打开。
+12. 在左窗格中选择“访问策略”。 此时应会列出你的名称 (Active Directory)，否则表示你无权访问 Key Vault。
+13. 选择“单击以显示高级访问策略”。 注意“启用对 Azure 资源管理器的访问以进行模板部署”处于选中状态。 要正常进行 Key Vault 集成，也必须满足此条件。
 
-    ![资源管理器模板 Key Vault 集成访问策略](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-key-vault-access-policies.png)    
-12. 在左窗格中选择“属性”。
-13. 复制“资源 ID”。 部署虚拟机时需要此 ID。  资源 ID 格式为：
+    ![资源管理器模板 Key Vault 集成访问策略](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-key-vault-access-policies.png)
+14. 在左窗格中选择“属性”。
+15. 复制“资源 ID”。 部署虚拟机时需要此 ID。  资源 ID 格式为：
 
     ```
     /subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
@@ -140,8 +148,21 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
 3. 选择“打开”以打开该文件。 它是[教程：使用依赖资源创建 Azure 资源管理器模板](./resource-manager-tutorial-create-templates-with-dependent-resources.md)中所用的同一个方案。
-4. 选择“文件”>“另存为”，将该文件的副本保存到名为 **azuredeploy.json** 的本地计算机。
-5. 重复步骤 1-4 打开以下 URL，然后将文件保存为 **azuredeploy.parameters.json**。
+4. 有五个通过此模板定义的资源：
+
+    * `Microsoft.Storage/storageAccounts`。
+    * `Microsoft.Network/publicIPAddresses`。
+    * `Microsoft.Network/virtualNetworks`。
+    * `Microsoft.Network/networkInterfaces`。
+    * `Microsoft.Compute/virtualMachines`。
+
+    <!-- Not Available on  [template reference](https://docs.microsoft.com/zh-cn/azure/templates/Microsoft.Storage/storageAccounts)--> <!-- Not Available on  [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/publicipaddresses)-->
+    <!-- Not Available on  [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/virtualnetworks)-->
+    <!-- Not Available on  [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/networkinterfaces)-->
+    <!-- Not Available on  [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.compute/virtualmachines)-->
+    在自定义模板之前，不妨对其进行一些基本的了解。
+5. 选择“文件”>“另存为”，将该文件的副本保存到名为 **azuredeploy.json** 的本地计算机。
+6. 重复步骤 1-4 打开以下 URL，然后将文件保存为 **azuredeploy.parameters.json**。
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.parameters.json
@@ -170,7 +191,7 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 3. 指定以下值：
 
     * **adminUsername**：为虚拟机管理员帐户命名。
-    * **dnsLabelPrefix**：为 dnsLablePrefix 命名。
+    * **dnsLabelPrefix**：为 dnsLabelPrefix 命名。
 4. 保存更改。
 
 ## <a name="deploy-the-template"></a>部署模板
@@ -211,5 +232,4 @@ New-AzureRmResourceGroupDeployment -Name $deploymentName -ResourceGroupName $res
 > [!div class="nextstepaction"]
 > [创建链接模板](./resource-manager-tutorial-create-linked-templates.md)
 
-<!-- Update_Description: new articles on resource manager tutorial use key vault -->
-<!--ms.date: 11/19/2018-->
+<!-- Update_Description: update meta properties -->

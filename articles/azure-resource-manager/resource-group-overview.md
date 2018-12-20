@@ -13,17 +13,17 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/26/2018
-ms.date: 11/19/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1c3e6dd167195352a215de59dc7a1c8ec83ea43c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 027d30b5c2f2da18cf629cf7c6a291c8a7a2acf5
+ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660131"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53286760"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 概述
-应用程序的基础结构通常由许多组件构成 - 可能包括虚拟机、存储帐户和虚拟网络，也可能包括 Web 应用、数据库、数据库服务器和第三方服务。 这些组件不作为独立的实体出现，而是作为单个实体的相关部件和依赖部件出现。 如果希望以组的方式部署、管理和监视这些这些组件， 那么，可以使用 Azure 资源管理器以组的方式处理解决方案中的资源。 可以通过一个协调的操作为解决方案部署、更新或删除所有资源。 可以使用一个模板来完成部署，该模板适用于不同的环境，例如测试、过渡和生产。 Resource Manager 提供安全、审核和标记功能，以帮助你在部署后管理资源。 
+应用程序的基础结构通常由许多组件构成 - 可能包括虚拟机、存储帐户和虚拟网络，也可能包括 Web 应用、数据库、数据库服务器和第三方服务。 这些组件可能不会以独立的实体出现，而是以单个实体的相关部件和依赖部件出现。 如果希望以组的方式部署、管理和监视这些这些组件， 那么，可以使用 Azure 资源管理器以组的方式处理解决方案中的资源。 可以通过一个协调的操作为解决方案部署、更新或删除所有资源。 可以使用一个模板来完成部署，该模板适用于不同的环境，例如测试、过渡和生产。 Resource Manager 提供安全、审核和标记功能，以帮助你在部署后管理资源。 
 
 ## <a name="consistent-management-layer"></a>一致的管理层
 资源管理器针对通过 Azure PowerShell、Azure CLI、Azure 门户、REST API 和客户端 SDK 来执行任务提供了一致的管理层。 在 Azure 门户中提供的所有功能也可以通过 Azure PowerShell、Azure CLI、Azure REST API 和客户端 SDK 来提供。 最初通过 API 发布的功能将在初次发布后的 180 天内在门户中提供。
@@ -63,6 +63,8 @@ Resource Manager 提供多种优势：
 4. 排列资源组中具有相同生命周期的资源。 使用标记来组织其他所有资源。
 
 <!-- Not Available on [Azure enterprise scaffold - prescriptive subscription governance](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/subscription-governance)--> 有关创建可以跨全球 Azure、Azure 主权云和 Azure Stack 使用的资源管理器模板的建议，请参阅[开发用于实现云一致性的 Azure 资源管理器模板](templates-cloud-consistency.md)。
+
+[!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
 
 ## <a name="resource-groups"></a>资源组
 定义资源组时，需要考虑以下几个重要因素：
@@ -210,9 +212,9 @@ Azure 还提供资源特定的多种角色。 一些常见的角色包括：
 
 某些情况下，可能需要运行代码或脚本来访问资源，但不希望使用用户的凭据来运行。 在某些情况下，我们想要为应用程序创建名为服务主体的标识，并为该服务主体分配适当的角色。 在 Resource Manager 中可为应用程序创建凭据，以编程方式对应用程序进行身份验证。 若要了解如何创建服务主体，请参阅以下主题之一：
 
-* [使用 Azure PowerShell 创建服务主体来访问资源](resource-group-authenticate-service-principal.md)
+* [使用 Azure PowerShell 创建服务主体来访问资源](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 * [使用 Azure CLI 创建服务主体来访问资源](resource-group-authenticate-service-principal-cli.md)
-* [使用门户创建可访问资源的 Azure Active Directory 应用程序和服务主体](resource-group-create-service-principal-portal.md)
+* [使用门户创建可访问资源的 Azure Active Directory 应用程序和服务主体](../active-directory/develop/howto-create-service-principal-portal.md)
 
 可以显式锁定关键资源，以防止用户删除或修改这些资源。 更多信息请参阅 [使用 Azure Resource Manager 锁定资源](resource-group-lock-resources.md)。
 
@@ -237,7 +239,7 @@ Azure SDK 适用于多种语言和平台。 每种语言实现可通过其生态
 
 * [面向 .NET 开发人员的 Azure](https://docs.azure.cn/zh-cn/dotnet/?view=azure-dotnet)
 * [面向 Java 开发人员的 Azure](https://docs.azure.cn/java/)
-* [面向 Node.js 开发人员的 Azure](https://docs.microsoft.com/javascript/azure/)
+* [面向 Node.js 开发人员的 Azure](https://docs.microsoft.com/nodejs/azure/)
 * [面向 Python 开发人员的 Azure](https://docs.microsoft.com/python/azure/)
 
 > [!NOTE]

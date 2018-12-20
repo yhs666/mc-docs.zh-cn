@@ -12,12 +12,12 @@ ms.workload: na
 origin.date: 10/11/2018
 ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 59f7252d06a92c27897b63fc7ca7dcb802f0f19b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ad886bf7d12471349bbf2014c924787e9bb24631
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660857"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029085"
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>使用门户创建可访问资源的 Azure Active Directory 应用程序和服务主体
 
@@ -43,8 +43,9 @@ ms.locfileid: "52660857"
 
    ![添加应用](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-1. 为应用提供名称和 URL。 选择“Web 应用/API”作为要创建的应用程序的类型。 不能为[本机应用程序](../active-directory/manage-apps/application-proxy-configure-native-client-application.md)创建凭据。 该类型不能用于自动化应用程序。 设置这些值后，选择“创建”。
-
+1. 为应用提供名称和 URL。 选择“Web 应用/API”作为要创建的应用程序的类型。 不能为本机应用程序创建凭据。 该类型不能用于自动化应用程序。 设置这些值后，选择“创建”。
+    
+    <!--Not Available on [Native application](../active-directory/manage-apps/application-proxy-configure-native-client-application.md)-->
    ![命名应用程序](./media/resource-group-create-service-principal-portal/create-app.png)
 
 现已创建了 Azure Active Directory 应用程序和服务主体。

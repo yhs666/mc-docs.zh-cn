@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-origin.date: 02/06/2018
-ms.date: 03/12/2018
+origin.date: 10/31/2018
+ms.date: 12/17/2018
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 04c45539f12b4c843910c885dc162ae5de0bfa63
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 61292553d26b05d4a1ce0da14812b5ec2a7a707a
+ms.sourcegitcommit: 1b6a310ba636b6dd32d7810821bcb79250393499
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643683"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53389353"
 ---
 #  <a name="configure-reverse-lookup-zones-for-an-smtp-banner-check"></a>为 SMTP 横幅检查配置反向查找区域
 
@@ -35,12 +35,11 @@ ms.locfileid: "52643683"
 
 ## <a name="solution"></a>解决方案
 
-对于 Azure 中的虚拟 IP 地址，将在 Microsoft 拥有的域区域（而不是自定义域区域）创建反向记录。
+对于 Azure 中的虚拟 IP 地址，将在 Azure 拥有的域区域（而不是自定义域区域）中创建反向记录。
 
 若要在 Microsoft 拥有区域配置 PTR 记录，请对 PublicIpAddress 资源使用 -ReverseFqdn 属性。 
-<!-- Not Available on [Configure reverse DNS for services hosted in Azure](../dns/dns-reverse-dns-for-azure-services.md)-->
 
-配置 PTR 记录时，请确保 IP 地址和反向 FQDN 为订阅所有。 如果尝试设置不属于订阅的反向 FQDN，将收到以下错误消息：
+<!-- Not Available on [Configure reverse DNS for services hosted in Azure](../dns/dns-reverse-dns-for-azure-services.md)--> 配置 PTR 记录时，请确保 IP 地址和反向 FQDN 为订阅所有。 如果尝试设置不属于订阅的反向 FQDN，将收到以下错误消息：
 
     Set-AzureRmPublicIpAddress : ReverseFqdn mail.contoso.com that PublicIPAddress ip01 is trying to use does not belong to subscription <Subscription ID>. One of the following conditions need to be met to establish ownership: 
 
@@ -49,3 +48,5 @@ ms.locfileid: "52643683"
     3) 解析为订阅下任意静态公共 IP 资源的 IP 地址（通过 CName 和 A 记录链）。 
 
 如果将 SMTP 横幅手动更改为与默认反向 FQDN 相匹配，远程邮件服务器仍可能失败，因为它可能期望 SMTP 横幅主机与域的 MX 记录相匹配。
+
+<!-- Update_Description: update meta properties  -->

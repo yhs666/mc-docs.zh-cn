@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 07/27/201
-ms.date: 09/10/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 42b6b5faf25c68e460ea03d0e2c78d9459e0c001
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8ca99481e9115089aa236ef4d419d92fcc6b19bb
+ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662595"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52901129"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>在 Azure Service Fabric 中设置和配置反向代理
 反向代理是一种可选的 Azure Service Fabric 服务，有助于在 Service Fabric 群集中运行的微服务发现包含 http 终结点的其他服务，并与之通信。 有关详细信息，请参阅 [Azure Service Fabric 中的反向代理](service-fabric-reverseproxy.md)。 本文介绍如何在群集中设置和配置反向代理。 
@@ -31,10 +31,10 @@ ms.locfileid: "52662595"
 
 要在[使用 Azure 门户创建集群](./service-fabric-cluster-creation-via-portal.md)时配置反向代理，请确保执行以下操作：
 
-1. 在“步骤 2：群集配置”中，在“节点类型配置”下，选择“启用反向代理”。
+1. 在“步骤 2: 群集配置”中，在“节点类型配置”下，选择“启用反向代理”。
 
    ![在门户上启用反向代理](./media/service-fabric-reverseproxy-setup/enable-rp-portal.png)
-2. （可选）要配置安全反向代理，需要配置 SSL 证书。 在“步骤 3：安全性”中，在“配置群集安全设置”的“配置类型”下，选择“自定义”。 然后，在“反向代理 SSL 证书”下，选择“包括反向代理的 SSL 证书”并输入证书详细信息。
+2. （可选）要配置安全反向代理，需要配置 SSL 证书。 在“步骤 3: 安全性”中，在“配置群集安全设置”的“配置类型”下，选择“自定义”。 然后，在“反向代理 SSL 证书”下，选择“包括反向代理的 SSL 证书”并输入证书详细信息。
 
    ![在门户上配置安全反向代理](./media/service-fabric-reverseproxy-setup/configure-rp-certificate-portal.png)
 
@@ -232,7 +232,7 @@ ms.locfileid: "52662595"
 
    要了解有关为独立群集配置和管理证书的详细信息，以及有关配置用于保护反向代理的证书的更多详细信息，请参阅 [X509 基于证书的安全性](./service-fabric-windows-cluster-x509-security.md)。
 
-修改 ClusterConfig.json 文件以启用反向代理后，请按照[升级群集配置](./service-fabric-cluster-upgrade-windows-server.md#upgrade-the-cluster-configuration)中的说明，将更改推送到群集中。
+修改 ClusterConfig.json 文件以启用反向代理后，请按照[升级群集配置](service-fabric-cluster-config-upgrade-windows-server.md)中的说明，将更改推送到群集中。
 
 ## <a name="expose-reverse-proxy-on-a-public-port-through-azure-load-balancer"></a>通过 Azure 负载均衡器在公共端口上公开反向代理
 
@@ -331,7 +331,7 @@ ms.locfileid: "52662595"
    }
    ``` 
 
-有关更新 Azure 群集的结构设置的详细信息，请参阅[使用资源管理器模板自定义群集设置](./service-fabric-cluster-fabric-settings.md#customize-cluster-settings-using-resource-manager-templates)。 对于独立群集，请参阅[自定义独立群集的群集设置](./service-fabric-cluster-fabric-settings.md#customize-cluster-settings-for-standalone-clusters)。 
+<!-- Not Available on [Customize cluster settings using Resource Manager templates](service-fabric-cluster-config-upgrade-azure.md)--> 有关更新独立群集的结构设置的详细信息，请参阅[自定义独立群集的群集设置](service-fabric-cluster-config-upgrade-windows-server.md)。 
 
 可通过多个结构设置在反向代理和服务之间建立安全通信。 有关这些设置的详细信息，请参阅[使用反向代理连接到安全服务](service-fabric-reverseproxy-configure-secure-communication.md)。
 
@@ -339,5 +339,5 @@ ms.locfileid: "52662595"
 * [设置使用反向代理转发到安全的 HTTP 服务](service-fabric-reverseproxy-configure-secure-communication.md)
 * 有关反向代理配置选项的信息，请参阅[自定义 Service Fabric 群集设置中的 ApplicationGateway/Http 部分](service-fabric-cluster-fabric-settings.md#applicationgatewayhttp)。
 
-<!-- Update_Description: new articles on service fabric reversproxy setup -->
-<!--ms.date: 09/10/2018-->
+<!-- Update_Description: update meta properties, wording update -->
+

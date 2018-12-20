@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 01/08/2018
-ms.openlocfilehash: 09f5c5909c6ce87c3a1ebc6715670230e10aa2d4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8088a7d5ddd8118fe19ea1176a095ec9bd9bd1da
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653158"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028733"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>在 Azure 中部署 OpenShift 所要满足的一般先决条件
 
@@ -135,5 +135,5 @@ az ad sp create-for-rbac --name openshiftsp \
 接下来，可部署 OpenShift 群集：
 
 - [部署 OpenShift Origin](./openshift-origin.md)
-- [部署 OpenShift 容器平台](./openshift-container-platform.md)
+<!-- Not Available on - [Deploy OpenShift Container Platform](./openshift-container-platform.md)-->
 <!--Update_Description: update meta properties, update link -->

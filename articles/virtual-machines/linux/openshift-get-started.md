@@ -16,12 +16,12 @@ ms.workload: infrastructure
 origin.date: 08/14/2017
 ms.date: 12/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: 9453e6cbe480ab65c50d1a0f322ce65916da46f3
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 998c0adfa1a684ce302835f0233a16e3196750fc
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664362"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028560"
 ---
 # <a name="openshift-in-azure"></a>Azure 中的 OpenShift
 
@@ -40,7 +40,7 @@ OpenShift 有多个版本，其中有两种可在 Azure 中运行。
 - OpenShift Online
 - OpenShift Dedicated
 
-在本文所述的四个版本中，客户可使用其中两种（OpenShift Origin 和 OpenShift 容器平台）自行部署到 Azure 中。
+在本文所述的四个版本中，客户可使用以下两个版本自行部署到 Azure 中：OpenShift Origin 和 OpenShift 容器平台。
 
 ## <a name="openshift-origin"></a>OpenShift Origin
 
@@ -66,7 +66,7 @@ Dedicated 是 Red Hat 托管的，使用容器平台的单租户 OpenShift。 Re
 
 - [在 Azure 中配置 OpenShift 的常见先决条件](./openshift-prerequisites.md)
 - [在 Azure 中部署 OpenShift Origin](./openshift-origin.md)
-- [在 Azure 中部署 OpenShift 容器平台](./openshift-container-platform.md)
+<!-- Not Available on - [Deploy OpenShift Container Platform in Azure](./openshift-container-platform.md)-->
 - [部署后任务](./openshift-post-deployment.md)
 - [OpenShift 部署故障排除](./openshift-troubleshooting.md)
 

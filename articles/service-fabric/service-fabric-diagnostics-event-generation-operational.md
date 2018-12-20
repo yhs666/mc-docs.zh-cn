@@ -15,12 +15,12 @@ ms.workload: NA
 origin.date: 04/25/2018
 ms.date: 11/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1c8d2d99fbf1f7bae4edb915aaba18c3f21ba435
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 85ac38fc8b8e8beb34d6d8c012fb4b7338e32739
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657253"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53029088"
 ---
 # <a name="list-of-service-fabric-events"></a>Service Fabric 事件列表 
 
@@ -240,7 +240,6 @@ Service Fabric 公开一组主要的群集事件，以通知群集的状态为 [
 ## <a name="next-steps"></a>后续步骤
 
 * 详细了解 Service Fabric 中的[平台级总体事件生成情况](service-fabric-diagnostics-event-generation-infra.md)
-* 将 [Azure 诊断](service-fabric-diagnostics-event-aggregation-wad.md)配置修改为收集更多日志
-* [设置 Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) 以查看操作通道日志
+* 将 [Azure 诊断](service-fabric-diagnostics-event-aggregation-wad.md)配置修改为收集更多日志 <!-- Not Available on [Setting up Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)-->
 
 <!--Update_Description: update meta properties, add application event description -->
