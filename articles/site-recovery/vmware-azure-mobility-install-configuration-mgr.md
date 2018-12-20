@@ -1,18 +1,18 @@
 ---
-title: 使用 System Center Configuration Manager 自动执行 Azure Site Recovery 的移动服务安装 | Azure
-description: 本文可帮助用户使用 System Center Configuration Manager 自动执行移动服务安装。
+title: 使用 System Center Configuration Manager 自动安装 Azure Site Recovery 移动服务，以便将 VMware VM 和物理服务器灾难恢复到 Azure | Azure
+description: 本文可帮助你使用 System Center Configuration Manager 自动安装移动服务，以便使用 Site Recovery 将 VMware VM 和物理服务器灾难恢复到 Azure。
 author: rockboyfor
 ms.service: site-recovery
-ms.topic: article
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.topic: conceptual
+origin.date: 10/29/2018
+ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8831a9da95f078db328c7044bbdd5d3bcc1e049f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8754bfe8d0393fd8b792b477c25674b09944aed2
+ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661513"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53028468"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>使用 System Center Configuration Manager 自动执行移动服务安装
 
@@ -411,7 +411,7 @@ cd /tmp
 ### <a name="deploy-the-package"></a>部署包
 1. 在 Configuration Manager 控制台中，右键单击包，然后选择“分发内容”。
     ![Configuration Manager 控制台的屏幕截图](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
-2. 选择包应复制到的 **分发点](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**。
+2. 选择包应复制到的 **[分发点](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**。
 3. 完成该向导。 包随后开始复制到指定的分发点。
 4. 完成包分发后，右键单击包，然后选择“部署”。
     ![Configuration Manager 控制台的屏幕截图](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
