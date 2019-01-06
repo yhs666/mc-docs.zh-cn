@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 origin.date: 09/18/2018
 ms.date: 12/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: 82d7657bd1dbf367708945756d2a1df872b2d699
-ms.sourcegitcommit: 1b6a310ba636b6dd32d7810821bcb79250393499
+ms.openlocfilehash: 28e61c6d948f57b87c714e7eb98d7aa03d01ef86
+ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389417"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785199"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>流量管理器常见问题解答 (FAQ)
 
@@ -66,7 +66,7 @@ ms.locfileid: "53389417"
 
 要解决此问题，我们建议使用 HTTP 重定向将流量从裸域名定向到不同的 URL，然后即可使用流量管理器。 例如，裸域“contoso.com”可将用户重定向到指向流量管理器 DNS 名称的 CNAME“www.contoso.com”。
 
-<!-- Not Available on Full support for naked domains in Traffic Manager is tracked in our feature backlog. You can register your support for this feature request by [voting for it on our community feedback site](https://www.azure.cn/support/support-azure/) -->
+<!-- Not Available on Full support for naked domains in Traffic Manager is tracked in our feature backlog. You can register your support for this feature request by [voting for it on our community feedback site](https://support.azure.cn/zh-cn/support/support-azure/) -->
 
 ### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>处理 DNS 查询时流量管理器是否会考虑客户端子网地址？ 
 会，除了其收到的 DNS 查询的源 IP 地址（通常是 DNS 解析器的 IP 地址）以外，在执行地理、性能和子网路由方法的查找时，流量管理器还会考虑客户端子网地址（如果它通过代表最终用户发起请求的解析器包含在查询中）。  

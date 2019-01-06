@@ -1,23 +1,23 @@
 ---
-title: 监视 Azure Cosmos DB 请求和存储 | Azure
+title: 监视 Azure Cosmos DB 中的性能和存储指标
 description: 了解如何监视 Azure Cosmos DB 帐户的性能指标（如请求和服务器错误）以及使用情况指标（如存储消耗）。
 services: cosmos-db
 author: rockboyfor
-manager: digimobile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-origin.date: 09/19/2017
-ms.date: 12/03/2018
+origin.date: 12/06/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8708b917875a453a2950e8905c34270674ea4c6a
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.custom: seodec18
+ms.openlocfilehash: d4ddda861a1f887276f9a2e24ce6e7228e32b8b5
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675046"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026813"
 ---
-# <a name="monitor-azure-cosmos-db"></a>监视 Azure Cosmos DB
+# <a name="monitor-performance-and-storage-metrics-in-azure-cosmos-db"></a>监视 Azure Cosmos DB 中的性能和存储指标
+
 可以在 [Azure 门户](https://portal.azure.cn/)中监视 Azure Cosmos DB 帐户。 对于每个 Azure Cosmos DB 帐户，一整套指标可用于监视吞吐量、存储、可用性、延迟和一致性。
 
 可在“帐户”页、新的“指标”页或 Azure Monitor.中查看指标。
@@ -55,7 +55,7 @@ ms.locfileid: "52675046"
 门户中可用的帐户级别指标（如帐户存储使用情况和请求总数）不可通过 SQL API 使用。 但是，可以使用 SQL API 在集合级别检索使用情况数据。 若要检索集合级别的数据，请执行以下操作：
 
 * 若要使用 REST API，请[对集合执行 GET](https://msdn.microsoft.com/library/mt489073.aspx)。 集合的配额和使用情况信息返回到响应中的 x-ms-resource-quota 和 x-ms-resource-usage 标头中。
-* 要使用 .NET SDK，请使用 [DocumentClient.ReadDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync.aspx) 方法，它返回 [ResourceResponse](https://msdn.microsoft.com/library/dn799209.aspx)，其中包含大量使用情况属性，例如 **CollectionSizeUsage**、**DatabaseUsage**、**DocumentUsage** 等。
+* 要使用 .NET SDK，请使用 [DocumentClient.ReadDocumentCollectionAsync](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync) 方法，它返回 [ResourceResponse](https://msdn.microsoft.com/library/dn799209.aspx)，其中包含大量使用情况属性，例如 **CollectionSizeUsage**、**DatabaseUsage**、**DocumentUsage** 等。
 
 若要访问其他指标，请使用 [Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights)。 可以通过调用以下命令检索可用的指标定义：
 
@@ -70,4 +70,4 @@ ms.locfileid: "52675046"
 ## <a name="next-steps"></a>后续步骤
 若要深入了解 Azure Cosmos DB 容量规划，请参阅 [Azure Cosmos DB Capacity Planner 计算器](https://www.documentdb.com/capacityplanner)。
 
-<!-- Update_Description: update meta properties  -->
+<!-- Update_Description: update meta properties, wording update  -->

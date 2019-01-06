@@ -1,20 +1,19 @@
 ---
-title: 使用 Azure CLI 管理 Azure Cosmos DB 资源 | Azure
+title: 使用 Azure CLI 管理 Azure Cosmos DB 资源
 description: 使用 Azure CLI 管理 Azure Cosmos DB 帐户、数据库和容器。
 services: cosmos-db
 author: rockboyfor
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 origin.date: 10/23/2018
-ms.date: 12/03/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: e88db71bbbda44ad721b01a25ca735c8edac0148
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 55987eb9f90c3ed5fbfcf649cd024f41fe346fe0
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676704"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026808"
 ---
 # <a name="manage-azure-cosmos-db-resources-using-azure-cli"></a>使用 Azure CLI 管理 Azure Cosmos DB 资源
 
@@ -125,5 +124,4 @@ az cosmosdb regenerate-key \
 - [Azure CLI 参考](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest)
 - [针对 Azure Cosmos DB 的其他 Azure CLI 示例](cli-samples.md)
 
-<!-- Update_Description: new articles on cosmos db manage with cli -->
-<!--ms.date: 12/03/2018-->
+<!-- Update_Description: update meta properties, wording update -->

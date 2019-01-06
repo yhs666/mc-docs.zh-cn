@@ -12,15 +12,15 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/13/2018
-ms.date: 12/17/2018
+origin.date: 11/29/2018
+ms.date: 12/31/2018
 ms.author: v-jay
-ms.openlocfilehash: 5dbb3780c922991dbafd4816457456d5a674a246
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.openlocfilehash: bac9c01cb93d1a3db5e6cb9b95760fe65a0adf81
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396220"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814650"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>将应用服务资源提供程序添加到 Azure Stack
 
@@ -152,7 +152,7 @@ ms.locfileid: "53396220"
     >[!NOTE]
     >对于生产部署，请按照 [Azure Stack 中 Azure 应用服务服务器角色的容量规划](azure-stack-app-service-capacity-planning.md)中的指南进行操作。
 
-    | 角色 | 最小实例数 | 最小 SKU | 说明 |
+    | 角色 | 最小实例数 | 最小 SKU | 注释 |
     | --- | --- | --- | --- |
     | 控制器 | 1 | Standard_A2 -（2 个 vCPU，3584 MB） | 管理和维护应用服务云的运行状况。 |
     | 管理 | 1 | Standard_A2 -（2 vCPU，3584 MB） | 管理应用服务 Azure 资源管理器和 API 终结点、门户扩展（管理员门户、租户门户、Functions 门户）和数据服务。 为了支持故障转移，已将建议的实例数增加到 2 个。 |
@@ -199,21 +199,21 @@ ms.locfileid: "53396220"
 
 1. 在 Azure Stack 管理员门户中，转到“管理 - 应用服务”。
 
-2. 在状态下的概述中，检查“状态”是否显示“所有角色已就绪”。
+2. 在“概述”中，在“状态”下，检查“状态”是否显示了“所有角色已就绪”。
 
     ![应用服务管理](media/azure-stack-app-service-deploy/image12.png)
 
-   >[!IMPORTANT]
-   >如果部署到现有虚拟网络并使用内部 IP 地址连接到文件服务器，则必须添加出站安全规则。 此规则允许辅助角色子网和文件服务器之间的 SMB 流量。  为此，请转到管理门户中的 WorkersNsg 并添加具有以下属性的出站安全规则：<br>
-    >  - 源：任意
-    >  - 源端口范围：*
-    >  - 目标：IP 地址
-    >  - 目标 IP 地址范围：文件服务器的 IP 范围
-    >  - 目标端口范围：445
-    >  - 协议：TCP
-    >  - 操作：允许
-    >  - 优先级：700
-    >  - 姓名：Outbound_Allow_SMB445
+    如果部署到现有虚拟网络并使用内部 IP 地址连接到文件服务器，则必须添加出站安全规则。 此规则允许辅助角色子网和文件服务器之间的 SMB 流量。  为此，请转到管理门户中的 WorkersNsg 并添加具有以下属性的出站安全规则：
+
+    - 源：任意
+    - 源端口范围：*
+    - 目标：IP 地址
+    - 目标 IP 地址范围：你的文件服务器的 IP 范围
+    - 目标端口范围：445
+    - 协议：TCP
+    - 操作：允许
+    - 优先级：700
+    - 姓名：Outbound_Allow_SMB445
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>体验 Azure Stack 上的应用服务
 

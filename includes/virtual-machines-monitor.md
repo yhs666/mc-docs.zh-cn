@@ -1,7 +1,21 @@
+---
+author: rockboyfor
+ms.service: virtual-machines
+ms.topic: include
+origin.date: 10/26/2018
+ms.date: 12/24/2018
+ms.author: v-yeche
+ms.openlocfilehash: d203e67e4f40762fee825beac434c056851efea0
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736222"
+---
 通过收集、查看和分析诊断与日志数据，可以利用很多机会来监视 VM。 若要执行简单的 VM [监视](../articles/monitoring-and-diagnostics/monitoring-overview-azure-monitor.md)，可以在 Azure 门户中使用 VM 的“概述”屏幕。 可以使用[扩展](../articles/virtual-machines/windows/extensions-features.md)配置 VM 的诊断以收集更多指标数据。
+
 <!-- Not Available [Application Insights](../articles/application-insights/app-insights-overview.md)-->
 <!-- Not Available [Log Analytics](../articles/log-analytics/log-analytics-overview.md)-->
-
 ## <a name="diagnostics-and-metrics"></a>诊断和指标 
 
 可以在 Azure 门户、Azure CLI、Azure PowerShell 和编程应用程序编程接口 (API) 中使用[指标](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md)来设置和监视[诊断数据](https://docs.azure.cn/zh-cn/cli/vm/diagnostics?view=azure-cli-latest)收集。 例如，可以：

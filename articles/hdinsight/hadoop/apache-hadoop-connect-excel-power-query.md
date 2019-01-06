@@ -15,20 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/16/2018
-ms.date: 06/25/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 78b708d99d08d4ae48d0577d5c5622d76ccc401c
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 20f5449a8d67de3b681af41df3e2570d3a8fab56
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028971"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029241"
 ---
-# <a name="connect-excel-to-hadoop-by-using-power-query"></a>使用 Power Query 将 Excel 连接到 Hadoop
-
-
-
-Microsoft 大数据解决方案的一个关键功能是，将 Microsoft 商业智能 (BI) 组件与 Azure HDInsight 中的 Hadoop 群集相集成。 一个主要示例是能够使用 Microsoft Power Query for Excel 外接程序将 Excel 连接到包含与 Hadoop 群集关联的数据的 Azure 存储帐户。 本文将逐步说明如何设置和使用 Power Query 来查询与 HDInsight 管理的 Hadoop 群集关联的数据。
+# <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>使用 Power Query 将 Excel 连接到 Apache Hadoop
+Microsoft 大数据解决方案的一个关键功能是，将 Microsoft 商业智能 (BI) 组件与 Azure HDInsight 中的 Apache Hadoop 群集相集成。 一个主要示例是能够使用 Microsoft Power Query for Excel 外接程序将 Excel 连接到包含与 Hadoop 群集关联的数据的 Azure 存储帐户。 本文将逐步说明如何设置和使用 Power Query 来查询与 HDInsight 管理的 Hadoop 群集关联的数据。
 
 ### <a name="prerequisites"></a>先决条件
 在开始阅读本文前，必须具有以下项目：
@@ -79,11 +76,11 @@ Power Query 可以导入已输出的数据，或者导入已由在 HDInsight 群
 ## <a name="next-steps"></a>后续步骤
 在本文中，已了解如何使用 Power Query 将数据从 HDInsight 检索到 Excel 中。 同样地，也可以将来自 HDInsight 的数据检索到 Azure SQL 数据库中。 也可以将数据上传到 HDInsight 中。 要了解更多信息，请参阅下列文章：
 
-* [在 Azure HDInsight 中使用 Microsoft Power BI 直观显示 Hive 数据](apache-hadoop-connect-hive-power-bi.md)。
+* [在 Azure HDInsight 中使用 Microsoft Power BI 直观显示 Apache Hive 数据](apache-hadoop-connect-hive-power-bi.md)。
 * [在 Azure HDInsight 中使用 Power BI 直观显示交互式查询 Hive 数据](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)。
-* [在 Azure HDInsight 中使用 Zeppelin 运行 Hive 查询](./../hdinsight-connect-hive-zeppelin.md)。
+* [在 Azure HDInsight 中使用 Apache Zeppelin 运行 Apache Hive 查询](./../hdinsight-connect-hive-zeppelin.md)。
 * [使用 Microsoft Hive ODBC 驱动程序将 Excel 连接到 HDInsight](apache-hadoop-connect-excel-hive-odbc-driver.md)。
-* [使用针对 Visual Studio 的 Data Lake 工具连接到 Azure HDInsight 并运行 Hive 查询](apache-hadoop-visual-studio-tools-get-started.md)。
+* [使用针对 Visual Studio 的 Data Lake 工具连接到 Azure HDInsight 并运行 Apache Hive 查询](apache-hadoop-visual-studio-tools-get-started.md)。
 * [使用用于 Visual Studio Code 的 Azure HDInsight 工具](../hdinsight-for-vscode.md)。
 * [将数据上传到 HDInsight](./../hdinsight-upload-data.md)。
 
@@ -91,6 +88,6 @@ Power Query 可以导入已输出的数据，或者导入已由在 HDInsight 群
 [image-hdi-powerquery-importdata]: ./media/apache-hadoop-connect-excel-power-query/hdi.powerquery.importdata.png
 [image-hdi-powerquery-imported-table]: ./media/apache-hadoop-connect-excel-power-query/hdi.powerquery.importedtable.PNG
 
-[powerquery-download]: http://go.microsoft.com/fwlink/?LinkID=286689
+[powerquery-download]: https://go.microsoft.com/fwlink/?LinkID=286689
 
 <!--Update_Description: wording update-->

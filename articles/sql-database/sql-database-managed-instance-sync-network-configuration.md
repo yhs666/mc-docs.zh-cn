@@ -1,21 +1,24 @@
 ---
-title: Azure 应用服务 - 同步网络配置 | Azure
+title: Azure 应用服务 - 同步网络配置 | Microsoft Docs
 description: 本文讨论了如何同步 Azure 应用服务托管计划的网络配置。
+services: sql-database
 ms.service: sql-database
-author: yunan2016
-manager: digimobile
-ms.custom: managed instance
-ms.topic: article
-origin.date: 03/07/2018
-ms.date: 04/19/2018
-ms.author: v-nany
+ms.subservice: managed-instance
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: WenJason
+ms.author: v-jay
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 6c224995a5c08409944962684e9d57537b60ba2b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+manager: digimobile
+origin.date: 03/07/2018
+ms.date: 12/31/2018
+ms.openlocfilehash: c9284bd02c57b4ce3cbc8d45c2689f7df3ad0233
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653444"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806322"
 ---
 # <a name="sync-networking-configuration-for-azure-app-service-hosting-plan"></a>Azure 应用服务托管计划的同步网络配置
 
@@ -45,4 +48,4 @@ ms.locfileid: "52653444"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关配置托管实例的 VNet 的信息，请参阅[托管实例 VNet 配置](sql-database-managed-instance-vnet-configuration.md)。
+- 有关为托管实例配置 VNet 的信息，请参阅[托管实例 VNet 体系结构](sql-database-managed-instance-connectivity-architecture.md)和[如何配置现有 VNet](sql-database-managed-instance-configure-vnet-subnet.md)。

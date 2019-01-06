@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/06/2018
-ms.date: 12/03/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: 86e67385e9821e5facd95fdcf54e7adb3e06e0df
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 46cf9b9634a0e4d61d3cf963501682a2d55e92ae
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676815"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026809"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>读取 Azure Cosmos DB 更改源
 
@@ -44,5 +44,4 @@ Azure Functions 是最简单且建议使用的选项。 在 Azure Functions 应�
 * [将更改源与 Azure Functions 配合使用](change-feed-functions.md)
 * [使用更改源处理器库](change-feed-processor.md)
 
-<!-- Update_Description: new articles on cosmos db read change feed -->
-<!--ms.date: 12/03/2018-->
+<!-- Update_Description: update meta properties, wording update -->

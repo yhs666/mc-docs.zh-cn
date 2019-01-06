@@ -15,20 +15,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 04/02/2018
-ms.date: 05/21/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: bc7497a9a73306ba4877420a74318c8b73a840bf
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 0d03d624d21c97ce197079d661a2ce246b64cd3f
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648923"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029250"
 ---
-# <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>在 HDInsight 中通过 JDBC 驱动程序查询 Hive
+# <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>在 HDInsight 中通过 JDBC 驱动程序查询 Apache Hive
 
 [!INCLUDE [ODBC-JDBC-selector](../../../includes/hdinsight-selector-odbc-jdbc.md)]
 
-了解如何使用 Java 应用程序中的 JDBC 驱动程序将 Hive 查询提交到 Azure HDInsight 中的 Hadoop。 本文档中的信息演示如何以编程方式从 SQuirrel SQL 客户端进行连接。
+了解如何从 Java 应用程序使用 JDBC 驱动程序将 Apache Hive 查询提交到 Azure HDInsight 中的 Apache Hadoop。 本文档中的信息演示如何以编程方式从 SQuirrel SQL 客户端进行连接。
 
 有关 Hive JDBC 接口的详细信息，请参阅 [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface)。
 
@@ -39,7 +39,7 @@ ms.locfileid: "52648923"
   > [!IMPORTANT]
   > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 3.3 停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
-* [SQuirreL SQL](http://squirrel-sql.sourceforge.net/)。 SQuirreL 是 JDBC 客户端应用程序。
+* [SQuirreL SQL](https://squirrel-sql.sourceforge.net/)。 SQuirreL 是 JDBC 客户端应用程序。
 
 * [Java 开发人员工具包 (JDK) 版本 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) 或更高版本。
 
@@ -126,7 +126,7 @@ SQuirreL SQL 是一个 JDBC 客户端，可用于通过 HDInsight 群集远程�
  ![添加别名对话框](./media/apache-hadoop-connect-hive-jdbc-driver/addalias.png)
 
     > [!IMPORTANT] 
-    > 使用“测试”按钮验证连接是否有效。 出现“连接到: Hive on HDInsight”对话框时，选择“连接”执行测试。 如果测试成功，将会显示“连接成功”对话框。 如果发生错误，请参阅[故障排除](#troubleshooting)。
+    > 使用“测试”按钮验证连接是否有效。 出现“连接到: Hive on HDInsight”对话框时，选择“连接”进行测试。 如果测试成功，将会显示“连接成功”对话框。 如果发生错误，请参阅[故障排除](#troubleshooting)。
 
     若要保存连接别名，请使用“添加别名”对话框底部的“确定”按钮。
 
@@ -161,7 +161,7 @@ at java.util.concurrent.FutureTas...(FutureTask.java:122)
 at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 ```
 
-**可能的原因**：此错误由 SQuirreL 随附的较旧版本 commons-codec.jar 文件引起。
+**原因**：此错误由 SQuirreL 随附的较旧版本 commons-codec.jar 文件引起。
 
 **解决方法**：若要解决此错误，请使用以下步骤：
 
@@ -177,15 +177,15 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 现在，已了解如何将 JDBC 与 Hive 配合使用，请使用以下链接学习 Azure HDInsight 的其他用法。
 
-* [在 Azure HDInsight 中使用 Microsoft Power BI 直观显示 Hive 数据](apache-hadoop-connect-hive-power-bi.md)。
+* [在 Azure HDInsight 中使用 Microsoft Power BI 直观显示 Apache Hive 数据](apache-hadoop-connect-hive-power-bi.md)。
 * [在 Azure HDInsight 中使用 Power BI 直观显示交互式查询 Hive 数据](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)。
-* [在 Azure HDInsight 中使用 Zeppelin 运行 Hive 查询](../hdinsight-connect-hive-zeppelin.md)。
+* [在 Azure HDInsight 中使用 Apache Zeppelin 运行 Apache Hive 查询](./../hdinsight-connect-hive-zeppelin.md)。
 * [使用 Microsoft Hive ODBC 驱动程序将 Excel 连接到 HDInsight](apache-hadoop-connect-excel-hive-odbc-driver.md)。
-* [使用 Power Query 将 Excel 连接到 Hadoop](apache-hadoop-connect-excel-power-query.md)。
-* [使用针对 Visual Studio 的 Data Lake 工具连接到 Azure HDInsight 并运行 Hive 查询](apache-hadoop-visual-studio-tools-get-started.md)。
+* [使用 Power Query 将 Excel 连接到 Apache Hadoop](apache-hadoop-connect-excel-power-query.md)。
+* [使用针对 Visual Studio 的 Data Lake 工具连接到 Azure HDInsight 并运行 Apache Hive 查询](apache-hadoop-visual-studio-tools-get-started.md)。
 * [使用用于 Visual Studio Code 的 Azure HDInsight 工具](../hdinsight-for-vscode.md)。
 * [将数据上传到 HDInsight](../hdinsight-upload-data.md)
-* [将 Hive 与 HDInsight 配合使用](hdinsight-use-hive.md)
-* [将 Pig 与 HDInsight 配合使用](hdinsight-use-pig.md)
+* [将 Apache Hive 和 HDInsight 配合使用](hdinsight-use-hive.md)
+* [将 Apache Pig 和 HDInsight 配合使用](hdinsight-use-pig.md)
 * [将 MapReduce 作业与 HDInsight 配合使用](hdinsight-use-mapreduce.md)
 <!--Update_Description: update metadata-->

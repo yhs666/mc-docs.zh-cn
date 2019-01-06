@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: douglasl
 manager: digimobile
 origin.date: 01/10/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 7bbaf7dfefb6b0743be5194d4227df32c45e5bb5
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.date: 12/31/2018
+ms.openlocfilehash: 5d147947f4b18351d0cea2544d6dc41560ce8079
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672717"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806250"
 ---
 # <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>使用 PowerShell 更新现有同步组中的同步架构
 
@@ -95,6 +95,7 @@ UpdateSyncSchema.ps1 -SubscriptionId <subscription_id> -ResourceGroupName <resou
     - 使用 PowerShell
         -  [使用 PowerShell 在多个 Azure SQL 数据库之间进行同步](sql-database-sync-data-between-sql-databases.md)
         -  [使用 PowerShell 在 Azure SQL 数据库和 SQL Server 本地数据库之间进行同步](sql-database-sync-data-between-azure-onprem.md)
+-   数据同步代理 - [Azure SQL 数据同步的数据同步代理](../sql-database-data-sync-agent.md)
 -   最佳做法 - [Azure SQL 数据同步最佳做法](../sql-database-best-practices-data-sync.md)
 -   故障排除 - [排查 Azure SQL 数据同步问题](../sql-database-troubleshoot-data-sync.md)
 -   更新同步架构

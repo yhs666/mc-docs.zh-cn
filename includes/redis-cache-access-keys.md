@@ -6,15 +6,15 @@ author: wesmc7777
 ms.service: cache
 ms.topic: include
 origin.date: 03/28/2018
-ms.date: 07/10/2018
+ms.date: 12/25/2018
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: 60d89e2ee8fea19e6372638e940f3125d3b64602
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 7796b7dca177b26ee7ef95db9325f3beef8317c2
+ms.sourcegitcommit: d2893ae6bdbb3784d243d5d3c49c25c9cfd99d9b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657083"
+ms.lasthandoff: 12/25/2018
+ms.locfileid: "53784837"
 ---
 ### <a name="retrieve-host-name-ports-and-access-keys-by-using-the-azure-portal"></a>使用 Azure 门户检索主机名、端口和访问密钥
 
@@ -31,4 +31,4 @@ ms.locfileid: "52657083"
     ![Azure Redis 缓存属性](./media/redis-cache-access-keys/redis-cache-hostname-ports.png)
 
 
-<!-- ms.date: 07/10/2018 -->
+<!-- ms.date: 12/25/2018 -->

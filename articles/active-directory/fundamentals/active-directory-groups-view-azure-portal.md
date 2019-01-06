@@ -1,6 +1,6 @@
 ---
-title: 快速入门：在 Azure Active Directory 中查看组织的组和成员 | Microsoft Docs
-description: 本快速入门提供有关如何使用 Azure 门户搜索和查看组织的组及其分配的成员的步骤。
+title: 快速入门：查看组织的组和成员 - Azure Active Directory | Microsoft Docs
+description: 介绍如何搜索和查看组织的组及其分配的成员。
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -9,16 +9,16 @@ ms.workload: identity
 ms.component: fundamentals
 ms.topic: quickstart
 origin.date: 09/24/2018
-ms.date: 11/12/2018
+ms.date: 01/02/2019
 ms.author: v-junlch
-ms.custom: it-pro
+ms.custom: it-pro, seodec18
 ms.reviewer: krbain
-ms.openlocfilehash: 5f835c6d9995b17ae47e043d975bdc16650f72bf
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8cf35e44107efc424674c90804f9d3e50b33d219
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663590"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996173"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
@@ -46,9 +46,9 @@ ms.locfileid: "52663590"
     
     - **组类型：** 选择“安全性”
     
-    - **组名称：** 键入“MDM 策略 - 西部”
+    - **组名称：** 键入 MDM policy - West
     
-    - **成员身份类型：** 选择“已分配”
+    - **成员身份类型：** 选择“分配”。
 
 3. 选择“创建” 。
 
@@ -59,9 +59,9 @@ ms.locfileid: "52663590"
 
 2. 填写“用户”页：
 
-    - **名称：** 键入 _Alain Charon_。
+    - **名称：** 键入 Alain Charon。
 
-    - **用户名：** 键入 *alain@contoso.com*。
+    - **用户名：** 键入 alain@contoso.com。
 
 3. 复制“密码”框中提供的自动生成的密码，然后选择“创建”。
 
@@ -127,3 +127,4 @@ ms.locfileid: "52663590"
     >[!Important]
     >这不会删除用户 Alain Charon，而只会删除他在该组中的成员身份。
 
+<!-- Update_Description: update metedata properties -->

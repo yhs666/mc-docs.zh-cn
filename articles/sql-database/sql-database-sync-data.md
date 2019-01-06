@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: douglasl
 manager: digimobile
 origin.date: 08/09/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: daaf2d99ba362a8fce47a7f326be7c9fd98e6651
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.date: 12/31/2018
+ms.openlocfilehash: ac16037f72dff76ea73166b46ec96035c81bbb8b
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672990"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806306"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>使用 SQL 数据同步跨多个云和本地数据库同步数据
 
@@ -56,7 +56,7 @@ SQL 数据同步使用中心辐射型拓扑来同步数据。 将同步组中的
 
 -   **分布式应用程序：** 在许多情况下，跨各个数据库分散不同的工作负载会大有裨益。 例如，如果有大型生产数据库，但还需要对此数据运行报表或分析工作负载，那么使用第二个数据库来处理此额外工作负载将会有所帮助。 这种方法可最大限度地减轻对生产工作负载造成的性能影响。 可以使用 SQL 数据同步来同步这两个数据库。
 
--   **全局分布式应用程序：** 许多企业的业务分布在多个区域，甚至是多个国家/地区。 为了最大限度地缩短网络延迟时间，最好将数据存储在靠近的区域中。 借助 SQL 数据同步，可轻松同步世界各地区域中的数据库。
+-   **全球分布的应用程序：** 许多企业的业务分布在多个区域，甚至是多个国家/地区。 为了最大限度地缩短网络延迟时间，最好将数据存储在靠近的区域中。 借助 SQL 数据同步，可轻松同步世界各地区域中的数据库。
 
 数据同步不是以下场景的首选解决方案：
 
@@ -70,7 +70,7 @@ SQL 数据同步使用中心辐射型拓扑来同步数据。 将同步组中的
 
 ## <a name="how-does-data-sync-work"></a>SQL 数据同步的工作原理 
 
--   **跟踪数据更改：** SQL 数据同步使用插入、更新和删除触发器来跟踪更改。 更改记录在用户数据库中的端表内。
+-   **跟踪数据更改：** SQL 数据同步使用插入、更新和删除触发器来跟踪更改。 更改记录在用户数据库中的端表内。 请注意，默认情况下 BULK INSERT 不会激发触发器。 如果未指定 FIRE_TRIGGERS，则不执行任何插入触发器操作。 添加 FIRE_TRIGGERS 选项，以便数据同步可以跟踪这些插入。 
 
 -   **同步数据：** 根据设计，SQL 数据同步采用中心辐射型模型。 中心与各个成员同步数据。 中心内的更改会先下载到成员，然后成员内的更改会上传到中心。
 
@@ -83,6 +83,7 @@ SQL 数据同步使用中心辐射型拓扑来同步数据。 将同步组中的
 ### <a name="set-up-data-sync-in-the-azure-portal"></a>在 Azure 门户中设置数据同步
 
 -   [设置 Azure SQL 数据同步](sql-database-get-started-sql-data-sync.md)
+-   数据同步代理 - [Azure SQL 数据同步的数据同步代理](sql-database-data-sync-agent.md)
 
 ### <a name="set-up-data-sync-with-powershell"></a>使用 PowerShell 设置数据同步
 
@@ -127,6 +128,8 @@ SQL 数据同步使用插入、更新和删除触发器来跟踪更改。 它在
 -   对象（数据库、表和列）的名称不能包含可打印字符句点 (.)、左方括号 ([) 或右方括号 (])。
 
 -   不支持 Azure Active Directory 身份验证。
+
+-   不支持具有相同名称但架构不同（例如，dbo.customers 和 sales.customers）的表。
 
 #### <a name="unsupported-data-types"></a>不支持的数据类型
 

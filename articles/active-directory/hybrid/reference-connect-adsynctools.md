@@ -6,15 +6,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 origin.date: 10/19/2018
-ms.date: 12/05/2018
+ms.date: 01/03/2019
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: c411fd09218c80a547fff74bf3494b2af91fab86
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 599aaac170e9f37ce58bdf3f0fe850cd80577e63
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029169"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996248"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect：ADSyncTools PowerShell 参考
 以下文档提供了 Azure AD Connect 随附的 ADSyncTools.psm1 PowerShell 模块的参考信息。
@@ -64,7 +64,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
-有关详细信息，请参阅 about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216)。
+有关详细信息，请参阅 about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216)。
 
 ## <a name="confirm-adsynctoolsadmoduleloaded"></a>Confirm-ADSyncToolsADModuleLoaded
 
@@ -192,7 +192,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
-有关详细信息，请参阅 about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216)。
+有关详细信息，请参阅 about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216)。
 
 ## <a name="export-adsynctoolsconsistencyguidmigration"></a>Export-ADSyncToolsConsistencyGuidMigration
 
@@ -285,7 +285,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
-有关详细信息，请参阅 about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216)。
+有关详细信息，请参阅 about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216)。
 
 ## <a name="get-adsyncsqlbrowserinstances"></a>Get-ADSyncSQLBrowserInstances
 
@@ -372,7 +372,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
-有关详细信息，请参阅 about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216)。
+有关详细信息，请参阅 about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216)。
 
 ## <a name="get-adsynctoolsconsistencyguid"></a>Get-ADSyncToolsConsistencyGuid
 
@@ -419,7 +419,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
-有关详细信息，请参阅 about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216)。
+有关详细信息，请参阅 about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216)。
 
 ## <a name="get-adsynctoolsobjectguid"></a>Get-ADSyncToolsObjectGuid
 
@@ -466,7 +466,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
-有关详细信息，请参阅 about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216)。
+有关详细信息，请参阅 about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216)。
 
 ## <a name="get-adsynctoolsrunhistory"></a>Get-ADSyncToolsRunHistory
 
@@ -513,7 +513,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
-有关详细信息，请参阅 about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216)。
+有关详细信息，请参阅 about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216)。
 
 ## <a name="get-adsynctoolssourceanchorchanged"></a>Get-ADSyncToolsSourceAnchorChanged
 
@@ -579,7 +579,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
-有关详细信息，请参阅 about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216)。
+有关详细信息，请参阅 about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216)。
 
 ## <a name="import-adsynctoolsimmutableidmigration"></a>Import-ADSyncToolsImmutableIdMigration
 
@@ -642,7 +642,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
-有关详细信息，请参阅 about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216)。
+有关详细信息，请参阅 about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216)。
 
 
 ## <a name="invoke-adsyncdatabasequery"></a>Invoke-AdSyncDatabaseQuery
@@ -702,7 +702,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
-有关详细信息，请参阅 about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216)。
+有关详细信息，请参阅 about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216)。
 
 ## <a name="remove-adsynctoolsexpiredcertificates"></a>Remove-ADSyncToolsExpiredCertificates
 
@@ -787,7 +787,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
-有关详细信息，请参阅 about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216)。
+有关详细信息，请参阅 about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216)。
 
 ## <a name="repair-adsynctoolsautoupgradestate"></a>Repair-ADSyncToolsAutoUpgradeState
 
@@ -941,7 +941,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
-有关详细信息，请参阅 about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216)。
+有关详细信息，请参阅 about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216)。
 
 ## <a name="test-adsyncnetworkport"></a>Test-ADSyncNetworkPort
 
@@ -1120,7 +1120,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
-有关详细信息，请参阅 about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216)。
+有关详细信息，请参阅 about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216)。
 
 ## <a name="trace-adsynctoolsldapquery"></a>Trace-ADSyncToolsLdapQuery
 
@@ -1213,7 +1213,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
-有关详细信息，请参阅 about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216)。
+有关详细信息，请参阅 about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216)。
 
 ## <a name="update-adsynctoolsconsistencyguidmigration"></a>Update-ADSyncToolsConsistencyGuidMigration
 
@@ -1305,8 +1305,8 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-whatif"></a>-WhatIf
-显示在此 cmdlet 运行的情况下将会发生什么。
-此 cmdlet 未运行。
+显示运行该 cmdlet 时会发生什么情况。
+cmdlet 未运行。
 
 ```yaml
 Type: SwitchParameter
@@ -1337,5 +1337,6 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
-有关详细信息，请参阅 about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216)。
+有关详细信息，请参阅 about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216)。
 
+<!-- Update_Description: link update -->

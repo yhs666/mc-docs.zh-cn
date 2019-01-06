@@ -10,14 +10,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 09/24/2018
-ms.date: 11/22/2018
+ms.date: 12/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: 59763c32365ff367979e9becb99342b4fce71543
-ms.sourcegitcommit: a3cde3b41ed4d3f39a30eb4e562d6436a3e4d9d5
+ms.openlocfilehash: 8011cb4f8fcb698a06aeaab0049800ac608a5db9
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53131772"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806587"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 触发器和绑定概念
 
@@ -232,6 +232,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.ServiceBus --version <targ
 - [C# 脚本 (.csx)](#c-script-example)
 - [F#](#f-example)
 - [JavaScript](#javascript-example)
+- [Python](#python-example)
 
 ### <a name="c-example"></a>C# 示例
 
@@ -335,6 +336,29 @@ module.exports = function (context, input) {
     context.log('Node.js script processed queue message', json);
     context.done(null, json);
 }
+```
+
+### <a name="python-example"></a>Python 示例
+
+下面是 *function.json* 文件中的输出绑定：
+
+```json
+{
+    "name": "$return",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{id}"
+}
+```
+下面是 Python 代码：
+
+```python
+def main(input: azure.functions.InputStream) -> str:
+    return json.dumps({
+        'name': input.name,
+        'length': input.length,
+        'content': input.read().decode('utf-8')
+    })
 ```
 
 ## <a name="binding-datatype-property"></a>绑定 dataType 属性
@@ -675,4 +699,4 @@ public class BlobName
 - [移动应用](functions-bindings-mobile-apps.md)
 - [外部文件](functions-bindings-external-file.md)
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

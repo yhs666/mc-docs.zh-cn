@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/06/2018
-ms.date: 12/17/2018
+origin.date: 12/03/2018
+ms.date: 12/31/2018
 ms.author: v-jay
 ms.reviewer: ppacent
-ms.openlocfilehash: 715aaeb2b8442d95e414d7bf8083648140609dd8
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.openlocfilehash: 8da347533fa1ee08499b97ec22a7a8acc33c1e32
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396245"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814638"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>在 Azure Stack 中轮换机密
 
@@ -45,7 +45,7 @@ Azure Stack 使用各种机密来维持 Azure Stack 基础结构资源与服务�
 
    <sup>*</sup> 仅当环境的标识提供者是 Active Directory 联合身份验证服务 (AD FS) 时才适用。
 
-> [!NOTE]
+> [!NOTE]  
 > 其他所有安全密钥和字符串（包括 BMC 和交换密码以及用户和管理员帐户密码）仍然由管理员手动更新。 
 
 为保持 Azure Stack 基础结构的完整性，操作员需要能够定期轮换其基础结构的机密，轮换频率应与其组织的安全要求一致。
@@ -114,7 +114,7 @@ Azure Stack 使用各种机密来维持 Azure Stack 基础结构资源与服务�
     - **CertificatePassword**  
     创建的所有 pfx 证书文件使用的密码安全字符串。
 4. 等待机密完成轮换。  
-机密轮换成功完成后，控制台会显示“总体操作状态: 成功”。 
+机密轮换成功完成后，控制台会显示“总体操作状态: 成功”。** 
     > [!note]  
     > 如果机密轮换失败，请按照错误消息中的说明操作，并使用 **-Rerun** 参数重新运行 start-secretrotation。 如果遇到反复的机密轮换失败，请联系技术支持。 
 5. 成功完成机密轮换后，请从前期步骤创建的共享中删除证书，并将其存储在安全的备份位置。 
@@ -144,7 +144,7 @@ Remove-PSSession -Session $PEPSession
 1. 创建具有[特权终结点](/azure-stack/azure-stack-privileged-endpoint)的 PowerShell 会话。
 2. 在特权终结点会话中，不结合任何参数运行 **Start-SecretRotation**。
 3. 等待机密完成轮换。  
-机密轮换成功完成后，控制台会显示“总体操作状态: 成功”。 
+机密轮换成功完成后，控制台会显示“总体操作状态: 成功”。** 
     > [!note]  
     > 如果机密轮换失败，请按照错误消息中的说明操作，并使用 **-Rerun** 参数重新运行 start-secretrotation。 如果遇到反复的机密轮换失败，请联系技术支持。 
 
@@ -221,7 +221,7 @@ Remove-PSSession -Session $PEPSession
     ```powershell
     # Static Version
     $PEip = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
-    $PEUser = "<Privileged Endpoint user for exmaple Domain\CloudAdmin>"
+    $PEUser = "<Privileged Endpoint user for example Domain\CloudAdmin>"
     $PEpwd = ConvertTo-SecureString "<Privileged Endpoint Password>" -AsPlainText -Force
     $PECred = New-Object System.Management.Automation.PSCredential ($PEUser, $PEpwd) 
     $NewBMCpwd = ConvertTo-SecureString "<New BMC Password>" -AsPlainText -Force 

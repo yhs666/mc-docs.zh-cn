@@ -12,19 +12,19 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 10/19/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 4c18e11af73acc053f08c2c9c65e321873def8e5
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.date: 12/31/2018
+ms.openlocfilehash: 797e3963980ec58c17bb22f99700e9876ad7e786
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672638"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806312"
 ---
 # <a name="azure-sql-database-logical-servers-and-their-management"></a>Azure SQL 数据库逻辑服务器及其管理
 
 ## <a name="what-is-an-azure-sql-logical-server"></a>什么是 Aure SQL 逻辑服务器
 
-逻辑服务器用作多个单一或[已共用](sql-database-elastic-pool.md)数据库的中心管理点，包括[登录名](sql-database-manage-logins.md)[防火墙规则](sql-database-firewall-configure.md)[审核规则](sql-database-auditing.md)[威胁检测策略](sql-database-threat-detection.md)和[故障转移组](sql-database-geo-replication-overview.md)。 逻辑服务器可以与其资源组位于不同的区域。 必须先创建逻辑服务器，然后才能创建 Azure SQL 数据库。 服务器上的所有数据库都在逻辑服务器所在的同一区域内创建而成。
+逻辑服务器用作多个单一数据库或[入池](sql-database-elastic-pool.md)数据库的中心管理点，包括[登录名](sql-database-manage-logins.md)、[防火墙规则](sql-database-firewall-configure.md)、[审核规则](sql-database-auditing.md)、[威胁检测策略](sql-database-threat-detection.md)和[故障转移组](sql-database-auto-failover-group.md)。逻辑服务器可以位于与其资源组不同的区域。 必须先创建逻辑服务器，然后才能创建 Azure SQL 数据库。 服务器上的所有数据库都在逻辑服务器所在的同一区域内创建而成。
 
 逻辑服务器是一种逻辑构造，它不同于在本地环境中可能已熟悉的 SQL Server 实例。 具体而言，SQL 数据库服务对数据库相对于其逻辑服务器的位置不做出任何保证，并且不公开任何实例级访问权限或功能。
 

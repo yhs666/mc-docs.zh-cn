@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/11/2017
-ms.date: 12/10/2018
+ms.date: 01/03/2019
 ms.author: v-junlch
-ms.openlocfilehash: c13286985984eb1a0ccf022554bf4d71bd3bab82
-ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
+ms.openlocfilehash: 08d34a6c40722cd059fea67b2efd60f9fecb688d
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53157415"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029213"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>应用程序列表中意料之外的应用程序
 
@@ -52,7 +52,7 @@ ms.locfileid: "53157415"
 
 3.  当通过使用[应用程序注册表](/active-directory/active-directory-app-registration)创建以自定义方式开发的应用程序，来添加新应用程序注册之时
 
-4.  添加正在使用 Visual Studio 的 [ASP.net 身份验证方法](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions)或[连接的服务](https://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)开发的应用程序时
+6.  添加正在使用 Visual Studio 的 [ASP.net 身份验证方法](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions)或[连接的服务](https://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)开发的应用程序时
 
 6.  使用 [Azure AD PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-adv2?view=azureadps-2.0)创建服务主体对象时
 

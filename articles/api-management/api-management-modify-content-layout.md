@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 origin.date: 02/09/2017
 ms.author: antonba
-ms.date: 03/19/2018
-ms.openlocfilehash: fd19588a5094fbec02d8c0c6f0a7563c6ac407d2
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/31/2018
+ms.openlocfilehash: 09fdadf46717780d55142088818fc34a37d8ea8d
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654239"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736680"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>在 Azure API 管理中修改开发人员门户上的页面内容和页面布局
 在 Azure API 管理中自定义开发人员门户有三种基本方法：
@@ -28,6 +28,8 @@ ms.locfileid: "52654239"
 * [编辑静态页面内容和页面布局元素][modify-content-layout]（本指南中所述）
 * [跨开发人员门户更新页面元素所用的样式][customize-styles]
 * [修改门户生成的页面所用的模板][portal-templates]（例如 API 文档、产品、用户身份验证等）
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="page-structure"> </a>开发人员门户页面结构
 

@@ -11,20 +11,23 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 10/19/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: f61c4eca51af848bc4b7c6843f5ef77cf8a4df4b
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+origin.date: 12/10/2018
+ms.date: 12/31/2018
+ms.openlocfilehash: 9f18ee14bfd6b874d9d2f73e217f7fc44ab71130
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673063"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806264"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL 数据库购买模型
 
 使用 Azure SQL 数据库，可以轻松购买适合你的性能和成本要求的完全托管的 PaaS 数据库引擎。 你可以根据 Azure SQL 数据库的部署模型选择适合你的需求的购买模型：
+- [基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)（推荐），可选择确切的存储容量以及计算工作负载所需的容量。
+- [基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)，可选择针对常见工作负载均衡的捆绑计算和存储包。
 
-- [Azure SQL 数据库](sql-database-technical-overview.md)中的[逻辑服务器](sql-database-logical-servers.md)为计算、存储和 IO 资源提供了两种购买模型：[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)和[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)。 在此购买模型中，可以选择[单一数据库](sql-database-single-databases-manage.md)或[弹性池](sql-database-elastic-pool.md)。
+Azure SQL 数据库部署模型中提供了不同的购买模型：
+- [Azure SQL 数据库](sql-database-technical-overview.md)中的[逻辑服务器](sql-database-logical-servers.md)同时提供[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)和[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)。 在此购买模型中，可以选择[单一数据库](sql-database-single-databases-manage.md)或[弹性池](sql-database-elastic-pool.md)。
 
 以下表格和图表对这两种购买模型做了对比。
 

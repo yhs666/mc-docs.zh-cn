@@ -1,8 +1,22 @@
+---
+author: cephalin
+ms.service: app-service
+ms.topic: include
+origin.date: 11/03/2016
+ms.date: 12/31/2018
+ms.author: v-biyu
+ms.openlocfilehash: 9b5484594acf03bace6cfe8afcc964813661a97f
+ms.sourcegitcommit: 80c59ae1174d71509b4aa64a28a98670307a5b38
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735201"
+---
 ## <a name="rest"></a>使用 REST API 部署 ZIP 文件 
  
 可以使用[部署服务 REST API](https://github.com/projectkudu/kudu/wiki/REST-API) 将 .zip 文件部署到 Azure 中的应用。 若要部署，请将 POST 请求发送到 https://<应用名称>.scm.chinacloudsites.cn/api/zipdeploy。 POST 请求必须在消息正文中包含此 .zip 文件。 应用的部署凭据是通过使用 HTTP BASIC 身份验证在请求中提供的。 有关详细信息，请参阅 [.zip 推送部署参考](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)。 
 
-对于 HTTP 基本身份验证，需使用应用服务部署凭据。 若要了解如何设置部署凭据，请参阅[设置和重置用户级别凭据](../articles/app-service/app-service-deployment-credentials.md#userscope)。
+对于 HTTP 基本身份验证，需使用应用服务部署凭据。 若要了解如何设置部署凭据，请参阅[设置和重置用户级别凭据](../articles/app-service/deploy-configure-credentials.md#userscope)。
 
 ### <a name="with-curl"></a>使用 cURL
 

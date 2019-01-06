@@ -14,12 +14,12 @@ ms.workload: infrastructure
 origin.date: 10/31/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7c907a8559edf69e52dd2ad8354a0aaf7d7c0522
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 7fac91512eb37579b3e3ee287f32ff38cef06335
+ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028348"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785151"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>排查 Azure VM 的常规 RDP 错误
 
@@ -137,7 +137,7 @@ RDP 侦听器配置不当。
 
 ## <a name="need-help-contact-support"></a>需要帮助？ 联系支持人员
 
-如果仍需帮助，请[联系支持人员](https://www.azure.cn/support/support-azure/)以快速解决问题。
+如果仍需帮助，请[联系支持人员](https://support.azure.cn/zh-cn/support/support-azure/)以快速解决问题。
 
 
 <!-- Update_Description: new articles on troubleshoot -->

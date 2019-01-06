@@ -12,16 +12,16 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
-origin.date: 10/09/2018
-ms.date: 12/05/2018
+origin.date: 11/27/2018
+ms.date: 01/03/2019
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 5232d6d41a1f668b60025d4467e24fdc76202d1b
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 5efb68b4184d76cb022f5468786c705952302dcb
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028700"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996304"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect 的拓扑
 本文介绍了使用 Azure AD Connect 同步作为关键集成解决方案的各种本地拓扑和 Azure Active Directory (Azure AD) 拓扑。 此外，介绍支持和不支持的配置。
@@ -85,7 +85,9 @@ Azure AD Connect 同步中的默认配置假设：
 
 不支持多个 Azure AD Connect 同步服务器连接到单个 Azure AD 租户。 使用 [暂存服务器](#staging-server)时例外。
 
-### <a name="multiple-forests-separate-topologies"></a>多个林，独立的拓扑
+此拓扑与下面的拓扑不同，不支持连接到单个 Azure AD 租户的**多个同步服务器**。
+
+### <a name="multiple-forests-single-sync-server-users-are-represented-in-only-one-directory"></a>多个林、单个同步服务器、用户仅在一个目录中表示
 ![表示用户在所有目录中只出现一次的选项](./media/plan-connect-topologies/MultiForestUsersOnce.png)
 
 ![描述多个林和独立的拓扑](./media/plan-connect-topologies/MultiForestSeparateTopologies.png)
@@ -189,4 +191,4 @@ Azure AD 租户在设计上是隔离的。 不支持以下任务：
 
 了解有关[将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)的详细信息。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 07/07/2017
-ms.date: 12/18/2017
+origin.date: 12/06/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 4c4430dcfd8d1f80b2b4d6aec36118258a90282e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f1adb9ac5ab2d1791eb01d1cc4101476d07b743a
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652164"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029254"
 ---
-# <a name="troubleshoot-hbase-by-using-azure-hdinsight"></a>使用 Azure HDInsight 对 HBase 进行故障排除
+# <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>使用 Azure HDInsight 对 Apache HBase 进行故障排除
 
 了解处理 Apache Ambari 中的 Apache HBase 有效负载时的最常见问题及其解决方法。
 
@@ -36,7 +36,7 @@ ms.locfileid: "52652164"
 若要使未分配的区域恢复正常状态，请完成以下步骤：
 
 1. 使用 SSH 登录到 HDInsight HBase 群集。
-2. 若要使用 ZooKeeper shell 进行连接，请运行 `hbase zkcli` 命令。
+2. 若要与 Apache ZooKeeper shell 进行连接，请运行 `hbase zkcli` 命令。
 3. 运行 `rmr /hbase/regions-in-transition` 命令或 `rmr /hbase-unsecure/regions-in-transition` 命令。
 4. 若要从 `hbase zkcli` shell 退出，请使用 `exit` 命令。
 5. 打开 Apache Ambari UI，并重启 Active HBase Master 服务。
@@ -52,7 +52,7 @@ ms.locfileid: "52652164"
 ### <a name="resolution-steps"></a>解决步骤
 
 1. 使用 SSH 登录到 HDInsight HBase 群集。
-2. 若要使用 ZooKeeper shell 进行连接，请运行 `hbase zkcli` 命令。
+2. 若要与 Apache ZooKeeper shell 进行连接，请运行 `hbase zkcli` 命令。
 3. 运行 `rmr /hbase/regions-in-transition` 或 `rmr /hbase-unsecure/regions-in-transition` 命令。
 4. 若要退出 `hbase zkcli` shell，请使用 `exit` 命令。
 5. 在 Ambari UI 中，重启 Active HBase Master 服务。
@@ -62,7 +62,7 @@ ms.locfileid: "52652164"
 
 ### <a name="issue"></a>问题
 
-本地 Hadoop 分布式文件系统 (HDFS) 在 HDInsight 群集上的安全模式下停止响应。
+本地 Apache Hadoop 分布式文件系统 (HDFS) 在 HDInsight 群集上的安全模式下停止响应。
 
 ### <a name="detailed-description"></a>详细说明
 
@@ -252,7 +252,7 @@ hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
 ```apache
         ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,,1485464083256.c0568c94033870c517ed36c45da98129. is not online on 10.2.0.5,16020,1489466172189) 
 ```
-6. 在 Ambari UI 中完成以下步骤，在所有 ZooKeeper 节点上重启 HMaster 服务：
+6. 在 Apache Ambari UI 中完成以下步骤，以在所有 ZooKeeper 节点上重启 HMaster 服务：
 
     1. 在 HBase 的“摘要”部分中，转到“HBase” > “Active HBase Master”。 
     2. 在“组件”部分中，重启 HBase Master 服务。
@@ -293,7 +293,7 @@ HBase Master 服务可能需要花费长达五分钟才能稳定下来并完成�
 
 ### <a name="detailed-description"></a>详细说明
 
-Linux 群集上可能会出现一条消息，指出 *hbase: meta* 表未联机。 运行 `hbck` 时可能会报告“在任何区域中都未发现 hbase: meta 表 replicaId 0”。 问题可能是重启 HBase 后，HMaster 无法初始化。 HMaster 日志中可能会出现以下消息：“区域 hbase: backup \<区域名称\> 的 hbase: meta 中未列出服务器地址”。  
+Linux 群集上可能会出现一条消息，指出 *hbase: meta* 表未联机。 运行 `hbck` 时可能会报告“在任何区域中都未发现 hbase: meta 表 replicaId 0”。 问题可能是重启 HBase 后，HMaster 无法初始化。 在 HMaster 日志中，你会看到消息：“区域 hbase 的 hbase: meta 中未列出服务器地址：\<区域名称\>”。  
 
 ### <a name="resolution-steps"></a>解决步骤
 
@@ -319,12 +319,12 @@ hbase hbck -ignorePreCheckPermission -fixAssignments
 
 ### <a name="additional-reading"></a>其他阅读材料
 
-[无法处理 HBase 表](http://stackoverflow.com/questions/4794092/unable-to-access-hbase-table)
+[无法处理 HBase 表](https://stackoverflow.com/questions/4794092/unable-to-access-hbase-table)
 
 
 ### <a name="error"></a>错误
 
-HMaster 超时且出现类似于“java.io.IOException: 等待分配命名空间表时超时 300000 毫秒”的严重异常。
+HMaster 超时时出现类似于“java.io.IOException:超时 300000 毫秒，等待分配命名空间表”的致命异常。
 
 ### <a name="detailed-description"></a>详细说明
 
@@ -336,7 +336,7 @@ HMaster 超时且出现类似于“java.io.IOException: 等待分配命名空间
   
 ### <a name="resolution-steps"></a>解决步骤
 
-1. 在 Ambari UI 中，转到“HBase” > “配置”。 在自定义 hbase-site.xml 文件中添加以下设置： 
+1. 在 Apache Ambari UI 中，转到“HBase” > “配置”。 在自定义 hbase-site.xml 文件中添加以下设置： 
 
    ```apache
    Key: hbase.master.namespace.init.timeout Value: 2400000  
@@ -349,9 +349,9 @@ HMaster 超时且出现类似于“java.io.IOException: 等待分配命名空间
 
 ### <a name="issue"></a>问题
 
-可以遵循以下最佳做法来防止区域服务器重启失败。 我们建议在计划重启 HBase 区域服务器时，暂停繁重的工作负荷活动。 如果在关闭过程中应用程序继续与区域服务器进行连接，则这会将区域服务器重启操作拖慢几分钟。 另外，最好是先刷新所有表。 有关如何刷新表的参考信息，请参阅 [HDInsight HBase：如何通过刷新表来改善 HBase 群集重启时间](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/)。
+可以遵循以下最佳做法来防止区域服务器重启失败。 我们建议在计划重启 HBase 区域服务器时，暂停繁重的工作负荷活动。 如果在关闭过程中应用程序继续与区域服务器进行连接，则这会将区域服务器重启操作拖慢几分钟。 另外，最好是先刷新所有表。 有关如何刷新表的参考信息，请参阅 [HDInsight HBase：如何通过刷新表改进 Apache HBase 群集重启时间](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/)。
 
-如果通过 Ambari UI 在 HBase 区域服务器上开始重启操作，马上就会看到区域服务器关闭，但不会立即重启。 
+如果通过 Apache Ambari UI 在 HBase 区域服务器上开始重启操作，马上就会看到区域服务器关闭，但不会立即重启。 
 
 下面是幕后发生的情况： 
 

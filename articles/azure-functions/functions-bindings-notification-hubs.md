@@ -10,14 +10,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 11/21/2017
-ms.date: 11/22/2018
+ms.date: 12/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: da9469483b787cd8072fb7dba41d6be9fe15cc2b
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 103693f23482373d2eef844faa0e13575fdddaae
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672473"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806565"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>适用于 Azure Functions 的 通知中心输出绑定
 
@@ -29,7 +29,7 @@ ms.locfileid: "52672473"
 
 ## <a name="packages---functions-1x"></a>包 - Functions 1.x
 
-[Microsoft.Azure.WebJobs.Extensions.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs) NuGet 包 1.x 版中提供了通知中心绑定。 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.NotificationHubs) GitHub 存储库中提供了此包的源代码。
+[Microsoft.Azure.WebJobs.Extensions.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs) NuGet 包 1.x 版中提供了通知中心绑定。 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.NotificationHubs) GitHub 存储库中提供了此包的源代码。
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
@@ -310,4 +310,4 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 > [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: link update -->

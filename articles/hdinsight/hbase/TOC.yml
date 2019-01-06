@@ -1,11 +1,11 @@
 items:
 - name: Azure HDInsight 文档
   href: /hdinsight
-- name: HDInsight 上的 HBase
+- name: Apache HBase on HDInsight
   items:
   - name: 概述
     href: apache-hbase-overview.md
-  - name: HDInsight 上的 Hadoop 组件
+  - name: HDInsight 上的 Apache Hadoop 组件
     href: ../hdinsight-component-versioning.md
     maintainContext: true
   - name: HDInsight 4.0
@@ -13,7 +13,7 @@ items:
     maintainContext: true
 - name: 入门
   items:
-  - name: HBase 和 NoSQL 入门
+  - name: Apache HBase 和 NoSQL 入门
     href: apache-hbase-tutorial-get-started-linux.md
   - name: 安装 HDInsight 应用
     href: ../hdinsight-apps-install-applications.md
@@ -30,7 +30,7 @@ items:
       maintainContext: true
   - name: 开发
     items:
-    - name: 使用 HBase .NET SDK
+    - name: 使用 Apache HBase .NET SDK
       href: apache-hbase-rest-sdk.md
     - name: 开发 Java 应用程序
       href: apache-hbase-build-java-maven-linux.md
@@ -43,13 +43,13 @@ items:
     - name: HDInsight 中的 Apache Phoenix
       href: ../hdinsight-phoenix-in-hdinsight.md
       maintainContext: true
-    - name: 使用 Phoenix 和 SQLLine
+    - name: 使用 Apache Phoenix 和 SQLLine
       href: apache-hbase-phoenix-squirrel-linux.md
-    - name: 使用 Phoenix 查询服务器 REST SDK
+    - name: 使用 Apache Phoenix Query Server REST SDK
       href: apache-hbase-using-phoenix-query-server-rest-sdk.md
   - name: 分析大数据
     items:
-    - name: 使用 Spark 读取和写入 HBase 数据
+    - name: 使用 Apache Spark 读取和写入 Apache HBase 数据
       href: ../hdinsight-using-spark-query-hbase.md
       maintainContext: true
   - name: 扩展群集
@@ -114,7 +114,7 @@ items:
         href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
         maintainContext: true
       maintainContext: true
-    - name: 管理的 Hadoop 群集
+    - name: 管理 Apache Hadoop 群集
       href: ../hdinsight-administer-use-portal-linux.md
       items:
       - name: 使用 .NET SDK
@@ -136,12 +136,12 @@ items:
     - name: 添加存储帐户
       href: ../hdinsight-hadoop-add-storage.md
       maintainContext: true
-    - name: 上传 Hadoop 作业的数据
+    - name: 上传 Apache Hadoop 作业的数据
       href: ../hdinsight-upload-data.md
       maintainContext: true
-    - name: 使用 psql 将数据大容量加载到 Phoenix
+    - name: 使用 psql 将数据批量加载到 Apache Phoenix
       href: apache-hbase-phoenix-psql.md
-    - name: 使用 Sqoop 导入和导出数据
+    - name: 使用 Apache Sqoop 导入和导出数据
       href: ../hdinsight-use-sqoop.md
       items:
       - name: 使用 SSH 进行连接
@@ -162,7 +162,7 @@ items:
     - name: 将 HDInsight 群集升级到更新的版本
       href: ../hdinsight-upgrade-cluster.md
       maintainContext: true
-    - name: 将 HBase 群集迁移到较新的版本
+    - name: 将 Apache HBase 群集迁移到较新的版本
       href: apache-hbase-migrate-new-version.md
     - name: 为 HDInsight 群集修补 OS
       href: ../hdinsight-os-patching.md
@@ -173,13 +173,13 @@ items:
     - name: 排查 HDInsight 群集速度慢或故障问题
       href: ../hdinsight-troubleshoot-failed-cluster.md
       maintainContext: true
-    - name: HDFS 故障排除
+    - name: Apache Hadoop HDFS 故障排除
       href: ../hdinsight-troubleshoot-hdfs.md
       maintainContext: true
-    - name: HBase 故障排除
+    - name: 排查 Apache HBase 故障
       href: apache-troubleshoot-hbase.md
       maintainContext: true
-    - name: YARN 故障排除
+    - name: Apache Hadoop YARN 故障排除
       href: ../hdinsight-troubleshoot-yarn.md
       maintainContext: true
     - name: 资源
@@ -187,25 +187,25 @@ items:
       - name: 有关在 Linux 上使用 HDInsight 的信息
         href: ../hdinsight-hadoop-linux-information.md
         maintainContext: true
-      - name: Hadoop 内存和性能
+      - name: Apache Hadoop 内存和性能
         href: ../hdinsight-hadoop-stack-trace-error-messages.md
         maintainContext: true
-      - name: 在 Linux 上访问 Hadoop YARN 应用程序日志
+      - name: 访问 Linux 上的 Apache Hadoop YARN 应用程序日志
         href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
         maintainContext: true
-      - name: 为 Hadoop 服务启用堆转储
+      - name: 为 Apache Hadoop 服务启用堆转储
         href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
         maintainContext: true
       - name: 了解和解决 WebHCat 错误
         href: ../hdinsight-hadoop-templeton-webhcat-debug-errors.md
         maintainContext: true
-      - name: 通过 Hive 设置解决内存不足错误
+      - name: 通过 Apache Hive 设置解决内存不足错误
         href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md
         maintainContext: true
-      - name: 使用 Ambari 视图调试 Tez 作业
+      - name: 使用 Apache Ambari 视图来调试 Apache TEZ 作业
         href: ../hdinsight-debug-ambari-tez-view.md
         maintainContext: true
-      - name: 优化 Hive 查询
+      - name: 优化 Apache Hive 查询
         href: ../hdinsight-hadoop-optimize-hive-query.md
         maintainContext: true
     maintainContext: true
@@ -222,11 +222,11 @@ items:
     - name: 将 HDInsight 与本地网络相连
       href: ../connect-on-premises-network.md
       maintainContext: true
-    - name: 在 Azure VNet 中创建 HBase 群集
+    - name: 在 Azure VNet 中创建 Apache HBase 群集
       href: apache-hbase-provision-vnet.md
-    - name: Azure VNet 中的 HBase 群集复制
+    - name: Azure VNet 中的 Apache HBase 群集复制
       href: apache-hbase-replication.md
-    - name: 为 HBase 和 Phoenix 设置备份和复制
+    - name: 为 Apache HBase 和 Apache Phoenix 设置备份与复制
       href: apache-hbase-backup-replication.md
 - name: 参考
   items:
@@ -242,13 +242,13 @@ items:
     href: /java/api/overview/hdinsight?view=azure-java-preview
   - name: Go SDK
     href: ../hdinsight-go-sdk-overview.md
-  - name: .NET (HBase)
+  - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
   - name: .NET (Avro)
     href: https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library
   - name: REST
     href: https://docs.microsoft.com/en-us/rest/api/hdinsight/
-  - name: REST (Spark)
+  - name: REST (Apache Spark)
     href: https://docs.microsoft.com/en-us/rest/api/hdinsightspark/
 - name: 相关内容
   items:
@@ -260,34 +260,34 @@ items:
     - name: 将 .NET 解决方案迁移到 Linux 群集
       href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
       maintainContext: true
-    - name: 运行 Hadoop MapReduce 示例
+    - name: 运行 Apache Hadoop MapReduce 示例
       href: ../hdinsight-run-samples.md
       maintainContext: true
-    - name: 在群集上使用 Solr
+    - name: 在群集上使用 Apache Solr
       href: ../hdinsight-hadoop-solr-install-linux.md
       maintainContext: true
-    - name: 使用 Giraph 处理大型图形
+    - name: 使用 Apache Giraph 处理大型图形
       href: ../hdinsight-hadoop-giraph-install.md
       maintainContext: true
-    - name: 为工作流使用 Oozie
+    - name: 为工作流使用 Apache Oozie
       href: ../hdinsight-use-oozie.md
       maintainContext: true
-    - name: 部署和管理 Storm 拓扑
+    - name: 部署和管理 Apache Storm 拓扑
       href: ../storm/apache-storm-deploy-monitor-topology.md
       maintainContext: true
-    - name: 使用 Maven 构建 Java 应用程序
+    - name: 使用 Apache Maven 构建 Java 应用程序
       href: ../hdinsight-hbase-build-java-maven.md
       maintainContext: true
-    - name: 使用 Tez UI 调试 Tez 作业
+    - name: 使用 Apache TEZ UI 调试 TEZ 作业
       href: ../hdinsight-debug-tez-ui.md
       maintainContext: true
     - name: 使用脚本操作进行自定义
       href: ../hdinsight-hadoop-customize-cluster.md
       maintainContext: true
-    - name: 访问 YARN 应用程序日志
+    - name: 访问 Apache Hadoop YARN 应用程序日志
       href: ../hdinsight-hadoop-access-yarn-app-logs.md
       maintainContext: true
-    - name: 使用 Mahout 生成电影推荐
+    - name: 使用 Apache Mahout 生成电影建议
       href: ../hdinsight-mahout.md
       maintainContext: true
     - name: 分析航班延误数据
@@ -299,7 +299,7 @@ items:
     - name: 使用 Azure 门户管理群集
       href: ../hdinsight-administer-use-management-portal.md
       maintainContext: true
-    - name: 使用 Ambari API 监视群集
+    - name: 使用 Apache Ambari API 监视群集
       href: ../hdinsight-monitor-use-ambari-api.md
       maintainContext: true
 - name: 资源
@@ -316,9 +316,9 @@ items:
   - name: 适用于 HDInsight 的 Windows 工具
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 7ddd84fc04544e30d3bfc07f450b2de35017f51b
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 988386ff1a1086be7a96436ea2bd04da6de1a53f
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028382"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029212"

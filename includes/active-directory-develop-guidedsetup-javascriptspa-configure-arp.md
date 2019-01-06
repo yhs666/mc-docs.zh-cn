@@ -12,15 +12,15 @@ ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 09/17/2018
-ms.date: 12/07/2018
+ms.date: 01/04/2019
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: 7cb5a7ca0917c93a0ee2eea7bfcf17f0065836de
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 924e1117cd0b3d2c55d50b3a8c848606c341e7d5
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53070276"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029268"
 ---
 ## <a name="add-the-applications-registration-information-to-your-app"></a>向应用添加应用程序的注册信息
 
@@ -48,10 +48,11 @@ ms.locfileid: "53070276"
 
     ```javascript
     var applicationConfig = {
-        clientID: "[Enter the application Id here]",
+        clientID: "Enter_the_Application_Id_here",
+        authority: "https://login.partner.microsoftonline.cn/common",
         graphScopes: ["user.read"],
         graphEndpoint: "https://microsoftgraph.chinacloudapi.cn/v1.0/me"
     };
     ```
 
-<!-- ms.date: 12/07/2018 -->
+<!-- ms.date: 01/04/2019 -->

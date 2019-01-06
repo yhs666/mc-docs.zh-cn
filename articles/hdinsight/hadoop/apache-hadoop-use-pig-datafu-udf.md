@@ -1,6 +1,6 @@
 ---
-title: 将 Apache DataFu 与 Pig on HDInsight 结合使用 - Azure | Azure
-description: Apache DataFu Pig 是适用于 Hadoop 上的 Pig 的库集合。 了解如何在 HDInsight 群集上将 DataFu 与 pig 配合使用。
+title: 将 Apache DataFu 与 Apache Pig on HDInsight 配合使用 - Azure
+description: Apache DataFu Pig 是适用于 Apache Hadoop 上的 Apache Pig 的库集合。 了解如何在 HDInsight 群集上将 DataFu 与 pig 配合使用。
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 06/16/2018
-ms.date: 08/27/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: efcf383bbb01c6afa6f2bb2601fec24939ff56ec
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d6415a6e37365b599b62eda23266ef5b80e417fe
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664103"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029158"
 ---
-# <a name="use-apache-datafu-pig-with-pig-on-hdinsight"></a>在 HDInsight 上将 Apache DataFu Pig 与 pig 结合使用
+# <a name="use-apache-datafu-pig-with-apache-pig-on-hdinsight"></a>将 Apache DataFu Pig 与 Apache Pig on HDInsight 配合使用
 
 了解如何将 Apache DataFu Pig 与 HDInsight 结合使用。
 
-DataFu Pig 是适用于 Hadoop 上的 Pig 的开放源代码库集合。
+Apache DataFu Pig 是适用于 Apache Hadoop 上的 Apache Pig 的开源库集合。
 要详细了解 DataFu Pig，请参阅 [https://datafu.apache.org/](https://datafu.apache.org/)。
 
 ## <a name="prerequisites"></a>先决条件
@@ -39,7 +39,7 @@ DataFu Pig 是适用于 Hadoop 上的 Pig 的开放源代码库集合。
   > [!IMPORTANT]
   > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
-* 基本熟悉[在 HDInsight 上使用 Pig](hdinsight-use-pig.md)
+* 基本熟悉[在 HDInsight 上使用 Apache Pig](hdinsight-use-pig.md)
 
 ## <a name="install-datafu-on-linux-based-hdinsight"></a>在基于 Linux 的 HDInsight 上安装 DataFu
 
@@ -75,7 +75,7 @@ DataFu Pig 是适用于 Hadoop 上的 Pig 的开放源代码库集合。
     > 将命令中的链接替换为之前复制的 URL。
 
     ```
-    wget http://central.maven.org/maven2/org/apache/datafu/datafu-pig/1.4.0/datafu-pig-1.4.0.jar
+    wget https://central.maven.org/maven2/org/apache/datafu/datafu-pig/1.4.0/datafu-pig-1.4.0.jar
     ```
 
 3. 接下来，将该文件上传到 HDInsight 群集的默认存储中。 通过将文件放置在默认存储中，使其可供群集中的所有节点使用。
@@ -147,5 +147,4 @@ DUMP mask;
 有关 DataFu 或 Pig 的详细信息，请参阅以下文档：
 
 * [Apache DataFu Pig 入门](https://datafu.apache.org/docs/datafu/getting-started.html).
-* [将 Pig 与 HDInsight 配合使用](hdinsight-use-pig.md)
-<!--Update_Description: update code-->
+* [将 Apache Pig 和 HDInsight 配合使用](hdinsight-use-pig.md)

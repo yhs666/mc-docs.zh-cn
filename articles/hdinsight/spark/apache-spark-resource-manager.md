@@ -2,31 +2,24 @@
 title: 管理 Azure HDInsight 上 Apache Spark 群集的资源 | Azure
 description: 了解如何管理 Azure HDInsight 上 Spark 群集的资源以提高性能。
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 9da7d4e3-458e-4296-a628-77b14643f7e4
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 01/23/2018
-ms.date: 03/26/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 53c78ade6e0e606a1e70d078dffadaaf00fb6c83
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c2d7c32c0c4a2e602a6ff809ea24bb5daf0a6b2b
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649896"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806590"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>管理 Azure HDInsight 上 Apache Spark 群集的资源 
 
-了解如何访问与 Spark 群集关联的界面（如 Ambari UI、YARN UI 和 Spark History Server），以及如何优化群集配置以达到最佳性能。
+了解如何访问与 [Apache Spark](https://spark.apache.org/) 群集关联的界面（如 [Apache Ambari](https://ambari.apache.org/) UI、[Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) UI 和 Spark History Server），以及如何优化群集配置以达到最佳性能。
 
 **先决条件：**
 
@@ -34,7 +27,7 @@ ms.locfileid: "52649896"
 
 ## <a name="open-the-ambari-web-ui"></a>打开 Ambari Web UI
 
-Apache Ambari 用于监视群集和进行配置更改。 有关详细信息，请参阅[使用 Azure 门户在 HDInsight 中管理 Hadoop 群集](../hdinsight-administer-use-portal-linux.md#open-the-ambari-web-ui)
+Apache Ambari 用于监视群集和进行配置更改。 有关详细信息，请参阅[使用 Azure 门户在 HDInsight 中管理 Apache Hadoop 群集](../hdinsight-administer-use-portal-linux.md#open-the-apache-ambari-web-ui)
 
 ## <a name="open-the-spark-history-server"></a>打开 Spark History Server
 
@@ -166,18 +159,18 @@ Spark Thrift 服务器驱动程序内存配置为头节点 RAM 大小的 25%，�
 
 ### <a name="for-data-analysts"></a>适用于数据分析师
 
-* [Spark 和机器学习：使用 HDInsight 中的 Spark 对使用 HVAC 数据生成温度进行分析](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](apache-spark-machine-learning-mllib-ipython.md)
-* [使用 HDInsight 中的 Spark 分析网站日志](apache-spark-custom-library-website-log-analysis.md)
+* [Apache Spark 与机器学习：使用 HDInsight 中的 Spark 来通过 HVAC 数据分析建筑物温度](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark 与机器学习：使用 HDInsight 中的 Spark 预测食品检验结果](apache-spark-machine-learning-mllib-ipython.md)
+* [使用 HDInsight 中的 Apache Spark 分析网站日志](apache-spark-custom-library-website-log-analysis.md)
 * [使用 Caffe on Azure HDInsight Spark 进行分布式深度学习](apache-spark-deep-learning-caffe.md)
 
-### <a name="for-spark-developers"></a>适用于 Spark 开发人员
+### <a name="for-apache-spark-developers"></a>适用于 Apache Spark 开发人员
 
 * [使用 Scala 创建独立的应用程序](apache-spark-create-standalone-application.md)
-* [使用 Livy 在 Spark 群集中远程运行作业](apache-spark-livy-rest-interface.md)
+* [使用 Livy 在 Apache Spark 群集中远程运行作业](apache-spark-livy-rest-interface.md)
 * [使用适用于 IntelliJ IDEA 的 HDInsight 工具插件创建和提交 Spark Scala 应用程序](apache-spark-intellij-tool-plugin.md)
-* [使用用于 IntelliJ IDEA 的 HDInsight 工具插件远程调试 Spark 应用程序](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [在 HDInsight 上的 Spark 群集中使用 Zeppelin 笔记本](apache-spark-zeppelin-notebook.md)
-* [在 HDInsight 的 Spark 群集中可用于 Jupyter 笔记本的内核](apache-spark-jupyter-notebook-kernels.md)
+* [使用适用于 IntelliJ IDEA 的 HDInsight 工具插件远程调试 Apache Spark 应用程序](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [在 HDInsight 上的 Apache Spark 群集中使用 Apache Zeppelin 笔记本](apache-spark-zeppelin-notebook.md)
+* [在 HDInsight 的 Apache Spark 群集中可用于 Jupyter Notebook 的内核](apache-spark-jupyter-notebook-kernels.md)
 * [Use external packages with Jupyter notebooks（将外部包与 Jupyter 笔记本配合使用）](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster（在计算机上安装 Jupyter 并连接到 HDInsight Spark 群集）](apache-spark-jupyter-notebook-install-locally.md)

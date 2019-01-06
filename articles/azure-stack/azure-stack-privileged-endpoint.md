@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/22/2018
-ms.date: 12/17/2018
+ms.date: 12/31/2018
 ms.author: v-jay
 ms.reviewer: fiseraci
-ms.openlocfilehash: e07918f4b64b450810ccadd318f53e97a558eb6f
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.openlocfilehash: cd39b75284dc5c2615ad1cb5f0084d12029a5659
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396152"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814665"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>使用 Azure Stack 中的特权终结点
 
@@ -128,7 +128,7 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
-    - 如果运行的是 ADSK，请登录到开发工具包主机。
+    - 如果运行的是 ASDK，请登录到开发工具包主机。
 
 2. 在硬件生命周期主机或特权工作站上运行的强化虚拟机中，打开 Windows PowerShell 会话。 运行以下命令，在托管 PEP 的虚拟机上建立远程会话：
  
@@ -140,7 +140,7 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ````
       `ComputerName` 参数可以是托管 PEP 的某个虚拟机的 IP 地址或 DNS 名称。 
-    - 如果运行的是 ADSK：
+    - 如果运行的是 ASDK：
      
       ````PowerShell
        $cred = Get-Credential

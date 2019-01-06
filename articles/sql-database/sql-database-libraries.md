@@ -1,36 +1,39 @@
 ---
-title: 用于 SQL 数据库的连接库 | Azure
+title: 用于 SQL 数据库的连接库 | Microsoft 文档
 description: 提供模块的下载链接，这些模块支持使用各种客户端编程语言连接到 SQL Server 和 SQL 数据库。
 services: sql-database
-author: yunan2016
-manager: digimobile
 ms.service: sql-database
-ms.custom: develop apps
-ms.topic: article
-origin.date: 04/01/2018
-ms.date: 04/17/2018
-ms.author: v-nany
-ms.openlocfilehash: b67e9a18826c44cbf77e1a6fa5a1b8827a8341ba
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: WenJason
+ms.author: v-jay
+ms.reviewer: ''
+manager: digimobile
+origin.date: 12/04/2018
+ms.date: 12/31/2018
+ms.openlocfilehash: d4005ddf8b4b90f921bc60cb5d27017f60cf90ae
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651037"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806315"
 ---
 # <a name="connectivity-libraries-and-frameworks-for-sql-server"></a>适用于 SQL Server 的连接库和框架
 
-请查看[快速入门教程](http://aka.ms/sqldev)，了解 C#、Java、Node.js、PHP、Python 等编程语言的快速入门方式。 然后使用基于 Linux 或 Windows 的 SQL Server 或基于 macOS 的 Docker 生成一个应用。
+请查看[快速入门教程](https://aka.ms/sqldev)，了解 C#、Java、Node.js、PHP、Python 等编程语言的快速入门方式。 然后使用基于 Linux 或 Windows 的 SQL Server 或基于 macOS 的 Docker 生成一个应用。
 
 下表列出的连接库或驱动程序可供客户端应用程序用于通过多种语言连接到在本地或云中运行的 SQL Server 并使用该 SQL Server。 可以在 Linux、Windows 或 Docker 上使用它们，并且可以使用它们连接到 Azure SQL 数据库和 Azure SQL 数据仓库。 
 
 | 语言 | 平台 | 其他资源 | 下载 | 入门 |
 | :-- | :-- | :-- | :-- | :-- |
 | C# | Windows、Linux、macOS | [用于 SQL Server 的 Microsoft ADO.NET](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server) | [下载](https://www.microsoft.com/net/download/) | [入门](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
-| Java | Windows、Linux、macOS | [用于 SQL Server 的 Microsoft JDBC 驱动程序](http://msdn.microsoft.com/library/mt484311.aspx) | [下载](https://go.microsoft.com/fwlink/?linkid=852460) |  [入门](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
-| PHP | Windows、Linux、macOS| [用于 SQL Server 的 PHP SQL 驱动程序](http://msdn.microsoft.com/library/dn865013.aspx) | 操作系统： <br/> \* [Windows](https://www.microsoft.com/download/details.aspx?id=55642) <br/> \* [Linux](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) <br/> \* [macOS](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) |  [入门](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu)
-| Node.js | Windows、Linux、macOS | [用于 SQL Server 的 Node.js 驱动程序](http://msdn.microsoft.com/library/mt652093.aspx) | [安装](https://msdn.microsoft.com/library/mt652094.aspx) |  [入门](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu)
-| Python | Windows、Linux、macOS | [Python SQL 驱动程序](http://msdn.microsoft.com/library/mt652092.aspx) | 安装选项： <br/> \* [pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \* [pyodbc](http://msdn.microsoft.com/library/mt763257.aspx) |  [入门](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu)
-| Ruby | Windows、Linux、macOS | [用于 SQL Server 的 Ruby 驱动程序](http://msdn.microsoft.com/library/mt691981.aspx) | [安装](https://msdn.microsoft.com/library/mt711041.aspx) | [入门](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu)
+| Java | Windows、Linux、macOS | [用于 SQL Server 的 Microsoft JDBC 驱动程序](https://msdn.microsoft.com/library/mt484311.aspx) | [下载](https://go.microsoft.com/fwlink/?linkid=852460) |  [入门](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
+| PHP | Windows、Linux、macOS| [用于 SQL Server 的 PHP SQL 驱动程序](https://docs.microsoft.com/sql/connect/php/microsoft-php-driver-for-sql-server) | [下载](https://docs.microsoft.com/sql/connect/php/download-drivers-php-sql-server) | [入门](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/)
+| Node.js | Windows、Linux、macOS | [用于 SQL Server 的 Node.js 驱动程序](https://msdn.microsoft.com/library/mt652093.aspx) | [安装](https://msdn.microsoft.com/library/mt652094.aspx) |  [入门](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu)
+| Python | Windows、Linux、macOS | [Python SQL 驱动程序](https://msdn.microsoft.com/library/mt652092.aspx) | 安装选项： <br/> \* [pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \* [pyodbc](https://msdn.microsoft.com/library/mt763257.aspx) |  [入门](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu)
+| Ruby | Windows、Linux、macOS | [用于 SQL Server 的 Ruby 驱动程序](https://msdn.microsoft.com/library/mt691981.aspx) | [安装](https://msdn.microsoft.com/library/mt711041.aspx) | [入门](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu)
 | C++ | Windows、Linux、macOS | [用于 SQL Server 的 Microsoft ODBC 驱动程序](https://msdn.microsoft.com/library/mt654048(v=sql.1).aspx) | [下载](https://msdn.microsoft.com/library/mt654048(v=sql.1).aspx) |  
 
 下表列出了对象关系映射 (ORM) 框架和 Web 框架的示例。客户端应用程序可以将这些框架与本地或云中运行的 SQL Server 配合使用。 可以在 Linux、Windows 或 Docker 上使用这些框架，并且可以使用它们连接到 SQL 数据库和 SQL 数据仓库。 
@@ -39,14 +42,14 @@ ms.locfileid: "52651037"
 | :-- | :-- | :-- |
 | C# | Windows、Linux、macOS | [实体框架](https://docs.microsoft.com/ef)<br>[实体框架核心](https://docs.microsoft.com/ef/core/index) |
 | Java | Windows、Linux、macOS |[Hibernate ORM](http://hibernate.org/orm)|
-| PHP | Windows、Linux | [Laravel (Eloquent)](https://laravel.com/docs/5.0/eloquent) |
+| PHP | Windows、Linux、macOS | [Laravel (Eloquent)](https://laravel.com/docs/5.0/eloquent) |
 | Node.js | Windows、Linux、macOS | [Sequelize ORM](http://docs.sequelizejs.com) |
 | Python | Windows、Linux、macOS |[Django](https://www.djangoproject.com/) |
 | Ruby | Windows、Linux、macOS | [Ruby on Rails](http://rubyonrails.org/) |
 ||||
 
 ## <a name="related-links"></a>相关链接
-- 用于从客户端应用程序进行连接的 [SQL Server 驱动程序](http://msdn.microsoft.com/library/mt654049.aspx)
+- 用于从客户端应用程序进行连接的 [SQL Server 驱动程序](https://msdn.microsoft.com/library/mt654049.aspx)
 - 连接到 SQL 数据库：
     - [使用 .NET (C#) 连接到 SQL 数据库](sql-database-connect-query-dotnet.md)
     - [使用 PHP 连接到 SQL 数据库](sql-database-connect-query-php.md)

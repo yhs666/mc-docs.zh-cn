@@ -15,20 +15,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 02/27/2018
-ms.date: 05/21/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 610e25c05ddf1ac1129ee40b06377b384b0e2951
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8025abd2e834c0bbe00f8a51e82ad8641c3acde9
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666513"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029200"
 ---
-# <a name="run-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>使用 Pig 命令 (SSH) 在基于 Linux 的群集上运行 Pig 作业
+# <a name="run-apache-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>使用 Pig 命令 (SSH) 在基于 Linux 的群集上运行 Apache Pig 作业
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-了解如何以交互方式从 HDInsight 群集的 SSH 连接中运行 Pig 作业。 可以使用 Pig Latin 编程语言来描述应用到输入数据以生成所需输出的转换。
+了解如何以交互方式通过 SSH 与 HDInsight 群集的连接运行 Apache Pig 作业。 可以使用 Pig Latin 编程语言来描述应用到输入数据以生成所需输出的转换。
 
 > [!IMPORTANT]
 > 本文档中的步骤要求使用基于 Linux 的 HDInsight 群集。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
@@ -43,7 +43,7 @@ ssh sshuser@myhdinsight-ssh.azurehdinsight.cn
 
 有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-## <a id="pig"></a>使用 Pig 命令
+## <a id="pig"></a>使用 Apache Pig 命令
 
 1. 连接后，请使用以下命令启动 Pig 命令行接口 (CLI)：
 
@@ -143,11 +143,9 @@ ssh sshuser@myhdinsight-ssh.azurehdinsight.cn
 
 有关 HDInsight 中 Pig 的常规信息，请参阅以下文档：
 
-* [将 Pig 与 Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
+* [将 Apache Pig 与 Apache Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
 
 有关使用 HDInsight 上 Hadoop 的其他方式的详细信息，请参阅以下文档：
 
-* [将 Hive 与 Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
-* [将 MapReduce 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-mapreduce.md)
-
-<!--Update_Description: update meta data-->
+* [将 Apache Hive 与 Apache Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
+* [将 MapReduce 与 HDInsight 上的 Apache Hadoop 配合使用](hdinsight-use-mapreduce.md)

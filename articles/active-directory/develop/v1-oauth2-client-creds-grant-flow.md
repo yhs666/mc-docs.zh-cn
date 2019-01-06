@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/08/2017
-ms.date: 12/04/2018
+ms.date: 01/02/2019
 ms.author: v-junlch
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 73068289f0c0489f3c6cb69b143d427a4574f4f5
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: a34a5953f2785636253a222ca37ce63276ae6387
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028759"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996188"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>使用客户端凭据（共享密钥或证书）进行服务到服务调用
 
@@ -59,7 +59,7 @@ https://login.partner.microsoftonline.cn/<tenant id>/oauth2/token
 
 | 参数 |  | 说明 |
 | --- | --- | --- |
-| grant_type |必填 |指定请求的授权类型。 在客户端凭据授权流中，该值必须是 **client_credentials**。 |
+| grant_type |必填 |指定请求的授权类型。 在客户端凭据授权流中，该值必须是 client_credentials。 |
 | client_id |必填 |指定调用 Web 服务的 Azure AD 客户端 ID。 要查找调用应用程序的客户端 ID，请在 [Azure 门户](https://portal.azure.cn)中，依次单击“Azure Active Directory”和“应用注册”，然后单击该应用程序。 client_id 是应用程序 ID |
 | client_secret |必填 |在 Azure AD 中输入为调用 Web 服务或 daemon 应用程序注册的密钥。 要创建密钥，请在 Azure 门户中，依次单击“Azure Active Directory”>“应用注册”并单击该应用程序，然后依次单击“设置”>“密钥”，并添加密钥。  提供此机密时请对其进行 URL 编码。 |
 | resource |必填 |输入接收 Web 服务的应用 ID URI。 要查找应用 ID URI，请在 Azure 门户中，依次单击“Azure Active Directory”和“应用注册”，并单击服务应用程序，然后依次单击“设置”和“属性”。 |
@@ -80,7 +80,7 @@ grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&cli
 
 | 参数 |  | 说明 |
 | --- | --- | --- |
-| grant_type |必填 |指定请求的响应类型。 在客户端凭据授权流中，该值必须是 **client_credentials**。 |
+| grant_type |必填 |指定请求的响应类型。 在客户端凭据授权流中，该值必须是 client_credentials。 |
 | client_id |必填 |指定调用 Web 服务的 Azure AD 客户端 ID。 要查找调用应用程序的客户端 ID，请在 [Azure 门户](https://portal.azure.cn)中，依次单击“Azure Active Directory”和“应用注册”，然后单击该应用程序。 client_id 是应用程序 ID |
 | client_assertion_type |必填 |值必须是 `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
 | client_assertion |必填 | 断言（JSON Web 令牌），需使用作为凭据向应用程序注册的证书进行创建和签名。 有关如何注册证书以及断言的格式，请阅读[证书凭据](active-directory-certificate-credentials.md)。|
@@ -106,7 +106,7 @@ resource=https%3A%2F%contoso.partner.onmschina.cn%2Ffc7664b4-cdd6-43e1-9365-c2e1
 | 参数 | 说明 |
 | --- | --- |
 | access_token |请求的访问令牌。 调用 Web 服务可以使用此令牌向接收 Web 服务进行身份验证。 |
-| token_type |指示令牌类型值。 Azure AD 唯一支持的类型是 **Bearer**。 有关持有者令牌的详细信息，请参阅 [OAuth 2.0 授权框架：持有者令牌用法 (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt)。 |
+| token_type |指示令牌类型值。 Azure AD 唯一支持的类型是 Bearer 。 有关持有者令牌的详细信息，请参阅 [OAuth 2.0 授权框架：持有者令牌用法 (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt)。 |
 | expires_in |访问令牌的有效期（以秒为单位）。 |
 | expires_on |访问令牌的过期时间。 该日期表示为自 1970-01-01T0:0:0Z UTC 至过期时间的秒数。 此值用于确定缓存令牌的生存期。 |
 | not_before |访问令牌可用的时间。 该日期表示为自 1970-01-01T0:0:0Z UTC 至令牌有效时间的秒数。|
@@ -129,4 +129,4 @@ resource=https%3A%2F%contoso.partner.onmschina.cn%2Ffc7664b4-cdd6-43e1-9365-c2e1
 - [Azure AD 中的 OAuth 2.0](v1-protocols-oauth-code.md)
 - [使用共享密钥的服务到服务调用的 C# 示例](https://github.com/Azure-Samples/active-directory-dotnet-daemon)和[使用证书的服务到服务调用的 C# 示例](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

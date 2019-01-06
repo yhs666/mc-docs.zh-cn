@@ -1,6 +1,6 @@
 ---
 title: 使用 HDInsight 开发 Python 流式处理 MapReduce 作业 - Azure | Azure
-description: 了解如何在流式处理 MapReduce 作业中使用 Python。 Hadoop 为 MapReduce 提供了流式处理 API，以便用 Java 以外的语言编写。
+description: 了解如何在流式处理 MapReduce 作业中使用 Python。 Apache Hadoop 为 MapReduce 提供一个流式处理 API，以便用 Java 以外的语言编写该程序。
 services: hdinsight
 keyword: mapreduce python,python map reduce,python mapreduce
 documentationcenter: ''
@@ -16,22 +16,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 04/10/2018
-ms.date: 05/21/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 4734f85f0d2c4eba582310d2012cfc1a73d98e5e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 3c1c0e6351f61e9f628f350bc9e973b596101c92
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662280"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029177"
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>为 HDInsight 开发 Python 流式处理 MapReduce 程序
 
-了解如何在流式处理 MapReduce 操作中使用 Python。 Hadoop 为 MapReduce 提供了一个流式处理 API，这样，除 Java 外，还能使用其他语言编写映射和化简函数。 本文档中的步骤实现 Python 中的映射和化简组件。
+了解如何在流式处理 MapReduce 操作中使用 Python。 Apache Hadoop 为 MapReduce 提供了一个流式处理 API，使你能够以 Java 之外的其他语言来编写映射和化简函数。 本文档中的步骤实现 Python 中的映射和化简组件。
 
 ## <a name="prerequisites"></a>先决条件
 
-* 基于 Linux 的 HDInsight 上的 Hadoop 群集
+* 基于 Linux 的 Apache Hadoop on HDInsight 群集
 
   > [!IMPORTANT]
   > 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
@@ -289,13 +289,13 @@ switch ($defaultStoreageType)
 
     此命令包括以下几个部分：
 
-   * **hadoop-streaming.jar**：运行流式处理 MapReduce 操作时使用。 它可以将 Hadoop 和你提供的外部 MapReduce 代码连接起来。
+   * **hadoop-streaming.jar**：执行流式处理 MapReduce 操作时使用。 它可以将 Hadoop 和你提供的外部 MapReduce 代码连接起来。
 
    * **-files**：将指定的文件添加到 MapReduce 作业。
 
-   * **-mapper**：告诉 Hadoop 要用作映射器的文件。
+   * **-mapper**：告知 Hadoop 要用作映射器的文件。
 
-   * **-reducer**：告诉 Hadoop 要用作化简器的文件。
+   * **-reducer**：告知 Hadoop 要用作化简器的文件。
 
    * **-input**：要从中统计字数的输入文件。
 
@@ -318,7 +318,7 @@ switch ($defaultStoreageType)
 
 了解如何将流式处理 MapRedcue 作业用于 HDInsight 后，就可以使用以下链接来学习 Azure HDInsight 的其他用法。
 
-* [将 Hive 与 HDInsight 配合使用](hdinsight-use-hive.md)
-* [将 Pig 与 HDInsight 配合使用](hdinsight-use-pig.md)
+* [将 Apache Hive 和 HDInsight 配合使用](hdinsight-use-hive.md)
+* [将 Apache Pig 和 HDInsight 配合使用](hdinsight-use-pig.md)
 * [将 MapReduce 作业与 HDInsight 配合使用](hdinsight-use-mapreduce.md)
 <!--Update_Description: wording update-->

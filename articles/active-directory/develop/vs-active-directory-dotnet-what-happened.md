@@ -10,15 +10,15 @@ ms.technology: vs-azure
 ms.workload: azure-vs
 ms.topic: conceptual
 origin.date: 03/12/2018
-ms.date: 09/03/2018
+ms.date: 01/02/2019
 ms.author: v-junlch
 ms.custom: aaddev, vs-azure
-ms.openlocfilehash: b82beca8f3c776781994552b557999cac39c064a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 2770c6314b63b1274f0a49ddcd4e75c804baae9e
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647491"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996341"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>我的 MVC 项目（Visual Studio Azure Active Directory 连接服务）发生了什么情况？
 
@@ -103,7 +103,7 @@ ms.locfileid: "52647491"
 
     ```xml
     <configSections>
-      <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
+      <!-- For more information on Entity Framework configuration, visit https://go.microsoft.com/fwlink/?LinkID=237468 -->
       <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
     </configSections>
 

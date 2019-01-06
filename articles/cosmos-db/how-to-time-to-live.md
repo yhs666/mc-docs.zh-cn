@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 11/14/2018
-ms.date: 12/03/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: d39593e2eec5aecf4be3e0e7fc84ce551fbe4430
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 879ac9bb8b1c419493d0202a4c00accca763b048
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676770"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026767"
 ---
 # <a name="how-to-configure-time-to-live-in-azure-cosmos-db"></a>如何在 Azure Cosmos DB 中配置生存时间
 

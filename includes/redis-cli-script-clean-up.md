@@ -3,14 +3,14 @@ author: wesmc7777
 ms.service: redis-cache
 ms.topic: include
 origin.date: 11/09/2018
-ms.date: 11/30/2018
+ms.date: 12/25/2018
 ms.author: v-junlch
-ms.openlocfilehash: 2a7984093f19be3218e1e865c94df54f42c20321
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 06f4dcd52168ebb8ec9a17d252836edb813daaae
+ms.sourcegitcommit: d2893ae6bdbb3784d243d5d3c49c25c9cfd99d9b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53070294"
+ms.lasthandoff: 12/25/2018
+ms.locfileid: "53784832"
 ---
 ## <a name="clean-up-deployment"></a>清理部署 
 
@@ -20,3 +20,4 @@ ms.locfileid: "53070294"
 az group delete --name contosoGroup
 ```
 
+<!-- ms.date: 12/25/2018 -->

@@ -15,14 +15,14 @@ ms.topic: conceptual
 origin.date: 02/27/2018
 ms.date: 05/21/2018
 ms.author: v-yiso
-ms.openlocfilehash: 7d0d21fabed38a2cde00d647010fb207a15b93be
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 41ed895d2beab2c38d7b08bebb6c7829c5f1bad4
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655252"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029151"
 ---
-# <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a>在 HDInsight 中的 Hadoop 上将 C# 与 MapReduce 流式处理配合使用
+# <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>在 HDInsight 中的 Apache Hadoop 上将 C# 与 MapReduce 流式处理配合使用
 
 
 
@@ -31,13 +31,13 @@ ms.locfileid: "52655252"
 > [!IMPORTANT]
 > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 组件版本控制](../hdinsight-component-versioning.md)。
 
-Hadoop 流式处理是一个实用工具，通过它可以使用脚本或可执行文件运行 MapReduce 作业。 在本示例中，.NET 用于为单词计数解决方案实现映射器和化简器。
+Apache Hadoop 流式处理是一个实用工具，通过它可以使用脚本或可执行文件运行 MapReduce 作业。 在本示例中，.NET 用于为单词计数解决方案实现映射器和化简器。
 
 ## <a name="net-on-hdinsight"></a>HDInsight 上的 .NET
 
 __基于 Linux 的 HDInsight__ 群集使用 [Mono (https://mono-project.com)](https://mono-project.com) 运行 .NET 应用程序。 HDInsight 版本 3.6 附带了 Mono 版本 4.2.1。 有关包含在 HDInsight 中的 Mono 版本的详细信息，请参阅 [HDInsight 组件版本](../hdinsight-component-versioning.md)。 若要使用 Mono 的特定版本，请参阅[安装或更新 Mono](../hdinsight-hadoop-install-mono.md) 文档。
 
-有关 Mono 与 .NET Framework 版本的兼容性的详细信息，请参阅 [Mono 兼容性](http://www.mono-project.com/docs/about-mono/compatibility/)。
+有关 Mono 与 .NET Framework 版本的兼容性的详细信息，请参阅 [Mono 兼容性](https://www.mono-project.com/docs/about-mono/compatibility/)。
 
 ## <a name="how-hadoop-streaming-works"></a>Hadoop 流式处理的工作原理
 
@@ -310,6 +310,6 @@ Get-AzureStorageBlobContent `
 
 有关将 MapReduce 与 HDInsight 配合使用的详细信息，请参阅[将 MapReduce 与 HDInsight 配合使用](hdinsight-use-mapreduce.md)。
 
-有关将 C# 与 Hive 和 Pig 配合使用的信息，请参阅[将 C# 用户定义函数与 Hive 和 Pig 配合使用](apache-hadoop-hive-pig-udf-dotnet-csharp.md)。
+有关将 C# 与 Hive 和 Pig 配合使用的信息，请参阅[将 C# 用户定义函数与 Apache Hive 和 Apache Pig 配合使用](apache-hadoop-hive-pig-udf-dotnet-csharp.md)。
 
-有关在 HDInsight 上将 C# 与 Storm 配合使用的信息，请参阅[为 HDInsight 上的 Storm 开发 C# 拓扑](../storm/apache-storm-develop-csharp-visual-studio-topology.md)。
+有关在 HDInsight 上将 C# 与 Storm 配合使用的信息，请参阅[为 HDInsight 上的 Apache Storm 开发 C# 拓扑](../storm/apache-storm-develop-csharp-visual-studio-topology.md)。

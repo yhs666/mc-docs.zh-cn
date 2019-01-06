@@ -3,18 +3,24 @@ items:
   href: index.yml
 - name: 概述
   items:
-  - name: 关于 Functions
+  - name: 关于 Azure Functions
     href: functions-overview.md
+  - name: Durable Functions
+    href: durable/durable-functions-overview.md
 - name: 快速入门
   items:
-  - name: 创建函数 - 门户
-    href: functions-create-first-azure-function.md
   - name: 创建函数 - Visual Studio
     href: functions-create-your-first-function-visual-studio.md
+  - name: 创建函数 - Visual Studio Code
+    href: functions-create-first-function-vs-code.md
   - name: 创建函数 - Java/Maven
     href: functions-create-first-java-maven.md
+  - name: 创建函数 - Python
+    href: functions-create-first-function-python.md
   - name: 创建函数 - Azure CLI
     href: functions-create-first-azure-function-azure-cli.md
+  - name: 创建函数 - 门户
+    href: functions-create-first-azure-function.md
   - name: 触发器
     items:
     - name: Azure Cosmos DB
@@ -66,6 +72,8 @@ items:
       href: functions-reference-node.md
     - name: Java
       href: functions-reference-java.md
+    - name: Python
+      href: functions-reference-python.md
   - name: 诊断
     href: ../app-service/app-service-diagnostics.md
   - name: 性能注意事项
@@ -76,42 +84,6 @@ items:
     href: ip-addresses.md
   - name: 本地函数
     href: functions-runtime-overview.md
-  - name: Durable Functions
-    items:
-    - name: 概述
-      href: durable-functions-overview.md
-    - name: 函数类型和功能
-      href: durable-functions-types-features-overview.md
-    - name: 绑定
-      href: durable-functions-bindings.md
-    - name: 检查点和重播
-      href: durable-functions-checkpointing-and-replay.md
-    - name: 自定义业务流程状态
-      href: durable-functions-custom-orchestration-status.md
-    - name: 实例管理
-      href: durable-functions-instance-management.md
-    - name: HTTP API
-      href: durable-functions-http-api.md
-    - name: 错误处理。
-      href: durable-functions-error-handling.md
-    - name: 计时器
-      href: durable-functions-timers.md
-    - name: 外部事件
-      href: durable-functions-external-events.md
-    - name: 永久业务流程
-      href: durable-functions-eternal-orchestrations.md
-    - name: 单独业务流程
-      href: durable-functions-singletons.md
-    - name: 子业务流程
-      href: durable-functions-sub-orchestrations.md
-    - name: 任务中心
-      href: durable-functions-task-hubs.md
-    - name: 版本控制
-      href: durable-functions-versioning.md
-    - name: 性能和缩放性
-      href: durable-functions-perf-and-scale.md
-    - name: 灾难恢复和异地分发
-      href: durable-functions-disaster-recovery-geo-distribution.md
 - name: 操作指南
   items:
   - name: 开发
@@ -132,8 +104,8 @@ items:
       href: functions-create-maven-eclipse.md
     - name: 管理连接
       href: manage-connections.md
-    - name: 错误处理。
-      href: functions-bindings-error-pages.md
+    - name: 手动运行非 HTTP 触发的函数
+      href: functions-manually-run-non-http.md
   - name: 部署
     items:
     - name: Zip 部署
@@ -154,30 +126,36 @@ items:
       href: install-update-binding-extensions-manual.md
     - name: 禁用函数
       href: disable-function.md
+  - name: 安全
+    items:
+    - name: 高级身份验证
+      href: ../app-service/app-service-authentication-how-to.md
+    - name: 限制 IP
+      href: ../app-service/app-service-ip-restrictions.md
+    - name: 使用托管标识
+      href: ../app-service/app-service-managed-service-identity.md
   - name: 集成
     items:
     - name: 连接到 SQL 数据库
       href: functions-scenario-database-table-cleanup.md
     - name: 创建 Open API 2.0 定义
       href: functions-api-definition-getting-started.md
-  - name: Durable Functions
-    items:
-    - name: 安装
-      href: durable-functions-install.md
-    - name: 链接
-      href: durable-functions-sequence.md
-    - name: 扇出/扇入
-      href: durable-functions-cloud-backup.md
-    - name: 单元测试
-      href: durable-functions-unit-testing.md
-    - name: 使用 WebJobs SDK
-      href: durable-functions-webjobs-sdk.md
+    - name: 使用托管标识
+      href: ../app-service/app-service-managed-service-identity.md
   - name: 故障排除
     items:
     - name: 排查存储问题
       href: functions-recover-storage-account.md
 - name: 参考
   items:
+  - name: API 参考
+    items:
+    - name: Java
+      href: https://docs.microsoft.com/en-us/java/api/overview/azure/functions/runtime?view=azure-java-stable
+    - name: Python
+      href: https://docs.microsoft.com/python/api/azure-functions/azure.functions?view=azure-python
+  - name: 应用设置参考
+    href: functions-app-settings.md
   - name: 绑定
     items:
     - name: Blob 存储
@@ -202,6 +180,8 @@ items:
       href: functions-bindings-notification-hubs.md
     - name: 队列存储
       href: functions-bindings-storage-queue.md
+    - name: SendGrid
+      href: functions-bindings-sendgrid.md
     - name: 服务总线
       href: functions-bindings-service-bus.md
     - name: 表存储
@@ -209,13 +189,12 @@ items:
     - name: 计时器
       href: functions-bindings-timer.md
   - name: host.json 引用
+    href: functions-host-json.md
     items:
     - name: Functions 2.x
       href: functions-host-json.md
     - name: Functions 1.x
       href: functions-host-json-v1.md
-  - name: 应用设置参考
-    href: functions-app-settings.md
   - name: OpenAPI 参考
     href: functions-api-definition.md
 - name: 资源
@@ -231,14 +210,16 @@ items:
   - name: MSDN 论坛
     href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-functions
+    href: https://stackoverflow.com/questions/tagged/azure-functions
+  - name: 提供产品反馈
+    href: https://feedback.azure.com/forums/355860-azure-functions
   - name: Azure Functions GitHub 存储库
     href: https://github.com/Azure/Azure-Functions/
   - name: 服务更新
-    href: https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=
-ms.openlocfilehash: 0b350cb56fbba59bdffae2653d6bf79c6140526a
-ms.sourcegitcommit: a3cde3b41ed4d3f39a30eb4e562d6436a3e4d9d5
+    href: https://azure.microsoft.com/updates/?product=functions&updatetype=&platform=
+ms.openlocfilehash: 9c5860b39a49bcd17200e46a87cc0dd3dd9bb1e6
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53131748"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806621"

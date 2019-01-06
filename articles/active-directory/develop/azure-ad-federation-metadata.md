@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/07/2017
-ms.date: 09/03/2018
+ms.date: 12/29/2018
 ms.author: v-junlch
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: a881085202a3a8df42bf432234463487f61cbe43
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 7a1af78b68f6f1ed73faf8cbff28391d16b1d333
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649808"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996346"
 ---
 # <a name="federation-metadata"></a>联合元数据
-对于配置为接受 Azure Active Directory 颁发的安全令牌的服务，Azure Active Directory (Azure AD) 发布了一个联合元数据文档。 [Web Services 联合身份验证语言（WS 联合身份验证）版本 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html) 中介绍了联合元数据文档格式，该文章还扩展了 [OASIS 安全断言标记语言 (SAML) v2.0 元数据](http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf)。
+对于配置为接受 Azure Active Directory 颁发的安全令牌的服务，Azure Active Directory (Azure AD) 发布了一个联合元数据文档。 [Web Services 联合身份验证语言（WS 联合身份验证）版本 1.2](https://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html) 中介绍了联合元数据文档格式，该文章还扩展了 [OASIS 安全断言标记语言 (SAML) v2.0 元数据](https://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf)。
 
 ## <a name="tenant-specific-and-tenant-independent-metadata-endpoints"></a>特定于租户和独立于租户的元数据终结点
 Azure AD 发布了特定于租户和独立于租户的终结点。
@@ -81,7 +81,7 @@ Azure AD 发布的联合元数据文档可以包含多个签名密钥，例如�
 
 ```
 <KeyDescriptor use="signing">
-<KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+<KeyInfo xmlns="https://www.w3.org/2000/09/xmldsig#">
 <X509Data>
 <X509Certificate>
 MIIDPjCCAiqgAwIBAgIQVWmXY/+9RqFA/OG9kFulHDAJBgUrDgMCHQUAMC0xKzApBgNVBAMTImFjY291bnRzLmFjY2Vzc2NvbnRyb2wud2luZG93cy5uZXQwHhcNMTIwNjA3MDcwMDAwWhcNMTQwNjA3MDcwMDAwWjAtMSswKQYDVQQDEyJhY2NvdW50cy5hY2Nlc3Njb250cm9sLndpbmRvd3MubmV0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArCz8Sn3GGXmikH2MdTeGY1D711EORX/lVXpr+ecGgqfUWF8MPB07XkYuJ54DAuYT318+2XrzMjOtqkT94VkXmxv6dFGhG8YZ8vNMPd4tdj9c0lpvWQdqXtL1TlFRpD/P6UMEigfN0c9oWDg9U7Ilymgei0UXtf1gtcQbc5sSQU0S4vr9YJp2gLFIGK11Iqg4XSGdcI0QWLLkkC6cBukhVnd6BCYbLjTYy3fNs4DzNdemJlxGl8sLexFytBF6YApvSdus3nFXaMCtBGx16HzkK9ne3lobAwL2o79bP4imEGqg+ibvyNmbrwFGnQrBc1jTF9LyQX9q+louxVfHs6ZiVwIDAQABo2IwYDBeBgNVHQEEVzBVgBCxDDsLd8xkfOLKm4Q/SzjtoS8wLTErMCkGA1UEAxMiYWNjb3VudHMuYWNjZXNzY29udHJvbC53aW5kb3dzLm5ldIIQVWmXY/+9RqFA/OG9kFulHDAJBgUrDgMCHQUAA4IBAQAkJtxxm/ErgySlNk69+1odTMP8Oy6L0H17z7XGG3w4TqvTUSWaxD4hSFJ0e7mHLQLQD7oV/erACXwSZn2pMoZ89MBDjOMQA+e6QzGB7jmSzPTNmQgMLA8fWCfqPrz6zgH+1F1gNp8hJY57kfeVPBiyjuBmlTEBsBlzolY9dd/55qqfQk6cgSeCbHCy/RU/iep0+UsRMlSgPNNmqhj5gmN2AFVCN96zF694LwuPae5CeR2ZcVknexOWHYjFM0MgUSw0ubnGl0h9AJgGyhvNGcjQqu9vd1xkupFgaN+f7P3p3EVN5csBg5H94jEcQZT7EKeTiZ6bTrpDAnrr8tDCy8ng
@@ -98,7 +98,7 @@ MIIDPjCCAiqgAwIBAgIQVWmXY/+9RqFA/OG9kFulHDAJBgUrDgMCHQUAMC0xKzApBgNVBAMTImFjY291
 以下元数据显示了一个 `RoleDescriptor` 元素示例。
 
 ```
-<RoleDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fed="http://docs.oasis-open.org/wsfed/federation/200706" xsi:type="fed:SecurityTokenServiceType"protocolSupportEnumeration="http://docs.oasis-open.org/wsfed/federation/200706">
+<RoleDescriptor xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:fed="https://docs.oasis-open.org/wsfed/federation/200706" xsi:type="fed:SecurityTokenServiceType"protocolSupportEnumeration="https://docs.oasis-open.org/wsfed/federation/200706">
 ```
 
 在特定于 SAML 的部分中，WS 联合身份验证元数据读取器读取 `IDPSSODescriptor` 元素中的证书。
@@ -117,7 +117,7 @@ MIIDPjCCAiqgAwIBAgIQVWmXY/+9RqFA/OG9kFulHDAJBgUrDgMCHQUAMC0xKzApBgNVBAMTImFjY291
 
 ```
 <fed:PassiveRequestorEndpoint>
-<EndpointReference xmlns="http://www.w3.org/2005/08/addressing">
+<EndpointReference xmlns="https://www.w3.org/2005/08/addressing">
 <Address>
 https://login.partner.microsoftonline.cn/72f988bf-86f1-41af-91ab-2d7cd011db45/wsfed
 </Address>
@@ -128,7 +128,7 @@ https://login.partner.microsoftonline.cn/72f988bf-86f1-41af-91ab-2d7cd011db45/ws
 
 ```
 <fed:PassiveRequestorEndpoint>
-<EndpointReference xmlns="http://www.w3.org/2005/08/addressing">
+<EndpointReference xmlns="https://www.w3.org/2005/08/addressing">
 <Address>
 https://login.partner.microsoftonline.cn/common/wsfed
 </Address>
@@ -161,3 +161,4 @@ https://login.partner.microsoftonline.cn/common/wsfed
   </IDPSSODescriptor>
 ```
 
+<!-- Update_Description: link update -->

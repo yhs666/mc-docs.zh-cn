@@ -6,14 +6,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 04/01/2018
-ms.date: 10/29/2018
+ms.date: 12/31/2018
 ms.author: v-yiso
-ms.openlocfilehash: 5a57464ee4e16e7cd976ab2825b4917005d006a5
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 9e142ba6c45eea90e18ceaeeae81068a53874479
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658237"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736685"
 ---
 # <a name="azure-iot-sdks-platform-support"></a>Azure IoT SDK 平台支持
 
@@ -21,7 +21,7 @@ ms.locfileid: "52658237"
 
 Microsoft 支持各种操作系统/平台/框架，后者可以通过 Azure IoT C SDK 进行扩展。 某些是团队正式支持的，可以分成多个层，这些层表示用户可以预期的支持级别。 *为平台提供全面的支持*是指 Microsoft 会：
 
-    * 持续生成主版本和 LTS 支持的版本并对其运行端到端测试。
+    * 持续生成主版本和 LTS 支持的版本并对其运行端到端测试。  为了提供覆盖不同版本的测试，我们通常会针对最新的 LTS 版本和最常用的版本进行测试。  可以通过平台版本兼容性支持同一平台的其他版本。
     * 根据需要提供安装指南或包。
     * 完全支持 GitHub 上的平台。
 
@@ -32,7 +32,6 @@ Microsoft 支持各种操作系统/平台/框架，后者可以通过 Azure IoT 
 * Windows CE 2013（于 2018 年 10 月弃用）
 * .NET Standard 1.3（包含 .NET Core 2.1 和 .NET Framework 4.7）
 * Xamarin iOS、Android、UWP
-* Android（包含 Java）
 
 ## <a name="supported-platforms"></a>支持的平台
 
@@ -79,6 +78,7 @@ Microsoft 支持各种操作系统/平台/框架，后者可以通过 Azure IoT 
 |---------------------|------|--------------|
 | Ubuntu 16.04 LTS    | X64  | Java 8       |
 | Windows Server 2016 | X64  | Java 8       |
+| Android API 28 | X64  | Java 8       |
 
 ## <a name="partner-supported-platforms"></a>合作伙伴支持的平台
 客户可以通过移植 Azure IoT C SDK 来扩展我们的平台支持，特别是创建 SDK 的平台抽象层 (PAL)。  Microsoft 与合作伙伴合作提供扩展支持。  合作伙伴列表已将 C SDK 移植到更多平台并维护 PAL。

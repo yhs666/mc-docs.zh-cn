@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
 origin.date: 07/11/2018
-ms.date: 11/30/2018
+ms.date: 12/28/2018
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 0e5f746e6195804e83abd49211b3940973f3cdee
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 7a0d30031f0afcb4b1eef723faa64865a3ce91b0
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028897"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996214"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>有关 Azure 多重身份验证的常见问题
 
@@ -80,7 +80,7 @@ ms.locfileid: "53028897"
 
 尝试登录在本地计算机上安装的非浏览器应用程序，且此应用程序无法使用需要双重验证的帐户时，将发生 0x800434D4L 错误。
 
-此错误的解决方法是，使用不同的用户帐户执行管理员相关操作和非管理员操作。 稍后，可以在管理员帐户与非管理员帐户之间链接邮箱，以便能够使用非管理员帐户登录到 Outlook。 若要详细了解此解决方案，请了解如何[让管理员能够打开和查看用户邮箱的内容](http://help.outlook.com/141/gg709759.aspx?sl=1)。
+此错误的解决方法是，使用不同的用户帐户执行管理员相关操作和非管理员操作。 稍后，可以在管理员帐户与非管理员帐户之间链接邮箱，以便能够使用非管理员帐户登录到 Outlook。 若要详细了解此解决方案，请了解如何[让管理员能够打开和查看用户邮箱的内容](https://help.outlook.com/141/gg709759.aspx?sl=1)。
 
 ## <a name="next-steps"></a>后续步骤
 如果此处未解答问题，请将其留在页面底部的评论中。 或者，以下是一些用于获取帮助的其他选项：

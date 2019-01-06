@@ -2,7 +2,7 @@
 title: Azure 媒体服务文档 - 教程和 API 参考 | Microsoft 文档
 description: 了解如何使用媒体服务（一个可缩放的云平台）安全地流式传输广播质量的点播或直播视频。 教程、API 参考和其他资源。
 services: media-services
-author: forester123
+author: WenJason
 manager: digimobile
 layout: LandingPage
 ms.assetid: ''
@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 01/23/2017
-ms.date: 09/25/2017
-ms.author: v-johch
-ms.openlocfilehash: 386ac6713e59995cce273ac3d559c2ae7d6959d1
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 01/07/2019
+ms.author: v-jay
+ms.openlocfilehash: d90532bc0fcbbe09ae6712a80960eb5c5fbe5377
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666577"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996298"
 ---
 # <a name="media-services-documentation"></a>媒体服务文档
 
@@ -152,3 +152,47 @@ ms.locfileid: "52666577"
         </a>
     </li>
 </ul>
+
+---
+
+<h2>参考</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>命令行</h3>
+                        <p><a href="/azure-resource-manager/powershell-azure-resource-manager">PowerShell (Resource Manager)</a></p>
+                        <p><a href="https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0">PowerShell（服务管理）</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>语言</h3>
+                        <p><a href="/dotnet/api/microsoft.windowsazure.mediaservices.client">.NET</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="https://docs.microsoft.com/rest/api/media">REST API 参考</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+

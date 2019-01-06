@@ -1,29 +1,27 @@
 ---
-title: 使用 Azure Cosmos DB 中的日期 | Azure
+title: 使用 Azure Cosmos DB 中的日期
 description: 了解如何使用 Azure Cosmos DB 中的日期。
 services: cosmos-db
-author: rockboyfor
-manager: digimobile
 ms.service: cosmos-db
-ms.devlang: na
+author: rockboyfor
+ms.author: v-yeche
 ms.topic: conceptual
 origin.date: 05/25/2017
-ms.date: 12/03/2018
-ms.author: v-yeche
-ms.openlocfilehash: 664e45c1816e9578bce298d60abad1807a31fb8c
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 01/07/2019
+ms.openlocfilehash: c4a92a6aa6d15dcd8f43a4b9b871aac77eb9ad7a
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674153"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026832"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的日期
-Azure Cosmos DB 通过本机 [JSON](http://www.json.org) 数据模型提供架构灵活性和丰富的索引。 所有 Azure Cosmos DB 资源（包括数据库、容器、文档和存储过程）均作为 JSON 文档进行建模和存储。 JSON（和 Azure Cosmos DB）仅支持一小部分基本类型：字符串、数字、布尔值、数组、对象和 Null。这是对可移植性的要求。 但是，JSON 具有相当的灵活性，允许开发人员和框架使用这些基元并将其编写为对象或数组，以便表示更复杂的类型。 
+Azure Cosmos DB 通过本机 [JSON](https://www.json.org) 数据模型提供架构灵活性和丰富的索引。 所有 Azure Cosmos DB 资源（包括数据库、容器、文档和存储过程）均作为 JSON 文档进行建模和存储。 为使代码可移植，JSON（及 Azure Cosmos DB）仅支持一小组基本类型：字符串、数字、布尔值、数组、对象和 Null。 但是，JSON 具有相当的灵活性，允许开发人员和框架使用这些基元并将其编写为对象或数组，以便表示更复杂的类型。 
 
 除了基本类型，许多应用程序还需要表示日期和时间戳的 [DateTime](https://msdn.microsoft.com/library/system.datetime(v=vs.110).aspx) 类型。 本文介绍开发人员可如何使用 .NET SDK 在 Azure Cosmos DB 中存储、检索和查询日期。
 
 ## <a name="storing-datetimes"></a>存储 DateTime
-默认情况下，[Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) 会将 DateTime 值序列化为 [ISO 8601](http://www.iso.org/iso/catalogue_detail?csnumber=40874) 字符串。 由于以下原因，大多数应用程序可以使用 DateTime 的默认字符串表示形式：
+默认情况下，[Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) 会将 DateTime 值序列化为 [ISO 8601](https://www.iso.org/iso/catalogue_detail?csnumber=40874) 字符串。 由于以下原因，大多数应用程序可以使用 DateTime 的默认字符串表示形式：
 
 * 字符串可以进行比较，而 DateTime 值的相对顺序在这些值转换为字符串时得以保留。 
 * 此方法不需要进行 JSON 转换所需的任何自定义代码或属性。
@@ -59,7 +57,7 @@ Azure Cosmos DB 通过本机 [JSON](http://www.json.org) 数据模型提供架�
         "Total": 113.39
     }
 
-也可将 DateTime 存储为 Unix 时间戳，即存储为数字，用于表示自 1970 年 1 月 1 日以来已过去的秒数。 Azure Cosmos DB 的内部时间戳 (`_ts`) 属性遵循这种方法。 可以使用 [UnixDateTimeConverter](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.unixdatetimeconverter.aspx) 类将 DateTime 序列化为数字。 
+也可将 DateTime 存储为 Unix 时间戳，即存储为数字，用于表示自 1970 年 1 月 1 日以来已过去的秒数。 Azure Cosmos DB 的内部时间戳 (`_ts`) 属性遵循这种方法。 可以使用 [UnixDateTimeConverter](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.unixdatetimeconverter) 类将 DateTime 序列化为数字。 
 
 ## <a name="indexing-datetimes-for-range-queries"></a>编制 DateTime 的索引以执行范围查询
 通常可以使用 DateTime 值执行范围查询。 例如，如果需要查找昨天以来创建的所有订单，或者查找过去五分钟内发运的所有订单，则要执行范围查询。 若要有效执行这些查询，必须针对字符串的范围索引配置集合。

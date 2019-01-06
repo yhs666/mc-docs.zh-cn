@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 09/24/2018
-ms.date: 11/30/2018
+ms.date: 12/29/2018
 ms.author: v-junlch
 ms.reviewer: sureshja
 ms.custom: aaddev
-ms.openlocfilehash: d05c80cc0cfb178eb6454ddc8fe7745412a63814
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: d2b259837683bc3925d597fdd30c10a90859fb22
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028376"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996361"
 ---
 # <a name="how-to-use-the-azure-ad-graph-api"></a>如何：使用 Azure AD 图形 API
 
@@ -33,7 +33,7 @@ Azure Active Directory (Azure AD) 图形 API 通过 OData REST API 终结点提�
 本文适用于 Azure AD 图形 API。 有关与 Microsoft Graph API 相关的类似信息，请参阅[使用 Microsoft Graph API](https://developer.microsoft.com/graph/docs/concepts/use_the_api)。
 
 > [!IMPORTANT]
-> 强烈建议使用 [Microsoft Graph](https://developer.microsoft.com/zh-cn/graph/graph-explorer-china)（而非 Azure AD 图形 API）访问 Azure Active Directory 资源。 目前，我们在集中开发 Microsoft Graph，未计划进一步改进 Azure AD Graph API。 Azure AD Graph API 仍可能适用的方案非常有限；有关详细信息，请参阅 Office 开发人员中心的 [Microsoft Graph or the Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph)（Microsoft Graph 或 Azure AD Graph）博客文章。
+> 强烈建议使用 [Microsoft Graph](https://developer.microsoft.com/graph)（而非 Azure AD 图形 API）访问 Azure Active Directory 资源。 目前，我们在集中开发 Microsoft Graph，未计划进一步改进 Azure AD Graph API。 Azure AD Graph API 仍可能适用的方案非常有限；有关详细信息，请参阅 Office 开发人员中心的 [Microsoft Graph or the Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph)（Microsoft Graph 或 Azure AD Graph）博客文章。
 
 ## <a name="how-to-construct-a-graph-api-url"></a>如何构造图形 API URL
 
@@ -67,7 +67,7 @@ Azure Active Directory (Azure AD) 图形 API 通过 OData REST API 终结点提�
 
 ![Azure AD 图形 API 资源管理器](./media/active-directory-graph-api-quickstart/graph_explorer.png)
 
-**加载 Azure AD 图形资源管理器**：若要加载该工具，请导航到 [https://developer.microsoft.com/zh-cn/graph/graph-explorer-china/](https://developer.microsoft.com/zh-cn/graph/graph-explorer-china/)。 单击“登录”，并使用 Azure AD 帐户凭据登录，以针对租户运行 Azure AD 图形资源管理器。 如果针对自己的租户运行 Azure AD 图形资源管理器，则你或管理员需要在登录期间表示同意。 如果拥有 Office 365 订阅，则会自动拥有 Azure AD 租户。 用于登录 Office 365 的凭据事实上就是 Azure AD 帐户，可以在 Azure AD 图形资源管理器中使用这些凭据。
+**加载 Azure AD 图形资源管理器**：若要加载该工具，请导航到 [https://graphexplorerchina.azurewebsites.net/](https://graphexplorerchina.azurewebsites.net/)。 单击“登录”，并使用 Azure AD 帐户凭据登录，以针对租户运行 Azure AD 图形资源管理器。 如果针对自己的租户运行 Azure AD 图形资源管理器，则你或管理员需要在登录期间表示同意。 如果拥有 Office 365 订阅，则会自动拥有 Azure AD 租户。 用于登录 Office 365 的凭据事实上就是 Azure AD 帐户，可以在 Azure AD 图形资源管理器中使用这些凭据。
 
 **运行查询**：若要运行查询，请在请求文本框中键入查询，然后单击“获取”或单击 **Enter** 键。 结果将显示在响应框中。 例如，`https://graph.chinacloudapi.cn/myorganization/groups?api-version=1.6` 将列出已登录用户目录中的所有组对象。
 
@@ -83,7 +83,7 @@ Azure Active Directory (Azure AD) 图形 API 通过 OData REST API 终结点提�
 
 ## <a name="using-fiddler-to-write-to-the-directory"></a>使用 Fiddler 写入目录
 
-在本快速入门指南中，可以使用 Fiddler Web 调试器来练习对 Azure AD 目录执行“写入”操作。 例如，可以获取和上传用户的个人资料照片（无法使用 Azure AD 图形资源管理器实现此目的）。 若要了解更多信息并安装 Fiddler，请参阅 [http://www.telerik.com/fiddler](http://www.telerik.com/fiddler)。
+在本快速入门指南中，可以使用 Fiddler Web 调试器来练习对 Azure AD 目录执行“写入”操作。 例如，可以获取和上传用户的个人资料照片（无法使用 Azure AD 图形资源管理器实现此目的）。 若要了解更多信息并安装 Fiddler，请参阅 [https://www.telerik.com/fiddler](https://www.telerik.com/fiddler)。
 
 以下示例使用 Fiddler Web 调试器在 Azure AD 目录中创建一个新的安全组“MyTestGroup”。
 
@@ -129,4 +129,4 @@ Azure Active Directory (Azure AD) 图形 API 通过 OData REST API 终结点提�
 - 了解有关 [Azure AD 图形 API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 - 了解有关 [Azure AD 图形 API 权限范围](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

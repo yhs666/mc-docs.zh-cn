@@ -1,27 +1,22 @@
 ---
-title: Azure PowerShell 脚本 - 获取 MongoDB 应用的 Azure Cosmos DB 连接字符串 | Azure
+title: Azure PowerShell 脚本 - 获取 MongoDB 应用的 Azure Cosmos DB 连接字符串
 description: Azure PowerShell 脚本示例 - 获取 MongoDB 应用的 Azure Cosmos DB 连接字符串
 services: cosmos-db
-documentationcenter: cosmosdb
-author: rockboyfor
-manager: digimobile
-tags: azure-service-management
 ms.service: cosmos-db
+author: rockboyfor
+ms.author: v-yeche
 ms.component: cosmosdb-mongo
 ms.custom: mvc
 ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: cosmosdb
-ms.workload: database
 origin.date: 05/10/2017
-ms.date: 09/03/2018
-ms.author: v-yeche
-ms.openlocfilehash: 81c8477e25e10840904f182605a169b4d50fd44a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/31/2018
+ms.openlocfilehash: cf81ab389c0c9efeb1016dd82bc713891547ee17
+ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655322"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814767"
 ---
 # <a name="get-an-azure-cosmos-db-connection-string-for-mongodb-apps-using-powershell"></a>使用 PowerShell 获取 MongoDB 应用的 Azure Cosmos DB 连接字符串
 
@@ -100,4 +95,4 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/)。
 
 可以在 [Azure Cosmos DB PowerShell 脚本](../powershell-samples.md)中找到其他 Azure Cosmos DB PowerShell 脚本示例。
-<!-- Update_Description: wording update, update link -->
+<!-- Update_Description: update meta properties -->

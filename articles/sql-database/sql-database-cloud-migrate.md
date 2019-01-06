@@ -13,13 +13,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 10/15/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 0200ba31035ea7862ac0929ed4fd877b0ad4785d
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.date: 01/07/2019
+ms.openlocfilehash: 8bec3ceef022f2c96da638c6577aa1272c907fbf
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673006"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996242"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>将 SQL Server 数据库迁移到 Azure SQL 数据库
 
@@ -34,9 +34,9 @@ ms.locfileid: "52673006"
 > [!NOTE]
 > 要将非 SQL Server 数据库（包括 Microsoft Access、Sybase、MySQL Oracle 和 DB2）迁移到 Azure SQL 数据库，请参阅 [SQL Server 迁移助手](https://blogs.msdn.microsoft.com/datamigration/2017/09/29/release-sql-server-migration-assistant-ssma-v7-6/)。
 
-## <a name="method-1-migration-with-downtime-during-the-migration"></a>方法 1：在迁移过程中需要停机的迁移
+## <a name="method-1-migration-with-downtime-during-the-migration"></a>方法 1：在迁移过程中需停机的迁移
 
- 如果可以承受一定的停机时间，或者正在针对以后的迁移执行生产数据库的测试迁移，请使用此方法迁移到单个或共用数据库。 有关教程，请参阅[迁移 SQL Server 数据库](sql-database-migrate-your-sql-server-database.md)。
+ 如果可以承受一定的停机时间，或者正在针对以后的迁移执行生产数据库的测试迁移，请使用此方法迁移到单个或共用数据库。
 
 下面的列表包含使用此方法将 SQL Server 数据库迁移到单个或共用数据库的常规工作流。 有关迁移到托管实例的信息，请参阅[迁移到托管实例](sql-database-managed-instance-migrate.md)。
 

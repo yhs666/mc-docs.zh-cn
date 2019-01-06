@@ -1,5 +1,5 @@
 ---
-title: 使用 Apache Kafka 生成者和使用者 API - Azure HDInsight
+title: '教程：使用 Apache Kafka 生成者和使用者 API - Azure HDInsight '
 description: 了解如何将 Apache Kafka 生成者和使用者 API 与 Kafka on HDInsight 配合使用。 本教程介绍如何从 Java 应用程序中将这些 API 与 Kafka on HDInsight 配合使用。
 services: hdinsight
 documentationcenter: ''
@@ -11,19 +11,19 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: tutorial
-origin.date: 04/16/2018
+origin.date: 11/06/2018
 ms.author: v-yiso
-ms.date: 09/17/2018
-ms.openlocfilehash: 843794ea6a904e768a0ddc68de4bc07e523b680b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 01/14/2019
+ms.openlocfilehash: d713b481fee84293b7d00d0111cdcb570af4d641
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666891"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029170"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>教程：使用 Apache Kafka 生成者和使用者 API
 
-了解如何将 Kafka 生成者和使用者 API 与 Kafka on HDInsight 配合使用。
+了解如何将 Apache Kafka 生成者和使用者 API 与 Kafka on HDInsight 配合使用。
 
 Kafka 生成者 API 允许应用程序将数据流发送到 Kafka 群集。 Kafka 使用者 API 允许应用程序从群集读取数据流。
 
@@ -44,7 +44,7 @@ Kafka 生成者 API 允许应用程序将数据流发送到 Kafka 群集。 Kafk
 
 * [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 或等效版本，如 OpenJDK。
 
-* [Apache Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
 * SSH 客户端和 `scp` 命令。 有关详细信息，请参阅[将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)文档。
 
@@ -61,14 +61,14 @@ Kafka 生成者 API 允许应用程序将数据流发送到 Kafka 群集。 Kafk
 
 ## <a name="set-up-your-deployment-environment"></a>设置部署环境
 
-本教程需要 Kafka on HDInsight 3.6。 若要了解如何创建 Kafka on HDInsight 群集，请参阅 [Kafka on HDInsight 入门](apache-kafka-get-started.md)文档。
+本教程需要 Apache Kafka on HDInsight 3.6。 若要了解如何创建 Kafka on HDInsight 群集，请参阅 [Apache Kafka on HDInsight 入门](apache-kafka-get-started.md)文档。
 
 ## <a name="understand-the-code"></a>了解代码
 
 示例应用程序位于 `Producer-Consumer` 子目录的 [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) 中。 该应用程序主要包含四个文件：
 
 * `pom.xml`：此文件定义项目依赖项、Java 版本和打包方法。
-* `Producer.java`：此文件使用生成者 API 将 100 万 (1,000,000) 个随机句子发送到 Kafka。
+* `Producer.java`：此文件使用生成者 API 将随机句子发送到 Kafka。
 * `Consumer.java`：此文件使用使用者 API 从 Kafka 读取数据并将其发出到 STDOUT。
 * `Run.java`：用于运行生成者和使用者代码的命令行接口。
 
@@ -97,160 +97,45 @@ Kafka 生成者 API 允许应用程序将数据流发送到 Kafka 群集。 Kafk
 
 ### <a name="producerjava"></a>Producer.java
 
-生成者与 Kafka 代理主机（辅助角色节点）进行通信，以将数据存储到 Kafka 主题中。 以下代码片段来自 `Producer.java` 文件：
+生成者与 Kafka 中转站主机（辅助角色节点）进行通信，并将数据发送到 Kafka 主题。 以下代码片段摘自 [github 存储库](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)中的 [Producer.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Producer.java) 文件，并演示如何设置生成者属性：
 
 ```java
-package com.microsoft.example;
-
-import org.apache.kafka.clients.producer.KafkaProducer;
-import org.apache.kafka.clients.producer.ProducerRecord;
-import java.util.Properties;
-import java.util.Random;
-import java.io.IOException;
-
-public class Producer
-{
-    public static void produce(String brokers) throws IOException
-    {
-
-        // Set properties used to configure the producer
-        Properties properties = new Properties();
-        // Set the brokers (bootstrap servers)
-        properties.setProperty("bootstrap.servers", brokers);
-        // Set how to serialize key/value pairs
-        properties.setProperty("key.serializer","org.apache.kafka.common.serialization.StringSerializer");
-        properties.setProperty("value.serializer","org.apache.kafka.common.serialization.StringSerializer");
-        KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
-
-        // So we can generate random sentences
-        Random random = new Random();
-        String[] sentences = new String[] {
-                "the cow jumped over the moon",
-                "an apple a day keeps the doctor away",
-                "four score and seven years ago",
-                "snow white and the seven dwarfs",
-                "i am at two with nature"
-        };
-
-        String progressAnimation = "|/-\\";
-        // Produce a bunch of records
-        for(int i = 0; i < 1000000; i++) {
-            // Pick a sentence at random
-            String sentence = sentences[random.nextInt(sentences.length)];
-            // Send the sentence to the test topic
-            producer.send(new ProducerRecord<String, String>("test", sentence));
-            String progressBar = "\r" + progressAnimation.charAt(i % progressAnimation.length()) + " " + i;
-            System.out.write(progressBar.getBytes());
-        }
-    }
-}
+Properties properties = new Properties();
+// Set the brokers (bootstrap servers)
+properties.setProperty("bootstrap.servers", brokers);
+// Set how to serialize key/value pairs
+properties.setProperty("key.serializer","org.apache.kafka.common.serialization.StringSerializer");
+properties.setProperty("value.serializer","org.apache.kafka.common.serialization.StringSerializer");
+KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
 ```
-
-此代码连接到 Kafka 代理主机（辅助角色节点），然后使用生成者 API 将 1,000,000 个句子发送到 Kafka。
 
 ### <a name="consumerjava"></a>Consumer.java
 
-使用者与 Kafka 代理主机（辅助角色节点）进行通信，并在循环中读取记录。 以下代码片段来自 `Consumer.java` 文件：
+使用者与 Kafka 代理主机（辅助角色节点）进行通信，并在循环中读取记录。 [Consumer.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Consumer.java) 文件中的以下代码片段设置了使用者属性：
 
 ```java
-package com.microsoft.example;
+KafkaConsumer<String, String> consumer;
+// Configure the consumer
+Properties properties = new Properties();
+// Point it to the brokers
+properties.setProperty("bootstrap.servers", brokers);
+// Set the consumer group (all consumers must belong to a group).
+properties.setProperty("group.id", groupId);
+// Set how to serialize key/value pairs
+properties.setProperty("key.deserializer","org.apache.kafka.common.serialization.StringDeserializer");
+properties.setProperty("value.deserializer","org.apache.kafka.common.serialization.StringDeserializer");
+// When a group is first created, it has no offset stored to start reading from. This tells it to start
+// with the earliest record in the stream.
+properties.setProperty("auto.offset.reset","earliest");
 
-import org.apache.kafka.clients.consumer.KafkaConsumer;
-import org.apache.kafka.clients.consumer.ConsumerRecords;
-import org.apache.kafka.clients.consumer.ConsumerRecord;
-import java.util.Properties;
-import java.util.Arrays;
-
-public class Consumer {
-    public static void consume(String brokers, String groupId) {
-        // Create a consumer
-        KafkaConsumer<String, String> consumer;
-        // Configure the consumer
-        Properties properties = new Properties();
-        // Point it to the brokers
-        properties.setProperty("bootstrap.servers", brokers);
-        // Set the consumer group (all consumers must belong to a group).
-        properties.setProperty("group.id", groupId);
-        // Set how to serialize key/value pairs
-        properties.setProperty("key.deserializer","org.apache.kafka.common.serialization.StringDeserializer");
-        properties.setProperty("value.deserializer","org.apache.kafka.common.serialization.StringDeserializer");
-        // When a group is first created, it has no offset stored to start reading from. This tells it to start
-        // with the earliest record in the stream.
-        properties.setProperty("auto.offset.reset","earliest");
-        consumer = new KafkaConsumer<>(properties);
-
-        // Subscribe to the 'test' topic
-        consumer.subscribe(Arrays.asList("test"));
-
-        // Loop until ctrl + c
-        int count = 0;
-        while(true) {
-            // Poll for records
-            ConsumerRecords<String, String> records = consumer.poll(200);
-            // Did we get any?
-            if (records.count() == 0) {
-                // timeout/nothing to read
-            } else {
-                // Yes, loop over records
-                for(ConsumerRecord<String, String> record: records) {
-                    // Display record and count
-                    count += 1;
-                    System.out.println( count + ": " + record.value());
-                }
-            }
-        }
-    }
-}
+consumer = new KafkaConsumer<>(properties);
 ```
 
 在此代码中，使用者配置为从该主题的开头读取（`auto.offset.reset` 设置为 `earliest`）。
 
 ### <a name="runjava"></a>Run.java
 
-`Run.java` 文件提供了命令行接口，可运行生成者或使用者代码。 必须提供 Kafka 代理主机信息作为参数。 可以选择包括组 ID 值，该值由使用者进程使用。 如果使用相同的组 ID 创建多个使用者实例，它们将对主题的读取进行负载均衡。
-
-```java
-package com.microsoft.example;
-
-import java.io.IOException;
-import java.util.UUID;
-
-// Handle starting producer or consumer
-public class Run {
-    public static void main(String[] args) throws IOException {
-        if(args.length < 2) {
-            usage();
-        }
-
-        // Get the brokers
-        String brokers = args[1];
-        switch(args[0].toLowerCase()) {
-            case "producer":
-                Producer.produce(brokers);
-                break;
-            case "consumer":
-                // Either a groupId was passed in, or we need a random one
-                String groupId;
-                if(args.length == 3) {
-                    groupId = args[2];
-                } else {
-                    groupId = UUID.randomUUID().toString();
-                }
-                Consumer.consume(brokers, groupId);
-                break;
-            default:
-                usage();
-        }
-        System.exit(0);
-    }
-    // Display usage
-    public static void usage() {
-        System.out.println("Usage:");
-        System.out.println("kafka-example.jar <producer|consumer> brokerhosts [groupid]");
-        System.exit(1);
-    }
-}
-```
+[Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Run.java) 文件提供了命令行接口，可运行生成者或使用者代码。 必须提供 Kafka 代理主机信息作为参数。 可以选择包括组 ID 值，该值由使用者进程使用。 如果使用相同的组 ID 创建多个使用者实例，它们将对主题的读取进行负载均衡。
 
 ## <a name="build-and-deploy-the-example"></a>生成并部署示例
 
@@ -291,22 +176,16 @@ public class Run {
         read -p 'Enter your Kafka cluster name:' CLUSTERNAME
         ```
     
-    2. 若要获取 Kafka 代理主机和 Zookeeper 主机，请使用以下命令。 出现提示时，输入群集登录（管理员）帐户的密码。
+    2. 若要获取 Kafka 代理主机和 Apache Zookeeper 主机，请使用以下命令。 出现提示时，输入群集登录（管理员）帐户的密码。
     
         ```bash
-        export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
         export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
         ```
 
     3. 若要创建 `test` 主题，请使用以下命令：
 
         ```bash
-        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
-        ```
-    4. 也可使用 jar 文件来创建主题。 如需创建 `test2` 主题的示例，请使用以下命令：
-
-        ```bash
-        java -jar kafka-producer-consumer.jar create test2 $KAFKABROKERS
+        java -jar kafka-producer-consumer.jar create test $KAFKABROKERS
         ```
 
 3. 若要运行生成者并将数据写入到主题，请使用以下命令：
@@ -344,7 +223,7 @@ indow -h 'java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS mygr
 
 此命令使用 `tmux` 将终端拆分为两列。 每列中都会启动使用者，且具有相同的组 ID 值。 使用者完成读取后，请注意，每个使用者仅读取记录的一部分。 使用 Ctrl+C 两次以退出 `tmux`。
 
-同一个组中客户端的使用方式由主题的分区处理。 前面创建的 `test` 主题有 8 个分区。 如果启动 8 个使用者，则每个使用者都从主题的单个分区读取记录。
+同一个组中客户端的使用方式由主题的分区处理。 在此代码示例中，之前创建的 `test` 主题有 8 个分区。 如果启动 8 个使用者，则每个使用者都从主题的单个分区读取记录。
 
 > [!IMPORTANT]
 > 使用者组中的使用者实例数不能超过分区数。 此示例中，一个使用者组最多可包含八个使用者，因为这是本主题中的分区数。 也可拥有多个使用者组，每个组的使用者不能超过八个。
@@ -353,7 +232,7 @@ Kafka 中存储的记录将按接收顺序存储在分区中。 若要 *在分�
 
 ## <a name="next-steps"></a>后续步骤
 
-在本文档中，你已了解如何将 Kafka 生成者和使用者 API 与 Kafka on HDInsight 配合使用。 请参阅以下资源了解有关使用 Kafka 的详细信息：
+本文档介绍了如何将 Apache Kafka 生成者和使用者 API 与 Kafka on HDInsight 配合使用。 请参阅以下资源了解有关使用 Kafka 的详细信息：
 
-* [在 Kafka 群集之间复制数据](apache-kafka-mirroring.md)
-* [将 Kafka 流 API 与 HDInsight 配合使用](apache-kafka-streams-api.md)
+* [在 Apache Kafka 集群之间复制数据](apache-kafka-mirroring.md)
+* [将 Apache Kafka 流 API 与 HDInsight 配合使用](apache-kafka-streams-api.md)

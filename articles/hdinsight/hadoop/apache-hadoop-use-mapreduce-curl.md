@@ -1,6 +1,6 @@
 ---
-title: 将 MapReduce 和 Curl 与 HDInsight 中的 Hadoop 配合使用 - Azure | Azure
-description: 了解如何使用 Curl 在 HDInsight 的 Hadoop 上远程运行 MapReduce 作业。
+title: 将 MapReduce 和 Curl 与 HDInsight 中的 Apache Hadoop 配合使用 - Azure
+description: 了解如何使用 Curl 通过 HDInsight 上的 Apache Hadoop 远程运行 MapReduce 作业。
 services: hdinsight
 author: jasonwhowell
 ms.reviewer: jasonh
@@ -10,34 +10,34 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 02/27/2018
-ms.date: 11/19/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 71f6ba2897e758d77b068e28b39aa162fce3c1b1
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 55a08b382a9a6c75fbc96a4358353d8d46bcb122
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52667165"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029166"
 ---
-# <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>使用 REST 在 HDInsight 上通过 Hadoop 运行 MapReduce 作业
+# <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>使用 REST 通过 HDInsight 上的 Apache Hadoop 运行 MapReduce 作业
 
-了解如何使用 WebHCat REST API 在 HDInsight 群集的 Hadoop 上运行 MapReduce 作业。 本文档使用 Curl 演示如何通过使用原始 HTTP 请求来与 HDInsight 交互，以便运行 MapReduce 作业。
+了解如何使用 Apache Hive WebHCat REST API 在 Apache Hadoop on HDInsight 群集上运行 MapReduce 作业。 本文档使用 Curl 演示如何通过使用原始 HTTP 请求来与 HDInsight 交互，以便运行 MapReduce 作业。
 
-> [!NOTE]
-> 如果已熟悉如何使用基于 Linux 的 Hadoop 服务器，但刚接触 HDInsight，请参阅 [HDInsight 上的基于 Linux 的 Hadoop 须知信息](../hdinsight-hadoop-linux-information.md)文档。
+> [!NOTE]  
+> 如果已熟悉如何使用基于 Linux 的 Hadoop 服务器，但刚接触 HDInsight，请参阅 [HDInsight 上的基于 Linux 的 Apache Hadoop 须知信息](../hdinsight-hadoop-linux-information.md)文档。
 
 
 ## <a id="prereq"></a>先决条件
 
 * HDInsight 群集上的 Hadoop
-* Windows PowerShell 或 [Curl](http://curl.haxx.se/) 和 [jq](http://stedolan.github.io/jq/)
+* Windows PowerShell 或 [Curl](https://curl.haxx.se/) 和 [jq](https://stedolan.github.io/jq/)
 
 ## <a id="curl"></a>运行 MapReduce 作业
 
 > [!NOTE]
 > 使用 Curl 或者与 WebHCat 进行任何其他形式的 REST 通信时，必须通过提供 HDInsight 群集管理员用户名和密码对请求进行身份验证。 必须使用群集名称作为用来向服务器发送请求的 URI 的一部分。
 >
-> REST API 使用 [基本访问身份验证](http://en.wikipedia.org/wiki/Basic_access_authentication)进行保护。 应该始终通过使用 HTTPS 来发出请求，以确保安全地将凭据发送到服务器。
+> REST API 使用 [基本访问身份验证](https://en.wikipedia.org/wiki/Basic_access_authentication)进行保护。 应该始终通过使用 HTTPS 来发出请求，以确保安全地将凭据发送到服务器。
 
 1. 若要设置本文档中的脚本使用的群集登录名，请使用下列命令之一：
 
@@ -150,12 +150,12 @@ ms.locfileid: "52667165"
 
 有关 HDInsight 中的 MapReduce 作业的一般信息：
 
-* [将 MapReduce 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-mapreduce.md)
+* [将 MapReduce 与 HDInsight 上的 Apache Hadoop 配合使用](hdinsight-use-mapreduce.md)
 
 有关 HDInsight 上 Hadoop 的其他使用方法的信息：
 
-* [将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)
-* [将 Pig 与 Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
+* [将 Apache Hive 与 Apache Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
+* [将 Apache Pig 与 Apache Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
 
 有关本文中使用的 REST 接口的详细信息，请参阅 [WebHCat Reference](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference)（WebHCat 参考）。
 

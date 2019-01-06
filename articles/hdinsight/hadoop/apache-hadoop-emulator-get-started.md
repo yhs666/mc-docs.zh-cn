@@ -1,6 +1,6 @@
 ---
-title: 了解如何使用 Hadoop 沙盒 - 模拟器 - Azure HDInsight | Azure
-description: '若要了解如何使用 Hadoop 生态系统，可以在 Azure 虚拟机上设置 Hortonworks 提供的 Hadoop 沙盒。 '
+title: 了解如何使用 Apache Hadoop 沙盒 - 模拟器 - Azure HDInsight
+description: '若要开始了解如何使用 Apache Hadoop 生态系统，可以在 Azure 虚拟机上设置 Hortonworks 提供的 Hadoop 沙盒。 '
 keywords: hadoop emulator,hadoop 沙盒
 editor: cgronlun
 manager: jhubbard
@@ -16,18 +16,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/11/2017
-ms.date: 01/15/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 4c06a0675b3b914394e397b91016ed7ada26dbef
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 95ba501f46ce5ed9eaaca397878b33a8f8e843d8
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655243"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029180"
 ---
-# <a name="get-started-with-a-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>开始使用 Hadoop 沙盒, 虚拟机上的模拟器
+# <a name="get-started-with-a-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>开始使用 Apache Hadoop 沙盒，它是虚拟机上的模拟器
 
-了解如何在虚拟机上安装 Hortonworks 提供的 Hadoop 沙盒，了解 Hadoop 生态系统。 该沙盒提供一个本地开发环境，让用户了解 Hadoop、Hadoop 分布式文件系统 (HDFS) 和作业提交内容。 熟悉 Hadoop 之后，便可以开始在 Azure 中使用 Hadoop 创建 HDInsight 群集。 有关如何入门的详细信息，请参阅[在 HDInsight 中开始使用 Hadoop](apache-hadoop-linux-tutorial-get-started.md)。
+了解如何在虚拟机上安装 Hortonworks 提供的 Apache Hadoop 沙盒，以了解 Hadoop 生态系统。 该沙盒提供一个本地开发环境，让用户了解 Hadoop、Hadoop 分布式文件系统 (HDFS) 和作业提交内容。 熟悉 Hadoop 之后，便可以开始在 Azure 中使用 Hadoop 创建 HDInsight 群集。 有关如何入门的详细信息，请参阅[在 HDInsight 中开始使用 Hadoop](apache-hadoop-linux-tutorial-get-started.md)。
 
 ## <a name="prerequisites"></a>先决条件
 * [Oracle VirtualBox](https://www.virtualbox.org/)。 从 [此处](https://www.virtualbox.org/wiki/Downloads)下载并安装它。
@@ -86,7 +86,7 @@ ms.locfileid: "52655243"
 
 ## <a name="next-steps"></a>后续步骤
 * [了解如何将 Visual Studio 与 Hortonworks 沙盒配合使用](../hdinsight-hadoop-emulator-visual-studio.md)
-* [了解 Hortonworks 沙盒的重要知识](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
-* [Hadoop 教程 - HDP 入门](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
+* [了解 Hortonworks 沙盒的重要知识](https://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
+* [Hadoop 教程 - HDP 入门](https://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
 
 <!--Update_Description: update meta data-->

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 origin.date: 08/15/2018
-ms.date: 12/10/2018
-ms.openlocfilehash: e5310409cdfa732b19b562efb72b370948d1c9f7
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 01/14/2019
+ms.openlocfilehash: 2fceb428029db088f696bcccd85f505787137dd1
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674575"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806631"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure 逻辑应用中工作流定义语言的函数引用
 
@@ -696,7 +696,7 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*timestamp*> | 是 | String | 包含时间戳的字符串 | 
 | <*间隔*> | 是 | Integer | 要添加的指定时间单位数 | 
-| <*timeUnit*> | 是 | String | 要与 *interval* 一起使用的时间单位：“Second”、“Minute”、“Hour”、“Day”、“Week”、“Month”、“Year” | 
+| <*timeUnit*> | 是 | String | 间隔使用的时间单位：“秒”、“分钟”、“小时”、“日”、“周”、“月”、“年” | 
 | <*format*> | 否 | String | [单一格式的说明符](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)或[自定义格式的模式](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)。 时间戳的默认格式为[“o”](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddT:mm:ss:fffffffK)，这符合 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 标准并保留了时区信息。 |
 ||||| 
 
@@ -1900,7 +1900,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 | 参数 | 必须 | 类型 | 说明 | 
 | --------- | -------- | ---- | ----------- | 
 | <*间隔*> | 是 | Integer | 要减去的指定时间单位数 | 
-| <*timeUnit*> | 是 | String | 要与 *interval* 一起使用的时间单位：“Second”、“Minute”、“Hour”、“Day”、“Week”、“Month”、“Year” | 
+| <*timeUnit*> | 是 | String | 间隔使用的时间单位：“秒”、“分钟”、“小时”、“日”、“周”、“月”、“年” | 
 | <*format*> | 否 | String | [单一格式的说明符](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)或[自定义格式的模式](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)。 时间戳的默认格式为[“o”](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddT:mm:ss:fffffffK)，这符合 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 标准并保留了时区信息。 | 
 ||||| 
 
@@ -1942,7 +1942,7 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 | 参数 | 必须 | 类型 | 说明 | 
 | --------- | -------- | ---- | ----------- | 
 | <*间隔*> | 是 | Integer | 要减去的指定时间单位数 | 
-| <*timeUnit*> | 是 | String | 要与 *interval* 一起使用的时间单位：“Second”、“Minute”、“Hour”、“Day”、“Week”、“Month”、“Year” | 
+| <*timeUnit*> | 是 | String | 间隔使用的时间单位：“秒”、“分钟”、“小时”、“日”、“周”、“月”、“年” | 
 | <*format*> | 否 | String | [单一格式的说明符](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)或[自定义格式的模式](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)。 时间戳的默认格式为[“o”](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddT:mm:ss:fffffffK)，这符合 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 标准并保留了时区信息。 | 
 ||||| 
 
@@ -3299,7 +3299,7 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*timestamp*> | 是 | String | 包含时间戳的字符串 | 
 | <*间隔*> | 是 | Integer | 要减去的指定时间单位数 | 
-| <*timeUnit*> | 是 | String | 要与 *interval* 一起使用的时间单位：“Second”、“Minute”、“Hour”、“Day”、“Week”、“Month”、“Year” | 
+| <*timeUnit*> | 是 | String | 间隔使用的时间单位：“秒”、“分钟”、“小时”、“日”、“周”、“月”、“年” | 
 | <*format*> | 否 | String | [单一格式的说明符](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)或[自定义格式的模式](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)。 时间戳的默认格式为[“o”](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddT:mm:ss:fffffffK)，这符合 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 标准并保留了时区信息。 | 
 ||||| 
 
@@ -4031,7 +4031,7 @@ xml('<value>')
 
 此示例创建包含 JSON 对象的以下字符串的 XML 版本： 
 
-`xml( '{ \"name\": \"Sophia Owen\" }' )`
+`xml(json('{ \"name\": \"Sophia Owen\" }'))`
 
 并返回以下结果 XML： 
 
@@ -4054,7 +4054,7 @@ xml('<value>')
 
 此示例创建包含以下 JSON 对象的字符串的 XML：
 
-`xml( '{ \"person\": { \"name\": \"Sophia Owen\", \"city\": \"Seattle\" } }' )`
+`xml(json('{\"person\": {\"name\": \"Sophia Owen\", \"city\": \"Seattle\"}}'))`
 
 并返回以下结果 XML： 
 

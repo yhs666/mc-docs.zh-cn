@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB：SQL Java API、SDK 和资源 | Azure
+title: Azure Cosmos DB：SQL Java API、SDK 和资源
 description: 了解有关 SQL Java API 的信息。
 services: cosmos-db
 author: rockboyfor
@@ -9,16 +9,16 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-origin.date: 06/29/2018
-ms.date: 12/03/2018
+origin.date: 11/29/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8e79de4c766ce4abc63e103d48cb18fd3c839e2d
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: dbfb205c27f410663202466a92eeee70e71b647f
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674667"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026791"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>适用于 SQL API 的 Azure Cosmos DB Java SDK：发行说明和资源
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "52674667"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 资源提供程序](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](../cosmos-db/sql-api-sql-query-reference.md)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -41,7 +41,7 @@ SQL API Java SDK 支持同步操作。 如需异步支持，请使用 [SQL API A
 
 <table>
 
-<tr><td>**SDK 下载**</td><td>[Maven](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
+<tr><td>**SDK 下载**</td><td>[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
 
 <tr><td>**API 文档**</td><td>[Java API 参考文档](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb)</td></tr>
 
@@ -51,7 +51,7 @@ SQL API Java SDK 支持同步操作。 如需异步支持，请使用 [SQL API A
 
 <tr><td>**Web 应用教程**</td><td>[使用 Azure Cosmos DB 开发 Web 应用程序](sql-api-java-application.md)</td></tr>
 
-<tr><td>受支持的最小运行时</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
+<tr><td>受支持的最小运行时</td><td>[Java 开发工具包 (JDK) 7+](https://docs.azure.cn/zh-cn/java/java-supported-jdk-runtime?view=azure-java-stable)</td></tr>
 </table></br>
 
 <!-- Not Available on ## Release Notes -->

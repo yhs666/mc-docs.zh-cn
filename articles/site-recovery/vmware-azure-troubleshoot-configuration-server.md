@@ -6,14 +6,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 11/11/2018
-ms.date: 12/10/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0efd99f51115d3813a04c64f0be2a496d32f3051
-ms.sourcegitcommit: 6cd0a8d22061aba7390579a80e19cb9d2f7faf12
+ms.openlocfilehash: 38a02abb18ea891e02b76b6c39eab2ea712947e7
+ms.sourcegitcommit: b29475e13c1f54d420cdca71f90ca6a5c5116cbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53233989"
+ms.lasthandoff: 12/24/2018
+ms.locfileid: "53784549"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>排查配置服务器问题
 
@@ -23,7 +23,7 @@ ms.locfileid: "53233989"
 
 | **错误消息** | **建议的操作** |
 |--------------------------|------------------------|
-|错误...未能加载帐户。 错误：System.IO.IOException：安装和注册 CS 服务器时无法从传输连接读取数据。| 确保在计算机上启用 TLS 1.0。 |
+|错误...未能加载帐户。 错误：System.IO.IOException：安装和注册 CS 服务器时无法从传输连接读取数据。| 请确保在计算机上启用 TLS 1.0。 |
 
 ## <a name="registration-failures"></a>注册失败
 
@@ -33,7 +33,8 @@ ms.locfileid: "53233989"
 
 | **错误消息** | **建议的操作** |
 |--------------------------|------------------------|
-|**09:20:06**:InnerException.Type:SrsRestApiClientLib.AcsException,InnerException。<br>消息：ACS50008:SAML 令牌无效。<br>跟踪 ID:1921ea5b-4723-4be7-8087-a75d3f9e1072<br>关联 ID:62fea7e6-2197-4be4-a2c0-71ceb7aa2d97><br>时间戳:**2016-12-12 14:50:08Z<br>** | 确保系统时钟上的时间与本地时间之间的偏差不超过 15 分钟。 重新运行安装程序完成注册。|
-|**09:35:27**: 尝试获取所选证书的所有灾难恢复保管库时，引发 DRRegistrationException: :引发了 Exception.Type:Microsoft.DisasterRecovery.Registration.DRRegistrationException, Exception.Message:ACS50008:SAML 令牌无效。<br>跟踪 ID: e5ad1af1-2d39-4970-8eef-096e325c9950<br>相关 ID: abe9deb8-3e64-464d-8375-36db9816427a<br>时间戳:**2016-05-19 01:35:39Z**<br> | 确保系统时钟上的时间与本地时间之间的偏差不超过 15 分钟。 重新运行安装程序以完成注册。|
+|**09:20:06**:InnerException.Type:SrsRestApiClientLib.AcsException,InnerException。<br>消息：ACS50008:SAML 令牌无效。<br>跟踪 ID:1921ea5b-4723-4be7-8087-a75d3f9e1072<br>关联 ID:62fea7e6-2197-4be4-a2c0-71ceb7aa2d97><br>时间戳:**2016-12-12 14:50:08Z<br>** | 确保系统时钟的时间与本地时间之间的偏差不超过 15 分钟。 重新运行安装程序以完成注册。|
+|**09:35:27**: 尝试获取所选证书的所有灾难恢复保管库时，引发 DRRegistrationException: :引发了 Exception.Type:Microsoft.DisasterRecovery.Registration.DRRegistrationException, Exception.Message:ACS50008:SAML 令牌无效。<br>跟踪 ID: e5ad1af1-2d39-4970-8eef-096e325c9950<br>相关 ID: abe9deb8-3e64-464d-8375-36db9816427a<br>时间戳:**2016-05-19 01:35:39Z**<br> | 确保系统时钟的时间与本地时间之间的偏差不超过 15 分钟。 重新运行安装程序以完成注册。|
 |06:28:45: 未能创建证书<br>06:28:45: 安装无法继续。 无法创建用于在 Site Recovery 中进行身份验证的证书。 重新运行安装程序 | 确保以本地管理员的身份运行安装程序。 |
 
+<!--Update_Dscription: udpate meta properties-->

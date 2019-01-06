@@ -7,18 +7,18 @@ manager: mbaldwin
 services: key-vault
 ms.author: v-biyu
 origin.date: 11/15/2017
-ms.date: 11/05/2018
+ms.date: 01/14/2019
 ms.topic: conceptual
 ms.prod: ''
 ms.service: key-vault
 ms.technology: ''
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: 00be55d909e7ebb8a94e729161efd076ca26528f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 2f3ec61f455b65412b3bfd68f74ef12974c26235
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654334"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996345"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>使用 .NET 向 Azure Key Vault 进行服务到服务身份验证
 
@@ -68,6 +68,11 @@ ms.locfileid: "52654334"
 以下示例显示操作中的 `Microsoft.Azure.Services.AppAuthentication` 库：
 
 1. [在运行时使用托管标识从 Azure Key Vault 检索机密](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet)
+
+2. [Programmatically deploy an Azure Resource Manager template from an Azure VM with a managed identity](https://github.com/Azure-Samples/windowsvm-msi-arm-dotnet)（使用托管标识以编程方式从 Azure VM 部署 Azure 资源管理器模板）。
+
+3. [Use .NET Core sample and a managed identity to call Azure services from an Azure Linux VM](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/)（使用 .NET Core 示例和托管标识从 Azure Linux VM 调用 Azure 服务）。
+
 
 <a name="local"></a>
 ## <a name="local-development-authentication"></a>本地开发身份验证
@@ -146,7 +151,7 @@ az account list
 
 1.  使用服务主体登录到 Azure：
 
-    1.  [创建服务主体](https://docs.microsoft.com/zh-cn/cli/azure/create-an-azure-service-principal-azure-cli)。
+    1.  [创建服务主体](/cli/create-an-azure-service-principal-azure-cli)。
 
     2.  使用 Azure CLI 登录：
 
@@ -166,7 +171,7 @@ az account list
 <a name="msi"></a>
 ## <a name="running-the-application-using-managed-identity"></a>使用托管标识运行应用程序 
 
-在启用了托管标识的 Azure 应用服务上运行代码时，该库会自动使用托管标识。 不需更改代码。 
+在启用托管标识的 Azure 应用服务或 Azure VM 上运行代码时，库自动使用托管标识。 不需更改代码。 
 
 
 <a name="sp"></a>

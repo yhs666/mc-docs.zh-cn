@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 02/11/2016
 ms.date: 06/11/2018
 ms.author: v-yeche
-ms.openlocfilehash: ae269c9574e4e297e195fcd11cdd26cc265455e6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: da2bfb953272f35d563582930b5ee13e3a449b3d
+ms.sourcegitcommit: f6a287a11480cbee99a2facda2590f3a744f7e45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647244"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53786735"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Azure 中的 IP 地址类型和分配方法（经典）
 可以将 IP 地址分配到与其他 Azure 资源通信的 Azure 资源，也可以将其分配到本地网络和 Internet。 可以在 Azure 中使用两种类型的 IP 地址：公共地址和专用地址。
@@ -31,7 +31,7 @@ ms.locfileid: "52647244"
 使用 VPN 网关或 ExpressRoute 线路将网络扩展到 Azure 时，专用 IP 地址用于在 Azure 虚拟网络 (VNet)、云服务以及本地网络中通信。
 
 > [!IMPORTANT]
-> Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../resource-manager-deployment-model.md)。  本文介绍使用经典部署模型的情况。 Azure 建议大多数新部署使用 Resource Manager。 请阅读 [IP 地址](virtual-network-ip-addresses-overview-arm.md) 一文，了解 Resource Manager 中的 IP 地址。
+> Azure 具有用于创建和处理资源的两个不同部署模型：[资源管理器部署模型和经典部署模型](../resource-manager-deployment-model.md)。  本文介绍使用经典部署模型的情况。 Azure 建议大多数新部署使用 Resource Manager。 请阅读 [IP 地址](virtual-network-ip-addresses-overview-arm.md) 一文，了解 Resource Manager 中的 IP 地址。
 
 ## <a name="public-ip-addresses"></a>公共 IP 地址
 公共 IP 地址可让 Azure 资源与 Internet 以及面向公众的 Azure 服务（例如 [Azure Redis 缓存](https://www.azure.cn/home/features/redis-cache/)、[Azure 事件中心](https://www.azure.cn/home/features/event-hubs/)、[SQL 数据库](../sql-database/sql-database-technical-overview.md)和 [Azure 存储](../storage/common/storage-introduction.md)）通信。
@@ -48,7 +48,7 @@ ms.locfileid: "52647244"
 如果需要向 Azure 资源分配公共 IP 地址，将 动态地从资源的创建位置中的可用公共 IP 地址池分配该 IP 地址。 停止该资源时，将释放此 IP 地址。 对于云服务而言，所有角色实例均已停止时会发生这种情况，可以使用*静态*（保留）IP 地址避免发生这种情况（请参阅[云服务](#Cloud-services)）。
 
 > [!NOTE]
-> 将公共 IP 地址分配到 Azure 资源时所依据的 IP 范围列表已在 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/details.aspx?id=42064)中发布。
+> 将公共 IP 地址分配到 Azure 资源时所依据的 IP 范围列表已在 [Azure 数据中心 IP 范围](https://www.microsoft.com/en-us/download/confirmation.aspx?id=57062)中发布。
 > 
 > 
 
@@ -150,7 +150,7 @@ Azure [应用程序网关](../application-gateway/application-gateway-introducti
 | 应用程序网关前端 |是 |是 |是 |
 
 ## <a name="limits"></a>限制
-下表显示 Azure 中每个订阅的 IP 寻址的限制。 可以[与支持人员联系](https://www.azure.cn/support/support-azure/)，根据业务需求将默认限制提高到最大限制。
+下表显示 Azure 中每个订阅的 IP 寻址的限制。 可以[与支持人员联系](https://support.azure.cn/zh-cn/support/support-azure/)，根据业务需求将默认限制提高到最大限制。
 
 |  | 默认限制 | 最大限制 |
 | --- | --- | --- |

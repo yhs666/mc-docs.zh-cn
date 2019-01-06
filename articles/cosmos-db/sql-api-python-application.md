@@ -1,24 +1,23 @@
 ---
-title: 适用于 Azure Cosmos DB 的 Python Flask Web 应用程序教程 | Azure
-description: 查看一个数据库教程，其中介绍了如何使用 Azure Cosmos DB 通过 Azure 上托管的 Python Flask Web 应用程序存储和访问数据。 查找应用程序开发解决方案。
+title: 适用于 Azure Cosmos DB 的 Python Flask Web 应用程序教程
+description: 查看一个数据库教程，其中介绍了使用 Azure Cosmos DB 从 Azure 上托管的 Python Flask Web 应用程序来存储和访问数据。 查找应用程序开发解决方案。
 keywords: 应用程序开发, Python Flask, Python Web 应用程序, Python Web 开发
 services: cosmos-db
 author: rockboyfor
-manager: digimobile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: python
 ms.topic: tutorial
 origin.date: 02/23/2017
-ms.date: 11/05/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a50667fca752ef86ab645b4a3ae815b728acf40e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8d54383a2ca8061312e06827c2a9ccc3f8be12f1
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651148"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026727"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>构建使用 Azure Cosmos DB 的 Python Flask Web 应用程序
 
@@ -39,14 +38,14 @@ ms.locfileid: "52651148"
 3. 从 Web 应用程序连接并使用 Azure Cosmos DB。
 4. 将 Web 应用程序部署到 Azure 应用服务。
 
-通过学习本教程，你将可以构建一个可对轮询进行投票的简单投票应用程序。
+通过学习本教程，将可以构建一个可对轮询进行投票的简单投票应用程序。
 
 ![屏幕截图：本数据库教程创建的投票应用程序](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
 
 ## <a name="database-tutorial-prerequisites"></a>数据库教程先决条件
 在按照本文中的说明操作之前，应确保已安装下列项：
 
-* [一个 Azure 订阅](https://www.azure.cn/pricing/1rmb-trial)。 
+* [Azure 订阅](https://www.azure.cn/pricing/1rmb-trial)。 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -64,14 +63,14 @@ ms.locfileid: "52651148"
 * [Microsoft Visual C++ Compiler for Python 2.7](https://www.microsoft.com/download/details.aspx?id=44266)。
 
 ## <a name="step-1-create-an-azure-cosmos-db-database-account"></a>步骤 1：创建 Azure Cosmos DB 数据库帐户
-首先创建一个 Azure Cosmos DB 帐户。 如果已有一个帐户，或者要在本教程中使用 Azure Cosmos DB 模拟器，可以跳到[步骤 2：创建新的 Python Flask 应用程序](#step-2-create-a-new-python-flask-web-application)。
+首先创建一个 Azure Cosmos DB 帐户。 如果已有一个帐户，或者要在本教程中使用 Azure Cosmos DB 模拟器，可以跳到[步骤 2：新建 Python Flask Web 应用程序](#step-2-create-a-new-python-flask-web-application)。
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 <br/>
 现在，我们演练如何从头开始新建 Python Flask Web 应用程序。
 
-## <a name="step-2-create-a-new-python-flask-web-application"></a>步骤 2：创建 Python Flask web 应用程序
+## <a name="step-2-create-a-new-python-flask-web-application"></a>步骤 2：新建 Python Flask Web 应用程序
 1. 在 Visual Studio 的“文件”菜单中，指向“新建”，并单击“项目”。
 
     会显示“新建项目”对话框  。
@@ -112,7 +111,7 @@ ms.locfileid: "52651148"
 
     ![显示 env (Python 2.7) 已选中的屏幕截图，其中突出显示了列表中的“使用 requirements.txt 安装”](./media/sql-api-python-application/cosmos-db-python-install-from-requirements.png)
 
-    安装成功后，输出窗口显示以下信息：
+    安装成功后，输出窗口会显示以下信息：
 
         Successfully installed Babel-2.3.2 Tempita-0.5.2 WTForms-2.1 Whoosh-2.7.4 blinker-1.4 decorator-4.0.9 flask-0.9 flask-babel-0.8 flask-mail-0.7.6 flask-sqlalchemy-0.16 flask-whooshalchemy-0.55a0 flask-wtf-0.8.4 flup-1.0.2 pydocumentdb-1.6.1 pytz-2013b0 speaklater-1.3 sqlalchemy-0.7.9 sqlalchemy-migrate-0.7.2
 
@@ -134,7 +133,7 @@ ms.locfileid: "52651148"
 现在，通过添加新文件并更新其他文件来创建投票应用程序。
 
 1. 在解决方案资源管理器中，右键单击“教程”项目，并依次单击“添加”、“新建项”。 选择“空 Python 文件”并将该文件命名为 **forms.py**。  
-2. 将以下代码添加到 forms.py 文件，并保存该文件。
+2. 将以下代码添加到 forms.py 文件，然后保存该文件。
 
 ```python
 from flask_wtf import Form
@@ -149,7 +148,7 @@ class VoteForm(Form):
 
 ### <a name="add-the-required-imports-to-viewspy"></a>将所需的导入添加到 views.py 中
 1. 在“解决方案资源管理器”中，展开 **tutorial** 文件夹并打开 **views.py** 文件。 
-2. 将以下导入语句添加到 **views.py** 文件的顶部，并保存该文件。 这些语句将导入 Azure Cosmos DB 的 PythonSDK 和 Flask 包。
+2. 将以下导入语句添加到 **views.py** 文件的顶部，然后保存该文件。 这些语句将导入 Azure Cosmos DB 的 PythonSDK 和 Flask 包。
 
     ```python
     from forms import VoteForm
@@ -249,7 +248,7 @@ def vote():
 1. 在解决方案资源管理器中的 **tutorial** 文件夹中，右键单击 **templates** 文件夹，并依次单击“添加”、“新建项”。 
 2. 选择“HTML 页”，并在名称框中键入 **create.html**。 
 3. 重复步骤 1 和步骤 2，以创建另外两个 HTML 文件：results.html 和 vote.html。
-4. 将以下代码添加到 `<body>` 元素中的 **create.html**。 它显示一条消息，说明我们创建了新的数据库、集合和文档。
+4. 将以下代码添加到 `<body>` 元素中的 **create.html**。 它会显示一条消息，说明我们创建了新的数据库、集合和文档。
 
     ```html
     {% extends "layout.html" %}
@@ -324,7 +323,7 @@ def vote():
     COSMOSDB_COLLECTION = 'voting collection'
     COSMOSDB_DOCUMENT = 'voting document'
     ```
-3. 在 [Azure 门户](https://portal.azure.cn/)中，依次单击“浏览”、“Azure Cosmos DB 帐户”导航到“密钥”页，双击要使用的帐户名，并单击“概要”区域中的“密钥”按钮。 在“密钥”页中，复制“URI”值并将其粘贴到 **config.py** 文件中，作为 **COSMOSDB\_HOST** 属性的值。 
+3. 在 [Azure 门户](https://portal.azure.cn/)中，依次单击“浏览”、“Azure Cosmos DB 帐户”导航到“密钥”页，双击要使用的帐户名，并单击“概要”区域中的“密钥”按钮。 在“密钥”页中，复制“URI”值并将其粘贴到“config.py”文件中，作为 COSMOSDB\_HOST 属性的值。 
 4. 返回到 Azure 门户，在“密钥”页中，复制“主密钥”或“辅助密钥”的值，并将其粘贴到“config_cosmos.py”文件，作为 COSMOSDB\_KEY 属性的值。
 5. 在 **\_\_init\_\_.py** 文件中，添加以下行以包括配置文件读取和一些基本日志记录功能： 
 
@@ -429,12 +428,12 @@ def vote():
 如果在投票页上收到了错误，并且已将项目命名为 **tutorial** 以外的名称，请确保 **\_\_init\_\_.py** 引用以下行中正确的项目名称：`import tutorial.view`。
 
 ## <a name="next-steps"></a>后续步骤
-祝贺！ 现已完成第一个使用 Azure Cosmos DB 的 Python Web 应用程序并将其发布到了 Azure。
+祝贺你！ 现已完成第一个使用 Azure Cosmos DB 的 Python Web 应用程序并将其发布到了 Azure。
 
 要将其他功能添加到 Web 应用程序，请查看 [Azure Cosmos DB Python SDK](sql-api-sdk-python.md)中提供的 API。
 
 有关 Azure、Visual Studio 和 Python 的详细信息，请参阅 [Python 开发人员中心](/develop/python/)。 
 
-有关其他 Python Flask 教程，请参阅 [The Flask Mega-Tutorial, Part I: Hello, World!](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)（Flask 大型教程，第 I 部分：Hello, World!）。
+有关其他 Python Flask 教程，请参阅 [The Flask Mega-Tutorial, Part I: Hello, World!](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)（Flask 大型教程，第 I 部分：Hello, World!）。
 
-<!-- Update_Description: update meta properties, update link -->
+<!-- Update_Description: update meta properties, wording update -->

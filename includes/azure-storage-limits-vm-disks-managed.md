@@ -5,16 +5,16 @@ services: virtual-machines
 author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
-origin.date: 09/24/2018
-ms.date: 11/26/2018
+origin.date: 12/12/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: c33455c21454fd3f1b4c1786361256a97dbaca4d
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 2aa87542d9dcd924382837ea10e10683eefe5f20
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676324"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736896"
 ---
 **标准托管虚拟机 HDD**
 
@@ -39,7 +39,7 @@ ms.locfileid: "52676324"
 **高级托管虚拟机磁盘：每个磁盘的限制**
 
 <!-- Not Available on P60,P70,P80-->
-| 高级磁盘类型  | P4               | P6               | P10             | P15 | P20              | S30              | P40              | P50              |
+| 高级磁盘类型  | P4               | P6               | P10             | P15 | P20              | P30              | P40              | P50              |
 |---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|
 | 磁盘大小 (GiB)           | 32             | 64             | 128            | 256  | 512            | 1,024    | 2,048     | 4,095    |
 | 每个磁盘的 IOPS       | 最多 120 | 最多 240              | 最大 500              | 最多 1,100 | 最多 2,300              | 最多 5,000              | 最多 7,500             | 最多 7,500              |
@@ -48,3 +48,5 @@ ms.locfileid: "52676324"
 <!-- Not Available on P60,P70,P80-->
 <!-- Not Available on **Premium managed virtual machine disks: per VM limits**-->
 <!-- Not Available on GS5 VM-->
+
+<!-- Update_Description: update meta properties, wording update -->

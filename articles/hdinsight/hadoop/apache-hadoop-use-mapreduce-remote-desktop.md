@@ -14,22 +14,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 01/12/2017
-ms.date: 12/18/2017
+ms.date: 01/14/2019
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 60f52fb1c89c3e8818908bcaacb1952b9701c60a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f900cb9686f7fbccc9ebdb4443c6508772cc4aca
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645248"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029146"
 ---
-# <a name="use-mapreduce-in-hadoop-on-hdinsight-with-remote-desktop"></a>通过远程桌面在 HDInsight 上的 Hadoop 中使用 MapReduce
+# <a name="use-mapreduce-in-apache-hadoop-on-hdinsight-with-remote-desktop"></a>通过远程桌面在 HDInsight 上的 Apache Hadoop 中使用 MapReduce
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
-本文介绍如何使用远程桌面连接到 HDInsight 群集上的 Hadoop，并使用 Hadoop 命令运行 MapReduce 作业。
-
-
+本文介绍如何通过使用远程桌面连接到 Apache Hadoop on HDInsight 群集，然后使用 Hadoop 命令运行 MapReduce 作业。
 
 > [!IMPORTANT]
 > 远程桌面只能在基于 Windows 的 HDInsight 群集上使用。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
@@ -104,6 +102,5 @@ Hadoop 命令提供了一种简单方法，可在 HDInsight 群集上运行 MapR
 
 有关 HDInsight 上 Hadoop 的其他使用方法的信息：
 
-* [将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)
-* [将 Pig 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-pig.md)
-<!--Update_Description: change 'wasbs' into 'wasb'-->
+* [将 Apache Hive 与 Apache Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
+* [将 Apache Pig 与 Apache Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)

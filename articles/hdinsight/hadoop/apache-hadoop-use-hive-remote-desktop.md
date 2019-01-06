@@ -14,27 +14,27 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 01/12/2017
-ms.date: 08/27/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 507e3392976ecf531ea9ee74197ccd7edd11148e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5c6e8b598c44a6ced085a14391805e95203cf244
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651833"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029132"
 ---
-# <a name="use-hive-with-hadoop-on-hdinsight-with-remote-desktop"></a>通过远程桌面将 Hive 与 HDInsight 上的 Hadoop 配合使用
+# <a name="use-apache-hive-with-apache-hadoop-on-hdinsight-with-remote-desktop"></a>通过远程桌面将 Apache Hive 与 HDInsight 上的 Apache Hadoop 配合使用
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-本文介绍如何通过使用远程桌面连接到 HDInsight 群集，然后通过使用 Hive 命令行接口 (CLI) 运行 Hive 查询。
+本文介绍如何使用远程桌面连接到 HDInsight 群集，以及如何使用 Hive 命令行接口 (CLI) 运行 Apache Hive 查询。
 
 
 
 > [!IMPORTANT]
 > 远程桌面只能在使用 Windows 作为操作系统的 HDInsight 群集上使用。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 >
-> 有关 HDInsight 3.4 或更高版本，请参阅[将 Hive 与 HDInsight 和 Beeline 配合使用](apache-hadoop-use-hive-beeline.md)，了解如何通过命令行直接在群集上运行 Hive 查询。
+> 对于 HDInsight 3.4 或更高版本，请参阅[将 Apache hive 与 HDInsight 和 Beeline 配合使用](apache-hadoop-use-hive-beeline.md)来了解有关通过命令行直接在群集上运行 Hive 查询的信息。
 
 ## <a id="prereq"></a>先决条件
 要完成本文中的步骤，需要：
@@ -66,7 +66,7 @@ ms.locfileid: "52651833"
     这些语句执行以下操作：
 
    * **DROP TABLE**：删除表和数据文件（如果该表已存在）。
-   * **CREATE EXTERNAL TABLE**：在 Hive 中创建新“外部”表。 外部表仅存储 Hive 中的表定义（数据会保留在原位置）。
+   * **CREATE EXTERNAL TABLE**：在 Hive 中创建一个新的“外部”表。 外部表仅存储 Hive 中的表定义（数据会保留在原位置）。
 
      > [!NOTE]
      > 预期以外部源更新基础数据（例如自动化数据上传过程），或以其他 MapReduce 操作更新基础数据，但希望 Hive 查询使用最新数据时，必须使用外部表。
@@ -74,9 +74,9 @@ ms.locfileid: "52651833"
      > 删除外部表 **不会** 删除数据，只会删除表定义。
      >
      >
-   * **ROW FORMAT**：告知 Hive 如何设置数据的格式。 在此情况下，每个日志中的字段以空格分隔。
-   * STORED AS TEXTFILE LOCATION：告知 Hive 数据的存储位置（example/data 目录），以及数据已存储为文本。
-   * SELECT：选择其列 t4 包含值 [ERROR] 的所有行的计数。 这应会返回值 **3**，因为有三行包含此值。
+   * **ROW FORMAT**：让 Hive 知道数据的格式已如何进行了设置。 在此情况下，每个日志中的字段以空格分隔。
+   * **STORED AS TEXTFILE LOCATION**：让 Hive 知道数据的存储位置（example/data 目录）以及数据已存储为文本。
+   * **SELECT**：选择 **t4** 列包含值 **[ERROR]** 的所有行的计数。 这应会返回值 **3** ，因为有三个行包含此值。
    * **INPUT__FILE__NAME LIKE '%.log'** - 告诉 Hive，我们只应返回以 .log 结尾的文件中的数据。 此项将搜索限定为包含数据的 sample.log 文件，而不返回与所定义架构不符的其他示例数据文件中的数据。
 4. 使用以下语句创建名为 **errorLogs**的新“内部”表：
 
@@ -85,14 +85,14 @@ ms.locfileid: "52651833"
 
     这些语句执行以下操作：
 
-   * **CREATE TABLE IF NOT EXISTS**：创建表（如果该表不存在）。 由于未使用 **EXTERNAL** 关键字，因此这是一个内部表，它存储在 Hive 数据仓库中并完全受 Hive 的管理。
+   * **CREATE TABLE IF NOT EXISTS**：如果表不存在，则创建表。 由于未使用 **EXTERNAL** 关键字，因此这是一个内部表，它存储在 Hive 数据仓库中并完全受 Hive 的管理。
 
      > [!NOTE]
      > 与 **外部** 表不同，删除内部表会同时删除基础数据。
      >
      >
-   * STORED AS ORC：以优化行纵栏表 (ORC) 格式存储数据。 这是高度优化且有效的 Hive 数据存储格式。
-   * **INSERT OVERWRITE ...SELECT：从包含 [ERROR] 的 log4jLogs 表中选择行，然后将数据插入 errorLogs 表中**。
+   * **STORED AS ORC**：以优化的行纵栏式 (ORC) 格式存储数据。 这是高度优化且有效的 Hive 数据存储格式。
+   * **INSERT OVERWRITE ...SELECT**：从包含 **[ERROR]** 的 **log4jLogs** 表中选择行，然后将数据插入 **errorLogs** 表中。
 
      若要验证是否只将其列 t4 中包含[ERROR] 的行存储到了 errorLogs 表，请使用以下语句从 errorLogs 中返回所有行：
 
@@ -106,17 +106,17 @@ ms.locfileid: "52651833"
 ## <a id="nextsteps"></a>后续步骤
 有关 HDInsight 中的 Hive 的一般信息：
 
-* [将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)
+* [将 Apache Hive 与 Apache Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
 
 有关 HDInsight 上 Hadoop 的其他使用方法的信息：
 
-* [将 Pig 与 Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
-* [将 MapReduce 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-mapreduce.md)
+* [将 Apache Pig 与 Apache Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
+* [将 MapReduce 与 HDInsight 上的 Apache Hadoop 配合使用](hdinsight-use-mapreduce.md)
 
 如果将 Tez 与 Hive 配合使用，请参阅以下文档以了解调试信息：
 
-* [在基于 Windows 的 HDInsight 上使用 Tez UI](../hdinsight-debug-tez-ui.md)
-* [Use the Ambari Tez view on Linux-based HDInsight（在基于 Linux 的 HDInsight 上使用 Ambari Tez 视图）](../hdinsight-debug-ambari-tez-view.md)
+* [在基于 Windows 的 HDInsight 上使用 Apache Tez UI](../hdinsight-debug-tez-ui.md)
+* [在基于 Linux 的 HDInsight 上使用 Apache Ambari Tez 视图](../hdinsight-debug-ambari-tez-view.md)
 
 [1]:apache-hadoop-visual-studio-tools-get-started.md
 

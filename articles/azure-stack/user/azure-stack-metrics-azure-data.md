@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/05/2018
-ms.date: 10/15/2018
+origin.date: 12/01/2018
+ms.date: 12/31/2018
 ms.author: v-jay
-ms.openlocfilehash: 9f0e676d4578bc11d5fbe27a153b8a7f3fbe4636
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 893b944188692b4183a6d30d7c54913909bd81b6
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652170"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814659"
 ---
 # <a name="azure-monitor-on-azure-stack"></a>Azure Stack 中的 Azure Monitor
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于：Azure Stack 集成系统*
 
 本文概述了 Azure Stack 中的 Azure Monitor 服务。 它讨论了 Azure Monitor 的运行以及有关如何使用 Azure Stack 中的 Azure Monitor 的其他信息。 
 

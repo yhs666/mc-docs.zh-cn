@@ -1,22 +1,21 @@
 ---
-title: 适用于 Java 的 Azure Cosmos DB 性能提示 | Azure
+title: 适用于 Java 的 Azure Cosmos DB 性能提示
 description: 了解用于提高 Azure Cosmos DB 数据库性能的客户端配置选项
 keywords: 如何提高数据库性能
 services: cosmos-db
 author: rockboyfor
-manager: digimobile
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 origin.date: 01/02/2018
-ms.date: 12/03/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: ce5e870bd0bc83262d02a959b0c3673b1f576af8
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 324d7d0a7192245450ff37f42f98687eb775e274
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674844"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026746"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>适用于 Azure Cosmos DB 和 Java 的性能提示
 
@@ -37,8 +36,8 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     客户端连接到 Azure Cosmos DB 的方式对性能有重大影响（尤其在观察到的客户端延迟方面）。 有一个密钥配置设置可用于配置客户端 [ConnectionPolicy](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._connection_policy) - [ConnectionMode](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._connection_mode)。  有两种可用 ConnectionMode：
 
-    1. [网关（默认值）](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._connection_mode)
-    2. [DirectHttps](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._connection_mode)
+    1. [网关（默认值）](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.connectionmode)
+    2. [DirectHttps](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.connectionmode)
     
     <!-- URL is valid on ._connection_mode without gateay and directhttps --> 网关模式受所有 SDK 平台支持并已配置为默认设置。  如果应用程序在有严格防火墙限制的企业网络中运行，则网关是最佳选择，因为它使用标准 HTTPS 端口与单个终结点。 但是，对于性能的影响是每次在 Azure Cosmos DB 中读取或写入数据时，网关模式都涉及到额外的网络跃点。 因此，DirectHttps 模式因为网络跃点较少，可以提供更好的性能。 
 
@@ -82,7 +81,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
 4. **优化分区集合的并行查询。**
 
-    Azure Cosmos DB SQL Java SDK 版本 1.9.0 和更高版本支持并行查询，可并行查询已分区集合（有关详细信息，请参阅[使用 SDK](sql-api-partition-data.md#working-with-the-azure-cosmos-db-sdks) 以及相关的[代码示例](https://github.com/Azure/azure-documentdb-java/tree/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples)）。 并行查询旨改善查询延迟和串行配对物上的吞吐量。
+    Azure Cosmos DB SQL Java SDK 版本 1.9.0 和更高版本支持并行查询，使你能够并行查询分区集合。 有关详细信息，请参阅与使用这些 SDK 相关的[代码示例](https://github.com/Azure/azure-documentdb-java/tree/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples)。 并行查询旨改善查询延迟和串行配对物上的吞吐量。
 
     (a) ***优化 setMaxDegreeOfParallelism\:*** 并行查询的方式是并行查询多个分区。 但就查询本身而言，会按顺序提取单个已分区集合中的数据。 因此，通过使用 [setMaxDegreeOfParallelism](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._feed_options.setmaxdegreeofparallelism) 设置分区数，最有可能实现查询的最高性能，但前提是所有其他系统条件仍保持不变。 如果不知道分区数，可使用 setMaxDegreeOfParallelism 设置一个较高的数值，系统会选择最小值（分区数、用户输入）作为最大并行度。 
 
@@ -152,7 +151,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     在此标头中返回的请求费用是预配吞吐量的一小部分。 例如，如果预配了 2000 RU/s，上述查询返回 1000 个 1KB 文档，则操作成本为 1000。 因此在一秒内，服务器在对后续请求进行速率限制之前，只接受两个此类请求。 有关详细信息，请参阅[请求单位](request-units.md)和[请求单位计算器](https://www.documentdb.com/capacityplanner)。
     <a name="429"></a>
-2. **处理速率限制/请求速率太大**
+1. **处理速率限制/请求速率太大**
 
     客户端尝试超过帐户保留的吞吐量时，服务器的性能不会降低，并且不会使用超过保留级别的吞吐量容量。 服务器将抢先结束 RequestRateTooLarge（HTTP 状态代码 429）的请求并返回 [x-ms-retry-after-ms](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) 标头，该标头指示重新尝试请求前用户必须等待的时间量（以毫秒为单位）。
 

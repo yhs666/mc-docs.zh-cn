@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 10/30/2018
-ms.date: 12/03/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: 54185baa4d7ec3059a560e9030b7f70ac95f823c
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 4333b9a8d798c6d16cbb320f1d6ed962af9c2c1a
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676535"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026833"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Azure Cosmos DB 中的分区
 
@@ -49,10 +49,8 @@ Cosmos DB 使用基于哈希的分区在物理分区之间分散逻辑分区。 
 
 ## <a name="next-steps"></a>后续步骤
 
-* 了解如何[选择分区键](partitioning-overview.md#choose-partitionkey)
 * 了解[分区](partition-data.md)
 * 了解 [Azure Cosmos DB 中的预配吞吐量](request-units.md)
 * 了解 [Azure Cosmos DB 中的多区域分布](distribute-data-globally.md)
 
-<!-- Update_Description: new articles on cosmos db partitioning overview  -->
-<!--ms.date: 12/03/2018-->
+<!-- Update_Description: update meta properties  -->

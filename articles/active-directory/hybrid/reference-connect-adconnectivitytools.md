@@ -6,15 +6,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 origin.date: 10/19/2018
-ms.date: 12/05/2018
+ms.date: 01/03/2019
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: fa507c474ce9c0bcccf9b0e23d801721bad9c174
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 7ecf13b567313c794d26d413f8e331da27be218d
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029173"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996303"
 ---
 # <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect：ADConnectivityTools PowerShell 参考
 以下文档提供了 Azure AD Connect 随附的 ADConnectivityTools.psm1 PowerShell 模块的参考信息。
@@ -96,7 +96,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
-有关详细信息，请参阅 about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216)。
+有关详细信息，请参阅 about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216)。
 
 ## <a name="confirm-forestexists"></a>Confirm-ForestExists
 
@@ -138,7 +138,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
-有关详细信息，请参阅 about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216)。
+有关详细信息，请参阅 about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216)。
 
 ## <a name="confirm-functionallevel"></a>Confirm-FunctionalLevel
 
@@ -228,7 +228,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
-有关详细信息，请参阅 about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216)。
+有关详细信息，请参阅 about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216)。
 
 ## <a name="confirm-networkconnectivity"></a>Confirm-NetworkConnectivity
 
@@ -309,7 +309,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
-有关详细信息，请参阅 about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216)。
+有关详细信息，请参阅 about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216)。
 
 ## <a name="confirm-targetsarereachable"></a>Confirm-TargetsAreReachable
 
@@ -371,7 +371,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
-有关详细信息，请参阅 about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216)。
+有关详细信息，请参阅 about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216)。
 
 ## <a name="confirm-validdomains"></a>Confirm-ValidDomains
 
@@ -460,7 +460,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
-有关详细信息，请参阅 about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216)。
+有关详细信息，请参阅 about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216)。
 
 ## <a name="confirm-validenterpriseadmincredentials"></a>Confirm-ValidEnterpriseAdminCredentials
 
@@ -508,7 +508,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
-有关详细信息，请参阅 about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216)。
+有关详细信息，请参阅 about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216)。
 
 ## <a name="get-domainfqdndata"></a>Get-DomainFQDNData
 
@@ -589,7 +589,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
-有关详细信息，请参阅 about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216)。
+有关详细信息，请参阅 about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216)。
 
 ## <a name="get-forestfqdn"></a>Get-ForestFQDN
 
@@ -652,7 +652,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
-有关详细信息，请参阅 about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216)。
+有关详细信息，请参阅 about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216)。
 
 ## <a name="start-connectivityvalidation"></a>Start-ConnectivityValidation
 
@@ -727,7 +727,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
-有关详细信息，请参阅 about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216)。
+有关详细信息，请参阅 about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216)。
 
 ## <a name="start-networkconnectivitydiagnosistools"></a>Start-NetworkConnectivityDiagnosisTools
 
@@ -869,5 +869,6 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
-有关详细信息，请参阅 about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216)。
+有关详细信息，请参阅 about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216)。
 
+<!-- Update_Description: link update -->

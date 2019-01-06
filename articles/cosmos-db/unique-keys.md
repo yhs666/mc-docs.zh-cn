@@ -1,19 +1,18 @@
 ---
-title: Azure Cosmos DB 中的唯一键
+title: 在 Azure Cosmos DB 中使用唯一键
 description: 了解如何使用 Azure Cosmos DB 数据库中的唯一键
 author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 origin.date: 10/30/2018
-ms.date: 12/03/2018
-ms.author: v-yeche
-ms.openlocfilehash: 7c9dd0bf208f1de585f50eff227ffc4ee74e02b4
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 01/07/2019
+ms.openlocfilehash: 89efe479a3e822a16405f99e17d1751ff7267f6b
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674679"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026692"
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Azure Cosmos DB 中的唯一键
 

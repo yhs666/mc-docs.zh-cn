@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 10/04/2018
-ms.date: 11/30/2018
+origin.date: 12/01/2018
+ms.date: 12/29/2018
 ms.author: v-junlch
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 34114eb29fe4ab609582332eee3325954d030147
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 654876b0ae1cacd53be8e2e1a7765066d6139557
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028454"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996219"
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Azure Active Directory 身份验证库
 
@@ -37,25 +37,25 @@ ms.locfileid: "53028454"
 
 | 平台 | 库 | 下载 | 源代码 | 示例 | 参考
 | --- | --- | --- | --- | --- | --- |
-| .NET 客户端、Windows 应用商店、UWP、Xamarin iOS 和 Android |ADAL .NET v3 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) | [桌面应用](/active-directory/develop/active-directory-devquickstarts-dotnet) |[引用](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.identitymodel.clients.activedirectory?view=azure-dotnet) |
+| .NET 客户端、Windows 应用商店、UWP、Xamarin iOS 和 Android |ADAL .NET v3 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) | [桌面应用](/active-directory/develop/quickstart-v1-dotnet) |[引用](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.identitymodel.clients.activedirectory?view=azure-dotnet) |
 | .NET 客户端、Windows 应用商店、Windows Phone 8.1 |ADAL .NET v2 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/2.28.4) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/releases/tag/v2.28.4) | [桌面应用](https://github.com/AzureADQuickStarts/NativeClient-DotNet/releases/tag/v2.X) | |
 | Javascript |ADAL.js |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[单页应用](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | |
-| iOS、macOS |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc/releases) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc) |[iOS 应用](/active-directory/develop/active-directory-devquickstarts-ios) | [引用](http://cocoadocs.org/docsets/ADAL/2.5.1/)|
-| Android |ADAL |[中央存储库](http://search.maven.org/remotecontent?filepath=com/microsoft/aad/adal/) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-android) |[Android 应用](/active-directory/develop/active-directory-devquickstarts-android) | [JavaDocs](http://javadoc.io/doc/com.microsoft.aad/adal/)|
+| iOS、macOS |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc/releases) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc) |[iOS 应用](/active-directory/develop/quickstart-v1-ios) | [引用](http://cocoadocs.org/docsets/ADAL/2.5.1/)|
+| Android |ADAL |[中央存储库](http://search.maven.org/remotecontent?filepath=com/microsoft/aad/adal/) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-android) |[Android 应用](/active-directory/develop/quickstart-v1-android) | [JavaDocs](https://javadoc.io/doc/com.microsoft.aad/adal/)|
 | Node.js |ADAL |[npm](https://www.npmjs.com/package/adal-node) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-nodejs) | [Node.js Web 应用](https://github.com/Azure-Samples/active-directory-node-webapp-openidconnect)|[引用](https://docs.microsoft.com/javascript/api/adal-node/?view=azure-node-latest) |
-| Java |ADAL4J |[Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3Aadal4j%20g%3Acom.microsoft.azure) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[Java Web 应用](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect) |[引用](http://javadoc.io/doc/com.microsoft.azure/adal4j) |
-| Python |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[Python Web 应用](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi) |[引用](http://adal-python.readthedocs.io/) |
+| Java |ADAL4J |[Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3Aadal4j%20g%3Acom.microsoft.azure) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[Java Web 应用](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect) |[引用](https://javadoc.io/doc/com.microsoft.azure/adal4j) |
+| Python |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[Python Web 应用](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi) |[引用](https://adal-python.readthedocs.io/) |
 
 ## <a name="microsoft-supported-server-libraries"></a>Microsoft 支持的服务器库
 
 | 平台 | 库 | 下载 | 源代码 | 示例 | 参考
 | --- | --- | --- | --- | --- | --- |
-| .NET |OWIN for AzureAD|[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[CodePlex](http://katanaproject.codeplex.com) |[MVC 应用](/active-directory/develop/active-directory-devquickstarts-webapp-dotnet) | |
-| .NET |OWIN for OpenIDConnect |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect) |[CodePlex](http://katanaproject.codeplex.com) |[Web 应用](https://github.com/AzureADSamples/WebApp-OpenIDConnect-DotNet) | |
-| .NET |用于 WS 联合身份验证的 OWIN |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.WsFederation) |[CodePlex](http://katanaproject.codeplex.com) |[MVC Web 应用](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet) | |
+| .NET |OWIN for AzureAD|[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/dev/src/Microsoft.Owin.Security.ActiveDirectory) |MVC 应用 | |
+| .NET |OWIN for OpenIDConnect |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/dev/src/Microsoft.Owin.Security.OpenIdConnect) |[Web 应用](https://github.com/AzureADSamples/WebApp-OpenIDConnect-DotNet) | |
+| .NET |用于 WS 联合身份验证的 OWIN |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.WsFederation) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/dev/src/Microsoft.Owin.Security.WsFederation) |[MVC Web 应用](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet) | |
 | .NET |适用于 .NET 4.5 的标识协议扩展 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Protocol.Extensions) |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
 | .NET |适用于 .NET 4.5 的 JWT 处理程序 |[NuGet](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt) |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
-| Node.js |Azure AD Passport |[npm](https://www.npmjs.com/package/passport-azure-ad) |[GitHub](https://github.com/AzureAD/passport-azure-ad) | [Web API](/active-directory/develop/active-directory-devquickstarts-webapi-nodejs)| |
+| Node.js |Azure AD Passport |[npm](https://www.npmjs.com/package/passport-azure-ad) |[GitHub](https://github.com/AzureAD/passport-azure-ad) | [Web API](/active-directory/develop/quickstart-v1-nodejs-webapi)| |
 
 ## <a name="scenarios"></a>方案
 

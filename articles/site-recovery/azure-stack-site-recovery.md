@@ -7,14 +7,14 @@ manager: digimobile
 ms.topic: conceptual
 ms.service: site-recovery
 origin.date: 10/28/2018
-ms.date: 12/10/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: fb896e7b0e39a19afa254a9111a641a4673970fd
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: d1c7d6bd3e7d86b472ae064f97ef1db5ffa22f8c
+ms.sourcegitcommit: b29475e13c1f54d420cdca71f90ca6a5c5116cbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028519"
+ms.lasthandoff: 12/24/2018
+ms.locfileid: "53784554"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>将 Azure Stack VM 复制到 Azure
 

@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 10/15/2018
-ms.date: 12/03/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 43ee3a111c484a833186dd899cd7e59a6528af0c
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 0a4c6f3dc720731c6cb3e16ccfe57a1d5eff4c74
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676707"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026806"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 实现高可用性
 

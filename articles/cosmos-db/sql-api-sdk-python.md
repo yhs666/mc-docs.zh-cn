@@ -1,24 +1,22 @@
 ---
-title: Azure Cosmos DB：SQL Python API、SDK 和资源 | Azure
+title: Azure Cosmos DB：SQL Python API、SDK 和资源
 description: 了解有关 SQL Python API 的所有信息。
 services: cosmos-db
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
-origin.date: 09/24/2018
-ms.date: 11/05/2018
+origin.date: 11/29/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 542fd5c44c267963c37e66b5ef638653ee588c8e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 9df453b8cc7a7fde9147e361810a98ccab353979
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663835"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026814"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>适用于 SQL API 的 Azure Cosmos DB Python SDK：发行说明和资源
 > [!div class="op_single_selector"]
@@ -31,10 +29,9 @@ ms.locfileid: "52663835"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 资源提供程序](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](../cosmos-db/sql-api-sql-query-reference.md)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
-<!-- Redirecrt https://msdn.microsoft.com/library/azure/dn782250.aspx to sql-api-sql-query-reference.md -->
 
 <table>
 

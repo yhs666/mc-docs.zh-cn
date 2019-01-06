@@ -3,20 +3,19 @@ title: 如何通过 PHP 使用 Azure 存储表服务 | Azure
 description: 使用 Azure 表存储将结构化数据存储在云中。
 services: cosmos-db
 author: rockboyfor
-manager: digimobile
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: php
 ms.topic: sample
 origin.date: 04/05/2018
-ms.date: 09/03/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: f2fd17a64393d53b816c5926af31cc19e70ae1fe
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8f12a52bd3c8a718940494e13eabf3170c58c7da
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652169"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026660"
 ---
 # <a name="how-to-use-azure-storage-table-service-from-php"></a>如何通过 PHP 使用 Azure 存储表服务
 <!-- Not Available on  Cosmos DB Table API -->
@@ -56,7 +55,7 @@ ms.locfileid: "52652169"
   }
 }
 ```
-2. 将 [composer.phar](http://getcomposer.org/composer.phar) 下载到根目录中。 
+2. 将 [composer.phar](https://getcomposer.org/composer.phar) 下载到根目录中。 
 3. 打开命令提示符并在项目根目录中执行以下命令：
 ```
 php composer.phar install
@@ -507,11 +506,11 @@ catch(ServiceException $e){
 * [PHP 开发人员中心](/develop/php/)。
 
 [download]: https://packagist.org/packages/microsoft/azure-storage-table
-[require_once]: http://php.net/require_once
+[require_once]: https://php.net/require_once
 [table-service-timeouts]: https://docs.microsoft.com/rest/api/storageservices/setting-timeouts-for-table-service-operations
 
 [table-data-model]: https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model
 [filters]: https://docs.microsoft.com/rest/api/storageservices/Querying-Tables-and-Entities
 [entity-group-transactions]: https://docs.microsoft.com/rest/api/storageservices/Performing-Entity-Group-Transactions
 
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties, wording update -->

@@ -6,29 +6,29 @@ author: wesmc7777
 ms.service: cache
 ms.topic: include
 origin.date: 03/28/2018
-ms.date: 07/10/2018
+ms.date: 12/25/2018
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: 2e26f3cf47e394a8bf1f388a1a82140a16dc126f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 599683738782e80a84a0bde7945aaa1b87551a59
+ms.sourcegitcommit: d2893ae6bdbb3784d243d5d3c49c25c9cfd99d9b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647320"
+ms.lasthandoff: 12/25/2018
+ms.locfileid: "53784836"
 ---
-1. 若要创建缓存，请首先登录到 [Azure 门户](https://portal.azure.cn)。 然后选择“创建资源” > “数据库” > “Redis 缓存”。
+1. 若要创建缓存，请首先登录到 [Azure 门户](https://portal.azure.cn)。 然后选择“创建资源” > “数据库” > “用于 Redis 的 Azure 缓存”。
 
     ![新建缓存](./media/redis-cache-create/redis-cache-new-cache-menu.png)
 
-2. 在“新建 Redis 缓存”中，配置新缓存的设置。
+2. 在“新建用于 Redis 的 Azure 缓存”中，配置新缓存的设置。
 
     | 设置      | 建议的值  | 说明 |
     | ------------ |  ------- | -------------------------------------------------- |
     | **DNS 名称** | 全局唯一名称 | 缓存名称。 必须是 1 到 63 个字符的字符串，只能包含数字、字母和 `-` 字符。 缓存名称的开头或末尾不能是 `-` 字符，并且连续的 `-` 字符无效。  | 
-    | **订阅** | 你的订阅 | 要在其下创建此新 Azure Redis 缓存实例的订阅。 | 
+    | **订阅** | 你的订阅 | 要在其下创建此新的用于 Redis 的 Azure 缓存实例的订阅。 | 
     | **资源组** |  TestResources | 要在其中创建缓存的新资源组的名称。 通过将应用的所有资源都放在一个组中，可以一起管理它们。 例如，删除资源组会删除与该应用关联的所有资源。 | 
     | **位置** | 中国北部 | 选择将使用缓存的其他服务附近的[区域](https://azure.microsoft.com/regions/)。 |
-    | **[定价层](https://www.azure.cn/pricing/details/redis-cache/)** |  基本 C0（250 MB 缓存） |  定价层决定可用于缓存的大小、性能和功能。 有关详细信息，请参阅 [Azure Redis 缓存概述](../articles/redis-cache/cache-overview.md)。 |
+    | **[定价层](https://www.azure.cn/pricing/details/redis-cache/)** |  基本 C0（250 MB 缓存） |  定价层决定可用于缓存的大小、性能和功能。 有关详细信息，请参阅[用于 Redis 的 Azure 缓存概述](../articles/azure-cache-for-redis/cache-overview.md)。 |
     | **固定到仪表板** |  选定 | 将新缓存固定到仪表板，使其容易被找到。 |
 
     ![创建缓存](./media/redis-cache-create/redis-cache-cache-create.png) 
@@ -40,4 +40,4 @@ ms.locfileid: "52647320"
     ![创建的缓存](./media/redis-cache-create/redis-cache-cache-created.png)
 
 
-<!-- ms.date: 07/10/2018 -->
+<!-- ms.date: 12/25/2018 -->

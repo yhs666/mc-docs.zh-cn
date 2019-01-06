@@ -7,14 +7,14 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
 origin.date: 11/02/2018
-ms.date: 11/22/2018
+ms.date: 12/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: 77690ced82aeee6302ecb147f818a6899a4f8e1e
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 126cdb7550999b65528e7f2c050028d3c44a85c1
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673141"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806516"
 ---
 # <a name="how-to-manage-connections-in-azure-functions"></a>如何管理 Azure Functions 中的连接
 
@@ -51,7 +51,7 @@ private static HttpClient httpClient = new HttpClient();
 
 public static async Task Run(string input)
 {
-    var response = await httpClient.GetAsync("http://example.com");
+    var response = await httpClient.GetAsync("https://example.com");
     // Rest of function
 }
 ```
@@ -120,4 +120,4 @@ public static async Task Run(string input)
 ## <a name="next-steps"></a>后续步骤
 有关更多 Azure Functions 性能提示，请参阅[优化 Azure Functions 的性能和可靠性](functions-best-practices.md)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

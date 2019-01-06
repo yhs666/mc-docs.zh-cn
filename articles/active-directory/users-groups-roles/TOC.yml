@@ -56,7 +56,7 @@ items:
       href: /active-directory/fundamentals/active-directory-groups-settings-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: Azure AD 管理员角色
     items:
-    - name: 角色和权限参考
+    - name: 角色和权限
       href: directory-assign-admin-roles.md
     - name: 查看和分配角色
       href: directory-manage-roles-portal.md
@@ -67,9 +67,9 @@ items:
   items:
   - name: Azure AD CLI
     href: /cli/ad
-ms.openlocfilehash: 8f4ecb79ca593b7d2e0d350624c785efd2f72166
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 82fd0f73b36f74ea15bb373ea85e19ca11b1a5ac
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029124"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029259"

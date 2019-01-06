@@ -50,11 +50,11 @@ items:
     href: https://www.azure.cn/pricing/calculator
   - name: 服务更新
     href: https://azure.microsoft.com/updates/?product=active-directory
-  - name: 堆栈溢出
-    href: http://stackoverflow.com/questions/tagged/azure-active-directory
-ms.openlocfilehash: 890d28e35c31e649c76e9f0353fdab39d2322afa
-ms.sourcegitcommit: 6cd0a8d22061aba7390579a80e19cb9d2f7faf12
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-active-directory
+ms.openlocfilehash: 78c753669b8cfceec9b3aaecabd4fed867b18036
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53233783"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029105"

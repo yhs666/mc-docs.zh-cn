@@ -1,21 +1,19 @@
 ---
-title: 使用批量执行程序库在 Azure Cosmos DB 中批量导入和更新数据 | Azure
+title: 使用批量执行程序库在 Azure Cosmos DB 中批量导入和更新数据
 description: 通过批量执行程序库提供的批量导入和批量更新 API 功能，在 Azure Cosmos DB 中执行批量操作。
 services: cosmos-db
 author: rockboyfor
-manager: digimobile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 origin.date: 10/16/2018
-ms.date: 12/03/2018
+ms.date: 12/31/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0ed1a3b950e52d1de59af3e5defca642892484e2
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: f0bfb1f3116f5c0b06b4ede4cdb2fb1193b9d10f
+ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675416"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814746"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Azure Cosmos DB 批量执行程序库概述
 
@@ -29,6 +27,7 @@ Azure Cosmos DB 是一种快速且灵活的多区域分布式数据库服务，�
 > [!NOTE] 
 > 目前，批量执行程序库支持导入和更新操作，但该库仅受 Azure Cosmos DB SQL API 帐户支持。
 
+<!--Not Available on Gremlin API-->
 ## <a name="key-features-of-the-bulk-executor-library"></a>批量执行程序库的主要功能  
 
 * 它可以显著减少使分配给容器的吞吐量达到饱和所需的客户端计算资源。 在客户端计算机的 CPU 已饱和的情况下，使用批量导入 API 来写入数据的单线程应用程序实现的写入吞吐量是以并行方式写入数据的多线程应用程序的 10 倍。  

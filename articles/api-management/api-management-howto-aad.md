@@ -13,25 +13,24 @@ ms.devlang: na
 ms.topic: article
 origin.date: 01/16/2018
 ms.author: v-yiso
-ms.date: 10/08/2018
-ms.openlocfilehash: cce90b66856feff02cced147f8ae989e5628c902
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 12/31/2018
+ms.openlocfilehash: c2c37470a8d96261ac2f6eecc5cf001ff0245539
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675354"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736689"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>在 Azure API 管理中使用 Azure Active Directory 授权开发人员帐户
 
 本文介绍如何为 Azure Active Directory (Azure AD) 中的用户启用对开发人员门户的访问。 本指南还介绍如何通过添加包含用户的外部组管理 Azure AD 用户组。
 
-> [!NOTE]
-> 仅在[开发人员、标准和高级](https://www.azure.cn/pricing/details/api-management/)层中提供 Azure AD 集成。
-
 ## <a name="prerequisites"></a>先决条件
 
-- 完成以下快速入门：[创建 Azure API 管理实例](get-started-create-service-instance.md)。
+- 请完成以下快速入门：[创建一个 Azure API 管理实例](get-started-create-service-instance.md)。
 - 导入并发布 Azure API 管理实例。 有关详细信息，请参阅[导入和发布](import-and-publish.md)。
+
+[!INCLUDE [premium-dev-standard.md](../../includes/api-management-availability-premium-dev-standard.md)]
 
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>使用 Azure AD 为开发人员帐户授权
 
@@ -185,6 +184,7 @@ ms.locfileid: "52675354"
 [api-management-complete-registration]: ./media/api-management-howto-aad/api-management-complete-registration.png
 [api-management-registration-complete]: ./media/api-management-howto-aad/api-management-registration-complete.png
 
+[How to add operations to an API]: mock-api-responses.md
 [How to add and publish a product]: ./api-management-howto-add-products.md
 [Monitoring and analytics]: ./api-management-monitoring.md
 [Add APIs to a product]: ./api-management-howto-add-products.md#add-apis

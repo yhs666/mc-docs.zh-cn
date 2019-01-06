@@ -11,16 +11,16 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
 origin.date: 10/26/2018
-ms.date: 12/07/2018
+ms.date: 01/04/2019
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 2ae3290ce4b0af6d8b3a230276e3eb3fec998a71
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: d24e47897776d3a31dcef1673ba8ff1af8d6cc59
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029121"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029257"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的管理员角色权限
 
@@ -138,6 +138,7 @@ ms.locfileid: "53029121"
   * Azure AD 之外的其他服务中的管理员，如 Exchange Online、Office 安全与合规中心以及人力资源系统。
   * 高级管理人员、法律顾问和人力资源员工之类的非管理员，可能有权访问敏感或私有信息。
 
+## <a name="role-permissions"></a>角色权限
 下表描述 Azure Active Directory 中授予每个角色的特定权限。 某些角色可能在 Azure Active Directory 外部的 Microsoft 服务中拥有其他权限。
 
 ### <a name="application-administrator"></a>应用程序管理员

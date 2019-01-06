@@ -2,29 +2,24 @@
 title: 使用 Apache Spark 在 Azure SQL 数据库中读取和写入数据
 description: 了解如何在 HDInsight Spark 群集与 Azure SQL 数据库之间设置连接，以便在 SQL 数据库中读取数据、写入数据和流式传输数据
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
+author: hrasheed-msft
+ms.author: nitinme
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 origin.date: 05/01/2018
-ms.date: 06/25/2018
-ms.author: nitinme
-ms.openlocfilehash: ff8ac10a1e8d8f836a8cfbacd90f0adb5fb50724
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.date: 01/14/2019
+ms.openlocfilehash: f1844beb0ee460c32c2706dd92aef82f2ab9aff6
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028314"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806551"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>使用 HDInsight Spark 群集在 Azure SQL 数据库中读取和写入数据
 
-了解如何将 Azure HDInsight 中的 Apache Spark 群集连接到 Azure SQL 数据库，然后在 SQL 数据库中读取、写入和流式传输数据。 本文中的说明使用 Jupyter Notebook 运行 Scala 代码片段。 但是，可以在 Scala 或 Python 中创建独立的应用程序，然后执行相同的任务。 
+了解如何将 Azure HDInsight 中的 Apache Spark 群集连接到 Azure SQL 数据库，然后在 SQL 数据库中读取、写入和流式传输数据。 本文中的说明使用 [Jupyter Notebook](https://jupyter.org/) 运行 Scala 代码片段。 但是，可以在 Scala 或 Python 中创建独立的应用程序，然后执行相同的任务。 
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -38,19 +33,15 @@ ms.locfileid: "53028314"
 
 * **SQL Server Management Studio**。 遵照[使用 SSMS 连接和查询数据](../../sql-database/sql-database-connect-query-ssms.md)中的说明。
 
-## <a name="create-a-jupyter-notebook"></a>创建 Jupyter 笔记本
+## <a name="create-a-jupyter-notebook"></a>创建 Jupyter Notebook 
 
-首先，创建与 Spark 群集关联的 Jupyter Notebook。 到时要使用此 Notebook 来运行本文中所用的代码片段。 
+首先，创建与 Spark 群集关联的 [Jupyter Notebook](https://jupyter.org/)。 到时要使用此 Notebook 来运行本文中所用的代码片段。 
 
 1. 从 [Azure 门户网站](https://portal.azure.cn/)打开群集。 
 
-2. 在“快速链接”部分中，单击“群集仪表板”打开“群集仪表板”视图。  如果没有看到“快速链接”，请从边栏选项卡上的左侧菜单中单击“概述”。
+1. 选择右侧**群集仪表板**下方的 **Jupyter notebook**。  如果没有看到“群集仪表板”，请从边栏选项卡上的左侧菜单中单击“概述”。 出现提示时，请输入群集的管理员凭据。
 
-    ![Spark 上的群集仪表板](./media/apache-spark-connect-to-sql-database/hdinsight-cluster-dashboard-on-spark.png "Spark 上的群集仪表板") 
-
-3. 单击“Jupyter 笔记本” 。 出现提示时，请输入群集的管理员凭据。
-
-    ![Spark 中的 Jupyter Notebook](./media/apache-spark-connect-to-sql-database/hdinsight-jupyter-notebook-on-spark.png "Spark 中的 Jupyter Notebook")
+    ![Spark 中的 Jupyter Notebook](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Spark 中的 Jupyter Notebook")
    
    > [!NOTE]
    > 也可以在浏览器中打开以下 URL 来访问 Spark 群集中的 Jupyter Notebook。 将 **CLUSTERNAME** 替换为群集的名称：
@@ -247,4 +238,4 @@ ms.locfileid: "53028314"
 ## <a name="next-steps"></a>后续步骤
 
 
-* [将 Spark 结构化流与 HDInsight 上的 Kafka 配合使用](../hdinsight-apache-kafka-spark-structured-streaming.md)
+* [将 Apache Spark 结构化流式处理与 Apache Kafka on HDInsight 配合使用](../hdinsight-apache-kafka-spark-structured-streaming.md)

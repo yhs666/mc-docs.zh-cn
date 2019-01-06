@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 02/02/2018
 ms.author: v-yiso
-ms.date: 09/17/2018
-ms.openlocfilehash: 3e8c9ee17d64635db6ad45099f78fd5b131777fa
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 12/31/2018
+ms.openlocfilehash: 3074483be6738564653df08b8ace1c312949e9e1
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674587"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736703"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>如何使用 Git 保存和配置 API 管理服务
 
@@ -44,6 +44,8 @@ ms.locfileid: "52674587"
 5. 将更改从存储库部署到服务配置数据库中
 
 本文介绍如何启用和使用 Git 管理服务配置，并提供 Git 存储库中的文件和文件夹的参考。
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="access-git-configuration-in-your-service"></a>访问服务中的 Git 配置
 
@@ -80,7 +82,7 @@ ms.locfileid: "52674587"
 > 记下此密码。 离开此页面后，不会再次显示该密码。
 > 
 
-以下示例使用 [Windows 版 Git](http://www.git-scm.com/downloads) 中的 Git Bash 工具，但你可以使用熟悉的任何 Git 工具。
+以下示例使用 [Windows 版 Git](https://www.git-scm.com/downloads) 中的 Git Bash 工具，但你可以使用熟悉的任何 Git 工具。
 
 使用 Azure 门户提供的命令，在所需文件夹中打开 Git 工具并运行以下命令以将 Git 存储库克隆到本地计算机。
 

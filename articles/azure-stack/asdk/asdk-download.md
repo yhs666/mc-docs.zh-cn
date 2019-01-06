@@ -3,8 +3,8 @@ title: 下载并提取 Azure Stack 开发工具包 (ASDK) | Microsoft Docs
 description: 介绍如何下载并提取 Azure Stack 开发工具包 (ASDK)。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/10/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
+ms.date: 12/31/2018
+ms.author: v-jay
 ms.reviewer: misainat
-ms.openlocfilehash: 0df2fce92162f253ddaf09752b4976471e376219
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6a1d6b73a6da4dc3fbd24fd03c639096a4aa65f1
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649817"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814603"
 ---
 # <a name="download-and-extract-the-azure-stack-development-kit-asdk"></a>下载并提取 Azure Stack 开发工具包 (ASDK)
 在确保开发工具包主机满足安装 ASDK 的基本要求以后，下一步是下载并提取 ASDK 部署包，以获取 Cloudbuilder.vhdx。
@@ -30,7 +30,7 @@ ms.locfileid: "52649817"
 1. 开始下载之前，请确保计算机满足以下先决条件：
 
   - 计算机必须有至少 60 GB 的可用磁盘空间，这些空间位于除操作系统磁盘外的四个独立且相同的逻辑硬盘驱动器上。
-  - 必须已安装 [.NET Framework 4.6（或更高版本）](https://aka.ms/r6mkiy)。
+  - 必须已安装 [.NET Framework 4.6（或更高版本）](https://dotnet.microsoft.com/download/dotnet-framework-runtime/net46)。
 
 2. [转到“入门”页](https://azure.microsoft.com/overview/azure-stack/try/?v=try)，以便在其中下载 Azure Stack 开发工具包，提供自己的详细信息，然后单击“提交”。
 3. 下载并运行先决条件检查器脚本：[用于 Azure Stack 开发工具包的部署检查器](https://go.microsoft.com/fwlink/?LinkId=828735&clcid=0x409)。 此独立脚本完成由 Azure Stack 开发工具包的安装程序执行的先决条件检查。 在下载更大的用于 Azure Stack 开发工具包的程序包之前，可以通过它来确认硬件和软件要求是否已得到满足。
@@ -53,4 +53,3 @@ ms.locfileid: "52649817"
 
 ## <a name="next-steps"></a>后续步骤
 [准备 ASDK 主机](asdk-prepare-host.md)
-

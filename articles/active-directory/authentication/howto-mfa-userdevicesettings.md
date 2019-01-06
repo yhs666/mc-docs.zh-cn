@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
 origin.date: 07/11/2018
-ms.date: 09/04/2018
+ms.date: 12/28/2018
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: de56bcbbf7edc75a6993f7edce7e77cdb94b4b80
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: fb61b8cdeaf4843b85dd5f9e5a3a307dcb26ec76
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652975"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996351"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>管理云中 Azure 多重身份验证的用户设置
 
@@ -30,7 +30,7 @@ ms.locfileid: "52652975"
 
 ### <a name="how-to-require-users-to-provide-contact-methods-again"></a>如何要求用户再次提供联系方法
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 在左侧，选择“Azure Active Directory” > “用户和组” > “所有用户”。
+2. 在左侧，选择“Azure Active Directory” > “用户” > “所有用户”。
 3. 选择“多重身份验证”。 多重身份验证页面将打开。 
 4. 选中要管理的用户或用户旁的框。 右侧将显示快速步骤选项列表。 
 5. 选择“管理用户设置”。
@@ -44,7 +44,7 @@ ms.locfileid: "52652975"
 
 ### <a name="how-to-delete-users-existing-app-passwords"></a>如何删除用户现有的应用密码
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 在左侧，选择“Azure Active Directory” > “用户和组” > “所有用户”。
+2. 在左侧，选择“Azure Active Directory” > “用户” > “所有用户”。
 3. 选择“多重身份验证”。 多重身份验证页面将打开。 
 6. 选中要管理的用户或用户旁的框。 右侧将显示快速步骤选项列表。 
 7. 选择“管理用户设置”。
@@ -60,4 +60,4 @@ ms.locfileid: "52652975"
 
 - 如果用户需要帮助，可让其参阅[双重验证用户指南](../user-help/multi-factor-authentication-end-user.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

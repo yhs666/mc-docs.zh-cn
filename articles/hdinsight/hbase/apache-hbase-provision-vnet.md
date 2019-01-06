@@ -9,19 +9,19 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 02/22/2018
-ms.date: 09/17/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 724c44ae6a030cff1a9bae4abc2d2e1adaa7a929
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 4ca682b1f9a8c67a0ae32ea2cd268f4953be6091
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659728"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029234"
 ---
-# <a name="create-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>在 Azure 虚拟网络中的 HDInsight 上创建 HBase 群集
-了解如何在 [Azure 虚拟网络][1]中创建 Azure HDInsight HBase 群集。
+# <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>在 Azure 虚拟网络中的 HDInsight 上创建 Apache HBase 群集
+了解如何在 [Azure 虚拟网络][1]中创建 Azure HDInsight Apache HBase 群集。
 
-通过虚拟网络集成，可以将 HBase 群集部署到应用程序所在的虚拟网络，以便应用程序直接与 HBase 进行通信。 优点包括：
+通过虚拟网络集成，可以将 Apache HBase 群集部署到应用程序所在的虚拟网络，以便应用程序直接与 HBase 进行通信。 优点包括：
 
 * 将 Web 应用程序直接连接到 HBase 群集节点，通过 HBase Java 远程过程调用 (RPC) API 实现通信。
 * 提高性能，因为流量不必通过多个网关和负载均衡器。
@@ -33,17 +33,17 @@ ms.locfileid: "52659728"
 * **一个 Azure 订阅**。 请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 * **配备 Azure PowerShell 的工作站**。 请参阅[安装并使用 Azure PowerShell](/powershell-install-configure/)。
 
-## <a name="create-hbase-cluster-into-virtual-network"></a>在虚拟网络上创建 HBase 群集
-在本部分中，通过 [Azure Resource Manager 模板](../../azure-resource-manager/resource-group-template-deploy.md)在 Azure 虚拟网络中使用从属 Azure 存储帐户创建基于 Linux 的 HBase 群集。 若要了解其他群集创建方法以及设置，请参阅[创建 HDInsight 群集](../hdinsight-hadoop-provision-linux-clusters.md)。 有关使用模板在 HDInsight 中创建 Hadoop 群集的详细信息，请参阅[使用 Azure Resource Manager 模板在 HDInsight 中创建 Hadoop 群集](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)
+## <a name="create-apache-hbase-cluster-into-virtual-network"></a>在虚拟网络中创建 Apache HBase 群集
+在本部分中，通过 [Azure 资源管理器模板](../../azure-resource-manager/resource-group-template-deploy.md)在 Azure 虚拟网络中使用从属 Azure 存储帐户创建基于 Linux 的 Apache HBase 群集。 若要了解其他群集创建方法以及设置，请参阅[创建 HDInsight 群集](../hdinsight-hadoop-provision-linux-clusters.md)。 有关使用模板在 HDInsight 中创建 Apache Hadoop 群集的详细信息，请参阅[使用 Azure 资源管理器模板在 HDInsight 中创建 Apache Hadoop 群集](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
 > [!NOTE]
 > 某些属性已在模板中硬编码。 例如：
 >
-> * 位置：中国东部
+> * **位置**：中国东部
 > * **群集版本**：3.6
 > * **群集工作节点计数**：2
 > * **默认存储帐户**：唯一字符串
-> * 虚拟网络名称：&lt;群集名称>-vnet
+> * **虚拟网络名称**：&lt;群集名称>-vnet
 > * **虚拟网络地址空间**：10.0.0.0/16
 > * **子网名称**：subnet1
 > * **子网地址范围**：10.0.0.0/24
@@ -61,23 +61,23 @@ ms.locfileid: "52659728"
 
 2. 在“自定义部署”边栏选项卡中，输入以下属性：
 
-   * **订阅**：选择用于创建 HDInsight 群集、从属存储帐户和 Azure 虚拟网络的 Azure 订阅。
-   * 资源组：选择“新建”，然后指定新的资源组名称。
+   * **订阅**：选择用来创建 HDInsight 群集的 Azure 订阅、相关存储帐户和 Azure 虚拟网络。
+   * **资源组**：选择“新建”，并指定新的资源组名称。
    * **位置**：选择资源组的位置。
    * **ClusterName**：为要创建的 Hadoop 群集输入名称。
-   * **群集登录名和密码**：默认登录名是 **admin**。
-   * **SSH 用户名和密码**：默认用户名是 **sshuser**。  可以重命名它。
-   * 我同意上述条款和条件：（选择）
+   * **群集登录名和密码**：默认登录名为“admin”。
+   * **SSH 用户名和密码**：默认用户名为“sshuser”。  可以重命名它。
+   * **我同意上述条款和条件**：（选择）
 3. 单击“购买” 。 创建群集大约需要 20 分钟时间。 创建群集之后，便可以在门户中单击群集边栏选项卡以打开它。
 
-完成教程之后，可能要删除群集。 有了 HDInsight，便可以将数据存储在 Azure 存储中，因此可以在群集不用时安全地删除群集。 此外，还需要支付 HDInsight 群集费用，即使未使用。 由于群集费用高于存储空间费用数倍，因此在不使用群集时将其删除可以节省费用。 有关删除群集的说明，请参阅[使用 Azure 门户在 HDInsight 中管理 Hadoop 群集](../hdinsight-administer-use-management-portal.md#delete-clusters)。
+完成教程之后，可能要删除群集。 有了 HDInsight，便可以将数据存储在 Azure 存储中，因此可以在群集不用时安全地删除群集。 此外，还需要支付 HDInsight 群集费用，即使未使用。 由于群集费用高于存储空间费用数倍，因此在不使用群集时将其删除可以节省费用。 有关删除群集的说明，请参阅[使用 Azure 门户在 HDInsight 中管理 Apache Hadoop 群集](../hdinsight-administer-use-management-portal.md#delete-clusters)。
 
-要开始处理新 HBase 群集，可以按照 [开始在 HDInsight 中将 HBase 与 Hadoop 配合使用](./apache-hbase-tutorial-get-started-linux.md)中的步骤操作。
+要开始处理新 HBase 群集，可以按照[开始在 HDInsight 中将 Apache HBase 与 Apache Hadoop 配合使用](./apache-hbase-tutorial-get-started-linux.md)中的步骤进行操作。
 
-## <a name="connect-to-the-hbase-cluster-using-hbase-java-rpc-apis"></a>使用 HBase Java RPC API 连接到 HBase 群集。
+## <a name="connect-to-the-apache-hbase-cluster-using-apache-hbase-java-rpc-apis"></a>使用 Apache HBase Java RPC API 连接到 Apache HBase 群集。
 1. 将基础结构即服务 (IaaS) 虚拟机创建到相同的 Azure 虚拟网络和子网中。 有关创建新 IaaS 虚拟机的说明，请参阅[创建运行 Windows Server 的虚拟机](../../virtual-machines/windows/quick-create-portal.md)。 按照本文档中的步骤操作时，必须使用以下值进行网络配置：
 
-   * 虚拟网络：&lt;群集名称>-vnet
+   * **虚拟网络**：&lt;群集名称>-vnet
    * **子网**：subnet1
 
    > [!IMPORTANT]
@@ -89,7 +89,7 @@ ms.locfileid: "52659728"
 
 2. 使用 Java 应用程序远程连接到 HBase 时，必须使用完全限定的域名 (FQDN)。 要确定这一点，必须获取 HBase 群集的连接特定的 DNS 后缀。 为此，可以使用以下方法之一：
 
-   * 使用 Web 浏览器发出 Ambari 调用：
+   * 使用 Web 浏览器进行 [Apache Ambari](https://ambari.apache.org/) 调用：
 
      浏览到 https://&lt;ClusterName>.azurehdinsight.cn/api/v1/clusters/&lt;ClusterName>/hosts?minimal_response=true。 随后返回带有 DNS 后缀的 JSON 文件。
    * 使用 Ambari 网站：
@@ -228,7 +228,7 @@ ms.locfileid: "52659728"
 
 要验证虚拟机是否可与 HBase 群集进行通信，请从虚拟机使用 `ping headnode0.<dns suffix>` 命令。 例如，ping headnode0.mycluster.b1.chinacloudapp.cn。
 
-若要在 Java 应用程序中使用此信息，可以按照[使用 Maven 构建将 HBase 与 HDInsight (Hadoop) 配合使用的 Java 应用程序](./apache-hbase-build-java-maven-linux.md)中的步骤创建应用程序。 若要让应用程序连接到远程 HBase 服务器，请修改本示例中的 **hbase-site.xml** 文件，以对 Zookeeper 使用 FQDN。 例如：
+要在 Java 应用程序中使用此信息，可以按照[使用 Apache Maven 构建将 Apache HBase 与 HDInsight (Hadoop) 配合使用的 Java 应用程序](./apache-hbase-build-java-maven-linux.md)中的步骤来创建应用程序。 若要让应用程序连接到远程 HBase 服务器，请修改本示例中的 **hbase-site.xml** 文件，以对 Zookeeper 使用 FQDN。 例如：
 
     <property>
         <name>hbase.zookeeper.quorum</name>
@@ -241,16 +241,16 @@ ms.locfileid: "52659728"
 >
 
 ## <a name="next-steps"></a>后续步骤
-在本教程中，已学习了如何创建 HBase 群集。 若要了解更多信息，请参阅以下文章：
+在本教程中，你已学习了如何创建 Apache HBase 群集。 若要了解更多信息，请参阅以下文章：
 
 * [HDInsight 入门](../hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [在 HDInsight 中使用空边缘节点](../hdinsight-apps-use-edge-node.md)
-* [在 HDInsight 中配置 HBase 复制](apache-hbase-replication.md)
-* [在 HDInsight 中创建 Hadoop 群集](../hdinsight-hadoop-provision-linux-clusters.md)
-* [开始在 HDInsight 中将 HBase 与 Hadoop 配合使用](./apache-hbase-tutorial-get-started-linux.md)
+* [在 HDInsight 中配置 Apache HBase 复制](apache-hbase-replication.md)
+* [在 HDInsight 中创建 Apache Hadoop 群集](../hdinsight-hadoop-provision-linux-clusters.md)
+* [开始在 HDInsight 中将 Apache HBase 与 Apache Hadoop 配合使用](./apache-hbase-tutorial-get-started-linux.md)
 * [虚拟网络概述](../../virtual-network/virtual-networks-overview.md)
 
 [1]: https://www.azure.cn/home/features/virtual-network/
-[2]: http://technet.microsoft.com/library/ee176961.aspx
-[3]: http://technet.microsoft.com/library/hh847889.aspx
+[2]: https://technet.microsoft.com/library/ee176961.aspx
+[3]: https://technet.microsoft.com/library/hh847889.aspx
 

@@ -1,27 +1,25 @@
 ---
-title: 使用 Azure CLI 在多个 IP 配置上进行负载均衡 | Microsoft 文档
+title: 使用 Azure CLI 在多个 IP 配置上进行负载均衡
+titlesuffix: Azure Load Balancer
 description: 了解如何使用 Azure CLI 将多个 IP 地址分配给虚拟机。
 services: virtual-network
 documentationcenter: na
 author: WenJason
-manager: digimobile
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/25/2018
-ms.date: 11/26/2018
+ms.date: 12/31/2018
 ms.author: v-jay
-ms.openlocfilehash: db2a8ef045faea32556826414f5d8c35f098949e
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 6e123e0da3fe03961a72d96efab3968a56e3558f
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672777"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806326"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-azure-cli"></a>使用 Azure CLI 在多个 IP 配置上进行负载均衡
 
@@ -120,8 +118,7 @@ ms.locfileid: "52672777"
     az vm create --resource-group contosofabrikam --name VM2 --location chinaeast --os-type linux --nic-names VM2Nic1,VM2Nic2 --vnet-name VNet1 --vnet-subnet-name Subnet1 --availability-set myAvailabilitySet --vm-size Standard_DS3_v2 --storage-account-name mystorageaccount2 --image-urn canonical:UbuntuServer:16.04.0-LTS:latest --admin-username <your username>  --admin-password <your password>
     ```
 
-13. 最后，必须将 DNS 资源记录配置为指向各自的负载均衡器的前端 IP 地址。 可以在 Azure DNS 中托管域。
-<!--Not available [Using Azure DNS with other Azure services](../dns/dns-for-azure-services.md) -->
+13. 最后，必须将 DNS 资源记录配置为指向各自的负载均衡器的前端 IP 地址。 可以在 Azure DNS 中托管域。 有关将 Azure DNS 与负载均衡器配合使用的详细信息，请参阅[将 Azure DNS 与其他 Azure 服务配合使用](../dns/dns-for-azure-services.md)。
 
 ## <a name="next-steps"></a>后续步骤
 - 若要深入了解如何在 Azure 中结合使用负载均衡服务，请参阅[在 Azure 中使用负载均衡服务](../traffic-manager/traffic-manager-load-balancing-azure.md)。

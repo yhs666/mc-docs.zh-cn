@@ -12,15 +12,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 12/15/2016
+origin.date: 11/27/2018
 ms.author: v-yiso
-ms.date: 02/26/2018
-ms.openlocfilehash: 522357fe4163602fcfa7993ace29e56622561668
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 12/31/2018
+ms.openlocfilehash: aefb1f5fe65d5bf3adeea40a076a993a910b3565
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674975"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736682"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>添加缓存以提高 Azure API 管理中的性能
 API 管理中的操作可以配置为响应缓存。 响应缓存可以显著减少 API 延迟、带宽消耗和不经常更改数据的 web 服务负载。
@@ -52,12 +52,11 @@ API 管理中的操作可以配置为响应缓存。 响应缓存可以显著减
 4. 在 API 列表中单击“演示会议 API”。
 5. 选择“GetSpeakers”。
 6. 选择屏幕顶部的“设计”选项卡。
-7. 在“入站处理”窗口中，单击三角形（铅笔旁边）。
+7. 在“入站处理”部分中，单击 **</>** 图标。
 
-    ![代码编辑器](media/api-management-howto-cache/code-editor.png)
-    
-8. 选择“代码编辑器”。
-9. 在 **inbound** 元素中添加以下策略：
+    ![代码编辑器](media/api-management-howto-cache/code-editor.png) 
+
+8. 在 **inbound** 元素中添加以下策略：
 
         <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
             <vary-by-header>Accept</vary-by-header>
@@ -69,7 +68,7 @@ API 管理中的操作可以配置为响应缓存。 响应缓存可以显著减
 
         <cache-store caching-mode="cache-on" duration="20" />
 
-    **持续时间**指定缓存响应的到期时间间隔。 此示例中的时间间隔为 **20** 秒。
+    **持续时间** 指定缓存响应的过期时间间隔。 此示例中的时间间隔为 **20** 秒。
 
 ## <a name="test-operation"> </a>调用操作和测试缓存
 若要查看作用的缓存，请从开发人员门户调用操作。
@@ -97,6 +96,7 @@ API 管理中的操作可以配置为响应缓存。 响应缓存可以显著减
 [api-management-console]: ./media/api-management-howto-cache/api-management-console.png
 
 
+[How to add operations to an API]: mock-api-responses
 [How to add and publish a product]: ./api-management-howto-add-products.md
 [Monitoring and analytics]: ./api-management-monitoring.md
 [Add APIs to a product]: ./api-management-howto-add-products.md#add-apis

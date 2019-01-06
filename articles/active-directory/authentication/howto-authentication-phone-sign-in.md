@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
 origin.date: 09/20/2018
-ms.date: 11/30/2018
+ms.date: 12/28/2018
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: librown
-ms.openlocfilehash: 42e56bd7f4a45e0098760b778f6084395813083e
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: d4e3f4337ac3ee908b878604f82b654466139598
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028662"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996177"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>使用 Microsoft Authenticator 应用（公共预览版）进行无密码手机登录
 

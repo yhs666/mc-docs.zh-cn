@@ -77,6 +77,8 @@ items:
     maintainContext: true
 - name: 操作指南
   items:
+  - name: 使用 Python 发送、接收和捕获事件
+    href: event-hubs-python.md
   - name: 可用 API
     href: event-hubs-api-overview.md
     items:
@@ -144,9 +146,9 @@ items:
     href: https://www.azure.cn/pricing/calculator/
   - name: 服务更新
     href: https://www.azure.cn/what-is-new/
-ms.openlocfilehash: 60e10e541e01246de805314abcb376028a08de7e
-ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
+ms.openlocfilehash: 3359192163c81d507516ae0c1dc5fb267c6234b2
+ms.sourcegitcommit: a46f12240aea05f253fb4445b5e88564a2a2a120
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676895"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785234"

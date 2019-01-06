@@ -1,19 +1,19 @@
 ---
-title: Azure CLI 脚本示例 - 获取 MongoDB 应用的 Azure Cosmos DB 连接字符串 | Azure
+title: Azure CLI 脚本 - 获取 MongoDB 应用的 Azure Cosmos DB 连接字符串
 description: Azure CLI 脚本示例 - 获取 MongoDB 的 Azure Cosmos DB 连接字符串
 author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.topic: sample
 origin.date: 10/26/2018
-ms.date: 12/03/2018
-ms.author: v-yeche
-ms.openlocfilehash: c1b651810af828644edfcd8585c102ddae82dd78
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 12/31/2018
+ms.openlocfilehash: fe5ad16c9e711072887cb07f9b5e02510425f0e0
+ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674724"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814745"
 ---
 # <a name="get-an-azure-cosmos-db-connection-string-for-mongodb-using-the-azure-cli"></a>使用 Azure CLI 获取 MongoDB 的 Azure Cosmos DB 连接字符串
 
@@ -79,4 +79,4 @@ az group delete --name $resourceGroupName
 
 有关其他 Azure Cosmos DB CLI 脚本示例，请参见 [Azure Cosmos DB CLI 文档](../cli-samples.md)。
 
-<!--Update_Description: update link, wording update -->
+<!--Update_Description: update meta properties -->
