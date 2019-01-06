@@ -1,3 +1,17 @@
+---
+author: rockboyfor
+ms.service: virtual-machines
+ms.topic: include
+origin.date: 11/25/2018
+ms.date: 12/24/2018
+ms.author: v-yeche
+ms.openlocfilehash: 37c2e8e0438392ca42c0676815b817a0bf4380d6
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736224"
+---
 不再需要附加到虚拟机的数据磁盘时，可以轻松地分离它。 分离磁盘会将该磁盘从虚拟机中删除，但不会从 Azure 存储帐户中删除该磁盘。
 
 如果希望再次使用磁盘上的现有数据，可以将其重新附加到相同的虚拟机或另一个虚拟机。  
@@ -37,3 +51,5 @@
   ![确认分离磁盘](./media/howto-detach-disk-windows-linux/confirmdetach.png)
 
 磁盘保留在存储中，但不再附加到虚拟机。
+
+<!-- Update_Description: update meta properties -->

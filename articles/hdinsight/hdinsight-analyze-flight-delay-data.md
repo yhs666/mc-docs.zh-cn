@@ -1,5 +1,5 @@
 ---
-title: 使用 HDInsight 中的 Hadoop 分析航班延误数据 - Azure | Azure
+title: 在 HDInsight 中使用 Apache Hadoop 分析航班延误数据 - Azure
 description: 了解如何使用单个 Windows PowerShell 脚本来创建 HDInsight 群集、运行 Hive 作业、运行 Sqoop 作业和删除群集。
 services: hdinsight
 documentationcenter: ''
@@ -11,21 +11,18 @@ ms.service: hdinsight
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/25/2017
-ms.date: 09/24/2018
+ms.date: 12/24/2018
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3ba52291ebf0c718d2ef7edb5aa8793c1219356c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ee7d3b29268dc1a750dacfc75834914d4cd4d69b
+ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656877"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53569250"
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>使用 HDInsight 中的 Hive 分析航班延误数据
-
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
-
-Hive 提供了通过类似 SQL 的脚本语言（称为 [HiveQL][hadoop-hiveql]）运行 Hadoop MapReduce 作业的方法，此方法可用于对大量数据进行汇总、查询和分析。
+Hive 提供了通过类似 SQL 的脚本语言（称为 [HiveQL][hadoop-hiveql]）运行 Apache Hadoop MapReduce 作业的方法，此方法可用于对大量数据进行汇总、查询和分析。
 
 > [!IMPORTANT]
 > 本文档中的步骤要求使用基于 Windows 的 HDInsight 群集。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 有关适用于基于 Linux 的群集的步骤，请参阅[在 HDInsight (Linux) 中使用 Hive 分析航班延误数据](hdinsight-analyze-flight-delay-data-linux.md)。
@@ -96,7 +93,7 @@ Hadoop MapReduce 属于批处理。 运行 Hive 作业时，最具成本效益�
     $nameToken = "<Enter an Alias>"
 
     ###########################################
-    # You must configure the follwing variables
+    # You must configure the following variables
     # for an existing Azure SQL Database
     ###########################################
     $existingSqlDatabaseServerName = "<Azure SQL Database Server>"
@@ -453,7 +450,7 @@ HiveQL 脚本执行以下操作：
     Write-Host "`nvalidating the folder structure on the workstation for saving the HQL script file ..."  -ForegroundColor Green
     if (test-path $hqlLocalFileName){
 
-        $isDelete = Read-Host 'The file, ' $hqlLocalFileName ', exists.  Do you want to overwirte it? (Y/N)'
+        $isDelete = Read-Host 'The file, ' $hqlLocalFileName ', exists.  Do you want to overwrite it? (Y/N)'
 
         if ($isDelete.ToLower() -ne "y")
         {
@@ -641,7 +638,7 @@ HiveQL 脚本执行以下操作：
     catch{Connect-AzureRmAccount -EnvironmentName AzureChinaCloud}
     #EndRegion
 
-    #region - Create and validate Azure resouce group
+    #region - Create and validate Azure resource group
     try{
         Get-AzureRmResourceGroup -Name $resourceGroupName
     }

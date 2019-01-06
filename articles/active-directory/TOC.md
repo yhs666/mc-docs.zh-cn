@@ -118,6 +118,6 @@
 ## [MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
 ## [价格](https://www.azure.cn/pricing/details/active-directory/)
 ## [定价计算器](https://www.azure.cn/pricing/calculator/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [视频](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)
 

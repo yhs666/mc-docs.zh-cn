@@ -12,28 +12,27 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/30/2018
-ms.date: 12/03/2018
+origin.date: 12/05/2018
+ms.date: 12/24/2018
 ms.author: v-jay
-ms.openlocfilehash: 1f33672a498672bbed9e375f81f0bc88b7d1f807
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 39e49de797a1bd625b3eb7b857cdbd9b7d3436e5
+ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673166"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53656605"
 ---
 # <a name="output-metadata"></a>输出元数据
 ## <a name="overview"></a>概述
 编码作业与要执行部分编码任务的输入资产相关联。 例如，将 MP4 文件编码为 H.264 MP4 自适应比特率集；创建缩略图；创建叠加。 完成任务后，会生成一个输出资产。  该输出资产包含视频、音频、缩略图等。输出资产还包含提供输出资产相关元数据的文件。 元数据 XML 文件的名称采用下列格式：&lt;source_file_name&gt;_manifest.xml（例如，BigBuckBunny_manifest.xml）。  
 
+媒体服务不会先扫描输入资产以生成元数据。 只有在作业中处理输入资产时，才会生成输入元数据。 因此，此项目会写入到输出资产。 使用不同的工具为输入资产和输出资产生成元数据。 因此，输入元数据的模式与输出元数据略有不同。
+
 要检查元数据文件，可以创建 **SAS** 定位器并将文件下载到本地计算机。  
 
 本文讨论作为输出元数据 (&lt;source_file_name &gt;_manifest.xml) 的基础的 XML架构的元素和类型。 若要了解包含有关输入资产元数据的文件信息，请参阅[输入元数据](media-services-input-metadata-schema.md)。  
 
-> [!NOTE]
-> 可以在本文末尾找到完整的架构代码和 XML 示例。  
->
->
+可以在本文末尾找到完整的架构代码和 XML 示例。  
 
 ## <a name="AssetFiles "></a> AssetFiles 根元素
 用于编码作业的 AssetFile 条目的集合。  
@@ -98,7 +97,7 @@ ms.locfileid: "52673166"
 ### <a name="attributes"></a>属性
 | Name | 类型 | 说明 |
 | --- | --- | --- |
-| Id<br/><br/> minInclusive ="0"<br/><br/> 必须 |**xs:int** |此视频轨道从零开始的索引。**注意：** 此 **Id** 不一定是 MP4 文件中使用的 TrackID。 |
+| Id<br/><br/> minInclusive ="0"<br/><br/> 必须 |**xs:int** |此视频轨道从零开始的索引。**注意：** 此“Id”不一定是 MP4 文件中使用的 TrackID。 |
 | FourCC<br/><br/> 必须 |**xs:string** |视频编解码器 FourCC 代码。 |
 | **配置文件** |**xs:string** |H264 配置文件（仅适用于 H264 编解码器）。 |
 | Level |**xs:string** |H264 级别（仅适用于 H264 编解码器）。 |
@@ -130,7 +129,7 @@ ms.locfileid: "52673166"
 ### <a name="attributes"></a>属性
 | Name | 类型 | 说明 |
 | --- | --- | --- |
-| Id<br/><br/> minInclusive ="0"<br/><br/> 必须 |**xs:int** |此音频轨道从零开始的索引。注意：这不一定是 MP4 文件中使用的 TrackID。 |
+| Id<br/><br/> minInclusive ="0"<br/><br/> 必须 |**xs:int** |此音频轨道从零开始的索引。**注意：** 也不一定是 MP4 文件中使用的 TrackID。 |
 | **Codec** |**xs:string** |音频轨道编解码器字符串。 |
 | **EncoderVersion** |**xs:string** |可选的编码器版本字符串，对于 EAC3 是必需的。 |
 | 通道<br/><br/> minInclusive ="0"<br/><br/> 必须 |**xs:int** |音频通道数。 |

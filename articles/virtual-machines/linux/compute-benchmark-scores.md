@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 04/09/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8f59a457202461e4bfed230e7cd37cb302f1599e
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 3337d51d5e0e7a753d9071373cc6e2e2f58d21e5
+ms.sourcegitcommit: f6a287a11480cbee99a2facda2590f3a744f7e45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674612"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53786743"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Linux VM 的计算基准测试分数
 以下 CoreMark 基准测试分数显示运行 Ubuntu 的 Azure 高性能 VM 产品阵容的计算性能。 此外，还提供了 [Windows VM](../windows/compute-benchmark-scores.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)的计算基准测试分数。
@@ -251,7 +251,6 @@ ms.locfileid: "52674612"
 | Standard_DS3 | Intel(R) Xeon(R) CPU E5-2673 v3 \@ 2.40GHz | 4 | 1 | 14.0 | 55,664 | 385 | 0.69% | 7 |
 | Standard_DS4 | Intel(R) Xeon(R) CPU E5-2660 0 \@ 2.20GHz | 8 | 1 | 28.1 | 84,956 | 1,087 | 1.28% | 105 |
 
-<!--Pending for FV2 releasement-->
 ## <a name="fsv2---compute--storage-optimized"></a>Fsv2 - 计算 + 存储优化
 (3/23/2018 7:33:11 PM pbi 2050259)
 
@@ -264,7 +263,7 @@ ms.locfileid: "52674612"
 | Standard_F32s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU \@ 2.70GHz | 32 | 1 | 64.4 | 375,828 | 5,180 | 1.38% | 70 |
 | Standard_F64s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU \@ 2.70GHz | 64 | 2 | 128.9 | 741,859 | 5,954 | 0.80% | 49 |
 | Standard_F72s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU \@ 2.70GHz | 72 | 2 | 145.0 | 831,616 | 4,867 | 0.59% | 42 |
-<!--Pending for FV2 releasement-->
+
 
 ## <a name="f---compute-optimized"></a>F - 计算优化
 (3/23/2018 7:28:54 PM pbi 2050259)

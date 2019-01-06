@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/14/2018
-ms.date: 10/15/2018
+origin.date: 12/01/2018
+ms.date: 12/31/2018
 ms.author: v-jay
-ms.openlocfilehash: ab12e23b7cd4125149ae8191bee9b4dd30b8c529
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: df8b4d5adb7e4620f62a433f68936cad14e74996
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650351"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814627"
 ---
 # <a name="how-to-consume-monitoring-data-from-azure-stack"></a>如何使用 Azure Stack 中的监视数据
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于：Azure Stack 集成系统*
 
 使用 Azure Monitor 管道可以在一个位置找到监视数据，就像中国 Azure 中的 Azure Monitor 一样。 但并非在中国 Azure 中找到的所有监视数据都可在 Azure Stack 中使用。 在本文中，可以找到可以编程方式从服务中提取监视数据的各种方法的摘要。
  

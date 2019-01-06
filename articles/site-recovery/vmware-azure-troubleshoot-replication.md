@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 10/29/2018
 ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 02a2fbe20ad22fadf922936716ac9c23753b5722
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 9b5a518498b7429f57ce14234119ab07304d2855
+ms.sourcegitcommit: f6a287a11480cbee99a2facda2590f3a744f7e45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028761"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53786720"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>解决 VMware VM 和物理服务器的复制问题
 
@@ -69,7 +69,7 @@ ms.locfileid: "53028761"
       telnet <your Azure Public IP address as seen in CBEngineCurr.errlog>  443
 如果无法连接，则检查访问问题是否由防火墙或代理导致（在下一步提供说明）。
 
-* **检查进程服务器上基于 IP 地址的防火墙是否未阻止访问**：如果在服务器上使用了基于 IP 地址的防火墙规则，请从[此处](https://www.microsoft.com/download/details.aspx?id=42064)下载 Azure 数据中心 IP 范围的完整列表，并将其添加到防火墙配置，确保它们允许到 Azure（和 HTTPS (443) 端口）的通信。  允许订阅的 Azure 区域的 IP 地址范围以及中国北部的 IP 地址范围（用于访问控制和标识管理）。
+* **检查进程服务器上基于 IP 地址的防火墙是否未阻止访问**：如果在服务器上使用了基于 IP 地址的防火墙规则，请从[此处](https://www.microsoft.com/en-us/download/confirmation.aspx?id=57062)下载 Azure 数据中心 IP 范围的完整列表，并将其添加到防火墙配置，确保它们允许到 Azure（和 HTTPS (443) 端口）的通信。  允许订阅的 Azure 区域的 IP 地址范围以及中国北部的 IP 地址范围（用于访问控制和标识管理）。
 
 * **检查进程服务器上基于 URL 的防火墙是否未阻止访问**：如果在服务器上使用基于 URL 的防火墙规则，请确保将以下 URL 添加到防火墙配置。
 
@@ -88,6 +88,6 @@ ms.locfileid: "53028761"
 * **检查进程服务器上是否未约束限制带宽**：增加带宽，然后检查问题是否仍然出现。
 
 ## <a name="next-steps"></a>后续步骤
-如需更多帮助，请在 [Azure Site Recovery 论坛](https://www.azure.cn/support/contact/)提出疑问。 我们的社区非常活跃，我们的工程师将为你提供帮助。
+如需更多帮助，请在 [Azure Site Recovery 论坛](https://www.azure.cn/support/contact/)提出疑问。 我们的社区非常活跃，工程师会提供帮助。
 
 <!--Update_Description: update meta properties, wording update -->

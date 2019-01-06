@@ -1,22 +1,21 @@
 ---
-title: Azure Cosmos DB：.NET 更改源处理器 API、SDK 和资源 | Azure
+title: Azure Cosmos DB：.NET 更改源处理器 API、SDK 和资源
 description: 了解有关更改源处理器 API 的信息。
 services: cosmos-db
 author: rockboyfor
-manager: digimobile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 origin.date: 10/24/2018
-ms.date: 12/03/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: 98b38440e4bda19be6e1c17b55044ec8f1a7363b
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 2469f3adb64960c86373355f25eda82fb8ac334f
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675621"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026646"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 更改源处理器 SDK：下载和发行说明
 > [!div class="op_single_selector"]
@@ -29,7 +28,7 @@ ms.locfileid: "52675621"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 资源提供程序](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](../cosmos-db/sql-api-sql-query-reference.md)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 

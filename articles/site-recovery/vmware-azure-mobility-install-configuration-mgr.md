@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 10/29/2018
-ms.date: 12/10/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8754bfe8d0393fd8b792b477c25674b09944aed2
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 7e30ffa8fb15be3fad4f5c000e3b3f62d76b66d9
+ms.sourcegitcommit: b29475e13c1f54d420cdca71f90ca6a5c5116cbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028468"
+ms.lasthandoff: 12/24/2018
+ms.locfileid: "53784552"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>使用 System Center Configuration Manager 自动执行移动服务安装
 

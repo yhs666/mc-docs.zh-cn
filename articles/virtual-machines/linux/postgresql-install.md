@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 02/01/2016
-ms.date: 11/26/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: a97e4e249ce58414d9c501400b127aaf82822079
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 340ddbc5380626b7a533cf7f4d624f2ce31fc90b
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674318"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736105"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>在 Azure 上安装和配置 PostgreSQL
 PostgreSQL 是一种类似于 Oracle 和 DB2 的高级开放源代码数据库。 它包含许多企业级功能，比如完整的 ACID 合规性、可靠的事务处理和多版本并发控制。 它还支持 ANSI SQL 和 SQL/MED（包括 Oracle、MySQL、MongoDB 等等的外来数据包装器）等标准。 它具有高度的可扩展性，支持超过 12 种程序语言，并支持 GIN 和 GiST 索引、空间数据，以及面向 JSON 或基于键值的应用程序的多款类似于 NoSQL 的功能。
@@ -78,7 +78,7 @@ PostgreSQL 是一种类似于 Oracle 和 DB2 的高级开放源代码数据库�
 ## <a name="configure-postgresql"></a>配置 PostgreSQL
 1. （可选）创建一个符号链接以便将 PostgreSQL 引用缩短为不包含版本号：
 
-        # ln -s /opt/pgsql9.3.5 /opt/pgsql
+        # ln -s /opt/postgresql-9.3.5 /opt/pgsql
 2. 为数据库创建一个目录：
 
         # mkdir -p /opt/pgsql_data
@@ -121,6 +121,7 @@ PostgreSQL 是一种类似于 Oracle 和 DB2 的高级开放源代码数据库�
 7. 你还可以检查 PostgreSQL 版本：
 
         $ psql -V
+
 8. 初始化数据库：
 
         $ initdb -D $PGDATA -E UTF8 --locale=C -U postgres -W
@@ -240,4 +241,4 @@ PostgreSQL 是一种类似于 Oracle 和 DB2 的高级开放源代码数据库�
 ## <a name="get-more-information-about-postgresql"></a>获取有关 PostgreSQL 的详细信息
 现在，你已完成在 Azure Linux VM 中安装 PostgreSQL，你可以在 Azure 中享受使用它的过程。 若要了解有关 PostgreSQL 的详细信息，请访问 [PostgreSQL 网站](http://www.postgresql.org/)。
 
-<!-- Update_Description: update meta propreties -->
+<!-- Update_Description: update meta propreties, wording update -->

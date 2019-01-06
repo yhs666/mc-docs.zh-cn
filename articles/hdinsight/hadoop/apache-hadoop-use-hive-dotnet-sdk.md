@@ -1,6 +1,6 @@
 ---
 title: 使用 HDInsight .NET SDK 运行 Hive 查询 - Azure | Azure
-description: 了解如何使用 HDInsight .NET SDK 将 Hadoop 作业提交到 Azure HDInsight Hadoop。
+description: 了解如何使用 HDInsight .NET SDK 将 Apache Hadoop 作业提交到 Azure HDInsight Apache Hadoop。
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
@@ -13,19 +13,19 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/16/2018
-ms.date: 08/27/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 948fabdca9979c41272817bde75fb319d5f7c8e0
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: bc90244b64d35f18e5f1f45b34144c4530a9da16
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651217"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029112"
 ---
-# <a name="run-hive-queries-using-hdinsight-net-sdk"></a>使用 HDInsight .NET SDK 运行 Hive 查询
+# <a name="run-apache-hive-queries-using-hdinsight-net-sdk"></a>使用 HDInsight .NET SDK 运行 Apache Hive 查询
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-了解如何使用 HDInsight .NET SDK 提交 Hive 查询。 编写 C# 程序来提交 Hive 查询以列出 Hive 表，并显示结果。
+了解如何使用 HDInsight .NET SDK 提交 Apache Hive 查询。 编写 C# 程序来提交 Hive 查询以列出 Hive 表，并显示结果。
 
 > [!NOTE]
 > 必须从 Windows 客户端执行本文中的步骤。 有关使用 Linux、OS X 或 Unix 客户端处理 Hive 的信息，请使用本文顶部显示的选项卡选择器。
@@ -35,7 +35,7 @@ ms.locfileid: "52651217"
 ## <a name="prerequisites"></a>先决条件
 在开始阅读本文前，必须具有以下项：
 
-* **HDInsight 中的 Hadoop 群集**。 请参阅[在 HDInsight 中开始使用基于 Linux 的 Hadoop](apache-hadoop-linux-tutorial-get-started.md)。
+* **HDInsight 中的 Apache Hadoop 群集**。 请参阅[在 HDInsight 中开始使用基于 Linux 的 Hadoop](apache-hadoop-linux-tutorial-get-started.md)。
 
 * **Visual Studio 2013/2015/2017**。
 
@@ -143,11 +143,11 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET 中使用 HDInsi
 在本文中，已经学习了几种创建 HDInsight 群集的方法。 要了解更多信息，请参阅下列文章：
 
 * [Azure HDInsight 入门](apache-hadoop-linux-tutorial-get-started.md)
-* [在 HDInsight 中创建 Hadoop 群集](../hdinsight-hadoop-provision-linux-clusters.md)
-* [使用 Azure 门户管理 HDInsight 中的 Hadoop 群集](../hdinsight-administer-use-management-portal.md)
+* [在 HDInsight 中创建 Apache Hadoop 群集](../hdinsight-hadoop-provision-linux-clusters.md)
+* [使用 Azure 门户管理 HDInsight 中的 Apache Hadoop 群集](../hdinsight-administer-use-management-portal.md)
 * [HDInsight .NET SDK 参考](https://docs.azure.cn/zh-cn/dotnet/api/overview/hdinsight)
-* [将 Pig 与 HDInsight 配合使用](hdinsight-use-pig.md)
-* [将 Sqoop 与 HDInsight 配合使用](apache-hadoop-use-sqoop-mac-linux.md)
+* [将 Apache Pig 和 HDInsight 配合使用](hdinsight-use-pig.md)
+* [将 Apache Sqoop 与 HDInsight 配合使用](apache-hadoop-use-sqoop-mac-linux.md)
 * [创建非交互式身份验证 .NET HDInsight 应用程序](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)
  
 

@@ -12,18 +12,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/27/2017
+origin.date: 11/27/2018
 ms.author: v-yiso
-ms.date: 11/05/2018
-ms.openlocfilehash: ac4ae795ff37d6cc41627003a277e4b8a9015c9d
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 12/31/2018
+ms.openlocfilehash: 724272318c939a32c479f7f991d47fb3dfae1087
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674477"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736709"
 ---
 # <a name="api-management-caching-policies"></a>API 管理缓存策略
-本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](http://go.microsoft.com/fwlink/?LinkID=398186)。  
+本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](https://go.microsoft.com/fwlink/?LinkID=398186)。  
   
 ##  <a name="CachingPolicies"></a> 缓存策略  
   
@@ -50,7 +50,7 @@ ms.locfileid: "52674477"
 ### <a name="policy-statement"></a>策略语句  
   
 ```xml  
-<cache-lookup vary-by-developer="true | false" vary-by-developer-groups="true | false" downstream-caching-type="none | private | public" must-revalidate="true | false" allow-private-response-caching="@(expression to evaluate)">  
+<cache-lookup vary-by-developer="true | false" vary-by-developer-groups="true | false" cache-preference="internal" downstream-caching-type="none | private | public" must-revalidate="true | false" allow-private-response-caching="@(expression to evaluate)">  
   <vary-by-header>Accept</vary-by-header>  
   <!-- should be present in most cases -->  
   <vary-by-header>Accept-Charset</vary-by-header>  
@@ -72,7 +72,7 @@ ms.locfileid: "52674477"
 <policies>  
     <inbound>  
         <base />  
-        <cache-lookup vary-by-developer="false" vary-by-developer-groups="false" downstream-caching-type="none" must-revalidate="true">  
+        <cache-lookup vary-by-developer="false" vary-by-developer-groups="false" downstream-caching-type="none" must-revalidate="true" cache-preference="internal" >  
             <vary-by-query-parameter>version</vary-by-query-parameter>  
         </cache-lookup>           
     </inbound>  
@@ -116,12 +116,12 @@ ms.locfileid: "52674477"
 ### <a name="attributes"></a>属性  
   
 |Name|说明|必须|默认|  
-|----------|-----------------|--------------|-------------|  
+|--------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 |allow-private-response-caching|设置为 `true` 即可缓存包含 Authorization 标头的请求。|否|false|  
 |downstream-caching-type|此属性必须设置为以下值之一。<br /><br /> -   none - 不允许下游缓存。<br />-   private - 允许下游专用缓存。<br />-   public - 允许专用和共享下游缓存。|否|无|  
 |must-revalidate|启用下游缓存时，此属性会启用或关闭网关响应中的 `must-revalidate` 缓存控制指令。|否|是|  
-|vary-by-developer|设置为 `true` 即可按开发人员密钥缓存响应。|是||  
-|vary-by-developer-groups|设置为 `true` 即可按用户角色缓存响应。|是||  
+| vary-by-developer              | 设置为 `true` 即可按[订阅密钥](/api-management/api-management-subscriptions#what-is-subscriptions)缓存响应。                                                                                                                                                                                                                                                                                                         | 是      |                   |
+| vary-by-developer-groups       | 设置为 `true` 即可按[用户组](/api-management/api-management-howto-create-groups)缓存响应。                                                                                                                                                                                                                                                                                                             | 是      |                   |  
   
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[段](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
@@ -198,7 +198,7 @@ ms.locfileid: "52674477"
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略段：** 出站  
+-   **策略节：** 出站  
   
 -   **策略范围：** API、操作、产品  
   
@@ -213,7 +213,8 @@ ms.locfileid: "52674477"
 ```xml  
 <cache-lookup-value key="cache key value"   
     default-value="value to use if cache lookup resulted in a miss"   
-    variable-name="name of a variable looked up value is assigned to" />  
+    variable-name="name of a variable looked up value is assigned to"
+    cache-preference="internal" />  
 ```  
   
 ### <a name="example"></a>示例  
@@ -256,7 +257,7 @@ ms.locfileid: "52674477"
 ### <a name="policy-statement"></a>策略语句  
   
 ```xml  
-<cache-store-value key="cache key value" value="value to cache" duration="seconds" />  
+<cache-store-value key="cache key value" value="value to cache" duration="seconds" cache-preference="internal" />  
 ```  
   
 ### <a name="example"></a>示例  
@@ -297,7 +298,7 @@ ms.locfileid: "52674477"
   
 ```xml  
   
-<cache-remove-value key="cache key value"/>  
+<cache-remove-value key="cache key value" cache-preference="internal"  />  
   
 ```  
   

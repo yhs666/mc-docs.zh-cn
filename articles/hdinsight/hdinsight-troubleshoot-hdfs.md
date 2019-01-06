@@ -1,27 +1,23 @@
 ---
-title: 使用 Azure HDinsight 排除 HDFS 故障 | Microsoft Docs
+title: Azure HDInsight 中的 HDFS 故障排除
 description: 获取有关使用 HDFS 和 Azure HDInsight 的常见问题答案。
-keywords: Azure HDInsight, HDFS, 常见问题解答, 故障排除指南, 常见问题
-services: Azure HDInsight
-documentationcenter: na
-author: arijitt
-manager: ''
-editor: ''
+services: hdinsight
+author: hrasheed-msft
 ms.assetid: 4C33828F-2982-47F0-B858-C32FFF634D9E
-ms.service: multiple
+ms.service: hdinsight
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 11/02/2017
-ms.date: 12/25/2017
+ms.date: 12/24/2018
 ms.author: v-yiso
-ms.openlocfilehash: 25cd6d5c37336c0f221f152dc069f53220e7a977
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 7fdcc4ff95304330266d8d398edcc27fc33afad5
+ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653397"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53569329"
 ---
 # <a name="troubleshoot-hdfs-by-using-azure-hdinsight"></a>使用 Azure HDInsight 排除 HDFS 故障
 
@@ -47,7 +43,7 @@ drwx------   - hdiuser hdfs          0 2016-11-10 22:22 /user
 
 2. 从源代码按原义使用 URI `hdfs://mycluster/`，如以下示例应用程序中所示：
 
-```csharp
+```Java
 import java.io.IOException;
 import java.net.URI;
 import org.apache.commons.io.IOUtils;

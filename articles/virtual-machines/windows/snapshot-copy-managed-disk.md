@@ -16,11 +16,11 @@ origin.date: 10/08/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
 ms.openlocfilehash: 4240a176be178e2f640277569dcf005780627062
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674952"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785171"
 ---
 # <a name="create-a-snapshot"></a>创建快照
 

@@ -7,21 +7,21 @@ ms.component: shared-capabilities
 author: WenJason
 ms.author: v-jay
 origin.date: 03/15/2018
-ms.date: 10/01/2018
+ms.date: 12/24/2018
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: c93c527322091ff3f7b4cc6e352745066aa66963
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ad6c5051eb35de908f52ae30b7506790e12befad
+ms.sourcegitcommit: 895e9accaae8f8c2a29ed91d8e84911fda6111cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666684"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53615174"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure 自动化中的连接资产
 
 自动化连接资产包含从 Runbook 或 DSC 配置连接到外部服务或应用程序所需的信息。 除 URL 和端口等连接信息外，还包括身份验证所需的信息，如用户名和密码。 使用连接的值将用于连接一个特定应用程序的所有属性保留在一个资产中，而不是创建多个变量。 用户可以从一个位置编辑连接的值，并且可以在单个参数中将连接名称传递给 Runbook 或 DSC 配置。 可在 Runbook 或 DSC 配置中使用 **Get-AutomationConnection** 活动访问连接的属性。 
 
-创建连接时，必须指定“连接类型”。 连接类型是定义了一组属性的模板。 连接为其连接类型中定义的每个属性定义值。 连接类型通过集成模块添加到 Azure 自动化，或使用 [Azure 自动化 API](http://msdn.microsoft.com/library/azure/mt163818.aspx) 进行创建，前提是集成模块包含连接类型，并且已导入到自动化帐户中。 否则，需创建指定自动化连接类型的元数据文件。  此方面的详细信息，请参阅[集成模块](automation-integration-modules.md)。  
+创建连接时，必须指定“连接类型”。 连接类型是定义了一组属性的模板。 连接为其连接类型中定义的每个属性定义值。 连接类型通过集成模块添加到 Azure 自动化，或使用 [Azure 自动化 API](https://msdn.microsoft.com/library/azure/mt163818.aspx) 进行创建，前提是集成模块包含连接类型，并且已导入到自动化帐户中。 否则，需创建指定自动化连接类型的元数据文件。  此方面的详细信息，请参阅[集成模块](automation-integration-modules.md)。  
 
 >[!NOTE]
 >Azure 自动化中的安全资产包括凭据、证书、连接和加密的变量。 这些资产已使用针对每个自动化帐户生成的唯一密钥加密并存储在 Azure 自动化中。 此密钥存储在密钥保管库中。 在存储安全资产之前，从密钥保管库加载密钥，然后使用该密钥加密资产。
@@ -73,7 +73,7 @@ ms.locfileid: "52666684"
 
 使用 Windows PowerShell 通过 [New-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationconnection) cmdlet 创建新连接。 此 cmdlet 有一个名为 ConnectionFieldValues 的参数，预期为一个[哈希表](http://technet.microsoft.com/library/hh847780.aspx)，用于为连接类型定义的每个属性定义值。
 
-如果熟悉自动化的[运行方式帐户](automation-create-runas-account.md)（可使用服务主体对 Runbook 进行身份验证），可以使用 PowerShell 脚本（在从门户创建运行方式帐户时作为替代方法提供）通过以下示例命令创建新的连接资产。  
+如果熟悉自动化的[运行方式帐户](automation-sec-configure-azure-runas-account.md)（可使用服务主体对 Runbook 进行身份验证），可以使用 PowerShell 脚本（在从门户创建运行方式帐户时作为替代方法提供）通过以下示例命令创建新的连接资产。  
 
 ```powershell
 $ConnectionAssetName = "AzureRunAsConnection"
@@ -85,7 +85,7 @@ New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAcc
   
 ## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>在 Runbook 或 DSC 配置中使用连接
 
-请使用 **Get-AutomationConnection** cmdlet 检索 Runbook 或 DSC 配置中的连接。  不能使用 [Get-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationconnection?view=azurermps-6.5.0) 活动。  此活动检索连接中的不同字段的值，并将它们作为[哈希表](http://go.microsoft.com/fwlink/?LinkID=324844)返回，该哈希表随后可用于 Runbook 或 DSC 配置中的相应命令。
+请使用 **Get-AutomationConnection** cmdlet 检索 Runbook 或 DSC 配置中的连接。  不能使用 [Get-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationconnection) 活动。  此活动检索连接中的不同字段的值，并将它们作为[哈希表](https://go.microsoft.com/fwlink/?LinkID=324844)返回，该哈希表随后可用于 Runbook 或 DSC 配置中的相应命令。
 
 ### <a name="textual-runbook-sample"></a>文本 Runbook 示例
 
@@ -103,11 +103,11 @@ Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $
 
 在图形编辑器的“库”窗格中，右键单击连接，并选择“添加到画布”将 **Get-AutomationConnection** 活动添加到图形 Runbook。
 
-![](media/automation-connections/connection-add-canvas.png)
+![添加到画布](media/automation-connections/connection-add-canvas.png)
 
 下图显示了在图形 Runbook 中使用连接的示例。  这是上面显示的同一示例，可以使用运行方式帐户通过文本 Runbook 进行身份验证。  此示例使用**常量值**数据集执行**获取 RunAs 连接**活动，该活动使用连接对象进行身份验证。  此处使用了一个[管道链接](automation-graphical-authoring-intro.md#links-and-workflow)，因为 ServicePrincipalCertificate 参数集需要单个对象。
 
-![](media/automation-connections/automation-get-connection-object.png)
+![获取连接](media/automation-connections/automation-get-connection-object.png)
 
 ### <a name="python2-runbook-sample"></a>Python2 Runbook 示例
 下图演示了如何在 Python2 Runbook 中使用运行方式连接进行身份验证。

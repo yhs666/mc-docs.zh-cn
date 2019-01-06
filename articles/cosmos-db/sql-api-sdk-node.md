@@ -1,23 +1,22 @@
 ---
-title: Azure Cosmos DB：SQL Node.js API、SDK 和资源 | Azure
+title: Azure Cosmos DB：SQL Node.js API、SDK 和资源
 description: 了解有关 SQL Node.js API 的信息。
 services: cosmos-db
 author: rockboyfor
-editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: reference
 origin.date: 09/24/2018
-ms.date: 12/03/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 21245b9d8685a0a44b55e307b1da069b9160ca9a
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 19a80295b9cf7225aa141574c9d9ca28a3fce133
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674444"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026739"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>适用于 SQL API 的 Azure Cosmos DB Node.js SDK：发行说明和资源
 > [!div class="op_single_selector"]
@@ -30,7 +29,7 @@ ms.locfileid: "52674444"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 资源提供程序](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](../cosmos-db/sql-api-sql-query-reference.md)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 

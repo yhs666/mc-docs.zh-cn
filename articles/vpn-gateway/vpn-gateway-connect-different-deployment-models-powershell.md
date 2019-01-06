@@ -6,14 +6,14 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: conceptual
 origin.date: 10/17/2018
-ms.date: 12/10/2018
+ms.date: 12/24/2018
 ms.author: v-jay
-ms.openlocfilehash: 6adf572de9bccb9b62b730c6e8414d3454d1a233
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: ea2300b13d2d660755125599275393f10c4cdb1a
+ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029048"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53656593"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>使用 PowerShell 从不同的部署模型连接虚拟网络
 
@@ -35,7 +35,7 @@ ms.locfileid: "53029048"
 
 ### <a name="pre"></a>先决条件
 
-* 已创建了两个 VNet。 如果需要创建资源管理器虚拟网络，请参阅[创建虚拟网络](../virtual-network/quick-create-powershell.md#create-a-virtual-network)。 若要创建经典虚拟网络，请参阅[创建经典 VNet](/virtual-network/create-virtual-network-classic)。
+* 已创建了两个 VNet。 如果需要创建资源管理器虚拟网络，请参阅[创建资源组和虚拟网络](../virtual-network/quick-create-powershell.md#create-a-resource-group-and-a-virtual-network)。 若要创建经典虚拟网络，请参阅[创建经典 VNet](/virtual-network/create-virtual-network-classic)。
 * 两个 VNet 的地址范围不相互重叠，也不与网关可能连接到的其他连接的任何范围重叠。
 * 已安装最新的 PowerShell cmdlet。 有关详细信息，请参阅 [如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 。 请确保安装服务管理 (SM) 和 Resource Manager (RM) cmdlet。 
 

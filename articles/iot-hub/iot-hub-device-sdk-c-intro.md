@@ -8,13 +8,13 @@ ms.devlang: c
 ms.topic: conceptual
 origin.date: 08/25/2017
 ms.author: v-yiso
-ms.date: 09/10/2018
-ms.openlocfilehash: d9644aaeb9f1ddba08469a8cd442380ed779609f
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 12/31/2018
+ms.openlocfilehash: c0a5e9f94b58b476783add0170b5a6f79bd7b939
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675491"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736713"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>适用于 C 的 Azure IoT 设备 SDK
 
@@ -66,11 +66,12 @@ SDK 已在许多平台上进行了测试（有关详细信息，请参阅 [Azure
 有几个开源工具可帮助管理 IoT 中心。
 
 * 一个是称为[设备资源管理器](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)的 Windows 应用程序。
-* 一个称为 [Azure IoT 工具包](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)的跨平台 Visual Studio Code 扩展。
+
+* 一个称为 [Azure IoT 中心工具包](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)的跨平台 Visual Studio Code 扩展（以前称为 Azure IoT 工具包）。
 
 * 一个称为[适用于 Azure CLI 的 IoT 扩展](https://github.com/Azure/azure-iot-cli-extension)的跨平台 Python CLI。
 
-本教程使用图形*设备资源管理器*工具。 如果在 VS Code 中进行开发，可以使用*适用于 VS Code 的 Azure IoT 工具包扩展*。 如果偏好 CLI 工具，也可以使用适用于 Azure CLI 2.0 的 IoT 扩展工具。
+本教程使用图形*设备资源管理器*工具。 如果在 VS Code 中进行开发，可以使用适用于 VS Code 的 Azure IoT 中心工具包扩展。 如果偏好 CLI 工具，也可以使用适用于 Azure CLI 2.0 的 IoT 扩展工具。
 
 设备资源管理器工具使用 Azure IoT 服务库在 IoT 中心执行各种功能（包括添加设备）。 若使用设备资源管理器工具添加设备，会获得设备的连接字符串。 需要此连接字符串才能运行示例应用程序。
 
@@ -140,7 +141,8 @@ Windows 版本的 **iothub\_client\_sample\_mqtt** 应用程序包含以下 Visu
 只有在分配 IoT 中心客户端句柄之后，才可以开始使用库：
 
 ```c
-if ((iotHubClientHandle = IoTHubClient_LL_CreateFromConnectionString(connectionString, MQTT_Protocol)) == NULL)
+if ((iotHubClientHandle = 
+  IoTHubClient_LL_CreateFromConnectionString(connectionString, MQTT_Protocol)) == NULL)
 {
     (void)printf("ERROR: iotHubClientHandle is NULL!\r\n");
 }
@@ -479,7 +481,8 @@ void sendCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* userContextCal
 接收消息的方式类似于在 **IoTHubClient** 库中处理消息。 首先，需要注册消息回调函数：
 
 ```c
-if (IoTHubClient_LL_SetMessageCallback(iotHubClientHandle, IoTHubMessage, myWeather) != IOTHUB_CLIENT_OK)
+if (IoTHubClient_LL_SetMessageCallback(iotHubClientHandle, 
+  IoTHubMessage, myWeather) != IOTHUB_CLIENT_OK)
 {
     printf("unable to IoTHubClient_SetMessageCallback\r\n");
 }

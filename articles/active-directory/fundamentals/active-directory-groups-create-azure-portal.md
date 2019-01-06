@@ -1,6 +1,6 @@
 ---
-title: 如何使用 Azure Active Directory 创建基本组并添加成员 | Microsoft Docs
-description: 了解如何使用 Azure Active Directory 创建基本组。
+title: 创建基本组并添成员 - Azure Active Directory | Microsoft Docs
+description: 介绍如何使用 Azure Active Directory 创建基本组。
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -9,18 +9,18 @@ ms.workload: identity
 ms.component: fundamentals
 ms.topic: quickstart
 origin.date: 08/22/2018
-ms.date: 10/09/2018
+ms.date: 01/02/2019
 ms.author: v-junlch
 ms.reviewer: krbain
-ms.custom: it-pro
-ms.openlocfilehash: df0e6de01d5dbe47124388e94b767df0cad95573
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: a361cc784256da1ae67db4b443f9894f65b8b134
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659772"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996207"
 ---
-# <a name="how-to-create-a-basic-group-and-add-members-using-azure-active-directory"></a>如何：使用 Azure Active Directory 创建基本组并添加成员
+# <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>使用 Azure Active Directory 创建基本组并添成员
 
 可以使用 Azure Active Directory (Azure AD) 门户创建基本组。 对于本文而言，将由资源所有者（管理员）向单个资源中添加一个基本组，该组中将包括需要访问该资源的特定成员（员工）。 对于更复杂的方案，请参阅 [Azure Active Directory 用户管理文档](../users-groups-roles/index.yml)。
 

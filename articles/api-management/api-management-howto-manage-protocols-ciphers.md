@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/15/2018
-ms.date: 07/16/2018
+ms.date: 12/31/2018
 ms.author: v-yiso
-ms.openlocfilehash: 00c1e606062f3ed5a15d2bfad3945dd147e5e5d4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e4b5da6dbba5f027f27c08702222f0b36eee93a5
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648721"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736660"
 ---
 # <a name="manage-protocols-and-ciphers-in-azure-api-management"></a>在 Azure API 管理中管理协议和密码
 
@@ -28,6 +28,8 @@ Azure API 管理支持同时用于客户端和后端的多个 TLS 协议版本�
 本指南介绍如何管理 Azure API 管理实例的协议和密码配置。
 
 ![在 APIM 中管理协议和密码](./media/api-management-howto-manage-protocols-ciphers/api-management-protocols-ciphers.png)
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="prerequisites"></a>先决条件
 

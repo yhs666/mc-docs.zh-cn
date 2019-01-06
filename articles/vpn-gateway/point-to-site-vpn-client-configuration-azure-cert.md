@@ -6,14 +6,14 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: article
 origin.date: 09/05/2018
-ms.date: 12/10/2018
+ms.date: 12/24/2018
 ms.author: v-jay
-ms.openlocfilehash: f47dc13d9a9b62ea7df5db30f0eaf3dde279b228
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 41bf7b1219c7b1640bf94b1e9dcf8fc2b20af6d4
+ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029011"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53656608"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>为本机 Azure 证书身份验证 P2S 配置创建并安装 VPN 客户端配置文件
 

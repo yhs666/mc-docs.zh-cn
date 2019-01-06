@@ -1,23 +1,41 @@
+---
+title: include 文件
+description: include 文件
+services: vpn-gateway
+author: WenJason
+ms.service: vpn-gateway
+ms.topic: include
+origin.date: 03/21/2018
+ms.date: 12/24/2018
+ms.author: v-jay
+ms.custom: include file
+ms.openlocfilehash: 7f4d2ffc97f69225c0e8d24b6e3bfcdd78ab8f1e
+ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53656623"
+---
 可以连接到已部署到 VNet 的 VM，方法是创建到 VM 的远程桌面连接。 若要通过初始验证来确认能否连接到 VM，最好的方式是使用其专用 IP 地址而不是计算机名称进行连接。 这种方式是测试能否进行连接，而不是测试名称解析是否已正确配置。
 
 1. 定位专用 IP 地址。 可通过多种方式查找 VM 的专用 IP 地址。 下方展示用于 Azure 门户和 PowerShell 的步骤。
 
-  - Azure 门户 - 在 Azure 门户中定位虚拟机。 查看 VM 的属性。 专用 IP 地址已列出。
+   - Azure 门户 - 在 Azure 门户中定位虚拟机。 查看 VM 的属性。 专用 IP 地址已列出。
 
-  - PowerShell - 通过此示例查看资源组中的 VM 和专用 IP 地址的列表。 在使用此示例之前不需对其进行修改。
+   - PowerShell - 通过此示例查看资源组中的 VM 和专用 IP 地址的列表。 在使用此示例之前不需对其进行修改。
 
-    ```powershell
-    $VMs = Get-AzureRmVM
-    $Nics = Get-AzureRmNetworkInterface | Where VirtualMachine -ne $null
+     ```azurepowershell
+     $VMs = Get-AzureRmVM
+     $Nics = Get-AzureRmNetworkInterface | Where VirtualMachine -ne $null
 
-    foreach($Nic in $Nics)
-    {
+     foreach($Nic in $Nics)
+     {
       $VM = $VMs | Where-Object -Property Id -eq $Nic.VirtualMachine.Id
       $Prv = $Nic.IpConfigurations | Select-Object -ExpandProperty PrivateIpAddress
       $Alloc = $Nic.IpConfigurations | Select-Object -ExpandProperty PrivateIpAllocationMethod
       Write-Output "$($VM.Name): $Prv,$Alloc"
-    }
-    ```
+     }
+     ```
 
 2. 验证是否已使用 VPN 连接连接到 VNet。
 3. 打开远程桌面连接，方法是：在任务栏的搜索框中键入“RDP”或“远程桌面连接”，并选择“远程桌面连接”。 也可在 PowerShell 中使用“mstsc”命令打开远程桌面连接。 

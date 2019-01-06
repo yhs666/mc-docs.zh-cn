@@ -1,3 +1,17 @@
+---
+author: rockboyfor
+ms.service: virtual-machines-linux
+ms.topic: include
+origin.date: 11/25/2018
+ms.date: 12/24/2018
+ms.author: v-yeche
+ms.openlocfilehash: 231158a80ba7cb0f981c2376591ec625691a9334
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736228"
+---
 有关磁盘的详细信息，请参阅[关于虚拟机的磁盘和 VHD](../articles/virtual-machines/linux/about-disks-and-vhds.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 <a name="attachempty"></a>
@@ -114,4 +128,4 @@
 > 
 >
 
-<!-- Update_Description: update link, wording update  -->
+<!-- Update_Description: update meta properties -->

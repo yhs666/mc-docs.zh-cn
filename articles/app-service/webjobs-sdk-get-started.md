@@ -1,9 +1,9 @@
 ---
-title: Azure WebJobs SDK 入门
+title: WebJobs SDK 入门 - Azure
 description: 用于事件驱动的后台处理的 WebJobs SDK 简介。 了解如何访问 Azure 服务和第三方服务中的数据。
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 ms.service: app-service-web
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 04/27/2018
-ms.date: 07/30/2018
-ms.author: v-yiso
-ms.openlocfilehash: bcdbafa3bbf9d5eb4bb8b007a2085920e0b17b41
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.date: 12/31/2018
+ms.author: v-biyu
+ms.openlocfilehash: ffe2b0d4baf08e8051d0311a518a909212454d7d
+ms.sourcegitcommit: 80c59ae1174d71509b4aa64a28a98670307a5b38
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029033"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735187"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>用于事件驱动的后台处理的 Azure WebJobs SDK 入门
 
@@ -183,7 +183,7 @@ public static void Run(
 
 在本地运行的 Azure 存储模拟器不具备 WebJobs SDK 所需的全部功能。 因此，在本部分，我们应在 Azure 中创建一个存储帐户，并将项目配置为使用该帐户。
 
-1. 打开“服务器资源管理器”并登录到 Azure。 右键单击“Azure”节点，选择“连接到 Microsoft Azure 订阅”。
+1. 在 Visual Studio 中打开“服务器资源管理器”并登录 Azure。 右键单击“Azure”节点，选择“连接到 Microsoft Azure 订阅”。
 
    ![登录 Azure](./media/webjobs-sdk-get-started/sign-in.png)
 
@@ -246,7 +246,7 @@ WebJobs SDK 在“应用设置”集合中查找存储连接字符串。 在本�
 
 2. 关闭控制台窗口。
 
-1. 在“服务器资源管理器”中，展开新存储帐户所在的节点，然后右键单击“队列”。 
+1. 在 Visual Studio 的“服务器资源管理器”中，展开新存储帐户所在的节点，然后右键单击“队列”。 
 
 2. 选择“创建队列”。 
 
@@ -318,7 +318,6 @@ WebJobs SDK 在“应用设置”集合中查找存储连接字符串。 在本�
 
 1. 确保不是在本地运行（如果控制台窗口仍旧打开，请将其关闭）。 否则，本地实例可能是处理所创建的任何队列消息的第一个实例。
 
-1. 像[前面](#trigger-the-function)所做的那样，使用“服务器资源管理器”创建队列消息，不过这次要输入 *Hello Azure!*。
 
 7. 刷新 Visual Studio 中的“队列”页，会发现新消息已消失，因为 Azure 应用服务中运行的函数处理了该消息。
 
@@ -352,7 +351,7 @@ WebJobs SDK 在“应用设置”集合中查找存储连接字符串。 在本�
 
 3. 在存储帐户中创建 Blob 容器。
 
-   a. 在“服务器资源管理器”中，展开你的存储帐户所在的节点，右键单击“Blob”，并选择“创建 Blob 容器”。
+   a. 在 Visual Studio 的“服务器资源管理器”中，展开你的存储帐户所在的节点，右键单击“Blob”，并选择“创建 Blob 容器”。
 
    b. 在“创建 Blob 容器”对话框中，输入 *container* 作为容器名称，然后单击“确定”。
 

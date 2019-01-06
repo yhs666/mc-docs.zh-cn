@@ -1,3 +1,17 @@
+---
+author: rockboyfor
+ms.service: virtual-machines
+ms.topic: include
+origin.date: 11/09/2018
+ms.date: 12/24/2018
+ms.author: v-yeche
+ms.openlocfilehash: c9948d41f309fcbc6ae9d814885495571d6dcd46
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736797"
+---
 **高级非托管虚拟机磁盘：每个帐户的限制**
 
 | 资源 | 默认限制 |
@@ -17,4 +31,5 @@
 | 每个磁盘的最大吞吐量 |100 MB/秒 | 150 MB/秒 |200 MB/秒 |250 MB/秒 |250 MB/秒 |
 | 每个存储帐户的磁盘的最大数目 |280 |70 |35 | 17 | 8 |
 
+<!-- Not Available on GS5 VM-->
 

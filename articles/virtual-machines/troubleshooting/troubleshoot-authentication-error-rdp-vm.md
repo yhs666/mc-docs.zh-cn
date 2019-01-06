@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 origin.date: 11/01/2018
-ms.date: 11/26/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 83a2bafff959eee88aa48e2b305ddc6aafb8d47d
-ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
+ms.openlocfilehash: 6b2979bcf18a058f7c7bd2ff524c5f9fd09edd5a
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676959"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736092"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>使用 RDP 连接到 Azure VM 时排查身份验证错误
 
@@ -76,7 +76,7 @@ VM 被设置为仅接受符合美国联邦信息处理标准 (FIPS) 的算法连
 
 ### <a name="create-a-backup-snapshot"></a>创建备份快照
 
-要创建备份快照，请执行[创建磁盘快照](..\windows\snapshot-copy-managed-disk.md)中的步骤。
+要创建备份快照，请执行[创建磁盘快照](../windows/snapshot-copy-managed-disk.md)中的步骤。
 
 ### <a name="connect-to-the-vm-remotely"></a>远程连接到 VM
 
@@ -280,9 +280,9 @@ reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP
 
 [Win32_TSGeneralSetting 类的 SetEncryptionLevel 方法](https://docs.microsoft.com/zh-cn/windows/desktop/TermServ/win32-tsgeneralsetting-setencryptionlevel)
 
-[配置服务器身份验证和加密级别](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770833(v=ws.11))
+[配置服务器身份验证和加密级别](https://docs.microsoft.com/zh-cn/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770833(v=ws.11))
 
 [Win32_TSGeneralSetting 类](https://docs.microsoft.com/zh-cn/windows/desktop/TermServ/win32-tsgeneralsetting)
 
 <!-- Update_Description: new articles on troubleshoot -->
-<!--ms.date: 12/03/2018-->
+<!--ms.date: 12/24/2018-->

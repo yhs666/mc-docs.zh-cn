@@ -14,16 +14,16 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 09/24/2018
-ms.date: 11/07/2018
+ms.date: 01/02/2019
 ms.author: v-junlch
-ms.openlocfilehash: 380fe27180b368eb4ac6c1c56c1945372e43ab50
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 0f115c8e2a4b77f7211ac6f9e8cd27754fe5d146
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651019"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996271"
 ---
-# <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>快速入门：向 ASP.NET Web 应用添加 Microsoft 登录功能
+# <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>快速入门：向 ASP.NET Web 应用添加 Microsoft 登录
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
@@ -54,7 +54,7 @@ ms.locfileid: "52651019"
 | [Microsoft.Owin.Security.OpenIdConnect](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/) | 让应用程序可使用 OpenIdConnect 进行身份验证的中间件 |
 | [Microsoft.Owin.Security.Cookies](https://www.nuget.org/packages/Microsoft.Owin.Security.Cookies) |让应用程序可使用 Cookie 维持用户会话的中间件 |
 | [Microsoft.Owin.Host.SystemWeb](https://www.nuget.org/packages/Microsoft.Owin.Host.SystemWeb) | 让基于 OWIN 的应用程序可使用 ASP.NET 请求管道在 IIS 上运行 |
-|  |  | 
+|  |  |
 
 ## <a name="step-1-set-up-your-project"></a>步骤 1：设置项目
 
@@ -93,7 +93,7 @@ ms.locfileid: "52651019"
 
 > [!TIP]
 > 如果项目的根文件夹中没有 `Startup.cs` 文件，请执行以下操作：<br/>
-> 1. 右键单击项目的根文件夹：>“添加”>“新建项...”>“OWIN Startup 类”<br/>
+> 1. 右键单击项目的根文件夹：>   “添加”>“新建项”...>“OWIN Startup 类”<br/>
 > 2. 将其命名为 `Startup.cs`<br/>
 >
 >> 确保选择的类是 OWIN Startup 类，而不是标准 C# 类。 通过检查是否在命名空间上看到 `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` 来进行确认。
@@ -326,7 +326,7 @@ ms.locfileid: "52651019"
 
 <!--start-collapse-->
 > [!NOTE]
-> 因为使用 `[Authorize]` 属性，仅当用户通过身份验证后，才能执行此控制器的所有方法。 如果用户未通过身份验证，并尝试访问控制器，OWIN 会启动身份验证质询，并强制用户进行身份验证。 上面的代码查看用户令牌中特定属性的用户的声明集合。 这些属性包括用户的全名和用户名，以及全局用户标识符使用者。 它还包含*租户 ID*，表示用户的组织的 ID。 
+> 因为使用 `[Authorize]` 属性，仅当用户通过身份验证后，才能执行此控制器的所有方法。 如果用户未通过身份验证，并尝试访问控制器，OWIN 会启动身份验证质询，并强制用户进行身份验证。 上面的代码查看用户令牌中特定属性的用户的声明集合。 这些属性包括用户的全名和用户名，以及全局用户标识符使用者。 它还包含*租户 ID*，表示用户的组织的 ID。
 <!--end-collapse-->
 
 ## <a name="step-8-create-a-view-to-display-the-users-claims"></a>步骤 8：创建视图来显示用户的声明
@@ -371,7 +371,7 @@ ms.locfileid: "52651019"
 
 <!--start-configure-->
 
-## <a name="step-9-configure-your-webconfig-and-register-an-application"></a>步骤 9：配置“web.config”并注册应用程序
+## <a name="step-9-configure-your-webconfig-and-register-an-application"></a>步骤 9：配置 web.config 并注册应用程序
 
 1. 在 Visual Studio 中，将以下内容添加到 `configuration\appSettings` 部分下的 `web.config`（位于根文件夹中）：
 
@@ -379,7 +379,7 @@ ms.locfileid: "52651019"
     <add key="ClientId" value="Enter_the_Application_Id_here" />
     <add key="RedirectUrl" value="Enter_the_Redirect_Url_here" />
     <add key="Tenant" value="common" />
-    <add key="Authority" value="https://login.partner.microsoftonline.cn/{0}" /> 
+    <add key="Authority" value="https://login.partner.microsoftonline.cn/{0}" />
     ```
 2. 在解决方案资源管理器中，选择项目并查看“属性”<i></i> 窗口（如果看不到“属性”窗口，请按 F4）
 3. 将“已启用 SSL”更改为 <code>True</code>
@@ -419,10 +419,12 @@ ms.locfileid: "52651019"
 此选项是业务线应用程序的常见方案。
 
 如果希望应用程序仅接受属于特定 Azure AD 实例的帐户（包括该示例的来宾帐户）进行登录，请按照下列步骤操作：
+
 1. 使用 `Common` 将 web.config 中的 `Tenant` 参数替换为组织的租户名称 - 例如 contoso.partner.onmschina.cn。
 1. 将 [OWIN Startup 类](#configure-the-authentication-pipeline)中的 `ValidateIssuer` 参数更改为 `true`。
 
 要仅允许用户来自特定组织的列表，请按照下列步骤操作：
+
 1. 将 `ValidateIssuer` 设置为 true。
 1. 使用 `ValidIssuers` 参数来指定组织列表。
 

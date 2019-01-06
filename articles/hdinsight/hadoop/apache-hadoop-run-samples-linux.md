@@ -14,31 +14,29 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/16/2018
-ms.date: 06/25/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: f93feb19c75724fd4a6d950478e9b4e9ce92ed2a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 0f2bf0440df38d3d1cb9b30bcd1c6204913d3d21
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659631"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029221"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>运行 HDInsight 包含的 MapReduce 示例
 
 [!INCLUDE [samples-selector](../../../includes/hdinsight-run-samples-selector.md)]
 
-了解如何运行 Hadoop on HDInsight 随附的 MapReduce 示例。
+了解如何在 HDInsight 上运行 Apache Hadoop 随附的 MapReduce 示例。
 
 ## <a name="prerequisites"></a>先决条件
 
-
-
-* **HDInsight 群集**：请参阅[在 Linux 上的 HDInsight 中开始将 Hadoop 与 Hive 配合使用](apache-hadoop-linux-tutorial-get-started.md)
+* **一个 HDInsight 群集**：请参阅[开始在 Linux 上的 HDInsight 中将 Apache Hadoop 与 Apache Hive 配合使用](apache-hadoop-linux-tutorial-get-started.md)
 
     > [!IMPORTANT]
     > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
-* **SSH 客户端**：有关详细信息，请参阅[将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)。
+* **一个 SSH 客户端**：有关详细信息，请参阅 [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
 ## <a name="the-mapreduce-examples"></a>MapReduce 示例
 
@@ -46,30 +44,30 @@ ms.locfileid: "52659631"
 
 **内容**：下面的示例都包含在该存档文件中：
 
-* `aggregatewordcount`：基于聚合的 mapreduce 程序，用于计算输入文件中单词的数目。
-* `aggregatewordhist`：基于聚合的 mapreduce 程序，用于计算输入文件中单词的直方图。
-* `bbp`：一个 mapreduce 程序，使用 Bailey-Borwein-Plouffe 来计算 Pi 的精确位数。
+* `aggregatewordcount`：一种基于聚合的 MapReduce 程序，用于计算输入文件中的单词数。
+* `aggregatewordhist`：一种基于聚合的 MapReduce 程序，用于计算输入文件中单词的直方图。
+* `bbp`：一种 MapReduce 程序，使用 Bailey-Borwein-Plouffe 来计算 Pi 的精确位数。
 * `dbcount`：一个作业示例，用于计算存储在数据库中的 pageview 日志数。
-* `distbbp`：一个 mapreduce 程序，使用 BBP 类型的公式来计算 Pi 的精确位数。
-* `grep`：一个 mapreduce 程序，用于计算输入中某个正则表达式的匹配数。
-* `join`：一个作业，可将经过排序且等分的数据集联接起来。
-* `multifilewc`：一个作业，可计算多个文件中的单词数。
-* `pentomino`：一个 mapreduce 平铺排列程序，用于查找五格拼板问题的解决方案。
-* `pi`：一个 mapreduce 程序，可使用拟蒙特卡罗法估算 Pi 值。
-* `randomtextwriter`：一个 mapreduce 程序，可以为每个节点写入 10 GB 的随机文本数据。
-* `randomwriter`：一个 mapreduce 程序，可为每个节点写入 10 GB 的随机数据。
+* `distbbp`：一种 MapReduce 程序，使用 BBP 类型的公式来计算 Pi 的精确位数。
+* `grep`：一种 MapReduce 程序，用于计算输入中某个正则表达式的匹配数。
+* `join`：一种作业，可以将经过排序且等分的数据集联接起来。
+* `multifilewc`：一种作业，可计算多个文件中的单词数。
+* `pentomino`：一种 MapReduce 平铺排列程序，用于查找五格拼板问题的解决方案。
+* `pi`：一种 MapReduce 程序，可使用拟蒙特卡罗法估算 Pi 值。
+* `randomtextwriter`：一种 MapReduce 程序，可以为每个节点写入 10 GB 的随机文本数据。
+* `randomwriter`：一种 MapReduce 程序，可以为每个节点写入 10 GB 的随机数据。
 * `secondarysort`：一个示例，用于定义化简阶段的次级排序。
-* `sort`：一个 mapreduce 程序，用于对随机写入器所写入的数据进行排序。
+* `sort`：一种 MapReduce 程序，用于对随机写入器所写入的数据进行排序。
 * `sudoku`：数独解算器。
 * `teragen`：为 terasort 生成数据。
 * `terasort`：运行 terasort。
 * `teravalidate`：检查 terasort 的结果。
-* `wordcount`：一个 mapreduce 程序，用于计算输入文件中的单词数。
-* `wordmean`：一个 mapreduce 程序，用于计算输入文件中单词的平均长度。
-* `wordmedian`：一个 mapreduce 程序，用于计算输入文件中单词的中间长度。
-* `wordstandarddeviation`：一个 mapreduce 程序，用于计算输入文件中单词长度的标准差。
+* `wordcount`：一种 MapReduce 程序，用于计算输入文件中的单词数。
+* `wordmean`：一种 MapReduce 程序，用于计算输入文件中单词的平均长度。
+* `wordmedian`：一种 MapReduce 程序，用于计算输入文件中单词的中间长度。
+* `wordstandarddeviation`：一种 MapReduce 程序，用于计算输入文件中单词长度的标准差。
 
-**Source code**：这些示例的源代码包含在 `/usr/hdp/current/hadoop-client/src/hadoop-mapreduce-project/hadoop-mapreduce-examples` 处的 HDInsight 群集上。
+**源代码**：这些示例的源代码包含在 `/usr/hdp/current/hadoop-client/src/hadoop-mapreduce-project/hadoop-mapreduce-examples` 处的 HDInsight 群集上。
 
 ## <a name="run-the-wordcount-example"></a>运行 wordcount 示例
 
@@ -175,13 +173,13 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar 
 
 GraySort 是一种基准排序。 该指标是在给大量数据（通常至少 100 TB）排序时达到的排序速率（TB/分钟）。
 
-此示例使用适中的 10 GB 数据，这样它运行时能相对快一点。 它使用由 Owen O'Malley 和 Arun Murthy 开发的 MapReduce 应用程序。 这些应用程序以 0.578 TB/分钟（100 TB 用时 173 分钟）的速率赢得了 2009 年常用（“daytona”）TB 级排序基准。 有关这一排序基准和其他排序基准的详细信息，请参阅 [Sortbenchmark](http://sortbenchmark.org/) 站点。
+此示例使用适中的 10 GB 数据，这样它运行时能相对快一点。 它使用由 Owen O'Malley 和 Arun Murthy 开发的 MapReduce 应用程序。 这些应用程序以 0.578 TB/分钟（100 TB 用时 173 分钟）的速率赢得了 2009 年常用（“daytona”）TB 级排序基准。 有关这一排序基准和其他排序基准的详细信息，请参阅 [Sortbenchmark](https://sortbenchmark.org/) 站点。
 
 本示例使用三组 MapReduce 程序：
 
-* **TeraGen**：一种 MapReduce 程序，用于生成要排序的数据行
+* **TeraGen**：一种 MapReduce 程序，用于生成要进行排序的数据行
 
-* **TeraSort**：以输入数据为例，使用 MapReduce 将数据排序到总序中
+* **TeraSort**：对输入数据进行抽样，并使用 MapReduce 将数据排序到总序中
 
     TeraSort 是标准的 MapReduce 排序，但自定义的分区程序除外。 此分区程序使用 N-1 个抽样键（用于定义每次简化的键范围）的排序列表。 具体说来，sample[i-1] <= key < sample[i] 的所有键都会发送到化简变量 i。 此分区程序可确保化简变量 i 的输出全都小于化简变量 i+1 的输出。
 
@@ -217,9 +215,9 @@ GraySort 是一种基准排序。 该指标是在给大量数据（通常至少 
 
 在本文中，学习了如何运行基于 Linux 的 HDInsight 群集附带的示例。 有关将 Pig、Hive 和 MapReduce 用于 HDInsight 的教程，请参阅以下主题：
 
-* [将 Pig 与 Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
-* [将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)
-* [将 MapReduce 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-mapreduce.md)
+* [将 Apache Pig 与 Apache Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
+* [将 Apache Hive 与 Apache Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
+* [将 MapReduce 与 HDInsight 上的 Apache Hadoop 配合使用](hdinsight-use-mapreduce.md)
 
 [hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
 

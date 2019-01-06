@@ -9,20 +9,21 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/18/2018
-ms.author: larryfr
-ms.openlocfilehash: 58920fb1b16ee06f153eff48451e7f737542ad16
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 04/18/2018
+ms.date: 01/14/2019
+ms.author: v-yiso
+ms.openlocfilehash: 89a1c3ad876aee79f4232b79d4aad2e06738d07b
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649191"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029147"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>如何将 Apache Kafka on HDInsight 配置为自动创建主题
 
-默认情况下，Kafka on HDInsight 不允许自动创建主题。 可以允许使用 Ambari 针对现有群集自动创建主题。 也可以允许使用 Azure 资源管理器模板在创建新的 Kafka 群集时自动创建主题。
+默认情况下，HDInsight 上的 [Apache Kafka](https://kafka.apache.org/) 不允许自动创建主题。 可以使用 [Apache Ambari](https://ambari.apache.org/) 针对现有群集自动创建主题。 也可以允许使用 Azure 资源管理器模板在创建新的 Kafka 群集时自动创建主题。
 
-## <a name="ambari-web-ui"></a>Ambari Web UI
+## <a name="apache-ambari-web-ui"></a>Apache Ambari Web UI
 
 若要允许通过 Ambari Web UI 在现有的群集上自动创建主题，请执行以下步骤：
 
@@ -58,8 +59,8 @@ ms.locfileid: "52649191"
 
     ![重启选择的图像](./media/apache-kafka-auto-create-topics/restart-all-affected.png)
 
-> [!NOTE]
-> 也可通过 Ambari REST API 设置 Ambari 值。 这通常更为困难，因为需进行多次 REST 调用来检索并修改当前配置以及执行其他操作。有关详细信息，请参阅[使用 Ambari REST API 管理 HDInsight 群集](../hdinsight-hadoop-manage-ambari-rest-api.md)文档。
+> [!NOTE]  
+> 也可通过 Ambari REST API 设置 Ambari 值。 这通常更为困难，因为需进行多次 REST 调用来检索并修改当前配置以及执行其他操作。有关详细信息，请参阅[使用 Apache Ambari REST API 管理 HDInsight 群集](../hdinsight-hadoop-manage-ambari-rest-api.md)文档。
 
 ## <a name="resource-manager-templates"></a>Resource Manager 模板
 
@@ -82,6 +83,6 @@ ms.locfileid: "52649191"
 
 ## <a name="next-steps"></a>后续步骤
 
-本文档介绍了如何为 Kafka on HDInsight 启用自动创建主题功能。 若要详细了解如何使用 Kafka，请参阅以下链接：
+本文档介绍了如何为 HDInsight 上的 Apache Kafka 启用自动创建主题功能。 若要详细了解如何使用 Kafka，请参阅以下链接：
 
-* [在 Kafka 群集之间复制数据](apache-kafka-mirroring.md)
+* [在 Apache Kafka 集群之间复制数据](apache-kafka-mirroring.md)

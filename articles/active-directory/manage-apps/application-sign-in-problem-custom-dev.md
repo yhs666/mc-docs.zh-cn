@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 07/11/2017
-ms.date: 10/08/2018
+ms.date: 01/03/2019
 ms.author: v-junlch
 ms.reviewer: asteen
-ms.openlocfilehash: 11eb2ed43589cff5b9c476d1d680c5c26b6b9dad
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 72682dba4d3a3da90de0f36771aa27f452a5bf7c
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660326"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029108"
 ---
 # <a name="problems-signing-in-to-an-custom-developed-application"></a>登录自定义开发的应用程序时出现的问题
 
@@ -33,7 +33,7 @@ ms.locfileid: "52660326"
 
 - 将在代码中请求访问的资源与“所需资源”选项卡中的已配置权限进行比较，确保仅请求已配置的资源。
 
-- 有关任何类似的错误或问题，请参阅 [Azure AD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)。
+- 有关任何类似的错误或问题，请参阅 [Azure AD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -41,5 +41,6 @@ ms.locfileid: "52660326"
 
 [同意并将应用集成到 Azure AD](/active-directory/develop/active-directory-integrating-applications)<br>
 
-[Azure AD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
+[Azure AD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
 
+<!-- Update_Description: link update -->

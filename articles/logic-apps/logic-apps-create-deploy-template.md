@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.custom: H1Hack27Feb2017
 origin.date: 10/18/2016
-ms.date: 10/15/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 8186b9bf2a76ea292497d8a08d7de1e61dbe9efa
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5e1d595ac2fa5d17e901ec6e755a34307c0dce34
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644953"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806546"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>使用 Azure 资源管理器模板部署逻辑应用
 
@@ -33,7 +33,7 @@ ms.locfileid: "52644953"
 
 逻辑应用具有三个基本组件：
 
-* **逻辑应用资源**：包含定价计划、位置和工作流定义等内容的相关信息。
+* **逻辑应用资源**：包含有关定价计划、位置和工作流定义等信息。
 * **工作流定义**：描述逻辑应用的工作流步骤以及逻辑应用引擎应如何执行工作流。
 可以在逻辑应用的“代码视图”窗口中查看此定义。
 在逻辑应用资源中，可以在 `definition` 属性中找到此定义。
@@ -179,7 +179,7 @@ Visual Studio 工具生成可跨任何订阅或位置使用的有效部署模板
 
 ## <a name="deploy-a-logic-app-template"></a>部署逻辑应用模板
 
-可以使用任意工具来部署模板，比如 PowerShell、REST API、[Azure DevOps Release Management](#team-services) 和通过 Azure 门户进行模板部署。
+可以使用任意工具来部署模板，比如 PowerShell、REST API、[Azure DevOps Azure Pipelines](#team-services) 和 Azure 门户模板部署。
 另外，若要存储参数的值，建议创建[参数文件](../azure-resource-manager/resource-group-template-deploy.md#parameter-files)。
 了解如何[使用 Azure 资源管理器模板和 PowerShell 部署资源](../azure-resource-manager/resource-group-template-deploy.md)或[使用 Azure 资源管理器模板和 Azure 门户部署资源](../azure-resource-manager/resource-group-template-deploy-portal.md)。
 
@@ -191,11 +191,11 @@ Visual Studio 工具生成可跨任何订阅或位置使用的有效部署模板
 在 GitHub 的 [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) 项目下有一个示例脚本。
 
 <a name="team-services"></a>
-## <a name="azure-devops-release-management"></a>Azure DevOps Release Management
+## <a name="azure-devops-azure-pipelines"></a>Azure DevOps Azure Pipelines
 
-部署和管理环境的一个常用方案是将 Azure DevOps 中的 Release Management 之类的工具用于逻辑应用部署模板。 Azure DevOps 包括可以添加到任何内部版本或发布管道的[部署 Azure 资源组](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup)任务。 授权需要有[服务主体](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/)才能部署，并生成发布管道。
+部署和管理环境的一个常用方案是将 Azure DevOps 中诸如 Azure Pipelines 之类的工具与逻辑应用部署模板配合使用。 Azure DevOps 包括可以添加到任何内部版本或发布管道的[部署 Azure 资源组](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup)任务。 授权需要有[服务主体](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/)才能部署，并生成发布管道。
 
-1. 在 Release Management 中，选择“空”以便创建一个空管道。
+1. 在 Azure Pipelines 中，选择“空”以便创建一个空管道。
 
     ![创建空管道][1]
 

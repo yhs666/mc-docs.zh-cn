@@ -1,5 +1,5 @@
 ---
-title: 将 Docker 映像推送到专用 Azure 注册表
+title: 将 Docker 映像推送到专用 Azure 容器注册表
 description: 使用 Docker CLI 在 Azure 的专用容器注册表中推送和拉取 Docker 映像
 services: container-registry
 author: rockboyfor
@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: container-registry
 ms.topic: article
 origin.date: 11/29/2017
-ms.date: 08/27/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6e905d3f9ba46ef9d2a77b10f152384768b263d6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.custom: seodec18, H1Hack27Feb2017
+ms.openlocfilehash: 0bc79cf16896d80f6bbc1c0a682a432aee29acfa
+ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662395"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53569204"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>使用 Docker CLI 将第一个映像推送到专用 Docker 容器注册表
 
@@ -36,13 +36,16 @@ Azure 容器注册表存储和管理专用 [Docker](http://hub.docker.com) 容�
 az acr login --name myregistry
 ```
 
-<!-- Not Available on  [service principal](../active-directory/active-directory-application-objects.md)-->
-<!-- Not Available on docker login myregistry.azurecr.cn -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword-->
+也可以使用 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 登录。 以下示例传递了 Azure Active Directory [服务主体](../active-directory/develop/app-objects-and-service-principals.md)的 ID 和密码。 例如，你可能在自动化方案中向注册表[分配了服务主体](container-registry-authentication.md#service-principal)。
 
+```Bash
+docker login myregistry.azurecr.cn -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
+```
 
-完成后，命令将返回 `Login Succeeded`。
+完成后，这两个命令将返回 `Login Succeeded`。 如果使用 `docker login`，可能会看见建议使用 `--password-stdin` 参数的安全警告。 虽然本文中未介绍它的用法，但我们建议按照此最佳做法进行操作。 有关详细信息，请参阅 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 命令参考。
 
-<!-- Not Available on docker login cmdlet-->
+> [!TIP]
+> 使用 `docker login` 以及标记要推送到注册表的映像时，请始终指定完全限定的注册表名称（全部小写）。 在本文的示例中，完全限定的名称为 *myregistry.azurecr.cn*。
 
 ## <a name="pull-the-official-nginx-image"></a>提取正式的 Nginx 映像
 

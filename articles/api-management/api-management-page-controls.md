@@ -3,7 +3,7 @@ title: Azure API 管理页面控件
 description: 了解适用于 Azure API 管理中的开发人员门户模板的页面控件。
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 11/20/2017
 ms.author: v-yiso
-ms.date: 02/26/2018
-ms.openlocfilehash: 1226fb7a586d94e3fac69f6d986d72b0b8515e3a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/31/2018
+ms.openlocfilehash: 84434bc2a87786cdbb45b3e1eb98271015609748
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663778"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736687"
 ---
 # <a name="azure-api-management-page-controls"></a>Azure API 管理页面控件
 Azure API 管理提供以下控件，适用于开发人员门户模板。  
@@ -33,6 +33,7 @@ Azure API 管理提供以下控件，适用于开发人员门户模板。
  参数的值作为模板的数据模型的一部分传入。 大多数情况下，只需粘贴提供的每个控件的示例，即可正常使用该控件。 有关参数值的详细信息，可参阅每个模板的数据模型部分，其中可能使用了控件。  
   
  如需详细了解如何使用模板，请参阅[如何使用模板自定义 API 管理开发人员门户](./api-management-developer-portal-templates.md)。  
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ## <a name="developer-portal-template-page-controls"></a>开发人员门户模板页面控件  
   

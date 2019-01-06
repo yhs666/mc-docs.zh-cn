@@ -1,26 +1,25 @@
 ---
-title: Media Encoder Standard 格式和编解码器
+title: Media Encoder Standard 格式和编解码器 - Azure
 description: 本主题概述 Media Encoder Standard 格式和编解码器。
 services: media-services
 documentationcenter: ''
 author: WenJason
 manager: digimobile
 editor: ''
-ms.assetid: f334b1ce-2f56-4968-a019-f0a2b0016d9f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/30/2018
-ms.date: 12/03/2018
+origin.date: 12/12/2018
+ms.date: 12/24/2018
 ms.author: v-jay
-ms.openlocfilehash: 0a0b4959bb80441af8ef281a1a79c447ee534c4b
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 8d3f7322e465a6ae84c73ac81c259238d52a4d85
+ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672639"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53656517"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Media Encoder Standard 格式和编解码器
 本文档包含最常见的导入和导出文件格式的列表，可以将这些格式用于 Media Encoder Standard。
@@ -53,8 +52,6 @@ Media Encoder Standard 支持在输入容器中带有以下音频格式：
 或
 
 * MXF、GXF 和 QuickTime 文件，其中的音频以独立 PCM 轨道的形式携带，但可以从文件元数据推导频道映射（到立体声或 5.1 的映射）
-
-在不久的将来会提供对显式/用户提供的频道映射的支持。
 
 ## <a name="input-video-codecs"></a>输入视频编解码器
 | 输入视频编解码器 | 支持 |

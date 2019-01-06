@@ -11,30 +11,32 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: bonova, carlrab
 manager: digimobile
-origin.date: 09/25/2018
-ms.date: 12/06/2018
-ms.openlocfilehash: 6d02ea5ce1ed27f55c9d470f8ff2e4f12e936e19
-ms.sourcegitcommit: 6e07735318eb5f6ea319b618863259088eab3722
+origin.date: 12/03/2018
+ms.date: 12/31/2018
+ms.openlocfilehash: 271c0eacc1b41b1bd0b7f51d2b5b91a6ccf98c7d
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52981649"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806215"
 ---
-# <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>功能比较：Azure SQL 数据库与 SQL Server 
+# <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>功能比较：Azure SQL 数据库与 SQL Server
 
 Azure SQL 数据库与 SQL Server 共享一个通用代码库。 Azure SQL 数据库支持的 SQL Server 功能取决于创建的 Azure SQL 数据库类型。 使用 Azure SQL 数据库时，可以创建一个数据库作为逻辑服务器的一部分，并将其放入弹性池（可选）。 
 
 我们会继续向 Azure SQL 数据库添加功能。 访问针对 Azure 的服务更新网页，并使用以下筛选器获取最新更新：
 
-* 筛选为 [SQL 数据库服务](https://azure.microsoft.com/updates/?service=sql-database)。
-* 筛选为针对 SQL 数据库功能的正式发布版本 [(GA) 公告](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability)。
+- 筛选为 [SQL 数据库服务](https://azure.microsoft.com/updates/?service=sql-database)。
+- 筛选为针对 SQL 数据库功能的正式发布版 [(GA) 公告](https://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability)。
 
 ## <a name="sql-server-feature-support-in-azure-sql-database"></a>Azure SQL 数据库中的 SQL Server 功能支持
 
-下表列出了 SQL Server 的主要功能，并说明该功能是否部分或完全受支持，同时提供更详细介绍该功能的链接。 
+下表列出了 SQL Server 的主要功能，并说明该功能是否部分或完全受支持，同时提供更详细介绍该功能的链接。
 
 | **SQL 功能** | **在 Azure SQL 数据库/逻辑服务器中受支持** | 
 | --- | --- |
+| [活动异地复制](sql-database-active-geo-replication.md) | 是 - 仅限“常规用途”和“业务关键”服务层|
+| [自动故障转移组](sql-database-auto-failover-group.md) | 是 - 仅限“常规用途”和“业务关键”服务层|
 | [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | 是 - 请参阅[证书存储](sql-database-always-encrypted.md)和[密钥保管库](sql-database-always-encrypted-azure-key-vault.md) |
 | [AlwaysOn 可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | 每个数据库均包含[高可用性](sql-database-high-availability.md)。 [简要介绍如何使用 Azure SQL 数据库确保业务连续性](sql-database-business-continuity.md)中对灾难恢复进行了讨论 |
 | [附加数据库](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | 否 |
@@ -50,7 +52,8 @@ Azure SQL 数据库与 SQL Server 共享一个通用代码库。 Azure SQL 数�
 | [内置函数](https://docs.microsoft.com/sql/t-sql/functions/functions) | 大多数 - 请参阅单个函数 |
 | [更改数据捕获](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | 否 |
 | [更改跟踪](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) | 是 |
-| [排序规则语句](https://docs.microsoft.com/sql/t-sql/statements/collations) | 是 |
+| [排序规则 - 数据库](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation) | 是 |
+| [排序规则 - 服务器/实例](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | 否 |
 | [列存储索引](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | 是 - [高级层、标准层 - S3 及以上层、常规用途层和业务关键层](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |
 | [公共语言运行时 (CLR)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | 否 |
 | [包含的数据库](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | 是 |
@@ -79,14 +82,13 @@ Azure SQL 数据库与 SQL Server 共享一个通用代码库。 Azure SQL 数�
 | [弹性池](sql-database-elastic-pool.md) | 是 |
 | [事件通知](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | 否 - 请参阅[警报](sql-database-insights-alerts-portal.md) |
 | [表达式](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |是 |
-| [扩展事件](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | 部分 - 请参阅 [SQL 数据库中的扩展事件](sql-database-xevent-db-diff-from-svr.md) |
+| [扩展的事件](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | 部分 - 请参阅 [SQL 数据库中的扩展事件](sql-database-xevent-db-diff-from-svr.md) |
 | [扩展的存储过程](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | 否 |
 [文件和文件组](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | 仅限主文件组 |
 | [文件流](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | 否 |
 | [全文搜索](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |  不支持第三方断字符 |
 | [函数](https://docs.microsoft.com/sql/t-sql/functions/functions) | 大多数 - 请参阅单个函数 |
 | [异地还原](sql-database-recovery-using-backups.md#geo-restore) | 是 - 仅限“常规用途”和“业务关键”服务层 |
-| [异地复制](sql-database-geo-replication-overview.md) | 是 - 仅限“常规用途”和“业务关键”服务层|
 | [图形处理](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | 是 |
 | [内存中优化](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | 是 - [仅限高级层和业务关键层](sql-database-in-memory.md) |
 | [JSON 数据支持](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [是](https://docs.azure.cn/sql-database/sql-database-json-features) |
@@ -108,7 +110,8 @@ Azure SQL 数据库与 SQL Server 共享一个通用代码库。 Azure SQL 数�
 | [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) | 否 |
 | [基于策略的管理](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | 否 |
 | [Predicates](https://docs.microsoft.com/sql/t-sql/queries/predicates)（谓词） | 是 |
-| [R 服务](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | 预览版；请参阅[机器学习中的新增功能](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  |
+| [查询通知](https://docs.microsoft.com/sql/relational-databases/native-client/features/working-with-query-notifications) | 否 |
+| [R Services](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | 预览版；请参阅[机器学习中的新增功能](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  |
 | [资源调控器](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | 否 |
 | [RESTORE 语句](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | 否 |
 | [从备份还原数据库](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | 仅从自动备份 - 请参阅 [SQL 数据库恢复](sql-database-recovery-using-backups.md) |

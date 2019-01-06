@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 09/13/2018
-ms.date: 10/22/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 86ad386003e1e9d1eab320e5f12a77895f868d1b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a22dacf88227eb0d958636ab7ea32bd8907b72ed
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660465"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736179"
 ---
 # <a name="how-to-connect-and-log-on-to-an-azure-virtual-machine-running-windows"></a>如何连接并登录到运行 Windows 的 Azure 虚拟机
 可以从 Windows 桌面使用 Azure 门户中的“连接”按钮来启动远程桌面 (RDP) 会话。 首先连接到虚拟机，然后登录。
@@ -53,6 +53,22 @@ ms.locfileid: "52660465"
    > 如果门户中的“连接”按钮灰显，并且你未通过 [Express Route](../../expressroute/expressroute-introduction.md) 或[站点到站点 VPN](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) 连接来连接到 Azure，则必须先为 VM 创建并分配一个公共 IP 地址，然后才能使用 RDP。 有关详细信息，请参阅 [Azure 中的公共 IP 地址](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)。
    > 
    > 
+
+## <a name="connect-to-the-virtual-machine-using-powershell"></a>使用 PowerShell 连接到虚拟机
+
+如果使用 PowerShell 并安装了 AzureRM 模块，则还可以使用 `Get-AzureRmRemoteDesktopFile` cmdlet 进行连接，如下所示。
+
+此示例将立即启动 RDP 连接，引导完成与上述类似的提示。
+
+```powershell
+Get-AzureRmRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -Launch
+```
+
+还可以保存 RDP 文件以供将来使用。
+
+```powershell
+Get-AzureRmRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -LocalPath "C:\Path\to\folder"
+```
 
 ## <a name="next-steps"></a>后续步骤
 如果连接有困难，请参阅[远程桌面连接故障排除](troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。

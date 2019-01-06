@@ -10,15 +10,15 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
 origin.date: 03/28/2018
-ms.date: 10/18/2018
+ms.date: 12/26/2018
 ms.author: v-junlch
 ms.custom: mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: 6e6cf950baefe405b491c78a44ece7a56d0c426c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 0c54b3f63d947182858ae5444f5d4028d23ec35e
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645057"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806526"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>在 Azure 门户中创建第一个函数
 
@@ -33,7 +33,7 @@ Azure Functions 用于在[无服务器](https://azure.microsoft.com/solutions/se
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
-使用 Azure 帐户登录到 <http://portal.azure.cn> 的 Azure 门户。
+使用 Azure 帐户登录到 <https://portal.azure.cn> 的 Azure 门户。
 
 ## <a name="create-a-function-app"></a>创建函数应用
 
@@ -87,5 +87,4 @@ Azure Functions 用于在[无服务器](https://azure.microsoft.com/solutions/se
 
 有关详细信息，请参阅 [Azure Functions HTTP 绑定](functions-bindings-http-webhook.md)。
 
-
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

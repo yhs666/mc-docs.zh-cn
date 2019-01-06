@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 10/22/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: f64d8f08998f3a8b200d7ce4bb94ef66fda345da
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+origin.date: 12/10/2018
+ms.date: 12/31/2018
+ms.openlocfilehash: c6a6c3f2a862c696bfc452a7f3cd8537cc1889c6
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673161"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806237"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>SQL 数据库常见问题解答 (FAQ)
 
@@ -52,11 +52,11 @@ SQL 数据库的最新版本为 V12。 版本 V11 已停用。
 
 ## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model"></a>如何在基于 DTU 的购买模型与基于 vCore 的购买模型之间做出选择
 
-数据传输单元 (DTU) 基于 CPU、内存、读取和写入的混合衡量。 基于 DTU 的计算大小代表驱动不同级别应用程序性能的预配资源捆绑。 对于不想要考虑底层资源，而希望使用简单的预配捆绑而每月支付固定费用的客户而言，基于 DTU 的模型可能更适合满足需求。 但是，对于需要更深入了解底层资源，或对其进行独立缩放以实现最优性能的客户而言，基于 vCore 的模型是最佳选择。  此外，如果客户为 SQL Server 激活了软件保障 (SA)，可通过[面向 SQL Server 的 Azure 混合权益](../virtual-machines/windows/hybrid-use-benefit-licensing.md)利用现有投资并最多节省 30% 的费用。  两种购买模型的选项都能提供完全托管的服务的权益，例如自动化备份、软件更新和补丁。
+数据传输单元 (DTU) 基于 CPU、内存、读取和写入的混合衡量。 基于 DTU 的计算大小代表驱动不同级别应用程序性能的预配资源捆绑。 对于不想要考虑底层资源，而希望使用简单的预配捆绑而每月支付固定费用的客户而言，基于 DTU 的模型可能更适合满足需求。 但是，对于需要更深入了解底层资源，或对其进行独立缩放以实现最优性能的客户而言，基于 vCore 的模型是最佳选择。  此外，如果客户为 SQL Server 激活了软件保障 (SA)，可通过[面向 SQL Server 的 Azure 混合权益](https://azure.cn/pricing/hybrid-benefit/)利用现有投资并最多节省 30% 的费用。  两种购买模型的选项都能提供完全托管的服务的权益，例如自动化备份、软件更新和补丁。
 
 ## <a name="what-is-the-azure-hybrid-benefit-for-sql-server"></a>面向 SQL Server 的 Azure 混合权益是什么
 
-[面向 SQL Server 的 Azure 混合权益](../virtual-machines/windows/hybrid-use-benefit-licensing.md)可帮助你最大限度地提高当前许可证投资的价值，并加快向云迁移的速度。 针对 SQL Server 的 Azure 混合权益是基于 Azure 的权益，允许用户使用具有软件保障的 SQL Server 许可证，按降低的 SQL 数据库费率（“基准费率”）付费。 面向 SQL Server 的 Azure 混合权益可用于 SQL 数据库单一数据库和弹性池基于 vCore 的购买模型公共预览版。 即使 SKU 是活动的也可以应用此权益，但请注意，从你在 Azure 门户中进行选择时起，就会应用基准费率。 不会补发信用额度。
+[面向 SQL Server 的 Azure 混合权益](https://azure.cn/pricing/hybrid-benefit/)可帮助你最大限度地提高当前许可证投资的价值，并加快向云迁移的速度。 针对 SQL Server 的 Azure 混合权益是基于 Azure 的权益，允许用户使用具有软件保障的 SQL Server 许可证，按降低的 SQL 数据库费率（“基准费率”）付费。 面向 SQL Server 的 Azure 混合权益可用于 SQL 数据库单一数据库和弹性池基于 vCore 的购买模型公共预览版。 即使 SKU 是活动的也可以应用此权益，但请注意，从你在 Azure 门户中进行选择时起，就会应用基准费率。 不会补发信用额度。
 
 ## <a name="are-there-dual-use-rights-with-azure-hybrid-benefit-for-sql-server"></a>面向 SQL Server 的 Azure 混合权益是否具有双倍使用权利
 
@@ -128,13 +128,13 @@ SQL 数据库客户将获得与面向 SQL Server 的 Azure 混合权益相关的
 
 ## <a name="can-i-upgrade-or-downgrade-between-the-general-purpose-and-business-critical-service-tiers"></a>是否可以在“常规用途”和“业务关键”服务层之间升级或降级
 
-可以，但存在一些限制。 目标 SKU 必须符合针对现有部署配置的最大数据库或弹性池大小。 如果使用[面向 SQL Server 的 Azure 混合权益](../virtual-machines/windows/hybrid-use-benefit-licensing.md)，则“业务关键”SKU 仅适用于拥有 Enterprise Edition 许可证的客户。 只有已使用面向 SQL Server 的 Azure 混合权益从本地迁移到“常规用途”服务层，且拥有 Enterprise Edition 许可证的客户可以升级到“业务关键”服务层。 有关详细信息，请参阅[面向 SQL Server 的 Azure 混合权益的特殊权利有哪些](../virtual-machines/windows/hybrid-use-benefit-licensing.md)？
+可以，但存在一些限制。 目标 SKU 必须符合针对现有部署配置的最大数据库或弹性池大小。 如果使用[面向 SQL Server 的 Azure 混合权益](https://azure.cn/pricing/hybrid-benefit/)，则“业务关键”SKU 仅适用于拥有 Enterprise Edition 许可证的客户。 只有已使用面向 SQL Server 的 Azure 混合权益从本地迁移到“常规用途”服务层，且拥有 Enterprise Edition 许可证的客户可以升级到“业务关键”服务层。 有关详细信息，请参阅[面向 SQL Server 的 Azure 混合权益的特殊权利有哪些](https://azure.cn/pricing/hybrid-benefit/)？
 
 这种转换不会造成停机；可以使用 Azure 门户、PowerShell、Azure CLI、T-SQL 或 REST API 启动此转换。 请参阅[管理单一数据库](sql-database-single-database-scale.md)和[管理弹性池](sql-database-elastic-pool.md)。
 
 ## <a name="i-am-using-a-premium-rs-database-that-will-not-be-generally-available---can-i-upgrade-it-to-a-new-tier-and-achieve-a-similar-priceperformance-benefit"></a>我正在使用非正式版高级 RS 数据库 - 是否可将其升级到新层，从而获得类似的性价比优势
 
-由于 vCore 模型允许单独控制预配的计算和存储量，因此，你可以更有效地控制最终成本，使该模型成为高级 RS 数据库的有吸引力目标。 此外，使用基于 vCore 的模型时，[面向 SQL Server 的 Azure 混合权益](../virtual-machines/windows/hybrid-use-benefit-licensing.md)提供大幅的折扣。
+由于 vCore 模型允许单独控制预配的计算和存储量，因此，你可以更有效地控制最终成本，使该模型成为高级 RS 数据库的有吸引力目标。 此外，使用基于 vCore 的模型时，[面向 SQL Server 的 Azure 混合权益](https://azure.cn/pricing/hybrid-benefit/)提供大幅的折扣。
 
 ## <a name="how-often-can-i-adjust-the-resources-per-pool"></a>可以按何种频率调整每个池的资源
 
@@ -193,9 +193,9 @@ SQL 数据库根据[购买模型](sql-database-service-tiers-dtu.md)按可预测
 > [!NOTE]
 > 在有限期内，将不收取备份费用和 IO 费用。
 
-## <a name="how-does-the-use-of-active-geo-replication-in-an-elastic-pool-show-up-on-my-bill"></a>如何在我的帐单上体现弹性池中活动异地复制的使用
+## <a name="how-does-the-use-of-active-geo-replication-or-auto-failover-groups-in-an-elastic-pool-show-up-on-my-bill"></a>如何在我的帐单上体现弹性池中活动异地复制或自动故障转移组的使用
 
-与单一数据库不同的是，对弹性数据库使用[活动异地复制](sql-database-geo-replication-overview.md)对计费没有直接的影响。  只需支付对每个池（主池和辅助池）预配的资源费用
+与单一数据库不同的是，对弹性数据库使用[活动异地复制](sql-database-active-geo-replication.md)或[自动故障转移组](sql-database-auto-failover-group.md)对计费没有直接的影响。 只需支付对每个池（主池和辅助池）预配的资源费用
 
 ## <a name="how-does-the-use-of-the-auditing-feature-impact-my-bill"></a>使用审核功能将对我的帐单产生什么影响
 

@@ -1,6 +1,6 @@
 ---
-title: 将 MapReduce 和 PowerShell 与 Hadoop 配合使用 - Azure HDInsight | Azure
-description: 了解如何使用 PowerShell 在 HDInsight 的 Hadoop 上远程运行 MapReduce 作业。
+title: 将 MapReduce 和 PowerShell 与 Apache Hadoop 配合使用 - Azure HDInsight
+description: 了解如何使用 PowerShell 通过 HDInsight 上的 Apache Hadoop 远程运行 MapReduce 作业。
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/09/2018
-ms.date: 09/24/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: e3a2e09273c653ef470dd23da1daff349d8c2ec6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e4082c37b4cd22588a5997ca054bbf8f32b6e332
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662120"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029262"
 ---
-# <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-powershell"></a>通过 PowerShell 使用 HDInsight 上的 Hadoop 运行 MapReduce 作业
+# <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>使用 PowerShell 通过 HDInsight 上的 Apache Hadoop 运行 MapReduce 作业
 
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
@@ -49,13 +49,13 @@ Azure PowerShell 提供 *cmdlet*，可在 HDInsight 上远程运行 MapReduce �
 
 * **Connect-AzureRmAccount**：在 Azure 订阅中进行 Azure PowerShell 身份验证。
 
-* **New-AzureRmHDInsightMapReduceJobDefinition**：使用指定的 MapReduce 信息创建新 *作业定义* 。
+* **New-AzureRmHDInsightMapReduceJobDefinition**：使用指定的 MapReduce 信息创建新的作业定义。
 
 * **Start-AzureRmHDInsightJob**：将作业定义发送到 HDInsight 并启动作业。 将返回作业对象。
 
 * **Wait-AzureRmHDInsightJob**：使用作业对象来检查作业的状态。 它等到作业完成或超出等待时间。
 
-* **Get-AzureRmHDInsightJobOutput**：用于检索作业输出。
+* **Get-AzureRmHDInsightJobOutput**：用于检索作业的输出。
 
 以下步骤演示了如何使用这些 Cmdlet 在 HDInsight 群集上运行作业。
 
@@ -189,5 +189,5 @@ Azure PowerShell 提供了一种简单方法，可让你在 HDInsight 群集上�
 
 有关 HDInsight 上 Hadoop 的其他使用方法的信息：
 
-* [将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)
-* [将 Pig 与 Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
+* [将 Apache Hive 与 Apache Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
+* [将 Apache Pig 与 Apache Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)

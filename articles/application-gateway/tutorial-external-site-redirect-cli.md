@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/24/2018
-ms.date: 10/17/2018
+ms.date: 12/19/2018
 ms.author: v-junlch
-ms.openlocfilehash: ac02c2c0362abcc76013e6470018008ee271e3e9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 03469970e88f38c81cbb058fc27ea3a7ab2b3132
+ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651379"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53656565"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>使用 Azure CLI 创建支持外部重定向的应用程序网关
 
@@ -100,7 +100,7 @@ az network application-gateway redirect-config create \
   --gateway-name myAppGateway \
   --resource-group myResourceGroupAG \
   --type Temporary \
-  --target-url "http://bing.com"
+  --target-url "https://bing.com"
 ```
 
 ### <a name="add-a-listener-and-routing-rule"></a>添加侦听器和路由规则
@@ -145,4 +145,4 @@ az network application-gateway rule create \
 > [!div class="nextstepaction"]
 > [详细了解应用程序网关的作用](./application-gateway-introduction.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

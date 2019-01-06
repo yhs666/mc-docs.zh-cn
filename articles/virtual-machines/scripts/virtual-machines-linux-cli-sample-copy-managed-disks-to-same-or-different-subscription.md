@@ -14,19 +14,19 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/19/2017
-ms.date: 11/26/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: f22a9ee9e9224eaf38f01fa89c0536e4549e460e
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 20c95cc37c4bf1495112159d3c785b9dfcebf122
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674194"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736126"
 ---
 # <a name="copy-managed-disks-to-same-or-different-subscription-with-cli"></a>使用 CLI 将托管磁盘复制到相同或不同的订阅
 
-此脚本会将托管磁盘复制到位于同一区域的相同或不同的订阅中。 必须是两个订阅的全局 AAD 租户管理员才能运行此脚本。
+此脚本会将托管磁盘复制到位于同一区域的相同或不同的订阅中。 仅当订阅属于同一 AAD 租户时，复制才适用。
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -84,4 +84,4 @@ az disk create --resource-group $targetResourceGroupName --name $managedDiskName
 
 可以在 [Azure Linux VM 文档](../../app-service/app-service-cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机和托管磁盘 CLI 脚本示例。
 
-<!--Update_Description: update meta properties, update link -->
+<!--Update_Description: update meta properties -->

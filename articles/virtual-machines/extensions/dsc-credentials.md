@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 origin.date: 05/02/2018
-ms.date: 09/24/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 22c932c2dad1b2d7927c6c84b739b607e3872767
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 0f5bc219eddda13bd5c8f7cc3702aa76cb13e934
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649976"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736200"
 ---
 # <a name="pass-credentials-to-the-azure-dscextension-handler"></a>将凭据传递给 Azure DSC 扩展处理程序
 
@@ -76,11 +76,12 @@ $configurationArguments = @{ Credential = Get-Credential }
 $configurationArchive = 'user_configuration.ps1.zip'
 $vm = Get-AzureRmVM -Name 'example-1'
 
-$vm = Set-AzureRmVMDscExtension -VMName $vm -ConfigurationArchive $configurationArchive -ConfigurationName $configurationName -ConfigurationArgument @configurationArguments
+$vm = Set-AzureRmVMDscExtension -VMName $vm -ConfigurationArchive $configurationArchive -ConfigurationName $configurationName -ConfigurationArgument $configurationArguments
 
 $vm | Update-AzureRmVM
 ```
 
+<!-- Notice parameter should be $configurationArguments-->
 ## <a name="how-a-credential-is-secured"></a>如何保护凭据
 
 运行此代码时会出现输入凭据的提示。 提供凭据后，它短暂地存储在内存中。 使用 **Set-AzureRmVMDscExtension** cmdlet 发布凭据时，会通过 HTTPS 将凭据传输到 VM。 在 VM 中，Azure 使用本地 VM 证书将加密的凭据存储在磁盘上。 若要将凭据传递给 DSC，将在内存中短暂地将其解密，然后将其重新加密。
@@ -93,4 +94,5 @@ $vm | Update-AzureRmVM
 - 检查[适用于 DSC 扩展的 Azure Resource Manager 模板](dsc-template.md)。
 - 有关 PowerShell DSC 的详细信息，请转到 [PowerShell 文档中心](https://docs.microsoft.com/powershell/dsc/overview)。
 - 若要了解可以使用 PowerShell DSC 管理的其他功能并获取更多 DSC 资源，请浏览 [PowerShell 库](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0)。
+
 <!-- Update_Description: update meta properties  -->

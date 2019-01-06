@@ -10,21 +10,22 @@ ms.service: azure-functions
 ms.devlang: java
 ms.topic: quickstart
 origin.date: 08/10/2018
-ms.date: 10/18/2018
+ms.date: 12/27/2018
 ms.author: v-junlch
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 6d5a5d60e58b649b5f2abefbdabb5d3287345c3a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a1f3c4cff2b37919319beade570aa97dda50167d
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644744"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806581"
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>通过 Java 和 Maven 创建你的第一个函数（预览版）
 
-[!INCLUDE [functions-java-preview-note](../../includes/functions-java-preview-note.md)]
+> [!NOTE] 
+> 用于 Azure Functions 的 Java 当前为预览版。
 
-本快速入门可指导通过 Maven 创建[无服务器](https://azure.microsoft.com/solutions/serverless/)函数项目，在本地对其进行测试，并将其部署到 Azure Functions。 完成后，可在 Azure 中运行 HTTP 触发的函数应用。
+本快速入门可指导通过 Maven 创建[无服务器](https://azure.microsoft.com/solutions/serverless/)函数项目，在本地对其进行测试，并将其部署到 Azure。 完成后，你的 Java 函数代码将在云中运行，并可以通过 HTTP 请求触发。
 
 ![通过 cURL 从命令行中访问 Hello World 函数](./media/functions-create-java-maven/hello-azure.png)
 
@@ -42,9 +43,23 @@ ms.locfileid: "52644744"
 
 ## <a name="install-the-azure-functions-core-tools"></a>安装 Azure Functions Core Tools
 
-Azure Functions Core Tools 为通过终端或命令提示符编写、运行和调试 Azure Functions 提供了本地开发环境。 
+[Azure Functions 核心工具 2.0](https://www.npmjs.com/package/azure-functions-core-tools) 为编写、运行和调试 Azure Functions 提供了本地开发环境。 
 
-在继续操作之前在本地计算机上安装 [Core Tools 版本 2](functions-run-local.md#v2)。
+若要进行安装，请访问 Azure Functions Core Tools 项目的[安装](https://github.com/azure/azure-functions-core-tools#installing)部分，找到操作系统的具体说明。
+
+也可以在安装以下必备组件后，使用 [Node.js](https://nodejs.org/) 随附的 [npm](https://www.npmjs.com/) 手动安装此工具：
+
+-  最新版本的 [.NET Core](https://www.microsoft.com/net/core)。
+-  [Node.js](https://nodejs.org/download/) 8.6 或更高版本。
+
+若要继续进行基于 npm 的安装，请运行：
+
+```
+npm install -g azure-functions-core-tools@core
+```
+
+> [!NOTE]
+> 如果在安装 Azure Functions 核心工具版本 2.0 时遇到问题，请参阅[版本 2.x 运行时](/azure-functions/functions-run-local#version-2x-runtime)。
 
 ## <a name="generate-a-new-functions-project"></a>生成新的 Functions 项目
 
@@ -67,8 +82,6 @@ mvn archetype:generate ^
 
 Maven 会请求你提供所需的值以完成项目的生成。 有关 groupId、artifactId 和 version 值，请参阅 [Maven 命名约定](https://maven.apache.org/guides/mini/guide-naming-conventions.html)参考。 AppName 值在 Azure 中必须唯一，以便 Maven 基于以前输入的 artifactId 生成默认应用名称。 PackageName 值确定所生成函数代码的 Java 包。
 
-`appRegion` 值指定要在其中运行已部署的函数应用的 [Azure 区域](https://azure.microsoft.com/global-infrastructure/regions/)。 可以通过 Azure CLI 中的 `az account list-locations` 命令获取区域名称值的列表。 `resourceGroup` 值指定将在其中创建函数应用的 Azure 资源组。
-
 下面的 `com.fabrikam.functions` 和 `fabrikam-functions` 标识符用作示例，目的是使本快速入门中后面的步骤更易读。 建议你在此步骤中向 Maven 提供你自己的值。
 
 ```Output
@@ -77,18 +90,22 @@ Define value for property 'artifactId' : fabrikam-functions
 Define value for property 'version' 1.0-SNAPSHOT : 
 Define value for property 'package': com.fabrikam.functions
 Define value for property 'appName' fabrikam-functions-20170927220323382:
-Define value for property 'appRegion' chinanorth : 
-Define value for property 'resourceGroup' java-functions-group: 
 Confirm properties configuration: Y
 ```
 
-在此示例 `fabrikam-functions` 中，Maven 在新文件夹中创建名为 artifactId 的项目文件 项目中生成的可以运行的代码是一个简单的在“Hello, ”字符串回显请求正文的 [HTTP 触发](/azure-functions/functions-bindings-http-webhook)函数。
+在此示例 `fabrikam-functions` 中，Maven 在新文件夹中创建名为 artifactId 的项目文件 项目中生成的可以运行的代码是一个简单的回显请求正文的 [HTTP 触发](/azure-functions/functions-bindings-http-webhook)函数：
 
 ```java
 public class Function {
-    @FunctionName("HttpTrigger-Java")
-    public HttpResponseMessage HttpTriggerJava(
-    @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,final ExecutionContext context) {
+    /**
+     * This function listens at endpoint "/api/hello". Two ways to invoke it using "curl" command in bash:
+     * 1. curl -d "HTTP Body" {your host}/api/hello
+     * 2. curl {your host}/api/hello?name=HTTP%20Query
+     */
+    @FunctionName("hello")
+    public HttpResponseMessage<String> hello(
+            @HttpTrigger(name = "req", methods = {"get", "post"}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+            final ExecutionContext context) {
         context.getLogger().info("Java HTTP trigger processed a request.");
 
         // Parse query parameter
@@ -96,12 +113,13 @@ public class Function {
         String name = request.getBody().orElse(query);
 
         if (name == null) {
-            return request.createResponseBuilder(HttpStatus.BAD_REQUEST).body("Please pass a name on the query string or in the request body").build();
+            return request.createResponse(400, "Please pass a name on the query string or in the request body");
         } else {
-            return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
+            return request.createResponse(200, "Hello, " + name);
         }
     }
 }
+
 ```
 
 ## <a name="run-the-function-locally"></a>在本地运行函数
@@ -109,7 +127,7 @@ public class Function {
 将目录更改为新创建的项目文件夹，并通过 Maven 生成和运行此函数：
 
 ```
-cd fabrikam-functions
+cd fabrikam-function
 mvn clean package 
 mvn azure-functions:run
 ```
@@ -120,22 +138,22 @@ mvn azure-functions:run
 当函数在本地系统上运行并且做好响应 HTTP 请求的准备时，将显示以下输出：
 
 ```Output
-Listening on http://0.0.0.0:7071/
+Listening on http://localhost:7071
 Hit CTRL-C to exit...
 
 Http Functions:
 
-        HttpTrigger-Java: http://localhost:7071/api/HttpTrigger-Java
+   hello: http://localhost:7071/api/hello
 ```
 
 使用 curl 在新的终端窗口中从命令行触发函数：
 
 ```
-curl -w '\n' -d LocalFunctionTest http://localhost:7071/api/HttpTrigger-Java
+curl -w '\n' -d LocalFunction http://localhost:7071/api/hello
 ```
 
 ```Output
-Hello, LocalFunctionTest
+Hello LocalFunction!
 ```
 
 在终端中使用 `Ctrl-C` 停止函数代码。
@@ -167,11 +185,11 @@ mvn azure-functions:deploy
 使用 `cURL` 测试在 Azure 上运行的函数应用。 需更改以下示例中的 URL，使之与前一步骤中你自己的函数应用的已部署 URL 匹配。
 
 ```
-curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.chinacloudsites.cn/api/HttpTrigger-Java
+curl -w '\n' https://fabrikam-function-20170920120101928.chinacloudsites.cn/api/hello -d AzureFunctions
 ```
 
 ```Output
-Hello, AzureFunctionsTest
+Hello AzureFunctions!
 ```
 
 ## <a name="make-changes-and-redeploy"></a>进行更改并重新部署
@@ -209,4 +227,4 @@ Hi, AzureFunctionsTest
 - 使用 [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions)、[IntelliJ](functions-create-maven-intellij.md) 和 [Eclipse](functions-create-maven-eclipse.md) 在本地编写并调试函数。 
 - 使用 Visual Studio Code 调试在 Azure 中部署的函数。 有关说明，请参阅 Visual Studio Code [无服务器 Java 应用程序](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)文档。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

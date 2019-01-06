@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/17/2018
-ms.date: 11/08/2018
+ms.date: 01/02/2019
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: e5be22a5833173310af64d64034c55029fd691c4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: dd0002999c37e0d47176c85e9f7b710ccc49d0ae
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645883"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996281"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>使用 OpenID Connect 和 Azure Active Directory 来授权访问 Web 应用程序
 
-[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) 是基于 OAuth 2.0 协议构建的简单标识层。 OAuth 2.0 定义了一些机制用于获取和使用[**访问令牌**](access-tokens.md)来访问受保护资源，但未定义用于提供标识信息的标准方法。 OpenID Connect 实现身份验证，作为对 OAuth 2.0 授权过程的扩展。 它以 [`id_token`](id-tokens.md) 的形式提供有关最终用户的信息，可验证用户的标识，并提供有关用户的基本配置文件信息。
+[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) 是基于 OAuth 2.0 协议构建的简单标识层。 OAuth 2.0 定义了一些机制用于获取和使用[**访问令牌**](access-tokens.md)来访问受保护资源，但未定义用于提供标识信息的标准方法。 OpenID Connect 实现身份验证，作为对 OAuth 2.0 授权过程的扩展。 它以 [`id_token`](id-tokens.md) 的形式提供有关最终用户的信息，可验证用户的标识，并提供有关用户的基本配置文件信息。
 
 如果要构建的 Web 应用程序托管在服务器中并通过浏览器访问，我们建议使用 OpenID Connect。
 
@@ -97,7 +97,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | nonce |必填 |由应用生成且包含在请求中的值，以声明方式包含在生成的 `id_token` 中。 应用程序接着便可确认此值，以减少令牌重新执行攻击。 此值通常是随机的唯一字符串或 GUID，可用以识别请求的来源。 |
 | redirect_uri |建议 |应用的 redirect_uri，应用可向其发送及从其接收身份验证响应。 它必须完全符合在门户中注册的其中一个 redirect_uris，否则必须是编码的 url。 |
 | response_mode |可选 |指定将生成的 authorization_code 送回到应用程序所应使用的方法。 HTTP 窗体发布支持的值为 `form_post`，URL 片段支持的值为 `fragment`。 对于 Web 应用程序，建议使用 `response_mode=form_post` ，确保以最安全的方式将令牌传输到应用程序。 包含 id_token 的任何流的默认值为 `fragment`。|
-| state |建议 |随令牌响应返回的请求中所包含的值。 可以是想要的任何内容的字符串。 随机生成的唯一值通常用于 [防止跨站点请求伪造攻击](http://tools.ietf.org/html/rfc6749#section-10.12)。 该 state 也用于在身份验证请求出现之前，于应用中编码用户的状态信息，例如之前所在的网页或视图。 |
+| state |建议 |随令牌响应返回的请求中所包含的值。 可以是想要的任何内容的字符串。 随机生成的唯一值通常用于[防止跨站点请求伪造攻击](https://tools.ietf.org/html/rfc6749#section-10.12)。 该 state 也用于在身份验证请求出现之前，于应用中编码用户的状态信息，例如之前所在的网页或视图。 |
 | prompt |可选 |表示需要的用户交互类型。 当前仅有的有效值为“login”、“none”和“consent”。 `prompt=login` 强制用户在该请求上输入其凭据，从而使单一登录无效。 `prompt=none` 完全相反，它会确保无论如何都不向用户显示任何交互提示。 如果请求无法通过单一登录静默完成，则终结点返回一个错误。 `prompt=consent` 在用户登录后触发 OAuth 许可对话框，要求用户向应用授予权限。 |
 | login_hint |可选 |如果事先知道用户名，可用于预先填充用户登录页的用户名/电子邮件地址字段。 通常，应用在重新身份验证期间使用此参数，并且已经使用 `preferred_username` 声明从前次登录提取用户名。 |
 
@@ -118,7 +118,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 | 参数 | 说明 |
 | --- | --- |
 | id_token |应用请求的 `id_token` 。 可以使用 `id_token` 验证用户的标识，并以用户身份开始会话。 |
-| state |同时随令牌响应返回的请求中所包含的值。 随机生成的唯一值通常用于 [防止跨站点请求伪造攻击](http://tools.ietf.org/html/rfc6749#section-10.12)。 该 state 也用于在身份验证请求出现之前，于应用中编码用户的状态信息，例如之前所在的网页或视图。 |
+| state |同时随令牌响应返回的请求中所包含的值。 随机生成的唯一值通常用于 [防止跨站点请求伪造攻击](https://tools.ietf.org/html/rfc6749#section-10.12)。 该 state 也用于在身份验证请求出现之前，于应用中编码用户的状态信息，例如之前所在的网页或视图。 |
 
 ### <a name="error-response"></a>错误响应
 
@@ -256,4 +256,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 - 详细了解[访问令牌](access-tokens.md)。
 - 详细了解 [`id_token` 和声明](id-tokens.md)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

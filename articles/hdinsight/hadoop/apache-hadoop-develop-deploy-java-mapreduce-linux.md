@@ -13,30 +13,30 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: Java
 ms.topic: conceptual
 origin.date: 04/23/2018
-ms.date: 06/25/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 13b4c5cbcda4d82e3964371259fb51f8680f734f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 4ca8144495fffbdbb516fff297e6abe4c3eccefd
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649687"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029224"
 ---
-# <a name="develop-java-mapreduce-programs-for-hadoop-on-hdinsight"></a>为 HDInsight 上的 Hadoop 开发 Java MapReduce 程序
+# <a name="develop-java-mapreduce-programs-for-apache-hadoop-on-hdinsight"></a>为 HDInsight 上的 Apache Hadoop 开发 Java MapReduce 程序
 
-了解如何使用 Apache Maven 创建基于 Java 的 MapReduce 应用程序，并使用 Azure HDInsight 中的 Hadoop 运行它。
+了解如何使用 Apache Maven 创建基于 Java 的 MapReduce 应用程序，并使用 Azure HDInsight 中的 Apache Hadoop 运行它。
 
 > [!NOTE]
 > 此示例最近在 HDInsight 3.6 上进行了测试。
 
 ## <a name="prerequisites"></a>先决条件
 
-* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 或更高版本（或类似程序，如 OpenJDK）。
-
+* [Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/) 8 或更高版本（或类似程序，如 OpenJDK）。
+    
     > [!NOTE]
     > HDInsight 版本 3.4 及更早版本使用 Java 7。 HDInsight 3.5 及更高版本使用 Java 8。
 
-* [Apache Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
 ## <a name="configure-development-environment"></a>配置开发环境
 
@@ -69,7 +69,7 @@ ms.locfileid: "52649687"
 
     此命令将使用 `artifactID` 参数指定的名称（此示例中为 **wordcountjava**）创建目录。此目录包含以下项：
 
-   * `pom.xml` - [项目对象模型 (POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)，其中包含用于生成项目的信息和配置详细信息。
+   * `pom.xml` - [项目对象模型 (POM)](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)，其中包含用于生成项目的信息和配置详细信息。
 
    * `src` - 包含应用程序的目录。
 
@@ -100,8 +100,8 @@ ms.locfileid: "52649687"
     </dependency>
    ```
 
-    这会定义具有特定版本（在 &lt;version\> 中列出）的库（在 &lt;artifactId\> 中列出）。 在编译时，会从默认 Maven 存储库下载这些依赖项。 可以使用 [Maven 存储库搜索](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) 来查看详细信息。
-
+    这会定义具有特定版本（在 &lt;version\> 中列出）的库（在 &lt;artifactId\> 中列出）。 在编译时，会从默认 Maven 存储库下载这些依赖项。 可以使用 [Maven 存储库搜索](https://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) 来查看详细信息。
+   
     `<scope>provided</scope>` 告诉 Maven 这些依赖关系不应与此应用程序一起打包，因为它们会在运行时由 HDInsight 群集提供。
 
     > [!IMPORTANT]
@@ -144,7 +144,7 @@ ms.locfileid: "52649687"
     </build>
    ```
 
-    第一个插件配置 [Maven Shade Plugin](http://maven.apache.org/plugins/maven-shade-plugin/)，用于生成 uberjar（有时称为 fatjar），其中包含应用程序所需的依赖项。 它还可以防止在 jar 包中复制许可证，复制许可证在某些系统中可能会导致问题。
+    第一个插件配置 [Maven Shade Plugin](https://maven.apache.org/plugins/maven-shade-plugin/)，用于生成 uberjar（有时称为 fatjar），其中包含应用程序所需的依赖项。 它还可以防止在 jar 包中复制许可证，复制许可证在某些系统中可能会导致问题。
 
     第二个插件配置目标 Java 版本。
 
@@ -291,8 +291,8 @@ scp target/wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsigh
 
 在本文档中，学习了如何开发 Java MapReduce 作业。 请参阅以下文档，了解使用 HDInsight 的其他方式。
 
-* [将 Hive 与 HDInsight 配合使用](hdinsight-use-hive.md)
-* [将 Pig 与 HDInsight 配合使用](hdinsight-use-pig.md)
+* [将 Apache Hive 和 HDInsight 配合使用](hdinsight-use-hive.md)
+* [将 Apache Pig 和 HDInsight 配合使用](hdinsight-use-pig.md)
 * [将 MapReduce 与 HDInsight 配合使用](hdinsight-use-mapreduce.md)
 
 有关详细信息，另请参阅 [Java 开发人员中心](/develop/java/)。
@@ -309,5 +309,5 @@ scp target/wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsigh
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-power-query]:apache-hadoop-connect-excel-power-query.md
 
-[powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
+[powershell-PSCredential]: https://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
 <!--Update_Description: wording update-->

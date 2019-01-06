@@ -11,14 +11,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 10/12/2017
-ms.date: 10/19/2018
+ms.date: 12/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: f37a9c735e1c895ded1dfa909a92660729b7d876
-ms.sourcegitcommit: a3cde3b41ed4d3f39a30eb4e562d6436a3e4d9d5
+ms.openlocfilehash: b3d5d0d498f7b3d1366b42b1bf264edcb4aafaea
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53131774"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806619"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions 开发人员指南
 在 Azure Functions 中，特定函数共享一些核心技术概念和组件，不受所用语言或绑定限制。 跳转学习某个特定语言或绑定的详细信息之前，请务必通读此通用概述。
@@ -80,7 +80,7 @@ Azure Functions 运行时或脚本宿主是基础主机，可侦听事件、收�
 Function App 都建立在应用服务之上，因此所有[可用于标准 Web 应用的部署选项](../app-service/app-service-deploy-local-git.md)也均可用于 Function App。 以下为可用的上传或更新函数应用文件的一些方法。 
 
 #### <a name="use-local-tools-and-publishing"></a>使用本地工具和发布
-可以使用各种工具创作和发布函数应用，包括 [Visual Studio](./functions-develop-vs.md)、[IntelliJ](./functions-create-maven-intellij.md)、[Eclipse](./functions-create-maven-eclipse.md) 和 [Azure Functions Core Tools](./functions-develop-local.md)。 有关详细信息，请参阅[在本地对 Azure Functions 进行编码和测试](./functions-develop-local.md)。
+可以使用各种工具创作和发布函数应用，包括 [Visual Studio](./functions-develop-vs.md)、[Visual Studio Code](functions-create-first-function-vs-code.md)、[IntelliJ](./functions-create-maven-intellij.md)、[Eclipse](./functions-create-maven-eclipse.md) 和 [Azure Functions Core Tools](./functions-develop-local.md)。 有关详细信息，请参阅[在本地对 Azure Functions 进行编码和测试](./functions-develop-local.md)。
 
 ## <a name="parallel-execution"></a>并行执行
 多个触发事件发生的速度超过了单线程函数运行的处理速度时，运行时可并行多次调用函数。 无论应用是在消耗量托管计划还是常规[应用服务托管计划](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)上运行，每个 Function App 实例都可能使用多个线程并行处理并发函数调用。  每个 Function App 实例中并发函数的最大调用数根据所用触发器类型以及 Function App 中其他函数所用资源而有所不同。
@@ -119,4 +119,4 @@ Azure Functions 代码为开放源，位于 GitHub 存储库：
 - [Azure Functions：Azure 应用服务团队博客之旅](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/)。 Azure Functions 的开发历史。
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

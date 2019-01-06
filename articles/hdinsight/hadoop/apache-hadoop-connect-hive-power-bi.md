@@ -3,28 +3,25 @@ title: 在 Azure HDInsight 中使用 Power BI 直观显示大数据
 description: 了解如何使用 Microsoft Power BI 直观显示 Azure HDInsight 已处理的 Hive 数据。
 keywords: hdinsight,hadoop,hive,交互式查询,交互式 hive,LLAP,odbc
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 05/16/2018
-ms.date: 06/25/2018
+origin.date: 12/06/2018
+ms.date: 12/17/2018
 ms.author: v-yiso
-ms.openlocfilehash: 521fd29e70baa94a313f6ca808881fb032bbb993
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c5860eb8fae012652961f044bf9d9e520a944e6a
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52667113"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029225"
 ---
-# <a name="visualize-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>在 Azure HDInsight 中通过 Microsoft Power BI 使用 ODBC 直观显示 Hive 数据
+# <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>在 Azure HDInsight 中通过 Microsoft Power BI 使用 ODBC 直观显示 Apache Hive 数据
 
-了解如何使用 ODBC 将 Microsoft Power BI 连接到 Azure HDInsight 并直观显示 Hive 数据。 
+了解如何使用 ODBC 将 Microsoft Power BI 连接到 Azure HDInsight 并直观显示 Apache Hive 数据。 
 
 >[!IMPORTANT]
 > 可以利用 Hive ODBC 驱动程序，通过 Power BI Desktop 中的通用 ODBC 连接器执行导入操作。 但是，鉴于 Hive 查询引擎的非交互性质，不建议对 BI 工作负荷执行此操作。 出于性能考量，[HDInsight 交互式查询连接器](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)和 [HDInsight Spark 连接器](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect)是更好的选择。
@@ -43,7 +40,7 @@ ms.locfileid: "52667113"
 
 ## <a name="create-hive-odbc-data-source"></a>创建 Hive ODBC 数据源
 
-请参阅[创建 Hive ODBC 数据源](apache-hadoop-connect-excel-hive-odbc-driver.md#create-hive-odbc-data-source)。
+请参阅[创建 Hive ODBC 数据源](apache-hadoop-connect-excel-hive-odbc-driver.md#create-apache-hive-odbc-data-source)。
 
 ## <a name="load-data-from-hdinsight"></a>从 HDInsight 加载数据
 
@@ -70,9 +67,9 @@ ms.locfileid: "52667113"
 ## <a name="next-steps"></a>后续步骤
 本文介绍了如何使用 Power BI 直观显示 HDInsight 中的数据。  要了解更多信息，请参阅下列文章：
 
-* [在 Azure HDInsight 中使用 Zeppelin 运行 Hive 查询](./../hdinsight-connect-hive-zeppelin.md)。
+* [在 Azure HDInsight 中使用 Apache Zeppelin 运行 Apache Hive 查询](./../hdinsight-connect-hive-zeppelin.md)。
 * [使用 Microsoft Hive ODBC 驱动程序将 Excel 连接到 HDInsight](./apache-hadoop-connect-excel-hive-odbc-driver.md)。
-* [使用 Power Query 将 Excel 连接到 Hadoop](apache-hadoop-connect-excel-power-query.md)。
-* [使用针对 Visual Studio 的 Data Lake 工具连接到 Azure HDInsight 并运行 Hive 查询](apache-hadoop-visual-studio-tools-get-started.md)。
+* [使用 Power Query 将 Excel 连接到 Apache Hadoop](apache-hadoop-connect-excel-power-query.md)。
+* [使用针对 Visual Studio 的 Data Lake 工具连接到 Azure HDInsight 并运行 Apache Hive 查询](apache-hadoop-visual-studio-tools-get-started.md)。
 * [使用用于 Visual Studio Code 的 Azure HDInsight 工具](../hdinsight-for-vscode.md)。
 * [将数据上传到 HDInsight](./../hdinsight-upload-data.md)。

@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/31/2017
-ms.date: 06/01/2018
+ms.date: 12/19/2018
 ms.author: v-junlch
-ms.openlocfilehash: 4e9f19976bd90125bab7a67b70b7f55da6f55590
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 0250616ed9c88c40bd5fdb15926077415b22854b
+ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662926"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53656577"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板创建应用程序网关
 
@@ -78,7 +78,7 @@ Azure 应用程序网关是第 7 层负载均衡器。 它可在云端或本地�
 
     ```json
     {
-        "$schema": "http://schema.management.chinacloudapi.cn/schemas/2015-01-01/deploymentParameters.json#",
+        "$schema": "https://schema.management.chinacloudapi.cn/schemas/2015-01-01/deploymentParameters.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
             "addressPrefix": {
@@ -115,11 +115,11 @@ Azure 应用程序网关是第 7 层负载均衡器。 它可在云端或本地�
     }
     ```
 
-1. 保存文件。 可以使用联机 JSON 验证工具（例如 [JSlint.com](http://www.jslint.com/)）测试 JSON 模板和参数模板。
+1. 保存文件。 可以使用联机 JSON 验证工具（例如 [JSlint.com](https://www.jslint.com/)）测试 JSON 模板和参数模板。
 
 ## <a name="deploy-the-azure-resource-manager-template-by-using-powershell"></a>使用 PowerShell 部署 Azure Resource Manager 模板
 
-如果从未使用过 Azure PowerShell，请参阅：[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)，并按照说明进行操作，以登录到 Azure 并选择订阅。
+如果从未使用过 Azure PowerShell，请访问：[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)，并按照说明进行操作，以登录到 Azure 并选择订阅。
 
 1. 登录 PowerShell
 
@@ -209,13 +209,14 @@ az group delete --name appgatewayRG
 
 ## <a name="next-steps"></a>后续步骤
 
-若要配置 SSL 卸载，请访问：[配置应用程序网关以进行 SSL 卸载](tutorial-ssl-cli.md)。
+如果想要配置 SSL 卸载，请访问：[配置应用程序网关以进行 SSL 卸载](tutorial-ssl-cli.md)。
 
-若要将应用程序网关配置为与内部负载均衡器配合使用，请访问：[创建具有内部负载均衡器 (ILB) 的应用程序网关](redirect-internal-site-cli.md)。
+如果要将应用程序网关配置为与内部负载均衡器配合使用，请访问：[创建具有内部负载均衡器 (ILB) 的应用程序网关](redirect-internal-site-cli.md)。
 
 如需大体上更详细地了解负载均衡选项，请访问：
 
 - [Azure 负载均衡器](https://www.azure.cn/home/features/load-balancer/)
-- [Azure 流量管理器](https://azure.microsoft.com/documentation/services/traffic-manager/)
+- [Azure 流量管理器](https://www.azure.cn/home/features/traffic-manager/)
 
 
+<!-- Update_Description: link update -->

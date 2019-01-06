@@ -1,6 +1,6 @@
 ---
-title: 将 Java 用户定义函数 (UDF) 与 HDInsight 中的 Hive 配合使用 - Azure | Azure
-description: 了解如何创建可用于 Hive 的基于 Java 的用户定义的函数 (UDF)。 此示例 UDF 将文本字符串表转换为小写。
+title: 将 Java 用户定义函数 (UDF) 与 HDInsight 中的 Apache Hive 配合使用 - Azure
+description: 了解如何创建可用于 Apache Hive 的基于 Java 的用户定义函数 (UDF)。 此示例 UDF 将文本字符串表转换为小写。
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -14,18 +14,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/16/2018
-ms.date: 06/25/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: fac87af9180df47caed34df9a169a5d55683ceda
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1dff4d38b5118cb761c9503052629a7af391e882
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662281"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029140"
 ---
-# <a name="use-a-java-udf-with-hive-in-hdinsight"></a>在 HDInsight 中通过 Hive 使用 Java UDF
+# <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>将 Java UDF 与 HDInsight 中的 Apache Hive 配合使用
 
-了解如何创建可用于 Hive 的基于 Java 的用户定义的函数 (UDF)。 此示例中的 Java UDF 将文本字符串表转换为全小写字符。
+了解如何创建可用于 Apache Hive 的基于 Java 的用户定义函数 (UDF)。 此示例中的 Java UDF 将文本字符串表转换为全小写字符。
 
 ## <a name="requirements"></a>要求
 
@@ -38,9 +38,9 @@ ms.locfileid: "52662281"
 
     本文档中的大多数步骤同时适用于基于 Windows 和基于 Linux 的群集。 但是，用于将已编译的 UDF 上传到群集并运行的步骤特定于基于 Linux 的群集。 提供可用于基于 Windows 的群集的信息的链接。
 
-* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 或更高版本（或类似程序，如 OpenJDK）
+* [Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/) 8 或更高版本（或类似程序，如 OpenJDK）
 
-* [Apache Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
 * 文本编辑器或 Java IDE
 
@@ -246,8 +246,6 @@ ms.locfileid: "52662281"
 
 ## <a name="next-steps"></a>后续步骤
 
-有关使用 Hive 的其他方式，请参阅[将 Hive 与 HDInsight 配合使用](hdinsight-use-hive.md)。
+有关使用 Hive 的其他方式，请参阅[将 Apache Hive 与 HDInsight 配合使用](hdinsight-use-hive.md)。
 
-有关 Hive 用户定义函数的详细信息，请参阅 apache.org 网站上的 Hive wiki 的 [Hive 运算符和用户定义函数](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) 部分。
-
-<!--Update_Description: change 'wasbs' into 'wasb'-->
+有关 Hive 用户定义函数的详细信息，请参阅 apache.org 网站上的 Hive wiki 的 [Apache Hive 运算符和用户定义函数](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF)部分。

@@ -3,52 +3,51 @@ title: 实现地理分散的 Azure SQL 数据库解决方案 | Microsoft Docs
 description: 了解如何配置 Azure SQL 数据库和应用程序以便故障转移到复制的数据库，以及如何测试故障转移。
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: high-availability
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
-manager: craigg
+manager: digimobile
 origin.date: 11/01/2018
-ms.date: 12/06/2018
-ms.openlocfilehash: ce431dfa848f4c039d1934d409474f6fb1b0e12b
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.date: 12/31/2018
+ms.openlocfilehash: 744bb8cc42857ebe8c4456d88f5172a130c7f1df
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672735"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806212"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>教程：实现地理分散的数据库
 
-在本教程中，将配置 Azure SQL 数据库和应用程序以便故障转移到远程区域中，然后测试故障转移计划。 你将学习如何执行以下操作： 
+在本教程中，将配置 Azure SQL 数据库和应用程序以便故障转移到远程区域中，然后测试故障转移计划。 你将学习如何执行以下操作：
 
 > [!div class="checklist"]
-> * 创建数据库用户并向其授予权限
-> * 设置数据库级防火墙规则
-> * 创建[异地复制故障转移组](sql-database-geo-replication-overview.md)
-> * 创建和编译 Java 应用程序以查询 Azure SQL 数据库
-> * 执行灾难恢复演练
+> - 创建数据库用户并向其授予权限
+> - 设置数据库级防火墙规则
+> - 创建[故障转移组](sql-database-auto-failover-group.md)
+> - 创建和编译 Java 应用程序以查询 Azure SQL 数据库
+> - 执行灾难恢复演练
 
 如果没有 Azure 订阅，可在开始前[创建一个 1 元人民币的试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
-
 
 ## <a name="prerequisites"></a>先决条件
 
 若要完成本教程，请确保已完成了以下先决条件：
 
-- 已安装最新的 [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。 
+- 已安装最新的 [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。
 - 已安装 Azure SQL 数据库。 本教程使用以下任一快速入门中名为“mySampleDatabase”的 AdventureWorksLT 示例数据库：
 
-   - [创建 DB - 门户](sql-database-get-started-portal.md)
-   - [创建 DB - CLI](sql-database-cli-samples.md)
-   - [创建 DB - PowerShell](sql-database-powershell-samples.md)
+  - [创建 DB - 门户](sql-database-get-started-portal.md)
+  - [创建 DB - CLI](sql-database-cli-samples.md)
+  - [创建 DB - PowerShell](sql-database-powershell-samples.md)
 
 - 已确定了对数据库执行 SQL 脚本的一种方法，可以使用以下查询工具之一：
    - [Azure 门户](https://portal.azure.cn)中的查询编辑器。 有关使用 Azure 门户中的查询编辑器的详细信息，请参阅[使用查询编辑器进行连接和查询](sql-database-get-started-portal.md#query-the-sql-database)。
-   - 最新版本的 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)，它是用于管理任何 SQL 基础结构（从适用于 Microsoft Windows 的 SQL Server 到 SQL 数据库，不一而足）的集成环境。
-   - 最新版本的 [Visual Studio Code](https://code.visualstudio.com/docs)，它是一种图形代码编辑器，适用于 Linux、macOS 和 Windows，并且支持各种扩展，其中包括 [mssql 扩展](https://aka.ms/mssql-marketplace)（用于查询 Microsoft SQL Server、Azure SQL 数据库和 SQL 数据仓库）。 有关对 Azure SQL 数据库使用此工具的详细信息，请参阅[使用 VS Code 进行连接和查询](sql-database-connect-query-vscode.md)。 
+  - 最新版本的 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)，它是用于管理任何 SQL 基础结构（从适用于 Microsoft Windows 的 SQL Server 到 SQL 数据库，不一而足）的集成环境。
+  - 最新版本的 [Visual Studio Code](https://code.visualstudio.com/docs)，它是一种图形代码编辑器，适用于 Linux、macOS 和 Windows，并且支持各种扩展，其中包括 [mssql 扩展](https://aka.ms/mssql-marketplace)（用于查询 Microsoft SQL Server、Azure SQL 数据库和 SQL 数据仓库）。 有关对 Azure SQL 数据库使用此工具的详细信息，请参阅[使用 VS Code 进行连接和查询](sql-database-connect-query-vscode.md)。
 
 ## <a name="create-database-users-and-grant-permissions"></a>创建数据库用户并授予权限
 
@@ -60,12 +59,12 @@ ms.locfileid: "52672735"
 
 这些用户帐户将自动复制到辅助服务器（并保持同步）。 若要使用 SQL Server Management Studio 或 Visual Studio Code，如果进行连接的客户端所在的 IP 地址尚未配置防火墙，则需要配置防火墙规则。 有关详细步骤，请参阅[创建服务器级防火墙规则](sql-database-get-started-portal-firewall.md)。
 
-- 在查询窗口中执行以下查询，在数据库中创建两个用户帐户。 此脚本授予“app_admin”帐户“db_owner”权限，并授予“app_user”帐户“SELECT”（选择）和“UPDATE”（更新）权限。 
+- 在查询窗口中执行以下查询，在数据库中创建两个用户帐户。 此脚本授予“app_admin”帐户“db_owner”权限，并授予“app_user”帐户“SELECT”（选择）和“UPDATE”（更新）权限。
 
    ```sql
    CREATE USER app_admin WITH PASSWORD = 'ChangeYourPassword1';
    --Add SQL user to db_owner role
-   ALTER ROLE db_owner ADD MEMBER app_admin; 
+   ALTER ROLE db_owner ADD MEMBER app_admin;
    --Create additional SQL user
    CREATE USER app_user WITH PASSWORD = 'ChangeYourPassword1';
    --grant permission to SalesLT schema
@@ -83,9 +82,9 @@ ms.locfileid: "52672735"
    EXECUTE sp_set_database_firewall_rule @name = N'myGeoReplicationFirewallRule',@start_ip_address = '0.0.0.0', @end_ip_address = '0.0.0.0';
    ```
 
-## <a name="create-an-active-geo-replication-auto-failover-group"></a>创建活动异地复制自动故障转移组 
+## <a name="create-a-failover-group"></a>创建故障转移组
 
-使用 Azure PowerShell 在 Azure 区域中的现有 Azure SQL 服务器和新的空 Azure SQL 服务器之间创建[活动异地复制自动故障转移组](sql-database-geo-replication-overview.md)，然后将示例数据库添加到故障转移组。
+使用 Azure PowerShell 在现有 Azure SQL Server 和 Azure 区域中新的空白 Azure SQL Server 之间创建[故障转移组](sql-database-auto-failover-group.md)，然后将示例数据库添加到故障转移组。
 
 > [!IMPORTANT]
 > 这些 cmdlet 需要 Azure PowerShell 4.0。 [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
@@ -112,7 +111,7 @@ ms.locfileid: "52672735"
       -ServerName $mydrservername `
       -Location $mydrlocation `
       -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
-   $mydrserver   
+   $mydrserver
    ```
 
 3. 在这两个服务器之间创建故障转移组。
@@ -125,7 +124,7 @@ ms.locfileid: "52672735"
       -FailoverGroupName $myfailovergroupname `
       -FailoverPolicy Automatic `
       -GracePeriodWithDataLossHours 2
-   $myfailovergroup   
+   $myfailovergroup
    ```
 
 4. 将数据库添加到故障转移组。
@@ -139,15 +138,16 @@ ms.locfileid: "52672735"
       -ResourceGroupName $myresourcegroupname ` `
       -ServerName $myservername `
       -FailoverGroupName $myfailovergroupname
-   $myfailovergroup   
+   $myfailovergroup
    ```
 
 ## <a name="install-java-software"></a>安装 Java 软件
 
-本部分中的步骤假定你熟悉使用 Java 开发，但不熟悉如何使用 Azure SQL 数据库。 
+本部分中的步骤假定你熟悉使用 Java 开发，但不熟悉如何使用 Azure SQL 数据库。
 
-### <a name="mac-os"></a>**Mac OS**
-打开终端并导航到要在其中创建 Java 项目的目录。 输入以下命令安装 **brew** 和 **Maven**： 
+### <a name="mac-os"></a>Mac OS
+
+打开终端并导航到要在其中创建 Java 项目的目录。 输入以下命令安装 **brew** 和 **Maven**：
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -157,7 +157,8 @@ brew install maven
 
 有关安装和配置 Java 和 Maven 环境的详细指导，请转到[使用 SQL Server 生成应用](https://www.microsoft.com/sql-server/developer-get-started/)，依次选择“Java”和“MacOS”，然后按照步骤 1.2 和 1.3 中有关配置 Java 和 Maven 的详细说明进行操作。
 
-### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
+### <a name="linux-ubuntu"></a>Linux (Ubuntu)
+
 打开终端并导航到要在其中创建 Java 项目的目录。 输入以下命令安装 **Maven**：
 
 ```bash
@@ -166,15 +167,18 @@ sudo apt-get install maven
 
 有关安装和配置 Java 和 Maven 环境的详细指导，请转到[使用 SQL Server 生成应用](https://www.microsoft.com/sql-server/developer-get-started/)，依次选择“Java”和“Ubuntu”，然后遵循步骤 1.2、1.3 和 1.4 中配置 Java 和 Maven 的详细说明。
 
-### <a name="windows"></a>**Windows**
+### <a name="windows"></a>Windows
+
 使用官方安装程序安装 [Maven](https://maven.apache.org/download.cgi)。 使用 Maven 帮助管理依赖项、内部版本、测试和运行 Java 项目。 有关安装和配置 Java 和 Maven 环境的详细指导，请转到[使用 SQL Server 生成应用](https://www.microsoft.com/sql-server/developer-get-started/)，依次选择“Java”和“Windows”，然后遵循步骤 1.2 和 1.3 中配置 Java 和 Maven 的详细说明。
 
 ## <a name="create-sqldbsample-project"></a>创建 SqlDbSample 项目
 
-1. 在命令控制台（例如 Bash）中，创建一个 Maven 项目。 
+1. 在命令控制台（例如 Bash）中，创建一个 Maven 项目。
+
    ```bash
    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
    ```
+
 2. 键入“Y”并单击“Enter”。
 3. 将目录更改到新创建的项目。
 
@@ -182,7 +186,7 @@ sudo apt-get install maven
    cd SqlDbSamples
    ```
 
-4. 使用最常用的编辑器，在打开项目文件夹中的 pom.xml 文件。 
+4. 使用最常用的编辑器，在打开项目文件夹中的 pom.xml 文件。
 
 5. 通过打开最常用的文本编辑器并将以下行复制和粘贴到 pom.xml 文件中，将 Microsoft JDBC Driver for SQL Server 依赖项添加到 Maven 项目。 不会覆盖预先填充在文件中的现有值。 JDBC 依赖项必须粘贴在更大的“依赖项”部分 ( ) 内。   
 
@@ -202,7 +206,8 @@ sudo apt-get install maven
      <maven.compiler.target>1.8</maven.compiler.target>
    </properties>
    ```
-7. 将以下“生成”部分添加到 pom.xml 文件的“属性”部分之后，以支持 jar 中的清单文件。       
+
+7. 将以下“生成”部分添加到 pom.xml 文件的“属性”部分之后，以支持 jar 中的清单文件。
 
    ```xml
    <build>
@@ -222,6 +227,7 @@ sudo apt-get install maven
      </plugins>
    </build>
    ```
+
 8. 保存并关闭 pom.xml 文件。
 9. 打开 App.java 文件 (C:\apache-maven-3.5.0\SqlDbSample\src\main\java\com\sqldbsamples\App.java) 并将内容替换为以下内容。 将故障转移组名称替换为自己的故障转移组的名称。 如果已更改数据库名、用户或密码的值，那么也要更改这些值。
 
@@ -252,7 +258,7 @@ sudo apt-get install maven
          System.out.println("#######################################");
          System.out.println("## GEO DISTRIBUTED DATABASE TUTORIAL ##");
          System.out.println("#######################################");
-         System.out.println(""); 
+         System.out.println("");
 
          int highWaterMark = getHighWaterMarkId();
 
@@ -273,7 +279,7 @@ sudo apt-get install maven
       // Insert data into the product table with a unique product name that we can use to find the product again later
       String sql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, StandardCost, ListPrice, SellStartDate) VALUES (?,?,?,?,?,?);";
 
-      try (Connection connection = DriverManager.getConnection(READ_WRITE_URL); 
+      try (Connection connection = DriverManager.getConnection(READ_WRITE_URL);
               PreparedStatement pstmt = connection.prepareStatement(sql)) {
          pstmt.setString(1, "BrandNewProduct" + id);
          pstmt.setInt(2, 200989 + id + 10000);
@@ -291,7 +297,7 @@ sudo apt-get install maven
       // Query the data that was previously inserted into the primary database from the geo replicated database
       String sql = "SELECT Name, Color, ListPrice FROM SalesLT.Product WHERE Name = ?";
 
-      try (Connection connection = DriverManager.getConnection(READ_ONLY_URL); 
+      try (Connection connection = DriverManager.getConnection(READ_ONLY_URL);
               PreparedStatement pstmt = connection.prepareStatement(sql)) {
          pstmt.setString(1, "BrandNewProduct" + id);
          try (ResultSet resultSet = pstmt.executeQuery()) {
@@ -303,11 +309,10 @@ sudo apt-get install maven
    }
 
    private static int getHighWaterMarkId() {
-      // Query the high water mark id that is stored in the table to be able to make unique inserts 
+      // Query the high water mark id that is stored in the table to be able to make unique inserts
       String sql = "SELECT MAX(ProductId) FROM SalesLT.Product";
       int result = 1;
-        
-      try (Connection connection = DriverManager.getConnection(READ_WRITE_URL); 
+      try (Connection connection = DriverManager.getConnection(READ_WRITE_URL);
               Statement stmt = connection.createStatement();
               ResultSet resultSet = stmt.executeQuery(sql)) {
          if (resultSet.next()) {
@@ -320,7 +325,8 @@ sudo apt-get install maven
       }
    }
    ```
-6. 保存并关闭 App.java 文件。
+
+10. 保存并关闭 App.java 文件。
 
 ## <a name="compile-and-run-the-sqldbsample-project"></a>编译并运行 SqlDbSample 项目
 
@@ -329,11 +335,12 @@ sudo apt-get install maven
    ```bash
    mvn package
    ```
+
 2. 完成后，执行以下命令运行该应用程序（除非手动停止，否则该应用程序将运行大约 1 小时）：
 
    ```bash
    mvn -q -e exec:java "-Dexec.mainClass=com.sqldbsamples.App"
-   
+
    #######################################
    ## GEO DISTRIBUTED DATABASE TUTORIAL ##
    #######################################
@@ -345,7 +352,7 @@ sudo apt-get install maven
 
 ## <a name="perform-disaster-recovery-drill"></a>执行灾难恢复演练
 
-1. 调用故障转移组的手动故障转移。 
+1. 调用故障转移组的手动故障转移。
 
    ```powershell
    Switch-AzureRMSqlDatabaseFailoverGroup `
@@ -354,7 +361,7 @@ sudo apt-get install maven
    -FailoverGroupName $myfailovergroupname
    ```
 
-2. 在故障转移期间观察应用程序结果。 DNS 缓存刷新时，某些插入会失败。     
+2. 在故障转移期间观察应用程序结果。 DNS 缓存刷新时，某些插入会失败。
 
 3. 找出灾难恢复服务器正在执行的角色。
 
@@ -371,7 +378,7 @@ sudo apt-get install maven
    -FailoverGroupName $myfailovergroupname
    ```
 
-5. 在故障回复期间观察应用程序结果。 DNS 缓存刷新时，某些插入将失败。     
+5. 在故障回复期间观察应用程序结果。 DNS 缓存刷新时，某些插入将失败。
 
 6. 了解灾难恢复服务器正在执行的角色。
 

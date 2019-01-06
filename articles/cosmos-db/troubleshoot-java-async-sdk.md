@@ -1,21 +1,21 @@
 ---
-title: 诊断 Azure Cosmos DB Java 异步 SDK 并对其进行故障排除 | Azure
+title: 诊断 Azure Cosmos DB Java 异步 SDK 并对其进行故障排除
 description: 使用客户端日志记录等功能和其他第三方工具来确定、诊断和排查 Azure Cosmos DB 问题。
 services: cosmos-db
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: troubleshooting
 origin.date: 10/28/2018
-ms.date: 12/03/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
 ms.devlang: java
 ms.component: cosmosdb-sql
-ms.openlocfilehash: 58889262f58be4ce976bdd3f8db782c2cb37062c
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 63c124149a614ba20345df418dfc5bdcdbcc13f1
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676743"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026779"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>排查将 Java 异步 SDK 与 Azure Cosmos DB SQL API 帐户配合使用时出现的问题
 本文介绍了将 [Java 异步 SDK](sql-api-sdk-async-java.md) 与 Azure Cosmos DB SQL API 帐户配合使用时的常见问题、解决方法、诊断步骤和工具。
@@ -215,5 +215,5 @@ netstat -nap
 [主机上的连接限制]: #connection-limit-on-host
 [Azure SNAT (PAT) 端口耗尽]: #snat
 
-<!-- Update_Description: new articles on cosmos db troubleshoot java async sdk -->
+<!-- Update_Description: update meta properties -->
 <!--ms.date: 12/03/2018-->

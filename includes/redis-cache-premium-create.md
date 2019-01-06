@@ -3,21 +3,21 @@ author: wesmc7777
 ms.service: redis-cache
 ms.topic: include
 origin.date: 11/09/2018
-ms.date: 11/30/2018
+ms.date: 12/25/2018
 ms.author: v-junlch
-ms.openlocfilehash: 3c582cbc835bbdb2bb38b3dc829da438be53b7c2
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 7d4a215a12b7d1bb8846f87643ebf092838339bb
+ms.sourcegitcommit: d2893ae6bdbb3784d243d5d3c49c25c9cfd99d9b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53070267"
+ms.lasthandoff: 12/25/2018
+ms.locfileid: "53784835"
 ---
-若要创建高级缓存，请登录到 [Azure 门户](https://portal.azure.cn)，并单击“创建资源” > “数据库” > “Redis 缓存”。
+若要创建高级缓存，请登录到 [Azure 门户](https://portal.azure.cn)，并单击“创建资源” > “数据库” > “Azure Redis 缓存”。
 
 ![创建缓存](./media/redis-cache-premium-create/redis-cache-new-cache-menu.png)
 
 > [!NOTE]
-> 除了在 Azure 门户中创建缓存以外，也可以使用 Resource Manager 模板、PowerShell 或 Azure CLI 创建。 有关创建 Azure Redis 缓存的详细信息，请参阅[创建缓存](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache)。
+> 除了在 Azure 门户中创建缓存以外，也可以使用 Resource Manager 模板、PowerShell 或 Azure CLI 创建。 有关创建 Azure Redis 缓存的详细信息，请参阅[创建缓存](../articles/azure-cache-for-redis/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache)。
 > 
 > 
 
@@ -26,3 +26,4 @@ ms.locfileid: "53070267"
 ![选择定价层](./media/redis-cache-premium-create/redis-cache-premium-pricing-tier.png)
 
 
+<!-- ms.date: 12/25/2018 -->

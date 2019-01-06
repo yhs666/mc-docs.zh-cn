@@ -55,4 +55,5 @@
 ## [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
 ## [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 ## [SQL Server 工具](https://docs.microsoft.com/sql/tools/overview-sql-tools)
-<!--ms.date: 06/25/2018-->
+## [MSDN 论坛](https://www.azure.cn/support/contact/)
+<!--ms.date: 12/24/2018-->

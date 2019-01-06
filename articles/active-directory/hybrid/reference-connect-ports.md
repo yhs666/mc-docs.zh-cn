@@ -16,12 +16,12 @@ origin.date: 08/02/2017
 ms.date: 11/12/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: cb60a5ed3f3e8942f045814fb47a303c347c1346
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 177173990d4bc0248b5b22914169214b55afdaf5
+ms.sourcegitcommit: f6a287a11480cbee99a2facda2590f3a744f7e45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645494"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53786721"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>混合标识所需的端口和协议
 以下文档是用于实现混合标识解决方案所需的端口和协议的技术参考。 使用下图并参考相应的表格。
@@ -84,7 +84,7 @@ ms.locfileid: "52645494"
 |HTTP|80|启用出站 HTTP 流量以进行安全验证，例如 SSL。 连接器自动更新功能要正常工作也需要完成此操作。
 |HTTPS|443| 为操作（例如启用和禁用功能、注册连接器、下载连接器更新和处理所有用户登录请求）启用出站 HTTPS 流量。
 
-此外，Azure AD Connect 需要能够建立到 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/details.aspx?id=42064)的直接 IP 连接。
+此外，Azure AD Connect 需要能够建立到 [Azure 数据中心 IP 范围](https://www.microsoft.com/en-us/download/confirmation.aspx?id=57062)的直接 IP 连接。
 
 ### <a name="table-6b---password-hash-sync-with-sso"></a>表 6b - 通过 SSO 进行密码哈希同步
 
@@ -92,6 +92,6 @@ ms.locfileid: "52645494"
 | --- | --- | ---
 |HTTPS|443| 启用 SSO 注册（只有 SSO 注册过程才需要）。
 
-此外，Azure AD Connect 需要能够建立到 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/details.aspx?id=42064)的直接 IP 连接。 同样，这只是 SSO 注册过程所需的。
+此外，Azure AD Connect 需要能够建立到 [Azure 数据中心 IP 范围](https://www.microsoft.com/en-us/download/confirmation.aspx?id=57062)的直接 IP 连接。 同样，这只是 SSO 注册过程所需的。
 
 <!-- Update_Description: link update -->

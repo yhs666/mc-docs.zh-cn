@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 10/30/2018
 ms.date: 12/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1625459a59cbba194cf25547e212571b801667b4
-ms.sourcegitcommit: 1b6a310ba636b6dd32d7810821bcb79250393499
+ms.openlocfilehash: 253a333e71b791cd9b20755b0cb2e580fad11a0a
+ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389396"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785168"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>排查 Azure VM 间的连接问题
 
@@ -96,7 +96,7 @@ Azure 虚拟机 (VM) 间可能出现连接问题。 本文提供解决此问题�
 
 ### <a name="step-6-check-whether-traffic-is-blocked-by-acls-for-the-classic-vm"></a>步骤 6：检查 ACL 是否阻止了经典 VM 的流量
 
-利用访问控制列表 (ACL)，可以选择允许还是拒绝虚拟机终结点的流量。 有关详细信息，请参阅[管理终结点上的 ACL](../virtual-machines/windows/classic/setup-endpoints.md#manage-the-acl-on-an-endpoint)。
+利用访问控制列表 (ACL)，可以选择允许还是拒绝虚拟机终结点的流量。 有关详细信息，请参阅 [管理终结点上的 ACL](../virtual-machines/windows/classic/setup-endpoints.md#manage-the-acl-on-an-endpoint)。
 
 ### <a name="step-7-check-whether-the-endpoint-is-created-for-the-classic-vm"></a>步骤 7：检查是否为经典 VM 创建了终结点
 
@@ -110,7 +110,7 @@ Azure 虚拟机 (VM) 间可能出现连接问题。 本文提供解决此问题�
 
 使用[网络观察程序 IP 流验证](../network-watcher/network-watcher-ip-flow-verify-overview.md)和 [NSG 流日志记录](../network-watcher/network-watcher-nsg-flow-logging-overview.md)确定是否存在干扰流量流的 NSG 或 UDR。 还可在[此处](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)验证 Vnet 间配置。
 
-### <a name="need-help-contact-support"></a>需要帮助？ 联系支持人员。
-如果仍需要帮助，可 [联系支持人员](https://www.azure.cn/support/support-azure/) 来快速解决问题。
+### <a name="need-help-contact-support"></a>需要帮助？ 请联系支持人员。
+如果仍需要帮助，可 [联系支持人员](https://support.azure.cn/zh-cn/support/support-azure/) 来快速解决问题。
 
 <!--Update_Description: wording update -->

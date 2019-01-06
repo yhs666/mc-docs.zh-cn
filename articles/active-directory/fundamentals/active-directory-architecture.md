@@ -1,6 +1,6 @@
 ---
-title: 什么是 Azure Active Directory 体系结构？ | Microsoft Docs
-description: 了解什么是 Azure Active Directory 租户，以及如何通过 Azure Active Directory 管理 Azure。
+title: 体系结构概述 - Azure Active Directory | Microsoft Docs
+description: 了解什么是 Azure Active Directory 租户，以及如何使用 Azure Active Directory 管理 Azure。
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -9,19 +9,19 @@ ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 08/23/2018
-ms.date: 10/09/2018
+ms.date: 01/02/2019
 ms.author: v-junlch
 ms.reviewer: jeffsta
-custom: it-pro
-ms.openlocfilehash: 17cdb946c7f9e4dad87ada50ae1b3a5837d78009
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 566d7dabff66070ada6c9d417d792eb9ad228004
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644271"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996366"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>什么是 Azure Active Directory 体系结构？
-使用 Azure Active Directory (Azure AD) 可以安全地管理用户对 Azure 服务和资源的访问。 Azure AD 随附了整套标识管理功能。 有关 Azure AD 功能的信息，请参阅[什么是 Azure Active Directory？](/active-directory/active-directory-whatis)
+使用 Azure Active Directory (Azure AD) 可以安全地管理用户对 Azure 服务和资源的访问。 Azure AD 随附了整套标识管理功能。 有关 Azure AD 功能的信息，请参阅[什么是 Azure Active Directory？](active-directory-whatis.md)
 
 在 Azure AD 中可以创建及管理用户和组，并使用权限来允许和拒绝对企业资源的访问。 
 
@@ -67,7 +67,7 @@ Azure AD 体系结构的组件包括主副本和辅助副本。
 
 **容错**
 
-如果系统能够承受硬件、网络和软件故障，则可用性更高。 目录的每个分区中有一个高度可用的主控副本：主副本。 此副本中只执行针对分区的写入。 此副本持续受到密切的监视，一旦检测到故障，可立即将写入操作转移到其他副本（该副本将变成新的主要副本）。 故障转移期间，通常会出现 1-2 分钟的写入可用性损失。 读取可用性在此期间不受影响。
+如果系统能够承受硬件、网络和软件故障，则可用性更高。 目录的每个分区中有一个高度可用的主控副本：主要副本。 此副本中只执行针对分区的写入。 此副本持续受到密切的监视，一旦检测到故障，可立即将写入操作转移到其他副本（该副本将变成新的主要副本）。 故障转移期间，通常会出现 1-2 分钟的写入可用性损失。 读取可用性在此期间不受影响。
 
 读取操作（比写入操作要多出许多个量级）只会转到辅助副本。 由于次要副本是幂等的，因此，通过将读取操作定向到其他副本（通常在同一数据中心内），即可轻松补偿给定分区中发生的任一副本丢失。
 
@@ -115,10 +115,10 @@ Azure AD 实施所有数据的每日备份，因此，在发生任何逻辑删�
 
 **安全操作**
 
-针对任一操作采用多重身份验证 (MFA) 等操作控制，并针对所有操作实施审核。 此外使用适时提升系统，授予必要的临时访问权限让客户完成任何日常的按需操作任务。 有关详细信息，请参阅 [受信任的云](https://www.azure.cn/support/trust-center)。
+针对任一操作采用多重身份验证 (MFA) 等操作控制，并针对所有操作实施审核。 此外使用适时提升系统，授予必要的临时访问权限让客户完成任何日常的按需操作任务。 有关详细信息，请参阅 [受信任的云](https://www.trustcenter.cn)。
 
 ## <a name="next-steps"></a>后续步骤
 [Azure Active Directory 开发人员指南](/active-directory/develop/active-directory-developers-guide)
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

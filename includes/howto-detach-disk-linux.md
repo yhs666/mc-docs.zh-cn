@@ -1,3 +1,17 @@
+---
+author: rockboyfor
+ms.service: virtual-machines-linux
+ms.topic: include
+origin.date: 11/25/2018
+ms.date: 12/24/2018
+ms.author: v-yeche
+ms.openlocfilehash: f5673f6e4592082ab061ee112e14b5903d92c264
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736210"
+---
 当不再需要附加到虚拟机 (VM) 的数据磁盘时，可以轻松地分离它。 从 VM 中分离磁盘时，不会从存储中删除该磁盘。 如果希望再次使用磁盘上的现有数据，可以将其重新附加到相同的 VM 或另一个 VM。  
 
 > [!NOTE]
@@ -111,4 +125,5 @@
     ```
 
 分离的磁盘保留在存储中，但不再附加到虚拟机。
-<!--ms.date: 03/19/2018 -->
+
+<!-- Update_Description: wording update -->

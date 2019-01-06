@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 05/08/2018
-ms.date: 10/15/2018
+origin.date: 11/19/2018
+ms.date: 12/31/2018
 ms.author: v-jay
 ms.reviewer: ''
-ms.openlocfilehash: 01d5bdd6d5ae78abd93f40544ce7d238e927a4cf
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.openlocfilehash: 4ecf4f2d69137e32a5c6f37ac4584c749989935a
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396231"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814615"
 ---
 # <a name="remediate-common-issues-for-azure-stack-pki-certificates"></a>修复 Azure Stack PKI 证书的常见问题
 

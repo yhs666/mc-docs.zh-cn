@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 11/06/2018
-ms.date: 12/10/2018
+origin.date: 12/05/2018
+ms.date: 12/24/2018
 ms.author: v-jay
-ms.openlocfilehash: 2e8a931433a7086525b969fc27ff04623c26cf4b
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: f14824a2bfa12e00894f411574dee61db360203e
+ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028756"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53656558"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>故障排除：Azure 点到站点连接问题
 
@@ -157,7 +157,7 @@ VPN 网关类型必须是 **VPN**，VPN 类型必须是 **RouteBased**。
 
 尝试在 Azure 门户中保存 VPN 网关的更改时，看到以下错误消息：
 
-无法保存虚拟网络网关 &lt;网关名称&gt;**。证书 &lt;证书 ID&gt; 的数据无效**。
+**无法保存虚拟网络网关 &lt;*网关名称*&gt;。证书 &lt;*证书 ID*&gt; 的数据无效。**
 
 ### <a name="cause"></a>原因 
 
@@ -192,7 +192,7 @@ VPN 网关类型必须是 **VPN**，VPN 类型必须是 **RouteBased**。
 
 尝试在 Azure 门户中保存 VPN 网关的更改时，看到以下错误消息： 
 
-无法保存虚拟网络网关 &lt;网关名称&gt;**。资源名称 &lt;尝试上传的证书名称 无效&gt;**。
+**无法保存虚拟网络网关 &lt;*网关名称*&gt;。资源名称 &lt;*尝试上传的证书名称*&gt; 无效**。
 
 ### <a name="cause"></a>原因
 
@@ -204,7 +204,7 @@ VPN 网关类型必须是 **VPN**，VPN 类型必须是 **RouteBased**。
 
 尝试下载 VPN 客户端配置包时，看到以下错误消息：
 
-**无法下载文件。错误详细信息:错误 503。服务器正忙。**
+**无法下载文件。错误详细信息: 错误 503。服务器正忙。**
  
 ### <a name="solution"></a>解决方案
 
@@ -301,16 +301,16 @@ SMB 协议用于文件共享访问。 连接启动时，VPN 客户端添加了�
 
 ### <a name="solution"></a>解决方案
 
-若要解决此问题，请[重置 Azure VPN 网关](vpn-gateway-resetgw-classic.md)。
+若要解决此问题，请[重置 Azure VPN 网关](vpn-gateway-resetgw-classic.md)。 若要确保正在使用新路由，必须在虚拟网络对等互连成功配置之后，再次下载点到站点 VPN 客户端。
 
 ## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>错误：“吊销功能无法检查吊销，因为吊销服务器已脱机。(错误 0x80092013)”
 
 ### <a name="causes"></a>原因
-如果客户端无法访问 http://crl3.digicert.com/ssca-sha2-g1.crl 和 http://crl4.digicert.com/ssca-sha2-g1.crl，则会发生此错误消息。  进行吊销检查需要访问这两个站点。  此问题通常发生在配置了代理服务器的客户端上。 在某些环境中，如果请求不通过代理服务器，则在边缘防火墙处会被拒绝。
+如果客户端无法访问 http://crl3.digicert.com/ssca-sha2-g1.crl 和 http://crl4.digicert.com/ssca-sha2-g1.crl，则会出现此错误消息。  进行吊销检查需要访问这两个站点。  此问题通常发生在配置了代理服务器的客户端上。 在某些环境中，如果请求不通过代理服务器，则在边缘防火墙处会被拒绝。
 
 ### <a name="solution"></a>解决方案
 
-请检查代理服务器设置，请确保客户端可以访问 http://crl3.digicert.com/ssca-sha2-g1.crl 和 http://crl4.digicert.com/ssca-sha2-g1.crl。
+请检查代理服务器设置，确保客户端可以访问 http://crl3.digicert.com/ssca-sha2-g1.crl 和 http://crl4.digicert.com/ssca-sha2-g1.crl。
 
 ## <a name="error-405-when-you-download-root-certificate-from-vpn-gateway"></a>从 VPN 网关下载根证书时出现“错误 405”
 

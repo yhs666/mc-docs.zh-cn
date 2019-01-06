@@ -8,14 +8,14 @@ author: WenJason
 ms.author: v-jay
 ms.topic: conceptual
 origin.date: 08/08/2018
-ms.date: 10/01/2018
+ms.date: 12/24/2018
 manager: digimobile
-ms.openlocfilehash: a7fbe909447b1b30ceceef111a8ed411946cf747
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 7748329143508f4832abb834b6f253dac49dc5d1
+ms.sourcegitcommit: 895e9accaae8f8c2a29ed91d8e84911fda6111cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651584"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53615181"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>加入 Azure Automation State Configuration 管理的计算机
 
@@ -52,7 +52,7 @@ Azure Automation State Configuration 可让你使用 Azure 门户、Azure 资源
 
 在“注册”下，输入用例所需的[“PowerShell DSC 本地配置管理器”值](https://docs.microsoft.com/powershell/dsc/metaconfig4)，并选择性地输入要分配给 VM 的节点配置。
 
-![](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
+![加入](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
 
 ### <a name="azure-resource-manager-templates"></a>Azure Resource Manager 模板
 
@@ -62,14 +62,13 @@ Azure Automation State Configuration 可让你使用 Azure 门户、Azure 资源
 
 可通过 PowerShell 使用 [Register-AzureRmAutomationDscNode](https://docs.microsoft.com/powershell/module/azurerm.automation/register-azurermautomationdscnode) cmdlet 在 Azure 门户中登记虚拟机。
 
-
 ## <a name="physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure"></a>位于本地或 Azure 以外的云中的物理/虚拟 Windows 计算机
 
 还可以通过几个简单的步骤，将本地 Windows 计算机和非 Azure 云中的 Windows 计算机（例如 Amazon Web 服务）加入 Azure Automation State Configuration，前提是这些计算机可对 Internet 进行出站访问：
 
-1. 确保已在要加入到 Azure Automation State Configuration 的计算机上安装最新版本的 [WMF 5](http://aka.ms/wmf5latest)。
+1. 确保已在要加入到 Azure Automation State Configuration 的计算机上安装最新版本的 [WMF 5](https://aka.ms/wmf5latest)。
 1. 请根据以下[**生成 DSC 元配置**](#generating-dsc-metaconfigurations)部分中的说明生成包含所需 DSC 元配置的文件夹。
-1. 从远程将 PowerShell DSC 元配置应用到想要登记的计算机。 **运行此命令的计算机必须已安装最新版本的 [WMF 5](http://aka.ms/wmf5latest)** ：
+1. 从远程将 PowerShell DSC 元配置应用到想要登记的计算机。 **运行此命令的计算机必须已安装最新版本的 [WMF 5](https://aka.ms/wmf5latest)**：
 
    ```powershell
    Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2
@@ -107,7 +106,7 @@ Azure Automation State Configuration 可让你使用 Azure 门户、Azure 资源
     Set-DscLocalConfigurationManager -CimSession $Session -Path C:\Users\joe\Desktop\DscMetaConfigs
     ```
 
-运行此命令的计算机必须已安装最新版本的 [WMF 5](http://aka.ms/wmf5latest) 。
+运行此命令的计算机必须已安装最新版本的 [WMF 5](https://aka.ms/wmf5latest)。
 
 1. 如果无法从远程应用 PowerShell DSC 元配置，请针对要登记的每台 Linux 计算机，将步骤 5 所述的文件夹中对应于该计算机的元配置复制到 Linux 计算机。 然后，在每台要加入到 Azure Automation State Configuration 的 Linux 计算机上本地调用 `SetDscLocalConfigurationManager.py`：
 
@@ -124,7 +123,7 @@ Azure Automation State Configuration 可让你使用 Azure 门户、Azure 资源
 
 ### <a name="using-a-dsc-configuration"></a>使用 DSC 配置
 
-1. 在本地环境中，以计算机管理员身份打开 VSCode（或偏好的编辑器）。 计算机上必须已安装最新版本的 [WMF 5](http://aka.ms/wmf5latest) 。
+1. 在本地环境中，以计算机管理员身份打开 VSCode（或偏好的编辑器）。 计算机上必须已安装最新版本的 [WMF 5](https://aka.ms/wmf5latest) 。
 1. 在本地复制以下脚本。 此脚本包含用于创建元配置的 PowerShell DSC 配置，以及用于开始执行元配置创建操作的命令。
 
 > [!NOTE]

@@ -9,12 +9,12 @@ origin.date: 10/18/2018
 ms.date: 12/17/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1dc171254e54280fe913a104c04f5d448b36570b
-ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
+ms.openlocfilehash: 3ce9f72591d9504fdb4289e6d0bfdc5eed47fb4e
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53157425"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806194"
 ---
 # <a name="create-calculated-columns"></a>创建计算列
 
@@ -120,7 +120,7 @@ ProductCategoryName 计算列用于在 DimProduct 表中创建层次结构，该
 
 4.  将此列重命名为 **Margin**。  
 
-      ![aas-lesson5-newmargin](../tutorials/media/aas-lesson5-newmargin.png)
+    ![aas-lesson5-newmargin](../tutorials/media/aas-lesson5-newmargin.png)
 
     Margin 计算列用来分析每次销售的利润率。  
 

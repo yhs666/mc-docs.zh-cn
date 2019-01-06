@@ -7,15 +7,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
 origin.date: 09/11/2018
-ms.date: 10/29/2018
+ms.date: 12/31/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 51afbf990e7a9f419103b33610b416baf53facd8
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 887a5f24b8dd293026e54430cf99faf89b9263db
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674912"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736708"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>教程：使用 IoT 中心配置消息路由
 
@@ -46,19 +46,6 @@ ms.locfileid: "52674912"
 
 - 用于发送通知电子邮件的 Office 365 帐户。 
 
-完成此教程中的安装步骤需要 Azure CLI 或 Azure PowerShell。 
-
-
-若要使用 PowerShell，按照以下说明本地安装它。 
-
-### <a name="using-azure-cli-locally"></a>本地使用 Azure CLI
-
-如果更想在本地使用 CLI，则必须具有 Azure CLI 模块版本 2.0.30.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。 
-
-### <a name="using-powershell-locally"></a>本地使用 PowerShell
-
-本教程需要 Azure PowerShell 模块版本 5.7 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps)。
-
 ## <a name="set-up-resources"></a>设置资源
 
 要完成本教程，需要 IoT 中心、存储帐户和服务总线队列。 这些资源可以通过 Azure CLI 或 Azure PowerShell 创建。 为所有资源使用相同的资源组和位置。 然后在结束时，可通过删除资源组一步删除所有内容。
@@ -70,6 +57,10 @@ ms.locfileid: "52674912"
     <!-- When they add the Basic tier, change this to use Basic instead of Standard. -->
 
 2. 在 S1 层级中创建 IoT 中心。 将使用者组添加到 IoT 中心。 检索数据时，Azure 流分析使用使用者组。
+
+   > [!NOTE]
+   > 必须使用付费层中的 IoT 中心来完成本教程。 免费层只允许设置一个终结点，但本教程需要多个终结点。
+   > 
 
 3. 使用 Standard_LRS 副本创建标准 V1 存储帐户。
 
@@ -320,7 +311,7 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
    
    **数据源**：从下拉列表选择“设备遥测消息”。
 
-   **启用路由**：确保启用了此选项。
+   **启用路由**：确保启用此选项。
    
    **路由查询**：输入 `level="storage"` 作为查询字符串。 
 
@@ -342,7 +333,7 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
 4. 填写字段：
 
-   **终结点名称**：输入终结点名称。 本教程使用 CriticalQueue。
+   **终结点名称**：为终结点输入名称。 本教程使用 CriticalQueue。
    
    **服务总线命名空间**：单击此字段以显示下拉列表；选择你在准备步骤中设置的服务总线命名空间。 本教程使用 ContosoSBNamespace。
 
@@ -378,7 +369,7 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
 1. 在 [Azure 门户](https://portal.azure.cn)中，单击“+创建资源”。 在搜索框中输入“逻辑应用”，并单击 Enter。 从显示的搜索结果中，选择逻辑应用，然后单击“创建”，进入“创建逻辑应用”窗格。 填充字段。 
 
-   **名称**：该字段是逻辑应用的名称。 本教程使用 ContosoLogicApp。 
+   **名称**：此字段是逻辑应用的名称。 本教程使用 ContosoLogicApp。 
 
    **订阅**：选择 Azure 订阅。
 
@@ -386,7 +377,7 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
    **位置**：使用你的位置。 本教程使用“中国东部”。 
 
-   **日志分析**：应关闭此开关。 
+   **Log Analytics**：应关闭此开关。 
 
    ![显示“创建逻辑应用”屏幕的屏幕截图。](./media/tutorial-routing/create-logic-app.png)
 
@@ -440,7 +431,7 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
    **资源组**：使用 IoT 中心所用的同一资源组。 本教程使用 ContosoResources。 
 
-   **位置**：使用设置脚本中所用的相同位置。 本教程使用“中国东部”。 
+   **位置**：使用设置脚本中所用的同一位置。 本教程使用“中国东部”。 
 
    ![显示如何创建流分析作业的屏幕截图。](./media/tutorial-routing/stream-analytics-create-job.png)
 
@@ -454,7 +445,7 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
    **输入别名**：本教程使用 contosoinputs。
 
-   **订阅**：选择自己的订阅。
+   **订阅**：选择订阅。
 
    **IoT 中心**：选择 IoT 中心。 本教程使用 ContosoTestHub。
 

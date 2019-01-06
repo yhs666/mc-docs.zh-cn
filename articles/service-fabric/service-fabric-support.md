@@ -15,12 +15,12 @@ ms.workload: NA
 origin.date: 08/24/2018
 ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7cca5fbdfa47c714e70a1729a400e653acc568bc
-ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
+ms.openlocfilehash: 210715046d0afabb25be30f5b51442ca36951752
+ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52901054"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785177"
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric 支持选项
 
@@ -31,7 +31,7 @@ ms.locfileid: "52901054"
 
 若要报告部署在 Azure 上的 Service Fabric 群集的问题，请通过 [Azure 门户](https://support.azure.cn/zh-cn/support/support-azure/)开具支持票证。
 
-<!--Duplicated [Azure support portal](https://www.azure.cn/support/support-ticket-form).-->
+<!--Duplicated [Azure support portal](https://support.azure.cn/zh-cn/support/support-azure/).-->
 
 了解有关以下方面的详细信息：
 
@@ -42,7 +42,7 @@ ms.locfileid: "52901054"
 
 ## <a name="report-production-issues-or-request-paid-support-for-standalone-service-fabric-clusters"></a>报告生产问题，或者请求独立 Service Fabric 群集的付费支持
 
-若要报告部署在本地或其他云上的 Service Fabric 群集的问题，请通过 [Azure 支持门户](https://www.azure.cn/support/support-ticket-form)开具专业支持票证。
+若要报告部署在本地或其他云上的 Service Fabric 群集的问题，请通过 [Azure 支持门户](https://support.azure.cn/zh-cn/support/support-azure/)开具专业支持票证。
 
 <!--Not Available on - [Professional Support from Microsoft for on-premises](https://support.microsoft.com/gp/offerprophone?wa=wsignin1.0)-->
 <!--Not Available on - [Microsoft premier support](https://support.microsoft.com/premier)-->
@@ -75,7 +75,7 @@ ms.locfileid: "52901054"
 <!--references-->
 [msdn-forum]: https://www.azure.cn/support/contact/
 [stackoverflow]: http://stackoverflow.com/questions/tagged/azure-service-fabric
-[uservoice-forum]: https://www.azure.cn/support/support-azure/
+[uservoice-forum]: https://support.azure.cn/zh-cn/support/support-azure/
 <!-- Not Referenced on [acom-docs]: ../service-fabric/index.yml--> [sample-repos]: http://aka.ms/servicefabricsampless
 
 <!--Update_Description: update meta properties, wording update-->

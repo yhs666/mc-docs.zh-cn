@@ -15,18 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/14/2018
-ms.date: 09/24/2018
+ms.date: 12/24/2018
 ms.author: v-yiso
-ms.openlocfilehash: 302533c36c822740c6d130ebc55e897085198c1b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b4386465843cceaef962e80cc020a5fd0233f4ca
+ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646672"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53569233"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>使用 Bootstrap 自定义 HDInsight 群集
-
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
 有时，用户可能需要配置配置文件，包括：
 

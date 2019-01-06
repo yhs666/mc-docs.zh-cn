@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/20/2018
-ms.date: 10/22/2018
+origin.date: 11/29/2018
+ms.date: 12/24/2018
 ms.author: v-jay
-ms.openlocfilehash: 1c8c273c4e486230fb769ef5d072e67744fffc44
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5137e6695cecc92c42209ae35afe65cb22b59fd7
+ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655739"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53656548"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>使用 Azure 媒体服务执行实时流式处理以创建多比特率流
 
@@ -30,8 +30,8 @@ ms.locfileid: "52655739"
 ## <a name="overview"></a>概述
 在 Azure 媒体服务 (AMS) 中，频道表示用于处理实时传送视频流内容的管道。 **通道** 采用以下两种方式之一接收实时输入流：
 
-* 本地实时编码器采用 RTMP 或平滑流式处理（分片 MP4）格式将单比特率流发送至能够使用媒体服务执行实时编码的频道。 然后，频道将对传入的单比特率流执行实时编码，使之转换为多比特率（自适应）视频流。 收到请求时，媒体服务会将该流传送给客户。
-* 本地实时编码器将多比特率 RTMP 或平滑流式处理（分片 MP4）发送到无法通过 AMS 进行实时编码的频道。 引入流会通过 “通道”，但不会进行任何进一步处理。 这种方法称为 **直通**。 可以使用以下输出多比特率平滑流式处理的实时编码器：MediaExcel、Ateme、Imagine Communications、Envivio、Cisco、Elemental。 以下实时编码器输出 RTMP：Adobe Flash Media Live Encoder (FMLE)、Telestream Wirecast、Haivision、Teradek 和 Tricaster 编码器。  实时编码器也可将单比特率流发送到并未启用实时编码的通道，但不建议这样做。 收到请求时，媒体服务会将该流传送给客户。
+* 本地实时编码器采用以下格式之一将单比特率流发送至能够使用媒体服务执行实时编码的频道：RTMP 或平滑流式处理（分片 MP4）。 然后，频道将对传入的单比特率流执行实时编码，使之转换为多比特率（自适应）视频流。 收到请求时，媒体服务会将该流传送给客户。
+* 本地实时编码器将多比特率 RTMP 或平滑流式处理（分片 MP4）发送到无法通过 AMS 进行实时编码的频道。 引入流会通过 “通道”，但不会进行任何进一步处理。 这种方法称为 **直通**。 可以使用以下输出多比特率平滑流的实时编码器：MediaExcel、Ateme、Imagine Communications、Envivio、Cisco 和 Elemental。 以下实时编码器输出 RTMP：Adobe Flash Media Live Encoder (FMLE)、Telestream Wirecast、Haivision、Teradek 和 Tricaster 编码器。  实时编码器也可将单比特率流发送到并未启用实时编码的通道，但不建议这样做。 收到请求时，媒体服务会将该流传送给客户。
   
   > [!NOTE]
   > 实时传送视频流时，使用直通方法是最经济的。
@@ -93,7 +93,7 @@ ms.locfileid: "52655739"
 > 
 > 
 
-1. 将视频摄像机连接到计算机。 启动并配置一个可通过以下协议之一输出**单**比特率流的本地实时编码器：RTMP 或平滑流式处理。 
+1. 将视频摄像机连接到计算机。 启动并配置一个可通过以下协议之一输出单比特率流的本地实时编码器：RTMP 或平滑流式处理。 
    
     此步骤也可以在创建频道后执行。
 2. 创建并启动通道。 
@@ -213,19 +213,17 @@ ms.locfileid: "52655739"
 ### <a id="preset"></a>系统预设
 指定此频道内的实时编码器要使用的预设。 目前，唯一允许的值是 Default720p（默认值）。
 
-
-**Default720p** 会将视频编码为以下 7 层。
+Default720p 会将视频编码为以下 6 层。
 
 #### <a name="output-video-stream"></a>输出视频流
 | 比特率 | 宽度 | 高度 | MaxFPS | 配置文件 | 输出流名称 |
 | --- | --- | --- | --- | --- | --- |
 | 3500 |1280 |720 |30 |高 |Video_1280x720_3500kbps |
-| 2200 |960 |540 |30 |主要 |Video_960x540_2200kbps |
-| 1350 |704 |396 |30 |主要 |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |主要 |Video_512x288_850kbps |
-| 550 |384 |216 |30 |主要 |Video_384x216_550kbps |
-| 350 |340 |192 |30 |基线 |Video_340x192_350kbps |
-| 200 |340 |192 |30 |基线 |Video_340x192_200kbps |
+| 2200 |960 |540 |30 |高 |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |高 |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |高 |Video_512x288_850kbps |
+| 550 |384 |216 |30 |高 |Video_384x216_550kbps |
+| 200 |340 |192 |30 |高 |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>输出音频流
 
@@ -268,8 +266,8 @@ ms.locfileid: "52655739"
 可选。 指定媒体服务资源（包含静态图像）的资源 ID。 默认值为 null。 
 
 
->[!NOTE] 
->在创建频道之前，具有以下约束的盖板图像应当作为专用资产上传（该资产中不应有其他文件）。 只有在广告时间，或已明确收到信号要求插入盖板时，实时编码器才会插入盖板，此时才会使用此图像。 实时编码器在某些错误条件下也会转到盖板模式 - 例如输入信号丢失时。 实时编码器进入这种“输入信号丢失”状态时，目前无法使用自定义图像。
+> [!NOTE] 
+> 在创建频道之前，具有以下约束的盖板图像应当作为专用资产上传（该资产中不应有其他文件）。 只有在广告时间，或已明确收到信号要求插入盖板时，实时编码器才会插入盖板，此时才会使用此图像。 实时编码器进入这种“输入信号丢失”状态时，目前无法使用自定义图像。
 
 
 * 分辨率最大为 1920x1080。

@@ -28,8 +28,6 @@ items:
       href: service-bus-python-how-to-use-queues.md
     - name: 发送和接收消息 - Ruby
       href: service-bus-ruby-how-to-use-queues.md
-    - name: 发送和接收消息 - REST
-      href: https://docs.microsoft.com/en-us/rest/api/servicebus/queues
   - name: 服务总线主题和订阅
     items:
     - name: 发布和订阅消息 - .NET
@@ -74,36 +72,6 @@ items:
   items:
   - name: 创建命名空间
     href: service-bus-create-namespace-portal.md
-  - name: 使用队列
-    items:
-    - name: .NET
-      href: service-bus-dotnet-get-started-with-queues.md
-    - name: Java
-      href: service-bus-java-how-to-use-queues.md
-    - name: Node.js
-      href: service-bus-nodejs-how-to-use-queues.md
-    - name: PHP
-      href: service-bus-php-how-to-use-queues.md
-    - name: Python
-      href: service-bus-python-how-to-use-queues.md
-    - name: Ruby
-      href: service-bus-ruby-how-to-use-queues.md
-    - name: REST
-      href: https://docs.microsoft.com/en-us/rest/api/servicebus/queues
-  - name: 使用主题和订阅
-    items:
-    - name: .NET
-      href: service-bus-dotnet-how-to-use-topics-subscriptions.md
-    - name: Java
-      href: service-bus-java-how-to-use-topics-subscriptions.md
-    - name: Node.js
-      href: service-bus-nodejs-how-to-use-topics-subscriptions.md
-    - name: PHP
-      href: service-bus-php-how-to-use-topics-subscriptions.md
-    - name: Python
-      href: service-bus-python-how-to-use-topics-subscriptions.md
-    - name: Ruby
-      href: service-bus-ruby-how-to-use-topics-subscriptions.md
   - name: 开发
     items:
     - name: 消息处理
@@ -127,7 +95,7 @@ items:
         href: service-bus-sas.md
     - name: 主题筛选器和操作
       href: topic-filters.md
-    - name: 分区的队列和主题
+    - name: 分区队列和主题
       href: service-bus-partitioning.md
     - name: 消息会话
       href: message-sessions.md
@@ -137,8 +105,6 @@ items:
         href: service-bus-amqp-overview.md
       - name: .NET
         href: service-bus-amqp-dotnet.md
-      - name: Java
-        href: service-bus-java-how-to-use-queues.md
       - name: Java 消息服务和 AMQP
         href: service-bus-java-how-to-use-jms-api-amqp.md
       - name: AMQP 协议指南
@@ -147,8 +113,10 @@ items:
         href: service-bus-amqp-request-response.md
     - name: 高级功能
       items:
-      - name: IP 连接筛选器
+      - name: 使用防火墙
         href: service-bus-ip-filtering.md
+      - name: 虚拟网络服务终结点
+        href: service-bus-service-endpoints.md
       - name: 死信队列
         href: service-bus-dead-letter-queues.md
       - name: 预取消息
@@ -196,6 +164,10 @@ items:
         href: service-bus-resource-manager-namespace-auth-rule.md
       - name: 创建包含主题、订阅和规则的命名空间
         href: service-bus-resource-manager-namespace-topic-with-rule.md
+  - name: 故障排除
+    items:
+    - name: 异常
+      href: service-bus-messaging-exceptions.md
 - name: 参考
   items:
   - name: .NET
@@ -205,13 +177,13 @@ items:
     - name: Microsoft.Azure.ServiceBus (.NET Standard)
       href: /dotnet/api/microsoft.azure.servicebus
   - name: Java
-    href: /java/api/overview/azure/servicebus
+    href: https://docs.azure.cn/java/api/overview/azure/servicebus
+  - name: Node.js
+    href: /javascript/api/overview/azure/service-bus
   - name: Azure PowerShell
-    href: https://docs.microsoft.com/en-us/powershell/module/azurerm.servicebus
+    href: https://docs.microsoft.com/powershell/module/azurerm.servicebus
   - name: REST
-    href: https://docs.microsoft.com/en-us/rest/api/servicebus
-  - name: 例外
-    href: service-bus-messaging-exceptions.md
+    href: https://docs.microsoft.com/rest/api/servicebus
   - name: 配额
     href: service-bus-quotas.md
   - name: SQLFilter 语法
@@ -220,10 +192,12 @@ items:
     href: service-bus-messaging-sql-rule-action.md
 - name: 资源
   items:
-  - name: 常见问题解答
+  - name: 常见问题
     href: service-bus-faq.md
+  - name: 利用 Azure Learn 掌握技能
+    href: /learn/browse/?view=azure-dotnet?products=azure-service-bus
   - name: Azure 路线图
-    href: https://azure.microsoft.com/roadmap/?category=enterprise-integration
+    href: https://www.azure.cn/roadmap/?category=enterprise-integration
   - name: 博客
     href: https://blogs.msdn.microsoft.com/servicebus/
   - name: MSDN 论坛
@@ -234,9 +208,19 @@ items:
     href: https://www.azure.cn/pricing/calculator/
   - name: 定价详细信息
     href: service-bus-pricing-billing.md
-ms.openlocfilehash: d9b47f33c344a3b987116b40e9f54a25f280668d
-ms.sourcegitcommit: d3b05039466ddf239c9134f002a034d4e75b03db
+  - name: ServiceBus360
+    href: https://www.servicebus360.com/
+  - name: 服务总线资源管理器
+    href: https://github.com/paolosalvatori/ServiceBusExplorer
+  - name: 服务更新
+    href: https://www.azure.cn/updates/?product=service-bus
+  - name: 堆栈溢出
+    href: http://stackoverflow.com/questions/tagged/azureservicebus
+  - name: 视频
+    href: https://www.azure.cn/documentation/videos/index/?services=service-bus
+ms.openlocfilehash: b8b2a6c73292de24509f11f22182b1a209ed8acf
+ms.sourcegitcommit: 649f5093a9a9a89f4117ae3845172997922aec31
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53234011"
+ms.lasthandoff: 12/24/2018
+ms.locfileid: "53784569"

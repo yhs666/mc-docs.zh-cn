@@ -9,14 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 06/20/2018
-ms.author: apimpm
-ms.openlocfilehash: 1d996469c01640a70b68d70e8c24c617e0defd64
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 06/20/2018
+ms.date: 12/31/2018
+ms.author: v-yiso
+ms.openlocfilehash: 7d0e6385510ef5e761fc1165ec40c340e37bb610
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646718"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736692"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>自动缩放 Azure API 管理实例  
 
@@ -32,6 +33,8 @@ Azure API 管理服务实例可以根据一组规则自动缩放。 此行为可
 + 有一个 Azure API 管理实例。 有关详细信息，请参阅[创建 Azure API 管理实例](get-started-create-service-instance.md)。
 + 了解 [Azure API 管理实例容量](api-management-capacity.md)的概念。
 + 了解 [Azure API 管理实例的手动缩放过程](upgrade-and-scale.md)，包括成本影响。
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="azure-api-management-autoscale-limitations"></a>Azure API 管理自动缩放的限制
 

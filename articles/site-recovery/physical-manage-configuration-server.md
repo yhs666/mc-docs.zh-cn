@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: site-recovery
 ms.topic: article
 origin.date: 10/29/2018
-ms.date: 12/10/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0599ee1f0bb2bf2c4780975b4f4d64cc84004d5d
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 50a08a4e66708d868d5f0395ba66b245d1481320
+ms.sourcegitcommit: b29475e13c1f54d420cdca71f90ca6a5c5116cbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028556"
+ms.lasthandoff: 12/24/2018
+ms.locfileid: "53784553"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>为物理服务器灾难恢复管理配置服务器
 

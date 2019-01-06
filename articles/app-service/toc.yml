@@ -19,8 +19,6 @@ items:
     href: app-service-web-get-started-php.md
   - name: 创建 Java 应用
     href: app-service-web-get-started-java.md
-  - name: 创建 Python 应用
-    href: app-service-web-get-started-python.md
   - name: 创建静态 HTML 站点
     href: app-service-web-get-started-html.md
   expanded: true
@@ -63,7 +61,7 @@ items:
   - name: 应用服务计划
     href: azure-web-sites-web-hosting-plans-in-depth-overview.md
   - name: OS 功能
-    href: web-sites-available-operating-system-functionality.md
+    href: operating-system-functionality.md
   - name: 安全性
     href: app-service-security.md
     items:
@@ -87,12 +85,8 @@ items:
     items:
     - name: 使用应用设置
       href: web-sites-configure.md
-    - name: 上传现有 Java 应用
-      href: web-sites-java-add-app.md
     - name: 配置 PHP
       href: web-sites-php-configure.md
-    - name: Python
-      href: web-sites-python-configure.md
     - name: 连接到本地资源
       href: web-sites-integrate-with-vnet.md
   - name: “部署到 Azure”
@@ -100,19 +94,19 @@ items:
     - name: 部署应用
       items:
       - name: 部署 ZIP 或 WAR
-        href: app-service-deploy-zip.md
+        href: deploy-zip.md
       - name: 通过 FTP 部署
-        href: app-service-deploy-ftp.md
+        href: deploy-ftp.md
       - name: 通过云同步进行部署
-        href: app-service-deploy-content-sync.md
+        href: deploy-content-sync.md
       - name: 持续部署
-        href: app-service-continuous-deployment.md
+        href: deploy-continuous-deployment.md
       - name: 从本地 Git 进行部署
-        href: app-service-deploy-local-git.md
+        href: deploy-local-git.md
       - name: 使用模板进行部署
-        href: app-service-deploy-complex-application-predictably.md
+        href: deploy-complex-application-predictably.md
     - name: 设置部署凭据
-      href: app-service-deployment-credentials.md
+      href: deploy-configure-credentials.md
     - name: 创建过渡环境
       href: web-sites-staged-publishing.md
     - name: 资源管理器模板指南
@@ -128,10 +122,10 @@ items:
     - name: 对用户进行身份验证
       items:
       - name: 使用 Azure AD 进行身份验证
-        href: app-service-mobile-how-to-configure-active-directory-authentication.md
+        href: configure-authentication-provider-aad.md
       - name: 使用 Microsoft 帐户进行身份验证
-        href: app-service-mobile-how-to-configure-microsoft-authentication.md
-    - name: 自定义身份验证
+        href: configure-authentication-provider-microsoft.md
+    - name: 高级身份验证
       href: app-service-authentication-how-to.md
     - name: 限制 IP
       href: app-service-ip-restrictions.md
@@ -168,7 +162,7 @@ items:
     - name: 克隆应用
       href: app-service-web-app-cloning.md
     - name: 移动资源
-      href: ../azure-resource-manager/resource-group-move-resources.md?toc=%2fapp-service%2ftoc.json#app-service-limitations
+      href: ../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service%2ftoc.json#app-service-limitations
   - name: 运行后台任务
     items:
     - name: 创建 WebJobs
@@ -195,30 +189,6 @@ items:
     items:
     - name: Azure 更新
       href: https://azure.microsoft.com/updates/?product=app-service
-    - name: 用于 .NET 3.0 的 Azure SDK
-      href: azure-sdk-dotnet-release-notes-3-0.md
-    - name: 用于 .NET 2.9 的 Azure SDK
-      href: azure-sdk-dotnet-release-notes-2-9.md
-    - name: Azure SDK for .NET 2.8
-      href: azure-sdk-dotnet-release-notes-2-8.md
-    - name: Azure SDK for .NET 2.7
-      href: azure-sdk-dotnet-release-notes-2-7.md
-    - name: 用于 .NET 2.6 的 Azure SDK
-      href: azure-sdk-dotnet-release-notes-2-6.md
-    - name: 用于 .NET 2.5.1 的 Azure SDK
-      href: app-service-release-notes.md
-    - name: 用于 .NET 2.5 的 Azure SDK
-      href: https://msdn.microsoft.com/library/azure/dn873976.aspx
-    - name: 用于 .NET 2.4 的 Azure SDK
-      href: https://msdn.microsoft.com/library/azure/dn794167.aspx
-    - name: 用于 .NET 2.3 的 Azure SDK
-      href: https://msdn.microsoft.com/library/azure/dn655054.aspx
-    - name: 用于 .NET 2.2 的 Azure SDK
-      href: https://msdn.microsoft.com/library/azure/dn459835.aspx
-    - name: 用于 .NET 2.1 的 Azure SDK
-      href: https://msdn.microsoft.com/library/azure/dn407359.aspx
-    - name: 用于 .NET 2.0 的 Azure SDK
-      href: https://msdn.microsoft.com/library/azure/dn169556.aspx
   - name: 最佳实践
     href: app-service-best-practices.md
   - name: 故障排除
@@ -228,21 +198,21 @@ items:
     - name: 对 Node.js 应用进行故障排除
       href: app-service-web-nodejs-best-practices-and-troubleshoot-guide.md
     - name: 排查 HTTP 502 和 503 错误
-      href: app-service-web-troubleshoot-http-502-http-503.md
+      href: troubleshoot-http-502-http-503.md
     - name: 排查性能问题
-      href: app-service-web-troubleshoot-performance-degradation.md
+      href: troubleshoot-performance-degradation.md
     - name: 排查域和证书问题
-      href: app-service-web-troubleshoot-domain-ssl-certificates.md
+      href: troubleshoot-domain-ssl-certificates.md
     - name: 常见问题
       items:
       - name: 可用性、性能和应用程序常见问题解答
-        href: app-service-web-availability-performance-application-issues-faq.md
+        href: faq-availability-performance-application-issues.md
       - name: 部署常见问题解答
-        href: app-service-web-deployment-faq.md
+        href: faq-deployment.md
       - name: 开放源代码技术常见问题解答
-        href: app-service-web-open-source-technologies-faq.md
+        href: faq-open-source-technologies.md
       - name: 配置和管理常见问题解答
-        href: app-service-web-configuration-and-management-faq.md
+        href: faq-configuration-and-management.md
   - name: IP 地址更改
     items:
     - name: 入站 IP 地址
@@ -251,9 +221,9 @@ items:
       href: ip-address-change-outbound.md
     - name: SSL 地址
       href: ip-address-change-ssl.md
-ms.openlocfilehash: 33fb1c2d20a925d468d51c1808a017ce7c85d97d
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 7e53787383b4326d50cf8148fbbd82fb5f384f3c
+ms.sourcegitcommit: 80c59ae1174d71509b4aa64a28a98670307a5b38
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675351"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735174"

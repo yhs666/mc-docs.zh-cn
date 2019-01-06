@@ -12,21 +12,24 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 10/05/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: 35fa48024a3b0c248ee210167d885817ca7a1a1d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/31/2018
+ms.openlocfilehash: 06469808467580eebf98fefc4fa9c60d7eb10a97
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644460"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806257"
 ---
-# <a name="copy-an-azure-sql-database"></a>复制 Azure SQL 数据库
+# <a name="copy-an-transactionally-consistent-copy-of-an-azure-sql-database"></a>复制 Azure SQL 数据库的事务一致性副本
 
 通过 Azure SQL 数据库，可以以多种方式在相同或不同的服务器上创建现有 Azure SQL 数据库的事务一致性副本。 可以使用 Azure 门户、PowerShell 或 T-SQL 复制 SQL 数据库。 
 
 ## <a name="overview"></a>概述
 
 数据库副本是源数据库截至复制请求发出时的快照。 可以选择相同或不同的服务器、其服务层和计算大小，或相同服务层中的不同计算大小（版本）。 在完成该复制后，副本将成为能够完全行使功能的独立数据库。 此时，可以将其升级或降级为任何版本。 登录名、用户和权限可单独进行管理。  
+
+> [!NOTE]
+> 在创建数据库副本时，将用到[自动数据库备份](sql-database-automated-backups.md)。
 
 ## <a name="logins-in-the-database-copy"></a>数据库副本中的登录名
 

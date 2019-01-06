@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 09/24/2018
-ms.date: 11/07/2018
+ms.date: 01/02/2019
 ms.author: v-junlch
 ms.reviewer: justhu
 ms.custom: aaddev
-ms.openlocfilehash: cef103cf84c7e5b18bddc7d9b29def8c4fda2e04
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d0cf93da5f48853ebc30f226f66d29e781faac26
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654967"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996161"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Azure Active Directory 中的租户
 
@@ -30,7 +30,7 @@ Azure Active Directory (Azure AD) 将用户和应用之类的对象组织到称�
 
 ## <a name="who-can-sign-in-to-your-app"></a>谁可以登录到你的应用？
 
-在开发应用时，在 [Azure 门户](http://portal.azure.cn)中注册应用期间，开发人员可以选择将其应用配置为单租户的还是多租户的。
+在开发应用时，在 [Azure 门户](https://portal.azure.cn)中注册应用期间，开发人员可以选择将其应用配置为单租户的还是多租户的。
 - 单租户应用仅可在它们在其中注册的租户（也称为宿主租户）中使用。
 - 多租户应用可供其宿主租户以及其他租户中的用户使用。
 
@@ -54,3 +54,4 @@ Azure Active Directory (Azure AD) 将用户和应用之类的对象组织到称�
 
 - [如何将应用转换为多租户应用](howto-convert-app-to-be-multi-tenant.md)
 
+<!-- Update_Description: link update -->

@@ -7,16 +7,16 @@ manager: digimobile
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-origin.date: 11/15/2018
-ms.date: 12/17/2018
+origin.date: 11/20/2018
+ms.date: 12/31/2018
 ms.author: v-jay
 ms.reviewer: adshar
-ms.openlocfilehash: 622c159175ab168bb628931184c20e353c5d59fa
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.openlocfilehash: c7809c6c2fcbae7b9f43a440348944d4d7479387
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396202"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814613"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack 诊断工具
 
@@ -77,9 +77,6 @@ if($s)
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>在 Azure Stack 开发工具包 (ASDK) 系统上运行 Get-AzureStackLog
 使用以下步骤在 ASDK 主机上运行 Get-AzureStackLog。
 
-- 参数 **OutputSharePath** 和 **OutputShareCredential** 用于将日志存储在用户指定的位置。
-- 可以使用 **FromDate** 和 **ToDate** 参数来收集特定时间段的日志。 如果未指定这些参数，则默认收集过去四小时的日志。
-
 1. 以 **AzureStack\CloudAdmin** 身份登录到 ASDK 主机。
 2. 以管理员身份打开一个新的 PowerShell 窗口。
 3. 运行 **Get-AzureStackLog** PowerShell cmdlet。
@@ -112,7 +109,10 @@ if($s)
 
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>ASDK 系统和集成系统的参数考虑事项
 
-- 如果未指定 **FromDate** 和 **ToDate** 参数，则默认收集过去四小时的日志。
+- 参数 **OutputSharePath** 和 **OutputShareCredential** 用于将日志存储在用户指定的位置。
+
+- 可以使用 **FromDate** 和 **ToDate** 参数来收集特定时间段的日志。 如果未指定这些参数，则默认收集过去四小时的日志。
+
 - 使用 **FilterByNode** 参数按计算机名筛选日志。 例如：
 
     ```powershell

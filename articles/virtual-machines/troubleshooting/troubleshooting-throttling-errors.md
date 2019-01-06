@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 origin.date: 09/18/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: aafa2f777eb8d72ab672daa7e881f4237d828207
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 1e394ca295b9d12f2f5612008a3e54bd8da395bd
+ms.sourcegitcommit: f6a287a11480cbee99a2facda2590f3a744f7e45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675101"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53786724"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>排查 API 限制错误 
 
@@ -86,8 +86,6 @@ Content-Type: application/json; charset=utf-8
 - 如果客户端代码需要特定 Azure 位置的 VM、磁盘和快照，请使用基于位置的查询形式，不需先查询所有订阅 VM，然后在客户端按位置进行筛选：`GET /subscriptions/<subId>/providers/Microsoft.Compute/locations/<location>/virtualMachines?api-version=2017-03-30` 查询针对计算资源提供程序区域终结点。 
 -   创建或更新 API 资源（尤其是 VM 和虚拟机规模集）时，跟踪返回的异步操作直至完成比针对资源 URL 本身进行轮询（基于 `provisioningState`）要有效得多。
 
-## <a name="next-steps"></a>后续步骤
-
-若要详细了解 Azure 中的其他服务的重试指南，请参阅[特定服务的重试指南](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)
-
+<!--Not Available on ## Next steps-->
+<!--Not Available on [Retry guidance for specific services](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)-->
 <!-- Update_Description: wording update, update link -->

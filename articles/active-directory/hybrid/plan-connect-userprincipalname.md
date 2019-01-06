@@ -5,17 +5,17 @@ author: billmath
 ms.component: hybrid
 ms.author: v-junlch
 origin.date: 06/26/2018
-ms.date: 12/05/2018
+ms.date: 01/03/2019
 ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
 manager: mtillman
-ms.openlocfilehash: 11bc4d1757860362daa11c6f782c7cedf6394aa0
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 39cf23b6162f34e21ff47e6af5d932a69e31e9f8
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028310"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996220"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Azure AD UserPrincipalName 填充
 
@@ -35,7 +35,7 @@ UserPrincipalName 属性值是用户帐户的 Azure AD 用户名。
 |备用登录 ID|除 UserPrincipalName 以外的本地属性，例如 mail 属性，用于登录。|
 
 ## <a name="what-is-userprincipalname"></a>什么是 UserPrincipalName？
-UserPrincipalName 是基于 Internet 标准 [RFC 822](http://www.ietf.org/rfc/rfc0822.txt) 的属性，表示某个用户的 Internet 样式登录名。 
+UserPrincipalName 是基于 Internet 标准 [RFC 822](https://www.ietf.org/rfc/rfc0822.txt) 的属性，表示某个用户的 Internet 样式登录名。 
 
 ### <a name="upn-format"></a>UPN 格式
 UPN 由 UPN 前缀（用户帐户名）和 UPN 后缀（DNS 域名）组成。 前缀与后缀以“\@”符号相联接。 例如“someone\@example.com”。 UPN 必须在目录林中的所有安全主体对象之间保持唯一。 
@@ -181,4 +181,4 @@ Azure AD 租户用户对象：
 - [将本地目录与 Azure Active Directory 进行集成](whatis-hybrid-identity.md)
 - [Azure AD Connect 的自定义安装](how-to-connect-install-custom.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

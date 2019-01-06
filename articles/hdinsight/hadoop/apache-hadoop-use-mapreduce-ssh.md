@@ -1,6 +1,6 @@
 ---
-title: 将 MapReduce 和 SSH 连接与 HDInsight 中的 Hadoop 配合使用 - Azure | Azure
-description: 了解如何在 HDInsight 上的 Hadoop 中使用 SSH 运行 MapReduce 作业。
+title: 将 MapReduce 和 SSH 连接与 HDInsight 中的 Apache Hadoop 配合使用 - Azure
+description: 了解如何使用 SSH 通过 HDInsight 上的 Apache Hadoop 运行 MapReduce 作业。
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -15,23 +15,23 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 04/10/2018
-ms.date: 05/21/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: c8d616bfa564c97eec98e5618d9c14942246e667
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8887c8ebe21f7e5373bccd4eb95060e2bac9dcff
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648083"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029179"
 ---
-# <a name="use-mapreduce-with-hadoop-on-hdinsight-with-ssh"></a>通过 SSH 将 MapReduce 与 HDInsight 上的 Hadoop 配合使用
+# <a name="use-mapreduce-with-apache-hadoop-on-hdinsight-with-ssh"></a>通过 SSH 将 MapReduce 与 HDInsight 上的 Apache Hadoop 配合使用
 
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
 了解如何从安全外壳 (SSH) 将 MapReduce 作业提交到 HDInsight。
 
 > [!NOTE]
-> 如果已熟悉如何使用基于 Linux 的 Hadoop 服务器，但刚接触 HDInsight，请参阅 [基于 Linux 的 HDInsight 提示](../hdinsight-hadoop-linux-information.md)。
+> 如果已熟悉如何使用基于 Linux 的 Apache Hadoop 服务器，但刚接触 HDInsight，请参阅[基于 Linux 的 HDInsight 提示](../hdinsight-hadoop-linux-information.md)。
 
 ## <a id="prereq"></a>先决条件
 
@@ -71,7 +71,7 @@ ssh -i ~/mykey.key sshuser@myhdinsight-ssh.azurehdinsight.cn
     此命令启动 `hadoop-mapreduce-examples.jar` 文件中包含的 `wordcount` 类。 它使用 `/example/data/gutenberg/davinci.txt` 文档作为输入，并将输出存储在 `/example/data/WordCountOutput` 中。
 
     > [!NOTE]
-    > 有关此 MapReduce 作业和示例数据的详细信息，请参阅[在 HDInsight 上的 Hadoop 中使用 MapReduce](hdinsight-use-mapreduce.md)。
+    > 有关此 MapReduce 作业和示例数据的详细信息，请参阅[在 Apache Hadoop on HDInsight 中使用 MapReduce](hdinsight-use-mapreduce.md)。
 
 2. 作业在处理时提供详细信息，并在完成时返回类似于以下文本的信息：
 
@@ -119,6 +119,5 @@ ssh -i ~/mykey.key sshuser@myhdinsight-ssh.azurehdinsight.cn
 
 有关 HDInsight 上 Hadoop 的其他使用方法的信息：
 
-* [将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)
-* [将 Pig 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-pig.md)
-<!--Update_Description: update code type and change 'wasbs' into 'wasb'-->
+* [将 Apache Hive 与 Apache Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
+* [将 Apache Pig 与 Apache Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)

@@ -15,12 +15,12 @@ ms.workload: NA
 origin.date: 02/10/2017
 ms.date: 03/26/2018
 ms.author: makohli
-ms.openlocfilehash: 9e15896101d870430cf447143336a7879ae7242d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 502885a0d983d282bdd5b5a44b90e4568562cb5d
+ms.sourcegitcommit: 9fd5944afd6274e096a6e790583a131642f1532d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651698"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53737008"
 ---
 # <a name="get-started-with-azure-advisor"></a>Azure 顾问入门
 
@@ -37,10 +37,7 @@ ms.locfileid: "52651698"
 
 4. 顾问仪表板将显示针对所有所选订阅的建议的摘要。  可通过订阅筛选器下拉列表，选择要显示建议的订阅。
 
-5. 若要获取特定类别的建议，请单击其中一个选项卡：“高可用性”、“性能”或“成本”。
- 
-> [!NOTE]
-> 要为订阅使用 Azure 顾问，订阅所有者必须启动顾问仪表板。  此操作向顾问注册订阅。  从此时起，订阅的任何所有者、参与者或读者均可访问该订阅的顾问建议。  
+5. 若要获取特定类别的建议，请单击以下选项卡之一：“高可用性”、“安全”、“性能”或“成本”。 
 
   ![Azure 顾问仪表板](./media/advisor-overview/advisor-dashboard.png)
 

@@ -9,12 +9,12 @@ ms.topic: overview
 origin.date: 08/01/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: d62b8a5269445dabc54f5797000480f4f5d27e63
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: b4dd346a251ce5397ff67766d8b232ede0cf76de
+ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676793"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785154"
 ---
 # <a name="quotas-and-region-availability-for-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 的配额和区域可用性
 
@@ -51,7 +51,7 @@ Azure Kubernetes 服务 (AKS) 在以下区域提供预览版：
 某些默认限制和配额可以提高。 若要请求增加一个或多个资源（如果支持此功能），请提交 [Azure 支持请求][azure-support]（选择“配额”作为“问题类型”）。
 
 <!-- LINKS - External -->
-[azure-support]: https://www.azure.cn/support/support-azure
+[azure-support]: https://support.azure.cn/zh-cn/support/support-azure/
 
 <!--The parent file of includes file of container-service-limits.md-->
 <!--ms.date:11/26/2018-->

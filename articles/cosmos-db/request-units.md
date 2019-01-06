@@ -1,18 +1,18 @@
 ---
-title: Azure Cosmos DB 中的请求单位和吞吐量 | Azure
+title: Azure Cosmos DB 中的请求单位和吞吐量
 description: 了解如何指定和评估 Azure Cosmos DB 中的请求单位要求。
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 10/30/2018
-ms.date: 12/03/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6d43efb95afd56abe5aec426fb0e13a6ba741cec
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 4bd30e8b410da5df5e1c115e2d7c388d2296d2c3
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675482"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026730"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB 中的请求单位数
 
@@ -59,4 +59,4 @@ Azure Cosmos DB 支持各种 API（SQL 和 MongoDB）。 每个 API 具有自身
 * 了解[如何对 Azure Cosmos 容器预配吞吐量](how-to-provision-container-throughput.md)
 * 了解[如何对 Azure Cosmos 数据库预配吞吐量](how-to-provision-database-throughput.md)
 
-<!--Update_Description: update link, wording update -->
+<!--Update_Description: update meta properties, wording update -->

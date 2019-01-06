@@ -7,14 +7,14 @@ services: iot-hub
 ms.topic: conceptual
 origin.date: 07/17/2018
 ms.custom: H1Hack27Feb2017
-ms.date: 10/29/2018
+ms.date: 12/31/2018
 ms.author: v-yiso
-ms.openlocfilehash: 0a2ee0dba2ca55dd73fe01a3ae34d20a589543b9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: dfff1cbee3fbf32b8c7bb7e55d90bdd8eb25fc48
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651456"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736658"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>了解和调用 IoT 中心的直接方法
 借助 IoT 中心，用户可以从云中对设备调用直接方法。 直接方法表示与设备进行的请求-答复式交互，类似于会立即成功或失败（在用户指定的超时时间后）的 HTTP 调用。 此方法用于即时操作过程不同的情况，即时操作的不同取决于设备能否响应。
@@ -184,6 +184,7 @@ IoT 中心开发人员指南中的其他参考主题包括：
 若要尝试本文中介绍的一些概念，可以根据兴趣学习以下 IoT 中心教程：
 
 * [使用直接方法][lnk-methods-tutorial]
+* [使用用于 VS Code 的 Azure IoT 中心工具包进行设备管理](iot-hub-device-management-iot-toolkit.md)
 
 <!-- links and images -->
 

@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 02/09/2017
-ms.date: 10/22/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: a8b47f59beb1e6760d35bd43968a0c49b1f1d02b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8fff9281c165a8ab5d3b7e1dde56e2994a8182dc
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660312"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736195"
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-classic-cli"></a>使用 Azure 经典 CLI 创建完整的 Linux 环境
 在本文中，我们构建一个简单网络，其中包含一个负载均衡器，以及一对可用于开发和简单计算的 VM。 将以逐条命令的方式完成整个过程，直到创建两个可以从 Internet 上的任何位置连接的有效且安全的 Linux VM。 然后，便可以继续构建更复杂的网络和环境。
@@ -1289,4 +1289,4 @@ azure group deployment create --resource-group myNewResourceGroup \
 ## <a name="next-steps"></a>后续步骤
 现在，已准备好开始使用多个网络组件和 VM。 可以使用本文介绍的核心组件，通过此示例环境构建应用程序。
 
-<!-- Update_Description: update meta properties, update link -->
+<!-- Update_Description: update meta properties -->

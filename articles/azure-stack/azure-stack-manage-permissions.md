@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/10/2018
-ms.date: 12/17/2018
+ms.date: 12/31/2018
 ms.author: v-jay
 ms.reviewer: thoroet
-ms.openlocfilehash: 24d99fe2a9dcba9063ad05fda930ecd1cd48e4f8
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.openlocfilehash: ed4e73fe05f45e195a7e3e6d73da31c0d1b3f6be
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396118"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814606"
 ---
 # <a name="manage-role-based-access-control"></a>管理基于角色的访问控制
 

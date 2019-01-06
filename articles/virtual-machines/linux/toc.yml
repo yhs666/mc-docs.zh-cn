@@ -111,6 +111,8 @@ items:
       href: backup-and-disaster-recovery-for-azure-iaas-disks.md
   - name: 网络
     href: network-overview.md
+  - name: 自动缩放应用程序
+    href: autoscale.md
   - name: 基础结构自动化
     href: infrastructure-automation.md
   - name: 安全和策略
@@ -348,6 +350,8 @@ items:
       href: ../../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
     - name: 使用多个 NIC
       href: multiple-nics.md
+    - name: 使用加速网络
+      href: ../../virtual-network/create-vm-accelerated-networking-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
     - name: 分配公用 DNS 名称
       href: portal-create-fqdn.md
     - name: 查找并删除未连接的 NIC
@@ -385,8 +389,6 @@ items:
         href: ../windows/migration-classic-resource-manager-community-tools.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
       - name: 常见问题
         href: migration-classic-resource-manager-faq.md
-  - name: 故障排除
-    href: ../troubleshooting/index.md
 - name: 参考
   items:
   - name: Azure CLI
@@ -415,9 +417,11 @@ items:
     href: https://www.azure.cn/video-center/
   - name: 常见问题
     href: faq.md
-ms.openlocfilehash: 18864c3b10cb2498c26620f40e41d96b9d4ab243
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+- name: 故障排除
+  href: ../troubleshooting/index.md
+ms.openlocfilehash: 9e4efdde0a4ebfc3c9ef1802c47ab6f0379d6257
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658022"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736167"

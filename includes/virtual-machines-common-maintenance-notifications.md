@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 07/02/2018
-ms.date: 11/26/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 001978bb30b10cee72060ee8c5fce75b538b787c
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: ad6c489775da0e1f5a4d0332edc639dfd8b1831c
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676297"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736220"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>在门户中查看计划用于维护的虚拟机
 
@@ -41,9 +41,9 @@ ms.locfileid: "52676297"
       | 立即重试 | 可以重试以前未成功的自行启动的维护。 | 
       | - | 计划内维护流程不处理你的 VM。 |
 
-    **“维护 - 自助”时段**：显示可以自行启动 VM 维护的时间范围。
+    **维护 - 自助时段**：显示可以自行启动 VM 维护的时间范围。
 
-    **“维护 - 计划内”时段**：显示 Azure 在完成维护时进行 VM 维护的时间范围。 
+    **维护 - 计划时段**：显示 Azure 将维护 VM 以完成维护的时间范围。 
 
 ## <a name="notification-and-alerts-in-the-portal"></a>门户中的通知和警报
 

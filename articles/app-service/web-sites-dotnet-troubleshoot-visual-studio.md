@@ -1,5 +1,5 @@
 ---
-title: 使用 Visual Studio 对 Azure 应用服务中的 Web 应用进行故障排除
+title: 使用 Visual Studio 对 Web 应用进行故障排除 - Azure 应用服务
 description: 了解如何通过内置于 Visual Studio 2013 的远程调试、 跟踪和日志记录工具排除 Azure Web 应用的故障。
 services: app-service
 documentationcenter: .net
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 08/29/2016
-ms.date: 10/29/2018
+ms.date: 12/31/2018
 ms.author: v-biyu
-ms.openlocfilehash: 58e8cf2498b2cc6f897c52b236d15f41156e5955
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.custom: seodec18
+ms.openlocfilehash: f66e3fccecde2c879b2fbbb776dc317fe35d11f1
+ms.sourcegitcommit: 80c59ae1174d71509b4aa64a28a98670307a5b38
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657138"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735194"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>使用 Visual Studio 对 Azure 应用服务中的 Web 应用进行故障排除
 ## <a name="overview"></a>概述
@@ -49,7 +50,7 @@ ms.locfileid: "52657138"
 流式日志功能仅适用于面向 .NET Framework 4 或更高版本的应用程序。
 
 ## <a name="sitemanagement"></a>Web 应用配置和管理
-通过 Visual Studio，用户可以访问 Azure 门户中提供的 Web 应用管理功能和配置设置的子集。 本节介绍使用**服务器资源管理器**可以实现的功能。 若要了解最新的 Azure 集成功能，请同时试用**云资源管理器**。 可以从“视图”菜单打开这两个窗口。
+通过 Visual Studio，用户可以访问 [Azure 门户](https://portal.azure.cn)中提供的 Web 应用管理功能和配置设置的子集。 本节介绍使用**服务器资源管理器**可以实现的功能。 若要了解最新的 Azure 集成功能，请同时试用**云资源管理器**。 可以从“视图”菜单打开这两个窗口。
 
 1. 如果还没有登录 Visual Studio 中的 Azure ，右键单击“Azure”，然后选择连接到“服务器资源管理器”中的“Microsoft Azure 订阅”。
 
@@ -72,7 +73,7 @@ ms.locfileid: "52657138"
 
     本教程介绍如何使用日志记录和跟踪下拉列表。 其中，还会用到远程调试，但会通过不同方式启用该调试。
 
-    有关该窗口中“应用程序设置”和“连接字符串”框的信息，请参阅 [Azure Web 应用：应用程序字符串和连接字符串的工作原理](https://azure.microsoft.com/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)。
+    有关此窗口中“应用设置”框和“连接字符串”框的信息，请参见 [Azure Web 应用：应用程序字符串和连接字符串的工作原理](https://azure.microsoft.com/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)。
 
     如果要执行的 Web 应用管理任务无法在此窗口进行，请单击“在管理门户中打开”，以便在浏览器窗口中打开 Azure 门户。
 
@@ -91,7 +92,7 @@ ms.locfileid: "52657138"
 
 ![无用的错误页](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png)
 
-找出错误原因的最简捷方法通常是启用详细错误消息，之前保留的屏幕快照中的第一个快照会告诉你如何做。 而实现此目的需要在部署的 Web.config 文件中进行更改。 可以编辑项目中的 *Web.config* 文件，并重新部署该项目，或创建 [Web.config 转换](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations)并部署调试版本，但还有一个更快捷的方式：在“解决方案资源管理器”中，可以通过使用*远程视图*功能直接查看并编辑远程 Web 应用上的文件。
+找出错误原因的最简捷方法通常是启用详细错误消息，之前保留的屏幕快照中的第一个快照会告诉你如何做。 而实现此目的需要在部署的 Web.config 文件中进行更改。 可以编辑项目中的 Web.config 文件，并重新部署该项目，或创建 [Web.config 转换](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations)并部署调试版本，但还有一个更快捷的方式：在“解决方案资源管理器”中，可以通过使用远程视图功能直接查看并编辑远程 Web 应用上的文件。
 
 1. 在“服务器资源管理器”中，依次展开“Azure”、“应用服务”、Web 应用所在的资源组以及 Web 应用的节点。
 
@@ -410,11 +411,9 @@ Web 服务器日志将记录 Web 应用上所有的 HTTP 活动。 若要在“�
 1. 在通过“服务器资源管理器”打开的“Azure Web 应用配置”选项卡上，将“Web 服务器日志记录”的状态更改为“开启”，并单击“保存”。
 
     ![启用 Web 服务器日志记录](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-webserverloggingon.png)
-    
 2. 在“输出”窗口中，单击“指定要监视的 Azure 日志”按钮。
 
     ![指定要监视的 Azure 日志。](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-specifylogs.png)
-    
 3. 在“Azure 日志记录选项”对话框中，选择“Web 服务器日志”，并单击“确定”。
 
     ![监视 Web 服务器日志](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-monitorwslogson.png)
@@ -438,6 +437,7 @@ Web 服务器日志将记录 Web 应用上所有的 HTTP 活动。 若要在“�
 3. 在“Azure 日志记录选项”对话框中单击“所有日志”，并单击“确定”。
 
     ![监视所有日志](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-monitorall.png)
+
 4. 在浏览器的地址栏中，向 URL 添加一个额外字符以导致 404 错误（例如 `http://localhost:53370/Home/Contactx` ），并按 Enter。
 
     几秒后，详细的错误日志显示在 Visual Studio 的“输出”窗口中。
@@ -562,7 +562,9 @@ Azure Web 应用使用 IIS 7.0 及更高版本中提供的相同失败请求跟�
 2. 在显示该 Web 应用的浏览器窗口的地址栏中，向 URL 添加一个额外字符，单击 Enter 会引发 404 错误。
 
     这将导致创建失败请求跟踪日志，以下步骤介绍如何查看或下载该日志。
+
 3. 在 Visual Studio 中，在“Azure Web 应用”窗口的“配置”选项卡中，单击“在管理门户中打开”。
+
 4. 在 [Azure 门户](https://portal.azure.cn)中 Web 应用的“设置”页上，单击“部署凭据”，并输入新的用户名和密码。
 
     ![新建 FTP 用户名和密码](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
@@ -576,9 +578,11 @@ Azure Web 应用使用 IIS 7.0 及更高版本中提供的相同失败请求跟�
 6. 使用之前创建的 FTP 凭据（包括作为用户名前缀的 Web 应用名称）登录。
 
     浏览器会显示该 Web 应用的根文件夹。
+
 7. 打开 *LogFiles* 文件夹。
 
     ![打开 LogFiles 文件夹](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilesfolder.png)
+
 8. 打开名为 W3SVC 加数值的文件夹。
 
     ![打开 W3SVC 文件夹](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-w3svcfolder.png)
@@ -586,6 +590,7 @@ Azure Web 应用使用 IIS 7.0 及更高版本中提供的相同失败请求跟�
     该文件夹包含启用失败请求跟踪之后记录在案的任何错误的 XML 文件，以及一个可供浏览器格式化 XML 的 XSL 文件。
 
     ![W3SVC 文件夹](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-w3svcfoldercontents.png)
+
 9. 单击希望查看跟踪信息的失败请求的 XML 文件。
 
     下图显示了示例错误的部分跟踪信息。
@@ -637,7 +642,7 @@ Internet 上对于 ASP.NET 跟踪没有全面且最新的介绍。 最佳做法�
   内容过时，但不失为这一主题的优秀入门级资源。
 * [跟踪侦听器](http://msdn.microsoft.com/library/4y5y10s7.aspx)<br/>
   有关跟踪侦听器的信息，但未提及 [WebPageTraceListener](http://msdn.microsoft.com/library/system.web.webpagetracelistener.aspx)。
-* [演练：集成 ASP.NET 跟踪与 System.Diagnostics 跟踪](http://msdn.microsoft.com/library/b0ectfxd.aspx)<br/>
+* [演练：将 ASP.NET 跟踪与 System.Diagnostics 跟踪集成](http://msdn.microsoft.com/library/b0ectfxd.aspx)<br/>
   此文章已过时，但包括一些介绍性文章未涵盖的额外信息。
 * [在 ASP.NET MVC Razor 视图中进行跟踪](http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
   除了在 Razor 视图中进行跟踪，文章还介绍了如何创建错误筛选器以便在 MVC 应用程序中记录所有未经处理的异常。 有关如何在 Web 窗体应用程序中记录所有未经处理的异常，请参阅 MSDN 上的[错误处理程序的完整示例](http://msdn.microsoft.com/library/bb397417.aspx)中的 Global.asax 示例。 在 MVC 或 Web 窗体中，如果希望记录特定异常但想让默认框架对其进行处理，可捕获并重新引发异常，如下例所示：

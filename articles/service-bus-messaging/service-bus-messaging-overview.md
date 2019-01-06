@@ -8,16 +8,16 @@ manager: digimobile
 editor: ''
 ms.service: service-bus-messaging
 ms.topic: overview
-origin.date: 09/22/2018
-ms.date: 11/26/2018
+origin.date: 12/24/2018
+ms.date: 12/24/2018
 ms.custom: mvc
 ms.author: v-lingwu
-ms.openlocfilehash: 248387f37157a4be3a13ece1d998d679d0f31291
-ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
+ms.openlocfilehash: 4770e441e7db274d886d3fcf4afd54410c262474
+ms.sourcegitcommit: 649f5093a9a9a89f4117ae3845172997922aec31
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53219521"
+ms.lasthandoff: 12/24/2018
+ms.locfileid: "53784610"
 ---
 # <a name="what-is-azure-service-bus"></a>什么是 Azure 服务总线？
 
@@ -62,7 +62,7 @@ Azure 服务总线是一种完全托管的企业集成消息中转站。 服务�
 
 ### <a name="auto-forwarding"></a>自动转发
 
-[通过自动转发](service-bus-auto-forwarding.md)功能可将队列或订阅连接到作为相同命名空间组成部分的另一个队列或主题。 启用自动转发时，服务总线会自动删除放置在第一个队列或订阅（源）中的消息，并将其放入第二个队列或主题（目标）中。
+通过[自动转发](service-bus-auto-forwarding.md)功能，可以将队列或订阅链接到属于同一命名空间的另一个队列或主题。 启用自动转发时，服务总线会自动删除放置在第一个队列或订阅（源）中的消息，并将其放入第二个队列或主题（目标）中。
 
 ### <a name="dead-lettering"></a>死信
 
@@ -82,7 +82,7 @@ Azure 服务总线是一种完全托管的企业集成消息中转站。 服务�
 
 ### <a name="transactions"></a>事务
 
-一个[事务](service-bus-transactions.md)将两个或更多操作组合成执行作用域。 服务总线支持对事务作用域内的消息传送实体（队列、主题、订阅）执行分组操作。
+一个[事务](service-bus-transactions.md)将两个或更多操作组合成执行作用域。 服务总线支持对事务范围内的消息传送实体（队列、主题、订阅）执行分组操作。
 
 ### <a name="filtering-and-actions"></a>筛选和操作
 
@@ -104,7 +104,7 @@ Azure 服务总线是一种完全托管的企业集成消息中转站。 服务�
 
 在 Azure 区域或数据中心遭遇停机的情况下，可以使用异地灾难恢复在其他区域或数据中心进行数据处理，以实现连续运行。
 
-### <a name="security"></a>安全
+### <a name="security"></a>安全性
 
 服务总线支持标准的 [AMQP 1.0](service-bus-amqp-overview.md) 和 [HTTP/REST](https://docs.microsoft.com/en-us/rest/api/servicebus/) 协议。
 

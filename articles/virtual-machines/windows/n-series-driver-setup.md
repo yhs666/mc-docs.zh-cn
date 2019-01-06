@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 09/24/2018
-ms.date: 11/26/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 212e609bbdad5735a76d160d4d3c67eec0b483e1
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: ab596c3de2841d3b8fd28cf1df684619ed6fb61a
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674866"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736199"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>在运行 Windows 的 N 系列 VM 上安装 NVIDIA GPU 驱动程序 
 
@@ -39,8 +39,9 @@ ms.locfileid: "52674866"
 
 2. 下载、解压缩并安装 Windows 操作系统支持的驱动程序。
 
-在 VM 上安装 GRID 驱动程序后，需要重启。 安装 CUDA 驱动程序后，不需要重启。
+安装 CUDA 驱动程序后，不需要重启。
 
+<!-- Not Available on After GRID driver installation on a VM, a restart is required.-->
 ## <a name="verify-driver-installation"></a>验证驱动程序安装
 
 可以在设备管理器中验证驱动程序安装。 以下示例展示了如何在 Azure NC VM 上成功配置 Tesla K80 卡。

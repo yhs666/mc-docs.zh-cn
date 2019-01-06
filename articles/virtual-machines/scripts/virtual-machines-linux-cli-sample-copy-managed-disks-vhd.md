@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 脚本示例 - 将托管磁盘的基础 VHD 导出/复制到存储帐户 | Azure
-description: Azure CLI 脚本示例 - 将托管磁盘的基础 VHD 导出/复制到存储帐户
+title: Azure CLI 示例 - 将托管磁盘复制到存储帐户
+description: Azure CLI 示例 - 将托管磁盘导出或复制到存储帐户。
 services: virtual-machines-linux
 documentationcenter: storage
 author: rockboyfor
@@ -14,17 +14,17 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 09/17/2018
-ms.date: 10/22/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.custom: mvc
-ms.openlocfilehash: c239a406d1e21f5a8dc3cd2f0036752303242de6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.custom: mvc,seodec18
+ms.openlocfilehash: fbcf643778dce1f089109efb57b159026d5c5151
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652481"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736097"
 ---
-# <a name="exportcopy-the-underlying-vhd-of-a-managed-disk-to-a-storage-account-with-cli"></a>使用 CLI 将托管磁盘的基础 VHD 导出/复制到存储帐户
+# <a name="exportcopy-a-managed-disk-to-a-storage-account-using-the-azure-cli"></a>使用 Azure CLI 将托管磁盘导出/复制到存储帐户
 
 此脚本将托管磁盘的基础 VHD 导出到相同或不同区域中的存储帐户。 它首先生成托管磁盘的 SAS URI，然后使用该 SAS URI 将 VHD 复制到存储帐户。 使用此脚本复制托管磁盘以进行区域扩展。 
 

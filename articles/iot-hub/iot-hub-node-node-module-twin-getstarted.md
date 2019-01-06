@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: node
 ms.topic: conceptual
 origin.date: 04/26/2018
-ms.date: 09/10/2018
+ms.date: 12/31/2018
 ms.author: v-yiso
-ms.openlocfilehash: 4b376cfc7aa770224e9ca902c1cf40486903b028
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 92a9daa62b72888c0803436e91584cd2edd5d710
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661442"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736677"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-nodejs-back-end-and-nodejs-device"></a>使用 Node.js 后端和 Node.js 设备创建 IoT 中心模块标识和模块孪生入门
 
@@ -44,11 +44,11 @@ ms.locfileid: "52661442"
 本部分将创建一个 Node.js 应用，用于在 IoT 中心的标识注册表中创建设备标识和模块标识。 设备或模块无法连接到 IoT 中心，除非它在标识注册表中具有条目。 有关详细信息，请参阅 [IoT 中心开发人员指南][lnk-devguide-identity]中的“标识注册表”部分。 运行此控制台应用时，它会为设备和模块生成唯一的 ID 和密钥。 设备和模块在向 IoT 中心发送设备到云的消息时，使用这些值来标识自身。 ID 区分大小写。
 
 1. 创建目录以保存代码。
-2. 在该目录中，首先运行  **npm init -y**  以使用默认值创建一个空的 package.json。 这是代码的项目文件。
-3. 运行  **npm install -S azure-iothub@modules-preview**，以在  **node_modules**  子目录中安装服务 SDK。 
+2. 在该目录中，首先运行“npm init -y” ，使用默认值创建一个空的 package.json ****。 这是代码的项目文件。
+3. 运行“npm install -S azure-iothub@modules-preview”，在“node_modules” 子目录中安装服务 SDK **** ****。 
 
     > [!NOTE] 
-    > 子目录名称 node_modules 使用字模块来表示“节点库”。 此处的术语与 IoT 中心模块无关。
+    > 子目录名称 node_modules 使用字“模块”来表示“节点库”。 此处的术语与 IoT 中心模块无关。
 
 4. 在目录中创建以下 .js 文件。 将它命名为 add.js。 复制并粘贴中心连接字符串和中心名称。
 
@@ -109,7 +109,7 @@ ms.locfileid: "52661442"
 
 此应用在设备“myFirstDevice”下创建 ID 为“myFirstDevice”的设备标识，以及 ID 为“myFirstModule”的模块标识。 （如果该模块 ID 已在标识注册表中，代码就只检索现有的模块信息。）然后，应用程序会显示该标识的主密钥。 在模拟模块应用中使用此密钥连接到 IoT 中心。
 
-5. 使用节点 add.js 运行此应用。 它将为设备标识提供一个连接字符串，并为模块标识提供另一个连接字符串。
+5. 使用节点 add.js 运行它。 它将为设备标识提供一个连接字符串，并为模块标识提供另一个连接字符串。
 
     > [!NOTE]
     > IoT 中心标识注册表只存储设备和模块标识，以启用对 IoT 中心的安全访问。 标识注册表存储用作安全凭据的设备 ID 和密钥。 标识注册表还为每个设备存储启用/禁用标志，该标志可以用于禁用对该设备的访问。 如果应用程序需要存储其他特定于设备的元数据，则应使用特定于应用程序的存储。 没有针对模块标识的“已启用/已禁用”标记。 有关详细信息，请参阅 [IoT 中心开发人员指南][lnk-devguide-identity]。
@@ -128,7 +128,7 @@ ms.locfileid: "52661442"
     > npm install 命令可能有点慢。 请耐心等待，它正在从包存储库中提取大量代码。
 
     > [!NOTE] 
-    > 如果看到错误“npm ERR! 分析 json 时出现注册表错误，可以安全忽略。 如果看到错误“npm ERR! 分析 json 时出现注册表错误，可以安全忽略。
+    > 如果看到错误 npm ERR! 分析 json 时出现注册表错误，可以安全忽略。 如果看到错误 npm ERR! 分析 json 时出现注册表错误，可以安全忽略。
 
 3. 创建名为 twin.js 的文件。 复制并粘贴模块标识字符串。
 
@@ -181,7 +181,7 @@ ms.locfileid: "52661442"
     });
     ```
 
-2. 现在请使用命令 node twin.js 来运行它 ****。
+2. 现在请使用命令“node twin.js”来运行它 ****。
 
     ```
     F:\temp\module_twin>node twin.js
@@ -199,7 +199,7 @@ ms.locfileid: "52661442"
 若要继续了解 IoT 中心入门知识并浏览其他 IoT 方案，请参阅：
 
 * [设备管理入门][lnk-device-management]
-
+* [IoT Edge 入门][lnk-iot-edge]
 
 <!-- Images. -->
 [15]: ./media\iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
@@ -209,5 +209,6 @@ ms.locfileid: "52661442"
 [lnk-portal]: https://portal.azure.cn/
 
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
+[lnk-iot-edge]: ../iot-edge/quickstart-linux.md
 [lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/

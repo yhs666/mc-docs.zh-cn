@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 02/09/2017
-ms.date: 07/30/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 012bf57a90a35c9c3eb6c300b4da0660d85bc412
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5f477cb9325988555157e1d0c08261eb52b01354
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644064"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736069"
 ---
 # <a name="how-to-detach-a-disk-from-a-linux-virtual-machine"></a>如何从 Linux 虚拟机分离磁盘
 > [!IMPORTANT] 
-> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器部署模型和经典部署模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。
 
 [!INCLUDE [howto-detach-disk-windows-linux](../../../../includes/howto-detach-disk-linux.md)]
 

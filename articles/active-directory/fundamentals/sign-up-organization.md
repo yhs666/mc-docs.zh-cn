@@ -1,6 +1,6 @@
 ---
-title: 如何以组织身份注册 Azure Active Directory | Microsoft Docs
-description: 了解如何注册组织以使用 Azure 和 Azure Active Directory。
+title: 注册你的组织以使用 Azure Active Directory | Microsoft Docs
+description: 有关如何注册你的组织以使用 Azure 和 Azure Active Directory 的说明。
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -9,18 +9,18 @@ ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
 origin.date: 09/14/2018
-ms.date: 11/12/2018
+ms.date: 01/02/2019
 ms.author: v-junlch
 ms.reviewer: jeffsta
-ms.custom: it-pro
-ms.openlocfilehash: b70d7dd3158d042dce18594e2dbaed62f890f88f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 2fd6899a1eb2a50563d82c40cf515fccfe33f5c6
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663322"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996339"
 ---
-# <a name="how-to-sign-up-for-azure-active-directory-as-an-organization"></a>如何：以组织身份注册 Azure Active Directory
+# <a name="sign-up-your-organization-to-use-azure-active-directory"></a>注册你的组织以使用 Azure Active Directory
 使用以下任一项注册 Azure Active Directory (Azure AD) 新的 Azure 订阅：
 
 - **Microsoft 帐户**。 使用个人 Microsoft 帐户可以访问 Azure 以及所有面向使用者的 Microsoft 产品和云服务，例如 Outlook (Hotmail)、Messenger、OneDrive、MSN、Xbox LIVE 或 Office 365。 注册 Outlook.com 邮箱自动创建 Microsoft 帐户。

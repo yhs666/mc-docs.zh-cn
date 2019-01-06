@@ -1,26 +1,25 @@
 ---
-title: Azure 标准负载均衡器概述 | Microsoft Docs
+title: 什么是 Azure 标准负载均衡器？
+titlesuffix: Azure Load Balancer
 description: Azure 标准负载均衡器功能概述
 services: load-balancer
 documentationcenter: na
 author: WenJason
-manager: digimobile
-editor: ''
-ms.assetid: ''
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/24/2018
-ms.date: 12/06/2018
+ms.date: 12/31/2018
 ms.author: v-jay
-ms.openlocfilehash: ab36de59be6ff537aa4cd384d90b82862f629849
-ms.sourcegitcommit: 6e07735318eb5f6ea319b618863259088eab3722
+ms.openlocfilehash: 371a4d9535f7b6b81bcd97fdb7f1854edec78a82
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52981647"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806288"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Azure 负载均衡器标准版概述
 
@@ -41,7 +40,7 @@ ms.locfileid: "52981647"
 负载均衡器资源是一些对象，可在其中表述 Azure 应如何设定其多租户基础结构，以实现想要创建的场景。  负载均衡器资源与实际基础结构之间不存在直接的关系，创建负载均衡器不会创建实例，可始终使用容量，且无需考虑启动或缩放延迟。 
 
 >[!NOTE]
-> Azure 为方案提供了一套完全托管的负载均衡解决方案。  若要寻求 TLS 终止（“SSL 卸载”）或每个 HTTP/HTTPS 请求的应用层处理，请查看[应用程序网关](../application-gateway/overview.md)。  若要寻求全局 DNS 负载均衡，请查看[流量管理器](../traffic-manager/traffic-manager-overview.md)。  端到端方案可从结合所需的解决方案中受益。
+> Azure 为方案提供了一套完全托管的负载均衡解决方案。  若要寻求 TLS 终止（“SSL 卸载”）或每个 HTTP/HTTPS 请求的应用层处理，请查看[应用程序网关](../application-gateway/application-gateway-introduction.md)。  若要寻求全局 DNS 负载均衡，请查看[流量管理器](../traffic-manager/traffic-manager-overview.md)。  端到端方案可从结合所需的解决方案中受益。
 
 ## <a name="why-use-standard-load-balancer"></a>为何使用标准负载均衡器？
 
@@ -59,7 +58,7 @@ ms.locfileid: "52981647"
 
 ### <a name="backend"></a>后端池
 
-标准负载均衡器的后端池在虚拟网络中扩展到任何虚拟机资源。  可包含多达 1000 个后端实例。  后端实例是 IP 配置（NIC 资源的属性）。
+标准负载均衡器的后端池扩展到虚拟网络中的任何虚拟机资源。  可包含多达 1000 个后端实例。  后端实例是 IP 配置（NIC 资源的属性）。
 
 后端池可以包含独立的虚拟机、可用性集或虚拟机规模集。  还可以在后端池中混合资源。 按每个负载均衡器资源计算，最多可以在后端池中混合 150 个资源。
 
@@ -82,7 +81,7 @@ ms.locfileid: "52981647"
 
 ### <a name="outbound"></a>出站连接
 
-负载均衡器支持入站和出站方案。  对于出站连接，标准负载均衡器与基本负载均衡器存在明显差异。
+负载均衡器支持入站和出站方案。  对于出站连接，标准负载均衡器与基本负载均衡器之间存在明显差异。
 
 源网络地址转换 (SNAT) 用于将虚拟网络上的内部专用 IP 地址映射到负载均衡器前端的公共 IP 地址。
 
@@ -124,7 +123,7 @@ ms.locfileid: "52981647"
 
 ### <a name="operations"></a>管理操作
 
-标准负载均衡器资源存在于全新的基础结构平台中。  这允许标准 SKU 大大提高管理操作的速度，对于每个标准 SKU 资源，完成时间通常少于 30 秒。  请注意，后端池增大时，其更改所需的持续时间也随之延长。
+标准负载均衡器资源存在于全新的基础结构平台中。  这使得标准 SKU 可以提高管理操作的速度，对于每个标准 SKU 资源，完成时间通常少于 30 秒。  当后端池增大时，其更改所需的持续时间也随之延长。
 
 可以修改标准负载均衡器资源，显著提高在虚拟机之间移动标准公共 IP 地址的速度。
 

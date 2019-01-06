@@ -1,6 +1,6 @@
 ---
-title: Azure AD 中的标识安全评分是什么？ - 预览版 | Microsoft Docs
-description: 了解如何使用标识安全评分来改进 Azure AD 租户的安全状况。
+title: 什么是标识安全评分？ - Azure Active Directory（公共预览版）| Microsoft Docs
+description: 关于如何使用标识安全评分改善 Azure AD 租户的安全状况的说明。
 services: active-directory
 keywords: 标识安全评分, Azure AD, 公司资源的安全访问
 documentationcenter: ''
@@ -14,17 +14,18 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 09/19/2018
-ms.date: 11/12/2018
+ms.date: 01/02/2019
 ms.author: v-junlch
 ms.reviewer: nigu
-ms.openlocfilehash: 37ed4026790ae4a94a39bba614147d1bf518d570
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.custom: it-pro
+ms.openlocfilehash: 6e31c688f1cc47db1cce078e4eff0d3193099a17
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651341"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996206"
 ---
-# <a name="what-is-the-identity-secure-score-in-azure-ad---preview"></a>Azure AD 中的标识安全评分是什么？ - 预览版
+# <a name="what-is-the-identity-secure-score-in-azure-active-directory-public-preview"></a>什么是 Azure Active Directory 中的标识安全评分？ （公共预览版）
 
 你的 Azure AD 租户有多安全？ 如果不知道此问题的答案，请阅读本文，了解标识安全评分如何帮助你监视和改进标识安全状况。 
 
@@ -159,3 +160,4 @@ Azure 每隔 48 小时检查安全配置，并将你的设置与建议的最佳�
 标识安全评分代表 Office 365 安全评分的标识部分。 这意味着，针对标识安全评分与 Office 365 中标识评分提供的建议相同。 
 
 
+<!-- Update_Description: wording update -->

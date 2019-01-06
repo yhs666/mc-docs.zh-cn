@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 09/11/2018
-ms.date: 10/08/2018
+ms.date: 01/02/2019
 ms.author: v-junlch
-ms.openlocfilehash: 494b8bed6dff8332b62e8eeb89934064807f0060
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d4e6f418f6b17fd522d8cba2d8cbbbe9924738d7
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643917"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996158"
 ---
 # <a name="how-to-select-permissions-for-a-given-api"></a>如何为给定 API 选择权限 
 
@@ -32,6 +32,7 @@ ms.locfileid: "52643917"
 
 ## <a name="next-steps"></a>后续步骤
 
-[AzureAD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
+[AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
 
 
+<!-- Update_Description: link update -->

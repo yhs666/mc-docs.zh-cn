@@ -13,15 +13,15 @@ ms.topic: overview
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 11/29/2017
-ms.date: 10/22/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 69d4cea99b80981fc59dbd398c224e3ddc6c157b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b5ab29f00056a56818b80450fa04fc245927c3d9
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662757"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736131"
 ---
 # <a name="azure-and-linux"></a>Azure 和 Linux
 Azure 是一个不断增长的集成公有云服务集合，包括分析、虚拟机、数据库、移动、网络、存储和 Web&mdash;是托管解决方案的理想选择。  Azure 提供可缩放的计算平台，允许即用即付，而无需投资购买本地硬件。  Azure 允许根据客户端所需的任何规模，随时扩展和缩减解决方案。
@@ -88,13 +88,9 @@ Azure 与合作伙伴紧密合作，以确保及时更新可用映像并针对 A
 * Jenkins - [Azure 市场 - Jenkins Platform](https://market.azure.cn/zh-cn/marketplace/apps?search=jenkins)
 
 <!-- Not Available on 75-76 * Redhat - [Azure Marketplace - RedHat Enterprise Linux 7.2](https://market.azure.cn/zh-cn/marketplace/partners/redhat/redhatenterpriselinux72/)-->
-
 <!-- Not Availalbe on 79-80 * RancherOS - [Azure Marketplace - RancherOS](https://market.azure.cn/zh-cn/marketplace/partners/rancher/rancheros/)-->
-
 <!-- Not Availalbe on 80-81 * Mesosphere - [Azure Marketplace - Mesosphere DC/OS on Azure](https://market.azure.cn/zh-cn/marketplace/partners/mesosphere/dcosdcos/)-->
-
 <!-- Not Availalbe on 80-81 * Docker - [Azure Marketplace - Azure Container Service with Docker Swarm](https://market.azure.cn/zh-cn/marketplace/partners/microsoft/acsswarms/)-->
-
 <!-- Notice: URL is correct on [Azure Marketplace - Jenkins Platform](https://market.azure.cn/zh-cn/marketplace/apps?search=jenkins)-->
 
 ## <a name="getting-started-with-linux-on-azure"></a>开始在 Azure 中使用 Linux
@@ -120,7 +116,7 @@ Azure 与合作伙伴紧密合作，以确保及时更新可用映像并针对 A
 * [使用门户创建 Linux VM](quick-create-portal.md)
 
 ### <a name="log-in-using-ssh-without-a-password"></a>不使用密码通过 SSH 登录
-VM 现在正在 Azure 上运行，用户可以登录。  通过 SSH 使用密码登录既耗时又不安全，  使用 SSH 密钥是最安全且最快捷的登录方式。  通过门户或 CLI 创建 Linux VM 时，有两种身份验证选择。  如果为 SSH 选择密码，则 Azure 会将 VM 配置为允许通过密码登录。  如果选择使用 SSH 公钥，则 Azure 将 VM 配置为只允许通过 SSH 密钥登录，并禁止密码登录。 若要通过只允许 SSH 密钥登录来保护 Linux VM，请在门户或 CLI 中创建 VM 的过程中使用 SSH 公钥选项。
+VM 现在正在 Azure 上运行，用户可以登录。  使用密码通过 SSH 登录既不安全耗时也长。  使用 SSH 密钥是最安全且最快捷的登录方式。  通过门户或 CLI 创建 Linux VM 时，有两种身份验证选择。  如果为 SSH 选择密码，则 Azure 将 VM 配置为允许通过密码登录。  如果选择使用 SSH 公钥，则 Azure 将 VM 配置为只允许通过 SSH 密钥登录，并禁止密码登录。 若要通过只允许 SSH 密钥登录来保护 Linux VM，请在门户或 CLI 中创建 VM 的过程中使用 SSH 公钥选项。
 
 ## <a name="related-azure-components"></a>相关 Azure 组件
 ## <a name="storage"></a>存储

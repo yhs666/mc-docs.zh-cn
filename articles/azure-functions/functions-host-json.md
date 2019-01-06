@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 09/08/2018
-ms.date: 11/08/2018
+ms.date: 12/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: 3f90fc712cf27accae349a99cc8ed84d330a1507
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: df93954d7dd22275b8cf94fb1493a61f9e804394
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666975"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806571"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Azure Functions 2.x 的 host.json 参考  
 
@@ -78,7 +78,7 @@ ms.locfileid: "52666975"
 
 ## <a name="durabletask"></a>durableTask
 
-可在 [Durable Functions 的绑定](durable-functions-bindings.md#host-json)中查找配置设置。
+可在 [Durable Functions 的绑定](durable/durable-functions-bindings.md#host-json)中查找配置设置。
 
 ## <a name="eventhub"></a>eventHub
 
@@ -197,4 +197,4 @@ ms.locfileid: "52666975"
 > [!div class="nextstepaction"]
 > [查看环境变量中的全局设置](functions-app-settings.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

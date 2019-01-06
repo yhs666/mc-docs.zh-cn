@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: douglasl
 manager: digimobile
 origin.date: 11/07/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 30221ab3fa3600857a3d43aae6705f82c9ce6501
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.date: 12/31/2018
+ms.openlocfilehash: 85eb67f2321132911be3a6eb27493bb2dec81211
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673020"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806201"
 ---
 # <a name="tutorial-set-up-sql-data-sync-to-sync-data-between-azure-sql-database-and-sql-server-on-premises"></a>教程：设置 SQL 数据同步，以在 Azure SQL 数据库和本地 SQL Server 之间同步数据
 
@@ -130,7 +130,7 @@ ms.locfileid: "52673020"
 
     如果选中“新建代理”，请执行以下操作：
 
-   1. 通过提供的链接下载客户端同步代理软件，并将它安装在 SQL Server 所在的计算机上。
+   1. 通过提供的链接下载客户端同步代理软件，并将它安装在 SQL Server 所在的计算机上。 还可以直接从 [SQL Azure 数据同步代理](https://www.microsoft.com/download/details.aspx?id=27693)下载数据同步代理。
 
         > [!IMPORTANT]
         > 必须在防火墙中打开出站 TCP 端口 1433，以便客户端代理能够与服务器进行通信。
@@ -200,7 +200,7 @@ ms.locfileid: "52673020"
 
 ### <a name="how-frequently-can-data-sync-synchronize-my-data"></a>数据同步以什么频率同步数据
 
-最小频率是每隔五分钟。
+触发同步之间的最小持续时间是五分钟。
 
 ### <a name="does-sql-data-sync-fully-create-and-provision-tables"></a>SQL 数据同步是否能完全创建和预配表
 
@@ -252,6 +252,10 @@ ms.locfileid: "52673020"
 1. 使用[此脚本](https://github.com/vitomaz-msft/DataSyncMetadataCleanup/blob/master/Data%20Sync%20complete%20cleanup.sql)清理新数据库上的数据同步对象和端表。 此脚本将从数据库中删除所有相应数据同步对象。
 2. 重新创建包含新数据库的同步组。 如果不再需要旧同步组，请删除它。
 
+## <a name="faq-about-the-client-agent"></a>有关客户端代理的常见问题解答
+
+有关客户端代理的常见问题解答，请参阅[代理常见问题解答](sql-database-data-sync-agent.md#agent-faq)。
+
 ## <a name="next-steps"></a>后续步骤
 
 祝贺。 已创建了一个包含 SQL 数据库实例和 SQL Server 数据库的同步组。
@@ -263,7 +267,7 @@ ms.locfileid: "52673020"
     - 使用 PowerShell
         -  [使用 PowerShell 在多个 Azure SQL 数据库之间进行同步](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [使用 PowerShell 在 Azure SQL 数据库和 SQL Server 本地数据库之间进行同步](scripts/sql-database-sync-data-between-azure-onprem.md)
-
+-   数据同步代理 - [Azure SQL 数据同步的数据同步代理](sql-database-data-sync-agent.md)
 -   最佳做法 - [Azure SQL 数据同步最佳做法](sql-database-best-practices-data-sync.md)
 -   故障排除 - [排查 Azure SQL 数据同步问题](sql-database-troubleshoot-data-sync.md)
 -   更新同步架构

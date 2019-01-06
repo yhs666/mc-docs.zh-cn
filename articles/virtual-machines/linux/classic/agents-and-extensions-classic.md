@@ -15,19 +15,20 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 03/02/2017
-ms.date: 11/26/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 85664ae6c3d6e6ef51a02d48670506ff67a540f3
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 6465a2979b6d0c161e62ef7786c127190a1840fc
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674149"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736068"
 ---
 # <a name="about-the-virtual-machine-agent-and-extensions-for-linux"></a>关于适用于 Linux 的虚拟机代理和扩展
 > [!IMPORTANT]
-> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 有关使用 Resource Manager 的 VM 代理和扩展的信息，请参阅[此处](../extensions-features.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器部署模型和经典部署模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 有关使用 Resource Manager 的 VM 代理和扩展的信息，请参阅[此处](../extensions-features.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 [!INCLUDE [virtual-machines-common-classic-agents-and-extensions](../../../../includes/virtual-machines-common-classic-agents-and-extensions.md)]
+
 <!--Update_Description: Update meta properties -->

@@ -1,5 +1,5 @@
 ---
-title: 了解如何使用 Azure Active Directory 组管理对应用和资源的访问 | Microsoft Docs
+title: 使用组管理应用和资源访问 - Azure Active Directory | Microsoft Docs
 description: 了解如何使用 Azure Active Directory 组来管理对组织的基于云的应用、本地应用和资源的访问。
 services: active-directory
 author: eross-msft
@@ -9,17 +9,18 @@ ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
 origin.date: 08/28/2017
-ms.date: 11/12/2018
+ms.date: 01/02/2019
 ms.author: v-junlch
 ms.reviewer: piotrci
-ms.openlocfilehash: eeb5c8537f163153353bf22cd4ffaf6002241410
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 025b5bb5855b6c646087f5056bcf0a685c85f7bc
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647545"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996276"
 ---
-# <a name="learn-about-access-management-using-azure-active-directory-groups"></a>了解如何使用 Azure Active Directory 组进行访问管理
+# <a name="manage-app-and-resource-access-using-azure-active-directory-groups"></a>使用 Azure Active Directory 组管理应用和资源访问
 Azure Active Directory (Azure AD) 可以帮助你使用组织的组来管理基于云的应用、本地应用和资源。 资源可以是目录中的资源（例如用于通过目录中的角色管理对象的权限）、目录外部的资源（例如软件即 Azure 服务和 SharePoint 站点）和本地资源。
 
 >[!NOTE]
@@ -35,7 +36,7 @@ Azure AD 通过向单个用户或整个 Azure AD 组提供访问权限，帮助�
 
 - **直接分配。** 资源所有者直接将用户分配到资源。
 
-- **组分配。** 资源所有者将 Azure AD 组分配到资源，这会自动向所有组成员授予对该资源的访问权限。 组成员身份由组所有者和资源所有者管理，允许任一所有者在该组中添加或删除成员。 有关添加或删除组成员身份的详细信息，请参阅[如何：使用 Azure Active Directory 门户在另一个组中添加或删除组](active-directory-groups-membership-azure-portal.md)。 
+- **组分配。** 资源所有者将 Azure AD 组分配到资源，这会自动向所有组成员授予对该资源的访问权限。 组成员身份由组所有者和资源所有者管理，允许任一所有者在该组中添加或删除成员。 有关添加或删除组成员的详细信息，请参阅[如何：使用 Azure Active Directory 门户在一个组中添加或删除另一个组](active-directory-groups-membership-azure-portal.md)。 
 
 - **External authority assignment**（外部机构分配）。 访问来自外部源，例如本地目录。 在这种情况下，资源所有者将分配一个组以提供资源访问权限，外部源将管理组成员。
 

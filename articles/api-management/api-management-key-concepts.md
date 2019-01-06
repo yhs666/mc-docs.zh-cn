@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 origin.date: 11/15/2017
-ms.date: 08/13/2018
+ms.date: 12/31/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 6d0cd57f8589e68b6720e1d5937f34e83f0a3d1d
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 398e537b41e75b6f7043548a9e10a198c64e4853
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674277"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736691"
 ---
 # <a name="what-is-api-management"></a>什么是 API 管理？
 
@@ -60,7 +60,7 @@ API 管理 (APIM) 可帮助组织将 API 发布给外部、合作伙伴和内部
   * 创建帐户并可以订阅以获取 API 密钥。
   * 访问他们自己的使用情况分析。
 
-有关详细信息，请参阅 PDF 版的[基于云的 API 管理：利用 API 的强大功能](http://j.mp/ms-apim-whitepaper)白皮书。 此关于 API 管理的简介白皮书由 CITO Research 编撰，包括以下内容： 
+有关详细信息，请参阅[基于云的 API 管理：利用 API 的强大功能](http://j.mp/ms-apim-whitepaper) PDF 白皮书。 此关于 API 管理的简介白皮书由 CITO Research 编撰，包括以下内容： 
  
  * 常见 API 需求和挑战
  * 分离 API 和呈现外观
@@ -72,8 +72,9 @@ API 管理 (APIM) 可帮助组织将 API 发布给外部、合作伙伴和内部
  * Azure API 管理
  
 ## <a name="apis"> </a>API 和操作
-API 是 API 管理服务实例的基础。 每个 API 表示一组可供开发人员使用的操作。 每个 API 包含对实现该 API 的后端服务的引用，并且其操作映射到由后端服务实现的操作。 API 管理中的操作高度可配置，可控制 URL 映射、查询和路径参数、请求和响应内容以及操作响应缓存。 速率限制、配额和 IP 限制策略还可以在 API 或单个操作级别实施。
+API 是 API 管理服务实例的基础。 每个 API 表示一组可供开发人员使用的操作。 每个 API 包含对实现该 API 的后端服务的引用，并且其操作映射到由后端服务实现的操作。 API 管理中的操作高度可配置，可控制 URL 映射、查询和路径参数、请求和响应内容以及操作响应缓存。 还可以在 API 或单个操作级别实现速率限制、配额和 IP 限制策略。
 
+有关详细信息，请参阅[如何创建 API][How to create APIs] 和[如何将操作添加到 API][How to add operations to an API]。
 
 ## <a name="products"> </a> 产品
 产品是用于将 API 提供给开发人员的方式。 API 管理中的产品有一个或多个 API，并且配置为包含一个标题、说明和使用条款。 产品可以是**公开的**或**受保护的**。 对于受保护的产品，必须先订阅，然后才能使用它们，但公开的产品无需订阅即可使用。 当产品准备就绪可供开发人员使用时，可以将其发布。 产品一旦发布，开发人员就可以查看（如果是受保护的产品，应先进行订阅）。 订阅审批是在产品级别配置的，可能需要管理员审批，也可能自动审批。
@@ -127,7 +128,8 @@ API 是 API 管理服务实例的基础。 每个 API 表示一组可供开发�
 [Policies]: #policies
 [Developer portal]: #developer-portal
 
-
+[How to create APIs]: import-and-publish.md
+[How to add operations to an API]: mock-api-responses.md
 [How to create and publish a product]: ./api-management-howto-add-products.md
 [How to create and use groups]: ./api-management-howto-create-groups.md
 [How to associate groups with developers]: ./api-management-howto-create-groups.md#associate-group-developer

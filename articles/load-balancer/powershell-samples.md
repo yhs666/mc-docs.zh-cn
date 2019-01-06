@@ -1,27 +1,25 @@
 ---
-title: Azure PowerShell 示例 | Azure
+title: Azure PowerShell 示例
+titlesuffix: Azure Load Balancer
 description: Azure PowerShell 示例
 services: virtual-network
 documentationcenter: load-balancer
-author: rockboyfor
-manager: digimobile
-editor: tysonn
-tags: ''
-ms.assetid: ''
+author: WenJason
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-origin.date: 04/17/2018
-ms.date: 06/18/2018
-ms.author: v-yeche
-ms.openlocfilehash: 80a6c54a64f14d4730277b5d7a740fd42ba73ced
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 12/10/2018
+ms.date: 12/31/2018
+ms.author: v-jay
+ms.openlocfilehash: 9fb6fef7470a618b239fb4e7f75215ff5f4b142e
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647742"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806228"
 ---
 # <a name="azure-powershell-samples-for-load-balancer"></a>适用于负载均衡器的 Azure PowerShell 示例
 

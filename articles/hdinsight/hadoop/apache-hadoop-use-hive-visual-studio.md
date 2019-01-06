@@ -15,24 +15,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/16/2018
-ms.date: 06/25/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 0260ed105743cf8a8cd05049d7cccaf2732f4800
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: aa6d28e8c825485ace9022ffb14953e2d1f38842
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662305"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029203"
 ---
-# <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>使用用于 Visual Studio 的 Data Lake 工具运行 Hive 查询
+# <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>使用针对 Visual Studio 的 Data Lake 工具运行 Apache Hive 查询
 
-[!INCLUDE [azure-visual-studio-login-guide](../../../includes/azure-visual-studio-login-guide.md)]
-
-了解如何使用用于 Visual Studio 的 Data Lake 工具查询 Apache Hive。 使用 Data Lake 工具可以轻松创建、监视 Hive 查询并将其提交到 Azure HDInsight 上的 Hadoop。
+了解如何使用用于 Visual Studio 的 Data Lake 工具查询 Apache Hive。 使用 Data Lake 工具，可以轻松创建 Hive 查询，将其提交到 Azure HDInsight 上的 Apache Hadoop 并进行监视。
 
 ## <a id="prereq"></a>先决条件
 
-* Azure HDInsight（HDInsight 上的 Hadoop）群集
+* Azure HDInsight（HDInsight 上的 Apache Hadoop）群集
 
   > [!IMPORTANT]
   > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
@@ -47,7 +45,7 @@ ms.locfileid: "52662305"
 
 * 用于 Visual Studio 的 HDInsight 工具或用于 Visual Studio 的 Azure Data Lake 工具。 请参阅 [Get started using Visual Studio Hadoop tools for HDInsight](apache-hadoop-visual-studio-tools-get-started.md)（开始使用 Visual Studio Hadoop tools for HDInsight），了解如何安装和配置这些工具。
 
-## <a id="run"></a> 使用 Visual Studio 运行 Hive 查询
+## <a id="run"></a> 使用 Visual Studio 运行 Apache Hive 查询
 
 1. 打开“Visual Studio”，选择“新建” > “项目” > “Azure Data Lake” > “HIVE” > “Hive 应用程序”。 提供此项目的名称。
 
@@ -64,7 +62,7 @@ ms.locfileid: "52662305"
 
     这些语句执行以下操作：
 
-   * `DROP TABLE`：如果该表存在，此语句会将其删除。
+   * `DROP TABLE`：如果表存在，此语句会将其删除。
 
    * `CREATE EXTERNAL TABLE`：在 Hive 中创建一个新的“外部”表。 外部表仅在 Hive 中存储表定义；数据会保留在原始位置。
 
@@ -73,7 +71,7 @@ ms.locfileid: "52662305"
      >
      > 删除外部表 **不会** 删除数据，只会删除表定义。
 
-   * `ROW FORMAT`：告知 Hive 如何设置数据的格式。 在此情况下，每个日志中的字段以空格分隔。
+   * `ROW FORMAT`：让 Hive 知道数据的格式已如何进行了设置。 在此情况下，每个日志中的字段以空格分隔。
 
    * `STORED AS TEXTFILE LOCATION`：告知 Hive 数据已以文本形式存储在 example/data 目录中。
 
@@ -103,7 +101,7 @@ ms.locfileid: "52662305"
 
     这些语句执行以下操作：
 
-   * `CREATE TABLE IF NOT EXISTS`：如果表尚不存在，则创建表。 由于未使用 `EXTERNAL` 关键字，因此此语句会创建内部表。 内部表存储在 Hive 数据仓库中，由 Hive 管理。
+   * `CREATE TABLE IF NOT EXISTS`：如果表不存在，则创建表。 由于未使用 `EXTERNAL` 关键字，因此此语句会创建内部表。 内部表存储在 Hive 数据仓库中，由 Hive 管理。
 
      > [!NOTE]
      > 与 `EXTERNAL` 表不同，删除内部表会同时删除基础数据。
@@ -122,13 +120,13 @@ ms.locfileid: "52662305"
 
 有关 HDInsight 中的 Hive 的一般信息：
 
-* [将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)
+* [将 Apache Hive 与 Apache Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
 
 有关 HDInsight 上 Hadoop 的其他使用方法的信息：
 
-* [将 Pig 与 Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
+* [将 Apache Pig 与 Apache Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
 
-* [将 MapReduce 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-mapreduce.md)
+* [将 MapReduce 与 HDInsight 上的 Apache Hadoop 配合使用](hdinsight-use-mapreduce.md)
 
 有关适用于 Visual Studio 的 HDInsight 工具的详细信息：
 
@@ -155,7 +153,7 @@ ms.locfileid: "52662305"
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]:apache-hadoop-linux-tutorial-get-started.md
 
-[powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
+[powershell-here-strings]: https://technet.microsoft.com/library/ee692792.aspx
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png

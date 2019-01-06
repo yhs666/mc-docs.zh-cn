@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/10/2018
-ms.date: 12/03/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: f316ffa66d429842ef7fc7977f89c9223b8f9d64
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 78e6a3f024a5fc91ef3057819e0b7f7752ae1845
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676674"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026753"
 ---
 # <a name="indexing-in-azure-cosmos-db"></a>Azure Cosmos DB 中的索引
 
@@ -20,7 +20,7 @@ Azure Cosmos DB 是一种架构不可知的数据库，使你能够快速迭代�
 
 ## <a name="items-as-trees"></a>树形式的项
 
-通过将容器中的项投影为 JSON 文档并以树的形式表示，Azure Cosmos DB 将跨项的结构和实例值标准化为“动态编码的路径结构”统一概念。  **** 在此表示形式中，包含属性名称及其值的 JSON 文档中的每个标签都将成为树的节点。 树叶包含实际值，中间节点包含架构信息。 下图表示为容器中的两个项（1 和 2）创建的树：
+通过将容器中的项投影为 JSON 文档并以树的形式表示，Azure Cosmos DB 将跨项的结构和实例值标准化为“动态编码的路径结构”统一概念 **。** 在此表示形式中，包含属性名称及其值的 JSON 文档中的每个标签都将成为树的节点。 树叶包含实际值，中间节点包含架构信息。 下图表示为容器中的两个项（1 和 2）创建的树：
 
 ![Azure Cosmos 容器中两个不同项的树表示形式](./media/index-overview/indexing-as-tree.png)
 
@@ -30,7 +30,7 @@ Azure Cosmos DB 是一种架构不可知的数据库，使你能够快速迭代�
 
 Azure Cosmos DB 将项投影为 JSON 文档，将索引投影为树。 然后，可调整树中路径的策略。 可以选择在索引中包括或排除路径。 如果事先已知查询模式，这可以提高写入性能并减少方案所需的索引存储。 若要了解详细信息，请参阅[索引路径](index-paths.md)。
 
-## <a name="indexing-under-the-hood"></a>索引：深入了解
+## <a name="indexing-under-the-hood"></a>索引：揭秘
 
 Azure Cosmos 数据库将自动索引应用于数据，其中树中的所有路径均编制了索引，除非配置为排除某些路径。
 
@@ -64,5 +64,4 @@ Azure Cosmos 数据库采用倒排索引数据结构存储每个项的信息，�
 - [索引路径](index-paths.md)
 - [如何管理索引策略](how-to-manage-indexing-policy.md)
 
-<!-- Update_Description: new articles on cosmos db index overview -->
-<!--ms.date: 12/03/2018-->
+<!-- Update_Description: update meta properties -->

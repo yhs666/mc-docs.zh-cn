@@ -14,12 +14,12 @@ ms.workload: infrastructure
 origin.date: 10/23/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 505cf291a4eb1310fc3221cec216ab8fbd54fbc0
-ms.sourcegitcommit: 6cd0a8d22061aba7390579a80e19cb9d2f7faf12
+ms.openlocfilehash: 21f3caa1e55983cb9276a9b0fd2233e33bca7abe
+ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53233985"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785161"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>远程桌面服务在 Azure VM 上不启动
 
@@ -91,5 +91,5 @@ ms.locfileid: "53233985"
 
 ## <a name="need-help-contact-support"></a>需要帮助？ 联系支持人员
 
-如果仍需帮助，请[联系支持人员](https://www.azure.cn/support/support-azure/)解决问题。
+如果仍需帮助，请[联系支持人员](https://support.azure.cn/zh-cn/support/support-azure/)解决问题。
 

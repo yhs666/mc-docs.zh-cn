@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/12/2018
-ms.date: 10/15/2018
+origin.date: 10/23/2018
+ms.date: 12/31/2018
 ms.author: v-jay
 ms.reviewer: efemmano
-ms.openlocfilehash: 85b4eed1de84d561ef7159b2536f0d0faecf9457
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.openlocfilehash: 4ce62047a583cf225999149640b617e4403c0fd7
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396219"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814660"
 ---
 # <a name="use-the-azure-stack-portal"></a>使用 Azure Stack 门户
 

@@ -17,11 +17,11 @@ origin.date: 09/25/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
 ms.openlocfilehash: aa7a2acc8f647a38415f21b63f52a9184c81a463
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674346"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785176"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>上传通用化 VHD 并使用它在 Azure 中创建新 VM
 

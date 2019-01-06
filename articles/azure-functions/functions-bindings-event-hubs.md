@@ -11,14 +11,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 11/08/2017
-ms.date: 11/22/2018
+ms.date: 12/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: 6ae97f9ceabaf8a4bfc4f4b48e83be813399e90d
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: a5326ad1387571ab4f7755546dc1094eed93e77a
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672565"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806618"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Functions 的 Azure 事件中心绑定
 
@@ -28,7 +28,7 @@ ms.locfileid: "52672565"
 
 ## <a name="packages---functions-1x"></a>包 - Functions 1.x
 
-对于 Azure Functions 版本 1.x，[Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet 包 2.x 版中提供了事件中心绑定。
+对于 Azure Functions 版本 1.x，[Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet 包 2.x 版中提供了事件中心绑定。
 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs) GitHub 存储库中提供了此包的源代码。
 
 
@@ -36,7 +36,7 @@ ms.locfileid: "52672565"
 
 ## <a name="packages---functions-2x"></a>包 - Functions 2.x
 
-对于 Functions 2.x，请使用 [Microsoft.Azure.WebJobs.Extensions.EventHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs) 包 3.x 版。
+对于 Functions 2.x，请使用 [Microsoft.Azure.WebJobs.Extensions.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs) 包 3.x 版。
 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs) GitHub 存储库中提供了此包的源代码。
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
@@ -60,9 +60,9 @@ ms.locfileid: "52672565"
 
 - **不需要新的函数实例**：在 Functions 的缩放逻辑介入之前，`Function_0` 能够处理所有 1000 个事件。 在这种情况下，所有 1000 条消息都由 `Function_0` 进行处理。
 
-- **添加另一个函数实例**：Functions 缩放逻辑确定 `Function_0` 收到的消息数超出了它的处理能力。 在这种情况下，会创建一个新的函数应用实例 (`Function_1`) 以及一个新的 [EventProcessorHost](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor) 实例。 事件中心检测到一个新的主机实例正在尝试读取消息。 事件中心在其主机实例之间对分区进行负载均衡。 例如，可以将分区 0-4 分配给 `Function_0`，将分区 5-9 分配给 `Function_1`。 
+- **添加其他函数实例**：Functions 缩放逻辑确定 `Function_0` 的消息数多于它可以处理的消息数。 在这种情况下，会创建一个新的函数应用实例 (`Function_1`) 以及一个新的 [EventProcessorHost](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor) 实例。 事件中心检测到一个新的主机实例正在尝试读取消息。 事件中心在其主机实例之间对分区进行负载均衡。 例如，可以将分区 0-4 分配给 `Function_0`，将分区 5-9 分配给 `Function_1`。
 
-- **额外添加 N 个函数实例**：Functions 缩放逻辑确定 `Function_0` 和 `Function_1` 收到的消息数超出了它们的处理能力。 创建新的函数应用实例 `Function_2`...`Functions_N`，其中，`N` 大于事件中心分区数。 在我们的示例中，事件中心再次对分区进行负载均衡，在本例中是在实例 `Function_0`...`Functions_9` 之间进行的。 
+- **额外添加 N 个函数实例**：Functions 缩放逻辑确定 `Function_0` 和 `Function_1` 收到的消息数超出了它们的处理能力。 创建新的函数应用实例 `Function_2`...`Functions_N`，其中，`N` 大于事件中心分区数。 在我们的示例中，事件中心再次对分区进行负载均衡，在本例中是在实例 `Function_0`...`Functions_9` 之间进行的。
 
 请注意，当 Functions 缩放到 `N` 个实例时，这是一个大于事件中心分区数的数字。 这样做是为了确保始终有 [EventProcessorHost](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor) 实例可供用来在其他实例释放锁时在分区上获取锁。 你只需为执行函数实例时使用的资源付费，不需要为过度预配的资源付费。
 
@@ -75,8 +75,9 @@ ms.locfileid: "52672565"
 - [C#](#trigger---c-example)
 - [C# 脚本 (.csx)](#trigger---c-script-example)
 - [F#](#trigger---f-example)
-- [JavaScript](#trigger---javascript-example)
 - [Java](#trigger---java-example)
+- [JavaScript](#trigger---javascript-example)
+- [Python](#trigger---python-example)
 
 ### <a name="trigger---c-example"></a>触发器 - C# 示例
 
@@ -95,8 +96,8 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
 public static void Run(
-    [EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] EventData myEventHubMessage, 
-    DateTime enqueuedTimeUtc, 
+    [EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] EventData myEventHubMessage,
+    DateTime enqueuedTimeUtc,
     Int64 sequenceNumber,
     string offset,
     ILogger log)
@@ -134,8 +135,9 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 以下示例演示 *function.json* 文件中的一个事件中心触发器绑定以及使用该绑定的 [C# 脚本函数](functions-reference-csharp.md)。 该函数记录事件中心触发器的消息正文。
 
-以下示例显示了 *function.json* 文件中的事件中心绑定数据。 第一个示例适用于 Functions 2.x，第二个示例适用于 Functions 1.x。 
+以下示例显示了 *function.json* 文件中的事件中心绑定数据。
 
+#### <a name="version-2x"></a>版本 2.x
 
 ```json
 {
@@ -146,6 +148,9 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
+
+#### <a name="version-1x"></a>版本 1.x
+
 ```json
 {
   "type": "eventHubTrigger",
@@ -178,7 +183,7 @@ using Microsoft.ServiceBus.Messaging;
 using Microsoft.Azure.EventHubs;
 
 public static void Run(EventData myEventHubMessage,
-    DateTime enqueuedTimeUtc, 
+    DateTime enqueuedTimeUtc,
     Int64 sequenceNumber,
     string offset,
     TraceWriter log)
@@ -211,8 +216,9 @@ public static void Run(string[] eventHubMessages, TraceWriter log)
 
 以下示例演示 *function.json* 文件中的一个事件中心触发器绑定以及使用该绑定的 [F# 函数](functions-reference-fsharp.md)。 该函数记录事件中心触发器的消息正文。
 
-以下示例显示了 *function.json* 文件中的事件中心绑定数据。 第一个示例适用于 Functions 2.x，第二个示例适用于 Functions 1.x。 
+以下示例显示了 *function.json* 文件中的事件中心绑定数据。 
 
+#### <a name="version-2x"></a>版本 2.x
 
 ```json
 {
@@ -223,6 +229,9 @@ public static void Run(string[] eventHubMessages, TraceWriter log)
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
+
+#### <a name="version-1x"></a>版本 1.x
+
 ```json
 {
   "type": "eventHubTrigger",
@@ -244,8 +253,9 @@ let Run(myEventHubMessage: string, log: TraceWriter) =
 
 以下示例演示 *function.json* 文件中的一个事件中心触发器绑定以及使用该绑定的 [JavaScript 函数](functions-reference-node.md)。 此函数将读取[事件元数据](#trigger---event-metadata)并记录消息。
 
-以下示例显示了 *function.json* 文件中的事件中心绑定数据。 第一个示例适用于 Functions 2.x，第二个示例适用于 Functions 1.x。 
+以下示例显示了 *function.json* 文件中的事件中心绑定数据。
 
+#### <a name="version-2x"></a>版本 2.x
 
 ```json
 {
@@ -256,6 +266,9 @@ let Run(myEventHubMessage: string, log: TraceWriter) =
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
+
+#### <a name="version-1x"></a>版本 1.x
+
 ```json
 {
   "type": "eventHubTrigger",
@@ -274,12 +287,14 @@ module.exports = function (context, eventHubMessage) {
     context.log('EnqueuedTimeUtc =', context.bindingData.enqueuedTimeUtc);
     context.log('SequenceNumber =', context.bindingData.sequenceNumber);
     context.log('Offset =', context.bindingData.offset);
-     
+
     context.done();
 };
 ```
 
-若要批量接收事件，请将 function.json 文件中的 `cardinality` 设为 `many`，如以下示例所示。 第一个示例适用于 Functions 2.x，第二个示例适用于 Functions 1.x。 
+若要批量接收事件，请将 function.json 文件中的 `cardinality` 设为 `many`，如以下示例所示。
+
+#### <a name="version-2x"></a>版本 2.x
 
 ```json
 {
@@ -291,6 +306,9 @@ module.exports = function (context, eventHubMessage) {
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
+
+#### <a name="version-1x"></a>版本 1.x
+
 ```json
 {
   "type": "eventHubTrigger",
@@ -307,7 +325,7 @@ JavaScript 代码如下所示：
 ```javascript
 module.exports = function (context, eventHubMessages) {
     context.log(`JavaScript eventhub trigger function called for message array ${eventHubMessages}`);
-    
+
     eventHubMessages.forEach((message, index) => {
         context.log(`Processed message ${message}`);
         context.log(`EnqueuedTimeUtc = ${context.bindingData.enqueuedTimeUtcArray[index]}`);
@@ -317,6 +335,35 @@ module.exports = function (context, eventHubMessages) {
 
     context.done();
 };
+```
+
+### <a name="trigger---python-example"></a>触发器 - Python 示例
+
+以下示例演示 function.json 文件中的事件中心触发器绑定以及使用该绑定的 [Python 函数](functions-reference-python.md)。 此函数将读取[事件元数据](#trigger---event-metadata)并记录消息。
+
+以下示例显示了 *function.json* 文件中的事件中心绑定数据。
+
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "event",
+  "direction": "in",
+  "eventHubName": "MyEventHub",
+  "connection": "myEventHubReadConnectionAppSetting"
+}
+```
+
+下面是 Python 代码：
+
+```python
+import logging
+import azure.functions as func
+
+def main(event: func.EventHubEvent):
+    logging.info('Event Hubs trigger function processed message: ', event.get_body())
+    logging.info('  EnqueuedTimeUtc =', event.enqueued_time)
+    logging.info('  SequenceNumber =', event.sequence_number)
+    logging.info('  Offset =', event.offset)
 ```
 
 ### <a name="trigger---java-example"></a>触发器 - Java 示例
@@ -339,13 +386,13 @@ public void eventHubProcessor(
   @EventHubTrigger(name = "msg",
                   eventHubName = "myeventhubname",
                   connection = "myconnvarname") String message,
-       final ExecutionContext context ) 
+       final ExecutionContext context )
        {
           context.getLogger().info(message);
  }
  ```
 
- 在 [Java 函数运行时库](https://docs.microsoft.com/en-us/java/api/overview/azure/functions/runtime)中，对其值来自事件中心的参数使用 `EventHubTrigger` 注释。 带有这些注释的参数会导致函数在事件到达时运行。  可以将此注释与本机 Java 类型、POJO 或使用了 Optional<T> 的可为 null 的值一起使用。 
+ 在 [Java 函数运行时库](https://docs.microsoft.com/en-us/java/api/overview/azure/functions/runtime)中，对其值来自事件中心的参数使用 `EventHubTrigger` 注释。 带有这些注释的参数会导致函数在事件到达时运行。  可以将此注释与本机 Java 类型、POJO 或使用了 Optional<T> 的可为 null 的值一起使用。
 
 ## <a name="trigger---attributes"></a>触发器 - 特性
 
@@ -371,11 +418,11 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 |---------|---------|----------------------|
 |类型 | 不适用 | 必须设置为 `eventHubTrigger`。 在 Azure 门户中创建触发器时，会自动设置此属性。|
 |direction | 不适用 | 必须设置为 `in`。 在 Azure 门户中创建触发器时，会自动设置此属性。 |
-|**name** | 不适用 | 在函数代码中表示事件项的变量的名称。 | 
-|**路径** |**EventHubName** | 仅适用于 Functions 1.x。 事件中心的名称。 当事件中心名称也出现在连接字符串中时，该值会在运行时覆盖此属性。 | 
+|**name** | 不适用 | 在函数代码中表示事件项的变量的名称。 |
+|**路径** |**EventHubName** | 仅适用于 Functions 1.x。 事件中心的名称。 当事件中心名称也出现在连接字符串中时，该值会在运行时覆盖此属性。 |
 |**eventHubName** |**EventHubName** | 仅适用于 Functions 2.x。 事件中心的名称。 当事件中心名称也出现在连接字符串中时，该值会在运行时覆盖此属性。 |
-|**consumerGroup** |**ConsumerGroup** | 一个可选属性，用于设置[使用者组](../event-hubs/event-hubs-features.md#event-consumers)，该组用于订阅事件中心中的事件。 如果将其省略，则会使用 `$Default` 使用者组。 | 
-|**基数** | 不适用 | 适用于 JavaScript。 设为 `many` 以启用批处理。  如果省略或设为 `one`，将向函数传递一条消息。 | 
+|**consumerGroup** |**ConsumerGroup** | 一个可选属性，用于设置[使用者组](../event-hubs/event-hubs-features.md#event-consumers)，该组用于订阅事件中心中的事件。 如果将其省略，则会使用 `$Default` 使用者组。 |
+|**基数** | 不适用 | 适用于 JavaScript。 设为 `many` 以启用批处理。  如果省略或设为 `one`，将向函数传递一条消息。 |
 |**连接** |**Connection** | 应用设置的名称，该名称中包含事件中心命名空间的连接字符串。 单击 [命名空间](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace) （而不是事件中心本身）的“连接信息”按钮，以复制此连接字符串。 此连接字符串必须至少具有读取权限才可激活触发器。|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -406,7 +453,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 使用事件中心输出绑定将事件写入到事件流。 必须具有事件中心的发送权限才可将事件写入到其中。
 
-确保已设置所需的包引用：[Functions 1.x](#packages---functions-1.x) 或 [Functions 2.x](#packages---functions-2.x) 
+请确保所需的包引用已准备好：[Functions 1.x](#packages---functions-1.x) 或 [Functions 2.x](#packages---functions-2.x)
 
 ## <a name="output---example"></a>输出 - 示例
 
@@ -415,8 +462,9 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 - [C#](#output---c-example)
 - [C# 脚本 (.csx)](#output---c-script-example)
 - [F#](#output---f-example)
-- [JavaScript](#output---javascript-example)
 - [Java](#output---java-example)
+- [JavaScript](#output---javascript-example)
+- [Python](#output---python-example)
 
 ### <a name="output---c-example"></a>输出 - C# 示例
 
@@ -447,6 +495,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
     "direction": "out"
 }
 ```
+
 ```json
 {
     "type": "eventHub",
@@ -532,6 +581,7 @@ let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: ILogger) 
     "direction": "out"
 }
 ```
+
 ```json
 {
     "type": "eventHub",
@@ -568,6 +618,35 @@ module.exports = function(context) {
 };
 ```
 
+### <a name="output---python-example"></a>输出 - Python 示例
+
+以下示例演示 function.json 文件中的事件中心触发器绑定以及使用该绑定的 [Python 函数](functions-reference-python.md)。 该函数将消息写入事件中心。
+
+以下示例显示了 *function.json* 文件中的事件中心绑定数据。
+
+```json
+{
+    "type": "eventHub",
+    "name": "$return",
+    "eventHubName": "myeventhub",
+    "connection": "MyEventHubSendAppSetting",
+    "direction": "out"
+}
+```
+
+下面是可发送一条消息的 Python 代码：
+
+```python
+import datetime
+import logging
+import azure.functions as func
+
+def main(timer: func.TimerRequest) -> str:
+    timestamp = datetime.datetime.utcnow()
+    logging.info('Event Hub message created at: %s', timestamp);   
+    return 'Event Hub message created at: {}'.format(timestamp)
+```
+
 ### <a name="output---java-example"></a>输出 - Java 示例
 
 以下示例演示一个将包含当前时间的消息写入到事件中心的 Java 函数。
@@ -581,7 +660,7 @@ public String sendTime(
  }
  ```
 
-在 [Java 函数运行时库](https://docs.microsoft.com/en-us/java/api/overview/azure/functions/runtime)中，对其值将被发布到事件中心的参数使用 `@EventHubOutput` 注释。  此参数应为 `OutputBinding<T>` 类型，其中 T 是 POJO 或任何本机 Java 类型。 
+在 [Java 函数运行时库](https://docs.microsoft.com/en-us/java/api/overview/azure/functions/runtime)中，对其值将被发布到事件中心的参数使用 `@EventHubOutput` 注释。  此参数应为 `OutputBinding<T>` 类型，其中 T 是 POJO 或任何本机 Java 类型。
 
 ## <a name="output---attributes"></a>输出 - 特性
 
@@ -608,8 +687,8 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 |---------|---------|----------------------|
 |类型 | 不适用 | 必须设置为“eventHub”。 |
 |direction | 不适用 | 必须设置为“out”。 在 Azure 门户中创建绑定时，会自动设置该参数。 |
-|**name** | 不适用 | 函数代码中使用的表示事件的变量名称。 | 
-|**路径** |**EventHubName** | 仅适用于 Functions 1.x。 事件中心的名称。 当事件中心名称也出现在连接字符串中时，该值会在运行时覆盖此属性。 | 
+|**name** | 不适用 | 函数代码中使用的表示事件的变量名称。 |
+|**路径** |**EventHubName** | 仅适用于 Functions 1.x。 事件中心的名称。 当事件中心名称也出现在连接字符串中时，该值会在运行时覆盖此属性。 |
 |**eventHubName** |**EventHubName** | 仅适用于 Functions 2.x。 事件中心的名称。 当事件中心名称也出现在连接字符串中时，该值会在运行时覆盖此属性。 |
 |**连接** |**Connection** | 应用设置的名称，该名称中包含事件中心命名空间的连接字符串。 单击 *命名空间* （而不是事件中心本身）的“连接信息”按钮，以复制此连接字符串。 此连接字符串必须具有发送权限才可将消息发送到事件流。|
 
@@ -662,4 +741,4 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 > [!div class="nextstepaction"]
 > [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

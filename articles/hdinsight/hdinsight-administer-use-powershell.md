@@ -1,6 +1,6 @@
 ---
-title: 使用 PowerShell 管理 HDInsight 中的 Hadoop 群集 - Azure | Azure
-description: 了解如何使用 Azure PowerShell 对 HDInsight 中的 Hadoop 群集执行管理任务。
+title: 使用 PowerShell 管理 HDInsight 中的 Apache Hadoop 群集 - Azure
+description: 了解如何使用 Azure PowerShell 针对 HDInsight 中的 Apache Hadoop 群集执行管理任务。
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
@@ -12,22 +12,20 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 05/14/2018
-ms.date: 06/25/2018
+origin.date: 11/06/2018
+ms.date: 12/24/2018
 ms.author: v-yiso
-ms.openlocfilehash: ca9814580873a6d0b64366e57226d9c70b7dfba9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5dc1488939d9b9ef76fbcf6242e21b66200f77ff
+ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652160"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53569248"
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>使用 Azure PowerShell 管理 HDInsight 中的 Hadoop 群集
+# <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>使用 Azure PowerShell 管理 HDInsight 中的 Apache Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
-
-Azure PowerShell 可用于在 Azure 中控制和自动执行工作负荷的部署和管理。 本文介绍了如何使用 Azure PowerShell 管理 Azure HDInsight 中的 Hadoop 群集。 有关 HDInsight PowerShell cmdlet 的列表，请参阅 [HDInsight cmdlet 参考][hdinsight-powershell-reference]。
+Azure PowerShell 可用于在 Azure 中控制和自动执行工作负荷的部署和管理。 本文介绍了如何使用 Azure PowerShell 管理 Azure HDInsight 中的 Apache Hadoop 群集。 有关 HDInsight PowerShell cmdlet 的列表，请参阅 [HDInsight cmdlet 参考](https://msdn.microsoft.com/library/azure/dn479228.aspx)。
 
 **先决条件**
 
@@ -217,7 +215,7 @@ $resourceGroupName = $cluster.ResourceGroup
 ## <a name="submit-jobs"></a>提交作业
 **提交 MapReduce 作业**
 
-请参阅[在基于 Windows 的 HDInsight 中运行 Hadoop MapReduce 示例](hdinsight-run-samples.md)。
+请参阅[运行 HDInsight 随附的 MapReduce 示例](hadoop/apache-hadoop-run-samples-linux.md)。
 
 **提交 Hive 作业**
 

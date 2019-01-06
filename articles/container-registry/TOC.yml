@@ -69,12 +69,12 @@ items:
   - name: 定价
     href: https://www.azure.cn/pricing/details/container-registry/
   - name: 提供产品反馈
-    href: https://www.azure.cn/support/support-azure/
+    href: https://support.azure.cn/zh-cn/support/support-azure/
   - name: 视频
     href: https://www.azure.cn/video-center/
-ms.openlocfilehash: 87ea841224242515180cb536917572699a5c540f
-ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
+ms.openlocfilehash: c51f7e422eb056b5be9ef6ed3fab015eede205b8
+ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53286731"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785152"

@@ -1,6 +1,6 @@
 ---
-title: 大规模提取、转换和加载 (ETL)
-description: 了解如何通过 Hadoop 在 HDInsight 中使用 ETL。
+title: 大规模提取、转换和加载 (ETL) - Azure HDInsight
+description: 了解如何通过 Apache Hadoop 在 HDInsight 中使用 ETL。
 services: hdinsight
 documentationcenter: ''
 author: ashishthaps
@@ -13,18 +13,18 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 origin.date: 11/14/2017
-ms.date: 08/27/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 4a62475b43449d4d90415f0b1655d9e1afc38f9d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d23415af602db41660fdc2e0d333216a2a3e83ff
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661492"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029171"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>大规模提取、转换和加载 (ETL)
 
-提取、转换和加载 (ETL) 是从各种源获取数据、将数据收集到标准位置、进行清理和处理，最终将其载入数据存储供查询的过程。 传统的 ETL 过程是导入数据、就地清理该数据，然后将其存储在关系数据引擎中。 使用 HDInsight 时，各种 Hadoop 生态系统组件都支持大规模执行 ETL。 
+提取、转换和加载 (ETL) 是从各种源获取数据、将数据收集到标准位置、进行清理和处理，最终将其载入数据存储供查询的过程。 传统的 ETL 过程是导入数据、就地清理该数据，然后将其存储在关系数据引擎中。 使用 HDInsight 时，各种 Apache Hadoop 生态系统组件都支持大规模执行 ETL。 
 
 在 ETL 过程中使用 HDInsight 可以通过以下管道来总结：
 
@@ -38,11 +38,11 @@ ms.locfileid: "52661492"
 
 若要在适当的时间运行适当的作业，则需要业务流程。
 
-### <a name="oozie"></a>Oozie
+### <a name="apache-oozie"></a>Apache Oozie
 
-Apache Oozie 是一个管理 Hadoop 作业的工作流协调系统。 Oozie 在 HDInsight 群集中运行，并与 Hadoop 堆栈集成。 Oozie 支持 Apache MapReduce、Apache Pig、Apache Hive 和 Apache Sqoop 的 Hadoop 作业。 Oozie 还可用于安排特定于某系统的作业，例如 Java 程序或 shell 脚本。
+Apache Oozie 是一个管理 Hadoop 作业的工作流协调系统。 Oozie 在 HDInsight 群集中运行，并与 Hadoop 堆栈集成。 Oozie 支持 Apache Hadoop MapReduce、Apache Pig、Apache Hive 和 Apache Sqoop 的 Hadoop 作业。 Oozie 还可用于安排特定于某系统的作业，例如 Java 程序或 shell 脚本。
 
-有关详细信息，请参阅[在 HDInsight 中将 Oozie 与 Hadoop 配合使用以定义和运行工作流](../hdinsight-use-oozie-linux-mac.md)，深入了解如何显示如何使用 Oozie 驱动器端到端管道，请参阅[具有可操作性数据管道](../hdinsight-operationalize-data-pipeline.md)。 
+有关详细信息，请参阅[在 HDInsight 中将 Apache Oozie 与 Apache Hadoop 配合使用以定义和运行工作流](../hdinsight-use-oozie-linux-mac.md)。如需深入演示如何使用 Oozie 驱动端到端管道，请参阅[操作数据管道](../hdinsight-operationalize-data-pipeline.md)。 
 
 <!-- For a deep dive showing how to use Oozie to drive an end-to-end pipeline, see [Operationalize the Data Pipeline](hdinsight-operationalize-data-pipeline.md). -->
 
@@ -78,7 +78,7 @@ Azure SQL DW 是存储已清理且准备好的数据供今后分析的绝佳选�
 
 Azure SQL 数据仓库 (SQL DW) 是已针对分析工作负荷进行优化的关系数据库。  Azure SQL DW 根据分区表进行缩放。  表可以跨多个节点分区。  在创建 Azure SQL DW 节点时便选择了节点。  可以在事后缩放节点，但是，该主动过程可能需要移动数据。 有关详细信息，请参阅 [SQL 数据仓库 - 管理计算](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)。
 
-### <a name="hbase"></a>HBase
+### <a name="apache-hbase"></a>Apache HBase
 
 Apache HBase 是 Azure HDInsight 中提供的键/值存储。  Apache HBase 是一种开源 NoSQL 数据库，它构建于 Hadoop 基础之上，并基于 Google BigTable 模型化。 HBase 针对按列系列组织的无架构数据库中的大量非结构化和结构化数据提供高性能的随机访问和强一致性。
 
@@ -108,17 +108,17 @@ Azure Analysis Services (AAS) 是用于决策支持和业务分析的分析数�
 
 将数据存储到 Azure 中后，可以使用许多服务将这些数据提取和载入其他产品。  HDInsight 支持 Sqoop 和 Flume。 
 
-### <a name="sqoop"></a>Sqoop
+### <a name="apache-sqoop"></a>Apache Sqoop
 
 Apache Sqoop 是专用于在结构化、半结构化和非结构化数据源之间有效传输数据的工具。 
 
 Sqoop 使用 MapReduce 导入和导出数据，可提供并行操作和容错。
 
-### <a name="flume"></a>Flume
+### <a name="apache-flume"></a>Apache Flume
 
 Apache Flume 是分布式、可靠且高度可用的服务，能够有效地收集、聚合与移动大量日志数据。 Flume 采用基于流式传输数据流的简单弹性体系结构。 Flume 既可靠又能容错，提供可优化的可靠性机制和许多故障转移与恢复机制。 Flume 使用一个允许联机分析应用程序的简单可扩展数据模型。
 
-Apache Flume 无法与 Azure HDInsight 配合使用。  本地 Hadoop 安装可以使用 Flume 将数据发送到 Azure 存储 Blob 或 Azure Data Lake Store。  有关详细信息，请参阅[将 Apache Flume 与 HDInsight 配合使用](https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/)。
+Apache Flume 无法与 Azure HDInsight 配合使用。  本地 Hadoop 安装可以使用 Flume 将数据发送到 Azure 存储 Blob 或 Azure Data Lake Storage。  有关详细信息，请参阅[将 Apache Flume 与 HDInsight 配合使用](https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/)。
 
 ## <a name="transform"></a>转换
 
@@ -126,5 +126,5 @@ Apache Flume 无法与 Azure HDInsight 配合使用。  本地 Hadoop 安装可�
 
 ## <a name="next-steps"></a>后续步骤
 
-* [将 Pig 与 Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
+* [将 Apache Pig 与 Apache Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
 * [使用 Apache Hive 作为 ETL 工具](apache-hadoop-using-apache-hive-as-an-etl-tool.md) 

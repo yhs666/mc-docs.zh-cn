@@ -1,26 +1,26 @@
 ---
-title: 使用 Azure 经典 CLI 管理 Hadoop 群集 - Azure HDInsight
-description: 了解如何使用 Azure 经典 CLI 管理 Azure HDInsight 中的 Hadoop 群集。
+title: 使用 Azure 经典 CLI 管理 Apache Hadoop 群集 - Azure HDInsight
+description: 了解如何使用 Azure 经典 CLI 管理 Azure HDInsight 中的 Apache Hadoop 群集。
 services: hdinsight
 ms.reviewer: jasonh
-author: jasonwhowell
+author: tylerfox
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-origin.date: 05/14/2018
-ms.date: 11/19/2018
+origin.date: 11/06/2018
+ms.date: 12/24/2018
 ms.author: v-yiso
-ms.openlocfilehash: c38e0f2c3f94c74ba9252dacdf8acc5f09be7513
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 4db18b84a8da81b429a38f9735876bba25aea145
+ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646184"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53569325"
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-using-the-azure-classic-cli"></a>使用 Azure 经典 CLI 管理 HDInsight 中的 Hadoop 群集
+# <a name="manage-apache-hadoop-clusters-in-hdinsight-using-the-azure-classic-cli"></a>使用 Azure 经典 CLI 管理 HDInsight 中的 Apache Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-了解如何使用 [Azure 经典 CLI](../cli-install-nodejs.md) 管理 Azure HDInsight 中的 Hadoop 群集。 经典 CLI 是以 Node.js 实现的。 可以在支持 Node.js 的任意平台（包括 Windows、Mac 和 Linux）上使用它。
+了解如何使用 [Azure 经典 CLI](../cli-install-nodejs.md) 管理 Azure HDInsight 中的 Apache Hadoop 群集。 经典 CLI 是以 Node.js 实现的。 可以在支持 Node.js 的任意平台（包括 Windows、Mac 和 Linux）上使用它。
 
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
@@ -87,13 +87,6 @@ azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
 ```cli
 azure hdinsight cluster enable-http-access [options] <Cluster Name> <userName> <password>
 azure hdinsight cluster disable-http-access [options] <Cluster Name>
-```
-
-## <a name="enabledisable-rdp-access-for-a-cluster"></a>启用/禁用对群集的 RDP 访问
-
-```cli
-azure hdinsight cluster enable-rdp-access [options] <Cluster Name> <rdpUserName> <rdpPassword> <rdpExpiryDate>
-azure hdinsight cluster disable-rdp-access [options] <Cluster Name>
 ```
 
 ## <a name="next-steps"></a>后续步骤

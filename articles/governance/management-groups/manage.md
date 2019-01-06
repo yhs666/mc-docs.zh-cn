@@ -1,22 +1,21 @@
 ---
-title: 如何在 Azure 中更改、删除或管理管理组 | Azure
+title: 如何在 Azure 中更改、删除或管理管理组
 description: 了解如何维护和更新管理组层次结构。
-author: rockboyfor
-manager: digimobile
+author: rthorn17
+manager: rithorn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/18/2018
-ms.date: 10/29/2018
-ms.author: v-yeche
-ms.openlocfilehash: 980c5f59d88c7b0d5e302a12e03a2efe17dcb0ac
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.date: 01/14/2019
+ms.author: v-biyu
+ms.openlocfilehash: cb05e26c47a78654db3cd24790776b7382210dde
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028466"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996317"
 ---
 <!--Verify successfully-->
 # <a name="manage-your-resources-with-management-groups"></a>使用管理组管理资源
@@ -208,7 +207,7 @@ az account management-group show --name 'Contoso'
 
 ### <a name="move-subscriptions-in-powershell"></a>在 PowerShell 中移动订阅
 
-若要在 PowerShell 中移动订阅，请使用 Add-AzureRmManagementGroupSubscription 命令。  
+若要在 PowerShell 中移动订阅，请使用 New-AzureRmManagementGroupSubscription 命令。  
 
 ```PowerShell
 New-AzureRmManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
@@ -273,14 +272,26 @@ Update-AzureRmManagementGroup -GroupName 'Contoso' -ParentName 'ContosoIT'
 az account management-group update --name 'Contoso' --parent 'Contoso Tenant'
 ```
 
+## <a name="audit-management-groups-using-activity-logs"></a>使用活动日志审核管理组
+
+若要通过此 API 跟踪管理组，请使用[租户活动日志 API](https://docs.microsoft.com/zh-cn/rest/api/monitor/tenantactivitylogs)。 目前不可以使用 PowerShell、CLI 或 Azure 门户跟踪管理组活动。
+
+1. Azure AD 租户的租户管理员可以[提升访问权限](../../role-based-access-control/elevate-access-global-admin.md)，然后将一个“读者”角色分配给 `/providers/microsoft.insights/eventtypes/management` 范围内的审核用户。
+1. 以审核用户身份调用[租户活动日志 API](https://docs.microsoft.com/zh-cn/rest/api/monitor/tenantactivitylogs) 来查看管理组活动。 需要按资源提供程序 **Microsoft.Management** 对所有管理组活动进行筛选。  示例：
+
+```xml
+GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
+```
+
+> [!NOTE]
+> 若要快速从命令行调用此 API，请尝试使用 [ARMClient](https://github.com/projectkudu/ARMClient)。
+
 ## <a name="next-steps"></a>后续步骤
 
-若要详细了解管理组，请参阅：
+若要了解有关管理组的详细信息，请参阅：
 
-- [使用 Azure 管理组来组织资源](index.md)
 - [创建管理组来组织 Azure 资源](create.md)
-- [安装 Azure PowerShell 模块](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
-- [查看 REST API 规范](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
-- [安装 Azure CLI 扩展](https://docs.azure.cn/zh-cn/cli/extension?view=azure-cli-latest#az-extension-list-available)
-
-<!-- Update_Description: update meta properties, wording update, update link  -->
+- [如何更改、删除或管理管理组](manage.md)
+- [在 Azure PowerShell 资源模块中查看管理组](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0#resources)
+- [在 REST API 中查看管理组](https://docs.microsoft.com/en-us/rest/api/resources/managementgroups)
+- [在 Azure CLI 中查看管理组](https://docs.azure.cn/zh-cn/cli/account/management-group?view=azure-cli-latest)

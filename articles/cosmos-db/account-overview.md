@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/08/2018
-ms.date: 12/03/2018
+ms.date: 12/31/2018
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 1893765f794668ae76f6c46cc8f5b3e106285b08
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: dc08940458c6260b8b7f97af191782e2cf26890a
+ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676447"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814740"
 ---
 # <a name="working-with-azure-cosmos-account"></a>使用 Azure Cosmos 帐户
 
@@ -39,10 +39,9 @@ Azure Cosmos DB 容器是基本的缩放单元。 容器可以提供几乎无限
 * [多区域分布](distribute-data-globally.md)
 * [一致性级别](consistency-levels.md)
 * [使用 Azure Cosmos 容器和项](databases-containers-items.md)
-* [Azure Cosmos 帐户的 VNET 服务终结点](firewall-support.md)
-* [Azure Cosmos 帐户的 IP 防火墙](vnet-service-endpoint.md)
+* [Azure Cosmos 帐户的 VNET 服务终结点](vnet-service-endpoint.md)
+* [Azure Cosmos 帐户的 IP 防火墙](firewall-support.md)
 * [如何在 Azure Cosmos 帐户中添加和删除 Azure 区域](how-to-manage-database-account.md)
 * [Azure Cosmos DB SLA](https://www.azure.cn/support/sla/cosmos-db/)
 
-<!-- Update_Description: new articles on cosmos db account overview -->
-<!--ms.date: 12/03/2018-->
+<!-- Update_Description: update link -->

@@ -7,15 +7,14 @@ manager: digimobile
 tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: conceptual
-origin.date: 10/03/2018
-ms.date: 11/26/2018
+ms.date: 1/3/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 59183fcee4486abb52c87de60f5d584ed99bfbfd
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 667a5891f2c539380d0af5465fb4cbf125c21099
+ms.sourcegitcommit: f46e1f7a5d582bb9663bfaee8087b233eb822e17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674582"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996498"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>升级到 Azure VM 备份堆栈 V2
 

@@ -11,15 +11,15 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 09/08/2018
-ms.date: 11/22/2018
+ms.date: 12/26/2018
 ms.author: v-junlch
 ms.custom: ''
-ms.openlocfilehash: 301204fbb0e64e73312de51f842e1c5aa7521571
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: e0a42239406d0727cfa97211a953f4bc6fce55ba
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672763"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806569"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions 的计时器触发器 
 
@@ -29,13 +29,13 @@ ms.locfileid: "52672763"
 
 ## <a name="packages---functions-1x"></a>包 - Functions 1.x
 
-[Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet 包 2.x 版中提供了计时器触发器。 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Timers/) GitHub 存储库中提供了此包的源代码。
+[Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet 包 2.x 版中提供了计时器触发器。 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Timers/) GitHub 存储库中提供了此包的源代码。
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="packages---functions-2x"></a>包 - Functions 2.x
 
-[Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet 包 3.x 版中提供了计时器触发器。 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) GitHub 存储库中提供了此包的源代码。
+[Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet 包 3.x 版中提供了计时器触发器。 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) GitHub 存储库中提供了此包的源代码。
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
@@ -43,15 +43,15 @@ ms.locfileid: "52672763"
 
 参阅语言特定的示例：
 
-- [C#](#trigger---c-example)
-- [C# 脚本 (.csx)](#trigger---c-script-example)
-- [F#](#trigger---f-example)
-- [JavaScript](#trigger---javascript-example)
-- [Java](#trigger---java-example)
+- [C#](#c-example)
+- [C# 脚本 (.csx)](#c-script-example)
+- [F#](#f-example)
+- [JavaScript](#javascript-example)
+- [Java](#java-example)
 
 ### <a name="c-example"></a>C# 示例
 
-以下示例演示每五分钟运行一次的 [C# 函数](functions-dotnet-class-library.md)：
+以下示例显示了一个 [C# 函数](functions-dotnet-class-library.md)，每当分钟的值可被 5 整除时，执行该函数（例如，如果函数起始于 18:57:00，则下一次执行函数的时间为 19:00:00）：
 
 ```cs
 [FunctionName("TimerTriggerCSharp")]
@@ -151,7 +151,7 @@ module.exports = function (context, myTimer) {
 
 ### <a name="java-example"></a>Java 示例
 
-以下示例函数的触发和执行间隔为 5 分钟。 函数上的 `@TimerTrigger` 注释使用与 [CRON 表达式](http://en.wikipedia.org/wiki/Cron#CRON_expression)相同的字符串格式定义计划。
+以下示例函数的触发和执行间隔为 5 分钟。 函数上的 `@TimerTrigger` 注释使用与 [CRON 表达式](https://en.wikipedia.org/wiki/Cron#CRON_expression)相同的字符串格式定义计划。
 
 ```java
 @FunctionName("keepAlive")
@@ -313,4 +313,4 @@ CRON 表达式使用的默认时区为协调世界时 (UTC)。 若要让 CRON �
 > [!div class="nextstepaction"]
 > [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

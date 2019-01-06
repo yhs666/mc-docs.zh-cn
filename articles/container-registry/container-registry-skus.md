@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-registry
 ms.topic: article
 origin.date: 08/30/2018
-ms.date: 11/12/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: c61b1d8b5d539e3f6ac631f09088dea54a7d368e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 058a554284d5c503908cb1f7b30bad8f125d55ea
+ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662893"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53569301"
 ---
 # <a name="azure-container-registry-skus"></a>Azure 容器注册表 SKU
 
@@ -88,6 +88,8 @@ az acr update --name myregistry --sku Premium
 
 有关每个 Azure 容器注册表 SKU 的定价信息，请参阅[容器注册表定价][container-registry-pricing]。
 
+有关数据传输定价的详细信息，请参阅[带宽定价详细信息](https://www.azure.cn/pricing/details/data-transfer/)。 
+
 ## <a name="next-steps"></a>后续步骤
 
 <!-- Not Available on **Azure Container Registry Roadmap**-->
@@ -104,7 +106,7 @@ az acr update --name myregistry --sku Premium
 <!-- LINKS - External -->
 [acr-roadmap]: https://aka.ms/acr/roadmap
 [container-registry-pricing]: https://www.azure.cn/pricing/details/container-registry/
-[container-registry-uservoice]: https://www.azure.cn/support/support-azure/
+[container-registry-uservoice]: https://support.azure.cn/zh-cn/support/support-azure/
 
 <!-- LINKS - Internal -->
 [az-acr-update]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-update

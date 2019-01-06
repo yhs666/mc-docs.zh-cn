@@ -1,21 +1,22 @@
 ---
 title: 我在 Azure 自动化中的第一个图形 Runbook
 description: 本教程指导完成创建、 测试和发布一个简单图形 Runbook。
-author: yunan2016
-manager: digimobile
 keywords: runbook, runbook 模板, runbook 自动化, azure runbook
 services: automation
 ms.service: automation
-ms.topic: article
+ms.component: process-automation
+author: WenJason
+ms.author: v-jay
 origin.date: 04/13/2018
-ms.date: 07/23/2018
-ms.author: v-nany
-ms.openlocfilehash: 7cc20e237defbcf184edff09adaeda4e7fe47875
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/24/2018
+ms.topic: conceptual
+manager: carmonm
+ms.openlocfilehash: 77aafd52c2a8b043ecde3331ed2cadddab2db7c7
+ms.sourcegitcommit: 895e9accaae8f8c2a29ed91d8e84911fda6111cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647971"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53615187"
 ---
 # <a name="my-first-graphical-runbook"></a>我的第一个图形 Runbook
 
@@ -33,7 +34,7 @@ ms.locfileid: "52647971"
 要完成本教程，需要以下各项：
 
 * Azure 订阅。 如果没有 Azure 订阅，可在开始之前创建一个 [1 元试用](https://www.azure.cn/pricing/1rmb-trial/)帐户。
-* [自动化帐户](/automation/) ，用来保存 Runbook 以及向 Azure 资源进行身份验证。 此帐户必须有权启动和停止虚拟机。
+* [自动化帐户](automation-offering-get-started.md) ，用来保存 Runbook 以及向 Azure 资源进行身份验证。 此帐户必须有权启动和停止虚拟机。
 * Azure 虚拟机。 需停止和启动该虚拟机，因此其不应为生产用 VM。
 
 ## <a name="create-runbook"></a>创建 Runbook

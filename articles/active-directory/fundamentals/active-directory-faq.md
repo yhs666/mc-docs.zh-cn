@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory - 常见问题解答 | Microsoft Docs
-description: 了解有关 Azure 和 Azure Active Directory、密码管理和应用程序访问的常见问题和解答。
+title: 常见问题解答 (FAQ) - Azure Active Directory | Microsoft Docs
+description: 有关 Azure 和 Azure Active Directory、密码管理以及应用程序访问的常见问题和解答。
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,16 +10,17 @@ ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 11/12/2018
-ms.date: 12/10/2018
+ms.date: 01/02/2019
 ms.author: v-junlch
-ms.openlocfilehash: 53a6a5f8724353fe6b8b13ab512cb4b08bdb5119
-ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 8694f335740959a43762bf61be931e0c019595a7
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53157424"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996233"
 ---
-# <a name="azure-active-directory-faq"></a>Azure Active Directory 常见问题
+# <a name="frequently-asked-questions-about-azure-active-directory"></a>有关 Azure Active Directory 的常见问题
 Azure Active Directory (Azure AD) 是综合性的标识即服务 (IDaaS) 解决方案，涉及到标识、访问管理和安全的方方面面。
 
 有关详细信息，请参阅[什么是 Azure Active Directory？](active-directory-whatis.md)。

@@ -2,41 +2,32 @@
 title: 在 Azure HDInsight 上的 Apache Spark 群集中使用 Zeppelin notebook | Azure
 description: 逐步说明如何在 Azure HDInsight 上的 Apache Spark 群集中使用 Zeppelin notebook。
 services: hdinsight
-documentationcenter: ''
-author: nitinme
+author: hrasheed-msft
 manager: jhubbard
-editor: cgronlun
-ms.assetid: df489d70-7788-4efa-a089-e5e5006421e2
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 02/21/2018
-ms.date: 03/26/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: c9fed0489d87fabeb7259a768e8ff4ed09fc01ea
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e203cd8f16c761a190cb9f95897b1b3e6b01b42a
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649250"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806586"
 ---
-# <a name="use-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>在 Azure HDInsight 上的 Apache Spark 群集中使用 Zeppelin notebook
+# <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>在 Azure HDInsight 上的 Apache Spark 群集中使用 Apache Zeppelin 笔记本
 
-HDInsight Spark 群集包括可用于运行 Spark 作业 Zeppelin 笔记本。 本文介绍如何在 HDInsight 群集中使用 Zeppelin 笔记本。
-
-> [!NOTE]
-> Zeppelin notebook 仅适用于 HDInsight 3.5 上的 Spark 1.6.3 和 HDInsight 3.6 上的 Spark 2.1.0。
->
+HDInsight Spark 群集包括可用于运行 [Apache Spark](https://spark.apache.org/) 作业的 [Apache Zeppelin](https://zeppelin.apache.org/) 笔记本。 本文介绍如何在 HDInsight 群集中使用 Zeppelin 笔记本。
 
 **先决条件：**
 
 * Azure 订阅。 请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 * HDInsight 上的 Apache Spark 群集。 有关说明，请参阅[在 Azure HDInsight 中创建 Apache Spark 群集](apache-spark-jupyter-spark-sql.md)。
 
-## <a name="launch-a-zeppelin-notebook"></a>启动 Zeppelin 笔记本
+## <a name="launch-an-apache-zeppelin-notebook"></a>启动 Apache Zeppelin 笔记本
 1. 在 Spark 群集边栏选项卡中单击“群集仪表板”，然后单击“Zeppelin Notebook”。 出现提示时，请输入群集的管理员凭据。
 
    > [!NOTE]
@@ -56,8 +47,8 @@ HDInsight Spark 群集包括可用于运行 Spark 作业 Zeppelin 笔记本。 �
 4. 将示例数据载入临时表。 在 HDInsight 中创建 Spark 群集时，系统会将示例数据文件 **hvac.csv** 复制到 **\HdiSamples\SensorSampleData\hvac** 下的关联存储帐户。
 
     将以下代码段粘贴到新笔记本中默认创建的空白段落处。
-
-        %livy.spark
+   
+        %livy2.spark
         //The above magic instructs Zeppelin to use the Livy Scala interpreter
 
         // Create an RDD using the default Spark context, sc
@@ -84,8 +75,13 @@ HDInsight Spark 群集包括可用于运行 Spark 作业 Zeppelin 笔记本。 �
     ![基于原始数据创建临时表](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-load-data.png "基于原始数据创建临时表")
    
     也可以为每个段落提供标题。 在右下角单击“设置”图标，并单击“显示标题”。
-5. 现在可以针对 **hvac** 表运行 Spark SQL 语句。 将以下查询粘贴到新段落中。 该查询将检索建筑物 ID，以及每栋建筑物在指定日期的目标温度与实际温度之间的差异。 按 **SHIFT + ENTER**。
 
+> [!NOTE]
+> 所有 HDInsight 版本中的 Zeppelin 笔记本均不支持 %spark2 解释器，HDInsight 4.0 及更高版本不支持 %sh 解释器。
+>
+
+1. 现在可以针对 **hvac** 表运行 Spark SQL 语句。 将以下查询粘贴到新段落中。 该查询将检索建筑物 ID，以及每栋建筑物在指定日期的目标温度与实际温度之间的差异。 按 **SHIFT + ENTER**。
+   
         %sql
         select buildingID, (targettemp - actualtemp) as temp_diff, date from hvac where date = "6/1/13" 
 
@@ -129,7 +125,7 @@ HDInsight Spark 群集包括可用于运行 Spark 作业 Zeppelin 笔记本。 �
     ![更改解释器设置](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-2.png "更改解释器设置")
    
     单击“保存”  ，并重启 Livy 解释器。
-4. **提示**：如果想要了解如何获得上面输入的键值，以下为相应步骤。
+4. **提示**：要了解如何访问上面输入的键的值，请查看以下内容。
 
     a. 在 Maven 存储库中找出该包。 在本教程中，使用了 [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar)。
 
@@ -165,19 +161,19 @@ Zeppelin 笔记本保存在群集头节点。 因此，如果删除群集，笔�
 * [概述：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>方案
-* [Spark 和 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](apache-spark-use-bi-tools.md)
-* [Spark 和机器学习：使用 HDInsight 中的 Spark 对使用 HVAC 数据生成温度进行分析](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](apache-spark-machine-learning-mllib-ipython.md)
-* [使用 HDInsight 中的 Spark 分析网站日志](apache-spark-custom-library-website-log-analysis.md)
+* [Apache Spark 与 BI：将 HDInsight 中的 Spark 与 BI 工具配合使用来执行交互式数据分析](apache-spark-use-bi-tools.md)
+* [Apache Spark 与机器学习：使用 HDInsight 中的 Spark 来通过 HVAC 数据分析建筑物温度](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark 与机器学习：使用 HDInsight 中的 Spark 预测食品检验结果](apache-spark-machine-learning-mllib-ipython.md)
+* [使用 HDInsight 中的 Apache Spark 分析网站日志](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>创建和运行应用程序
 * [使用 Scala 创建独立的应用程序](apache-spark-create-standalone-application.md)
-* [使用 Livy 在 Spark 群集中远程运行作业](apache-spark-livy-rest-interface.md)
+* [使用 Apache Livy 在 Apache Spark 群集中远程运行作业](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>工具和扩展
-* [使用用于 IntelliJ IDEA 的 HDInsight 工具插件创建和提交 Spark Scala 应用程序](apache-spark-intellij-tool-plugin.md)
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely（使用 IntelliJ IDEA 的 HDInsight 工具插件远程调试 Spark 应用程序）](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [在 HDInsight 的 Spark 群集中可用于 Jupyter 笔记本的内核](apache-spark-jupyter-notebook-kernels.md)
+* [使用适用于 IntelliJ IDEA 的 HDInsight 工具插件创建和提交 Apache Spark Scala 应用程序](apache-spark-intellij-tool-plugin.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Apache Spark applications remotely（使用适用于 IntelliJ IDEA 的 HDInsight 工具插件远程调试 Apache Spark 应用程序）](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [在 HDInsight 的 Apache Spark 群集中可用于 Jupyter Notebook 的内核](apache-spark-jupyter-notebook-kernels.md)
 * [Use external packages with Jupyter notebooks（将外部包与 Jupyter 笔记本配合使用）](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster（在计算机上安装 Jupyter 并连接到 HDInsight Spark 群集）](apache-spark-jupyter-notebook-install-locally.md)
 

@@ -1,3 +1,17 @@
+---
+author: WenJason
+ms.service: load-balancer
+ms.topic: include
+origin.date: 11/09/2018
+ms.date: 12/31/2018
+ms.author: v-jay
+ms.openlocfilehash: af2de534f0692fd3ab094c38176f95d83c75ae37
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806730"
+---
 ## <a name="configuration-scenario"></a>配置方案
 
 在此方案中，我们将在虚拟网络中创建一个内部负载均衡器，如下图所示：
@@ -8,5 +22,4 @@
 
 * 两台分别名为 DB1 和 DB2 的虚拟机
 * 内部负载均衡器的终结点
-* 内部负载均衡器 <!-- Update_Description: wording update -->
-<!-- ms.date: 12/11/20 -->
+* 内部负载均衡器

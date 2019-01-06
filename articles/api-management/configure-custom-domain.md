@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: integration
 ms.topic: article
 origin.date: 12/14/2017
-ms.date: 03/19/2018
+ms.date: 12/31/2018
 ms.author: v-yiso
-ms.openlocfilehash: 1869390d54fe033b24ec58531455f9d684b4d666
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 702078c2680caaaf93076029f7b8802e740b312c
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52667235"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736695"
 ---
 # <a name="configure-a-custom-domain-name"></a>配置自定义域名 
 
@@ -38,6 +38,8 @@ ms.locfileid: "52667235"
 + 一个 APIM 实例。 有关详细信息，请参阅[创建 Azure API 管理实例](get-started-create-service-instance.md)。
 + 一个由你拥有的自定义域名。 必须单独获取要使用的自定义域名并将其托管在 DNS 服务器上。 本主题没有说明如何托管自定义域名。
 + 必须具有有效的带有公钥和私钥 (.PFX) 的证书。 使用者或使用者可选名称 (SAN) 必须与域名匹配（这使得 APIM 可以通过 SSL 安全地公开 URL）。
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>使用 Azure 门户设置自定义域名
 

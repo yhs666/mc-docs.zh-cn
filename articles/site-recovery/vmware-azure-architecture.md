@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 09/12/2018
-ms.date: 12/10/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3f76881ac9f03be69a322b51117d8d3f65c129cd
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 1b92b98caca3ec9be8a8975b05b64c3acf2213a9
+ms.sourcegitcommit: b29475e13c1f54d420cdca71f90ca6a5c5116cbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028357"
+ms.lasthandoff: 12/24/2018
+ms.locfileid: "53784551"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>VMware 到 Azure 的灾难恢复体系结构
 

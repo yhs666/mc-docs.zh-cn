@@ -10,12 +10,12 @@ origin.date: 06/26/2017
 ms.date: 08/08/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7ac1cf79ca0a1f0e59ab0a5eb2c6ed9ae32904bb
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d73bb8e08751bbe3dc922a9377fe1fe1dd45a8aa
+ms.sourcegitcommit: 9fd5944afd6274e096a6e790583a131642f1532d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649672"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53737014"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Azure 备份报表的数据模型
 本文介绍用于创建 Azure 备份报表的 Power BI 数据模型。 使用此数据模型，可基于相关字段筛选现有报表，更重要是，还可使用模型中表格和字段创建自己的报表。 
@@ -34,7 +34,7 @@ Power BI 提供了自定义功能，可用于[通过数据模型创建报表](ht
 | #AlertsCreatedInPeriod |整数 |在选定时间段内创建的警报数 |
 | %ActiveAlertsCreatedInPeriod |百分比 |所选时间段内活动警报的百分比 |
 | %CriticalAlertsCreatedInPeriod |百分比 |所选时间段内严重警报的百分比 |
-| AlertOccurenceDate |日期 |警报的创建日期 |
+| AlertOccurrenceDate |日期 |警报的创建日期 |
 | AlertSeverity |文本 |警报的严重性，例如“严重” |
 | AlertStatus |文本 |警报的状态，例如“活动” |
 | AlertType |文本 |生成的警报的类型，例如“备份” |

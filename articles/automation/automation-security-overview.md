@@ -1,27 +1,23 @@
 ---
 title: Azure 自动化中的身份验证简介
 description: 本文概述了 Azure 自动化中自动化帐户的自动化安全性以及可供使用的不同身份验证方法。
-services: automation
-documentationcenter: ''
-author: MGoedtel
-manager: jwhit
-editor: tysonn
 keywords: 自动化安全性, 安全的自动化; 自动化身份验证
-ms.assetid: 4a6bc2f5-c5a2-4dfb-b10d-7950d750dee8
+services: automation
 ms.service: automation
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.component: process-automation
+author: WenJason
+ms.author: v-jay
 origin.date: 03/19/2018
-ms.date: 05/14/2018
-ms.author: v-dazen
-ms.openlocfilehash: a9a5c28030c75752cbf733a3e418275e6461600c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/24/2018
+ms.topic: conceptual
+manager: digimobile
+ROBOTS: NOINDEX
+ms.openlocfilehash: 391b44dfeb6118271b4d621895a286309a476822
+ms.sourcegitcommit: 895e9accaae8f8c2a29ed91d8e84911fda6111cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648766"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53615167"
 ---
 # <a name="introduction-to-authentication-in-azure-automation"></a>Azure 自动化中的身份验证简介  
 Azure 自动化让可以通过其他云提供程序（如 Amazon Web Services (AWS)）针对 Azure、本地中的资源来自动执行任务。  为了使 Runbook 执行所需操作，Runbook 必须有权使用订阅中所需的最小权限来安全地访问资源。
@@ -50,5 +46,5 @@ Azure 自动化让可以通过其他云提供程序（如 Amazon Web Services (A
 | 方法 | 环境 | 文章 |
 | --- | --- | --- |
 | Azure AD 用户帐户 |Azure 资源管理器和 Azure 经典 |[使用 Azure AD 用户帐户进行 Runbook 身份验证](automation-create-aduser-account.md) |
-| Azure 运行方式帐户 |Azure 资源管理器 |[Authenticate Runbooks with Azure Run As account（使用 Azure 运行方式帐户进行 Runbook 身份验证）](automation-create-runas-account.md) |
-| Azure 经典运行方式帐户 |Azure 经典 |[Authenticate Runbooks with Azure Run As account（使用 Azure 运行方式帐户进行 Runbook 身份验证）](automation-create-runas-account.md) |
+| Azure 运行方式帐户 |Azure 资源管理器 |[Authenticate Runbooks with Azure Run As account（使用 Azure 运行方式帐户进行 Runbook 身份验证）](automation-sec-configure-azure-runas-account.md) |
+| Azure 经典运行方式帐户 |Azure 经典 |[Authenticate Runbooks with Azure Run As account（使用 Azure 运行方式帐户进行 Runbook 身份验证）](automation-sec-configure-azure-runas-account.md) |

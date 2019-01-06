@@ -6,22 +6,21 @@ documentationcenter: ''
 author: WenJason
 manager: digimobile
 editor: ''
-ms.assetid: F4ED2238-AAF2-4930-AA7F-7C140311E10F
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/07/2018
-ms.date: 10/15/2018
+origin.date: 12/07/2018
+ms.date: 12/31/2018
 ms.author: v-jay
 ms.reviewer: Balsu.G
-ms.openlocfilehash: 42e89761a926813a06317f2b7e506772a60389fd
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6c8d95dd83f3c4a5729bbf41c22c464ca2881413
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654654"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814641"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-a-user"></a>以用户身份使用 PowerShell 连接到 Azure Stack
 
@@ -51,41 +50,34 @@ ms.locfileid: "52654654"
 
 ## <a name="connect-with-azure-ad"></a>与 Azure AD 连接
 
-  ```PowerShell
-  $AADTenantName = "yourdirectory.partner.onmschina.cn"
-  $ArmEndpoint = "https://management.local.azurestack.external"
+```PowerShell  
+    # Set your tenant name
+    $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackUser").ActiveDirectoryAuthority.TrimEnd('/')
+    $AADTenantName = "<myDirectoryTenantName>.partner.onmschina.cn"
+    $TenantId = (invoke-restmethod "$($AuthEndpoint)/$($AADTenantName)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
 
-  # Register an Azure Resource Manager environment that targets your Azure Stack instance
-  Add-AzureRMEnvironment `
-    -Name "AzureStackUser" `
-    -ArmEndpoint $ArmEndpoint
-
-  $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackUser").ActiveDirectoryAuthority.TrimEnd('/')
-  $TenantId = (invoke-restmethod "$($AuthEndpoint)/$($AADTenantName)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
-
-  # Sign in to your environment
-  Login-AzureRmAccount `
-    -EnvironmentName "AzureStackUser" `
-    -TenantId $TenantId
-   ```
+    # After signing in to your environment, Azure Stack cmdlets
+    # can be easily targeted at your Azure Stack instance.
+    Add-AzureRmAccount -EnvironmentName "AzureStackUser" -TenantId $TenantId
+```
 
 ## <a name="connect-with-ad-fs"></a>与 AD FS 连接
 
   ```PowerShell  
-  $ArmEndpoint = "https://management.local.azurestack.external"
-
   # Register an Azure Resource Manager environment that targets your Azure Stack instance
-  Add-AzureRMEnvironment `
-    -Name "AzureStackUser" `
-    -ArmEndpoint $ArmEndpoint
+  Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
 
   $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackUser").ActiveDirectoryAuthority.TrimEnd('/')
   $tenantId = (invoke-restmethod "$($AuthEndpoint)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
 
   # Sign in to your environment
+
+  $cred = get-credential
+
   Login-AzureRmAccount `
     -EnvironmentName "AzureStackUser" `
-    -TenantId $tenantId
+    -TenantId $tenantId `
+    -Credential $cred
   ```
 
 ## <a name="register-resource-providers"></a>注册资源提供程序

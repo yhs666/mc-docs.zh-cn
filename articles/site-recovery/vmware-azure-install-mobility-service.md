@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 10/29/2018
-ms.date: 12/10/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: b7a2b2da12d9d17aced3c7ce1190654a91c4dc1e
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 0086f42935e89fab22a43af14f36bb27ac45ba14
+ms.sourcegitcommit: b29475e13c1f54d420cdca71f90ca6a5c5116cbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028252"
+ms.lasthandoff: 12/24/2018
+ms.locfileid: "53784547"
 ---
 # <a name="install-the-mobility-service-for-disaster-recovery-of-vmware-vms-and-physical-servers"></a>安装移动服务以对 VMware VM 和物理服务器进行灾难恢复
 

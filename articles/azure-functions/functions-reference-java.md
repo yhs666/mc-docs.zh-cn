@@ -10,14 +10,14 @@ ms.service: azure-functions
 ms.devlang: java
 ms.topic: conceptual
 origin.date: 09/14/2018
-ms.date: 11/22/2018
+ms.date: 12/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: da4dffa4fa4b36179461ceee6dba5238af00a3d3
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 1daee7278824df712588366cb3c41f01ff83e08b
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672794"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806559"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 开发人员指南
 
@@ -63,7 +63,7 @@ FunctionsProject
 
  Azure Functions 由触发器（例如 HTTP 请求、计时器或数据更新）进行调用。 函数需要处理该触发器和任何其他输入以生成一个或多个输出。
 
-使用 `com.microsoft.azure.functions.annotation.*` 包中包含的 Java 注释将输入和输出绑定到方法。 有关详细信息，请参阅 `Java reference docs`。
+使用 [ com.microsoft.azure.functions.annotation.*](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation) 包中附带的 Java 注释将输入和输出绑定到方法。 有关详细信息，请参阅 [Java 参考文档](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation)。
 
 > [!IMPORTANT] 
 > 必须在 [local.settings.json](/azure-functions/functions-run-local#local-settings-file) 中配置 Azure 存储帐户，才能本地运行 Azure 存储 Blob、队列或表触发器。
@@ -106,7 +106,9 @@ public class Function {
 
 ## <a name="jdk-runtime-availability-and-support"></a>JDK 运行时可用性和支持 
 
-从 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) 下载并使用 [Azul Zulu for Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) JDK 进行 Java 函数应用的本地开发。 JDK 适用于 Windows、Linux 和 macOS。 通过[符合条件的支持计划](https://www.azure.cn/support/plans/)提供 [Azure 支持](https://www.azure.cn/support)。
+从 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) 下载和使用[适用于 Azure 的 Azul Zulu Enterprise](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) Java 8 JDK，以进行本地 Java 函数应用开发。 将函数应用部署到云时，Azure Functions 使用 Azul Java 8 JDK 运行时。
+
+对于 JDK 和函数应用的问题，[Azure 支持](https://www.azure.cn/support/)可通过[限定的支持计划](https://www.azure.cn/support/plans/)获得。
 
 ## <a name="third-party-libraries"></a>第三方库 
 

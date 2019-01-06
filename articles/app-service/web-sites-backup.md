@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中备份应用
+title: 备份应用 - Azure 应用服务
 description: 了解如何在 Azure 应用服务中创建应用备份。
 services: app-service
 documentationcenter: ''
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/06/2016
-ms.date: 10/08/2018
-ms.author: v-yiso
-ms.openlocfilehash: 2a2c152dd1371896a30c6ccc3bf4a7165034b37d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/31/2018
+ms.author: v-biyu
+ms.custom: seodec18
+ms.openlocfilehash: bbdff8193880a446a8525ad6e02890cde0901ca2
+ms.sourcegitcommit: 80c59ae1174d71509b4aa64a28a98670307a5b38
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651606"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735181"
 ---
 # <a name="back-up-your-app-in-azure"></a>在 Azure 中备份应用
 利用 [Azure 应用服务](app-service-web-overview.md)中的备份和还原功能，可以轻松地手动或按计划创建应用备份。 通过覆盖现有应用或还原为另一应用可将应用还原为先前状态的快照。 
@@ -74,7 +75,7 @@ ms.locfileid: "52651606"
 
 2. 在“备份”页中，单击“配置”
 ![单击“配置”](./media/web-sites-backup/ClickConfigure1.png)
-3. 在“备份配置”页中，单击“存储: 未配置”来配置存储帐户。
+3. 在“备份配置”页中，单击“存储: 未配置”以配置存储帐户。
    
     ![选择存储帐户][ChooseStorageAccount]
 4. 选择“存储帐户”和“容器”来选择备份目标。 该存储帐户必须与要备份的应用属于同一订阅。 也可在各自的页面中新建存储帐户或容器。 完成后，单击“选择” 。
@@ -90,7 +91,6 @@ ms.locfileid: "52651606"
    > 应用内 MySQL 数据库无需任何配置即可自动备份。 如果对应用内 MySQL 数据库进行手动设置，例如添加连接字符串，则备份可能无法正常工作。
    > 
    > 
-   
 6. 在“备份配置”页中，单击“保存”。    
 7. 在“备份”页中，单击“备份”。
    
@@ -139,7 +139,7 @@ ms.locfileid: "52651606"
     \site\wwwroot\Images\2013
 ```
 
-使用 [ftp](app-service-deploy-ftp.md) 或任何其他方法，将 `_backup.filter` 文件上传到站点的 `D:\home\site\wwwroot\` 目录。 如果需要，可使用 Kudu `DebugConsole` 直接创建此文件，并在其中插入内容。
+使用 [ftp](deploy-ftp.md) 或任何其他方法，将 `_backup.filter` 文件上传到站点的 `D:\home\site\wwwroot\` 目录。 如果需要，可使用 Kudu `DebugConsole` 直接创建此文件，并在其中插入内容。
 
 采用通常使用的相同方式运行备份，即[手动](#create-a-manual-backup)或[自动](#configure-automated-backups)。 现在，`_backup.filter` 中指定的任何文件和文件夹已从计划启动或手动启动的将来备份中排除。 
 
@@ -155,7 +155,7 @@ ms.locfileid: "52651606"
 ## <a name="how-backups-are-stored"></a>如何存储备份
 对应用进行了一次或多次备份后，可在存储帐户的“容器”页中看到备份以及应用。 在存储帐户中，每个备份都由一个 `.zip` 文件和一个 `.xml` 文件组成，前者包含备份数据，后者包含 `.zip` 文件内容的清单。 如果想要在无需实际执行应用还原的情况下访问备份，则可以解压缩并浏览这些文件。
 
-应用的数据库备份存储在 .zip 文件的根目录中。 对于 SQL 数据库，这是 BACPAC 文件（无文件扩展名），并且可以导入。 若要基于 BACPAC 导出创建 SQL 数据库，请参阅[导入 BACPAC 文件以创建新的用户数据库](http://technet.microsoft.com/library/hh710052.aspx)。
+应用的数据库备份存储在 .zip 文件的根目录中。 对于 SQL 数据库，这是 BACPAC 文件（无文件扩展名），并且可以导入。 若要基于 BACPAC 导出创建 SQL 数据库，请参阅[导入 BACPAC 文件以创建新的用户数据库](https://technet.microsoft.com/library/hh710052.aspx)。
 
 > [!WARNING]
 > 改动 **websitebackups** 容器中的任何文件都导致备份无效，进而无法还原。

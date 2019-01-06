@@ -1,25 +1,19 @@
 ---
-title: Azure DNS 常见问题解答 | Microsoft 文档
+title: Azure DNS 常见问题解答
 description: 有关 Azure DNS 的常见问题
 services: dns
-documentationcenter: na
 author: WenJason
-manager: digimobile
-editor: ''
 ms.service: dns
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 09/25/2018
-ms.date: 12/11/2018
+origin.date: 12/4/2018
+ms.date: 12/24/2018
 ms.author: v-jay
-ms.openlocfilehash: feab325aa0cb7b0a82833cb450f44ecf2a922a5f
-ms.sourcegitcommit: 5c059fe358e1298ef96450b2c620054afe89de1c
+ms.openlocfilehash: 56da37edd9026d524eb2ef59485ddc10a47aa626
+ms.sourcegitcommit: 895e9accaae8f8c2a29ed91d8e84911fda6111cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53234110"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53615178"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS 常见问题解答
 
@@ -103,9 +97,9 @@ Azure DNS 仅支持托管静态 DNS 域，其中对某给定的 DNS 记录来说
 
 例如，用户可能会提供一个字符串作为 TXT 记录的值，其中包含扩展的 ASCII 字符 \128。 例如“abcd\128efgh”。 Azure DNS 会在内部表示形式中使用此字符的字节值（即 128）。 在进行 DNS 解析时，此字节值会在响应中返回。 另请注意，在考虑到解析的情况下，“abc”和“\097\098\099”是可以互换的。 
 
-我们遵循适用于 TXT 记录的 [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) 区域文件母版格式转义规则。 例如，按照 RFC 规则，"\" 现在实际上可以对所有内容进行转义操作。 如果指定“A\B”作为 TXT 记录值，则会在呈现时，仅将其解析为“AB”。 如果确实需要让 TXT 记录在解析时呈现为“A\B”，则需对 "\" 再次执行转义操作。 例如，指定“A\\B”。 
+我们遵循适用于 TXT 记录的 [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) 区域文件母版格式转义规则。 例如，按照 RFC 规则，`\` 现在实际上可以对所有内容进行转义操作。 如果指定 `A\B` 作为 TXT 记录值，则会在呈现时，仅将其解析为 `AB`。 如果确实需要让 TXT 记录在解析时呈现为 `A\B`，则需对 `\` 再次执行转义操作。 例如，指定 `A\\B`。
 
-此支持目前不适用于通过 Azure 门户创建的 TXT 记录。 
+此支持目前不适用于通过 Azure 门户创建的 TXT 记录。
 
 ## <a name="use-azure-dns"></a>使用 Azure DNS
 

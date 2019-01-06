@@ -1,21 +1,20 @@
 ---
-title: 使用 Key Vault 存储和访问 Azure Cosmos DB 密钥 | Azure
+title: 使用 Key Vault 存储和访问 Azure Cosmos DB 密钥
 description: 使用 Azure Key Vault 来存储和访问 Azure Cosmos DB 连接字符串、密钥与 URI。
 services: cosmos-db
 author: rockboyfor
-manager: digimobile
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
 origin.date: 08/21/2018
-ms.date: 09/30/2018
+ms.date: 12/31/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2bb43c03537cdcced5d6a8f9fa5dc9912e490bdb
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 9f17bd32f5c99746b140b7075b60a1841a380f0a
+ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659697"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814762"
 ---
 # <a name="use-key-vault-to-store-and-access-azure-cosmos-db-keys"></a>使用 Key Vault 存储和访问 Azure Cosmos DB 密钥
 
@@ -34,7 +33,7 @@ ms.locfileid: "52659697"
 2. 选择“创建资源”>“安全性”>“Key Vault”。  
 3. 在“创建密钥保管库”部分，提供以下信息：  
    * **名称：** 提供 Key Vault 的唯一名称。  
-   * **订阅**：选择要使用的订阅。  
+   * **订阅：** 选择要使用的订阅。  
    * 在“资源组”下选择“新建”，然后输入资源组名称。  
    * 在“位置”下拉菜单中选择一个位置。  
    * 将其他选项保留默认值。  
@@ -92,7 +91,6 @@ ms.locfileid: "52659697"
 ## <a name="next-steps"></a>后续步骤
 
 * 若要为 Azure Cosmos DB 配置防火墙，请参阅[防火墙支持](firewall-support.md)一文。
-<!--Pending to translate on * To configure virtual network service endpoint, see [secure access by using VNet service endpoint](vnet-service-endpoint.md)-->
+* 若要配置虚拟网络服务终结点，请参阅[使用 VNet 服务终结点保护访问](vnet-service-endpoint.md)一文。
 
-<!--Update_Description: new article on access secrets from keyvault -->
-<!--ms.date: 09/03/2018-->
+<!--Update_Description: update link -->

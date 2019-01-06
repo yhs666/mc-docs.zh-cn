@@ -2,37 +2,30 @@
 title: 在 HDInsight 中运行 Hadoop 示例 - Azure | Azure
 description: 使用所提供的示例开始使用 Azure HDInsight 服务。 在数据群集中使用运行 MapReduce 程序的 PowerShell 脚本。
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: bf76d452-abb4-4210-87bd-a2067778c6ed
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 05/25/2017
-ms.date: 03/26/2018
+ms.date: 12/24/2018
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: a4a33f3fd88a8b166ffebcd259af7171bae2bad2
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 81b28fc6cd9ac60a093ba51bb1a7555b55cdc6ce
+ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663130"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53569290"
 ---
 # <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>在基于 Windows 的 HDInsight 中运行 Hadoop MapReduce 示例
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
 为帮助你开始使用 Azure HDInsight 在 Hadoop 群集上运行 MapReduce 作业，我们提供了一组示例。 在创建的每一个 HDInsight 托管群集上都可以使用这些示例。 运行这些示例可熟悉如何使用 Azure PowerShell cmdlet 在 Hadoop 群集上运行作业。
 
-* [字数统计][hdinsight-sample-wordcount]：计算单词在文本文件中出现的次数。
-* [C# 流式处理字数统计][hdinsight-sample-csharp-streaming]：使用 Hadoop 流式处理接口计算单词在文本文件中出现的次数。
-* [Pi 估计器][hdinsight-sample-pi-estimator]：使用统计学方法（拟蒙特卡罗法）来估算 pi 值。
-* [**10-GB Graysort**][hdinsight-sample-10gb-graysort]：使用 HDInsight 对 10 GB 文件运行常规用途的 GraySort。 有三个作业要运行：Teragen 生成数据，Terasort 对数据排序，而 Teravalidate 确认数据已正确排序。
+* [**字数统计**][hdinsight-sample-wordcount]：计算单词在文本文件中出现的次数。
+* [**C# 流式处理字数统计**][hdinsight-sample-csharp-streaming]：使用 Hadoop 流式处理接口计算单词在文本文件中出现的次数。
+* [**PI 估算器**][hdinsight-sample-pi-estimator]：使用统计学方法（拟蒙特卡罗法）来估算 pi 值。
+* [**10-GB Graysort**][hdinsight-sample-10gb-graysort]：使用 HDInsight 对 10 GB 文件运行常规用途的 GraySort。 有三个要运行的作业：Teragen 用于生成数据，Terasort 对数据进行排序，而 Teravalidate 确认数据是否已正确排序。
 
 > [!NOTE]
 > 可以在附录中找到源代码。
@@ -219,7 +212,6 @@ pi 估计器使用统计学方法（拟蒙特卡罗法）估算 pi 值。 单位
 * [将 Pig 与 Hadoop on HDInsight 配合使用][hdinsight-use-pig]
 * [将 Hive 与 HDInsight 上的 Hadoop 配合使用][hdinsight-use-hive]
 * [在 HDInsight 中提交 Hadoop 作业][hdinsight-submit-jobs]
-* [Azure HDInsight SDK 文档][hdinsight-sdk-documentation]
 
 ## <a name="appendix-a---the-word-count-source-code"></a>附录 A - 字数统计源代码
 

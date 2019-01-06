@@ -13,13 +13,13 @@ ms.devlang: java
 ms.topic: article
 origin.date: 11/16/2017
 ms.author: v-biyu
-ms.date: 12/03/2018
-ms.openlocfilehash: c1dea8f555ad3e070c64a44802757d280017acaa
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 01/07/2019
+ms.openlocfilehash: 2004a9ee937de63cee3dd0b49b89ca28026fc900
+ms.sourcegitcommit: a46f12240aea05f253fb4445b5e88564a2a2a120
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674455"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785244"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>如何使用用于 Android 的 Azure 移动应用 SDK
 
@@ -190,7 +190,7 @@ public final void setPriority(Integer priority) {
 }
 ```
 
-若要了解如何在移动应用后端中创建更多表，请参阅[如何定义表控制器][15]（.NET 后端）或[使用动态架构定义表][16]（Node.js 后端）。
+若要了解如何在移动应用后端中创建更多表，请参阅[如何：定义表控制器][15]（.NET 后端）或[使用动态架构定义表][16]（Node.js 后端）。
 
 Azure 移动应用后端表定义了五个特殊字段，其中四个字段可用于客户端：
 
@@ -447,7 +447,7 @@ do {
 > [!TIP]
 > 选择适当的页面大小可在执行请求时使用的内存量、带宽用量以及完全接收数据时产生的延迟之间进行平衡。  默认值（50 个记录）适用于所有设备。  如果以独占方式在较大的内存设备上运行，最高可将页面大小增大到 500。  我们发现，将页面大小增大到超过 500 条记录会导致出现不可接受的延迟，以及消耗大量内存的问题。
 
-### <a name="chaining"></a>如何连接查询方法
+### <a name="chaining"></a>如何：连接查询方法
 
 用于查询后端表的方法是可以连接的。 通过链接查询方法，可以选择已排序并分页的筛选行的特定列。 可以创建复杂的逻辑筛选器。  每个查询方法都会返回一个查询对象。 若要结束方法序列并真正运行查询，可以调用 **execute** 方法。 例如：
 
@@ -676,7 +676,7 @@ ToDoItem result = mToDoTable
                     .get();
 ```
 
-##<a name="untyped"></a>如何处理非类型化数据
+##<a name="untyped"></a>如何：处理非类型化数据
 
 使用非类型化编程模型可以准确控制 JSON 序列化。  在某些常见方案中，可能会希望使用非类型化编程模型。 例如，如果后端表包含很多列，并且只需引用列的子集。  类型化模型需要在数据类中定义移动应用后端中定义的所有列。  用于访问数据的大多数 API 调用都与类型化编程调用类似。 主要差别在于，在非类型化模型中，要对 **MobileServiceJsonTable** 对象而不是 **MobileServiceTable** 对象调用方法。
 
@@ -771,9 +771,9 @@ public void showAllUntyped(View view) {
 
 Azure 移动应用客户端 SDK 还可使用 SQLite 数据库在本地存储服务器数据的副本，从而实现脱机数据同步。  无需建立移动连接即可针对脱机表执行操作。  脱机同步有助于提高恢复能力和性能，代价是用于解决冲突的逻辑变得更复杂。  Azure 移动应用客户端 SDK 实现以下功能：
 
-* 增量同步：仅下载已更新的和新的记录，从而减少了带宽和内存消耗。
+* 增量同步：仅下载已更新记录和新记录，从而减少了带宽和内存消耗。
 * 乐观并发：假设操作成功。  冲突解决推迟到在服务器上执行更新之后。
-* 冲突解决：SDK 检测服务器上发生的有冲突更改，并提供挂钩来提醒用户。
+* 冲突解决方法：SDK 检测何时在服务器上进行了有冲突的更改，并提供挂钩来提醒用户。
 * 软删除：将已删除的记录标记为已删除，使其他设备能够更新其脱机缓存。
 
 ### <a name="initialize-offline-sync"></a>初始化脱机同步
@@ -896,7 +896,7 @@ public void completeItem(View view) {
 
 教程已详细说明如何添加这些功能。
 
-应用服务支持使用各种外部标识提供者[对应用用户进行身份验证](app-service-mobile-android-get-started-users.md)，这些提供者包括：Facebook、Google、Microsoft 帐户、Twitter 和 Azure Active Directory。 可以在表中设置权限，以便将特定操作的访问权限限制给已经过身份验证的用户。 还可以在后端中使用已经过身份验证的用户的标识来实施授权规则。
+应用服务支持使用各种外部标识提供者[对应用用户进行身份验证](app-service-mobile-android-get-started-users.md)：Facebook、Google、Microsoft Account、Twitter 和 Azure Active Directory。 可以在表中设置权限，以便将特定操作的访问权限限制给已经过身份验证的用户。 还可以在后端中使用已经过身份验证的用户的标识来实施授权规则。
 
 支持两种身份验证流：**服务器**流和**客户端**流。 服务器流依赖于标识提供者 Web 界面，因此可提供最简便的身份验证体验。  无需其他 SDK 即可实现服务器流身份验证。 服务器流身份验证不会与移动设备深度集成，因此仅建议用于概念验证方案。
 
@@ -1040,7 +1040,7 @@ MobileServiceUser user = mClient
 
 * 像配置服务器流身份验证一样配置 Azure 应用服务身份验证和授权。
 * 集成用于身份验证的身份验证提供程序 SDK，以生成访问令牌。
-* 按如下所示调用 `.login()` 方法：
+* 按如下所示调用 `.login()` 方法（`result` 应为 `AuthenticationResult`）：
 
     ```java
     JSONObject payload = new JSONObject();
@@ -1057,6 +1057,8 @@ MobileServiceUser user = mClient
         }
     });
     ```
+
+请参阅下一部分中的完整代码示例。
 
 将 `onSuccess()` 方法替换为成功登录后要使用的任何代码。  `{provider}` 字符串是有效的提供程序：**aad** (Azure Active Directory)、**facebook**、**google**、**microsoftaccount** 或 **twitter**。  如果已实现自定义身份验证，则还可以使用自定义身份验证提供程序标记。
 
@@ -1284,7 +1286,7 @@ client.setGsonBuilder(
 [19]: http://www.odata.org/documentation/odata-version-3-0/
 [20]: http://hashtagfail.com/post/46493261719/mobile-services-android-querying
 [21]: https://github.com/Azure-Samples/azure-mobile-apps-android-quickstart
-[22]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
+[22]: ../app-service/configure-authentication-provider-aad.md
 [Future]: http://developer.android.com/reference/java/util/concurrent/Future.html
 [AsyncTask]: http://developer.android.com/reference/android/os/AsyncTask.html
 

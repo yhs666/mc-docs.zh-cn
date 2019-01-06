@@ -1,23 +1,19 @@
 ---
-title: Azure Cosmos DB 规模和性能测试 | Azure
-description: 了解如何使用 Azure Cosmos DB 执行规模和性能测试
-keywords: 性能测试
-services: cosmos-db
+title: 使用 Azure Cosmos DB 执行性能和规模测试
+description: 了解如何执行 Azure Cosmos DB 缩放和性能测试。 然后可为高性能应用方案评估 Azure Cosmos DB 的功能。
 author: rockboyfor
-manager: digimobile
-editor: ''
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-origin.date: 08/29/2017
-ms.date: 07/02/2018
+origin.date: 12/07/2017
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: e8640ca586af0d023bfce97c9f3201bf00ad8851
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.custom: seodec18
+ms.openlocfilehash: 3952598062c18964295b30e41984d735a50c62ac
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652985"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026657"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 执行性能和规模测试
 
@@ -93,10 +89,10 @@ ms.locfileid: "52652985"
     DocumentDBBenchmark completed successfully.
     Press any key to exit...
 
-**步骤 4（如有必要）：** 工具报告的吞吐量（RU/秒）应该等于或大于为某个集合或一组集合预配的吞吐量。 如果情况并非如此，以较小的增量提高 DegreeOfParallelism 可帮助达到该限制。 如果客户端应用的吞吐量达到持平状态，请在其他客户端计算机上启动多个应用实例。 如需此步骤的帮助，请通过 [Azure 支持](https://www.azure.cn/support/support-ticket-form)创建支持票证。
-<!-- Support ticket in [Azure Support](https://www.azure.cn/support/support-ticket-form) -->
+**步骤 4（如有必要）：** 工具报告的吞吐量（RU/秒）应该等于或大于为某个集合或一组集合预配的吞吐量。 如果情况并非如此，以较小的增量提高 DegreeOfParallelism 可帮助达到该限制。 如果客户端应用的吞吐量达到持平状态，请在其他客户端计算机上启动多个应用实例。 如需此步骤的帮助，请通过 [Azure 支持](https://support.azure.cn/zh-cn/support/support-azure/)创建支持票证。
+<!-- Support ticket in [Azure Support](https://support.azure.cn/zh-cn/support/support-azure/) -->
 
-应用处于运行状态后，可以尝试不同的[编制索引策略](indexing-policies.md)和[一致性级别](consistency-levels.md)，以了解它们对吞吐量和延迟的影响。 用户也可以查看源代码，并在自己的测试套件或生产应用程序中实施类似的配置。
+应用处于运行状态后，可以尝试不同的[编制索引策略](index-policy.md)和[一致性级别](consistency-levels.md)，以了解它们对吞吐量和延迟的影响。 用户也可以查看源代码，并在自己的测试套件或生产应用程序中实施类似的配置。
 
 ## <a name="next-steps"></a>后续步骤
 本文介绍了如何使用 .NET 控制台应用对 Azure Cosmos DB 执行性能和缩放测试。 有关详细信息，请参阅以下文章：
@@ -105,4 +101,4 @@ ms.locfileid: "52652985"
 * [用于提高 Azure Cosmos DB 性能的客户端配置选项](performance-tips.md)
 * [Azure Cosmos DB 中的服务器端分区](partition-data.md)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

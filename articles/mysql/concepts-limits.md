@@ -1,26 +1,23 @@
 ---
 title: Azure Database for MySQL 中的限制
 description: 本文介绍了 Azure Database for MySQL 中的限制，例如连接数和存储引擎选项。
-services: mysql
 author: WenJason
 ms.author: v-jay
-manager: digimobile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
-origin.date: 06/30/2018
-ms.date: 09/24/2018
-ms.openlocfilehash: d3c8022519c1a426efe50eddb2af5b249849f7e9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.topic: conceptual
+origin.date: 12/6/2018
+ms.date: 12/31/2018
+ms.openlocfilehash: fb2c4274b4379804fe0e76ebe6e0edcaefcf107d
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658887"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806239"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的限制
 
 > [!NOTE]
-> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql/)。
+> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
 
 以下各部分介绍了数据库服务中的容量、存储引擎支持、特权支持、数据操作语句支持和功能限制。 另请参阅适用于 MySQL 数据库引擎的[常规限制](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html)。
 
@@ -36,13 +33,15 @@ ms.locfileid: "52658887"
 |常规用途| 8| 1250|
 |常规用途| 16| 2500|
 |常规用途| 32| 5000|
+|常规用途| 64| 10000|
 |内存优化| 2| 600|
 |内存优化| 4| 1250|
 |内存优化| 8| 2500|
 |内存优化| 16| 5000|
+|内存优化| 32| 10000|
 
 当连接数超出限制时，可能会收到以下错误：
-> 错误 1040 (08004): 连接过多
+> 错误 1040 (08004)：连接过多
 
 ## <a name="storage-engine-support"></a>存储引擎支持
 

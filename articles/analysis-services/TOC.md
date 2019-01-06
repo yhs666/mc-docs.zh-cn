@@ -91,7 +91,7 @@
 ## [Azure Analysis Services 论坛](https://www.azure.cn/support/contact/)
 <!-- Not Availabel ## [Azure Roadmap](https://www.azure.cn/roadmap/?category=intelligence-analytics)-->
 ## [Azure 状态](https://www.azure.cn/support/service-dashboard/)
-## [反馈](https://www.azure.cn/support/support-azure/)
+## [反馈](https://support.azure.cn/zh-cn/support/support-azure/)
 ## [价格](https://www.azure.cn/pricing/details/analysis-services/)
 ## [定价计算器](https://www.azure.cn/pricing/calculator/)
 <!-- Not Availabel ## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)-->

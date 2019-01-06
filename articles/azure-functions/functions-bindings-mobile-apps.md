@@ -10,14 +10,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 11/21/2017
-ms.date: 11/22/2018
+ms.date: 12/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: 36033e5e1964058b162029e31f89f333e5f7e087
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 13ac48193b8b641a78f1b464e57026126fa7f4a4
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672542"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806603"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Azure Functions 的移动应用绑定 
 
@@ -32,7 +32,7 @@ ms.locfileid: "52672542"
 
 ## <a name="packages---functions-1x"></a>包 - Functions 1.x
 
-[Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet 包 1.x 版中提供了移动应用绑定。 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.MobileApps/) GitHub 存储库中提供了此包的源代码。
+[Microsoft.Azure.WebJobs.Extensions.MobileApps](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet 包 1.x 版中提供了移动应用绑定。 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.MobileApps/) GitHub 存储库中提供了此包的源代码。
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
@@ -158,7 +158,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---usage"></a>输入 - 用法
 
-在 C# 函数中，当找到具有指定 ID 的记录时，该记录会传递到命名的 [JObject](http://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm) 参数。 未找到该记录时，参数值为 `null`。 
+在 C# 函数中，当找到具有指定 ID 的记录时，该记录会传递到命名的 [JObject](https://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm) 参数。 未找到该记录时，参数值为 `null`。 
 
 在 JavaScript 函数中，该记录会传递给 `context.bindings.<name>` 对象。 未找到该记录时，参数值为 `null`。 
 
@@ -328,4 +328,4 @@ public static object Run(
 > [!div class="nextstepaction"]
 > [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: link update -->

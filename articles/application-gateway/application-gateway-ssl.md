@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/23/2017
-ms.date: 10/17/2018
+ms.date: 12/19/2018
 ms.author: v-junlch
-ms.openlocfilehash: f8183815e33d869cb4affc0b6a540a543ba7f436
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e479c935a9a166809d0e343fc513c765bf6693ef
+ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643661"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53656520"
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>使用经典部署模型配置应用程序网关以进行 SSL 卸载
 
@@ -100,17 +100,17 @@ State..........: Provisioned
 
 有效值为：
 
-- 后端服务器池：后端服务器的 IP 地址列表。 列出的 IP 地址应属于虚拟网络子网，或者是公共 IP 或 VIP 地址。
-- 后端服务器池设置：每个池都有一些设置，例如端口、协议和基于 Cookie 的相关性。 这些设置绑定到池，并会应用到池中的所有服务器。
-- 前端端口：此端口是应用程序网关上打开的公共端口。 流量将抵达此端口，并重定向到后端服务器之一。
-- 侦听器：侦听器具有前端端口、协议（Http 或 Https；这些值区分大小写）和 SSL 证书名称（如果要配置 SSL 卸载）。
-- 规则：规则会绑定侦听器和后端服务器池，并定义当流量抵达特定侦听器时要定向到的后端服务器池。 目前仅支持 *基本* 规则。 *基本* 规则是一种轮循负载分发模式。
+- **后端服务器池**：后端服务器的 IP 地址列表。 列出的 IP 地址应属于虚拟网络子网，或者是公共 IP 或 VIP 地址。
+- **后端服务器池设置**：每个池具有端口、协议和基于 Cookie 的相关性等设置。 这些设置绑定到池，并会应用到池中的所有服务器。
+- **前端端口**：此端口是应用程序网关上打开的公共端口。 流量将抵达此端口，并重定向到后端服务器之一。
+- **侦听器**：侦听器具有前端端口、协议（Http 或 Https；这些值区分大小写）和 SSL 证书名称（如果要配置 SSL 卸载）。
+- **规则**：规则会绑定侦听器和后端服务器池，并定义当流量抵达特定侦听器时要将流量定向到的后端服务器池。 目前仅支持 *基本* 规则。 *基本* 规则是一种轮循负载分发模式。
 
 **其他配置说明**
 
 对于 SSL 证书配置，HttpListener 中的协议应更改为 Https（区分大小写）。 需要将“SslCert”元素添加到“HttpListener”，其值设置为[上传 SSL 证书](#upload-ssl-certificates)部分中使用的名称。 前端端口应更新为 443。
 
-启用基于 Cookie 的相关性：可以配置应用程序网关，以确保来自客户端会话的请求始终定向到 Web 场中的同一 VM。 这种情况可通过插入允许网关适当定向流量的会话 Cookie 实现。 若要启用基于 Cookie 的相关性，请在 BackendHttpSettings 元素中将 CookieBasedAffinity 设置为 Enabled。
+**启用基于 Cookie 的相关性**：可以配置应用程序网关，以确保来自客户端会话的请求始终被定向到 Web 场中的同一 VM。 这种情况可通过插入允许网关适当定向流量的会话 Cookie 实现。 若要启用基于 Cookie 的相关性，请在 BackendHttpSettings 元素中将 CookieBasedAffinity 设置为 Enabled。
 
 可以通过创建配置对象或使用配置 XML 文件来构造配置。
 若要使用配置 XML 文件构造配置，请输入以下示例：
@@ -118,7 +118,7 @@ State..........: Provisioned
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
+<ApplicationGatewayConfiguration xmlns:i="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
     <FrontendIPConfigurations />
     <FrontendPorts>
         <FrontendPort>
@@ -213,3 +213,4 @@ DnsName       : appgw-4c960426-d1e6-4aae-8670-81fd7a519a43.chinacloudapp.cn
 - [Azure 负载均衡器](https://www.azure.cn/home/features/load-balancer/)
 - [Azure 流量管理器](https://www.azure.cn/home/features/traffic-manager/)
 
+<!-- Update_Description: link update -->

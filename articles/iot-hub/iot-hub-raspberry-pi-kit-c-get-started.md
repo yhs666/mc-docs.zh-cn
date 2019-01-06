@@ -13,13 +13,13 @@ ms.workload: na
 origin.date: 04/11/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.date: 12/03/2018
-ms.openlocfilehash: 3e508efe675a22037713549d0e7bef8152d436e2
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 12/31/2018
+ms.openlocfilehash: 30791f4e2132c250718107ae7e9566a4c98e459b
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674501"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736690"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>将 Raspberry Pi 连接到 Azure IoT 中心 (C)
 
@@ -182,6 +182,7 @@ ms.locfileid: "52674501"
 
    > [!NOTE] 
    > 如果没有物理 BME280，可使用“--simulated-data”作为命令行参数来模拟温度和湿度数据。 `sudo ./setup.sh --simulated-data`
+   >
 
 ### <a name="build-and-run-the-sample-application"></a>生成并运行示例应用程序
 
@@ -199,8 +200,8 @@ ms.locfileid: "52674501"
    ```
 
    > [!NOTE] 
-   确保将设备连接字符串复制并粘贴到单引号中。
-
+   > 确保将设备连接字符串复制并粘贴到单引号中。
+   >
 
 应看到以下输出，其中显示传感器数据以及发送至 IoT 中心的消息。
 
@@ -208,7 +209,7 @@ ms.locfileid: "52674501"
 
 ## <a name="next-steps"></a>后续步骤
 
-此时已运行示例应用程序，收集传感器数据并将其发送到 IoT 中心。 若要查看 Raspberry Pi 已发送到 IoT 中心的消息或要向 Raspberry Pi 发送消息，请参阅[使用用于 Visual Studio Code 的 Azure IoT 工具包扩展在设备和 IoT 中心之间发送和接收消息](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)。
+此时已运行示例应用程序，收集传感器数据并将其发送到 IoT 中心。 若要查看 Raspberry Pi 已发送到 IoT 中心的消息或向 Raspberry Pi 发送消息，请参阅[使用用于 Visual Studio Code 的 Azure IoT 中心工具包扩展在设备和 IoT 中心之间发送和接收消息](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)。
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 

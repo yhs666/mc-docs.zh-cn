@@ -12,15 +12,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/19/2018
-ms.date: 11/12/2018
+ms.date: 12/31/2018
 ms.author: v-jay
 ms.reviewer: alfredo
-ms.openlocfilehash: dfb236ef0d2cb30e23e398b4a8f4509e83a7da8d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5ba8754a417436ff3f4fcea3b711451b138f7a62
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646003"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814597"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>将租户添加到 Azure Stack 以获取用量和计费信息
 
@@ -60,7 +60,7 @@ CSP 通常向其 Azure Stack 部署中的多个最终客户（租户）提供服
 > 若要执行此步骤，必须[注册 Azure Stack](azure-stack-register.md)。
 
 1. 使用权限提升的提示符打开 Windows PowerShell，并运行：  
-    `Login-AzureRmAccount -EnvironmentName AzureChinaCloud`
+    `Add-AzureRmAccount -EnvironmentName AzureChinaCloud`
 2. 键入 Azure 凭据。
 3. 在 PowerShell 会话中运行：
 

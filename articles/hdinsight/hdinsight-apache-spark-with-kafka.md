@@ -4,7 +4,7 @@ description: 了解如何使用 Spark Apache Spark 通过 DStream 将数据流�
 keywords: kafka 示例, kafka zookeeper, spark 流式处理 kafka, spark 流式处理 kafka 示例
 services: hdinsight
 documentationcenter: ''
-author: Blackmist
+author: hrasheed-msft
 manager: jhubbard
 editor: cgronlun
 ms.assetid: dd8f53c1-bdee-4921-b683-3be4c46c2039
@@ -14,19 +14,20 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 02/23/2018
-ms.date: 05/28/2018
+origin.date: 11/06/2018
+ms.date: 12/24/2018
 ms.author: v-yiso
-ms.openlocfilehash: ed7f1862b27e0b2dbee84c3ba7a5629623aa7ab8
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b7ab2ecfcdb7ba06e9566eaec837b3a15573f92b
+ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648328"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53569247"
 ---
-# <a name="apache-spark-streaming-dstream-example-with-kafka-on-hdinsight"></a>Kafka on HDInsight 的 Apache Spark 流式处理 (DStream) 示例
+# <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>Apache Kafka on HDInsight 的 Apache Spark 流式处理 (DStream) 示例
 
-了解如何使用 Spark Apache Spark 通过 DStream 将数据流式传入或传出 Apache Kafka on HDInsight。 本示例使用在 Spark 群集上运行的 Jupyter 笔记本。
+了解如何使用 Apache Spark 通过 DStreams 将数据流式传入或流式传出 Apache Kafka on HDInsight。 本示例使用在 Spark 群集上运行的 Jupyter notebook。
+
 > [!NOTE]
 > 本文档中的步骤创建一个 Azure 资源组，其中同时包含 HDInsight 上的 Spark 和 HDInsight 上的 Kafka 群集。 这些群集都位于一个 Azure 虚拟网络中，这样 Spark 群集便可与 Kafka 群集直接通信。
 >
@@ -61,23 +62,23 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
    
     ![HDInsight 自定义部署](./media/hdinsight-apache-spark-with-kafka/parameters.png)
    
-    * **资源组**：创建一个组或选择现有组。 此组包含 HDInsight 群集。
+    * **资源组**：创建一个组或选择有个现有的组。 此组包含 HDInsight 群集。
 
-    * 位置：选择在地理上邻近的位置。
+    * **位置**：选择在地理上邻近的位置。
 
-    * **基群集名称**：此值用作 Spark 和 Kafka 群集的基名称。 例如，输入 **hdi** 将创建名为 __spark-hdi__ 的 Spark 群集和名为 **kafka-hdi** 的 Kafka 群集。
+    * **基群集名称**：此值将用作 Spark 和 Kafka 群集的基名称。 例如，输入 **hdistreaming** 将创建名为 __spark-hdistreaming__ 的 Spark 群集和名为 **kafka-hdistreaming** 的 Kafka 群集。
 
     * **群集登录用户名**：Spark 和 Kafka 群集的管理员用户名。
 
     * **群集登录密码**：Spark 和 Kafka 群集的管理员用户密码。
 
-    * **SSH 用户名**：要为 Spark 和 Kafka 群集创建的 SSH 用户。
+    * **SSH 用户名**：创建 Spark 和 Kafka 群集的 SSH 用户。
 
     * **SSH 密码**：Spark 和 Kafka 群集的 SSH 用户的密码。
 
 3. 阅读“条款和条件”，并选择“我同意上述条款和条件”。
 
-4. 最后，选中“固定到仪表板”，并选择“购买”。 创建群集大约需要 20 分钟时间。
+4. 最后，选择“购买”。 创建群集大约需要 20 分钟时间。
 
 创建资源后，会显示摘要页面。
 

@@ -1,3 +1,17 @@
+---
+author: WenJason
+ms.service: dns
+ms.topic: include
+origin.date: 11/25/2018
+ms.date: 12/24/2018
+ms.author: victorh
+ms.openlocfilehash: 021c8d875ed65bfe4f8e194b107e09403038f5a1
+ms.sourcegitcommit: 895e9accaae8f8c2a29ed91d8e84911fda6111cf
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53615230"
+---
 DNS 区域用来托管某个特定域的 DNS 记录。 若要开始在 Azure DNS 中托管域，需要为该域名创建 DNS 区域。 随后会在此 DNS 区域内为每个 DNS 记录创建域。
 
 例如，域“contoso.com”可能包含几条 DNS 记录，如“mail.contoso.com”（用于邮件服务器）和“www.contoso.com”（用于网站）。

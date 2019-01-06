@@ -1,26 +1,21 @@
 ---
-title: Azure PowerShell 脚本 - 获取 cosmosdb 的帐户密钥 | Azure
-description: Azure PowerShell 脚本示例 - 获取 cosmosdb 的帐户密钥
+title: Azure PowerShell 脚本 - 获取 Azure Cosmos DB 的帐户密钥
+description: Azure PowerShell 脚本示例 - 获取 Azure Cosmos DB 的帐户密钥
 services: cosmos-db
-documentationcenter: cosmosdb
-author: rockboyfor
-manager: digimobile
-tags: azure-service-management
 ms.service: cosmos-db
+author: rockboyfor
+ms.author: v-yeche
 ms.custom: mvc
 ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: cosmosdb
-ms.workload: database
 origin.date: 05/10/2017
-ms.date: 09/03/2018
-ms.author: v-yeche
-ms.openlocfilehash: 7fca8a0ab87b6704f52ab010be49c5adaee0bf92
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/31/2018
+ms.openlocfilehash: c425c93f50971ae4844f06564562b6414c1b6f3b
+ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664130"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814773"
 ---
 # <a name="get-account-keys-for-azure-cosmos-db-using-powershell"></a>使用 PowerShell 获取 Azure Cosmos DB 的帐户密钥
 

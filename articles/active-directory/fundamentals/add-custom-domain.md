@@ -1,6 +1,6 @@
 ---
-title: 如何将自定义域添加到 Azure Active Directory | Microsoft Docs
-description: 了解如何使用 Azure Active Directory 门户添加自定义域。
+title: 添加自定义域 - Azure Active Directory | Microsoft Docs
+description: 介绍如何使用 Azure Active Directory 添加自定义域。
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -9,18 +9,18 @@ ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
 origin.date: 09/18/2018
-ms.date: 12/10/2018
+ms.date: 01/02/2019
 ms.author: v-junlch
 ms.reviewer: elkuzmen
-ms.custom: it-pro
-ms.openlocfilehash: 6f17cffee54b01f46dd955069d9fc16f4d43e7cf
-ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: bbcac258487d307d6ea09052d7ce727473c3f702
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53157433"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996213"
 ---
-# <a name="how-to-add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>如何：使用 Azure Active Directory 门户添加自定义域名
+# <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>使用 Azure Active Directory 门户添加自定义域名
 每个新的 Azure AD 租户都附带了一个初始域名 *domainname*.partner.onmschina.cn。 无法更改或删除初始域名，但可以将组织的名称添加到列表中。 添加自定义域名有助于创建用户所熟悉的用户名，例如 *alain@contoso.com*。
 
 ## <a name="before-you-begin"></a>准备阶段

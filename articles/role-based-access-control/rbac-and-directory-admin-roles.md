@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-origin.date: 08/07/2018
-ms.date: 11/21/2018
+origin.date: 11/30/2018
+ms.date: 12/20/2018
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 62b08885610947ff2346f1f849239b0d05d087b7
-ms.sourcegitcommit: a3cde3b41ed4d3f39a30eb4e562d6436a3e4d9d5
+ms.openlocfilehash: 3d8f473d8f3c294b545b55ff0061201a24d8e91d
+ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53131754"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53656513"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>经典订阅管理员角色、Azure RBAC 角色和 Azure AD 管理员角色
 
@@ -53,6 +53,8 @@ ms.locfileid: "53131754"
 
 ![Azure 门户中的帐户管理员和服务管理员](./media/rbac-and-directory-admin-roles/account-admin-service-admin.png)
 
+有关如何添加或更改经典订阅管理员的信息，请参阅 Azure 计费文档中的[添加或更改 Azure 订阅管理员](/billing/billing-add-change-azure-subscription-administrator)。
+
 ### <a name="azure-account-and-azure-subscriptions"></a>Azure 帐户和 Azure 订阅
 
 Azure 帐户代表计费关系。 一个 Azure 帐户代表一个用户标识、一个或多个 Azure 订阅和一组关联的 Azure 资源。 创建帐户的人员是该帐户中创建的所有订阅的帐户管理员。 此人也是订阅的默认服务管理员。
@@ -76,13 +78,13 @@ Azure RBAC 是基于 [Azure 资源管理器](../azure-resource-manager/resource-
 
 只有 Azure 门户和 Azure 资源管理器 API 支持 Azure RBAC。 分配有 RBAC 角色的用户、组和应用程序无法使用 [Azure 经典部署模型 API](../azure-resource-manager/resource-manager-deployment-model.md)。
 
-在 Azure 门户中，使用 RBAC 的角色分配显示在“访问控制(IAM)”边栏选项卡上。 在整个门户中都可以找到此边栏选项卡，例如，在订阅、资源组和各种资源所在的部分。
+在 Azure 门户中，使用 RBAC 的角色分配显示在“访问控制(IAM)”边栏选项卡上。 在整个门户中都可以找到此边栏选项卡，例如，在管理组、订阅、资源组和各种资源所在的部分。
 
-![Azure 门户中的“访问控制(IAM)”边栏选项卡](./media/rbac-and-directory-admin-roles/access-control.png)
+![Azure 门户中的“访问控制(IAM)”边栏选项卡](./media/rbac-and-directory-admin-roles/access-control-role-assignments.png)
 
 单击“角色”选项时，会看到内置角色和自定义角色的列表。
 
-![Azure 门户中的内置角色](./media/rbac-and-directory-admin-roles/built-in-roles.png)
+![Azure 门户中的内置角色](./media/rbac-and-directory-admin-roles/roles-list.png)
 
 ## <a name="azure-ad-administrator-roles"></a>Azure AD 管理员角色
 

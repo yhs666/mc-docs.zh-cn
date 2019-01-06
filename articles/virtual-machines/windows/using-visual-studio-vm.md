@@ -15,35 +15,36 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.prod: vs-devops-alm
 origin.date: 09/12/2018
-ms.date: 11/26/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
 keywords: visualstudio
-ms.openlocfilehash: 0aa46558c01c6dcafc4c43ceeddab0ce5fb14588
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 0b41d2fe9e4a6c2fb056bc20d109357f51f8e7c2
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674529"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736120"
 ---
 <a name="top"></a>
 # <a name="visual-studio-images-on-azure"></a>Azure 上的 Visual Studio 映像
-使用预配置的 Azure 虚拟机 (VM) 中的 Visual Studio 是从无到启动并运行的开发环境的简单快捷方法。 具有不同 Visual Studio 配置的系统映像位于 [Azure 市场](https://market.azure.cn/zh-cn/marketplace/apps?search=visual%20studio%202017&page=1)。
-<!-- Notice: Remove %22 " in market.azure.cn search funcion -->
+使用预配置的 Azure 虚拟机 (VM) 中的 Visual Studio 是从无到启动并运行的开发环境的简单快捷方法。 具有不同 Visual Studio 配置的系统映像位于 [Azure 市场](https://market.azure.cn/zh-cn/marketplace/apps?search=Visual%20Studio&page=1)。
+<!-- Notice: URL is correct on https://market.azure.cn/zh-cn/marketplace/apps?search=Visual%20Studio&page=1-->
 
 不熟悉 Azure？ [创建一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="what-configurations-and-versions-are-available"></a>提供了哪些配置和版本？
-在 Azure 市场中，可找到最新主版本的映像：Visual Studio 2017 和 Visual Studio 2015。 对于每个主版本，可看到最初发布的 (RTW) 版本和最新更新版本。 其中每个版本都提供 Visual Studio Enterprise 和 Visual Studio Community 版本。 这些映像至少每个月更新一次，以包括最新的 Visual Studio 和 Windows 更新。 尽管映像的名称保持不变，但每个映像的说明包括已安装的产品版本和映像的截止日期。
+在 Azure 市场中，可找到最新主版本的映像：Visual Studio 2017 和 Visual Studio 2015。  我们最近添加了对即将发布的主版本 (Visual Studio 2019) 的预览支持。  对于发布的每个主版本，可看到最初发布的 (RTW) 版本和最新更新版本。  其中每个版本都提供 Visual Studio Enterprise 和 Visual Studio Community 版本。  这些映像至少每个月更新一次，以包括最新的 Visual Studio 和 Windows 更新。  尽管映像的名称保持不变，但每个映像的说明包括已安装的产品版本和映像的截止日期。
 
-| 发行版本                                              | 版本                     |     产品版本     |
-|:------------------------------------------------------------:|:----------------------------:|:-----------------------:|
-| Visual Studio 2017：最新（版本 15.9）                    |    Enterprise、Community     |      版本 15.9.0     |
-|         Visual Studio 2017：RTW                              |    Enterprise、Community     |      版本 15.0.18    |
-|   Visual Studio 2015：最新 (Update 3)                      |    Enterprise、Community     |  版本 14.0.25431.01  |
-|         Visual Studio 2015：RTW                              |             无             | （已过期，无法进行维护） |
+| 发行版本                                              | 版本                     |     产品版本      |
+|:------------------------------------------------------------:|:----------------------------:|:------------------------:|
+|    Visual Studio 2019：预览版（预览版 1）                   |           Enterprise         | 版本 16.0.0 预览版 1 |
+| Visual Studio 2017：最新（版本 15.9）                    |    Enterprise、Community     |      版本 15.9.4      |
+|         Visual Studio 2017：RTW                              |    Enterprise、Community     |      版本 15.0.20     |
+|   Visual Studio 2015：最新 (Update 3)                      |    Enterprise、Community     |  版本 14.0.25431.01   |
+|         Visual Studio 2015：RTW                              |             无             | （已过期，无法进行维护）  |
 
 > [!NOTE]
-> 根据 Azure 服务策略，Visual Studio 2015 最初发布的 (RTW) 版本已过期，无法提供服务。 Visual Studio 2015 Update 3 是为 Visual Studio 2015 产品线提供的唯一剩余版本。  此外，自 Visual Studio 2017 15.9 版发布以来，我们已停止使用包含 15.9 预览版的“最新预览”映像。
+> 根据 Azure 服务策略，Visual Studio 2015 最初发布的 (RTW) 版本已过期，无法提供服务。 Visual Studio 2015 Update 3 是为 Visual Studio 2015 产品线提供的唯一剩余版本。
 
 有关详细信息，请参阅 [Visual Studio 维护策略](https://www.visualstudio.com/productinfo/vs-servicing-vs)。
 

@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 应用服务 Web 应用中配置 PHP
+title: 配置 PHP 运行时 - Azure 应用服务
 description: 了解如何在 Azure 应用服务中为 Web 应用配置默认 PHP 安装或添加自定义 PHP 安装。
 services: app-service
 documentationcenter: php
@@ -12,16 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 origin.date: 04/11/2018
-ms.date: 12/03/2018
+ms.date: 12/31/2018
 ms.author: v-biyu
-ms.openlocfilehash: 0521d9816691abd38b6220aafd7bc68a6fdf3ce8
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.custom: seodec18
+ms.openlocfilehash: 201d9fd3485aaddc72dcd52a0a6a834fdeea987e
+ms.sourcegitcommit: 80c59ae1174d71509b4aa64a28a98670307a5b38
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675424"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735183"
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>在 Azure 应用服务 Web 应用中配置 PHP
+
 ## <a name="introduction"></a>简介
 本指南演示如何执行以下操作：在 [Azure 应用服务](app-service-web-overview.md)中配置 Web 应用的内置 PHP 运行时，提供自定义 PHP 运行时，并启用扩展。 若要使用应用服务，请注册[试用版]。 要充分利用本指南，应先在应用服务中创建一个 PHP Web 应用。
 
@@ -92,9 +94,8 @@ PHP 7.0 和 PHP 7.2 也可用，但它们在默认情况下不启用。 若要�
 
         ; OPTIONAL: Turn this on to write errors to d:\home\LogFiles\php_errors.log
         ; log_errors=On
-    
-3. 部署 Web 应用。
-4. 重新启动 Web 应用。 （需要进行重新启动，因为 PHP 读取 `.user.ini` 文件的频率受 `user_ini.cache_ttl` 设置的约束，该设置是一个系统级别设置且默认值为 300 秒（5 分钟）。 重新启动 Web 应用会强制 PHP 读取 `.user.ini` 文件中的新设置。）
+1. 部署 Web 应用。
+1. 重新启动 Web 应用。 （需要进行重新启动，因为 PHP 读取 `.user.ini` 文件的频率受 `user_ini.cache_ttl` 设置的约束，该设置是一个系统级别设置且默认值为 300 秒（5 分钟）。 重新启动 Web 应用会强制 PHP 读取 `.user.ini` 文件中的新设置。）
 
 作为使用 `.user.ini` 文件的替代方法，可以在脚本中使用 [ini_set()] 函数来设置不是系统级别指令的配置选项。
 
@@ -132,13 +133,11 @@ PHP 7.0 和 PHP 7.2 也可用，但它们在默认情况下不启用。 若要�
 4. 在 Azure 门户中浏览到 Web 应用，然后单击“设置”按钮。
 
     ![Web 应用设置][settings-button]
-    
 1. 在“设置”边栏选项卡中选择“应用程序设置”，并滚动到“应用设置”部分。
 6. 在“应用设置”部分中，创建 **PHP_EXTENSIONS** 键。 此键的值会是相对于网站根目录的一个路径：**bin\your-ext-file**。
 
     ![启用应用程序设置中的扩展][php-extensions]
-    
-7. 单击“Web 应用设置”边栏选项卡顶部的“保存”按钮。
+1. 单击“Web 应用设置”边栏选项卡顶部的“保存”按钮。
 
     ![保存配置设置][save-button]
 
@@ -159,7 +158,6 @@ PHP 7.0 和 PHP 7.2 也可用，但它们在默认情况下不启用。 若要�
 1. 从“设置”边栏选项卡选择“应用程序设置”并滚动到“处理程序映射”部分。 将 `*.php` 添加到扩展字段，并将路径添加到 `php-cgi.exe` 可执行文件。 如果将 PHP 运行时放在应用程序根目录中的 `bin` 目录下，路径将为 `D:\home\site\wwwroot\bin\php\php-cgi.exe`。
 
     ![指定处理程序映射中的处理程序][handler-mappings]
-    
 1. 单击“Web 应用设置”边栏选项卡顶部的“保存”按钮。
 
     ![保存配置设置][save-button]
@@ -167,7 +165,7 @@ PHP 7.0 和 PHP 7.2 也可用，但它们在默认情况下不启用。 若要�
 <a name="composer" />
 
 ## <a name="how-to-enable-composer-automation-in-azure"></a>如何：在 Azure 中启用编辑器自动化
-默认情况下，如果 PHP 项目中有 composer.json，则应用服务与其不相关。 如果使用 [Git 部署](app-service-deploy-local-git.md)，则可以通过在 `git push` 期间启用编辑器扩展来启用 composer.json 处理。
+默认情况下，应用服务与 composer.json（如果 PHP 项目中有）不相关。 如果使用 [Git 部署](deploy-local-git.md)，则可以通过在 `git push` 期间启用编辑器扩展来启用 composer.json 处理。
 
 > [!NOTE]
 > 可以 [在这里为应用服务中的一流编辑器支持投票](https://feedback.azure.com/forums/169385-web-apps-formerly-websites/suggestions/6477437-first-class-support-for-composer-and-pip)！

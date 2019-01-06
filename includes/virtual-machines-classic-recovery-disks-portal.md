@@ -6,11 +6,11 @@ origin.date: 10/26/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
 ms.openlocfilehash: 6cdff55bd680990346d628a92149a09d44e14bee
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676067"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785202"
 ---
 如果虚拟机 (VM) 在 Azure 中遇到启动或磁盘错误，可能需要对虚拟硬盘本身执行故障排除步骤。 一个常见示例是应用程序更新失败，使 VM 无法成功启动。 本文介绍如何使用 Azure 门户将虚拟硬盘连接到另一个 VM 来修复所有错误，然后重新创建原始 VM。
 

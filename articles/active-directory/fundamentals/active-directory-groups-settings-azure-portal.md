@@ -1,6 +1,6 @@
 ---
-title: 如何使用 Azure Active Directory 编辑组信息 | Microsoft Docs
-description: 了解如何使用 Azure Active Directory 编辑组的信息。
+title: 编辑组信息 - Azure Active Directory | Microsoft Docs
+description: 有关如何使用 Azure Active Directory 编辑组信息的说明。
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -9,20 +9,20 @@ ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
 origin.date: 08/27/2018
-ms.date: 10/09/2018
+ms.date: 01/02/2019
 ms.author: v-junlch
 ms.reviewer: krbain
-ms.custom: it-pro
-ms.openlocfilehash: d3feb33636b277b907eebc55e9131008fb15f29d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 86f4207707220e2c76c633c26304d839ae2bd3e1
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657307"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996295"
 ---
-# <a name="how-to-edit-your-group-information-using-azure-active-directory"></a>如何：使用 Azure Active Directory 编辑组信息
+# <a name="edit-your-group-information-using-azure-active-directory"></a>使用 Azure Active Directory 编辑组信息
 
-使用 Azure Active Directory，可以编辑组的设置，包括编辑其名称、说明或成员身份类型。
+使用 Azure Active Directory (Azure AD) 可编辑组的设置，包括更新其名称、描述或成员身份类型。
 
 ## <a name="to-edit-your-group-settings"></a>编辑组设置
 1. 使用目录的全局管理员帐户登录到 [Azure 门户](https://portal.azure.cn)。

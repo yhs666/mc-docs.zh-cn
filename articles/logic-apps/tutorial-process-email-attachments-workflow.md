@@ -1,6 +1,6 @@
 ---
-title: 生成处理电子邮件和附件的工作流 - Azure 逻辑应用 | Microsoft Docs
-description: 本教程介绍如何创建自动化工作流，以便可以使用 Azure 逻辑应用、Azure 存储和 Azure Functions 处理电子邮件与附件
+title: 教程：自动处理电子邮件和附件 - Azure 逻辑应用 | Microsoft Docs
+description: 教程 - 创建自动化工作流，以便使用 Azure 逻辑应用、Azure 存储和 Azure Functions 处理电子邮件和附件
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -10,17 +10,17 @@ ms.topic: tutorial
 ms.custom: mvc
 origin.date: 07/20/2018
 ms.author: v-yiso
-ms.date: 10/15/2018
-ms.openlocfilehash: dc3d1d71dea8b6f95dece10486c9b472cfa2471c
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.date: 01/14/2019
+ms.openlocfilehash: 4a0775d5411e621acb6a977715c647e75b2a131d
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028632"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806617"
 ---
-# <a name="process-emails-and-attachments-with-azure-logic-apps"></a>使用 Azure 逻辑应用处理电子邮件和附件
+# <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>教程：使用 Azure 逻辑应用自动处理电子邮件和附件
 
-Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即服务 (SaaS) 应用以及本地系统自动完成工作流和集成数据。 本教程介绍如何生成可以处理传入电子邮件和任何附件的[逻辑应用](../logic-apps/logic-apps-overview.md)。 此逻辑应用可以处理该内容，将内容保存到 Azure 存储，然后发送查看该内容的通知。 
+Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即服务 (SaaS) 应用以及本地系统自动完成工作流和集成数据。 本教程介绍如何生成可以处理传入电子邮件和任何附件的[逻辑应用](../logic-apps/logic-apps-overview.md)。 此逻辑应用分析电子邮件内容，将内容保存到 Azure 存储，然后发送查看该内容的通知。 
 
 本教程介绍如何执行下列操作：
 
@@ -672,7 +672,7 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
 ## <a name="get-support"></a>获取支持
 
 * 有关问题，请访问 [Azure 逻辑应用论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要提交功能建议或对功能建议进行投票，请访问[逻辑应用用户反馈网站](http://aka.ms/logicapps-wish)。
+* 若要提交功能建议或对功能建议进行投票，请访问[逻辑应用用户反馈网站](https://aka.ms/logicapps-wish)。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,7 +1,7 @@
 ---
-title: Azure 移动应用中的身份验证和授权
+title: Azure 应用服务中针对移动应用的身份验证和授权
 description: Azure 应用服务的身份验证/授权功能的概念性参考和概述，尤其是针对移动应用
-services: app-service\mobile
+services: app-service
 documentationcenter: ''
 author: mattchenderson
 manager: erikre
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 10/01/2016
-ms.date: 05/14/2018
-ms.author: v-yiso
-ms.openlocfilehash: d6db600b6603e8b71939a31a5062051a8fde4f82
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 01/07/2019
+ms.author: v-biyu
+ms.openlocfilehash: efb8b6130283325f82a9052139d2169a432f84f7
+ms.sourcegitcommit: a46f12240aea05f253fb4445b5e88564a2a2a120
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652595"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785235"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-for-mobile-apps"></a>Azure 应用服务中针对移动应用的身份验证和授权
 
@@ -83,6 +83,8 @@ ms.locfileid: "52652595"
 [Windows]: ../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-users.md
 [Cordova]: ../app-service-mobile/app-service-mobile-cordova-get-started-users.md
 
+[AAD]: ../app-service/configure-authentication-provider-aad.md
+[MSA]: ../app-service/configure-authentication-provider-microsoft.md
 [custom-auth]: ../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth
 
 [ADAL-Android]: ../app-service-mobile/app-service-mobile-android-how-to-use-client-library.md#adal

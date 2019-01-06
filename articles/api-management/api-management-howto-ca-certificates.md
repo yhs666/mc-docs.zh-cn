@@ -11,20 +11,23 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
-ms.author: apimpm
-ms.openlocfilehash: 9d3399ba6ee724d91117486744ad1431f53edbce
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 08/20/2018
+ms.date: 12/31/2018
+ms.author: v-yiso
+ms.openlocfilehash: 92430e9038a2333f4bc35a09d5b1d136bb56cce4
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659562"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736667"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>如何在 Azure API 管理中添加自定义 CA 证书
 
 Azure API 管理允许在受信任的根证书和中间证书存储中的计算机上安装 CA 证书。 如果服务需要自定义 CA 证书，则应使用此功能。
 
 本文介绍如何在 Azure 门户中管理 Azure API 管理服务实例的 CA 证书。
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="step1"> </a>上传 CA 证书
 

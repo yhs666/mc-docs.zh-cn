@@ -1,6 +1,6 @@
 ---
-title: 在 HDInsight 中将 Hadoop Pig 与远程桌面配合使用 - Azure | Azure
-description: 了解如何使用 Pig 命令从到基于 Windows 的 HDInsight Hadoop 群集的远程桌面连接运行 Pig Latin 语句。
+title: 在 HDInsight 中将 Apache Pig 与远程桌面配合使用 - Azure
+description: 了解如何使用 Pig 命令从与 HDInsight 中基于 Windows 的 Apache Hadoop 群集的远程桌面连接运行 Apache Pig Latin 语句。
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -14,25 +14,25 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 01/17/2017
-ms.date: 12/18/2017
+ms.date: 01/14/2019
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 05f2e1c93990cd38ad5f9195fc3e4beb8baa991e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5b8b4f5a1cda413a10f7e46a06cb196e6dcf1b6f
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658904"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029187"
 ---
-# <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>从远程桌面连接运行 Pig 作业
+# <a name="run-apache-pig-jobs-from-a-remote-desktop-connection"></a>从远程桌面连接运行 Apache Pig 作业
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-本文档演练了如何使用 Pig 命令从到基于 Windows 的 HDInsight 群集的远程桌面连接运行 Pig Latin 语句。 Pig Latin 允许通过描述数据转换创建 MapReduce 应用程序，而不是创建映射和化简函数。
+本文档演练了如何使用 Apache Pig 命令从与基于 Windows 的 HDInsight 群集的远程桌面连接运行 Pig Latin 语句。 Pig Latin 允许通过描述数据转换创建 MapReduce 应用程序，而不是创建映射和化简函数。
 
 > [!IMPORTANT]
 > 远程桌面只能在使用 Windows 作为操作系统的 HDInsight 群集上使用。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 >
-> 有关 HDInsight 3.4 或更高版本，请参阅[将 Pig 与 HDInsight 和 SSH 配合使用](apache-hadoop-use-pig-ssh.md) ，了解如何通过命令行直接在群集上以交互方式运行 Pig 作业。
+> 有关 HDInsight 3.4 或更高版本，请参阅[将 Apache Pig 与 HDInsight 和 SSH 配合使用](apache-hadoop-use-pig-ssh.md)，了解如何通过命令行直接在群集上以交互方式运行 Pig 作业。
 
 ## <a id="prereq"></a>先决条件
 要完成本文中的步骤，需要：
@@ -125,10 +125,9 @@ ms.locfileid: "52658904"
 ## <a id="nextsteps"></a>后续步骤
 有关 HDInsight 中的 Pig 的一般信息：
 
-* [将 Pig 与 Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
+* [将 Apache Pig 与 Apache Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
 
-有关 HDInsight 上的 Hadoop 的其他使用方法的信息：
+有关 HDInsight 上 Hadoop 的其他使用方法的信息：
 
-* [将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)
-* [将 MapReduce 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-mapreduce.md)
-<!--Update_Description: change 'wasbs' into 'wasb'-->
+* [将 Apache Hive 与 Apache Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
+* [将 MapReduce 与 HDInsight 上的 Apache Hadoop 配合使用](hdinsight-use-mapreduce.md)

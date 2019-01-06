@@ -1,3 +1,21 @@
+---
+title: include 文件
+description: include 文件
+services: vpn-gateway
+author: WenJason
+ms.service: vpn-gateway
+ms.topic: include
+origin.date: 03/21/2018
+ms.date: 12/24/2018
+ms.author: v-jay
+ms.custom: include file
+ms.openlocfilehash: 239488fac5b04f8bc0b37ee8e7b08aaa053b6a61
+ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53711676"
+---
 下表显示网关类型和预计的网关 SKU 聚合吞吐量。 此表适用于 Resource Manager 部署模型和经典部署模型。 
 
 定价因网关 SKU 而异。 有关详细信息，请参阅 [VPN 网关定价](https://www.azure.cn/pricing/details/vpn-gateway)。

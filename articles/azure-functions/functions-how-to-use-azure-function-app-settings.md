@@ -9,21 +9,21 @@ ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.service: azure-functions
 ms.topic: conceptual
 origin.date: 03/28/2018
-ms.date: 09/21/2018
+ms.date: 12/27/2018
 ms.author: v-junlch
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 88bd60a77e6ac1de95f5784160f084f749447a40
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c9410a1b93ff12de6ca94ef213df5163d5d28942
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654609"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806560"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>如何在 Azure 门户中管理 Function App 
 
 在 Azure Functions 中，Function App 提供各个函数的执行上下文。 Function App 行为适用于由给定 Function App 托管的所有函数。 本主题介绍如何在 Azure 门户中配置和管理 Function App。
 
-要开始，请转到 [Azure 门户](http://portal.azure.cn)，并使用 Azure 帐户登录。 在门户顶端的搜索栏中，键入函数应用的名称，并从列表中将其选中。 选择 Function App 后，将看到以下页面：
+要开始，请转到 [Azure 门户](https://portal.azure.cn)，并使用 Azure 帐户登录。 在门户顶端的搜索栏中，键入函数应用的名称，并从列表中将其选中。 选择 Function App 后，将看到以下页面：
 
 ![Azure 门户中 Function App 的概述](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
@@ -149,4 +149,4 @@ Function App 运行于 Azure 应用服务平台，并由该平台维护。 在�
 
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

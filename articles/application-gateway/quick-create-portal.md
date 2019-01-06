@@ -6,15 +6,15 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
 origin.date: 11/15/2018
-ms.date: 11/21/2018
+ms.date: 12/19/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 1ff41d707e9744157f4097034423aacfa9861053
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 0774ea4afbf7e934aa2d25db243b0099bad3e365
+ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673094"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53656563"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>快速入门：使用 Azure 应用程序网关定向 Web 流量 - Azure 门户
 
@@ -26,7 +26,7 @@ ms.locfileid: "52673094"
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
-通过 [http://portal.azure.cn](http://portal.azure.cn) 登录到 Azure 门户
+通过 [https://portal.azure.cn](https://portal.azure.cn) 登录到 Azure 门户
 
 ## <a name="create-an-application-gateway"></a>创建应用程序网关
 
@@ -88,10 +88,10 @@ ms.locfileid: "52673094"
     - *azureuser* - 作为管理员用户名。
     - *Azure123456!* - 密码。
 
-   接受其他默认值，并单击“下一步: 磁盘”。
-4. 接受磁盘默认值，并单击“下一步: 网络”。
+   接受其他默认值，并单击“下一步:磁盘”。
+4. 接受磁盘默认值，并单击“下一步:网络”。
 5. 请确保选择 **myVNet** 作为虚拟网络，子网是 **myBackendSubnet**。
-6. 接受其他默认值，并单击“下一步: 管理”。
+6. 接受其他默认值，并单击“下一步:管理”。
 7. 单击“关闭”以禁用启动诊断。 接受其他默认值，并单击“复查 + 创建”。
 8. 在“摘要”页上复查设置，然后单击“创建”。
 9. 等待虚拟机创建完成，然后再继续操作。
@@ -152,4 +152,4 @@ ms.locfileid: "52673094"
 > [!div class="nextstepaction"]
 > [通过 Azure CLI 使用应用程序网关管理 Web 流量](./tutorial-manage-web-traffic-cli.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

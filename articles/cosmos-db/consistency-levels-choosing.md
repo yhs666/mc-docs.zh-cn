@@ -1,21 +1,20 @@
 ---
-title: 为使用 Azure Cosmos DB 的应用程序选择适当的一致性级别 | Azure
+title: 为使用 Azure Cosmos DB 的应用程序选择适当的一致性级别
 description: 在 Azure Cosmos DB 中为你的应用程序选择适当的一致性级别。
 keywords: 一致性, 性能, azure cosmos db, azure, Azure 世纪互联
 services: cosmos-db
 author: rockboyfor
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 origin.date: 10/24/2018
-ms.date: 12/03/2018
+ms.date: 12/31/2018
 ms.author: v-yeche
-ms.openlocfilehash: fa7102415c80df45051e352248000a789246cfd3
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: ac328ece86529105cbeedbc2fec21db92965b972
+ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676494"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814739"
 ---
 # <a name="choose-the-right-consistency-level-for-your-application"></a>为你的应用程序选择适当的一致性级别
 
@@ -67,5 +66,4 @@ ms.locfileid: "52676494"
 * [如何管理应用程序的会话令牌](how-to-manage-consistency.md#utilize-session-tokens)
 * [监视概率有限过期性 (PBS) 指标](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)
 
-<!-- Update_Description: new articles on cosmos db consistence levels choosing -->
-<!--ms.date: 12/03/2018-->
+<!-- Update_Description: update meta properties -->

@@ -13,24 +13,25 @@ ms.devlang: na
 ms.topic: article
 origin.date: 08/10/2018
 ms.author: v-yiso
-ms.date: 10/08/2018
-ms.openlocfilehash: 4e20b4582c9c2b0cbca9be4b9884d15f834e54ab
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 12/31/2018
+ms.openlocfilehash: f4a31f8a569f5221d78a0da1b365a97da7868c16
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674870"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736653"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>如何在 Azure API 管理中使用 OAuth 2.0 为开发人员帐户授权
-许多 API 支持使用 [OAuth 2.0](http://oauth.net/2/) 维护 API 的安全，并确保仅有效用户具有访问权限且只能访问有权访问的资源。 要将 Azure API 管理的交互式开发人员门户与此类 API 配合使用，需通过该服务对服务实例进行配置，使之适用于支持 OAuth 2.0 的 API。
+
+许多 API 支持使用 [OAuth 2.0](https://oauth.net/2/) 维护 API 的安全，并确保仅有效用户具有访问权限且只能访问有权访问的资源。 要将 Azure API 管理的交互式开发人员门户与此类 API 配合使用，需通过该服务对服务实例进行配置，使之适用于支持 OAuth 2.0 的 API。
 
 ## <a name="prerequisites"> </a>先决条件
 本指南了介绍如何配置 API 管理服务实例，以便针对开发人员帐户使用 OAuth 2.0 授权，但不介绍如何配置 OAuth 2.0 提供程序。 每个 OAuth 2.0 提供程序的配置均不相同，虽然步骤类似，不过在 API 管理服务实例中配置 OAuth 2.0 时使用的必需信息是相同的。 本主题介绍的示例使用 Azure Active Directory 作为 OAuth 2.0 提供程序。
 
 > [!NOTE]
 > 有关使用 Azure Active Directory 配置 OAuth 2.0 的详细信息，请参阅 [WebApp-GraphAPI-DotNet][WebApp-GraphAPI-DotNet] 示例。
-> 
-> 
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="step1"> </a>在 API 管理中配置 OAuth 2.0 授权服务器
 
@@ -145,7 +146,7 @@ ms.locfileid: "52674870"
 [api-management-oauth2-server-5]: ./media/api-management-howto-oauth2/api-management-oauth2-server-5.png
 [api-management-apis-echo-api]: ./media/api-management-howto-oauth2/api-management-apis-echo-api.png
 
-
+[How to add operations to an API]: ./mock-api-responses.md
 [How to add and publish a product]: ./api-management-howto-add-products.md
 [Monitoring and analytics]: ./api-management-monitoring.md
 [Add APIs to a product]: ./api-management-howto-add-products.md#add-apis

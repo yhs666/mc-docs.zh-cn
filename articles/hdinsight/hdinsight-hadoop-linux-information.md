@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 08/09/2018
-ms.date: 11/19/2018
+ms.date: 12/24/2018
 ms.author: v-yiso
-ms.openlocfilehash: caa97341c6423e22a85a59111d4dc0b55d82e371
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 94dd43311083c4f94cf109d48fd23f7b1d688a82
+ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028295"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53569240"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>有关在 Linux 上使用 HDInsight 的信息
 
@@ -32,7 +32,7 @@ Azure HDInsight 群集在熟悉的 Linux 环境中提供可在 Azure 云中运�
 
 * [cURL](https://curl.haxx.se/) - 用于与基于 Web 的服务通信
 * [jq](https://stedolan.github.io/jq/) - 用于分析 JSON 文档
-* [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest) - 用于远程管理 Azure 服务
+* [Azure CLI](/cli/install-az-cli2) - 用于远程管理 Azure 服务
 
 
 ## <a name="domain-names"></a>域名
@@ -151,7 +151,7 @@ Hadoop 相关文件可在群集节点上的 `/usr/hdp`中找到。 此目录包�
 
 如果使用的是 __Azure 存储__，请参阅以下链接了解可用于访问数据的方式：
 
-* [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest)：适用于 Azure 的命令行接口命令。 在安装后，使用 `az storage` 命令获取有关使用存储的帮助，或者使用 `az storage blob` 获取特定于 Blob 的命令。
+* [Azure CLI](/cli/install-az-cli2)：适用于 Azure 的命令行接口命令。 在安装后，使用 `az storage` 命令获取有关使用存储的帮助，或者使用 `az storage blob` 获取特定于 Blob 的命令。
 * [blobxfer.py](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage)：用于处理 Azure 存储中的 blob 的 python 脚本。
 * 多种 SDK：
 

@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/23/2018
-ms.date: 12/17/2018
+origin.date: 12/04/2018
+ms.date: 12/31/2018
 ms.author: v-jay
-ms.openlocfilehash: 7bf9baba54374e83c71a0a91325d0580906b6f47
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.openlocfilehash: 29fa7f6733e0317069dbe6c73a7d3b7184ee2a4a
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396206"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814625"
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>在 Azure Stack 中使用管理员门户
 

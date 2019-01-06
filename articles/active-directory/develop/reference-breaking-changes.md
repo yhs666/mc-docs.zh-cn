@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/02/2018
-ms.date: 12/04/2018
+ms.date: 01/02/2019
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c9851c79866bc9bc8440d17c5ee8a3924237fdab
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 4d959291e255c1d66106f6191ee179fbd0f09149
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028721"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996224"
 ---
 # <a name="whats-new-for-authentication"></a>身份验证的新增功能 
 
@@ -55,7 +55,7 @@ ms.locfileid: "53028721"
 
 如果应用重复使用授权代码来获取多个资源的令牌，则我们建议使用该代码获取刷新令牌，然后使用该刷新令牌获取其他资源的其他令牌。 授权代码只能使用一次，但刷新令牌可对多个资源使用多次。 尝试在 OAuth 代码流期间重用身份验证代码的任何新应用都将收到 invalid_grant 错误。
 
-有关刷新令牌的详细信息，请参阅[刷新访问令牌](v1-protocols-oauth-code.md#refreshing-the-access-tokens)。
+有关刷新令牌的详细信息，请参阅[刷新访问令牌](v1-protocols-oauth-code.md#refreshing-the-access-tokens)。  如果使用 ADAL 或 MSAL，则由库为你处理 - 将“AcquireTokenByAuthorizationCodeAsync”的第二个实例替换为“AcquireTokenSilentAsync”。 
 
 ## <a name="may-2018"></a>2018 年 5 月
 
@@ -72,4 +72,3 @@ ms.locfileid: "53028721"
 1. 客户端应用程序通过 `response_type=id_token` 请求 id_token 时，还会请求上面创建的 Web API 的访问令牌 (`response_type=token`)。 在 v1.0 终结点上，`resource` 参数应为 Web API 应用 URI。
 1. 将此访问令牌传递到中间层，代替 id_token。  
 
-<!-- Update_Description: wording update -->

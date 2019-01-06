@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: node
 ms.topic: article
 origin.date: 10/01/2016
-ms.author: v-yiso
-ms.date: 10/08/2018
-ms.openlocfilehash: dea32b549cb3a9be7261da767a804b7fe6ad3924
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.author: v-biyu
+ms.date: 01/07/2019
+ms.openlocfilehash: 722e95ff49dad10956cb5f214c2478375f4c3699
+ms.sourcegitcommit: a46f12240aea05f253fb4445b5e88564a2a2a120
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028863"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785245"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>如何使用移动应用 Node.js SDK
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -155,7 +155,7 @@ Visual Studio 2015 需要使用一个扩展在 IDE 中开发 Node.js 应用程�
 以下过程使用 Git 存储库下载快速入门项目代码：
 
 1. 安装 Git（如果尚未安装）。 安装 Git 所需的步骤因操作系统的不同而异。 有关操作系统特定的分发和安装指南，请参阅[安装 Git](http://git-scm.com/book/en/Getting-Started-Installing-Git)。
-2. 若要启用后端站点的 GIT 存储库，请参阅[准备存储库](../app-service/app-service-deploy-local-git.md#prepare-your-repository)。 记下部署用户名和密码。
+2. 若要启用后端站点的 GIT 存储库，请参阅[准备存储库](../app-service/deploy-local-git.md#prepare-your-repository)。 记下部署用户名和密码。
 3. 在移动应用后端的窗格中，记下“Git 克隆 URL”设置。
 4. 使用 Git 克隆 URL 执行 `git clone` 命令。 根据需要输入密码，如以下示例所示：
 
@@ -186,7 +186,7 @@ Azure 应用服务提供有关 Node.js 应用程序的具体建议，请在发�
 ### <a name="howto-enable-homepage"></a>启用应用程序的主页
 许多应用程序是 Web 和移动应用的组合。 可以使用 ExpressJS 框架组合两个分面。 但有时，我们可能只想要实现移动接口。 移动接口用于提供主页，确保应用服务已启动并在运行。 可以提供自己的主页，或启用临时主页。 若要启用临时主页，请使用以下代码来实例化移动应用：
 
-```
+```javascript
 var mobile = azureMobileApps({ homePage: true });
 ```
 
@@ -422,8 +422,6 @@ azureMobile.js 文件中的大多数设置在 [Azure 门户]中都有对等的�
 
 > [!NOTE]
 > 如果在与移动应用后端相同的位置已有一个数据库，则可以选择“使用现有数据库”，并选择该数据库。 不建议使用位于不同位置的数据库，因为延迟更高。
->
->
 
 1. 在新移动应用后端中，选择“设置” > “移动应用” > “数据” > “+添加”。
 2. 在“添加数据连接”窗格中，选择“SQL 数据库 - 配置所需的设置” > “创建新数据库”。 在“名称”框中输入新数据库的名称。
@@ -682,10 +680,12 @@ swagger 终结点位于 http://yoursite.azurewebsites.cn/swagger。  可通过 `
 
 如果希望只在本地进行开发时才使用 Swagger 支持，则也可以将 Swagger 选项添加到 azureMobile.js 文件中。
 
-## <a name="a-namepushpush-notifications"></a><a name="push">推送通知
+## <a name="a-namepushpush-notifications"></a><a name="push"/>推送通知
+
 移动应用与 Azure 通知中心集成，因此，我们可以跨所有主要平台向数百万台设备发送有针对性的推送通知。 使用通知中心可将推送通知发送到 iOS、Android 和 Windows 设备。 若要详细了解通知中心的所有功能，请参阅[通知中心概述](../notification-hubs/notification-hubs-push-notification-overview.md)。
 
-### </a><a name="send-push"></a>发送推送通知
+### <a name="send-push"></a>发送推送通知
+
 以下代码演示如何使用 `push` 对象向已注册的 iOS 设备发送广播推送通知：
 
 ```javascript
@@ -946,9 +946,9 @@ Node.js 应用程序可访问各种诊断日志工具。 在内部，移动应�
 [Xamarin.Forms 客户端快速入门]: ./app-service-mobile-xamarin-forms-get-started.md
 [Windows 应用商店客户端快速入门]: ./app-service-mobile-windows-store-dotnet-get-started.md
 [脱机数据同步]: ./app-service-mobile-offline-data-sync.md
-[配置 Azure Active Directory 身份验证]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
-[配置 Microsoft 身份验证]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
-[Azure 应用服务部署指南]: ../app-service/app-service-deploy-local-git.md
+[配置 Azure Active Directory 身份验证]: ../app-service/configure-authentication-provider-aad.md
+[配置 Microsoft 身份验证]: ../app-service/configure-authentication-provider-microsoft.md
+[Azure 应用服务部署指南]: ../app-service/deploy-local-git.md
 [监视 Azure 应用服务]: ../app-service/web-sites-monitor.md
 [在 Azure 应用服务中启用诊断日志记录]: ../app-service/web-sites-enable-diagnostic-log.md
 [在 Visual Studio 中对 Azure 应用服务进行故障排除]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md

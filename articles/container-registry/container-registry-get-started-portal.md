@@ -1,22 +1,22 @@
 ---
-title: 快速入门 - 使用 Azure 门户在 Azure 中创建专用 Docker 注册表
+title: 快速入门 - 在 Azure 中创建专用 Docker 注册表 - Azure 门户
 description: 快速了解如何使用 Azure 门户创建专用 Docker 容器注册表。
 services: container-registry
 author: rockboyfor
 ms.service: container-registry
 ms.topic: quickstart
 origin.date: 11/06/2018
-ms.date: 12/17/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.custom: mvc
-ms.openlocfilehash: da610eca2c7a6fdb9ed914f408200175d4714a64
-ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 01ad40cb406fb98e592d0948e532041ce8567261
+ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53286742"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53569218"
 ---
-# <a name="quickstart-create-a-container-registry-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建容器注册表
+# <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建专用容器注册表
 
 Azure 容器注册表是 Azure 中的专用 Docker 注册表，你可在其中存储和管理专用 Docker 容器映像。 在本快速入门中，请使用 Azure 门户创建容器注册表，然后将容器映像推送到注册表中。 
 
@@ -156,4 +156,4 @@ v1: digest: sha256:565dba8ce20ca1a311c2d9485089d7ddc935dd50140510050345a1b0ea4ff
 <!-- Not Availble on [container-instances-tutorial-prepare-app]: ../container-instances/container-instances-tutorial-prepare-app.md-->
 
 [container-registry-skus]: container-registry-skus.md
-<!-- Update_Description: update link, wording update -->
+<!-- Update_Description: update meta properties, update link, wording update -->

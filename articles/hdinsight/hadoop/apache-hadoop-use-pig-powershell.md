@@ -1,6 +1,6 @@
 ---
-title: 在 HDInsight 中将 Hadoop Pig 与 PowerShell 配合使用 - Azure | Azure
-description: 了解如何使用 Azure PowerShell 将 Pig 作业提交到 HDInsight 上的 Hadoop 群集。
+title: 在 HDInsight 中将 Apache Pig 与 PowerShell 配合使用 - Azure
+description: 了解如何使用 Azure PowerShell 将 Apache Pig 作业提交到 HDInsight 上的 Apache Hadoop 群集。
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -14,24 +14,24 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/09/2018
-ms.date: 09/24/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 6688044fd0893f2461866cf3d9738dbeb265baae
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 87e3b34d0773d02f4efb45f9a031d5a2a1b13692
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663020"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029113"
 ---
-# <a name="use-azure-powershell-to-run-pig-jobs-with-hdinsight"></a>使用 Azure PowerShell 通过 HDInsight 运行 Pig 作业
+# <a name="use-azure-powershell-to-run-apache-pig-jobs-with-hdinsight"></a>使用 Azure PowerShell 通过 HDInsight 运行 Apache Pig 作业
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-本文档提供使用 Azure PowerShell 向 HDInsight 群集上的 Hadoop 提交 Pig 作业的示例。 Pig 允许用户通过使用可为数据转换建模的语言 (Pig Latin) 编写 MapReduce 作业，而无需使用映射和化简函数。
+本文档提供使用 Azure PowerShell 向 Apache Hadoop on HDInsight 群集提交 Apache Pig 作业的示例。 Pig 允许使用可为数据转换建模的语言 (Pig Latin) 编写 MapReduce 作业，无需使用映射和化简函数。
 
-> [!NOTE]
-> 本文档未详细描述示例中使用的 Pig Latin 语句的作用。 有关此示例中使用的 Pig Latin 的详细信息，请参阅[将 Pig 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-pig.md)。
+> [!NOTE]  
+> 本文档未详细描述示例中使用的 Pig Latin 语句的作用。 有关此示例中使用的 Pig Latin 的信息，请参阅[将 Apache Pig 与 HDInsight 上的 Apache Hadoop 配合使用](hdinsight-use-pig.md)。
 
 ## <a id="prereq"></a>先决条件
 
@@ -42,17 +42,17 @@ ms.locfileid: "52663020"
 
 * **配备 Azure PowerShell 的工作站**。
 
-## <a id="powershell"></a>运行 Pig 作业
+## <a id="powershell"></a>运行 Apache Pig 作业
 
 Azure PowerShell 提供 *cmdlet*，可让你在 HDInsight 上远程运行 Pig 作业。 PowerShell 在内部使用 REST 调用 HDInsight 群集上运行的 [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) 。
 
 在远程 HDInsight 群集上运行 Pig 作业时，使用以下 Cmdlet：
 
 * **Connect-AzureRmAccount**：在 Azure 订阅中进行 Azure PowerShell 身份验证。
-* **New-AzureRmHDInsightPigJobDefinition**：使用指定的 Pig Latin 语句创建“作业定义”。
+* **New-AzureRmHDInsightPigJobDefinition**：使用指定的 Pig Latin 语句创建作业定义。
 * **Start-AzureRmHDInsightJob**：将作业定义发送到 HDInsight 并启动作业。 将返回作业对象。
 * **Wait-AzureRmHDInsightJob**：使用作业对象来检查作业的状态。 它会等到作业完成或超出等待时间。
-* **Get-AzureRmHDInsightJobOutput**：用于检索作业输出。
+* **Get-AzureRmHDInsightJobOutput**：用于检索作业的输出。
 
 以下步骤演示了如何使用这些 Cmdlet 在 HDInsight 群集上运行作业。
 
@@ -145,9 +145,9 @@ Azure PowerShell 提供了一种简单方法，可在 HDInsight 群集上运行 
 ## <a id="nextsteps"></a>后续步骤
 有关 HDInsight 中的 Pig 的一般信息：
 
-* [将 Pig 与 Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
+* [将 Apache Pig 与 Apache Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
 
-有关 HDInsight 上的 Hadoop 的其他使用方法的信息：
+有关 HDInsight 上 Hadoop 的其他使用方法的信息：
 
-* [将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)
-* [将 MapReduce 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-mapreduce.md)
+* [将 Apache Hive 与 Apache Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
+* [将 MapReduce 与 HDInsight 上的 Apache Hadoop 配合使用](hdinsight-use-mapreduce.md)

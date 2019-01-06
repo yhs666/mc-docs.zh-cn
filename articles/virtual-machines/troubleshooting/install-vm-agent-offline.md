@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/31/2018
-ms.date: 11/26/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 583cfe5cfb7bb1efc5473ca60ee390a2e20cc73d
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 81614a1525cd423519648870aef63df4c302bc04
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675414"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736206"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>在脱机模式下安装 Azure 虚拟机代理 
 
@@ -37,7 +37,7 @@ Azure 虚拟机代理（VM 代理）可提供多种有用的功能，例如本�
 
 可以使用以下步骤，在脱机模式下安装 VM 代理。
 
-### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>第 1 步：将 VM 的 OS 磁盘作为数据磁盘附加到另一 VM
+### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>步骤 1：将 VM 的 OS 磁盘作为数据磁盘附加到另一 VM
 
 1.  删除 VM。 删除 VM 时，请确保选择“保留磁盘”选项。
 
@@ -45,7 +45,7 @@ Azure 虚拟机代理（VM 代理）可提供多种有用的功能，例如本�
 
 3.  连接到故障排除 VM。 转到“计算机管理” > “磁盘管理”。 确认 OS 磁盘处于联机状态，并且已将驱动器号分配到磁盘分区。
 
-### <a name="step-2-modify-the-os-disk-to-install-the-azure-vm-agent"></a>第 2 步：修改 OS 磁盘以安装 Azure VM 代理
+### <a name="step-2-modify-the-os-disk-to-install-the-azure-vm-agent"></a>步骤 2：修改 OS 磁盘以安装 Azure VM 代理
 
 1.  远程桌面连接到故障排除 VM。
 

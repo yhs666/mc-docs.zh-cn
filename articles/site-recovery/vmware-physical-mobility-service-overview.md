@@ -6,14 +6,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 11/04/2018
-ms.date: 12/10/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0701236bb621665b6428b0c625fec61f3d1086a1
-ms.sourcegitcommit: 6cd0a8d22061aba7390579a80e19cb9d2f7faf12
+ms.openlocfilehash: 2830717bdd67772d4a8cadeeb0e20f80bf54c178
+ms.sourcegitcommit: d2893ae6bdbb3784d243d5d3c49c25c9cfd99d9b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53233988"
+ms.lasthandoff: 12/25/2018
+ms.locfileid: "53784831"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>关于适用于 VMware VM 和物理服务器的移动服务
 
@@ -56,11 +56,11 @@ Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8
 2. 在门户中打开保管库 >“复制的项”。
 3. 如果配置服务器是最新版本，则会看到一条通知，指出“新的 Site Recovery 复制代理更新已可用。 单击可安装。”
 
-     ![“复制的项”窗口](.\media\vmware-azure-install-mobility-service\replicated-item-notif.png)
+     ![“复制的项”窗口](./media/vmware-azure-install-mobility-service\replicated-item-notif.png)
 
-4. 单击该通知，并在“代理更新”中选择要在其上升级移动服务的计算机。 然后单击“确定”。
+4. 单击该通知，并在“代理更新”中选择要在其上升级移动服务的计算机。 。
 
-     ![“复制的项”VM 列表](.\media\vmware-azure-install-mobility-service\update-okpng.png)
+     ![“复制的项”VM 列表](./media/vmware-azure-install-mobility-service\update-okpng.png)
 
 5. 将为所选的每台计算机启动“更新移动服务”作业。
 
@@ -82,7 +82,7 @@ Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8
 
 ## <a name="on-a-linux-machine"></a>在 Linux 计算机上
 1. 在 Linux 计算机上以 **root** 用户身份登录。
-2. 在终端中，转到 /user/local/ASR。
+2. 在终端中转到 /user/local/ASR。
 3. 运行以下命令：
 
     ```
@@ -93,3 +93,4 @@ Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8
 
 [设置移动服务的推送安装](vmware-azure-install-mobility-service.md)。
 
+<!--Update_Dscription: udpate meta properties, wording update -->

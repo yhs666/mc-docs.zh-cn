@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 04/12/2017
 ms.date: 06/14/2018
 ms.author: v-junlch
-ms.openlocfilehash: 4a86f5b19ff34704cf63c3db32a282a4162b4636
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: e2e430fa2905100f01631e8ac57417eeffa687d7
+ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028870"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53656589"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>如何使用 PowerShell 在 Azure VPN 网关上配置 BGP
 本文介绍使用 Resource Manager 部署模型和 PowerShell 在跨界站点到站点 (S2S) VPN 连接和 VNet 到 VNet 连接上启用 BGP 的步骤。
@@ -168,7 +168,7 @@ $BGPPeerIP5 = "10.52.255.254"
 关于本地网关参数，有几个事项需要注意：
 
 * 本地网关可以与 VPN 网关在相同或不同的位置和资源组中。 此示例演示它们在不同位置的不同资源组中。
-* 需要为本地网关声明的最小前缀是 VPN 设备上的 BGP 对等节点 IP 地址中的主机地址。 在此示例中，它是“10.52.255.254/32”中的 /32 前缀。
+* 需要为本地网关声明的前缀是 VPN 设备上的 BGP 对等节点 IP 地址中的主机地址。 在此示例中，它是“10.52.255.254/32”中的 /32 前缀。
 * 提醒一下，在本地网络与 Azure VNet 之间必须使用不同的 BGP ASN。 如果它们是相同的，则需要更改 VNet ASN（如果本地 VPN 设备已使用该 ASN 与其他 BGP 邻居对等）。
 
 继续操作之前，请确保仍与订阅 1 保持连接。

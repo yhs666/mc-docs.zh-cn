@@ -2,22 +2,20 @@
 title: 了解 Azure 自动化的 PowerShell 工作流
 description: 本文旨在作为熟悉 PowerShell 的创作人员的一个速成教程，以便其了解 PowerShell 和 PowerShell 工作流以及适用于自动化 Runbook 的概念之间的具体差异。
 services: automation
-author: yunan2016
-manager: digimobile
 ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 05/04/2018
-ms.date: 07/23/2018
-ms.author: v-nany
-ms.openlocfilehash: ed490e50b0a3c906c859916dfbbe1a5030fd27e5
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.component: process-automation
+author: WenJason
+ms.author: v-jay
+origin.date: 12/14/2018
+ms.date: 12/24/2018
+ms.topic: conceptual
+manager: digimobile
+ms.openlocfilehash: 27e8b801bda3baa9d0307ebbc5402c31ab949e06
+ms.sourcegitcommit: 895e9accaae8f8c2a29ed91d8e84911fda6111cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662843"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53615183"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>了解重要的适用于自动化 Runbook 的 Windows PowerShell 工作流概念
 
@@ -25,7 +23,7 @@ Azure 自动化中的 Runbook 作为 Windows PowerShell 工作流实现。  Wind
 
 工作流是一系列编程的连接步骤，用于执行长时间运行的任务，或者要求跨多个设备或托管节点协调多个步骤。 与标准脚本相比，工作流的优点有：能够针对多台设备同时执行操作，并且能够从故障自动恢复。 Windows PowerShell 工作流是使用 Windows Workflow Foundation 的 Windows PowerShell 脚本。 尽管工作流采用 Windows PowerShell 语法编写并通过 Windows PowerShell 启动，但由 Windows Workflow Foundation 对其进行处理。
 
-有关本文中主题的完整详细信息，请参阅 [Windows PowerShell 工作流简介](http://technet.microsoft.com/library/jj134242.aspx)。
+有关本文中主题的完整详细信息，请参阅 [Windows PowerShell 工作流简介](https://technet.microsoft.com/library/jj134242.aspx)。
 
 ## <a name="basic-structure-of-a-workflow"></a>工作流的基本结构
 
@@ -48,9 +46,9 @@ Workflow Test-Workflow
 
 ### <a name="activities"></a>活动
 
-活动是工作流中的特定任务。 就像脚本由一个或多个命令构成一样，工作流由一个或多个按顺序执行的活动构成。 Windows PowerShell 工作流在运行工作流时，会将许多 Windows PowerShell cmdlet 自动转换为活动。 在 Runbook 中指定其中的某个 cmdlet 时，相应的活动由 Windows Workflow Foundation 运行。 对于这些没有相应活动的 cmdlet，Windows PowerShell 工作流自动在 [InlineScript](#inlinescript) 活动中运行该 cmdlet。 有一组 cmdlet 已被排除，不能包含在工作流中，除非显式将它们包含在 InlineScript 块中。 有关这些概念的更多详细信息，请参阅[在脚本工作流中使用活动](http://technet.microsoft.com/library/jj574194.aspx)。
+活动是工作流中的特定任务。 就像脚本由一个或多个命令构成一样，工作流由一个或多个按顺序执行的活动构成。 Windows PowerShell 工作流在运行工作流时，会将许多 Windows PowerShell cmdlet 自动转换为活动。 在 Runbook 中指定其中的某个 cmdlet 时，相应的活动由 Windows Workflow Foundation 运行。 对于这些没有相应活动的 cmdlet，Windows PowerShell 工作流自动在 [InlineScript](#inlinescript) 活动中运行该 cmdlet。 有一组 cmdlet 已被排除，不能包含在工作流中，除非显式将它们包含在 InlineScript 块中。 有关这些概念的更多详细信息，请参阅[在脚本工作流中使用活动](https://technet.microsoft.com/library/jj574194.aspx)。
 
-工作流活动共享一组公用参数来配置其操作。 有关工作流通用参数的详细信息，请参阅 [about_WorkflowCommonParameters](http://technet.microsoft.com/library/jj129719.aspx)。
+工作流活动共享一组公用参数来配置其操作。 有关工作流通用参数的详细信息，请参阅 [about_WorkflowCommonParameters](https://technet.microsoft.com/library/jj129719.aspx)。
 
 ### <a name="positional-parameters"></a>位置参数
 
@@ -155,7 +153,7 @@ Workflow Stop-MyService
 * 不能在 InlineScriptBlock 内部使用[并行执行](#parallel-processing)。
 * 因为 InlineScript 会在 InlineScript 块的整个长度内占有 Windows PowerShell 会话，因此会影响工作流的可伸缩性。
 
-有关使用 InlineScript 的详细信息，请参阅[在工作流中运行 Windows PowerShell 命令](http://technet.microsoft.com/library/jj574197.aspx)和 [about_InlineScript](http://technet.microsoft.com/library/jj649082.aspx)。
+有关使用 InlineScript 的详细信息，请参阅[在工作流中运行 Windows PowerShell 命令](https://technet.microsoft.com/library/jj574197.aspx)和 [about_InlineScript](https://technet.microsoft.com/library/jj649082.aspx)。
 
 ## <a name="parallel-processing"></a>并行处理
 
@@ -196,10 +194,10 @@ Workflow Copy-Files
 }
 ```
 
-可以使用 **ForEach-Parallel** 构造同时处理集合中每个项的命令。 尽管脚本块中的命令按顺序运行，但集合中的项是并行处理的。 此脚本块使用如下所示的语法。 在此示例中，将同时对集合中的所有项启动 Activity1。 对于每个项，Activity2 会在 Activity1 完成后启动。 只有在对所有项完成 Activity1 和 Activity2 后，Activity3 才会启动。
+可以使用 **ForEach-Parallel** 构造同时处理集合中每个项的命令。 尽管脚本块中的命令按顺序运行，但集合中的项是并行处理的。 此脚本块使用如下所示的语法。 在此示例中，将同时对集合中的所有项启动 Activity1。 对于每个项，Activity2 会在 Activity1 完成后启动。 只有在对所有项完成 Activity1 和 Activity2 后，Activity3 才会启动。 我们使用 `ThrottleLimit` 参数来限制并行度。 `ThrottleLimit` 太高会导致问题。 `ThrottleLimit` 参数的理想值取决于环境中的许多因素。 你应该尝试从较低的值开始并尝试不同的增加值，直到找到适合你的特定环境的值。
 
 ```powershell
-ForEach -Parallel ($<item> in $<collection>)
+ForEach -Parallel -ThrottleLimit 10 ($<item> in $<collection>)
 {
     <Activity1>
     <Activity2>
@@ -214,7 +212,7 @@ Workflow Copy-Files
 {
     $files = @("C:\LocalPath\File1.txt","C:\LocalPath\File2.txt","C:\LocalPath\File3.txt")
 
-    ForEach -Parallel ($File in $Files)
+    ForEach -Parallel -ThrottleLimit 10 ($File in $Files)
     {
         Copy-Item -Path $File -Destination \\NetworkPath
         Write-Output "$File copied."
@@ -294,7 +292,7 @@ workflow CreateTestVms
 
 此外，如果使用配置了服务主体的运行方式帐户进行身份验证，则不需要此处理。
 
-关于检查点的详细信息，请参阅[向脚本工作流添加检查点](http://technet.microsoft.com/library/jj574114.aspx)。
+关于检查点的详细信息，请参阅[向脚本工作流添加检查点](https://technet.microsoft.com/library/jj574114.aspx)。
 
 ## <a name="next-steps"></a>后续步骤
 

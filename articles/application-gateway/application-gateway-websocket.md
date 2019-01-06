@@ -1,5 +1,5 @@
 ---
-title: Azure 应用程序网关中的 WebSocket 支持 | Azure
+title: Azure 应用程序网关中的 WebSocket 支持 | Microsoft Docs
 description: 此页概述了应用程序网关的 WebSocket 支持。
 documentationcenter: na
 services: application-gateway
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/08/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
-ms.openlocfilehash: 15a76ed3330577843bc0c010bfeff1ea2cfdb0d0
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/19/2018
+ms.author: v-junlch
+ms.openlocfilehash: 6b8ce60f2e7dc200f0020cd118c72b1dfc75ba0a
+ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655026"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53656511"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>应用程序网关中的 WebSocket 支持概述
 
@@ -114,7 +114,7 @@ ms.locfileid: "52655026"
     Upgrade: websocket
     Connection: Upgrade
     Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ==
-    Origin: http://example.com
+    Origin: https://example.com
     Sec-WebSocket-Protocol: chat, superchat
     Sec-WebSocket-Version: 13
 ```
@@ -124,3 +124,6 @@ ms.locfileid: "52655026"
 ## <a name="next-steps"></a>后续步骤
 
 了解 WebSocket 支持后，请转到[创建应用程序网关](application-gateway-create-gateway.md)，开始使用已启用 WebSocket 的 Web 应用程序。
+
+
+<!-- Update_Description: link update -->

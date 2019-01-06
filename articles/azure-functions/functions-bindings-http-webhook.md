@@ -10,14 +10,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 11/21/2017
-ms.date: 11/22/2018
+ms.date: 12/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: e153e9e569d90f0e764dddf81b5ce5552904cabd
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 932563e9f2b3727aac38a9d8a65a733cbcc6fb3a
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672574"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806572"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP 触发器和绑定
 
@@ -31,19 +31,19 @@ HTTP 触发器可进行自定义以响应 [Webhook](https://en.wikipedia.org/wik
 
 ## <a name="packages---functions-1x"></a>包 - Functions 1.x
 
-[Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) NuGet 包 1.x 版本中提供了 HTTP 绑定。 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.Http) GitHub 存储库中提供了此包的源代码。
+[Microsoft.Azure.WebJobs.Extensions.Http](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) NuGet 包 1.x 版本中提供了 HTTP 绑定。 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.Http) GitHub 存储库中提供了此包的源代码。
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="packages---functions-2x"></a>包 - Functions 2.x
 
-[Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) NuGet 包 3.x 版本中提供了 HTTP 绑定。 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) GitHub 存储库中提供了此包的源代码。
+[Microsoft.Azure.WebJobs.Extensions.Http](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) NuGet 包 3.x 版本中提供了 HTTP 绑定。 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) GitHub 存储库中提供了此包的源代码。
 
 [!INCLUDE [functions-package](../../includes/functions-package-auto.md)]
 
 ## <a name="trigger"></a>触发器
 
-借助 HTTP 触发器，可以使用 HTTP 请求调用函数。 可以使用 HTTP 触发器生成无服务器 API 和响应 Webhook。 
+借助 HTTP 触发器，可以使用 HTTP 请求调用函数。 可以使用 HTTP 触发器生成无服务器 API 和响应 Webhook。
 
 默认情况下，在 Functions 1.x 中，HTTP 触发器返回“HTTP 200 正常”和空的正文；在 Functions 2.x 中返回“HTTP 204 无内容”和空的正文。 若要修改该响应，请配置 [HTTP 输出绑定](#output)。
 
@@ -54,8 +54,9 @@ HTTP 触发器可进行自定义以响应 [Webhook](https://en.wikipedia.org/wik
 - [C#](#trigger---c-example)
 - [C# 脚本 (.csx)](#trigger---c-script-example)
 - [F#](#trigger---f-example)
-- [JavaScript](#trigger---javascript-example)
 - [Java](#trigger---java-example)
+- [JavaScript](#trigger---javascript-example)
+- [Python](#trigger---python-example)
 
 ### <a name="trigger---c-example"></a>触发器 - C# 示例
 
@@ -158,7 +159,7 @@ public static string Run(CustomObject req, ILogger log)
 }
 
 public class CustomObject {
-     public String name {get; set;}
+     public string name {get; set;}
 }
 ```
 
@@ -277,6 +278,61 @@ module.exports = function(context, req) {
 };
 ```
 
+### <a name="trigger---python-example"></a>触发器 - Python 示例
+
+以下示例演示 function.json 文件中的一个触发器绑定以及使用该绑定的 [Python 函数](functions-reference-python.md)。 该函数在查询字符串或 HTTP 请求的正文中查找 `name` 参数。
+
+function.json 文件如下所示：
+
+```json
+{
+    "scriptFile": "__init__.py",
+    "disabled": false,    
+    "bindings": [
+        {
+            "authLevel": "function",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "req"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "res"
+        }
+    ]
+}
+```
+
+[配置](#trigger---configuration)部分解释了这些属性。
+
+下面是 Python 代码：
+
+```python
+import logging
+import azure.functions as func
+
+def main(req: func.HttpRequest) -> func.HttpResponse:
+    logging.info('Python HTTP trigger function processed a request.')
+
+    name = req.params.get('name')
+    if not name:
+        try:
+            req_body = req.get_json()
+        except ValueError:
+            pass
+        else:
+            name = req_body.get('name')
+
+    if name:
+        return func.HttpResponse(f"Hello {name}!")
+    else:
+        return func.HttpResponse(
+            "Please pass a name on the query string or in the request body",
+            status_code=400
+        )
+```
+
 ### <a name="trigger---java-example"></a>触发器 - Java 示例
 
 以下示例演示 *function.json* 文件中的一个触发器绑定以及使用该绑定的 [Java 函数](functions-reference-java.md)。 此函数返回 HTTP 状态代码为 200 的响应和请求正文，触发性的请求正文带有“Hello, ”问候语前缀。
@@ -308,7 +364,7 @@ function.json 文件如下所示：
 ```java
 @FunctionName("hello")
 public HttpResponseMessage<String> hello(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS), Optional<String> request,
-                        final ExecutionContext context) 
+                        final ExecutionContext context)
     {
         // default HTTP 200 response code
         return String.format("Hello, %s!", request);
@@ -353,12 +409,11 @@ public static HttpResponseMessage Run(
 
 对于 JavaScript 函数，Functions 运行时提供请求正文而不是请求对象。 有关详细信息，请参阅 [JavaScript 触发器示例](#trigger---javascript-example)。
 
-
 ### <a name="customize-the-http-endpoint"></a>自定义 HTTP 终结点
 
 默认情况下，创建 HTTP 触发器的函数时，可通过以下格式的路由对该函数进行寻址：
 
-    http://<yourapp>.chinacloudsites.cn/api/<funcname> 
+    http://<yourapp>.chinacloudsites.cn/api/<funcname>
 
 在 HTTP 触发器的输入绑定中，可以使用可选 `route` 属性自定义此路由。 例如，以下 function.json 文件定义了 HTTP 触发器的 `route` 属性：
 
@@ -390,7 +445,7 @@ http://<yourapp>.chinacloudsites.cn/api/products/electronics/357
 这使得函数代码可以支持地址中的两个参数：“category”和“id”。可以将任何 [Web API 路由约束](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints)与参数配合使用。 以下 C# 函数代码使用了这两个参数。
 
 ```csharp
-public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id, 
+public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id,
                                                 ILogger log)
 {
     if (id == null)
@@ -422,7 +477,7 @@ module.exports = function (context, req) {
     }
 
     context.done();
-} 
+}
 ```
 
 默认情况下，所有函数路由的前缀均为 api。 还可以使用 [host.json](functions-host-json.md) 文件中的 `http.routePrefix` 属性自定义或删除前缀。 以下示例通过将空字符串用于 host.json 文件中的前缀删除 api 路由前缀。
@@ -433,6 +488,45 @@ module.exports = function (context, req) {
     "routePrefix": ""
     }
 }
+```
+
+### <a name="working-with-client-identities"></a>使用客户端标识
+
+如果函数应用使用[应用服务身份验证/授权](../app-service/app-service-authentication-overview.md)，则可通过代码查看有关已验证身份的客户端的信息。 此信息以[平台注入的请求标头](../app-service/app-service-authentication-how-to.md#access-user-claims)的形式提供。 
+
+还可从绑定数据中读取此信息。 此功能仅可用于 Functions 2.x 运行时， 而且它目前仅可用于 .NET 语言。
+
+在 .NET 语言中，此信息以 [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal?view=netstandard-2.0) 的形式提供。 ClaimsPrincipal 作为请求上下文的一部分提供，如以下示例中所示：
+
+```csharp
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+
+public static IActionResult Run(HttpRequest req, ILogger log)
+{
+    ClaimsPrincipal identities = req.HttpContext.User;
+    // ...
+    return new OkResult();
+}
+```
+
+或者，可直接将 ClaimsPrincipal 作为其他参数包含在函数签名中：
+
+```csharp
+#r "Newtonsoft.Json"
+
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+using Newtonsoft.Json.Linq;
+
+public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
+{
+    // ...
+    return;
+}
+
 ```
 
 ### <a name="authorization-keys"></a>授权密钥
@@ -484,7 +578,7 @@ Functions 允许使用密钥来增大开发期间访问 HTTP 函数终结点的�
 
 若要全面保护生产环境中的函数终结点，应考虑实现以下函数应用级别的安全选项之一：
 
-- 打开函数应用的“应用服务身份验证/授权”。 应用服务平台允许使用 Azure Active Directory (AAD) 和多个第三方标识提供者对客户端进行身份验证。 可以使用此函数来实现函数的自定义授权规则，并且可以从函数代码处理用户信息。 若要了解详细信息，请参阅 [Azure 应用服务中的身份验证和授权](../app-service/app-service-authentication-overview.md)。
+- 打开函数应用的“应用服务身份验证/授权”。 应用服务平台允许使用 Azure Active Directory (AAD) 和多个第三方标识提供者对客户端进行身份验证。 可以使用此函数来实现函数的自定义授权规则，并且可以从函数代码处理用户信息。 若要了解详细信息，请参阅 [Azure 应用服务中的身份验证和授权](../app-service/app-service-authentication-overview.md)以及[使用客户端标识](#working-with-client-identities)。
 
 - 使用 Azure API 管理 (APIM) 对请求进行身份验证。 APIM 针对传入的请求提供各种 API 安全选项。 若要了解详细信息，请参阅 [API 管理身份验证策略](../api-management/api-management-authentication-policies.md)。 有了 APIM，可以配置函数应用以接受仅来自 APIM 实例 IP 地址的请求。 有关详细信息，请参阅 [IP 地址限制](ip-addresses.md#ip-address-restrictions)。
 
@@ -493,17 +587,15 @@ Functions 允许使用密钥来增大开发期间访问 HTTP 函数终结点的�
 ### <a name="webhooks"></a>Webhook
 
 > [!NOTE]
-> Webhook 模式仅适用于 1.x 版 Functions 运行时。
+> Webhook 模式仅适用于 1.x 版 Functions 运行时。 进行此更改是为了提高 2.x 版中 HTTP 触发器的性能。
 
-Webhook 模式提供了有关 Webhook 有效负载的其他验证。 在 2.x 版中，基本 HTTP 触发器仍正常工作，且是针对 Webhook 的推荐方法。
+在 1.x 版中，Webhook 模板为 Webhook 有效负载提供了额外的验证。 在 2.x 版中，基本 HTTP 触发器仍正常工作，且是针对 Webhook 的推荐方法。 
 
 #### <a name="github-webhooks"></a>GitHub Webhook
 
 要响应 GitHub webhook，首先请创建包含 HTTP 触发器的函数，并将 webHookType 属性设置为 `github`。 然后将其 URL 和 API 密钥复制到 GitHub 存储库的“添加 Webhook”页。 
 
 ![](./media/functions-bindings-http-webhook/github-add-webhook.png)
-
-有关示例，请参阅[创建由 GitHub webhook 触发的函数](functions-create-github-webhook-triggered-function.md)。
 
 #### <a name="slack-webhooks"></a>Slack Webhook
 
@@ -514,7 +606,7 @@ Slack webhook 为用户生成令牌，而非让用户指定它，所以必须使
 Webhook 授权由属于 HTTP 触发器的 webhook 接收器组件处理，其机制因 webhook 类型而异。 每种机制都依赖于一个密钥。 默认情况下，使用名为“default”的函数密钥。 要使用其他密钥，请将 webhook 提供程序配置为使用以下方式之一的请求发送密钥名称：
 
 - **查询字符串**：提供程序通过 `clientid` 查询字符串参数（例如，`https://<yourapp>.chinacloudsites.cn/api/<funcname>?clientid=<keyname>`）传递密钥名称。
-- **请求头**：提供程序通过 `x-functions-clientid` 头传递密钥名称。
+- **请求标头**：提供程序通过 `x-functions-clientid` 标头传递密钥名称。
 
 ## <a name="trigger---limits"></a>触发器 - 限制
 
@@ -534,7 +626,7 @@ HTTP 请求长度限制为 100 MB（104,857,600 字节），并且 URL 长度限
 
 ## <a name="output---configuration"></a>输出 - 配置
 
-下表解释了在 function.json 文件中设置的绑定配置属性。 在 C# 类库中，没有与这些 *function.json* 属性对应的特性。 
+下表解释了在 function.json 文件中设置的绑定配置属性。 在 C# 类库中，没有与这些 *function.json* 属性对应的特性。
 
 |属性  |说明  |
 |---------|---------|
@@ -552,4 +644,4 @@ HTTP 请求长度限制为 100 MB（104,857,600 字节），并且 URL 长度限
 
 [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

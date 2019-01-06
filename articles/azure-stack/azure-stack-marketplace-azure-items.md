@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/15/2018
-ms.date: 12/17/2018
+origin.date: 12/03/2018
+ms.date: 12/31/2018
 ms.author: v-jay
 ms.reviewer: ''
-ms.openlocfilehash: 25d26eaeb64e53a77dd79662fc058d8eea9688cb
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.openlocfilehash: 3279dcafe0a3cf0a2c2a1e934cfb5482747cc9f1
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396197"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814645"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>适用于 Azure Stack 的 Azure 市场项
 
@@ -73,11 +73,12 @@ Azure Stack 支持下述 Azure 市场虚拟机和解决方案模板。 请根据
 |  | 项名称 | 说明 | 发布者 |
 | --- | --- | --- | --- |
 | ![Clear Linux OS](media/azure-stack-marketplace-azure-items/clearlinux.png) | [Clear Linux OS](https://market.azure.cn/zh-cn/marketplace/apps/CoreOS.CoreOS?tab=Overview) | 一个针对 Intel 体系结构优化的参考性 Linux 发行版 | Clear Linux Project |
+| ![CoreOS 提供的 Container Linux](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS 提供的 Container Linux](https://market.azure.cn/zh-cn/marketplace/apps/CoreOS.CoreOS?tab=Overview) | Container Linux 是一种新式的最小型 Linux 发行版，可以方便地运行容器、管理群集以及无缝地更新服务器 - 所有组件都启用了仓库规模的计算。 | CoreOS |
 | ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://market.azure.cn/zh-cn/marketplace/apps/Canonical.UbuntuServer?tab=Overview) | Ubuntu Server 是全球流行的 Linux 云环境。 | Canonical |
 | ![Debian 8 "Jessie"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8“Jessie”](https://market.azure.cn/zh-cn/marketplace/apps/credativ.Debian?tab=Overvieww) | Debian GNU/Linux 是最流行的 Linux 分发版之一。 | credativ |
-| ![Debian 9“Stretch”](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 9“Stretch”](https://market.azure.cn/zh-cn/marketplace/apps/credativ.Debian?tab=Overview) | Debian GNU/Linux 是最流行的 Linux 分发版之一。 | credativ |
 | ![基于 CentOS 的 6.9](media/azure-stack-marketplace-azure-items/roguewave.png) | [基于 CentOS 的 6.9](https://market.azure.cn/zh-cn/marketplace/apps/RogueWave.CentOSbased?tab=Overview) | 此 Linux 发行版基于 CentOS ，由 Rogue Wave Software 提供。 | Rogue Wave Software（之前为 OpenLogic）  |
 | ![基于 CentOS 的 6.10](media/azure-stack-marketplace-azure-items/roguewave.png) | [基于 CentOS 的 6.10](https://market.azure.cn/zh-cn/marketplace/apps/RogueWave.CentOSbased?tab=Overview) | 此 Linux 发行版基于 CentOS ，由 Rogue Wave Software 提供。 | Rogue Wave Software（之前为 OpenLogic）  |
+| ![基于 CentOS 的 7.3](media/azure-stack-marketplace-azure-items/roguewave.png) | [基于 CentOS 的 7.3](https://market.azure.cn/zh-cn/marketplace/apps/RogueWave.CentOSbased?tab=Overview) | 此 Linux 发行版基于 CentOS ，由 Rogue Wave Software 提供。 | Rogue Wave Software（之前为 OpenLogic） |
 | ![基于 CentOS 的 7.5](media/azure-stack-marketplace-azure-items/roguewave.png) | [基于 CentOS 的 7.5](https://market.azure.cn/zh-cn/marketplace/apps/RogueWave.CentOSbased?tab=Overview) | 此 Linux 发行版基于 CentOS ，由 Rogue Wave Software 提供。 | Rogue Wave Software（之前为 OpenLogic） |
 | ![基于 CentOS 的 7.5-LVM](media/azure-stack-marketplace-azure-items/roguewave.png) | [基于 CentOS 的 7.5-LVM](https://market.azure.cn/zh-cn/marketplace/apps/RogueWave.CentOSbased?tab=PlansAndPrice) | 此 Linux 发行版基于 CentOS ，由 Rogue Wave Software 提供。 | Rogue Wave Software（之前为 OpenLogic） |
 | ![SLES 11 SP4 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 11 SP4 (BYOS)](https://market.azure.cn/zh-cn/marketplace/apps/SUSE.SUSELinuxEnterpriseServer?tab=Overview) | SUSE Linux Enterprise Server 11 SP4。 | SUSE |

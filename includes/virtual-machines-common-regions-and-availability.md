@@ -9,12 +9,12 @@ origin.date: 03/27/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 000bfd944cdfce2729ef8a4872c1f4998ca5b4f5
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 8faf6d38c52b67416a7b12c901a72b1942f43ef3
+ms.sourcegitcommit: f6a287a11480cbee99a2facda2590f3a744f7e45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676393"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53786750"
 ---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Azure 中虚拟机的区域和可用性
 Azure 在中国的四个数据中心运行。 这些数据中心分组到地理区域，让用户可灵活选择构建应用程序的位置。 请务必了解 Azure 中虚拟机 (VM) 运行的方式和位置，以及最大化性能、可用性和冗余的选项。 本文提供了 Azure 的可用性和冗余功能的概述。
@@ -27,21 +27,21 @@ Azure 在中国的四个数据中心运行。 这些数据中心分组到地理�
 
 <!-- China Region contains 'China East', 'China East 2 ', 'China North', or 'China North 2 '-->
 
-<!-- Not Available on ## Special Azure regions
+<!-- Not Available on ## Special Azure regions-->
 
-## Region pairs
-Each Azure region is paired with another region within the same geography. This approach allows for the replication of resources, such as VM storage, across a geography that should reduce the likelihood of natural disasters, civil unrest, power outages, or physical network outages affecting both regions at once. Additional advantages of region pairs include:
+## <a name="region-pairs"></a>区域对
+每个 Azure 区域都与同一地理位置内的另一区域配对。 此方法适用于跨地域复制资源（例如 VM 存储），降低因自然灾害、社会动乱、电力中断或物理网络中断而同时影响两个区域的可能性。 区域对的其他优点包括：
 
-* In the event of a wider Azure outage, one region is prioritized out of every pair to help reduce the time to restore for applications. 
-* Planned Azure updates are rolled out to paired regions one at a time to minimize downtime and risk of application outage.
-* Data continues to reside within the same geography as its pair (except for Brazil South) for tax and law enforcement jurisdiction purposes.
+* 出现范围较广的 Azure 区域中断时，每个区域对中有一个区域优先级更高，这样可以缩短应用程序的还原时间。 
+* 将逐一对配对的区域进行计划内 Azure 更新，尽量减少停机时间并降低应用程序中断风险。
+* 出于税务和执法管辖权方面的考虑，数据仍以配对的形式驻留在同一地域内（巴西南部除外）。
 
-Examples of region pairs include:
+区域对的示例包括：
 
-| Primary | Secondary |
+| 主要 | 次要 |
 |:--- |:--- |
-| China North |China East |
-| China North 2 |China East 2 |
+| 中国北部 |中国东部 |
+| 中国北部 2 |中国东部 2 |
 
 <!-- Not Available on  [list of regional pairs here](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions) -->
 ## <a name="feature-availability"></a>功能可用性

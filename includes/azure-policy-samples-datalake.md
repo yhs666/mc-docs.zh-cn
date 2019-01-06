@@ -9,14 +9,14 @@ origin.date: 05/17/2018
 ms.date: 11/12/2018
 ms.author: v-biyu
 ms.custom: include file
-ms.openlocfilehash: 1ed188ed48cad61b1e302ac0dafcadc3097a69d4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b8103365b6dc9cdc5aa6cfe8c7876462afa967e4
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662563"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996472"
 ---
-## <a name="data-lake-storage-gen1"></a>Data Lake Storage Gen1
+## <a name="data-lake-storage"></a>Data Lake Storage
 
 |  |  |
 |---------|---------|

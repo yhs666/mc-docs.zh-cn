@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 09/11/2018
-ms.date: 11/06/2018
+ms.date: 12/29/2018
 ms.author: v-junlch
-ms.openlocfilehash: bf3921d418227129bb092c6d53176df4436227fc
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8807d16097de24119051e6f4f80c87baf9567118
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653604"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996349"
 ---
 # <a name="how-application-consent-works"></a>应用程序许可工作原理
 
@@ -34,5 +34,6 @@ ms.locfileid: "52653604"
 - 如需更深入的了解，请参阅[如何在授权代码授予流程中在 OAuth 2.0 协议层提供许可支持](/active-directory/develop/active-directory-protocols-oauth-code#request-an-authorization-code)。
 
 ## <a name="next-steps"></a>后续步骤
-[AzureAD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
+[AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
 
+<!-- Update_Description: link update -->

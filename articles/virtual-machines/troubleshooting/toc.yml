@@ -8,6 +8,7 @@ items:
   - name: 经典部署分配失败
     href: allocation-failure-classic.md
 - name: RDP
+  href: rdp.md
   items:
   - name: 重置 RDP
     href: reset-rdp.md
@@ -15,8 +16,42 @@ items:
     href: troubleshoot-rdp-connection.md
   - name: 详细的 RDP 故障排除
     href: detailed-troubleshoot-rdp.md
+  - name: 排查由于 DHCP 已禁用而导致的 RDP 错误
+    href: troubleshoot-rdp-dhcp-disabled.md
+  - name: 排查由于 NSG 设置而导致的 RDP 错误
+    href: troubleshoot-rdp-nsg-problem.md
   - name: 排查特定错误
     href: troubleshoot-specific-rdp-errors.md
+  - name: 排查“无许可证服务器”错误
+    href: troubleshoot-rdp-no-license-server.md
+  - name: 排查远程桌面服务问题
+    href: troubleshoot-remote-desktop-services-issues.md
+  - name: 排查内部错误
+    href: Troubleshoot-rdp-internal-error.md
+  - name: 排查连接频繁断开的问题
+    href: troubleshoot-rdp-intermittent-connectivity.md
+  - name: 排查常见错误
+    href: troubleshoot-rdp-general-error.md
+  - name: 排查身份验证错误
+    href: troubleshoot-authentication-error-rdp-vm.md
+  - name: 按事件 ID 排查 Azure VM RDP 连接问题
+    href: event-id-troubleshoot-vm-rdp-connecton.md
+  - name: 排查由于静态 IP 而导致的 VM 中的 RDP 错误
+    href: troubleshoot-rdp-static-ip.md
+  - name: 排查由于 NIC 已禁用而导致的 VM 中的 RDP 错误
+    href: troubleshoot-rdp-nic-disabled.md
+  - name: 排查由于安全模式导致的 RDP 错误
+    href: troubleshoot-rdp-safe-mode.md
+  - name: 在 Azure VM 中禁用来宾 OS 防火墙
+    href: disable-guest-os-firewall-windows.md
+  - name: 在来宾 OS 上启用或禁用防火墙规则
+    href: enable-disable-firewall-rule-guest-os.md
+  - name: 来宾 OS 防火墙正在阻止入站流量
+    href: guest-os-firewall-blocking-inbound-traffic.md
+  - name: 来宾 OS 防火墙配置不正确
+    href: guest-os-firewall-misconfigured.md
+  - name: 排查由于 netvsc.sys 导致的 RDP 错误
+    href: troubleshoot-rdp-driver-netvsc.md
 - name: SSH
   items:
   - name: SSH 故障排除
@@ -92,15 +127,19 @@ items:
     href: troubleshoot-common-blue-screen-error.md
   - name: VM 启动时出现停滞
     href: troubleshoot-vm-boot-configure-update.md
+  - name: 重启循环
+    href: troubleshoot-reboot-loop.md
+  - name: 在更新 Windows 时停滞
+    href: troubleshoot-stuck-updating-boot-error.md
 - name: 限制错误
   href: troubleshooting-throttling-errors.md
 - name: 使用嵌套虚拟化
   href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: 了解系统重新启动
   href: understand-vm-reboot.md
-ms.openlocfilehash: 2caf506a9665a51bf63788814d051b9dfc8d795c
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: a2d5d4fad9a233f603f049e53d3d19f3bf5aa892
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675514"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736098"

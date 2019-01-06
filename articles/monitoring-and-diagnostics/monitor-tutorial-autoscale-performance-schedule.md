@@ -1,20 +1,21 @@
 ---
 title: 基于性能数据或计划自动缩放 Azure 资源
 description: 使用指标数据和调度为应用服务计划创建自动缩放设置
-author: anirudhcavale
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: tutorial
-ms.date: 12/11/2017
-ms.author: ancav
+origin.date: 12/24/2018
+ms.date: 12/24/2018
+ms.author: v-lingwu
 ms.custom: mvc
 ms.component: autoscale
-ms.openlocfilehash: 91d62f154256af67c21556dbb59ff4532b218714
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 337971044ca13a7031baa717e96ea8e3dd02303a
+ms.sourcegitcommit: 649f5093a9a9a89f4117ae3845172997922aec31
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675153"
+ms.lasthandoff: 12/24/2018
+ms.locfileid: "53784595"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>基于性能数据或调度为 Azure 资源创建自动缩放设置 | Microsoft 文档
 

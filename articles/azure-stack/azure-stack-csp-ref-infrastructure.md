@@ -15,14 +15,14 @@ origin.date: 07/12/2018
 ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: alfredo
-ms.openlocfilehash: 8c86562b26565ca3b3479c514b1eeb909c47e22b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: fa69f36c020a1a981f9566e71b3e4242cf7f2fb2
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653327"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814637"
 ---
-## <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>适用于云服务提供商的使用情况报告基础结构
+# <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>适用于云服务提供商的使用情况报告基础结构
 
 Azure Stack 包括实时跟踪使用情况所需的基础结构，因此会将使用情况转发到 Azure。 在 Azure 中，Azure Commerce 会处理使用情况数据并根据使用情况向相应的 Azure 订阅收费。 这与在全球版 Azure 云中监视使用情况跟踪的方式相同。
 

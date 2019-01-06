@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 11/16/2017
-ms.date: 12/03/2018
+ms.date: 12/29/2018
 ms.author: v-junlch
 ms.custom: aaddev
 ms.reviewer: elisol
-ms.openlocfilehash: 5eef3dafbae34217f59a48ac512ceb0986469e35
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: f038f19fc6f8e9d3c732fd4f4f6aee7ee3212395
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028327"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996253"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory 开发人员词汇表
 
@@ -42,7 +42,7 @@ ms.locfileid: "53028327"
 
 ## <a name="application-id-client-id"></a>应用程序 ID（客户端 ID）
 
-Azure AD 向应用程序注册颁发的唯一标识符，用于标识特定应用程序和关联的配置。 执行身份验证请求时将使用此应用程序 ID（[客户端 ID](https://tools.ietf.org/html/rfc6749#page-15)），开发时会向身份验证库提供它。 应用程序 ID（客户端 ID）不是机密。 
+Azure AD 向应用程序注册颁发的唯一标识符，用于标识特定应用程序和关联的配置。 执行身份验证请求时将使用此应用程序 ID（[客户端 ID](https://tools.ietf.org/html/rfc6749#page-15)），开发时会向身份验证库提供它。 应用程序 ID（客户端 ID）不是机密。
 
 ## <a name="application-manifest"></a>应用程序清单
 
@@ -103,7 +103,7 @@ Azure AD 向应用程序注册颁发的唯一标识符，用于标识特定应�
 
 ## <a name="client-application"></a>客户端应用程序
 
-根据 [OAuth2 授权框架][OAuth2-Role-Def]的定义，这是代表[资源所有者](#resource-owner)发出受保护资源请求的应用程序。 “客户端”一词并不代表任何特定的硬件实现特征（例如，应用程序是在服务器、台式机还是其他设备上执行）。 
+根据 [OAuth2 授权框架][OAuth2-Role-Def]的定义，这是代表[资源所有者](#resource-owner)发出受保护资源请求的应用程序。 “客户端”一词并不代表任何特定的硬件实现特征（例如，应用程序是在服务器、台式机还是其他设备上执行）。
 
 客户端应用程序向资源所有者请求[授权](#authorization)，以参与 [OAuth2 授权](#authorization-grant)流程，并可代表资源所有者访问 API/数据。 OAuth2 授权框架根据客户端是否能够维护其凭据的机密性[定义两种类型的客户端][OAuth2-Client-Types]：“机密”和“公共”。 应用程序可实现在 Web 服务器上运行的 [Web 客户端（机密）](#web-client)、安装在设备上的[本机客户端（公共）](#native-client)，或者在设备浏览器中运行的[基于用户代理的客户端（公共）](#user-agent-based-client)。
 
@@ -148,7 +148,7 @@ Azure AD 向应用程序注册颁发的唯一标识符，用于标识特定应�
 
 根据 [OAuth2 授权框架][OAuth2-Role-Def]的定义，这是托管受保护资源的服务器，能够接受并响应出示[访问令牌](#access-token)的[客户端应用程序](#client-application)所发出的受保护资源请求。 它也称为受保护的资源服务器或资源应用程序。
 
-资源服务器使用 OAuth 2.0 授权框架公开 API，并通过[范围](#scopes)和[角色](#roles)强制实施其受保护资源的访问权限。 示例包括可访问 Azure AD 租户数据的 Azure AD Graph API，以及可访问邮件和日历等数据的 Office 365 API。 这两项也可通过 [Microsoft Graph API][Microsoft-Graph]进行访问。 
+资源服务器使用 OAuth 2.0 授权框架公开 API，并通过[范围](#scopes)和[角色](#roles)强制实施其受保护资源的访问权限。 示例包括可访问 Azure AD 租户数据的 Azure AD Graph API，以及可访问邮件和日历等数据的 Office 365 API。 这两项也可通过 [Microsoft Graph API][Microsoft-Graph]进行访问。
 
 与客户端应用程序一样，资源应用程序的标识配置是通过 Azure AD 租户中的 [注册](#application-registration) 来建立的，可提供应用程序和服务主体对象。 Microsoft 提供的某些 API（例如 Azure AD 图形 API）在预配期间将预先注册的服务主体设置为在所有租户中可用。
 
@@ -170,7 +170,7 @@ Azure AD 向应用程序注册颁发的唯一标识符，用于标识特定应�
 
 ## <a name="security-token"></a>安全令牌
 
-包含 OAuth2 令牌或 SAML 2.0 断言等声明的已签名文档。 对于 OAuth2 [授权](#authorization-grant)，[访问令牌](#access-token) (OAuth2) 和 [ID 令牌](http://openid.net/specs/openid-connect-core-1_0.html#IDToken)都是安全令牌类型，并且这两种类型都已作为 [JSON Web 令牌 (JWT)][JWT] 实现。
+包含 OAuth2 令牌或 SAML 2.0 断言等声明的已签名文档。 对于 OAuth2 [授权](#authorization-grant)，[访问令牌](#access-token) (OAuth2) 和 [ID 令牌](https://openid.net/specs/openid-connect-core-1_0.html#IDToken)都是安全令牌类型，并且这两种类型都已作为 [JSON Web 令牌 (JWT)][JWT] 实现。
 
 ## <a name="service-principal-object"></a>应用程序对象
 
@@ -216,7 +216,7 @@ Azure AD 目录的实例称为 Azure AD 租户。 它提供的一些功能包括
 
 ## <a name="next-steps"></a>后续步骤
 
-[Azure AD 开发人员指南][AAD-Dev-Guide]是用于所有 Azure AD 开发相关主题的登陆页，包括[应用程序集成][AAD-How-To-Integrate]的概述和 [Azure AD 身份验证与支持的身份验证方案][AAD-Auth-Scenarios]的基本知识。 另外，还可在 [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=) 上找到关于如何快速启动和运行的代码示例及教程。
+[Azure AD 开发人员指南][AAD-Dev-Guide]是用于所有 Azure AD 开发相关主题的登陆页，包括[应用程序集成][AAD-How-To-Integrate]的概述和 [Azure AD 身份验证与支持的身份验证方案][AAD-Auth-Scenarios]的基本知识。 另外，还可在 [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=) 上找到关于如何快速启动和运行的代码示例及教程。
 
 请使用以下评论部分提供反馈，帮助我们改进和编写此内容，包括有关新建定义或更新现有定义的请求！
 
@@ -247,8 +247,8 @@ Azure AD 目录的实例称为 Azure AD 租户。 它提供的一些功能包括
 [OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3
 [OAuth2-Client-Types]: https://tools.ietf.org/html/rfc6749#section-2.1
 [OAuth2-Role-Def]: https://tools.ietf.org/html/rfc6749#page-6
-[OpenIDConnect]: http://openid.net/specs/openid-connect-core-1_0.html
-[OpenIDConnect-AuthZ-Endpoint]: http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint
-[OpenIDConnect-ID-Token]: http://openid.net/specs/openid-connect-core-1_0.html#IDToken
+[OpenIDConnect]: https://openid.net/specs/openid-connect-core-1_0.html
+[OpenIDConnect-AuthZ-Endpoint]: https://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint
+[OpenIDConnect-ID-Token]: https://openid.net/specs/openid-connect-core-1_0.html#IDToken
 
 <!-- Update_Description: link update -->

@@ -3,7 +3,7 @@ title: 部署拆分 / 合并服务 | Microsoft 文档
 description: 可使用拆分/合并工具在分片数据库之间移动数据。
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 10/05/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 4dddd151349c66bbd0eaf058aeca47e8ecb9c738
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+origin.date: 12/04/2018
+ms.date: 01/07/2019
+ms.openlocfilehash: de8b96511a7fcbe4c708e7f459c11f4d607312b6
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672580"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996269"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>部署拆分/合并服务以在分片数据库之间移动数据
 
@@ -70,7 +70,7 @@ ms.locfileid: "52672580"
     makecert ^
     -n "CN=*.chinacloudapp.cn" ^
     -r -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.1,1.3.6.1.5.5.7.3.2" ^
-    -a sha1 -len 2048 ^
+    -a sha256 -len 2048 ^
     -sr currentuser -ss root ^
     -sv MyCert.pvk MyCert.cer
    ```

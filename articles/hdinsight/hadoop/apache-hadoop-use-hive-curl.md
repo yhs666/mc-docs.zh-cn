@@ -1,6 +1,6 @@
 ---
-title: 在 HDInsight 中将 Hadoop Hive 与 Curl 配合使用 - Azure | Azure
-description: 了解如何使用 Curl 向 HDInsight 远程提交 Pig 作业。
+title: 在 HDInsight 中将 Apache Hadoop Hive 与 Curl 配合使用 - Azure
+description: 了解如何使用 Curl 向 HDInsight 远程提交 Apache Pig 作业。
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -15,20 +15,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 04/23/2017
-ms.date: 11/19/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 78f629344f4806e84a15d9a76547936e3776be9c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 4716eeef4171af90858e9ba737eb0c178959c454
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645267"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029229"
 ---
-# <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>使用 REST 在 HDInsight 中通过 Hadoop 运行 Hive 查询
+# <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>使用 REST 在 HDInsight 中通过 Apache Hadoop 运行 Apache Hive 查询
 
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-了解如何使用 WebHCat REST API 在 Azure HDInsight 群集上通过 Hadoop 运行 Hive 查询。
+了解如何使用 WebHCat REST API 通过 Apache Hadoop on Azure HDInsight 群集运行 Apache Hive 查询。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -37,21 +37,19 @@ ms.locfileid: "52645267"
   > [!IMPORTANT]
   > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
-* 一个 REST 客户端。 本文档使用了 Windows PowerShell 和 [Curl](http://curl.haxx.se/) 示例。
+* 一个 REST 客户端。 本文档使用了 Windows PowerShell 和 [Curl](https://curl.haxx.se/) 示例。
 
-    > [!NOTE]
-    > Azure PowerShell 提供了用于使用 Hive on HDInsight 的专用 cmdlet。 有关详细信息，请参阅[将 Hive 与 Azure PowerShell 配合使用](apache-hadoop-use-hive-powershell.md)文档。
+    > [!NOTE]  
+    > Azure PowerShell 提供了用于使用 Hive on HDInsight 的专用 cmdlet。 有关详细信息，请参阅[将 Apache Hive 与 Azure PowerShell 配合使用](apache-hadoop-use-hive-powershell.md)文档。
 
-本文档还使用 Windows PowerShell 和 [Jq](http://stedolan.github.io/jq/) 来处理从 REST 请求返回的 JSON 数据。
+本文档还使用 Windows PowerShell 和 [Jq](https://stedolan.github.io/jq/) 来处理从 REST 请求返回的 JSON 数据。
 
 ## <a id="curl"></a>运行 Hive 查询
 
 > [!NOTE]
 > 使用 cURL 或者与 WebHCat 进行任何其他形式的 REST 通信时，必须提供 HDInsight 群集管理员的用户名和密码以对请求进行身份验证。
 >
-> REST API 通过 [基本身份验证](http://en.wikipedia.org/wiki/Basic_access_authentication)进行保护。 为了有助于确保将凭据安全地发送到服务器，应始终使用安全 HTTP (HTTPS) 发出请求。
-
-
+> REST API 通过 [基本身份验证](https://en.wikipedia.org/wiki/Basic_access_authentication)进行保护。 为了有助于确保将凭据安全地发送到服务器，应始终使用安全 HTTP (HTTPS) 发出请求。
 
 1. 若要设置本文档中的脚本使用的群集登录名，请使用下列命令之一：
 
@@ -187,16 +185,16 @@ ms.locfileid: "52645267"
 
 有关将 Hive 与 HDInsight 配合使用的一般信息：
 
-* [将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)
+* [将 Apache Hive 与 Apache Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
 
 有关 HDInsight 上 Hadoop 的其他使用方法的信息：
 
-* [将 Pig 与 Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
-* [将 MapReduce 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-mapreduce.md)
+* [将 Apache Pig 与 Apache Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
+* [将 MapReduce 与 HDInsight 上的 Apache Hadoop 配合使用](hdinsight-use-mapreduce.md)
 
 如果将 Tez 与 Hive 配合使用，请参阅以下文档以了解调试信息：
 
-* [在基于 Linux 的 HDInsight 上使用 Ambari Tez 视图](../hdinsight-debug-ambari-tez-view.md)
+* [在基于 Linux 的 HDInsight 上使用 Apache Ambari Tez 视图](../hdinsight-debug-ambari-tez-view.md)
 
 有关在本文档中使用的 REST API 的详细信息，请参阅 [WebHCat 参考](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference)文档。
 
@@ -206,9 +204,9 @@ ms.locfileid: "52645267"
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/
 [azure-trial]: https://www.azure.cn/pricing/1rmb-trial/
 
-[apache-tez]: http://tez.apache.org
-[apache-hive]: http://hive.apache.org/
-[apache-log4j]: http://en.wikipedia.org/wiki/Log4j
+[apache-tez]: https://tez.apache.org
+[apache-hive]: https://hive.apache.org/
+[apache-log4j]: https://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
 [import-to-excel]: apache-hadoop-connect-excel-power-query.md
 
@@ -219,6 +217,6 @@ ms.locfileid: "52645267"
 [hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 
-[powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
+[powershell-here-strings]: https://technet.microsoft.com/library/ee692792.aspx
 
 <!--Update_Description: update meta data-->

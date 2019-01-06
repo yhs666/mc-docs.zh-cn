@@ -14,15 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 04/25/2018
-ms.date: 10/22/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: b0c64acc7dcc91dbfc3cba99987a51c445d08d79
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 0595621d06a9eca4e343fa833d4ae3085c59bc07
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656428"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736180"
 ---
+<!--Verify successfully-->
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>在 Linux 虚拟机上使用 Azure 自定义脚本扩展版本 2
 自定义脚本扩展版本 2 在 Azure 虚拟机上下载和运行脚本。 此扩展适用于部署后配置、软件安装或其他任何配置/管理任务。 可以从 Azure 存储或其他可访问的 Internet 位置下载脚本，或者将脚本提供给扩展运行时。 
 
@@ -89,7 +90,7 @@ ms.locfileid: "52656428"
     "autoUpgradeMinorVersion": true,
     "settings": {
       "skipDos2Unix":false,
-      "timestamp":123456789,          
+      "timestamp":123456789          
     },
     "protectedSettings": {
        "commandToExecute": "<command-to-execute>",
@@ -217,16 +218,16 @@ CustomScript 使用以下算法来执行脚本。
     "typeHandlerVersion": "2.0",
     "autoUpgradeMinorVersion": true,
     "settings": {
+        "fileUris": ["https://github.com/MyProject/Archive/hello.sh"]  
       },
     "protectedSettings": {
-      "commandToExecute": "sh hello.sh <param2>",
-      "fileUris": ["https://github.com/MyProject/Archive/hello.sh"
-      ]  
+      "commandToExecute": "sh hello.sh <param2>"
     }
   }
 }
 ```
 
+<!--IMPORTANT:  Setting contain "fileUris" and protectedSettings contain "commandToExecute"-->
 >[!NOTE]
 >这些属性名称区分大小写。 要避免部署问题，请使用如下所示的名称。
 
@@ -249,9 +250,11 @@ az vm extension set \
   --vm-name exttest \
   --name customScript \
   --publisher Microsoft.Azure.Extensions \
-  --protected-settings '{"fileUris": ["https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"],"commandToExecute": "./config-music.sh"}'
+  --settings "{'fileUris': ['https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh']}"
+  --protected-settings "{'commandToExecute': './config-music.sh'}"
 ```
 
+<!--IMPORTANT: Should split settings and protected-settings JSON file-->
 ### <a name="azure-cli-examples"></a>Azure CLI 示例
 
 #### <a name="public-configuration-with-script-file"></a>包含脚本文件的公共配置
@@ -408,4 +411,5 @@ info:    vm extension get command OK
 
 ## <a name="next-steps"></a>后续步骤
 若要查看代码、当前问题和版本，请参阅 [custom-script-extension-linux 存储库](https://github.com/Azure/custom-script-extension-linux)。
-<!-- Update_Description: update meta properties -->
+
+<!-- Update_Description: update meta properties, wording update, correct the wrong cmdlet -->

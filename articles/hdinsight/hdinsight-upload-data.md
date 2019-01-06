@@ -5,17 +5,18 @@ keywords: etl hadoop, 将数据引入 hadoop, hadoop 加载数据
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
-ms.author: hrasheed
+ms.author: v-yiso
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.openlocfilehash: ba22344267009d0557492cea589b0f2d70b28fd2
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+origin.date: 11/06/2018
+ms.date: 12/24/2018
+ms.openlocfilehash: d2b3b35b7694985e8ee73d1f2f289a467f2ffb0b
+ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028603"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53569242"
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>在 HDInsight 中上传 Hadoop 作业的数据
 
@@ -216,13 +217,6 @@ hadoop -copyFromLocal <localFilePath> <storageFilePath>
 请参阅[将 Azure 存储装载为本地驱动器](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx)。
 
 ### <a name="upload-using-services"></a>使用服务上传
-#### <a name="azure-data-factory"></a>Azure 数据工厂
-Azure 数据工厂服务是完全托管的服务，可将数据存储、数据处理及数据移动服务组合成有效、可缩放且可靠的数据生产管道。
-
-Azure 数据工厂可用于将数据移到 Azure 存储，或创建数据管道来直接使用 HDInsight 功能，例如 Hive 和 Pig。
-
-有关详细信息，请参阅 [Azure 数据工厂文档](https://azure.microsoft.com/documentation/services/data-factory/)。
-
 #### <a id="sqoop"></a>Apache Sqoop
 Sqoop 是一种专用于在 Hadoop 和关系数据库之间传输数据的工具。 可以使用此工具将数据从关系数据库管理系统 (RDBMS)（如 SQL Server、MySQL 或 Oracle）中导入到 Hadoop 分布式文件系统 (HDFS)，在 Hadoop 中使用 MapReduce 或 Hive 转换数据，然后回过来将数据导出到 RDBMS。
 
@@ -296,7 +290,7 @@ hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file
 [azure-management-portal]: https://porta.azure.com
 [azure-powershell]: http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 
-[azure-storage-client-library]: /develop/net/how-to-guides/blob-storage/
+[azure-storage-client-library]: https://docs.microsoft.com/develop/net/how-to-guides/blob-storage/
 [azure-create-storage-account]:../storage/common/storage-create-storage-account.md
 [azure-azcopy-download]:../storage/common/storage-use-azcopy.md
 [azure-azcopy]:../storage/common/storage-use-azcopy.md

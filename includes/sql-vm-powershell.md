@@ -1,4 +1,17 @@
-
+---
+author: rockboyfor
+ms.service: virtual-machines-sql
+ms.topic: include
+origin.date: 11/25/2018
+ms.date: 12/24/2018
+ms.author: v-yeche
+ms.openlocfilehash: 693606da1b1fdd614388c60ed709db2449c9dfba
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736212"
+---
 ## <a name="start-your-powershell-session"></a>启动 PowerShell 会话
 首先，需要安装并运行最新的 [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx)。 有关详细信息，请参阅 [如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。
 
@@ -15,4 +28,4 @@
 
     Set-AzureRmContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
 
-<!--ms.date: 11/26/2018-->
+<!-- Update_Description: wording update, update link -->

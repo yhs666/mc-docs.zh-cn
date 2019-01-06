@@ -9,14 +9,14 @@ tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 origin.date: 05/15/2018
-ms.date: 06/01/2018
+ms.date: 12/19/2018
 ms.author: v-junlch
-ms.openlocfilehash: ec555bcbfc00f97ce97ca0f025d3873251cd5d13
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: cef0053ac497f1b173e1fd03a991a5d2d4d4aa03
+ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658656"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53656607"
 ---
 # <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>通过 Azure 门户使用 SSL 终端配置应用程序网关
 
@@ -33,7 +33,7 @@ ms.locfileid: "52658656"
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
-在 [http://portal.azure.cn](http://portal.azure.cn) 登录 Azure 门户
+在 [https://portal.azure.cn](https://portal.azure.cn) 登录 Azure 门户
 
 ## <a name="create-a-self-signed-certificate"></a>创建自签名证书
 
@@ -183,3 +183,4 @@ Export-PfxCertificate `
 
 若要了解有关应用程序网关及其关联资源的详细信息，请继续阅读操作指南文章。
 
+<!-- Update_Description: link update -->

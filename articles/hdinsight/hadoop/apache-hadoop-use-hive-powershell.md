@@ -1,44 +1,35 @@
 ---
-title: 在 HDInsight 中将 Hadoop Hive 与 PowerShell 配合使用 - Azure | Azure
-description: 使用 PowerShell 在 HDInsight 上的 Hadoop 中运行 Hive 查询。
+title: 在 HDInsight 中将 Apache Hive 与 PowerShell 配合使用 - Azure
+description: 使用 PowerShell 在 HDInsight 上的 Apache Hadoop 中运行 Hive 查询。
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: cb795b7c-bcd0-497a-a7f0-8ed18ef49195
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 04/23/2018
-ms.date: 09/24/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: acb89d27d181d351b250e6e461b432d9bef850d3
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 4737d9ab35e9700b5c0e819c64f6af30af48b0ad
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666515"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029175"
 ---
-# <a name="run-hive-queries-using-powershell"></a>使用 PowerShell 运行 Hive 查询
+# <a name="run-apache-hive-queries-using-powershell"></a>使用 PowerShell 运行 Apache Hive 查询
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
+本文档提供使用 Azure PowerShell 以 Azure 资源组模式在 Apache Hadoop on HDInsight 群集上运行 Hive 查询的示例。
 
-
-本文档提供使用 Azure 资源组模式中的 Azure PowerShell 在 HDInsight 群集上的 Hadoop 中运行 Hive 查询的示例。
-
-> [!NOTE]
-> 本文档未详细描述示例中使用的 HiveQL 语句的作用。 有关此示例中使用的 HiveQL 的信息，请参阅 [将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)。
+> [!NOTE]  
+> 本文档未详细描述示例中使用的 HiveQL 语句的作用。 有关此示例中使用的 HiveQL 的信息，请参阅[将 Apache Hive 与 HDInsight 上的 Apache Hadoop 配合使用](hdinsight-use-hive.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
-
-
-* 基于 Linux 的 Hadoop on HDInsight 群集版本 3.4 或更高版本。
+* 基于 Linux 的 Apache Hadoop on HDInsight 群集版本 3.4 或更高版本。
 
   > [!IMPORTANT]
   > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
@@ -54,7 +45,7 @@ Azure PowerShell 提供 *cmdlet*，可让你在 HDInsight 上远程运行 Hive �
 在远程 HDInsight 群集上运行 Hive 查询时，使用以下 Cmdlet：
 
 * `Connect-AzureRmAccount`：在 Azure 订阅中进行 Azure PowerShell 身份验证。
-* `New-AzureRmHDInsightHiveJobDefinition`：使用指定的 HiveQL 语句创建“作业定义”。
+* `New-AzureRmHDInsightHiveJobDefinition`：使用指定的 HiveQL 语句创建作业定义。
 * `Start-AzureRmHDInsightJob`：将作业定义发送到 HDInsight 并启动作业。 将返回作业对象。
 * `Wait-AzureRmHDInsightJob`：使用作业对象来检查作业的状态。 它等到作业完成或超出等待时间。
 * `Get-AzureRmHDInsightJobOutput`：用于检索作业的输出。
@@ -110,7 +101,7 @@ Azure PowerShell 提供 *cmdlet*，可让你在 HDInsight 上远程运行 Hive �
 
         .\hivejob.ps1
 
-    脚本运行时，系统会提示输入群集名称和该群集的 HTTPS/管理员帐户凭据。 可能还会提示登录到 Azure 订阅。
+    脚本运行时，系统会提示输入群集名称和 HTTPS/群集管理员帐户凭据。 可能还会提示登录到 Azure 订阅。
 
 3. 作业完成时，它会返回类似以下文本的信息：
 
@@ -157,7 +148,7 @@ Azure PowerShell 提供 *cmdlet*，可让你在 HDInsight 上远程运行 Hive �
    >
    > `Invoke-AzureRmHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
    >
-   > 有关 **Here-Strings** 的详细信息，请参阅<a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">使用 Windows PowerShell Here-Strings</a>。
+   > 有关 **Here-Strings** 的详细信息，请参阅<a href="https://technet.microsoft.com/library/ee692792.aspx" target="_blank">使用 Windows PowerShell Here-Strings</a>。
 
 ## <a name="troubleshooting"></a>故障排除
 
@@ -182,9 +173,9 @@ Get-AzureRmHDInsightJobOutput `
 
 有关 HDInsight 中的 Hive 的一般信息：
 
-* [将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)
+* [将 Apache Hive 与 Apache Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
 
 有关 HDInsight 上 Hadoop 的其他使用方法的信息：
 
-* [将 Pig 与 Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
-* [将 MapReduce 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-mapreduce.md)
+* [将 Apache Pig 与 Apache Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
+* [将 MapReduce 与 HDInsight 上的 Apache Hadoop 配合使用](hdinsight-use-mapreduce.md)

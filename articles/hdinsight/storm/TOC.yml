@@ -1,11 +1,11 @@
 items:
 - name: Azure HDInsight 文档
   href: /hdinsight
-- name: Storm on HDInsight
+- name: Apache Storm on HDInsight
   items:
   - name: 概述
     href: apache-storm-overview.md
-  - name: 组件版本控制
+  - name: HDInsight 上的 Apache Hadoop 组件
     href: ../hdinsight-component-versioning.md
     maintainContext: true
   - name: HDInsight 4.0
@@ -13,7 +13,7 @@ items:
     maintainContext: true
 - name: 入门
   items:
-  - name: 创建 Storm 群集
+  - name: 创建 Apache Storm 群集
     href: apache-storm-tutorial-get-started-linux.md
   - name: 安装 HDInsight 应用
     href: ../hdinsight-apps-install-applications.md
@@ -23,7 +23,7 @@ items:
     maintainContext: true
 - name: 如何
   items:
-  - name: 开发 Storm 拓扑
+  - name: 开发 Apache Storm 拓扑
     items:
     - name: 使用 Java 开发拓扑
       href: apache-storm-develop-java-topology.md
@@ -33,20 +33,20 @@ items:
       href: apache-storm-develop-csharp-visual-studio-topology.md
     - name: SCP.NET 编程指南
       href: apache-storm-scp-programming-guide.md
-    - name: Storm 示例
+    - name: Apache Storm 示例
       href: apache-storm-example-topology.md
   - name: 部署和监视拓扑
     href: apache-storm-deploy-monitor-topology-linux.md
   - name: 创建流式处理管道
     items:
-    - name: Kafka 和 Storm (Java)
+    - name: Apache Kafka 和 Apache Storm (Java)
       href: ../hdinsight-apache-storm-with-kafka.md
       maintainContext: true
     - name: 事件中心、存储和 Data Lake Store (Java)
       href: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
-    - name: 事件中心和 Storm（C# 和 Java）
+    - name: 事件中心和 Apache Storm（C# 和 Java）
       href: apache-storm-develop-csharp-event-hub-topology.md
-    - name: 事件中心和 HBase (Java)
+    - name: 事件中心、Apache HBase (Java)
       href: apache-storm-sensor-data-analysis.md
   - name: 扩展群集
     items:
@@ -116,7 +116,7 @@ items:
         href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
         maintainContext: true
       maintainContext: true
-    - name: 管理的 Hadoop 群集
+    - name: 管理 Apache Hadoop 群集
       href: ../hdinsight-administer-use-portal-linux.md
       items:
       - name: 使用 .NET SDK
@@ -135,10 +135,10 @@ items:
     - name: 添加存储帐户
       href: ../hdinsight-hadoop-add-storage.md
       maintainContext: true
-    - name: 上传 Hadoop 作业的数据
+    - name: 上传 Apache Hadoop 作业的数据
       href: ../hdinsight-upload-data.md
       maintainContext: true
-    - name: 使用 Sqoop 导入和导出数据
+    - name: 使用 Apache Sqoop 导入和导出数据
       href: ../hdinsight-use-sqoop.md
       items:
       - name: 使用 SSH 进行连接
@@ -154,10 +154,10 @@ items:
         href: ../hdinsight-hadoop-use-sqoop-powershell.md
         maintainContext: true
       maintainContext: true
-    - name: 为工作流使用 Oozie
+    - name: 为工作流使用 Apache Oozie
       href: ../hdinsight-use-oozie-linux-mac.md
       maintainContext: true
-    - name: 使用基于时间的 Oozie 协调器
+    - name: 使用基于时间的 Apache Oozie 协调器
       href: ../hdinsight-use-oozie-coordinator-time.md
       maintainContext: true
     - name: 群集及服务端口和 URI
@@ -181,12 +181,12 @@ items:
     - name: 排查 HDInsight 群集速度慢或故障问题
       href: ../hdinsight-troubleshoot-failed-cluster.md
       maintainContext: true
-    - name: HDFS 故障排除
+    - name: Apache Hadoop HDFS 故障排除
       href: ../hdinsight-troubleshoot-hdfs.md
       maintainContext: true
-    - name: STORM 故障排除
+    - name: Apache STORM 故障排除
       href: apache-troubleshoot-storm.md
-    - name: YARN 故障排除
+    - name: Apache Hadoop YARN 故障排除
       href: ../hdinsight-troubleshoot-yarn.md
       maintainContext: true
     - name: 资源
@@ -194,13 +194,13 @@ items:
       - name: 有关在 Linux 上使用 HDInsight 的信息
         href: ../hdinsight-hadoop-linux-information.md
         maintainContext: true
-      - name: Hadoop 内存和性能
+      - name: Apache Hadoop 内存和性能
         href: ../hdinsight-hadoop-stack-trace-error-messages.md
         maintainContext: true
       - name: 在 Linux 上访问 Hadoop YARN 应用程序日志
         href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
         maintainContext: true
-      - name: 为 Hadoop 服务启用堆转储
+      - name: 为 Apache Hadoop 服务启用堆转储
         href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
         maintainContext: true
     maintainContext: true
@@ -234,13 +234,13 @@ items:
     href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
   - name: Go SDK
     href: ../hdinsight-go-sdk-overview.md
-  - name: .NET (HBase)
+  - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
   - name: .NET (Avro)
     href: https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library
   - name: REST
     href: /rest/api/hdinsight/
-  - name: REST (Spark)
+  - name: REST (Apache Spark)
     href: /rest/api/hdinsightspark/
 - name: 相关内容
   items:
@@ -252,15 +252,15 @@ items:
     - name: 将 .NET 解决方案迁移到 Linux 群集
       href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
       maintainContext: true
-    - name: 部署和管理 Storm 拓扑
+    - name: 部署和管理 Apache Storm 拓扑
       href: apache-storm-deploy-monitor-topology.md
-    - name: 使用 Maven 构建 Java 应用程序
+    - name: 使用 Apache Maven 构建 Java 应用程序
       href: ../hdinsight-hbase-build-java-maven.md
       maintainContext: true
     - name: 使用脚本操作进行自定义
       href: ../hdinsight-hadoop-customize-cluster.md
       maintainContext: true
-    - name: 访问 YARN 应用程序日志
+    - name: 访问 Apache Hadoop YARN 应用程序日志
       href: ../hdinsight-hadoop-access-yarn-app-logs.md
       maintainContext: true
     - name: 开发脚本操作
@@ -269,7 +269,7 @@ items:
     - name: 使用 Azure 门户管理群集
       href: ../hdinsight-administer-use-management-portal.md
       maintainContext: true
-    - name: 使用 Ambari API 监视群集
+    - name: 使用 Apache Ambari API 监视群集
       href: ../hdinsight-monitor-use-ambari-api.md
       maintainContext: true
 - name: 资源
@@ -279,9 +279,9 @@ items:
   - name: 适用于 HDInsight 的 Windows 工具
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: f55d3c62747647dd8163bc8307216ff5d9e28762
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 5be01718a54ac69e8d54f9edaefad27d3b6c5e9d
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028892"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806550"

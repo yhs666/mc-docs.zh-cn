@@ -5,15 +5,15 @@ services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: conceptual
-origin.date: 10/24/2018
-ms.date: 12/10/2018
+origin.date: 11/30/2018
+ms.date: 12/24/2018
 ms.author: v-jay
-ms.openlocfilehash: 3f12d3a671ff4b22d47250e3379b1b43f2f494a0
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: c289b43c2f80d04b126496898a234ef88e592748
+ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029133"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53656596"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>使用本机 Azure 证书身份验证配置与 VNet 的点到站点连接：PowerShell
 
@@ -57,24 +57,15 @@ ms.locfileid: "53029133"
 
 ## <a name="declare"></a>1.登录并设置变量
 
-在本部分，可以登录并声明用于此配置的值。 声明的值会在示例脚本中使用。 根据自己的环境更改值。 也可以使用声明的值完成这些步骤作为练习。
+在本部分中，将登录并声明用于此配置的值。 声明的值会在示例脚本中使用。 根据自己的环境更改值。 也可以使用声明的值完成这些步骤作为练习。
 
-1. 使用提升的权限打开 PowerShell 控制台，并登录到 Azure 帐户。 该 cmdlet 会提示提供登录凭据。 登录后它会下载帐户设置，以便这些信息可供 Azure PowerShell 使用。
+### <a name="sign-in"></a>登录
 
-  ```powershell
-  Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
-  ```
-2. 获取 Azure 订阅的列表。
+[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps login.md)]
 
-  ```powershell
-  Get-AzureRmSubscription
-  ```
-3. 指定要使用的订阅。
+### <a name="declare-variables"></a>声明变量
 
-  ```powershell
-  Select-AzureRmSubscription -SubscriptionName "Name of subscription"
-  ```
-4. 声明要使用的变量。 使用以下示例，在必要时会值替换为自己的值。
+声明要使用的变量。 使用以下示例，在必要时会值替换为自己的值。
 
   ```powershell
   $VNetName  = "VNet1"

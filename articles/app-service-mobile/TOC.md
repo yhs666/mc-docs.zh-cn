@@ -70,11 +70,11 @@
 #### [客户端和服务器版本控制](app-service-mobile-client-and-server-versioning.md)
 
 ## 部署
-### [云同步部署](../app-service/app-service-deploy-content-sync.md?toc=%2fapp-service-mobile%2ftoc.json)
-### [连续部署](../app-service/app-service-continuous-deployment.md?toc=%2fapp-service-mobile%2ftoc.json)
+
+### [连续部署](../app-service/deploy-continuous-deployment.md?toc=%2fapp-service-mobile%2ftoc.json)
 ### [过渡环境](../app-service/web-sites-staged-publishing.md?toc=%2fapp-service-mobile%2ftoc.json)
-### [本地 Git 部署](../app-service/app-service-deploy-local-git.md?toc=%2fapp-service-mobile%2ftoc.json)
-### [Azure Resource Manager 部署](../app-service/app-service-deploy-complex-application-predictably.md?toc=%2fapp-service-mobile%2ftoc.json)
+### [本地 Git 部署](../app-service/deploy-local-git.md?toc=%2fapp-service-mobile%2ftoc.json)
+### [Azure Resource Manager 部署](../app-service/deploy-complex-application-predictably.md?toc=%2fapp-service-mobile%2ftoc.json)
 ## 缩放
 ### [扩展应用](../app-service/web-sites-scale.md?toc=%2fapp-service-mobile%2ftoc.json)
 
@@ -96,8 +96,8 @@
 
 ## 安全
 ### 使用标识提供者进行身份验证
-#### [Azure Active Directory 身份验证](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fapp-service-mobile%2ftoc.json)
-#### [Microsoft 帐户身份验证](../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fapp-service-mobile%2ftoc.json)
+#### [Azure Active Directory 身份验证](../app-service/configure-authentication-provider-aad.md?toc=%2fapp-service-mobile%2ftoc.json)
+#### [Microsoft 帐户身份验证](../app-service/configure-authentication-provider-microsoft.md?toc=%2fapp-service-mobile%2ftoc.json)
 
 ### HTTPS
 #### [配置 TLS 相互身份验证 ](../app-service/app-service-web-configure-tls-mutual-auth.md?toc=%2fapp-service-mobile%2ftoc.json)

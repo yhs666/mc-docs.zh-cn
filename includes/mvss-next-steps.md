@@ -6,4 +6,8 @@
 
 可以了解如何修改[最小可行规模集模板](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md)，并[使用自定义映像部署规模集](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-custom-image.md)。
 
+你可以了解如何修改[最小可行规模集模板](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md)，以[使用基于来宾的自动缩放部署 Linux 规模集](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md)。
+
 有关规模集的更多常规信息，请参阅[规模集概述页](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)。
+
+<!-- ms.date: 12/20/2018 -->

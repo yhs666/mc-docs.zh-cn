@@ -11,15 +11,15 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 10/16/2017
-ms.date: 10/18/2018
+ms.date: 12/26/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4c90e6345bdf23abc248e7a9d9ed15fa9d864d22
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 88f93bcff3437647805b028b45eea069450f4a20
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652564"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806535"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>优化 Azure Functions 的性能和可靠性
 
@@ -38,7 +38,7 @@ ms.locfileid: "52652564"
 
 ### <a name="cross-function-communication"></a>跨函数通信
 
-[Durable Functions](durable-functions-overview.md) 和 [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)用于管理状态转换以及多个函数之间的通信。
+[Durable Functions](durable/durable-functions-overview.md) 和 [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)用于管理状态转换以及多个函数之间的通信。
 
 如果不使用 Durable Functions 或逻辑应用来集成多个函数，将存储队列用于跨函数通信通常是最佳做法。  主要原因是因为存储队列成本更低、更易预配。 
 
@@ -124,4 +124,4 @@ Function App 中的各函数共享资源。 例如，共享内存。 如果生�
 - [如何在 Azure Functions 中管理连接](manage-connections.md)
 - [Azure 应用服务最佳实践](../app-service/app-service-best-practices.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

@@ -14,16 +14,18 @@ ms.devlang: na
 ms.topic: article
 origin.date: 12/15/2016
 ms.author: v-yiso
-ms.date: 06/18/2018
-ms.openlocfilehash: 0f5eb49e30ddaefe923d85ec17c3481d5b9a86f3
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/31/2018
+ms.openlocfilehash: 91580753014116d52743f130ce5dd5d4e2692294
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649197"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736674"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>如何委派用户注册和产品订阅
 可以通过委派使用现有网站处理开发人员的登录/注册和产品订阅事项，不需使用开发人员门户中的内置功能。 这样就可以让网站拥有用户数据，并通过自定义方式对这些步骤进行验证。
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="delegate-signin-up"> </a>委派开发人员登录和注册
 要将开发人员登录和注册委派给现有网站，需在站点上创建一个特殊的委派终结点，充当从 API 管理开发人员门户中发起的任何此类请求的入口点。

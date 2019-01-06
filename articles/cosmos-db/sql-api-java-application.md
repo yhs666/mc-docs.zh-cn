@@ -1,23 +1,22 @@
 ---
-title: 使用 Azure Cosmos DB 开发 Java 应用程序教程 | Azure
+title: 使用 Azure Cosmos DB 的 Java 应用程序开发教程
 description: 此 Java Web 应用程序教程展示了如何使用 Azure Cosmos DB 和 SQL API 从 Azure 网站上托管的 Java 应用程序来存储和访问数据。
 keywords: 应用程序开发, 数据库教程, Java 应用程序, Java Web 应用程序教程, azure, Azure 世纪互联
 services: cosmos-db
 author: rockboyfor
-manager: digimobile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 origin.date: 08/22/2017
-ms.date: 12/03/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: f3b1dbdfc891b9b53995ff2923363c32b8307253
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 6a932e14e6ec504c0aa31d145fa0049b094d29b7
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675630"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026748"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>使用 Azure Cosmos DB 和 SQL API 构建 Java Web 应用程序
 
@@ -32,7 +31,7 @@ ms.locfileid: "52675630"
 本 Java Web 应用程序教程介绍了如何使用 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 服务通过 Azure 应用服务 Web 应用上托管的 Java 应用程序来存储和访问数据。 本文介绍：
 
 * 如何在 Eclipse 中构建基本 JavaServer Pages (JSP) 程序。
-* 如何借助 [Azure Cosmos DB Java SDK](https://github.com/Azure/azure-documentdb-java) 使用 Azure Cosmos DB 服务。
+* 如何使用 [Azure Cosmos DB Java SDK](https://github.com/Azure/azure-documentdb-java) 来处理 Azure Cosmos DB 服务。
 
 此 Java 应用程序教程演示了如何创建一个基于 web 的任务管理应用程序，可以使用此应用程序创建、检索任务，以及将任务标记为已完成，如下图所示。 ToDo 列表中的每个任务都存储为 Azure Cosmos DB 中的 JSON 文档。
 
@@ -52,10 +51,10 @@ ms.locfileid: "52675630"
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [Java 开发工具包 (JDK) 7+](https://docs.azure.cn/zh-cn/java/java-supported-jdk-runtime?view=azure-java-stable)。
-* [Eclipse IDE for Java EE Developers。](http://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
+* [Eclipse IDE for Java EE Developers。](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [已启用 Java 运行时环境（例如 Tomcat 或 Jetty）的 Azure 网站。](../app-service/app-service-web-get-started-java.md)
 
-如果你是首次安装这些工具，那么可以参考 coreservlets.com 网站的[教程：安装 TomCat7 并将其与 Eclipse 一起使用](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html)文章的 Quick Start 部分提供的安装过程演练。
+如果是首次安装这些工具，那么可以参考 coreservlets.com 网站的[教程：安装 TomCat7 并将其与 Eclipse 一起使用](https://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html)一文的“快速入门”部分提供的安装过程进行演练。
 
 <a name="CreateDB"></a>
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>步骤 1：创建 Azure Cosmos DB 帐户
@@ -78,7 +77,7 @@ ms.locfileid: "52675630"
 
     ![创建新的 JSP 文件 - Java Web 应用程序教程](./media/sql-api-java-application/image11.png)
 5. 对于本教程，请在“选择 JSP 模板”对话框中选择“新建 JSP 文件(html)”，并单击“完成”。
-6. 在 Eclipse 中打开 index.jsp 文件后，添加文本以在以下元素中显示“Hello World!”： 现有 <body> 元素中。 更新后的 <body> 内容应类似于以下代码：
+6. 在 Eclipse 中打开 index.jsp 文件后，添加文本以在以下元素中显示“Hello World!”： 在现有 <body> 元素中。 更新后的 <body> 内容应类似于以下代码：
 
         <body>
             <% out.println("Hello World!"); %>
@@ -90,11 +89,11 @@ ms.locfileid: "52675630"
 
 <a name="InstallSDK"></a>
 ## <a name="step-3-install-the-sql-java-sdk"></a>步骤 3：安装 SQL Java SDK
-提取 SQL Java SDK 及其依赖项的最简单方法是使用 [Apache Maven](http://maven.apache.org/)。
+提取 SQL Java SDK 及其依赖项的最简单方法是使用 [Apache Maven](https://maven.apache.org/)。
 
-要执行此操作，你需要通过完成以下步骤将项目转换为 maven 项目：
+要执行此操作，需要通过完成以下步骤将项目转换为 maven 项目：
 
-1. 在项目资源管理器中右键单击项目，并依次单击“配置”、“转换为 Maven 项目”。
+1. 在项目资源管理器中右键单击项目，单击“配置”，并单击“转换为 Maven 项目”。
 2. 在“创建新 POM”窗口中，接受默认值，并单击“完成”。
 3. 在“项目资源管理器” 中，打开 pom.xml 文件。
 4. 在“依赖项”选项卡上，在“依赖项”窗格中单击“添加”。
@@ -125,8 +124,8 @@ ms.locfileid: "52675630"
             private String name;
         }
 
-    在此项目中，将使用[项目 Lombok](http://projectlombok.org/) 生成构造函数、getter、setter 和一个生成器。 或者，可以手动编写此代码，或使用 IDE 生成此代码。
-2. 若要调用 Azure Cosmos DB 服务，必须实例化一个新的 DocumentClient。 一般情况下，最好是重用 **DocumentClient** -而不是为每个后续请求构造新的客户端。 我们可以通过在 **DocumentClientFactory**中包装客户端来重用此客户端。 在 DocumentClientFactory.java 中，需要在此处粘贴 [步骤 1](#CreateDB) 中保存到剪贴板中的 URI 和 PRIMARY KEY 值。 将 [YOUR\_ENDPOINT\_HERE] 替换为自己的 URI，将 [YOUR\_KEY\_HERE] 替换为自己的主密钥。
+    在此项目中，将使用[项目 Lombok](https://projectlombok.org/) 生成构造函数、getter、setter 和一个生成器。 或者，可以手动编写此代码，或使用 IDE 生成此代码。
+2. 若要调用 Azure Cosmos DB 服务，必须实例化一个新的 DocumentClient。 一般情况下，最好是重用 **DocumentClient** -而不是为每个后续请求构造新的客户端。 我们可以通过在 **DocumentClientFactory**中包装客户端来重用此客户端。 在 DocumentClientFactory.java 中，需要在此处粘贴 [步骤 1](#CreateDB) 中保存到剪贴板中的 URI 和 PRIMARY KEY 值。 将 [YOUR\_ENDPOINT\_HERE] 替换为 URI，将 [YOUR\_KEY\_HERE] 替换为主密钥。
 
         private static final String HOST = "[YOUR_ENDPOINT_HERE]";
         private static final String MASTER_KEY = "[YOUR_KEY_HERE]";
@@ -228,7 +227,7 @@ ms.locfileid: "52675630"
                 return collectionCache;
             }
         }
-4. 下一步是编写一些代码将 TodoItem 保存到集合中。 本示例使用 [Gson](https://code.google.com/p/google-gson/) 将 TodoItem 普通 Java 对象 (POJO) 序列化到 JSON 文档和从中反序列化 POJO。
+4. 下一步是编写一些代码将 TodoItem 保存到集合中。 在本示例中，我们将使用 [Gson](https://code.google.com/p/google-gson/) 将 TodoItem 普通 Java 对象 (POJO) 序列化到 JSON 文档和从中反序列化 POJO。
 
         // We'll use Gson for POJO <=> JSON serialization for this example.
         private static Gson gson = new Gson();
@@ -269,7 +268,7 @@ ms.locfileid: "52675630"
                 return null;
             }
         }
-6. 我们可使用步骤 5 中的帮助器方法按 ID 检索 TodoItem JSON 文档，并将其反序列化到 POJO：
+6. 我们可使用步骤 5 中的帮助器方法按 ID 检索 TodoItem JSON 文档，然后将其反序列化到 POJO：
 
         @Override
         public TodoItem readTodoItem(String id) {
@@ -283,7 +282,7 @@ ms.locfileid: "52675630"
                 return null;
             }
         }
-7. 我们还可以通过 DocumentClient 使用 SQL 获取一个集合或 TodoItem 列表：
+7. 我们还可以通过 DocumentClient 使用 SQL 获取 TodoItem 的集合或列表：
 
         @Override
         public List<TodoItem> readTodoItems() {
@@ -394,7 +393,7 @@ ms.locfileid: "52675630"
         }
 
     在更复杂的应用程序中，控制器可以包含基于 DAO 的复杂的业务逻辑。
-2. 接下来，我们创建 servlet 将 HTTP 请求路由到控制器：
+2. 接下来，我们将创建 servlet 将 HTTP 请求路由到控制器：
 
         public class TodoServlet extends HttpServlet {
             // API Keys
@@ -729,17 +728,17 @@ ms.locfileid: "52675630"
 
    * 在“Web 项目”框中，输入 azure-documentdb-java-sample。
    * 在“目标”框中，选择一个目标以保存 WAR 文件。
-   * 单击“完成” 。
+   * 单击“完成”。
 3. 现在已经具有 WAR 文件，只需将它上传到 Azure 网站的 **webapps** 目录。 有关上传此文件的说明，请参阅[将 Java 应用程序添加到 Azure 应用服务 Web 应用](../app-service/web-sites-java-add-app.md)。
 
-    将 WAR 文件上传到 webapps 目录之后，运行时环境会检测到你已经添加了此文件，并自动加载它。
+    将 WAR 文件上传到 webapps 目录之后，运行时环境将检测到已经添加了此文件，并会自动加载它。
 4. 若要查看已完成的产品，请导航到 http://YOUR\_SITE\_NAME.chinacloudsites.cn/azure-java-sample/ 并开始添加任务！
 
 <a name="GetProject"></a>
 ## <a name="get-the-project-from-github"></a>从 GitHub 获取项目
 GitHub 上的 [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) 项目包含本教程中的所有示例。 如果要将 todo 项目导入 Eclipse，请确保用户具有 [先决条件](#Prerequisites) 部分中所列的软件和资源，并执行以下操作：
 
-1. 安装 [项目 Lombok](http://projectlombok.org/)。 Lombok 用于生成项目中的构造函数、getter 和 setter。 下载 lombok.jar 文件之后，双击此文件进行安装，或者从命令行安装。
+1. 安装 [项目 Lombok](https://projectlombok.org/)。 Lombok 用于生成项目中的构造函数、getter 和 setter。 下载 lombok.jar 文件之后，双击此文件进行安装，或者从命令行安装。
 2. 如果 Eclipse 处于打开状态，请将其关闭并重启以加载 Lombok。
 3. 在 Eclipse 中，在“文件”菜单上单击“导入”。
 4. 在“导入”窗口中，依次单击“Git”、“来自 Git 的项目”和“下一步”。
@@ -748,7 +747,7 @@ GitHub 上的 [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) 
 7. 在“分支选择”屏幕上，确保已选择“master”，并单击“下一步”。
 8. 在“本地目标”屏幕上，单击“浏览”选择要将存储库复制到的文件夹，并单击“下一步”。
 9. 在“选择要用于导入项目的向导”屏幕上，确保已选择“导入现有项目”，并单击“下一步”。
-10. 在“导入项目”屏幕上，取消选择“DocumentDB”项目，然后单击“完成”。 DocumentDB 项目包含 Azure Cosmos DB Java SDK，我们会将其添加为依赖项。
+10. 在“导入项目”屏幕上，取消选择“DocumentDB”项目，并单击“完成”。 DocumentDB 项目包含 Azure Cosmos DB Java SDK，我们会将其添加为依赖项。
 11. 在“项目资源管理器”中，导航到 azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java，并将 HOST 和 MASTER_KEY 值替换为 Azure Cosmos DB 帐户的 URI 和主密钥，然后保存该文件。 有关详细信息，请参阅[步骤 1.创建 Azure Cosmos DB 数据库帐户](#CreateDB)。
 12. 在“项目资源管理器”中，右键单击“azure-documentdb-java-sample”，单击“生成路径”，并单击“配置生成路径”。
 13. 在“Java 生成路径”屏幕上，在右侧窗格中，选择“库”选项卡，并单击“添加外部 JAR”。 导航到 lombok.jar 文件的位置，并依次单击“打开”、“确定”。
@@ -757,9 +756,9 @@ GitHub 上的 [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) 
 16. 使用步骤 12 再次打开“属性”窗口，并在左窗格中单击“项目方面”。
 17. 在“项目方面”屏幕上，选择“动态 Web 模块”和“Java”，并单击“确定”。
 18. 在此屏幕下面的“服务器”选项卡上，右键单击“localhost 上的 Tomcat v7.0 服务器”，并单击“添加和删除”。
-19. 在“添加和删除”窗口中，将 azure-documentdb-java-sample 移到“配置”框，并单击“完成”。
+19. 在“添加和删除”窗口中，将 **azure-documentdb-java-sample** 移到“配置”框，然后单击“完成”。
 20. 在“服务器”选项卡上，右键单击“localhost 上的 Tomcat v7.0 服务器”，并单击“重新启动”。
 21. 在浏览器中，导航到 http://localhost:8080/azure-documentdb-java-sample/ 并开始向任务列表添加内容。 请注意，如果更改了默认端口值，请将 8080 更改成选择的值。
-22. 要将项目部署到 Azure 网站，请参阅[步骤 6.将应用程序部署到 Azure 网站](#Deploy)。
+22. 要将项目部署到 Azure 网站，请参阅[步骤 6. 将应用程序部署到 Azure 网站](#Deploy)。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

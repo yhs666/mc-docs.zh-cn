@@ -5,15 +5,15 @@ services: dns
 author: WenJason
 ms.service: dns
 ms.topic: quickstart
-origin.date: 07/16/2018
-ms.date: 12/11/2018
+origin.date: 12/04/2018
+ms.date: 12/24/2018
 ms.author: v-jay
-ms.openlocfilehash: 6a05b0a64760978cb1027e50f0f3c2444b04e296
-ms.sourcegitcommit: 5c059fe358e1298ef96450b2c620054afe89de1c
+ms.openlocfilehash: 0d3e55c8661ce8313c150e415b6768acae542367
+ms.sourcegitcommit: 895e9accaae8f8c2a29ed91d8e84911fda6111cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53234084"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53615171"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>快速入门：使用 Azure CLI 创建 Azure DNS 区域和记录
 
@@ -87,7 +87,7 @@ az network dns zone show -g MyResourceGroup -n contoso.com -o json
 }
 ```
 
-这些名称服务器应当配置有域名注册机构（向其购买域名的机构）。 域名注册机构将提供选项来为域设置名称服务器。 有关详细信息，请参阅[将域委派给 Azure DNS](dns-domain-delegation.md)。
+这些名称服务器应当配置有域名注册机构（向其购买域名的机构）。 域名注册机构将提供选项来为域设置名称服务器。 有关详细信息，请参见[教程：在 Azure DNS 中托管域](dns-delegate-domain-azure-dns.md#delegate-the-domain)。
 
 ## <a name="delete-all-resources"></a>删除所有资源
  

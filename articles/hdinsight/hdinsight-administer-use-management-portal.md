@@ -1,31 +1,30 @@
 ---
-title: 使用 Azure 门户在 HDInsight 中管理基于 Windows 的 Hadoop 群集 | Azure
-description: 了解如何管理 HDInsight 服务。 创建 HDInsight 群集，打开交互式 JavaScript 控制台，并打开 Hadoop 命令控制台。
+title: 使用 Azure 门户在 HDInsight 中管理基于 Windows 的 Apache Hadoop 群集
+description: 了解如何管理 HDInsight 服务。 创建 HDInsight 群集，打开交互式 JavaScript 控制台，并打开 Apache Hadoop 命令控制台。
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/25/2017
-ms.date: 11/19/2018
+ms.date: 12/24/2018
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: dc1cdf8236d484130b16467b9d656b4c15c8338f
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 41170158b448493c6e83b3d647414c453101c042
+ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028678"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53569347"
 ---
-# <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 门户管理 HDInsight 中基于 Windows 的 Hadoop 群集
+# <a name="manage-windows-based-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 门户在 HDInsight 中管理基于 Windows 的 Apache Hadoop 群集
 
-使用 [Azure 门户][azure-portal]，可在 Azure HDInsight 中创建基于 Windows 的 Hadoop 群集、更改 Hadoop 用户密码，以及启用远程桌面协议 (RDP) 以便访问群集上的 Hadoop 命令控制台。
+使用 [Azure 门户][azure-portal]，可在 Azure HDInsight 中创建基于 Windows 的 Apache Hadoop 群集、更改 Hadoop 用户密码，以及启用远程桌面协议 (RDP) 以便访问群集上的 Hadoop 命令控制台。
 
 本文中的信息仅适用于基于 Windows 的 HDInsight 群集。 有关管理基于 Linux 的群集的信息，请参阅[使用 Azure 门户管理 HDInsight 中的 Hadoop 群集](hdinsight-administer-use-portal-linux.md)。
 
-> [!IMPORTANT]
-> Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+[!INCLUDE [windows-retirement-notice](../../includes/windows-retirement-notice.md)]
 
 ## <a name="prerequisites"></a>先决条件
 

@@ -7,14 +7,14 @@ ms.author: v-yiso
 ms.service: iot-accelerators
 services: iot-accelerators
 origin.date: 08/06/2018
-ms.date: 11/26/2018
+ms.date: 12/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 442b57bc2c9a1c1c1eb1cc5d8a3a4ab7a01eca94
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 3b21d082afb0ca6856660f574ff95567a29dec32
+ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028688"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53569271"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>在远程监视解决方案加速器中配置基于角色的访问控制
 
@@ -24,25 +24,29 @@ ms.locfileid: "53028688"
 
 首次部署远程监视解决方案时，有两个角色：“管理员”和“只读”。
 
-充当“管理员”角色的任何用户对解决方案拥有完全访问权限。 充当“只读”角色的用户不能执行以下任何任务：
+具有**管理员**角色的任何用户对解决方案都具有完全访问权限，包括以下权限。 具有**只读**角色的用户将仅有权查看解决方案。
 
-- 更新警报
-- 删除警报
-- 创建设备
-- 更新设备
-- 删除设备
-- 创建设备组
-- 更新设备组
-- 删除设备组
-- 创建规则
-- 更新规则
-- 删除规则
-- 创建作业
-- 更新 SIM 管理
+| 权限            | 管理员 | 只读 |
+|----------------       |-------|-----------|
+| 查看解决方案         | 是   | 是       |
+| 更新警报         | 是   | 否        |
+| 删除警报         | 是   | 否        |
+| 创建设备        | 是   | 否        |
+| 更新设备        | 是   | 否        |
+| 删除设备        | 是   | 否        |
+| 创建设备组  | 是   | 否        |
+| 更新设备组  | 是   | 否        |
+| 删除设备组  | 是   | 否        |
+| 创建规则          | 是   | 否        |
+| 更新规则          | 是   | 否        |
+| 删除规则          | 是   | 否        |
+| 创建作业           | 是   | 否        |
+| 更新 SIM 管理 | 是   | 否        |
 
-部署远程监视解决方案的人员将自动分配到“管理员”角色，并且是 Azure Active Directory 应用程序的所有者。 应用程序所有者可以在 Azure 门户中向其他用户分配角色。
+默认情况下，部署解决方案的用户将自动分配有**管理员**角色，并且是 Azure Active Directory 应用程序的所有者。 应用程序所有者可以通过 Azure 门户向其他用户分配角色。 如果希望另一个用户可在解决方案中分配角色，则也必须在 Azure 门户将该用户设置为应用程序所有者。
 
-如果希望另一个用户可在解决方案中分配角色，则也必须在 Azure 门户将该用户设置为应用程序所有者。
+> [!NOTE]
+> 只有部署解决方案的用户可以在创建解决方案后立即查看它。 若要向其他人授予“只读”、“管理员”或“自定义”角色访问权限以查看应用程序，请参阅下面有关添加或删除用户的说明。
 
 ## <a name="add-or-remove-users"></a>添加或删除用户
 

@@ -3,7 +3,7 @@ title: 使用 Azure 门户创建 SQL 数据库警报 | Microsoft 文档
 description: 使用 Azure 门户创建 SQL 数据库警报，可在满足指定条件时触发通知或自动化。
 services: sql-database
 ms.service: sql-database
-ms.subservice: performance
+ms.subservice: monitor
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
 origin.date: 11/02/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 4c5694fd5c6fd2befbcf7380aa61e45213b7ba4e
-ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
+ms.date: 01/07/2019
+ms.openlocfilehash: 62bb93ad291020901662ada5039b8772611fcf75
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53219557"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996340"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>使用 Azure 门户为 Azure SQL 数据库和数据仓库创建警报
 
@@ -47,13 +47,13 @@ ms.locfileid: "53219557"
 1. 在此[门户](https://portal.azure.cn/)，查找想要监视的资源并选中它。
 2. 在“监视”部分下，选择“警报(经典)”。 对于不同的资源，文本和图标可能会略有不同。  
    
-     ![监视](./media/insights-alerts-portal/AlertsClassicButton.JPG)
+     ![监视](media/sql-database-insights-alerts-portal/AlertsClassicButton.JPG)
   
    - **仅 SQL DW**：单击“DWU 使用情况”图。 选择“查看经典警报”
 
 3. 选择“添加指标警报(经典)”按钮，并填写字段。
    
-    ![添加警报](./media/insights-alerts-portal/AddDBAlertPageClassic.JPG)
+    ![添加警报](media/sql-database-insights-alerts-portal/AddDBAlertPageClassic.JPG)
 4. **命名**警报规则，并选择也在通知电子邮件中显示的“说明”。
 5. 选择想要监视的“指标”为该指标选择一个“条件”和“阈值”。 还选择触发警报前指标规则必须满足的时间段。 例如，如果使用时间段"PT5M"，且警报针对 CPU 高于 80% 的情况，则平均 CPU 高于 80% 达到 5 分钟时触发警报。 第一次触发结束后，当平均 CPU 低于 80% 的时间超过 5 分钟时，将再次触发。 每 1 分钟对 CPU 进行一次测量。 请参阅下表，了解支持的时间窗口和每个警报使用的聚合类型（并非所有警报都使用平均值）。   
 6. 如果触发警报时希望向管理员和共同管理员发送电子邮件，则选择“向所有者发送电子邮件...”。

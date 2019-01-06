@@ -9,12 +9,12 @@ ms.topic: overview
 origin.date: 07/26/2018
 ms.date: 09/02/2018
 ms.author: v-jay
-ms.openlocfilehash: 45f155f342b6b55d2bf582560ab405cd137c9ca4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5cbe901d0256ed7915447b7951ae8a6475aa11e6
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643757"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996370"
 ---
 # <a name="manage-groups-of-databases-with-elastic-database-jobs"></a>通过弹性数据库作业管理数据库组
 

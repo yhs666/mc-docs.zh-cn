@@ -15,12 +15,12 @@ ms.devlang: azurecli
 origin.date: 01/11/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 28badb92b28da26c9ec9a22f268fc63148f0bedc
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 3132b6e25d68815ee8dd301e6eb49278502bc34a
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028488"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736115"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>使用远程工具排查 Azure VM 问题
 
@@ -105,7 +105,7 @@ $vmLocation = "<<DATACENTER>>"
 
 #Setup the Azure Powershell module and ensure the access to the subscription
 Import-Module AzureRM
-Login-AzureRmAccount -Environment AzureChinaCloud -EnvironmentName AzureChinaCloud #Ensure Login with account associated with subscription ID
+Login-AzureRmAccount -Environment AzureChinaCloud #Ensure Login with account associated with subscription ID
 Get-AzureRmSubscription -SubscriptionId $subscriptionID | Select-AzureRmSubscription
 
 #Setup the access to the storage account and upload the script 
@@ -258,5 +258,5 @@ PsExec 包含在 [PSTools Suite](https://download.sysinternals.com/files/PSTools
 
 有关 PSTools Suite 的详细信息，请参阅 [PSTools Suite](/sysinternals/downloads/pstools)。
 
-sss <!-- Update_Description: new articles on troubleshoot -->
+<!-- Update_Description: new articles on troubleshoot -->
 <!--ms.date: 12/03/2018-->

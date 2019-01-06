@@ -1,18 +1,18 @@
 ---
-title: Azure CLI 脚本 - 获取 Azure Cosmos DB 的帐户密钥 | Azure
+title: Azure CLI 脚本 - 获取 Azure Cosmos DB 的帐户密钥
 description: Azure CLI 脚本示例 - 获取 Azure Cosmos DB 的帐户密钥
 author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 10/26/2018
-ms.date: 12/03/2018
-ms.author: v-yeche
-ms.openlocfilehash: c21aeaf56b81a098312e44ff5b9282b289aa6b3a
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 12/31/2018
+ms.openlocfilehash: 7fb248e47fd063b61218388fee38b6e6e9300fb7
+ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674644"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814732"
 ---
 # <a name="get-account-keys-for-azure-cosmos-db-using-the-azure-cli"></a>使用 Azure CLI 获取 Azure Cosmos DB 的帐户密钥
 
@@ -78,4 +78,4 @@ az group delete --name $resourceGroupName
 
 有关其他 Azure Cosmos DB CLI 脚本示例，请参见 [Azure Cosmos DB CLI 文档](../cli-samples.md)。
 
-<!--Update_Description: update link, wording update, update link -->
+<!--Update_Description: update meta properties -->

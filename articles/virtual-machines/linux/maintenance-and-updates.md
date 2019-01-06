@@ -4,7 +4,6 @@ description: 概述 Azure 中运行的 Linux 虚拟机的维护和更新。
 services: virtual-machines-linux
 documentationcenter: ''
 author: rockboyfor
-manager: digimobile
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
@@ -13,24 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-origin.date: 03/21/2018
-ms.date: 05/14/2018
+origin.date: 12/13/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: f496457feae5e5373be6324037c70768d9f5606c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ed143dca1e4687674aaf809b1925c2b32d9b8b33
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660949"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736111"
 ---
-# <a name="planned-maintenance-for-linux-virtual-machines"></a>Linux 虚拟机的计划维护 
+# <a name="maintenance-for-virtual-machines-in-azure"></a>Azure 中虚拟机的维护 
 
 [!INCLUDE [virtual-machines-common-planned-maintenance](../../../includes/virtual-machines-common-planned-maintenance.md)]
 
 ## <a name="next-steps"></a>后续步骤
 
-有关管理需要重启的维护的信息，请参阅[处理计划内维护通知](maintenance-notifications.md)。 
+有关影响虚拟机的计划内维护的信息，请参阅[处理计划内维护通知](maintenance-notifications.md)。
 
-<!--The parent file of includes file of virtual-machines-common-planned-maintenance.md-->
-<!--ms.date:05/14/2017-->
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update meta properties -->

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 08/15/2018
 ms.author: v-yiso
-ms.date: 09/17/2018
-ms.openlocfilehash: 7c7d676268fe6c9790f11648419ef3c8a25dfead
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/31/2018
+ms.openlocfilehash: ccf098a6af1d6280c4cba57e825bcc7dea2aa782
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649189"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736668"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>如何将 Azure API 管理服务实例部署到多个 Azure 区域
 
@@ -27,11 +27,10 @@ Azure API 管理多区域部署，该部署可使 API 发布者在任意数量�
 
 新的 Azure API 管理服务最初只在一个 Azure 区域（主要区域）中包含一个[单元][unit]。 可通过 Azure 门户轻松添加其他区域。 API 管理网关服务器部署到每个区域，并且调用流量将路由到最近的网关。 如果一个区域处于离线状态，则传入流量自动重定向到下一个最近的网关。
 
-> [!IMPORTANT]
-> 多区域部署仅在**[高级][Premium]** 层中可用。
-
 > [!NOTE]
 > Azure API 管理仅复制跨区域的 API 网关组件。 服务管理组件仅托管在主要区域中。 如果主要区域发生服务中断，则无法向 Azure API 管理服务实例应用配置更改 - 包括设置或策略更新。
+
+[!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
 ## <a name="add-region"> </a>将 API 管理服务实例部署到新区域
 > [!NOTE]

@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 01/29/2018
-ms.date: 10/29/2018
+ms.date: 12/31/2018
 ms.author: v-yiso
-ms.openlocfilehash: eec3ff06baf8a7baa7dadda8bf54d60c0333e9c4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6e50908fb6415b3d9506cab773624a6945c59c37
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654417"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736700"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>了解并在 IoT 中心内使用设备孪生
 
@@ -223,7 +223,7 @@ ms.locfileid: "52654417"
 * **部分更新报告属性**。 使用此操作可以部分更新当前连接的设备的报告属性。 此操作使用的 JSON 更新格式与解决方案后端用于部分更新所需属性的格式相同。
 * **观察所需属性**。 当前连接的设备可以选择在所需属性发生更新时接收通知。 设备收到的更新格式与解决方案后端执行的更新格式相同（部分或完全替换）。
 
-上述所有操作需要[安全性][lnk-security]一文中定义的 **DeviceConnect** 权限。
+上述所有操作都需要[控制对 IoT 中心的访问](iot-hub-devguide-security.md)中定义的 **DeviceConnect** 权限。
 
 借助 [Azure IoT 设备 SDK][lnk-sdks]，可通过多种语言和平台轻松使用上述操作。 有关 IoT 中心内用于同步所需属性的基元详细信息，请参阅[设备重新连接流][lnk-reconnection]。
 

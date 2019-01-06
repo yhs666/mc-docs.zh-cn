@@ -1,6 +1,6 @@
 ---
-title: 如何使用 Azure Active Directory 向用户分配目录角色 | Microsoft Docs
-description: 了解如何使用 Azure Active Directory 向用户分配目录角色。
+title: 向用户分配目录角色 - Azure Active Directory | Microsoft Docs
+description: 有关如何为具有 Azure Active Directory 的用户分配管理员和非管理员角色的说明。
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -9,17 +9,18 @@ ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
 origin.date: 09/06/2018
-ms.date: 10/09/2018
+ms.date: 01/02/2019
 ms.author: v-junlch
 ms.reviewer: jeffsta
-ms.openlocfilehash: 4cddbe1d96822849fc5c95fa3edbc524eaa332d4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 03aa55e999adc32e7b63900cf898ce428c62f9e4
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663019"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996363"
 ---
-# <a name="how-to-assign-roles-and-administrators-to-users-with-azure-active-directory"></a>如何：使用 Azure Active Directory 向用户分配角色和管理员
+# <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>为具有 Azure Active Directory 的用户分配管理员和非管理员角色
 如果你的组织中的某位用户需要有权管理 Azure Active Directory (Azure AD) 资源，则必须根据该用户需要有权执行的操作在 Azure AD 中为该用户分配合适的角色。
 
 有关可用角色的详细信息，请参阅[在 Azure Active Directory 中分配管理员角色](../users-groups-roles/directory-assign-admin-roles.md)。 有关添加用户的详细信息，请参阅[向 Azure Active Directory 中添加新用户](add-users-azure-active-directory.md)。

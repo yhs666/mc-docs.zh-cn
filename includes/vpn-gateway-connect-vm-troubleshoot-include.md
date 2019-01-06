@@ -1,4 +1,22 @@
-如果无法通过 VPN 连接连接到虚拟机，请查看以下项目：
+---
+title: include 文件
+description: include 文件
+services: vpn-gateway
+author: WenJason
+ms.service: vpn-gateway
+ms.topic: include
+origin.date: 03/21/2018
+ms.date: 12/24/2018
+ms.author: v-jay
+ms.custom: include file
+ms.openlocfilehash: 61e5b731da38c40c7d0d469a85fdffb21b09a2f1
+ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53711684"
+---
+如果无法通过 VPN 连接连接到虚拟机，请检查以下项目：
 
 - 验证 VPN 连接是否成功。
 - 验证是否已连接到 VM 的专用 IP 地址。

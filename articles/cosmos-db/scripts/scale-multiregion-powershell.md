@@ -1,26 +1,21 @@
 ---
-title: Azure PowerShell 脚本 - Azure Cosmos DB 的多区域复制 | Azure
+title: Azure PowerShell 脚本 - Azure Cosmos DB 的多区域复制
 description: Azure PowerShell 脚本示例 - Azure Cosmos DB 的多区域复制
 services: cosmos-db
-documentationcenter: cosmosdb
-author: rockboyfor
-manager: digimobile
-tags: azure-service-management
 ms.service: cosmos-db
+author: rockboyfor
+ms.author: v-yeche
 ms.custom: mvc
 ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: cosmosdb
-ms.workload: database
 origin.date: 05/10/2017
-ms.date: 09/03/2018
-ms.author: v-yeche
-ms.openlocfilehash: 7de5926feafbad8d549073244177971d2a4c5f7b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/31/2018
+ms.openlocfilehash: c1f9bc177e715072b06f3c68a3a82960fdf521c9
+ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662018"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814777"
 ---
 # <a name="replicate-an-azure-cosmos-db-database-account-in-multiple-regions-and-configure-failover-priorities-using-powershell"></a>使用 PowerShell 将 Azure Cosmos DB 数据库帐户复制到多个区域中并配置故障转移优先级
 
@@ -126,4 +121,4 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/)。
 
 可以在 [Azure Cosmos DB PowerShell 脚本](../powershell-samples.md)中找到其他 Azure Cosmos DB PowerShell 脚本示例。
-<!-- Update_Description: wording update, update link -->
+<!-- Update_Description: update meta properties -->

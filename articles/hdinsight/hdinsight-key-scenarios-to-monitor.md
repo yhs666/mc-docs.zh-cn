@@ -7,14 +7,15 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.author: arindamc
-ms.openlocfilehash: 4ce88df0307551090e3dff7b04c07dac0c78b266
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+origin.date: 11/06/2018
+ms.date: 12/24/2018
+ms.author: v-yiso
+ms.openlocfilehash: 311a48d7e8e0c601577a05e33b2268eeadadf663
+ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028234"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53569217"
 ---
 # <a name="monitor-cluster-performance"></a>监视群集性能
 

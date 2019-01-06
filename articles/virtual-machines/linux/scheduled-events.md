@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2018
-ms.date: 09/24/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0c68f005c9041944dba12617c98886e72e479469
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e245ba606da8a537b916e08444d894969a3d64f8
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651997"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736116"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure 元数据服务：适用于 Linux VM 的计划事件
 
@@ -126,7 +126,7 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 |属性  |  说明 |
 | - | - |
 | EventId | 此事件的全局唯一标识符。 <br><br> 示例： <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | 此事件造成的影响。 <br><br> 值： <br><ul><li> `Freeze`：VM 计划暂停的数秒。 暂停 CPU，但不会对内存、打开文件或网络连接造成影响。 <li>`Reboot`：已计划重新启动 VM。 （非持久内存将会丢失。） <li>`Redeploy`：VM 已计划转移到另一个节点。 （临时磁盘将会丢失。） |
+| EventType | 此事件造成的影响。 <br><br> 值： <br><ul><li> `Freeze`：VM 计划为暂停几秒钟。 暂停 CPU，但不会对内存、打开文件或网络连接造成影响。 <li>`Reboot`：VM 计划为重新启动。 （非持久内存将会丢失。） <li>`Redeploy`：VM 计划为移动到另一个节点。 （临时磁盘将会丢失。） |
 | ResourceType | 此事件影响的资源类型。 <br><br> 值： <ul><li>`VirtualMachine`|
 | 资源| 此事件影响的资源列表。 它保证最多只能包含一个[更新域](manage-availability.md)的计算机，但可能不包含该更新域中的所有计算机。 <br><br> 示例： <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | 此事件的状态。 <br><br> 值： <ul><li>`Scheduled`：此事件计划在 `NotBefore` 属性指定的时间之后启动。<li>`Started`：此事件已启动。</ul> 不提供 `Completed` 或类似状态。 事件完成后，将不再返回该事件。
@@ -209,8 +209,10 @@ if __name__ == '__main__':
 ```
 
 ## <a name="next-steps"></a>后续步骤 
+
 <!-- Not Available on [Scheduled Events on Azure Friday](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) -->
-- 在 [Azure 实例元数据计划事件 Github 存储库](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)中查看预定事件代码示例。
+- 在 [Azure 实例元数据计划事件 GitHub 存储库](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)中查看计划事件代码示例。
 - 详细了解[实例元数据服务](instance-metadata-service.md)中提供的 API。
 - [Azure 中 Linux 虚拟机的计划内维护](planned-maintenance.md)。
+
 <!-- Update_Description: update link, wording update -->

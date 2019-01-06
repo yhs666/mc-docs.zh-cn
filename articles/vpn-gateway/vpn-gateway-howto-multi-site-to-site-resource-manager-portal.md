@@ -3,8 +3,8 @@ title: 向 VNet 添加多个 VPN 网关站点到站点连接：Azure 门户：�
 description: 将多站点 S2S 连接添加到包含现有连接的 VPN 网关
 services: vpn-gateway
 documentationcenter: na
-author: cherylmc
-manager: jpconnock
+author: WenJason
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 ms.assetid: f3e8b165-f20a-42ab-afbb-bf60974bb4b1
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/14/2018
-ms.date: 03/12/2018
-ms.author: v-junlch
-ms.openlocfilehash: 6c0e20df4fb0d060ca172514abdfaae007553f23
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.date: 12/24/2018
+ms.author: v-jay
+ms.openlocfilehash: f14e1802a710cab1c2842e93a4edd9a3c20675ce
+ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028361"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53656536"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>将站点到站点连接添加到包含现有 VPN 网关连接的 VNet
 
@@ -45,12 +45,12 @@ ms.locfileid: "53028361"
 ## <a name="before"></a>准备工作
 确认以下各项：
 
-- 创建的不是 ExpressRoute/S2S 共存连接。
-- 有一个使用 Resource Manager 部署模型创建的、包含现有连接的虚拟网络。
-- VNet 的虚拟网络网关是 RouteBased 类型。 如果使用 PolicyBased VPN 网关，必须先删除虚拟网络网关，然后创建新的 RouteBased VPN 网关。
-- 此 VNet 连接到的任何 VNet 都不存在地址范围重叠的情况。
-- 有一台兼容的 VPN 设备，并且可对其进行配置。 请参阅 [关于 VPN 设备](vpn-gateway-about-vpn-devices.md)。 如果不熟悉 VPN 设备的配置，或者不熟悉本地网络配置中的 IP 地址范围，请咨询能够提供此类详细信息的人员。
-- VPN 设备有一个面向外部的公共 IP 地址。 此 IP 地址不得位于 NAT 之后。
+* 创建的不是 ExpressRoute/S2S 共存连接。
+* 有一个使用 Resource Manager 部署模型创建的、包含现有连接的虚拟网络。
+* VNet 的虚拟网络网关是 RouteBased 类型。 如果使用 PolicyBased VPN 网关，必须先删除虚拟网络网关，然后创建新的 RouteBased VPN 网关。
+* 此 VNet 连接到的任何 VNet 都不存在地址范围重叠的情况。
+* 有一台兼容的 VPN 设备，并且可对其进行配置。 请参阅 [关于 VPN 设备](vpn-gateway-about-vpn-devices.md)。 如果不熟悉 VPN 设备的配置，或者不熟悉本地网络配置中的 IP 地址范围，请咨询能够提供此类详细信息的人员。
+* VPN 设备有一个面向外部的公共 IP 地址。 此 IP 地址不得位于 NAT 之后。
 
 ## <a name="part1"></a>第 1 部分 - 配置连接
 1. 从浏览器导航到 [Azure 门户](http://portal.azure.cn)，并在必要时用 Azure 帐户登录。
@@ -63,8 +63,8 @@ ms.locfileid: "53028361"
     ![添加连接按钮](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addbutton.png "添加连接按钮")<br>
 5. 在“添加连接”页面上，填写以下字段：
    
-   - **名称：** 想与其建立连接的站点的名称。
-   - **连接类型：** 选择“站点到站点(IPsec)”。
+   * **名称：** 想与其建立连接的站点的名称。
+   * **连接类型：** 选择“站点到站点(IPsec)”。
      
      ![“添加连接”页面](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Add connection page")<br>
 
@@ -77,9 +77,9 @@ ms.locfileid: "53028361"
     ![“创建本地网络网关”页面](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "Create local network gateway")<br>
 3. 在“创建本地网络网关”页面上，填写以下字段：
    
-   - **名称：** 要分配给本地网络网关资源的名称。
-   - **IP 地址：** 站点上要连接到的 VPN 设备的公共 IP 地址。
-   - **地址空间：** 要路由到新本地网络站点的地址空间。
+   * **名称：** 要分配给本地网络网关资源的名称。
+   * **IP 地址：** 站点上要连接到的 VPN 设备的公共 IP 地址。
+   * **地址空间：** 要路由到新本地网络站点的地址空间。
 4. 在“创建本地网络网关”页面上单击“确定”保存所做更改。
 
 ## <a name="part3"></a>第 3 部分 - 添加共享密钥并创建连接
@@ -93,8 +93,3 @@ ms.locfileid: "53028361"
 
 [!INCLUDE [vpn-gateway-verify-connection-ps-rm](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
-## <a name="next-steps"></a>后续步骤
-
-连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅虚拟机 [学习路径](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) 。
-
-<!--Update_Description: wording update -->

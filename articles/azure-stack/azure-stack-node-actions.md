@@ -12,15 +12,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/22/2018
-ms.date: 12/17/2018
+ms.date: 12/31/2018
 ms.author: v-jay
 ms.reviewer: ppacent
-ms.openlocfilehash: a36d8ff5cf94af3731229301773b61b7a3e4a8b4
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.openlocfilehash: 79f6005596ea26e14eccbea7be2fb8f2884858f0
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396200"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814668"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure Stack 中的缩放单元节点操作
 
@@ -149,9 +149,9 @@ ms.locfileid: "53396200"
 通过 PowerShell 运行修复操作：
 
   ````PowerShell
-  Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPAddress <BMCIPAddress>
+  Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>
   ````
 
 ## <a name="next-steps"></a>后续步骤
 
-若要详细了解 Azure Stack Fabric 管理员模块，请参阅 [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.4.0)。
+若要详细了解 Azure Stack Fabric 管理员模块，请参阅 [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.5.0)。

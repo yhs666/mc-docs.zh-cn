@@ -1,28 +1,24 @@
 ---
-title: 使用 Web 浏览器创建 Hadoop 群集 - Azure HDInsight | Azure
-description: 了解如何使用 Web 浏览器和 Azure 预览门户在 Linux 上创建适用于 HDInsight 的 Hadoop、HBase、Storm 或 Spark 群集。
+title: 使用 Web 浏览器创建 Apache Hadoop 群集 - Azure HDInsight
+description: 了解如何使用 Web 浏览器和 Azure 预览门户在 Linux for HDInsight 上创建 Apache Hadoop、Apache HBase、Apache Storm 或 Apache Spark 群集。
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 697278cf-0032-4f7c-b9b2-a84c4347659e
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 02/21/2018
-ms.date: 08/27/2018
+origin.date: 11/06/2018
+ms.date: 12/24/2018
 ms.author: v-yiso
-ms.openlocfilehash: e8d5eab756fc4d37d7bf931fbbd69a2dbbea023b
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: a292be8295def72691852c7277153ccb39e3b41a
+ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028715"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53569272"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>使用 Azure 门户在 HDInsight 中创建基于 Linux 的群集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -41,7 +37,7 @@ Azure 门户会公开大部分的群集属性。 使用 Azure 资源管理器模
 [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 依次单击“+”、“智能 + 分析”、“HDInsight”。
+2. 依次单击“+ 创建资源”、“Analytics”，然后单击“HDInsight”。
 
     ![在 Azure 门户中创建新群集](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster.png "在 Azure 门户中创建新群集")
 
@@ -103,16 +99,8 @@ Azure 门户会公开大部分的群集属性。 使用 Azure 资源管理器模
 
    单击“下一步”以保存节点定价配置。
 
-7. 单击“高级设置”以配置其他可选设置，如使用“脚本操作”自定义群集以安装自定义组件或加入“虚拟网络”。 有关详细信息，请查看下表。
-
-    ![节点定价层](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-advanced.png "指定群集节点数")
-
-    | 选项 | 说明 |
-    |--------|-------------|
-    | **脚本操作** | 如果想要在创建群集时使用自定义脚本自定义群集，请选择此选项。 有关脚本操作的详细信息，请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。 |
-    | **虚拟网络** | 如果想要将群集放入虚拟网络，请选择 Azure 虚拟网络和子网。 有关将 HDInsight 与虚拟网络配合使用的信息（包括虚拟网络的特定配置要求），请参阅[使用 Azure 虚拟网络扩展 HDInsight 功能](hdinsight-extend-hadoop-virtual-network.md)。 |
-
-    单击“下一步”。
+8. 在“脚本操作”中，可以自定义群集以安装自定义组件。  如果想要在创建群集时使用自定义脚本自定义群集，请选择此选项。 有关脚本操作的详细信息，请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。
+单击“下一步”。
 
 8. 在“摘要”中，检查前面输入的信息，并单击“创建”。
 

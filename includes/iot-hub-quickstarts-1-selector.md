@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: a8a199904dccb28ada472d5c541d19595ba89609
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c6bf41675259ec1a73220e0fcd536b34aff639fa
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650823"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736718"
 ---
 > [!div class="op_single_selector"]
 > * [C](../articles/iot-hub/quickstart-send-telemetry-c.md)
@@ -21,4 +21,5 @@ ms.locfileid: "52650823"
 > * [Java](../articles/iot-hub/quickstart-send-telemetry-java.md)
 > * [Node.js](../articles/iot-hub/quickstart-send-telemetry-node.md)
 > * [Python](../articles/iot-hub/quickstart-send-telemetry-python.md)
+> * [Android](../articles/iot-hub/quickstart-send-telemetry-android.md)
 > * [iOS](../articles/iot-hub/quickstart-send-telemetry-ios.md)

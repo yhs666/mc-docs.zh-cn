@@ -11,20 +11,18 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 10/19/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: be0072e72c21f3bf6258989c03bde69561a83117
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+origin.date: 12/05/2018
+ms.date: 12/31/2018
+ms.openlocfilehash: 405f9ef73b9fb0fa13062e5692cb7f26aa2b2ab1
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673062"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806244"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>使用只读副本对只读的查询工作负荷进行负载均衡（预览版）
 
 “读取扩展”允许使用一个只读副本的容量对 Azure SQL 数据库只读工作负荷进行负载均衡。
-
-## <a name="overview-of-read-scale-out"></a>读取横向扩展的概述
 
 “高级”层（[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)）或“业务关键”层（[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)）中的每个数据库中已自动预配多个 Always ON 副本，以支持可用性 SLA。
 
@@ -48,7 +46,7 @@ ms.locfileid: "52673062"
 > [!NOTE]
 > 区域中的复制延迟较低，且这种情况很少见。
 
-## <a name="connecting-to-a-read-only-replica"></a>连接到只读副本
+## <a name="connect-to-a-read-only-replica"></a>连接到只读副本
 
 为数据库启用读取横向扩展时，客户端提供的连接字符串中的 `ApplicationIntent` 选项会指示连接是要路由到写入副本还是只读副本。 具体而言，如果 `ApplicationIntent` 值为 `ReadWrite`（默认值），则连接会定向到数据库的读写副本。 这与现有行为相同。 如果 `ApplicationIntent` 值为 `ReadOnly`，则连接将路由到只读副本。
 
@@ -66,6 +64,8 @@ Server=tcp:<server>.database.chinacloudapi.cn;Database=<mydatabase>;ApplicationI
 Server=tcp:<server>.database.chinacloudapi.cn;Database=<mydatabase>;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 ```
 
+## <a name="verify-that-a-connection-is-to-a-read-only-replica"></a>验证连接到只读副本
+
 可通过运行以下查询来验证是否连接到只读副本。 连接到只读副本时，它将返回 READ_ONLY。
 
 ```SQL
@@ -75,7 +75,7 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 > [!NOTE]
 > 在任何给定时间，ReadOnly 会话只能访问一个 AlwaysON 副本。
 
-### <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>使用 Azure PowerShell 启用和禁用读取横向扩展
+### <a name="powershell-enable-and-disable-read-scale-out"></a>PowerShell：启用和禁用读取扩展
 
 在 Azure PowerShell 中管理读取横向扩展需要安装 Azure PowerShell 2016 年 12 月版或更高版本。 有关最新的 PowerShell 版本，请参阅 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
 
@@ -99,7 +99,7 @@ Set-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserve
 New-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled -Edition Premium
 ```
 
-### <a name="enabling-and-disabling-read-scale-out-using-the-azure-sql-database-rest-api"></a>使用 Azure SQL 数据库 REST API 启用和禁用读取横向扩展
+### <a name="rest-api-enable-and-disable-read-scale-out"></a>REST API：启用和禁用读取扩展
 
 若要创建已启用读取横向扩展的数据库，或者要为现有数据库启用或禁用读取横向扩展，请按以下示例请求中所示，在 `readScale` 属性设置为 `Enabled` 或 `Disabled` 的情况下，创建或更新相应的数据库实体。
 

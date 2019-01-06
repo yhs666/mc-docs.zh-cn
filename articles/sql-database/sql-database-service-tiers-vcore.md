@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: sashan, moslake
 manager: digimobile
-origin.date: 10/22/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 7fe43c10af4f7576706a6c251d578f922e288350
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+origin.date: 11/27/2018
+ms.date: 12/31/2018
+ms.openlocfilehash: 3096a52bf742a249aff19aadfaf34fc5f70b4825
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674247"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806210"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>vCore 服务层、Azure 混合权益和迁移
 
@@ -41,9 +41,9 @@ vCore 模型提供了两个服务层：常规用途和业务关键。 服务层�
 ||**常规用途**|**业务关键**|
 |---|---|---|
 |最适用于|大多数业务工作负荷。 提供预算导向的、均衡且可缩放的计算和存储选项。|IO 要求高的业务应用程序。 使用多个独立副本，提供最高级别的故障恢复能力。|
-|计算|第 4 代：1 到 24 个 vCore<br/>第 5 代：1 到 80 个 vCore|第 4 代：1 到 24 个 vCore<br/>第 5 代：1 到 80 个 vCore|
-|内存|Gen4：每个核心 7 GB<br>Gen5：每个核心 5.5 GB | Gen4：每个核心 7 GB<br>Gen5：每个核心 5.5 GB |
-|存储|[高级远程存储](../virtual-machines/windows/premium-storage.md)，<br/>单一数据库：5 GB – 4 TB|本地 SSD 存储，<br/>单一数据库：5 GB – 4 TB|
+|计算|Gen4：1 到 24 个 vCore<br/>Gen5：1 到 80 个 vCore|Gen4：1 到 24 个 vCore<br/>Gen5：1 到 80 个 vCore|
+|内存|Gen4：每个核心 7 GB<br>Gen5：每个核心 5.1 GB | Gen4：每个核心 7 GB<br>Gen5：每个核心 5.1 GB |
+|存储|使用[高级远程存储](../virtual-machines/windows/premium-storage.md)：<br/>单一数据库：5 GB – 4 TB|使用本地 SSD 存储：<br/>单一数据库：5 GB - 1 TB |
 |IO 吞吐量（近似）|单一数据库：每个 vCore 提供 500 IOPS，最大 7000 IOPS|每个 vCore 提供 5000 IOPS，最大 200,000 IOPS|
 |可用性|1 个副本，无读取缩放组|3 个副本，1 个[读取缩放副本](sql-database-read-scale-out.md)，<br/>区域冗余 HA|
 |备份|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md)，7-35 天（默认为 7 天）|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md)，7-35 天（默认为 7 天）|
@@ -60,7 +60,7 @@ vCore 模型提供了两个服务层：常规用途和业务关键。 服务层�
 
 ## <a name="azure-hybrid-benefit"></a>Azure 混合权益
 
-在基于 vCore 的购买模型中，可以使用[适用于 SQL Server 的 Azure 混合权益](../virtual-machines/windows/hybrid-use-benefit-licensing.md)交换现有许可证，以获得 SQL 数据库的折扣价格。 借助这项 Azure 权益，可以使用附带软件保障的本地 SQL Server 许可证，将 Azure SQL 数据库的成本最多节省 30%。
+在基于 vCore 的购买模型中，可以使用[适用于 SQL Server 的 Azure 混合权益](https://azure.cn/pricing/hybrid-benefit/)交换现有许可证，以获得 SQL 数据库的折扣价格。 借助这项 Azure 权益，可以使用附带软件保障的本地 SQL Server 许可证，将 Azure SQL 数据库的成本最多节省 30%。
 
 ![定价](./media/sql-database-service-tiers/pricing.png)
 

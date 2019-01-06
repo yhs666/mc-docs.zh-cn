@@ -7,16 +7,16 @@ ms.component: process-automation
 author: WenJason
 ms.author: v-jay
 origin.date: 03/16/2018
-ms.date: 09/10/2018
+ms.date: 12/24/2018
 ms.topic: conceptual
 manager: digimobile
 keywords: powershell, runbook, json, azure 自动化
-ms.openlocfilehash: 6c271fa344f8bebf10b13ac7c1a2e95e8a0353e6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: fe91ab7bee8856794bc56b5cae6a0e8f0eadd1da
+ms.sourcegitcommit: 895e9accaae8f8c2a29ed91d8e84911fda6111cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646088"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53615168"
 ---
 # <a name="pass-a-json-object-to-an-azure-automation-runbook"></a>将 JSON 对象传递到 Azure 自动化 Runbook
 
@@ -31,7 +31,7 @@ PowerShell Runbook 会启动一个 Azure VM，从传入的 JSON 获取 VM 的参
 要完成本教程，需要以下各项：
 
 * Azure 订阅。 如果没有 Azure 订阅，可在开始之前创建一个 [1 元试用](https://www.azure.cn/pricing/1rmb-trial/)帐户。
-* [自动化帐户](automation-create-runas-account.md) ，用来保存 Runbook 以及向 Azure 资源进行身份验证。  此帐户必须有权启动和停止虚拟机。
+* [自动化帐户](automation-sec-configure-azure-runas-account.md) ，用来保存 Runbook 以及向 Azure 资源进行身份验证。  此帐户必须有权启动和停止虚拟机。
 * Azure 虚拟机。 我们需停止和启动该虚拟机，因此其不应为生产用 VM。
 * 在本地计算机上安装的 Azure Powershell。 若要详细了解如何获得 Azure PowerShell，请参阅 [Install and configure Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0)（安装和配置 Azure PowerShell）。
 

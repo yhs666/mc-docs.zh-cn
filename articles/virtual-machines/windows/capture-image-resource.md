@@ -17,11 +17,11 @@ origin.date: 09/27/2018
 ms.date: 10/22/2018
 ms.author: v-yeche
 ms.openlocfilehash: 6479111b4e52d9ccad0e19987924c100b4384af1
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655971"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785180"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>在 Azure 中创建通用 VM 的托管映像
 

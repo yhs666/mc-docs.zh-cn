@@ -8,20 +8,21 @@ manager: jeconnoc
 ms.assetid: ''
 ms.service: azure-functions
 ms.topic: tutorial
-origin.date: 12/15/2017
-ms.date: 11/22/2018
+origin.date: 11/26/2018
+ms.date: 12/27/2018
 ms.author: v-junlch
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: e373d4d827a93939b7577c2d04ba11c41f4d8567
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: d8df6598d52a8215eeaa5883e1c69749fbe81904
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672902"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806520"
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>为函数创建 OpenAPI 定义
-通常使用 OpenAPI 定义（以前称为 [Swagger](http://swagger.io/) 文件）描述 REST API。 此定义中包含的信息涉及 API 中哪些操作可用，以及 API 的请求和响应数据应采用怎样的结构。
+
+通常使用 OpenAPI 定义（以前称为 [Swagger](https://swagger.io/) 文件）描述 REST API。 此定义中包含的信息涉及 API 中哪些操作可用，以及 API 的请求和响应数据应采用怎样的结构。
 
 本教程将创建确定风力涡轮机上的紧急修复是否经济高效的函数。 然后为该函数应用创建一个 OpenAPI 定义，使该函数可使用其他应用和服务进行调用。
 
@@ -34,14 +35,19 @@ ms.locfileid: "52672902"
 > * 通过调用函数测试定义
 
 > [!IMPORTANT]
-> OpenAPI 预览功能目前仅在 1.x 运行时可用。 若要了解如何创建 1.x 函数应用，[可参阅此处](./functions-versions.md#creating-1x-apps)。
+> OpenAPI 功能目前为预览版，仅适用于 1.x 版 Azure Functions 运行时。
 
 ## <a name="create-a-function-app"></a>创建函数应用
 
-必须使用函数应用托管函数的执行。 函数应用可将函数分组为逻辑单元，以便更轻松地管理、部署、缩放和共享资源。 
+必须使用 Function App 托管函数的执行。 函数应用可将函数分组为逻辑单元，以便更轻松地管理、部署、缩放和共享资源。 
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
+## <a name="set-the-functions-runtime-version"></a>设置 Functions 运行时版本
+
+默认情况下，创建的函数应用使用 2.x 版运行时。 在创建函数之前，必须将运行时版本重新设置为 1.x。
+
+[!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
 
 ## <a name="create-the-function"></a>创建函数
 
@@ -51,34 +57,27 @@ ms.locfileid: "52672902"
 
     ![Azure 门户中的 Functions 快速入门页](./media/functions-openapi-definition/add-first-function.png)
 
-2. 在搜索字段中，键入 `http`，然后针对 HTTP 触发器模板选择“C#”。 
- 
+1. 在搜索字段中，键入 `http`，然后针对 HTTP 触发器模板选择“C#”。 
+
     ![选择 HTTP 触发器](./media/functions-openapi-definition/select-http-trigger-portal.png)
 
-3. 为函数键入 `TurbineRepair` 作为名称，选择 `Function` 作为[身份验证级别](functions-bindings-http-webhook.md#http-auth)，然后选择“创建”。  
+1. 为函数键入 `TurbineRepair` 作为名称，选择 `Function` 作为[身份验证级别](functions-bindings-http-webhook.md#http-auth)，然后选择“创建”。  
 
     ![创建 HTTP 触发的函数](./media/functions-openapi-definition/select-http-trigger-portal-2.png)
 
 1. 将 run.csx 文件的内容替换为以下代码，然后单击“保存”：
 
     ```csharp
-    #r "Newtonsoft.Json"
-
     using System.Net;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Logging;
-    using Microsoft.Extensions.Primitives;
-    using Newtonsoft.Json;
 
-    const double revenuePerkW = 0.12; 
-    const double technicianCost = 250; 
+    const double revenuePerkW = 0.12;
+    const double technicianCost = 250;
     const double turbineCost = 100;
 
-    public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
-    {   
+    public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+    {
         //Get request body
-        string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-        dynamic data = JsonConvert.DeserializeObject(requestBody);
+        dynamic data = await req.Content.ReadAsAsync<object>();
         int hours = data.hours;
         int capacity = data.capacity;
 
@@ -94,13 +93,14 @@ ms.locfileid: "52672902"
             repairTurbine = "No";
         }
 
-        return (ActionResult) new OkObjectResult(new{
+        return req.CreateResponse(HttpStatusCode.OK, new{
             message = repairTurbine,
             revenueOpportunity = "$"+ revenueOpportunity,
-            costToFix = "$"+ costToFix         
-        }); 
+            costToFix = "$"+ costToFix
+        });
     }
     ```
+
     此函数代码返回 `Yes` 或 `No` 的消息，指示紧急修复是否经济高效以及涡轮机产生的收入机会和修复涡轮机的费用。 
 
 1. 若要测试该函数，请单击最右边的“测试”展开“测试”选项卡。在“请求正文”中输入以下值，然后单击“运行”。
@@ -124,7 +124,7 @@ ms.locfileid: "52672902"
 
 ## <a name="generate-the-openapi-definition"></a>生成 OpenAPI 定义
 
-现在即可生成 OpenAPI 定义。 其他 Microsoft 技术（例如 API 应用，以及 [Postman](https://www.getpostman.com/docs/importing_swagger) 等第三方开发者工具和[其他许多包](http://swagger.io/tools/)）也可以使用此定义。
+现在即可生成 OpenAPI 定义。 其他 Microsoft 技术（例如 API 应用，以及 [Postman](https://www.getpostman.com/docs/importing_swagger) 等第三方开发者工具和[其他许多包](https://swagger.io/tools/)）也可以使用此定义。
 
 1. 请仅选择 API 支持的“谓词”（本示例中为 POST）。 这样可以生成更干净的 API 定义。
 
@@ -133,7 +133,7 @@ ms.locfileid: "52672902"
     1. 在“选定的 HTTP 方法”中，清除除“POST”外的所有选项，然后单击“保存”。
 
         ![选定的 HTTP 方法](./media/functions-openapi-definition/selected-http-methods.png)
-        
+
 1. 单击函数应用名称（如“function-demo-energy”）>“平台功能” > API 定义”。
 
     ![API 定义](./media/functions-openapi-definition/api-definition.png)
@@ -142,7 +142,7 @@ ms.locfileid: "52672902"
 
     ![API 定义源](./media/functions-openapi-definition/api-definition-source.png)
 
-    此步骤为 Function App 启用一套 OpenAPI 选项，其中包括一个用于托管 Function App 域中的 OpenAPI 文件的终结点、一个 [OpenAPI 编辑器](http://editor.swagger.io)的内联副本和一个 API 定义模板生成器。
+    此步骤为 Function App 启用一套 OpenAPI 选项，其中包括一个用于托管 Function App 域中的 OpenAPI 文件的终结点、一个 [OpenAPI 编辑器](https://editor.swagger.io)的内联副本和一个 API 定义模板生成器。
 
 1. 单击“生成 API 定义模板” > “保存”。
 
@@ -169,7 +169,7 @@ ms.locfileid: "52672902"
         parameters: []
         description: >-
             Replace with Operation Object
-            #http://swagger.io/specification/#operationObject
+            #https://swagger.io/specification/#operationObject
         responses:
             '200':
             description: Success operation
@@ -186,6 +186,7 @@ ms.locfileid: "52672902"
     此定义描述为“模板”，因为它需要更多元数据才能组成完整的 OpenAPI 定义。 下一步会修改定义。
 
 ## <a name="modify-the-openapi-definition"></a>修改 OpenAPI 定义
+
 生成模板定义后，接下来可以修改模板，以提供其他关于 API 操作和数据结构的元数据。 在“API 定义”中，删除从 `post` 到定义的底部生成的定义，粘贴以下内容，然后单击“保存”。
 
 ```yaml
@@ -250,15 +251,15 @@ securityDefinitions:
 
 在此示例中，可以只粘贴已更新的元数据，但请务必了解对默认模板做出的修改类型：
 
-+ 指定 API 生成并使用 JSON 格式的数据。
+- 指定 API 生成并使用 JSON 格式的数据。
 
-+ 指定所需的参数，包括其名称和数据类型。
+- 指定所需的参数，包括其名称和数据类型。
 
-+ 指定成功响应的返回值，包括其名称和数据类型。
+- 指定成功响应的返回值，包括其名称和数据类型。
 
-+ 为 API 及其操作和参数提供友好的摘要和描述。 这对将要使用此函数的用户很重要。
+- 为 API 及其操作和参数提供友好的摘要和描述。 这对将要使用此函数的用户很重要。
 
-+ 添加了在逻辑应用的 UI 中使用的 x-ms-summary 和 x-ms-visibility。 
+- 添加了在逻辑应用的 UI 中使用的 x-ms-summary 和 x-ms-visibility。 
 
 > [!NOTE]
 > 我们将安全性定义保留为默认身份验证方法，即 API 密钥。 如果使用不同的身份验证类型，可以更改此定义部分。
@@ -266,6 +267,7 @@ securityDefinitions:
 有关定义 API 操作的详细信息，请参阅 [Open API specification](https://swagger.io/specification/#operationObject)（Open API 规范）。
 
 ## <a name="test-the-openapi-definition"></a>测试 OpenAPI 定义
+
 使用 API 定义前，最好先在 Azure Functions UI 中对其进行测试。
 
 1. 在函数的“管理”选项卡上，在“主机密钥”下，复制“默认”密钥。
@@ -305,4 +307,4 @@ securityDefinitions:
 > * 修改定义以提供额外的元数据
 > * 通过调用函数测试定义
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

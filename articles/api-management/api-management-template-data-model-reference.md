@@ -14,19 +14,24 @@ ms.devlang: na
 ms.topic: article
 origin.date: 12/05/2017
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: b004ca96c8277a05c39bbf4752842ff4c1311725
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/31/2018
+ms.openlocfilehash: f3e4ab1cf6b28d8b13567ee7dccb8f120dcdf438
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651744"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736706"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Azure API 管理模板数据模型参考
 本主题介绍数据模型中常用项目的实体和类型表示形式，这些数据模型适用于 Azure API 管理中的开发人员门户模板。  
   
  如需详细了解如何使用模板，请参阅[如何使用模板自定义 API 管理开发人员门户](./api-management-developer-portal-templates.md)。  
   
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
+在“消耗”层中，开发人员门户不可用。
+
+## <a name="reference"></a>参考
 -   [API](#API)  
 -   [API 摘要](#APISummary)  
 -   [应用程序](#Application)  

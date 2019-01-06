@@ -9,14 +9,14 @@ ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 12/28/2017
-ms.date: 08/08/2018
+ms.date: 12/19/2018
 ms.author: v-junlch
-ms.openlocfilehash: c3fbc0c7eadc8b1edb52d10c4d78509b48d8a97e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 447c6b80415be9d8793643c9bec3118320738091
+ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647670"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53656534"
 ---
 # <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>使用 Azure 门户创建和配置托管多个网站的应用程序网关
 
@@ -38,7 +38,7 @@ ms.locfileid: "52647670"
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
-在 [http://portal.azure.cn](http://portal.azure.cn) 登录 Azure 门户
+在 [https://portal.azure.cn](https://portal.azure.cn) 登录 Azure 门户
 
 ## <a name="create-an-application-gateway"></a>创建应用程序网关
 
@@ -193,4 +193,4 @@ ms.locfileid: "52647670"
 > * 创建路由规则
 > * 在域中创建 CNAME 记录
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: link update -->

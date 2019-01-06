@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 11/06/2018
-ms.date: 12/03/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: f5c621186faf6bda37cd5936db688d60b0e5ff4a
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 6541ec9f34e59fc83ad81fb3182c011455d53d23
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676430"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026836"
 ---
 # <a name="query-containers-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中查询容器
 
@@ -22,7 +22,7 @@ ms.locfileid: "52676430"
 <!-- Not Available on , graph, table-->
 ## <a name="in-partition-query"></a>分区中查询
 
-从容器中查询数据时，Cosmos DB 会自动将查询路由到筛选器中所指定分区键值（如果有）对应的分区。 例如，此查询将只路由到包含分区键“XMS-0001”的分区。
+从容器中查询数据时，如果查询指定了分区键筛选器，Azure Cosmos DB 会自动将查询路由到筛选器中所指定分区键值对应的分区。 例如，以下查询将路由到 DeviceId 分区，该分区保存与分区键值“XMS-0001”对应的所有文档。
 
 ```csharp
 // Query using partition key into a class called, DeviceReading

@@ -11,15 +11,15 @@ ms.service: azure-functions
 ms.devlang: csharp
 ms.topic: quickstart
 origin.date: 10/01/2018
-ms.date: 11/22/2018
+ms.date: 12/27/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 2fe737db92c2194ee20d5d530ec5c91782cb1950
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: e44fc0aee00825321764c02e26a27bf3523c7132
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673144"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806561"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>使用 Azure Functions 和 Azure Cosmos DB 存储非结构化数据
 
@@ -109,6 +109,7 @@ public static IActionResult Run(HttpRequest req, out object taskDocument, ILogge
         taskDocument = null;
         return (ActionResult)new BadRequestResult();
     }
+}
 ```
 
 # <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)

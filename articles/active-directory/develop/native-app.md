@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 09/24/2018
-ms.date: 11/07/2018
+ms.date: 12/29/2018
 ms.author: v-junlch
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: bf53afe50e42ee23f88bc9452ba5bcf3c4647708
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5153efa818db3574ea2cde9144d2b43f49de8ab6
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656381"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996222"
 ---
 # <a name="native-apps"></a>本机应用
 
-本机应用是代表用户调用 Web API 的应用程序。 此方案是基于带有公共客户端的 OAuth 2.0 授权代码授予类型构建的，如 [OAuth 2.0 规范的第 4.1 部分](http://tools.ietf.org/html/rfc6749)所述。 本机应用程序使用 OAuth 2.0 协议获取用户的访问令牌。 然后会在请求中将此访问令牌发送到 Web API，后者对用户进行授权并返回所需的资源。
+本机应用是代表用户调用 Web API 的应用程序。 此方案是基于带有公共客户端的 OAuth 2.0 授权代码授予类型构建的，如 [OAuth 2.0 规范的第 4.1 部分](https://tools.ietf.org/html/rfc6749)所述。 本机应用程序使用 OAuth 2.0 协议获取用户的访问令牌。 然后会在请求中将此访问令牌发送到 Web API，后者对用户进行授权并返回所需的资源。
 
 ## <a name="diagram"></a>图示
 
@@ -66,3 +66,4 @@ ms.locfileid: "52656381"
 - 详细了解其他[应用程序类型和方案](app-types.md)
 - 了解 Azure AD [身份验证基础知识](authentication-scenarios.md)
 
+<!-- Update_Description: link update -->

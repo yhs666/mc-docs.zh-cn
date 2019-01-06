@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/28/2018
-ms.date: 12/06/2018
+ms.date: 12/31/2018
 ms.author: v-jay
-ms.openlocfilehash: 76bfe797149aecca57146353fde651bec118c15e
-ms.sourcegitcommit: 6e07735318eb5f6ea319b618863259088eab3722
+ms.openlocfilehash: eea811ff206229971efb7322b24b14faf90ba706
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52981657"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814623"
 ---
 # <a name="enable-azure-cli-for-azure-stack-users"></a>为 Azure Stack 用户启用 Azure CLI
 
@@ -39,7 +39,7 @@ ms.locfileid: "52981657"
 可以在开发工具包以及在开发工具包环境内运行的租户虚拟机上找到 Azure Stack CA 根证书。 若要以 PEM 格式导出 Azure Stack 根证书，请登录到开发工具包或租户虚拟机并运行以下脚本：
 
 ```powershell
-$label = "AzureStackSelfSignedRootCert"
+$label = "<Your Azure Stack CA root certificate name>"
 Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
 $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
 if (-not $root)

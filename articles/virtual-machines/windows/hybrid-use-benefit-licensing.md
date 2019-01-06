@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 04/22/2018
 ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4f92f6e17dbea12097961349d127a6ba6ae09984
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1733916d41988a3900cbf285cce219d2f65123ae
+ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646842"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53569205"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Windows Server 的 Azure 混合权益
 对于有软件保障的客户，Windows Server 的 Azure 混合权益可让你使用本地 Windows Server 许可证，并以较低成本在 Azure 中运行 Windows 虚拟机。 可以使用 Windows Server 的 Azure 混合权益部署 Windows OS 的新虚拟机。 本文介绍如何使用 Windows Server 的 Azure 混合权益部署新的 VM 的步骤，以及如何更新现有正在运行的 VM 的步骤。 有关 Windows Server 的 Azure 混合权益许可和成本节约方面的更多信息，请参阅[“Windows Server 的 Azure 混合权益许可”页](https://www.azure.cn/pricing/hybrid-use-benefit/)。
@@ -67,9 +67,11 @@ az vm create \
     --resource-group myResourceGroup \
     --name myVM \
     --location chinanorth \
+    --image Win2016Datacenter \
     --license-type Windows_Server
 ```
 
+<!-- Add --image Win2016Datacenter -->
 ### <a name="template"></a>模板
 在资源管理器模板中，必须指定附加参数 `licenseType`。 可以阅读有关[创作 Azure 资源管理器模板](../../resource-group-authoring-templates.md)的详细信息
 ```json
@@ -143,8 +145,10 @@ LicenseType              :
 ```
 
 ### <a name="cli"></a>CLI
+
+<!-- Should be --query licenseType-->
 ```azurecli
-az vm get-instance-view -g MyResourceGroup -n MyVM --query '[?licenseType==Windows_Server]' -o table
+az vm get-instance-view -g MyResourceGroup -n MyVM --query licenseType -o table
 ```
 
 > [!NOTE]
@@ -164,9 +168,12 @@ $vms | ?{$_.LicenseType -like "Windows_Server"} | select ResourceGroupName, Name
 ```
 
 ### <a name="cli"></a>CLI
+
+<!-- Must be "[?licenseType=='Windows_Server']"-->
 ```azurecli
-az vm list --query '[?licenseType==Windows_Server]' -o table
+az vm list --query "[?licenseType=='Windows_Server']" -o table
 ```
+
 
 ## <a name="deploy-a-virtual-machine-scale-set-with-azure-hybrid-benefit-for-windows-server"></a>使用 Windows Server 的 Azure 混合权益部署虚拟机规模集
 在虚拟机规模集资源管理器模板内，必须在 VirtualMachineProfile 属性中指定额外参数 `licenseType`。 可以通过 ARM 模板、Powershell、Azure CLI 或 REST，在为规模集创建或更新期间执行此操作。

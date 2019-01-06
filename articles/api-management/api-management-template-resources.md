@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 01/09/2017
 ms.author: v-yiso
-ms.date: 02/26/2018
-ms.openlocfilehash: 93fafad8cac64f6c8a71e12a714edb8c7d7dcf86
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/31/2018
+ms.openlocfilehash: f98757f450b940ff767e0bbc01ef97b062d4d75e
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651793"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736715"
 ---
 # <a name="azure-api-management-template-resources"></a>Azure API 管理模板资源
 Azure API 管理提供以下类型的资源，适用于开发人员门户模板。  
@@ -28,6 +28,8 @@ Azure API 管理提供以下类型的资源，适用于开发人员门户模板�
 -   [字符串资源](#strings)  
   
 -   [字形资源](#glyphs)  
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ##  <a name="strings"></a> 字符串资源  
  API 管理提供全面的适用于开发人员门户的字符串资源。 这些资源已本地化为所有受 API 管理支持的语言。 默认的一组模板将这些资源用于页眉、标签以及在开发人员门户中显示的任何常量字符串。 若要在模板中使用字符串资源，请提供资源字符串前缀，后跟字符串名称，如以下示例所示。  
@@ -175,7 +177,7 @@ Azure API 管理提供以下类型的资源，适用于开发人员门户模板�
 |WebDocumentationTemplatesDeveloperKey|指定订阅密钥|  
 |WebDocumentationTemplatesJavaApache|此示例使用 HTTP 组件中的 Apache HTTP 客户端 (http://hc.apache.org/httpcomponents-client-ga/)|  
 |WebDocumentationTemplatesOptionalParams|根据需要指定可选参数的值|  
-|WebDocumentationTemplatesPhpPackage|此示例使用 HTTP_Request2 包。 （详细信息： http://pear.php.net/package/HTTP_Request2)|  
+|WebDocumentationTemplatesPhpPackage|此示例使用 HTTP_Request2 包。 （详细信息： https://pear.php.net/package/HTTP_Request2)|  
 |WebDocumentationTemplatesPythonValuesForPath|根据需要指定路径参数的值(显示为 {...})和请求正文|  
 |WebDocumentationTemplatesRequestBody|指定请求正文|  
 |WebDocumentationTemplatesRequiredParams|指定以下必需参数的值|  
@@ -570,13 +572,13 @@ Azure API 管理提供以下类型的资源，适用于开发人员门户模板�
 |ApiManagementUserLimitReached|此服务已达到允许的用户的最大数目。 请升级到更高的定价层。|  
   
 ##  <a name="glyphs"></a> 字形资源  
- API 管理开发人员门户模板可以使用 [Bootstrap 提供的 Glyphicon](http://getbootstrap.com/components/#glyphicons) 中的字形。 此字形集包括 250 多个字形，采用 [Glyphicon](http://glyphicons.com/) Halflings 集中的字体格式。 若要使用此集中的字形，请使用以下语法。  
+ API 管理开发人员门户模板可以使用 [Bootstrap 提供的 Glyphicon](https://getbootstrap.com/components/#glyphicons) 中的字形。 此字形集包括 250 多个字形，采用 [Glyphicon](https://glyphicons.com/) Halflings 集中的字体格式。 若要使用此集中的字形，请使用以下语法。  
   
 ```html  
 <span class="glyphicon glyphicon-user">  
 ```  
   
- 如需字形的完整列表，请参阅 [Bootstrap 提供的 Glyphicon](http://getbootstrap.com/components/#glyphicons)。
+ 如需字形的完整列表，请参阅 [Bootstrap 提供的 Glyphicon](https://getbootstrap.com/components/#glyphicons)。
 
 ## <a name="next-steps"></a>后续步骤
 如需详细了解如何使用模板，请参阅[如何使用模板自定义 API 管理开发人员门户](./api-management-developer-portal-templates.md)。

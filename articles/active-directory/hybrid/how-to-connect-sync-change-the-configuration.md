@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/30/2018
-ms.date: 11/09/2018
+ms.date: 01/03/2019
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 0d17d6ec22d54852805ff4306a2feaa8f6e03a0b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 179e4097cdd2b622125d5372e4f0b4a4e1b68c96
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662253"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996277"
 ---
-# <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect 同步：如何更改默认配置
+# <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect 同步：更改默认配置
 本文旨在介绍如何对 Azure Active Directory (Azure AD) Connect 同步中的默认配置进行更改。其中提供了一些常见方案的步骤。 了解这些知识后，用户应该能够根据自己的业务规则对自己的配置进行简单的更改。
 
 > [!WARNING]
@@ -62,10 +62,10 @@ ms.locfileid: "52662253"
    ![入站规则筛选](./media/how-to-connect-sync-change-the-configuration/description2.png)  
    - **名称**：为规则提供说明性名称。
    - **说明**：提供一些说明以便他人可以理解规则的用途。
-   - **连接的系统**：可从中找到对象的系统。 在本例中，请选择“Active Directory 连接器”。
+   - **连接的系统**：这是可从中找到对象的系统。 在本例中，请选择“Active Directory 连接器”。
    - **连接的系统/Metaverse 对象类型**：分别选择“用户”和“人员”。
    - **链接类型**：将该值更改为“联接”。
-   - **优先级**：提供系统中唯一的值。 较低的数值表示较高的优先级。
+   - **优先级**：提供在系统中唯一的值。 较低的数值表示较高的优先级。
    - **标记**：将此项留空。 只有 Microsoft 中现成可用的规则应该会要求在此框中填入值。
 3. 在“范围筛选器”页上，输入“givenName ISNOTNULL”。  
    ![入站规则范围筛选器](./media/how-to-connect-sync-change-the-configuration/scopingfilter.png)  
@@ -202,7 +202,7 @@ Azure AD Connect 支持 1.1.524.0 及更高版本中 **User** 对象的 **UserTy
 
 默认情况下，UserType 属性未启用同步，因为在本地 Active Directory 中没有相应的 UserType 属性。 必须手动启用同步。 执行此操作之前，必须注意 Azure AD 强制实施的以下行为：
 
-- Azure AD 只接受 UserType 属性的两个值 – **Member** 和 **Guest**。
+- Azure AD 只接受 UserType 属性的两个值：**Member** 和 **Guest**。
 - 如果没有在 Azure AD Connect 中启用 UserType 属性同步，则通过目录同步创建的 Azure AD 用户的 UserType 属性将设置为 **Member**。
 - Azure AD 不允许在现有 Azure AD 用户中使用会被 Azure AD Connect 更改的 UserType 属性。 只能在创建 Azure AD 用户的过程中设置该属性。
 
@@ -212,7 +212,7 @@ Azure AD Connect 支持 1.1.524.0 及更高版本中 **User** 对象的 **UserTy
 
     如果选择此方法，在启用 UserType 属性同步之前，必须确保指定的属性中填充了本地 Active Directory 中已同步到 Azure AD 的所有现有用户对象的正确值。
 
-- 或者，可以从其他属性派生 UserType 属性的值。 例如，如果用户的本地 AD userPrincipalName 属性结尾是域部分 *@partners.fabrikam123.org*，则应将这些用户全部同步为 **Guest**。 
+- 或者，可以从其他属性派生 UserType 属性的值。 例如，如果用户的本地 AD userPrincipalName 属性结尾是域部分 <em>@partners.fabrikam123.org</em>，则应将这些用户全部同步为 **Guest**。 
 
     如前所述，Azure AD Connect 不允许 Azure AD Connect 更改现有 Azure AD 用户的 UserType 属性。 因此，必须确保所确定的逻辑与针对租户中所有现有 Azure AD 用户配置 UserType 属性的方式一致。
 
@@ -229,7 +229,7 @@ Azure AD Connect 支持 1.1.524.0 及更高版本中 **User** 对象的 **UserTy
 >[!NOTE]
 > 本部分的余下内容将介绍这些步骤。 在 Azure AD 部署使用单林拓扑和不使用自定义同步规则的上下文中描述它们。 如果有多林拓扑、自定义同步规则配置或者过渡服务器，则需要相应地调整步骤。
 
-### <a name="step-1-disable-the-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>步骤 1：禁用同步计划程序，并验证是否没有正在进行的同步操作。
+### <a name="step-1-disable-the-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>步骤 1：禁用同步计划程序，并验证是否没有正在进行的同步
 若要避免将意外的更改导出到 Azure AD，请确保实现新同步规则的中途不会发生同步。 若要禁用内置的同步计划程序，请执行以下操作：
 
  1. 在 Azure AD Connect 服务器上启动 PowerShell 会话。
@@ -290,7 +290,7 @@ Azure AD Connect 支持 1.1.524.0 及更高版本中 **User** 对象的 **UserTy
     | --- | --- | --- | --- | --- |
     | 直接 | UserType | extensionAttribute1 | 未选中 | 更新 |
 
-    另举一例，我们可以从其他属性派生 UserType 属性的值。 例如，如果用户的本地 AD userPrincipalName 属性结尾是域部分 *@partners.fabrikam123.org*，则应将这些用户全部同步为 Guest。可如下所示实现表达式：
+    另举一例，我们可以从其他属性派生 UserType 属性的值。 例如，如果用户的本地 AD userPrincipalName 属性结尾是域部分 <em>@partners.fabrikam123.org</em>，则应将这些用户全部同步为 Guest。可如下所示实现表达式：
 
     | 流类型 | 目标属性 | 源 | 应用一次 | 合并类型 |
     | --- | --- | --- | --- | --- |
@@ -350,7 +350,7 @@ Azure AD Connect 支持 1.1.524.0 及更高版本中 **User** 对象的 **UserTy
    4. 等待操作完成。
 
     > [!NOTE]
-    > 如果源属性已包含在导入属性列表中，则可以在本地 AD 连接器上跳过“完全导入”。 换而言之，不需要在执行[步骤 2：将源属性添加到本地 AD 连接器架构](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema)期间进行任何更改。
+    > 如果源属性已包含在导入属性列表中，则可以在本地 AD 连接器上跳过“完全导入”。 换而言之，在执行[步骤 2：将源属性添加到本地 AD 连接器架构](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema)的过程中不需要进行任何更改。
 
 2. 在 **Azure AD 连接器**上运行“完全导入”：
 
@@ -405,3 +405,4 @@ Azure AD Connect 支持 1.1.524.0 及更高版本中 **User** 对象的 **UserTy
 - [Azure AD Connect 同步：理解和自定义同步](how-to-connect-sync-whatis.md)
 - [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)
 
+<!-- Update_Description: wording update -->

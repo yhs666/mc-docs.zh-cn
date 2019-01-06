@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.devlang: na
 ms.topic: article
 origin.date: 08/18/2018
-ms.date: 08/27/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 94da661d042a02959509b051cc72a6553238efa0
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 17c474d6eb60c00996b307ebdd23a8bc3ccf7440
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663072"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736163"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>将 SQL Server 数据库迁移到 Azure VM 中的 SQL Server
 
@@ -37,7 +37,7 @@ ms.locfileid: "52663072"
 * 拆离后，将数据和日志文件复制到 Azure Blob 存储，并从 URL 附加到 Azure VM 中的 SQL Server
 * 将本地物理计算机转换为 Hyper-V VHD，上传到 Azure Blob 存储，并使用上传的 VHD 部署为新 VM
 * 使用 Windows 导入/导出服务运送硬盘驱动器
-* 如果在本地有 AlwaysOn 部署，请使用[添加 Azure 副本向导](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md)在 Azure 中创建副本，进行故障转移，并将用户指向 Azure 数据库实例
+* 如果在本地有 AlwaysOn 可用性组部署，请使用[添加 Azure 副本向导](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md)在 Azure 中创建副本，然后进行故障转移，并将用户指向 Azure 数据库实例
 * 使用 SQL Server [事务复制](https://msdn.microsoft.com/library/ms151176.aspx)将 Azure SQL Server 实例配置为订阅服务器，禁用复制，并将用户指向 Azure 数据库实例
 
 > [!TIP]

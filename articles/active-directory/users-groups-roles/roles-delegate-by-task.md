@@ -11,16 +11,16 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
 origin.date: 11/08/2018
-ms.date: 12/07/2018
+ms.date: 01/04/2019
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: e0f3f3d62f141fcf395532382f354ac6c6ecfc8a
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: b79c836ab8c3878627d3cd8e94d4cb460ddcbd19
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029162"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029141"
 ---
 # <a name="administrator-roles-by-identity-task-in-azure-active-directory"></a>Azure Active Directory 中按照标识任务委托的管理员角色
 
@@ -73,7 +73,7 @@ ms.locfileid: "53029162"
 创建组 | 用户帐户管理员 | 
 创建、更新或删除组或应用的访问评审 | 用户帐户管理员 | 
 管理组到期时间 | 用户帐户管理员 | 
-管理组设置 | 用户帐户管理员 | 
+管理组设置 | 全局管理员角色 | 
 读取所有配置（隐藏成员身份除外） | 目录读者 | 默认用户角色（[请参阅文档](/active-directory/fundamentals/users-default-permissions)）
 读取隐藏成员身份 | 组成员 | 组所有者、密码管理员、Exchange 管理员、SharePoint 管理员、Teams 管理员、用户帐户管理员
 读取具有隐藏成员身份的组的成员身份 | 支持管理员 | 用户帐户管理员、Teams 管理员
@@ -194,3 +194,4 @@ ms.locfileid: "53029162"
 - [如何分配或删除 Azure AD 管理员角色](directory-manage-roles-portal.md)
 - [Azure AD 管理员角色参考](directory-assign-admin-roles.md)
 
+<!-- Update_Description: wording update -->

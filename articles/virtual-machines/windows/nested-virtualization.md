@@ -7,17 +7,17 @@ author: rockboyfor
 manager: digimobile
 ms.author: v-yeche
 origin.date: 10/09/2017
-ms.date: 11/26/2018
+ms.date: 12/24/2018
 ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: f2b4fcafddfc1d4dc2573c2347d3afb2ab22aa69
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: ad637ba535289fa7a8b1809a6f9bbe2775173430
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675177"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736141"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>如何在 Azure VM 中启用嵌套虚拟化
 
@@ -33,6 +33,7 @@ ms.locfileid: "52675177"
 
 可以在[此处](https://www.azure.cn/zh-cn/home/features/products-by-region)查看 Dv3 或 Ev3 系列虚拟机的区域可用性。
 
+<!--Notice: URL is correct on [here](https://www.azure.cn/zh-cn/home/features/products-by-region)-->
 >[!NOTE]
 >
 >有关创建新虚拟机的详细说明，请参阅[使用 Azure PowerShell 模块创建和管理 Windows VM](/virtual-machines/windows/tutorial-manage-vm)
@@ -157,7 +158,7 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 4. 为你的 DCHP 服务器定义 IP 范围（例如，192.168.0.100 到 192.168.0.200）。
 
-5. 单击“下一步”直到出现“默认网关”页。 输入之前创建的 IP 地址（例如，192.168.0.1）作为默认网关。
+5. 单击“下一步”直到出现“默认网关”页。 输入之前创建的 IP 地址（例如，192.168.0.1）作为默认网关，然后单击“添加”。
 
 6. 单击“下一步”直到完成向导，保留所有默认值，然后单击“完成”。
 

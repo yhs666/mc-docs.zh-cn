@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 02/09/2017
-ms.date: 10/22/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 36be6b5fdc64b29bf09d648896577e00990fb93a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 957d4b962ae2861cb1cdb088228292651b1a17b5
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664106"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736119"
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-virtual-machine"></a>如何将数据磁盘附加到 Linux 虚拟机
 > [!IMPORTANT] 
-> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 请参阅如何[使用 Resource Manager 部署模型附加数据磁盘](../add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器部署模型和经典部署模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 请参阅如何[使用 Resource Manager 部署模型附加数据磁盘](../add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 可以将空磁盘和包含数据的磁盘附加到 Azure VM。 这两种类型的磁盘是驻留在 Azure 存储帐户中的 .vhd 文件。 与将任何磁盘添加到 Linux 计算机一样，附加磁盘之后需要将它初始化和格式化才可供使用。 本文详细说明如何附加空磁盘和附加包含数据的磁盘到 VM，以及初始化和格式化新磁盘的方法。
 

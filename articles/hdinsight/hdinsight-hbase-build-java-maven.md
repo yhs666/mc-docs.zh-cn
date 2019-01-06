@@ -12,15 +12,15 @@ ms.service: hdinsight
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 02/05/2017
-ms.date: 08/27/2018
+ms.date: 12/24/2018
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7f7ff2564f55c18fafc4c7881bdfb702a0be6462
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 9779a6d3bc7d2f13e77274f010126031991d1cc5
+ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653155"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53569234"
 ---
 # <a name="use-maven-to-build-java-applications-that-use-hbase-with-windows-based-hdinsight-hadoop"></a>借助 Maven 构建可将 HBase 与基于 Windows 的 HDInsight (Hadoop) 配合使用的 Java 应用程序
 了解如何通过使用 Apache Maven 在 Java 中创建和构建 [Apache HBase](http://hbase.apache.org/) 应用程序。 然后，将该应用程序用于 Azure HDInsight (Hadoop)。
@@ -31,10 +31,7 @@ ms.locfileid: "52653155"
 > 本文档中的步骤需要使用 Windows 的 HDInsight 群集。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="requirements"></a>要求
-
-[!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
-
-* [Java 平台 JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 或更高版本
+* [Java 平台 JDK](https://aka.ms/azure-jdks) 7 或更高版本
 * [Maven](http://maven.apache.org/)
 * 装有 HBase 的基于 Windows 的 HDInsight 群集
 
@@ -50,7 +47,7 @@ ms.locfileid: "52653155"
     此命令将使用 artifactID 参数（本示例中的 hbaseapp）指定的名称在当前位置创建目录。此目录包含以下项：
 
    * **pom.xml**：项目对象模型 ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html))，其中包含用于生成项目的信息和配置详细信息。
-   * src：包含 main\java\com\microsoft\examples 目录的目录，用户将在其中创作应用程序。
+   * **src**：包含 **main\java\com\microsoft\examples** 目录的目录，用户会在其中创作应用程序。
 3. 删除 src\test\java\com\microsoft\examples\apptest.java 文件，因为本示例中不使用该文件。
 
 ## <a name="update-the-project-object-model"></a>更新项目对象模型

@@ -7,15 +7,15 @@ ms.component: process-automation
 author: WenJason
 ms.author: v-jay
 origin.date: 09/11/2018
-ms.date: 10/01/2018
+ms.date: 12/24/2018
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 734b127d65730aa1c88c40d3a4f9d006bb9da916
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 952baae34052a9018267adaeba7a802dba237352
+ms.sourcegitcommit: 895e9accaae8f8c2a29ed91d8e84911fda6111cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666869"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53615166"
 ---
 # <a name="my-first-python-runbook"></a>我的第一个 Python Runbook
 
@@ -32,7 +32,7 @@ ms.locfileid: "52666869"
 要完成本教程，需要以下各项：
 
 - Azure 订阅。 如果没有订阅，可注册[试用版](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
-- [自动化帐户](/automation/) ，用来保存 Runbook 以及向 Azure 资源进行身份验证。 此帐户必须有权启动和停止虚拟机。
+- [自动化帐户](automation-offering-get-started.md) ，用来保存 Runbook 以及向 Azure 资源进行身份验证。 此帐户必须有权启动和停止虚拟机。
 - Azure 虚拟机。 需停止和启动该虚拟机，因此其不应为生产用 VM。
 
 ## <a name="create-a-new-runbook"></a>创建新的 Runbook

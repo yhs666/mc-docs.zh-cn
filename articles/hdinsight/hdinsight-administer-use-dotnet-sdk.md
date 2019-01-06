@@ -13,19 +13,17 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/14/2018
-ms.date: 08/27/2018
+ms.date: 12/24/2018
 ms.author: v-yiso
-ms.openlocfilehash: 3b5221e7de27ced463fe438a0d732f1b16f9e9f3
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 7ba84f8dc7fbc59816fef64512621e2cfa02980a
+ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029057"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53569244"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>使用 .NET SDK 管理 HDInsight 中的 Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
-
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
 了解如何使用 [HDInsight.NET SDK](https://docs.azure.cn/dotnet/api/overview/hdinsight) 管理 HDInsight 群集。
 
@@ -151,13 +149,13 @@ _hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Nam
 
 更改 HDInsight 支持的每种类型的群集所用数据节点数的影响：
 
-* Hadoop
-
+* Apache Hadoop
+  
     可顺利增加正在运行的 Hadoop 群集中的辅助节点数，而不会影响任何挂起或运行中的作业。 也可在操作进行中提交新作业。 系统会正常处理失败的缩放操作，让群集始终保持正常运行状态。
-
+  
     减少数据节点数目以缩减 Hadoop 群集时，系统会重新启动群集中的某些服务。 这会导致所有正在运行和挂起的作业在缩放操作完成时失败。 但是，可在操作完成后重新提交这些作业。
-* HBase
-
+* Apache HBase
+  
     可在 HBase 群集运行时顺利添加或删除节点。 完成缩放操作后的几分钟内，区域服务器自动平衡。 但也可手动平衡区域服务器，方法是登录到群集的头节点，并在命令提示符窗口中运行以下命令：
   
     ```bash
@@ -165,7 +163,7 @@ _hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Nam
     >hbase shell
     >balancer
     ```
-* Storm
+* Apache Storm
 
     可在 Storm 群集运行时顺利添加或删除数据节点。 但是，缩放操作成功完成后，需要重新平衡拓扑。
 
@@ -201,9 +199,9 @@ HDInsight 群集提供以下 HTTP Web 服务（所有这些服务都有 REST 样
 
 * ODBC
 * JDBC
-* Ambari
-* Oozie
-* Templeton
+* Apache Ambari
+* Apache Oozie
+* Apache Templeton
 
 默认情况下，这些服务会获得访问授权。 可以撤消/授予访问权限。 若要撤消：
 
@@ -255,19 +253,19 @@ foreach (var key in results.Configuration.Keys)
 
 请参阅[在 HDInsight 中运行 Hadoop MapReduce 示例](hadoop/apache-hadoop-run-samples-linux.md)。
 
-**提交 Hive 作业** 
+**提交 Apache Hive 作业** 
 
 请参阅[使用 .NET SDK 运行 Hive 查询](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)。
 
-**提交 Pig 作业**
+**提交 Apache Pig 作业**
 
 请参阅[使用 .NET SDK 运行 Pig 作业](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)。
 
-**提交 Sqoop 作业**
+**提交 Apache Sqoop 作业**
 
 请参阅 [将 Sqoop 与 HDInsight 配合使用](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)。
 
-**提交 Oozie 作业**
+**提交 Apache Oozie 作业**
 
 请参阅[在 HDInsight 中将 Oozie 与 Hadoop 配合使用以定义和运行工作流](hdinsight-use-oozie-linux-mac.md)。
 

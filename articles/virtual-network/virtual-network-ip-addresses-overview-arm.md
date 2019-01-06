@@ -1,6 +1,6 @@
 ---
 title: Azure 中的 IP 地址类型 | Azure
-description: 了解如何在 Azure 中使用公共和专用 IP 地址
+description: 了解 Azure 中的公共 IP 地址和专用 IP 地址。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 origin.date: 09/24/2018
 ms.date: 12/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7d7d960c489d539c5a36b39808e46d1592041cb1
-ms.sourcegitcommit: 1b6a310ba636b6dd32d7810821bcb79250393499
+ms.openlocfilehash: ecdfcbfadd6244f2561602d9f77df3499f619bd2
+ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389415"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785194"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure 中的 IP 地址类型和分配方法
 
-可以将 IP 地址分配到与其他 Azure 资源通信的 Azure 资源，也可以将其分配到本地网络和 Internet。 可以在 Azure 中使用两种类型的 IP 地址：
+可以将 IP 地址分配到与其他 Azure 资源通信的 Azure 资源，也可以将其分配到本地网络和 Internet。 Azure 中可使用两种类型的 IP 地址：
 
 * **公共 IP 地址**：用来与 Internet 通信，包括与面向公众的 Azure 服务通信。
 * **专用 IP 地址**：使用 VPN 网关或 ExpressRoute 线路将网络扩展到 Azure 时，用于在 Azure 虚拟网络 (VNet) 和本地网络中通信。
@@ -41,12 +41,12 @@ ms.locfileid: "53389415"
 
 公共 IP 地址允许 Internet 资源与 Azure 资源进行入站通信。 在 IP 地址已分配给 Azure 资源的情况下，公共 IP 地址还允许这些资源与 Internet 和面向公众的 Azure 服务进行出站通信。 此地址专门用于该资源，直到你对其取消分配。 如果公共 IP 地址未分配给资源，该资源仍可与 Internet 进行出站通信，但 Azure 会动态分配不专用于该资源的可用 IP 地址。 有关 Azure 中的出站连接的详细信息，请参阅[了解出站连接](../load-balancer/load-balancer-outbound-connections.md?toc=%2fvirtual-network%2ftoc.json)。
 
-在 Azure 资源管理器中，[公共 IP](virtual-network-public-ip-address.md) 地址是具有其自身属性的资源。 可与公共 IP 地址资源关联的部分资源包括：
+在 Azure Resource Manager 中，[公共 IP](virtual-network-public-ip-address.md) 地址是具有其自身属性的资源。 可与公共 IP 地址资源关联的部分资源包括：
 
 * 虚拟机网络接口
 * 面向 Internet 的负载均衡器
 * VPN 网关
-* 应用程序网关数
+* 应用程序网关
 
 ### <a name="ip-address-version"></a>IP 地址版本
 
@@ -100,7 +100,7 @@ ms.locfileid: "53389415"
 
 * 必须更新防火墙规则才能与 Azure 资源通信。
 * 对 DNS 名称进行解析时，如果更改了 IP 地址，则需更新 A 记录。
-* Azure 资源与其他使用 IP 地址型安全模型的应用或服务通信。
+* Azure 资源可与使用基于 IP 地址的安全模型的其他应用或服务通信。
 * 使用链接到 IP 地址的 SSL 证书。
 
 > [!NOTE]
@@ -113,7 +113,7 @@ ms.locfileid: "53389415"
 <!-- Not Available on  [Use Azure DNS with an Azure public IP address](../dns/dns-custom-domain.md?toc=%2fvirtual-network%2ftoc.json#public-ip-address). -->
 
 > [!IMPORTANT]
-> 所创建的每个域名标签在其 Azure 位置中必须是唯一的。  
+> 所创建的每个域名标签在其 Azure 位置必须是唯一的。  
 >
 
 ### <a name="virtual-machines"></a>虚拟机
@@ -128,7 +128,7 @@ ms.locfileid: "53389415"
 
 [Azure VPN 网关](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fvirtual-network%2ftoc.json)将 Azure 虚拟网络连接到其他 Azure 虚拟网络或本地网络。 需将公共 IP 地址分配到 VPN 网关才能与远程网络通信。 只能向 VPN 网关分配”动态”基本的公用 IP 地址。
 
-### <a name="application-gateways"></a>应用程序网关数
+### <a name="application-gateways"></a>应用程序网关
 
 将公共 IP 地址分配给网关的**前端**配置可以将其与 Azure [应用程序网关](../application-gateway/application-gateway-introduction.md?toc=%2fvirtual-network%2ftoc.json)相关联。 此公共 IP 地址充当负载均衡型 VIP。 只能将“动态”基本的公用 IP 地址分配给应用程序网关前端配置。
 
@@ -145,11 +145,11 @@ ms.locfileid: "53389415"
 ## <a name="private-ip-addresses"></a>专用 IP 地址
 专用 IP 地址能够让 Azure 资源在不使用可访问 Internet 的 IP 地址的情况下，与[虚拟网络](virtual-networks-overview.md)或本地网络中的其他资源（通过 VPN 网关或 ExpressRoute 线路）通信。
 
-在 Azure 资源管理器部署模型中，可将专用 IP 地址关联到以下类型的 Azure 资源：
+在 Azure Resource Manager 部署模型中，可将专用 IP 地址关联到以下类型的 Azure 资源：
 
 * 虚拟机网络接口
 * 内部负载均衡器 (ILB)
-* 应用程序网关数
+* 应用程序网关
 
 ### <a name="ip-address-version"></a>IP 地址版本
 
@@ -187,11 +187,11 @@ ms.locfileid: "53389415"
 | 顶级资源 | IP 地址关联 | 动态 | 静态 |
 | --- | --- | --- | --- |
 | 虚拟机 |Linux |是 |是 |
-| 负载均衡 |前端配置 |是 |是 |
+| 负载均衡器 |前端配置 |是 |是 |
 | 应用程序网关 |前端配置 |是 |是 |
 
 ## <a name="limits"></a>限制
-Azure 中的[网络限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#networking-limits)全面阐述了对 IP 寻址施加的限制。 这些限制根据区域和订阅设置。 可以[与支持人员联系](https://www.azure.cn/support/support-azure/)，根据业务需求将默认限制提高到最大限制。
+Azure 中的[网络限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#networking-limits)全面阐述了对 IP 寻址施加的限制。 这些限制根据区域和订阅设置。 可以[与支持人员联系](https://support.azure.cn/zh-cn/support/support-azure/)，根据业务需求将默认限制提高到最大限制。
 
 ## <a name="pricing"></a>定价
 公共 IP 地址可能会产生少许费用。 有关 Azure 中 IP 地址定价的详细信息，请阅读 [IP 地址定价](https://www.azure.cn/pricing/details/reserved-ip-addresses/)页。

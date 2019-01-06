@@ -6,33 +6,33 @@ manager: digimobile
 editor: ''
 services: media-services
 documentationcenter: ''
-ms.assetid: d72848e2-4b65-4c84-94bc-e2a90a6e7f47
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/30/2018
-ms.date: 12/03/2018
+origin.date: 12/05/2018
+ms.date: 12/24/2018
 ms.author: v-jay
-ms.openlocfilehash: befa1eed65e6bd541fbdb272cd9b96844b203c2f
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 7d2a6159206d4eed472d5fc6f600459cc7f923e9
+ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673013"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53656543"
 ---
 # <a name="input-metadata"></a>输入元数据
+
 编码作业与要在其上执行某些编码任务的输入资产（或资产）相关联。  完成任务后，会生成一个输出资产。  输出资产包含视频、音频、缩略图、清单等。输出资产还包含提供输入资产相关元数据的文件。 元数据 XML 文件的名称采用下列格式：&lt;asset_id&gt;_metadata.xml（例如，41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml），其中 &lt;asset_id&gt; 是输入资产的 AssetId 值。  
 
-如果想要检查元数据文件，可以创建 **SAS** 定位器并将文件下载到本地计算机。 可以就如何创建 SAS 定位器并下载[使用媒体服务 .NET SDK 扩展](media-services-dotnet-get-started.md)的文件，找到相关示例。  
+媒体服务不会先扫描输入资产以生成元数据。 只有在作业中处理输入资产时，才会生成输入元数据。 因此，此项目会写入到输出资产。 使用不同的工具为输入资产和输出资产生成元数据。 因此，输入元数据的模式与输出元数据略有不同。
+
+要检查元数据文件，可以创建 **SAS** 定位器并将文件下载到本地计算机。 可以就如何创建 SAS 定位器并下载[使用媒体服务 .NET SDK 扩展](media-services-dotnet-get-started.md)的文件，找到相关示例。  
 
 本文讨论作为输入元数据 (&lt;asset_id&gt;_metadata.xml) 的基础的 XML 架构的元素和类型。  若要深入了解包含有关输出资产的元数据的文件，请参阅[输出元数据](media-services-output-metadata-schema.md)。  
 
-> [!NOTE]
-> 可以在本文末尾找到[架构代码](media-services-input-metadata-schema.md#code)和 [XML 示例](media-services-input-metadata-schema.md#xml)。  
-> 
-> 
+可以在本文末尾找到[架构代码](media-services-input-metadata-schema.md#code)和 [XML 示例](media-services-input-metadata-schema.md#xml)。  
+ 
 
 ## <a name="AssetFiles"></a>AssetFiles 元素（根元素）
 包含用于编码作业的 [AssetFile 元素](media-services-input-metadata-schema.md#AssetFile)集合。  

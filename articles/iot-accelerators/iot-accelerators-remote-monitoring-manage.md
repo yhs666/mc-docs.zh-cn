@@ -10,12 +10,12 @@ origin.date: 07/19/2018
 ms.date: 11/26/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 9f93c04a893fddb5ed91415fdec8f7d29f758b19
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 186581678215e0ed0f221441509eb21d0e31da7f
+ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028944"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53569338"
 ---
 # <a name="tutorial-configure-and-manage-devices-connected-to-your-monitoring-solution"></a>教程：配置并管理连接到监视解决方案的设备
 
@@ -64,7 +64,7 @@ Contoso 购置了新的机器以扩建其某处生产场地。 在等待交付�
 
 ## <a name="act-on-a-device"></a>操作设备
 
-若要测试模拟引擎设备是否正确响应从仪表板发起的操作，请运行 **FirmwareUpdate** 方法。 若要通过运行某个方法来操作某个设备，请在设备列表中选择该设备，然后单击“作业”。 如果想要操作多个设备，可以选择多个设备。 在“作业”面板中，选择“运行方法”。 **引擎**设备模型指定三个方法：**FirmwareUpdate**、**FillTank** 和 **EmptyTank**：
+若要测试模拟引擎设备是否正确响应从仪表板发起的操作，请运行 **FirmwareUpdate** 方法。 若要通过运行某个方法来操作某个设备，请在设备列表中选择该设备，然后单击“作业”。 如果想要操作多个设备，可以选择多个设备。 在“作业”面板中，选择“方法”。 **引擎**设备模型指定三个方法：**FirmwareUpdate**、**FillTank** 和 **EmptyTank**：
 
 [![引擎方法](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-expanded.png#lightbox)
 
@@ -82,7 +82,7 @@ Contoso 购置了新的机器以扩建其某处生产场地。 在等待交付�
 
 ## <a name="reconfigure-a-device"></a>重新配置设备
 
-若要测试是否可以更新引擎的配置属性，请在“设备”页上的设备列表中选择该引擎。 单击“作业”，然后选择“重新配置”。 作业面板显示选定设备的可更改属性值：
+若要测试是否可以更新引擎的配置属性，请在“设备”页上的设备列表中选择该引擎。 接着单击“作业”，然后选择“属性”。 作业面板显示选定设备的可更改属性值：
 
 [![重新配置设备](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-expanded.png#lightbox)
 

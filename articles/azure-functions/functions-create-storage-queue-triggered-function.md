@@ -10,15 +10,15 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
 origin.date: 10/01/2018
-ms.date: 10/19/2018
+ms.date: 12/27/2018
 ms.author: v-junlch
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: c22482039e8fe69a8172139dbeea73978e4d7050
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1ca102c439f7630bd6a7a463fb8a559d5175ec6e
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52667310"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806544"
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>创建由 Azure 队列存储触发的函数
 
@@ -28,7 +28,7 @@ ms.locfileid: "52667310"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 下载并安装 [Azure 存储资源管理器](http://storageexplorer.com/)。
+- 下载并安装 [Azure 存储资源管理器](https://storageexplorer.com/)。
 
 - Azure 订阅。 如果没有订阅，请在开始之前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
@@ -78,7 +78,7 @@ ms.locfileid: "52667310"
 
     ![获取存储帐户连接凭据。](./media/functions-create-storage-queue-triggered-function/functions-storage-account-connection.png)
 
-1. 运行 [Azure 存储资源管理器](http://storageexplorer.com/)工具，单击左侧的“连接”图标，选择“使用存储帐户名称和密钥”，并单击“下一步”。
+1. 运行 [Azure 存储资源管理器](https://storageexplorer.com/)工具，单击左侧的“连接”图标，选择“使用存储帐户名称和密钥”，并单击“下一步”。
 
     ![运行“存储帐户资源管理器”工具。](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-1.png)
 
@@ -120,4 +120,4 @@ ms.locfileid: "52667310"
 
 有关队列存储触发器的详细信息，请参阅 [Azure Functions 存储队列绑定](functions-bindings-storage-queue.md)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

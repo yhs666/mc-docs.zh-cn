@@ -1,26 +1,25 @@
 ---
-title: 针对 Azure 中的多个 IP 配置进行负载均衡 | Azure
+title: 在 Azure 中的多个 IP 配置上进行负载均衡
+titlesuffix: Azure Load Balancer
 description: 在主要和辅助 IP 配置之间进行负载均衡。
 services: load-balancer
 documentationcenter: na
-author: rockboyfor
-manager: digimobile
-editor: na
-ms.assetid: 244907cd-b275-4494-aaf7-dcfc4d93edfe
+author: WenJason
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 04/30/2018
-ms.author: v-yeche
-ms.openlocfilehash: 765320f64902740482c3bc3052a146dba8e9a465
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/31/2018
+ms.author: v-jay
+ms.openlocfilehash: 55800a84d3851d63e6a0f19603cf45c06ab55545
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651290"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806236"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>使用 PowerShell 在多个 IP 配置上进行负载均衡
 
@@ -139,8 +138,7 @@ ms.locfileid: "52651290"
     $nic2 | Set-AzureRmNetworkInterface
     ```
 
-13. 最后，必须将 DNS 资源记录配置为指向各自的负载均衡器的前端 IP 地址。 
-<!--Not available [Using Azure DNS with other Azure services](../dns/dns-for-azure-services.md) -->
+13. 最后，必须将 DNS 资源记录配置为指向各自的负载均衡器的前端 IP 地址。 可以在 Azure DNS 中托管域。 有关将 Azure DNS 与负载均衡器配合使用的详细信息，请参阅[将 Azure DNS 与其他 Azure 服务配合使用](../dns/dns-for-azure-services.md)。
 
 ## <a name="next-steps"></a>后续步骤
 - 若要深入了解如何在 Azure 中结合使用负载均衡服务，请参阅[在 Azure 中使用负载均衡服务](../traffic-manager/traffic-manager-load-balancing-azure.md)。

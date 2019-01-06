@@ -14,12 +14,12 @@ ms.workload: infrastructure
 origin.date: 10/23/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: a36384ab6cd1a9b530d523cdadb53491d3a070b9
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 07ad0a8dde44e10df4dee84119af62ad6d5bf526
+ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029010"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785159"
 ---
 # <a name="remote-desktop-license-server-isnt-available-when-you-connect-to-an-azure-vm"></a>连接到 Azure VM 时，远程桌面许可证服务器不可用
 
@@ -117,7 +117,7 @@ mstsc /v:<Server>[:<Port>] /admin
 
 ## <a name="need-help-contact-support"></a>需要帮助？ 联系支持人员
 
-如果仍需帮助，请[联系支持人员](https://www.azure.cn/support/support-azure/)解决问题。
+如果仍需帮助，请[联系支持人员](https://support.azure.cn/zh-cn/support/support-azure/)解决问题。
 
 
 <!-- Update_Description: new articles on troubleshoot -->

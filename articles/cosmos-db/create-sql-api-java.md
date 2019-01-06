@@ -1,23 +1,22 @@
 ---
-title: 使用 Java 创建 Azure Cosmos DB 文档数据库 | Azure
-description: 演示了一个可以用来连接到 Azure Cosmos DB SQL API 并进行查询的 Java 代码示例
+title: 使用 Java 创建 Azure Cosmos DB 文档数据库
+description: 演示一个可以用来连接到 Azure Cosmos DB SQL API 并进行查询的 Java 代码示例
 services: cosmos-db
 author: rockboyfor
-manager: digimobile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.custom: quick start connect, mvc, devcenter
 ms.devlang: java
 ms.topic: quickstart
 origin.date: 10/24/2018
-ms.date: 12/03/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: beb7d6fcaec6f8ba72db8bdc49fd6b84baead2b1
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: afdbd10aa0b5e95d5d939fa120ac47949ffaeb5d
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674760"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026789"
 ---
 # <a name="create-and-manage-resources-of-an-azure-cosmos-db-sql-api-account-using-a-java-application"></a>使用 Java 应用程序创建和管理 Azure Cosmos DB SQL API 帐户的资源
 
@@ -38,10 +37,10 @@ ms.locfileid: "52674760"
 
 此外： 
 
-* [Java 开发工具包 (JDK) 1.8+](https://docs.azure.cn/zh-cn/java/java-supported-jdk-runtime?view=azure-java-stable)
+* [Java 开发工具包 (JDK) 1.8+](https://docs.azure.cn/java/java-supported-jdk-runtime?view=azure-java-stable)
     * 在 Ubuntu 上运行 `apt-get install default-jdk`，以便安装 JDK。
     * 请确保设置 JAVA_HOME 环境变量，使之指向在其中安装了 JDK 的文件夹。
-* [下载](http://maven.apache.org/download.cgi)和[安装](http://maven.apache.org/install.html) [Maven](http://maven.apache.org/) 二进制存档
+* [下载](https://maven.apache.org/download.cgi)和[安装](https://maven.apache.org/install.html) [Maven](https://maven.apache.org/) 二进制存档
     * 在 Ubuntu 上，可以通过运行 `apt-get install maven` 来安装 Maven。
 * [Git](https://www.git-scm.com/)
     * 在 Ubuntu 上，可以通过运行 `sudo apt-get install git` 来安装 Git。
@@ -67,9 +66,9 @@ ms.locfileid: "52674760"
 
 ## <a name="clone-the-sample-application"></a>克隆示例应用程序
 
-现在，让我们转到如何使用代码上来。 接下来，克隆 GitHub 中的一个 SQL API 应用，设置连接字符串，并运行该应用。 会看到以编程方式处理数据是多么容易。 
+现在，让我们转到如何使用代码上来。 接下来，克隆 GitHub 中的 SQL API 应用程序，设置连接字符串，并运行应用程序。 会看到以编程方式处理数据是多么容易。 
 
-1. 运行下列命令，克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
+1. 运行下列命令以克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started
@@ -79,7 +78,7 @@ ms.locfileid: "52674760"
 
 此步骤是可选的。 如果有意了解如何使用代码创建数据库资源，可以查看以下代码片段。 否则，可以跳到[运行应用](#run-the-app)。 
 
-* `AsyncDocumentClient` 初始化。 [AsyncDocumentClient](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.rx._async_document_client) 为 Azure Cosmos DB 数据库服务提供客户端逻辑表示。 此客户端用于对服务配置和执行请求。
+* `AsyncDocumentClient` 初始化。 [AsyncDocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient) 为 Azure Cosmos DB 数据库服务提供客户端逻辑表示。 此客户端用于对服务配置和执行请求。
 
     ```java
     client = new AsyncDocumentClient.Builder()
@@ -90,7 +89,7 @@ ms.locfileid: "52674760"
              .build();
     ```
 
-* [Database](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._database) 创建。
+* [Database](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.database) 创建。
 
     ```java
     Database databaseDefinition = new Database();
@@ -101,7 +100,7 @@ ms.locfileid: "52674760"
             .await();
     ```
 
-* [DocumentCollection](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_collection) 创建。
+* [DocumentCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.documentcollection) 创建。
 
     ```java
     DocumentCollection collectionDefinition = new DocumentCollection();
@@ -114,7 +113,7 @@ ms.locfileid: "52674760"
             .await();
     ```
 
-* 使用 [createDocument](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document) 方法创建文档。
+* 使用 [createDocument](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.document) 方法创建文档。
 
     ```java
     // Any Java object within your code
@@ -131,7 +130,7 @@ ms.locfileid: "52674760"
 
     ```
 
-* 使用 [queryDocuments](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.rx._async_document_client.querydocuments?view=azure-java-stable) 方法，对 JSON 执行 SQL 查询。
+* 使用 [queryDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient.querydocuments?view=azure-java-stable) 方法，对 JSON 执行 SQL 查询。
 
     ```java
     FeedOptions queryOptions = new FeedOptions();
@@ -159,7 +158,7 @@ ms.locfileid: "52674760"
     }
     ```    
 
-## <a name="run-the-app"></a>运行应用程序
+## <a name="run-the-app"></a>运行应用
 
 现在返回到 Azure 门户，获取连接字符串信息，并使用终结点信息启动应用。 这样，应用程序就可以与托管的数据库进行通信。
 

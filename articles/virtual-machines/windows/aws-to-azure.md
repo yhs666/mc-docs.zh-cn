@@ -17,11 +17,11 @@ origin.date: 06/01/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
 ms.openlocfilehash: 247d07e586ad6e1160c8829da2d4d794c308ee7c
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674570"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785148"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>将 Windows VM 从 Amazon Web Services (AWS) 移到 Azure 虚拟机
 

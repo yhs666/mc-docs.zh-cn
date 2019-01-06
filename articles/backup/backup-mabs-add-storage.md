@@ -9,16 +9,16 @@ ms.topic: conceptual
 origin.date: 11/13/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: b259f5c7ec0f170ee175b635d45a92f84993b163
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 4d2e1989410d376cbe2132938e28cb498708d3ad
+ms.sourcegitcommit: 9fd5944afd6274e096a6e790583a131642f1532d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675346"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53737003"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>将存储添加到 Azure 备份服务器
 
-Azure 备份服务器 V2 及更高版本附带 System Center 2016 Data Protection Manager 新式备份存储。 Modern Backup Storage 可提供节省 50% 的存储、快三倍的备份以及更高效的存储。 它还提供可感知工作负荷的存储。
+Azure 备份服务器 V2 及更高版本支持新式备份存储，后者可提供节省 50% 的存储、快三倍的备份以及更高效的存储。 它还提供可感知工作负荷的存储。
 
 > [!NOTE]
 > 若要使用新式备份存储，必须在 Windows Server 2016 上运行备份服务器 V2 或 V3，或者在 Windows Server 2019 上运行备份服务器 V3。
@@ -76,7 +76,7 @@ Azure 备份服务器 V2 及更高版本附带 System Center 2016 Data Protectio
 
 ### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 
-可以使用 PowerShell cmdlet Update-DPMDiskStorage（它可更新 Data Protection Manager 服务器上存储池中的卷的属性）设置可感知工作负荷的存储。
+可以使用 PowerShell cmdlet Update-DPMDiskStorage（它可更新 Azure 备份服务器上存储池中的卷的属性）设置可感知工作负荷的存储。 
 
 语法：
 

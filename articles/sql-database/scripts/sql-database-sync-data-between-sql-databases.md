@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: douglasl
 manager: digimobile
 origin.date: 04/01/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: f33a5918ff302715937df39e2c8866ebd0f7e48c
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.date: 01/07/2019
+ms.openlocfilehash: c5af46d1ad67c9161895782077b85a038a692abe
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672710"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996168"
 ---
 # <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>使用 PowerShell 在多个 SQL 数据库之间进行同步
  
@@ -130,6 +130,7 @@ $Credential = $Host.ui.PromptForCredential("Need credential",
               "")
 
 # Add a new sync member
+# You can add members from other subscriptions, you don't need to specify Subscription Id for the member
 Write-Host "Adding member"$SyncMemberName" to the sync group"
 New-AzureRmSqlSyncMember   -ResourceGroupName $ResourceGroupName `
                             -ServerName $ServerName `
@@ -368,6 +369,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
     - 在门户中 - [教程：设置 SQL 数据同步，以在 Azure SQL 数据库和本地 SQL Server 之间同步数据](../sql-database-get-started-sql-data-sync.md)
     - 使用 PowerShell
         -  [使用 PowerShell 在 Azure SQL 数据库和 SQL Server 本地数据库之间进行同步](sql-database-sync-data-between-azure-onprem.md)
+-   数据同步代理 - [Azure SQL 数据同步的数据同步代理](../sql-database-data-sync-agent.md)
 -   最佳做法 - [Azure SQL 数据同步最佳做法](../sql-database-best-practices-data-sync.md)
 -   故障排除 - [排查 Azure SQL 数据同步问题](../sql-database-troubleshoot-data-sync.md)
 -   更新同步架构

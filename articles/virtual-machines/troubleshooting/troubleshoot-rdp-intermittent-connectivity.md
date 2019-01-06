@@ -14,12 +14,12 @@ ms.workload: infrastructure
 origin.date: 10/24/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: e468deb7b0eceed46e593d8eee3d8baff9321ba5
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 8b8c3b0ded0973d074efe140298bfed67e68ae1b
+ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028400"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785150"
 ---
 # <a name="remote-desktop-disconnects-frequently-in-azure-vm"></a>Azure VM 中远程桌面频繁断开连接
 
@@ -123,7 +123,7 @@ ms.locfileid: "53028400"
 18. 重启 VM，并再次尝试使用 RDP 连接到它。
 
 ## <a name="need-help"></a>需要帮助？ 
-联系支持人员。 如果仍需要帮助，可 [联系支持人员](https://www.azure.cn/support/support-azure/) 来快速解决问题。
+请联系支持人员。 如果仍需要帮助，可 [联系支持人员](https://support.azure.cn/zh-cn/support/support-azure/) 来快速解决问题。
 
 <!-- Update_Description: new articles on troubleshoot -->
 <!--ms.date: 12/03/2018-->

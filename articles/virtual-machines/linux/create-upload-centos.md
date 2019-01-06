@@ -14,22 +14,24 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 05/04/2018
-ms.date: 11/26/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 55d6ada79e792d33a5b82dc536678d5439d233bf
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: d0dcbaef391c48ca72b15a37eca8e506b08be4b4
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674807"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736205"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>为 Azure 准备基于 CentOS 的虚拟机
+
 * [为 Azure 准备 CentOS 6.x 虚拟机](#centos-6x)
 * [为 Azure 准备 CentOS 7.0+ 虚拟机](#centos-70)
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="prerequisites"></a>先决条件
+
 本文假设已在虚拟硬盘中安装 CentOS（或类似的衍生产品）Linux 操作系统。 可使用多种工具创建 .vhd 文件，如 Hyper-V 等虚拟化解决方案。 有关说明，请参阅 [安装 Hyper-V 角色和配置虚拟机](https://technet.microsoft.com/library/hh846766.aspx)。
 
 **CentOS 安装说明**
@@ -126,8 +128,8 @@ ms.locfileid: "52674807"
         enabled=0
         gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 
-    >[!Note]
-    本指南的余下部分假设用户至少会使用 `[openlogic]` 存储库，下面将使用该存储库安装 Azure Linux 代理。
+    > [!Note]
+    > 本指南的余下部分假设用户至少会使用 `[openlogic]` 存储库，下面将使用该存储库安装 Azure Linux 代理。
 
 9. 将以下行添加到 /etc/yum.conf：
 
@@ -145,8 +147,8 @@ ms.locfileid: "52674807"
 
 11. （可选）安装适用于 Linux Integration Services (LIS) 的驱动程序。
 
-    >[!IMPORTANT]
-    此步骤对于 CentOS 6.3 及更低版本来说是 **必需** 步骤，对于更高版本来说是可选步骤。
+    > [!IMPORTANT]
+    > 此步骤对于 CentOS 6.3 及更低版本来说是 **必需** 步骤，对于更高版本来说是可选步骤。
 
         # sudo rpm -e hypervkvpd  ## (may return error if not installed, that's OK)
         # sudo yum install microsoft-hyper-v
@@ -197,7 +199,9 @@ ms.locfileid: "52674807"
 17. 在 Hyper-V 管理器中单击“操作”->“关闭”。 现在，准备将 Linux VHD 上传到 Azure。
 
 - - -
+
 ## <a name="centos-70"></a>CentOS 7.0+
+
 **CentOS 7（和类似衍生产品）中的更改**
 
 为 Azure 准备 CentOS 7 虚拟机非常类似于 CentOS 6，但有几个值得注意的重要区别：
@@ -272,8 +276,8 @@ ms.locfileid: "52674807"
         enabled=0
         gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 
-    >[!Note]
-    本指南的余下部分假设用户至少会使用 `[openlogic]` 存储库，下面将使用该存储库安装 Azure Linux 代理。
+    > [!Note]
+    > 本指南的余下部分假设用户至少会使用 `[openlogic]` 存储库，下面将使用该存储库安装 Azure Linux 代理。
 
 7. 运行以下命令清除当前 yum 元数据并安装所有更新：
 
@@ -299,7 +303,7 @@ ms.locfileid: "52674807"
 
         # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
-10. 如果要从 **VMware、VirtualBox 或 KVM** 生成映像：请确保 initramfs 中包含 Hyper-V 驱动程序：
+10. 如果从 VMware、VirtualBox 或 KVM 生成映像：请确保 initramfs 中包含 HYPER-V 驱动程序：
 
    编辑 `/etc/dracut.conf`，添加内容：
 
@@ -333,6 +337,7 @@ ms.locfileid: "52674807"
 14. 在 Hyper-V 管理器中单击“操作”->“关闭”。 Linux VHD 现已准备好上传到 Azure。
 
 ## <a name="next-steps"></a>后续步骤
+
 现在，可以使用 CentOS Linux 虚拟硬盘在 Azure 中创建新的 Azure 虚拟机了。 如果是首次将 .vhd 文件上传到 Azure，请参阅[从自定义磁盘创建 Linux VM](upload-vhd.md#option-1-upload-a-vhd)。
 
 <!-- Update_Description: wording update, update meta properties -->

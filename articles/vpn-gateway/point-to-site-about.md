@@ -2,26 +2,18 @@
 title: 关于 Azure 点到站点 VPN 连接 | Microsoft Docs
 description: 可以借助本文了解点到站点连接，并确定要使用的 P2S VPN 网关身份验证类型。
 services: vpn-gateway
-documentationcenter: na
-author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
+author: WenJason
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 06/06/2018
-ms.date: 08/13/2018
-ms.author: v-junlch
-ms.openlocfilehash: 1e669f39888b815f75ed9d550194cc2ea3756fba
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.topic: conceptual
+origin.date: 12/14/2018
+ms.date: 12/24/2018
+ms.author: v-jay
+ms.openlocfilehash: ae352fdd1f5203d2cba87202a16a5391847e150c
+ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644343"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53656526"
 ---
 # <a name="about-point-to-site-vpn"></a>关于点到站点 VPN
 
@@ -31,11 +23,10 @@ ms.locfileid: "52644343"
 
 点到站点 VPN 可使用以下协议之一：
 
-- 安全套接字隧道协议 (SSTP)，这是一种基于 SSL 的专属协议。 由于大多数防火墙都会打开 SSL 所用的 TCP 端口 443，因此 SSL VPN 解决方案可以穿透防火墙。 只有 Windows 设备支持 SSTP。 Azure 支持所有采用 SSTP 的 Windows 版本（Windows 7 和更高版本）。
+* 安全套接字隧道协议 (SSTP)，这是一种基于 SSL 的专属协议。 由于大多数防火墙都会打开 SSL 所用的 TCP 端口 443，因此 SSL VPN 解决方案可以穿透防火墙。 只有 Windows 设备支持 SSTP。 Azure 支持所有采用 SSTP 的 Windows 版本（Windows 7 和更高版本）。
 
-- IKEv2 VPN，这是一种基于标准的 IPsec VPN 解决方案。 IKEv2 VPN 可用于从 Mac 设备进行连接（OSX 10.11 和更高版本）。
+* IKEv2 VPN，这是一种基于标准的 IPsec VPN 解决方案。 IKEv2 VPN 可用于从 Mac 设备进行连接（OSX 10.11 和更高版本）。
 
-如果在混合客户端环境中包括 Windows 和 Mac 设备，请同时配置 SSTP 和 IKEv2。
 
 >[!NOTE]
 >P2S 的 IKEv2 仅可用于资源管理器部署模型。 它不可用于经典部署模型。
@@ -71,8 +62,8 @@ RADIUS 服务器还能与其他外部标识系统集成。 这样就为 P2S VPN 
 
 用户使用 Windows 和 Mac 设备上的本机 VPN 客户端建立 P2S 连接。 Azure 提供一个 VPN 客户端配置 zip 文件，其中包含这些本机客户端连接到 Azure 时所需的设置。
 
-- 对于 Windows 设备，VPN 客户端配置包括用户在其设备上安装的安装程序包。
-- 对于 Mac 设备，该配置包括用户在其设备上安装的 mobileconfig 文件。
+* 对于 Windows 设备，VPN 客户端配置包括用户在其设备上安装的安装程序包。
+* 对于 Mac 设备，该配置包括用户在其设备上安装的 mobileconfig 文件。
 
 该 zip 文件还提供 Azure 端上的一些重要设置的值，使用这些设置可为这些设备创建你自己的配置文件。 其中一些值包括 VPN 网关地址、配置的隧道类型、路由，以及用于网关验证的根证书。
 
@@ -82,11 +73,9 @@ RADIUS 服务器还能与其他外部标识系统集成。 这样就为 P2S VPN 
 
 ## <a name="gwsku"></a>哪些网关 SKU 支持 P2S VPN？
 
-[!INCLUDE [p2s-skus](../../includes/vpn-gateway-table-point-to-site-skus-include.md)]
+[!INCLUDE [aggregate throughput sku](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
-- 聚合吞吐量基准基于对通过单个网关聚合的多个隧道的测量。 受 Internet 流量情况和应用程序行为影响，该吞吐量无法保证。
-- 可在“定价”页上找到定价信息 
-- 可在“SLA”页上查看 SLA（服务级别协议）信息。
+* 有关网关 SKU 的建议，请参阅[关于 VPN 网关设置](vpn-gateway-about-vpn-gateway-settings.md#gwsku)。
 
 >[!NOTE]
 >基本 SKU 不支持 IKEv2 或 RADIUS 身份验证。
@@ -96,9 +85,9 @@ RADIUS 服务器还能与其他外部标识系统集成。 这样就为 P2S VPN 
 
 P2S 配置需要相当多的特定步骤。 以下文章包含引导你完成 P2S 配置的步骤，以及用于配置 VPN 客户端设备的链接：
 
-- [配置 P2S 连接 - RADIUS 身份验证](point-to-site-how-to-radius-ps.md)
+* [配置 P2S 连接 - RADIUS 身份验证](point-to-site-how-to-radius-ps.md)
 
-- [配置 P2S 连接 - Azure 本机证书身份验证](vpn-gateway-howto-point-to-site-rm-ps.md)
+* [配置 P2S 连接 - Azure 本机证书身份验证](vpn-gateway-howto-point-to-site-rm-ps.md)
 
 ## <a name="faqcert"></a>本机 Azure 证书身份验证常见问题解答
 
@@ -110,8 +99,8 @@ P2S 配置需要相当多的特定步骤。 以下文章包含引导你完成 P2
 
 ## <a name="next-steps"></a>后续步骤
 
-- [配置 P2S 连接 - RADIUS 身份验证](point-to-site-how-to-radius-ps.md)
+* [配置 P2S 连接 - RADIUS 身份验证](point-to-site-how-to-radius-ps.md)
 
-- [配置 P2S 连接 - Azure 本机证书身份验证](vpn-gateway-howto-point-to-site-rm-ps.md)
+* [配置 P2S 连接 - Azure 本机证书身份验证](vpn-gateway-howto-point-to-site-rm-ps.md)
 
 <!--Update_Description: wording update-->

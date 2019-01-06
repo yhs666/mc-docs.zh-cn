@@ -1,27 +1,23 @@
 ---
-title: Azure Cosmos DB 自动化 - 使用 Powershell 管理 | Azure
+title: 使用 PowerShell 创建和管理 Azure Cosmos DB 资源
 description: 使用 Azure Powershell 管理 Azure Cosmos DB 帐户。
-services: cosmos-db
 author: rockboyfor
-manager: digimobile
-editor: ''
-tags: azure-resource-manager
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-origin.date: 04/21/2017
-ms.date: 12/03/2018
+origin.date: 12/06/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: b3aae55d529efda97460b01d21c8f0160b298814
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.custom: seodec18
+ms.openlocfilehash: 57f003f507840bd443dba2c502cc1fa4a3d2a3fd
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675639"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026641"
 ---
-# <a name="create-an-azure-cosmos-db-account-using-powershell"></a>使用 PowerShell 创建 Azure Cosmos DB 帐户
+# <a name="create-and-manage-azure-cosmos-db-resources-by-using-powershell"></a>使用 PowerShell 创建和管理 Azure Cosmos DB 资源
 
-以下指南介绍了使用 Azure Powershell 自动管理 Azure Cosmos DB 数据库帐户的命令。 还介绍了用于管理 [多区域数据库帐户][distribute-data-globally.md] 中的帐户密钥和故障转移优先级的命令。 更新数据库帐户可以修改一致性策略以及添加/删除区域。 对于 Azure Cosmos DB 帐户的跨平台管理，可使用 [Azure CLI](cli-samples.md)、[资源提供程序 REST API][rp-rest-api] 或 [Azure 门户](create-sql-api-dotnet.md#create-account)。
+以下指南介绍了使用 Azure Powershell 自动管理 Azure Cosmos DB 数据库帐户的命令。 它还包括用于管理 [多区域数据库帐户][distribute-data-globally]的帐户密钥和故障转移优先级的命令。 更新数据库帐户可以修改一致性策略以及添加/删除区域。 对于 Azure Cosmos DB 帐户的跨平台管理，可使用 [Azure CLI](cli-samples.md)、[资源提供程序 REST API][rp-rest-api] 或 [Azure 门户](create-sql-api-dotnet.md#create-account)。
 
 ## <a name="getting-started"></a>入门
 

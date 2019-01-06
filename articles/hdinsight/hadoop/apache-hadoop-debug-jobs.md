@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/14/2017
-ms.date: 02/26/2018
+ms.date: 01/14/2019
 ms.author: ashish
-ms.openlocfilehash: 3c860a729375b57eb2d9001a2830fdc9df5f6250
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 42114cec846ccd3bae7edf4541cfa08963392477
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029132"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029244"
 ---
-# <a name="analyze-hadoop-logs"></a>分析 Hadoop 日志
+# <a name="analyze-apache-hadoop-logs"></a>分析 Apache Hadoop 日志
 
-Azure HDInsight 中的每个 Hadoop 群集都有用作默认文件系统的 Azure 存储帐户。 该存储帐户称作默认存储帐户。 群集使用默认存储帐户上的 Azure 表存储和 Blob 存储存储其日志。  若要了解群集的默认存储帐户，请参阅[在 HDInsight 中管理 Hadoop 群集](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account)。 即使在删除群集后，日志仍会保留在存储帐户中。
+Azure HDInsight 中的每个 Apache Hadoop 群集都有一个用作默认文件系统的 Azure 存储帐户。 该存储帐户称作默认存储帐户。 群集使用默认存储帐户上的 Azure 表存储和 Blob 存储存储其日志。  若要了解群集的默认存储帐户，请参阅[在 HDInsight 中管理 Apache Hadoop 群集](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account)。 即使在删除群集后，日志仍会保留在存储帐户中。
 
 ## <a name="logs-written-to-azure-tables"></a>写入 Azure 表的日志
 
@@ -67,7 +67,7 @@ Azure HDInsight 中的每个 Hadoop 群集都有用作默认文件系统的 Azur
 * Power Query for Excel
 
 #### <a name="use-power-query-for-excel"></a>使用 Power Query for Excel
-可以从 [Microsoft Power Query for Excel](http://www.microsoft.com/en-us/download/details.aspx?id=39379) 安装 Power Query。 有关系统要求，请参阅下载页。
+可以从 [Microsoft Power Query for Excel](https://www.microsoft.com/en-us/download/details.aspx?id=39379) 安装 Power Query。 有关系统要求，请参阅下载页。
 
 **使用 Power Query 打开和分析服务日志**
 
@@ -112,9 +112,11 @@ Azure HDInsight 中的每个 Hadoop 群集都有用作默认文件系统的 Azur
 ## <a name="logs-written-to-azure-blob-storage"></a>写入 Azure Blob 存储的日志
 [写入 Azure 表的日志](#log-written-to-azure-tables) ，可在一定程度上了解 HDInsight 群集中发生的事件。 但是，这些表不提供任务级日志，这些日志在问题发生时可以用于进一步分析问题。 为了更进一步地详细了解所发生的问题，可以对 HDInsight 群集进行配置，将通过 Templeton 提交的作业的任务日志写入 Blob 存储帐户。 实际上，这是指通过 Microsoft Azure PowerShell cmdlet 或 .NET 作业提交 API 提交的作业，而不是指通过 RDP 提交的或通过命令行访问群集时提交的作业。 
 
-若要查看日志，请参阅[在基于 Linux 的 HDInsight 上访问 YARN 应用程序日志](../hdinsight-hadoop-access-yarn-app-logs-linux.md)。
+若要查看日志，请参阅[在基于 Linux 的 HDInsight 上访问 Apache Hadoop YARN 应用程序日志](../hdinsight-hadoop-access-yarn-app-logs-linux.md)。
 
-有关应用程序日志的详细信息，请参阅 [简化 YARN 中的用户日志管理和访问](http://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/)。
+
+有关应用程序日志的详细信息，请参阅 [Simplifying user-logs management and access in Apache Hadoop YARN](https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/)（简化 Apache Hadoop YARN 中的用户日志管理和访问）。
+
 
 ## <a name="view-cluster-health-and-job-logs"></a>查看群集运行状况和作业日志
 ### <a name="access-the-ambari-ui"></a>访问 Ambari UI
@@ -325,7 +327,7 @@ Azure HDInsight 中的每个 Hadoop 群集都有用作默认文件系统的 Azur
 
 ## <a name="next-steps"></a>后续步骤
 
-* [使用 Ambari 视图调试 HDInsight 上的 Tez 作业](../hdinsight-debug-ambari-tez-view.md)
-* [在基于 Linux 的 HDInsight 上为 Hadoop 服务启用堆转储](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [使用 Apache Ambari 视图来调试 HDInsight 上的 Apache Tez 作业](../hdinsight-debug-ambari-tez-view.md)
+* [在基于 Linux 的 HDInsight 上为 Apache Hadoop 服务启用堆转储](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 
 

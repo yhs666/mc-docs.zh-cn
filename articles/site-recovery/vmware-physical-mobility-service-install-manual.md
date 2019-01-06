@@ -6,17 +6,15 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 11/04/2018
-ms.date: 12/10/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4f46afa89917f3da6770aac4f6d963c7f96ca270
-ms.sourcegitcommit: 6cd0a8d22061aba7390579a80e19cb9d2f7faf12
+ms.openlocfilehash: 7babd87c1f7578f0e082552640aef8c6c836ec71
+ms.sourcegitcommit: d2893ae6bdbb3784d243d5d3c49c25c9cfd99d9b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53233986"
+ms.lasthandoff: 12/25/2018
+ms.locfileid: "53784830"
 ---
-ms.author: v-yeche
-
 # <a name="install-the-mobility-service-manually-on-vmware-vms-and-physical-servers"></a>在 VMware VM 和物理服务器上手动安装移动服务
 
 在使用 [Azure Site Recovery](site-recovery-overview.md) 设置 VMware VM 和物理服务器的灾难恢复时，可在每个本地 VMware VM 和物理服务器上安装 [Site Recovery 移动服务](vmware-physical-mobility-service-overview.md)。  移动服务可以捕获计算机上的数据写入，并将其转发到 Site Recovery 进程服务器。
@@ -106,7 +104,7 @@ ms.author: v-yeche
 
 ### <a name="on-a-linux-machine"></a>在 Linux 计算机上
 
-1. 将安装程序复制到要保护的服务器上的某个本地文件夹（例如 /tmp）。 在终端运行以下命令：
+1. 将安装程序复制到要保护的服务器上的某个本地文件夹（例如 /tmp）。 在终端中，运行以下命令：
   ```
   cd /tmp ;
 
@@ -137,9 +135,10 @@ ms.author: v-yeche
 --- | ---
 使用情况 | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i <CSIP> -P <PassphraseFilePath>
 -i | 必需的参数。 指定配置服务器的 IP 地址。 使用任何有效的 IP 地址。
--P |  必需。 通行短语所保存到的文件的完整文件路径。 使用任何有效文件夹
+-p |  必需。 通行短语所保存到的文件的完整文件路径。 使用任何有效文件夹
 
 ## <a name="next-steps"></a>后续步骤
 - [为 VMware VM 设置灾难恢复](vmware-azure-tutorial.md)
 - [为物理服务器设置灾难恢复](physical-azure-disaster-recovery.md)
 
+<!--Update_Dscription: udpate meta properties-->

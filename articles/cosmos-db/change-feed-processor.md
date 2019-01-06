@@ -2,19 +2,18 @@
 title: 使用 Azure Cosmos DB 中的更改源处理器库
 description: 使用 Azure Cosmos DB 更改源处理器库。
 author: rockboyfor
-manager: digimobile
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
 origin.date: 11/06/2018
-ms.date: 12/03/2018
+ms.date: 12/31/2018
 ms.author: v-yeche
-ms.openlocfilehash: c3ea92386e4aa0e3d4dcf92e0bea0550874c34e0
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 28bbe97aeb8835f1c238fbaf11af631711eb8700
+ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676541"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814774"
 ---
 # <a name="using-the-azure-cosmos-db-change-feed-processor-library"></a>使用 Azure Cosmos DB 更改源处理器库
 
@@ -44,7 +43,7 @@ ms.locfileid: "52676541"
 
    * 时间戳：租约最近更新时间；时间戳可用于检查租约是否到期。
 
-1. **处理器主机：** 每个主机根据具有活动租约的主机其他实例数目，确定要处理的分区数目。
+1. **处理器主机：** 每个主机根据具有活动租用的其他主机实例数目，确定要处理的分区数目。
 
    * 主机启动时，将获取租用，以在所有主机中均衡工作负荷。 主机定期续订租用，使租用保持活动状态。
 
@@ -78,5 +77,4 @@ ms.locfileid: "52676541"
 * [读取更改源的方式](read-change-feed.md)
 * [将更改源与 Azure Functions 配合使用](change-feed-functions.md)
 
-<!-- Update_Description: new articles on cosmos db change feed processor -->
-<!--ms.date: 12/03/2018-->
+<!-- Update_Description: update meta properties -->

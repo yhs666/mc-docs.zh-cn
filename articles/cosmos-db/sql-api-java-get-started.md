@@ -1,23 +1,22 @@
 ---
-title: NoSQL 教程：适用于 Azure Cosmos DB Java SDK 的 SQL API | Azure
+title: NoSQL 教程：适用于 Azure Cosmos DB Java SDK 的 SQL API
 description: 一个 NoSQL 教程，介绍了如何使用适用于 Azure Cosmos DB 的 SQL API 创建联机数据库和 Java 控制台应用程序。 Azure SQL 是用于 JSON 的 NoSQL 数据库。
 keywords: nosql 教程, 联机数据库, java 控制台应用程序
 services: cosmos-db
 author: rockboyfor
-manager: digimobile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 origin.date: 05/22/2017
-ms.date: 12/03/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: 86743b2e338ed4b083955f556946530a5fce0cad
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 8d42e4800bd9a20c72e5c95d1c5c6e22579520c1
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675108"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026828"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL 教程：构建 SQL API Java 控制台应用程序
 
@@ -29,9 +28,9 @@ ms.locfileid: "52675108"
 > * [Node.js](sql-api-nodejs-get-started.md)
 > 
 
-欢迎使用适用于 Azure Cosmos DB Java SDK 的 SQL API 的 NoSQL 教程！ 学习本教程后，将拥有一个可创建并查询 Azure Cosmos DB 资源的控制台应用程序。
+欢迎使用 NoSQL 教程，了解适用于 Azure Cosmos DB Java SDK 的 SQL API！ 学习本教程后，将拥有一个可创建并查询 Azure Cosmos DB 资源的控制台应用程序。
 
-我们介绍：
+本文内容：
 
 * 创建并连接到 Azure Cosmos DB 帐户
 * 配置 Visual Studio 解决方案
@@ -56,7 +55,7 @@ ms.locfileid: "52675108"
 
 * [Git](https://git-scm.com/downloads)。
 * [Java 开发工具包 (JDK) 7+](https://docs.azure.cn/zh-cn/java/java-supported-jdk-runtime?view=azure-java-stable)。
-* [Maven](http://maven.apache.org/download.cgi)。
+* [Maven](https://maven.apache.org/download.cgi)。
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>步骤 1：创建 Azure Cosmos DB 帐户
 创建 Azure Cosmos DB 帐户。 如果已有一个可用的帐户，可以直接跳到[克隆 GitHub 项目](#GitClone)。 如果使用 Azure Cosmos DB 模拟器，请遵循 [Azure Cosmos DB 模拟器](local-emulator.md)中的步骤设置该模拟器，并直接跳到[克隆 GitHub 项目](#GitClone)。
@@ -65,7 +64,7 @@ ms.locfileid: "52675108"
 
 <a name="GitClone"></a>
 ## <a name="step-2-clone-the-github-project"></a>步骤 2：克隆 GitHub 项目
-首先，可以根据 [Get Started with Azure Cosmos DB and Java](https://github.com/Azure-Samples/documentdb-java-getting-started)（Azure Cosmos DB 和 Java 入门）中所述克隆 GitHub 存储库。 例如，从本地目录运行以下命令，在本地检索示例项目。
+首先，可以根据 [Get Started with Azure Cosmos DB and Java](https://github.com/Azure-Samples/documentdb-java-getting-started)（Azure Cosmos DB 和 Java 入门）中所述克隆 GitHub 存储库。 例如，在本地目录中运行以下命令，在本地检索示例项目。
 
     git clone git@github.com:Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
 
@@ -91,9 +90,9 @@ ms.locfileid: "52675108"
         , new ConnectionPolicy(),
         ConsistencyLevel.Session);
 
-![NoSQL 教程创建 Java 控制台应用程序时使用的 Azure 门户的屏幕截图。 显示了一个 Azure Cosmos DB 帐户，在“Azure Cosmos DB 帐户”边栏选项卡上突出显示了“ACTIVE”中心、“密钥”按钮，在“密钥”边栏选项卡上突出显示了 URI、主密钥、辅助密钥的值][keys]
+![在 NoSQL 教程中用于创建 Java 控制台应用程序的 Azure 门户屏幕截图。 显示了一个 Azure Cosmos DB 帐户，在“Azure Cosmos DB 帐户”边栏选项卡上突出显示了“ACTIVE”中心、“密钥”按钮，在“密钥”边栏选项卡上突出显示了 URI、主密钥、辅助密钥的值][keys]
 
-## <a name="step-4-create-a-database"></a>第 4 步：创建数据库
+## <a name="step-4-create-a-database"></a>步骤 4：创建数据库
 可以使用 **DocumentClient** 类的 [createDatabase](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_client.createdatabase) 方法创建 Azure Cosmos DB [数据库](databases-containers-items.md#azure-cosmos-databases)。 数据库是跨集合分区的 JSON 文档存储的逻辑容器。
 
     Database database = new Database();
@@ -182,16 +181,16 @@ Azure Cosmos DB 支持使用 [deleteDocument](https://docs.azure.cn/java/api/com
     this.client.deleteDatabase("/dbs/familydb", null);
 
 <a name="Run"></a>
-## <a name="step-11-run-your-java-console-application-all-together"></a>步骤 11：运行整个 Java 控制台应用程序！
+## <a name="step-11-run-your-java-console-application-all-together"></a>步骤 11：一起运行 Java 控制台应用程序！
 若要从控制台运行应用程序，请导航到项目文件夹，然后使用 Maven 进行编译：
 
     mvn package
 
-运行 `mvn package` 可从 Maven 下载最新的 Azure Cosmos DB 库，并生成 `GetStarted-0.0.1-SNAPSHOT.jar`。 然后，通过运行以下命令来运行该应用：
+运行 `mvn package` 将从 Maven 下载最新的 Azure Cosmos DB 库，并生成 `GetStarted-0.0.1-SNAPSHOT.jar`。 然后，通过运行以下命令来运行该应用：
 
     mvn exec:java -D exec.mainClass=GetStarted.Program
 
-祝贺！ 现已完成本 NoSQL 教程，并构建了一个正常运行的 Java 控制台应用程序！
+祝贺你！ 现已完成本 NoSQL 教程，并构建了一个正常运行的 Java 控制台应用程序！
 
 ## <a name="next-steps"></a>后续步骤
 * 需要 Java Web 应用教程？ 请参阅[通过 Java 构建使用 Azure Cosmos DB 的 Web 应用程序](sql-api-java-application.md)。

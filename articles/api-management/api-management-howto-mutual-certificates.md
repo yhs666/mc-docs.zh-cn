@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 06/20/2018
 ms.author: v-yiso
-ms.date: 08/13/2018
-ms.openlocfilehash: d47df757b5a8f63e1deddaea9d70d00095600be5
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 12/31/2018
+ms.openlocfilehash: 5ac8ece797704a4b79fca0a7cad7d4d13182d7de
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674862"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736683"
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>如何使用 Azure API 管理中的客户端证书身份验证确保后端服务安全
 
@@ -100,9 +100,8 @@ $context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup'
 New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
 ```
 
-
-
-[How to add and publish a product]: ./api-management-howto-add-products.md
+[How to add operations to an API]: mock-api-responses
+[How to add and publish a product]: api-management-howto-add-products.md
 [Monitoring and analytics]: ../api-management-monitoring.md
 [Add APIs to a product]: ./api-management-howto-add-products.md#add-apis
 [Publish a product]: ./api-management-howto-add-products.md#publish-product

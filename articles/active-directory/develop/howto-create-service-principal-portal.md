@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/24/2018
-ms.date: 12/03/2018
+ms.date: 12/29/2018
 ms.author: v-junlch
 ms.reviewer: tomfitz
-ms.openlocfilehash: a7e7b8f1c45534edc76cb25d74247237cac0bec9
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: f99b8ca51c6873d0a85e5f7e7c8227158cd8e82e
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029164"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996187"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>如何：使用门户创建可访问资源的 Azure AD 应用程序和服务主体
 
@@ -63,9 +63,9 @@ ms.locfileid: "53029164"
    如果未看到所需订阅，请选择“全局订阅筛选器”。 请确保已为该门户选择所需的订阅。 
 
 1. 选择“访问控制(IAM)”。
-1. 选择“设置” （应用程序对象和服务主体对象）。
+1. 选择“添加角色分配”。
 
-   ![选择“添加”](./media/howto-create-service-principal-portal/select-add.png)
+   ![选择“添加角色分配”](./media/howto-create-service-principal-portal/select-add.png)
 
 1. 选择要分配到应用程序的角色。 若要允许应用程序执行诸如“重启”、“启动”和“停止”实例之类的操作，请选择“参与者”角色。 默认情况下，可用选项中不显示 Azure AD 应用程序。 若要查找应用程序，请搜索其名称并选中它。
 
@@ -160,3 +160,4 @@ ms.locfileid: "53029164"
 - 若要了解如何指定安全策略，请参阅 [Azure 基于角色的访问控制](../../role-based-access-control/role-assignments-portal.md)。  
 - 有关可对用户授予或拒绝的可用操作的列表，请参阅 [Azure 资源管理器资源提供程序操作](../../role-based-access-control/resource-provider-operations.md)。
 
+<!-- Update_Description: wording update -->

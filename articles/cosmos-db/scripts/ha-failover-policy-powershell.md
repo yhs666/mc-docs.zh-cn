@@ -1,26 +1,21 @@
 ---
-title: Azure PowerShell 脚本 - 创建 Azure Cosmos DB 故障转移策略 | Azure
+title: Azure PowerShell 脚本 - 创建 Azure Cosmos DB 故障转移策略
 description: Azure PowerShell 脚本示例 - 创建 Azure Cosmos DB 故障转移策略
 services: cosmos-db
-documentationcenter: cosmosdb
-author: rockboyfor
-manager: digimobile
-tags: azure-service-management
 ms.service: cosmos-db
+author: rockboyfor
+ms.author: v-yeche
 ms.custom: mvc
 ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: cosmosdb
-ms.workload: database
 origin.date: 05/10/2017
-ms.date: 09/03/2018
-ms.author: v-yeche
-ms.openlocfilehash: d6649db90489c3f933b4e378f4ac65665270629b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/31/2018
+ms.openlocfilehash: 4fee4e995b1c1a047c4aea2b802546a3af0aee06
+ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662202"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814753"
 ---
 # <a name="create-an-azure-cosmos-db-failover-policy-for-high-availability-using-powershell"></a>使用 PowerShell 创建 Azure Cosmos DB 故障转移策略以实现高可用性
 
@@ -33,7 +28,7 @@ ms.locfileid: "52662202"
 ```powershell
 # Set the Azure resource group name and location
 $resourceGroupName = "myResourceGroup"
-$resourceGroupLocation = "chinanorth"
+$resourceGroupLocation = "chinaeast"
 
 # Create the resource group
 New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocation
@@ -42,9 +37,9 @@ New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocati
 $DBName = "testdb"
 
 # Write and read locations and priorities for the database
-$locations = @(@{"locationName"="chinanorth"; 
+$locations = @(@{"locationName"="chinaeast"; 
                  "failoverPriority"=0}, 
-               @{"locationName"="chinaeast"; 
+               @{"locationName"="chinanorth"; 
                   "failoverPriority"=1})
 
 # Consistency policy
@@ -66,9 +61,9 @@ New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
                     -PropertyObject $DBProperties
 
 # Reverse priorities
-$failoverPolicies = @(@{"locationName"="chinanorth"; 
+$failoverPolicies = @(@{"locationName"="chinaeast"; 
                         "failoverPriority"=1},
-                      @{"locationName"="chinaeast"; 
+                      @{"locationName"="chinanorth"; 
                         "failoverPriority"=0})
 
 # Update an existing database with the failover policies
@@ -107,4 +102,4 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/)。
 
 可以在 [Azure Cosmos DB PowerShell 脚本](../powershell-samples.md)中找到其他 Azure Cosmos DB PowerShell 脚本示例。
-<!-- Update_Description: wording update, update link -->
+<!-- Update_Description: update meta properties -->

@@ -1,21 +1,18 @@
 ---
 title: Azure Database for PostgreSQL 中的限制
 description: 本文介绍了 Azure Database for PostgreSQL 中的限制，例如连接数和存储引擎选项。
-services: postgresql
 author: WenJason
 ms.author: v-jay
-manager: digimobile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
-oeigin.date: 06/30/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 6ea6cde17c076c9a600b8c4cc92f2820be35f250
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.topic: conceptual
+origin.date: 12/12/2018
+ms.date: 12/31/2018
+ms.openlocfilehash: 20fdc09f86cfe6e463f731f2000dad5b474ae68f
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674921"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806262"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Azure Database for PostgreSQL 中的限制
 下列各部分介绍数据库服务中的容量和功能限制。
@@ -32,10 +29,12 @@ ms.locfileid: "52674921"
 |常规用途| 8| 480|
 |常规用途| 16| 950|
 |常规用途| 32| 1500|
+|常规用途| 64| 1900|
 |内存优化| 2| 300|
 |内存优化| 4| 500|
 |内存优化| 8| 960|
 |内存优化| 16| 1900|
+|内存优化| 32| 3000|
 
 当连接数超出限制时，可能会收到以下错误：
 > 严重：很抱歉，客户端数过多
@@ -57,6 +56,9 @@ Azure 系统需要使用五个连接来监视 Azure Database for PostgreSQL 服�
 - 使用 PITR 功能时，将使用与新服务器所基于的服务器相同的定价层配置创建新服务器。
 - 还原期间创建的新服务器没有原始服务器上存在的防火墙规则。 需要为此新服务器单独设置防火墙规则。
 - 不支持还原已删除的服务器。
+
+### <a name="utf-8-characters-on-windows"></a>Windows 上的 UTF-8 字符
+- 在某些情况下，Windows 上的开源 PostgreSQL 不完全支持 UTF-8 字符，这会影响 Azure Database for PostgreSQL。 有关详细信息，请参阅 [postgresql-archive 中的 Bug #15476](https://www.postgresql-archive.org/BUG-15476-Problem-on-show-trgm-with-4-byte-UTF-8-characters-td6056677.html) 上的话题。
 
 ## <a name="next-steps"></a>后续步骤
 - 了解[每个定价层中有哪些可用资源](concepts-pricing-tiers.md)

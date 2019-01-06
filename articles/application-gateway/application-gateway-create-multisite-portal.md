@@ -9,14 +9,14 @@ ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 01/26/2018
-ms.date: 08/08/2018
+ms.date: 12/19/2018
 ms.author: v-junlch
-ms.openlocfilehash: b068a86d772f8ea8ce9d1ef1756f7419624795cc
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a9aad065d000af3202ec3a9143cd0e189ab8af98
+ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654196"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53656564"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-portal"></a>使用 Azure 门户创建托管多个站点的应用程序网关
 
@@ -37,7 +37,7 @@ ms.locfileid: "52654196"
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
-在 [http://portal.azure.cn](http://portal.azure.cn) 登录 Azure 门户
+在 [https://portal.azure.cn](https://portal.azure.cn) 登录 Azure 门户
 
 ## <a name="create-an-application-gateway"></a>创建应用程序网关
 
@@ -191,4 +191,4 @@ ms.locfileid: "52654196"
 > [!div class="nextstepaction"]
 > [详细了解应用程序网关的作用](application-gateway-introduction.md)
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: link update -->

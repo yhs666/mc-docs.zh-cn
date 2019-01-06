@@ -16,11 +16,11 @@ origin.date: 09/17/2018
 ms.date: 10/22/2018
 ms.author: v-yeche
 ms.openlocfilehash: 8c999c2fa494d1698f27c4985923a011bfaf7095
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657772"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785157"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>从托管映像创建 VM
 

@@ -10,7 +10,7 @@
       ],
       "defaultValue": "Basic",
       "metadata": {
-        "description": "The pricing tier of the new Azure Redis Cache."
+        "description": "The pricing tier of the new Azure Cache for Redis."
       }
     },
 
@@ -48,7 +48,7 @@ SKU 的系列。
       ],
       "defaultValue": 0,
       "metadata": {
-        "description": "The size of the new Azure Redis Cache instance. "
+        "description": "The size of the new Azure Cache for Redis instance. "
       }
     }
 
@@ -56,4 +56,4 @@ SKU 的系列。
 模板将定义此参数允许的值（0、1、2、3、4、5 或 6），如果未指定任何值，则分配默认值 (0)。 这些数字对应于以下缓存大小：0 = 250 MB，1 = 1 GB，2 = 2.5 GB，3 = 6 GB，4 = 13 GB，5 = 26 GB，6 = 53 GB
 
 
-<!-- ms.date: 07/10/2018 -->
+<!-- ms.date: 12/25/2018 -->

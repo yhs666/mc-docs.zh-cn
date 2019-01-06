@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto, carlrab
 manager: digimobile
-origin.date: 10/05/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: 19a1fda30cf84c7b6b9495c6d4cda10cdb888842
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 12/03/2018
+ms.date: 12/31/2018
+ms.openlocfilehash: a93e289d7d053e7857a45c8ad3615f3d28aca1bd
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651659"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806164"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>使用 Azure Active Directory 身份验证进行 SQL 身份验证
 
@@ -109,7 +109,7 @@ Azure Active Directory 身份验证支持使用 Azure AD 标识连接到数据�
 - 我们建议将连接超时值设置为 30 秒。   
 - SQL Server 2016 Management Studio 和 SQL Server Data Tools for Visual Studio 2015（版本 14.0.60311.1（2016 年 4 月）或更高版本）支持 Azure Active Directory 身份验证。 （**用于 SqlServer 的 .NET Framework 数据提供程序**（.NET Framework 4.6 或更高版本）支持 Azure AD 身份验证）。 因此，这些工具和数据层应用程序（DAC 和 .BACPAC）的最新版本可以使用 Azure AD 身份验证。   
 - 虽然 [ODBC 版本 13.1](https://www.microsoft.com/download/details.aspx?id=53339) 支持 Azure Active Directory 身份验证，但是 `bcp.exe` 无法使用 Azure Active Directory 身份验证进行连接，因为使用的是旧式 ODBC 提供程序。   
-- `sqlcmd` 从版本 13.1 开始就支持 Azure Active Directory 身份验证，该版本可从 [下载中心](http://go.microsoft.com/fwlink/?LinkID=825643)下载。
+- `sqlcmd` 从版本 13.1 开始就支持 Azure Active Directory 身份验证，该版本可从 [下载中心](https://go.microsoft.com/fwlink/?LinkID=825643)下载。
 - SQL Server Data Tools for Visual Studio 2015 至少需要 2016 年 4 月版的 Data Tools（版本 14.0.60311.1）。 目前，Azure AD 用户不会显示在 SSDT 对象资源管理器中。 解决方法是在 [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx) 中查看这些用户。   
 - [Microsoft JDBC Driver 6.0 for SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) 支持 Azure AD 身份验证。 另外，请参阅[设置连接属性](https://msdn.microsoft.com/library/ms378988.aspx)。   
 - PolyBase 无法使用 Azure AD 身份验证进行身份验证。   

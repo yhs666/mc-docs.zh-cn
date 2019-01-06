@@ -1,3 +1,21 @@
+---
+title: include 文件
+description: include 文件
+services: vpn-gateway
+author: WenJason
+ms.service: vpn-gateway
+ms.topic: include
+origin.date: 03/21/2018
+ms.date: 12/24/2018
+ms.author: v-jay
+ms.custom: include file
+ms.openlocfilehash: e55d548fc8ff919dd1806ccb9177ed625a97c05f
+ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53711705"
+---
 ### <a name="noconnection"></a>修改本地网关 IP 地址前缀 - 无网关连接
 
 #### <a name="to-add-additional-address-prefixes"></a>添加其他地址前缀：

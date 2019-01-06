@@ -8,13 +8,13 @@ services: iot-hub
 ms.topic: conceptual
 origin.date: 11/07/2017
 ms.author: v-yiso
-ms.date: 12/03/2017
-ms.openlocfilehash: bd17b30ca1a73ed7f9a958ee98914adde42b3ef7
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 12/31/2017
+ms.openlocfilehash: 0590e348ce07721c3b1eda6d1f0515e8a9725eda
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674302"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736665"
 ---
 # <a name="upload-files-with-iot-hub"></a>使用 IoT 中心上传文件
 
@@ -53,7 +53,7 @@ IoT 中心返回以下数据，供设备用来上传文件：
 ```json
 {
     "correlationId": "somecorrelationid",
-    "hostname": "contoso.azure-devices.cn",
+    "hostName": "yourstorageaccount.blob.core.chinacloudapi.cn",
     "containerName": "testcontainer",
     "blobName": "test-device1/image.jpg",
     "sasToken": "1234asdfSAStoken"

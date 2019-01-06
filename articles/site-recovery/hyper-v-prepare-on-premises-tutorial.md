@@ -9,12 +9,12 @@ origin.date: 10/28/2018
 ms.date: 12/10/2018
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 25e12aea674030bfc68be2236e9e77f690a0b13f
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 55d787890f18974429235513395ea3788356154b
+ms.sourcegitcommit: f6a287a11480cbee99a2facda2590f3a744f7e45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028296"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53786722"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>准备本地 Hyper-V 服务器用于灾难恢复到 Azure
 
@@ -60,7 +60,7 @@ ms.locfileid: "53028296"
 1. 对于本教程，最简单的配置是让 Hyper-V 主机和 VMM 服务器能够直接访问 Internet 而无需使用代理。 
 2. 请确保该 Hyper-V 主机和 VMM 服务器（如果相关）可以访问以下所需 URL。   
 3. 如果要通过 IP 地址来控制访问，请确保：
-    - 基于 IP 地址的防火墙规则可以连接到 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/details.aspx?id=42064)和 HTTPS (443) 端口。
+    - 基于 IP 地址的防火墙规则可以连接到 [Azure 数据中心 IP 范围](https://www.microsoft.com/en-us/download/confirmation.aspx?id=57062)和 HTTPS (443) 端口。
     - 允许订阅的 Azure 区域的 IP 地址范围。
 
 ### <a name="required-urls"></a>所需 URL

@@ -1,3 +1,17 @@
+---
+author: WenJason
+ms.service: sql-database
+ms.topic: include
+origin.date: 11/09/2018
+ms.date: 12/31/2018
+ms.author: genemi
+ms.openlocfilehash: fbdd0297d51fb595892eb63a363f6de6a9f987fa
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806732"
+---
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 
 登录到 [Azure 门户](https://portal.azure.cn/)。
