@@ -1,20 +1,20 @@
 ---
-title: Azure 中的专用 Docker 容器注册表
+title: Azure 中的专用 Docker 容器注册表 - 概述
 description: 介绍 Azure 容器注册表服务，该服务提供基于云的托管专用 Docker 注册表。
 services: container-registry
 author: rockboyfor
 ms.service: container-registry
 ms.topic: overview
 origin.date: 09/25/2018
-ms.date: 12/17/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.custom: mvc
-ms.openlocfilehash: 44de46ee9cb5facef7c00f34dc59655d4557469a
-ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 4836a40f3b8a07f1a70ede531e96cfa82abc1d95
+ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53286737"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53569203"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Azure 中的专用 Docker 容器注册表简介
 
@@ -33,7 +33,7 @@ Azure 容器注册表是基于开源 Docker 注册表 2.0 的托管 [Docker 注�
 
 <!-- Not Available on [Azure Kubernetes Service (AKS)](../aks/index.yml)--> 开发人员还可以在执行容器开发工作流的过程中将内容推送到容器注册表。 例如，通过持续集成和部署工具（如 [Azure DevOps Services](https://docs.microsoft.com/zh-cn/azure/devops/) 或 [Jenkins](https://jenkins.io/)）将目标设置为容器注册表。
 
-<!--Not Available on [ACR Build](#azure-container-registry-build) -->
+<!--Not Available on [ACR Tasks](#azure-container-registry-build) -->
 
 ## <a name="key-concepts"></a>关键概念
 

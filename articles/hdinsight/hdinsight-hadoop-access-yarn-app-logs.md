@@ -14,28 +14,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/25/2017
-ms.date: 05/28/2018
+ms.date: 12/24/2018
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 36ff4adabc9444a9104ba3ef1f4ab7f86956b7c9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ed40db5ce13fd8bfbefa172832902214edc47776
+ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657518"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53569323"
 ---
-# <a name="access-yarn-application-logs-on-windows-based-hdinsight"></a>在基于 Windows 的 HDInsight 上访问 YARN 应用程序日志
-本文档介绍了如何访问 Azure HDInsight 中基于 Windows 的 Hadoop 群集上已完成的 YARN 应用程序的日志。
+# <a name="access-apache-yarn-application-logs-on-windows-based-hdinsight"></a>在基于 Windows 的 HDInsight 上访问 Apache YARN 应用程序日志
+本文档介绍了如何访问 Azure HDInsight 中基于 Windows 的 Hadoop 群集上已完成的 Apache YARN 应用程序的日志
 
 > [!IMPORTANT]
-> 本文档中的信息仅适用于基于 Windows 的 HDInsight 群集。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 有关在基于 Linux 的 HDInsight 群集上访问 YARN 日志的信息，请参阅[在 HDInsight 上基于 Linux 的 Hadoop 中访问 YARN 应用程序日志](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+> 本文档中的信息仅适用于基于 Windows 的 HDInsight 群集。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 有关在基于 Linux 的 HDInsight 群集上访问 YARN 日志的信息，请参阅[在 HDInsight 上基于 Linux 的 Hadoop 中访问 Apache YARN 应用程序日志](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 >
 
 ### <a name="prerequisites"></a>先决条件
 * 基于 Windows 的 HDInsight 群集。  请参阅[在 HDInsight 中创建基于 Windows 的 Hadoop 群集](hdinsight-hadoop-provision-linux-clusters.md)。
 
 ## <a name="yarn-timeline-server"></a>YARN Timeline Server
- <a href="http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">YARN Timeline Server</a> 通过两个不同接口提供完成应用程序的通用信息，以及架构特定应用程序信息。 具体而言：
+<a href="http://hadoop.apache.org/docs/r2.4.1/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">YARN Timeline Server</a> 通过两个不同接口提供完成应用程序的通用信息，以及架构特定应用程序信息。 具体而言：
 
 * 已通过 3.1.1.374 版或更高版本启用存储和检索 HDInsight 群集的通用应用程序信息。
 * Timeline Server 的架构特定应用程序信息组件目前不适用于 HDInsight 群集。

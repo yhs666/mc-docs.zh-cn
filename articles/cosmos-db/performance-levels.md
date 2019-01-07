@@ -1,22 +1,20 @@
 ---
-title: 停用的 Azure Cosmos DB 性能级别 | Azure
+title: 已停用的 Azure Cosmos DB 性能级别
 description: 了解 Azure Cosmos DB 中以前提供的 S1、S2 和 S3 性能级别。
 services: cosmos-db
 author: rockboyfor
-manager: digimobile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 origin.date: 06/04/2018
-ms.date: 07/02/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d24e2c17db87eef5cc15110737d7bdbb71bffb21
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d773393caf10cde4c54517d05bf781d674e8d691
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656457"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026743"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>停用 S1、S2 和 S3 性能级别
 
@@ -119,11 +117,11 @@ S1、S2 和 S3 性能级别无法提供标准 Azure Cosmos DB 产品提供的灵
     await client.ReplaceOfferAsync(offer);
 ```
 
-请访问 [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) 以查看其他示例并了解更多有关服务方法的信息：
+请访问 [MSDN](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.documentclient) 以查看其他示例并了解更多有关服务方法的信息：
 
-* [**ReadOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readofferasync.aspx)
-* [**ReadOffersFeedAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readoffersfeedasync.aspx)
-* [**ReplaceOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replaceofferasync.aspx)
+* [**ReadOfferAsync**](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync)
+* [**ReadOffersFeedAsync**](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.documentclient.readoffersfeedasync)
+* [**ReplaceOfferAsync**](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync)
 * [**CreateOfferQuery**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createofferquery.aspx)
 
 <a name="ea-customer"></a>
@@ -139,4 +137,4 @@ EA 客户在当前合同到期之前，价格将受到保护。
 2.  [Cosmos DB 定价](https://www.azure.cn/pricing/details/cosmos-db/)。 了解预配吞吐量和使用存储的费用。
 3.  [请求单位](request-units.md)。 了解不同操作类型（例如读取、写入和查询）的吞吐量消耗。
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update -->

@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 应用服务中配置 Web 应用
+title: 配置 Web 应用 - Azure 应用服务
 description: 如何在 Azure 应用服务中配置 Web 应用
 services: app-service\web
 documentationcenter: ''
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/25/2017
-ms.date: 10/29/2018
+ms.date: 12/31/2018
 ms.author: v-biyu
-ms.openlocfilehash: 961801752f9fe44ed08ffc99c70fb7675c5336cd
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.custom: seodec18
+ms.openlocfilehash: fa0952cd544d8e8b8c689d56273432d5b5e3764c
+ms.sourcegitcommit: 80c59ae1174d71509b4aa64a28a98670307a5b38
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028694"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735190"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>在 Azure 应用服务中配置 Web 应用
 
@@ -75,6 +76,8 @@ ms.locfileid: "53028694"
 
 应用程序设置在存储时始终进行加密（静态加密）。
 
+可以使用[密钥保管库引用](app-service-key-vault-references.md)从密钥保管库解析应用设置。
+
 ### <a name="connection-strings"></a>连接字符串
 链接资源的连接字符串。 
 
@@ -90,6 +93,8 @@ ms.locfileid: "53028694"
 例如，如果 MySql 连接字符串命名为 `connectionstring1`，则会通过环境变量 `MYSQLCONNSTR_connectionString1` 访问该字符串。
 
 连接字符串在存储时始终进行加密（静态加密）。
+
+可以使用[密钥保管库引用](app-service-key-vault-references.md)从密钥保管库解析连接字符串。
 
 ### <a name="default-documents"></a>默认文档
 默认文档是在网站的根 URL 下显示的网页。  使用列表中第一个匹配文件。 
@@ -149,7 +154,7 @@ Web 应用可能会使用根据 URL 路由的模块，而不是提供静态内�
 若要查看域名，请单击“所有设置” > “自定义域和 SSL”。
 
 ### <a name="deployments"></a>部署
-* 设置连续部署。 请参阅[使用 Git 在 Azure 应用服务中部署 Web 应用](app-service-deploy-local-git.md)。
+* 设置连续部署。 请参阅[使用 Git 在 Azure 应用服务中部署 Web 应用](deploy-local-git.md)。
 * 部署槽。 请参阅[为 Azure 应用服务中的 Web 应用部署到过渡环境]。
 
 若要查看部署槽，请单击“所有设置” > “部署槽”。

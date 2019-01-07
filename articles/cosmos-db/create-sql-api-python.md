@@ -1,23 +1,22 @@
 ---
-title: Azure Cosmos DB：使用 Python 和 SQL API 生成应用 | Azure
+title: Azure Cosmos DB：使用 Python 和 SQL API 生成应用
 description: 演示了一个可以用来连接到 Azure Cosmos DB SQL API 并进行查询的 Python 代码示例
 services: cosmos-db
 author: rockboyfor
-manager: digimobile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.custom: quick start connect, mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
 origin.date: 09/24/2018
-ms.date: 11/05/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3b9603db4be7c761dcf9dc7692c99de0b8f830c2
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 3920b36e5f632cc69f5747e659ca0c893b70cb57
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646446"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026810"
 ---
 # <a name="azure-cosmos-db-build-a-sql-api-app-with-python-and-the-azure-portal"></a>Azure Cosmos DB：使用 Python 和 Azure 门户生成 SQL API 应用
 
@@ -40,7 +39,7 @@ ms.locfileid: "52646446"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 安装 [Python 3.6](https://www.python.org/downloads/)，并将 \<安装位置\>\Python36 和 \<安装位置>\Python36\Scripts 添加到 PATH。 
+* [Python 3.6](https://www.python.org/downloads/)，并且已将 \<install location\>\Python36 和 \<install location>\Python36\Scripts 添加到 PATH。 
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [适用于 Visual Studio Code 的 Python 扩展](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview)
 
@@ -99,14 +98,14 @@ ms.locfileid: "52646446"
     client = cosmos_client.CosmosClient(url_connection=config['ENDPOINT'], auth={'masterKey': config['MASTERKEY']})
     ```
 
-* 会创建一个新数据库。
+* 将创建一个新数据库。
 
     ```python
     # Create a database
     db = client.CreateDatabase({ 'id': config['DATABASE'] })
     ```
 
-* 创建一个新集合。
+* 将创建一个新集合。
 
     ```python
     # Create collection options
@@ -141,7 +140,7 @@ ms.locfileid: "52646446"
     )
     ```
 
-* 使用 SQL 执行查询
+* 将使用 SQL 执行查询
 
     ```python
     query = {'query': 'SELECT * FROM server s'}
@@ -159,7 +158,7 @@ ms.locfileid: "52646446"
 
 现在返回到 Azure 门户，获取连接字符串信息，并将其复制到应用。
 
-1. 在 [Azure 门户](http://portal.azure.cn/) 上的 Azure Cosmos DB 帐户中，单击左侧导航栏中的“密钥”。 在下一步骤中你将使用屏幕右侧的复制按钮将 **URI** 和**主密钥**复制到 `CosmosGetStarted.py` 文件中。
+1. 在 [Azure 门户](https://portal.azure.cn/)中，在你的 Azure Cosmos DB 帐户中，单击左侧导航栏中的“密钥”。 在下一步骤中你将使用屏幕右侧的复制按钮将 **URI** 和**主密钥**复制到 `CosmosGetStarted.py` 文件中。
 
     ![在 Azure 门户的“密钥”边栏选项卡中查看并复制访问密钥](./media/create-sql-api-dotnet/keys.png)
 
@@ -169,23 +168,23 @@ ms.locfileid: "52646446"
 
     `'ENDPOINT': 'https://FILLME.documents.azure.cn',`
 
-4. 然后从门户复制“主密钥”的值，并在 DocumentDBGetStarted.py 中将其设为 **config.MASTERKEY** 的值。 现已使用与 Azure Cosmos DB 进行通信所需的所有信息更新应用。 
+4. 然后从门户中复制“主密钥”值，并在 ``CosmosGetStarted.py`` 中将其设为 **config.PRIMARYKEY** 的值。 现已使用与 Azure Cosmos DB 进行通信所需的所有信息更新应用。 
 
     `'PRIMARYKEY': 'FILLME',`
 
 5. 保存 ``CosmosGetStarted.py`` 文件。
 
-## <a name="run-the-app"></a>运行应用程序
+## <a name="run-the-app"></a>运行应用
 
 1. 在 Visual Studio Code 中，选择“视图”>“命令面板”。 
 
-2. 在提示符下输入 **Python: Select Interpreter**，然后选择要使用的 Python 版本。
+2. 在提示符处，输入 Python:Select Interpreter，然后选择要使用的 Python 的版本。
 
     Visual Studio Code 中的“页脚”会更新，以指示选定的解释器。 
 
 3. 选择“视图” > “集成终端”以打开 Visual Studio Code 集成终端。
 
-4. 在集成的终端窗口中，确保位于 azure-cosmos-db-python-getting-started 文件夹中。 如果不是，请运行以下命令切换到该文件夹。 
+4. 在集成的终端窗口中，确保位于 azure-cosmos-db-python-getting-started 文件夹中。 如果没有位于该文件夹中，请运行以下命令来切换到示例文件夹。 
 
     ```
     cd "C:\git-samples\azure-cosmos-db-python-getting-started"`
@@ -199,13 +198,13 @@ ms.locfileid: "52646446"
 
     如果尝试安装 azure-cosmos 时收到有关访问被拒绝的错误，则需要[以管理员身份运行 VS Code](https://stackoverflow.com/questions/37700536/visual-studio-code-terminal-how-to-run-a-command-with-administrator-rights)。
 
-6. 运行以下命令运行示例，并在 Azure Cosmos DB 中创建和存储新文档。
+6. 运行以下命令来运行示例并将新文档存储在 Azure Cosmos dB 中。
 
     ```
     python CosmosGetStarted.py
     ```
 
-7. 若要确认是否已创建并保存了新项，请在 Azure 门户中选择“数据资源管理器”，展开“列”，展开“文档”，然后选择 **server1** 文档。 server1 文档内容与集成终端窗口中返回的内容匹配。 
+7. 若要确认是否已创建并保存了新项，请在 Azure 门户中选择“数据资源管理器”，展开“列”，展开“文档”，然后选择 **server1** 文档。 server1 文档内容与在集成的终端窗口中返回的内容相匹配。 
 
     ![在 Azure 门户中查看新文档](./media/create-sql-api-python/azure-cosmos-db-confirm-documents.png)
 

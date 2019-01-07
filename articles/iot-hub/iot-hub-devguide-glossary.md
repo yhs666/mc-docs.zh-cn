@@ -8,13 +8,13 @@ services: iot-hub
 ms.topic: conceptual
 origin.date: 01/29/2018
 ms.author: v-yiso
-ms.date: 10/29/2018
-ms.openlocfilehash: 42508446dd730ce0a093f2cdc2219546a97c8f1d
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.date: 12/31/2018
+ms.openlocfilehash: 2dec6aa415cbe419b034e42ad1228ed0e7d12232
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028950"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736704"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT 中心术语表
 本文列出了一些在 IoT 中心文章中使用的常用术语。
@@ -41,8 +41,8 @@ Azure IoT 中心内的自动设备管理功能可将许多复杂且重复性的�
 ## <a name="azure-iot-service-sdks"></a>Azure IoT 服务 SDK
 提供了多种语言的 _服务 SDK_ ，以便于用户创建与 IoT 中心交互的 [后端应用](#back-end-app) 。 IoT 中心教程介绍了如何使用这些服务 SDK。 可以在此 GitHub [存储库](https://github.com/Azure/azure-iot-sdks)中找到有关服务 SDK 的源代码和进一步信息。
 
-## <a name="azure-iot-toolkit"></a>Azure IoT 工具包
-[Azure IoT 工具包](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)是一个跨平台的开放源代码 Visual Studio Code 扩展，可帮助你在 VS Code 中管理 Azure IoT 中心和设备。 使用 Azure IoT 工具包，IoT 开发人员可以轻松在 VS Code 中开发 IoT 项目。
+## <a name="azure-iot-hub-toolkit"></a>Azure IoT 中心工具包
+[Azure IoT 中心工具包](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)（以前称为 Azure IoT 工具包）是一个跨平台的开放源代码 Visual Studio Code 扩展，可帮助你在 VS Code 中管理 Azure IoT 中心和设备。 使用 Azure IoT 中心工具包，IoT 开发人员可以轻松在 VS Code 中开发 IoT 项目。
 
 ## <a name="azure-portal"></a>Azure 门户
 [Microsoft Azure 门户](https://portal.azure.cn) 是一个中心位置，可在其中预配和管理 Azure 资源。 该门户使用 _边栏选项卡_组织其内容。
@@ -220,7 +220,8 @@ Azure IoT 解决方案加速器将多个 Azure 服务一起打包到解决方案
 [Azure Resource Manager](#azure-resource-manager) 使用资源组将相关的资源组合在一起。 通过使用资源组，可以对组中的所有资源同时执行操作。
 
 ## <a name="retry-policy"></a>重试策略
-连接到云服务时使用重试策略来处理[暂时性错误][]。
+连接到云服务时使用重试策略来处理[暂时性错误](https://docs.microsoft.com/en-us/azure/architecture/best-practices/transient-faults)。
+
 ## <a name="routing-rules"></a>路由规则
 需要在 IoT 中心配置[路由规则](./iot-hub-devguide-messages-read-custom.md)，将设备到云消息路由到[内置终结点](#built-in-endpoints)或[自定义终结点](#custom-endpoints)，以供解决方案后端处理。
 
@@ -261,4 +262,4 @@ Azure 订阅是发生计费的地方。 用户创建的每个 Azure 资源或使
 设备可以使用 X.509 证书在 [IoT 中心](#iot-hub)进行身份验证。 使用 X.509 证书是使用 [SAS 令牌](#shared-access-signature)的替代方案。
 
 
-[暂时性错误]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx
+[transient errors]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx

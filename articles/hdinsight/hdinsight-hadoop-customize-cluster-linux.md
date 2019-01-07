@@ -7,15 +7,15 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-origin.date: 05/01/2018
-ms.date: 11/19/2018
+origin.date: 11/06/2018
+ms.date: 12/24/2018
 ms.author: v-yiso
-ms.openlocfilehash: 9e53415fdd211852a14472467bfa8b21c046ee4e
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 79ae80a30307dfb8d4c848e5e37aaa9bf0f4b362
+ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028964"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53569241"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>使用脚本操作自定义基于 Linux 的 HDInsight 群集
 
@@ -59,7 +59,7 @@ HDInsight 提供一个称为**脚本操作**的配置方法，该方法可调用
         有关示例 URI，请参阅[脚本操作脚本示例](#example-script-action-scripts)部分。
 
         > [!WARNING]
-        > HDInsight 仅支持__通用__ Azure 存储帐户。 它目前不支持 __Blob 存储__帐户类型。
+        > HDInsight 仅支持具有标准性能层的 Azure 存储帐户中的 Blob。 
 
 * 可以限制为 **只对特定的节点类型运行**，例如头节点或辅助角色节点。
 

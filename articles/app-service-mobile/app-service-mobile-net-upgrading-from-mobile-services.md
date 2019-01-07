@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 10/01/2016
-ms.date: 01/29/2018
-ms.author: v-yiso
-ms.openlocfilehash: 591a2669ee224b01d7c4399957178ffa785aa781
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.date: 01/07/2019
+ms.author: v-biyu
+ms.openlocfilehash: 86c12ddcb0c1e094ddf3597a29575b948c634711
+ms.sourcegitcommit: a46f12240aea05f253fb4445b5e88564a2a2a120
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029056"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785239"
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>将现有 .NET Azure 移动服务升级到应用服务
 
@@ -71,7 +71,7 @@ ms.locfileid: "53029056"
 
 接下来，根据 [.NET 后端创建说明](./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app)创建第二个应用程序实例。 当系统提示选择应用服务计划或“托管计划”时，请选择已迁移的应用程序的计划。
 
-可能需要使用与移动服务中相同的数据库和通知中心。 可以打开 [Azure 门户]并导航到原始应用程序，复制这些值，然后单击“设置” > “应用程序设置”。 在“连接字符串”下，复制 `MS_NotificationHubConnectionString` 和 `MS_TableConnectionString`。 导航到新的升级站点并粘贴这些值，覆盖任何现有值。 针对应用所需的任何其他应用程序设置重复此过程。 如果未使用迁移的服务，可以从 [Azure 经典门户]上“移动服务”部分中的“配置”选项卡中读取连接字符串和应用设置。
+可能需要使用与移动服务中相同的数据库和通知中心。 可以打开 [Azure 门户]并导航到原始应用程序，复制这些值，然后单击“设置” > “应用程序设置”。 在“连接字符串”下，复制 `MS_NotificationHubConnectionString` 和 `MS_TableConnectionString`。 导航到新的升级站点并粘贴这些值，覆盖任何现有值。 针对应用所需的任何其他应用程序设置重复此过程。
 
 为应用程序制作 ASP.NET 项目的副本，并将其发布到新站点。 通过使用新 URL 更新的客户端应用程序副本验证一切是否正常工作。
 
@@ -86,12 +86,11 @@ ms.locfileid: "53029056"
 到时将有不少因 SDK 之间的差异而发生的编译器错误，但这些错误都很容易处理，本部分的余下内容将予以说明。
 
 ### <a name="base-configuration"></a>基本配置
-
 然后，在 WebApiConfig.cs 中，将：
 
-```
-    // Use this class to set configuration options for your mobile service
-    ConfigOptions options = new ConfigOptions();
+```csharp
+// Use this class to set configuration options for your mobile service
+ConfigOptions options = new ConfigOptions();
 
     // Use this class to set WebAPI configuration options
     HttpConfiguration config = ServiceConfig.Initialize(new ConfigBuilder(options));
@@ -99,15 +98,16 @@ ms.locfileid: "53029056"
 
 替换为
 
-```
-    HttpConfiguration config = new HttpConfiguration();
-    new MobileAppConfiguration()
-        .UseDefaultConfiguration()
-    .ApplyTo(config);
+```csharp
+HttpConfiguration config = new HttpConfiguration();
+new MobileAppConfiguration()
+    .UseDefaultConfiguration()
+.ApplyTo(config);
+
 ```
 
 >[!NOTE]
-> 如果想要详细了解新的 .NET 服务器 SDK 以及如何在应用中添加/删除功能，请参阅 [如何使用 .NET 服务器 SDK] （如何使用 .NET 服务器 SDK）主题。
+> 如果想要详细了解新的 .NET 服务器 SDK 以及如何在应用中添加/删除功能，请参阅 [如何使用 .NET 服务器 SDK] 主题。
 >
 >
 
@@ -119,29 +119,26 @@ ms.locfileid: "53029056"
 
 确保 `Configuration()` 方法的末尾为：
 
-```
-    app.UseWebApi(config)
-    app.UseAppServiceAuthentication(config);
+```csharp
+app.UseWebApi(config)
+app.UseAppServiceAuthentication(config);
 ```
 
 存在其他一些与身份验证相关的更改，下面的完全身份验证部分介绍这些内容。
 
 ### <a name="working-with-data"></a>处理数据
-
 在移动服务中，移动应用名称用作 Entity Framework 设置中的默认架构名称。
 
 若要确保架构与以前引用的一样，请使用以下代码设置 DbContext 中适用于应用程序的架构：
 
-```
-    string schema = System.Configuration.ConfigurationManager.AppSettings.Get("MS_MobileServiceName");
+```csharp
+string schema = System.Configuration.ConfigurationManager.AppSettings.Get("MS_MobileServiceName");
 ```
 
 如果执行上述操作，请确保设置 MS_MobileServiceName。 如果应用程序以前已自定义此架构，则也可以提供其他架构名称。
 
 ### <a name="system-properties"></a>系统属性
-
 #### <a name="naming"></a>命名
-
 在 Azure 移动服务服务器 SDK 中，系统属性始终包含属性的双下划线 (`__`) 前缀：
 
 - __createdAt
@@ -161,7 +158,6 @@ ms.locfileid: "53029056"
 移动应用客户端 SDK 使用新系统属性名称，因此不需要对客户端代码进行任何更改。 但是，如果要直接对服务进行 REST 调用，则应该相应地更改查询。
 
 #### <a name="local-store"></a>本地存储
-
 更改系统属性的名称意味着用于移动服务的脱机同步本地数据库与移动应用不兼容。 在将挂起的更改发送到服务器之前，应尽可能避免将客户端应用从移动服务升级到移动应用。 然后，升级的应用应使用新的数据库文件名。
 
 如果客户端应用是从移动服务升级到移动应用，但同时在操作队列中有挂起的脱机更改，则系统数据库必须更新才能使用新的列名。 在 iOS 上，可以使用轻量迁移更改列名，从而做到这一点。 在 Android 和 .NET 托管客户端上，应该编写自定义 SQL 来重命名数据对象表的列。
@@ -185,7 +181,7 @@ ms.locfileid: "53029056"
 
 例如，以下示例定义 `TodoItem` 且不使用任何系统属性：
 
-```
+```csharp
 using System.ComponentModel.DataAnnotations.Schema;
 
 public class TodoItem : ITableData
@@ -213,13 +209,12 @@ public class TodoItem : ITableData
 注意：如果收到有关 `NotMapped` 的错误，请添加对程序集 `System.ComponentModel.DataAnnotations` 的引用。
 
 ### <a name="cors"></a>CORS
-
-移动服务通过包装 ASP.NET CORS 解决方案，融入了对 CORS 的部分支持。 此包装层现已删除，使开发人员拥有更多控制权，因此，可以直接利用 [ASP.NET CORS 支持](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api)。
+移动服务通过包装 ASP.NET CORS 解决方案，融入了对 CORS 的部分支持。 此包装层现已删除，使开发人员拥有更多控制权，因此，可以直接利用 [ASP.NET CORS 支持](https://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api)。
 
 使用 CORS 时的主要考虑范畴是，必须允许 `eTag` 和 `Location` 标头，客户端 SDK 才能正常工作。
 
 ### <a name="push-notifications"></a>推送通知
-对于推送，可能会发现服务器 SDK 中遗漏的主项是 PushRegistrationHandler 类。 注册在移动应用中的处理方式稍有不同，默认情况下启用不带标记的注册。 可以使用自定义 API 实现标记管理。 有关详细信息，请参阅[注册标记](./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags)说明。
+对于推送，可能会发现服务器 SDK 中遗漏的主项是 PushRegistrationHandler 类。 注册在移动应用中的处理方式稍有不同，默认情况下启用不带标记的注册。 可以使用自定义 API 实现标记管理。 有关详细信息，请参阅[注册标记](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags)说明。
 
 ### <a name="scheduled-jobs"></a>计划的作业
 移动应用中未内置计划的作业，因此在 .NET 后端中的任何现有作业都必须单独升级。 一种做法是在移动应用代码站点上创建计划的 [Web 作业] 。 也可以设置用于保存作业代码的控制器，并设置按预期计划在终结点上运行的 [Azure 计划程序] 。
@@ -229,20 +224,19 @@ public class TodoItem : ITableData
 
 `ApiServices` 对象不再是 SDK 的一部分。 若要访问移动应用设置，可以使用以下代码：
 
-```
+```csharp
 MobileAppSettingsDictionary settings = this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
 ```
 
 同样，现在可以使用标准的 ASP.NET 跟踪写入实现日志记录：
 
-```
+```csharp
 ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
 traceWriter.Info("Hello, World");  
 ```
 
-##<a name="authentication"></a>身份验证注意事项
-
-移动服务的身份验证组件现已移入应用服务身份验证/授权功能。 可以阅读[向移动应用添加身份验证](./app-service-mobile-ios-get-started-users.md)主题，了解如何为站点启用此功能。
+## <a name="authentication"></a>身份验证注意事项
+移动服务的身份验证组件现已移入应用服务身份验证/授权功能。 可以阅读[向移动应用添加身份验证](app-service-mobile-ios-get-started-users.md)主题，了解如何为站点启用此功能。
 
 对于某些提供程序（例如 AAD、Facebook 和 Google），应该可以利用复制应用程序的现有注册。 只需导航到标识提供者的门户，并将新的重定向 URL 添加到注册即可。 然后，使用客户端 ID 和机密配置应用服务身份验证/授权。
 
@@ -251,31 +245,30 @@ traceWriter.Info("Hello, World");
 如果以前一直在使用其他某个 AuthorizeLevel 选项（例如 Admin 或 Application），请注意，现在这些选项都不再存在。 可以改为设置共享机密的 AuthorizationFilters，或者配置 AAD 服务主体，安全启用服务到服务的调用。
 
 ### <a name="getting-additional-user-information"></a>获取其他用户信息
-
 可以获取其他用户信息，包括通过 `GetAppServiceIdentityAsync()` 方法访问令牌：
 
-```
+```csharp
     MicrosoftCredentials creds = await this.User.GetAppServiceIdentityAsync<MicrosoftCredentials>();
 ```
 
 此外，如果应用程序依赖于用户 ID（例如，将它们存储在数据库中），请务必注意，移动服务与应用服务移动应用之间的用户 ID 是不相同的。 但是，仍然可以获取移动服务用户 ID。 所有 ProviderCredentials 子类具有 UserId 属性。 继续分析前面的示例：
 
-```
-    string mobileServicesUserId = creds.Provider + ":" + creds.UserId;
+```csharp
+string mobileServicesUserId = creds.Provider + ":" + creds.UserId;
 ```
 
 如果应用程序依赖于用户 ID，必须尽可能使用相同的标识提供者注册。 用户 ID 的范围通常限定在已使用的应用程序注册，因此引入新的注册可能会让用户在匹配其数据时发生问题。
 
 ### <a name="custom-authentication"></a>自定义身份验证
 
-如果应用程序使用自定义的身份验证解决方案，需要确保已升级的站点有权访问系统。 遵循 [.NET 服务器 SDK 概述] （.NET 服务器 SDK 概述）中适用于自定义身份验证的新说明来集成解决方案。 请注意，自定义身份验证组件仍以预览版提供。
+如果应用程序使用自定义的身份验证解决方案，需要确保已升级的站点有权访问系统。 遵循 [.NET 服务器 SDK 概述] 中适用于自定义身份验证的新说明来集成解决方案。 请注意，自定义身份验证组件仍以预览版提供。
 
 ##<a name="updating-clients"></a>更新客户端
 在获得可正常运行的移动应用后端之后，可以在使用它的新版客户端应用程序上操作。 移动应用还包含新版客户端 SDK。与上述服务器升级类似，需先删除对移动服务 SDK 的所有引用，然后再安装移动应用版本。
 
 版本间的其中一个主要更改是构造函数不再需要应用程序密钥。 现在只需传入移动应用的 URL。 例如，在 .NET 客户端中， `MobileServiceClient` 构造函数现在是：
 
-```
+```csharp
     public static MobileServiceClient MobileService = new MobileServiceClient(
         "https://contoso.chinacloudsites.cn", // URL of the Mobile App
     );
@@ -293,12 +286,8 @@ traceWriter.Info("Hello, World");
 <!-- URLs. -->
 
 [Azure 门户]: https://portal.azure.cn/
-[Azure 经典门户]: https://manage.windowsazure.cn/
 [什么是移动应用？]: ./app-service-mobile-value-prop.md
-[I already use web sites and mobile services - how does App Service help me?]: ./app-service-mobile-value-prop-migration-from-mobile-services.md
 [移动应用服务器 SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
-[Create a Mobile App]: ./app-service-mobile-xamarin-ios-get-started.md
-[Add push notifications to your mobile app]: ./app-service-mobile-xamarin-ios-get-started-push.md
 [Add authentication to your mobile app]: ./app-service-mobile-xamarin-ios-get-started-users.md
 [Azure 计划程序]: ../scheduler/index.md
 [Web 作业]: https://github.com/Azure/azure-webjobs-sdk/wiki

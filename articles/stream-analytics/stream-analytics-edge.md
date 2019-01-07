@@ -1,21 +1,20 @@
 ---
-title: IoT Edge 上的 Azure 流分析（预览版）
-description: 在 Azure 流分析中创建 Edge 作业，并将其部署到运行 Azure IoT Edge 的设备。
+title: Azure IoT Edge 流分析
+description: 在 Azure 流分析中创建 edge 作业，并将其部署到运行 Azure IoT Edge 的设备。
 services: stream-analytics
 author: lingliw
 ms.author: v-lingwu
-manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 01/16/2017
-ms.date: 11/26/2018
-ms.openlocfilehash: 619e0c70d3b2729a677c37c463431f2c25023b9c
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 1/3/2019
+ms.custom: seodec18
+ms.openlocfilehash: d54ce2c5d2b545d59a1fb34cd5da22d9a6f0278b
+ms.sourcegitcommit: f46e1f7a5d582bb9663bfaee8087b233eb822e17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674259"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996508"
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>IoT Edge 上的 Azure 流分析（预览版）
 
@@ -30,9 +29,9 @@ IoT Edge 上的 Azure 流分析在 Azure IoT Edge 框架中运行。 在 ASA 中
 ![概要关系图](media/stream-analytics-edge/ASAedge_highlevel.png)
 
 * **低延迟命令和控制**：例如，生产安全系统时必须以超低的延迟响应运行数据。 借助 IoT Edge 上的 ASA，可以近乎实时地分析传感器数据，并在检测到异常情况时发出命令，从而停止计算机或触发警报。
-* **与云的受限连接**：任务关键型系统（如远程采矿设备、连接的船舶或海上钻井）需要分析数据并对数据做出反应，即使云连接是间歇性的也是如此。 使用 ASA，流式处理逻辑可独立于网络连接运行，你可以选择发送到云以作进一步处理或存储的内容。
-* 有限的带宽：由喷气引擎或车联网生成的数据量可能非常大，因此，在将数据发送到云之前必须对数据进行筛选或预处理。 使用 ASA，可以筛选或聚合需要发送到云的数据。
-* 符合性：监管符合性可能需要在将一些数据发送到云之前对其进行本地匿名或聚合处理。
+* **与云的连接受限**：任务关键型系统（如远程采矿设备、连接的船舶或海上钻井）需要分析数据并对数据做出反应，即使云连接是间歇性的也是如此。 使用 ASA，流式处理逻辑可独立于网络连接运行，你可以选择发送到云以作进一步处理或存储的内容。
+* **有限的带宽**：由喷气引擎或联网汽车生成的数据量可能非常大，因此，在将数据发送到云之前必须对数据进行筛选或预处理。 使用 ASA，可以筛选或聚合需要发送到云的数据。
+* **符合性**：监管符合性可能需要在将一些数据发送到云之前对其进行本地匿名或聚合处理。
 
 ## <a name="edge-jobs-in-azure-stream-analytics"></a>Azure 流分析作业中的 Edge 作业
 ### <a name="what-is-an-edge-job"></a>什么是“Edge”作业？
@@ -76,7 +75,9 @@ ASA 使用 IoT 中心将 Edge 作业部署到设备。
 
 1. 在 Azure 门户创建一个新的“流分析作业”。 [在此处创建新的 ASA 作业的直接链接](https://portal.azure.cn/#create/Microsoft.StreamAnalyticsJob)。
 
-2. 在“创建”屏幕中，选择“Edge”作为“宿主环境”（请参阅下图）![作业创建](media/stream-analytics-edge/ASAEdge_create.png)
+2. 在“创建”屏幕中，选择“Edge”作为“宿主环境”（请参阅下图）
+
+   ![在 Edge 上创建流分析作业](media/stream-analytics-edge/create-asa-edge-job.png)
 3. 作业定义
     1. 定义输入流。 为作业定义一个或多个输入流。
     2. 定义参考数据（可选）。
@@ -122,7 +123,8 @@ IoT Edge 提供了一种在模块之间，以及模块和 IoT 中心之间以声
 <!--Not Available on [here](/iot-edge/module-composition)-->
 
 ###### <a name="example"></a>示例
-```
+
+```json
 {
 "routes": {                                              
     "sensorToAsa":   "FROM /messages/modules/tempSensor/* INTO BrokeredEndpoint(\"/modules/ASA/inputs/temperature\")",
@@ -133,7 +135,7 @@ IoT Edge 提供了一种在模块之间，以及模块和 IoT 中心之间以声
 
 ```
 此示例演示下图中所述的方案的路由。 它包含名为“ASA”的边缘作业，以及名为“temperature”的输入和和名为“alert”的输出。
-![示例路由](media/stream-analytics-edge/RoutingExample.png)
+![消息路由关系图示例](media/stream-analytics-edge/edge-message-routing-example.png)
 
 以下示例定义了以下路由：
 - 来自 tempSensor 的每个消息均发送到名为 ASA 的模块，再到名为“temperature”的输入，
@@ -141,11 +143,12 @@ IoT Edge 提供了一种在模块之间，以及模块和 IoT 中心之间以声
 - ASA 模块的所有输出均发送到 tempSensor 的控制终结点。
 
 ## <a name="technical-information"></a>技术信息
-### <a name="current-limitations-for-edge-jobs-compared-to-cloud-jobs"></a>与云作业相比，Edge 作业的当前限制
-目标是在 Edge 作业和云作业之间进行平衡。 已支持大多数 SQL 查询语言功能。
+### <a name="current-limitations-for-iot-edge-jobs-compared-to-cloud-jobs"></a>与云作业相比，IoT Edge 作业当前受限制
+目标是在 IoT Edge 作业和云作业之间进行平衡。 已支持大多数 SQL 查询语言功能。
 但是，以下功能尚不支持 Edge 作业：
-* 用户定义的函数 (UDF) 和用户定义的聚合 (UDA)。
-* Azure ML 函数。
+* JavaScript 中的用户定义函数 (UDF)。 [用于 IoT Edge 作业的 C#](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-edge-csharp-udf)（预览版）中提供了 UDF。
+* 用户定义聚合 (UDA)。
+* Azure ML 函数
 * 在单个步骤中使用超过 14 个聚合。
 * 用于输入/输出的 AVRO 格式。 目前仅支持 CSV 和 JSON。
 * 以下 SQL 运算符：

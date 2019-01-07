@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 09/21/2018
-ms.date: 11/26/2018
+origin.date: 12/12/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: ffd419b62acbbea2be0fdaaabeed3b1cf135b89f
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: ee2354f66526294f6d0b6947661bdf4c8cd5ae78
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028431"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736118"
 ---
 # <a name="troubleshoot-azure-virtual-machines-boot-errors"></a>对 Azure 虚拟机启动错误进行故障排除
 
@@ -30,6 +30,10 @@ ms.locfileid: "53028431"
 * [BitLocker 启动错误](troubleshoot-bitlocker-boot-error.md) 
 * [Windows 在启动过程中显示“正在检查文件系统”](troubleshoot-check-disk-boot-error.md)
 * [蓝屏错误](troubleshoot-common-blue-screen-error.md)
+* [VM 启动时停滞，显示消息“正在准备 Windows](troubleshoot-vm-boot-configure-update.md)
+* [蓝色屏幕上出现“关键服务失败”错误](troubleshoot-critical-service-failed-boot-error.md)
+* [重启循环问题](troubleshoot-reboot-loop.md)
+* [VM 启动停滞在 Windows 更新阶段](troubleshoot-stuck-updating-boot-error.md)
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -37,4 +41,4 @@ ms.locfileid: "53028431"
 <!-- Not Available on - [VM Serial Console](../windows/serial-console.md)-->
 - [通过将 OS 磁盘附加到恢复 VM 对 Windows VM 进行故障排除](../windows/troubleshoot-recovery-disks.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: wording update, update link -->

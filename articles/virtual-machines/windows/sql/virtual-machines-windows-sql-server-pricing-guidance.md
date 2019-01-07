@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 08/09/2018
-ms.date: 08/27/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: b40a80dffc46550807353d6f48ee03a14234f57d
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: bde4a12db04f094d985a262c5cfe779abcf5e078
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674333"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736171"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure VM 的定价指南
 
@@ -93,6 +93,7 @@ ms.locfileid: "52674333"
 >
 >而不包括 Web、Standard 和 Enterprise 版本的其他 SQL Server 许可成本。 若要获取最准确的估算定价，请在适用于 [Windows](https://www.azure.cn/pricing/details/virtual-machines/) 或 [Linux](https://www.azure.cn/pricing/details/virtual-machines/) 的定价页上选择操作系统和 SQL Server 版本。
 
+<!-- Not Available on NOTE [How to change the licensing model for a SQL VM](virtual-machines-windows-sql-ahb.md)-->
 <a name="byol"></a>
 ## <a name="bring-your-own-license-byol"></a>自带许可证 (BYOL)
 
@@ -127,8 +128,7 @@ ms.locfileid: "52674333"
 > [!IMPORTANT]
 > 请于 10 日内告知我们正在 Azure 中使用的 SQL Server 许可证数。 上述映像的链接具有如何执行此操作的说明。
 
-> [!NOTE]
-> 无法更改按秒付费的 SQL Server VM 的许可模式来使用自己的许可证。 若要使用自己的许可证，必须创建新的 BYOL VM，并将数据库迁移到新 VM。
+<!--Not Available [How to change the licensing model for a SQL VM](virtual-machines-windows-sql-ahb.md)-->
 
 ## <a name="reduce-costs"></a>降低成本
 
@@ -173,4 +173,5 @@ SQL Server 的许可成本直接与 vCPU 数相关。 请选择与 CPU、内存�
 
 - [Windows VM 上的 SQL Server 概述](virtual-machines-windows-sql-server-iaas-overview.md)
 - [Linux VM 上的 SQL Server 概述](../../linux/sql/sql-server-linux-virtual-machines-overview.md)
+
 <!-- Update_Description: update meta properties, wording update, update link -->

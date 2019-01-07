@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB：使用 JavaScript SDK 生成 Node.js 应用以管理 Azure Cosmos DB SQL API 数据 | Azure
+title: Azure Cosmos DB：使用 JavaScript SDK 生成 Node.js 应用，以管理 Azure Cosmos DB SQL API 数据
 description: 演示了一个可以用来连接到 Azure Cosmos DB SQL API 并进行查询的 Node.js 代码示例
 services: cosmos-db
 author: rockboyfor
@@ -9,16 +9,16 @@ ms.custom: quick start connect, mvc
 ms.devlang: nodejs
 ms.topic: quickstart
 origin.date: 09/24/2018
-ms.date: 11/05/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: fbc24a9046fbb1caa33f52c61b8e06c375e9bd26
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 030551b0f51dfad22a74f4ddc0ec0e33b6c351bc
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654338"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026670"
 ---
-# <a name="azure-cosmos-db-build-a-nodejs-app-using-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Azure Cosmos DB：使用 JavaScript SDK 生成 Node.js 应用，用于管理 Azure Cosmos DB SQL API 数据
+# <a name="azure-cosmos-db-build-a-nodejs-app-using-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Azure Cosmos DB：使用 JavaScript SDK 生成 Node.js 应用，以管理 Azure Cosmos DB SQL API 数据
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
@@ -42,7 +42,7 @@ ms.locfileid: "52654338"
 
 * 此外：
     * [Node.js](https://nodejs.org/en/) v6.0.0 或更高版本
-    * [Git](http://git-scm.com/)
+    * [Git](https://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>创建数据库帐户
 
@@ -62,7 +62,7 @@ ms.locfileid: "52654338"
 
 ## <a name="clone-the-sample-application"></a>克隆示例应用程序
 
-现在，请克隆 GitHub 中的 SQL API 应用，设置连接字符串，然后运行该应用。
+现在，让我们从 GitHub 中克隆一个 SQL API 应用，设置连接字符串，然后运行该应用。
 
 1. 打开命令提示符，新建一个名为“git-samples”的文件夹，然后关闭命令提示符。
 
@@ -92,13 +92,13 @@ ms.locfileid: "52654338"
 
 以下代码片段全部摘自 **app.js** 文件。
 
-* 对 `CosmosClient` 进行初始化。
+* 将对 `CosmosClient` 进行初始化。
 
     ```nodejs
     const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
     ```
 
-* 会创建一个新数据库。
+* 将创建一个新数据库。
 
     ```nodejs
     const { database } = await client.databases.createIfNotExists({ id: databaseId });
@@ -116,7 +116,7 @@ ms.locfileid: "52654338"
     const { item } = await client.database(databaseId).container(containerId).items.create(itemBody);
     ```
 
-* 对 JSON 执行 SQL 查询。
+* 将对 JSON 执行 SQL 查询。
 
     ```nodejs
     const querySpec = {
@@ -140,7 +140,7 @@ ms.locfileid: "52654338"
 
 现在返回到 Azure 门户，获取连接字符串信息，并将其复制到应用。
 
-1. 在 [Azure 门户](http://portal.azure.cn/)的 Azure Cosmos DB 帐户的左侧导航栏中，单击“密钥”，然后单击“读写密钥”。 使用屏幕右侧的复制按钮将 URI 和主密钥复制到下一步的 `config.js` 文件中。
+1. 在 [Azure 门户](https://portal.azure.cn/)的 Azure Cosmos DB 帐户的左侧导航栏中，单击“密钥”，并单击“读写密钥”。 使用屏幕右侧的复制按钮将 URI 和主密钥复制到下一步的 `config.js` 文件中。
 
     ![在 Azure 门户的“密钥”边栏选项卡中查看并复制访问密钥](./media/create-sql-api-dotnet/keys.png)
 

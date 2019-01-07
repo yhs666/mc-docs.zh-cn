@@ -16,12 +16,12 @@ origin.date: 10/31/2018
 ms.date: 12/17/2018
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 61292553d26b05d4a1ce0da14812b5ec2a7a707a
-ms.sourcegitcommit: 1b6a310ba636b6dd32d7810821bcb79250393499
+ms.openlocfilehash: d938c8d7d9301b57cd9afe44e59544a214493b40
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389353"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806285"
 ---
 #  <a name="configure-reverse-lookup-zones-for-an-smtp-banner-check"></a>为 SMTP 横幅检查配置反向查找区域
 
@@ -43,9 +43,9 @@ ms.locfileid: "53389353"
 
     Set-AzureRmPublicIpAddress : ReverseFqdn mail.contoso.com that PublicIPAddress ip01 is trying to use does not belong to subscription <Subscription ID>. One of the following conditions need to be met to establish ownership: 
 
-    1) ReverseFqdn 与订阅下的任意公共 IP 资源的 FQDN 相匹配； 
-    2) ReverseFqdn 解析为订阅下任意公共 IP 资源的 FQDN（通过 CName 记录链）； 
-    3) 解析为订阅下任意静态公共 IP 资源的 IP 地址（通过 CName 和 A 记录链）。 
+1) ReverseFqdn 与订阅下的任意公共 IP 资源的 FQDN 相匹配； 
+2) ReverseFqdn 解析为订阅下任意公共 IP 资源的 FQDN（通过 CName 记录链）； 
+3) 解析为订阅下任意静态公共 IP 资源的 IP 地址（通过 CName 和 A 记录链）。 
 
 如果将 SMTP 横幅手动更改为与默认反向 FQDN 相匹配，远程邮件服务器仍可能失败，因为它可能期望 SMTP 横幅主机与域的 MX 记录相匹配。
 

@@ -16,11 +16,11 @@ origin.date: 05/18/2018
 ms.date: 10/15/2018
 ms.author: v-yeche
 ms.openlocfilehash: 640ae7be1fc09b82fd81c37a1cc3e775cf1c1910
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028895"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785197"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>在 Windows 上创建第一个 Service Fabric 容器应用程序
 > [!div class="op_single_selector"]

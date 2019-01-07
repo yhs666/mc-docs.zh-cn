@@ -1,24 +1,23 @@
 ---
-title: 使用 SQL API 生成包含 Azure Cosmos DB 的 .NET Web 应用 | Azure
+title: 使用 SQL API 生成包含 Azure Cosmos DB 的 .NET Web 应用
 description: 本快速入门介绍如何使用 Azure Cosmos DB SQL API 和 Azure 门户创建 .NET Web 应用
 services: cosmos-db
 author: rockboyfor
-manager: digimobile
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.custom: quick start connect, mvc, devcenter
 ms.devlang: dotnet
 ms.topic: quickstart
-origin.date: 04/10/2018
-ms.date: 12/03/2018
-ms.author: v-yeche
 clicktale: true
-ms.openlocfilehash: c0b00aa0d04b53d8846749ade2826a1e05b9e890
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+origin.date: 04/10/2018
+ms.date: 12/31/2018
+ms.openlocfilehash: fa430ebf5b9ff10b1cba2c040f7f9d2cba75e4de
+ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675097"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814778"
 ---
 # <a name="quickstart-build-a-net-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>快速入门：使用 SQL API 和 Azure 门户生成包含 Azure Cosmos DB 的 .NET Web 应用
 
@@ -42,7 +41,7 @@ ms.locfileid: "52675097"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果尚未安装 Visual Studio 2017，可以下载并使用**免费的** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。
+如果尚未安装 Visual Studio 2017，可以下载并使用免费的 [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
@@ -124,7 +123,7 @@ ms.locfileid: "52675097"
 
 现在返回到 Azure 门户，获取连接字符串信息，并将其复制到应用。
 
-1. 在 [Azure 门户](http://portal.azure.cn/)的 Azure Cosmos DB 帐户的左侧导航栏中，选择“密钥”，然后选择“读写密钥”。 使用屏幕右侧的复制按钮将 URI 和主密钥复制到下一步的 web.config 文件中。
+1. 在 [Azure 门户](https://portal.azure.cn/)的 Azure Cosmos DB 帐户的左侧导航栏中，选择“密钥”，然后选择“读写密钥”。 使用屏幕右侧的复制按钮将 URI 和主密钥复制到下一步的 web.config 文件中。
 
     ![在 Azure 门户的“密钥”边栏选项卡中查看并复制访问密钥](./media/create-sql-api-dotnet/keys.png)
 
@@ -134,7 +133,7 @@ ms.locfileid: "52675097"
 
     `<add key="endpoint" value="FILLME" />`
 
-4. 然后从门户复制“主密钥”的值，并在 web.config 中将其设为 authKey 的值。 
+4. 然后从门户复制 PRIMARY KEY 值，并在 web.config 中将其设为 authKey 的值。 
 
     `<add key="authKey" value="FILLME" />`
 
@@ -149,11 +148,11 @@ ms.locfileid: "52675097"
 
 3. 从结果中安装“Microsoft.Azure.DocumentDB”库。 这会安装 Microsoft.Azure.DocumentDB 包以及所有依赖项。
 
-4. 选择 CTRL + F5 以运行应用程序。 你的应用会显示在浏览器中。 
+4. 选择 CTRL + F5 以运行应用程序。 应用会显示在浏览器中。 
 
 5. 在浏览器中选择“新建”，并在“待办事项”应用中创建一些新任务。
 
-   ![包含示例数据的待办事项应用](./media/create-sql-api-dotnet/azure-comosdb-todo-app-list.png)
+   ![包含示例数据的“待办事项”应用](./media/create-sql-api-dotnet/azure-comosdb-todo-app-list.png)
 
 现可返回到数据资源管理器，查看查询、修改和处理此新数据。 
 

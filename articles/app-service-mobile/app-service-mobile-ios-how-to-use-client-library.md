@@ -12,24 +12,24 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 origin.date: 10/01/2016
-ms.author: v-yiso
-ms.date: 10/08/2018
-ms.openlocfilehash: 13631eb9b190c6a28b0b6efbc5ceb32d06048309
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.author: v-biyu
+ms.date: 01/07/2019
+ms.openlocfilehash: e505a28ff8d278e25cfc35781a7b8c06aa1ac963
+ms.sourcegitcommit: a46f12240aea05f253fb4445b5e88564a2a2a120
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52667192"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785248"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>如何使用适用于 Azure 移动应用的 iOS 客户端库
 
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-本指南介绍如何使用最新的 [Azure 移动应用 iOS SDK][1]执行常见任务。 对于 Azure 移动应用的新手，请先完成 [Azure 移动应用快速入门] （Azure 移动应用快速入门），创建后端、创建表并下载预先生成的 iOS Xcode 项目。 本指南侧重于客户端 iOS SDK。 若要了解有关用于后端的服务器端 SDK 的详细信息，请参阅 Server SDK 操作方法。
+本指南介绍如何使用最新的 [Azure 移动应用 iOS SDK][1]执行常见任务。 对于 Azure 移动应用的新手，请先完成 [Azure 移动应用快速入门]，创建后端、创建表并下载预先生成的 iOS Xcode 项目。 本指南侧重于客户端 iOS SDK。 若要了解有关用于后端的服务器端 SDK 的详细信息，请参阅 Server SDK 操作方法。
 
 ## <a name="reference-documentation"></a>参考文档
 
-iOS 客户端 SDK 的参考文档位于此处： [Azure Mobile Apps iOS Client Reference][2]（Azure 移动应用 iOS 客户端参考）。
+iOS 客户端 SDK 的参考文档位于此处：[Azure 移动应用 iOS 客户端参考][2]。
 
 ## <a name="supported-platforms"></a>支持的平台
 
@@ -42,7 +42,7 @@ iOS SDK 支持适用于 iOS 8.0 版及更高版本的 Objective-C 项目、Swift
 
 本指南假设已创建了包含表的后端。 本指南假设该表的架构与这些教程中的表相同。 本指南还假设在代码中引用了 `MicrosoftAzureMobile.framework` 并导入了 `MicrosoftAzureMobile/MicrosoftAzureMobile.h`。
 
-##<a name="create-client"></a>如何创建客户端
+##<a name="create-client"></a>如何：创建客户端
 
 若要在项目中访问 Azure 移动应用后端，请创建 `MSClient`。 将 `AppUrl` 替换为应用 URL。 可以将 `gatewayURLString` 和 `applicationKey` 留空。 如果设置了用于身份验证的网关，请使用网关 URL 填充 `gatewayURLString` 。
 
@@ -106,7 +106,7 @@ table.readWithCompletion { (result, error) in
 }
 ```
 
-##<a name="filtering"></a>如何：筛选器返回的数据
+##<a name="filtering"></a>如何：筛选返回的数据
 
 可以使用许多可用选项来筛选结果。
 
@@ -244,9 +244,9 @@ query.parameters = @{
 query.parameters = ["myKey1": "value1", "myKey2": "value2"]
 ```
 
-## <a name="paging"></a>如何配置页面大小
+## <a name="paging"></a>如何：配置页面大小
 
-凭借 Azure 移动应用，页面大小可以控制从后端表中一次所拉取的记录数量。 `pull` 数据的调用稍后会基于此页面大小对数据进行批量处理，直到没有更多要提取的记录。
+在 Azure 移动应用中，页面大小控制每次从后端表提取的记录数。 `pull` 数据的调用稍后会基于此页面大小对数据进行批量处理，直到没有更多要提取的记录。
 
 可使用 **MSPullSettings** 配置页面大小，如下所示。 默认页面大小为 50，以下示例中则改为 3。
 
@@ -256,7 +256,7 @@ query.parameters = ["myKey1": "value1", "myKey2": "value2"]
 
 此设置也是数据记录的数目，而不是字节大小。
 
-如果要增加客户端页面大小，还应增加服务器上的页面大小。 请参阅[“如何：调整表分页大小”](./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)中的步骤执行此操作。
+如果要增加客户端页面大小，还应增加服务器上的页面大小。 请参阅[“如何：调整表分页大小”](./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)以获取执行此操作的步骤。
 
 **Objective-C**：
 
@@ -432,7 +432,7 @@ table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
 
 进行删除时，至少必须设置 `id` 属性。
 
-##<a name="customapi"></a>如何调用自定义 API
+##<a name="customapi"></a>如何：调用自定义 API
 
 使用自定义 API 可以公开任何后端功能。 无需映射到表操作。 不仅能进一步控制消息，甚至还可以读取或设置标头，并更改响应正文格式。 若要了解如何在后端上创建自定义 API，请阅读[自定义 API](./app-service-mobile-node-backend-how-to-use-server-sdk.md#work-easy-apis)
 
@@ -473,7 +473,7 @@ client.invokeAPI("sendEmail",
         }
 ```
 
-##<a name="templates"></a>如何注册推送模板以发送跨平台通知
+##<a name="templates"></a>如何：注册推送模板以发送跨平台通知
 
 若要注册模板，请在客户端应用中连同 **client.push registerDeviceToken** 方法一起传递模板即可。
 
@@ -545,7 +545,7 @@ if (error.code == MSErrorPreconditionFailed) {
 if (error.code == MSErrorPreconditionFailed) {
 ```
 
-## <a name="adal"></a>如何使用 Active Directory 身份验证库对用户进行身份验证
+## <a name="adal"></a>如何：使用 Active Directory 身份验证库对用户进行身份验证
 
 可以借助 Active Directory 身份验证库 (ADAL) 使用 Azure Active Directory 将用户登录到应用程序。 使用标识提供者 SDK 的客户端流身份验证优于使用 `loginWithProvider:completion:` 方法。  客户端流身份验证提供更自然的 UX 体验，并允许进行额外的自定义。
 
@@ -566,7 +566,7 @@ Pod：
 
 4. 根据使用的语言，将以下代码添加到应用程序。 在每个应用程序中，进行以下替换：
 
-    * 将 **INSERT-AUTHORITY-HERE** 替换为在其中预配应用程序的租户的名称。 格式应为 https://login.chinacloudapi.cn/contoso.onmicrosoft.com。 可以在 [Azure 门户]中从 Azure Active Directory 的“域”选项卡复制此值。
+    * 将 **INSERT-AUTHORITY-HERE** 替换为在其中预配应用程序的租户的名称。 格式应为 https://login.chinacloudapi.cn/contoso.onmicrosoft.com。 可以在 [Azure 门户]中从 Azure Active Directory 的域选项卡复制此值。
     * 将 **INSERT-RESOURCE-ID-HERE** 替换移动应用后端的客户端 ID。 可以在门户中“Azure Active Directory 设置”下面的“高级”选项卡获取此客户端 ID。
     * 将 **INSERT-CLIENT-ID-HERE** 替换为从本机客户端应用程序复制的客户端 ID。
     * 将 **INSERT-REDIRECT-URI-HERE** 替换为站点的 _/.auth/login/done_ 终结点（使用 HTTPS 方案）。 此值应类似于 _https://contoso.chinacloudsites.cn/.auth/login/done_。
@@ -670,7 +670,7 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [iOS SDK]: https://developer.apple.com/xcode
-
+[Azure 门户]: https://portal.azure.cn/
 [Handling Expired Tokens]: http://go.microsoft.com/fwlink/p/?LinkId=301955
 [Live Connect SDK]: http://go.microsoft.com/fwlink/p/?LinkId=301960
 [Permissions]: http://msdn.microsoft.com/zh-cn/library/azure/jj193161.aspx
@@ -688,9 +688,9 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 [4]: ./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags
 [5]: http://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:
 [6]: https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h
-[7]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
+[7]: ../app-service/configure-authentication-provider-aad.md
 [8]:../active-directory/develop/quickstart-v1-ios.md
-[9]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
+
 [10]: https://developers.facebook.com/docs/ios/getting-started
 
 <!--Update_Description: update meta data-->

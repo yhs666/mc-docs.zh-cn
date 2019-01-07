@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 应用服务中启用 Web 应用的诊断日志记录
+title: 为 Web 应用启用诊断日志记录 - Azure 应用服务
 description: 了解如何启用诊断日志记录并将检测添加到应用程序，以及如何访问由 Azure 记录的信息。
 services: app-service
 documentationcenter: .net
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/06/2016
-ms.date: 12/03/2018
+ms.date: 12/31/2018
 ms.author: v-biyu
-ms.openlocfilehash: 553bbb882af9532d4920109828344b6cdaf36c70
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.custom: seodec18
+ms.openlocfilehash: 9293f72608d248d0690afc7fd352f4b4cedfc833
+ms.sourcegitcommit: 80c59ae1174d71509b4aa64a28a98670307a5b38
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675464"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735189"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>在 Azure 应用服务中启用 Web 应用的诊断日志记录
 ## <a name="overview"></a>概述
@@ -64,6 +65,11 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](app-se
 
 对于“应用程序日志记录”，可以临时打开文件系统选项以便调试。 此选项将在 12 小时后自动关闭。 还可打开 blob 存储选项，选择某个 blob 容器来写入日志。
 
+> [!NOTE]
+> 目前，只有 .NET 应用程序日志可以写入 blob 存储。 Java、PHP、Node.js、Python 应用程序日志只能存储在文件系统上（无需修改代码即可将日志写入外部存储）。
+>
+>
+
 对于“Web 服务器日志记录”，可选择“存储”或“文件系统”。 选择“存储”可选择存储帐户，然后将日志写入 Blob 容器。 
 
 如果将日志存储在文件系统中，可通过 FTP 访问这些文件，或使用 Azure CLI 将这些文件作为 Zip 存档下载。
@@ -99,7 +105,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](app-se
 
 ### <a name="ftp"></a>FTP
 
-要开启到应用的 FTP 服务器的 FTP 连接，请参阅[使用 FTP/S 将应用部署到 Azure App Service](app-service-deploy-ftp.md)。
+要开启到应用的 FTP 服务器的 FTP 连接，请参阅[使用 FTP/S 将应用部署到 Azure App Service](deploy-ftp.md)。
 
 一旦连接到 Web 应用的 FTP/S 服务器，请打开“LogFiles”文件夹，所有日志文件都存储于此。
 
@@ -142,7 +148,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](app-se
     az webapp log tail --name webappname --resource-group myResourceGroup --path http
 
 > [!NOTE]
-> 如果尚未安装 Azure CLI，或尚未将其配置为使用 Azure 订阅，请参阅[如何使用 Azure 命令行接口](../cli-install-nodejs.md)。
+> 如果尚未安装 Azure CLI，或尚未将其配置为使用你的 Azure 订阅，请参阅[如何使用 Azure CLI](../cli-install-nodejs.md)。
 >
 >
 
@@ -199,7 +205,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](app-se
 详细的错误日志是 HTML 文档，可提供有关发生的 HTTP 错误的详细信息。 由于它们只是 HTML 文档，所以可以使用 Web 浏览器查看。
 
 ### <a name="web-server-logs"></a>Web 服务器日志
-可使用 [W3C 扩展日志文件格式](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx)格式化 Web 服务器日志。 可使用文本编辑器读取此信息，或使用诸如[日志分析程序](http://go.microsoft.com/fwlink/?LinkId=246619)等实用工具进行解析。
+可使用 [W3C 扩展日志文件格式](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx)格式化 Web 服务器日志。 可使用文本编辑器读取此信息，或使用诸如[日志分析程序](https://go.microsoft.com/fwlink/?LinkId=246619)等实用工具进行解析。
 
 > [!NOTE]
 > Azure Web 应用生成的日志不支持 **s-computername**、**s-ip** 或 **cs-version** 字段。
@@ -209,6 +215,9 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](app-se
 ## <a name="nextsteps"></a> 后续步骤
 * [如何监视 Web 应用](web-sites-monitor.md)
 * [在 Visual Studio 中对 Azure Web 应用进行故障排除](web-sites-dotnet-troubleshoot-visual-studio.md)
-* [在 HDInsight 中分析 Web 应用日志](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
+* [在 HDInsight 中分析 Web 应用日志](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
+> [!NOTE]
 > 如果想要在注册 Azure 帐户之前开始使用 Azure 应用服务，请转到[试用应用服务](htt https://www.azure.cn/zh-cn/home/features/app-service/)，并在其中立即创建一个生存期较短的入门 Web 应用。 不需要使用信用卡，也不需要做出承诺。
+>
+>
