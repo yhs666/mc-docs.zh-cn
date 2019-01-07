@@ -69,8 +69,9 @@ JSON 格式的示例 NSG：
 
 ### <a name="default-security-rules"></a>默认安全规则
 
-默认安全规则具有安全规则中提供的相同属性。 之所以存在默认安全规则，是为了在应用了 NSG 的资源之间提供基本连接。 请确保知道存在哪些[默认安全规则](../articles/virtual-network/virtual-networks-nsg.md#default-rules)。
+默认安全规则具有安全规则中提供的相同属性。 之所以存在默认安全规则，是为了在应用了 NSG 的资源之间提供基本连接。 请确保知道存在哪些[默认安全规则](../articles/virtual-network/virtual-networks-nsg.md)。
 
+<!-- Anchor is invalid on #default-rules-->
 ### <a name="additional-resources"></a>其他资源
 * 获取有关 [NSG](../articles/virtual-network/virtual-networks-nsg.md) 的详细信息。
 * 阅读 NSG 的 [REST API 参考文档](https://msdn.microsoft.com/library/azure/mt163615.aspx)。
