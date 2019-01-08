@@ -1,25 +1,23 @@
 ---
-title: 使用模板部署 Web 应用 - Azure Cosmos DB | Azure
+title: 使用模板部署 Web 应用 - Azure Cosmos DB
 description: 了解如何使用 Azure Resource Manager 模板部署 Azure Cosmos DB 帐户、Azure 应用服务 Web 应用以及示例 Web 应用程序。
 services: cosmos-db, app-service\web
 author: rockboyfor
-manager: digimobile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 origin.date: 02/23/2018
-ms.date: 12/03/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 25729b6ee02c427855f57a547d70e837811d67a6
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: dd321f49c5b7abac2b31e3918010a980964b3494
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676685"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026824"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板部署 Azure Cosmos DB 和 Azure 应用服务 Web 应用
-本教程说明如何使用 Azure Resource Manager 模板来部署和集成 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/)、[Azure 应用服务](/app-service-web/app-service-changes-existing-services)、Web 应用以及示例 Web 应用程序。
+本教程展示了如何使用 Azure 资源管理器模板来部署和集成 [21Vianet Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/)、[Azure 应用服务](/app-service-web/app-service-changes-existing-services) Web 应用以及示例 Web 应用程序。
 
 使用 Azure Resource Manager 模板，可以轻松自动化 Azure 资源的部署和配置。  本教程演示如何部署 Web 应用程序，以及自动配置 Azure Cosmos DB 帐户的连接信息。
 
@@ -60,7 +58,7 @@ ms.locfileid: "52676685"
 2. 选择模板部署项目，然后单击“创建”![模板部署 UI 的屏幕截图](./media/create-website/TemplateDeployment2.png)
 3. 单击“编辑模板”，粘贴 DocDBWebsiteTodo.json 模板文件的内容，并单击“保存”。
     
-    将 Location 的 allowedValues 属性更改为 ["China East","China East 2","China North","China North 2"]。
+    <!--Customized on Mooncake--> 将 Location 的 allowedValues 属性更改为 ["China East","China East 2","China North","China North 2"]。
     ![模板部署 UI 的屏幕截图](./media/create-website/TemplateDeployment3.png)
 4. 单击“编辑参数”，为每个必需参数提供值，并单击“确定”。  参数如下：
 
@@ -86,7 +84,7 @@ ms.locfileid: "52676685"
 
 <a name="Build"></a> 
 
-## <a name="step-3-deploy-the-document-account-and-web-app-sample"></a>步骤 3：部署 DocumentDB 帐户和 Web 应用示例
+## <a name="step-3-deploy-the-document-account-and-web-app-sample"></a>步骤 3：部署文档帐户和 Web 应用示例
 现在让我们来部署第二个模板。  此模板可用于演示如何将帐户终结点和主密钥等 Azure Cosmos DB 连接信息插入 Web 应用，作为应用程序设置或自定义连接字符串。 例如，你或许有想要使用 Azure Cosmos DB 帐户部署的 Web 应用程序，以及在部署期间自动填充的连接信息。
 
 > [!TIP]
@@ -130,9 +128,8 @@ ms.locfileid: "52676685"
 * 若要了解有关 Azure Resource Manager 模板的详细信息，请单击[此处](https://msdn.microsoft.com/library/azure/dn790549.aspx)。
 
 ## <a name="whats-changed"></a>发生的更改
-* 有关从网站更改为 应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改应用服务的指南，请参阅：[Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 <!-- Not Available on [Try App Service](https://go.microsoft.com/fwlink/?LinkId=523751)-->
 
-<!-- Update_Description: new articles on cosmos db create website -->
-<!--ms.date: 12/03/2018-->
+<!-- Update_Description: update meta properties, wording update -->

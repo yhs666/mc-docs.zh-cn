@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/16/2016
-ms.date: 01/15/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: a57b1c5179b0d899fff9b080eca18d4f08af9a52
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 14e377a4756e9c20f1848af2f4f867ad461cc463
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652190"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806629"
 ---
 # <a name="scp-programming-guide"></a>SCP 编程指南
 SCP 是一个用于构建实时、可靠、一致和高性能的数据处理应用程序的平台。 它在 [Apache Storm](http://storm.incubator.apache.org/) 的基础上构建而成 -- Storm 是开源软件 (OSS) 社区设计的一个流处理系统。 Storm 由 Nathan Marz 设计，在 Twitter 上进行开源。 其利用 [Apache ZooKeeper](http://zookeeper.apache.org/)（另一个 Apache 项目）来实现高可靠性的分布式协调和状态管理。 
@@ -214,7 +214,7 @@ SCP.NET 还会提供可供开发人员用于编程的简单密钥对象集。 �
 ### <a name="statestore"></a>StateStore
 `StateStore` 提供元数据服务、单调序列生成和无等待协调。 可以在 `StateStore`中构建高级分布式并发抽象，包括分布式锁、分布式队列、屏障和事务服务。
 
-SCP 可使用 `State` 对象在 ZooKeeper 中保留某些信息，尤其是适用于事务性拓扑的信息。 这样做时，如果事务性 Spout 崩溃并重新启动，它可以从 ZooKeeper 检索必要信息并重新开始数据传输。
+SCP 应用程序可使用 `State` 对象在 [Apache ZooKeeper](https://zookeeper.apache.org/) 中保留某些信息，尤其是适用于事务性拓扑的信息。 这样做时，如果事务性 Spout 崩溃并重新启动，它可以从 ZooKeeper 检索必要信息并重新开始数据传输。
 
 `StateStore` 对象主要提供以下方法：
 
@@ -316,7 +316,7 @@ SCPRuntime 提供以下两种方法：
 
 一般来说，SCP 插件可在以下两种模式下运行：
 
-1. 本地测试模式：在此模式下的开发阶段中，SCP 插件（C\# 用户代码）在 Visual Studio 中运行。 `LocalContext` 可用于此模式，其提供方法对发送到本地文件的元组进行序列化并将这些元组重新读取到内存。
+1. 本地测试模式：在此模式下，在开发阶段中，SCP 插件（C\# 用户代码）在 Visual Studio 中运行。 `LocalContext` 可用于此模式，其提供方法对发送到本地文件的元组进行序列化并将这些元组重新读取到内存。
 
         public interface ILocalContext
         {
@@ -599,7 +599,7 @@ HelloWorld 是一个简单的 SCP.Net 编程示例。 它使用非事务性拓�
     }
 
 ### <a name="helloworldtx"></a>HelloWorldTx
-**HelloWorldTx** 示例展示如何实施事务性拓扑。 它有一个名为生成器的 Spout、一个名为 partial-count 的批处理 Bolt 以及一个名为 count-sum 的提交 Bolt。 还有三个预先创建的 txt 文件：DataSource0.txt、DataSource1.txt 和 DataSource2.txt。
+**HelloWorldTx** 示例展示如何实施事务性拓扑。 它有一个名为生成器的 Spout、一个名为 partial-count 的批处理 Bolt 以及一个名为 count-sum 的提交 Bolt。 还有三个预先创建的 txt 文件：**DataSource0.txt**、**DataSource1.txt** 和 **DataSource2.txt**。
 
 在每个事务中，Spout 生成器从预先创建的三个文件中随机选择两个文件，并将那两个文件的名称发送给 partial-count Bolt。 Bolt partial-count 从接收到的元组获取文件名，然后打开文件并计算文件中的字词数量，最后将计算出的字词数量发送给 count-sum Bolt。 count-sum Bolt 对总计数进行汇总。
 
@@ -646,9 +646,9 @@ HelloWorld 是一个简单的 SCP.Net 编程示例。 它使用非事务性拓�
 本质上，本示例与 HelloWorld 相同。 唯一不同之处是，在本示例中，用户代码被编译为 DLL，而且使用 SCPHost.exe 提交拓扑。 有关更详细说明，请参阅“SCP 主机模式”部分。
 
 ## <a name="next-steps"></a>后续步骤
-有关使用 SCP 创建的 Storm 拓扑示例，请参阅以下文档：
+有关使用 SCP 创建的 Apache Storm 拓扑示例，请参阅以下文档：
 
 * [使用 Visual Studio 开发 Apache Storm on HDInsight 的 C# 拓扑](apache-storm-develop-csharp-visual-studio-topology.md)
-* [使用 Storm on HDInsight 从 Azure 事件中心处理事件](apache-storm-develop-csharp-event-hub-topology.md)
-* [使用 Storm on HDInsight 处理事件中心的汽车传感器数据](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/IotExample)
-* [从 Azure 事件中心提取、转换和加载 (ETL) 到 HBase](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample)
+* [使用 Apache Storm on HDInsight 从 Azure 事件中心处理事件](apache-storm-develop-csharp-event-hub-topology.md)
+* [使用 Apache Storm on HDInsight 处理事件中心的车辆传感器数据](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/IotExample)
+* [从 Azure 事件中心提取、转换和加载 (ETL) 到 Apache HBase](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample)

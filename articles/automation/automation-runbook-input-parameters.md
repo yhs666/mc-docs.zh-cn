@@ -7,15 +7,15 @@ ms.component: process-automation
 author: WenJason
 ms.author: v-jay
 origin.date: 03/16/2018
-ms.date: 11/05/2018
+ms.date: 12/24/2018
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 132bb9c2efc0566d6e9828a2c4a6d7b6da7a472b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ea5726705f04e7320cad4533751fbff78546d757
+ms.sourcegitcommit: 895e9accaae8f8c2a29ed91d8e84911fda6111cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663257"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53615179"
 ---
 # <a name="runbook-input-parameters"></a>Runbook 输入参数
 
@@ -83,7 +83,7 @@ Param
 
 为了使用输入参数[配置图形 Runbook](automation-first-runbook-graphical.md)，让我们创建输出有关虚拟机（可以是单个 VM 或资源组中的所有 VM）的详细信息的图形 Runbook。 配置 Runbook 包括两个主要活动，如下所述。
 
-[使用 Azure 运行方式帐户进行 Runbook 身份验证](automation-create-runas-account.md)，以便与 Azure 进行身份验证。
+[使用 Azure 运行方式帐户进行 Runbook 身份验证](automation-sec-configure-azure-runas-account.md)，以便与 Azure 进行身份验证。
 
 通过 [**Get-AzureRmVm**](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvm) 获取虚拟机属性。
 
@@ -152,7 +152,7 @@ Runbook 有多种启动方式：通过 Azure 门户、Webhook、PowerShell cmdle
 
 #### <a name="start-a-published-runbook-by-using-powershell-cmdlets-and-assign-parameters"></a>使用 PowerShell cmdlet 启动已发布的 Runbook 并分配参数
 
-* **Azure 资源管理器 cmdlet**：可使用 [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook) 启动在资源组中创建的自动化 Runbook。
+* **Azure 资源管理器 cmdlet：** 可以使用 [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook) 启动在资源组中创建的自动化 Runbook。
   
   **示例：**
   
@@ -161,7 +161,7 @@ Runbook 有多种启动方式：通过 Azure 门户、Webhook、PowerShell cmdle
   
   Start-AzureRmAutomationRunbook -AutomationAccountName "TestAutomation" -Name "Get-AzureVMGraphical" -ResourceGroupName $resourceGroupName -Parameters $params
   ```
-* **Azure 经典部署模型 cmdlet**：可以使用 [Start-AzureAutomationRunbook](https://docs.microsoft.com/powershell/module/servicemanagement/azure/start-azureautomationrunbook) 启动在默认资源组中创建的自动化 Runbook。
+* **Azure 经典部署模型 cmdlet：** 可以使用 [Start-AzureAutomationRunbook](https://docs.microsoft.com/powershell/module/servicemanagement/azure/start-azureautomationrunbook) 启动在默认资源组中创建的自动化 Runbook。
   
   **示例：**
   
@@ -178,7 +178,7 @@ Runbook 有多种启动方式：通过 Azure 门户、Webhook、PowerShell cmdle
 
 #### <a name="start-a-runbook-by-using-an-sdk-and-assign-parameters"></a>使用 SDK 启动 Runbook 并分配参数
 
-* **Azure 资源管理器方法：** 可使用编程语言的 SDK 来启动 Runbook。 以下 C# 代码片段用于在自动化帐户中启动 Runbook。 可以在 [GitHub 存储库](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs)中查看完整代码。  
+* **Azure 资源管理器方法：** 可以使用某种编程语言的 SDK 来启动 Runbook。 以下 C# 代码片段用于在自动化帐户中启动 Runbook。 可以在 [GitHub 存储库](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs)中查看完整代码。  
   
   ```csharp
    public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
@@ -197,7 +197,7 @@ Runbook 有多种启动方式：通过 Azure 门户、Webhook、PowerShell cmdle
       return response.Job;
       }
   ```
-* **Azure 经典部署模型方法：** 可使用编程语言的 SDK 启动 Runbook。 以下 C# 代码片段用于在自动化帐户中启动 Runbook。 可以在 [GitHub 存储库](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs)中查看完整代码。
+* **Azure 经典部署模型方法：** 可以使用某种编程语言的 SDK 来启动 Runbook。 以下 C# 代码片段用于在自动化帐户中启动 Runbook。 可以在 [GitHub 存储库](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs)中查看完整代码。
   
   ```csharp
   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
@@ -231,20 +231,19 @@ Runbook 有多种启动方式：通过 Azure 门户、Webhook、PowerShell cmdle
   ```
 
 #### <a name="start-a-runbook-by-using-the-rest-api-and-assign-parameters"></a>使用 REST API 启动 Runbook 并分配参数
-可在以下请求 URI 中使用 **PUT** 方法通过 Azure 自动化 REST API 来创建并启动 Runbook 作业：
+可以通过 Azure 自动化 REST API 并配合使用 **PUT** 方法及以下请求 URI 来创建和启动 Runbook 作业：`https://management.core.chinacloudapi.cn/<subscription-id>/cloudServices/<cloud-service-name>/resources/automation/~/automationAccounts/<automation-account-name>/jobs/<job-id>?api-version=2014-12-08`
 
-    https://management.core.chinacloudapi.cn/<subscription-id>/cloudServices/<cloud-service-name>/resources/automation/~/automationAccounts/<automation-account-name>/jobs/<job-id>?api-version=2014-12-08
 
 在请求 URI 中替换以下参数：
 
 * **subscription-id：** Azure 订阅 ID。  
-* **cloud-service-name：** 请求所要发送到的云服务的名称。  
+* **cloud-service-name：** 应当将请求发送到的云服务的名称。  
 * **automation-account-name：** 托管在指定云服务中的自动化帐户的名称。  
 * **job-id：** 作业的 GUID。 使用 [GUID]::NewGuid().ToString() 命令可以创建 PowerShell 中的 GUID。
 
 要将参数传递到 Runbook 作业，请使用请求正文。 它采用两个以 JSON 格式提供的属性：
 
-* **名称** ：必需。 作业要启动的 Runbook 的名称。  
+* **Runbook 名称：** 必需。 作业要启动的 Runbook 的名称。  
 * **Runbook 参数：** 可选。 参数列表的字典；列表必须采用 (name, value) 格式，其中的名称应为字符串类型，值可以是任何有效的 JSON 值。
 
 若要启动之前以 VMName 和 resourceGroupName 作为参数创建的 Get-AzureVMTextual Runbook，请使用以下 JSON 格式的请求正文。

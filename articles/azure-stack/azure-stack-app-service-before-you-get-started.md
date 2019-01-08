@@ -12,15 +12,15 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/13/2018
-ms.date: 12/17/2018
+origin.date: 12/11/2018
+ms.date: 12/31/2018
 ms.author: v-jay
-ms.openlocfilehash: 7f29d815a76d5c4956f38fcc5a7a42f53f4c408e
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.openlocfilehash: de8a745c36b3e29ac60089e2b89208773cf07fb1
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396237"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814676"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>在 Azure Stack 上开始使用应用服务之前
 
@@ -153,6 +153,12 @@ API 证书放在“管理”角色上。 资源提供程序使用它来帮助保
 | 格式 | 示例 |
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
+
+
+### <a name="validate-certificates"></a>验证证书
+在部署应用服务资源提供程序之前，应当使用 [PowerShell 库](https://aka.ms/AzsReadinessChecker)中提供的 Azure Stack 准备情况检查器工具来[验证要使用的证书](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation)。 Azure Stack 准备情况检查器工具验证生成的 PKI 证书是否适用于应用服务部署。 
+
+作为最佳做法，当使用任何所需的 [Azure Stack PKI 证书](azure-stack-pki-certs.md)时，如果需要，应当计划留出足够的时间来测试和重新颁发证书。 
 
 ## <a name="virtual-network"></a>虚拟网络
 

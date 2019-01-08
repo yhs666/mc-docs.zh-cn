@@ -2,21 +2,20 @@
 title: 什么是 Azure 备份？
 description: 使用 Azure 备份，可以从 Windows Server、Windows 工作站、System Center DPM 服务器以及 Azure 虚拟机备份和还原数据与工作负荷。
 services: backup
-author: markgalioto
-manager: carmonm
+author: lingliw
+manager: digimobile
 keywords: 备份和还原;恢复服务;备份解决方案
 ms.service: backup
 ms.topic: overview
-origin.date: 08/02/2018
-ms.date: 08/23/2018
-ms.author: v-junlch
+ms.date: 1/3/2019
+ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 2c3b6cd9625405329fbe065684a3c1365c491a00
-ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
+ms.openlocfilehash: 5f964c089c15bd98bfbfeb079944b1482ae47532
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53219566"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029261"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure 备份功能概述
 Azure 备份是基于 Azure 的服务，可用于备份（或保护）和还原 Azure 云中的数据。 Azure 备份取代了现有的本地或异地备份解决方案，并且是可靠、安全、高性价比的基于云的解决方案。 Azure 备份提供多个组件，可将其下载并部署到适当的计算机、服务器或云中。 依据要保护的内容选择部署的组件或代理。 无论是保护本地数据还是云中数据，所有 Azure 备份组件均可用于将数据备份到 Azure 的恢复服务保管库中。 请参阅本文稍后部分的 [Azure 备份组件表格](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use)，了解保护特定数据、应用程序或工作负荷所用的组件。
@@ -30,9 +29,9 @@ Azure 备份是基于 Azure 的服务，可用于备份（或保护）和还原 
 
 **多个存储选项** - 高可用性的一个方面是存储复制。 Azure 备份提供两种类型的复制：[本地冗余存储](../storage/common/storage-redundancy-lrs.md)和[异地冗余存储](../storage/common/storage-redundancy-grs.md)。 根据需要选择备份存储选项：
 
-- 本地冗余存储 (LRS) 将数据中心的存储缩放单元中的数据复制三次（创建三个数据副本）。 数据的所有副本存在于同一区域。 LRS 是一个低成本选项，可在本地硬件故障时保护数据。
+* 本地冗余存储 (LRS) 将数据中心的存储缩放单元中的数据复制三次（创建三个数据副本）。 数据的所有副本存在于同一区域。 LRS 是一个低成本选项，可在本地硬件故障时保护数据。
 
-- 异地冗余存储 (GRS) 是默认的和推荐的复制选项。 GRS 将数据复制到离源数据主位置数英里之外的次要区域中。 GRS 的成本比 LRS 的高，但 GRS 可让数据更为持久，即使出现区域性中断也是如此。
+* 异地冗余存储 (GRS) 是默认的和推荐的复制选项。 GRS 将数据复制到离源数据主位置数英里之外的次要区域中。 GRS 的成本比 LRS 的高，但 GRS 可让数据更为持久，即使出现区域性中断也是如此。
 
 **无限制的数据传输** - Azure 备份不会限制传输的入站或出站数据量。 Azure 备份也不会对传输的数据收费。 但如果使用 Azure 导入/导出服务来导入大量数据，则入站数据将产生相关费用。 有关此费用的详细信息，请参阅 [Azure 备份中的脱机备份工作流](backup-azure-backup-import-export.md)。 出站数据是指还原操作期间从恢复服务保管库传输的数据。
 
@@ -71,20 +70,20 @@ Azure 备份是基于 Azure 的服务，可用于备份（或保护）和还原 
 | Hyper-V 虚拟机 (Linux) |Windows Server |<p>[System Center DPM](backup-azure-backup-sql.md)（带 Azure 备份代理）、</p> <p>[Azure 备份服务器](backup-azure-microsoft-azure-backup.md)（带 Azure 备份代理）</p> |
 | VMware 虚拟机 |Windows Server |<p>[System Center DPM](backup-azure-backup-sql.md)（带 Azure 备份代理）、</p> <p>[Azure 备份服务器](backup-azure-microsoft-azure-backup.md)（带 Azure 备份代理）</p> |
 | Microsoft SQL Server |Windows Server |<p>[System Center DPM](backup-azure-backup-sql.md)（带 Azure 备份代理）、</p> <p>[Azure 备份服务器](backup-azure-microsoft-azure-backup.md)（带 Azure 备份代理）</p> |
-| Microsoft SharePoint |Windows Server |<p>[System Center DPM](backup-azure-backup-sql.md)（带 Azure 备份代理）、</p> <p>[Azure 备份服务器](backup-azure-microsoft-azure-backup.md)（带 Azure 备份代理）</p> |
-| Microsoft Exchange |Windows Server |<p>[System Center DPM](backup-azure-backup-sql.md)（带 Azure 备份代理）、</p> <p>[Azure 备份服务器](backup-azure-microsoft-azure-backup.md)（带 Azure 备份代理）</p> |
+| Azure SharePoint |Windows Server |<p>[System Center DPM](backup-azure-backup-sql.md)（带 Azure 备份代理）、</p> <p>[Azure 备份服务器](backup-azure-microsoft-azure-backup.md)（带 Azure 备份代理）</p> |
+| Azure Exchange |Windows Server |<p>[System Center DPM](backup-azure-backup-sql.md)（带 Azure 备份代理）、</p> <p>[Azure 备份服务器](backup-azure-microsoft-azure-backup.md)（带 Azure 备份代理）</p> |
 | Azure IaaS VM (Windows) |在 Azure 中运行 |[Azure 备份（VM 扩展）](backup-azure-vms-introduction.md) |
 | Azure IaaS VM (Linux) |在 Azure 中运行 |[Azure 备份（VM 扩展）](backup-azure-vms-introduction.md) |
 
 ## <a name="linux-support"></a>Linux 支持
-下表显示了支持 Linux 的 Azure 备份组件。  
+下表显示了 Linux 支持的 Azure 备份组件。  
 
-| 组件 | Linux（Azure 认可）支持 |
-| --- | --- |
-| Azure 备份 (MARS) 代理 |否（仅限基于 Windows 的代理） |
-| System Center DPM |<li> 在 Hyper-V 和 VMWare 上对 Linux 来宾 VM 进行文件一致性备份<br/> <li> 对 Hyper-V 和 VMWare Linux 来宾 VM 进行 VM 还原 </br> </br>  *文件一致性备份不适用于 Azure VM* <br/> |
-| Azure 备份服务器 |<li>在 Hyper-V 和 VMWare 上对 Linux 来宾 VM 进行文件一致性备份<br/> <li> 对 Hyper-V 和 VMWare Linux 来宾 VM 进行 VM 还原 </br></br> *文件一致性备份不适用于 Azure VM*  |
-| Azure IaaS VM 备份 |应用程序一致性备份，使用[前脚本和后脚本框架](backup-azure-linux-app-consistent.md)<br/> [精细文件恢复](backup-azure-restore-files-from-vm.md)<br/> [还原所有 VM 磁盘](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [VM 还原](backup-azure-arm-restore-vms.md#create-a-new-vm-from-a-restore-point) |
+**组件** | **Linux（Azure 认可）**
+--- | --- 
+Azure 备份 (MARS) 代理 | 否（仅限基于 Windows 的代理） 
+System Center DPM | 在 Hyper-V 和 VMWare 上对 Linux 来宾 VM 进行文件一致性备份<br/><br/> 对 Hyper-V 和 VMWare Linux 来宾 VM 进行 VM 还原</br></br> 文件一致性备份不适用于 Azure VM
+Azure 备份服务器 | 在 Hyper-V 和 VMWare 上对 Linux 来宾 VM 进行文件一致性备份<br/><br/> 对 Hyper-V 和 VMWare Linux 来宾 VM 进行 VM 还原</br></br> 文件一致性备份不适用于 Azure VM 
+Azure IaaS VM 备份 | 应用一致性备份，使用[前脚本和后脚本框架](backup-azure-linux-app-consistent.md)<br/><br/> [文件级恢复](backup-azure-restore-files-from-vm.md)<br/><br/> [从还原的磁盘创建 VM](backup-azure-arm-restore-vms.md#create-new-restore-disks)<br/><br/> [从恢复点创建 VM](backup-azure-arm-restore-vms.md#create-new-create-a-vm)。
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>结合使用高级存储 VM 和 Azure 备份
 Azure 备份会保护高级存储 VM。 Azure 高级存储是基于固态硬盘 (SSD) 的存储，用于支持 I/O 密集型工作负荷。 高级存储很适合虚拟机 (VM) 工作负荷。 有关高级存储的详细信息，请参阅文章：[高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../virtual-machines/windows/premium-storage.md)。
@@ -162,10 +161,10 @@ Azure 备份可以还原使用托管磁盘的完整 VM，或者将托管磁盘�
 ![表键](./media/backup-introduction-to-azure-backup/table-key.png)
 
 #### <a name="network-security"></a>网络安全性
-从服务器到恢复服务保管库的所有备份流量均使用高级加密标准 256 进行加密。 备份数据通过安全的 HTTPS 链接发送。 备份数据还会以加密格式存储在恢复服务保管库中。 只有 Azure 客户具有解锁此数据的通行短语。 Microsoft 无法解密任何位置的备份数据。
+从服务器到恢复服务保管库的所有备份流量均使用高级加密标准 256 进行加密。 备份数据通过安全的 HTTPS 链接发送。 备份数据还会以加密格式存储在恢复服务保管库中。 只有 Azure 客户具有解锁此数据的通行短语。 Azure 无法解密任何位置的备份数据。
 
 > [!WARNING]
-> 建立恢复服务保管库后，只有你可以访问加密密钥。 Microsoft 绝不会保留加密密钥副本，且没有访问该密钥的权限。 如果客户丢失了密钥，Microsoft 无法恢复备份数据。
+> 建立恢复服务保管库后，只有你可以访问加密密钥。 Azure 绝不会保留加密密钥副本，且没有访问该密钥的权限。 如果客户丢失了密钥，则 Azure 无法恢复备份数据。
 >
 >
 
@@ -207,9 +206,9 @@ Azure 备份针对每个受保护实例实施 9999 个恢复点（也称为备�
 受保护实例通常指配置为备份到 Azure 的 Windows 计算机、物理或虚拟服务器，或者 SQL 数据库。 为计算机、服务器或数据库配置备份策略并创建数据的备份副本后，实例会受到保护。 该受保护实例的备份数据的后续副本（称为恢复点）增加了所使用的存储量。 最多可为受保护实例创建 9999 个恢复点。 如果从存储中删除恢复点，则不计入 9999 个总恢复点数。
 受保护实例的一些常见示例包括运行 Windows 操作系统的虚拟机、应用程序服务器、数据库和个人计算机。 例如：
 
-- 运行 Hyper-V 或 Azure IaaS 虚拟机监控程序结构的虚拟机。 此虚拟机的来宾操作系统可以是 Windows Server 或 Linux。
-- 应用程序服务器：它可为运行 Windows Server 和工作负荷（具有需备份的数据）的物理或虚拟机。 常见的工作负荷有 Microsoft SQL Server、Microsoft Exchange 服务器、Microsoft SharePoint 服务器和 Windows Server 上的文件服务器角色。 若要备份这些工作负荷，需要 System Center Data Protection Manager (DPM) 或 Azure 备份服务器。
-- 运行 Windows 操作系统的个人计算机、工作站或笔记本电脑。
+* 运行 Hyper-V 或 Azure IaaS 虚拟机监控程序结构的虚拟机。 此虚拟机的来宾操作系统可以是 Windows Server 或 Linux。
+* 应用程序服务器：它可为运行 Windows Server 和工作负荷（具有需备份的数据）的物理或虚拟机。 常见的工作负荷有 Microsoft SQL Server、Azure Exchange 服务器、Azure SharePoint 服务器和 Windows Server 上的文件服务器角色。 若要备份这些工作负荷，需要 System Center Data Protection Manager (DPM) 或 Azure 备份服务器。
+* 运行 Windows 操作系统的个人计算机、工作站或笔记本电脑。
 
 
 ## <a name="what-is-a-recovery-services-vault"></a>什么是恢复服务保管库？
@@ -233,14 +232,13 @@ Azure 备份保护本地和云端的数据。 Azure Site Recovery 就虚拟机�
 ## <a name="next-steps"></a>后续步骤
 请参阅下述某个教程，详细了解在 Windows Server 上保护数据或在 Azure 中保护虚拟机 (VM) 的分步说明。
 
-- [备份文件和文件夹](backup-configure-vault.md)
-- [备份 Azure 虚拟机](backup-azure-vms-first-look-arm.md)
+* [备份 Azure 虚拟机](backup-azure-vms-first-look-arm.md)
 
 有关保护其他工作负荷的详细信息，请尝试阅读以下文章之一：
 
-- [备份 Windows Server](backup-configure-vault.md)
-- [备份应用程序工作负荷](backup-azure-microsoft-azure-backup.md)
-- [Backup Azure IaaS VMs（备份 Azure IaaS VM）](backup-azure-arm-vms-prepare.md)
+* [备份 Windows Server](backup-configure-vault.md)
+* [备份应用程序工作负荷](backup-azure-microsoft-azure-backup.md)
+* [Backup Azure IaaS VMs（备份 Azure IaaS VM）](backup-azure-arm-vms-prepare.md)
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png

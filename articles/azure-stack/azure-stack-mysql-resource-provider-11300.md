@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/14/2018
-ms.date: 12/17/2018
+origin.date: 12/10/2018
+ms.date: 12/31/2018
 ms.author: v-jay
-ms.reviewer: quying
-ms.openlocfilehash: f8c1de14ccad63476b44e2e6ff308fa4fd2b4aa4
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.reviewer: georgel
+ms.openlocfilehash: 671cbab3097e27ed737de3497a726a202d52ff7d
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396340"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814652"
 ---
 # <a name="mysql-resource-provider-11300--release-notes"></a>MySQL 资源提供程序 1.1.30.0 发行说明
 
@@ -63,7 +63,20 @@ ms.locfileid: "53396340"
 
     **解决方法**：在同一订阅下创建新登录名时使用不同的用户名，或者在不同订阅下使用相同的用户名创建登录名。
 
+- **TLS 1.2 支持要求**。 如果你尝试从未启用 TLS 1.2 的计算机部署或更新 MySQL 资源提供程序，则操作可能会失败。 在用于部署或更新资源提供程序的计算机上运行以下 PowerShell 命令，以验证是否返回支持 TLS 1.2：
 
+  ```powershell
+  [System.Net.ServicePointManager]::SecurityProtocol
+  ```
+
+  如果命令输出中未包含 **Tls12**，则计算机上未启用 TLS 1.2。
+
+    **解决方法**：运行以下 PowerShell 命令以启用 TLS 1.2，然后从同一 PowerShell 会话启动资源提供程序部署或更新脚本：
+
+    ```powershell
+    [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
+    ```
+ 
 ### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>云管理员操作 Azure Stack 时的已知问题
 请参阅 [Azure Stack 发行说明](azure-stack-servicing-policy.md)中的文档。
 

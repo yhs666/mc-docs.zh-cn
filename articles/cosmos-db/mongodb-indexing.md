@@ -1,27 +1,25 @@
 ---
-title: Azure Cosmos DB MongoDB API 中的索引编制 | Azure
-description: 概述 Azure Cosmos DB MongoDB API 中的索引编制功能。
+title: Azure Cosmos DB 的用于 MongoDB 的 API 中的索引编制
+description: 概述了 Azure Cosmos DB 的用于 MongoDB 的 API 中的索引编制功能。
 services: cosmos-db
 author: rockboyfor
-manager: digimobile
-editor: ''
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-origin.date: 03/01/2018
-ms.date: 09/30/2018
+origin.date: 12/26/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: c3bc0b84d1b615b90dbf62a388707805396b5c25
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c2a67657dd55d4ec52168a92a19afef6d084419c
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656660"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026710"
 ---
-# <a name="indexing-in-the-azure-cosmos-db-mongodb-api"></a>Azure Cosmos DB: MongoDB API 中的索引编制
+# <a name="indexing-using-azure-cosmos-dbs-api-for-mongodb"></a>使用 Azure Cosmos DB 的用于 MongoDB 的 API 进行索引编制
 
-Azure Cosmos DB MongoDB API 可利用 Azure Cosmos DB 的自动索引管理功能。 因此，用户可以访问 Azure Cosmos DB 的默认索引编制策略。 因此，如果用户没有定义索引，或者没有删除索引，则默认情况下，所有字段都会在插入到集合中时自动编制索引。 大多数情况下，建议使用在帐户上设置的默认索引编制策略。
+Azure Cosmos DB 的用于 MongoDB 的 API 利用 Cosmos DB 的自动索引管理功能。 因此，用户可以访问 Cosmos DB 的默认索引编制策略。 因此，如果用户没有定义索引，或者没有删除索引，则默认情况下，所有字段都会在插入到集合中时自动编制索引。 大多数情况下，建议使用在帐户上设置的默认索引编制策略。
 
 ## <a name="dropping-the-default-indexes"></a>删除默认索引
 
@@ -100,7 +98,7 @@ globaldb:PRIMARY> db.coll.createIndex({"_ts":1}, {expireAfterSeconds: 10})
 目前，创建唯一索引的前提是集合不含文档。 常用 MongoDB 迁移工具会尝试在导入数据后创建唯一索引。 若要避免此问题，建议用户手动创建相应的集合和唯一索引，而不是让迁移工具来创建（对于 ```mongorestore```，可以通过在命令行中使用 --noIndexRestore 标志来实现此行为）。
 
 ## <a name="next-steps"></a>后续步骤
-* [Azure Cosmos DB 如何编制数据索引？](../cosmos-db/indexing-policies.md)
-* [利用生存时间使 Azure Cosmos DB 集合中的数据自动过期](../cosmos-db/time-to-live.md)
+* [Azure Cosmos DB 中的索引](../cosmos-db/index-policy.md)
+* [利用生存时间使 Azure Cosmos DB 中的数据自动过期](../cosmos-db/time-to-live.md)
 
-<!-- Update_Description: update meta properties  -->
+<!-- Update_Description: update meta properties, wording update  -->

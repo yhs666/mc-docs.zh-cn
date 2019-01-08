@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 06/26/2018
 ms.author: sasolank
-ms.date: 11/05/2018
-ms.openlocfilehash: 004b8ea48656a391e5908c65b4ad85db76cb141b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/31/2018
+ms.openlocfilehash: 6832dc0f826596d5483c0db672aaf0007ba3b1f3
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651892"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736696"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>在包含应用程序网关的内部 VNET 中集成 API 管理 
 
@@ -32,7 +32,9 @@ ms.locfileid: "52651892"
 
 * 使用同时供内部使用者和外部使用者使用的相同 API 管理资源。
 * 使用单个 API 管理资源，并向外部使用者提供在 API 管理中定义的一部分 API。
-* 提供配套的方式让客户启用和禁用通过公共 Internet 对 API 管理的访问。 
+* 提供配套的方式让客户启用和禁用通过公共 Internet 对 API 管理的访问。
+
+[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -58,13 +60,13 @@ ms.locfileid: "52651892"
 
 ## <a name="what-is-required-to-create-an-integration-between-api-management-and-application-gateway"></a>在 API 管理与应用程序网关之间创建集成需要做好哪些准备？
 
-* **后端服务器池：** API 管理服务的内部虚拟 IP 地址。
-* **后端服务器池设置：** 每个池都有一些设置，例如端口、协议和基于 cookie 的关联性。 这些设置将应用到池中的所有服务器。
+* **后端服务器池：** 这是 API 管理服务的内部虚拟 IP 地址。
+* **后端服务器池设置：** 每个池具有端口、协议和基于 Cookie 的相关性等设置。 这些设置将应用到池中的所有服务器。
 * **前端端口：** 此端口是应用程序网关上打开的公共端口。 抵达此端口的流量将重定向到后端服务器之一。
 * **侦听器：** 侦听器具有前端端口、协议（Http 或 Https，这些值区分大小写）和 SSL 证书名称（如果要配置 SSL 卸载）。
 * **规则：** 规则将侦听器绑定到后端服务器池。
 * **自定义运行状况探测：** 默认情况下，应用程序网关使用基于 IP 地址的探测来判断 BackendAddressPool 中的哪些服务器处于活动状态。 API 管理服务只响应包含正确主机标头的请求，因此默认的探测会失败。 需要定义一个自定义运行状况探测，帮助应用程序网关确定服务处于活动状态，应该转发该请求。
-* **自定义域证书**：要从 Internet 访问 API 管理，需要创建从服务主机名到应用程序网关前端 DNS 名称的 CNAME 映射。 这可以确保发送到应用程序网关，并转发到 API 管理的主机名标头和证书是 APIM 可以识别为有效的对象。 在此示例中，我们将使用两个证书 - 用于后端和开发人员门户。  
+* **自定义域证书：** 若要从 Internet 访问 API 管理，需要创建从服务主机名到应用程序网关前端 DNS 名称的 CNAME 映射。 这可以确保发送到应用程序网关，并转发到 API 管理的主机名标头和证书是 APIM 可以识别为有效的对象。 在此示例中，我们将使用两个证书 - 用于后端和开发人员门户。  
 
 ## <a name="overview-steps"></a>集成 API 管理和应用程序网关所需执行的步骤 
 

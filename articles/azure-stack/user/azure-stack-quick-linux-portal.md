@@ -7,17 +7,17 @@ author: WenJason
 manager: digimobile
 ms.service: azure-stack
 ms.topic: quickstart
-origin.date: 09/05/2018
-ms.date: 10/15/2018
+origin.date: 12/03/2018
+ms.date: 12/31/2018
 ms.author: v-jay
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: d0dcd6cb1aa654335e9d403f678a56ae6a0aec4f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 0a68bc28c7efd7d5aa8649bd68a525d3371d0d28
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655458"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814633"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>快速入门：使用 Azure Stack 门户创建 Linux 服务器虚拟机
 
@@ -37,11 +37,11 @@ ms.locfileid: "52655458"
 
 * **Azure Stack 市场中的 Linux 映像**
 
-   默认情况下，Azure Stack 市场不包含 Linux 映像。 在可以创建 Linux 服务器虚拟机之前，请确保 Azure Stack 操作员提供了你需要的 **Ubuntu Server 16.04 LTS** 映像。 操作员可以使用[将市场项从 Azure 下载到 Azure Stack](../azure-stack-download-azure-marketplace-item.md) 一文中介绍的步骤。
+   默认情况下，Azure Stack 市场中没有 Linux 映像。 请检查是否已经让 Azure Stack 操作员在市场中提供了 **Ubuntu Server 16.04 LTS** 映像。 操作员可以使用[将市场项从 Azure 下载到 Azure Stack](../azure-stack-download-azure-marketplace-item.md) 一文中介绍的步骤。
 
 * **可以访问 SSH 客户端**
 
-   如果使用 Azure Stack 开发工具包 (ASDK)，可能无法访问 SSH 客户端。 如果需要一个客户端，有多个包含 SSH 客户端的包可供使用。 例如，PuTTY 包含 SSH 客户端和 SSH 密钥生成器 (puttygen.exe)。 有关可用包的详细信息，请阅读以下 Azure 文章：[如何在 Azure 上将 SSH 密钥与 Windows 配合使用](/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients)。
+   如果使用 Azure Stack 开发工具包 (ASDK)，可能无法访问 SSH 客户端。 如果需要一个客户端，有多个包含 SSH 客户端的包可供使用。 例如，PuTTY 包含 SSH 客户端和 SSH 密钥生成器 (puttygen.exe)。 有关可用包的详细信息，请阅读以下 Azure 文章：[如何在 Azure 上的 Windows 中使用 SSH 密钥](/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients)。
 
    本快速入门使用 PuTTY 生成 SSH 密钥并连接到 Linux 服务器虚拟机。 若要下载并安装 PuTTY，请转到 [http://www.putty.org/](http://www.putty.org)。
 
@@ -73,7 +73,7 @@ ms.locfileid: "52655458"
 2. 依次选择“计算”、“Ubuntu Server 16.04 LTS”。
    
    ![选择 Linux 服务器](media/azure-stack-quick-linux-portal/select.png)
-3. 单击**创建**。
+1. 单击**创建**。
 
 4. 键入虚拟机信息。 对于“身份验证类型”，请选择“SSH 公钥”。 粘贴保存的 SSH 公钥，然后单击“确定”。
 
@@ -98,7 +98,7 @@ ms.locfileid: "52655458"
 
 ## <a name="connect-to-the-virtual-machine"></a>连接到虚拟机
 
-1. 在虚拟机页上，单击“连接”。 此时会显示连接到虚拟机时所需的 SSH 连接字符串。 
+1. 在虚拟机页上，单击“连接”。 可以发现连接到虚拟机时所需的 SSH 连接字符串。 
 
 2. 打开 PuTTY。
 
@@ -155,6 +155,4 @@ sudo apt-get -y install nginx
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门中，你已部署了一台带有 Web 服务器的基本 Linux 服务器虚拟机。 有关 Azure Stack 虚拟机的详细信息，请转到 [Azure Stack 中虚拟机的注意事项](azure-stack-vm-considerations.md)。
-
-<!-- Update_Description: wording update -->
+在本快速入门中，你已部署了一个带有 Web 服务器的基本 Linux 服务器虚拟机。 有关 Azure Stack 虚拟机的详细信息，请转到 [Azure Stack 中虚拟机的注意事项](azure-stack-vm-considerations.md)。

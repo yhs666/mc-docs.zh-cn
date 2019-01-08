@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/10/2018
-ms.date: 11/12/2018
+ms.date: 12/31/2018
 ms.author: v-jay
 ms.reviewer: misainat
-ms.openlocfilehash: ddae2b91595da2d39396948909e5fbab75cd84c3
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 37112684fbe594cfe0085fd23b6fc7c3a28f096a
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660096"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814626"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure Stack 部署规划注意事项
 在部署 Azure Stack 开发工具包 (ASDK) 之前，请确保开发工具包主机满足本文中所述的要求。
@@ -60,7 +60,7 @@ ms.locfileid: "52660096"
 
 <sup>*</sup> 没有直通功能的 RAID 控制器无法识别此介质类型。 此类控制器会将 HDD 和 SSD 都标记为“未指定”。 在这种情况下，SSD 将用作持久存储而不是缓存设备。 因此，可以在这些 SSD 上部署开发工具包。
 
-**实例 HBA**：LSI 9207-8i、LSI-9300-8i 或 LSI-9265-8i（在直通模式下）
+**示例 HBA**：LSI 9207-8i、LSI-9300-8i 或 LSI-9265-8i（在直通模式下）
 
 提供了示例 OEM 配置。
 
@@ -122,7 +122,7 @@ ms.locfileid: "52660096"
 确保可以在 NIC 连接到的网络上使用 DHCP 服务器。 如果 DHCP 不可用，则除了主机使用的静态 IPv4 网络，还必须准备另一个此类网络。 必须提供该 IP 地址和网关作为部署参数。
 
 ### <a name="internet-access"></a>Internet 访问
-Azure Stack 需要访问 Internet，可以直接访问，也可以通过透明代理进行访问。 Azure Stack 不支持通过配置 Web 代理来启用 Internet 访问。 主机 IP 和分配到 MAS-BGPNAT01 的新 IP（通过 DHCP 或静态 IP 的方式进行分配）必须能够访问 Internet。 用到了端口 80 和 443，访问的域名是 graph.chinacloudapi.cn 和 login.partner.microsoftonline.cn。
+Azure Stack 需要访问 Internet，可以直接访问，也可以通过透明代理进行访问。 Azure Stack 不支持通过配置 Web 代理来启用 Internet 访问。 主机 IP 和分配到 AzS-BGPNAT01 的新 IP（通过 DHCP 或静态 IP 的方式进行分配）必须能够访问 Internet。 用到了端口 80 和 443，访问的域名是 graph.chinacloudapi.cn 和 login.partner.microsoftonline.cn。
 
 
 ## <a name="next-steps"></a>后续步骤

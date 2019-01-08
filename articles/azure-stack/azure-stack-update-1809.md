@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/12/2018
-ms.date: 12/17/2018
+origin.date: 12/08/2018
+ms.date: 12/31/2018
 ms.author: v-jay
 ms.reviewer: justini
-ms.openlocfilehash: 4e6b9b57fba4f8a0e40f269c15e918bb64cf75cc
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.openlocfilehash: 0180f778550aac2b3abb679f70cf43531dc91b3f
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396335"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814639"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 更新
 
@@ -58,7 +58,7 @@ Azure Stack 1809 更新内部版本号为 **1.1809.0.90**。
 <!-- TBD - IS ASDK --> 
 - 修复了以下问题：在 Azure Stack 用户门户中创建虚拟机时，该门户显示的可以附加到 DS 系列 VM 的数据磁盘数不正确。 DS 系列 VM 可以容纳的数据磁盘数取决于 Azure 配置。
 
-- 以下托管磁盘问题已在 1809 中修复，同时已在 1808 [Azure Stack 修补程序 1.1808.5.110](https://support.microsoft.com/help/4468920/) 中修复： 
+- 以下托管磁盘问题已在 1809 中修复，同时已在 1808 [Azure Stack 修补程序 1.1808.9.117](https://support.microsoft.com/help/4481066/) 中修复： 
 
    <!--  2966665 – IS, ASDK --> 
    - 修复了以下问题：将 SSD 数据磁盘附加到高级大小的托管磁盘虚拟机（DS、DSv2、Fs、Fs_V2）失败并出现以下错误：无法更新虚拟机 ‘vmname’ 的磁盘。错误:由于 VM 大小 ‘Standard_DS/Ds_V2/FS/Fs_v2’ 不支持存储帐户类型 ‘Premium_LRS’，因此请求的操作无法执行。 
@@ -72,24 +72,13 @@ Azure Stack 1809 更新内部版本号为 **1.1809.0.90**。
 
 - <!-- 3078022 - IS, ASDK -->如果 VM 在 1808 之前已停止-解除分配，则该 VM 在 1808 更新之后无法重新分配。  此问题已在 1809 中解决。 处于这种状态且无法启动的实例可以在已应用此修复的 1809 中启动。 此修复还可以防止该问题反复发生。
 
-<!-- 3090289 – IS, ASDK --> 
-- 修复了应用 1808 更新后，可能会在通过托管磁盘部署 VM 时遇到的以下问题：
-
-   1. 如果订阅是在 1808 更新之前创建的，通过托管磁盘部署 VM 可能会失败并出现内部错误消息。 若要解决此错误，请针对每个订阅执行以下步骤：
-      1. 在租户门户中转到“订阅”，找到相应订阅。 依次单击“资源提供程序”、“Microsoft.Compute”、“重新注册”。
-      2. 在同一订阅下，转到“访问控制(标识和访问管理)”，验证“Azure Stack - 托管磁盘”是否已列出。
-   2. 如果已配置多租户环境，在与来宾目录相关联的订阅中部署 VM 可能会失败并出现内部错误消息。 若要解决该错误，请执行以下步骤：
-      1. 应用 [1808 Azure Stack 修补程序](https://support.microsoft.com/help/4471992)。
-      2. 执行[此文](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)中的步骤，重新配置每个来宾目录。
-
-
 ### <a name="changes"></a>更改
 
 <!-- 2635202 - IS, ASDK -->
 - 基础结构备份服务已从[公共基础结构网络](/azure-stack/azure-stack-network#public-infrastructure-network)转移到[公共 VIP 网络](/azure-stack/azure-stack-network#public-vip-network)。 客户需确保该服务有权访问公共 VIP 网络中的备份存储位置。  
 
 > [!IMPORTANT]  
-> 如果防火墙不允许从公共 VIP 网络连接到文件服务器，此项更改会导致基础结构备份因“错误 53: 找不到网络路径”而失败。 这是一项中断性更改，没有合理的解决方法。 Azure 将根据客户的反馈，在修补程序中还原此项更改。 请查看[更新后的步骤部分](/azure-stack/azure-stack-update-1809#post-update-steps)，以获取有关 1809 可用的修补程序的详细信息。 发布修补程序后，请确保只在网络策略不允许公共 VIP 网络访问基础结构资源的情况下，才在更新到 1809 之后应用该修补程序。 在 1811 中，此项更改将应用到所有系统。 如果在 1809 中应用该修补程序，则无需采取进一步的措施。  
+> 如果防火墙不允许从公共 VIP 网络连接到文件服务器，此项更改会导致基础结构备份因“错误 53: 找不到网络路径”而失败。 这是一项中断性更改，没有合理的解决方法。 Azure 将根据客户的反馈，在修补程序中还原此项更改。 请查看[更新后的步骤部分](#post-update-steps)，以获取有关 1809 可用的修补程序的详细信息。 发布修补程序后，请确保只在网络策略不允许公共 VIP 网络访问基础结构资源的情况下，才在更新到 1809 之后应用该修补程序。 在 1811 中，此项更改将应用到所有系统。 如果在 1809 中应用该修补程序，则无需采取进一步的措施。  
 
 ### <a name="common-vulnerabilities-and-exposures"></a>常见漏洞和风险
 
@@ -144,7 +133,7 @@ Azure Stack 1809 更新内部版本号为 **1.1809.0.90**。
 
 ### <a name="prerequisites"></a>先决条件
 
-- 在应用 1809 之前，请安装 1808 的最新 Azure Stack 修补程序。 有关详细信息，请参阅[知识库文章 4471992 – Azure Stack 修补程序 1.1808.7.113](https://support.microsoft.com/help/4471992/)。
+- 在应用 1809 之前，请安装 1808 的最新 Azure Stack 修补程序。 有关详细信息，请参阅[知识库文章 4481066 – Azure Stack 修补程序 1.1808.9.117](https://support.microsoft.com/help/4481066/)。
 
   > [!TIP]  
   > 订阅下述 *RRS* 或 *Atom* 源，了解 Azure Stack 修补程序的最新更新：
@@ -168,13 +157,13 @@ Azure Stack 1809 更新内部版本号为 **1.1809.0.90**。
 
 - <!-- 3139614 | IS -->如果已从 OEM 应用 Azure Stack 更新，则“有可用的更新”通知可能不会显示在 Azure Stack 管理员门户中。 若要安装该更新，请遵照[在 Azure Stack 中应用更新](azure-stack-apply-updates.md)中的说明手动下载并导入该更新。
 
-### <a name="post-update-steps"></a>更新后的步骤
+### <a name="post-update-steps"></a>更新后步骤
 
 > [!Important]  
 > 让 Azure Stack 部署准备好使用后续更新包启用的扩展主机。 遵照[为 Azure Stack 准备扩展主机](azure-stack-extension-host-prepare.md)中的指导准备系统。
 
 安装此更新之后，请安装所有适用的修补程序。 有关详细信息，请查看以下知识库文章，以及我们的[服务策略](azure-stack-servicing-policy.md)。  
-- [知识库文章 4471993 – Azure Stack 修补程序 1.1809.3.96](https://support.microsoft.com/help/4471993/)  
+- [知识库文章 4481548 – Azure Stack 修补程序 1.1809.12.114](https://support.microsoft.com/help/4481548/)  
 
 ## <a name="known-issues-post-installation"></a>已知问题（安装后）
 
@@ -227,7 +216,7 @@ Azure Stack 1809 更新内部版本号为 **1.1809.0.90**。
    
   运行 [Test-AzureStack](azure-stack-diagnostic-test.md) cmdlet 来验证基础结构角色实例和缩放单元节点的运行状况。 如果 [Test-AzureStack](azure-stack-diagnostic-test.md) 未检测到问题，则可以忽略这些警报。 如果检测到问题，则可以尝试使用管理门户或 PowerShell 启动基础结构角色实例或节点。
 
-  此问题已在最新的 [1809 修补程序版本](https://support.microsoft.com/help/4471993/)中修复，因此如果遇到此问题，请务必安装此修补程序。 
+  此问题已在最新的 [1809 修补程序版本](https://support.microsoft.com/help/4481548/)中修复，因此如果遇到此问题，请务必安装此修补程序。 
 
 <!-- 1264761 - IS ASDK -->  
 - 可能会看到包含以下详细信息的“运行状况控制器”组件的警报：  
@@ -263,10 +252,10 @@ Azure Stack 1809 更新内部版本号为 **1.1809.0.90**。
 ### <a name="compute"></a>计算
 
 <!-- 3235634 – IS, ASDK -->
-- 若要部署大小包含 **v2** 后缀的 VM（例如 **Standard_DS2_v2**），请将后缀指定为 **Standard_DS2_v2**（小写 v）。 请勿使用 **Standard_DS2_V2**（大写 V）。 这适用于 Azure，在 Azure Stack 上有不一致的问题。
+- 若要部署大小包含 **v2** 后缀的 VM（例如 **Standard_A2_v2**），请将后缀指定为 **Standard_A2_v2**（小写 v）。 请勿使用 **Standard_A2_V2**（大写 V）。 这适用于 Azure，在 Azure Stack 上有不一致的问题。
 
 <!-- 3099544 – IS, ASDK --> 
-- 使用 Azure Stack 门户创建新的虚拟机 (VM) 并选择 VM 大小时，“元/月”列在显示时会出现“不可用”消息。 此列不应显示；Azure Stack 不支持显示 VM 定价列。
+- 使用 Azure Stack 门户创建新的虚拟机 (VM) 并选择 VM 大小时，“美元/月”列在显示时会出现“不可用”消息。 此列不应显示；Azure Stack 不支持显示 VM 定价列。
 
 <!-- 2869209 – IS, ASDK --> 
 - 使用 [**Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0) 时，必须使用 **-OsUri** 参数作为存储帐户 URI（在其中上传磁盘）。 如果使用磁盘的本地路径，则此 cmdlet 会失败并显示以下错误：长时间运行的操作失败，状态为 'Failed'。 
@@ -293,7 +282,18 @@ Azure Stack 1809 更新内部版本号为 **1.1809.0.90**。
 
    若要查找指标数据（例如 VM 的“CPU 百分比”图表），请转到“指标”窗口并查看所有受支持的 Windows VM 来宾指标。
 
+<!-- 3507629 - IS, ASDK --> 
+- 托管磁盘创建了两个新的[计算配额类型](azure-stack-quota-types.md#compute-quota-types)来限制可以预配的托管磁盘的最大容量。 默认情况下将为每个托管磁盘配额类型分配 2048 GiB。 不过，你可能会遇到以下问题：
 
+   - 对于在 1808 更新之前创建的配额，托管磁盘配额在管理门户中将显示为值 0，虽然分配了 2048 GiB。 你可以根据实际需求增大或减小该值，新设置的配额值将替代 2048 GiB 默认值。
+   - 如果将配额值更新为 0，则它等效于默认值 2048 GiB。 作为一种解决方法，请将配额值设置为 1。
+
+<!-- TBD - IS ASDK --> 应用 1809 更新后，在部署具有托管磁盘的 VM 时可能会遇到以下问题：
+
+   - 如果订阅是在 1808 更新之前创建的，则部署具有托管磁盘的 VM 可能会失败并出现内部错误消息。 若要解决此错误，请针对每个订阅执行以下步骤：
+      1. 在租户门户中转到“订阅”，找到相应订阅。 依次单击“资源提供程序”、“Microsoft.Compute”、“重新注册”。
+      2. 在同一订阅下，转到“访问控制(标识和访问管理)”，验证“Azure Stack - 托管磁盘”是否已列出。
+   2. 如果已配置多租户环境，在与来宾目录相关联的订阅中部署 VM 可能会失败并出现内部错误消息。 若要解决错误，请执行[此文章](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)中的步骤来重新配置每个来宾目录。
 
 ### <a name="networking"></a>网络  
 

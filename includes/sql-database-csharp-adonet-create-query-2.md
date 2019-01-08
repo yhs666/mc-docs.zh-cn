@@ -1,4 +1,17 @@
-
+---
+author: WenJason
+ms.service: sql-database
+ms.topic: include
+origin.date: 11/09/2018
+ms.date: 12/31/2018
+ms.author: v-jay
+ms.openlocfilehash: 604569966409a15ff46c754d6e180118a6d26a08
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806728"
+---
 <a name="cs_0_csharpprogramexample_h2"/>
 
 ## <a name="c-program-example"></a>C# 程序示例
@@ -24,7 +37,7 @@ C# 程序包含：
 此 C# 程序在逻辑上是一个 .cs 文件。 但这里将此程序以物理方式划分成多个代码块，使每个块更易于查看和理解。 若要编译和运行此程序，请执行以下操作：
 
 1. 在 Visual Studio 中创建 C# 项目。
-    - 项目类型应该是“控制台”应用程序，源自如下所示的层次结构：“模板”>“Visual C#”>“Windows 经典桌面”>“控制台应用(.NET Framework)”。
+    - 项目类型应当是一个“控制台”应用程序，位于如下所示的层次结构中：**模板** > **Visual C#** > **Windows 经典桌面** > **控制台应用 (.NET Framework)**。
 3. 在 **Program.cs** 文件中，擦除小的起始代码行。
 3. 将下述每个块按此处所示顺序复制并粘贴到 Program.cs 中。
 4. 在 Program.cs 的 **Main** 方法中编辑以下值：
@@ -43,7 +56,7 @@ C# 程序包含：
 >
 
 <a name="cs_1_connect"/>
-### <a name="c-block-1-connect-by-using-adonet"></a>C# 块 1：通过 ADO.NET 进行连接
+### <a name="c-block-1-connect-by-using-adonet"></a>C# 代码块 1：使用 ADO.NET 进行连接
 
 - [下一步](#cs_2_createtables)
 
@@ -99,7 +112,7 @@ namespace csharp_db_test
 
 
 <a name="cs_2_createtables"/>
-### <a name="c-block-2-t-sql-to-create-tables"></a>C# 块 2：用于创建表的 T-SQL
+### <a name="c-block-2-t-sql-to-create-tables"></a>C# 代码块 2：用于创建表的 T-SQL
 
 - [上一步](#cs_1_connect) &nbsp; / &nbsp; [下一步](#cs_3_insert)
 
@@ -141,7 +154,7 @@ CREATE TABLE tabEmployee
 
 
 <a name="cs_3_insert"/>
-### <a name="c-block-3-t-sql-to-insert-data"></a>C# 块 3：用于插入数据的 T-SQL
+### <a name="c-block-3-t-sql-to-insert-data"></a>C# 代码块 3：用于插入数据的 T-SQL
 
 - [上一步](#cs_2_createtables) &nbsp; / &nbsp; [下一步](#cs_4_updatejoin)
 
@@ -173,7 +186,7 @@ INSERT INTO tabEmployee
 
 
 <a name="cs_4_updatejoin"/>
-### <a name="c-block-4-t-sql-to-update-join"></a>C# 块 4：用于更新-联接的 T-SQL
+### <a name="c-block-4-t-sql-to-update-join"></a>C# 代码块 4：用于更新-联接的 T-SQL
 
 - [上一步](#cs_3_insert) &nbsp; / &nbsp; [下一步](#cs_5_deletejoin)
 
@@ -201,7 +214,7 @@ UPDATE empl
 
 
 <a name="cs_5_deletejoin"/>
-### <a name="c-block-5-t-sql-to-delete-join"></a>C# 块 5：用于删除-联接的 T-SQL
+### <a name="c-block-5-t-sql-to-delete-join"></a>C# 代码块 5：用于删除-联接的 T-SQL
 
 - [上一步](#cs_4_updatejoin) &nbsp; / &nbsp; [下一步](#cs_6_selectrows)
 
@@ -233,7 +246,7 @@ DELETE tabDepartment
 
 
 <a name="cs_6_selectrows"/>
-### <a name="c-block-6-t-sql-to-select-rows"></a>C# 块 6：用于选择行的 T-SQL
+### <a name="c-block-6-t-sql-to-select-rows"></a>C# 代码块 6：用于选择行的 T-SQL
 
 - [上一步](#cs_5_deletejoin) &nbsp; / &nbsp; [下一步](#cs_6b_datareader)
 
@@ -261,7 +274,7 @@ SELECT
 
 
 <a name="cs_6b_datareader"/>
-### <a name="c-block-6b-executereader"></a>C# 块 6b：ExecuteReader
+### <a name="c-block-6b-executereader"></a>C# 代码块 6b：ExecuteReader
 
 - [上一步](#cs_6_selectrows) &nbsp; / &nbsp; [下一步](#cs_7_executenonquery)
 
@@ -297,7 +310,7 @@ SELECT
 
 
 <a name="cs_7_executenonquery"/>
-### <a name="c-block-7-executenonquery"></a>C# 块 7：ExecuteNonQuery
+### <a name="c-block-7-executenonquery"></a>C# 代码块 7：ExecuteNonQuery
 
 - [上一步](#cs_6b_datareader) &nbsp; / &nbsp; [下一步](#cs_8_output)
 
@@ -335,7 +348,7 @@ SELECT
 
 
 <a name="cs_8_output"/>
-### <a name="c-block-8-actual-test-output-to-the-console"></a>C# 块 8：控制台的实际测试输出
+### <a name="c-block-8-actual-test-output-to-the-console"></a>C# 代码块 8：控制台的实际测试输出
 
 - [上一步](#cs_7_executenonquery)
 

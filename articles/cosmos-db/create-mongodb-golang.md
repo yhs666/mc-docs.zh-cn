@@ -1,25 +1,23 @@
 ---
-title: Azure Cosmos DB：使用 Golang 和 Azure 门户生成 MongoDB API 控制台应用 | Azure
+title: 使用 Golang 和 Azure 门户通过适用于 MongoDB 的 Azure Cosmos DB API 构建控制台应用
 description: 演示一个可以用来连接和查询 Azure Cosmos DB 的 Golang 代码示例
 services: cosmos-db
 author: rockboyfor
-manager: digimobile
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.devlang: na
 ms.topic: quickstart
 origin.date: 07/21/2017
-ms.date: 12/03/2018
+ms.date: 12/31/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 83d1e21a246ff8008483f61f70a32223c0498945
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 6785d2e772fa09391d9ca62cc7e55636aa07f8d2
+ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674421"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814752"
 ---
-# <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB：使用 Golang 和 Azure 门户生成 MongoDB API 控制台应用
+# <a name="build-a-console-app-with-golang-and-the-azure-portal-using-azure-cosmos-db-api-for-mongodb"></a>使用 Golang 和 Azure 门户通过适用于 MongoDB 的 Azure Cosmos DB API 构建控制台应用
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -35,9 +33,9 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 <!-- Notice: global to multiple-region -->
 <!-- Not Available on key/value an dGraph -->
 
-本快速入门演示如何使用以 [Golang](https://golang.org/) 编写的现有 MongoDB 应用，并使用 [MongoDB API](mongodb-introduction.md) 将其连接到支持 MongoDB 客户端连接的 Azure Cosmos DB 数据库。
+本快速入门演示了如何使用以 [Golang](https://golang.org/) 编写的现有 MongoDB 应用，并使用适用于 MongoDB 的 Azure Cosmos DB API 将其连接到支持 MongoDB 客户端连接的 Azure Cosmos DB 数据库。
 
-换而言之，Golang 应用程序仅知道它要使用 MongoDB API 连接到某个数据库。 应用程序完全知道数据存储在 Azure Cosmos DB 中。
+换而言之，Golang 应用程序仅知道它要使用适用于 MongoDB 的 Azure Cosmos DB API 连接到某个数据库。 应用程序完全知道数据存储在 Azure Cosmos DB 中。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -46,7 +44,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
   [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 - [Go](https://golang.org/dl/) 以及 [Go](https://golang.org/) 语言的基础知识。
-- IDE — [GoLand](https://www.jetbrains.com/go/)（由 Jetbrains 推出）、[Visual Studio Code](https://code.visualstudio.com/)（由 Microsoft 推出）或 [Atom](https://atom.io/)。 本教程使用 Goglang。
+- IDE — [GoLand](https://www.jetbrains.com/go/)（由 Jetbrains 推出）、[Visual Studio Code](https://code.visualstudio.com/)（由 Microsoft 推出）或 [Atom](https://atom.io/)。 在本教程中，我将使用 GoLand。
 
 <a name="create-account"></a>
 ## <a name="create-a-database-account"></a>创建数据库帐户
@@ -69,7 +67,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
     go get gopkg.in/mgo.v2
     ```
 
-[mgo](http://labix.org/mgo) 驱动程序是适用于 [Go 语言](http://golang.org/)的 [MongoDB](http://www.mongodb.org/) 驱动程序，该语言采用很简单的 API 和标准的 GO 惯用语，实现了多种经过严格测试的精选功能。
+[mgo](https://labix.org/mgo) 驱动程序是适用于 [Go 语言](https://golang.org/)的 [MongoDB](https://www.mongodb.com/) 驱动程序，该语言采用很简单的 API 和标准的 GO 惯用语，实现了多种经过严格测试的精选功能。
 
 <a name="connection-string"></a>
 
@@ -101,9 +99,9 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
 ### <a name="connecting-the-go-app-to-azure-cosmos-db"></a>将 Go 应用连接到 Azure Cosmos DB
 
-Azure Cosmos DB 支持启用了 SSL 的 MongoDB。 若要连接到启用了 SSL 的 MongoDB，需在 [mgo.DialInfo](http://gopkg.in/mgo.v2#DialInfo) 中定义 **DialServer** 函数，并使用 [tls.*Dial*](http://golang.org/pkg/crypto/tls#Dial) 函数进行连接。
+Azure Cosmos DB 支持启用了 SSL 的 MongoDB。 若要连接到启用了 SSL 的 MongoDB，需在 [mgo.DialInfo](https://godoc.org/gopkg.in/mgo.v2#DialInfo) 中定义 **DialServer** 函数，并使用 [tls.*Dial*](https://golang.org/pkg/crypto/tls#Dial) 函数进行连接。
 
-以下 Golang 代码片段通过 Azure Cosmos DB MongoDB API 连接 Go 应用。 *DialInfo* 类包含与 MongoDB 群集建立会话的选项。
+以下 Golang 代码片段通过适用于 MongoDB 的 Azure Cosmos DB API 连接 Go 应用。 *DialInfo* 类包含与 MongoDB 群集建立会话的选项。
 
 ```go
 // DialInfo holds options for establishing a session with a MongoDB cluster.
@@ -258,6 +256,6 @@ if err != nil {
 本快速入门教程已介绍如何创建 Azure Cosmos DB 帐户和使用 API for MongoDB 运行 Golang 应用。 现在可以将其他数据导入 Cosmos DB 帐户。 
 
 > [!div class="nextstepaction"]
-> [将 MongoDB API 的数据导入 Azure Cosmos DB](mongodb-migrate.md)
+> [将数据导入到适用于 MongoDB 的 Azure Cosmos DB API](mongodb-migrate.md)
 
-<!--Update_Description: update meta properties, wording update  -->
+<!--Update_Description: update meta properties, wording update, update link -->

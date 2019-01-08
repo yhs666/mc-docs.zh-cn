@@ -1,24 +1,24 @@
 ---
-title: 使用 JavaScript SDK 生成 Node.js Web 应用，以管理 Azure Cosmos DB SQL API 数据 | Azure
-description: 此 Node.js 教程探讨了如何使用 Azure Cosmos DB 存储和访问托管在 Azure 网站上的 Node.js Express Web 应用程序中的数据。
-services: cosmos-db
+title: 教程：使用 JavaScript SDK 生成 Node.js Web 应用，以管理 Azure Cosmos DB SQL API 数据
+description: 此 Node.js 教程探讨了如何使用 Azure Cosmos DB 通过在 Azure 应用服务的 Web 应用功能中托管的 Node.js Express Web 应用程序存储和访问数据。
 author: rockboyfor
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: tutorial
-origin.date: 09/24/2018
-ms.date: 12/03/2018
+origin.date: 12/10/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: 67ad4e448ed15dee02fca9f2ed9c4c5d6b43ed4e
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
+ms.openlocfilehash: cc38a33580baf3bab4e44e6467ef58be78b74c11
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674395"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026792"
 ---
 <a name="_Toc395783175"></a>
-# <a name="tutorial-build-a-nodejs-web-app-using-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>教程：使用 JavaScript SDK 生成 Node.js Web 应用以管理 Azure Cosmos DB SQL API 数据
+# <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>教程：使用 JavaScript SDK 生成 Node.js Web 应用，以便在 Azure Cosmos DB 中管理 SQL API 帐户 
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -28,11 +28,9 @@ ms.locfileid: "52674395"
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
-本 Node.js 教程介绍了如何使用在 Azure 网站上托管的 Node.js Express 应用程序，通过 Azure Cosmos DB SQL API 帐户存储和访问数据。 在本教程中，需生成一个基于 Web 的应用程序（待办事项应用）来创建、检索和完成任务。 任务存储为 Azure Cosmos DB 中的 JSON 文档。 
+作为开发人员，你可能有使用 NoSQL 文件数据的应用程序。 可以使用 Azure Cosmos DB 中的 SQL API 帐户存储和访问此文档数据。 本 Node.js 教程介绍了如何使用在 Azure 应用服务的 Web 应用功能上托管的 Node.js Express 应用程序，通过 Azure Cosmos DB 中的 SQL API 帐户存储和访问数据。 在本教程中，需生成一个基于 Web 的应用程序（待办事项应用）来创建、检索和完成任务。 任务存储为 Azure Cosmos DB 中的 JSON 文档。 
 
-本教程演示如何使用 Azure 门户创建 Azure Cosmos DB SQL API 帐户， 然后生成并运行一个基于 Node.js SDK 的 Web 应用，以便创建数据库和容器并向容器添加项。 本教程使用 JavaScript SDK 版本 2.0。
-
-也可从 [GitHub][GitHub] 获取完成的示例，然后查看[自述](https://github.com/Azure-Samples/documentdb-node-todo-app/blob/master/README.md)文件来了解如何运行应用。
+本教程演示如何使用 Azure 门户在 Azure Cosmos DB 中创建 SQL API 帐户， 然后生成并运行一个基于 Node.js SDK 的 Web 应用，以便创建数据库和容器并向容器添加项。 本教程使用 JavaScript SDK 版本 2.0。
 
 本教程涵盖以下任务：
 
@@ -45,18 +43,18 @@ ms.locfileid: "52674395"
 <a name="_Toc395783176"></a>
 ## <a name="prerequisites"></a>先决条件
 
-在按照本文中的说明操作之前，请确保具备以下资源：rrrrrrrrrrrr
+在按照本文中的说明操作之前，请确保具备以下资源：
 
 * 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [Node.js][Node.js] 6.10 或更高版本。
-* [Express 生成器](http://www.expressjs.com/starter/generator.html)（可以通过 `npm install express-generator -g` 安装 Express）
+* [Express 生成器](https://www.expressjs.com/starter/generator.html)（可以通过 `npm install express-generator -g` 安装 Express）
 * 在本地工作站上安装 [Git][Git]。
 
 <a name="_Toc395637761"></a>
-## <a name="step-1-create-an-azure-cosmos-db-account"></a>步骤 1：创建 Azure Cosmos DB 帐户
+## <a name="create-an-azure-cosmos-db-account"></a>创建 Azure Cosmos DB 帐户
 首先创建一个 Azure Cosmos DB 帐户。 如果已有一个帐户，或者要在本教程中使用 Azure Cosmos DB 模拟器，可以跳到[步骤 2：创建新的 Node.js 应用程序](#_Toc395783178)。
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
@@ -64,8 +62,8 @@ ms.locfileid: "52674395"
 [!INCLUDE [cosmos-db-keys](../../includes/cosmos-db-keys.md)]
 
 <a name="_Toc395783178"></a>
-## <a name="step-2-create-a-new-nodejs-application"></a>步骤 2：新建 Node.js 应用程序
-现在让我们来了解如何使用 [Express](http://expressjs.com/) 框架创建基本的 Hello World Node.js 项目。
+## <a name="create-a-new-nodejs-application"></a>创建新的 Node.js 应用程序
+现在让我们来了解如何使用 Express 框架创建基本的 Hello World Node.js 项目。
 
 1. 打开首选终端，例如 Node.js 命令提示符。
 
@@ -97,7 +95,7 @@ ms.locfileid: "52674395"
  停止应用程序的方法是先在终端窗口中按 CTRL+C，然后选择“y”终止批处理作业。
 
 <a name="_Toc395783179"></a>
-## <a name="step-3-install-the-required-modules"></a>步骤 3：安装所需的模块
+## <a name="install-the-required-modules"></a>安装所需的模块
 
 **package.json** 文件是在项目的根目录中创建的文件之一。 此文件包含一系列其他模块，它们是 Node.js 应用程序必需的。 在将此应用程序部署到 Azure 时，请使用此文件以确定应该在 Azure 上安装哪些模块来支持应用程序。 为本教程再安装两个包。
 
@@ -114,15 +112,15 @@ ms.locfileid: "52674395"
     ```
 
 <a name="_Toc395783180"></a>
-## <a name="step-4-connect-the-nodejs-application-to-azure-cosmos-db"></a>步骤 4：将 Node.js 应用程序连接到 Azure Cosmos DB
+## <a name="connect-the-nodejs-application-to-azure-cosmos-db"></a>将 Node.js 应用程序连接到 Azure Cosmos DB
 完成初始安装和配置以后，下一步是编写待办事项应用程序与 Azure Cosmos DB 通信所需的代码。
 
 ### <a name="create-the-model"></a>创建模型
-1. 在项目的根目录中，创建名为 **models**的新目录  
+1. 在项目的根目录中，创建名为 **models**的新目录。  
 
-2. 在 **models** 目录中，创建一个名为 **taskDao.js** 的新文件。 此文件包含创建数据库和容器所需的代码，并定义在 Azure Cosmos DB 中读取、更新、创建和查找任务所需的方法。 
+2. 在 **models** 目录中，创建一个名为 **taskDao.js** 的新文件。 此文件包含创建数据库和容器所需的代码， 并定义在 Azure Cosmos DB 中读取、更新、创建和查找任务所需的方法。 
 
-3. 将以下代码复制到“taskDao.js”文件中
+3. 将以下代码复制到“taskDao.js”文件中：
 
    ```nodejs
    // @ts-check
@@ -368,11 +366,11 @@ ms.locfileid: "52674395"
 3. 最后，保存并关闭 **app.js** 文件。
 
 <a name="_Toc395783181"></a>
-## <a name="step-5-build-a-user-interface"></a>步骤 5：生成用户界面
+## <a name="build-a-user-interface"></a>生成用户界面
 
-现在让我们生成用户界面，使用户能够与应用程序交互。 我们在前述部分创建的 Express 应用程序使用 **Jade** 作为视图引擎。 有关 Jade 的详细信息，请参阅 [Jade 语言](http://jade-lang.com/)。
+现在让我们生成用户界面，使用户能够与应用程序交互。 我们在前述部分创建的 Express 应用程序使用 **Jade** 作为视图引擎。
 
-1. **views** 目录中的 **layout.jade** 文件用作其他 **.jade** 文件的多区域模板。 在此步骤中，将对其进行修改，让其使用 [Twitter Bootstrap](https://github.com/twbs/bootstrap)（一个用于设计网站的工具包）。  
+1. **views** 目录中的 **layout.jade** 文件用作其他 **.jade** 文件的多区域模板。 在此步骤中，将对其进行修改，让其使用 Twitter Bootstrap（一个用于设计网站的工具包）。  
 
 2. 打开 **views** 文件夹中的 **layout.jade** 文件，将内容替换为以下代码：
 
@@ -445,14 +443,16 @@ ms.locfileid: "52674395"
 第二个窗体包含两个输入字段和一个按钮，可以通过该按钮将内容发布到控制器的 **/addtask** 方法，以便新建项。 这是运行应用程序所需的一切。
 
 <a name="_Toc395783181"></a>
-## <a name="step-6-run-your-application-locally"></a>步骤 6：在本地运行应用程序
+## <a name="run-your-application-locally"></a>在本地运行应用程序
+
+生成应用程序以后，即可通过以下步骤在本地运行它：  
 
 1. 若要在本地计算机上测试应用程序，请在终端中运行 `npm start` 以启动应用程序，然后刷新 [http://localhost:3000](http://localhost:3000) 浏览器页。 该页现在应该如以下屏幕截图所示：
 
     ![浏览器窗口中 MyTodo List 应用程序的屏幕截图](./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png)
 
     > [!TIP]
-    > 如果收到有关 layout.jade 文件或 index.jade 文件的缩进错误，请确保这两个文件的前两行已经左对齐且没有空格。 如果前两行前面有空格，请删除空格并保存这两个文件，并刷新浏览器窗口。 
+    > 如果收到有关 layout.jade 文件或 index.jade 文件的缩进错误，请确保这两个文件中的头两行都已经左对齐，没有空格。 如果头两行之前留有空格，请删除这些空格，将这两个文件保存，然后刷新浏览器窗口。 
 
 2. 使用“项”、“项名”和“类别”字段输入新任务，然后选择“添加项”。 此时会在 Azure Cosmos DB 中创建具有这些属性的文档。 
 
@@ -465,36 +465,38 @@ ms.locfileid: "52674395"
 5. 若要停止应用程序，请在终端窗口中按 CTRL+C，然后选择“Y”以终止批处理作业。
 
 <a name="_Toc395783182"></a>
-## <a name="step-7-deploy-your-application-to-azure-websites"></a>步骤 7：将应用程序部署到 Azure 网站
+## <a name="deploy-your-application-to-web-apps"></a>将应用程序部署到 Web 应用
 
-1. 启用 Azure 网站的 git 存储库（如果尚未启用）。 可以在[从本地 Git 部署到 Azure 应用服务](../app-service/app-service-deploy-local-git.md)主题中找到如何启用 git 存储库的说明。
+应用程序在本地成功以后，即可通过以下步骤将其部署到 Azure：
 
-2. 将 Azure 网站添加为 git 远程。
+1. 启用 Web 应用应用程序的 git 存储库（如果尚未启用）。
 
-   ```bash
-   git remote add azure https://username@your-azure-website.scm.chinacloudsites.cn:443/your-azure-website.git
-   ```
+2. 将 Web 应用应用程序添加为 git 远程。
+
+    ```bash
+    git remote add azure https://username@your-azure-website.scm.chinacloudsites.cn:443/your-azure-website.git
+    ```
 
 3. 通过将应用程序推送到远程群集来部署应用程序。
 
-   ```bash
-   git push azure master
-   ```
+    ```bash
+    git push azure master
+    ```
 
 4. 几秒钟后，Web 应用程序就会发布完毕并在浏览器中启动。
 
-若需下载或参考本教程的完整参考应用程序，可从 [GitHub][GitHub] 下载。
+## <a name="clean-up-resources"></a>清理资源
+
+不再需要资源组、Azure Cosmos DB 帐户和所有相关的资源时，可将这些资源删除。 为此，请选择用于 Azure Cosmos DB 帐户的资源组，接着选择“删除”，然后确认要删除的资源组的名称。
 
 <a name="_Toc395637775"></a>
 ## <a name="next-steps"></a>后续步骤
 
-本教程介绍了如何使用 JavaScript SDK 生成 Node.js Web 应用以管理 Azure Cosmos DB SQL API 数据。 你现在可以继续学习下一篇文章：
-
 > [!div class="nextstepaction"]
 > [使用 Xamarin 和 Azure Cosmos DB 构建移动应用程序](mobile-apps-with-xamarin.md)
 
-[Node.js]: http://nodejs.org/
-[Git]: http://git-scm.com/
+[Node.js]: https://nodejs.org/
+[Git]: https://git-scm.com/
 [GitHub]: https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-todo-app
 
 <!-- Update_Description: update meta properties, wroding update, update link  -->

@@ -1,6 +1,6 @@
 ---
-title: 如何在 Azure Active Directory 中还原或永久删除最近删除的用户 | Microsoft Docs
-description: 了解如何使用 Azure Active Directory 查看可还原的用户、还原已删除的用户或永久删除用户。
+title: 还原或永久删除最近删除的用户 - Azure Active Directory | Microsoft Docs
+description: 如何使用 Azure Active Directory 查看可还原的用户、还原已删除的用户或永久删除用户。
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -8,19 +8,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
-origin.date: 09/06/2018
-ms.date: 11/13/2018
+origin.date: 12/17/2018
+ms.date: 01/02/2019
 ms.author: v-junlch
 ms.reviewer: jeffsta
-ms.custom: it-pro
-ms.openlocfilehash: 40dcef26375685151ec1a2df858e563ae78e2916
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 8114e01c8c7e46db5fbee3af7cf749a0573f51ad
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649682"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996197"
 ---
-# <a name="how-to-restore-or-permanently-remove-a-recently-deleted-user-with-azure-active-directory"></a>如何：使用 Azure Active Directory 还原或永久删除最近删除的用户
+# <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>使用 Azure Active Directory 还原或删除最近删除的用户
 删除用户后，帐户将保持挂起状态 30 天。 在此 30 天期间，可以还原用户帐户及其所有属性。 30 天期限过后，将自动且永久删除用户。
 
 可在 Azure 门户中使用 Azure Active Directory (Azure AD) 查看可还原的用户、还原已删除的用户或永久删除用户。
@@ -57,6 +57,9 @@ ms.locfileid: "52649682"
 
     ![“用户 - 已删除的用户”页，其中突出显示“还原用户”选项](./media/active-directory-users-restore/users-deleted-users-restore-user.png)
 
+>[!NOTE]
+>以前，将用户从本地同步范围中删除并在云中删除时，该帐户的 DirSyncEnabled 状态被错误地设置为“False”。 如果之后从 Azure AD 回收站手动还原该用户，则会显示“仅限云”帐户的状态不正确。 现在已修复此问题，并且当用户从同步范围中删除，然后软删除并从 Azure AD 回收站手动还原时，DirSyncEnabled 状态的值始终保持为“True”。
+
 ## <a name="permanently-delete-a-user"></a>永久删除用户
 可从目录中永久删除用户，无需等待 30 天后自动删除。 你本人、其他管理员和 Microsoft 客户支持人员不能还原已永久删除的用户。
 
@@ -82,3 +85,4 @@ ms.locfileid: "52649682"
 
 有关其他可用的用户管理任务的详细信息，请参阅 [Azure Active Directory 用户管理文档](../users-groups-roles/index.yml)。
 
+<!-- Update_Description: wording update -->

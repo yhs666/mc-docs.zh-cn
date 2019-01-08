@@ -1,5 +1,5 @@
 ---
-title: 快速入门 - 使用 Azure CLI 和 Java 通过 Azure 服务总线发送和接收消息 | Azure
+title: 快速入门 - 使用 Azure CLI 和 Java 通过 Azure 服务总线发送和接收消息 | Azure Docs
 description: 本快速入门介绍如何使用 Azure CLI 和示例 Java 应用程序发送和接收 Azure 服务总线消息
 services: service-bus-messaging
 author: lingliw
@@ -7,19 +7,19 @@ manager: digimobile
 ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
-origin.date: 09/22/2018
-ms.date: 10/31/2018
+origin.date: 12/24/2018
+ms.date: 12/24/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 20a37c1135cbccdd5ebcc00d7b5ae07047a9a9ae
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 7db02bd7ca066c4100789fb4beaaf653c31eb24d
+ms.sourcegitcommit: 649f5093a9a9a89f4117ae3845172997922aec31
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643665"
+ms.lasthandoff: 12/24/2018
+ms.locfileid: "53784566"
 ---
 # <a name="quickstart-send-and-receive-messages-using-azure-cli-and-java"></a>快速入门：使用 Azure CLI 和 Java 发送和接收消息
 
-Azure 服务总线是一种提供安全消息传送和可靠性的企业集成消息中转站。 典型的服务总线方案通常涉及将两个或更多应用程序、服务或进程彼此解耦（应用程序不需同时联机）、传输状态或数据更改，以及在应用程序之间发送消息。 
+21Vianet Azure 服务总线是一种提供安全消息传送和可靠性的企业集成消息中转站。 典型的服务总线方案通常涉及将两个或更多应用程序、服务或进程彼此解耦（应用程序不需同时联机）、传输状态或数据更改，以及在应用程序之间发送消息。 
 
 例如，零售公司可能会将其销售点数据发送到后端办公系统或区域配送中心，以便进行补货和库存更新。 在这种情况下，客户端应用会将消息发送到服务总线队列并从中接收消息：
 
@@ -39,23 +39,22 @@ Azure 服务总线是一种提供安全消息传送和可靠性的企业集成�
 
 在 Cloud Shell 中的 Bash 提示符下，发出以下命令以预配服务总线资源。 请务必将所有占位符替换为适当的值：
 
-```azurecli
-# Create a resource group
+```Azure CLI
+# <a name="create-a-resource-group"></a>创建资源组
 az group create --name myResourceGroup --location chinaeast
 
-# Create a Service Bus messaging namespace with a unique name
-namespaceName=myNameSpace$RANDOM
-az servicebus namespace create \
+# <a name="create-a-service-bus-messaging-namespace-with-a-unique-name"></a>创建具有唯一名称的服务总线消息传递命名空间
+namespaceName=myNameSpace$RANDOM az servicebus namespace create \
    --resource-group myResourceGroup \
    --name $namespaceName \
    --location chinaeast
 
-# Create a Service Bus queue
+# <a name="create-a-service-bus-queue"></a>创建服务总线队列
 az servicebus queue create --resource-group myResourceGroup \
    --namespace-name $namespaceName \
    --name myQueue
 
-# Get the connection string for the namespace
+# <a name="get-the-connection-string-for-the-namespace"></a>获取命名空间的连接字符串
 connectionString=$(az servicebus namespace authorization-rule keys list \
    --resource-group myResourceGroup \
    --namespace-name  $namespaceName \
@@ -63,15 +62,15 @@ connectionString=$(az servicebus namespace authorization-rule keys list \
    --query primaryConnectionString --output tsv)
 ```
 
-运行最后一个命令后，将所选的连接字符串和队列名称复制并粘贴到一个临时位置，例如记事本。 在下一步中将要使用它。
+After the last command runs, copy and paste the connection string, and the queue name you selected, to a temporary location such as Notepad. You will need it in the next step.
 
-## <a name="send-and-receive-messages"></a>发送和接收消息
+## Send and receive messages
 
-创建命名空间和队列并且拥有所需的凭据后，便可以发送和接收消息。 可以在[此 GitHub 示例文件夹](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/quickstarts-and-tutorials/quickstart-java/src/main/java/samples/quickstart/SendAndReceiveMessages.java)中检查代码。
+After you've created the namespace and queue, and you have the necessary credentials, you are ready to send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/quickstarts-and-tutorials/quickstart-java/src/main/java/samples/quickstart/SendAndReceiveMessages.java).
 
-1. 请确保 Cloud Shell 已打开并显示了 Bash 提示符。
+1. Make sure that Cloud Shell is open and displaying the Bash prompt.
 
-2. 通过发出以下命令克隆[服务总线 GitHub 存储库](https://github.com/Azure/azure-service-bus/)：
+2. Clone the [Service Bus GitHub repository](https://github.com/Azure/azure-service-bus/) by issuing the following command:
 
    ```bash
    git clone https://github.com/Azure/azure-service-bus.git
@@ -103,17 +102,16 @@ connectionString=$(az servicebus namespace authorization-rule keys list \
 
 运行以下命令来删除资源组、命名空间和所有相关资源：
 
-```azurecli
-az group delete --resource-group myResourceGroup
+```Azure CLI az group delete --resource-group myResourceGroup
 ```
 
-## <a name="understand-the-sample-code"></a>了解示例代码
+## Understand the sample code
 
-此部分详述了示例代码的重要节。 可以浏览[此处](https://github.com/Azure/azure-service-bus/blob/master/samples/Java/quickstarts-and-tutorials/quickstart-java/src/main/java/samples/quickstart/SendAndReceiveMessages.java)的 GitHub 存储库提供的代码。
+This section contains more details about key sections of the sample code. You can browse the code, located in the GitHub repository [here](https://github.com/Azure/azure-service-bus/blob/master/samples/Java/quickstarts-and-tutorials/quickstart-java/src/main/java/samples/quickstart/SendAndReceiveMessages.java).
 
-### <a name="get-connection-string-and-queue"></a>获取连接字符串和队列
+### Get connection string and queue
 
-首先，代码声明了两个在命令行中作为参数传递给程序的字符串变量：
+First, the code declares two string variables that are passed to the program as arguments on the command line:
 
 ```java
 String ConnectionString = null;

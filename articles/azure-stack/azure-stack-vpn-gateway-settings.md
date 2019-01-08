@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 08/14/2018
-ms.date: 10/15/2018
+ms.date: 12/31/2018
 ms.author: v-jay
-ms.openlocfilehash: 32b74cf5ded684f83a2e32f95a22c831b8d48ad0
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f617326bf61356da291655ce0da7c5a228f4c84d
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656927"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814621"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Azure Stack 的 VPN 网关配置设置
 
@@ -186,7 +186,7 @@ Azure Stack 仅支持一个产品/服务，这与 Azure 不同，后者支持将
 |加密和哈希算法（加密）     | GCMAES256|
 |加密和哈希算法（身份验证） | GCMAES256|
 |SA 生存期（时间）  | 27,000 秒  |
-|SA 生存期（字节数） | 33,553,408     |
+|SA 生存期（千字节） | 33,553,408     |
 |完全向前保密 (PFS) |无<sup>请参阅注释 1</sup> |
 |死对等体检测 | 支持|  
 

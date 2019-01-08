@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 11/06/2018
-ms.date: 12/03/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: a40fbd6ab483e47c2afa3d47f850f9e36ad08bd0
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 82feb97e990c04d1e08f08c61b7285b179f58d58
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676465"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026838"
 ---
 # <a name="create-a-container-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中创建容器
 
@@ -22,7 +22,7 @@ ms.locfileid: "52676465"
 ## <a name="create-a-container-using-azure-portal"></a>使用 Azure 门户创建容器
 
 <a name="portal-sql"></a>
-### <a name="sql-core-api"></a>SQL（核心）API
+### <a name="sql-api"></a>SQL API
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 
@@ -32,7 +32,6 @@ ms.locfileid: "52676465"
 
    * 创建新数据库或使用现有数据库。
    * 输入集合 ID。
-   * 对于“无限制”存储容量。
    * 输入分区键。
    * 输入吞吐量，例如 1000 RU。
    * 选择“确定” 。
@@ -40,7 +39,7 @@ ms.locfileid: "52676465"
 ![SQL API 会创建一个集合。](./media/how-to-create-container/partitioned-collection-create-sql.png)
 
 <a name="portal-mongodb"></a>
-### <a name="mongodb-api"></a>MongoDB API
+### <a name="azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB 的用于 MongoDB 的 API
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 
@@ -55,7 +54,7 @@ ms.locfileid: "52676465"
    * 输入吞吐量，例如 1000 RU。
    * 选择“确定” 。
 
-![MongoDB API 会创建一个集合](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
+![Azure Cosmos DB 的用于 MongoDB 的 API 创建集合](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
 
 <a name="portal-cassandra"></a>
 <!-- Not Available on ### Cassandra API-->
@@ -68,10 +67,10 @@ ms.locfileid: "52676465"
 ## <a name="create-a-container-using-azure-cli"></a>使用 Azure CLI 创建容器
 
 <a name="cli-sql"></a>
-### <a name="sql-core-api"></a>SQL（核心）API
+### <a name="sql-api"></a>SQL API
 
-```azurecli
-# Create a container with a partition key and provision 1000 RU/s throughput.
+```Azure CLI
+# <a name="create-a-container-with-a-partition-key-and-provision-1000-rus-throughput"></a>创建具有分区键的容器并预配 1000 RU/秒的吞吐量。
 
 az cosmosdb collection create \
     --resource-group $resourceGroupName \
@@ -83,9 +82,9 @@ az cosmosdb collection create \
 ```
 
 <a name="cli-mongodb"></a>
-### <a name="mongodb-api"></a>MongoDB API
+### Azure Cosmos DB's API for MongoDB
 
-```azurecli
+```Azure CLI
 # Create a collection with a shard key and provision 1000 RU/s throughput.
 az cosmosdb collection create \
     --resource-group $resourceGroupName \
@@ -124,7 +123,7 @@ await client.CreateDocumentCollectionAsync(
 ```
 
 <a name="dotnet-mongodb"></a>
-### <a name="mongodb-api"></a>MongoDB API
+### <a name="azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB 的用于 MongoDB 的 API
 
 ```csharp
 // Create a collection with a partition key by using Mongo Shell:
@@ -132,7 +131,7 @@ db.runCommand( { shardCollection: "myDatabase.myCollection", key: { myShardKey: 
 ```
 
 > [!Note]
-> MongoDB 没有请求单位的概念。 若要创建新的包含吞吐量的集合，请使用 Azure 门户或 SQL API，如前面的示例所示。
+> MongoDB 线路协议没有请求单位的概念。 若要创建新的包含吞吐量的集合，请使用 Azure 门户或 SQL API，如前面的示例所示。
 
 <a name="dotnet-cassandra"></a>
 <!-- Not Available on ### Cassandra API-->

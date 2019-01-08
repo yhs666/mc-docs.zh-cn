@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 07/27/2017
-ms.date: 06/04/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 51969b1ec14fd426d10c78fe15a4870d587525c4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c1eb4f1405c20f1c008625af6536e808192688b3
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649248"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736114"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>教程：在 Azure 中备份和还原 Windows 虚拟机的文件
 
@@ -35,7 +35,7 @@ ms.locfileid: "52649248"
 
 ## <a name="backup-overview"></a>备份概述
 
-当 Azure 备份服务启动备份作业时，将触发备份扩展来创建时间点快照。 Azure 备份服务使用 _VMSnapshot_ 扩展。 该扩展是在首次 VM 备份（如果 VM 正在运行）期间安装的。 如果 VM 未运行，备份服务会创建基础存储的快照（因为在 VM 停止时不会发生任何应用程序写入）。
+当 Azure 备份服务启动备份作业时，将触发备份扩展来创建时间点快照。 Azure 备份服务使用 _VMSnapshot_ 扩展。 该扩展是在首次 VM 备份（如果 VM 正在运行）期间安装的。 如果 VM 未运行，备份服务将创建基础存储的快照（因为在 VM 停止时不会发生任何应用程序写入）。
 
 创建 Windows VM 快照时，备份服务与卷影复制服务 (VSS) 互相配合，来获取虚拟机磁盘的一致性快照。 Azure 备份服务创建快照后，数据将传输到保管库。 为最大限度地提高效率，服务仅标识和传输自上次备份以后已更改的数据块。
 
@@ -47,7 +47,7 @@ ms.locfileid: "52649248"
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 2. 在左侧菜单中选择“虚拟机”。 
 3. 从列表中选择要备份的 VM。
-4. 在 VM 边栏选项卡上的“设置”部分中，单击“备份”。 此时会打开“启用备份”边栏选项卡。
+4. 在 VM 边栏选项卡上的“操作”部分中，单击“备份”。 此时会打开“启用备份”边栏选项卡。
 5. 在“恢复服务保管库”中，单击“新建”并为新保管库提供名称。 将在与虚拟机相同的资源组和位置中创建新保管库。
 6. 单击“备份策略”。 对于本示例，请保留默认值，并单击“确定”。
 7. 在“启用备份”边栏选项卡中，单击“启用备份”。 这会根据默认的计划创建每日备份。
@@ -79,19 +79,19 @@ ms.locfileid: "52649248"
 6. 在左侧菜单中，选择“虚拟机”，并从列表中选择 VM。
 8. 在 VM 边栏选项卡上的“设置”部分中，单击“备份”。 此时会打开“备份”边栏选项卡。 
 9. 在边栏选项卡顶部的菜单中，选择“文件恢复”。 此时会打开“文件恢复”边栏选项卡。
-10. 在“步骤 1: 选择恢复点”中，从下拉列表中选择恢复点。
-11. 在“步骤 2: 下载脚本以浏览并恢复文件”中，单击“下载可执行文件”按钮。 将文件保存到**下载**文件夹。
+10. 在“步骤 1: 选择恢复点”中，从下拉列表中选择一个恢复点。
+11. 在“步骤 2:下载脚本以浏览并恢复文件”中，单击“下载可执行文件”按钮。 将文件保存到**下载**文件夹。
 12. 在本地计算机上，打开**文件资源管理器**，导航到**下载**文件夹并复制所下载的 .exe 文件。 该文件名以 VM 名称作为前缀。 
 13. 在 VM 上（通过 RDP 连接），将该 .exe 文件粘贴到 VM 的桌面。 
 14. 导航到 VM 的桌面并双击该 .exe 文件。 这会启动一个命令提示符，然后将恢复点装载为可以访问的文件共享。 完成该共享创建时，键入 **q** 以关闭命令提示符。
 15. 在 VM 上，打开**文件资源管理器**，导航到用于该文件共享的驱动器号。
 16. 导航到 \inetpub\wwwroot，从文件共享中复制 **iisstart.png** 并将其粘贴到 \inetpub\wwwroot 中。 例如，复制 F:\inetpub\wwwroot\iisstart.png 并将其粘贴到 c:\inetpub\wwwroot 中以恢复该文件。
 17. 在本地计算机上，打开从中连接到 VM 的 IP 地址的浏览器选项卡，其中显示了 IIS 默认页面。 按 CTRL + F5 刷新浏览器页面。 现在，应该会看到图像已还原。
-18. 在本地计算机上，返回到 Azure 门户的浏览器选项卡，并在“步骤 3: 恢复后卸载磁盘”中单击“卸载磁盘”按钮。 如果忘记执行此步骤，与装入点的连接会在 12 小时后自动关闭。 在这 12 个小时后，若要创建新的装入点，需要下载新脚本。
+18. 在本地计算机上，返回到 Azure 门户的浏览器选项卡，在“步骤 3:在恢复后卸载磁盘”中，单击“卸载磁盘”按钮。 如果忘记执行此步骤，与装入点的连接会在 12 小时后自动关闭。 在这 12 个小时后，若要创建新的装入点，需要下载新脚本。
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，你已学习了如何执行以下操作：
+本教程介绍了如何：
 
 > [!div class="checklist"]
 > * 创建 VM 的备份
@@ -102,4 +102,5 @@ ms.locfileid: "52649248"
 
 > [!div class="nextstepaction"]
 > [控制虚拟机](tutorial-govern-resources.md)
-<!-- Update_Description: update meta properties -->
+
+<!-- Update_Description: update meta properties， wording update -->

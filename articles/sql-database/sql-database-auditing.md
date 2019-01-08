@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: vanto
 manager: digimobile
 origin.date: 10/25/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 656bec463fcecf225b38958c448a45f16dda2eb9
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.date: 12/31/2018
+ms.openlocfilehash: 2f5861b718f4d299ff6404a05ef5194b47712400
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672530"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996241"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 数据库审核入门
 
@@ -40,8 +40,6 @@ ms.locfileid: "52672530"
 - **保留** 选定事件的审核痕迹。 可以定义要审核的数据库操作的类别。
 - **报告** 数据库活动。 可以使用预配置的报告和仪表板快速开始使用活动和事件报告。
 - **分析** 报告。 可以查找可疑事件、异常活动和趋势。
-
-可为不同类型的事件类别配置审核，如 [为数据库设置审核](#subheading-2) 部分中所述。
 
 > [!IMPORTANT]
 > 审核日志会写入 Azure 订阅的 Azure Blob 存储中的追加 Blob。
@@ -148,7 +146,7 @@ ms.locfileid: "52672530"
 
 通过异地复制数据库，在主数据库上启用审核时，辅助数据库将有相同的审核策略。 还可以在独立于主数据库的“辅助服务器”上启用审核，从而在辅助数据库上设置审核。
 
-- 服务器级（推荐）：同时在主服务器和辅助服务器上启用审核 - 基于各自的服务器级策略，将分别对主数据库和辅助数据库进行审核。
+- 服务器级（推荐）：服务器级（推荐）：同时在主服务器和辅助服务器上启用审核 - 基于各自的服务器级策略，将分别对主数据库和辅助数据库进行审核。
 - 数据库级：辅助数据库的数据库级审核只能从主数据库审核设置进行配置。
   - 必须在主数据库本身上启用审核，而不是在服务器上启用。
   - 在主数据库上启用审核后，也会在辅助数据库上启用审核。
@@ -190,12 +188,12 @@ ms.locfileid: "52672530"
 
 ## <a id="subheading-7"></a>使用 Azure PowerShell 管理 SQL 数据库审核
 
-**PowerShell cmdlet**：
+**PowerShell cmdlet（包括支持使用 WHERE 子句进行其他筛选）**：
 
-- [创建或更新数据库 Blob 审核策略 (Set-AzureRMSqlDatabaseAuditing)][105]
-- [创建或更新服务器 Blob 审核策略 (Set-AzureRMSqlServerAuditing)][106]
-- [获取数据库审核策略 (Get-AzureRMSqlDatabaseAuditing)][101]
-- [获取服务器 Blob 审核策略 (Get-AzureRMSqlServerAuditing)][102]
+- [创建或更新数据库 Blob 审核策略 (Set-AzSqlDatabaseAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/set-azsqldatabaseauditing)
+- [创建或更新服务器 Blob 审核策略 (Set-AzSqlServerAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/set-azsqlserverauditing)
+- [获取数据库审核策略 (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/get-azsqldatabaseauditing)
+- [获取服务器 Blob 审核策略 (Get-AzSqlServerAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/get-azsqlserverauditing)
 
 有关脚本示例，请参阅[使用 PowerShell 配置审核和威胁检测](scripts/sql-database-auditing-and-threat-detection-powershell.md)。
 
@@ -215,6 +213,12 @@ ms.locfileid: "52672530"
 - [获取数据库扩展 Blob 审核策略](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [获取服务器扩展 Blob 审核策略](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
+## <a id="subheading-10"></a>使用 ARM 模板管理 SQL 数据库审核
+
+可以使用 [Azure 资源管理器](/azure-resource-manager/resource-group-overview)模板管理 Azure SQL 数据库审核，如以下示例中所示：
+
+- [在启用审核的情况下部署 Azure SQL Server 以将审核日志写入到 Azure blob 存储帐户](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
+
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1
 [Set up auditing for your database]: #subheading-2
@@ -224,6 +228,7 @@ ms.locfileid: "52672530"
 [Manage SQL database auditing using Azure PowerShell]: #subheading-7
 [Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)
 [Manage SQL database auditing using REST API]: #subheading-9
+[Manage SQL database auditing using ARM templates]: #subheading-10
 
 <!--Image references-->
 [1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png
@@ -236,10 +241,3 @@ ms.locfileid: "52672530"
 [8]: ./media/sql-database-auditing-get-started/8_auditing_get_started_blob_audit_records.png
 [9]: ./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png
 [10]: ./media/sql-database-auditing-get-started/10_auditing_get_started_ssms_2.png
-
-[101]: https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaseauditing
-[102]: https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditing
-[103]: https://docs.microsoft.com/powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing
-[104]: https://docs.microsoft.com/powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
-[105]: https://docs.microsoft.com/powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditing
-[106]: https://docs.microsoft.com/powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditing

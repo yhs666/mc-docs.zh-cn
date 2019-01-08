@@ -11,12 +11,12 @@ origin.date: 03/27/2018
 ms.date: 09/03/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e849605969268a96af77fe495f2dc028b1928133
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 960a33a7660d3d4bf0e9e60c843640fbf3855c7e
+ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663205"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785169"
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Azure Cosmos DB 中用于保证业务连续性的自动区域性故障转移
 Azure Cosmos DB 可通过提供完全托管的[多区域数据库帐户](distribute-data-globally.md)来简化多区域数据分布。这些帐户在一致性、可用性和性能之间提供明确的折衷，并且全部附带了相应的保证。 Cosmos DB 帐户提供以下优势：高可用性、个位数的毫秒延迟、[妥善定义的一致性级别](consistency-levels.md)、使用多宿主 API 实现透明的区域性故障转移，以及在中国范围内弹性缩放吞吐量和存储。 
@@ -36,7 +36,7 @@ Cosmos DB 支持显式和策略驱动型故障转移，方便用户在发生故�
 在深入探讨故障转移模式之前，我们先介绍如何配置应用程序，以便在需要进行区域性故障转移时充分利用多区域可用性，确保足够的还原能力。
 
 * 首先，在多个区域中部署应用程序
-* 为了确保从每个部署了应用程序的区域进行访问时的低延迟性，请通过一个受支持的 SDK 为每个区域配置相应的[首选区域列表](https://msdn.microsoft.com/library/microsoft.azure.documents.client.connectionpolicy.preferredlocations.aspx#P:Microsoft.Azure.Documents.Client.ConnectionPolicy.PreferredLocations)。
+* 为了确保从每个部署了应用程序的区域进行访问时的低延迟性，请通过一个受支持的 SDK 为每个区域配置相应的[首选区域列表](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations#P:Microsoft.Azure.Documents.Client.ConnectionPolicy.PreferredLocations)。
 
 以下代码片段演示如何初始化多区域应用程序。 其中，Azure Cosmos DB 帐户 `contoso.documents.azure.cn` 配置了两个区域 - 中国北部和中国东部。 
 
@@ -137,7 +137,7 @@ do
 **服务更新**：某些多区域分布式应用程序的部署可能需要在计划内服务更新期间通过流量管理器将流量重新路由到其他区域。 现在，此类应用程序部署可以使用手动故障转移，将写入状态保留给在服务更新时段会有活动流量的区域。
 <!-- Notice: 全球 to 多个区域 -->
 
-**业务连续性和灾难恢复 (BCDR) 以及高可用性和灾难恢复 (HADR) 演练**：大多数企业应用程序在开发和发布过程中都会进行业务连续性测试。 BCDR 和 HADR 测试通常是进行符合性认证的重要一步，并可确保在发生区域性中断时服务的可用性。 可以对使用 Cosmos DB 进行存储的应用程序实施 BCDR 就绪性测试，方法是：触发对 Cosmos DB 帐户的手动故障转移，以及/或者动态添加和删除某个区域。
+**业务连续性和灾难恢复 (BCDR) 与高可用性和灾难恢复 (HADR) 演练**：大多数企业应用程序在开发和发布过程中都会进行业务连续性测试。 BCDR 和 HADR 测试通常是进行合规性认证的重要一步，并可确保在发生区域性中断时服务的可用性。 可以对使用 Cosmos DB 进行存储的应用程序实施 BCDR 就绪性测试，方法是：触发对 Cosmos DB 帐户的手动故障转移，以及/或者动态添加和删除某个区域。
 
 本文探讨了如何在 Cosmos DB 中使用手动和自动故障转移，以及如何配置 Cosmos DB 帐户和应用程序才能让其多区域可用。 可以利用 Cosmos DB 的多区域复制支持改善端到端延迟情况，确保即使在发生区域故障的情况下，也可以顺利使用这些帐户和应用程序。 
 

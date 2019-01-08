@@ -2,27 +2,24 @@
 title: 教程：在 Azure HDInsight 中的 Apache Spark 群集上加载数据并运行查询 | Microsoft Docs
 description: 了解如何在 Azure HDInsight 中的 Spark 群集上加载数据并运行交互式查询。
 services: azure-hdinsight
-author: mumian
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
-ms.devlang: na
 ms.topic: tutorial
-origin.date: 05/17/2018
-ms.date: 06/25/2018
+origin.date: 11/06/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 40091b9b39c691a0549d736371d2ff1e4aeb99b6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e0ecb060484c07a602db0bf4d2cb75660c19965f
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654647"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806630"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>教程：在 Azure HDInsight 中的 Apache Spark 群集上加载数据并运行查询
 
-本教程介绍如何使用从 csv 文件创建数据帧，以及如何针对 Azure HDInsight 中的 Apache Spark 群集运行交互式 Spark SQL 查询。 在 Spark 中，数据帧是已组织成命名列的分布式数据集合。 数据帧在概念上相当于关系型数据库中的表，或 R/Python 中的数据帧。
+本教程介绍如何从 csv 文件创建数据帧，以及如何针对 Azure HDInsight 中的 [Apache Spark](https://spark.apache.org/) 群集运行交互式 Spark SQL 查询。 在 Spark 中，数据帧是已组织成命名列的分布式数据集合。 数据帧在概念上相当于关系型数据库中的表，或 R/Python 中的数据帧。
  
 本教程介绍如何执行下列操作：
 > [!div class="checklist"]
@@ -37,7 +34,7 @@ ms.locfileid: "52654647"
 
 ## <a name="create-a-dataframe-from-a-csv-file"></a>从 csv 文件创建数据帧
 
-应用程序可使用 SQLContext 对象从现有弹性分布式数据集 (RDD)、Hive 表或数据源创建数据帧。 以下屏幕截图显示本教程中所用 HVAC.csv 文件的快照。 所有 HDInsight Spark 群集都随附了该 csv 文件。 该数据捕获了一些建筑物的温度变化。
+应用程序可以直接从远程存储（例如 Azure 存储）上的文件或文件夹创建数据帧；从 Hive 表或从 Spark 支持的其他数据源（例如 Cosmos DB、Azure SQL DB、DW 等）创建数据帧。以下屏幕截图显示本教程中所用 HVAC.csv 文件的快照。 所有 HDInsight Spark 群集都随附了该 csv 文件。 该数据捕获了一些建筑物的温度变化。
     
 ![交互式 Spark SQL 查询的数据快照](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "交互式 Spark SQL 查询的数据快照")
 
@@ -45,7 +42,7 @@ ms.locfileid: "52654647"
 1. 打开在先决条件部分中创建的 Jupyter 笔记本。
 2. 在 Notebook 的空单元格中粘贴以下代码，然后按 **SHIFT + ENTER** 运行这些代码。 该代码导入此方案所需的类型：
 
-    ```PySpark
+    ```python
     from pyspark.sql import *
     from pyspark.sql.types import *
     ```
@@ -56,14 +53,14 @@ ms.locfileid: "52654647"
 
 3. 运行以下代码，创建数据帧和临时表 (hvac)。 
 
-    ```PySpark
-    # Create an RDD from sample data
-    csvFile = spark.read.csv('wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv', header=True, inferSchema=True)
+    ```python
+    # Create a dataframe and table from sample data
+    csvFile = spark.read.csv('/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv', header=True, inferSchema=True)
     csvFile.write.saveAsTable("hvac")
     ```
 
     > [!NOTE]
-    > 通过使用 PySpark 内核创建 Notebook，在运行第一个代码单元格时，系统会自动创建 SQL 上下文。 不需要显式创建任何上下文。
+    > 如果使用 PySpark 内核创建 Notebook，在运行第一个代码单元格时，系统会自动创建 `spark` 会话。 不需要显式创建会话。
 
 
 ## <a name="run-queries-on-the-dataframe"></a>对数据帧运行查询
@@ -72,12 +69,10 @@ ms.locfileid: "52654647"
 
 1. 在 Notebook 的空单元格中运行以下代码：
 
-    ```PySpark
+    ```sql
     %%sql
     SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
     ```
-
-   由于在笔记本中使用了 PySpark 内核，因此现在可直接对临时表 hvac 运行交互式 SQL 查询。
 
    以下表格输出随即显示。
 
@@ -93,7 +88,7 @@ ms.locfileid: "52654647"
 
 ## <a name="clean-up-resources"></a>清理资源
 
-有了 HDInsight，便可以将数据存储在 Azure 存储或 Azure Data Lake Store 中，以便在群集不用时安全地删除群集。 此外，还需要支付 HDInsight 群集费用，即使未使用。 由于群集费用高于存储空间费用数倍，因此在不使用群集时将其删除可以节省费用。 如果打算立即开始学习下一教程，可能需要保留该群集。
+有了 HDInsight，便可以将数据和 Jupyter Notebook 存储在 Azure 存储或 Azure Data Lake Store 中，以便在群集不用时安全地删除群集。 此外，还需要支付 HDInsight 群集费用，即使未使用。 由于群集费用高于存储空间费用数倍，因此在不使用群集时将其删除可以节省费用。 如果打算立即开始学习下一教程，可能需要保留该群集。
 
 在 Azure 门户中打开群集，然后选择“删除”。
 
@@ -105,11 +100,10 @@ ms.locfileid: "52654647"
 
 在本教程中，你已学习了如何执行以下操作：
 
-* 创建 Spark 数据帧。
+* 创建 Apache Spark dataframe。
 * 针对数据帧运行 Spark SQL。
 
-请前进到下一篇文章，了解如何将在 Spark 中注册的数据拉取到 Power BI 等 BI 分析工具中。 
-
+请转到下一篇文章，了解如何将在 Apache Spark 中注册的数据拉取到 Power BI 等 BI 分析工具中。 
 > [!div class="nextstepaction"]
 > [使用 BI 工具分析数据](apache-spark-use-bi-tools.md)
 

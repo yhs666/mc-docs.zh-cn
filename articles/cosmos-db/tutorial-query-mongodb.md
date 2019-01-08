@@ -1,32 +1,34 @@
 ---
-title: Azure Cosmos DB：如何使用 MongoDB API 进行查询？ | Azure
-description: 了解如何使用 Azure Cosmos DB 的 MongoDB API 进行查询
+title: 使用 Azure Cosmos DB 的用于 MongoDB 的 API 查询数据
+description: 了解如何使用 Azure Cosmos DB 的用于 MongoDB 的 API 查询数据。
 services: cosmos-db
 author: rockboyfor
-manager: digimobile
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.devlang: na
 ms.topic: tutorial
-origin.date: 03/29/2018
-ms.date: 09/30/2018
-ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 50687be77a47fb386f249d21625558126614ef0b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 12/26/2018
+ms.date: 01/07/2019
+ms.openlocfilehash: 75d91a0e01cba9d50bf13349c485d3d0e7a83c86
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659519"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026664"
 ---
-# <a name="tutorial-query-azure-cosmos-db-by-using-the-mongodb-api"></a>教程：使用 MongoDB API 查询 Azure Cosmos DB
+# <a name="query-data-by-using-azure-cosmos-dbs-api-for-mongodb"></a>使用 Azure Cosmos DB 的用于 MongoDB 的 API 查询数据
 
-Azure Cosmos DB [MongoDB API](mongodb-introduction.md) 支持 [MongoDB shell 查询](https://docs.mongodb.com/manual/tutorial/query-documents/)。 
+[Azure Cosmos DB 的用于 MongoDB 的 API](mongodb-introduction.md) 支持 [MongoDB 查询](https://docs.mongodb.com/manual/tutorial/query-documents/)。 
 
 本文涵盖以下任务： 
 
 > [!div class="checklist"]
-> * 使用 MongoDB 查询数据 <!-- Not Avaiable on [!VIDEO https://www.youtube.com/tVk8S7lFWMA] -->
+> * 使用 MongoDB shell 查询 Cosmos 数据库中存储的数据
+
+可以使用本文档中的示例来快速入门。
+
+<!--Not Available on  and watch the [Query Azure Cosmos DB with MongoDB shell](https://www.azure.cn/resources/videos/query-azure-cosmos-db-data-by-using-the-mongodb-shell/)-->
 
 ## <a name="sample-document"></a>示例文档
 
@@ -309,11 +311,11 @@ Azure Cosmos DB [MongoDB API](mongodb-introduction.md) 支持 [MongoDB shell 查
 在本教程中已完成以下操作：
 
 > [!div class="checklist"]
-> * 现已了解如何使用 MongoDB 进行查询 
+> * 学习了如何使用 Cosmos DB 的用于 MongoDB 的 API 进行查询
 
 现可继续学习下一教程，了解如何全局分发数据。
 
 > [!div class="nextstepaction"]
 > [全局分发数据](tutorial-global-distribution-sql-api.md)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

@@ -13,20 +13,23 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/05/2018
-ms.date: 10/15/2018
+ms.date: 12/31/2018
 ms.author: v-jay
 ms.reviewer: jiahan
-ms.openlocfilehash: 884b22c7bb71b992bc0854f252fcaa394cad87e0
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 49f4a7891a59cb37aab72ca66fcb0251d09ac915
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656870"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814671"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack 托管磁盘：差异和注意事项
 本文总结了 Azure Stack 托管磁盘和 Azure 托管磁盘之间的已知差异。 有关 Azure Stack 与 Azure 之间的大致差异的详细信息，请参阅[重要注意事项](azure-stack-considerations.md)一文。
 
 托管磁盘通过管理与 VM 磁盘关联的[存储帐户](/azure-stack/azure-stack-manage-storage-accounts)简化了 IaaS VM 的磁盘管理。
+
+> [!Note]  
+> 从 1808 开始，推出了 Azure Stack 上的托管磁盘。
   
 
 ## <a name="cheat-sheet-managed-disk-differences"></a>速查表：托管磁盘差异
@@ -37,13 +40,17 @@ ms.locfileid: "52656870"
 |映像          | 支持托管自定义映像 |尚不支持|
 |备份选项 |支持 Azure 备份服务 |尚不支持 |
 |灾难恢复选项 |支持 Azure Site Recovery |尚不支持|
-|磁盘类型     |高级 SSD 和标准 HDD |高级 SSD、标准 HDD |
+|磁盘类型     |高级 SSD、标准 SSD（预览版）和标准 HDD。 |高级 SSD、标准 HDD |
 |高级磁盘  |完全支持 |可部署，但无性能限制或保证  |
 |高级磁盘 IOPS  |取决于磁盘大小  |每个磁盘 2300 IOPS |
 |高级磁盘吞吐量 |取决于磁盘大小 |每个磁盘 145 MB/秒 |
-|磁盘最大大小  |4 TB       |1 TB       |
+|磁盘大小  |Azure 高级磁盘：P4 (32 GiB) 到 P80 (32 TiB)<br>Azure 标准 SSD 磁盘：E10 (128 GiB) 到 E80 (32 TiB)<br>Azure 标准 HDD 磁盘：S4 (32 GiB) 到 S80 (32 TiB) |M4：32 GiB<br>M6：64 GiB<br>M10：128 GiB<br>M15：256 GiB<br>M20：512 GiB<br>M30：1024 GiB |
+|磁盘快照复制|支持附加到正在运行的 VM 的快照 Azure 托管磁盘|尚不支持 |
 |磁盘性能分析 |支持的聚合指标和每磁盘指标 |尚不支持 |
 |迁移      |提供从现有非托管 Azure 资源管理器 VM 迁移的工具，而无需重新创建 VM  |尚不支持 |
+
+> [!Note]  
+> Azure Stack 中的托管磁盘 IOP 和吞吐量是一个上限数字而非预配的数字，这可能会受在 Azure Stack 中运行的硬件和工作负荷影响。
 
 
 ## <a name="metrics"></a>指标

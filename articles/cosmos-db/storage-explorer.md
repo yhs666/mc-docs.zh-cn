@@ -1,45 +1,40 @@
 ---
-title: 在 Azure 存储资源管理器中管理 Azure Cosmos DB
-description: 了解如何在 Azure 存储资源管理器中管理 Azure Cosmos DB。
-Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
-services: cosmos-db
+title: 使用 Azure 存储资源管理器管理 Azure Cosmos DB 资源
+description: 了解如何使用 Azure 存储资源管理器连接到 Azure Cosmos DB 并管理其资源。
 author: rockboyfor
-manager: digimobile
-editor: ''
 tags: Azure Cosmos DB
 ms.service: cosmos-db
-ms.custom: Azure Cosmos DB active
-ms.devlang: na
 ms.topic: conceptual
-origin.date: 03/20/2018
-ms.date: 12/03/2018
+origin.date: 12/07/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: d5112c280e2a7f3e6bff36d2d629c53cd8fd56ba
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.custom: seodec18
+ms.openlocfilehash: 00fe29c41ca5c7a016341b073bb0f3307906c6d6
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674727"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026829"
 ---
-# <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>在 Azure 存储资源管理器中管理 Azure Cosmos DB
+# <a name="manage-azure-cosmos-db-resources-using-azure-storage-explorer"></a>使用 Azure 存储资源管理器管理 Azure Cosmos DB 资源
 
-通过在 Azure 存储资源管理器中使用 Azure Cosmos DB，用户可以管理 Azure Cosmos DB 实体、操作数据、更新存储过程和触发器以及其他 Azure 实体（如存储 blob 和队列）。 现在可以使用相同工具在一个位置管理不同 Azure 实体。 目前，Azure 存储资源管理器支持 SQL 和 MongoDB 帐户。
-<!-- Not Avaiable on Graph, and Table -->
+通过在 Azure 存储资源管理器中使用 Azure Cosmos DB，用户可以管理 Azure Cosmos DB 实体、操作数据、更新存储过程和触发器以及其他 Azure 实体（如存储 blob 和队列）。 现在可以使用相同工具在一个位置管理不同 Azure 实体。 目前，Azure 存储资源管理器支持为 SQL、MongoDB、图形和表 API 配置的 Cosmos 帐户。
 
 ## <a name="prerequisites"></a>先决条件
 
-适用于 SQL API<!--or MongoDB API--> 的 Azure Cosmos DB 帐户。 如果你没有帐户，则可以按照 [Azure Cosmos DB：使用 .NET 和 Azure 门户构建 SQL API Web 应用](create-sql-api-dotnet.md)中所述，在 Azure 门户中创建一个。
+具有采用了 SQL API 或 Azure Cosmos DB 的用于 MongoDB 的 API 的 Cosmos 帐户。 如果你没有帐户，则可以按照 [Azure Cosmos DB：使用 .NET 和 Azure 门户生成 SQL API Web 应用](create-sql-api-dotnet.md)中所述，在 Azure 门户中创建一个。
 
 ## <a name="installation"></a>安装
 
-在此处安装最新的 Azure 存储资源管理器版本：[Azure 存储资源管理器](https://azure.microsoft.com/en-us/features/storage-explorer/)，现在我们支持 Windows、Linux 和 MAC 版本。
+在此处安装最新 Azure 存储资源管理器 BITS：[Azure 存储资源管理器](https://azure.microsoft.com/en-us/features/storage-explorer/)，现在我们支持 Windows、Linux 和 MAC 版本。
 
 ## <a name="connect-to-an-azure-subscription"></a>连接到 Azure 订阅
 
 1. 安装 **Azure 存储资源管理器**之后，单击左侧的**插件**图标，如下图中所示：
 
    ![插件图标](./media/storage-explorer/plug-in-icon.png)
-
+   
+    <!-- Select the Azure China value in Add an Azure Account -->
 2. 在“添加 Azure 帐户”中选择值“Azure 中国”，然后单击“登录”。
     
     <!-- Select the Azure China value in Add an Azure Account -->
@@ -191,7 +186,7 @@ ms.locfileid: "52674727"
      - [Windows](https://slproweb.com/products/Win32OpenSSL.html)（任意轻量版本均可）
      - Mac 和 Linux：应包含在操作系统中
 2. 运行 Open SSL
-    - Windows：转到安装目录，然后转到“/bin/”，然后双击“openssl.exe”。
+    - Windows:转到安装目录，然后转到“/bin/”，然后双击“openssl.exe”。
     - Mac 和 Linux：从终端执行“openssl”
 3. 执行 `s_client -showcerts -connect microsoft.com:443`
 4. 查找自签名证书。 若不确定哪个证书为自签名，则请查找使用者（“s:”）和证书颁发者（“i:”）相同的任意位置。
@@ -205,10 +200,10 @@ ms.locfileid: "52674727"
 若成功登录后无法检索订阅，请执行以下操作：
 
 - 通过登录 [Azure 门户](http://portal.azure.cn/)验证帐户是否有权访问该订阅
-- 请确保使用正确的环境登录（[Azure](http://portal.azure.cn/)、[Azure 中国](https://portal.azure.cn/)、[Azure 德国](https://portal.microsoftazure.de/)、[Azure 美国政府](http://portal.azure.us/)或自定义环境/Azure Stack）
+- 确保已使用正确的环境（[Azure 中国](https://portal.azure.cn/)或自定义环境/Azure Stack）登录
 - 如果使用代理，请确保已正确配置存储资源管理器代理
 - 尝试移除并重新添加帐户
-- 尝试从主目录（例如：C:\Users\ContosoUser）删除以下文件，然后重新添加帐户：
+- 尝试从主目录删除以下文件（例如：C:\Users\ContosoUser），然后重新添加帐户：
   - .adalcache
   - .devaccounts
   - .extaccounts

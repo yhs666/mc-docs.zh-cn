@@ -1,25 +1,24 @@
 ---
-title: Azure Cosmos DB：使用 .NET 和 MongoDB API 生成 Web 应用 | Azure
-description: 演示一个可以用来连接到 Azure Cosmos DB MongoDB API 并进行查询的 .NET 代码示例
+title: 使用 .NET SDK 和 Azure 门户通过适用于 MongoDB 的 Azure Cosmos DB API 构建 Web 应用 | Azure
+description: 提供了一个 .NET 代码示例，可以参考它来连接并查询适用于 MongoDB 的 Azure Cosmos DB API。
 services: cosmos-db
 author: rockboyfor
-manager: digimobile
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.custom: quick start connect, mvc
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 05/22/2018
-ms.date: 09/30/2018
+ms.date: 12/31/2018
 ms.author: v-yeche
-ms.openlocfilehash: 53e594ff9fa9c5f5df290f8175e2e0b1a282f3a3
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: abb8f2b4c5a93f053b6248ef779e34839a2e2d2e
+ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52667085"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814733"
 ---
-# <a name="azure-cosmos-db-build-a-mongodb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB：使用 .NET 和 Azure 门户生成 MongoDB API Web 应用
+# <a name="build-a-web-app-with-azure-cosmos-db-api-for-mongodb-using-net-sdk-and-the-azure-portal"></a>使用 .NET SDK 和 Azure 门户通过适用于 MongoDB 的 Azure Cosmos DB API 构建 Web 应用
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -29,10 +28,10 @@ ms.locfileid: "52667085"
 > * [Xamarin](create-mongodb-xamarin.md)
 > * [Golang](create-mongodb-golang.md)
 >  
-Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可快速创建和查询文档数据库，这些数据库受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。  
+Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可快速创建和查询文档数据库，这些数据库受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。 
 <!-- Not Available on Key/Value and Graph Database -->
 
-本快速入门教程演示如何使用 Azure 门户创建 Azure Cosmos DB [MongoDB API](mongodb-introduction.md) 帐户、文档数据库和集合。 然后生成并部署基于 [MongoDB .NET 驱动程序](https://docs.mongodb.com/ecosystem/drivers/csharp/)构建的“任务列表”Web 应用。
+本快速入门演示了如何使用 Azure 门户创建 MongoDB 的 Azure Cosmos DB API 帐户、文档数据库和集合。 然后生成并部署基于 [MongoDB .NET 驱动程序](https://docs.mongodb.com/ecosystem/drivers/csharp/)构建的“任务列表”Web 应用。
 
 ## <a name="prerequisites-to-run-the-sample-app"></a>运行示例应用的先决条件
 
@@ -51,7 +50,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
 ## <a name="clone-the-sample-app"></a>克隆示例应用
 
-首先，从 GitHub 下载示例 MongoDB API 应用。 这会实施一个包含 MongoDB 文档存储模型的任务列表。
+首先，从 GitHub 下载示例应用。 这会实施一个包含 MongoDB 文档存储模型的任务列表。
 
 1. 打开命令提示符，新建一个名为“git-samples”的文件夹，然后关闭命令提示符。
 
@@ -134,7 +133,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
 现在返回到 Azure 门户，获取连接字符串信息，并将其复制到应用。
 
-1. 在 [Azure 门户](http://portal.azure.cn/)的 Azure Cosmos DB 帐户的左侧导航栏中，单击“连接字符串”，然后单击“读写密钥”。 使用屏幕右侧的复制按钮将用户名、密码和主机复制到下一步的 Dal.cs 文件中。
+1. 在 [Azure 门户](https://portal.azure.cn/)的 Azure Cosmos DB 帐户的左侧导航栏中，单击“连接字符串”，然后单击“读写密钥”。 使用屏幕右侧的复制按钮将用户名、密码和主机复制到下一步的 Dal.cs 文件中。
 
 2. 打开 **DAL** 目录中的 **Dal.cs** 文件。 
 
@@ -154,7 +153,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
 3. 从结果中安装“MongoDB.Driver”库。 这会安装 MongoDB.Driver 包以及所有依赖项。
 
-4. 单击 Ctrl+F5 运行应用程序。 你的应用会显示在浏览器中。 
+4. 单击 Ctrl+F5 运行应用程序。 应用会显示在浏览器中。 
 
 5. 在浏览器中单击“创建”，并在“任务列表”应用中创建一些新任务。
 
@@ -171,6 +170,6 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 在本快速入门教程中，已了解如何创建 Azure Cosmos DB 帐户和使用 API for MongoDB 运行 Web 应用。 现在可以将其他数据导入 Cosmos DB 帐户。 
 
 > [!div class="nextstepaction"]
-> [将 MongoDB API 的数据导入 Azure Cosmos DB](mongodb-migrate.md)
+> [将数据导入到适用于 MongoDB 的 Azure Cosmos DB API](mongodb-migrate.md)
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update -->

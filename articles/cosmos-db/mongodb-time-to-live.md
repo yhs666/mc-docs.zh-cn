@@ -1,26 +1,24 @@
 ---
-title: 了解如何为通过 MongoDB API 创建的 Azure Cosmos DB 文档设置生存时间值，以便在一段时间过后将其从系统中自动清除。
-description: 有关 MongoDB 按文档 TTL 功能的文档。
+title: Azure Cosmos DB 中的 MongoDB 按文档 TTL 功能
+description: 了解如何使用 Azure Cosmos DB 的用于 MongoDB 的 API 为文档设置生存时间值，以便在一段时间过后将其从系统中自动清除。
 services: cosmos-db
 author: rockboyfor
-manager: digimobile
-editor: ''
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.devlang: javascript
 ms.topic: quickstart
-origin.date: 08/10/2018
-ms.date: 12/03/2018
-ms.author: v-yeche
-ms.openlocfilehash: c6554abebdec8c442650f6181c67302e4303e50d
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+origin.date: 12/26/2018
+ms.date: 01/07/2019
+ms.openlocfilehash: 7206d0d42989fff087db0a26deccb1d023e7d17d
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676794"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026768"
 ---
-# <a name="expire-data-in-azure-cosmos-db-mongodb-api"></a>使 Azure Cosmos DB MongoDB API 中的数据过期
+# <a name="expire-data-with-azure-cosmos-dbs-api-for-mongodb"></a>使用 Azure Cosmos DB 的用于 MongoDB 的 API 使数据过期
 
-生存时间 (TTL) 功能允许数据库将数据自动过期。 MongoDB API 使用 Azure Cosmos DB 的 TTL 功能。 支持两种模式：一是在整个集合上设置默认的 TTL 值，二是为每个文档设置单独的 TTL 值。 MongoDB API 中的控制 TTL 索引和按文档 TTL 值的逻辑与 [Azure Cosmos DB 中的相同](../cosmos-db/mongodb-indexing.md)。
+生存时间 (TTL) 功能允许数据库将数据自动过期。 Azure Cosmos DB 的用于 MongoDB 的 API 利用 Cosmos DB 的核心 TTL 功能。 支持两种模式：一是在整个集合上设置默认的 TTL 值，二是为每个文档设置单独的 TTL 值。 Azure Cosmos DB 的用于 MongoDB 的 API 中用于控制 TTL 索引和按文档 TTL 值的逻辑[与 Cosmos DB 中的相同](../cosmos-db/mongodb-indexing.md)。
 
 ## <a name="ttl-indexes"></a>TTL 索引
 若要在集合上普遍启用 TTL，需创建[“TTL 索引”（生存时间索引）](../cosmos-db/mongodb-indexing.md)。 TTL 索引是 _ts 字段上的索引，其值为“expireAfterSeconds”。
@@ -76,13 +74,12 @@ globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: NumberLong(21474
 
 ## <a name="how-to-activate-the-per-document-ttl-feature"></a>如何激活按文档 TTL 功能
 
-<!-- Verify successfully on mongodb TTL--> 按文档 TTL 功能可以在 Azure 门户中通过 MongoDB API 帐户的“预览版功能”选项卡激活。
+<!-- Verify successfully on mongodb TTL--> 可以使用 Azure Cosmos DB 的用于 MongoDB 的 API 激活按文档 TTL 功能。
 
 ![在门户中激活按文档 TTL 功能的屏幕截图](./media/mongodb-ttl/mongodb_portal_ttl.png) 
 
 ## <a name="next-steps"></a>后续步骤
-* [利用生存时间使 Azure Cosmos DB 集合中的数据自动过期](../cosmos-db/time-to-live.md)
-* [Azure Cosmos DB MongoDB API 中的索引编制](../cosmos-db/mongodb-indexing.md)
+* [利用生存时间使 Azure Cosmos DB 中的数据自动过期](../cosmos-db/time-to-live.md)
+* [为使用 Azure Cosmos DB 的用于 MongoDB 的 API 配置的 Cosmos 数据库编制索引](../cosmos-db/mongodb-indexing.md)
 
-<!-- Update_Description: new articles on cosmos db mongodb time to live -->
-<!--ms.date: 12/03/2018-->
+<!-- Update_Description: update meta properties, wording update -->

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/12/2018
-ms.date: 12/17/2018
+origin.date: 12/08/2018
+ms.date: 12/31/2018
 ms.author: v-jay
 ms.reviewer: justini
-ms.openlocfilehash: 8fa646590096eb2e864264d7cf69f509fc8974d2
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.openlocfilehash: a78b362174429ce074a6c3a1ec8144152b8a086c
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396208"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814647"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 更新
 
@@ -164,7 +164,7 @@ Azure Stack 1808 更新内部版本号为 **1.1808.0.97**。
 > 让 Azure Stack 部署准备好使用扩展主机。 遵照[为 Azure Stack 准备扩展主机](azure-stack-extension-host-prepare.md)中的指导准备系统。
 
 安装此更新之后，请安装所有适用的修补程序。 有关详细信息，请查看以下知识库文章，以及我们的[服务策略](azure-stack-servicing-policy.md)。 
-- [知识库文章 4468920 – Azure Stack 修补程序 1.1808.7.113](https://support.microsoft.com/help/4471992/)
+- [知识库文章 4481066 – Azure Stack 修补程序 1.1808.9.117](https://support.microsoft.com/help/4481066/)
 
 
 ## <a name="known-issues-post-installation"></a>已知问题（安装后）
@@ -221,7 +221,7 @@ Azure Stack 1808 更新内部版本号为 **1.1808.0.97**。
    
   请运行 [Test-AzureStack](azure-stack-diagnostic-test.md) cmdlet 来验证基础结构角色实例和缩放单元节点的运行状况。 如果 [Test-AzureStack](azure-stack-diagnostic-test.md) 未检测到问题，则可以忽略这些警报。 如果检测到问题，则可以尝试使用管理门户或 PowerShell 启动基础结构角色实例或节点。
 
-  此问题已在最新的 [1808 修补程序版本](https://support.microsoft.com/help/4471992/)中修复，因此如果遇到此问题，请务必安装此修补程序。
+  此问题已在最新的 [1808 修补程序版本](https://support.microsoft.com/help/4481066/)中修复，因此如果遇到此问题，请务必安装此修补程序。
 
 <!-- 1264761 - IS ASDK --> 
 - 可能会看到包含以下详细信息的“运行状况控制器”组件的警报：  
@@ -245,7 +245,7 @@ Azure Stack 1808 更新内部版本号为 **1.1808.0.97**。
 - 可能会看到包含以下详细信息的**存储**组件警报：
 
    - 名称：存储服务内部通信错误  
-   - 严重性：严重  
+   - 严重性：关键  
    - 组件：存储  
    - 说明：将请求发送到以下节点时发生存储服务内部通信错误。  
 
@@ -270,12 +270,18 @@ Azure Stack 1808 更新内部版本号为 **1.1808.0.97**。
       1. 在租户门户中转到“订阅”，找到相应订阅。 依次单击“资源提供程序”、“Microsoft.Compute”、“重新注册”。
       2. 在同一订阅下，转到“访问控制(标识和访问管理)”，验证“Azure Stack - 托管磁盘”是否已列出。
    2. 如果已配置多租户环境，在与来宾目录相关联的订阅中部署 VM 可能会失败并出现内部错误消息。 若要解决该错误，请执行以下步骤：
-      1. 应用 [1808 Azure Stack 修补程序](https://support.microsoft.com/help/4471992/)。
+      1. 应用 [1808 Azure Stack 修补程序](https://support.microsoft.com/help/4481066/)。
       2. 执行[此文](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)中的步骤，重新配置每个来宾目录。
       
 <!-- 3179561 - IS --> 
 - 根据 [Azure Stack 使用情况常见问题解答](azure-stack-usage-related-faq.md#managed-disks)中所述，数小时内会报告托管磁盘的使用情况。 但是，Azure Stack 计费使用每月价格，因此，在 9 月 27 日或之前向你收取的托管磁盘使用费可能有误。 我们已在 9 月 27 日之后暂停收取托管磁盘的费用，直到计费问题解决为止。 如果向你收取的托管磁盘使用费有误，请联系 Azure 计费支持人员。
 从 Azure Stack 使用情况 API 生成的使用情况报告显示正确的数量并且可供使用。
+
+<!-- 3507629 - IS, ASDK --> 
+- 托管磁盘创建了两个新的[计算配额类型](azure-stack-quota-types.md#compute-quota-types)来限制可以预配的托管磁盘的最大容量。 默认情况下将为每个托管磁盘配额类型分配 2048 GiB。 不过，你可能会遇到以下问题：
+
+   - 对于在 1808 更新之前创建的配额，托管磁盘配额在管理门户中将显示为值 0，虽然分配了 2048 GiB。 你可以根据实际需求增大或减小该值，新设置的配额值将替代 2048 GiB 默认值。
+   - 如果将配额值更新为 0，则它等效于默认值 2048 GiB。 作为一种解决方法，请将配额值设置为 1。
 
 <!-- 2869209 – IS, ASDK --> 
 - 使用 [**Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0) 时，必须使用 **-OsUri** 参数作为存储帐户 URI（在其中上传磁盘）。 如果使用磁盘的本地路径，则此 cmdlet 会失败并显示以下错误：长时间运行的操作失败，状态为 'Failed'。 

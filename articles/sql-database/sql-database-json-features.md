@@ -1,34 +1,31 @@
 ---
-title: Azure SQL 数据库 JSON 功能 | Azure
+title: 处理 Azure SQL 数据库中的 JSON 数据 | Microsoft Docs
 description: 使用 Azure SQL 数据库可以分析、查询数据，以 JavaScript 对象表示法 (JSON) 设置数据格式。
 services: sql-database
-author: Hayley244
-manager: digimobile
 ms.service: sql-database
-origin.date: 04/01/2018
-ms.date: 04/17/2018
-ms.author: v-johch
-ms.topic: article
-ms.openlocfilehash: ad489ea64b5ad8b0a66cb1ffe43473eecf4225de
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: WenJason
+ms.author: v-jay
+ms.reviewer: ''
+manager: digimobile
+origin.date: 12/17/2018
+ms.date: 12/31/2018
+ms.openlocfilehash: 53092c86917d998a2d31ae633a21b2909abd9621
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661671"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806314"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Azure SQL 数据库中的 JSON 功能入门
-使用 Azure SQL 数据库可以分析和查询以 JavaScript 对象表示法 [(JSON)](http://www.json.org/) 格式表示的数据，并将关系数据导出为 JSON 文本。
-
-JSON 是用于在新式 Web 与移动应用程序中交换数据的流行数据格式。 JSON 还用于将半结构化数据存储在日志文件或 NoSQL 数据库（例如 [Azure Cosmos DB](https://www.azure.cn/home/features/documentdb/)）中。 许多 REST Web 服务返回采用 JSON 文本格式的结果，或接受采用 JSON 格式的数据。 [Azure 存储](https://www.azure.cn/home/features/storage/)和 [Azure DocumentDB](https://www.azure.cn/home/features/documentdb/) 等大多数 Azure 服务都具有可返回或使用 JSON 的 REST 终结点。
-
-使用 Azure SQL 数据库可以轻松处理 JSON 数据，将数据库与新式服务集成。
-
-## <a name="overview"></a>概述
-Azure SQL 数据库提供以下函数用于处理 JSON 数据：
-
-![JSON 函数](./media/sql-database-json-features/image_1.png)
-
-如果具有 JSON 文本，可使用内置函数 [JSON_VALUE](https://msdn.microsoft.com/library/dn921898.aspx)、[JSON_QUERY](https://msdn.microsoft.com/library/dn921884.aspx) 和 [ISJSON](https://msdn.microsoft.com/library/dn921896.aspx)，从 JSON 中提取数据，或者验证 JSON 的格式是否正确。 使用 [JSON_MODIFY](https://msdn.microsoft.com/library/dn921892.aspx) 函数可以更新 JSON 文本中的值。 对于更高级的查询和分析，使用 [OPENJSON](https://msdn.microsoft.com/library/dn921885.aspx) 函数可将 JSON 对象数组转换成行集。 可对返回的结果集执行任何 SQL 查询。 最后，使用 [FOR JSON](https://msdn.microsoft.com/library/dn921882.aspx) 子句可将存储在关系表中的数据设置为 JSON 文本格式。
+使用 Azure SQL 数据库可以分析和查询以 JavaScript 对象表示法 [(JSON)](http://www.json.org/) 格式表示的数据，并将关系数据导出为 JSON 文本。 以下 JSON 方案在 Azure SQL 数据库中可用：
+- 使用 `FOR JSON` 子句[将关系数据设置为 JSON 格式](#formatting-relational-data-in-json-format)。
+- [处理 JSON 数据](#working-with-json-data)
+- 使用 JSON 标量函数[查询 JSON 数据](#querying-json-data)。
+- 使用 `OPENJSON` 函数[将 JSON 转换为表格格式](#transforming-json-into-tabular-format)。
 
 ## <a name="formatting-relational-data-in-json-format"></a>将关系数据设置为 JSON 格式
 如果 Web 服务从数据库层提取数据并以 JSON 格式提供响应，或者客户端 JavaScript 框架或库接受 JSON 格式的数据，则可以直接在 SQL 查询中将数据库内容格式化为 JSON。 不再需要编写应用程序代码将 Azure SQL 数据库中的结果格式化为 JSON，也不再需要包含一些 JSON 序列化库来转换表格查询结果，并将对象序列化为 JSON 格式。 可以使用 FOR JSON 子句将 Azure SQL 数据库中的 SQL 查询结果格式化为 JSON，并直接在应用程序中使用这种格式。
@@ -76,7 +73,7 @@ FOR JSON PATH, WITHOUT_ARRAY_WRAPPER
 
 本示例通过指定 [WITHOUT_ARRAY_WRAPPER](https://msdn.microsoft.com/library/mt631354.aspx) 选项返回了单个 JSON 对象而不是数组。 如果确定要返回单个对象作为查询结果，可以使用此选项。
 
-FOR JSON 子句的主要作用是从数据库返回格式化为嵌套 JSON 对象或数组的复杂分层数据。 以下示例演示如何将属于 Customer 的 Orders 包含为嵌套的 Orders 数组：
+FOR JSON 子句的主要作用是从数据库返回格式化为嵌套 JSON 对象或数组的复杂分层数据。 以下示例展示了如何将属于 `Customer` 的 `Orders` 表中的行包含为嵌套的 `Orders` 数组：
 
 ```
 select CustomerName as Name, PhoneNumber as Phone, FaxNumber as Fax,
@@ -198,5 +195,5 @@ END
 * [MSDN 文档](https://msdn.microsoft.com/library/dn921897.aspx)
 * [第 9 频道视频](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-JSON-Support)
 
-若要了解将 JSON 集成到应用程序的各种方案，请参阅[第 9 频道视频](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds)中的演示，或者在 [JSON 博客文章](http://blogs.msdn.com/b/sqlserverstorageengine/archive/tags/json/)中查找与用例相符的方案。
+若要了解将 JSON 集成到应用程序的各种方案，请参阅[第 9 频道视频](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds)中的演示，或者在 [JSON 博客文章](https://blogs.msdn.com/b/sqlserverstorageengine/archive/tags/json/)中查找与用例相符的方案。
 

@@ -6,23 +6,22 @@ author: lingliw
 manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-origin.date: 10/20/2018
-ms.date: 11/26/2018
+ms.date: 1/3/2019
 ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3b7d0c4aa0bbf8494f523b6b7fa1902035b6db53
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 4e14240755816e8cf709a91ef96e0abdc86af76f
+ms.sourcegitcommit: f46e1f7a5d582bb9663bfaee8087b233eb822e17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674623"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996515"
 ---
 # <a name="use-powershell-to-back-up-and-restore-virtual-machines"></a>使用 PowerShell 备份和还原虚拟机
 
 本文展示了如何使用 Azure PowerShell cmdlet 从恢复服务保管库备份和恢复 Azure 虚拟机 (VM)。 恢复服务保管库是一种 Azure 资源管理器资源，用于保护 Azure 备份和 Azure Site Recovery 服务中的数据与资产。 
 
 > [!NOTE]
-> Azure 有两种用于创建和使用资源的部署模型： [Resource Manager 部署模型和经典部署模型](../azure-resource-manager/resource-manager-deployment-model.md)。 本文针对使用 Resource Manager 模型创建的 VM。
+> Azure 有两种用于创建和使用资源的部署模型：[资源管理器部署模型和经典部署模型](../azure-resource-manager/resource-manager-deployment-model.md)。 本文针对使用 Resource Manager 模型创建的 VM。
 >
 >
 
@@ -41,7 +40,7 @@ ms.locfileid: "52674623"
 
 开始时，请执行以下操作：
 
-1. [下载最新版本的 PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（所需的最低版本为 1.4.0）
+1. [下载最新版本的 PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（所需的最低版本为1.4.0）
 
 2. 键入以下命令查找可用的 Azure 备份 PowerShell cmdlet：
    
@@ -52,9 +51,9 @@ ms.locfileid: "52674623"
 
     ![恢复服务的列表](./media/backup-azure-vms-automation/list-of-recoveryservices-ps.png)
 
-3. 使用 Connect-AzureRmAccount 登录到 Azure 帐户。 此 cmdlet 打开一个网页，提示输入帐户凭据：
+3. 使用 **Connect-AzureRmAccount -Environment AzureChinaCloud** 登录到 Azure 帐户。 此 cmdlet 打开一个网页，提示输入帐户凭据：
 
-    * 或者，还可使用 -Credential 参数将帐户凭据作为参数包含在 Connect-AzureRmAccount cmdlet 中。
+    * 也可使用 **-Credential** 参数将帐户凭据作为参数包含在 **Connect-AzureRmAccount -Environment AzureChinaCloud** cmdlet 中。
     * 如果是代表租户的 CSP 合作伙伴，则需使用 tenantID 或租户主域名将客户指定为一名租户。 例如：**Connect-AzureRmAccount -Environment AzureChinaCloud -Tenant "fabrikam.com"**
 
 4. 由于一个帐户可以有多个订阅，因此请将要使用的订阅与帐户关联在一起：
@@ -262,7 +261,7 @@ V2VM              Backup              InProgress          4/23/2016             
 可以在不使用 Azure 门户的情况下监视长时间运行的操作，例如备份作业。 若要获取正在进行的作业的状态，请使用 **[Get-AzureRmRecoveryservicesBackupJob](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupjob)** cmdlet。 此 cmdlet 获取特定保管库的备份作业，并且该保管库是在保管库上下文中指定的。 以下示例将正在进行的作业的状态获取为数组，并将状态存储在 $joblist 变量中。
 
 ```powershell
-$joblist = Get-AzureRmRecoveryservicesBackupJob -Status "InProgress"
+$joblist = Get-AzureRmRecoveryservicesBackupJob �Status "InProgress"
 $joblist[0]
 ```
 
@@ -326,7 +325,7 @@ $rp[0]
 
 输出类似于以下示例：
 
-```
+```powershell
 RecoveryPointAdditionalInfo :
 SourceVMStorageType         : NormalStorage
 Name                        : 15260861925810
@@ -367,7 +366,7 @@ VMConfig.JSON 文件将还原到存储帐户，托管磁盘将还原到指定的
 
 输出类似于以下示例：
 
-```
+```powershell
 WorkloadName     Operation          Status               StartTime                 EndTime            JobID
 ------------     ---------          ------               ---------                 -------          ----------
 V2VM              Restore           InProgress           4/23/2016 5:00:30 PM                        cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
@@ -396,6 +395,27 @@ $details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
 > 若要使用已还原的磁盘创建加密 VM，则 Azure 角色必须有权执行 **Microsoft.KeyVault/vaults/deploy/action** 操作。 如果用户角色不具有此权限，请创建具有此操作的自定义角色。 有关详细信息，请参阅 [Custom Roles in Azure RBAC](../role-based-access-control/custom-roles.md)（Azure RBAC 中的自定义角色）。
 >
 >
+
+> [!NOTE]
+> 还原磁盘后，你现在可以获取可以直接用来创建新 VM 的部署模板。 没有更多不同的 PS cmdlet 可用来创建加密/未加密的托管/非托管 VM。
+
+生成的作业详细信息提供了可以查询和部署的模板 URI。
+
+```powershell
+   $properties = $details.properties
+   $templateBlobURI = $properties["Template Blob Uri"]
+```
+
+只需要部署模板来创建新的 VM，如[此处](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy#deploy-a-template-from-an-external-source)所述。
+
+```powershell
+New-AzureRmResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleResourceGroup -TemplateUri $templateBlobURI -storageAccountType Standard_GRS
+```
+
+以下部分列出了使用“VMConfig”文件创建 VM 所需的步骤。
+
+> [!NOTE]
+> 强烈建议使用上面详述的部署模板来创建 VM。 本部分（要点 1-6）不久将被弃用。
 
 1. 查询已还原磁盘属性以获取作业详细信息。
 
@@ -573,7 +593,7 @@ Get-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
 
 输出类似于以下示例：
 
-```
+```powershell
 OsType  Password        Filename
 ------  --------        --------
 Windows e3632984e51f496 V2VM_wus2_8287309959960546283_451516692429_cbd6061f7fc543c489f1974d33659fed07a6e0c2e08740.exe

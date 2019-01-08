@@ -16,18 +16,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/16/2018
-ms.date: 06/25/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 88c170bbc7422ea6d2bb72fefb7a1934a1db9767
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 2cea76a208af302ffa7e65fbf9b213f28c9989f9
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658907"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029253"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>将用于 IntelliJ 的 HDInsight 工具与 Hortonworks 沙盒配合使用
 
-了解如何通过用于 IntelliJ 的 HDInsight 工具开发 Apache Scala 应用程序，并在计算机上运行的 [Hortonworks 沙盒](http://hortonworks.com/products/sandbox/)上测试应用程序。 
+了解如何通过用于 IntelliJ 的 HDInsight 工具开发 Apache Scala 应用程序，并在计算机上运行的 [Hortonworks 沙盒](https://hortonworks.com/products/sandbox/)上测试应用程序。 
 
 [IntelliJ IDEA](https://www.jetbrains.com/idea/) 是一种 Java 集成开发环境 (IDE)，用于开发计算机软件。 在 Hortonworks 沙盒上开发并测试应用程序以后，即可将应用程序移至 [Azure HDInsight](apache-hadoop-introduction.md)。
 
@@ -35,11 +35,11 @@ ms.locfileid: "52658907"
 
 要阅读本教程，必须具备以下项：
 
-- 基于 Hortonworks 沙盒的 Hortonworks 数据平台 (HDP) 2.4，运行在本地计算机中。 若要设置 HDP，请参阅[通过虚拟机上的 Hadoop 沙盒了解 Hadoop 生态系统](apache-hadoop-emulator-get-started.md)。 
+- 基于 Hortonworks 沙盒的 Hortonworks 数据平台 (HDP) 2.4，运行在本地计算机中。 若要设置 HDP，请参阅[通过虚拟机上的 Hadoop 沙盒了解 Apache Hadoop 生态系统](apache-hadoop-emulator-get-started.md)。 
     > [!NOTE]
-    > 用于 IntelliJ 的 HDInsight 工具只使用 HDP 2.4 测试过。 若要获取 HDP 2.4，请在 [Hortonworks 沙盒下载站点](http://hortonworks.com/downloads/#sandbox)中，展开 **Hortonworks 沙盒存档**。
+    > 用于 IntelliJ 的 HDInsight 工具只使用 HDP 2.4 测试过。 若要获取 HDP 2.4，请在 [Hortonworks 沙盒下载站点](https://hortonworks.com/downloads/#sandbox)中，展开 **Hortonworks 沙盒存档**。
 
-- [Java 开发人员工具包 (JDK) 1.8 或更高版本](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)。 用于 IntelliJ 的 Azure 工具包需要 JDK。
+- [Java 开发人员工具包 (JDK) 1.8 或更高版本](https://aka.ms/azure-jdks)。 用于 IntelliJ 的 Azure 工具包需要 JDK。
 
 - [IntelliJ IDEA 社区版](https://www.jetbrains.com/idea/download)，带 [Scala](https://plugins.jetbrains.com/idea/plugin/1347-scala) 插件和[用于 IntelliJ 的 Azure 工具包](../../azure-toolkit-for-intellij.md)插件。 用于 IntelliJ 的 HDInsight 工具作为用于 IntelliJ 的 Azure 工具包的一部分提供。 
 
@@ -52,7 +52,7 @@ ms.locfileid: "52658907"
   5. 若要完成安装，请选择“重启 IntelliJ IDEA”。
   6. 重复步骤 4 和步骤 5，安装**用于 IntelliJ 的 Azure 工具包**。 有关详细信息，请参阅[安装用于 IntelliJ 的 Azure 工具包](../../azure-toolkit-for-intellij-installation.md)。
 
-## <a name="create-a-spark-scala-application"></a>创建 Spark Scala 应用程序
+## <a name="create-an-apache-spark-scala-application"></a>创建 Apache Spark Scala 应用程序
 
 本部分使用 IntelliJ IDEA 创建示例 Scala 项目。 在下一部分，用户在提交项目之前，需将 IntelliJ IDEA 链接到 Hortonworks 沙盒（仿真程序）。
 
@@ -159,15 +159,15 @@ ms.locfileid: "52658907"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 了解如何[使用用于 IntelliJ 的 Azure 工具包中的 HDInsight 工具为 HDInsight Spark Linux 群集创建 Spark 应用程序](../spark/apache-spark-intellij-tool-plugin.md)。
+- 了解如何[使用用于 IntelliJ 的 Azure 工具包中的 HDInsight 工具为 HDInsight Spark Linux 群集创建 Apache Spark 应用程序](../spark/apache-spark-intellij-tool-plugin.md)。
 
-- 有关用于 IntelliJ 的 HDInsight 工具的视频，请参阅 [Introduce HDInsight Tools for IntelliJ for Spark development](https://www.youtube.com/watch?v=YTZzYVgut6c)（介绍如何通过用于 IntelliJ 的 HDInsight 工具进行 Spark 开发）。
+- 有关用于 IntelliJ 的 HDInsight 工具的视频，请参阅[介绍如何通过用于 IntelliJ 的 HDInsight 工具进行 Apache Spark 开发](https://www.youtube.com/watch?v=YTZzYVgut6c)。
 
-- 了解如何[使用用于 IntelliJ 的 Azure 工具包通过 SSH 远程调试 HDInsight 群集上的 Spark 应用程序](../spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md)。
+- 了解如何[使用用于 IntelliJ 的 Azure 工具包通过 SSH 远程调试 HDInsight 群集上的 Apache Spark 应用程序](../spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md)。
 
-- 了解如何[使用用于 IntelliJ 的 Azure 工具包中的 HDInsight 工具在 HDInsight Spark Linux 群集上远程调试 Spark 应用程序](../spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)。
+- 了解如何[使用用于 IntelliJ 的 Azure 工具包中的 HDInsight 工具在 HDInsight Spark Linux 群集上远程调试 Apache Spark 应用程序](../spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)。
 
-- 了解如何[使用用于 Eclipse 的 Azure 工具包中的 HDInsight 工具创建 Spark 应用程序](../spark/apache-spark-eclipse-tool-plugin.md)。
+- 了解如何[使用用于 Eclipse 的 Azure 工具包中的 HDInsight 工具创建 Apache Spark 应用程序](../spark/apache-spark-eclipse-tool-plugin.md)。
 
 
 <!--Update_Description: wording update-->

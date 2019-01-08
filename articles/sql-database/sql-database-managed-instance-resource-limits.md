@@ -11,18 +11,18 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: digimobile
-origin.date: 10/17/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 6029f84315643d10bccc7447ea4cc7fc7a785ba8
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+origin.date: 12/12/2018
+ms.date: 01/07/2019
+ms.openlocfilehash: e0d751d2152a2fce6476666965c6ca149674ebf6
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673149"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996320"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL 数据库托管实例资源限制概述
 
-本文提供 Azure SQL 数据库托管实例资源限制的概述，并介绍如何创建请求来提高默认区域订阅限制。 
+本文提供 Azure SQL 数据库托管实例资源限制的概述，并介绍如何创建请求来提高默认区域订阅限制。
 
 > [!NOTE]
 > 有关其他托管实例限制，请参阅[基于 vCore 的购买模型](sql-database-managed-instance.md#vcore-based-purchasing-model)和[托管实例服务层](sql-database-managed-instance.md#managed-instance-service-tiers)。 有关支持的功能和 T-SQL 语句的差异，请参阅[功能差异](sql-database-features.md)和 [T-SQL 语句支持](sql-database-managed-instance-transact-sql-information.md)。
@@ -44,17 +44,25 @@ Azure SQL 数据库托管实例可部署在两个硬件代次（Gen4 和 Gen5）
 
 ### <a name="service-tier-characteristics"></a>服务层特征
 
-托管实例有两个服务层 -“常规用途”和“业务关键”（公共预览版）。 这些层提供不同的功能，如下表中所述：
+托管实例具有两个服务层：常规用途和业务关键。 这些层提供不同的功能，如下表中所述：
 
-| **功能** | **常规用途** | **业务关键（预览版）** |
+| **功能** | **常规用途** | **业务关键** |
 | --- | --- | --- |
-| vCore 数目\* | Gen4：8、16、24<br/>Gen5：8、16、24、32、40、64、80 | Gen4：8、16、24、32 <br/> Gen5：8、16、24、32、40、64、80 |
-| 内存 | Gen4：56GB-156GB<br/>Gen5：44GB-440GB<br/>\*与 vCore 数成正比 | Gen4：56GB-156GB <br/> Gen5：44GB-440GB<br/>\*与 vCore 数成正比 |
-| 最大存储大小 | 8 TB | Gen 4：1 TB <br/> 第 5 代： <br/>- 1 TB（适用于 8、16 个 vCore）<br/>- 2 TB（适用于 24 个 vCore）<br/>- 4 TB（适用于 32、40、64、80 个 vCore） |
+| vCore 数目\* | 第 4 代：8、16、24<br/>第 5 代：8、16、24、32、40、64、80 | 第 4 代：8、16、24、32 <br/> 第 5 代：8、16、24、32、40、64、80 |
+| 内存 | 第 4 代：56GB-156GB<br/>第 5 代：44GB-440GB<br/>\*与 vCore 数成正比 | 第 4 代：56GB-156GB <br/> Gen5：41GB-408GB<br/>\*与 vCore 数成正比 |
+| 最大存储大小 | 8 TB | 第 4 代：1 TB <br/> 第 5 代： <br/>- 1 TB（适用于 8、16 个 vCore）<br/>- 2 TB（适用于 24 个 vCore）<br/>- 4 TB（适用于 32、40、64、80 个 vCore） |
 | 每个数据库的最大存储 | 由每个实例的最大存储大小决定 | 由每个实例的最大存储大小决定 |
 | 每个实例的数据库数目上限 | 100 | 100 |
-| 每个实例的数据库文件数目上限 | 最多 280 个 | 无限制 |
-| 预期的最大存储 IOPS | 500-5000（[取决于数据文件大小](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)）。 | 取决于底层 SSD 速度。 |
+| 每个实例的数据库文件数目上限 | 最多 280 个 | 每个数据库 32,767 个文件 |
+| 数据/日志 IOPS（近似值） | 每个文件 500-7500<br/>\*[取决于文件大小](/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 11K - 110K（每个 vCore 为 1375） |
+| 实例日志吞吐量 | 每个实例 22MB/秒 | 每个 vCore 3MB/秒<br/>最大值为 48 MB/秒 |
+| 数据吞吐量（近似值） | 每个文件 100-250 MB/秒<br/>\*[取决于文件大小](/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 每个 vCore 24-48 MB/秒 |
+| IO 延迟（近似值） | 5-10 毫秒 | 1-2 毫秒 |
+| 最大 tempDB 大小 | 192-1920 GB（每个 vCore 为 24 GB） | 无约束 - 受最大实例存储大小限制 |
+
+**注释**：
+- 与最大存储大小限制进行比较的实例存储大小同时包括用户数据库和系统数据库中的数据和日志文件大小。 可以使用 <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> 系统视图来确定数据库使用的空间总量。 错误日志不会持久保存，不包括在大小中。 备份不包括在存储大小中。
+- 吞吐量和 IOPS 还取决于不受托管实例显式限制的页面大小。
 
 ## <a name="supported-subscription-types"></a>支持的订阅类型
 
@@ -66,8 +74,8 @@ Azure SQL 数据库托管实例可部署在两个硬件代次（Gen4 和 Gen5）
 
 支持的订阅类型可以包含每个区域的有限数量的资源。 托管实例根据订阅类型对每个 Azure 区域实施两种默认限制：
 
-- **子网限制**：在单个区域中部署托管实例的子网数目上限。
-- **实例数目限制**：可在单个区域中部署的实例数目上限。
+- **子网限制**：在单一区域中部署托管实例的子网数上限。
+- **实例数目限制**：可在单一区域中部署的实例数上限。
 
 下表显示了受支持订阅的默认区域限制：
 
@@ -77,10 +85,12 @@ Azure SQL 数据库托管实例可部署在两个硬件代次（Gen4 和 Gen5）
 
 \* 可在一个子网中部署 1 个 BC 或 4 个 GP 实例，使子网中的“实例单元”总数永远不会超过 4 个。
 
-** 如果另一个服务层中没有任何实例，则适用一个服务层中的实例数目上限。 如果你打算在同一子网内混用 GP 和 BC 实例，请参考以下部分了解允许的组合方式。 简单的规则是，子网总数不能超过 3 个，且实例单元的总数不能超过 12 个。
+** 如果另一个服务层中没有任何实例，则适用一个服务层中的实例数目上限。 如果你打算在同一子网内混用 GP 和 BC 实例，请参考以下部分了解允许的组合方式。 简单的规则是，子网总数不能超过 3 个，实例单位总数不能超过 12 个。
+
+如果在当前区域中需要更多托管实例，可以[在 Azure 门户中创建特殊支持请求](#obtaining-a-larger-quota-for-sql-managed-instance)，以提高这些限制。 或者，可以在另一个 Azure 区域中创建新的托管实例，而不需要发送支持请求。
 
 > [!IMPORTANT]
-> 规划部署时，请考虑到业务关键 (BC) 实例（由于增加了冗余性）通常使用比常规用途 (GP) 实例多 4 倍的容量。 因此，在计算中，1 个 GP 实例 = 1 个实例单元，1 个 BC 实例 = 4 个实例单元。 若要根据默认限制简化消耗量分析，请汇总区域中部署了托管实例的所有子网内的实例单元，并将其结果与订阅类型的实例单元限制进行比较。
+> 在规划部署时，请考虑到业务关键 (BC) 实例（由于增加了冗余）通常都会使用比常规用途 (GP) 实例多 4 倍的容量。 因此，在计算中，1 个 GP 实例 = 1 个实例单元，1 个 BC 实例 = 4 个实例单元。 若要根据默认限制简化消耗量分析，请汇总区域中部署了托管实例的所有子网内的实例单元，并将其结果与订阅类型的实例单元限制进行比较。
 
 > [!Note] 
 > [提前支付](https://www.azure.cn/zh-cn/offers/ms-mc-arz-33p/)订阅类型可以包含一个业务关键实例，或最多 4 个常规用途实例。
@@ -94,10 +104,44 @@ Azure SQL 数据库托管实例可部署在两个硬件代次（Gen4 和 Gen5）
 |2|1 个 BC，0 个 GP|0 个BC，最多 8 个 GP<br>1 个BC，最多 4 个 GP|不适用|
 |2|2 个 BC，0 个 GP|0 个BC，最多 4 个 GP|不适用|
 |3|1 个 BC，0 个 GP|1 个 BC，0 个 GP|0 个BC，最多 4 个 GP|
-|3|1 个 BC，0 个 GP|0 个BC，最多 4 个 GP|0 个BC，最多 4 个 GP|
+|3|1 个 BC，0 个 GP|0 个BC，最多 4 个 GP|0 个 BC，最多 4 个 GP|
+
+## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>获取更大的 SQL 托管实例配额
+
+如果在当前区域中需要更多托管实例，可以使用 Azure 门户发送扩展配额的支持请求。
+若要启动获取更大配额的过程，请执行以下操作：
+
+1. 打开“帮助 + 支持”，单击“新建支持请求”。
+
+   ![帮助和支持](media/sql-database-managed-instance-resource-limits/help-and-support.png)
+2. 在新支持请求的“基本信息”选项卡上：
+   - 对于“问题类型”，选择“服务和订阅限制(配额)”。
+   - 对于“订阅”，请选择自己的订阅。
+   - 对于“配额类型”，选择“SQL 数据库托管实例”。
+   - 对于“支持计划”，选择自己的支持计划。
+
+     ![问题类型配额](media/sql-database-managed-instance-resource-limits/issue-type-quota.png)
+
+3. 单击“下一步”。
+4. 在新支持请求的“问题”选项卡上：
+   - 对于“严重性”，选择问题的严重性级别。
+   - 对于“详细信息”，提供有关问题的其他信息，包括错误消息。
+   - 对于“文件上传”，附加包含详细信息的文件（最多 4 MB）。
+
+     ![问题详细信息](media/sql-database-managed-instance-resource-limits/problem-details.png)
+
+     > [!IMPORTANT]
+     > 有效的请求应包括：
+     > - 需要提高订阅限制的区域
+     > - 每个服务层在配额增加后在现有的子网中所需的实例数目（如果需要扩展任何现有的子网）
+     > - 所需的新子网数目，以及每个服务层在新子网内的实例总数（如果需要在新子网中部署托管实例）。
+
+5. 单击“下一步”。
+6. 在新支持请求的“联系人信息”选项卡上，输入首选联系方式（电子邮件或电话）和联系人详细信息。
+7. 单击**创建**。
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关托管实例的详细信息，请参阅[什么是托管实例？](sql-database-managed-instance.md)。 
+- 有关托管实例的详细信息，请参阅[什么是托管实例？](sql-database-managed-instance.md)。
 - 有关定价信息，请参阅 [SQL 数据库托管实例定价](https://azure.cn/pricing/details/sql-database)。
 - 若要了解如何创建第一个托管实例，请参阅[快速入门指南](sql-database-managed-instance-get-started.md)。

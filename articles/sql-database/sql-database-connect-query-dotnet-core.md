@@ -11,66 +11,74 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 11/01/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 6fee52793f51c742fb682dc1c86246b3ae8960f7
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+origin.date: 12/10/2018
+ms.date: 01/07/2019
+ms.openlocfilehash: 072d369f33cf9d887965975394c1ac5f13de147f
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673113"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996376"
 ---
 # <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>快速入门：使用 .NET Core (C#) 查询 Azure SQL 数据库
 
-此快速入门演示如何在 Windows/Linux/macOS 中使用 [.NET Core](https://www.microsoft.com/net/) 来创建连接到 Azure SQL 数据库的 C# 程序，并使用 Transact-SQL 语句来查询数据。
+在本快速入门中，将使用 [.NET Core](https://www.microsoft.com/net/) 和 C# 代码连接到 Azure SQL 数据库。 然后，将运行 Transact-SQL 语句来查询数据。
 
 ## <a name="prerequisites"></a>先决条件
 
-若要完成本快速入门，请确保符合以下条件：
+对于本教程的内容，你需要：
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- 针对用于本快速入门的计算机的公共 IP 地址制定[服务器级防火墙规则](sql-database-get-started-portal-firewall.md)。
+- 针对计算机的公共 IP 地址制定的[服务器级防火墙规则](sql-database-get-started-portal-firewall.md)。
 
 - 已安装[适用于操作系统的 .NET Core](https://www.microsoft.com/net/core)。 
 
-## <a name="sql-server-connection-information"></a>SQL Server 连接信息
+> [!NOTE]
+> 本快速入门使用 mySampleDatabase 数据库。 若要使用其他数据库，需更改数据库引用并修改 C# 代码中的 `SELECT` 查询。
+
+
+## <a name="get-sql-server-connection-information"></a>获取 SQL Server 连接信息
 
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
-#### <a name="for-adonet"></a>适用于 ADO.NET
+#### <a name="get-adonet-connection-information-optional"></a>获取 ADO.NET 连接信息（可选）
 
-1. 单击“显示数据库连接字符串”继续。
+1. 导航到“mySampleDatabase”页，并在“设置”下选择“连接字符串”。
 
 2. 查看完整的 ADO.NET 连接字符串。
 
-    ![ADO.NET 连接字符串](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
+    ![ADO.NET 连接字符串](./media/sql-database-connect-query-dotnet/adonet-connection-string2.png)
 
-> [!IMPORTANT]
-> 对于在其上执行本教程操作的计算机，必须为其公共 IP 地址制定防火墙规则。 如果使用其他计算机或其他公共 IP 地址，则[使用 Azure 门户创建服务器级防火墙规则](sql-database-get-started-portal-firewall.md)。 
->
+3. 如果想要使用 ADO.NET 连接字符串，请复制它。
   
-## <a name="create-a-new-net-project"></a>新建 .NET 项目
+## <a name="create-a-new-net-core-project"></a>创建新的 .NET Core 项目
 
-1. 打开命令提示符，并创建一个名为 *sqltest* 的文件夹。 导航到已创建的文件夹，并运行以下命令：
+1. 打开命令提示符，并创建一个名为 **sqltest** 的文件夹。 导航到此文件夹，并运行以下命令。
 
-    ```
+    ```cmd
     dotnet new console
     ```
+    此命令将创建新的应用项目文件，包括初始 C# 代码文件 (**Program.cs**)、XML 配置文件 (**sqltest.csproj**) 和所需的二进制文件。
 
-2. 使用常用的文本编辑器打开 sqltest.csproj，然后使用以下代码将 System.Data.SqlClient 添加为依赖项：
+2. 在文本编辑器中，打开 sqltest.csproj 并在 `<Project>` 标记之间粘贴以下 XML。 此 XML 会添加 `System.Data.SqlClient` 作为依赖项。
 
     ```xml
     <ItemGroup>
-        <PackageReference Include="System.Data.SqlClient" Version="4.4.0" />
+        <PackageReference Include="System.Data.SqlClient" Version="4.6.0" />
     </ItemGroup>
     ```
 
 ## <a name="insert-code-to-query-sql-database"></a>插入用于查询 SQL 数据库的代码
 
-1. 在开发环境或常用的文本编辑器中，打开 Program.cs
+1. 在文本编辑器中打开 Program.cs 文件。
 
-2. 将内容替换为以下代码，为服务器、数据库、用户和密码添加相应的值。
+2. 将内容替换为以下代码，为服务器、数据库、用户名和密码添加相应的值。
+
+> [!NOTE]
+> 若要使用 ADO.NET 连接字符串，请将代码中设置服务器、数据库、用户名和密码的 4 行替换为以下行。 在字符串中，设置用户名和密码。
+>
+>    `builder.ConnectionString="<your_ado_net_connection_string>";`
 
 ```csharp
 using System;
@@ -86,11 +94,12 @@ namespace sqltest
             try 
             { 
                 SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                builder.DataSource = "your_server.database.chinacloudapi.cn"; 
-                builder.UserID = "your_user";            
-                builder.Password = "your_password";     
-                builder.InitialCatalog = "your_database";
 
+                builder.DataSource = "<your_server.database.chinacloudapi.cn>"; 
+                builder.UserID = "<your_username>";            
+                builder.Password = "<your_password>";     
+                builder.InitialCatalog = "<your_database>";
+         
                 using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
                 {
                     Console.WriteLine("\nQuery data example:");
@@ -120,7 +129,8 @@ namespace sqltest
             {
                 Console.WriteLine(e.ToString());
             }
-            Console.ReadLine();
+            Console.WriteLine("\nDone. Press enter.");
+            Console.ReadLine(); 
         }
     }
 }
@@ -128,20 +138,47 @@ namespace sqltest
 
 ## <a name="run-the-code"></a>运行代码
 
-1. 在命令提示符下运行以下命令：
+1. 在提示符处，运行以下命令。
 
-   ```csharp
+   ```cmd
    dotnet restore
    dotnet run
    ```
 
-2. 验证是否已返回前 20 行，然后关闭应用程序窗口。
+2. 验证是否返回前 20 行。
 
+   ```text
+   Query data example:
+   =========================================
+
+   Road Frames HL Road Frame - Black, 58
+   Road Frames HL Road Frame - Red, 58
+   Helmets Sport-100 Helmet, Red
+   Helmets Sport-100 Helmet, Black
+   Socks Mountain Bike Socks, M
+   Socks Mountain Bike Socks, L
+   Helmets Sport-100 Helmet, Blue
+   Caps AWC Logo Cap
+   Jerseys Long-Sleeve Logo Jersey, S
+   Jerseys Long-Sleeve Logo Jersey, M
+   Jerseys Long-Sleeve Logo Jersey, L
+   Jerseys Long-Sleeve Logo Jersey, XL
+   Road Frames HL Road Frame - Red, 62
+   Road Frames HL Road Frame - Red, 44
+   Road Frames HL Road Frame - Red, 48
+   Road Frames HL Road Frame - Red, 52
+   Road Frames HL Road Frame - Red, 56
+   Road Frames LL Road Frame - Black, 58
+   Road Frames LL Road Frame - Black, 60
+   Road Frames LL Road Frame - Black, 62
+
+   Done. Press enter.
+   ```
+3. 选择 **Enter** 以关闭应用程序窗口。
 
 ## <a name="next-steps"></a>后续步骤
 
 - [在 Windows/Linux/macOS 中通过命令行使用 .NET Core 入门](https://docs.microsoft.com/dotnet/core/tutorials/using-with-xplat-cli)。
 - 了解如何[使用 .NET Framework 和 Visual Studio 连接和查询 Azure SQL 数据库](sql-database-connect-query-dotnet-visual-studio.md)。  
-- 了解如何[使用 SSMS 设计你的第一个 Azure SQL 数据库](sql-database-design-first-database.md)，或者如何[使用 .NET 设计你的第一个 Azure SQL 数据库](sql-database-design-first-database-csharp.md)。
+- 了解如何[使用 SSMS 设计首个 Azure SQL 数据库](sql-database-design-first-database.md)，或者如何[使用 C# 和 ADO.NET 设计 Azure SQL 数据库并进行连接](sql-database-design-first-database-csharp.md)。
 - 有关 .NET 的详细信息，请参阅 [.NET 文档](https://docs.azure.cn/zh-cn/dotnet/)。
-<!--Update_Description:update System.Data.SqlClient from 4.3.0 to 4.4.0-->

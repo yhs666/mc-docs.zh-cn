@@ -1,35 +1,35 @@
 ---
-title: 对 Azure Cosmos DB 使用 Studio 3T (MongoChef) | Azure
-description: 了解如何配合使用 Studio 3T 与 Azure Cosmos DB MongoDB API 帐户
+title: 使用 Studio 3T 连接到 Azure Cosmos DB 的用于 MongoDB 的 API
+titleSuffix: Azure Cosmos DB
+description: 了解如何使用 Studio 3T 和 Azure Cosmos DB 的用于 MongoDB 的 API 连接到 Cosmos DB。
 keywords: mongochef, studio 3T
 services: cosmos-db
 author: rockboyfor
-manager: digimobile
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.devlang: na
 ms.topic: conceptual
-origin.date: 01/18/2018
-ms.date: 09/03/2018
+origin.date: 12/26/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: c0c4bd0321e8479a71a90767d502276de13de9f6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.custom: seodec18
+ms.openlocfilehash: db714a613fcef9df91d7e55c43544c3a976056b5
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52667125"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026803"
 ---
-# <a name="azure-cosmos-db-use-studio-3t-with-a-mongodb-api-account"></a>Azure Cosmos DB：配合使用 Studio 3T 与 MongoDB API 帐户
+# <a name="connect-to-cosmos-account-using-studio-3t"></a>使用 Studio 3T 连接到 Cosmos 帐户
 
-若要连接到 Azure Cosmos DB MongoDB API 帐户，必须：
+若要使用 Azure Cosmos DB 的用于 MongoDB 的 API 连接到 Cosmos 帐户，必须：
 
-* 下载并安装 [Studio 3T](https://studio3t.com/)（以前称为 MongoChef）
-* 具有 MongoDB 帐户的 Azure Cosmos DB [连接字符串](connect-mongodb-account.md)信息
+* 下载并安装 [Studio 3T](https://studio3t.com/)
+* 具有 Cosmos DB [连接字符串](connect-mongodb-account.md)信息
 
 ## <a name="create-the-connection-in-studio-3t"></a>在 Studio 3T 中创建连接
-要将 Azure Cosmos DB 帐户添加到 Studio 3T 连接管理器，请执行以下步骤：
+若要将你的 Cosmos 帐户添加到 Studio 3T 连接管理器，请执行以下步骤：
 
-1. 按照[将 MongoDB 应用程序连接到 Azure Cosmos DB](connect-mongodb-account.md) 一文中的说明，检索 MongoDB API 帐户的 Azure Cosmos DB 连接信息。
+1. 按照[将 MongoDB 应用程序连接到 Azure Cosmos DB](connect-mongodb-account.md) 一文中的说明，检索使用 Azure Cosmos DB 的 API MongoDB 配置的 Cosmos 帐户的连接信息。
 
     ![连接字符串页的屏幕截图](./media/mongodb-mongochef/ConnectionStringBlade.png)
 2. 单击“连接”以打开“连接管理器”，并单击“新建连接”
@@ -113,5 +113,8 @@ ms.locfileid: "52667125"
     ![Mongo Chef 查询结果的屏幕截图](./media/mongodb-mongochef/QueryDocument1.png)
 
 ## <a name="next-steps"></a>后续步骤
-* 浏览 Azure Cosmos DB MongoDB API [示例](mongodb-samples.md)。
-<!-- Update_Description: update meta properties -->
+
+- 了解如何将 [Robo 3T](mongodb-robomongo.md) 与 Azure Cosmos DB 的用于 MongoDB 的 API 配合使用。
+- 通过 Azure Cosmos DB 的用于 MongoDB 的 API 来浏览 MongoDB [示例](mongodb-samples.md)。
+
+<!-- Update_Description: update meta properties, wording update -->

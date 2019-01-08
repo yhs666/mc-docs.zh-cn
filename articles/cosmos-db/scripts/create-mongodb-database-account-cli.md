@@ -1,23 +1,23 @@
 ---
-title: Azure CLI 脚本 - 创建 Azure Cosmos DB MongoDB API 帐户、数据库和集合 | Azure
-description: Azure CLI 脚本示例 - 创建 Azure Cosmos DB MongoDB API 帐户、数据库和集合
+title: Azure CLI 脚本 - 使用 Azure Cosmos DB 的用于 MongoDB 的 API 创建 Cosmos 帐户
+description: Azure CLI 脚本示例 - 使用 Azure Cosmos DB 的用于 MongoDB 的 API 创建 Cosmos 帐户
 author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.topic: sample
 origin.date: 10/26/2018
-ms.date: 12/03/2018
-ms.author: v-yeche
-ms.openlocfilehash: bc28ec9972b4f03b8d2f2fe5dce4e2c1a9368631
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 01/07/2019
+ms.openlocfilehash: 519f42e1545fca8187aeefd414c8d9b7cb2386a1
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675298"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026837"
 ---
-# <a name="azure-cosmos-db-create-an-mongodb-api-account-using-azure-cli"></a>Azure Cosmos DB：使用 Azure CLI 创建 MongoDB API 帐户
+# <a name="create-an-azure-cosmos-db-account-with-azure-cosmos-dbs-api-for-mongodb-using-azure-cli"></a>使用 Azure CLI 通过 Azure Cosmos DB 的用于 MongoDB 的 API 创建 Azure Cosmos DB 帐户
 
-此示例 CLI 脚本创建了一个 Azure Cosmos DB MongoDB API 帐户、数据库和集合。
+此示例 CLI 脚本通过 Azure Cosmos DB 的用于 MongoDB 的 API 创建 Cosmos 帐户。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -28,12 +28,11 @@ ms.locfileid: "52675298"
 ```azurecli
 #!/bin/bash
 
-# Set variables for the new MongoDB API account, database, and collection
+# Set variables for the new MongoDB API account and database
 resourceGroupName='myResourceGroup'
 location='chinaeast'
 accountName='mycosmosdbaccount' #needs to be lower case
 databaseName='myDatabase'
-collectionName='myCollection'
 
 # Create a resource group
 az group create \
@@ -55,14 +54,6 @@ az cosmosdb database create \
     --name $accountName \
     --db-name $databaseName
 
-# Create a collection with a partition key and 1000 RU/s
-az cosmosdb collection create \
-    --resource-group $resourceGroupName \
-    --collection-name $collectionName \
-    --name $accountName \
-    --db-name $databaseName \
-    --partition-key-path /mypartitionkey \
-    --throughput 1000
 ```
 <!-- location ADVISE TO chinaeast -->
 <!-- location MUST be the style of --locations chinaeast=0 chinanorth=1 -->

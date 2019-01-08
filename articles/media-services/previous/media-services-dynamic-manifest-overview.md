@@ -12,26 +12,26 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-origin.date: 11/06/2018
-ms.date: 12/03/2018
+origin.date: 11/25/2018
+ms.date: 12/24/2018
 ms.author: v-jay
-ms.openlocfilehash: f62cb00d599c28709989efd6c95aee26a8ce862e
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 999c3c0265235884a917879edacbbd5c51adea87
+ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672849"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53656571"
 ---
 # <a name="filters-and-dynamic-manifests"></a>筛选器和动态清单
 从 2.17 版开始，可使用媒体服务为资产定义筛选器。 这些筛选器是服务器端规则，可让客户选择执行如下操作：只播放一段视频（而非播放完整视频），或只指定客户设备可以处理的一部分音频和视频再现内容（而非与该资产相关的所有再现内容）。 通过按客户请求创建的动态清单可以实现对资产进行筛选，并基于指定的筛选器流式传输视频。
 
-本主题讨论一些常见方案，在这些方案中使用筛选器对于客户非常有利，并链接到演示如何以编程方式创建筛选器的主题。
+本主题讨论一些常见方案，在这些方案中使用筛选器对于客户很有利，并链接到演示如何以编程方式创建筛选器的主题。
 
 ## <a name="overview"></a>概述
 将内容传送到客户（流式传输实时事件或视频点播）时，目标是：将优质视频传递到处于不同网络条件下的各种设备。 若要实现此目标，请执行以下操作：
 
 * 将流编码成多比特率（[自适应比特率](http://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)）视频流（这将会负责处理质量和网络条件），并 
-* 使用媒体服务[动态打包](media-services-dynamic-packaging-overview.md)将流动态地重新打包成不同的协议（这将会负责不同设备上的流式处理）。 媒体服务支持传送以下自适应比特率流式处理技术：HTTP Live Streaming (HLS)、平滑流式处理和 MPEG DASH。 
+* 使用媒体服务[动态打包](media-services-dynamic-packaging-overview.md)将流动态地重新打包成不同的协议（这将会负责不同设备上的流式处理）。 媒体服务支持以下自适应比特率流式处理技术的传送：HTTP Live Streaming (HLS)、平滑流式处理和 MPEG DASH。 
 
 ### <a name="manifest-files"></a>清单文件
 将资产编码为以自适应比特率流式处理时，会创建一个清单（播放列表）文件（此文件基于文本或 XML）。 清单文件包含流元数据，例如：轨迹类型（音频、视频或文本）、轨迹名称、开始和结束时间、比特率（质量）、轨迹语言、演播窗口（持续时间固定的滑动窗口）和视频编解码器 (FourCC)。 此文件还会通过提供有关下一个可播放视频片段及其位置的信息，来指示播放器检索下一个片段。 片段（或段）实际上是视频内容的“区块”。
@@ -74,7 +74,7 @@ ms.locfileid: "52672849"
 * 特定于设备：只传送内容播放设备所支持的指定再现内容和/或指定的语言轨道（“再现内容筛选”）。 
 * 缩小清单以显示实时事件的子剪辑（“子剪辑筛选”）。
 * 修剪视频开头（“修剪视频”）。
-* 调整演播窗口 (DVR)，以便在播放器中提供长度有限的 DVR 窗口（“调整演播窗口”）。
+* 调整演播窗口，以便在播放器中提供长度有限的 DVR 窗口（“调整演播窗口”）。
 
 为实现这种灵活性，媒体服务会根据预定义的 **筛选器** 提供 [动态清单](media-services-dynamic-manifest-overview.md#filters)。  定义筛选器后，客户端会使用筛选器来流式传输视频的特定再现内容或子剪辑。 客户端将在流 URL 中指定筛选器。 筛选器可应用到[动态打包](media-services-dynamic-packaging-overview.md)支持的自适应比特率流式处理协议：HLS、MPEG-DASH 和平滑流式处理。 例如：
 
@@ -103,7 +103,7 @@ http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb2
 全局和本地筛选器类型具有完全相同的属性。 两者的主要差异在于它们更适合哪些方案。 全局筛选器通常适用于设备配置文件（再现内容筛选），而本地筛选器可用于修剪特定的资产。
 
 ## <a id="scenarios"></a>常见方案
-如前所述，在将内容传送到客户（流式传输实时事件或视频点播）时，你的目标就是：将优质视频传递到处于不同网络条件下的各种设备。 此外，可能在筛选资产与使用 **动态清单**方面具有其他的要求。 以下部分提供了不同筛选方案的简要概述。
+如前所述，在将内容传送到客户（流式传输实时事件或视频点播）时，目标就是：将优质视频传递到处于不同网络条件下的各种设备。 此外，可能在筛选资产与使用**动态清单**方面具有其他的要求。 以下部分提供了不同筛选方案的简要概述。
 
 * 仅指定某些设备可以处理的音频和视频再现内容子集（而不是与该资产关联的所有再现内容）。 
 * 仅播放视频的某个部分（而不是整个视频）。
