@@ -1,30 +1,31 @@
 ---
-title: 通过门户启用 Azure 事件中心捕获 | Azure
-description: 通过 Azure 门户启用事件中心捕获功能。
+title: 使用 Azure 门户捕获流式处理事件 - Azure事件中心
+description: 本文介绍如何使用 Azure 门户捕获通过 Azure 事件中心流式处理的事件。
 services: event-hubs
 documentationcenter: ''
-author: rockboyfor
-manager: digimobile
+author: ShubhaVijayasarathy
+manager: timlt
 editor: ''
 ms.assetid: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 08/16/2018
-ms.date: 09/17/2018
-ms.author: v-yeche
-ms.openlocfilehash: e9b4700b1d349a685587bb4bec41569abb694511
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 01/07/2019
+ms.author: v-biyu
+ms.openlocfilehash: 26ab1673ee3234cdc5102562e1f2807ad3b7afd5
+ms.sourcegitcommit: a46f12240aea05f253fb4445b5e88564a2a2a120
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659894"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785220"
 ---
-# <a name="enable-event-hubs-capture-using-the-azure-portal"></a>通过 Azure 门户启用事件中心捕获
+# <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>启用捕获通过 Azure 事件中心流式处理的事件
 
-Azure [事件中心捕获][capture-overview] 用于自动将事件中心中的流数据传送到所选 [Azure Blob 存储](https://www.azure.cn/home/features/storage/)帐户。
+Azure [事件中心捕获][capture-overview]用于自动将事件中心中的流数据传送到所选 [Azure Blob 存储](https://www.azure.cn/home/features/storage/)帐户。
 <!-- Not Available [Azure Data Lake Store](https://www.azure.cn/home/features/data-lake-store/) -->
 
 可以使用 [Azure 门户](https://portal.azure.cn)在创建事件中心时配置捕获。 可以将数据捕获到 Azure [Blob 存储](https://www.azure.cn/home/features/storage/)容器。
@@ -57,9 +58,11 @@ Azure [事件中心捕获][capture-overview] 用于自动将事件中心中的�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 通过阅读[事件中心捕获概述][capture-overview]，详细了解事件中心捕获。
+- 阅读[事件中心捕获概述][capture-overview]，详细了解事件中心捕获。
 - 还可以通过 Azure Resource Manager 模板配置事件中心捕获。 有关详细信息，请参阅[通过 Azure 资源管理器模板启用捕获](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)。
+- [了解如何创建使用事件中心命名空间作为源的 Azure 事件网格订阅](store-captured-data-data-warehouse.md)
 <!--Not available - [Get started with Azure Data Lake Store using the Azure portal](../data-lake-store/data-lake-store-get-started-portal.md)-->
+
 [capture-overview]: event-hubs-capture-overview.md
 
 <!--Update_Description: update meta properties, wording update-->

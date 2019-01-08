@@ -2,35 +2,31 @@
 title: 教程：在 HDInsight 中生成 Spark 机器学习应用程序 | Microsoft Docs
 description: 有关如何使用 Jupyter Notebook 在 HDInsight Spark 群集中生成 Apache Spark 机器学习应用程序的分步说明。
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: f584ca5e-abee-4b7c-ae58-2e45dfc56bf4
 ms.service: hdinsight
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.devlang: na
 ms.topic: tutorial
-origin.date: 05/07/2018
-ms.date: 06/25/2018
+origin.date: 11/06/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 6e5537fc8a3c37735b5107da4694e254d35c310a
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: f6fcb41d8f285563aa61ea35c56e2d15187ab16b
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028298"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806502"
 ---
-# <a name="tutorial-build-a-spark-machine-learning-application-in-hdinsight"></a>教程：在 HDInsight 中生成 Spark 机器学习应用程序 
+# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>教程：在 HDInsight 中生成 Apache Spark 机器学习应用程序 
 
-本教程介绍如何使用 Jupyter Notebook 生成适用于 Azure HDInsight 的 Apache Spark 机器学习应用程序。 
+本教程介绍如何使用 [Jupyter Notebook](https://jupyter.org/) 生成适用于 Azure HDInsight 的 [Apache Spark](https://spark.apache.org/) 机器学习应用程序。 
 
-[MLib](https://spark.apache.org/docs/1.1.0/mllib-guide.html) 是 Spark 的可缩放机器学习库，由常见学习算法和实用程序（包括分类、回归、聚集、协作筛选、维数约简以及底层优化基元）组成。
+[MLlib](https://spark.apache.org/docs/1.1.0/mllib-guide.html) 是 Spark 的可缩放机器学习库，由常见学习算法和实用工具（包括分类、回归、聚集、协作筛选、维数约简以及底层优化基元）组成。
 
 本教程介绍如何执行下列操作：
 > [!div class="checklist"]
-> * 开发 Spark 机器学习应用程序
+> * 开发 Apache Spark 机器学习应用程序
 
 如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
@@ -84,7 +80,7 @@ ms.locfileid: "53028298"
         return LabeledDocument((values[6]), textValue, hot)
 
     # Load the raw HVAC.csv file, parse it using the function
-    data = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+    data = sc.textFile("/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
     documents = data.filter(lambda s: "Date" not in s).map(parseDocument)
     training = documents.toDF()
@@ -192,7 +188,7 @@ HDInsight 中的 Apache Spark 群集包含 Anaconda 库。 它还包括适用于
 
 在本教程中，你已学习了如何执行以下操作：
 
-* 开发 Spark 机器学习应用程序
+* 开发 Apache Spark 机器学习应用程序
 
 继续学习下一教程，了解如何将 IntelliJ IDEA 用于 Spark 作业。 
 

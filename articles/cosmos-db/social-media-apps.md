@@ -1,22 +1,20 @@
 ---
-title: Azure Cosmos DB 设计模式：社交媒体应用 | Azure
+title: Azure Cosmos DB 设计模式：社交媒体应用
 description: 利用 Azure Cosmos DB 的存储灵活性和其他 Azure 服务了解社交网络的设计模式。
 keywords: 社交媒体应用
 services: cosmos-db
 author: rockboyfor
-manager: digimobile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 origin.date: 11/14/2018
-ms.date: 12/03/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: e9dea883292216247a3470458ba586af0488fd9d
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 9fdc38d5de277880bcd596d6531e503e6ea14ca6
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674159"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026818"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 进行社交
 
@@ -42,9 +40,26 @@ ms.locfileid: "52674159"
 
 ## <a name="the-nosql-road"></a>NoSQL 加载
 
-本文将指导你使用 Azure 的 NoSQL 数据库 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 经济高效地对社交平台的数据进行建模。 此外，介绍如何使用其他 Azure Cosmos DB 功能，如 Gremlin API。 使用 [NoSQL](https://en.wikipedia.org/wiki/NoSQL) 方法以 JSON 格式存储数据并应用[非规范化](https://en.wikipedia.org/wiki/Denormalization)，就可以将以前的复杂帖子转换为单个[文档](https://en.wikipedia.org/wiki/Document-oriented_database)：
+本文将指导你使用 Azure 的 NoSQL 数据库 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 经济高效地对社交平台的数据进行建模。 使用 [NoSQL](https://en.wikipedia.org/wiki/NoSQL) 方法以 JSON 格式存储数据并应用[非规范化](https://en.wikipedia.org/wiki/Denormalization)，就可以将以前的复杂帖子转换为单个[文档](https://en.wikipedia.org/wiki/Document-oriented_database)：
 
-<!--Not Available on [Gremlin API](../cosmos-db/graph-introduction.md)--> { "id":"ew12-res2-234e-544f", "title":"post title", "date":"2016-01-01", "body":"this is an awesome post stored on NoSQL", "createdBy":User, "images":["http://myfirstimage.png","http://mysecondimage.png"], "videos":[ {"url":"http://myfirstvideo.mp4", "title":"The first video"}, {"url":"http://mysecondvideo.mp4", "title":"The second video"} ], "audios":[ {"url":"http://myfirstaudio.mp3", "title":"The first audio"}, {"url":"http://mysecondaudio.mp3", "title":"The second audio"} ] }
+<!--Not Available on [Gremlin API](../cosmos-db/graph-introduction.md)-->
+
+    {
+        "id":"ew12-res2-234e-544f",
+        "title":"post title",
+        "date":"2016-01-01",
+        "body":"this is an awesome post stored on NoSQL",
+        "createdBy":User,
+        "images":["https://myfirstimage.png","https://mysecondimage.png"],
+        "videos":[
+            {"url":"https://myfirstvideo.mp4", "title":"The first video"},
+            {"url":"https://mysecondvideo.mp4", "title":"The second video"}
+        ],
+        "audios":[
+            {"url":"https://myfirstaudio.mp3", "title":"The first audio"},
+            {"url":"https://mysecondaudio.mp3", "title":"The second audio"}
+        ]
+    }
 
 可以使用单个查询获得，且无需联接。 此查询非常简单直观，且在预算方面，它所需要的资源更少，但得到的结果更好。
 
@@ -88,7 +103,7 @@ Azure Cosmos DB 的自动索引功能可确保为所有属性都编制索引。 
 
 可拥有“最新”的流，其中包含按创建日期排序的帖子。 或者可拥有一个“最热门”的流，其中包含过去 24 小时内点赞数较多的帖子。 甚至可以根据关注者和兴趣等逻辑为每个用户实现自定义流。 它仍然是一个帖子列表。 虽然如何生成这些列表还是一个问题，但读取性能不会受到阻碍。 在获得其中一个列表之后，使用 [IN 运算符](how-to-sql-query.md#WhereClause)向 Cosmos DB 发布单个查询以一次性获取帖子的所有页面。
 
-可以使用 [Azure 应用服务](https://www.azure.cn/home/features/app-service/)的后台进程 - [Web 作业](../app-service/web-sites-create-web-jobs.md) - 来构建源流。 创建一个帖子后，可以通过使用 [Azure 存储](https://www.azure.cn/home/features/storage/)[队列](../storage/queues/storage-dotnet-how-to-use-queues.md)和 Web 作业（通过 [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) 触发）触发后台处理，从而根据自己的自定义逻辑实现流内的帖子传播。
+可以使用 [Azure 应用服务](https://www.azure.cn/home/features/app-service/)的后台进程 - [Webjobs](../app-service/web-sites-create-web-jobs.md) - 来构建源流。 创建一个帖子后，可以通过使用 [Azure 存储](https://www.azure.cn/home/features/storage/)[队列](../storage/queues/storage-dotnet-how-to-use-queues.md)和 Web 作业（通过 [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) 触发）触发后台处理，从而根据自己的自定义逻辑实现流内的帖子传播。
 
 通过使用这种相同的技术创建最终一致性环境还可以以延迟方式处理评分和点赞。
 
@@ -117,7 +132,7 @@ Azure Cosmos DB 的自动索引功能可确保为所有属性都编制索引。 
         "totalPoints":11342
     }
 
-可以使用 Azure Cosmos DB Gremlin API 存储实际的关注者图形，以创建每位用户的[顶点](http://mathworld.wolfram.com/GraphVertex.html)和[边缘](http://mathworld.wolfram.com/GraphEdge.html)，从中反映出“A 关注 B”关系。 使用 Gremlin API 不仅可以获取某位用户的关注者，而且还能创建更复杂的查询以推荐具有共同点的用户。 如果在图形中添加用户喜欢或感兴趣的内容类别，就可以开始布置智能内容发现、推荐关注用户感兴趣的内容和查找具有共同点的用户等体验。
+<!--Not Available on Azure Cosmos DB Gremlin API -->
 
 <!--Not Availble on [Gremlin API](../cosmos-db/graph-introduction.md)--> 仍然可以使用用户统计信息文档在 UI 或快速配置文件预览中创建卡片。
 
@@ -180,16 +195,7 @@ Azure Cosmos DB 的自动索引功能可确保为所有属性都编制索引。 
 
 当区块属性受影响需要进行编辑时，可轻松找到受影响的文档。 只需使用指向编制索引属性的查询，例如 `SELECT * FROM posts p WHERE p.createdBy.id == "edited_user_id"`，然后更新区块。
 
-## <a name="the-search-box"></a>搜索框
-
-幸运的是，用户将生成许多内容。 并且你应能够提供搜索和查找可能在其内容流中不直接显示的内容的能力，也许是由于未关注创建者，或者也许是因为只是想要尽力找到六个月之前发布的旧帖子。
-
-由于使用的是 Azure Cosmos DB，因此可使用 [Azure 搜索](https://www.azure.cn/home/features/search/)在几分钟内轻松实现搜索引擎，而无需键入任何代码（搜索进程和 UI 除外）。
-
-为什么此过程如此简单？
-
-Azure 搜索可实现它们称之为 [索引器](https://msdn.microsoft.com/library/azure/dn946891.aspx)的内容，这是在数据存储库中挂钩的后台处理程序，可以自动添加、更新或删除索引中的对象。 它们支持 [Azure SQL 数据库索引器](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/)、Azure Blobs 索引器和 Azure Cosmos DB 索引器。 从 Cosmos DB 到 Azure 搜索的信息转换非常简单。 这两种技术都以 JSON 格式存储信息，因此只需创建索引并从要编制索引的文档中映射属性。 就这么简单！ 根据数据大小，可在几分钟内通过云基础结构中的最佳搜索即服务解决方案搜索所有内容。
-
+<!-- Not Available on ## The search box-->
 <!-- Not Available on [create your Index](../search/search-create-index-portal.md)-->
 <!-- Not Available on [Azure Blobs indexers](../search/search-howto-indexing-azure-blob-storage.md)-->
 <!-- Not Available on [Azure Cosmos DB indexers](../search/search-howto-index-documentdb.md)-->
@@ -198,15 +204,15 @@ Azure 搜索可实现它们称之为 [索引器](https://msdn.microsoft.com/libr
 
 ## <a name="the-underlying-knowledge"></a>基础知识
 
-存储所有此内容（每天会不断增加）后，可能会思考这样一个问题：我可以使用所有来自用户的此信息流做些什么？
+存储所有日益增长的此内容后，你可能会考虑：我如何处理来自我的用户的所有此信息流？
 
-答案非常简单：将其投入使用并从中进行学习。
+答案非常简单：投入使用并从中进行学习。
 
 但是，可以学到什么？ 一些简单的示例包括[情绪分析](https://en.wikipedia.org/wiki/Sentiment_analysis)、基于用户偏好的内容建议，甚至自动执行内容审查器。内容审查器可确保通过社交网络发布的内容对该系列均安全。
 
 由于想要深入了解，你可能会认为自己需要更多数学科学方面的知识才能从简单数据库和文件中提取出这些模式和信息，其实不然。
 
-[Azure 机器学习](https://www.azure.cn/home/features/machine-learning/)（[Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx) 的一部分）是一项全面托管的云服务，使你可以在简单的拖放界面中使用算法创建工作流、为 [R](https://en.wikipedia.org/wiki/R_\(programming_language\)) 中自己的算法编码，或使用一些已生成或现成的 API，如：[文本分析](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2)、[内容审查器或[建议](https://gallery.azure.ai/Solution/Recommendations-Solution)。
+[Azure 机器学习](https://www.azure.cn/home/features/machine-learning/)（[Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx) 的一部分）是一项全面托管的云服务，让用户可以在简单的拖放界面中使用算法创建工作流、为 [R](https://en.wikipedia.org/wiki/R_\(programming_language\)) 中自己的算法编码，或使用一些已生成或现成的 API，如：[文本分析](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2)、[内容审查器或[建议](https://gallery.azure.ai/Solution/Recommendations-Solution)。
 
 若要完成上述任何一种机器学习方案，可使用 [Azure Data Lake](https://www.azure.cn/home/features/data-lake-store/) 从不同源获取信息。 还可使用 [U-SQL](https://www.azure.cn/documentation/videos/data-lake-u-sql-query-execution/) 来处理信息并生成可由 Azure 机器学习处理的输出。
 

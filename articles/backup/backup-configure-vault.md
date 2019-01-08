@@ -1,21 +1,19 @@
 ---
 title: 使用 Azure 备份代理备份文件和文件夹
-description: 使用 Azure 备份代理将 Windows 文件和文件夹备份到 Azure。 创建恢复服务保管库，安装备份代理，定义备份策略，以及对文件和文件夹运行初始备份。
+description: 使用世纪互联 Azure 备份代理将 Windows 文件和文件夹备份到 Azure。 创建恢复服务保管库，安装备份代理，定义备份策略，以及对文件和文件夹运行初始备份。
 services: backup
 author: lingliw
 manager: digimobile
-keywords: 备份保管库; 备份 Windows 服务器; 备份 windows;
 ms.service: backup
 ms.topic: conceptual
-origin.date: 08/05/2018
-ms.date: 11/26/2018
+ms.date: 1/3/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b9b5697b06f5d03a7cea44e90d7095170bd0d620
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: dde306ba266e29a789c22c77f37448185405b918
+ms.sourcegitcommit: f46e1f7a5d582bb9663bfaee8087b233eb822e17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674639"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996517"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>通过 Resource Manager 部署模型将 Windows Server 或客户端备份到 Azure
 本文介绍如何通过 Resource Manager 部署模型使用 Azure 备份将 Windows Server（或 Windows 客户端）文件和文件夹备份到 Azure。
@@ -91,7 +89,7 @@ ms.locfileid: "52674639"
 
   默认情况下，保管库具有异地冗余存储。 如果使用 Azure 作为主要备份存储终结点，请继续使用“异地冗余” 。 如果不使用 Azure 作为主要的备份存储终结点，则请选择“本地冗余”，减少 Azure 存储费用。 请在此[存储冗余概述](../storage/common/storage-redundancy.md)中深入了解[异地冗余](../storage/common/storage-redundancy-grs.md)和[本地冗余](../storage/common/storage-redundancy-lrs.md)存储选项。
 
-现在，你已创建了保管库，接下来请准备基础结构以备份文件和文件夹，方法是下载并安装 Azure 恢复服务代理，下载保管库凭据，并使用这些凭据向保管库注册该代理。
+现在，你已创建了保管库，接下来请准备基础结构以备份文件和文件夹，方法是下载并安装世纪互联 Azure 恢复服务代理，下载保管库凭据，并使用这些凭据向保管库注册该代理。
 
 ## <a name="configure-the-vault"></a>配置保管库
 
@@ -144,7 +142,7 @@ ms.locfileid: "52674639"
 ## <a name="install-and-register-the-agent"></a>安装并注册代理
 
 > [!NOTE]
-> 尚未推出通过 Azure 门户启用备份这一功能。 请使用 Azure 恢复服务代理备份文件和文件夹。
+> 尚未推出通过 Azure 门户启用备份这一功能。 请使用世纪互联 Azure 恢复服务代理备份文件和文件夹。
 >
 
 1. 在 Downloads 文件夹（或其他保存位置）中找到并双击 **MARSagentinstaller.exe**。
@@ -153,7 +151,7 @@ ms.locfileid: "52674639"
 
   ![运行恢复服务代理安装程序凭据](./media/backup-try-azure-backup-in-10-mins/mars-installer-registration.png)
 
-2. 完成 Azure 恢复服务代理安装向导。 若要完成该向导，需完成以下操作：
+2. 完成世纪互联 Azure 恢复服务代理安装向导。 若要完成该向导，需完成以下操作：
 
   * 选择安装和缓存文件夹的位置。
   * 如果使用代理服务器来连接 Internet，请提供代理服务器信息。
@@ -179,10 +177,12 @@ ms.locfileid: "52674639"
 
 
 ## <a name="create-the-backup-policy"></a>创建备份策略
-备份策略是有关以下事项的计划：何时创建恢复点，以及恢复点保留的时间长度。 可以使用 Azure 备份代理为文件和文件夹创建备份策略。
+备份策略是有关以下事项的计划：何时创建恢复点，以及恢复点保留的时间长度。 可以使用世纪互联 Azure 备份代理为文件和文件夹创建备份策略。
 
 ### <a name="to-create-a-backup-schedule"></a>创建备份计划
-1. 打开 Azure 备份代理。 可以通过在计算机中搜索“Azure 备份”找到该代理。
+
+在要备份的计算机上设置备份计划。 请注意，为备份设置的时间可能不同于本地计算机时间，因为 Azure 备份没有考虑夏令时 (DST) 的因素。 
+1. 打开世纪互联 Azure 备份代理。 可以通过在计算机中搜索**世纪互联 Azure 备份**找到该代理。
 
     ![启动 Azure 备份代理](./media/backup-configure-vault/snap-in-search.png)
 2. 在备份代理的“操作”窗格中，单击“计划备份”以启动计划备份向导。
@@ -217,7 +217,7 @@ ms.locfileid: "52674639"
 11. 在向导完成创建备份计划后，请单击“**关闭**”。
 
 ### <a name="enable-network-throttling"></a>启用网络限制
-Azure 备份代理提供了网络限制。 限制功能将控制数据传输期间的网络带宽使用方式。 如果需要在工作时间内备份数据，但不希望备份程序干扰其他 Internet 流量，此控制机制很有帮助。 限制适用于备份和还原活动。
+世纪互联 Azure 备份代理提供了网络限制。 限制功能将控制数据传输期间的网络带宽使用方式。 如果需要在工作时间内备份数据，但不希望备份程序干扰其他 Internet 流量，此控制机制很有帮助。 限制适用于备份和还原活动。
 
 > [!NOTE]
 > 网络限制在 Windows Server 2008 R2 SP1、Windows Server 2008 SP2 或 Windows 7（带 Service Pack）上不可用。 Azure 备份网络限制功能需要在本地操作系统上使用服务质量 (QoS)。 虽然 Azure 备份可以保护这些操作系统，但这些平台上的可用 QoS 版本不兼容 Azure 备份网络限制。 网络限制可用于所有其他[支持的操作系统](backup-azure-backup-faq.md)。
@@ -226,7 +226,7 @@ Azure 备份代理提供了网络限制。 限制功能将控制数据传输期�
 
 **启用网络限制**
 
-1. 在“备份代理”中，单击“更改属性”。
+1. 在世纪互联 Azure 备份代理中，单击“更改属性”。
 
     ![更改属性](./media/backup-configure-vault/change-properties.png)
 2. 在“**限制**”选项卡上，选中“**为备份操作启用 Internet 带宽使用限制**”复选框。

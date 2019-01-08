@@ -1,6 +1,6 @@
 ---
-title: Azure Web 应用上节点应用程序的最佳做法和故障排除指南
-description: 了解 Azure Web 应用上节点应用程序的最佳做法和故障排除步骤。
+title: Node.js 的最佳做法和故障排除 - Azure 应用服务
+description: 了解 Azure 应用服务上节点应用程序的最佳做法和故障排除步骤。
 services: app-service\web
 documentationcenter: nodejs
 author: ranjithr
@@ -13,25 +13,26 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 origin.date: 11/09/2017
-ms.date: 06/04/2018
-ms.author: v-yiso
-ms.openlocfilehash: b860b708db7038bdf8ac896483dc918d6f7575bb
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/31/2018
+ms.author: v-biyu
+ms.custom: seodec18
+ms.openlocfilehash: 05bdc7468a2ab138524d477ed949674786324609
+ms.sourcegitcommit: 80c59ae1174d71509b4aa64a28a98670307a5b38
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647895"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735193"
 ---
-# <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-web-apps"></a>Azure Web 应用上节点应用程序的最佳做法和故障排除指南
+# <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Azure 应用服务 Windows 版上节点应用程序的最佳做法和故障排除指南
 
 本文介绍 Azure Web 应用上运行的 [node 应用程序](app-service-web-get-started-nodejs.md)的最佳实践和故障排除步骤（使用 [iisnode](https://github.com/azure/iisnode)）。
 
 > [!WARNING]
 > 在生产站点上使用故障排除步骤时，请格外小心。 建议在非生产安装（例如过渡槽）上排查应用问题，问题修复后，请交换过渡槽与生产槽。
-> 
-> 
+>
 
 ## <a name="iisnode-configuration"></a>IISNODE 配置
+
 此[架构文件](https://github.com/Azure/iisnode/blob/master/src/config/iisnode_schema_x64.xml)显示可针对 iisnode 配置的所有设置。 适用于应用程序的一些设置如下：
 
 ### <a name="nodeprocesscountperapplication"></a>nodeProcessCountPerApplication
@@ -102,8 +103,7 @@ ms.locfileid: "52647895"
 
 > [!WARNING]
 > 在生产应用程序上启用以下配置设置时，请格外小心。 建议不要在实际生产应用程序上启用它们。
-> 
-> 
+>
 
 ### <a name="debugheaderenabled"></a>debugHeaderEnabled
 
@@ -119,7 +119,7 @@ ms.locfileid: "52647895"
 
 ### <a name="debuggingenabled-do-not-enable-on-live-production-site"></a>debuggingEnabled（请勿在实际生产站点上启用）
 
-此设置控制调试功能。 Iisnode 与节点检查器集成。 通过启用此设置，可启用节点应用程序的调试功能。 启用此设置后，iisnode 会在对 Node 应用程序发出第一个调试请求时，在“debuggerVirtualDir”目录中创建 node-inspector 文件。 可将请求发送到 http://yoursite/server.js/debug，以加载 node-inspector。 可以使用“debuggerPathSegment”设置来控制调试 URL 段。 默认情况下，debuggerPathSegment ="debug"。 可将 `debuggerPathSegment` 设置为 GUID 之类的值，这样，其他人就更难发现。
+此设置控制调试功能。 Iisnode 与节点检查器集成。 通过启用此设置，可启用节点应用程序的调试功能。 启用此设置后，iisnode 会在对 Node 应用程序发出第一个调试请求时，在“debuggerVirtualDir”目录中创建 node-inspector 文件。 可将请求发送到 http://yoursite/server.js/debug，以加载 node-inspector。 可以使用“debuggerPathSegment”设置来控制调试 URL 段。 默认情况下，debuggerPathSegment=�debug�。 可将 `debuggerPathSegment` 设置为 GUID 之类的值，这样，其他人就更难发现。
 
 有关调试的详细信息，请参阅[在 Windows 上调试 node.js 应用程序](https://tomasz.janczuk.org/2011/11/debug-nodejs-applications-on-windows.html)。
 
@@ -152,6 +152,7 @@ var keepaliveAgent = new Agent({
 如果你认为应用程序消耗了过多的 CPU，但又无法做出解释，可以分析 Node 应用程序来找出原因。
 
 #### <a name="profiling-your-node-application-on-azure-web-apps-with-v8-profiler"></a>在 Azure Web 应用中使用 V8 探查器分析 node 应用程序
+
 例如，假设需要分析如下所示的 hello world 应用：
 
 ```nodejs
@@ -230,10 +231,11 @@ http.createServer(function (req, res) {
 
 node.exe 随机关闭的原因有多种：
 
-1. 应用程序正在引发未捕获的异常 – 请检查 d:\\home\\LogFiles\\Application\\logging-errors.txt 文件，了解有关所引发异常的详细信息。 此文件提供堆栈跟踪以帮助调试和修复应用程序。
+1. 应用程序正在引发未捕获的异常 � 请检查 d:\\home\\LogFiles\\Application\\logging-errors.txt 文件，了解有关所引发异常的详细信息。 此文件提供堆栈跟踪以帮助调试和修复应用程序。
 2. 应用程序消耗过多的内存，导致其他进程无法启动。 如果 VM 内存总量接近 100%，则进程管理器会终止 node.exe。 进程管理器终止某些进程后，其他进程便有机会执行一些工作。 若要解决此问题，请探查应用程序中的内存泄漏问题。 如果应用程序需要大量的内存，请纵向扩展为更大的 VM（增加 VM 的可用 RAM）。
 
 ### <a name="my-node-application-does-not-start"></a>节点应用程序未启动
+
 如果应用程序在启动时返回 500 错误，可能有几个原因：
 
 1. Node.exe 未出现在正确的位置。 检查 nodeProcessCommandLine 设置。
@@ -243,7 +245,7 @@ node.exe 随机关闭的原因有多种：
 
 ### <a name="my-node-application-crashed"></a>节点应用程序崩溃
 
-应用程序正在引发未捕获的异常 - 请检查 `d:\\home\\LogFiles\\Application\\logging-errors.txt` 文件，了解有关所引发异常的详细信息。 此文件提供堆栈跟踪以帮助诊断和修复应用程序。
+应用程序正在引发未捕获的异常 � 请检查 `d:\\home\\LogFiles\\Application\\logging-errors.txt` 文件，了解有关所引发异常的详细信息。 此文件提供堆栈跟踪以帮助诊断和修复应用程序。
 
 ### <a name="my-node-application-takes-too-much-time-to-start-cold-start"></a>node 应用程序的启动时间太长（冷启动）
 
@@ -251,7 +253,7 @@ node.exe 随机关闭的原因有多种：
 加速此过程的某些解决方法包括：
 
 1. 使用 npm3 来安装模块，确保采用平面依赖关系结构，并且没有重复的依赖项。
-2. 尝试延迟加载 node\_modules，而不要在应用程序启动时加载所有模块。 若要延迟加载模块，应在首次执行模块代码之前，在函数中真正需要该模块时调用 require('module')。
+2. 尝试延迟加载 node\_modules，而不要在应用程序启动时加载所有模块。 若要延迟加载模块，应在首次执行模块代码之前，在函数中真正需要该模块时调用 require(�module�)。
 3. Azure Web 应用提供一项称为本地缓存的功能。 此功能会将内容从网络共享复制到 VM 上的本地磁盘。 由于文件位于本地，因此 node\_modules 的加载速度要快很多。
 
 ## <a name="iisnode-http-status-and-substatus"></a>IISNODE http 状态和子状态
@@ -265,20 +267,21 @@ node.exe 随机关闭的原因有多种：
 | 500 |1000 |将请求分派到 IISNODE 时发生某种问题 - 检查 node.exe 是否已启动。 Node.exe 可能在启动时已崩溃。 检查 web.config 配置是否有错误。 |
 | 500 |1001 |- Win32Error 0x2 - 应用未响应 URL。 检查 URL 重写规则，或检查是否为 Express 应用定义了正确的路由。 - Win32Error 0x6d - 命名管道繁忙 - Node.exe 不接受请求，因为管道繁忙。 检查 CPU 使用率是否偏高。 - 其他错误 - 检查 node.exe 是否已崩溃。 |
 | 500 |1002 |Node.exe 崩溃 - 检查 d:\\home\\LogFiles\\logging-errors.txt 中的堆栈跟踪。 |
-| 500 |1003 |管道配置问题 - 命名管道配置不正确。 |
+| 500 |1003 |管道配置问题 � 命名管道配置不正确。 |
 | 500 |1004-1018 |发送请求或处理 node.exe 的相关响应时发生某个错误。 检查 node.exe 是否已崩溃。 检查 d:\\home\\LogFiles\\logging-errors.txt 中的堆栈跟踪。 |
 | 503 |1000 |内存不足，无法分配更多命名管道连接。 检查应用为何耗用大量内存。 检查 maxConcurrentRequestsPerProcess 设置值。 如果此值并非无限，而且有许多请求，请增大此值来防止此错误。 |
 | 503 |1001 |无法将请求分派至 node.exe，因为应用程序正在回收。 应用程序回收之后，应该会正常处理请求。 |
 | 503 |1002 |检查 win32 错误代码的实际原因 - 无法将请求分派到 node.exe。 |
-| 503 |1003 |命名管道太忙 - 验证 node.exe 是否正在消耗过多的 CPU |
+| 503 |1003 |命名管道太忙 � 验证 node.exe 是否正在消耗过多的 CPU |
 
 NODE.exe 具有名为 `NODE_PENDING_PIPE_INSTANCES` 的设置。 默认情况下，当未部署在 Azure Web 应用上时，此值为 4。 这意味着 node.exe 在命名管道上一次只能接受四个请求。 在 Azure Web 应用中，此值设置为 5000。 此值应足以满足 Azure Web 应用中运行的大多数 node 应用程序。 Azure Web 应用中不应出现 503.1003，因为 `NODE_PENDING_PIPE_INSTANCES` 的值较高。
 
 ## <a name="more-resources"></a>更多资源
+
 请访问以下链接，详细了解 Azure App Service 上的 node.js 应用程序。
 
 * [Azure 应用服务中的 Node.js Web 应用入门](app-service-web-get-started-nodejs.md)
 * [如何在 Azure App Service 中调试 Node.js Web 应用](app-service-web-tutorial-nodejs-mongodb-app.md)
 * [将 Node.js 模块与 Azure 应用程序一起使用](../nodejs-use-node-modules-azure-apps.md)
-* [Azure App Service Web 应用：Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
+* [Azure 应用服务 Web 应用：Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Node.js 开发人员中心](../nodejs-use-node-modules-azure-apps.md)

@@ -4,18 +4,17 @@ description: 本文介绍 Azure 流分析提供的数据输出选项，包括用
 services: stream-analytics
 author: lingliw
 ms.author: v-lingwu
-manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 10/22/2018
-ms.date: 11/26/2018
-ms.openlocfilehash: 77289093dff4fb0dadae04bda27f64158e407453
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 1/3/2019
+ms.custom: seodec18
+ms.openlocfilehash: 8b9700612212b3592d1ef6f9810ae2b500970fce
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674857"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029255"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>了解 Azure 流分析的输出
 本文将介绍适用于 Azure 流分析作业的不同类型的输出。 输出可帮助存储和保存流分析作业的结果。 使用输出数据，可进一步进行业务分析和数据的数据仓储。 
@@ -62,8 +61,8 @@ Blob 存储提供了一种经济高效且可缩放的解决方案，用于在云
 | 输出别名        | 查询中使用的友好名称，用于将查询输出定向到此 blob 存储。 |
 | 存储帐户     | 存储帐户的名称（正在向该存储帐户发送输出）。               |
 | 存储帐户密钥 | 与存储帐户关联的密钥。                              |
-| 存储容器   | 容器对存储在 Azure Blob 服务中的 blob 进行逻辑分组。 将 blob 上传到 Blob 服务时，必须为该 blob 指定一个容器。 |
-| 路径模式 | 可选。 用于写入指定容器中的 blob 的文件路径模式。 <br /><br /> 在路径模式中，可以选择使用数据时间变量的一个或多个实例指定 blob 写入的频率： <br /> {date}、{time} <br /><br />如果已注册[预览版](https://aka.ms/ASAPreview)，则可以从事件数据中指定一个自定义 {field} 名称来对 blob 进行分区。 字段名称是字母数字，并且可以包含空格、连字符和下划线。 对自定义字段的限制包括以下内容： <ul><li>不区分大小写（不区分列“ID”和列“id”）</li><li>不允许嵌套字段（在作业查询中改用别名来“平展”字段）</li><li>不能使用表达式作为字段名称。</li></ul> <br /><br /> 在预览版中，还可以在路径中使用自定义日期/时间格式说明符配置。 一次只能指定一个自定义日期和时间格式，并用 {datetime:\<specifier>} 关键字括起来。 允许的输入 \<specifier> 为 yyyy、MM、M、dd、d、HH、H、mm、m、ss 或 s。 可能会在路径中多次使用 {datetime:\<specifier>} 关键字以形成自定义日期/时间配置。 <br /><br />示例: <ul><li>示例 1：cluster1/logs/{date}/{time}</li><li>示例 2：cluster1/logs/{date}</li><li>示例 3（预览版）：cluster1/{client_id}/{date}/{time}</li><li>示例 4（预览版）：cluster1/{datetime:ss}/{myField}，其中查询为：SELECT data.myField AS myField FROM Input;</li><li>示例 5（预览版）：cluster1/year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}</ul><br /><br />创建的文件夹结构的时间戳遵循 UTC 而不是本地时间。<br /><br/>文件命名将遵循以下约定： <br /><br />{路径前缀模式}/schemaHashcode_Guid_Number.extension<br /><br />示例输出文件：<ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li>  <li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul> |
+| 存储容器   | 容器为存储在世纪互联 Azure Blob 服务中的 Blob 提供逻辑分组。 将 blob 上传到 Blob 服务时，必须为该 blob 指定一个容器。 |
+| 路径模式 | 可选。 用于写入指定容器中的 blob 的文件路径模式。 <br /><br /> 在路径模式中，可以选择使用数据时间变量的一个或多个实例指定 blob 写入的频率： <br /> {date}、{time} <br /><br />如果使用此 [Azure 门户链接](https://portal.azure.com/?microsoft_azure_streamanalytics_bloboutputpathpartitioning=true&Microsoft_Azure_StreamAnalytics_bloboutputcontainerpartitioning=true)来访问自定义 blob 分区预览，则可以从事件数据中指定一个自定义 {field} 名称来对 blob 进行分区。 字段名称是字母数字，并且可以包含空格、连字符和下划线。 对自定义字段的限制包括以下内容： <ul><li>不区分大小写（不区分列“ID”和列“id”）</li><li>不允许嵌套字段（在作业查询中改用别名来“平展”字段）</li><li>不能使用表达式作为字段名称。</li></ul> <br /><br /> 在预览版中，还可以在路径中使用自定义日期/时间格式说明符配置。 一次只能指定一个自定义日期和时间格式，并用 {datetime:\<specifier>} 关键字括起来。 允许的输入 \<specifier> 为 yyyy、MM、M、dd、d、HH、H、mm、m、ss 或 s。 可能会在路径中多次使用 {datetime:\<specifier>} 关键字以形成自定义日期/时间配置。 <br /><br />示例: <ul><li>示例 1：cluster1/logs/{date}/{time}</li><li>示例 2：cluster1/logs/{date}</li><li>示例 3（预览版）：cluster1/{client_id}/{date}/{time}</li><li>示例 4（预览版）：cluster1/{datetime:ss}/{myField}，其中查询为：SELECT data.myField AS myField FROM Input;</li><li>示例 5（预览版）：cluster1/year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}</ul><br /><br />创建的文件夹结构的时间戳遵循 UTC 而不是本地时间。<br /><br />文件命名将遵循以下约定： <br /><br />{路径前缀模式}/schemaHashcode_Guid_Number.extension<br /><br />示例输出文件：<ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li>  <li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul> <br /><br /> 有关此预览版的详细信息，请访问 [Azure 流分析 Blob 存储输出的自定义 DateTime 路径模式（预览版）](stream-analytics-custom-path-patterns-blob-storage-output.md)。 |
 | 日期格式 | 可选。 如果在前缀路径中使用日期令牌，可以选择组织文件所采用的日期格式。 示例：YYYY/MM/DD |
 | 时间格式 | 可选。 如果在前缀路径中使用时间令牌，可以指定组织文件所采用的时间格式。 目前唯一支持的值是 HH。 |
 | 事件序列化格式 | 输出数据的序列化格式。  支持 JSON、CSV 和 Avro。 |
@@ -199,16 +198,17 @@ Blob 存储提供了一种经济高效且可缩放的解决方案，用于在云
 
 | 输出类型 | 分区支持 | 分区键  | 输出写入器数目 | 
 | --- | --- | --- | --- |
-| Azure SQL 数据库 | 否 | 无 | 不适用。 | 
-| Azure Blob 存储 | 是 | 在 Path 模式中使用事件字段中的 {date} 和 {time} 标记。 选择日期格式，例如 YYYY/MM/DD、DD/MM/YYYY、MM-DD-YYYY。 HH 用于时间格式。 作为[预览版](https://aka.ms/ASAPreview)的一部分，可以通过单个自定义事件属性 {fieldname} 或 {datetime:\<specifier>} 对 blob 输出进行分区。 | 按照[完全可并行化的查询](stream-analytics-scale-jobs.md)的输入分区。 | 
-| Azure 事件中心 | 是 | 是 | 按分区对齐方式变化。</br> 输出事件中心分区键与上游（上一个）查询步骤相同时，编写器的数量与输出事件中心分区的数量相同。 各编写器使用 EventHub 的 [EventHubSender class](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) 将事件发送到特定分区。 </br> 输出事件中心分区键与上游（上一个）查询步骤不相同时，编写器的数量与之前步骤中的分区数量不相同。 各编写器使用 EventHubClient [SendBatchAsync class](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) 将事件发送到所有输出分区。 |
-| Power BI | 否 | 无 | 不适用。 | 
-| Azure 表存储 | 是 | 任何输出列。  | 按照[完全并行化的查询](stream-analytics-scale-jobs.md)的输入分区。 | 
+| Azure Data Lake Store | 是 | 在 Path 前缀模式中使用 {date} 和 {time} 标记。 选择日期格式，例如 YYYY/MM/DD、DD/MM/YYYY、MM-DD-YYYY。 HH 用于时间格式。 | 按照[完全可并行化的查询](stream-analytics-scale-jobs.md)的输入分区。 |
+| Azure SQL 数据库 | 是 | 基于查询中的 PARTITION BY 子句 | 按照[完全可并行化的查询](stream-analytics-scale-jobs.md)的输入分区。 若要详细了解在将数据载入 SQL Azure 数据库时如何提高写入吞吐量性能，请访问[从 Azure 流分析输出到 Azure SQL 数据库](stream-analytics-sql-output-perf.md)。 |
+| Azure Blob 存储 | 是 | 在 Path 模式中使用事件字段中的 {date} 和 {time} 标记。 选择日期格式，例如 YYYY/MM/DD、DD/MM/YYYY、MM-DD-YYYY。 HH 用于时间格式。 作为[预览版](https://aka.ms/ASApreview1)的一部分，可以通过单个自定义事件属性 {fieldname} 或 {datetime:\<specifier>} 对 blob 输出进行分区。 | 按照[完全可并行化的查询](stream-analytics-scale-jobs.md)的输入分区。 |
+| Azure 事件中心 | 是 | 是 | 按分区对齐方式变化。<br /> 输出事件中心分区键与上游（上一个）查询步骤相同时，编写器的数量与输出事件中心分区的数量相同。 每个编写器使用 EventHub 的 [EventHubSender 类](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet)将事件发送到特定分区。 <br /> 输出事件中心分区键与上游（上一个）查询步骤不相同时，编写器的数量与之前步骤中的分区数量不相同。 各编写器使用 EventHubClient [SendBatchAsync class](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) 将事件发送到所有输出分区。 |
+| Power BI | 否 | 无 | 不适用。 |
+| Azure 表存储 | 是 | 任何输出列。  | 按照[完全并行化的查询](stream-analytics-scale-jobs.md)的输入分区。 |
 | Azure 服务总线主题 | 是 | 自动选择。 分区数基于[服务总线 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 分区键是每个分区的唯一整数值。| 与输出主题中的分区数量相同。  |
 | Azure 服务总线队列 | 是 | 自动选择。 分区数基于[服务总线 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 分区键是每个分区的唯一整数值。| 与输出队列中的分区数量相同。 |
 | Azure Cosmos DB | 是 | 在 Collection 命名模式中使用 {partition} 标记。 {partition} 值基于查询中的 PARTITION BY 子句。 | 按照[完全并行化的查询](stream-analytics-scale-jobs.md)的输入分区。 |
-
-<!-- Not Available on | Azure Data Lake Store -->
+| Azure Functions | 否 | 无 | 不适用。 |
+<!-- 不可用于 | Azure Data Lake Store -->
 
 <!-- Not Available on | Power BI -->
 
@@ -220,10 +220,12 @@ Azure 流分析使用大小可变的批来处理事件和写入到输出。 通�
 下表介绍了输出批处理的一些注意事项：
 
 | 输出类型 | 最大消息大小 | 批大小优化 |
-| :--- | :--- | :--- | 
-| Azure SQL 数据库 | 每个单次批量插入最大行数 10000</br>每个单次批量插入最小行数 100 </br>另请参阅 [Azure SQL 限制](../sql-database/sql-database-resource-limits.md) |  每个批最初都以最大批大小来批量插入，并可能会根据来自 SQL 的可重试错误将批拆分为二（直到达到最小批大小）。 |
-| Azure Blob 存储 | 参阅 [Azure 存储限制](../azure-subscription-service-limits.md#storage-limits) | 最大 Blob 块大小为 4 MB</br>最大 blob 块计数为 50000 |
-| Azure 事件中心   | 每个消息 256 KB </br>另请参阅[事件中心限制](../event-hubs/event-hubs-quotas.md) |    输入输出分区不相同时，每个事件会分别打包到 EventData 中，并按批发送（批的大小不得超出最大消息大小，高级 SKU 的最大消息大小为 1 MB）。 </br></br>  输入输出分区相同时，多个事件打包到单个 EventData，以最大消息大小发送。    |
+| :--- | :--- | :--- |
+| Azure Data Lake Store | 请参阅 [Data Lake Storage 限制](../azure-subscription-service-limits.md) | 每个编写操作最高 4 MB |
+| Azure SQL 数据库 | 每个单次批量插入最大行数 10000<br />每个单次批量插入最小行数 100 <br />另请参阅 [Azure SQL 限制](../sql-database/sql-database-resource-limits.md) |  每个批最初都以最大批大小来批量插入，并可能会根据来自 SQL 的可重试错误将批拆分为二（直到达到最小批大小）。 |
+| Azure Blob 存储 | 参阅 [Azure 存储限制](../azure-subscription-service-limits.md#storage-limits) | 最大 Blob 块大小为 4 MB<br />最大 blob 块计数为 50000 |
+| Azure 事件中心   | 每个消息 256 KB <br />另请参阅[事件中心限制](../event-hubs/event-hubs-quotas.md) |   当输入输出分区未对齐时，每个事件都在 EventData 中单独打包，并按批发送（批的大小不得超出最大消息大小，高级 SKU 的最大消息大小为 1 MB）。 <br /><br />  输入输出分区相同时，多个事件打包到单个 EventData，以最大消息大小发送。  |
+| Power BI | 请参阅 [Power BI Rest API 限制](https://msdn.microsoft.com/library/dn950053.aspx) |
 | Azure 表存储 | 参阅 [Azure 存储限制](../azure-subscription-service-limits.md#storage-limits) | 默认为每个单一事务 100 个实体，并且可根据需要配置为更小的值。 |
 | Azure 服务总线队列   | 每个消息 256 KB</br> 另请参阅[服务总线限制](../service-bus-messaging/service-bus-quotas.md) | 每个消息单一事件 |
 | Azure 服务总线主题 | 每个消息 256 KB</br> 另请参阅[服务总线限制](../service-bus-messaging/service-bus-quotas.md) | 每个消息单一事件 |

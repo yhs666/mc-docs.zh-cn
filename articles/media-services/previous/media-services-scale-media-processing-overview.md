@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/30/2018
-ms.date: 10/22/2017
+origin.date: 10/29/2018
+ms.date: 12/24/2018
 ms.author: v-jay
-ms.openlocfilehash: 71ea545afc815a9219a15f1e5f539447bc31a43d
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 461489f233734f9fb67a921ab9badbba49e838d3
+ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672686"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53656583"
 ---
 # <a name="scaling-media-processing-overview"></a>调整媒体处理的规模概述
 此页概述了如何以及为何调整媒体处理的规模。 
