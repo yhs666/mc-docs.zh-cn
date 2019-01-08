@@ -13,18 +13,18 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 04/16/2018
-ms.date: 08/27/2018
+ms.date: 01/14/2019
 ms.author: larryfr
-ms.openlocfilehash: bb0563bbcdd0ab5af8281ac884db9f247963965f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 0b671db443667cabbc6294ea54d6449eeb182364
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656617"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029211"
 ---
-# <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>快速入门：创建 Kafka on HDInsight 群集
+# <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>快速入门：创建 Apache Kafka on HDInsight 群集
 
-Kafka 是开源分布式流式处理平台。 通常用作消息代理，因为它可提供类似于发布-订阅消息队列的功能。 
+[Apache Kafka](https://kafka.apache.org/) 是开源分布式流式处理平台。 通常用作消息代理，因为它可提供类似于发布-订阅消息队列的功能。 
 
 在此快速入门中，了解如何使用 Azure PowerShell 创建 [Apache Kafka](https://kafka.apache.org) 群集。 还介绍了如何使用已包含的实用工具发送并接收使用 Kafka 的信息。
 
@@ -33,7 +33,7 @@ Kafka 是开源分布式流式处理平台。 通常用作消息代理，因为�
 > [!IMPORTANT]
 > 仅可通过相同虚拟网络内的资源访问 Kafka API。 本快速入门使用 SSH 直接访问群集。 若要将其他服务、网络或虚拟机连接到 Kafka，则必须首先创建虚拟机，然后才能在网络中创建资源。
 >
-> 有关详细信息，请参阅[使用虚拟网络连接到 Kafka](apache-kafka-connect-vpn-gateway.md) 文档。
+> 有关详细信息，请参阅[使用虚拟网络连接到 Apache Kafka](apache-kafka-connect-vpn-gateway.md) 文档。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -101,9 +101,9 @@ $storageContext = New-AzureStorageContext `
 New-AzureStorageContainer -Name $containerName -Context $storageContext 
 ```
 
-## <a name="create-a-kafka-cluster"></a>创建 Kafka 群集
+## <a name="create-an-apache-kafka-cluster"></a>创建 Apache Kafka 群集
 
-通过 [New-AzureRmHDInsightCluster](https://docs.microsoft.com/en-us/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster) 创建 Kafka on HDInsight 群集。
+使用 [New-AzureRmHDInsightCluster](https://docs.microsoft.com/en-us/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster) 创建 Apache Kafka on HDInsight 群集。
 
 ```powershell
 # Create a Kafka 1.0 cluster
@@ -175,7 +175,7 @@ Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
  * Support:        https://ubuntu.com/advantage
 
   Get cloud support with Ubuntu Advantage Cloud Guest:
-    http://www.ubuntu.com/business/services/cloud
+    https://www.ubuntu.com/business/services/cloud
 
 83 packages can be updated.
 37 updates are security updates.
@@ -188,11 +188,11 @@ Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
 ssuhuser@hn0-mykafk:~$
 ```
 
-## <a id="getkafkainfo"></a>获取 Zookeeper 主机和代理主机信息
+## <a id="getkafkainfo"></a>获取 Apache Zookeeper 主机和代理主机信息
 
-使用 Kafka 时，必须了解 Zookeeper 和代理主机。 这些主机配合 Kafka API 和 Kafka 随附的许多实用工具一起使用。
+使用 Kafka 时，必须了解 Apache Zookeeper 和代理主机。 Kafka API 以及 Kafka 随附的许多实用工具都使用这些主机。
 
-在本部分中，可以从群集上的 Ambari REST API 获取主机信息。
+在本部分中，可以从群集上的 Apache Ambari REST API 获取主机信息。
 
 1. 从 SSH 连接到群集，使用以下命令安装 `jq` 实用工具。 此实用工具用于分析 JSON 文档且有助于检索主机的信息：
    
@@ -247,7 +247,7 @@ ssuhuser@hn0-mykafk:~$
    
     `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
 
-## <a name="manage-kafka-topics"></a>管理 Kafka 主题
+## <a name="manage-apache-kafka-topics"></a>管理 Apache Kafka 主题
 
 Kafka 在主题中存储数据流。 可以使用 `kafka-topics.sh` 实用工具来管理主题。
 
@@ -273,7 +273,7 @@ Kafka 在主题中存储数据流。 可以使用 `kafka-topics.sh` 实用工具
         > [!IMPORTANT] 
         > Kafka 不识别 Azure 容错域。 在创建主题的分区副本时，它可能未针对高可用性正确分发副本。
 
-        若要确保高可用性，请使用 [Kafka 分区重新均衡工具](https://github.com/hdinsight/hdinsight-kafka-tools)。 必须通过 SSH 连接运行此工具，以便连接到 Kafka 群集的头节点。
+        若要确保高可用性，请使用 [Apache Kafka 分区重新均衡工具](https://github.com/hdinsight/hdinsight-kafka-tools)。 必须通过 SSH 连接运行此工具，以便连接到 Kafka 群集的头节点。
 
         为确保 Kafka 数据的最高可用性，应在出现以下情况时为主题重新均衡分区副本：
 
@@ -335,7 +335,7 @@ Kafka 将记录存储在主题中。 记录由生成者生成，由使用者使�
 
 4. 使用 __Ctrl + C__ 阻止使用者。
 
-还可以以编程方式创建生产者和使用者。 有关如何使用此 API 的示例，请参阅[将 Kafka 生产者和使用者 API 与 HDInsight 配合使用](apache-kafka-producer-consumer-api.md)文档。
+还可以以编程方式创建生产者和使用者。 有关如何使用此 API 的示例，请参阅[将 Apache Kafka 生产者和使用者 API 与 HDInsight 配合使用](apache-kafka-producer-consumer-api.md)文档。
 
 ## <a name="clean-up-resources"></a>清理资源
 
@@ -353,4 +353,4 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [将 Apache Spark 与 Kafka 结合使用](../hdinsight-apache-kafka-spark-structured-streaming.md)
+> [将 Apache Spark 与 Apache Kafka 配合使用](../hdinsight-apache-kafka-spark-structured-streaming.md)

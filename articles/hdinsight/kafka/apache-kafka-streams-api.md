@@ -3,28 +3,28 @@ title: '教程：使用 Apache Kafka Streams API - Azure HDInsight '
 description: 了解如何将 Apache Kafka Streams API 与 Kafka on HDInsight 配合使用。 此 API 允许在 Kafka 中的主题之间执行流处理。
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.author: v-yiso
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
-origin.date: 04/17/2018
-ms.date: 09/17/2018
-ms.openlocfilehash: 8c7e2d60325ff98ba96db33a2f0e065e205a7852
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+origin.date: 11/06/2018
+ms.date: 01/14/2019
+ms.openlocfilehash: 7bdbbe82ce7f3da02d0b90c749be907ea9f83e13
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028633"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029226"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>教程：Apache Kafka Streams API
 
-了解如何创建一个使用 Kafka Streams API 的应用程序并在 Kafka on HDInsight 上运行该应用程序。
+了解如何创建一个使用 Apache Kafka Streams API 的应用程序并在 Kafka on HDInsight 上运行该应用程序。 
 
 本教程中使用的应用程序是流式处理字数统计。 它从 Kafka 主题读取文本数据、提取各个单词，然后将单词和计数存储到另一个 Kafka 主题。
 
-> [!NOTE]
-> Kafka 流处理通常使用 Apache Spark 或 Storm 完成。 Kafka 版本 0.10.0（在 HDInsight 3.5 和 3.6 中）引入了 Kafka Streams API。 通过此 API 可以在输入和输出主题间转换数据流。 在某些情况下，这可以作为创建 Spark 或 Storm 流式处理解决方案的替代方法。 
+> [!NOTE]  
+> Kafka 流处理通常使用 Apache Spark 或 Apache Storm 完成。 Kafka 版本 0.10.0（在 HDInsight 3.5 和 3.6 中）引入了 Kafka Streams API。 通过此 API 可以在输入和输出主题间转换数据流。 在某些情况下，这可以作为创建 Spark 或 Storm 流式处理解决方案的替代方法。 
 >
 > 有关 Kafka Streams 的详细信息，请参阅 Apache.org 上的 [Streams 简介](https://kafka.apache.org/10/documentation/streams/)文档。
 
@@ -39,17 +39,17 @@ ms.locfileid: "53028633"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Kafka on HDInsight 3.6 群集。 若要了解如何创建 Kafka on HDInsight 群集，请参阅 [Kafka on HDInsight 入门](apache-kafka-get-started.md)文档。
+* Kafka on HDInsight 3.6 群集。 若要了解如何创建 Kafka on HDInsight 群集，请参阅 [Apache Kafka on HDInsight 入门](apache-kafka-get-started.md)文档。
 
-* 完成 [Kafka 使用者和生成者 API](apache-kafka-producer-consumer-api.md)文档中的步骤。 本文档中的步骤使用本教程中创建的示例应用程序和主题。
+* 完成 [Apache Kafka 使用者和生成者 API](apache-kafka-producer-consumer-api.md) 文档中的步骤。 本文档中的步骤使用本教程中创建的示例应用程序和主题。
 
 ## <a name="set-up-your-development-environment"></a>设置开发环境
 
 必须在开发环境中安装以下组件：
 
-* [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 或等效版本，如 OpenJDK。
+* [Java JDK 8](https://aka.ms/azure-jdks) 或等效版本，如 OpenJDK。
 
-* [Apache Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
 * SSH 客户端和 `scp` 命令。 有关详细信息，请参阅[将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)文档。
 
@@ -85,7 +85,7 @@ ms.locfileid: "53028633"
 
 ### <a name="streamjava"></a>Stream.java
 
-`Stream.java` 文件使用 Streams API 实现字数统计应用程序。 它从名为 `test` 的 Kafka 主题读取数据，并将字数统计写到名为 `wordcounts` 的主题中。
+[Stream.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Streaming/src/main/java/com/microsoft/example/Stream.java) 文件使用 Streams API 实现字数统计应用程序。 它从名为 `test` 的 Kafka 主题读取数据，并将字数统计写到名为 `wordcounts` 的主题中。
 
 以下代码定义字数统计应用程序：
 
@@ -159,7 +159,7 @@ public class Stream
    
     将 **SSHUSER** 替换为群集的 SSH 用户，并将 **CLUSTERNAME** 替换为群集的名称。 出现提示时，输入 SSH 用户帐户的密码。 有关在 HDInsight 中使用 `scp` 的详细信息，请参阅[在 HDInsight 中使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-## <a name="create-kafka-topics"></a>创建 Kafka 主题
+## <a name="create-apache-kafka-topics"></a>创建 Apache Kafka 主题
 
 1. 若要与群集建立 SSH 连接，请使用以下命令：
 
@@ -176,7 +176,7 @@ public class Stream
     read -p 'Enter your Kafka cluster name:' CLUSTERNAME
     ```
 
-3. 若要获取 Kafka 代理主机和 Zookeeper 主机，请使用以下命令。 出现提示时，输入群集登录（管理员）帐户的密码。 系统会提示输入密码两次。
+3. 若要获取 Kafka 代理主机和 Apache Zookeeper 主机，请使用以下命令。 出现提示时，输入群集登录（管理员）帐户的密码。 系统会提示输入密码两次。
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
@@ -216,8 +216,8 @@ public class Stream
     java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS &
     ```
 
-    > [!NOTE]
-    > 可能会收到有关 log4j 的警告。 可将其忽略。
+    > [!NOTE]  
+    > 可能会收到有关 Apache log4j 的警告。 可将其忽略。
 
 2. 若要将记录发送到 `test` 主题，请使用以下命令启动生成者应用程序：
 
@@ -256,6 +256,6 @@ public class Stream
 
 ## <a name="next-steps"></a>后续步骤
 
-在本文档中，已了解如何将 Kafka Streams API 与 Kafka on HDInsight 配合使用。 请参阅以下资源了解有关使用 Kafka 的详细信息：
+本文档介绍了如何将 Apache Kafka Streams API 与 Kafka on HDInsight 配合使用。 请参阅以下资源了解有关使用 Kafka 的详细信息：
 
-* [在 Kafka 群集之间复制数据](apache-kafka-mirroring.md)
+* [在 Apache Kafka 集群之间复制数据](apache-kafka-mirroring.md)

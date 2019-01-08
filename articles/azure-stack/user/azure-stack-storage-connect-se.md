@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 10/10/2018
-ms.date: 11/12/2018
+origin.date: 12/14/2018
+ms.date: 12/31/2018
 ms.author: v-jay
 ms.reviewer: xiaofmao
-ms.openlocfilehash: b08bc96b485f4f852c712a58621bfef5eafa7b37
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 7bdff9647286d86a08929abb7c3a116878e8b1a3
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659774"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814616"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>将存储资源管理器连接到 Azure Stack 订阅或存储帐户
 
@@ -46,9 +46,16 @@ ms.locfileid: "52659774"
 
 2. 在“文件”中选择“添加/删除管理单元”，并添加“证书”以管理“我的用户帐户”。
 
-3. 在 **Console Root\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates** 下查找 **AzureStackSelfSignedRootCert**。
+3.  在 **Console Root\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates** 下。
 
-    ![通过 mmc.exe 加载 Azure Stack 根证书](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
+    - 对于 ASDK，找到 **AzureStackSelfSignedRootCert**。
+
+        ![通过 mmc.exe 加载 Azure Stack 根证书](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
+
+    - 对于集成系统，找到外部证书的根证书。 
+    
+        ![通过 mmc.exe 加载 Azure Stack 根证书](./media/azure-stack-storage-connect-se/azure-stack-storage-cert-location-is.png)
+        
 
 4. 右键单击该证书，选择“所有任务” > “导出”，并按说明导出 **Base-64 编码 X.509 (.CER)** 证书。
 

@@ -1,6 +1,6 @@
 ---
-title: 将 Hive 用于 Hadoop 以进行网站日志分析 - Azure HDInsight | Azure
-description: 了解如何通过将 Hive 与 HDInsight 配合使用来分析网站日志。 我们将使用日志文件作为 HDInsight 表的输入，并使用 HiveQL 查询数据。
+title: 将 Hive 与 Apache Hadoop 配合使用以进行网站日志分析 - Azure HDInsight
+description: 了解如何通过将 Apache Hive 与 HDInsight 配合使用来分析网站日志。 我们将使用日志文件作为 HDInsight 表的输入，并使用 HiveQL 查询数据。
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/17/2016
-ms.date: 12/18/2017
+ms.date: 01/14/2019
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: ced6d80ad083fab5c717b392e58adb2b5cc0a393
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5035e8f63e051db13832afb52decd38a36613ce8
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663244"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029186"
 ---
-# <a name="use-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>将 Hive 与基于 Windows 的 HDInsight 配合使用以分析来自网站的日志
+# <a name="use-apache-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>将 Apache Hive 与基于 Windows 的 HDInsight 配合使用以分析来自网站的日志
 了解如何通过将 HiveQL 与 HDInsight 配合使用来分析来自网站的日志。 网站日志分析可用于根据类似活动分类受众，按人口统计分类站点访问者，以及了解他们查看的内容和这些内容来自的网站等。
 
 > [!IMPORTANT]
@@ -40,9 +40,9 @@ ms.locfileid: "52663244"
 ![HDI.Samples.Website.Log.Analysis](./media/apache-hive-analyze-website-log/hdinsight-weblogs-sample.png)
 
 ## <a name="prerequisites"></a>先决条件
-* 必须已在 Azure HDInsight 上预配 Hadoop 群集。 有关说明，请参阅[预配 HDInsight 群集](../hdinsight-hadoop-provision-linux-clusters.md)。
+* 必须已在 Azure HDInsight 上预配 Apache Hadoop 群集。 有关说明，请参阅[预配 HDInsight 群集](../hdinsight-hadoop-provision-linux-clusters.md)。
 * 必须已安装 Microsoft Excel 2013 或 Excel 2010。
-* 必须拥有 [Microsoft Hive ODBC 驱动程序](http://www.microsoft.com/download/details.aspx?id=40886) ，才能将数据从 Hive 导入 Excel。
+* 必须拥有 [Microsoft Hive ODBC 驱动程序](https://www.microsoft.com/download/details.aspx?id=40886) ，才能将数据从 Hive 导入 Excel。
 
 ## <a name="to-run-the-sample"></a>运行示例
 1. 从 [Azure 门户](https://portal.azure.cn/)的启动板（如果在此处固定群集）中，单击要在其上运行示例的群集磁贴。
@@ -55,6 +55,6 @@ ms.locfileid: "52663244"
 4. 按照网页上提供的说明完成该示例。
 
 ## <a name="next-steps"></a>后续步骤
-尝试以下示例： [通过将 Hive 与 HDInsight 配合使用分析传感器数据](apache-hive-analyze-sensor-data.md)。
+尝试以下示例：[通过将 Hive 与 HDInsight 配合使用分析传感器数据](apache-hive-analyze-sensor-data.md)。
 
 [hdinsight-sensor-data-sample]: ../hdinsight-use-hive-sensor-data-analysis.md

@@ -3,7 +3,7 @@ title: 使用 Azure 资源运行状况监视 SQL 数据库的运行状况 | Micr
 description: 使用 Azure 资源运行状况可以监视 SQL 数据库的运行状况，以及在 Azure 问题影响到 SQL 资源时帮助进行诊断和获取支持。
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: monitor
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 11/14/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: e9e525dfb162d7692054e29a4c58de119304b595
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+origin.date: 12/06/2018
+ms.date: 01/07/2019
+ms.openlocfilehash: 083f8a31e49167cd3ab838beb9427ab2bf47edd0
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673473"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996348"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>使用资源运行状况排查 Azure SQL 数据库的连接问题
 
@@ -68,11 +68,11 @@ ms.locfileid: "52673473"
 
 #### <a name="planned-maintenance"></a>计划内维护
 
-Azure 基础结构定期执行计划内维护 – 升级数据中心内的硬件或软件组件。 在数据库接受维护期间，SQL 可以终止某些现有连接并拒绝新连接。 在计划内维护期间出现的登录失败通常是暂时性的，重试逻辑可以帮助减轻影响。 如果持续遇到登录错误，请与支持人员联系。
+Azure 基础结构定期执行计划内维护 - 升级数据中心内的硬件或软件组件。 在数据库接受维护期间，SQL 可以终止某些现有连接并拒绝新连接。 在计划内维护期间出现的登录失败通常是暂时性的，[重试逻辑](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)可以帮助减轻影响。 如果持续遇到登录错误，请与支持人员联系。
 
 #### <a name="reconfiguration"></a>重新配置
 
-重新配置被视为暂时性状态，预期会不时地发生。 这些事件可能是负载均衡或软件/硬件故障触发的。 连接到云数据库服务的任何客户端生产应用程序应该结合退让逻辑实施可靠的连接重试逻辑，因为此逻辑有助于缓解这些情况，并且可让最终用户清晰地看到错误。
+重新配置被视为暂时性状态，预期会不时地发生。 这些事件可能是负载均衡或软件/硬件故障触发的。 连接到云数据库的任何客户端生产应用程序应该实施可靠的连接[重试逻辑](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)，因为此逻辑有助于缓解这些情况，并且可让最终用户清晰地看到错误。
 
 ## <a name="next-steps"></a>后续步骤
 

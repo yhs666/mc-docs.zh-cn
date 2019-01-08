@@ -2,19 +2,18 @@
 title: 管理资源管理器部署型虚拟机备份
 description: 了解如何管理和监视 Resource Manager 部署型虚拟机备份
 services: backup
-author: trinadhk
-manager: shreeshd
+author: lingliw
+manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-origin.date: 11/28/2016
-ms.date: 07/06/2018
-ms.author: v-junlch
-ms.openlocfilehash: 29604aa217172ba8e04cc86a3b0de1a7e98c11b6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 1/3/2019
+ms.author: v-lingwu
+ms.openlocfilehash: 05f4872d860a245f097e11d89b0c3c6394b10d44
+ms.sourcegitcommit: f46e1f7a5d582bb9663bfaee8087b233eb822e17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650365"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996494"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>管理 Azure 虚拟机备份
 
@@ -23,10 +22,10 @@ ms.locfileid: "52650365"
 ## <a name="manage-vaults-and-protected-virtual-machines"></a>管理保管库和受保护的虚拟机
 在 Azure 门户中，恢复服务保管库仪表板可用于访问有关保管库的信息，包括：
 
-- 最新备份快照，即最新还原点
-- 备份策略
-- 所有备份快照的总大小
-- 通过保管库进行保护的虚拟机的数目
+* 最新备份快照，即最新还原点
+* 备份策略
+* 所有备份快照的总大小
+* 通过保管库进行保护的虚拟机的数目
 
 进行虚拟机备份时，许多管理任务一开始都是在仪表板中打开保管库。 但是，由于保管库可用来保护多个项（或多个 VM），因此若要查看特定 VM 的详细信息，请打开保管库项仪表板。 以下过程演示了如何先打开*保管库仪表板*，再继续打开*保管库项仪表板*。 两个过程都提供了“提示”，指出如何使用“固定到仪表板”命令将保管库和保管库项添加到 Azure 仪表板。 可以使用“固定到仪表板”来创建保管库或项目的快捷方式。 也可以通过快捷方式执行常用命令。
 
@@ -78,15 +77,15 @@ ms.locfileid: "52650365"
 
     ![带“设置”边栏选项卡的备份项仪表板](./media/backup-azure-manage-vms/item-dashboard-settings.png)
 
-    在保管库项仪表板中，可以完成许多关键性的管理任务，例如：
+    在保管库项仪表板中，可以完成许多关键任务，例如：
 
-   - 更改策略或创建新的备份策略
-   - 查看还原点及其一致性状态
-   - 虚拟机的按需备份
-   - 停止保护虚拟机
-   - 恢复对虚拟机的保护
-   - 删除备份数据（或恢复点）
-   - [还原备份磁盘](backup-azure-arm-restore-vms.md#restore-backed-up-disks)
+   * 更改策略或创建新的备份策略
+   * 查看还原点及其一致性状态
+   * 虚拟机的按需备份
+   * 停止保护虚拟机
+   * 恢复对虚拟机的保护
+   * 删除备份数据（或恢复点）
+   * [还原备份磁盘](backup-azure-arm-restore-vms.md#create-new-restore-disks)
 
 以下过程的起点是保管库项仪表板。
 
@@ -101,8 +100,8 @@ ms.locfileid: "52650365"
     ![备份策略边栏选项卡](./media/backup-azure-manage-vms/backup-policy-blade.png)
 3. 在“**选择备份策略**”菜单中执行以下操作：
 
-   - 要更改策略，请选择其他策略，并单击“**保存**”。 新策略立即应用于保管库。
-   - 若要创建策略，请选择“新建”。
+   * 要更改策略，请选择其他策略，并单击“**保存**”。 新策略立即应用于保管库。
+   * 若要创建策略，请选择“新建”。
 
      ![虚拟机备份](./media/backup-azure-manage-vms/backup-policy-create-new.png)
 
@@ -125,7 +124,7 @@ ms.locfileid: "52650365"
 
 若要触发虚拟机的按需备份，请执行以下操作：
 
-- 在“[保管库项仪表板](backup-azure-manage-vms.md#open-a-vault-item-dashboard)”中，单击“**立即备份**”。
+* 在“[保管库项仪表板](backup-azure-manage-vms.md#open-a-vault-item-dashboard)”中，单击“**立即备份**”。
 
     ![“立即备份”按钮](./media/backup-azure-manage-vms/backup-now-button.png)
 
@@ -215,7 +214,7 @@ ms.locfileid: "52650365"
     可以通过通知消息了解到备份数据已删除。
 
 ## <a name="next-steps"></a>后续步骤
-有关如何从恢复点重新创建虚拟机的信息，请查看 [Restore Azure VMs](backup-azure-arm-restore-vms.md)（还原 Azure VM）。 如果需要有关如何保护虚拟机的信息，请参阅[初步了解：将 VM 备份到恢复服务保管库](backup-azure-vms-first-look-arm.md)。 有关监视事件的信息，请参阅[监视 Azure 虚拟机备份的警报](backup-azure-monitor-vms.md)。
+有关如何从恢复点重新创建虚拟机的信息，请查看[还原 Azure VM](backup-azure-arm-restore-vms.md)。 如果需要有关如何保护虚拟机的信息，请参阅[初步了解：将 VM 备份到恢复服务保管库](backup-azure-vms-first-look-arm.md)。 有关监视事件的信息，请参阅[监视 Azure 虚拟机备份的警报](backup-azure-monitor-vms.md)。
 
 
 <!-- Update_Description: update metedata properties -->

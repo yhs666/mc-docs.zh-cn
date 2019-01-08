@@ -3,21 +3,19 @@ title: 如何配合使用 Ruby 和 Azure 表存储 | Azure
 description: 使用 Azure 表存储将结构化数据存储在云中。
 services: cosmos-db
 author: rockboyfor
-manager: digimobile
-editor: ''
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: ruby
 ms.topic: sample
 origin.date: 04/05/2018
-ms.date: 07/02/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: be368202b811f07d9e5a55060bcb07a94726d488
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 05c2796066d3bf60854f531de25bca7ae7d50617
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662249"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026796"
 ---
 # <a name="how-to-use-azure-table-storage-with-ruby"></a>如何配合使用 Ruby 和 Azure 表存储
 <!-- Not Available on Azure Cosmos DB Table API -->
@@ -94,10 +92,10 @@ azure_table_service.insert_entity("testtable", entity)
 ## <a name="update-an-entity"></a>更新条目
 可使用多种方法来更新现有条目：
 
-* update_entity()：通过替换更新现有实体。
-* merge_entity()：通过将新属性值合并到现有实体来更新现有实体。
-* insert_or_merge_entity()：通过替换现有实体来更新现有实体。 如果不存在条目，则插入新条目：
-* insert_or_replace_entity()：通过将新属性值合并到现有实体来更新现有实体。 如果不存在条目，则插入新条目。
+* **update_entity()：** 通过替换更新现有实体。
+* **merge_entity()：** 通过将新属性值合并到现有实体来更新现有实体。
+* **insert_or_merge_entity()：** 通过替换现有实体来更新现有实体。 如果不存在条目，则插入新条目：
+* **insert_or_replace_entity()：** 通过将新属性值合并到现有实体来更新现有实体。 如果不存在条目，则插入新条目。
 
 以下示例演示使用 update_entity() 更新实体：
 
@@ -168,8 +166,8 @@ azure_table_service.delete_table("testtable")
 
 ## <a name="next-steps"></a>后续步骤
 
-* [Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)是免费的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。
-<！-- 请注意：将从 Microsoft 中删除 -->
+* [Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)是 Microsoft 免费提供的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。
+<!-- Notice: Remove from Microsoft -->
 * [Ruby 开发人员中心](https://docs.azure.cn/zh-cn/develop/ruby)
 * [适用于 Ruby 的 Azure 存储表客户端库](https://github.com/azure/azure-storage-ruby/tree/master/table)
 

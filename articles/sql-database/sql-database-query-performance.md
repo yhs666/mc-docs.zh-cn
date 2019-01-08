@@ -1,183 +1,245 @@
 ---
-title: Azure SQL 数据库的查询性能见解 | Microsoft 文档
+title: 适用于 Azure SQL 数据库的 Query Performance Insight | Microsoft Docs
 description: 查询性能监视可以识别 Azure SQL 数据库中 CPU 消耗最大的查询。
 services: sql-database
-author: WenJason
-manager: digimobile
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-origin.date: 04/01/2018
-ms.date: 09/02/2018
+author: WenJason
 ms.author: v-jay
-ms.openlocfilehash: 85e9f7d6935d71a9c252e86c1ee83315003aa78f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.reviewer: carlrab
+manager: digimobile
+origin.date: 04/01/2018
+ms.date: 01/07/2018
+ms.openlocfilehash: e17b831d44677e09c1a5bccce3261bc4262358bc
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647928"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996282"
 ---
-# <a name="azure-sql-database-query-performance-insight"></a>Azure SQL 数据库 Query Performance Insight
-管理和优化关系数据库性能是一项颇具挑战性的操作，需要投入大量的专业知识和时间。 查询性能见解通过提供以下功能使排查数据库性能问题花费的时间更少：
+# <a name="query-performance-insight-for-azure-sql-database"></a>适用于 Azure SQL 数据库的 Query Performance Insight
+管理和优化关系数据库的性能需要投入大量的专业知识和时间。 Query Performance Insight 属于 Azure SQL 数据库智能性能产品线。 Query Performance Insight 提供以下功能，可以帮助减少排查数据库性能问题所要花费的时间：
 
 * 深入洞察数据库资源 (DTU) 的消耗。 
-* 按 CPU/持续时间/执行计数获取热门查询，可以对这些查询进行调整来提高性能。
-* 可以深入了解查询详情，查看其文本和资源使用历史记录。 
-* 性能调优注释可以显示 [SQL Azure 数据库顾问](sql-database-advisor.md)执行的操作  
+* 按 CPU、持续时间和执行计数（有时可以针对这些指标进行优化，以改善性能）获取有关最活跃数据库查询的详细信息。
+* 可以深入到查询的详细信息，以查看查询文本和资源利用历史记录。 
+* 注释中显示 [SQL 数据库顾问](sql-database-advisor.md)提供的性能建议。
 
-
+![Query Performance Insight](./media/sql-database-query-performance/opening-title.png)
 
 ## <a name="prerequisites"></a>先决条件
-* 查询性能见解要求已在数据库上启用 [Query Store](https://msdn.microsoft.com/library/dn817826.aspx)。 如果未运行查询存储，该门户会提示将其打开。
-
-## <a name="permissions"></a>权限
-需要具备以下[基于角色的访问控制](../role-based-access-control/overview.md)权限才能使用查询性能见解： 
-
-* 需要具备**读者**、**所有者**、**参与者**、**SQL DB 参与者**或 **SQL Server 参与者**权限才能查看资源占用排名靠前的查询和图表。 
-* 需要具备**所有者**、**参与者**、**SQL DB 参与者**或 **SQL Server 参与者**权限才能查看查询文本。
-
-## <a name="using-query-performance-insight"></a>使用查询性能见解
-查询性能见解很容易使用：
-
-* 打开 [Azure 门户](https://portal.azure.cn/)并找到要检查的数据库。 
-  * 在左侧菜单的“支持和故障排除”下，选择“Query Performance Insight”。
-* 在第一个选项卡上，查看资源占用排名靠前的查询列表。
-* 选择单个查询以查看其详细信息。
-* 打开 [SQL Azure 数据库顾问](sql-database-advisor.md)并检查是否存在任何可用的建议。
-* 使用滑块或缩放图标更改检测间隔。
-  
-    ![性能仪表板](./media/sql-database-query-performance/performance.png)
+查询性能见解要求已在数据库上启用[查询存储](https://msdn.microsoft.com/library/dn817826.aspx)。 默认情况下，会自动为所有 Azure SQL 数据库启用查询存储。 如果查询存储未运行，Azure 门户将提示你启用它。
 
 > [!NOTE]
-> Query Store 需要捕获数小时的数据才能使 SQL 数据库提供查询性能见解。 如果在某段时间内数据库没有任何活动，或查询存储不处于活动状态，则在显示该期间时图表是空的。 如果查询存储未运行，随时可以启用它。   
-> 
+> 如果门户中显示“未在此数据库中正确配置查询存储”消息，请参阅[优化查询存储的配置](sql-database-query-performance.md#optimizing-the-query-store-configuration-for-query-performance-insight)。
+>
+
+## <a name="permissions"></a>权限
+需要拥有以下[基于角色的访问控制](../role-based-access-control/overview.md)权限才能使用 Query Performance Insight： 
+
+* 需要拥有“读取者”、“所有者”、“参与者”、“SQL DB 参与者”或“SQL Server 参与者”权限才能查看资源消耗量靠前的查询和图表。 
+* 需要具备**所有者**、**参与者**、**SQL DB 参与者**或 **SQL Server 参与者**权限才能查看查询文本。
+
+## <a name="use-query-performance-insight"></a>使用 Query Performance Insight
+Query Performance Insight 很容易使用：
+
+1. 打开 [Azure 门户](https://portal.azure.cn/)并找到要检查的数据库。 
+2. 在左侧菜单中，打开“智能性能” > “Query Performance Insight”。
+  
+   ![菜单中的“Query Performance Insight”](./media/sql-database-query-performance/tile.png)
+
+2. 在第一个选项卡上，查看资源占用排名靠前的查询列表。
+3. 选择单个查询以查看其详细信息。
+4. 打开“智能性能” > “性能建议”，检查是否提供了任何性能建议。 有关内置性能建议的详细信息，请参阅 [SQL 数据库顾问](sql-database-advisor.md)。
+5. 使用滑块或缩放图标更改检测间隔。
+
+   ![性能仪表板](./media/sql-database-query-performance/performance.png)
+
+> [!NOTE]
+> 要使 SQL 数据库在 Query Performance Insight 中呈现信息，查询存储需要捕获几个小时的数据。 如果在某段时间内数据库不活动或查询存储不活动，则 Query Performance Insight 在显示该时间范围时，图表将是空的。 如果查询存储未运行，随时可以启用它。 有关详细信息，请参阅[有关查询存储的最佳做法](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store)。    
 > 
 
-## <a name="review-top-cpu-consuming-queries"></a>查看 DTU 消耗量靠前的查询
-在[门户](http://portal.azure.cn)中执行以下操作：
+## <a name="review-top-cpu-consuming-queries"></a>查看 CPU 消耗量靠前的查询
 
-1. 浏览至 SQL 数据库并单击“**所有设置**” > “**支持 + 疑难解答**” > “**查询性能见解**”。 
+默认情况下，首次打开 Query Performance Insight 时，它会显示 CPU 消耗量靠前的五个查询。
+
+1. 使用复选框选择或清除要在图表中包含或排除的各个查询。
+
+    最上面一行显示数据库的总体 DTU 百分比。 条形显示所选查询在所选间隔内消耗的 CPU 百分比。 例如，如果选择了“过去一周”，则每个条形代表一天。
    
-    ![查询性能见解][1]
+    ![消耗量靠前的查询](./media/sql-database-query-performance/top-queries.png)
+
+   > [!IMPORTANT]
+   > 显示的 DTU 线条将与一小时期限内的最大消耗值相聚合。 此信息仅供与查询执行统计信息进行高级比较。 在某些情况下，与执行的查询相比，DTU 利用率看似过高，但事实可能并非如此。
+   >
+   > 例如，如果某个查询只是在几分钟时间内利用了 100% 的 DTU，Query Performance Insight 中的 DTU 线条会将整个小时的消耗量显示为 100%（最大聚合值的结果）。 
+   >
+   > 若要进行更精细的比较（一分钟精度），请考虑创建自定义的 DTU 利用率图表：
+   >
+   > 1. 在 Azure 门户中，选择“Azure SQL 数据库” > “监视”。 
+   > 2. 选择“指标”。
+   > 3. 选择“+添加图表”。
+   > 4. 在图表上选择 DTU 百分比。
+   > 5. 另外，请左上方的菜单中选择“过去 24 小时”，并将其更改为 1 分钟。 
+   > 
+   > 使用详细程度更高的自定义 DTU 图表来与查询执行图表进行比较。
+   >
    
-    排位靠前的查询视图随即打开并列出 CPU 消耗量靠前的查询。
-2. 单击图表周围以获取详细信息。<br>最前面一行显示数据库的整体 DTU 百分比，条形显示所选查询在所选时间间隔内消耗的 CPU 百分比（例如，如果选择了“**过去一周**”，则每个条代表 1 天）。
+   底部网格显示可见查询的聚合信息：
    
-    ![排名靠前的查询][2]
-   
-    底部网格表示可见查询的聚合信息。
-   
-   * 查询 ID - 数据库内查询的唯一标识符。
-   * 每个查询在可观察到的时间间隔内的 CPU（取决于聚合函数）。
-   * 每个查询的持续时间（取决于聚合函数）。
+   * 查询 ID（数据库中的查询的唯一标识符）。
+   * 每个查询在可观测的间隔内消耗的 CPU（取决于聚合函数）。
+   * 每个查询的持续时间（也取决于聚合函数）。
    * 特定查询的执行总次数。
      
-     使用复选框选择或清除图表要包含或排除的单个查询。
-3. 如果感觉数据已过时，可单击“刷新”  按钮。
-4. 可以使用滑块和缩放按钮来更改观测间隔和检查峰值：![设置](./media/sql-database-query-performance/zoom.png)
-5. 或者，如果想要查看不同的视图，则可以选择“**自定义**”选项卡并设置：
+2. 如果数据已过时，请选择“刷新”按钮。
+
+3. 使用滑块和缩放按钮来更改观测间隔和调查消耗峰值：
+
+   ![用于更改间隔的滑块和缩放按钮](./media/sql-database-query-performance/zoom.png)
+
+4. 或者，可以选择“自定义”选项卡来自定义以下属性的视图：
    
-   * 度量值（CPU、持续时间、执行计数）
-   * 时间间隔（过去 24 小时、过去一周、过去一个月）。 
+   * 指标（CPU、持续时间、执行计数）。
+   * 时间间隔（过去 24 小时、过去一周或过去一个月）。 
    * 查询数。
    * 聚合函数。
-     
-     ![设置](./media/sql-database-query-performance/custom-tab.png)
+  
+   ![“自定义”选项卡](./media/sql-database-query-performance/custom-tab.png)
+  
+5. 选择“转到 >”按钮查看自定义的视图。
 
-## <a name="viewing-individual-query-details"></a>查看单个查询的详细信息
+   > [!IMPORTANT]
+   > Query Performance Insight 只能显示消耗量靠前的 5 到 20 个查询，具体取决于所做的选择。 数据库运行的查询数可能远远超过显示的查询数，但图表中不包括这些多出的查询。 
+   >
+   > 某种数据库工作负荷类型中可能存在大量的小型查询，其数目超过了显示的数目，并且它们频繁运行，占用了大部分 DTU。 这些查询也不会显示在性能图表上。 
+   >
+   > 例如，某个查询可能在一段时间内消耗了大量的 DTU，不过，在观测期内，其总消耗量小于其他消耗量靠前的查询。 在这种情况下，此查询的资源利用率不会显示在图表上。 
+   >
+
+## <a name="view-individual-query-details"></a>查看单个查询的详细信息
+
 若要查看查询详细信息，请执行以下操作：
 
-1. 单击排位靠前查询所在列表中的任意查询。
+1. 在消耗量靠前的查询列表中选择任一查询。
    
-    ![详细信息](./media/sql-database-query-performance/details.png)
-2. 详细信息视图随即打开，查询 CPU 消耗/持续时间/执行计数已按时间细分。
-3. 单击图表周围以获取详细信息。
+    ![消耗量靠前的查询列表](./media/sql-database-query-performance/details.png)
+
+   此时会打开详细视图。 其中显示了不同时间的 CPU 消耗量、持续时间和执行计数。
+
+3. 选择用于查看详细信息的图表功能。
    
-   * 顶部图表显示含有总体数据库 DTU% 的折线图，条形是所选查询使用的 CPU%。
+   * 顶部图表显示一条反映数据库 DTU 总百分比的线条。 条形代表所选查询消耗的 CPU 百分比。
    * 第二个图表显示所选查询的总持续时间。
    * 底部图表显示所选查询的执行总数。
      
-     ![查询详细信息][3]
-4. 或者，可使用滑块、缩放按钮或单击“**设置**”以自定义查询数据显示方式或选择不同的时间段。
+   ![查询详细信息](./media/sql-database-query-performance/query-details.png)
+     
+4. 或者，可以使用滑块、缩放按钮或选择“设置”来自定义查询数据显示方式或选择不同的时间范围。
+
+   > [!IMPORTANT]
+   > Query Performance Insight 不捕获任何 DDL 查询。 在某些情况下，它可能不会捕获所有即席查询。
+   >
 
 ## <a name="review-top-queries-per-duration"></a>根据持续时间查看热门查询
-在查询性能见解的最新更新中，我们引入了两个新度量值，他们可以帮助识别潜在的瓶颈：持续时间和执行计数。<br>
+Query Performance Insight 中的两个指标可帮助你查找潜在的瓶颈：持续时间和执行计数。
 
-长时间运行的查询长时间锁定资源、阻止其他用户和限制可伸缩性的可能性最大。 他们也最适合进行优化。<br>
+长时间运行的查询长时间锁定资源、阻止其他用户和限制可伸缩性的可能性最大。 它们也非常适合进行优化。
 
-若要识别长时间运行的查询，请执行以下操作：
+识别长时间运行的查询：
 
-1. 在所选数据库的查询性能见解中打开“**自定义**”选项卡
-2. 将度量值更改为“**持续时间**”
-3. 选择查询数和检测间隔
-4. 选择聚合函数
-   
-   * **Sum** 对整个检测间隔期间的所有查询执行时间进行求和。
-   * **Max** 查找整个检测间隔中执行时间最长的查询。
-   * **Avg** 查找所有查询执行的平均执行时间并显示平均值中的最高值。 
-     
-     ![查询持续时间][4]
+1. 在 Query Performance Insight 中打开所选数据库对应的“自定义”选项卡。
+2. 将指标更改为“持续时间”。
+3. 选择查询数和观测间隔。
+4. 选择聚合函数：
+
+   * **Sum** 对整个观测间隔内的所有查询执行时间求和。
+   * **Max** 查找整个观测间隔内执行时间最长的查询。
+   * **Avg** 查找所有查询执行的平均执行时间，并显示计算平均值时执行时间靠前的查询。 
+
+   ![查询持续时间](./media/sql-database-query-performance/top-duration.png)
+
+5. 选择“转到 >”按钮查看自定义的视图。
+
+   > [!IMPORTANT]
+   > 调整查询视图不会更新 DTU 线条。 DTU 线条始终显示间隔的最大消耗值。 
+   >
+   > 若要更详细了解数据库 DTU 消耗（一分钟精度），请考虑在 Azure 门户中创建自定义图表：
+   >
+   > 1. 选择“Azure SQL 数据库” > “监视”。
+   > 2. 选择“指标”。 
+   > 3. 选择“+添加图表”。
+   > 4. 在图表上选择 DTU 百分比。
+   > 5. 另外，请左上方的菜单中选择“过去 24 小时”，并将其更改为 1 分钟。 
+   >
+   > 我们建议使用自定义 DTU 图表来与查询性能图表进行比较。
+   >
 
 ## <a name="review-top-queries-per-execution-count"></a>根据执行计数查看热门查询
-执行数高可能不会影响数据库本身，资源使用率可能偏低，但是整个应用程序可能会变慢。
+即使大量的执行不会影响数据库本身，并且资源使用率较低，使用该数据库的用户应用程序也可能会变慢。
 
-某些情况下，执行计数非常高可能会导致网络往返增加。 往返对性能存在重大影响。 他们受网络延迟和下游服务器延迟的制约。 
+在某些情况下，较高的执行计数可能会导致网络往返增加。 往返会影响性能。 它们会造成网络延迟和下游服务器的延迟。 
 
-例如，许多数据驱动的网站大量访问每个用户请求的数据库。 连接池会有所帮助，增加的网络流量和处理数据库服务器上的负载可能会对性能产生消极影响。  通常建议将往返保持在绝对极小值。
+例如，许多数据驱动的网站会频繁访问数据库来完成每个用户请求。 尽管连接池会有所帮助，但增加的网络流量和处理数据库服务器上的负载可能会降低性能。 一般情况下，应将往返保持在最低限度。
 
-若要识别频繁执行的查询（即“聊天式”查询），请执行以下操作：
+识别频繁执行的（“聊天式”）查询：
 
-1. 在所选数据库的查询性能见解中打开“**自定义**”选项卡
-2. 将度量值更改为“**执行计数**”
-3. 选择查询数和检测间隔
-   
-    ![查询执行计数][5]
+1. 在 Query Performance Insight 中打开所选数据库对应的“自定义”选项卡。
+2. 将指标更改为“执行计数”。
+3. 选择查询数和观测间隔。
+4. 选择“转到 >”按钮查看自定义的视图。
 
-## <a name="understanding-performance-tuning-annotations"></a>了解性能调优注释
-在查询性能见解中查看工作负荷时，可能会注意到图表顶部上带有竖线的图标。<br>
+   ![查询执行计数](./media/sql-database-query-performance/top-execution.png)
 
-这些图标是注释；他们代表 [SQL Azure 数据库顾问](sql-database-advisor.md)执行的影响性能的操作。 通过悬停注释，可以获取操作的基本信息：
+## <a name="understand-performance-tuning-annotations"></a>了解性能优化注释
 
-![查询注释][6]
+在 Query Performance Insight 中浏览工作负荷时，可能会注意到图表顶部上带有竖线的图标。
 
-如果想要了解详细信息或应用顾问建议，请单击该图标。 它会打开操作详情。 如果是可用建议则可使用命令直接应用该建议。
+这些图标是注释。 注释显示 [SQL 数据库顾问](sql-database-advisor.md)提供的性能建议。 将鼠标悬停在某条注释上可以获取有关性能建议的摘要信息。
 
-![查询注释详情][7]
+   ![查询注释](./media/sql-database-query-performance/annotation.png)
 
-### <a name="multiple-annotations"></a>多个注释。
-可能会由于缩放级别而导致距离彼此较近的注释折叠为一个注释。 这会由特殊图标表示，单击该图标则会打开新的边栏选项卡，里面会显示分组注释列表。
-关联查询和性能调优操作可以帮助更好地了解自己的工作负荷。 
+若要了解更多信息或应用顾问的建议，请选择该图标以打开建议操作的详细信息。 如果这是一条可行的建议，可在门户中直接应用它。
 
-## <a name="optimizing-the-query-store-configuration-for-query-performance-insight"></a>优化查询性能见解的“查询存储”配置
-在使用 Query Performance Insight 的过程中，可能会遇到以下查询存储消息：
+   ![查询注释详细信息](./media/sql-database-query-performance/annotation-details.png)
+
+在某些情况下，由于缩放级别的设置，相互靠近的注释可能会折叠成单个注释。 Query Performance Insight 以组注释图标的形式显示此信息。 选择组注释图标会打开一个新的边栏选项卡，其中列出了每条注释。
+
+关联查询和性能优化操作有助于更好地了解工作负荷。 
+
+## <a name="optimize-the-query-store-configuration-for-query-performance-insight"></a>优化 Query Performance Insight 的查询存储配置
+
+使用 Query Performance Insight 时，可能会看到以下查询存储错误消息：
 
 * “此数据库上的 Query Store 未正确配置。 请单击此处了解详细信息。”
 * “此数据库上的 Query Store 未正确配置。 单击此处更改设置。” 
 
 当查询存储无法收集新数据时，通常会显示这些消息。 
 
-Query Store 处于只读状态且将参数设置为最优时会发生第一种情况。 可以通过增加 Query Store 大小或清除 Query Store 来修复此问题。
+查询存储处于只读状态且以最佳方式设置参数时，会发生第一种情况。 可以通过增加数据存储的大小或清除查询存储来解决此问题。 （如果清除查询存储，以前收集的所有遥测数据将会丢失。） 
 
-![qds 按钮][8]
+   ![查询存储详细信息](./media/sql-database-query-performance/qds-off.png)
 
-Query Store 处于关闭状态或参数未设置为最优时会发生第二种情况。 <br>可以通过执行下方命令或直接通过门户来更改保留和捕获策略并启用 Query Store：
-
-![qds 按钮][9]
+查询存储未启用，或者未以最佳方式设置参数时，会发生第二种情况。 可以通过运行 [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 或 Azure 门户中提供的以下命令，来更改保留和捕获策略，同时启用查询存储。
 
 ### <a name="recommended-retention-and-capture-policy"></a>建议的保留和捕获策略
 有两种类型的保留策略：
 
-* 基于大小的保留策略 - 如果设置为“自动”，则会在快要达到最大大小时自动清除数据。
-* 基于时间的保留策略 - 默认设置为 30 天。也就是说，如果空间不足，查询存储会删除 30 天以前的查询信息
+* **基于大小**：如果将此策略设置为“自动”，则会在快要达到最大大小时自动清除数据。
+* **基于时间**：此策略默认设置为 30 天。 如果查询存储的空间不足，它会删除 30 天以前的查询信息。
 
-可以将捕获策略设置为：
+可将捕获策略设置为：
 
-* **全部** - 捕获所有查询。
-* **自动** - 忽略不频繁的查询以及编译和执行持续时间很短的查询。 执行计数、编译和运行时持续时间的阈值由内部决定。 这是默认选项。
-* **无** – Query Store 停止捕获新查询，但是仍然收集已捕获查询的运行时统计信息。
+* **全部**：查询存储将捕获所有查询。
+* **自动**：查询存储将忽略不频繁的查询以及编译和执行持续时间很短的查询。 执行计数、编译持续时间和运行时持续时间的阈值在内部确定。 这是默认选项。
+* **无**：查询存储将停止捕获新查询，但仍会收集已捕获的查询的运行时统计信息。
 
-建议将所有策略设置为“自动”，将清除策略设置为“30 天”：
+我们建议通过执行 [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 或 Azure 门户中的以下命令，将所有策略设置为“自动”，将清理策略设置为 30 天。 （请将 `YourDB` 替换为数据库名称。）
 
+```T-SQL
     ALTER DATABASE [YourDB] 
     SET QUERY_STORE (SIZE_BASED_CLEANUP_MODE = AUTO);
 
@@ -186,38 +248,32 @@ Query Store 处于关闭状态或参数未设置为最优时会发生第二种�
 
     ALTER DATABASE [YourDB] 
     SET QUERY_STORE (QUERY_CAPTURE_MODE = AUTO);
+```
 
-增加查询存储的大小。 为此，可在连接到数据库以后发出以下查询：
+通过 [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 或 Azure 门户连接到数据库并运行以下查询，以增加查询存储的大小。 （请将 `YourDB` 替换为数据库名称。）
 
+```T-SQL
     ALTER DATABASE [YourDB]
     SET QUERY_STORE (MAX_STORAGE_SIZE_MB = 1024);
+```
 
-应用这些设置最终会使 Query Store 收集新查询，但是如果不想等待则可清除 Query Store。 
+应用这些设置最终会使查询存储收集新查询的遥测数据。 如果需要查询存储立即正常运行，可以选择性地通过 SSMS 或 Azure 门户运行以下查询，以清除查询存储。 （请将 `YourDB` 替换为数据库名称。）
 
 > [!NOTE]
-> 执行以下查询会删除当前位于查询存储中的所有信息。 
-> 
+> 运行以下查询会删除查询存储中以前收集到的所有受监视遥测数据。 
 > 
 
+```T-SQL
     ALTER DATABASE [YourDB] SET QUERY_STORE CLEAR;
-
+```
 
 ## <a name="summary"></a>摘要
-Query Performance Insight 可帮助了解查询工作负荷的影响，以及它与数据库资源消耗的关系。 使用此功能可以了解排名靠前的消耗查询，并在发生问题之前轻松找出问题。
+Query Performance Insight 可帮助你了解查询工作负荷的影响，以及它与数据库资源消耗量之间的关系。 使用此功能可以了解数据库中消耗量靠前的查询，并找出可以优化的查询，避免其造成问题。
 
 ## <a name="next-steps"></a>后续步骤
-有关改善 SQL 数据库性能的其他建议，请单击“**查询性能见解**”边栏选项卡上的“[建议](sql-database-advisor.md)”。
 
-![Performance Advisor](./media/sql-database-query-performance/ia.png)
+* 若要查看数据库性能建议，请在 Query Performance Insight 导航边栏选项卡上选择“[建议](sql-database-advisor.md)”。
 
-<!--Image references-->
-[1]: ./media/sql-database-query-performance/tile.png
-[2]: ./media/sql-database-query-performance/top-queries.png
-[3]: ./media/sql-database-query-performance/query-details.png
-[4]: ./media/sql-database-query-performance/top-duration.png
-[5]: ./media/sql-database-query-performance/top-execution.png
-[6]: ./media/sql-database-query-performance/annotation.png
-[7]: ./media/sql-database-query-performance/annotation-details.png
-[8]: ./media/sql-database-query-performance/qds-off.png
-[9]: ./media/sql-database-query-performance/qds-button.png
-<!--Update_Description: update Ibiza portal steps-->
+    ![“建议”选项卡](./media/sql-database-query-performance/ia.png)
+
+* 考虑针对常见的数据库性能问题启用[自动优化](sql-database-automatic-tuning.md)。

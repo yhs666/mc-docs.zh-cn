@@ -15,22 +15,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/09/2018
-ms.date: 02/26/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 4c28fe619f9877e339a1a0d8722099c6ee55178b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 73202a22ffe1d201f469418bd3270564941a146a
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661148"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806606"
 ---
-# <a name="run-spark-from-the-spark-shell"></a>从 Spark Shell 运行 Spark
+# <a name="run-apache-spark-from-the-spark-shell"></a>从 Spark Shell 运行 Apache Spark
 
-交互式 Spark Shell 提供了一个 REPL（读取执行打印循环）环境，用于一次运行一个 Spark 命令并查看结果。 此进程可用于开发和调试。 Spark 为其每个支持的语言（Scala、Python 和 R）提供了一个 shell。
+交互式 [Apache Spark](https://spark.apache.org/) Shell 提供了一个 REPL（读取执行打印循环）环境，用于一次运行一个 Spark 命令并查看结果。 此进程可用于开发和调试。 Spark 为其每个支持的语言（Scala、Python 和 R）提供了一个 shell。
 
-## <a name="get-to-a-spark-shell-with-ssh"></a>通过 SSH 访问 Spark Shell
+## <a name="get-to-an-apache-spark-shell-with-ssh"></a>通过 SSH 访问 Apache Spark Shell
 
-通过使用 SSH 连接到群集的主头节点访问 HDInsight 上的 Spark Shell：
+通过使用 SSH 连接到群集的主头节点访问 HDInsight 上的 Apache Spark Shell：
 
      ssh <sshusername>@<clustername>-ssh.azurehdinsight.cn
 
@@ -48,7 +48,7 @@ ms.locfileid: "52661148"
 
 有关使用 SSH 连接到 HDInsight 的详细信息，请参阅[将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-## <a name="run-a-spark-shell"></a>运行 Spark Shell
+## <a name="run-an-apache-spark-shell"></a>运行 Apache Spark Shell
 
 Spark 为 Scala (spark-shell)、Python (pyspark) 和 R (sparkR) 提供 shell。 在 HDInsight 群集头节点的 SSH 会话中，输入以下命令之一：
 
@@ -77,7 +77,7 @@ Spark Shell 命令（`spark-shell`、`pyspark` 或 `sparkR`）支持多个命令
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关概述，请参阅 [Azure HDInsight 上的 Spark 简介](apache-spark-overview.md)。
+- 有关概述，请参阅 [Azure HDInsight 上的 Apache Spark 简介](apache-spark-overview.md)。
 - 若要使用 Spark 群集和 SparkSQL，请参阅[在 Azure HDInsight 中创建 Apache Spark 群集](apache-spark-jupyter-spark-sql.md)。
-- 若要编写使用 Spark 处理流数据的应用程序，请参阅[什么是 Spark 结构化流式处理？](apache-spark-streaming-overview.md)。
+- 若要编写使用 Spark 处理流数据的应用程序，请参阅[什么是 Apache Spark 结构化流式处理？](apache-spark-streaming-overview.md)。
 

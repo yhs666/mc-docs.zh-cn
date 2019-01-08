@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/12/2018
-ms.date: 12/05/2018
+origin.date: 11/26/2018
+ms.date: 01/03/2019
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 68af0befc40e48590bb9edaefd51175b375478f9
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 740660791c7584b1830ab9688f43ba16a5e7b54e
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028596"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996373"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect：帐户和权限
 
@@ -40,7 +40,10 @@ Azure AD Connect 使用 3 个帐户，将信息从本地或 Windows Server Activ
 
 除了用于运行 Azure AD Connect 的这三个帐户外，还需要以下其他帐户以安装 Azure AD Connect。  其中包括：
 
-- AD DS 企业管理员帐户：用于安装 Azure AD Connect
+- **本地管理员帐户**：将安装 Azure AD Connect 并且在计算机上具有本地管理员权限的管理员。
+
+- **AD DS 企业管理员帐户**：可以选择使用此帐户创建上面的“AD DS 连接器帐户”。
+
 - Azure AD 全局管理员帐户：用于创建 Azure AD 连接器帐户和配置 Azure AD。
 
 - SQL SA 帐户（可选）：用于使用完整版 SQL Server 时创建 ADSync 数据库。  此 SQL Server 对 Azure AD Connect 安装而言可能是本地或远程的。  此帐户可能是企业管理员的帐户。  现在，可以由 SQL 管理员在带外进行数据库预配，然后由具有数据库所有者权限的 Azure AD Connect 管理员完成安装。  有关详细信息，请参阅[使用 SQL 委派的管理员权限安装 Azure AD Connect](how-to-connect-install-sql-delegation.md)
@@ -118,7 +121,7 @@ AD DS 企业管理员帐户用于配置本地 Active Directory。 这些凭据�
 >[!IMPORTANT]
 >内部版本 1.1.880.0（发布于 2018 年 8 月）中引入了名为 ADSyncConfig.psm1 的新 PowerShell 模块，其中包括有助于为 Azure AD DS 连接器帐户配置正确 Active Directory 权限的 cmdlet 集合。
 >
->有关详细信息，请参阅 [Azure AD Connect：配置 AD DS 连接器帐户权限](how-to-connect-configure-ad-ds-connector-account.md)
+
 
 “连接目录”页上指定的帐户必须在安装之前存在于 Active Directory 中。  Azure AD Connect 版本 1.1.524.0 及更高版本提供了相应选项，让 Azure AD Connect 向导创建用于连接 Active Directory 的 AD DS 连接器帐户。  
 

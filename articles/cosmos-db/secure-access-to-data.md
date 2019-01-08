@@ -1,21 +1,19 @@
 ---
-title: 了解如何保护对 Azure Cosmos DB 中数据的访问 | Azure
+title: 了解如何保护对 Azure Cosmos DB 中数据的访问
 description: 了解有关 Azure Cosmos DB 中的访问控制概念，包括主密钥、只读密钥、用户和权限。
 services: cosmos-db
 author: rockboyfor
-manager: digimobile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 origin.date: 08/19/2018
-ms.date: 09/30/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: 79f4b8298ebdacf20d4bb656a0ee2494a2a0dbc0
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 434556edf81163a17240276abc6cd2bd5641182b
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675499"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026723"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>保护对 Azure Cosmos DB 数据的访问
 本文概述了如何保护对存储在 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 中的数据的访问。
@@ -181,8 +179,8 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 若要将 Azure Cosmos DB 帐户读者访问权限添加到用户帐户，请让订阅所有者在 Azure 门户执行以下步骤。
 
 1. 打开 Azure 门户，并选择 Azure Cosmos DB 帐户。
-2. 单击“访问控制(IAM)”选项卡，然后单击“+ 添加”。
-3. 在“添加权限”窗格中的“角色”框中，选择“Cosmos DB 帐户读者角色”。
+2. 单击“访问控制(IAM)”选项卡，然后单击“+ 添加角色分配”。
+3. 在“添加角色分配”窗格中的“角色”框中，选择“Cosmos DB 帐户读者角色”。
 4. 在“分配其访问权限”框中，选择“Azure AD 用户、组或应用程序”。
 5. 在你想要授予访问权限的目录中选择用户、组或应用程序。  可以通过显示名称、电子邮件地址或对象标识符搜索目录。
     所选用户、组或应用程序会显示在所选成员列表中。
@@ -191,7 +189,7 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 实体现在便可以读取 Azure Cosmos DB 资源。
 
 ## <a name="delete-or-export-user-data"></a>删除或导出用户数据
-用户可使用 Azure Cosmos DB 搜索、选择、修改和删除数据库或集合中的任何个人数据。 Azure Cosmos DB 提供用于查找和删除个人数据的 API，但用户应负责使用该 API 并定义擦除个人数据必需的逻辑。 每个多模型 API（SQL API、MongoDB API）都提供不同的语言 SDK，其中包含用于搜索和删除个人数据的方法。 还可启用[生存时间 (TTL)](time-to-live.md)功能在指定时间段后自动删除数据，不会产生任何额外费用。
+用户可使用 Azure Cosmos DB 搜索、选择、修改和删除数据库或集合中的任何个人数据。 Azure Cosmos DB 提供用于查找和删除个人数据的 API，但用户应负责使用该 API 并定义擦除个人数据必需的逻辑。 每个多模型 API（SQL、MongoDB）都提供不同的语言 SDK，其中包含用于搜索和删除个人数据的方法。 还可启用[生存时间 (TTL)](time-to-live.md)功能在指定时间段后自动删除数据，不会产生任何额外费用。
 <!--Not Available on Gremlin API, Cassandra API, Table API-->
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]

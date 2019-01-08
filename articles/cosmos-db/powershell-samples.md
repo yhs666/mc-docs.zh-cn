@@ -1,23 +1,21 @@
 ---
-title: 适用于 Azure Cosmos DB 的 Azure PowerShell 示例 | Azure
-description: Azure PowerShell 示例 - 可用于创建和管理 Azure Cosmos DB 帐户的脚本。
+title: 适用于 Azure Cosmos DB 的 Azure PowerShell 示例
+description: Azure PowerShell 示例 - 这些脚本可帮助你创建和管理 Azure Cosmos DB 帐户。
 services: cosmos-db
 author: rockboyfor
-manager: digimobile
 tags: azure-service-management
 ms.service: cosmos-db
 ms.custom: mvc
-ms.devlang: na
 ms.topic: sample
 origin.date: 10/16/2017
-ms.date: 09/03/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: e10f966a4cea05b71eb0fc09e7b3f5773f7df8c7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 52f22e6eaa22d18aa6523e61990b76a708332a39
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655937"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026690"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db"></a>适用于 Azure Cosmos DB 的 Azure PowerShell 示例
 
@@ -26,12 +24,12 @@ ms.locfileid: "52655937"
 | |  |
 |---|---|
 |创建 Azure Cosmos DB 帐户||
-|[创建 SQL API 帐户](scripts/create-database-account-powershell.md)| 创建单个要用于 SQL API 的 Azure Cosmos DB 帐户。 |
-|[创建 MongoDB API 帐户](scripts/create-mongodb-database-account-powershell.md)| 创建单个要用于 MongoDB API 的 Azure Cosmos DB 帐户。 |
+|[使用 SQL API 创建和配置 Cosmos 帐户](scripts/create-database-account-powershell.md)| 创建单个要用于 SQL API 的 Azure Cosmos DB 帐户。 |
+|[使用 Azure Cosmos DB 的 API for MongoDB 创建和配置 Cosmos 帐户](scripts/create-mongodb-database-account-powershell.md)| 使用 Azure Cosmos DB 的 API for MongoDB 创建一个 Cosmos 帐户。 |
 |缩放 Azure Cosmos DB||
 |[将 Azure Cosmos DB 帐户复制到多个区域中并配置故障转移优先级](scripts/scale-multiregion-powershell.md)|多数据中心将帐户数据复制到具有指定故障转移优先级的多个区域中。|
 |**保护 Azure Cosmos DB**||
-| [获取帐户密钥](scripts/secure-get-account-key-powershell.md) | 获取帐户的主要和辅助主写入密钥以及主要和辅助只读密钥。|
+| [获取帐户密钥](scripts/secure-get-account-key-powershell.md) | 获取帐户的主要和辅助 master 写密钥以及主要和辅助只读密钥。|
 | [获取 MongoDB 连接字符串](scripts/secure-mongo-connection-string-powershell.md) | 获取用于将 MongoDB 应用连接到 Azure Cosmos DB 帐户的连接字符串。|
 |[重新生成帐户密钥](scripts/secure-regenerate-key-powershell.md)|重新生成帐户的主密钥或只读密钥。|
 |[创建防火墙](scripts/create-firewall-powershell.md)| 创建入站 IP 访问控制策略，仅允许从获批准的一组计算机和/或云服务访问帐户。|
@@ -41,4 +39,4 @@ ms.locfileid: "52655937"
 <!-- Notice: 全球范围 to 多个数据中心范围 [将 Azure Cosmos DB 帐户复制到多个区域中并配置故障转移优先级] -->
 
 <!--Not Available for external TOC file ?toc=%2fpowershell%2fmodule%2ftoc.json -->
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

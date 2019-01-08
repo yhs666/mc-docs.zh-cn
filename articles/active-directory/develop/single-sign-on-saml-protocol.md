@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/19/2017
-ms.date: 09/03/2018
+ms.date: 01/02/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 60465eac68f2f9c234a5e4c9934816a0de67b237
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f3c8ce1d08b7b3faed7d1d03ef686b4074146dd9
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658597"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996232"
 ---
 # <a name="single-sign-on-saml-protocol"></a>单一登录 SAML 协议
 
@@ -109,7 +109,7 @@ Azure AD 将忽略 `AuthnRequest` 元素的 `Subject` 元素。
 ```
 <samlp:Response ID="_a4958bfd-e107-4e67-b06d-0d85ade2e76a" Version="2.0" IssueInstant="2013-03-18T07:38:15.144Z" Destination="https://contoso.com/identity/inboundsso.aspx" InResponseTo="id758d0ef385634593a77bdf7e632984b6" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
   <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.partner.microsoftonline.cn/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
-  <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+  <ds:Signature xmlns:ds="https://www.w3.org/2000/09/xmldsig#">
     ...
   </ds:Signature>
   <samlp:Status>
@@ -117,7 +117,7 @@ Azure AD 将忽略 `AuthnRequest` 元素的 `Subject` 元素。
   </samlp:Status>
   <Assertion ID="_bf9c623d-cc20-407a-9a59-c2d0aee84d12" IssueInstant="2013-03-18T07:38:15.144Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">
     <Issuer>https://login.partner.microsoftonline.cn/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
-    <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+    <ds:Signature xmlns:ds="https://www.w3.org/2000/09/xmldsig#">
       ...
     </ds:Signature>
     <Subject>
@@ -153,8 +153,8 @@ Azure AD 将忽略 `AuthnRequest` 元素的 `Subject` 元素。
 
 `Response` 元素包含授权请求的结果。 Azure AD 将设置 `Response` 元素中的 `ID`、`Version` 和 `IssueInstant` 值。 它还会设置以下属性：
 
-- `Destination`：登录成功时，此属性将设置为服务提供者（云服务）的 `RedirectUri`。
-- `InResponseTo`：设置为发起响应的 `AuthnRequest` 元素的 `ID` 属性。
+- `Destination`：登录成功时，此属性将设置为服务提供商（云服务）的 `RedirectUri`。
+- `InResponseTo`：此属性设置为发起响应的 `AuthnRequest` 元素的 `ID` 属性。
 
 ### <a name="issuer"></a>颁发者
 
@@ -206,7 +206,7 @@ Azure AD 为断言签名以响应成功登录。 `Signature` 元素包含数字�
 为了生成此数字签名，Azure AD 会在其元数据文档的 `IDPSSODescriptor` 元素中使用签名密钥。
 
 ```
-<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+<ds:Signature xmlns:ds="https://www.w3.org/2000/09/xmldsig#">
       digital_signature_here
     </ds:Signature>
 ```
@@ -289,3 +289,4 @@ Azure AD 为断言签名以响应成功登录。 `Signature` 元素包含数字�
 </AuthnStatement>
 ```
 
+<!-- Update_Description: link update -->

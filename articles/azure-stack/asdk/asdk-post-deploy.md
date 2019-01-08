@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/17/2018
-ms.date: 12/17/2018
+origin.date: 10/10/2018
+ms.date: 12/31/2018
 ms.author: v-jay
 ms.reviewer: misainat
-ms.openlocfilehash: adacf601554ab9f65dc6885fcaad0d741d79f109
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.openlocfilehash: f58dd145099a9697689b845474b5ce153f62c6ef
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396243"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814631"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>安装 ASDK 后的配置任务
 
-[安装 Azure Stack 开发工具包 (ASDK)](asdk-install.md) 之后，需要实施建议的安装后配置更改。
+在[安装 AzureStack 开发工具包 (ASDK)](asdk-install.md) 之后，当你在 ASDK 主机上以 AzureStack\AzureStackAdmin 的身份登录时，需要进行一些建议的安装后配置更改。 
 
 ## <a name="install-azure-stack-powershell"></a>安装 Azure Stack PowerShell
 

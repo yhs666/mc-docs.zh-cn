@@ -1,34 +1,31 @@
 ---
-title: Azure PowerShell 脚本 - 创建 Azure Cosmos DB MongoDB API 帐户 | Azure
-description: Azure PowerShell 脚本示例 - 创建 Azure Cosmos DB MongoDB API 帐户
+title: Azure PowerShell 脚本 - 为 MongoDB 创建 Azure Cosmos DB API 帐户
+description: Azure PowerShell 脚本示例 - 为 MongoDB 创建 Azure Cosmos DB API 帐户
 services: cosmos-db
-documentationcenter: cosmosdb
-author: rockboyfor
-manager: digimobile
-tags: azure-service-management
 ms.service: cosmos-db
+author: rockboyfor
+ms.author: v-yeche
 ms.custom: mvc
 ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: cosmosdb
-ms.workload: database
 origin.date: 05/29/2018
-ms.date: 09/03/2018
-ms.author: v-yeche
-ms.openlocfilehash: 525bc9a7982efffea01e56d7585ff662fb0620b6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 01/07/2019
+ms.openlocfilehash: de99da8106c71d31b11d17c6ad28b73bcb398da6
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644675"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026658"
 ---
-# <a name="azure-cosmos-db-create-a-mongodb-api-account-using-powershell"></a>Azure Cosmos DB：使用 PowerShell 创建 MongoDB API 帐户
+# <a name="create-an-azure-cosmos-db-account-with-azure-cosmos-dbs-api-for-mongodb-using-powershell"></a>使用 PowerShell 通过 Azure Cosmos DB 的 API for MongoDB 创建 Azure Cosmos DB 帐户
 
-此示例 PowerShell 脚本创建一个 Azure Cosmos DB MongoDB API 帐户。 
+此示例 PowerShell 脚本通过 Azure Cosmos DB 的 API for MongoDB 创建 Cosmos 帐户。 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="sample-script"></a>示例脚本
+
+<!--Verify successfully-->
 
 ```powershell
 # Set the Azure resource group name and location
@@ -72,6 +69,8 @@ New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ```
 
+<!--Verify successfully-->
+
 ## <a name="clean-up-deployment"></a>清理部署
 
 运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
@@ -96,4 +95,5 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/)。
 
 可以在 [Azure Cosmos DB PowerShell 脚本](../powershell-samples.md)中找到其他 Azure Cosmos DB PowerShell 脚本示例。
-<!-- Update_Description: update meta properties, wording update, update link -->
+
+<!-- Update_Description: update meta properties -->

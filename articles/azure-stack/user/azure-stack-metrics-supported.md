@@ -11,23 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/05/2018
-ms.date: 10/15/2018
+origin.date: 12/06/2018
+ms.date: 12/31/2018
 ms.author: v-jay
-ms.openlocfilehash: d4371756681d28e26c221c1384604ee8255b73d0
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c3986d770e31cbe3d036019c1eab25bda8b71b3e
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653425"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814648"
 ---
 # <a name="supported-metrics-with-azure-monitor-on-azure-stack"></a>Azure Stack 上的 Azure Monitor 支持的指标
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于：Azure Stack 集成系统*
 
-可以从 Azure Stack 上的 Azure Monitor 检索指标，与全球 Azure 相同。 可以在门户中查看度量值，从 REST API 获取度量值，或者使用 PowerShell 或 CLI 查询度量值。
+可以从 Azure Stack 上的 Azure Monitor 检索指标，与全球 Azure 相同。 可以在门户中创建度量值，从 REST API 获取度量值，或者使用 PowerShell 或 CLI 查询度量值。
 
-下表列出了 Azure Stack 上的 Azure Monitor 指标管道所提供的指标。 若要查询和访问这些指标，需要 API 配置文件的 **2018-01-01** api-version 版本。 有关 API 配置文件和 Azure Stack 的详细信息，请参阅[管理 Azure Stack 中的 API 版本配置文件](azure-stack-version-profiles.md)。
+下表列出了 Azure Stack 上的 Azure Monitor 指标管道所提供的指标。 若要查询和访问这些指标，需要使用 API 配置文件的 **2018-01-01** api-version 版本。 有关 API 配置文件和 Azure Stack 的详细信息，请参阅[管理 Azure Stack 中的 API 版本配置文件](azure-stack-version-profiles.md)。
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 

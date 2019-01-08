@@ -1,24 +1,21 @@
 ---
-title: 什么是 Azure Active Directory (Azure AD)？ | Microsoft Docs
-description: 了解如何使用 Azure Active Directory 将现有的本地标识扩展到云中，或开发 Azure AD 集成应用。
+title: 什么是 Azure Active Directory？ | Microsoft Docs
+description: 了解 Azure Active Directory，包括必要的术语和相关功能。
 services: active-directory
 author: eross-msft
 manager: mtillman
-ms.author: v-junlch
-ms.assetid: 498820c4-9ebe-42be-bda2-ecf38cc514ca
 ms.service: active-directory
-ms.component: fundamentals
-ms.workload: identity
 ms.topic: overview
-origin.date: 09/13/2018
-ms.date: 12/10/2018
-ms.custom: it-pro
-ms.openlocfilehash: 521fa9cdef50d3eca5ab88c857662ec7c4e5fd5a
-ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
+origin.date: 11/13/2018
+ms.date: 01/02/2019
+ms.author: v-junlch
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: f43b1b1e2d91a141fcf457ff10128f6e87292770
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53157387"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996159"
 ---
 # <a name="what-is-azure-active-directory"></a>什么是 Azure Active Directory？
 Azure Active Directory (Azure AD) 是 Microsoft 提供的多租户、基于云的目录和标识管理服务。 Azure AD 将核心目录服务、应用程序访问管理和标识保护组合到一个解决方案中，提供基于标准的平台，帮助开发人员根据集中策略和规则为其应用程序提供访问控制。
@@ -54,3 +51,4 @@ Azure AD 的多租户、地理分布、高可用性设计意味着可以依赖�
 ## <a name="next-steps"></a>后续步骤
 - [将 Azure AD 与 Windows Server Active Directory 集成](../hybrid/how-to-connect-install-express.md)。
 
+<!-- Update_Description: update metedata properties -->

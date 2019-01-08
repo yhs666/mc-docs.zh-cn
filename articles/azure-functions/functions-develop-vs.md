@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
 origin.date: 10/08/2018
-ms.date: 11/22/2018
+ms.date: 12/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: 4a849ec1c9cd49862d9a15041aadbfb81d3d9902
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 278f93f520f757eea8c3bcb0f1cc98c996dd0bbe
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673065"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806556"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>使用 Visual Studio 开发 Azure Functions  
 

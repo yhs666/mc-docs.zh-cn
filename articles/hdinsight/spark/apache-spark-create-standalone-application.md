@@ -10,21 +10,20 @@ tags: azure-portal
 ms.assetid: b2467a40-a340-4b80-bb00-f2c3339db57b
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
-ms.devlang: na
 ms.topic: tutorial
 origin.date: 05/07/2018
-ms.date: 07/23/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 6872c2753a164f630200261a9bc71b090bacd115
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 4ad7db937c6b60da80003de8c2fcd7f604e2bb99
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651380"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806578"
 ---
-# <a name="tutorial-create-a-scala-maven-application-for-spark-in-hdinsight-using-intellij"></a>教程：使用 IntelliJ 在 HDInsight 中创建适用于 Spark 的 Scala Maven 应用程序
+# <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>教程：使用 IntelliJ 在 HDInsight 中创建适用于 Apache Spark 的 Scala Maven 应用程序
 
-本教程介绍如何结合使用 Maven 和 IntelliJ IDEA 创建用 Scala 编写的 Spark 应用程序。 本文将 Apache Maven 用作生成系统，并从 IntelliJ IDEA 提供的 Scala 现有 Maven 原型开始。  在 IntelliJ IDEA 中创建 Scala 应用程序需要以下步骤：
+本教程介绍如何结合使用 [Apache Maven](https://maven.apache.org/) 和 IntelliJ IDEA 创建用 [Scala](https://www.scala-lang.org/) 编写的 [Apache Spark](https://spark.apache.org/) 应用程序。 本文将 Apache Maven 用作生成系统，并从 IntelliJ IDEA 提供的 Scala 现有 Maven 原型开始。  在 IntelliJ IDEA 中创建 Scala 应用程序需要以下步骤：
 
 * 将 Maven 用作生成系统。
 * 更新项目对象模型 (POM) 文件以解析 Spark 模块依赖项。
@@ -33,7 +32,7 @@ ms.locfileid: "52651380"
 * 使用 Livy 在 Spark 群集上运行应用程序。
 
 > [!NOTE]
-> HDInsight 还提供了一个 IntelliJ IDEA 插件工具，用于简化在 Linux 上创建应用程序并提交到 HDInsight Spark 群集的过程。 有关详细信息，请参阅[使用适用于 IntelliJ IDEA 的 HDInsight 工具插件创建和提交 Spark 应用程序](apache-spark-intellij-tool-plugin.md)。
+> HDInsight 还提供一个 IntelliJ IDEA 插件工具，用于简化创建应用程序并将其提交到 Linux 上一个 HDInsight Spark 群集的过程。 有关详细信息，请参阅[使用适用于 IntelliJ IDEA 的 HDInsight 工具插件以创建和提交 Apache Spark 应用程序](apache-spark-intellij-tool-plugin.md)。
 > 
 
 本教程介绍如何执行下列操作：
@@ -46,7 +45,7 @@ ms.locfileid: "52651380"
 ## <a name="prerequisites"></a>先决条件
 
 * HDInsight 上的 Apache Spark 群集。 有关说明，请参阅[在 Azure HDInsight 中创建 Apache Spark 群集](apache-spark-jupyter-spark-sql.md)。
-* Oracle Java 开发工具包。 可以从 [此处](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)安装它。
+* Oracle Java 开发工具包。 可以从[此处](https://aka.ms/azure-jdks)安装。
 * Java IDE。 本文使用 IntelliJ IDEA 18.1.1。 可以从 [此处](https://www.jetbrains.com/idea/download/)安装它。
 
 ## <a name="use-intellij-to-create-application"></a>使用 IntelliJ 创建应用程序
@@ -189,16 +188,16 @@ ms.locfileid: "52651380"
        
         ![创建 JAR](./media/apache-spark-create-standalone-application/output.png)
 
-## <a name="run-the-application-on-the-spark-cluster"></a>在 Spark 群集上运行应用程序
+## <a name="run-the-application-on-the-apache-spark-cluster"></a>在 Apache Spark 群集上运行应用程序
 若要在群集上运行应用程序，可以使用以下方法：
 
-* **将应用程序 jar 复制到群集关联的 Azure 存储 blob**。 可以使用命令行实用工具 [**AzCopy**](../../storage/common/storage-use-azcopy.md) 来执行此操作。 也可以使用许多其他客户端来上传数据。 有关详细信息，请参阅[在 HDInsight 中上传 Hadoop 作业的数据](../hdinsight-upload-data.md)。
-* **使用 Livy 将应用程序作业远程提交**到 Spark 群集。 HDInsight 上的 Spark 群集包括 Livy，可公开 REST 终结点以远程提交 Spark 作业。 有关详细信息，请参阅 [将 Livy 与 HDInsight 上的 Spark 群集配合使用以远程提交 Spark 作业](apache-spark-livy-rest-interface.md)。
+* **将应用程序 jar 复制到群集关联的 Azure 存储 blob**。 可以使用命令行实用工具 [**AzCopy**](../../storage/common/storage-use-azcopy.md) 来执行此操作。 也可以使用许多其他客户端来上传数据。 有关详细信息，请参阅[在 HDInsight 中上传 Apache Hadoop 作业的数据](../hdinsight-upload-data.md)。
+* **使用 Apache Livy 将应用程序作业远程提交**到 Spark 群集。 HDInsight 上的 Spark 群集包括 Livy，可公开 REST 终结点以远程提交 Spark 作业。 有关详细信息，请参阅[将 Apache Livy 与 HDInsight 上的 Apache Spark 群集配合使用以远程提交 Spark 作业](apache-spark-livy-rest-interface.md)。
 
 ## <a name="next-step"></a>后续步骤
 
-本文介绍了如何创建 Spark scala 应用程序。 转到下一文章，了解如何使用 Livy 在 HDInsight Spark 群集上运行此应用程序。
+本文介绍了如何创建 Apache Spark scala 应用程序。 转到下一文章，了解如何使用 Livy 在 HDInsight Spark 群集上运行此应用程序。
 
 > [!div class="nextstepaction"]
->[使用 Livy 在 Spark 群集中远程运行作业](./apache-spark-livy-rest-interface.md)
+>[使用 Apache Livy 在 Apache Spark 群集中远程运行作业](./apache-spark-livy-rest-interface.md)
 

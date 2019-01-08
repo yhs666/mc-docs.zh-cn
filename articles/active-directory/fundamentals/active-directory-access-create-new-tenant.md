@@ -1,6 +1,6 @@
 ---
-title: 快速入门：访问 Azure Active Directory 并创建新租户 | Microsoft Docs
-description: 快速入门：有关如何找到 Azure Active Directory 以及如何为组织创建新租户的步骤。
+title: 有关访问和创建新租户的快速入门 - Azure Active Directory | Microsoft Docs
+description: 介绍如何查找 Azure Active Directory，以及如何为组织创建新的租户。
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -9,17 +9,17 @@ ms.component: fundamentals
 ms.workload: identity
 ms.topic: quickstart
 origin.date: 09/10/2018
-ms.date: 12/10/2018
+ms.date: 01/02/2019
 ms.author: v-junlch
-custom: it-pro
-ms.openlocfilehash: 980681698905da5751b8a8f44c5f33b800362556
-ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: aee571343cb230080fcd9c027f170c8494fd5942
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53157407"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996331"
 ---
-# <a name="quickstart-access-azure-active-directory-to-create-a-new-tenant"></a>快速入门：访问 Azure Active Directory 以创建新租户
+# <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>快速入门：在 Azure Active Directory 中创建一个新租户
 可以使用 Azure Active Directory (Azure AD) 门户执行所有管理任务，包括为组织创建新的租户。 
 
 在本快速入门中，你将学习如何到达 Azure 门户和 Azure Active Directory，以及如何为组织创建基本租户。
@@ -35,9 +35,9 @@ ms.locfileid: "53157407"
 登录到 Azure 门户后，即可为组织创建新的租户。 新的租户代表你的组织，可帮助你管理面向内部和外部用户的特定 Azure 云服务实例。
 
 ### <a name="to-create-a-new-tenant"></a>创建新的租户
-1. 依次选择“Azure Active Directory”、“创建资源”和“安全性 + 标识”，然后选择“Azure Active Directory”。
+1. 依次选择“创建资源”、“安全 + 标识”，然后选择“Azure Active Directory”。
 
-    “创建”页面随即显示。
+    随即出现“创建目录”页面。
 
     ![Azure Active Directory“创建”页面](./media/active-directory-access-create-new-tenant/azure-ad-create-new-tenant.png)
 

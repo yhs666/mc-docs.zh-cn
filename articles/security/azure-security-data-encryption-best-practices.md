@@ -1,5 +1,5 @@
 ---
-title: 数据安全与加密最佳做法 | Azure
+title: 数据安全与加密最佳做法 | Azure Docs
 description: 本文提供一系列有关使用内置 Azure 功能实现数据安全与加密的最佳实践。
 services: security
 documentationcenter: na
@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/19/2018
-ms.date: 11/26/2018
+ms.date: 1/3/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ed05f70eebc5402d56e96adabffecc108b9381f7
-ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
+ms.openlocfilehash: f95ee7cc7b0f7c38eda531273b01886f2c8476b5
+ms.sourcegitcommit: f46e1f7a5d582bb9663bfaee8087b233eb822e17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53219549"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996503"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Azure 数据安全与加密最佳实践
 为了帮助保护云中的数据，需要考虑数据可能出现的状态以及可用于该状态的控件。 Azure 数据安全与加密的最佳做法与以下数据状态相关：

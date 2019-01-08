@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/14/2018
-ms.date: 12/17/2018
+origin.date: 12/10/2018
+ms.date: 12/31/2018
 ms.author: v-jay
-ms.reviewer: quying
-ms.openlocfilehash: 3bb2d3200907a1e9ea8407bcf8c082054bc21762
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.reviewer: georgel
+ms.openlocfilehash: 5f8693676ae8b3374b0d3a01fda5aff3c79ad4f9
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396321"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814598"
 ---
 # <a name="sql-resource-provider-11300-release-notes"></a>SQL 资源提供程序 1.1.30.0 发行说明
 
@@ -68,6 +68,20 @@ ms.locfileid: "53396321"
 - **共享的 SQL 登录名导致数据不一致**。 如果在同一订阅下为多个 SQL 数据库共享某个 SQL 登录名，则更改登录密码会导致数据不一致。
 
     **解决方法**：在同一订阅下始终对不同的数据库使用不同的登录名。
+
+- **TLS 1.2 支持要求**。 如果你尝试从未启用 TLS 1.2 的计算机部署或更新 SQL 资源提供程序，则操作可能会失败。 在用于部署或更新资源提供程序的计算机上运行以下 PowerShell 命令，以验证是否返回支持 TLS 1.2：
+
+  ```powershell
+  [System.Net.ServicePointManager]::SecurityProtocol
+  ```
+
+  如果命令输出中未包含 **Tls12**，则计算机上未启用 TLS 1.2。
+
+    **解决方法**：运行以下 PowerShell 命令以启用 TLS 1.2，然后从同一 PowerShell 会话启动资源提供程序部署或更新脚本：
+
+    ```powershell
+    [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
+    ```
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>云管理员操作 Azure Stack 时的已知问题
 请参阅 [Azure Stack 发行说明](azure-stack-servicing-policy.md)中的文档。

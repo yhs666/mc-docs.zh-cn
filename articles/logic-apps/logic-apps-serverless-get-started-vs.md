@@ -2,25 +2,25 @@
 title: 使用 Visual Studio 生成无服务器应用 | Microsoft Docs
 description: 在 Visual Studio 中使用 Azure 逻辑应用与 Azure Functions 生成、部署和管理第一个无服务器应用
 services: logic-apps
+ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 manager: anneta
 editor: ''
 documentationcenter: ''
+ms.reviewer: klam, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
-ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.custom: vs-azure
 ms.topic: article
 origin.date: 08/01/2018
 ms.author: v-yiso
-ms.date: 10/15/2018
-ms.openlocfilehash: bd2be5cc4cd5820a4904eea4240ad8dcef0a9a62
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 01/14/2019
+ms.openlocfilehash: 943166d1ce7756a8e9a283656ef495c29e1dec39
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654759"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806478"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>在 Visual Studio 中使用 Azure 逻辑应用和 Azure Functions 生成第一个无服务器应用
 

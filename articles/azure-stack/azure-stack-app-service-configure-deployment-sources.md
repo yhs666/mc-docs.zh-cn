@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/15/2018
-ms.date: 12/17/2018
+ms.date: 12/31/2018
 ms.author: v-jay
 ms.reviewer: anwestg
-ms.openlocfilehash: e383b13ac08ebd5804359e92dca18e899badf769
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.openlocfilehash: 5894a6741c143266a70efd5485e1931cdd01c087
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396238"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814640"
 ---
 # <a name="configure-deployment-sources"></a>配置部署源
 
@@ -39,7 +39,8 @@ Azure Stack 上的应用服务支持从多个源代码管理提供程序执行�
 ## <a name="view-deployment-sources-in-app-service-administration"></a>在应用服务管理中查看部署源
 
 1. 以服务管理员身份登录到 Azure Stack 管理员门户 (https://adminportal.local.azurestack.external))。
-2. 浏览到“资源提供程序”并选择“应用服务资源提供程序管理”。![应用服务资源提供程序管理][1]
+2. 浏览到“所有服务”，然后选择“应用服务”。
+    ![应用服务资源提供程序管理][1]
 3. 单击“源代码管理配置”。 可以看到所有已配置的部署源的列表。
     ![应用服务资源提供程序管理中的源代码管理配置][2]
 
@@ -135,10 +136,6 @@ Azure Stack 上的应用服务支持从多个源代码管理提供程序执行�
 11. 单击“源代码管理配置”。
 12. 将“应用程序密钥”和“应用机密”分别复制并粘贴到 DropBox 的“客户端 ID”和“客户端机密”输入框。
 13. 单击“保存” 。
-
-## <a name="next-steps"></a>后续步骤
-
-用户现在可以使用部署源进行[持续部署](/app-service-web/app-service-continuous-deployment)、[本地 Git 部署](/app-service-web/app-service-deploy-local-git)和[云文件夹同步](/app-service-web/app-service-deploy-content-sync)等操作。
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin.png

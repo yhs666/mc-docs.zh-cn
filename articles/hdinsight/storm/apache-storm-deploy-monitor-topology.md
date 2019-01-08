@@ -14,23 +14,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 03/01/2017
-ms.date: 12/25/2017
+ms.date: 01/14/2019
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: ba7abad377f62bc53a3716a9e0d4c5d4b60a1dbd
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f15accabd0d56d19bd32722fd027665b2e7c1da7
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663737"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806487"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-windows-based-hdinsight"></a>在基于 Windows 的 HDInsight 上部署和管理 Apache Storm 拓扑
 
-
-
-通过 Storm 仪表板可以使用 Web 浏览器轻松在 HDInsight 群集中部署和运行 Apache Storm 拓扑。 还可以使用该仪表板监视和管理正在运行的拓扑。 如果使用 Visual Studio，则适用于 Visual Studio 的 HDInsight 工具会提供 Visual Studio 中的类似功能。
-
-[!INCLUDE [azure-visual-studio-login-guide](../../../includes/azure-visual-studio-login-guide.md)]
+[Apache Storm](http://storm.apache.org/) 仪表板可让你使用 Web 浏览器轻松在 HDInsight 群集中部署和运行 Apache Storm 拓扑。 还可以使用该仪表板监视和管理正在运行的拓扑。 如果使用 Visual Studio，则适用于 Visual Studio 的 HDInsight 工具会提供 Visual Studio 中的类似功能。
 
 HDInsight 工具中的 Storm 仪表板和 Storm 功能依赖于 Storm REST API，此 API 可用于创建自己的监视和管理解决方案。
 
@@ -43,7 +39,7 @@ HDInsight 工具中的 Storm 仪表板和 Storm 功能依赖于 Storm REST API�
 
 * Apache Storm on HDInsight - 参阅 [Apache Storm on HDInsight 入门](apache-storm-tutorial-get-started-linux.md)，获取群集创建步骤。
 
-* 对于 **Storm 仪表板**：支持 HTML5 的新型 Web 浏览器。
+* 对于 **Storm 仪表板**：支持 HTML5 的现代 Web 浏览器。
 
 * 对于 **Visual Studio** - Azure SDK 2.5.1 或更高版本，以及适用于 Visual Studio 的 HDInsight 工具。 请参阅[开始使用 HDInsight Tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)，安装并配置 HDInsight Tools for Visual Studio。
 
@@ -82,7 +78,7 @@ Storm UI 的主页面提供以下信息：
 
 * **拓扑摘要**：正在运行的拓扑列表。 使用此部分中的链接可以查看有关特定拓扑的详细信息。
 
-* **监督员摘要**：有关 Storm 监督员的信息。
+* **监督器摘要**：有关 Storm 监督器的信息。
 
 * **Nimbus 配置**：群集的 Nimbus 配置。
 
@@ -100,7 +96,7 @@ Storm UI 的主页面提供以下信息：
 
   * **重新平衡**：调整拓扑的并行度。 更改群集中的节点数目之后，应该重新平衡正在运行的拓扑。 这可让拓扑调整并行度，以弥补群集中增加或减少的节点数目。
 
-      有关详细信息，请参阅[了解 Storm 拓扑的并行度 (http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)。
+      有关详细信息，请参阅[了解 Apache Storm 拓扑的并行度](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)。
 
   * **终止**：在经过指定的超时之后终止 Storm 拓扑。
 
@@ -110,7 +106,7 @@ Storm UI 的主页面提供以下信息：
 
 * **Bolt**：拓扑使用的 Bolt。 使用此部分中的链接可以查看有关特定 Bolt 的详细信息。
 
-* **拓扑配置**：选定拓扑的配置。
+* **拓扑配置**：所选拓扑的配置。
 
 #### <a name="spout-and-bolt-summary"></a>Spout 和 Bolt 摘要
 
@@ -171,7 +167,7 @@ HDInsight Tools 可用于将 C# 或混合拓扑提交到 Storm 群集。 以下�
 
 Storm UI 是以 REST API 为基础生成的，因此，可以使用 API 执行类似的管理和监视功能。 使用 REST API 可以创建自定义工具来管理和监视 Storm 拓扑。
 
-有关详细信息，请参阅 [Storm UI REST API](https://github.com/apache/storm/blob/0.9.3-branch/STORM-UI-REST-API.md)。 以下信息特定于将 REST API 与 Apache Storm on HDInsight 配合使用的情况。
+有关详细信息，请参阅 [Apache Storm UI REST API](https://github.com/apache/storm/blob/0.9.3-branch/STORM-UI-REST-API.md)。 以下信息特定于将 REST API 与 Apache Storm on HDInsight 配合使用的情况。
 
 ### <a name="base-uri"></a>基本 URI
 
@@ -186,7 +182,7 @@ HDInsight 群集上的 REST API 的基本 URI 是 https://&lt;clustername>.azure
 
 ### <a name="return-values"></a>返回值
 
-从 REST API 返回的信息只能从群集或与群集相同的 Azure 虚拟网络上的虚拟机中使用。 例如，无法从 Internet 访问针对 Zookeeper 服务器返回的完全限定的域名 (FQDN)。
+从 REST API 返回的信息只能从群集或与群集相同的 Azure 虚拟网络上的虚拟机中使用。 例如，无法从 Internet 访问针对 [Apache ZooKeeper](https://zookeeper.apache.org/) 服务器返回的完全限定的域名 (FQDN)。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -194,9 +190,9 @@ HDInsight 群集上的 REST API 的基本 URI 是 https://&lt;clustername>.azure
 
 * [使用 Visual Studio 的 HDInsight 工具开发 C# 拓扑](apache-storm-develop-csharp-visual-studio-topology.md)
 
-* [使用 Maven 开发基于 Java 的拓扑](apache-storm-develop-java-topology.md)
+* [使用 Apache Maven 开发基于 Java 的拓扑](apache-storm-develop-java-topology.md)
 
-有关更多示例拓扑的列表，请参阅 [Storm on HDInsight 的示例拓扑](apache-storm-example-topology.md)。
+有关更多示例拓扑的列表，请参阅 [Apache Storm on HDInsight 的示例拓扑](apache-storm-example-topology.md)。
 
 [hdinsight-dashboard]: ./media/apache-storm-deploy-monitor-topology/dashboard-link.png
 [storm-dashboard-submit]: ./media/apache-storm-deploy-monitor-topology/submit.png

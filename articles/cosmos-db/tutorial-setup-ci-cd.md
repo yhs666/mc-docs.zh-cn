@@ -4,19 +4,17 @@ description: 教程：如何使用 Cosmos DB 模拟器生成任务在 Azure DevO
 services: cosmos-db
 keywords: Azure Cosmos DB 模拟器
 author: rockboyfor
-manager: digimobile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: tutorial
 origin.date: 11/02/2018
-ms.date: 12/03/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: ddfe92eac52d9c9572427700a94b73ca2e4bf0c0
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 8210e5c9b880c8a7cac739b57ec9e18b25861b1a
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674363"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026701"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>在 Azure DevOps 中通过 Azure Cosmos DB 模拟器生成任务设置 CI/CD 管道
 
@@ -24,7 +22,7 @@ ms.locfileid: "52674363"
 
 使用针对 Azure DevOps 的 Azure Cosmos DB 模拟器生成任务，可以在 CI 环境中执行相同的操作。 使用生成任务时，可以在生成和发布工作流中针对模拟器运行测试。 该任务启动一个包含已运行模拟器的 Docker 容器，并提供一个可供生成定义的其余部分使用的终结点。 可以根据需要创建并启动模拟器的多个实例，每一个都在单独的容器中运行。 
 
-本文演示如何在适用于 ASP.NET 应用程序的 Azure DevOps 中设置 CI 管道，该应用程序使用 Cosmos DB 模拟器生成任务来运行测试。 
+本文演示如何在适用于 ASP.NET 应用程序的 Azure DevOps 中设置 CI 管道，该应用程序使用 Cosmos DB 模拟器生成任务来运行测试。 可以使用类似的方法为 Node.js 或 Python 应用程序设置 CI 管道。 
 
 ## <a name="install-the-emulator-build-task"></a>安装模拟器生成任务
 
@@ -35,7 +33,7 @@ ms.locfileid: "52674363"
 接下来，选择要在其中安装扩展的组织。 
 
 > [!NOTE]
-> 若要将扩展安装到 Azure DevOps 组织，你必须是帐户所有者或项目集合管理员。 如果你没有权限，但却是帐户成员，可以改为请求扩展。 [了解详细信息。](https://docs.microsoft.com/zh-cn/azure/devops/marketplace/faq-extensions?view=vsts#install-request-assign-and-access-extensions) 
+> 若要将扩展安装到 Azure DevOps 组织，你必须是帐户所有者或项目集合管理员。 如果你没有权限，但却是帐户成员，可以改为请求扩展。 [了解详细信息。](https://docs.microsoft.com/zh-cn/azure/devops/marketplace/faq-extensions?view=vsts#install-request-assign-and-access-extensions)
 
 ![选择要在其中安装扩展的 Azure DevOps 组织](./media/tutorial-setup-ci-cd/addExtension_2.png)
 
@@ -84,6 +82,8 @@ ms.locfileid: "52674363"
   </TestRunParameters>
 </RunSettings>
 ```
+
+如果正在为使用 Azure Cosmos DB 的 API for MongoDB 的应用程序设置 CI/CD 管道，则连接字符串默认包含端口号 10255。 但是，此端口当前未打开，作为替代方法，你应该使用端口 10250 建立连接。 Azure Cosmos DB 的 API for MongoDB 连接字符串保持不变，不同的是支持的端口号是 10250 而不是 10255。
 
 这些参数 (`TestRunParameters`) 通过应用程序的测试项目中的 `TestContext` 属性引用。 下面是一个针对 Cosmos DB 运行的测试的示例。
 

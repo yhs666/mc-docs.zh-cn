@@ -4,23 +4,21 @@ description: 学习设计第一个 Azure SQL 数据库，并使用 ADO.NET 通�
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
-ms.devlang: ''
 ms.topic: tutorial
 author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 11/01/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 02448bfd75ebdbdb3ae27fc1a7d33d373c8c86d6
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+origin.date: 12/10/2018
+ms.date: 01/07/2019
+ms.openlocfilehash: d16d25f40dd56aaaccb20d916259a4d785b62647
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672587"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996352"
 ---
-# <a name="tutorial-design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>教程：设计 Azure SQL 数据库，并使用 C&#x23; 和 ADO.NET 进行连接
+# <a name="tutorial-design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>教程：设计 Azure SQL 数据库，并使用 C# 和 ADO.NET 进行连接
 
 Azure SQL 数据库是 Azure 中的关系数据库即服务 (DBaaS)。 本教程介绍如何将 Azure 门户、ADO.NET 与 Visual Studio 结合使用来完成以下操作： 
 
@@ -36,7 +34,7 @@ Azure SQL 数据库是 Azure 中的关系数据库即服务 (DBaaS)。 本教程
 
 ## <a name="prerequisites"></a>先决条件
 
-已安装 [Visual Studio Community 2017、Visual Studio Professional 2017 或 Visual Studio Enterprise 2017](https://www.visualstudio.com/downloads/)。
+安装 [Visual Studio 2017](https://www.visualstudio.com/downloads/)
 
 <!-- The following included .md, sql-database-tutorial-portal-create-firewall-connection-1.md, is long.
 And it starts with a ## H2.
@@ -52,16 +50,12 @@ And it starts with a ## H2.
 
 ## <a name="next-steps"></a>后续步骤
 
-本教程介绍了基本数据库任务，例如创建数据库和表、负载和查询数据，以及将数据库还原到以前的时间点。 你已了解如何：
+本教程介绍了基本数据库任务，例如创建数据库和表、连接到数据库、加载数据和运行查询。 你已了解如何：
+
 > [!div class="checklist"]
 > * 创建数据库
 > * 设置防火墙规则
 > * 使用 [Visual Studio 和 C#](sql-database-connect-query-dotnet-visual-studio.md) 连接至数据库
 > * 创建表
-> * 插入、更新和删除数据
-> * 查询数据
+> * 插入、更新、删除和查询数据
 
-请转到下一教程，了解数据迁移。
-
-> [!div class="nextstepaction"]
-> [将 SQL Server 数据库迁移至 Azure SQL 数据库](sql-database-migrate-your-sql-server-database.md)

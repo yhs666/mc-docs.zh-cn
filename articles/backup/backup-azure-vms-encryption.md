@@ -6,16 +6,15 @@ author: lingliw
 manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-origin.date: 07/10/2018
-ms.date: 11/26/2018
+ms.date: 1/3/2019
 ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cef55ea03491f53606d7f4ecf861165884cdc01c
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 5f4347da24ac1cb76743dd3fc10fc73818831413
+ms.sourcegitcommit: f46e1f7a5d582bb9663bfaee8087b233eb822e17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675127"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996502"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>使用 Azure 备份来备份和还原已加密的虚拟机
 本文介绍使用 Azure 备份来备份和还原虚拟机 (VM) 的步骤。 此外，提供有关受支持的方案、先决条件以及针对错误案例的疑难解答步骤的详细信息。
@@ -28,6 +27,10 @@ ms.locfileid: "52675127"
    | --- | --- | --- |
    | **非托管 VM**  | 是 | 是  |
    | **托管 VM**  | 是 | 是  |
+
+   > [!NOTE]
+   > Azure 备份支持使用独立密钥加密的 VM。 目前不支持属于用于加密 VM 的证书的任何密钥。
+   >   
 
 ## <a name="prerequisites"></a>先决条件
 * 已使用 [Azure 磁盘加密](../security/azure-security-disk-encryption.md)将 VM 加密。

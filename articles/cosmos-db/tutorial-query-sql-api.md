@@ -1,24 +1,20 @@
 ---
-title: 如何在 Azure Cosmos DB 中使用 SQL 进行查询？ | Azure
+title: 如何在 Azure Cosmos DB 中使用 SQL 进行查询？
 description: 了解在 Azure Cosmos DB 中使用 SQL 进行查询
 services: cosmos-db
 author: rockboyfor
-manager: digimobile
-editor: ''
-tags: ''
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.custom: tutorial-develop, mvc
-ms.devlang: na
 ms.topic: tutorial
 origin.date: 05/10/2017
-ms.date: 12/03/2018
-ms.author: v-yeche
-ms.openlocfilehash: e3a1b87d87c6bc662b4ffc6ed03d08b6215ebbc2
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 01/07/2019
+ms.openlocfilehash: 06b220965330f7a3b967d624a7cdb4498e7ea272
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674677"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026830"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>教程：使用 SQL API 查询 Azure Cosmos DB
 
@@ -126,7 +122,7 @@ Azure Cosmos DB [SQL API](documentdb-introduction.md) 支持使用 SQL 查询文
 
 **结果**
 
-[ { "givenName": "Jesse" }, { "givenName": "Lisa" } ]
+[ { "givenName":"Jesse" }, { "givenName":"Lisa" } ]
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -140,4 +136,4 @@ Azure Cosmos DB [SQL API](documentdb-introduction.md) 支持使用 SQL 查询文
 > [!div class="nextstepaction"]
 > [全局分发数据](tutorial-global-distribution-sql-api.md)
 
-<!-- Update_Description: wording update, update link -->
+<!-- Update_Description: wording update, update meta properties -->

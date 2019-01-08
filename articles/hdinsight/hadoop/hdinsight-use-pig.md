@@ -1,12 +1,12 @@
 ---
-title: 在 HDInsight 中使用 Hadoop Pig | Azure
-description: 了解如何将 Pig 与 HDInsight 上的 Hadoop 配合使用。
+title: 在 HDInsight 中使用 Apache Pig
+description: 了解如何将 Pig 与 Apache Hadoop on HDInsight 配合使用。
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
+author: hrasheed-msft
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
+ms.reviewer: jasonh
 ms.assetid: acfeb52b-4b81-4a7d-af77-3e9908407404
 ms.service: hdinsight
 ms.custom: hdinsightactive
@@ -15,20 +15,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 04/23/2018
-ms.date: 08/27/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 9bb2fd3d9e7e0d013a15dd5fc6a86a316d0208c4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e1c6fb7f30c2af799078d18c39f341282d776b37
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659627"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029148"
 ---
-# <a name="use-pig-with-hadoop-on-hdinsight"></a>将 Pig 与 HDInsight 上的 Hadoop 配合使用
+# <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>将 Apache Pig 与 Apache Hadoop on HDInsight 配合使用
 
-了解如何将 [Apache Pig](http://pig.apache.org/) 与 HDInsight 配合使用。
+了解如何将 [Apache Pig](https://pig.apache.org/) 与 HDInsight 配合使用。
 
-Pig 是一个平台，可以使用名为 *Pig Latin* 的过程语言为 Hadoop 创建程序。 Pig 可以替代 Java 来创建 *MapReduce* 解决方案，它已包括在 Azure HDInsight 中。 使用下表可以找出将 Pig 与 HDInsight 配合使用的各种方法：
+Apache Pig 是一个平台，用于使用名为 *Pig Latin* 的过程语言为 Apache Hadoop 创建程序。 Pig 可以替代 Java 来创建 *MapReduce* 解决方案，它已包括在 Azure HDInsight 中。 使用下表可以找出将 Pig 与 HDInsight 配合使用的各种方法：
 
 | **使用此方法**，如果想要... | ... **交互式** shell | ...**批处理** | ...使用此 **群集操作系统** | ...从此 **客户端操作系统** |
 |:--- |:---:|:---:|:--- |:--- |
@@ -40,7 +40,7 @@ Pig 是一个平台，可以使用名为 *Pig Latin* 的过程语言为 Hadoop �
 > [!IMPORTANT]
 > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
-## <a id="why"></a>为何使用 Pig
+## <a id="why"></a>为什么使用 Apache Pig
 
 在 Hadoop 中使用 MapReduce 来处理数据时，其中一项难题是仅使用映射和化简函数来实现处理逻辑。 进行复杂的处理时，通常必须将处理分解成多个 MapReduce 操作，这些操作合在一起即可获得所需的结果。
 
@@ -58,13 +58,13 @@ Pig 是一个平台，可以使用名为 *Pig Latin* 的过程语言为 Hadoop �
 
 Pig Latin 还支持使用用户定义函数 (UDF) 来调用外部组件，以便实现难以在 Pig Latin 中建模的逻辑。
 
-有关 Pig Latin 的详细信息，请参阅 [Pig Latin Reference Manual 1](http://archive.cloudera.com/cdh/3/pig/piglatin_ref1.html)（Pig Latin 参考手册 1）和 [Pig Latin Reference Manual 2](http://archive.cloudera.com/cdh/3/pig/piglatin_ref2.html)（Pig Latin 参考手册 2）。
+有关 Pig Latin 的详细信息，请参阅 [Pig Latin Reference Manual 1](https://archive.cloudera.com/cdh/3/pig/piglatin_ref1.html)（Pig Latin 参考手册 1）和 [Pig Latin Reference Manual 2](https://archive.cloudera.com/cdh/3/pig/piglatin_ref2.html)（Pig Latin 参考手册 2）。
 
 如需通过 Pig 使用 UDF 的示例，请参阅以下文档：
 
-* [在 HDInsight 中通过 Pig 使用 DataFu](apache-hadoop-use-pig-datafu-udf.md) - DataFu 是由 Apache 维护的有用 UDF 的集合
-* [在 HDInsight 中将 Python 与 Pig 和 Hive 配合使用](python-udf-hdinsight.md)
-* [在 HDInsight 中将 C# 与 Hive 和 Pig 配合使用](apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [在 HDInsight 中将 Apache DataFu 与 Apache Pig 配合使用](apache-hadoop-use-pig-datafu-udf.md) - DataFu 是由 Apache 维护的有用 UDF 的集合
+* [在 HDInsight 中将 Python 与 Apache Pig 和 Apache Hive 配合使用](python-udf-hdinsight.md)
+* [在 HDInsight 中将 C# 与 Apache Hive 和 Apache Pig 配合使用](apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
 ## <a id="data"></a>示例数据
 
@@ -76,8 +76,8 @@ HDInsight 提供各种示例数据集，它们存储在 `/example/data` 和 `/Hd
 
 在前面的示例中，日志级别为 ERROR。
 
-> [!NOTE]
-> 还可以使用 [Apache Log4j](http://en.wikipedia.org/wiki/Log4j) 日志记录工具来生成 log4j 文件，并将该文件上传到 Blob。 请参阅[将数据上传到 HDInsight](../hdinsight-upload-data.md) 以获取相关说明。 有关如何将 Azure 存储中的 Blob 用于 HDInsight 的详细信息，请参阅[将 Azure Blob 存储与 HDInsight 配合使用](../hdinsight-hadoop-use-blob-storage.md)。
+> [!NOTE]  
+> 还可以使用 [Apache Log4j](https://en.wikipedia.org/wiki/Log4j) 日志记录工具来生成 log4j 文件，并将该文件上传到 Blob。 请参阅[将数据上传到 HDInsight](../hdinsight-upload-data.md) 以获取相关说明。 有关如何将 Azure 存储中的 Blob 用于 HDInsight 的详细信息，请参阅[将 Azure Blob 存储与 HDInsight 配合使用](../hdinsight-hadoop-use-blob-storage.md)。
 
 ## <a id="job"></a>示例作业
 
@@ -125,17 +125,17 @@ HDInsight 可以使用各种方法来运行 Pig Latin 作业。 使用下表来�
 现在，已了解如何将 Pig 与 HDInsight 配合使用，请使用以下链接来学习 Azure HDInsight 的其他用法。
 
 * [将数据上传到 HDInsight](../hdinsight-upload-data.md)
-* [将 Hive 与 HDInsight 配合使用][hdinsight-use-hive]
-* [将 Sqoop 与 HDInsight 配合使用](hdinsight-use-sqoop.md)
-* [将 Oozie 与 HDInsight 配合使用](../hdinsight-use-oozie.md)
+* [将 Apache Hive 和 HDInsight 配合使用][hdinsight-use-hive]
+* [将 Apache Sqoop 与 HDInsight 配合使用](hdinsight-use-sqoop.md)
+* [将 Apache Oozie 和 HDInsight 配合使用](../hdinsight-use-oozie.md)
 * [将 MapReduce 作业与 HDInsight 配合使用][hdinsight-use-mapreduce]
 
-[apachepig-home]: http://pig.apache.org/
-[putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
-[curl]: http://curl.haxx.se/
-[pigtask]: http://msdn.microsoft.com/library/mt146781(v=sql.120).aspx
-[connectionmanager]: http://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
-[ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
+[apachepig-home]: https://pig.apache.org/
+[putty]: https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
+[curl]: https://curl.haxx.se/
+[pigtask]: https://msdn.microsoft.com/library/mt146781(v=sql.120).aspx
+[connectionmanager]: https://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
+[ssispack]: https://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 
 [hdinsight-use-hive]:../hdinsight-use-hive.md
@@ -146,7 +146,7 @@ HDInsight 可以使用各种方法来运行 Pig Latin 作业。 使用下表来�
 
 [Powershell-install-configure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 
-[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
+[powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
 
 [image-hdi-pig-data-transformation]: ./media/hdinsight-use-pig/HDI.DataTransformation.gif
 

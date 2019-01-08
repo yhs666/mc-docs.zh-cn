@@ -11,38 +11,38 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 04/30/2018
-ms.date: 06/25/2018
+origin.date: 11/27/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: e98bd076260250cf9f3fc9c68756134a71d5f9ee
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: cf79e5bbf8f4dadf1d301cf799bbab606fe1136b
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664595"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029260"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>构建适用于 Apache HBase 的 Java 应用程序
 
-了解如何使用 Java 创建 [Apache HBase](http://hbase.apache.org/) 应用程序。 然后，将该应用程序用于 Azure HDInsight 上的 HBase。
+了解如何使用 Java 创建 [Apache HBase](https://hbase.apache.org/) 应用程序。 然后，将该应用程序用于 Azure HDInsight 上的 HBase。
 
-本文档中的步骤使用 [Maven](http://maven.apache.org/) 创建和构建项目。 Maven 是一种软件项目管理和综合工具，可用于为 Java 项目构建软件、文档和报告。
+本文档中的步骤使用 [Apache Maven](https://maven.apache.org/) 创建和构建项目。 Maven 是一种软件项目管理和综合工具，可用于为 Java 项目构建软件、文档和报告。
 
-> [!NOTE]
+> [!NOTE]  
 > 本文档中的步骤最近通过 HDInsight 3.6 进行了测试。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="requirements"></a>要求
 
-* [Java 平台 JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 8 或更高版本。
+* [Java 平台 JDK](https://aka.ms/azure-jdks) 8 或更高版本。
 
-    > [!NOTE]
-    > HDInsight 3.5 及更高版本要求 Java 8。 早期版本的 HDInsight 需要 Java 7。
+    > [!NOTE]  
+    > HDInsight 3.5 及更高版本要求 Java 8。 早期的 HDInsight 版本需要 Java 7。
 
-* [Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
-* [装有 HBase 的基于 Linux 的 Azure HDInsight 群集](apache-hbase-tutorial-get-started-linux.md#create-hbase-cluster)
+* [装有 Apache HBase 的基于 Linux 的 Azure HDInsight 群集](apache-hbase-tutorial-get-started-linux.md#create-apache-hbase-cluster)
 
 ## <a name="create-the-project"></a>创建项目
 
@@ -61,8 +61,8 @@ ms.locfileid: "52664595"
 
     此命令使用与 **artifactID** 参数相同的名称（此示例中为 **hbaseapp**）创建目录。此目录包含以下项：
 
-   * **pom.xml**：项目对象模型 ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html))，其中包含用于生成项目的信息和配置详细信息。
-   * **src**：包含 **main/java/com/microsoft/examples** 目录的目录，用户会在其中创作应用程序。
+   * **pom.xml**：项目对象模型 ([POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html))，其中包含用于生成项目的信息和配置详细信息。
+   * **src**：包含 main/java/com/microsoft/examples 目录的目录，用户会在其中创作应用程序。
 
 3. 删除 `src/test/java/com/microsoft/examples/apptest.java` 文件。 此示例不使用该文件。
 
@@ -83,17 +83,17 @@ ms.locfileid: "52664595"
     </dependency>
    ```
 
-    此部分指示项目需要 **hbase-client** 和 **phoenix-core** 组件。 在编译时，会从默认 Maven 存储库下载这些依赖项。 可以使用 [Maven 中央存储库](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar)搜索来了解有关此依赖项的详细信息。
+    此部分指示项目需要 **hbase-client** 和 **phoenix-core** 组件。 在编译时，会从默认 Maven 存储库下载这些依赖项。 可以使用 [Maven 中央存储库](https://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) 搜索来了解有关此依赖性的详细信息。
 
-   > [!IMPORTANT]
-   > hbase-client 的版本号必须与 HDInsight 群集随附的 HBase 版本匹配。 可以使用下表来查找正确的版本号。
+   > [!IMPORTANT]  
+   > hbase-client 的版本号必须与 HDInsight 群集随附的 Apache HBase 版本匹配。 可以使用下表来查找正确的版本号。
 
-   | HDInsight 群集版本 | 要使用的 HBase 版本 |
+   | HDInsight 群集版本 | 要使用的 Apache HBase 版本 |
    | --- | --- |
    | 3.2 |0.98.4-hadoop2 |
    | 3.3、3.4、3.5 和 3.6 |1.1.2 |
 
-    有关 HDInsight 版本和组件的详细信息，请参阅 [HDInsight 提供哪些不同的 Hadoop 组件](../hdinsight-component-versioning.md)。
+    有关 HDInsight 版本和组件的详细信息，请参阅 [HDInsight 提供哪些不同的 Apache Hadoop 组件](../hdinsight-component-versioning.md)。
 
 3. 将以下代码添加到 **pom.xml** 文件。 此文本必须位于文件中的 `<project>...</project>` 标记内，例如 `</dependencies>` 和 `</project>` 之间。
 
@@ -147,7 +147,7 @@ ms.locfileid: "52664595"
    > [!NOTE]
    > 也可以通过代码设置配置值。 请参阅 `CreateTable` 示例中的注释。
 
-    此部分还会配置 [Maven 编译器插件](http://maven.apache.org/plugins/maven-compiler-plugin/)和 [Maven 阴影插件](http://maven.apache.org/plugins/maven-shade-plugin/)。 该编译器插件用于编译拓扑。 该阴影插件用于防止在由 Maven 构建的 JAR 程序包中复制许可证。 此插件用于防止在 HDInsight 群集上运行时出现“重复的许可证文件”错误。 将 maven-shade-plugin 用于 `ApacheLicenseResourceTransformer` 实现可防止发生此错误。
+    此部分还将配置 [Apache Maven 编译器插件](https://maven.apache.org/plugins/maven-compiler-plugin/)和 [Apache Maven 阴影插件](https://maven.apache.org/plugins/maven-shade-plugin/)。 该编译器插件用于编译拓扑。 该阴影插件用于防止在由 Maven 构建的 JAR 程序包中复制许可证。 此插件用于防止在 HDInsight 群集上运行时出现“重复的许可证文件”错误。 将 maven-shade-plugin 用于 `ApacheLicenseResourceTransformer` 实现可防止发生此错误。
 
     maven-shade-plugin 还会生成 uber jar，其中包含应用程序所需的所有依赖项。
 
@@ -367,7 +367,7 @@ ms.locfileid: "52664595"
 
 ## <a name="upload-the-jar-and-run-jobs-ssh"></a>上传 JAR 并运行作业 (SSH)
 
-以下步骤使用 `scp` 将 JAR 复制到 HBase on HDInsight 群集的主要头节点。 然后，使用 `ssh` 命令连接到群集并直接在头节点上运行此示例。
+以下步骤使用 `scp` 将 JAR 复制到 Apache HBase on HDInsight 群集的主要头节点。 然后，使用 `ssh` 命令连接到群集并直接在头节点上运行此示例。
 
 1. 若要将该 jar 上传到群集，请使用以下命令：
 
@@ -416,7 +416,7 @@ ms.locfileid: "52664595"
 
 ## <a name="upload-the-jar-and-run-jobs-powershell"></a>上传 JAR 并运行作业 (PowerShell)
 
-以下步骤使用 Azure PowerShell 将 JAR 上传到 HBase 群集的默认存储。 然后使用 HDInsight cmdlet 远程运行这些示例。
+以下步骤使用 Azure PowerShell 将 JAR 上传到 Apache HBase 群集的默认存储。 然后使用 HDInsight cmdlet 远程运行这些示例。
 
 1. 安装并配置 Azure PowerShell 后，创建一个名为 `hbase-runner.psm1` 的文件。 将以下文本用作此文件的内容：
 
@@ -675,7 +675,7 @@ ms.locfileid: "52664595"
 
 ## <a name="delete-the-table"></a>删除表
 
-在完成该示例后，使用以下命令删除本示例中使用的 **people** 表：
+在完成该示例后，使用以下命令删除本示例中使用的 people 表：
 
 __从 `ssh` 会话__：
 
@@ -687,4 +687,4 @@ __从 Azure PowerShell__：
 
 ## <a name="next-steps"></a>后续步骤
 
-[了解如何将 SQuirreL SQL 与 HBase 配合使用](apache-hbase-phoenix-squirrel-linux.md)
+[了解如何将 SQuirreL SQL 与 Apache HBase 配合使用](apache-hbase-phoenix-squirrel-linux.md)

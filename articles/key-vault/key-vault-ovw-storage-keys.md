@@ -1,6 +1,6 @@
 ---
 ms.assetid: ''
-title: Azure Key Vault 存储帐户密钥
+title: Azure Key Vault 托管存储帐户 - CLI
 description: 存储帐户密钥在 Azure Key Vault 与 Azure 存储帐户基于密钥的访问方式之间提供无缝集成。
 ms.topic: conceptual
 services: key-vault
@@ -9,15 +9,15 @@ author: bryanla
 ms.author: v-biyu
 manager: mbaldwin
 origin.date: 10/12/2017
-ms.date: 12/10/2018
-ms.openlocfilehash: 48c6ca72d475b2dfab4941c97acfb3327b432697
-ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
+ms.date: 01/14/2019
+ms.openlocfilehash: 0cc1839fe5cb5037b11be0ee05c22ffeddb52d15
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676890"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996362"
 ---
-# <a name="azure-key-vault-storage-account-keys"></a>Azure Key Vault 存储帐户密钥
+# <a name="azure-key-vault-managed-storage-account---cli"></a>Azure Key Vault 托管存储帐户 - CLI
 
 - Azure Key Vault 管理 Azure 存储帐户 (ASA) 的密钥。
     - 在内部，Azure Key Vault 可以使用 Azure 存储帐户列出（同步）密钥。
@@ -29,8 +29,8 @@ ms.locfileid: "52676890"
 --------------
 1. [Azure CLI](/cli/install-azure-cli) 安装 Azure CLI   
 2. [创建存储帐户](https://www.azure.cn/en-us/home/features/storage/)
-    - 请遵循[此文档](https://docs.azure.cn/en-us/storage/)中的步骤创建存储帐户   
-    - **命名指导：** 存储帐户名称必须为 3 到 24 个字符，并且只能包含数字和小写字母。        
+    - 请按照此[文档](https://docs.azure.cn/en-us/storage/)中的步骤创建一个存储帐户   
+    - **命名指南：** 存储帐户名称必须为 3 到 24 个字符，并且只能包含数字和小写字母。        
       
 <a name="step-by-step-instructions-on-how-to-use-key-vault-to-manage-storage-account-keys"></a>有关如何使用 Key Vault 管理存储帐户密钥的分步说明
 --------------------------------------------------------------------------------
@@ -44,14 +44,19 @@ ms.locfileid: "52676890"
     ```
     az storage account show -n storageaccountname (Copy ID field out of the result of this command)
     ```
+    
 2. 获取 Azure Key Vault 服务主体的应用程序 ID 
+
     ```
     az ad sp show --id cfa8b339-82a2-471a-a3c9-0fc0be7a4093
     ```
+    
 3. 将“存储密钥操作员”角色分配给 Azure Key Vault 标识
+
     ```
     az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ApplicationIdOfKeyVault> --scope <IdOfStorageAccount>
     ```
+    
 4. 创建 Key Vault 托管存储帐户。     <br /><br />
    下面，我们将重新生成周期设置为 90 天。 90 天后，Key Vault 将重新生成“key1”，并将活动密钥从“key2”交换为“key1”。
    

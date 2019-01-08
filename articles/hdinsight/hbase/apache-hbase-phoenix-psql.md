@@ -14,20 +14,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 11/10/2017
-ms.date: 02/26/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 167e1c01db7aa27a1c074f6e4b2e1d4a3438aa77
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 73f7bc9ae4eef719e7274fe56dc3ea50f98c7ed1
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652135"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029197"
 ---
-# <a name="bulk-load-data-into-phoenix-using-psql"></a>使用 psql 将数据大容量加载到 Phoenix
+# <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>使用 psql 将数据批量加载到 Apache Phoenix
 
-[Apache Phoenix](http://phoenix.apache.org/) 是构建在 [HBase](../hbase/apache-hbase-overview.md) 基础之上的开源大规模并行关系数据库。 Phoenix 通过 HBase 提供类似于 SQL 的查询。 Phoenix 使用 JDBC 驱动程序，可让用户创建、删除和更改 SQL 表、索引、视图与序列，以及单独或批量更新插入行。 Phoenix 使用 noSQL 本机编译而不是 MapReduce 来编译查询，以及在 HBase 的顶层创建低延迟的应用程序。 Phoenix 添加了协处理器，支持在服务器的地址空间中运行客户端提供的代码，执行与数据共置的代码。 这样可将客户端/服务器数据传输延迟降到最低。  若要在 HDInsight 中使用 Phoenix 处理数据，请先创建表，然后将数据载入这些表。
+[Apache Phoenix](https://phoenix.apache.org/) 是构建在 [Apache HBase](../hbase/apache-hbase-overview.md) 基础之上的开源大规模并行关系数据库。 Phoenix 通过 HBase 提供类似于 SQL 的查询。 Phoenix 使用 JDBC 驱动程序，可让用户创建、删除和更改 SQL 表、索引、视图与序列，以及单独或批量更新插入行。 Phoenix 使用 noSQL 本机编译而不是 MapReduce 来编译查询，以及在 HBase 的顶层创建低延迟的应用程序。 Phoenix 添加了协处理器，支持在服务器的地址空间中运行客户端提供的代码，执行与数据共置的代码。 这样可将客户端/服务器数据传输延迟降到最低。  若要在 HDInsight 中使用 Phoenix 处理数据，请先创建表，然后将数据载入这些表。
 
-## <a name="bulk-loading-with-phoenix"></a>使用 Phoenix 批量加载数据
+## <a name="bulk-loading-with-apache-phoenix"></a>使用 Apache Phoenix 大容量加载数据
 
 可通过多种方法将数据载入 HBase，包括使用客户端 API、结合 TableOutputFormat 的 MapReduce 作业，或使用 HBase  Shell 手动输入数据。 Phoenix 提供两种方法用于将 CSV 数据载入 Phoenix 表：一个名为 `psql` 的客户端加载工具，以及一个基于 MapReduce 的批量加载工具。
 
@@ -35,7 +35,7 @@ ms.locfileid: "52652135"
 
 由于 MapReduce 使用多个线程，对于极大型的数据卷（通常用于生产方案），可以使用 MapReduce 执行批量加载。
 
-在开始加载数据之前，请先确认是否已启用 Phoenix，并且查询超时设置是否符合预期。  请访问 HDInsight 群集的 Ambari 仪表板，然后依次选择“HBase”和“配置”选项卡。向下滚动，确认 Apache Phoenix 是否已设置为 `enabled`，如下所示：
+在开始加载数据之前，请先确认是否已启用 Phoenix，并且查询超时设置是否符合预期。  请访问 HDInsight 群集的 [Apache Ambari](https://ambari.apache.org/) 仪表板，然后依次选择“HBase”和“配置”选项卡。向下滚动，确认 Apache Phoenix 是否已设置为 `enabled`，如下所示：
 
 ![Apache Phoenix HDInsight 群集设置](./media/apache-hbase-phoenix-psql/ambari-phoenix.png)
 
@@ -80,8 +80,8 @@ ms.locfileid: "52652135"
     python psql.py ZookeeperQuorum createCustomersTable.sql /tmp/customers.csv listCustomers.sql
     ```
 
-    > [!NOTE] 
-    > 若要确定 `ZookeeperQuorum` 名称，请在 `/etc/hbase/conf/hbase-site.xml` 文件中，使用属性名称 `hbase.zookeeper.quorum` 找到 Zookeeper 仲裁字符串。
+    > [!NOTE]   
+    > 若要确定 `ZookeeperQuorum` 名称，请在文件 `/etc/hbase/conf/hbase-site.xml` 中，使用属性名称 `hbase.zookeeper.quorum` 找到 [Apache ZooKeeper](https://zookeeper.apache.org/) 仲裁字符串。
 
 5. 完成 `psql` 操作后，命令窗口中应会显示一条消息：
 
@@ -148,7 +148,7 @@ ms.locfileid: "52652135"
 
 ## <a name="next-steps"></a>后续步骤
 
-* [使用 Apache Phoenix 进行批量数据加载](http://phoenix.apache.org/bulk_dataload.html)
-* [将 Apache Phoenix 与 HDInsight 中基于 Linux 的 HBase 群集配合使用](../hbase/apache-hbase-phoenix-squirrel-linux.md)
+* [使用 Apache Phoenix 进行批量数据加载](https://phoenix.apache.org/bulk_dataload.html)
+* [将 Apache Phoenix 与 HDInsight 中基于 Linux 的 Apache HBase 群集配合使用](../hbase/apache-hbase-phoenix-squirrel-linux.md)
 * [加盐表](https://phoenix.apache.org/salted.html)
-* [Phoenix 语法](http://phoenix.apache.org/language/index.html)
+* [Apache Phoenix 语法](https://phoenix.apache.org/language/index.html)

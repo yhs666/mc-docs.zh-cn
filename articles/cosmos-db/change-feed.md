@@ -2,17 +2,18 @@
 title: 使用 Azure Cosmos DB 中的更改源支持
 description: 使用 Azure Cosmos DB 的更改源支持跟踪文档中发生的更改，执行基于事件的处理（例如触发器），使缓存和分析系统保持最新状态。
 author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/06/2018
-ms.date: 12/03/2018
-ms.author: v-yeche
-ms.openlocfilehash: 9e33c4e664e7934b494e68e61ce6e93c9ab0454d
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 01/07/2019
+ms.custom: seodec18
+ms.openlocfilehash: ab1ee813f3555101544e6b68019a2220a1e1b34d
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675637"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026698"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Azure Cosmos DB 中的更改源
 
@@ -33,7 +34,8 @@ Azure Cosmos DB 非常适合用于 IoT、游戏、零售和操作日志记录应
 目前，以下 Azure Cosmos DB API 和客户端 SDK 支持此功能。
 
 <!-- Not Available on **Cassandra API** **Gremlin API**  **Table API**-->
-| **客户端驱动程序** | **Azure CLI** | **SQL API** | **MongoDB API** |
+
+| **客户端驱动程序** | **Azure CLI** | **SQL API** | **Azure Cosmos DB 的 API for MongoDB** |
 | --- | --- | --- | --- |
 | .NET | 不可用 | 是 | 否 |
 |Java|不可用|是|否|
@@ -85,7 +87,7 @@ _etag 属于内部格式，请不要依赖它，因为它随时可能更改。 _
 
 以下是一些可通过更改源轻松实现的方案：
 
-* 在无服务器 Web 应用或移动应用中，可以跟踪各种事件（例如，对客户配置文件、首选项或其位置的更改），并触发特定操作（例如，使用 [Azure Functions](#azure-functions) 向客户的设备发送推送通知）。 
+* 在移动应用中，可以跟踪各种事件（例如，对客户配置文件、首选项或其位置的所有更改），并触发特定操作（例如，使用 [Azure Functions](change-feed-functions.md) 向客户的设备发送推送通知）。
 
 <!-- Not Available on [serverless](http://azure.com/serverless)-->
 * 例如，若要使用 Azure Cosmos DB 来构建游戏，可以使用更改源，根据已完成的游戏的分数实时更新排行榜。

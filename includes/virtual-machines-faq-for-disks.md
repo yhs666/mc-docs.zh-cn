@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 06/03/2018
-ms.date: 11/26/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 087670510f70df91f1af5c993a4168b12694b7fa
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 55914caac34cd383275e9afc55c9127fc652f021
+ms.sourcegitcommit: f6a287a11480cbee99a2facda2590f3a744f7e45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675652"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53786751"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>有关 Azure IaaS VM 磁盘以及托管和非托管高级磁盘的常见问题解答
 
@@ -86,9 +86,9 @@ ms.locfileid: "52675652"
 
 托管磁盘支持三个密钥默认角色：
 
-* 所有者：可管理所有内容，包括访问权限
-* 参与者：可管理除访问权限以外的所有内容
-* 读者：可查看所有内容，但不能进行更改
+* 所有者：可管理一切内容（包括访问权限）
+* 参与者：可管理除访问权限以外的一切内容
+* 读者：可查看一切内容，但不可作出更改
 
 是否可将托管磁盘复制或导出到专用存储帐户？
 
@@ -138,7 +138,10 @@ Azure 托管磁盘当前仅支持本地冗余存储托管磁盘。
 
 对于托管磁盘，无法对其进行重命名。 但是，可以对非托管磁盘进行重命名，只要它当前未附加到 VHD 或 VM。
 
-<!-- Verify the Standard SSD disk successfully-->
+**可否在 Azure 磁盘上使用 GPT 分区？**
+
+GPT 分区仅可在数据磁盘上使用，而不可在操作系统磁盘上使用。 操作系统磁盘必须使用 MBR 分区样式。
+
 ## <a name="standard-ssd-disks"></a>标准 SSD 盘
 
 Azure 标准 SSD 盘是什么？
@@ -186,6 +189,10 @@ Azure 标准 SSD 盘是什么？
 不是，标准 SSD 没有单实例 VM SLA。 将高级 SSD 磁盘用于单实例 VM SLA。
 
 ## <a name="migrate-to-managed-disks"></a>迁移到托管磁盘
+
+**迁移对托管磁盘性能是否有影响？**
+
+迁移涉及将磁盘从一个存储位置移动到另一个存储位置。 这是通过在后台复制数据来安排的，可能需要花费数个小时才能完成，通常少于 24 个小时，具体取决于磁盘中的数据量。 在此期间，由于一些读取可能被重定向到原始位置，所以应用程序可能会经历比平常更高的读取延迟，并且可能需要花费更长时间才能完成。 在此期间，对写入延迟没有影响。  
 
 迁移到托管磁盘之前/之后，需要在现有的 Azure 备份服务配置中进行哪些更改？
 
@@ -297,16 +304,16 @@ DS 系列的缓存和本地 SSD 合并限制是每个核心 4,000 IOPS，以及�
 **操作系统和数据磁盘支持的最大托管磁盘大小是多少？**
 
 Azure 支持的操作系统磁盘的分区类型是主启动记录 (MBR)。 MBR 格式支持的磁盘最大大小为 2 TiB。 Azure 支持的操作系统磁盘的最大大小为 2 TiB。 Azure 支持的托管数据磁盘最大大小为 4 TiB。
+
 <!--Not Available on Managed Disk sizes larger than 4 TiB are in preview.-->
 <!--Not Available on [blog post](http://aka.ms/azure-large-disk-32TB-preview-blog)-->
-
 **操作系统和数据磁盘支持的最大非托管磁盘大小是多少？**
 
 Azure 支持的操作系统磁盘的分区类型是主启动记录 (MBR)。 MBR 格式支持的磁盘最大大小为 2 TiB。 Azure 支持的操作系统非托管磁盘的最大大小为 2 TiB。 Azure 支持的非托管数据磁盘最大大小为 4 TiB。
 
 支持的最大页 blob 大小是多少？
 
-Azure 支持的最大页 blob 大小是 8 TiB (8,191 GiB)。 附加到 VM 作为数据或操作系统磁盘时，最大页面博客大小为 4 TiB (4,095 GiB)。
+Azure 支持的最大页 blob 大小是 8 TiB (8,191 GiB)。 附加到 VM 作为数据或操作系统磁盘时，最大页 blob 大小为 4 TiB (4,095 GiB)。
 
 **是否需要使用新版本的 Azure 工具来创建、附加、上传大于 1 TiB 的磁盘并重设其大小？**
 
@@ -314,10 +321,10 @@ Azure 支持的最大页 blob 大小是 8 TiB (8,191 GiB)。 附加到 VM 作为
 
 |Azure 工具      | 支持的版本                                |
 |-----------------|---------------------------------------------------|
-|Azure PowerShell | 版本号 4.1.0：2017 年 6 月版或更高版本|
-|Azure CLI v1     | 版本号 0.10.13：2017 年 5 月版或更高版本|
+|Azure PowerShell | 版本号 4.1.0：2017 年 6 月版本或更高版本|
+|Azure CLI v1     | 版本号 0.10.13：2017 年 5 月版本或更高版本|
 |Azure CLI v2     | 版本号 2.0.12：2017 年 7 月版本或更高版本|
-|AzCopy           | 版本号 6.1.0：2017 年 6 月版或更高版本|
+|AzCopy           | 版本号 6.1.0：2017 年 6 月版本或更高版本|
 
 非托管磁盘或页 blob 是否支持 P4 和 P6 磁盘大小？
 
@@ -331,9 +338,7 @@ Azure 支持的最大页 blob 大小是 8 TiB (8,191 GiB)。 附加到 VM 作为
 
 可以拍摄小磁盘的快照，然后创建磁盘以自动根据预配大小将定价层切换到 P4 或 P6。
 
-**是否可以将托管磁盘的大小从小于 4 TiB 调整到最新引入的磁盘大小（最大大小为 32 TiB）？**
-
-新的托管磁盘大小 8 TiB、16 TiB 和 32 TiB 目前处于预览状态。 我们尚不支持将现有磁盘大小调整到新磁盘大小。
+<!--Not Available on **Can you resize existing Managed Disks from sizes less than 4 TiB to new newly introduced disk sizes up to 32 TiB?**-->
 
 **Azure 备份和 Azure Site Recovery 服务支持的最大磁盘大小是多少？**
 
@@ -341,7 +346,7 @@ Azure 备份和 Azure Site Recovery 服务支持的最大磁盘大小为 4 TiB�
 
 **标准 SSD 和标准 HDD 磁盘大磁盘大小 (>4TiB) 用于实现优化磁盘 IOPS 和带宽建议的 VM 大小是多少？**
 
-要实现标准 SSD 和标准 HDD 大磁盘大小 (>4TB) 的磁盘吞吐量超过 500 IOPS 和 60 MiB/秒，应使用以下一种 VM 大小来优化性能：B 系列、DSv2 系列、Dsv3 系列、ESv3 系列、Fs 系列、Fsv2 系列、M 系列或 NCv3 系列 VM。
+要使标准 SSD 和标准 HDD 大型磁盘大小 (>4TB) 的磁盘吞吐量超过 500 IOPS 和 60 MiB/秒，应当使用下列 VM 大小之一来优化性能：B 系列、DSv2 系列、Dsv3 系列、ESv3 系列、Fs 系列、Fsv2 系列、M 系列或 NCv3 系列 VM。
 
 <!-- Not Available on GS-series, NCv2-series, Ls-Series -->
 <!-- Not Available on **What regions are the managed disk sizes larger than 4 TiB supported in?**-->
@@ -354,6 +359,6 @@ Azure 备份和 Azure Site Recovery 服务支持的最大磁盘大小为 4 TiB�
 
 如果未在此处找到相关问题，请联系我们获取帮助。 可以在本文末尾的评论中发布问题。 若要与 Azure 存储团队和其他社区成员就本文进行沟通，请使用 MSDN [Azure 存储论坛](https://www.azure.cn/support/contact/)。
 
-若要提出功能请求，请将请求和想法提交到 [Azure 存储反馈论坛](https://www.azure.cn/support/support-azure/)。
+若要提出功能请求，请将请求和想法提交到 [Azure 存储反馈论坛](https://support.azure.cn/zh-cn/support/support-azure/)。
 
 <!--Update_Description: wording update, update link -->

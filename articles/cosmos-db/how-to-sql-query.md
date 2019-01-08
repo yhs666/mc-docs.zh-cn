@@ -1,20 +1,20 @@
 ---
-title: Azure Cosmos DB 的 SQL 查询 | Azure
+title: Azure Cosmos DB 的 SQL 查询
 description: 了解 Azure Cosmos DB 的 SQL 语法、数据库概念和 SQL 查询。 SQL 可在 Azure Cosmos DB 中作为 JSON 查询语言使用。
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 11/15/2018
-ms.date: 12/03/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: d57a736745e3af24f4ec467f91774bba2cf3ab9e
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 1a3d316c0badf22370fbb56c4105f84019f77c02
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676788"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026766"
 ---
-# <a name="query-azure-cosmos-db-data-with-sql-queries"></a>使用 SQL 查询来查询 Azure Cosmos DB 数据
+# <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>从 Azure Cosmos DB 中查询数据的 SQL 查询示例
 
 Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 JSON 查询语言来支持查询 SQL API 帐户中的项。 在设计 Azure Cosmos DB 的查询语言时，请考虑到以下两个目标：
 
@@ -22,7 +22,7 @@ Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 JSON 查询语言
 
 * Azure Cosmos DB 使用 JavaScript 的编程模型作为查询语言的基础。 SQL API 植根于 JavaScript 的类型系统、表达式计算和函数调用中。 而这反过来为关系投影、跨 JSON 项的分层导航、自联接、空间查询以及调用完全采用 JavaScript 编写的用户定义的函数 (UDF) 和其他功能提供了自然编程模型。
 
-本文使用简单的 JSON 项来逐步讲解一些示例 SQL 查询。 若要了解 Azure Cosmos DB SQL 语言语法，请参阅 [SQL 语法参考](sql-api-sql-query-reference.md)一文。
+本文使用简单的 JSON 项来逐步讲解一些示例 SQL 查询。 若要了解 Azure Cosmos DB SQL 语言语法，请参阅 [SQL 语法参考](sql-api-query-reference.md)一文。
 
 <a name="GettingStarted"></a>
 ## <a name="get-started-with-sql-commands"></a>SQL 命令入门
@@ -88,7 +88,7 @@ Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 JSON 查询语言
 
 现在，让我们尝试对此数据执行一些查询来了解 Azure Cosmos DB 的 SQL 查询语言的一些重要方面。
 
-**查询 1**：例如，以下查询返回其中的 ID 字段与 `AndersenFamily` 匹配的项。 由于它是一个 `SELECT *`，因此，查询输出是完整的 JSON 项。若要了解语法，请参阅 [SELECT 语句](sql-api-sql-query-reference.md#select-query)：
+**查询 1**：例如，以下查询返回其中的 ID 字段与 `AndersenFamily` 匹配的项。 由于它是一个 `SELECT *`，因此，查询输出是完整的 JSON 项。若要了解语法，请参阅 [SELECT 语句](sql-api-query-reference.md#select-query)：
 
 ```sql
     SELECT *
@@ -118,7 +118,7 @@ Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 JSON 查询语言
     }]
 ```
 
-**查询 2**：现在假设我们需要将 JSON 输出的格式重新设置为一种不同的形式。 地址的城市名称与省/自治区/直辖市名称相同时，此查询使用两个选定的字段 Name 和 City 表示新的 JSON 对象。 在这种情况下，“NY, NY”匹配。
+**查询 2**：现在，考虑我们需要将 JSON 输出的格式重新设置为另一种不同的形式。 地址的城市名称与省/自治区/直辖市名称相同时，此查询使用两个选定的字段 Name 和 City 表示新的 JSON 对象。 在这种情况下，“NY, NY”匹配。
 
 ```sql
     SELECT {"Name":f.id, "City":f.address.city} AS Family
@@ -137,7 +137,7 @@ Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 JSON 查询语言
     }]
 ```
 
-**Query3**：此查询返回其 ID与按居住城市排序的 `WakefieldFamily` 匹配的家庭中所有子女的给定名称。
+**查询 3**：此查询返回其 ID与按居住城市排序的 `WakefieldFamily` 匹配的家庭中所有子女的给定名称。
 
 ```sql
     SELECT c.givenName
@@ -169,7 +169,7 @@ Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 JSON 查询语言
 <a name="SelectClause"></a>
 ## <a name="select-clause"></a>Select 子句
 
-每个查询按 ANSI-SQL 标准由 SELECT 子句和可选的 FROM 和 WHERE 子句组成。 通常，对于每个查询，已枚举 FROM 子句中的源。 然后将 WHERE 子句中的筛选器应用到源以检索 JSON 项的子集。 最后，使用 SELECT 子句以投影选择列表中请求的 JSON 值。 若要了解语法，请参阅 [SELECT 语法](sql-api-sql-query-reference.md#bk_select_query)。
+每个查询按 ANSI-SQL 标准由 SELECT 子句和可选的 FROM 和 WHERE 子句组成。 通常，对于每个查询，已枚举 FROM 子句中的源。 然后将 WHERE 子句中的筛选器应用到源以检索 JSON 项的子集。 最后，使用 SELECT 子句以投影选择列表中请求的 JSON 值。 若要了解语法，请参阅 [SELECT 语法](sql-api-query-reference.md#bk_select_query)。
 
 下面的示例演示了典型的 SELECT 查询。
 
@@ -264,7 +264,7 @@ Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 JSON 查询语言
 <a name="FromClause"></a>
 ## <a name="from-clause"></a>FROM 子句
 
-FROM <from_specification> 子句是可选的，除非稍后在查询中对源进行筛选或投影。 若要了解语法，请参阅 [FROM 语法](sql-api-sql-query-reference.md#bk_from_clause)。 一个类似 `SELECT * FROM Families` 的查询指示整个家庭容器是要枚举的源。 特殊标识符 ROOT 可以用来表示容器，而非使用容器名称来表示。
+FROM <from_specification> 子句是可选的，除非稍后在查询中对源进行筛选或投影。 若要了解语法，请参阅 [FROM 语法](sql-api-query-reference.md#bk_from_clause)。 一个类似 `SELECT * FROM Families` 的查询指示整个家庭容器是要枚举的源。 特殊标识符 ROOT 可以用来表示容器，而非使用容器名称来表示。
 以下列表包含每个查询需要强制执行的规则：
 
 * 容器可以使用别名，如 `SELECT f.id FROM Families AS f` 或只需为 `SELECT f.id FROM Families f`。 此处，`f` 等效于 `Families`。 `AS` 是可选的关键字，用于为标识符取别名。  
@@ -317,7 +317,7 @@ FROM <from_specification> 子句是可选的，除非稍后在查询中对源进
     ]
 ```
 
-虽然上面的示例中使用数组作为源，但也可以使用对象作为源，如下例所示：在源中可以找到的任何有效 JSON 值（非未定义）都被视为包含在查询的结果中。 如果一些家庭没有 `address.state` 值，则会将他们排除在查询结果之外。
+虽然上面的示例中使用数组作为源，但也可以使用对象作为源，如下例所示：在源中可以找到的任何有效的 JSON 值（不是未定义的）都会被视为包含在查询的结果中。 如果一些家庭没有 `address.state` 值，则会将他们排除在查询结果之外。
 
 **查询**
 
@@ -338,7 +338,7 @@ FROM <from_specification> 子句是可选的，除非稍后在查询中对源进
 <a name="WhereClause"></a>
 ## <a name="where-clause"></a>WHERE 子句
 
-WHERE 子句（**`WHERE <filter_condition>`**）可选。 它指定由源提供的 JSON 项必须满足的条件，以便作为结果的一部分包含在内。 任何 JSON 项必须将指定的条件评估为“true”以作为结果。 WHERE 子句由索引层使用，以确定可以作为结果的一部分的源项的绝对最小子集。 若要了解语法，请参阅 [WHERE 语法](sql-api-sql-query-reference.md#bk_where_clause)。
+WHERE 子句（**`WHERE <filter_condition>`**）可选。 它指定由源提供的 JSON 项必须满足的条件，以便作为结果的一部分包含在内。 任何 JSON 项必须将指定的条件评估为“true”以作为结果。 WHERE 子句由索引层使用，以确定可以作为结果的一部分的源项的绝对最小子集。 若要了解语法，请参阅 [WHERE 语法](sql-api-query-reference.md#bk_where_clause)。
 
 以下查询请求包含值为 `AndersenFamily` 的名称属性的项。 任何其他不具有名称属性或值与 `AndersenFamily` 不匹配的项则被排除在外。
 
@@ -405,9 +405,18 @@ WHERE 子句（**`WHERE <filter_condition>`**）可选。 它指定由源提供�
 除了二进制和一元运算符以外，还允许使用属性引用。 例如，`SELECT * FROM Families f WHERE f.isRegistered` 返回包含 `isRegistered` 属性的项，其中的属性值等于 JSON `true` 值。 任何其他值（false、null、Undefined、`<number>`、`<string>`、`<object>`、`<array>` 等等）都会导致源项被排除在结果之外。 
 
 ### <a name="equality-and-comparison-operators"></a>等式和比较运算符
+
 下表显示了 SQL API 中任意两个 JSON 类型之间等式比较的结果。
 
-| **Op** | **Undefined** | **Null** | **Boolean** | **Number** | **String** | **Object** | **Array** | | **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | | **Null** | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined | Undefined | | **Boolean** | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined | | **Number** | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined | | **String** | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined | | **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined | | **Array** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** |
+| **Op** | **Undefined** | **Null** | **布尔值** | **数字** | **字符串** | **Object** | **数组** |
+|---|---|---|---|---|---|---|---|
+| **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined |
+| **Null** | Undefined | **正常** | Undefined | Undefined | Undefined | Undefined | Undefined |
+| **布尔值** | Undefined | Undefined | **正常** | Undefined | Undefined | Undefined | Undefined |
+| **数字** | Undefined | Undefined | Undefined | **正常** | Undefined | Undefined | Undefined |
+| **字符串** | Undefined | Undefined | Undefined | Undefined | **正常** | Undefined | Undefined |
+| **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **正常** | Undefined |
+| **数组** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **正常** |
 
 对于其他比较运算符（如 >、>=、!=、< 和 <=），以下规则适用：
 
@@ -1418,14 +1427,14 @@ Cosmos DB 还支持使用许多内置函数进行常见操作，这些函数可�
 
 | **使用情况** | **说明** |
 |-----------|------------|
-| [IS_ARRAY (expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_is_array) | 返回一个布尔值，它指示值的类型是否为数组。 |
-| [IS_BOOL (expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_is_bool) | 返回一个布尔值，它指示值的类型是否为布尔。 |
-| [IS_NULL (expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_is_null) | 返回一个布尔值，它指示值的类型是否为 null。 |
-| [IS_NUMBER (expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_is_number) | 返回一个布尔值，它指示值的类型是否为数字。 |
-| [IS_OBJECT (expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_is_object) | 返回一个布尔值，它指示值的类型是否为 JSON 对象。 |
-| [IS_STRING (expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_is_string) | 返回一个布尔值，它指示值的类型是否为字符串。 |
-| [IS_DEFINED (expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_is_defined) | 返回一个布尔，它指示属性是否已经分配了值。 |
-| [IS_PRIMITIVE (expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_is_primitive) | 返回一个布尔值，它指示值的类型是否为字符串、数字、布尔或 null。 |
+| [IS_ARRAY (expr)](sql-api-query-reference.md#bk_is_array) | 返回一个布尔值，它指示值的类型是否为数组。 |
+| [IS_BOOL (expr)](sql-api-query-reference.md#bk_is_bool) | 返回一个布尔值，它指示值的类型是否为布尔。 |
+| [IS_NULL (expr)](sql-api-query-reference.md#bk_is_null) | 返回一个布尔值，它指示值的类型是否为 null。 |
+| [IS_NUMBER (expr)](sql-api-query-reference.md#bk_is_number) | 返回一个布尔值，它指示值的类型是否为数字。 |
+| [IS_OBJECT (expr)](sql-api-query-reference.md#bk_is_object) | 返回一个布尔值，它指示值的类型是否为 JSON 对象。 |
+| [IS_STRING (expr)](sql-api-query-reference.md#bk_is_string) | 返回一个布尔值，它指示值的类型是否为字符串。 |
+| [IS_DEFINED (expr)](sql-api-query-reference.md#bk_is_defined) | 返回一个布尔，它指示属性是否已经分配了值。 |
+| [IS_PRIMITIVE (expr)](sql-api-query-reference.md#bk_is_primitive) | 返回一个布尔值，它指示值的类型是否为字符串、数字、布尔或 null。 |
 
 使用这些函数，现在可以运行以下示例中所示的查询：
 
@@ -1447,22 +1456,22 @@ Cosmos DB 还支持使用许多内置函数进行常见操作，这些函数可�
 
 | 使用情况 | 说明 |
 | --- | --- |
-| [LENGTH (str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_length) | 返回指定字符串的字符数 |
-| [CONCAT (str_expr, str_expr [, str_expr])](../cosmos-db/sql-api-sql-query-reference.md#bk_concat) | 返回一个字符串，该字符串是连接两个或多个字符串值的结果。 |
-| [SUBSTRING (str_expr, num_expr, num_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_substring) | 返回部分字符串表达式。 |
-| [STARTSWITH (str_expr, str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_startswith) | 返回一个布尔值，指示第一个字符串表达式是否以第二个字符串表达式开头 |
-| [ENDSWITH (str_expr, str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_endswith) | 返回一个布尔值，该值指示第一个字符串表达式是否以第二个字符串表达式结尾 |
-| [CONTAINS (str_expr, str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_contains) | 返回一个布尔值，该值指示第一个字符串表达式是否包含第二个字符串表达式。 |
-| [INDEX_OF (str_expr, str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_index_of) | 返回第一个指定的字符串表达式中第一次出现第二个字符串表达式的起始位置，如果未找到字符串，则返回 -1。 |
-| [LEFT (str_expr, num_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_left) | 返回具有指定字符数的字符串的左侧部分。 |
-| [RIGHT (str_expr, num_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_right) | 返回具有指定字符数的字符串的右侧部分。 |
-| [LTRIM (str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_ltrim) | 返回删除前导空格后的字符串表达式。 |
-| [RTRIM (str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_rtrim) | 返回截断所有尾随空格后的字符串表达式。 |
-| [LOWER (str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_lower) | 返回在将大写字符数据转换为小写后的字符串表达式。 |
-| [UPPER (str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_upper) | 返回在将小写字符数据转换为大写后的字符串表达式。 |
-| [REPLACE (str_expr, str_expr, str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_replace) | 将出现的所有指定字符串值替换为另一个字符串值。 |
+| [LENGTH (str_expr)](sql-api-query-reference.md#bk_length) | 返回指定字符串的字符数 |
+| [CONCAT (str_expr, str_expr [, str_expr])](sql-api-query-reference.md#bk_concat) | 返回一个字符串，该字符串是连接两个或多个字符串值的结果。 |
+| [SUBSTRING (str_expr, num_expr, num_expr)](sql-api-query-reference.md#bk_substring) | 返回部分字符串表达式。 |
+| [STARTSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_startswith) | 返回一个布尔值，指示第一个字符串表达式是否以第二个字符串表达式开头 |
+| [ENDSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_endswith) | 返回一个布尔值，该值指示第一个字符串表达式是否以第二个字符串表达式结尾 |
+| [CONTAINS (str_expr, str_expr)](sql-api-query-reference.md#bk_contains) | 返回一个布尔值，该值指示第一个字符串表达式是否包含第二个字符串表达式。 |
+| [INDEX_OF (str_expr, str_expr)](sql-api-query-reference.md#bk_index_of) | 返回第一个指定的字符串表达式中第一次出现第二个字符串表达式的起始位置，如果未找到字符串，则返回 -1。 |
+| [LEFT (str_expr, num_expr)](sql-api-query-reference.md#bk_left) | 返回具有指定字符数的字符串的左侧部分。 |
+| [RIGHT (str_expr, num_expr)](sql-api-query-reference.md#bk_right) | 返回具有指定字符数的字符串的右侧部分。 |
+| [LTRIM (str_expr)](sql-api-query-reference.md#bk_ltrim) | 返回删除前导空格后的字符串表达式。 |
+| [RTRIM (str_expr)](sql-api-query-reference.md#bk_rtrim) | 返回截断所有尾随空格后的字符串表达式。 |
+| [LOWER (str_expr)](sql-api-query-reference.md#bk_lower) | 返回在将大写字符数据转换为小写后的字符串表达式。 |
+| [UPPER (str_expr)](sql-api-query-reference.md#bk_upper) | 返回在将小写字符数据转换为大写后的字符串表达式。 |
+| [REPLACE (str_expr, str_expr, str_expr)](sql-api-query-reference.md#bk_replace) | 将出现的所有指定字符串值替换为另一个字符串值。 |
 | [REPLICATE (str_expr, num_expr)](/cosmos-db/sql-api-sql-query-reference#bk_replicate) | 将一个字符串值重复指定的次数。 |
-| [REVERSE (str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_reverse) | 返回字符串值的逆序排序形式。 |
+| [REVERSE (str_expr)](sql-api-query-reference.md#bk_reverse) | 返回字符串值的逆序排序形式。 |
 
 借助这些函数，现可以运行以下查询。 例如，可以返回大写形式的家庭名称，如下所示：
 
@@ -1529,10 +1538,10 @@ Cosmos DB 还支持使用许多内置函数进行常见操作，这些函数可�
 
 | 使用情况 | 说明 |
 | --- | --- |
-| [ARRAY_LENGTH (arr_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_array_length) |返回指定数组表达式的元素数。 |
-| [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](../cosmos-db/sql-api-sql-query-reference.md#bk_array_concat) |返回一个数组，该数组是连接两个或更多数组值的结果。 |
-| [ARRAY_CONTAINS (arr_expr, expr [, bool_expr])](../cosmos-db/sql-api-sql-query-reference.md#bk_array_contains) |返回一个布尔，它指示数组是否包含指定的值。 可以指定是要执行完全还是部分匹配。 |
-| [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](../cosmos-db/sql-api-sql-query-reference.md#bk_array_slice) |返回部分数组表达式。 |
+| [ARRAY_LENGTH (arr_expr)](sql-api-query-reference.md#bk_array_length) |返回指定数组表达式的元素数。 |
+| [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](sql-api-query-reference.md#bk_array_concat) |返回一个数组，该数组是连接两个或更多数组值的结果。 |
+| [ARRAY_CONTAINS (arr_expr, expr [, bool_expr])](sql-api-query-reference.md#bk_array_contains) |返回一个布尔，它指示数组是否包含指定的值。 可以指定是要执行完全还是部分匹配。 |
+| [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](sql-api-query-reference.md#bk_array_slice) |返回部分数组表达式。 |
 
 数组函数可用于在 JSON 内操纵数组。 例如，以下查询返回其中一位父母是“Robin Wakefield”的所有项。 
 
@@ -1635,7 +1644,7 @@ LINQ 是一个 .NET 编程模型，它将计算表示为对对象流的查询。
 
 ### <a name="net-and-json-mapping"></a>.NET 和 JSON 映射
 
-.NET 对象与 JSON 项之间的映射是自然的 - 每个数据成员字段映射到 JSON 对象，其中字段名称映射到对象的“key”部分，并且“value”部分以递归方式映射到该对象的值部分。 考虑以下示例：创建的 Family 对象会映射到 JSON 项，如下所示。 反之亦然，JSON 项会映射回 .NET 对象。
+.NET 对象与 JSON 项之间的映射是自然的 - 每个数据成员字段映射到 JSON 对象，其中字段名称映射到对象的“key”部分，并且“value”部分以递归方式映射到该对象的值部分。 下面是一个示例：创建的 Family 对象会映射到 JSON 项，如下所示。 反之亦然，JSON 项会映射回 .NET 对象。
 
 **C# 类**
 
@@ -1746,12 +1755,12 @@ Cosmos DB 查询提供程序执行从 LINQ 查询到 Cosmos DB SQL 查询的最�
 * **Select**：投影转换为 SQL SELECT（包括对象构造）
 * **Where**：筛选器转换为 SQL WHERE，且支持 &&、|| 和 ! 与 SQL 运算符之间的转换
 * **SelectMany**：允许将数组展开到 SQL JOIN 子句。 可以用于链/嵌套表达式以对数组元素进行筛选
-* **OrderBy 和 OrderByDescending**：转换为 ORDER BY 升序/降序
+* **OrderBy 和 OrderByDescending**：转换为 ORDER BY ascending/descending
 * 用于聚合的 **Count**、**Sum**、**Min**、**Max** 和 **Average** 运算符及其异步等效项 **CountAsync**、**SumAsync**、**MinAsync**、**MaxAsync** 和 **AverageAsync**。
 * **CompareTo**：转换为范围比较。 通常用于字符串，因为它们在 .NET 中不可进行比较
 * **Take**：转换为 SQL TOP，用于限制查询中的结果
-* **数学函数**：支持从 .NET 的 Abs、Acos、Asin、Atan、Ceiling、Cos、Exp、Floor、Log、Log10、Pow、Round、Sign、Sin、Sqrt、Tan、Truncate 转换为等效的 SQL 内置函数。
-* **字符串函数**：支持从 .NET 的 Concat、Contains、EndsWith、IndexOf、Count、ToLower、TrimStart、Replace、Reverse、TrimEnd、StartsWith、SubString、ToUpper 转换为等效的 SQL 内置函数。
+* **数学函数**：支持从 .NET 的 Abs、Acos、Asin、Atan、Ceiling、Cos、Exp、Floor、Log、Log10、Pow、Round、Sign、Sin、Sqrt、Tan 和 Truncate 转换为等效的 SQL 内置函数。
+* **字符串函数**：支持从 .NET 的 Concat、Contains、EndsWith、IndexOf、Count、ToLower、TrimStart、Replace、Reverse、TrimEnd、StartsWith、SubString 和 ToUpper 转换为等效的 SQL 内置函数。
 * **数组函数**：支持从 .NET 的 Concat、Contains 和 Count 转换为等效的 SQL 内置函数。
 * **地理空间扩展函数**：支持从 stub 方法 Distance、Within、IsValid 和 IsValidDetailed 转换为等效的 SQL 内置函数。
 * **用户定义的函数扩展函数**：支持从 stub 方法 UserDefinedFunctionProvider.Invoke 转换为相应的用户的定义函数。
@@ -2126,7 +2135,7 @@ Cosmos DB 通过 HTTP 提供开放的 RESTful 编程模型。 可以使用 Azure
 
 如果容器上配置的索引策略不能支持指定的查询，Azure Cosmos DB 服务器会返回 400“错误的请求”。 在对为哈希（等式）查找配置的路径，以及从索引中显式排除的路径进行范围查询时，将返回此错误消息。 当索引不可用时，可通过指定 `x-ms-documentdb-query-enable-scan` 标头以允许查询执行扫描。
 
-可通过将 `x-ms-documentdb-populatequerymetrics` 标头设置为 `True` 获取有关查询执行的详细指标。 有关详细信息，请参阅 [Azure Cosmos DB 的 SQL 查询指标](sql-api-sql-query-metrics.md)。
+可通过将 `x-ms-documentdb-populatequerymetrics` 标头设置为 `True` 获取有关查询执行的详细指标。 有关详细信息，请参阅 [Azure Cosmos DB 的 SQL 查询指标](sql-api-query-metrics.md)。
 
 <a name="DotNetSdk"></a>
 ### <a name="c-net-sdk"></a>C# (.NET) SDK
@@ -2268,15 +2277,15 @@ Cosmos DB 提供了一种编程模型，使用存储过程和触发器对容器�
 2. [Azure Cosmos DB SQL 规范](/cosmos-db/sql-api-sql-query-reference)
 3. [Azure Cosmos DB .NET 示例](https://github.com/Azure/azure-cosmosdb-dotnet)
 4. [Azure Cosmos DB 一致性级别][consistency-levels]
-5. ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
-6. JSON [http://json.org/](http://json.org/)
-7. Javascript 规范 [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
-8. LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
-9. Query evaluation techniques for large databases [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)（针对大型数据库的查询评估技术）
+5. ANSI SQL 2011 [https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
+6. JSON [https://json.org/](https://json.org/)
+7. Javascript 规范 [https://www.ecma-international.org/publications/standards/Ecma-262.htm](https://www.ecma-international.org/publications/standards/Ecma-262.htm) 
+8. LINQ [https://msdn.microsoft.com/library/bb308959.aspx](https://msdn.microsoft.com/library/bb308959.aspx) 
+9. Query evaluation techniques for large databases [https://dl.acm.org/citation.cfm?id=152611](https://dl.acm.org/citation.cfm?id=152611)（针对大型数据库的查询评估技术）
 10. Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
 11. Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
-12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.
-13. G. Graefe. The Cascades framework for query optimization. IEEE Data Eng. Bull., 18(3): 1995.
+12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins:Pig Latin:A Not-So-Foreign Language for Data Processing, SIGMOD 2008。
+13. G. Graefe. The Cascades framework for query optimization. IEEE Data Eng. Bull., 18(3):1995。
 
 [1]: ./media/how-to-sql-query/sql-query1.png
 [introduction]: introduction.md

@@ -6,22 +6,21 @@ documentationcenter: ''
 author: WenJason
 manager: digimobile
 editor: ''
-ms.assetid: 4e5833cf-4790-4146-82d6-737975fb06ba
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 09/05/2018
-ms.date: 10/15/2018
+origin.date: 12/03/2018
+ms.date: 12/31/2018
 ms.author: v-jay
 ms.reviewer: jiahan
-ms.openlocfilehash: 6f1498c401443b7c5ba0ee6bb3fc43b2d57516df
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c756c72694fa5a46ea7faffacc07f37f4a90398f
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664523"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814649"
 ---
 # <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>在 Azure Stack 中预配虚拟机磁盘存储
 
@@ -66,7 +65,7 @@ ms.locfileid: "52664523"
 
 添加的每个非托管磁盘都应当放置在单独的容器中。
 
->[!NOTE]
+>[!NOTE]  
 >由 Azure 创建并管理的磁盘称为[托管磁盘](/virtual-machines/windows/managed-disks-overview)。
 
 ### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>使用门户创建并附加新的数据磁盘

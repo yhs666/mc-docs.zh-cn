@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/19/2018
-ms.date: 12/17/2018
+origin.date: 12/04/2018
+ms.date: 12/31/2018
 ms.author: v-jay
 ms.reviewer: brbartle
-ms.openlocfilehash: fd3fda76561a1b624dc6643da94ad24dae55fc2d
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.openlocfilehash: fc031eafd75275c343fb847045260b5fa9d1558a
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396232"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814664"
 ---
 # <a name="register-azure-stack-with-azure"></a>将 Azure Stack 注册到 Azure
 
@@ -119,8 +119,8 @@ Run: get-azurestackstampinformation
 
 2. 添加用于注册 Azure Stack 的 Azure 帐户。 若要添加该帐户，请运行 **Add-AzureRmAccount** cmdlet。 系统会提示输入 Azure 帐户凭据。可能必须使用双重身份验证，具体取决于帐户的配置。
 
-   ```PowerShell  
-      Add-AzureRmAccount -EnvironmentName "<AzureChinaCloud>"
+   ```PowerShell
+      Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
 
    | 参数 | 说明 |  
@@ -148,8 +148,12 @@ Run: get-azurestackstampinformation
 6. 接下来，在同一个 PowerShell 会话中，确保已登录到正确的 Azure PowerShell 上下文。 这是用于注册上述 Azure Stack 资源提供程序的 Azure 帐户。 要运行的 Powershell：
 
    ```PowerShell  
-   Add-AzureRmAccount -Environment "<AzureChinaCloud>"
+      Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
+
+   | 参数 | 说明 |  
+   |-----|-----|
+   | EnvironmentName | Azure 云订阅环境名称。 受支持的环境名称是 **AzureChinaCloud**。  |
 
 7. 在同一个 PowerShell 会话中运行 **Set-AzsRegistration** cmdlet。 要运行的 PowerShell：  
 
@@ -180,7 +184,7 @@ Run: get-azurestackstampinformation
 2. 添加用于注册 Azure Stack 的 Azure 帐户。 若要添加该帐户，请运行 **Add-AzureRmAccount** cmdlet。 系统会提示输入 Azure 帐户凭据。可能必须使用双重身份验证，具体取决于帐户的配置。
 
    ```PowerShell  
-      Add-AzureRmAccount -EnvironmentName "<AzureChinaCloud>"
+      Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
 
    | 参数 | 说明 |  
@@ -296,7 +300,7 @@ Run: get-azurestackstampinformation
 
 使用以下步骤来验证 Azure Stack 是否已成功注册到 Azure。
 
-1. 登录到 Azure Stack [管理员门户](/azure-stack/azure-stack-manage-portals#access-the-administrator-portal)：https&#58;//adminportal.*&lt;区域>.&lt;fqdn>*。
+1. 登录到 Azure Stack [管理门户](/azure-stack/azure-stack-manage-portals#access-the-administrator-portal)：https&#58;//adminportal.*&lt;区域>.&lt;fqdn>*。
 2. 选择“所有服务”，然后在“管理”类别下，选择“市场管理” > “从 Azure 添加”。
 
 如果看到 Azure 提供的项列表（例如 WordPress），则表示激活成功。 但是，在离线环境中，Azure Stack 市场不会显示 Azure 市场项。

@@ -6,21 +6,21 @@ documentationcenter: ''
 author: WenJason
 manager: digimobile
 editor: ''
-ms.assetid: 6613946D-114C-441A-9F74-38E35DF0A7D7
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/05/2018
-ms.date: 10/15/2018
+origin.date: 12/03/2018
+ms.date: 12/31/2018
 ms.author: v-jay
-ms.openlocfilehash: cc985f84378b83d643b0dc248e9e217880a23862
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.reviewer: kivenkat
+ms.openlocfilehash: 37672dd7aab74b5316174ad21e4c1597aad30412
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396119"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814675"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>在 Azure Stack 中使用虚拟机时的注意事项
 
@@ -41,7 +41,7 @@ Azure Stack 虚拟机提供可按需缩放的计算资源。 在部署虚拟机 
 | 虚拟机磁盘性能 | 取决于磁盘类型和大小。 | 取决于磁盘所附加到的 VM 的 VM 大小，请参阅 [Azure Stack 中支持的虚拟机大小](azure-stack-vm-sizes.md)一文。
 | API 版本 | Azure 始终提供所有虚拟机功能的最新 API 版本。 | Azure Stack 支持特定的 Azure 服务以及这些服务的特定 API 版本。 若要查看支持的 API 版本列表，请参阅本文的 [API 版本](#api-versions)部分。 |
 |虚拟机可用性集|多个容错域（每个区域 2 个或 3 个）<br>多个更新域<br>支持托管磁盘|多个容错域（每个区域 2 个或 3 个）<br>多个更新域（最多 20 个）<br>不支持托管磁盘|
-|虚拟机规模集|支持自动缩放|不支持自动缩放<br>使用门户、资源管理器模板或 PowerShell 将更多实例添加到规模集。
+|虚拟机规模集|支持自动缩放|不支持自动缩放。<br>使用门户、资源管理器模板或 PowerShell 将更多实例添加到规模集。
 
 ## <a name="virtual-machine-sizes"></a>虚拟机大小
 

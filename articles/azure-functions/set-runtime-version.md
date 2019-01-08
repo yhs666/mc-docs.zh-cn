@@ -2,20 +2,19 @@
 title: 如何面向 Azure Functions 运行时版本
 description: Azure Functions 支持多个版本的运行时。 了解如何在 Azure 中指定函数应用的运行时版本。
 services: functions
-documentationcenter: ''
 author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-origin.date: 10/05/2018
-ms.date: 10/19/2018
+origin.date: 11/26/2018
+ms.date: 12/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: 82f636759c68376e68581cb61078b51b1cfebca6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: eb549beabc80e20f78669802af623d6013aeb5ce
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654788"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806528"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>如何面向 Azure Functions 运行时版本
 
@@ -38,23 +37,13 @@ Functions 允许通过使用函数应用中的 `FUNCTIONS_EXTENSION_VERSION` 应
 
 ## <a name="view-and-update-the-current-runtime-version"></a>查看和更新当前运行时版本
 
-使用以下步骤查看函数应用当前使用的运行时版本。
+可以更改函数应用使用的运行时版本。 由于可能会成为重大更改，因此只应在函数应用中创建任何函数之前更改运行时版本。 虽然运行时版本由 `FUNCTIONS_EXTENSION_VERSION` 设置决定，但你应该在 Azure 门户中进行此更改，而不是直接更改设置。 这是因为该门户会验证你的更改，并根据需要进行其他相关更改。
 
-1. 在 [Azure 门户](https://portal.azure.cn)中，浏览到你的函数应用。
+### <a name="from-the-azure-portal"></a>通过 Azure 门户
 
-1. 在“配置的功能”下，选择“函数应用设置”。
+[!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
 
-    ![选择函数应用设置](./media/set-runtime-version/add-update-app-setting.png)
-
-1. 在“函数应用设置”选项卡中，定位“运行时版本”。 请注意特定运行时版本和请求的主版本。 在以下示例中，版本设置为 `~2`。
-
-    ![选择函数应用设置](./media/set-runtime-version/function-app-view-version.png)
-
-1. 若要将函数应用固定到 1.x 版运行时，请在“运行时版本”下选择“~1”。 当应用中存在函数时，此开关被禁用。
-
-1. 如果更改了运行时版本，请返回到“概述”选项卡并选择“重启”以重启应用。  函数应用重新开始在 1.x 版运行时上运行，并且在创建函数时将使用 1.x 版模板。
-
-## <a name="view-and-update-the-runtime-version-using-azure-cli"></a>使用 Azure CLI 查看和更新运行时版本
+### <a name="view-and-update-the-runtime-version-using-azure-cli"></a>通过 Azure CLI
 
 还可以通过 Azure CLI 查看和更新 `FUNCTIONS_EXTENSION_VERSION`。
 

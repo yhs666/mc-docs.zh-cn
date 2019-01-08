@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/09/2018
-ms.date: 12/17/2018
+origin.date: 12/03/2018
+ms.date: 12/31/2018
 ms.author: v-jay
 ms.reviewer: misainat
-ms.openlocfilehash: 119dd2d5b9dc88c6e0026a448d015daa44352c8a
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.openlocfilehash: 824531a8c7e51146fb063e7369fd61d828b384b8
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396233"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814667"
 ---
 # <a name="asdk-release-notes"></a>ASDK 发行说明  
 本文提供了 Azure Stack 开发工具包 (ASDK) 的改进、修复和已知问题的相关信息。 如果不确定所运行的版本，可以[使用门户检查版本](../azure-stack-updates.md#determine-the-current-version)。
@@ -47,32 +47,11 @@ ms.locfileid: "53396233"
 <!-- TBD - IS ASDK --> 
 - 修复了以下问题：在 Azure Stack 用户门户中创建虚拟机时，该门户显示的可以附加到 DS 系列 VM 的数据磁盘数不正确。 DS 系列 VM 可以容纳的数据磁盘数取决于 Azure 配置。
 
-- 以下托管磁盘问题已在 1809 中修复，同时已在 1808 [Azure Stack 修补程序 1.1808.7.113](https://support.microsoft.com/help/4471992/) 中修复： 
-
-   <!--  2966665 – IS, ASDK --> 
-   - 修复了以下问题：将 SSD 数据磁盘附加到高级大小的托管磁盘虚拟机（DS、DSv2、Fs、Fs_V2）失败并出现以下错误：无法更新虚拟机 ‘vmname’ 的磁盘。错误:由于 VM 大小 ‘Standard_DS/Ds_V2/FS/Fs_v2’ 不支持存储帐户类型 ‘Premium_LRS’，因此请求的操作无法执行。 
-   
-   - 使用 **createOption**:**Attach** 创建托管磁盘 VM 失败并出现以下错误：长时间运行的操作失败，状态为 'Failed'。其他信息:“发生内部执行错误。”
-   ErrorCode:InternalExecutionError ErrorMessage:发生内部执行错误。
-   
-   现已修复此问题。
-
 - <!-- 2702741 -  IS, ASDK --> 修复了在发出“停止-解除分配”命令后，无法保证系统会保留使用动态分配方法部署的公共 IP 的问题。 它们现在已保留。
 
 - <!-- 3078022 - IS, ASDK -->如果 VM 在 1808 之前已停止-解除分配，则该 VM 在 1808 更新之后无法重新分配。  此问题已在 1809 中解决。 处于这种状态且无法启动的实例可以在已应用此修复的 1809 中启动。 此修复还可以防止该问题反复发生。
 
-<!-- 3090289 – IS, ASDK --> 
-- 修复了应用 1808 更新后，可能会在通过托管磁盘部署 VM 时遇到的以下问题：
-
-   1. 如果订阅是在 1808 更新之前创建的，通过托管磁盘部署 VM 可能会失败并出现内部错误消息。 若要解决此错误，请针对每个订阅执行以下步骤：
-      1. 在租户门户中转到“订阅”，找到相应订阅。 依次单击“资源提供程序”、“Microsoft.Compute”、“重新注册”。
-      2. 在同一订阅下，转到“访问控制(标识和访问管理)”，验证“Azure Stack - 托管磁盘”是否已列出。
-   2. 如果已配置多租户环境，在与来宾目录相关联的订阅中部署 VM 可能会失败并出现内部错误消息。 若要解决该错误，请执行以下步骤：
-      1. 应用 [1808 Azure Stack 修补程序](https://support.microsoft.com/help/4471992)。
-      2. 执行[此文](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)中的步骤，重新配置每个来宾目录。
-
 - 针对性能、稳定性、安全性以及 Azure Stack 所用操作系统的**各种修复**
-
 
 ### <a name="changes"></a>更改
 
@@ -115,7 +94,7 @@ ms.locfileid: "53396233"
 - 将分离的磁盘重新附加到具有相同名称和 LUN 的同一虚拟机 (VM) 失败，并发生类似于“无法将数据磁盘 'datadisk' 附加到 VM 'vm1'”的错误。 之所以发生该错误，是原因该磁盘目前已分离，或上次分离操作失败。 请等到磁盘完全分离后重试，或再次显式删除/分离磁盘。 解决方法是使用其他名称，或者在其他 LUN 上重新附加磁盘。 
 
 <!-- 3235634 – IS, ASDK -->
-- 若要部署大小包含 **v2** 后缀的 VM（例如 **Standard_DS2_v2**），请将后缀指定为 **Standard_DS2_v2**（小写 v）。 请勿使用 **Standard_DS2_V2**（大写 V）。 这适用于全球 Azure，在 Azure Stack 上有不一致的问题。
+- 若要部署大小包含 **v2** 后缀的 VM（例如 **Standard_A2_v2**），请将后缀指定为 **Standard_A2_v2**（小写 v）。 请勿使用 **Standard_A2_V2**（大写 V）。 这适用于全球 Azure，在 Azure Stack 上有不一致的问题。
 
 <!-- 3099544 – IS, ASDK --> 
 - 使用 Azure Stack 门户创建新的虚拟机 (VM) 并选择 VM 大小时，“美元/月”列在显示时会出现“不可用”消息。 此列不应显示；Azure Stack 不支持显示 VM 定价列。
@@ -216,7 +195,7 @@ ms.locfileid: "53396233"
    也可使用模板[将资源部署到多个订阅或资源组](/azure-resource-manager/resource-manager-cross-resource-group-deployment)。  
 
 <!--2753073 | IS, ASDK -->  
-- **Microsoft.Network API 资源版本支持已更新**，增加了对 Azure Stack 网络资源 API 版本 2017-10-01（基于 2015-06-15）的支持。  此发行版中未包括对 2015-06-15 和 2017-10-01 之间的资源版本的支持。  有关功能差异，请参阅 [Azure Stack 网络注意事项](../user/azure-stack-network-differences.md)。
+- **Microsoft.Network API 资源版本支持已更新**，增加了对 Azure Stack 网络资源 API 版本 2017-10-01（基于 2015-06-15）的支持。 此发行版中未包括对 2015-06-15 和 2017-10-01 之间的资源版本的支持。 有关功能差异，请参阅 [Azure Stack 网络注意事项](../user/azure-stack-network-differences.md)。
 
 <!-- 2272116 | IS, ASDK   -->  
 - **Azure Stack 增加了对反向 DNS 查找的支持，适用于面向外部的 Azure Stack 基础结构终结点**（即适用于 portal、adminportal、management 和 adminmanagement 终结点）。 这样就可以根据 IP 地址解析 Azure Stack 外部终结点名称。
@@ -234,7 +213,7 @@ ms.locfileid: "53396233"
 
 - <!-- ASDK --> **虚拟机规模集的库项现在已内置**。  虚拟机规模集库项现在可以在用户和管理员门户中使用，无需下载。 
 
-- <!-- IS, ASDK --> **虚拟机规模集缩放**。  可以通过门户[缩放虚拟机规模集](/azure-stack/azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set) (VMSS)。   
+- <!-- IS, ASDK --> **虚拟机规模集缩放**。  可以通过门户[缩放虚拟机规模集](../azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set) (VMSS)。   
 
 - <!-- 2489570 | IS ASDK--> **支持自定义 IPSec/IKE 策略配置**，这适用于 [Azure Stack 中的 VPN 网关](/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways)。
 
@@ -352,7 +331,7 @@ ms.locfileid: "53396233"
 - 选择虚拟机大小进行虚拟机部署时，某些 F 系列 VM 大小在创建 VM 时显示的大小选择器中不可见。 选择器中不显示以下 VM 大小：*F8s_v2*、*F16s_v2*、*F32s_v2* 和 *F64s_v2*。  
   解决方法是，使用下列方法之一部署 VM。 在每种方法中，都需要指定要使用的 VM 大小。
 
-- <!-- 3099544 – IS, ASDK -->使用 Azure Stack 门户创建新的虚拟机 (VM) 并选择 VM 大小时，“元/月”列在显示时会出现“不可用”消息。 此列不应显示；Azure Stack 不支持显示 VM 定价列。
+- <!-- 3099544 – IS, ASDK --> 使用 Azure Stack 门户创建新的虚拟机 (VM) 并选择 VM 大小时，“美元/月”列在显示时会出现“不可用”消息。 此列不应显示；Azure Stack 不支持显示 VM 定价列。
 
 - <!-- 2869209 – IS, ASDK --> 使用 [**Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0) 时，必须使用 **-OsUri** 参数作为存储帐户 URI（在其中上传磁盘）。 如果使用磁盘的本地路径，则此 cmdlet 会失败并显示以下错误：长时间运行的操作失败，状态为 'Failed'。 
 

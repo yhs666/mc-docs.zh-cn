@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/15/2018
-ms.date: 06/25/2018
+origin.date: 11/06/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 704cd2a7121c71f73a03e51081b63f56d237d234
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e85e151202ac9f13f47de8f607dcb4e5ce780462
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661010"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029235"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>将 Apache Kafka on HDInsight 与 Azure IoT 中心配合使用
 
-了解如何使用 [Kafka Connect Azure IoT 中心](https://github.com/Azure/toketi-kafka-connect-iothub)连接器在 Apache Kafka on HDInsight 与 Azure IoT 中心之间移动数据。 本文档介绍如何通过群集中的边缘节点运行 IoT 中心连接器。
+了解如何使用 [Apache Kafka Connect Azure IoT 中心](https://github.com/Azure/toketi-kafka-connect-iothub)连接器在 Apache Kafka on HDInsight 与 Azure IoT 中心之间移动数据。 本文档介绍如何通过群集中的边缘节点运行 IoT 中心连接器。
 
-使用 Kafka Connect API 可以实施所需的连接器，用于将数据连续提取到 Kafka，或者将数据从 Kafka 推送到另一个系统。 [Kafka Connect Azure IoT 中心](https://github.com/Azure/toketi-kafka-connect-iothub)是可将数据从 Azure IoT 中心提取到 Kafka 的连接器。 该连接器还能将数据从 Kafka 推送到 IoT 中心。 
+使用 Kafka Connect API 可以实施所需的连接器，用于将数据连续提取到 Kafka，或者将数据从 Kafka 推送到另一个系统。 [Apache Kafka Connect Azure IoT 中心](https://github.com/Azure/toketi-kafka-connect-iothub)是可将数据从 Azure IoT 中心提取到 Kafka 的连接器。 该连接器还能将数据从 Kafka 推送到 IoT 中心。 
 
 从 IoT 中心提取数据时，可以使用__源__连接器。 将数据推送到 IoT 中心时，可以使用__接收器__连接器。 IoT 中心连接器同时提供源连接器和接收器连接器。
 
@@ -78,7 +78,7 @@ ms.locfileid: "52661010"
 > [!TIP]
 > 如果在使用预生成的 .jar 文件执行本文档的剩余步骤时遇到问题，请尝试从源生成包。
 >
-> 若要生成连接器，必须创建一个包含 [Scala 生成工具](http://www.scala-sbt.org/)的 Scala 开发环境。
+> 若要生成连接器，必须创建一个包含 [Scala 生成工具](https://www.scala-sbt.org/)的 Scala 开发环境。
 >
 > 1. 将连接器的源从 [https://github.com/Azure/toketi-kafka-connect-iothub/](https://github.com/Azure/toketi-kafka-connect-iothub/) 下载到开发环境。
 >
@@ -90,7 +90,7 @@ ms.locfileid: "52661010"
 >
 >    此命令在项目的 `target/scala-2.11` 目录中创建名为 `kafka-connect-iothub-assembly_2.11-0.6.jar` 的文件。
 
-## <a name="configure-kafka"></a>配置 Kafka
+## <a name="configure-apache-kafka"></a>配置 Apache Kafka
 
 与边缘节点建立 SSH 连接后，使用以下步骤将 Kafka 配置为在独立模式下运行连接器：
 
@@ -117,7 +117,7 @@ ms.locfileid: "52661010"
 
     `wn0-kafka.w5ijyohcxt5uvdhhuaz5ra4u5f.ex.internal.cloudapp.net:9092,wn1-kafka.w5ijyohcxt5uvdhhuaz5ra4u5f.ex.internal.cloudapp.net:9092`
 
-4. 获取 Zookeeper 节点的地址。 群集中有多个 Zookeeper 节点，但只需引用其中的一到两个。 若要获取两个 Zookeeper 节点的地址，请使用以下命令：
+4. 获取 Apache Zookeeper 节点的地址。 群集中有多个 Zookeeper 节点，但只需引用其中的一到两个。 若要获取两个 Zookeeper 节点的地址，请使用以下命令：
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
@@ -246,8 +246,8 @@ ms.locfileid: "52661010"
     在编辑器中，找到并更改以下条目：
 
     * `Kafka.Topic=PLACEHOLDER`：将 `PLACEHOLDER` 替换为 `iotin`。 从 IoT 中心收到的消息将放入 `iotin` 主题中。
-    * `IotHub.EventHubCompatibleName=PLACEHOLDER`：将 `PLACEHOLDER` 替换为事件中心兼容的名称。
-    * `IotHub.EventHubCompatibleEndpoint=PLACEHOLDER`：将 `PLACEHOLDER` 替换为事件中心兼容的终结点。
+    * `IotHub.EventHubCompatibleName=PLACEHOLDER`：将 `PLACEHOLDER` 替换为与事件中心兼容的名称。
+    * `IotHub.EventHubCompatibleEndpoint=PLACEHOLDER`：将 `PLACEHOLDER` 替换为与事件中心兼容的终结点。
     * `IotHub.Partitions=PLACEHOLDER`：将 `PLACEHOLDER` 替换为在上一步骤中获取的分区数。
     * `IotHub.AccessKeyName=PLACEHOLDER`：将 `PLACEHOLDER` 替换为 `service`。
     * `IotHub.AccessKeyValue=PLACEHOLDER`：将 `PLACEHOLDER` 替换为 `service` 策略的主密钥。
@@ -341,7 +341,7 @@ t.runtime.WorkerSinkTask:262)
     > [!WARNING]
     > 由于这是一个新的 SSH 连接，`$KAFKABROKERS` 变量不包含任何信息。 若要设置该变量，请使用以下方法之一：
     >
-    > * 使用[配置 Kafka](#configure-kafka) 部分所述的前三个步骤。
+    > * 使用[配置 Apache Kafka](#configure-apache-kafka) 部分所述的前三个步骤。
     > * 在先前的 SSH 连接中使用 `echo $KAFKABROKERS` 获取值，然后将以下命令中的 `$KAFKABROKERS` 替换为实际值。
 
     ```bash
@@ -373,7 +373,7 @@ t.runtime.WorkerSinkTask:262)
 
 ## <a name="next-steps"></a>后续步骤
 
-本文档已介绍如何使用 Kafka Connect API 在 HDInsight 上启动 IoT Kafka 连接器。 请使用以下链接探索 Kafka 的其他用法：
+本文档已介绍如何使用 Apache Kafka Connect API 在 HDInsight 上启动 IoT Kafka 连接器。 请使用以下链接探索 Kafka 的其他用法：
 
-* [Use Apache Spark with Kafka on HDInsight（将 Apache Spark 与 Kafka on HDInsight 配合使用）](../hdinsight-apache-spark-with-kafka.md)
-* [在 HDInsight 上将 Apache Storm 与 Kafka 配合使用](../hdinsight-apache-storm-with-kafka.md)
+* [将 Apache Spark 与 Apache Kafka on HDInsight 配合使用](../hdinsight-apache-spark-with-kafka.md)
+* [将 Apache Storm 与 Apache Kafka on HDInsight 配合使用](../hdinsight-apache-storm-with-kafka.md)

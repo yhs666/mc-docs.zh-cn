@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/12/2018
-ms.date: 10/15/2018
+ms.date: 12/31/2018
 ms.author: v-jay
 ms.reviewer: wfayed
-ms.openlocfilehash: 42280146027674bfc9cc767f34376de82399dc95
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: dd8217db0bba3491382d385a528dd325359f523a
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658498"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814662"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>有关 Azure Stack 集成系统的数据中心集成注意事项
 如果你对 Azure Stack 集成系统感兴趣，应了解一些有关部署的重要规划注意事项，及系统如何融入数据中心。 本文提供这些注意事项的综合概述，帮助你在 Azure Stack 多节点系统方面做出重要的基础结构决策。 配合 OEM 硬件供应商将 Azure Stack 部署到数据中心时，了解这些注意事项会有所帮助。  
@@ -58,7 +58,7 @@ Azure Stack 是一个密封的系统，从权限和网络角度来看，其基�
 
 标识提供者选项与租户虚拟机、标识系统及其使用的帐户、它们能否加入 Active Directory 域等因素无关。两者是彼此独立的。
 
-可以在 [Azure Stack 集成系统连接模型](azure-stack-connection-models.md)一文中详细了解如何选择标识提供者。
+可以在 [Azure Stack 集成系统连接模型](./azure-stack-connection-models.md)一文中详细了解如何选择标识提供者。
 
 ### <a name="ad-fs-and-graph-integration"></a>AD FS 与 Graph 集成
 如果选择将 AD FS 作为标识提供者来部署 Azure Stack，必须通过联合信任将 Azure Stack 上的 AD FS 实例与现有的 AD FS 实例集成。 这样，现有 Active Directory 林中的标识便可以对 Azure Stack 中的资源进行身份验证。
@@ -90,7 +90,7 @@ Azure Stack 是一个密封的系统，从权限和网络角度来看，其基�
 
 | Name | 说明 | 
 | -------- | ------------- | 
-|区域名称 | 第一个 Azure Stack 区域名称。 此名称用作 Azure Stack 管理的公共虚拟 IP 地址 (VIP) 的 FQDN 的一部分。 通常，区域名称是一个物理位置标识符，例如数据中心位置。 | 
+|区域名称 | 第一个 Azure Stack 区域名称。 此名称用作 Azure Stack 管理的公共虚拟 IP 地址 (VIP) 的 FQDN 的一部分。 通常，区域名称是一个物理位置标识符，例如数据中心位置。<br><br>区域名称必须仅包含字母和 0-9 之间的数字。 不允许使用“-”或“#”等特殊字符。| 
 | 外部域名 | 包含面向外部的 VIP 的终结点的域名系统 (DNS) 区域名称。 在这些公共 VIP 的 FQDN 中使用。 | 
 | 专用（内部）域名 | 在 Azure Stack 中为基础结构管理创建的域（和内部 DNS 区域）的名称。 
 | | |
@@ -197,7 +197,7 @@ Azure Stack 不备份租户应用程序和数据。 必须针对 Azure Stack 的
 ## <a name="learn-more"></a>了解详细信息
 
 - 有关用例、购买、合作伙伴和 OEM 硬件供应商的信息，请参阅 [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) 产品页。
-- 有关 Azure Stack 集成系统的路线图和上市区域的信息，请参阅白皮书：[Azure Stack: An extension of Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)（Azure Stack：Azure 的扩展）。 
+- 有关 Azure Stack 集成系统的路线图和上市区域的信息，请参阅白皮书：[Azure Stack：Azure 的扩展](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)。 
 
 ## <a name="next-steps"></a>后续步骤
 [Azure Stack 部署连接模型](azure-stack-connection-models.md)

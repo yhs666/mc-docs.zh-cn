@@ -1,5 +1,5 @@
 ---
-title: Azure Batch 服务的配额和限制 | Azure
+title: 服务配额和限制 - Azure Batch | Azure Docs
 description: 了解默认的 Azure Batch 配额、限制和约束，以及如何请求提高配额
 services: batch
 documentationcenter: ''
@@ -12,16 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/06/2018
-ms.date: 11/26/2018
+ms.date: 1/3/2019
 ms.author: v-lingwu
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0883f7286f652ba11ea5a11fecca680fd63f62f
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.custom: seodec18
+ms.openlocfilehash: d7c3c86d72282a868685eac29c25d6124569feb2
+ms.sourcegitcommit: f46e1f7a5d582bb9663bfaee8087b233eb822e17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674742"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996526"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 服务配额和限制
 
@@ -65,9 +64,9 @@ ms.locfileid: "52674742"
 | 每个计算节点的[并发任务](batch-parallel-node-tasks.md)数 | 4 x 节点核心数 |
 | 每个 Batch 帐户的[应用程序](batch-application-packages.md)数 | 20 个 |
 | 每个应用程序的应用程序包数 | 40 |
-| 最长任务生存期 | 7 天<sup>1</sup> |
+| 最长任务生存期 | 180 天<sup>1</sup> |
 
-<sup>1</sup> 最长任务生存期（从添加到作业时算起到任务完成时结束）为 7 天。 已完成的任务会无限期保存；最长生存期内未完成的任务的数据不可访问。
+<sup>1</sup> 最长任务生存期（从添加到作业时算起到任务完成时结束）为 180 天。 已完成的任务会保存 7 天；最长生存期内未完成的任务的数据不可访问。
 
 ## <a name="view-batch-quotas"></a>查看 Batch 配额
 
@@ -119,17 +118,17 @@ ms.locfileid: "52674742"
 
 部署在 Azure 虚拟网络中的虚拟机配置中的 Batch 池可自动分配其他 Azure 网络资源。 在虚拟网络中，每 50 个池节点需要以下资源：
 
-- 1 个[网络安全组](../virtual-network/security-overview.md#network-security-groups)
-- 1 个[公共 IP 地址](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
-- 1 个[负载均衡器](../load-balancer/load-balancer-overview.md)
+* 1 个[网络安全组](../virtual-network/security-overview.md#network-security-groups)
+* 1 个[公共 IP 地址](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
+* 1 个[负载均衡器](../load-balancer/load-balancer-overview.md)
 
 在包含创建 Batch 池时提供的虚拟网络的订阅中分配这些资源。 这些资源受订阅的[资源配额](../azure-subscription-service-limits.md)限制。 如果计划在虚拟网络中部署大型池，请检查订阅的这些资源配额。 如果需要，请在 Azure 门户中选择“帮助和支持”，请求增大配额。
 
 
 ## <a name="related-topics"></a>相关主题
-- [使用 Azure 门户创建 Azure Batch 帐户](batch-account-create-portal.md)
-- [Azure Batch 功能概述](batch-api-basics.md)
-- [Azure 订阅和服务限制、配额和约束](../azure-subscription-service-limits.md)
+* [使用 Azure 门户创建 Azure Batch 帐户](batch-account-create-portal.md)
+* [Azure Batch 功能概述](batch-api-basics.md)
+* [Azure 订阅和服务限制、配额和约束](../azure-subscription-service-limits.md)
 
 [portal]: https://portal.azure.cn
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/

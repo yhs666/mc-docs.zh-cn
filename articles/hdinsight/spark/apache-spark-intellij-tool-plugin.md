@@ -2,27 +2,24 @@
 title: Azure Toolkit for IntelliJ：为 HDInsight 群集创建 Spark 应用程序 | Azure
 description: 使用用于 IntelliJ 的 Azure 工具包开发以 Scala 编写的 Spark 应用程序，并将其提交到 HDInsight Spark 群集。
 services: hdinsight
-author: jasonwhowell
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 73304272-6c8b-482e-af7c-cd25d95dab4d
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-origin.date: 10/11/2018
-ms.date: 11/19/2018
+origin.date: 11/08/2018
+ms.date: 12/17/2018
 ms.author: v-yiso
-ms.openlocfilehash: 2dac9eb7272e180713f19cb2bb81f84a87223d59
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 5820ba27d2cf672950c5866100619c37132de287
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028347"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806638"
 ---
-# <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>使用用于 IntelliJ 的 Azure 工具包为 HDInsight 群集创建 Spark 应用程序
+# <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>使用 Azure Toolkit for IntelliJ 为 HDInsight 群集创建 Apache Spark 应用程序
 
-使用用于 IntelliJ 的 Azure 工具包插件开发以 Scala 编写的 Spark 应用程序，并直接从 IntelliJ 集成开发环境 (IDE) 将其提交到 HDInsight Spark 群集。 可按多种方式使用该插件：
+使用用于 IntelliJ 的 Azure 工具包插件开发以  [Scala](https://www.scala-lang.org/) 编写的 [Apache Spark](https://spark.apache.org/) 应用程序，并直接从 IntelliJ 集成开发环境 (IDE) 将其提交到 HDInsight Spark 群集。 可按多种方式使用该插件：
 
 * 在 HDInsight Spark 群集中开发和提交 Scala Spark 应用程序。
 * 访问 Azure HDInsight Spark 群集资源。
@@ -36,7 +33,7 @@ ms.locfileid: "53028347"
 ## <a name="prerequisites"></a>先决条件
 
 - HDInsight Linux 上的 Apache Spark 群集。 有关说明，请参阅[在 Azure HDInsight 中创建 Apache Spark 群集](apache-spark-jupyter-spark-sql.md)。
-- Oracle Java 开发工具包。 可以从 [Oracle 网站](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)安装它。
+- Oracle Java 开发工具包。 可以从 [Oracle 网站](https://aka.ms/azure-jdks)安装它。
 - IntelliJ IDEA。 本文使用版本 2017.1。 可以从 [JetBrains 网站](https://www.jetbrains.com/idea/download/)安装它。
 
 ## <a name="install-azure-toolkit-for-intellij"></a>安装用于 IntelliJ 的 Azure 工具包
@@ -70,7 +67,7 @@ ms.locfileid: "53028347"
     ![展开的群集名称节点](./media/apache-spark-intellij-tool-plugin/view-explorer-4.png)
 
 ## <a name="link-a-cluster"></a>链接群集
-可以使用 Ambari 管理的用户名链接标准 HDInsight 群集。 同样，对于已加入域的 HDInsight 群集，也可使用这种域和用户名（例如 user1@contoso.com）进行链接。
+可以使用 Apache Ambari 管理的用户名链接标准 HDInsight 群集。 同样，对于已加入域的 HDInsight 群集，也可使用这种域和用户名（例如 user1@contoso.com）进行链接。 也可链接 Livy 服务群集。
 
 1. 从“Azure 资源管理器”选择“链接群集”。
 
@@ -190,13 +187,13 @@ ms.locfileid: "53028347"
 
     * “命令行参数”字段：如有需要，可为 main 类输入按空格分隔的参数值。
 
-    * “引用的 Jar”和“引用的文件”字段：可以输入引用的 Jar 和文件（如果有）的路径。 更多相关信息：[Spark 配置](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) 
+    * “引用的 Jar”和“引用的文件”字段：可以输入引用的 Jar 和文件（如果有）的路径。 更多相关信息：[Apache Spark 配置](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) 
 
       ![Spark 提交对话框 jar 文件含义](./media/apache-spark-intellij-tool-plugin/jar-files-meaning.png)
 
        > [!NOTE]
        > 若要上传引用的 JAR 和引用的文件，请参阅：[如何将资源上传到群集](/storage/blobs/storage-quickstart-blobs-storage-explorer)
-    * **上传路径**：可指示 Jar 或 Scala 项目资源提交的存储位置。 支持三种存储类型：“Azure Blob”、“使用 Spark 交互式会话上传项目”和“使用群集默认存储帐户”。 下面的屏幕截图是 Azure Blob 的示例。
+    * **上传路径**：可指示 Jar 或 Scala 项目资源提交的存储位置。 支持三种存储类型：“Azure Blob”、“使用 Spark 交互式会话上传项目”、“使用群集默认存储帐户”和“ADLS Gen1”。 下面的屏幕截图是 Azure Blob 的示例。
 
         ![“Spark 提交”对话框](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-upload-storage-types.png)
 
@@ -207,8 +204,8 @@ ms.locfileid: "53028347"
      ![“Spark 提交”窗口](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
 
 
-## <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster"></a>本地或远程调试 HDInsight 群集上的 Spark 应用程序 
-我们还建议以另一种方式将 Spark 应用程序提交到群集。 为此，可在“运行/调试配置”IDE 中设置参数。 有关详细信息，请参阅[使用用于 IntelliJ 的 Azure 工具包通过 SSH 本地或远程调试 HDInsight 群集上的 Spark 应用程序](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh)。
+## <a name="debug-apache-spark-applications-locally-or-remotely-on-an-hdinsight-cluster"></a>本地或远程调试 HDInsight 群集上的 Apache Spark 应用程序 
+我们还建议以另一种方式将 Spark 应用程序提交到群集。 为此，可在“运行/调试配置”IDE 中设置参数。 有关详细信息，请参阅[使用用于 IntelliJ 的 Azure 工具包通过 SSH 本地或远程调试 HDInsight 群集上的 Apache Spark 应用程序](/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh)。
 
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-azure-toolkit-for-intellij"></a>使用用于 IntelliJ 的 Azure 工具包访问和管理 HDInsight Spark 群集
 可以使用用于 IntelliJ 的 Azure 工具包执行各种操作。
@@ -255,23 +252,24 @@ ms.locfileid: "53028347"
 可运行 Spark Local Console(Scala) 或运行 Spark Livy Interactive Session Console(Scala)。
 
 ### <a name="spark-local-consolescala"></a>Spark Local Console(Scala)
-1. 需手动添加依赖项。 在菜单中，依次选择“文件”->“项目结构”->“项目设置”->“库”，然后单击 +，选择“从 Maven...”。然后在弹出式对话框中输入 org.apache.spark:spark-repl_2.11:2.1.0。 在库中添加依赖项之后，需要将依赖项移动到“项目结构”窗口的“模块”中的第一行。 在移动之前，将“范围”更改为“运行时”。
-
-
-2. 如果之前未设置配置，请设置配置。 在“运行/调试配置”窗口中，单击 +->“Azure HDInsight Spark”，选择“本地运行”选项卡，并选择主类，然后单击“确定”。
+1. 如果之前未设置配置，请设置配置。 在“运行/调试配置”窗口中，单击 **+**->“Azure HDInsight Spark”，选择“在本地运行”选项卡”和“在群集中远程运行”，选择主类，然后单击“确定”。
 
     ![Local Console 设置配置](./media/apache-spark-intellij-tool-plugin/console-set-configuration.png)
  
-3. 打开与主类文件对应的文件，右键单击“Spark Console”，然后单击“运行 Spark Local Console(Scala)”。 或转到“工具”菜单->“Spark Console”->“运行 Spark Local Console(Scala)”以启动控制台。
+2. 打开对应的主类文件，右键单击“Spark Console”，然后单击“运行 Spark Local Console(Scala)”。 或转到“工具”菜单->“Spark Console”->“运行 Spark Local Console(Scala)”以启动控制台。 此时将显示两个对话框，询问你是否要自动修复依赖项。 单击“自动修复”。
+
+    ![Spark 自动修复1](./media/apache-spark-intellij-tool-plugin/console-auto-fix1.png)
+
+    ![Spark 自动修复2](./media/apache-spark-intellij-tool-plugin/console-auto-fix2.png)
 
     ![Spark Local 入口点](./media/apache-spark-intellij-tool-plugin/spark-console-local-entry-script.png)
 
-4. 成功启动 Local Console 后。 外观如下所示。 你可执行所需的操作。 例如，输入 sc.appName，按 Ctrl+Enter，系统将显示结果。
+3. 成功启动 Local Console 后。 外观如下所示。 你可执行所需的操作。 例如，输入 sc.appName，按 Ctrl+Enter，系统将显示结果。 可以通过单击红色按钮来终止 Local Console。
 
     ![Local Console 结果](./media/apache-spark-intellij-tool-plugin/local-console-result.png)
 
 ### <a name="spark-livy-interactive-session-consolescala"></a>Spark Livy Interactive Session Console(Scala)
-仅可用于 IntelliJ 2018.2。
+它仅在 IntelliJ 2018.2 和 2018.3 上受支持。
 
 1. 如果之前未设置配置，请设置配置。 在“运行/调试配置”窗口中，单击+->“Azure HDInsight Spark”，选择“在群集中远程运行”选项卡，选择群集名和主类，然后单击“确定”。
 
@@ -284,6 +282,11 @@ ms.locfileid: "53028347"
 3. 成功启动控制台后，可执行所需的操作。 例如，输入 sc.appName，按 Ctrl+Enter，系统将显示结果。
 
     ![Interactive Console 结果](./media/apache-spark-intellij-tool-plugin/interactive-console-result.png)
+
+### <a name="send-selection-to-spark-console"></a>将选定内容发送到 Spark Console
+可以通过将一些代码发送到 Local Console 或 Livy Interactive Session Console(Scala) 来方便地预测脚本结果。 可以突出显示 Scala 文件中的一些代码，然后右键单击“将选定内容发送到 Spark Console”。 选定代码将发送到控制台并执行。 结果将显示在控制台中的代码之后。 如果存在错误，则控制台将检查错误。 
+
+   ![将选定内容发送到 Spark Console](./media/apache-spark-intellij-tool-plugin/send-selection-to-console.png)
 
 ## <a name="convert-existing-intellij-idea-applications-to-use-azure-toolkit-for-intellij"></a>转换现有 IntelliJ IDEA 应用程序以使用用于 IntelliJ 的 Azure 工具包
 可以转换在 IntelliJ IDEA 中创建的现有 Spark Scala 应用程序，使其与用于 IntelliJ 的 Azure 工具包兼容。 然后，可以使用该插件将应用程序提交到 HDInsight Spark 群集。
@@ -325,11 +328,7 @@ ms.locfileid: "53028347"
 ![将选项添加到 IntelliJ 中的“VM 选项”对话框](./media/apache-spark-intellij-tool-plugin/change-heap-size.png)
 
 ## <a name="faq"></a>常见问题
-链接群集时，建议提供存储的凭据。
-
-![链接群集, 提供存储凭据](./media/apache-spark-intellij-tool-plugin/link-cluster-with-storage-credential-intellij.png)
-
-可通过两种模式提交作业。 如果提供存储凭据，则将使用批处理模式提交作业。 否则，将使用交互模式。 如果群集正忙，可能会收到以下错误。
+如果群集正忙，可能会收到以下错误。
 
 ![Intellij 在群集忙时收到错误](./media/apache-spark-intellij-tool-plugin/intellij-interactive-cluster-busy-upload.png)
 
@@ -345,22 +344,22 @@ ms.locfileid: "53028347"
 
 
 ### <a name="scenarios"></a>方案
-* [Spark 和 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](apache-spark-use-bi-tools.md)
-* [Spark 和机器学习：通过 HDInsight 中的 Spark 使用 HVAC 数据分析建筑物温度](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](apache-spark-machine-learning-mllib-ipython.md)
-* [使用 HDInsight 中的 Spark 分析网站日志](apache-spark-custom-library-website-log-analysis.md)
+* [Apache Spark 与 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](apache-spark-use-bi-tools.md)
+* [Apache Spark 与机器学习：通过 HDInsight 中的 Spark 使用 HVAC 数据分析建筑物温度](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark 与机器学习：使用 HDInsight 中的 Spark 预测食品检验结果](apache-spark-machine-learning-mllib-ipython.md)
+* [使用 HDInsight 中的 Apache Spark 分析网站日志](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="creating-and-running-applications"></a>创建和运行应用程序
 * [使用 Scala 创建独立的应用程序](apache-spark-create-standalone-application.md)
-* [使用 Livy 在 Spark 群集中远程运行作业](apache-spark-livy-rest-interface.md)
+* [使用 Livy 在 Apache Spark 群集中远程运行作业](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>工具和扩展
-* [通过 VPN 使用用于 IntelliJ 的 Azure 工具包远程调试 Spark 应用程序](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [通过 SSH 使用用于 IntelliJ 的 Azure 工具包远程调试 Spark 应用程序](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
+* [使用 Azure Toolkit for IntelliJ 通过 VPN 远程调试 Apache Spark 应用程序](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [使用 Azure Toolkit for IntelliJ 通过 SSH 远程调试 Apache Spark 应用程序](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
 * [将用于 IntelliJ 的 HDInsight 工具与 Hortonworks 沙盒配合使用](../hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
-* [使用用于 Eclipse 的 Azure 工具包中的 HDInsight 工具创建 Spark 应用程序](apache-spark-eclipse-tool-plugin.md)
-* [在 HDInsight 上的 Spark 群集中使用 Zeppelin 笔记本](apache-spark-zeppelin-notebook.md)
-* [在 HDInsight 的 Spark 群集中可用于 Jupyter 笔记本的内核](apache-spark-jupyter-notebook-kernels.md)
+* [使用 Azure Toolkit for Eclipse 中的 HDInsight 工具创建 Apache Spark 应用程序](apache-spark-eclipse-tool-plugin.md)
+* [在 HDInsight 上的 Apache Spark 群集中使用 Apache Zeppelin 笔记本](apache-spark-zeppelin-notebook.md)
+* [在 HDInsight 的 Apache Spark 群集中可用于 Jupyter Notebook 的内核](apache-spark-jupyter-notebook-kernels.md)
 * [Use external packages with Jupyter notebooks（将外部包与 Jupyter 笔记本配合使用）](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster（在计算机上安装 Jupyter 并连接到 HDInsight Spark 群集）](apache-spark-jupyter-notebook-install-locally.md)
 

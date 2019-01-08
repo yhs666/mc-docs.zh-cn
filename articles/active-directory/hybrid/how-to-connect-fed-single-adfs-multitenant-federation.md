@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 07/17/2017
-ms.date: 12/05/2018
+ms.date: 01/03/2019
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: b25be94f505b865e24ef021f8304b188c5cd4e48
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 95e87938e8087748cc7839c0b0f838a628cd2b03
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028219"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996371"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>将 Azure AD 的多个实例与 AD FS 的单个实例联合
 
@@ -43,13 +43,13 @@ ms.locfileid: "53028219"
  
 ## <a name="step-2-modify-contosocom-federation-settings"></a>步骤 2：修改 contoso.com 联合身份验证设置 
  
-为联合到 AD FS 的单个域设置的默认颁发者为“http://ADFSServiceFQDN/adfs/services/trust”，例如“http://fs.contoso.com/adfs/services/trust”。 Azure Active Directory 要求每个联合域都有唯一颁发者。 由于同一 AD FS 将联合两个域，因此颁发者值需进行修改，使之对于每个与 Azure Active Directory 联合的域 AD FS 都是唯一的。 
+为联合到 AD FS 的单个域设置的默认颁发者为“http\://ADFSServiceFQDN/adfs/services/trust”，例如“`http://fs.contoso.com/adfs/services/trust`”。 Azure Active Directory 要求每个联合域都有唯一颁发者。 由于同一 AD FS 将联合两个域，因此颁发者值需进行修改，使之对于每个与 Azure Active Directory 联合的域 AD FS 都是唯一的。 
  
 在 AD FS 服务器上，打开 Azure AD PowerShell（确保 MSOnline 模块已安装）并执行以下步骤：
  
 连接到 Azure Active Directory，其中包含域 contoso.com Connect-MsolService -AzureEnvironment AzureChinaCloud 更新 contoso.com 的联合身份验证设置 Update-MsolFederatedDomain -DomainName contoso.com -SupportMultipleDomain
  
-会将域联合身份验证设置中的颁发者更改为“http://contoso.com/adfs/services/trust”，并且会为 Azure AD 信赖方信任添加颁发声明规则，以便根据 UPN 后缀颁发正确的 issuerId 值。
+会将域联合身份验证设置中的颁发者更改为“http\://contoso.com/adfs/services/trust”，并且会为 Azure AD 信赖方信任添加颁发声明规则，以便根据 UPN 后缀颁发正确的 issuerId 值。
  
 ## <a name="step-3-federate-fabrikamcom-with-ad-fs"></a>步骤 3：通过 AD FS 联合 fabrikam.com
  
@@ -66,4 +66,4 @@ ms.locfileid: "53028219"
 ## <a name="next-steps"></a>后续步骤
 [将 Active Directory 与 Azure Active Directory 连接](whatis-hybrid-identity.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

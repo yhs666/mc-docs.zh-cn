@@ -3,20 +3,19 @@ title: 通过 .NET 开始使用 Azure 表存储 | Azure
 description: 使用 Azure 表存储将结构化数据存储在云中。
 services: cosmos-db
 author: rockboyfor
-manager: digimobile
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 origin.date: 08/17/2018
-ms.date: 12/03/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: 666254d4014c5c214db4658eb4f7b06f6120e1e2
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: e9fea23052f74ec0e8af216eecde3860fce4a596
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674526"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026711"
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>通过 .NET 开始使用 Azure 表存储
 
@@ -85,7 +84,7 @@ ms.locfileid: "52674526"
 * [用于 .NET 的 Azure Cosmos DB 表库](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)。 使用此包能够以编程方式访问 Azure 表存储帐户中的数据资源。 此库目前仅适用于 .NET Standard，尚不可用于 .NET Core。
 
 <!--Not Available on or Azure Cosmos DB Table API account.-->
-* [适用于 .NET 的 Azure Configuration Manager 库](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)：此包提供用于分析配置文件中连接字符串的类，而不考虑应用程序在何处运行。
+* [适用于 .NET 的 Azure 配置管理器库](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)：此包提供用于分析配置文件中连接字符串的类，而不考虑应用程序在何处运行。
 
 若要获取 NuGet 包，请执行以下步骤：
 
@@ -95,7 +94,7 @@ ms.locfileid: "52674526"
 4. 在线搜索“WindowsAzure.ConfigurationManager”，并选择“安装”以安装 Azure Configuration Manager 库。
 
 > [!NOTE]
-> 适用于 .NET 的存储通用库中的 ODataLib 依赖项通过 NuGet（而不是 WCF 数据服务）上提供的 ODataLib 包来解析。 ODataLib 库可直接下载或者通过 NuGet 由代码项目引用。 存储空间客户端库使用的具体 ODataLib 包是 [OData](http://nuget.org/packages/Microsoft.Data.OData/)、[Edm](http://nuget.org/packages/Microsoft.Data.Edm/) 和 [Spatial](http://nuget.org/packages/System.Spatial/)。 尽管这些库由 Azure 表存储类使用，但是使用存储通用库编程时，它们是必需的依赖项。
+> 适用于 .NET 的存储通用库中的 ODataLib 依赖项通过 NuGet（而不是 WCF 数据服务）上提供的 ODataLib 包来解析。 ODataLib 库可直接下载或者通过 NuGet 由代码项目引用。 存储空间客户端库使用的具体 ODataLib 包是 [OData](https://nuget.org/packages/Microsoft.Data.OData/)、[Edm](https://nuget.org/packages/Microsoft.Data.Edm/) 和 [Spatial](https://nuget.org/packages/System.Spatial/)。 尽管这些库由 Azure 表存储类使用，但是使用存储通用库编程时，它们是必需的依赖项。
 > 
 > 
 
@@ -459,7 +458,7 @@ table.Execute(insertOrReplaceOperation);
 ```
 
 ## <a name="query-a-subset-of-entity-properties"></a>查询一部分实体属性
-表查询可以只检索实体中的少数几个属性而不是所有实体属性。 此方法称为“投影”，可减少带宽并提高查询性能，尤其适用于大型实体。 以下代码中的查询只返回表中实体的电子邮件地址。 这可通过使用 [DynamicTableEntity][dotnet_DynamicTableEntity] 和 [EntityResolver][dotnet_EntityResolver] 的查询来实现。 可以在[“Upsert 和查询投影介绍”博客文章][blog_post_upsert]中更加详细地了解投影。 存储模拟器不支持投影，因此，此代码仅在使用表服务中的帐户时才能运行。
+表查询可以只检索实体中的少数几个属性而不是所有实体属性。 此方法称为“投影”，可减少带宽并提高查询性能，尤其适用于大型实体。 以下代码中的查询只返回表中实体的电子邮件地址。 这可通过使用 [DynamicTableEntity][dotnet_DynamicTableEntity] 和 [EntityResolver][dotnet_EntityResolver] 的查询来实现。 存储模拟器不支持投影，因此，此代码仅在使用表服务中的帐户时才能运行。
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -582,9 +581,6 @@ do
 * [使用.NET (C#) 连接到 SQL 数据库](../sql-database/sql-database-develop-dotnet-simple.md)，存储关系数据。
 
 [Download and install the Azure SDK for .NET]: /develop/net/
-<!--Not Available on [Creating an Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx-->
-
-[blog_post_upsert]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 
 [dotnet_api_ref]: https://msdn.microsoft.com/library/azure/mt347887.aspx
 [dotnet_CloudTableClient]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.cloudtableclient.aspx
@@ -604,4 +600,4 @@ do
 [dotnet_TableResult]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableresult.aspx
 [dotnet_TableResult_Result]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableresult.result.aspx
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

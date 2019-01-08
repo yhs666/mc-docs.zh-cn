@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/13/2017
-ms.date: 02/26/2018
+ms.date: 01/14/2019
 ms.author: ashishth
-ms.openlocfilehash: b7a1651829a447c19a0a69f458ca718db8bffd22
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 39e89014bf5bbefc140f25708d16d6b22c2f913f
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656805"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029205"
 ---
-# <a name="use-the-hbase-net-sdk"></a>使用 HBase .NET SDK
+# <a name="use-the-net-sdk-for-apache-hbase"></a>使用用于 Apache HBase 的 .Net SDK
 
-[HBase](apache-hbase-overview.md) 提供两种主要的数据处理选择：[Hive 查询，以及调用 HBase 的 RESTful API](apache-hbase-tutorial-get-started-linux.md)。 可以通过 `curl` 命令或类似的实用工具直接使用 REST API。
+[Apache HBase](apache-hbase-overview.md) 提供了两个用于处理数据的主要选项：[Apache Hive 查询和调用 HBase 的 RESTful API](apache-hbase-tutorial-get-started-linux.md)。 可以通过 `curl` 命令或类似的实用工具直接使用 REST API。
 
 对于 C# 和 .NET 应用程序，[用于 .NET 的 Microsoft HBase REST 客户端库](https://www.nuget.org/packages/Microsoft.HBase.Client/)提供基于 HBase REST API 的客户端库。
 
@@ -45,7 +45,7 @@ var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdins
 client = new HBaseClient(credentials);
 ```
 
-将 CLUSTERNAME 替换为 HDInsight HBase 群集名称，将 USERNAME 和 PASSWORD 替换为在创建群集时指定的 Hadoop 凭据。 默认的 Hadoop 用户名为 **admin**。
+将 CLUSTERNAME 替换为 HDInsight HBase 群集名称，将 USERNAME 和 PASSWORD 替换为在创建群集时指定的 Apache Hadoop 凭据。 默认的 Hadoop 用户名为 **admin**。
 
 ## <a name="create-a-new-table"></a>创建新表
 
@@ -197,4 +197,4 @@ finally
 ## <a name="next-steps"></a>后续步骤
 
 * [HDInsight 中的 Apache HBase 入门示例](apache-hbase-tutorial-get-started-linux.md)
-* 根据[使用 HBase 分析实时 Twitter 观点](../hdinsight-hbase-analyze-twitter-sentiment.md)中的说明，生成端到端应用程序
+* 根据[使用 Apache HBase 分析实时 Twitter 观点](../hdinsight-hbase-analyze-twitter-sentiment.md)中的说明，生成端到端应用程序

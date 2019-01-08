@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 10/23/2018
-ms.date: 12/17/2018
+origin.date: 12/04/2018
+ms.date: 12/31/2018
 ms.author: v-jay
 ms.reviewer: ''
-ms.openlocfilehash: 766619e7244c0db0712071beaa50b2d860e30b5f
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.openlocfilehash: 530652018be0fa9827524a454aede85a775e636a
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396126"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814634"
 ---
 # <a name="validate-azure-identity"></a>验证 Azure 标识 
 使用 Azure Stack 就绪性检查器工具 (AzsReadinessChecker) 验证 Azure Active Directory (Azure AD) 是否已准备好与 Azure Stack 配合使用。 在开始 Azure Stack 部署之前，请验证 Azure 标识解决方案。  
@@ -49,7 +49,7 @@ ms.locfileid: "53396126"
 **Azure Active Directory 环境：**
  - 标识将用于 Azure Stack 的 Azure AD 帐户并确保它是 Azure Active Directory 全局管理员。
  - 标识 Azure AD 租户名称。 该租户名称必须是你的 Azure Active Directory 的“主”域名。 例如 *contoso.partner.onmschina.cn*。 
- - 确定将使用的 AzureEnvironement：*AzureChinaCloud*。
+ - 确定将使用的 AzureEnvironement。 环境名称参数支持的值是 AzureChinaCloud，具体取决于所使用的 Azure 订阅。
 
 ## <a name="validate-azure-identity"></a>验证 Azure 标识 
 1. 在满足先决条件的计算机上，打开一个管理 PowerShell 提示符，然后运行以下命令来安装 AzsReadinessChecker：  
@@ -60,10 +60,10 @@ ms.locfileid: "53396126"
    > `$serviceAdminCredential = Get-Credential serviceadmin@contoso.partner.onmschina.cn -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant"` 
 
 3. 从 PowerShell 提示符下，运行以下命令来启动对 Azure AD 的验证。 
-   - 为 AzureEnvironment 指定值 *AzureChinaCloud*。  
+   - 为 AzureEnvironment 指定环境名称值。 环境名称参数支持的值是 AzureChinaCloud，具体取决于所使用的 Azure 订阅。  
    - 指定你的 Azure Active Directory 租户名称以替换 *contoso.partner.onmschina.cn*。 
 
-   > `Invoke-AzsAzureIdentityValidation -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment AzureChinaCloud -AADDirectoryTenantName contoso.partner.onmschina.cn`
+   > `Invoke-AzsAzureIdentityValidation -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment <environment name> -AADDirectoryTenantName contoso.partner.onmschina.cn`
 4. 运行该工具后，查看输出。 对于安装要求，确认状态为“正常”。 成功的验证如下图所示： 
  
 ````PowerShell

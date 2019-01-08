@@ -12,18 +12,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/29/2017
-ms.date: 10/01/2018
+origin.date: 12/21/2018
+ms.date: 01/07/2019
 ms.author: v-jay
-ms.openlocfilehash: e0215aa349fc2c777b085e8349e34ee86bc36197
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: eda3b1b73bd8ad20bbd239a2d55dd0417d6b2419
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659062"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996342"
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>如何在使用 Azure 媒体服务时配置本地编码器以创建多比特率流
 本主题列出的本地实时编码器可用于捕获实时事件，并将单比特率实时流发送到 AMS 频道（已启用实时编码）以供进一步处理。 本主题还列出了演示如何配置所列编码器的教程链接。
+
+> [!NOTE]
+> 通过 RTMP 流式处理时，请检查防火墙和/或代理设置，确认出站 TCP 端口 1935 和 1936 已打开。
 
 ## <a name="flash-media-live-encoder"></a>Flash 媒体实时编码器
 有关如何配置 [Flash 媒体实时编码器](http://www.adobe.com/products/flash-media-encoder.html) (FMLE) 以将单比特率实时流发送到 AMS 通道的信息，请参阅[配置 FMLE](media-services-configure-fmle-live-encoder.md)。
@@ -40,6 +43,7 @@ ms.locfileid: "52659062"
 ## <a name="elemental-live"></a>Elemental Live
 有关详细信息，请参阅 [Elemental Live](http://www.elementaltechnologies.com/products/elemental-live)。
 
-## <a name="see-also"></a>另请参阅
+## <a name="next-steps"></a>后续步骤
+
 [使用 Azure 媒体服务实时传送视频流以创建多比特率流](media-services-manage-live-encoder-enabled-channels.md)。
 

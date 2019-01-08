@@ -2,20 +2,22 @@
 title: 高级威胁防护 - Azure SQL 数据库 | Microsoft Docs
 description: 了解有关发现敏感数据并分类、管理数据库漏洞以及检测可能对 Azure SQL 数据库造成威胁的异常活动的功能。
 services: sql-database
-author: WenJason
-manager: digimobile
 ms.service: sql-database
+ms.subservice: security
+ms.devlang: ''
 ms.topic: conceptual
-origin.date: 05/17/2018
-ms.date: 10/15/2018
+author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab
-ms.openlocfilehash: 48768b67185d7e3d03465e714a3c40f586515317
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.reviewer: vanto
+manager: digimobile
+origin.date: 12/16/2018
+ms.date: 01/07/2019
+ms.openlocfilehash: d0a2cb8e5a04bd69712ca3589f4f9caa724423a6
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661615"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996245"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Azure SQL 数据库的高级威胁防护
 
@@ -27,12 +29,9 @@ SQL 高级威胁防护 (ATP) 提供一组高级 SQL 安全功能，包括数据�
 
 - [数据发现和分类](sql-database-data-discovery-and-classification.md)（当前为预览版）提供内置于 Azure SQL 数据库的功能，可用于发现、分类、标记和保护数据库中的敏感数据。 它可用于直观查看数据库分类状态，以及跟踪对数据库内和其边界外的敏感数据的访问。
 - [漏洞评估](sql-vulnerability-assessment.md)是一项易于配置的服务，可以发现、跟踪并帮助修正潜在的数据库漏洞。 它可直观查看安全状态，包括解决安全问题的可操作步骤，并可加强数据库的防御工事。
-- [威胁检测](sql-database-threat-detection.md)会检测异常活动，这些活动表示异常和可能有害的数据库访问或使用尝试。 它不断监视数据库的可疑活动，并针对潜在漏洞、SQL 注入攻击和异常数据库访问模式提供即时的安全警报。 威胁检测警报提供可疑活动的详细信息，以及如何调查和缓解威胁的推荐操作。
+- [威胁检测](sql-database-threat-detection-overview.md)会检测异常活动，这些活动表示异常和可能有害的数据库访问或使用尝试。 它不断监视数据库的可疑活动，并针对潜在漏洞、SQL 注入攻击和异常数据库访问模式提供即时的安全警报。 威胁检测警报提供可疑活动的详细信息，以及如何调查和缓解威胁的推荐操作。
 
-一旦启用 SQL ATP，其包含的所有功能都会启用。 仅需点击一下，便可在整个数据库服务器上启用 ATP，并应用到服务器上的全部数据库。 
-
-ATP 定价遵循 Azure 安全中心标准层定价，按每节点每月 15 美元计费，其中每个受保护的 SQL 数据库服务器视为一个节点。 启用后的前 60 天被视为免费试用期，不会收费。
-
+一旦启用 SQL ATP，其包含的所有功能都会启用。 仅需点击一下，便可在整个数据库服务器上启用 ATP，并应用到服务器上的全部数据库。 启用或管理 ATP 设置需要属于 [SQL 安全管理员](/role-based-access-control/built-in-roles#sql-security-manager)角色、SQL 数据库管理员角色或 SQL 服务器管理员角色。 
 
 ## <a name="getting-started-with-atp"></a>ATP 入门 
 以下步骤帮助你开始使用 ATP。 
@@ -42,9 +41,6 @@ ATP 定价遵循 Azure 安全中心标准层定价，按每节点每月 15 美�
 导航到 Azure SQL 数据库窗格“安全”标题下的“高级威胁防护”，以启用 ATP。 若要为服务器上的所有数据库启用 ATP，请单击“在服务器上启用高级威胁防护”。
 
 ![启用 ATP](./media/sql-advanced-protection/enable_atp.png) 
-
-> [!NOTE]
-> ATP 的费用为每节点每月 15 美元，其中整个 SQL 逻辑服务器为一个节点。 因此，仅需支付一次，即可使用 ATP 保护服务器上的所有数据库。 前 60 天被视为免费试用期。
 
 ## <a name="2-configure-vulnerability-assessment"></a>2.配置漏洞评估
 

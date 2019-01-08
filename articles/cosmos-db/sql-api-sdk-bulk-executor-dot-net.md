@@ -1,23 +1,20 @@
 ---
-title: Azure Cosmos DB：批量执行程序 .NET API、SDK 和资源 | Azure
-description: 了解有关批量执行程序 .NET API 和 SDK 的所有信息，包括发布日期、停用日期和 Azure Cosmos DB 批量执行程序 .NET SDK 各版本之间所做的更改。
-services: cosmos-db
+title: Azure Cosmos DB：批量执行程序 .NET API、SDK 和资源
+description: 了解有关批量执行程序 .NET API 的所有信息。
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-origin.date: 09/14/2018
-ms.date: 11/05/2018
+origin.date: 11/19/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5f14f7621a0e172ee8fb9fbdec4aa0bd199b5039
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8b5f405446c58d5f7526db3bab7b788fa164e054
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659257"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026655"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>.NET 批量执行程序库：下载信息 
 
@@ -31,13 +28,13 @@ ms.locfileid: "52659257"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 资源提供程序](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](../cosmos-db/sql-api-sql-query-reference.md)
+> * [SQL](sql-api-query-reference.md)
 > * [批量执行程序 - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [批量执行程序 - Java](sql-api-sdk-bulk-executor-java.md)
 
 <table>
 
-<tr><td>**说明**</td><td>批量执行程序库允许客户端应用程序在 Azure Cosmos DB 帐户中执行批量操作。 批量执行程序库提供 BulkImport、BulkUpdate 和 BulkDelete 命名空间。 BulkImport 模块可以批量以优化方式引入文档，以便最大程度地使用为集合配置的吞吐量。 BulkUpdate 模块可以作为修补程序批量更新 Azure Cosmos DB 容器中的现有数据。 BulkDelete 模块可以批量以优化方式删除文档，以便最大程度地使用为集合配置的吞吐量。</td></tr>
+<tr><td>**说明**</td><td>批量执行程序库允许客户端应用程序在 Azure Cosmos DB 帐户中执行批量操作。 批量执行程序库提供了 BulkImport、BulkUpdate 和 BulkDelete 命名空间。 BulkImport 模块可以批量以优化方式引入文档，以便最大程度地使用为集合配置的吞吐量。 BulkUpdate 模块可以作为修补程序批量更新 Azure Cosmos DB 容器中的现有数据。 BulkDelete 模块可以批量以优化方式删除文档，以便最大程度地使用为集合配置的吞吐量。</td></tr>
 
 <tr><td>**SDK 下载**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/)</td></tr>
 
@@ -47,10 +44,15 @@ ms.locfileid: "52659257"
 
 <tr><td>**入门**</td><td>[批量执行程序库 .NET SDK 入门](bulk-executor-dot-net.md)</td></tr>
 
-<tr><td>**当前受支持的框架**</td><td><ul><li>[Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)（版本 >= 2.0.0）</li><li>
-[Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)（版本 >= 9.0.1）
-</li></ul></td></tr>
+<tr><td>**当前受支持的框架**</td><td>Microsoft .NET Framework 4.5.2、4.6.1 和 .NET Standard 2.0 </td></tr>
 </table></br>
 
 <!-- Not Available on ## Release notes-->
 <!-- Update_Description: update meta properties, wording update -->
+## <a name="next-steps"></a>后续步骤
+
+若要了解批量执行程序 Java 库，请参阅以下文章：
+
+[Java 批量执行程序库 SDK 和发行信息](sql-api-sdk-bulk-executor-java.md)
+
+<!--Update_Description: update meta properties, wording update-->

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 10/15/2018
-ms.date: 11/12/2018
+origin.date: 12/10/2018
+ms.date: 12/31/2018
 ms.author: v-jay
 ms.reviewer: hector.linares
-ms.openlocfilehash: 7eee91cd0600c9caa4e534871015e2d2f19fe293
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 65a125a902e3836b4873f3d4edc1d92b6e1ab393
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660867"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814669"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>保护在 Azure Stack 上部署的虚拟机
 
@@ -56,10 +56,10 @@ Azure Stack 云的操作员负责创建针对底层 Azure Stack 基础结构和�
 
 |  | 全球 Azure | 部署到 CSP 数据中心并由 CSP 操作的 Azure Stack | 部署到客户数据中心并由客户操作的 Azure Stack |
 |------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| **部署到 CSP 数据中心并由 CSP 操作的 Azure Stack** | 用户 VM 部署到 CSP 操作的 Azure Stack。 用户 VM 从备份还原，或者直接故障转移到 Azure。 | CSP 在自己的数据中心操作 Azure Stack 的主要和次要实例。 用户 VM 在这两个 Azure Stack 实例之间还原或故障转移。 | CSP 在主要站点操作 Azure Stack。 客户的数据中心是还原或故障转移目标。 |
-| **部署到客户数据中心并由客户操作的 Azure Stack** | 用户 VM 部署到客户操作的 Azure Stack。 用户 VM 从备份还原，或者直接故障转移到 Azure。 | 客户在自己的数据中心操作 Azure Stack 的主要和次要实例。 用户 VM 在这两个 Azure Stack 实例之间还原或故障转移。 | 客户在主要站点操作 Azure Stack。 CSP 的数据中心是还原或故障转移目标。 |
+| **部署到 CSP 数据中心并由 CSP 操作的 Azure Stack** | 用户 VM 部署到 CSP 操作的 Azure Stack。<br><br>用户 VM 从备份还原，或者直接故障转移到 Azure。 | CSP 在自己的数据中心操作 Azure Stack 的主要和次要实例。<br><br>用户 VM 在这两个 Azure Stack 实例之间还原或故障转移。 | CSP 在主要站点操作 Azure Stack。<br><br>客户的数据中心是还原或故障转移目标。 |
+| **部署到客户数据中心并由客户操作的 Azure Stack** | 用户 VM 部署到客户操作的 Azure Stack。<br><br>用户 VM 从备份还原，或者直接故障转移到 Azure。 | 客户在主要站点操作 Azure Stack。<br><br>CSP 的数据中心是还原或故障转移目标。 | 客户在自己的数据中心操作 Azure Stack 的主要和次要实例。<br><br>用户 VM 在这两个 Azure Stack 实例之间还原或故障转移。 |
 
-![源-目标组合](media\azure-stack-manage-vm-backup\vm_backupdataflow_01.png)
+![源-目标组合](media/azure-stack-manage-vm-backup/vm_backupdataflow_01.png)
 
 ## <a name="application-recovery-objectives"></a>应用程序恢复目标
 
@@ -78,7 +78,7 @@ RTO 和 RPO 属于业务要求。 开展风险评估的目的是定义应用程�
 
 对于基于 VM 的应用程序，最常见的保护方案是使用备份软件。 备份 VM 通常包括操作系统、操作系统配置、应用程序二进制文件和应用程序数据。 可以通过拍摄卷、磁盘或整个 VM 的快照来创建备份。 使用 Azure Stack 时，可以灵活地选择是从来宾 OS 的上下文中备份，还是从 Azure Stack 存储和计算 API 备份。 Azure Stack 不支持在虚拟机监控程序级别进行备份。
  
-![备份-还原](media\azure-stack-manage-vm-backup\vm_backupdataflow_03.png)
+![备份-还原](media/azure-stack-manage-vm-backup/vm_backupdataflow_03.png)
 
 恢复应用程序时，需要将一个或多个 VM 还原到相同的云或新的云。 可以将数据中心的云或公有云作为目标。 选择的云完全由你来控制，并且取决于数据隐私和自主性要求。
  
@@ -108,7 +108,7 @@ RTO 和 RPO 属于业务要求。 开展风险评估的目的是定义应用程�
 
 使用此方法时，会将应用程序部署在一个云中，将其 VM 复制到另一个云中。 如果触发了故障转移，则需在第二个云中启动辅助 VM。 在某些情况下，故障转移会创建 VM 并向其附加磁盘。 此过程可能需要很长时间才能完成，尤其是对于需要采用特定启动顺序的多层应用程序。 在应用程序准备好开始为请求提供服务之前，可能还必须运行其他步骤。
 
-![复制-手动故障转移](media\azure-stack-manage-vm-backup\vm_backupdataflow_02.png)
+![复制-手动故障转移](media/azure-stack-manage-vm-backup/vm_backupdataflow_02.png)
 
  - RTO：以分钟计量的停机时间
  - RPO：可变数据丢失（取决于复制频率）
@@ -143,7 +143,7 @@ Azure Stack 物理冗余和基础结构服务可用性只能针对硬件级别�
 环境中的某些应用程序可能不需要针对计划外停机或数据丢失进行保护。 例如，用于开发和测试的 VM 通常不需要进行恢复。 是否不对应用程序或特定的 VM 进行保护由你自行决定。 Azure Stack 不通过底层基础结构提供 VM 的备份或复制。 与 Azure 一样，你需要在每个订阅中选择加入才能对每个 VM 进行保护。
 
  - RTO：无法恢复
- - RPO：数据彻底丢失
+ - RPO：完全数据丢失
 
 ## <a name="recommended-topologies"></a>建议的拓扑
 

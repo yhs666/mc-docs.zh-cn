@@ -1,32 +1,25 @@
 ---
-title: 将 Python UDF 与 Apache Hive 和 Pig 配合使用 - Azure HDInsight | Azure
-description: 了解如何在 HDInsight（Azure 上的 Hadoop 技术堆栈）中通过 Hive 和 Pig 使用 Python 用户定义的函数 (UDF)。
+title: 通过 Apache Hive 和 Apache Pig 使用 Python UDF - Azure HDInsight
+description: 了解如何在 HDInsight（Azure 上的 Apache Hadoop 技术堆栈）中通过 Apache Hive 和 Apache Pig 使用 Python 用户定义函数 (UDF)。
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: c44d6606-28cd-429b-b535-235e8f34a664
 ms.service: hdinsight
-ms.devlang: python
+author: hrasheed-msft
+ms.author: v-yiso
+ms.reviewer: jasonh
 ms.topic: conceptual
 origin.date: 02/27/2018
-ms.date: 05/21/2018
-ms.author: v-yiso
+ms.date: 01/14/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 92811a332f0e1af7c3df5b6290ff8c034d446a52
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e6340bf0b8f04f020a81d0dbe70b49e3fc9fe32f
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664594"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029185"
 ---
-# <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>在 HDInsight 中通过 Hive 和 Pig 使用 Python 用户定义的函数 (UDF)
+# <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>在 HDInsight 中通过 Apache Hive 和 Apache Pig 使用 Python 用户定义函数 (UDF)
 
-
-
-了解如何在 Azure HDInsight 上将 Python 用户定义的函数 (UDF) 与 Apache Hive 和 Pig 配合使用。
+了解如何在 Azure HDInsight 上的 Apache Hadoop 中通过 Apache Hive 和 Apache Pig 使用 Python 用户定义函数 (UDF)。
 
 ## <a name="python"></a>HDInsight 上的 Python
 
@@ -40,9 +33,9 @@ HDInsight 还包含 Jython，后者是用 Java 编写的 Python 实现。 Jython
 > * 在本地开发环境中创建 Python 脚本。
 > * 通过本地 Bash 会话使用 `scp` 命令或使用提供的 PowerShell 脚本将脚本上传到 HDInsight。
 
-## <a name="hivepython"></a>Hive UDF
+## <a name="hivepython"></a>Apache Hive UDF
 
-可通过 HiveQL `TRANSFORM` 语句将 Python 用作 Hive 中的 UDF。 例如，以下 HiveQL 调用群集默认 Azure 存储帐户中存储的 `hiveudf.py` 文件。
+可以通过 HiveQL `TRANSFORM` 语句将 Python 用作 Hive 中的 UDF。 例如，以下 HiveQL 调用群集默认 Azure 存储帐户中存储的 `hiveudf.py` 文件。
 
 **基于 Linux 的 HDInsight**
 
@@ -51,7 +44,7 @@ add file wasb:///hiveudf.py;
 
 SELECT TRANSFORM (clientid, devicemake, devicemodel)
     USING 'python hiveudf.py' AS
-    (clientid string, phoneLable string, phoneHash string)
+    (clientid string, phoneLabel string, phoneHash string)
 FROM hivesampletable
 ORDER BY clientid LIMIT 50;
 ```
@@ -63,7 +56,7 @@ add file wasb:///hiveudf.py;
 
 SELECT TRANSFORM (clientid, devicemake, devicemodel)
     USING 'D:\Python27\python.exe hiveudf.py' AS
-    (clientid string, phoneLable string, phoneHash string)
+    (clientid string, phoneLabel string, phoneHash string)
 FROM hivesampletable
 ORDER BY clientid LIMIT 50;
 ```
@@ -112,7 +105,7 @@ while True:
 
 有关如何在 HDInsight 群集上运行此示例的信息，请参阅[运行示例](#running)。
 
-## <a name="pigpython"></a>Pig UDF
+## <a name="pigpython"></a>Apache Pig UDF
 
 在整个 `GENERATE` 语句中，Python 脚本可用作 Pig 中的 UDF。 可以使用 Jython 或 C Python 运行此脚本。
 
@@ -350,10 +343,10 @@ Set-AzureStorageBlobContent `
 > [!IMPORTANT]
 > 将 `C:\path\to` 值更改为开发环境中的文件路径。
 
-此脚本将检索 HDInsight 群集的信息，然后提取默认存储帐户的名称和密钥，并将文件上传到容器的根目录。
+此脚本将检索 HDInsight 群集的信息，并提取默认存储帐户的名称和密钥，并将文件上传到容器的根目录。
 
-> [!NOTE]
-> 有关上传文件的详细信息，请参阅[在 HDInsight 中上传 Hadoop 作业的数据](../hdinsight-upload-data.md)文档。
+> [!NOTE]  
+> 有关上传文件的详细信息，请参阅[在 HDInsight 中上传 Apache Hadoop 作业的数据](../hdinsight-upload-data.md)文档。
 
 #### <a name="powershell-use-the-hive-udf"></a>PowerShell：使用 Hive UDF
 
@@ -515,12 +508,12 @@ $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
 
 ## <a name="next"></a>后续步骤
 
-如果需要加载默认情况下未提供的 Python 模块，请参阅 [How to deploy a module to Azure HDInsight](http://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx)（如何将模块部署到 Azure HDInsight）。
+如果需要加载默认情况下未提供的 Python 模块，请参阅 [How to deploy a module to Azure HDInsight](https://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx)（如何将模块部署到 Azure HDInsight）。
 
 若要了解使用 Pig 和 Hive 的其他方式以及如何使用 MapReduce，请参阅以下文档：
 
-* [将 Hive 与 HDInsight 配合使用](hdinsight-use-hive.md)
-* [将 Pig 与 HDInsight 配合使用](hdinsight-use-pig.md)
+* [将 Apache Hive 和 HDInsight 配合使用](hdinsight-use-hive.md)
+* [将 Apache Pig 和 HDInsight 配合使用](hdinsight-use-pig.md)
 * [将 MapReduce 与 HDInsight 配合使用](hdinsight-use-mapreduce.md)
 
 <!--Update_Description: change 'wasbs' into 'wasb'-->

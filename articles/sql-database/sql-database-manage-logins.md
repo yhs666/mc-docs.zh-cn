@@ -4,7 +4,7 @@ description: 了解 SQL 数据库和 SQL 数据仓库安全管理，特别是如
 keywords: sql 数据库安全,数据库安全管理,登录安全,数据库安全,数据库访问权限
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,14 +12,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 09/07/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: cfc9abaa0f04a67c9a4bd8245a0caa92a9c5e20e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 11/29/2018
+ms.date: 01/07/2019
+ms.openlocfilehash: fd5b47134c3c944241aaa0dd47964707f0e8db99
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653677"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996259"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>控制和授予对 SQL 数据库和 SQL 数据仓库的数据库访问权限
 
@@ -32,9 +32,9 @@ ms.locfileid: "52653677"
 > 有关教程，请参阅[保护 Azure SQL 数据库](sql-database-security-tutorial.md)。
 
 ## <a name="unrestricted-administrative-accounts"></a>非受限管理帐户
-有两个充当管理员的管理帐户（**服务器管理员**和 **Active Directory 管理员**）。 若要在 SQL 服务器中识别这些管理员帐户，请打开 Azure 门户并导航到 SQL 服务器的属性。
+有两个充当管理员的管理帐户（**服务器管理员**和 **Active Directory 管理员**）。 若要为 SQL Server 标识这些管理员帐户，请打开 Azure 门户，然后导航到 SQL Server 或 SQL 数据库的“属性”选项卡。
 
-![SQL 服务器管理员](./media/sql-database-manage-logins/sql-admins.png)
+![SQL Server 管理员](media/sql-database-manage-logins/sql-admins.png)
 
 - **服务器管理员**   
 创建 Azure SQL 服务器时，必须指定**服务器管理员登录名**。 SQL 服务器创建该帐户作为 master 数据库中的登录名。 此帐户通过 SQL Server 身份验证（用户名和密码）进行连接。 此类帐户只能存在一个。   

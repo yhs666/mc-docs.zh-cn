@@ -9,13 +9,13 @@ editor: jasonwhowell
 ms.custom: mvc
 ms.topic: article
 origin.date: 11/14/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 63c46ecfd35224957d6992e0e5b731c7223da9c3
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.date: 01/07/2019
+ms.openlocfilehash: f2b1b5a7220d11b4b22b525979984f6f83c7e8dd
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029093"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996337"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>什么是用于 MySQL 的 Azure 数据库？
 
@@ -25,7 +25,7 @@ ms.locfileid: "53029093"
 Azure Database for MySQL 是 Azure 中基于 [MySQL 社区版](https://www.mysql.com/products/community/)数据库引擎版本 5.6 和 5.7 的一种关系数据库服务。 用于 MySQL 的 Azure 数据库提供以下功能：
 
 - 没有额外费用的内置高可用性。
-- 使用非独占即用即付定价，实现可预测性能。
+- 使用非独占预付费定价，实现可预测性能。
 - 根据需要在数秒内缩放。
 - 保护静态和动态敏感数据的安全。
 - 长达 35 天的自动备份和时间点还原。

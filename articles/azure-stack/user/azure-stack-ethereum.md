@@ -12,12 +12,12 @@ ms.service: azure-stack
 ms.reviewer: seyadava
 ms.custom: mvc
 manager: digimobile
-ms.openlocfilehash: 78e0b7746ab7d163843d2fa55be1249a542dc12e
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.openlocfilehash: 7e06c9eeffd678d597867c30e3eb396dd23c9ce9
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396327"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814656"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack"></a>在 Azure Stack 上部署 Ethereum 区块链网络
 
@@ -38,6 +38,8 @@ Ethereum 解决方案模板旨在利用最少的 Azure 和 Ethereum 知识，使
 - Windows Server 2016
 - 适用于 Linux 的自定义脚本 2.0
 - 适用于 Windows 的自定义脚本扩展
+
+有关区块链方案的更多信息，请参阅 [Ethereum 工作量证明联盟解决方案模板](https://docs.microsoft.com/azure/blockchain/templates/ethereum-deployment)。
 
 ## <a name="deployment-architecture"></a>部署体系结构
 
@@ -79,10 +81,10 @@ Ethereum 解决方案模板旨在利用最少的 Azure 和 Ethereum 知识，使
     ETHEREUMNETWORKID | 联盟的网络 ID。 | 请使用介于 5 和 999,999,999 之间的任何值 | 72
     CONSORTIUMMEMBERID | 与每个联盟网络成员关联的 ID。   | 此 ID 应在网络中唯一。 | 0
     NUMMININGNODES | 挖掘节点的数量。 | 介于 2 和 15 之间。 | 2
-    MNNODEVMSIZE | 挖掘节点的 VM 大小。 | | Standard_B1s
+    MNNODEVMSIZE | 挖掘节点的 VM 大小。 | | Standard_A1
     MNSTORAGEACCOUNTTYPE | 挖掘节点的存储性能。 | | Standard_LRS
     NUMTXNODES | 事务节点的数量。 | 介于 1 和 5 之间。 | 1
-    TXNODEVMSIZE | 事务节点的 VM 大小。 | | Standard_B1s
+    TXNODEVMSIZE | 事务节点的 VM 大小。 | | Standard_A1
     TXSTORAGEACCOUNTTYPE | 事务节点的存储性能。 | | Standard_LRS
     BASEURL | 从中获取依赖模板的基 URL。 | 除非想要自定义部署模板，否则请使用默认值。 | 
 
@@ -125,10 +127,10 @@ Ethereum 解决方案模板旨在利用最少的 Azure 和 Ethereum 知识，使
     ADMINSSHKEY（身份验证类型 = sshPublicKey） | 用于远程登录的安全 shell 密钥。 | |
     CONSORTIUMMEMBERID | 与每个联盟网络成员关联的 ID。   | 此 ID 应在网络中唯一。 | 0
     NUMMININGNODES | 挖掘节点的数量。 | 介于 2 和 15 之间。 | 2
-    MNNODEVMSIZE | 挖掘节点的 VM 大小。 | | Standard_B1s
+    MNNODEVMSIZE | 挖掘节点的 VM 大小。 | | Standard_A1
     MNSTORAGEACCOUNTTYPE | 挖掘节点的存储性能。 | | Standard_LRS
     NUMTXNODES | 事务节点的数量。 | 介于 1 和 5 之间。 | 1
-    TXNODEVMSIZE | 事务节点的 VM 大小。 | | Standard_B1s
+    TXNODEVMSIZE | 事务节点的 VM 大小。 | | Standard_A1
     TXSTORAGEACCOUNTTYPE | 事务节点的存储性能。 | | Standard_LRS
     CONSORTIUMDATA | 指向由其他成员的部署提供的相关联盟配置数据的 URL。 可在领导者的部署输出中找到此值。 | |
     REMOTEMEMBERVNETADDRESSSPACE | 领导者的 NVA IP 地址。 可在领导者的部署输出中找到此值。 | | 

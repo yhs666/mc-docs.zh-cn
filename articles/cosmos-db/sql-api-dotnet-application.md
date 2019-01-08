@@ -1,28 +1,26 @@
 ---
-title: 适用于 Azure Cosmos DB 的 ASP.NET MVC 教程：Web 应用程序开发 | Azure
+title: 适用于 Azure Cosmos DB 的 ASP.NET MVC 教程：Web 应用程序开发
 description: 介绍如何创建使用 Azure Cosmos DB 的 MVC Web 应用程序的 ASP.NET MVC 教程。 将存储 JSON 并从 Azure 网站上托管的待办事项应用程序中访问数据 — ASP NET MVC 教程分步说明。
 keywords: asp.net mvc 教程, web 应用程序开发, mvc web 应用程序, asp net mvc 教程分步说明
 services: cosmos-db
 author: rockboyfor
-manager: digimobile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
-ms.workload: azure-vs
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 08/03/2017
-ms.date: 12/03/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
 ms.custom: devcenter, vs-azure
-ms.openlocfilehash: 25e0aee146ded2958927903f8aa4b572c28cb665
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: d608e4e5b4e5accee4244aad81bd3e633cf255e8
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674485"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026817"
 ---
 <a name="_Toc395809351"></a>
-# <a name="aspnet-mvc-tutorial-web-application-development-with-azure-cosmos-db"></a>ASP.NET MVC 教程：开发采用 Azure Cosmos DB 的 Web 应用程序
+# <a name="aspnet-mvc-tutorial-web-application-development-with-azure-cosmos-db"></a>ASP.NET MVC 教程：使用 Azure Cosmos DB 进行 Web 应用程序开发
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -36,7 +34,7 @@ ms.locfileid: "52674485"
 
 ![屏幕截图：“ASP NET MVC 教程分步说明”教程创建的待办事项列表 MVC Web 应用程序](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-image01.png)
 
-本演练演示如何使用 Azure Cosmos DB 服务从 Azure 上托管的 ASP.NET MVC Web 应用程序来存储和访问数据。 若要学习只侧重于 Azure Cosmos DB 而不是 ASP.NET MVC 组件的教程，请参阅[构建 Azure Cosmos DB C# 控制台应用程序](sql-api-get-started.md)。
+本演练演示如何使用 Azure Cosmos DB 服务从 Azure 上托管的 ASP.NET MVC Web 应用程序来存储和访问数据。 如果正在寻找只侧重于 Azure Cosmos DB 而不是 ASP.NET MVC 组件的教程，请参阅 [构建 Azure Cosmos DB C# 控制台应用程序](sql-api-get-started.md)。
 
 > [!TIP]
 > 本教程假设读者先前有使用 ASP.NET MVC 和 Azure 网站的经验。 如果不熟悉 ASP.NET 或[必备工具](#_Toc395637760)，我们建议从 [GitHub][GitHub] 下载完整的示例项目，并按照此示例中的说明操作。 构建之后，可以回顾本文以深入了解项目上下文中的代码。
@@ -68,7 +66,7 @@ ms.locfileid: "52674485"
 现在，我们演练如何从头开始创建新的 ASP.NET MVC 应用程序。 
 
 <a name="_Toc395637762"></a>
-## <a name="step-2-create-a-new-aspnet-mvc-application"></a>步骤 2：创建新的 ASP.NET MVC 应用程序
+## <a name="step-2-create-a-new-aspnet-mvc-application"></a>步骤 2：新建 ASP.NET MVC 应用程序
 
 1. 在 Visual Studio 的“文件”菜单中，指向“新建”，并单击“项目”。 将显示“新建项目”对话框。
 
@@ -94,11 +92,11 @@ ms.locfileid: "52674485"
 ## <a name="step-3-add-azure-cosmos-db-to-your-mvc-web-application-project"></a>步骤 3：将 Azure Cosmos DB 添加到 MVC Web 应用程序项目
 完成此解决方案的大部分 ASP.NET MVC 琐事后，可以开始本教程的真正目的，也就是将 Azure Cosmos DB 添加到 MVC Web 应用程序。
 
-1. Azure Cosmos DB .NET SDK 将打包并以 NuGet 包的形式分发。 若要在 Visual Studio 中获取 NuGet 包，请使用 Visual Studio 中的 NuGet 包管理器，方法是右键单击“解决方案资源管理器”中的项目，并单击“管理 NuGet 包”。
+1. Azure Cosmos DB .NET SDK 将打包并以 NuGet 包的形式分发。 要在 Visual Studio 中获取 NuGet 包，请使用 Visual Studio 中的 NuGet 包管理器，方法是右键单击“解决方案资源管理器”中的项目，并单击“管理 NuGet 包”。
 
     ![屏幕截图：解决方案资源管理器中 Web 应用程序项目的右键单击选项，其中突出显示了“管理 NuGet 程序包”。](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-manage-nuget.png)
 
-    此时显示“管理 NuGet 包”对话框  。
+    此时会显示“管理 NuGet 包”对话框。
 2. 在 NuGet“浏览”框中，键入 ***Azure DocumentDB***。 （包名称尚未更新为 Azure Cosmos DB。）
 
     从结果中安装“Microsoft 提供的 Microsoft.Azure.DocumentDB”包。 这会下载并安装 Azure Cosmos DB 程序包，以及所有依赖项（例如 Newtonsoft.Json）。 在“预览”窗口中单击“确定”，并在“许可证接受”窗口中单击“我接受”，以完成安装。
@@ -226,7 +224,7 @@ ms.locfileid: "52674485"
    * 在“模板”框中，选择“编辑”。
    * 在“模型类”框中，选择“项(todo.Models)”。
    * 在“布局页”框中，键入 ***~/Views/Shared/_Layout.cshtml***。
-   * 单击“添加” 。
+   * 单击“添加”。
 
 完成此操作之后，关闭 Visual Studio 中的所有 cshtml 文档，我们稍后会回头使用这些视图。
 
@@ -234,7 +232,7 @@ ms.locfileid: "52674485"
 ## <a name="step-5-wiring-up-azure-cosmos-db"></a>步骤 5：连接 Azure Cosmos DB
 我们已经创建了标准的 MVC 项目，现在我们可以开始添加 Azure Cosmos DB 的代码。 
 
-在本节中，我们通过添加代码来处理下列操作：
+在本节中，我们将添加代码来处理下列操作：
 
 * [列出未完成的项](#_Toc395637770)。
 * [添加项](#_Toc395637771)。
@@ -430,9 +428,9 @@ ms.locfileid: "52674485"
 
     此代码会调用到 DocumentDBRepository，并使用 CreateItemAsync 方法将新的待办事项保存到数据库。 
 
-    **安全说明**：此处所使用的 **ValidateAntiForgeryToken** 属性可帮助此应用程序防止跨站点请求伪造攻击。 这不仅仅是添加此属性，视图也必须使用此防伪令牌。 有关此主题的详细信息以及如何正确实施此操作的示例，请参阅[防止跨站点请求伪造][防止跨站点请求伪造]。 [GitHub][GitHub] 上提供的源代码已有完整实现。
+    **安全说明**：此处使用的 **ValidateAntiForgeryToken** 属性可帮助此应用程序防止跨站点请求伪造攻击。 这不仅仅是添加此属性，视图也必须使用此防伪令牌。 有关此主题的详细信息以及如何正确实施此操作的示例，请参阅[防止跨站点请求伪造][防止跨站点请求伪造]。 [GitHub][GitHub] 上提供的源代码已有完整实现。
 
-    **安全说明**：我们还会在方法参数中使用 **Bind** 属性，帮助防范 over-posting 攻击。 有关更多详细信息，请参阅 [ASP.NET MVC 中的基本 CRUD 操作][ASP.NET MVC 中的基本 CRUD 操作]。
+    **安全说明**：我们还会在方法参数中使用 **Bind** 属性，帮助防范过度提交攻击。 有关更多详细信息，请参阅 [ASP.NET MVC 中的基本 CRUD 操作][ASP.NET MVC 中的基本 CRUD 操作]。
 
 将新项添加到数据库所需的代码至此结束。
 
@@ -503,7 +501,7 @@ ms.locfileid: "52674485"
             return View(item);
         }
 
-    第一个方法会处理当用户单击“索引”视图中的“编辑”链接时所发生的 Http GET。 此方法会从 Azure Cosmos DB 中提取[**文档**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx)，并将它传递给“编辑”视图。
+    第一个方法会处理当用户单击“索引”视图中的“编辑”链接时所发生的 Http GET。 此方法会从 Azure Cosmos DB 中提取[**文档**](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.document)，并将它传递给“编辑”视图。
 
     “编辑”视图会接着对 **IndexController** 执行 Http POST 操作。 
 
@@ -561,6 +559,6 @@ ms.locfileid: "52674485"
 
 若要向应用程序添加其他功能，请查看 [Azure Cosmos DB .NET 库](https://docs.azure.cn/zh-cn/dotnet/api/overview/cosmosdb?view=azure-dotnet)中提供的 API，并欢迎在 [GitHub][GitHub] 上的 Azure Cosmos DB .NET 库中补充内容。 
 
-<!-- Not Available on [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError --> [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx [Microsoft Web 平台安装程序]: http://www.microsoft.com/web/downloads/platform.aspx [防止跨站点请求伪造]: http://go.microsoft.com/fwlink/?LinkID=517254 [ASP.NET MVC 中的基本 CRUD 操作]: http://go.microsoft.com/fwlink/?LinkId=317598 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
+<!-- Not Available on [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError --> [Visual Studio Express]: https://www.visualstudio.com/products/visual-studio-express-vs.aspx [Microsoft Web 平台安装程序]: https://www.microsoft.com/web/downloads/platform.aspx [防止跨站点请求伪造]: https://go.microsoft.com/fwlink/?LinkID=517254 [ASP.NET MVC 中的基本 CRUD 操作]: https://go.microsoft.com/fwlink/?LinkId=317598 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
 <!-- Update_Description: update meta properties, update link  -->

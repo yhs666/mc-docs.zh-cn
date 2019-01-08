@@ -12,21 +12,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/05/2018
-ms.date: 12/17/2018
+origin.date: 12/11/2018
+ms.date: 12/31/2018
 ms.author: v-jay
 ms.reviewer: wfayed
-ms.openlocfilehash: 34fa03c479072f5492fb45d4d488a60bd7326be4
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.openlocfilehash: 40f95fab9567b6da578396d83b8dbce82ab14c25
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396103"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814609"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure Stack 集成系统的 Azure 断开连接部署计划决策
 在决定[如何将 Azure Stack 集成到混合云环境](azure-stack-connection-models.md)后，可以完成 Azure Stack 部署决策。
 
-无需连接到 Internet 即可部署和使用 Azure Stack。 但是，使用断开连接部署，你将受限于一个 AD FS 标识存储和基于容量的计费模型。 
+无需连接到 Internet 即可部署和使用 Azure Stack。 但是，使用断开连接部署，你将受限于一个 AD FS 标识存储和基于容量的计费模型。 由于多租户需要使用 Azure AD，因此断开连接的部署不支持多租户。 
 
 适合选择此选项的情况如下所述：
 - 如果存在要求你在未连接到 Internet 的环境中部署 Azure Stack 的安全性或其他限制。

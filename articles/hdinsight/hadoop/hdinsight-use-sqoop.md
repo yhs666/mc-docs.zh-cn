@@ -1,36 +1,31 @@
 ---
 title: 通过 Azure HDInsight (Hadoop) 运行 Apache Sqoop 作业
 description: 了解如何从工作站使用 Azure PowerShell 在 Hadoop 群集和 Azure SQL 数据库之间运行 Sqoop 导入和导出。
-editor: jasonwhowell
+ms.reviewer: jasonh
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-ms.assetid: 2fdcc6b7-6ad5-4397-a30b-e7e389b66c7a
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/16/2018
-ms.date: 09/24/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: c46607667ef09a872e70d78959a09c6a0b4847ea
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 2d7558cba988533847028a6d24d662bcd943f147
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647968"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029228"
 ---
-# <a name="use-sqoop-with-hadoop-in-hdinsight"></a>将 Sqoop 与 HDInsight 中的 Hadoop 配合使用
+# <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>在 HDInsight 中将 Apache Sqoop 与 Hadoop 配合使用
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
+了解如何使用 HDInsight 中的 Apache Sqoop 在 HDInsight 群集和 Azure SQL 数据库或 SQL Server 数据库之间进行导入和导出。
 
+虽然自然而然地选用 Apache Hadoop 处理如日志和文件等非结构化和半结构化的数据，但可能还需要处理存储在关系数据库中的结构化数据。
 
-了解如何使用 HDInsight 中的 Sqoop 在 HDInsight 群集和 Azure SQL 数据库或 SQL Server 数据库之间进行导入和导出。
-
-虽然选择 Hadoop 处理日志和文件等非结构化和半结构化的数据是理所当然的事，但可能还需要处理存储在关系数据库中的结构化数据。
-
-[Sqoop][sqoop-user-guide-1.4.4] 是一种专用于在 Hadoop 群集和关系数据库之间传输数据的工具。 可以使用此工具将数据从关系数据库管理系统 (RDBMS)（如 SQL Server、MySQL 或 Oracle）导入到 Hadoop 分布式文件系统 (HDFS)，在 Hadoop 中使用 MapReduce 或 Hive 转换数据，然后将数据导回 RDBMS。 在本教程中，SQL Server 数据库将用于关系数据库。
+[Apache Sqoop][sqoop-user-guide-1.4.4] 是一种专用于在 Hadoop 群集和关系数据库之间传输数据的工具。 可以使用此工具将数据从关系数据库管理系统 (RDBMS)（如 SQL Server、MySQL 或 Oracle）中导入到 Hadoop 分布式文件系统 (HDFS)，在 Hadoop 中使用 MapReduce 或 Apache Hive 转换数据，然后将数据导回到 RDBMS。 在本教程中，SQL Server 数据库将用于关系数据库。
 
 有关 HDInsight 群集上支持的 Sqoop 版本，请参阅 [HDInsight 提供的群集版本有哪些新增功能？][hdinsight-versions]
 
@@ -38,8 +33,8 @@ ms.locfileid: "52647968"
 
 HDInsight 群集带有某些示例数据。 可使用以下两个示例：
 
-* 位于 */example/data/sample.log*的 log4j 日志文件。 以下日志会从该文件中提取出来：
-
+* 位于 */example/data/sample.log* 的 Apache Log4j 日志文件。 以下日志会从该文件中提取出来：
+  
         2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
         2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
         2012-02-03 18:35:34 SampleClass3 [DEBUG] detail for id 1304807656
@@ -83,21 +78,21 @@ HDInsight 群集带有某些示例数据。 可使用以下两个示例：
 2. 输入以下属性：
 
     - **订阅**：输入 Azure 订阅。
-    - **资源组**：创建新的 Azure 资源组或选择现有的资源组。  资源组用于管理。  它是对象的容器。
+    - **资源组**：创建新的 Azure 资源组或选择现有资源组。  资源组用于管理。  它是对象的容器。
     - **位置**：选择区域。
-    - **群集名称**：输入 Hadoop 群集的名称。
-    - **群集登录名和密码**：默认登录名是 admin。
+    - **clusterName**：输入 Hadoop 群集的名称。
+    - **群集登录名和密码**：默认登录名是“admin”。
     - **SSH 用户名和密码**。
     - **SQL 数据库服务器登录名和密码**。
     - **_artifacts 位置**：使用默认值（除非想要在其他位置使用自己的 backpac 文件）。
-    - **_artifacts 位置 Sas 令牌**：将其留空。
+    - **_artifacts 位置 Sas 令牌**：将此字段留空。
     - **Bacpac 文件名**：使用默认值（除非想要使用自己的 backpac 文件）。
      
         以下值在变量部分中硬编码：
         
         |Name|值|
         |----|-----|
-        | 默认存储帐户名 | &lt;CluterName>store |
+        | 默认存储帐户名 | &lt;ClusterName>store |
         | Azure SQL 数据库服务器名称 | &lt;ClusterName>dbserver |
         | Azure SQL 数据库名称 | &lt;ClusterName>db |
      
@@ -106,13 +101,13 @@ HDInsight 群集带有某些示例数据。 可使用以下两个示例：
 
 如果选择使用现有的 Azure SQL 数据库或 Microsoft SQL Server
 
-* **Azure SQL 数据库**：必须为 Azure SQL 数据库服务器配置防火墙规则，允许从工作站进行访问。 有关创建 Azure SQL 数据库和配置防火墙的说明，请参阅 [Azure SQL 数据库入门][sqldatabase-get-started]。 
+* **Azure SQL 数据库**：必须为 Azure SQL 数据库服务器配置防火墙规则以允许从工作站进行访问。 有关创建 Azure SQL 数据库和配置防火墙的说明，请参阅 [Azure SQL 数据库入门][sqldatabase-get-started]。 
 
   > [!NOTE]
-  > 默认情况下，可以从 Azure HDInsight 这样的 Azure 服务连接 Azure SQL 数据库。 如果禁用了此防火墙设置，则必须从 Azure 门户启用它。 有关创建 Azure SQL 数据库和配置防火墙规则的说明，请参阅 [创建和配置 SQL 数据库][sqldatabase-create-configue]。
+  > 默认情况下，可以从 Azure HDInsight 这样的 Azure 服务连接 Azure SQL 数据库。 如果禁用了此防火墙设置，则必须从 Azure 门户启用它。 有关创建 Azure SQL 数据库和配置防火墙规则的说明，请参阅[创建和配置 SQL 数据库][sqldatabase-create-configue]。
   > 
   > 
-* **SQL Server**：如果 HDInsight 群集与 SQL Server 位于 Azure 中的同一虚拟网络，则可以使用本文中的步骤将数据导入或导出 SQL Server 数据库。
+* **SQL Server**：如果 HDInsight 群集与 SQL Server 位于 Azure 中的同一虚拟网络，可以使用本文中的步骤对 SQL Server 数据库执行数据导入和导出操作。
 
   > [!NOTE]
   > HDInsight 仅支持基于位置的虚拟网络，并且当前不适用于基于地缘组的虚拟网络。
@@ -128,7 +123,7 @@ HDInsight 群集带有某些示例数据。 可使用以下两个示例：
       > 
       > 
     * 在 Azure 虚拟机上使用 SQL Server 时，如果托管 SQL Server 的虚拟机是 HDInsight 所在虚拟网络的成员，则可以使用任何虚拟网络配置。
-  * 若要在虚拟网络上创建 HDInsight 群集，请参阅[使用自定义选项在 HDInsight 中创建 Hadoop 群集](../hdinsight-hadoop-provision-linux-clusters.md)
+  * 若要在虚拟网络上创建 HDInsight 群集，请参阅[使用自定义选项在 HDInsight 中创建 Apache Hadoop 群集](../hdinsight-hadoop-provision-linux-clusters.md)
 
     > [!NOTE]
     > SQL Server 还必须允许身份验证。 必须使用 SQL Server 登录名来完成本文中的步骤。
@@ -165,8 +160,8 @@ HDInsight 可以使用各种方法运行 Sqoop 作业。 使用下表来确定�
 ## <a name="next-steps"></a>后续步骤
 现在你已了解如何使用 Sqoop。 若要了解更多信息，请参阅以下文章：
 
-* [将 Hive 与 HDInsight 配合使用](../hdinsight-use-hive.md)
-* [将 Pig 与 HDInsight 配合使用](../hdinsight-use-pig.md)
+* [将 Apache Hive 和 HDInsight 配合使用](../hdinsight-use-hive.md)
+* [将 Apache Pig 和 HDInsight 配合使用](../hdinsight-use-pig.md)
 * [将数据上传到 HDInsight][hdinsight-upload-data]：了解将数据上传到 HDInsight/Azure Blob 存储的其他方法。
 
 ## <a name="appendix-a---a-powershell-sample"></a>附录 A - PowerShell 示例
@@ -221,7 +216,7 @@ PowerShell 示例执行以下步骤：
    > [!NOTE]
    > 除了连接字符串信息，此部分中的步骤还应适用于 Azure SQL 数据库或 SQL Server。 这些步骤已经过以下配置测试：
    > 
-   > * **Azure 虚拟网络点到站点配置**：虚拟网络已将 HDInsight 群集连接到专用数据中心的 SQL Server。 有关详细信息，请参阅[在管理门户中配置点到站点 VPN](../../vpn-gateway/vpn-gateway-point-to-site-create.md)。
+   > * **Azure 虚拟网络点到站点 VPN 配置**：虚拟网络已将 HDInsight 群集连接到专用数据中心的 SQL Server。 有关详细信息，请参阅[在管理门户中配置点到站点 VPN](../../vpn-gateway/vpn-gateway-point-to-site-create.md)。
    > * **Azure HDInsight**：有关在虚拟网络上创建群集的信息，请参阅[使用自定义选项在 HDInsight 中创建 Hadoop 群集](../hdinsight-hadoop-provision-linux-clusters.md)。
    > * **SQL Server 2014**：已配置为允许身份验证和运行 VPN 客户端配置包，可以安全地连接到虚拟网络。
    > 
@@ -267,7 +262,7 @@ $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
     $sqlDatabaseMaxSizeGB = 10
 
     # Used for retrieving external IP address and creating firewall rules
-    $ipAddressRestService = "http://bot.whatismyipaddress.com"
+    $ipAddressRestService = "https://bot.whatismyipaddress.com"
     $fireWallRuleName = "UseSqoop"
 
     # Used for creating tables and clustered indexes
@@ -312,7 +307,7 @@ $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
     catch{Connect-AzureRmAccount -EnvironmentName AzureChinaCloud}
     #endregion
 
-    #region - Create Azure resouce group
+    #region - Create Azure resource group
     Write-Host "`nCreating an Azure resource group ..." -ForegroundColor Green
     try{
         Get-AzureRmResourceGroup -Name $resourceGroupName
@@ -641,10 +636,10 @@ $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
 [hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
 
 [sqldatabase-get-started]: ../../sql-database/sql-database-get-started.md
-[sqldatabase-create-configue]: ../../sql-database/sql-database-get-started.md
+[sqldatabase-create-configure]: ../../sql-database/sql-database-get-started.md
 
-[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
+[powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
-[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
+[powershell-script]: https://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html

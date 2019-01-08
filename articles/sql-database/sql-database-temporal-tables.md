@@ -13,12 +13,12 @@ ms.reviewer: carlrab
 manager: digimobile
 origin.date: 03/21/2018
 ms.date: 12/03/2018
-ms.openlocfilehash: a07b6864ec4a2a22d6bae14fd548fcfad0834155
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 4232adcb799be6e36215ff749b2bc7b5322232d3
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672920"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996256"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Azure SQL 数据库中的临时表入门
 临时表是 Azure SQL 数据库中新的可编程功能，可用于跟踪和分析数据更改的完整历史记录，而无需编写自定义代码。 临时表保存与时间上下文密切相关的数据，因此，只有特定时段内的存储事实才会解译为有效。 利用临时表的这种属性，可执行基于时间的有效分析，并从数据演变中获得见解。
@@ -45,7 +45,7 @@ ms.locfileid: "52672920"
 
 ![SSMSNewTable](./media/sql-database-temporal-tables/AzureTemporal2.png)
 
-在 SSDT 中将新项添加到数据库项目时，请选择“临时表(版本由系统控制)”模板。 此时会打开表设计器，让你轻松指定表布局：
+在 SSDT 中将新项添加到数据库项目时，请选择“时态表(版本由系统控制)”模板。 此时会打开表设计器，让你轻松指定表布局：
 
 ![SSDTNewTable](./media/sql-database-temporal-tables/AzureTemporal3.png)
 

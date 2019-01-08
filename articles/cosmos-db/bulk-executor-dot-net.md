@@ -1,21 +1,20 @@
 ---
-title: 使用批量执行程序 .NET 库在 Azure Cosmos DB 中执行批量导入和更新操作 | Azure
+title: 使用批量执行程序 .NET 库在 Azure Cosmos DB 中执行批量导入和更新操作
 description: 使用批量执行程序 .NET 库，批量导入和更新 Azure Cosmos DB 文档。
 services: cosmos-db
 author: rockboyfor
-manager: digimobile
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
 origin.date: 10/16/2018
-ms.date: 12/03/2018
+ms.date: 12/31/2018
 ms.author: v-yeche
-ms.openlocfilehash: 072dfc57816d1dff393cdbd90145eee6e15329aa
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 7c5f23147ed6aff1e4a99c95c21dead880210c3d
+ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674693"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814747"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>使用 Bulk Executor .NET 库在 Azure Cosmos DB 中执行批量操作
 
@@ -44,7 +43,7 @@ ms.locfileid: "52674693"
 git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started.git
 ```
 
-克隆的存储库包含两个示例：“BulkImportSample”和“BulkUpdateSample”。 可以打开任一示例应用程序，使用 Azure Cosmos DB 帐户的连接字符串更新 App.config 文件中的连接字符串，生成解决方案，然后运行它。 
+克隆的存储库包含两个示例“BulkImportSample”和“BulkUpdateSample”。可以打开任一示例应用程序，使用 Azure Cosmos DB 帐户的连接字符串更新 App.config 文件中的连接字符串，生成解决方案，然后运行它。 
 
 “BulkImportSample”应用程序生成随机文档并将其批量导入 Azure Cosmos DB。 “BulkUpdateSample”应用程序通过指定要对特定文档字段执行的修补操作，来批量更新导入的文档。 在后续部分，我们将查看其中每个示例应用中的代码。
 

@@ -1,12 +1,27 @@
+---
+author: rockboyfor
+ms.service: cosmos-db
+ms.topic: include
+origin.date: 11/25/2018
+ms.date: 12/31/2018
+ms.author: v-yeche
+ms.openlocfilehash: 8e1b1c579889ad98488bc0040dd3c4f10ccbd24f
+ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814844"
+---
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
-将使用 Azure CLI 创建在 Azure 中托管应用所需的资源。 使用 [az login](https://docs.microsoft.com/cli/azure/#login) 命令登录到 Azure 订阅，并按照屏幕上的说明进行操作。
+将使用 Azure CLI 创建在 Azure 中托管应用所需的资源。 若要在本地运行 Azure CLI 命令，请使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login) 命令登录到 Azure 订阅，并按屏幕上的说明进行操作。
 
+<!--Not Available on If you run Azure CLI commands in the Cloud Shell, you're already signed in.-->
 ```azurecli
 az login
 ```
 
 > [!NOTE]
-> 在 Azure China 中使用 Azure CLI 2.0 之前，请首先运行 `az cloud set -n AzureChinaCloud` 更改云环境。 如果要切换回全局 Azure，请再次运行 `az cloud set -n AzureCloud`。
+> 请先运行 `az cloud set -n AzureChinaCloud` 更改云环境，然后才能在 Azure 中国中使用 Azure CLI。 如果要切换回全局 Azure，请再次运行 `az cloud set -n AzureCloud`。
 
-<!-- ms.date: 08/15/2018 -->
+<!--Update_Description: wording update-->

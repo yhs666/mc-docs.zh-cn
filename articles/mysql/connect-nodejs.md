@@ -1,28 +1,25 @@
 ---
 title: 通过 Node.js 连接到 Azure Database for MySQL
 description: 本快速入门提供多个 Node.js 代码示例，使用这些示例可连接到适用于 MySQL 的 Azure 数据库并查询其中的数据。
-services: mysql
 author: WenJason
 ms.author: v-jay
-manager: digimobile
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: nodejs
 ms.topic: quickstart
-origin.date: 02/28/2018
-ms.date: 08/13/2018
-ms.openlocfilehash: e60bf594c73e6b58f427dce850d9e7cfd9d57697
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 11/21/2018
+ms.date: 01/07/2019
+ms.openlocfilehash: b62db37eea41a412cc56f9a79db732e7503eae8c
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649815"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996369"
 ---
-# <a name="azure-database-for-mysql-use-nodejs-to-connect-and-query-data"></a>适用于 MySQL 的 Azure 数据库：使用 Node.js 进行连接并查询数据
+# <a name="azure-database-for-mysql-use-nodejs-to-connect-and-query-data"></a>Azure Database for MySQL：使用 Node.js 连接和查询数据
 
 > [!NOTE]
-> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql/)。
+> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
 
 本快速入门演示如何在 Windows、Ubuntu Linux 和 Mac 平台中使用 [Node.js](https://nodejs.org/) 连接到适用于 MySQL 的 Azure 数据库。 同时还介绍了如何使用 SQL 语句在数据库中查询、插入、更新和删除数据。 本主题假设你熟悉如何使用 Node.js 进行开发，但不太熟悉 Azure Database for MySQL 的用法。
 
@@ -33,24 +30,24 @@ ms.locfileid: "52649815"
 
 还需要：
 - 安装 [Node.js](https://nodejs.org) 运行时。
-- 安装 [mysql2](https://www.npmjs.com/package/mysql2) 包，以便从 Node.js 应用程序连接到 MySQL。 
+- 安装 [mysql](https://www.npmjs.com/package/mysql) 包，以便从 Node.js 应用程序连接到 MySQL。 
 
 ## <a name="install-nodejs-and-the-mysql-connector"></a>安装 Node.js 和 MySQL 连接器
-根据自己的平台，按照相应部分中的说明安装 Node.js。 使用 npm 将 mysql2 包及其依赖项安装到项目文件夹中。
+根据自己的平台，按照相应部分中的说明安装 Node.js。 使用 npm 将 mysql 包及其依赖项安装到项目文件夹中。
 
 ### <a name="windows"></a>**Windows**
 1. 请访问 [Node.js 下载页](https://nodejs.org/en/download/)，然后选择所需的 Windows 安装程序选项。
 2. 创建本地项目文件夹，例如 `nodejsmysql`。 
 3. 启动命令提示符，然后将目录更改为项目文件夹，例如 `cd c:\nodejsmysql\`
-4. 运行 NPM 工具，将 mysql2 库安装到项目文件夹中。
+4. 运行 NPM 工具，将 mysql 库安装到项目文件夹中。
 
    ```cmd
    cd c:\nodejsmysql\
-   "C:\Program Files\nodejs\npm" install mysql2
+   "C:\Program Files\nodejs\npm" install mysql
    "C:\Program Files\nodejs\npm" list
    ```
 
-5. 通过检查 `npm list` 输出文本中的 `mysql2@1.3.5` 来验证安装。
+5. 通过检查 `npm list` 输出文本来验证安装。 随着新修补程序的发布，版本号可能会变化。
 
 ### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
 1. 运行以下命令安装 **Node.js** 和 **npm**（适用于 Node.js 的包管理器）。
@@ -59,15 +56,15 @@ ms.locfileid: "52649815"
    sudo apt-get install -y nodejs npm
    ```
 
-2. 运行以下命令创建项目文件夹 `mysqlnodejs`，并在该文件夹中安装 mysql2 包。
+2. 运行以下命令以创建项目文件夹 `mysqlnodejs`，并在该文件夹中安装 mysql 包。
 
    ```bash
    mkdir nodejsmysql
    cd nodejsmysql
-   npm install --save mysql2
+   npm install --save mysql
    npm list
    ```
-3. 通过检查 npm list 输出文本中的 `mysql2@1.3.5` 来验证安装。
+3. 通过检查 npm list 输出文本来验证安装。 随着新修补程序的发布，版本号可能会变化。
 
 ### <a name="mac-os"></a>**Mac OS**
 1. 输入以下命令安装 **brew**（适用于 Mac OS X 和 **Node.js** 的易用程序包管理器）。
@@ -76,16 +73,16 @@ ms.locfileid: "52649815"
    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
    brew install node
    ```
-2. 运行以下命令创建项目文件夹 `mysqlnodejs`，并在该文件夹中安装 mysql2 包。
+2. 运行以下命令以创建项目文件夹 `mysqlnodejs`，并在该文件夹中安装 mysql 包。
 
    ```bash
    mkdir nodejsmysql
    cd nodejsmysql
-   npm install --save mysql2
+   npm install --save mysql
    npm list
    ```
 
-3. 通过检查 `npm list` 输出文本中的 `mysql2@1.3.6` 来验证安装。 随着新修补程序的发布，版本号可能会变化。
+3. 通过检查 `npm list` 输出文本来验证安装。 随着新修补程序的发布，版本号可能会变化。
 
 ## <a name="get-connection-information"></a>获取连接信息
 获取连接到 Azure Database for MySQL 所需的连接信息。 需要完全限定的服务器名称和登录凭据。
@@ -110,7 +107,7 @@ ms.locfileid: "52649815"
 将 `host`、`user`、`password`、`database` 参数替换为你在创建服务器和数据库时指定的值。
 
 ```javascript
-const mysql = require('mysql2');
+const mysql = require('mysql');
 
 var config =
 {
@@ -177,7 +174,7 @@ function queryDatabase(){
 将 `host`、`user`、`password`、`database` 参数替换为你在创建服务器和数据库时指定的值。
 
 ```javascript
-const mysql = require('mysql2');
+const mysql = require('mysql');
 
 var config =
 {
@@ -229,7 +226,7 @@ function readData(){
 将 `host`、`user`、`password`、`database` 参数替换为你在创建服务器和数据库时指定的值。
 
 ```javascript
-const mysql = require('mysql2');
+const mysql = require('mysql');
 
 var config =
 {
@@ -277,7 +274,7 @@ function updateData(){
 将 `host`、`user`、`password`、`database` 参数替换为你在创建服务器和数据库时指定的值。
 
 ```javascript
-const mysql = require('mysql2');
+const mysql = require('mysql');
 
 var config =
 {

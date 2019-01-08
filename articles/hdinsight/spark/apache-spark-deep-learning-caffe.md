@@ -13,14 +13,14 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 origin.date: 02/17/2017
-ms.date: 06/25/2018
+ms.date: 01/14/2018
 ms.author: v-yiso
-ms.openlocfilehash: 10e78054ce2712eecc9137cc3b9cce113f3c86e4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a80411c6181f4cfb820f2f1a54fe3f62b265a2c1
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666857"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806580"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>使用 Caffe on Azure HDInsight Spark 进行分布式深度学习
 
@@ -30,7 +30,7 @@ ms.locfileid: "52666857"
 
 有[许多常用框架](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software)，其中包括 [Microsoft 认知工具包](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/)、[Tensorflow](https://www.tensorflow.org/)、MXNet、Theano 等。Caffe 是最著名的非符号（命令式）神经网络框架之一，广泛用于包括计算机视觉在内的许多领域。 此外，[CaffeOnSpark](http://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep) 将 Caffe 与 Apache Spark 相结合，因此，可在现有 Hadoop 集群上轻松使用深度学习。 可将深度学习与 Spark ETL 管道搭配使用，降低系统复杂性和完整解决方案学习中的延迟。
 
-[HDInsight](https://www.azure.cn/home/features/hdinsight/) 是云 Hadoop 产品，为 Spark、Hive、Hadoop、HBase、Storm、Kafka 提供优化的开源分析群集。 HDInsight 提供 99.9% SLA 支持。 这些大数据技术和 ISV 应用程序均可轻松部署为受企业保护和监视的托管群集。
+[HDInsight](/hdinsight/) 是云 Apache Hadoop 产品/服务，为 Apache Spark、Apache Hive、Apache Hadoop、Apache HBase、Apache Storm、Apache Kafka 和 ML Services 提供优化的开源分析群集。 HDInsight 提供 99.9% SLA 支持。 这些大数据技术和 ISV 应用程序均可轻松部署为受企业保护和监视的托管群集。
 
 本文演示如何为 HDInsight 群集安装 [CaffeonSpark](https://github.com/yahoo/CaffeOnSpark)。 本文还内置了 MNIST 演示，展示如何通过 CPU 上的 HDInsight Spark 使用分布式深度学习。
 
@@ -75,7 +75,7 @@ HDInsight 是一种 PaaS 解决方案，因此提供了出色的平台功能，�
 ![用于安装依赖项的脚本操作](./media/apache-spark-deep-learning-caffe/Script-Action-1.png)
 
 
-## <a name="step-2-build-caffe-on-spark-for-hdinsight-on-the-head-node"></a>步骤 2：在头节点上生成 Caffe on Spark for HDInsight
+## <a name="step-2-build-caffe-on-apache-spark-for-hdinsight-on-the-head-node"></a>步骤 2：在头节点上生成 Caffe on Apache Spark for HDInsight
 
 第二步是在头节点上生成 Caffe，然后将编译的库分发到所有工作节点。 在此步骤中，必须[使用 SSH 连接到头节点](/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)。 之后，必须执行 [CaffeOnSpark 生成步骤](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn)。 下面是使用其他步骤生成 CaffeOnSpark 的脚本。 
 
@@ -298,7 +298,7 @@ SampleID 表示 MNIST 数据集中的 ID，标签是模型的标识数字。
 * [概述：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>方案
-* [Spark 和机器学习：使用 HDInsight 中的 Spark 对使用 HVAC 数据生成温度进行分析](apache-spark-ipython-notebook-machine-learning.md)
+* [Spark 和机器学习：使用 HDInsight 中的 Spark 结合 HVAC 数据分析建筑物温度](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](apache-spark-machine-learning-mllib-ipython.md)
 
 ### <a name="manage-resources"></a>管理资源

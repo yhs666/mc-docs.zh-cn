@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/08/2018
-ms.date: 12/03/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: affbd2981cf4fd1e5ffc5ff9040f26e8a9699ef3
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 96e5277f81f78831f193ff22c10188a4d808f4f0
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676560"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026762"
 ---
 # <a name="working-with-azure-cosmos-databases-containers-and-items"></a>使用 Azure Cosmos 数据库、容器和项
 
@@ -27,8 +27,8 @@ ms.locfileid: "52676560"
 
 <!-- Not Available on **Cassandra API**  | **Gremlin API** | **Table API** |-->
 
-| **Azure Cosmos 实体** | **SQL API** | **MongoDB API** |
-| --- | --- | --- | --- | --- | --- |
+| **Azure Cosmos 实体** | **SQL API** | * **Azure Cosmos DB 的 API for MongoDB** |
+| --- | --- | --- |
 |Azure Cosmos 数据库 | 数据库 | 数据库 |
 
 <!-- Not Available on **Cassandra API**  | **Gremlin API** | **Table API** |-->
@@ -40,7 +40,7 @@ ms.locfileid: "52676560"
 
 <!-- Not Available on **Cassandra API**  | **Gremlin API** | **Table API** |-->
 
-| **操作** | **Azure CLI**|**SQL API** | **MongoDB API** |
+| **操作** | **Azure CLI**|**SQL API** | **Azure Cosmos DB 的 API for MongoDB** |
 | --- | --- | --- | --- |
 |枚举所有数据库| 是 | 是 | 是 |
 |读取数据库| 是 | 是 | 是 |
@@ -54,11 +54,11 @@ Azure Cosmos 容器是预配的吞吐量和项目存储的缩放单元。 容器
 
 在创建 Azure Cosmos 容器时，会在以下某个模式中配置吞吐量：
 
-* **专用预配吞吐量**模式：针对容器预配的吞吐量是专门为其保留的，且由 SLA 支持。 有关详细信息，请参阅[如何对 Azure Cosmos 容器预配吞吐量](how-to-provision-container-throughput.md)。
+* **专用预配吞吐量**模式：针对容器预配的吞吐量是专门为其保留的，且由 SLA 提供支持。 有关详细信息，请参阅[如何对 Azure Cosmos 容器预配吞吐量](how-to-provision-container-throughput.md)。
 
-* **共享预配吞吐量**模式：这些容器与同一数据库中的其他容器共享预配吞吐量（不包含已预配专用预配吞吐量的容器）。 换而言之，针对该数据库预配的吞吐量是在所有“共享”容器之间共享的。 有关详细信息，请参阅[如何对 Azure Cosmos 数据库配置预配吞吐量](how-to-provision-database-throughput.md)。
+* **共享预配吞吐量**模式：这些容器与同一数据库中的其他容器共享预配吞吐量（不包含已配置专用预配吞吐量的容器）。 换而言之，针对该数据库预配的吞吐量是在所有“共享”容器之间共享的。 有关详细信息，请参阅[如何对 Azure Cosmos 数据库配置预配吞吐量](how-to-provision-database-throughput.md)。
 
-无论使用“共享”还是“专用”预配吞吐量模式创建容器，Azure Cosmos 容器都可以灵活缩放，也就是说它们可拥有无限的存储和预配吞吐量。  
+无论使用“共享”还是“专用”预配吞吐量模式创建容器，Azure Cosmos 容器都可以灵活缩放。
 
 Azure Cosmos 容器是与架构无关的项容器。 容器中的项可以具备任意架构。 例如，如果容器中有表示人员的项，那么该容器也能包含表示汽车的项。 默认情况下，添加到容器的所有项都会自动编入索引，不需要任何显式索引或架构管理工作。 通过在容器上配置的索引策略，可以自定义索引行为。 
 
@@ -74,9 +74,9 @@ Azure Cosmos 容器专用于特定于 API 的实体，如下所示：
 
 <!-- Not Available on **Cassandra API**  | **Gremlin API** | **Table API** |-->
 
-| **Azure Cosmos 实体** | **SQL API** | **MongoDB API** |
+| **Azure Cosmos 实体** | **SQL API** | **Azure Cosmos DB 的 API for MongoDB** |
 | --- | --- | --- |
-|Azure Cosmos 容器 | 容器 | 集合 |
+|Azure Cosmos 容器 | 集合 | 集合 |
 
 <!-- Not Available on **Cassandra API**  | **Gremlin API** | **Table API** |-->
 ### <a name="properties-of-an-azure-cosmos-container"></a>Azure Cosmos 容器的属性
@@ -85,7 +85,7 @@ Azure Cosmos 容器具备一组系统定义的属性。 根据所选的 API，�
 
 <!-- Not Available on **Cassandra API**  | **Gremlin API** | **Table API** |-->
 
-| **系统定义的属性** | **是系统生成的还是可由用户设置的？** | **用途** | **SQL API** | **MongoDB API** |
+| **系统定义的属性** | **是系统生成的还是可由用户设置的？** | **用途** | **SQL API** | **Azure Cosmos DB 的 API for MongoDB** |
 | --- | --- | --- | --- | --- |
 |__rid | 系统生成的 | 容器的唯一标识符 | 是 | 否 |
 |__etag | 系统生成的 | 用于乐观并发控制的实体标记 | 是 | 否 |
@@ -104,13 +104,13 @@ Azure Cosmos 容器支持使用任何 Azure Cosmos API 执行的以下操作。
 
 <!-- Not Available on **Cassandra API**  | **Gremlin API** | **Table API** |-->
 
-| **操作** | **Azure CLI** | **SQL API** | **Cassandra API** | **MongoDB API** | **Gremlin API** | **表 API** |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| 枚举数据库中的容器 | 是* | 是 | 是 | 是 | 不可用 | 不可用 |
-| 读取容器 | 是 | 是 | 是 | 是 | 不可用 | 不可用 |
-| 新建容器 | 是 | 是 | 是 | 是 | 不可用 | 不可用 |
-| 更新容器 | 是 | 是 | 是 | 是 | 不可用 | 不可用 |
-| 删除容器 | 是 | 是 | 是 | 是 | 不可用 | 不可用 |
+| **操作** | **Azure CLI** | **SQL API** | **Azure Cosmos DB 的 API for MongoDB** |
+| --- | --- | --- | --- | --- |
+| 枚举数据库中的容器 | 是* | 是 | 是 |
+| 读取容器 | 是 | 是 | 是 |
+| 新建容器 | 是 | 是 | 是 |
+| 更新容器 | 是 | 是 | 是 |
+| 删除容器 | 是 | 是 | 是 |
 
 <!-- Not Available on **Cassandra API**  | **Gremlin API** | **Table API** |-->
 ## <a name="azure-cosmos-items"></a>Azure Cosmos 项
@@ -119,9 +119,9 @@ Azure Cosmos 容器支持使用任何 Azure Cosmos API 执行的以下操作。
 
 <!-- Not Available on **Cassandra API**  | **Gremlin API** | **Table API** |-->
 
-| **Cosmos 实体** | **SQL API** | **MongoDB API** |
+| **Cosmos 实体** | **SQL API** | **Azure Cosmos DB 的 API for MongoDB** |
 | --- | --- | --- |
-|Azure Cosmos 项 | 项目 | 文档 |
+|Azure Cosmos 项 | 文档 | 文档 |
 
 <!-- Not Available on **Cassandra API**  | **Gremlin API** | **Table API** |-->
 ### <a name="properties-of-an-item"></a>项的属性
@@ -130,7 +130,7 @@ Azure Cosmos 容器支持使用任何 Azure Cosmos API 执行的以下操作。
 
 <!-- Not Available on **Cassandra API**  | **Gremlin API** | **Table API** |-->
 
-|**系统定义的属性** | **是系统生成的还是可由用户设置的？**| **用途** | **SQL API**  | **MongoDB API** |
+|**系统定义的属性** | **是系统生成的还是可由用户设置的？**| **用途** | **SQL API**  | **Azure Cosmos DB 的 API for MongoDB**|
 | --- | --- | --- | --- | --- |
 |__id | 系统生成的 | 项的唯一标识符 | 是 | 否 |
 |__etag | 系统生成的 | 用于乐观并发控制的实体标记 | 是 | 否 |
@@ -146,7 +146,7 @@ Azure Cosmos 项支持可使用任何 Azure Cosmos API 执行的以下操作。
 
 <!-- Not Available on **Cassandra API**  | **Gremlin API** | **Table API** |-->
 
-| **操作** | **Azure CLI** | **SQL API**  | **MongoDB API** |
+| **操作** | **Azure CLI** | **SQL API**  | **Azure Cosmos DB 的 API for MongoDB** |
 | --- | --- | --- | --- | --- |
 | 插入、替换、删除、Upsert、读取 | 否 | 是 | 是 |
 
@@ -162,5 +162,4 @@ Azure Cosmos 项支持可使用任何 Azure Cosmos API 执行的以下操作。
 * [如何使用更改源生成响应式应用程序](change-feed.md)
 * [如何对 Azure Cosmos 容器配置唯一键约束](unique-keys.md)
 
-<!-- Update_Description: new articles on cosmos db database containers items -->
-<!--ms.date: 12/03/2018-->
+<!-- Update_Description: wording update -->

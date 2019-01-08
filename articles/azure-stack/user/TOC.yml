@@ -131,6 +131,8 @@ items:
           href: azure-stack-solution-template-kubernetes-deploy.md
         - name: 对 Kubernetes 群集进行故障排除
           href: azure-stack-solution-template-kubernetes-trouble.md
+      - name: 部署认知服务
+        href: azure-stack-solution-template-cognitive-services.md
   - name: 生成应用
     items:
     - name: 为 Azure Stack 进行开发
@@ -140,7 +142,7 @@ items:
       - name: 安装 Azure Stack PowerShell
         href: ../azure-stack-powershell-install.md
         maintainContext: true
-      - name: 配置 PowerShell
+      - name: 使用 PowerShell 连接
         href: azure-stack-powershell-configure-user.md
       - name: 下载 Azure Stack 工具
         href: ../azure-stack-powershell-download.md
@@ -212,9 +214,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: 培训和认证
     href: /azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: c17227812eba8115b0d396901873c1a09121343e
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.openlocfilehash: 653db8b4ec4b85fc0810f2ded5db5c11419b0428
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396125"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814654"

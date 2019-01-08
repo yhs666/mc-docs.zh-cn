@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/16/2018
-ms.date: 06/25/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 0dd7cafc6b1cbf0c6b58ca944c689c1c17cd493e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1bf7173dca81228212f105984b3bac3712257465
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662126"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029222"
 ---
-# <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>在 Hadoop on HDInsight 中使用 MapReduce
+# <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>在 Apache Hadoop on HDInsight 中使用 MapReduce
 
 了解如何在 HDInsight 群集上运行 MapReduce 作业。 使用下表找到可将 MapReduce 与 HDInsight 配合使用的各种方法：
 
@@ -40,11 +40,11 @@ ms.locfileid: "52662126"
 
 ## <a id="whatis"></a>什么是 MapReduce
 
-Hadoop MapReduce 是一个软件框架，用于编写处理海量数据的作业。 输入的数据将拆分为独立的区块。 每个区块跨群集中的节点并行进行处理。 MapReduce 作业包括两个函数：
+Apache Hadoop MapReduce 是一个软件框架，用于编写处理海量数据的作业。 输入的数据将拆分为独立的区块。 每个区块跨群集中的节点并行进行处理。 MapReduce 作业包括两个函数：
 
-* **映射器**：使用输入数据，对数据进行分析（通常使用筛选器和排序操作），并发出元组（键/值对）
+* **Mapper**：使用输入数据，对数据进行分析（通常使用筛选器和排序操作），并发出元组（键/值对）
 
-* **化简器**：使用映射器发出的元组并执行汇总运算，以基于映射器数据创建更小的合并结果
+* **Reducer**：使用 Mapper 发出的元组并执行汇总运算，以基于 Mapper 数据创建更小的合并结果
 
 下图演示了一个基本的单词计数 MapReduce 作业示例：
 
@@ -65,7 +65,7 @@ Hadoop 流式处理通过 STDIN 和 STDOUT 与映射器和化简器通信。 映
 
     [key]/t[value]
 
-有关详细信息，请参阅 [Hadoop Streaming](http://hadoop.apache.org/docs/r1.2.1/streaming.html)（Hadoop 流式处理）。
+有关详细信息，请参阅 [Hadoop Streaming](https://hadoop.apache.org/docs/r1.2.1/streaming.html)（Hadoop 流式处理）。
 
 有关将 Hadoop 流式处理与 HDInsight 配合使用的示例，请参阅以下文档：
 
@@ -184,9 +184,9 @@ HDInsight 可以使用各种方法运行 HiveQL 作业。 使用下表来确定�
 
 * [为 HDInsight 开发 Python 流式处理 MapReduce 程序](apache-hadoop-streaming-python.md)
 
-* [将 Hive 与 HDInsight 配合使用][hdinsight-use-hive]
+* [将 Apache Hive 和 HDInsight 配合使用][hdinsight-use-hive]
 
-* [将 Pig 与 HDInsight 配合使用][hdinsight-use-pig]
+* [将 Apache Pig 和 HDInsight 配合使用][hdinsight-use-pig]
 
 
 [hdinsight-upload-data]: hdinsight-upload-data.md

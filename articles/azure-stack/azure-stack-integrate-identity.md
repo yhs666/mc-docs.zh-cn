@@ -6,17 +6,17 @@ author: WenJason
 manager: digimobile
 ms.service: azure-stack
 ms.topic: article
-origin.date: 11/08/2018
-ms.date: 12/17/2018
+origin.date: 12/10/2018
+ms.date: 12/31/2018
 ms.author: v-jay
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: e65f8ab07a7e303debd0a2815ba415ec2b4c05d7
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.openlocfilehash: e93066c770157be51ac323d0774e6a0b248375d4
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396217"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814653"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 数据中心集成 - 标识
 可以使用 Azure Active Directory (Azure AD) 或 Active Directory 联合身份验证服务 (AD FS) 作为标识提供者来部署 Azure Stack。 必须在部署 Azure Stack 之前做出选择。 使用 AD FS 的部署也称为在断开连接模式下部署 Azure Stack。
@@ -56,7 +56,7 @@ ms.locfileid: "53396217"
 
 |组件|要求|
 |---------|---------|
-|图形|Microsoft Active Directory 2012/2012 R2/2016|
+|Graph|Microsoft Active Directory 2012/2012 R2/2016|
 |AD FS|Windows Server 2012/2012 R2/2016|
 
 ## <a name="setting-up-graph-integration"></a>设置 Graph 集成
@@ -132,7 +132,7 @@ Azure Stack 中的 Graph 服务使用以下协议和端口来与目标 Active Di
 
 |参数|说明|示例|
 |---------|---------|---------|
-|CustomAdfsName|声明提供程序的名称。<cr>AD FS 登陆页上会显示此名称。|Contoso|
+|CustomAdfsName|声明提供程序的名称。<br>AD FS 登录页上会显示此名称。|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|联合元数据链接|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
 
 
@@ -216,7 +216,7 @@ Azure Stack 中的 Graph 服务使用以下协议和端口来与目标 Active Di
 
 Microsoft 提供了用于配置信赖方信任（包括声明转换规则）的脚本。 不一定要使用此脚本，也可以手动运行命令。
 
-可以从 Github 上的 [Azure Stack 工具](https://github.com/Azure/AzureStack-Tools/tree/vnext/DatacenterIntegration/Identity)下载帮助器脚本。
+可以从 GitHub 上的 [Azure Stack 工具](https://github.com/Azure/AzureStack-Tools/tree/vnext/DatacenterIntegration/Identity)下载帮助器脚本。
 
 如果确定要手动运行命令，请遵循以下步骤：
 

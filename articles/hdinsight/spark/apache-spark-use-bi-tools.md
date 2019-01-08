@@ -1,30 +1,26 @@
 ---
 title: 教程：使用 Power BI 在 Azure HDInsight 中分析 Apache Spark 数据
-description: 使用 Microsoft Power BI 来可视化存储在 HDInsight 群集中的 Spark 数据
+description: 使用 Microsoft Power BI 来可视化存储在 HDInsight 群集中的 Apache Spark 数据
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
+author: hrasheed-msft
 ms.assetid: 1448b536-9bc8-46bc-bbc6-d7001623642a
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 05/07/2018
-ms.date: 06/25/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 818d50708e74ac7367198abea2f8819028c4bc5a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 9657dbe5bc7613366eae7f4349cc6c0d6f368f1d
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663432"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806626"
 ---
-# <a name="tutorial-analyze-spark-data-using-power-bi-in-hdinsight"></a>教程：使用 Power BI 在 HDInsight 中分析 Spark 数据 
+# <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>教程：使用 Power BI 在 HDInsight 中分析 Apache Spark 数据 
 
-了解如何使用 Microsoft Power BI 在 Azure HDInsight 中可视化 Apache Spark 群集中的数据。
+了解如何使用 [Microsoft Power BI](https://powerbi.microsoft.com/) 在 [Azure HDInsight](/hdinsight/) 中可视化 [Apache Spark](https://spark.apache.org/) 群集中的数据。
 
 本教程介绍如何执行下列操作：
 > [!div class="checklist"]
@@ -34,13 +30,13 @@ ms.locfileid: "52663432"
 
 ## <a name="prerequisites"></a>先决条件
 
-* **完成[教程：在 Azure HDInsight 中的 Apache Spark 群集上加载数据并运行查询](./apache-spark-load-data-run-query.md)一文**。
-* **Power BI**[：Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) 和 [Power BI 试用订阅](https://app.powerbi.com/signupredirect?pbi_source=web)（可选）。
+* **完成文章[教程：在 Azure HDInsight 中的 Apache Spark 群集上加载数据并运行查询](./apache-spark-load-data-run-query.md)**。
+* **Power BI**：[Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) 和 [Power BI 试用订阅](https://app.powerbi.com/signupredirect?pbi_source=web)（可选）。
 
 
 ## <a name="verify-the-data"></a>验证数据
 
-[上一教程](apache-spark-load-data-run-query.md)中创建的 Jupyter 笔记本包含用于创建 `hvac` 表的代码。 此表基于在所有 HDInsight Spark 群集上均可用的 CSV 文件（位于 \HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv）。 使用以下过程验证数据。
+[上一教程](apache-spark-load-data-run-query.md)中创建的 [Jupyter Notebook](https://jupyter.org/) 包含用于创建 `hvac` 表的代码。 此表基于在所有 HDInsight Spark 群集上均可用的 CSV 文件（位于 \HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv）。 使用以下过程验证数据。
 
 1. 从 Jupyter 笔记本中，粘贴以下代码，然后按 Shift+Enter。 该代码验证表是否存在。
 
@@ -84,7 +80,7 @@ ms.locfileid: "52663432"
     ![从 HDInsight Apache Spark 中获取数据到 Power BI Desktop](./media/apache-spark-use-bi-tools/hdinsight-spark-power-bi-desktop-get-data.png "从 Apache Spark BI 中获取数据到 Power BI")
 
 
-2. 在搜索框中输入 `Spark`，选择 Azure HDInsight Spark (Beta)，然后单击“连接”。
+2. 在搜索框中输入 `Spark`，选择 Azure HDInsight Spark，然后单击“连接”。
 
     ![从 Apache Spark BI 中获取数据到 Power BI](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "从 Apache Spark BI 中获取数据到 Power BI")
 
@@ -182,14 +178,14 @@ Power BI 服务允许在整个组织中共享报表和仪表板。 在本部分�
 
 1. Install [Tableau Desktop](http://www.tableau.com/products/desktop) on the computer where you are running this Apache Spark BI tutorial.
 
-2. Make sure that computer also has Microsoft Spark ODBC driver installed. You can install the driver from [here](http://go.microsoft.com/fwlink/?LinkId=616229).
+2. Make sure that computer also has Microsoft Spark ODBC driver installed. You can install the driver from [here](https://go.microsoft.com/fwlink/?LinkId=616229).
 
 1. Launch Tableau Desktop. In the left pane, from the list of server to connect to, click **Spark SQL**. If Spark SQL is not listed by default in the left pane, you can find it by click **More Servers**.
 2. In the Spark SQL connection dialog box, provide the values as shown in the screenshot, and then click **OK**.
 
     ![Connect to a cluster for Apache Spark BI](./media/apache-spark-use-bi-tools/connect-to-tableau-apache-spark-bi.png "Connect to a cluster for Apache Spark BI")
 
-    The authentication drop-down lists **Microsoft Azure HDInsight Service** as an option, only if you installed the [Microsoft Spark ODBC Driver](http://go.microsoft.com/fwlink/?LinkId=616229) on the computer.
+    The authentication drop-down lists **Microsoft Azure HDInsight Service** as an option, only if you installed the [Microsoft Spark ODBC Driver](https://go.microsoft.com/fwlink/?LinkId=616229) on the computer.
 3. On the next screen, from the **Schema** drop-down, click the **Find** icon, and then click **default**.
 
     ![Find schema for Apache Spark BI](./media/apache-spark-use-bi-tools/tableau-find-schema-apache-spark-bi.png "Find schema for Apache Spark BI")
@@ -225,9 +221,9 @@ Power BI 服务允许在整个组织中共享报表和仪表板。 在本部分�
 
 在本教程中，你已学习了如何执行以下操作：
 
-- 使用 Power BI 可视化 Spark 数据。
+- 使用 Power BI 可视化 Apache Spark 数据。
 
 请前进到下一篇文章，了解如何将在 Spark 中注册的数据拉取到 Power BI 等 BI 分析工具中。 
 > [!div class="nextstepaction"]
-> [运行 Spark 流式处理作业](apache-spark-eventhub-streaming.md)
+> [运行 Apache Spark 流式处理作业](apache-spark-eventhub-streaming.md)
 

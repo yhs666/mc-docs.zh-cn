@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-origin.date: 09/07/2018
-ms.date: 10/15/2018
+origin.date: 12/03/2018
+ms.date: 12/31/2018
 ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: feed19ba1a52855cff10f9c2a69a949a93a454ce
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 64bc9edd8b002bff9a597b288beb9c2c5568c917
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663196"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814622"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>快速入门：在 Azure Stack 中使用 PowerShell 创建 Linux 服务器虚拟机
 
@@ -48,7 +48,7 @@ ms.locfileid: "52663196"
 
 资源组是一个逻辑容器，可以在其中部署和管理 Azure Stack 资源。 在开发工具包或 Azure Stack 集成系统中，运行以下代码块创建资源组。 本文档中为所有变量都分配了值，你可以使用这些值或分配新值。
 
-```powershell
+```powershell  
 # Create variables to store the location and resource group names.
 $location = "local"
 $ResourceGroupName = "myResourceGroup"
@@ -62,7 +62,7 @@ New-AzureRmResourceGroup `
 
 创建一个存储帐户，然后创建 Ubuntu Server 16.04 LTS 映像的存储容器。
 
-```powershell
+```powershell  
 # Create variables to store the storage account name and the storage account SKU information
 $StorageAccountName = "mystorageaccount"
 $SkuName = "Standard_LRS"
@@ -396,7 +396,7 @@ Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ssh <Public IP Address>
 ```
 
-出现提示时，输入 azureuser 作为登录用户名。 如果在创建 SSH 密钥时使用了通行短语，则必须提供该通行短语。
+出现提示时，以 **azureuser** 身份登录。 如果在创建 SSH 密钥时使用了通行短语，则必须提供该通行短语。
 
 ## <a name="install-the-nginx-web-server"></a>安装 NGINX Web 服务器
 

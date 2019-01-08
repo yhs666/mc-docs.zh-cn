@@ -6,41 +6,43 @@ documentationcenter: ''
 author: WenJason
 manager: digimobile
 editor: ''
-ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/07/2018
-ms.date: 10/15/2018
+origin.date: 12/03/2018
+ms.date: 12/31/2018
 ms.author: v-jay
-ms.openlocfilehash: 41745292f3862de71a8b8352f4f296d342dcea5f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.reviewer: wfayed
+ms.openlocfilehash: c822310b9e831917ece347774db1cf410a306fd1
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655433"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814608"
 ---
 # <a name="apply-updates-in-azure-stack"></a>在 Azure Stack 中应用更新
 
 *适用于：Azure Stack 集成系统*
 
-作为 Azure Stack 操作员，可以使用管理员门户中的“更新”磁贴为 Azure Stack 应用 Microsoft 或 OEM 更新包。 必须下载更新包，将包文件导入到 Azure Stack，然后安装更新包。 
+可以使用管理门户中的“更新”磁贴为 Azure Stack 应用 Microsoft 或 OEM 更新包。 必须下载更新包，将包文件导入到 Azure Stack，然后安装更新包。
 
 ## <a name="download-the-update-package"></a>下载更新包
 
 当适用于 Azure Stack 的 Microsoft 或 OEM 更新包可用时，将该包下载到可从 Azure Stack 访问的位置，并查看包内容。 更新包通常包含以下文件：
 
-- 自解压 *PackageName*.exe 文件。 此文件包含更新的有效负载，例如，Windows Server 的最新累积更新。   
-- 相应的 *PackageName*.bin 文件。 这些文件为与 *PackageName*.exe 文件关联的有效负载提供压缩。 
-- Metadata.xml 文件。 此文件包含有关更新的基本信息，例如发布者、名称、先决条件、大小和支持路径 URL。
+- 一个自解压缩 `<PackageName>.exe` 文件。 此文件包含更新的有效负载，例如，Windows Server 的最新累积更新。
+
+- 对应的 `<PackageName>.bin` 文件。 这些文件为与 *PackageName*.exe 文件关联的有效负载提供压缩。
+
+- 一个 `Metadata.xml` 文件。 此文件包含有关更新的基本信息，例如发布者、名称、先决条件、大小和支持路径 URL。
 
 ## <a name="import-and-install-updates"></a>导入并安装更新
 
 以下过程说明如何在管理员门户中导入并安装更新包。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 我们强烈建议你向用户通知任何维护操作，并尽可能将正常维护时段安排在非工作时间。 维护操作可能会同时影响用户工作负荷和门户操作。
 
 1. 在管理员门户中，选择“所有服务”。 然后，在“数据 + 存储”类别下，选择“存储帐户”。 （或者，在筛选框中开始键入“存储帐户”，然后选择它。）

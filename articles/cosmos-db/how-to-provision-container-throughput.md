@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 11/06/2018
-ms.date: 12/03/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: fdcff8e3183054f11a9ad75c84c99fdc3e0ce4d4
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 4bd8c7fbbffba1947ad21448d1f75810c82534a3
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676779"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026662"
 ---
 # <a name="provision-throughput-for-an-azure-cosmos-db-container"></a>为 Azure Cosmos DB 容器预配吞吐量
 
@@ -30,6 +30,7 @@ ms.locfileid: "52676779"
 
    * 创建新数据库或使用现有数据库。
    * 输入集合 ID（或表、图形）。
+   * 输入分区键值，例如 `/userid`。
    * 输入吞吐量，例如 1000 RU。
    * 选择“确定” 。
 
@@ -48,7 +49,7 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-如果要为 MongoDB API 帐户预配吞吐量，请使用“/myShardKey”作为分区键路径。
+如果要为使用 Azure Cosmos DB 的 API for MongoDB 配置的 Cosmos 帐户预配吞吐量，请使用“/myShardKey”作为分区键路径。
 
 <!-- Not Available on  Cassandra API account, use '/myPrimaryKey' for the partition key path.-->
 

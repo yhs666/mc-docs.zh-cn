@@ -9,18 +9,18 @@ ms.service: hdinsight
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 05/07/2018
-ms.date: 08/27/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 4b5921cee86cd3c5310b2fd4a3fc82b1d5055655
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: dafcf601b9714468e555fb8dca71ae67bd06f768
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645700"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806492"
 ---
-# <a name="quickstart-create-a-spark-cluster-in-hdinsight-using-powershell"></a>快速入门：使用 PowerShell 在 HDInsight 中创建 Spark 群集
-了解如何在 Azure HDInsight 中创建 Apache Spark 群集，以及如何对 Hive 表运行 Spark SQL 查询。 通过 Apache Spark 可以使用内存处理进行快速数据分析和群集计算。 有关 Spark on HDInsight 的信息，请参阅[概述：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)。
+# <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-powershell"></a>快速入门：使用 PowerShell 在 HDInsight 中创建 Apache Spark 群集
+了解如何在 Azure HDInsight 中创建 [Apache Spark](https://spark.apache.org/) 群集，以及如何对 [Apache Hive](https://hive.apache.org/) 表运行 Spark SQL 查询。 通过 Apache Spark 可以使用内存处理进行快速数据分析和群集计算。 有关 Spark on HDInsight 的信息，请参阅[概述：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)。
 
 在此快速入门中，使用 Azure PowerShell 创建 HDInsight Spark 群集。 群集将 Azure 存储 Blob 用作群集存储。
 
@@ -123,7 +123,7 @@ ms.locfileid: "52645700"
 
 ## <a name="create-a-jupyter-notebook"></a>创建 Jupyter 笔记本
 
-Jupyter Notebook 是支持各种编程语言的交互式笔记本环境。 通过此笔记本可以与数据进行交互、结合代码和 markdown 文本以及执行简单的可视化效果。 
+[Jupyter Notebook](https://jupyter.org/) 是支持各种编程语言的交互式笔记本环境。 通过此笔记本可以与数据进行交互、结合代码和 markdown 文本以及执行简单的可视化效果。 
 
 1. 打开 [Azure 门户](https://portal.azure.cn)。
 2. 选择“HDInsight 群集”，然后选择所创建的群集。
@@ -189,4 +189,4 @@ HDInsight 将数据保存在 Azure 存储或 Azure Data Lake Store 中，因此�
 本快速入门介绍了如何创建 HDInsight Spark 群集并运行基本的 Spark SQL 查询。 转到下一教程，了解如何使用 HDInsight Spark 群集针对示例数据运行交互式查询。
 
 > [!div class="nextstepaction"]
->[在 Spark 上运行交互式查询](./apache-spark-load-data-run-query.md)
+>[在 Apache Spark 上运行交互式查询](./apache-spark-load-data-run-query.md)

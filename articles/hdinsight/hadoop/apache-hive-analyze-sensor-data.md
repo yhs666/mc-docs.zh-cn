@@ -1,6 +1,6 @@
 ---
-title: 使用 Hive 和 Hadoop 分析传感器数据 - Azure HDInsight | Azure
-description: 了解如何通过将 Hive 查询控制台与 HDInsight (Hadoop) 配合使用来分析传感器数据，然后通过 PowerView 在 Microsoft Excel 中可视化数据。
+title: 使用 Apache Hive 和 Apache Hadoop 分析传感器数据 - Azure HDInsight
+description: 了解如何通过将 Apache Hive 查询控制台与 HDInsight (Hadoop) 配合使用来分析传感器数据，并通过 PowerView 在 Microsoft Excel 中直观显示数据。
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/14/2017
-ms.date: 12/18/2017
+ms.date: 01/14/2019
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 85c3c0db892df51ed2c79625cbbf0db12c4f27a2
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 307842edd8f1b9d3b0c663bbe9fc094d57e984c6
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651240"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029236"
 ---
-# <a name="analyze-sensor-data-using-the-hive-query-console-on-hadoop-in-hdinsight"></a>使用 HDInsight 中 Hadoop上的 Hive 查询控制台分析传感器数据
+# <a name="analyze-sensor-data-using-the-apache-hive-query-console-on-apache-hadoop-in-hdinsight"></a>使用 HDInsight 中 Apache Hadoop上的 Apache Hive 查询控制台分析传感器数据
 
-了解如何通过将 Hive 查询控制台与 HDInsight (Hadoop) 配合使用来分析传感器数据，然后通过使用 Power View 在 Microsoft Excel 中可视化数据。
+了解如何通过将 Apache Hive 查询控制台与 HDInsight (Apache Hadoop) 配合使用来分析传感器数据，并通过使用 Power View 在 Microsoft Excel 中直观显示数据。
 
 > [!IMPORTANT]
 > 本文档中的步骤仅适用于基于 Windows 的 HDInsight 群集。 低于 HDInsight 3.4 的 HDInsight 版本仅在 Windows 上提供。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
@@ -43,13 +43,13 @@ ms.locfileid: "52651240"
 
 ## <a name="prerequisites"></a>先决条件
 
-* HDInsight (Hadoop) 群集：有关创建群集的信息，请参阅[在 HDInsight 中创建 Hadoop 群集](../hdinsight-hadoop-provision-linux-clusters.md)。
+* 一个 HDInsight (Hadoop) 群集：有关创建群集的信息，请参阅[在 HDInsight 中创建 Apache Hadoop 群集](../hdinsight-hadoop-provision-linux-clusters.md)。
 * Microsoft Excel 2013
 
   > [!NOTE]
   > Microsoft Excel 用于通过 [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US)实现数据可视化。
 
-* [Microsoft Hive ODBC 驱动程序](http://www.microsoft.com/download/details.aspx?id=40886)
+* [Microsoft Hive ODBC 驱动程序](https://www.microsoft.com/download/details.aspx?id=40886)
 
 ## <a name="to-run-the-sample"></a>运行示例
 

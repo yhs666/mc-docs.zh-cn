@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 10/10/2018
-ms.date: 12/03/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 9b1ea4da2c532ae2f431c64f32bcf2430ca8987b
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: b4aea9209fe52fbf680cf9e33cefdd05268e953a
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676486"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026697"
 ---
 # <a name="azure-cosmos-db-multiple-region-distribution---under-the-hood"></a>Azure Cosmos DB 多区域分布 - 揭秘
 
@@ -23,7 +23,7 @@ Azure Cosmos DB 是 Azure 的一个基础服务，因此它将部署在中国境
 <!-- Not Available on including the public, sovereign, Department of Defense (DoD) and government clouds-->
 ![系统拓扑](./media/global-dist-under-the-hood/distributed-system-topology.png)
 
-**Azure Cosmos DB 中的多区域分布是一个便捷的服务：** 随时可以点击几下鼠标或者使用单个 API 调用以编程方式来添加或删除与 Cosmos 数据库关联的地理区域。 而 Cosmos 数据库包含一组 Cosmos 容器。 在 Cosmos DB 中，容器充当逻辑性的分布和缩放单元。 创建的集合（在内部）只是 Cosmos 容器。 容器对架构完全不可知，它提供查询范围。 Cosmos 容器中的数据在引入时会自动编制索引。 自动编制索引使用户无需处理架构或进行繁琐的索引管理（尤其是在多区域分布式设置中）就能查询数据。  
+**Azure Cosmos DB 中的多区域分布是统包式：** 随时可以点击几下鼠标或者使用单个 API 调用以编程方式来添加或删除与 Cosmos 数据库关联的地理区域。 而 Cosmos 数据库包含一组 Cosmos 容器。 在 Cosmos DB 中，容器充当逻辑性的分布和缩放单元。 创建的集合（在内部）只是 Cosmos 容器。 容器对架构完全不可知，它提供查询范围。 Cosmos 容器中的数据在引入时会自动编制索引。 自动编制索引使用户无需处理架构或进行繁琐的索引管理（尤其是在多区域分布式设置中）就能查询数据。  
 
 <!-- Not Available on  tables, and graphs-->
 - 在给定的区域中，可以使用分区键来分布容器中的数据。分区键由你提供，并由基础物理分区以透明方式进行管理（本地分布）。  
@@ -46,7 +46,7 @@ Cosmos DB 的多区域分布依赖于两个关键抽象 – 副本集和分区�
 
 ## <a name="replica-sets"></a>副本集
 
-资源分区具体化为一组分散在多个容错域之间的、名为“副本集”的自我托管动态负载均衡副本。 此集统一实现复制的状态机协议，使资源分区中的数据保持高度可用、持久且一致。 副本集成员身份 N 是动态的 - 它根据故障、管理操作以及重新生成/恢复有故障副本所需的时间，在 NMin 与 NMax 之间波动。 复制协议还会根据成员身份的变化来重新配置读取和写入仲裁的大小。 为了均匀分布分配给指定资源分区的吞吐量，我们采用了两种思路：首先，处理领先者写入请求的开销高于对后继者应用更新的开销。 相应地，为领先者预算的系统资源比后继者更多。 其次，确保给定一致性级别的读取仲裁尽可能地专门由后继者副本组成。 除非有必要，否则我们会避免访问领先者来为读取提供服务。 在基于仲裁的系统中针对 Cosmos DB 支持的五个一致性模型执行[负载和容量](http://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf)关系研究后，我们采用了多种思路。  
+资源分区具体化为一组分散在多个容错域之间的、名为“副本集”的自我托管动态负载均衡副本。 此集统一实现复制的状态机协议，使资源分区中的数据保持高度可用、持久且一致。 副本集成员身份 N 是动态的 - 它根据故障、管理操作以及重新生成/恢复有故障副本所需的时间，在 NMin 与 NMax 之间波动。 复制协议还会根据成员身份的变化来重新配置读取和写入仲裁的大小。 为了均匀分布分配给指定资源分区的吞吐量，我们采用了两种思路：首先，处理领先者写入请求的开销高于对后继者应用更新的开销。 相应地，为领先者预算的系统资源比后继者更多。 其次，确保给定一致性级别的读取仲裁尽可能地专门由后继者副本组成。 除非有必要，否则我们会避免访问领先者来为读取提供服务。 在基于仲裁的系统中针对 Cosmos DB 支持的五个一致性模型执行[负载和容量](https://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf)关系研究后，我们采用了多种思路。  
 
 ## <a name="partition-sets"></a>分区集
 
@@ -60,7 +60,7 @@ Cosmos DB 的多区域分布依赖于两个关键抽象 – 副本集和分区�
 
 ## <a name="conflict-resolution"></a>冲突解决
 
-我们在更新传播、冲突解决和因果关系跟踪的设计灵感来源于以往 [Epidemic 算法](http://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf)和 [Bayou](http://zoo.cs.yale.edu/classes/cs422/2013/bib/terry95managing.pdf) 系统工作的启发。 尽管这些思路的核心得以留存，并为传达 Cosmos DB 的系统设计提供方便的参考框架，但我们在将其应用于 Cosmos DB 系统时，还是对其做了重大改造。 之所以需要这样做，是因为以前的系统既没有设计资源调控，也不具备运行 Cosmos DB 所需的规模，无法提供 Cosmos DB 向其客户承诺的功能（例如有限过期一致性）和严格且全面的 SLA。  
+我们在更新传播、冲突解决和因果关系跟踪的设计灵感来源于以往 [Epidemic 算法](https://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf)和 [Bayou](https://zoo.cs.yale.edu/classes/cs422/2013/bib/terry95managing.pdf) 系统工作的启发。 尽管这些思路的核心得以留存，并为传达 Cosmos DB 的系统设计提供方便的参考框架，但我们在将其应用于 Cosmos DB 系统时，还是对其做了重大改造。 之所以需要这样做，是因为以前的系统既没有设计资源调控，也不具备运行 Cosmos DB 所需的规模，无法提供 Cosmos DB 向其客户承诺的功能（例如有限过期一致性）和严格且全面的 SLA。  
 
 前面提到，分区集分布在多个区域之间，并遵循 Cosmos DB（多主数据库）复制协议在包含给定分区集的物理分区之间复制数据。 （分区集的）每个资源分区通常接受写入到该区域本地的客户端，并为读取操作提供服务。 区域中资源分区接受的写入操作在由客户端确认之前，将以持久方式进行提交并在资源分区中保持高可用性。 这些写入是试探性的，将使用反熵通道传播到分区集中的其他物理分区。 客户端可以通过传递请求标头来请求试探性写入或提交的写入。 反熵传播（包括传播频率）是动态的，基于分区集的拓扑、物理分区的区域邻近性，以及配置的一致性级别。 在分区集中，Cosmos DB 遵循采用动态选定仲裁器分区的主要提交方案。 仲裁器的选择是动态的，在基于叠加层拓扑重新配置分区集时，它是不可或缺的一部分。 可保证提交的写入（包括多行/批处理更新）的顺序。 
 
@@ -75,7 +75,7 @@ Cosmos DB 的多区域分布依赖于两个关键抽象 – 副本集和分区�
 
 不管为 Cosmos 数据库配置了一个还是多个写入区域，都可以从五个妥善定义的一致性模型中进行选择。 借助新增的启用多个写入区域的支持，一致性级别获得了以下明显改善：  
 
-如同以往，有限过期一致性可保证所有读取操作将保留在任意区域中最新写入操作的 k 前缀或 t 秒范围内。 此外，可保证具有有限过期一致性的读取操作是单调的，且附带一致前缀保证。 反熵协议在运行时受到速率限制，确保前缀不会执行累加，并且不需要对写入应用反压。 如同以往，会话一致性可保证单调读取、单调写入、读取自己的写入、写入后读取，以及在整个中国的一致前缀保证。 对于配置了非常一致性的数据库，该系统将通过在每个分区集中指定一个领先者，切换回到单个写入区域。 
+如同以往，有限过期一致性可保证所有读取操作将保留在任意区域中最新写入操作的 k 前缀或 t 秒范围内。 此外，可保证具有有限过期一致性的读取操作是单调的，且附带一致前缀保证。 反熵协议在运行时受到速率限制，确保前缀不会执行累加，并且不需要对写入应用反压。 如同以往，会话一致性可保证单调读取、单调写入、读取自己的写入、写入后读取，以及在整个中国的一致前缀保证。 对于配置具有强一致性的数据库，由于跨区域的同步复制，多主数据库的好处（低写入延迟、高写入可用性）不适用。
 
 [此处](consistency-levels.md)介绍了 Cosmos DB 中五个一致性模型的语义，[此处](https://github.com/Azure/azure-cosmos-tla)使用高级 TLA+ 规范对其数学原理做了演示。
 
@@ -87,5 +87,4 @@ Cosmos DB 的多区域分布依赖于两个关键抽象 – 副本集和分区�
 * [在数据库帐户中添加/删除区域](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [如何为 SQL API 帐户创建自定义冲突解决策略](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
 
-<!-- Update_Description: new articles on cosmos db global dist under the hood -->
-<!--ms.date: 12/03/2018-->
+<!-- Update_Description: update meta properties, wording update -->

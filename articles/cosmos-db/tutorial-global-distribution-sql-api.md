@@ -1,23 +1,21 @@
 ---
-title: SQL API 的 Azure Cosmos DB 多区域分发教程 | Azure
+title: SQL API 的 Azure Cosmos DB 多区域分发教程
 description: 了解如何使用 SQL API 设置 Azure Cosmos DB 多区域分发。
 services: cosmos-db
 keywords: 多区域分布
 author: rockboyfor
-manager: digimobile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: tutorial
 origin.date: 05/10/2017
-ms.date: 09/30/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: c0ef675c837e60a4e848fa00b537a15f89a77e37
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d1d21355c26021bba18d2ab0787a79b85cbdd2da
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646332"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026763"
 ---
 # <a name="set-up-azure-cosmos-db-multiple-region-distribution-using-the-sql-api"></a>使用 SQL API 设置 Azure Cosmos DB 多区域分发
 
@@ -34,7 +32,7 @@ ms.locfileid: "52646332"
 
 ## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a>使用 SQL API 连接到首选区域
 
-为了利用[多区域分发](distribute-data-globally.md)，客户端应用程序可以指定要用于执行文档操作的区域优先顺序列表。 可通过设置连接策略来实现此目的。 SQL SDK 根据 Azure Cosmos DB 帐户配置、当前区域可用性和指定的优先顺序列表，选择最佳的终结点来执行写入和读取操作。
+为了利用[多区域分发](distribute-data-globally.md)，客户端应用程序可以指定要用于执行文档操作的区域优先顺序列表。 可通过设置连接策略来实现此目的。 SQL SDK 会根据 Azure Cosmos DB 帐户配置、当前区域可用性和指定的优先顺序列表，选择最佳的终结点来执行写入和读取操作。
 
 此优先顺序列表是在使用 SQL SDK 初始化连接时指定的。 SDK 接受可选参数“PreferredLocations”，这是 Azure 区域的顺序列表。
 
@@ -156,7 +154,7 @@ var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPoli
 
 如果在客户端初始发现阶段过后写入区域发生更改，则向先前写入区域进行的后续写入会失败并出现 HTTP 错误代码 403（“禁止”）。 然后，客户端应再次对区域列表执行 GET 以获取更新的写入区域。
 
-本教程到此结束。 阅读 [Azure Cosmos DB 中的一致性级别](consistency-levels.md)，了解如何管理全局复制帐户的一致性。 有关 Azure Cosmos DB 中多区域数据库复制工作原理的详细信息，请参阅[使用 Cosmos DB 多区域分配数据](distribute-data-globally.md)。
+本教程到此结束。 阅读 [Azure Cosmos DB 中的一致性级别](consistency-levels.md)，了解如何管理多区域复制帐户的一致性。 有关 Azure Cosmos DB 中多区域数据库复制工作原理的详细信息，请参阅[使用 Cosmos DB 多区域分配数据](distribute-data-globally.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

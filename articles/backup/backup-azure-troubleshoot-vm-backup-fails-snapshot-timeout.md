@@ -1,5 +1,5 @@
 ---
-title: Azure 备份故障排除：客户代理状态不可用
+title: 对 Azure 备份失败进行故障排除：来宾部署状态不可用
 description: 与代理、扩展和磁盘相关的 Azure 备份失败的症状、原因及解决方法。
 services: backup
 author: lingliw
@@ -7,17 +7,16 @@ manager: digimobile
 keywords: Azure 备份; VM 代理; 网络连接;
 ms.service: backup
 ms.topic: troubleshooting
-origin.date: 10/30/2018
-ms.date: 11/26/2018
+ms.date: 1/3/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 667d0fd339aad5ed9796b0dca52a0540ae1a1978
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 53ded4ab8a454e68f87e889ef2903442d3f7130b
+ms.sourcegitcommit: f46e1f7a5d582bb9663bfaee8087b233eb822e17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674893"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996511"
 ---
-# <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure 备份故障排除：代理或扩展的问题
+# <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>对 Azure 备份失败进行故障排除：代理或扩展的问题
 
 本文提供故障排查步骤，可帮助解决与 VM 代理和扩展通信相关的 Azure 备份错误。
 
@@ -27,7 +26,7 @@ ms.locfileid: "52674893"
 ## <a name="usererrorguestagentstatusunavailable---vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable - VM 代理无法与 Azure 备份通信
 
 **错误代码**：UserErrorGuestAgentStatusUnavailable <br>
-**错误消息**：VM 代理无法与 Azure 备份通信<br>
+**错误消息**：VM 代理无法与 Azure 备份进行通信<br>
 
 注册并计划备份服务的 VM 后，备份将通过与 VM 代理进行通信获取时间点快照，从而启动作业。 以下任何条件都可能阻止快照的触发。 如果未触发快照，则备份可能失败。 请按所列顺序完成以下故障排除步骤，然后重试操作：<br>
 **原因 1：[代理安装在 VM 中，但无响应（针对 Windows VM）](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
@@ -54,10 +53,9 @@ ms.locfileid: "52674893"
 * 如果每天触发多个备份，则也可能发生此问题。 目前，我们建议每天只创建一个备份，因为即时 RP 只保留 7 天，并且在任意给定时间，只能将 18 个即时 RP 与一个 VM 相关联。 <br>
 
 建议的操作：<br>
-若要解决此问题，请删除资源组中的锁，并重试触发清理的操作。
-
+若要解决此问题，请删除 VM 资源组中的锁，并重试触发清理的操作。 
 > [!NOTE]
-    > 备份服务将创建一个单独的资源组而非 VM 的资源组来存储还原点集合。 建议客户不要锁定为备份服务使用而创建的资源组。 备份服务创建的资源组的命名格式为：AzureBackupRG_`<Geo>`_`<number>`，例如 AzureBackupRG_northeurope_1
+    > 备份服务将创建一个单独的资源组而非 VM 的资源组来存储还原点集合。 建议客户不要锁定为备份服务使用而创建的资源组。 备份服务创建的资源组的命名格式为：AzureBackupRG_`<Geo>`_`<number>` 例如：AzureBackupRG_northeurope_1
 
 **步骤 1：[删除还原点资源组中的锁](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **步骤 2：[清理还原点集合](#clean_up_restore_point_collection)**<br>
@@ -65,7 +63,7 @@ ms.locfileid: "52674893"
 ## <a name="usererrorkeyvaultpermissionsnotconfigured---backup-doesnt-have-sufficient-permissions-to-the-key-vault-for-backup-of-encrypted-vms"></a>UserErrorKeyvaultPermissionsNotConfigured - 备份服务对密钥保管库没有足够的权限，无法备份已加密的 VM。
 
 **错误代码**：UserErrorKeyvaultPermissionsNotConfigured <br>
-**错误消息**：备份服务对密钥保管库没有足够的权限，无法备份已加密的 VM。 <br>
+**错误消息**：备份服务对 Key Vault 没有足够的权限，无法备份已加密的 VM。 <br>
 
 要使备份操作在加密的 VM 上成功，该服务必须具有访问密钥保管库的权限。 这可以使用 [Azure 门户](/backup/backup-azure-vms-encryption#provide-permissions-to-backup)或通过 [PowerShell](/backup/backup-azure-vms-automation#enable-protection) 来完成
 
@@ -73,7 +71,7 @@ ms.locfileid: "52674893"
 ## <a name="extensionsnapshotfailednonetwork---snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - 由于虚拟机上无网络连接，快照操作失败
 
 **错误代码**：ExtensionSnapshotFailedNoNetwork<br>
-**错误消息**：由于虚拟机未建立网络连接，快照操作失败<br>
+**错误消息**：由于虚拟机上无网络连接，快照操作失败<br>
 
 注册和计划 Azure 备份服务的 VM 后，备份会通过与 VM 备份扩展通信来获取时间点快照，从而启动作业。 以下任何条件都可能阻止快照的触发。 如果未触发快照，则备份可能失败。 请按所列顺序完成以下故障排除步骤，然后重试操作：    
 **原因 1：[无法检索快照状态或无法创建快照](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
@@ -95,7 +93,7 @@ ms.locfileid: "52674893"
 ## <a name="backupoperationfailed--backupoperationfailedv2---backup-fails-with-an-internal-error"></a>BackUpOperationFailed/BackUpOperationFailedV2 - 备份失败并出现内部错误
 
 **错误代码**：BackUpOperationFailed/BackUpOperationFailedV2 <br>
-**错误消息**：备份失败并出现内部错误 - 请在几分钟后重试操作 <br>
+**错误消息**：发生内部错误，备份失败 - 请在几分钟后重试操作 <br>
 
 注册和计划 Azure 备份服务的 VM 后，备份会通过与 VM 备份扩展通信来获取时间点快照，从而启动作业。 以下任何条件都可能阻止快照的触发。 如果未触发快照，则备份可能失败。 请按所列顺序完成以下故障排除步骤，然后重试操作：  
 **原因 1：[代理安装在 VM 中，但无响应（针对 Windows VM）](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  

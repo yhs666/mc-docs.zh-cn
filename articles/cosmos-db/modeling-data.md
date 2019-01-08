@@ -1,24 +1,23 @@
 ---
-title: 为 NoSQL 数据库的文档数据建模 | Azure
-description: 了解如何为 NoSQL 数据库的数据建模
-keywords: 数据建模
-services: cosmos-db
+title: 在 NoSQL 数据库中对文档数据进行建模
+titleSuffix: Azure Cosmos DB
+description: 了解 NoSQL 数据库中的数据建模，在关系数据库中与在文档数据库中对数据进行建模的区别。
 author: rockboyfor
-manager: digimobile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-origin.date: 05/29/2016
-ms.date: 09/03/2018
+origin.date: 12/06/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: 985ca6ec52d8a05df8dfed0d5f994f2d2bbad42b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.custom: seodec18
+ms.openlocfilehash: d6a2ab5e68362c5cc728cded2dc91c1fb3efeeff
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663246"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026765"
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>为 NoSQL 数据库的文档数据建模
+
 尽管无架构的数据库（如 Azure Cosmos DB）能够非常容易地接受对数据模型的更改，但用户仍需花一些时间来研究数据。 
 
 将如何存储数据？ 应用程序将如何检索和查询数据？ 应用程序是读取频繁，还是写入频繁？ 
@@ -32,9 +31,9 @@ ms.locfileid: "52663246"
 * 我应何时嵌入数据和何时链接数据？
 
 ## <a name="embedding-data"></a>嵌入数据
-对文档存储如 Azure Cosmos DB 中的数据进行建模时，尝试将实体视为以 JSON 表示的自包含文档。
+对文档存储（如 Azure Cosmos DB）中的数据进行建模时，尝试将实体视为使用 JSON 表示的**自包含文档**。
 
-在深入探讨之前，让我们先回顾一下在关系数据库中我们会如何建模，许多人对该主题已很熟悉。 下面的示例演示了如何在关系数据库中存储某个人的信息。 
+在深入探讨之前，让我们先回顾一下在关系型数据库中我们会如何建模，许多人对该主题已很熟悉。 下面的示例演示了如何在关系数据库中存储某个人的信息。 
 
 ![关系数据库模型](./media/sql-api-modeling-data/relational-data-model.png)
 
@@ -73,7 +72,7 @@ ms.locfileid: "52663246"
         ] 
     }
 
-通过使用上述方法，我们对这个人的记录实施了**非规范化**处理，即我们将与此人有关的信息，例如联系人详细信息和地址，**嵌入**到一个 JSON 文档中。
+通过使用上述方法，对这个人的记录实施了**非规范化**处理，将与此人有关的所有信息（例如联系人详细信息和地址）**嵌入**到一个 JSON 文档中。
 此外，因为我们不受固定架构的限制，所以我们可以灵活地执行一些操作，例如可以具有完全不同类型的联系人详细信息。 
 
 从数据库检索一个完整的人员记录现在成为针对单个集合和单个文档的单个读取操作。 更新人员的联系人详细信息和地址也是针对单个文档的单个写入操作。
@@ -83,7 +82,7 @@ ms.locfileid: "52663246"
 ### <a name="when-to-embed"></a>何时嵌入
 通常，在下列情况下使用嵌入式数据模型：
 
-* 实体之间存在 **包含** 关系。
+* 实体之间存在“包含”关系。
 * 实体之间存在 **一对多** 关系。
 * 嵌入式数据 **不经常更改**。
 * 嵌入式数据不会在 **没有限制**的情况下不断增长。
@@ -97,7 +96,7 @@ ms.locfileid: "52663246"
 ### <a name="when-not-to-embed"></a>何时不嵌入
 虽然文档数据库的经验法则是将所有事物非规范化，并将所有数据嵌入到单个文档中，但是这可能导致一些情况的发生，而这些情况是应该避免的。
 
-以下面的 JSON 代码段为例。
+以下面的 JSON 代码片段为例。
 
     {
         "id": "1",
@@ -182,7 +181,7 @@ ms.locfileid: "52663246"
 ## <a name="referencing-data"></a>引用数据
 因此，嵌入式数据在很多情况下都可以很好运作，但很明显在一些情况下，非规范化数据会导致更多问题而得不偿失。 因此我们现在该怎么办？ 
 
-关系数据库不是可以在实体之间创建关系的唯一数据库。 在文档数据库中，一个文档中的信息实际与其他文档中的数据相关。 现在，我甚至一分钟也不提倡在 Azure Cosmos DB 或任何其他文档数据库中生成可以更好地适应关系数据库的系统，但是简单关系是可以的，并且还非常有用。 
+关系数据库不是可以在实体之间创建关系的唯一数据库。 在文档数据库中，一个文档中的信息实际与其他文档中的数据相关。 现在，我甚至一分钟也不提倡在 Azure Cosmos DB 或任何其他文档数据库中构建可以更好地适应关系型数据库的系统，但是简单关系是可以的，并且还非常有用。 
 
 在下面的 JSON 中我们选择使用前面的股票投资组合示例，但是这次我们引用了投资组合中的股票项目，而不是嵌入此项目。 在这种情况下，当一天当中股票项发生频繁更改时，仅有的需要更新的文档就是一个股票文档。 
 
@@ -261,7 +260,7 @@ ms.locfileid: "52663246"
     ...
     {"id": "100", "name": "Learn about Azure Cosmos DB" }
     ...
-    {"id": "1000", "name": "Deep Dive in to Azure Cosmos DB" }
+    {"id": "1000", "name": "Deep Dive into Azure Cosmos DB" }
 
 如果每个出版商的书籍数量较少且增长有限，那么在出版商文档中存储书籍引用可能很有用。 但是，如果每个出版商的书籍数量没有限制，那么此数据模型将产生可变、不断增长的数组，类似于上面示例中的出版商文档。 
 
@@ -280,7 +279,7 @@ ms.locfileid: "52663246"
     ...
     {"id": "100","name": "Learn about Azure Cosmos DB", "pub-id": "mspress"}
     ...
-    {"id": "1000","name": "Deep Dive in to Azure Cosmos DB", "pub-id": "mspress"}
+    {"id": "1000","name": "Deep Dive into Azure Cosmos DB", "pub-id": "mspress"}
 
 在上面的示例中，删除了出版商文档中的无限制集合， 只在每个书籍文档中引用出版商。
 
@@ -300,7 +299,7 @@ ms.locfileid: "52663246"
     {"id": "b2", "name": "Azure Cosmos DB for RDBMS Users" }
     {"id": "b3", "name": "Taking over the world one JSON doc at a time" }
     {"id": "b4", "name": "Learn about Azure Cosmos DB" }
-    {"id": "b5", "name": "Deep Dive in to Azure Cosmos DB" }
+    {"id": "b5", "name": "Deep Dive into Azure Cosmos DB" }
 
     Joining documents: 
     {"authorId": "a1", "bookId": "b1" }
@@ -321,7 +320,7 @@ ms.locfileid: "52663246"
     {"id": "b1", "name": "Azure Cosmos DB 101", "authors": ["a1", "a2"]}
     {"id": "b2", "name": "Azure Cosmos DB for RDBMS Users", "authors": ["a1"]}
     {"id": "b3", "name": "Learn about Azure Cosmos DB", "authors": ["a1"]}
-    {"id": "b4", "name": "Deep Dive in to Azure Cosmos DB", "authors": ["a2"]}
+    {"id": "b4", "name": "Deep Dive into Azure Cosmos DB", "authors": ["a2"]}
 
 现在，如果有作者的姓名，可以立即知道他们写了哪些书；相反，如果加载了书籍文档，则可以知道作者的 ID。 这可以省去对联接表的中间查询，从而减少了应用程序需要往返访问服务器的次数。 
 
@@ -343,9 +342,9 @@ ms.locfileid: "52663246"
         "countOfBooks": 3,
          "books": ["b1", "b2", "b3"],
         "images": [
-            {"thumbnail": "http://....png"}
-            {"profile": "http://....png"}
-            {"large": "http://....png"}
+            {"thumbnail": "https://....png"}
+            {"profile": "https://....png"}
+            {"large": "https://....png"}
         ]
     },
     {
@@ -355,7 +354,7 @@ ms.locfileid: "52663246"
         "countOfBooks": 1,
         "books": ["b1"],
         "images": [
-            {"thumbnail": "http://....png"}
+            {"thumbnail": "https://....png"}
         ]
     }
 
@@ -364,15 +363,15 @@ ms.locfileid: "52663246"
         "id": "b1",
         "name": "Azure Cosmos DB 101",
         "authors": [
-            {"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "http://....png"},
-            {"id": "a2", "name": "William Wakefield", "thumbnailUrl": "http://....png"}
+            {"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "https://....png"},
+            {"id": "a2", "name": "William Wakefield", "thumbnailUrl": "https://....png"}
         ]
     },
     {
         "id": "b2",
         "name": "Azure Cosmos DB for RDBMS Users",
         "authors": [
-            {"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "http://....png"},
+            {"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "https://....png"},
         ]
     }
 
@@ -382,13 +381,13 @@ ms.locfileid: "52663246"
 
 当然，如果作者的姓名发生更改，或者他们想要更新自己的照片，那么我们必须更新他们曾经出版的每本书，但对于我们的应用程序来说，基于作者不会经常更改他们的姓名的假设，这是一个可接受的设计决策。  
 
-在示例中 **预先计算的汇总** 值可在读取操作上节省高昂的处理成本。 在本例中，作者文档中嵌入的一些数据为在运行时计算的数据。 每当出版了一本新书，就会创建一个书籍文档**并且**将 countOfBooks 字段设置为基于特定作者的现有书籍文档数的计算值。 这种优化对于读取频繁的系统来说是有益的，为了优化读取，我们可以对写入操作执行更多计算。
+在示例中**预先计算的聚合**值可在读取操作上节省高昂的处理成本。 在本例中，作者文档中嵌入的一些数据为在运行时计算的数据。 每当出版了一本新书，就会创建一个书籍文档**并且**将 countOfBooks 字段设置为基于特定作者的现有书籍文档数的计算值。 这种优化对于读取频繁的系统来说是有益的，为了优化读取，我们可以对写入操作执行更多计算。
 
 因为 Azure Cosmos DB 支持**多文档事务**，所以构建一个具有预先计算字段的模型是可能的。 许多 NoSQL 存储无法跨文档执行事务，正是因为该限制，所以提倡诸如“始终嵌入所有数据”的设计决策。 在 Azure Cosmos DB 中，可以使用服务器端触发器或存储过程在一个 ACID 事务中插入书籍和更新作者信息等。 现在你**无需**将所有数据嵌入一个文档，只需确保你的数据保持一致性。
 
 <a name="NextSteps"></a>
 ## <a name="next-steps"></a>后续步骤
-本文最大的要点在于了解无架构环境下的数据建模的重要性一如既往。 
+本文的最大的要点在于了解无架构环境下的数据建模的重要性一如既往。 
 
 就像有多种方法可在屏幕上表示一个数据片段一样，数据的建模方法也不会只有一种。 需要了解应用程序以及它如何生成、使用和处理数据。 然后，通过应用此处提供的一些准则，用户可以开始创建可满足应用程序当前需求的模型。 当应用程序需要进行更改时，可以利用无架构数据库的灵活性欣然接受更改，并轻松改进数据模型。 
 
@@ -396,4 +395,4 @@ ms.locfileid: "52663246"
 
 若要了解如何在多个分区之间对数据进行分片，请参阅[在 Azure Cosmos DB 中对数据进行分区](sql-api-partition-data.md)。
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->
