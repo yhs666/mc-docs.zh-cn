@@ -13,20 +13,22 @@ ms.devlang: na
 ms.topic: article
 origin.date: 02/13/2018
 ms.author: v-yiso
-ms.date: 08/13/2018
-ms.openlocfilehash: bd03e7ae28e781153ba6c9eeb3e9eead6215a596
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/31/2018
+ms.openlocfilehash: 7b64931e5eda5a5fb6d691eb076e7483279801ca
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645865"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736684"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>如何在 Azure API 管理中管理用户帐户
 在 API 管理中，开发人员是使用 API 管理公开的 API 的用户。 本指南演示如何创建和邀请开发人员使用通过 API 管理实例向其提供的 API 和产品。 有关以编程方式管理用户帐户的信息，请参阅 [API 管理 REST](https://msdn.microsoft.com/library/azure/dn776326.aspx)参考中的[用户实体](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity)文档。
 
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
 ## <a name="prerequisites"></a>先决条件
 
-完成此文中的任务：[创建 Azure API 管理实例](get-started-create-service-instance.md)。
+完成此文中的任务：[创建一个 Azure API 管理实例](get-started-create-service-instance.md)。
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 

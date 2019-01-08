@@ -1,39 +1,33 @@
 ---
 title: Azure CLI 脚本 - 创建 Azure Database for MySQL
 description: 此示例 CLI 脚本创建 Azure Database for MySQL 服务器，并配置服务器级防火墙规则。
-services: mysql
 author: WenJason
 ms.author: v-jay
-manager: digimobile
-editor: jasonwhowell
 ms.service: mysql
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.custom: mvc
 ms.topic: sample
 origin.date: 02/28/2018
-ms.date: 08/27/2018
-ms.openlocfilehash: 347358bdb6aab5d11b9fc7bade5f1064ad0c7e1f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/31/2018
+ms.openlocfilehash: 75eb1973e772cb783fed1f74ccc853035ad7776d
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659624"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806180"
 ---
 # <a name="create-a-mysql-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>使用 Azure CLI 创建 MySQL 服务器并配置防火墙规则
 
 > [!NOTE]
-> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql/)。
+> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
 
-此示例 CLI 脚本创建 Azure Database for MySQL 服务器，并配置服务器级防火墙规则。 成功运行此脚本后，可以通过所有 Azure 服务和配置的 IP 地址访问 MySQL 服务器。 本文需要 Azure CLI 2.0 或更高版本。 通过运行 `az --version` 来查看版本。 请参阅[安装 Azure CLI 2.0]( /cli/install-azure-cli)，了解如何安装或升级 Azure CLI 的版本。 
+此示例 CLI 脚本创建 Azure Database for MySQL 服务器，并配置服务器级防火墙规则。 成功运行此脚本后，可以通过所有 Azure 服务和配置的 IP 地址访问 MySQL 服务器。 本文需要 Azure CLI 2.0 或更高版本。 通过运行 `az --version` 来查看版本。 请参阅[安装 Azure CLI]( /cli/install-azure-cli)，了解如何安装或升级 Azure CLI 的版本。 
 
 ## <a name="sample-script"></a>示例脚本
-在此示例脚本中进行编辑，将管理员用户名和密码更新为你自己的。
+在此示例脚本中，编辑突出显示的行，将管理员用户名和密码更新为你自己的。
 
 ```cli
 #!/bin/bash
-
-# Add the Azure CLI extension 
-az extension add --name rdbms
 
 # Create a resource group
 az group create \
@@ -80,5 +74,5 @@ az group delete --name myresource
 | [az group delete](/cli/group#az-group-delete) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
-- 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](/cli)。
-- 尝试其他脚本：[Azure Database for MySQL 的 Azure CLI 示例](../sample-scripts-azure-cli.md)
+- 阅读有关 Azure CLI 的更多信息：[Azure CLI 文档](/cli)。
+- 请尝试其他脚本：[用于 MySQL 的 Azure 数据库的 Azure CLI 示例](../sample-scripts-azure-cli.md)

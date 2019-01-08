@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 10/22/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 5d3799172f36b330457174d5d96a77b61241c998
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.date: 12/31/2018
+ms.openlocfilehash: 49d316f03b89ebdff993762cf7caf645486c6cc2
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672528"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806334"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>SQL 数据同步最佳做法 
 
@@ -226,6 +226,7 @@ SQL 数据同步自动预配的限制如下：
     - 使用 PowerShell
         -  [使用 PowerShell 在多个 Azure SQL 数据库之间进行同步](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [使用 PowerShell 在 Azure SQL 数据库和 SQL Server 本地数据库之间进行同步](scripts/sql-database-sync-data-between-azure-onprem.md)
+-   数据同步代理 - [Azure SQL 数据同步的数据同步代理](sql-database-data-sync-agent.md)
 -   故障排除 - [排查 Azure SQL 数据同步问题](sql-database-troubleshoot-data-sync.md)
 -   更新同步架构
     -   使用 Transact-SQL - [在 Azure SQL 数据同步中自动复制架构更改](sql-database-update-sync-schema.md)

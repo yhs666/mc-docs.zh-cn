@@ -11,18 +11,18 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: Carlrab
 manager: digimobile
-origin.date: 11/01/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: c95658bf80dce3b1052a158c27ace1d83f222cad
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+origin.date: 11/28/2018
+ms.date: 12/31/2018
+ms.openlocfilehash: a5c5ba3d3778050867a3521cbe90bc177996cddc
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672629"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806205"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>快速入门：创建 Azure SQL 数据库托管实例
 
-本快速入门分步介绍了如何在 Azure 门户中创建 Azure SQL 数据库[托管实例](sql-database-managed-instance.md)。 
+本快速入门分步介绍了如何在 Azure 门户中创建 Azure SQL 数据库[托管实例](sql-database-managed-instance.md)。
 
 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
@@ -34,35 +34,36 @@ ms.locfileid: "52672629"
 
 下列步骤展示了如何创建托管实例。
 
-1. 在 Azure 门户的左上角单击“创建资源”。
+1. 在 Azure 门户的左上角选择“创建资源”。
 2. 找到“托管实例”，然后选择“Azure SQL 托管实例”。
-3. 单击**创建**。
+3. 选择“创建”。
 
    ![创建托管实例](./media/sql-database-managed-instance-get-started/managed-instance-create.png)
 
-4. 根据下表中的说明，在托管实例窗体中填充请求的信息：
+4. 根据下表中的说明，在“托管实例”窗体中填充请求的信息：
 
-   | 设置| 建议的值 | 说明 |
+   | 设置| 建议的值 | Description |
    | ------ | --------------- | ----------- |
-   | **订阅** | 你的订阅 | 你有权在其中创建新资源的订阅 |
-   |**托管实例名称**|任何有效的名称||
-   |**托管实例管理员登录名**|任何有效的用户名|不要使用“serveradmin”，因为这是保留的服务器级角色。| 
+   | **订阅** | 订阅 | 你有权在其中创建新资源的订阅 |
+   |**托管实例名称**|任何有效的名称|请参阅[命名规则和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)，了解什么是有效的名称。|
+   |**托管实例管理员登录名**|任何有效的用户名|请参阅[命名规则和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)，了解什么是有效的名称。 不要使用“serveradmin”，因为这是保留的服务器级角色。|
    |**密码**|任何有效的密码|密码必须至少 16 个字符，且符合[定义的复杂性要求](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)。|
-   |**资源组**|新的或现有的资源组||
    |**位置**|你要在其中创建托管实例的位置|中国东部、中国东部 2、中国北部、中国北部 2|
-   |**虚拟网络**|选择“创建新的虚拟网络”或选择在你之前在此窗体中提供的资源组中以前创建的一个虚拟网络。| 若要使用自定义设置为托管实例配置虚拟网络，请参阅 Github 中的[配置 SQL 托管实例虚拟网络环境模板](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment)。 有关为托管实例配置网络环境的要求的信息，请参阅[为 Azure SQL 数据库托管实例配置 VNet](sql-database-managed-instance-vnet-configuration.md) |
+   |**虚拟网络**|选择“创建新的虚拟网络”或有效的虚拟网络和子网。| 如果网络/子网是灰色的，则必须先[对其进行修改以满足网络要求](sql-database-managed-instance-configure-vnet-subnet.md)，然后再选择它作为新托管实例的目标。 若要了解为托管实例配置网络环境的要求，请参阅[为 Azure SQL 数据库托管实例配置 VNet](sql-database-managed-instance-connectivity-architecture.md)。 |
+   |**资源组**|新的或现有的资源组|如需有效的资源组名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。|
 
    ![托管实例名称窗体](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
 
-5. 单击“定价层”，设置计算和存储资源的大小并查看定价层选项。 默认值是具有 32 GB 内存和 16 个 vCore 的“常规用途”定价层。
-6. 使用滑块或文本框指定存储量和虚拟核心数。 
-7. 完成后单击“应用”，保存选择的内容。  
-8. 单击“创建”，部署托管实例。
-9. 单击“通知”图标，查看部署的状态。
+5. 若要将托管实例用作实例故障转移组辅助实例，请选择“签出”并指定 DnsAzurePartner 托管实例。 此功能处于预览状态，未在随附的屏幕截图中显示。
+6. 选择“定价层”，设置计算和存储资源的大小并查看定价层选项。 默认值是具有 32 GB 内存和 16 个 vCore 的“常规用途”定价层。
+7. 使用滑块或文本框指定存储量和虚拟核心数。
+8. 完成后选择“应用”，保存选择的内容。  
+9. 选择“创建”，部署托管实例。
+10. 选择“通知”图标，查看部署的状态。
 
     ![托管实例部署进度](./media/sql-database-managed-instance-get-started/deployment-progress.png)
 
-10. 单击“正在进行的部署”以打开“托管实例”窗口，进一步监视部署进度。 
+11. 选择“正在进行的部署”以打开“托管实例”窗口，进一步监视部署进度。
 
 > [!IMPORTANT]
 > 子网中第一个实例的部署时间通常远超后续实例的部署时间。 请勿因持续时间超出预期而取消部署操作。 在子网中创建第二个托管实例仅需要花费数分钟时间。
@@ -71,17 +72,17 @@ ms.locfileid: "52672629"
 
 在部署成功完成后，查看创建的资源，并检索完全限定的服务器名称以在后续快速入门中使用。
 
-1. 打开你的托管实例的资源组，并查看在[创建托管实例](sql-database-managed-instance-get-started.md)快速入门中创建的其资源。
+1. 打开你的托管实例的资源组，并查看在[创建托管实例](#create-a-managed-instance)快速入门中创建的其资源。
 
-   ![托管实例资源](./media/sql-database-managed-instance-get-started/resources.png)在 Azure 门户中打开你的托管实例资源。
+2. 选择你的托管实例。
 
-2. 单击你的托管实例。
-3. 在“概述”选项卡上，找到“主机”属性并复制托管实例的完全限定主机地址。
+   ![托管实例资源](./media/sql-database-managed-instance-get-started/resources.png)
 
+3. 在“概览”选项卡上，找到“主机”属性并复制托管实例的完全限定主机地址。
 
    ![托管实例资源](./media/sql-database-managed-instance-get-started/host-name.png)
 
-   名称类似于以下示例：**your_machine_name.neu15011648751ff.database.windows.net**。
+   名称类似于 **your_machine_name.a1b2c3d4e5f6.database.chinacloudapi.cn**。
 
 ## <a name="next-steps"></a>后续步骤
 

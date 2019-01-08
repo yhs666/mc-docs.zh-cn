@@ -16,12 +16,12 @@ origin.date: 10/23/2017
 ms.date: 12/10/2018
 ms.author: v-yeche
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 41b6019ac5c05d2b950e7b3a4ad17bbc5a0c63fd
-ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
+ms.openlocfilehash: af0925c28be3ce156a5534c0165d41c8b22290a2
+ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52901106"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785189"
 ---
 # <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>快速入门：将 Java Reliable Services 应用程序部署到 Service Fabric
 
@@ -104,18 +104,22 @@ Service Fabric 提供多种可以用来管理群集及其应用程序的工具�
 
 在本快速入门中，请使用 Service Fabric CLI 和 Service Fabric Explorer。
 
-若要使用 CLI，需根据下载的 PFX 文件创建 PEM 文件。 若要转换此文件，请使用以下命令。 （对于合作群集，可以从“自述文件”页上的说明中复制特定于 PFX 文件的命令。）
+若要使用 CLI，需根据下载的 PFX 文件创建 PEM 文件。 若要转换此文件，请使用以下命令。 
+
+<!-- Not Available on (For party clusters, you can copy a command specific to your PFX file from the instructions on the **ReadMe** page.)-->
 
     ```bash
-    openssl pkcs12 -in party-cluster-1486790479-client-cert.pfx -out party-cluster-1486790479-client-cert.pem -nodes -passin pass:1486790479
+    openssl pkcs12 -in <YOUR_CERTIFICATE_PFX_FILE>.pfx -out <YOUR_CERTIFICATE_PEM_FILE>.pem -nodes -passin pass:<YOUR_PASSWORD>
     ```
 
-若要使用 Service Fabric Explorer，需将从合作群集网站下载的证书 PFX 文件导入到证书存储（Windows 或 Mac）中，或者导入到浏览器 (Ubuntu) 中。 需要可以从“自述文件”页获取的 PFX 私钥密码。
+若要使用 Service Fabric Explorer，需要将从门户网站下载的证书 PFX 文件导入到证书存储（Windows 或 Mac）中，或者导入到浏览器本身 (Ubuntu) 中。 
+
+<!-- Change Part website to Portal website-->s <!-- Not Available on You need the PFX private key password, which you can get from the **ReadMe** page.-->
 
 请使用最熟悉的方法将证书导入到系统中。 例如：
 
-* 在 Windows 上：双击 PFX 文件，按提示在个人存储 `Certificates - Current User\Personal\Certificates` 中安装证书。 也可以使用**自述文件**说明中的 PowerShell 命令。
-* 在 Mac 上：双击 PFX 文件，按提示在 Keychain 中安装证书。
+* 在 Windows 上：双击 PFX 文件，并按照提示在个人存储 `Certificates - Current User\Personal\Certificates` 中安装证书。 也可以使用**自述文件**说明中的 PowerShell 命令。
+* 在 Mac 上：双击 PFX 文件，并按照提示在 Keychain 中安装证书。
 * 在 Ubuntu 上：Mozilla Firefox 是 Ubuntu 16.04 中的默认浏览器。 若要将证书导入 Firefox，请单击浏览器右上角的菜单按钮，然后单击“选项”。 在“首选项”页上，使用搜索框搜索“证书”。 单击“查看证书”，选择“你的证书”选项卡，单击“导入”，然后按提示导入证书。
 
    ![在 Firefox 上安装证书](./media/service-fabric-quickstart-java/install-cert-firefox.png)

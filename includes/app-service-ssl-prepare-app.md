@@ -1,5 +1,5 @@
 ---
-title:“include 文件”description:“include 文件”services: app-service author: cephalin ms.service: app-service ms.topic: "include" origin.date:10/15/2018 ms.date: 12/03/2018 ms.author: v-biyu ms.custom: "include file"
+title:“include 文件”description:“include 文件”services: app-service author: cephalin ms.service: app-service ms.topic: "include" origin.date:10/15/2018 ms.date:12/31/2018 ms.author: v-biyu ms.custom: "include file"
 ---
 
 ## <a name="prepare-your-web-app"></a>准备 Web 应用
@@ -28,7 +28,7 @@ title:“include 文件”description:“include 文件”services: app-service 
 
 ![检查定价层](./media/app-service-ssl-prepare-app/check-pricing-tier.png)
 
-**F1** 或 **D1** 层不支持自定义 SSL。 如果需要进行扩展，请遵循下一部分中的步骤。 否则，请关闭“纵向扩展”页并跳转到[上传和绑定 SSL 证书](#upload)。
+**F1** 或 **D1** 层不支持自定义 SSL。 如果需要进行扩展，请遵循下一部分中的步骤。 否则，请关闭“纵向扩展”页，并跳过[纵向扩展应用服务计划](#scale-up-your-app-service-plan)部分。
 
 ### <a name="scale-up-your-app-service-plan"></a>扩展应用服务计划
 

@@ -1,6 +1,6 @@
 ---
-title: 使用 .NET Standard 将事件发送到 Azure 事件中心 | Azure
-description: 在 .NET Standard 中将事件发送到事件中心入门
+title: 使用 .NET Core 发送事件 - Azure 事件中心
+description: 本文提供了创建 .NET Core 应用程序的演练，该应用程序用于将事件发送到 Azure 事件中心。
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -13,16 +13,16 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/16/2018
-ms.date: 12/10/2018
+ms.date: 01/07/2019
 ms.author: v-biyu
-ms.openlocfilehash: b8c46fe34e0bb4802bfd050a8740fd7acdad99f6
-ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
+ms.openlocfilehash: 7beb971be56ed940a534d6da1a7e7a0173365562
+ms.sourcegitcommit: a46f12240aea05f253fb4445b5e88564a2a2a120
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676910"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785227"
 ---
-# <a name="get-started-sending-messages-to-azure-event-hubs-in-net-standard"></a>使用 .NET Standard 将消息发送到 Azure 事件中心入门
+# <a name="get-started-sending-messages-to-azure-event-hubs-in-net-core"></a>在 .NET Core 中开始将消息发送到 Azure 事件中心
 事件中心是一个服务，可用于处理来自连接设备和应用程序的大量事件数据（遥测）。 将数据采集到事件中心后，可以使用任何实时分析提供程序或存储群集来转换和存储数据。 这种大规模事件收集和处理功能是现代应用程序体系结构（包括物联网 (IoT)）的重要组件。 有关事件中心的详细概述，请参阅[事件中心概述](event-hubs-about.md)和[事件中心功能](event-hubs-features.md)。
 
 本教程介绍如何使用控制台应用程序（通过 .NET Core 以 C# 编写）将事件发送到事件中心。 
@@ -35,7 +35,9 @@ ms.locfileid: "52676910"
 * [.NET Core Visual Studio 2015 或 2017 工具](https://www.microsoft.com/net/core)。 
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>创建事件中心命名空间和事件中心
-第一步是使用 [Azure 门户](https://portal.azure.cn)创建事件中心类型的命名空间，并获取应用程序与事件中心进行通信所需的管理凭据。 若要创建命名空间和事件中心，请按照[本文](event-hubs-create.md)中的步骤进行操作，然后继续执行本教程的以下步骤。
+第一步是使用 [Azure 门户](https://portal.azure.cn)创建事件中心类型的命名空间，并获取应用程序与事件中心进行通信所需的管理凭据。 要创建命名空间和事件中心，请按照[此文](event-hubs-create.md)中的步骤操作。
+
+按照以下文章中的说明获取事件中心命名空间的连接字符串：[获取连接字符串](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)。 本教程后面的步骤将使用此连接字符串。 
 
 ## <a name="create-a-console-application"></a>创建控制台应用程序
 
@@ -45,7 +47,7 @@ ms.locfileid: "52676910"
 
 ## <a name="add-the-event-hubs-nuget-package"></a>添加事件中心 NuGet 包
 
-通过执行以下步骤，将 [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) .NET 标准库 NuGet 包添加到项目中： 
+通过执行以下步骤，将 [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) .NET Core 库 NuGet 包添加到项目中： 
 
 1. 右键单击新创建的项目，并选择“管理 NuGet 包” 。
 2. 单击“浏览”选项卡，然后搜索“Microsoft.Azure.EventHubs”，并选择“Microsoft.Azure.EventHubs”包。 单击“安装”以完成安装，并关闭此对话框。
@@ -195,7 +197,7 @@ ms.locfileid: "52676910"
 祝贺！ 现在已向事件中心发送消息。
 
 ## <a name="next-steps"></a>后续步骤
-在此快速入门中，已使用 .NET Standard 向事件中心发送消息。 若要了解如何使用 .NET Standard 从事件中心接收事件，请参阅[从事件中心接收事件 - .NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)。
+在本快速入门中，你已使用 Node.js 向事件中心发送了消息。 若要了解如何使用 .NET Core 从事件中心接收事件，请参阅[从事件中心接收事件 - .NET Core](event-hubs-dotnet-standard-getstarted-receive-eph.md)。
 
 [1]: ./media/event-hubs-dotnet-standard-getstarted-send/netcoresnd.png
 

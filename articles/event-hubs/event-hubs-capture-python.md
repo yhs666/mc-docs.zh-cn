@@ -1,10 +1,10 @@
 ---
-title: Azure 事件中心捕获演练 | Azure
+title: 从 Python 应用读取捕获的数据 - Azure 事件中心
 description: 此示例使用 Azure Python SDK 来演示如何使用事件中心捕获功能。
 services: event-hubs
 documentationcenter: ''
-author: rockboyfor
-manager: digimobile
+author: ShubhaVijayasarathy
+manager: timlt
 editor: ''
 ms.assetid: bdff820c-5b38-4054-a06a-d1de207f01f6
 ms.service: event-hubs
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/16/2018
-ms.date: 09/17/2018
-ms.author: v-yeche
-ms.openlocfilehash: e45fc2773e24ea88ae66e8bb6e7b01110dc3bf30
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 01/07/2019
+ms.author: v-biyu
+ms.openlocfilehash: 71c1d519461f239eeb5bac606900e999a5cc1fc1
+ms.sourcegitcommit: a46f12240aea05f253fb4445b5e88564a2a2a120
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662914"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785231"
 ---
 # <a name="event-hubs-capture-walkthrough-python"></a>事件中心捕获演练：Python
 
@@ -39,10 +39,9 @@ ms.locfileid: "52662914"
 ## <a name="prerequisites"></a>先决条件
 
 - Python 2.7.x
-- Azure 订阅
-- 活动的[事件中心命名空间和事件中心](event-hubs-create.md)
-
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
+- Azure 订阅。 如果没有订阅，请在开始之前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- 活动的[事件中心命名空间和事件中心](event-hubs-create.md)。 
+- 按照以下说明为事件中心启用捕获功能：[通过 Azure 门户启用事件中心捕获](event-hubs-capture-enable-through-portal.md)
 
 ## <a name="create-an-azure-blob-storage-account"></a>创建 Azure Blob 存储帐户
 1. 登录到 [Azure 门户][Azure portal]。

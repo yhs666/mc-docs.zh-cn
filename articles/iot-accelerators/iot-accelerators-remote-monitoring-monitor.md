@@ -6,16 +6,16 @@ manager: timlt
 ms.author: v-yiso
 ms.service: iot-accelerators
 services: iot-accelerators
-origin.date: 07/19/2018
-ms.date: 11/26/2018
+origin.date: 11/08/2018
+ms.date: 12/17/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 256090b84df49f1474510679643024312f789483
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 0c43ebedfc29dde8864bee7cf837a53f28a1db16
+ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654894"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53569310"
 ---
 # <a name="tutorial-monitor-your-iot-devices"></a>教程：监视 IoT 设备
 
@@ -42,7 +42,7 @@ ms.locfileid: "52654894"
 
 [![在仪表板上筛选卡车](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-expanded.png#lightbox)
 
-应用某个筛选器时，只有与筛选条件匹配的设备才会显示在“仪表板”页上的地图上和遥测数据面板中。 你可以看到有两辆卡车连接到了解决方案加速器，包括 truck-02：
+应用某个筛选器时，只有与筛选条件匹配的设备才会显示在地图上和遥测面板中。 你可以看到有两辆卡车连接到了解决方案加速器，包括 truck-02：
 
 [![地图上只显示卡车](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-expanded.png#lightbox)
 

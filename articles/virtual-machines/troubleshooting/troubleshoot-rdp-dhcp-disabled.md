@@ -1,5 +1,5 @@
 ---
-title: 因 DHCP 已禁用而无法与 Azure 虚拟机建立远程桌面连接 | Azure
+title: 由于 DHCP 被禁用而无法远程连接到 Azure 虚拟机 | Azure
 description: 了解如何排查由于 DHCP 客户端服务在 Azure 中被禁用而导致的 RDP 问题。| Azure
 services: virtual-machines-windows
 documentationCenter: ''
@@ -12,14 +12,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 11/13/2018
-ms.date: 11/26/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0c75b19d0aec6ced4371e400a58158f5d8769433
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: bbc7e137dbe9fb5a43f716aed69c1d3cc6634b39
+ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028464"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785149"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>因 DHCP 客户端服务已禁用而无法通过 RDP 连接到 Azure 虚拟机
 
@@ -27,7 +27,7 @@ ms.locfileid: "53028464"
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="symptoms"></a>症状 
+## <a name="symptoms"></a>症状
 
 无法在 Azure 中与 VM 建立 RDP 连接，因为 DHCP 客户端服务在 VM 中被禁用。 在 Azure 门户中的[“启动诊断”](../troubleshooting/boot-diagnostics.md)中检查屏幕截图时，你看到 VM 正常启动并且在登录屏幕中等待凭据。 在使用事件查看器远程查看 VM 中的事件日志时， 发现 DHCP 客户端服务未启动或无法启动。 下面是示例日志：
 
@@ -37,7 +37,7 @@ ms.locfileid: "53028464"
 **事件 ID**：7022 </br>
 **任务类别**：无 </br>
 **级别**：错误 </br>
-**关键字**：经典</br> 
+**关键字**：经典</br>
 **用户**：不适用 </br>
 **计算机**：myvm.cosotos.com</br>
 **说明**：DHCP 客户端服务在启动时挂起。</br>
@@ -50,17 +50,18 @@ ms.locfileid: "53028464"
 
 ## <a name="cause"></a>原因
 
-DHCP 客户端服务未在 VM 上运行。 
+DHCP 客户端服务未在 VM 上运行。
 
 > [!NOTE]
-> 本文仅适用于 DHCP 客户端服务，而不适用于 DHCP 服务器。 
+> 本文仅适用于 DHCP 客户端服务，而不适用于 DHCP 服务器。
 
-## <a name="solution"></a>解决方案 
+## <a name="solution"></a>解决方案
 
 在执行这些步骤之前，请创建受影响 VM 的 OS 磁盘的快照作为备份。 有关详细信息，请参阅[拍摄磁盘快照](../windows/snapshot-copy-managed-disk.md)。
 
-若要解决此问题，请对 VM 使用[重置网络接口](reset-network-interface.md)。
+若要解决此问题，请为 VM [重置网络接口](reset-network-interface.md)。
 
+<!-- Not Available on Serial control to enable DHCP or -->
 <!-- Not Available on ### Use Serial control-->
 
 ### <a name="repair-the-vm-offline"></a>修复 VM 脱机
@@ -69,12 +70,12 @@ DHCP 客户端服务未在 VM 上运行。
 
 1. [将 OS 磁盘附加到恢复 VM](../windows/troubleshoot-recovery-disks-portal.md)。
 2. 开始与恢复 VM 建立远程桌面连接。 确保附加的磁盘在磁盘管理控制台中标记为“联机”。 请注意分配给附加的 OS 磁盘的驱动器号。
-3.  打开权限提升的命令提示符实例（“以管理员身份运行”）。 然后运行以下脚本。 此脚本假设分配给附加的 OS 磁盘的驱动器号为 **F**。使用 VM 中的值适当地替换该字母。 
+3.  打开权限提升的命令提示符实例（“以管理员身份运行”）。 然后运行以下脚本。 此脚本假设分配给附加的 OS 磁盘的驱动器号为 **F**。使用 VM 中的值适当地替换该字母。
 
     ```
     reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM
 
-    REM Set default values back on the broken service 
+    REM Set default values back on the broken service
     reg add "HKLM\BROKENSYSTEM\ControlSet001\services\DHCP" /v start /t REG_DWORD /d 2 /f
     reg add "HKLM\BROKENSYSTEM\ControlSet001\services\DHCP" /v ObjectName /t REG_SZ /d "NT Authority\LocalService" /f
     reg add "HKLM\BROKENSYSTEM\ControlSet001\services\DHCP" /v type /t REG_DWORD /d 16 /f
@@ -89,8 +90,8 @@ DHCP 客户端服务未在 VM 上运行。
 
 ## <a name="next-steps"></a>后续步骤
 
-如果仍需帮助，请[联系支持人员](https://www.azure.cn/support/support-azure/)以快速解决问题。
+如果仍需帮助，请[联系支持人员](https://support.azure.cn/zh-cn/support/support-azure/)以快速解决问题。
 
 
-<!-- Update_Description: new articles on troubleshoot -->
-<!--ms.date: 12/03/2018-->
+<!-- Update_Description: new articles on troubleshoot rdp dhcp disabled-->
+<!--ms.date: 12/24/2018-->

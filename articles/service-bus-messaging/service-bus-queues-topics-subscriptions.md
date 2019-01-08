@@ -1,5 +1,5 @@
 ---
-title: Azure 服务总线消息传送队列、主题和订阅概述
+title: Azure 服务总线消息队列、主题和订阅概述 | Azure Docs
 description: 服务总线消息传送实体概述。
 services: service-bus-messaging
 documentationcenter: na
@@ -7,18 +7,19 @@ author: lingliw
 manager: digimobile
 ms.service: service-bus-messaging
 ms.topic: article
-origin.date: 09/18/2018
-ms.date: 10/31/2018
+origin.date: 12/24/2018
+ms.date: 12/24/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 8de22439c37145471533c311608d3947e8188734
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6894b5e8ab73c13b7f6714fa4f5581706a6aa61e
+ms.sourcegitcommit: 649f5093a9a9a89f4117ae3845172997922aec31
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650910"
+ms.lasthandoff: 12/24/2018
+ms.locfileid: "53784619"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>服务总线队列、主题和订阅
-Azure 服务总线支持一组基于云的、面向消息的中间件技术，包括可靠的消息队列和持久发布/订阅消息。 这些“中转”消息传送功能可被视为分离式消息传送功能，支持使用服务总线消息传送工作负载的发布-订阅、临时分离和负载均衡方案。 分离式通信具有很多优点；例如，客户端和服务器可以根据需要进行连接并以异步方式执行其操作。
+
+世纪互联 Azure 服务总线支持一组基于云的、面向消息的中间件技术，包括可靠的消息队列和持久的发布/订阅消息。 这些“中转”消息传送功能可被视为分离式消息传送功能，支持使用服务总线消息传送工作负载的发布-订阅、临时分离和负载均衡方案。 分离式通信具有很多优点；例如，客户端和服务器可以根据需要进行连接并以异步方式执行其操作。
 
 构成服务总线消息传送功能核心的消息传送实体包括队列、主题/订阅、规则/操作。
 
@@ -40,7 +41,7 @@ Azure 服务总线支持一组基于云的、面向消息的中间件技术，�
 
 ### <a name="receive-modes"></a>接收模式
 
-可以指定 Service Bus 接收消息所用的两种不同模式：*ReceiveAndDelete* 或 *PeekLock*。 使用 [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) 模式时，接收操作是一个单一快照。即，当服务总线收到请求时，会将该消息标记为“已使用”并将其返回给应用程序。 **ReceiveAndDelete** 模式是最简单的模式，最适合应用程序允许在出现故障时不处理消息的方案。 为了理解此方案，可以考虑这样一种情形：使用方发出接收请求，但在处理该请求前发生了崩溃。 由于服务总线会将消息标记为“已使用”，因此当应用程序重新启动并重新开始使用消息时，它会漏掉在发生崩溃前使用的消息。
+可以指定服务总线接收消息所用的两种不同模式：ReceiveAndDelete 或 PeekLock。 使用 [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) 模式时，接收操作是一个单一快照。即，当服务总线收到请求时，会将该消息标记为“已使用”并将其返回给应用程序。 **ReceiveAndDelete** 模式是最简单的模式，最适合应用程序允许在出现故障时不处理消息的方案。 为了理解此方案，可以考虑这样一种情形：使用方发出接收请求，但在处理该请求前发生了崩溃。 由于服务总线会将消息标记为“已使用”，因此当应用程序重新启动并重新开始使用消息时，它会漏掉在发生崩溃前使用的消息。
 
 使用 [PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) 模式时，接收操作分成了两步，从而有可能支持无法容忍遗漏消息的应用程序。 当服务总线收到请求时，它会找到要使用的下一个消息，将其锁定以防其他使用方接收它，并将该消息返回给应用程序。 应用程序完成消息处理（或可靠地存储消息以供将来处理）后，它将通过对收到的消息调用 [CompleteAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) 完成接收过程的第二个阶段。 服务总线发现 **CompleteAsync** 调用时会将消息标记为“正在使用”。
 

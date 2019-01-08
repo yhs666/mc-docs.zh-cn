@@ -13,14 +13,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/31/2018
-ms.date: 11/26/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: f1d41d241210de761d6069ce027ce7500554a720
-ms.sourcegitcommit: 6cd0a8d22061aba7390579a80e19cb9d2f7faf12
+ms.openlocfilehash: 98ed41661dabcc18148743704e4d9e863671d978
+ms.sourcegitcommit: f6a287a11480cbee99a2facda2590f3a744f7e45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53233776"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53786727"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>了解 Azure VM 的系统重启
 
@@ -43,9 +43,9 @@ Azure 资源运行状况是一项服务，用于公开各个 Azure 资源的运�
 ## <a name="actions-and-events-that-can-cause-the-vm-to-reboot"></a>可能导致 VM 重启的操作和事件
 
 ### <a name="planned-maintenance"></a>计划内维护
-Azure 在全球范围内定期执行更新，提高 VM 所基于主机基础结构的可靠性、性能及安全性。 许多更新（包括内存保留更新）在执行时不会对 VM 或云服务产生任何影响。
+Azure 在中国范围内定期执行更新，以提高 VM 所基于主机基础结构的可靠性、性能及安全性。 许多更新（包括内存保留更新）在执行时不会对 VM 或云服务产生任何影响。
 
-但是，有些更新确实需要重启。 在这种情况下，VM 会在修补基础结构期间关闭，随后再重启。
+<!--Change globe to China--> 但是，有些更新确实需要重启。 在这种情况下，VM 会在修补基础结构期间关闭，随后再重启。
 
 若要了解什么是 Azure 计划内维护，及其如何影响 Linux VM 的可用性，请参阅下面列出的文章。 这些文章介绍了 Azure 计划内维护过程的背景，以及如何安排计划内维护以进一步减少影响。
 

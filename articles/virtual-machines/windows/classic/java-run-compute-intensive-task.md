@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: Java
 ms.topic: article
 origin.date: 04/11/2018
-ms.date: 06/04/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: c054668ac123bc1a7f5d953c74242d7cf502933d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1e43638329bc0d2781ea35762b4a2db51065089f
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652515"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736209"
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>如何在虚拟机上通过 Java 运行计算密集型任务
 > [!IMPORTANT] 
-> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器部署模型和经典部署模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 借助 Azure，可以使用虚拟机来处理计算密集型任务。 例如，虚拟机可以处理任务并将结果传送给客户端计算机或移动应用程序。 阅读完本文后，可以了解如何创建运行可由其他 Java 应用程序监视的、计算密集型 Java 应用程序的虚拟机。
@@ -81,8 +81,9 @@ ms.locfileid: "52652515"
 4. 单击“连接” 。
 5. 根据需要响应提示以连接到虚拟机。 提示需要管理员名称和密码时，请使用创建虚拟机时提供的值。
 
-请注意，Azure 服务总线功能需要将 Baltimore CyberTrust 根证书作为 JRE 的 **cacerts** 存储的一部分进行安装。 此证书将自动包含在本教程使用的 Java 运行时环境 (JRE) 中。 如果 JRE **cacerts** 存储中没有此证书，请参阅[将证书添加到 Java CA 证书存储][add_ca_cert]，以获取有关添加该证书的信息（以及有关在 cacerts 存储中查看证书的信息）。
+请注意，Azure 服务总线功能需要将 Baltimore CyberTrust 根证书作为 JRE 的 **cacerts** 存储的一部分进行安装。 此证书将自动包含在本教程使用的 Java 运行时环境 (JRE) 中。 如果 JRE **cacerts** 存储中没有此证书，请参阅“将证书添加到 Java CA 证书存储”，以获取有关如何添加该证书的信息（以及有关如何在 cacerts 存储中查看证书的信息）。
 
+<!-- Not Available on [Adding a Certificate to the Java CA Certificate Store][add_ca_cert]-->
 ## <a name="how-to-create-a-service-bus-namespace"></a>如何创建服务总线命名空间
 若要开始在 Azure 中使用服务总线队列，必须先创建一个服务命名空间。 服务命名空间提供了用于对应用程序中的服务总线资源进行寻址的范围容器。
 
@@ -521,5 +522,6 @@ ms.locfileid: "52652515"
 [namespace_list]:media/java-run-compute-intensive-task/SvcBusQueues_05_NamespaceList.jpg
 [properties_pane]:media/java-run-compute-intensive-task/SvcBusQueues_06_PropertiesPane.jpg
 [default_key]:media/java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
-[add_ca_cert]: ../../../java-add-certificate-ca-store.md
-<!-- Update_Description: update link -->
+<!--Not Available on [add_ca_cert]: ../../../java-add-certificate-ca-store.md-->
+
+<!-- Update_Description: update meta properties -->

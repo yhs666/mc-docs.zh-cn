@@ -1,10 +1,10 @@
 ---
-title: 针对 Hadoop、Spark、Kafka、HBase 或 ML Services 的群集设置 - Azure HDInsight
-description: 通过浏览器、Azure CLI、Azure PowerShell、REST 或 SDK 为 HDInsight 设置 Hadoop、Kafka、Spark、HBase、ML Services 或 Storm 群集。
+title: 针对 Hadoop、Spark、Kafka、HBase 或 R Server 的群集设置 - Azure HDInsight
+description: 通过浏览器、Azure 经典 CLI、Azure PowerShell、REST 或 SDK 为 HDInsight 设置 Hadoop、Kafka、Spark、HBase、R Server 或 Storm 群集。
 keywords: hadoop 群集设置, kafka 群集设置, spark 群集设置, 什么是 hadoop 群集
 services: hdinsight
 documentationcenter: ''
-author: jasonwhowell
+author: hrasheed-msft
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -14,14 +14,14 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 08/27/2018
-ms.date: 11/19/2018
+ms.date: 12/24/2018
 ms.author: v-yiso
-ms.openlocfilehash: 1674ae7509d17bf91e9127f81b1d56019e66945a
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: e5d62ff7838bb69562f24d96b372941245b0947e
+ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028907"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53569343"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>使用 Hadoop、Spark、Kafka 等等在 HDInsight 中设置群集
 
@@ -94,7 +94,7 @@ Azure HDInsight 目前提供以下群集类型，每种类型都具有一组用�
 * HTTP 用户：默认的用户名为 *admin*。它使用 Azure 门户上的基本配置。 有时称为“群集用户”。
 * SSH 用户（Linux 群集）：用来通过 SSH 连接到群集。 有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-使用企业安全包可将 HDInsight 与 Active Directory 和 Apache Ranger 集成。 可以使用企业安全包创建多个用户。
+使用企业安全包可将 HDInsight 与 Active Directory 和 Apache Ranger 集成。 可使用企业安全数据包创建多个用户。
 
 ## <a name="location"></a>群集和存储的位置（区域）
 
@@ -177,7 +177,7 @@ HDInsight 群集的成本取决于节点数和节点的虚拟机大小。
 如果你只是想要试用 HDInsight，我们建议使用一个数据节点。 有关 HDInsight 定价的详细信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。
 
 > [!NOTE]
-> 群集大小限制因 Azure 订阅而异。 可联系 [Azure 支持部门](https://www.azure.cn/support/contact/)提高限制。
+> 群集大小限制因 Azure 订阅而异。 可联系 [Azure 支持部门](https://www.azure.cn/support/contact/)以提高限制。
 >
 
 使用 Azure 门户配置群集时，可通过“节点定价层”边栏选项卡查看节点大小。 在门户中，还可以查看不同节点大小的相关费用。 

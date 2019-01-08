@@ -2,7 +2,7 @@
 title: 使用虚拟网络扩展 HDInsight
 description: 了解如何使用 Azure 虚拟网络将 HDInsight 连接到其他云资源或数据中心内的资源
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.assetid: 37b9b600-d7f8-4cb1-a04a-0b3a827c6dcc
 ms.service: hdinsight
 ms.custom: hdinsightactive
@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 10/08/2018
-ms.date: 11/19/2018
+origin.date: 11/06/2018
+ms.date: 12/24/2018
 ms.author: v-yiso
-ms.openlocfilehash: 82e96ada6dc2f856b1e0be00c66aa2dd6e15e5b3
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: adbd7b3bf1bb73503a0af4cf210e0b5980c4366d
+ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657555"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53569346"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虚拟网络扩展 Azure HDInsight
 
@@ -30,7 +30,7 @@ ms.locfileid: "52657555"
 
 * 在 Azure 虚拟网络中将 HDInsight 连接到数据存储。
 
-* 直接访问不能通过 Internet 公开访问的 Hadoop 服务。 例如，Kafka API 或 HBase Java API。
+* 直接访问无法通过 Internet 公开访问的 Apache Hadoop 服务。 例如，Kafka API 或 HBase Java API。
 
 > [!WARNING]
 > 本文档中的信息要求你了解 TCP/IP 网络。 如果不熟悉 TCP/IP 网络，则应在修改生产网络之前，与熟悉 TCP/IP 网络的人合作。
@@ -71,7 +71,7 @@ ms.locfileid: "52657555"
 
     连接后，安装在 Resource Manager 网络中的 HDInsight 即可与经典网络中的资源交互。
 
-2. 是否使用强制隧道？ 强制隧道是一种子网设置，可以强制出站 Internet 流量流向某个设备，以便进行检查和日志记录。 HDInsight 不支持强制隧道。 请在将 HDInsight 安装到子网中之前删除强制隧道，或者为 HDInsight 创建新的子网。
+2. 是否使用强制隧道？ 强制隧道是一种子网设置，可以强制出站 Internet 流量流向某个设备，以便进行检查和日志记录。 HDInsight 不支持强制隧道。 请在将 HDInsight 部署到现有子网之前删除强制隧道，或者为 HDInsight 创建没有强制隧道的新子网。
 
 3. 是否使用网络安全组、用户定义路由或虚拟网络设备来限制进出虚拟网络的流量？
 
@@ -158,9 +158,9 @@ Azure 为安装在虚拟网络中的 Azure 服务提供名称解析。 此内置
 
             * 将虚拟网络 DNS 后缀的请求转发到 Azure 递归解析程序 (168.63.129.16)。 Azure 处理虚拟网络中资源的请求
 
-            * 将其他所有请求转发到本地 DNS 服务器。 本地 DNS 处理所有其他名称解析请求，甚至是 Internet 资源（如 microsoft.com）的请求。
+            * 将其他所有请求转发到本地 DNS 服务器。 本地 DNS 处理所有其他的名称解析请求，甚至包括 Internet 资源（例如 Microsoft.com）的请求。
 
-        * __本地 DNS__： 将虚拟网络 DNS 后缀的请求转发到自定义 DNS 服务器。 然后，自定义 DNS 服务器转发给 Azure 递归解析程序。
+        * __本地 DNS__：将虚拟网络 DNS 后缀的请求转发到自定义 DNS 服务器。 然后，自定义 DNS 服务器转发给 Azure 递归解析程序。
 
         此配置将包含虚拟网络 DNS 后缀的完全限定的域名请求路由至自定义 DNS 服务器。 所有其他请求（甚至包括对公共 Internet 地址的请求）由本地 DNS 服务器处理。
 
@@ -180,7 +180,7 @@ Azure 为安装在虚拟网络中的 Azure 服务提供名称解析。 此内置
 
 ## <a name="directly-connect-to-hadoop-services"></a>直接连接到 Hadoop 服务
 
-HDInsight 上的大多数文档假定你可以通过 Internet 访问群集。 例如，可以通过 https://CLUSTERNAME.azurehdinsight.cn 连接到该群集。 此地址使用公共网关，如果你使用了 NSG 或 UDR 限制来自 Internet 的访问，则该网关不可用。
+可以通过 https://CLUSTERNAME.azurehdinsight.cn 连接到该群集。 此地址使用公共 IP，如果已使用 NSG 来限制来自 Internet 的传入流量，则可能无法访问此地址。 此外，在 VNet 中部署群集时，可以使用专用终结点 https://CLUSTERNAME-int.azurehdinsight.cn 访问它。 此终结点可解析为 VNet 中的专用 IP，以进行群集访问。
 
 若要通过虚拟网络连接到 Ambari 以及其他网页，请使用以下步骤：
 
@@ -220,13 +220,13 @@ HDInsight 上的大多数文档假定你可以通过 Internet 访问群集。 �
 * 网络安全组 (NSG)：用于筛选网络的入站和出站流量。 有关详细信息，请参阅[使用网络安全组筛选网络流量](../virtual-network/security-overview.md)文档。
 
     > [!WARNING]
-    > HDInsight 不支持限制出站流量。
+    > HDInsight 不支持限制出站流量。 应当允许所有出站流量。
 
 * 用户定义路由 (UDR)：定义流量在网络中的资源之间的流动方式。 有关详细信息，请参阅[用户定义路由和 IP 转发](../virtual-network/virtual-networks-udr-overview.md)文档。
 
 * 网络虚拟设备：复制设备（例如防火墙和路由器）的功能。 有关详细信息，请参阅[网络设备](https://azure.microsoft.com/solutions/network-appliances)文档。
 
-作为托管服务，HDInsight 要求对 Azure 云中的 Azure 运行状况和管理服务进行不受限制的访问。 使用 NSG 和 UDR 时，必须确保这些服务仍可与 HDInsight 通信。
+作为托管服务，对于从 VNET 传入和传出的流量，HDInsight 都需要对 HDinsight 运行状况和管理服务具有不受限制的访问权限。 使用 NSG 和 UDR 时，必须确保这些服务仍然可以与 HDInsight 进行通信。
 
 HDInsight 在多个端口上公开服务。 使用虚拟设备防火墙时，必须允许将端口上的流量用于这些服务。 有关详细信息，请参阅[所需端口]部分。
 
@@ -240,8 +240,8 @@ HDInsight 在多个端口上公开服务。 使用虚拟设备防火墙时，必
 
 3. 为计划将 HDInsight 安装到其中的子网创建或修改网络安全组或用户定义路由。
 
-    * 网络安全组：在端口 443 上允许来自 IP 地址的入站流量。
-    * 用户定义路由： 创建到每个 IP 地址的路由，将“下一跃点类型”设置为“Internet”。
+    * 网络安全组：在端口 443 上允许来自 IP 地址的入站流量。 这将确保 HDI 管理服务可以从 VNET 外部访问群集。
+    * __用户定义路由__：如果计划使用 UDR，请创建每个 IP 地址的路由并将“下一跃点类型”设置为“Internet”。 你还应当无限制地允许来自 VNET 的任何其他出站流量。 例如，可以将所有其他流量路由到你的 Azure 防火墙或网络虚拟设备（托管在 Azure 中）以便进行监视，但不应当阻止传出流量。
 
 有关网络安全组或用户定义路由的详细信息，请参阅以下文档：
 
@@ -249,9 +249,9 @@ HDInsight 在多个端口上公开服务。 使用虚拟设备防火墙时，必
 
 * [用户定义路由](../virtual-network/virtual-networks-udr-overview.md)
 
-#### <a name="forced-tunneling"></a>强制隧道
+#### <a name="forced-tunneling-to-on-premise"></a>到本地的强制隧道
 
-强制隧道是用户定义的路由配置，用于将子网中的所有流量强制流向特定的网络或位置，例如本地网络。 HDInsight 不支持强制隧道。
+强制隧道是用户定义的路由配置，用于将子网中的所有流量强制流向特定的网络或位置，例如本地网络。 HDInsight 不支持到本地网络的强制隧道。 如果使用托管在 Azure 中的 Azure 防火墙或网络虚拟设备，则可以使用 UDR 将流量路由到它以便进行监视并允许所有传出流量。
 
 ## <a id="hdinsight-ip"></a> 所需 IP 地址
 

@@ -10,14 +10,14 @@ ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 01/26/2018
-ms.date: 06/07/2018
+ms.date: 12/19/2018
 ms.author: v-junlch
-ms.openlocfilehash: efe22662e4653c3e74de49653bb694bb3f8d027b
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 61397f2ffbe4b4991418a7520b5007826159bf03
+ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673140"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53656547"
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>使用 Azure 门户创建具有 Web 应用程序防火墙的应用程序网关
 
@@ -34,7 +34,7 @@ ms.locfileid: "52673140"
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
-在 [http://portal.azure.cn](http://portal.azure.cn) 登录 Azure 门户
+在 [https://portal.azure.cn](https://portal.azure.cn) 登录 Azure 门户
 
 ## <a name="create-an-application-gateway"></a>创建应用程序网关
 
@@ -131,7 +131,7 @@ ms.locfileid: "52673140"
 
 ## <a name="create-a-storage-account"></a>创建存储帐户
 
-在本教程中，应用程序网关使用存储帐户来存储用于检测和防范目的的数据。
+在本教程中，应用程序网关使用存储帐户来存储用于检测和防范目的的数据。 也可以使用事件中心来记录数据。
 
 1. 单击 Azure 门户左上角的“新建”。
 2. 选择“存储”，然后选择“存储帐户 - blob、文件、表、队列”。
@@ -172,4 +172,4 @@ ms.locfileid: "52673140"
 
 若要了解有关应用程序网关及其关联资源的详细信息，请继续阅读操作指南文章。
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: link update -->

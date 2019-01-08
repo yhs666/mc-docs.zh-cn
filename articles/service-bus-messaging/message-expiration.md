@@ -1,5 +1,5 @@
 ---
-title: Azure 服务总线消息过期 | Microsoft Docs
+title: Azure 服务总线消息到期时间 | Azure Docs
 description: Azure 服务总线消息的过期时间和生存时间
 services: service-bus-messaging
 documentationcenter: ''
@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/26/2018
-ms.date: 10/31/2018
+origin.date: 12/24/2018
+ms.date: 12/24/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 408a917dbe0445e9f6450f3c685f45d40d165189
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 97090f6a2f4a5fb46efce4e0468411b3526088c1
+ms.sourcegitcommit: 649f5093a9a9a89f4117ae3845172997922aec31
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657624"
+ms.lasthandoff: 12/24/2018
+ms.locfileid: "53784618"
 ---
 # <a name="message-expiration-time-to-live"></a>消息过期时间（生存时间）
 
@@ -55,6 +55,25 @@ ms.locfileid: "52657624"
  
 必须通过 Azure 资源管理器操作或 .NET Framework 客户端 [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API 设置此 autoDeleteOnIdle 属性。 不能通过门户设置此属性。
 
+## <a name="idleness"></a>空闲
+
+下面是被视为实体（队列、主题和订阅）空闲的一些情况：
+
+- 队列
+    - 无发送  
+    - 无接收  
+    - 无队列更新  
+    - 无计划的消息  
+    - 无浏览/速览 
+- 主题  
+    - 无发送  
+    - 无主题更新  
+    - 无计划的消息 
+- 订阅
+    - 无接收  
+    - 无订阅更新  
+    - 无添加到订阅的新规则  
+    - 无浏览/速览  
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2017
-ms.date: 11/12/2018
+ms.date: 01/03/2019
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: beb0f529079056bb38ab6a1038a14cf1156585da
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 519982b5890150198047e58c8f1e41f3d74f453f
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647603"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996377"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect 同步：函数引用
 在 Azure AD Connect 中，函数用于在同步期间操作属性值。  
@@ -147,7 +147,7 @@ CDate 函数通过字符串返回 UTC DateTime。 DateTime 不是 Sync 中的原
 **语法：**  
 `dt CDate(str value)`
 
-- Value：具有日期、时间和可选时区的字符串
+- 值：具有日期、时间和可选时区的字符串
 
 **备注：**  
 返回的字符串始终采用 UTC 格式。
@@ -512,7 +512,7 @@ CStr 函数转换为字符串数据类型。
   - n Minute
   - s Second
 - value：要添加的单元数。 它可以是正值（以获取将来的日期）或负值（以获取过去的日期）。
-- date：表示间隔添加到其中的日期的 DateTime。
+- date：DateTime，表示已向其添加间隔的日期。
 
 **示例：**  
 `DateAdd("m", 3, CDate("2001-01-01"))`  
@@ -557,7 +557,7 @@ DNComponentRev 函数返回从右边起（末尾）的指定 DN 组件的值。
 
 - dn：要解释的引用属性
 - ComponentNumber - 要返回的 DN 中的组件
-- Options：DC — 忽略具有“dc=”的所有组件
+- 选项：DC - 忽略具有“dc=”的所有组件
 
 **示例：**  
 如果 dn 为“cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com”，则  
@@ -601,7 +601,7 @@ FormatDateTime 函数用于为具有指定格式的字符串设置 DateTime 格�
 - format：表示要转换为的格式的字符串。
 
 **备注：**  
-格式的可能值可以在此处找到：[用户定义的日期/时间格式（Format 函数）](http://msdn2.microsoft.com/library/73ctwf33\(VS.90\).aspx)
+格式的可能值可以在此处找到：[用户定义的日期/时间格式（Format 函数）](https://msdn2.microsoft.com/library/73ctwf33\(VS.90\).aspx)
 
 **示例：**  
 
@@ -853,7 +853,7 @@ Join 函数使用多值字符串，并返回每个项之间插入指定分隔符
 `str Join(mvstr attribute)`  
 `str Join(mvstr attribute, str Delimiter)`
 
-- attribute：包含要联接的字符串的多值属性。
+- 属性：包含要联接的字符串的多值属性。
 - delimiter：任意字符串，用于分隔返回的字符串中的子字符串。 如果省略，则使用空格字符（“ ”）。 如果分隔符为零长度字符串（“”）或零，则列表中的所有项都不使用分隔符连接。
 
 **备注**  
@@ -1101,7 +1101,7 @@ ReplaceChars 函数替换 ReplacePattern 字符串中找到的所有出现的字
 **语法：**  
 `str ReplaceChars(str string, str ReplacePattern)`
 
-- string：替换其中值的字符串。
+- string：要替换其中的字符的字符串。
 - ReplacePattern：包含具有要替换字符的字典的字符串。
 
 格式为 {source1}:{target1},{source2}:{target2},{sourceN},{targetN}，其中源是要查找并确定要替换的目标字符串的字符。
@@ -1223,7 +1223,7 @@ Switch 函数用于基于计算的条件返回单个值。
 **语法：**  
 `var Switch(exp expr1, var value1[, exp expr2, var value … [, exp expr, var valueN]])`
 
-- expr：想要计算结果的变体表达式。
+- expr：需要计算其结果的变体表达式。
 - value：当相应表达式为 True 时要返回的值。
 
 **备注：**  
@@ -1336,6 +1336,7 @@ UCase 函数将字符串中的所有字符都转换为大写形式。
 
 ## <a name="additional-resources"></a>其他资源
 - [了解声明性预配表达式](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
-- [Azure AD Connect Sync：自定义同步选项](how-to-connect-sync-whatis.md)
+- [Azure AD Connect 同步：自定义同步选项](how-to-connect-sync-whatis.md)
 - [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)
 
+<!-- Update_Description: link update -->

@@ -1,9 +1,9 @@
 ---
- title: include 文件 description: include 文件 services: vpn-gateway author: WenJason ms.service: vpn-gateway ms.topic: include origin.date: 07/30/2018 ms.date: 11/05/2018 ms.author: v-jay ms.custom: include file
+ title: include 文件 description: include 文件 services: vpn-gateway author:WenJason ms.service: vpn-gateway ms.topic: include origin.date:11/21/2018 ms.date:12/24/2018 ms.author: v-jay ms.custom: include 文件
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>在我的点到站点配置中，可以有多少 VPN 客户端终结点？
 
-我们最多支持 128 个 VPN 客户端可同时连接到一个虚拟网络。
+这取决于网关 SKU。 有关支持的连接数的详细信息，请参阅[网关 SKU](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku)。
 
 ### <a name="supportedclientos"></a>点到站点连接可以用于哪些客户端操作系统？
 
@@ -62,11 +62,11 @@ Azure 支持两种类型的点到站点 VPN 选项：
 
 1. 安装更新。
 
-  | OS 版本 | 日期 | 编号/链接 |
-  |---|---|---|---|
-  | Windows Server 2016<br>Windows 10 版本 1607 | 2018 年 1 月 17 日 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
-  | Windows 10 版本 1703 | 2018 年 1 月 17 日 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
-  |  |  |  |  |
+   | OS 版本 | 日期 | 编号/链接 |
+   |---|---|---|---|
+   | Windows Server 2016<br>Windows 10 版本 1607 | 2018 年 1 月 17 日 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
+   | Windows 10 版本 1703 | 2018 年 1 月 17 日 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
+   |  |  |  |  |
 
 2. 设置注册表项值。 在注册表中创建“HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload”REG_DWORD 键或将其设置为 1。
 

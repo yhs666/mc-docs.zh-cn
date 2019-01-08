@@ -13,19 +13,19 @@ ms.workload: infrastructure
 origin.date: 05/22/2017
 ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 40d2b46f446abc53591c25a360798e0aa0e93eba
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: cd38da21669cff4026677ea91568b5d6ee26a09a
+ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652531"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785200"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>了解在 Azure 中管理虚拟机时遇到的常见错误消息
 
 本文介绍在 Azure 中创建或管理虚拟机 (VM) 时可能会遇到的一些最常见的错误代码和消息。
 
 >[!NOTE]
-> 可以通过本反馈页面或 [Azure 反馈](https://www.azure.cn/support/support-azure/)使用 #azerrormessage 标记给我们留言。
+> 可以通过本反馈页面或 [Azure 反馈](https://support.azure.cn/zh-cn/support/support-azure/)使用 #azerrormessage 标记给我们留言。
 
 ## <a name="error-response-format"></a>错误响应格式 
 Azure VM 使用以下 JSON 格式提供错误响应：
@@ -108,7 +108,7 @@ Azure VM 使用以下 JSON 格式提供错误响应：
 |  InvalidParameter  |  无法为已在指定映像引用中定义的磁盘指定用户映像替代。  |
 |  InvalidParameter  |  名为“{0}”的磁盘已在使用相同的 VHD URL: {1}。  |
 |  InvalidParameter  |  指定的容错域计数 {0} 必须在 {1} 到 {2} 的范围内。  |
-|  InvalidParameter  |  许可证类型 {0} 无效。 有效的许可证类型为: Windows_Client 或 Windows_Server，区分大小写。  |
+|  InvalidParameter  |  许可证类型 {0} 无效。 有效的许可证类型为：Windows_Client 或 Windows_Server（区分大小写）。  |
 |  InvalidParameter  |  Linux 主机名长度不能超过 {0} 个字符，也不能包含以下字符: {1}。  |
 |  InvalidParameter  |  因为 Linux 预配代理中的一个已知问题，SSH 公钥的目标路径当前限制为其默认值 {0}。  |
 |  InvalidParameter  |  LUN {0} 处已存在磁盘。  |

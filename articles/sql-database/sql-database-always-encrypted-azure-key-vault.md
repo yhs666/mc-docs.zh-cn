@@ -1,5 +1,5 @@
 ---
-title: 始终加密：SQL 数据库 - Azure Key Vault | Microsoft 文档
+title: Always Encrypted：SQL 数据库 - Azure Key Vault | Microsoft Docs
 description: 本文演示如何使用 SQL Server Management Studio 中的始终加密向导，通过数据加密来保护 SQL 数据库中的敏感数据。
 keywords: 数据加密, 加密密钥, 云加密
 services: sql-database
@@ -14,12 +14,12 @@ ms.reviewer: ''
 manager: digimobile
 origin.date: 10/05/2018
 ms.date: 10/29/2019
-ms.openlocfilehash: b9e5be7cbfa0422fe6f7079678dbf23c05b0a36d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 55aafdd460c952ded6a6dd8a053104365f9c4b8d
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666870"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806281"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Always Encrypted：保护敏感数据并将加密密钥存储在 Azure 密钥保管库中
 
@@ -133,7 +133,7 @@ SSMS 提供了一个向导，通过设置列主密钥、列加密密钥和已加
    
     ![加密列](./media/sql-database-always-encrypted-azure-key-vault/encrypt-columns.png)
 
-始终加密向导包括以下部分：**列选择**、**主密钥配置**、**验证**和**摘要**。
+Always Encrypted 向导包括以下几部分：**列选择**、**主密钥配置**、**验证**和**摘要**。
 
 ### <a name="column-selection"></a>列选择
 单击“简介”页上的“下一步”，可以打开“列选择”页。 在此页上，选择想要加密的列，[加密类型和要使用的列加密密钥 (CEK)](https://msdn.microsoft.com/library/mt459280.aspx#Anchor_2)。
@@ -606,7 +606,7 @@ SSMS 提供了一个向导，通过设置列主密钥、列加密密钥和已加
 
    ![新建控制台应用程序](./media/sql-database-always-encrypted-azure-key-vault/ssms-encrypted.png)
 
-若要使用 SSMS 访问纯文本数据，首先需要确保用户具有 Azure Key Vault 的适当权限：get、unwrapKey 和 verify。 有关详细信息，请参阅[创建和存储列主密钥 (Always Encrypted)](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-2017)。
+若要使用 SSMS 访问纯文本数据，首先需要确保用户具有 Azure Key Vault 的适当权限：get、unwrapKey 和 verify。 有关详细信息，请参阅[创建和存储列主密钥 (Always Encrypted)](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-2017)。
 
 然后在连接期间添加 *Column Encryption Setting=enabled* 参数。
 
@@ -636,5 +636,5 @@ SSMS 提供了一个向导，通过设置列主密钥、列加密密钥和已加
 * [透明数据加密](https://msdn.microsoft.com/library/bb934049.aspx)
 * [SQL Server 加密](https://msdn.microsoft.com/library/bb510663.aspx)
 * [始终加密向导](https://msdn.microsoft.com/library/mt459280.aspx)
-* [始终加密博客](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
+* [始终加密博客](https://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 

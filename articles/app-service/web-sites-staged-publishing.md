@@ -1,5 +1,5 @@
 ---
-title: 为 Azure 应用服务中的 Web 应用设置过渡环境
+title: 为 Web 应用设置过渡环境 - Azure 应用服务
 description: 了解如何对 Azure 应用服务中的 Web 应用使用分阶段发布。
 services: app-service
 documentationcenter: ''
@@ -14,14 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/16/2016
-ms.date: 06/04/2018
-ms.author: v-yiso
-ms.openlocfilehash: bd24aa6bf9bc1fe00caa333e4ee1e72fb6a7b82a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/31/2018
+ms.author: v-biyu
+ms.custom: seodec18
+ms.openlocfilehash: 7893be102e88d9035742a6084200e90a2f97fc45
+ms.sourcegitcommit: 80c59ae1174d71509b4aa64a28a98670307a5b38
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666537"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735191"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>设置 Azure 应用服务中的过渡环境
 <a name="Overview"></a>
@@ -32,7 +33,7 @@ ms.locfileid: "52666537"
 * 首先将应用部署到槽，然后将其交换到生产，这确保槽的所有实例都已准备好，并交换到生产。 部署应用时，这样可避免停机。 流量重定向是无缝的，且不会因交换操作而删除任何请求。 当不需要预交换验证时，可以通过配置[自动交换](#Auto-Swap)来自动化这整个工作流。
 * 交换后，具有以前分阶段应用的槽现在具有以前的生产应用。 如果交换到生产槽的更改与预期不同，可以立即执行同一交换来收回“上一已知的良好站点”。
 
-每种应用服务计划层支持不同数量的部署槽。 若要了解应用层支持的槽数，请参阅[应用服务限制](https://www.azure.cn/pricing/details/app-service/)。  若要将应用缩放到其他层，目标层必须支持应用业已使用的槽数。 例如，如果应用有 5 个以上的槽，则不能向下缩放到“标准”层，因为“标准”层只支持 5 个部署槽。
+每种应用服务计划层支持不同数量的部署槽。 若要了解应用层支持的槽数，请参阅[应用服务限制](https://docs.azure.cn/zh-cn/azure-subscription-service-limits#app-service-limits)。 若要将应用缩放到其他层，目标层必须支持应用业已使用的槽数。 例如，如果应用有 5 个以上的槽，则不能向下缩放到“标准”层，因为“标准”层只支持 5 个部署槽。
 
 <a name="Add"></a>
 
@@ -62,7 +63,7 @@ ms.locfileid: "52666537"
     
 5. 单击此槽边栏选项卡中的应用 URL。 请注意，部署槽有其自己的主机名，同时它也是动态应用。 若要限制对部署槽的公共访问权限，请参阅 [应用服务 Web 应用 – 阻止对非生产部署槽的 Web 访问](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)。
 
-创建部署槽后没有任何内容。 可以从其他存储库分支或完全不同的存储库部署到槽。 还可以更改此槽的配置。 使用与内容更新部署槽关联的发布配置文件或部署凭证。  例如，可以[使用 git 发布到此槽](app-service-deploy-local-git.md)。
+创建部署槽后没有任何内容。 可以从其他存储库分支或完全不同的存储库部署到槽。 还可以更改此槽的配置。 使用与内容更新部署槽关联的发布配置文件或部署凭证。  例如，可以[使用 git 发布到此槽](deploy-local-git.md)。
 
 <a name="AboutConfiguration"></a>
 
@@ -86,7 +87,7 @@ ms.locfileid: "52666537"
 * 缩放设置
 * Web 作业计划程序
 
-要将应用设置或连接字符串配置为停在某个槽中（不交换），请访问特定槽的“应用程序设置”边栏选项卡，然后针对应该位于该槽中的配置元素选中“槽设置”框。 如果将配置元素标记为特定于槽，则无法在所有与该应用关联的部署槽之间交换该元素。
+要将应用设置或连接字符串配置为固定在某个槽中（不交换），请访问特定槽的“应用程序设置”边栏选项卡，然后针对应固定在该槽中的配置元素选中“槽设置”框。 如果将配置元素标记为特定于槽，则无法在所有与该应用关联的部署槽之间交换该元素。
 
 ![槽设置][SlotSettings]
 
@@ -123,7 +124,7 @@ ms.locfileid: "52666537"
 - 目标槽保持不变，该槽上的现有工作负荷（如生产）不会受影响。
 - 将目标槽的配置元素应用到源槽，包括特定于槽的连接字符串和应用设置。
 - 使用前面提到的这些配置元素，重启源槽上的工作进程。
-- 完成交换后：将准备好的源槽移到目标槽。 目标槽会按手动交换的方式移动到源槽。
+- 当完成交换后：将准备好的源槽移到目标槽。 目标槽会按手动交换的方式移动到源槽。
 - 取消交换时：重新将源槽的配置元素应用到源槽。
 
 可预览应用具体如何使用目标槽配置。 完成验证后，可通过单独的步骤完成交换。 此步骤具有额外优势，源槽已通过所需的配置提前准备好，因此客户端不会遇到停机的情况。  
@@ -197,9 +198,8 @@ ms.locfileid: "52666537"
 <a name="PowerShell"></a>
 
 ## <a name="automate-with-azure-powershell"></a>使用 Azure PowerShell 进行自动化操作
-Azure PowerShell 是一个模块，可提供通过 Windows PowerShell 管理 Azure 的 cmdlet，包括对管理 Azure 应用服务的部署槽的支持。
 
-[!INCLUDE [AzureRm PowerShell with Azure China Cloud](../../includes/azurerm-azurechinacloud-environment-parameter.md)]
+Azure PowerShell 是一个模块，可提供通过 Windows PowerShell 管理 Azure 的 cmdlet，包括对管理 Azure 应用服务的部署槽的支持。
 
 * 有关安装和配置 Azure PowerShell 的信息以及使用 Azure 订阅对 Azure PowerShell 进行身份验证的信息，请参阅 [如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。  
 
@@ -273,3 +273,4 @@ Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Mi
 [Autoswap1]: ./media/web-sites-staged-publishing/AutoSwap01.png
 [Autoswap2]: ./media/web-sites-staged-publishing/AutoSwap02.png
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
+

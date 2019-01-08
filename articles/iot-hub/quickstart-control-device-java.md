@@ -13,12 +13,12 @@ ms.workload: ns
 origin.date: 06/22/2018
 ms.date: 12/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: fb12621322cc7701539aaa5a01ed50281c8213b8
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 2f3244affadec8fc2fc21f4242c299556af81011
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675470"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736681"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>快速入门：控制连接到 IoT 中心的设备 (Java)
 
@@ -58,13 +58,13 @@ mvn --version
 
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
 
-如果已完成上一[快速入门：将遥测数据从设备发送到 IoT 中心](quickstart-send-telemetry-java.md)，则可跳过此步骤。
+如果已完成上一[快速入门：将遥测数据从设备发送到 IoT 中心](quickstart-send-telemetry-java.md)，可以跳过此步骤。
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>注册设备
 
-如果已完成上一[快速入门：将遥测数据从设备发送到 IoT 中心](quickstart-send-telemetry-java.md)，则可跳过此步骤。
+如果已完成上一[快速入门：将遥测数据从设备发送到 IoT 中心](quickstart-send-telemetry-java.md)，可以跳过此步骤。
 
 必须先将设备注册到 IoT 中心，然后该设备才能进行连接。 在本快速入门中，请使用 Azure CLI 来注册模拟设备。
 
@@ -72,7 +72,7 @@ mvn --version
 
    **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
 
-   **MyJavaDevice**：这是为注册的设备提供的名称。 请按显示的方法使用 MyJavaDevice。 如果为设备选择不同名称，则可能还需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
+   **MyJavaDevice**：此值是为注册的设备提供的名称。 请按显示的方法使用 MyJavaDevice。 如果为设备选择不同名称，则可能还需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
     ```azurecli
     az extension add --name azure-cli-iot-ext
     az iot hub device-identity create \

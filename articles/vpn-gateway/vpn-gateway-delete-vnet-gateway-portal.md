@@ -1,27 +1,19 @@
 ---
-title: 删除虚拟网络网关：Azure 门户：Resource Manager | Microsoft Docs
-description: 在 Resource Manager 部署模型中使用 Azure 门户删除虚拟网络网关。
+title: 删除虚拟网络网关：Azure 门户：资源管理器 | Microsoft Docs
+description: 在资源管理器部署模型中使用 Azure 门户删除虚拟网络网关。
 services: vpn-gateway
 documentationcenter: na
-author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
+author: WenJason
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: ''
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 06/20/2017
-ms.date: 01/23/2018
-ms.author: v-junlch
-ms.openlocfilehash: 32aebf8e4c70015dfa557eafadf92f433ec3a59e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 10/23/2018
+ms.date: 12/24/2018
+ms.author: v-jay
+ms.openlocfilehash: af22ac657270f69c881f8c0d69bb8f2de3c91c64
+ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653497"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53656515"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>使用门户删除虚拟网络网关
 

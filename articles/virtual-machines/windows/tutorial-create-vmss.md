@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: ''
 ms.topic: tutorial
 origin.date: 11/07/2018
-ms.date: 11/26/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 89f282b2c0ee56194017c598d56dd5bb93a9a46f
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 948991e5a2a65a2ff9c289646350c71bd64e900a
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675165"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736165"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows-with-azure-powershell"></a>教程：使用 Azure PowerShell 在 Windows 上创建虚拟机规模集和部署高度可用的应用
 利用虚拟机规模集，可以部署和管理一组相同的、自动缩放的虚拟机。 可以手动缩放规模集中的 VM 数。 也可以定义规则，以便根据 CPU、内存需求或网络流量等资源使用情况进行自动缩放。 在本教程中，请在 Azure 中部署虚拟机规模集，并了解如何执行以下操作：
@@ -96,7 +96,7 @@ Update-AzureRmVmss `
 
 ## <a name="allow-traffic-to-application"></a>允许流量发往应用程序
 
-若要允许访问基本的 Web 应用程序，请使用 [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermnetworksecurityruleconfig) 和 [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermnetworksecuritygroup) 创建网络安全组。 有关详细信息，请参阅 [Azure 虚拟机规模集的网络](../../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md)。
+若要允许访问基本的 Web 应用程序，请使用 [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig) 和 [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworksecuritygroup) 创建网络安全组。 有关详细信息，请参阅 [Azure 虚拟机规模集的网络](../../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md)。
 
 ```PowerShell
 # Get information about the scale set

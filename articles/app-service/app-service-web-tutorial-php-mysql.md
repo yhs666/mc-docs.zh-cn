@@ -1,8 +1,8 @@
 ---
-title: 在 Azure 中构建 PHP 和 MySQL Web 应用 | Microsoft Docs
+title: 使用 MySQL 生成 PHP 应用 - Azure 应用服务
 description: 了解如何创建一个可在 Azure 中运行的 PHP 应用，并将其连接到 MySQL 数据库。
 services: app-service\web
-documentationcenter: nodejs
+documentationcenter: php
 author: cephalin
 manager: erikre
 editor: ''
@@ -10,18 +10,18 @@ ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: nodejs
+ms.devlang: php
 ms.topic: tutorial
 origin.date: 10/20/2017
-ms.date: 09/03/2018
-ms.author: v-yiso
-ms.custom: mvc
-ms.openlocfilehash: 0698cffe76234012f4520d85fb5bdc375ad14022
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/31/2018
+ms.author: v-biyu
+ms.custom: seodec18
+ms.openlocfilehash: 5036c59d871f901ff4afcaf9853921578184bb3c
+ms.sourcegitcommit: 80c59ae1174d71509b4aa64a28a98670307a5b38
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657245"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735179"
 ---
 # <a name="tutorial-build-a-php-and-mysql-web-app-in-azure"></a>教程：在 Azure 中构建 PHP 和 MySQL Web 应用
 
@@ -64,7 +64,7 @@ ms.locfileid: "52657245"
 mysql -u root -p
 ```
 
-当系统提示输入密码时，请输入 `root` 帐户的密码。 如果不记得自己的 root 帐户密码，请参阅 [MySQL：如何重置 Root 密码](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html)。
+当系统提示输入密码时，请输入 `root` 帐户的密码。 如果不记得自己的 Root 帐户密码，请参阅 [MySQL：如何重置 Root 密码](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html)。
 
 如果命令成功运行，则表示 MySQL 服务器正在运行。 否则，请确保遵循 [MySQL 安装后步骤](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html)启动本地 MySQL 服务器。
 
@@ -165,7 +165,7 @@ php artisan serve
 在下列命令中，用唯一的服务器名称替换 *\<mysql_server_name>* 占位符，用用户名替换 *\<admin_user>* 占位符，并用密码替换 *\<admin_password>* 占位符。 此服务器名称用作 MySQL 终结点 (`https://<mysql_server_name>.mysql.database.azure.cn`) 的一部分，因此需在 Azure 的所有服务器中保持唯一。
 
 ```azurecli
-az mysql server create --resource-group myResourceGroup --name <mysql_server_name> --location "China East" --admin-user <admin_user> --admin-password <server_admin_password> --sku-name GP_Gen4_2
+az mysql server create --resource-group myResourceGroup --name <mysql_server_name> --location "China East" --admin-user <admin_user> --admin-password <admin_password> --sku-name B_Gen5_1
 ```
 
 > [!NOTE]
@@ -182,9 +182,9 @@ az mysql server create --resource-group myResourceGroup --name <mysql_server_nam
   "resourceGroup": "myResourceGroup",
   "sku": {
     "additionalProperties": {},
-    "capacity": 2,
-    "family": "Gen4",
-    "name": "GP_Gen4_2",
+    "capacity": 1,
+    "family": "Gen5",
+    "name": "B_Gen5_1",
     "size": null,
     "tier": "GeneralPurpose"
   },
@@ -203,8 +203,14 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_n
 ```
 
 > [!TIP] 
-> 甚至可以让防火墙规则更严格，即[只使用应用所使用的出站 IP 地址](app-service-ip-addresses.md#find-outbound-ips)。
+> 你甚至可以让防火墙规则更严格，即[只使用应用所使用的出站 IP 地址](app-service-ip-addresses.md#find-outbound-ips)。
 >
+
+在终端中再次运行该命令（将 *\<your_ip_address>* 替换为[你的本地 IPv4 IP 地址](http://www.whatsmyip.org/)），以便允许从本地计算机进行访问。
+
+```azurecli
+az mysql server firewall-rule create --name AllowLocalClient --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address=<your_ip_address> --end-ip-address=<your_ip_address>
+```
 
 ### <a name="connect-to-production-mysql-server-locally"></a>在本地连接到生产 MySQL 服务器
 
@@ -591,7 +597,7 @@ az webapp log tail --name <app_name> --resource-group myResourceGroup
 > [!TIP]
 > PHP 应用程序可以使用标准 [error_log()](http://php.net/manual/function.error-log.php) 输出到控制台。 示例应用程序在 _app/Http/routes.php_ 中使用此方法。
 >
-> 作为一种 Web 框架，[Laravel 使用 Monolog](https://laravel.com/docs/5.4/errors) 作为日志记录提供程序。 要了解如何使用 Monolog 将消息输出到控制台，请参阅 [PHP：如何使用 monolog 记录到控制台 (php://out)](http://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out)。
+> 作为一种 Web 框架，[Laravel 使用 Monolog](https://laravel.com/docs/5.4/errors) 作为日志记录提供程序。 若要了解如何使用 Monolog 将消息输出到控制台，请参阅 [PHP：如何使用 monolog 记录到控制台 (php://out)](http://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out)。
 >
 >
 

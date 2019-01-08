@@ -1,21 +1,18 @@
 ---
 title: 有关使用 Azure Database for PostgreSQL 确保业务连续性的概述
 description: 有关使用 Azure Database for PostgreSQL 确保业务连续性的概述。
-services: postgresql
 author: WenJason
 ms.author: v-jay
-manager: digimobile
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 origin.date: 02/28/2018
-ms.date: 10/01/2018
-ms.openlocfilehash: d342aa3eca824a7ffa9beb1567aafd4486fce777
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/31/2018
+ms.openlocfilehash: c16ea1333193f22780bd52245494cfad3bef3f57
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644845"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806175"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>有关使用 Azure Database for PostgreSQL 确保业务连续性的概述
 
@@ -50,7 +47,7 @@ Azure 数据中心会罕见地发生中断。 发生中断时，可能仅导致�
 另一个选项是使用 Azure Database for PostgreSQL 的异地还原功能，该功能使用异地冗余备份来还原服务器。 即使托管你的服务器的区域处于脱机状态，也可访问这些备份。 可以使用这些备份还原到任何其他区域并使服务器恢复联机。
 
 > [!IMPORTANT]
-> 只有当为服务器预配了异地冗余备份存储时，异地还原才是可行的。 如果要从本地冗余备份切换到现有服务器的异地冗余备份，必须使用现有服务器的 mysqldump 进行转储，并将其还原到配置了异地冗余备份的新建服务器。
+> 只有当为服务器预配了异地冗余备份存储时，异地还原才是可行的。 如果要从本地冗余备份切换到现有服务器的异地冗余备份，必须使用现有服务器的 pg_dump 进行转储，并将其还原到配置了异地冗余备份的新建服务器。
 
 ## <a name="next-steps"></a>后续步骤
 - 若要详细了解自动备份，请参阅 [Azure Database for PostgreSQL 中的备份](concepts-backup.md)。 

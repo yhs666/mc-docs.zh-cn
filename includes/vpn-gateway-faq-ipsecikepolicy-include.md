@@ -5,16 +5,16 @@ services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
-origin.date: 03/21/2018
-ms.date: 11/05/2018
+origin.date: 12/14/2018
+ms.date: 12/24/2018
 ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: e2d7238a6750b1520c9df3160e8adf3d34fecf95
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6cc125a0ae48defe3586a84de2401e0e380f5940
+ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649410"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53711701"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>是否所有 Azure VPN 网关 SKU 都支持自定义 IPsec/IKE 策略？
 自定义 IPsec/IKE 策略在 Azure VpnGw1、VpnGw2、VpnGw3、标准 VPN 网关和高性能 VPN 网关上受支持。 不支持基本 SKU。
@@ -103,3 +103,6 @@ SA 生存期是本地规范，不需匹配。
 
 ### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>能否在 ExpressRoute 连接上使用自定义 IPsec/IKE 策略？
 否。 只能通过 Azure VPN 网关在 S2S VPN 和 VNet 到 VNet 连接上使用 IPsec/IKE 策略。
+
+### <a name="where-can-i-find-more-configuration-information-for-ipsec"></a>在哪里可以找到有关 IPsec 的详细配置信息？
+请参阅[为 S2S 或 VNet 到 VNet 的连接配置 IPsec/IKE 策略](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md)

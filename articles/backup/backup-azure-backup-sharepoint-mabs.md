@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 06/08/2018
 ms.date: 07/05/2018
 ms.author: v-junlch
-ms.openlocfilehash: 712437e1f65e6458c388c9cd17d4586f8b554286
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d9c101d2fbcd48b090ba87d91034aed986d98227
+ms.sourcegitcommit: 9fd5944afd6274e096a6e790583a131642f1532d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649667"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53737012"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>将 SharePoint 场备份到 Azure
 使用 Azure 备份服务器 (MABS) 将 SharePoint 场备份到 Azure，其方法与备份其他数据源极为类似。 Azure 备份提供灵活的备份计划来创建每日、每周、每月或每年备份点，并提供适用于各种备份点的保留策略选项。 利用该技术，不仅可以存储本地磁盘副本以实现快速的恢复时间目标 (RTO)，还可以将副本存储到 Azure 以进行经济高效的长期保留。
@@ -24,7 +24,7 @@ DPM 的 Microsoft Azure 备份支持以下方案：
 
 | 工作负载 | 版本 | Sharepoint 部署 | 保护和恢复 |
 | --- | --- | --- | --- | --- | --- |
-| SharePoint |SharePoint 2013、SharePoint 2010、SharePoint 2007、SharePoint 3.0 |作为物理服务器或 Hyper-V/VMware 虚拟机部署的 SharePoint <br> -------------- <br> SQL AlwaysOn | 保护 SharePoint 场恢复选项：从磁盘恢复点恢复场、数据库、文件或列表项。  从 Azure 恢复点恢复场和数据库。 |
+| SharePoint |SharePoint 2016、SharePoint 2013、SharePoint 2010、SharePoint 2007、SharePoint 3.0 |作为物理服务器或 Hyper-V/VMware 虚拟机部署的 SharePoint <br> -------------- <br> SQL AlwaysOn | 保护 SharePoint 场恢复选项：从磁盘恢复点恢复场、数据库、文件或列表项。  从 Azure 恢复点恢复场和数据库。 |
 
 ## <a name="before-you-start"></a>开始之前
 在将 SharePoint 场备份到 Azure 之前，需要确保满足几个条件。
@@ -225,7 +225,7 @@ Azure 备份服务器以 LocalSystem 帐户的身份运行。 若要备份 SQL S
     ![MABS SharePoint 保护 13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. 此时，请按照[本文前面介绍的恢复步骤](#restore-a-sharepoint-item-from-disk-using-dpm)，从磁盘恢复 Sharepoint 内容数据库。
 
-## <a name="faqs"></a>常见问题解答
+## <a name="faqs"></a>常见问题
 问：如果使用 SQL AlwaysOn（使用磁盘上保护）配置了 SharePoint，我是否能将 SharePoint 项恢复到原始位置？<br>
 答：可以，该项可以恢复到原始 SharePoint 站点。
 

@@ -8,15 +8,15 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
 origin.date: 07/14/2018
-ms.date: 10/17/2018
+ms.date: 12/19/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 592728d06ca035c29df14878bc08410d936c60fc
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: edd26d1bcbca00e614157e92e12e926d7fec0ef9
+ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650019"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53656505"
 ---
 # <a name="tutorial-create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>教程：使用 Azure CLI 创建托管多个网站的应用程序网关
 

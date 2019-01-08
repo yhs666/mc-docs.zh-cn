@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 03/18/2018
 ms.date: 09/17/2018
 ms.author: v-yiso
-ms.openlocfilehash: 9418cabf0eb6eeb51765a9de56f3c500c1a72884
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8810523d2dad391684b5fb1e9bb17ba3cef44650
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654273"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736688"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>结合 Azure Active Directory 和 API 管理使用 OAuth 2.0 保护 API
 
@@ -110,7 +110,7 @@ ms.locfileid: "52654273"
 
 在本示例中，开发人员控制台是 client-app。 以下步骤说明如何在开发人员门户中启用 OAuth 2.0 用户授权 
 
-1. 浏览到 API 管理实例。
+1. 在 Azure 门户中，浏览到你的 API 管理实例。
 
 2. 选择“OAuth 2.0” > “添加”。
 
@@ -121,6 +121,9 @@ ms.locfileid: "52654273"
 5. 选择“授权代码”作为“授权类型”。
 
 6. 指定“授权终结点 URL”和“令牌终结点 URL”。 可以从 Azure AD 租户中的“终结点”页检索这些值。 再次浏览到“应用注册”页，并选择“终结点”。
+
+    >[!NOTE]
+    > 在此处使用 **v1** 终结点。
 
 7. 复制“OAuth 2.0 授权终结点”，并将其粘贴到“授权终结点 URL”文本框。
 
@@ -155,6 +158,9 @@ ms.locfileid: "52654273"
 5. 选择“其他安全性验证” 。
 
 ## <a name="successfully-call-the-api-from-the-developer-portal"></a>从开发人员门户成功调用 API
+
+> [!NOTE]
+> 本部分不适用于“消耗”层，该层不支持开发人员门户。
 
 在 `Echo API` 中启用 OAuth 2.0 用户授权后，开发人员控制台在调用 API 之前，将会代表用户获取访问令牌。
 
@@ -194,10 +200,10 @@ ms.locfileid: "52654273"
 
 ## <a name="build-an-application-to-call-the-api"></a>生成应用程序来调用 API
 
-在本指南中，我们使用了 API 管理中的开发者控制台作为示例客户端应用程序来调用由 OAuth 2.0 保护的 `Echo API`。 若要详细了解如何生成应用程序并实现 OAuth 2.0，请参阅 [Azure Active Directory 代码示例](../active-directory/develop/active-directory-code-samples.md)。
+在本指南中，我们使用了 API 管理中的开发者控制台作为示例客户端应用程序来调用由 OAuth 2.0 保护的 `Echo API`。 若要详细了解如何生成应用程序并实现 OAuth 2.0，请参阅 [Azure Active Directory 代码示例](../active-directory/develop/sample-v1-code.md)。
 
 ## <a name="next-steps"></a>后续步骤
-* 详细了解 [Azure Active Directory 和 OAuth2.0](../active-directory/develop/active-directory-authentication-scenarios.md)。
+* 详细了解 [Azure Active Directory 和 OAuth2.0](../active-directory/develop/authentication-scenarios.md)。
 * 有关保护后端服务的其他方法，请参阅[使用证书进行相互身份验证](api-management-howto-mutual-certificates.md)。
 
 * [创建 API 管理服务实例](get-started-create-service-instance.md)。

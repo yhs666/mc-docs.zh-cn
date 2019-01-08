@@ -14,18 +14,18 @@ ms.workload: infrastructure
 origin.date: 00/19/2018
 ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1aa778c516ecfebff1a230eca61a524b93c644e8
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a1f285849023f116c0881405a016553e17144f60
+ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657231"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785162"
 ---
 # <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>Windows 在启动 Azure VM 时显示蓝屏错误
 本文介绍在 Azure 中启动 Windows 虚拟机 (VM) 时可能遇到的蓝屏错误。 本文提供用于收集支持票证数据的步骤。 
 
 > [!NOTE] 
-> Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍如何使用 Resource Manager 部署模型。建议对新部署使用该模型，而不是经典部署模型。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器部署模型和经典部署模型](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍如何使用 Resource Manager 部署模型。建议对新部署使用该模型，而不是经典部署模型。
 
 ## <a name="symptom"></a>症状 
 
@@ -57,7 +57,7 @@ Windows VM 不启动。 检查[启动诊断](./boot-diagnostics.md)中的启动�
 ### <a name="locate-dump-file-and-submit-a-support-ticket"></a>找到转储文件并提交支持票证
 
 1. 在恢复 VM 上，转到附加的 OS 磁盘中的 Windows 文件夹。 如果分配给附加 OS 磁盘的驱动器号为 F，则需转到 F:\Windows。
-2. 找到 memory.dmp 文件，然后使用该转储文件[提交支持票证](https://www.azure.cn/support/support-azure/)。 
+2. 找到 memory.dmp 文件，然后使用该转储文件[提交支持票证](https://support.azure.cn/zh-cn/support/support-azure/)。 
 
 如果找不到转储文件，请转到下一步以启用转储日志和串行控制台。
 
@@ -93,9 +93,9 @@ Windows VM 不启动。 检查[启动诊断](./boot-diagnostics.md)中的启动�
     ```
 
     1. 请确保磁盘上有足够的空间来分配与 RAM 一样多的内存，具体取决于为此 VM 选择的大小。
-    2. 如果没有足够的空间，或者这是大型 VM（G、GS 或 E 系列），则可随后更改创建此文件时所在的位置，将该位置指向任何其他附加到 VM 的数据磁盘。 为此，需更改以下密钥：
-
-            reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
+    2. 如果没有足够的空间，或者这是大型 VM（E 系列），则可随后更改创建此文件时所在的位置，将该位置指向任何其他附加到 VM 的数据磁盘。 为此，需更改以下密钥：
+        
+        <!--Not Available on G, GS series--> reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
 
             REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "<DRIVE LETTER OF YOUR DATA DISK>:\MEMORY.DMP" /f
             REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "<DRIVE LETTER OF YOUR DATA DISK>:\MEMORY.DMP" /f
@@ -104,4 +104,4 @@ Windows VM 不启动。 检查[启动诊断](./boot-diagnostics.md)中的启动�
 
 3. [分离 OS 磁盘，然后将 OS 磁盘重新附加到受影响的 VM](../windows/troubleshoot-recovery-disks-portal.md)。
 4. 启动 VM 以重现问题，然后就会生成转储文件。
-5. 将 OS 磁盘附加到恢复 VM，收集转储文件，然后使用该转储文件[提交支持票证](https://www.azure.cn/support/support-azure/)。
+5. 将 OS 磁盘附加到恢复 VM，收集转储文件，然后使用该转储文件[提交支持票证](https://support.azure.cn/zh-cn/support/support-azure/)。

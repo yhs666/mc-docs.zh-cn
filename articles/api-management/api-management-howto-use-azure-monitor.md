@@ -13,14 +13,14 @@ ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 origin.date: 06/15/2018
-ms.date: 12/03/2018
+ms.date: 12/31/2018
 ms.author: apimpm
-ms.openlocfilehash: 4757ed7d4baa7192fd4d6235818b1ec347aaf00c
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: e2bef9d4078517b7e87b3c7f517abda0edbd391a
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674562"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736699"
 ---
 # <a name="monitor-published-apis"></a>监视已发布的 API
 
@@ -36,8 +36,10 @@ ms.locfileid: "52674562"
 ## <a name="prerequisites"></a>先决条件
 
 + 了解 [Azure API 管理术语](api-management-terminology.md)。
-+ 完成以下快速入门：[创建 Azure API 管理实例](get-started-create-service-instance.md)。
-+ 此外，请完成以下教程：[导入并发布第一个 API](import-and-publish.md)。
++ 完成以下快速入门：[创建一个 Azure API 管理实例](get-started-create-service-instance.md)。
++ 此外，请完成以下教程：[导入和发布第一个 API](import-and-publish.md)。
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="view-metrics-of-your-apis"></a>查看 API 的指标
 

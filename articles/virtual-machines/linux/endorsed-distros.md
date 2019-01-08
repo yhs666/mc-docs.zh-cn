@@ -1,5 +1,5 @@
 ---
-title: Linux 的认可分发 | Azure
+title: Azure 认可的 Linux 发行版 | Azure
 description: 了解 Azure 认可的分发中的 Linux，包括 Ubuntu、CentOS、Oracle 和 SUSE 的指南。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 11/21/2017
-ms.date: 11/26/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 84903c6366793bdf38def0c00d5efb642d14d216
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: ed1ddca70e3c968b1fef687be1584e53fed4f5b9
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674740"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736117"
 ---
-# <a name="linux-on-distributions-endorsed-by-azure"></a>Azure 认可的 Linux 发行版
+# <a name="linux-distributions-endorsed-on-azure"></a>Azure 认可的 Linux 分发
 合作伙伴在 Azure 市场中提供了 Linux 映像。 我们与各大 Linux 社区合作以便在认可的发行版列表中添加更多成员。 在此期间，对于市场未提供的分发，用户始终可以按照[创建并上传包含 Linux 操作系统的虚拟硬盘](/virtual-machines/linux/create-upload-generic)中的准则安装自己的 Linux。
 
 ## <a name="supported-distributions-and-versions"></a>支持的发行版和版本
 下表列出了 Azure 支持的 Linux 分发和版本。 有关 Azure 中支持 Linux 和开源代码技术的更多详细信息，请参阅 [Azure 中对 Linux 映像的支持](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure)。
 
-Hyper-V 和 Azure 的 Linux 集成服务 (LIS) 驱动程序是 Microsoft 直接为上游 Linux 内核提供的内核模块。  默认情况下，某些 LIS 驱动程序已内置在发行版的内核中。 [适用于 Hyper-V 和 Azure 的 Linux Integration Services 版本 4.2](https://www.microsoft.com/download/details.aspx?id=55106) 中提供了基于 CentOS 的旧式发行版供单独下载。 有关 LIS 驱动程序的详细信息，请参阅 [Linux 内核要求](create-upload-generic.md#linux-kernel-requirements)。
+Hyper-V 和 Azure 的 Linux 集成服务 (LIS) 驱动程序是 Azure 直接为上游 Linux 内核提供的内核模块。  默认情况下，某些 LIS 驱动程序已内置在发行版的内核中。 [适用于 Hyper-V 和 Azure 的 Linux Integration Services 版本 4.2](https://www.microsoft.com/download/details.aspx?id=55106) 中提供了基于 CentOS 的旧式发行版供单独下载。 有关 LIS 驱动程序的详细信息，请参阅 [Linux 内核要求](create-upload-generic.md#linux-kernel-requirements)。
 <!-- Not Avaiable on Red Hat Enterprise (RHEL) -->
 Azure Linux 代理已预安装在 Azure 市场映像中，通常可从分发的包存储库中获得。 源代码可在 [GitHub](https://github.com/azure/walinuxagent)上找到。
 
@@ -43,8 +43,8 @@ Azure Linux 代理已预安装在 Azure 市场映像中，通常可从分发的�
 | Ubuntu |Ubuntu 12.04+ **<sup>1</sup>** |在内核中 |包：在“walinuxagent”下的存储库中 <br/>源代码：[GitHub](https://github.com/Azure/WALinuxAgent) |
 
   - **<sup>1</sup>** 有关在 Azure 中对 Ubuntu 12.04 的支持，请参阅 [EOL 通知](https://azure.microsoft.com/blog/ubuntu-12-04-precise-pangolin-nearing-end-of-life/)。
-<!--Not Available on Oracle Linux, Red Hat Enterprise Linux -->
 
+<!--Not Available on Oracle Linux, Red Hat Enterprise Linux -->
 ## <a name="partners"></a>合作伙伴
 
 ### <a name="coreos"></a>CoreOS
@@ -73,4 +73,4 @@ Canonical 工程和开放社区监管对 Ubuntu 在客户端、服务器和云�
 
 借助其遍布全球的开发人员和工程中心，Canonical 在与硬件制造商、内容提供商和软件开发人员合作以将 Ubuntu 解决方案推向市场（从电脑到服务器和手持设备）方面拥有独特的优势。
 
-<!--Update_Description: wording update -->
+<!--Update_Description: wording update, update meta properties -->

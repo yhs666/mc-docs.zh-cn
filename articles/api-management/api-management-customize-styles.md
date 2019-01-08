@@ -13,14 +13,14 @@ ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 origin.date: 06/15/2018
-ms.date: 12/03/2018
+ms.date: 12/31/2018
 ms.author: v-yiso
-ms.openlocfilehash: 9242c974d0ba5b6b1b572525c4fb58ef02567a5b
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 25510af6efcbc9c86cfe7b2b57316042f7ef595c
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675217"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736651"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>自定义开发人员门户页面的样式
 
@@ -41,8 +41,10 @@ ms.locfileid: "52675217"
 ## <a name="prerequisites"></a>先决条件
 
 + 了解 [Azure API 管理术语](api-management-terminology.md)。
-+ 完成以下快速入门：[创建 Azure API 管理实例](get-started-create-service-instance.md)。
-+ 此外，请完成以下教程：[导入并发布第一个 API](import-and-publish.md)。
++ 完成以下快速入门：[创建一个 Azure API 管理实例](get-started-create-service-instance.md)。
++ 此外，请完成以下教程：[导入和发布第一个 API](import-and-publish.md)。
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="customize-the-developer-portal"></a>自定义开发人员门户
 

@@ -15,13 +15,13 @@ origin.date: 11/15/2017
 ms.date: 09/24/2018
 ms.author: v-yeche
 ms.openlocfilehash: 0788ab7a42070d2e5a352afa6e6411399b3b75c9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651581"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785191"
 ---
-# <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager 与经典部署：了解部署模型和资源状态
+# <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure 资源管理器和经典部署：了解部署模型和资源状态
 
 > [!NOTE]
 > 仅当从经典部署迁移到 Azure 资源管理器部署时，才会使用本文中提供的信息。

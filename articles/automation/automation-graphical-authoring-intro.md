@@ -2,22 +2,20 @@
 title: Azure 自动化中的图形创作
 description: 图形创作可以让你在不使用代码的情况下，为 Azure 自动化创建 Runbook。 本文介绍了图形创作以及开始创建图形 Runbook 所需的所有详细信息。
 services: automation
-author: yunan2016
-manager: digimobile
 ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.component: process-automation
+author: WenJason
+ms.author: v-jay
 origin.date: 03/16/2018
-ms.date: 07/23/2018
-ms.author: v-nany
-ms.openlocfilehash: 792331a8af0d5e41c69d5d9254b1b601ff0450c5
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/24/2018
+ms.topic: conceptual
+manager: digimobile
+ms.openlocfilehash: a2a928c5dd7d57fec5393604ecb4b39e065508e1
+ms.sourcegitcommit: 895e9accaae8f8c2a29ed91d8e84911fda6111cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666458"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53615190"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Azure 自动化中的图形创作
 
@@ -51,7 +49,7 @@ Azure 自动化中的所有 Runbook 都是 Windows PowerShell 工作流。 图�
 |:--- |:--- |
 | Cmdlet |包括可以在 Runbook 中使用的所有 cmdlet。 Cmdlet 按模块组织。 所有安装在自动化帐户中的模块都可用。 |
 | Runbook |包括你自动化帐户中的 Runbook。 这些 Runbook 可以添加到画布中用作子 Runbook。 仅显示核心类型与所编辑 Runbook 相同的 Runbook；对于图形 Runbook，仅显示基于 PowerShell 的 Runbook，而对于图形 PowerShell 工作流 Runbook，则仅显示基于 PowerShell 工作流的 Runbook。 |
-| 资产 |包括自动化帐户中能够在 Runbook 中使用的 [自动化资产](http://msdn.microsoft.com/library/dn939988.aspx) 。 将资产添加到 Runbook 中时，它会添加一个可以获取所选资产的工作流活动。 在使用变量资产的情况下，可以选择是否添加用于获取变量或设置变量的活动。 |
+| 资产 |包括自动化帐户中能够在 Runbook 中使用的 [自动化资产](https://msdn.microsoft.com/library/dn939988.aspx) 。 将资产添加到 Runbook 中时，它会添加一个可以获取所选资产的工作流活动。 在使用变量资产的情况下，可以选择是否添加用于获取变量或设置变量的活动。 |
 | Runbook 控件 |包括可以在当前 Runbook 中使用的 Runbook 控件活动。 *交接点* 采用多个输入，并会等到所有输入完成后才会继续执行工作流。 *Code* 活动运行一行或多行 PowerShell 或 PowerShell 工作流代码，具体取决于图形 Runbook 类型。 可以将此活动用于自定义代码或通过其他活动难以实现的功能。 |
 
 ### <a name="configuration-control"></a>配置控件
@@ -114,7 +112,7 @@ Azure 自动化中的每个 Runbook 都有草稿版和已发布版。 只有已�
 
 | 数据源 | 说明 |
 |:--- |:--- |
-| 常量值 |键入参数的值。 这仅适用于以下数据类型：Int32、Int64、字符串、布尔值、DateTime、开关。 |
+| 常量值 |键入参数的值。 这仅适用于以下数据类型：Int32、Int64、String、Boolean、DateTime、Switch。 |
 | 活动输出 |工作流中某个位于当前活动前面的活动的输出。 将列出所有有效的活动。 只选择要将其输出用于参数值的活动。 如果该活动输出的对象具有多个属性，可以在选择活动之后键入属性的名称。 |
 | Runbook 输入 |选择一个 Runbook 输入参数作为活动参数的输入。 |
 | 变量资产 |选择一个自动化变量作为输入。 |
@@ -281,7 +279,7 @@ $ActivityOutput['Activity Label'].PropertyName
 
 ## <a name="authenticating-to-azure-resources"></a>通过 Azure 资源进行身份验证
 
-Azure 自动化中用于管理 Azure 资源的 Runbook 将需要通过 Azure 进行身份验证。 [运行方式帐户](automation-create-runas-account.md)（也称为服务主体）是在订阅中使用自动化 runbook 来访问 Azure 资源管理器资源的默认方法。 可以将此功能添加到图形 Runbook，只需向画布添加 AzureRunAsConnection 连接资产即可，该资产使用 PowerShell [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) cmdlet 和 [Connect-AzureRmAccount](https://docs.microsoft.com/zh-cn/powershell/module/azurerm.profile/connect-azurermaccount?view=azurermps-6.0.0) cmdlet。 以下示例对此进行了演示：
+Azure 自动化中用于管理 Azure 资源的 Runbook 将需要通过 Azure 进行身份验证。 [运行方式帐户](automation-create-runas-account.md)（也称为服务主体）是在订阅中使用自动化 runbook 来访问 Azure 资源管理器资源的默认方法。 可以将此功能添加到图形 Runbook，只需向画布添加 AzureRunAsConnection 连接资产即可，该资产使用 PowerShell [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) cmdlet 和 [Connect-AzureRmAccount](https://docs.microsoft.com/zh-cn/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet。 以下示例对此进行了演示：
 
 ![运行方式身份验证活动](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)
 
@@ -339,7 +337,7 @@ Runbook 可能会要求用户提供输入（如果该用户是通过 Azure 门�
 
 ## <a name="powershell-expressions"></a>PowerShell 表达式
 
-图形编写的优点之一是提供以 PowerShell 的基本知识创建 Runbook 的能力。 目前，确实需要熟悉一下 PowerShell 才能填充某些[参数值](#activities)和设置[链接条件](#links-and-workflow)。 本部分提供 PowerShell 表达式的快速简介供不熟悉的用户参考。 [使用 Windows PowerShell 编写脚本](http://technet.microsoft.com/library/bb978526.aspx)中提供了 PowerShell 的完整详细信息。
+图形编写的优点之一是提供以 PowerShell 的基本知识创建 Runbook 的能力。 目前，确实需要熟悉一下 PowerShell 才能填充某些[参数值](#activities)和设置[链接条件](#links-and-workflow)。 本部分提供 PowerShell 表达式的快速简介供不熟悉的用户参考。 [使用 Windows PowerShell 编写脚本](https://technet.microsoft.com/library/bb978526.aspx)中提供了 PowerShell 的完整详细信息。
 
 ### <a name="powershell-expression-data-source"></a>PowerShell 表达式数据源
 可以使用 PowerShell 表达式作为数据源，使用一些 PowerShell 代码的结果来填充 [活动参数](#activities) 的值。 这可以是执行某个简单函数的单行代码，或执行某个复杂逻辑的多行代码。 未分配给变量的任何命令输出都会输出到参数值。
@@ -415,7 +413,7 @@ $ActivityOutput["Get-AzureVM"].PowerState –ne "Stopped"
 
 ### <a name="hashtables"></a>哈希表
 
-[哈希表](http://technet.microsoft.com/library/hh847780.aspx)是返回一组值时很有用的名称/值对。 某些活动的属性可能是哈希表而不是简单值。 哈希表有时也称为字典。
+[哈希表](https://technet.microsoft.com/library/hh847780.aspx)是返回一组值时很有用的名称/值对。 某些活动的属性可能是哈希表而不是简单值。 哈希表有时也称为字典。
 
 使用以下语法创建哈希表。 哈希表可以包含任意数目的条目，但每个条目由一个名称和值定义。
 
@@ -446,5 +444,4 @@ $h
 * 若要开始使用 PowerShell 工作流 Runbook，请参阅[我的第一个 PowerShell 工作流 Runbook](automation-first-runbook-textual.md)
 * 若要开始使用图形 Runbook，请参阅 [我的第一个图形 Runbook](automation-first-runbook-graphical.md)
 * 若要了解有关 Runbook 类型、其优点和限制的详细信息，请参阅 [Azure 自动化 Runbook 类型](automation-runbook-types.md)
-* 若要了解如何使用自动化运行方式帐户进行身份验证，请参阅[配置 Azure 运行方式帐户](automation-create-runas-account.md)
-
+* 若要了解如何使用自动化运行方式帐户进行身份验证，请参阅[配置 Azure 运行方式帐户](automation-sec-configure-azure-runas-account.md)

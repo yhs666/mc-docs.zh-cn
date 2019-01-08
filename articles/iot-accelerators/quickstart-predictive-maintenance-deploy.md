@@ -7,15 +7,15 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-origin.date: 07/12/2018
-ms.date: 11/26/2018
+origin.date: 10/26/2018
+ms.date: 12/17/2018
 ms.author: v-yiso
-ms.openlocfilehash: a2e6ed109b52051ac47ee0b6c2472f73f6a50380
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 3343f32535820449f8f51eb58e2e315211cd85d4
+ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649711"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53569261"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>快速入门：尝试基于云的解决方案，以便在连接的设备上运行预测性维护分析
 
@@ -23,7 +23,7 @@ ms.locfileid: "52649711"
 
 在模拟中，Fabrikam 是一家区域性航空公司，致力于以优惠的价格为客户提供优质的体验。 维护问题是造成航班延误的原因之一，而飞机引擎维护又是其中最为棘手的项目。 因为必须严防飞行期间发生引擎故障，所以 Fabrikam 不仅会定期检查其引擎，而且会恪守所安排的维护计划。 但因为飞机引擎的问题不一， 所以有一些引擎维护工作并非必要。 更重要的是，若在执行维护工作之前发生问题，可能会造成飞机停飞。 如果飞机所在地点正好缺少合适的技术人员或备用零件，这些问题会造成尤其严重的损失。
 
-Fabrikam 飞机的引擎由各种传感器进行检测，这些传感器监视飞行期间的引擎状况。 经过多年累积引擎运行数据和故障数据之后，Fabrikam 的数据科学家开发出了一个模型，可以预测飞机引擎的剩余使用寿命 (RUL)。 该模型使用在四个引擎传感器提供的数据与最终会导致故障的引擎磨损之间存在的相关性。 Fabrikam 现在除了继续执行定期检查来确保安全之外，还会在每次飞行后，使用模型来计算每个引擎的 RUL。 Fabrikam 现在可以预测将来的故障时间点并制定维护计划，将飞机停飞的时间降至最低，还可以降低运营成本，同时确保乘客与乘务员的安全。
+Fabrikam 飞机的引擎由各种传感器进行检测，这些传感器监视飞行期间的引擎状况。 Fabrikam 有数年的来自这些传感器的引擎操作和故障数据。 Fabrikam 的数据科学家使用该数据开发一个模型，可以预测飞机引擎的剩余使用寿命 (RUL)。 该模型使用在四个引擎传感器提供的数据与最终会导致故障的引擎磨损之间存在的相关性。 Fabrikam 现在除了继续执行定期安全检查之外，还会在每次飞行后，使用模型来计算每个引擎的 RUL。 Fabrikam 现在可以预测未来的故障点，并进行维护规划，尽量缩短飞机停飞时间。 此过程可以降低运营成本，同时确保了乘客与乘务员的安全。
 
 若要完成本快速入门，需要一个有效的 Azure 订阅。
 
@@ -33,11 +33,11 @@ Fabrikam 飞机的引擎由各种传感器进行检测，这些传感器监视�
 
 将解决方案加速器部署到 Azure 订阅时，必须设置一些配置选项。
 
-使用 Azure 帐户凭据登录到 [azureiotsolutions.com](https://www.azureiotsuite.cn/Accelerators)。
+导航到 [azureiotsuite.cn](https://www.azureiotsuite.cn/Accelerators) 并使用 Azure 帐户凭据登录。
 
-在“预测性维护”磁贴上单击“立即尝试”。
+单击“预测性维护”磁贴。 在“预测性维护”页上单击“立即试用”：
 
-![选择“预测性维护”](./media/quickstart-predictive-maintenance-deploy/predictivemaintenance.png)
+![立即试用](./media/quickstart-predictive-maintenance-deploy/predictivemaintenance.png)
 
 在“创建预测性维护解决方案”页上，为预测性维护解决方案加速器输入唯一的“解决方案名称”。 对于本快速入门，我们将使用 **MyPredictiveMaintenance**。
 

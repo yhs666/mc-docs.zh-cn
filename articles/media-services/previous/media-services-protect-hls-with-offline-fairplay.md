@@ -4,7 +4,7 @@ description: 本主题概括介绍并演示了如何使用 Azure 媒体服务以
 services: media-services
 keywords: HLS, DRM, FairPlay Streaming (FPS), 脱机, iOS 10
 documentationcenter: ''
-author: yunan2016
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: 7c3b35d9-1269-4c83-8c91-490ae65b0817
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/01/2017
-ms.date: 1/22/2018
-ms.author: v-nany
-ms.openlocfilehash: 598fa7d6c65da02a9391b1f25b9d239ba44e71e7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/24/2018
+ms.author: willzhan, dwgeo
+ms.openlocfilehash: 82c5c1bb0617e14c11b29df4e96abe1862f05970
+ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659495"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53656595"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>适用于 iOS 的脱机 FairPlay Streaming 
 Microsoft Azure 媒体服务提供一套设计良好的[内容保护服务](https://docs.azure.cn/media-services/media-services-content-protection-overview)，包括：
@@ -190,7 +190,7 @@ func requestApplicationCertificate() throws -> Data {
 * FPS 受到保护，包括视频、音频，但不包括备用音频曲目
 * FPS 受到保护，仅包括视频，不包括音频
 
-可在[此演示站点](http://aka.ms/poc#22)上找到这些示例，相应的应用程序证书托管在 Azure Web 应用中。
+可在[此演示站点](https://aka.ms/poc#22)上找到这些示例，相应的应用程序证书托管在 Azure Web 应用中。
 使用 FPS Server SDK 的版本 3 或版本 4 示例时，如果在脱机模式期间主播放列表包含备用的音频，则只播放音频。 因此，需要删除备用音频。 换言之，前面所列的第二和第三个示例在联机和脱机模式下都可正常运行。 所列的第一个示例在脱机模式期间只播放音频，联机流式处理可正常运行。
 
 ## <a name="faq"></a>常见问题

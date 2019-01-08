@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor 资源组见解 | Azure
+title: Azure Monitor 资源组见解 | Azure Docs
 description: 通过 Azure Monitor 了解资源组级别的分布式应用程序和服务的运行状况和性能
 services: azure-monitor
 author: lingliw
@@ -7,18 +7,17 @@ manager: digimobile
 ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
-origin.date: 09/19/2018
-ms.date: 11/26/2018
+origin.date: 12/24/2018
+ms.date: 12/24/2018
 ms.reviewer: mbullwin
 ms.author: v-lingwu
-ms.openlocfilehash: 9bb7b946fd5932f486a7f8a86326e54298f2e9d0
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 02f2f6919c0d04ef40508d4f886645e42754898c
+ms.sourcegitcommit: 649f5093a9a9a89f4117ae3845172997922aec31
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674838"
+ms.lasthandoff: 12/24/2018
+ms.locfileid: "53784608"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>使用 Azure Monitor（预览版）监视资源组
 
@@ -116,6 +115,10 @@ ms.locfileid: "52674838"
 ### <a name="enabling-access-to-alerts"></a>启用对警报的访问
 
 若要在适用于资源组的 Azure Monitor 中查看警报，需要由此订阅中具有“所有者”或“参与者”角色的某人为订阅中的任何资源组打开适用于资源组的 Azure Monitor。 这会使得具有读取访问权限的任何人都能够在适用于资源组的 Azure Monitor 中查看针对该订阅中所有资源组的警报。 如果你拥有“所有者”或“参与者”角色，请在几分钟后刷新此页面。
+
+适用于资源组的 Azure Monitor 依赖于 Azure Monitor 警报管理系统来检索警报状态。 默认情况下没有为每个资源组和订阅配置“警报管理”，它只能由具有“所有者”或“参与者”角色的某人来启用。 可以通过以下任一方式启用它：
+* 为订阅中的任何资源组打开适用于资源组的 Azure Monitor。
+* 或者，转到订阅，单击“资源提供程序”，然后单击“注册 Alerts.Management”。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -15,12 +15,12 @@ ms.topic: troubleshooting
 origin.date: 11/15/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: d063f8fa2bc0aa41311c94c95b432c1b0ff1939b
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: a80813c80d7a13fe017bc117e6d06fd823d550ca
+ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675109"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785166"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>排查 Azure Windows 虚拟机激活问题
 
@@ -39,7 +39,7 @@ Azure 使用不同的终结点进行 KMS 激活，具体取决于 VM 所在的�
 
 尝试激活 Azure Windows VM 时，会收到类似于以下示例的错误消息：
 
-**错误: 0xC004F074 软件授权服务报告无法激活计算机。无法联系任何密钥管理服务(KMS)。有关其他信息，请参阅应用程序事件日志。**
+**错误：0xC004F074 软件授权服务报告无法激活计算机。无法联系任何密钥管理服务(KMS)。有关其他信息，请参阅应用程序事件日志。**
 
 ## <a name="cause"></a>原因
 通常情况下，如果未使用相应的 KMS 客户端安装密钥配置 Windows VM，或 Windows VM 与 Azure KMS 服务（kms.core.chinacloudapi.cn，端口 1688）的连接出现问题，便会出现 Azure VM 激活问题。 
@@ -92,7 +92,7 @@ Azure 使用不同的终结点进行 KMS 激活，具体取决于 VM 所在的�
     ```
     iex "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.chinacloudapi.cn:1688"
     ```
-    此命令应返回：密钥管理服务计算机名称已成功设置为 kms.core.chinacloudapi.cn:1688。
+    该命令应当返回以下内容：密钥管理服务计算机名称已成功设置为 kms.core.chinacloudapi.cn:1688。
 
 4. 使用 Psping 验证是否已连接到 KMS 服务器。 切换到将 Pstools.zip 下载内容提取到的文件夹，再运行以下命令：
 
@@ -100,7 +100,7 @@ Azure 使用不同的终结点进行 KMS 激活，具体取决于 VM 所在的�
     \psping.exe kms.core.chinacloudapi.cn:1688
     ```
 
-  请确保输出的倒数第二行显示：Sent = 4, Received = 4, Lost = 0 (0% loss)。
+  确保输出的倒数第二行显示以下内容：Sent = 4, Received = 4, Lost = 0 (0% loss)。
 
   如果“Lost”大于 0（零），表示 VM 未连接到 KMS 服务器。 在这种情况下，如果 VM 位于虚拟网络中，并且指定了自定义 DNS 服务器，必须确保此 DNS 服务器能够解析 kms.core.chinacloudapi.cn。 或者，将 DNS 服务器更改为可以解析 kms.core.chinacloudapi.cn。
 
@@ -133,6 +133,6 @@ Azure 使用不同的终结点进行 KMS 激活，具体取决于 VM 所在的�
 如果宽限期已过期且 Windows 仍未激活，Windows Server 2008 R2 及更高版本的 Windows 会显示有关激活的其他通知。 桌面壁纸会保持黑色不变，并且 Windows 更新会仅安装安全更新程序和关键更新，而不安装可选更新。 请参阅[授权条件](https://technet.microsoft.com/library/ff793403.aspx)页底部的“通知”部分。   
 
 ## <a name="need-help-contact-support"></a>需要帮助？ 请联系支持人员。
-如果仍需要帮助，可 [联系支持人员](https://www.azure.cn/support/support-azure/) 来快速解决问题。
+如果仍需要帮助，可 [联系支持人员](https://support.azure.cn/zh-cn/support/support-azure/) 来快速解决问题。
 
 <!--Update_Description: update meta properties, update link, wording update -->

@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 06/06/2018
-ms.date: 11/26/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 3baacc298150cdc368da9de8d08e2553c5c9d290
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 519fc1a5d62beb6fb3c919dd0438c3dbb9c615f7
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674694"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736123"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>教程：监视和更新 Azure 中的 Linux 虚拟机
 

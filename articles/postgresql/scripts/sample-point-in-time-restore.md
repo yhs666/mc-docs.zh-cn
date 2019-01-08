@@ -1,35 +1,31 @@
 ---
 title: Azure CLI 脚本 - 还原 Azure Database for PostgreSQL 服务器
 description: 此示例 Azure CLI 脚本演示如何将 Azure Database for PostgreSQL 服务器及其数据库还原到前一个时间点。
-services: postgresql
 author: WenJason
 ms.author: v-jay
-manager: digimobile
-editor: jasonwhowell
 ms.service: postgresql
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 origin.date: 02/28/2018
-ms.date: 08/27/2018
-ms.openlocfilehash: 7cb1a2e0df3f3c094f98af2f3510fc25cc7b0f67
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/31/2018
+ms.openlocfilehash: c045c35ae369ae58006f28c7efa682192c21abf5
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666943"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806263"
 ---
 # <a name="restore-an-azure-database-for-postgresql-server-using-azure-cli"></a>使用 Azure CLI 还原 Azure Database for PostgreSQL 服务器
-此示例 CLI 脚本可将单个 Azure Database for PostgreSQL 服务器还原到前一个时间点。 本文需要 Azure CLI 2.0 或更高版本。 通过运行 `az --version` 来查看版本。 请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)，了解如何安装或升级 Azure CLI 的版本。
+此示例 CLI 脚本可将单个 Azure Database for PostgreSQL 服务器还原到前一个时间点。
+
+本文需要 Azure CLI 2.0 或更高版本。 通过运行 `az --version` 来查看版本。 请参阅[安装 Azure CLI](/cli/install-azure-cli)，了解如何安装或升级 Azure CLI 的版本。
 
 ## <a name="sample-script"></a>示例脚本
 在此示例脚本中，编辑突出显示的行，将管理员用户名和密码更新为你自己的。 将 `az monitor` 命令中使用的订阅 ID 替换为自己的订阅 ID。
 
 ```cli
 #!/bin/bash
-
-# Add the Azure CLI extension 
-az extension add --name rdbms
 
 # Create a resource group
 az group create \
@@ -74,6 +70,6 @@ az group delete --name myresourcegroup
 | [az group delete](/cli/group#az_group_delete) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
-- 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](/cli)。
-- 尝试其他脚本：[Azure Database for PostgreSQL 的 Azure CLI 示例](../sample-scripts-azure-cli.md)
+- 阅读有关 Azure CLI 的更多信息：[Azure CLI 文档](/cli)。
+- 请尝试其他脚本：[用于 PostgreSQL 的 Azure 数据库的 Azure CLI 示例](../sample-scripts-azure-cli.md)
 - [如何使用 Azure 门户在 Azure Database for PostgreSQL 中备份和还原服务器](../howto-restore-server-portal.md)

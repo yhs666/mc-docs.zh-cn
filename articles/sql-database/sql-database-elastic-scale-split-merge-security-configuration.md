@@ -1,22 +1,24 @@
 ---
-title: 拆分/合并安全配置 | Azure
+title: 拆分/合并安全配置 | Microsoft 文档
 description: 使用拆分/合并服务设置用于加密的 x409 证书以实现弹性缩放。
-metakeywords: Elastic Database certificates security
 services: sql-database
-manager: digimobile
-author: yunan2016
 ms.service: sql-database
-ms.custom: scale out apps
-ms.topic: article
-origin.date: 04/01/2018
-ms.date: 04/17/2018
-ms.author: v-nany
-ms.openlocfilehash: ac420fc05d3d47ab760c7f2a401b61f40a326a24
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.subservice: scale-out
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: WenJason
+ms.author: v-jay
+ms.reviewer: ''
+manager: digimobile
+origin.date: 12/04/2018
+ms.date: 12/31/2018
+ms.openlocfilehash: 8f5ef46f07b2cc93e23df4a533a694efac62373d
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659834"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806270"
 ---
 # <a name="split-merge-security-configuration"></a>拆分/合并安全配置
 若要使用拆分/合并服务，必须正确配置安全性。 该服务是 Azure SQL 数据库弹性缩放功能的一部分。 有关详细信息，请参阅[弹性缩放拆分和合并服务教程](sql-database-elastic-scale-configure-deploy-split-and-merge.md)。
@@ -28,21 +30,21 @@ ms.locfileid: "52659834"
 2. [配置客户端证书](#to-configure-client-certificates) 
 
 ## <a name="to-obtain-certificates"></a>获取证书
-可从公共证书颁发机构 (CA) 或 [Windows 证书服务](http://msdn.microsoft.com/library/windows/desktop/aa376539.aspx)获取证书。 这些方法是获取证书的首选方法。
+可从公共证书颁发机构 (CA) 或 [Windows 证书服务](https://msdn.microsoft.com/library/windows/desktop/aa376539.aspx)获取证书。 这些方法是获取证书的首选方法。
 
 如果这些选项不可用，可以生成 **自签名证书**。
 
 ## <a name="tools-to-generate-certificates"></a>用于生成证书的工具
-* [makecert.exe](http://msdn.microsoft.com/library/bfsktky3.aspx)
-* [pvk2pfx.exe](http://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
+* [makecert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx)
+* [pvk2pfx.exe](https://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
 
 ### <a name="to-run-the-tools"></a>运行工具
-* 有关适用于 Visual Studio 的开发人员命令提示符，请参阅 [Visual Studio 命令提示符](http://msdn.microsoft.com/library/ms229859.aspx) 
+* 有关适用于 Visual Studio 的开发人员命令提示符，请参阅 [Visual Studio 命令提示符](https://msdn.microsoft.com/library/ms229859.aspx) 
   
     如果已安装工具，请转到：
   
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
-* 从 [Windows 8.1：下载工具包和工具](http://msdn.microsoft.com/windows/hardware/gg454513#drivers)
+* 从 [Windows 8.1：下载工具包和工具](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)获取 WDK
 
 ## <a name="to-configure-the-ssl-certificate"></a>配置 SSL 证书
 若要对通信进行加密并对服务器进行身份验证，需要使用 SSL 证书。 从下面的三个方案中选择最适合的方案，并执行其所有步骤：
@@ -177,7 +179,7 @@ ms.locfileid: "52659834"
       -n "CN=myservice.chinacloudapp.cn" ^
       -e MM/DD/YYYY ^
       -r -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.1" ^
-      -a sha1 -len 2048 ^
+      -a sha256 -len 2048 ^
       -sv MySSL.pvk MySSL.cer
 
 自定义：
@@ -238,7 +240,7 @@ ms.locfileid: "52659834"
     -n "CN=MyCA" ^
     -e MM/DD/YYYY ^
      -r -cy authority -h 1 ^
-     -a sha1 -len 2048 ^
+     -a sha256 -len 2048 ^
       -sr localmachine -ss my ^
       MyCA.cer
 
@@ -287,7 +289,7 @@ ms.locfileid: "52659834"
       -n "CN=My ID" ^
       -e MM/DD/YYYY ^
       -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.2" ^
-      -a sha1 -len 2048 ^
+      -a sha256 -len 2048 ^
       -in "MyCA" -ir localmachine -is my ^
       -sv MyID.pvk MyID.cer
 
@@ -315,14 +317,14 @@ ms.locfileid: "52659834"
 * 将向其颁发此证书的单个用户应选择导出密码
 
 ## <a name="import-client-certificate"></a>导入客户端证书
-为其颁发了客户端证书的每个用户都应将密钥对导入到将用于与服务通信的计算机中：
+为其颁发了客户端证书的每个用户都应将密钥对导入到用于与服务通信的计算机中：
 
 * 在 Windows 资源管理器中，双击 .PFX 文件
 * 至少使用以下选项将证书导入到个人存储中：
   * 包括选中的所有扩展属性
 
 ## <a name="copy-client-certificate-thumbprints"></a>复制客户端证书指纹
-为其颁发了客户端证书的每个用户都必须遵循以下步骤，才能获取会添加到服务配置文件的证书的指纹：
+每个已颁发客户端证书的用户都必须遵循以下步骤，才能获取将添加到服务配置文件的证书的指纹：
 
 * 运行 certmgr.exe
 * 选择“个人”选项卡

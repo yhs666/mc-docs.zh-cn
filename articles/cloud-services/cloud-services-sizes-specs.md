@@ -3,8 +3,8 @@ title: Azure 云服务的虚拟机大小
 description: 列出 Azure 云服务 Web 角色和辅助角色的不同虚拟机大小（及 ID）。
 services: cloud-services
 documentationcenter: ''
-author: Thraka
-manager: timlt
+author: jpconnock
+manager: jpconnock
 editor: ''
 ms.assetid: 1127c23e-106a-47c1-a2e9-40e6dda640f6
 ms.service: cloud-services
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 origin.date: 07/18/2017
 ms.author: v-yiso
-ms.date: 07/16/2018
-ms.openlocfilehash: 3026732ccecafe936ac164bdee5feb803a66dce9
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.date: 12/17/2018
+ms.openlocfilehash: 42adee6eced69a7c8b157465cc672bae9189e0c2
+ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029118"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53569251"
 ---
 # <a name="sizes-for-cloud-services"></a>云服务的大小
 
@@ -35,7 +35,7 @@ ms.locfileid: "53029118"
 Azure 上有多个标准大小可供选择。 其中某些大小的注意事项包括：
 
 * D 系列 VM 旨在运行需要更高计算能力和临时磁盘性能的应用程序。 D 系列 VM 为临时磁盘提供更快的处理器、更高的内存内核比和固态驱动器 (SSD)。 有关详细信息，请参阅 Azure 博客[新的 D 系列虚拟机大小](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/)上的公告。
-* Dv2 系列是原 D 系列的后续系列，其特点是 CPU 功能更强大。 Dv2 系列 CPU 比 D 系列 CPU 快大约 35%。 该系列基于最新一代的 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 处理器，通过 Intel Turbo Boost Technology 2.0 可以达到 3.1 GHz。 Dv2 系列的内存和磁盘配置与 D 系列相同。
+* Dv3 系列、Dv2 系列是原 D 系列的后续系列，其特点是 CPU 功能更强大。 Dv2 系列 CPU 比 D 系列 CPU 快大约 35%。 该系列基于最新一代的 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 处理器，通过 Intel Turbo Boost Technology 2.0 可以达到 3.1 GHz。 Dv2 系列的内存和磁盘配置与 D 系列相同。
 * A 系列 VM 可以部署在各种不同的硬件类型和处理器上。 根据硬件限制大小，为运行中的实例提供一致的处理器性能，而不考虑硬件部署的位置。 若要判断此大小部署所在的物理硬件，请从虚拟机中查询虚拟硬件。
 * A0 大小在物理硬件上过度订阅。 仅针对此特定大小，其他客户部署可能影响正在运行的工作负荷的性能。 以下概述的相对性能为预期的基准，受限于近似变化性的 15%。
 
@@ -43,7 +43,7 @@ Azure 上有多个标准大小可供选择。 其中某些大小的注意事项�
 
 以下注意事项可能有助于确定大小：
 
-* Dv2 系列和 D 系列最适用于要求有更快速的 CPU、更好的本地磁盘性能或更高内存的应用程序。 它们为许多企业级应用程序提供强大的组合。
+* Dv3 系列、Dv2 系列和 D 系列是要求有更快速的 CPU、更好的本地磁盘性能，或更高内存的应用程序的理想选择。 它们为许多企业级应用程序提供强大的组合。
 * Azure 数据中心内的一些物理主机可能不支持更大的虚拟机大小，例如 A5 - A7。 因此，在以下情况下，可能会显示错误消息“未能配置虚拟机 {虚拟机名称}”或“未能创建虚拟机 {虚拟机名称}”：将现有虚拟机的大小调整为新的大小时；在 2013 年 4 月 16 日之前创建的虚拟网络中创建新的虚拟机时；或者向现有的云服务中添加新的虚拟机时。 有关每个部署方案的解决方法，请参阅支持论坛上的[错误：“无法配置虚拟机”](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows)。
 * 订阅也可能会限制某些大小系列中可部署的核心数。 若要增加配额，请联系 Azure 支持。
 
@@ -66,6 +66,8 @@ Azure 上有多个标准大小可供选择。 其中某些大小的注意事项�
 | [A v2](#av2-series) |100 |
 | [D](#d-series) |160 |
 | [D v2](#dv2-series) |160 - 190* |
+| [D v3](#dv3-series) |160 - 190* |
+| [E v3](#ev3-series) |160 - 190* |
 
 ACU 标有 *使用 Intel® Turbo 技术来增加 CPU 频率，并提升性能。  提升量可能因 VM 大小、工作负荷和同一主机上运行的其他工作负荷而有所不同。
 
@@ -128,8 +130,27 @@ ACU 标有 *使用 Intel® Turbo 技术来增加 CPU 频率，并提升性能。
 | Standard_D14_v2 | 16        | 112          | 800                  | 8/极高 |
 | Standard_D15_v2 | 20 个        | 140          | 1,000                | 8/极高 |
 
+## <a name="dv3-series"></a>Dv3 系列
 
+| 大小            | CPU 核心数 | 内存：GiB   | 临时存储 (SSD)：GiB       | 最大网卡数/网络带宽等级 |
+|---------------- | --------- | ------------- | -------------------- | ---------------------------- |
+| Standard_D2_v3  | 2         | 8             | 50                   | 2/中 |
+| Standard_D4_v3  | 4         | 16            | 100                  | 2/高 |
+| Standard_D8_v3  | 8         | 32            | 200                  | 4/高 |
+| Standard_D16_v3 | 16        | 64            | 400                  | 8/极高 |
+| Standard_D32_v3 | 32        | 128           | 800                  | 8/极高 |
+| Standard_D64_v3 | 64        | 256           | 1600                 | 8/极高 |
 
+## <a name="ev3-series"></a>Ev3 系列
+
+| 大小            | CPU 核心数 | 内存：GiB   | 临时存储 (SSD)：GiB       | 最大网卡数/网络带宽等级 |
+|---------------- | --------- | ------------- | -------------------- | ---------------------------- |
+| Standard_E2_v3  | 2         | 16            | 50                   | 2/中 |
+| Standard_E4_v3  | 4         | 32            | 100                  | 2/高 |
+| Standard_E8_v3  | 8         | 64            | 200                  | 4/高 |
+| Standard_E16_v3 | 16        | 128           | 400                  | 8/极高 |
+| Standard_E32_v3 | 32        | 256           | 800                  | 8/极高 |
+| Standard_E64_v3 | 64        | 432           | 1600                 | 8/极高 |
 ## <a name="configure-sizes-for-cloud-services"></a>配置云服务的大小
 
 可指定角色实例的虚拟机大小作为[服务定义文件](./cloud-services-model-and-package.md#csdef)描述的服务模型的一部分。 角色大小确定了 CPU 核心数目、内存容量，以及分配给正在运行的实例的本地文件系统大小。 根据应用程序的资源要求选择角色大小。

@@ -13,15 +13,15 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: required
 origin.date: 01/10/2017
-ms.date: 12/18/2017
+ms.date: 12/24/2018
 ms.devlang: na
 ms.author: v-yeche
-ms.openlocfilehash: 010bc5cc0f230dca0d003a06bce499a3311fbc4a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ea8572b1ba6b334979f7abd9f3302c9ed6882d20
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659186"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736129"
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-restarting-or-resizing-an-existing-linux-virtual-machine-in-azure"></a>排查在 Azure 中重新启动或调整现有 Linux 虚拟机时遇到的经典部署问题
 > [!div class="op_single_selector"]
@@ -30,10 +30,10 @@ ms.locfileid: "52659186"
 > 
 > 
 
-尝试启动已停止的 Azure 虚拟机 (VM)，或调整现有 Azure VM 的大小时，经常遇到的错误是分配失败。 当群集或区域没有可用的资源或无法支持所请求的 VM 大小时，就会发生此错误。
+尝试启动已停止的 Azure 虚拟机 (VM)，或调整现有 Azure VM 的大小时，经常遇到的错误是分配失败。 当群集或区域没有可用的资源或无法支持所请求的 VM 大小时，将发生此错误。
 
 > [!IMPORTANT] 
-> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 有关 Resource Manager 版本，请参阅[此处](../restart-resize-error-troubleshooting.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器部署模型和经典部署模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 有关 Resource Manager 版本，请参阅[此处](../restart-resize-error-troubleshooting.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]

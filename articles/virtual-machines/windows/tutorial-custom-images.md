@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 03/27/2017
-ms.date: 11/26/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 03004ba5fdbb9d5e43295cc48b2ada705a9925a8
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 5682bccfdc920bd70bd630b866c72de0e76746cd
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675218"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736166"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>教程：使用 Azure PowerShell 创建 Azure VM 的自定义映像
 
@@ -99,7 +99,7 @@ New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceG
 
 ## <a name="create-vms-from-the-image"></a>从映像创建 VM
 
-在已有映像之后，可以从该映像创建一个或多个新 VM。 从自定义映像创建 VM 与使用市场映像创建 VM 很相似。 如果使用市场映像，需提供有关映像、映像提供程序、产品/服务、SKU 和版本的信息。 使用为 [New-AzureRMVM]() cmdlet 设置的简化参数时，如果自定义映像位于同一资源组中，则只需提供该映像的名称。 
+在已有映像之后，可以从该映像创建一个或多个新 VM。 从自定义映像创建 VM 与使用市场映像创建 VM 很相似。 如果使用市场映像，需提供有关映像、映像提供程序、产品/服务、SKU 和版本的信息。 使用为 [New-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) cmdlet 设置的简化参数时，如果自定义映像位于同一资源组中，则只需提供该映像的名称。 
 
 本示例从“myResourceGroup”中的“myImage”创建名为“myVMfromImage”的 VM。
 
@@ -151,4 +151,4 @@ Remove-AzureRmImage `
 > [!div class="nextstepaction"]
 > [创建高度可用的 VM](tutorial-availability-sets.md)
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties, wording update, update link -->

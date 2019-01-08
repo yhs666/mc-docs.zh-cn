@@ -8,13 +8,13 @@ services: iot-hub
 ms.topic: conceptual
 origin.date: 07/18/2018
 ms.author: v-yiso
-ms.date: 09/10/2018
-ms.openlocfilehash: 6f5b008b565bb4234e6cbfd9c2ee2a204ca73e3e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/31/2018
+ms.openlocfilehash: 96baacabe4be1252beda5b0ace3fe2b7ac1baafa
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653438"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736712"
 ---
 # <a name="control-access-to-iot-hub"></a>控制对 IoT 中心的访问
 
@@ -89,7 +89,7 @@ HTTPS 通过在 Authorization 请求标头中包含有效的令牌来实施身�
 #### <a name="example"></a>示例
 用户名（DeviceId 区分大小写）：`iothubname.azure-devices.net/DeviceId`
 
-密码（可使用[设备资源管理器](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer)工具、CLI 扩展命令 [az iot hub generate-sas-token](/cli/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token) 或[用于 Visual Studio Code 的 Azure IoT 工具包扩展](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)来生成 SAS 令牌）：
+密码（可使用[设备资源管理器](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer)工具、CLI 扩展命令 [az iot hub generate-sas-token](https://docs.microsoft.com/en-us/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token) 或[用于 Visual Studio Code 的 Azure IoT 中心工具包扩展](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)（以前称为 Azure IoT 工具包扩展）来生成 SAS 令牌）：
 
 `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
@@ -141,7 +141,7 @@ SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={UR
 | {URL-encoded-resourceURI} |小写资源 URI 的小写 URL 编码 |
 | {policyName} |此令牌所引用的共享访问策略名称。 如果此令牌引用设备注册表凭据，则空缺。 |
 
-**有关前缀的说明**：URI 前缀是根据分段而不是字符计算的。 例如，`/a/b` 是 `/a/b/c` 的前缀，而不是 `/a/bc` 的前缀。
+**有关前缀的说明**：URI 前缀是按分段而不是按字符计算的。 例如，`/a/b` 是 `/a/b/c` 的前缀，而不是 `/a/bc` 的前缀。
 
 以下 Node.js 代码片段显示名为 **generateSasToken** 的函数，该函数通过输入 `resourceUri, signingKey, policyName, expiresInMins` 计算令牌。 以下各节将详细讲解如何初始化不同令牌用例的不同输入。
 
@@ -270,11 +270,11 @@ var token = generateSasToken(endpoint, deviceKey, null, 60);
 授权访问设备 1 的所有功能的安全令牌是：
 
 ```
-SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697
+SharedAccessSignature sr=myhub.azure-devices.cn%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697
 ```
 
 > [!NOTE]
-> 可使用[设备资源管理器][lnk-device-explorer]工具、CLI 扩展命令 [az iot hub generate-sas-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token) 或[用于 Visual Studio Code 的 Azure IoT 工具包扩展](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)来生成 SAS 令牌。
+> 可使用[设备资源管理器][lnk-device-explorer]工具、CLI 扩展命令 [az iot hub generate-sas-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token) 或[用于 Visual Studio Code 的 Azure IoT 中心工具包扩展](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)来生成 SAS 令牌。
 > 
 > 
 

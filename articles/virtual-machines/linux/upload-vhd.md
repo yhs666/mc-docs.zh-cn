@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 10/17/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6424a2c245a03e7cbd1ed7cd9ae5bc4a5882491f
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: fe899676035de2493f3654c29233415fc0d70fea
+ms.sourcegitcommit: f6a287a11480cbee99a2facda2590f3a744f7e45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674980"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53786725"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>使用 Azure CLI 从自定义磁盘创建 Linux VM
 
@@ -73,11 +73,10 @@ Azure 支持各种 Linux 分发（请参阅[认可的分发](endorsed-distros.md
 * [基于 CentOS 的分发版](create-upload-centos.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [Debian Linux](debian-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [Oracle Linux](oracle-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [SLES 和 openSUSE](suse-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [Ubuntu](create-upload-ubuntu.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
-* [其他：非认可分发版](create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
-
-<!-- Not Avaialble on Line 71 * [Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)-->
+* [其他：非认可的分发版](create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 另请参阅 [Linux 安装说明](create-upload-generic.md#general-linux-installation-notes)，获取更多有关如何为 Azure 准备 Linux 映像的一般提示。
 

@@ -1,5 +1,5 @@
 ---
-title: Azure 应用服务中的身份验证和授权 | Azure
+title: 身份验证和授权 - Azure 应用服务
 description: 概念性参考和概述：Azure 应用服务的身份验证/授权功能
 services: app-service
 documentationcenter: ''
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 08/24/2016
-ms.date: 12/03/2018
+ms.date: 12/31/2018
 ms.author: v-biyu
-ms.openlocfilehash: 0b6dc83cedd56db8763a1b28f9116a3d2d77c80b
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.custom: seodec18
+ms.openlocfilehash: 1f9a0a312e4858216776a5c76b2f6ada741c42b1
+ms.sourcegitcommit: 80c59ae1174d71509b4aa64a28a98670307a5b38
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674144"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735186"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Azure 应用服务中的身份验证和授权
 
@@ -140,10 +141,11 @@ Azure 应用服务提供内置的身份验证和授权支持。只需在 Web 应
 特定于提供程序的操作方法指南：
 * [How to configure your app to use Azure Active Directory login][AAD]
 * [How to configure your app to use Microsoft Account login][MSA]
-* [如何对应用程序使用自定义身份验证][custom-auth]
+* [如何：对应用程序使用自定义身份验证][custom-auth]
 
-[AAD]: app-service-mobile-how-to-configure-active-directory-authentication.md
-[MSA]: app-service-mobile-how-to-configure-microsoft-authentication.md
+[AAD]: configure-authentication-provider-aad.md
+
+[MSA]: configure-authentication-provider-microsoft.md
 
 [custom-auth]: ../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth
 

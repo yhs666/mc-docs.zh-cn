@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 02/24/2017
-ms.date: 05/21/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7cef492a8c98156490c2cc5debfc72cb951ebdd1
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 908aabf86c999511c37be5f0090a00370508aa6f
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657665"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736066"
 ---
 # <a name="how-to-detach-a-disk-from-a-windows-virtual-machine"></a>如何从 Windows 虚拟机分离磁盘
 > [!IMPORTANT]
-> Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 有关如何使用 Resource Manager 模型分离磁盘的信息，请参阅[此处](../../virtual-machines-windows-detach-disk.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+> Azure 有两种不同的用于创建和使用资源的部署模型：[资源管理器部署模型和经典部署模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 有关如何使用 Resource Manager 模型分离磁盘的信息，请参阅[此处](../../virtual-machines-windows-detach-disk.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 [!INCLUDE [howto-detach-disk-windows-linux](../../../../includes/howto-detach-disk-windows-linux.md)]
 

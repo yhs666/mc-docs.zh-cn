@@ -1,5 +1,5 @@
 ---
-title: Azure 服务总线和事件中心内的 AMQP 1.0 协议指南 | Azure
+title: Azure 服务总线和事件中心内的 AMQP 1.0 协议指南 | Azure Docs
 description: Azure 服务总线和事件中心内 AMQP 1.0 协议的表达与描述指南
 services: service-bus-messaging,event-hubs
 documentationcenter: .net
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/26/2018
-ms.date: 11/26/2018
+origin.date: 12/24/2018
+ms.date: 12/24/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 67d6a7fe8bcdef760b9fc48cc0eab8f3e3f7da6b
-ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
+ms.openlocfilehash: 1f8a3dd3c81b2d6c2faa81c9f76b1ebf449e8896
+ms.sourcegitcommit: 649f5093a9a9a89f4117ae3845172997922aec31
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53219577"
+ms.lasthandoff: 12/24/2018
+ms.locfileid: "53784591"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Azure 服务总线和事件中心内的 AMQP 1.0 协议指南
 
@@ -95,7 +95,7 @@ AMQP 通过链接传输消息。 链接是在能以单个方向传输消息的�
 
 链接具有名称并与节点关联。 如一开始所述，节点是容器内的通信实体。
 
-在服务总线中，节点直接等同于队列、主题、订阅，或队列或订阅的死信子队列。 AMQP 中使用的节点名称因此是服务总线命名空间内实体的相对名称。 如果队列名为 `myqueue`，则该名称也是它的 AMQP 节点名称。 主题订阅遵循 HTTP API 约定归类为“订阅”资源集合，因此订阅 **sub** 或主题 **mytopic** 具有 AMQP 节点名称 **mytopic/subscriptions/sub**。
+在服务总线中，节点直接等同于队列、主题、订阅，或队列或订阅的死信子队列。 AMQP 中使用的节点名称因此是服务总线命名空间内实体的相对名称。 如果队列名为 `myqueue`，则该名称也是它的 AMQP 节点名称。 主题订阅遵循 HTTP API 约定归类为“订阅”资源集合，因此主题 **mytopic** 上的订阅 **sub** 具有 AMQP 节点名称 **mytopic/subscriptions/sub**。
 
 正在连接的客户端也必须使用本地节点名称来创建链接；服务总线不规范这些节点名称，并且不进行解释。 AMQP 1.0 客户端堆栈通常使用方案，以确保这些暂时节点名称是客户端范围内的唯一名称。
 
@@ -412,6 +412,7 @@ name 属性标识应与此令牌关联的实体。 在服务总线中，这是�
 若要了解有关 AMQP 的详细信息，请访问以下链接：
 
 * [服务总线 AMQP 概述]
+* [对服务总线分区队列和主题的 AMQP 1.0 支持]
 * [适用于 Windows Server 的服务总线中的 AMQP]
 
 [this video course]: https://www.youtube.com/playlist?list=PLmE4bZU0qx-wAP02i0I7PJWvDWoCytEjD

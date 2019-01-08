@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/12/2017
-ms.date: 11/29/2018
+ms.date: 12/20/2018
 ms.author: v-junlch
 ms.custom: na
-ms.openlocfilehash: 3f2ab13aed69ce63835dd14b74369acecf88986d
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 82b73dc45ff59cbc8bcef33cb25de9f8599b5429
+ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672952"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53656541"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 虚拟机规模集常见问题解答
 
@@ -32,7 +32,7 @@ ms.locfileid: "52672952"
 
 **问：** 可在规模集中包含多少个 VM？
 
-**A.** 一个规模集可以包含 0 到 1,000 个基于平台映像的 VM，或者 0 到 300 个基于自定义映像的 VM。
+**A.** 一个规模集可包含 0 到 1,000 个基于平台映像的 VM，或者 0 到 600 个基于自定义映像的 VM。
 
 **问：** 规模集是否支持数据磁盘？
 
@@ -272,7 +272,7 @@ keyData | 是 | String | 指定 base64 编码的 SSH 公钥
  
 ### <a name="when-i-run-update-azurermvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>添加同一个密钥保管库中的多个证书后，运行 `Update-AzureRmVmss` 时看到以下消息：
  
->Update-AzureRmVmss: 列表机密包含 /subscriptions/<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev 的重复实例，这是不允许的。
+>Update-AzureRmVmss：列表机密包含 /subscriptions/<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev 的重复实例，这是不允许的。
  
 如果尝试重新添加同一保管库，而不是使用现有源保管库的新保管库证书，可能会看到此消息。 如果要添加其他机密，`Add-AzureRmVmssSecret` 命令将无法正常运行。
  
@@ -366,7 +366,7 @@ Key Vault 要求指定证书版本的目的是为了使用户清楚地了解哪�
 
 在虚拟机规模集和 VM 中，必须在 JSON 对象中包装证书。 
 
-我们还支持 application/x-pkcs12 内容类型。 有关使用 application/x-pkcs12 的说明，请参阅 [Azure Key Vault 中的 PFX 证书](http://www.rahulpnath.com/blog/pfx-certificate-in-azure-key-vault/)。
+我们还支持 application/x-pkcs12 内容类型。 
  
 我们目前不支持 .cer 文件。 要使用.cer 文件，请将其导出到.pfx 容器中。
 
@@ -496,7 +496,7 @@ Add-AzureRmVmssExtension -VirtualMachineScaleSet $VMSS -Name "IaaSAntimalware" -
 Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet $VMSS 
 ```
 
-### <a name="i-need-to-execute-a-custom-script-thats-hosted-in-a-private-storage-account-the-script-runs-successfully-when-the-storage-is-public-but-when-i-try-to-use-a-shared-access-signature-sas-it-fails-this-message-is-displayed-missing-mandatory-parameters-for-valid-shared-access-signature-linksas-works-fine-from-my-local-browser"></a>我需要执行一个在专用存储帐户中托管的自定义脚本。 存储为公共存储时脚本成功运行，但尝试使用共享访问签名 (SAS) 时，脚本运行失败。 显示此消息：“缺少有效共享访问签名的强制参数”。 通过本地浏览器可以正常使用“链接+SAS”。
+### <a name="i-need-to-execute-a-custom-script-thats-hosted-in-a-private-storage-account-the-script-runs-successfully-when-the-storage-is-public-but-when-i-try-to-use-a-shared-access-signature-sas-it-fails-this-message-is-displayed-missing-mandatory-parameters-for-valid-shared-access-signature-linksas-works-fine-from-my-local-browser"></a>我需要执行一个在专用存储帐户中托管的自定义脚本。 存储为公共存储时脚本成功运行，但尝试使用共享访问签名 (SAS) 时，脚本运行失败。 显示此消息：“缺少有效共享访问签名的必需参数”。 通过本地浏览器可以正常使用“链接+SAS”。
 
 若要执行在私有存储帐户中托管的自定义脚本，请通过存储帐户密钥和名称来设置受保护的设置。 有关详细信息，请参阅[适用于 Windows 的自定义脚本扩展](/virtual-machines/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings)。
 
@@ -545,7 +545,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 
 ### <a name="how-do-i-do-a-vip-swap-for-virtual-machine-scale-sets-in-the-same-subscription-and-same-region"></a>如何针对同一订阅和同一区域中的虚拟机规模集执行 VIP 交换？
 
-如果有两个包含 Azure 负载均衡器前端的虚拟机规模集，并且它们位于同一订阅和区域中，可以解除分配它们的公共 IP 地址，并将公共 IP 地址分配给其他资源。 有关示例，请参阅 [VIP 交换：Azure Resource Manager 中的蓝绿部署](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/)。 但这确实意味着延迟，因为要在网络一级解除分配/分配资源。 更快的做法是将 Azure 应用程序网关与两个后端池和路由规则结合使用。 也可以使用支持快速切换暂存槽和生产槽的 [Azure 应用服务](https://www.azure.cn/home/features/app-service/)托管应用程序。
+如果有两个包含 Azure 负载均衡器前端的虚拟机规模集，并且它们位于同一订阅和区域中，可以解除分配它们的公共 IP 地址，并将公共 IP 地址分配给其他资源。 有关示例，请参阅 [VIP 交换：Azure 资源管理器中的蓝绿部署](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/)。 但这确实意味着延迟，因为要在网络级别解除分配/分配资源。 更快的做法是将 Azure 应用程序网关与两个后端池和路由规则结合使用。 也可以使用支持快速切换暂存槽和生产槽的 [Azure 应用服务](https://www.azure.cn/home/features/app-service/)托管应用程序。
  
 ### <a name="how-do-i-specify-a-range-of-private-ip-addresses-to-use-for-static-private-ip-address-allocation"></a>如何为静态专用 IP 地址分配指定专用 IP 地址范围？
 
@@ -723,7 +723,7 @@ IP 地址是从指定的子网中选择的。
 
 不可以将不同的扩展参数传递给虚拟机规模集中的不同 VM。 但是，扩展可以根据它们运行所在的 VM 的唯一属性（例如计算机名）运行。 扩展还可以在 http://169.254.169.254 上查询实例元数据来获取更多关于 VM 的信息。
 
-### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>虚拟机规模集 VM 计算机名和 VM ID 为什么不是连续的？ 例如：0，1，3...
+### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>虚拟机规模集 VM 计算机名和 VM ID 为什么不是连续的？ 例如：0, 1, 3...
 
 虚拟机规模集 VM 计算机名和 VM ID 不连续是因为虚拟机规模集的 **overprovision** 属性设置为默认值 **true**。 如果 overprovision 设置为 **true**，创建的 VM 数量将超过请求数量。 然后，将删除多余的 VM。 在这种情况下，虽然部署可靠性得到提高，但代价是无法遵守连续命名和连续网络地址转换 (NAT) 规则。 
 
@@ -738,4 +738,4 @@ IP 地址是从指定的子网中选择的。
   - 出于这种方案，可能创建了自己的自动缩放引擎，并希望以更快的速度完成端到端缩放。
 - 虚拟机规模集未均匀分布在容错域或更新域。 这可能是由于有选择地删除了 VM，或者因为过度预配后，VM 被删除。 在虚拟机规模集上先运行 `stop deallocate`，并运行 `start`，可将 VM 均匀地分布到容错域或更新域。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

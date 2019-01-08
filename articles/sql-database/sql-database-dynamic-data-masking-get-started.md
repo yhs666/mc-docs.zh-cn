@@ -2,20 +2,23 @@
 title: Azure SQL 数据库动态数据掩码 | Microsoft docs
 description: SQL 数据库动态数据掩码通过对非特权用户模糊化敏感数据来控制此类数据的泄露
 services: sql-database
-author: WenJason
-manager: digimobile
 ms.service: sql-database
-ms.custom: security
-ms.topic: article
-origin.date: 04/01/2018
-ms.date: 09/02/2018
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: WenJason
 ms.author: v-jay
-ms.openlocfilehash: 56390d28a9f01e7fd856a108ce603a6e39655c50
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.reviewer: vanto
+manager: digimobile
+origin.date: 12/16/2018
+ms.date: 12/31/2018
+ms.openlocfilehash: 5161d9db962532145f5eadab5a1f941b45b5edaa
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644539"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806223"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>SQL 数据库动态数据掩码
 
@@ -28,10 +31,10 @@ SQL 数据库动态数据掩码通过对非特权用户模糊化敏感数据来�
 ## <a name="sql-database-dynamic-data-masking-basics"></a>SQL 数据库动态数据掩码基础知识
 通过在 SQL 数据库配置边栏选项卡或设置边栏选项卡中选择“动态数据掩码”操作，在 Azure 门户中设置动态数据掩码策略。
 
-### <a name="dynamic-data-masking-permissions"></a>动态数据屏蔽权限
-Azure 数据库管理员、服务器管理员或安全主管角色可以配置动态数据掩码。
+### <a name="dynamic-data-masking-permissions"></a>动态数据掩码权限
+Azure 数据库管理员、服务器管理员或 [SQL 安全管理员](/role-based-access-control/built-in-roles#sql-security-manager)角色可以配置动态数据掩码。
 
-### <a name="dynamic-data-masking-policy"></a>动态数据屏蔽策略
+### <a name="dynamic-data-masking-policy"></a>动态数据掩码策略
 * **不对其进行掩码的 SQL 用户** - 一组可以在 SQL 查询结果中获取非掩码数据的 SQL 用户或 AAD 标识。 始终不会对拥有管理员权限的用户进行掩码，这些用户可以看到没有任何掩码的原始数据。
 * **掩码规则** - 一组规则，定义要掩码的指定字段，以及使用的掩码函数。 可以使用数据库架构名称、表名称和列名称定义指定的字段。
 * **掩码函数** - 一组方法，用于控制不同情况下的数据透露。

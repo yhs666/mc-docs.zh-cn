@@ -1,5 +1,5 @@
 ---
-title: 如何配合使用 AMQP 1.0 与 Java 服务总线 API | Azure
+title: 如何将 AMQP 1.0 与 Java 服务总线 API 配合使用 | Azure Docs
 description: 了解如何将 Java 消息服务 (JMS) 用于 Azure 服务总线和高级消息队列协议 (AMQP) 1.0。
 services: service-bus-messaging
 documentationcenter: java
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-origin.date: 08/10/2018
-ms.date: 10/31/2018
+origin.date: 12/24/2018
+ms.date: 12/24/2018
 ms.author: v-lingwu
-ms.openlocfilehash: d3173075d443c2058f02d3cb467a9a2b0c905402
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 650303247ac81215cdf608981ce4860b8cbdaf41
+ms.sourcegitcommit: 649f5093a9a9a89f4117ae3845172997922aec31
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660675"
+ms.lasthandoff: 12/24/2018
+ms.locfileid: "53784612"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>如何将 Java 消息服务 (JMS) API 用于服务总线和 AMQP 1.0
 
@@ -68,7 +68,7 @@ queue.QUEUE = queue1
 #### <a name="setup-jndi-context-and-configure-the-connectionfactory"></a>设置 JNDI 上下文和配置 ConnectionFactory
 
 在 [Azure 门户](https://portal.azure.cn)“主连接字符串”下的 “共享访问策略”中提供了可引用的 ConnectionString
-```
+```java
 // The connection string builder is the only part of the azure-servicebus SDK library
 // we use in this JMS sample and for the purpose of robustly parsing the Service Bus 
 // connection string. 
@@ -91,7 +91,7 @@ Destination queue = (Destination) context.lookup("QUEUE");
 用于在 Qpid 属性文件 JNDI 提供程序中定义目标的条目的格式如下：
 
 创建制造者目标队列 - 
-```
+```java
 String queueName = "queueName";
 Destination queue = (Destination) queueName;
 
@@ -105,7 +105,7 @@ MessageProducer producer = session.createProducer(queue);
 ```
 
 创建使用者目标队列 - 
-```
+```java
 String queueName = "queueName";
 Destination queue = (Destination) queueName;
 

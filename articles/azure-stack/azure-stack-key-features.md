@@ -12,39 +12,39 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/23/2018
-ms.date: 12/17/2018
+origin.date: 12/10/2018
+ms.date: 12/31/2018
 ms.author: v-jay
 ms.reviewer: ''
-ms.openlocfilehash: e78b090581d69c4f77a89fa0ee6412a063cd25fc
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.openlocfilehash: d161212a775d670bb333ca535f684ccda464ee9d
+ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396218"
+ms.lasthandoff: 12/29/2018
+ms.locfileid: "53814655"
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Azure Stack 中的重要功能和概念
 如果你不太熟悉 Azure Stack，本文的术语和功能说明可能会有所帮助。
 
 ## <a name="personas"></a>角色
-Azure Stack 中有两种用户：云操作员（提供者）和租户（使用者）。
+Azure Stack 有两种用户：操作员和用户。
 
-* **云操作员**可以配置 Azure Stack 以及管理套餐、计划、服务、配额和价格，为其租户提供资源。  云操作员还可以管理容量以及对警报做出响应。  
-* **租户**（也称为用户）使用云管理员提供的服务。 租户可以预配、监视和管理他们订阅的服务，例如 Web 应用、存储和虚拟机。
+* Azure Stack **操作员**可以通过管理套餐、计划、服务、配额和价格来配置 Azure Stack，为其租户用户提供资源。 操作员还可以管理容量以及对警报做出响应。  
+* Azure Stack **用户**（也称为租户）使用操作员提供的服务。 用户可以预配、监视和管理他们订阅的服务，例如 Web 应用、存储和虚拟机。
 
 ## <a name="portal"></a>门户
-与 Azure Stack 交互的主要方法包括管理员门户、用户门户和 PowerShell。
+与 Azure Stack 交互的主要方法包括管理门户、用户门户和 PowerShell。
 
-每个 Azure Stack 门户由 Azure 资源管理器的单独实例提供支持。  云操作员可以使用管理员门户来管理 Azure Stack和执行某些操作，例如创建租户产品。  用户门户（也称为租户门户）提供自助服务体验让用户使用云资源，例如虚拟机、存储帐户和 Web 应用。 有关详细信息，请参阅 [Using the Azure Stack administrator and user portals](azure-stack-manage-portals.md)（使用 Azure Stack 管理员门户和用户门户）。
+每个 Azure Stack 门户由 Azure 资源管理器的单独实例提供支持。 操作员使用管理门户来管理 Azure Stack 和执行某些操作，例如创建租户套餐。 用户门户（也称为租户门户）提供自助服务体验让用户使用云资源，例如虚拟机、存储帐户和 Web 应用。 有关详细信息，请参阅 [Using the Azure Stack administrator and user portals](azure-stack-manage-portals.md)（使用 Azure Stack 管理员门户和用户门户）。
 
 ## <a name="identity"></a>标识 
-Azure Stack 使用 Azure Active Directory (AAD) 或 Active Directory 联合身份验证服务 (AD FS) 作为标识提供者。  
+Azure Stack 使用 Azure Active Directory (Azure AD) 或 Active Directory 联合身份验证服务 (AD FS) 作为标识提供者。  
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
-Azure Active Directory 是 Microsoft 的基于云的多租户标识提供者。  大多数混合方案使用 Azure Active Directory 作为标识存储。
+Azure AD 是 Microsoft 的基于云的多租户标识提供者。 大多数混合方案使用 Azure AD 作为标识存储。
 
 ### <a name="active-directory-federation-services"></a>Active Directory 联合身份验证服务
-对于断开连接的 Azure Stack 部署，可以选择使用 Active Directory 联合身份验证服务 (AD FS)。  Azure Stack、资源提供者和其他应用程序使用 AD FS 的方式与它们使用 Azure Active Directory 的方式非常类似。 Azure Stack 包含自身的 AD FS 和 Active Directory 实例，另外还包含 Active Directory 图形 API。 Azure Stack 开发工具包支持以下 AD FS 方案：
+对于断开连接的 Azure Stack 部署，可以选择使用 Active Directory 联合身份验证服务 (AD FS)。 Azure Stack、资源提供者和其他应用程序使用 AD FS 的方式与它们使用 Azure AD 的方式非常类似。 Azure Stack 包含自身的 Active Directory 实例，另外还包含 Active Directory 图形 API。 Azure Stack 开发工具包支持以下 AD FS 方案：
 
 - 使用 AD FS 登录到部署。
 - 使用 Key Vault 中的机密创建虚拟机
@@ -90,15 +90,15 @@ Azure Stack 区域是规模与管理的基本要素。 组织可以创建多个�
 
 对于管理员而言，默认提供程序订阅是在部署期间创建的。 此订阅可用于管理 Azure Stack、部署其他资源提供程序，以及为租户创建计划和套餐。 不应使用此订阅来运行客户工作负荷和应用程序。 从版本 1804 开始，两个额外的订阅对默认提供程序订阅进行了补充；它们是计量订阅和消耗订阅。 这些附加项有助于将核心基础结构的管理与其他资源提供程序和工作负荷隔离开来。  
 
-## <a name="azure-resource-manager"></a>Azure 资源管理器
+## <a name="azure-resource-manager"></a>Azure Resource Manager
 借助 Azure 资源管理器，可在基于模板的声明性模型中使用基础结构资源。   资源管理器提供单个界面用于部署和管理解决方案组件。 有关完整信息和指南，请参阅 [Azure 资源管理器概述](../azure-resource-manager/resource-group-overview.md)。
 
 ### <a name="resource-groups"></a>资源组
-资源组是资源、服务和应用程序的集合 — 每个资源都有一种类型，例如虚拟机、虚拟网络、公共 IP、存储帐户和网站。 每个资源必须在资源组中，因此，资源组有助于以逻辑方式组织资源，例如，按工作负荷或位置进行组织。  在 Azure Stack 中，计划和套餐等资源也在资源组中管理。
+资源组是资源、服务和应用程序的集合 — 每个资源都有一种类型，例如虚拟机、虚拟网络、公共 IP、存储帐户和网站。 每个资源必须在资源组中，因此，资源组有助于以逻辑方式组织资源，例如，按工作负荷或位置进行组织。 在 Azure Stack 中，计划和套餐等资源也在资源组中管理。
 
-与 [Azure](../azure-resource-manager/resource-group-move-resources.md) 不同，无法在资源组之间移动资源。 在 Azure Stack 管理门户中查看资源或资源组的属性时，“移动”按钮是灰显的并且不可用。 
+与 [Azure](../azure-resource-manager/resource-group-move-resources.md) 不同，无法在资源组之间移动 Azure Stack 资源。 在 Azure Stack 管理门户中查看资源或资源组的属性时，“移动”按钮是灰显的并且不可用。 另外，也不支持使用资源组或资源组项属性中提供的“更改资源组”或“更改订阅”操作。 所有尝试进行的移动操作都会失败。
  
-### <a name="azure-resource-manager-templates"></a>Azure 资源管理器模板
+### <a name="azure-resource-manager-templates"></a>Azure Resource Manager 模板
 使用 Azure 资源管理器可以创建一个模板（采用 JSON 格式），用于定义应用程序的部署和配置。 此模板称为 Azure 资源管理器模板，让你以声明性方式定义部署。 使用模板可以在整个应用程序生命周期内反复部署该应用程序，并确保以一致的状态部署资源。
 
 ## <a name="resource-providers-rps"></a>资源提供程序 (RP)
@@ -124,7 +124,7 @@ Blob 存储可存储任意数据集。 Blob 可以是任何类型的文本或二
 表存储是 Microsoft 的 NoSQL 键/属性存储 – 它采用无架构设计，因此不同于传统的关系数据库。 由于数据存储没有架构，因此可以随着应用程序需求的变化，使数据适应存储。 表存储易于使用，因此开发人员可以快速创建应用程序。 表存储是一种“键-属性”存储，这意味着表中的每个值都是随所键入的一个属性名称存储的。 属性名称可以用来筛选和指定选择条件。 属性集合及其值构成了实体。 由于表存储没有架构，因此同一表中的两个实体可以包含不同的属性集合，并且这些属性可以属于不同的类型。 可以使用表存储来存储灵活的数据集，例如 Web 应用程序的用户数据、通讯簿、设备信息，以及服务需要的任何其他类型的元数据。 可以在表中存储任意数量的实体，并且一个存储帐户可以包含任意数量的表，直至达到存储帐户的容量极限。
 
 #### <a name="queue-storage"></a>队列存储
-Azure 队列存储用于在应用程序组件之间进行云消息传送。 在设计应用程序以实现伸缩性时，通常要将各个应用程序组件分离，使其可以独立地进行伸缩。 队列存储提供的异步消息传送适用于在应用程序组件之间进行通信，无论这些应用程序组件是运行在云中、桌面上、本地服务器上还是移动设备上。 队列存储还支持管理异步任务以及构建过程工作流。
+Azure 队列存储用于在应用程序组件之间进行云消息传送。 在设计应用程序以实现可伸缩性时，通常要将各个应用程序组件分离，使其可以独立地进行伸缩。 队列存储提供的异步消息传送适用于在应用程序组件之间进行通信，无论这些应用程序组件是运行在云中、桌面上、本地服务器上还是移动设备上。 队列存储还支持管理异步任务以及构建过程工作流。
 
 ### <a name="keyvault"></a>KeyVault
 KeyVault RP 针对密码和证书等机密提供管理与审核。 例如，在 VM 部署期间，租户可以使用 KeyVault RP 来提供管理员密码或密钥。

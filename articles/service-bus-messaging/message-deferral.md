@@ -1,5 +1,5 @@
 ---
-title: Azure 服务总线消息延迟
+title: Azure 服务总线消息延迟 | Azure Docs
 description: 服务总线消息的延迟传送
 services: service-bus-messaging
 documentationcenter: ''
@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/26/2018
-ms.date: 10/31/2018
+origin.date: 12/24/2018
+ms.date: 12/24/2018
 ms.author: v-lingwu
-ms.openlocfilehash: f34f66c6fb1493718201e3d55feaba45c8852877
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 76004df4b5a0fc2dc9e088677d8aa3837b94800d
+ms.sourcegitcommit: 649f5093a9a9a89f4117ae3845172997922aec31
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643705"
+ms.lasthandoff: 12/24/2018
+ms.locfileid: "53784563"
 ---
 # <a name="message-deferral"></a>消息延迟
 
@@ -40,8 +40,6 @@ ms.locfileid: "52643705"
 若要检索延迟的消息，其所有者在延迟它时需负责记住 [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber)。 知道已延迟消息的序列号的任何接收器以后可使用 `Receive(sequenceNumber)` 显式接收该消息。
 
 如果由于处理消息的特定资源暂时不可用，因而无法处理该消息，但同时又不能立即暂停消息处理，则将该消息搁置几分钟的方法是在要延后几分钟的[计划消息](message-sequencing.md)中记住 SequenceNumber，并在计划的消息到达时重新检索已延迟的消息。 如果消息处理程序依赖于使用某个数据库来执行所有操作，而该数据库暂时不可用，则不应使用延迟，而应全面暂停接收消息，直到数据库再次可用。
-
-延迟消息不会影响消息过期，也就是说，延迟的消息仍会按照最初计划的时间过期，然后被移到死信队列（如果已采用此配置）。
 
 ## <a name="next-steps"></a>后续步骤
 

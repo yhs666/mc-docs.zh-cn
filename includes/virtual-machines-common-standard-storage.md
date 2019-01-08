@@ -9,12 +9,12 @@ origin.date: 06/05/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: ae8f578479a605282acdb72e2a6f2b61652d542a
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 1dfbbc0875135ea30870c4fd31e6d67e10d7498b
+ms.sourcegitcommit: f6a287a11480cbee99a2facda2590f3a744f7e45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676132"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53786748"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>高性价比标准存储以及非托管和托管 Azure VM 磁盘
 
@@ -27,8 +27,9 @@ Azure 标准存储为运行不区分延迟的工作负荷提供可靠、低成�
 
 有两种方法可为 Azure VM 创建标准磁盘：
 
-**非托管磁盘**：此类磁盘是管理用于存储与 VM 磁盘对应的 VHD 文件的存储帐户的原始方法。 VHD 文件作为页 Blob 存储在存储帐户中。 可将非托管磁盘附加到任意大小的 Azure VM，包括主要使用高级存储的 VM，如 DSv2 和 GS 系列。 Azure VM 支持附加多个标准磁盘，每个 VM 最多支持 256 TiB 的存储容量。 如果使用预览磁盘大小，则可以享有每 VM 2 PiB 的存储空间。
+**非托管磁盘**：此类磁盘是管理用于存储与 VM 磁盘对应的 VHD 文件的存储帐户的原始方法。 VHD 文件作为页 Blob 存储在存储帐户中。 可将非托管磁盘附加到任意大小的 Azure VM，包括主要使用高级存储的 VM，如 DSv2 系列。 Azure VM 支持附加多个标准磁盘，每个 VM 最多支持 256 TiB 的存储容量。 如果使用预览磁盘大小，则可以享有每 VM 2 PiB 的存储空间。
 
+<!--Not Available on and GS series-->
 [**Azure 托管磁盘**](../articles/virtual-machines/windows/managed-disks-overview.md)：此功能管理用于 VM 磁盘的存储帐户。 指定所需的类型（高级 SSD、标准 SSD 或标准 HDD）和磁盘大小，Azure 即可创建和管理磁盘。 无需煞费苦心地将磁盘放置在多个存储帐户中，以确保保持在存储帐户的可伸缩性限制内 - Azure 将自动处理这一切。
 
 <!-- Verify Standard SSD is sucessfully -->
@@ -56,7 +57,7 @@ Azure 标准存储为运行不区分延迟的工作负荷提供可靠、低成�
 
 **标准页 Blob**：标准页 Blob 用于保留 VM 的永久磁盘，也可通过 REST 直接访问它（这与其他类型的 Azure Blob 类似）。 [页 Blob](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) 是 512 字节页的集合，已针对随机读写操作优化。 
 
-**存储复制** ：在大多数区域中，标准存储帐户中的数据可以在本地复制，或跨多个数据中心实现异地复制。 可用的四种复制类型包括本地冗余存储 (LRS)、区域冗余存储 (ZRS)、异地冗余存储 (GRS) 和读取访问异地冗余存储 (RA-GRS)。 标准存储中的托管磁盘目前仅支持本地冗余存储 (LRS)。 有关详细信息，请参阅[存储复制](../articles/storage/common/storage-redundancy.md)。
+**存储复制：** 在大多数区域中，标准存储帐户中的数据可以在本地复制，或跨多个数据中心实现异地复制。 可用的四种复制类型包括本地冗余存储 (LRS)、区域冗余存储 (ZRS)、异地冗余存储 (GRS) 和读取访问异地冗余存储 (RA-GRS)。 标准存储中的托管磁盘目前仅支持本地冗余存储 (LRS)。 有关详细信息，请参阅[存储复制](../articles/storage/common/storage-redundancy.md)。
 
 ## <a name="scalability-and-performance-targets"></a>伸缩性和性能目标
 
@@ -123,9 +124,9 @@ Azure 标准存储为运行不区分延迟的工作负荷提供可靠、低成�
 * 出站数据传输
 * 事务
 
-**非托管存储数据和磁盘大小：** 对于非托管磁盘和其他数据（blob、表、队列和文件），只需为所使用的存储空间付费。 例如，如果 VM 的页 blob 预配为 127 GB，但 VM 实际只使用了 10 GB 的空间，则只需为 10 GB 空间付费。 我们支持最多 8191 GB 的标准存储和最多 4095 GB 的标准非托管磁盘。 
+**非托管存储数据和磁盘大小：** 对于非托管磁盘和其他数据（Blob、表、队列和文件），只需为所使用的空间付费。 例如，如果 VM 的页 blob 预配为 127 GB，但 VM 实际只使用了 10 GB 的空间，则只需为 10 GB 空间付费。 我们支持最多 8191 GB 的标准存储和最多 4095 GB 的标准非托管磁盘。 
 
-**托管磁盘**：标准托管磁盘的计费取决于磁盘的预配大小。 Azure 会将预配大小映射（四舍五入）到下面各表中指定的最接近的托管磁盘选项。 每个托管磁盘将映射到其中一种受支持的预配大小并相应地计费。 例如，如果创建了一个标准托管磁盘并将预配大小指定为 200 GiB，则会根据 S15 磁盘类型的定价向你收费。
+**托管磁盘：** 标准托管磁盘的计费取决于磁盘的预配大小。 Azure 会将预配大小映射（四舍五入）到下面各表中指定的最接近的托管磁盘选项。 每个托管磁盘将映射到其中一种受支持的预配大小并相应地计费。 例如，如果创建了一个标准托管磁盘并将预配大小指定为 200 GiB，则会根据 S15 磁盘类型的定价向你收费。
 
 <!--Notice: S60, S70, S80 are not invalid on MC-->
 | 标准 HDD 托管<br>磁盘类型 | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** |

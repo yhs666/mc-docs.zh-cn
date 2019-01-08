@@ -16,12 +16,12 @@ origin.date: 04/30/2018
 ms.date: 12/10/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 1f5cf245361bcc54af8dedc16881b1782e012d4a
-ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
+ms.openlocfilehash: 06d9a419d57f7cedabe01b920911671dc16e4324
+ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52901056"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785188"
 ---
 <!--Verify Successfully-->
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>快速入门：将 Windows 容器部署到 Service Fabric
@@ -54,23 +54,22 @@ Service Fabric SDK 和工具提供服务模板，用于将容器部署到 Servic
 
 选择“云” > “Service Fabric 应用程序”，将其命名为“MyFirstContainer”，并单击“确定”。
 
-<!--Notice: We add **Cloud** to help user search **Service Fabric application**->
-Select **Container** from the **Hosted Containers and Applications** templates.
+<!--Notice: We add **Cloud** to help user search **Service Fabric application**--> 从“托管的容器和应用程序”模板中选择“容器”。
 
-In **Image Name**, enter "microsoft/iis:nanoserver", the [Windows Server Nano Server and IIS base image](https://hub.docker.com/r/microsoft/iis/).
+在“映像名称”中输入“microsoft/iis:nanoserver”，即 [Windows Server Nano Server 和 IIS 基映像](https://hub.docker.com/r/microsoft/iis/)。
 
-Configure the container port-to-host port mapping so that incoming requests to the service on port 80 are mapped to port 80 on the container.  Set **Container Port** to "80" and set **Host Port** to "80".  
+配置容器的“端口到主机”端口映射，使端口 80 上针对服务的传入请求映射到容器上的端口 80。  将“容器端口”设置为“80”并将“主机端口”设置为“80”。  
 
-Name your service "MyContainerService", and click **OK**.
+将服务命名为“MyContainerService”，然后单击“确定”。
 
-![New service dialog][new-service]
+![新服务对话框][new-service]
 
-## Specify the OS build for your container image
-Containers built with a specific version of Windows Server may not run on a host running a different version of Windows Server. For example, containers built using Windows Server version 1709 do not run on hosts running Windows Server 2016. To learn more, see [Windows Server container OS and host OS compatibility](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility). 
+## <a name="specify-the-os-build-for-your-container-image"></a>为容器映像指定 OS 版本
+使用特定 Windows Server 版本生成的容器可能无法在运行不同 Windows Server 版本的主机上运行。 例如，使用 Windows Server 版本 1709 生成的容器不会在运行 Windows Server 2016 的主机上运行。 若要了解更多信息，请参阅 [Windows Server 容器 OS 与主机 OS 的兼容性](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility)。 
 
-With version 6.1 of the Service Fabric runtime and newer, you can specify multiple OS images per container and tag each with the build version of the OS that it should be deployed to. This helps to make sure that your application will run across hosts running different versions of Windows OS. To learn more, see [Specify OS build specific container images](service-fabric-get-started-containers.md#specify-os-build-specific-container-images). 
+使用 Service Fabric 运行时版本 6.1 及更新版本，可以为每个容器指定多个 OS 映像，并使用它应该部署到的 OS 的内部版本来标记每个 OS 映像。 这有助于确保应用程序能够在运行不同版本 Windows 操作系统的主机上运行。 若要了解详细信息，请参阅[指定特定于 OS 内部版本的容器映像](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)。 
 
-Azure publishes different images for versions of IIS built on different versions of Windows Server. To make sure that Service Fabric deploys a container compatible with the version of Windows Server running on the cluster nodes where it deploys your application, add the following lines to the *ApplicationManifest.xml* file. The build version for Windows Server 2016 is 14393 and the build version for Windows Server version 1709 is 16299. 
+Azure 为不同版本的 Windows Server 上生成的 IIS 版本发布不同的映像。 若要确保 Service Fabric 部署的容器与在部署应用程序的群集节点上运行的 Windows Server 版本兼容，请将以下行添加到 *ApplicationManifest.xml* 文件。 Windows Server 2016 的内部版本为 14393，Windows Server 版本 1709 的内部版本为 16299。 
 
 ```xml
     <ContainerHostPolicies CodePackageRef="Code"> 
@@ -83,7 +82,7 @@ Azure publishes different images for versions of IIS built on different versions
     </ContainerHostPolicies> 
 ```
 
-The service manifest continues to specify only one image for the nanoserver, `microsoft/iis:nanoserver`. 
+服务清单继续为 nanoserver (`microsoft/iis:nanoserver`) 只指定一个映像。 
 
 <!-- Not Available on ## Create a cluster-->
 <!-- Not Available on Join Party-->

@@ -12,14 +12,14 @@ ms.topic: overview
 origin.date: 05/22/2017
 ms.date: 12/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: a21a020251973d995d1c50f6b0eb3076a7e143d1
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: fe53f0c008eac8f1d2881a0f556e52d7fcab7c8c
+ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674930"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785178"
 ---
-# <a name="introduction-to-azure-cosmos-db-sql-api"></a>Azure Cosmos DB：SQL API 简介
+# <a name="introduction-to-azure-cosmos-db-sql-api"></a>Azure Cosmos DB 简介：SQL API
 
 [Azure Cosmos DB](introduction.md) 是 21Vianet 针对任务关键型应用程序提供的多区域分布式多模型数据库服务。 Azure Cosmos DB 在多个区域内提供[统包式数据分发](distribute-data-globally.md)、[弹性缩放中国各地的吞吐量和存储空间](partition-data.md)、99% 情况下低至个位数的毫秒级延迟、[五个妥善定义的一致性级别](consistency-levels.md)，以及得到保证的高可用性，所有这些均由[行业领先的 SLA](https://www.azure.cn/support/sla/cosmos-db/) 提供支持。 Azure Cosmos DB [自动为数据编制索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，不需要你管理架构和索引。 它采用多种模型，支持文档和列式数据模型。
 
@@ -33,22 +33,22 @@ ms.locfileid: "52674930"
 ## <a name="what-capabilities-and-key-features-does-azure-cosmos-db-offer"></a>Azure Cosmos DB 提供了哪些功能和主要特性？
 Azure Cosmos DB 通过 SQL API 提供了以下主要功能和优势：
 
-* 可弹性增减吞吐量和存储：根据应用程序需求，轻松增大或减小 JSON 数据库规模。 数据存储在固态硬盘 (SSD) 上，以实现可预测的低延迟。 Azure Cosmos DB 支持使用容器来存储称为集合的 JSON 数据，这些数据集几乎可以扩展到无限存储大小和预配吞吐量。 随着应用程序规模的增长，可以弹性无缝地扩展 Azure Cosmos DB 且其性能可以预测。 
+* **可灵活缩放的吞吐量和存储：** 根据应用程序需求，轻松增大或减小 JSON 数据库规模。 数据存储在固态硬盘 (SSD) 上，以实现可预测的低延迟。 Azure Cosmos DB 支持使用容器来存储称为集合的 JSON 数据，这些数据集几乎可以扩展到无限存储大小和预配吞吐量。 随着应用程序规模的增长，可以弹性无缝地扩展 Azure Cosmos DB 且其性能可以预测。 
 
 * **多区域复制：** Azure Cosmos DB 以透明方式将数据复制到与 Azure Cosmos DB 帐户关联的所有区域，使用户能够开发那些对多区域数据访问有要求的应用程序，与此同时还在一致性、可用性和性能方面做出权衡，所有这些都有相应的保证。 Azure Cosmos DB 提供具有多宿主 API 的透明区域故障转移，还可以弹性缩放中国各地的吞吐量和存储。 详细了解如何[使用 Azure Cosmos DB 在多个区域分配数据](distribute-data-globally.md)。
 
-* 使用熟悉的 SQL 语法进行即席查询：存储异类 JSON 文档，并通过熟悉的 SQL 语法查询这些文档。 Azure Cosmos DB 使用高并发、无锁、日志结构化索引技术为所有文档内容自动编制索引。 这样可以实现各种实时查询，而无需指定架构提示、二级索引或视图。 有关详细信息，请参阅[查询 Azure Cosmos DB](how-to-sql-query.md)。 
+* **使用熟悉的 SQL 语法进行即席查询：** 存储异类 JSON 文档，并通过熟悉的 SQL 语法查询这些文档。 Azure Cosmos DB 使用高并发、无锁、日志结构化索引技术为所有文档内容自动编制索引。 这样可以实现各种实时查询，而无需指定架构提示、二级索引或视图。 有关详细信息，请参阅[查询 Azure Cosmos DB](how-to-sql-query.md)。 
 * **在数据库中执行 JavaScript：** 使用标准 JavaScript 将应用程序逻辑表示为存储过程、触发器和用户定义函数 (UDF)。 这样，应用程序逻辑可基于数据进行运作，而无需担心应用程序和数据库架构之间的不匹配。 SQL API 支持在数据库引擎内部直接进行 JavaScript 应用程序逻辑的完全事务执行。 对 JavaScript 的深度集成支持在一个 JavaScript 程序中将 INSERT、REPLACE、DELETE 和 SELECT 操作作为独立的事务来执行。 有关详细信息，请参阅 [SQL 服务器端编程](programming.md)。
 
-* 可调整的一致性级别：从五个妥善定义的一致性级别中选择，实现一致性与性能之间的最佳平衡。 对于查询和读取操作，Azure Cosmos DB 提供五种不同的一致性级别：强、有限过时、会话、一致前缀和最终。 通过这些细化的定义完好的一致性级别，可以在一致性、可用性和延迟之间实现合理的平衡。 有关详细信息，请参阅[使用一致性级别最大化可用性和性能](consistency-levels.md)。
+* **可优化的一致性级别：** 从五个妥善定义的一致性级别中选择，实现一致性与性能之间的最佳平衡。 对于查询和读取操作，Azure Cosmos DB 提供五种不同的一致性级别：强、有限过时、会话、一致前缀和最终。 通过这些细化的定义完好的一致性级别，可以在一致性、可用性和延迟之间实现合理的平衡。 有关详细信息，请参阅[使用一致性级别最大化可用性和性能](consistency-levels.md)。
 
 * **完全托管：** 无需管理数据库和计算机资源。 作为一种完全托管的 Azure 服务，用户无需管理虚拟机、部署并配置软件、管理缩放或处理复杂的数据层升级。 每个数据库都会自动备份，以防受到区域故障的影响。 可轻松添加 Azure Cosmos DB 帐户并根据需要预配容量，从而可以专注于应用程序而不是操作和管理数据库。 
 
 * **源于设计的开放性：** 通过使用现有的技能和工具快速入门。 针对 SQL API 的编程非常简单易学，无需使用新的工具或遵循 JSON 或 JavaScript 的自定义扩展。 可以通过简单的 RESTful HTTP 接口访问所有数据库功能，包括 CRUD、查询和 JavaScript 处理。 SQL API 包含现有格式、语言和标准，并同时基于这些内容提供高价值的数据库功能。
 
-* 自动编制索引：默认情况下，Azure Cosmos DB 将自动为数据库中的所有文档编制索引，无需任何架构或创建二级索引。 不想索引所有内容？ 别担心，还可以 [退出 JSON 文件中的路径](indexing-policies.md) 。
+* **自动索引编制：** 默认情况下，Azure Cosmos DB 将自动为数据库中的所有文档编制索引，无需任何架构或创建二级索引。 不想索引所有内容？ 别担心，还可以 [退出 JSON 文件中的路径](indexing-policies.md) 。
 
-* 更改源支持：更改源在 Azure Cosmos DB 集合中按文档修改顺序提供排序的文档列表。 可以使用此源来侦听对数据的修改，以便复制数据、触发 API 调用或对更新执行流处理。 更改源是自动启用的，且易于使用：[详细了解更改源](/cosmos-db/change-feed)。 
+* **更改源支持：** 更改源在 Azure Cosmos DB 集合中按文档修改顺序提供排序的文档列表。 可以使用此源来侦听对数据的修改，以便复制数据、触发 API 调用或对更新执行流处理。 更改源是自动启用的，且易于使用：[详细了解更改源](/cosmos-db/change-feed)。 
 
 <a name="data-management"></a>
 ## <a name="how-do-you-manage-data-with-the-sql-api"></a>如何使用 SQL API 管理数据？
@@ -85,7 +85,7 @@ Azure Cosmos DB 支持使用 SQL 语言（来源于 JavaScript 类型系统）�
 
 可以在 SQL API 中注册用户定义函数 (UDF)，并将其作为 SQL 查询的一部分进行引用，从而将语法扩展为支持自定义的应用程序逻辑。 这些 UDF 编写为 JavaScript 程序，并在数据库中执行。 
 
-对于 .NET 开发人员，SQL API [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.aspx) 还提供了 LINQ 查询提供程序。 
+对于 .NET 开发人员，SQL API [.NET SDK](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.linq) 还提供了 LINQ 查询提供程序。 
 
 ### <a name="transactions-and-javascript-execution"></a>事务和 JavaScript 执行
 SQL API 允许将应用程序逻辑编写为完全使用 JavaScript 编写的命名程序。 这些程序是为集合注册的，可以对指定集合内的文档发布数据库操作。 可针对执行将 JavaScript 注册为触发器、存储过程或用户定义函数。 触发器和存储过程可以创建、读取、更新和删除文档，而用户定义函数作为查询执行逻辑的一部分执行，并且没有集合的写访问权限。

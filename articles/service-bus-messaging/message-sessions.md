@@ -1,5 +1,5 @@
 ---
-title: Azure 服务总线消息会话 | Azure
+title: Azure 服务总线消息会话 | Azure Docs
 description: 使用会话处理一系列 Azure 服务总线消息。
 services: service-bus-messaging
 documentationcenter: ''
@@ -11,20 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/02/2018
-ms.date: 11/26/2018
+origin.date: 12/24/2018
+ms.date: 12/24/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 47efd21987999caefd18f5f914f5f3ed7364acd5
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 6bd60ad68c65233b68fd7c42cca84b124b1e66bb
+ms.sourcegitcommit: 649f5093a9a9a89f4117ae3845172997922aec31
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675600"
+ms.lasthandoff: 12/24/2018
+ms.locfileid: "53784609"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>消息会话：先进先出 (FIFO) 
 
-使用 Azure 服务总线会话，可以连贯有序的方式处理一系列无限多的相关消息。 若要在服务总线中实现 FIFO 保证，请使用会话。 服务总线没有规定消息之间的关系性质，也没有定义用于确定消息序列开始或结束位置的特定模型。
+使用世纪互联 Azure 服务总线会话，能够以连贯有序的方式处理一系列无限多的相关消息。 若要在服务总线中实现 FIFO 保证，请使用会话。 服务总线没有规定消息之间的关系性质，也没有定义用于确定消息序列开始或结束位置的特定模型。
 
+> [!NOTE]
+> 服务总线的基本层不支持会话。 标准层和高级层支持会话。 有关详细信息，请参阅[服务总线定价](service-bus-pricing-billing.md)。
 任何发送程序都可以在将消息提交到主题或队列时创建会话，方法是将 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) 属性设置为会话专属的由应用程序定义的某标识符。 在 AMQP 1.0 协议一级，此值映射到 group-id 属性。
 
 在会话感知队列或订阅中，如果有至少一个消息包含会话的 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId)，会话就诞生了。 一旦会话诞生，就没有规定会话何时过期或消失的已定义时间或 API。 理论上讲，服务总线认为，今天可以针对会话接收的消息，与一年时间内 SessionId 相同的下一个消息使用的会话是相同的。

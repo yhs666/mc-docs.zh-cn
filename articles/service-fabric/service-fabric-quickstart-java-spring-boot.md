@@ -16,12 +16,12 @@ origin.date: 11/23/2017
 ms.date: 12/10/2018
 ms.author: v-yeche
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 505c20264f9698079acdb089d1c93b0a486f89a0
-ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
+ms.openlocfilehash: 2c7d0274721442f7cc3c3178347c2e362f1ace13
+ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52901123"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785195"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>快速入门：将 Java Spring Boot 应用程序部署到 Service Fabric
 
@@ -190,13 +190,15 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 
 在本快速入门中，请使用 Service Fabric CLI 和 Service Fabric Explorer。
 
-若要使用 CLI，需根据下载的 PFX 文件创建 PEM 文件。 若要转换此文件，请使用以下命令。 （对于合作群集，可以从“自述文件”页上的说明中复制特定于 PFX 文件的命令。）
+若要使用 CLI，需根据下载的 PFX 文件创建 PEM 文件。 若要转换此文件，请使用以下命令。 
+
+<!-- Not Available on (For party clusters, you can copy a command specific to your PFX file from the instructions on the **ReadMe** page.)-->
 
 ```bash
-openssl pkcs12 -in party-cluster-1486790479-client-cert.pfx -out party-cluster-1486790479-client-cert.pem -nodes -passin pass:1486790479
+openssl pkcs12 -in <YOUR_CERTIFICATE_PFX_FILE_Name>.pfx -out <YOUR_CERTIFICATE_PEM_FILE_Name>.pem -nodes -passin pass:<YOUR_PASSWORD>
 ``` 
 
-若要使用 Service Fabric Explorer，需将从合作群集网站下载的证书 PFX 文件导入到证书存储（Windows 或 Mac）中，或者导入到浏览器 (Ubuntu) 中。 需要可以从“自述文件”页获取的 PFX 私钥密码。
+若要使用 Service Fabric Explorer，需要将从 [Azure 门户](https://portal.azure.cn)下载的证书 PFX 文件导入到证书存储（Windows 或 Mac）中，或者导入到浏览器本身 (Ubuntu) 中。 需要可以从“自述文件”页获取的 PFX 私钥密码。
 
 请使用最熟悉的方法将证书导入到系统中。 例如：
 

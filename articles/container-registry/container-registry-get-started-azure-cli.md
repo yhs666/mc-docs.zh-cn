@@ -1,28 +1,26 @@
 ---
-title: 快速入门 - 使用 Azure CLI 在 Azure 中创建专用 Docker 注册表
+title: 快速入门 - 在 Azure 中创建专用 Docker 注册表 - Azure CLI
 description: 快速了解如何使用 Azure CLI 创建专用 Docker 容器注册表。
 services: container-registry
 author: rockboyfor
 ms.service: container-registry
 ms.topic: quickstart
 origin.date: 03/03/2018
-ms.date: 12/17/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: d3f14dcfa60bff283f6a6569832538e6d6bc20db
-ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
+ms.custom: seodec18, H1Hack27Feb2017, mvc
+ms.openlocfilehash: 121b0cfe66f19073ad2b46826461fe198dca6250
+ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53286730"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53569208"
 ---
-# <a name="quickstart-create-a-container-registry-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建容器注册表
+# <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建专用容器注册表
 
 Azure 容器注册表是托管的 Docker 容器注册表服务，用于存储专用的 Docker 容器映像。 本指南详述了如何使用 Azure CLI 创建 Azure 容器注册表实例，将容器映像推送到注册表中。
 
-<!-- Not Availablle on  finally deploying the container from your registry into Azure Container Instances (ACI)-->
-
-本快速入门需要运行 Azure CLI 2.0.27 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][azure-cli]。
+<!-- Not Availablle on  finally deploying the container from your registry into Azure Container Instances (ACI)--> 本快速入门需要运行 Azure CLI 2.0.27 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][azure-cli]。
 
 还必须在本地安装 Docker。 Docker 提供的包可在任何 [macOS][docker-mac]、[Windows][docker-windows] 或 [Linux][docker-linux] 系统上轻松配置 Docker。
 
@@ -37,7 +35,6 @@ az group create --name myResourceGroup --location chinanorth
 ```
 
 <!--Notice:  Currently the Container Registry is only valid on ChinaNorth-->
-
 ## <a name="create-a-container-registry"></a>创建容器注册表
 
 在本快速入门中，请创建基本注册表。 Azure 容器注册表以多个不同 SKU 提供，下表对此进行了简要说明。 有关每个 SKU 的更多详细信息，请参阅[容器注册表 SKU][container-registry-skus]。

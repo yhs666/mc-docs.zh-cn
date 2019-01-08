@@ -1,6 +1,6 @@
 ---
-title: 将 Azure 资源的托管标识与 Azure 事件中心预览版配合使用 | Azure
-description: 将 Azure 资源的托管标识与 Azure 事件中心结合使用
+title: Azure 资源的托管标识 - Azure 事件中心
+description: 本文介绍如何将 Azure 资源托管标识与 Azure 事件中心结合使用
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -9,14 +9,14 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 origin.date: 07/05/2018
-ms.date: 12/10/2018
+ms.date: 01/07/2019
 ms.author: v-biyu
-ms.openlocfilehash: d3ced03addc30cb55ba729a8a27e9e5b68472153
-ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
+ms.openlocfilehash: db9dd8527cee45752e39a69ad9b71d4cab1fddee
+ms.sourcegitcommit: a46f12240aea05f253fb4445b5e88564a2a2a120
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676956"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785236"
 ---
 # <a name="managed-identities-for-azure-resources-with-event-hubs"></a>具有事件中心的 Azure 资源托管标识
 
@@ -48,19 +48,15 @@ Azure 资源的托管标识是一项跨 Azure 功能，可方便你创建与其�
 
 创建应用程序后，在 Azure 门户中导航到新创建的 Web 应用（也显示在操作说明中），然后导航到“托管服务标识”页面并启用此功能： 
 
-![](./media/event-hubs-managed-service-identity/msi1.png)
+![托管服务标识页面](./media/event-hubs-managed-service-identity/msi1.png)
  
 启用此功能后，会在 Azure Active Directory 中创建一个新的服务标识并将其配置到应用服务主机中。
 
 ### <a name="create-a-new-event-hubs-namespace"></a>创建新的事件中心命名空间
 
-接下来，在支持 Azure 资源的托管标识预览版的 Azure 区域（美国东部、美国东部 2 或西欧）之一中[创建事件中心命名空间](event-hubs-create.md)。 
+接下来，在以下某个支持 Azure 资源托管标识预览版的 Azure 区域中[创建事件中心命名空间](event-hubs-create.md)：美国东部、美国东部 2 或西欧。 
 
 转到门户上的命名空间“访问控制(标识和访问管理)”页，再单击“添加”，向“所有者”角色添加托管标识。 为此，请在“添加权限”面板的“选择”字段中搜索 Web 应用程序的名称，然后单击该条目。 然后单击“保存” 。
-
-![](./media/event-hubs-managed-service-identity/msi2.png)
- 
-Web 应用程序的托管标识现在已具有对事件中心命名空间和对之前创建的事件中心的访问权限。 
 
 ### <a name="run-the-app"></a>运行应用程序
 
@@ -72,7 +68,7 @@ Web 应用程序的托管标识现在已具有对事件中心命名空间和对�
 
 进行这些更改后，发布并运行应用程序。 你可以通过下载发布配置文件然后将其导入到 Visual Studio 来获取正确的发布数据：
 
-![](./media/event-hubs-managed-service-identity/msi3.png)
+![导入发布配置文件](./media/event-hubs-managed-service-identity/msi3.png)
  
 若要发送或接收消息，请输入所创建的命名空间和实体的名称，然后单击 **send** 或 **receive**。 
  

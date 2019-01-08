@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/01/2018
-ms.date: 06/25/2018
+ms.date: an Apache
 ms.author: v-yiso
-ms.openlocfilehash: c35b20d0b57e11c9ca17280cef0097d8fc9e38e8
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 08cdd31b9a2a22aa3af5eaa7c15aff05ecd720e6
+ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657435"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54029230"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>使用 MirrorMaker 通过 Kafka on HDInsight 复制 Apache Kafka 主题
 
@@ -32,11 +32,11 @@ ms.locfileid: "52657435"
 > [!WARNING]
 > 不应将镜像视为一种实现容错的方式。 主题中项的偏移在源群集与目标群集之间有所不同，因此客户端不能换用这两种群集。
 >
-> 如果关心容错能力，应该为群集中的主题设置复制。 有关详细信息，请参阅 [Kafka on HDInsight 入门](apache-kafka-get-started.md)。
+> 如果关心容错能力，应该为群集中的主题设置复制。 有关详细信息，请参阅 [Apache Kafka on HDInsight 入门](apache-kafka-get-started.md)。
 
-## <a name="how-kafka-mirroring-works"></a>Kafka 镜像的工作原理
+## <a name="how-apache-kafka-mirroring-works"></a>Apache Kafka 镜像的工作原理
 
-镜像通过使用 MirrorMaker 工具（Apache Kafka 的一部分）来使用源群集上主题中的记录，然后在目标群集上创建本地副本。 MirrorMaker 使用一个或多个*使用者*从源群集读取记录，使用*生成者*将记录写入本地（目标）群集。
+镜像的工作原理是通过 [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) 工具（属于 Apache Kafka）来使用源群集上主题中的记录，然后在目标群集上创建本地副本。 MirrorMaker 使用一个或多个*使用者*从源群集读取记录，使用*生成者*将记录写入本地（目标）群集。
 
 下图说明镜像过程：
 
@@ -50,7 +50,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 服务的�
 
 ### <a name="mirroring-across-network-boundaries"></a>跨网络边界执行镜像操作
 
-如果需要在不同网络中的 Kafka 群集之间执行镜像操作，还需要考虑以下注意事项：
+如果需要在不同网络中的 Kafka 群集之间镜像，请注意以下附加事项：
 
 * **网关**：网络必须能够在 TCPIP 级别通信。
 
@@ -63,7 +63,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 服务的�
 
 有关连接两个 Azure 虚拟网络的详细信息，请参阅[配置 VNet 到 VNet 的连接](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)。
 
-## <a name="create-kafka-clusters"></a>创建 Kafka 群集
+## <a name="create-apache-kafka-clusters"></a>创建 Apache Kafka 群集
 
 尽管可以手动创建 Azure 虚拟网络和 Kafka 群集，但使用 Azure Resource Manager 模板会更容易。 使用以下步骤将 Azure 虚拟网络和两个 Kafka 群集部署到 Azure 订阅。
 
@@ -80,11 +80,11 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 服务的�
     
     ![HDInsight 自定义部署](./media/apache-kafka-mirroring/parameters.png)
     
-    * **资源组**：创建一个组或选择现有组。 此组包含 HDInsight 群集。
+    * **资源组**：创建一个组或选择有个现有的组。 此组包含 HDInsight 群集。
 
     * **位置**：选择在地理上邻近的位置。
 
-    * **基群集名称**：此值用作 Kafka 群集的基名称。 例如，输入 **hdi** 会创建名为 **source-hdi** 和 **dest-hdi** 的群集。
+    * **基群集名称**：此值将用作 Kafka 群集的基名称。 例如，输入 **hdi** 会创建名为 **source-hdi** 和 **dest-hdi** 的群集。
 
     * **群集登录用户名**：Kafka 源群集和目标群集的管理员用户名。
 
@@ -92,7 +92,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 服务的�
 
     * **SSH 用户名**：要为 Kafka 源群集和目标群集创建的 SSH 用户。
 
-    * **SSH 密码**：源和目标 Kafka 群集的 SSH 用户的密码。
+    * **SSH 密码**：Kafka 源群集和目标群集的 SSH 用户的密码。
 
 3. 阅读“条款和条件”，并选择“我同意上述条款和条件”。
 
@@ -225,7 +225,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 服务的�
 
 7. Kafka 在 HDInsight 上的默认配置不允许自动创建的主题。 在开始镜像过程之前，你必须使用以下选项之一：
 
-    * **在目标群集上创建的主题**：此选项还允许您设置分区和复制因子的数目。
+    * **在目标群集上创建的主题**：此选项还允许设置分区和复制因子的数目。
 
         可以使用以下命令提前创建新的主题：
 
@@ -265,7 +265,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 服务的�
 
     * **--num.streams**：要创建的使用者线程数。
 
-    启动时，MirrorMaker 返回类似于以下文本的信息：
+    启动后，MirrorMaker 返回类似于以下文本的信息：
 
     ```json
     {metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:9092, request.timeout.ms=30000, client.id=mirror-group-3, security.protocol=PLAINTEXT}{metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:9092, request.timeout.ms=30000, client.id=mirror-group-0, security.protocol=PLAINTEXT}
@@ -302,10 +302,10 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 服务的�
 
 ## <a name="next-steps"></a>后续步骤
 
-本文档已介绍如何使用 MirrorMaker 创建 Kafka 群集的副本。 请使用以下链接探索 Kafka 的其他用法：
+本文档已介绍如何使用 [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) 创建 [Apache Kafka](https://kafka.apache.org/) 群集的副本。 请使用以下链接探索 Kafka 的其他用法：
 
 * [Apache Kafka MirrorMaker 文档](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) 。
 * [Apache Kafka on HDInsight 入门](apache-kafka-get-started.md)
-* [Use Apache Spark with Kafka on HDInsight（将 Apache Spark 与 Kafka on HDInsight 配合使用）](../hdinsight-apache-spark-with-kafka.md)
-* [将 Apache Storm 与 Kafka on HDInsight 结合使用](../hdinsight-apache-storm-with-kafka.md)
-* [通过 Azure 虚拟网络连接到 Kafka](apache-kafka-connect-vpn-gateway.md)
+* [将 Apache Spark 与 Apache Kafka on HDInsight 配合使用](../hdinsight-apache-spark-with-kafka.md)
+* [将 Apache Storm 与 Apache Kafka on HDInsight 配合使用](../hdinsight-apache-storm-with-kafka.md)
+* [通过 Azure 虚拟网络连接到 Apache Kafka](apache-kafka-connect-vpn-gateway.md)

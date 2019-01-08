@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 11/15/2018
-ms.date: 11/26/2018
+origin.date: 12/05/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4dc5e480bafe2c3e537cddb4832efe24d1191b70
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: dc2d1dfe6fcfe7b48ed16249859163130f8bddfc
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675083"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736156"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>适用于 Windows 的 NVIDIA GPU 驱动程序扩展
 
@@ -79,15 +79,6 @@ ms.locfileid: "52675083"
 | type | NvidiaGpuDriverWindows | 字符串 |
 | typeHandlerVersion | 1.2 | int |
 
-### <a name="settings"></a>设置
-
-所有设置都是可选的。 默认行为是安装最新支持的驱动程序（如果适用）。
-
-| Name | 说明 | 默认值 | 有效值 | 数据类型 |
-| ---- | ---- | ---- | ---- | ---- |
-| driverVersion | NV：GRID 驱动程序版本<br> NC/ND：CUDA 驱动程序版本 | 最新 | GRID: "391.81", "391.58", "391.03"<br> CUDA: "398.75", "397.44", "390.85" | 字符串 |
-| installGridND | 在 ND 系列 VM 上安装 GRID 驱动程序 | false | true、false | 布尔值 |
-
 ## <a name="deployment"></a>部署
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager 模板 
@@ -124,7 +115,7 @@ ms.locfileid: "52675083"
 Set-AzureRmVMExtension
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
-    -Location "chinaeast" `
+    -Location "chinaeast2" `
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverWindows" `
     -ExtensionType "NvidiaGpuDriverWindows" `
@@ -135,10 +126,6 @@ Set-AzureRmVMExtension
 
 ### <a name="azure-cli"></a>Azure CLI
 
-以下示例镜像了上述 ARM 和 PowerShell 示例，并添加了自定义设置作为非默认驱动程序安装的示例。 
-
-<!-- Not Available on Specifically, it installs a specific GRID driver even if an ND series VM is being provisioned.-->
-
 ```azurecli
 az vm extension set `
   --resource-group myResourceGroup `
@@ -147,8 +134,6 @@ az vm extension set `
   --publisher Microsoft.HpcCompute `
   --version 1.2 `
   --settings '{ `
-    "driverVersion": "391.03",
-    "installGridND": true
   }'
 ```
 
@@ -178,14 +163,14 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 | :---: | --- | --- |
 | 0 | 操作成功 |
 | 1 | 操作成功。 需要重新启动。 |
-| 100 | 操作不受支持或无法完成。 | 可能的原因：不支持的 PowerShell 版本、VM 大小不是 N 系列 VM、下载数据失败。 请检查日志文件，以确定错误原因。 |
+| 100 | 操作不受支持或无法完成。 | 可能的原因：不支持 PowerShell 版本、VM 大小不是 N 系列 VM、下载数据失败。 请检查日志文件，以确定错误原因。 |
 | 240, 840 | 操作超时。 | 请重试操作。 |
 | -1 | 发生异常。 | 请检查日志文件，以确定异常原因。 |
 | -5x | 由于重新启动未完成，导致操作中断。 | 重新启动 VM。 重新启动后将继续安装。 应手动调用卸载。 |
 
 ### <a name="support"></a>支持
 
-如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/contact/) 上的 Azure 专家。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
+如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/contact/) 上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://support.azure.cn/zh-cn/support/support-azure)提交请求。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
 
 ## <a name="next-steps"></a>后续步骤
 有关扩展的详细信息，请参阅[适用于 Windows 的虚拟机扩展和功能](features-windows.md)。

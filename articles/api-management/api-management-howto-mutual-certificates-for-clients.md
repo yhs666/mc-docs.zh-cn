@@ -13,19 +13,20 @@ ms.devlang: na
 ms.topic: article
 origin.date: 02/01/2017
 ms.author: v-yiso
-ms.date: 02/26/2018
-ms.openlocfilehash: 591ae1ff0dff18618bcef4d0816c4d60b5387cab
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/31/2018
+ms.openlocfilehash: f320f81d344c4c32361f8d47bcba4cdae274d89a
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659406"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736673"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>如何使用 API 管理中的客户端证书身份验证确保 API 安全
 
 API 管理提供的功能可确保使用客户端证书安全地访问 API（即，客户端到 API 管理）。 目前，可以针对所需值检查客户端证书的指纹。 还可以针对已上传到 API 管理的现有证书检查指纹。  
 
 有关使用客户端证书保护对 API 后端服务的访问（即，API 管理到后端）的信息，请参阅[如何使用客户端证书身份验证保护后端服务](./api-management-howto-mutual-certificates.md)
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="checking-the-expiration-date"></a>检查到期日期
 

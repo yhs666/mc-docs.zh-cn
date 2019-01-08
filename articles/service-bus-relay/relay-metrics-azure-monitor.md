@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor（预览版）中的 Azure 中继指标 | Azure
+title: Azure Monitor（预览版）中的 Azure 中继指标 | Azure Docs
 description: 使用 Azure 监视来监视 Azure 中继
 services: service-bus-relay
 documentationcenter: .NET
@@ -12,25 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 01/23/2018
-ms.date: 11/26/2018
+origin.date: 12/24/2018
+ms.date: 12/24/2018
 ms.author: v-lingwu
-ms.openlocfilehash: d1e6506d79b293e06a2edcce7fe85b8e88828fae
-ms.sourcegitcommit: d3b05039466ddf239c9134f002a034d4e75b03db
+ms.openlocfilehash: 2a895422a4792b135686721aa9b7add15ba933dc
+ms.sourcegitcommit: 649f5093a9a9a89f4117ae3845172997922aec31
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53234009"
+ms.lasthandoff: 12/24/2018
+ms.locfileid: "53784597"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Azure Monitor 中的 Azure 中继指标（预览版）
-
 Azure 中继指标提供 Azure 订阅中的资源的状态。 通过一组丰富的指标数据，可在命名空间和实体级别评估中继资源的总体运行状况。 这些统计信息非常重要，因为它们能够帮助监视 Azure 中继的状态。 另外，指标也可帮助解决由根本原因造成的问题，而无需联系 Azure 支持。
 
-Azure Monitor 提供了统一的用户界面，可用于监视各种 Azure 服务。 有关详细信息，请参阅 GitHub 上的[在 Azure 中进行监视](../monitoring-and-diagnostics/monitoring-overview.md)和[通过 .NET 检索 Azure Monitor 指标](https://github.com/Azure-Samples/monitor-dotnet-metrics-api)示例。
+Azure Monitor 提供了统一的用户界面，可用于监视各种 Azure 服务。 有关详细信息，请参阅 GitHub 上的[在世纪互联 Azure 中进行监视](../monitoring-and-diagnostics/monitoring-overview.md)和[通过 .NET 检索 Azure Monitor 指标](https://github.com/Azure-Samples/monitor-dotnet-metrics-api)示例。
+
+> [!IMPORTANT]
+> 本文仅适用于 Azure 中继的混合连接功能，而不适用于 WCF 中继。 
 
 ## <a name="access-metrics"></a>访问指标
 
-Azure Monitor 提供多种访问指标的方法。 可从 [Azure 门户](https://portal.azure.com)、Azure Monitor API（REST 和 .Net）与分析解决方案（例如 Operation Management Suite 和事件中心）访问指标。 默认情况下，已启用指标，并且可访问最近 30 天的数据。 如需将数据保留更长一段时间，可将指标数据存档到 Azure 存储帐户。 可在 Azure Monitor 的 [诊断设置](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) 中完成这种配置。
+Azure Monitor 提供多种访问指标的方法。 可从 [Azure 门户](https://portal.azure.cn)、Azure Monitor API（REST 和 .Net）与分析解决方案（例如 Operation Management Suite 和事件中心）访问指标。 有关详细信息，请参阅 [Azure Monitor 收集的监视数据](../azure-monitor/platform/data-collection.md)。
+默认情况下，已启用指标，并且可访问最近 30 天的数据。 如需将数据保留更长一段时间，可将指标数据存档到 Azure 存储帐户。 可在 Azure Monitor 的 [诊断设置](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) 中完成这种配置。
 
 ## <a name="access-metrics-in-the-portal"></a>在门户中访问指标
 
@@ -38,7 +41,7 @@ Azure Monitor 提供多种访问指标的方法。 可从 [Azure 门户](https:/
 
 ![][1]
 
-也可以直接通过命名空间来访问指标。 为此，请选择命名空间，然后单击“指标（预览版）”。 
+也可以直接通过命名空间来访问指标。 为此，请选择命名空间，然后单击“指标(预览版)”。 
 
 对于支持维度的指标，必须使用所需的维度值进行筛选。
 
@@ -57,16 +60,16 @@ Azure Monitor 提供多种访问指标的方法。 可从 [Azure 门户](https:/
 
 | 指标名称 | 说明 |
 | ------------------- | ----------------- |
-| ListenerConnections-Success（预览版） | 在指定的期间内成功与 Azure 中继建立的侦听器连接数。 <br/><br/> 单元：Count <br/> 聚合类型：总计 <br/> 维度：EntityName|
-|ListenerConnections-ClientError（预览版）|在指定的期间内在侦听器连接上发生的客户端错误数。<br/><br/> 单元：Count <br/> 聚合类型：总计 <br/> 维度：EntityName|
-|ListenerConnections-ServerError（预览版）|在指定的期间内在侦听器连接上发生的服务器错误数。<br/><br/> 单元：Count <br/> 聚合类型：总计 <br/> 维度：EntityName|
-|SenderConnections-Success（预览版）|在指定的期间内成功建立的发送者连接数。<br/><br/> 单元：Count <br/> 聚合类型：总计 <br/> 维度：EntityName|
-|SenderConnections-ClientError（预览版）|在指定的期间内在发送者连接上发生的客户端错误数。<br/><br/> 单元：Count <br/> 聚合类型：总计 <br/> 维度：EntityName|
-|SenderConnections-ServerError（预览版）|在指定的期间内在发送者连接上发生的服务器错误数。<br/><br/> 单元：Count <br/> 聚合类型：总计 <br/> 维度：EntityName|
-|ListenerConnections-TotalRequests（预览版）|指定的期间内的侦听器连接总数<br/><br/> 单元：Count <br/> 聚合类型：总计 <br/> 维度：EntityName|
-|SenderConnections-TotalRequests（预览版）|在指定的期间内由发送者发出的连接请求数。<br/><br/> 单元：Count <br/> 聚合类型：总计 <br/> 维度：EntityName|
-|ActiveConnections（预览版）|指定的期间内的活动连接数。<br/><br/> 单元：Count <br/> 聚合类型：总计 <br/> 维度：EntityName|
-|ActiveListeners（预览版）|指定的期间内的活动侦听器数。<br/><br/> 单元：Count <br/> 聚合类型：总计 <br/> 维度：EntityName|
+| ListenerConnections-Success（预览版） | 在指定的期间内成功与 Azure 中继建立的侦听器连接数。 <br/><br/> 单元：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName|
+|ListenerConnections-ClientError（预览版）|在指定的期间内在侦听器连接上发生的客户端错误数。<br/><br/> 单元：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName|
+|ListenerConnections-ServerError（预览版）|在指定的期间内在侦听器连接上发生的服务器错误数。<br/><br/> 单元：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName|
+|SenderConnections-Success（预览版）|在指定的期间内成功建立的发送者连接数。<br/><br/> 单元：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName|
+|SenderConnections-ClientError（预览版）|在指定的期间内在发送者连接上发生的客户端错误数。<br/><br/> 单元：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName|
+|SenderConnections-ServerError（预览版）|在指定的期间内在发送者连接上发生的服务器错误数。<br/><br/> 单元：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName|
+|ListenerConnections-TotalRequests（预览版）|指定的期间内的侦听器连接总数<br/><br/> 单元：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName|
+|SenderConnections-TotalRequests（预览版）|在指定的期间内由发送者发出的连接请求数。<br/><br/> 单元：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName|
+|ActiveConnections（预览版）|指定的期间内的活动连接数。<br/><br/> 单元：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName|
+|ActiveListeners（预览版）|指定的期间内的活动侦听器数。<br/><br/> 单元：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName|
 |ListenerDisconnects（预览版）|指定的期间内断开连接的侦听器数。<br/><br/> 单元：字节 <br/> 聚合类型：总计 <br/> 维度：EntityName|
 |SenderDisconnects（预览版）|指定的期间内断开连接的发送者数。<br/><br/> 单元：字节 <br/> 聚合类型：总计 <br/> 维度：EntityName|
 

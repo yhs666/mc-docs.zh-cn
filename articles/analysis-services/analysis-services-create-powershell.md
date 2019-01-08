@@ -9,12 +9,12 @@ origin.date: 10/18/2018
 ms.date: 12/17/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8ae76af7c9b3e9dd5438947848abff6f2543366e
-ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
+ms.openlocfilehash: 1c6039f53a854beb9f6eaabc187ffd3b9e3cfde8
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53157391"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806200"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>快速入门：创建服务器 - PowerShell
 
@@ -22,7 +22,7 @@ ms.locfileid: "53157391"
 
 ## <a name="prerequisites"></a>先决条件
 
-- **Azure 订阅**：访问 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial-full)，以创建帐户。
+- **Azure 订阅**：访问 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial-full)来创建一个帐户。
 - **Azure Active Directory**：订阅必须与 Azure Active Directory 租户相关联，且该目录中必须有一个帐户。 若要了解详细信息，请参阅[身份验证和用户权限](analysis-services-manage-users.md)。
 - **Azure PowerShell 模块 4.0 版或更高版本**。 若要查找版本，请运行 ` Get-Module -ListAvailable AzureRM`。 若要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
 
@@ -52,7 +52,7 @@ New-AzureRmResourceGroup -Name "myResourceGroup" -Location "ChinaNorth"
 
 ## <a name="create-a-server"></a>创建服务器
 
-使用 [New-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) 命令创建新的服务器。 以下示例在 ChinaNorth 区域的 myResourceGroup 中的 B0 层创建名为 myServer 的服务器，并指定 philipc@adventureworks.com 为服务器管理员。
+使用 [New-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) 命令创建新的服务器。 以下示例在中国北部区域的 myResourceGroup 中的 B0 层创建名为 myServer 的服务器，并指定 philipc@adventureworks.com 为服务器管理员。
 <!--Notice: ChinaNorth is valid and -Sku should be B0,B1,S0-S4-->
 
 ```powershell

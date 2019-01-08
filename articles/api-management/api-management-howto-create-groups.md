@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 02/13/2018
 ms.author: v-yiso
-ms.date: 05/14/2018
-ms.openlocfilehash: 767de77b9954297ecf8c0387b406f375c798f689
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/31/2018
+ms.openlocfilehash: 62971b4b25f0cf2a447e3ccdecc5f888d9c8c1dc
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648065"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736702"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>如何创建和使用组来管理 Azure API 管理中的开发人员帐户
 在 API 管理中，使用组来管理产品对开发人员的可见性。 产品首次对组可见，然后这些组中的开发人员才能查看和订阅与组关联的产品。 
@@ -36,9 +36,11 @@ API 管理具有下列不可变的系统组：
 
 除了在发布者门户中创建和管理组外，还可使用 API 管理 REST API [组](https://msdn.microsoft.com/library/azure/dn776329.aspx)实体创建和管理组。
 
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
 ## <a name="prerequisites"></a>先决条件
 
-完成此文中的任务：[创建 Azure API 管理实例](get-started-create-service-instance.md)。
+完成此文中的任务：[创建一个 Azure API 管理实例](get-started-create-service-instance.md)。
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 

@@ -1,24 +1,24 @@
 ---
-title: Azure 服务总线常见问题 (FAQ) | Azure
+title: Azure 服务总线常见问题解答 (FAQ) | Azure Docs
 description: 回答了一些关于 Azure 服务总线的常见问题。
 services: service-bus-messaging
 author: lingliw
 manager: digimobile
 ms.service: service-bus-messaging
 ms.topic: article
-origin.date: 11/05/2018
-ms.date: 11/26/2018
+origin.date: 12/24/2018
+ms.date: 12/24/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 115ad6e0109d46cacc8db790baecee5fc8b8074e
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: da5182acc55a33ec90f4dcd5eddab0011746050c
+ms.sourcegitcommit: 649f5093a9a9a89f4117ae3845172997922aec31
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674568"
+ms.lasthandoff: 12/24/2018
+ms.locfileid: "53784615"
 ---
 # <a name="service-bus-faq"></a>服务总线常见问题解答
 
-本文讨论了一些关于 Azure 服务总线的常见问题解答。 还可以访问 [Azure 支持常见问题解答](https://www.azure.cn/support/faq/)了解常规的 Azure 定价和支持信息。
+本文讨论了一些关于世纪互联 Azure 服务总线的常见问题解答。 还可以访问 [Azure 支持常见问题解答](https://www.azure.cn/support/faq/)了解常规的 Azure 定价和支持信息。
 
 ## <a name="general-questions-about-azure-service-bus"></a>关于 Azure 服务总线的一般问题
 ### <a name="what-is-azure-service-bus"></a>什么是 Azure 服务总线？
@@ -66,7 +66,6 @@ ms.locfileid: "52674568"
 在给定 Azure 区域内的任何数据传输和入站数据传输均不收费。 
 
 ### <a name="does-service-bus-charge-for-storage"></a>服务总线是否对存储收费？
-
 否，服务总线不对存储收费。 但是，对每个队列/主题可以保留的数据最大量设有配额限制。 请参阅下一个常见问题。
 
 ## <a name="quotas"></a>配额
@@ -85,7 +84,7 @@ Azure 保留禁用在给定月份超过使用配额的客户帐户的权利，�
 有关可能的服务总线异常的列表，请参阅[异常概述][Exceptions overview]。
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>什么是共享访问签名？哪些语言支持生成签名？
-共享访问签名是基于 SHA - 256 安全哈希或 URI 的身份验证机制。 有关如何在 Node、PHP、Java 和 C\# 中生成自有签名的信息，请参阅[共享访问签名][Shared Access Signatures]一文。
+共享访问签名是基于 SHA-256 安全哈希或 URI 的身份验证机制。 有关如何在 Node.js、PHP、Java 和 C\# 中生成自己的签名的信息，请参阅[共享访问签名][Shared Access Signatures]一文。
 
 ## <a name="subscription-and-namespace-management"></a>订阅和命名空间管理
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>如何将命名空间迁移到另一个 Azure 订阅中？

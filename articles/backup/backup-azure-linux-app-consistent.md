@@ -2,20 +2,19 @@
 title: Azure 备份：Linux VM 的应用程序一致性备份
 description: 创建 Linux 虚拟机到 Azure 的应用程序一致性备份。 本文介绍如何配置脚本框架以备份 Azure 部署的 Linux VM。 本文还包括故障排除信息。
 services: backup
-author: anuragmehrotra
-manager: shivamg
+author: lingliw
+manager: digimobile
 keywords: 应用程序一致性备份; 应用程序一致性 Azure VM 备份; Linux VM 备份; Azure 备份
 ms.service: backup
 ms.topic: conceptual
-origin.date: 01/12/2018
-ms.date: 07/05/2018
-ms.author: v-junlch
-ms.openlocfilehash: 993c43365cb5d06b3e664611a9c4340852d0029c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 1/3/2019
+ms.author: v-lingwu
+ms.openlocfilehash: 276460093718210ec94b14e392df5c41c036db94
+ms.sourcegitcommit: f46e1f7a5d582bb9663bfaee8087b233eb822e17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657738"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996497"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Azure Linux VM 的应用程序一致性备份
 
@@ -37,9 +36,9 @@ ms.locfileid: "52657738"
 
 4. 确保分配对这些文件的以下权限：
 
-   - VMSnapshotScriptPluginConfig.json：权限“600”。 例如，只有“root”用户才对此文件拥有“读取”和“写入”权限，任何用户都不得拥有其“执行”权限。
+   - **VMSnapshotScriptPluginConfig.json**：权限“600”。 例如，只有“root”用户才对此文件拥有“读取”和“写入”权限，任何用户都不得拥有其“执行”权限。
 
-   - 操作前脚本文件：权限“700”。  例如，只有“root”用户才对此文件拥有“读取”、“写入”和“执行”权限。
+   - **操作前脚本文件：** 权限“700”。  例如，只有“root”用户才对此文件拥有“读取”、“写入”和“执行”权限。
   
    - 操作后脚本：权限“700”。 例如，只有“root”用户才对此文件拥有“读取”、“写入”和“执行”权限。
 
@@ -51,23 +50,23 @@ ms.locfileid: "52657738"
 5. 根据下述信息配置 VMSnapshotScriptPluginConfig.json：
     - **pluginName**：将此字段保留原样，否则脚本可能无法按预期工作。
 
-    - preScriptLocation：提供要备份的 VM 上的操作前脚本的完整路径。
+    - **preScriptLocation**：提供要备份的 VM 上的操作前脚本的完整路径。
 
-    - postScriptLocation：提供要备份的 VM 上的操作后脚本的完整路径。
+    - **postScriptLocation**：提供要备份的 VM 上的操作后脚本的完整路径。
 
-    - preScriptParams：提供需传递给操作前脚本的可选参数。 所有参数都应当用引号引起来。 如果使用多个参数，请用逗号分隔参数。
+    - **preScriptParams**：提供需传递给操作前脚本的可选参数。 所有参数都应当用引号引起来。 如果使用多个参数，请用逗号分隔参数。
 
-    - postScriptParams：提供需传递给操作后脚本的可选参数。 所有参数都应当用引号引起来。 如果使用多个参数，请用逗号分隔参数。
+    - **postScriptParams**：提供需传递给操作后脚本的可选参数。 所有参数都应当用引号引起来。 如果使用多个参数，请用逗号分隔参数。
 
-    - preScriptNoOfRetries：设置发生任何错误时，程序终止前应重试操作前脚本的次数。 0 表示发生失败时只尝试一次且不重试。
+    - **preScriptNoOfRetries**：设置发生任何错误时，程序终止前应重试操作前脚本的次数。 0 表示发生失败时只尝试一次且不重试。
 
-    - postScriptNoOfRetries：设置发生任何错误时，程序终止前应重试操作后脚本的次数。 0 表示发生失败时只尝试一次且不重试。
-    
-    - timeoutInSeconds：指定操作前脚本和操作后脚本的单次超时。
+    - **postScriptNoOfRetries**：设置发生任何错误时，程序终止前应重试操作后脚本的次数。 0 表示发生失败时只尝试一次且不重试。
 
-    - continueBackupOnFailure：如果希望在操作前脚本或操作后脚本失败时 Azure 备份故障回复到文件系统/崩溃一致性备份，请将此值设置为 true。 如果将此值设置为 false，则脚本失败时，备份也会失败（除非拥有单磁盘 VM，它会故障回复到崩溃一致性备份，不管此项设置如何）。
+    - **timeoutInSeconds**：指定操作前脚本和操作后脚本的单次超时（最大值可以为 1800）。
 
-    - fsFreezeEnabled：指定为了确保文件系统一致性，在创建 VM 快照时是否应调用 Linux fsfreeze。 建议将此设置保留为 true，除非必须禁用 fsfreeze 才能让应用程序正常工作。
+    - **continueBackupOnFailure**：如果希望在操作前脚本或操作后脚本失败时 Azure 备份故障回复到文件系统/崩溃一致性备份，请将此值设置为 true。 如果将此值设置为 false，则脚本失败时，备份也会失败（除非拥有单磁盘 VM，它会故障回复到崩溃一致性备份，不管此项设置如何）。
+
+    - **fsFreezeEnabled**：指定为了确保文件系统一致性，在创建 VM 快照时是否应调用 Linux fsfreeze。 建议将此设置保留为 true，除非必须禁用 fsfreeze 才能让应用程序正常工作。
 
 6. 现已配置脚本框架。 如果已配置 VM 备份，则下一次备份将调用这些脚本，并触发应用程序一致性备份。 如果未配置 VM 备份，请使用[将 Azure 虚拟机备份到恢复服务保管库](/backup/backup-azure-vms-first-look-arm)进行配置。
 

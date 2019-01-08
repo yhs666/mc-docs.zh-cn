@@ -1,5 +1,5 @@
 ---
-title: 服务总线死信队列 | Azure
+title: 服务总线死信队列 | Azure Docs
 description: Azure 服务总线死信队列概述
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/26/2018
-ms.date: 10/31/2018
+origin.date: 12/24/2018
+ms.date: 12/24/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 89004ca1ae6c0bc51b7a8f5c277c580437f4dcc7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 671f576c66c54cf2ca0e72781b7025fe1368ed25
+ms.sourcegitcommit: 649f5093a9a9a89f4117ae3845172997922aec31
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643895"
+ms.lasthandoff: 12/24/2018
+ms.locfileid: "53784614"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>服务总线死信队列概述
 
@@ -77,7 +77,7 @@ Azure 服务总线队列和主题订阅提供一个名为“死信队列 (DLQ)�
 
 在下列情况下，消息将发送到传输死信队列：
 
-- 消息传过 3 个以上[链接在一起](./service-bus-auto-forwarding.md)的队列或主题。
+- 消息传递 4 个以上[链接在一起](service-bus-auto-forwarding.md)的队列或主题。
 - 目标队列或主题被禁用或删除。
 - 目标队列或主题超出最大实体大小。
 

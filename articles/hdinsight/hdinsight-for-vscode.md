@@ -15,25 +15,25 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 10/27/2017
-ms.date: 10/22/2018
+ms.date: 12/24/2018
 ms.author: v-yiso
-ms.openlocfilehash: f8ac3199a59fbea0c36bd82f08fc009e0318d731
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 97b6be7febff5a8a68b64b504fe83476811b736b
+ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666742"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53569349"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>使用用于 Visual Studio Code 的 Azure HDInsight 工具
 
-学习如何使用用于 Visual Studio Code (VS Code) 的 Azure HDInsight 工具来创建和提交 Hive 批处理作业、交互式 Hive 查询和 pySpark 脚本。 可以在 VS Code 支持的平台上安装 Azure HDInsight 工具。 这些平台包括 Windows、Linux 和 macOS。 可以找到不同平台的必备组件。
+了解如何使用用于 Visual Studio Code (VS Code) 的 Azure HDInsight 工具来创建和提交 Apache Hive 批处理作业、交互式 Apache Hive 查询和 PySpark 脚本。 可以在 VS Code 支持的平台上安装 Azure HDInsight 工具。 这些平台包括 Windows、Linux 和 macOS。 可以找到不同平台的必备组件。
 
 
 ## <a name="prerequisites"></a>先决条件
 
 完成本文中的步骤需要具有以下项：
 
-- HDInsight 群集。  若要创建群集，请参阅 [HDInsight 入门]( hdinsight-hadoop-linux-tutorial-get-started.md)。
+- HDInsight 群集。 若要创建群集，请参阅 [HDInsight 入门](./hadoop/apache-hadoop-linux-tutorial-get-started.md)。
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx)。
 - [Mono](http://www.mono-project.com/docs/getting-started/install/)。 只有 Linux 和 MacOS 需要 Mono。
 
@@ -77,7 +77,7 @@ ms.locfileid: "52666742"
 
 1. 创建一个新的工作文件夹和一个新的脚本文件（如果还没有）。
 
-2. 右键单击脚本编辑器，然后在上下文菜单中选择“HDInsight: Login”。 也可以按 **Ctrl+Shift+P** 并输入“HDInsight: Login”。
+2. 右键单击脚本编辑器，然后在上下文菜单中选择“HDInsight:Login”。 也可以按 Ctrl+Shift+P 并输入“HDInsight:Login”。
 
     ![用于 Visual Studio Code 的 HDInsight 工具登录](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
@@ -104,7 +104,7 @@ ms.locfileid: "52666742"
 
 ### <a name="linkcluster"></a> 链接群集
 可以使用 Ambari 管理的用户名链接标准群集，还可以使用域用户名（例如：user1@contoso.com）链接安全 hadoop 群集。
-1. 通过选择 **CTRL+SHIFT+P** 打开命令面板，然后输入“HDInsight: Link a cluster”。
+1. 按 CTRL+SHIFT+P 打开命令面板，然后输入“HDInsight: 链接群集”。
 
    ![链接群集命令](./media/hdinsight-for-vscode/link-cluster-command.png)
 
@@ -119,12 +119,12 @@ ms.locfileid: "52666742"
 
    ![链接的群集](./media/hdinsight-for-vscode/linked-cluster.png)
 
-4. 还可以通过从命令面板输入“HDInsight: Unlink a cluster”取消链接群集。
+4. 还可以取消链接群集，方法是从命令面板输入“HDInsight:取消链接群集”。
 
 
-### <a name="to-link-a-generic-livy-endpoint"></a>链接范型 livy 终结点
+### <a name="to-link-a-generic-apache-livy-endpoint"></a>链接通用 Apache Livy 终结点
 
-1. 通过选择 **CTRL+SHIFT+P** 打开命令面板，然后输入 **HDInsight: Link a Cluster**。
+1. 按 CTRL+SHIFT+P 打开命令面板，然后输入“HDInsight:链接群集”。
 2. 选择“范型 livy 终结点”。
 3. 输入范型 livy 终结点，例如： http://10.172.41.42:18080。
 4. 当范型 livy 终结点需要授权时请选择“基本”，否则请选择“无”。
@@ -141,15 +141,16 @@ ms.locfileid: "52666742"
 ### <a name="to-list-hdinsight-clusters-under-your-azure-subscription"></a>列出 Azure 订阅下的 HDInsight 群集
 1. 打开一个工作区并连接到 Azure。 有关详细信息，请参阅[打开 HDInsight 工作区](#open-hdinsight-workspace)和[连接到 Azure](#connect-to-hdinsight-cluster)。
 
-2. 右键单击脚本编辑器，然后从上下文菜单中选择“HDInsight: List Cluster”。 
-3. Hive 和 Spark 群集将显示在“输出”窗格中。
+2. 右键单击脚本编辑器，然后从上下文菜单中选择“HDInsight:列出群集”。 
+
+3. HDInsight 群集将显示在“输出”窗格中。
 
     ![设置默认群集配置](./media/hdinsight-for-vscode/list-cluster-result.png)
 
 ## <a name="set-a-default-cluster"></a>设置默认群集
 1. 打开一个工作区并连接到 Azure。 请参阅[打开 HDInsight 工作区](#open-hdinsight-workspace)和[连接到 Azure](#connect-to-hdinsight-cluster)。
 
-2. 右键单击脚本编辑器，然后选择“HDInsight: Set Default Cluster”。 
+2. 右键单击脚本编辑器，然后从上下文菜单中选择“HDInsight:设置默认群集”。 
 
 3. 选择一个群集作为当前脚本文件的默认群集。 工具将自动更新配置文件 **.VSCode\settings.json**。 
 
@@ -158,8 +159,9 @@ ms.locfileid: "52666742"
 ## <a name="set-the-azure-environment"></a>设置 Azure 环境 
 1. 按 **CTRL+SHIFT+P** 打开命令面板。
 
-2. 输入“HDInsight: Set Azure Environment”。
-3. 从 Azure 和 AzureChina 中选择一个作为默认登录入口。
+2. 输入“HDInsight:设置 Azure 环境”。
+
+3. 选择一个环境（例如“Azure”或“Azure 中国”）作为默认登录入口。
 
 4. 同时，工具已将你的默认登录入口保存到 **.VSCode\settings.json** 中。 还可以在此配置文件中直接更新默认登录入口。 
 
@@ -178,19 +180,19 @@ ms.locfileid: "52666742"
     ```hiveql
     SELECT * FROM hivesampletable;
     ```
-4. 右键单击脚本编辑器，选择“HDInsight: Hive Interactive”来提交查询，或者使用快捷方式 **Ctrl + Alt + I**。选择“HDInsight: Hive Batch”来提交脚本，或者使用快捷方式 **Ctrl + Alt + H**。 
+4. 右键单击脚本编辑器，选择“HDInsight:Hive 交互式”提交查询，或使用快捷方式 Ctrl + Alt + I。选择“HDInsight:Hive 批处理”以提交脚本，或使用快捷键 Ctrl + Alt + H。 
 
-5. 需要时选择群集。 工具还允许使用上下文菜单提交代码块而非整个脚本文件。 很快，查询结果将显示在新选项卡中。
+5. 如果尚未指定默认群集，请选择群集。 工具还允许使用上下文菜单提交代码块而非整个脚本文件。 过了一会儿，查询结果将显示在新选项卡中。
 
    ![交互式 Hive 结果](./media/hdinsight-for-vscode/interactive-hive-result.png)
 
     - “结果”面板：可以将整个结果作为 CSV、JSON、Excel 保存到本地路径，也可以只选择多个行。
 
-    - “消息”面板：选择**行**号会跳转到运行的脚本的第一行。
+    - “消息”面板：选择“行”号会跳转到运行的脚本的第一行。
 
 ## <a name="submit-interactive-pyspark-queries"></a>提交交互式 PySpark 查询
 
-### <a name="to-submit-interactive-pyspark-queries-to-spark-clusters"></a>将交互式 PySpark 查询提交到 Spark 群集。
+### <a name="to-submit-interactive-pyspark-queries-to-hdinsight-spark-clusters"></a>将交互式 PySpark 查询提交到 HDInsight Spark 群集。
 
 1. 创建一个新的工作文件夹和一个扩展名为 .py 的新脚本文件（如果没有）。
 
@@ -210,7 +212,7 @@ ms.locfileid: "52666742"
    for i in range(0, 5):
         print(sortedCollection[i])
    ```
-4. 突出显示这些脚本。 右键单击脚本编辑器，然后选择“HDInsight: PySpark Interactive”，或者使用 **Ctrl + Alt + I**。
+4. 突出显示此脚本。 然后右键单击脚本编辑器，选择“HDInsight:PySpark 交互式”，或使用快捷键 Ctrl + Alt + I。
 
 5. 如果尚未在 VS Code 中安装 **Python** 扩展，请选择下图所示的“安装”按钮。
 
@@ -285,7 +287,7 @@ Spark 2.2 群集和 Spark2.3 群集不再支持 PySpark3，Python 仅支持“Py
             print("%s: %i" % (word, count))
         spark.stop()
     ```
-4. 右键单击脚本编辑器，然后选择“HDInsight: PySpark Batch”，或者使用快捷方式 **Ctrl + Alt + H**。 
+4. 右键单击脚本编辑器，然后从上下文菜单中选择“HDInsight:PySpark 批处理”，或使用快捷键 Ctrl + Alt + H。 
 
 5. 选择要将 PySpark 作业提交到的群集。 
 
@@ -404,7 +406,7 @@ Azure HDInsight 已添加到左侧面板。 你可以直接浏览和管理群集
 
 ### <a name="scenarios"></a>方案
 * [Spark 和 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](spark/apache-spark-use-bi-tools.md)
-* [Spark 和机器学习：使用 HDInsight 中的 Spark 对使用 HVAC 数据生成温度进行分析](spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Spark 和机器学习：使用 HDInsight 中的 Spark 结合 HVAC 数据分析建筑物温度](spark/apache-spark-ipython-notebook-machine-learning.md)
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](spark/apache-spark-machine-learning-mllib-ipython.md)
 * [使用 HDInsight 中的 Spark 分析网站日志](spark/apache-spark-custom-library-website-log-analysis.md)
 

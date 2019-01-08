@@ -15,31 +15,27 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 11/27/2017
-ms.date: 03/26/2018
+ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: edb6b53f28a0f1f9d245d94710fcde6b1614cd66
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 4b3b99077eaebc04765d138e2d663b5d31b6c66a
+ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663780"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806605"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>使用针对 Visual Studio 的 Data Lake 工具开发 Apache Storm 的 C# 拓扑
 
-了解如何使用针对 Visual Studio 的 Azure Data Lake (Hadoop) 工具创建 C# Storm 拓扑。 本文档逐步说明在 Visual Studio 中创建 Storm 项目、在本地测试该项目，然后将它部署到 Apache Storm on Azure HDInsight 群集的过程。
-
-[!INCLUDE [azure-visual-studio-login-guide](../../../includes/azure-visual-studio-login-guide.md)]
+了解如何使用针对 Visual Studio 的 Azure Data Lake (Apache Hadoop) 工具创建 C# Apache Storm 拓扑。 本文档逐步说明在 Visual Studio 中创建 Storm 项目、在本地测试该项目，然后将它部署到 Apache Storm on Azure HDInsight 群集的过程。
 
 同时还说明了如何创建使用 C# 和 Java 组件的混合拓扑。
-
-
 
 > [!NOTE]
 > 虽然本文档中的步骤依赖于带 Visual Studio 的 Windows 开发环境，但是也可将编译的项目提交到基于 Linux 或 Windows 的 HDInsight 群集。 仅在 2016 年 10 月 28 日以后创建的基于 Linux 的群集支持 SCP.NET 拓扑。
 
 若要将 C# 拓扑与基于 Linux 的群集配合使用，必须将项目使用的 Microsoft.SCP.Net.SDK NuGet 包更新到 0.10.0.6 或更高版本。 包的版本还必须与 HDInsight 上安装的 Storm 的主要版本相符。
 
-| HDInsight 版本 | Storm 版本 | SCP.NET 版本 | 默认 Mono 版本 |
+| HDInsight 版本 | Apache Storm 版本 | SCP.NET 版本 | 默认 Mono 版本 |
 |:-----------------:|:-------------:|:---------------:|:--------------------:|
 | 3.3 |0.10.x |0.10.x.x</br>（仅在基于 Windows 的 HDInsight 上） | 不可用 |
 | 3.4 | 0.10.0.x | 0.10.0.x | 3.2.8 |
@@ -55,7 +51,7 @@ ms.locfileid: "52663780"
 
 * Visual Studio 2012 Update 4
 
-* Visual Studio 2013 Update 4 或 [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
+* Visual Studio 2013 Update 4 或 [Visual Studio 2013 Community](https://go.microsoft.com/fwlink/?LinkId=517284)
 
 * Visual Studio 2015 或 [Visual Studio 2015 Community](https://go.microsoft.com/fwlink/?LinkId=532606)
 
@@ -69,7 +65,7 @@ ms.locfileid: "52663780"
 
 从 Visual Studio 提交 Storm 拓扑时，SCP.NET 会生成一个包含拓扑和依赖项的 zip 文件。 使用 Java 来创建这些 zip 文件是因为其采用的格式更兼容基于 Linux 的群集。
 
-1. 在开发环境中安装 Java 开发人员工具包 (JDK) 7 或更高版本。 可以从 [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 获取 Oracle JDK。 也可使用[其他 Java 发行版](http://openjdk.java.net/)。
+1. 在开发环境中安装 Java 开发人员工具包 (JDK) 7 或更高版本。 可以从 [Oracle](https://aka.ms/azure-jdks) 获取 Oracle JDK。 也可使用[其他 Java 发行版](http://openjdk.java.net/)。
 
 2. `JAVA_HOME` 环境变量必须指向包含 Java 的目录。
 
@@ -109,7 +105,7 @@ namespace ConsoleApplication2
 }
 ```
 
-## <a name="storm-templates"></a>Storm 模板
+## <a name="apache-storm-templates"></a>Apache Storm 模板
 
 针对 Visual Studio 的 Data Lake 工具提供以下模板：
 
@@ -131,7 +127,7 @@ namespace ConsoleApplication2
 
 在本文档的步骤中，将使用基本 Storm 应用程序项目类型来创建拓扑。
 
-### <a name="hbase-templates-notes"></a>HBase 模板说明
+### <a name="apache-hbase-templates-notes"></a>Apache HBase 模板说明
 
 HBase 读取器和写入器模板使用 HBase REST API（而不是 HBase Java API）与 HBase on HDInsight 群集通信。
 
@@ -152,7 +148,7 @@ HBase 读取器和写入器模板使用 HBase REST API（而不是 HBase Java AP
 
 3. 创建项目后，应有以下文件：
 
-   * **Program.cs**：此文件定义项目的拓扑。 默认情况下会创建包含一个 Spout 和一个 Bolt 的默认拓扑。
+   * Program.cs：此文件定义项目的拓扑。 默认情况下会创建包含一个 Spout 和一个 Bolt 的默认拓扑。
 
    * **Spout.cs**：发出随机数的示例 Spout。
 
@@ -170,9 +166,9 @@ HBase 读取器和写入器模板使用 HBase REST API（而不是 HBase Java AP
 
    * Ack（仅限事务拓扑）：针对从此 Spout 发送的元组，处理拓扑中其他组件发起的确认。 确认元组可让 Spout 知了解下游组件已成功处理元组。
 
-   * 失败（仅限事务拓扑）：处理无法处理拓扑中其他组件的元组。 实现 Fail 方法可以重新发出元组，以便对其再次处理。
+   * 失败（仅限事务拓扑）：处理那些无法处理拓扑中其他组件的元组。 实现 Fail 方法可以重新发出元组，以便对其再次处理。
 
-2. 将 **Spout** 类的内容替换为以下文本：此 Spout 将句子随机发送到拓扑。
+2. 将 **Spout** 类的内容替换为以下文本：此 Spout 会随机将语句发出到拓扑中。
 
     ```csharp
     private Context ctx;
@@ -238,14 +234,14 @@ HBase 读取器和写入器模板使用 HBase REST API（而不是 HBase Java AP
 
 2. 在“解决方案资源管理器”中，右键单击该项目，然后选择“添加” > “新建项”。 从列表中选择“Storm Bolt”，然后输入 Splitter.cs 作为名称。 **Counter.cs**的另一个 Bolt。
 
-   * Splitter.cs：实现 Bolt，将句子拆分成不同的单词并发出一串新单词。
+   * **Splitter.cs**：实现 Bolt，以将句子分割成不同的单词并发出一串新单词。
 
    * Counter.cs：实现 Bolt，对每个单词计数，并发出一串新单词和每个单词的计数。
 
      > [!NOTE]
      > 这些 Bolt 读取和写入流，但是你也可以使用 Bolt 来与数据库或服务等源进行通信。
 
-3. 打开 **Splitter.cs**。 默认情况下它只包含一个方法： **Execute**。 在 Bolt 收到要处理的元组时将调用 Execute 方法。 此时，可读取和处理传入元组，以及发出传出元组。
+3. 打开 **Splitter.cs**。 默认情况下它只包含一个方法：**Execute**。 在 Bolt 收到要处理的元组时将调用 Execute 方法。 此时，可读取和处理传入元组，以及发出传出元组。
 
 4. 将 **Splitter** 类的内容替换为以下代码：
 
@@ -766,15 +762,14 @@ Context.Logger.Info("Component started");
 **Apache Storm on HDInsight**
 
 * [使用 Apache Storm on HDInsight 部署和监视拓扑](apache-storm-deploy-monitor-topology.md)
-* [Storm on HDInsight 的示例拓扑](apache-storm-example-topology.md)
+* [HDInsight 上的 Apache Storm 的示例拓扑](apache-storm-example-topology.md)
 
 **Apache HDInsight 上的 Hadoop**
 
-* [将 Hive 与 HDInsight 上的 Hadoop 配合使用](../hadoop/hdinsight-use-hive.md)
-* [将 Pig 与 Hadoop on HDInsight 配合使用](../hadoop/hdinsight-use-pig.md)
-* [将 MapReduce 与 HDInsight 上的 Hadoop 配合使用](../hadoop/hdinsight-use-mapreduce.md)
+* [将 Apache Hive 与 Apache Hadoop on HDInsight 配合使用](../hadoop/hdinsight-use-hive.md)
+* [将 Apache Pig 与 Apache Hadoop on HDInsight 配合使用](../hadoop/hdinsight-use-pig.md)
+* [将 Apache Hadoop MapReduce 与 Apache Hadoop on HDInsight 配合使用](../hadoop/hdinsight-use-mapreduce.md)
 
 **Apache HBase on HDInsight**
 
-* [HBase on HDInsight 入门](../hbase/apache-hbase-tutorial-get-started-linux.md)
-<!--Update_Description: wording update: add a warning-->
+* [HDInsight 中的 Apache HBase 入门](../hbase/apache-hbase-tutorial-get-started-linux.md)

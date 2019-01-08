@@ -9,16 +9,16 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: vanto, carlrab, ronitr
+ms.reviewer: vanto, carlrab, emlisa
 manager: digimobile
-origin.date: 10/11/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: dd98a6c16953248a33f08dc2c850ef4427d2ec21
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+origin.date: 10/22/2018
+ms.date: 12/31/2018
+ms.openlocfilehash: 278f72b6e91bf359932e7ee30fd21e5459c50be0
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672923"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806318"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL 数据库安全功能概述
 

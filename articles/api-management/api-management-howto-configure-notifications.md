@@ -3,7 +3,7 @@ title: 在 Azure API 管理中配置通知和电子邮件模板
 description: 了解如何在 Azure API 管理中配置通知和电子邮件模板。
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -13,20 +13,22 @@ ms.devlang: na
 ms.topic: article
 origin.date: 02/02/2018
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: e694633d902aee0fcd1d085fba6cf20d328d3cec
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/31/2018
+ms.openlocfilehash: 6585e4a79cad41f61594396950ffbf77165d75de
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650744"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736707"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>如何在 Azure API 管理中配置通知和电子邮件模板
 API 管理提供的功能为特定事件配置通知，以及配置用于与 API 管理实例的管理员及开发人员通信的电子邮件模板。 本文演示如何为可用事件配置通知，并提供配置用于这些事件的电子邮件模板的概述。
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 API 管理服务实例，请完成以下快速入门：[创建 Azure API 管理实例](get-started-create-service-instance.md)。
+如果没有 API 管理服务实例，请完成以下快速入门：[创建一个 Azure API 管理实例](get-started-create-service-instance.md)。
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="publisher-notifications"></a>配置通知
 

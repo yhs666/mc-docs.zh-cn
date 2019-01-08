@@ -3,7 +3,7 @@ title: 为云服务配置 SSL | Azure
 description: 了解如何为 Web 角色指定 HTTPS 终结点以及如何上传 SSL 证书来保护应用程序。 这些示例使用 Azure 门户。
 services: cloud-services
 documentationcenter: .net
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 371ba204-48b6-41af-ab9f-ed1d64efe704
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 05/26/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
-ms.openlocfilehash: 55d113bd3e724ec399961532492217c879669ed2
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/17/2018
+ms.openlocfilehash: 6fa422808c080fd10e388f257135c3b7791c55e5
+ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657672"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53569270"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>在 Azure 中为应用程序配置 SSL
 
@@ -32,7 +32,7 @@ ms.locfileid: "52657672"
 
 此任务使用生产部署。 本主题的末尾提供了有关如何使用过渡部署的信息。
 
-如果尚未创建云服务，请首先阅读[此文](./cloud-services-how-to-create-deploy-portal.md)。
+如果尚未创建云服务，请首先阅读[此文章](./cloud-services-how-to-create-deploy-portal.md) 。
 
 ## <a name="step-1-get-an-ssl-certificate"></a>步骤 1：获取 SSL 证书
 若要为应用程序配置 SSL，首先需要获取已由证书颁发机构 (CA)（出于此目的颁发证书的受信任的第三方）签署的 SSL 证书。 如果尚未获取 SSL 证书，将需要从销售 SSL 证书的公司购买一个 SSL 证书。
@@ -81,7 +81,7 @@ ms.locfileid: "52657672"
 
     **Certificates** 节定义了证书的名称、位置及其所在存储的名称。
 
-   权限（`permisionLevel` 属性）可以设置为下列值之一：
+   权限（`permissionLevel` 属性）可以设置为下列值之一：
 
    | 权限值 | 说明 |
    | --- | --- |

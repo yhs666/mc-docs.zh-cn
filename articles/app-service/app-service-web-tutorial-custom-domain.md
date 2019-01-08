@@ -1,6 +1,7 @@
 ---
-title: 将现有的自定义 DNS 名称映射到 Azure Web 应用 | Azure
+title: 映射现有的自定义 DNS 名称 - Azure 应用服务
 description: 了解如何在 Azure 应用服务中向 Web 应用、移动应用后端或 API 应用添加现有的自定义 DNS 域名（虚域）。
+keywords: 应用服务, Azure 应用服务, 域映射, 域名, 现有域, 主机名
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -13,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 06/18/2018
-ms.date: 10/29/2018
+ms.date: 12/31/2018
 ms.author: v-biyu
-ms.custom: mvc
-ms.openlocfilehash: 947784345691b428eba04222c88e184e35add668
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.custom: seodec18
+ms.openlocfilehash: 9c6f735deb29801503978856045c2530229a857b
+ms.sourcegitcommit: 80c59ae1174d71509b4aa64a28a98670307a5b38
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652173"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735188"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>教程：将现有的自定义 DNS 名称映射到 Azure Web 应用
 
@@ -321,8 +322,6 @@ ms.locfileid: "52652173"
 可以在 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest) 或 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 中使用脚本自动管理自定义域。 
 
 ### <a name="azure-cli"></a>Azure CLI 
-
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 以下命令将配置的自定义 DNS 名称添加到应用服务应用。 
 

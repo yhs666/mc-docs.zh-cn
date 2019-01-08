@@ -1,5 +1,5 @@
 ---
-title: 使用共享访问签名进行 Azure 服务总线访问控制 | Azure
+title: 使用共享访问签名进行 Azure 服务总线访问控制 | Azure Docs
 description: 根据如何使用共享访问签名进行服务总线访问控制，并详细介绍如何使用 Azure 服务总线进行 SAS 授权。
 services: service-bus-messaging
 documentationcenter: na
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/14/2018
-ms.date: 11/26/2018
+origin.date: 12/24/2018
+ms.date: 12/24/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 695c4a6fbb55933c76d2578e43adce489984beff
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 0724cb9603e340a2d5e924ee28c2a7bf91ebdaaf
+ms.sourcegitcommit: 649f5093a9a9a89f4117ae3845172997922aec31
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675263"
+ms.lasthandoff: 12/24/2018
+ms.locfileid: "53784574"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>使用共享访问签名进行服务总线访问控制
 
@@ -103,7 +103,7 @@ SAS 令牌对于以 `signature-string` 中使用的 `<resourceURI>` 为前缀的
 
 下面所述的方案包括配置授权规则、生成 SAS 令牌和客户端授权。
 
-有关演示使配置和使用 SAS 授权的服务总线应用程序的完整工作示例，请参阅 [服务总线的共享访问签名身份验证](http://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8)。 演示如何使用为保护服务总线订阅，在命名空间或主题上配置的 SAS 授权规则的相关示例位于此处：[Using Shared Access Signature (SAS) authentication with Service Bus Subscriptions](http://code.msdn.microsoft.com/Using-Shared-Access-e605b37c)（将共享访问签名 (SAS) 身份验证与服务总线订阅配合使用）。
+有关演示使配置和使用 SAS 授权的服务总线应用程序的完整工作示例，请参阅 [服务总线的共享访问签名身份验证](http://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8)。 此处提供了一个相关示例，说明如何使用命名空间或主题上配置的 SAS 授权规则来保护服务总线订阅：[对服务总线订阅使用共享访问签名 (SAS) 身份验证](http://code.msdn.microsoft.com/Using-Shared-Access-e605b37c)。
 
 ## <a name="access-shared-access-authorization-rules-on-an-entity"></a>访问实体上的共享访问授权规则
 
@@ -246,7 +246,7 @@ private bool PutCbsToken(Connection connection, string sasToken)
 
 接下来，发布者将创建两个 AMQP 链接来发送 SAS 令牌和接收来自服务的回复（此令牌验证结果）。
 
-AMQP 消息包含一组属性，比简单消息包含更多信息。 SAS 令牌是消息的正文（使用其构造函数）。 “ReplyTo”属性设置为用于在接收方链接上接收验证结果的节点名称（可以根据需要更改其名称，该节点将由服务动态创建）。 服务使用最后三个应用程序/自定义属性来指示它需要执行哪种类型的操作。 如 CBS 草案规范中所述，这些属性必须是操作名称 ("put-token")、令牌类型（在此例中为“servicebus.chinacloudapi.cn:sastoken”），以及要应用令牌的受众的“名称”（整个实体）。
+AMQP 消息包含一组属性，比简单消息包含更多信息。 SAS 令牌是消息的正文（使用其构造函数）。 “ReplyTo”属性设置为用于在接收方链接上接收验证结果的节点名称（可以根据需要更改其名称，该节点将由服务动态创建）。 服务使用最后三个应用程序/自定义属性来指示它需要执行哪种类型的操作。 如 CBS 草案规范中所述，这些属性必须是**操作名称** ("put-token")、**令牌类型**（在本例中为 `servicebus.chinacloudapi.cn:sastoken`），以及要应用令牌的**受众的“名称”**（整个实体）。
 
 在发送方链接上发送 SAS 令牌后，发布者必须在接收方链接上读取回复。 回复是一个简单的 AMQP 消息，其中包含一个名为 **status-code** 的应用程序属性，该属性可以包含与 HTTP 状态代码相同的值。
 

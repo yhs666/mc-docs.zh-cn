@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor 中的 Azure 服务总线指标（预览版）| Azure
+title: Azure Monitor（预览版）中的 Azure 服务总线指标 | Azure Docs
 description: 使用 Azure 监视来监视服务总线实体
 services: service-bus-messaging
 documentationcenter: .NET
@@ -7,21 +7,21 @@ author: lingliw
 manager: digimobile
 ms.service: service-bus-messaging
 ms.topic: article
-origin.date: 11/06/2018
-ms.date: 11/26/2018
+origin.date: 12/24/2018
+ms.date: 12/24/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 68f7081c90a220fbf74a3fc2e2ba322edcfa3398
-ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
+ms.openlocfilehash: d95199fb1fe1febb6c962b6e24b70dc8c52eab94
+ms.sourcegitcommit: 649f5093a9a9a89f4117ae3845172997922aec31
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53219544"
+ms.lasthandoff: 12/24/2018
+ms.locfileid: "53784623"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure Monitor 中的 Azure 服务总线指标（预览版）
 
 服务总线指标提供 Azure 订阅中的资源状态。 通过一组丰富的指标数据，可在命名空间和实体级别评估服务总线资源的总体运行状况。 这些统计信息非常重要，因为它们能够帮助监视服务总线的状态。 另外，指标也可帮助解决由根本原因造成的问题，而无需联系 Azure 支持。
 
-Azure Monitor 提供了统一的用户界面，可用于监视各种 Azure 服务。 有关详细信息，请参阅 GitHub 上的[在 Azure 中进行监视](../monitoring-and-diagnostics/monitoring-overview.md)和[通过 .NET 检索 Azure Monitor 指标](https://github.com/Azure-Samples/monitor-dotnet-metrics-api)示例。
+Azure Monitor 提供了统一的用户界面，可用于监视各种 Azure 服务。 有关详细信息，请参阅 GitHub 上的[在世纪互联 Azure 中进行监视](../monitoring-and-diagnostics/monitoring-overview.md)和[通过 .NET 检索 Azure Monitor 指标](https://github.com/Azure-Samples/monitor-dotnet-metrics-api)示例。
 
 > [!IMPORTANT]
 > 如果在 2 小时内没有与实体进行任何交互，则指标将显示“0”作为值，直到实体不再空闲为止。
@@ -80,6 +80,8 @@ Azure Monitor 提供多种访问指标的方法。 可通过 [Azure 门户](http
 | ------------------- | ----------------- |
 |传入的消息数（预览版）|在指定的期间内发送到服务总线的事件或消息数。<br/><br/> 单元：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName|
 |传出的消息数（预览版）|在指定的期间内从服务总线收到的事件或消息数。<br/><br/> 单元：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName|
+| 消息数（预览版） | 队列/主题中的消息计数。 <br/><br/> 单元：计数 <br/> 聚合类型：平均值 <br/> 维度：EntityName |
+| 活动消息数（预览版） | 队列/主题中的活动消息的计数。 <br/><br/> 单元：计数 <br/> 聚合类型：平均值 <br/> 维度：EntityName |
 
 ## <a name="connection-metrics"></a>连接指标
 
@@ -90,6 +92,9 @@ Azure Monitor 提供多种访问指标的方法。 可通过 [Azure 门户](http
 |关闭的连接数（预览版）|关闭的连接数。<br/><br/> 单元：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName |
 
 ## <a name="resource-usage-metrics"></a>资源使用情况指标
+
+> [!NOTE] 
+> 以下指标仅适用于高级层。 
 
 | 指标名称 | 说明 |
 | ------------------- | ----------------- |
@@ -103,6 +108,54 @@ Azure 总线服务支持对 Azure Monitor 中的指标使用以下维度。 为�
 |维度名称|说明|
 | ------------------- | ----------------- |
 |EntityName| 总线服务支持命名空间下的消息实体。|
+
+## <a name="set-up-alerts-on-metrics"></a>针对指标设置警报
+
+1. 在“服务总线命名空间”页面的“指标”选项卡上，选择“配置警报”。 
+
+    ![“指标”页面 - 配置警报菜单](./media/service-bus-metrics-azure-monitor/metrics-page-configure-alerts-menu.png)
+2. 选择“选择目标”，并在“选择资源”页面上执行以下操作： 
+    1. 对于“按资源类型筛选”字段，选择“服务总线命名空间”。 
+    2. 对于“按订阅筛选”字段，选择你的订阅。
+    3. 从列表中选择“服务总线命名空间”。 
+    4. 选择“完成” 。 
+
+        ![选择命名空间](./media/service-bus-metrics-azure-monitor/select-namespace.png)
+1. 选择“添加条件”，并在“配置信号逻辑”页面上执行以下操作：
+    1. 对于“信号类型”，选择“指标”。 
+    2. 选择一个信号。 例如：**服务错误（预览版）**。 
+
+        ![选择“服务器错误”](./media/service-bus-metrics-azure-monitor/select-server-errors.png)
+    1. 对于“条件”，选择“大于”。
+    2. 对于“时间聚合”，选择“总计”。 
+    3. 对于“阈值”，输入 **5**。 
+    4. 选择“完成” 。    
+
+        ![指定条件](./media/service-bus-metrics-azure-monitor/specify-condition.png)    
+1. 在“创建规则”页面上，展开“定义警报详细信息”，执行以下操作：
+    1. 为警报输入**名称**。 
+    2. 为警报输入**说明**。
+    3. 选择警报的**严重性**。 
+
+        ![警报详细信息](./media/service-bus-metrics-azure-monitor/alert-details.png)
+1. 在“创建规则”页面上，展开“定义操作组”，选择“新建操作组”，然后在“添加操作组”页面上执行以下操作。 
+    1. 为操作组输入名称。
+    2. 为操作组输入短名称。 
+    3. 选择订阅。 
+    4. 选一个择资源组。 
+    5. 在本演练中，对于“操作名称”，输入“发送电子邮件”。
+    6. 对于“操作类型”，选择“电子邮件/短信/推送/语音”。 
+    7. 选择“编辑详细信息”。 
+    8. 在“电子邮件/短信/推送/语音”页面上，执行以下操作：
+        1. 选择“电子邮件”。 
+        2. 键入**电子邮件地址**。 
+        3. 选择“确定” 。
+
+            ![警报详细信息](./media/service-bus-metrics-azure-monitor/add-action-group.png)
+        4. 在“添加操作组”页面上，选择“确定”。 
+1. 在“创建规则”页面上，选择“创建警报规则”。 
+
+    ![“创建警报规则”按钮](./media/service-bus-metrics-azure-monitor/create-alert-rule.png)
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -3,25 +3,25 @@ title: Azure IoT 解决方案加速器简介 | Microsoft Docs
 description: 了解 Azure IoT 解决方案加速器。 IoT 解决方案加速器是完整的、随时可部署的端到端 IoT 解决方案。
 author: dominicbetts
 ms.author: v-yiso
-origin.date: 07/24/2018
-ms.date: 11/26/2018
+origin.date: 11/09/2018
+ms.date: 12/17/2018
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: 59626f38570a2cf36ed7b23d330c5efab9a06207
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: afd1d57f88a139e6d859b9029d4ae7399be12544
+ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648658"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53569253"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Azure IoT 解决方案加速器是什么？
 
-基于云的 IoT 解决方案通常使用自定义代码和多个云服务来管理设备连接、数据处理、分析和呈现。
+基于云的 IoT 解决方案通常使用自定义代码和云服务来管理设备连接、数据处理、分析和呈现。
 
-IoT 解决方案加速器是完整的、随时可部署的 IoT 解决方案集合，可以实现远程监视和预测性维护等常见 IoT 方案。 部署解决方案加速器时，部署将包括全部所需的基于云的服务，以及全部所需的应用程序代码。
+IoT 解决方案加速器是完整且易于部署的 IoT 解决方案，可以实现常见的 IoT 方案。 这些方案包括远程监视和预测性维护。 部署解决方案加速器时，部署将包括全部所需的基于云的服务，以及全部所需的应用程序代码。
 
 解决方案加速器是你自己的 IoT 解决方案的起点。 所有解决方案加速器的源代码都是开源的，并已在 GitHub 中提供。 建议按要求下载并自定义解决方案加速器。
 
@@ -35,7 +35,7 @@ IoT 解决方案加速器是完整的、随时可部署的 IoT 解决方案集�
 
 ### <a name="remote-monitoring"></a>远程监视
 
-使用此解决方案加速器可以从多个远程设备收集遥测数据，以及控制远程设备。 示例设备包括客户现场安装的散热系统，或者远地泵房中安装的阀门。
+使用此解决方案加速器可以从远程设备收集遥测数据，以及控制远程设备。 示例设备包括客户现场安装的散热系统，或者远地泵房中安装的阀门。
 
 可以使用远程监视仪表板查看联网设备发出的遥测数据、预配新设备，或者升级联网设备上的固件：
 
@@ -44,7 +44,7 @@ IoT 解决方案加速器是完整的、随时可部署的 IoT 解决方案集�
 
 ### <a name="predictive-maintenance"></a>预测性维护
 
-使用此解决方案加速器可以预测远程设备何时可能会发生故障，以便在预测到的故障发生之前进行维护。 此解决方案加速器使用机器学习算法，基于设备遥测数据预测故障。 示例设备包括飞机引擎或电梯。
+使用此解决方案加速器可以预测远程设备何时可能会发生故障，以便在设备故障之前进行维护。 此解决方案加速器使用机器学习算法，基于设备遥测数据预测故障。 示例设备包括飞机引擎或电梯。
 
 可以使用预测性维护仪表板来查看预测性维护分析：
 
@@ -70,7 +70,7 @@ IoT 解决方案加速器是完整的、随时可部署的 IoT 解决方案集�
 | 远程监视      | 微服务 | [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java) 和 [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) |
 | 预测性维护 | MVC           | [.NET](https://github.com/Azure/azure-iot-predictive-maintenance)          |
 
-若要详细了解微服务体系结构，请参阅 [.NET 应用程序体系结构](https://www.microsoft.com/net/learn/architecture)和[微服务：由云推动的应用程序革命](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)。
+若要详细了解微服务体系结构，请参阅 [.NET 应用程序体系结构](https://www.microsoft.com/net/learn/architecture)和[微服务：由云驱动的应用程序革命](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)。
 
 ## <a name="deployment-options"></a>部署选项
 
@@ -82,7 +82,7 @@ IoT 解决方案加速器是完整的、随时可部署的 IoT 解决方案集�
 * **基本：** 降低成本版，用于演示或部署测试。 所有微服务都部署到一个 Azure 虚拟机。
 * **本地：** 用于测试和开发的本地计算机部署。 此方法将微服务部署到本地 Docker 容器，并连接到云中的 IoT 中心、Azure Cosmos DB 和 Azure 存储服务。
 
-运行解决方案加速器的成本是[底层 Azure 服务成本](https://www.azure.cn/pricing)的总和。 选择部署选项时，会看到所用的 Azure 服务的详细信息。
+运行解决方案加速器的成本是[运行底层 Azure 服务的成本](https://www.azure.cn/pricing)的总和。 选择部署选项时，会看到所用的 Azure 服务的详细信息。
 
 ## <a name="next-steps"></a>后续步骤
 

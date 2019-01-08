@@ -1,5 +1,5 @@
 ---
-title: 使用托管标识确保从应用服务进行的 Azure SQL 数据库连接安全
+title: 使用托管标识确保 SQL 数据库连接的安全 - Azure 应用服务
 description: 了解如何使用托管标识让数据库连接更安全，以及如何将此应用到其他 Azure 服务。
 services: app-service\web
 documentationcenter: dotnet
@@ -12,21 +12,25 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 10/24/2018
-ms.date: 10/29/2018
+ms.date: 12/31/2018
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: 1ae1b515efa39454e90123b2402c3d9b4191083b
-ms.sourcegitcommit: d3b05039466ddf239c9134f002a034d4e75b03db
+ms.openlocfilehash: 5da03835e9a1d92d52883c94520f085d63390d0c
+ms.sourcegitcommit: 80c59ae1174d71509b4aa64a28a98670307a5b38
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53234019"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735163"
 ---
-# <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>教程：使用托管标识确保从应用服务进行的 Azure SQL 数据库连接安全
+# <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>教程：使用托管标识确保从应用服务进行的 Azure SQL 数据库连接的安全
 
 [应用服务](app-service-web-overview.md)在 Azure 中提供高度可缩放、自修补的 Web 托管服务。 它还为应用提供[托管标识](app-service-managed-service-identity.md)，这是一项统包解决方案，可以确保安全地访问 [Azure SQL 数据库](/azure/sql-database/)和其他 Azure 服务。 应用服务中的托管标识可以让应用更安全，因为不需在应用中存储机密，例如连接字符串中的凭据。 在本教程中，会将托管标识添加到在[教程：使用 SQL 数据库在 Azure 中构建 ASP.NET 应用](app-service-web-tutorial-dotnet-sqldatabase.md)中构建的示例 ASP.NET Web 应用。 完成后，示例应用就可以安全地连接到 SQL 数据库，不需用户名和密码。
 
-你将学习如何：
+> [!NOTE]
+> 此方案目前受 .NET Framework 4.6 及更高版本的支持，但不受 [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows) 的支持。 [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2) 支持此方案，但它尚未包括在应用服务的默认映像中。 
+>
+
+学习如何：
 
 > [!div class="checklist"]
 > * 启用托管标识
@@ -89,11 +93,10 @@ az webapp config connection-string set --resource-group myResourceGroup --name <
 
 ## <a name="modify-aspnet-code"></a>修改 ASP.NET 代码
 
-在 Visual Studio 的 **DotNetAppSqlDb** 项目中打开 _packages.config_，在包列表中添加以下行。
+在 Visual Studio 中，打开包管理器控制台，并添加 NuGet 包 [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication)：
 
-```xml
-<package id="Microsoft.Azure.Services.AppAuthentication" version="1.1.0-preview" targetFramework="net461" />
-<package id="Microsoft.IdentityModel.Clients.ActiveDirectory" version="3.14.2" targetFramework="net461" />
+```PowerShell
+Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.1.0-preview
 ```
 
 打开 _Models\MyDatabaseContext.cs_，将以下 `using` 语句添加到文件顶部：
@@ -121,7 +124,7 @@ public MyDatabaseContext(SqlConnection conn) : base(conn, true)
 此构造函数将自定义 SqlConnection 对象配置为使用应用服务提供的 Azure SQL 数据库的访问令牌。 有了访问令牌，应用服务应用就可以使用其托管标识通过 Azure SQL 数据库进行身份验证。 有关详细信息，请参阅[获取 Azure 资源的令牌](app-service-managed-service-identity.md#obtaining-tokens-for-azure-resources)。 可以使用 `if` 语句，通过 LocalDB 继续在本地测试应用。
 
 > [!NOTE]
-> `SqlConnection.AccessToken` 目前仅在 .NET Framework 4.6 及更高版本中受支持，在 [.NET Core](https://www.microsoft.com/net/learn/get-started/windows) 中不受支持。
+> `SqlConnection.AccessToken` 目前仅在 .NET Framework 4.6 及更高版本中受支持，以及在 [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2) 中受支持，但在 [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows) 中不受支持。
 >
 
 若要使用这个新的构造函数，请打开 `Controllers\TodosController.cs` 并找到 `private MyDatabaseContext db = new MyDatabaseContext();` 行。 现有的代码使用默认的 `MyDatabaseContext` 控制器通过标准的连接字符串来创建数据库，该字符串在未经[更改](#modify-connection-string)的情况下以明文形式保存用户名和密码。
@@ -167,7 +170,11 @@ az ad group member list -g $groupid
 
 ### <a name="reconfigure-azure-ad-administrator"></a>重新配置 Azure AD 管理员
 
-你此前已经以 Azure AD 管理员身份为 SQL 数据库分配托管标识。 不能使用此标识进行交互式登录（以添加数据库用户），因此需使用实际的 Azure AD 用户。 若要添加 Azure AD 用户，请执行[为 Azure SQL 数据库服务器预配 Azure Active Directory 管理员](/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)中的步骤。 
+你此前已经以 Azure AD 管理员身份为 SQL 数据库分配托管标识。 不能使用此标识进行交互式登录（以添加数据库用户），因此需使用实际的 Azure AD 用户。 若要添加 Azure AD 用户，请执行[为 Azure SQL 数据库服务器预配 Azure Active Directory 管理员](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)中的步骤。 
+
+> [!IMPORTANT]
+> 添加之后，除非你想完全禁用 Azure AD 对 SQL 数据库的访问（从所有 Azure AD 帐户），否则不要删除 SQL 数据库的 Azure AD 管理员。
+> 
 
 ### <a name="grant-permissions-to-azure-active-directory-group"></a>向 Azure Active Directory 组授予权限
 

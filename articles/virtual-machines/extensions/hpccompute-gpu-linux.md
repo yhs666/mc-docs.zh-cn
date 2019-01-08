@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 11/15/2018
-ms.date: 11/26/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: f7d0dc56dd5ae0444433a2616a427abf843efe60
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: be2d0b38fdf1b247845571e7ee6222ca2d092735
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674906"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736161"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>适用于 Linux 的 NVIDIA GPU 驱动程序扩展
 
@@ -87,7 +87,7 @@ ms.locfileid: "52674906"
 | Name | 说明 | 默认值 | 有效值 | 数据类型 |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | 更新内核，即使安装驱动程序时不需要更新 | false | true、false | 布尔值 |
-| driverVersion | NV：GRID 驱动程序版本<br> NC/ND：CUDA 工具包版本。 将自动安装所选 CUDA 的最新驱动程序。 | 最新 | GRID：“390.75”、“390.57”、“390.42”<br> CUDA：“10.0.130”、“9.2.88”、“9.1.85” | 字符串 |
+| driverVersion | NV：GRID 驱动程序版本<br> NC/ND：CUDA 工具包版本。 将自动安装所选 CUDA 的最新驱动程序。 | 最新 | GRID：“410.71”、“390.75”、“390.57”、“390.42”<br> CUDA：“10.0.130”、“9.2.88”、“9.1.85” | 字符串 |
 | installCUDA | 安装 CUDA 工具包。 仅适用于 NC/ND 系列 VM。 | 是 | true、false | 布尔值 |
 
 ## <a name="deployment"></a>部署
@@ -186,11 +186,11 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 
 ### <a name="support"></a>支持
 
-如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/contact/) 上的 Azure 专家。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
+如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/contact/) 上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://support.azure.cn/zh-cn/support/support-azure)提交请求。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
 
 ## <a name="next-steps"></a>后续步骤
 有关扩展的详细信息，请参阅[适用于 Linux 的虚拟机扩展和功能](features-linux.md)。
 
 有关 N 系列 VM 的详细信息，请参阅 [GPU 优化虚拟机大小](../linux/sizes-gpu.md)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: wording update, wording update -->

@@ -1,5 +1,5 @@
 ---
-title: 应用服务和 Azure Functions 中的托管标识 | Azure
+title: 托管标识概述 - Azure 应用服务
 description: Azure 应用服务和 Azure Functions 中的托管标识的概念性参考和安装指南
 services: app-service
 author: mattchenderson
@@ -10,27 +10,27 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 06/25/2018
-ms.date: 12/03/2018
+ms.date: 12/31/2018
 ms.author: v-biyu
-ms.openlocfilehash: 67a09bdafac03c3197f25bf9fd19bfff518df237
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 617a1cd059c171f90e990348aa09f0d004245928
+ms.sourcegitcommit: 80c59ae1174d71509b4aa64a28a98670307a5b38
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674948"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735185"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>如何使用应用服务和 Azure Functions 的托管标识
 
-> [!NOTE] 
-> Linux 版应用服务和用于容器的 Web 应用目前不支持托管标识。
+
 
 > [!Important] 
 > 如果应用跨订阅/租户迁移，应用服务和 Azure Functions 的托管标识将不会按预期工作。 应用将需要获取新标识，这可以通过禁用并重新启用该功能来完成。 请参阅下面的[删除标识](#remove)。 下游资源还需要更新访问策略才能使用新标识。
 
 本主题介绍如何为应用服务和 Azure Functions 应用程序创建托管标识，以及如何使用它来访问其他资源。 借助 Azure Active Directory 的托管标识，应用可以轻松访问其他受 AAD 保护的资源（如 Azure Key Vault）。 标识由 Azure 平台托管，无需设置或转交任何机密。 
 
-## <a name="creating-an-app-with-an-identity"></a>创建有标识的应用
 
+
+## <a name="adding-a-system-assigned-identity"></a>添加系统分配的标识
 要创建有标识的应用，需在应用程序上设置一个额外属性。
 
 ### <a name="using-the-azure-portal"></a>使用 Azure 门户

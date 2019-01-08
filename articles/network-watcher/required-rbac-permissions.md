@@ -1,9 +1,9 @@
 ---
-title: 使用 Azure 网络观察程序功能所需的权限 | Azure
+title: 使用 Azure 网络观察程序功能所需的权限 | Azure Docs
 description: 了解使用网络观察程序功能需要哪些 Azure 基于角色的访问控制权限。
 services: network-watcher
 documentationcenter: ''
-author: rockboyfor
+author: lingliw
 manager: digimobile
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/10/2018
-ms.date: 09/30/2018
-ms.author: v-yeche
-ms.openlocfilehash: 6a22108f1c0a693d93cfc8c5a354e1f2a981ae6e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 12/24/2018
+ms.date: 12/24/2018
+ms.author: v-lingwu
+ms.openlocfilehash: b8cc29ab9055c06e9b554883889fdb15b313a468
+ms.sourcegitcommit: 649f5093a9a9a89f4117ae3845172997922aec31
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658037"
+ms.lasthandoff: 12/24/2018
+ms.locfileid: "53784622"
 ---
 # <a name="role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>使用网络观察程序功能所需的基于角色的访问控制权限
 
@@ -45,6 +45,7 @@ ms.locfileid: "52658037"
 
 | 操作                                                              | Name                                                           |
 | ---------                                                           | -------------                                                  |
+| Microsoft.Network/networkWatchers/connectivityCheck/action          | 启动连接故障排除测试
 | Microsoft.Network/networkWatchers/queryTroubleshootResult/action    | 连接故障排除测试的查询结果                |
 | Microsoft.Network/networkWatchers/troubleshoot/action               | 运行连接故障排除测试                             |
 
@@ -103,16 +104,20 @@ ms.locfileid: "52658037"
 
 网络观察程序功能还需要以下操作：
 
-- Microsoft.Storage/Read
-- Microsoft.Authorization/Read
+- Microsoft.Authorization/\*/Read
 - Microsoft.Resources/subscriptions/resourceGroups/Read
+- Microsoft.Storage/storageAccounts/Read
 - Microsoft.Storage/storageAccounts/listServiceSas/Action
 - Microsoft.Storage/storageAccounts/listAccountSas/Action
 - Microsoft.Storage/storageAccounts/listKeys/Action
 - Microsoft.Compute/virtualMachines/Read
 - Microsoft.Compute/virtualMachines/Write
+- Microsoft.Compute/virtualMachines/extensions/Read
+- Microsoft.Compute/virtualMachines/extensions/Write
 - Microsoft.Compute/virtualMachineScaleSets/Read
 - Microsoft.Compute/virtualMachineScaleSets/Write
+- Microsoft.Compute/virtualMachineScaleSets/extensions/Read
+- Microsoft.Compute/virtualMachineScaleSets/extensions/Write
 - Microsoft.Insights/alertRules/*
 - Microsoft.Support/*
 

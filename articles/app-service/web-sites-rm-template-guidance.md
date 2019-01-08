@@ -1,24 +1,24 @@
 ---
-title: 有关使用模板部署 Azure Web 应用的指南
+title: 有关使用模板部署应用的指南 - Azure 应用服务
 description: 关于创建 Azure 资源管理器模板来部署 Web 应用的建议。
 services: app-service
 documentationcenter: app-service
 author: tfitzmac
-manager: timlt
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2018
-ms.author: v-yiso
-origin.date: 07/30/2018
-ms.openlocfilehash: 0c4175ee8208a868525ac204e3170c1ed0038037
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 07/09/2018
+ms.date: 12/31/2018
+ms.author: v-biyu
+ms.custom: seodec18
+ms.openlocfilehash: 1aa2a65e72363bbc5aa870542271523f00a2d55d
+ms.sourcegitcommit: 80c59ae1174d71509b4aa64a28a98670307a5b38
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661743"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735158"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>有关使用 Azure 资源管理器模板部署 Web 应用的指南
 
@@ -114,11 +114,11 @@ Web 应用的名称必须全局唯一。 可以使用某个可能唯一的命名
 
 ## <a name="deploy-web-app-certificate-from-key-vault"></a>部署来自 Key Vault 的 Web 应用证书
 
-如果模板包括用于 SSL 绑定的 [Microsoft.Web/certificates](https://docs.microsoft.com/en-us/azure/templates/microsoft.web/certificates) 资源，且证书存储在 Key Vault 中，则须确保应用服务标识可以访问该证书。
 
-在全球版 Azure 中，应用服务服务主体所拥有的 ID 为 abfa0a7c-a6b6-4736-8310-5855508787cd。 若要为应用服务服务主体授予对 Key Vault 的访问权限，请使用：
 
-```azurepowershell-interactive
+在 Azure 中，应用服务服务主体所拥有的 ID 为 abfa0a7c-a6b6-4736-8310-5855508787cd。 若要为应用服务服务主体授予对 Key Vault 的访问权限，请使用：
+
+```azurepowershell
 Set-AzureRmKeyVaultAccessPolicy `
   -VaultName KEY_VAULT_NAME `
   -ServicePrincipalName abfa0a7c-a6b6-4736-8310-5855508787cd `
@@ -136,3 +136,6 @@ Set-AzureRmKeyVaultAccessPolicy `
 
 有关示例模板，请参阅 [Deploy a Web App certificate from Key Vault secret and use it for creating SSL binding](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault)（部署来自 Key Vault 机密的 Web 应用证书并将其用于创建 SSL 绑定）。
 
+## <a name="next-steps"></a>后续步骤
+
+* 有关使用模板部署 Web 应用的教程，请参阅[按可预见的方式在 Azure 中预配和部署微服务](deploy-complex-application-predictably.md)。

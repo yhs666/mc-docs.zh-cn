@@ -1,5 +1,5 @@
 ---
-title: Azure 应用服务中的身份验证和授权的高级用法 | Azure
+title: 身份验证和授权的高级用法 - Azure 应用服务
 description: 介绍如何在应用服务中自定义身份验证和授权，以及获取用户声明和不同的令牌。
 services: app-service
 documentationcenter: ''
@@ -12,24 +12,25 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 03/14/2018
-ms.date: 12/03/2018
+ms.date: 12/31/2018
 ms.author: v-biyu
-ms.openlocfilehash: 967fca775d3e507e85e1488a21ef71ad7e5b1d91
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.custom: seodec18
+ms.openlocfilehash: a3e393946eff77fbd10b08e1965a137feec3b9fd
+ms.sourcegitcommit: 80c59ae1174d71509b4aa64a28a98670307a5b38
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674574"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735161"
 ---
-# <a name="customize-authentication-and-authorization-in-azure-app-service"></a>在 Azure 应用服务中自定义身份验证和授权
+# <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Azure 应用服务中的身份验证和授权的高级用法
 
-本文介绍如何[在应用服务中自定义身份验证和授权](app-service-authentication-overview.md)，以及从应用程序管理标识。 
+本文介绍了如何自定义[应用服务中的内置身份验证和授权](app-service-authentication-overview.md)，以及如何从应用程序管理标识。 
 
 若要快速入门，请参阅以下教程之一：
 
 * [教程：在 Azure 应用服务 (Windows) 中对用户进行端到端身份验证和授权](app-service-web-tutorial-auth-aad.md)
-* [How to configure your app to use Azure Active Directory login](app-service-mobile-how-to-configure-active-directory-authentication.md)
-* [How to configure your app to use Microsoft Account login](app-service-mobile-how-to-configure-microsoft-authentication.md)
+* [How to configure your app to use Azure Active Directory login](configure-authentication-provider-aad.md)
+* [How to configure your app to use Microsoft Account login](configure-authentication-provider-microsoft.md)
 
 ## <a name="use-multiple-sign-in-providers"></a>使用多个登录提供程序
 
@@ -168,8 +169,8 @@ az webapp config appsettings set --name <app_name> --resource-group <group_name>
 
 当提供程序的访问令牌过期时，需要重新对用户进行身份验证。 向应用程序的 `/.auth/refresh` 终结点发出 `GET` 调用可以避免令牌过期。 调用应用服务时，应用服务会自动刷新已身份验证用户的令牌存储中的访问令牌。 应用代码发出的后续令牌请求将获取刷新的令牌。 但是，若要正常刷新令牌，令牌存储必须包含提供程序的[刷新令牌](https://auth0.com/learn/refresh-tokens/)。 每个提供程序会阐述获取刷新令牌的方式。以下列表提供了简短摘要：
 
-- **Microsoft 帐户**：[配置 Microsoft 帐户身份验证设置](app-service-mobile-how-to-configure-microsoft-authentication.md)时，请选择 `wl.offline_access` 范围。
-- **Azure Active Directory**：在 [https://resources.azure.com](https://resources.azure.com) 中执行以下步骤：
+- **Microsoft 帐户**：[配置 Microsoft 帐户身份验证设置](configure-authentication-provider-microsoft.md)时，请选择 `wl.offline_access` 范围。
+- **Azure Active Directory**：在 [https://resources.azure.com](https://resources.azure.com) 中，执行以下步骤：
     1. 在页面顶部，选择“读/写”。
     2. 在左侧浏览器中，导航到 **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **sites** > _**\<app\_name>**_ > **config** > **authsettings**。 
     3. 单击“编辑”。

@@ -9,12 +9,12 @@ origin.date: 10/11/2018
 ms.date: 12/03/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: fac88c526d34fe63c181babb0d1c950abf133ebf
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 2c14871498661643fa75e6d3eb2e77495d78f2a8
+ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676550"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785201"
 ---
 | 资源 | 默认限制 |
 | --- | :--- |
@@ -30,4 +30,4 @@ ms.locfileid: "52676550"
 [advanced-networking]: ../articles/aks/concepts-network.md#advanced-networking
 
 <!-- LINKS - External -->
-[azure-support]: https://www.azure.cn/support/support-azure
+[azure-support]: https://support.azure.cn/zh-cn/support/support-azure/

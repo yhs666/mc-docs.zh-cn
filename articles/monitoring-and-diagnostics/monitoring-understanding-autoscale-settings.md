@@ -1,26 +1,20 @@
 ---
-title: 了解 Azure 中的自动缩放设置
-description: 自动缩放设置的详细步骤及其工作原理。
-author: anirudhcavale
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ce2930aa-fc41-4b81-b0cb-e7ea922467e1
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+title: 了解 Azure Monitor 中的自动缩放设置
+description: 自动缩放设置的详细步骤及其工作原理。 适用于虚拟机、云服务、Web 应用
+author: lingliw
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 origin.date: 12/18/2017
-ms.date: 03/19/2018
-ms.author: v-yiso
-ms.openlocfilehash: 41e3d5b672d3cfe4d20c5342291955afd121b567
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/24/2018
+ms.author: v-lingwu
+ms.component: autoscale
+ms.openlocfilehash: 94010da39d38346ee2ae4f1c1d3a236520f51dbb
+ms.sourcegitcommit: 649f5093a9a9a89f4117ae3845172997922aec31
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663676"
+ms.lasthandoff: 12/24/2018
+ms.locfileid: "53784621"
 ---
 # <a name="understand-autoscale-settings"></a>了解自动缩放设置
 使用自动缩放设置有助于确保运行适当数量的资源来处理应用程序负载的波动。 可将自动缩放设置配置为基于指标（指示负载或性能）触发，或者在计划好的日期和时间触发。 本文将会深度剖析自动缩放设置。 本文首先介绍设置的架构和属性，然后逐步讲解可配置的不同配置文件类型。 最后讨论 Azure 中的自动缩放功能如何评估要在任意给定时间执行哪个配置文件。
@@ -161,10 +155,10 @@ ms.locfileid: "52663676"
     ]
     ```
     
-- **重复配置文件：** 使用此类配置文件可以确保始终在特定的星期日期使用此配置文件。 重复配置文件只包含开始时间。 它们会一直运行到下一个重复配置文件或固定日期配置文件设置为启动为止。 只包含一个重复配置文件的自动缩放设置只会运行该配置文件，即使相同的设置中定义了常规配置文件。 以下两个示例演示了此配置文件的用法：
+- **重复配置文件：** 使用此类配置文件可以确保始终在特定的星期几使用此配置文件。 重复配置文件只包含开始时间。 它们会一直运行到下一个重复配置文件或固定日期配置文件设置为启动为止。 只包含一个重复配置文件的自动缩放设置只会运行该配置文件，即使相同的设置中定义了常规配置文件。 以下两个示例演示了此配置文件的用法：
 
     **示例 1：工作日与周末**
-    
+
     假设你希望周末的最大容量为 4。 在工作日，由于预期的负载更大，你希望最大容量为 10。 在这种情况下，可在设置中包含两个重复配置文件，一个在周末运行，另一个在工作日运行。
     设置如下所示：
 
@@ -222,9 +216,9 @@ ms.locfileid: "52663676"
 
     上面的设置显示，每个重复配置文件都包含一个计划。 此计划确定配置文件开始运行的时间。 需要运行另一个配置文件时，上述配置文件会停止执行。
 
-    例如，在上面的设置中，“weekdayProfile”设置为在星期一午夜 12 点启动。 这意味着，此配置文件将在星期一午夜 12 点开始运行。 它会持续到星期六午夜 12 点，即“weekendProfile”计划开始运行的时间。
+    例如，在上面的设置中，“weekdayProfile”设置为在星期一凌晨 0 点启动。 这意味着，此配置文件将在星期一午夜 12 点开始运行。 它会持续到星期六午夜 12 点，即“weekendProfile”计划开始运行的时间。
 
-    **示例 2 - 营业时间**
+    **示例 2：营业时间**
     
     假设你要在营业时间上午 9 点到下午 5 点使用一个指标阈值，并其他所有时间使用另一个指标阈值。 该设置如下所示：
     
@@ -243,7 +237,7 @@ ms.locfileid: "52663676"
         "schedule": {
             "timeZone": "Pacific Standard Time",
             "days": [
-                "Monday", “Tuesday”, “Wednesday”, “Thursday”, “Friday”
+                "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"
             ],
             "hours": [
                 9
@@ -267,7 +261,7 @@ ms.locfileid: "52663676"
         "schedule": {
             "timeZone": "Pacific Standard Time",
             "days": [
-                "Monday", “Tuesday”, “Wednesday”, “Thursday”, “Friday”
+                "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"
             ],
             "hours": [
                 17
@@ -279,9 +273,9 @@ ms.locfileid: "52663676"
     }
     }]
     ```
-    
+
     在上面的设置中，“businessHoursProfile”在星期一上午 9 点开始运行，并持续到下午 5 点。 下午 5 点是“nonBusinessHoursProfile”开始运行的时间。 “nonBusinessHoursProfile”运行到星期二上午 9 点，然后接着运行“businessHoursProfile”。 此配置文件重复到星期五下午 5 点。 然后，“nonBusinessHoursProfile”一直运行到星期一上午 9 点。
-    
+
 > [!Note]
 > Azure 门户中的自动缩放用户界面针对重复配置文件强制实施结束时间，在重复配置文件之间开始运行自动缩放设置的默认配置文件。
     
@@ -297,13 +291,13 @@ ms.locfileid: "52663676"
 
 ### <a name="how-does-autoscale-evaluate-multiple-rules"></a>自动缩放如何评估多个规则？
 
-自动缩放确定要运行哪个配置文件之后，会评估该配置文件中的所有扩展规则（设置为 **direction = “Increase”** 的规则）。
+自动缩放确定要运行哪个配置文件之后，会评估该配置文件中的所有扩展规则（设置为 **direction = "Increase"** 的规则）。
 
 如果触发了一个或多个扩展规则，自动缩放将计算其中每个规则的 **scaleAction** 确定的新容量。 然后，它会扩展到这些容量的最大值，以确保服务可用性。
 
 例如，假设某个虚拟机规模集的当前容量为 10。 有两条扩展规则：一个规则将容量增大 10%，另一个将容量增大 3%。 第一条规则会导致新容量更改为 11，第二条规导致容量更改为 13。 为了确保服务可用性，自动缩放会选择可以产生最大容量的操作，因此选择了第二条规则。
 
-如果未触发扩展规则，自动缩放会评估所有缩减规则（设置为 **direction = “Decrease”** 的规则）。 如果触发了所有缩减规则，自动缩放只会执行某个缩减操作。
+如果未触发扩展规则，自动缩放会评估所有缩减规则（设置为 **direction = "Decrease"** 的规则）。 如果触发了所有缩减规则，自动缩放只会执行某个缩减操作。
 
 自动缩放计算其中每个规则的 **scaleAction** 确定的新容量。 然后，选择可产生其中最大容量的缩放操作，以确保服务可用性。
 

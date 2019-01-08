@@ -6,15 +6,15 @@ services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 origin.date: 07/25/2018
-ms.date: 11/26/2018
+ms.date: 12/24/2018
 ms.author: v-lingwu
 ms.component: activitylog
-ms.openlocfilehash: ad1a3c680d36558ebaaa472fcd5b75e5abc823eb
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 094bb4beeb9731180d029940f8726d0449021012
+ms.sourcegitcommit: 649f5093a9a9a89f4117ae3845172997922aec31
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675449"
+ms.lasthandoff: 12/24/2018
+ms.locfileid: "53784590"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>将 Azure 活动日志流式传输到事件中心
 可以选择下列两种方式之一将 [Azure 活动日志](monitoring-overview-activity-logs.md)准实时流式传输到任何应用程序：
@@ -42,7 +42,7 @@ ms.locfileid: "52675449"
    
    ![从门户中的服务列表中选择活动日志](./media/monitoring-stream-activity-logs-event-hubs/activity.png)
    
-2. 选择日志顶部的“导出”按钮。
+2. 选择日志顶部的“导出到事件中心”按钮。
    
    ![门户中的“导出”按钮](./media/monitoring-stream-activity-logs-event-hubs/export.png)
 
@@ -93,14 +93,13 @@ ms.locfileid: "52675449"
 2. 使用 `az monitor log-profiles delete --name "<log profile name>` 通过 *name* 属性的值删除日志配置文件。
 3. 使用 `az monitor log-profiles create` 创建新的日志配置文件：
 
-   ```azurecli
-   az monitor log-profiles create --name "default" --location null --locations "chinaeast" "chinanorth" --categories "Delete" "Write" "Action"  --enabled false --days 0 --service-bus-rule-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUB NAME SPACE>/authorizationrules/RootManageSharedAccessKey"
+   ```Azure CLI az monitor log-profiles create --name "default" --location null --locations "chinaeast" "chinanorth" --categories "Delete" "Write" "Action"  --enabled false --days 0 --service-bus-rule-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUB NAME SPACE>/authorizationrules/RootManageSharedAccessKey"
    ```
 
-## <a name="consume-the-log-data-from-event-hubs"></a>使用事件中心的日志数据
-[使用 Azure 活动日志监视订阅活动](monitoring-overview-activity-logs.md)中提供了活动日志的架构。 每个事件都采用 JSON blob（称为“记录”）数组的形式。
+## Consume the log data from Event Hubs
+The schema for the Activity Log is available in [Monitor subscription activity with the Azure Activity Log](monitoring-overview-activity-logs.md). Each event is in an array of JSON blobs called *records*.
 
-## <a name="next-steps"></a>后续步骤
-- [将活动日志存档到存储帐户](./monitoring-archive-activity-log.md)
-- [阅读 Azure 活动日志概述](./monitoring-overview-activity-logs.md)
-- [根据活动日志事件设置警报](./insights-auditlog-to-webhook-email.md)
+## Next Steps
+- [Archive the Activity Log to a storage account](./monitoring-archive-activity-log.md)
+- [Read the overview of the Azure Activity Log](./monitoring-overview-activity-logs.md)
+- [Set up an alert based on an Activity Log event](./insights-auditlog-to-webhook-email.md)

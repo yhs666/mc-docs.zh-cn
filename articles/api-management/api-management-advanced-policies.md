@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2017
 ms.author: v-yiso
-ms.date: 12/03/2018
-ms.openlocfilehash: 522d72f7ab1f5f8d2187818a5f16f05262b3312f
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 12/31/2018
+ms.openlocfilehash: 2d8b5c3d193e6c13befba44697fa9eff7b9919b5
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674791"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736714"
 ---
 # <a name="api-management-advanced-policies"></a>API 管理高级策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -156,7 +156,7 @@ ms.locfileid: "52674791"
 -   **策略范围：** 所有范围  
   
 ##  <a name="ForwardRequest"></a> 转发请求  
- `forward-request` 策略将传入请求转发到请求[上下文](./api-management-policy-expressions.md#ContextVariables)中指定的后端服务。 后端服务 URL 在 API 设置中指定，可以使用[设置后端服务](./api-management-transformation-policies.md)策略进行更改。  
+ `forward-request` 策略将传入请求转发到请求[上下文](api-management-policy-expressions.md#ContextVariables)中指定的后端服务。 后端服务 URL 在 API [设置](/api-management/import-and-publish#configure-api-settings 中指定
   
 > [!NOTE]
 >  删除此策略之后，请求就不会转发到后端服务。一旦成功完成入站节中的策略，就会立即对出站节中的策略求值。  
@@ -267,7 +267,7 @@ ms.locfileid: "52674791"
 -   **策略范围：** 所有范围  
   
 ##  <a name="LimitConcurrency"></a> 限制并发  
- `limit-concurrency` 策略阻止括住的策略在给定时间执行超过指定数量的请求。 超过该数量后，新请求将立即失败并显示“429 请求过多”状态代码。
+ `limit-concurrency` 策略阻止括住的策略在任意时间执行超过指定数量的请求。 超过该数量后，新请求将立即失败并显示“429 请求过多”状态代码。
   
 ###  <a name="LimitConcurrencyStatement"></a> 策略语句  
   
@@ -308,7 +308,7 @@ ms.locfileid: "52674791"
 |max-count|一个整数。 指定允许输入策略的最大请求数。|是|不适用|  
   
 ### <a name="usage"></a>使用情况  
- 此策略可在以下策略[节](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[范围](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)中使用。  
+ 此策略可在以下策略[节](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[范围](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)中使用。
   
 -   **策略节：** 入站、出站、后端、错误时  
   

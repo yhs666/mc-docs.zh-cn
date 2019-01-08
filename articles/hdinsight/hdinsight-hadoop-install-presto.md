@@ -12,19 +12,21 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/21/2018
-ms.date: 11/19/2018
+origin.date: 11/06/2018
+ms.date: 12/24/2018
 ms.author: v-yiso
-ms.openlocfilehash: 1b232b91ca3f55b7381656048ee14f916e37f2a2
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6271d7cd843694fdf1bd9f790406851485daff5a
+ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648195"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53569335"
 ---
 # <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 群集上安装并使用 Presto
 
 本文档介绍如何使用脚本操作在 HDInsight Hadoop 群集上安装 Presto。 此外，还介绍如何在现有的 Presto HDInsight 群集上安装 Airpal。
+
+HDInsight 还为 Apache Hadoop 群集提供了 Starburst Presto 应用程序。
 
 > [!IMPORTANT]
 > 本文档中的步骤需要使用 Linux 的 **HDInsight 3.5 Hadoop 群集**。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 版本](hdinsight-component-versioning.md)。
@@ -35,7 +37,7 @@ ms.locfileid: "52648195"
 > [!WARNING]
 > 完全支持通过 HDInsight 群集提供的组件，Azure 支持部门帮助找出并解决与这些组件相关的问题。
 > 
-> 自定义组件（如 Presto）可获得合理范围的支持，以帮助进一步排查问题。 这可能会促进解决问题，或要求使用可用的开源技术渠道，在渠道中可找到该技术的深厚的专业知识。 有许多可以使用的社区站点，例如：[HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)和 [Azure CSDN](http://azure.csdn.net/)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如 [Hadoop](http://hadoop.apache.org/)。
+> 自定义组件（如 Presto）可获得合理范围的支持，以帮助进一步排查问题。 这可能会促进解决问题，或要求使用可用的开源技术渠道，在渠道中可找到该技术的深厚的专业知识。 有许多可以使用的社区站点，例如：[面向 HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)、[Azure CSDN](http://azure.csdn.net/)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如：[Hadoop](http://hadoop.apache.org/)。
 > 
 > 
 
@@ -47,17 +49,17 @@ ms.locfileid: "52648195"
 
     * 它必须是装有 HDInsight 3.6 版的 Hadoop 群集。
 
-    * 它必须使用 Azure 存储作为数据存储。 目前不支持在将 Azure Data Lake Store 用作存储选项的群集上使用 Presto。 
+    * 它必须使用 Azure 存储作为数据存储。 在使用 Azure Data Lake Store 作为存储选项的群集上使用 Presto 还不是一个选项。
 
     ![使用自定义选项创建 HDInsight 群集](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
 
-2. 在“高级设置”区域中，选择“脚本操作”，并提供以下信息：
+2. 在“高级设置”区域中，选择“脚本操作”，并提供以下信息。 对于脚本类型，还可以选择“安装 Presto”选项。
    
    * **名称**：输入脚本操作的友好名称。
    * **Bash 脚本 URI**：`https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`
    * **标头**：选中此选项
    * **辅助角色**：选中此选项
-   * **ZOOKEEPER**：清除此复选框
+   * **ZOOKEEPER**：将此复选框留空
    * **参数**：将此字段留空
 
 

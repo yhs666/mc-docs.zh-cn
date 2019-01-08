@@ -9,12 +9,12 @@ origin.date: 10/22/2018
 ms.date: 11/22/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9bd46d693fe1c936c4759ee20e2f9efe9aeb1cb1
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 58820d82fff07df3c6721a2442bc25eb28fefb4b
+ms.sourcegitcommit: f6a287a11480cbee99a2facda2590f3a744f7e45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662832"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53786734"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>使用 Azure 本地数据网关连接到本地数据源
 本地数据网关的作用好似一架桥，提供本地数据源与云中的 Azure Analysis Services 服务器之间的安全数据传输。 除了适用于同一区域中的多个 Azure Analysis Services 服务器以外，最新版本的网关还适用于 Azure 逻辑应用、Power BI、Power Apps 和 Azure Flow。 可将同一订阅和同一区域中的多个服务与单个网关相关联。 
@@ -53,7 +53,7 @@ ms.locfileid: "52662832"
 ## <a name="ports"> </a>端口
 网关会创建与 Azure 服务总线之间的出站连接。 它在以下出站端口上进行通信：TCP 443（默认值）、5671、5672、9350 到 9354。  网关不需要入站端口。
 
-我们建议在防火墙中将数据区域的 IP 地址列入允许列表。 可以下载 [Azure 数据中心 IP 列表](https://www.microsoft.com/download/details.aspx?id=42064)。 该列表每周都会进行更新。
+我们建议在防火墙中将数据区域的 IP 地址列入允许列表。 可以下载 [Azure 数据中心 IP 列表](https://www.microsoft.com/en-us/download/confirmation.aspx?id=57062)。 该列表每周都会进行更新。
 
 > [!NOTE]
 > Azure 数据中心 IP 列表中列出的 IP 地址使用的是 CIDR 表示法。 若要了解详细信息，请参阅 [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)（无类别域际路由）。
@@ -95,7 +95,7 @@ ms.locfileid: "52662832"
 
 ### <a name="general"></a>常规
 
-问：对于云中的数据源（如 Azure SQL 数据库），是否需要网关？ <br/>
+**问**：对于云中的数据源（如 Azure SQL 数据库），是否需要网关？ <br/>
 **答**：否。 如果仅连接到本地数据源，则网关是必需的。
 
 **问**：网关是否必须安装在与数据源相同的计算机上？ <br/>
@@ -104,7 +104,7 @@ ms.locfileid: "52662832"
 <a name="why-azure-work-school-account"></a>
 
 **问**：为何需要使用工作或学校帐户登录？ <br/>
-**答**：安装本地数据网关时只能使用组织工作或学校帐户。 而且，该帐户必须与要在其中配置网关资源的订阅在同一租户中。 登录帐户存储在由 Azure Active Directory (Azure AD) 管理的租户中。 通常，Azure AD 帐户的用户主体名称 (UPN) 与电子邮件地址匹配。
+**答**：安装本地数据网关时只能使用组织的工作或学校帐户。 而且，该帐户必须与要在其中配置网关资源的订阅在同一租户中。 登录帐户存储在由 Azure Active Directory (Azure AD) 管理的租户中。 通常，Azure AD 帐户的用户主体名称 (UPN) 与电子邮件地址匹配。
 
 **问**：凭据存储在何处？ <br/>
 **答**：为数据源输入的凭据会加密，并存储在网关云服务中。 凭据在本地数据网关中解密。
@@ -132,7 +132,7 @@ ms.locfileid: "52662832"
 **答**：否。 该 Windows 服务必须具有有效的 Windows 帐户。 默认情况下，服务使用服务 SID“NT SERVICE\PBIEgwService”来运行。
 
 **问**：如何接管网关？ <br/>
-**答**：要接管网关（通过在“控制面板”>“程序”中运行“安装程序”/“更改”），你需要成为 Azure 中网关资源的所有者并且需要拥有恢复密钥。 可在访问控制中配置网管资源所有者。
+**答**：若要接管网关（通过在“控制面板”>“程序”中运行“安装程序”/“更改”），你需要成为 Azure 中网关资源的所有者并且需要有恢复密钥。 可在访问控制中配置网管资源所有者。
 
 <a name="high-availability"></a>
 ### <a name="high-availability-and-disaster-recovery"></a>高可用性和灾难恢复
@@ -145,7 +145,7 @@ ms.locfileid: "52662832"
 
 ## <a name="troubleshooting"></a>故障排除
 
-**Q**：尝试在 Azure 中创建网关资源时，为什么在网关实例列表中看不到我的网关？ <br/>
+**问**：尝试在 Azure 中创建网关资源时，为什么在网关实例列表中看不到我的网关？ <br/>
 **答**：有两种可能的原因。 第一种可能性是已在当前或某个其他订阅中为该网关创建了资源。 若要消除该可能性，请从门户枚举“本地数据网关”类型的资源。 枚举所有资源时，请确保选择所有订阅。 创建资源后，该网关将不会出现在“创建网关资源”门户体验的网关实例列表中。 第二种可能性是安装该网关的用户的 Azure AD 标识与登录到 Azure 门户的用户不同。 若要解决此问题，请使用安装该网关的用户帐户登录到门户。
 
 **问**：如何查看正在发送到本地数据源的查询？ <br/>
@@ -161,7 +161,7 @@ ms.locfileid: "52662832"
 
 如果网关版本过时，可能会出现很多问题。 良好的常规做法是确保使用最新版本。 如果有一个月或更长时间未更新网关，可能要考虑安装最新版本的网关，并确定是否可以重现问题。
 
-### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>错误: 无法将用户添加到组。 (-2147463168 PBIEgwService Performance Log Users)
+### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>错误：无法将用户添加到组。 (-2147463168 PBIEgwService Performance Log Users)
 
 如果尝试在不受支持的域控制器上安装网关，可能会收到此错误。 请确保将网关部署在不是域控制器的计算机上。
 
@@ -188,7 +188,7 @@ ms.locfileid: "52662832"
 
 **启用遥测**
 
-1.  查看计算机上的本地数据网关客户端目录。 通常为 %systemdrive%\Program Files\On-premises data gateway。 或者可以打开服务控制台，并查看可执行文件（本地数据网关服务的属性之一）的路径。
+1.  查看计算机上的本地数据网关客户端目录。 通常为 **%systemdrive%\Program Files\On-premises data gateway**。 或者可以打开服务控制台，并查看可执行文件的路径：本地数据网关服务的一个属性。
 2.  在客户端目录的 Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config 文件中， 将 SendTelemetry 设置更改为 true。
 
     ```
@@ -197,7 +197,7 @@ ms.locfileid: "52662832"
         </setting>
     ```
 
-3.  保存更改并重启 Windows 服务：本地数据网关服务。
+3.  保存更改，然后重启 Windows 服务：本地数据网关服务。
 
 ## <a name="next-steps"></a>后续步骤
 * [安装并配置本地数据网关](analysis-services-gateway-install.md)。   

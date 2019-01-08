@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-origin.date: 04/12/2018
-ms.date: 08/27/2018
+origin.date: 12/12/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8d62c998536b61cf26a45d4344d63f08ce3612f9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6af74cfaa5ffb21dbe1ce06a5a8446e949243439
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652256"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736168"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Azure 虚拟机上的 SQL Server 是什么？ (Windows)
 
@@ -57,8 +57,8 @@ Azure 虚拟机提供的虚拟机大小取决于工作负荷需求。 SQL VM 还
 > 有关如何了解 SQL 映像定价的详细信息，请参阅 [SQL Server Azure VM 定价指南](virtual-machines-windows-sql-server-pricing-guidance.md)。 
 
 <a name="payasyougo"></a>
-### <a name="pay-as-you-go"></a>即用即付
-下表提供了一个矩阵，其中包含即用即付 SQL Server 映像。
+### <a name="standard-pay-in-advance"></a>标准预付费
+下表提供了标准预付费 SQL Server 映像的矩阵。
 
 | 版本 | 操作系统 | 版本 |
 | --- | --- | --- |
@@ -71,10 +71,16 @@ Azure 虚拟机提供的虚拟机大小取决于工作负荷需求。 SQL VM 还
 
 若要查看可用的 Linux SQL Server 虚拟机映像，请参阅 [Azure 虚拟机上的 SQL Server 概述 (Linux)](../../linux/sql/sql-server-linux-virtual-machines-overview.md)。
 
+<!--Not Available on [How to change the licensing model for a SQL VM](virtual-machines-windows-sql-ahb.md)-->
+
 <a name="BYOL"></a>
 <a name="byol"></a>
 ###  <a name="bring-your-own-license"></a>自带许可
 你也可以自带许可 (BYOL)。 在此方案中，你只需支付 VM 费用，SQL Server 许可不需要任何额外的费用。  自带许可证长时间会节省资金，因为可以持续使用生产型工作负荷。 有关使用此选项的要求，请参阅 [SQL Server Azure VM 定价指南](virtual-machines-windows-sql-server-pricing-guidance.md#byol)。
+
+若要自带许可证，可以转换现有的按用量付费的 SQL VM，也可以部署前缀为 **{BYOL}** 的映像。 
+
+<!-- Not Available on [How to change the licensing model for a SQL VM](virtual-machines-windows-sql-ahb.md)-->
 
 | 版本 | 操作系统 | 版本 |
 | --- | --- | --- |
@@ -82,8 +88,6 @@ Azure 虚拟机提供的虚拟机大小取决于工作负荷需求。 SQL VM 还
 | **SQL Server 2016 SP1** |Windows Server 2016 |[Enterprise BYOL](https://portal.azure.cn/#create/Microsoft.BYOLSQLServer2016SP1EnterpriseWindowsServer2016)、[Standard BYOL](https://portal.azure.cn/#create/Microsoft.BYOLSQLServer2016SP1StandardWindowsServer2016) |
 | **SQL Server 2014 SP2** |Windows Server 2012 R2 |[Enterprise BYOL](https://portal.azure.cn/#create/Microsoft.BYOLSQLServer2014SP2EnterpriseWindowsServer2012R2)、[Standard BYOL](https://portal.azure.cn/#create/Microsoft.BYOLSQLServer2014SP2StandardWindowsServer2012R2) |
 | **SQL Server 2012 SP4** |Windows Server 2012 R2 |[Enterprise BYOL](https://portal.azure.cn/#create/Microsoft.BYOLSQLServer2012SP4EnterpriseWindowsServer2012R2)、[Standard BYOL](https://portal.azure.cn/#create/Microsoft.BYOLSQLServer2012SP4StandardWindowsServer2012R2) |
-
-在门户中，这些映像名称带有 **{BYOL}** 前缀。
 
 ### <a name="connect-to-the-vm"></a>连接到 VM
 创建 SQL Server VM 以后，即可从 SQL Server Management Studio (SSMS) 之类的应用程序或工具连接到该 VM。 有关说明，请参阅[连接到 Azure 上的 SQL Server 虚拟机](virtual-machines-windows-sql-connect.md)。
@@ -122,5 +126,6 @@ Azure 虚拟机上的 SQL Server 入门：
 
 获取有关 SQL VM 的常见问题的解答：
 
-* [Azure 虚拟机中的 SQL Server 常见问题解答](virtual-machines-windows-sql-server-iaas-faq.md)
+* [Azure 虚拟机中的 SQL Server 常见问题](virtual-machines-windows-sql-server-iaas-faq.md)
+
 <!--Update_Description: update meta properties, wording update-->

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 11/14/2018
 ms.author: v-yiso
-ms.date: 12/03/2018
-ms.openlocfilehash: c80013ed9973b4d7281e4493057e576aa2ccbba4
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 12/31/2018
+ms.openlocfilehash: 6ac8127a5017ee38d818f85dfeb00444ce3bdba6
+ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674567"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736710"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>如何使用 Azure API 管理中的服务备份和还原实现灾难恢复
 
@@ -33,8 +33,8 @@ ms.locfileid: "52674567"
 > 为灾难恢复备份和还原 API 管理服务实例的过程还可用于为暂存之类的方案复制 API 管理服务实例。
 >
 > 每个备份都会在 30 天后过期。 如果在 30 天有效期到期后尝试还原备份，还原会失败并显示 `Cannot restore: backup expired` 消息。
->
->
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="authenticating-azure-resource-manager-requests"></a>对 Azure 资源管理器请求进行身份验证
 > [!IMPORTANT]
@@ -219,14 +219,13 @@ POST https://management.azure.cnsubscriptions/{subscriptionId}/resourceGroups/{r
 
 * [复制 Azure API 管理帐户](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
 * [使用逻辑应用自动执行 API 管理备份和还原](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps)
-* [Azure API 管理：备份和还原配置](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
+* [Azure API 管理：备份和还原配置](https://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
 * Stuart 详述的方法与官方指南不匹配，但非常有趣。
 
 [Backup an API Management service]: #step1
 [Restore an API Management service]: #step2
 
-
-[Azure API Management REST API]: http://msdn.microsoft.com/library/azure/dn781421.aspx
+[Azure API Management REST API]: https://msdn.microsoft.com/library/azure/dn781421.aspx
 
 [api-management-add-aad-application]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-add-aad-application.png
 

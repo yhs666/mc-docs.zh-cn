@@ -4,17 +4,17 @@ description: 了解如何解决 Azure 自动化 Runbook 的问题
 services: automation
 author: WenJason
 ms.author: v-jay
-origin.date: 07/13/2018
-ms.date: 11/05/2018
+origin.date: 12/04/2018
+ms.date: 12/24/2018
 ms.topic: conceptual
 ms.service: automation
 manager: digimobile
-ms.openlocfilehash: 40d52fcc24c9da29ea596309af9e7ee474b23340
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b5690cf9a80e692856da0dc96321fef364795a0e
+ms.sourcegitcommit: 895e9accaae8f8c2a29ed91d8e84911fda6111cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645069"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53615189"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook 错误故障排除
 
@@ -37,10 +37,10 @@ Unknown_user_type: Unknown User Type
 
 #### <a name="resolution"></a>解决方法
 
-为了确定具体错误，请执行以下步骤：  
+要确定具体错误，请执行以下步骤：  
 
-1. 确保在用于连接到 Azure 的自动化凭据资产名称中没有任何特殊字符，包括 **@** 字符。  
-2. 查看你是否能够在本地 PowerShell ISE 编辑器中使用存储在 Azure 自动化凭据中的用户名和密码。 为此，可以在 PowerShell ISE 中运行以下 cmdlet：  
+1. 确保在用于连接到 Azure 的自动化凭据资产名称中没有任何特殊字符，包括 @ 字符。  
+2. 查看你是否能够在本地 PowerShell ISE 编辑器中使用存储在 Azure 自动化凭据中的用户名和密码。 可以通过在 PowerShell ISE 中运行以下 cmdlet 来检查用户名和密码是否正确：  
 
    ```powershell
    $Cred = Get-Credential  
@@ -93,21 +93,22 @@ The subscription named <subscription name> cannot be found.
 
 #### <a name="resolution"></a>解决方法
 
-为了确定是否已正确向 Azure 进行身份验证并有权访问尝试选择的订阅，请执行以下步骤：  
+要确定是否已正确向 Azure 进行身份验证并有权访问尝试选择的订阅，请执行以下步骤：  
 
-1. 确保先运行 **Add-AzureAccount -EnvironmentName AzureChinaCloud** cmdlet，然后再运行 **Select-AzureSubscription** cmdlet。  
-2. 如果仍显示此错误消息，可通过在 **Add-AzureAccount** cmdlet 后添加 **-AzureRmContext** 参数来修改代码，并执行代码。
+1. 在 Azure 自动化之外测试脚本，以确保它独立运行。
+2. 确保先运行 **Add-AzureAccount -EnvironmentName AzureChinaCloud** cmdlet，然后再运行 **Select-AzureSubscription** cmdlet。  
+3. 如果仍显示此错误消息，可通过在 **Add-AzureAccount** cmdlet 后添加 **-AzureRmContext** 参数来修改代码，并执行代码。
 
    ```powershell
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Add-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -EnvironmentName AzureChinaCloud `
 -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
    $context = Get-AzureRmContext
 
    Get-AzureRmVM -ResourceGroupName myResourceGroup -AzureRmContext $context
-   ```
+    ```
 
 ### <a name="auth-failed-mfa"></a>场景：无法向 Azure 进行身份验证，因为已启用多重身份验证
 
@@ -125,11 +126,11 @@ Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is re
 
 #### <a name="resolution"></a>解决方法
 
-要将证书用于 Azure 经典部署模型 cmdlet，请参阅[创建并添加管理 Azure 服务所需的证书](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx)。 若要将服务主体用于 Azure Resource Manager cmdlet，请参阅[使用 Azure 门户创建服务主体](../../azure-resource-manager/resource-group-create-service-principal-portal.md)和[通过 Azure Resource Manager 对服务主体进行身份验证](../../azure-resource-manager/resource-group-authenticate-service-principal.md)。
+要将证书用于 Azure 经典部署模型 cmdlet，请参阅[创建并添加管理 Azure 服务所需的证书](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx)。 若要将服务主体用于 Azure Resource Manager cmdlet，请参阅[使用 Azure 门户创建服务主体](../../azure-resource-manager/resource-group-create-service-principal-portal.md)和[通过 Azure Resource Manager 对服务主体进行身份验证](../../azure-resource-manager/resource-group-authenticate-service-principal.md)。
 
 ## <a name="common-errors-when-working-with-runbooks"></a>使用 Runbook 时的常见错误
 
-### <a name="task-was-cancelled"></a>场景：Runbook 失败且出现错误：取消了一个任务
+### <a name="task-was-cancelled"></a>场景：Runbook 失败并显示错误：任务已取消
 
 #### <a name="issue"></a>问题
 
@@ -229,7 +230,7 @@ The job was tried three times but it failed
 
 1. 网络套接字。 如[自动化服务限制](../../azure-subscription-service-limits.md#automation-limits)中所述，Azure 沙盒限制为 1000 个并发网络套接字。
 
-1. 模块不兼容。 如果模块依赖关系不正确，则可能会发生这种情况，并且如果它们不正确，则 runbook 通常会返回“找不到命令”或“无法绑定参数”消息。
+1. 模块不兼容。 如果模块依赖关系不正确，则可能会发生此错误，并且如果它们不正确，则 runbook 通常会返回“找不到命令”或“无法绑定参数”消息。
 
 #### <a name="resolution"></a>解决方法
 
@@ -253,7 +254,7 @@ Cannot convert the <ParameterType> value of type Deserialized <ParameterType> to
 
 #### <a name="cause"></a>原因
 
-如果 Runbook 为 PowerShell 工作流，则会将复杂对象以反序列化格式进行存储，以便在工作流暂停的情况下保留 Runbook 状态。
+如果 runbook 为 PowerShell 工作流，它会将复杂对象以反序列化格式进行存储，以便在工作流暂停的情况下保留 runbook 状态。
 
 #### <a name="resolution"></a>解决方法
 
@@ -298,31 +299,79 @@ Runbook 作业失败并显示错误：
 
 #### <a name="cause"></a>原因
 
-当 PowerShell 引擎找不到要在 Runbook 中使用的 cmdlet 时，则会导致此错误。 这可能是因为，帐户中缺少包含该 cmdlet 的模块、与 Runbook 名称存在名称冲突，或者该 cmdlet 也存在于其他模块中，而自动化无法解析该名称。
+当 PowerShell 引擎找不到要在 runbook 中使用的 cmdlet 时，则会导致此错误。 这可能是因为，帐户中缺少包含该 cmdlet 的模块、与 runbook 名称存在名称冲突，或者该 cmdlet 也存在于其他模块中，而自动化无法解析该名称。
 
 #### <a name="resolution"></a>解决方法
 
 下述解决方案中的任何一种都可以解决此问题：  
 
 * 检查输入的 cmdlet 名称是否正确。  
-* 确保 cmdlet 存在于自动化帐户中，且没有冲突。 要验证 cmdlet 是否存在，请在编辑模式下打开 Runbook，并搜索希望在库中找到的 cmdlet，或者运行 `Get-Command <CommandName>`。 验证该 cmdlet 可供帐户使用且与其他 cmdlet 或 Runbook 不存在名称冲突以后，可将其添加到画布上，并确保使用的是 Runbook 中的有效参数集。  
+* 确保 cmdlet 存在于自动化帐户中，且没有冲突。 要验证 cmdlet 是否存在，请在编辑模式下打开 Runbook，并搜索希望在库中找到的 cmdlet，或者运行 `Get-Command <CommandName>`。 验证该 cmdlet 可供帐户使用且与其他 cmdlet 或 runbook 不存在名称冲突以后，可将其添加到画布上，并确保使用的是 runbook 中的有效参数集。  
 * 如果存在名称冲突且 cmdlet 可在两个不同的模块中使用，则可使用 cmdlet 的完全限定名称来解决此问题。 例如，可以使用 ModuleName\CmdletName。  
-
-### <a name="evicted-from-checkpoint"></a>场景：某个长时间运行的 Runbook 不断失败并出现异常：“该作业无法继续运行，因为它已反复从同一个检查点逐出”
+### <a name="long-running-runbook"></a>场景：长时间运行的 Runbook 无法完成
 
 #### <a name="issue"></a>问题
 
-此行为是设计使然，因为 Azure 自动化中对进程的“公平份额”监视会自动暂停执行时间超过 3 小时的 Runbook。 但是，返回的错误消息不会提供“后续措施”选项。
+运行 3 小时后，runbook 将显示处于“已停止”状态。 可能还会收到错误：
+
+```
+The job was evicted and subsequently reached a Stopped state. The job cannot continue running
+```
+
+此行为是 Azure 沙盒的设计使然，因为 Azure 自动化中对进程的“公平份额”监视会自动停止执行时间超过 3 小时的 runbook。 超过公平份额时间限制的 runbook 的状态因 runbook 类型而异。 PowerShell 和 Python runbook 设置为“已停止”状态。 PowerShell 工作流 runbook 设置为“失败”。
 
 #### <a name="cause"></a>原因
 
-Runbook 可能会出于多种原因而暂停。 发生暂停的主要原因是出错。 例如，Runbook 中出现未捕获到的异常、网络故障，都会导致 Runbook 暂停，并在恢复时从其最后一个检查点开始运行。
+Runbook 超出了 Azure 沙盒中公平份额允许的 3 小时限制。
 
 #### <a name="resolution"></a>解决方法
 
-避免此问题的有记录解决方法是在工作流中使用检查点。 若要了解详细信息，请参阅[了解 PowerShell 工作流](../automation-powershell-workflow.md#checkpoints)。 [Using Checkpoints in Runbooks](https://azure.microsoft.com/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/)（在 Runbook 中使用检查点）博客文章中提供了有关“公平份额”和检查点的更全面说明。
+一种选择是通过创建[子 runbook](../automation-child-runbooks.md) 来优化 runbook。 如果 runbook 在多个资源上遍历同一函数，例如在多个数据库上执行某个数据库操作，可将该函数移到子 runbook。 每个这样的子 Runbook 都会在单独的进程中并行执行，缩短了父 Runbook 完成操作所需的总时间。
 
-### <a name="long-running-runbook"></a>方案：长时间运行的 runbook 无法完成
+启用子 runbook 方案的 PowerShell cmdlet 是：
+
+[Start-AzureRMAutomationRunbook](https://docs.microsoft.com/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) - 此 cmdlet 用于启动 runbook 并向其传递参数
+
+[Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob) - 在子 runbook 完成后，如果需要执行操作，可使用此 cmdlet 检查每个子 runbook 的作业状态。
+
+### <a name="expired webhook"></a>场景：状态：请求时调用 Webhook 时显示 400 错误
+
+#### <a name="issue"></a>问题
+
+在尝试调用 Azure 自动化 Runbook 的 Webhook 时，收到以下错误。
+
+```error
+400 Bad Request : This webhook has expired or is disabled
+```
+
+#### <a name="cause"></a>原因
+
+尝试调用的 Webhook 已禁用，或者已过期。
+
+#### <a name="resolution"></a>解决方法
+
+如果 Webhook 处于禁用状态，可以通过 Azure 门户重新启用 Webhook。 如果 Webhook 已过期，需要删除并重新创建 Webhook。 如果尚未过期，只能[续订 Webhook](../automation-webhooks.md#renew-webhook)。
+
+### <a name="429"></a>场景：429：当前的请求速率过大。 请重试
+
+#### <a name="issue"></a>问题
+
+在运行 `Get-AzureRmAutomationJobOutput` cmdlet 时收到以下错误消息：
+
+```
+429: The request rate is currently too large. Please try again
+```
+
+#### <a name="cause"></a>原因
+
+从具有多个[详细流](../automation-runbook-output-and-messages.md#verbose-stream)的 Runbook 中检索作业输出时，可能发生此错误。
+
+#### <a name="resolution"></a>解决方法
+
+可通过两种方法来解决此错误：
+
+* 编辑 Runbook，并减少它发出的作业流数量。
+* 减少运行 cmdlet 时要检索的流数量。 若要执行此操作，可以向 `Get-AzureRmAutomationJobOutput` cmdlet 指定 `-Stream Output` 参数以仅检索输出流。 
 
 ## <a name="common-errors-when-importing-modules"></a>导入模块时的常见错误
 
@@ -345,7 +394,7 @@ Runbook 可能会出于多种原因而暂停。 发生暂停的主要原因是�
 
 下述解决方案中的任何一种都可以解决此问题：
 
-* 确保该模块遵循以下格式：模块名称.Zip **->** 模块名称或版本号 **->**（模块名称.psm1、模块名称.psd1）
+* 请确保该模块遵循以下格式：ModuleName.Zip -> 模块名称或版本号 -> (ModuleName.psm1, ModuleName.psd1)
 * 打开 .psd1 文件，看模块是否有任何依赖项。 如果有，则将这些模块上传到自动化帐户。
 * 确保任何引用的 .dll 都存在于模块文件夹中。
 

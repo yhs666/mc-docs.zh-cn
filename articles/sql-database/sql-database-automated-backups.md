@@ -3,7 +3,7 @@ title: Azure SQL 数据库自动化异地冗余备份 | Microsoft Docs
 description: SQL 数据库每隔几分钟会自动创建一个本地数据库备份，并使用 Azure 读取访问异地冗余存储来提供异地冗余。
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,18 +11,18 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 09/25/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 97b352999e1d5552af7b41b2004c7dc1880d0988
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+origin.date: 12/10/2018
+ms.date: 12/31/2018
+ms.openlocfilehash: 0b9e64239bd2b9038574441725d3abbb017a5d5a
+ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672752"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53806221"
 ---
-# <a name="learn-about-automatic-sql-database-backups"></a>了解 SQL 数据库自动备份
+# <a name="automated-backups"></a>自动备份
 
-SQL 数据库会自动创建数据库备份，并使用 Azure 读取访问异地冗余存储 (RA-GRS) 来提供异地冗余。 这些备份是自动创建的，不收取额外的费用。 不需要执行任何操作就能进行这样的备份。 数据库备份是任何业务连续性和灾难恢复策略的基本组成部分，因为数据库备份可以保护数据免遭意外损坏或删除。 如果安全策略要求备份长期可用，你可以配置长期备份保留策略。 有关详细信息，请参阅 [长期保留](sql-database-long-term-retention.md)。
+SQL 数据库自动创建数据库备份（保留 7 到 35 天），并使用 Azure 读取访问异地冗余存储 (RA-GRS)，确保即使数据中心不可用也会保留这些备份。 这些备份是自动创建的，不收取额外的费用。 无需执行任何操作即可创建这些备份，还可[更改备份保持期](#how-to-change-the-pitr-backup-retention-period)。 数据库备份是任何业务连续性和灾难恢复策略的基本组成部分，因为数据库备份可以保护数据免遭意外损坏或删除。 如果安全规则要求备份在较长时间（最长 10 年）内可用，可以配置[长期保留](sql-database-long-term-retention.md).。
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
@@ -34,8 +34,8 @@ SQL 数据库使用 SQL Server 技术创建[完整](https://docs.microsoft.com/s
 
 - 在保留期内将数据库还原到某个时间点。 此操作会在与原始数据库相同的服务器中创建新数据库。
 - 将已删除的数据库还原到删除时的时间点或保留期内的任意时间点。 仅可在创建原始数据库所在的同一服务器中还原已删除的数据库。
-- 将数据库还原到其他地理区域。 在无法访问服务器和数据库的情况下，此操作可帮助从地理位置灾难中恢复。 它会在全球任意位置的任意现有服务器中创建新数据库。
-- 如果为数据库配置了长期保留策略 (LTR)，请从特定的长期备份还原数据库。 此操作允许还原旧版本的数据库，以满足符合性请求或运行旧版本的应用程序。 请参阅[长期保留](sql-database-long-term-retention.md)。
+- 将数据库还原到其他地理区域。 在无法访问服务器和数据库的情况下，异地还原可帮助从地理位置灾难中恢复。 它会在全球任意位置的任意现有服务器中创建新数据库。
+- 如果为数据库配置了长期保留策略 (LTR)，请从特定的长期备份还原数据库。 LTR 允许还原旧版本的数据库，以满足符合性请求或运行旧版本的应用程序。 有关详细信息，请参阅 [长期保留](sql-database-long-term-retention.md)。
 - 若要执行还原，请参阅[从备份还原数据库](sql-database-recovery-using-backups.md)。
 
 > [!NOTE]
@@ -43,16 +43,16 @@ SQL 数据库使用 SQL Server 技术创建[完整](https://docs.microsoft.com/s
 
 ## <a name="how-long-are-backups-kept"></a>备份保留多长时间？
 
-每个 SQL 数据库备份都有一个基于数据库服务层的默认保留期，并且[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)和[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)之间存在差异。 可以更新数据库的备份保留期。 有关更多详细信息，请参阅[更改备份保留期](#how-to-change-backup-retention-period)。
+每个 SQL 数据库的默认备份保留期为 7 到 35 天，具体取决于[购买模型和服务层](#pitr-retention-period)。 可以在 Azure Logical Server 上更新数据库的备份保持期。 有关详细信息，请参阅[更改备份保持期](#how-to-change-the-pitr-backup-retention-period)。
 
 如果删除了某个数据库，SQL 数据库以保存联机数据库的相同方式保存其备份。 例如，如果删除了保留期为 7 天的某个基本数据库，已保存 4 天的备份将继续保存 3 天。
 
-如果需要备份保留时间超过最长的 PITR 保留期，可以修改备份属性，向数据库添加一个或多个长期保留期。 有关更多详细信息，请参阅[长期备份保留](sql-database-long-term-retention.md)。
+如果需要备份保留时间超过最长的保持期，则可以修改备份属性，以向数据库添加一个或多个长期保持期。 有关详细信息，请参阅 [长期保留](sql-database-long-term-retention.md)。
 
 > [!IMPORTANT]
 > 如果删除了托管 SQL 数据库的 Azure SQL 服务器，则也会删除属于该服务器的所有弹性池和数据库，且不可恢复。 无法还原已删除的服务器。 但是，如果配置了长期保留，则不会删除具有 LTR 的数据库的备份，并且可以还原这些数据库。
 
-### <a name="pitr-retention-period"></a>PITR 保留期
+### <a name="default-backup-retention-period"></a>默认备份保持期
 
 #### <a name="dtu-based-purchasing-model"></a>基于 DTU 的购买模型
 
@@ -64,11 +64,10 @@ SQL 数据库使用 SQL Server 技术创建[完整](https://docs.microsoft.com/s
 
 #### <a name="vcore-based-purchasing-model"></a>基于 vCore 的购买模型
 
-如果使用的是[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)，则默认的备份保留期为 7 天。
+如果使用的是[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)，则默认备份保持期为 7 天（适用于单一数据库、入池数据库）。 对于所有 Azure SQL 数据库（单一数据库、入池数据库），可以[将备份保持期更改为最多 35 天](#how-to-change-the-pitr-backup-retention-period)。
 
-对于单一数据库和入池数据库，可以[将备份保留期更改为最多 35 天](#how-to-change-backup-retention-period)。
-
-如果缩短当前保留期，早于新保留期的所有现有备份将不再可用。 如果延长当前保留期，SQL 数据库将保留现有备份，直至达到更长的保留期。
+> [!WARNING]
+> 如果缩短当前保留期，早于新保留期的所有现有备份将不再可用。 如果延长当前保留期，SQL 数据库将保留现有备份，直至达到更长的保留期。
 
 ## <a name="how-often-do-backups-happen"></a>备份发生的频率
 
@@ -96,18 +95,18 @@ PITR 备份是异地冗余的，受 [Azure 存储跨区域复制](../storage/com
 
 Azure SQL 数据库工程团队持续不断地自动测试整个服务中数据库的自动数据库备份的还原。 还原后，数据库还会使用 DBCC CHECKDB 接收完整性检查。 在完整性检查期间发现的任何问题都将导致向工程团队发出警报。 有关 Azure SQL 数据库中数据完整性的详细信息，请参阅 [Azure SQL 数据库中的数据完整性](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/)。
 
-## <a name="how-do-automated-backups-impact-my-compliance"></a>自动备份如何影响符合性
+## <a name="how-do-automated-backups-impact-compliance"></a>自动备份如何影响符合性
 
-将数据库从默认 PITR 保留期为 35 天的基于 DTU 的服务层迁移到基于 vCore 的服务层时，将保留 PITR 保留期以确保不会违反应用程序的数据恢复策略。 如果默认保留期不满足合规要求，可以使用 PowerShell 或 REST API 更改 PITR 保留期。 有关更多详细信息，请参阅[更改备份保留期](#how-to-change-backup-retention-period)。
+将数据库从默认 PITR 保留期为 35 天的基于 DTU 的服务层迁移到基于 vCore 的服务层时，将保留 PITR 保留期以确保不会违反应用程序的数据恢复策略。 如果默认保留期不满足合规要求，可以使用 PowerShell 或 REST API 更改 PITR 保留期。 有关更多详细信息，请参阅[更改备份保留期](#how-to-change-the-pitr-backup-retention-period)。
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-## <a name="how-to-change-backup-retention-period"></a>如何更改备份保留期
+## <a name="how-to-change-the-pitr-backup-retention-period"></a>如何更改 PITR 备份保持期
 
-可以使用 REST API 或 PowerShell 更改默认保留期。 支持的值为：7、14、21、28 或 35 天。 以下示例演示如何将 PITR 保留期更改为 28 天。
+可以使用 PowerShell 或 REST API 更改默认 PITR 备份保持期。 支持的值包括：7、14、21、28 或 35 天。 以下示例演示如何将 PITR 保留期更改为 28 天。
 
 > [!NOTE]
-> 这些 API 只会影响 PITR 保留期。 如果为数据库配置了 LTR，LTR 不会受到影响。 有关如何更改 LTR 保留期的详细信息，请参阅[长期备份保留](sql-database-long-term-retention.md)。
+> 这些 API 只会影响 PITR 保留期。 如果为数据库配置了 LTR，LTR 不会受到影响。 有关如何更改 LTR 保持期的详细信息，请参阅[长期保留](sql-database-long-term-retention.md)。
 
 ### <a name="change-pitr-backup-retention-period-using-powershell"></a>使用 PowerShell 更改 PITR 备份保留期
 
@@ -151,7 +150,7 @@ PUT https://management.chinacloudapi.cn/subscriptions/00000000-1111-2222-3333-44
 }
 ```
 
-有关更多详细信息，请参阅[备份保留 REST API](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies)。
+有关详细信息，请参阅[备份保持期 REST API](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies)。
 
 ## <a name="next-steps"></a>后续步骤
 

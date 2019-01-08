@@ -5,48 +5,48 @@ services: virtual-machines
 author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
-origin.date: 07/05/2018
-ms.date: 07/30/2018
+origin.date: 12/14/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: b6017c03af250348775368ebd20892d2c76be5f2
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5aee98098185ec0fd0d9b7f78dd95896091a3314
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644307"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736227"
 ---
-Azure 定期执行更新，以提高虚拟机的主机基础结构的可靠性、性能及安全性。 此类更新包括修补宿主环境（例如操作系统、虚拟机监控程序以及主机上部署的各种代理）中的软件组件、升级网络组件以及硬件解除授权等多项内容。 大多数此类更新在执行时不会影响托管的虚拟机。 但是，也会存在更新产生影响的情况：
+Azure 定期更新平台，以提高虚拟机的主机基础结构的可靠性、性能及安全性。 此类更新包括修补宿主环境中的软件组件、升级网络组件以及硬件解除授权等多项内容。 大多数此类更新不影响托管的虚拟机。 但是，有时候更新会产生影响，这种情况下 Azure 会选择影响最小的方法进行更新：
 
-- 如果可进行无需重启的更新，则在更新主机或虚拟机完全移动到已更新主机时，Azure 会使用内存保留维护来暂停 VM。
+- 如果可进行非重启性更新，则会在更新主机时暂停 VM，或者会将 VM 实时迁移到已更新的主机。
 
-- 如果维护需重新启动，系统会告知计划维护的时间。 在这种情况下，系统还会提供一个时间范围，方便在合适的时间自行启动维护。
+- 如果维护需重新启动，系统会告知计划维护的时间。 Azure 还会提供一个时间范围，方便你在合适的时间自行启动维护。 Azure 会投资相关技术，减少进行计划内平台维护时必须重启 VM 的情况。 
 
 本页介绍 Azure 如何执行上述两种类型的维护。 有关非计划事件（服务中断）的详细信息，请参阅“管理 [Windows](../articles/virtual-machines/windows/manage-availability.md) 或 [Linux](../articles/virtual-machines/linux/manage-availability.md) 虚拟机的可用性”。
 
-在虚拟机中运行的应用程序可以通过适用于 [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) 或 [Linux](../articles/virtual-machines/linux/instance-metadata-service.md) 的 Azure 元数据服务收集即将发布的更新的相关信息。
+使用适用于 [Windows](../articles/virtual-machines/windows/scheduled-events.md) 或 [Linux](../articles/virtual-machines/linux/scheduled-events.md) 的计划事件即可获得有关即将进行的维护的 VM 内通知。
 
 有关管理计划维护的“操作说明”信息，请参阅 [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) 或 [Windows](../articles/virtual-machines/windows/maintenance-notifications.md) 的“处理计划维护通知”。
 
-## <a name="memory-preserving-maintenance"></a>内存保留维护
+## <a name="non-rebootful-maintenance"></a>非重启性维护
 
-如果更新不需要完全重新启动，则会使用内存保留维护机制来限制对虚拟机的影响。 虚拟机会暂停最多 30 秒，保留在 RAM 中的内存，而宿主环境则会应用必需的更新和修补程序，或将 VM 移动到已更新的主机。 然后，虚拟机会进行恢复，其时钟会自动同步。 
+大多数非重启性更新的目标是确保 VM 的暂停时间不到 10 秒。 某些情况下会使用内存保留维护机制，VM 暂停时间会长达 30 秒，并且会在 RAM 中保留内存。 然后，虚拟机会进行恢复，其时钟会自动同步。 Azure 逐渐趋向于使用实时迁移技术并改进内存保留维护机制，目的是缩短暂停时间。
 
-这些非重启型维护操作会一个容错域接着一个容错域地应用。如果收到任何警告性运行状况信号，则进度会停止。
+这些非重启型维护操作会一个容错域接着一个容错域地应用。如果收到任何警告性运行状况信号，则进度会停止。 
 
-这些类型的更新可能会影响某些应用程序。 执行实时事件处理（例如媒体流或转码）或高吞吐量网络方案的应用程序可能无法容忍暂停 30 秒钟。 <!-- sooooo, what should they do? --> 如果将 VM 移动到不同的主机，则某些敏感的工作负荷可能会在导致虚拟机暂停的几分钟内出现略微的性能下降。 
+这些类型的更新可能会影响某些应用程序。 将 VM 实时迁移到另一主机时，某些敏感的工作负荷可能会注意到，在导致 VM 暂停的几分钟内性能会略微下降。 使用适用于 [Windows](../articles/virtual-machines/windows/scheduled-events.md) 或 [Linux](../articles/virtual-machines/linux/scheduled-events.md) 的计划事件进行 VM 维护准备对此类应用程序很有用，在 Azure 维护期间不会造成任何影响。 Azure 还会为此类超敏感的应用程序推出维护控制功能。 
 
 ## <a name="maintenance-requiring-a-reboot"></a>需要重新启动的维护
 
-如果计划内维护需要重新启动 VM，系统会提前告知。 计划内维护有两个阶段：自助式时段和计划维护时段。
+在极少数情况下，VM 需重启以进行计划内维护，这种情况下系统会提前通知。 计划内维护有两个阶段：自助式时段和计划维护时段。
 
-**自助式时段**允许在 VM 上启动维护。 在此时段内，可以通过查询每个 VM 来了解其状态，并查看上次维护请求的结果。
+可以使用**自助时段**在 VM 上启动维护。 在此时段内，可以通过查询每个 VM 来了解其状态，并查看上次维护请求的结果。
 
-启动自助式维护时，VM 会转到已更新的某个节点，并重启。 由于 VM 重新启动，临时磁盘会丢失，而与虚拟网络接口关联的动态 IP 地址会更新。
+启动自助维护时，VM 会重新部署到已更新的某个节点。 由于 VM 重新启动，临时磁盘会丢失，而与虚拟网络接口关联的动态 IP 地址会更新。
 
 如果在启动自助式维护的过程中出错，系统会停止操作，不更新 VM，并让你选择是否重试自助维护。 
 
-自助式维护时段过后，就会开始**计划维护时段**。 在这段时间内，仍可以查询维护时段，但不能再自行启动维护。
+自助式维护时段过后，就会开始**计划维护时段**。 在这段时间内，仍可以查询维护时段，但不能自行启动维护。
 
 有关管理需要重启的维护的信息，请参阅 [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) 或 [Windows](../articles/virtual-machines/windows/maintenance-notifications.md)的“处理计划维护通知”。 
 
@@ -56,18 +56,18 @@ Azure 定期执行更新，以提高虚拟机的主机基础结构的可靠性�
 
 #### <a name="paired-regions"></a>配对区域
 
-每个 Azure 区域与同一地理位置中另一个区域配对，共同组成一个区域对。 在计划性维护期间，Azure 只会更新一个区域对中单个区域的 VM。 例如，更新中国北部的虚拟机时，Azure 不会同时更新中国东部的任何虚拟机。 了解区域对的工作原理有助于更好地跨区域分配 VM。
-<!-- Not Available on However, other regions such as China North can be under maintenance at the same time as China East. -->
-<!-- Not Available on  For more information, see [Azure region pairs](/best-practices-availability-paired-regions) -->
+每个 Azure 区域与同一地理位置中另一个区域配对，共同组成一个区域对。 在计划性维护阶段，Azure 只会更新一个区域对中单个区域的 VM。 例如，更新中国北部的 VM 时，Azure 不会同时更新中国东部的任何 VM。 
 
+<!-- Not Available  Understanding how region pairs work can help you better distribute your VMs across regions. -->
+<!-- Not Available on  For more information, see [Azure region pairs](/best-practices-availability-paired-regions) -->
 #### <a name="availability-sets-and-scale-sets"></a>可用性集和规模集
 
-在 Azure VM 上部署工作负荷时，可以在可用性集中创建 VM，向应用程序提供高可用性。 这样可确保在发生故障或重启性维护事件期间，至少有一个虚拟机可用。
+在 Azure VM 上部署工作负荷时，可以在可用性集中创建 VM，向应用程序提供高可用性。 这样可确保在发生故障或重启性维护事件期间，至少有一个 VM 可用。
 
-在可用性集中，各个 VM 可分布在最多 20 个更新域 (UD) 中。 在计划性维护期间，任意时间都只有一个更新域受影响。 请注意，不一定按顺序来影响更新域。 
+在可用性集中，各个 VM 可分布在最多 20 个更新域 (UD) 中。 在计划性维护期间，任意给定时间都只有一个更新域进行更新。 不一定按顺序来更新更新域。 
 
-虚拟机规模集是一种 Azure 计算资源，支持将一组相同的 VM 作为单个资源进行部署和管理。 规模集自动跨更新域进行部署，此类更新域就像可用性集中的 VM 一样。 在计划性维护期间使用规模集时，就像使用可用性集一样，在任意给定的时间都只会影响单个更新域。
+虚拟机规模集是一种 Azure 计算资源，支持将一组相同的 VM 作为单个资源进行部署和管理。 规模集自动跨更新域进行部署，此类更新域就像可用性集中的 VM 一样。 在计划性维护期间使用规模集时，就像使用可用性集一样，在任意给定的时间都只会更新单个更新域。
 
-有关配置虚拟机以实现高可用性的详细信息，请参阅“管理 [Windows](../articles/virtual-machines/windows/manage-availability.md) 或 [Linux](../articles/virtual-machines/linux/manage-availability.md) 虚拟机的可用性”。
+有关配置 VM 以实现高可用性的详细信息，请参阅“管理 [Windows](../articles/virtual-machines/windows/manage-availability.md) 或 [Linux](../articles/virtual-machines/linux/manage-availability.md) 虚拟机的可用性”。
 
 <!--Update_Description: update meta properties, wording update, update link -->

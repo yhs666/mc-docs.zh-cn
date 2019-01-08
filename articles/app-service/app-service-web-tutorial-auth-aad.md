@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 应用服务中对用户进行端到端身份验证和授权
+title: 对用户进行端到端身份验证和授权 - Azure 应用服务
 description: 了解如何使用应用服务身份验证和授权来确保应用服务应用的安全性，包括确保访问远程 API 时的安全性。
 keywords: 应用服务, azure 应用服务, authN, authZ, 安全, 安全性, 多层, azure active directory, azure ad
 services: app-service\web
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 08/07/2018
-ms.date: 09/03/2018
-ms.author: v-yiso
-ms.openlocfilehash: 8b14439b1dee7f63081afef9cb14f9cb44644630
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/31/2018
+ms.author: v-biyu
+ms.custom: seodec18
+ms.openlocfilehash: 5862772ee36b1a77be052a4cc557aeab4880851e
+ms.sourcegitcommit: 80c59ae1174d71509b4aa64a28a98670307a5b38
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645966"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735184"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>教程：在 Azure 应用服务中对用户进行端到端身份验证和授权
 
@@ -60,7 +61,7 @@ ms.locfileid: "52645966"
 
 ## <a name="create-local-net-core-app"></a>创建本地 .NET Core 应用
 
-在此步骤中，将设置本地 .NET Core 项目。 请使用同一项目来部署后端 API 应用和前端 Web 应用。
+在此步骤中，你将设置本地 .NET Core 项目。 请使用同一项目来部署后端 API 应用和前端 Web 应用。
 
 ### <a name="clone-and-run-the-sample-application"></a>克隆和运行示例应用程序
 
@@ -83,6 +84,10 @@ dotnet run
 
 在此步骤中，请将项目部署到两个应用服务应用。 一个是前端应用，另一个是后端应用。
 
+### <a name="configure-a-deployment-user"></a>配置部署用户
+
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user-no-h.md)]
+
 ### <a name="create-azure-resources"></a>创建 Azure 资源
 
 运行以下命令创建两个 Web 应用。 将 _&lt;front\_end\_app\_name>_ 和 _&lt;back\_end\_app\_name>_ 替换为两个全局唯一的应用名称（有效字符为 `a-z`、`0-9`、`-`）。 有关每个命令的详细信息，请参阅 [Azure 应用服务中启用了 CORS 的 RESTful API](app-service-web-tutorial-rest-api.md)。
@@ -100,7 +105,7 @@ az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePla
 
 ### <a name="push-to-azure-from-git"></a>从 Git 推送到 Azure
 
-回到本地终端窗口，运行以下 Git 命令，以便部署到后端应用。 将 _&lt;deploymentLocalGitUrl-of-back-end-app>_ 替换为在[创建 Azure 资源](#create-azure-resources)中保存的 Git remote 的 URL。 当 Git 凭据管理器提示输入凭据时，请确保输入[部署凭据](app-service-deployment-credentials.md)，而不是用于登录到 Azure 门户的凭据。
+回到本地终端窗口，运行以下 Git 命令，以便部署到后端应用。 将 _&lt;deploymentLocalGitUrl-of-back-end-app>_ 替换为在[创建 Azure 资源](#create-azure-resources)中保存的 Git remote 的 URL。 当 Git 凭据管理器提示输入凭据时，请确保输入[部署凭据](deploy-configure-credentials.md)，而不是用于登录到 Azure 门户的凭据。
 
 ```bash
 git remote add backend <deploymentLocalGitUrl-of-back-end-app>
@@ -209,7 +214,7 @@ git push frontend master
 
 在此步骤中，请为两个应用启用身份验证和授权。 另请配置前端应用，以便生成一个访问令牌，用于对后端应用进行经身份验证的调用。
 
-请将 Azure Active Directory 用作标识提供者。 有关详细信息，请参阅[为应用服务应用程序配置 Azure Active Directory 身份验证](app-service-mobile-how-to-configure-active-directory-authentication.md)。
+请将 Azure Active Directory 用作标识提供者。 有关详细信息，请参阅[为应用服务应用程序配置 Azure Active Directory 身份验证](configure-authentication-provider-aad.md)。
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>启用针对后端应用的身份验证和授权
 
@@ -340,10 +345,10 @@ git push frontend master
 
 ### <a name="configure-cors"></a>配置 CORS
 
-在 Cloud Shell 中，使用 [`az resource update`](/cli/azure/resource#az_resource_update) 命令对客户端的 URL 启用 CORS。 替换 _\<back\_end\_app\_name>_ 和 _\<front\_end\_app\_name>_ 占位符。
+在 Cloud Shell 中，使用 [`az resource update`](/cli/azure/resource#az-resource-update) 命令对客户端的 URL 启用 CORS。 替换 _\<back\_end\_app\_name>_ 和 _\<front\_end\_app\_name>_ 占位符。
 
 ```azurecli
-az resource update --name web --resource-group myAuthResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<back_end_app_name> --set properties.cors.allowedOrigins="['https://<front_end_app_name>.chinacloudapi.cn.net']" --api-version 2015-06-01
+az resource update --name web --resource-group myAuthResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<back_end_app_name> --set properties.cors.allowedOrigins="['https://<front_end_app_name>.chinacloudapi.cn']" --api-version 2015-06-01
 ```
 
 此步骤与身份验证和授权无关。 但是，只有执行此步骤，才能使用浏览器从 Angular.js 应用进行跨域 API 调用。 有关详细信息，请参阅[添加 CORS 功能](app-service-web-tutorial-rest-api.md#add-cors-functionality)。
@@ -352,7 +357,7 @@ az resource update --name web --resource-group myAuthResourceGroup --namespace M
 
 在本地存储库中，打开 _wwwroot/index.html_。
 
-在第 51 行中，将 `apiEndpoint` 变量设置为后端应用的 URL (`https://<back_end_app_name>.chinacloudapi.cn.net`)。 在应用服务中将 _\<back\_end\_app\_name>_ 替换为你的应用名称。
+在第 51 行中，将 `apiEndpoint` 变量设置为后端应用的 URL (`https://<back_end_app_name>.chinacloudapi.cn`)。 在应用服务中将 _\<back\_end\_app\_name>_ 替换为你的应用名称。
 
 在本地存储库中打开 _wwwroot/app/scripts/todoListSvc.js_，然后就会看到 `apiEndpoint` 已前置到所有 API 调用。 Angular.js 应用现在可以调用后端 API 了。 
 
@@ -406,7 +411,7 @@ git commit -m "add authorization header for Angular"
 git push frontend master
 ```
 
-再次导航到 `https://<front_end_app_name>.chinacloudapi.cn.net`。 现在应该可以直接在 Angular.js 应用中通过后端应用创建、读取、更新和删除数据了。
+再次导航到 `https://<front_end_app_name>.chinacloudapi.cn`。 现在应该可以直接在 Angular.js 应用中通过后端应用创建、读取、更新和删除数据了。
 
 祝贺！ 客户端代码现在可以代表经身份验证的用户访问后端数据了。
 

@@ -17,12 +17,12 @@ ms.workload: iaas-sql-server
 origin.date: 06/11/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 97f98b33d9771a3e0e0085cdd8565d1e05c7ebe5
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 59ee00a007379064333ac8042d6e0aa59f851174
+ms.sourcegitcommit: f6a287a11480cbee99a2facda2590f3a744f7e45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675082"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53786741"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>在 Azure 虚拟机上配置 SQL Server 故障转移群集实例
 
@@ -114,7 +114,7 @@ S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述
    - 在“创建可用性集”边栏选项卡中设置以下值： 
       - **名称**：可用性集的名称。
       - **订阅**：Azure 订阅。
-      - **资源组**：如果想要使用现有的组，请单击“使用现有项”并从下拉列表中选择该组。 否则，请选择“新建”并键入组的名称。
+      - **资源组**：如果想要使用现有的组，请单击“使用现有”并从下拉列表中选择该组。 否则，请选择“新建”并键入组的名称。
       - **位置**：设置要在其中创建虚拟机的位置。
       - **容错域**：使用默认值 (3)。
       - **更新域**：使用默认值 (5)。
@@ -249,13 +249,13 @@ S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述
 1. 单击“下一步”。
 1. 在“确认”中，单击“下一步”。
 
-“验证配置向导”将运行验证测试。
+    “验证配置向导”将运行验证测试。
 
-若要使用 PowerShell 验证群集，请在某个虚拟机上通过管理员 PowerShell 会话运行以下脚本。
+    若要使用 PowerShell 验证群集，请在某个虚拟机上通过管理员 PowerShell 会话运行以下脚本。
 
-   ```PowerShell
-   Test-Cluster -Node ("<node1>","<node2>") -Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
-   ```
+    ```PowerShell
+    Test-Cluster -Node ("<node1>","<node2>") -Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
+    ```
 
 验证群集后，创建故障转移群集。
 
@@ -366,13 +366,13 @@ S2D 的磁盘需是空的，不包含分区或其他数据。 若要清除磁盘
 1. 为负载均衡器配置以下属性：
 
    - **名称**：标识负载均衡器的名称。
-   - **类型**：负载均衡器可以是公共或专用的。 专用负载均衡器可从同一 VNET 内部访问。 大多数 Azure 应用程序可以使用专用负载均衡器。 如果应用程序需要通过 Internet 直接访问 SQL Server，请使用公共负载均衡器。
-   - **虚拟网络**：虚拟机所在的同一网络。
-   - **子网**：虚拟机所在的同一子网。
+   - **类型**：负载均衡器可以是公共的或专用的。 专用负载均衡器可从同一 VNET 内部访问。 大多数 Azure 应用程序可以使用专用负载均衡器。 如果应用程序需要通过 Internet 直接访问 SQL Server，请使用公共负载均衡器。
+   - **虚拟网络**：虚拟机所在的网络。
+   - **子网**：虚拟机所在的子网。
    - **专用 IP 地址**：分配给 SQL Server FCI 群集网络资源的同一 IP 地址。
    - **订阅**：Azure 订阅。
-   - **资源组**：使用虚拟机所在的同一资源组。
-   - **位置**：使用虚拟机所在的同一 Azure 位置。
+   - **资源组**：使用虚拟机所在的资源组。
+   - **位置**：使用虚拟机所在的 Azure 位置。
    参阅下图：
 
    ![CreateLoadBalancer](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)
@@ -400,7 +400,7 @@ S2D 的磁盘需是空的，不包含分区或其他数据。 若要清除磁盘
    - **名称**：运行状况探测的名称。
    - **协议**：TCP。
    - **端口**：设置为可用的 TCP 端口。 此端口需是打开的防火墙端口。 使用在防火墙中为运行状况探测设置的 [同一端口](#ports) 。
-   - **间隔**：5 秒。
+   - **时间间隔**：5 秒。
    - **不正常阈值**：2 次连续失败。
 
 1. 单击“确定”。
@@ -420,8 +420,8 @@ S2D 的磁盘需是空的，不包含分区或其他数据。 若要清除磁盘
    - **后端池**：使用前面配置的后端池名称。
    - **运行状况探测**：使用前面配置的运行状况探测。
    - **会话持久性**：无。
-   - **空闲超时(分钟)**：4。
-   - **浮动 IP (直接服务器返回)**：已启用
+   - **空闲超时(分钟)**：4.
+   - **浮动 IP (直接服务器返回)**：Enabled
 
 1. 单击 **“确定”**。
 

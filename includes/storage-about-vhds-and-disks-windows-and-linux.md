@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: storage
 ms.topic: include
 origin.date: 04/09/2018
-ms.date: 11/26/2018
+ms.date: 12/24/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: acdd93fad2a147a65f082c70eef5ddc9e5cb58cc
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 8f0aea2eb0dc77074c602180eb261d113e109831
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676030"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736226"
 ---
 ## <a name="about-vhds"></a>关于 VHD
 
@@ -74,8 +74,8 @@ Azure 磁盘具备 99.999% 的可用性。 Azure 磁盘持续提供企业级持�
 | 概述  | 基于 SSD 的高性能、低延迟磁盘支持，适用于运行 IO 密集型工作负荷或托管任务关键型生产环境的 VM |比 HDD 更一致的性能和可靠性。 适用于低 IOPS 工作负荷| 基于 HDD 的经济高效型磁盘，适用于访问频率不高的方案
 | 方案  | 生产和性能敏感型工作负荷 |Web 服务器、不常使用的企业应用程序和开发/测试| 备份、非关键、不常访问
 | 磁盘大小 | P4：32 GiB（仅托管磁盘）<br>P6：64 GiB（仅托管磁盘）<br>P10：128 GiB<br>P15：256 GiB（仅托管磁盘）<br>P20：512 GiB<br>P30：1024 GiB<br>P40：2048 GiB<br>P50：4,095 GiB |仅托管磁盘：<br>E10：128 GiB<br>E15：256 GiB<br>E20：512 GiB<br>E30：1024 GiB<br>E40：2048 GiB<br>E50：4095 GiB | 非托管磁盘：1 GiB - 4 TiB (4095 GiB) <br><br>托管磁盘：<br> S4：32 GiB <br>S6：64 GiB <br>S10：128 GiB <br>S15：256 GiB <br>S20：512 GiB <br>S30：1024 GiB <br>S40：2048 GiB<br>S50：4095 GiB
-| 每个磁盘的最大吞吐量 | P4：25 MiB/秒<br> P6：50 MiB/秒<br> P10：100 MiB/秒<br> P15：200 MiB/秒<br> P20：150 MiB/秒<br> P30：200 MiB/秒<br> P40-P50：250 MiB/秒 | E10-E50：高达 60 MiB/秒| S4 - S50：高达 60 MiB/秒
-| 每个磁盘的最大 IOPS | P4：120 IOPS<br> P6：240 IOPS<br> P10：500 IOPS<br> P15：1100 IOPS<br> P20：2300 IOPS<br> P30：5000 IOPS<br> P40-P50：7500 IOPS | E10-E50：高达 500 IOPS | S4-S50：高达 500 IOPS
+| 每个磁盘的最大吞吐量 | P4：25 MiB/秒<br> P6：50 MiB/秒<br> P10：100 MiB/秒<br> P15：125 MiB/秒<br> P20：150 MiB/秒<br> P30：200 MiB/秒<br> P40-P50：250 MiB/秒 | E10-E50：高达 60 MiB/秒| S4 - S50：高达 60 MiB/秒
+| 每个磁盘的最大 IOPS | P4：120 IOPS<br> P6：240 IOPS<br> P10：500 IOPS<br> P15：1100 IOPS<br> P20：2300 IOPS<br> P30：5000 IOPS<br> P40-P50：7500 IOPS | E10-E50：最高 500 IOPS | S4-S50：最高 500 IOPS
 
 <!--Notice:  P60, P70, P80,  E60, E70, E80, S60, S70, S80 are not invalid on MC-->
 <!-- Update_Description: wording update, update link -->

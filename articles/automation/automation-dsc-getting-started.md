@@ -7,15 +7,15 @@ ms.component: dsc
 author: WenJason
 ms.author: v-jay
 origin.date: 08/08/2018
-ms.date: 09/10/2018
+ms.date: 12/24/2018
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 17d07195ef76ae32de7d4af0b0728a3acc9d4cf3
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 818a0e8ade7c70c7baab1716123f54213f8d407d
+ms.sourcegitcommit: 895e9accaae8f8c2a29ed91d8e84911fda6111cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659176"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53615185"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Azure Automation State Configuration 入门
 
@@ -28,7 +28,7 @@ ms.locfileid: "52659176"
 若要完成本文中的示例，需要具备以下条件：
 
 - 一个 Azure 自动化帐户。 有关如何创建 Azure 自动化运行方式帐户的说明，请参阅 [Azure 运行方式帐户](automation-sec-configure-azure-runas-account.md)。
-- 一个运行 Windows Server 2008 R2 或更高版本的 Azure 资源管理器 VM（非经典）。 如需创建 VM 的说明，请参阅[在 Azure 门户中创建第一个 Windows 虚拟机](../virtual-machines/windows/quick-create-portal.md)
+- 一个运行 Windows Server 2008 R2 或更高版本的 Azure 资源管理器 VM（非经典）。 如需创建 VM 的说明，请参阅[在 Azure 门户中创建第一个 Windows 虚拟机](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
 ## <a name="creating-a-dsc-configuration"></a>创建 DSC 配置
 

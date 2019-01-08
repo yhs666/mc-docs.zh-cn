@@ -16,12 +16,12 @@ origin.date: 05/31/2017
 ms.date: 05/14/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 10624eb760b8b0a98762b4399257b8ff5e9f1beb
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: eb33c47bc80235380fdebf54e6960f1d203ec09f
+ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660469"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785158"
 ---
 # <a name="what-to-do-in-the-event-that-an-azure-service-disruption-impacts-azure-vms"></a>发生影响 Azure VM 的 Azure 服务中断事件时该怎么办
 Azure.cn 的同仁兢兢业业，只为确保在任何时候都能提供需要的服务。 但有时候会因为不可抗力的影响，造成服务意外中断。
@@ -55,5 +55,5 @@ Azure 已在平台中内置多种功能，用于支持高度可用的应用程�
 
 - 若要掌握有关云平台功能的详细技术知识，请参阅 [Azure 复原技术指南](../resiliency/resiliency-technical-guidance.md)。
 
-- 如果指示不清楚，或者如果希望 Azure.cn 代你执行操作，请联系[客户支持](https://www.azure.cn/support/support-azure/)。
+- 如果指示不清楚，或者如果希望 Azure.cn 代你执行操作，请联系[客户支持](https://support.azure.cn/zh-cn/support/support-azure/)。
 <!-- Update_Description: update meta properties -->

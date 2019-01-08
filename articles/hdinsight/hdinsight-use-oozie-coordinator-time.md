@@ -13,14 +13,14 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 10/04/2017
-ms.date: 08/27/2018
+ms.date: 12/24/2018
 ms.author: v-yiso
-ms.openlocfilehash: 93c5279748d195922e9717c1311c96c1b64ca344
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5ec5a92b301589d88cea2b417f5063a3b30c0bb6
+ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645638"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53569286"
 ---
 # <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>将基于时间的 Oozie 协调器与 HDInsight 中的 Hadoop 配合使用以定义工作流和协调作业
 
@@ -111,7 +111,7 @@ Oozie 工作流定义是用 hPDL（一种 XML 过程定义语言）编写的。 
 4. **INSERT OVERWRITE 语句**从 log4j Hive 表统计每个日志级类型的次数，并将输出结果保存到 Azure Blob 存储位置。
 
 > [!NOTE]
-> 有一个已知的 Hive 路径问题。 会在提交 Oozie 作业时遇到此问题。 可在 TechNet Wiki 上找到解决此问题的说明： [HDInsight Hive 错误:无法重命名][technetwiki-hive-error]。
+> 有一个已知的 Hive 路径问题。 会在提交 Oozie 作业时遇到此问题。 可在 TechNet Wiki 上找到有关解决此问题的说明：[HDInsight Hive 错误：无法重命名][technetwiki-hive-error]。
 
 **定义由工作流调用的 HiveQL 脚本文件**
 
@@ -294,7 +294,7 @@ HDInsight 使用 Azure Blob 存储进行数据存储。 在 Azure Blob 存储中
 * CREATE EXTERNAL TABLE 命令不移动数据文件。
 * CREATE EXTERNAL TABLE 命令不允许 LOCATION 子句中指定的文件夹下有任何子文件夹。 这是本教程生成 sample.log 文件副本的原因。
 
-有关详细信息，请参阅 [HDInsight：Hive 内部和外部表简介][cindygross-hive-tables]。
+有关详细信息，请参阅 [HDInsight：Hive 内部表和外部表简介][cindygross-hive-tables]。
 
 **准备教程**
 
@@ -556,12 +556,12 @@ HDInsight 使用 Azure Blob 存储进行数据存储。 在 Azure Blob 存储中
         $response = Invoke-RestMethod -Method Get -Uri $clusterUriStatus -Credential $creds -OutVariable $OozieServerStatus
 
         $jsonResponse = ConvertFrom-Json (ConvertTo-Json -InputObject $response)
-        $oozieServerSatus = $jsonResponse[0].("systemMode")
-        Write-Host "Oozie server status is $oozieServerSatus..."
+        $oozieServerStatus = $jsonResponse[0].("systemMode")
+        Write-Host "Oozie server status is $oozieServerStatus..."
 
-        if($oozieServerSatus -notmatch "NORMAL")
+        if($oozieServerStatus -notmatch "NORMAL")
         {
-            Write-Host "Oozie server status is $oozieServerSatus...cannot submit Oozie jobs. Check the server status and re-run the job."
+            Write-Host "Oozie server status is $oozieServerStatus...cannot submit Oozie jobs. Check the server status and re-run the job."
         }
     }
     ```

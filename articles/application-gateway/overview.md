@@ -3,38 +3,34 @@ title: Azure 应用程序网关的定义
 description: 了解如何使用 Azure 应用程序网关管理应用程序的 Web 流量。
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.workload: infrastructure-services
 origin.date: 10/11/2018
-ms.date: 10/17/2018
+ms.date: 12/19/2018
 ms.author: v-junlch
-ms.openlocfilehash: 6f1932f58da4ed7c762ad63aaaf33e2071101ba9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 544859e01ec791883960c25f505eb0a221d06a7d
+ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651231"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53656524"
 ---
 # <a name="what-is-azure-application-gateway"></a>什么是 Azure 应用程序网关？
 
-Azure 应用程序网关是一种 Web 流量负载均衡器，可用于管理 Web 应用程序的流量。 
+Azure 应用程序网关是一种 Web 流量负载均衡器，可用于管理 Web 应用程序的流量。 传统负载均衡器在传输层（OSI 层 4 - TCP 和 UDP）进行操作，并基于源 IP 地址和端口将流量路由到目标 IP 地址和端口。
 
-传统负载均衡器在传输层（OSI 层 4 - TCP 和 UDP）进行操作，并基于源 IP 地址和端口将流量路由到目标 IP 地址和端口。 但在使用应用程序网关时，可以实现更具体的操作。 例如，可以基于传入 URL 路由流量。 因此，如果 `/images` 在传入 URL 中，则可将流量路由到为映像配置的一组特定服务器（称为池）中。 如果 `/video` 在 URL 中，则可将该流量路由到为视频优化的另一个池中。
+![应用程序网关概念](./media/overview/figure1-720.png)
+
+但在使用应用程序网关时，可以实现更具体的操作。 例如，可以基于传入 URL 路由流量。 因此，如果 `/images` 在传入 URL 中，则可将流量路由到为映像配置的一组特定服务器（称为池）中。 如果 `/video` 在 URL 中，则可将该流量路由到为视频优化的另一个池中。
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1-720.png)
 
 这种类型的路由称为应用程序层（OSI 层 7）负载均衡。 Azure 应用程序网关可以执行基于 URL 的路由等操作。 
 
-以下功能是 Azure 应用程序网关附带的：
+## <a name="secure-sockets-layer-ssl-termination"></a>安全套接字层 (SSL) 终止
 
-## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Azure Kubernetes 服务 (AKS) 入口控制器预览版 
-
-应用程序网关入口控制器作为 pod 在 AKS 群集中运行，并允许应用程序网关充当 AKS 群集的入口。 
-
-有关详细信息，请参阅 [Azure 应用程序网关入口控制器](https://azure.github.io/application-gateway-kubernetes-ingress/)。
+应用程序网关支持在网关上终止 SSL，之后，流量通常会以未加密状态流到后端服务器。 此功能让 Web 服务器不用再负担昂贵的加密和解密开销。 但有时，与服务器进行未加密的通信不是可以接受的选项。 这可能是因为安全要求、符合性要求，或者应用程序可能仅接受安全连接。 对于这些应用程序，应用程序网关支持端到端 SSL 加密。
 
 ## <a name="connection-draining"></a>连接清空
 
@@ -45,10 +41,6 @@ Azure 应用程序网关是一种 Web 流量负载均衡器，可用于管理 We
 
 有关详细信息，请参阅[创建应用程序网关自定义错误页](custom-error.md)。
 
-## <a name="secure-sockets-layer-ssl-termination"></a>安全套接字层 (SSL) 终止
-
-应用程序网关支持在网关上终止 SSL，之后，流量通常会以未加密状态流到后端服务器。 此功能让 Web 服务器不用再负担昂贵的加密和解密开销。 但有时，与服务器进行未加密的通信不是可以接受的选项。 这可能是因为安全要求、符合性要求，或者应用程序可能仅接受安全连接。 对于此类应用程序，应用程序网关支持端到端 SSL 加密。
-
 ## <a name="web-application-firewall"></a>Web 应用程序防火墙
 
 Web 应用程序防火墙 (WAF) 是应用程序网关的功能，可以对 Web 应用程序进行集中保护，避免其受到常见的攻击和漏洞伤害。 WAF 基于 [OWASP（开放 Web 应用程序安全项目）核心规则集](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 或 2.2.9 中的规则。 
@@ -57,7 +49,7 @@ Web 应用程序已逐渐成为利用常见已知漏洞的恶意攻击的目标�
 
 ## <a name="url-based-routing"></a>基于 URL 的路由
 
-基于 URL 路径的路由可让你根据请求的 URL 路径，将流量路由到后端服务器池。 方案之一是将不同内容类型的请求路由到不同的池。
+基于 URL 路径的路由用于根据请求的 URL 路径，将流量路由到后端服务器池。 方案之一是将不同内容类型的请求路由到不同的池。
 
 例如，将 `http://contoso.com/video/*` 的请求路由到 VideoServerPool，将 `http://contoso.com/images/*` 的请求路由到 ImageServerPool。 如果没有任何路径模式匹配，则选择 DefaultServerPool。
 
@@ -81,22 +73,15 @@ Web 应用程序已逐渐成为利用常见已知漏洞的恶意攻击的目标�
 - 基于路径的重定向。 这种类型的重定向只能在特定站点区域（例如 `/cart/*` 表示的购物车区域）中进行 HTTP 到 HTTPS 的重定向。
 - 重定向到外部站点。
 
-
-
 ## <a name="session-affinity"></a>会话相关性
 
 需要在同一服务器上保留用户会话时，可以使用基于 Cookie 的会话相关性功能。 借助网关托管的 Cookie，应用程序网关可以将来自用户会话的后续流量定向到同一服务器进行处理。 在用户会话的会话状态在服务器上进行本地保存的情况下，此功能十分重要。
 
-
-
-
 ## <a name="websocket-and-http2-traffic"></a>Websocket 和 HTTP/2 流量
 
 应用程序网关为 WebSocket 和 HTTP/2 协议提供本机支持。 用户无法通过配置设置来选择性地启用或禁用 WebSocket 支持。 可以通过 Azure PowerShell 启用 HTTP/2 支持。
- 
+
 WebSocket 和 HTTP/2 协议通过长时间运行的 TCP 连接，在服务器和客户端之间实现全双工通信。 此功能让 Web 服务器和客户端之间能够进行交互性更强的通信。这种通信可以是双向的，而且不像基于 HTTP 的实现那样需要轮询。 不同于 HTTP，这些协议的开销很低，并且可以对多个请求/响应重复使用同一 TCP 连接，从而提高资源利用率。 这些协议设计为通过传统 HTTP 端口 80 和 443 运行。
-
-
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -106,3 +91,4 @@ WebSocket 和 HTTP/2 协议通过长时间运行的 TCP 连接，在服务器和
 - [快速入门：使用 Azure 应用程序网关定向 Web 流量 - Azure PowerShell](quick-create-powershell.md)
 - [快速入门：使用 Azure 应用程序网关定向 Web 流量 - Azure CLI](quick-create-cli.md)
 
+<!-- Update_Description: wording update -->

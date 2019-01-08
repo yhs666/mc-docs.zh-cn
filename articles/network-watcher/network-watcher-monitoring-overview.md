@@ -1,5 +1,5 @@
 ---
-title: Azure 网络观察程序 | Azure
+title: Azure 网络观察程序 | Azure Docs
 description: 了解 Azure 网络观察程序针对虚拟网络中的资源提供的监视、诊断、指标和日志记录功能。
 services: network-watcher
 documentationcenter: na
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 04/24/2018
-ms.date: 11/26/2018
+origin.date: 12/24/2018
+ms.date: 12/24/2018
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 01e675c7c8ac0b4250bfda301b168e705c261207
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 590898f882ba40a5ee26c32ea6b1486d7b10a313
+ms.sourcegitcommit: 649f5093a9a9a89f4117ae3845172997922aec31
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675048"
+ms.lasthandoff: 12/24/2018
+ms.locfileid: "53784617"
 ---
 # <a name="what-is-azure-network-watcher"></a>Azure 网络观察程序是什么？
 
@@ -105,7 +105,9 @@ Azure 网络观察程序提供所需的工具用于监视、诊断 Azure 虚拟�
 
 可以针对网络安全组、公共 IP 地址、负载均衡器、虚拟网络网关和应用程序网关等 Azure 网络资源启用诊断日志记录。 诊断日志功能提供单个界面，用于针对生成诊断日志的任何现有网络资源启用和禁用网络资源诊断日志。 可以使用 Microsoft Power BI 等工具查看诊断日志。
 
-<!-- Not Available on [Azure network solutions in Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fnetwork-watcher%2ftoc.json)-->
+## <a name="network-watcher-automatic-enablement"></a>网络观察程序自动启用
+在订阅中创建或更新虚拟网络时，将在虚拟网络的区域中自动启用网络观察程序。 自动启用网络观察程序对资源或相关费用没有任何影响。 有关详细信息，请参阅[网络观察程序 - 创建](network-watcher-create.md)。
+
 ## <a name="next-steps"></a>后续步骤
 
 上面就是 Azure 网络观察程序的概述。 若要开始使用网络观察程序，请使用 IP 流验证来诊断与虚拟机之间的常见通信问题。 有关操作方法，请参阅[诊断虚拟机网络流量筛选问题](diagnose-vm-network-traffic-filtering-problem.md)快速入门。

@@ -5,20 +5,23 @@ author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: howto
-origin.date: 09/24/2018
-ms.date: 11/26/2018
+origin.date: 12/24/2018
+ms.date: 12/24/2018
 ms.author: v-lingwu
 ms.component: metrics
-ms.openlocfilehash: 7f865ad1a2bde137b5716eda59a30b97ff8c0560
-ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
+ms.openlocfilehash: 4dce58494751b74e8a2c2ec16ada23e5e5d6a830
+ms.sourcegitcommit: 649f5093a9a9a89f4117ae3845172997922aec31
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53219542"
+ms.lasthandoff: 12/24/2018
+ms.locfileid: "53784588"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>使用 REST API 将 Azure 资源的自定义指标发送到 Azure Monitor 指标存储
 
 本文展示了如何通过 REST API 将 Azure 资源的自定义指标发送到 Azure Monitor 指标存储。 在这些指标位于 Azure Monitor 中之后，你可以像对标准指标一样对其执行所有操作。 示例包括绘制图标、发出警报以及将其路由到其他外部工具。    
+
+>[!NOTE]  
+>REST API 仅允许为 Azure 资源发送自定义指标。 若要为其他环境中或本地的资源发送自定义指标，可以使用 [Application Insights](../application-insights/app-insights-api-custom-events-metrics.md)。    
 
 ## <a name="create-and-authorize-a-service-principal-to-emit-metrics"></a>创建服务主体并授权其发布指标 
 

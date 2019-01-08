@@ -6,15 +6,15 @@ services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 origin.date: 11/01/2018
-ms.date: 11/26/2018
+ms.date: 12/24/2018
 ms.author: v-lingwu
 ms.component: ''
-ms.openlocfilehash: 7bbfaf55eb99a6f191be8e6471b44488ceacd73f
-ms.sourcegitcommit: d3b05039466ddf239c9134f002a034d4e75b03db
+ms.openlocfilehash: c62f91a464baca3b49868fad2d76a7d5cee79050
+ms.sourcegitcommit: 649f5093a9a9a89f4117ae3845172997922aec31
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53234012"
+ms.lasthandoff: 12/24/2018
+ms.locfileid: "53784604"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>将 Azure 监视数据流式传输到事件中心以便外部工具使用
 
@@ -69,7 +69,7 @@ Azure 订阅监视数据可以在 [Azure 活动日志](./monitoring-overview-act
 
 Azure 资源将发出两种类型的监视数据：
 1. [资源诊断日志](./monitoring-overview-of-diagnostic-logs.md)
-2. [指标](monitoring-overview-metrics.md)
+2. [度量值](monitoring-overview-metrics.md)
 
 使用资源诊断设置将两种类型的数据发送到事件中心。 [按照本指南](./monitoring-stream-diagnostic-logs-to-event-hubs.md)在特定资源上设置资源诊断设置。 在要从其收集日志的每个资源上设置资源诊断设置。
 
@@ -98,7 +98,7 @@ Azure 资源将发出两种类型的监视数据：
 
 通过 Azure Monitor 将监视数据路由到事件中心，可与合作伙伴 SIEM 和监视工具轻松集成。 大多数工具需要事件中心连接字符串和对 Azure 订阅的某些权限，才能从事件中心读取数据。 下面是与 Azure Monitor 集成的工具的不完整列表：
 
-* **IBM QRadar** -Microsoft Azure DSM 和 Microsoft Azure 事件中心协议均可从 [IBM 支持网站](http://www.ibm.com/support)下载。 可以[在此处了解 Azure 集成](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0)。
+* **IBM QRadar** - 世纪互联 Azure DSM 和世纪互联 Azure 事件中心协议均可从 [IBM 支持网站](http://www.ibm.com/support)下载。 可以[在此处了解 Azure 集成](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0)。
 * **Splunk** - 有两种方法，具体取决于 Splunk 设置：
     1. [适用于 Splunk 的 Azure Monitor 加载项](https://splunkbase.splunk.com/app/3534/)可在 Splunkbase 中找到，它是一个开源项目。 [文档见此处](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk)。
     2. 如果无法在 Splunk 实例中安装加载项（例如， 如果使用代理或在 Splunk Cloud 上运行），可以使用[此函数（由事件中心中的新消息触发）](https://github.com/Microsoft/AzureFunctionforSplunkVS)将这些事件转发到 Splunk HTTP 事件收集器。

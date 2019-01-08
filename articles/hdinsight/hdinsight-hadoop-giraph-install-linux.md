@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 04/23/2018
-ms.date: 11/19/2018
+ms.date: 12/24/2018
 ms.author: v-yiso
-ms.openlocfilehash: 3f97c3981e4ea68d0fd07ee8121aff15ae2e44f1
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 22b6638bab8d7bfde0e59aa118968fccef5de95f
+ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655575"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53569324"
 ---
 # <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>在 HDInsight Hadoop 群集上安装 Giraph 并使用 Giraph 处理大型图形
 
@@ -38,7 +38,7 @@ ms.locfileid: "52655575"
 > [!WARNING]
 > 完全支持通过 HDInsight 群集提供的组件，Azure 支持部门将帮助找出并解决与这些组件相关的问题。
 >
-> 自定义组件（如 Giraph）可获得合理范围的支持，以帮助你进一步排查问题。 Azure.cn 支持可能能够解决问题。 如果不能，你必须去开源社区查阅资料，可以在那里找到关于该技术的深层专业知识。 有许多可以使用的社区站点，例如：[HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)和 [Azure CSDN](http://azure.csdn.net)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如 [Hadoop](http://hadoop.apache.org/)。
+> 自定义组件（如 Giraph）可获得合理范围的支持，以帮助你进一步排查问题。 Azure 支持部门可能能够解决问题。 如果不能，你必须去开源社区查阅资料，可以在那里找到关于该技术的深层专业知识。 有许多可以使用的社区站点，例如：[面向 HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)、[Azure CSDN](http://azure.csdn.net)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如：[Hadoop](http://hadoop.apache.org/)。
 
 ## <a name="what-the-script-does"></a>脚本功能
 

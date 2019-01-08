@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 origin.date: 09/26/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 588a492620e66f0242bb455a55a6cb94e01d0adc
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 7ae04453807d8f1ed1c4c94d7831cc6e5224828f
+ms.sourcegitcommit: f6a287a11480cbee99a2facda2590f3a744f7e45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675631"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53786736"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Azure 虚拟机中的 SQL Server 的性能准则
 
@@ -52,8 +52,8 @@ ms.locfileid: "52675631"
 
 对于性能敏感型应用程序，建议使用以下[虚拟机大小](../sizes.md)：
 
-* **SQL Server Enterprise 版**：DS3_v2 或更高
-* **SQL Server Standard 和 Web 版**：DS2_v2 或更高
+* **SQL Server Enterprise 版本**：DS3_v2 或更高版本
+* **SQL Server Standard 和 Web 版本**：DS2_v2 或更高版本
 
 [DSv2 系列](../sizes-general.md#dsv2-series) VM 支持高级存储，高级存储是能提供最佳性能的推荐选择。 这里推荐的大小是基线，实际选择的计算机大小取决于工作负载的需求。 DSv2 系列 VM 是常规用途的 VM，适用于各种工作负载，而其他计算机大小针对特定工作负载类型进行了优化。 例如，[M 系列](../sizes-memory.md#m-series)为最大型的 SQL Server 工作负载提供最高的 vCPU 数量和内存。 [DSv2 系列 11-15](../sizes-memory.md#dsv2-series-11-15) 经过优化，可满足较大的内存需求。 还可以在[受约束的核心大小](../../windows/constrained-vcpu.md)中选择这两种系列，这样能降低计算需求，从而节省工作负载的成本。 
 
@@ -61,7 +61,7 @@ ms.locfileid: "52675631"
 <!-- Not Available on [Ls-series](../sizes-storage.md)-->
 ## <a name="storage-guidance"></a>存储指导原则
 
-DS 系列（以及 DSv2 系列和 GS 系列）VM 支持[高级存储](../premium-storage.md)。 对于所有生产工作负荷，建议使用高级存储。
+DS 系列（以及 DSv2 系列）VM 支持[高级存储](../premium-storage.md)。 对于所有生产工作负荷，建议使用高级存储。
 
 <!--Not Available on GS-series -->
 > [!WARNING]
@@ -75,7 +75,7 @@ Azure VM 上有三种主要磁盘类型：
 
 * **OS 磁盘**：创建 Azure 虚拟机时，该平台至少将一个磁盘（标记为 **C** 驱动器）附加到 VM 作为操作系统磁盘。 此磁盘是一个 VHD，在存储空间中存储为一个页 blob。
 * **临时磁盘**：Azure 虚拟机包含另一个称为临时磁盘的磁盘（标记为 **D**: 驱动器）。 这是可用于暂存空间的节点上的一个磁盘。
-* **数据磁盘**：还可以将其他磁盘作为数据磁盘附加到虚拟机，这些磁盘在存储空间中存储为页 blob。
+* **数据磁盘**：还可以将其他磁盘作为数据磁盘附加到虚拟机，这些磁盘在存储空间中存储为页 Blob。
 
 以下部分说明了有关使用这些不同磁盘的建议。
 
@@ -89,9 +89,9 @@ Azure VM 上有三种主要磁盘类型：
 
 临时存储驱动器，标记为 **D**: 驱动器，不会保留到 Azure Blob 存储中。 不要在 **D**: 驱动器中存储用户数据库文件或用户事务日志文件。
 
-D 系列、Dv2 系列和 G 系列 VM 上的临时驱动器基于 SSD。 如果工作负荷重度使用 TempDB（例如，要处理临时对象或复杂联接），在 **D** 驱动器上存储 TempDB 可能会提高 TempDB 吞吐量并降低 TempDB 延迟。 有关示例方案，请参阅以下博客文章中的 TempDB 讨论：[Azure VM 上的 SQL Server 的存储配置准则](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/)。
+D 系列和 Dv2 系列 VM 上的临时驱动器基于 SSD。 如果工作负荷重度使用 TempDB（例如，要处理临时对象或复杂联接），在 **D** 驱动器上存储 TempDB 可能会提高 TempDB 吞吐量并降低 TempDB 延迟。 有关示例方案，请参阅以下博客文章中的 TempDB 讨论：[Storage Configuration Guidelines for SQL Server on Azure VM](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/)（Azure VM 上的 SQL Server 的存储配置准则）。
 
-对于支持高级存储的 VM（DS 系列和 DSv2 系列），我们建议将 TempDB 存储在支持高级存储且已启用读取缓存的磁盘上。 这项建议有一种例外情况；如果 TempDB 的使用是写入密集型的，则可以通过将 TempDB 存储在本地 **D** 驱动器（在这些计算机大小上也是基于 SSD）上来实现更高性能。
+<!--Not Available on G-series --> 对于支持高级存储的 VM（DS 系列和 DSv2 系列），我们建议将 TempDB 存储在支持高级存储且已启用读取缓存的磁盘上。 这项建议有一种例外情况；如果 TempDB 的使用是写入密集型的，则可以通过将 TempDB 存储在本地 **D** 驱动器（在这些计算机大小上也是基于 SSD）上来实现更高性能。
 
 <!--Not Available on GS-series -->
 ### <a name="data-disks"></a>数据磁盘数
@@ -99,7 +99,7 @@ D 系列、Dv2 系列和 G 系列 VM 上的临时驱动器基于 SSD。 如果�
 * **将数据磁盘用于数据和日志文件**：如果不使用磁盘条带化，请使用两个高级存储 [P30 磁盘](../premium-storage.md#scalability-and-performance-targets)，一个磁盘包含日志文件，另一个包含数据和 TempDB 文件。 每个高级存储磁盘均根据其大小提供了许多 IOP 和带宽 (MB/s)，如[使用高级存储磁盘](../premium-storage.md)一文中所述。 如果使用磁盘条带化技术，例如存储空间，则可实现最佳性能，因为将具有两个池，一个用于日志文件，另一个用于数据文件。 但是，如果你打算使用 SQL Server 故障转移群集实例 (FCI)，则必须配置单个池。
 
    > [!TIP]
-   > 有关针对各种磁盘和工作负荷配置的测试结果，请参阅以下博客文章：[Azure VM 上的 SQL Server 的存储配置准则](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/)。
+   > 有关针对各种磁盘和工作负荷配置的测试结果，请参阅以下博客文章：[Storage Configuration Guidelines for SQL Server on Azure VM](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/)（Azure VM 上的 SQL Server 的存储配置准则）。
 
    > [!NOTE]
    > 在门户中预配 SQL Server VM 时，你可以编辑存储配置。 Azure 将根据你所做的配置来配置一个或多个磁盘。 将使用条带化功能将多个磁盘组合到单个存储池中。 数据文件和日志文件一起位于此配置中。 有关详细信息，请参阅 [SQL Server VM 的存储配置](virtual-machines-windows-sql-server-storage-configuration.md)。
@@ -136,14 +136,14 @@ D 系列、Dv2 系列和 G 系列 VM 上的临时驱动器基于 SSD。 如果�
 
   * 前面的建议适用于高级存储磁盘。 如果使用的不是高级存储，不要在任何数据磁盘上启用任何缓存。
 
-  * 有关配置磁盘缓存的说明，请参阅以下文章。 有关经典 (ASM) 部署模型，请参阅 [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) 和 [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx)。 有关 Azure 资源管理器部署模型，请参阅 [Set-AzureRMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-4.4.1) 和 [Set-AzureRMVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk?view=azurermps-4.4.1)。
+  * 有关配置磁盘缓存的说明，请参阅以下文章。 有关经典 (ASM) 部署模型，请参阅：[Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) 和 [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx)。 有关 Azure 资源管理器部署模型，请参阅：[Set-AzureRMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-4.4.1) 和 [Set-AzureRMVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk?view=azurermps-4.4.1)。
 
      > [!WARNING]
      > 请在更改 Azure VM 磁盘的缓存设置时停止 SQL Server 服务，以免出现数据库损坏的情况。
 
-* **NTFS 分配单元大小**：当格式化数据磁盘时，建议为数据和日志文件以及 TempDB 使用 64-KB 分配单元大小。
+* **NTFS 分配单元大小**：当格式化数据磁盘时，建议对数据和日志文件以及 TempDB 使用 64-KB 分配单元大小。
 
-* **磁盘管理最佳实践**：删除数据磁盘或更改其缓存类型时，请在更改过程中停止 SQL Server 服务。 在 OS 磁盘上更改缓存设置时，Azure 会先停止 VM，在更改缓存类型后再重新启动 VM。 更改数据磁盘的缓存设置时，不会停止 VM，但会在更改期间将数据磁盘从 VM 分离，完成后再重新附加该数据磁盘。
+* **磁盘管理最佳做法**：删除数据磁盘或更改其缓存类型时，请在更改过程中停止 SQL Server 服务。 在 OS 磁盘上更改缓存设置时，Azure 会先停止 VM，在更改缓存类型后再重新启动 VM。 更改数据磁盘的缓存设置时，不会停止 VM，但会在更改期间将数据磁盘从 VM 分离，完成后再重新附加该数据磁盘。
 
   > [!WARNING]
   > 在进行这些操作时，如果无法停止 SQL Server 服务，则会导致数据库损坏。

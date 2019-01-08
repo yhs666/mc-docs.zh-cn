@@ -108,8 +108,16 @@ items:
       href: tutorial-multiple-sites-powershell.md
   - name: 重定向流量
     items:
+    - name: 外部流量
+      items:
+      - name: Azure PowerShell
+        href: redirect-external-site-powershell.md
+      - name: Azure CLI
+        href: redirect-external-site-cli.md
     - name: HTTP 到 HTTPS
       items:
+      - name: Azure 门户
+        href: redirect-http-to-https-portal.md
       - name: Azure PowerShell
         href: redirect-http-to-https-powershell.md
       - name: Azure CLI
@@ -136,7 +144,7 @@ items:
       href: application-gateway-create-probe-ps.md
   - name: 故障排除
     items:
-    - name: 排查 Azure 中应用程序网关的问题 – ILB ASE
+    - name: 排查应用程序网关的问题 - ILB ASE
       href: create-gateway-internal-load-balancer-app-service-environment.md
     - name: 排查“错误的网关”(502) 错误
       href: application-gateway-troubleshooting-502.md
@@ -144,7 +152,7 @@ items:
       href: application-gateway-diagnostics.md
   - name: 自定义错误页
     href: custom-error.md
-- name: 参考
+- name: 引用
   items:
   - name: CRS 规则
     href: application-gateway-crs-rulegroups-rules.md
@@ -162,7 +170,7 @@ items:
     href: /develop/python/
   - name: REST
     href: https://docs.microsoft.com/rest/api/applicationgateway
-  - name: Azure Resource Manager
+  - name: Azure 资源管理器
     href: ../azure-resource-manager/resource-group-overview.md
 - name: 资源
   items:
@@ -174,13 +182,13 @@ items:
     href: https://www.azure.cn/zh-cn/pricing/details/application-gateway
   - name: 区域可用性
     href: https://azure.microsoft.com/regions/services/
-  - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-application-gateway
-  - name: 常见问题
+  - name: 堆栈溢出
+    href: https://stackoverflow.com/questions/tagged/azure-application-gateway
+  - name: 常见问题解答
     href: application-gateway-faq.md
-ms.openlocfilehash: 7ff0a7fa903552178b88cc28f69a4b77b24ac39f
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 21e5663600669628dfa78d868f79a846549511f0
+ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672620"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53656529"

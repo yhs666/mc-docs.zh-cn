@@ -1,5 +1,5 @@
 ---
-title: Azure 应用服务和 Azure Functions 中的安全性 | Microsoft Docs
+title: 安全概述 - Azure 应用服务
 description: 了解应用服务如何帮助保护应用，以及如何进一步锁定应用使其免受威胁。
 keywords: azure 应用服务, web 应用, 移动应用, api 应用, 函数应用, 安全性, 保护, 受保护, 符合性, 符合, 证书, 证书, https, ftps, tls, 信任, 加密, 加密, 已加密, ip 限制, 身份验证, 授权, 身份验证, 授权, msi, 托管服务标识, 托管标识, 机密, 机密, 修补, 修补程序, 修补程序, 版本, 隔离, 网络隔离, ddos, mitm
 services: app-service
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/24/2018
-ms.date: 10/29/2018
+ms.date: 12/31/2018
 ms.author: v-biyu
-ms.openlocfilehash: 295ee9260e57dcc528f7d8decd8cc3ee61595884
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.custom: seodec18
+ms.openlocfilehash: 4ecc344b1c2fc7b0152f69a7cfb768be5fbb4cba
+ms.sourcegitcommit: 80c59ae1174d71509b4aa64a28a98670307a5b38
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028595"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735164"
 ---
 # <a name="security-in-azure-app-service-and-azure-functions"></a>Azure 应用服务和 Azure Functions 中的安全性
 
@@ -50,9 +51,9 @@ ms.locfileid: "53028595"
 
 为了保护应用免受所有未加密 (HTTP) 连接的攻击，应用服务提供一键式配置以实施 HTTPS。 不安全的请求在到达你的应用程序代码之前就会被拒绝。 有关详细信息，请参阅[实施 HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https)。
 
-[PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard) 等行业标准已不再将 [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 视为安全协议。 应用服务允许通过[实施 TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md) 来禁用过时的协议。
+[PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard) 等行业标准已不再将 [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 视为安全协议。 应用服务允许通过[实施 TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions) 来禁用过时的协议。
 
-应用服务支持使用 FTP 和 FTPS 来部署文件。 但是，如果可能的话，应使用 FTPS 而不是 FTP。 如果未使用这两种协议或其中一种协议，则应[将其禁用](app-service-deploy-ftp.md#enforce-ftps)。
+应用服务支持使用 FTP 和 FTPS 来部署文件。 但是，如果可能的话，应使用 FTPS 而不是 FTP。 如果未使用这两种协议或其中一种协议，则应[将其禁用](deploy-ftp.md#enforce-ftps)。
 
 ## <a name="static-ip-restrictions"></a>静态 IP 限制
 
