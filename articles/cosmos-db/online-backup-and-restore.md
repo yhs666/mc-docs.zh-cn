@@ -1,92 +1,92 @@
 ---
-title: 使用 Azure Cosmos DB 进行联机备份和还原 | Azure
-description: 了解如何在 Azure Cosmos DB 数据库上执行自动备份和还原。
-keywords: 备份和还原、联机备份
-services: cosmos-db
+title: Azure Cosmos DB 中的自动联机备份和按需数据还原
+description: 本文介绍了 Azure Cosmos DB 中自动联机备份和按需数据还原的工作原理。
 author: rockboyfor
-manager: digimobile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-origin.date: 11/15/2017
-ms.date: 11/05/2018
+origin.date: 11/15/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: 764a99043a73202cfecc12166c17e83589652cae
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.reviewer: sngun
+ms.openlocfilehash: 4c6ba0fd5ab3f77f7b7f834e0c346bee5a788340
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659011"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026722"
 ---
-# <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 进行自动联机备份和还原
-Azure Cosmos DB 可以定期自动备份所有数据。 自动备份不会影响数据库操作的性能或可用性。 所有备份单独存储在另一个存储服务中并在多区域复制，以便针对区域性灾难进行复原。 如果意外删除了 Cosmos DB 容器并且之后需要进行数据恢复，那么自动备份将是合适的方案。  
+# <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Azure Cosmos DB 中的联机备份和按需数据还原
 
-本文首先快速回顾一个 Cosmos DB 的数据冗余和可用性，并介绍备份。 
+Azure Cosmos DB 会定期自动备份数据。 自动备份不会影响数据库操作的性能或可用性。 所有备份单独存储在一个存储服务中并进行多区域复制，以便针对区域性灾难进行复原。 如果意外删除或更新了 Azure Cosmos 帐户、数据库或容器，而稍后需要恢复数据，那么在这种情况下自动备份非常有用。
 
-## <a name="high-availability-with-cosmos-db---a-recap"></a>Cosmos DB 的高可用性 - 回顾
-Cosmos DB 旨在实现数据[多区域分发](distribute-data-globally.md) - 它允许缩放多个 Azure 区域中的吞吐量，并提供策略驱动的故障转移和透明的多宿主 API。 Azure Cosmos DB 为所有单区域帐户和具有松散一致性的所有多区域帐户提供 [99.99% 的可用性 SLA](https://www.azure.cn/support/sla/cosmos-db)，为所有多区域数据库帐户提供 99.999% 的读取可用性。 Azure Cosmos DB 中的所有写入在确认到客户端之前，都会通过本地数据中心内的副本仲裁持久提交到本地磁盘。 Cosmos DB 的高可用性依赖本地存储，而不依赖任何外部存储技术。 此外，如果数据库帐户与多个 Azure 区域关联，则还会将写入内容复制到其他区域。 若要调整吞吐量规模并以低延迟访问数据，可以拥有任意数量的与数据库帐户关联的读取区域。 在每个读取区域中，（复制的）数据持久保存在副本集中。  
+## <a name="automatic-and-online-backups"></a>自动联机备份
 
-如下图所示，单个 Cosmos DB 容器是[水平分区](partition-data.md)的。 下图中的一个圆圈表示一个“分区”，每个分区通过副本集实现高可用性。 这是单个 Azure 区域中的本地分布（以 X 轴表示）。 此外，每个分区（含有其相应的副本集）都将在与数据库帐户关联的多个区域中进行多区域分发（例如，此图中的三个区域 - 中国东部、中国北部和中国东部 2）。 “分区集”是多区域分发的实体，由数据在每个区域中的多个副本组成（以 Y 轴表示）。 可将优先级分配到与数据库帐户关联的区域，Cosmos DB 将透明故障转移到下一区域，以防灾难发生。 还可以手动模拟故障转移，以测试应用程序的端到端可用性。  
+使用 Azure Cosmos DB，数据和数据备份都高度冗余，并且具有可复原性，能抵御区域性灾难。 目前，自动备份每四个小时进行一次，并且始终存储最新的两个备份。 如果意外删除或损坏了数据，请务必在八小时内应联系 [Azure 支持](https://www.azure.cn/support/contact/)，以便 Azure Cosmos DB 团队帮助你从备份中还原数据。
 
-<!--Notice: Change Central India to China East 2-->
+备份不会影响应用程序的性能或可用性。 Azure Cosmos DB 在后台执行数据备份，不会消耗任何其他预配吞吐量 (RU)，也不会影响数据库的性能和可用性。
 
-下图演示了 Cosmos DB 的高度冗余。
-
-<!-- Not Available on the first images of the Demo -->
-
-![Cosmos DB 的高度冗余](./media/online-backup-and-restore/global-distribution.png)
-
-## <a name="full-automatic-online-backups"></a>完整的自动化联机备份
-糟糕，我删除了容器或数据库！ 使用 Cosmos DB，不仅仅是数据，还有数据备份都能获得高度冗余，可以弹性应对区域性的灾难。 这些自动备份当前大约每四小时进行一次，并且始终存储最新的两个备份。 如果数据意外删除或损坏，请在八小时内[联系 Azure 支持部门](https://www.azure.cn/support/contact/)。 
-
-这些备份不会影响数据库操作的性能或可用性。 Cosmos DB 在后台创建备份，不使用预配的 RU，不影响性能，也不影响数据库的可用性。 
-
-不同于存储在 Cosmos DB 中的数据，自动备份存储在 Azure Blob 存储服务中。 为了保证低延迟/高效上传，备份快照会上传到某个 Azure Blob 存储实例，该实例位于 Cosmos DB 数据库帐户当前写入区域所在的同一个区域。 此外，为了弹性应对区域性灾难，还会通过异地冗余存储 (GRS) 将 Azure Blob 存储中的每个备份数据快照复制到另一个区域。 下图显示整个 Cosmos DB 容器（在本示例中为中国北部的所有三个主分区）已在中国北部的远程 Azure Blob 存储帐户中备份，并通过 GRS 复制到中国东部。 
-
-下图演示了 GRS Azure 存储中所有 Cosmos DB 实体的定期完整备份。
+Azure Cosmos DB 将自动备份存储在 Azure Blob 存储中，而实际数据以本地形式驻留在 Azure Cosmos DB 中。 为了保证低延迟，备份的快照存储在 Azure Blob 存储中，且所在区域与 Cosmos DB 数据库帐户的当前写入区域（如果有多主数据库配置，则为其中一个写入区域）相同。 对于针对区域性灾难的恢复，Azure Blob 存储中备份数据的屏幕快照将通过异地冗余存储 (GRS) 再次复制到另一区域。 根据源区域以及与源区域关联的区域对确定备份复制的目标区域。  不能直接访问此数据库。 Azure Cosmos DB 仅在启动备份还原时使用此备份。
+<!--Not Available on To learn more, see the [list of geo-redundant pairs of Azure regions](../best-practices-availability-paired-regions.md)-->
+下图显示了如何在中国北部的远程 Azure Blob 存储帐户中备份 Azure Cosmos 容器（其三个主要资源分区全部位于中国北部），然后将其复制到中国东部：
 
 ![GRS Azure 存储中所有 Cosmos DB 实体的定期完整备份](./media/online-backup-and-restore/automatic-backup.png)
 
-<!-- Update the images on Mooncake-->
+## <a name="options-to-manage-your-own-backups"></a>管理自己的备份的选项
+
+使用 Azure Cosmos DB SQL API 帐户，还可以通过以下方法维护备份：
+
+<!--Not Available on * Use [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)-->
+
+* 使用 Azure Cosmos DB [更改源](change-feed.md)定期读取数据来进行完整备份和增量更改，并将其存储在自己的存储中。
 
 ## <a name="backup-retention-period"></a>备份保留期
-如上所述，Azure Cosmos DB 在分区级别每四小时创建一次数据快照。 在任何给定时间，只保留最后两个快照。 不过，如果删除了容器/数据库，Azure Cosmos DB 将给定容器/数据库中所有已删除分区的现有快照保留 30 天。
 
-对于 SQL API，如果你要维护自己的快照，可以使用以下选项来实现：
+Azure Cosmos DB 每四个小时拍摄一次数据快照。 在任何给定时间，只保留最后两个快照。 不过，如果删除了容器或数据库，Azure Cosmos DB 会将给定容器或数据库中的现有快照保留 30 天。
 
-* 使用 Azure Cosmos DB [数据迁移工具](import-data.md#export-to-json-file)中的“导出到 JSON”选项来计划其他备份。
+## <a name="restoring-data-from-online-backups"></a>从联机备份还原数据
 
-<!-- Not Available on [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)-->
-* 使用 Azure Cosmos DB [更改源](change-feed.md)定期读取数据来进行完整备份，另外，对于增量更改，将其移动到你的 blob 目标。 
+在以下情况下可能会意外删除或修改数据：  
 
-* 若要管理温备份，可以定期从“更改源”读取数据并延迟将其写入到另一集合中。 这可以确保你无需还原数据，并且可以立即查看数据是否有问题。 
+* 删除了整个 Azure Cosmos 帐户
 
-> [!NOTE]
-> 如果“在数据库级别为一组容器预配吞吐量”，请记得在整个数据库帐户级别进行还原操作。 如果无意中删除了容器，还需要确保在 8 小时内联系支持团队。 如果未在 8 小时内联系支持团队，则无法还原数据。
+* 删除了一个或多个 Azure Cosmos 数据库
 
-<!-- Not Available on table/graph -->
+* 删除了一个或多个 Azure Cosmos 容器
 
-## <a name="restoring-a-database-from-an-online-backup"></a>从联机备份还原数据库
+* 删除或修改了容器中的 Azure Cosmos 项（例如文档）。 此特定情况通常称为"数据损坏"。
 
-如果意外删除了数据库或容器，可以[提交支持票证](https://www.azure.cn/support/support-azure/)或[联系 Azure 支持](https://www.azure.cn/support/contact/)，以便从上一次自动备份中还原数据。 Azure 支持仅适用于选定计划（例如标准计划、发开人员计划），不适用于基本计划。 若要了解不同的支持方案，请参阅 [Azure 支持计划](https://www.azure.cn/support/plans/)页。 
+* 删除或损坏了共享产品数据库中的共享产品数据库或容器
 
-如果由于数据损坏（包括删除了容器中的文档）而需要还原数据库，请参阅[处理数据损坏](#handling-data-corruption)，因为需要采取额外步骤，防止损坏的数据覆盖现有备份。 对于要还原备份的特定快照，Cosmos DB 要求数据在该快照的备份周期的持续时间内可用。
+在上述所有情况中，Azure Cosmos DB 均可还原数据。 还原进程始终会创建一个新的 Azure Cosmos 帐户来保存还原数据。 如果未指定新帐户的名称，则其名称将采用 `<Azure_Cosmos_account_original_name>-restored1` 格式。 如果尝试多次还原，则最后一位数将递增。 不能将数据还原到预先创建的 Azure Cosmos 帐户中。
 
-> [!NOTE]
-> 集合或数据库只有在客户显式提出请求时才能还原。 客户负责在协调数据后立即删除容器或数据库。 如果不删除已还原的数据库或集合，它们将在请求单位、存储和出口方面产生成本。
+删除某个 Azure Cosmos 帐户后，如果该帐户名未被使用，则可将数据还原到相同名称的帐户中。 在这种情况下，建议不要在删除后重新创建帐户，因为这样不仅会阻止还原数据使用相同的名称，还会加大确定正确还原帐户的难度。 
 
-## <a name="handling-data-corruption"></a>处理数据损坏
+删除 Azure Cosmos 数据库后，可以还原该数据库中的整个数据库或容器子集。 还可以跨数据库选择容器并还原它们，然后将所有还原的数据存放在新的 Azure Cosmos 帐户中。
 
-Azure Cosmos DB 保留数据库帐户中每个分区的最后两个备份。 意外删除容器（文档的集合）或数据库时，该模型可以很好地处理这种情况，因为它可以还原其中一个最新版本。 但是，在用户可能引入数据损坏问题的情况下，Azure Cosmos DB 可能不知道数据损坏，并且损坏可能已覆盖现有备份。
+如果意外删除或更改了容器中的一个或多个项（即数据损坏），需要指定还原到的时间。 对于这种情况，时间至关重要。 由于容器是实时的，所以备份仍在运行，因此如果超过了保持期（默认值为 8 小时），备份将被覆盖。 如果数据已被删除，则不再存储数据，因为它们不会被备份周期覆盖。 已删除数据库或容器的备份将保存 30 天。
 
-一旦检测到损坏情况，用户应删除损坏的容器（集合），以防止备份被损坏的数据覆盖。 最重要的是，联系 Azure 支持并通过票证提交严重性为 2 的具体请求。 
-<!-- Not Avaiable on table and Graph -->
-<!-- Not Available on global support request-->
+如果在数据库级别预配吞吐量（即，一组容器共享预配吞吐量），那么在这种情况下，将对整个数据库，而不是单个容器进行备份和还原。 在这种情况下，不可选择还原容器子集。
+
+## <a name="migrating-data-to-the-original-account"></a>将数据迁移到原始帐户
+
+数据还原的主要目标是提供一种方法来恢复意外删除或修改的任何数据。 因此，建议先检查已还原数据，确保其中包含所需内容。 然后再将数据迁移回主帐户。 尽管可以使用已还原帐户作为实时帐户，但如果有生产工作负载则不建议这样做。  
+
+可通过以下方式将数据迁移回原始的 Azure Cosmos 帐户：
+
+* 使用 [Cosmos DB 数据迁移工具](import-data.md)
+<!--Not Available on * Using [Azure Data Factory]( ../data-factory/connector-azure-cosmos-db.md)-->
+* 使用 Azure Cosmos DB 中的[更改源](change-feed.md) 
+* 编写自定义代码
+
+迁移完成后立即删除已还原帐户，因为它们会持续产生费用。
 
 ## <a name="next-steps"></a>后续步骤
 
-若要在多个数据中心复制数据库，请参阅[使用 Cosmos DB 多区域分配数据](distribute-data-globally.md)。 
+接下来可了解如何从 Azure Cosmos 帐户还原数据，或了解如何将数据迁移到 Azure Cosmos 帐户
 
-若要联系 Azure 支持，请 [从 Azure 门户开具票证](https://www.azure.cn/support/support-azure/)。
+* 若要提出还原请求，请联系 Azure 支持，并[从 Azure 门户提交票证](https://support.azure.cn/zh-cn/support/support-azure/)
+* [如何从 Azure Cosmos 帐户还原数据](how-to-backup-and-restore.md)
+* [使用 Cosmos DB 更改源](change-feed.md)将数据移动到 Azure Cosmos DB。
+<!--Not Available on * [Use Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)-->
 
 <!--Update_Description: update meta properties, wording update -->

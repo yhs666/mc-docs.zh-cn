@@ -1,22 +1,20 @@
 ---
-title: 数据库安全性 - Azure Cosmos DB | Azure
+title: 数据库安全性 - Azure Cosmos DB
 description: 了解 Azure Cosmos DB 如何为数据提供数据库保护和数据安全性。
 keywords: nosql 数据库安全性, 信息安全性, 数据安全性, 数据库加密, 数据库保护, 安全策略, 安全测试
 services: cosmos-db
 author: rockboyfor
-manager: digimobile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 origin.date: 11/15/2017
-ms.date: 12/03/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2a5c9a645da88025eda3fc7443b577c440fd9ac7
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 01ca73f55f5e4a62cbf3206313be2040ed73f622
+ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674628"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026823"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB 数据库安全性
 
@@ -52,7 +50,7 @@ ms.locfileid: "52674628"
 - 对受保护数据中心内的服务器实施物理保护
 - 认证
 
-以下要求看似理所当然，但最近发生的[大规模数据库入侵](http://thehackernews.com/2017/01/mongodb-database-security.html)提醒我们这些要求尽管很简单，但却至关重要：
+以下要求看似理所当然，但最近发生的[大规模数据库入侵](https://thehackernews.com/2017/01/mongodb-database-security.html)提醒我们这些要求尽管很简单，但却至关重要：
 - 将修补的服务器保持最新状态
 - 按默认启用 HTTPS/SSL 加密
 - 使用强密码的管理帐户
@@ -79,10 +77,10 @@ ms.locfileid: "52674628"
 |地域隔离|Azure Cosmos DB 确保符合主权区域（例如德国、中国和美国政府）的数据治理要求。|
 |受保护的设施|Azure Cosmos DB 中的数据存储在 Azure 的受保护数据中心内的 SSD 上。<br><br> |
 |HTTPS/SSL/TLS 加密|从客户端到服务的所有 Azure Cosmos DB 交互都支持 SSL/TLS 1.2。 此外，所有数据中心内部和跨数据中心的复制都会实施 SSL/TLS 1.2。|
-|静态加密|对存储在 Azure Cosmos DB 中的所有静态数据进行加密。 可以在 [Azure Cosmos DB 静态加密](.\database-encryption-at-rest.md)中了解详细信息。|
+|静态加密|对存储在 Azure Cosmos DB 中的所有静态数据进行加密。 可以在 [Azure Cosmos DB 静态加密](./database-encryption-at-rest.md)中了解详细信息。|
 |修补的服务器|作为一种托管的数据库，在 Azure Cosmos DB 中无需管理和修补服务器，系统会自动完成这些操作。|
 |使用强密码的管理帐户|难以相信，我们竟然还要提到这项要求。但与我们的某些竞争产品不同，在 Azure Cosmos DB 中，不带密码的管理帐户是根本不受允许的。<br><br> DocumentDB 中默认融入了基于 SSL 和 HMAC 机密的身份验证安全性。|
-|安全和数据保护认证|有关认证的最新数据列表，请参阅具有所有认证（搜索 Cosmos）的整体内容（Azure 符合性网站）[https://www.microsoft.com/trustcenter/compliance/complianceofferings]以及最新内容（Azure 符合性文档）[https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942]。 有关更具有针对性的阅读，请查看 2018 年 4 月 25 日的帖子（Azure #CosmosDB：安全性、隐私性、符合性）[https://azure.microsoft.com/blog/azure-cosmosdb-secure-private-compliant/]，其中包含 SOCS 1/2 类型 2、HITRUST、PCI DSS 1 级、ISO 27001、HIPPAA、FedRAMP High 和许多其他内容。
+|安全和数据保护认证|有关认证的最新数据列表，请参阅具有所有认证（搜索 Cosmos）的整个 [Azure 符合性站点](https://www.microsoft.com/trustcenter/compliance/complianceofferings)以及最新 [Azure 符合性文档](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)。 如需更有针对性的阅读，请查看 2018 年 4 月 25 日的帖子 [Azure #CosmosDB:Secure, private, compliant](https://azure.microsoft.com/blog/azure-cosmosdb-secure-private-compliant/)（Azure #CosmosDB：安全性、隐私性、符合性），其中包含 SOCS 1/2 类型 2、HITRUST、PCI DSS 1 级、ISO 27001、HIPAA、FedRAMP High 和许多其他内容。
 
 <!-- Line: 72 Notice: 全球分布 to 多个区域分布 -->
 <!-- Line: 72 Notice  任何一个全球数据中心 to 多个数据中心之中任何一个 -->
@@ -98,4 +96,4 @@ ms.locfileid: "52674628"
 
 <!-- Not Available on [Azure Cosmos DB diagnostic logging](logging.md) --> 有关 Azure 认证的详细信息，请参阅 [Azure 信任中心](https://www.trustcenter.cn/zh-cn/cloudservices/azure.html)。
 
-<!--Update_Description: update meta properties, wording update, wording update -->
+<!--Update_Description: update meta properties, wording update -->
