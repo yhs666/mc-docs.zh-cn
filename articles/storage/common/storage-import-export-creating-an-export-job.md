@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 01/23/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: a2c7f16bd0a7d8867bc00ade5e52ca80e9f5bdb7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c396c46782fc5f2762bb6fb5ddaa6808aa2f372a
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649879"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192818"
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>为 Azure 导入/导出服务创建导出作业
 使用 REST API 为 Azure 导入/导出服务创建导出作业的过程包括以下步骤：
@@ -55,7 +55,7 @@ ms.locfileid: "52649879"
  有关指定要导出的 Blob 的详细信息，请参阅[放置作业](https://docs.microsoft.com/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate)操作。
 
 ## <a name="obtaining-your-shipping-location"></a>获取寄送位置
-在创建导出作业之前，需要通过调用[获取位置](https://portal.azure.cn)或[列出位置](https://docs.microsoft.com/en-us/rest/api/storageimportexport/locations/list)操作获取寄送位置名称和地址。 `List Locations` 返回位置及其邮寄地址的列表。 可以从返回的列表中选择一个位置，然后将硬盘驱动器寄送到该地址。 也可以使用“ `Get Location` ”操作直接获取特定位置的寄送地址。
+在创建导出作业之前，需要通过调用[获取位置](https://portal.azure.cn)或[列出位置](https://docs.microsoft.com/rest/api/storageimportexport/locations/list)操作获取寄送位置名称和地址。 `List Locations` 返回位置及其邮寄地址的列表。 可以从返回的列表中选择一个位置，然后将硬盘驱动器寄送到该地址。 也可以使用“ `Get Location` ”操作直接获取特定位置的寄送地址。
 
 遵循以下步骤获取寄送位置：
 

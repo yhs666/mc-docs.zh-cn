@@ -7,20 +7,45 @@ tags: storage
 ms.service: storage
 ms.topic: article
 origin.date: 10/30/2018
-ms.date: 12/10/2018
+ms.date: 01/14/2019
 ms.author: v-jay
 ms.component: files
-ms.openlocfilehash: 425f004fa8520c579e7102f5c5dbd0072b10cf55
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 3cdba1b3769a624eca942ca2492967a31abc7431
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028290"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192883"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>在 Windows 中排查 Azure 文件问题
 
 本文列出了从 Windows 客户端连接时与 Azure 文件相关的常见问题， 并提供了这些问题的可能原因和解决方法。 除本文中的疑难解答步骤之外，还可使用 [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) ，以确保 Windows 客户端环境满足正确的先决条件。 AzFileDiagnostics 会自动检测本文中提及的大多数症状，并帮助设置环境以获得最佳性能。 还可在 [Azure 文件共享疑难解答](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares)中找到这些信息，该疑难解答提供相关步骤来帮助解决连接/映射/装载 Azure 文件共享时遇到的问题。
 
+<a id="error5"></a>
+## <a name="error-5-when-you-mount-an-azure-file-share"></a>装载 Azure 文件共享时出现错误 5
+
+尝试装载文件共享时，可能会收到以下错误：
+
+- 发生系统错误 5。 访问被拒绝。
+
+### <a name="cause-1-unencrypted-communication-channel"></a>原因 1：通信通道未加密
+
+出于安全原因，如果信道未加密，且未从 Azure 文件共享所在的数据中心尝试连接，则到 Azure 文件共享的连接将受阻。 如果在存储帐户中启用[需要安全传输](/storage/common/storage-require-secure-transfer)设置，则还可以阻止同一数据中心中未加密的连接。 仅当用户的客户端 OS 支持 SMB 加密时，才提供加密的信道。
+
+Windows 8、Windows Server 2012 及更高版本的每次系统协商均要求其包含支持加密的 SMB 3.0。
+
+### <a name="solution-for-cause-1"></a>原因 1 的解决方案
+
+1. 从支持 SMB 加密的客户端（Windows 8、Windows Server 2012 或更高版本）进行连接，或者从用于 Azure 文件共享的 Azure 存储帐户所在数据中心内的虚拟机进行连接。
+2. 如果客户端不支持 SMB 加密，请确保在存储帐户上禁用[需要安全传输](/storage/common/storage-require-secure-transfer)设置。
+
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>原因 2：在存储帐户上启用了虚拟网络或防火墙规则 
+
+如果在存储帐户上配置了虚拟网络 (VNET) 和防火墙规则，则将拒绝访问网络流量，除非允许客户端 IP 地址或虚拟网络访问。
+
+### <a name="solution-for-cause-2"></a>原因 2 的解决方案
+
+验证是否已在存储帐户上正确配置虚拟网络和防火墙规则。 若要测试虚拟网络或防火墙规则是否导致此问题，请将存储帐户上的设置临时更改为“允许来自所有网络的访问”。 若要了解详细信息，请参阅[配置 Azure 存储防火墙和虚拟网络](/storage/common/storage-network-security)。
 
 <a id="error53-67-87"></a>
 ## <a name="error-53-error-67-or-error-87-when-you-mount-or-unmount-an-azure-file-share"></a>装载或卸载 Azure 文件共享时出现“错误 53”、“错误 67”或“错误 87”
@@ -31,39 +56,45 @@ ms.locfileid: "53028290"
 - 发生系统错误 67。 找不到网络名称。
 - 发生系统错误 87。 参数不正确。
 
-### <a name="cause-1-unencrypted-communication-channel"></a>原因 1：通信通道未加密
-
-出于安全原因，如果信道未加密，且未从 Azure 文件共享所在的数据中心尝试连接，则到 Azure 文件共享的连接将受阻。 如果在存储帐户中启用[需要安全传输](/storage/common/storage-require-secure-transfer)设置，则还可以阻止同一数据中心中未加密的连接。 仅当用户的客户端 OS 支持 SMB 加密时，才会提供信道加密。
-
-Windows 8、Windows Server 2012 及更高版本的每次系统协商均要求其包含支持加密的 SMB 3.0。
-
-### <a name="solution-for-cause-1"></a>原因 1 的解决方案
-
-1. 验证是否已在存储帐户中禁用[需要安全传输](/storage/common/storage-require-secure-transfer)设置。
-2. 从符合下述某个条件的客户端进行连接：
-
-    - 满足使用 Windows 8 和 Windows Server 2012 或更高版本这一要求
-    - 从虚拟机进行连接时，该虚拟机所在的数据中心必须是用于 Azure 文件共享的 Azure 存储帐户所在的数据中心
-
-### <a name="cause-2-port-445-is-blocked"></a>原因 2：端口 445 被阻止
+### <a name="cause-1-port-445-is-blocked"></a>原因 1：端口 445 被阻止
 
 如果端口 445 到 Azure 文件数据中心的出站通信受阻，可能会发生系统错误 53 或 67。 如需大致了解允许或禁止从端口 445 进行访问的 ISP，请访问 [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx)。
 
-若要了解是否由此造成“系统错误 53”，可使用 Portqry 查询 TCP:445 终结点。 如果 TCP:445 终结点显示为“已筛选”，则 TCP 端口被阻止。 示例查询如下：
+若要检查防火墙或 ISP 是否阻止端口 445，请使用 [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) 工具或 `Test-NetConnection` cmdlet。 
 
-  `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.chinacloudapi.cn -p TCP -e 445`
+若要使用 `Test-NetConnection` cmdlet，则必须安装 AzureRM PowerShell 模块。有关详细信息，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 请记得将 `<your-storage-account-name>` 和 `<your-resoure-group-name>` 替换为存储帐户的相关名称。
 
-如果 TCP 端口 445 受到网络路径中的规则阻止，将显示以下输出：
+   
+    $resourceGroupName = "<your-resource-group-name>"
+    $storageAccountName = "<your-storage-account-name>"
 
-  `TCP port 445 (microsoft-ds service): FILTERED`
+    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount -EnvironmentName AzureChinaCloud if you haven't
+    # already logged in.
+    $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
 
-若要详细了解如何使用 Portqry，请参阅 [Portqry.exe 命令行实用工具说明](https://support.microsoft.com/help/310099)。
+    # The ComputerName, or host, is <storage-account>.file.core.chinacloudapi.cn for Azure China Regions.
+    Test-NetConnection -ComputerName [System.Uri]::new($storageAccount.Context.FileEndPoint).Host -Port 445
+  
+    
+如果连接成功，应会看到以下输出：
+    
+  
+    ComputerName     : <storage-account-host-name>
+    RemoteAddress    : <storage-account-ip-address>
+    RemotePort       : 445
+    InterfaceAlias   : <your-network-interface>
+    SourceAddress    : <your-ip-address>
+    TcpTestSucceeded : True
+ 
 
-### <a name="solution-for-cause-2"></a>原因 2 的解决方案
+> [!Note]  
+> 以上命令返回存储帐户的当前 IP 地址。 无法保证此 IP 地址相同，它随时可能更改。 不要在任何脚本或防火墙配置中对此 IP 地址进行硬编码。
+
+### <a name="solution-for-cause-1"></a>原因 1 的解决方案
 
 与 IT 部门配合，向 [Azure IP 范围](https://www.microsoft.com/download/details.aspx?id=41653)开放端口 445 出站通信。
 
-### <a name="cause-3-ntlmv1-is-enabled"></a>原因 3：NTLMv1 已启用
+### <a name="cause-2-ntlmv1-is-enabled"></a>原因 2：NTLMv1 已启用
 
 如果在客户端上启用 NTLMv1 通信，则可能发生系统错误 53 或系统错误 87。 Azure 文件仅支持 NTLMv2 身份验证。 启用 NTLMv1 会降低客户端的安全性。 因此，Azure 文件的通信受阻。 
 
@@ -73,7 +104,7 @@ Windows 8、Windows Server 2012 及更高版本的每次系统协商均要求其
 
 有关详细信息，请参阅 TechNet 上的 [LmCompatibilityLevel](https://technet.microsoft.com/library/cc960646.aspx) 主题。
 
-### <a name="solution-for-cause-3"></a>原因 3 的解决方案
+### <a name="solution-for-cause-2"></a>原因 2 的解决方案
 
 在下述注册表子项中将 **LmCompatibilityLevel** 值还原为默认值 3：
 
@@ -89,6 +120,27 @@ Windows 8、Windows Server 2012 及更高版本的每次系统协商均要求其
 ### <a name="solution"></a>解决方案
 
 关闭一些句柄，减少并发打开句柄的数量，再重试。 有关详细信息，请参阅 [Azure 存储性能和可伸缩性核对清单](../common/storage-performance-checklist.md?toc=%2fstorage%2ffiles%2ftoc.json)。
+
+<a id="accessdeniedportal"></a>
+## <a name="error-access-denied-when-browsing-to-an-azure-file-share-in-the-portal"></a>浏览到门户中的 Azure 文件共享时出现“访问被拒绝”错误
+
+浏览到门户中的 Azure 文件共享时，可能会收到以下错误：
+
+访问被拒绝  
+你无权访问  
+你似乎无权访问此内容。 若要获取访问权限，请联系所有者。  
+
+### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>原因 1：你的用户帐户无权访问该存储帐户
+
+### <a name="solution-for-cause-1"></a>原因 1 的解决方案
+
+浏览到Azure文件共享所在的存储帐户，单击“访问控制(IAM)”，确保你的用户帐户有权访问该存储帐户。 若要了解详细信息，请参阅[如何使用基于角色的访问控制 (RBAC) 来保护存储帐户](/storage/common/storage-security-guide#how-to-secure-your-storage-account-with-role-based-access-control-rbac)。
+
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>原因 2：在存储帐户上启用了虚拟网络或防火墙规则
+
+### <a name="solution-for-cause-2"></a>原因 2 的解决方案
+
+验证是否已在存储帐户上正确配置虚拟网络和防火墙规则。 若要测试虚拟网络或防火墙规则是否导致此问题，请将存储帐户上的设置临时更改为“允许来自所有网络的访问”。 若要了解详细信息，请参阅[配置 Azure 存储防火墙和虚拟网络](/storage/common/storage-network-security)。
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>在 Windows 中将文件复制到 Azure 文件以及从中复制文件时速度缓慢

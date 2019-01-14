@@ -6,14 +6,14 @@ author: amsriva
 ms.service: application-gateway
 ms.topic: article
 origin.date: 10/23/2018
-ms.date: 11/21/2018
+ms.date: 01/09/2019
 ms.author: v-junlch
-ms.openlocfilehash: 2c733cef1723f93c01b94e5dc03a1590c5de5150
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 3c24f7aca6b54deb55ebc1ba4a46215e88cb09d8
+ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672614"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54141676"
 ---
 # <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>应用程序网关的端到端 SSL 概述
 
@@ -32,7 +32,7 @@ ms.locfileid: "52672614"
 应用程序网关只会与已知的后端实例通信，这些实例已将其证书加入应用程序网关的允许列表。 要启用证书允许列表，必须将后端服务器证书（不是根证书）的公钥上传到应用程序网关。 只允许连接到已知的和列入允许列表的后端。 其余后端会导致网关错误。 自签名证书仅用于测试目的，不建议用于生产工作负荷。 如前面的步骤中所述，此类证书必须加入应用程序网关的允许列表，才可以使用。
 
 > [!NOTE]
-> Azure Web 应用等受信任的 Azure 服务不需要身份验证证书设置。
+> Azure 应用服务等受信任的 Azure 服务不需要身份验证证书设置。
 
 ## <a name="next-steps"></a>后续步骤
 

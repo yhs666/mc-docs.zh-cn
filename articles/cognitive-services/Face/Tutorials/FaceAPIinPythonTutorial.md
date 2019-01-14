@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 origin.date: 11/13/2018
-ms.date: 11/23/2018
+ms.date: 01/04/2019
 ms.author: v-junlch
-ms.openlocfilehash: b868d93de8e50d682ca2c6164286595137781e3e
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: dd682b5c20bfa85cd5c6c4154dc0e36cbe41a358
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672821"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083745"
 ---
 # <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>快速入门：创建一个用于检测和定格图像中人脸的 Python 脚本
 
@@ -29,14 +29,18 @@ ms.locfileid: "52672821"
 - 人脸 API 订阅密钥。 可以按照[创建认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)中的说明订阅人脸 API 服务并获取密钥。
 - [Python 2.7+ 或 3.5+](https://www.python.org/downloads/)
 - [pip](https://pip.pypa.io/en/stable/installing/) 工具
-- 人脸 API Python SDK。 通过运行以下命令来安装它：
-    ```bash
-    pip install cognitive_face
-    ```
+
+## <a name="get-the-face-sdk"></a>获取人脸 SDK
+
+通过打开命令提示符并运行以下命令来安装人脸 Python SDK：
+
+```shell
+pip install cognitive_face
+```
 
 ## <a name="detect-faces-in-an-image"></a>在图像中检测人脸
 
-创建新 Python 脚本 _FaceQuickstart.py_。 添加以下代码。 这是人脸检测的核心功能。 需将 `<Subscription Key>` 替换为密钥的值。 可能还需更改 `BASE_URL` 的值，以便使用密钥的正确区域标识符（如需包含所有区域终结点的列表，请参阅[人脸 API 文档](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)）。 （可选）将 `img_url` 设置为要使用的图像的 URL。
+创建名为 FaceQuickstart.py 的新 Python 脚本并添加以下代码。 这是人脸检测的核心功能。 需将 `<Subscription Key>` 替换为密钥的值。 可能还需更改 `BASE_URL` 的值，以便使用密钥的正确区域标识符（如需包含所有区域终结点的列表，请参阅[人脸 API 文档](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)）。 （可选）将 `img_url` 设置为要使用的图像的 URL。
 
 此脚本会通过调用 **cognitive_face.face.detect** 方法来检测人脸，该方法可包装[检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API 并返回人脸的列表。
 

@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 12/25/2018
+ms.date: 01/09/2019
 ms.author: v-junlch
-ms.openlocfilehash: 86425e95c8f5784906b0e532c77cb771b27b4dc2
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 4da72f3ba25ece592c9997b6adcc517f040fe9b4
+ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806668"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54141667"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Durable Functions 中的扇出/扇入方案 - 云备份示例
 
@@ -365,6 +365,10 @@ Content-Type: application/json; charset=utf-8
 ## <a name="visual-studio-sample-code"></a>Visual Studio 示例代码
 
 下面是 Visual Studio 项目中以单个 C# 文件形式提供的业务流程：
+
+> [!NOTE]
+> 需要安装 `Microsoft.Azure.WebJobs.Extensions.Storage` Nuget 包才能运行下面的示例代码。
+
 
 ```c#
 // Copyright (c) .NET Foundation. All rights reserved.

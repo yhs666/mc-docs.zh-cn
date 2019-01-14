@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/23/2018
-ms.date: 10/15/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0f21a841a9b4a502d5dcc2a84894a592e0616dd8
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e4e3a63607a56150742f8f9c8e34b06bbd3c3cc5
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662816"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083632"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>在 Linux 上准备开发环境
 > [!div class="op_single_selector"]
@@ -104,7 +104,14 @@ sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     ```
 
-7. 根据新添加的存储库刷新包列表。
+7. 将 Azul JDK 密钥添加到 APT Keyring 并设置其存储库。
+
+    ```bash
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0x219BD9C9
+    sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
+    ```
+
+8. 根据新添加的存储库刷新包列表。
 
     ```bash
     sudo apt-get update
@@ -132,7 +139,7 @@ sudo apt-get install servicefabricsdkcommon
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
-Ubuntu | 2.0.0 | OpenJDK 1.8 | Implicit from npm | 最新 |
+Ubuntu | 2.0.0 | AzulJDK 1.8 | Implicit from npm | 最新 |
 
 <!-- Not Available on RHEL -->
 
@@ -190,12 +197,11 @@ Service Fabric 提供基架工具，可以借助此类工具，使用 Yeoman 模
 
 ## <a name="set-up-java-development"></a>设置 Java 开发
 
-若要使用 Java 生成 Service Fabric 服务，请安装 JDK 1.8 和 Gradle 以运行生成任务。 以下代码片段安装 Open JDK 1.8 和 Gradle。 Service Fabric Java 库是从 Maven 拉取的。
+若要使用 Java 生成 Service Fabric 服务，请安装 Gradle 以运行生成任务。 运行以下命令来安装 Gradle。 Service Fabric Java 库是从 Maven 拉取的。
 
 * Ubuntu
 
     ```bash
-    sudo apt-get install openjdk-8-jdk-headless
     sudo apt-get install gradle
     ```
 
@@ -281,4 +287,4 @@ sudo apt-get install servicefabric servicefabricsdkcommon
 [sf-eclipse-plugin]: ./media/service-fabric-get-started-linux/service-fabric-eclipse-plugin.png
 [sfx-linux]: ./media/service-fabric-get-started-linux/sfx-linux.png
 
-<!--Update_Description: update meta properties, wording udpate, update linksss  -->
+<!--Update_Description: update meta properties, wording udpate, update link -->

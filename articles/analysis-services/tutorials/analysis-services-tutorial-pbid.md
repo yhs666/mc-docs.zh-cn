@@ -2,18 +2,19 @@
 title: 教程 - 使用 Power BI Desktop 连接到 Azure Analysis Services | Azure
 author: rockboyfor
 manager: digimobile
+description: 了解如何使用 Power BI Desktop 连接到 Azure Analysis Services。
 ms.service: azure-analysis-services
 ms.topic: tutorial
-origin.date: 10/18/2018
-ms.date: 12/17/2018
+origin.date: 12/06/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
 ms.reviewer: owend
-ms.openlocfilehash: ccb56115cb9211196ad0f15f83b6b4d107daeaa6
-ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
+ms.openlocfilehash: e6896b4ba841372b61008b42aa0affb6cc3d4c24
+ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53157432"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193087"
 ---
 <!--Notice: Verify sucessfully-->
 # <a name="tutorial-connect-with-power-bi-desktop"></a>教程：使用 Power BI Desktop 进行连接
@@ -31,10 +32,10 @@ ms.locfileid: "53157432"
 - 具有 adventureworks 示例模型数据库的 [*读取*](../analysis-services-server-admins.md) 权限。
 - [安装最新的 Power BI Desktop](https://powerbi.microsoft.com/desktop)。
 
-## <a name="log-in-to-the-azure-portal"></a>登录到 Azure 门户
+## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 在本教程中，登录到门户只是为了获取服务器名称。 通常，用户将从服务器管理员那里获取服务器名称。
 
-登录到[门户](https://portal.azure.cn/)。
+登录[门户](https://portal.azure.cn/)。
 
 ## <a name="get-server-name"></a>获取服务器名称
 若要从 Power BI Desktop 连接到服务器，首先需要服务器名称。 可以从门户获取服务器名称。
@@ -53,7 +54,7 @@ ms.locfileid: "53157432"
 
    ![指定服务器名称和模型数据库](./media/analysis-services-tutorial-pbid/aas-pbid-connect-aas-servername.png)
 
-3. 在出现提示时，输入登录凭据。 你输入的帐户必须至少具有 adventureworks 示例模型数据库的读取权限。
+3. 在系统提示时输入凭据。 你输入的帐户必须至少具有 adventureworks 示例模型数据库的读取权限。
 
     adventureworks 模型将在 Power BI Desktop 中打开，并且“报表”视图中将显示一个空白报表。 “字段”列表中会显示所有非隐藏的模型对象。 连接状态将显示在右下角。
 
@@ -74,4 +75,4 @@ ms.locfileid: "53157432"
 ## <a name="next-steps"></a>后续步骤
 在本教程中，你已了解了如何使用 Power BI Desktop 连接到服务器上的数据模型并创建基本报表。 如果不熟悉如何创建数据模型，请参阅 [Adventure Works Internet Sales 表格数据建模教程](aas-adventure-works-tutorial.md)。
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties， wording update -->

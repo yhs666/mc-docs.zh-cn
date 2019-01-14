@@ -1,10 +1,10 @@
 ---
-title: Azure PowerShell 脚本示例 - 使用 Windows 版 AzCopy 跨存储帐户迁移 Blob | Azure
+title: Azure PowerShell 脚本示例 - 使用 Windows 版 AzCopy 跨存储帐户迁移 blob | Microsoft Docs
 description: 使用 AzCopy，将一个 Azure 存储帐户的 blob 内容复制到另一个。
 services: storage
 documentationcenter: na
-author: forester123
-manager: josefree
+author: WenJason
+manager: digimobile
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
@@ -12,26 +12,26 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: sample
 origin.date: 02/01/2018
-ms.date: 06/11/2018
-ms.author: v-nany
-ms.openlocfilehash: d1f121e4b93d7594a568caf1d90392e68f9d8ef0
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 01/14/2019
+ms.author: v-jay
+ms.openlocfilehash: 8d73831bd2471ad1c60dbc3cc509241688a23416
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648768"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192811"
 ---
 # <a name="migrate-blobs-across-storage-accounts-using-azcopy-on-windows"></a>使用 Windows 版 AzCopy 跨存储帐户迁移 blob
 
 本示例将所有 blob 对象从用户提供的源存储帐户迁移到用户提供的目标存储帐户。 
 
-此操作通过使用 `Get-AzureStorageContainer` 命令实现，该命令将列出存储帐户中的所有容器。 然后，示例发出 AzCopy 命令，将每个容器从源存储帐户复制到目标存储帐户。 如果失败，示例将重试 $retryTimes 次（默认为 3，可通过 `-RetryTimes` 参数修改）。 如果每次重试都失败，用户可重新运行脚本，并使用 `-LastSuccessContainerName` 参数向示例提供上次成功复制的容器。 然后，示例将继续从该点复制容器。
+此操作通过使用 `Get-AzStorageContainer` 命令实现，该命令将列出存储帐户中的所有容器。 然后，示例发出 AzCopy 命令，将每个容器从源存储帐户复制到目标存储帐户。 如果失败，示例将重试 $retryTimes 次（默认为 3，可通过 `-RetryTimes` 参数修改）。 如果每次重试都失败，用户可重新运行脚本，并使用 `-LastSuccessContainerName` 参数向示例提供上次成功复制的容器。 然后，示例将继续从该点复制容器。
 
-本示例需要 Azure PowerShell 存储模块 4.0.2 或更高版本。 可使用 `Get-Module -ListAvailable Azure.storage` 检查安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 
+本示例需要 Azure PowerShell 存储模块 **0.7** 或更高版本。 可使用 `Get-Module -ListAvailable Az.storage` 检查安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-Az-ps)。 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-本示例需要最新版本的 [Windows 版 AzCopy](http://aka.ms/downloadazcopy)。 默认安装目录为 `C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\`。
+本示例需要最新版本的 [Windows 版 AzCopy](https://aka.ms/downloadazcopy)。 默认安装目录为 `C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\`。
 
 本示例使用源存储帐户名称和键、目标存储帐户名称和键、AzCopy.exe 的完整文件路径（如果未安装在默认目录）。
 
@@ -106,7 +106,8 @@ param (
     $FileItemVersion = (Get-Item $AzCopyPath).VersionInfo
     $FilePath = ("{0}.{1}.{2}.{3}" -f  $FileItemVersion.FileMajorPart,  $FileItemVersion.FileMinorPart,  $FileItemVersion.FileBuildPart,  $FileItemVersion.FilePrivatePart)
 
-    if([version] $FilePath -lt "7.0.0.2")
+    # only netcore version AzCopy.exe has version 0.0.0.0, and all netcore version AzCopy works in this script 
+    if(([version] $FilePath -lt "7.0.0.2") -and ([version] $FilePath -ne "0.0.0.0"))
     {
         $AzCopyPath = Read-Host "Version of AzCopy found at default install directory is of a lower, unsupported version. Please input the full filePath of the AzCopy.exe that is version 7.0.0.2 or higher, e.g.: C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\AzCopy.exe"
     }
@@ -118,13 +119,13 @@ param (
 
 # Create and check Storage context
 $Error.Clear()
-$srcCtx = New-AzureStorageContext -StorageAccountName $srcStorageAccountName -StorageAccountKey $srcStorageAccountKey
+$srcCtx = New-AzStorageContext -StorageAccountName $srcStorageAccountName -StorageAccountKey $srcStorageAccountKey
 if ($srcCtx -eq $null)
 {
     Write-Error "Script could not create source Storage Context, possibly due to invalid StorageAccountName or StorageAccount Key terminating: $Error[0]";
     return;
 }
-$destCtx = New-AzureStorageContext -StorageAccountName $destStorageAccountName -StorageAccountKey $destStorageAccountKey
+$destCtx = New-AzStorageContext -StorageAccountName $destStorageAccountName -StorageAccountKey $destStorageAccountKey
 if ($destCtx -eq $null)
 {
     Write-Error "Script could not create destination storage context, possibly due to invalid StorageAccountName or StorageAccount Key terminating: $Error[0]";
@@ -133,13 +134,13 @@ if ($destCtx -eq $null)
 
 #Check Source and Destination Storage account Connection
 $Error.Clear()
-$Containers = Get-AzureStorageContainer -MaxCount 1 -Context $srcCtx
+$Containers = Get-AzStorageContainer -MaxCount 1 -Context $srcCtx
 if ($Error.Count -gt 0)
 {
     Write-Error "Script failed to connect to source Storage account, terminating: $Error[0]";
     return;
 }
-$Containers = Get-AzureStorageContainer -MaxCount 1 -Context $destCtx
+$Containers = Get-AzStorageContainer -MaxCount 1 -Context $destCtx
 if ($Error.Count -gt 0)
 {
     Write-Error "Script failed to connect to destination Storage account, terminating: $Error[0]";
@@ -184,14 +185,14 @@ do{
     # List source containers
     $retry = 1
     $Error.Clear()
-    $srcContainers = Get-AzureStorageContainer -MaxCount $MaxReturn -ContinuationToken $Token -Context $srcCtx
+    $srcContainers = Get-AzStorageContainer -MaxCount $MaxReturn -ContinuationToken $Token -Context $srcCtx
 
     # If list container fail, retry it
     while(($Error.Count -gt 0) -and ($RetryTimes -eq -1 -or $retry -le $retryTimes))
     {
         Write-Host "Retry List containers $retry"
         $Error.Clear()
-        $srcContainers = Get-AzureStorageContainer -MaxCount $MaxReturn -ContinuationToken $Token -Context $srcCtx
+        $srcContainers = Get-AzStorageContainer -MaxCount $MaxReturn -ContinuationToken $Token -Context $srcCtx
         $retry++
     }
 
@@ -291,8 +292,8 @@ else
 
 | 命令 | 注释 |
 |---|---|
-| [Get-AzureStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/Get-AzureStorageContainer) | 返回与此存储帐户关联的容器。 |
-| [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/New-AzureStorageContext) | 创建 Azure 存储上下文。 |
+| [Get-AzStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/Get-AzStorageContainer) | 返回与此存储帐户关联的容器。 |
+| [New-AzStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/New-AzStorageContext) | 创建 Azure 存储上下文。 |
 
 ## <a name="next-steps"></a>后续步骤
 

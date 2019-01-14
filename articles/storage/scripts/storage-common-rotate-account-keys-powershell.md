@@ -1,9 +1,9 @@
 ---
-title: Azure PowerShell 脚本示例 - 轮换存储帐户访问密钥 | Azure
+title: Azure PowerShell 脚本示例 - 轮换存储帐户访问密钥 | Microsoft Docs
 description: 创建 Azure 存储帐户，然后检索并轮换其中的一个帐户访问密钥。
 services: storage
 documentationcenter: na
-author: forester123
+author: WenJason
 manager: digimobile
 editor: tysonn
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: sample
 origin.date: 06/13/2017
-ms.date: 10/23/2017
-ms.author: v-johch
-ms.openlocfilehash: 41144e2052daab8da5c4367f40e5bc019acb7bc7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 01/14/2019
+ms.author: v-jay
+ms.openlocfilehash: fc94e50761a086d2ed10351271f2fef37512ad95
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52667124"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192820"
 ---
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>创建存储帐户并轮换其帐户访问密钥
 
@@ -37,34 +37,34 @@ ms.locfileid: "52667124"
 # this script will show how to rotate one of the access keys for a storage account
 
 # get list of locations and pick one
-Get-AzureRmLocation | select Location
+Get-AzLocation | select Location
 
 # save the location you want to use  
 $location = "China East"
 
 # create a resource group
 $resourceGroup = "rotatekeystestrg"
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location 
+New-AzResourceGroup -Name $resourceGroup -Location $location 
 
 # create a standard general-purpose storage account 
 $storageAccountName = "contosotestkeys"
-New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccountName `
   -Location $location `
   -SkuName Standard_LRS `
 
 # retrieve the first storage account key and display it 
-$storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroup -Name $storageAccountName).Value[0]
+$storageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroup -Name $storageAccountName).Value[0]
 
 Write-Host "storage account key 1 = " $storageAccountKey
 
 # re-generate the key
-New-AzureRmStorageAccountKey -ResourceGroupName $resourceGroup `
+New-AzStorageAccountKey -ResourceGroupName $resourceGroup `
     -Name $storageAccountName `
     -KeyName key1
 
 # retrieve it again and display it 
-$storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroup -Name $storageAccountName).Value[0]
+$storageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroup -Name $storageAccountName).Value[0]
 Write-Host "storage account key 1 = " $storageAccountKey
 ```
 
@@ -73,7 +73,7 @@ Write-Host "storage account key 1 = " $storageAccountKey
 运行以下命令来删除资源组、存储帐户和所有相关资源。
 
 ```powershell
-Remove-AzureRmResourceGroup -Name rotatekeystestrg
+Remove-AzResourceGroup -Name rotatekeystestrg
 ```
 
 ## <a name="script-explanation"></a>脚本说明
@@ -82,11 +82,11 @@ Remove-AzureRmResourceGroup -Name rotatekeystestrg
 
 | 命令 | 注释 |
 |---|---|
-| [Get-AzureRmLocation](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermlocation) | 获取所有位置以及每个位置支持的资源提供程序。 |
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | 创建 Azure 资源组。 |
-| [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/new-azurermstorageaccount) | 创建存储帐户。 |
-| [Get-AzureRmStorageAccountKey](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccountkey) | 获取 Azure 存储帐户的访问密钥。 |
-| [New-AzureRmStorageAccountKey](https://docs.microsoft.com/powershell/module/azurerm.storage/new-azurermstorageaccountkey) | 重新生成 Azure 存储帐户的访问密钥。 |
+| [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation) | 获取所有位置以及每个位置支持的资源提供程序。 |
+| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 创建 Azure 资源组。 |
+| [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) | 创建存储帐户。 |
+| [Get-AzStorageAccountKey](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) | 获取 Azure 存储帐户的访问密钥。 |
+| [New-AzStorageAccountKey](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccountkey) | 重新生成 Azure 存储帐户的访问密钥。 |
 
 ## <a name="next-steps"></a>后续步骤
 

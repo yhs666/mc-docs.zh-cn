@@ -12,15 +12,15 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-origin.date: 07/31/2018
-ms.date: 09/10/2018
+origin.date: 12/06/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: f07ac4ca29a302d6252895accf041ce1c684621f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 70051383ea98118a825b58bb63b275c508964505
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646275"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083622"
 ---
 # <a name="sfctl-is"></a>sfctl is
 查询并向基础结构服务发送命令。
@@ -42,7 +42,7 @@ ms.locfileid: "52646275"
 |参数|说明|
 | --- | --- |
 | --command [必需] | 将调用的命令文本。 命令内容特定于基础结构。 |
-| --service-id | 基础结构服务标识。 <br><br> 这是不包含“fabric”URI 方案的基础结构服务全名。 只有运行多个基础结构服务实例的群集才需要此参数。 |
+| --service-id | 基础结构服务标识。 <br><br> 这是不包含“fabric\:”URI 方案的基础结构服务全名。 只有运行多个基础结构服务实例的群集才需要此参数。 |
 | --timeout -t | 服务器超时，以秒为单位。  默认值\: 60。 |
 
 ### <a name="global-arguments"></a>全局参数

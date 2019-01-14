@@ -3,8 +3,8 @@ title: 如何更新 Azure Stack 套餐和计划 | Microsoft Docs
 description: 本文介绍如何查看和修改现有的 Azure Stack 套餐和计划。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.custom: mvc
 origin.date: 07/30/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
+ms.date: 01/14/2018
+ms.author: v-jay
 ms.reviewer: ''
-ms.openlocfilehash: e9f28a65d7fb60e2680eb96d5d1d19afe9c1e63f
-ms.sourcegitcommit: 6e07735318eb5f6ea319b618863259088eab3722
+ms.openlocfilehash: 4348143613487cb459a27c71a464440b316503d6
+ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52981702"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54058980"
 ---
 # <a name="azure-stack-add-on-plans"></a>Azure Stack 附加计划
 
@@ -33,7 +33,7 @@ ms.locfileid: "52981702"
 使用附加计划的另一个原因是帮助用户记住其资源使用情况。 若要执行此操作，可以从一个包括相对较小的配额（取决于所需的服务）的基本计划开始。 然后，当用户达到容量时，将会向用户发送通知，指出他们已消耗完了根据其已分配计划分配的资源。 从那里，用户可以选择一个提供了附加资源的附加计划。
 
 > [!NOTE]
-> 如果不希望使用附加计划来扩展配额，则还可以选择[编辑配额的原始配置](azure-stack-quota-types.md#to-edit-a-quota)。 
+> 如果不希望使用附加计划来扩展配额，则还可以选择[编辑配额的原始配置](azure-stack-quota-types.md#edit-a-quota)。 
 
 当用户将附加计划添加到现有的套餐订阅时，可能需要长达一小时的时间才会显示附加资源。 
 

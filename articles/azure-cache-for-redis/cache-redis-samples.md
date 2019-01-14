@@ -13,14 +13,14 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: multiple
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 12/21/2018
+ms.date: 01/09/2019
 ms.author: v-junlch
-ms.openlocfilehash: 445fae4ccb91abd0d1290a444f4118da87887fd1
-ms.sourcegitcommit: d2893ae6bdbb3784d243d5d3c49c25c9cfd99d9b
+ms.openlocfilehash: aac7ba1eebfc0a55fc73273be6048e860dda8538
+ms.sourcegitcommit: 0384e865d001a5640233ebcc84d99f31f4833fca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2018
-ms.locfileid: "53784889"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193208"
 ---
 # <a name="azure-cache-for-redis-samples"></a>“用于 Redis 的 Azure 缓存”示例
 本主题提供 Azure Redis 缓存示例列表，包括连接到缓存、从缓存读取数据和将数据写入缓存，以及使用 ASP.NET Azure Redis 缓存提供程序等方案。 有些示例是可下载的项目，有些示例提供了分步指南并包含代码片段但没有链接到可下载的项目。
@@ -41,7 +41,7 @@ ms.locfileid: "53784889"
 - 使用 Redis 集实现标记
 - 使用 Redis 群集
 
-有关详细信息，请参阅 GitHub 上的 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) 文档。
+有关详细信息，请参阅 GitHub 上的 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis)；有关更多的使用方案，请参阅 [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/tests) 单元测试。
 
 [如何将 Azure Redis 缓存与 Python 配合使用](cache-python-get-started.md)展示了如何使用 Python 和 [redis-py](https://github.com/andymccurdy/redis-py) 客户端开始使用 Azure Redis 缓存。
 

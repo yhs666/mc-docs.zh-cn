@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: multiple
-origin.date: 10/30/2018
-ms.date: 12/17/2018
+origin.date: 12/05/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: b2fdf40f8d194680f16be5014e10e00fe399b24e
-ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
+ms.openlocfilehash: a845244b3dc66ee44c7bc005d12c8394332f3c42
+ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53286779"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193139"
 ---
 ## <a name="quickstarts-and-tutorials"></a>快速入门和教程
 
@@ -46,10 +46,11 @@ ms.locfileid: "53286779"
     |[创建链接模板](../articles/azure-resource-manager/resource-manager-tutorial-create-linked-templates.md)|模块化模板，并从模板中调用其他模板。 在本教程中，将创建虚拟网络、虚拟机和相关资源。  相关存储帐户在链接模板中定义。 |
     |[部署虚拟机扩展](../articles/azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)|使用扩展执行部署后任务。 在本教程中，你将部署客户脚本扩展以在虚拟机上安装 Web 服务器。 |
     |[部署 SQL 扩展](../articles/azure-resource-manager/resource-manager-tutorial-deploy-sql-extensions-bacpac.md)|使用扩展执行部署后任务。 在本教程中，你将部署客户脚本扩展以在虚拟机上安装 Web 服务器。 |
-    
+    |[保护项目](../articles/azure-resource-manager/resource-manager-tutorial-secure-artifacts.md)|保护完成部署所需的项目。 本教程介绍如何保护“部署 SQL 扩展”教程中使用的项目。 |
+
+<!--Not Available on  |[Move resources](../articles/azure-resource-manager/resource-manager-tutorial-move-resources.md)|Move resources from one resource group to another resource group. In the tutorial, you run an existing template to create two resource groups and one storage account, and then run an Azure PowerShell cmdlet to move the storage account to the other resource group.-->
 <!-- Not Available on |[Use safe deployment practices](../articles/azure-resource-manager/deployment-manager-tutorial.md)-->
 
 这些教程可以单独使用，也可以作为一系列用于学习主要的资源管理器模板开发概念。
 
-<!-- Update_Description: new articles on resource manager tutorials quickstarts -->
-<!--ms.date: 12/17/2018-->
+<!-- Update_Description: update meta properties, wording update -->

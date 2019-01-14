@@ -11,14 +11,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 04/01/2017
-ms.date: 12/26/2018
+ms.date: 01/09/2019
 ms.author: v-junlch
-ms.openlocfilehash: 23fd9f6c8cdee7d230a54a69b7a9f984d35be3b8
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 27206020a0e5132443c0f530cdb3a9b967370865
+ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806583"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54141688"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions 的 Azure 服务总线绑定
 
@@ -332,6 +332,9 @@ Functions 运行时以 [PeekLock 模式](../service-bus-messaging/service-bus-pe
 |`Label`|`string`|应用程序特定标签。|
 |`CorrelationId`|`string`|相关 ID。|
 |`UserProperties`|`IDictionary<String,Object>`|应用程序特定的消息属性。|
+
+> [!NOTE]
+> 目前，触发器仅适用于不使用会话的队列和订阅。 有关此功能的任何进一步更新，请跟踪[此功能项](https://github.com/Azure/azure-functions-host/issues/563)。 
 
 请参阅在本文的前面部分使用这些属性的[代码示例](#trigger---example)。
 

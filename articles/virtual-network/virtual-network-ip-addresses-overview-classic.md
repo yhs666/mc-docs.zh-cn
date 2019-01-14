@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/11/2016
-ms.date: 06/11/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: da2bfb953272f35d563582930b5ee13e3a449b3d
-ms.sourcegitcommit: f6a287a11480cbee99a2facda2590f3a744f7e45
+ms.openlocfilehash: a3344a7b4f267a1a07a6a9c0c6c0346764f89968
+ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53786735"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193044"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Azure 中的 IP 地址类型和分配方法（经典）
 可以将 IP 地址分配到与其他 Azure 资源通信的 Azure 资源，也可以将其分配到本地网络和 Internet。 可以在 Azure 中使用两种类型的 IP 地址：公共地址和专用地址。
@@ -54,7 +54,6 @@ ms.locfileid: "53786735"
 
 ### <a name="dns-hostname-resolution"></a>DNS 主机名解析
 在创建云服务或 IaaS VM 时，需要提供在 Azure 的所有资源中唯一的云服务 DNS 名称。 这在 Azure 托管的 DNS 服务器中创建 *dnsname*.chinacloudapp.cn 到资源的公共 IP 地址的映射。 例如，创建云服务 DNS 名称为 **contoso** 的云服务时，完全限定域名 (FQDN) **contoso.chinacloudapp.cn** 将解析为该云服务的公共 IP 地址 (VIP)。 可以使用此 FQDN 创建指向 Azure 中的公共 IP 地址的自定义域 CNAME 记录。
-<!-- Convert dnsname.cloudapp.net to dnsname.chinacloudapp.cn-->
 
 ### <a name="cloud-services"></a>云服务
 云服务始终具有一个称为虚拟 IP 地址 (VIP) 的公共 IP 地址。 可以在云服务中创建终结点，以便将 VIP 中的不同端口关联到 VM 中的内部端口以及云服务中的角色实例。 

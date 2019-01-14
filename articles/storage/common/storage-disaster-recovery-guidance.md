@@ -6,16 +6,16 @@ author: WenJason
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 09/13/2018
-ms.date: 11/05/2018
+origin.date: 12/12/2018
+ms.date: 01/14/2019
 ms.author: v-jay
 ms.component: common
-ms.openlocfilehash: cee0b92515b4cc3467a20407348b77e67999c200
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 48642403f581adb06085130785dd0ca039dd4d0e
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650976"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192853"
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>在 Azure 存储中断时该怎么办
 Microsoft 一直努力确保所提供的服务始终可用。 但有时候，各种不可控因素会导致一个或多个区域出现计划外服务中断，对我们造成影响。 为了帮助你应对这些偶发事件，我们提供了下述针对 Azure 存储服务的概述性指导。
@@ -23,8 +23,6 @@ Microsoft 一直努力确保所提供的服务始终可用。 但有时候，各
 ## <a name="how-to-prepare"></a>如何准备
 每个客户都应准备好自己的灾难恢复计划，这很重要。 从存储中断进行恢复时，通常需要操作人员和自动化过程的参与，目的是在正常运行状态下重新激活应用程序。 制定自己的灾难恢复计划时，请参阅以下 Azure 文档：
 
-* [可用性清单](https://docs.microsoft.com/azure/architecture/checklist/availability)
-* [设计适用于 Azure 的弹性应用程序](https://docs.microsoft.com/azure/architecture/resiliency/)
 * [Azure Site Recovery 服务](https://www.azure.cn/home/features/site-recovery/)
 * [Azure 存储复制](storage-redundancy.md)
 * [Azure 备份服务](https://www.azure.cn/home/features/backup/)
@@ -36,7 +34,7 @@ Microsoft 一直努力确保所提供的服务始终可用。 但有时候，各
 如果一个或多个区域的一个或多个存储服务临时不可用，可以考虑两种选项。 如果需要立即访问数据，请考虑“选项 2”。
 
 ### <a name="option-1-wait-for-recovery"></a>选项 1：等待恢复
-在此情况下，不需要采取任何操作。 我们正在努力还原 Azure 服务的可用性。 可在 [Azure 服务运行状况仪表板](https://www.azure.cn/support/service-dashboard/)上监视服务状态。
+在此情况下，不需要采取任何操作。 我们正在努力还原 Azure 服务的可用性。 可以在 [Azure 服务运行状况仪表板](https://www.azure.cn/support/service-dashboard/)上监视服务状态。
 
 ### <a name="option-2-copy-data-from-secondary"></a>选项 2：从辅助数据库复制数据
 如果为存储帐户选择[读取访问异地冗余存储 (RA-GRS)](storage-redundancy-grs.md)（推荐），就可以从次要区域访问数据。 可使用 [AzCopy](storage-use-azcopy.md)、[Azure PowerShell](storage-powershell-guide-full.md) 和 [Azure 数据移动库](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)之类的工具将数据从次要区域复制到不受影响区域的其他存储帐户中，然后将应用程序指向该存储帐户，确保可读取和写入。
@@ -44,7 +42,7 @@ Microsoft 一直努力确保所提供的服务始终可用。 但有时候，各
 ## <a name="what-to-expect-if-a-storage-failover-occurs"></a>进行存储空间故障转移时会发生什么情况
 如果选择[异地冗余存储 (GRS)](storage-redundancy-grs.md) 或[读取访问地域冗余存储 (RA-GRS)](storage-redundancy-grs.md)（推荐），Azure 存储会将数据持久保存在两个区域（主要区域和次要区域）中。 在这两个区域，Azure 存储始终维护你数据的多个副本。
 
-当区域灾难影响到主要区域时，我们会首先尝试还原该区域的服务，以提供 RTO 和 RPO 的最佳组合。 在很少的情况下，我们可能无法还原主要区域，具体取决于灾难的性质及其影响。 在那种情况下，我们会进行异地故障转移。 跨区域数据复制是一个有延迟的异步过程，因此，可能会丢失尚未复制到次要区域的更改。
+当区域灾难影响主要区域时，我们会首先尝试还原该区域的服务，以提供 RTO 和 RPO 的最佳组合。 在很少的情况下，我们可能无法还原主要区域，具体取决于灾难的性质及其影响。 在那种情况下，我们会进行异地故障转移。 跨区域数据复制是一个有延迟的异步过程，因此，可能会丢失尚未复制到次要区域的更改。
 
 有关存储空间异地故障转移体验的一些观点：
 

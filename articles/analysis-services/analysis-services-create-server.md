@@ -6,15 +6,15 @@ manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: quickstart
 origin.date: 10/18/2018
-ms.date: 12/17/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: e737b6531cf9dcf96ac49059d317f17a90be9623
-ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
+ms.openlocfilehash: ea203666dc878c3628d0f8ae9f51e4a9a0aa89c8
+ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53157408"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193019"
 ---
 # <a name="quickstart-create-a-server---portal"></a>快速入门：创建服务器 - 门户
 
@@ -25,9 +25,9 @@ ms.locfileid: "53157408"
 * **Azure 订阅**：访问 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial-full)来创建一个帐户。
 * **Azure Active Directory**：订阅必须与 Azure Active Directory 租户相关联。 并且，需要使用该 Azure Active Directory 中的一个帐户登录 Azure。 若要了解详细信息，请参阅[身份验证和用户权限](analysis-services-manage-users.md)。
 
-## <a name="log-in-to-the-azure-portal"></a>登录到 Azure 门户 
+## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户 
 
-[登录到门户](https://portal.azure.cn)
+[登录门户](https://portal.azure.cn)
 
 ## <a name="create-a-server"></a>创建服务器
 

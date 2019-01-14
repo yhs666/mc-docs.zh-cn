@@ -16,17 +16,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 01/10/2018
 ms.author: v-yiso
-ms.date: 03/26/2018
-ms.openlocfilehash: a0c43bdcd6c59648cb97bb3b9dbe5b2adcaac554
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.date: 01/21/2019
+ms.openlocfilehash: 9d0f57325b3a8d9be8d512bb311b87455e5e2a0d
+ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029103"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54216211"
 ---
 # <a name="install-published-application---cask-data-application-platform-cdap"></a>安装已发布的应用程序 - Cask Data Application Platform (CDAP)
 
-本文介绍如何在 Azure HDInsight 上安装和运行 [CDAP](http://cask.co/products/cdap/) 发布的 Hadoop 应用程序。 有关 HDInsight 应用程序平台的概述以及可用独立软件供应商 (ISV) 发布的应用程序的列表，请参阅[安装第三方 Hadoop 应用程序](hdinsight-apps-install-applications.md)。 有关如何安装自己的应用程序的说明，请参阅[安装自定义 HDInsight 应用程序](hdinsight-apps-install-custom-applications.md)。
+本文介绍如何在 Azure HDInsight 上安装和运行 [CDAP](https://cask.co/products/cdap/) 发布的 [Apache Hadoop](https://hadoop.apache.org/) 应用程序。 有关 HDInsight 应用程序平台的概述以及可用独立软件供应商 (ISV) 发布的应用程序的列表，请参阅[安装第三方 Apache Hadoop 应用程序](hdinsight-apps-install-applications.md)。 有关如何安装自己的应用程序的说明，请参阅[安装自定义 HDInsight 应用程序](hdinsight-apps-install-custom-applications.md)。
 
 ## <a name="about-cdap"></a>关于 CDAP
 
@@ -38,7 +38,7 @@ Cask Data Application Platform (CDAP) 是面向大数据的集成平台。 使�
 
 CDAP 使用开发人员非常熟悉的高级概念和抽象。 这些抽象消除了内部系统的复杂性，并可以促进解决方案的可重用性。
 
-名为 [Cask Hydrator](http://cask.co/products/hydrator/) 的 CDAP 扩展提供一个用户界面用于开发和管理数据管道。 数据管道由各种 *插件组成，这些插件可以执行数据采集、转换、分析和运行后操作等各种任务。
+名为 [Cask Hydrator](https://cask.co/products/hydrator/) 的 CDAP 扩展提供一个用户界面用于开发和管理数据管道。 数据管道由各种 *插件组成，这些插件可以执行数据采集、转换、分析和运行后操作等各种任务。
 
 每个 CDAP 插件具有妥善定义的接口，因此，评估不同的技术只需将一个插件替换为另一个插件，而无需改动应用程序的其他部分。
 
@@ -50,7 +50,7 @@ CDAP 管道为应用程序中的数据提供高级图形流。 此可视化效�
 
 此端到端管道是使用 **Cask Hydrator UI** 生成的，在生成过程中使用其插件接口和拖放功能在每个阶段之间建立连接。 可以单独隔离和修改每个插件的功能。 使用 CDAP，在几个小时内即可生成和验证类似的管道。 在典型的 Hadoop 领域中，构造此类解决方案可能需要几天时间。
 
-CDAP 还提供名为 [Cask Tracker](http://cask.co/products/tracker/) 的扩展，用于直观跟踪流经应用程序的数据。 Cask Tracker 在系统中添加了“数据调控”功能，以便能够在整个应用程序中正式管理数据资产。 可以跟踪每个数据点的沿袭、收集相关指标，并审核整个过程中的数据线索。
+CDAP 还提供名为 [Cask Tracker](https://cask.co/products/tracker/) 的扩展，用于直观跟踪流经应用程序的数据。 Cask Tracker 在系统中添加了“数据调控”功能，以便能够在整个应用程序中正式管理数据资产。 可以跟踪每个数据点的沿袭、收集相关指标，并审核整个过程中的数据线索。
 
 下面演示了数据如何在上述管道中流动：
 
@@ -134,7 +134,7 @@ CDAP 还提供名为 [Cask Tracker](http://cask.co/products/tracker/) 的扩展�
 
 ## <a name="next-steps"></a>后续步骤
 
-* [Cask 文档](http://cask.co/resources/documentation/)。
+* [Cask 文档](https://cask.co/resources/documentation/)。
 * [安装自定义 HDInsight 应用程序](hdinsight-apps-install-custom-applications.md)：了解如何将未发布的 HDInsight 应用程序部署到 HDInsight。
 * [MSDN：安装 HDInsight 应用程序](https://msdn.microsoft.com/library/mt706515.aspx)：了解如何定义 HDInsight 应用程序。
 * [使用脚本操作自定义基于 Linux 的 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)：了解如何使用脚本操作安装其他应用程序。

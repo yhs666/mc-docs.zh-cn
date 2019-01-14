@@ -1,26 +1,25 @@
 ---
-title: Azure Resource Manager 请求限制 | Azure
+title: 请求限制 - Azure 资源管理器 | Microsoft Azure
 description: 介绍在达到订阅限制后如何对 Azure Resource Manager 请求进行限制。
 services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
-manager: digimobile
-editor: tysonn
 ms.assetid: e1047233-b8e4-4232-8919-3268d93a3824
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/17/2018
-ms.date: 09/24/2018
+origin.date: 12/09/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3cb6d32ac632e98d35d1fba770a9ae677df75bd5
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.custom: seodec18
+ms.openlocfilehash: ab5ded4792e152bbfb56240731e7dc3a51f6c303
+ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652219"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193092"
 ---
 # <a name="throttling-resource-manager-requests"></a>限制 Resource Manager 请求数
 对于每个 Azure 订阅和租户，资源管理器最多允许每小时 12,000 个读取请求和每小时 1,200 个写入请求。 这些限制作用于发出请求的主体 ID，以及订阅 ID 或租户 ID。 如果请求来自多个主体 ID，则在整个订阅或租户中实施的限制大于每小时 12,000 个和 1,200 个。
@@ -151,4 +150,4 @@ msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-writes': '1199'
 * 有关限制和配额的详细信息，请参阅 [Azure 订阅和服务限制、配额和约束](../azure-subscription-service-limits.md)。
 * 若要了解如何处理异步 REST 请求，请参阅[跟踪异步 Azure 操作](resource-manager-async-operations.md)。
 
-<!--Update_Description: update meta properties, wroding update, update link -->
+<!--Update_Description: update meta properties -->

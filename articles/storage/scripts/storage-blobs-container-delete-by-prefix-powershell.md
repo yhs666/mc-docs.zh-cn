@@ -1,9 +1,9 @@
 ---
-title: Azure PowerShell 脚本示例 - 根据前缀删除容器 | Azure
+title: Azure PowerShell 脚本示例 - 根据前缀删除容器 | Microsoft Docs
 description: 根据容器名称前缀删除 Azure 存储 blob 容器。
 services: storage
 documentationcenter: na
-author: forester123
+author: WenJason
 manager: digimobile
 editor: tysonn
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: sample
 origin.date: 06/13/2017
-ms.date: 10/23/2017
-ms.author: v-johch
-ms.openlocfilehash: 9a23dfb5f099460a95c95693e4a308778ff59e2b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 01/14/2019
+ms.author: v-jay
+ms.openlocfilehash: c91c0f23bbe18d79e426c2344c279aa2725269b6
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644131"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192832"
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>根据容器名称前缀删除容器
 
@@ -51,17 +51,17 @@ $storageAccountName = "containerdeletetest"
 $prefix = "image"
 
 # get a reference to the storage account and the context
-$storageAccount = Get-AzureRmStorageAccount `
+$storageAccount = Get-AzStorageAccount `
   -ResourceGroupName $resourceGroup `
   -Name $storageAccountName
 $ctx = $storageAccount.Context 
 
 # list all containers in the storage account 
 Write-Host "All containers"
-Get-AzureStorageContainer -Context $ctx | select Name
+Get-AzStorageContainer -Context $ctx | select Name
 
 # retrieve list of containers to delete
-$listOfContainersToDelete = Get-AzureStorageContainer -Context $ctx -Prefix $prefix
+$listOfContainersToDelete = Get-AzStorageContainer -Context $ctx -Prefix $prefix
 
 # write list of containers to be deleted 
 Write-Host "Containers to be deleted"
@@ -70,11 +70,11 @@ $listOfContainersToDelete | select Name
 # delete the containers; this pipes the result of the listing of the containers to delete
 #    into the Remove-AzureStorageContainer command. It handles all of the containers in the list.
 Write-Host "Deleting containers"
-$listOfContainersToDelete | Remove-AzureStorageContainer -Context $ctx 
+$listOfContainersToDelete | Remove-AzStorageContainer -Context $ctx 
 
 # show list of containers not deleted 
 Write-Host "All containers not deleted"
-Get-AzureStorageContainer -Context $ctx | select Name
+Get-AzStorageContainer -Context $ctx | select Name
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署 
@@ -82,7 +82,7 @@ Get-AzureStorageContainer -Context $ctx | select Name
 运行以下命令，删除资源组、其余容器和所有相关资源。
 
 ```powershell
-Remove-AzureRmResourceGroup -Name containerdeletetestrg
+Remove-AzResourceGroup -Name containerdeletetestrg
 ```
 
 ## <a name="script-explanation"></a>脚本说明
@@ -91,9 +91,9 @@ Remove-AzureRmResourceGroup -Name containerdeletetestrg
 
 | 命令 | 注释 |
 |---|---|
-| [Get-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount) | 获取资源组或订阅中的指定存储帐户或所有存储帐户。 |
-| [Get-AzureStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/get-azurestoragecontainer) | 列出与存储帐户关联的存储容器。 |
-| [Remove-AzureStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/remove-azurestoragecontainer) | 删除指定的存储容器。 |
+| [Get-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccount) | 获取资源组或订阅中的指定存储帐户或所有存储帐户。 |
+| [Get-AzStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/get-AzStoragecontainer) | 列出与存储帐户关联的存储容器。 |
+| [Remove-AzStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/remove-AzStoragecontainer) | 删除指定的存储容器。 |
 
 ## <a name="next-steps"></a>后续步骤
 

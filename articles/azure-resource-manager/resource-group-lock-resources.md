@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 11/08/2018
-ms.date: 12/17/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 27d41f31cb77a4135b2a9297725da04444ceda7b
-ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
+ms.openlocfilehash: 1e53573cff67479b678b798e0bf994f314ecdfd0
+ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53286734"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193127"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>锁定资源，以防止意外更改 
 
@@ -223,4 +223,4 @@ az lock delete --ids $lockid
 
 <!-- Not Available on [Azure enterprise scaffold - prescriptive subscription governance](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/subscription-governance)-->
 
-<!--Update_Description: update meta properties, wording update, update cmdlet-->
+<!--Update_Description: update meta properties -->

@@ -8,43 +8,48 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: conceptual
-origin.date: 08/29/2018
-ms.date: 10/30/2018
+origin.date: 11/30/2018
+ms.date: 01/08/2019
 ms.author: v-junlch
-ms.openlocfilehash: 13efe74c19416e076bc72078e5cfe5ddbac5e550
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.custom: seodec18
+ms.openlocfilehash: 4a358f35d867775c9f7afbbac932c0d498cafd52
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666865"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083780"
 ---
-# <a name="generating-thumbnails"></a>生成缩略图
+# <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>使用计算机视觉生成智能裁剪的缩略图
 
-缩略图是完整大小图像的小型呈现。 设备不同（例如手机、平板电脑和电脑），需要的用户体验 (UX) 布局和缩略图大小也不同。 使用智能裁剪，此计算机视觉功能可帮助解决该问题。
+缩略图是图像的缩减表示形式。 缩略图用于以更加经济且更适合布局的方式表示图像及其他数据。 计算机视觉 API 利用智能裁剪及图像大小调整，来创建给定图像的直观缩略图。
 
-上传图像后，计算机视觉会生成高质量缩略图，然后通过分析图像中的对象来识别感兴趣区域 (ROI)。 它可以选择性地裁剪图像以满足 ROI 的要求。 可以使用与原始图像的纵横比不同的纵横比显示生成的缩略图以满足需求。
+计算机视觉缩略图生成算法的工作原理如下：
+1. 从图像中删除让人分散注意力的元素并识别感兴趣区域&mdash;显示主要对象的图像区域。
+1. 基于所识别的感兴趣区域裁剪图像。
+1. 更改纵横比以适应目标缩略图尺寸。
 
-缩略图算法的原理如下所示：
+## <a name="area-of-interest"></a>感兴趣区域
 
-1. 从图像中删除让人分散注意力的元素并识别主对象，即感兴趣区域。
-2. 根据标识的感兴趣区域裁剪图像。
-3. 更改纵横比，使之适合目标缩略图维度。
+上传图像时，计算机视觉 API 将对图像进行分析，以确定感兴趣区域。 然后它可使用该区域来确定如何裁剪图像。 但是，如果已指定所需的纵横比，则裁剪操作始终会与之匹配。
+
+此外，还可改为调用 areaOfInterest API 来获取同一个感兴趣区域的原始边界框坐标。 然后可以使用此信息并根据需要来修改原始图像。
+
+## <a name="examples"></a>示例
 
 生成的缩略图可能会根据指定的高度、宽度和智能裁剪的不同而有很大差异，如下图所示。
 
 ![缩略图](./Images/thumbnail-demo.png)
 
-## <a name="thumbnail-generation-examples"></a>缩略图生成示例
-
 下表说明了计算机视觉为示例图像生成的典型缩略图。 生成缩略图的指定目标高度和宽度为 50 像素，并且启用了智能裁剪。
 
 | 映像 | 缩略图 |
 |-------|-----------|
-|![户外山地](./Images/mountain_vista.png) | ![户外山脉缩略图](./Images/mountain_vista_thumbnail.png) |
-|![视觉分析花](./Images/flower.png) | ![视觉分析花缩略图](./Images/flower_thumbnail.png) |
-|![屋顶的女人](./Images/woman_roof.png) | ![女士屋顶缩略图](./Images/woman_roof_thumbnail.png) |
+|![日落时站在山岩上的人](./Images/mountain_vista.png) | ![户外山脉缩略图](./Images/mountain_vista_thumbnail.png) |
+|![具有绿色背景的白色花卉](./Images/flower.png) | ![视觉分析花缩略图](./Images/flower_thumbnail.png) |
+|![在公寓楼顶上的一个女人](./Images/woman_roof.png) | ![女士屋顶缩略图](./Images/woman_roof_thumbnail.png) |
 
 ## <a name="next-steps"></a>后续步骤
 
-了解[标记图像](concept-tagging-images.md)和[对图像进行分类](concept-categorizing-images.md)的概念。
+了解[标记图像](concept-tagging-images.md)和[对图像进行分类](concept-categorizing-images.md)。
 
+<!-- Update_Description: wording update -->

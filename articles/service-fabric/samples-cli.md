@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
 origin.date: 04/09/2018
-ms.date: 08/20/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 7d840a8e8de96af320bf8c706599c99138fe39b0
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e6a05578cea5a9953590a92a27fd34fca2db5860
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647756"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083584"
 ---
 # <a name="azure-cli-az-and-azure-service-fabric-cli-sfctl-samples"></a>Azure CLI (az) 和 Azure Service Fabric CLI (sfctl) 示例
 
@@ -40,4 +40,4 @@ ms.locfileid: "52647756"
 | [删除应用程序](./scripts/cli-remove-application.md)| 从群集中删除应用程序。|
 | [升级应用程序](./scripts/sfctl-upgrade-application.md)| 升级已部署的应用程序。|
 
-<!--Update_Description: wording update, update meta properties -->
+<!--Update_Description: update meta properties -->

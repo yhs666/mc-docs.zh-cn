@@ -1,3 +1,17 @@
+---
+author: WenJason
+ms.service: storage
+ms.topic: include
+origin.date: 10/26/2018
+ms.date: 01/14/2019
+ms.author: v-jay
+ms.openlocfilehash: 5c80ae87dd83bbc4438b5add5cadd99fc601e38b
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193306"
+---
 ## <a name="net-sample-code-repositories"></a>.NET 示例代码存储库
 
 下面是适用于 Azure 存储 .NET 客户端库的所有示例存储库的列表。

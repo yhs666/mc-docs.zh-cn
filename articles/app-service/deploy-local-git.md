@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/05/2018
-ms.date: 12/31/2018
+ms.date: 01/21/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: b63db1e717713d395c9e59e1b91709be61fdf53d
-ms.sourcegitcommit: 80c59ae1174d71509b4aa64a28a98670307a5b38
+ms.openlocfilehash: 7e20231b67326c56495642f69088887d5e174c21
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53735216"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083594"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>从本地 Git 部署到 Azure 应用服务
 
-本操作方法指南说明如何将代码从本地计算机上的 Git 存储库部署到 [Azure 应用服务](app-service-web-overview.md)。
+本操作方法指南说明如何将代码从本地计算机上的 Git 存储库部署到 [Azure 应用服务](overview.md)。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -32,7 +32,7 @@ ms.locfileid: "53735216"
 
 按照本操作方法指南中的步骤操作：
 
-* [安装 Git](http://www.git-scm.com/downloads)。
+* [安装 Git](https://www.git-scm.com/downloads)。
 * 使用想要部署的代码维护本地 Git 存储库。
 
 要遵循示例存储库操作，请在本地终端窗口运行以下命令：
@@ -49,7 +49,7 @@ git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 
 使用 Kudu 生成服务器为应用启用本地 Git 部署的最简单方法是使用命令外壳。
 
-### <a name="create-a-deployment-user"></a>创建部署用户
+### <a name="configure-a-deployment-user"></a>配置部署用户
 
 [!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
@@ -222,5 +222,5 @@ git config --global http.postBuffer 524288000
 
 * [项目 Kudu 文档](https://github.com/projectkudu/kudu/wiki)
 * [连续部署到 Azure 应用服务](deploy-continuous-deployment.md)
-* [示例：从本地 Git 存储库创建 Web 应用并部署代码 (Azure CLI)](./scripts/app-service-cli-deploy-local-git.md?toc=%2fcli%2ftoc.json)
-* [示例：从本地 Git 存储库创建 Web 应用并部署代码 (PowerShell)](./scripts/app-service-powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+* [示例：从本地 Git 存储库创建 Web 应用并部署代码 (Azure CLI)](./scripts/cli-deploy-local-git.md?toc=%2fcli%2ftoc.json)
+* [示例：从本地 Git 存储库创建 Web 应用并部署代码 (PowerShell)](./scripts/powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json)

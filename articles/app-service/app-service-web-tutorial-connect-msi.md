@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 10/24/2018
-ms.date: 12/31/2018
+ms.date: 01/21/2019
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: 5da03835e9a1d92d52883c94520f085d63390d0c
-ms.sourcegitcommit: 80c59ae1174d71509b4aa64a28a98670307a5b38
+ms.openlocfilehash: dec9dfc9ed6f37c8455a25f34d9208d10a0e7beb
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53735163"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083810"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>教程：使用托管标识确保从应用服务进行的 Azure SQL 数据库连接的安全
 
-[应用服务](app-service-web-overview.md)在 Azure 中提供高度可缩放、自修补的 Web 托管服务。 它还为应用提供[托管标识](app-service-managed-service-identity.md)，这是一项统包解决方案，可以确保安全地访问 [Azure SQL 数据库](/azure/sql-database/)和其他 Azure 服务。 应用服务中的托管标识可以让应用更安全，因为不需在应用中存储机密，例如连接字符串中的凭据。 在本教程中，会将托管标识添加到在[教程：使用 SQL 数据库在 Azure 中构建 ASP.NET 应用](app-service-web-tutorial-dotnet-sqldatabase.md)中构建的示例 ASP.NET Web 应用。 完成后，示例应用就可以安全地连接到 SQL 数据库，不需用户名和密码。
+[应用服务](overview.md)在 Azure 中提供高度可缩放、自修补的 Web 托管服务。 它还为应用提供[托管标识](overview-managed-identity.md)，这是一项统包解决方案，可以确保安全地访问 [Azure SQL 数据库](/azure/sql-database/)和其他 Azure 服务。 应用服务中的托管标识可以让应用更安全，因为不需在应用中存储机密，例如连接字符串中的凭据。 在本教程中，会将托管标识添加到在[教程：使用 SQL 数据库在 Azure 中构建 ASP.NET 应用](app-service-web-tutorial-dotnet-sqldatabase.md)中构建的示例 ASP.NET Web 应用。 完成后，示例应用就可以安全地连接到 SQL 数据库，不需用户名和密码。
 
 > [!NOTE]
 > 此方案目前受 .NET Framework 4.6 及更高版本的支持，但不受 [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows) 的支持。 [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2) 支持此方案，但它尚未包括在应用服务的默认映像中。 
@@ -50,7 +50,7 @@ ms.locfileid: "53735163"
 
 ## <a name="enable-managed-identities"></a>启用托管标识
 
-若要为 Azure 应用启用托管标识，请在 Cloud Shell 中使用 az webapp identity assign 命令。 在以下命令中，替换 *\<app name>*。
+若要为 Azure 应用启用托管标识，请在 Cloud Shell 中使用 [az webapp identity assign](/cli/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) 命令。 在以下命令中，替换 *\<app name>*。
 
 ```azurecli-interactive
 az webapp identity assign --resource-group myResourceGroup --name <app name>
@@ -121,7 +121,7 @@ public MyDatabaseContext(SqlConnection conn) : base(conn, true)
 }
 ```
 
-此构造函数将自定义 SqlConnection 对象配置为使用应用服务提供的 Azure SQL 数据库的访问令牌。 有了访问令牌，应用服务应用就可以使用其托管标识通过 Azure SQL 数据库进行身份验证。 有关详细信息，请参阅[获取 Azure 资源的令牌](app-service-managed-service-identity.md#obtaining-tokens-for-azure-resources)。 可以使用 `if` 语句，通过 LocalDB 继续在本地测试应用。
+此构造函数将自定义 SqlConnection 对象配置为使用应用服务提供的 Azure SQL 数据库的访问令牌。 有了访问令牌，应用服务应用就可以使用其托管标识通过 Azure SQL 数据库进行身份验证。 有关详细信息，请参阅[获取 Azure 资源的令牌](overview-managed-identity.md#obtaining-tokens-for-azure-resources)。 可以使用 `if` 语句，通过 LocalDB 继续在本地测试应用。
 
 > [!NOTE]
 > `SqlConnection.AccessToken` 目前仅在 .NET Framework 4.6 及更高版本中受支持，以及在 [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2) 中受支持，但在 [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows) 中不受支持。
@@ -145,7 +145,7 @@ private MyDatabaseContext db = new MyDatabaseContext(new System.Data.SqlClient.S
 
 在发布页中单击“发布”。 当新网页显示待办事项列表时，表明应用使用了托管标识连接到数据库。
 
-![Code First 迁移后的 Azure Web 应用](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
+![Code First 迁移后的 Azure 应用](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
 现在应该可以像以前一样编辑待办事项列表了。
 
@@ -209,4 +209,4 @@ GO
 转到下一教程，了解如何向 Web 应用映射自定义 DNS 名称。
 
 > [!div class="nextstepaction"]
-> [将现有的自定义 DNS 名称映射到 Azure Web 应用](app-service-web-tutorial-custom-domain.md)
+> [将现有的自定义 DNS 名称映射到 Azure 应用服务](app-service-web-tutorial-custom-domain.md)

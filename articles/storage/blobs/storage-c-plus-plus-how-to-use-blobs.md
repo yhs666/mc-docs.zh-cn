@@ -1,31 +1,29 @@
 ---
-title: 如何通过 C++ 使用对象 (Blob) 存储 - Azure | Azure
+title: 如何通过 C++ 使用对象 (Blob) 存储 - Azure | Microsoft Docs
 description: 使用 Azure Blob（对象）存储将非结构化数据存储在云中。
 services: storage
 author: WenJason
-manager: digimobile
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 origin.date: 03/21/2018
-ms.date: 06/11/2018
-ms.author: v-nany
-ms.openlocfilehash: 44fcd5b72a8817b63ee3802360f4f4682f4bdd62
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 01/14/2019
+ms.author: v-jay
+ms.component: blobs
+ms.openlocfilehash: dda0d0d54a8e4efe26bc557109a2bbb49a97dc68
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656980"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192906"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>如何通过 C++ 使用 Blob 存储
 
-本指南演示如何使用 Azure Blob 存储服务执行常见方案。 示例采用 C++ 编写，并使用了[适用于 C++ 的 Azure 存储客户端库](http://github.com/Azure/azure-storage-cpp/blob/master/README.md)。 涉及的任务包括上传、列出、下载和删除 Blob。  
+本指南演示如何使用 Azure Blob 存储执行常见方案。 此示例显示如何上传、列出、下载和删除 Blob。 示例采用 C++ 编写，并使用了[适用于 C++ 的 Azure 存储客户端库](http://github.com/Azure/azure-storage-cpp/blob/master/README.md)。   
+
+若要了解有关 Blob 存储的详细信息，请参阅 [Azure Blob 存储简介](storage-blobs-introduction.md)。
 
 > [!NOTE]
 > 本指南主要面向适用于 C++ 的 Azure 存储客户端库 1.0.0 版及更高版本。 建议使用最新版本的用于 C++ 的存储客户端库（通过 [NuGet](http://www.nuget.org/packages/wastorage) 或 [GitHub](https://github.com/Azure/azure-storage-cpp) 提供）。
-
-## <a name="what-is-blob-storage"></a>什么是 Blob 存储？
-
-[!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
@@ -37,7 +35,7 @@ ms.locfileid: "52656980"
 若要安装适用于 C++ 的 Azure 存储客户端库，可使用以下方法：
 
 * **Linux：** 按照[适用于 C++ 的 Azure 存储客户端库自述文件](https://github.com/Azure/azure-storage-cpp/blob/master/README.md)页中提供的说明操作。  
-* **Windows：** 在 Visual Studio 中，单击“工具”>“NuGet 包管理器”>“程序包管理器控制台”。 在 [NuGet 包管理器控制台](http://docs.nuget.org/docs/start-here/using-the-package-manager-console)中，键入以下命令，并按 **ENTER**。  
+* **Windows:** 在 Visual Studio 中，单击“工具”>“NuGet 包管理器”>“包管理器控制台”。 在 [NuGet 包管理器控制台](http://docs.nuget.org/docs/start-here/using-the-package-manager-console)中，键入以下命令，并按 **ENTER**。  
   
      Install-Package wastorage
 
@@ -122,7 +120,7 @@ container.upload_permissions(permissions);
 
 Internet 中的所有人都可以查看公共容器中的 Blob，但是，仅在具有相应的访问密钥时，才能修改或删除它们。  
 
-## <a name="how-to-upload-a-blob-into-a-container"></a>如何：将 Blob 上传到容器
+## <a name="how-to-upload-a-blob-into-a-container"></a>如何：将 Blob 上传到容器中
 Azure Blob 存储支持块 Blob 和页 Blob。 大多数情况下，推荐使用的类型是块 Blob。  
 
 要将文件上传到块 Blob，请获取容器引用，并使用它获取块 Blob 引用。 获取 Blob 引用后，可以通过调用 upload_from_stream 方法将任何数据流上传到其中。 如果之前不存在 Blob，此操作会创建一个；如果存在 Blob，此操作将覆盖它。 下面的示例演示了如何将 Blob 上传到容器中，并假定已创建容器。  

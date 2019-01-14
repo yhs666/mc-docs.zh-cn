@@ -6,15 +6,15 @@ manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 10/18/2018
-ms.date: 12/17/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: fb8bcf0b064042b6babdbc82a86ceaf201860590
-ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
+ms.openlocfilehash: 3a824498969aa7d977d55e9380eb71a11b8cd14d
+ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53157405"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193027"
 ---
 # <a name="connect-with-excel"></a>使用 Excel 进行连接
 

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/05/2018
-ms.date: 09/10/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: d7ad26af0f8624729c12fdd34de3d4676ada8b4a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5e83625860b147a3ddb6ea2c32f73be8b8435841
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657918"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083677"
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>在 Service Fabric 群集中引入受控的混沌测试
 大规模分布式系统，例如云基础结构，在本质上都是不可靠的。 Azure Service Fabric 可让开发人员在不可靠的基础结构之上编写可靠的分布式服务。 若要在不可靠的基础结构之上编写可靠的分布式服务，开发人员应能够在不可靠的底层基础结构因故障而进行复杂的状态转换时，测试其服务的稳定性。
@@ -35,7 +35,7 @@ ms.locfileid: "52657918"
 > 从目前来看，混沌测试只会引入安全的故障，这意味着，在没有外部故障的情况下，绝对不会发生仲裁丢失或数据丢失。
 >
 
-混沌测试在运行时，将生成不同的事件来捕获当前的运行状态。 例如，ExecutingFaultsEvent 包含混沌测试决定在该迭代中执行的所有故障。 ValidationFailedEvent 包含群集验证期间发现的验证故障（运行状况或稳定性问题）的详细信息。 可以调用 GetChaosReport API（C#、Powershell 或 REST）来获取混沌测试运行报告。 这些事件保存在一个 [Reliable Dictionary](/service-fabric/service-fabric-reliable-services-reliable-collections) 中，该字典的截断策略由两项配置决定：MaxStoredChaosEventCount（默认值为 25000）和 StoredActionCleanupIntervalInSeconds（默认值为 3600）。 混沌测试每隔 StoredActionCleanupIntervalInSeconds 进行一次检查，从 Reliable Dictionary 中清除除最新 MaxStoredChaosEventCount 事件以外的所有事件。
+混沌测试在运行时，将生成不同的事件来捕获当前的运行状态。 例如，ExecutingFaultsEvent 包含混沌测试决定在该迭代中执行的所有故障。 ValidationFailedEvent 包含群集验证期间发现的验证故障（运行状况或稳定性问题）的详细信息。 可以调用 GetChaosReport API（C#、Powershell 或 REST）来获取混沌测试运行报告。 这些事件持久保存在[可靠字典](/service-fabric/service-fabric-reliable-services-reliable-collections)中，该字典具有由两个配置控制的截断策略：**MaxStoredChaosEventCount**（默认值为 25000）和 **StoredActionCleanupIntervalInSeconds**（默认值为 3600）。 混沌测试每隔 StoredActionCleanupIntervalInSeconds 进行一次检查，从 Reliable Dictionary 中清除除最新 MaxStoredChaosEventCount 事件以外的所有事件。
 
 ## <a name="faults-induced-in-chaos"></a>在混沌测试中引入的故障
 混沌测试在整个 Service Fabric 群集中生成故障，将几个月或几年内出现的故障压缩成几小时。 通过将各种具有高故障率的交叉故障组合在一起，能够找出很有可能被忽视的极端状况。 运行这种混沌测试会使服务的代码质量得到显著提高。
@@ -56,7 +56,7 @@ ms.locfileid: "52657918"
 ## <a name="important-configuration-options"></a>重要的配置选项
 * **TimeToRun**：混沌测试在成功完成之前的总运行时间。 在混沌测试运行了 TimeToRun 这段时间之前，可以通过 StopChaos API 将它停止。
 
-* MaxClusterStabilizationTimeout：在生成 ValidationFailedEvent 之前，等待群集变得正常的最长时间。 等待这段时间的目的是在恢复时减少群集上的负载。 执行的检查包括：
+* **MaxClusterStabilizationTimeout**：在生成 ValidationFailedEvent 之前，等待群集变得正常的最长时间。 等待这段时间的目的是在恢复时减少群集上的负载。 执行的检查包括：
   * 群集运行状况是否正常
   * 服务运行状况是否正常
   * 服务分区是否达到目标副本集大小
@@ -68,10 +68,10 @@ ms.locfileid: "52657918"
 >
 
 * **EnableMoveReplicaFaults**：启用或禁用导致主副本或辅助副本移动的故障。 默认情况下，这些故障处于启用状态。
-* WaitTimeBetweenIterations：每两次迭代之间的等待时间。 即在执行一轮故障并完成群集运行状况的相应验证之后，混沌测试将暂停的时长。 该值越高，平均故障注入速率就越低。
-* WaitTimeBetweenFaults：单个迭代中每两次连续故障之间的等待时间。 该值越高，故障的并发性（即故障之间的重叠）越低。
-* ClusterHealthPolicy：群集运行状况策略用于验证两次混沌测试迭代之间的群集运行状况。 如果群集运行状况出错或者如果在故障执行期间发生了意外的异常，混沌测试会等 30 分钟后再进行下一轮运行状况检查，从而为群集留出一些恢复时间。
-* Context：一组 (string, string) 类型的键值对。 此映射可用于记录混沌测试的相关运行信息。 这种键值对不能超过 100 个，并且每个字符串（键或值）的长度不能超过 4095 个字符。 此映射由混沌测试运行的启动程序设置为根据需要存储特定运行的相关上下文。
+* **WaitTimeBetweenIterations**：每两次迭代之间的等待时间。 即在执行一轮故障并完成群集运行状况的相应验证之后，混沌测试将暂停的时长。 该值越高，平均故障注入速率就越低。
+* **WaitTimeBetweenFaults**：单个迭代中每两次连续故障之间的等待时间。 该值越高，故障的并发性（即故障之间的重叠）越低。
+* **ClusterHealthPolicy**：群集运行状况策略用于验证两次混沌测试迭代之间的群集运行状况。 如果群集运行状况出错或者如果在故障执行期间发生了意外的异常，混沌测试会等 30 分钟后再进行下一轮运行状况检查，从而为群集留出一些恢复时间。
+* **Context**：一组 (string, string) 类型的键值对。 此映射可用于记录混沌测试的相关运行信息。 这种键值对不能超过 100 个，并且每个字符串（键或值）的长度不能超过 4095 个字符。 此映射由混沌测试运行的启动程序设置为根据需要存储特定运行的相关上下文。
 * **ChaosTargetFilter**：此筛选器可指定混沌测试故障仅面向特定节点类型或特定应用程序实例。 如未使用 ChaosTargetFilter，混沌测试会使所有群集实体故障。 如果使用 ChaosTargetFilter，混沌测试仅使满足 ChaosTargetFilter 规定的实体故障。 NodeTypeInclusionList 和 ApplicationInclusionList 仅允许联合语义。 换句话说，不可指定 NodeTypeInclusionList 和 ApplicationInclusionList 的交集。 例如，不可指定“仅当此应用程序在该节点类型上时使其故障”。 一旦实体包含在 NodeTypeInclusionList 或 ApplicationInclusionList 中，便不能使用 ChaosTargetFilter 排除该实体。 即使 applicationX 未出现在 ApplicationInclusionList 中，在一些混沌测试迭代中，也可使 applicationX 故障，因为它恰好在 NodeTypeInclusionList 中的 nodeTypeY 的节点上。 如果 NodeTypeInclusionList 和 ApplicationInclusionList 都为 null 或者为空，则会引发 ArgumentException。
     * **NodeTypeInclusionList**：包括在混沌测试故障中的节点类型列表。 所有类型故障（重启节点、重启代码包、删除副本、重启副本、移动主副本和移动辅助副本）均为这些节点类型的节点启用。 如果节点类型（比如 NodeTypeX）未出现在 NodeTypeInclusionList 中，节点级别故障（比如 NodeRestart）将不会为 NodeTypeX 的节点启用。但是，如果 ApplicationInclusionList 中的应用程序碰巧位于 NodeTypeX 的节点上，那么代码包和副本故障仍可为 NodeTypeX 启用。 此列表最多可以包含 100 个节点类型名称，若要增加，MaxNumberOfNodeTypesInChaosTargetFilter 配置需要升级。
     * **ApplicationInclusionList**：包含在混沌测试故障中的应用程序 URI 列表。 所有属于这些应用程序服务的副本服从混沌测试的副本故障（重启副本、删除副本、移动主副本和移动辅助副本）。 仅在代码包仅托管这些应用程序的副本时，混沌测试可重启代码包。 如果应用程序未出现在此列表中，那么还是可以在某些混沌测试迭代中使它故障，条件是应用程序最终位于 NodeTypeInclusionList 中的节点类型的节点上。 但是，如果 applicationX 通过放置约束固定为 nodeTypeY，并且 applicationX 不在 ApplicationInclusionList 中同时 nodeTypeY 不在 NodeTypeInclusionList 中，那么不会使 applicationX 故障。 此列表最多可以包含 1000 个应用程序名称，若要增加，MaxNumberOfApplicationsInChaosTargetFilter 配置需要升级。

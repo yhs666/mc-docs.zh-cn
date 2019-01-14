@@ -15,12 +15,12 @@ origin.date: 10/29/2018
 ms.date: 12/17/2018
 ms.author: v-jay
 ms.reviewer: waltero
-ms.openlocfilehash: 69c501bae9f4d9ee02423987b0e769595459c9cb
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.openlocfilehash: 5f220c1e4afdb1f44cd5d818e0eaa581f94b0225
+ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396149"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54058997"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>将 Kubernetes 添加到 Azure Stack 市场
 
@@ -137,7 +137,7 @@ ms.locfileid: "53396149"
     Get-AzsGalleryItem | Select Name
     ```
     
-3. 记下当前项的名称，例如 `Microsoft.AzureStackKubernetesCluster.0.2.0`
+3. 记下当前项的名称，例如 `Microsoft.AzureStackKubernetesCluster.0.3.0`
 
 4. 使用以下 PowerShell cmdlet 删除项：
 

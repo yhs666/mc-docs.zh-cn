@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 01/17/2017
-ms.date: 05/28/2018
+ms.date: 01/21/2019
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9af057fc5dd558abee7f9a51aaf64aa481b09fcf
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e36801826821f32b88ddff6b2f9da7a3ad53ecf6
+ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662753"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54216235"
 ---
-# <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>使用 Tez UI 调试基于 Windows 的 HDInsight 上的 Tez 作业
-Tez UI 可以用来调试使用 Tez 作为执行引擎的 Hive 作业。 Tez UI 可以将作业显示为包含已连接项目的图形，深入了解每个项目并检索统计信息和日志记录信息。
+# <a name="use-the-apache-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>使用 Apache Tez UI 调试基于 Windows 的 HDInsight 上的 Tez 作业
+[Apache TEZ](https://tez.apache.org/) UI 可以用来调试使用 Tez 作为执行引擎的 [Apache Hive](https://hive.apache.org/) 作业。 Tez UI 可以将作业显示为包含已连接项目的图形，深入了解每个项目并检索统计信息和日志记录信息。
 
 > [!IMPORTANT]
 > 本文档中的步骤需要使用 Windows 的 HDInsight 群集。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
@@ -32,14 +32,13 @@ Tez UI 可以用来调试使用 Tez 作为执行引擎的 Hive 作业。 Tez UI 
 ## <a name="prerequisites"></a>先决条件
 * 基于 Windows 的 HDInsight 群集。 有关创建新群集的步骤，请参阅[开始使用基于 Windows 的 HDInsight](hdinsight-hadoop-tutorial-get-started-windows.md)。
 
-  > [!IMPORTANT]
-  > Tez UI 只在 2016 年 2 月 8 日以后创建的基于 Windows 的 HDInsight 群集上提供。
-  >
-  >
+  > [!IMPORTANT]  
+  > Apache Tez UI 只在 2016 年 2 月 8 日以后创建的基于 Windows 的 HDInsight 群集上提供。
+
 * 基于 Windows 的远程桌面客户端。
 
-## <a name="understanding-tez"></a>了解 Tez
-Tez 是 Hadoop 中的一种可扩展数据处理框架，其处理速度比传统的 MapReduce 处理要快。 可以将以下文本作为 Hive 查询的一部分，以便启用 Tez：
+## <a name="understanding-apache-tez"></a>了解 Apache Tez
+Tez 是 Apache Hadoop 中的一种可扩展数据处理框架，其处理速度比传统的 [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) 处理要快。 可以将以下文本作为 Hive 查询的一部分，以便启用 Tez：
 
     set hive.execution.engine=tez;
 
@@ -141,6 +140,6 @@ Tez UI 是一个网页，提供使用 Tez 的进程的信息。 它可以为以�
     ![任务详细信息](./media/hdinsight-debug-tez-ui/taskdetails.png)
 
 ## <a name="next-steps"></a>后续步骤
-现在，已了解如何使用 Tez 视图，因此可以详细了解如何 [使用 HDInsight 上的 Hive](hadoop/hdinsight-use-hive.md)。
+既然已了解如何使用 [Apache TEZ](https://tez.apache.org/) 视图，接下来将详细了解如何[使用 Apache Hive on HDInsight](hadoop/hdinsight-use-hive.md)。
 
-有关 Tez 的更详细的技术信息，请参阅 [Hortonworks 的 Tez 页](http://hortonworks.com/hadoop/tez/)。
+有关 Tez 的更多详细的技术信息，请参阅 [Hortonworks 的 Apache Tez 页](https://hortonworks.com/hadoop/tez/)。

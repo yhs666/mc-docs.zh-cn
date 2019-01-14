@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/3/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8b9700612212b3592d1ef6f9810ae2b500970fce
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: 5ec510c2c1b2f2a0736ac0fbe2226df7fa4fcbf2
+ms.sourcegitcommit: 902c63072b2d4d889e47f3e4ecb53aeb33534e0c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029255"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54186249"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>了解 Azure 流分析的输出
 本文将介绍适用于 Azure 流分析作业的不同类型的输出。 输出可帮助存储和保存流分析作业的结果。 使用输出数据，可进一步进行业务分析和数据的数据仓储。 
@@ -43,7 +43,7 @@ ms.locfileid: "54029255"
 | 输出别名 |在查询中使用的友好名称，用于将查询输出定向到此数据库。 |
 | 数据库 | 数据库的名称（正在向该数据库发送输出）。 |
 | 服务器名称 | SQL 数据库服务器名称。 |
-| 用户名 | 有权写入到数据库的用户名。 |
+| 用户名 | 有权写入到数据库的用户名。 流分析仅支持 SQL 身份验证。 |
 | 密码 | 用于连接到数据库的密码。 |
 | 表 | 将写入输出的表名称。 表名称区分大小写，并且该表架构应与字段数量以及作业输出正在生成的字段类型完全匹配。 |
 
@@ -82,7 +82,7 @@ Blob 存储提供了一种经济高效且可缩放的解决方案，用于在云
 * 如果按照自定义字段对输出进行分区（其中分区键基数超过 8000），则可能每个分区键创建一个新的 blob。
 
 ## <a name="event-hub"></a>事件中心
-[Azure 事件中心](https://www.azure.cn/home/features/event-hubs/)服务是具有高扩展性的发布 - 订阅事件引入器。 事件中心每秒可收集数百万个事件。 当流分析作业的输出成为另一个流式处理作业的输入时，可以将事件中心用作输出。
+[Azure 事件中心](https://www.azure.cn/services/event-hubs/)服务是具有高扩展性的发布 - 订阅事件引入器。 事件中心每秒可收集数百万个事件。 当流分析作业的输出成为另一个流式处理作业的输入时，可以将事件中心用作输出。
 
 将事件中心数据流配置为输出时，需要使用几个参数。
 
@@ -165,13 +165,13 @@ Blob 存储提供了一种经济高效且可缩放的解决方案，用于在云
 分区数[基于服务总线 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 分区键是每个分区的唯一整数值。
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
-[Azure Cosmos DB](https://www.azure.cn/home/features/documentdb/) 是一种多区域分布的多模型数据库服务，它提供多区域不设限的弹性缩放、丰富查询和自动索引（经由与架构无关的数据模型）、可靠的低延迟及行业领先的综合 SLA。 若要了解流分析的 Cosmos DB 集合选项，请参阅[将 Cosmos DB 用作输出的流分析](stream-analytics-documentdb-output.md)一文。
+[Azure Cosmos DB](https://www.azure.cn/services/documentdb/) 是一种分布全球的多模型数据库服务，它提供全球范围内不设限的弹性缩放、丰富查询和自动索引（经由与架构无关的数据模型）、可靠的低延迟及行业领先的综合 SLA。 若要了解流分析的 Cosmos DB 集合选项，请参阅[将 Cosmos DB 用作输出的流分析](stream-analytics-documentdb-output.md)一文。
 
 <!-- Not Available on Azure Cosmos DB output from Stream Analytics is currently not available in the Azure China (21Vianet) and Azure Germany (T-Systems International) regions.-->
 
 > [!Note]
 > 目前，Azure 流分析仅支持使用 SQL API 连接到 CosmosDB。
-> 尚不支持使用其他 Azure Cosmos DB API。 如果使用其他 API 将 Azure 流分析指向 创建的 Azure Cosmos DB 帐户，则可能无法正确存储数据。 
+> 尚不支持使用其他 Azure Cosmos DB API。 如果使用其他 API 将 Azure 流分析指向 创建的 Azure Cosmos DB 帐户，则可能无法正确存储数据。
 
 下表描述了用于创建 Azure Cosmos DB 输出的属性。
 | 属性名称 | 说明 |
@@ -182,9 +182,9 @@ Blob 存储提供了一种经济高效且可缩放的解决方案，用于在云
 | 帐户 ID | Cosmos DB 帐户的名称或终结点 URI。 |
 | 帐户密钥 | Cosmos DB 帐户的共享访问密钥。 |
 | 数据库 | Cosmos DB 数据库名称。 |
-| 集合名称模式 | 要使用的集合的集合名称或其模式。 <br/>可以使用可选的 {partition} 令牌（其中分区从 0 开始）构造集合名称格式。 两个示例：  <br/>1. _MyCollection_ - 必须存在一个名为“MyCollection”的集合。  <br/>2._MyCollection{partition}_ - 基于分区依据列。 <br/>分区依据列集合必须存在 -“MyCollection0”、“MyCollection1”、“MyCollection2”等。 |
-| 分区键 | 可选。 仅当你在集合名称模式中使用 {partition} 令牌时，才需要此项。<br/> 分区键是输出事件中字段的名称，该字段用于指定跨集合分区输出的键。<br/> 对于单个集合输出，可使用任何任意输出列。 例如 PartitionId。 |
-| 文档 ID |可选。 输出事件中的字段的名称，该字段用于指定插入或更新操作所基于的主键。  
+| 集合名称模式 | 要使用的集合的集合名称或其模式。 <br />可以使用可选的 {partition} 令牌（其中分区从 0 开始）构造集合名称格式。 两个示例：  <br />1. _MyCollection_ - 必须存在一个名为“MyCollection”的集合。  <br />2._MyCollection{partition}_ - 基于分区依据列。 <br />分区依据列集合必须存在 -“MyCollection0”、“MyCollection1”、“MyCollection2”等。 |
+| 分区键 | 可选。 仅当你在集合名称模式中使用 {partition} 令牌时，才需要此项。<br /> 分区键是输出事件中字段的名称，该字段用于指定跨集合分区输出的键。<br /> 对于单个集合输出，可使用任何任意输出列。 例如 PartitionId。 |
+| 文档 ID |可选。 输出事件中的字段的名称，该字段用于指定插入或更新操作所基于的主键。
 
 <!-- Not Available on ## Azure Functions-->
 
@@ -201,7 +201,7 @@ Blob 存储提供了一种经济高效且可缩放的解决方案，用于在云
 | Azure Data Lake Store | 是 | 在 Path 前缀模式中使用 {date} 和 {time} 标记。 选择日期格式，例如 YYYY/MM/DD、DD/MM/YYYY、MM-DD-YYYY。 HH 用于时间格式。 | 按照[完全可并行化的查询](stream-analytics-scale-jobs.md)的输入分区。 |
 | Azure SQL 数据库 | 是 | 基于查询中的 PARTITION BY 子句 | 按照[完全可并行化的查询](stream-analytics-scale-jobs.md)的输入分区。 若要详细了解在将数据载入 SQL Azure 数据库时如何提高写入吞吐量性能，请访问[从 Azure 流分析输出到 Azure SQL 数据库](stream-analytics-sql-output-perf.md)。 |
 | Azure Blob 存储 | 是 | 在 Path 模式中使用事件字段中的 {date} 和 {time} 标记。 选择日期格式，例如 YYYY/MM/DD、DD/MM/YYYY、MM-DD-YYYY。 HH 用于时间格式。 作为[预览版](https://aka.ms/ASApreview1)的一部分，可以通过单个自定义事件属性 {fieldname} 或 {datetime:\<specifier>} 对 blob 输出进行分区。 | 按照[完全可并行化的查询](stream-analytics-scale-jobs.md)的输入分区。 |
-| Azure 事件中心 | 是 | 是 | 按分区对齐方式变化。<br /> 输出事件中心分区键与上游（上一个）查询步骤相同时，编写器的数量与输出事件中心分区的数量相同。 每个编写器使用 EventHub 的 [EventHubSender 类](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet)将事件发送到特定分区。 <br /> 输出事件中心分区键与上游（上一个）查询步骤不相同时，编写器的数量与之前步骤中的分区数量不相同。 各编写器使用 EventHubClient [SendBatchAsync class](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) 将事件发送到所有输出分区。 |
+| Azure 事件中心 | 是 | 是 | 按分区对齐方式变化。<br /> 输出事件中心分区键与上游（上一个）查询步骤相同时，编写器的数量与输出事件中心分区的数量相同。 各编写器使用 EventHub 的 [EventHubSender class](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) 将事件发送到特定分区。 <br /> 输出事件中心分区键与上游（上一个）查询步骤不相同时，编写器的数量与之前步骤中的分区数量不相同。 各编写器使用 EventHubClient [SendBatchAsync class](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) 将事件发送到所有输出分区。 |
 | Power BI | 否 | 无 | 不适用。 |
 | Azure 表存储 | 是 | 任何输出列。  | 按照[完全并行化的查询](stream-analytics-scale-jobs.md)的输入分区。 |
 | Azure 服务总线主题 | 是 | 自动选择。 分区数基于[服务总线 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 分区键是每个分区的唯一整数值。| 与输出主题中的分区数量相同。  |
@@ -224,7 +224,7 @@ Azure 流分析使用大小可变的批来处理事件和写入到输出。 通�
 | Azure Data Lake Store | 请参阅 [Data Lake Storage 限制](../azure-subscription-service-limits.md) | 每个编写操作最高 4 MB |
 | Azure SQL 数据库 | 每个单次批量插入最大行数 10000<br />每个单次批量插入最小行数 100 <br />另请参阅 [Azure SQL 限制](../sql-database/sql-database-resource-limits.md) |  每个批最初都以最大批大小来批量插入，并可能会根据来自 SQL 的可重试错误将批拆分为二（直到达到最小批大小）。 |
 | Azure Blob 存储 | 参阅 [Azure 存储限制](../azure-subscription-service-limits.md#storage-limits) | 最大 Blob 块大小为 4 MB<br />最大 blob 块计数为 50000 |
-| Azure 事件中心   | 每个消息 256 KB <br />另请参阅[事件中心限制](../event-hubs/event-hubs-quotas.md) |   当输入输出分区未对齐时，每个事件都在 EventData 中单独打包，并按批发送（批的大小不得超出最大消息大小，高级 SKU 的最大消息大小为 1 MB）。 <br /><br />  输入输出分区相同时，多个事件打包到单个 EventData，以最大消息大小发送。  |
+| Azure 事件中心   | 每个消息 256 KB <br />另请参阅[事件中心限制](../event-hubs/event-hubs-quotas.md) |   输入输出分区不相同时，每个事件会分别打包到 EventData 中，并按批发送（批的大小不得超出最大消息大小，高级 SKU 的最大消息大小为 1 MB）。 <br /><br />  输入输出分区相同时，多个事件打包到单个 EventData，以最大消息大小发送。  |
 | Power BI | 请参阅 [Power BI Rest API 限制](https://msdn.microsoft.com/library/dn950053.aspx) |
 | Azure 表存储 | 参阅 [Azure 存储限制](../azure-subscription-service-limits.md#storage-limits) | 默认为每个单一事务 100 个实体，并且可根据需要配置为更小的值。 |
 | Azure 服务总线队列   | 每个消息 256 KB</br> 另请参阅[服务总线限制](../service-bus-messaging/service-bus-quotas.md) | 每个消息单一事件 |

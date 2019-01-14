@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 10/01/2016
 ms.date: 01/07/2019
 ms.author: v-biyu
-ms.openlocfilehash: efb8b6130283325f82a9052139d2169a432f84f7
-ms.sourcegitcommit: a46f12240aea05f253fb4445b5e88564a2a2a120
+ms.openlocfilehash: 59e057ae400fc0d11e7a504faf17ef4c220db1c4
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785235"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083736"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-for-mobile-apps"></a>Azure 应用服务中针对移动应用的身份验证和授权
 
@@ -45,7 +45,7 @@ ms.locfileid: "53785235"
 
 获取提供者令牌后，需将其发送到应用服务进行验证。 应用服务在验证令牌后会创建新的应用服务令牌，将其返回给客户端。 移动应用客户端 SDK 提供的帮助器方法可用于管理此交换，并可自动将令牌附加到针对应用程序后端的所有请求。 开发人员也可以保留对提供者令牌的引用。
 
-有关身份验证流的详细信息，请参阅[应用服务身份验证流](../app-service/app-service-authentication-overview.md#authentication-flow)。 
+有关身份验证流的详细信息，请参阅[应用服务身份验证流](../app-service/overview-authentication-authorization.md#authentication-flow)。 
 
 ## <a name="authentication-without-provider-sdk"></a>在不使用提供者 SDK 的情况下进行身份验证
 
@@ -53,10 +53,10 @@ ms.locfileid: "53785235"
 
 启动此流程的代码包括在每个平台的身份验证教程中。 在流程结束时，客户端 SDK 拥有一个应用服务令牌，该令牌自动附加到针对应用程序后端的所有请求。
 
-有关身份验证流的详细信息，请参阅[应用服务身份验证流](../app-service/app-service-authentication-overview.md#authentication-flow)。 
+有关身份验证流的详细信息，请参阅[应用服务身份验证流](../app-service/overview-authentication-authorization.md#authentication-flow)。 
 ## <a name="more-resources"></a>更多资源
 
-以下教程展示了如何通过[服务器定向流](../app-service/app-service-authentication-overview.md#authentication-flow)向移动客户端添加身份验证：
+以下教程展示了如何通过[服务器定向流](../app-service/overview-authentication-authorization.md#authentication-flow)向移动客户端添加身份验证：
 
 * [Add authentication to your iOS app][iOS]
 * [将身份验证添加到 Android 应用][Android]
@@ -66,13 +66,13 @@ ms.locfileid: "53785235"
 * [将身份验证添加到 Xamarin.Forms 应用][Xamarin.Forms]
 * [Add Authentication to your Cordova app][Cordova]
 
-若要为 Azure Active Directory 使用[客户端定向流](../app-service/app-service-authentication-overview.md#authentication-flow)，请参阅以下资源：
+若要为 Azure Active Directory 使用[客户端定向流](../app-service/overview-authentication-authorization.md#authentication-flow)，请参阅以下资源：
 
 * [使用适用于 iOS 的 Active Directory 身份验证库][ADAL-iOS]
 * [使用适用于 Android 的 Active Directory 身份验证库][ADAL-Android]
 * [使用适用于 Windows 和 Xamarin 的 Active Directory 身份验证库][ADAL-dotnet]
 
-若要为 Facebook 使用[客户端定向流](../app-service/app-service-authentication-overview.md#authentication-flow)，请参阅以下资源：
+若要为 Facebook 使用[客户端定向流](../app-service/overview-authentication-authorization.md#authentication-flow)，请参阅以下资源：
 
 
 [iOS]: ../app-service-mobile/app-service-mobile-ios-get-started-users.md

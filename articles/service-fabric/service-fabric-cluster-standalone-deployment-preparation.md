@@ -12,17 +12,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 09/11/2018
-ms.date: 12/10/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: a5e311bb3759de93a3fb120f09e5ffeea9fef04b
-ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
+ms.openlocfilehash: 6ef909faa2dccd8cc40e88d7452dcab65175214b
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52901131"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083748"
 ---
 <a name="preparemachines"></a>
-
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>规划和准备 Service Fabric 独立群集部署
 在创建群集之前，请执行以下步骤。
 
@@ -84,6 +83,7 @@ ms.locfileid: "52901131"
 有关此文件中各个节的详细信息，请参阅 [Windows 独立群集的配置设置](service-fabric-cluster-manifest.md)。
 
 从已下载的包中打开某个 ClusterConfig.json 文件，并修改以下设置：
+
 | **配置设置** | **说明** |
 | --- | --- |
 | **NodeTypes** |节点类型可让你将群集节点划分到不同的组中。 一个群集必须至少有一个节点类型。 组中的所有节点具有以下共同特征： <br> 名称 - 即节点类型名称。 <br>终结点端口 - 即与此节点类型关联的各种命名终结点（端口）。 可以使用任何端口号，只要它们不会与此清单中的其他部分发生冲突，并且未被计算机/VM 上运行的其他应用程序使用。 <br> 放置属性 - 即此节点类型的相应属性，可用作系统服务或你拥有的服务的放置约束。 这些属性是用户定义的键/值对，可为指定节点提供额外的元数据。 节点属性的示例包括节点是否有硬盘或图形卡、其硬盘的轴数、内核数和其他物理属性。 <br> 容量 - 节点容量，定义特定节点提供的特定资源的名称和数量。 例如，节点可以定义名为“MemoryInMb”的指标容量，而且默认有 2048 MB 的可用内存。 这些容量在运行时使用，以确保将需要特定资源量的服务放在具有所需数量的可用资源的节点上。<br>IsPrimary - 如果定义了多个 NodeType，请确保只有一个设置为主节点（值为 true），系统服务将在该主节点上运行。 应将所有其他节点类型设置为 false 值 |
@@ -98,20 +98,20 @@ ms.locfileid: "52901131"
 群集管理员配置 Service Fabric 独立群集时，需按照以下准则设置环境： <br>
 1. 创建群集的用户应对群集配置文件中作为节点列出的所有计算机具有管理员级别的安全特权。
 2. 从中创建群集的计算机以及每个群集节点计算机必须：
-* 已卸载 Service Fabric SDK
-* 已卸载 Service Fabric 运行时 
-* 已启用 Windows 防火墙服务 (mpssvc)
-* 已启用远程注册表服务（远程注册表）
-* 已启用文件共享 (SMB)
-* 已基于群集配置端口打开了必要的端口
-* 已为 Windows SMB 和远程注册表服务打开了必要的端口：135、137、138、139 和 445
-* 已将网络彼此互连
+    * 已卸载 Service Fabric SDK
+    * 已卸载 Service Fabric 运行时 
+    * 已启用 Windows 防火墙服务 (mpssvc)
+    * 已启用远程注册表服务（远程注册表）
+    * 已启用文件共享 (SMB)
+    * 已基于群集配置端口打开了必要的端口
+    * 已为 Windows SMB 和远程注册表服务打开了必要的端口：135、137、138、139 和 445
+    * 已将网络彼此互连
 3. 群集节点计算机不应为域控制器。
 4. 如果要部署的群集是安全群集，请验证是否已具备必需的安全先决条件，以及是否已根据配置进行正确配置。
 5. 如果群集计算机无法访问 Internet，请在群集配置中设置以下项：
-* 禁用遥测： 在“属性”下，设置 *"enableTelemetry": false*
-* 禁用自动下载 Fabric 版本和禁用通知当前群集版本支持即将终止： 在“属性”下，设置 *"fabricClusterAutoupgradeEnabled": false*
-* 或者，如果网络 Internet 访问仅限于允许列表中的域，则需要自动升级以下域：go.microsoft.com   download.microsoft.com
+   * 禁用遥测：在“属性”下，设置 "enableTelemetry": false
+   * 禁用自动 Fabric 版本下载和通知当前群集版本支持即将终止：在“属性”下，设置 "fabricClusterAutoupgradeEnabled": false
+   * 或者，如果网络 Internet 访问仅限于允许列表中的域，则需要自动升级以下域：go.microsoft.com download.microsoft.com
 
 6. 设置适当的 Service Fabric 防病毒排除项：
 

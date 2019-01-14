@@ -13,34 +13,34 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 04/23/2018
-ms.date: 11/19/2018
+ms.date: 01/21/2019
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 7fa15ece5b01a0e244443835b602f96f9c5933e8
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 30a809ff07ea23d769a8b78c3fb1d4d8fc721dbc
+ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646684"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54216244"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>将其他存储帐户添加到 HDInsight
 
 了解如何使用脚本操作，将其他 Azure 存储帐户添加到 HDInsight。 本文档中的步骤会将存储帐户添加到基于 Linux 的现有 HDInsight 群集。
 
-> [!IMPORTANT]
-> 本文档中的信息是关于在创建群集后将其他存储添加到群集。 有关在创建群集期间添加存储帐户的信息，请参阅[使用 Hadoop、Spark、Kafka 等设置 HDInsight 中的群集](hdinsight-hadoop-provision-linux-clusters.md)。
+> [!IMPORTANT]  
+> 本文档中的信息是关于在创建群集后将其他存储添加到群集。 有关如何在创建群集期间添加存储帐户的信息，请参阅[使用 Apache Hadoop、Apache Spark、Apache Kafka 等设置 HDInsight 中的群集](hdinsight-hadoop-provision-linux-clusters.md)。
 
 ## <a name="how-it-works"></a>工作原理
 
 此脚本采用以下参数：
 
-* __Azure 存储帐户名称__：要添加到 HDInsight 群集的存储帐户的名称。 运行脚本后，HDInsight 能够读取此存储帐户中存储的数据并将数据写入到此存储帐户中。
+* __Azure 存储帐户名称__：要添加到 HDInsight 群集的存储器帐户的名称。 运行脚本后，HDInsight 能够读取此存储帐户中存储的数据并将数据写入到此存储帐户中。
 
 * __Azure 存储帐户密钥__：授予对存储帐户的访问权限的密钥。
 
 * __-p__（可选）：如果指定此参数，则密钥不会加密，并以纯文本形式存储在 core-site.xml 文件中。
 
-处理过程中，此脚本执行以下操作：
+在处理期间，脚本执行以下操作：
 
 * 如果群集的 core-site.xml 配置中已存在该存储帐户，脚本会退出，并不执行任何进一步操作。
 
@@ -50,7 +50,7 @@ ms.locfileid: "52646684"
 
 * 将存储帐户添加到 core-site.xml 文件中。
 
-* 停止并重启 Oozie、YARN、MapReduce2 和 HDFS 服务。 通过停止和重启这些服务来使用新的存储帐户。
+* 停止并重启 [Apache Oozie](https://oozie.apache.org/)、[Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html)、[Apache Hadoop MapReduce2](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) 和 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html) 服务。 通过停止和重启这些服务来使用新的存储帐户。
 
 > [!WARNING]
 > 不支持在 HDInsight 群集之外的其他位置使用存储帐户。
@@ -102,7 +102,7 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters
 > [!NOTE]
 > 将 `$PASSWORD` 设置为群集登录名 (admin) 的帐户密码。 将 `$CLUSTERNAME` 设置为 HDInsight 群集的名称。 将 `$STORAGEACCOUNTNAME` 设置为存储帐户的名称。
 >
-> 此示例使用 [curl (http://curl.haxx.se/)](http://curl.haxx.se/) 和 [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) 检索和分析 JSON 数据。
+> 此示例使用 [curl (https://curl.haxx.se/)](https://curl.haxx.se/) 和 [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) 检索和分析 JSON 数据。
 
 使用此命令时，将 __CLUSTERNAME__ 替换为 HDInsight 群集的名称。 将 __PASSWORD__ 替换为群集的 HTTP 登录密码。 将 __STORAGEACCOUNT__ 替换为使用脚本操作添加的存储帐户的名称。 此命令返回的信息类似于以下文本：
 

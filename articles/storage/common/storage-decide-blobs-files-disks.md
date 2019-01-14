@@ -5,16 +5,16 @@ services: storage
 author: WenJason
 ms.service: storage
 ms.topic: article
-origin.date: 03/28/2018
-ms.date: 11/05/2018
+origin.date: 11/28/2018
+ms.date: 01/14/2019
 ms.author: v-nany
 ms.component: common
-ms.openlocfilehash: 174c1a3cf9914d0598399703c579961151799a8d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 66fd2d03a4e2b4cc35432363b9680a87e0e86833
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647696"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192910"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>确定何时使用 Azure Blob、Azure 文件或 Azure 磁盘
 

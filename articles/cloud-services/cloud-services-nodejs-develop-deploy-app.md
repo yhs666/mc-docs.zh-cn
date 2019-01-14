@@ -3,7 +3,7 @@ title: Node.js 入门指南 | Microsoft Docs
 description: 了解如何创建简单的 Node.js Web 应用程序并将其部署到 Azure 云服务。
 services: cloud-services
 documentationcenter: nodejs
-author: thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 50951a87-fed4-48e0-bcfa-453b9e50452e
@@ -15,12 +15,12 @@ ms.topic: hero-article
 origin.date: 08/17/2017
 ms.date: 06/11/2018
 ms.author: v-yiso
-ms.openlocfilehash: 0df31100206481e21b01d9b710074aa1b44cd2b8
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a0b27d3a1804d093870ca862d96657669d428555
+ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643476"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54216256"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>生成 Node.js 应用程序并将其部署到 Azure 云服务
 
@@ -67,7 +67,7 @@ ms.locfileid: "52643476"
 
     该 cmdlet 会创建以下文件：
 
-    -   ServiceConfiguration.Cloud.cscfg、ServiceConfiguration.Local.cscfg 和 ServiceDefinition.csdef：发布应用程序所需的特定于 Azure 的文件。 有关详细信息，请参阅 [创建 Azure 托管服务概述]。
+    -   **ServiceConfiguration.Cloud.cscfg**、**ServiceConfiguration.Local.cscfg** 和 **ServiceDefinition.csdef**：发布应用程序时必需的 Azure 特定文件。 有关详细信息，请参阅 [创建 Azure 托管服务概述]。
 
     -   **deploymentSettings.json**：存储供 Azure PowerShell 部署 cmdlet 使用的本地设置。
 
@@ -198,14 +198,14 @@ Publish-AzureServiceProject -ServiceName $ServiceName  -Location "China East" -L
 
 <!-- URL List -->
 
-[Azure 网站、云服务和虚拟机的比较]: ../app-service/choose-web-site-cloud-service-vm.md
+[Azure 网站、云服务和虚拟机的比较]: ../app-service/overview-compare.md
 [使用轻型 Web 应用]: ../app-service/app-service-web-get-started-nodejs.md
 [Azure PowerShell]:../powershell-install-configure.md
 [用于 .NET 2.7 的 Azure SDK]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
 [连接 PowerShell]:../powershell-install-configure.md#how-to-connect-to-your-subscription
 [nodejs.org]: http://nodejs.org/
 [创建 Azure 托管服务概述]: /cloud-services/
-[Node.js 开发人员中心]: https://www.azure.cn/develop/nodejs/
+[Node.js 开发人员中心]: /develop/nodejs/
 
 <!-- IMG List -->
 

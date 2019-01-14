@@ -1,6 +1,6 @@
 ---
-title: Apache Spark 流式处理与 Kafka - Azure HDInsight | Microsoft Docs
-description: 了解如何使用 Spark Apache Spark 通过 DStream 将数据流式传入或传出 Apache Kafka。 本示例使用 Spark on HDInsight 中的 Jupyter 笔记本流式传输数据。
+title: Apache Spark 流式处理与 Apache Kafka - Azure HDInsight
+description: 了解如何使用 Apache Spark 通过 DStreams 将数据流式传入或流式传出 Apache Kafka。 本示例使用 Spark on HDInsight 中的 Jupyter notebook 流式传输数据。
 keywords: kafka 示例, kafka zookeeper, spark 流式处理 kafka, spark 流式处理 kafka 示例
 services: hdinsight
 documentationcenter: ''
@@ -15,26 +15,26 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 11/06/2018
-ms.date: 12/24/2018
+ms.date: 01/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: b7ab2ecfcdb7ba06e9566eaec837b3a15573f92b
-ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
+ms.openlocfilehash: 388001279e6cc99259584498448175a9777a451d
+ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53569247"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54216245"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>Apache Kafka on HDInsight 的 Apache Spark 流式处理 (DStream) 示例
 
-了解如何使用 Apache Spark 通过 DStreams 将数据流式传入或流式传出 Apache Kafka on HDInsight。 本示例使用在 Spark 群集上运行的 Jupyter notebook。
+了解如何使用 [Apache Spark](https://spark.apache.org/) 通过 [DStreams](https://spark.apache.org/docs/latest/api/java/org/apache/spark/streaming/dstream/DStream.html) 将数据流式传入或流式传出 [Apache Kafka](https://kafka.apache.org/) on HDInsight。 本示例使用在 Spark 群集上运行的 [Jupyter Notebook](https://jupyter.org/)。
 
 > [!NOTE]
 > 本文档中的步骤创建一个 Azure 资源组，其中同时包含 HDInsight 上的 Spark 和 HDInsight 上的 Kafka 群集。 这些群集都位于一个 Azure 虚拟网络中，这样 Spark 群集便可与 Kafka 群集直接通信。
 >
 > 完成本文档中的步骤后，请记得删除这些群集，避免产生额外费用。
 
-> [!IMPORTANT]
-> 此示例使用 DStreams，这是较旧的 Spark 流式处理技术。 有关使用较新 Spark 流式处理功能的示例，请参阅[使用 Kafka 的 Spark 结构化流式处理](hdinsight-apache-kafka-spark-structured-streaming.md)文档。
+> [!IMPORTANT]  
+> 此示例使用 DStreams，这是较旧的 Spark 流式处理技术。 有关使用较新的 Spark 流式处理功能的示例，请参阅[使用 Apache Kafka 的 Spark 结构化流式处理](hdinsight-apache-kafka-spark-structured-streaming.md)文档。
 
 ## <a name="create-the-clusters"></a>创建群集
 
@@ -103,7 +103,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
 在本示例中，了解如何使用 Spark 对 Kafka 进行读取和写入。 请使用以下链接探索 Kafka 的其他用法：
 
-* [HDInsight 上的 Apache Kafka 入门](kafka/apache-kafka-get-started.md)
-* [使用 MirrorMaker 在 HDInsight 上创建 Kafka 的副本](kafka/apache-kafka-mirroring.md)
-* [在 HDInsight 上将 Apache Storm 与 Kafka 配合使用](hdinsight-apache-storm-with-kafka.md)
+* [Apache Kafka on HDInsight 入门](kafka/apache-kafka-get-started.md)
+* [使用 MirrorMaker 创建 Apache Kafka on HDInsight 的副本](kafka/apache-kafka-mirroring.md)
+* [将 Apache Storm 与 Apache Kafka on HDInsight 配合使用](hdinsight-apache-storm-with-kafka.md)
 

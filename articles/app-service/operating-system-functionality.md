@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/01/2016
-ms.date: 12/31/2018
+ms.date: 01/21/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 4c73cae89436feed32e4134e600db5bad225e934
-ms.sourcegitcommit: 80c59ae1174d71509b4aa64a28a98670307a5b38
+ms.openlocfilehash: c0a50d5b0392de9f793e935481274793ef2f4c88
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53735225"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083593"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure 应用服务上的操作系统功能
-本文介绍了可供在 [Azure 应用服务](app-service-web-overview.md)上运行的所有 Windows 应用使用的常见基准操作系统功能。 这些功能包括文件、网络和注册表访问以及诊断日志和事件。 
+本文介绍了可供在 [Azure 应用服务](overview.md)上运行的所有 Windows 应用使用的常见基准操作系统功能。 这些功能包括文件、网络和注册表访问以及诊断日志和事件。 
 
 <a id="tiers"></a>
 
@@ -83,7 +83,7 @@ ms.locfileid: "53735225"
 
 两个说明应用服务如何使用临时本地存储的示例分别针对的是临时 ASP.NET 文件的目录和 IIS 压缩文件的目录。 ASP.NET 编译系统使用“临时 ASP.NET 文件”目录作为临时编译缓存位置。 IIS 使用“IIS 临时压缩文件”目录存储压缩的响应输出。 在应用服务中，这两种类型的文件使用（以及其他使用）都重新映射到按应用临时本地存储。 此重新映射确保该功能按预期延续。
 
-应用服务中的每个应用作为随机的唯一低权限辅助进程标识运行，该标识名为“应用程序池标识”，以下网页做了进一步的介绍：[http://www.iis.net/learn/manage/configuring-security/application-pool-identities](http://www.iis.net/learn/manage/configuring-security/application-pool-identities)。 应用程序代码将此标识由于对操作系统驱动器（D:\ 驱动器）的基本的只读访问。 这意味着应用程序代码可以列出公共目录结构并且读取操作系统驱动器上的公共文件。 尽管这可能看上去就好像是一种较为广泛的访问级别，但在 Azure 托管服务中设置某一辅助角色并且读取驱动器内容时，相同的目录和文件是可访问的。 
+应用服务中的每个应用作为随机的唯一低权限辅助进程标识运行，该标识名为“应用程序池标识”，以下网页做了进一步的介绍：[https://www.iis.net/learn/manage/configuring-security/application-pool-identities](https://www.iis.net/learn/manage/configuring-security/application-pool-identities)。 应用程序代码将此标识由于对操作系统驱动器（D:\ 驱动器）的基本的只读访问。 这意味着应用程序代码可以列出公共目录结构并且读取操作系统驱动器上的公共文件。 尽管这可能看上去就好像是一种较为广泛的访问级别，但在 Azure 托管服务中设置某一辅助角色并且读取驱动器内容时，相同的目录和文件是可访问的。 
 
 <a name="multipleinstances"></a>
 
@@ -128,11 +128,5 @@ ms.locfileid: "53735225"
 
 ## <a name="more-information"></a>详细信息
 
-[Azure Web 应用沙盒](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) - 有关应用服务的执行环境的最新信息。 此页由应用服务开发团队直接维护。
-
-> [!NOTE]
-> 如果要在注册 Azure 帐户之前开始使用 Azure 应用服务，请转到[试用应用服务](https://www.azure.cn/zh-cn/home/features/app-service/)，可以在应用服务中立即创建一个生存期较短的入门 Web 应用。 不需要使用信用卡，也不需要做出承诺。
-> 
-> 
-
+[Azure 应用服务沙盒](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) - 有关应用服务的执行环境的最新信息。 直接由应用服务开发团队维护此页。
 

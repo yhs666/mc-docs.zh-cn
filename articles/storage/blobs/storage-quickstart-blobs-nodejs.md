@@ -7,14 +7,14 @@ ms.custom: mvc
 ms.service: storage
 ms.topic: conceptual
 origin.date: 11/14/2018
-ms.date: 12/10/2018
+ms.date: 01/14/2019
 ms.author: v-jay
-ms.openlocfilehash: 188e9928954715882a5ad6df615a2674d3933cb2
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: e4efec3ad734a7a6e25bad9c71392be375f5f8b0
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028888"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192854"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-nodejs-sdk-v2"></a>如何使用 Node.js SDK v2 上传、下载和列出 Blob
 
@@ -24,7 +24,7 @@ ms.locfileid: "53028888"
 
 如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
-在 [Azure 门户](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM)中创建 Azure 存储帐户。 有关如何创建帐户的帮助，请参阅[创建存储帐户](../common/storage-quickstart-create-account.md)。
+在 [Azure 门户](https://portal.azure.cn/#create/Microsoft.StorageAccount-ARM)中创建 Azure 存储帐户。 有关如何创建帐户的帮助，请参阅[创建存储帐户](../common/storage-quickstart-create-account.md)。
 
 ## <a name="download-the-sample-application"></a>下载示例应用程序
 
@@ -125,7 +125,7 @@ const listContainers = async () => {
 };
 ```
 
-组的大小可以通过 [ListContainersOptions](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.listcontaineroptions?view=azure-node-latest) 进行配置。 调用 *listContainersSegmented* 会返回 [ContainerResult](https://docs.microsoft.com/nodejs/api/azure-storage/blobresult) 实例数组形式的 Blob 元数据。 结果以 5,000 增量批次（段）的方式返回。 如果容器中有 5,000 个以上的 Blob，则结果中会包含一个 *continuationToken* 值。 若要列出 Blob 容器中的后续段，可以将继续标记作为第二个参数传递回 *listContainersSegment* 中。
+组的大小可以通过 [ListContainersOptions](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.listcontaineroptions?view=azure-node-latest) 进行配置。 调用 *listContainersSegmented* 会返回 [ContainerResult](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.containerresult?view=azure-node-latest) 实例数组形式的 Blob 元数据。 结果以 5,000 增量批次（段）的方式返回。 如果容器中有 5,000 个以上的 Blob，则结果中会包含一个 *continuationToken* 值。 若要列出 Blob 容器中的后续段，可以将继续标记作为第二个参数传递回 *listContainersSegment* 中。
 
 ### <a name="create-a-container"></a>创建容器
 
@@ -168,7 +168,7 @@ const uploadString = async (containerName, blobName, text) => {
 ```
 ### <a name="upload-a-local-file"></a>上传本地文件
 
-*uploadLocalFile* 函数通过 [createBlockBlobFromLocalFile](https://docs.microsoft.com/en-us/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createappendblobfromlocalfile-string--string--string--createblobrequestoptions--errororresult-blobresult--) 将文件从文件系统上传和写入（或覆盖）到 Blob 存储中。 
+*uploadLocalFile* 函数通过 [createBlockBlobFromLocalFile](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromlocalfile-string--string--string--errororresult-blobresult--) 将文件从文件系统上传和写入（或覆盖）到 Blob 存储中。 
 
 ```javascript
 const uploadLocalFile = async (containerName, filePath) => {
@@ -189,7 +189,7 @@ const uploadLocalFile = async (containerName, filePath) => {
 
 ### <a name="list-the-blobs"></a>列出 Blob
 
-*listBlobs* 函数在调用 [listBlobsSegmented](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.listblobssegmentedrequestoptions?view=azure-node-latest) 方法后会返回一个列表，其中包含容器中的 Blob 元数据。 
+*listBlobs* 函数在调用 [listBlobsSegmented](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#listblobssegmented-string--continuationtoken--errororresult-listblobsresult--) 方法后会返回一个列表，其中包含容器中的 Blob 元数据。 
 
 ```javascript
 const listBlobs = async (containerName) => {

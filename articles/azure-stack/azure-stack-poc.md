@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 origin.date: 10/15/2018
-ms.date: 12/17/2018
+ms.date: 01/14/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: c342a4acbe0c16461864f194805bd6f1e922c384
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.openlocfilehash: ee003b02ba4266f00cae3fe3c245d5bb4fb4b19e
+ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396073"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54058983"
 ---
 # <a name="what-is-azure-stack"></a>什么是 Azure Stack？
 
@@ -35,7 +35,7 @@ Azure Stack 集成系统通过 Azure 与[硬件合作伙伴](https://azure.micro
 
 ## <a name="azure-stack-development-kit"></a>Azure Stack 开发工具包
 
-Microsoft [Azure Stack 开发工具包 (ASDK)](asdk/asdk-what-is.md) 是 Azure Stack 的单节点部署，可用于评估和了解 Azure Stack。  还可将 ASDK 用作开发人员环境，以使用与 Azure 一致的 API 和工具来构建应用。
+Microsoft [Azure Stack 开发工具包 (ASDK)](./asdk/asdk-what-is.md) 是 Azure Stack 的单节点部署，可用于评估和了解 Azure Stack。  还可将 ASDK 用作开发人员环境，以使用与 Azure 一致的 API 和工具来构建应用。
 
 >[!Note]
 >ASDK 不可用作生产环境。

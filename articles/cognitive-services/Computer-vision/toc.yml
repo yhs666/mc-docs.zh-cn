@@ -10,6 +10,8 @@ items:
   items:
   - name: 标记图像
     href: concept-tagging-images.md
+  - name: 检测对象
+    href: concept-object-detection.md
   - name: 对图像进行分类
     href: concept-categorizing-images.md
   - name: 描述图像
@@ -56,16 +58,12 @@ items:
     href: https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa
   - name: SDK
     items:
-    - name: Windows
-      href: https://github.com/Microsoft/Cognitive-vision-windows
     - name: Node.js
-      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest#vision-modules
+      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/computervision?view=azure-node-latest
     - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python#vision-modules
+      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/computervision?view=azure-python
     - name: Go
       href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/computervision
-    - name: Android
-      href: https://github.com/Microsoft/Cognitive-vision-android
     - name: Swift
       href: https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK
 - name: 资源
@@ -76,15 +74,15 @@ items:
     href: https://www.azure.cn/pricing/details/cognitive-services/
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/430309-computer-vision-api
+  - name: 类别分类
+    href: Category-Taxonomy.md
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
   - name: 区域可用性
-    href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: 类别分类
-    href: Category-Taxonomy.md
-ms.openlocfilehash: c48edb3479ed4b0f2b426e198ca7ab876cb95c92
-ms.sourcegitcommit: a3cde3b41ed4d3f39a30eb4e562d6436a3e4d9d5
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+ms.openlocfilehash: 4f21dbfed606084638ff2926830af5ac752e37b8
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53131744"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083547"

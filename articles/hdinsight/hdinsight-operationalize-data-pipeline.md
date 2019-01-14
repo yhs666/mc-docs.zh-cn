@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 01/11/2018
 ms.author: v-yiso
-ms.date: 03/26/2018
-ms.openlocfilehash: a972fc369ca72581ffdbc8a5ae879e14a276205a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 01/21/2019
+ms.openlocfilehash: 48e1430ce08ccd38a59f9cb9003e9071606b7281
+ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643482"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54216262"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>使数据分析管道可操作化
 
@@ -37,13 +37,13 @@ ms.locfileid: "52643482"
 | 2017 | 1 | 3 | AS | 9.435449 | 5.482143 | 572289 |
 | 2017 | 1 | 3 | DL | 6.935409 | -2.1893024 | 1909696 |
 
-示例管道等待一个新时间段的航班数据到达，然后将详细航班信息存储到 Hive 数据仓库，用于长期分析。 管道还创建一个较小的数据集，用于汇总每日航班数据。 此每日航班汇总数据发送到 SQL 数据库，为网站等提供报表。
+示例管道等待一个新时间段的航班数据到达，然后将详细航班信息存储到 Apache Hive 数据仓库，用于长期分析。 管道还创建一个较小的数据集，用于汇总每日航班数据。 此每日航班汇总数据发送到 SQL 数据库，为网站等提供报表。
 
 下图展示了此示例管道。
 
 ![航班数据管道](./media/hdinsight-operationalize-data-pipeline/pipeline-overview.png)
 
-## <a name="oozie-solution-overview"></a>Oozie 解决方案概述
+## <a name="apache-oozie-solution-overview"></a>Apache Oozie 解决方案概述
 
 此管道使用 HDInsight Hadoop 群集上运行的 Apache Oozie。
 
@@ -552,7 +552,7 @@ day=03
 
 可以看到，大部分协调器仅将配置信息传递到工作流实例。 但是，有几点需要强调。
 
-* 第 1 点：`coordinator-app` 元素上的 `start` 和 `end` 属性控制协调器运行的时间间隔。
+* 第 1 点：`coordinator-app` 元素本身上的 `start` 和 `end` 属性控制协调器运行的时间间隔。
 
     ```
     <coordinator-app ... start="2017-01-01T00:00Z" end="2017-01-05T00:00Z" frequency="${coord:days(1)}" ...>
@@ -560,7 +560,7 @@ day=03
 
     协调器负责按照 `frequency` 属性指定的间隔，在 `start` 和 `end` 日期范围内计划操作。 每个计划的操作反过来按配置运行工作流。 在上面的协调器定义中，协调器被配置为从 2017 年 1 月 1 日到 2017 年 1 月 5 日运行操作。 频率通过 [Oozie 表达式语言](http://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation)频率表达式 `${coord:days(1)}` 设置为 1 天。 通过此操作，协调器会按每天一次的频率计划一个操作（以及工作流）。 对于过去的日期范围，如本示例所示，操作将计划为无延迟运行。 操作运行计划的开始日期称为“名义时间”。 例如，若要处理 2017 年 1 月 1 日的数据，协调器将把操作的名义时间计划为 2017-01-01T00:00:00 GMT。
 
-* 第 2 点：在工作流的日期范围内，`dataset` 元素指定 HDFS 中查找特定日期范围的数据的位置，并配置 Oozie 如何确定数据是否可进行处理。
+* 第 2 点：在工作流的日期范围内，`dataset` 元素指定 HDFS 中查找特定日期范围的数据的位置，并配置 Oozie 如何确定数据是否还可进行处理。
 
     ```
     <dataset name="ds_input1" frequency="${coord:days(1)}" initial-instance="2016-12-31T00:00Z" timezone="UTC">
@@ -585,7 +585,7 @@ day=03
 
 结合上述三点的结果是：协调器按照逐日的方式计划源数据的处理。 
 
-* 第 1 点：协调器从名义时间 2017-01-01 开始。
+* 第 1 点：协调器从名义时间 2017-01-01 开始运行。
 
 * 第 2 点：Oozie 在 `sourceDataFolder/2017-01-FlightData.csv` 中查找可用数据。
 
@@ -658,6 +658,6 @@ sqlDatabaseTableName=dailyflights
 
 ## <a name="next-steps"></a>后续步骤
 
-* [Apache Oozie 文档](http://oozie.apache.org/docs/4.2.0/index.html)
+* [Apache Oozie 文档](https://oozie.apache.org/docs/4.2.0/index.html)
 
 <!-- * Build the same pipeline [using Azure Data Factory](tbd.md).  -->

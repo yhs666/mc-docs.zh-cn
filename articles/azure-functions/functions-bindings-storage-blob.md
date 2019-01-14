@@ -10,14 +10,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 11/15/2018
-ms.date: 12/26/2018
+ms.date: 01/09/2019
 ms.author: v-junlch
-ms.openlocfilehash: 2ab940c409f80bde14b25d69e3d040eccb659436
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 48c4b3cd97812d1e78e40dd6b0fd9397b8f10e25
+ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806596"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54141690"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure Blob 存储绑定
 
@@ -421,7 +421,7 @@ Blob 触发器可在内部使用队列，因此并发函数调用的最大数量
 
 内存由每个并发执行函数实例和函数运行时本身使用。 如果 blob 触发的函数将整个 blob 加载到内存中，该函数使用的仅用于 blob 的最大内存为 24 * 最大 blob 大小。 例如，包含 3 个由 blob 触发的函数的函数应用和默认设置，其每 VM 最大并发为 3*24 = 72 个函数调用。
 
-JavaScript 函数会将整个 blob 加载到内存中，并且如果绑定到 `string`、`Byte[]` 或 POCO，则 C# 函数也会如此。
+JavaScript 和 Java 函数会将整个 blob 加载到内存中，并且如果绑定到 `string`、`Byte[]` 或 POCO，则 C# 函数也会如此。
 
 ## <a name="trigger---polling"></a>触发器 - 轮询
 
@@ -437,7 +437,7 @@ JavaScript 函数会将整个 blob 加载到内存中，并且如果绑定到 `s
 
 - [C#](#input---c-example)
 - [C# 脚本 (.csx)](#input---c-script-example)
-- [Java](#input---java-example)
+- [Java](#input---java-examples)
 - [JavaScript](#input---javascript-example)
 - [Python](#input---python-example)
 
@@ -605,26 +605,65 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.Input
     return inputblob
 ```
 
-### <a name="input---java-example"></a>输入 - Java 示例
+### <a name="input---java-examples"></a>输入 - Java 示例
 
-以下示例演示使用一个队列触发器和一个 Blob 输入绑定的 Java 函数。 队列消息包含该 blob 的名称，函数记录该 blob 的大小。
+本部分包含以下示例：
+
+- [HTTP 触发器，使用查询字符串查找 blob 名称](#http-trigger-look-up-blob-name-from-query-string-java)
+- [队列触发器，接收来自队列消息的 blob 名称](#queue-trigger-receive-blob-name-from-queue-message-java)
+
+#### <a name="http-trigger-look-up-blob-name-from-query-string-java"></a>HTTP 触发器，使用查询字符串查找 blob 名称 (Java)
+
+ 下面的示例显示了一个 Java 函数，该函数使用 ```HttpTrigger``` 注释来接收包含 blob 存储容器中某个文件的名称的一个参数。 然后，```BlobInput``` 注释读取该文件并将其作为 ```byte[]``` 传递给该函数。
 
 ```java
-@FunctionName("getBlobSize")
-@StorageAccount("AzureWebJobsStorage")
-public void blobSize(@QueueTrigger(name = "filename",  queueName = "myqueue-items") String filename,
-                    @BlobInput(name = "file", dataType = "binary", path = "samples-workitems/{queueTrigger") byte[] content,
-       final ExecutionContext context) {
+  @FunctionName("getBlobSizeHttp")
+  @StorageAccount("Storage_Account_Connection_String")
+  public HttpResponseMessage blobSize(
+    @HttpTrigger(name = "req", 
+      methods = {HttpMethod.GET}, 
+      authLevel = AuthorizationLevel.ANONYMOUS) 
+    HttpRequestMessage<Optional<String>> request,
+    @BlobInput(
+      name = "file", 
+      dataType = "binary", 
+      path = "samples-workitems/{Query.file}") 
+    byte[] content,
+    final ExecutionContext context) {
+      // build HTTP response with size of requested blob
+      return request.createResponseBuilder(HttpStatus.OK)
+        .body("The size of \"" + request.getQueryParameters().get("file") + "\" is: " + content.length + " bytes")
+        .build();
+  }
+```
+
+#### <a name="queue-trigger-receive-blob-name-from-queue-message-java"></a>队列触发器，接收来自队列消息的 blob 名称 (Java)
+
+ 下面的示例显示了一个 Java 函数，该函数使用 ```QueueTrigger``` 注释来接收包含 blob 存储容器中某个文件的名称的一个消息。 然后，```BlobInput``` 注释读取该文件并将其作为 ```byte[]``` 传递给该函数。
+
+```java
+  @FunctionName("getBlobSize")
+  @StorageAccount("Storage_Account_Connection_String")
+  public void blobSize(
+    @QueueTrigger(
+      name = "filename", 
+      queueName = "myqueue-items-sample") 
+    String filename,
+    @BlobInput(
+      name = "file", 
+      dataType = "binary", 
+      path = "samples-workitems/{queueTrigger}") 
+    byte[] content,
+    final ExecutionContext context) {
       context.getLogger().info("The size of \"" + filename + "\" is: " + content.length + " bytes");
- }
- ```
+  }
+```
 
-  在 [Java 函数运行时库](https://docs.microsoft.com/en-us/java/api/overview/azure/functions/runtime)中，对其值将来自 Blob 的参数使用 `@BlobInput` 注释。  可以将此注释与本机 Java 类型、POJO 或使用了 `Optional<T>` 的可为 null 的值一起使用。
-
+在 [Java 函数运行时库](https://docs.microsoft.com/en-us/java/api/overview/azure/functions/runtime)中，对其值将来自 Blob 的参数使用 `@BlobInput` 注释。  可以将此注释与本机 Java 类型、POJO 或使用了 `Optional<T>` 的可为 null 的值一起使用。
 
 ## <a name="input---attributes"></a>输入 - 特性
 
-在 [C# 类库](functions-dotnet-class-library.md)中，使用 BlobAttribute。
+在 [C# 类库](functions-dotnet-class-library.md)中，使用 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs)。
 
 该特性的构造函数采用 Blob 的路径，以及一个表示读取或写入的 `FileAccess` 参数，如以下示例中所示：
 
@@ -703,7 +742,7 @@ public static void Run(
 
 - [C#](#output---c-example)
 - [C# 脚本 (.csx)](#output---c-script-example)
-- [Java](#output---java-example)
+- [Java](#output---java-examples)
 - [JavaScript](#output---javascript-example)
 - [Python](#output---python-example)
 
@@ -890,23 +929,72 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream,
     outputblob.set(inputblob)
 ```
 
-### <a name="output---java-example"></a>输出 - Java 示例
+### <a name="output---java-examples"></a>输出 - Java 示例
 
-下面的示例展示了 Java 函数中的 Blob 输入和输出绑定。 此函数创建文本 blob 的副本。 该函数由包含要复制的 Blob 名称的队列消息触发。 新 Blob 名为 {originalblobname}-Copy
+本部分包含以下示例：
+
+- [HTTP 触发器，使用 OutputBinding](#http-trigger-using-outputbinding-java)
+- [队列触发器，使用函数返回值](#queue-trigger-using-function-return-value-java)
+
+#### <a name="http-trigger-using-outputbinding-java"></a>HTTP 触发器，使用 OutputBinding (Java)
+
+ 下面的示例显示了一个 Java 函数，该函数使用 ```HttpTrigger``` 注释来接收包含 blob 存储容器中某个文件的名称的一个参数。 然后，```BlobInput``` 注释读取该文件并将其作为 ```byte[]``` 传递给该函数。 ```BlobOutput``` 注释绑定到 ```OutputBinding outputItem```，然后，函数使用后者来将输入 blob 的内容写入到所配置的存储容器中。
 
 ```java
-@FunctionName("copyTextBlob")
-@StorageAccount("AzureWebJobsStorage")
-@BlobOutput(name = "target", path = "samples-workitems/{queueTrigger}-Copy")
-public String blobCopy(
-    @QueueTrigger(name = "filename", queueName = "myqueue-items") String filename,
-    @BlobInput(name = "source", path = "samples-workitems/{queueTrigger}") String content ) {
+  @FunctionName("copyBlobHttp")
+  @StorageAccount("Storage_Account_Connection_String")
+  public HttpResponseMessage copyBlobHttp(
+    @HttpTrigger(name = "req", 
+      methods = {HttpMethod.GET}, 
+      authLevel = AuthorizationLevel.ANONYMOUS) 
+    HttpRequestMessage<Optional<String>> request,
+    @BlobInput(
+      name = "file", 
+      dataType = "binary", 
+      path = "samples-workitems/{Query.file}") 
+    byte[] content,
+    @BlobOutput(
+      name = "target", 
+      path = "myblob/{Query.file}-CopyViaHttp")
+    OutputBinding<String> outputItem,
+    final ExecutionContext context) {
+      // Save blob to outputItem
+      outputItem.setValue(new String(content, StandardCharsets.UTF_8));
+
+      // build HTTP response with size of requested blob
+      return request.createResponseBuilder(HttpStatus.OK)
+        .body("The size of \"" + request.getQueryParameters().get("file") + "\" is: " + content.length + " bytes")
+        .build();
+  }
+```
+
+#### <a name="queue-trigger-using-function-return-value-java"></a>队列触发器，使用函数返回值 (Java)
+
+ 下面的示例显示了一个 Java 函数，该函数使用 ```QueueTrigger``` 注释来接收包含 blob 存储容器中某个文件的名称的一个消息。 然后，```BlobInput``` 注释读取该文件并将其作为 ```byte[]``` 传递给该函数。 ```BlobOutput``` 注释绑定到函数返回值，然后，运行时使用后者来将输入 blob 的内容写入到所配置的存储容器中。
+
+```java
+  @FunctionName("copyBlobQueueTrigger")
+  @StorageAccount("Storage_Account_Connection_String")
+  @BlobOutput(
+    name = "target", 
+    path = "myblob/{queueTrigger}-Copy")
+  public String copyBlobQueue(
+    @QueueTrigger(
+      name = "filename", 
+      dataType = "string",
+      queueName = "myqueue-items") 
+    String filename,
+    @BlobInput(
+      name = "file", 
+      path = "samples-workitems/{queueTrigger}") 
+    String content,
+    final ExecutionContext context) {
+      context.getLogger().info("The content of \"" + filename + "\" is: " + content);
       return content;
- }
- ```
+  }
+```
 
- 在 [Java 函数运行时库](https://docs.microsoft.com/en-us/java/api/overview/azure/functions/runtime)中，对其值将写入 Blob 存储中对象的函数参数使用 `@BlobOutput` 注释。  参数类型应为 `OutputBinding<T>`，其中 T 是 POJO 的任何本机 Java 类型。
-
+ 在 [Java 函数运行时库](https://docs.microsoft.com/en-us/java/api/overview/azure/functions/runtime)中，对其值将写入 Blob 存储中对象的函数参数使用 `@BlobOutput` 注释。  参数类型应为 `OutputBinding<T>`，其中 T 是任何本机 Java 类型或者是一个 POJO。
 
 ## <a name="output---attributes"></a>输出 - 特性
 

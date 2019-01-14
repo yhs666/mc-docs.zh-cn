@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 05/01/2017
-ms.date: 05/28/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: d483434929ccb80b771a336167f87b1b4213b7ea
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ce3cf947d8cb0229b9b5a410cc1bf5ab8a299d03
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650634"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083799"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Azure Service Fabric 可靠集合中的事务和锁模式
 
@@ -30,7 +30,7 @@ ms.locfileid: "52650634"
 * **原子性**：事务必须是原子工作单元。 换而言之，要么执行其所有数据修改，要么一个数据修改也不执行。
 * **一致性**：完成后，事务必须使所有数据处于一致状态。 事务结束时，所有内部数据结构必须都正确。
 * **隔离**：并发事务所做的修改必须与任何其他并发事务所做的修改隔离。 用于 ITransaction 中的某个操作的隔离级别由执行该操作的 IReliableState 确定。
-* **持久性**：事务完成后，其效果永久存在于系统中。 即使系统发生故障，修改也会保留。
+* **持续性**：事务完成后，其效果永久存在于系统中。 即使系统发生故障，修改也会保留。
 
 ### <a name="isolation-levels"></a>隔离级别
 隔离级别定义必须从其他事务所作修改中隔离事务的程度。
@@ -94,5 +94,6 @@ Reliable Queue 使用操作级别锁，允许具有 `TryPeekAsync` 和/或 `TryD
 * [Reliable Services 通知](service-fabric-reliable-services-notifications.md)
 * [Reliable Services 备份和还原（灾难恢复）](service-fabric-reliable-services-backup-restore.md)
 * [可靠状态管理器和配置](service-fabric-reliable-services-configuration.md)
-* [可靠集合的开发人员参考](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-<!-- Update_Description: update meta properties, wording update -->
+* [Reliable Collections 的开发人员参考](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
+
+<!-- Update_Description: update meta properties, wording update, update link -->

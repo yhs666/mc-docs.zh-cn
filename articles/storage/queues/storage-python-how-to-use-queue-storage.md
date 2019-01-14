@@ -4,19 +4,18 @@ description: 了解如何通过 Python 使用 Azure 队列服务创建和删除�
 services: storage
 author: WenJason
 ms.service: storage
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 origin.date: 12/08/2016
-ms.date: 12/10/2018
+ms.date: 01/14/2019
 ms.author: v-jay
 ms.component: queues
-ms.openlocfilehash: 18e79b44592ad98edd4310ceac2e0619a2b174ee
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 6cdcec8536bcb5825ea82c7aa476406afcba4c14
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028319"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192874"
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>如何通过 Python 使用队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -24,7 +23,7 @@ ms.locfileid: "53028319"
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>概述
-本指南演示如何使用 Azure 队列存储服务执行常见方案。 这些示例用 Python 编写并使用 [Azure Storage SDK for Python]。 介绍的方案包括**插入**、**扫视**、**获取**和**删除**队列消息以及**创建和删除队列**。 有关队列的详细信息，请参阅[后续步骤]部分。
+本指南演示如何使用 Azure 队列存储服务执行常见方案。 这些示例用 Python 编写并使用 [Microsoft Azure Storage SDK for Python]。 介绍的方案包括**插入**、**扫视**、**获取**和**删除**队列消息以及**创建和删除队列**。 有关队列的详细信息，请参阅[后续步骤]部分。
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -32,7 +31,7 @@ ms.locfileid: "53028319"
 
 ## <a name="download-and-install-azure-storage-sdk-for-python"></a>下载和安装适用于 Python 的 Azure 存储 SDK
 
-适用于 Python 的 Azure 存储 SDK 需要 Python 2.7、3.3、3.4、3.5 或 3.6，并且包含 4 个不同包：`azure-storage-blob`、`azure-storage-file`、`azure-storage-table` 和 `azure-storage-queue`。 在本教程中，我们要用到 `azure-storage-queue` 包。
+[适用于 Python 的 Azure 存储 SDK](https://github.com/azure/azure-storage-python) 需要使用 Python 2.7、3.3、3.4、3.5 或 3.6。
  
 ### <a name="install-via-pypi"></a>通过 PyPi 安装
 
@@ -42,15 +41,19 @@ ms.locfileid: "53028319"
 pip install azure-storage-queue
 ```
 
-
 > [!NOTE]
-> 如果要从用于 Python 的 Azure 存储 SDK 版本 0.36 或更早版本升级，首先需要使用 `pip uninstall azure-storage` 进行卸载，因为我们不再通过单个包的形式发布用于 Python 的存储 SDK 了。
-> 
-> 
+> 如果要从适用于 Python 的 Azure 存储 SDK 版本 0.36 或更早版本升级，请在安装最新软件包之前使用 `pip uninstall azure-storage` 卸载旧版 SDK。
 
-有关备用安装方法，请访问 [Github 上用于 Python 的 Azure 存储 SDK](https://github.com/Azure/azure-storage-python/)。
+有关备用安装方法，请参阅[适用于 Python 的 Azure 存储 SDK](https://github.com/Azure/azure-storage-python/)。
+
+## <a name="view-the-sample-application"></a>查看示例应用程序
+
+若要查看和运行示例应用程序，该应用程序演示如何将 Python 与 Azure 队列配合使用，请参阅 [Azure Storage:Getting Started with Azure Queues in Python](https://github.com/Azure-Samples/storage-queue-python-getting-started)（Azure 存储：开始在 Python 中使用 Azure 队列）。 
+
+若要运行示例应用程序，请确保已安装 `azure-storage-queue` 和 `azure-storage-common` 软件包。
 
 ## <a name="how-to-create-a-queue"></a>如何：创建队列
+
 可以通过 **QueueService** 对象来处理队列。 以下代码创建 **QueueService** 对象。 在希望在其中以编程方式访问 Azure 存储的任何 Python 文件中，将以下代码添加到文件的顶部附近：
 
 ```python
@@ -129,10 +132,8 @@ queue_service.delete_queue('taskqueue')
 在了解了队列存储的基础知识后，可单击下面的链接了解详细信息。
 
 * [Python 开发人员中心](/develop/python/)
-* [Azure Storage Services REST API（Azure 存储服务 REST API）](https://msdn.microsoft.com/library/azure/dd179355)
-* [Azure 存储团队博客]
-* [Azure Storage SDK for Python]
+* [Azure 存储服务 REST API](https://msdn.microsoft.com/library/azure/dd179355)
 
-[Azure 存储团队博客]: http://blogs.msdn.com/b/windowsazurestorage/
-[Azure Storage SDK for Python]: https://github.com/Azure/azure-storage-python
+[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+[Microsoft Azure Storage SDK for Python]: https://github.com/Azure/azure-storage-python
 <!--Update_Description: add "Download and Install Azure Storage SDK for Python" section-->

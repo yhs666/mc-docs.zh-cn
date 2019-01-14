@@ -12,21 +12,21 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/08/2018
-ms.date: 06/25/2018
+origin.date: 11/06/2018
+ms.date: 01/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: f249f11724b0503f8ff8d4677539dbb047783164
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 0346563c8b7daba7a82527be9870caa04fb23e76
+ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648334"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54216254"
 ---
-# <a name="tutorial-use-spark-structured-streaming-with-kafka-on-hdinsight"></a>教程：将 Spark 结构化流与 Kafka on HDInsight 配合使用
+# <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>教程：将 Apache Spark 结构化流式处理与 Apache Kafka on HDInsight 配合使用
 
-本教程说明如何使用 Spark 结构化流式处理和 Apache Kafka on Azure HDInsight 来读取和写入数据。
+本教程说明如何使用 [Apache Spark 结构化流式处理](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)和 [Apache Kafka](https://kafka.apache.org/) on Azure HDInsight 来读取和写入数据。
 
-Spark 结构化流式处理是建立在 Spark SQL 上的流处理引擎。 这允许以与批量计算相同的方式表达针对静态数据的流式计算。 
+Spark 结构化流式处理是建立在 Spark SQL 上的流处理引擎。 这允许以与批量计算相同的方式表达针对静态数据的流式计算。  
 
 本教程介绍如何执行下列操作：
 
@@ -41,20 +41,20 @@ Spark 结构化流式处理是建立在 Spark SQL 上的流处理引擎。 这�
 
 ## <a name="prerequisites"></a>先决条件
 
-* 熟悉 Jupyter Notebook 和 Spark on HDInsight 的结合使用。 有关详细信息，请参阅[使用 Spark on HDInsight 加载数据并运行查询](spark/apache-spark-load-data-run-query.md)文档。
+* 熟悉 [Jupyter Notebook](https://jupyter.org/) 和 Spark on HDInsight 的结合使用。 有关详细信息，请参阅[使用 Apache Spark on HDInsight 加载数据并运行查询](spark/apache-spark-load-data-run-query.md)文档。
 
 * 熟悉 [Scala](https://www.scala-lang.org/) 编程语言。 本教程所使用的代码是使用 Scala 编写的。
 
-* 熟悉 Kafka 主题的创建。 有关详细信息，请参阅 [Kafka on HDInsight 快速入门](kafka/apache-kafka-get-started.md)文档。
+* 熟悉 Kafka 主题的创建。 有关详细信息，请参阅 [Apache Kafka on HDInsight 快速入门](kafka/apache-kafka-get-started.md)文档。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 本文档中的步骤需要一个包含 Spark on HDInsight 和 Kafka on HDInsight 群集的 Azure 资源组。 这些群集都位于一个 Azure 虚拟网络中，这样 Spark 群集便可与 Kafka 群集直接通信。
 > 
 > 为方便起见，本文档链接到了一个模板，该模板可创建所有所需 Azure 资源。 
 >
 > 有关在虚拟网络中使用 HDInsight 的详细信息，请参阅[使用虚拟网络扩展 HDInsight](hdinsight-extend-hadoop-virtual-network.md) 文档。
 
-## <a name="structured-streaming-with-kafka"></a>将结构化流式处理与 Kafka 配合使用
+## <a name="structured-streaming-with-apache-kafka"></a>将结构化流式处理与 Apache Kafka 配合使用
 
 Spark 结构化流式处理是建立在 Spark SQL 引擎上的流处理引擎。 使用结构化流式处理时，可以使用与编写批处理查询相同的方式来编写流式处理查询。
 
@@ -211,7 +211,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
 ## <a name="next-steps"></a>后续步骤
 
-本教程介绍了如何使用 Spark 结构化流式处理从 Kafka on HDInsight 写入和读取数据。 使用以下链接，了解如何将 Storm 和 Kafka 结合使用。
+本教程介绍了如何使用 [Apache Spark 结构化流式处理](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)从 [Apache Kafka](https://kafka.apache.org/) on HDInsight 写入和读取数据。 使用以下链接，了解如何将 [Apache Storm](https://storm.apache.org/) 和 Kafka 结合使用。
 
 > [!div class="nextstepaction"]
-> [将 Apache Storm 与 Kafka 结合使用](hdinsight-apache-storm-with-kafka.md)
+> [将 Apache Storm 与 Apache Kafka 配合使用](hdinsight-apache-storm-with-kafka.md)

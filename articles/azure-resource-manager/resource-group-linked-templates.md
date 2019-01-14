@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/17/2018
-ms.date: 12/17/2018
+origin.date: 12/07/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: e220ca900108d906f10e1bb63c57f7aa1cf215d5
-ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
+ms.openlocfilehash: d52110f560a3710735a56e760e5a6dd39e355f0b
+ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53286732"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193128"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>部署 Azure 资源时使用链接模版和嵌套模版
 
@@ -170,7 +170,9 @@ ms.locfileid: "53286732"
 
 ## <a name="get-values-from-linked-template"></a>从链接模板中获取值
 
-若要从链接模板中获取输出值，请使用如下所示的语法检索属性值：`"[reference('<name-of-deployment>').outputs.<property-name>.value]"`。
+若要从链接模板中获取输出值，请使用如下所示的语法检索属性值：`"[reference('deploymentName').outputs.propertyName.value]"`。
+
+从链接模板获取输出属性时，属性名称不能包含短划线。
 
 以下示例演示如何引用链接模板和检索输出值。 链接模板返回一条简单的消息。
 

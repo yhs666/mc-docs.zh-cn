@@ -6,14 +6,14 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 10/18/2018
-ms.date: 12/10/2018
+ms.date: 01/14/2019
 ms.author: v-jay
-ms.openlocfilehash: 1cd28778bbb4eef7f84ef819531d32c5333fcd85
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 6b407a15918b2885065a55b1700036ff074ddcca
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029101"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192871"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>升级到常规用途 v2 存储帐户
 
@@ -35,12 +35,14 @@ ms.locfileid: "53029101"
 
 ## <a name="upgrade-with-powershell"></a>使用 PowerShell 进行升级
 
-若要使用 PowerShell 将常规用途 v1 帐户升级为常规用途 v2 帐户，请先更新 PowerShell，以便使用最新版本的 **AzureRm.Storage** 模块。 请参阅[安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)，了解如何安装 PowerShell。 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+若要使用 PowerShell 将常规用途 v1 帐户升级为常规用途 v2 帐户，请先更新 PowerShell，以便使用最新版本的 **Az.Storage** 模块。 请参阅[安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)，了解如何安装 PowerShell。 
 
 接下来，调用以下命令来升级帐户（请使用自己的资源组和存储帐户的名称来代替相应项）：
 
 ```powershell
-Set-AzureRmStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2
+Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2
 ```
 
 ## <a name="upgrade-with-azure-cli"></a>使用 Azure CLI 进行升级

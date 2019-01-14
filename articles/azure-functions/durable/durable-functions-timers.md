@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 12/08/2018
-ms.date: 12/25/2018
+ms.date: 01/09/2019
 ms.author: v-junlch
-ms.openlocfilehash: af26a431dd36a4a9a39455690b83bada5051f634
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 381f951622d7e8cd276063bf435d3438741e7543
+ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806657"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54141671"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Durable Functions 中的计时器 (Azure Functions)
 
@@ -56,7 +56,7 @@ public static async Task Run(
 
 ```js
 const df = require("durable-functions");
-const moment = require("moment-js");
+const moment = require("moment");
 
 module.exports = df.orchestrator(function*(context) {
     for (let i = 0; i < 10; i++) {
@@ -110,7 +110,7 @@ public static async Task<bool> Run(
 
 ```js
 const df = require("durable-functions");
-const moment = require("moment-js");
+const moment = require("moment");
 
 module.exports = df.orchestrator(function*(context) {
     const deadline = moment.utc(context.df.currentUtcDateTime).add(30, "s");
@@ -142,3 +142,4 @@ module.exports = df.orchestrator(function*(context) {
 > [!div class="nextstepaction"]
 > [了解如何引发和处理外部事件](durable-functions-external-events.md)
 
+<!-- Update_Description: code update -->

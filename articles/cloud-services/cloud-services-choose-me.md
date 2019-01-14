@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 origin.date: 04/19/2017
 ms.author: v-yiso
-ms.date: 11/12/2018
-ms.openlocfilehash: 335393fbb4303ced1b0c612b73657c88634c5abe
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 01/21/2019
+ms.openlocfilehash: 59b3e20758db898127e0d8bd19d0104119470737
+ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652830"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54216277"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Azure 云服务概述
-Azure 云服务是[平台即服务](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) 的一个示例。 与 [Azure 应用服务](../app-service/app-service-web-overview.md)一样，此技术设计用于支持可缩放、可靠且运营成本低廉的应用程序。 同样，应用服务托管在虚拟机 (VM) 上，Azure 云服务也是如此。 但是，你对 VM 有更多的控制。 可以在使用 Azure 云服务的 VM 上安装自己的软件，并且可以远程访问它们。
+Azure 云服务是[平台即服务](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) 的一个示例。 与 [Azure 应用服务](../app-service/overview.md)一样，此技术设计用于支持可缩放、可靠且运营成本低廉的应用程序。 同样，应用服务托管在虚拟机 (VM) 上，Azure 云服务也是如此。 但是，你对 VM 有更多的控制。 可以在使用 Azure 云服务的 VM 上安装自己的软件，并且可以远程访问它们。
 
 ![Azure 云服务关系图](./media/cloud-services-choose-me/diagram.png)
 
@@ -32,7 +32,7 @@ Azure 云服务是[平台即服务](https://azure.microsoft.com/overview/what-is
 
 * **Web 角色**：通过 IIS 自动部署和托管应用。
 
-* **辅助角色**：不使用 IIS，并独立运行应用。
+* **辅助角色**：不使用 IIS 并独立运行应用。
 
 例如，简单的应用程序可能只使用一个 web 角色为网站提供服务。 更复杂的应用程序可能使用 Web 角色来处理用户的传入请求，然后将这些请求传递给辅助角色进行处理。 （此通信可以使用 [Azure 服务总线](../service-bus-messaging/service-bus-messaging-overview.md)或 [Azure 队列存储](../storage/common/storage-introduction.md)。）
 

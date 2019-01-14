@@ -1,26 +1,20 @@
 ---
-title: 将 VM 迁移到 Azure 高级存储 | Azure
+title: 将 VM 迁移到 Azure 高级存储 | Microsoft Docs
 description: 将现有的 VM 迁移到 Azure 高级存储。 高级存储为 Azure 虚拟机上运行的 I/O 密集型工作负载提供高性能、低延迟的磁盘支持。
 services: storage
-documentationcenter: na
-author: hayley244
-manager: digimobile
-editor: tysonn
-ms.assetid: 272250b3-fd4e-41d2-8e34-fd8cc341ec87
+author: WenJason
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 06/27/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 8316b35ffd81f45572f660dd35cfb90bbcd6a615
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 01/14/2019
+ms.author: v-jay
+ms.component: common
+ms.openlocfilehash: f69324f2ec9ce3b1d59b0040ef10f52711ae7801
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650402"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192901"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>迁移到 Azure 高级存储（非托管磁盘）
 
@@ -39,7 +33,7 @@ Azure 高级存储为运行 I/O 密集型工作负荷的虚拟机提供高性能
 可将其他平台中的 VM 迁移到 Azure 高级存储，或将现有 Azure VM 从标准存储迁移到高级存储。 本指南介绍了这两种方案的相关步骤。 根据具体方案，执行相关部分中指定的步骤。
 
 > [!NOTE]
-> 可在高级存储：[适用于 Azure 虚拟机工作负荷的高性能存储](../../virtual-machines/windows/premium-storage.md)中找到高级存储功能概述和定价。 建议将任何需要高 IOPS 的虚拟机磁盘迁移到 Azure 高级存储，以便应用程序实现最佳性能。 如果磁盘不需要高 IOPS，可以通过在标准存储（将虚拟机磁盘数据存储在机械硬盘 (HDD) 上而不是 SSD 上）中对其进行维护来限制成本。
+> 可在高级存储中找到高级存储的功能概述和定价：[适用于 Azure 虚拟机工作负荷的高性能存储](../../virtual-machines/windows/premium-storage.md)。 建议将任何需要高 IOPS 的虚拟机磁盘迁移到 Azure 高级存储，以便应用程序实现最佳性能。 如果磁盘不需要高 IOPS，可以通过在标准存储（将虚拟机磁盘数据存储在机械硬盘 (HDD) 上而不是 SSD 上）中对其进行维护来限制成本。
 >
 
 完成整个迁移过程可能需要在执行本指南中提供的步骤前后执行其他操作。 示例包括配置虚拟网络/终结点，或在应用程序内部更改代码，后者可能需要停止应用程序一段时间。 这些操作特定于每个应用程序，应根据本指南中的步骤完成操作，尽可能无缝地完全转换到高级存储。
@@ -93,15 +87,15 @@ Azure VM 支持附加多个高级存储磁盘，使应用程序可以具有每�
 ## <a name="prepare-and-copy-virtual-hard-disks-VHDs-to-premium-storage"></a>准备并复制虚拟硬盘 (VHD) 到高级存储
 以下部分介绍了相关准则，帮助通过 VM 准备 VHD 并将 VHD 复制到 Azure 存储。
 
-* [方案 1：“我要将现有 Azure VM 迁移到 Azure 高级存储。”](#scenario1)
-* [方案 2：“我要将其他平台中的 VM 迁移到 Azure 高级存储。”](#scenario2)
+* [场景 1：“要将现有 Azure VM 迁移到 Azure 高级存储。”](#scenario1)
+* [场景 2：“要从其他平台将 VM 迁移到 Azure 高级存储。”](#scenario2)
 
 ### <a name="prerequisites"></a>先决条件
 若要准备迁移 VHD，用户需要：
 
 * Azure 订阅和存储帐户，外加要将 VHD 复制到的存储帐户中的容器。 请注意，目标存储帐户可以是标准或高级存储帐户，具体取决于具体需求。
 * 用于通用化 VHD 的工具（如果计划从中创建多个 VM 实例）。 例如，sysprep for Windows 或 virt-sysprep for Ubuntu。
-* 用于将 VHD 文件上传到存储帐户的工具。 请参阅[使用 AzCopy 命令行实用程序传输数据](storage-use-azcopy.md)或者使用 [Azure 存储资源管理器](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx)。 本指南介绍使用 AzCopy 工具复制 VHD 的步骤。
+* 用于将 VHD 文件上传到存储帐户的工具。 请参阅[使用 AzCopy 命令行实用程序传输数据](storage-use-azcopy.md)或者使用 [Azure 存储资源管理器](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx)。 本指南介绍使用 AzCopy 工具复制 VHD 的步骤。
 
 > [!NOTE]
 > 如果选择基于 AzCopy 的同步复制选项，为了获得最佳性能，请通过目标存储帐户所在区域中的 Azure VM 运行上述某个工具，进而复制 VHD。 如果从其他区域中的 Azure VM 复制 VHD，性能可能会下降。
@@ -112,7 +106,7 @@ Azure VM 支持附加多个高级存储磁盘，使应用程序可以具有每�
 >
 >
 
-### <a name="scenario1"></a>方案 1：“我要将现有 Azure VM 迁移到 Azure 高级存储。”
+### <a name="scenario1"></a>场景 1：“要将现有 Azure VM 迁移到 Azure 高级存储。”
 如果要迁移现有的 Azure VM，请停止运行 VM，根据所需的 VHD 类型准备 VHD，并使用 AzCopy 或 PowerShell 复制 VHD。
 
 VM 必须完全关闭才能干净迁移。 在迁移完成之前会存在停机时间。
@@ -130,7 +124,7 @@ VM 必须完全关闭才能干净迁移。 在迁移完成之前会存在停机�
 如果要上传用于创建多个泛型 Azure 虚拟机实例的 VHD，必须先使用 sysprep 实用工具通用化 VHD。 这适用于本地或云中的 VHD。 Sysprep 会从 VHD 中删除计算机特定的所有信息。
 
 > [!IMPORTANT]
-> 通用化 VM 之前，请先创建其快照或进行备份。 运行 sysprep 会停止并解除分配 VM 实例。 按照以下步骤对 Windows OS VHD 运行 sysprep 命令。 请注意，运行 Sysprep 命令时会要求关闭虚拟机。 有关 Sysprep 的详细信息，请参阅 [Sysprep 概述](http://technet.microsoft.com/library/hh825209.aspx)或 [Sysprep 技术参考](http://technet.microsoft.com/library/cc766049.aspx)。
+> 通用化 VM 之前，请先创建其快照或进行备份。 运行 sysprep 会停止并解除分配 VM 实例。 按照以下步骤对 Windows OS VHD 运行 sysprep 命令。 请注意，运行 Sysprep 命令时会要求关闭虚拟机。 有关 Sysprep 的详细信息，请参阅 [Sysprep 概述](https://technet.microsoft.com/library/hh825209.aspx)或 [Sysprep 技术参考](https://technet.microsoft.com/library/cc766049.aspx)。
 >
 >
 
@@ -170,7 +164,7 @@ VM 必须完全关闭才能干净迁移。 在迁移完成之前会存在停机�
 ##### <a name="option-1-copy-a-vhd-with-azcopy-asynchronous-copy"></a>选项 1：使用 AzCopy 复制 VHD（异步复制）
 可使用 AzCopy 通过 Internet 轻松上传 VHD。 根据 VHD 的大小，这可能需要时间。 请记住，在使用此选项时，检查存储帐户传入/传出限制。 有关详细信息，请参阅 [Azure 存储可伸缩性和性能目标](storage-scalability-targets.md)。
 
-1. 从此处下载并安装 AzCopy： [最新版本的 AzCopy](http://aka.ms/downloadazcopy)
+1. 从此处下载并安装 AzCopy：[最新版本的 AzCopy](https://aka.ms/downloadazcopy)
 2. 打开 Azure PowerShell，并转到安装 AzCopy 的文件夹。
 3. 使用以下命令从“Source”将 VHD 文件复制到“Destination”。
 
@@ -186,25 +180,28 @@ VM 必须完全关闭才能干净迁移。 在迁移完成之前会存在停机�
 
     下面是 AzCopy 命令中使用的参数的说明：
 
-   * **/Source: *&lt;source&gt;：*** 包含 VHD 的文件夹或存储容器 URL 的位置。
-   * **/SourceKey: *&lt;source-account-key&gt;：*** 源存储帐户的存储帐户密钥。
-   * **/Dest: *&lt;destination&gt;：*** 要将 VHD 复制到的存储容器 URL。
-   * **/DestKey: *&lt;dest-account-key&gt;：*** 目标存储帐户的存储帐户密钥。
-   * **/Pattern: *&lt;file-name&gt;：*** 指定要复制的 VHD 文件名。
+   * **/Source: *&lt;source&gt;:*** 包含 VHD 的文件夹或存储容器 URL 的位置。
+   * **/SourceKey: *&lt;source-account-key&gt;:*** 源存储帐户的存储帐户密钥。
+   * **/Dest: *&lt;destination&gt;:*** 要将 VHD 复制到的存储容器 URL。
+   * **/DestKey: *&lt;dest-account-key&gt;:*** 目标存储帐户的存储帐户密钥。
+   * **/Pattern: *&lt;file-name&gt;:*** 指定要复制的 VHD 文件名。
 
 有关使用 AzCopy 工具的详细信息，请参阅[使用 AzCopy 命令行实用程序传输数据](storage-use-azcopy.md)。
 
 ##### <a name="option-2-copy-a-vhd-with-powershell-synchronized-copy"></a>选项 2：使用 PowerShell 复制 VHD（同步复制）
-还可以使用 PowerShell cmdlet Start-AzureStorageBlobCopy 复制 VHD 文件。 在 Azure PowerShell 上使用以下命令复制 VHD。 将 <> 中的值替换为源和目标存储帐户中的相应值。 若要使用此命令，必须在目标存储帐户中有名为 vhds 的容器。 如果该容器不存在，则应在运行此命令之前创建一个。
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+还可以使用 PowerShell cmdlet Start-AzStorageBlobCopy 复制 VHD 文件。 在 Azure PowerShell 上使用以下命令复制 VHD。 将 <> 中的值替换为源和目标存储帐户中的相应值。 若要使用此命令，必须在目标存储帐户中有名为 vhds 的容器。 如果该容器不存在，则应在运行此命令之前创建一个。
 
 ```powershell
 $sourceBlobUri = <source-vhd-uri>
 
-$sourceContext = New-AzureStorageContext  -StorageAccountName <source-account> -StorageAccountKey <source-account-key>
+$sourceContext = New-AzStorageContext  -StorageAccountName <source-account> -StorageAccountKey <source-account-key>
 
-$destinationContext = New-AzureStorageContext  -StorageAccountName <dest-account> -StorageAccountKey <dest-account-key>
+$destinationContext = New-AzStorageContext  -StorageAccountName <dest-account> -StorageAccountKey <dest-account-key>
 
-Start-AzureStorageBlobCopy -srcUri $sourceBlobUri -SrcContext $sourceContext -DestContainer <dest-container> -DestBlob <dest-disk-name> -DestContext $destinationContext
+Start-AzStorageBlobCopy -srcUri $sourceBlobUri -SrcContext $sourceContext -DestContainer <dest-container> -DestBlob <dest-disk-name> -DestContext $destinationContext
 ```
 
 示例：
@@ -212,14 +209,14 @@ Start-AzureStorageBlobCopy -srcUri $sourceBlobUri -SrcContext $sourceContext -De
 ```powershell
 C:\PS> $sourceBlobUri = "https://sourceaccount.blob.core.chinacloudapi.cn/vhds/myvhd.vhd"
 
-C:\PS> $sourceContext = New-AzureStorageContext  -StorageAccountName "sourceaccount" -StorageAccountKey "J4zUI9T5b8gvHohkiRg"
+C:\PS> $sourceContext = New-AzStorageContext  -StorageAccountName "sourceaccount" -StorageAccountKey "J4zUI9T5b8gvHohkiRg"
 
-C:\PS> $destinationContext = New-AzureStorageContext  -StorageAccountName "destaccount" -StorageAccountKey "XZTmqSGKUYFSh7zB5"
+C:\PS> $destinationContext = New-AzStorageContext  -StorageAccountName "destaccount" -StorageAccountKey "XZTmqSGKUYFSh7zB5"
 
-C:\PS> Start-AzureStorageBlobCopy -srcUri $sourceBlobUri -SrcContext $sourceContext -DestContainer "vhds" -DestBlob "myvhd.vhd" -DestContext $destinationContext
+C:\PS> Start-AzStorageBlobCopy -srcUri $sourceBlobUri -SrcContext $sourceContext -DestContainer "vhds" -DestBlob "myvhd.vhd" -DestContext $destinationContext
 ```
 
-### <a name="scenario2"></a>方案 2：“我要将其他平台中的 VM 迁移到 Azure 高级存储。”
+### <a name="scenario2"></a>场景 2：“要从其他平台将 VM 迁移到 Azure 高级存储。”
 如果要将 VHD 从非 Azure 云存储迁移到 Azure，必须首先将 VHD 导出到本地目录中。 获取就地存储 VHD 的本地目录的完整源路径，并使用 AzCopy 将其上传到 Azure 存储。
 
 #### <a name="step-1-export-vhd-to-a-local-directory"></a>步骤 1。 将 VHD 导出到本地目录
@@ -253,7 +250,7 @@ C:\PS> Start-AzureStorageBlobCopy -srcUri $sourceBlobUri -SrcContext $sourceCont
 #### <a name="step-3-upload-the-vhd-to-azure-storage"></a>步骤 3. 将 VHD 上传到 Azure 存储
 现在，本地目录中已有 VHD，可使用 AzCopy 或 AzurePowerShell 将 .vhd 文件上传到 Azure 存储。 可两个选项可用：
 
-##### <a name="option-1-using-azure-powershell-add-azurevhd-to-upload-the-vhd-file"></a>选项 1：使用 Azure PowerShell Add-azurevhd 上传 .vhd 文件
+##### <a name="option-1-using-azure-powershell-add-azurevhd-to-upload-the-vhd-file"></a>选项 1：使用 Azure PowerShell Add-AzureVhd 上传 .vhd 文件
 
 ```powershell
 Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
@@ -262,9 +259,9 @@ Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 一个 <Uri> 的例子是 ***“https://storagesample.blob.core.chinacloudapi.cn/mycontainer/blob1.vhd”***。 示例 <FileInfo> 可能是 ***"C:\path\to\upload.vhd"***。
 
 ##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>选项 2：使用 AzCopy 上传 .vhd 文件
-使用 AzCopy 可通过 Internet 轻松上传 VHD。 根据 VHD 的大小，这可能需要时间。 请记住，在使用此选项时，检查存储帐户传入/传出限制。 有关详细信息，请参阅 [Azure 存储可伸缩性和性能目标](storage-scalability-targets.md)。
+可使用 AzCopy 通过 Internet 轻松上传 VHD。 根据 VHD 的大小，这可能需要时间。 请记住，在使用此选项时，检查存储帐户传入/传出限制。 有关详细信息，请参阅 [Azure 存储可伸缩性和性能目标](storage-scalability-targets.md)。
 
-1. 从此处下载并安装 AzCopy： [最新版本的 AzCopy](http://aka.ms/downloadazcopy)
+1. 从此处下载并安装 AzCopy：[最新版本的 AzCopy](https://aka.ms/downloadazcopy)
 2. 打开 Azure PowerShell，并转到安装 AzCopy 的文件夹。
 3. 使用以下命令从“Source”将 VHD 文件复制到“Destination”。
 
@@ -280,12 +277,12 @@ Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 
     下面是 AzCopy 命令中使用的参数的说明：
 
-   * **/Source: *&lt;source&gt;：*** 包含 VHD 的文件夹或存储容器 URL 的位置。
-   * **/SourceKey: *&lt;source-account-key&gt;：*** 源存储帐户的存储帐户密钥。
-   * **/Dest: *&lt;destination&gt;：*** 要将 VHD 复制到的存储容器 URL。
-   * **/DestKey: *&lt;dest-account-key&gt;：*** 目标存储帐户的存储帐户密钥。
-   * **/BlobType: page：** 指定目标是页 Blob。
-   * **/Pattern: *&lt;file-name&gt;：*** 指定要复制的 VHD 文件名。
+   * **/Source: *&lt;source&gt;:*** 包含 VHD 的文件夹或存储容器 URL 的位置。
+   * **/SourceKey: *&lt;source-account-key&gt;:*** 源存储帐户的存储帐户密钥。
+   * **/Dest: *&lt;destination&gt;:*** 要将 VHD 复制到的存储容器 URL。
+   * **/DestKey: *&lt;dest-account-key&gt;:*** 目标存储帐户的存储帐户密钥。
+   * **/BlobType: page:** 指定目标为页 blob。
+   * **/Pattern: *&lt;file-name&gt;:*** 指定要复制的 VHD 文件名。
 
 有关使用 AzCopy 工具的详细信息，请参阅[使用 AzCopy 命令行实用程序传输数据](storage-use-azcopy.md)。
 
@@ -437,7 +434,7 @@ Update-AzureVM  -VM $vm
 假设是：
 
 * 用户正在创建经典 Azure VM。
-* 用户的源 OS 磁盘和源数据磁盘位于同一存储帐户和同一容器中。 如果 OS 磁盘和数据磁盘不在同一位置，可使用 AzCopy 或 Azure PowerShell 对存储帐户和容器复制 VHD。 请参阅上一步： [使用 AzCopy 或 PowerShell 复制 VHD](#copy-vhd-with-azcopy-or-powershell)。 还可以编辑此脚本来满足方案，但建议使用 AzCopy 或 PowerShell，因为后两种更便捷、速度更快。
+* 用户的源 OS 磁盘和源数据磁盘位于同一存储帐户和同一容器中。 如果 OS 磁盘和数据磁盘不在同一位置，可使用 AzCopy 或 Azure PowerShell 对存储帐户和容器复制 VHD。 请参阅上一步：[使用 AzCopy 或 PowerShell 复制 VHD](#copy-vhd-with-azcopy-or-powershell)。 还可以编辑此脚本来满足方案，但建议使用 AzCopy 或 PowerShell，因为后两种更便捷、速度更快。
 
 下面提供的是自动化脚本。 将文本替换为用户信息，并更新脚本以匹配特定方案。
 
@@ -617,18 +614,18 @@ Update-AzureVM  -VM $vm
 
     # Get source storage account information, not considering the data disks and os disks are in different accounts
     $sourceStorageAccountName = $sourceOSDisk.MediaLink.Host -split "\." | select -First 1
-    $sourceStorageKey = (Get-AzureStorageKey -StorageAccountName $sourceStorageAccountName).Primary
-    $sourceContext = New-AzureStorageContext -StorageAccountName $sourceStorageAccountName -StorageAccountKey $sourceStorageKey
+    $sourceStorageKey = (Get-AzStorageKey -StorageAccountName $sourceStorageAccountName).Primary
+    $sourceContext = New-AzStorageContext -StorageAccountName $sourceStorageAccountName -StorageAccountKey $sourceStorageKey
 
     # Create destination context
-    $destStorageKey = (Get-AzureStorageKey -StorageAccountName $DestStorageAccount).Primary
-    $destContext = New-AzureStorageContext -StorageAccountName $DestStorageAccount -StorageAccountKey $destStorageKey
+    $destStorageKey = (Get-AzStorageKey -StorageAccountName $DestStorageAccount).Primary
+    $destContext = New-AzStorageContext -StorageAccountName $DestStorageAccount -StorageAccountKey $destStorageKey
 
     # Create a container of vhds if it doesn't exist
-    if ((Get-AzureStorageContainer -Context $destContext -Name vhds -ErrorAction SilentlyContinue) -eq $null)
+    if ((Get-AzStorageContainer -Context $destContext -Name vhds -ErrorAction SilentlyContinue) -eq $null)
     {
         Write-Host "`n[WORKITEM] - Creating a container vhds in the destination storage account." -ForegroundColor Yellow
-        New-AzureStorageContainer -Context $destContext -Name vhds
+        New-AzStorageContainer -Context $destContext -Name vhds
     }
 
 
@@ -641,7 +638,7 @@ Update-AzureVM  -VM $vm
         # from the same vhd blob.
         $ContinueAnswer = Read-Host "`n`t[Warning] You chose to copy data disks only. Moving VM requires removing the original VM (the disks and backing vhd files will NOT be deleted) so that the new VM can boot from the same vhd. This is an irreversible action. Do you wish to proceed right now? (Y/N)"
         If ($ContinueAnswer -ne "Y") { Write-Host "`n Exiting." -ForegroundColor Red;Exit }
-        $destOSVHD = Get-AzureStorageBlob -Blob $sourceOSVHD -Container vhds -Context $sourceContext
+        $destOSVHD = Get-AzStorageBlob -Blob $sourceOSVHD -Container vhds -Context $sourceContext
         Write-Host "`n[WORKITEM] - Removing the original VM (the vhd files are NOT deleted)." -ForegroundColor Yellow
         Remove-AzureVM -Name $SourceVMName -ServiceName $SourceServiceName
 
@@ -659,7 +656,7 @@ Update-AzureVM  -VM $vm
         # copy the os disk vhd
         Write-Host "`n[WORKITEM] - Starting copying os disk $($disk.DiskName) at $(get-date)." -ForegroundColor Yellow
         $allDisksToCopy += @($sourceOSDisk)
-        $targetBlob = Start-AzureStorageBlobCopy -SrcContainer vhds -SrcBlob $sourceOSVHD -DestContainer vhds -DestBlob $sourceOSVHD -Context $sourceContext -DestContext $destContext -Force
+        $targetBlob = Start-AzStorageBlobCopy -SrcContainer vhds -SrcBlob $sourceOSVHD -DestContainer vhds -DestBlob $sourceOSVHD -Context $sourceContext -DestContext $destContext -Force
         $destOSVHD = $targetBlob
     }
 
@@ -671,7 +668,7 @@ Update-AzureVM  -VM $vm
         $blobName = $disk.MediaLink.Segments[2]
         # copy all data disks
         Write-Host "`n[WORKITEM] - Starting copying data disk $($disk.DiskName) at $(get-date)." -ForegroundColor Yellow
-        $targetBlob = Start-AzureStorageBlobCopy -SrcContainer vhds -SrcBlob $blobName -DestContainer vhds -DestBlob $blobName -Context $sourceContext -DestContext $destContext -Force
+        $targetBlob = Start-AzStorageBlobCopy -SrcContainer vhds -SrcBlob $blobName -DestContainer vhds -DestBlob $blobName -Context $sourceContext -DestContext $destContext -Force
         # update the media link to point to the target blob link
         $disk.MediaLink = $targetBlob.ICloudBlob.Uri.AbsoluteUri
     }
@@ -690,7 +687,7 @@ Update-AzureVM  -VM $vm
                 Continue
             }
             $blobName = $disk.MediaLink.Segments[2]
-            $copyState = Get-AzureStorageBlobCopyState -Blob $blobName -Container vhds -Context $destContext
+            $copyState = Get-AzStorageBlobCopyState -Blob $blobName -Container vhds -Context $destContext
             if ($copyState.Status -eq "Success")
             {
                 Write-Host "`n[Status] - Success for disk copy $($disk.DiskName) at $($copyState.CompletionTime)" -ForegroundColor Green

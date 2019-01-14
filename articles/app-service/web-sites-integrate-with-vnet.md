@@ -1,5 +1,5 @@
 ---
-title: 将应用与 Azure 虚拟网络进行集成
+title: 将应用与 Azure 虚拟网络集成 - Azure 应用服务
 description: 演示如何将 Azure 应用服务中的应用连接到新的或现有的 Azure 虚拟网络
 services: app-service
 documentationcenter: ''
@@ -12,17 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/23/2017
-ms.date: 12/03/2018
+ms.date: 01/21/2019
 ms.author: v-biyu
-ms.openlocfilehash: 6152fe04ccd1e3c29d2923dc26d0fb511517094b
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.custom: seodec18
+ms.openlocfilehash: 3c551412a3b9d47341c3e4035928cb3121e49726
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674530"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083732"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>将应用与 Azure 虚拟网络进行集成
-本文档介绍 Azure 应用服务虚拟网络集成功能，并说明如何在 [Azure 应用服务](app-service-web-overview.md)中使用应用对其进行设置。 使用 [Azure 虚拟网络][VNETOverview] (VNet) 可将多个 Azure 资源置于无法通过 Internet 路由的网络中。 然后可以使用 VPN 技术将这些网络连接到本地网络。 
+本文档介绍 Azure 应用服务虚拟网络集成功能，并说明如何在 [Azure 应用服务](overview.md)中使用应用对其进行设置。 使用 [Azure 虚拟网络][VNETOverview] (VNet) 可将多个 Azure 资源置于无法通过 Internet 路由的网络中。 然后可以使用 VPN 技术将这些网络连接到本地网络。 
 
 在 Azure 中国区，Azure 应用服务只有一个窗体。  
 
@@ -160,7 +161,7 @@ ASP VNet 集成 UI 会显示 ASP 中的应用使用的所有 VNet。 应用服�
 * 数据传输费用
 * VPN 网关费用。
 
-应用需要属于“标准”、“高级”应用服务计划。 可通 [应用服务定价][ASPricing]了解此方面费用的更多详细信息。 
+应用需要属于“标准”、“高级”应用服务计划。 可在此处了解这些费用的更多详细信息：[应用服务定价][ASPricing]。 
 
 数据出口方面也存在费用，即使 VNet 在同一数据中心也是如此。 [数据传输定价详细信息][DataPricing]中对这些费用进行了说明。 
 

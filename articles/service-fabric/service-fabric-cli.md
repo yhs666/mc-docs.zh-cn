@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: service-fabric
 ms.topic: conceptual
-origin.date: 07/31/2018
-ms.date: 09/10/2018
+origin.date: 12/06/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: 04a6eb7bfe82964dbb1a98ba071523b011b901c5
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8d20186a6b9813db452cf61fb13eb24d21379dd2
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649128"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083742"
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
 
@@ -34,7 +34,8 @@ Service Fabric CLI 旨在支持 Service Fabric SDK 的最新运行时版本。 �
 
 | CLI 版本   | 支持的运行时版本 |
 |---------------|---------------------------|
-| 最新 (~=6)  | 最新 (~=6.3)            |
+| 最新版（不等于 7）  | 最新版（不等于 6.4）            |
+| 6.0.0         | 6.3                       |
 | 5.0.0         | 6.2                       |
 | 4.0.0         | 6.1                       |
 | 3.0.0         | 6.0                       |
@@ -112,7 +113,23 @@ echo "export PATH=$PATH:~/.local/bin" >> .bashrc
 ```bash
 sudo pip3 install sfctl
 ```
-<!-- Not Available on ### Red Hat Enterprise Linux 7.4 (Service Fabric preview support) -->
+
+<!--Not Available on 
+### CentOS 7.5 (Service Fabric preview support)
+
+To install Service Fabric CLI on Red Hat, run the following commands:
+
+<!-- Notice: sudo yum install -y epel-release-->
+```bash
+sudo yum install -y epel-release
+sudo yum install -y python34
+sudo yum install python34-setuptools
+sudo easy_install-3.4 pip
+sudo pip3 install sfctl
+```
+-->
+
+如需对安装进行测试，可参阅“适用于 Linux 的 Ubuntu 和 Windows 子系统”部分中提到的步骤
 
 <a name = "cli-mac"></a>
 ### <a name="macos"></a>MacOS

@@ -10,14 +10,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/10/2018
-ms.date: 12/17/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1aa6f84e64f31a0120596817c38df4e1e9002d6c
-ms.sourcegitcommit: 1b6a310ba636b6dd32d7810821bcb79250393499
+ms.openlocfilehash: 5d5b3ab2ea215f2a7da6bffe309566422a95e105
+ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389385"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193055"
 ---
 <!-- Verify sucessfully-->
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>在流量管理器中配置多值路由方法
@@ -41,6 +41,7 @@ ms.locfileid: "53389385"
 
 1. 在屏幕左上方，选择“创建资源” > “网络” > “流量管理器配置文件” > “创建”。
 2. 在“创建流量管理器配置文件”中输入或选择以下信息，接受其余设置的默认值，然后选择“创建”：
+
     | 设置                 | 值                                              |
     | ---                     | ---                                                |
     | Name                   | 此名称必须在 trafficmanager.cn 区域中唯一，并会生成用于访问流量管理器配置文件的 DNS 名称 trafficmanager.cn。                                   |
@@ -48,7 +49,6 @@ ms.locfileid: "53389385"
     | 订阅            | 选择订阅。                          |
     | 资源组          | 选择“myResourceGroupTM1”。 |
     | 位置                | 此设置指的是资源组的位置，对将全局部署的流量管理器配置文件没有影响。                              |
-    |
 
     ![创建流量管理器配置文件](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
 

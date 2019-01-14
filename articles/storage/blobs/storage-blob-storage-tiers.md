@@ -5,16 +5,16 @@ services: storage
 author: WenJason
 ms.service: storage
 ms.topic: article
-origin.date: 09/11/2018
-ms.date: 11/05/2018
+origin.date: 10/18/2018
+ms.date: 01/14/2019
 ms.author: v-jay
 ms.component: blobs
-ms.openlocfilehash: 951083b0c3110581eee7b7e65f95ce64071bfad0
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 8c0831fc240dd6c7bde3c75baa39fa51f9697312
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029072"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192924"
 ---
 # <a name="azure-blob-storage-hot-and-cool-storage-tiers"></a>Azure Blob 存储：热存储层和冷存储层
 
@@ -64,6 +64,7 @@ Blob 存储和 GPv2 帐户在帐户级别公开“访问层”属性，方便你
 使用 Blob 级分层功能即可通过名为[设置 Blob 层](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier)的单一操作在对象级别更改数据的层。 可以在使用模式更改时轻松地在热、冷层之间更改 Blob 的访问层，而无需在帐户之间移动数据。 所有层更改都会立即发生。
 
 上次 Blob 层更改的时间通过 Blob 属性“访问层更改时间”公开。 可以覆盖热层和冷层中的 Blob，在这种情况下，新的 Blob 会继承被覆盖的 Blob 的层。
+
 所有两个存储层中的 Blob 可以在同一帐户中共存。 如果 Blob 没有显式分配的层，则会从帐户访问层设置推断相应的层。 如果访问层是从帐户推断出来的，则可看到Blob 属性“推断的访问层”已设置为“true”，且 Blob 属性“访问层”与帐户层匹配。 在 Azure 门户中，推断的访问层与 Blob 访问层（例如，热（推断）或冷（推断））一起显示。
 
 

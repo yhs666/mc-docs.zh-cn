@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
-origin.date: 04/09/2018
-ms.date: 05/28/2018
+origin.date: 11/29/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: b88a9e520cb7ebcd086f5b3594b21d3e2599758d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 35dab14f90079d7e77c32cee2bd8e74863694449
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656174"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083603"
 ---
 # <a name="azure-powershell-samples"></a>Azure PowerShell 示例
 
@@ -34,7 +34,6 @@ ms.locfileid: "52656174"
 |-|-|
 | 创建群集 ||
 | [创建群集 (Azure)](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)| 创建 Azure Service Fabric 群集。 |
-|[创建测试群集 (Azure)](./scripts/service-fabric-powershell-create-test-cluster.md)| 在 Azure 上创建一个三节点的测试 Service Fabric 群集。|
 | **管理群集、节点和基础结构** ||
 | [添加应用程序证书](./scripts/service-fabric-powershell-add-application-certificate.md)| 将应用程序 X.509 证书添加到群集中的所有节点。 |
 | [更新群集 VM 上的 RDP 端口范围](./scripts/service-fabric-powershell-change-rdp-port-range.md)|更改已部署群集中群集节点 VM 上的 RDP 端口范围。|
@@ -46,4 +45,4 @@ ms.locfileid: "52656174"
 | [升级应用程序](./scripts/service-fabric-powershell-upgrade-application.md)| 升级应用程序。|
 | [删除应用程序](./scripts/service-fabric-powershell-remove-application.md)| 从群集中删除应用程序。|
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

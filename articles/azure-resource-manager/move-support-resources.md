@@ -10,14 +10,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 09/28/2018
-ms.date: 11/19/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1deb36d8c98a1f15da8a6b8578e5bee884e75856
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f481fa56a2e955d0beee6ff2346a6307cb979ba0
+ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655824"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193118"
 ---
 <!--pending for verify -->
 # <a name="move-operation-support-for-resources"></a>支持移动操作的资源
@@ -37,7 +37,7 @@ Get-AzureRmResource -ResourceGroupName demogroup | Select Name, ResourceType | F
 对于 Azure CLI，请使用：
 
 ```azurecli
-az resource list -g demogroup --query '[].{name:name, reourcetype:type}'
+az resource list -g demogroup --query '[].{name:name, resourceType:type}' --output table
 ```
 
 资源类型以 `<resource-provider>/<resource-type-name>` 格式返回。 因此，值 `Microsoft.Portal/dashboards` 的资源提供程序为 **Microsoft.Portal**，资源类型名称为 **dashboards**。
@@ -262,7 +262,7 @@ az resource list -g demogroup --query '[].{name:name, reourcetype:type}'
 | ------------- | -------------- | ------------ |
 | applicationgateways | 否 | 否 |
 | applicationsecuritygroups | 是 | 是 |
-| azurefirewalls | 是 | 是 |
+| azurefirewalls | 否 | 否 |
 | connections | 是 | 是 |
 | ddosprotectionplans | 否 | 否 |
 | dnszones | 是 | 是 |
@@ -454,5 +454,4 @@ az resource list -g demogroup --query '[].{name:name, reourcetype:type}'
 
 * 有关用于移动资源的命令，请参阅[将资源移到新资源组或订阅](resource-group-move-resources.md)。
 
-<!-- Update_Description: new articles on azure resource manager move support resources -->
-<!--ms.date: 09/24/2018-->
+<!-- Update_Description: Update meta properties, wording update -->

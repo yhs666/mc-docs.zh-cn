@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 02/27/2018
-ms.date: 05/28/2018
+ms.date: 01/21/2019
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: e4f10185062bf8007ce35bc9b30bdc0728f145c2
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: aac8cfbf743cead1a570117baea3439db9ef5fbe
+ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652132"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54216257"
 ---
-# <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>创建 HDInsight 群集时添加自定义 Hive 库
+# <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>创建 HDInsight 群集时添加自定义 Apache Hive 库
 
-了解如何在 HDInsight 上预加载 Hive 库。 本文档包含有关在群集创建过程中使用脚本操作预加载库的信息。 使用本文档中的步骤添加的库已在 Hive 中正式发布 - 无需使用 [ADD JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) 加载它们。
+了解如何在 HDInsight 上预加载 [Apache Hive](https://hive.apache.org/) 库。 本文档包含有关在群集创建过程中使用脚本操作预加载库的信息。 使用本文档中的步骤添加的库已在 Hive 中正式发布 - 无需使用 [ADD JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) 加载它们。
 
 ## <a name="how-it-works"></a>工作原理
 
@@ -84,9 +84,9 @@ ms.locfileid: "52652132"
 
    * **标头**：选中此选项。
 
-   * **工作节点**：选中此选项。
+   * **辅助角色**：选中此选项。
 
-   * **ZOOKEEPER**：将此选项留空。
+   * **ZOOKEEPER**：将此项留空。
 
    * **参数**：输入包含 jar 的容器和存储帐户的 WASB 地址。 例如，**wasb://libs@mystorage.blob.core.chinacloudapi.cn/**。
 

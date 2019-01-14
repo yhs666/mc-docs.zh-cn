@@ -7,20 +7,20 @@ manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-origin.date: 11/14/2018
-ms.date: 11/26/2018
+origin.date: 11/27/2018
+ms.date: 01/14/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: ca7109b5c4291ccd99995bbd38ab49e18490f787
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: d6f2cd70f8790d9f7f6e224d32c7d7863926c9af
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672525"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192816"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>使用维护计划管理服务更新和维护
 
-Azure SQL 数据仓库维护计划目前以预览版提供。 此功能可集成服务运行状况计划内维护通知、资源运行状况检查监视器和 Azure SQL 数据仓库维护计划服务。
+维护计划现已在所有 Azure SQL 数据仓库区域中可用。 此功能可集成服务运行状况计划内维护通知、资源运行状况检查监视器和 Azure SQL 数据仓库维护计划服务。
 
 使用维护计划可以选择一个方便接收新功能、升级和修补程序的时间范围。 请选择 7 天内的主要和辅助维护时段。 例如，主要时段为星期六 22:00 到星期日 01:00，辅助时段为星期三 19:00 到 22:00。 如果 SQL 数据仓库在主要维护时段无法执行维护，则它会尝试在辅助维护时段再次执行维护。
 
@@ -50,6 +50,7 @@ Azure SQL 数据仓库维护计划目前以预览版提供。 此功能可集成
 
 - [详细了解](viewing-maintenance-schedule.md)如何查看维护计划。 
 - [详细了解](changing-maintenance-schedule.md)如何更改维护计划。
+- [深入了解](/monitoring-and-diagnostics/monitoring-action-groups)创建和管理操作组。
 - [详细了解](/service-health/service-health-overview) Azure 服务运行状况。
 
 

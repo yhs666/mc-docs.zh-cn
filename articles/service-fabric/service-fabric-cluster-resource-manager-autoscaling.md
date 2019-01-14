@@ -14,12 +14,12 @@ ms.workload: NA
 origin.date: 04/17/2018
 ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 54ca02f30d26fd537a65da37b0fc3cdd57660866
-ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
+ms.openlocfilehash: 3bd0c4237d238b67620373411de060433ce0bd46
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52901082"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083642"
 ---
 # <a name="introduction-to-auto-scaling"></a>自动缩放简介
 自动扩展是 Service Fabric 的附加功能，可根据服务正在报告的负载或基于资源的使用情况来动态扩展服务。 自动缩放提供了很大的弹性，并可实现按需配置服务的其他实例或分区。 整个自动缩放过程是自动且透明的，一旦在服务上设置策略，就无需在服务级别进行手动缩放操作。 可在创建服务时启用自动缩放，也可在任何时候通过更新服务启用。
@@ -210,4 +210,5 @@ ResourceMonitorService 负责跟踪用户服务的 CPU 和内存使用情况。 
 ## <a name="next-steps"></a>后续步骤
 了解有关[应用程序可伸缩性](service-fabric-concepts-scalability.md)的详细信息。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: new articles on service fabric cluster resource manager autoscaling -->
+<!--ms.date: 12/10/2018-->

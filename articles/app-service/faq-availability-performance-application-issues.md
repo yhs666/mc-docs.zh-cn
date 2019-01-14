@@ -14,15 +14,15 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 origin.date: 05/11/2018
-ms.date: 12/31/2018
+ms.date: 01/21/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: b5f03bbeee77de186b380bc7c094e156619ccc99
-ms.sourcegitcommit: 80c59ae1174d71509b4aa64a28a98670307a5b38
+ms.openlocfilehash: 777afd8dac30c52d54255f25d58217900410c6df
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53735224"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083629"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure 中 Web 应用的应用程序性能常见问题解答
 
@@ -164,13 +164,14 @@ ms.locfileid: "53735224"
 
 Azure 负载均衡器的默认空闲超时设置为四分钟。 这通常是 Web 请求合理的响应时间限制。 如果 Web 应用需要后台处理，建议使用 Azure WebJobs。 Azure Web 应用可以调用 WebJobs，并在后台处理完成时收到通知。 有多种方法可用于使用 WebJobs，包括队列和触发器。
 
-WebJobs 专用于后台处理。 可在 WebJobs 中执行任意数量的后台处理。 有关 WebJobs 的详细信息，请参阅[使用 WebJobs 运行后台任务](web-sites-create-web-jobs.md)。
+WebJobs 专用于后台处理。 可在 WebJobs 中执行任意数量的后台处理。 有关 WebJobs 的详细信息，请参阅[使用 WebJobs 运行后台任务](webjobs-create.md)。
 
 ## <a name="aspnet-core-applications-that-are-hosted-in-app-service-sometimes-stop-responding-how-do-i-fix-this-issue"></a>应用服务中托管的 ASP.NET Core 应用程序有时会停止响应。 如何解决此问题？
 
 早期 [Kestrel 版本](https://github.com/aspnet/KestrelHttpServer/issues/1182)的已知问题可能会导致托管于应用服务中的 ASP.NET Core 1.0 应用间歇性地停止响应。 还可能会看到以下消息：“指定的 CGI 应用程序遇到错误，服务器终止了该进程”。
 
 已在 Kestrel 版本 1.0.2 中修复了此问题。 此版本包含在 ASP.NET Core 1.0.3 更新中。 若要解决此问题，请确保将你的应用依赖项更新为使用 Kestrel 1.0.2。 或者，可以使用博客文章 [ASP.NET Core 1.0 slow perf issues in App Service web apps](https://blogs.msdn.microsoft.com/waws/2016/12/11/asp-net-core-slow-perf-issues-on-azure-websites)（应用服务 Web 应用中 ASP.NET Core 1.0 低性能问题）中介绍的两种解决方法之一。
+
 
 ## <a name="i-cant-find-my-log-files-in-the-file-structure-of-my-web-app-how-can-i-find-them"></a>在 Web 应用的文件结构中找不到日志文件。 如何找到它们？
 
@@ -186,10 +187,8 @@ WebJobs 专用于后台处理。 可在 WebJobs 中执行任意数量的后台�
 
 如果尝试从应用程序访问本地地址，也可能发生此错误。 有关详细信息，请参阅[本地地址请求](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#local-address-requests)。
 
-有关 Web 应用中的出站连接的详细信息，请参阅有关[到 Azure 网站的传出连接](http://www.freekpaans.nl/2015/08/starving-outgoing-connections-on-windows-azure-web-sites/)的博客文章。
+有关 Web 应用中的出站连接的详细信息，请参阅有关[到 Azure 网站的传出连接](https://www.freekpaans.nl/2015/08/starving-outgoing-connections-on-windows-azure-web-sites/)的博客文章。
 
 ## <a name="how-do-i-use-visual-studio-to-remote-debug-my-app-service-web-app"></a>如何使用 Visual Studio 远程调试应用服务 Web 应用？
 
 有关如何使用 Visual Studio 调试 Web 应用的详细演练，请参阅 [Remote debug your App Service web app](https://blogs.msdn.microsoft.com/benjaminperkins/2016/09/22/remote-debug-your-azure-app-service-web-app/)（远程调试应用服务 Web 应用）。
-
-<!--Update_Description: update meta data-->

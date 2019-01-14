@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 04/23/2018
-ms.date: 12/24/2018
+ms.date: 01/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: 22b6638bab8d7bfde0e59aa118968fccef5de95f
-ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
+ms.openlocfilehash: 581f3bc96c9d056defa52af19c75bb1b9b0b3add
+ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53569324"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54216282"
 ---
-# <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>在 HDInsight Hadoop 群集上安装 Giraph 并使用 Giraph 处理大型图形
+# <a name="install-apache-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>在 HDInsight Hadoop 群集上安装 Apache Giraph 并使用 Giraph 处理大型图形
 
 了解如何在 HDInsight 群集上安装 Apache Giraph。 HDInsight 的脚本操作功能允许通过运行 bash 脚本来自定义群集。 可以在创建群集期间或之后使用脚本来自定义群集。
 
@@ -27,7 +27,7 @@ ms.locfileid: "53569324"
 
 ## <a name="whatis"></a>什么是 Giraph
 
-[Apache Giraph](http://giraph.apache.org/) 允许使用 Hadoop 执行图形处理，并可以在 Azure HDInsight 上使用。 图形用于对各个对象之间的关系进行建模。 例如，大型网络（例如 Internet）上的路由器之间的连接，或者社交网络上人们之间的关系。 通过图形处理，可以推理图形中对象之间的关系，例如：
+[Apache Giraph](https://giraph.apache.org/) 允许使用 Hadoop 执行图形处理，并可以在 Azure HDInsight 上使用。 图形用于对各个对象之间的关系进行建模。 例如，大型网络（例如 Internet）上的路由器之间的连接，或者社交网络上人们之间的关系。 通过图形处理，可以推理图形中对象之间的关系，例如：
 
 * 根据当前的关系识别潜在的朋友。
 
@@ -173,5 +173,4 @@ ms.locfileid: "53569324"
 
 * [在 HDInsight 群集上安装并使用 Hue](hdinsight-hadoop-hue-linux.md)。
 
-* [在 HDInsight 群集上安装 Solr](hdinsight-hadoop-solr-install-linux.md)。
-<!--Update_Description: add code type-->
+* [在 HDInsight 群集上安装 Apache Solr](hdinsight-hadoop-solr-install-linux.md)。

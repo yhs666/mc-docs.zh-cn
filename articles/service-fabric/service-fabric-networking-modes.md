@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/23/2018
-ms.date: 12/10/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: b9c11f50cf19862c7fdd8bc96aba47afece404c7
-ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
+ms.openlocfilehash: 29fa2f9c3e6fba7bdfed767770e3d9742838d64b
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52901109"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083789"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric 容器网络模式
 
@@ -79,7 +79,7 @@ ms.locfileid: "52901109"
             ],
     ```
 
-2. 设置网络配置文件部分，以允许在群集的每个节点上配置多个 IP 地址。 下例为 Windows/Linux Service Fabric 群集的每个节点设置了五个 IP 地址。 在每个节点的端口上都可以有五个服务实例侦听。
+2. 设置网络配置文件部分，以允许在群集的每个节点上配置多个 IP 地址。 下例为 Windows/Linux Service Fabric 群集的每个节点设置了五个 IP 地址。 在每个节点的端口上都可以有五个服务实例侦听。 若要可从 Azure 负载均衡器访问这五个 IP，请按如下所示在 Azure 负载均衡器后端地址池中注册这五个 IP。
 
     ```json
     "variables": {
@@ -127,6 +127,11 @@ ms.locfileid: "52901109"
                           "name": "[concat(parameters('nicName'),'-', 1)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -136,6 +141,11 @@ ms.locfileid: "52901109"
                           "name": "[concat(parameters('nicName'),'-', 2)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -145,6 +155,11 @@ ms.locfileid: "52901109"
                           "name": "[concat(parameters('nicName'),'-', 3)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -154,6 +169,11 @@ ms.locfileid: "52901109"
                           "name": "[concat(parameters('nicName'),'-', 4)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -163,6 +183,11 @@ ms.locfileid: "52901109"
                           "name": "[concat(parameters('nicName'),'-', 5)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -255,4 +280,4 @@ ms.locfileid: "52901109"
 * [将 Windows 容器部署到 Windows Server 2016 上的 Service Fabric](service-fabric-get-started-containers.md)
 * [将 Docker 容器部署到 Linux 上的 Service Fabric](service-fabric-get-started-containers-linux.md)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

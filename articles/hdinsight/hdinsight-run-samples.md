@@ -7,20 +7,20 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: article
 origin.date: 05/25/2017
-ms.date: 12/24/2018
+ms.date: 01/21/2019
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 81b28fc6cd9ac60a093ba51bb1a7555b55cdc6ce
-ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
+ms.openlocfilehash: ca036d08d6e2707e308a6e3d7fb4a020c93f4a52
+ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53569290"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54216242"
 ---
-# <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>在基于 Windows 的 HDInsight 中运行 Hadoop MapReduce 示例
+# <a name="run-mapreduce-samples-in-windows-based-hdinsight"></a>在基于 Windows 的 HDInsight 中运行 MapReduce 示例
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
-为帮助你开始使用 Azure HDInsight 在 Hadoop 群集上运行 MapReduce 作业，我们提供了一组示例。 在创建的每一个 HDInsight 托管群集上都可以使用这些示例。 运行这些示例可熟悉如何使用 Azure PowerShell cmdlet 在 Hadoop 群集上运行作业。
+为帮助你开始使用 Azure HDInsight 在 Apache Hadoop 群集上运行 MapReduce 作业，我们提供了一组示例。 在创建的每一个 HDInsight 托管群集上都可以使用这些示例。 运行这些示例可熟悉如何使用 Azure PowerShell cmdlet 在 Hadoop 群集上运行作业。
 
 * [**字数统计**][hdinsight-sample-wordcount]：计算单词在文本文件中出现的次数。
 * [**C# 流式处理字数统计**][hdinsight-sample-csharp-streaming]：使用 Hadoop 流式处理接口计算单词在文本文件中出现的次数。
@@ -32,19 +32,19 @@ ms.locfileid: "53569290"
 
 Web 上有许多介绍 Hadoop 相关技术（例如基于 Java 的 MapReduce 编程和流式处理）的其他文档，以及有关 Windows PowerShell 脚本中使用的 cmdlet 的文档。 有关这些资源的详细信息，请参阅：
 
-* [为 HDInsight 中的 Hadoop 开发 Java MapReduce 程序](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
-* [在 HDInsight 中提交 Hadoop 作业](hadoop/submit-apache-hadoop-jobs-programmatically.md)
+* [为 HDInsight 中的 Apache Hadoop 开发 Java MapReduce 程序](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
+* [在 HDInsight 中提交 Apache Hadoop 作业](hadoop/submit-apache-hadoop-jobs-programmatically.md)
 * [Azure HDInsight 简介][hdinsight-introduction]
 
-现今，许多人选择 Hive 和 Pig，而不是 MapReduce。  有关详细信息，请参阅：
+目前，许多人选择使用 Apache Hive 和 Apache Pig，而不使用 MapReduce。  有关详细信息，请参阅：
 
-* [在 HDInsight 中使用 Hive](hadoop/hdinsight-use-hive.md)
-* [在 HDInsight 中使用 Pig](hadoop/hdinsight-use-pig.md)
+* [使用 HDInsight 中的 Apache Hive](hadoop/hdinsight-use-hive.md)
+* [在 HDInsight 中使用 Apache Pig](hadoop/hdinsight-use-pig.md)
 
 **先决条件**：
 
 * **一个 Azure 订阅**。 请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
-* **一个 HDInsight 群集**。 有关可用于创建这类群集的不同方法的说明，请参阅[在 HDInsight 中创建 Hadoop 群集](hdinsight-hadoop-provision-linux-clusters.md)。
+* **一个 HDInsight 群集**。 有关可用于创建这类群集的不同方法的说明，请参阅[在 HDInsight 中创建 Apache Hadoop 群集](hdinsight-hadoop-provision-linux-clusters.md)。
 * **配备 Azure PowerShell 的工作站**。
 
     > [!IMPORTANT]
@@ -57,7 +57,7 @@ Web 上有许多介绍 Hadoop 相关技术（例如基于 Java 的 MapReduce 编
 
 可以在 [附录 A](#apendix-a---the-word-count-MapReduce-program-in-java)中找到源代码。
 
-有关开发 Java MapReduce 程序的过程，请参阅[开发适用于 HDInsight 中的 Hadoop 的 Java MapReduce 程序](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
+有关开发 Java MapReduce 程序的过程，请参阅[开发适用于 HDInsight 中的 Apache Hadoop 的 Java MapReduce 程序](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
 **提交字数统计 MapReduce 作业**
 
@@ -168,7 +168,7 @@ pi 估计器使用统计学方法（拟蒙特卡罗法）估算 pi 值。 单位
     ```
 
 ## <a name="hdinsight-sample-10gb-graysort"></a>10-GB Graysort
-此示例使用适中的 10GB 数据，这样它运行时能相对快一点。 它使用由 Owen O'Malley 和 Arun Murthy 开发的 MapReduce 应用程序，此应用程序以 0.578TB/分钟（100TB 用时 173 分钟）的速率赢得了 2009 年年度常用（“daytona”）TB 级排序基准。 有关这一排序基准和其他排序基准的详细信息，请参阅 [Sortbenchmark](http://sortbenchmark.org/) 站点。
+此示例使用适中的 10 GB 数据，这样它运行时能相对快一点。 它使用由 Owen O'Malley 和 Arun Murthy 开发的 MapReduce 应用程序，此应用程序以 0.578TB/分钟（100 TB 用时 173 分钟）的速率赢得了 2009 年年度常用（“daytona”）TB 级排序基准。 有关这一排序基准和其他排序基准的详细信息，请参阅 [Sortbenchmark](https://sortbenchmark.org/) 站点。
 
 本示例使用三组 MapReduce 程序：
 
@@ -206,12 +206,12 @@ pi 估计器使用统计学方法（拟蒙特卡罗法）估算 pi 值。 单位
     ```
 
 ## <a name="next-steps"></a>后续步骤
-从本文和每个示例的相关文章中，了解到如何使用 Azure PowerShell 运行 HDInsight 群集附带的示例。 有关 Pig、Hive 和 MapReduce 如何与 HDInsight 配合使用的教程，请参阅以下主题：
+从本文和每个示例的相关文章中，了解到如何使用 Azure PowerShell 运行 HDInsight 群集附带的示例。 有关将 Pig、Hive 和 MapReduce 用于 HDInsight 的教程，请参阅以下主题：
 
-* [将 Hadoop 与 HDInsight 中的 Hive 配合使用以分析手机使用情况][hdinsight-get-started]
-* [将 Pig 与 Hadoop on HDInsight 配合使用][hdinsight-use-pig]
-* [将 Hive 与 HDInsight 上的 Hadoop 配合使用][hdinsight-use-hive]
-* [在 HDInsight 中提交 Hadoop 作业][hdinsight-submit-jobs]
+* [开始将 Apache Hadoop 与 HDInsight 中的 Apache Hive 配合使用以分析手机使用情况][hdinsight-get-started]
+* [将 Apache Pig 与 Apache Hadoop on HDInsight 配合使用][hdinsight-use-pig]
+* [将 Apache Hive 与 Apache Hadoop on HDInsight 配合使用][hdinsight-use-hive]
+* [在 HDInsight 中提交 Apache Hadoop 作业][hdinsight-submit-jobs]
 
 ## <a name="appendix-a---the-word-count-source-code"></a>附录 A - 字数统计源代码
 
@@ -384,7 +384,7 @@ wc.cs 文件中的化简器代码使用 [StreamReader][streamreader] 对象，�
 * "License"); you may not use this file except in compliance
 * with the License. You may obtain a copy of the License at
 *
-* http://www.apache.org/licenses/LICENSE-2.0
+* https://www.apache.org/licenses/LICENSE-2.0
 *
 * Unless required by applicable law or agreed to in writing, software
 * distributed under the License is distributed on an "AS IS" BASIS,
@@ -723,7 +723,7 @@ System.exit(ToolRunner.run(null, new PiEstimator(), argv));
     * "License"); you may not use this file except in compliance
     * with the License.  You may obtain a copy of the License at
     *
-    *     http://www.apache.org/licenses/LICENSE-2.0
+    *     https://www.apache.org/licenses/LICENSE-2.0
     *
     * Unless required by applicable law or agreed to in writing, software
     * distributed under the License is distributed on an "AS IS" BASIS,
@@ -927,7 +927,7 @@ public class TeraSort extends Configured implements Tool {
         splitPoints = readPartitions(fs, partFile, job);
         trie = buildTrie(splitPoints, 0, splitPoints.length, new Text(), 2);
         } catch (IOException ie) {
-        throw new IllegalArgumentException("can't read paritions file", ie);
+        throw new IllegalArgumentException("can't read partitions file", ie);
         }
     }
 
@@ -978,8 +978,6 @@ public class TeraSort extends Configured implements Tool {
 }
 ```
 
-[hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
-
 [hdinsight-submit-jobs]: hadoop/submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-introduction]:hadoop/apache-hadoop-introduction.md
 
@@ -996,7 +994,7 @@ public class TeraSort extends Configured implements Tool {
 [hdinsight-use-hive]: hadoop/hdinsight-use-hive.md
 [hdinsight-use-pig]: hadoop/hdinsight-use-pig.md
 
-[streamreader]: http://msdn.microsoft.com/library/system.io.streamreader.aspx
-[console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
+[streamreader]: https://msdn.microsoft.com/library/system.io.streamreader.aspx
+[console-writeline]: https://msdn.microsoft.com/library/system.console.writeline
 [stdin-stdout-stderr]: https://msdn.microsoft.com/library/3x292kth.aspx
 <!--Update_Description: change 'wasbs' into 'wasb' and delete a link-->

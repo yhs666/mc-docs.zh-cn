@@ -1,9 +1,9 @@
 ---
-title: Azure PowerShell 脚本示例 - 计算 Blob 容器大小 | Azure
+title: Azure PowerShell 脚本示例 - 计算 blob 容器大小 | Microsoft Docs
 description: 通过计算容器各 blob 的总大小来计算 Azure Blob 存储中容器的大小。
 services: storage
 documentationcenter: na
-author: forester123
+author: WenJason
 manager: digimobile
 editor: tysonn
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: powershell
 ms.topic: sample
 origin.date: 11/07/2017
-ms.date: 06/11/2018
-ms.author: v-johch
-ms.openlocfilehash: 0b0bc20d85dc660d77a9b352b3710f3dc7c02a15
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 01/14/2019
+ms.author: v-jay
+ms.openlocfilehash: 11b70a97754884b6d221523196f98465bed101c0
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651257"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192797"
 ---
 # <a name="calculate-the-size-of-a-blob-storage-container"></a>计算 Blob 存储容器的大小
 
@@ -51,13 +51,13 @@ $storageAccountName = "contosobloblisttest"
 $containerName = "listtestblobs"
 
 # get a reference to the storage account and the context
-$storageAccount = Get-AzureRmStorageAccount `
+$storageAccount = Get-AzStorageAccount `
   -ResourceGroupName $resourceGroup `
   -Name $storageAccountName
 $ctx = $storageAccount.Context 
 
 # get a list of all of the blobs in the container 
-$listOfBLobs = Get-AzureStorageBlob -Container $ContainerName -Context $ctx 
+$listOfBLobs = Get-AzStorageBlob -Container $ContainerName -Context $ctx 
 
 # zero out our total
 $length = 0
@@ -79,7 +79,7 @@ Write-Host "Total Length = " $length
 运行以下命令来删除资源组、容器和所有相关资源。
 
 ```powershell
-Remove-AzureRmResourceGroup -Name bloblisttestrg
+Remove-AzResourceGroup -Name bloblisttestrg
 ```
 
 ## <a name="script-explanation"></a>脚本说明
@@ -88,8 +88,8 @@ Remove-AzureRmResourceGroup -Name bloblisttestrg
 
 | 命令 | 注释 |
 |---|---|
-| [Get-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount) | 获取资源组或订阅中的指定存储帐户或所有存储帐户。 |
-| [Get-AzureStorageBlob](https://docs.microsoft.com/powershell/module/azure.storage/get-azurestorageblob) | 列出容器中的 Blob。 ||
+| [Get-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccount) | 获取资源组或订阅中的指定存储帐户或所有存储帐户。 |
+| [Get-AzStorageBlob](https://docs.microsoft.com/powershell/module/azure.storage/get-AzStorageblob) | 列出容器中的 Blob。 ||
 
 ## <a name="next-steps"></a>后续步骤
 

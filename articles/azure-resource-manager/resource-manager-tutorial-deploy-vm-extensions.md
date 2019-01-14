@@ -11,15 +11,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 origin.date: 11/13/2018
-ms.date: 12/17/2018
+ms.date: 01/21/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 61edebd7586f0fb9b33d57ede43f16f06d88eb10
-ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
+ms.openlocfilehash: 021bd71fe05570a293848f6ce1695d78fd237f03
+ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53286763"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193063"
 ---
 <!-- Verify Successfully-->
 # <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>教程：使用 Azure 资源管理器模板部署虚拟机扩展
@@ -123,7 +123,7 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 
 ## <a name="deploy-the-template"></a>部署模板
 
-有关部署过程，请参阅[部署模板](./resource-manager-tutorial-create-multiple-instances.md#deploy-the-template)部分。 建议使用为虚拟机管理员帐户生成的密码。 请参阅[先决条件](#prerequisites)。
+有关部署过程，请参阅[部署模板](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template)部分。 建议使用为虚拟机管理员帐户生成的密码。 请参阅[先决条件](#prerequisites)。
 
 ## <a name="verify-the-deployment"></a>验证部署
 
@@ -147,4 +147,4 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 > [!div class="nextstepaction"]
 > [](./resource-manager-tutorial-deploy-vm-extensions.md)
 
-<!-- Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

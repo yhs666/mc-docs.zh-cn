@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 11/13/2018
 ms.date: 12/17/2018
 ms.author: v-jay
-ms.openlocfilehash: 5cc2f3fa02688888b205e7e507ced11f9722faae
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.openlocfilehash: 5e924418c4b69677b4a60032359ec78cfa1a4045
+ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396246"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54059028"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>将应用服务资源提供程序添加到受 AD FS 保护且已断开连接的 Azure Stack 环境
 
@@ -212,7 +212,7 @@ ms.locfileid: "53396246"
 > * 协议：TCP
 > * 操作：允许
 > * 优先级：700
-> * 名称：Outbound_Allow_SMB445
+> * 姓名：Outbound_Allow_SMB445
 >
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>体验 Azure Stack 上的应用服务
@@ -222,9 +222,9 @@ ms.locfileid: "53396246"
 > [!NOTE]
 > 需要创建一个套餐，其中的计划包含 Microsoft.Web 命名空间。 然后，需要有订阅此套餐的租户订阅。 有关详细信息，请参阅[创建套餐](azure-stack-create-offer.md)和[创建计划](azure-stack-create-plan.md)。
 >
-必须有租户订阅，才能创建使用 Azure Stack 上的应用服务的应用程序。 服务管理员只能在管理员门户中完成的功能与资源提供程序对应用服务的管理相关。 这些功能包括添加容量、配置部署源以及添加辅助角色层和 SKU。
+> 必须有租户订阅，才能创建使用 Azure Stack 上的应用服务的应用程序。 服务管理员只能在管理员门户中完成的功能与资源提供程序对应用服务的管理相关。 这些功能包括添加容量、配置部署源以及添加辅助角色层和 SKU。
 >
-至于第三个技术预览版，若要创建 Web 应用、API 应用和 Azure Functions 应用，必须使用租户门户并有租户订阅。
+> 至于第三个技术预览版，若要创建 Web 应用、API 应用和 Azure Functions 应用，必须使用租户门户并有租户订阅。
 
 1. 在 Azure Stack 租户门户中，单击“+ 创建资源” > “Web + 移动” > “Web 应用”。
 

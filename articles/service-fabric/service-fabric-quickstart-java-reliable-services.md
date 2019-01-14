@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 10/23/2017
-ms.date: 12/10/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
 ms.custom: mvc, devcenter
-ms.openlocfilehash: af0925c28be3ce156a5534c0165d41c8b22290a2
-ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
+ms.openlocfilehash: 590b104d9e57bce1924da7e607ca69bde4ea4e3a
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785189"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083803"
 ---
 # <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>快速入门：将 Java Reliable Services 应用程序部署到 Service Fabric
 
@@ -68,7 +68,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
 2. 打开 Eclipse。
 3. 单击“文件”- >“导入”- > Gradle - > 现有 Gradle 项目，然后按照向导进行操作。
-4. 单击“目录”，然后在从 Github 克隆的 `service-fabric-java-quickstart` 文件夹中选择 `Voting` 目录。 单击“完成”。 
+4. 单击“目录”，然后在从 GitHub 克隆的 `service-fabric-java-quickstart` 文件夹中选择 `Voting` 目录。 单击“完成”。
 
     ![Eclipse 的“导入”对话框](./media/service-fabric-quickstart-java/eclipseimport.png)
 
@@ -109,12 +109,13 @@ Service Fabric 提供多种可以用来管理群集及其应用程序的工具�
 <!-- Not Available on (For party clusters, you can copy a command specific to your PFX file from the instructions on the **ReadMe** page.)-->
 
     ```bash
-    openssl pkcs12 -in <YOUR_CERTIFICATE_PFX_FILE>.pfx -out <YOUR_CERTIFICATE_PEM_FILE>.pem -nodes -passin pass:<YOUR_PASSWORD>
+    openssl pkcs12 -in <YOUR_CERTIFICATE_PFX_FILE_Name>.pfx -out <YOUR_CERTIFICATE_PEM_FILE_Name>.pem -nodes -passin pass:<YOUR_PASSWORD>
     ```
 
-若要使用 Service Fabric Explorer，需要将从门户网站下载的证书 PFX 文件导入到证书存储（Windows 或 Mac）中，或者导入到浏览器本身 (Ubuntu) 中。 
+若要使用 Service Fabric Explorer，需要将从 [Azure 门户](https://portal.azure.cn)下载的证书 PFX 文件导入到证书存储（Windows 或 Mac）中，或者导入到浏览器本身 (Ubuntu) 中。
 
-<!-- Change Part website to Portal website-->s <!-- Not Available on You need the PFX private key password, which you can get from the **ReadMe** page.-->
+<!-- Change Part website to Portal website-->
+<!-- Not Available on You need the PFX private key password, which you can get from the **ReadMe** page.-->
 
 请使用最熟悉的方法将证书导入到系统中。 例如：
 
@@ -134,7 +135,7 @@ Service Fabric 提供多种可以用来管理群集及其应用程序的工具�
     openssl x509 -in [CERTIFICATE_PEM_FILE] -fingerprint -noout
     ```
 
-2. 在 `Voting/VotingApplication/ApplicationManifest.xml` 文件中，在 **ApplicationManifest** 标记下添加以下代码片段。 **X509FindValue** 应该是上一步的指纹（无分号）。 
+2. 在 `Voting/VotingApplication/ApplicationManifest.xml` 文件中，在 **ApplicationManifest** 标记下添加以下代码片段。 **X509FindValue** 应该是上一步的指纹（无分号）。
 
     ```xml
     <Certificates>

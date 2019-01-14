@@ -1,7 +1,7 @@
 ---
 title: 检测特定于域的内容 - 计算机视觉
 titleSuffix: Azure Cognitive Services
-description: 使用计算机视觉 API 描述图像的相关概念。
+description: 了解如何指定图像分类域以返回有关图像的更多详细信息。
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -9,14 +9,15 @@ ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: conceptual
 origin.date: 08/29/2018
-ms.date: 10/30/2018
+ms.date: 01/08/2019
 ms.author: v-junlch
-ms.openlocfilehash: a0850b94beb42366f77f5ea0cd683fbb25ec81c8
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.custom: seodec18
+ms.openlocfilehash: bd04d2e744fd1e344acecb1f9fd3619177dfbb3c
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646588"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083676"
 ---
 # <a name="detecting-domain-specific-content"></a>检测特定领域的内容
 
@@ -62,3 +63,4 @@ ms.locfileid: "52646588"
 
 了解有关[对图像进行分类](concept-categorizing-images.md)的概念。
 
+<!-- Update_Description: update metedata properties -->

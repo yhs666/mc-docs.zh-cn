@@ -8,18 +8,18 @@ manager: digimobile
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/14/2017
-ms.date: 03/26/2018
+origin.date: 12/18/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2ee0712608551290ade2229ddb0296f36be84b70
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 06e0e408dbaf4b75ef8592e3a16a62cd2d343435
+ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664529"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193022"
 ---
 # <a name="outputs-section-in-azure-resource-manager-templates"></a>Azure 资源管理器模板中的 Outputs 节
 在 Outputs 节中，可以指定从部署返回的值。 例如，可能会返回用于访问已部署资源的 URI。
@@ -49,7 +49,9 @@ ms.locfileid: "52664529"
 az group deployment show -g <resource-group-name> -n <deployment-name> --query properties.outputs.resourceID.value
 ```
 
-可以使用 [reference](resource-group-template-functions-resource.md#reference) 函数从链接的模板检索输出值。 若要从链接模板中获取输出值，请使用如下所示的语法检索属性值：`"[reference('<name-of-deployment>').outputs.<property-name>.value]"`。
+可以使用 [reference](resource-group-template-functions-resource.md#reference) 函数从链接的模板检索输出值。 若要从链接模板中获取输出值，请使用如下所示的语法检索属性值：`"[reference('deploymentName').outputs.propertyName.value]"`。
+
+从链接模板获取输出属性时，属性名称不能包含短划线。
 
 例如，从链接的模板检索一个值即可在负载均衡器上设置 IP 地址。
 
@@ -80,23 +82,6 @@ az group deployment show -g <resource-group-name> -n <deployment-name> --query p
 | type |是 |输出值的类型。 输出值支持的类型与模板输入参数相同。 |
 | value |是 |要求值并作为输出值返回的模板语言表达式。 |
 
-## <a name="recommendations"></a>建议
-
-如果使用模板创建公共 IP 地址，请包含 outputs 节，用于返回 IP 地址和完全限定域名 (FQDN) 的详细信息。 部署后，可以使用输出值轻松检索有关公共 IP 地址和 FQDN 的详细信息。
-
-```json
-"outputs": {
-    "fqdn": {
-        "value": "[reference(parameters('publicIPAddresses_name')).dnsSettings.fqdn]",
-        "type": "string"
-    },
-    "ipaddress": {
-        "value": "[reference(parameters('publicIPAddresses_name')).ipAddress]",
-        "type": "string"
-    }
-}
-```
-
 ## <a name="example-templates"></a>示例模板
 
 |模板  |说明  |
@@ -108,7 +93,6 @@ az group deployment show -g <resource-group-name> -n <deployment-name> --query p
 ## <a name="next-steps"></a>后续步骤
 * 若要查看许多不同类型的解决方案的完整模型，请参阅 [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/)（Azure 快速入门模板）。
 * 有关用户可以使用的来自模板中的函数的详细信息，请参阅 [Azure Resource Manager Template Functions](resource-group-template-functions.md)（Azure Resource Manager 模板函数）。
-* 要在部署期间合并多个模板，请参阅 [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md)（将已链接的模板与 Azure Resource Manager 配合使用）。
-* 可能需要使用不同资源组中的资源。 使用跨多个资源组共享的存储帐户或虚拟网络时，此方案很常见。 有关详细信息，请参阅 [resourceId 函数](resource-group-template-functions-resource.md#resourceid)。
+<!--Not Available on * For recommendations about creating templates, see [Azure Resource Manager template best practices](template-best-practices.md)-->
 
 <!-- Update_Description: update meta properties, wording update -->

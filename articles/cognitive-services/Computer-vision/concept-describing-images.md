@@ -1,7 +1,7 @@
 ---
 title: 描述图像 - 计算机视觉
 titleSuffix: Azure Cognitive Services
-description: 使用计算机视觉 API 描述图像的相关概念。
+description: 与计算机视觉 API 的图像描述功能相关的概念。
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -9,16 +9,17 @@ ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: conceptual
 origin.date: 08/29/2018
-ms.date: 10/30/2018
+ms.date: 01/08/2019
 ms.author: v-junlch
-ms.openlocfilehash: 9c83c8ca84c506d87a55e23acce764387727f580
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.custom: seodec18
+ms.openlocfilehash: fd770fc9d97508aa9d9ad743adcfe9c49fed64d1
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653687"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083529"
 ---
-# <a name="describing-images"></a>描述图像
+# <a name="describe-images-with-human-readable-language"></a>使用人类可读语言描述图像
 
 计算机视觉的算法可分析图像中的内容。 此分析形成“说明”的基础。该“说明”以人类可读语言显示，采用完整句子。 说明汇总了图像中找到的内容。 计算机视觉的算法可根据图像中标识的视觉特征生成各种说明。 每项说明都经过评估并带有置信度分数。 然后返回一个列表，将置信度从高到低进行排列。
 
@@ -26,7 +27,7 @@ ms.locfileid: "52653687"
 
 以下 JSON 响应表明计算机视觉在基于视觉特征对示例图像进行描述时返回的内容。
 
-![黑白建筑](./Images/bw_buildings.png)
+![曼哈顿建筑的黑白照片](./Images/bw_buildings.png)
 
 ```json
 {
@@ -60,3 +61,4 @@ ms.locfileid: "52653687"
 
 了解[标记图像](concept-tagging-images.md)和[对图像进行分类](concept-categorizing-images.md)的概念。
 
+<!-- Update_Description: wording update -->

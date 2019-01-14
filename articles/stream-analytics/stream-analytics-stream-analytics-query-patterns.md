@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/3/2019
-ms.openlocfilehash: b723633b6771effa773174401f5f91de49cf8f92
-ms.sourcegitcommit: f46e1f7a5d582bb9663bfaee8087b233eb822e17
+ms.openlocfilehash: 2859dcc31a759397a3e4486f20399a16e4d1a23b
+ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996516"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54141686"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>常用流分析使用模式的查询示例
 
@@ -27,6 +27,7 @@ Azure 流分析中的查询以类似 SQL 的查询语言表示。 这些语言�
 ## <a name="work-with-complex-data-types-in-json-and-avro"></a>使用 JSON 和 AVRO 中的复杂数据类型 
 Azure 流分析支持处理采用 CSV、JSON 和 Avro 数据格式的事件。
 JSON 和 Avro 都可能包含嵌套对象（记录）或数组等复杂类型。 若要使用这些复杂数据类型，请参阅[解析 JSON 和 AVRO 数据](stream-analytics-parsing-json.md)一文。
+
 
 ## <a name="query-example-convert-data-types"></a>查询示例：转换数据类型
 **说明**：定义输入流中的属性类型。
@@ -58,7 +59,7 @@ JSON 和 Avro 都可能包含嵌套对象（记录）或数组等复杂类型。
         TumblingWindow(second, 10)
 ```
 
-**解释**：在“权重”字段中使用 **CAST** 语句来指定它的数据类型。 请参阅[数据类型（Azure 流分析）](https://msdn.microsoft.com/library/azure/dn835065.aspx)中支持的数据类型列表。
+**说明**：在“权重”字段中使用 **CAST** 语句来指定它的数据类型。 请参阅[数据类型（Azure 流分析）](https://msdn.microsoft.com/library/azure/dn835065.aspx)中支持的数据类型列表。
 
 ## <a name="query-example-use-likenot-like-to-do-pattern-matching"></a>查询示例：使用 Like/Not like 进行模式匹配
 **说明**：检查事件上的字段值是否与特定的模式匹配。
@@ -90,7 +91,7 @@ JSON 和 Avro 都可能包含嵌套对象（记录）或数组等复杂类型。
         LicensePlate LIKE 'A%9'
 ```
 
-**解释**：使用 **LIKE** 语句检查 **LicensePlate** 字段的值。 它应当以 A 开头，其中包含零个或多个字符的任意字符串，并以 9 结尾。 
+**说明**：使用 **LIKE** 语句检查 **LicensePlate** 字段的值。 它应当以 A 开头，其中包含零个或多个字符的任意字符串，并以 9 结尾。 
 
 ## <a name="query-example-specify-logic-for-different-casesvalues-case-statements"></a>查询示例：指定不同案例/值的逻辑（CASE 语句）
 **说明**：根据某些特定条件对字段进行不同的计算。
@@ -127,7 +128,7 @@ JSON 和 Avro 都可能包含嵌套对象（记录）或数组等复杂类型。
         TumblingWindow(second, 10)
 ```
 
-**解释**：CASE 表达式将某个表达式与一组简单表达式进行比较以确定结果。 在此示例中，计数为 1 的车返回的是与计数不为 1 的车不同的字符串说明。 
+**说明**：CASE 表达式将某个表达式与一组简单表达式进行比较以确定结果。 在此示例中，计数为 1 的车返回的是与计数不为 1 的车不同的字符串说明。 
 
 ## <a name="query-example-send-data-to-multiple-outputs"></a>查询示例：将数据发送到多个输出
 **说明**：从单个作业中将数据发送到多个输出目标。
@@ -184,7 +185,7 @@ JSON 和 Avro 都可能包含嵌套对象（记录）或数组等复杂类型。
         [Count] >= 3
 ```
 
-**解释**：**INTO** 子句告知流分析可通过此语句将数据写入到哪一个输出中。
+**说明**：**INTO** 子句告知流分析可通过此语句将数据写入到哪一个输出中。
 第一个查询将接收到的数据传递到名为 ArchiveOutput 的输出。
 第二个查询进行了一些简单的聚合和筛选操作，并将结果发送到下游的警报系统。
 
@@ -268,7 +269,7 @@ GROUP BY
         LAG(Make, 1) OVER (LIMIT DURATION(minute, 1)) <> Make
 ```
 
-**解释**：使用 **LAG** 来查看后退一个事件之后的输入流，并获得“制造商”字段的值。 然后，将它与当前事件的“制造商”字段进行比较，如果二者不同，则输出该事件。
+**说明**：使用 **LAG** 来查看后退一个事件之后的输入流，并获得“制造商”字段的值。 然后，将它与当前事件的“制造商”字段进行比较，如果二者不同，则输出该事件。
 
 ## <a name="query-example-find-the-first-event-in-a-window"></a>查询示例：查找时间范围内的第一个事件
 **说明**：查找每 10 分钟时间间隔内的第一辆汽车。
@@ -373,7 +374,7 @@ GROUP BY
         AND Input.Time = LastInWindow.LastEventTime
 ```
 
-**解释**：查询中有两个步骤。 第一个步骤是在 10 分钟的时间范围内查找最新的时间戳。 第二个步骤是将第一个查询的结果与原始流联接，查找每个时间范围内与最后一个时间戳相匹配的事件。 
+**说明**：查询中有两个步骤。 第一个步骤是在 10 分钟的时间范围内查找最新的时间戳。 第二个步骤是将第一个查询的结果与原始流联接，查找每个时间范围内与最后一个时间戳相匹配的事件。 
 
 ## <a name="query-example-detect-the-absence-of-events"></a>查询示例：检测事件缺失
 **说明**：查看流的值是否与某个条件匹配。
@@ -409,7 +410,7 @@ GROUP BY
         LAG(Make, 1) OVER (LIMIT DURATION(second, 90)) = Make
 ```
 
-**解释**：使用 **LAG** 来查看后退一个事件之后的输入流，并获得“制造商”字段的值。 将它与当前事件的“制造商”字段进行比较，如果二者相同，则输出该事件。 还可使用 **LAG** 获取前一辆汽车的数据。
+**说明**：使用 **LAG** 来查看后退一个事件之后的输入流，并获得“制造商”字段的值。 将它与当前事件的“制造商”字段进行比较，如果二者相同，则输出该事件。 还可使用 **LAG** 获取前一辆汽车的数据。
 
 ## <a name="query-example-detect-the-duration-between-events"></a>查询示例：检测事件之间的持续时间
 **说明**：查找给定事件的持续时间。 例如：给定一个 Web 点击流，确定某项功能花费的时间。
@@ -437,7 +438,7 @@ GROUP BY
         Event = 'end'
 ```
 
-**解释**：使用 **LAST** 函数检索上次事件类型为“开始”时的 **TIME** 值。 **LAST** 函数使用 **PARTITION BY [user]** 指示结果应按唯一用户计算。 该查询在“开始”和“停止”事件之间有 1 小时的最大时差阈值，但也可按需配置 **(LIMIT DURATION(hour, 1)**。
+**说明**：使用 **LAST** 函数检索上次事件类型为“开始”时的 **TIME** 值。 **LAST** 函数使用 **PARTITION BY [user]** 指示结果应按唯一用户计算。 该查询在“开始”和“停止”事件之间有 1 小时的最大时差阈值，但也可按需配置 **(LIMIT DURATION(hour, 1)**。
 
 ## <a name="query-example-detect-the-duration-of-a-condition"></a>查询示例：检测某个条件的持续时间
 **说明**：查看某个条件的持续时间。
@@ -483,7 +484,7 @@ GROUP BY
         AND previousWeight > 20000
 ```
 
-**解释**：使用 **LAG** 查看 24 小时内的输入流并查找因重量 < 20000 而持续的 **StartFault** 和 **StopFault** 实例。
+**说明**：使用 **LAG** 查看 24 小时内的输入流并查找因重量 < 20000 而持续的 **StartFault** 和 **StopFault** 实例。
 
 ## <a name="query-example-fill-missing-values"></a>查询示例：填充缺失值
 **说明**：对于有缺失值的事件流，以固定的时间间隔生成事件流。
@@ -526,7 +527,7 @@ GROUP BY
     GROUP BY HOPPINGWINDOW(second, 300, 5)
 ```
 
-**解释**：此查询隔 5 秒就会生成事件，并输出上次收到的最后一个事件。 [跳跃窗口](https://msdn.microsoft.com/library/dn835041.aspx "跳跃窗口 - Azure 流分析")持续时间确定查询将查找最新事件的时间（在本例中为 300 秒）。
+**说明**：此查询隔 5 秒就会生成事件，并输出上次收到的最后一个事件。 [跳跃窗口](https://msdn.microsoft.com/library/dn835041.aspx "跳跃窗口 - Azure 流分析")持续时间确定查询将查找最新事件的时间（在本例中为 300 秒）。
 
 ## <a name="query-example-correlate-two-event-types-within-the-same-stream"></a>查询示例：在同一流中关联两个事件类型
 **说明**：有时需要基于某个特定时间范围内发生的多个事件类型生成警报。
@@ -597,9 +598,9 @@ WHERE
     t1.sensorName = 'temp'
     AND t1.value <= 40
     AND t2.maxPower > 10
-````
+```
 
-**解释**：第一个查询 (`max_power_during_last_3_mins`) 使用[滑动窗口](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics)查找过去 3 分钟内每个设备的功率传感器的最大值。 将第二个查询联接到第一个查询，以便在与当前事件有关的最近窗口中查找功率值。 然后，假如满足条件，将为设备生成警报。
+**说明**：第一个查询 (`max_power_during_last_3_mins`) 使用[滑动窗口](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics)查找过去 3 分钟内每个设备的功率传感器的最大值。 将第二个查询联接到第一个查询，以便在与当前事件有关的最近窗口中查找功率值。 然后，假如满足条件，将为设备生成警报。
 
 ## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>查询示例：处理与设备时钟偏差无关的事件（子流）
 **说明**：由于事件生成器之间的时钟偏差、分区之间的时钟偏差或网络延迟，事件可能会迟到或不按顺序到达。 在下面的示例中，TollID 2 的设备时钟比 TollID 1 慢 10 秒，TollID 3 的设备时钟比 TollID 1 慢 5 秒。 
@@ -637,7 +638,7 @@ FROM input
 GROUP BY TUMBLINGWINDOW(second, 5), TollId
 ```
 
-**解释**：[TIMESTAMP BY OVER](https://msdn.microsoft.com/azure/stream-analytics/reference/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) 子句使用子流来单独查看每个设备时间线。 每个 TollID 的输出事件都是在计算时生成的，这意味着事件按照每个 TollID 的顺序排列，而不是像所有设备都在同一个时钟上那样重新排序。
+**说明**：[TIMESTAMP BY OVER](https://msdn.microsoft.com/azure/stream-analytics/reference/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) 子句使用子流来单独查看每个设备时间线。 每个 TollID 的输出事件都是在计算时生成的，这意味着事件按照每个 TollID 的顺序排列，而不是像所有设备都在同一个时钟上那样重新排序。
 
 ## <a name="query-example-remove-duplicate-events-in-a-window"></a>查询示例：删除时间范围内的重复事件
 **说明**：执行某项操作（例如计算给定时间范围内事件的平均值）时，应筛选出重复事件。
@@ -683,10 +684,10 @@ FROM Temp
 GROUP BY DeviceId,TumblingWindow(minute, 5)
 ```
 
-**解释**：[COUNT(DISTINCT Time)](https://docs.microsoft.com/en-us/stream-analytics-query/count-azure-stream-analytics) 返回时间范围内“时间”列中的非重复值数目。 然后，你可以使用此步骤的输出按设备计算平均值，只需去掉重复值即可。
+**说明**：[COUNT(DISTINCT Time)](https://docs.microsoft.com/en-us/stream-analytics-query/count-azure-stream-analytics) 返回时间范围内“时间”列中的非重复值数目。 然后，你可以使用此步骤的输出按设备计算平均值，只需去掉重复值即可。
 
 ## <a name="get-help"></a>获取帮助
-如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://www.azure.cn/support/contact/)。
+如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)

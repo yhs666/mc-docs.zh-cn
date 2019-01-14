@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/07/2018
-ms.date: 12/31/2018
+ms.date: 01/21/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 15ee8a34ada2dc757affac64f59b6dd1bccb929a
-ms.sourcegitcommit: 80c59ae1174d71509b4aa64a28a98670307a5b38
+ms.openlocfilehash: b8f323312fa3efbf630d2d7931d893bfa6f564b1
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53735200"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083660"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>使用 ZIP 或 WAR 文件将应用部署到 Azure 应用服务
 
-本文演示如何使用 ZIP 或 WAR 文件将 Web 应用部署到 [Azure 应用服务](app-service-web-overview.md)。 
+本文演示如何使用 ZIP 或 WAR 文件将 Web 应用部署到 [Azure 应用服务](overview.md)。 
 
 此 .zip 文件部署使用相同的 Kudu 服务，支持基于持续集成的部署。 对于 .zip 文件部署，Kudu 支持以下功能： 
 

@@ -2,19 +2,20 @@
 title: 缩放群集大小 - Azure HDInsight
 description: 根据工作负荷缩放 HDInsight 群集。
 services: hdinsight
-author: ashishthaps
+author: v-yiso
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/02/2018
-ms.author: ashish
-ms.openlocfilehash: 93eb6fb0da86909dfc880db2a9bb2331abe4418a
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+origin.date: 02/02/2018
+ms.date: 01/21/2019
+ms.author: v-yiso
+ms.openlocfilehash: 32e50fc5e2a3cda52b523a8afebb26ab4d7286c6
+ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028577"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54216266"
 ---
 # <a name="scale-hdinsight-clusters"></a>缩放 HDInsight 群集
 
@@ -77,7 +78,7 @@ yarn application -kill <application_id>
 yarn application -kill "application_1499348398273_0003"
 ```
 
-## <a name="rebalancing-an-hbase-cluster"></a>重新均衡 HBase 群集
+## <a name="rebalancing-an-apache-hbase-cluster"></a>重新均衡 Apache HBase 群集
 
 在完成缩放操作后的几分钟内，区域服务器会自动进行均衡。 若要手动均衡区域服务器，请使用以下步骤：
 
@@ -99,11 +100,11 @@ yarn application -kill "application_1499348398273_0003"
 
 ![缩放群集](./media/hdinsight-scaling-best-practices/scale-cluster.png)
 
-如果将群集缩减到最少量的（一个）工作节点（如上图所示），则在由于修补而重新启动工作节点时，HDFS 可能会停滞在安全模式，或者在执行缩放操作后立即发生这种情况。
+如果将群集缩减到最少量的（一个）工作节点（如上图所示），则 Apache HDFS 可能会在工作节点由于修补而重新启动时停滞在安全模式，或者在执行缩放操作后立即发生这种情况。
 
 发生此问题的主要原因是 Hive 使用一些 `scratchdir` 文件，并且默认预期每个块有三个副本，但是，如果缩减到最少量的（一个）工作节点，则只会有一个副本。 因此，`scratchdir` 中的文件复制数量不足。 在完成缩放操作后重启服务时，这可能导致 HDFS 保留在安全模式。
 
-在尝试缩减时，HDInsight 首先依赖于 Ambari 管理接口解除额外的多余工作节点，以将其 HDFS 块复制到其他联机工作节点，然后安全缩减群集。 HDFS 在维护时段进入安全模式，在完成缩放后应会退出此模式。 此时，HDFS 可能会停滞在安全模式。
+在尝试缩减时，HDInsight 依赖于 Apache Ambari 管理接口来先解除额外的多余工作节点，以将其 HDFS 块复制到其他联机工作节点，然后安全缩减群集。 HDFS 在维护时段进入安全模式，在完成缩放后应会退出此模式。 此时，HDFS 可能会停滞在安全模式。
 
 HDFS 是使用 `dfs.replication`设置 3 配置的。 因此，每当联机工作节点数少于三个时，scratch 文件块的复制数据就会不足，因为预期会为每个文件块提供三个副本。
 
@@ -151,8 +152,8 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode get
 
 ![安全模式关闭](./media/hdinsight-scaling-best-practices/safe-mode-off.png)
 
-> [!NOTE]
-> 必须使用 `-D` 开关，因为 HDInsight 中的默认文件系统为 Azure 存储或 Azure Data Lake Store。 `-D` 指定针对本地 HDFS 文件系统执行命令。
+> [!NOTE]  
+> 必须使用 `-D` 开关，因为 HDInsight 中的默认文件系统为 Azure 存储或 Azure Data Lake Storage。 `-D` 指定针对本地 HDFS 文件系统执行命令。
 
 接下来，可以查看显示 HDFS 状态详细信息的报告：
 
@@ -327,4 +328,4 @@ hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/
 
 * [Azure HDInsight 简介](hadoop/apache-hadoop-introduction.md)
 * [缩放群集](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [使用 Ambari Web UI 管理 HDInsight 群集](hdinsight-hadoop-manage-ambari.md)
+* [使用 Apache Ambari Web UI 管理 HDInsight 群集](hdinsight-hadoop-manage-ambari.md)

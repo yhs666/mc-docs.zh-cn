@@ -12,15 +12,15 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 04/25/2018
-ms.date: 11/12/2018
+origin.date: 10/23/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: 85ac38fc8b8e8beb34d6d8c012fb4b7338e32739
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 6fd3a9636d4a1a86eecfe9d234314e1dc90b1792
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029088"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083649"
 ---
 # <a name="list-of-service-fabric-events"></a>Service Fabric 事件列表 
 

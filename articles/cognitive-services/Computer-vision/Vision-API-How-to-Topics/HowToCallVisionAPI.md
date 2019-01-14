@@ -1,5 +1,5 @@
 ---
-title: 示例：调用计算机视觉 API
+title: 示例：调用分析图像 API - 计算机视觉
 titlesuffix: Azure Cognitive Services
 description: 了解如何通过使用 Azure 认知服务中的 REST 调用计算机视觉 API。
 services: cognitive-services
@@ -9,14 +9,15 @@ ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: sample
 origin.date: 01/20/2017
-ms.date: 10/30/2018
+ms.date: 01/07/2019
 ms.author: v-junlch
-ms.openlocfilehash: 0de015c39a94a893b4bc280de605f29e7b3d2adf
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.custom: seodec18
+ms.openlocfilehash: 7bd8ab772b19d8938122f0d54f76d7dfb69ae70e
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652046"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083811"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>示例：如何调用计算机视觉 API
 
@@ -27,9 +28,9 @@ ms.locfileid: "52652046"
 
 ### <a name="Prerequisites">先决条件</a> 
 本地存储图像的图像 URL 或路径。
-  - 支持的输入方法：原始图像二进制文件，采用的格式为 application/octet-stream 或图像 URL
-  - 支持的图像格式：JPEG、PNG、GIF、BMP
-  - 图像文件大小：小于 4 MB
+  - 支持的输入方法：原始图像二进制，采用应用程序/八位字节流或图像 URL 的形式
+  - 支持的图像格式：JPEG、PNG、GIF 和 BMP
+  - 图像文件大小：小于 4MB
   - 图像维度：大于 50 x 50 像素
   
 下面的示例演示了以下功能：
@@ -40,7 +41,7 @@ ms.locfileid: "52652046"
 功能细分为：
 
   - **选项一：** 范围内分析 - 仅分析给定模型
-  - **选项二：** 强化分析 - 通过分析，提供[“86 类”分类](../Category-Taxonomy.md)的更多详细信息。
+  - **选项二：** 强化分析 - 经过分析可提供具有 [86 个类别分类](../Category-Taxonomy.md)的更多详细信息
   
 ### <a name="Step1">步骤 1：授权 API 调用</a> 
 每次调用计算机视觉 API 都需要提供订阅密钥。 需通过查询字符串参数传递此密钥，或者在请求标头中指定此密钥。 
@@ -60,12 +61,12 @@ ms.locfileid: "52652046"
 
 ```var visionClient = new VisionServiceClient(“Your subscriptionKey”);```
 
-### <a name="Step2">步骤 2：将图像上传到计算机视觉 API 服务，取回标记、说明和名人</a>
+### <a name="Step2">步骤 2：将图像上传到计算机视觉 API 服务并取回标记、说明和名人</a>
 若要执行计算机视觉 API 调用，基本方式是直接上传图像。 为此，可将包含 application/octet-stream 内容类型的“POST”请求连同从图像中读取的数据一起发送。 至于 "Tags" 和 "Description"，此上传方法对于所有计算机视觉 API 调用都是相同的。 唯一的区别是用户指定的查询参数。 
 
 下面介绍如何获取给定图像的 "Tags" 和 "Description"：
 
-**选项一：** 获取 "Tags" 的列表和一个 "Description"
+**选项一：** 获取“标记”列表和一个“说明”
 ```
 POST https://api.cognitive.azure.cn/vision/v1.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
 ```
@@ -110,7 +111,7 @@ var celebritiesResult = await visionClient.AnalyzeImageInDomainAsync(url, "celeb
 GET https://api.cognitive.azure.cn/vision/v1.0/models 
 var models = await visionClient.ListModelsAsync();
 ```
-**选项二：** 强化分析 - 通过分析，提供[“86 类”分类](../Category-Taxonomy.md)的更多详细信息。
+**选项二：** 强化分析 - 经过分析可提供具有 [86 个类别分类](../Category-Taxonomy.md)的更多详细信息
 
 如果应用程序用户除了获取一个或多个特定领域模型中的详细信息，还需要获取泛型图像分析信息，则可使用带模型查询参数的扩展型 v1 API。
 ```
@@ -160,9 +161,9 @@ description.tags[] |    字符串  | 标记列表。  如果因置信度不够�
 description.captions[].text | 字符串    | 描述图像的短语。
 description.captions[].confidence   | number    | 短语的置信度。
 
-### <a name="Step4">步骤 4：检索并了解特定领域模型的 JSON 输出</a>
+### <a name="Step4">步骤 4：检索并了解特定于域的模型的 JSON 输出</a>
 
-**选项一：** 范围内分析 - 只分析给定的模型
+**选项一：** 范围内分析 - 仅分析给定模型
 
 输出将会是标记数组，示例如下：
 ```
@@ -180,7 +181,7 @@ description.captions[].confidence   | number    | 短语的置信度。
   }
 ```
 
-**选项二：** 强化分析 - 通过分析，提供“86 类”分类的更多详细信息。
+**选项二：** 强化分析 - 经过分析可提供具有 86 个类别分类的更多详细信息
 
 对于使用“选项二(强化分析)”的特定领域模型，会扩展类别返回类型。 示例如下：
 ```
@@ -229,3 +230,4 @@ categories[].detail  | 对象？      | 可选详细信息对象
 若要使用 REST API，请转到[计算机视觉 API 参考](https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa)。
  
 
+<!-- Update_Description: update metedata properties -->

@@ -9,14 +9,15 @@ ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: conceptual
 origin.date: 08/29/2018
-ms.date: 10/30/2018
+ms.date: 01/08/2019
 ms.author: v-junlch
-ms.openlocfilehash: fec0005ad7b5f2013ea2792cb4730463ad7f4295
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.custom: seodec18
+ms.openlocfilehash: 15b87db225935f32fd1b89efd27031fa907a3717
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666756"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083678"
 ---
 # <a name="detecting-adult-and-racy-content"></a>检测成人和不雅内容
 
@@ -34,3 +35,4 @@ ms.locfileid: "52666756"
 
 了解关于[检测特定于域的内容](concept-detecting-domain-content.md)和[检测人脸](concept-detecting-faces.md)的概念。
 
+<!-- Update_Description: update metedata properties -->

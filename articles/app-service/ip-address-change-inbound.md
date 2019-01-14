@@ -1,5 +1,5 @@
 ---
-title: 如何为入站 IP 地址更改做准备 - Azure
+title: 为入站 IP 地址更改做准备 - Azure 应用服务
 description: 如果入站 IP 地址将要更改，请了解如何在更改后继续运行应用。
 services: app-service\web
 author: cephalin
@@ -9,14 +9,15 @@ ms.service: app-service-web
 ms.workload: web
 ms.topic: article
 origin.date: 06/28/2018
-ms.date: 09/03/2018
-ms.author: v-yiso
-ms.openlocfilehash: e3c74be0dd70588971b0245bddcc136b8e981ae2
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 01/21/2019
+ms.author: v-biyu
+ms.custom: seodec18
+ms.openlocfilehash: 72bfee2f6a7db1da429f2596ce3a0357512de897
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658709"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083567"
 ---
 # <a name="how-to-prepare-for-an-inbound-ip-address-change"></a>如何为入站 IP 地址更改做准备
 
@@ -28,9 +29,9 @@ ms.locfileid: "52658709"
 
 * 选项 2：如果在域注册门户（第三方 DNS 提供程序或 Azure DNS）中仅配置了一条 CNAME 记录（指向 URI 的 DNS 记录），则不需要执行任何操作。
 
-* 选项 3：如果在域注册门户（第三方 DNS 提供程序或 Azure DNS）中配置了 A 记录（直接指向你的 IP 地址的 DNS 记录），请将现有 IP 地址替换为新 IP 地址。 按照下一部分中的说明可以找到新 IP 地址。
+* 选项 3：如果在域注册门户（第三方 DNS 提供程序或 Azure DNS）中配置了 A 记录（直接指向你的 IP 地址的 DNS 记录），请将现有 IP 地址替换为新 IP 地址。 遵照下一部分中的说明可以找到新 IP 地址。
 
-* 选项 4：如果应用程序位于负载均衡器、IP 筛选器或需要应用程序 IP 地址的任何其他 IP 机制之后，请将现有 IP 地址替换为新 IP 地址。 按照下一部分中的说明可以找到新 IP 地址。
+* 选项 4：如果应用程序位于负载均衡器、IP 筛选器或需要应用程序 IP 地址的任何其他 IP 机制之后，请将现有 IP 地址替换为新 IP 地址。 遵照下一部分中的说明可以找到新 IP 地址。
 
 ## <a name="find-the-new-inbound-ip-address-in-the-azure-portal"></a>在 Azure 门户中找到新的入站 IP 地址
 
@@ -49,4 +50,4 @@ ms.locfileid: "52658709"
 
 ## <a name="next-steps"></a>后续步骤
 
-本文介绍了如何对 Azure 发起的 IP 地址更改做好准备。 有关 Azure 应用服务中的 IP 地址的详细信息，请参阅 [Azure 应用服务中的入站和出站 IP 地址](app-service-ip-addresses.md)。
+本文介绍了如何对 Azure 发起的 IP 地址更改做好准备。 有关 Azure 应用服务中的 IP 地址的详细信息，请参阅 [Azure 应用服务中的入站和出站 IP 地址](overview-inbound-outbound-ips.md)。

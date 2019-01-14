@@ -19,6 +19,8 @@ items:
     href: sql-data-warehouse-overview-faq.md
 - name: 发行说明
   items:
+  - name: 2018 年 7 月
+    href: release-notes-july-2018.md
   - name: 2018 年 6 月
     href: release-notes-june-2018.md
   - name: 2018 年 5 月
@@ -58,7 +60,7 @@ items:
       href: ../sql-database/sql-database-control-access.md?toc=/sql-data-warehouse/toc.json
     - name: 防火墙规则
       href: ../sql-database/sql-database-firewall-configure.md?toc=/sql-data-warehouse/toc.json
-    - name: 防火墙虚拟网络规则
+    - name: 虚拟网络服务终结点
       href: ../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/sql-data-warehouse/toc.json
     - name: 身份验证
       href: sql-data-warehouse-authentication.md?toc=/sql-data-warehouse/toc.json
@@ -69,7 +71,7 @@ items:
     - name: 多重身份验证
       href: ../sql-database/sql-database-ssms-mfa-authentication.md?toc=/sql-data-warehouse/toc.json
     - name: 审核
-      href: sql-data-warehouse-auditing-overview.md
+      href: ../sql-database/sql-database-auditing.md?toc=/sql-data-warehouse/toc.json
     - name: 行级别安全性
       href: column-level-security.md
     - name: 行级别安全性
@@ -220,8 +222,6 @@ items:
       href: sql-data-warehouse-restore.md
   - name: 集成
     items:
-    - name: 配置 SQL 数据库弹性查询
-      href: tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md
     - name: 构建数据管道
       items:
       - name: 使用 Fivetran 连接
@@ -264,9 +264,9 @@ items:
     href: https://www.azure.cn/what-is-new/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-sqldw/
-ms.openlocfilehash: fa52811deaa1edf697ae6b8cd3cee1652246b0cc
-ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
+ms.openlocfilehash: 38812bfc3c30e28db2c156228c6e9a923be9c0f6
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53219535"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192837"

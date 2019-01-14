@@ -9,24 +9,21 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/3/2019
 ms.custom: seodec18
-ms.openlocfilehash: d54ce2c5d2b545d59a1fb34cd5da22d9a6f0278b
-ms.sourcegitcommit: f46e1f7a5d582bb9663bfaee8087b233eb822e17
+ms.openlocfilehash: 5fb7c285338499cfabb8c4030a7324ba8c85e06e
+ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996508"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54141684"
 ---
-# <a name="azure-stream-analytics-on-iot-edge-preview"></a>IoT Edge 上的 Azure 流分析（预览版）
-
-> [!IMPORTANT]
-> 此功能以预览版提供，建议不要在生产环境中使用。
-
+# <a name="azure-stream-analytics-on-iot-edge"></a>Azure IoT Edge 流分析
+ 
 IoT Edge 上的 Azure 流分析 (ASA) 可让开发人员将近乎实时的分析智能更近地部署到 IoT 设备，以便他们能够使设备生成的数据发挥出全部价值。 Azure 流分析专为实现低延迟、复原能力、有效使用带宽和合规性而设计。 企业现在可以将控制逻辑部署到接近工业运营的位置，并补充在云中完成的大数据分析。  
 
-IoT Edge 上的 Azure 流分析在 Azure IoT Edge 框架中运行。 在 ASA 中创建作业后，便可使用 IoT 中心部署和管理 ASA 作业。 此功能为预览版。 如果你有任何问题或反馈，可使用 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/contact/) 与产品团队联系。 
+IoT Edge 上的 Azure 流分析在 [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/) 框架中运行。 在 ASA 中创建作业后，便可使用 IoT 中心进行部署和管理。
 
 ## <a name="scenarios"></a>方案
-![概要关系图](media/stream-analytics-edge/ASAedge_highlevel.png)
+![IoT Edge 的高级别关系图](media/stream-analytics-edge/ASAedge-highlevel-diagram.png)
 
 * **低延迟命令和控制**：例如，生产安全系统时必须以超低的延迟响应运行数据。 借助 IoT Edge 上的 ASA，可以近乎实时地分析传感器数据，并在检测到异常情况时发出命令，从而停止计算机或触发警报。
 * **与云的连接受限**：任务关键型系统（如远程采矿设备、连接的船舶或海上钻井）需要分析数据并对数据做出反应，即使云连接是间歇性的也是如此。 使用 ASA，流式处理逻辑可独立于网络连接运行，你可以选择发送到云以作进一步处理或存储的内容。
@@ -36,12 +33,13 @@ IoT Edge 上的 Azure 流分析在 Azure IoT Edge 框架中运行。 在 ASA 中
 ## <a name="edge-jobs-in-azure-stream-analytics"></a>Azure 流分析作业中的 Edge 作业
 ### <a name="what-is-an-edge-job"></a>什么是“Edge”作业？
 
-ASA Edge 作业在 Azure IoT Edge 运行时中作为模块运行。 它们由两个部分组成：<!--Not Available on [Azure IoT Edge 运行时](/iot-edge/how-iot-edge-works)-->
+ASA Edge 作业在部署到 [Azure IoT Edge 设备](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)的容器中运行。 它们由两个部分组成：
 1.  负责作业定义的云部分：用户在云中定义输入、输出、查询和其他设置（无序事件等）。
-2.  本地运行的 IoT Edge 模块上的 ASA。 它包含 ASA 复杂事件处理引擎，并从云接收作业定义。 
+2.  在 IoT 设备上运行的模块。 它包含 ASA 引擎，并从云接收作业定义。 
 
-ASA 使用 IoT 中心将 Edge 作业部署到设备。
-<!--Not Available on  [IoT Edge deployment can be seen here](/iot-edge/module-deployment-monitoring)-->
+ASA 使用 IoT 中心将 Edge 作业部署到设备。 [可在此处查看有关 IoT Edge 部署](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring)的详细信息。
+
+![Azure 流分析 Edge 作业](media/stream-analytics-edge/stream-analytics-edge-job.png)
 
 ![Edge 作业](media/stream-analytics-edge/ASAedge_job.png)
 
@@ -152,7 +150,6 @@ IoT Edge 提供了一种在模块之间，以及模块和 IoT 中心之间以声
 * 在单个步骤中使用超过 14 个聚合。
 * 用于输入/输出的 AVRO 格式。 目前仅支持 CSV 和 JSON。
 * 以下 SQL 运算符：
-    * AnomalyDetection
     * 地理空间运算符：
         * CreatePoint
         * CreatePolygon
@@ -169,7 +166,7 @@ IoT Edge 提供了一种在模块之间，以及模块和 IoT 中心之间以声
 
 ASA 和 Azure IoT Edge 使用 Docker 容器来提供可在多个主机操作系统（Windows、Linux）上运行的便携式解决方案。
 
-IoT Edge 上的 ASA 可用作 Windows 和 Linux 映像运行于 x86-64 或 Azure 资源管理器架构之上。 
+IoT Edge 上的 ASA 可用作 Windows 和 Linux 映像运行于 x86-64 或 ARM（高级 RISC 计算机）架构之上。 
 
 ### <a name="input-and-output"></a>输入和输出
 #### <a name="input-and-output-streams"></a>输入和输出流
@@ -197,9 +194,9 @@ ASA Edge 作业可以从在 IoT Edge 设备上运行的其他模块获取输入�
 
 3. 在设备上将参考数据文件准备就绪。 对于 Windows 容器，请将参考数据文件放置在本地驱动器上并通过 Docker 容器共享本地驱动器。 对于 Linux 容器，请创建一个 Docker 卷并将该数据文件填充到该卷。
 
-4. 设置文件路径。 对于 Windows 设备，请使用绝对路径。 对于 Linux 设备，请使用卷中的路径。
+4. 设置文件路径。 对于 Windows 主机 OS 和 Windows 容器，请使用绝对路径：`E:\<PathToFile>\v1.csv`。 对于 Windows 主机 OS 和 Linux 容器或 Linux OS 以及 Linux 容器，请使用卷中的路径：`<VolumeName>/file1.txt`。
 
-![为 IoT Edge 上的 Azure 流分析作业新建参考数据输入](./media/stream-analytics-edge/ReferenceDataNewInput.png)
+![为 IoT Edge 上的 Azure 流分析作业新建参考数据输入](./media/stream-analytics-edge/Reference-Data-New-Input.png)
 
 IoT Edge 上的参考数据更新将由部署触发。 在触发后，ASA 模块选取更新的数据且不停止正在运行的作业。
 

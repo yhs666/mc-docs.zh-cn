@@ -1,7 +1,7 @@
 ---
 title: 检测图像类型 - 计算机视觉
 titleSuffix: Azure Cognitive Services
-description: 使用计算机视觉 API 检测图像类型的相关概念。
+description: 与计算机视觉 API 的图像类型检测功能相关的概念。
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -9,16 +9,17 @@ ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: conceptual
 origin.date: 08/29/2018
-ms.date: 10/30/2018
+ms.date: 01/08/2019
 ms.author: v-junlch
-ms.openlocfilehash: 79898de68042f78fcbac2aaab908cd2a45e415ab
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.custom: seodec18
+ms.openlocfilehash: e529e1e8f0e27bbc84b69e6aec81d2ee86219bde
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662228"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083574"
 ---
-# <a name="detecting-image-types"></a>检测图像类型
+# <a name="detecting-image-types-with-computer-vision"></a>使用计算机视觉检测图像类型
 
 计算机视觉通过指示图像是否为剪贴画或线条图并根据量表对可能性进行评级来分析图像的内容类型。
 
@@ -37,7 +38,7 @@ ms.locfileid: "52662228"
 
 以下 JSON 响应说明了计算机视觉将图像评级为剪贴画的可能性时返回的内容。
 
-![视觉分析奶酪剪贴画](./Images/cheese_clipart.png)
+![一片奶酪的剪贴画](./Images/cheese_clipart.png)
 
 ```json
 {
@@ -54,7 +55,7 @@ ms.locfileid: "52662228"
 }
 ```
 
-![视觉分析庭院](./Images/house_yard.png)
+![一座蓝色的房子和前院](./Images/house_yard.png)
 
 ```json
 {
@@ -79,7 +80,7 @@ ms.locfileid: "52662228"
 
 以下 JSON 响应说明了计算机视觉指示图像是否为线条图时返回的内容。
 
-![视觉分析狮子绘制](./Images/lion_drawing.png)
+![狮子的线描图像](./Images/lion_drawing.png)
 
 ```json
 {
@@ -96,7 +97,7 @@ ms.locfileid: "52662228"
 }
 ```
 
-![视觉分析花](./Images/flower.png)
+![具有绿色背景的白色花卉](./Images/flower.png)
 
 ```json
 {
@@ -117,3 +118,4 @@ ms.locfileid: "52662228"
 
 了解[标记图像](concept-tagging-images.md)和[对图像进行分类](concept-categorizing-images.md)的概念。
 
+<!-- Update_Description: wording update -->

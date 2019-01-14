@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 03/09/2018
-ms.date: 05/28/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: bd5253f87e3014c6276919560b63ccaa5f2ce758
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e6f9596c9b57cb344feb9b336f90c97c6101c35d
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657627"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083794"
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Reliable Actors 如何使用 Service Fabric 平台
 本文介绍了 Reliable Actors 如何使用 Azure Service Fabric 平台。 Reliable Actors 在有状态的可靠服务（称为*执行组件服务*）的实现托管的框架中运行。 执行组件服务包含管理执行组件的生命周期和消息发送所需的所有组件：
@@ -43,9 +43,6 @@ ms.locfileid: "52657627"
 * 服务备份和还原。
 * 共享给所有执行组件的功能，例如断路器。
 * 对执行组件服务自身和每个执行组件的远程过程调用。
-
-> [!NOTE]
-> Java/Linux 目前不支持有状态服务。
 
 有关详细信息，请参阅[在执行组件服务中实现服务级功能](service-fabric-reliable-actors-using.md)。
 
@@ -102,7 +99,7 @@ ActorProxyBase.create(MyActor.class, new ActorId(1234));
 ## <a name="next-steps"></a>后续步骤
 * [执行组件状态管理](service-fabric-reliable-actors-state-management.md)
 * [执行组件生命周期和垃圾回收](service-fabric-reliable-actors-lifecycle.md)
-* [执行组件 API 参考文档](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [执行组件 API 参考文档](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors?redirectedfrom=MSDN&view=azure-dotnet#microsoft_servicefabric_actors)
 * [.NET 代码示例](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Java 代码示例](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
@@ -113,4 +110,4 @@ ActorProxyBase.create(MyActor.class, new ActorId(1234));
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 [5]: ./media/service-fabric-reliable-actors-introduction/distribution.png
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

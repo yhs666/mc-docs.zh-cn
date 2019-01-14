@@ -3,7 +3,7 @@ title: Azure 云服务和 ASP.NET 入门 | Azure
 description: 了解如何使用 ASP.NET MVC 和 Azure 创建多层应用程序。 该应用程序运行在云服务中，带有 web 角色和辅助角色。 它使用实体框架、SQL 数据库和 Azure 存储队列和 Blob。
 services: cloud-services, storage
 documentationcenter: .net
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: d7aa440d-af4a-4f80-b804-cc46178df4f9
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 origin.date: 05/15/2017
-ms.date: 06/11/2018
+ms.date: 01/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: c9e57ff708c99c03cb9508c5b36e0aea91440992
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c4ef8ece3ec8f42a33b98e0b79cadc26b1943e73
+ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655445"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54216274"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure 云服务和 ASP.NET 入门
 
@@ -37,9 +37,8 @@ ms.locfileid: "52655445"
 
 应用程序使用 [以队列为中心的工作模式](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) 来减轻创建缩略图到后端进程的 CPU 密集型工作。
 
-## <a name="alternative-architecture-web-apps-and-webjobs"></a>替代体系结构：Web 应用和 WebJobs
-
-本教程演示如何在 Azure 云服务中运行前端和后端。 一种替代方法是在 [Azure Web 应用](/app-service/)中运行前端，并对后端使用 [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) 功能。 有关如何使用 WebJobs 的教程，请参阅 [Azure WebJobs SDK 入门](https://github.com/Azure/azure-webjobs-sdk/wiki)。 有关如何选择最适合方案的服务信息，请参阅 [Azure 网站、云服务和虚拟机比较](../app-service/choose-web-site-cloud-service-vm.md)。
+## <a name="alternative-architecture-app-service-and-webjobs"></a>替代体系结构：应用服务和 WebJobs
+本教程演示如何在 Azure 云服务中运行前端和后端。 一种替代方法是在 [Azure 应用服务](/app-service/)中运行前端，并对后端使用 [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) 功能。 有关如何使用 WebJobs 的教程，请参阅 [Azure WebJobs SDK 入门](https://github.com/Azure/azure-webjobs-sdk/wiki)。 有关如何选择最适合方案的服务的信息，请参阅 [Azure 应用服务、云服务和虚拟机比较](../app-service/overview-compare.md)。
 
 ## <a name="what-youll-learn"></a>学习内容
 
@@ -77,7 +76,7 @@ ms.locfileid: "52655445"
 
 ## <a name="download-and-run-the-completed-solution"></a>下载并运行已完成的解决方案
 
-1. 下载并解压缩 [已完成的解决方案](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4)。
+1. 下载并解压缩 [已完成的解决方案](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4)。
 
 2. 启动 Visual Studio。
 
@@ -93,7 +92,7 @@ ms.locfileid: "52655445"
 
 1. 按 Ctrl+F5 运行应用程序。
 
-    在本地运行云服务项目时，Visual Studio 会自动调用 Azure *计算模拟器*和 Azure *存储模拟器*。 计算仿真程序使用计算机资源模拟 Web 角色和辅助角色环境。 存储模拟器使用 [SQL Server Express LocalDB](http://msdn.microsoft.com/zh-cn/library/hh510202.aspx) 数据库模拟 Azure 云存储。
+    在本地运行云服务项目时，Visual Studio 会自动调用 Azure *计算模拟器*和 Azure *存储模拟器*。 计算仿真程序使用计算机资源模拟 Web 角色和辅助角色环境。 存储模拟器使用 [SQL Server Express LocalDB](https://msdn.microsoft.com/library/hh510202.aspx) 数据库模拟 Azure 云存储。
 
     首次运行云服务项目时，模拟器会花费大约一分钟来启动。 模拟器完成启动后，默认浏览器中会打开应用程序的主页。
 
@@ -198,7 +197,7 @@ Azure 存储帐户提供在云中存储队列和 Blob 数据的资源。
 
     当云服务和存储帐户位于不同的数据中心（不同区域）时，延迟将增加，并且需要为数据中心外的带宽付费。 数据中心内的带宽是免费的。
 
-    Azure 地缘组实际上是一种机制，目的是最小化数据中心内不同资源之间的距离，这样可以降低延迟。 本教程不使用地缘组。 有关详细信息，请参阅 [如何在 Azure 中创建地缘组](http://msdn.microsoft.com/library/jj156209.aspx)。
+    Azure 地缘组实际上是一种机制，目的是最小化数据中心内不同资源之间的距离，这样可以降低延迟。 本教程不使用地缘组。 有关详细信息，请参阅 [如何在 Azure 中创建地缘组](https://msdn.microsoft.com/library/azure/gg715317.aspx)。
 7. 单击**创建**。
 
     ![新的存储帐户](./media/cloud-services-dotnet-get-started/newstorage.png)
@@ -212,7 +211,7 @@ Web 项目和辅助角色项目自身具有数据库连接字符串，并且当�
 将为 Web 角色使用 [Web.config 转换](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations)，为辅助角色使用云服务环境设置。
 
 >[!NOTE]
-> 在本部分和下一部分中，会在项目文件中存储凭据。 [不要将敏感数据存储在公共源代码存储库中](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets)。
+> 在本部分和下一部分，会在项目文件中存储凭据。 [不要将敏感数据存储在公共源代码存储库中](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets)。
 
 1. 在 ContosoAdsWeb 项目中，为应用程序 *Web.config* 文件打开 *Web.Release.config* 转换文件，删除包含 `<connectionStrings>` 元素的注释块，并在其原位置粘贴下面的代码。
 
@@ -352,7 +351,7 @@ Web 角色项目和辅助角色项目的 azure 存储帐户连接字符串存储
 
 ## <a name="create-the-application-from-scratch"></a>从头开始创建应用程序
 
-如果尚未下载 [已完成的应用程序](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4)，现在请下载。 要将文件从下载的项目复制到新的项目。
+如果尚未下载 [已完成的应用程序](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4)，现在请下载。 要将文件从下载的项目复制到新的项目。
 
 创建 Contoso 广告应用程序涉及以下步骤：
 
@@ -454,8 +453,8 @@ Web 角色项目和辅助角色项目的 azure 存储帐户连接字符串存储
 
 8. 还是在“ContosoAdsWorker [角色]”属性窗口中，添加另一个连接字符串  ：
 
-   * 名称：ContosoAdsDbConnectionString
-   * 类型：字符串
+   * 姓名：ContosoAdsDbConnectionString
+   * 键入：String
    * 值：粘贴用于 Web 角色项目的相同连接字符串。 （以下示例适用于 Visual Studio 2013。 如果你使用 Visual Studio 2015 或更高版本并想要复制此示例，请记得更改数据源。）
 
         ```
@@ -471,9 +470,9 @@ Web 角色项目和辅助角色项目的 azure 存储帐户连接字符串存储
 
 3. 在 ContosoAdsWeb 项目中，从下载的项目添加以下文件。
     - *Global.asax.cs*。  
-    - 在 *Views\Shared* 文件夹中：*\_Layout.cshtml*。
-    - 在 *Views\Home* 文件夹中：*Index.cshtml*。
-    - 在 *Controllers* 文件夹中：*AdController.cs*。
+    - 在“Views\Shared”文件夹中：\_Layout.cshtml。
+    - 在“Views\Home”文件夹中：Index.cshtml。
+    - 在“Controllers”文件夹中：AdController.cs。
     - 在 *Views\Ad* 文件夹（首先创建该文件夹）中：五个 *.cshtml* 文件。
 
 3. 在 ContosoAdsWorker 项目中，从下载的项目添加 *WorkerRole.cs* 。
@@ -619,7 +618,7 @@ queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSec
 imagesQueue = queueClient.GetQueueReference("images");
 ```
 
-大部分控制器代码通常用于使用 DbContext 类的实体框架数据模型。 例外情况是 HttpPost `Create` 方法，它上传文件并将其保存在 Blob 存储中。 模型联编程序为该方法提供一个 [HttpPostedFileBase](http://msdn.microsoft.com/zh-cn/library/system.web.httppostedfilebase.aspx) 对象。
+大部分控制器代码通常用于使用 DbContext 类的实体框架数据模型。 例外情况是 HttpPost `Create` 方法，它上传文件并将其保存在 Blob 存储中。 模型联编程序为该方法提供一个 [HttpPostedFileBase](https://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) 对象。
 
 ```csharp
 [HttpPost]
@@ -843,8 +842,8 @@ Contoso 广告应用程序有意保持入门教程的简单性。 例如，它�
 
 下面是演示更实际编码方法的一些云服务示例应用程序，从不太复杂到更复杂排列：
 
-* [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31)。 在概念上与 Contoso 广告类似，但实施更多的功能和详细的实际编码做法。
-* [带有表、队列和 Blob 的 Azure 云服务多层应用程序](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36)。 引入了 Azure 存储表以及 Blob 和队列。 基于旧版 Azure SDK for .NET，需做一些修改才能配合当前版本。
+* [PhluffyFotos](https://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31)。 在概念上与 Contoso 广告类似，但实施更多的功能和详细的实际编码做法。
+* [带有表、队列和 Blob 的 Azure 云服务多层应用程序](https://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36)。 引入了 Azure 存储表以及 Blob 和队列。 基于旧版 Azure SDK for .NET，需做一些修改才能配合当前版本。
 
 有关云开发的常规信息，请参阅 [使用 Azure 构建实际的云应用](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction)。
 
@@ -852,7 +851,7 @@ Contoso 广告应用程序有意保持入门教程的简单性。 例如，它�
 
 有关详细信息，请参阅以下资源：
 
-* [Azure 云服务的第 1 部分：简介](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction)
+* [Azure 云服务第 1 部分：简介](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction)
 * [如何管理云服务](cloud-services-how-to-manage-portal.md)
 * [Azure 存储](/storage/)
 * [如何选择云服务提供商](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

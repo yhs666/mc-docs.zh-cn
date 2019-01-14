@@ -11,12 +11,12 @@ origin.date: 04/17/2018
 ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 39d6ebbc7c24195f9259600483087ad49ab2035b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c0ae6f207b7e7ab8115f5ca92fa6c2d954400ec5
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658105"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192869"
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>将数据加载到 Azure SQL 数据仓库中的最佳做法
 关于如何将数据加载到 Azure SQL 数据仓库中的建议以及与之相关的性能优化。 
@@ -95,7 +95,6 @@ PolyBase 无法加载数据大小超过 1,000,000 字节的行。 将数据置�
 
 ## <a name="inserting-data-into-a-production-table"></a>将数据插入生产表
 可以使用 [INSERT 语句](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql)将数据一次性加载到小型表中，甚至可以使用 `INSERT INTO MyLookup VALUES (1, 'Type 1')` 之类的语句定期重新加载某个查找。  但是，单独插入的效率不如执行大容量加载的效率。 
-<!-- URL is not Correct on remove .md postfox on [INSERT statement](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) -->
 
 如果一天中有成千上万的单个插入，可将插入成批进行大容量加载。  制定将单个插入追加到某个文件的流程，然后创建另一流程来定期加载该文件。
 
@@ -117,7 +116,6 @@ create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 若要轮换 Azure 存储帐户密钥，请执行以下操作：
 
 对于每个已更改密钥的存储帐户，请发出 [ALTER DATABASE SCOPED CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-credential-transact-sql) 命令。
-<!-- URL is not Correct on remove .md postfox on [ALTER DATABASE SCOPED CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-credential-transact-sql) -->
 
 示例：
 
@@ -134,6 +132,7 @@ ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SE
 ```
 
 无需对基础外部数据源进行更改。
+
 
 ## <a name="next-steps"></a>后续步骤
 若要监视数据加载，请参阅[使用 DMV 监视工作负荷](sql-data-warehouse-manage-monitor.md)。

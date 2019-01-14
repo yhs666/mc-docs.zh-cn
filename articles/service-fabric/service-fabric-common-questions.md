@@ -13,14 +13,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/18/2017
-ms.date: 12/10/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3a831fb77a86e2f838ca287fae66a53dfad08ccd
-ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
+ms.openlocfilehash: 80bb0fa90d272792d89f8b97295be9e44bd090ec
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52901120"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083600"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric 常见问题
 
@@ -30,7 +30,7 @@ ms.locfileid: "52901120"
 
 ### <a name="how-do-i-roll-back-my-service-fabric-cluster-certificate"></a>如何回退 Service Fabric 群集证书？
 
-回退应用程序的任何升级需要在提交更改的 Service Fabric 群集仲裁前，进行运行状况故障检测；已提交的更改只能前滚。 如果引入了不受监控的重大证书更改，则可能需要呈报工程师的通过客户支持服务才能恢复群集。  [Service Fabric 的应用程序升级](/service-fabric/service-fabric-application-upgrade)应用[应用程序升级参数](https://docs.azure.cn/service-fabric/service-fabric-application-upgrade-parameters?branch=master)，并提供零停机时间升级承诺。  按照建议的应用程序升级监视模式，更新域上的自动更新进度基于运行状况检查是否通过，如果更新默认服务失败，将自动回退。
+回退应用程序的任何升级需要在提交更改的 Service Fabric 群集仲裁前，进行运行状况故障检测；已提交的更改只能前滚。 如果引入了不受监控的重大证书更改，则可能需要呈报工程师的通过客户支持服务才能恢复群集。  [Service Fabric 的应用程序升级](/service-fabric/service-fabric-application-upgrade)应用[应用程序升级参数](/service-fabric/service-fabric-application-upgrade-parameters)，并提供零停机时间升级承诺。  按照建议的应用程序升级监视模式，更新域上的自动更新进度基于运行状况检查是否通过，如果更新默认服务失败，将自动回退。
 
 <!--Notice: Remove https://review.docs.microsoft.com/azure/--> 如果你的群集仍在利用资源管理器模板中的经典 Certificate Thumbprint 属性，建议你[将群集从证书指纹更改为公用名称](/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn)，以便利用新式机密管理功能。
 
@@ -40,7 +40,7 @@ ms.locfileid: "52901120"
 
 核心 Service Fabric 群集技术可用于将世界各地运行的计算机集合到一起，前提是它们相互之间已建立网络连接。 然而，生成并运行这样的群集可能很复杂。
 
-如果你对此方案有兴趣，建议你通过 [Service Fabric Github 问题列表](https://github.com/azure/service-fabric-issues)或通过支持代表联系我们以获取其他指南。 Service Fabric 团队正在努力针对此方案提供其他解释、指南和建议。 
+如果你对此方案感兴趣，建议你通过 [Service Fabric GitHub 问题列表](https://github.com/azure/service-fabric-issues)或通过你的支持代表与我们联系以获取其他指导。 Service Fabric 团队正在努力针对此方案提供其他解释、指南和建议。 
 
 应考虑的一些事项： 
 
@@ -64,9 +64,16 @@ ms.locfileid: "52901120"
 <!--Not Available on [details on Large scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)-->
 ### <a name="what-is-the-minimum-size-of-a-service-fabric-cluster-why-cant-it-be-smaller"></a>Service Fabric 群集的最小大小如何？ 为什么不能更小？
 
-运行生产工作负荷的 Service Fabric 群集支持的最小大小是五个节点。 对于开发/测试方案，我们支持三节点群集。
+运行生产工作负荷的 Service Fabric 群集支持的最小大小是五个节点。 对于开发方案，我们支持单节点群集（已针对 Visual Studio 中的快速开发体验进行优化）和五节点群集。
 
-存在这些最小值的原因在于，Service Fabric 群集运行一组有状态系统服务，其中包括命名服务和故障转移管理器。 这些服务跟踪哪些服务已部署到群集及其当前的托管位置，取决于非常一致性。 而这种非常一致性又取决于能否获取*仲裁*来更新这些服务的状态，其中，仲裁表示给定服务在严格意义上的大多数副本 (N/2 + 1)。
+由于以下三个原因，我们要求生产群集至少包含 5 个节点：
+1. 即使未运行任何用户服务，Service Fabric 群集也会运行一组有状态系统服务，包括命名服务和故障转移管理器服务。 这些系统服务对于群集的正常运行至关重要。
+2. 我们始终为每个节点保留一个服务副本，因此，群集大小是某个服务（实际上是分区）可以包含的副本数上限。
+3. 由于群集升级至少会关闭一个节点，我们希望至少有一个节点可以提供缓冲，因此，生产群集最好是除了裸机以外，至少包含两个节点。 裸机是下面所述的系统服务仲裁大小。  
+
+我们希望该群集在两个节点同时发生故障时保持可用。 要使 Service Fabric 群集可用，系统服务必须可用。 跟踪哪些服务已部署到群集及其当前托管位置的有状态系统服务（例如命名服务和故障转移管理器服务）取决于非常一致性。 而这种非常一致性又取决于能否获取*仲裁*来更新这些服务的状态，其中，仲裁表示给定服务在严格意义上的大多数副本 (N/2 + 1)。 因此，如果我们希望能够弹性应对两个节点同时丢失（因而系统服务的两个副本也会同时丢失）的情况，必须保证 ClusterSize - QuorumSize >= 2，这会将最小大小强制为 5。 为了演示这一点，我们假设群集包含 N 个节点，并且系统服务有 N 个副本 - 每个节点上各有一个副本。 系统服务的仲裁大小为 (N/2 + 1)。 上述不等式类似于 N - (N/2 + 1) >= 2。 要考虑两种情况：N 为偶数，以及 N 为奇数。 如果 N 为偶数，例如 N = 2\*m，其中 m >= 1，则不等式类似于 2\*m - (2\*m/2 + 1) >= 2 或 m >= 3。 N 的最小值为 6，这是 m = 3 时实现的。 另一方面，如果 N 为奇数，例如 N = 2\*m+1，其中 m >= 1，则不等式类似于 2\*m+1 - ( (2\*m+1)/2 + 1 ) >= 2 或 2\*m+1 - (m+1) >= 2 或 m >= 2。 N 的最小值为 5，这是 m = 2 时实现的。 因此，在满足不等式 ClusterSize - QuorumSize >= 2 的所有 N 值中，最小值为 5。
+
+请注意，在上面的参数中，我们假设每个节点有一个系统服务副本，因此，仲裁大小是根据群集中的节点数计算的。 但是，我们可以通过更改 *TargetReplicaSetSize* 来使仲裁大小小于 (N/2+1)，这可能会造成这样的观点：可以使用少于 5 个节点的群集，并且仍有 2 个额外的节点可以超过仲裁大小。 例如，在 4 节点群集中，如果将 TargetReplicaSetSize 设置为 3，则基于 TargetReplicaSetSize 的仲裁大小为 (3/2 + 1) 或 2，因此 CluserSize - QuorumSize = 4-2 >= 2。 但是，如果同时丢失任何一对节点，则我们无法保证系统服务将会达到或超过仲裁。有可能丢失的两个节点托管了两个副本，因此，系统服务将进入仲裁丢失状态（只留下一个副本）且不可用。
 
 在了解这种背景的前提下，让我们探讨一些可能的群集配置：
 
@@ -74,9 +81,13 @@ ms.locfileid: "52901120"
 
 **双节点**：跨两个节点 (N = 2) 部署的服务的仲裁为 2 (2/2 + 1 = 2)。 丢失单个副本时，无法创建仲裁。 由于执行服务升级要求暂时关闭副本，因此这不是一个有用的配置。
 
-**三节点**：包含三个节点 (N = 3)，创建仲裁仍然要求使用两个节点 (3/2 + 1 = 2)。 这意味着，可以丢失单个节点，在这种情况下，仍可保留仲裁。
+**三节点**：包含三个节点 (N = 3)，创建仲裁仍然要求使用两个节点 (3/2 + 1 = 2)。 这意味着，可以丢失单个节点，同时仍保留仲裁，但两个节点同时发生故障会造成系统服务进入仲裁丢失状态，并导致群集不可用。
 
-开发/测试支持三节点群集配置，因为只要不同时发生，就可以安全地执行升级以及从单独的节点故障中恢复。 对于生产工作负荷，必须具有应对此类同时发生的故障的复原能力，因此需要五个节点。
+**四节点**：包含四个节点 (N = 4)，创建仲裁要求使用三个节点 (4/2 + 1 = 3)。 这意味着，可以丢失单个节点，同时仍保留仲裁，但两个节点同时发生故障会造成系统服务进入仲裁丢失状态，并导致群集不可用。
+
+**五节点**：包含五个节点 (N = 5)，创建仲裁仍要求使用三个节点 (5/2 + 1 = 3)。 这意味着，可以同时丢失两个节点，同时仍保留系统服务的仲裁。
+
+对于生产工作负荷，必须能够弹性应对至少两个节点同时发生故障的情况（例如，群集升级导致一个节点发生故障，其他原因导致一个节点发生故障），因此需要五个节点。
 
 ### <a name="can-i-turn-off-my-cluster-at-nightweekends-to-save-costs"></a>是否可以在夜间/周末关闭群集以节约成本？
 

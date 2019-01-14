@@ -8,14 +8,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 12/20/2017
-ms.date: 11/22/2018
+ms.date: 01/09/2019
 ms.author: v-junlch
-ms.openlocfilehash: d65e2913015589a69b1e784c6b5beacd710641f6
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 58cfd630b77fb93cff7e68f803abdad11fc2afbc
+ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673163"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54141689"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Azure Functions 的 Microsoft Graph 绑定
 
@@ -225,7 +225,8 @@ module.exports = function (context, req) {
 
 通常会将此令牌作为字符串提供给代码。
 
-
+> [!Note]
+> 当使用 `userFromId`、`userFromToken` 或 `userFromRequest` 选项进行本地开发时，所需的令牌可以[手动获取](https://github.com/Azure/azure-functions-microsoftgraph-extension/issues/54#issuecomment-392865857)并在来自调用方客户端应用程序的 `X-MS-TOKEN-AAD-ID-TOKEN` 请求标头中指定。
 
 
 <a name="excel-input"></a>
@@ -1588,4 +1589,4 @@ public class UserSubscription {
 [HTTP 触发器]: functions-bindings-http-webhook.md
 [使用 Microsoft Graph 中的 webhook]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/webhooks
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

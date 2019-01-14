@@ -9,16 +9,21 @@ ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: overview
 origin.date: 08/10/2017
-ms.date: 10/30/2018
+ms.date: 01/08/2019
 ms.author: v-junlch
-ms.openlocfilehash: 53598e35dfebe3fedaa623ef3fe921bfcc94e960
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.custom: seodec18
+ms.openlocfilehash: 9cf063c1c3813550297539fe624ae1d2847cf643
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644933"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083700"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>什么是计算机视觉 API 版本 1.0？
+
+> [!IMPORTANT]
+> 现已推出计算机视觉 API 的新版本，请参阅：
+>- [概述](/cognitive-services/computer-vision/home)
 
 开发人员可以使用基于云的计算机视觉 API 来访问高级算法，以便处理图像并返回信息。 上传图像或指定图像 URL 后，Microsoft 计算机视觉算法可以根据输入和用户选择以不同的方式分析视觉内容。 使用计算机视觉 API，用户可以根据以下目的来分析图像：
 - [根据内容标记图像。](#Tagging)
@@ -34,13 +39,13 @@ ms.locfileid: "52644933"
 - [裁剪将用作缩略图的照片。](#Thumbnails)
 
 ## <a name="requirements"></a>要求
-- 支持的输入方法：原始图像二进制文件，采用的格式为 application/octet-stream 或图像 URL。
-- 支持的图像格式：JPEG、PNG、GIF、BMP。
+- 支持的输入方法：原始图像二进制，采用应用程序/业务流程流或图像 URL 的形式。
+- 支持的图像格式：JPEG、PNG、GIF 和 BMP。
 - 图像文件大小：小于 4 MB。
-- 图像尺寸：大于 50 x 50 像素。
+- 图像维度：大于 50 x 50 像素。
 
 ## <a name="tagging-images"></a>标记图像
-计算机视觉 API 在超过 2000 个可识别对象、生物、风景和操作的基础上返回标记。 当标记内容不明确或者不属常识时，API 响应会提供“提示”来澄清标记在已知场景中的含义。 标记不按分类来组织，且不存在继承层次结构。 内容标记集合在一起，形成图像“说明”的基础。该“说明”以人类可读语言显示，采用完整句子的格式。 请注意，图像说明目前只能使用英语。
+计算机视觉 API 在上千个可识别对象、生物、风景和操作的基础上返回标记。 当标记内容不明确或者不属常识时，API 响应会提供“提示”来澄清标记在已知场景中的含义。 标记不按分类来组织，且不存在继承层次结构。 内容标记集合在一起，形成图像“说明”的基础。该“说明”以人类可读语言显示，采用完整句子的格式。 请注意，图像说明目前只能使用英语。
 
 上传图像或指定图像 URL 以后，计算机视觉 API 的算法会根据图像中标识的对象、生物和动作输出标记。 标记不限于主体（例如前景中的人），还包括场景（户内或户外）、家具、工具、植物、动物、配件、小器具等。
 
@@ -133,9 +138,9 @@ Returned Json
 
 映像|响应
 ----|----
-![视觉分析屋顶的女人人脸](./Images/woman_roof_face.png) | [ { "age": 23, "gender": "Female", "faceRectangle": { "left": 1379, "top": 320, "width": 310, "height": 310 } } ]
-![视觉分析妈妈女儿人脸](./Images/mom_daughter_face.png) | [ { "age": 28, "gender": "Female", "faceRectangle": { "left": 447, "top": 195, "width": 162, "height": 162 } }, { "age": 10, "gender": "Male", "faceRectangle": { "left": 355, "top": 87, "width": 143, "height": 143 } } ]
-![视觉分析家庭照片人脸](./Images/family_photo_face.png) | [ { "age": 11, "gender": "Male", "faceRectangle": { "left": 113, "top": 314, "width": 222, "height": 222 } }, { "age": 11, "gender": "Female", "faceRectangle": { "left": 1200, "top": 632, "width": 215, "height": 215 } }, { "age": 41, "gender": "Male", "faceRectangle": { "left": 514, "top": 223, "width": 205, "height": 205 } }, { "age": 37, "gender": "Female", "faceRectangle": { "left": 1008, "top": 277, "width": 201, "height": 201 } } ]
+![视觉分析屋顶的女人人脸](./Images/woman_roof_face.png) | [ { "age":23, "gender":"Female", "faceRectangle": { "left":1379, "top":320, "width":310, "height":310 } } ]
+![视觉分析妈妈女儿人脸](./Images/mom_daughter_face.png) | [ { "age":28, "gender":"Female", "faceRectangle": { "left":447, "top":195, "width":162, "height":162 } }, { "age":10, "gender":"Male", "faceRectangle": { "left":355, "top":87, "width":143, "height":143 } } ]
+![视觉分析家庭照片人脸](./Images/family_photo_face.png) | [ { "age":11, "gender":"Male", "faceRectangle": { "left":113, "top":314, "width":222, "height":222 } }, { "age":11, "gender":"Female", "faceRectangle": { "left":1200, "top":632, "width":215, "height":215 } }, { "age":41, "gender":"Male", "faceRectangle": { "left":514, "top":223, "width":205, "height":205 } }, { "age":37, "gender":"Female", "faceRectangle": { "left":1008, "top":277, "width":201, "height":201 } } ]
 
 
 ## <a name="domain-specific-content"></a>特定于域的内容
@@ -227,7 +232,7 @@ Returned Json
 ## <a name="optical-character-recognition-ocr"></a>光学字符识别 (OCR)
 OCR 技术可检测图像中的文本内容，并将所标识的文本提取到计算机可读的字符流中。 可以将结果用于搜索和各种其他目的，例如医疗记录、安全性、银行操作。 它会自动检测语言。 OCR 可以节省用户的时间，为用户带来方便，因为用户只需对文本拍照即可，不需进行文本转录。
 
-OCR 支持 25 种语言。 这些语言包括：阿拉伯语、简体中文、繁体中文、捷克语、丹麦语、荷兰语、英语、芬兰语、法语、德语、希腊语、匈牙利语、意大利语、日语、韩语、挪威语、波兰语、葡萄牙语、罗马尼亚语、俄语、塞尔维亚语（西里尔文和拉丁语）、斯洛伐克语、西班牙语、瑞典语、土耳其语。
+OCR 支持 25 种语言。 这些语言包括：阿拉伯语、简体中文、繁体中文、捷克语、丹麦语、荷兰语、英语、芬兰语、法语、德语、希腊语、匈牙利语、意大利语、日语、韩语、挪威语、波兰语、葡萄牙语、罗马尼亚语、俄语、塞尔维亚语(西里尔文和拉丁语)、斯洛伐克语、西班牙语、瑞典语和土耳其语。
 
 OCR 可以根据需要，围绕图像的水平轴将识别的文本旋转相应的度数，对倾斜的文本进行纠正。 OCR 提供每个单词的帧坐标，如下图所示。
 
@@ -246,7 +251,7 @@ OCR 可以根据需要，围绕图像的水平轴将识别的文本旋转相应�
 - 文本过长或单词开头缺少大写字母
 - 文本包含下标、上标或删除线。
 
-限制：如果照片内容主要为文本，则可能因某些单词识别不全而误报。 在某些照片上，尤其在不带任何文本的照片上，精度会因图像类型而存在较大差异。
+的限制：在以文本为主的照片上，误报可能来自部分识别的字词。 某些照片（尤其是没有任何文本的照片），精度可能因图像类型的不同而差异很大。
 
 ## <a name="recognize-handwritten-text"></a>识别手写的文本
 此技术使你可以检测和提取笔记、信件、文章、白板、表格等对象中的手写文本。它适用于不同的表面和背景，例如白纸、黄色便笺、白板。
@@ -254,7 +259,7 @@ OCR 可以根据需要，围绕图像的水平轴将识别的文本旋转相应�
 手写文本识别技术既省时又省力，可以提高工作效率，因为你只需获取文本图像，不需进行转录。 它可以将说明数字化。 可以通过此数字化实现便捷的搜索。 它还可以减少纸质工作。
 
 输入要求：
-- 支持的图像格式：JPEG、PNG、BMP。
+- 支持的图像格式：JPEG、PNG 和 BMP。
 - 图像文件大小必须小于 4 MB。
 - 图像维度必须至少为 40 x 40，至多为 3200 x 3200。
 
@@ -263,13 +268,14 @@ OCR 可以根据需要，围绕图像的水平轴将识别的文本旋转相应�
 ## <a name="generating-thumbnails"></a>生成缩略图
 缩略图是完全尺寸的图像的小型表示形式。 设备不同（例如手机、平板电脑和电脑），需要的用户体验 (UX) 布局和缩略图大小也不同。 此计算机视觉 API 功能使用智能裁剪来解决问题。
 
-上传某个图像以后，会生成高质量的缩略图，计算机视觉 API 算法会分析该图像中的对象， 然后根据“感兴趣区域”(ROI) 的要求裁剪该图像。 输出显示在一个特殊的框架中，如下图所示。 生成的缩略图在呈现时，使用的纵横比可能不同于原始图像的纵横比，具体取决于用户的需要。
+上传某个图像以后，会生成高质量的缩略图，计算机视觉 API 算法会分析该图像中的对象， 然后会裁剪图像以满足感兴趣区域的要求。 输出显示在一个特殊的框架中，如下图所示。 生成的缩略图在呈现时，使用的纵横比可能不同于原始图像的纵横比，具体取决于用户的需要。
 
 缩略图算法的原理如下所示：
 
-1. 去除图像中分散人注意力的元素，识别主对象，即“感兴趣区域”(ROI)。
-2. 根据标识的感兴趣区域裁剪图像。
+1. 从图像中删除让人分散注意力的元素并识别主要对象，即感兴趣区域。
+2. 基于所标识的感兴趣区域裁剪图像。
 3. 更改纵横比，使之适合目标缩略图维度。
 
 ![缩略图](./Images/thumbnail-demo.png)
 
+<!-- Update_Description: wording update -->

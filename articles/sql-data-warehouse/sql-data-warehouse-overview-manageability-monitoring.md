@@ -8,15 +8,15 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 origin.date: 08/27/2018
-ms.date: 10/15/2018
+ms.date: 01/14/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 8c7b1022663ccee3c3c0822a3f181ce9a5ad8503
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 46a9def0f14ee7385ff0205e2670b5612028acea
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662138"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192891"
 ---
 # <a name="manageability-and-monitoring-with-azure-sql-data-warehouse"></a>Azure SQL 数据仓库的可管理性和监视
 
@@ -27,6 +27,7 @@ ms.locfileid: "52662138"
 * [了解计算管理和弹性][manage compute]
 * [了解 Azure 门户中可用的指标和日志][resource utilization]
 * [了解备份和还原功能][data protection]
+* [了解内置智能和建议][recommendations]
 * [查找常见的故障排除指南][troubleshoot]
 
 
@@ -39,4 +40,5 @@ ms.locfileid: "52662138"
 [manage compute]: ./sql-data-warehouse-manage-compute-overview.md
 [resource utilization]: ./sql-data-warehouse-concept-resource-utilization-query-activity.md
 [data protection]: ./backup-and-restore.md
+[recommendations]: ./sql-data-warehouse-concept-recommendations.md
 [troubleshoot]: ./sql-data-warehouse-troubleshoot.md

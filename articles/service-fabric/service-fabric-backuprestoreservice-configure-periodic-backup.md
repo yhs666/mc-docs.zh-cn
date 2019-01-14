@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/01/2018
-ms.date: 12/10/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: a87afe9233860418c8d922df769e035b9841b03a
-ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
+ms.openlocfilehash: fe8c0d6f6e73b2c448932896f0f1e1096c8fca31
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52901163"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083802"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>了解 Azure Service Fabric 中的定期备份配置
 
@@ -127,6 +127,20 @@ ms.locfileid: "52901163"
 > 请确保存储可靠性满足或高于备份数据的可靠性要求。
 >
 
+* **保留策略**：指定要在配置存储中保留备份的策略。 只支持基本保留策略。
+    1. **基本保留策略**：此保留策略允许通过删除不再需要的备份文件来确保最佳存储利用率。 可指定 `RetentionDuration` 来设置需要在存储中保留备份的时间跨度。 `MinimumNumberOfBackups` 是一个可选参数，可指定该参数以确保无论 `RetentionDuration` 如何始终保留指定数量的备份。 以下示例说明了要将备份保留 10 天的配置，并且不允许备份数量低于 20。
+
+        ```json
+        {
+            "RetentionPolicyType": "Basic",
+            "RetentionDuration" : "P10D",
+            "MinimumNumberOfBackups": 20
+        }
+        ```
+
+> [!IMPORTANT]
+> 由于运行时中的问题，请确保保留策略中的保留期配置为小于 24 天，否则将导致备份还原服务进入仲裁丢失后副本故障转移。
+
 ## <a name="enable-periodic-backup"></a>启用定期备份
 在定义备份策略来满足数据备份要求后，应当将备份策略与“应用程序”、“服务”或“分区”相关联。
 
@@ -180,6 +194,13 @@ ms.locfileid: "52901163"
 
 * 为“分区”禁用备份策略将停止因为分区处的备份策略而发生的所有定期数据备份。
 
+* 禁用实体（应用程序/服务/分区）的备份时，可将 `CleanBackup` 设置为 true 以删除配置存储中的所有备份。
+    ```json
+    {
+        "CleanBackup": true 
+    }
+    ```
+
 ## <a name="suspend--resume-backup"></a>暂停和恢复备份
 某些情况下可能需要临时暂停定期数据备份。 在这种情况下，可以根据需要在“应用程序”、“服务”或“分区”上使用“暂停备份”API。 定期备份暂停将在应用程序层次结构的子树中从应用暂停的点开始向下传递。 
 
@@ -197,8 +218,13 @@ ms.locfileid: "52901163"
 
 * 如果暂停是在“分区”上应用的，则应当使用[恢复分区备份](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup) API 进行恢复。
 
+### <a name="difference-between-suspend-and-disable-backups"></a>暂停备份与禁用备份之间的差异
+当特定的应用程序、服务或分区不再需要备份时，应当禁用备份。 用户实际上可以在将“清理备份”参数设置为 true 的情况下调用“禁止备份”请求，这意味着所有现有备份也将被删除。 但是，暂停将用于以下场景：当用户希望暂时关闭备份时，例如，当本地磁盘已满或者上传备份由于已知的网络问题等而失败时。 
+
+只能在先前显式为备份启用的级别调用禁用，但是可以在当前直接或通过继承/层次结构为备份启用的任何级别应用暂停。 例如，如果在某个应用程序级别启用了备份，则用户只能在该应用程序级别调用禁用，但是可以在该应用程序上以及该应用程序下的任何服务或分区上调用暂停。 
+
 ## <a name="auto-restore-on-data-loss"></a>在数据丢失时自动还原
-服务分区可能会由于意外故障而导致数据丢失。 例如，分区的三个副本中的两个（包括主副本）的磁盘数据已损坏或被擦除。
+服务分区可能会由于意外故障而导致数据丢失。 例如，分区的三个副本中两个副本（包括主副本）的磁盘数据已损坏或被擦除。
 
 当 Service Fabric 检测到分区丢失了数据时，它会对分区调用 `OnDataLossAsync` 接口方法并期望分区采取所需的操作来避免数据丢失。 在这种情况下，如果在分区上生效的备份策略将 `AutoRestoreOnDataLoss` 标志设置为 `true`，则将自动触发还原并使用此分区的最新可用备份。
 

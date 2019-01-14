@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 01/23/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 6f66d9ba6e2a52df22e7408eef6e259ea32aa411
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 93b261d63f6ad9507308d2cdb0f95075e92a9b34
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655198"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192904"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>为 Azure 导入/导出服务创建导入作业
 
@@ -64,7 +64,7 @@ ms.locfileid: "52655198"
 
 ## <a name="obtaining-your-shipping-location"></a>获取寄送位置
 
-在创建导入作业之前，需要通过调用 [列出位置](https://docs.microsoft.com/en-us/rest/api/storageimportexport/locations/list) 操作获取寄送位置名称和地址。 `List Locations` 返回位置及其邮寄地址的列表。 可以从返回的列表中选择一个位置，然后将硬盘驱动器寄送到该地址。 也可以使用“ `Get Location` ”操作直接获取特定位置的寄送地址。
+在创建导入作业之前，需要通过调用 [列出位置](https://docs.microsoft.com/rest/api/storageimportexport/locations/list) 操作获取寄送位置名称和地址。 `List Locations` 返回位置及其邮寄地址的列表。 可以从返回的列表中选择一个位置，然后将硬盘驱动器寄送到该地址。 也可以使用“ `Get Location` ”操作直接获取特定位置的寄送地址。
 
  遵循以下步骤获取寄送位置：
 
@@ -104,7 +104,7 @@ ms.locfileid: "52655198"
 >  必须通过支持的、可提供包裹跟踪号的承运人寄送驱动器。
 
 ## <a name="updating-the-import-job-with-your-shipping-information"></a>使用寄送信息更新导入作业
-获取跟踪号后，请调用[更新作业属性](https://docs.microsoft.com/en-us/rest/api/storageimportexport/jobs/update)操作更新承运人名称、作业跟踪号以及运送回邮的承运人帐号。 可以选择性地指定驱动器数量和寄送日期。
+获取跟踪号后，请调用[更新作业属性](https://docs.microsoft.com/rest/api/storageimportexport/Jobs/Update)操作更新承运人名称、作业跟踪号以及运送回邮的承运人帐号。 可以选择性地指定驱动器数量和寄送日期。
 
 ## <a name="next-steps"></a>后续步骤
 

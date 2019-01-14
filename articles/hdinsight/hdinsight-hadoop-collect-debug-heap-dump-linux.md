@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 02/27/2018
-ms.date: 05/28/2018
+ms.date: 01/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: 7517c4522ccbc1a8bb09631341157824a0daf191
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 705854b2d6bcefd2bb0a23638eabce4956bc8df7
+ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644750"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54216229"
 ---
-# <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight"></a>在基于 Linux 的 HDInsight 上为 Hadoop 服务启用堆转储
+# <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>在基于 Linux 的 HDInsight 上为 Apache Hadoop 服务启用堆转储
 
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
@@ -37,17 +37,17 @@ ms.locfileid: "52644750"
 
 可以启用以下服务的堆转储：
 
-* **hcatalog** - tempelton
-* **hive** - hiveserver2、metastore、derbyserver
+* **Apache hcatalog** - tempelton
+* **Apache hive** - hiveserver2、metastore、derbyserver
 * **mapreduce** - jobhistoryserver
-* **yarn** - resourcemanager、nodemanager、timelineserver
-* **hdfs** - datanode、secondarynamenode、namenode
+* **Apache yarn** - resourcemanager、nodemanager、timelineserver
+* **Apache hdfs** - datanode、secondarynamenode、namenode
 
 还可以启用映射的堆转储，并减少由 HDInsight 运行的流程数。
 
 ## <a name="configuration"></a>了解堆转储配置
 
-在某项服务启动时，可以通过将选项（有时称为 opts 或参数）传递到 JVM 来启用堆转储。 对于大多数 Hadoop 服务，可以修改用于启动该服务的 shell 脚本来传递这些选项。
+在某项服务启动时，可以通过将选项（有时称为 opts 或参数）传递到 JVM 来启用堆转储。 对于大多数 [Apache Hadoop](https://hadoop.apache.org/) 服务，可以修改用于启动该服务的 shell 脚本来传递这些选项。
 
 在每个脚本中，有一个针对 **\*\_OPTS** 的导出，其中包含传递到 JVM 的选项。 例如，在 **hadoop-env.sh** 脚本中，以 `export HADOOP_NAMENODE_OPTS=` 开头的行包含用于 NameNode 服务的选项。
 
@@ -56,8 +56,8 @@ ms.locfileid: "52644750"
 * **mapreduce.admin.map.child.java.opts**
 * **mapreduce.admin.reduce.child.java.opts**
 
-> [!NOTE]
-> 我们建议使用 Ambari 来修改脚本和 mapred-site.xml 设置，因为 Ambari 负责在群集中跨节点复制更改。 请参阅[使用 Ambari](#using-ambari) 部分以了解具体的步骤。
+> [!NOTE]  
+> 我们建议使用 [Apache Ambari](https://ambari.apache.org/) 来修改脚本和 mapred-site.xml 设置，因为 Ambari 负责在群集中跨节点复制更改。 请参阅[使用 Apache Ambari](#using-apache-ambari) 部分以了解具体的步骤。
 
 ### <a name="enable-heap-dumps"></a>启用堆转储
 
@@ -84,12 +84,12 @@ ms.locfileid: "52644750"
 
     -XX:OnOutOfMemoryError=/path/to/script
 
-> [!NOTE]
-> 由于 Hadoop 是分布式系统，任何使用的脚本都必须放置在服务运行时所在的群集的所有节点上。
+> [!NOTE]  
+> 由于 Apache Hadoop 是分布式系统，任何使用的脚本都必须放置在服务运行时所在的群集的所有节点上。
 > 
 > 该脚本还必须位于可供帐户（服务以该帐户的身份运行）访问的位置，并且必须提供执行权限。 例如，你可能希望将脚本存储在 `/usr/local/bin` 中，并通过 `chmod go+rx /usr/local/bin/filename.sh` 来授予读取和执行权限。
 
-## <a name="using-ambari"></a>使用 Ambari
+## <a name="using-apache-ambari"></a>使用 Apache Ambari
 
 若要修改服务配置，请使用以下步骤：
 

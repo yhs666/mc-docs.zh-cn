@@ -13,18 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 07/09/2018
-ms.date: 08/27/2018
+ms.date: 01/21/2019
 ms.author: ashish
-ms.openlocfilehash: d6d82b0d6bc57da1d1462ff91265f3fb7c9d24a3
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 64c6918a5230feba0de4daecb78bf1674b057155
+ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028946"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54216263"
 ---
-# <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>使用 Ambari 优化 HDInsight 群集配置
+# <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>使用 Apache Ambari 优化 HDInsight 群集配置
 
-HDInsight 为大规模数据处理应用程序提供 Apache Hadoop 群集。 对这些复杂的多节点群集进行管理、监视和优化可能存在一定的难度。 [Apache Ambari](http://ambari.apache.org/) 是可用于管理和监视 HDInsight Linux 群集的 Web 界面。  对于 Windows 群集，可以使用 Ambari [REST API](hdinsight-hadoop-manage-ambari-rest-api.md)。
+HDInsight 为大规模数据处理应用程序提供 [Apache Hadoop](https://hadoop.apache.org/) 群集。 对这些复杂的多节点群集进行管理、监视和优化可能存在一定的难度。 [Apache Ambari](https://ambari.apache.org/) 是可用于管理和监视 HDInsight Linux 群集的 Web 界面。  对于 Windows 群集，请使用 [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)。
 
 使用群集凭据通过 `https://CLUSTERNAME.azurehdidnsight.cn` 登录到 Ambari。 初始屏幕显示了概述仪表板。
 
@@ -64,16 +64,16 @@ NameNode Java 堆大小取决于许多因素，例如群集上的负载、文件
 
     ![保存更改](./media/hdinsight-changing-configs-via-ambari/save-changes.png)
 
-## <a name="hive-optimization"></a>Hive 优化
+## <a name="apache-hive-optimization"></a>Apache Hive 优化
 
-以下部分介绍了用于优化 Hive 总体性能的配置选项。
+以下部分介绍了用于优化 Apache Hive 总体性能的配置选项。
 
 1. 若要修改 Hive 配置参数，请从“服务”边栏中选择“Hive”。
 2. 导航到“配置”选项卡。
 
 ### <a name="set-the-hive-execution-engine"></a>设置 Hive 执行引擎
 
-Hive 提供两个执行引擎：MapReduce 和 Tez。 Tez 的速度比 MapReduce 更快。 HDInsight Linux 群集将 Tez 用作默认的执行引擎。 更改执行引擎：
+Hive 提供两个执行引擎：[Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) 和 [Apache TEZ](https://tez.apache.org/)。 Tez 的速度比 MapReduce 更快。 HDInsight Linux 群集将 Tez 用作默认的执行引擎。 更改执行引擎：
 
 1. 在 Hive 的“配置”选项卡上的筛选框中，键入“执行引擎”。
 
@@ -104,7 +104,7 @@ Hadoop 会尝试将单个文件拆分（映射）为多个文件，以并行方�
 
 ### <a name="tune-reducers"></a>优化化简器
 
-ORC 和 Snappy 都提供高性能。 但是，Hive 默认提供的化简器可能太少，从而导致瓶颈。
+[Apache ORC](https://orc.apache.org/) 和 [Snappy](https://google.github.io/snappy/) 都提供高性能。 但是，Hive 默认提供的化简器可能太少，从而导致瓶颈。
 
 例如，假设输入数据大小为 50 GB。 使用 Snappy 以 ORC 格式压缩这些数据后，大小为 1 GB。 Hive 估计所需的化简器数目为：(在映射器中输入的字节数 / `hive.exec.reducers.bytes.per.reducer`)。
 

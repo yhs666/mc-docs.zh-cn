@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 09/04/2018
-ms.date: 10/15/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7845e182d2d3b7aba43ae5cd5c25d8d86eadc5dc
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e4c4d49e62d4ccb1b4b2e81b2f30353519c77b80
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650755"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083734"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>为有状态服务创建单元测试
 对 Service Fabric 有状态服务进行单元测试可发现传统应用程序或特定于域的单元测试不一定会捕获的常见错误。 在为有状态服务开发单元测试时，应牢记一些特殊注意事项。
@@ -35,7 +35,7 @@ ms.locfileid: "52650755"
 从版本 3.3.0 开始，[ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) 提供了一个 API，用于模拟副本和状态管理的业务流程。 这将在示例中使用。
 
 [Nuget](https://www.nuget.org/packages/ServiceFabric.Mocks/)
-[Github](https://github.com/loekd/ServiceFabric.Mocks)
+[GitHub](https://github.com/loekd/ServiceFabric.Mocks)
 
 *ServiceFabric.Mocks 不归 Microsoft 所有或维护。但是，这是当前 Azure 建议用于对有状态服务进行单元测试的库。*
 
@@ -92,7 +92,7 @@ replicaSet.PromoteNewReplicaToPrimaryAsync(4);
 
 //promote the first idle secondary to an active secondary
 PromoteIdleSecondaryToActiveSecondaryAsync();
-//promote idle secodary with replica id 4 to active secondary 
+//promote idle secodary with replica id 4 to active secondary
 PromoteIdleSecondaryToActiveSecondaryAsync(4);
 
 //add a new replica with randomly assigned replica id and promote it to primary
@@ -142,5 +142,4 @@ public async Task TestServiceState_InMemoryState_PromoteActiveSecondary()
 ## <a name="next-steps"></a>后续步骤
 了解如何测试[服务间通信](service-fabric-testability-scenarios-service-communication.md)和[使用受控的混沌模拟故障](service-fabric-controlled-chaos.md)。
 
-<!-- Update_Description: new articles on service fabric how to unit test stateful service -->
-<!--ms.date: 10/15/2018-->
+<!-- Update_Description: update meta properties -->

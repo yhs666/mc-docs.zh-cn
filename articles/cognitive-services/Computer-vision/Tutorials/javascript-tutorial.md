@@ -1,5 +1,5 @@
 ---
-title: 教程：计算机视觉 API JavaScript
+title: 教程：执行图像操作 - JavaScript
 titlesuffix: Azure Cognitive Services
 description: 介绍一款使用 Azure 认知服务计算机视觉 API 的基本 JavaScript 应用。 执行 OCR，创建缩略图，并处理图像中的视觉特征。
 services: cognitive-services
@@ -9,14 +9,15 @@ ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: tutorial
 origin.date: 09/19/2017
-ms.date: 10/30/2018
+ms.date: 01/04/2019
 ms.author: v-junlch
-ms.openlocfilehash: 624bf9e839111ee96809a8088d134fd66048ff79
-ms.sourcegitcommit: a3cde3b41ed4d3f39a30eb4e562d6436a3e4d9d5
+ms.custom: seodec18
+ms.openlocfilehash: 0d3294f453cba2aa9eb9dafff2543f402095123e
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53131749"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083652"
 ---
 # <a name="tutorial-computer-vision-api-javascript"></a>教程：计算机视觉 API JavaScript
 
@@ -747,3 +748,4 @@ function ReadHandwrittenImage(sourceImageUrl, responseTextArea) {
 
 - [计算机视觉 API Python 教程](PythonTutorial.md)
 
+<!-- Update_Description: update metedata properties -->

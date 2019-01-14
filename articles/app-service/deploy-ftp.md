@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/05/2018
-ms.date: 12/31/2018
+ms.date: 01/21/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 8213b533cebf7ba62e00e5bef8416f09908e7071
-ms.sourcegitcommit: 80c59ae1174d71509b4aa64a28a98670307a5b38
+ms.openlocfilehash: 44b6227254dc97e740d36207115f5209f869751b
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53735211"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083688"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>使用 FTP/S 将应用部署到 Azure 应用服务
 
@@ -33,7 +33,7 @@ ms.locfileid: "53735211"
 
 在 [Azure 门户](https://portal.azure.cn)中，打开应用的[资源页](../azure-resource-manager/resource-group-portal.md#manage-resources)。
 
-若要打开 FTP 仪表板，请单击“持续交付(预览版)” > “FTP” > “仪表板”。
+若要打开 FTP 仪表板，请单击“部署中心” > “FTP” > “仪表板”。
 
 ![打开 FTP 仪表板](./media/app-service-deploy-ftp/open-dashboard.png)
 
@@ -74,9 +74,9 @@ ms.locfileid: "53735211"
 
 ## <a name="automate-with-scripts"></a>使用脚本自动执行
 
-若要使用 [Azure CLI](/cli/) 进行 FTP 部署，请参阅[创建 Web 应用并使用 FTP (Azure CLI) 部署文件](./scripts/app-service-cli-deploy-ftp.md)。
+若要使用 [Azure CLI](/cli) 进行 FTP 部署，请参阅[创建 Web 应用并使用 FTP (Azure CLI) 部署文件](./scripts/cli-deploy-ftp.md)。
 
-若要使用 [Azure PowerShell](/cli/) 进行 FTP 部署，请参阅[使用 FTP (PowerShell) 将文件上传到 Web 应用](./scripts/app-service-powershell-deploy-ftp.md)。
+若要使用 [Azure PowerShell](/cli) 进行 FTP 部署，请参阅[使用 FTP (PowerShell) 将文件上传到 Web 应用](./scripts/powershell-deploy-ftp.md)。
 
 [!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 

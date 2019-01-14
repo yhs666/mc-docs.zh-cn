@@ -1,7 +1,7 @@
 ---
 title: Azure 资源提供程序注册错误 | Azure
 description: 说明如何解决 Azure 资源提供程序注册错误。
-services: azure-resource-manager,azure-portal
+services: azure-resource-manager
 documentationcenter: ''
 author: rockboyfor
 manager: digimobile
@@ -10,20 +10,20 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: support-article
-origin.date: 03/09/2018
-ms.date: 03/26/2018
+ms.topic: troubleshooting
+origin.date: 12/10/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: f7c5d7f703d2b51f84e1f935c39288841133844a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 02ad197187a3ee574bb7ca0b269aeccc491ceb98
+ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652264"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193121"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>解决资源提供程序注册错误
 
-本文介绍使用以前未在订阅中使用过的资源提供程序时可能遇到的错误。
+本文介绍使用之前未在订阅中使用过的资源提供程序时可能遇到的错误。
 
 ## <a name="symptom"></a>症状
 
@@ -48,9 +48,9 @@ Message: The subscription is not registered to use namespace {resource-provider-
 
 可能由于下三种原因之一而收到此错误：
 
-1. 尚未为订阅注册资源提供程序
-1. 资源类型不支持该 API 版本
-1. 资源类型不支持该位置
+* 尚未为订阅注册资源提供程序
+* 资源类型不支持该 API 版本
+* 资源类型不支持该位置
 
 ## <a name="solution-1---powershell"></a>解决方案 1 - PowerShell
 
@@ -102,11 +102,23 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 
 可以通过门户查看注册状态，并注册资源提供程序命名空间。
 
+1. 在门户中，选择“所有服务”。
+
+   ![选择所有服务](./media/resource-manager-register-provider-errors/select-all-services.png)
+
+1. 选择 **订阅**。
+
+   ![选择订阅](./media/resource-manager-register-provider-errors/select-subscriptions.png)
+
+1. 从订阅列表中，选择要用于注册资源提供程序的订阅。
+
+   ![选择订阅以注册资源提供程序](./media/resource-manager-register-provider-errors/select-subscription-to-register.png)
+
 1. 对于订阅，选择“资源提供程序”。
 
    ![选择资源提供程序](./media/resource-manager-register-provider-errors/select-resource-provider.png)
 
-1. 查看资源提供程序的列表，根据需要选择“注册”链接，注册你尝试部署的类型的资源提供程序。
+1. 查看资源提供程序列表，根据需要选择“注册”链接，注册尝试部署的类型的资源提供程序。
 
    ![列出资源提供程序](./media/resource-manager-register-provider-errors/list-resource-providers.png)
 

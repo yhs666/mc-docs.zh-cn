@@ -11,15 +11,15 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 11/26/2018
-ms.date: 12/20/2018
+ms.date: 01/10/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 168c73ceec740237b26bf4130d89a5cbb080e262
-ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+ms.openlocfilehash: f34f3293a23cb2984265b59d19437dd2f8f88ffd
+ms.sourcegitcommit: 427535b8507503d5657f9ad56b23e300a8f93671
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53656610"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54216156"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure 资源管理器资源提供程序操作
 
@@ -1868,12 +1868,12 @@ ms.locfileid: "53656610"
 > | 操作 | Microsoft.Devices/provisioningServices/certificates/verify/Action | 验证证书资源 |
 > | 操作 | Microsoft.Devices/provisioningServices/certificates/Write | 创建或更新证书 |
 > | 操作 | Microsoft.Devices/provisioningServices/Delete | 删除 IotDps 资源 |
-> | 操作 | Microsoft.Devices/provisioningServices/diagnosticSettings/read | 获取资源的诊断设置 |
+> | 操作 | Microsoft.Devices/provisioningServices/diagnosticSettings/read | 获取资源的诊断设置。 注意：你可能还需要 `Microsoft.Insights/diagnosticSettings/read`  |
 > | 操作 | Microsoft.Devices/provisioningServices/diagnosticSettings/write | 创建或更新资源的诊断设置 |
 > | 操作 | Microsoft.Devices/provisioningServices/keys/listkeys/Action | 获取 IotDps 密钥的密钥名称 |
 > | 操作 | Microsoft.Devices/provisioningServices/listkeys/Action | 获取所有 IotDps 密钥 |
-> | 操作 | Microsoft.Devices/provisioningServices/logDefinitions/read | 获取预配服务的可用日志定义 |
-> | 操作 | Microsoft.Devices/provisioningServices/metricDefinitions/read | 获取预配服务的可用指标 |
+> | 操作 | Microsoft.Devices/provisioningServices/logDefinitions/read | 获取预配服务的可用日志定义。 注意：你可能还需要 `Microsoft.Insights/logDefinitions/read` |
+> | 操作 | Microsoft.Devices/provisioningServices/metricDefinitions/read | 获取预配服务的可用指标。 注意：你可能还需要 `Microsoft.Insights/metricDefinitions/read` |
 > | 操作 | Microsoft.Devices/provisioningServices/operationresults/Read | 获取 DPS 操作结果 |
 > | 操作 | Microsoft.Devices/provisioningServices/Read | 获取 IotDps 资源 |
 > | 操作 | Microsoft.Devices/provisioningServices/skus/Read | 获取有效的 IotDps SKU |

@@ -12,15 +12,15 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-origin.date: 07/31/2018
-ms.date: 09/10/2018
+origin.date: 12/06/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: 89066edb25ea6952e172a429bfb17674bc17c474
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 671cdfb32527ab3951677d11aeab2ce399cef686
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661602"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083729"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 获取和设置 Chaos Schedule。
@@ -30,7 +30,7 @@ ms.locfileid: "52661602"
 |命令|说明|
 | --- | --- |
 | get | 获取定义何时以及如何运行 Chaos 的 Chaos Schedule。 |
-| set | 设置要由 Chaos 使用的 Chaos Schedule。 |
+| set | 设置 Chaos 使用的计划。 |
 
 ## <a name="sfctl-chaos-schedule-get"></a>sfctl chaos schedule get
 获取定义何时以及如何运行 Chaos 的 Chaos Schedule。
@@ -54,9 +54,9 @@ ms.locfileid: "52661602"
 | --verbose | 提高日志记录详细程度。 使用 --debug 可获取完整的调试日志。 |
 
 ## <a name="sfctl-chaos-schedule-set"></a>sfctl chaos schedule set
-设置要由 Chaos 使用的 Chaos Schedule。
+设置 Chaos 使用的计划。
 
-设置当前正在由 Chaos 使用的 Chaos Schedule。 Chaos 将自动基于 Chaos Schedule 来计划运行。 提供的输入计划中的版本必须与服务器上的 Chaos Schedule 版本匹配。 如果提供的版本与服务器上的版本不匹配，则不会更新 Chaos Schedule。 如果提供的版本与服务器上的版本相匹配，则会更新 Chaos Schedule，服务器上的 Chaos Schedule 版本将递增 1 并将在达到 2,147,483,647 后回到 0。 如果在进行此调用时正在运行 Chaos，则此调用将失败。
+Chaos 将自动基于 Chaos Schedule 来计划运行。 提供的输入计划中的版本必须与服务器上的 Chaos Schedule 版本匹配。 如果提供的版本与服务器上的版本不匹配，则不会更新 Chaos Schedule。 如果提供的版本与服务器上的版本相匹配，则会更新 Chaos Schedule，服务器上的 Chaos Schedule 版本将递增 1 并将在达到 2,147,483,647 后回到 0。 如果在进行此调用时正在运行 Chaos，则此调用将失败。
 
 ### <a name="arguments"></a>参数
 
@@ -148,4 +148,5 @@ ms.locfileid: "52661602"
 ## <a name="next-steps"></a>后续步骤
 - [安装](service-fabric-cli.md) Service Fabric CLI。
 - 了解如何通过[示例脚本](/service-fabric/scripts/sfctl-upgrade-application)使用 Service Fabric CLI。
+
 <!-- Update_Description: update meta properties, wording update -->

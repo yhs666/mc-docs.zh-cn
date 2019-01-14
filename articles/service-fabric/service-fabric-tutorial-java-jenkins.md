@@ -13,19 +13,19 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/27/2018
-ms.date: 10/15/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 4513d186d7a80e1595c512e6c42b5bec68ea3d8e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 20b42371f6b65897428059e964fa94bdff8854d0
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656117"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083552"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>教程：配置 Jenkins 环境以便为 Service Fabric 上的 Java 应用程序启用 CI/CD
 
-本教程是系列教程的第五部分， 介绍如何使用 Jenkins 将升级部署到应用程序。 本教程结合使用 Service Fabric Jenkins 插件和托管投票应用程序的 Github 存储库，将应用程序部署到群集。
+本教程是系列教程的第五部分， 介绍如何使用 Jenkins 将升级部署到应用程序。 本教程结合使用 Service Fabric Jenkins 插件和托管投票应用程序的 GitHub 存储库，将应用程序部署到群集。
 
 本系列教程的第五部分介绍以下操作：
 > [!div class="checklist"]
@@ -86,7 +86,7 @@ ms.locfileid: "52656117"
 
 ## <a name="create-and-configure-a-jenkins-job"></a>创建和配置 Jenkins 作业
 
-1. 首先，如果没有可用于在 Github 上托管投票项目的存储库，请创建一个存储库。 在本教程的余下内容中，此存储库名为 **dev_test**。
+1. 首先，如果没有可用于在 GitHub 上托管投票项目的存储库，请创建一个存储库。 在本教程的余下内容中，此存储库名为 **dev_test**。
 
 1. 在 ``http://<HOST-IP>:8080`` 的 Jenkins 仪表板上创建一个**新项**。
 
@@ -183,7 +183,7 @@ ms.locfileid: "52656117"
     </CodePackage>
     ```
 
-1. 若要初始化执行应用程序升级的 Jenkins 作业，请将新更改推送到 Github 存储库。
+1. 若要初始化执行应用程序升级的 Jenkins 作业，请将新更改推送到 GitHub 存储库。
 
 1. 在 Service Fabric Explorer 中，单击“应用程序”下拉列表。 若要查看升级状态，请单击“正在进行升级”选项卡。
 

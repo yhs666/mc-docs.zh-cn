@@ -1,3 +1,17 @@
+---
+author: rockboyfor
+ms.service: azure-resource-manager
+ms.topic: include
+origin.date: 11/25/2018
+ms.date: 01/21/2019
+ms.author: v-yeche
+ms.openlocfilehash: 19c8fc6c7724c8435c1d94b74c409940cea8c980
+ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193172"
+---
 要在部署过程中标记资源，请将 `tags` 元素添加到要部署的资源。 提供标记名称和值。
 
 ### <a name="apply-a-literal-value-to-the-tag-name"></a>将文本值应用到标记名称
@@ -87,5 +101,4 @@
 }
 ```
 
-<!--Update_Description: wording update-->
-<!--ms.date: 09/04/2017-->
+<!--Update_Description: update meta properties -->

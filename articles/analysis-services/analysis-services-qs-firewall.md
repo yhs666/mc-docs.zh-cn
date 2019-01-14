@@ -6,15 +6,15 @@ manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: quickstart
 origin.date: 10/18/2018
-ms.date: 12/17/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 0f03e06a6b720a4a49dc7e1498ab3cc6ce82411d
-ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
+ms.openlocfilehash: d88399cd2f9efee60964dfc51c98faaba2e5c54b
+ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53157397"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193062"
 ---
 <!--Notice: Verified successfully-->
 # <a name="quickstart-configure-server-firewall---portal"></a>快速入门：配置服务器防火墙 - 门户
@@ -26,9 +26,9 @@ ms.locfileid: "53157397"
 - 订阅中的 Analysis Services 服务器。 若要了解详细信息，请参阅[快速入门：创建服务器 - 门户](analysis-services-create-server.md)或[快速入门：创建服务器 - PowerShell](analysis-services-create-powershell.md)
 - 客户端计算机的一个或多个 IP 地址范围（如果需要）。
 
-## <a name="log-in-to-the-azure-portal"></a>登录到 Azure 门户 
+## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户 
 
-[登录到门户](https://portal.azure.cn)
+[登录门户](https://portal.azure.cn)
 
 ## <a name="configure-a-firewall"></a>配置防火墙
 
@@ -50,4 +50,4 @@ ms.locfileid: "53157397"
 > [!div class="nextstepaction"]
 > [教程：将示例模型添加到服务器](analysis-services-create-sample-model.md)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

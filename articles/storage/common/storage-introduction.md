@@ -6,14 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: get-started-article
 origin.date: 07/11/2018
-ms.date: 09/24/2018
+ms.date: 01/14/2019
 ms.author: v-jay
-ms.openlocfilehash: 3eee7dfde0420c214788ec4f0c18599955336bfb
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.component: common
+ms.openlocfilehash: ce9e57ab2de0072358dbe367664441cfaac5b78f
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651018"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192929"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure 存储简介
 
@@ -31,8 +32,8 @@ Azure 存储包括以下数据服务：
 
 - [Azure Blob](../blobs/storage-blobs-introduction.md)：适用于文本和二进制数据的可大规模缩放的对象存储。
 - [Azure 文件](../files/storage-files-introduction.md)：适用于云或本地部署的托管文件共享。
-- [Azure 队列](../queues/storage-queues-introduction.md)：用于在应用程序组件之间进行可靠的消息传送的消息传送存储。 
-- [Azure 表](../tables/table-storage-overview.md)：一种 NoSQL 存储，适合用作结构化数据的无模式存储。
+- [Azure 队列](../queues/storage-queues-introduction.md)：用于在应用程序组件之间进行可靠的消息传送的消息存储。 
+- [Azure 表](../tables/table-storage-overview.md)：一种 NoSQL 存储，适合用作结构化数据的无架构存储。
 
 对每个服务的访问都通过存储帐户进行。 若要开始使用，请参阅[创建存储帐户](storage-quickstart-create-account.md)。
 
@@ -50,7 +51,7 @@ Blob 存储最适合用于：
 
 可以通过 HTTP 或 HTTPS 从世界上的任何位置访问 Blob 存储中的对象。 用户或客户端应用程序可以通过 URL、[Azure 存储 REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api)、[Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage)、[Azure CLI](/cli/storage) 或 Azure 存储客户端库访问 Blob。 存储客户端库以多种语言提供，包括 [.NET](https://docs.azure.cn/dotnet/api/overview/storage/client)、[Java](/java/api/storage/clientlibrary)、[Node.js](http://azure.github.io/azure-storage-node)、[Python](https://azure-storage.readthedocs.io/)、[PHP](http://azure.github.io/azure-storage-php/) 和 [Ruby](http://azure.github.io/azure-storage-ruby)。
 
-有关 Blob 存储的详细信息，请参阅 [Azure 中的对象存储简介](../blobs/storage-blobs-introduction.md)。
+有关 Blob 存储的详细信息，请参阅 [Blob 存储简介](../blobs/storage-blobs-introduction.md)。
 
 ## <a name="azure-files"></a>Azure 文件
 可以通过 [Azure 文件](../files/storage-files-introduction.md)设置可用性高的网络文件共享，以便使用标准的服务器消息块 (SMB) 协议对其进行访问。 这意味着，多个 VM 可以共享启用了读取和写入访问权限的相同文件。 也可使用 REST 接口或存储客户端库来读取文件。
@@ -199,7 +200,7 @@ Azure 存储资源可以通过任何发出 HTTP/HTTPS 请求的语言来进行�
 ### <a name="tools-and-utilities"></a>工具和实用程序
 * [适用于存储的 Azure PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/azure.storage)
 * [适用于存储的 Azure CLI Cmdlet](https://docs.azure.cn/zh-cn/cli/storage)
-* [AzCopy 命令行实用程序](http://aka.ms/downloadazcopy)
+* [AzCopy 命令行实用程序](https://aka.ms/downloadazcopy)
 * [Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)是 Microsoft 免费提供的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。
 * [Azure 存储客户端工具](../storage-explorers.md)
 * [Azure 开发人员工具](https://azure.microsoft.com/tools/)

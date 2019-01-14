@@ -12,15 +12,15 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 04/16/2018
-ms.date: 12/10/2018
+origin.date: 11/21/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: 93fbc7755599fd146fa569f8f8ad893813fdaf6b
-ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
+ms.openlocfilehash: 6c4a647ca290f38732fed25830d5de9003d60585
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52901147"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083791"
 ---
 # <a name="performance-metrics"></a>性能指标
 
@@ -32,6 +32,7 @@ ms.locfileid: "52901147"
 
 | 计数器类别 | 计数器名称 |
 | --- | --- |
+| 逻辑磁盘 | 逻辑磁盘可用空间 |
 | PhysicalDisk(per Disk) | 平均值磁盘读取队列长度 |
 | PhysicalDisk(per Disk) | 平均值磁盘写入队列长度 |
 | PhysicalDisk(per Disk) | 平均值磁盘秒数/读取 |
@@ -50,6 +51,9 @@ ms.locfileid: "52901147"
 | Process (per service) | 虚拟字节数 |
 | Process (per service) | 工作集 |
 | Process (per service) | 工作集 - 专用 |
+| Network Interface(all-instances) | 读取的字节数 |
+| Network Interface(all-instances) | 发送的字节数 |
+| Network Interface(all-instances) | 总字节数 |
 | Network Interface(all-instances) | 输出队列长度 |
 | Network Interface(all-instances) | 放弃的出站数据包 |
 | Network Interface(all-instances) | 放弃的已接收数据包 |
@@ -66,6 +70,8 @@ ms.locfileid: "52901147"
 | .NET CLR Memory (per service) | 提交的字节总数 |
 | .NET CLR Memory (per service) | 保留的字节总数 |
 | .NET CLR Memory (per service) | 所有堆中的字节数 |
+| .NET CLR Memory (per service) | 大型对象堆大小 |
+| .NET CLR Memory (per service) | GC 句柄数 |
 | .NET CLR Memory (per service) | 第 0 代集合数 |
 | .NET CLR Memory (per service) | 第 1 代集合数 |
 | .NET CLR Memory (per service) | 第 2 代集合数 |
@@ -77,7 +83,7 @@ Service Fabric 生成大量自定义性能计数器。 如果已安装 SDK，可
 
 在要部署到群集的应用程序中，如果使用的是 Reliable Actors，请添加 `Service Fabric Actor` 和 `Service Fabric Actor Method` 类别的计数器（请参阅 [Service Fabric Reliable Actors 诊断](service-fabric-reliable-actors-diagnostics.md)）。
 
-如果使用 Reliable Services，同样可以添加 `Service Fabric Service` 和 `Service Fabric Service Method` 计数器类别来收集计数器。 
+如果使用 Reliable Services 或服务远程处理，可同样获得应从其中收集计数器的 `Service Fabric Service` 和 `Service Fabric Service Method` 计数器类别。请参阅[使用服务远程处理进行监视](service-fabric-reliable-serviceremoting-diagnostics.md)和 [Reliable Services 性能计数器](service-fabric-reliable-services-diagnostics.md#performance-counters)。 
 
 如果使用 Reliable Collections，建议通过 `Service Fabric Transactional Replicator` 添加 `Avg. Transaction ms/Commit`，以收集每个事务指标的平均提交延迟。
 
@@ -85,4 +91,4 @@ Service Fabric 生成大量自定义性能计数器。 如果已安装 SDK，可
 
 * 详细了解 Service Fabric 中的[平台级事件生成情况](service-fabric-diagnostics-event-generation-infra.md) <!-- Not Available on [Log Analytics agent](service-fabric-diagnostics-oms-agent.md)-->
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

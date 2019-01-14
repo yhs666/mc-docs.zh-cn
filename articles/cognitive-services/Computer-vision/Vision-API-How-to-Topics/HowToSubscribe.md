@@ -1,5 +1,5 @@
 ---
-title: 获取计算机视觉 API 的订阅密钥
+title: 获取订阅密钥 - 计算机视觉
 titlesuffix: Azure Cognitive Services
 description: 了解如何在 Azure 认知服务中获取计算机视觉 API 所需的订阅密钥。
 services: cognitive-services
@@ -9,14 +9,15 @@ ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: article
 origin.date: 05/19/2017
-ms.date: 10/30/2018
+ms.date: 01/07/2019
 ms.author: v-junlch
-ms.openlocfilehash: 00455a1548490284d6476ea86fda638ecbe2e51c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.custom: seodec18
+ms.openlocfilehash: 1baec6b3a2aead83e6dfa43704cc5bf4343a6ec5
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652035"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083787"
 ---
 # <a name="how-to-obtain-subscription-keys"></a>如何获取订阅密钥
 
@@ -36,3 +37,4 @@ ms.locfileid: "52652035"
 
 - [Azure 认知服务 API 的定价选项](https://www.azure.cn/pricing/details/cognitive-services/)
 
+<!-- Update_Description: update metedata properties -->

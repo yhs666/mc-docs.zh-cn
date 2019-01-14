@@ -1,3 +1,17 @@
+---
+author: WenJason
+ms.service: storage
+ms.topic: include
+origin.date: 10/26/2018
+ms.date: 01/14/2019
+ms.author: v-jay
+ms.openlocfilehash: adde610441cdc4148be650acedc534b0a336f6af
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193302"
+---
 | 资源 | 目标 |
 |----------|---------------|
 | 单个 blob 容器的最大大小 | 等同于最大存储帐户容量 |

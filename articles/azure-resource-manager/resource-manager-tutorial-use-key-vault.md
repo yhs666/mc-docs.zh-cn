@@ -11,15 +11,16 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 origin.date: 11/13/2018
-ms.date: 12/17/2018
+ms.date: 01/21/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: c22b609909160c0db970ef409369bfda884cca16
-ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
+ms.custom: seodec18
+ms.openlocfilehash: 89c28c0771a630b4c5cff99b5918f5e8858f862d
+ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53286746"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193130"
 ---
 <!-- Verify successfully-->
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>教程：在资源管理器模板部署中集成 Azure Key Vault
@@ -85,7 +86,7 @@ ms.locfileid: "53286746"
 
 1. 选择下图登录到 Azure 并打开一个模板。 该模板将创建 Key Vault 和 Key Vault 机密。
 
-    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Farmtutorials.blob.core.windows.net%2Fcreatekeyvault%2FCreateKeyVault.json"><img src="./media/resource-manager-tutorial-use-key-vault/deploy-to-azure.png" /></a>
+    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Farmtutorials.blob.core.windows.net%2Fcreatekeyvault%2FCreateKeyVault.json"><img src="http://azuredeploy.net/deploybutton.png" alt="deploy to azure"/></a>
     
     <!-- Notice: URL is correct on Farmtutorials.blob.core.windows.net-->
        
@@ -103,7 +104,7 @@ ms.locfileid: "53286746"
     * **Key Vault 名称**：分配唯一的名称。 
     * **租户 ID**：模板函数会自动检索租户 ID。不要更改默认值。
     * **AD 用户 ID**：输入在上一过程中检索到的 Azure AD 用户对象 ID。
-    * **机密名称**：默认名称为 **mAdminPassword**。 如果更改机密名称，则需要在部署虚拟机时更新机密名称。
+    * **机密名称**：默认名称为 **vmAdminPassword**。 如果更改机密名称，则需要在部署虚拟机时更新机密名称。
     * **机密值**：输入你的机密。  机密是用于登录虚拟机的密码。 建议使用在上一过程中创建的生成密码。
     * **我同意上述条款和条件**：选中。
 3. 选择左窗格中的“编辑模板”以查看模板。
@@ -118,7 +119,8 @@ ms.locfileid: "53286746"
     `enabledForTemplateDeployment` 是 Key Vault 属性。 此属性必须为 true，这样才能在部署期间从此 Key Vault 中检索机密。
 6. 浏览到第 89 行。 这是 Key Vault 机密的定义。
 7. 选择页面底部的“放弃”。 未进行任何更改。
-7. 从左窗格选择“法律条款”，在确认参数值后单击“创建”。
+    <!-- Notice: We ADD NEW PAGE due to Mooncake is different with global site.-->
+8. 从左窗格选择“法律条款”，在确认参数值后单击“创建”。
     ![与法律条款对应的资源管理器模板 Key Vault](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-create-key-vault-portal-chenye-add-01.png)
 
     <!-- Notice: We ADD NEW PAGE due to Mooncake is different with global site.-->
@@ -133,7 +135,7 @@ ms.locfileid: "53286746"
 14. 在左窗格中选择“属性”。
 15. 复制“资源 ID”。 部署虚拟机时需要此 ID。  资源 ID 格式为：
 
-    ```
+    ```json
     /subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
     ```
 
@@ -232,4 +234,4 @@ New-AzureRmResourceGroupDeployment -Name $deploymentName -ResourceGroupName $res
 > [!div class="nextstepaction"]
 > [创建链接模板](./resource-manager-tutorial-create-linked-templates.md)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

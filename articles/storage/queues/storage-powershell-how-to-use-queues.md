@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: how-to
 origin.date: 09/14/2017
-ms.date: 12/10/2018
+ms.date: 01/14/2019
 ms.author: v-jay
 ms.component: queues
-ms.openlocfilehash: 6544a64e396803ac9be78c2e7caf61c8110b5593
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 4bcde84d67a50bc6adaf0ee4ac3a09533a405052
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028911"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192876"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>使用 Azure PowerShell 执行 Azure 队列存储操作
 
@@ -28,16 +28,18 @@ Azure 队列存储是一项可存储大量消息的服务，用户可以通过 H
 > * 删除消息 
 > * 删除队列
 
-本操作指南需要 Azure PowerShell 模块 3.6 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。
+本操作指南需要 Azure PowerShell 模块 Az 0.7 或更高版本。 运行 `Get-Module -ListAvailable Az` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps)（安装 Azure PowerShell 模块）。
 
 队列的数据平面没有相应的 PowerShell cmdlet。 若要执行数据平面操作（如添加消息、读取消息和删除消息），必须使用 PowerShell 中公开的 .NET 存储客户端库。 创建消息对象，然后可以使用命令（例如 AddMessage）对该消息执行操作。 本文介绍如何执行该操作。
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
-使用 `Connect-AzureRmAccount -EnvironmentName AzureChinaCloud` 命令登录到 Azure 订阅，并按照屏幕上的说明进行操作。
+使用 `Connect-AzAccount -EnvironmentName AzureChinaCloud` 命令登录到 Azure 订阅，并按照屏幕上的说明进行操作。
 
 ```powershell
-Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
+Connect-AzAccount -EnvironmentName AzureChinaCloud
 ```
 
 ## <a name="retrieve-list-of-locations"></a>检索位置列表
@@ -45,28 +47,28 @@ Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
 如果你不知道要使用哪个位置，可以列出可用的位置。 显示列表后，找到要使用的位置。 本练习使用“中国东部”。 将此内容存储在变量 location 中，以供以后使用。
 
 ```powershell
-Get-AzureRmLocation | select Location 
+Get-AzLocation | select Location 
 $location = "China East"
 ```
 
 ## <a name="create-resource-group"></a>创建资源组
 
-使用 [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) 命令创建资源组。 
+使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 命令创建资源组。 
 
 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 将资源组名称存储在变量中，以供以后使用。 本示例在“中国东部”区域创建名为“howtoqueuesrg”的资源组。
 
 ```powershell
 $resourceGroup = "howtoqueuesrg"
-New-AzureRmResourceGroup -ResourceGroupName $resourceGroup -Location $location
+New-AzResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
 ## <a name="create-storage-account"></a>创建存储帐户
 
-使用 [ New-AzureRmStorageAccount ](https://docs.microsoft.com/powershell/module/azurerm.storage/New-AzureRmStorageAccount) 创建具有本地冗余存储 (LRS) 的标准通用存储帐户。 获取用于定义要使用的存储帐户的存储帐户上下文。 对存储帐户执行操作时，引用上下文而不是重复提供凭据。
+使用 [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/New-azStorageAccount) 创建具有本地冗余存储 (LRS) 的标准通用存储帐户。 获取用于定义要使用的存储帐户的存储帐户上下文。 对存储帐户执行操作时，引用上下文而不是重复提供凭据。
 
 ```powershell
 $storageAccountName = "howtoqueuestorage"
-$storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccountName `
   -Location $location `
   -SkuName Standard_LRS
@@ -76,27 +78,27 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-queue"></a>创建队列
 
-以下示例首先使用存储帐户上下文（包括存储帐户名称及其访问密钥）与 Azure 存储建立连接。 接下来，它调用 [New-AzureStorageQueue](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragequeue) cmdlet 以创建名为“queuename”的队列。
+以下示例首先使用存储帐户上下文（包括存储帐户名称及其访问密钥）与 Azure 存储建立连接。 接下来，它将调用 [New-AzStorageQueue](https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragequeue) cmdlet 以创建名为“queuename”的队列。
 
 ```powershell
 $queueName = "howtoqueue"
-$queue = New-AzureStorageQueue –Name $queueName -Context $ctx
+$queue = New-AzStorageQueue –Name $queueName -Context $ctx
 ```
 
 有关命名 Azure 队列服务命名约定的信息，请参阅 [Naming Queues and Metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx)（命名队列和元数据）。
 
 ## <a name="retrieve-a-queue"></a>检索队列
 
-可以查询和检索存储帐户中的特定队列，或者所有队列的列表。 以下示例演示如何检索存储帐户中的所有队列以及特定队列；这两个命令都使用 [ Get-AzureStorageQueue ](https://docs.microsoft.com/powershell/module/azure.storage/get-azurestoragequeue) cmdlet。
+可以查询和检索存储帐户中的特定队列，或者所有队列的列表。 以下示例演示如何检索存储帐户中的所有队列以及特定队列；这两个命令都使用 [Get-AzStorageQueue](https://docs.microsoft.com/powershell/module/azure.storage/get-AzStoragequeue) cmdlet。
 
 ```powershell
 # Retrieve a specific queue
-$queue = Get-AzureStorageQueue –Name $queueName –Context $ctx
+$queue = Get-AzStorageQueue –Name $queueName –Context $ctx
 # Show the properties of the queue
 $queue
 
 # Retrieve all queues and show their names
-Get-AzureStorageQueue -Context $ctx | select Name
+Get-AzStorageQueue -Context $ctx | select Name
 ```
 
 ## <a name="add-a-message-to-a-queue"></a>向队列添加消息
@@ -158,11 +160,11 @@ $queue.CloudQueue.DeleteMessage($queueMessage)
 ```
 
 ## <a name="delete-a-queue"></a>删除队列
-若要删除队列及其中包含的所有消息，请调用 Remove-AzureStorageQueue cmdlet。 以下示例演示如何使用 Remove-AzureStorageQueue cmdlet 删除本练习中使用的特定队列。
+若要删除队列及其中包含的所有消息，请调用 Remove-AzStorageQueue cmdlet。 以下示例演示如何使用 Remove-AzStorageQueue cmdlet 删除本练习中使用的特定队列。
 
 ```powershell
 # Delete the queue 
-Remove-AzureStorageQueue –Name $queueName –Context $ctx
+Remove-AzStorageQueue –Name $queueName –Context $ctx
 ```
 
 ## <a name="clean-up-resources"></a>清理资源
@@ -170,7 +172,7 @@ Remove-AzureStorageQueue –Name $queueName –Context $ctx
 若要删除已在此练习中创建的所有资产，请删除该资源组。 这会一并删除组中包含的所有资源。 在这种情况下，它会删除创建的存储帐户以及资源组本身。
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="next-steps"></a>后续步骤
@@ -186,7 +188,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 > * 删除队列
 
 ### <a name="azure-powershell-storage-cmdlets"></a>Azure PowerShell 存储 cmdlet
-* [存储 PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azurerm.storage#storage)
+* [存储 PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.storage)
 
-### <a name="azure-storage-explorer"></a>Azure 存储资源管理器
-* [Azure 存储资源管理器](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fstorage%2fblobs%2ftoc.json)是 Microsoft 免费提供的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。
+### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure 存储资源管理器
+* [Microsoft Azure 存储资源管理器](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fstorage%2fblobs%2ftoc.json)是 Microsoft 免费提供的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。

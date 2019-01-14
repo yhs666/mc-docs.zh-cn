@@ -5,16 +5,16 @@ author: WenJason
 services: storage
 ms.service: storage
 ms.topic: article
-origin.date: 07/17/2018
-ms.date: 12/06/2018
+origin.date: 12/11/2018
+ms.date: 01/14/2019
 ms.author: v-jay
 ms.component: common
-ms.openlocfilehash: 77f0b6034c6b9ec131b48828abdd0f402e76dea9
-ms.sourcegitcommit: 6e07735318eb5f6ea319b618863259088eab3722
+ms.openlocfilehash: bd9ea974de57231750abccd8f69705f70cc4f92c
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52981689"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192864"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>使用 Azure 导入/导出服务将数据导入到 Azure Blob 存储
 
@@ -22,7 +22,7 @@ ms.locfileid: "52981689"
 
 ## <a name="prerequisites"></a>先决条件
 
-在创建导入作业来将数据传输到 Azure Blob 存储之前，请仔细查看并完成此服务的以下先决条件列表。 必须：
+在创建导入作业来将数据传输到 Azure Blob 存储之前，请仔细查看并完成此服务的以下先决条件列表。 必须具备以下条件：
 
 - 拥有可用于导入/导出服务的有效 Azure 订阅。
 - 拥有至少一个包含存储容器的 Azure 存储帐户。 请参阅[导入/导出服务支持的存储帐户和存储类型](storage-import-export-requirements.md)的列表。 
@@ -32,7 +32,7 @@ ms.locfileid: "52981689"
 - 拥有运行[受支持 OS 版本](storage-import-export-requirements.md#supported-operating-systems)的 Windows 系统。 
 - 在 Windows 系统上启用 BitLocker。 请参阅[如何启用 BitLocker](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/)。
 - 必须在复制计算机上安装 .NET Framework 4。
-- 在 Windows 系统上[下载 WAImportExport 版本 1](https://www.microsoft.com/en-us/download/details.aspx?id=42659)。 解压缩到默认文件夹 `waimportexportv1`。 例如，`C:\WaImportExportV1`。
+- 在 Windows 系统上[下载 WAImportExport 版本 1](https://aka.ms/waiev1)。 解压缩到默认文件夹 `waimportexportv1`。 例如，`C:\WaImportExportV1`。
 
 
 ## <a name="step-1-prepare-the-drives"></a>步骤 1：准备驱动器
@@ -104,7 +104,7 @@ ms.locfileid: "52981689"
 
     - 上传你在驱动器准备步骤中获取的驱动器日志文件。 如果使用了 `waimportexport.exe version1`，请为你准备的每个驱动器上传一个文件。 如果日志文件大小超过了 2 MB，则可以使用随日志文件创建的 `<Journal file name>_DriveInfo_<Drive serial ID>.xml`。 
     - 选择将用来存放数据的目标存储帐户。 目前仅在中国东部和中国北部支持此功能。
-    - 放置位置根据选定存储帐户所属的区域自动进行填充。
+    - 放置位置会根据选定存储帐户所属的区域自动进行填充。
    
    ![创建导入作业 - 步骤 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 

@@ -7,14 +7,15 @@ ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 02/14/2017
-ms.date: 09/24/2017
+ms.date: 01/14/2019
 ms.author: v-jay
-ms.openlocfilehash: 6a2316777a85715bc46866ecc6525637081b42fb
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.component: common
+ms.openlocfilehash: 9fc6106e8e02efb68718296c27669c1284fd94de
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664286"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192863"
 ---
 # <a name="enabling-azure-storage-metrics-and-viewing-metrics-data"></a>启用 Azure 存储指标并查看指标数据
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../../includes/storage-selector-portal-enable-and-view-metrics.md)]
@@ -37,9 +38,12 @@ ms.locfileid: "52664286"
 [Azure 门户](https://portal.azure.cn)目前不允许在存储帐户中配置分钟指标；必须通过 PowerShell 或编程方式启用分钟指标。
 
 ## <a name="how-to-enable-metrics-using-powershell"></a>如何通过 PowerShell 启用指标
-用户可以使用本地计算机上的 PowerShell 在存储帐户中配置存储指标，具体方法是：使用 Azure PowerShell cmdlet Get-AzureStorageServiceMetricsProperty 检索当前设置，并使用 cmdlet Set-AzureStorageServiceMetricsProperty 更改当前设置。
 
-控制存储度量值的 cmdlet 使用以下参数：
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+可以使用本地计算机上的 PowerShell 在存储帐户中配置存储度量值，具体方法是：使用 Azure PowerShell cmdlet Get-AzStorageServiceMetricsProperty 检索当前设置，并使用 cmdlet Set-AzStorageServiceMetricsProperty 更改当前设置。
+
+控制存储指标的 cmdlet 使用以下参数：
 
 * MetricsType：可能值是 Hour 和 Minute。
 * ServiceType：可能值为 Blob、Queue 和 Table。
@@ -48,13 +52,13 @@ ms.locfileid: "52664286"
 例如，以下命令在保留期设为 5 天的情况下，在默认存储帐户中为 Blob 服务打开分钟度量值：
 
 ```powershell
-Set-AzureStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5`
+Set-AzStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5`
 ```
 
 以下命令在默认存储帐户中为 Blob 服务检索当前的小时度量值级别和保留天数：
 
 ```powershell
-Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob
+Get-AzStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob
 ```
 
 若要了解如何配置 Azure PowerShell cmdlet 来使用 Azure 订阅并了解如何选择要使用的默认存储帐户，请参阅：[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。

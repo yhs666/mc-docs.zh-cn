@@ -14,19 +14,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/23/2017
-ms.date: 11/12/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 1fb912808dbeb10fac0283f4ad606b548a03133b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d3019c2ef94175ed1f642b492f18d764ac799a02
+ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652652"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193024"
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>使用网络配置文件配置虚拟网络（经典）
 > [!IMPORTANT]
-> Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../resource-manager-deployment-model.md?toc=%2fvirtual-network%2ftoc.json)。 本文介绍使用经典部署模型的情况。 Azure 建议大多数新部署使用 Resource Manager 部署模型。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器部署模型和经典部署模型](../resource-manager-deployment-model.md?toc=%2fvirtual-network%2ftoc.json)。 本文介绍使用经典部署模型的情况。 Azure 建议大多数新部署使用 Resource Manager 部署模型。
 
 可以在 Azure 经典命令行接口 (CLI) 或 Azure PowerShell 中使用网络配置文件来创建和配置虚拟网络（经典）。 无法使用网络配置文件通过 Azure Resource Manager 部署模型创建或修改虚拟网络。 无法在 Azure 门户中使用网络配置文件来创建或修改虚拟网络（经典），但可以直接在 Azure 门户中创建虚拟网络（经典），而无需使用网络配置文件。
 
@@ -137,7 +137,7 @@ ms.locfileid: "52652652"
 
 ### <a name="azure-classic-cli"></a>Azure 经典 CLI
 
-1. [安装 Azure 经典 CLI](https://docs.azure.cn/zh-cn/cli/install-cli-version-1.0.md?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest)。 通过经典 CLI 命令提示符完成剩余的步骤。
+1. [安装 Azure 经典 CLI](https://docs.azure.cn/zh-cn/cli/install-classic-cli?view=azure-cli-latest)。 通过经典 CLI 命令提示符完成剩余的步骤。
 2. 输入 `azure login -e AzureChinaCloud` 命令登录到 Azure。
 3. 输入 `azure config mode asm` 命令确保处于 asm 模式。
 4. 在以下命令中根据需要更改目录和文件名，然后运行该命令导入网络配置文件：

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/23/2018
-ms.date: 10/15/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: 06de8c61149a530dfe5015e7ecd97663856c4d1e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d87e0c1771cb926f832adbde001807e9f545a358
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662207"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083640"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>在本地计算机开发安装过程中监视和诊断服务
 
@@ -34,7 +34,7 @@ ms.locfileid: "52662207"
 
 ## <a name="debugging-service-fabric-java-applications"></a>调试 Service Fabric Java 应用程序
 
-对于 Java 应用程序，可以使用 [多个日志记录框架](http://en.wikipedia.org/wiki/Java_logging_framework) 。 由于 `java.util.logging` 是 JRE 的默认选项，因此也适用于 [github 中的代码示例](https://github.com/Azure-Samples/service-fabric-java-getting-started)。  以下内容说明如何配置 `java.util.logging` 框架。
+对于 Java 应用程序，可以使用 [多个日志记录框架](http://en.wikipedia.org/wiki/Java_logging_framework) 。 由于 `java.util.logging` 是 JRE 的默认选项，因此也适用于 [GitHub 中的代码示例](https://github.com/Azure-Samples/service-fabric-java-getting-started)。 以下内容说明如何配置 `java.util.logging` 框架。
 
 使用 java.util.logging 可将应用程序日志重定向到内存、输出流、控制台文件或套接字。 对于其中的每个选项，框架中已提供默认处理程序。 可以通过创建 `app.properties` 文件来配置应用程序的文件处理程序，将所有日志重定向到本地文件。
 
@@ -47,7 +47,7 @@ java.util.logging.FileHandler.level = ALL
 java.util.logging.FileHandler.formatter = java.util.logging.SimpleFormatter
 java.util.logging.FileHandler.limit = 1024000
 java.util.logging.FileHandler.count = 10
-java.util.logging.FileHandler.pattern = /tmp/servicefabric/logs/mysfapp%u.%g.log             
+java.util.logging.FileHandler.pattern = /tmp/servicefabric/logs/mysfapp%u.%g.log
 ```
 
 `app.properties` 文件指向的文件夹必须存在。 创建 `app.properties` 文件后，还需要修改 `<applicationfolder>/<servicePkg>/Code/` 文件夹中的入口点脚本 `entrypoint.sh`，将属性 `java.util.logging.config.file` 设置为 `app.propertes` 文件。 该入口点应如以下代码片段中所示：
@@ -62,7 +62,7 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
 
 默认情况下，如果未显式配置处理程序，会注册控制台处理程序。 可以在 /var/log/syslog 下查看 syslog 中的日志。
 
-有关详细信息，请参阅 [github 中的代码示例](https://github.com/Azure-Samples/service-fabric-java-getting-started)。  
+有关详细信息，请参阅 [GitHub 中的代码示例](https://github.com/Azure-Samples/service-fabric-java-getting-started)。
 
 ## <a name="debugging-service-fabric-c-applications"></a>调试 Service Fabric C# 应用程序
 
@@ -80,8 +80,8 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
 
 ```csharp
 
- public class ServiceEventSource : EventSource
- {
+public class ServiceEventSource : EventSource
+{
         public static ServiceEventSource Current = new ServiceEventSource();
 
         [NonEvent]
@@ -101,8 +101,8 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
 ```
 
 ```csharp
-   internal class ServiceEventListener : EventListener
-   {
+internal class ServiceEventListener : EventListener
+{
 
         protected override void OnEventSourceCreated(EventSource eventSource)
         {
@@ -110,20 +110,20 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
         }
         protected override void OnEventWritten(EventWrittenEventArgs eventData)
         {
-            using (StreamWriter Out = new StreamWriter( new FileStream("/tmp/MyServiceLog.txt", FileMode.Append)))           
-        { 
-                 // report all event information               
-         Out.Write(" {0} ",  Write(eventData.Task.ToString(), eventData.EventName, eventData.EventId.ToString(), eventData.Level,""));
-                if (eventData.Message != null)              
-            Out.WriteLine(eventData.Message, eventData.Payload.ToArray());              
-            else             
-        { 
-                    string[] sargs = eventData.Payload != null ? eventData.Payload.Select(o => o.ToString()).ToArray() : null; 
-                    Out.WriteLine("({0}).", sargs != null ? string.Join(", ", sargs) : "");             
+                using (StreamWriter Out = new StreamWriter( new FileStream("/tmp/MyServiceLog.txt", FileMode.Append)))
+                {
+                        // report all event information
+                        Out.Write(" {0} ", Write(eventData.Task.ToString(), eventData.EventName, eventData.EventId.ToString(), eventData.Level,""));
+                        if (eventData.Message != null)
+                                Out.WriteLine(eventData.Message, eventData.Payload.ToArray());
+                        else
+                        {
+                                string[] sargs = eventData.Payload != null ? eventData.Payload.Select(o => o.ToString()).ToArray() : null; 
+                                Out.WriteLine("({0}).", sargs != null ? string.Join(", ", sargs) : "");
+                        }
+                }
         }
-           }
-        }
-    }
+}
 ```
 
 上述代码片段将日志输出到 `/tmp/MyServiceLog.txt` 中的文件。 此文件名需要相应地更新。 如果要将日志重定向到控制台，请在自定义的 EventListener 类中使用以下代码片段：
@@ -138,4 +138,4 @@ public static TextWriter Out = Console.Out;
 添加到应用程序中的跟踪代码也可用于诊断 Azure 群集中的应用程序。 请查看以下文章，其中介绍了不同的工具选项，以及如何设置这些选项。
 * [如何使用 Azure 诊断收集日志](service-fabric-diagnostics-how-to-setup-lad.md)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

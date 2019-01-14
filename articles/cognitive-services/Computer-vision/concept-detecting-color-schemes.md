@@ -9,16 +9,17 @@ ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: conceptual
 origin.date: 08/29/2018
-ms.date: 10/30/2018
+ms.date: 01/08/2019
 ms.author: v-junlch
-ms.openlocfilehash: 8e96557f9792ae6794c23df4f8ed13edd6c4fd43
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.custom: seodec18
+ms.openlocfilehash: 411a42f4ac8bb3304d73a755c07dc222b18ca96b
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654543"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083778"
 ---
-# <a name="detecting-color-schemes"></a>检测配色方案
+# <a name="detect-color-schemes-in-images"></a>检测图像中的配色方案
 
 计算机视觉可从图像中提取颜色。 然后在三个不同的上下文中分析颜色：主导前景色、主导背景色和图像的整体主导色。 它们可分组为 12 种主导的主题色。 这些主题色为黑、蓝、褐、灰、绿、橙、粉、紫、红、青、白、黄。 计算机视觉可分析从图像中提取的颜色，以通过主导色和饱和度的组合返回向观众呈现最鲜艳图像颜色的主题色。 可能会在十六进制颜色代码中返回简单的黑白色或主题色，具体取决于图像中的颜色。 计算机视觉还会返回一个布尔值，该值指示图像为黑色还是白色。
 
@@ -52,8 +53,8 @@ ms.locfileid: "52654543"
 
 | 映像 | 主色 |
 |-------|-----------------|
-|![视觉分析花](./Images/flower.png)| 前景色：黑色<br/>背景色：白色<br/>颜色：黑色、白色、绿色|
-![视觉分析火车站](./Images/train_station.png) | 前景色：黑色<br/>背景色：黑色<br/>颜色：黑色 |
+|![具有绿色背景的白色花卉](./Images/flower.png)| 前景色：黑色<br/>背景色：白色<br/>颜色：黑色、白色、绿色|
+![穿过车站的火车](./Images/train_station.png) | 前景色：黑色<br/>背景色：黑色<br/>颜色：黑色 |
 
 ### <a name="accent-color-examples"></a>主题色示例
 
@@ -61,9 +62,9 @@ ms.locfileid: "52654543"
 
 | 映像 | 主题色 |
 |-------|--------------|
-|![户外山地](./Images/mountain_vista.png) | #BB6D10 |
-|![视觉分析花](./Images/flower.png) | #C6A205 |
-|![视觉分析火车站](./Images/train_station.png) | #474A84 |
+|![日落时站在山岩上的人](./Images/mountain_vista.png) | #BB6D10 |
+|![具有绿色背景的白色花卉](./Images/flower.png) | #C6A205 |
+|![穿过车站的火车](./Images/train_station.png) | #474A84 |
 
 ### <a name="black--white-detection-examples"></a>黑白检测示例
 
@@ -71,10 +72,11 @@ ms.locfileid: "52654543"
 
 | 映像 | 黑色还是白色？ |
 |-------|----------------|
-|![视觉分析建筑](./Images/bw_buildings.png) | 是 |
-|![视觉分析庭院](./Images/house_yard.png) | false |
+|![曼哈顿建筑的黑白照片](./Images/bw_buildings.png) | 是 |
+|![一座蓝色的房子和前院](./Images/house_yard.png) | false |
 
 ## <a name="next-steps"></a>后续步骤
 
 了解[检测映像类型](concept-detecting-image-types.md)的概念。
 
+<!-- Update_Description: wording update -->

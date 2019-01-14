@@ -1,21 +1,21 @@
 ---
-title: 使用模板创建 Hadoop 群集 - Azure HDInsight | Azure
+title: 使用模板创建 Apache Hadoop 群集 - Azure HDInsight
 description: 了解如何使用 Resource Manager 模板创建 HDInsight 的群集
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-origin.date: 05/14/2018
-ms.date: 11/19/2018
+origin.date: 11/06/2018
+ms.date: 01/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: eee96ff6e91a37c31a3204255d47fb9712a46d8b
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: ae1eb9bf88eff898e665f5cd86a2fae1bf21cd89
+ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028272"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54216226"
 ---
 # <a name="create-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>使用 Resource Manager 模板在 HDInsight 中创建 Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -34,8 +34,8 @@ ms.locfileid: "53028272"
 
 ### <a name="resource-manager-templates"></a>Resource Manager 模板
 通过资源管理器模板，可轻松地通过单个协调操作为应用程序创建以下资源：
-* HDInsight 群集及其依赖资源（例如默认存储帐户）
-* 其他资源（例如要使用 Apache Sqoop 的 Azure SQL 数据库）
+* HDInsight 群集及其依赖资源（例如默认存储帐户）。
+* 其他资源（例如要使用 [Apache Sqoop](https://sqoop.apache.org/) 的 Azure SQL 数据库）。
 
 在此模板中，定义应用程序所需的资源。 还可指定部署参数以输入不同环境的值。 模板中包含用于为部署构造值的 JSON 和表达式。
 
@@ -78,7 +78,7 @@ ms.locfileid: "53028272"
 
 ## <a name="troubleshoot"></a>故障排除
 
-如果在创建 HDInsight 群集时遇到问题，请参阅[访问控制要求](hdinsight-administer-use-portal-linux.md#create-clusters)。
+如果在创建 HDInsight 群集时遇到问题，请参阅[访问控制要求](hdinsight-hadoop-create-linux-clusters-portal.md)。
 
 ## <a name="next-steps"></a>后续步骤
 在本文中，已经学习了几种创建 HDInsight 群集的方法。 要了解更多信息，请参阅下列文章：

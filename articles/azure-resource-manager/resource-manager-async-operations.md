@@ -1,6 +1,6 @@
 ---
-title: Azure 异步操作 | Azure
-description: 介绍如何在 Azure 中跟踪异步操作。
+title: 异步操作的状态 - Azure 资源管理器
+description: 介绍如何在 Azure 中跟踪异步操作。 它显示用于获取长时间运行操作的状态的值。
 services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
@@ -10,15 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/21/2018
-ms.date: 09/24/2018
+origin.date: 12/09/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: e44d2e4b70d0e103bce9194442b3141be8d7d50b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.custom: seodec18
+ms.openlocfilehash: 8c1949c75ac95f7a6616ab70544d2e67945b6ae8
+ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663214"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193018"
 ---
 # <a name="track-asynchronous-azure-operations"></a>跟踪异步 Azure 操作
 某些 Azure REST 操作以异步方式运行，因为操作无法快速完成。 本文介绍如何通过响应中返回的值跟踪异步操作的状态。  
@@ -196,4 +197,4 @@ https://management.chinacloudapi.cn/subscriptions/{subscription-id}/providers/Mi
 * 有关每个 REST 操作的文档，请参阅 [REST API 文档](https://docs.microsoft.com/rest/api/)。
 * 有关通过 Resource Manager REST API 部署模板的信息，请参阅[使用 Resource Manager 模板和 Resource Manager REST API 部署资源](resource-group-template-deploy-rest.md)。
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

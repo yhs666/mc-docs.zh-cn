@@ -4,9 +4,9 @@ items:
 - name: 概述
   items:
   - name: 关于 Web 应用
-    href: app-service-web-overview.md
+    href: overview.md
   - name: 比较托管选项
-    href: choose-web-site-cloud-service-vm.md
+    href: overview-compare.md
 - name: 快速入门
   items:
   - name: 创建 .NET Core 应用
@@ -34,8 +34,6 @@ items:
       href: app-service-web-tutorial-php-mysql.md
     - name: 将 Node.js 与 MongoDB 配合使用
       href: app-service-web-tutorial-nodejs-mongodb-app.md
-    - name: 将 Java 与 MySQL 配合使用
-      href: app-service-web-tutorial-java-mysql.md
   - name: 安全访问 SQL DB
     href: app-service-web-tutorial-connect-msi.md
   - name: 托管 RESTful API
@@ -49,36 +47,36 @@ items:
 - name: 示例
   items:
   - name: Azure CLI
-    href: app-service-cli-samples.md
+    href: samples-cli.md
   - name: Azure PowerShell
-    href: app-service-powershell-samples.md
+    href: samples-powershell.md
   - name: Resource Manager 模板
-    href: app-service-rm-template-samples.md
+    href: samples-resource-manager-templates.md
 - name: 概念
   items:
   - name: 应用服务工作方式
     href: app-service-how-works-readme.md
   - name: 应用服务计划
-    href: azure-web-sites-web-hosting-plans-in-depth-overview.md
+    href: overview-hosting-plans.md
   - name: OS 功能
     href: operating-system-functionality.md
   - name: 安全性
-    href: app-service-security.md
+    href: overview-security.md
     items:
     - name: 身份验证和授权
-      href: app-service-authentication-overview.md
+      href: overview-authentication-authorization.md
     - name: OS 和运行时修补
-      href: app-service-patch-os-runtime.md
+      href: overview-patch-os-runtime.md
   - name: 入站和出站 IP
-    href: app-service-ip-addresses.md
+    href: overview-inbound-outbound-ips.md
   - name: 混合连接
     href: app-service-hybrid-connections.md
   - name: 流量管理器集成
     href: web-sites-traffic-manager.md
   - name: 本地缓存
-    href: app-service-local-cache-overview.md
+    href: overview-local-cache.md
   - name: 诊断
-    href: app-service-diagnostics.md
+    href: overview-diagnostics.md
 - name: 操作指南
   items:
   - name: 配置应用
@@ -97,8 +95,6 @@ items:
         href: deploy-zip.md
       - name: 通过 FTP 部署
         href: deploy-ftp.md
-      - name: 通过云同步进行部署
-        href: deploy-content-sync.md
       - name: 持续部署
         href: deploy-continuous-deployment.md
       - name: 从本地 Git 进行部署
@@ -108,15 +104,15 @@ items:
     - name: 设置部署凭据
       href: deploy-configure-credentials.md
     - name: 创建过渡环境
-      href: web-sites-staged-publishing.md
+      href: deploy-staging-slots.md
     - name: 资源管理器模板指南
-      href: web-sites-rm-template-guidance.md
+      href: deploy-resource-manager-template.md
   - name: 映射自定义域
     items:
     - name: 使用流量管理器映射域
       href: web-sites-traffic-manager-custom-domain-name.md
     - name: 迁移活动域
-      href: app-service-custom-domain-name-migrate.md
+      href: manage-custom-dns-migrate-domain.md
   - name: 安全应用
     items:
     - name: 对用户进行身份验证
@@ -130,7 +126,7 @@ items:
     - name: 限制 IP
       href: app-service-ip-restrictions.md
     - name: 使用托管标识
-      href: app-service-managed-service-identity.md
+      href: overview-managed-identity.md
     - name: 在应用程序代码中使用 SSL 证书
       href: app-service-web-ssl-cert-load.md
     - name: 配置 TLS 相互身份验证
@@ -141,20 +137,18 @@ items:
       href: web-sites-scale.md
     - name: 横向扩展到多个实例
       href: ../monitoring-and-diagnostics/monitoring-autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json
-    - name: 高密度承载
-      href: app-service-high-density-hosting.md
   - name: 监视应用
     items:
     - name: 配额和警报
       href: web-sites-monitor.md
     - name: 启用日志
-      href: web-sites-enable-diagnostic-log.md
+      href: troubleshoot-diagnostic-logs.md
   - name: 管理应用
     items:
     - name: 管理托管计划
       href: app-service-plan-manage.md
     - name: 备份应用
-      href: web-sites-backup.md
+      href: manage-backup.md
     - name: 还原备份
       href: web-sites-restore.md
     - name: 还原快照
@@ -166,9 +160,9 @@ items:
   - name: 运行后台任务
     items:
     - name: 创建 WebJobs
-      href: web-sites-create-web-jobs.md
+      href: webjobs-create.md
     - name: 使用 VS 开发 WebJobs
-      href: websites-dotnet-deploy-webjobs.md
+      href: webjobs-dotnet-deploy-vs.md
     - name: WebJobs SDK 入门
       href: webjobs-sdk-get-started.md
     - name: 使用 WebJobs SDK
@@ -194,7 +188,7 @@ items:
   - name: 故障排除
     items:
     - name: 使用 Visual Studio 排除故障
-      href: web-sites-dotnet-troubleshoot-visual-studio.md
+      href: troubleshoot-dotnet-visual-studio.md
     - name: 对 Node.js 应用进行故障排除
       href: app-service-web-nodejs-best-practices-and-troubleshoot-guide.md
     - name: 排查 HTTP 502 和 503 错误
@@ -221,9 +215,9 @@ items:
       href: ip-address-change-outbound.md
     - name: SSL 地址
       href: ip-address-change-ssl.md
-ms.openlocfilehash: 7e53787383b4326d50cf8148fbbd82fb5f384f3c
-ms.sourcegitcommit: 80c59ae1174d71509b4aa64a28a98670307a5b38
+ms.openlocfilehash: fbaea6175674259898b40d284b4b4ebcca18d126
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53735174"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083733"

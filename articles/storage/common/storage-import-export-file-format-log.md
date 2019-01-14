@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 01/23/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 3159afa48026df56415844fdf2060e9722104d78
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f4f42a2644a6072a4f64f5470f5086881b5e511f
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660889"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192852"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Azure 导入/导出服务日志文件格式
 当 Azure 导入/导出服务在执行导入作业或导出作业的过程中针对驱动器执行某个操作时，会将日志写入到与该作业关联的存储帐户中的块 Blob 中。  
@@ -149,7 +149,7 @@ properties-status ::=
 |`Properties/Path/@Hash`|属性，字符串|properties 文件的 Base16 编码 MD5 哈希。|  
 |`Blob/Status`|String|Blob 的处理状态。|  
   
-# <a name="drive-status-codes"></a>驱动器状态代码  
+## <a name="drive-status-codes"></a>驱动器状态代码  
 下表列出了驱动器的处理状态代码。  
   
 |状态代码|说明|  

@@ -5,16 +5,16 @@ author: WenJason
 services: storage
 ms.service: storage
 ms.topic: article
-origin.date: 09/10/2018
-ms.date: 09/24/2018
+origin.date: 12/13/2018
+ms.date: 01/14/2019
 ms.author: v-jay
 ms.component: common
-ms.openlocfilehash: 1d0fa76ed6e3da004d53e6a04c0ab1d2e15aed3b
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 13956abda9019b490b06f0266f4f8abe4e3df583
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029137"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192921"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>使用 Azure 导入/导出服务将数据导入到 Azure 文件
 
@@ -30,7 +30,7 @@ ms.locfileid: "53029137"
 - 拥有至少一个 Azure 存储帐户。 请参阅[导入/导出服务支持的存储帐户和存储类型](storage-import-export-requirements.md)的列表。 有关创建新存储帐户的信息，请参阅[如何创建存储帐户](storage-quickstart-create-account.md)。
 - 拥有足够数量的[受支持类型](storage-import-export-requirements.md#supported-disks)的磁盘。 
 - 拥有运行[受支持 OS 版本](storage-import-export-requirements.md#supported-operating-systems)的 Windows 系统。
-- 在 Windows 系统上[下载 WAImportExport 版本 2](https://www.microsoft.com/download/details.aspx?id=55280)。 解压缩到默认文件夹 `waimportexport`。 例如，`C:\WaImportExport`。
+- 在 Windows 系统上[下载 WAImportExport 版本 2](https://aka.ms/waiev2)。 解压缩到默认文件夹 `waimportexport`。 例如，`C:\WaImportExport`。
 
 
 ## <a name="step-1-prepare-the-drives"></a>步骤 1：准备驱动器

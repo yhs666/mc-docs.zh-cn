@@ -1,22 +1,22 @@
 ---
-title: Azure SQL 数据仓库中的数据仓库单位（DWU、cDWU）| Azure
+title: Azure SQL 数据仓库中的数据仓库单位（DWU、cDWU）| Microsoft Docs
 description: 针对选择理想数目的数据仓库单位（DWU、cDWU）来优化价格和性能以及如何更改单位数提供了建议。
 services: sql-data-warehouse
-author: rockboyfor
+author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 origin.date: 04/17/2018
-ms.date: 06/25/2018
-ms.author: v-yeche
+ms.date: 01/14/2019
+ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 18a16ef8b337e04dfd32d50a91f56f193a4254f0
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 7ded2351eb9fcb81c289b64e93024de0b923817d
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649097"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192851"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>数据仓库单位 (DWU) 和计算数据仓库单位 (cDWU)
 针对选择理想数目的数据仓库单位（DWU、cDWU）来优化价格和性能以及如何更改单位数提供了建议。 
@@ -38,8 +38,7 @@ ms.locfileid: "52649097"
 - 增加并发查询和并发槽的最大数量。
 
 ## <a name="service-level-objective"></a>服务级别目标
-<!--Pending on Gen2--> 服务级别目标 (SLO) 是确定数据仓库的成本和性能级别的可伸缩性设置。 第 2 代服务级别以计算数据仓库单位 (cDWU) 计量，例如 DW2000c。 第 1 代服务级别以 DWU 计量，例如 DW2000。 
-<!--Pending on Gen2-->
+服务级别目标 (SLO) 是确定数据仓库的成本和性能级别的可伸缩性设置。 第 2 代服务级别以计算数据仓库单位 (cDWU) 计量，例如 DW2000c。 第 1 代服务级别以 DWU 计量，例如 DW2000。 
 
 在 T-SQL 中，SERVICE_OBJECTIVE 设置确定了数据仓库的服务级别和性能层。
 
@@ -62,16 +61,17 @@ WITH
 ## <a name="performance-tiers-and-data-warehouse-units"></a>性能层和数据仓库单位
 
 每个性能层用于其数据仓库单位测量的单位都略有不同。 当规模单位直接转换为计费时，这种差异会反映在发票上。
-<!--Pending on Gen2-->
+
 - 第 1 代数据仓库以数据仓库单位计量 (DWU)。
 - 第 2 代数据仓库以计算数据仓库单位计量 (cDWU)。 
 
 DWU 和 cDWU 都支持增加或减少计算，以及在无需使用数据仓库时暂停计算。 这些操作均可按需进行。 第 2 代还会在计算节点上使用基于本地磁盘的缓存以提高性能。 缩放或暂停系统时，缓存将失效，因此在达到最佳性能前，缓存需要预热一段时间。  
 
 增加数据库单位时，将以线性方式增加计算资源。 第 2 代可提供最佳查询性能和最大规模，但入门价格也更高。 它专为对性能有持续需求的企业而设计。 这些系统最大限度利用缓存。 
-<!--Pending on Gen2-->
+
 ### <a name="capacity-limits"></a>容量限制
 每个 SQL Server（例如 myserver.database.chinacloudapi.cn）都有一个[数据库事务单位 (DTU)](../sql-database/sql-database-what-is-a-dtu.md) 配额，允许使用特定的数据仓库单位数。 有关详细信息，请参阅[工作负荷管理容量限制](sql-data-warehouse-service-capacity-limits.md#workload-management)。
+
 
 ## <a name="how-many-data-warehouse-units-do-i-need"></a>我需要多少个数据仓库单位？
 合适的数据仓库单位数很大程度上取决于工作负荷及已加载到系统的数据量。
@@ -172,6 +172,7 @@ DWU 更改可能需要几分钟才能完成。 如果要自动缩放，建议实
 
 1. 连接到与逻辑 SQL 数据库服务器关联的 master 数据库。
 2. 提交以下查询以检查数据库状态。
+
 
 ```sql
 SELECT    *

@@ -3,7 +3,7 @@ title: Python 和 Azure 云服务入门 | Azure
 description: 有关使用 Python Tools for Visual Studio 来创建包括 Web 角色和辅助角色的 Azure 云服务的概述。
 services: cloud-services
 documentationcenter: python
-author: thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 5489405d-6fa9-4b11-a161-609103cbdc18
@@ -14,13 +14,13 @@ ms.devlang: python
 ms.topic: hero-article
 origin.date: 07/18/2017
 ms.author: v-yiso
-ms.date: 09/17/2018
-ms.openlocfilehash: d58c7c05f6265e0b627d39f7d8a29a61b82c31bc
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 01/21/2019
+ms.openlocfilehash: 0e1f10138ba9a2800b4058eb38bad85a88edcb50
+ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661179"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54216250"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>用于 Visual Studio 的 Python 工具中的 Python Web 角色和辅助角色
 
@@ -37,7 +37,7 @@ ms.locfileid: "52661179"
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ## <a name="what-are-python-web-and-worker-roles"></a>什么是 Python Web 角色和辅助角色？
-Azure 为运行应用程序提供了三种计算模型：[Azure 应用服务中的 Web 应用功能][execution model-web sites]、[Azure 虚拟机][execution model-vms]和 [Azure 云服务][execution model-cloud services]。 这三种模型都支持 Python。 云服务（包括 Web 角色和辅助角色）提供了 *平台即服务 (PaaS)*。 在云服务中，Web 角色提供专用的 Internet Information Services (IIS) Web 服务器来托管前端 Web 应用程序，而辅助角色可独立于用户交互或输入运行异步任务、运行时间较长的任务或永久性任务。
+Azure 提供了三种用于运行应用程序的计算模型：[Azure 应用服务中的 Web 应用功能][execution model-web sites]、[Azure 虚拟机][execution model-vms]和 [Azure 云服务][execution model-cloud services]。 这三种模型都支持 Python。 云服务（包括 Web 角色和辅助角色）提供了 *平台即服务 (PaaS)*。 在云服务中，Web 角色提供专用的 Internet Information Services (IIS) Web 服务器来托管前端 Web 应用程序，而辅助角色可独立于用户交互或输入运行异步任务、运行时间较长的任务或永久性任务。
 
 有关详细信息，请参阅 [什么是云服务？]。
 
@@ -349,11 +349,11 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 
 <!--Link references-->
 
-[什么是云服务？]: ./cloud-services-choose-me.md
-[execution model-web sites]: ../app-service/app-service-web-overview.md
+[什么是云服务？]: cloud-services-choose-me.md
+[execution model-web sites]: ../app-service/overview.md
 [execution model-vms]:../virtual-machines/windows/overview.md
-[execution model-cloud services]: ./cloud-services-choose-me.md
-[Python Developer Center]: https://www.azure.cn/develop/python/
+[execution model-cloud services]: cloud-services-choose-me.md
+[Python Developer Center]: /develop/python/
 
 [Blob 服务]:../storage/blobs/storage-python-how-to-use-blob-storage.md
 [队列服务]: ../storage/queues/storage-python-how-to-use-queue-storage.md

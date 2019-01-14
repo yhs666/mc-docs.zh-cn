@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/06/2018
-ms.date: 12/31/2018
+ms.date: 01/21/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: e34aab1d130a8d01fefd6944f8d2360f6c60dbdf
-ms.sourcegitcommit: 80c59ae1174d71509b4aa64a28a98670307a5b38
+ms.openlocfilehash: 57e24556899b0bb6d89fc2aabe12739642ba4491
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53735160"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083730"
 ---
 # <a name="restore-an-app-in-azure"></a>在 Azure 中还原应用
-本文演示如何在 [Azure 应用服务](../app-service/app-service-web-overview.md)中还原已事先备份的应用（请参阅[在 Azure 中备份应用](web-sites-backup.md)）。 可以根据需要将应用及其链接的数据库还原到以前的状态，或者基于原始应用的备份之一创建新的应用。 Azure 应用服务支持用于备份和还原的以下数据库：
+本文演示如何在 [Azure 应用服务](../app-service/overview.md)中还原已事先备份的应用（请参阅[在 Azure 中备份应用](manage-backup.md)）。 可以根据需要将应用及其链接的数据库还原到以前的状态，或者基于原始应用的备份之一创建新的应用。 Azure 应用服务支持用于备份和还原的以下数据库：
 - [SQL 数据库](https://www.azure.cn/home/features/sql-database/)
 - [Azure Database for MySQL](https://www.azure.cn/home/features/mysql)
 - [Azure Database for PostgreSQL](https://www.azure.cn/home/features/postgresql)
@@ -37,18 +37,17 @@ ms.locfileid: "53735160"
 1. 在 Azure 门户中应用的“设置”页上，单击“备份”以显示“备份”页。 然后，单击“还原”。
    
     ![选择“立即还原”][ChooseRestoreNow]
-    
 2. 在“还原”页中，首先选择备份源。
    
     ![](./media/web-sites-restore/021ChooseSource1.png)
-
+   
     “应用备份”选项显示当前应用的所有现有备份，使你能够轻松地选择一个。
     “存储”选项使你能够从任何现有 Azure 存储帐户和订阅中的容器中选择任何备份 ZIP 文件。
     如果正在尝试还原其他应用的备份，请使用“存储”  选项。
 3. 然后，在“还原目标”中指定应用还原的目标。
-
+   
     ![](./media/web-sites-restore/022ChooseDestination1.png)
-
+   
    > [!WARNING]
    > 如果选择“覆盖”，则会清除并覆盖当前应用中所有的现有数据。 在单击“确定”之前，请确保该操作正是想要执行的操作。
    > 
@@ -71,11 +70,9 @@ ms.locfileid: "53735160"
 3. 在存储帐户页中，选择所需的容器
    
     ![查看容器][ViewContainers]
-    
 4. 选择要下载或删除的备份文件。
-
+   
     ![ViewContainers](./media/web-sites-restore/03ViewFiles.png)
-    
 5. 单击“下载”或“删除”，具体取决于要执行的操作。  
 
 <a name="OperationLogs"></a>
@@ -95,8 +92,8 @@ ms.locfileid: "53735160"
 
 相关示例如下所示：
 
-- [Azure CLI 示例](app-service-cli-samples.md)
-- [Azure PowerShell 示例](app-service-powershell-samples.md)
+- [Azure CLI 示例](samples-cli.md)
+- [Azure PowerShell 示例](samples-powershell.md)
 
 <!-- ## Next Steps
 You can backup and restore App Service apps using REST API. -->
