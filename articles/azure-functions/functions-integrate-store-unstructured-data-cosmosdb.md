@@ -11,15 +11,15 @@ ms.service: azure-functions
 ms.devlang: csharp
 ms.topic: quickstart
 origin.date: 10/01/2018
-ms.date: 12/27/2018
+ms.date: 01/09/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: e44fc0aee00825321764c02e26a27bf3523c7132
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 7db39059cd9c4211aa35ba4e36993b5dcc502b5a
+ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806561"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54141680"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>使用 Azure Functions 和 Azure Cosmos DB 存储非结构化数据
 
@@ -75,7 +75,7 @@ ms.locfileid: "53806561"
 
 根据你选择的语言将现有函数代码替换为以下代码：
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 将现有 C# 函数替换为以下代码：
 
@@ -112,7 +112,7 @@ public static IActionResult Run(HttpRequest req, out object taskDocument, ILogge
 }
 ```
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 将现有 JavaScript 函数替换为以下代码：
 
@@ -174,4 +174,4 @@ module.exports = async function (context, req) {
 
 若要详细了解如何绑定到 Cosmos DB 数据库，请参阅 [Azure Functions Cosmos DB 绑定](functions-bindings-cosmosdb.md)。
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->
