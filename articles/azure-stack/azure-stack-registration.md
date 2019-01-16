@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/04/2018
-ms.date: 12/31/2018
+origin.date: 12/28/2018
+ms.date: 01/14/2019
 ms.author: v-jay
 ms.reviewer: brbartle
-ms.openlocfilehash: fc031eafd75275c343fb847045260b5fa9d1558a
-ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
+ms.openlocfilehash: d7722b6aa07dfa3723915cb7e52fb1ade43c62a9
+ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814664"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54059024"
 ---
 # <a name="register-azure-stack-with-azure"></a>将 Azure Stack 注册到 Azure
 
@@ -86,7 +86,7 @@ Azure Stack 部署可能处于“已连接”或“已断开连接”状态。
 
  - **已连接**  
  “已连接”意味着 Azure Stack 已部署，因此可以连接到 Internet 和 Azure。 可以将 Azure Active Directory (Azure AD) 或 Active Directory 联合身份验证服务 (AD FS) 用于标识存储。 对于已连接的部署，可供选择的有两种计费模型：即用即付或基于容量。
-    - [使用**即用即付**计费模型将连接的 Azure Stack 注册到 Azure](#register-connected-with-pay-as-you-go-billing)
+    - [使用**即用即付**计费模型将连接的 Azure Stack 注册到 Azure](#register-connected-with-pay-in-advance-billing)
     - [使用**容量**计费模型将连接的 Azure Stack 注册到 Azure](#register-connected-with-capacity-billing)
 
  - **已断开连接**  
@@ -106,9 +106,9 @@ Run: Enter-PSSession -ComputerName <privileged endpoint computer name> -Configur
 Run: get-azurestackstampinformation 
 ```
 
-## <a name="register-connected-with-pay-as-you-go-billing"></a>使用即用即付计费模型注册连接的 Azure Stack
+## <a name="register-connected-with-pay-in-advance-billing"></a>使用预先支付计费模型注册连接的 Azure Stack
 
-执行以下步骤，使用即用即付计费模式将 Azure Stack 注册到 Azure。
+执行以下步骤，使用预先支付计费模型将 Azure Stack 注册到 Azure。
 
 > [!Note]  
 > 所有这些步骤必须在可以访问特权终结点 (PEP) 的计算机上运行。 有关 PEP 的详细信息，请参阅[使用 Azure Stack 中的特权终结点](azure-stack-privileged-endpoint.md)。
@@ -298,15 +298,15 @@ Run: get-azurestackstampinformation
 
 ## <a name="verify-azure-stack-registration"></a>验证 Azure Stack 注册
 
-使用以下步骤来验证 Azure Stack 是否已成功注册到 Azure。
+可以使用“区域管理”磁贴，验证 Azure Stack 注册是否成功。 可在管理员门户的默认仪表板上使用此磁贴。 状态可能是已注册，也可能是未注册。 如果是已注册，则还会显示用于注册 Azure Stack 的 Azure 订阅 ID，以及注册资源组和名称。
 
-1. 登录到 Azure Stack [管理门户](/azure-stack/azure-stack-manage-portals#access-the-administrator-portal)：https&#58;//adminportal.*&lt;区域>.&lt;fqdn>*。
-2. 选择“所有服务”，然后在“管理”类别下，选择“市场管理” > “从 Azure 添加”。
+1. 登录到 [Azure Stack 管理门户](https://adminportal.local.azurestack.external)。
 
-如果看到 Azure 提供的项列表（例如 WordPress），则表示激活成功。 但是，在离线环境中，Azure Stack 市场不会显示 Azure 市场项。
+2. 在“仪表板”中，选择“区域管理”。
 
-> [!Note]  
-> 完成注册后，将不再显示提示未注册的活动警告。
+    [ ![“区域管理”磁贴](media/azure-stack-registration/admin1sm.png "“区域管理”磁贴") ](media/azure-stack-registration/admin1.png#lightbox)
+
+3. 选择“属性”。 此边栏选项卡显示环境的状态和详细信息。 状态可能是“已注册”，也可能是“未注册”。 如果是已注册，则还会显示用于注册 Azure Stack 的 Azure 订阅 ID，以及注册资源组和名称。
 
 ## <a name="renew-or-change-registration"></a>续订或更改注册
 

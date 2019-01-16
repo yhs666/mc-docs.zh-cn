@@ -1,5 +1,5 @@
 ---
-title: 使用 SQL 数据库在 Azure 中生成 ASP.NET | Azure
+title: 使用 SQL 数据库构建 ASP.NET 应用 - Azure 应用服务 | Azure Docs
 description: 了解如何将采用 SQL Server 数据库的 C# ASP.NET 应用部署到 Azure。
 services: app-service\web
 documentationcenter: ''
@@ -9,28 +9,27 @@ editor: ''
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.service: app-service-web
 ms.workload: web
-ms.technology: vs-azure
 ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
 origin.date: 06/25/2018
-ms.date: 10/29/2018
+ms.date: 01/21/2019
 ms.author: v-biyu
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 7caafdd39d44a38d1765ed3a644d817a89abc754
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.custom: seodec18
+ms.openlocfilehash: efd080145f9c59156cdee5705499531aef7d89a8
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661773"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083714"
 ---
-# <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>教程：使用 SQL 数据库在 Azure 中构建 ASP.NET 应用
+# <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>教程：使用 SQL 数据库在 Azure 中生成 ASP.NET 应用
 
-[Azure Web 应用](app-service-web-overview.md)提供高度可缩放、自修补的 Web 托管服务。 本教程演示如何在 Azure 中部署数据驱动的 ASP.NET Web 应用，以及如何将其连接到 [Azure SQL 数据库](../sql-database/sql-database-technical-overview.md)。 完成本教程后，将拥有在 Azure 中运行并已连接到 SQL 数据库的 ASP.NET 应用。
+[Azure 应用服务](overview.md)提供高度可缩放、自修补的 Web 托管服务。 本教程演示如何在应用服务中部署数据驱动的 ASP.NET 应用，以及如何将其连接到 [Azure SQL 数据库](../sql-database/sql-database-technical-overview.md)。 完成本教程后，将拥有在 Azure 中运行并已连接到 SQL 数据库的 ASP.NET 应用。
 
-![Azure Web 应用中已发布 ASP.NET 应用程序](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
+![已在 Azure 应用服务中发布 ASP.NET 应用程序](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
-本教程介绍如何：
+本教程介绍如何执行下列操作：
 
 > [!div class="checklist"]
 > * 在 Azure 中创建 SQL 数据库
@@ -53,7 +52,6 @@ ms.locfileid: "52661773"
 ## <a name="download-the-sample"></a>下载示例
 
 - [下载示例项目](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip)。
-
 - 提取（解压缩）*dotnet-sqldb-tutorial-master.zip* 文件。
 
 此示例项目包含一个使用 [Entity Framework Code First](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application) 的基本 [ASP.NET MVC](https://www.asp.net/mvc) 创建-读取-更新-删除 (CRUD) 应用。
@@ -68,7 +66,7 @@ ms.locfileid: "52661773"
 
 测试“编辑”、“详细信息”和“删除”链接。
 
-该应用使用数据库上下文与数据库进行连接。 在此示例中，数据库上下文使用名为 `MyDbConnection` 的连接字符串。 此连接字符串在 *Web.config* 文件中设置，在 *Models/MyDatabaseContext.cs* 文件中引用。 本教程稍后会用到该连接字符串，以便将 Azure Web 应用连接到 Azure SQL 数据库。 
+该应用使用数据库上下文与数据库进行连接。 在此示例中，数据库上下文使用名为 `MyDbConnection` 的连接字符串。 此连接字符串在 *Web.config* 文件中设置，在 *Models/MyDatabaseContext.cs* 文件中引用。 在教程后面部分，该连接字符串名称用于将 Azure 应用连接到 Azure SQL 数据库。 
 
 ## <a name="publish-to-azure-with-sql-database"></a>使用 SQL 数据库发布到 Azure
 
@@ -80,10 +78,9 @@ ms.locfileid: "52661773"
 
 ![从项目概述页发布](./media/app-service-web-tutorial-dotnet-sqldatabase/publish-to-app-service.png)
 
-发布时将打开“创建应用服务”对话框，帮助你创建所需的所有 Azure 资源，以便在 Azure 中运行 ASP.NET Web 应用。
+发布将打开“创建应用服务”对话框，这有助于创建在 Azure 中运行 ASP.NET 应用所需的所有 Azure 资源。
 
 ### <a name="sign-in-to-azure"></a>登录 Azure
-
 
 在“创建应用服务”对话框中单击“添加帐户”，并登录到用户的 Azure 订阅。 如果已登录到 Azure 帐户，请确保该帐户包含 Azure 订阅。 如果登录的 Azure 帐户不包含 Azure 订阅，请单击该帐户添加正确的帐户。
 
@@ -122,7 +119,7 @@ ms.locfileid: "52661773"
 
 | 设置  | 建议的值 | 更多信息 |
 | ----------------- | ------------ | ----|
-|**应用服务计划**| myAppServicePlan | [应用服务计划](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) |
+|**应用服务计划**| myAppServicePlan | [应用服务计划](../app-service/overview-hosting-plans.md) |
 |**位置**| 中国北部 | - |
 |**大小**| 免费 | [定价层](https://www.azure.cn/pricing/details/app-service/)|
 
@@ -136,14 +133,14 @@ ms.locfileid: "52661773"
 
 在“配置 SQL 数据库”对话框中，单击“SQL Server”旁的“新建”。 
 
-此时会生成唯一的服务器名称。 此名称用作逻辑服务器 `<server_name>.database.chinacloudapi.cn` 的默认 URL 的一部分。 在 Azure 的所有逻辑服务器实例中，它必须是唯一的。 可以更改服务器名称，但就本教程来说，请保留生成的值。
+此时会生成唯一的服务器名称。 此名称用作逻辑服务器 `<server_name>.database.chinacloudapi.cn` 的默认 URL 的一部分。 在 Azure 的所有逻辑服务器实例中，它必须是唯一的。 可以更改服务器名称，但本教程沿用生成的值。
 
 添加管理员用户名和密码。 有关密码复杂性要求，请参阅[密码策略](https://docs.microsoft.com/sql/relational-databases/security/password-policy)。
 
-请记住此用户名和密码。 随后，需要用它们来管理逻辑服务器实例。
+请记住此用户名和密码。 随后，你需要用它们来管理逻辑服务器实例。
 
 > [!IMPORTANT]
-> 虽然连接字符串中的密码已在 Visual Studio 和应用服务中受到屏蔽，但由于它实际上是保留在某个位置，因此增加了应用的受攻击面。 应用服务可以使用[托管服务标识](app-service-managed-service-identity.md)，因此根本不需要将机密保留在代码或应用配置中，这样就消除了上述风险。 有关详细信息，请参阅[后续步骤](#next-steps)。
+> 虽然连接字符串中的密码已在 Visual Studio 和应用服务中受到屏蔽，但由于它实际上是保留在某个位置，因此增加了应用的受攻击面。 应用服务可以使用[托管服务标识](overview-managed-identity.md)，因此根本不需要将机密保留在代码或应用配置中，这样就消除了上述风险。 有关详细信息，请参阅[后续步骤](#next-steps)。
 
 ![创建 SQL Server 实例](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
@@ -167,7 +164,7 @@ ms.locfileid: "52661773"
 
 添加多个待办事项。
 
-![Azure Web 应用中已发布 ASP.NET 应用程序](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
+![已在 Azure 应用中发布 ASP.NET 应用程序](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
 祝贺！ 数据驱动 ASP.NET 应用程序当前在 Azure 应用服务中实时运行。
 
@@ -193,7 +190,7 @@ ms.locfileid: "52661773"
 
 ### <a name="allow-client-connection-from-your-computer"></a>允许来自你的计算机的客户端连接
 
-此时会打开“新建防火墙规则”对话框。 默认情况下，SQL 数据库实例仅允许来自 Azure 服务（例如 Azure Web 应用）的连接。 若要连接到数据库，请在 SQL 数据库实例中创建防火墙规则。 防火墙规则允许本地计算机的公共 IP 地址。
+此时会打开“新建防火墙规则”对话框。 默认情况下，SQL 数据库实例仅允许来自 Azure 服务的连接，如 Azure 应用。 若要连接到数据库，请在 SQL 数据库实例中创建防火墙规则。 防火墙规则允许本地计算机的公共 IP 地址。
 
 对话框中已填充了你的计算机的公共 IP 地址。
 
@@ -211,7 +208,7 @@ Visual Studio 成功为 SQL 数据库实例创建防火墙设置后，连接将�
 
 ## <a name="update-app-with-code-first-migrations"></a>使用 Code First 迁移更新应用
 
-可以在 Visual Studio 中使用熟悉的工具，更新 Azure 中的数据库和 Web 应用。 此步骤中将使用实体框架中的 Code First 迁移对数据库架构进行更改，并将其发布至 Azure。
+可以在 Visual Studio 中使用熟悉的工具，更新 Azure 中的数据库和应用。 此步骤中将使用实体框架中的 Code First 迁移对数据库架构进行更改，并将其发布至 Azure。
 
 有关使用 Entity Framework Code First 迁移的详细信息，请参阅[使用 MVC 5 的 Entity Framework 6 Code First 入门](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application)。
 
@@ -257,7 +254,7 @@ Update-Database
 
 打开 _Controllers\TodosController.cs_。
 
-在第 52 行找到 `Create()` 方法，并将 `Done` 添加到 `Bind` 属性中的属性列表。 完成后，`Create()` 方法签名如以下代码所示：
+在第 52 行找到 `Create()` 方法，并将 `Done` 添加到 `Bind` 特性中的属性列表。 完成后，`Create()` 方法签名应如下面的代码所示：
 
 ```csharp
 public ActionResult Create([Bind(Include = "Description,CreatedDate,Done")] Todo todo)
@@ -305,7 +302,7 @@ public ActionResult Create([Bind(Include = "Description,CreatedDate,Done")] Todo
 
 ### <a name="enable-code-first-migrations-in-azure"></a>在 Azure 中启用 Code First 迁移
 
-代码更改生效（包括数据库迁移）后，将其发布至 Azure Web 应用，并仍使用 Code First 迁移更新 SQL 数据库。
+代码更改生效（包括数据库迁移）后，将其发布至 Azure 应用，并使用 Code First 迁移更新 SQL 数据库。
 
 与先前的操作相同，右键单击项目，然后选择“发布”。
 
@@ -319,39 +316,40 @@ public ActionResult Create([Bind(Include = "Description,CreatedDate,Done")] Todo
 
 选择“执行 Code First 迁移(应用程序启动时运行)”，然后单击“保存”。
 
-![在 Azure Web 应用中启用 Code First 迁移](./media/app-service-web-tutorial-dotnet-sqldatabase/enable-migrations.png)
+![在 Azure 应用中启用 Code First 迁移](./media/app-service-web-tutorial-dotnet-sqldatabase/enable-migrations.png)
 
 ### <a name="publish-your-changes"></a>发布更改
 
-现已在 Azure Web 应用中启用了 Code First 迁移，请发布代码更改。
+现已在 Azure 应用中启用了 Code First 迁移，可发布代码更改信息。
 
 在发布页中单击“发布”。
 
 再次尝试添加待办事项并选择“完成”，然后，它们将作为已完成项显示在主页中。
 
-![Code First 迁移后的 Azure Web 应用](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
+![Code First 迁移后的 Azure 应用](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
 所有现有待办事项仍将显示。 重新发布 ASP.NET 应用程序时，SQL 数据库中的现有数据不会丢失。 此外，Code First 迁移仅更改数据架构，而使现有数据保持不变。
 
+
 ## <a name="stream-application-logs"></a>流式传输应用程序日志
 
-可直接通过 Azure Web 应用将跟踪消息流式传输到 Visual Studio。
+可直接通过 Azure 应用将跟踪消息流式传输到 Visual Studio。
 
 打开 _Controllers\TodosController.cs_。
 
-每个操作都以 `Trace.WriteLine()` 方法开头。 添加此代码的目的是演示如何将跟踪消息添加至 Azure Web 应用。
+每个操作都以 `Trace.WriteLine()` 方法开头。 添加此代码的目的是演示如何将跟踪消息添加至 Azure 应用。
 
 ### <a name="open-server-explorer"></a>打开服务器资源管理器
 
-在“视图”菜单中，选择“服务器资源管理器”。 可在“服务器资源管理器”中为 Azure Web 应用配置日志记录。 
+在“视图”菜单中，选择“服务器资源管理器”。 可在“服务器资源管理器”中为 Azure 应用配置日志记录。 
 
 ### <a name="enable-log-streaming"></a>启用日志流式传输
 
 在“服务器资源管理器”中，展开“Azure” > “应用服务”。
 
-展开“myResourceGroup”资源组，该资源组在首次创建 Azure Web 应用时创建。
+展开“myResourceGroup”资源组，该资源组在首次创建 Azure 应用时创建。
 
-右键单击 Azure Web 应用，然后选择“查看流式传输日志”。
+右键单击 Azure 应用，并选择“查看流式传输日志”。
 
 ![启用日志流式传输](./media/app-service-web-tutorial-dotnet-sqldatabase/stream-logs.png)
 
@@ -359,13 +357,13 @@ public ActionResult Create([Bind(Include = "Description,CreatedDate,Done")] Todo
 
 ![输出窗口中的日志流式传输](./media/app-service-web-tutorial-dotnet-sqldatabase/log-streaming-pane.png)
 
-但还无法查看任何跟踪消息。 因为当首先选择“查看流式传输日志”时，Azure Web 应用将跟踪级别设置为 `Error`，此级别只记录错误事件（使用 `Trace.TraceError()` 方法）。
+但还无法查看任何跟踪消息。 因为当首先选择“查看流式传输日志”时，Azure 应用将跟踪级别设置为 `Error`，此级别只记录错误事件（使用 `Trace.TraceError()` 方法）。
 
 ### <a name="change-trace-levels"></a>更改跟踪级别
 
 若要更改跟踪级别以输出其他跟踪消息，请返回到“服务器资源管理器”。
 
-再次右键单击 Azure Web 应用并选择“查看设置”。
+再次右键单击 Azure 应用并选择“查看设置”。
 
 在“应用程序日志记录(文件系统)”下拉列表中，选择“详细”。 单击“保存” 。
 
@@ -391,17 +389,17 @@ Application: 2017-04-06T23:30:54  PID[8132] Verbose     GET /Todos/Index
 
 ![停止日志流式传输](./media/app-service-web-tutorial-dotnet-sqldatabase/stop-streaming.png)
 
-## <a name="manage-your-azure-web-app"></a>管理 Azure Web 应用
+## <a name="manage-your-azure-app"></a>管理 Azure 应用
 
 转到 [Azure 门户](https://portal.azure.cn)查看已创建的 Web 应用。 
 
 
 
-从左侧菜单中单击“应用服务”，并单击 Azure Web 应用的名称。
+从左侧菜单中单击“应用服务”，并单击 Azure 应用的名称。
 
-![在门户中导航到 Azure Web 应用](./media/app-service-web-tutorial-dotnet-sqldatabase/access-portal.png)
+![在门户中导航到 Azure 应用](./media/app-service-web-tutorial-dotnet-sqldatabase/access-portal.png)
 
-已进入 Web 应用的页面。 
+你已登录到应用页。 
 
 默认情况下，门户将显示“概览”页。 在此页中可以查看应用的运行状况。 在此处还可以执行基本的管理任务，例如浏览、停止、启动、重新启动和删除。 页面左侧的选项卡显示可以打开的不同配置页。 
 
@@ -424,4 +422,4 @@ Application: 2017-04-06T23:30:54  PID[8132] Verbose     GET /Todos/Index
 转到下一教程，了解如何轻松地提高 Azure SQL 数据库连接的安全性。
 
 > [!div class="nextstepaction"]
-> [使用托管服务标识安全地访问 SQL 数据库](app-service-web-tutorial-connect-msi.md)
+> [使用适用于 Azure 资源的托管标识安全地访问 SQL 数据库](app-service-web-tutorial-connect-msi.md)

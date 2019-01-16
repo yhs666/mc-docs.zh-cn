@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中创建静态 HTML Web 应用 | Azure
+title: 创建静态 HTML Web 应用 - Azure 应用服务 | Azure Docs
 description: 了解如何通过部署静态 HTML 示例应用，在 Azure 应用服务中运行 Web 应用。
 services: app-service\web
 documentationcenter: ''
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 08/24/2018
-ms.date: 10/08/2018
-ms.author: v-yiso
-ms.custom: mvc
-ms.openlocfilehash: 750e2244d0afcb999b62323a79c03bd1168f864f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 01/21/2019
+ms.author: v-biyu
+ms.custom: seodec18
+ms.openlocfilehash: 1e195b5a988b00bb51bd783cd7b6300856cd451f
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659001"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083710"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>在 Azure 中创建静态 HTML Web 应用
 
-[Azure Web 应用](app-service-web-overview.md)提供高度可缩放、自修补的 Web 托管服务。  本快速入门教程演示如何将基本 HTML+CSS 站点部署到 Azure Web 应用。 还可以使用 [Azure CLI](/cli/install-azure-cli) 在本地运行这些命令
+[Azure Web 应用](overview.md)提供高度可缩放、自修补的 Web 托管服务。  本快速入门教程演示如何将基本 HTML+CSS 站点部署到 Azure Web 应用。 还可以使用 [Azure CLI](/cli/install-azure-cli) 在本地运行这些命令
 
 ![示例应用主页](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
@@ -55,7 +55,7 @@ mkdir quickstart
 cd quickstart
 ```
 
-接下来，运行以下命令将示例应用存储库克隆到 quickstart 目录。
+接下来请运行以下命令，将示例应用存储库克隆到快速入门目录。
 
 ```bash
 git clone https://github.com/Azure-Samples/html-docs-hello-world.git
@@ -124,7 +124,7 @@ az webapp up --location chinaeast --name <app_name>
 az webapp up --location chinaeast --name <app_name>
 ```
 
-完成部署后，切换回**浏览到应用**步骤中打开的浏览器窗口，然后刷新页面。
+完成部署后，切换回“**浏览到应用**”步骤中打开的浏览器窗口，然后刷新页面。
 
 ![已更新的示例应用主页](media/app-service-web-get-started-html/hello-azure-in-browser-az.png)
 

@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 10/18/2018
-ms.date: 12/17/2018
+ms.date: 01/14/2019
 ms.author: v-jay
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 312c8880f5de18382ac7efdd080f03c82201e045
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.openlocfilehash: ade018ae2a857fe13116b33fd08c56c3d04aa3a7
+ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396329"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54059029"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>教程：使用 Azure 和 Azure Stack 部署混合云解决方案
 
@@ -90,7 +90,7 @@ ms.locfileid: "53396329"
 
     ![配置 VM 的基本设置](media/azure-stack-solution-hybrid-cloud/image3.png)
 
-6. 在“大小”下面，选择 VM 的大小。 对于本教程，我们建议使用 DS2_V2_Standard。
+6. 在“大小”下面，选择 VM 的大小。 对于本教程，建议使用 A2_Standard 或 DS2_V2_Standard。
 
 7. 在“设置”>“配置可选功能”下面配置以下设置：
 

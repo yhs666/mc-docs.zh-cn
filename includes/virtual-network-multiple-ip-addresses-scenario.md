@@ -1,3 +1,17 @@
+---
+author: rockboyfor
+ms.service: virtual-network
+ms.topic: include
+origin.date: 11/09/2018
+ms.date: 01/21/2019
+ms.author: v-yeche
+ms.openlocfilehash: a545cf658e79aea6a22f2d2e8f2c531132f50c1b
+ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193178"
+---
 ## <a name="scenario"></a>方案
 创建具有一个 NIC 的 VM，并连接到虚拟网络。 VM 需要三个不同的专用 IP 地址和两个公共 IP 地址。 IP 地址将分配到以下 IP 配置：
 
@@ -11,4 +25,3 @@ IP 配置在创建 NIC 时关联到 NIC，NIC 在创建 VM 时附加到 VM。 �
 
 > [!NOTE]
 > 尽管本文中的步骤将所有 IP 配置都分配给一个 NIC，但也可将多个 IP 配置分配给多 NIC VM 中的任何 NIC。 若要了解如何创建具有多个 NIC 的 VM，请阅读[创建具有多个 NIC 的 VM](../articles/virtual-machines/windows/multiple-nics.md)一文。
-<!--ms.date: 11/06/2017-->

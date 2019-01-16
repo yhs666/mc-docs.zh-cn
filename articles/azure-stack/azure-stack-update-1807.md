@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/07/2018
-ms.date: 11/12/2018
+ms.date: 01/14/2019
 ms.author: v-jay
 ms.reviewer: justini
-ms.openlocfilehash: 06fb39d87455c631b97fb9a496b4dff911876c57
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 9b73f29242456b972f58caea50f9550fbeaaa1ae
+ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650449"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54059026"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 更新
 
@@ -70,7 +70,7 @@ Azure Stack 1807 更新内部版本号为 **1.1807.0.76**。
 - **提高了网络使用情况计量的准确性和复原能力**。  网络使用情况计量现在更准确，考虑到了暂停的订阅、中断期间和争用条件等因素。
 
 <!-- 2753080 | IS -->  
-- **更新发布通知** - 连接的 Azure Stack 部署现在会定期检查某个安全的终结点，看是否发布了云更新。 此通知显示在“更新”磁贴中，这与手动查看并导入新更新后的情况一致。 详细了解如何[管理 Azure Stack 的更新](azure-stack-updates.md)。
+- **更新发布通知。** 连接的 Azure Stack 部署现在会定期检查某个安全的终结点，看是否发布了云更新。 此通知显示在“更新”磁贴中，这与手动查看并导入新更新后的情况一致。 详细了解如何[管理 Azure Stack 的更新](azure-stack-updates.md)。
 
 <!-- 2297790 | IS, ASDK -->  
 - **改进了 Azure Stack Syslog 客户端（预览版功能）**。 此客户端允许将与 Azure Stack 基础结构相关的审核和日志转发到 Azure Stack 外部的 Syslog 服务器或安全信息与事件管理 (SIEM) 软件。 Syslog 客户端现在支持使用纯文本或 TLS 1.2 加密的 TCP 协议，后一种加密为默认配置。 可以使用仅服务器身份验证或相互身份验证对 TLS 连接进行配置。
@@ -95,7 +95,7 @@ Azure Stack 1807 更新内部版本号为 **1.1807.0.76**。
 - **缩短了 VM 创建时间**：适用于使用从 Azure 市场下载的映像创建的 VM。
 
 <!-- TBD | IS, ASDK -->  
-- **改进了 Azure Stack Capacity Planner 可用性**。 Azure Stack [Capacity Planner](http://aka.ms/azstackcapacityplanner) 现在提供一种简化的体验，可以在定义解决方案 SKU 时输入 S2D 缓存和 S2D 容量。 1000 VM 限制已去除。
+- **改进了 Azure Stack Capacity Planner 可用性**。 Azure Stack [Capacity Planner](https://aka.ms/azstackcapacityplanner) 现在提供一种简化的体验，可以在定义解决方案 SKU 时输入 S2D 缓存和 S2D 容量。 1000 VM 限制已去除。
 
 
 ### <a name="fixed-issues"></a>修复的问题
@@ -163,9 +163,8 @@ Azure Stack 使用 Windows Server 2016 的 Server Core 安装来托管重要基�
 
 ### <a name="prerequisites"></a>先决条件
 
-- 在应用 Azure Stack 1807 更新之前安装 Azure Stack [1805 更新](azure-stack-update-1805.md)。  没有 1806 更新。  
-
-- 安装最新发布的 [1805 版更新或修补程序](azure-stack-update-1805.md#post-update-steps)。  
+- 在应用 Azure Stack 1807 更新之前安装 Azure Stack [1805 更新](azure-stack-update-1805.md)。 没有 1806 更新。  
+ 
   > [!TIP]  
   > 订阅下述 *RRS* 或 *Atom* 源，了解 Azure Stack 修补程序的最新更新：
   > - RRS： https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … 
@@ -254,7 +253,7 @@ Azure Stack 使用 Windows Server 2016 的 Server Core 安装来托管重要基�
    - 名称：基础结构角色不正常
    - 严重性：警告
    - 组件：运行状况控制器
-   - 说明：运行状况控制器故障扫描仪不可用。 这可能会影响运行状况报告和指标。
+   - 说明：运行状况控制器故障扫描程序不可用。 这可能会影响运行状况报告和指标。
 
   可以放心忽略这两条警报，它们在一段时间后会自动关闭。  
 
@@ -262,10 +261,10 @@ Azure Stack 使用 Windows Server 2016 的 Server Core 安装来托管重要基�
 <!-- 2812138 | IS --> 
 - 可能会看到具有以下详细信息的**存储**组件警报：
 
-   - 名称: 存储服务内部通信错误  
-   - 严重性：严重  
-   - 组件: 存储  
-   - 说明: 将请求发送到以下节点时发生存储服务内部通信错误。  
+   - 名称：存储服务内部通信错误  
+   - 严重性：关键  
+   - 组件：存储  
+   - 说明：将请求发送到以下节点时发生存储服务内部通信错误。  
 
     可以放心地忽略此警报，但需手动关闭它。
 
@@ -279,7 +278,7 @@ Azure Stack 使用 Windows Server 2016 的 Server Core 安装来托管重要基�
 - 使用 PowerShell cmdlet **Start-AzsScaleUnitNode** 或 **Stop-AzsScaleunitNode** 管理缩放单元时，首次尝试启动或停止缩放单元可能会失败。 如果 cmdlet 在第一次运行时失败，请再次运行 cmdlet。 第二次运行应该能够成功地完成操作。 
 
 <!-- 2494144 - IS, ASDK --> 
-- 选择虚拟机大小进行虚拟机部署时，某些 F 系列 VM 大小在创建 VM 时显示的大小选择器中不可见。 以下 VM 大小不显示在选择器中：*F8s_v2*、*F16s_v2*、*F32s_v2* 和 *F64s_v2*。  
+- 选择虚拟机大小进行虚拟机部署时，某些 F 系列 VM 大小在创建 VM 时显示的大小选择器中不可见。 选择器中不显示以下 VM 大小：*F8s_v2*、*F16s_v2*、*F32s_v2* 和 *F64s_v2*。  
   解决方法是，使用下列方法之一部署 VM。 在每种方法中，都需要指定要使用的 VM 大小。
 
   - **Azure 资源管理器模板：** 使用模板时，请将模板中的 *vmSize* 设置为想要使用的 VM 大小。 例如，以下条目用于部署使用 *F32s_v2* 大小的 VM：  
@@ -292,7 +291,7 @@ Azure Stack 使用 Windows Server 2016 的 Server Core 安装来托管重要基�
     ```  
   - **Azure CLI：** 可以使用 [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create) 命令并将 VM 大小指定为参数，类似于 `--size "Standard_F32s_v2"`。
 
-  - **PowerShell：** 通过 PowerShell，可以将 [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) 与指定了 VM 大小的参数一起使用，类似于 `-VMSize "Standard_F32s_v2"`。
+  - **PowerShell：** 通过 PowerShell 可将 [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) 与指定了 VM 大小的参数一起使用，类似于 `-VMSize "Standard_F32s_v2"`。
 
 
 <!-- TBD - IS ASDK --> 

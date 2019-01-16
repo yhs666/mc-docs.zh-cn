@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/08/2018
-ms.date: 12/31/2018
+origin.date: 12/22/2018
+ms.date: 01/14/2019
 ms.author: v-jay
 ms.reviewer: justini
-ms.openlocfilehash: 0180f778550aac2b3abb679f70cf43531dc91b3f
-ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
+ms.openlocfilehash: ff9a2ff6bc39602d23693518c5d3d238d73937eb
+ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814639"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54059030"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 更新
 
@@ -288,12 +288,15 @@ Azure Stack 1809 更新内部版本号为 **1.1809.0.90**。
    - 对于在 1808 更新之前创建的配额，托管磁盘配额在管理门户中将显示为值 0，虽然分配了 2048 GiB。 你可以根据实际需求增大或减小该值，新设置的配额值将替代 2048 GiB 默认值。
    - 如果将配额值更新为 0，则它等效于默认值 2048 GiB。 作为一种解决方法，请将配额值设置为 1。
 
-<!-- TBD - IS ASDK --> 应用 1809 更新后，在部署具有托管磁盘的 VM 时可能会遇到以下问题：
+<!-- TBD - IS ASDK --> 
+- 应用 1809 更新后，在部署带托管磁盘的 VM 时可能会遇到以下问题：
 
    - 如果订阅是在 1808 更新之前创建的，则部署具有托管磁盘的 VM 可能会失败并出现内部错误消息。 若要解决此错误，请针对每个订阅执行以下步骤：
       1. 在租户门户中转到“订阅”，找到相应订阅。 依次单击“资源提供程序”、“Microsoft.Compute”、“重新注册”。
       2. 在同一订阅下，转到“访问控制(标识和访问管理)”，验证“Azure Stack - 托管磁盘”是否已列出。
    2. 如果已配置多租户环境，在与来宾目录相关联的订阅中部署 VM 可能会失败并出现内部错误消息。 若要解决错误，请执行[此文章](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)中的步骤来重新配置每个来宾目录。
+
+- 如果使用创建时已启用 SSH 授权的 Ubuntu 18.04 VM，则无法使用 SSH 密钥登录。 若要解决此问题，请在预配后使用针对 Linux 扩展的 VM 访问权限来实现 SSH 密钥，或者使用基于密码的身份验证。
 
 ### <a name="networking"></a>网络  
 

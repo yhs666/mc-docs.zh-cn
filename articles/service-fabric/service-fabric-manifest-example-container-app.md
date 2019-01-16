@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: multiple
 origin.date: 06/08/2018
-ms.date: 07/09/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: 896908ef0cc88dfdfd5197d99d4bd1e10d88647d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 88a56271231c85f8c793cf700fa09e3408773c37
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666662"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083813"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>多容器应用程序和服务清单示例
 下面以示例方式说明了多容器 Service Fabric 应用程序的应用程序和服务清单。 这些示例的目的是说明什么设置可用以及如何使用它们。 这些应用程序和服务清单基于 [Windows Server 2016 容器示例](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows)清单。
@@ -296,7 +296,7 @@ ms.locfileid: "52666662"
 要从中提取映像的容器映像存储库的凭据。 有关详细信息，请参阅 [RepositoryCredentials 元素](service-fabric-service-model-schema-elements.md#RepositoryCredentialsElementRepositoryCredentialsTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)
 
 ### <a name="portbinding-element"></a>PortBinding 元素
-指定要绑定到公开的容器端口的终结点资源。 有关详细信息，请参阅 [PortBinding 元素](service-fabric-service-model-schema-elements.md#PortBindingElementPortBindingTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)
+指定要绑定到公开的容器端口的终结点资源。 有关详细信息，请参阅 [PortBinding 元素](service-fabric-service-model-schema-elements.md#PortBindingElementPortBindingTypeComplexTypeDefinedInServicePackageContainerPolicyTypecomplexTypeDefinedInContainerHostPoliciesTypecomplexType)
 
 ### <a name="volume-element"></a>Volume 元素
 指定要绑定到容器的卷。 有关详细信息，请参阅 [Volume 元素](service-fabric-service-model-schema-elements.md#VolumeElementContainerVolumeTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)
@@ -314,7 +314,7 @@ Windows Server 容器在不同 OS 版本中可能不兼容。  可以为每个�
  有关详细信息，请参阅 [EnvironmentOverrides 元素](service-fabric-service-model-schema-elements.md#EnvironmentOverridesElementEnvironmentOverridesTypeComplexTypeDefinedInServiceManifestImportelement)
 
 ### <a name="environmentvariable-element"></a>EnvironmentVariable 元素
-环境变量。 有关详细信息，请参阅 [EnvironmentVariable 元素](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexTypeDefinedInEnvironmentVariablesTypecomplexType)
+环境变量。 有关详细信息，请参阅 [EnvironmentVariable 元素](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableOverrideTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexType)
 
 ### <a name="certificateref-element"></a>CertificateRef 元素
 指定要向容器环境公开的 X509 证书的相关信息。 该证书必须安装在所有群集节点的 LocalMachine 存储中。
@@ -356,7 +356,7 @@ https://hub.docker.com 或 Azure 容器注册表上的存储库和映像。 有�
 将环境变量传递给容器或 exe。  有关详细信息，请参阅 [EnvironmentVariables 元素](service-fabric-service-model-schema-elements.md#EnvironmentVariablesElementEnvironmentVariablesTypeComplexTypeDefinedInCodePackageTypecomplexType)
 
 ### <a name="environmentvariable-element"></a>EnvironmentVariable 元素
-环境变量。 有关详细信息，请参阅 [EnvironmentVariable 元素](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexTypeDefinedInEnvironmentVariablesTypecomplexType)
+环境变量。 有关详细信息，请参阅 [EnvironmentVariable 元素](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableOverrideTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexType)
 
 ### <a name="configpackage-element"></a>ConfigPackage 元素
 声明一个由 Name 属性命名的文件夹，该文件夹中包含 Settings.xml 文件。 此文件包含进程用户定义的键值对设置，进程可在运行时读回这些设置。 升级期间，如果仅更改了 ConfigPackage 版本，则不重启正在运行的进程。 相反，一个回调会告知进程配置设置已更改，以便动态重新加载。 有关详细信息，请参阅 [ConfigPackage 元素](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)
@@ -402,7 +402,7 @@ https://hub.docker.com 或 Azure 容器注册表上的存储库和映像。 有�
 将环境变量传递给容器或 exe。  有关详细信息，请参阅 [EnvironmentVariables 元素](service-fabric-service-model-schema-elements.md#EnvironmentVariablesElementEnvironmentVariablesTypeComplexTypeDefinedInCodePackageTypecomplexType)
 
 ### <a name="environmentvariable-element"></a>EnvironmentVariable 元素
-环境变量。 有关详细信息，请参阅 [EnvironmentVariable 元素](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexTypeDefinedInEnvironmentVariablesTypecomplexType)
+环境变量。 有关详细信息，请参阅 [EnvironmentVariable 元素](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableOverrideTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexType)
 
 ### <a name="configpackage-element"></a>ConfigPackage 元素
 声明一个由 Name 属性命名的文件夹，该文件夹中包含 Settings.xml 文件。 此文件包含进程用户定义的键值对设置，进程可在运行时读回这些设置。 升级期间，如果仅更改了 ConfigPackage 版本，则不重启正在运行的进程。 相反，一个回调会告知进程配置设置已更改，以便动态重新加载。 有关详细信息，请参阅 [ConfigPackage 元素](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)
@@ -415,5 +415,4 @@ https://hub.docker.com 或 Azure 容器注册表上的存储库和映像。 有�
 
 ### <a name="endpoint-element"></a>Endpoint 元素
  有关详细信息，请参阅 [Endpoint 元素](service-fabric-service-model-schema-elements.md#EndpointElementEndpointOverrideTypeComplexTypeDefinedInEndpointselement)
-<!-- Update_Description: new articles on service fabric manifest example container app -->
-<!--ms.date: 07/09/2018-->
+<!-- Update_Description: wording update  -->

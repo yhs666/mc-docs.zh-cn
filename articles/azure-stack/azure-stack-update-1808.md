@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/08/2018
-ms.date: 12/31/2018
+origin.date: 12/22/2018
+ms.date: 01/14/2019
 ms.author: v-jay
 ms.reviewer: justini
-ms.openlocfilehash: a78b362174429ce074a6c3a1ec8144152b8a086c
-ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
+ms.openlocfilehash: 8c89bf2f75e13baf9458ed4edb1265ee553e1396
+ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814647"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54059027"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 更新
 
@@ -254,7 +254,6 @@ Azure Stack 1808 更新内部版本号为 **1.1808.0.97**。
 <!-- 2368581 - IS. ASDK --> 
 - 如果 Azure Stack 操作员收到内存不足的警报，并且租户虚拟机无法部署并出现“Fabric VM 创建错误”，则可能表示 Azure Stack 模组的可用内存不足。 请使用 [Azure Stack 容量规划工具](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822)来充分了解可供工作负荷使用的容量。
 
-
 ### <a name="compute"></a>计算
 
 <!-- 3164607 – IS, ASDK -->
@@ -316,7 +315,7 @@ Azure Stack 1808 更新内部版本号为 **1.1808.0.97**。
 
    若要查找 VM 的“CPU 百分比”图表，请转到“指标”边栏选项卡并查看所有受支持的 Windows VM 来宾指标。
 
-
+- 如果使用创建时已启用 SSH 授权的 Ubuntu 18.04 VM，则无法使用 SSH 密钥登录。 若要解决此问题，请在预配后使用针对 Linux 扩展的 VM 访问权限来实现 SSH 密钥，或者使用基于密码的身份验证。
 
 ### <a name="networking"></a>网络  
 
@@ -362,8 +361,10 @@ Azure Stack 1808 更新内部版本号为 **1.1808.0.97**。
 
 
 ## <a name="download-the-update"></a>下载更新
-可从[此处](https://aka.ms/azurestackupdatedownload)下载 Azure Stack 1808 更新包。
-  
+
+可从[此处](https://aka.ms/azurestackupdatedownload)下载 Azure Stack 1808 更新包。 
+
+只有在连接的情况下，Azure Stack 部署才会定期检查某个安全的终结点，并在已发布云更新的情况下自动通知你。 有关详细信息，请参阅[管理 Azure Stack 的更新](azure-stack-updates.md)。
 
 ## <a name="next-steps"></a>后续步骤
 - 若要查看 Azure Stack 集成系统的服务策略，以及必须如何做才能使系统保持在受支持的状态，请参阅 [Azure Stack 服务策略](azure-stack-servicing-policy.md)。  

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 09/06/2018
-ms.date: 10/15/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: a75cea24418bda28467c3fbaef05fbbfce6541bc
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a786d036ee1d0acb348b1efa9ec9b166a37615f7
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666851"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083692"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>使用 Azure 门户在 Azure 中创建 Service Fabric 群集
 > [!div class="op_single_selector"]
@@ -78,7 +78,7 @@ ms.locfileid: "52666851"
 
 ## <a name="create-cluster-in-the-azure-portal"></a>在 Azure 门户中创建群集
 
-创建生产群集以满足应用程序需求需要进行一些规划，为此，强烈建议阅读并理解 [Service Fabric 群集规划注意事项][service-fabric-cluster-capacity]文档。 
+如何创建生产群集以满足应用程序需求需要进行一些规划，为此，强烈建议阅读并理解 [Service Fabric 群集规划注意事项][service-fabric-cluster-capacity]文档。 
 
 ### <a name="search-for-the-service-fabric-cluster-resource"></a>搜索 Service Fabric 群集资源
 
@@ -121,13 +121,13 @@ ms.locfileid: "52666851"
 1. 选择节点类型的名称（1 到 12 个字符，只能包含字母和数字）。
 2. 主节点类型的 VM **大小**下限取决于为群集选择的**持久性**层。 持久性层的默认值为 bronze。 有关持久性的详细信息，请参阅[如何选择 Service Fabric 群集持久性][service-fabric-cluster-durability]。
 3. 选择**虚拟机大小**。 D 系列 VM 具有 SSD 驱动器，强烈建议用于有状态应用程序。 不要使用任何具有部分核心或可用磁盘容量小于 10 GB 的 VM SKU。 如需选择 VM 大小的帮助，请参阅 [Service Fabric 群集规划注意事项文档][service-fabric-cluster-capacity]。
-4. 为节点类型选择**初始 VM 规模集容量**。 可在以后增加或减少节点类型中的 VM 数目，但对主节点类型，生产工作负荷的最小数是 5。 其他节点类型可以具有最少一台 VM。 主节点类型的 VM **数目**下限决定了群集的**可靠性**。  
-5. **单节点群集和三节点群集**仅供用于测试。 它们不支持任何正在运行的生产工作负荷。
+4.  **单节点群集和三节点群集**仅供用于测试。 它们不支持任何正在运行的生产工作负荷。
+5. 为节点类型选择**初始 VM 规模集容量**。 可在以后增加或减少节点类型中的 VM 数目，但对主节点类型，生产工作负荷的最小数是 5。 其他节点类型可以具有最少一台 VM。 主节点类型的 VM **数目**下限决定了群集的**可靠性**。  
 6. 配置**自定义终结点**。 可在此字段中输入以逗号分隔的端口列表，可以通过 Azure 负载均衡器针对应用程序向公共 Internet 公开这些端口。 例如，如果计划在群集中部署 Web 应用程序，请在此处输入“80”，允许端口 80 的流量进入群集。 有关终结点的详细信息，请参阅 [communicating with applications][service-fabric-connect-and-communicate-with-services]
 7. **启用反向代理**。  借助 [Service Fabric 反向代理](service-fabric-reverseproxy.md)，Service Fabric 群集中运行的微服务可以发现包含 http 终结点的其他服务，并与之通信。
-8. 在“+显示可选设置”下，配置群集“诊断”。 默认情况下，已在群集上启用诊断，以帮助排查问题。 若要禁用诊断，请将其“状态”切换为“关”。 **不**建议关闭诊断。
+8. 返回“群集配置”边栏选项卡，在“+显示可选设置”下，配置群集**诊断**。 默认情况下，已在群集上启用诊断，以帮助排查问题。 若要禁用诊断，请将其“状态”切换为“关”。 **不**建议关闭诊断。
 9. **包括 DNS 服务**。  [DNS 服务](service-fabric-dnsservice.md)是一项可选服务，可用于查找使用 DNS 协议的其他服务。
-10. 选择要将群集设置为的**结构升级模式**。 如果希望系统自动选取最新可用版本并尝试将群集升级到该最新版本，则选择“自动”。 如果想要选择受支持的版本，则将模式设置为“手动”。 有关结构升级模式的详细信息，请参阅 [service-fabric-cluster-upgrade 文档][service-fabric-cluster-upgrade]。
+10. 选择要将群集设置为的**结构升级模式**。 如果希望系统自动选取最新可用版本并尝试将群集升级到该最新版本，则选择“自动”。 如果想要选择受支持的版本，则将模式设置为“手动”。 有关 Fabric 升级模式的详细信息，请参阅 [Service Fabric 群集升级文档][service-fabric-cluster-upgrade]。
 
 <!-- Not Available Line 124 on Application Insights -->
 
@@ -164,10 +164,10 @@ ms.locfileid: "52666851"
 
 ![SecurityCustomOption]
 
-你需要 CertificateThumbprint、SourceVault 和 CertificateURL 信息以完成“安全性”页。 如果“安全性”页未就绪，请打开另一个浏览器窗口，然后执行以下操作
+你需要源密钥保管库、证书 URL 和证书指纹信息以完成“安全性”页。 如果“安全性”页未就绪，请打开另一个浏览器窗口，然后在 Azure 门户中执行以下操作
 
-1. 导航到你的 Key Vault，选择证书。 
-2. 选择“属性”选项卡，并将“资源 ID”复制到其他浏览器窗口上的“源 Key vault” 
+1. 导航到密钥保管库服务。
+2. 选择“属性”选项卡，并将“资源 ID”复制到另一个浏览器窗口上的“源密钥保管库” 
 
     ![CertInfo0]
 
@@ -177,8 +177,8 @@ ms.locfileid: "52666851"
 
     ![CertInfo1]
 
-6. 你现在应位于如下所示的屏幕上。 将“指纹”复制到其他浏览器窗口上的“证书指纹”
-7. 将“机密标识符”信息复制到其他浏览器窗格上的“证书 URL”。
+6. 你现在应位于如下所示的屏幕上。 将十六进制 SHA-1 指纹复制到另一个浏览器窗口中的“证书指纹”
+7. 将“机密标识符”复制到另一个浏览器窗口上的“证书 URL”。
 
     ![CertInfo2]
 
@@ -192,7 +192,7 @@ ms.locfileid: "52666851"
 
 ![摘要]
 
-可以在通知栏中查看群集创建进度。 （单击屏幕右上角状态栏附近的铃铛图标）。如果在创建群集时曾经单击“固定到启动板”，则会看到“部署 Service Fabric 群集”已固定到“启动”板。
+可以在通知栏中查看群集创建进度。 （单击屏幕右上角状态栏附近的铃铛图标）。如果在创建群集时曾经单击“固定到启动板”，则会看到“部署 Service Fabric 群集”已固定到“启动”板。 此过程将需要一些时间才能完成。 
 
 若要使用 Powershell 或 CLI 对群集执行管理操作，需要连接群集，请参阅[连接群集](service-fabric-connect-to-secure-cluster.md)，了解有关如何连接的详细信息。
 
@@ -219,7 +219,7 @@ ms.locfileid: "52666851"
 此时，已创建一个使用证书进行管理身份验证的安全群集。 接下来，请[连接到该群集](service-fabric-connect-to-secure-cluster.md)，了解如何[管理应用程序机密](service-fabric-application-secret-management.md)。  此外，了解 [Service Fabric 支持选项](service-fabric-support.md)。
 
 <!-- Links -->
-[azure-powershell]: ../powershell-install-configure.md
+[azure-powershell]: https://docs.azure.cn/zh-cn/powershell-install-configure
 [service-fabric-rp-helpers]: https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers
 [azure-portal]: https://portal.azure.cn/
 [key-vault-get-started]: ../key-vault/key-vault-get-started.md

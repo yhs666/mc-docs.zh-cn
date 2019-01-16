@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/24/2018
-ms.date: 11/12/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: 82c385a36ed1988c20274bc309537fd30d814896
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a441dbc1136f7f7c700f0fb49190a37d750c304c
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663057"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083663"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>部署使用证书公用名称而非指纹的 Service Fabric 群集
 两个证书不能具有相同的指纹，具有相同的指纹会使群集证书滚动更新或管理变得困难。 但是，多个证书可以具有相同的公用名称或使用者。  使用证书公用名称会使群集的证书管理更加简单。 本文介绍了如何部署 Service Fabric 群集来使用证书公用名称而非证书指纹。
@@ -42,7 +42,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
 $SubscriptionId  =  "<subscription ID>"
 
 # Sign in to your Azure account and select your subscription
-Login-AzureRmAccount -EnvironmentName AzureChinaCloud -SubscriptionId $SubscriptionId
+Login-AzureRmAccount -Environment AzureChinaCloud -SubscriptionId $SubscriptionId
 
 $region = "chinaeast"
 $KeyVaultResourceGroupName  = "mykeyvaultgroup"
@@ -75,6 +75,13 @@ Write-Host "Common Name              :"  $CommName
 
 ## <a name="download-and-update-a-sample-template"></a>下载并更新示例模板
 本文使用了 [5 节点安全群集示例](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure)模板和模板参数。 将 *azuredeploy.json* 和 *azuredeploy.parameters.json* 文件下载到计算机。
+
+> [!NOTE]
+> 必须修改从 GitHub 存储库“Azure-Samples”下载或引用的模板，使之适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；必要时更改某些不受支持的位置、VM 映像、VM 大小、SKU 以及资源提供程序的 API 版本。
+
+<!--Notice: Change storageAccountEndPoint as https://core.chinacloudapi.cn/-->
+> [!NOTE]
+> 成功下载模板文件 `5-node secure cluster example` 后，将 `"storageAccountEndPoint": "https://core.windows.net/"` 替换为 `"storageAccountEndPoint": "https://core.chinacloudapi.cn/"` 以匹配 Azure 中国云环境。
 
 ### <a name="update-parameters-file"></a>更新参数文件
 首先，在文本编辑器中打开 *azuredeploy.parameters.json* 文件并添加以下参数值：
@@ -193,10 +200,10 @@ Write-Host "Common Name              :"  $CommName
 # Variables.
 $groupname = "testclustergroup"
 $clusterloc="chinaeast"  
-$id="<subscription ID"
+$id="<subscription ID>"
 
 # Sign in to your Azure account and select your subscription
-Login-AzureRmAccount -EnvironmentName AzureChinaCloud -SubscriptionId $id 
+Login-AzureRmAccount -Environment AzureChinaCloud -SubscriptionId $id 
 
 # Create a new resource group and deploy the cluster.
 New-AzureRmResourceGroup -Name $groupname -Location $clusterloc

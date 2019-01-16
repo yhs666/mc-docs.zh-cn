@@ -11,17 +11,17 @@ origin.date: 04/17/2018
 ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 1b9a6f7e170f086f66c94ebbfb81625fd5133e4b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 784319a7e4916fad8c9d87658759ca0b820a4944
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663741"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192856"
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>将 Azure 流分析与 SQL 数据仓库配合使用
 Azure 流分析是一种完全托管的服务，可以在云中通过流式数据进行低延迟、高度可用、可缩放且复杂的事件处理。 可以先阅读 [Azure 流分析简介][Introduction to Azure Stream Analytics]了解基本知识。 然后，可以参考 [开始使用 Azure 流分析][Get started using Azure Stream Analytics] 教程，了解如何使用流分析创建端到端解决方案。
 
-在本文中，可以学习如何使用 Azure SQL 数据仓库数据库作为流分析作业的输出接收器。
+在本文中，学习如何使用 Azure SQL 数据仓库数据库作为流分析作业的输出接收器。
 
 ## <a name="prerequisites"></a>先决条件
 首先，完整运行 [开始使用 Azure 流分析][Get started using Azure Stream Analytics] 教程中所述的以下步骤。  
@@ -45,7 +45,7 @@ Azure 流分析是一种完全托管的服务，可以在云中通过流式数�
 ### <a name="step-3"></a>步骤 3
 在下一页输入以下值：
 
-* *输出别名*：输入此作业输出的友好名称。
+* 输出别名：输入此作业输出的友好名称。
 * *订阅*：
   * 如果 SQL 数据仓库数据库与此流分析作业位于同一订阅中，请选择“使用当前订阅中的 SQL 数据库”。
   * 如果数据库在不同的订阅中，请选择“使用其他订阅中的 SQL 数据库”。
@@ -56,7 +56,7 @@ Azure 流分析是一种完全托管的服务，可以在云中通过流式数�
 
 * *用户名*：指定具有数据库写入访问权限的帐户的用户名。
 * *密码*：提供指定的用户帐户的密码。
-* *表*：指定数据库中目标表的名称。
+* *Table*：指定数据库中目标表的名称。
 
 ![][add-database]
 

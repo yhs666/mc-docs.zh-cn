@@ -1,6 +1,6 @@
 ---
-title: 创建用于部署已加密存储帐户的 Azure 资源管理器模板 | Azure
-description: 使用 Visual Studio Code 创建用于部署已加密存储帐户的模板。
+title: 利用 Azure 资源管理器模板参考 | Azure
+description: 利用 Azure 资源管理器模板参考创建用于部署加密存储帐户的模板。
 services: azure-resource-manager
 documentationcenter: ''
 author: rockboyfor
@@ -10,18 +10,19 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-origin.date: 11/13/2018
-ms.date: 12/17/2018
+origin.date: 12/06/2018
+ms.date: 01/21/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 51ac5f7ab2e272fd6839bfd85f70bb75a8661197
-ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
+ms.custom: seodec18
+ms.openlocfilehash: 2658045d04e3167e35bd1be93bdd5c5609704c1f
+ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53286744"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193031"
 ---
-# <a name="tutorial-deploy-an-encrypted-azure-storage-account-with-resource-manager-template"></a>教程：使用资源管理器模板部署加密的 Azure 存储帐户
+# <a name="tutorial-utilize-the-azure-resource-manager-template-reference"></a>教程：利用 Azure 资源管理器模板参考
 
 了解如何查找模板架构信息，以及如何使用该信息创建 Azure 资源管理器模板。
 
@@ -120,4 +121,4 @@ ms.locfileid: "53286744"
 > [!div class="nextstepaction"]
 > [创建多个实例](./resource-manager-tutorial-create-multiple-instances.md)
 
-<!-- Update_Description: wording update, update link -->
+<!-- Update_Description: update meta properties -->

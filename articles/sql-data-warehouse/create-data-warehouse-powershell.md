@@ -8,15 +8,15 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 origin.date: 11/15/2018
-ms.date: 11/26/2018
+ms.date: 01/14/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 1e33b3630862622775dcd94a1d502a08f02edd72
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 34564b27dc06acb48b89ede59c9629ad60ed539e
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672992"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192881"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建和查询 Azure SQL 数据仓库
 
@@ -61,7 +61,7 @@ Set-AzureRmContext -SubscriptionName "MySubscription"
 # The data center and resource name for your resources
 $resourcegroupname = "myResourceGroup"
 $location = "ChinaEast"
-# The logical server name: Use a random value or replace with your own value (do not capitalize)
+# The logical server name: Use a random value or replace with your own value (don't capitalize)
 $servername = "server-$(Get-Random)"
 # Set an admin name and password for your database
 # The sign-in information for the server

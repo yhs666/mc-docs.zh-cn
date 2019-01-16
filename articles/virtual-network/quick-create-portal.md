@@ -14,41 +14,44 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-origin.date: 03/09/2018
-ms.date: 05/07/2018
+origin.date: 11/30/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 82d3f7cba953058a122347a46ab549f78ac47d47
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1b4e96e9b15061d877664cc8240e84ea2f61425c
+ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658041"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193076"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建虚拟网络
 
-虚拟网络能让 Azure 资源（例如虚拟机 (VM)）彼此之间私下通信以及与 Internet 进行通信。 本快速入门介绍如何创建虚拟网络。 创建虚拟网络后，将两个 VM 部署到该虚拟网络中。 然后从 Internet 连接到其中一个 VM，并在两个 VM 之间进行私下通信。
+虚拟网络能让 Azure 资源（例如虚拟机 (VM)）彼此之间私下通信以及与 Internet 进行通信。 本快速入门介绍如何创建虚拟网络。 创建虚拟网络后，将两个 VM 部署到该虚拟网络中。 然后从 Internet 连接到 VM，并在两个 VM 之间进行私下通信。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果还没有 Azure 订阅，请现在就创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-## <a name="log-in-to-azure"></a>登录 Azure 
+## <a name="sign-in-to-azure"></a>登录 Azure
 
-在 https://portal.azure.cn 登录 Azure 门户。
+登录到 [Azure 门户](https://portal.azure.cn)。
 
 ## <a name="create-a-virtual-network"></a>创建虚拟网络
 
-1. 选择 Azure 门户左上角的“+ 创建资源”。
-2. 选择“网络”，然后选择“虚拟网络”。
-3. 输入或选择以下信息，接受剩下的默认设置，然后选择“创建”：
+1. 在屏幕的左上方，选择“创建资源” > “网络” > “虚拟网络”。
 
-    |设置|值|
-    |---|---|
-    |名称|myVirtualNetwork|
-    |订阅| 选择订阅。|
-    |资源组| 选择“新建”，并输入 myResourceGroup|
-    |位置| 选择“中国东部”。|
+1. 在“创建虚拟网络”中，输入或选择以下信息：
 
-    ![输入虚拟网络的基本信息](./media/quick-create-portal/create-virtual-network.png)
+    | 设置 | 值 |
+    | ------- | ----- |
+    | Name | 输入 myVirtualNetwork。 |
+    | 地址空间 | 输入 10.1.0.0/16。 |
+    | 订阅 | 选择订阅。|
+    | 资源组 | 选择“新建”，输入 myResourceGroup，然后选择“确定”。 |
+    | 位置 | 选择“中国东部”。|
+    | 子网 - 名称 | 输入 myVirtualSubnet。 |
+    | 子网 - 地址范围 | 输入 10.1.0.0/24。 |
+
+1. 将剩余的字段保留默认设置，然后选择“创建”。
 
 ## <a name="create-virtual-machines"></a>创建虚拟机
 
@@ -56,9 +59,12 @@ ms.locfileid: "52658041"
 
 ### <a name="create-the-first-vm"></a>创建第一个 VM
 
-1. 选择 Azure 门户左上角的“+ 创建资源”。
-2. 选择“计算”，并选择“Windows Server 2016 Datacenter”。
-3. 输入或选择以下信息，保留剩下的默认设置，然后选择“确定”：
+1. 在屏幕左上方选择“创建资源”，在搜索栏中填写“Windows Server 2016 Datacenter”，然后单击 Enter 键。
+
+2. 在结果面板中选择 **Windows Server 2016 Datacenter** 行，然后选择“创建”。
+
+    <!--Notice: Customize to suit with Mooncake-->
+3. 在“创建虚拟机 - 基本信息”中，输入或选择以下信息：
 
     |设置|值|
     |---|---|
@@ -77,51 +83,110 @@ ms.locfileid: "52658041"
     ![虚拟机设置](./media/quick-create-portal/virtual-machine-settings.png)
 
 6. 在“摘要”中的“创建”下，选择“创建”以启动 VM 部署。 部署 VM 需要几分钟时间。 
-
+    <!--Notice: Customize to suit with Mooncake-->
 ### <a name="create-the-second-vm"></a>创建第二个 VM
 
 再次完成步骤 1-6，但在步骤 3 中，将 VM 命名为“myVm2”。
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>从 Internet 连接到 VM
 
-1. 创建 *myVm1* 后，连接到它。 在 Azure 门户的顶部，输入“myVm1”。 当“myVm1”出现在搜索结果中时，请选择它。 选择“连接”按钮。
+创建 myVm1 后，通过 Internet 连接到它。
+
+1. 在门户的搜索栏中，输入 myVm1。
+
+1. 选择“连接”按钮。
 
     ![连接到虚拟机](./media/quick-create-portal/connect-to-virtual-machine.png)
 
-2. 选择“连接”按钮后将创建一个远程桌面协议 (.rdp) 文件，该文件会被下载到你的计算机。  
-3. 打开下载的 rdp 文件。 出现提示时，选择“连接”。 输入在创建 VM 时指定的用户名和密码。 可能需要选择“更多选择”，然后选择“使用其他帐户”，以指定在创建 VM 时输入的凭据。 
-4. 选择“确定” 。
-5. 你可能会在登录过程中收到证书警告。 如果收到警告，请选择“是”或“继续”以继续连接。
+    选择“连接”按钮后，“连接到虚拟机”随即打开。
+
+1. 选择“下载 RDP 文件”。 Azure 创建远程桌面协议 (.rdp) 文件，并下载到计算机。
+
+1. 打开下载的 *.rdp* 文件。
+
+    1. 出现提示时，选择“连接”。
+
+    1. 输入在创建 VM 时指定的用户名和密码。
+
+        > [!NOTE]
+        > 可能需要选择“更多选择” > “使用其他帐户”，以指定在创建 VM 时输入的凭据。
+
+1. 选择“确定” 。
+
+1. 在登录过程中可能会收到证书警告。 如果收到证书警告，请选择“确定”或“继续”。
+
+1. VM 桌面出现后，将其最小化以返回到本地桌面。
 
 ## <a name="communicate-between-vms"></a>VM 之间进行通信
 
-1. 从 PowerShell 中输入 `ping myvm2`。 Ping 会失败，因为 ping 使用 Internet 控制消息协议 (ICMP)，而默认情况下不允许 ICMP 通过 Windows 防火墙。
-2. 若要在稍后的步骤中允许 *myVm2* ping 通 *myVm1*，请从 PowerShell 输入以下命令，以允许 ICMP 入站流量通过 Windows 防火墙：
+1. 在 myVm1 远程桌面中，打开 PowerShell。
+
+1. 输入 `ping myVm2`。
+
+    你将看到类似于以下信息的内容：
+
+    ```powershell
+    Pinging myVm2.0v0zze1s0uiedpvtxz5z0r0cxg.bx.internal.clouda
+    Request timed out.
+    Request timed out.
+    Request timed out.
+    Request timed out.
+
+    Ping statistics for 10.1.0.5:
+    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+    ```
+
+    由于 `ping` 使用 Internet 控制消息协议 (ICMP)，`ping` 失败。 默认情况下，不允许 ICMP 通过 Windows 防火墙。
+
+1. 要允许 myVm2 在后面的步骤中对 myVm1 执行 ping 操作，请输入以下命令：
 
     ```powershell
     New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
     ```
 
-3. 关闭与 *myVm1* 的远程桌面连接。 
+    该命令允许 ICMP 通过 Windows 防火墙入站：
 
-4. 再次完成[从 Internet 连接到 VM](#connect-to-a-vm-from-the-internet) 中的步骤，但这次连接到 *myVm2*。 从命令提示符输入 `ping myvm1`。
+1. 关闭与 *myVm1* 的远程桌面连接。
+
+1. 再次完成[从 Internet 连接到 VM](#connect-to-a-vm-from-the-internet) 中的步骤，但这次连接到 *myVm2*。
+
+1. 从命令提示符输入 `ping myvm1`。
+
+    你将看到类似于以下信息的内容：
+
+    ```powershell
+    Pinging myVm1.0v0zze1s0uiedpvtxz5z0r0cxg.bx.internal.chinacloudapp.cn [10.1.0.4] with 32 bytes of data:
+    Reply from 10.1.0.4: bytes=32 time=1ms TTL=128
+    Reply from 10.1.0.4: bytes=32 time<1ms TTL=128
+    Reply from 10.1.0.4: bytes=32 time<1ms TTL=128
+    Reply from 10.1.0.4: bytes=32 time<1ms TTL=128
+
+    Ping statistics for 10.1.0.4:
+        Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+    Approximate round trip times in milli-seconds:
+        Minimum = 0ms, Maximum = 1ms, Average = 0ms
+    ```
 
     将从 *myVm1* 收到答复，因为在上一步中已经允许 ICMP 通过 *myVm1* VM 上的 Windows 防火墙。
 
-5. 关闭与 *myVm2* 的远程桌面连接。
+1. 关闭与 *myVm2* 的远程桌面连接。
 
 ## <a name="clean-up-resources"></a>清理资源
 
-不再需要资源组时，可将资源组及其包含的所有资源一并删除：
+使用虚拟网络和 VM 之后，请删除资源组和其包含的所有资源：
 
-1. 在门户顶部的“搜索”框中输入“myResourceGroup”。 当在搜索结果中看到“myResourceGroup”时，将其选中。
-2. 选择“删除资源组”。
-3. 对于“键入资源组名称:”，输入“myResourceGroup”，然后选择“删除”。
+1. 在门户顶部的“搜索”框中输入“myResourceGroup”。
+
+1. 当在搜索结果中看到“myResourceGroup”时，将其选中。
+
+1. 选择“删除资源组”。
+
+1. 对于“键入资源组名称”，请输入“myResourceGroup”，然后选择“删除”。
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门中，你创建了默认的虚拟网络和两个 VM。 你从 Internet 连接到了其中一个 VM，然后该 VM 与另一个 VM 进行了私下通信。 若要了解有关虚拟网络设置的详细信息，请参阅[管理虚拟网络](manage-virtual-network.md)。
+在本快速入门中，你创建了默认的虚拟网络和两个 VM。 从 Internet 连接到了其中一个 VM，并在两个 VM 之间进行了私下通信。 若要了解有关虚拟网络设置的详细信息，请参阅[管理虚拟网络](manage-virtual-network.md)。
 
-默认情况下，Azure 允许虚拟机之间进行不受限制的私下通信，但仅允许从 Internet 到 Windows VM 的入站远程桌面连接。 若要了解如何允许或限制进出 VM 的不同类型的网络通信，请转到[筛选网络流量](tutorial-filter-network-traffic.md)教程。
+默认情况下，Azure 可让 VM 彼此之间进行不受限制的私下通信。 相反，它只允许从 Internet 到 Windows VM 的入站远程桌面连接。 要了解有关配置不同类型的 VM 网络通信的详细信息，请转到[筛选网络流量](tutorial-filter-network-traffic.md)教程。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

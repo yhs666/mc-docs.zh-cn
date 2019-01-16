@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 06/26/2018
-ms.date: 12/10/2018
+ms.date: 01/14/2019
 ms.author: v-jay
 ms.component: blobs
-ms.openlocfilehash: 3d7f4ee2b8b983901f38cfc0a7981f3b8ee9874c
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 0d6791d8c64486e961bfe64b5ab4564ac8d82f6b
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028980"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192882"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>为 Azure 存储帐户配置自定义域名
 
@@ -34,6 +34,7 @@ ms.locfileid: "53028980"
 | 存储帐户 | http://mystorageaccount.blob.core.chinacloudapi.cn | http://www.contoso.com |
 | Blob |http://mystorageaccount.blob.core.chinacloudapi.cn/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
 | 根容器 | http://mystorageaccount.blob.core.chinacloudapi.cn/myblob 或 http://mystorageaccount.blob.core.chinacloudapi.cn/$root/myblob| http://www.contoso.com/myblob 或 http://www.contoso.com/$root/myblob |
+| Web |  http://mystorageaccount.[zone].web.core.chinacloudapi.cn/$web/[indexdoc] 或 http://mystorageaccount.[zone].web.core.chinacloudapi.cn/[indexdoc] 或 http://mystorageaccount.[zone].web.core.chinacloudapi.cn/$web 或 http://mystorageaccount.[zone].web.core.chinacloudapi.cn/ | http://www.contoso.com/$web 或 http://www.contoso.com/ 或 http://www.contoso.com/$web/[indexdoc] 或 http://www.contoso.com/[indexdoc] |
 
 > [!NOTE]  
 > 如以下部分中所示，Blob 服务终结点的所有示例同样适用于 Web 服务终结点。
@@ -176,12 +177,14 @@ ms.locfileid: "53028980"
 
 ### <a name="powershell"></a>PowerShell
 
-若要删除自定义域注册，请使用 [Set-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount) PowerShell cmdlet，并为 `-CustomDomainName` 参数值指定空字符串 (`""`)。
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+若要删除自定义域注册，请使用 [Set-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount) PowerShell cmdlet，并为 `-CustomDomainName` 参数值指定空字符串 (`""`)。
 
 * 命令格式：
 
   ```powershell
-  Set-AzureRmStorageAccount `
+  Set-AzStorageAccount `
       -ResourceGroupName "<resource-group-name>" `
       -AccountName "<storage-account-name>" `
       -CustomDomainName ""
@@ -190,7 +193,7 @@ ms.locfileid: "53028980"
 * 命令示例：
 
   ```powershell
-  Set-AzureRmStorageAccount `
+  Set-AzStorageAccount `
       -ResourceGroupName "myresourcegroup" `
       -AccountName "mystorageaccount" `
       -CustomDomainName ""

@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/19/2018
-ms.date: 12/31/2018
+origin.date: 11/28/2018
+ms.date: 01/14/2019
 ms.author: v-jay
 ms.reviewer: misainat
-ms.openlocfilehash: 5a14ce099e4b77da556afcd3789c6b06fc0429b6
-ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
+ms.openlocfilehash: b5d6768519b09f3f4f516440920cff7e9683ec12
+ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814646"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54058993"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack 注册
 可将 Azure Stack 开发工具包 (ASDK) 安装注册到 Azure，以便从 Azure 下载市场项，并设置向 Microsoft 报告商务数据的功能。 需要注册才能支持完整的 Azure Stack 功能，包括市场联合。 之所以建议注册，是因为这样可以测试重要的 Azure Stack 功能，例如市场联合和使用情况报告。 注册 Azure Stack 之后，使用情况将报告给 Azure 商业组件。 用于注册的订阅下会显示此信息。 但是，ASDK 用户无需付费，不管他们报告的用量是多少。
@@ -202,22 +202,22 @@ $ExecutionContext.SessionState.LanguageMode
 激活完成后，应当会看到类似于以下内容的消息：**你的环境已完成注册和激活过程。**
 
 ## <a name="verify-the-registration-was-successful"></a>验证注册是否成功
-遵循以下步骤来验证是否已在**已连接的环境中**将 ASDK 成功注册到 Azure。
+
+可以使用“区域管理”磁贴，验证 Azure Stack 注册是否成功。 可在管理员门户的默认仪表板上使用此磁贴。
 
 1. 登录到 [Azure Stack 管理门户](https://adminportal.local.azurestack.external)。
 
-2. 单击“市场管理” > “从 Azure 添加”。
+2. 在“仪表板”中，选择“区域管理”。
 
-    ![](media/asdk-register/2.PNG)
+    [ ![“区域管理”磁贴](media/asdk-register/admin1sm.png "“区域管理”磁贴") ](media/asdk-register/admin1.png#lightbox)
 
-3. 如果看到 Azure 提供的项列表，则表示激活成功。
-
-    ![](media/asdk-register/3.PNG)
+3. 选择“属性”。 此边栏选项卡显示环境的状态和详细信息。 状态可能是“已注册”，也可能是“未注册”。 如果是已注册，则还会显示用于注册 Azure Stack 的 Azure 订阅 ID，以及注册资源组和名称。
 
 ## <a name="move-a-registration-resource"></a>移动注册资源
 支持在同一订阅下的资源组之间移动注册资源。 有关将资源移到新的资源组的详细信息，请参阅[将资源移到新的资源组或订阅](https://docs.azure.cn/azure-resource-manager/resource-group-move-resources)。
 
 
 ## <a name="next-steps"></a>后续步骤
-[添加 Azure Stack 市场项](../azure-stack-marketplace.md)
+
+- [添加 Azure Stack 市场项](../azure-stack-marketplace.md)
 <!-- Update_Description: wording update -->

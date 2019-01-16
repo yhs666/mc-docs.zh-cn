@@ -9,12 +9,12 @@ origin.date: 11/19/2018
 ms.date: 12/31/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 68ad24dec10d6fea785419e1baf7feace2f05ffd
-ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
+ms.openlocfilehash: 1fba387e5a860749932ccca442bcc84b70b16baf
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814796"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54084065"
 ---
 <!--DO NOT RELEASE ON LIVE--> 现在可以在 Azure 门户中使用数据资源管理器工具来创建数据库和集合。 
 
@@ -31,11 +31,10 @@ ms.locfileid: "53814796"
     数据库 ID|*任务*|输入 *Tasks* 作为新数据库的名称。 数据库名称必须包含 1 到 255 个字符，不能包含 /、\\、#、? 或尾随空格。
     集合 ID|*项*|输入 *Items* 作为新集合的名称。 集合 ID 与数据库名称的字符要求相同。
     预配数据库吞吐量|留空|Azure Cosmos DB 可以在数据库级别（数据库中的所有集合共享相同的吞吐量）或集合级别预配吞吐量。 留空可在此特定集合的集合级别上预配吞吐量。
-    存储容量|*不受限制*|选择**无限**的存储容量。 
     分区键|*/category*|输入“/category”作为分区键。 设置分区键使 Azure Cosmos DB 可以缩放集合，从而满足应用程序的存储和吞吐量需求。 通常，选择分区键时最好选择具有各种不同值的分区键，从而使存储和请求量均匀分布于工作负荷中。 [详细了解分区](../articles/cosmos-db/partitioning-overview.md)。
     Throughput|*400 RU/秒*|将吞吐量更改为每秒 400 个请求单位 (RU/s)。 如果想要减少延迟，以后可以增加吞吐量。 
 
-    除了前面的设置，还可以选择为集合添加“唯一键”。 在此示例中，请将此字段留空。 开发人员可以使用唯一键向数据库添加一层数据完整性。 创建集合时，通过创建唯一键策略，可确保每个分区键的一个或多个值的唯一性。 若要了解详细信息，请参阅 [Azure Cosmos DB 中的唯一键](../articles/cosmos-db/unique-keys.md)一文。
+    <!--Not Available on Storage capacity|*Unlimited*|Choose the Storage capacity of **Unlimited**. --> 除了前面的设置，还可以选择为集合添加“唯一键”。 在此示例中，请将此字段留空。 开发人员可以使用唯一键向数据库添加一层数据完整性。 创建集合时，通过创建唯一键策略，可确保每个分区键的一个或多个值的唯一性。 若要了解详细信息，请参阅 [Azure Cosmos DB 中的唯一键](../articles/cosmos-db/unique-keys.md)一文。
 
     单击“确定”。
 

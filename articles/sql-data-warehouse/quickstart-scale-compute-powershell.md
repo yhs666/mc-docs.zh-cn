@@ -8,15 +8,15 @@ ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.component: manage
 origin.date: 04/17/2018
-ms.date: 11/12/2018
-ms.author: kevin
+ms.date: 01/14/2019
+ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: d491f3dc2b4ceffb555dae9f2cc90502eaf34fd5
-ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
+ms.openlocfilehash: 72c3cb3cff4242ece2e9907da59612e39d664f55
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676887"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192855"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>快速入门：使用 PowerShell 在 Azure SQL 数据仓库中缩放计算资源
 
@@ -44,10 +44,10 @@ Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
 Get-AzureRmSubscription
 ```
 
-如果需要使用与默认订阅不同的订阅，请运行 [Select-AzureRmSubscription]()。
+如果需要使用与默认订阅不同的订阅，请运行 [Set-AzureRmContext](https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext)。
 
 ```powershell
-Select-AzureRmSubscription -SubscriptionName "MySubscription"
+Set-AzureRmContext -SubscriptionName "MySubscription"
 ```
 
 ## <a name="look-up-data-warehouse-information"></a>查找数据仓库信息

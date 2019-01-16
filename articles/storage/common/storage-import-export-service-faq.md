@@ -5,15 +5,16 @@ author: WenJason
 services: storage
 ms.service: storage
 ms.topic: article
-origin.date: 05/22/2018
-ms.date: 09/24/2018
+origin.date: 12/13/2018
+ms.date: 01/14/2019
 ms.author: v-jay
-ms.openlocfilehash: 442fc735bb228006728f81f97c3653b15b6a7694
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.component: common
+ms.openlocfilehash: 90789227e1497b5903f1f7114d918e43763e2bbc
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643546"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192926"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure 导入/导出服务：常见问题解答 
 下面是你在使用 Azure 导入/导出服务将数据传输到 Azure 存储时可能会提出的问题及其解答。 问题和解答分为以下几个类别：
@@ -68,6 +69,9 @@ ms.locfileid: "52643546"
 ### <a name="if-i-want-to-import-or-export-more-than-10-drives-what-should-i-do"></a>如果我想要导入或导出 10 个以上驱动器，我应该怎样做？
 一个导入或导出作业在单个作业中只能引用 10 个驱动器。 若要寄送 10 个以上驱动器，应当创建多个作业。 与同一作业关联的驱动器必须放在同一个包裹中一起寄送。 
 
+### <a name="the-uploaded-blob-shows-status-as-lease-expired-what-should-i-do"></a>上传的 blob 显示状态为“租用已过期”。 我该怎么办？
+你可以忽略“租用已过期”字段。 导入/导出在上传期间对 blob 进行租用，以确保没有其他进程可以并行更新 blob。 “租用已过期”意味着导入/导出不再上传到它，并且 blob 可以供你使用。 
+
 ## <a name="shipping-disks"></a>寄送磁盘
 
 ### <a name="what-is-the-maximum-number-of-hdd-for-in-one-shipment"></a>一次装运的最大 HDD数量是多少？
@@ -78,6 +82,8 @@ ms.locfileid: "52643546"
 ### <a name="should-i-include-anything-other-than-the-hdd-in-my-package"></a>是否应该在包裹中放置除了 HDD 之外的其他东西？
 请仅在寄送包裹中寄送硬盘驱动器。 不要包括电源线或 USB 电缆之类的物品。
 
+### <a name="are-there-any-restrictions-with-shipping-my-drive-internationally"></a>跨国寄送驱动器是否存在限制？
+请注意，发运的物理介质可能需要穿越国界。 应当负责确保物理介质和数据是遵照适用的法律导入和/或导出的。 在发运物理介质之前，请咨询顾问以验证介质和数据是否可以合法地发运到所确定的数据中心。 这有助于确保它可以及时到达 Azure。
 
 ### <a name="when-creating-a-job-the-shipping-address-is-a-location-that-is-different-from-my-storage-account-location-what-should-i-do"></a>创建作业时，寄送地址是一个不同于存储帐户位置的位置。 我该怎么办？
 
@@ -123,7 +129,7 @@ Azure 数据中心会将不符合支持要求的驱动器返还给你。 如果�
 ### <a name="does-azure-importexport-support-aes-256-encryption"></a>Azure 导入/导出是否支持 AES-256 加密？
 默认情况下，Azure 导入/导出服务使用 AES-128 bitlocker 加密。 可以在复制数据前通过手动使用 bitlocker 进行加密将此更改为 AES-256。 
 
-- 如果使用的是 [WAImportExport V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip)，下面展示了示例命令
+- 如果使用的是 [WAImportExport V1](https://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip)，下面展示了示例命令
     ```
     WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
     ```

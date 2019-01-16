@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/16/2017
-ms.date: 11/12/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 94498270ef0c6fab7169d56c612ed33779ab2b0d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c90cf2497c39e62ed07de943cd89e3d2e29519e7
+ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645085"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193103"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>使用 Azure CLI 为虚拟机配置专用 IP 地址
 
@@ -76,7 +76,7 @@ ms.locfileid: "52645085"
 
    * `--resource-group`：要在其中创建公共 IP 的资源组的名称。
    * `--name`：公共 IP 的名称。
-   * `--location`：在其中创建公共 IP 的 Azure 区域。
+   * `--location`：要在其中创建公共 IP 的 Azure 区域。
 
 3. 运行 [az network nic create](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az-network-nic-create) 命令，创建具有静态专用 IP 的 NIC。 在输出后显示的列表说明了所用的参数。 
 
@@ -277,4 +277,4 @@ rivateIpAllocationMethod,PublicAddress:publicIpAddress}'
 
 了解如何管理 [IP 地址设置](virtual-network-network-interface-addresses.md)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update meta properties -->

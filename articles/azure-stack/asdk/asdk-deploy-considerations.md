@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/10/2018
-ms.date: 12/31/2018
+origin.date: 12/12/2018
+ms.date: 01/14/2019
 ms.author: v-jay
 ms.reviewer: misainat
-ms.openlocfilehash: 37112684fbe594cfe0085fd23b6fc7c3a28f096a
-ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
+ms.openlocfilehash: 1e103d62082c3329a0a61dce5771ae2336779b35
+ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814626"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54059018"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure Stack 部署规划注意事项
 在部署 Azure Stack 开发工具包 (ASDK) 之前，请确保开发工具包主机满足本文中所述的要求。
@@ -30,12 +30,12 @@ ms.locfileid: "53814626"
 ## <a name="hardware"></a>硬件
 | 组件 | 最小值 | 建议 |
 | --- | --- | --- |
-| 磁盘驱动器：操作系统 |1 块 OS 磁盘，至少 200 GB 用于系统分区（SSD 或 HDD） |1 块 OS 磁盘，至少 200 GB 用于系统分区（SSD 或 HDD） |
-| 磁盘驱动器：常规开发工具包数据<sup>*</sup>  |4 块磁盘。 每个磁盘提供至少 140 GB 的容量（SSD 或 HDD）。 将使用所有可用的磁盘。 |4 块磁盘。 每个磁盘提供至少 250 GB 的容量（SSD 或 HDD）。 将使用所有可用的磁盘。 |
-| 计算：CPU |双插槽：12 个物理核心（总计） |双插槽：16 个物理核心（总计） |
-| 计算：内存 |96 GB RAM |128 GB RAM（这是支持 PaaS 资源提供程序所需的最低设置。）|
+| 磁盘驱动器：操作系统 |1 个操作系统磁盘，至少 200 GB 用于系统分区（SSD 或 HDD） |1 块 OS 磁盘，至少 200 GB 用于系统分区（SSD 或 HDD） |
+| 磁盘驱动器：常规开发工具包数据<sup>*</sup>  |4 块磁盘。 每个磁盘提供至少 240 GB 的容量（SSD 或 HDD）。 将使用所有可用的磁盘。 |4 块磁盘。 每个磁盘提供至少 400 GB 的容量（SSD 或 HDD）。 将使用所有可用的磁盘。 |
+| 计算：CPU |双插槽：16 个物理核心（总计） |双插槽：20 个物理核心（总计） |
+| 计算：内存 |192 GB RAM |256 GB RAM |
 | 计算：BIOS |Hyper-V 已启用（提供 SLAT 支持） |Hyper-V 已启用（提供 SLAT 支持） |
-| 网络：NIC |NIC 必须经过 Windows Server 2012 R2 认证，此外在功能上没有特定要求 |NIC 必须经过 Windows Server 2012 R2 认证，此外在功能上没有特定要求 |
+| 网络：NIC |Windows Server 2012 R2 认知。 不要求使用专用功能 |Windows Server 2012 R2 认知。 不要求使用专用功能 |
 | 硬件徽标认证 |[针对 Windows Server 2012 R2 的认证](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Windows Server 2016 认证](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
 
 <sup>*</sup>如果计划从 Azure 添加多个[市场项](asdk-marketplace-item.md)，则需要的容量比这个建议的容量要大。
@@ -83,7 +83,7 @@ ms.locfileid: "53814626"
 ### <a name="azure-active-directory-accounts"></a>Azure Active Directory 帐户
 若要使用 Azure AD 帐户来部署 Azure Stack，必须先准备 Azure AD 帐户，然后再运行 PowerShell 部署脚本。 此帐户成为 Azure AD 租户的全局管理员。 对于所有与 Azure Active Directory 和图形 API 交互的 Azure Stack 服务，可以使用它来预配和委托应用程序和服务主体。 也可将它用作默认提供商订阅（可以稍后更改）的所有者。 可以使用此帐户登录到 Azure Stack 系统的管理员门户。
 
-1. 创建一个 Azure AD 帐户，该帐户是至少一个 Azure AD 的目录管理员。 如果已经有一个这样的帐户，则可以使用该帐户。 否则，可以通过 [https://www.azure.cn/pricing/1rmb-trial/](https://www.azure.cn/pricing/1rmb-trial/)（中国用户请访问 <http://go.microsoft.com/fwlink/?LinkID=717821>）创建一个免费帐户。 如果打算以后[将 Azure Stack 注册到 Azure](asdk-register.md)，则还必须在这个新创建的帐户中有一个订阅。
+1. 创建一个 Azure AD 帐户，该帐户是至少一个 Azure AD 的目录管理员。 如果已经有一个这样的帐户，则可以使用该帐户。 否则，可以通过 [https://www.azure.cn/pricing/1rmb-trial/](https://www.azure.cn/pricing/1rmb-trial/) 创建一个试用帐户。 如果打算以后[将 Azure Stack 注册到 Azure](asdk-register.md)，则还必须在这个新创建的帐户中有一个订阅。
    
     保存这些以服务管理员身份使用的凭据。 此帐户可以配置和管理资源云、用户帐户、租户计划、配额和定价。 在门户中，该帐户可以创建网站云和虚拟机专用云、创建计划，以及管理用户订阅。
 1. 在 Azure AD 中至少创建一个测试用户帐户，以便以租户身份登录到开发工具包。

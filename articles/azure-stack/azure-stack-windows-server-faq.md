@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/12/2018
-ms.date: 12/17/2018
+ms.date: 01/14/2019
 ms.author: v-jay
 ms.reviewer: avishwan
-ms.openlocfilehash: 6a2128467f1b6169310fb2647ec2ac53431a40fa
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.openlocfilehash: 1ed5c91594726444faeeb1cb6e55ebf0d5d2e85e
+ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396336"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54058996"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Azure Stack 市场中的 Windows Server 常见问题解答
 
@@ -51,7 +51,7 @@ Azure Stack 不支持 Azure 混合使用权益 (AHUB)。 通过“容量”模�
 
 ### <a name="what-if-my-user-incorrectly-checked-the-i-have-a-license-box-in-previous-windows-builds-and-they-dont-have-a-license"></a>如果我的用户在旧版 Windows 生成中错误地选中了“我有许可证”框，但他们其实并没有许可证，该怎么办？
 
-请参阅[将具有权益的 Windows Server VM 转换回即用即付](../virtual-machines/windows/hybrid-use-benefit-licensing.md#powershell-1)。
+请参阅[将具有权益的 Windows Server VM 转换回预先支付](../virtual-machines/windows/hybrid-use-benefit-licensing.md#powershell-1)。
 
 ### <a name="what-if-i-have-an-older-image-and-my-user-forgot-to-check-the-i-have-a-license-box-or-we-use-our-own-images-and-we-do-have-enterprise-agreement-entitlement"></a>我有一个旧版映像，而我的用户忘记了选中“我有许可证”框，或者我们使用自己的映像且拥有企业协议权利，该怎么办？
 

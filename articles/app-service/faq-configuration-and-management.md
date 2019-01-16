@@ -1,5 +1,5 @@
 ---
-title: Azure Web 应用配置常见问题解答 | Azure
+title: 配置常见问题解答 - Azure 应用服务 | Azure Docs
 description: 获取有关 Azure App Service Web 应用功能配置和管理常见问题的解答。
 services: app-service\web
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 origin.date: 05/11/2018
-ms.date: 09/03/2018
-ms.author: v-yiso
-ms.openlocfilehash: 56952095b6fe43a672960bca8585c3528b484820
-ms.sourcegitcommit: 80c59ae1174d71509b4aa64a28a98670307a5b38
+ms.date: 01/21/2019
+ms.author: v-biyu
+ms.openlocfilehash: 2fb005d3e1defaff3562adf2ab941357d5f58644
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53735220"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083612"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure Web 应用配置及管理常见问题解答
 
@@ -57,7 +57,7 @@ ms.locfileid: "53735220"
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>为什么连续 Web 作业有时会失败？
 
-默认情况下，如果 Web 应用已处于空闲状态相当一段时间，则其处于未加载的状态。 这样可以让系统节省资源。 在基本和标准计划中，可打开“Always On”设置，保持 Web 应用一直处于已加载的状态。 如果 Web 应用运行连续的 Web 作业，应启用“Always On”；否则，这些 Web 作业可能无法可靠运行。 有关详细信息，请参阅[创建连续运行的 Web 作业](web-sites-create-web-jobs.md#CreateContinuous)。
+默认情况下，如果 Web 应用已处于空闲状态相当一段时间，则其处于未加载的状态。 这样可以让系统节省资源。 在基本和标准计划中，可打开“Always On”设置，保持 Web 应用一直处于已加载的状态。 如果 Web 应用运行连续的 Web 作业，应启用“Always On”；否则，这些 Web 作业可能无法可靠运行。 有关详细信息，请参阅[创建连续运行的 Web 作业](webjobs-create.md#CreateContinuous)。
 
 ## <a name="how-do-i-get-the-outbound-ip-address-for-my-web-app"></a>如何获取 Web 应用的出站 IP 地址？
 
@@ -87,7 +87,7 @@ ms.locfileid: "53735220"
 
 ## <a name="why-do-i-see-the-message-partially-succeeded-when-i-try-to-back-up-my-web-app"></a>当我尝试备份 Web 应用时，为何看到消息“已部分成功”？
 
-备份失败的一个常见原因是应用程序正在使用某些文件。 执行备份时，正在使用的文件会被锁定。 这会阻止对这些文件的备份操作，并可能导致“部分成功”状态。 可以通过将文件从备份过程中排除来防止这种情况发生。 可以选择仅备份所需文件。 有关详细信息，请参阅 [Azure Web 应用仅备份站点的重要部分](http://zainrizvi.io/blog/creating-partial-backups-of-your-site-with-azure-web-apps/)。
+备份失败的一个常见原因是应用程序正在使用某些文件。 执行备份时，正在使用的文件会被锁定。 这会阻止对这些文件的备份操作，并可能导致“部分成功”状态。 可以通过将文件从备份过程中排除来防止这种情况发生。 可以选择仅备份所需文件。 有关详细信息，请参阅 [Azure Web 应用仅备份站点的重要部分](https://zainrizvi.io/blog/creating-partial-backups-of-your-site-with-azure-web-apps/)。
 
 ## <a name="how-do-i-remove-a-header-from-the-http-response"></a>如何从 HTTP 响应中删除标头？
 
@@ -105,7 +105,7 @@ PCI DSS 3.1 版证书要求禁用传输层安全性 (TLS) 1.0。 目前，大多
 
 在标准版和高级版应用服务计划中，将 Web 应用部署到应用服务时，可部署到单独的部署槽位而不是默认的生产槽位。 部署槽是具有自己的主机名的动态 Web 应用。 两个部署槽（包括生产槽）之间的 Web 应用内容与配置元素可以交换。
 
-有关使用部署槽位的详细信息，请参阅[在应用服务中设置过渡环境](web-sites-staged-publishing.md)。
+有关使用部署槽位的详细信息，请参阅[在应用服务中设置过渡环境](deploy-staging-slots.md)。
 
 ## <a name="how-do-i-access-and-review-webjob-logs"></a>如何访问和查看 Web 作业日志？
 
@@ -163,7 +163,7 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 3. 确认已选中“网络”选项卡，然后选中绿色“播放”按钮。
 4. 执行可重现问题的步骤。
 5. 选择红色“停止”按钮。
-6. 选择“保存”按钮（磁盘图标），保存 HAR 文件（在 Internet Explorer 和 Edge 中）*或者*右键单击 HAR 文件，然后选择“内容另存为 HAR”（在 Chrome 中）。
+6. 选择“保存”按钮（磁盘图标），保存 HAR 文件（在 Internet Explorer 和 Microsoft Edge 中）*或者*右键单击 HAR 文件，然后选择“内容另存为 HAR”（在 Chrome 中）。
 
 ### <a name="f12-console-output"></a>F12 控制台输出
 
@@ -172,7 +172,7 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 3. 右键单击窗格中的信息区域，然后选择“全部复制”。
 4. 将复制的文本粘贴到文件中，然后保存该文件。
 
-若要查看 HAR 文件，可以使用 [HAR 查看器](http://www.softwareishard.com/har/viewer/)。
+若要查看 HAR 文件，可以使用 [HAR 查看器](https://www.softwareishard.com/har/viewer/)。
 
 ## <a name="why-do-i-get-an-error-when-i-try-to-connect-an-app-service-web-app-to-a-virtual-network-that-is-connected-to-expressroute"></a>在我尝试将应用服务 Web 应用到连接到与 ExpressRoute 连接的虚拟网络时，为何会遇到错误？
 
@@ -201,7 +201,7 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
     {month} {day of the week}" }
     ```
 
-有关计划 Web 作业的详细信息，请参阅[使用 Cron 表达式创建计划 Web 作业](web-sites-create-web-jobs.md#CreateScheduledCRON)。
+有关计划 Web 作业的详细信息，请参阅[使用 Cron 表达式创建计划 Web 作业](webjobs-create.md#CreateScheduledCRON)。
 
 ## <a name="how-do-i-perform-penetration-testing-for-my-app-service-app"></a>如何对应用服务应用执行渗透测试？
 
@@ -233,8 +233,8 @@ Invoke-AzureRmResourceAction -ResourceGroupName "<App Service Certificate Resour
 ## <a name="how-do-authentication-and-authorization-work-in-app-service"></a>应用服务中是如何进行身份验证和授权的？
 
 有关应用服务中的身份验证和授权的详细文档，请参阅各种标识提供者登录的文档：
-* [Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md)
-* [Microsoft 帐户](app-service-mobile-how-to-configure-microsoft-authentication.md)
+* [Azure Active Directory](configure-authentication-provider-aad.md)
+* [Microsoft 帐户](configure-authentication-provider-microsoft.md)
 
 ## <a name="how-do-i-redirect-the-default-chinacloudsitescn-domain-to-my-azure-web-apps-custom-domain"></a>如何将默认 *.chinacloudsites.cn 域重定向到 Azure Web 应用的自定义域？
 

@@ -10,21 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-origin.date: 11/13/2018
-ms.date: 12/17/2018
+origin.date: 12/07/2018
+ms.date: 01/21/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 2d9c621243b674dc320356aef26dd7a0b9d63483
-ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
+ms.openlocfilehash: df40007c9950154b473fb9b1246be1ba92ac0527
+ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53286777"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193042"
 ---
 <!--Verify successfully-->
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>教程：创建 Azure 资源管理器链接模板
 
-了解如何创建 Azure 资源管理器链接模板。 使用链接模板时，可以通过一个模板调用另一个模板。 它非常适用于模板的模块化。 本教程使用的模板与在[教程：使用资源管理器模板创建多个资源实例](./resource-manager-tutorial-create-multiple-instances.md)中使用的相同，该模板可以创建虚拟机、虚拟网络和其他依赖资源（包括存储帐户）。 请将存储帐户资源隔离到链接模板。
+了解如何创建 Azure 资源管理器链接模板。 使用链接模板时，可以通过一个模板调用另一个模板。 它非常适用于模板的模块化。 在本教程中使用的模板与在[教程：使用依赖资源创建 Azure 资源管理器模板](./resource-manager-tutorial-create-templates-with-dependent-resources.md)中使用的模板相同，该模板用于创建虚拟机、虚拟网络以及其他依赖资源（包括存储帐户）。 请将存储帐户资源创建功能分隔到链接的模板。
 
 本教程涵盖以下任务：
 
@@ -35,6 +35,7 @@ ms.locfileid: "53286777"
 > * 链接到链接模板
 > * 配置依赖项
 > * 部署模板
+> * 其他做法
 
 如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
@@ -52,7 +53,7 @@ ms.locfileid: "53286777"
 
 ## <a name="open-a-quickstart-template"></a>打开快速入门模板
 
-Azure 快速入门模板是资源管理器模板的存储库。 无需从头开始创建模板，只需找到一个示例模板并对其自定义即可。 本教程中使用的模板称为[部署简单的 Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/)。 这是在[教程：使用资源管理器模板创建多个资源实例](./resource-manager-tutorial-create-multiple-instances.md)中使用的同一模板。 请保存同一模板的两个副本，用作：
+Azure 快速入门模板是资源管理器模板的存储库。 无需从头开始创建模板，只需找到一个示例模板并对其自定义即可。 本教程中使用的模板称为[部署简单的 Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/)。 这是在[教程：使用依赖的资源创建 Azure 资源管理器模板](./resource-manager-tutorial-create-templates-with-dependent-resources.md)中使用的同一模板。 请保存同一模板的两个副本，用作：
 
 * **主模板**：创建除存储帐户之外的所有资源。
 * **链接模板**：创建存储帐户。
@@ -80,10 +81,27 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 
 链接模板可创建存储帐户。 链接模板与用于创建存储帐户的单独模板几乎完全相同。 在本教程中，链接模板需将一个值传回主模板。 该值在 `outputs` 元素中定义。
 
-1. 在 Visual Studio Code 中打开 linkedTemplate.json（如果尚未打开）。
+1. 在 Visual Studio Code 中打开 linkedTemplate.json（如果此文件尚未打开）。
 2. 进行以下更改：
 
     * 删除除存储帐户之外的所有资源。 删除总共四项资源。
+    * 将存储帐户资源的 **name** 元素的值更新为：
+
+        ```json
+          "name": "[parameters('storageAccountName')]",
+        ```
+    * 删除 **variables** 元素以及所有变量定义。
+    * 删除除 **location** 之外的所有参数。
+    * 添加名为 **storageAccountName** 的参数。 存储帐户名称作为参数从主模板传递给链接模板。
+
+        ```json
+        "storageAccountName":{
+        "type": "string",
+        "metadata": {
+            "description": "Azure Storage account name."
+        }
+        },
+        ```
     * 更新 **outputs** 元素，使之如下所示：
 
         ```json
@@ -95,9 +113,6 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
         }
         ```
         **storageUri** 在主模板中是虚拟机资源定义所需要的。  请将值作为输出值传回主模板。
-    * 删除从未使用过的参数。 这些参数在其下有绿色波浪线。 应该只有一个名为 **location** 的参数留下。
-    * 删除 **variables** 元素。 它们在本教程中不需要。
-    * 添加名为 **storageAccountName** 的参数。 存储帐户名称作为参数从主模板传递给链接模板。
 
     完成后，模板应如下所示：
 
@@ -145,21 +160,89 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 
 ## <a name="upload-the-linked-template"></a>上传链接模板
 
-模板需要能够从运行部署的位置进行访问。 该位置可以是 Azure 存储帐户、Github 或 Dropbox。 如果模板包含敏感信息，请确保对其访问权限进行保护。 在本教程中使用的 Cloud Shell 部署方法与在[教程：使用资源管理器模板创建多个资源实例](./resource-manager-tutorial-create-multiple-instances.md)中使用的一样。 主模板 (azuredeploy.json) 上传到 Shell。 链接模板 (linkedTemplate.json) 必须在某个位置共享。  为了减少本教程的任务，我们将上一部分定义的链接模板上传到了 [Azure 存储帐户](https://armtutorials.blob.core.windows.net/linkedtemplates/linkedStorageAccount.json)中。
+主模板和链接的模板必须能够从运行部署时所在的位置进行访问。 在本教程中使用的 Cloud Shell 部署方法就是在[教程：使用依赖的资源创建 Azure 资源管理器模板](./resource-manager-tutorial-create-templates-with-dependent-resources.md)中使用的。 主模板 (azuredeploy.json) 上传到 Shell。 链接的模板 (linkedTemplate.json) 必须在某个位置安全地共享。 以下 PowerShell 脚本创建一个 Azure 存储帐户，将模板上传到该存储帐户，然后生成一个 SAS 令牌，以便授予对模板文件的受限访问权限。 为了简化本教程，该脚本会从共享位置下载一个完成的链接模板。 若要使用已创建的链接模板，可以使用 [Cloud shell](https://shell.azure.com) 上传链接模板，然后修改脚本，这样就可以使用自己的链接模板。
 
+> [!NOTE]
+> 脚本将 SAS 令牌限制为在八小时内使用。 如果需要更多时间来完成本教程，请将到期时间推后。
+
+```PowerShell
+$projectNamePrefix = Read-Host -Prompt "Enter a project name:"   # This name is used to generate names for Azure resources, such as storage account name.
+$location = Read-Host -Prompt "Enter a location (i.e. chinaeast)"
+
+$resourceGroupName = $projectNamePrefix + "rg"
+$storageAccountName = $projectNamePrefix + "store"
+$containerName = "linkedtemplates" # The name of the Blob container to be created.
+
+$linkedTemplateURL = "https://armtutorials.blob.core.windows.net/linkedtemplates/linkedStorageAccount.json" # A completed linked template used in this tutorial.
+$fileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
+
+# Download the tutorial linked template
+Invoke-WebRequest -Uri $linkedTemplateURL -OutFile "$home/$fileName"
+
+# Create a resource group
+New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+
+# Create a storage account
+$storageAccount = New-AzureRmStorageAccount `
+    -ResourceGroupName $resourceGroupName `
+    -Name $storageAccountName `
+    -Location $location `
+    -SkuName "Standard_LRS"
+
+$context = $storageAccount.Context
+
+# Create a container
+New-AzureStorageContainer -Name $containerName -Context $context
+
+# Upload the linked template
+Set-AzureStorageBlobContent `
+    -Container $containerName `
+    -File "$home/$fileName" `
+    -Blob $fileName `
+    -Context $context
+
+# Generate a SAS token
+$templateURI = New-AzureStorageBlobSASToken `
+    -Context $context `
+    -Container $containerName `
+    -Blob $fileName `
+    -Permission r `
+    -ExpiryTime (Get-Date).AddHours(8.0) `
+    -FullUri
+
+echo "You need the following values later in the tutorial:"
+echo "Resource Group Name: $resourceGroupName"
+echo "Linked template URI with SAS token: $templateURI"
+```
+
+<!--Not Available on Azure cloud shell--> 在实践中，请在部署主模板时生成一个 SAS 令牌，让该 SAS 令牌在更短的时间范围内到期，以增强安全性。 有关详细信息，请参阅[在部署期间提供 SAS 令牌](./resource-manager-powershell-sas-token.md#provide-sas-token-during-deployment)。
 ## <a name="call-the-linked-template"></a>调用链接模板
 
 主模板称为 azuredeploy.json。
 
 1. 在 Visual Studio Code 中打开 azuredeploy.json（如果尚未打开）。
-2. 从模板中删除存储帐户资源定义。
+2. 从模板中删除存储帐户资源定义：
+
+    ```json
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageAccountName')]",
+      "location": "[parameters('location')]",
+      "apiVersion": "2018-07-01",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "properties": {}
+    },
+    ```
 3. 将以下 json 代码片段添加到存储帐户定义所在的位置：
 
     ```json
     {
-      "apiVersion": "2017-05-10",
       "name": "linkedTemplate",
       "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2018-05-01",
       "properties": {
           "mode": "Incremental",
           "templateLink": {
@@ -178,13 +261,14 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
     * 主模板中的 `Microsoft.Resources/deployments` 资源用于链接到另一模板。
     * `deployments` 资源的名称为 `linkedTemplate`。 该名称用于[配置依赖项](#configure-dependency)。  
     * 在调用链接模板时，只能使用[增量](./deployment-modes.md)部署模式。
-    * `templateLink/uri` 包含链接模板 URI。 链接模板已上传到共享存储帐户。 如果将模板上传到 Internet 上的另一位置，则可更新 URI。
+    * `templateLink/uri` 包含链接模板 URI。 将值更新为在上传链接模板（与 SAS 令牌配合使用的模板）时获取的 URI。
     * 请使用 `parameters` 将值从主模板传递到链接模板。
-4. 保存更改。
+4. 确保已将 `uri` 元素的值更新为在上传链接模板（与 SAS 令牌配合使用的模板）时获取的值。 在实践中，需为 URI 提供一个参数。
+5. 保存修订的模板
 
 ## <a name="configure-dependency"></a>配置依赖项
 
-回想一下，在[教程：使用资源管理器模板创建多个资源实例](./resource-manager-tutorial-create-multiple-instances.md)中，虚拟机资源依赖于存储帐户：
+回想一下，在[教程：使用依赖资源创建 Azure 资源管理器模板](./resource-manager-tutorial-create-templates-with-dependent-resources.md)中，虚拟机资源依赖于存储帐户：
 
 ![Azure 资源管理器模板依赖项图](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-visual-studio-code-dependency-diagram.png)
 
@@ -210,12 +294,13 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 
     *linkedTemplate* 是部署资源的名称。  
 3. 更新 **properties/diagnosticsProfile/bootDiagnostics/storageUri**，如上一屏幕截图所示。
+4. 保存修订的模板。
 
 有关详细信息，请参阅[部署 Azure 资源时使用链接模板和嵌套模板](./resource-group-linked-templates.md)
 
 ## <a name="deploy-the-template"></a>部署模板
 
-有关部署过程，请参阅[部署模板](./resource-manager-tutorial-create-multiple-instances.md#deploy-the-template)部分。 若要提高安全性，请使用为虚拟机管理员帐户生成的密码。 请参阅[先决条件](#prerequisites)。
+有关部署过程，请参阅[部署模板](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template)部分。 使用与存储帐户相同的资源组名称来存储链接模板。 这样可以更方便地在下一部分清理资源。 若要提高安全性，请使用为虚拟机管理员帐户生成的密码。 请参阅[先决条件](#prerequisites)。
 
 ## <a name="clean-up-resources"></a>清理资源
 
@@ -225,6 +310,13 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 2. 在“按名称筛选”字段中输入资源组名称。
 3. 选择资源组名称。  应会看到，该资源组中总共有六个资源。
 4. 在顶部菜单中选择“删除资源组”。
+
+## <a name="additional-practice"></a>其他做法
+
+若要改进项目，请对已完成的项目进行下述其他更改：
+
+1. 修改主模板 (azuredeploy.json)，使之通过参数获取链接模板 URI 值。
+2. 请在部署主模板时生成 SAS 令牌，而不是在上传链接模板时生成该令牌。 有关详细信息，请参阅[在部署期间提供 SAS 令牌](./resource-manager-powershell-sas-token.md#provide-sas-token-during-deployment)。
 
 <!-- Not Available on ## Next steps-->
 <!-- Not Available on  [Use Azure Deployment Manager](./deployment-manager-tutorial.md)-->

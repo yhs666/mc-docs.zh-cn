@@ -15,19 +15,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 10/27/2017
-ms.date: 12/24/2018
+ms.date: 01/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: 97b6be7febff5a8a68b64b504fe83476811b736b
-ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
+ms.openlocfilehash: 4c3af8e11aa341e0a194ec96cb9e3f74d65767e7
+ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53569349"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54216270"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>使用用于 Visual Studio Code 的 Azure HDInsight 工具
 
-了解如何使用用于 Visual Studio Code (VS Code) 的 Azure HDInsight 工具来创建和提交 Apache Hive 批处理作业、交互式 Apache Hive 查询和 PySpark 脚本。 可以在 VS Code 支持的平台上安装 Azure HDInsight 工具。 这些平台包括 Windows、Linux 和 macOS。 可以找到不同平台的必备组件。
+了解如何使用用于 Visual Studio Code (VS Code) 的 Azure HDInsight 工具，为 Apache Spark 创建和提交 Apache Hive 批处理作业、交互式 Hive 查询和 PySpark 脚本。 首先我们将介绍如何在 VS Code 中安装 HDInsight 工具，然后我们将演练如何向 Hive 和 Spark 提交作业。 
 
+可以在 VSCode 支持的平台（包括 Windows、Linux 和 macOS）上安装 Azure HDInsight 工具。 可以在下面找到不同平台的必备组件。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -35,7 +36,7 @@ ms.locfileid: "53569349"
 
 - HDInsight 群集。 若要创建群集，请参阅 [HDInsight 入门](./hadoop/apache-hadoop-linux-tutorial-get-started.md)。
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx)。
-- [Mono](http://www.mono-project.com/docs/getting-started/install/)。 只有 Linux 和 MacOS 需要 Mono。
+- [Mono](https://www.mono-project.com/docs/getting-started/install/)。 只有 Linux 和 macOS 需要 Mono。
 
 ## <a name="install-the-hdinsight-tools"></a>安装 HDInsight 工具
    
@@ -103,7 +104,7 @@ ms.locfileid: "53569349"
     - 设置配置
 
 ### <a name="linkcluster"></a> 链接群集
-可以使用 Ambari 管理的用户名链接标准群集，还可以使用域用户名（例如：user1@contoso.com）链接安全 hadoop 群集。
+可以使用 [Apache Ambari](https://ambari.apache.org/) 管理的用户名链接标准群集，还可以使用域用户名（例如：user1@contoso.com）链接安全 hadoop 群集。
 1. 按 CTRL+SHIFT+P 打开命令面板，然后输入“HDInsight: 链接群集”。
 
    ![链接群集命令](./media/hdinsight-for-vscode/link-cluster-command.png)
@@ -295,9 +296,9 @@ Spark 2.2 群集和 Spark2.3 群集不再支持 PySpark3，Python 仅支持“Py
 
 提交 Python 作业后，提交日志会显示在 VS Code 的“输出”窗口中。 同时还会显示 **Spark UI URL** 和 **Yarn UI URL**。 可以在 Web 浏览器中打开 URL 来跟踪作业状态。
 
-## <a name="livy-configuration"></a>Livy 配置
+## <a name="apache-livy-configuration"></a>Apache Livy 配置
 
-Livy 配置受支持，可在工作区文件夹中的 **.VSCode\settings.json** 中设置它。 目前，livy 配置仅支持 Python 脚本。 详细信息请参阅 [Livy README](https://github.com/cloudera/livy/blob/master/README.rst )。
+支持 [Apache Livy](https://livy.incubator.apache.org/) 配置，可在工作空间文件夹中的 **.VSCode\settings.json** 内设置此配置。 目前，livy 配置仅支持 Python 脚本。 详细信息请参阅 [Livy README](https://github.com/cloudera/livy/blob/master/README.rst )。
 
 <a id="triggerlivyconf"></a>**如何触发 livy 配置**
    
@@ -391,28 +392,28 @@ Azure HDInsight 已添加到左侧面板。 你可以直接浏览和管理群集
 
 ### <a name="tools-and-extensions"></a>工具和扩展
 
-* [通过 VPN 使用用于 IntelliJ 的 Azure 工具包远程调试 Spark 应用程序](spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [通过 SSH 使用用于 IntelliJ 的 Azure 工具包远程调试 Spark 应用程序](spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md)
+* [使用 Azure Toolkit for IntelliJ 通过 VPN 远程调试 Apache Spark 应用程序](spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [使用 Azure Toolkit for IntelliJ 通过 SSH 远程调试 Apache Spark 应用程序](spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md)
 * [将用于 IntelliJ 的 HDInsight 工具与 Hortonworks 沙盒配合使用](hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
-* [使用用于 Eclipse 的 Azure 工具包中的 HDInsight 工具创建 Spark 应用程序](spark/apache-spark-eclipse-tool-plugin.md)
-* [在 HDInsight 上的 Spark 群集中使用 Zeppelin 笔记本](spark/apache-spark-zeppelin-notebook.md)
-* [在 HDInsight 的 Spark 群集中可用于 Jupyter 笔记本的内核](spark/apache-spark-jupyter-notebook-kernels.md)
+* [使用 Azure Toolkit for Eclipse 中的 HDInsight 工具创建 Apache Spark 应用程序](spark/apache-spark-eclipse-tool-plugin.md)
+* [在 HDInsight 上的 Apache Spark 群集中使用 Apache Zeppelin 笔记本](spark/apache-spark-zeppelin-notebook.md)
+* [在 HDInsight 的 Apache Spark 群集中可用于 Jupyter Notebook 的内核](spark/apache-spark-jupyter-notebook-kernels.md)
 * [Use external packages with Jupyter notebooks（将外部包与 Jupyter 笔记本配合使用）](spark/apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster（在计算机上安装 Jupyter 并连接到 HDInsight Spark 群集）](spark/apache-spark-jupyter-notebook-install-locally.md)
-* [在 Azure HDInsight 中使用 Microsoft Power BI 可视化 Hive 数据](hadoop/apache-hadoop-connect-hive-power-bi.md)
+* [在 Azure HDInsight 中使用 Microsoft Power BI 直观显示 Apache Hive 数据](hadoop/apache-hadoop-connect-hive-power-bi.md)
 * [在 Azure HDInsight 中使用 Power BI 直观显示交互式查询 Hive 数据](./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)。
 * [为 Visual Studio Code 设置 PySpark 交互式环境](set-up-pyspark-interactive-environment.md)
-* [在 Azure HDInsight 中使用 Zeppelin 运行 Hive 查询](./hdinsight-connect-hive-zeppelin.md)
+* [在 Azure HDInsight 中使用 Apache Zeppelin 运行 Apache Hive 查询](./hdinsight-connect-hive-zeppelin.md)
 
 ### <a name="scenarios"></a>方案
-* [Spark 和 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](spark/apache-spark-use-bi-tools.md)
-* [Spark 和机器学习：使用 HDInsight 中的 Spark 结合 HVAC 数据分析建筑物温度](spark/apache-spark-ipython-notebook-machine-learning.md)
-* [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](spark/apache-spark-machine-learning-mllib-ipython.md)
-* [使用 HDInsight 中的 Spark 分析网站日志](spark/apache-spark-custom-library-website-log-analysis.md)
+* [Apache Spark 与 BI：将 HDInsight 中的 Spark 与 BI 工具配合使用来执行交互式数据分析](spark/apache-spark-use-bi-tools.md)
+* [Apache Spark 与机器学习：使用 HDInsight 中的 Spark 来通过 HVAC 数据分析建筑物温度](spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark 与机器学习：使用 HDInsight 中的 Spark 预测食品检验结果](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [使用 HDInsight 中的 Apache Spark 分析网站日志](spark/apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-running-applications"></a>创建和运行应用程序
 * [使用 Scala 创建独立的应用程序](spark/apache-spark-create-standalone-application.md)
-* [使用 Livy 在 Spark 群集中远程运行作业](spark/apache-spark-livy-rest-interface.md)
+* [使用 Apache Livy 在 Apache Spark 群集中远程运行作业](spark/apache-spark-livy-rest-interface.md)
 
 ### <a name="manage-resources"></a>管理资源
 * [管理 Azure HDInsight 中 Apache Spark 群集的资源](spark/apache-spark-resource-manager.md)

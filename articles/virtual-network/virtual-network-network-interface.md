@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/24/2017
-ms.date: 11/12/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3687018a17d527f8d64c4d2560c3a6fccfaf639f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ba7e68f1f64e95223be7c37d054d0c72d97aa519
+ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664598"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193133"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>创建、更改或删除网络接口
 
@@ -36,7 +36,7 @@ ms.locfileid: "52664598"
 
 - 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 - 如果使用门户，请打开 https://portal.azure.cn，并使用 Azure 帐户登录。
-- 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 5.4.1 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount` 以创建与 Azure 的连接。
+- 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 5.4.1 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。
 - 如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.28 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
 
 登录或连接到 Azure 所用的帐户必须分配有[网络参与者](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)角色或者分配有可执行[权限](#permissions)中列出的适当操作的[自定义角色](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json)。
@@ -59,10 +59,11 @@ ms.locfileid: "52664598"
     |专用 IP 地址分配|是| 在此设置中，会为 IPv4 地址选择分配方法。 从以下分配方法中选择：**动态：** 选择此选项时，Azure 将从所选子网的地址空间中自动分配下一个可用地址。 **静态：** 选择此选项时，必须手动从所选子网的地址空间中手动分配一个可用的 IP 地址。 静态地址和动态地址保持不变，除非手动更改或删除网络接口。 创建网络接口后，可更改分配方法。 Azure DHCP 服务器将此地址分配到虚拟机操作系统中的网络接口。|
     |网络安全组|否| 保留设置为“无”，选择现有的[网络安全组](security-overview.md)，或[创建网络安全组](tutorial-filter-network-traffic.md)。 网络安全组可用于筛选进出网络接口的网络流量。 可向网络接口应用零个或一个网络安全组。 也可向网络接口分配到的子网应用零个或一个网络安全组。 将网络安全组应用到网络接口以及该接口分配到的子网时，有时会产生意外结果。 若要对应用到网络接口和子网的网络安全组进行故障排除，请参阅[网络安全组故障排除](diagnose-network-traffic-filter-problem.md)。|
     |订阅|是|选择一个 Azure [订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)。 网络接口附加到的虚拟机及其连接到的虚拟网络必须位于同一订阅中。|
-    <!-- Not Available IPv6 --> <!-- Not Available IPv6 -->
-    |资源组|是|选择现有[资源组](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group)或创建新资源组。 网络接口可与它附加到的虚拟机或者连接到的虚拟网络位于相同或不同的资源组中。| |位置|是|网络接口附加到的虚拟机及其连接到的虚拟网络必须位于同一[位置](https://www.azure.cn/support/service-dashboard/)（也称为区域）。|
+    |资源组|是|选择现有的[资源组](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group)或创建一个资源组。 网络接口可与它附加到的虚拟机或者连接到的虚拟网络位于相同或不同的资源组中。|
+    |位置|是|网络接口附加到的虚拟机及其连接到的虚拟网络必须位于同一[位置](https://www.azure.cn/support/service-dashboard/)（也称为区域）中。|
 
-创建网络接口时，门户不会提供向接口分配公共 IP 地址的选项，但使用门户创建虚拟机时，门户会创建一个公共 IP 地址并将其分配到网络接口。 若要了解创建网络接口后如何向其添加公共 IP 地址，请参阅[管理 IP 地址](virtual-network-network-interface-addresses.md)。 若要使用公共 IP 地址创建网络接口，必须使用 CLI 或 PowerShell 创建网络接口。
+    <!-- Not Available IPv6 --> <!-- Not Available IPv6 -->
+   创建网络接口时，门户不会提供向接口分配公共 IP 地址的选项，但使用门户创建虚拟机时，门户会创建一个公共 IP 地址并将其分配到网络接口。 若要了解创建网络接口后如何向其添加公共 IP 地址，请参阅[管理 IP 地址](virtual-network-network-interface-addresses.md)。 若要使用公共 IP 地址创建网络接口，必须使用 CLI 或 PowerShell 创建网络接口。
 
 创建网络接口时，门户不提供将网络接口分配给应用程序安全组的选项，但是 Azure CLI 和 PowerShell 提供。 但是，只要网络接口连接到虚拟机，就可以使用门户将现有网络接口分配给应用程序安全组。 要了解如何将网络接口分配给应用程序安全组，请参阅[添加到应用程序安全组或从中删除](#add-to-or-remove-from-application-security-groups)。
 
@@ -84,15 +85,16 @@ ms.locfileid: "52664598"
 1. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“网络接口”。 当“网络接口”出现在搜索结果中时，请选择它。
 2. 从列表中选择要查看或更改设置的网络接口。
 3. 为所选网络接口列出了以下项：
-    - **概述：** 提供网络接口的相关信息，例如分配给它的 IP 地址、网络接口分配到的虚拟网络/子网，以及网络接口附加到的虚拟机（若已附加到某虚拟机）。 下图显示名为 mywebserver256 的网络接口的概述设置：![网络接口概述](./media/virtual-network-network-interface/nic-overview.png)。可选择“资源组”或“订阅名称”旁边的“(更改)”，将网络接口移到其他资源组或订阅。 如果移动网络接口，必须同时移动与该网络接口相关的所有资源。 例如，如果网络接口已附加到虚拟机，则还必须移动该虚拟机及其相关的其他资源。 若要移动网络接口，请参阅[将资源移到新的资源组或订阅](../azure-resource-manager/resource-group-move-resources.md?toc=%2fvirtual-network%2ftoc.json#use-portal)。 该文章列出了先决条件，以及如何使用 Azure 门户、PowerShell 和 Azure CLI 移动资源。
+    - **概述：** 提供网络接口的相关信息，例如分配给它的 IP 地址、网络接口分配到的虚拟网络/子网，以及网络接口附加到的虚拟机（若已附加到某虚拟机）。 下图显示名为 mywebserver256 的网络接口的概述设置：![网络接口概述](./media/virtual-network-network-interface/nic-overview.png)可选择“资源组”或“订阅名称”旁边的“（更改）”，将网络接口移到其他资源组或订阅。 如果移动网络接口，必须同时移动与该网络接口相关的所有资源。 例如，如果网络接口已附加到虚拟机，则还必须移动该虚拟机及其相关的其他资源。 若要移动网络接口，请参阅[将资源移到新的资源组或订阅](../azure-resource-manager/resource-group-move-resources.md?toc=%2fvirtual-network%2ftoc.json#use-portal)。 该文章列出了先决条件，以及如何使用 Azure 门户、PowerShell 和 Azure CLI 移动资源。
     - **IP 配置：** 此处列出分配到 IP 配置的公共和专用 IPv4 地址。 若要详细了解 IP 配置以及如何添加和删除 IP 地址，请参阅[为 Azure 网络接口配置 IP 地址](virtual-network-network-interface-addresses.md)。 此部分还配置了 IP 转发和子网分配。 若要详细了解这些设置，请参阅[启用或禁用 IP 转发](#enable-or-disable-ip-forwarding)和[更改子网分配](#change-subnet-assignment)。
     - **DNS 服务器：** 可指定 Azure DHCP 服务器向网络接口分配哪个 DNS 服务器。 网络接口可从其连接到的虚拟网络继承设置，或使用自定义设置来替代其分配到的虚拟网络的设置。 若要修改显示的内容，请参阅[更改 DNS 服务器](#change-dns-servers)。
-    - **网络安全组 (NSG)：** 显示与网络接口关联的 NSG（若有）。 NSG 包含用于筛选网络接口网络流量的入站和出站规则。 如果网络接口关联有 NSG，会显示关联的 NSG 的名称。 若要修改显示的内容，请参阅[关联或取消关联网络安全组](#associate-or-dissociate-a-network-security-group)。
+    - **网络安全组 (NSG)**：显示与网络接口关联的 NSG（若有）。 NSG 包含用于筛选网络接口网络流量的入站和出站规则。 如果网络接口关联有 NSG，会显示关联的 NSG 的名称。 若要修改显示的内容，请参阅[关联或取消关联网络安全组](#associate-or-dissociate-a-network-security-group)。
     - **属性：** 显示有关网络接口的关键设置，包括其 MAC 地址（若网络接口未附加到虚拟机，则为空）及其所在的订阅。
     - **有效的安全规则：** 如果网络接口已附加到正在运行的虚拟机，且某 NSG 已关联到该接口和/或其分配到的子网，则会列出安全规则。 若要了解有关显示内容的详细信息，请参阅[查看有效的安全规则](#view-effective-security-rules)。 若要了解有关 NSG 的详细信息，请参阅[网络安全组](security-overview.md)。
     - **有效的路由：** 如果网络接口已附加到正在运行的虚拟机，则会列出路由。 路由是 Azure 默认路由、用户定义的任何路由以及网络接口分配到的子网可能存在的任何 BGP 路由的组合。 若要了解有关显示内容的详细信息，请参阅[查看有效的路由](#view-effective-routes)。 若要了解有关 Azure 默认路由和用户定义的路由的详细信息，请参阅[路由概述](virtual-networks-udr-overview.md)。
-    - **常见的 Azure 资源管理器设置：** 若要详细了解常见的 Azure 资源管理器设置，请参阅[活动日志](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)、[访问控制 (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-network%2ftoc.json#access-control)、[标记](../azure-resource-manager/resource-group-using-tags.md?toc=%2fvirtual-network%2ftoc.json)、[锁定](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fvirtual-network%2ftoc.json)和[自动化脚本](../azure-resource-manager/resource-manager-export-template.md?toc=%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)。
-
+    - **常见的 Azure 资源管理器设置：** 若要详细了解常见的 Azure 资源管理器设置，请参阅[访问控制（标识和访问管理）](../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-network%2ftoc.json#access-control)、[标记](../azure-resource-manager/resource-group-using-tags.md?toc=%2fvirtual-network%2ftoc.json)、[锁定](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fvirtual-network%2ftoc.json)和[自动化脚本](../azure-resource-manager/resource-manager-export-template.md?toc=%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)。
+        <!--Not Available on [Activity log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)-->
+        
 <a name="view-settings-commands"></a>**命令**
 
 
@@ -191,7 +193,7 @@ IP 转发使网络接口附加到的虚拟机能够：
 命令
 
 - Azure CLI: [az network nic update](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az-network-nic-update)
-- PowerShell: [Set-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkinterface)
+- PowerShell：[Set-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkinterface)
 
 <a name="delete-nic"></a>
 ## <a name="delete-a-network-interface"></a>删除网络接口
@@ -231,7 +233,7 @@ Azure 网络观察程序的 IP 流验证功能还有助于确定安全规则是�
 命令
 
 - Azure CLI: [az network nic list-effective-nsg](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az-network-nic-list-effective-nsg)
-- PowerShell: [Get-AzureRmEffectiveNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermeffectivenetworksecuritygroup) 
+- PowerShell：[Get-AzureRmEffectiveNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermeffectivenetworksecuritygroup) 
 
 ### <a name="view-effective-routes"></a>查看有效路由
 
@@ -248,7 +250,7 @@ Azure 网络观察程序的下一个跃点功能还有助于确定路由是否�
 命令
 
 - Azure CLI：[az network nic show-effective-route-table](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az-network-nic-show-effective-route-table)
-- PowerShell: [Get-AzureRmEffectiveRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermeffectiveroutetable)
+- PowerShell：[Get-AzureRmEffectiveRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermeffectiveroutetable)
 
 ## <a name="permissions"></a>权限
 

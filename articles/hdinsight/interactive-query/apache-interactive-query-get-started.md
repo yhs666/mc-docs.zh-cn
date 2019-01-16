@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 02/22/2018
 ms.date: 01/14/2019
-ms.openlocfilehash: 5eb1c6090352b8f56e5991161f8e23f81a0b9642
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: e1134587c39b03e23ef38ce01a0ddfe77b7c7759
+ms.sourcegitcommit: 902c63072b2d4d889e47f3e4ecb53aeb33534e0c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029243"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54186237"
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>将交互式查询与 HDInsight 配合使用
 交互式查询（也称为 Apache Hive LLAP 或[低延迟分析处理](https://cwiki.apache.org/confluence/display/Hive/LLAP)）是一种 Azure HDInsight [群集类型](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types)。 交互式查询支持内存中缓存，可提高 Apache Hive 查询速度和交互性。

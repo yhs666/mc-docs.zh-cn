@@ -6,14 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 09/05/2017
-ms.date: 09/24/2018
+ms.date: 01/14/2019
 ms.author: v-jay
-ms.openlocfilehash: 2ea6af79d3300a3889bf095849cbe429054692e2
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.component: common
+ms.openlocfilehash: c51819a6daa5d29f4ab9fda4814f865a1164e5a7
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028591"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192897"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure Monitor 中的 Azure 存储指标
 
@@ -25,7 +26,7 @@ Azure Monitor 提供统一的用户界面用于监视不同的 Azure 服务。 �
 
 Azure Monitor 提供多种访问指标的方法。 可从 [Azure 门户](https://portal.azure.cn)、Azure Monitor API（REST 和 .Net）以及分析解决方案（例如事件中心）访问指标。 有关详细信息，请参阅 [Azure Monitor 指标](../../monitoring-and-diagnostics/monitoring-overview-metrics.md)。
 
-默认情况下，已启用指标，并且可访问过去 93 天的数据。 如需将数据保留更长一段时间，可将指标数据存档到 Azure 存储帐户。 可在 Azure Monitor 的 [诊断设置](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) 中完成这种配置。
+默认情况下，已启用指标，并且可访问过去 93 天的数据。 如需将数据保留更长一段时间，可将指标数据存档到 Azure 存储帐户。 可在 Azure Monitor 的诊断设置中完成这种配置。
 
 ### <a name="access-metrics-in-the-azure-portal"></a>在 Azure 门户中访问指标
 
@@ -156,7 +157,7 @@ Azure Monitor 提供 [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.M
         var accessKey = "{AccessKey}";
 
         // Using metrics in Azure Monitor is currently free. However, if you use additional solutions ingesting metrics data, you may be billed by these solutions. For example, you are billed by Azure Storage if you archive metrics data to an Azure Storage account. Or you are billed by Operation Management Suite (OMS) if you stream metrics data to OMS for advanced analysis.
-        MonitorClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
+        MonitorManagementClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
         IEnumerable<MetricDefinition> metricDefinitions = await readOnlyClient.MetricDefinitions.ListAsync(resourceUri: resourceId, cancellationToken: new CancellationToken());
 
         foreach (var metricDefinition in metricDefinitions)
@@ -196,15 +197,15 @@ Azure Monitor 提供 [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.M
 
         Microsoft.Azure.Management.Monitor.Models.Response Response;
 
-        string startDate = DateTime.Now.AddHours(-3).ToString("o");
-        string endDate = DateTime.Now.ToString("o");
+        string startDate = DateTime.Now.AddHours(-3).ToUniversalTime().ToString("o");
+        string endDate = DateTime.Now.ToUniversalTime().ToString("o");
         string timeSpan = startDate + "/" + endDate;
 
         Response = await readOnlyClient.Metrics.ListAsync(
             resourceUri: resourceId,
             timespan: timeSpan,
             interval: System.TimeSpan.FromHours(1),
-            metric: "UsedCapacity",
+            metricnames: "UsedCapacity",
 
             aggregation: "Average",
             resultType: ResultType.Data,
@@ -244,12 +245,12 @@ Azure Monitor 提供 [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.M
         var applicationId = "{ApplicationID}";
         var accessKey = "{AccessKey}";
 
-        MonitorClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
+        MonitorManagementClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
 
         Microsoft.Azure.Management.Monitor.Models.Response Response;
 
-        string startDate = DateTime.Now.AddHours(-3).ToString("o");
-        string endDate = DateTime.Now.ToString("o");
+        string startDate = DateTime.Now.AddHours(-3).ToUniversalTime().ToString("o");
+        string endDate = DateTime.Now.ToUniversalTime().ToString("o");
         string timeSpan = startDate + "/" + endDate;
         // It's applicable to define meta data filter when a metric support dimension
         // More conditions can be added with the 'or' and 'and' operators, example: BlobType eq 'BlockBlob' or BlobType eq 'PageBlob'
@@ -260,7 +261,7 @@ Azure Monitor 提供 [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.M
                         resourceUri: resourceId,
                         timespan: timeSpan,
                         interval: System.TimeSpan.FromHours(1),
-                        metric: "BlobCapacity",
+                        metricnames: "BlobCapacity",
                         odataQuery: odataFilterMetrics,
                         aggregation: "Average",
                         resultType: ResultType.Data);
@@ -387,7 +388,7 @@ Azure 存储支持对 Azure Monitor 中的指标使用以下维度。
 
 | 维度名称 | 说明 |
 | ------------------- | ----------------- |
-| BlobType | 仅限 Blob 指标的 Blob 类型。 支持的值为 **BlockBlob** 和 **PageBlob**。 BlockBlob 中包含追加 Blob。 |
+| /BlobType | 仅限 Blob 指标的 Blob 类型。 支持的值为 **BlockBlob** 和 **PageBlob**。 BlockBlob 中包含追加 Blob。 |
 | ResponseType | 事务响应类型。 可用的值包括： <br/><br/> <li>ServerOtherError：除描述的错误以外的其他所有服务器端错误 </li> <li> ServerBusyError：已经过身份验证的请求返回了 HTTP 503 状态代码。 </li> <li> ServerTimeoutError：已经过身份验证的超时请求返回了 HTTP 500 状态代码。 由于服务器错误而发生超时。 </li> <li> AuthorizationError：由于未经授权访问数据或者授权失败，经过身份验证的请求失败。 </li> <li> NetworkError：由于网络错误，经过身份验证的请求失败。 往往发生于客户端在超时失效之前提前关闭了连接时。 </li> <li>    ClientThrottlingError：客户端限制错误。 </li> <li> ClientTimeoutError：已经过身份验证的超时请求返回了 HTTP 500 状态代码。 如果将客户端的网络超时或请求超时设置为比存储服务预期值更小的值，则预期会发生此超时。 否则，会报告为 ServerTimeoutError。 </li> <li> ClientOtherError：除描述的错误以外的其他所有客户端错误。 </li> <li> Success：请求成功|
 | GeoType | 来自主要或辅助群集的事务。 可用值包括 Primary 和 Secondary。 从辅助租户读取对象时，该维度会应用到读取访问异地冗余存储 (RA-GRS)。 |
 | ApiName | 操作的名称。 例如： <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> 有关所有操作名称，请参阅[文档](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md)。 |

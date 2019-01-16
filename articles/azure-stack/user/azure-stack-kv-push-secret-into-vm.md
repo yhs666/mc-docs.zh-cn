@@ -1,10 +1,10 @@
 ---
-title: 使用安全地存放在 Azure Stack 上的证书部署虚拟机 | Azure
+title: 使用安全地存放在 Azure Stack 上的证书部署虚拟机 | Microsoft Docs
 description: 了解如何在 Azure Stack 中部署虚拟机，并使用密钥保管库将证书推送到该虚拟机
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: 46590eb1-1746-4ecf-a9e5-41609fde8e89
 ms.service: azure-stack
@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 08/15/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
-ms.openlocfilehash: 31d9f5fdf79839cee07df3ab55832cff9e0e3a66
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 12/27/2018
+ms.date: 01/14/2019
+ms.author: v-jay
+ms.openlocfilehash: be566d6eab5dd803311eecc5ef907455174fab32
+ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657838"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54058979"
 ---
 # <a name="create-a-virtual-machine-and-install-a-certificate-retrieved-from-an-azure-stack-key-vault"></a>创建虚拟机，并安装从 Azure Stack 密钥保管库检索到的证书
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-了解如何使用安装的密钥保管库证书创建 Azure Stack 虚拟机 (VM)。
+了解如何创建一个安装了密钥保管库证书的 Azure Stack 虚拟机 (VM)。
 
 ## <a name="overview"></a>概述
 
@@ -42,7 +42,7 @@ ms.locfileid: "52657838"
 
 1. 创建 Key Vault 机密。
 2. 更新 azuredeploy.parameters.json 文件。
-3. 部署模板
+3. 部署模板。
 
 > [!NOTE]
 > 可以通过 Azure Stack 开发工具包或者外部客户端（如果已通过 VPN 建立连接）执行这些步骤。
@@ -50,8 +50,8 @@ ms.locfileid: "52657838"
 ## <a name="prerequisites"></a>先决条件
 
 * 必须订阅包含 Key Vault 服务的产品/服务。
-* [安装适用于 Azure Stack 的 PowerShell。](azure-stack-powershell-install.md)
-* [配置 Azure Stack 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)
+* [安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。
+* [配置 Azure Stack 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)。
 
 ## <a name="create-a-key-vault-secret"></a>创建 Key Vault 机密
 
@@ -61,7 +61,6 @@ ms.locfileid: "52657838"
 > 创建密钥保管库时，必须使用 `-EnabledForDeployment` 参数。 此参数可确保能够从 Azure 资源管理器模板引用密钥保管库。
 
 ```powershell
-
 # Create a certificate in the .pfx format
 New-SelfSignedCertificate `
   -certstorelocation cert:\LocalMachine\My `
@@ -118,16 +117,15 @@ Set-AzureKeyVaultSecret `
   -VaultName $vaultName `
   -Name $secretName `
    -SecretValue $secret
-
 ```
 
-运行前面的脚本时，输出会包括机密 URI。 请记下此 URI。 在[将证书推送到 Windows 资源管理器模板](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate)中，必须引用此 URI。 将 [vm-push-certificate-windows 模板](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate)文件夹下载到开发计算机上。 此文件夹包含 `azuredeploy.json` 和 `azuredeploy.parameters.json`文件，在后续步骤中将需要这些文件。
+运行前面的脚本时，输出会包括机密 URI。 请记下此 URI。 在[将证书推送到 Windows 资源管理器模板](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate)中，必须引用此 URI。 将 [vm-push-certificate-windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) 模板文件夹下载到开发计算机。 此文件夹包含 `azuredeploy.json` 和 `azuredeploy.parameters.json`文件，在后续步骤中将需要这些文件。
 
-根据环境值，修改 `azuredeploy.parameters.json` 文件。 要注意的参数是保管库名称、保管库资源组和机密 URI（由前面的脚本生成）。 以下文件是参数文件的示例：
+根据环境值，修改 `azuredeploy.parameters.json` 文件。 要注意的参数是保管库名称、保管库资源组和机密 URI（由前面的脚本生成）。 以下部分显示参数文件的示例。
 
 ## <a name="update-the-azuredeployparametersjson-file"></a>更新 azuredeploy.parameters.json 文件
 
-根据环境，以 vaultName、机密 URI、VmName 和其他值更新 azuredeploy.parameters.json 文件。 以下 JSON 文件显示模板参数文件的示例：
+根据环境，以 `vaultName`、机密 URI、`VmName` 和其他值更新 `azuredeploy.parameters.json` 文件。 以下 JSON 文件显示模板参数文件的示例：
 
 ```json
 {
@@ -179,10 +177,10 @@ New-AzureRmResourceGroupDeployment `
 
 ![模板部署结果](media/azure-stack-kv-push-secret-into-vm/deployment-output.png)
 
-在部署期间，Azure Stack 会将证书推送到虚拟机。 证书的位置取决于 VM 的操作系统：
+在部署期间，Azure Stack 会将证书推送到虚拟机。 证书位置取决于 VM 的操作系统：
 
-* 在 Windows 中，系统会利用用户提供的证书存储，将证书添加到 LocalMachine 证书位置。
-* 在 Linux 中，证书会置于 /var/lib/waagent 目录下，其中 x509 证书文件的文件名为 &lt;UppercaseThumbprint&gt;.crt，且私钥的文件名为 &lt;UppercaseThumbprint&gt;.prv。
+* 在 Windows 中，系统会利用用户提供的证书存储，将证书添加到 **LocalMachine** 证书位置。
+* 在 Linux 中，证书置于 `/var/lib/waagent directory` 下，其中 x509 证书文件的文件名为 &lt;UppercaseThumbprint&gt;.crt，私钥的文件名为 &lt;UppercaseThumbprint&gt;.prv。
 
 ## <a name="retire-certificates"></a>停用证书
 

@@ -1,38 +1,41 @@
 ---
 title: 使用 Azure 存储在云中上传图像数据 | Microsoft Docs
-description: 将 Azure blob 存储与 Web 应用结合使用来存储应用数据
+description: 将 Azure blob 存储与 Web 应用配合使用来存储应用数据
 services: storage
-documentationcenter: ''
 author: WenJason
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: tutorial
-origin.date: 02/20/2018
-ms.date: 11/05/2018
+origin.date: 11/26/2018
+ms.date: 01/14/2019
 ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: a6d0497aa6e5e8c536a15cca55ef8ec7215990b8
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 442df5a646039e75fce6e06b2a0c58491dd61e2e
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663831"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192884"
 ---
-# <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>使用 Azure 存储在云中上传图像数据
+# <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>教程：使用 Azure 存储在云中上传图像数据
 
-本教程是一个系列中的第一部分。 本教程演示如何部署一个 Web 应用，它使用 Azure 存储客户端库将图像上传到存储帐户。 完成后，你将具有一个通过 Azure 存储来存储和显示图像的 Web 应用。
+本教程是一个系列中的第一部分。 在本教程中，你将了解如何部署一个 Web 应用，它使用 Azure 存储客户端库将图像上传到存储帐户。 完成后，你将具有一个通过 Azure 存储来存储和显示图像的 Web 应用。
 
 ![图像容器视图](media/storage-upload-process-images/figure2.png)
 
-在该系列的第一部分中，你将学习如何：
+在该系列的第一部分中，你会学习如何：
 
 > [!div class="checklist"]
 > * 创建存储帐户
 > * 创建容器并设置权限
 > * 检索访问密钥
-> * 配置应用程序设置
 > * 将 Web 应用部署到 Azure
+> * 配置应用设置
 > * 与 Web 应用进行交互
+
+## <a name="prerequisites"></a>先决条件
+
+需要一个 Azure 订阅才能完成此教程。 请在开始之前先创建 [1 元试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
 如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如需进行安装或升级，请参阅[安装 Azure CLI]( /cli/install-azure-cli)。 
 
@@ -50,7 +53,7 @@ az group create --name myResourceGroup --location chinanorth
 
 此示例将图像上传到 Azure 存储帐户中的 blob 容器。 存储帐户提供唯一的命名空间来存储和访问 Azure 存储数据对象。 使用 [az storage account create](https://docs.azure.cn/cli/storage/account#az_storage_account_create) 命令在创建的资源组中创建存储帐户。 
 
-在以下命令中，请将 `<blob_storage_account>` 占位符替换成自己的 Blob 存储帐户的全局唯一名称。  
+在以下命令中，请将 `<blob_storage_account>` 占位符替换为你自己的 Blob 存储帐户的全局唯一名称。  
 
 ```azurecli 
 az storage account create --name <blob_storage_account> \
@@ -58,13 +61,13 @@ az storage account create --name <blob_storage_account> \
 --sku Standard_LRS --kind blobstorage --access-tier hot 
 ```
 
-## <a name="create-blob-storage-containers"></a>创建 blob 存储容器
+## <a name="create-blob-storage-containers"></a>创建 Blob 存储容器
 
-应用使用 Blob 存储帐户中的两个容器。 这些容器类似于文件夹，用于存储 blob。 images 容器是应用在其中上传完整分辨率图像的位置。 
+应用使用 Blob 存储帐户中的两个容器。 容器类似于文件夹，用于存储 blob。 images 容器是应用在其中上传完整分辨率图像的位置。 
 
-使用 [az storage account keys list](https://docs.azure.cn/cli/storage/account/keys#az_storage_account_keys_list) 命令获取存储帐户密钥。 然后使用此密钥通过 [az storage container create](https://docs.azure.cn/cli/storage/container#az_storage_container_create) 命令创建两个容器。  
+使用 [az storage account keys list](https://docs.azure.cn/cli/storage/account/keys#az_storage_account_keys_list) 命令获取存储帐户密钥。 然后，使用此密钥通过 [az storage container create](https://docs.azure.cn/cli/storage/container#az_storage_container_create) 命令创建两个容器。  
 
-在此例中，`<blob_storage_account>` 是你创建的 Blob 存储帐户的名称。 images 容器公共访问权限设置为 `off`，thumbnails 容器公共访问权限设置为 `container`。 `container` 公共访问权限设置使访问网页的人员可以查看缩略图。
+在此例中，`<blob_storage_account>` 是你创建的 Blob 存储帐户的名称。 *images* 容器的公共访问权限设置为 `off`。 *thumbnails* 容器的公共访问权限设置为 `container`。 `container` 公共访问权限设置允许访问网页的用户查看缩略图。
 
 ```azurecli 
 blobStorageAccount=<blob_storage_account>
@@ -78,11 +81,11 @@ az storage container create -n images --account-name $blobStorageAccount \
 az storage container create -n thumbnails --account-name $blobStorageAccount \
 --account-key $blobStorageAccountKey --public-access container
 
-echo "Make a note of your blob storage account key..."
+echo "Make a note of your Blob storage account key..."
 echo $blobStorageAccountKey
 ```
 
-记下 blob 存储帐户名称和密钥。 示例应用使用这些设置连接到存储帐户以上传图像。 
+记下 Blob 存储帐户名称和密钥。 示例应用使用这些设置连接到存储帐户以上传图像。 
 
 ## <a name="create-an-app-service-plan"></a>创建应用服务计划
 
@@ -93,14 +96,14 @@ echo $blobStorageAccountKey
 以下示例在免费定价层中创建名为 `myAppServicePlan` 的应用服务计划：
 
 ```azurecli 
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku Free
 ```
 
 ## <a name="create-a-web-app"></a>创建 Web 应用
 
-Web 应用为从 GitHub 示例存储库部署的示例应用代码提供承载空间。 使用 [az webapp create](/cli/webapp#az_webapp_create) 命令在 `myAppServicePlan` 应用服务计划中创建一个 [Web 应用](../../app-service/app-service-web-overview.md)。  
+Web 应用为从 GitHub 示例存储库部署的示例应用代码提供承载空间。 使用 [az webapp create](/cli/webapp#az_webapp_create) 命令在 `myAppServicePlan` 应用服务计划中创建 [Web 应用](../../app-service/app-service-web-overview.md)。  
 
-在以下命令中，将 `<web_app>` 替换为唯一名称（有效字符是 `a-z`、`0-9` 和 `-`）。 如果 `<web_app>` 不是唯一名称，将收到错误消息：“具有给定名称 `<web_app>` 的网站已存在”。 Web 应用的默认 URL 为 `https://<web_app>.chinacloudsites.cn`。  
+在以下命令中，将 `<web_app>` 替换为唯一名称。 有效的字符是 `a-z`、`0-9` 和 `-`。 如果 `<web_app>` 不唯一，将收到错误消息：_具有给定名称 `<web_app>` 的网站已存在。_ Web 应用的默认 URL 为 `https://<web_app>.chinacloudsites.cn`。  
 
 ```azurecli
 az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppServicePlan
@@ -110,7 +113,7 @@ az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppS
 
 应用服务支持通过多种方式将内容部署到 Web 应用。 在本教程中，将从[公共 GitHub 示例存储库](https://github.com/WenJason/storage-blob-upload-from-webapp)部署 Web 应用。 使用 [az webapp deployment source config](/cli/webapp/deployment/source#az_webapp_deployment_source_config) 命令配置 Web 应用的 GitHub 部署。 将 `<web_app>` 替换为在上一步中创建的 Web 应用的名称。
 
-示例项目包含一个 [ASP.NET MVC](https://www.asp.net/mvc) 应用，它接受图像，将其保存到存储帐户，然后从缩略图容器显示图像。 Web 应用使用 Azure 存储客户端库中的 [Microsoft.WindowsAzure.Storage](https://docs.azure.cn/dotnet/api/microsoft.windowsazure.storage?view=azure-dotnet)、[Microsoft.WindowsAzure.Storage.Blob](https://docs.azure.cn/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet) 和 [Microsoft.WindowsAzure.Storage.Auth](https://docs.azure.cn/dotnet/api/microsoft.windowsazure.storage.auth?view=azure-dotnet) 命名空间与 Azure 存储进行交互。 
+示例项目包含一个 [ASP.NET MVC](https://www.asp.net/mvc) 应用。 该应用接受一个图像，将其保存到存储帐户，然后从缩略图容器显示图像。 Web 应用使用 Azure 存储客户端库中的 [Microsoft.WindowsAzure.Storage](/dotnet/api/microsoft.windowsazure.storage?view=azure-dotnet)、[Microsoft.WindowsAzure.Storage.Blob](/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet) 和 [Microsoft.WindowsAzure.Storage.Auth](/dotnet/api/microsoft.windowsazure.storage.auth?view=azure-dotnet) 命名空间与 Azure 存储进行交互。
 
 ```azurecli
 az webapp deployment source config --name <web_app> \
@@ -120,9 +123,9 @@ az webapp deployment source config --name <web_app> \
 
 ## <a name="configure-web-app-settings"></a>配置 Web 应用设置
 
-示例 Web 应用使用 [Azure 存储客户端库](https://docs.azure.cn/zh-cn/dotnet/api/overview/storage)请求用于上传图像的访问令牌。 在 Web 应用的应用设置中设置存储 SDK 使用的存储帐户凭据。 使用 [az webapp config appsettings set](/cli/webapp/config/appsettings#az_webapp_config_appsettings_set) 命令将应用设置添加到已部署的应用。 
+示例 Web 应用使用 [Azure 存储客户端库](https://docs.azure.cn/zh-cn/dotnet/api/overview/storage)请求用于上传图像的访问令牌。 存储 SDK 使用的存储帐户凭据是在 Web 应用的应用设置中设置的。 使用 [az webapp config appsettings set](/cli/webapp/config/appsettings#az_webapp_config_appsettings_set) 命令将应用设置添加到已部署的应用。 
 
-在下面的命令中，`<blob_storage_account>` 是 Blob 存储帐户的名称，`<blob_storage_key>` 是关联密钥。 将 `<web_app>` 替换为在上一步中创建的 Web 应用的名称。
+在下面的命令中，将 `<blob_storage_account>` 替换为你的 Blob 存储帐户的名称，将 `<blob_storage_key>` 替换为关联的密钥。 将 `<web_app>` 替换为在上一步中创建的 Web 应用的名称。
 
 ```azurecli 
 az webapp config appsettings set --name <web_app> --resource-group myResourceGroup \
@@ -132,15 +135,15 @@ AzureStorageConfig__ThumbnailContainer=thumbnails \
 AzureStorageConfig__AccountKey=<blob_storage_key>  
 ```
 
-Web 应用已部署并配置之后，你可以在应用中测试图像上传功能。
+在部署并配置 Web 应用后，你可以在应用中测试图像上传功能。
 
-## <a name="upload-an-image"></a>上传映像
+## <a name="upload-an-image"></a>上传图像
 
-若要测试 Web 应用，请浏览到已发布应用的 URL。 Web 应用的默认 URL 为 `https://<web_app>.chinacloudsites.cn`。 选择“上传照片”区域以选择并上传文件，或是将文件拖放到该区域上。 如果成功上传，图像会消失。
+若要测试 Web 应用，请浏览到已发布应用的 URL。 Web 应用的默认 URL 为 `https://<web_app>.chinacloudsites.cn`。 选择“上传照片”区域以选择并上传文件，或者将文件拖放到该区域上。 如果成功上传，图像会消失。
 
 ![ImageResizer 应用](media/storage-upload-process-images/figure1.png)
 
-在示例代码中，`Storagehelper.cs` 文件中的 `UploadFiletoStorage` 任务用于通过 [UploadFromStreamAsync](https://docs.azure.cn/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) 方法将图像上传到存储帐户中的 `images` 容器。 下面的代码示例包含 `UploadFiletoStorage` 任务。 
+在示例代码中，*Storagehelper.cs* 文件中的 `UploadFiletoStorage` 任务用于通过 [UploadFromStreamAsync](https://docs.azure.cn/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) 方法将图像上传到存储帐户中的 *images* 容器。 下面的代码示例包含 `UploadFiletoStorage` 任务。 
 
 ```csharp
 public static async Task<bool> UploadFileToStorage(Stream fileStream, string fileName, AzureStorageConfig _storageConfig)
@@ -187,9 +190,9 @@ public static async Task<bool> UploadFileToStorage(Stream fileStream, string fil
 
 ## <a name="test-thumbnail-viewing"></a>测试缩略图查看
 
-为了测试缩略图查看，你会将图像上传到缩略图容器，以确保应用程序可以读取缩略图容器。
+为了测试缩略图查看，你将把图像上传到 **thumbnails** 容器，以检查应用可以读取 **thumbnails** 容器。
 
-登录到 [Azure 门户](https://portal.azure.cn)。 从左侧菜单中，选择“存储帐户”，然后选择你的存储帐户的名称。 选择“Blob 服务”下的“容器”，然后选择“thumbnails”容器。 选择“上传”以打开“上传 blob”窗格。
+登录到 [Azure 门户](https://portal.azure.cn)。 从左侧菜单中，选择“存储帐户”，然后选择你的存储帐户的名称。 在“Blob 服务”下，选择“Blob”，然后选择“thumbnails”容器。 选择“上传”以打开“上传 blob”窗格。
 
 使用文件选取器选择文件，然后选择“上传”。
 
@@ -197,15 +200,5 @@ public static async Task<bool> UploadFileToStorage(Stream fileStream, string fil
 
 ![图像容器视图](media/storage-upload-process-images/figure2.png)
 
-在 Azure 门户中的 **thumbnails** 容器中，选择上传的图像，然后选择“删除”以删除图像。 在本系列的第二部分中，你会自动创建缩略图图像，因此无需此测试图像。
-## <a name="next-steps"></a>后续步骤
+在本系列的第二部分中，您将使缩略图创建自动化，以便不需要此图像。 在 Azure 门户中的 **thumbnails** 容器中，选择上传的图像，然后选择“删除”以删除图像。 
 
-在本系列的第一部分中，你了解了如何配置与存储交互的 Web 应用，例如如何：
-
-> [!div class="checklist"]
-> * 创建存储帐户
-> * 创建容器并设置权限
-> * 检索访问密钥
-> * 配置应用程序设置
-> * 将 Web 应用部署到 Azure
-> * 与 Web 应用进行交互

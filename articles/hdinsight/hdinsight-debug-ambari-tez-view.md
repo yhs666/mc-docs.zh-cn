@@ -14,18 +14,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 02/27/2018
-ms.date: 05/28/2018
+ms.date: 01/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: 69b53f72b7f2fd63e5459305046ecc4f3638e6ae
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: bbbc6bc7eca50b6b28103a375b4f13750df9f1a1
+ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028355"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54216231"
 ---
-# <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>使用 Ambari 视图来调试 HDInsight 上的 Tez 作业
+# <a name="use-apache-ambari-views-to-debug-apache-tez-jobs-on-hdinsight"></a>使用 Apache Ambari 视图来调试 HDInsight 上的 Apache Tez 作业
 
-适用于 HDInsight 的 Ambari Web UI 所含的 Tez 视图可用于了解和调试使用 Tez 的作业。 利用 Tez 视图，可以将作业显示为包含已连接项目的图形，深入了解每个项目并检索统计信息和日志记录信息。
+适用于 HDInsight 的 [Apache Ambari](https://ambari.apache.org/) Web UI 所含的 [Apache TEZ](https://tez.apache.org/) 视图可用于了解和调试使用 Tez 的作业。 利用 Tez 视图，可以将作业显示为包含已连接项目的图形，深入了解每个项目并检索统计信息和日志记录信息。
 
 > [!IMPORTANT]
 > 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 组件版本控制](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
@@ -35,9 +35,9 @@ ms.locfileid: "53028355"
 * 基于 Linux 的 HDInsight 群集。 有关创建群集的步骤，请参阅[开始使用基于 Linux 的 HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)。
 * 支持 HTML5 的现代 Web 浏览器。
 
-## <a name="understanding-tez"></a>了解 Tez
+## <a name="understanding-apache-tez"></a>了解 Apache Tez
 
-Tez 是 Hadoop 中的一种可扩展数据处理框架，其处理速度比传统的 MapReduce 处理要快。 对于基于 Linux 的 HDInsight 群集来说，它是 Hive 的默认引擎。
+Tez 是 Apache Hadoop 中的一种可扩展数据处理框架，其处理速度比传统的 MapReduce 处理要快。 对于基于 Linux 的 HDInsight 群集来说，它是 Hive 的默认引擎。
 
 Tez 会创建一个有向无环图 (DAG)，用于描述作业所需的操作顺序。 单独的操作称为顶点，每个顶点执行完整作业的一部分。 实际执行顶点所描述的工作称为完成任务，任务可以分布在群集的多个节点中。
 
@@ -108,9 +108,9 @@ Tez 视图提供进程的历史信息，还提供正在运行的进程的相关�
 
 ## <a name="next-steps"></a>后续步骤
 
-现在，已了解如何使用 Tez 视图，因此可以详细了解如何 [使用 HDInsight 上的 Hive](hadoop/hdinsight-use-hive.md)。
+既然已了解如何使用 Apache Tez 视图，接下来将详细了解如何[使用 Apache Hive on HDInsight](hadoop/hdinsight-use-hive.md)。
 
-有关 Tez 的更详细的技术信息，请参阅 [Hortonworks 的 Tez 页](http://hortonworks.com/hadoop/tez/)。
+有关 Apache Tez 的更多详细的技术信息，请参阅 [Hortonworks 的 Apache Tez 页](https://hortonworks.com/hadoop/tez/)。
 
-
+有关如何将 Apache Ambari 与 HDInsight 配合使用的详细信息，请参阅[使用 Apache Ambari Web UI 管理 HDInsight 群集](hdinsight-hadoop-manage-ambari.md)
 <!--Update_Description: wording update-->

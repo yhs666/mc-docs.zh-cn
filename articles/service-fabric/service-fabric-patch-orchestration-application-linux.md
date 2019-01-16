@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/22/2018
-ms.date: 10/15/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: f3dcda32cd2e4cb247d0b66747f537cd13c77ad6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 789931e8b5c9c7911ed9bca6c392f482c9265a7f
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646566"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083655"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>在 Service Fabric 群集中修补 Linux 操作系统
 
@@ -42,10 +42,10 @@ ms.locfileid: "52646566"
 
 修补业务流程应用由以下子组件组成：
 
-- 协调器服务：此有状态服务负责：
+- **协调器服务**：此有状态服务负责：
     - 协调整个群集上的 OS 更新作业。
     - 存储已完成的 OS 更新操作的结果。
-- 节点代理服务：此无状态服务在所有 Service Fabric 群集节点上运行。 此服务负责：
+- **节点代理服务**：此无状态服务在所有 Service Fabric 群集节点上运行。 此服务负责：
     - 在 Linux 上启动节点代理守护程序。
     - 监视守护程序服务。
 - **节点代理守护程序**：此 Linux 守护程序服务以更高级别的特权 (root) 运行。 相比之下，节点代理服务和协调器服务以较低级别的特权运行。 该服务负责在所有群集节点上执行以下更新作业：
@@ -147,7 +147,7 @@ Linux 版修补业务流程应用使用特定的运行时功能，这些功能�
 
 1. 完成所有先决条件步骤来准备群集。
 2. 像部署任何其他 Service Fabric 应用那样部署修补业务流程应用。 可以使用 PowerShell 或 Azure Service Fabric CLI 部署应用。 遵循[使用 PowerShell 部署和删除应用程序](/service-fabric/service-fabric-deploy-remove-applications)或[使用 Azure Service Fabric CLI 部署应用程序](/service-fabric/scripts/cli-deploy-application)中的步骤。
-3. 若要在部署时配置应用程序，请将 `ApplicationParamater` 传递给 `New-ServiceFabricApplication` cmdlet 或提供的脚本。 为方便起见，我们随应用程序一同提供了 powershell (Deploy.ps1) 和 bash (Deploy.sh) 脚本。 使用脚本：
+3. 若要在部署时配置应用程序，请将 `ApplicationParameter` 传递给 `New-ServiceFabricApplication` cmdlet 或提供的脚本。 为方便起见，我们随应用程序一同提供了 powershell (Deploy.ps1) 和 bash (Deploy.sh) 脚本。 使用脚本：
 
     - 连接到 Service Fabric 群集。
     - 执行部署脚本。 （可选）将应用程序参数传递给脚本。 例如：.\Deploy.ps1 -ApplicationParameter @{ UpdateFrequency = "Daily, 11:00:00"} OR ./Deploy.sh "{\"UpdateFrequency\":\"Daily, 11:00:00\"}" 
@@ -307,7 +307,7 @@ A. 修补业务流程应用所需的时长主要取决于以下因素：
 
 问： **修补业务流程应用如何判断哪些更新是安全更新？**
 
-A. 修补业务流程应用使用特定于分发版的逻辑来确定可用更新中的哪些更新是安全更新。 例如，在 ubuntu 中，应用会搜索存档 $RELEASE-security、$RELEASE-updates 中的更新（$RELEASE 为 Xenial 或 Linux 标准基础发行版）。 
+A. 修补业务流程应用使用特定于分发版的逻辑来确定可用更新中的哪些更新是安全更新。 例如：在 ubuntu 中，应用会搜索存档 $RELEASE-security、$RELEASE-updates 中的更新（$RELEASE 为 Xenial 或 Linux 标准基础发行版）。 
 
 问： **如何锁定为特定的包版本？**
 

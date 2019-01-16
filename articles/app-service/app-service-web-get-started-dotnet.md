@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 中创建 C# ASP.NET Core Web 应用 | Microsoft Docs
-description: 了解如何通过部署默认的 C# ASP.NET Web 应用，在 Azure 应用服务中运行 Web 应用。
+title: 创建 C# ASP.NET Core Web 应用 - Azure 应用服务 | Azure Docs
+description: 了解如何通过部署默认的 C# ASP.NET Core Web 应用，在 Azure 应用服务中运行 Web 应用。
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -13,23 +13,24 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 09/05/2018
-ms.date: 10/08/2018
-ms.author: v-yiso
-ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: 0cb7f471c8e90ca11078a274efd740c5d0f73990
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 01/21/2019
+ms.author: v-biyu
+ms.custom: seodec18
+ms.openlocfilehash: 28d907ff3fa340853a089b5ed353f0ca37fbd99d
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652163"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083585"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>在 Azure 中创建 ASP.NET Core Web 应用
 
-[Azure Web 应用](app-service-web-overview.md)提供高度可缩放、自修补的 Web 托管服务。  本快速入门演示如何将第一个 ASP.NET Core Web 应用部署到 Azure Web 应用中。 完成后，便拥有了一个资源组，该资源组包含一个应用服务计划和一个具有已部署的 Web 应用程序的 Azure Web 应用。
+[Azure 应用服务](overview.md)提供高度可缩放、自修补的 Web 托管服务。  本快速入门演示如何将第一个 ASP.NET Core Web 应用部署到 Azure 应用服务中。 完成后，将拥有一个资源组，该资源组包含一个应用服务计划和一个部署了 Web 应用程序的应用服务应用。
 
 ![](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>先决条件
 
 若要完成本教程，请安装带有 ASP.NET 和 Web 开发工作负荷的 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a>。
@@ -97,7 +98,7 @@ ms.locfileid: "52652163"
 
 ![创建应用服务计划](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
 
-| 设置 | 建议的值 | 说明 |
+| 设置 | 建议的值 | 描述 |
 |-|-|-|
 |应用服务计划| myAppServicePlan | 应用服务计划的名称。 |
 | 位置 | 西欧 | 托管 Web 应用的数据中心。 |
@@ -143,7 +144,7 @@ ms.locfileid: "52652163"
 
 ![已在 Azure 中更新的 ASP.NET Web 应用](./media/app-service-web-get-started-dotnet/web-app-running-live-updated.png)
 
-## <a name="manage-the-azure-web-app"></a>管理 Azure Web 应用
+## <a name="manage-the-azure-app"></a>管理 Azure 应用
 
 转到 <a href="https://portal.azure.cn" target="_blank">Azure 门户</a>管理 Web 应用。
 

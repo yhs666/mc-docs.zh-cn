@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 09/25/2018
-ms.date: 11/12/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3788fe6abb02a590c39c7c08ed9e347266512365
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 7c3511daab2ff4dbf7739378f913260a5cfb534f
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661763"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083613"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>在 Windows 上准备开发环境
 > [!div class="op_single_selector"]
@@ -52,6 +52,9 @@ ms.locfileid: "52661763"
 ## <a name="install-the-sdk-and-tools"></a>安装 SDK 和工具
 Web 平台安装程序 (WebPI) 是安装 SDK 和工具的建议方法。 如果使用 WebPI 收到运行时错误，还可以在特定 Service Fabric 版本的发行说明中找到指向安装程序的直接链接。 发行说明可以在 [Service Fabric 团队博客](https://blogs.msdn.microsoft.com/azureservicefabric/)的各种发布公告中找到。
 
+> [!NOTE]
+> 不支持本地 Service Fabric 开发群集升级。
+
 ### <a name="to-use-visual-studio-2017"></a>使用 Visual Studio 2017
 Service Fabric 工具是 Visual Studio 2017 中 Azure 开发工作负荷的一部分。 在 Visual Studio 安装过程中启用此工作负荷。
 此外，还需使用 Web 平台安装程序安装 Azure Service Fabric SDK 和运行时。
@@ -68,10 +71,10 @@ Service Fabric 工具是 Visual Studio 2017 中 Azure 开发工作负荷的一�
 * [安装 Azure Service Fabric SDK][core-sdk]
 
 当前版本包括：
-* Service Fabric SDK and Tools 3.2.187
-* Service Fabric 运行时 6.3.187
-* Service Fabric Tools for Visual Studio 2015 2.3.10710.3
-* Visual Studio 2017 15.7 包括 Service Fabric Tools for Visual Studio 2.3.10710.1 
+* Service Fabric SDK and Tools 3.3.622
+* Service Fabric 运行时 6.4.622
+* 适用于 Visual Studio 2015 的 Service Fabric 工具 2.4.11116.1
+* Visual Studio 2017 15.9 包括适用于 Visual Studio 的 Service Fabric 工具 2.4.11024.1 
 
 有关支持的版本列表，请参阅 [Service Fabric 支持](service-fabric-support.md)
 
@@ -98,6 +101,6 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 * 了解 [Service Fabric 支持选项](service-fabric-support.md)
 
 
-<!-- Not Available on [1]: https://www.azure.cn/home/features/service-fabric--> [2]: https://go.microsoft.com/fwlink/?LinkId=517106 "VS RC" [full-bundle-vs2015]:https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "VS 2015 WebPI 链接" [full-bundle-dev15]:https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Dev15 WebPI 链接" [core-sdk]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Core SDK WebPI 链接" [powershell5-download]: https://www.microsoft.com/download/details.aspx?id=50395
+<!-- Not Available on [1]: https://www.azure.cn/home/features/service-fabric--> [2]:https://go.microsoft.com/fwlink/?LinkId=517106 "VS RC" [full-bundle-vs2015]:https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "VS 2015 WebPI 链接" [full-bundle-dev15]:https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Dev15 WebPI 链接" [core-sdk]:https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Core SDK WebPI 链接" [powershell5-download]: https://www.microsoft.com/download/details.aspx?id=50395
 
 <!--Update_Description: update meta properties, wording update -->

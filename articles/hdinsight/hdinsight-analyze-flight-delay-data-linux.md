@@ -1,5 +1,5 @@
 ---
-title: 教程：在 HDInsight 上使用 Hive 执行提取、转换、加载 (ETL) 操作 - Azure | Microsoft Docs
+title: 教程：使用 Hive on HDInsight 执行提取、转换、加载 (ETL) 操作 - Azure | Microsoft Docs
 description: 了解如何从原始 CSV 数据集提取数据，在 HDInsight 上使用 Hive 将其转换，然后使用 Sqoop 将已转换的数据加载到 Azure SQL 数据库。
 services: hdinsight
 author: jasonwhowell
@@ -8,17 +8,17 @@ ms.service: hdinsight
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 05/07/2018
-ms.date: 11/19/2018
+ms.date: 01/21/2019
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: ce1f3215aa3918276d2ff54d6ad08f46c0ed299a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 3e9703c9c8b39fd4cf98a34a907dab5dd91822dc
+ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652888"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54216267"
 ---
-# <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>教程：在 Azure HDInsight 上使用 Apache Hive 提取、转换和加载数据
+# <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>教程：使用 Apache Hive on Azure HDInsight 提取、转换和加载数据
 
 在此教程中，需将原始 CSV 数据文件导入 HDInsight 群集存储，然后在 Azure HDInsight 上使用 Apache Hive 转换数据。 数据转换完毕后，使用 Apache Sqoop 将数据加载到 Azure SQL 数据库。 本文使用公开提供的航班数据。
 
@@ -103,7 +103,7 @@ ms.locfileid: "52652888"
 
 ## <a name="transform-data-using-a-hive-query"></a>使用 Hive 查询转换数据
 
-可通过多种方式在 HDInsight 群集上运行 Hive 作业。 本部分使用 Beeline 运行 Hive 作业。 有关以其他方式运行 Hive 作业的信息，请参阅[在 HDInsight 上使用 Hive](./hadoop/hdinsight-use-hive.md)。
+可通过多种方式在 HDInsight 群集上运行 Hive 作业。 本部分使用 [Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline%E2%80%93CommandLineShell) 运行 Hive 作业。 有关以其他方式运行 Hive 作业的信息，请参阅[在 HDInsight 上使用 Apache Hive](./hadoop/hdinsight-use-hive.md)。
 
 在 Hive 作业运行期间，请将 .csv 文件中的数据导入到名为“Delays”的 Hive 表中。
 
@@ -270,7 +270,7 @@ ms.locfileid: "52652888"
 
 5. 在 `1>` 提示符下输入 `exit` 以退出 tsql 实用工具。
 
-## <a name="export-data-to-sql-database-using-sqoop"></a>使用 Sqoop 将数据导出到 SQL 数据库
+## <a name="export-data-to-sql-database-using-apache-sqoop"></a>使用 Apache Sqoop 将数据导出到 SQL 数据库
 
 在前面的部分中，已经在 `/tutorials/flightdelays/output` 复制了转换后的数据。 本部分使用 Sqoop 将数据从 '/tutorials/flightdelays/output` 导出到在 Azure SQL 数据库中创建的表。 
 
@@ -311,19 +311,20 @@ ms.locfileid: "52652888"
 
 若要了解使用 HDInsight 中的数据的更多方式，请参阅以下文章：
 
-* [将 Hive 与 HDInsight 配合使用][hdinsight-use-hive]
-* [将 Pig 与 HDInsight 配合使用][hdinsight-use-pig]
-* [为 HDInsight 上的 Hadoop 开发 Java MapReduce 程序][hdinsight-develop-mapreduce]
+* [将 Apache Hive 和 HDInsight 配合使用][hdinsight-use-hive]
+* [将 Apache Pig 和 HDInsight 配合使用][hdinsight-use-pig]
+* [为 Apache Hadoop on HDInsight 开发 Java MapReduce 程序][hdinsight-develop-mapreduce]
 * [为 HDInsight 开发 Python 流式处理 MapReduce 程序][hdinsight-develop-streaming]
-* [将 Oozie 与 HDInsight 配合使用][hdinsight-use-oozie]
-* [将 Sqoop 与 HDInsight 配合使用][hdinsight-use-sqoop]
+* [将 Apache Oozie 和 HDInsight 配合使用][hdinsight-use-oozie]
+* [将 Apache Sqoop 与 HDInsight 配合使用][hdinsight-use-sqoop]
 
 [azure-purchase-options]: https://www.azure.cn/pricing/overview/
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/
 [azure-trial]: https://www.azure.cn/pricing/1rmb-trial/
 
-[rita-website]: http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
-[cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
+
+[rita-website]: https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
+[cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
 [hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
 [hdinsight-use-hive]:hadoop/hdinsight-use-hive.md

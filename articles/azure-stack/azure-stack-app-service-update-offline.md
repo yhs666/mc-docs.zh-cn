@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 11/13/2018
 ms.date: 12/17/2018
 ms.author: v-jay
-ms.openlocfilehash: b6de26bb476bed83627b566e8f3d2671ef7abcff
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.openlocfilehash: 8c100ed4349864d10c8a841228f1b735dd206aa5
+ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396227"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54059003"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>离线更新 Azure Stack 上的 Azure 应用服务
 
@@ -102,7 +102,7 @@ ms.locfileid: "53396227"
 
    1. 单击“Azure Stack 订阅”框旁边的“连接”按钮。
         * 如果使用 Azure Active Directory (Azure AD)，请输入在部署 Azure Stack 时提供的 Azure AD 管理员帐户和密码。 单击“登录”。
-        * 如果使用 Active Directory 联合身份验证服务 (AD FS)，请提供管理员帐户。 例如，*cloudadmin@azurestack.local*。 输入密码，并单击“登录”。
+        * 如果使用 Active Directory 联合身份验证服务 (AD FS)，请提供管理员帐户。 例如 _cloudadmin@azurestack.local_。 输入密码，并单击“登录”。
    2. 在“Azure Stack 订阅”框中，选择“默认提供商订阅”。
    3. 在“Azure Stack 位置”框中，选择要部署到的区域所对应的位置。 例如，如果要部署到 Azure Stack 开发工具包，请选择“本地”。
    4. 如果检测到现有的应用服务部署，则资源组和存储帐户将被填充并灰显。

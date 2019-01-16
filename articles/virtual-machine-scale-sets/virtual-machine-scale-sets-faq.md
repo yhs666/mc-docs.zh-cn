@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/12/2017
-ms.date: 12/20/2018
+ms.date: 01/10/2019
 ms.author: v-junlch
 ms.custom: na
-ms.openlocfilehash: 82b73dc45ff59cbc8bcef33cb25de9f8599b5429
-ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+ms.openlocfilehash: 63125457d93d9a144fbb7c8d986a85321c2d3101
+ms.sourcegitcommit: 0384e865d001a5640233ebcc84d99f31f4833fca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53656541"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193210"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 虚拟机规模集常见问题解答
 
@@ -162,48 +162,16 @@ ms.locfileid: "53656541"
 有关详细信息，请参阅[创建或更新虚拟机规模集](https://msdn.microsoft.com/library/mt589035.aspx)。
 
 
-### <a name="example-of-self-signed-certificate"></a>自签名证书的示例
+### <a name="example-of-self-signed-certificates-provisioned-for-azure-service-fabric-clusters"></a>为 Azure Service Fabric 群集预配的自签名证书的示例。
+如需最新的示例，请在 azure shell 中使用以下 azure CLI 语句，阅读 Service Fabrics CLI 模块示例文档，该文档将打印到 stdout：
 
-1.  在密钥保管库中创建自签名证书。
+```bash
+az sf cluster create -h
+```
 
-    使用以下 PowerShell 命令：
+请查看 keyvaults 文档，了解 Azure 中最新的 API 支持的证书操作。
 
-    ```powershell
-    Import-Module "C:\Users\mikhegn\Downloads\Service-Fabric-master\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
-
-    Connect-AzureRmAccount -Environment AzureChinaCloud
-
-    Invoke-AddCertToKeyVault -SubscriptionId <Your SubID> -ResourceGroupName KeyVault -Location chinanorth -VaultName MikhegnVault -CertificateName VMSSCert -Password VmssCert -CreateSelfSignedCertificate -DnsName vmss.mikhegn.azure.com -OutputPath c:\users\mikhegn\desktop\
-    ```
-
-    此命令将提供 Azure 资源管理器模板的输入。
-
-    有关如何在密钥保管库中创建自签名证书的示例，请参阅[Service Fabric 群集安全方案](/service-fabric/service-fabric-cluster-security/)。
-
-2.  更改 Resource Manager 模板。
-
-    将此属性作为虚拟机规模集资源的一部分添加到 **virtualMachineProfile**：
-
-    ```json 
-    "osProfile": {
-        "computerNamePrefix": "[variables('namingInfix')]",
-        "adminUsername": "[parameters('adminUsername')]",
-        "adminPassword": "[parameters('adminPassword')]",
-        "secrets": [
-            {
-                "sourceVault": {
-                    "id": "[resourceId('KeyVault', 'Microsoft.KeyVault/vaults', 'MikhegnVault')]"
-                },
-                "vaultCertificates": [
-                    {
-                        "certificateUrl": "https://mikhegnvault.vault.azure.cn:443/secrets/VMSSCert/20709ca8faee4abb84bc6f4611b088a4",
-                        "certificateStore": "My"
-                    }
-                ]
-            }
-        ]
-    }
-    ```
+自签名证书不能用于证书颁发机构提供的分布式信任，也不应用于任何旨在托管企业生产解决方案的 Service Fabric 群集；有关其他 Service Fabric 安全指南，请查看 [Service Fabric 群集安全方案](/service-fabric/service-fabric-cluster-security/)。
   
 
 ### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>是否可以通过 Resource Manager 模板指定一个 SSH 密钥对，用于对 Linux 虚拟机规模集进行 SSH 身份验证？  

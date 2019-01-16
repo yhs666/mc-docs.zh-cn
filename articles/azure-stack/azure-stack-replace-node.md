@@ -6,33 +6,35 @@ documentationcenter: ''
 author: WenJason
 manager: digimobile
 editor: ''
-ms.assetid: f9434689-ee66-493c-a237-5c81e528e5de
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/10/2017
-ms.date: 10/15/2018
+origin.date: 12/06/2018
+ms.date: 01/14/2019
 ms.author: v-jay
-ms.openlocfilehash: 047ebc1c5ce71055c38237cccd28e8b6a971cd86
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 31107b3710f70998040be27dec7ba4abdd56a321
+ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650411"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54059008"
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>更换 Azure Stack 集成系统上的缩放单元节点
 
 *适用于：Azure Stack 集成系统*
 
-本文介绍更换 Azure Stack 集成系统上的物理计算机（也称为*缩放单元节点*）的一般过程。 实际的缩放单元节点更换步骤将因原始设备制造商 (OEM) 硬件供应商而异。 有关你系统特有的详细步骤，请参阅供应商的现场可更换部件 (FRU) 文档。
+本文介绍更换 Azure Stack 集成系统上的物理计算机（也称为缩放单元节点）的一般过程。 实际的缩放单元节点更换步骤将因原始设备制造商 (OEM) 硬件供应商而异。 有关你系统特有的详细步骤，请参阅供应商的现场可更换部件 (FRU) 文档。
 
 以下流程图显示更换整个缩放单元节点的一般 FRU 过程。
 
 ![更换节点过程的流程图](media/azure-stack-replace-node/replacenodeflow.png)
 
 *根据硬件的物理条件，可能不需要此操作。
+
+> [!Note]  
+> 如果关闭操作失败，建议使用清空操作，再使用停止操作。 有关更多详细信息，请参阅可用的节点操作。  
 
 ## <a name="review-alert-information"></a>查看警报信息
 
@@ -50,24 +52,26 @@ ms.locfileid: "52650411"
 
 ## <a name="scale-unit-node-replacement-process"></a>缩放单元节点更换过程
 
-提供以下步骤作为缩放单元节点更换过程的高级概述。 有关你系统特有的详细步骤，请参阅 OEM 硬件供应商的 FRU 文档。 请勿在未参考 OEM 提供的文档的情况下按照这些步骤操作。
+提供以下步骤作为缩放单元节点更换过程的高级概述。 有关系统特有的详细步骤，请参阅 OEM 硬件供应商的 FRU 文档。 请勿在未参考 OEM 提供的文档的情况下按照这些步骤操作。
 
-1. 使用[清空](azure-stack-node-actions.md#scale-unit-node-actions)操作使缩放单元节点进入维护模式。 根据硬件的物理条件，可能不需要此操作。
+1. 使用**关闭**操作正常关闭缩放单元节点。 根据硬件的物理条件，可能不需要此操作。 
 
-   > [!NOTE]
-   > 在任何情况下，只能同时清空一个节点并关机，而不中断 S2D（存储空间直通）。
+2. 万一关闭操作失败，请使用[清空](azure-stack-node-actions.md#drain)操作使缩放单元节点进入维护模式。 根据硬件的物理条件，可能不需要此操作。
 
-2. 如果节点的电源仍然开启，请使用[关闭电源](azure-stack-node-actions.md#scale-unit-node-actions)操作。 根据硬件的物理条件，可能不需要此操作。
- 
-   > [!NOTE]
+   > [!NOTE]  
+   > 在任何情况下，只能同时禁用一个节点并关机，而不中断 S2D（存储空间直通）。
+
+3. 缩放单元节点处于维护模式后，请使用[停止](azure-stack-node-actions.md#stop)操作。 根据硬件的物理条件，可能不需要此操作。
+
+   > [!NOTE]  
    > 在关闭电源操作不起作用的罕见情况下，请改用基板管理控制器 (BMC) Web 界面。
 
-1. 更换物理计算机。 通常，这由 OEM 硬件供应商来完成。
-2. 使用[修复](azure-stack-node-actions.md#scale-unit-node-actions)操作将新的物理计算机添加到缩放单元。
-3. 使用到特权终结点[检查虚拟磁盘修复状态](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair)。 利用新的数据驱动器，完整的存储修复作业可能需要数小时的时间，具体取决于系统负载和已使用的空间。
-4. 修复操作完成后，验证是否已自动关闭所有活动警报。
+4. 更换物理计算机。 通常，这由 OEM 硬件供应商来完成。
+5. 使用[修复](azure-stack-node-actions.md#repair)操作将新的物理计算机添加到缩放单元。
+6. 使用到特权终结点[检查虚拟磁盘修复状态](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair)。 利用新的数据驱动器，完整的存储修复作业可能需要数小时的时间，具体取决于系统负载和已使用的空间。
+7. 修复操作完成后，验证是否已自动关闭所有活动警报。
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关更换热插拔物理磁盘的信息，请参阅[更换磁盘](azure-stack-replace-disk.md)。 
-- 有关更换非热插拔的硬件组件的信息，请参阅[更换硬件组件](azure-stack-replace-component.md)。
+- 若要了解如何在系统通电的情况下更换物理磁盘，请参阅[更换磁盘](azure-stack-replace-disk.md)。 
+- 若要了解如何完成需要系统断电才能进行的硬件组件更换操作，请参阅[更换硬件组件](azure-stack-replace-component.md)。

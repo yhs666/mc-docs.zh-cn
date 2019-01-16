@@ -16,12 +16,12 @@ origin.date: 09/27/2018
 ms.date: 11/12/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 3a97fac7756ec82508c1a2e5ceaeefd7b43fc35a
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 8f84cdfbaf2999677e22bf736bb09233586ad628
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029021"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083606"
 ---
 # <a name="tutorial-deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>教程：将 Linux Service Fabric 群集部署到 Azure 虚拟网络
 
@@ -82,9 +82,12 @@ Azure Key Vault 用于管理 Azure 中 Service Fabric 群集的证书。  在 Az
 * [AzureDeploy.json][template]
 * [AzureDeploy.Parameters.json][parameters]
 
+> [!NOTE]
+> 必须修改从 GitHub 存储库“Azure-Samples”下载或引用的模板，使之适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；必要时更改某些不受支持的位置、VM 映像、VM 大小、SKU 以及资源提供程序的 API 版本。
+
 <!--Notice: Change storageAccountEndPoint as https://core.chinacloudapi.cn/-->
 > [!NOTE]
-> 成功下载模板文件 `vnet-cluster.json` 后，在第 499 行将 `"storageAccountEndPoint": "https://core.windows.net/"` 替换为 `"storageAccountEndPoint": "https://core.chinacloudapi.cn/"` 以匹配 Azure 中国云环境。
+> 成功下载模板文件 `AzureDeploy.json` 后，将 `"storageAccountEndPoint": "https://core.windows.net/"` 替换为 `"storageAccountEndPoint": "https://core.chinacloudapi.cn/"` 以匹配 Azure 中国云环境。
 
 
 此模板将包含五个虚拟机和单个节点类型的安全群集部署到虚拟网络中。  其他示例模板可以在 [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates) 上找到。 [AzureDeploy.json][template] 部署一些资源，包括以下资源。

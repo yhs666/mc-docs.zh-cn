@@ -15,12 +15,12 @@ origin.date: 09/19/2018
 ms.date: 12/31/2018
 ms.author: v-jay
 ms.reviewer: alfredo
-ms.openlocfilehash: 5ba8754a417436ff3f4fcea3b711451b138f7a62
-ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
+ms.openlocfilehash: 70cfd16adba4de6a6d8def428c2dc2a9341b35fb
+ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814597"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54058987"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>将租户添加到 Azure Stack 以获取用量和计费信息
 
@@ -54,7 +54,7 @@ CSP 通常向其 Azure Stack 部署中的多个最终客户（租户）提供服
  
 ## <a name="update-the-registration-with-the-end-customer-subscription"></a>更新最终客户订阅中的注册
 
-更新在最终客户订阅中的注册 Azure 将使用合作伙伴中心内的客户标识客户来报告客户的用量。 此步骤可确保在每个客户的个人 CSP 订阅下报告该客户的用量。 这样可以大大简化用户用量跟踪和计费。
+更新在最终客户订阅中的注册 Azure 将使用合作伙伴中心的客户标识来报告客户的用量。 此步骤可确保在每个客户的个人 CSP 订阅下报告该客户的用量。 这样可以大大简化用户用量跟踪和计费。
 
 > [!Note]  
 > 若要执行此步骤，必须[注册 Azure Stack](azure-stack-register.md)。

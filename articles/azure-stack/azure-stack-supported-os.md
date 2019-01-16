@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/26/2018
-ms.date: 11/12/2018
+origin.date: 12/27/2018
+ms.date: 01/14/2019
 ms.author: v-jay
 ms.reviewer: ''
-ms.openlocfilehash: da97e3d92e551f6d9fa6e3837836e2bb0ce53f1d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 438c133fd39f1e9df82b2254b003c642da404413
+ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648740"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54059021"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Azure Stack 支持的来宾操作系统
 
@@ -78,5 +78,5 @@ Datacenter 版本可在市场中下载；客户可以自带包含其他版本的
 
 有关 Azure Stack 市场的详细信息，请参阅以下文章：
 
-[下载市场项](azure-stack-download-azure-marketplace-item.md)  
-[创建和发布市场项](azure-stack-create-and-publish-marketplace-item.md)
+- [下载市场项](azure-stack-download-azure-marketplace-item.md)  
+- [创建和发布市场项](azure-stack-create-and-publish-marketplace-item.md)

@@ -12,15 +12,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/19/2018
-ms.date: 12/17/2018
+ms.date: 01/14/2019
 ms.author: v-jay
 ms.reviewer: alfredop
-ms.openlocfilehash: cbba6e9b9502ff2142a14cad963cc68995f953d8
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.openlocfilehash: 55525f927095b254a902086a058bc171a95732e9
+ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396170"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54059012"
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>向 Azure 报告 Azure Stack 用量数据 
 
@@ -90,7 +90,7 @@ ms.locfileid: "53396170"
 
 ## <a name="what-types-of-subscriptions-are-supported-for-usage-data-reporting"></a>哪些类型的订阅支持用量数据报告？
 
-对于 Azure Stack 多节点，支持企业协议 (EA) 和 CSP 订阅。 对于 Azure Stack 开发工具包，企业协议 (EA)、即用即付、CSP 和 MSDN 订阅支持用量数据报告。
+对于 Azure Stack 多节点，支持企业协议 (EA) 和 CSP 订阅。 对于 Azure Stack 开发工具包，企业协议 (EA)、预先支付、CSP 和 MSDN 订阅支持用量数据报告。
 
 ## <a name="does-usage-data-reporting-work-in-sovereign-clouds"></a>是否可以在主权云中运行用量数据报告？
 

@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 07/11/2018
 ms.date: 07/30/2018
 ms.author: v-nany
-ms.openlocfilehash: 32164067929764f0760bde2bac1c9b95b23d46b1
-ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
+ms.openlocfilehash: d355b3bad50422dbde92d26a82da13d64a7883ee
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676924"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192931"
 ---
 # <a name="use-the-azure-importexport-service-to-transfer-data-to-azure-storage"></a>使用 Azure 导入/导出服务将数据传输到 Azure 存储
 本文分步介绍如何使用 Azure 导入/导出服务将磁盘驱动器寄送到 Azure 数据中心，从而安全地将大量数据传输到 Azure Blob 存储和 Azure 文件。 此外，还可以使用此服务将数据从 Azure 存储传输到硬盘驱动器，然后再寄送到本地站点。 可将单个内部 SATA 磁盘驱动器中的数据导入 Azure Blob 存储或 Azure 文件。 
@@ -58,7 +58,7 @@ ms.locfileid: "52676924"
 
 ### <a name="step-2-create-an-import-job-on-azure-portal"></a>步骤 2：在 Azure 门户中创建导入作业。
 
-1. 登录 https://portal.azure.com/，在“更多服务”->“存储”->“导入/导出作业”下，单击“创建导入/导出作业”。
+1. 登录 https://portal.azure.cn/，在“更多服务”->“存储”->“导入/导出作业”下，单击“创建导入/导出作业”。
 
 2. 在“基本”部分中，选择“导入 Azure”，输入作业名称字符串，选择订阅，输入或选择资源组。 输入导入作业的描述性名称。 请注意，输入的名称只能包含小写字母、数字、连字符和下划线，必须以字母开头并且不得包含空格。 在作业进行中以及作业完成后，使用所选名称来跟踪作业。
 
@@ -127,7 +127,7 @@ WAImportExport 工具仅兼容 64 位 Windows 操作系统。 请参阅 [操作�
 下载最新版本的 [WAImportExport 工具](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExportV2.zip)。 有关使用 WAImportExport 工具的详细信息，请参阅[使用 WAImportExport 工具](storage-import-export-tool-how-to.md)。
 
 >[!NOTE]
->以前的版本：可以[下载 WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) 版本的工具，并参考 [WAImportExpot V1 使用指南](storage-import-export-tool-how-to-v1.md)。 WAImportExpot V1 版本的工具支持在已将数据预先写入磁盘的情况下准备磁盘。 如果唯一可用的密钥是 SAS 密钥，则也需要 WAImportExpot V1 工具。
+>**以前的版本：** 可以[下载 WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) 版本的工具，并参考 [WAImportExpot V1 使用指南](storage-import-export-tool-how-to-v1.md)。 WAImportExpot V1 版本的工具支持在已将数据预先写入磁盘的情况下准备磁盘。 如果唯一可用的密钥是 SAS 密钥，则也需要 WAImportExpot V1 工具。
 
 >
 

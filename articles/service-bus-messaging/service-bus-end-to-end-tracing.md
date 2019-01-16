@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/3/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3fbd7c3067634442bcb24ff659937369dbe8deda
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: 509a7bbf525a622c945ccf55a88af1d4b777685e
+ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029220"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54141682"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>通过服务总线消息传递进行分布式跟踪和关联
 
@@ -37,7 +37,7 @@ ms.locfileid: "54029220"
 
 ## <a name="service-bus-net-client-auto-tracing"></a>服务总线 .NET 客户端自动跟踪
 
-从版本 3.0.0 开始，[适用于 .NET 的 Microsoft Azure 服务总线客户端](/dotnet/api/microsoft.azure.servicebus.queueclient)提供可由跟踪系统或客户端代码片段挂接的跟踪检测点。
+从版本 3.0.0 开始，[适用于 .NET 的世纪互联 Azure 服务总线客户端](/dotnet/api/microsoft.azure.servicebus.queueclient)提供可由跟踪系统或客户端代码片段挂接的跟踪检测点。
 使用检测可以从客户端跟踪对服务总线消息传递服务发出的所有调用。 如果消息处理是通过[消息处理程序模式](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler)完成的，则还会检测消息处理
 
 

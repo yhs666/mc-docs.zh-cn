@@ -12,19 +12,30 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/23/2018
-ms.date: 12/17/2018
+origin.date: 12/18/2018
+ms.date: 01/14/2019
 ms.author: v-jay
 ms.reviewer: harik
-ms.openlocfilehash: 83c83338953079fb97af19ad77a98eca944e72ac
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.openlocfilehash: 945e28acc42d63a9342052a49cf33fdb237bcb9c
+ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396102"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54059000"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack 服务策略
+
 本文介绍 Azure Stack 集成系统的服务策略，以及必须如何做才能使系统保持在受支持的状态。 
+
+## <a name="download-update-packages-for-integrated-systems"></a>下载集成系统的更新包
+
+Microsoft 会发布完整的每月更新包和修补程序包来解决特定问题。 
+
+每月更新包托管在安全的 Azure 终结点中。 可以使用 [Azure Stack 更新下载程序工具](http://aka.ms/azurestackupdatedownload)手动下载它们。 如果缩放单元已连接，更新会以“有可用更新”消息的形式自动显示在管理员门户中。 完整的每月更新包在每次发布时都会详细地进行记录。 有关每次发布的详细信息，可以单击本文[更新包发布频率](#update-package-release-cadence)部分的任何发布。
+
+修补程序更新包托管在同一个安全的 Azure 终结点中。 可以使用每篇相应的修补程序 KB 文章（例如，[Azure Stack 修补程序 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114)）中的嵌入式链接手动下载它们。 Azure Stack 操作员可以按照[在 Azure Stack 中应用更新](azure-stack-apply-updates.md)中的过程下载 .xml、.bin 和 .exe 文件并将其导入，这与操作完整的每月更新包类似。 使用已连接缩放单元的 Azure Stack 操作员会看到修补程序自动出现在管理员门户中，并会看到消息“有可用更新”。
+
+如果在缩放单元未连接的情况下希望获得每个修补程序版本的通知，请订阅每个版本中注明的 [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … ) 或 [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom …) 源。  
 
 ## <a name="update-package-types"></a>更新包类型
 
@@ -66,5 +77,4 @@ Azure Stack 遵循与 Azure 相同的支持过程。 如果你是云服务提供
 
 - [在 Azure Stack 中管理更新](azure-stack-updates.md)
 
-<!-- Update_Description: wording update -->
 

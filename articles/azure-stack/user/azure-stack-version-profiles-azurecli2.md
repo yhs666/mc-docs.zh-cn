@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/08/2018
-ms.date: 12/17/2018
+origin.date: 12/06/2018
+ms.date: 01/14/2019
 ms.author: v-jay
 ms.reviewer: sijuman
-ms.openlocfilehash: 823bc47c4e406a44b6779bb7929ca7a93b2d2f30
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.openlocfilehash: 436a461ee02fddd4b80a8d19cac19db7610f3a15
+ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396242"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54058990"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Azure CLI 配合使用
 
@@ -37,7 +37,7 @@ az --version
 
 ## <a name="trust-the-azure-stack-ca-root-certificate"></a>信任 Azure Stack CA 根证书
 
-1. 从 [Azure Stack 运营商](..\azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate)获取 Azure Stack CA 根证书，并信任该证书。 若要信任 Azure Stack CA 根书，请将它附加到现有的 Python 证书。
+1. 从 [Azure Stack 运营商](../azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate)获取 Azure Stack CA 根证书，并信任该证书。 若要信任 Azure Stack CA 根书，请将它附加到现有的 Python 证书。
 
 2. 在计算机上找到证书位置。 该位置根据 Python 的安装位置而异。 需要安装 [pip](https://pip.pypa.io) 和 [certifi](https://pypi.org/project/certifi/) 模块。 可在 bash 提示符下使用以下 Python 命令：
 
@@ -129,7 +129,6 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
         --suffix-keyvault-dns ".adminvault.local.azurestack.external" \ 
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
-
    b. 若要注册用户环境，请使用：
 
       ```azurecli
@@ -152,7 +151,20 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
         --endpoint-active-directory-resource-id=<URI of the ActiveDirectoryServiceEndpointResourceID> \
         --profile 2018-03-01-hybrid
       ```
+    d. 若要在 AD FS 环境中注册用户，请使用：
 
+      ```azurecli
+      az cloud register \
+        -n AzureStack  \
+        --endpoint-resource-manager "https://management.local.azurestack.external" \
+        --suffix-storage-endpoint "local.azurestack.external" \
+        --suffix-keyvault-dns ".vault.local.azurestack.external"\
+        --endpoint-active-directory-resource-id "https://management.adfs.azurestack.local/<tenantID>" \
+        --endpoint-active-directory-graph-resource-id "https://graph.local.azurestack.external/"\
+        --endpoint-active-directory "https://adfs.local.azurestack.external/adfs/"\
+        --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases> \
+        --profile "2018-03-01-hybrid"
+      ```
 2. 使用以下命令设置活动环境。
 
    a. 对于云管理环境，请使用：
@@ -195,7 +207,7 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
    
       * 以服务主体身份登录：在登录之前，请[通过 Azure 门户或 CLI 创建一个服务主体](azure-stack-create-service-principals.md)，并为其分配角色。 接下来，使用以下命令登录：
 
-      ```azurecli
+      ```azurecli  
       az login \
         --tenant <Azure Active Directory Tenant name. For example: myazurestack.partner.onmschina.cn> \
         --service-principal \
@@ -204,20 +216,33 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
       ```
     * AD FS 环境
 
-        * 以服务主体身份登录： 
-          1.    准备要用于服务主体登录的 .pem 文件。
-                * 在创建主体的客户端计算机上，使用私钥（位于 cert:\CurrentUser\My；证书名称与主体名称相同）将服务主体证书导出为 pfx。
+        * 使用 Web 浏览器以用户身份登录：  
+              ```azurecli  
+              az login
+              ```
+        * 将 Web 浏览器与设备代码配合使用，以用户身份登录：  
+              ```azurecli  
+              az login --use-device-code
+              ```
+        > [!Note]  
+        >运行此命令会提供一个 URL 以及身份验证时必须使用的代码。
 
-                *   将 pfx 转换为 pem（使用 OpenSSL 实用程序）。
+        * 以服务主体身份登录：
+        
+          1. 准备要用于服务主体登录的 .pem 文件。
 
-          2.    登录到 CLI。 :
-                ```azurecli
-                az login --service-principal \
-                 -u <Client ID from the Service Principal details> \
-                 -p <Certificate's fully qualified name. Eg. C:\certs\spn.pem>
-                 --tenant <Tenant ID> \
-                 --debug 
-                ```
+            * 在创建主体的客户端计算机上，使用私钥（位于 `cert:\CurrentUser\My;` 证书名称与主体名称相同）将服务主体证书导出为 pfx。
+        
+            * 将 pfx 转换为 pem（使用 OpenSSL 实用程序）。
+
+          2.  登录到 CLI：
+            ```azurecli  
+            az login --service-principal \
+              -u <Client ID from the Service Principal details> \
+              -p <Certificate's fully qualified name, such as, C:\certs\spn.pem>
+              --tenant <Tenant ID> \
+              --debug 
+            ```
 
 ## <a name="test-the-connectivity"></a>测试连接
 

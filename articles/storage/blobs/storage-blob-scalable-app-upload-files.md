@@ -2,22 +2,21 @@
 title: 将大量随机数据以并行方式上传到 Azure 存储 | Microsoft Docs
 description: 了解如何使用 Azure SDK 将大量随机数据以并行方式上传到 Azure 存储帐户
 services: storage
-author: forester123
-manager: josefree
+author: WenJason
 ms.service: storage
-ms.workload: web
-ms.devlang: csharp
+ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 02/20/2018
-ms.date: 05/07/2018
-ms.author: v-johch
+ms.date: 01/14/2019
+ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: ba74a19932410cd7d92ee444aa4816d1887c088e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.component: blobs
+ms.openlocfilehash: 18d2a43f7b2d123366d167ea2cc83634ab77af9b
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647184"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192907"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>将大量随机数据以并行方式上传到 Azure 存储
 
@@ -37,7 +36,7 @@ Azure Blob 存储提供可缩放的服务来存储数据。 为了尽可能提�
 
 ## <a name="prerequisites"></a>先决条件
 
-要完成本教程，必须已经完成了以前的存储教程：[为可缩放的应用程序创建虚拟机和存储帐户][previous-tutorial]。
+若要完成本教程，必须先完成以前的“存储”教程：[为可缩放的应用程序创建虚拟机和存储帐户][previous-tutorial]。
 
 ## <a name="remote-into-your-virtual-machine"></a>远程登录到虚拟机
 
@@ -97,7 +96,7 @@ private static async Task UploadFilesAsync()
         int max_outstanding = 100;
         int completed_count = 0;
 
-        // Define the BlobRequestionOptions on the upload.
+        // Define the BlobRequestOptions on the upload.
         // This includes defining an exponential retry policy to ensure that failed connections are retried with a backoff policy. As multiple large files are being uploaded
         // large block sizes this can cause an issue if an exponential retry policy is not defined.  Additionally parallel operations are enabled with a thread count of 8
         // This could be should be multiple of the number of cores that the machine has. Lastly MD5 hash validation is disabled for this example, this improves the upload speed.
@@ -198,6 +197,6 @@ C:\>
 进入本系列的第三部分，从存储帐户下载大量数据。
 
 > [!div class="nextstepaction"]
-> [将大量大文件以并行方式上传到存储帐户](storage-blob-scalable-app-download-files.md)
+> [从 Azure 存储下载大量随机数据](storage-blob-scalable-app-download-files.md)
 
 [previous-tutorial]: storage-blob-scalable-app-create-vm.md

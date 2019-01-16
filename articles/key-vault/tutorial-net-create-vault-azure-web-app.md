@@ -13,12 +13,12 @@ origin.date: 09/05/2018
 ms.date: 01/14/2019
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 76cb217646b293aca9b058f2381bc3cf46ce2a96
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: fbd7f46cdcd1411d706d597d53112b27be4f276f
+ms.sourcegitcommit: 902c63072b2d4d889e47f3e4ecb53aeb33534e0c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996257"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54186248"
 ---
 # <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>教程：如何将 Azure Key Vault 与 .NET Azure Web 应用配合使用
 

@@ -12,17 +12,22 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 03/19/2018
-ms.date: 05/28/2018
+origin.date: 10/29/2018
+ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: ebf9f2ae31a9c58ea3b0275b6c255dc02d37df58
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6d251ae29df073b5a84f501d1f459ea179522559
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657099"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083683"
 ---
 # <a name="implement-reliable-actors-backup-and-restore"></a>实现 Reliable Actors 备份和还原
+
+> [!NOTE]
+> Azure 建议使用[定期备份和还原](service-fabric-backuprestoreservice-quickstart-azurecluster.md)来配置可靠有状态服务和 Reliable Actors 的数据备份。 
+> 
+
 在下面的示例中，自定义执行组件服务通过利用已存在于 `ActorService` 中的远程侦听器公开备份执行组件数据的方法：
 
 ```csharp
@@ -114,7 +119,7 @@ MyActorService myActorServiceProxy = ActorServiceProxy.create(MyActorService.cla
 myActorServiceProxy.backupActorsAsync();
 ```
 
-有关 Reliable Actors 的详细信息，请阅读以下内容：
+有关 Reliable Actors 的详细信息，请阅读以下文章：
 * [执行组件状态管理](service-fabric-reliable-actors-state-management.md)
 * [执行组件生命周期和垃圾回收](service-fabric-reliable-actors-lifecycle.md)
 * [执行组件 API 参考文档](https://msdn.microsoft.com/library/azure/dn971626.aspx)
@@ -127,4 +132,5 @@ myActorServiceProxy.backupActorsAsync();
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 [5]: ./media/service-fabric-reliable-actors-introduction/distribution.png
-<!-- Update_Description: update meta properties -->
+
+<!-- Update_Description: update meta properties, wording update -->

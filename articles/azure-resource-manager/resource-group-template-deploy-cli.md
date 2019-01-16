@@ -10,15 +10,15 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/24/2018
-ms.date: 12/17/2018
+origin.date: 12/14/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7ae28aa6571f57181c5e1c2ce40df8f3ea1e2d9c
-ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
+ms.openlocfilehash: 938cb4212d34c93388d20264a6bb4ec053dc15ad
+ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53286747"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193039"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>使用 Resource Manager 模板和 Azure CLI 部署资源
 
@@ -75,7 +75,7 @@ az group deployment create \
 
 前面的示例要求模板的 URI 可公开访问，它适用于大多数情况，因为模板应该不会包含敏感数据。 如果需要指定敏感数据（如管理员密码），请以安全参数的形式传递该值。 但是，如果不希望模板可公开访问，可以通过将其存储在专用存储容器中来保护它。 若要了解如何部署需要共享访问签名 (SAS) 令牌的模板，请参阅[部署具有 SAS 令牌的专用模板](resource-manager-cli-sas-token.md)。
 
-<!-- Not Available on Cloud Shell --> 在本地 Shell 中使用以下命令：
+<!-- Not Available on Cloud Shell --> 在 Azure Shell 中使用以下命令：
 
 ```azurecli
 az group create --name examplegroup --location "China East"
@@ -153,7 +153,7 @@ arrayContent.json 格式为：
 
 ### <a name="parameter-files"></a>参数文件
 
-你可能会发现，与在脚本中以内联值的形式传递参数相比，使用包含参数值的 JSON 文件更为容易。 参数文件可以是本地文件，也可以是具有可访问 URI 的外部文件。
+你可能会发现，与在脚本中以内联值的形式传递参数相比，使用包含参数值的 JSON 文件更为容易。 参数文件必须是本地文件。 Azure CLI 不支持外部参数文件。
 
 参数文件必须采用以下格式：
 

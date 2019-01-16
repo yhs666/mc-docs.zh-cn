@@ -1,20 +1,20 @@
 ---
-title: 教程 - 使用门户将基本示例模型添加到 Azure Analysis Services 服务器 | Azure
+title: 教程 - 将示例模型添加到 Azure Analysis Services 服务器 | Azure
 description: 本教程介绍如何在 Azure Analysis Services 中添加示例模型。
 author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-origin.date: 10/18/2018
-ms.date: 12/17/2018
+origin.date: 12/06/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: b15b8a183c4f12e2eafd48d3834581b5bcf99223
-ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
+ms.openlocfilehash: 94962b1d18932908ab0a531a8a921b808b4df034
+ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53157404"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193119"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>教程：从门户添加示例模型
 

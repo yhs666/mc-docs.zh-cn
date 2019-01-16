@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/3/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 4c7f4e4245f354e0e5ecf4565af1413894e29881
-ms.sourcegitcommit: f46e1f7a5d582bb9663bfaee8087b233eb822e17
+ms.openlocfilehash: 569aa2af9035fb15a1ab3fe36d86e6058f11a71b
+ms.sourcegitcommit: 902c63072b2d4d889e47f3e4ecb53aeb33534e0c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996514"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54186246"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>使用 Azure 门户还原虚拟机
 可以通过按定义的间隔创建数据快照来保护数据。 这些快照称为恢复点，存储在恢复服务保管库中。 当需要修复或重新生成虚拟机 (VM) 时，可以从保存的任何恢复点还原 VM。 还原恢复点时，可以：
@@ -99,7 +99,7 @@ ms.locfileid: "53996514"
 ## <a name="create-new-create-a-vm"></a>新建 - 创建 VM
 
 1. 在“还原配置” > “新建” > “还原类型”中，选择“创建虚拟机”。
-2. 在“虚拟机名称”中，指定订阅中不存在的某个 VM。
+2. 在“虚拟机名称”中，指定订阅中不存在的 VM。
 3. 在“资源组”中，为新 VM 选择现有的资源组，或者创建具有全局唯一名称的新资源组。 如果你分配一个已存在的名称，Azure 将为该组分配与 VM 相同的名称。
 4. 在“虚拟网络”中，选择要将 VM 放入到的 VNet。 此时会显示与订阅关联的所有 VNet。 选择子网。 默认已选择第一个子网。
 5. 在“存储位置”中，指定 VM 使用的存储类型。

@@ -8,21 +8,21 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 origin.date: 04/17/2018
-ms.date: 10/15/2018
+ms.date: 01/14/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: ef78147290db3f2bf123e01be33b7f91ea615486
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6e1def18894582c4ef4fc5f6442ecb751f3a43f4
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657832"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192920"
 ---
 # <a name="restore-an-azure-sql-data-warehouse-with-rest-apis"></a>使用 REST API 还原 Azure SQL 数据仓库
 使用 REST API 还原 Azure SQL 数据仓库。
 
 ## <a name="before-you-begin"></a>准备阶段
-**验证 DTU 容量。** 每个 SQL 数据仓库都由一个具有默认 [DTU 配额](../sql-database/sql-database-what-is-a-dtu.md)的逻辑 SQL 服务器（例如 myserver.database.windows.net）承载。  在还原 SQL 数据仓库之前，请确保 SQL Server 的剩余 DTU 配额足够进行数据库还原。 
+**验证 DTU 容量。** 每个 SQL 数据仓库都由一个具有默认 [DTU 配额](../sql-database/sql-database-what-is-a-dtu.md)的逻辑 SQL 服务器（例如 myserver.database.chinacloudapi.cn）托管。  在还原 SQL 数据仓库之前，请确保 SQL Server 的剩余 DTU 配额足够进行数据库还原。 
 
 ## <a name="restore-an-active-or-paused-data-warehouse"></a>还原活动或暂停的数据仓库
 若要还原数据仓库，请执行以下操作：

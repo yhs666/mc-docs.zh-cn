@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中创建 Node.js Web 应用 | Azure
+title: 创建 Node.js Web 应用 - Azure 应用服务 | Azure Docs
 description: 数分钟内在 Azure 应用服务 Web 应用中部署第一个 Node.js Hello World。
 services: app-service\web
 documentationcenter: ''
@@ -13,25 +13,26 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 08/24/2018
-ms.date: 12/03/2018
+ms.date: 01/21/2019
 ms.author: v-biyu
-ms.custom: mvc, devcenter
-ms.openlocfilehash: f84f05bbf0ce61f7435ee0fd4a97d802190b20ef
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.custom: seodec18
+ms.openlocfilehash: 01b49035bcfa60749293338fe1bc4e5a6d6d8ec1
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674977"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083596"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>在 Azure 中创建 Node.js Web 应用
 
-[Azure Web 应用](app-service-web-overview.md)提供高度可缩放、自修补的 Web 托管服务。  本快速入门演示如何将 Node.js 应用部署到 Azure Web 应用中。 使用 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) 创建 Web 应用，并使用 ZipDeploy 将 Node.js 代码示例部署到 Web 应用。
+[Azure 应用服务](overview.md)提供高度可缩放、自修补的 Web 托管服务。  本快速入门演示如何将 Node.js 应用部署到 Azure 应用服务中。 使用 [Azure CLI](https://docs.azure.cn/cli/get-started-with-azure-cli) 创建 Web 应用，并使用 ZipDeploy 将 Node.js 代码示例部署到 Web 应用。
 
 ![在 Azure 中运行的示例应用](./media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
 可以在 Mac、Windows 或 Linux 计算机上执行此处的步骤。 安装先决条件后，大约需要五分钟完成这些步骤。   
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>先决条件
 
 若要完成本快速入门教程，需先执行以下操作：
@@ -123,7 +124,7 @@ http://<app name>.chinacloudsites.cn
 
 新 Web 应用应该如下所示：
 
-![空 Web 应用页](media/app-service-web-get-started-nodejs-poc/app-service-web-service-created.png)
+![空 Web 应用页面](media/app-service-web-get-started-nodejs-poc/app-service-web-service-created.png)
 
 [!INCLUDE [Deploy ZIP file](../../includes/app-service-web-deploy-zip.md)]
 

@@ -12,15 +12,15 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-origin.date: 09/22/2017
-ms.date: 08/27/2018
+origin.date: 12/04/2018
+ms.date: 01/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: d714a3d0bc647a7580ee3755f318230582ed5401
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 6d26405eaa09d269c634692b18cca95552f8a2b6
+ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028697"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54216225"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 群集的容量规划
 
@@ -48,7 +48,7 @@ Azure 区域确定群集的物理预配位置。 为了将读写延迟最小化�
 
 ### <a name="location-of-existing-data"></a>现有数据的位置
 
-如果已有一个包含数据的存储帐户或 Data Lake Store，并想要将此存储用作群集的默认存储，则必须在与此存储相同的位置部署群集。
+如果已有一个包含数据的存储帐户，需要将此存储用作群集的默认存储，则必须在与此存储相同的位置部署群集。
 
 ### <a name="storage-size"></a>存储大小
 
@@ -85,7 +85,7 @@ VM 大小和类型由 CPU 处理能力、RAM 大小和网络延迟决定：
 
 ## <a name="choose-the-cluster-scale"></a>选择群集规模
 
-群集的规模由其 VM 节点数量决定。 所有群集类型都存在一些具有特定缩放的节点类型，以及一些支持横向扩展的节点类型。例如，某个群集可能恰好需要三个 ZooKeeper 节点或两个头节点。 对于以分布方式执行数据处理的工作节点，可以通过添加更多的工作节点来享受横向扩展的好处。
+群集的规模由其 VM 节点数量决定。 所有群集类型都存在一些具有特定缩放的节点类型，以及一些支持横向扩展的节点类型。例如，某个群集可能恰好需要三个 [Apache ZooKeeper](https://zookeeper.apache.org/) 节点或两个头节点。 对于以分布方式执行数据处理的工作节点，可以通过添加更多的工作节点来享受横向扩展的好处。
 
 根据群集类型，增加工作节点数目可以添加更多的计算容量（例如更多的核心），但同时也可能会增大整个群集为所处理数据的内存中存储提供支持所需的内存总量。 在 VM 大小和类型的选择上，适当的群集规模通常是使用模拟工作负荷或 canary 查询凭经验选择出来的。
 
@@ -93,9 +93,7 @@ VM 大小和类型由 CPU 处理能力、RAM 大小和网络延迟决定：
 
 ### <a name="cluster-lifecycle"></a>群集生命周期
 
-在群集的生存期内会产生费用。 如果仅在特定时间需要群集启动且正在运行， 
-
-可以创建 PowerShell 脚本用于预配和删除群集，然后使用 [Azure 自动化](/automation/)计划这些脚本。
+在群集的生存期内会产生费用。 如果只是需要在特定的时间启动并运行群集，可以使用 [Azure 数据工厂创建按需群集](hdinsight-hadoop-create-linux-clusters-adf.md)。 还可以创建 PowerShell 脚本用于预配和删除群集，然后使用 [Azure 自动化](https://azure.microsoft.com/services/automation/)计划这些脚本。
 
 > [!NOTE]
 > 删除某个群集时，也会一并删除其默认 Hive 元存储。 若要保留元存储供下一次重新创建群集时使用，可以使用 Azure 数据库或 Oozie 等外部元数据存储。
@@ -105,17 +103,31 @@ VM 大小和类型由 CPU 处理能力、RAM 大小和网络延迟决定：
 
 有时，多节点群集上多个映射和化简组件的并行执行可能导致出错。 为了帮助查明问题，可以通过在单节点群集上运行多个并发作业来尝试执行分布式测试，然后延伸这种方法，在包含多个节点的群集上并发运行多个作业。 若要在 Azure 中创建单节点 HDInsight 群集，请使用高级选项。
 
-也可以在本地计算机上安装单节点开发环境，并在该环境中测试解决方案。 Hortonworks 为基于 Hadoop 的解决方案提供单节点本地开发环境，非常有利于初始开发、概念证明和测试。 有关详细信息，请参阅 [Hortonworks 沙盒](http://hortonworks.com/products/hortonworks-sandbox/)。
+也可以在本地计算机上安装单节点开发环境，并在该环境中测试解决方案。 Hortonworks 为基于 Hadoop 的解决方案提供单节点本地开发环境，非常有利于初始开发、概念证明和测试。 有关详细信息，请参阅 [Hortonworks 沙盒](https://hortonworks.com/products/hortonworks-sandbox/)。
 
 若要识别单节点本地群集上的问题，可以重新运行失败的作业并调整输入数据，或使用更小的数据集。 这些作业的运行方式取决于平台和应用程序类型。
 
 ## <a name="quotas"></a>配额
 
-确定目标群集 VM 大小、规模和类型之后，请检查订阅的当前配额容量限制。 达到配额限制时，可能无法部署新群集，或通过添加更多工作节点来横向扩展现有群集。 最容易达到的配额限制是订阅、区域和 VM 系列级别的 CPU 核心配额。 例如，订阅的总核心数限制可能为 200，而区域中的核心限制为 30，VM 实例上的核心限制为 30。 可以[联系支持部门来请求提高配额](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)。
+确定目标群集 VM 大小、规模和类型之后，请检查订阅的当前配额容量限制。 达到配额限制时，可能无法部署新群集，或通过添加更多工作节点来横向扩展现有群集。 唯一存在配额限制的是每个订阅的区域级别的 CPU 核心配额。 例如，订阅可能会在美国东部区域有 30 个核心的限制。 如果需要请求增加配额，请执行以下操作：
 
+1. 转到 Azure 门户
+1. 单击页面左下方的“帮助和支持”。
+1. 单击“新建支持请求”。
+1. 在“新建支持请求”页面的“基本信息”选项卡下，选择以下选项：
+    - “问题类型”：“服务和订阅限制(配额)”
+    - “订阅”：想要修改的订阅
+    - “配额类型”：**HDInsight**
+    
+    ![创建支持请求来增加 HDInsight 核心配额](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
+
+1. 单击“下一步”。
+1. 在“详细信息”页面，输入问题的说明，然后选择问题的严重性和首选联系方法。
+1. 单击“下一步:查看 + 创建”。
+1. 在“查看 + 创建”选项卡中，单击“创建”。
 但是，存在一些固定的配额限制，例如，单个 Azure 订阅最多只能有 10,000 个核心。 有关这些限制的详细信息，请参阅 [Azure 订阅和服务限制、配额与约束](https://docs.microsoft.com/azure/azure-subscription-service-limits#limits-and-the-azure-resource-manager)。
 
 ## <a name="next-steps"></a>后续步骤
 
-* [使用 Hadoop、Spark、Kafka 等在 HDInsight 中设置群集](hdinsight-hadoop-provision-linux-clusters.md)：了解如何使用 Hadoop、Spark、Kafka、Interactive Hive、HBase、ML Services 或 Storm 在 HDInsight 中设置和配置群集。
+* [使用 Apache Hadoop、Spark、Kafka 等在 HDInsight 中设置群集](hdinsight-hadoop-provision-linux-clusters.md)：了解如何使用 Apache Hadoop、Spark、Kafka、交互式 Hive、HBase、ML Services 或 Storm 在 HDInsight 中设置和配置群集。
 * [监视群集性能](hdinsight-key-scenarios-to-monitor.md)：了解要在 HDInsight 群集中监视的、可能会影响群集容量的关键情况。

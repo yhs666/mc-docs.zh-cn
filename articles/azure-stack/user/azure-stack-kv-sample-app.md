@@ -1,10 +1,10 @@
 ---
-title: 允许应用程序检索 Azure Stack Key Vault 机密 | Azure
+title: 允许应用程序检索 Azure Stack Key Vault 机密 | Microsoft Docs
 description: 使用示例应用操作 Azure Stack Key Vault
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: 3748b719-e269-4b48-8d7d-d75a84b0e1e5
 ms.service: azure-stack
@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 08/15/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
-ms.openlocfilehash: fdad0fe624a1bd164ec1d0192506d1b9a4dc5f54
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 12/27/2018
+ms.date: 01/14/2019
+ms.author: v-jay
+ms.openlocfilehash: 1aa3ad09c148625b0eac8f4d0742f72ed9689724
+ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656458"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54059010"
 ---
 # <a name="a-sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>使用密钥保管库中存储的密钥和机密的示例应用程序
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-按照本文中的步骤运行示例应用程序 (HelloKeyVault)，从 Azure Stack 中的密钥保管库检索密钥和机密。
+按照本文中的步骤运行名为 **HelloKeyVault** 的示例应用程序，从 Azure Stack 中的密钥保管库检索密钥和机密。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -47,7 +47,7 @@ ms.locfileid: "52656458"
 >[!NOTE]
 >默认情况下，此 PowerShell 脚本会在 Active Directory 中创建一个新的应用程序。 不过，你也可以注册现有的某个应用程序。
 
- 在运行以下脚本之前，请确保为 `aadTenantName` 和 `applicationPassword` 变量提供值。 如果没有为 `applicationPassword` 指定值，此脚本会生成随机密码。
+在运行以下脚本之前，请确保为 `aadTenantName` 和 `applicationPassword` 变量提供值。 如果没有为 `applicationPassword` 指定值，此脚本会生成随机密码。
 
 ```powershell
 $vaultName           = 'myVault'
@@ -70,7 +70,7 @@ Function GenerateSymmetricKey()
 Write-Host 'Please log into your Azure Stack user environment' -foregroundcolor Green
 
 $tenantARM = "https://management.local.azurestack.external"
-$aadTenantName = "PLEASE FILL THIS IN WITH YOUR AAD TENANT NAME. FOR EXAMPLE: myazurestack.partner.onmschina.cn"
+$aadTenantName = "FILL THIS IN WITH YOUR AAD TENANT NAME. FOR EXAMPLE: myazurestack.partner.onmschina.cn"
 
 # Configure the Azure Stack operator’s PowerShell environment.
 Add-AzureRMEnvironment `
@@ -135,10 +135,9 @@ Write-Host "Paste the following settings into the app.config file for the HelloK
 '<add key="AuthClientId" value="' + $servicePrincipal.ApplicationId + '"/>'
 '<add key="AuthClientSecret" value="' + $applicationPassword + '"/>'
 Write-Host
-
 ```
 
-下面的屏幕捕获显示了用于创建密钥保管库的脚本的输出：
+下图显示用于创建密钥保管库的脚本的输出：
 
 ![具有访问密钥的密钥保管库](media/azure-stack-kv-sample-app/settingsoutput.png)
 
@@ -146,19 +145,19 @@ Write-Host
 
 ## <a name="download-and-configure-the-sample-application"></a>下载并配置示例应用程序
 
-从 Azure [密钥保管库客户端示例](https://www.microsoft.com/en-us/download/details.aspx?id=45343)页下载密钥保管库示例。 将 .zip 文件的内容解压缩到开发工作站上。 samples 文件夹中有两个应用程序，本文使用了 HelloKeyVault。
+从 Azure [密钥保管库客户端示例](https://www.microsoft.com/download/details.aspx?id=45343)页下载密钥保管库示例。 将 .zip 文件的内容解压缩到开发工作站上。 samples 文件夹中有两个应用程序。 本文使用 **HelloKeyVault**。
 
-若要加载 HelloKeyVault 示例，请执行以下操作：
+若要加载 **HelloKeyVault** 示例，请执行以下操作：
 
 * 浏览到 **Microsoft.Azure.KeyVault.Samples** > **samples** > **HelloKeyVault** 文件夹。
-* 在 Visual Studio 中打开 HelloKeyVault 应用程序。
+* 在 Visual Studio 中打开 **HelloKeyVault** 应用程序。
 
 ### <a name="configure-the-sample-application"></a>配置示例应用程序
 
 在 Visual Studio 中：
 
-* 打开 HelloKeyVault\App.config 文件并浏览到 &lt;**appSettings**&gt; 元素。
-* 将 **VaultUrl**、**AuthClientId** 和 **AuthClientSecret** 密钥更新为用来创建密钥库的脚本返回的值。 （默认情况下，App.config 文件中有一个用于 *AuthCertThumbprint* 的占位符。 请将此占位符替换为 *AuthClientSecret*。）
+* 打开 HelloKeyVault\App.config 文件，找到 &lt;**appSettings**&gt; 元素。
+* 将 **VaultUrl**、**AuthClientId** 和 **AuthClientSecret** 密钥更新为用来创建密钥保管库的脚本返回的值。 默认情况下，App.config 文件有一个用于 `AuthCertThumbprint` 的占位符。 请将此占位符替换为 `AuthClientSecret`。
 
   ![应用设置](media/azure-stack-kv-sample-app/appconfig.png)
 
@@ -171,12 +170,9 @@ Write-Host
 可以使用 HelloKeyVault 示例执行以下操作：
 
 * 对密钥和机密执行基本操作，例如创建、加密、包装和删除。
-* 向 HelloKeyVault 传递诸如 *encrypt* 和 *decrypt* 等参数，以及向密钥保管库应用指定的更改。
+* 向 HelloKeyVault 传递诸如 `encrypt` 和 `decrypt` 之类的参数，以及向密钥保管库应用指定的更改。
 
 ## <a name="next-steps"></a>后续步骤
 
-[使用密钥保管库密码部署 VM](azure-stack-kv-deploy-vm-with-secret.md)
-
-[使用 Key Vault 证书部署 VM](azure-stack-kv-push-secret-into-vm.md)
-
-<!-- Update_Description: wording update -->
+- [使用密钥保管库密码部署 VM](azure-stack-kv-deploy-vm-with-secret.md)
+- [使用 Key Vault 证书部署 VM](azure-stack-kv-push-secret-into-vm.md)
