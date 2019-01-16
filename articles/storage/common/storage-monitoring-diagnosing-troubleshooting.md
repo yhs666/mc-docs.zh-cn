@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 05/11/2017
 ms.date: 09/24/2018
 ms.author: v-johch
-ms.openlocfilehash: bb0f907f48c6966e3f17f1045b5f2a662e99898d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 2cb61bd6158d41a9eb27afe348abd8c91cede230
+ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649311"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192933"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-azure-storage"></a>对 Azure 存储进行监视、诊断和故障排除
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -72,7 +72,7 @@ ms.locfileid: "52649311"
   * [附录 1：使用 Fiddler 捕获 HTTP 和 HTTPS 流量]
   * [附录 2：使用 Wireshark 捕获网络流量]
   * [附录 3：使用 Microsoft Message Analyzer 捕获网络流量]
-  * [附录 4：使用 Excel 查看度量值和日志数据]
+  * [附录 4：使用 Excel 查看指标和日志数据]
 
 ## <a name="introduction"></a>介绍
 本指南演示如何使用 Azure 存储客户端库中的 Azure 存储分析、客户端日志记录等功能及其他第三方工具，确定、诊断和排查与 Azure 存储相关的问题。
@@ -219,9 +219,9 @@ Azure SDK 提供了一个存储模拟器，可以在开发工作站上运行它�
 ### <a name="using-network-logging-tools"></a>使用网络日志记录工具
 可以捕获客户端和服务器之间的流量，以便提供有关客户端和服务器正在交换的数据以及底层网络状况的详细信息。 有用的网络日志记录工具包括：
 
-* [Fiddler](http://www.telerik.com/fiddler) 是一个免费 Web 调试代理，使用它可以检查 HTTP 与 HTTPS 请求和响应消息的标头和有效负载数据。 有关详细信息，请参阅“[附录 1：使用 Fiddler 捕获 HTTP 和 HTTPS 流量](#appendix-1)”。
-* [Microsoft 网络监视器 (Netmon)](http://www.microsoft.com/download/details.aspx?id=4865) 和 [Wireshark](http://www.wireshark.org/) 是免费的网络协议分析器，使用它们可以查看各种网络协议的详细数据包信息。 有关 Wireshark 的详细信息，请参阅“[附录 2：使用 Wireshark 捕获网络流量](#appendix-2)”。
-* Microsoft Message Analyzer 是 Microsoft 提供的用于取代 Netmon 的工具，它除了捕获网络数据包数据外，还可帮助你查看和分析其他工具捕获的日志数据。 有关详细信息，请参阅“[附录 3：使用 Microsoft Message Analyzer 捕获网络流量](#appendix-3)”。
+* [Fiddler](http://www.telerik.com/fiddler) 是一个免费 Web 调试代理，使用它可以检查 HTTP 与 HTTPS 请求和响应消息的标头和有效负载数据。 有关详细信息，请参阅[附录 1：使用 Fiddler 捕获 HTTP 和 HTTPS 流量](#appendix-1)。
+* [Microsoft 网络监视器 (Netmon)](http://www.microsoft.com/download/details.aspx?id=4865) 和 [Wireshark](http://www.wireshark.org/) 是免费的网络协议分析器，使用它们可以查看各种网络协议的详细数据包信息。 有关 Wireshark 的详细信息，请参阅[附录 2：使用 Wireshark 捕获网络流量](#appendix-2)。
+* Microsoft Message Analyzer 是 Microsoft 提供的用于取代 Netmon 的工具，它除了捕获网络数据包数据外，还可帮助你查看和分析其他工具捕获的日志数据。 有关详细信息，请参阅[附录 3：使用 Microsoft Message Analyzer 捕获网络流量](#appendix-3)。
 * 如果要执行基本连接测试，以检查客户端计算机是否能够通过网络连接到 Azure 存储服务，则不能在客户端上使用标准 **ping** 工具来执行此操作。 但是，可以使用 [**tcping** 工具](http://www.elifulkerson.com/projects/tcping.php)来检查连接性。
 
 在许多情况下，通过存储日志记录和存储客户端库记录的日志数据已足以诊断问题，但在某些情况下，可能需要更详细的信息，而这些网络日志记录工具可以提供这些信息。 例如，使用 Fiddler 查看 HTTP 和 HTTPS 消息时，可以查看发往和来自存储服务的标头和负载数据，这使你能够检查客户端应用程序如何重试存储操作。 协议分析器（例如 Wireshark）运行在数据包级别，这使你能够查看 TCP 数据，从而可以排查丢失的数据包和连接问题。 Message Analyzer 可以在 HTTP 和 TCP 层上运行。
@@ -371,9 +371,9 @@ queueServicePoint.UseNagleAlgorithm = false;
 #### <a name="investigating-network-latency-issues"></a>调查网络延迟问题
 通常，因网络导致的高端到端延迟是由暂时状况导致的。 可以使用工具（如 Wireshark 或 Microsoft Message Analyzer）调查临时和持久网络问题，例如丢弃数据包。
 
-有关使用 Wireshark 排查网络问题的详细信息，请参阅“[附录 2：使用 Wireshark 捕获网络流量]”。
+有关使用 Wireshark 排查网络问题的详细信息，请参阅[附录 2：使用 Wireshark 捕获网络流量]。
 
-有关使用 Microsoft Message Analyzer 排查网络问题的详细信息，请参阅“[附录 3：使用 Microsoft Message Analyzer 捕获网络流量]”。
+有关使用 Microsoft Message Analyzer 排查网络问题的详细信息，请参阅[附录 3：使用 Microsoft Message Analyzer 捕获网络流量]。
 
 ### <a name="metrics-show-low-AverageE2ELatency-and-low-AverageServerLatency"></a>度量值显示低 AverageE2ELatency 和低 AverageServerLatency，但客户端遇到高延迟
 在这种情况下，最可能的原因是到达存储服务的存储请求出现延迟。 应调查来自客户端的请求为什么未到达 Blob 服务。
@@ -388,9 +388,9 @@ queueServicePoint.UseNagleAlgorithm = false;
 
 如果客户端没有问题，则应调查潜在的网络问题，例如数据包丢失。 可以使用工具（如 Wireshark 或 Microsoft Message Analyzer）调查网络问题。
 
-有关使用 Wireshark 排查网络问题的详细信息，请参阅“[附录 2：使用 Wireshark 捕获网络流量]”。
+有关使用 Wireshark 排查网络问题的详细信息，请参阅[附录 2：使用 Wireshark 捕获网络流量]。
 
-有关使用 Microsoft Message Analyzer 排查网络问题的详细信息，请参阅“[附录 3：使用 Microsoft Message Analyzer 捕获网络流量]”。
+有关使用 Microsoft Message Analyzer 排查网络问题的详细信息，请参阅[附录 3：使用 Microsoft Message Analyzer 捕获网络流量]。
 
 ### <a name="metrics-show-high-AverageServerLatency"></a>度量值显示高 AverageServerLatency
 如果 blob 下载请求出现高 **AverageServerLatency**，则应使用存储日志记录日志来了解对于同一 blob（或一组 blob）是否存在重复的请求。 对于 Blob 上传请求，应调查客户端正在使用的数据块大小（例如，小于 64 K 的数据块大小可能会导致开销，除非读取操作也在小于 64 K 的区块中进行），以及是否有多个客户端正在并行将数据块上传到同一 Blob。 还应检查每分钟度量值以了解导致超出每秒可伸缩性目标的请求数峰值：另请参阅“[度量值显示 PercentTimeoutError 增加]”。
@@ -451,14 +451,14 @@ queueServicePoint.UseNagleAlgorithm = false;
 > 
 > 
 
-**PercentTimeoutError** 度量值是以下度量值的聚合：**ClientTimeoutError**、**AnonymousClientTimeoutError**、**SASClientTimeoutError**、**ServerTimeoutError**、**AnonymousServerTimeoutError** 和 **SASServerTimeoutError**。
+**PercentTimeoutError** 指标是以下指标的聚合：**ClientTimeoutError**、**AnonymousClientTimeoutError**、**SASClientTimeoutError**、**ServerTimeoutError**、**AnonymousServerTimeoutError** 和 **SASServerTimeoutError**。
 
 服务器超时是由于服务器上的错误导致的。 客户端超时之所以发生是因为服务器上的操作已超出客户端指定的超时值；例如，使用存储客户端库的客户端可以使用 **QueueRequestOptions** 类的 **ServerTimeout** 属性为操作设置超时值。
 
 服务器超时指示存储服务存在需要进一步调查的问题。 可以使用度量值了解是否已达到该服务的伸缩性限制，并确定可能会导致此问题的任何流量峰值。 如果问题是间歇性的，则可能是由于服务中的负载均衡活动导致的。 如果问题是持久性的，并且不是由于应用程序达到服务的伸缩性限制导致的，则应提出支持问题。 对于客户端超时，必须确定超时在客户端中是否设为适当的值，可更改客户端中设置的超时值，或者调查如何改善存储服务中的操作性能，例如通过优化表查询或缩小消息的大小。
 
 ### <a name="metrics-show-an-increase-in-PercentNetworkError"></a>度量值显示 PercentNetworkError 增加
-度量值显示其中一个存储服务的 **PercentNetworkError** 增加。 **PercentNetworkError** 度量值是以下度量值的聚合：**NetworkError**、**AnonymousNetworkError** 和 **SASNetworkError**。 如果存储服务在客户端发出存储请求时检测到网络错误，则会出现这些错误。
+度量值显示其中一个存储服务的 **PercentNetworkError** 增加。 **PercentNetworkError** 指标是以下指标的聚合：**NetworkError**、**AnonymousNetworkError** 和 **SASNetworkError**。 如果存储服务在客户端发出存储请求时检测到网络错误，则会出现这些错误。
 
 出现此错误的最常见原因是客户端在存储服务超时到期之前断开连接。 应调查客户端中的代码，以了解客户端断开与存储服务的连接的原因和时间。 还可以使用 Wireshark、Microsoft Message Analyzer 或 Tcping 调查客户端的网络连接问题。 这些工具在[附录]中进行了说明。
 
@@ -470,12 +470,12 @@ queueServicePoint.UseNagleAlgorithm = false;
 | Microsoft.WindowsAzure.Storage |信息 |3 |85d077ab-... |正在按位置模式 PrimaryOnly 使用主位置启动操作。 |
 | Microsoft.WindowsAzure.Storage |信息 |3 |85d077ab -… |开始向 https://domemaildist.blob.core.chinacloudapi.cnazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr=c&amp;si=mypolicy&amp;sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14 发出同步请求。 |
 | Microsoft.WindowsAzure.Storage |信息 |3 |85d077ab -… |正在等待响应。 |
-| Microsoft.WindowsAzure.Storage |警告 |2 |85d077ab -… |在等待响应时引发了异常：远程服务器返回了错误：(403) 禁止访问。 |
+| Microsoft.WindowsAzure.Storage |警告 |2 |85d077ab -… |等待响应时引发了异常：远程服务器返回了错误：(403) 禁止访问。 |
 | Microsoft.WindowsAzure.Storage |信息 |3 |85d077ab -… |收到响应。 状态代码 = 403，请求 ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d，Content-MD5 =，ETag = 。 |
-| Microsoft.WindowsAzure.Storage |警告 |2 |85d077ab -… |在操作期间引发的异常：远程服务器返回了错误：(403) 禁止。 |
-| Microsoft.WindowsAzure.Storage |信息 |3 |85d077ab -… |正在检查是否应重试该操作。 重试次数 = 0，HTTP 状态代码 = 403，异常 = 远程服务器返回了错误：(403) 禁止。 |
+| Microsoft.WindowsAzure.Storage |警告 |2 |85d077ab -… |操作期间引发了异常：远程服务器返回了错误：(403) 禁止访问。 |
+| Microsoft.WindowsAzure.Storage |信息 |3 |85d077ab -… |正在检查是否应重试该操作。 重试次数 = 0，HTTP 状态代码 = 403，异常 = 远程服务器返回了错误：(403) 禁止访问。 |
 | Microsoft.WindowsAzure.Storage |信息 |3 |85d077ab -… |已根据位置模式将下一个位置设为主位置。 |
-| Microsoft.WindowsAzure.Storage |错误 |1 |85d077ab -… |重试策略不允许重试。 操作失败，远程服务器返回了错误：(403) 禁止。 |
+| Microsoft.WindowsAzure.Storage |错误 |1 |85d077ab -… |重试策略不允许重试。 操作失败，远程服务器返回了错误：(403) 禁止访问。 |
 
 在此方案中，应调查在客户端将该令牌发送到服务器之前 SAS 令牌即将到期的原因：
 
@@ -533,7 +533,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 | de8b1c3c-... |Starting synchronous request to https://domemaildist.blob.core.chinacloudapi.cn/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |StringToSign = PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt。 |
 | de8b1c3c-... |正在准备写入请求数据。 |
-| e2d06d78-... |在等待响应时引发的异常：远程服务器返回了错误：(404) 找不到。 |
+| e2d06d78-... |等待响应时引发了异常：远程服务器返回了错误：(404) 未找到。 |
 | e2d06d78-... |收到响应。 状态代码 = 404，请求 ID = 353ae3bc-...，Content-MD5 = ，ETag = 。 |
 | e2d06d78-... |响应标头已成功处理，继续执行该操作的剩余部分。 |
 | e2d06d78-... |正在下载响应正文。 |
@@ -543,14 +543,14 @@ queueServicePoint.UseNagleAlgorithm = false;
 | e2d06d78-... |正在等待响应。 |
 | de8b1c3c-... |正在写入请求数据。 |
 | de8b1c3c-... |正在等待响应。 |
-| e2d06d78-... |在等待响应时引发的异常：远程服务器返回了错误：(409) 冲突。 |
+| e2d06d78-... |等待响应时引发了异常：远程服务器返回了错误：(409) 冲突。 |
 | e2d06d78-... |收到响应。 状态代码 = 409，请求 ID = c27da20e-...，Content-MD5 = ，ETag = 。 |
 | e2d06d78-... |正在下载错误响应正文。 |
-| de8b1c3c-... |在等待响应时引发的异常：远程服务器返回了错误：(404) 找不到。 |
+| de8b1c3c-... |等待响应时引发了异常：远程服务器返回了错误：(404) 未找到。 |
 | de8b1c3c-... |收到响应。 状态代码 = 404，请求 ID = 0eaeab3e-...，Content-MD5 = ，ETag = 。 |
-| de8b1c3c-... |在操作期间引发的异常：远程服务器返回了错误：(404) 找不到。 |
-| de8b1c3c-... |重试策略不允许重试。 操作失败，远程服务器返回了错误：(404) 找不到。 |
-| e2d06d78-... |重试策略不允许重试。 操作失败，远程服务器返回了一个错误 ：(409) 冲突... |
+| de8b1c3c-... |操作期间引发了异常：远程服务器返回了错误：(404) 未找到。 |
+| de8b1c3c-... |重试策略不允许重试。 操作失败，远程服务器返回了错误：(404) 未找到。 |
+| e2d06d78-... |重试策略不允许重试。 操作失败，远程服务器返回了错误：(409) 冲突。 |
 
 在此示例中，该日志显示客户端正在交错执行 **CreateIfNotExists** 方法发出的请求（请求 ID e2d06d78…）与 **UploadFromStream** 方法发出的请求 (de8b1c3c-...)。之所以发生此交错执行是因为客户端应用程序正在以异步方式调用这两个方法。 应修改客户端中的异步代码，以确保客户端在尝试将任何数据上传到该容器中的 Blob 之前已创建该容器。 理想情况下，应该提前创建所有容器。
 
@@ -622,7 +622,7 @@ client.SetServiceProperties(sp);
 如果此问题频繁出现，应该调查为什么客户端无法从表服务收到确认消息。 如果此问题是间歇性的，则应捕获“HTTP (404) 找不到”错误并在客户端中记录它，但允许客户端继续执行。
 
 ### <a name="the-client-is-receiving-409-messages"></a>客户端正在接收“HTTP 409 (冲突)”消息
-下表显示了服务器端日志中针对两个客户端操作的摘录：**DeleteIfExists** 后跟使用相同 blob 容器名称的 **CreateIfNotExists**。 每个客户端操作会导致将两个请求发送到服务器，先是 **GetContainerProperties** 请求（用于检查容器是否存在），后跟 **DeleteContainer** 或 **CreateContainer** 请求。
+下表显示了服务器端日志中针对两个客户端操作的摘录：**DeleteIfExists** 后面紧接使用相同 Blob 容器名称的 **CreateIfNotExists**。 每个客户端操作会导致将两个请求发送到服务器，先是 **GetContainerProperties** 请求（用于检查容器是否存在），后跟 **DeleteContainer** 或 **CreateContainer** 请求。
 
 | Timestamp | 操作 | 结果 | 容器名称 | 客户端请求 ID |
 | --- | --- | --- | --- | --- |
@@ -641,7 +641,7 @@ client.SetServiceProperties(sp);
 请务必注意，这些操作已成功完成，因此不会影响其他度量值，如可用性。 成功执行但可能会导致失败的 HTTP 状态代码的一些操作示例包括：
 
 * **ResourceNotFound**（未找到 404），例如，对不存在的 blob 进行 GET 请求时生成。
-* **ResouceAlreadyExists**（冲突 409），例如，在资源已存在的情况下进行 **CreateIfNotExist** 操作时生成。
+* **ResourceAlreadyExists**（冲突 409），例如，在资源已存在的情况下进行 **CreateIfNotExist** 操作时生成。
 * **ConditionNotMet**（未修改 304），例如，进行条件操作时生成，例如仅在自上次操作以来映像已更新时，客户端才会发送 **ETag** 值和一个 HTTP **If-None-Match** 标头来请求此映像。
 
 可以在[常见的 REST API 错误代码](http://msdn.microsoft.com/library/azure/dd179357.aspx)页上找到存储服务返回的常见 REST API 错误代码的列表。
@@ -697,11 +697,11 @@ sqllocaldb create v11.0
 * 可以使用度量值信息来搜索服务器端日志数据，获取有关发生的任何错误的更多详细信息。 此信息可能有助于排查和解决该问题。
 * 如果服务器端日志中的信息不足以成功排查此问题，则可以使用存储客户端库客户端日志来调查客户端应用程序和工具（如 Fiddler、Wireshark 和 Microsoft Message Analyzer）的行为以调查网络。
 
-有关使用 Fiddler 的详细信息，请参阅“[附录 1：使用 Fiddler 捕获 HTTP 和 HTTPS 流量]”。
+有关使用 Fiddler 的详细信息，请参阅[附录 1：使用 Fiddler 捕获 HTTP 和 HTTPS 流量]。
 
-有关 Wireshark 的详细信息，请参阅“[附录 2：使用 Wireshark 捕获网络流量]”。
+有关使用 Wireshark 的详细信息，请参阅[附录 2：使用 Wireshark 捕获网络流量]。
 
-有关使用 Microsoft Message Analyzer 的详细信息，请参阅“[附录 3：使用 Microsoft Message Analyzer 捕获网络流量]”。
+有关使用 Microsoft Message Analyzer 的详细信息，请参阅[附录 3：使用 Microsoft Message Analyzer 捕获网络流量]。
 
 ## <a name="appendices"></a>附录
 附录介绍几种在诊断和排查 Azure 存储（及其他服务）问题时可能很有用的工具。 这些工具不属于 Azure 存储，有些工具是第三方产品。 因此，这些附录中介绍的工具可能在你与 Microsoft Azure 或 Azure 存储签订的任何支持协议中均未涉及，因此，在评估过程中，应查看这些工具的提供者提供的许可和支持选项。
@@ -787,7 +787,7 @@ Microsoft Message Analyzer 中内置的“Web 代理”  跟踪基于 Fiddler；
 
 有关 Microsoft Message Analyzer 本地链路层跟踪的详细信息，请参阅 [Microsoft-PEF-NDIS-PacketCapture Provider](http://technet.microsoft.com/library/jj659264.aspx)（Microsoft-PEF-NDIS-PacketCapture 提供程序）。
 
-### <a name="appendix-4"></a>附录 4：使用 Excel 查看度量值和日志数据
+### <a name="appendix-4"></a>附录 4：使用 Excel 查看指标和日志数据
 使用许多工具可以从 Azure 表存储中下载带分隔符格式的存储指标数据，以便可以轻松地将这些数据加载到 Excel 中以供查看和分析。 来自 Azure Blob 存储的存储日志记录数据已采用带分隔符格式加载到 Excel 中。 但是，需要基于[存储分析日志格式](http://msdn.microsoft.com/library/azure/hh343259.aspx)和[存储分析度量表架构](http://msdn.microsoft.com/library/azure/hh343264.aspx)中的信息添加相应的列标题。
 
 要将存储日志记录数据导入 Excel（从 Blob 存储下载后），请执行以下操作：
@@ -856,7 +856,7 @@ Microsoft Message Analyzer 中内置的“Web 代理”  跟踪基于 Fiddler；
 [附录 1：使用 Fiddler 捕获 HTTP 和 HTTPS 流量]: #appendix-1
 [附录 2：使用 Wireshark 捕获网络流量]: #appendix-2
 [附录 3：使用 Microsoft Message Analyzer 捕获网络流量]: #appendix-3
-[附录 4：使用 Excel 查看度量值和日志数据]: #appendix-4
+[附录 4：使用 Excel 查看指标和日志数据]: #appendix-4
 [Appendix 5: Monitoring with Application Insights for Visual Studio Team Services]: #appendix-5
 
 <!--Image references-->

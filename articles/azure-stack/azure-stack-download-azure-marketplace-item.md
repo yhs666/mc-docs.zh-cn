@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 11/08/2018
-ms.date: 12/17/2018
+origin.date: 12/10/2018
+ms.date: 01/14/2019
 ms.author: v-jay
 ms.reviewer: ''
-ms.openlocfilehash: 9bb5944ee52e68c3779e0151d5badaec502c8e1a
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.openlocfilehash: d42d7caa4d2d26464de6dcdbec1ca0e65eeae1d5
+ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396204"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54059017"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>将市场项从 Azure 下载到 Azure Stack
 
@@ -91,6 +91,8 @@ Azure Stack 部署必须已建立 Internet 连接，并且[已注册到 Azure](a
 
 - 在执行第一个过程期间，将下载市场联合工具。 
 
+- 可以安装 [AzCopy](../storage/common/storage-use-azcopy.md) 以获得最佳下载性能，但此工具不是必需的。
+
 ### <a name="use-the-marketplace-syndication-tool-to-download-marketplace-items"></a>使用市场联合工具下载市场项
 
 1. 在已建立 Internet 连接的计算机上，以管理员身份打开 PowerShell 控制台。
@@ -127,10 +129,7 @@ Azure Stack 部署必须已建立 Internet 连接，并且[已注册到 Azure](a
    ```PowerShell  
    Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
 
-   Sync-AzSOfflineMarketplaceItem 
-      -Destination "Destination folder path in quotes" `
-      -AzureTenantID $AzureContext.Tenant.TenantId ` 
-      -AzureSubscriptionId $AzureContext.Subscription.Id 
+   Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes" 
    ```
 
 6. 运行工具后，应会看到下图所示的屏幕，其中列出了可用的市场项：
@@ -145,7 +144,35 @@ Azure Stack 部署必须已建立 Internet 连接，并且[已注册到 Azure](a
 
 9. 所需的下载时间取决于项的大小。 下载完成后，该项会出现在脚本中指定的文件夹内。 下载内容中包括一个 VHD 文件（适用于虚拟机）或 .zip 文件（适用于虚拟机扩展）。 其中还可能包含一个 *.azpkg* 格式的库包（只是一个 .zip 文件）。
 
-### <a name="import-the-download-and-publish-to-azure-stack-marketplace"></a>导入下载内容并发布到 Azure Stack 市场
+10. 如果下载失败，可以重新运行以下 PowerShell cmdlet 来重试下载：
+
+    ```powershell
+    Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes”
+    ```
+
+    重试之前，请删除发生下载失败的产品文件夹。 例如，如果下载脚本在下载到 `D:\downloadFolder\microsoft.customscriptextension-arm-1.9.1` 时失败，请删除 `D:\downloadFolder\microsoft.customscriptextension-arm-1.9.1` 文件夹，然后重新运行该 cmdlet。
+ 
+### <a name="import-the-download-and-publish-to-azure-stack-marketplace-1811-and-higher"></a>导入下载内容并发布到 Azure Stack 市场（1811 和更高版本）
+
+1. 必须在本地移动[以前下载](#use-the-marketplace-syndication-tool-to-download-marketplace-items)的文件，使其可供 Azure Stack 环境使用。 市场联合工具也必须可供 Azure Stack 环境使用，因为你需要使用该工具来执行导入操作。
+
+   下图显示了文件夹结构示例。 `D:\downloadfolder` 包含所有已下载的市场项。 每个子文件夹是一个市场项（例如 `microsoft.custom-script-linux-arm-2.0.3`），按产品 ID 命名。 每个子文件夹包含市场项的下载内容。
+
+   [![市场下载目录结构](media/azure-stack-download-azure-marketplace-item/mp1sm.png "市场下载目录结构")](media/azure-stack-download-azure-marketplace-item/mp1.png#lightbox)
+
+2. 遵照[此文](azure-stack-powershell-configure-admin.md)中的说明配置 Azure Stack 操作员 PowerShell 会话。 
+
+3. 导入联合模块，然后运行以下脚本来启动市场联合工具：
+
+   ```PowerShell
+   $credential = Get-Credential -Message "Enter the azure stack operator credential:"
+   Import-AzSOfflineMarketplaceItem -origin "marketplace content folder" -armendpoint "Environment Arm Endpoint" -AzsCredential $credential
+   ```
+    `-AzsCredential` 参数是可选的。 该参数用于续订访问令牌（如果已过期）。 如果未指定 `-AzsCredential` 参数且令牌已过期，则你会收到输入操作员凭据的提示。
+
+4. 成功完成该脚本后，Azure Stack 市场中应会提供该项。
+
+### <a name="import-the-download-and-publish-to-azure-stack-marketplace-1809-and-lower"></a>导入下载内容并发布到 Azure Stack 市场（1809 和更低版本）
 
 1. 必须在本地将[前面下载的](#use-the-marketplace-syndication-tool-to-download-marketplace-items)虚拟机映像文件或解决方案模板文件提供给 Azure Stack 环境。  
 
@@ -169,10 +196,10 @@ Azure Stack 部署必须已建立 Internet 连接，并且[已注册到 Azure](a
 
    可以从连同 AZPKG 文件一起下载的文本文件中，获取映像的 *publisher*、*offer* 和 *sku* 值。 该文本文件存储在目标位置中。 *版本*值是在上一过程中从 Azure 下载项目时记下的版本。 
  
-   以下示例脚本使用了 Windows Server 2016 Datacenter - Server Core 虚拟机的值。 *-Osuri* 的值是项目的 blob 存储位置的示例路径。 
+   以下示例脚本使用了 Windows Server 2016 Datacenter - Server Core 虚拟机的值。 *-Osuri* 的值是项目的 blob 存储位置的示例路径。
 
    除了使用此脚本以外，还可以使用[此文中所述的过程](azure-stack-add-vm-image.md#add-a-vm-image-through-the-portal)通过 Azure 门户导入 .VHD 映像。
- 
+
    ```PowerShell  
    Add-AzsPlatformimage `
     -publisher "MicrosoftWindowsServer" `
@@ -182,14 +209,14 @@ Azure Stack 部署必须已建立 Internet 连接，并且[已注册到 Azure](a
     -Version "2016.127.20171215" `
     -OsUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.vhd"  
    ```
-   
+
    **关于解决方案模板：** 某些模板可能包含名为 **fixed3.vhd** 的 3 MB .VHD 小文件。 无需将该文件导入 Azure Stack。 Fixed3.vhd。  某些解决方案模板包含此文件的目的是为了满足 Azure 市场的发布要求。
 
    请查看模板说明，然后下载并导入其他必需的项，例如，使用解决方案模板所需的 VHD。  
    
    **关于扩展：** 使用虚拟机映像扩展时，请使用以下参数：
    - *发布者*
-   - 类型
+   - *类型*
    - *版本*  
 
    不要将*套餐*用于扩展。   
