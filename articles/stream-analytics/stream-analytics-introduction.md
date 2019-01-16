@@ -10,12 +10,12 @@ ms.topic: overview
 ms.workload: data-services
 ms.custom: seodec18
 ms.date: 1/3/2019
-ms.openlocfilehash: f15f26b70a478645ea2c179576714d85401a8965
-ms.sourcegitcommit: f46e1f7a5d582bb9663bfaee8087b233eb822e17
+ms.openlocfilehash: b6cec90d89ffd954d6cc37c0fecf18379ed5d651
+ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996525"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54141681"
 ---
 # <a name="what-is-azure-stream-analytics"></a>什么是 Azure 流分析？
 
@@ -41,7 +41,7 @@ Azure 流分析从流数据源开始，可以使用引入到 Azure 事件中心�
 
 下图表示流分析管道。流分析作业可以使用所有或部分输入和输出。 此图说明了如何将数据发送到流分析，在进行分析后再发送到其他位置进行其他操作（例如存储或演示）：
 
-![流分析管道](./media/stream-analytics-introduction/stream_analytics_intro_pipeline.png)
+![流分析介绍管道](./media/stream-analytics-introduction/stream-analytics-intro-pipeline.png)
 
 ## <a name="key-capabilities-and-benefits"></a>主要功能和优点
 
@@ -89,6 +89,7 @@ Azure 流分析在云中和智能边缘使用相同的查询语言，因此开�
 
 流分析可以每秒处理数百万事件，而且传送结果时的延迟也低。
 可以通过它进行纵向和横向扩展，以便操控大型实时且复杂的事件处理应用程序。 流分析可以通过分区提供性能支持，因此可以在多个流节点上对复杂查询进行并行化处理，然后执行该查询。
+Azure 流分析基于 [Trill](https://github.com/Microsoft/Trill)，这是一种与 Azure Research 合作开发的高性能内存中流式处理分析引擎。 
 
 ## <a name="next-steps"></a>后续步骤
 

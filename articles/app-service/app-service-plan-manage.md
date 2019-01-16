@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中管理应用服务计划
+title: 管理应用服务计划 - Azure | Azure Docs
 description: 了解如何执行不同的任务来管理应用服务计划。
 keywords: 应用服务, azure 应用服务, 缩放, 应用服务计划, 更改, 创建, 管理
 services: app-service
@@ -13,18 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 01/21/2019
 ms.author: v-biyu
-ms.openlocfilehash: bd2a616ea2b68cabc8cb104b0f75a05e3c7ee1dd
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.custom: seodec18
+ms.openlocfilehash: eebccac7d8461d471cc60fa28f27cc95b9362d12
+ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646643"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083639"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>在 Azure 中管理应用服务计划
 
-[Azure 应用服务计划](azure-web-sites-web-hosting-plans-in-depth-overview.md)提供应用服务应用需要运行的资源。 本指南介绍如何管理应用服务计划。
+[Azure 应用服务计划](overview-hosting-plans.md)提供应用服务应用需要运行的资源。 本指南介绍如何管理应用服务计划。
 
 ## <a name="create-an-app-service-plan"></a>创建应用服务计划
 
