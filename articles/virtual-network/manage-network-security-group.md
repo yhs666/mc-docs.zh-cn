@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/05/2018
-ms.date: 11/12/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: f8c4898fde37e9bbc38656a91a1ea3c7a2574b0b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 9614c06bdc7224736c6edafded399c1aab29c73a
+ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52667110"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193131"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>创建、更改或删除网络安全组
 
@@ -33,12 +33,10 @@ ms.locfileid: "52667110"
 
 - 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 - 如果使用门户，请打开 https://portal.azure.cn，并使用 Azure 帐户登录。
-- 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 5.4.1 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount` 以创建与 Azure 的连接。
-
-<!-- Not Available on [Azure Cloud Shell](https://shell.azure.com/powershell)-->
+- 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 5.4.1 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。
+    <!-- Not Available on [Azure Cloud Shell](https://shell.azure.com/powershell)-->
 - 如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.28 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
-
-<!-- Not Available on [Azure Cloud Shell](https://shell.azure.com/bash)-->
+    <!-- Not Available on [Azure Cloud Shell](https://shell.azure.com/bash)-->
 
 必须将登录或连接到 Azure 所用的帐户分配给[网络参与者](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)角色或分配有“[权限](#permissions)”中所列适当操作的[自定义角色](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json)。
 
@@ -57,7 +55,7 @@ ms.locfileid: "52667110"
 命令
 
 - Azure CLI: [az network vnet create](https://docs.azure.cn/zh-cn/cli/network/nsg?view=azure-cli-latest#az-network-nsg-create)
-- PowerShell: [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworksecuritygroup)
+- PowerShell：[New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworksecuritygroup)
 
 ### <a name="view-all-network-security-groups"></a>查看所有网络安全组
 
@@ -66,7 +64,7 @@ ms.locfileid: "52667110"
 命令
 
 - Azure CLI: [az network nsg list](https://docs.azure.cn/zh-cn/cli/network/nsg?view=azure-cli-latest#az-network-nsg-list)
-- PowerShell: [Get-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworksecuritygroup)
+- PowerShell：[Get-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworksecuritygroup)
 
 ### <a name="view-details-of-a-network-security-group"></a>查看网络安全组的详细信息
 
@@ -74,8 +72,7 @@ ms.locfileid: "52667110"
 2. 在列表中选择要查看其详细信息的网络安全组。 在“设置”下，可查看“入站安全规则”和“出站安全规则”以及与网络安全组相关联的“网络接口”和“子网”。 也可启用或禁用“诊断日志”和查看“有效的安全规则”。 若要了解详细信息，请参阅[查看有效的安全规则](diagnose-network-traffic-filter-problem.md)。
     
     <!-- Not Available on [Diagnostic logs](virtual-network-nsg-manage-log.md)-->
-3. 要了解有关列出的常见 Azure 设置的详细信息，请参阅以下文章：
-    *   [活动日志](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+3. 若要了解有关列出的常见 Azure 设置的详细信息，请参阅以下文章：<!-- Not Available on * [Activity log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)-->
     *   [访问控制 (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-network%2ftoc.json#access-control)
     *   [标记](../azure-resource-manager/resource-group-using-tags.md?toc=%2fvirtual-network%2ftoc.json)
     *   [锁](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fvirtual-network%2ftoc.json)
@@ -84,7 +81,7 @@ ms.locfileid: "52667110"
 命令
 
 - Azure CLI: [az network nsg show](https://docs.azure.cn/zh-cn/cli/network/nsg?view=azure-cli-latest#az-network-nsg-show)
-- PowerShell: [Get-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworksecuritygroup)
+- PowerShell：[Get-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworksecuritygroup)
 
 ### <a name="change-a-network-security-group"></a>更改网络安全组
 
@@ -94,7 +91,7 @@ ms.locfileid: "52667110"
 命令
 
 - Azure CLI: [az network nsg update](https://docs.azure.cn/zh-cn/cli/network/nsg?view=azure-cli-latest#az-network-nsg-update)
-- PowerShell: [Set-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworksecuritygroup)
+- PowerShell：[Set-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworksecuritygroup)
 
 ### <a name="associate-or-dissociate-a-network-security-group-to-or-from-a-subnet-or-network-interface"></a>将网络安全组与子网或网络接口关联或取消关联
 
@@ -111,7 +108,7 @@ ms.locfileid: "52667110"
 命令
 
 - Azure CLI: [az network nsg delete](https://docs.azure.cn/zh-cn/cli/network/nsg?view=azure-cli-latest#az-network-nsg-delete)
-- PowerShell: [Remove-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermnetworksecuritygroup) 
+- PowerShell：[Remove-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermnetworksecuritygroup) 
 
 ## <a name="work-with-security-rules"></a>使用安全规则
 
@@ -141,7 +138,7 @@ ms.locfileid: "52667110"
 命令
 
 - Azure CLI: [az network nsg rule create](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create)
-- PowerShell: [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig)
+- PowerShell：[New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig)
 
 ### <a name="view-all-security-rules"></a>查看所有安全规则
 
@@ -156,7 +153,7 @@ ms.locfileid: "52667110"
 命令
 
 - Azure CLI: [az network nsg rule list](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-list)
-- PowerShell: [Get-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworksecurityruleconfig)
+- PowerShell：[Get-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworksecurityruleconfig)
 
 ### <a name="view-details-of-a-security-rule"></a>查看安全规则的详细信息
 
@@ -168,7 +165,7 @@ ms.locfileid: "52667110"
 命令
 
 - Azure CLI: [az network nsg rule show](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-show)
-- PowerShell: [Get-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworksecurityruleconfig)
+- PowerShell：[Get-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworksecurityruleconfig)
 
 ### <a name="change-a-security-rule"></a>更改安全规则
 
@@ -210,7 +207,7 @@ ms.locfileid: "52667110"
 命令
 
 - Azure CLI: [az network asg create](https://docs.azure.cn/zh-cn/cli/network/asg?view=azure-cli-latest#az-network-asg-create)
-- PowerShell: [New-AzureRmApplicationSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermapplicationsecuritygroup)
+- PowerShell：[New-AzureRmApplicationSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermapplicationsecuritygroup)
 
 ### <a name="view-all-application-security-groups"></a>查看所有应用程序安全组
 
@@ -220,7 +217,7 @@ ms.locfileid: "52667110"
 命令
 
 - Azure CLI: [az network asg list](https://docs.azure.cn/zh-cn/cli/network/asg?view=azure-cli-latest#az-network-asg-list)
-- PowerShell: [Get-AzureRmApplicationSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermapplicationsecuritygroup)
+- PowerShell：[Get-AzureRmApplicationSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermapplicationsecuritygroup)
 
 ### <a name="view-details-of-a-specific-application-security-group"></a>查看特定应用程序安全组的详细信息
 
@@ -231,7 +228,7 @@ ms.locfileid: "52667110"
 命令
 
 - Azure CLI: [az network asg show](https://docs.azure.cn/zh-cn/cli/network/asg?view=azure-cli-latest#az-network-asg-show)
-- PowerShell: [Get-AzureRmApplicationSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermapplicationsecuritygroup)
+- PowerShell：[Get-AzureRmApplicationSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermapplicationsecuritygroup)
 
 ### <a name="change-an-application-security-group"></a>更改应用程序安全组
 
@@ -240,7 +237,7 @@ ms.locfileid: "52667110"
 3. 选择要更改其设置的应用程序安全组。 可以对应用程序安全组添加或删除标记，或者分配或删除权限。
 
 - Azure CLI: [az network asg update](https://docs.azure.cn/zh-cn/cli/network/asg?view=azure-cli-latest#az-network-asg-update)
-- PowerShell: No PowerShell cmdlet.
+- PowerShell：没有 PowerShell cmdlet。
 
 ### <a name="delete-an-application-security-group"></a>删除应用程序安全组
 
@@ -254,7 +251,7 @@ ms.locfileid: "52667110"
 命令
 
 - Azure CLI: [az network asg delete](https://docs.azure.cn/zh-cn/cli/network/asg?view=azure-cli-latest#az-network-asg-delete)
-- PowerShell: [Remove-AzureRmApplicationSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermapplicationsecuritygroup)
+- PowerShell：[Remove-AzureRmApplicationSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermapplicationsecuritygroup)
 
 ## <a name="permissions"></a>权限
 
@@ -292,4 +289,4 @@ ms.locfileid: "52667110"
 - 使用 [PowerShell](powershell-samples.md) 或 [Azure CLI](cli-samples.md) 示例脚本或使用 Azure [资源管理器模板](template-samples.md)创建网络或应用程序安全组
 - 为虚拟网络创建并应用 [Azure Policy](policy-samples.md)
 
-<!-- Update_Description: wording update, add applciation security group content in portal  -->
+<!-- Update_Description: wording update, update meta properties  -->
