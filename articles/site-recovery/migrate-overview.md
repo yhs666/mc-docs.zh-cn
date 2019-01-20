@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 10/28/2018
-ms.date: 12/10/2018
+origin.date: 12/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 86d1818768e868f2f1860a1fe9d12e0d6d32a64e
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 90d74c7c711f1fb41847b54c67f68dcf20fc606a
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028398"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363558"
 ---
 # <a name="about-migration"></a>关于迁移
 
@@ -31,14 +31,14 @@ ms.locfileid: "53028398"
 除了可以使用 Site Recovery 对本地和 Azure VM 进行灾难恢复外，还可以使用 Site Recovery 服务迁移这些 VM。 区别是什么？
 
 - 对于灾难恢复，定期将计算机复制到 Azure。 发生服务中断时，将从主站点将计算机故障转移到辅助 Azure 站点，并从该处对其进行访问。 当主站点再次可用时，可从 Azure 进行故障回复。
-- 对于迁移，将本地计算机复制到 Azure 或将 Azure VM 复制到辅助区域。 然后可以将 VM 从主站点故障转移到辅助站点，并完成迁移过程。 不涉及故障回复。  
+- 对于迁移，将本地计算机复制到 Azure 或将 Azure VM 复制到辅助区域。 然后可将 VM 从主站点故障转移到辅助站点，并完成迁移过程。 不涉及故障回复。  
 
 ## <a name="migration-scenarios"></a>迁移方案
 
 **方案** | **详细信息**
 --- | ---
-**从本地迁移到 Azure** | 可以将本地 VMware VM、Hyper-V VM 和物理服务器迁移到 Azure。 为此，完成的步骤几乎与完整灾难恢复的步骤一样。 只是不会将计算机从 Azure 故障回复到本地站点。
-**在 Azure 区域之间进行迁移** | 可以将 Azure VM 从一个 Azure 区域迁移到另一个 Azure 区域。 迁移完成后，现在可以在迁移到的次要区域中为 Azure VM 配置灾难恢复。
+**从本地迁移到 Azure** | 可将本地 VMware VM、Hyper-V VM 和物理服务器迁移到 Azure。 为此，完成的步骤几乎与完整灾难恢复的步骤一样。 只是不会将计算机从 Azure 故障回复到本地站点。
+**在 Azure 区域之间迁移** | 可将 Azure VM 从一个 Azure 区域迁移到另一个 Azure 区域。 迁移完成后，现在可以在迁移到的次要区域中为 Azure VM 配置灾难恢复。
 **将 AWS 迁移到 Azure** | 可将 AWS 实例迁移到 Azure VM。 Site Recovery 将 AWS 实例视为用于迁移目的的物理服务器。 
 
 ## <a name="next-steps"></a>后续步骤

@@ -1,19 +1,19 @@
 ---
 title: Azure 诊断日志概述
 description: 了解什么是 Azure 诊断日志，以及如何使用该诊断日志了解发生在 Azure 资源内的事件。
-author: johnkemnetz
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/07/2018
-ms.author: johnkem
+ms.date: 01/21/19
+ms.author: v-lingwu
 ms.component: logs
-ms.openlocfilehash: 0102d5e054bee03bd93957650969dea169d39333
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.openlocfilehash: 2cfb4391849dde65ff82c9be93a72204d32e06d1
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141752"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363351"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>从 Azure 资源收集和使用日志数据
 
@@ -40,7 +40,6 @@ ms.locfileid: "54141752"
 
 * 将诊断日志保存到[**存储帐户**](../../azure-monitor/platform/archive-diagnostic-logs.md)进行审核或手动检查。 可以使用**资源诊断设置**指定保留时间（天）。
 * [将诊断日志流式传输到**事件中心**](diagnostic-logs-stream-event-hubs.md)，方便第三方服务或自定义分析解决方案（例如 PowerBI）引入。
-* 使用 [Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md) 对其进行分析时，其中的数据将立即写入到 Log Analytics，而无需先将数据写入到存储。  
 
 可以使用与发出日志的订阅不同的订阅中的存储帐户或事件中心命名空间。 配置设置的用户必须对这两个订阅具有相应的 RBAC 访问权限。
 
@@ -83,7 +82,7 @@ ms.locfileid: "54141752"
 
 可以在创建资源后，在 Azure 门户中通过转到特定的资源或导航到 Azure Monitor 来启用资源诊断日志的收集。 通过 Azure Monitor 启用日志收集：
 
-1. 在 [Azure 门户](http://portal.azure.com)中，导航到 Azure Monitor 并单击“诊断设置”
+1. 在 [Azure 门户](http://portal.azure.cn)中，导航到 Azure Monitor 并单击“诊断设置”
 
     ![Azure Monitor 的“监视”部分](media/diagnostic-logs-overview/diagnostic-settings-blade.png)
 
@@ -235,4 +234,3 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 
 * [将资源诊断日志流式传输到事件中心](diagnostic-logs-stream-event-hubs.md)
 * [使用 Azure Monitor REST API 更改资源诊断设置](https://msdn.microsoft.com/library/azure/dn931931.aspx)
-* [使用 Log Analytics 分析 Azure 存储的日志](../../azure-monitor/platform/collect-azure-metrics-logs.md)

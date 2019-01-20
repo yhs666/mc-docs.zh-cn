@@ -4,15 +4,17 @@ description: Azure CLI 脚本示例 - 创建故障转移策略以实现高可用
 author: rockboyfor
 ms.author: v-yeche
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 origin.date: 10/26/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: e01b3a42bf014952f3ac02cddd11a8e9a13fdc4c
-ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
+ms.date: 01/21/2019
+ms.reviewer: sngun
+ms.openlocfilehash: 230036feac3ee57d3b69b8bf47c5eaf6dddac07b
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814757"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309198"
 ---
 # <a name="create-a-failover-policy-for-high-availability-using-the-azure-cli"></a>使用 Azure CLI 创建故障转移策略以实现高可用性
 

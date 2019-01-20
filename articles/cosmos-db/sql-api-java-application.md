@@ -1,22 +1,20 @@
 ---
 title: 使用 Azure Cosmos DB 的 Java 应用程序开发教程
 description: 此 Java Web 应用程序教程展示了如何使用 Azure Cosmos DB 和 SQL API 从 Azure 网站上托管的 Java 应用程序来存储和访问数据。
-keywords: 应用程序开发, 数据库教程, Java 应用程序, Java Web 应用程序教程, azure, Azure 世纪互联
-services: cosmos-db
 author: rockboyfor
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 origin.date: 08/22/2017
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6a932e14e6ec504c0aa31d145fa0049b094d29b7
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: 7f3f0af35af6bc98fc06d3e77fc44daf372837e3
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026748"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309186"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>使用 Azure Cosmos DB 和 SQL API 构建 Java Web 应用程序
 
@@ -729,8 +727,8 @@ ms.locfileid: "54026748"
    * 在“Web 项目”框中，输入 azure-documentdb-java-sample。
    * 在“目标”框中，选择一个目标以保存 WAR 文件。
    * 单击“完成”。
-3. 现在已经具有 WAR 文件，只需将它上传到 Azure 网站的 **webapps** 目录。 有关上传此文件的说明，请参阅[将 Java 应用程序添加到 Azure 应用服务 Web 应用](../app-service/web-sites-java-add-app.md)。
-
+3. 现在已经具有 WAR 文件，只需将它上传到 Azure 网站的 **webapps** 目录。 有关上传此文件的说明，请参阅[将 Java 应用程序添加到 Azure 应用服务 Web 应用](../app-service/app-service-web-get-started-java.md)。
+    <!--URL direct to app-service-web-get-started-java.md-->
     将 WAR 文件上传到 webapps 目录之后，运行时环境将检测到已经添加了此文件，并会自动加载它。
 4. 若要查看已完成的产品，请导航到 http://YOUR\_SITE\_NAME.chinacloudsites.cn/azure-java-sample/ 并开始添加任务！
 
@@ -761,4 +759,4 @@ GitHub 上的 [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) 
 21. 在浏览器中，导航到 http://localhost:8080/azure-documentdb-java-sample/ 并开始向任务列表添加内容。 请注意，如果更改了默认端口值，请将 8080 更改成选择的值。
 22. 要将项目部署到 Azure 网站，请参阅[步骤 6. 将应用程序部署到 Azure 网站](#Deploy)。
 
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties -->

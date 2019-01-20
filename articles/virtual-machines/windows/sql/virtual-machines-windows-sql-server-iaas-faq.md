@@ -16,17 +16,18 @@ ms.workload: iaas-sql-server
 origin.date: 07/12/2018
 ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8cac1936b64836a28eda2d79263c3695ab3a2fb6
-ms.sourcegitcommit: f6a287a11480cbee99a2facda2590f3a744f7e45
+ms.openlocfilehash: 10fb1d909be8c80dce0a3eee718d90c6e4474ea5
+ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53786728"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54333905"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Azure 的 Windows 虚拟机上运行的 SQL Server 常见问题解答
 
 > [!div class="op_single_selector"]
 > * [Windows](virtual-machines-windows-sql-server-iaas-faq.md)
+
 <!-- Not Available on > * [Linux](../../linux/sql/sql-server-linux-faq.md) -->
 
 本文提供有关[在 Azure 的 Windows 虚拟机上运行 SQL Server](https://www.azure.cn/home/features/virtual-machines/#virtual-machine-SQLserver) 时出现的一些最常见问题的解答。
@@ -35,6 +36,7 @@ ms.locfileid: "53786728"
 > 本文重点阐述在 Windows VM 上运行 SQL Server 的特定问题。 
 
 <!-- Not Avaiable on  [Linux FAQ](../../linux/sql/sql-server-linux-faq.md) -->
+
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
 <a name="images"></a>
@@ -45,6 +47,7 @@ ms.locfileid: "53786728"
    Azure 为所有 Windows 和 Linux 版本中的所有受支持 SQL Server 主要发行版维护虚拟机映像。 有关详细信息，请参阅 [Windows VM 映像](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo)的完整列表。
    
    <!-- Not Avaiable on [Linux VM images](../../linux/sql/sql-server-linux-virtual-machines-overview.md#create) -->
+
 1. **现有的 SQL Server 虚拟机库映像是否会更新？**
 
    每隔两个月，都会使用最新的 Windows 和 Linux 更新对虚拟机库中的 SQL Server 映像进行更新。 对于 Windows 映像，这包括 Windows 更新中标记为重要的任何更新，以及重要的 SQL Server 安全更新和 Service Pack。 对于 Linux 映像，这包括最新的系统更新。 Linux 和 Windows 的 SQL Server 累积更新以不同的方式进行处理。 对于 Linux，SQL Server 累积更新也包含在刷新中。 但目前，Windows VM 不会连同 SQL Server 或 Windows Server 累积更新一起更新。
@@ -83,6 +86,7 @@ ms.locfileid: "53786728"
 
 <!--Not Available on 1. **Can I change a VM to use my own SQL Server license if it was created from one of the pay-as-you-go gallery images?**-->
 <!--Not Available on [Changing the licensing model](virtual-machines-windows-sql-ahb.md)-->
+
 1. **我应该使用 BYOL 映像还是 SQL VM RP 来创建新的 SQL VM？**
 
    仅自带许可 (BYOL) 映像可供 EA 客户使用。 其他有软件保障的客户应该使用 SQL VM 资源提供程序来创建包含 [Azure 混合权益 (AHB)](https://www.azure.cn/pricing/licensing-faq/) 的 SQL VM。 
@@ -169,10 +173,10 @@ ms.locfileid: "53786728"
 * [Azure 虚拟机中 SQL Server 的应用程序模式和开发策略](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 
 <!--Verify successfully-->
+
 **Linux VM**：
 * [Linux VM 上的 SQL Server 概述](../../linux/sql/sql-server-linux-virtual-machines-overview.md)
-* [预配 SQL Server Linux VM](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
-<!-- Not Avaiable on * [FAQ (Linux)](../../linux/sql/sql-server-linux-faq.md) -->
+* [设置 SQL Server Linux VM](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
 * [“Linux 上的 SQL Server”文档](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
 
 <!--Update_Description: wording update， update link -->

@@ -1,21 +1,19 @@
 ---
 title: Azure Cosmos DB 的用于 MongoDB 的 API 简介
 description: 了解如何使用 Azure Cosmos DB 通过其用于 MongoDB 的 API 来存储和查询大量数据。
-keywords: Azure Cosmos DB 的用于 MongoDB 的 API
-services: cosmos-db
-author: rockboyfor
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.topic: overview
 origin.date: 12/26/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
+author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: 4a1d57964910b676fb6524489c0b8a9962b000ea
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: 66231d2dc381ca5a6db4cfc07639169c17262b53
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026804"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309309"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB 的用于 MongoDB 的 API
 
@@ -62,4 +60,4 @@ Azure Cosmos DB 可实现常用 NoSQL 数据库（包括 MongoDB）的线路协�
 
 <sup>注意：本文介绍了可与 MongoDB 数据库实现线路协议兼容的 Azure Cosmos DB 功能。Azure 不会运行 MongoDB 数据库来提供此服务。Azure Cosmos DB 并不隶属于 MongoDB, inc.</sup>
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties -->

@@ -1,21 +1,21 @@
 ---
 title: Azure PowerShell 脚本 - 创建 Azure Cosmos DB 故障转移策略
 description: Azure PowerShell 脚本示例 - 创建 Azure Cosmos DB 故障转移策略
-services: cosmos-db
 ms.service: cosmos-db
 author: rockboyfor
 ms.author: v-yeche
-ms.custom: mvc
 ms.devlang: PowerShell
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 origin.date: 05/10/2017
-ms.date: 12/31/2018
-ms.openlocfilehash: 4fee4e995b1c1a047c4aea2b802546a3af0aee06
-ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
+ms.date: 01/21/2019
+ms.reviewer: sngun
+ms.openlocfilehash: 337552f0bb5216ff8d1b051952c8031b40e71eab
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814753"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309146"
 ---
 # <a name="create-an-azure-cosmos-db-failover-policy-for-high-availability-using-powershell"></a>使用 PowerShell 创建 Azure Cosmos DB 故障转移策略以实现高可用性
 

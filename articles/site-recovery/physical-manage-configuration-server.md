@@ -5,15 +5,15 @@ services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: article
-origin.date: 10/29/2018
-ms.date: 12/24/2018
+origin.date: 11/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 50a08a4e66708d868d5f0395ba66b245d1481320
-ms.sourcegitcommit: b29475e13c1f54d420cdca71f90ca6a5c5116cbb
+ms.openlocfilehash: cd836cf3e9eeff203854b28b6b5d3423883fdeb1
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/24/2018
-ms.locfileid: "53784553"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363382"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>为物理服务器灾难恢复管理配置服务器
 
@@ -303,4 +303,4 @@ ProxyPassword="Password"
 
 查看有关设置[物理服务器](tutorial-physical-to-azure.md)到 Azure 的灾难恢复的教程。
 
-<!-- Update_Description: wording update, update link -->
+<!-- Update_Description: update meta properties -->

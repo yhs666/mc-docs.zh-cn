@@ -12,14 +12,14 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: na
 ms.topic: article
 origin.date: 03/22/2018
-ms.date: 12/21/2018
+ms.date: 01/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: 6ae338c95a2519c26efabf53b3aeee55ab0b478d
-ms.sourcegitcommit: d2893ae6bdbb3784d243d5d3c49c25c9cfd99d9b
+ms.openlocfilehash: 31ed30b6b0eea6279e6899259ebb641de6f43592
+ms.sourcegitcommit: e79651227d4378e6d24f9ab155b9f4fee044b2c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2018
-ms.locfileid: "53784890"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334266"
 ---
 # <a name="how-to-use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>如何将 Redis 命令行工具与 Azure Redis 缓存配合使用
 
@@ -27,7 +27,7 @@ redis-cli.exe 是一种常用的命令行工具，可作为客户端与 Azure Re
 
 下载[用于 Windows 的 Redis 命令行工具](https://github.com/MSOpenTech/redis/releases/) 后，即可在 Windows 平台上使用此工具。 
 
-如需在其他平台上运行该命令行工具，请从 [http://redis.io/download](https://redis.io/download) 下载 Azure Redis 缓存。
+如需在其他平台上运行该命令行工具，请从 [https://redis.io/download](https://redis.io/download) 下载 Azure Redis 缓存。
 
 ## <a name="gather-cache-access-information"></a>收集缓存访问信息
 
@@ -96,4 +96,4 @@ redis-cli.exe -h yourcachename.redis.cache.chinacloudapi.cn -p 6379 -a YourAcces
 了解使用 [Redis 控制台](cache-configure.md#redis-console)发出命令的详细信息。
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

@@ -6,14 +6,14 @@ author: lingliw
 manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/3/2019
+ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: ed1d199dd5ae5997d655443da0c73eef9f8d37a9
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: 9ddb500dd8e44a26cec0a036f85808ce6d7d4068
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029242"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363399"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>准备备份 Azure VM
 
@@ -32,14 +32,14 @@ ms.locfileid: "54029242"
 > [!NOTE]
    > 本文介绍如何通过设置保管库和选择要备份的 VM 来备份 Azure VM。 若要备份多个 VM，则本文的内容会有所帮助。 也可以直接从 Azure VM 的设置来备份该 VM。 [了解详细信息](backup-azure-vms-first-look-arm.md)
 
-## 开始之前 <a name="before-you-start"></a>
+## <a name="before-you-start"></a>开始之前
 
 1. 获取 Azure VM 的 Azure 备份[概述](backup-azure-vms-introduction.md)。
 2. 查看下面的支持详细信息和限制。
 
    **支持/限制** | **详细信息**
    --- | ---
-   **Windows OS** | Windows Server 2008 R2 或更高版本。<br/>,<br/> Windows Client 7 或更高版本。
+   **Windows OS** | Windows Server 2008 R2 64 位或更高版本。<br/><br/> Windows Client 7 64 位或更高版本。
    **Linux OS** | 可以备份 [Azure 支持的](../virtual-machines/linux/endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 64 位 Linux 分发版，但 CoreOS Linux 除外。<br/><br/> 查看[支持文件还原](backup-azure-restore-files-from-vm.md#for-linux-os)的 Linux 操作系统。<br/><br/> 只要 VM 上装有 VM 代理且支持 Python，其他 Linux 分发版也能正常运行。 但是，不为这些分发版提供支持。
    **区域** | 可以在所有[支持的区域](https://www.azure.cn/support/service-dashboard/#services)备份 Azure VM。 如果某个区域不受支持，则创建保管库时无法选择该区域。<br/><br/> 无法跨 Azure 区域进行备份和还原。 只能在单个区域中执行此类操作。
    **数据磁盘限制** | 无法备份包含 16 个以上数据磁盘的 VM。

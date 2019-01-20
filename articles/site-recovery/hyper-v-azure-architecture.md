@@ -5,15 +5,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 10/28/2018
-ms.date: 12/10/2018
+origin.date: 12/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: b80e59e1f8b429d68538ea9f6219066c28844fc5
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 29b4b05703ec07807248764f5e26956b72ce34c3
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029009"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363555"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Hyper-V 到 Azure 的灾难恢复体系结构
 
@@ -129,4 +129,4 @@ ms.locfileid: "53029009"
 
 根据[此教程](tutorial-prepare-azure.md)开始使用 Hyper-V 到 Azure 复制。
 
-<!-- Update_Description: update meta propreties, wording update -->
+<!-- Update_Description: update meta propreties -->

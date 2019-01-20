@@ -1,23 +1,21 @@
 ---
 title: 适用于 Azure Cosmos DB 的 ASP.NET MVC 教程：Web 应用程序开发
 description: 介绍如何创建使用 Azure Cosmos DB 的 MVC Web 应用程序的 ASP.NET MVC 教程。 将存储 JSON 并从 Azure 网站上托管的待办事项应用程序中访问数据 — ASP NET MVC 教程分步说明。
-keywords: asp.net mvc 教程, web 应用程序开发, mvc web 应用程序, asp net mvc 教程分步说明
-services: cosmos-db
 author: rockboyfor
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 08/03/2017
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
 ms.custom: devcenter, vs-azure
-ms.openlocfilehash: d608e4e5b4e5accee4244aad81bd3e633cf255e8
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: 1d10d4643d3239e45e86e3401678566690c458e9
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026817"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309192"
 ---
 <a name="_Toc395809351"></a>
 # <a name="aspnet-mvc-tutorial-web-application-development-with-azure-cosmos-db"></a>ASP.NET MVC 教程：使用 Azure Cosmos DB 进行 Web 应用程序开发
@@ -561,4 +559,4 @@ ms.locfileid: "54026817"
 
 <!-- Not Available on [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError --> [Visual Studio Express]: https://www.visualstudio.com/products/visual-studio-express-vs.aspx [Microsoft Web 平台安装程序]: https://www.microsoft.com/web/downloads/platform.aspx [防止跨站点请求伪造]: https://go.microsoft.com/fwlink/?LinkID=517254 [ASP.NET MVC 中的基本 CRUD 操作]: https://go.microsoft.com/fwlink/?LinkId=317598 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!-- Update_Description: update meta properties, update link  -->
+<!-- Update_Description: update meta properties -->

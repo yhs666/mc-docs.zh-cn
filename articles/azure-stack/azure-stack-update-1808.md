@@ -16,12 +16,12 @@ origin.date: 12/22/2018
 ms.date: 01/14/2019
 ms.author: v-jay
 ms.reviewer: justini
-ms.openlocfilehash: 8c89bf2f75e13baf9458ed4edb1265ee553e1396
-ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
+ms.openlocfilehash: e6ade89d3a7e4751706dda3b209606e15249dbc4
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54059027"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396931"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 更新
 
@@ -60,9 +60,6 @@ Azure Stack 1808 更新内部版本号为 **1.1808.0.97**。
 
 <!-- 2489570 | IS ASDK--> 
 - **支持自定义 IPSec/IKE 策略配置**，这适用于 [Azure Stack 中的 VPN 网关](/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways)。
-
-<!-- | IS ASDK--> 
-- **Kubernetes 市场项**。 现在可以使用 [Kubernetes 市场项](azure-stack-solution-template-kubernetes-cluster-add.md)来部署 Kubernetes 群集。 用户可以选择 Kubernetes 项并填充一些参数，以便将 Kubernetes 群集部署到 Azure Stack。 模板的用途是方便用户在几个步骤中设置开发/测试型 Kubernetes 部署。
 
 <!-- | IS ASDK--> 
 - **Blockchain 模板**。 现在可以在 Azure Stack 上执行[以太坊联盟部署](user/azure-stack-ethereum.md)。 可以在 [Azure Stack 快速入门模板](https://github.com/Azure/AzureStack-QuickStart-Templates)中找到三个新的模板。 有了这些模板，用户不需多少 Azure 和以太坊知识即可部署和配置多成员联盟以太坊网络。 模板的用途是方便用户在几个步骤中设置开发/测试型 Blockchain 部署。

@@ -10,14 +10,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
 origin.date: 11/07/2018
-ms.date: 12/25/2018
+ms.date: 01/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: bac740f11963e3501ac891552dbb38875388ad06
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: cac76db3132579e6b2b391ff3f6c69cd214f09de
+ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806669"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334196"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>使用 C\# 创建你的第一个持久函数
 
@@ -31,7 +31,7 @@ ms.locfileid: "53806669"
 
 完成本教程：
 
-- 安装 [Visual Studio 2017](/downloads/)，并确保还安装了 **Azure 开发**工作负荷。
+- 安装 [Visual Studio 2017](/downloads/)。 确保还安装了 **Azure 开发**工作负荷。
 
 - 请确保你有[最新的 Azure Functions 工具](../functions-develop-vs.md#check-your-tools-version)。
 
@@ -41,7 +41,7 @@ ms.locfileid: "53806669"
 
 ## <a name="create-a-function-app-project"></a>创建函数应用项目
 
-Visual Studio 中的 Azure Functions 项目模板创建一个项目，该项目可发布到 Azure 中的函数应用。 函数应用可将函数分组为一个逻辑单元，以用于管理、部署和共享资源。
+Azure Functions 模板创建一个项目，该项目可发布到 Azure 中的函数应用。 函数应用可将函数分组为一个逻辑单元，以用于管理、部署和共享资源。
 
 1. 在 Visual Studio 中，从“文件”菜单中选择“新建” > “项目”。
 
@@ -56,14 +56,14 @@ Visual Studio 中的 Azure Functions 项目模板创建一个项目，该项目�
     | 设置      | 建议的值  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
     | **版本** | Azure Functions 2.x <br />(.NET Core) | 创建一个函数项目，并让其使用 Azure Functions 的版本 2.x 运行时（支持 .NET Core）。 Azure Functions 1.x 支持 .NET Framework。 有关详细信息，请参阅[如何指向 Azure Functions 运行时版本](../functions-versions.md)。   |
-    | **模板** | 空 | 这将创建一个空的函数应用。 |
+    | **模板** | 空 | 创建一个空的函数应用。 |
     | **存储帐户**  | 存储模拟器 | 要进行持久函数状态管理，需要一个存储帐户。 |
 
-4. 单击“确定”以创建一个空的函数项目。
+4. 单击“确定”以创建一个空的函数项目。 此项目具有运行函数所需的基本配置文件。
 
 ## <a name="add-functions-to-the-app"></a>向应用中添加函数
 
-Visual Studio 创建一个空的函数应用项目。  它包含应用所需的基本配置文件，但是尚未包含任何函数。  我们将需要向项目中添加一个持久函数模板。
+以下步骤使用模板在项目中创建持久函数代码。
 
 1. 在 Visual Studio 中右键单击该项目并选择“添加” > “新建 Azure 函数”。
 
@@ -75,11 +75,13 @@ Visual Studio 创建一个空的函数应用项目。  它包含应用所需的�
 
     ![选择持久模板](./media/durable-functions-create-first-csharp/functions-vs-select-template.png)  
 
-一个新的持久函数将添加到应用中。  打开新文件以查看内容。  此持久函数是一个简单的函数链接示例。  
+一个新的持久函数将添加到应用中。  打开新的 .cs 文件以查看内容。 此持久函数是一个简单的函数链接示例，包含以下方法：  
 
-- `RunOrchestrator` 方法与业务流程协调程序函数相关联。  此函数将启动，创建一个列表，并将三个函数调用的结果添加到该列表。  当三个函数调用完成后，它将返回该列表。  它调用的函数是 `SayHello` 方法（默认情况下它名为“`<NameOfFile>_Hello`”）。
-- `SayHello` 函数将返回 hello。
-- `HttpStart` 方法描述了将启动业务流程实例的函数。  它与一个 [HTTP 触发器](../functions-bindings-http-webhook.md)相关联，该触发器将启动业务流程协调程序的一个新实例并返回检查状态响应。
+| 方法 | FunctionName | 说明 |
+| -----  | ------------ | ----------- |
+| **`RunOrchestrator`** | `<file-name>` | 管理持久业务流程。 在此示例中，业务流程启动，创建一个列表，并将三个函数调用的结果添加到列表中。  当三个函数调用完成后，它返回该列表。 |
+| **`SayHello`** | `<file-name>_Hello` | 此函数返回一个 hello。 此函数包含要协调的业务逻辑。 |
+| **`HttpStart`** | `<file-name>_HttpStart` | [HTTP 触发的函数](../functions-bindings-http-webhook.md)，用于启动业务流程的实例并返回检查状态响应。 |
 
 现在，你已创建了函数项目和一个持久函数，可以在本地计算机上对其进行测试。
 
@@ -144,5 +146,6 @@ Visual Studio 创建一个空的函数应用项目。  它包含应用所需的�
 你已使用 Visual Studio 创建并发布了一个 C# 持久函数应用。
 
 > [!div class="nextstepaction"]
-> [了解常见的持久函数模式。](durable-functions-overview.md)
+> [了解常见的持久函数模式。](durable-functions-concepts.md)
 
+<!-- Update_Description: wording update -->

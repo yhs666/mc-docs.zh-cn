@@ -3,19 +3,19 @@ title: 教程：使用 JavaScript SDK 生成 Node.js Web 应用，以管理 Azur
 description: 此 Node.js 教程探讨了如何使用 Azure Cosmos DB 通过在 Azure 应用服务的 Web 应用功能中托管的 Node.js Express Web 应用程序存储和访问数据。
 author: rockboyfor
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 12/10/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
 Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: cc38a33580baf3bab4e44e6467ef58be78b74c11
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: 1b9ab062ebe10e39c9414db9e8f14e98aa32841d
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026792"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309243"
 ---
 <a name="_Toc395783175"></a>
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>教程：使用 JavaScript SDK 生成 Node.js Web 应用，以便在 Azure Cosmos DB 中管理 SQL API 帐户 
@@ -499,4 +499,4 @@ ms.locfileid: "54026792"
 [Git]: https://git-scm.com/
 [GitHub]: https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-todo-app
 
-<!-- Update_Description: update meta properties, wroding update, update link  -->
+<!-- Update_Description: update meta properties  -->

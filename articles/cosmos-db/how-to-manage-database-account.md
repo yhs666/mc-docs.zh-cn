@@ -1,19 +1,18 @@
 ---
 title: 了解如何在 Azure Cosmos DB 中管理数据库帐户
 description: 了解如何在 Azure Cosmos DB 中管理数据库帐户
-services: cosmos-db
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 10/17/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 42baf5fa6692a5fbb2460753f3c8fdbcde25efb2
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: d6be831ae9135971d80946818b4d9788124b000a
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026780"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309339"
 ---
 <!-- Verify Successfully-->
 # <a name="manage-database-accounts-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中管理数据库帐户
@@ -311,5 +310,4 @@ az cosmosdb failover-priority-change --name <Azure Cosmos account name> --resour
 * [管理一致性](how-to-manage-consistency.md)
 * [管理区域之间的冲突](how-to-manage-conflicts.md)
 
-<!-- Update_Description: new articles on cosmos db how to manage database account-->
-<!--ms.date: 12/03/2018-->
+<!-- Update_Description: update meta properties, wording update -->

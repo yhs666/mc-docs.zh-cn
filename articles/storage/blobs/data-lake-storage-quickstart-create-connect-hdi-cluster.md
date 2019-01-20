@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 12/06/2018
 ms.date: 01/14/2019
 ms.author: v-jay
-ms.openlocfilehash: cf83fd5ac274e5f029acdac7e081d75cec096dce
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: 8dd02e4e1f36ced8852afe0f2b9140a9a44b0df3
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192972"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397018"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>快速入门：在 HDInsight 中设置群集
 
@@ -130,7 +130,7 @@ Hadoop 的本地安装对群集上的存储使用 Hadoop 分布式文件系统 (
 
 ## <a name="configure-cluster-size"></a>配置群集大小
 
-只要群集存在，就会产生节点使用费。 创建群集后便开始计费，删除群集后停止计费。 无法取消分配群集或暂停群集。
+只要群集存在，就会产生节点使用费。 创建群集后便开始计费，删除群集后停止计费。 无法取消分配群集或将其置于暂停状态。
 
 ### <a name="number-of-nodes-for-each-cluster-type"></a>每个群集类型的节点数
 

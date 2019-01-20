@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 08/25/2017
-ms.date: 12/03/2018
+ms.date: 01/28/2019
 ms.author: v-yiso
-ms.openlocfilehash: 2cfda59a348a888778a4e9a0863903d11ad1e82a
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: aafbc9c67ed925c9d4967aeb99ad96390fbc49f0
+ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674830"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396774"
 ---
 # <a name="get-started-with-device-management-node"></a>设备管理入门 (Node)
 
@@ -87,7 +87,7 @@ ms.locfileid: "52674830"
         // Respond the cloud app for the direct method
         response.send(200, 'Reboot started', function(err) {
             if (err) {
-                console.error('An error occured when sending a method response:\n' + err.toString());
+                console.error('An error occurred when sending a method response:\n' + err.toString());
             } else {
                 console.log('Response to method \'' + request.methodName + '\' sent successfully.');
             }

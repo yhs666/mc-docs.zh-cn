@@ -5,16 +5,16 @@ services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: overview
-origin.date: 10/28/2018
-ms.date: 12/10/2018
+origin.date: 12/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 1c6c48ed7641487c92c2d68bfd8d1617c6eb17ab
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 307c26cc1d0b63901f262bef2a1031cc4fbf41fa
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028516"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363364"
 ---
 # <a name="about-site-recovery"></a>关于 Site Recovery
 
@@ -63,4 +63,4 @@ Site Recovery 可以为以下计算机管理复制：
 * 阅读有关[工作负荷支持](site-recovery-workload.md)的更多内容。
 * [区域之间的 Azure VM 复制](azure-to-azure-quickstart.md)入门。
 
-<!--Update_Description: update meta properties, wording update  -->
+<!--Update_Description: update meta properties -->

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/23/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: e4e3a63607a56150742f8f9c8e34b06bbd3c3cc5
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 60c95a1642e67f2808b7e96a8728156cb7880567
+ms.sourcegitcommit: 35a09a86cbb3d896fa9784471ece41df7728bd71
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083632"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396706"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>在 Linux 上准备开发环境
 > [!div class="op_single_selector"]
@@ -158,11 +158,11 @@ Ubuntu | 2.0.0 | AzulJDK 1.8 | Implicit from npm | 最新 |
 
     此时，能够部署预生成的 Service Fabric 应用程序包或基于来宾容器或来宾可执行文件的新应用程序包。 若要使用 Java 或 .NET Core SDK 生成新服务，请遵循以下部分中的可选设置步骤操作。
 
-    > [!NOTE]
-    > Linux 不支持独立的群集。
+> [!NOTE]
+> Linux 不支持独立的群集。
 
-    > [!TIP]
-    > 如果有可用的 SSD 磁盘，建议配合使用 `--clusterdataroot` 与 devclustersetup.sh 来传递 SSD 文件夹路径，实现优异的性能。
+> [!TIP]
+> 如果有可用的 SSD 磁盘，建议配合使用 `--clusterdataroot` 与 devclustersetup.sh 来传递 SSD 文件夹路径，实现优异的性能。
 
 ## <a name="set-up-the-service-fabric-cli"></a>设置 Service Fabric CLI
 
@@ -202,7 +202,8 @@ Service Fabric 提供基架工具，可以借助此类工具，使用 Yeoman 模
 * Ubuntu
 
     ```bash
-    sudo apt-get install gradle
+    curl -s https://get.sdkman.io | bash
+    sdk install gradle 5.1
     ```
 
 <!-- Not Available on * Red Hat Enterprise Linux 7.4 (Service Fabric preview support)--> 还需要为 Java 可执行文件安装 Service Fabric Yeo 生成器。 确保已安装 [Yeoman](#set-up-yeoman-generators-for-containers-and-guest-executables)，然后运行以下命令：

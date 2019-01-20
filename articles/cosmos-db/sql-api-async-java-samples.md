@@ -1,21 +1,19 @@
 ---
 title: Azure Cosmos DB：SQL API 的异步 Java 示例
 description: 在 GitHub 上查找使用 Azure Cosmos DB SQL API 的常见任务的异步 Java 示例，包括 CRUD 操作。
-services: cosmos-db
 author: rockboyfor
-documentationcenter: java
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: sample
 origin.date: 06/18/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 95738d8916ad02f104346d71c95179564d7ed833
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: 0ae75cf7a55eb139a64203f117ada26bf5b3d82c
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026761"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309216"
 ---
 # <a name="azure-cosmos-db-async-java-examples-for-the-sql-api"></a>Azure Cosmos DB：SQL API 的异步 Java 示例
 
@@ -133,7 +131,7 @@ $ cd azure-cosmosdb-java
 | --- | --- |
 | [创建索引并设置索引策略](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/CollectionCRUDAsyncAPITest.java#L394-L410) | [索引](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.indexingpolicy) |
 
-有关索引的详细信息，请参阅 [Azure Cosmos DB 索引策略](indexing-policies.md)。
+有关索引的详细信息，请参阅 [Azure Cosmos DB 索引策略](index-policy.md)。
 
 ## <a name="query-examples"></a>查询示例
 [DocumentQuerySamples](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DocumentQueryAsyncAPITest.java) 文件演示如何执行以下任务：

@@ -8,15 +8,15 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: tutorial
 origin.date: 05/04/2017
-ms.date: 10/18/2018
+ms.date: 01/15/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 83faf69548b351e68acba0b9d90de0812068590f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 2c8ba22af00c0a53ca85eed67bd15d1d8420c71b
+ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644814"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334222"
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>使用 Azure Functions 创建无服务器 API
 
@@ -104,7 +104,7 @@ ms.locfileid: "52644814"
     | 字段 | 示例值 | 说明 |
     |---|---|---|
     | Name | HelloProxy | 仅用于管理的友好名称 |
-    | 路由模板 | /api/hello | 确定可以使用哪个路由来调用此代理 |
+    | 路由模板 | /api/remotehello | 确定可以使用哪个路由来调用此代理 |
     | 后端 URL | https://%HELLO_HOST%/api/hello | 指定请求应代理的终结点 |
     
 1. 请注意，代理不提供 `/api` 基路径前缀，必须在路由模板中包含此前缀。
@@ -112,9 +112,9 @@ ms.locfileid: "52644814"
 1. 单击**创建**。
 1. 可以通过复制代理 URL 或使用偏好的 HTTP 客户端在浏览器中对其进行测试来试验新代理。
     1. 对于匿名函数，请使用：
-        1. `https://YOURPROXYAPP.chinacloudsites.cn/api/hello?name="Proxies"`
+        1. `https://YOURPROXYAPP.chinacloudsites.cn/api/remotehello?name="Proxies"`
     1. 对于具有授权的函数，请使用：
-        1. `https://YOURPROXYAPP.chinacloudsites.cn/api/hello?code=YOURCODE&name="Proxies"`
+        1. `https://YOURPROXYAPP.chinacloudsites.cn/api/remotehello?code=YOURCODE&name="Proxies"`
 
 ## <a name="create-a-mock-api"></a>创建模拟 API
 
@@ -132,7 +132,7 @@ ms.locfileid: "52644814"
     "proxies": {
         "HelloProxy": {
             "matchCondition": {
-                "route": "/api/hello"
+                "route": "/api/remotehello"
             },
             "backendUri": "https://%HELLO_HOST%/api/hello"
         }
@@ -148,7 +148,7 @@ ms.locfileid: "52644814"
     "proxies": {
         "HelloProxy": {
             "matchCondition": {
-                "route": "/api/hello"
+                "route": "/api/remotehello"
             },
             "backendUri": "https://%HELLO_HOST%/api/hello"
         },
@@ -194,4 +194,3 @@ ms.locfileid: "52644814"
 [Create your first function]: /azure-functions/functions-create-first-azure-function
 [使用 Azure Functions 代理]: /azure-functions/functions-proxies
 
-<!-- Update_Description: wording update -->

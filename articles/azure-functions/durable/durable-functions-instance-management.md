@@ -9,16 +9,16 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 12/25/2018
+ms.date: 01/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: f67b9d2e496ac80b98a2eef76776634fc17fd19a
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 941fb1e599a8eb2d1dc87751d44a4cb5d38d6299
+ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806681"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334225"
 ---
-# <a name="manage-instances-in-durable-functions-azure-functions"></a>在 Durable Functions 中管理实例 (Azure Functions)
+# <a name="manage-instances-in-durable-functions-in-azure"></a>在 Azure 中管理 Durable Functions 中的实例
 
 可以启动、终止、查询 [Durable Functions](durable-functions-overview.md) 业务流程实例并向其发送通知事件。 所有实例管理是使用[业务流程客户端绑定](durable-functions-bindings.md)完成的。 本文详细介绍每项实例管理操作。
 
@@ -603,7 +603,7 @@ modules.exports = async function(context, ctx) {
 > [!NOTE]
 > 此 API 并不旨在取代适当的错误处理和重试策略。 只能在业务流程实例出于意外的原因而失败时才使用此 API。 有关错误处理和重试策略的详细信息，请参阅[错误处理](durable-functions-error-handling.md)主题。
 
-涉及到一系列[人工审批](durable-functions-overview.md#pattern-5-human-interaction)的工作流就是“回退”的一个用例。 假设有一系列活动函数会通知某人做出审批并等待其实时响应。 在所有审批活动收到响应或超时后，另一活动因应用程序配置错误（例如数据库连接字符串无效）而失败。 结果是业务流程在工作流的深入阶段发生失败。 使用 `RewindAsync` (.NET) 或 `rewindAsync` (JavaScript) API，应用程序管理员可以修复配置错误并将失败的业务流程回退到失败前的状态。 无需再次审批任何人工交互步骤，业务流程现可成功完成。
+涉及到一系列[人工审批](durable-functions-concepts.md#human)的工作流就是“回退”的一个用例。 假设有一系列活动函数会通知某人做出审批并等待其实时响应。 在所有审批活动收到响应或超时后，另一活动因应用程序配置错误（例如数据库连接字符串无效）而失败。 结果是业务流程在工作流的深入阶段发生失败。 使用 `RewindAsync` (.NET) 或 `rewindAsync` (JavaScript) API，应用程序管理员可以修复配置错误并将失败的业务流程回退到失败前的状态。 无需再次审批任何人工交互步骤，业务流程现可成功完成。
 
 > [!NOTE]
 > “回退”功能不支持回退使用持久计时器的业务流程实例。
@@ -719,3 +719,4 @@ func durable delete-task-hub --task-hub-name UserTest
 > [!div class="nextstepaction"]
 > [了解如何使用 HTTP API 进行实例管理](durable-functions-http-api.md)
 
+<!-- Update_Description: wording update -->

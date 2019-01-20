@@ -1,21 +1,19 @@
 ---
 title: 适用于 Async Java 的 Azure Cosmos DB 性能提示
 description: 了解用于提高 Azure Cosmos DB 数据库性能的客户端配置选项
-keywords: 如何提高数据库性能
-services: cosmos-db
 author: rockboyfor
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 origin.date: 03/27/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5d160ab3367ea2f2196d80256bd8883efb894dce
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: 0a608632a089997b3b0f1ae44c547aae666bb01d
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026715"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309164"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>适用于 Azure Cosmos DB 和 Async Java 的性能提示
 
@@ -46,6 +44,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
     每个 AsyncDocumentClient 实例都是线程安全的，可执行高效的连接管理和地址缓存。 若要通过 AsyncDocumentClient 获得高效的连接管理和更好的性能，建议在应用程序生存期内对每个 AppDomain 使用单个 AsyncDocumentClient 实例。
 
     <a name="max-connection"></a>
+
 3. **优化 ConnectionPolicy**
 
     使用 Async Java SDK 时，Azure Cosmos DB 请求是通过 HTTPS/REST 发出的，并且受制于默认的最大连接池大小 (1000)。 此默认值对于大多数用例是很理想的。 但是，如果你有一个包含许多分区的大型集合，则可以使用 setMaxPoolSize 将最大连接池大小设置为更大的数字（例如 1500）。

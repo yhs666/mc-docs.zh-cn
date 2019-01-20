@@ -6,14 +6,14 @@ author: lingliw
 manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/3/2019
+ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: e3d81fae376390ddbf9ff5c25286c8d275e8fe59
-ms.sourcegitcommit: f46e1f7a5d582bb9663bfaee8087b233eb822e17
+ms.openlocfilehash: 14d9b0f4ff08d937acffa051e81fd770ab913ee9
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996527"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363431"
 ---
 # <a name="back-up-azure-vms-with-the-azure-backup-service"></a>使用 Azure 备份服务备份 Azure VM
 

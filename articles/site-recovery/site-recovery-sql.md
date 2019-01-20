@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 07/22/2018
-ms.date: 12/10/2018
+origin.date: 11/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 743a41e14ea58086be062ac9dec84f6d34f40ab3
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 49ec64c9204a471ba0ebfc5fd32845fb2e151660
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028536"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363450"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>为 SQL Server 设置灾难恢复 
 
@@ -194,4 +194,4 @@ SQL Always On 无法原生支持测试性故障转移。 因此，我们建议�
 ## <a name="next-steps"></a>后续步骤
 [详细了解](site-recovery-components.md) Site Recovery 体系结构。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 12/04/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: d4005ddf8b4b90f921bc60cb5d27017f60cf90ae
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+origin.date: 01/03/2019
+ms.date: 01/21/2019
+ms.openlocfilehash: a937ecfbde0f93f8414cb6876113b60fa4695e6b
+ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806315"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363790"
 ---
 # <a name="connectivity-libraries-and-frameworks-for-sql-server"></a>适用于 SQL Server 的连接库和框架
 

@@ -5,17 +5,16 @@ services: service-bus-messaging
 author: lingliw
 manager: digimobile
 ms.author: v-lingwu
-origin.date: 12/24/2018
-ms.date: 12/24/2018
+ms.date: 01/21/19
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: fd16dbe028818510ef352b0df0055e99a02cfb4b
-ms.sourcegitcommit: 649f5093a9a9a89f4117ae3845172997922aec31
+ms.openlocfilehash: 361aad34c829b304dc02f1e16b3e29ce12c38866
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/24/2018
-ms.locfileid: "53784620"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363580"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>教程：使用 Azure 门户和主题/订阅更新清单
 
@@ -52,7 +51,7 @@ ms.locfileid: "53784620"
 
 ## <a name="create-a-service-bus-namespace"></a>创建服务总线命名空间
 
-服务总线消息传送命名空间提供唯一的作用域容器，可以通过其[完全限定域名][]进行引用，而在该域名中，可以创建一个或多个队列、主题和订阅。 以下示例在新的或现有的[资源组](/azure-resource-manager/resource-group-portal)中创建一个服务总线消息传送命名空间：
+服务总线消息传送命名空间提供唯一的作用域容器，可以通过其[完全限定域名][]进行引用，而在该域名中，可以创建一个或多个队列、主题和订阅。 以下示例在新的或现有的[资源组](/azure/azure-resource-manager/resource-group-portal)中创建一个服务总线消息传送命名空间：
 
 1. 在门户的左侧导航窗格中，依次单击“+ 创建资源”、“企业集成”和“服务总线”。
 2. 在“创建命名空间”  对话框中，输入命名空间名称。 系统会立即检查该名称是否可用。
@@ -92,7 +91,7 @@ ms.locfileid: "53784620"
 
 ## <a name="create-filter-rules-on-subscriptions"></a>在订阅上创建筛选规则
 
-预配命名空间和主题/订阅并且拥有所需的凭据后，便可以在订阅上创建筛选规则，然后发送和接收消息。 可以在[此 GitHub 示例文件夹](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/GettingStarted/BasicSendReceiveTutorialwithFilters)中检查代码。
+预配命名空间和主题/订阅并且拥有所需的凭据后，便可以在订阅上创建筛选规则，然后发送和接收消息。 可以在[此 GitHub 示例文件夹](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters)中检查代码。
 
 ### <a name="send-and-receive-messages"></a>发送和接收消息
 

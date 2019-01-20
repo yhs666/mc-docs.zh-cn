@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 05/15/2018
-ms.date: 12/10/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 94509823367ac8f0eb6cc7e0dd15837ebceddbe4
-ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
+ms.openlocfilehash: 8c815a4712f8d43ede86f1012be13ff9798ba704
+ms.sourcegitcommit: 35a09a86cbb3d896fa9784471ece41df7728bd71
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52901023"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396707"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>查看 Service Fabric 容器服务的日志
 Azure Service Fabric 是一种容器业务流程协调程序，支持 [Linux 和 Windows 容器](service-fabric-containers-overview.md)。  本文介绍如何查看正在运行的容器服务或不活动容器的容器日志，以便诊断和排查问题。
@@ -65,10 +65,10 @@ GET http://localhost:19080/Nodes/_Node_0/$/GetApplications/SimpleHttpServerApp/$
 ```
 
 ### <a name="service-fabric-sfctl"></a>Service Fabric (SFCTL)
-使用 [sfctl service get-container-logs](service-fabric-sfctl-service.md) 命令来提取故障容器的日志。  指定运行容器的节点的名称、应用程序名称、服务清单名称和代码包名称。 指定 `-previous` 标志。  该响应将包含该代码包实例中不活动容器的容器日志。
+使用 [sfctl service get-container-logs](service-fabric-sfctl-service.md) 命令来提取故障容器的日志。  指定运行容器的节点的名称、应用程序名称、服务清单名称和代码包名称。 指定 `--previous` 标志。  该响应将包含该代码包实例中不活动容器的容器日志。
 
 ```
-sfctl service get-container-logs --node-name _Node_0 --application-id SimpleHttpServerApp --service-manifest-name SimpleHttpServerSvcPkg --code-package-name Code -previous
+sfctl service get-container-logs --node-name _Node_0 --application-id SimpleHttpServerApp --service-manifest-name SimpleHttpServerSvcPkg --code-package-name Code --previous
 ```
 响应：
 ```json
@@ -81,4 +81,4 @@ sfctl service get-container-logs --node-name _Node_0 --application-id SimpleHttp
 
 [Image1]: media/service-fabric-containers-view-logs/view-container-logs-sfx.png
 
-<!-- Update_Description: wording update, update meta properties  -->
+<!-- Update_Description: wording update, update meta properties -->

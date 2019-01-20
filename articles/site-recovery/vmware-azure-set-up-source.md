@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 10/29/2018
-ms.date: 12/10/2018
+origin.date: 11/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 436d4ab4285b09010b8e6884a6462d5e3b6c51d0
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: b30dc27292042fc4af8898b87827bda1e3ac604b
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028686"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363371"
 ---
 <a name="set-up-the-source-environment"></a>
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>设置源环境以便从 VMware 复制到 Azure
@@ -85,10 +85,8 @@ ms.locfileid: "53028686"
 6. C:\ProgramData\Azure Site Recovery
 7. ASR 负载均衡的进程服务器安装目录，示例：C:\Program Files (x86)\Azure Site Recovery
 
-## <a name="common-issues"></a>常见问题
-[!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
-
 ## <a name="next-steps"></a>后续步骤
 [设置目标环境](./vmware-azure-set-up-target.md)
 
-<!--Update_Description: update meta properties, wording update  -->
+<!--Update_Description: update meta properties, update link -->
+

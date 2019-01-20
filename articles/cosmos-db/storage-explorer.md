@@ -2,19 +2,18 @@
 title: 使用 Azure 存储资源管理器管理 Azure Cosmos DB 资源
 description: 了解如何使用 Azure 存储资源管理器连接到 Azure Cosmos DB 并管理其资源。
 author: rockboyfor
-tags: Azure Cosmos DB
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 00fe29c41ca5c7a016341b073bb0f3307906c6d6
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: 1ea8b09df24681ddc0cd8cdd19620ad7979b688d
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026829"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309325"
 ---
 # <a name="manage-azure-cosmos-db-resources-using-azure-storage-explorer"></a>使用 Azure 存储资源管理器管理 Azure Cosmos DB 资源
 
@@ -199,7 +198,7 @@ ms.locfileid: "54026829"
 
 若成功登录后无法检索订阅，请执行以下操作：
 
-- 通过登录 [Azure 门户](http://portal.azure.cn/)验证帐户是否有权访问该订阅
+- 通过登录 [Azure 门户](https://portal.azure.cn/)验证帐户是否有权访问该订阅
 - 确保已使用正确的环境（[Azure 中国](https://portal.azure.cn/)或自定义环境/Azure Stack）登录
 - 如果使用代理，请确保已正确配置存储资源管理器代理
 - 尝试移除并重新添加帐户

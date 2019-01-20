@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/01/2017
-ms.date: 11/30/2018
+ms.date: 01/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: 53736984820e4fb20b43848432fe9df3f16d270a
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: d3bc01d79792d15e5b2e2224bec8ca023c6a04cf
+ms.sourcegitcommit: e79651227d4378e6d24f9ab155b9f4fee044b2c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672887"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334277"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>了解虚拟机规模集模板
 [Azure Resource Manager 模板](/azure-resource-manager/resource-group-overview#template-deployment)是部署成组的相关资源的好办法。 本系列教程演示如何创建最小的可行规模集模板，以及如何修改此模板以满足各种场景。 所有示例都来自此 [GitHub 存储库](https://github.com/gatneil/mvss)。 
@@ -71,7 +71,7 @@ Resource Manager 模板还可用于定义稍后要在模板中使用的变量。
    "resources": [
 ```
 
-所有资源都需要 `type`、`name`、`apiVersion` 和 `location` 属性。 本示例的第一个资源的类型为 `Microsft.Network/virtualNetwork`，名称为 `myVnet`，apiVersion 为 `2016-03-30`。 （若要查找资源类型的最新 API 版本，请参阅 [Azure REST API 文档](https://docs.microsoft.com/rest/api/)。）
+所有资源都需要 `type`、`name`、`apiVersion` 和 `location` 属性。 此示例的第一个资源具有类型 [Microsft.Network/virtualNetwork](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)、名称 `myVnet` 和 apiVersion `2016-03-30`。 （若要查找资源类型的最新 API 版本，请参阅 [Azure 资源管理器模板参考](https://docs.microsoft.com/azure/templates/)。）
 
 ```json
      {
@@ -125,7 +125,7 @@ Resource Manager 模板还可用于定义稍后要在模板中使用的变量。
        ],
 ```
 ## <a name="specify-scale-set-properties"></a>指定规模集属性
-规模集提供许多用于在规模集中自定义 VM 的属性。 有关这些属性的完整列表，请参阅[规模集 REST API 文档](https://docs.microsoft.com/rest/api/virtualmachinescalesets/create-or-update-a-set)。 在本教程中，仅设置一些常用属性。
+规模集提供许多用于在规模集中自定义 VM 的属性。 有关这些属性的完整列表，请参阅[模板参考](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachinescalesets)。 在本教程中，仅设置一些常用属性。
 ### <a name="supply-vm-size-and-capacity"></a>提供 VM 大小和容量
 规模集需要知道要创建的 VM 的大小（“sku name”）和要创建多少个这样的 VM（“sku capacity”）。 若要查看可用的 VM 大小，请参阅 [VM 大小文档](/virtual-machines/virtual-machines-windows-sizes)。
 
@@ -214,4 +214,4 @@ Resource Manager 模板还可用于定义稍后要在模板中使用的变量。
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: link update -->

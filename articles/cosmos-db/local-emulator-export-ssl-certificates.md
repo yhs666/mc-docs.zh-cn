@@ -1,20 +1,18 @@
 ---
 title: 导出 Azure Cosmos DB 模拟器证书
-description: 以不使用 Windows 证书存储的语言和运行时进行开发时，需要导出并管理 SSL 证书。 本文提供分步说明。
-services: cosmos-db
-keywords: Azure Cosmos DB 模拟器
-author: rockboyfor
+description: 以不使用 Windows 证书存储的语言和运行时进行开发时，需要导出并管理 SSL 证书。 此文提供了分步说明。
 ms.service: cosmos-db
 ms.topic: tutorial
 origin.date: 06/06/2017
-ms.date: 01/07/2019
+ms.date: 01/21/2019
+author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: c8108ea759d2fa7be72a993206e808ef4afb3aa0
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: ca2385e9049b786308f034914599a7022c745841
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026720"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309307"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>使用 Java、Python 和 Node.js 导出要使用的 Azure Cosmos DB 模拟器证书
 

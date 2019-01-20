@@ -1,20 +1,18 @@
 ---
 title: 使用 Azure Cosmos DB 模拟器在本地开发
 description: 利用 Azure Cosmos DB 模拟器，可以在本地免费开发和测试应用程序，无需创建 Azure 订阅。
-services: cosmos-db
-keywords: Azure Cosmos DB 模拟器
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: tutorial
 origin.date: 04/20/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
+author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: bfbc723c5607995859063897e9fa9b4cce96d2d0
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: bf106b158ccd95ccd7f78b27e801ff026a246048
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026773"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309179"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>将 Azure Cosmos DB 模拟器用于本地开发和测试
 
@@ -493,4 +491,4 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 > [!div class="nextstepaction"]
 > [导出 Azure Cosmos DB 模拟器证书](local-emulator-export-ssl-certificates.md)
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update -->

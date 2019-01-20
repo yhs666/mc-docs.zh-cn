@@ -4,17 +4,18 @@ description: 了解如何使用 Azure Site Recovery 在灾难恢复到 Azure 期
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
+services: site-recovery
 ms.topic: tutorial
-origin.date: 10/29/2018
-ms.date: 12/10/2018
+origin.date: 12/31/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 5df0475e67b42b016435d5628e3f48cecfa60f54
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 4f3140ea6cc849662e3b1e0ecabbc38d71b1f292
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028726"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363542"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>对复制到 Azure 的 VMware VM 和物理服务器进行故障转移和故障回复
 
@@ -169,4 +170,4 @@ ms.locfileid: "53028726"
 
 重新保护完成后，该 VM 将复制回 Azure，此时可按需运行故障转移。
 
-<!-- Update_Description: update meta propreties, wording update -->
+<!-- Update_Description: update meta propreties -->

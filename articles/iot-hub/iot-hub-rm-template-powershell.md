@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 08/08/2017
 ms.author: v-yiso
 ms.date: 12/18/2017
-ms.openlocfilehash: abe9ebba13673df3d900f5203378d437634ea60b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6cd4736662d4e699712c8de516d89222332c9880
+ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656354"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396783"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>使用 Azure Resource Manager 模板创建 IoT 中心 (PowerShell)
 
@@ -29,7 +29,7 @@ ms.locfileid: "52656354"
 可以使用 Azure Resource Manager 以编程方式创建和管理 Azure IoT 中心。 本教程介绍如何将 Azure Resource Manager 模板与 PowerShell 配合使用来创建 IoT 中心。
 
 > [!NOTE]
-> Azure 提供了用于创建和使用资源的两个不同部署模型：[Azure Resource Manager 模型和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。  本文介绍了如何使用 Azure Resource Manager 部署模型。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[Azure 资源管理器部署模型和经典部署模型](../azure-resource-manager/resource-manager-deployment-model.md)。  本文介绍了如何使用 Azure Resource Manager 部署模型。
 > 
 > 
 
@@ -48,7 +48,7 @@ ms.locfileid: "52656354"
 在 PowerShell 命令提示符中，输入以下命令以登录 Azure 订阅：
 
 ```powershell
-Login-AzureRmAccount -Environment $(Get-AzureRmEnvironment -Name AzureChinaCloud)
+Connect-AzureRmAccount -Environment AzureChinaCloud
 ```
 
 如果有多个 Azure 订阅，则访问 Azure 即有权访问与凭据关联的所有 Azure 订阅。 使用以下命令，列出可供使用的 Azure 订阅：
@@ -154,7 +154,8 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "China East"
 现在，已使用 Azure 资源管理器模板和 PowerShell 部署了一个 IoT 中心，接下来可以进一步进行探索：
 
 * 阅读了解 [IoT 中心资源提供程序 REST API][lnk-rest-api] 的相关功能。
-* 有关 Azure 资源管理器功能的详细信息，请参阅 [Azure 资源管理器概述][lnk-azure-rm-overview]。
+* 有关 Azure Resource Manager 功能的详细信息，请参阅 [Azure Resource Manager 概述][lnk-azure-rm-overview] 。
+* 有关要在模板中使用的 JSON 语法和属性，请参阅 [Microsoft.Devices 资源类型](https://docs.microsoft.com/en-us/azure/templates/microsoft.devices/iothub-allversions)。
 
 若要详细了解如何开发 IoT 中心，请参阅以下文章：
 
@@ -177,4 +178,4 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "China East"
 [lnk-c-sdk]: ./iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: ./iot-hub-devguide-sdks.md
 
-[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/quickstart-linux.md

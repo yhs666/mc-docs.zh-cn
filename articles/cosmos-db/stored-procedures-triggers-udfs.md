@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 12/11/2018
-ms.date: 12/31/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: e79fc38c820a2d86e7ffdcb3831c377a331836ca
-ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
+ms.openlocfilehash: 829fcfafa0e04b2ea6b4b68dcb21d012a03a9162
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814801"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309297"
 ---
 # <a name="working-with-azure-cosmos-db-stored-procedures-triggers-and-user-defined-functions"></a>使用 Azure Cosmos DB 存储过程、触发器和用户定义的函数
 
@@ -105,3 +105,5 @@ Azure Cosmos DB 提供可以通过对 Azure Cosmos DB 项执行操作来调用�
 * [如何使用存储过程、触发器和用户定义的函数](how-to-use-stored-procedures-triggers-udfs.md)
 
 * [使用 JavaScript 语言集成式查询 API](javascript-query-api.md)
+
+<!--Update_Description: update meta properties, wording update-->

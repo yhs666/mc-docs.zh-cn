@@ -1,23 +1,22 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 480d6a39718348e8598459ed35b6d087a8b6e3cc
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: b8e54feecccc0b31b73289731b458ea531e6714e
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026682"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309308"
 documentType: LandingData
 title: Azure Cosmos DB 文档
 metadata:
   document_id: e77bd640-1036-8b31-955c-a2cc990c69a1
   title: Azure Cosmos DB 文档 - 教程和 API 参考
   description: 了解如何使用 Azure Cosmos DB 生成多区域分布式多模型数据库。 教程介绍了如何生成和查询文档数据库。
-  services: cosmos-db
   author: rockboyfor
   ms.author: v-yeche
   ms.service: cosmos-db
   ms.topic: landing-page
   origin.date: 04/26/2018
-  ms.date: 01/07/2019
+  ms.date: 01/21/2019
 abstract:
   description: Azure Cosmos DB 是多区域分配式多模型数据库服务，支持文档和宽列数据库。 参考我们的快速入门、教程和示例，了解如何使用 Azure Cosmos DB。
 sections:

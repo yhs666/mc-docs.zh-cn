@@ -9,12 +9,12 @@ ms.topic: quickstart
 origin.date: 11/14/2018
 ms.date: 01/14/2019
 ms.author: v-jay
-ms.openlocfilehash: 8a037dafb53289bd665611b7a4378e74725d2ab2
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: ad74ff2961d6e41fb73a1f232087d651ec33b789
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192860"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396928"
 ---
 # <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>快速入门：使用 .NET 在对象存储中创建 blob
 

@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 资源管理器模板创建 Azure 服务总线主题订阅和规则 | Azure
+title: 使用 Azure Resource Manager 模板创建 Azure 服务总线主题订阅和规则 | Azure Docs
 description: 使用 Azure Resource Manager 模板创建包含主题、订阅和规则的服务总线命名空间
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,15 +12,14 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-origin.date: 09/11/2018
-ms.date: 10/31/2018
+ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: ce995669270e7bd6827c47ac2fd0fc33c1acc73a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 156b5cdedb63e0ab89f0e07b8176c994ba108ad6
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659783"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363482"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板创建包含主题、订阅和规则的服务总线命名空间
 
@@ -35,10 +34,10 @@ ms.locfileid: "52659783"
 > [!NOTE]
 > 以下 Azure Resource Manager 模板可供下载和部署。
 > 
->-  [创建包含队列和授权规则的服务总线命名空间](./service-bus-resource-manager-namespace-auth-rule.md)
->-  [创建包含队列的服务总线命名空间](./service-bus-resource-manager-namespace-queue.md)
->-  [创建服务总线命名空间](./service-bus-resource-manager-namespace.md)
->-  [创建包含主题和订阅的服务总线命名空间](./service-bus-resource-manager-namespace-topic.md)
+> * [创建包含队列和授权规则的服务总线命名空间](service-bus-resource-manager-namespace-auth-rule.md)
+> * [创建包含队列的服务总线命名空间](service-bus-resource-manager-namespace-queue.md)
+> * [创建服务总线命名空间](service-bus-resource-manager-namespace.md)
+> * [创建包含主题和订阅的服务总线命名空间](service-bus-resource-manager-namespace-topic.md)
 > 
 > 若要检查最新模板，请访问 [Azure 快速启动模板][Azure Quickstart Templates] 库并搜索服务总线。
 > 
@@ -52,14 +51,15 @@ ms.locfileid: "52659783"
 
 ## <a name="what-are-rules-filters"></a>什么是规则（筛选器）？
 
-在许多情况下，必须以不同方式处理具有特定特征的消息。 若要启用此自定义处理，可配置订阅以找到具有特定属性的消息，并对这些属性执行修改。 虽然服务总线订阅可看到发送到主题的所有消息，但你可仅将部分消息复制到虚拟订阅队列。 使用订阅筛选器完成此操作。 若要深入了解规则（筛选器），请参阅[规则和操作](service-bus-queues-topics-subscriptions.md#rules-and-actions)。
+在许多情况下，必须以不同方式处理具有特定特征的消息。 若要启用此自定义处理，可配置订阅以找到具有特定属性的消息，并对这些属性执行修改。 虽然服务总线订阅可看到发送到主题的所有消息，但你可仅将部分消息复制到虚拟订阅队列。 可使用订阅筛选器完成此操作。 若要深入了解规则（筛选器），请参阅[规则和操作](service-bus-queues-topics-subscriptions.md#rules-and-actions)。
 
 若要自动运行部署，请单击以下按钮：
 
 [![部署到 Azure](./media/service-bus-resource-manager-namespace-topic/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-topic-subscription-rule%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>parameters
-使用 Azure Resource Manager，可以定义在部署模板时想要指定的值的参数。 该模板具有一个名为 `Parameters` 的部分，其中包含所有参数值。 应该为随着要部署的项目或要部署到的环境而变化的值定义参数。 不要为永远保持不变的值定义参数。 每个参数值可在模板中用来定义所部署的资源。
+
+使用 Azure 资源管理器，可以定义在部署模板时想要指定的值的参数。 该模板具有一个名为 `Parameters` 的部分，其中包含所有参数值。 请根据要部署的项目或要部署到的环境的不同，为那些值定义参数。 不要为永远保持不变的值定义参数。 每个参数值可在模板中用来定义所部署的资源。
 
 模板定义以下参数：
 

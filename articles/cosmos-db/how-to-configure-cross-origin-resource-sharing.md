@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 12/02/2018
-ms.date: 12/31/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0f30a9cb4a50ca68b15254a2fb02eecc184adbff
-ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
+ms.openlocfilehash: 95c0e912ae13b89608ae24c97656057aa74f15b5
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814794"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309103"
 ---
 # <a name="cross-origin-resource-sharing-cors-in-azure-cosmos-db"></a>Azure Cosmos DB 中的跨源资源共享 (CORS) 
 
@@ -108,5 +108,4 @@ module.exports = {
 
 * [为 Azure Cosmos DB 帐户配置基于虚拟网络和子网的访问](how-to-configure-vnet-service-endpoint.md)
 
-<!-- Update_Description: new articles on how to configure cross origin resource sharing -->
-<!--ms.date: 12/31/2018-->
+<!-- Update_Description: update meta properties, wording update -->

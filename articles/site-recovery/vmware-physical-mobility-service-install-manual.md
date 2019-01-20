@@ -5,15 +5,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 11/04/2018
-ms.date: 12/24/2018
+origin.date: 11/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7babd87c1f7578f0e082552640aef8c6c836ec71
-ms.sourcegitcommit: d2893ae6bdbb3784d243d5d3c49c25c9cfd99d9b
+ms.openlocfilehash: 20f59da5db270afe99e8ac2c1e7dd65bf3fea0d3
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2018
-ms.locfileid: "53784830"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363358"
 ---
 # <a name="install-the-mobility-service-manually-on-vmware-vms-and-physical-servers"></a>在 VMware VM 和物理服务器上手动安装移动服务
 
@@ -91,7 +91,7 @@ ms.locfileid: "53784830"
 安装日志 | 位于 %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log 下。
 /Role | 必需的安装参数。 指定是要安装移动服务 (MS) 还是主目标 (MT)。
 /InstallLocation| 可选参数。 指定移动服务的安装位置（任意文件夹）。
-/Platform | 必需。 指定一个平台，以便在其上安装移动服务。 对于 Mware VM/物理服务器，请指定 **VMware**；对于 Azure VM，请指定 **Azure**。 
+/Platform | 必需。 指定一个平台，以便在其上安装移动服务。 对于 VMware VM/物理服务器，请指定 **VMware**；对于 Azure VM，请指定 **Azure**。 
 /Silent| 可选。 指定是否以静默模式运行安装程序。
 
 #### <a name="registration-settings"></a>注册设置
@@ -127,7 +127,7 @@ ms.locfileid: "53784830"
 使用情况 | ./install -d <Install Location> -r <MS|MT> -v VmWare -q
 -r | 必需的安装参数。 指定是要安装移动服务 (MS) 还是主目标 (MT)。
 -d | 可选参数。 指定移动服务的安装位置：/usr/local/ASR。
--v | 必需。 指定一个平台，以便在其上安装移动服务。 对于 Mware VM/物理服务器，请指定 **VMware**；对于 Azure VM，请指定 **Azure**。 
+-v | 必需。 指定一个平台，以便在其上安装移动服务。 对于 VMware VM/物理服务器，请指定 **VMware**；对于 Azure VM，请指定 **Azure**。 
 -q | 可选。 指定是否以静默模式运行安装程序。
 
 #### <a name="registration-settings"></a>注册设置
@@ -141,4 +141,4 @@ ms.locfileid: "53784830"
 - [为 VMware VM 设置灾难恢复](vmware-azure-tutorial.md)
 - [为物理服务器设置灾难恢复](physical-azure-disaster-recovery.md)
 
-<!--Update_Dscription: udpate meta properties-->
+<!--Update_Dscription: udpate meta properties, wording update -->

@@ -1,20 +1,21 @@
 ---
-title: 注册新 Azure IoT Edge 设备（门户）| Microsoft Docs
-description: 使用 Azure 门户注册新 IoT Edge 设备
+title: 在 Azure 门户中注册新设备 - Azure IoT Edge | Microsoft Docs
+description: 使用 Azure 门户注册新的 IoT Edge 设备并检索连接字符串
 author: kgremban
 manager: philmea
 ms.author: v-yiso
-origin.date: 06/05/2018
-ms.date: 12/10/2018
+origin.date: 01/03/2019
+ms.date: 01/28/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a06b4a91681250ff53e85304f93ef4803922348a
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.custom: seodec18
+ms.openlocfilehash: fa1dbb4ddf152f66d686bd32ddac8a825db77444
+ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675315"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396784"
 ---
 # <a name="register-a-new-azure-iot-edge-device-from-the-azure-portal"></a>通过 Azure 门户注册新 Azure IoT Edge 设备
 
@@ -30,11 +31,11 @@ ms.locfileid: "52675315"
 
 在 Azure 门户中，IoT Edge 设备与连接到 IoT 中心但未启用 Edge 的设备分开创建和管理。 
 
-1. 登录 [Azure 门户](https://portal.azure.com)，导航到 IoT 中心。 
+1. 登录 [Azure 门户](https://portal.azure.cn)，导航到 IoT 中心。 
 2. 从菜单中选择“IoT Edge”。
-3. 选择“添加 IoT Edge 设备”。 
-4. 提供一个描述性的设备 ID。 
-5. 选择“其他安全性验证” 。 
+3. 选择“添加 IoT Edge 设备”。
+4. 提供一个描述性的设备 ID。 使用默认设置自动生成身份验证密钥并将新设备连接到中心。
+5. 选择“其他安全性验证” 。
 
 ## <a name="view-all-devices"></a>查看所有设备
 

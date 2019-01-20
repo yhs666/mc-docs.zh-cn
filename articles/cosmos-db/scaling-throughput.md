@@ -1,26 +1,25 @@
 ---
 title: 在 Azure Cosmos DB 中缩放吞吐量
 description: 本文介绍 Azure Cosmos DB 如何弹性缩放吞吐量
-services: cosmos-db
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 10/15/2018
-ms.date: 12/03/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 636a7d46e9a5b4323443fea5bd16ec8b18ae8999
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 6db933737a65070d99887990d007a14bbbfedfe5
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676814"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309042"
 ---
 # <a name="scaling-throughput-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中缩放吞吐量
 
-在 Azure Cosmos DB 中，预配吞吐量以“请求单位数/秒 (RU/s)”表示。 RU 度量针对 Cosmos 容器执行的读取和写入操作的成本，如下图所示：
+在 Azure Cosmos DB 中，预配吞吐量以“请求单位数/秒 (RU/秒)”表示。 RU 度量针对 Cosmos 容器执行的读取和写入操作的成本，如下图所示：
 
-![请求单位](./media/scale-throughput/figure1.png)
+![请求单位](./media/scaling-throughput/request-unit-charge-of-read-and-write-operations.png)
 
 可以针对 Cosmos 容器或 Cosmos 数据库预配 RU。 针对容器预配的 RU 专门适用于针对该容器执行的操作。 针对数据库预配的 RU 在该数据库中的所有容器之间共享（具有专用分配 RU 的任何容器除外）
 
@@ -44,5 +43,4 @@ ms.locfileid: "52676814"
 
 * [获取和设置容器与数据库的吞吐量](set-throughput.md)
 
-<!-- Update_Description: new articles on cosmos db scaling throughput -->
-<!--ms.date: 12/03/2018-->
+<!-- Update_Description: update meta properties, wording update -->

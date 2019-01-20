@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 10/28/2018
-ms.date: 12/10/2018
+origin.date: 12/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8e42a76bbafe9f8639f8b77b51eddbeaabfa526f
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 8ce95584831a645f0b752791d4ac813115ea8576
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028358"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363553"
 ---
 # <a name="fail-over-vms-and-physical-servers"></a>对 VM 和物理服务器进行故障转移 
 本文介绍了如何对由 Site Recovery 保护的虚拟机和物理服务器进行故障回复。
@@ -109,6 +109,7 @@ ms.locfileid: "53028358"
 执行故障转移时，你可能希望自动执行某些操作。 可以使用[恢复计划](site-recovery-create-recovery-plans.md)中的脚本来执行该操作。
 
 <!-- Not Available on [Azure automation runbooks](site-recovery-runbook-automation.md)-->
+
 ## <a name="post-failover-considerations"></a>故障转移后注意事项
 故障转移后，可能需要考虑以下建议：
 ### <a name="retaining-drive-letter-after-failover"></a>在故障转移后保留驱动器号

@@ -6,16 +6,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 10/29/2018
-ms.date: 12/10/2018
+origin.date: 12/31/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: edb7b10c0b56d1a412f9be44fcecd2aadf44c87d
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 34f5d3e874bd6d0c08e42152abd5a1bd1ec984a4
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028313"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363429"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>针对本地 VMware VM 设置到 Azure 的灾难恢复
 
@@ -77,8 +77,8 @@ ms.locfileid: "53028313"
 3. 在“添加服务器”中，检查“VMware 的配置服务器”是否已显示在“服务器类型”中。
 4. 下载配置服务器的 OVF 模板。
 
-    > [!TIP]
-    > 可以直接从[下载中心](https://aka.ms/asrconfigurationserver_bjb)下载最新版本的配置服务器模板。
+> [!TIP]
+> 可以直接从[下载中心](https://aka.ms/asrconfigurationserver_bjb)下载最新版本的配置服务器模板。
 
 > [!NOTE]
 > 通过 OVF 模板提供的许可证是有效期为 180 天的评估许可证。 客户需要使用所购买的许可证来激活 Windows。
@@ -189,4 +189,4 @@ Site Recovery 会使用指定的设置连接到 VMware 服务器，并且会发�
 > [!div class="nextstepaction"]
 > [运行灾难恢复演练](site-recovery-test-failover-to-azure.md)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

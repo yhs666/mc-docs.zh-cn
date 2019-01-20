@@ -8,14 +8,13 @@ manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 04/12/2018
-ms.date: 11/26/2018
-ms.openlocfilehash: c0aad4baeaf4ed3f87f053bd8865fe092f31b58f
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 01/21/19
+ms.openlocfilehash: cdbec9c0812fdde56ba3034dab80ed227e4a3b0a
+ms.sourcegitcommit: c01292a935bd307a3326e86cb454d8fa2b561399
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674224"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363637"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>了解和调整流式处理单元
 
@@ -49,7 +48,7 @@ SU 利用率指标的范围为 0% 到 100%，描述工作负荷的内存消耗�
 
 通常情况下，最佳做法是一开始为未使用 PARTITION BY 的查询分配 6 个 SU。 然后，在传递了具有代表性的数据量并检查了 SU 利用率指标后，使用修改 SU 数量的试用和错误方法来确定最佳数量。 流分析作业所能使用的最大流单元数取决于为作业定义的查询中的步骤数，以及每一步中的分区数。 可在[此处](/stream-analytics/stream-analytics-parallelization#calculate-the-maximum-streaming-units-of-a-job)了解更多有关限制的信息。
 
-有关选择适当数量 SU 的详细信息，请参阅此页：[缩放 Azure 流分析作业以增加吞吐量](stream-analytics-scale-jobs.md)
+有关如何选择正确的 SU 数量的详细信息，请参阅此页：[扩展 Azure 流分析作业以增加吞吐量](stream-analytics-scale-jobs.md)
 
 > [!Note]
 > 选择特定作业所需的 SU 数目时，需根据输入的分区配置以及为作业定义的查询来决定。 可为作业选择的最大数目为 SU 配额。 默认情况下，每个 Azure 订阅的配额为最多 200 个 SU，这适用于特定区域的所有分析作业。 若要增加订阅的 SU 数，使其超过此配额，请联系 [Azure 支持部门](https://support.microsoft.com)。 每个作业的 SU 有效值以 1、3、6 开始，往上再按 6 递增。

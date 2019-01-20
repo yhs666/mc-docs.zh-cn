@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 12/12/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: 4a7826e06d018e929e55ecfed6608ba055b3ac78
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+origin.date: 01/11/2019
+ms.date: 01/21/2019
+ms.openlocfilehash: 56da5fa00479ad58f1bb9fc1e53a43d8e12476eb
+ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806391"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363777"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Azure SQL 数据库托管实例的托管 API 引用
 
@@ -38,9 +38,13 @@ ms.locfileid: "53806391"
 | Cmdlet | 说明 |
 | --- | --- |
 |[New-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlinstance)|创建 Azure SQL 数据库托管实例 |
-|[Get-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRmSqlInstance)|退回有关 Azure SQL 数据库托管实例的详细信息|
-|[Set-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/Set-AzureRmSqlInstance)|设置 Azure SQL 数据库托管实例的属性|
-|[Remove-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/Remove-AzureRmSqlInstance)|删除 Azure SQL 数据库托管实例|
+|[Get-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlinstance)|退回有关 Azure SQL 数据库托管实例的详细信息|
+|[Set-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlinstance)|设置 Azure SQL 数据库托管实例的属性|
+|[Remove-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlinstance)|删除 Azure SQL 数据库托管实例|
+|[New-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlinstancedatabase)|创建 Azure SQL 数据库托管实例数据库|
+|[Get-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlinstancedatabase)|返回有关 Azure SQL 托管实例数据库的信息|
+|[Remove-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlinstancedatabase)|删除 Azure SQL 托管数据库实例数据库|
+|[Restore-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqlinstancedatabase)|还原 Azure SQL 托管数据库实例数据库|
 
 ## <a name="azure-cli-manage-logical-servers-and-databases"></a>Azure CLI：管理逻辑服务器和数据库
 
@@ -48,15 +52,18 @@ ms.locfileid: "53806391"
 
 > [!TIP]
 > 有关 Azure CLI 快速入门，请参阅[使用 Azure CLI 处理 SQL 托管实例](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44)。
->
 
 | Cmdlet | 说明 |
 | --- | --- |
-|[az sql mi create](/cli/sql/db#az-sql-mi-create) |创建托管实例|
-|[az sql mi list](/cli/sql/db#az-sql-mi-list)|列出可用的托管实例|
-|[az sql mi show](/cli/sql/db#az-sql-mi-show)|获取托管实例的详细信息|
-|[az sql mi update](/cli/sql/db#az-sql-mi-update)|更新托管实例|
-|[az sql mi delete](/cli/sql/db#az-sql-mi-delete)|删除托管实例|
+|[az sql mi create](/cli/sql/mi#az-sql-mi-create) |创建托管实例|
+|[az sql mi list](/cli/sql/mi#az-sql-mi-list)|列出可用的托管实例|
+|[az sql mi show](/cli/sql/mi#az-sql-mi-show)|获取托管实例的详细信息|
+|[az sql mi update](/cli/sql/mi#az-sql-mi-update)|更新托管实例|
+|[az sql mi delete](/cli/sql/mi#az-sql-mi-delete)|删除托管实例|
+|[az sql midb create](/cli/sql/midb#az-sql-midb-create) |创建托管数据库|
+|[az sql midb list](/cli/sql/midb#az-sql-midb-list)|列出可用的托管数据库|
+|[az sql midb restore](/cli/sql/midb#az-sql-midb-restore)|还原托管数据库|
+|[az sql midb delete](/cli/sql/midb#az-sql-midb-delete)|删除托管数据库|
 
 ## <a name="transact-sql-manage-logical-servers-and-databases"></a>Transact-SQL：管理逻辑服务器和数据库
 

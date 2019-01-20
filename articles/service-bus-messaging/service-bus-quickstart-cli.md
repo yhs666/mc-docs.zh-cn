@@ -7,15 +7,14 @@ manager: digimobile
 ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
-origin.date: 12/24/2018
-ms.date: 12/24/2018
+ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 7db02bd7ca066c4100789fb4beaaf653c31eb24d
-ms.sourcegitcommit: 649f5093a9a9a89f4117ae3845172997922aec31
+ms.openlocfilehash: 0c1d07c09f5a4b851a5c14bc76da9cc959b5edab
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/24/2018
-ms.locfileid: "53784566"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363541"
 ---
 # <a name="quickstart-send-and-receive-messages-using-azure-cli-and-java"></a>快速入门：使用 Azure CLI 和 Java 发送和接收消息
 

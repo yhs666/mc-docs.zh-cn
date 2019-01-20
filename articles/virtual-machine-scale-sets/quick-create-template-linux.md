@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
 origin.date: 03/27/18
-ms.date: 11/29/2018
+ms.date: 01/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: 2cb524fd3b4bd58dea0fd729bec956a79780fa2f
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: f2f1f03ecc97554b8ec87d17035d3aa04403cb01
+ms.sourcegitcommit: e79651227d4378e6d24f9ab155b9f4fee044b2c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672998"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334283"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>快速入门：使用 Azure 模板创建 Linux 虚拟机规模集
 利用虚拟机规模集，可以部署和管理一组相同的、自动缩放的虚拟机。 可以手动缩放规模集中的 VM 数，也可以定义规则，以便根据资源使用情况（如 CPU 使用率、内存需求或网络流量）进行自动缩放。 然后，Azure 负载均衡器会将流量分配到规模集中的 VM 实例。 在本快速入门中，我们将使用 Azure 资源管理器模板创建虚拟机规模集并部署一个示例应用程序。
@@ -35,7 +35,7 @@ ms.locfileid: "52672998"
 ## <a name="define-a-scale-set-in-a-template"></a>在模板中定义规模集
 Azure 资源管理器模板允许部署成组的相关资源。 模板以 JavaScript 对象表示法 (JSON) 编写，可以为应用程序定义整个 Azure 基础结构环境。 在单个模板中，可以创建虚拟机规模集、安装应用程序，以及配置自动缩放规则。 在借助变量和参数的情况下，可以重复使用此模板来更新现有的规模集，或者创建更多的规模集。 可通过 Azure 门户、Azure CLI、Azure PowerShell 或持续集成/持续交付 (CI/CD) 管道部署模板。
 
-有关模板的详细信息，请参阅 [Azure 资源管理器概述](/azure-resource-manager/resource-group-overview#template-deployment)
+有关模板的详细信息，请参阅 [Azure 资源管理器概述](/azure-resource-manager/resource-group-overview#template-deployment)。 有关 JSON 语法和属性，请参阅 [Microsoft.Compute/virtualMachineScaleSets](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachinescalesets) 模板参考。
 
 若要使用模板创建规模集，请定义相应的资源。 虚拟机规模集资源类型的核心部件包括：
 
@@ -179,4 +179,4 @@ az group delete --name myResourceGroup --yes --no-wait
 > [!div class="nextstepaction"]
 > [创建和管理 Azure 虚拟机规模集](tutorial-create-and-manage-cli.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

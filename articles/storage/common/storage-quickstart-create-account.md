@@ -7,15 +7,15 @@ ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 origin.date: 09/18/2018
-ms.date: 01/14/2019
+ms.date: 01/21/2019
 ms.author: v-jay
 ms.component: common
-ms.openlocfilehash: abdf071208a8887e2c6e44096c2444cbbbcbbcdb
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: ceffeb9f85c673418db15ae030a97f0b954cdd77
+ms.sourcegitcommit: 317ea7e3b2d307569d3bf7777bd3077013ae4df6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192845"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334489"
 ---
 # <a name="create-a-storage-account"></a>创建存储帐户
 
@@ -186,14 +186,14 @@ Remove-AzResourceGroup -Name $resourceGroup
 若要删除资源组及其关联的资源（包括新的存储帐户），请使用 [az group delete](/cli/group#az_group_delete) 命令。
 
 ```azurecli
-az group delete --name myResourceGroup
+az group delete --name storage-quickstart-resource-group
 ```
 
 ---
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门中，已创建一个通用的标准存储帐户。 若要了解如何通过存储帐户上传和下载 Blob，请继续阅读 Blob 存储快速入门。
+在本快速入门中，已创建一个通用的 v2 标准存储帐户。 若要了解如何通过存储帐户上传和下载 Blob，请继续阅读 Blob 存储快速入门。
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
@@ -208,6 +208,6 @@ az group delete --name myResourceGroup
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 > [!div class="nextstepaction"]
-> [通过 Azure CLI 使用 Blob 存储](../blobs/storage-quickstart-blobs-cli.md)
+> [通过 Azure CLI 使用 Blob](../blobs/storage-quickstart-blobs-cli.md)
 
 ---

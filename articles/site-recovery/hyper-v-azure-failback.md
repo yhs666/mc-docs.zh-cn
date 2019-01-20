@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 07/06/2018
-ms.date: 12/10/2018
+origin.date: 11/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: f53fdb6137e577e5f1aba8547161dee197775066
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: b1e27239eedc9763c927d8ac46d9bb9d5879bf54
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028274"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363568"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>为 Hyper-V VM 运行故障回复
 
@@ -90,4 +90,4 @@ Azure 是具有高可用性的环境，虚拟机将始终可用。 故障回复�
 
 在**提交**后，可以启动*反向复制*。 这会通过从本地复制回 Azure 的方式开始保护虚拟机。 这只会复制在 Azure 中关闭 VM 后发生的更改，因此只会发送差异更改。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

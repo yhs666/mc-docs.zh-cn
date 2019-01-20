@@ -4,19 +4,20 @@ titleSuffix: Azure Cosmos DB
 description: 本教程系列的第 2 部分，介绍如何通过 Angular 和 Node 在 Azure Cosmos DB 上创建 MongoDB 应用，所使用的 API 与用于 MongoDB 的 API 完全相同。
 author: rockboyfor
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 12/26/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: f9ea217c3128b432240daeb435780ee2a0d9e855
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.reviewer: sngun
+ms.openlocfilehash: 41fdb650e23c8ca9a7ed8e7403a27db59ad86d7a
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026691"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309267"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>使用 Azure Cosmos DB 的用于 MongoDB 的 API 创建 Angular 应用 - 创建 Node.js Express 应用
 
@@ -175,4 +176,5 @@ ms.locfileid: "54026691"
 
 > [!div class="nextstepaction"]
 > [通过 Angular 生成 UI](tutorial-develop-mongodb-nodejs-part3.md)
+
 <!-- Update_Description: update meta properties, wording update -->

@@ -2,19 +2,23 @@
 title: 使用 PowerShell 创建 Azure SQL 数据库弹性作业代理 | Microsoft Docs
 description: 了解如何使用 PowerShell 创建弹性作业代理。
 services: sql-database
-author: WenJason
-manager: digimobile
 ms.service: sql-database
+ms.subservice: scale-out
+ms.custom: ''
+ms.devlang: ''
 ms.topic: tutorial
-oriign.date: 06/14/2018
-ms.date: 08/06/2018
+author: WenJason
 ms.author: v-jay
-ms.openlocfilehash: 326bda7e0f053ad49a90f15f443e0de6c8807587
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.reviwer: sstein
+manager: digimobile
+origin.date: 06/14/2018
+ms.date: 01/21/2019
+ms.openlocfilehash: 6a43d31ed40cbcbeb939270f44f9e304a5a0e79c
+ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653241"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363795"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>使用 PowerShell 创建弹性作业代理
 
@@ -36,26 +40,29 @@ ms.locfileid: "52653241"
 
 如果还没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
-安装 **AzureRM.Sql** 4.8.1-preview 模块以获得最新弹性作业 cmdlet。 以管理员访问权限在 PowerShell 中运行以下命令。
+- 安装 **AzureRM.Sql** 4.8.1-preview 模块以获得最新弹性作业 cmdlet。 以管理访问权限在 PowerShell 中运行以下命令。
 
-```powershell
-# Installs the latest PackageManagement powershell package which PowershellGet v1.6.5 is dependent on
-Find-Package PackageManagement -RequiredVersion 1.1.7.2 | Install-Package -Force
+  ```powershell
+  # Installs the latest PackageManagement powershell package which PowershellGet v1.6.5 is dependent on
+  Find-Package PackageManagement -RequiredVersion 1.1.7.2 | Install-Package -Force
+  
+  # Installs the latest PowershellGet module which adds the -AllowPrerelease flag to Install-Module
+  Find-Package PowerShellGet -RequiredVersion 1.6.5 | Install-Package -Force
+  
+  # Restart your powershell session with administrative access
+  
+  # Places AzureRM.Sql preview cmdlets side by side with existing AzureRM.Sql version
+  Install-Module -Name AzureRM.Sql -AllowPrerelease -RequiredVersion 4.8.1-preview -Force
+  
+  # Import the AzureRM.Sql 4.8.1 module
+  Import-Module AzureRM.Sql -RequiredVersion 4.8.1
+  
+  # Confirm if module successfully imported - if the imported version is 4.8.1, then continue
+  Get-Module AzureRM.Sql
+  ```
 
-# Installs the latest PowershellGet module which adds the -AllowPrerelease flag to Install-Module
-Find-Package PowerShellGet -RequiredVersion 1.6.5 | Install-Package -Force
+- 除了 **AzureRM.Sql** 4.8.1-preview 模块之外，本教程还需要 *sqlserver* PowerShell 模块。 有关详细信息，请参阅[安装 SQL Server PowerShell 模块](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module)。
 
-# Restart your powershell session with administrative access
-
-# Places AzureRM.Sql preview cmdlets side by side with existing AzureRM.Sql version
-Install-Module -Name AzureRM.Sql -AllowPrerelease -RequiredVersion 4.8.1-preview -Force
-
-# Import the AzureRM.Sql 4.8.1 module
-Import-Module AzureRM.Sql -RequiredVersion 4.8.1
-
-# Confirm if module successfully imported - if the imported version is 4.8.1, then continue
-Get-Module AzureRM.Sql
-```
 
 ## <a name="create-required-resources"></a>创建所需资源
 
@@ -206,7 +213,7 @@ $JobCred = $JobAgent | New-AzureRmSqlElasticJobCredential -Name "jobuser" -Crede
 
 [目标组](elastic-jobs-overview.md#target-group)定义可以在其上执行作业步骤的数据库集（包含一个或多个数据库）。 
 
-以下代码片段创建两个目标组：*ServerGroup* 和 *ServerGroupExcludingDb2*。 *ServerGroup* 的目标是执行时在服务器上存在的所有数据库，*ServerGroupExcludingDb2* 的目标是服务器上的所有数据库，*TargetDb2* 除外：
+以下代码片段将创建两个目标组：*ServerGroup* 和 *ServerGroupExcludingDb2*。 *ServerGroup* 的目标是执行时在服务器上存在的所有数据库，*ServerGroupExcludingDb2* 的目标是服务器上的所有数据库，*TargetDb2* 除外：
 
 ```powershell
 Write-Output "Creating test target groups..."

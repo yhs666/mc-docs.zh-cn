@@ -5,17 +5,16 @@ services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-origin.date: 08/09/2018
-ms.date: 12/10/2018
+origin.date: 11/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 89d5f72a317041ffc2898ddbea6c8af3b626212c
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 6e8e03c816efb98c7b7e984886250a552362bca3
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028486"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363444"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 到 Azure VM 复制问题故障排除
 
@@ -31,7 +30,7 @@ ms.locfileid: "53028486"
 ### <a name="fix-the-problem"></a>解决问题
 可联系 [Azure 计费支持](https://support.windowsazure.cn/support/support-azure)启用订阅，以便在目标位置中创建所需大小的 VM。
 
-<!-- SHOUD BE https://support.windowsazure.cn/support/support-azure FOR /azure-supportability/resource-manager-core-quotas-request --> 如果目标位置存在容量约束，可禁用复制然后在订阅拥有充足配额的其他位置启用复制，以便创建所需大小的 VM.
+如果目标位置存在容量约束，可禁用复制然后在订阅拥有充足配额的其他位置启用复制，以便创建所需大小的 VM.
 
 ## <a name="trusted-root-certificates-error-code-151066"></a>受信任的根证书（错误代码 151066）
 
@@ -149,39 +148,46 @@ ms.locfileid: "53028486"
 
 要使 Site Recovery 复制正常运行，必须具有从 VM 到特定 URL 或 IP 范围的出站连接。 如果 VM 位于防火墙后或使用网络安全组 (NSG) 规则来控制出站连接，则可能会遇到以下问题之一。
 
-### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151037-br"></a>问题 1：未能向 Site Recovery 注册 Azure 虚拟机 (151037) </br>
+### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>问题 1：未能向 Site Recovery 注册 Azure 虚拟机 (151195) </br>
 - 可能的原因 </br>
-  - 使用 NSG 来控制 VM 的出站访问，且未将所需的 IP 范围加入出站访问允许列表。
-  - 使用第三方防火墙工具，且未将所需的 IP 范围/URL 加入允许列表。
+  - 由于 DNS 解析失败而无法建立到 Site Recovery 终结点的连接。
+  - 在重新保护期间，对虚拟机进行故障转移但无法从 DR 区域访问 DNS 服务器时经常会出现此问题。
 
 - **解决方法**
-   - 如果使用防火墙代理来控制 VM 的出站网络连接，请确保已将必备 URL 或数据中心 IP 范围加入允许列表。 有关信息，请参阅[防火墙代理指南](https://aka.ms/a2a-firewall-proxy-guidance)。
-   - 如果使用 NSG 规则来控制 VM 的出站网络连接，请确保已将必备数据中心 IP 范围加入允许列表。 有关信息，请参阅[网络安全组指南](azure-to-azure-about-networking.md)。
-   - 要将[所需 URL](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) 或[所需 IP 范围](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)列入允许列表，请按照[网络指南文档](azure-to-azure-about-networking.md)中的步骤进行操作。
+   - 如果你使用的是自定义 DNS，请确保可以从灾难恢复区域访问 DNS 服务器。 若要检查你是否具有自定义 DNS，请转到“VM”>“灾难恢复网络”>“DNS 服务器”。 尝试从虚拟机访问 DNS 服务器。 如果它无法访问，请通过对 DNS 服务器进行故障转移或创建 DR 网络与 DNS 之间站点的行来使其可访问。
 
-### <a name="issue-2-site-recovery-configuration-failed-151072"></a>问题 2：Site Recovery 配置失败 (151072)
+    ![com-error](./media/azure-to-azure-troubleshoot-errors/custom_dns.png)
+
+### <a name="issue-2-site-recovery-configuration-failed-151196"></a>问题 2：Site Recovery 配置失败 (151196)
 - 可能的原因 </br>
-  - 无法建立到 Site Recovery 服务终结点的连接
+  - 无法建立到 Office 365 身份验证和标识 IP4 终结点的连接。
 
 - **解决方法**
-   - 如果使用防火墙代理来控制 VM 的出站网络连接，请确保已将必备 URL 或数据中心 IP 范围加入允许列表。 有关信息，请参阅[防火墙代理指南](https://aka.ms/a2a-firewall-proxy-guidance)。
-   - 如果使用 NSG 规则来控制 VM 的出站网络连接，请确保已将必备数据中心 IP 范围加入允许列表。 有关信息，请参阅[网络安全组指南](https://aka.ms/a2a-nsg-guidance)。
-   - 要将[所需 URL](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) 或[所需 IP 范围](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)列入允许列表，请按照[网络指南文档](site-recovery-azure-to-azure-networking-guidance.md)中的步骤进行操作。
+  - Azure Site Recovery 需要具有对 Office 365 IP 范围的访问权限来进行身份验证。
+    如果你使用 Azure 网络安全组 (NSG) 规则/防火墙代理控制 VM 上的出站网络连接，请确保允许到 O365 IP 范围的通信。 创建一个基于 [Azure Active Directory (AAD) 服务标记](../virtual-network/security-overview.md#service-tags)的 NSG 规则以允许访问与 AAD 对应的所有 IP 地址
+        - 如果将来要向 Azure Active Directory (AAD) 添加新地址，则需要创建新的 NSG 规则。
 
-### <a name="issue-3-a2a-replication-failed-when-the-network-traffic-goes-through-on-premise-proxy-server-151072"></a>问题 3：当网络流量通过本地代理服务器时 A2A 复制失败 (151072)
+### <a name="issue-3-site-recovery-configuration-failed-151197"></a>问题 3：Site Recovery 配置失败 (151197)
+- 可能的原因 </br>
+  - 无法建立到 Azure Site Recovery 服务终结点的连接。
+
+- **解决方法**
+  - Azure Site Recovery 需要根据区域访问 [Site Recovery IP 范围](/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)。 请确保可以从虚拟机访问所需的 IP 范围。
+
+### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premise-proxy-server-151072"></a>问题 4：当网络流量通过本地代理服务器时 A2A 复制失败 (151072)
  - 可能的原因 </br>
    - 自定义代理设置无效，并且 ASR 移动服务代理未在 IE 中自动检测到代理设置
 
  - **解决方法**
-  1.    移动服务代理通过 Windows 上的 IE 和 Linux 上的 /etc/environment 检测代理设置。
-  2.  如果只想对 ASR 移动服务设置代理，可在位于以下路径的 ProxyInfo.conf 中提供代理详细信息：</br>
-      - ***Linux*** 上的 ``/usr/local/InMage/config/``
-      - ***Windows*** 上的 ``C:\ProgramData\Azure Site Recovery\Config``
-  3.    ProxyInfo.conf 应包含采用以下 INI 格式的代理设置。 </br>
+   1.   移动服务代理通过 Windows 上的 IE 和 Linux 上的 /etc/environment 检测代理设置。
+   2.  如果只想对 ASR 移动服务设置代理，可在位于以下路径的 ProxyInfo.conf 中提供代理详细信息：</br>
+       - ***Linux*** 上的 ``/usr/local/InMage/config/``
+       - ***Windows*** 上的 ``C:\ProgramData\Azure Site Recovery\Config``
+   3.   ProxyInfo.conf 应包含采用以下 INI 格式的代理设置。</br>
                    *[proxy]*</br>
                    *Address=http://1.2.3.4*</br>
                    *Port=567*</br>
-  4. ASR 移动服务代理仅支持***未经身份验证的代理***。
+   4. ASR 移动服务代理仅支持***未经身份验证的代理***。
 
 ### <a name="fix-the-problem"></a>解决问题
 要将[所需 URL](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) 或[所需 IP 范围](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)列入允许列表，请按照[网络指南文档](site-recovery-azure-to-azure-networking-guidance.md)中的步骤进行操作。
@@ -265,7 +271,14 @@ Azure Site Recovery 当前强制要求源区域资源组和虚拟机应位于同
 可以打开“服务”控制台并确保“COM + 系统应用程序”和“卷影复制”的“启动类型”未设置为“已禁用”。
   ![com-error](./media/azure-to-azure-troubleshoot-errors/com-error.png)
 
+## <a name="unsupported-managed-disk-size-error-code-150172"></a>不支持的托管磁盘大小（错误代码 150172）
+
+错误代码 | 可能的原因 | **建议**
+--- | --- | ---
+150172<br></br>**消息**：无法为虚拟机启用保护，因为它具有 (DiskName)，其大小 (DiskSize) 小于最小支持的大小 10 GB。 | - 磁盘小于支持的大小 (1024 MB)| 请确保磁盘大小在支持的大小范围内，然后重试该操作。 
+
 ## <a name="next-steps"></a>后续步骤
 [复制 Azure 虚拟机](site-recovery-replicate-azure-to-azure.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->
+

@@ -1,19 +1,25 @@
 ---
-title: 对故障转移到 Azure 进行故障排除 | Azure
-description: 本文介绍如何排查使用 Azure Site Recovery 故障转移到 Azure 期间的常见问题。
+title: 对故障转移到 Azure 的故障进行排除 | Azure
+description: 本指南介绍如何解决在故障转移到 Azure 中的常见错误
+services: site-recovery
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.topic: article
-origin.date: 09/11/2018
-ms.date: 12/10/2018
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+origin.date: 12/11/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 42b2b642e07d8d984dd3ed3a7c7a22a6b148d9d3
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 307939fae496c6ca67bca86ca383bb03e6067be8
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028515"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363423"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>解决从虚拟机到 Azure 的故障转移时出现的错误
 
@@ -39,7 +45,37 @@ Site Recovery 无法在 Azure 中创建故障转移的经典虚拟机。 这可�
 
 * 创建虚拟机所需的其中一个资源（如虚拟网络）不存在。 在虚拟机的“计算和网络”设置下创建虚拟网络，或者将设置修改为已经存在的虚拟网络，然后重试故障转移。
 
-## <a name="unable-to-connectrdpssh---vm-connect-button-grayed-out"></a>无法连接/RDP/SSH - VM“连接”按钮灰显
+## <a name="failover-failed-with-error-id-170010"></a>故障转移失败，错误 ID 为 170010
+
+Site Recovery 无法在 Azure 中创建故障转移的虚拟机。 发生此情况可能是因为本地虚拟机上执行的混合的一个内部活动失败。
+
+若要启动 Azure 中的任何计算机，Azure 环境需要某些驱动程序处于引导启动状态，并要求 DHCP 之类的服务处于自动启动状态。 因此，在进行故障转移时，混合活动会将 **atapi、intelide、storflt、vmbus 和 storvsc 驱动程序**的启动类型转换为引导启动。 它还会将 DHCP 之类的一些服务的启动类型转换为自动启动。 此活动可能会由于环境特定问题而失败。 若要手动更改驱动程序的启动类型，请执行以下步骤：
+
+1. [下载](http://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1)“非混合”脚本并如下所述运行脚本。 此脚本检查 VM 是否需要混合。
+
+    `.\Script-no-hydration.ps1`
+
+    如果需要混合，则它提供以下结果：
+
+        REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
+
+        This system doesn't meet no-hydration requirement.
+
+    如果 VM 满足“非混合”要求，则脚本将提供结果“此系统满足‘非混合’要求”。 在此情况下，所有驱动程序和服务都处于 Azure 所需的状态并且不需要在 VM 上进行混合。
+
+2. 如果 VM 不满足“非混合”要求，请如下所述运行“非混合”脚本。
+
+    `.\Script-no-hydration.ps1 -set`
+
+    这将转换驱动程序的启动类型并提供如下所示的结果：
+
+        REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0 
+
+        Updating registry:  REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc   start =  0 
+
+        This system is now no-hydration compatible. 
+
+## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>由于虚拟机上的“连接”按钮已灰显，无法连接/通过 RDP/SSH 连接到已故障转移的虚拟机
 
 在 Azure 中，如果故障转移后的 VM 上的“连接”按钮灰显，并且你未通过快速路由或站点到站点 VPN 连接来连接到 Azure，则执行以下操作：
 
@@ -47,8 +83,7 @@ Site Recovery 无法在 Azure 中创建故障转移的经典虚拟机。 这可�
 2. 导航到“IP 配置”，然后单击所需 IP 配置的名称字段。 ![IPConfigurations](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
 3. 若要启用公共 IP 地址，请单击“启用”。 ![启用 IP](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
 4. 单击“配置所需设置” > “新建”。 ![新建](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
-5. 输入公共地址的名称，选择“分配”的默认选项，然后单击“确定”。
-    <!-- Not Available on **SKU**-->
+5. 输入公共地址的名称，选择“SKU”和“分配”的默认选项，然后单击“确定”。
 6. 现在，单击“保存”以保存所做的更改。
 7. 关闭面板并导航到虚拟机的“概述”部分以进行连接/通过 RDP 连接。
 
@@ -80,14 +115,10 @@ Site Recovery 无法在 Azure 中创建故障转移的经典虚拟机。 这可�
 
 通常情况下不需要担心此消息，对于计划外故障转移，通常可以忽略此消息。 对于计划内故障转移，请确保 VM 在故障转移前正确关闭，并留出足够的时间供用来将挂起的本地复制数据发送到 Azure。 然后，使用**故障转移**屏幕上的[最新](site-recovery-failover.md#run-a-failover)选项，以便将 Azure 上挂起的任何数据都处理到恢复点中，然后将该恢复点用于 VM 故障转移。
 
-## <a name="retaining-drive-letter-after-failover"></a>在故障转移后保留驱动器号
-若要在故障转移后保留虚拟机上的驱动器号，可将本地虚拟机的**SAN 策略**设置为**OnlineAll**。 [了解详细信息](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure)。
-
 ## <a name="next-steps"></a>后续步骤
 - 对[到 Windows VM 的 RDP 连接](../virtual-machines/windows/troubleshoot-rdp-connection.md)进行故障排除
 - 对[到 Linux VM 的 SSH 连接](../virtual-machines/linux/detailed-troubleshoot-ssh-connection.md)进行故障排除
 
 如需更多帮助，请在 [Site Recovery 论坛](https://www.azure.cn/support/contact/)提出疑问。 我们的活动社区应能够为你提供帮助。
 
-<!--Notice: Remove   or leave a comment at the end of this document-->
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update -->

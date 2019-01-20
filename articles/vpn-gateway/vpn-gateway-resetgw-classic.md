@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 05/24/2017
 ms.date: 08/13/2018
 ms.author: v-junlch
-ms.openlocfilehash: b26d0998bd2edf0bb46b86d063816a279a708f81
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 7bdaee2b73e1bb0de271b44eef10609351c65ef7
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654619"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397009"
 ---
 # <a name="reset-a-vpn-gateway"></a>重置 VPN 网关
 

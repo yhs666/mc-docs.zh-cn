@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/30/2017
-ms.date: 05/28/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: e0ef48555e3eaba2701f39739e8811ad07e42ccb
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: cf65dde6d31b455a3a94243c790e14509351ad58
+ms.sourcegitcommit: 35a09a86cbb3d896fa9784471ece41df7728bd71
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650881"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396652"
 ---
 # <a name="reliable-services-lifecycle"></a>Reliable Services 生命周期
 > [!div class="op_single_selector"]
@@ -124,7 +124,7 @@ Service Fabric 更改有状态服务的主副本的原因有多种。 最常见�
 
 由于服务有状态，所以它们也可能使用 [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)。 在 Service Fabric 中，主副本降级后，首先会撤销基础状态的写入访问权限。 这会导致可能影响服务生命周期的另外一系列问题。 集合将根据计时和是否已移动或关闭副本返回异常。 请务必正确处理这些异常。 
 
-由 Service Fabric 引发的异常可能是永久的 [(`FabricException`)](https://docs.azure.cn/java/api/system.fabric.exception) 或临时的 [(`FabricTransientException`)](https://docs.azure.cn/java/api/system.fabric.exception._fabric_transient_exception)。 应记录并引发永久异常。 可以基于重试逻辑重试临时异常。
+由 Service Fabric 引发的异常可能是永久的 [(`FabricException`)](https://docs.azure.cn/java/api/system.fabric.exception) 或临时的 [(`FabricTransientException`)](https://docs.azure.cn/java/api/system.fabric.exception.fabrictransientexception)。 应记录并引发永久异常。 可以基于重试逻辑重试临时异常。
 
 测试和验证 Reliable Services 时，处理因结合使用 `ReliableCollections` 和服务生命周期事件而产生的异常是一个重要环节。 建议始终在负载范围内运行服务。 还应执行升级和[混沌测试](service-fabric-controlled-chaos.md)，然后再部署到生产环境。 以下基本步骤有助于确保已正确实现服务和处理生命周期事件。
 
@@ -138,5 +138,7 @@ Service Fabric 更改有状态服务的主副本的原因有多种。 最常见�
 
 ## <a name="next-steps"></a>后续步骤
 * [Reliable Services 简介](service-fabric-reliable-services-introduction.md)
-* [Reliable Services 快速入门](service-fabric-reliable-services-quick-start-java.md)
-<!--Update_Description: wording update, wording update -->
+* [Reliable Services 快速启动](service-fabric-reliable-services-quick-start-java.md)
+
+<!--Update_Description: wording update, update link -->
+

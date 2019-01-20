@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 07/06/2018
-ms.date: 12/10/2018
+origin.date: 11/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: e67869f0926fa15dc9d0719f150f3562995a6634
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 8f3691f69718c06c2012ee9ce3dbc8fcb2d76dd8
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028837"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363428"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>使用 PowerShell（资源管理器）设置 Hyper-V VM 到辅助站点的灾难恢复
 
@@ -62,6 +62,7 @@ ms.locfileid: "53028837"
         Connect-AzureRmAccount -Environment AzureChinaCloud -Credential $Cred
     
     <!--Notice: Update username format for Azure.cn-->
+    
 2. 使用订阅 ID 检索订阅列表。 记下要在其中创建恢复服务保管库的订阅的 ID。 
 
         Get-AzureRmSubscription

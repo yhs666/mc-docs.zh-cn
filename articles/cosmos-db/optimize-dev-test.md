@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/20/2018
-ms.date: 12/31/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: f5573bd033aa72073ec89e73ec2c2008214fb3ad
-ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
+ms.openlocfilehash: f662b072986c1756af947c85d48502e93a96caae
+ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814795"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54333887"
 ---
 # <a name="optimizing-for-development-and-testing-in-azure-cosmos-db"></a>Azure Cosmos DB 中的开发和测试优化
 
@@ -33,13 +33,11 @@ Azure Cosmos DB 包含在 [Azure 试用帐户](https://www.azure.cn/pricing/1rmb
 
 可以按照以下文章的说明，开始使用模拟器或免费的 Azure Cosmos DB 帐户：
 
-* 详细了解[针对开发和测试进行优化](optimize-dev-test.md)
-<!-- Not Available on * Learn more about [Understanding your Azure Cosmos DB bill](understand-your-bill.md)-->
+* 详细了解[开发和测试优化](optimize-dev-test.md)
 * 详细了解如何[优化吞吐量成本](optimize-cost-throughput.md)
 * 详细了解如何[优化存储成本](optimize-cost-storage.md)
 * 详细了解如何[优化读取和写入成本](optimize-cost-reads-writes.md)
 * 详细了解如何[优化查询成本](optimize-cost-queries.md)
 * 详细了解[优化多区域 Azure Cosmos 帐户的成本](optimize-cost-regions.md)
 
-<!-- Update_Description: new articles on optimize dev test -->
-<!--ms.date: 12/31/2018-->
+<!-- Update_Description: update meta properties -->

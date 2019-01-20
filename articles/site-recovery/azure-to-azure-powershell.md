@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 10/02/2018
-ms.date: 12/10/2018
+origin.date: 11/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: b0e0a4b15991b72ad3c1dd677b5b3c4dbf029e53
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 72ca49675060b77e46b104d940b3ba84b43d8ecf
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028607"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363325"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>使用 Azure PowerShell 为 Azure 虚拟机设置灾难恢复
 
@@ -60,12 +60,13 @@ Select-AzureRmSubscription -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
 本文中的示例会将“中国东部”区域中的某个虚拟机复制到“中国北部”区域并在其中进行恢复。 要复制的虚拟机是包含 OS 磁盘和单个数据磁盘的虚拟机。 本示例中使用的虚拟机名称为 AzureDemoVM。
 
-<!--Notice: Change to replciated to and recovered in China North region-->
+<!--Notice: Source Target in China East region-->
+
 ```azurepowershell
 # Get details of the virtual machine
 $VM = Get-AzureRmVM -ResourceGroupName "A2AdemoRG" -Name "AzureDemoVM"
 
-Write-Output $VM
+Write-Output $VM     
 ```
 
 ```
@@ -83,6 +84,8 @@ OSProfile          : {ComputerName, AdminUsername, WindowsConfiguration, Secrets
 ProvisioningState  : Succeeded
 StorageProfile     : {ImageReference, OsDisk, DataDisks}
 ```
+
+<!--Notice: Source Target in China East region-->
 
 获取虚拟机磁盘的详细信息。 稍后在开始复制虚拟机时，将使用磁盘详细信息。
 
@@ -102,11 +105,15 @@ $DataDisk1VhdURI = $VM.StorageProfile.DataDisks[0].Vhd
 
 在本文的示例中，要保护的虚拟机位于“中国东部”区域。 为灾难恢复选择的恢复区域为“中国北部”区域。 恢复服务保管库及其资源组都位于恢复区域（中国北部）
 
-<!--Notice: Change to replciated to and recovered in China North region-->
+<!--Notice: Recovered in China North region-->
+
 ```azurepowershell
 #Create a resource group for the recovery services vault in the recovery Azure region
 New-AzureRmResourceGroup -Name "a2ademorecoveryrg" -Location "China North"
 ```
+
+<!--Notice: Recovered in China North region-->
+
 ```
 ResourceGroupName : a2ademorecoveryrg
 Location          : chinanorth
@@ -163,6 +170,8 @@ Remove-Item -Path $Vaultsettingsfile.FilePath
 
 ### <a name="create-a-site-recovery-fabric-object-to-represent-the-primary-source-region"></a>创建用于表示主要（源）区域的 Site Recovery 结构对象
 
+<!--Source object is China East region-->
+
 保管库中的结构对象表示 Azure 区域。 创建主要结构对象，以表示要在保管库中保护的虚拟机所属的 Azure 区域。 在本文的示例中，要保护的虚拟机位于“中国东部”区域。
 
 - 每个区域只能创建一个结构对象。 
@@ -188,9 +197,13 @@ $PrimaryFabric = Get-AsrFabric -Name "A2Ademo-ChinaEast"
 ```
 如果在同一个保管库中保护来自多个 Azure 区域的虚拟机，请为每个源 Azure 区域创建一个结构对象。
 
+<!--Source object is China East region-->
+
 ### <a name="create-a-site-recovery-fabric-object-to-represent-the-recovery-region"></a>创建用于表示恢复区域的 Site Recovery 结构对象
 
 恢复结构对象表示 Azure 恢复位置。 虚拟机将复制和恢复到（发生故障转移时）该恢复结构表示的恢复区域。 本示例使用的 Azure 恢复区域是“中国北部”。
+
+<!--Target object is China North region-->
 
 ```azurepowershell
 #Create Recovery ASR fabric
@@ -209,9 +222,13 @@ $RecoveryFabric = Get-AsrFabric -Name "A2Ademo-ChinaNorth"
 
 ```
 
+<!--Target object is China North region-->
+
 ### <a name="create-a-site-recovery-protection-container-in-the-primary-fabric"></a>在主要结构中创建 Site Recovery 保护容器
 
 保护容器是用于在一个结构中分组复制项的容器。
+
+<!--Source object is China East region-->
 
 ```azurepowershell
 #Create a Protection container in the primary Azure region (within the Primary fabric)
@@ -227,7 +244,12 @@ Write-Output $TempASRJob.State
 
 $PrimaryProtContainer = Get-ASRProtectionContainer -Fabric $PrimaryFabric -Name "A2AChinaEastProtectionContainer"
 ```
+
+<!--Source object is China East region-->
+
 ### <a name="create-a-site-recovery-protection-container-in-the-recovery-fabric"></a>在恢复结构中创建 Site Recovery 保护容器
+
+<!--Target object is China North region-->
 
 ```azurepowershell
 #Create a Protection container in the recovery Azure region (within the Recovery fabric)
@@ -245,6 +267,8 @@ Write-Output $TempASRJob.State
 
 $RecoveryProtContainer = Get-ASRProtectionContainer -Fabric $RecoveryFabric -Name "A2AChinaNorthProtectionContainer"
 ```
+
+<!--Target object is China North region-->
 
 ### <a name="create-a-replication-policy"></a>创建复制策略
 
@@ -305,10 +329,14 @@ Write-Output $TempASRJob.State
 
 缓存存储帐户是复制的虚拟机所在的同一 Azure 区域中的标准存储帐户。 缓存存储帐户用于在将更改转移到 Azure 恢复区域之前，暂时保存复制更改。 可为虚拟机的不同磁盘选择（但不需要）指定不同的缓存存储帐户。
 
+<!--Source object is China East region-->
+
 ```azurepowershell
 #Create Cache storage account for replication logs in the primary region
 $ChinaEastCacheStorageAccount = New-AzureRmStorageAccount -Name "a2acachestorage" -ResourceGroupName "A2AdemoRG" -Location 'China East' -SkuName Standard_LRS -Kind Storage
 ```
+
+<!--Source object is China East region-->
 
 对于**不使用托管磁盘**的虚拟机，目标存储帐户是虚拟机磁盘复制到的恢复区域中的存储帐户。 目标存储帐户可以是标准存储帐户，也可以是高级存储帐户。 根据磁盘的数据更改率（IO 写入率）以及 Azure Site Recovery 对存储类型支持的变动限制，来选择所需的存储帐户类型。
 
@@ -591,3 +619,4 @@ Errors           : {}
 查看 [Azure Site Recovery PowerShell 参考](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery)来了解如何通过 PowerShell 执行其他任务，例如创建恢复计划，以及对恢复计划执行测试故障转移。
 
 <!-- Update_Description: update meta properties, wording update -->
+

@@ -19,7 +19,7 @@ items:
       href: sql-database-get-started-portal-firewall.md
   - name: 加载数据
     items:
-    - name: 将 BACPAC 导入到单个数据库
+    - name: 将 BACPAC 导入到新的数据库
       href: sql-database-import.md
   - name: 查询
     href: sql-database-connect-query.md
@@ -451,6 +451,8 @@ items:
     href: https://docs.microsoft.com/sql/t-sql/language-reference
   - name: REST
     href: https://docs.microsoft.com/rest/api/sql/
+  - name: 用于 SQL 的资源管理器模板
+    href: https://docs.microsoft.com/azure/templates/microsoft.sql/allversions
   - name: SQL Server 工具
     href: https://docs.microsoft.com/sql/tools/overview-sql-tools
   - name: SQL Server Management Studio (SSMS)
@@ -482,9 +484,9 @@ items:
     href: sql-database-public-data-sets.md
   - name: 定价
     href: https://www.azure.cn/pricing/details/sql-database/
-ms.openlocfilehash: 4e5945a0e8d2e99df7c8a1cb85249877b1d07a7b
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: e0211ff304c004f5e6d076066555462363b45541
+ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996234"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363776"

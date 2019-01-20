@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 origin.date: 05/23/2018
-ms.date: 12/21/2018
+ms.date: 01/16/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: dcb2f3928315112bfd7cff0b75ddf4f458e26eb9
-ms.sourcegitcommit: d2893ae6bdbb3784d243d5d3c49c25c9cfd99d9b
+ms.openlocfilehash: 4711147c331d857535570324198e8737eedd1852
+ms.sourcegitcommit: e79651227d4378e6d24f9ab155b9f4fee044b2c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2018
-ms.locfileid: "53784897"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334272"
 ---
 # <a name="quickstart-how-to-use-azure-cache-for-redis-with-java"></a>快速入门：如何将 Azure Redis 缓存与 Java 配合使用
 
@@ -39,7 +39,7 @@ Azure Redis 缓存提供对 Microsoft 所管理的专用的 Azure Redis 缓存�
 
 ## <a name="prerequisites"></a>先决条件
 
-[Apache Maven](http://maven.apache.org/)
+[Apache Maven](https://maven.apache.org/)
 
 
 
@@ -179,6 +179,6 @@ mvn exec:java -D exec.mainClass=example.demo.App
 > [!div class="nextstepaction"]
 > [创建使用 Azure Redis 缓存的 ASP.NET Web 应用。](./cache-web-app-howto.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->
 
 

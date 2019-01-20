@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 12/08/2018
-ms.date: 12/31/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 8c098d4110794874c04f891e1b6ef65a2938a713
-ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
+ms.openlocfilehash: edd8e35dcf4c04cfc51d8a57938ca90b6860d84d
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814806"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309320"
 ---
 # <a name="working-with-javascript-language-integrated-query-api-with-azure-cosmos-db"></a>将 JavaScript 语言集成式查询 API 用于 Azure Cosmos DB
 
@@ -65,11 +65,10 @@ ms.locfileid: "53814806"
 
 详细了解概念以及如何在 Azure Cosmos DB 中编写并使用存储过程、触发器和用户定义的函数：
 
-- [如何使用 Javascript 查询 API 编写存储过程和触发器](how-to-write-javascript-query-api.md#)
+- [如何使用 Javascript 查询 API 编写存储过程和触发器](how-to-write-javascript-query-api.md)
 - [使用 Azure Cosmos DB 存储过程、触发器和用户定义的函数](stored-procedures-triggers-udfs.md)
 - [如何在 Azure Cosmos DB 中使用存储过程、触发器和用户定义的函数](how-to-use-stored-procedures-triggers-udfs.md)
 - [Azure Cosmos DB JavaScript 服务器端 API 参考](https://azure.github.io/azure-cosmosdb-js-server)
 - [JavaScript ES6 (ECMA 2015)](https://www.ecma-international.org/ecma-262/6.0/)
 
-<!-- Update_Description: new articles on javascript query api -->
-<!--ms.date: 12/31/2018-->
+<!-- Update_Description: update meta properties -->

@@ -10,14 +10,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 09/24/2018
-ms.date: 12/27/2018
+ms.date: 01/15/2019
 ms.author: v-junlch
-ms.openlocfilehash: 8011cb4f8fcb698a06aeaab0049800ac608a5db9
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 7575b5ce8ee324868b0adc51e1949e104f15bad9
+ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806587"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334223"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 触发器和绑定概念
 
@@ -120,29 +120,29 @@ function generateRandomId() {
 在类库中，由特性而不是 function.json 文件提供这些触发器和绑定信息 &mdash; 队列和表名称、存储帐户、输入和输出 &mdash; 的函数参数。 下面是一个示例：
 
 ```csharp
- public static class QueueTriggerTableOutput
- {
-     [FunctionName("QueueTriggerTableOutput")]
-     [return: Table("outTable", Connection = "MY_TABLE_STORAGE_ACCT_APP_SETTING")]
-     public static Person Run(
-         [QueueTrigger("myqueue-items", Connection = "MY_STORAGE_ACCT_APP_SETTING")]JObject order, 
-         ILogger log)
-     {
-         return new Person() {
-                 PartitionKey = "Orders",
-                 RowKey = Guid.NewGuid().ToString(),
-                 Name = order["Name"].ToString(),
-                 MobileNumber = order["MobileNumber"].ToString() };
-     }
- }
+public static class QueueTriggerTableOutput
+{
+    [FunctionName("QueueTriggerTableOutput")]
+    [return: Table("outTable", Connection = "MY_TABLE_STORAGE_ACCT_APP_SETTING")]
+    public static Person Run(
+        [QueueTrigger("myqueue-items", Connection = "MY_STORAGE_ACCT_APP_SETTING")]JObject order,
+        ILogger log)
+    {
+        return new Person() {
+                PartitionKey = "Orders",
+                RowKey = Guid.NewGuid().ToString(),
+                Name = order["Name"].ToString(),
+                MobileNumber = order["MobileNumber"].ToString() };
+    }
+}
 
- public class Person
- {
-     public string PartitionKey { get; set; }
-     public string RowKey { get; set; }
-     public string Name { get; set; }
-     public string MobileNumber { get; set; }
- }
+public class Person
+{
+    public string PartitionKey { get; set; }
+    public string RowKey { get; set; }
+    public string Name { get; set; }
+    public string MobileNumber { get; set; }
+}
 ```
 
 ## <a name="supported-bindings"></a>支持的绑定
@@ -614,9 +614,10 @@ module.exports = function (context, info) {
 如果 JSON 有效负载中的某些属性是包含属性的对象，可以使用点表示法直接引用这些对象。 例如，假设 JSON 如下所示：
 
 ```json
-{"BlobName": {
-  "FileName":"HelloWorld",
-  "Extension":"txt"
+{
+  "BlobName": {
+    "FileName":"HelloWorld",
+    "Extension":"txt"
   }
 }
 ```
@@ -674,6 +675,10 @@ public class BlobName
 ## <a name="functionjson-file-schema"></a>function.json 文件架构
 
 *function.json* 文件架构位于 [http://json.schemastore.org/function](http://json.schemastore.org/function)。
+
+## <a name="testing-bindings"></a>测试绑定
+
+在本地开发函数时，可使用 Visual Studio 2017 或 Visual Studio Code 测试绑定。 若要了解详细信息，请参阅[在 Azure Functions 中测试代码的策略](functions-test-a-function.md)。 此外，还可以使用 REST API 调用非 HTTP 绑定。 若要了解详细信息，请参阅[手动运行非 HTTP 触发的函数](functions-manually-run-non-http.md)。
 
 ## <a name="handling-binding-errors"></a>处理绑定错误
 

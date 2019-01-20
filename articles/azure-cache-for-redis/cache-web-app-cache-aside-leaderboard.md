@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 origin.date: 03/30/2018
-ms.date: 12/21/2018
+ms.date: 01/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: 06ec3da91eb03f831cf4e303cb62f27a5029f3bc
-ms.sourcegitcommit: d2893ae6bdbb3784d243d5d3c49c25c9cfd99d9b
+ms.openlocfilehash: b41d6c1b874b8dada4bfc21a12cf440850fb494d
+ms.sourcegitcommit: e79651227d4378e6d24f9ab155b9f4fee044b2c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2018
-ms.locfileid: "53784978"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334287"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>教程：在 ASP.NET 中创建缓存端排行榜
 
@@ -521,7 +521,7 @@ ms.locfileid: "53784978"
     ```csharp
     // POST: Teams/Create
     // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-    // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+    // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
     public ActionResult Create([Bind(Include = "ID,Name,Wins,Losses,Ties")] Team team)
@@ -545,7 +545,7 @@ ms.locfileid: "53784978"
     ```csharp
     // POST: Teams/Edit/5
     // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-    // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+    // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
     public ActionResult Edit([Bind(Include = "ID,Name,Wins,Losses,Ties")] Team team)
@@ -747,4 +747,5 @@ ms.locfileid: "53784978"
 > [!div class="nextstepaction"]
 > [如何缩放用于 Redis 的 Azure 缓存](./cache-how-to-scale.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->
+

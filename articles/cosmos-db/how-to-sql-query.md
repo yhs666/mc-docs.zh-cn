@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 11/15/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1a3d316c0badf22370fbb56c4105f84019f77c02
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: cefd98c344a1f4929b974de32590dcd72ec469e6
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026766"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309272"
 ---
 # <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>从 Azure Cosmos DB 中查询数据的 SQL 查询示例
 
@@ -2291,5 +2291,4 @@ Cosmos DB 提供了一种编程模型，使用存储过程和触发器对容器�
 [introduction]: introduction.md
 [consistency-levels]: consistency-levels.md
 
-<!-- Update_Description: new articles on how to sql query  -->
-<!--ms.date: 12/03/2018-->
+<!-- Update_Description: update meta properties  -->

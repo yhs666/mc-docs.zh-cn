@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/06/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0d3b9c4900dcae9d846b6151f5e91ff9a182e35d
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: 5aafab01996266e80199118373ba6411f25af32c
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026777"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309323"
 ---
 # <a name="access-azure-cosmos-db-resources-from-virtual-networks"></a>从虚拟网络访问 Azure Cosmos DB 资源
 
@@ -303,5 +303,4 @@ ms.locfileid: "54026777"
 
 * 若要为 Azure Cosmos DB 配置防火墙，请参阅[防火墙支持](firewall-support.md)一文。
 
-<!-- Update_Description: new articles on cosmos db how to configure vnet service endpoint -->
-<!--ms.date: 12/03/2018-->
+<!-- Update_Description: update meta properties, wording update -->

@@ -1,21 +1,19 @@
 ---
 title: Azure Cosmos DB SQL API 的 SQL 查询指标
 description: 了解如何检测和调试 Azure Cosmos DB 请求的 SQL 查询性能。
-keywords: sql 语法, sql 查询, sql 查询, json 查询语言, 数据库概念和 sql 查询, 聚合函数
-services: cosmos-db
 author: rockboyfor
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 11/02/2017
-ms.date: 12/31/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1371bd131b88e1879fe8f671444838b5780b0eba
-ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
+ms.openlocfilehash: 386c66f24856b218afc46917bc727d9b211a3f9f
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814811"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309163"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>优化 Azure Cosmos DB 的查询性能
 
@@ -274,3 +272,5 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 * 若要了解受支持的 SQL 查询运算符和关键字，请参阅 [SQL 查询](how-to-sql-query.md)。 
 * 若要了解请求单位，请参阅[请求单位](request-units.md)。
 * 若要了解索引编制策略，请参阅[索引编制策略](index-policy.md)
+
+<!--Update_Description: update meta properties, wording update -->

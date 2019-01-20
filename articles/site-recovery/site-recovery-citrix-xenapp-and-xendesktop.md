@@ -5,15 +5,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 07/06/2018
-ms.date: 12/10/2018
+origin.date: 11/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: a3fdcbddb5ed609c438687ef94298a9a76c184c3
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: f5b7867f57d096cdc7d975aaadfabb18ad4066ce
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029047"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363389"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>为多层 Citrix XenApp 和 XenDesktop 部署设置灾难恢复
 
@@ -149,7 +149,8 @@ Citrix XenApp 和 XenDesktop 场通常具有以下部署模式：
    >[!NOTE]     
    >包含手动操作或脚本操作的步骤 4、6 和 7 仅适用于具有 MCS/PVS 目录的本地 XenApp 环境。
 
-4. 组 3 手动操作或脚本操作：关闭 Master VDA VM。Master VDA VM 在故障转移到 Azure 时将处于运行状态。 若要使用 Azure 宿主创建新的 MCS 目录，Master VDA VM 需处于“已停止”（已解除分配）状态。 从 Azure 门户关闭 VM。
+4. 组 3 手动或脚本操作：关闭主 VDA VM。
+主 VDA VM 在故障转移到 Azure 时将处于运行状态。 若要使用 Azure 宿主创建新的 MCS 目录，Master VDA VM 需处于“已停止”（已解除分配）状态。 从 Azure 门户关闭 VM。
 
 5. 故障转移组4：传递控制器和 StoreFront 服务器 VM
 6. 组3 手动操作或脚本操作 1：
@@ -183,4 +184,4 @@ Citrix XenApp 和 XenDesktop 场通常具有以下部署模式：
 
 可以从本白皮书中[详细了解](https://aka.ms/citrix-xenapp-xendesktop-with-asr)如何复制 Citrix XenApp 和 XenDesktop 部署。 请查看相关指南，使用 Site Recovery [复制其他应用程序](site-recovery-workload.md)。
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

@@ -7,14 +7,13 @@ ms.author: v-lingwu
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 10/05/2018
-ms.date: 11/06/18
-ms.openlocfilehash: bb549fedb429ec163a2ec847c3a493f5b64fe3cc
-ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
+ms.date: 01/21/19
+ms.openlocfilehash: 9a84198790e0c45355d98053917d9a007d996707
+ms.sourcegitcommit: c01292a935bd307a3326e86cb454d8fa2b561399
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53219552"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363636"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure 流分析预览功能
 
@@ -24,17 +23,9 @@ ms.locfileid: "53219552"
 
 以下功能以公共预览版提供。 现在可以使用这些功能，但请勿在生产环境中使用它们。
 
-### <a name="azure-stream-analytics-on-iot-edge"></a>Azure IoT Edge 流分析
-
-通过 Azure IoT Edge 流分析，开发人员可在 IoT Edge 设备上部署准实时分析。 有关详细信息，请参阅 [Azure IoT Edge 流分析](stream-analytics-edge.md)文档。
-
 ### <a name="integration-with-azure-machine-learning"></a>与 Azure 机器学习集成
 
 可使用机器学习 (ML) 函数缩放流分析作业。 若要详细了解如何在流分析作业中使用 ML 函数，请访问[使用 Azure 机器学习函数缩放流分析作业](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-scale-with-machine-learning-functions)。 
-
-### <a name="session-windows"></a>会话窗口
-
-流分析提供对开窗函数的本机支持，使开发人员能够最小的工作量创建复杂的流进程作业。 [会话窗口](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics)对差不多同时到达的事件进行分组，筛选出没有数据的时间段。 若要详细了解开窗函数，请访问[流分析开窗函数简介](stream-analytics-window-functions.md)。
 
 ### <a name="blob-output-partitioning-by-custom-time"></a>按自定义时间划分的 Blob 输出分区
 

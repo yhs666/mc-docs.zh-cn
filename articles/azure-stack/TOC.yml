@@ -235,8 +235,6 @@ items:
       href: azure-stack-linux.md
     - name: 添加 Red Hat 虚拟机
       href: azure-stack-redhat-create-upload-vhd.md
-    - name: 提供 Kubernetes 群集
-      href: azure-stack-solution-template-kubernetes-cluster-add.md
   - name: 提供服务
     href: azure-stack-offer-services-overview.md
   - name: 提供 SQL 作为 PaaS
@@ -393,9 +391,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: 培训和认证
     href: /azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 6fc5f948ee9acf0c7461f795f885737ba9615d73
-ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
+ms.openlocfilehash: 8f0fc7591c2e60b3a94fbaf9f3ead57f3bfd6e61
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54059020"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397037"

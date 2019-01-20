@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB 中的分区
 description: Azure Cosmos DB 中的分区概述
+ms.author: v-yeche
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 10/30/2018
-ms.date: 01/07/2019
-ms.author: v-yeche
-ms.openlocfilehash: 4333b9a8d798c6d16cbb320f1d6ed962af9c2c1a
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.date: 01/21/2019
+ms.openlocfilehash: 00aa500dc3e55e299e91d52ff92e183daf45d56e
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026833"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309317"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Azure Cosmos DB 中的分区
 

@@ -9,18 +9,18 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 09/22/2018
-ms.date: 12/26/2018
+ms.date: 01/15/2019
 ms.author: v-junlch
-ms.openlocfilehash: e60e7e11d0b5d130057ce099b6307cb0d40872cd
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 6580d8f45c6e6ebeaeead8389e317e13391f4493
+ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806563"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334209"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions 的应用设置参考
 
-函数应用中的应用设置包含对该函数应用的所有函数产生影响的全局配置选项。 在本地运行时，这些设置出现在[环境变量](functions-run-local.md#local-settings-file)中。 本文列出可在函数应用中使用的应用设置。
+函数应用中的应用设置包含对该函数应用的所有函数产生影响的全局配置选项。 在本地运行时，这些设置将作为本地[环境变量](functions-run-local.md#local-settings-file)进行访问。 本文列出可在函数应用中使用的应用设置。
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
@@ -154,7 +154,7 @@ Azure Functions 运行时针对除 HTTP 触发的函数以外的其他所有函�
 
 |键|值|说明|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|是|具有指向本地函数中的函数的后端 URL 的调用将不再直接发送到该函数，而是定向回 Function App 的 HTTP 前端|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|是|具有指向本地函数应用中的函数的后端 URL 的调用将不再直接发送到该函数，而是定向回 Function App 的 HTTP 前端|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|这是默认值。 具有指向 Function App 中的函数的后端 URL 的调用将直接转发到该函数|
 
 

@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
 manager: digimobile
-origin.date: 10/25/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: 2f5861b718f4d299ff6404a05ef5194b47712400
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+origin.date: 01/03/2019
+ms.date: 01/21/2019
+ms.openlocfilehash: 723aceefb771d77cdb9d893163057457ed305975
+ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996241"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363804"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 数据库审核入门
 
@@ -190,10 +190,10 @@ ms.locfileid: "53996241"
 
 **PowerShell cmdlet（包括支持使用 WHERE 子句进行其他筛选）**：
 
-- [创建或更新数据库 Blob 审核策略 (Set-AzSqlDatabaseAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/set-azsqldatabaseauditing)
-- [创建或更新服务器 Blob 审核策略 (Set-AzSqlServerAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/set-azsqlserverauditing)
-- [获取数据库审核策略 (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/get-azsqldatabaseauditing)
-- [获取服务器 Blob 审核策略 (Get-AzSqlServerAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/get-azsqlserverauditing)
+- [创建或更新数据库 Blob 审核策略 (Set-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing)
+- [创建或更新服务器 Blob 审核策略 (Set-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverauditing)
+- [获取数据库审核策略 (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseauditing)
+- [获取服务器 Blob 审核策略 (Get-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverauditing)
 
 有关脚本示例，请参阅[使用 PowerShell 配置审核和威胁检测](scripts/sql-database-auditing-and-threat-detection-powershell.md)。
 

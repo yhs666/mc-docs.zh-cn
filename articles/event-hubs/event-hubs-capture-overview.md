@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/16/2018
-ms.date: 01/07/2019
+ms.date: 01/28/2019
 ms.author: v-biyu
-ms.openlocfilehash: 5eb8a3f16eef49c45e6e1d1cdd990e9347f75612
-ms.sourcegitcommit: a46f12240aea05f253fb4445b5e88564a2a2a120
+ms.openlocfilehash: 6ea908728867e9633722e1b26fdfd4b85614e2fa
+ms.sourcegitcommit: ced39ce80d38d36bdead66fc978d99e93653cb5f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785238"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54307613"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>通过 Azure Blob 存储或 Azure Data Lake Storage 中的 Azure 事件中心来捕获事件
 使用 Azure 事件中心，可以更灵活地按指定的时间间隔或大小间隔将事件中心中的流数据自动捕获到你选择的 [Azure Blob 存储](https://www.azure.cn/home/features/storage/)中。 设置捕获极其简单，无需管理费用即可运行它，并且可以使用事件中心[吞吐量单位](event-hubs-features.md#capacity)自动进行缩放。 事件中心捕获是在 Azure 中加载流式处理数据的最简单方法，并可让用户专注于数据处理，而不是数据捕获。
@@ -71,9 +71,36 @@ https://mystorageaccount.blob.core.chinacloudapi.cn/mycontainer/mynamespace/myev
 
 事件中心捕获生成的文件具有以下 Avro 架构：
 
-![][3]
+![Avro 架构][3]
 
-浏览 Avro 文件的简单方法是使用 Apache 中的 [Avro 工具][Avro Tools] jar。 下载此 jar 后，运行以下命令即可查看特定 Avro 文件的架构：
+浏览 Avro 文件的简单方法是使用 Apache 中的 [Avro 工具][Avro Tools] jar。 还可以使用 [Apache Drill][Apache Drill] 实现轻量级 SQL 驱动的体验或者使用 [Apache Spark][Apache Spark] 对引入的数据执行复杂的分布式处理。 
+
+### <a name="use-apache-drill"></a>使用 Apache Drill
+
+[Apache Drill][Apache Drill] 是一个“用于大数据探索的开源 SQL 查询引擎”，可以用来查询结构化和半结构化数据，无论数据位于哪里。 该引擎可以作为独立节点或作为巨型群集运行以实现优异性能。
+
+它原生支持 Azure Blob 存储，这使得查询 Avro 文件中的数据非常轻松，如以下文档中所述：
+
+[Apache Drill：Azure Blob 存储插件][Apache Drill: Azure Blob Storage Plugin]
+
+若要轻松查询捕获的文件，可以通过容器在启用了 Apache Drill 的情况下创建和执行 VM 来访问 Azure Blob 存储：
+
+https://github.com/yorek/apache-drill-azure-blob
+
+“大规模流式处理”存储库中提供了完整的端到端示例：
+
+[大规模流式处理：事件中心捕获]
+
+### <a name="use-apache-spark"></a>使用 Apache Spark
+
+[Apache Spark][Apache Spark] 是“用于大规模数据处理的统一分析引擎”。 它支持不同的语言，包括 SQL，并且可以轻松地访问 Azure Blob 存储。 有两个选项可用来在 Azure 中运行 Apache Spark，这两个选项都可以轻松访问 Azure Blob 存储：
+
+- [HDInsight：确定 Azure 存储中文件的地址][HDInsight: Address files in Azure storage]
+- [Azure Databricks：Azure Blob 存储][Azure Databricks: Azure Blob Storage]
+
+### <a name="use-avro-tools"></a>使用 Avro 工具
+
+[Avro 工具][Avro Tools]是作为 jar 程序包提供的。 下载此 jar 文件后，可以运行以下命令来查看特定 Avro 文件的架构：
 
 ```shell
 java -jar avro-tools-1.8.2.jar getschema <name of capture file>
@@ -122,6 +149,8 @@ Apache Avro 针对 [Java][Java] 和 [Python][Python] 提供了完整的快速入
 * [事件中心概述][Event Hubs overview]
 
 [Apache Avro]: http://avro.apache.org/
+[Apache Drill]: https://drill.apache.org/
+[Apache Spark]: https://spark.apache.org/
 [support request]: https://www.azure.cn/support/support-azure/
 [Azure Storage Explorer]: http://azurestorageexplorer.codeplex.com/
 [3]: ./media/event-hubs-capture-overview/event-hubs-capture3.png
@@ -129,5 +158,7 @@ Apache Avro 针对 [Java][Java] 和 [Python][Python] 提供了完整的快速入
 [Java]: http://avro.apache.org/docs/current/gettingstartedjava.html
 [Python]: http://avro.apache.org/docs/current/gettingstartedpython.html
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
-
-<!--Update_Description: update meta properties, wording update, update link-->
+[HDInsight: Address files in Azure storage]:https://docs.azure.cn/zh-cn/hdinsight/hdinsight-hadoop-use-blob-storage?toc=%2Fzh-cn%2Fhdinsight%2Fhadoop%2FTOC.json&bc=%2Fzh-cn%2Fbread%2Ftoc.json#address-files-in-azure-storage
+[Azure Databricks: Azure Blob Storage]:https://docs.databricks.com/spark/latest/data-sources/azure/azure-storage.html
+[Apache Drill: Azure Blob Storage Plugin]:https://drill.apache.org/docs/azure-blob-storage-plugin/
+[大规模流式处理：事件中心捕获]:https://github.com/yorek/streaming-at-scale/tree/master/event-hubs-capture

@@ -3,18 +3,18 @@ title: Azure Cosmos DB 中的 SQL 语言语法
 description: 本文介绍 Azure Cosmos DB 中使用的 SQL 查询语言语法、不同的运算符以及此语言中可用的关键字。
 author: rockboyfor
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.topic: reference
 origin.date: 12/07/2018
-ms.date: 12/31/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 974feb6591ac71003cf10c207acc4d558816a3a7
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: 4c4d5111c297fbeba03b134394557ea119be22ff
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026826"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309231"
 ---
 # <a name="azure-cosmos-db-sql-language-reference"></a>Azure Cosmos DB SQL 语言参考 
 
@@ -2908,4 +2908,4 @@ SELECT ST_ISVALIDDETAILED({
 
 - [Cosmos DB 文档](/cosmos-db/)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update meta properties -->

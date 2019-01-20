@@ -3,17 +3,18 @@ title: 使用 Azure Site Recovery 为 Hyper-V 灾难恢复规划容量 | Azure
 description: 利用本文在使用 Azure Site Recovery 服务设置灾难恢复时估算容量。
 author: rockboyfor
 manager: digimobile
+services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 10/28/2018
-ms.date: 12/10/2018
+origin.date: 12/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: b14dc1b100081de2641686b4e5754be575da5028
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 9fa26c6cd4096ac92b04dfa97fb2ff636584fb4a
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028281"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363506"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>为 Hyper-V VM 灾难恢复规划容量 
 

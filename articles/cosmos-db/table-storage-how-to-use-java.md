@@ -1,21 +1,20 @@
 ---
 title: 如何通过 Java 使用 Azure 表存储
 description: 使用 Azure 表存储将结构化数据存储在云中。
-services: cosmos-db
-author: rockboyfor
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: Java
 ms.topic: sample
 origin.date: 04/05/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
+author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: af8a466152352619327203109cb0d3ad59926b24
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: 7f88fc030104a1c1991396f2b5de943cd7b18730
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026754"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309340"
 ---
 # <a name="how-to-use-azure-table-storage-from-java"></a>如何通过 Java 使用 Azure 表存储
 <!-- Not Available on Azure Cosmos DB Table API -->
@@ -601,7 +600,7 @@ catch (Exception e)
 [Azure SDK for Java]: https://docs.azure.cn/zh-cn/develop/java
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
-[Azure 存储客户端 SDK 参考]: http://azure.github.io/azure-storage-java/
+[Azure 存储客户端 SDK 参考]: https://azure.github.io/azure-storage-java/
 [Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 
 <!-- Update_Description: update meta properties, update link, wording update  -->

@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 10/30/2018
-ms.date: 12/03/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5d117f9a0810b27c3b952a4555915d89105ff667
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: d97c62e5626324c6bdd6509a3aa927691476d4a4
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676578"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309277"
 ---
 # <a name="create-a-synthetic-partition-key"></a>创建合成分区键
 
@@ -64,5 +64,4 @@ ms.locfileid: "52676578"
 * 了解[如何对 Cosmos 容器预配吞吐量](how-to-provision-container-throughput.md)
 * 了解[如何对 Cosmos 数据库预配吞吐量](how-to-provision-database-throughput.md)
 
-<!-- Update_Description: new articles on cosmos db synthetic partition keys -->
-<!--ms.date: 12/03/2018-->
+<!-- Update_Description: update meta properties -->

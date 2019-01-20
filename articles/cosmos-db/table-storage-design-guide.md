@@ -1,23 +1,24 @@
 ---
 title: 设计 Azure Cosmos DB 表以支持缩放和高性能
 description: Azure 存储表设计指南：在 Azure 存储表中设计可缩放的高性能表
-author: rockboyfor
-ms.author: v-yeche
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
+author: rockboyfor
+ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: a7396bfb3ef3a5f3e0f22e64a6838fef50d581f1
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: 66db7d41789b52949d0ec40dc219b7f85e1b6d57
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026784"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309230"
 ---
 <!--Not Available on  Azure Cosmos DB and-->
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure 存储表设计指南：设计可伸缩的高性能表
+
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 要设计可伸缩的高性能表，必须考虑许多因素（如性能、可伸缩性和成本）。 如果以前已为关系数据库设计过架构，这些注意事项对你来说会很熟悉，尽管 Azure 表服务存储模型与关系模型之间有一些相似之处，但也有许多重大差异。 这些差异通常会导致不同的设计，这些设计对于熟悉关系数据库的人来说可能看起来不直观或是错误的，但如果正在设计 Azure 表服务等 NoSQL 键/值存储，就会体会到这些设计是很合理的。 许多设计差异将反映这样一个事实：表服务旨在支持云级别应用程序，这些应用程序可包含数十亿个实体（相当于关系数据库术语中的行）的数据，或者用于必须支持高事务量的数据集：因此，需要以不同方式考虑如何存储数据，并了解表服务的工作原理。 相对于使用关系数据库的解决方案而言，设计良好的 NoSQL 数据存储可以使解决方案更进一步的扩展（以更低的成本）。 本指南中介绍这些主题。  

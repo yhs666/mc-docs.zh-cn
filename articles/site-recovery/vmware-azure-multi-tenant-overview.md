@@ -5,17 +5,17 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 10/16/2018
-ms.date: 12/10/2018
+origin.date: 11/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: fb584591b7357ff1c8e135628a70a0ee09bb9afb
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 432a9a9fabce76813576e478e18bdac5a8825232
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028835"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363475"
 ---
-# <a name="overview-of-multi-tenant-support-for-vmware-fisaster-recovery-to-azure-with-csp"></a>使用 CSP 从 VMware 灾难恢复到 Azure 的多租户支持概述
+# <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>使用 CSP 从 VMware 灾难恢复到 Azure 的多租户支持概述
 
 [Azure Site Recovery](site-recovery-overview.md) 支持适用于租户订阅的多租户环境。 它还支持适用于租户订阅的多租户，这些租户订阅通过 Azure 云解决方案提供商 (CSP) 计划创建和管理。
 
@@ -80,7 +80,7 @@ ms.locfileid: "53028835"
     * **网络**：网络分配
     * **资源**：将 VM 分配到资源池、迁移关闭的 VM、迁移打开的 VM
     * **任务**：创建任务、更新任务
-    * **VM - 配置**All
+    * **VM - 配置**全部
     - **VM - 交互**>回答问题、设备连接、配置 CD 介质、配置软盘介质、关机、开机、VMware 工具安装
     - **VM - 清单**> 从现有项创建、新建、注册、注销
     - **VM - 预配**>允许虚拟机下载、允许虚拟机文件上传
@@ -110,7 +110,7 @@ vCenter 帐户访问现已完成。 此步骤可满足完成故障回复操作�
 
 ### <a name="deploy-resources-to-the-tenant-subscription"></a>将资源部署到租户订阅
 
-1. 在 Azure 门户中，按照常规过程创建资源组，然后部署恢复服务保管库。
+1. 在 Azure 门户中，按照常规过程创建资源组，部署恢复服务保管库。
 2. 下载保管库注册密钥。
 3. 使用保管库注册密钥为租户注册 CS。
 4. 为两个访问帐户输入凭据，一个是用于访问 vCenter 服务器的帐户，另一个是用于访问 VM 的帐户。
@@ -128,7 +128,7 @@ vCenter 帐户访问现已完成。 此步骤可满足完成故障回复操作�
 如下图所示，专用托管解决方案中的体系结构差异在于，每个租户的基础结构是专为该租户设置的。
 
 ![architecture-shared-hsp](./media/vmware-azure-multi-tenant-overview/dedicated-hosting-scenario.png)  
-**多个 vCenter 的专用托管方案**
+**包含多个 vCenter 的专用托管方案**
 
 ## <a name="managed-service-solution"></a>托管服务解决方案
 

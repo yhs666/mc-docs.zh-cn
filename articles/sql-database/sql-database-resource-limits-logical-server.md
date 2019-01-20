@@ -13,12 +13,12 @@ ms.reviewer: sashan,moslake
 manager: digimobile
 origin.date: 11/13/2018
 ms.date: 12/03/2018
-ms.openlocfilehash: d8760fae938b81655a305c615125318c81a1eec4
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 3e1c775d36bd5d4c512a65b9621e1d0ea9f36070
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672734"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397039"
 ---
 # <a name="sql-database-resource-limits-for-single-and-pooled-databases"></a>单一数据库和入池数据库的 SQL 数据库资源限制
 

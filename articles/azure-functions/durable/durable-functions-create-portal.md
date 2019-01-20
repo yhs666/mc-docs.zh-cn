@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 10/23/2018
-ms.date: 12/25/2018
+ms.date: 01/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: 1386eef2d1f19c2d587744c6ea887a29082f33c3
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 026da47fdf44c87fe599acd9a55ff1c4c7f08445
+ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806698"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334210"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>使用 Azure 门户创建 Durable Functions
 
@@ -140,5 +140,6 @@ Azure Functions 的 [Durable Functions](durable-functions-overview.md) 扩展是
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [了解常见的持久函数模式](durable-functions-overview.md)
+> [了解常见的持久函数模式](durable-functions-concepts.md)
 
+<!-- Update_Description: wording update -->

@@ -10,15 +10,15 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
 origin.date: 09/07/2018
-ms.date: 12/26/2018
+ms.date: 01/15/2019
 ms.author: v-junlch
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 496aa1e31737c0ec10eec5639300157fb08aff9c
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: d9edb8f0e32cc7b945a26581d633361f12be5f67
+ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806695"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334202"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>使用 Visual Studio Code 创建你的第一个函数
 
@@ -28,7 +28,7 @@ Azure Functions 用于在[无服务器](https://azure.microsoft.com/solutions/se
 
 ![Visual Studio 项目中的 Azure Functions 代码](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
-该扩展当前支持 C#、JavaScript 和 Java 函数。 本文中的步骤可能会因你为 Azure Functions 项目所选的语言而异。 此扩展目前为预览版。 若要了解详细信息，请参阅[适用于 Visual Studio Code 的 Azure Functions 扩展]页。
+该扩展目前完全支持 C#、JavaScript 和 Java 函数，Python 支持目前处于预览状态。 本文中的步骤可能会因你为 Azure Functions 项目所选的语言而异。 此扩展目前为预览版。 若要了解详细信息，请参阅[适用于 Visual Studio Code 的 Azure Functions 扩展]页。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -94,7 +94,7 @@ Azure Functions 用于在[无服务器](https://azure.microsoft.com/solutions/se
 
     ![浏览器中的函数 localhost 响应](./media/functions-create-first-function-vs-code/functions-test-local-browser.png)
 
-1. 若要停止调试，请按 Shift + F1。
+1. 若要停止调试，请按 Shift + F5。
 
 确认该函数可以在本地计算机上正确运行以后，即可将项目发布到 Azure。
 
@@ -126,3 +126,4 @@ Azure Functions 用于在[无服务器](https://azure.microsoft.com/solutions/se
 [Azure Functions Core Tools]: functions-run-local.md
 [适用于 Visual Studio Code 的 Azure Functions 扩展]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions
 
+<!-- Update_Description: wording update -->

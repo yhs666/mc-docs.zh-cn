@@ -1,20 +1,18 @@
 ---
 title: Azure Cosmos DB 连接器的 Power BI 教程
 description: 使用此 Power BI 教程导入 JSON、创建见解深入的报表以及使用 Azure Cosmos DB 和 Power BI 连接器来将数据可视化。
-keywords: Power BI 教程, 可视化数据, Power BI 连接器
-services: cosmos-db
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 10/03/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: ebbcc88d21f37be460f0078414a6a57deee3805c
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: 1440d93599c7d4434c7f42eb55cffcc8c2e7fa12
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026688"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309144"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>使用 Power BI 连接器可视化 Azure Cosmos DB 数据
 

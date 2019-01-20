@@ -1,19 +1,18 @@
 ---
 title: 在 Azure Cosmos DB 中查询容器
 description: 了解如何在 Azure Cosmos DB 中查询容器
-services: cosmos-db
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 11/06/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6541ec9f34e59fc83ad81fb3182c011455d53d23
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: 4e11dfcff957d7caaeee94b99747164b46793a14
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026836"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309342"
 ---
 # <a name="query-containers-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中查询容器
 
@@ -73,5 +72,4 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 - [Azure Cosmos DB 中的分区](partitioning-overview.md)
 - [Azure Cosmos DB 中的综合分区键](synthetic-partition-keys.md)
 
-<!-- Update_Description: new articles on cosmos db how to query container -->
-<!--ms.date: 12/03/2018-->
+<!-- Update_Description: update meta properties -->

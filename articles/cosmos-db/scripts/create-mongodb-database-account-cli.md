@@ -4,16 +4,17 @@ description: Azure CLI 脚本示例 - 使用 Azure Cosmos DB 的用于 MongoDB �
 author: rockboyfor
 ms.author: v-yeche
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.topic: sample
 origin.date: 10/26/2018
-ms.date: 01/07/2019
-ms.openlocfilehash: 519f42e1545fca8187aeefd414c8d9b7cb2386a1
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.date: 01/21/2019
+ms.reviewer: sngun
+ms.openlocfilehash: e156c2b45381928877da099056bc69e3da6d1990
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026837"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309332"
 ---
 # <a name="create-an-azure-cosmos-db-account-with-azure-cosmos-dbs-api-for-mongodb-using-azure-cli"></a>使用 Azure CLI 通过 Azure Cosmos DB 的用于 MongoDB 的 API 创建 Azure Cosmos DB 帐户
 
@@ -85,4 +86,4 @@ az group delete --name $resourceGroupName
 
 有关其他 Azure Cosmos DB CLI 脚本示例，请参见 [Azure Cosmos DB CLI 文档](../cli-samples.md)。
 
-<!--Update_Description: update link, wording update, update link -->
+<!--Update_Description: update meta properties -->

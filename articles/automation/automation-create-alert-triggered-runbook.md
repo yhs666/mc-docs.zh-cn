@@ -10,12 +10,12 @@ origin.date: 09/18/2018
 ms.date: 11/05/2018
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 616bca4d7113bb825aca1d9ddad38e53acdffc88
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5e07d4d6024d751b19f8a8efdee75e9ff765d6ed
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666693"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396998"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>使用警报触发 Azure 自动化 Runbook
 
@@ -208,10 +208,11 @@ ms.locfileid: "52666693"
    ![“添加操作组”页](./media/automation-create-alert-triggered-runbook/add-action-group.png)
 1. 若要创建操作组，请选择“确定”。
 
-可以在创建的[活动日志警报](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fautomation%2ftoc.json)和[准实时警报](../monitoring-and-diagnostics/monitoring-overview-alerts.md?toc=%2fautomation%2ftoc.json)中使用此操作组。
+可以在创建的[活动日志警报](../azure-monitor/platform/activity-log-alerts.md?toc=%2fautomation%2ftoc.json)和[准实时警报](../azure-monitor/platform/alerts-overview.md?toc=%2fautomation%2ftoc.json)中使用此操作组。
 
 ## <a name="next-steps"></a>后续步骤
 
 * 有关使用 Webhook 启动自动化 Runbook 的详细信息，请参阅[从 Webhook 启动 Runbook](automation-webhooks.md)。
 * 有关以不同方式启动 Runbook 的详细信息，请参阅[启动 Runbook](automation-starting-a-runbook.md)。
-* 若要了解如何创建活动日志警报，请参阅[创建活动日志警报](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fautomation%2ftoc.json)。
+* 若要了解如何创建活动日志警报，请参阅[创建活动日志警报](../azure-monitor/platform/activity-log-alerts.md?toc=%2fautomation%2ftoc.json)。
+* 若要了解如何创建准实时警报，请参阅[在 Azure 门户中创建警报规则](../azure-monitor/platform/alerts-metric.md?toc=/azure-monitor/toc.json)。

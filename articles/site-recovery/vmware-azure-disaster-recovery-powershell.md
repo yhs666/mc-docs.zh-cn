@@ -4,16 +4,16 @@ description: 了解如何使用 PowerShell 在 Azure Site Recovery 中设置复�
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-origin.date: 07/06/2018
-ms.date: 12/10/2018
+origin.date: 11/27/2018
+ms.date: 01/21/2019
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: 913ff71e184284e5b285a757464b0016b341cffd
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 8fa42eaa092dd2c10e018aaf7b8d2895ed29d8cc
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029138"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363540"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>使用 PowerShell 设置 VMware VM 到 Azure 的灾难恢复
 

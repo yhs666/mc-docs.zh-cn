@@ -11,24 +11,25 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto, carlrab
 manager: digimobile
-origin.date: 10/25/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: a302500758c60330fcb60867b8a2261386c50ded
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+origin.date: 01/11/2019
+ms.date: 01/21/2019
+ms.openlocfilehash: 1d0f0d30ca2d9ae6fef44d9c2a6b0f13a75b3576
+ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806198"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363769"
 ---
 # <a name="azure-sql-database-threat-detection-for-single-database"></a>针对单一数据库的 Azure SQL 数据库威胁检测
 
-针对 [SQL 数据库](sql-database-technical-overview.md)单一数据库的 Azure SQL [威胁检测](sql-database-threat-detection-overview.md)可以检测异常活动，这些活动指示数据库遭到了异常以及可能对数据库有害的访问或利用尝试。 威胁检测可以识别“潜在的 SQL 注入”、“来自异常位置或数据中心的访问”、“来自陌生主体或可能有害的应用程序的访问”以及“暴力攻击 SQL 凭据”- 请在[威胁检测警报](sql-database-threat-detection.md#azure-sql-database-threat-detection-alerts)中查看详细信息。
+针对 [SQL 数据库](sql-database-technical-overview.md)单一数据库的 Azure SQL [威胁检测](sql-database-threat-detection-overview.md)可以检测异常活动，这些活动指示数据库遭到了异常以及可能对数据库有害的访问或利用尝试。 威胁检测可以识别“潜在的 SQL 注入”、“来自异常位置或数据中心的访问”、“来自陌生主体或可能有害的应用程序的访问”以及“暴力攻击 SQL 凭据”- 请在[威胁检测警报](sql-database-threat-detection-overview.md#azure-sql-database-threat-detection-alerts)中查看详细信息。
 
-你可以通过[电子邮件通知](sql-database-threat-detection.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event)或 [Azure 门户](sql-database-threat-detection.md#explore-threat-detection-alerts-for-your-database-in-the-Azure-portal)接收有关检测到的威胁的通知
+可以通过 [Azure 门户](sql-database-threat-detection-overview.md#explore-threat-detection-alerts-for-your-database-in-the-azure-portal)接收有关检测到的威胁的通知
 
 [威胁检测](sql-database-threat-detection-overview.md)是 [SQL 高级威胁防护](sql-advanced-threat-protection.md) (ATP) 产品/服务（它是高级 SQL 安全功能的一个统一包）的一部分。 可通过中心 SQL ATP 门户访问和管理威胁检测。
 
 ## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>在 Azure 门户中为数据库设置威胁检测
+
 1. 在 [https://portal.azure.cn](https://portal.azure.cn) 中启动 Azure 门户。
 2. 导航到要保护的 Azure SQL 数据库服务器的配置页。 在安全设置中，选择“高级威胁防护”。
 3. 在“高级威胁防护”配置页上：

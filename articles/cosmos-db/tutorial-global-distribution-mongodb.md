@@ -1,22 +1,20 @@
 ---
 title: 使用 Azure Cosmos DB 的用于 MongoDB 的 API 进行多区域分发的教程
 description: 了解如何使用 Azure Cosmos DB 的用于 MongoDB 的 API 设置多区域分发。
-services: cosmos-db
-keywords: 多区域分发, MongoDB
 author: rockboyfor
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.topic: tutorial
 origin.date: 12/26/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.custom: mvc
-ms.openlocfilehash: 035d299b2c5c9b1edc851cd29a30a60159516190
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.reviewer: sngun
+ms.openlocfilehash: 15f1be3173e1101106fb0234b9e168d9855cd7fd
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026787"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309082"
 ---
 # <a name="set-up-multiple-region-distributed-database-using-azure-cosmos-dbs-api-for-mongodb"></a>使用 Azure Cosmos DB 的用于 MongoDB 的 API 设置多区域分布式数据库
 

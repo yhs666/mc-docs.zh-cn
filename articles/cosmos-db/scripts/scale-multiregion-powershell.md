@@ -1,21 +1,21 @@
 ---
 title: Azure PowerShell 脚本 - Azure Cosmos DB 的多区域复制
 description: Azure PowerShell 脚本示例 - Azure Cosmos DB 的多区域复制
-services: cosmos-db
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 author: rockboyfor
 ms.author: v-yeche
-ms.custom: mvc
 ms.devlang: PowerShell
 ms.topic: sample
 origin.date: 05/10/2017
-ms.date: 12/31/2018
-ms.openlocfilehash: c1f9bc177e715072b06f3c68a3a82960fdf521c9
-ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
+ms.date: 01/21/2019
+ms.reviewer: sngun
+ms.openlocfilehash: df51ed90452c79e59d1ef25a8b3a5b7b88957574
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814777"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309073"
 ---
 # <a name="replicate-an-azure-cosmos-db-database-account-in-multiple-regions-and-configure-failover-priorities-using-powershell"></a>使用 PowerShell 将 Azure Cosmos DB 数据库帐户复制到多个区域中并配置故障转移优先级
 
@@ -25,19 +25,23 @@ ms.locfileid: "53814777"
 
 ## <a name="sample-script"></a>示例脚本
 
+<!--First make chinaeast2 as wirte region-->
+<!--Second make chinanorth as write region-->
+<!--Last add chinanorth2 new region-->
+
 ```powershell
 # Set the Azure resource group name and location
 $resourceGroupName = "myResourceGroup"
-$resourceGroupLocation = "chinanorth"
+$resourceGroupLocation = "chinaeast2"
 
 # Database name
 $DBName = "testdb"
 # Distribution locations
-$locations = @(@{"locationName"="chinanorth"; 
+$locations = @(@{"locationName"="chinaeast"; 
                  "failoverPriority"=2},
-               @{"locationName"="chinaeast"; 
+               @{"locationName"="chinanorth"; 
                  "failoverPriority"=1},
-               @{"locationName"="chinanorth2"; 
+               @{"locationName"="chinaeast2"; 
                  "failoverPriority"=0})
 
 
@@ -63,7 +67,7 @@ New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
                     -PropertyObject $DBProperties
 
 # Update failoverpolicy to make China North as a write region
-$NewfailoverPolicies = @(@{"locationName"="chinanorth"; "failoverPriority"=0}, @{"locationName"="chinaeast"; "failoverPriority"=1}, @{"locationName"="chinanorth2"; "failoverPriority"=2} )
+$NewfailoverPolicies = @(@{"locationName"="chinanorth"; "failoverPriority"=0}, @{"locationName"="chinaeast2"; "failoverPriority"=1}, @{"locationName"="chinaeast"; "failoverPriority"=2} )
 
 Invoke-AzureRmResourceAction `
     -Action failoverPriorityChange `

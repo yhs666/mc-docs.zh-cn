@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/05/2018
-ms.date: 12/03/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: d54deda7b3a5729f13f79a00eba841669af0a9b0
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 726b37ba0bfe2b55c2b58e319a64b47746dab88f
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676796"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309093"
 ---
 # <a name="index-paths-in-azure-cosmos-db"></a>Azure Cosmos DB 中的索引路径
 
@@ -43,5 +43,4 @@ ms.locfileid: "52676796"
 - [Azure Cosmos DB 中的索引编制策略](indexing-policies.md)
 - [Azure Cosmos DB 中的索引类型](index-types.md)
 
-<!-- Update_Description: new articles on cosmos db index path -->
-<!--ms.date: 12/03/2018-->
+<!-- Update_Description: update meta properties -->

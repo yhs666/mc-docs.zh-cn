@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 07/06/2018
-ms.date: 12/10/2018
+origin.date: 11/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2c928dc97320e28b1156f4b0fc39fd60d8184b62
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 3de641a602155788e7a38041939bda39979b5fad
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028323"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363566"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>重新保护已故障转移到主要区域的 Azure VM
 
@@ -84,3 +84,4 @@ ms.locfileid: "53028323"
 保护 VM 后，可以启动故障转移。 故障转移过程会关闭次要区域中的 VM，在主要区域中创建并启动 VM，这会出现短暂的停机。 建议相应地选择一个时间，并在启动到主站点的完全故障转移之前运行测试故障转移。 [详细了解](site-recovery-failover.md)故障转移。
 
 <!--Update_Description: update meta properties  -->
+

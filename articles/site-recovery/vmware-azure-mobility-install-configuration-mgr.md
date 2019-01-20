@@ -4,15 +4,15 @@ description: 本文可帮助你使用 System Center Configuration Manager 自动
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 10/29/2018
-ms.date: 12/24/2018
+origin.date: 11/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7e30ffa8fb15be3fad4f5c000e3b3f62d76b66d9
-ms.sourcegitcommit: b29475e13c1f54d420cdca71f90ca6a5c5116cbb
+ms.openlocfilehash: 8e8401f1de45468da82d59922850fc36316aea27
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/24/2018
-ms.locfileid: "53784552"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363569"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>使用 System Center Configuration Manager 自动执行移动服务安装
 
@@ -456,4 +456,4 @@ IF  %ERRORLEVEL% EQU 1 (GOTO :INSTALL) ELSE GOTO :UNINSTALL
 ## <a name="next-steps"></a>后续步骤
 现在，可为虚拟机 [启用保护](vmware-azure-enable-replication.md)。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

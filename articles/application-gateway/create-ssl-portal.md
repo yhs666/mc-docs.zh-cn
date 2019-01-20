@@ -9,14 +9,14 @@ tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 origin.date: 05/15/2018
-ms.date: 12/19/2018
+ms.date: 01/15/2019
 ms.author: v-junlch
-ms.openlocfilehash: cef0053ac497f1b173e1fd03a991a5d2d4d4aa03
-ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+ms.openlocfilehash: 54cf1960952bfb83efd3db0b68951e49280d372c
+ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53656607"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54333856"
 ---
 # <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>通过 Azure 门户使用 SSL 终端配置应用程序网关
 
@@ -151,7 +151,7 @@ Export-PfxCertificate `
 ### <a name="add-backend-servers"></a>添加后端服务器
 
 3. 单击“所有资源”，然后单击 **myAppGateway**。
-4. 单击“后端池”。 默认池已随应用程序网关自动创建。 单击 **appGateayBackendPool**。
+4. 单击“后端池”。 默认池已随应用程序网关自动创建。 单击 **appGatewayBackendPool**。
 5. 单击“添加目标”将所创建的每个虚拟机添加到后端池。
 
     ![添加后端服务器](./media/create-ssl-portal/application-gateway-backend.png)
@@ -183,4 +183,4 @@ Export-PfxCertificate `
 
 若要了解有关应用程序网关及其关联资源的详细信息，请继续阅读操作指南文章。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

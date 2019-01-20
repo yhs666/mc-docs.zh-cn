@@ -10,12 +10,12 @@ origin.date: 08/06/2018
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 3e2bb1eb9daf7926c8cfb58bc683d6de5abed419
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 7d39f957f901c8d473ab17c5eca6138992a645ad
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659787"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397007"
 ---
 # <a name="creating-or-importing-a-runbook-in-azure-automation"></a>在 Azure 自动化中创建或导入 Runbook
 
@@ -28,10 +28,10 @@ ms.locfileid: "52659787"
 ### <a name="to-create-a-new-azure-automation-runbook-with-the-azure-portal"></a>使用 Azure 门户创建新的 Azure 自动化 Runbook
 
 1. 在 Azure 门户中，打开自动化帐户。
-2. 从中心单击“Runbook”，打开 Runbook 的列表。
-3. 单击“添加 Runbook”按钮，并单击“创建新 Runbook”。
-4. 键入 Runbook 的**名称**，并选择其[类型](automation-runbook-types.md)。 Runbook 名称必须以字母开头，可以使用字母、数字、下划线和短划线。
-5. 单击“创建”以创建 Runbook 并打开编辑器。
+1. 从中心单击“Runbook”，打开 Runbook 的列表。
+1. 单击“添加 Runbook”按钮，并单击“创建新 Runbook”。
+1. 键入 Runbook 的**名称**，并选择其[类型](automation-runbook-types.md)。 Runbook 名称必须以字母开头，可以使用字母、数字、下划线和短划线。
+1. 单击“创建”以创建 Runbook 并打开编辑器。
 
 ### <a name="to-create-a-new-azure-automation-runbook-with-windows-powershell"></a>使用 Windows PowerShell 创建新的 Azure 自动化 Runbook
 可以使用 [New-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationrunbook) cmdlet 创建空的 [PowerShell 工作流 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)。 还应包括 **Type** 参数，以指定四种 Runbook 类型之一。
@@ -95,8 +95,8 @@ Import-AzureRMAutomationRunbook -Name $runbookName -Path $scriptPath `
 ## <a name="to-publish-a-runbook-using-the-azure-portal"></a>使用 Azure 门户发布 Runbook
 
 1. 在 Azure 门户中打开 Runbook。
-2. 单击“编辑”按钮。
-3. 单击“发布”按钮，并在出现验证消息时单击“是”。
+1. 单击“编辑”按钮。
+1. 单击“发布”按钮，并在出现验证消息时单击“是”。
 
 ## <a name="to-publish-a-runbook-using-windows-powershell"></a>使用 Windows PowerShell 发布 Runbook
 可以使用 Windows PowerShell，通过 [Publish-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/publish-azurermautomationrunbook) cmdlet 来发布 Runbook。 以下示例命令显示了如何发布示例 Runbook。
@@ -113,4 +113,3 @@ Publish-AzureRmAutomationRunbook -AutomationAccountName $automationAccountName `
 ## <a name="next-steps"></a>后续步骤
 * 若要深入了解使用文本编辑器编辑 PowerShell 和 PowerShell 工作流 Runbook，请参阅[在 Azure 自动化中编辑文本 Runbook](automation-edit-textual-runbook.md)
 * 若要详细了解图形 Runbook 创作，请参阅 [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md)
-

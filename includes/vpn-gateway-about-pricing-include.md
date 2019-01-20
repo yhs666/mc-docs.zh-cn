@@ -6,19 +6,19 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
 origin.date: 03/21/2018
-ms.date: 12/24/2018
+ms.date: 01/21/2019
 ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: 098abcf086dd88f34573bd635651b08efdf121d6
-ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+ms.openlocfilehash: b958e2ae67ce901b17a15c9a83b18bb923f1d9c7
+ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53711692"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334361"
 ---
 需要为两件事情付费：虚拟网络网关的小时计算成本和来自虚拟网络网关的出口数据传输。 可在 [定价](https://www.azure.cn/pricing/details/vpn-gateway) 页上找到定价信息。
 
-**虚拟网络网关计算成本**<br>每个虚拟网络网关都有每小时计算成本。 该价格取决于创建虚拟网络网关时指定的网关 SKU。 成本与网关本身以及流经网关的数据传输相关。
+**虚拟网络网关计算成本**<br>每个虚拟网络网关都有每小时计算成本。 该价格取决于创建虚拟网络网关时指定的网关 SKU。 成本与网关本身以及流经网关的数据传输相关。 主动-主动设置的成本与主动-被动设置的成本相同。
 
 **数据传输成本**<br>数据传输成本根据源虚拟网络网关的出口流量计算。
 

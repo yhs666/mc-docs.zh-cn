@@ -5,15 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
-origin.date: 10/11/2018
-ms.date: 12/10/2018
+origin.date: 11/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 87628c1d262e667df74167fbe119d63365ed81c8
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.topic: conceptual
+ms.openlocfilehash: be25ddeba8708bf87c771b8e9ad1b560de4c2702
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028387"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363439"
 ---
 # <a name="exclude-disks-from-replication-of-vmware-vms-to-azure"></a>在从 VMware VM 到 Azure 的复制中排除磁盘
 

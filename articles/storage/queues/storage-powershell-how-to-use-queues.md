@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: how-to
 origin.date: 09/14/2017
-ms.date: 01/14/2019
+ms.date: 01/21/2019
 ms.author: v-jay
 ms.component: queues
-ms.openlocfilehash: 4bcde84d67a50bc6adaf0ee4ac3a09533a405052
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: cde620d499b9bdffc622df4bf18f0cf27cae4305
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192876"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397029"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>使用 Azure PowerShell 执行 Azure 队列存储操作
 
@@ -78,22 +78,22 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-queue"></a>创建队列
 
-以下示例首先使用存储帐户上下文（包括存储帐户名称及其访问密钥）与 Azure 存储建立连接。 接下来，它将调用 [New-AzStorageQueue](https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragequeue) cmdlet 以创建名为“queuename”的队列。
+以下示例首先使用存储帐户上下文（包括存储帐户名称及其访问密钥）与 Azure 存储建立连接。 接下来，它将调用 [New-AzStorageQueue](https://docs.microsoft.com/powershell/module/az.storage/New-AzStorageQueue) cmdlet 以创建名为“queuename”的队列。
 
 ```powershell
 $queueName = "howtoqueue"
-$queue = New-AzStorageQueue –Name $queueName -Context $ctx
+$queue = New-AzStorageQueue -Name $queueName -Context $ctx
 ```
 
 有关命名 Azure 队列服务命名约定的信息，请参阅 [Naming Queues and Metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx)（命名队列和元数据）。
 
 ## <a name="retrieve-a-queue"></a>检索队列
 
-可以查询和检索存储帐户中的特定队列，或者所有队列的列表。 以下示例演示如何检索存储帐户中的所有队列以及特定队列；这两个命令都使用 [Get-AzStorageQueue](https://docs.microsoft.com/powershell/module/azure.storage/get-AzStoragequeue) cmdlet。
+可以查询和检索存储帐户中的特定队列，或者所有队列的列表。 以下示例演示如何检索存储帐户中的所有队列以及特定队列；这两个命令都使用 [Get-AzStorageQueue](https://docs.microsoft.com/powershell/module/az.storage/Get-AzStorageQueue) cmdlet。
 
 ```powershell
 # Retrieve a specific queue
-$queue = Get-AzStorageQueue –Name $queueName –Context $ctx
+$queue = Get-AzStorageQueue -Name $queueName -Context $ctx
 # Show the properties of the queue
 $queue
 
@@ -164,7 +164,7 @@ $queue.CloudQueue.DeleteMessage($queueMessage)
 
 ```powershell
 # Delete the queue 
-Remove-AzStorageQueue –Name $queueName –Context $ctx
+Remove-AzStorageQueue -Name $queueName -Context $ctx
 ```
 
 ## <a name="clean-up-resources"></a>清理资源

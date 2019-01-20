@@ -5,15 +5,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 11/19/2018
-ms.date: 12/10/2018
+origin.date: 12/11/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: cf6e4095a33245d5b2248fe7f5e1731e36cf04bf
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: a4f4c5a1a74c5258fff3b986a9676b71345bb071
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028413"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363532"
 ---
 # <a name="scale-for-failback-with-additional-process-servers"></a>为故障回复使用更多进程服务器进行扩展
 
@@ -24,6 +24,9 @@ ms.locfileid: "53028413"
 ### <a name="capacity-planning"></a>容量计划
 
 请确保已执行[容量规划](site-recovery-plan-capacity-vmware.md)以进行 VMware 复制。 这可帮助你确定如何以及何时应部署额外的进程服务器。
+
+>[!NOTE]
+>不支持使用克隆的进程服务器组件。 按照本文中的步骤横向扩展每个 PS。
 
 ### <a name="sizing-requirements"></a>调整大小要求 
 
@@ -52,7 +55,7 @@ ms.locfileid: "53028413"
 3. 选择配置服务器以向下钻取到配置服务器详细信息。 然后单击“+ 进程服务器”。
 4. 在“添加进程服务器” >  “选择要部署进程服务器的位置”中，选择“在本地部署横向扩展进程服务器”。
 
-    ![添加服务器页](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
+    ![“添加服务器”页](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
 5. 单击“下载 Azure Site Recovery 统一安装程序”。 这会下载最新版本的安装文件。
 
     > [!WARNING]

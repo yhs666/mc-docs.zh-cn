@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 11/14/2018
 ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9fdc38d5de277880bcd596d6531e503e6ea14ca6
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: d138ee93b5f0347f98e379fcbb21d3ef847d2d8f
+ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026818"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54333908"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 进行社交
 
@@ -134,7 +134,9 @@ Azure Cosmos DB 的自动索引功能可确保为所有属性都编制索引。 
 
 <!--Not Available on Azure Cosmos DB Gremlin API -->
 
-<!--Not Availble on [Gremlin API](../cosmos-db/graph-introduction.md)--> 仍然可以使用用户统计信息文档在 UI 或快速配置文件预览中创建卡片。
+<!--Not Availble on [Gremlin API](../cosmos-db/graph-introduction.md)-->
+
+仍然可以使用用户统计信息文档在 UI 或快速配置文件预览中创建卡片。
 
 ## <a name="the-ladder-pattern-and-data-duplication"></a>“阶梯”模式和数据重复
 
@@ -199,8 +201,7 @@ Azure Cosmos DB 的自动索引功能可确保为所有属性都编制索引。 
 <!-- Not Available on [create your Index](../search/search-create-index-portal.md)-->
 <!-- Not Available on [Azure Blobs indexers](../search/search-howto-indexing-azure-blob-storage.md)-->
 <!-- Not Available on [Azure Cosmos DB indexers](../search/search-howto-index-documentdb.md)-->
-
-有关 Azure 搜索的详细信息，请访问 [Hitchhiker’s Guide to Search](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/)（搜索漫游指南）。
+<!--Not Available on [Hitchhiker's Guide to Search](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/)-->
 
 ## <a name="the-underlying-knowledge"></a>基础知识
 

@@ -7,14 +7,14 @@ ms.custom: mvc
 ms.service: storage
 ms.topic: conceptual
 origin.date: 11/14/2018
-ms.date: 12/10/2018
+ms.date: 01/21/2019
 ms.author: v-jay
-ms.openlocfilehash: 0971b68af0c5e818a5af85768ec300c455d563d4
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 050a2c9021f4705d74741e31f215ee915ac9485c
+ms.sourcegitcommit: 317ea7e3b2d307569d3bf7777bd3077013ae4df6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028279"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334492"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-java-sdk-v7"></a>如何使用 Java SDK v7 上传、下载和列出 Blob
 
@@ -152,7 +152,7 @@ System.out.println("Uploading the sample file ");
 blob.uploadFromFile(sourceFile.getAbsolutePath());
 ```
 
-有多个可以与 Blob 存储配合使用的 `upload` 方法，其中包括 [upload](https://docs.azure.cn/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload)、[uploadBlock](https://docs.azure.cn/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadblock)、[uploadFullBlob](https://docs.azure.cn/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadfullblob)、[uploadStandardBlobTier](https://docs.azure.cn/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadstandardblobtier)、[uploadText](https://docs.azure.cn/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadtext)。 例如，如果有字符串，可以使用 UploadText 方法，而不是 Upload 方法。 
+有多个可以与 Blob 存储配合使用的 `upload` 方法，其中包括 [upload](https://docs.azure.cn/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload)、[uploadBlock](https://docs.azure.cn/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadblock)、[uploadFullBlob](https://docs.azure.cn/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadfullblob)、[uploadStandardBlobTier](https://docs.azure.cn/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadstandardblobtier)、[uploadText](https://docs.azure.cn/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadtext)。 例如，如果有字符串，可以使用 `UploadText` 方法，而不是 `Upload` 方法。 
 
 块 blob 可以是任何类型的文本或二进制文件。 页 Blob 主要用于支持 IaaS VM 的 VHD 文件。 将追加 Blob 用于日志记录，例如有时需要写入到文件，再继续添加更多信息。 存储在 Blob 存储中的大多数对象都是块 blob。
 

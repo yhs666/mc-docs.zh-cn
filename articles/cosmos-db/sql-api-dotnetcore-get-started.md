@@ -3,19 +3,19 @@ title: 教程：生成 .NET Core 应用以管理 Azure Cosmos DB 的 SQL API 帐
 description: 本教程使用 Azure Cosmos DB 的 SQL API .NET Core SDK 创建联机数据库和 C# 控制台应用程序。
 author: rockboyfor
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 03/12/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
 Customer intent: As a developer, I want to build a .NET Core application to access and manage Azure Cosmos DB resources so that customers can utilize the multiple-region distribution, elastic scaling, multi-master, and other capabilities that Azure Cosmos DB offers.
-ms.openlocfilehash: db61e70fe12d1cd5507414d07009e8e763111ea0
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: 622be2748dd9ff174ce309f2e75aabbe01ef1c8d
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026797"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309289"
 ---
 # <a name="tutorial-build-a-net-core-app-to-manage-data-stored-in-a-sql-api-account"></a>教程：生成 .NET Core 应用以管理 SQL API 帐户中存储的数据
 
@@ -564,4 +564,4 @@ End of demo, press any key to exit.
 [create-sql-api-dotnet.md#create-account]: create-sql-api-dotnet.md#create-account
 [keys]: media/sql-api-dotnetcore-get-started/nosql-tutorial-keys.png
 
-<!-- Update_Description: update meta properties, update link, wording update -->
+<!-- Update_Description: update meta properties, wording update -->

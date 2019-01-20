@@ -1,19 +1,18 @@
 ---
 title: 了解如何使用 Azure Cosmos DB SDK 调用存储过程、触发器和用户定义的函数
 description: 了解如何使用 Azure Cosmos DB SDK 注册和调用存储过程、触发器与用户定义的函数
-services: cosmos-db
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 12/08/2018
-ms.date: 12/31/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: eead280b00505af007497f664e1b99edc10b1723
-ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
+ms.openlocfilehash: cbbb77e27d7bb8b481a4421845ef3b42b3044e32
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814813"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309137"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>如何在 Azure Cosmos DB 中注册和使用存储过程、触发器与用户定义的函数
 
@@ -542,5 +541,4 @@ results = list(client.QueryItems(container_link, 'SELECT * FROM Incomes t WHERE 
 - [如何在 Azure Cosmos DB 中编写存储过程、触发器和用户定义的函数](how-to-write-stored-procedures-triggers-udfs.md)
 - [如何在 Azure Cosmos DB 中使用 Javascript 查询 API 编写存储过程和触发器](how-to-write-javascript-query-api.md)
 
-<!-- Update_Description: new articles on how to use stored procudures triggers udfs -->
-<!--ms.date: 12/31/2018-->
+<!-- Update_Description: update meta properties -->

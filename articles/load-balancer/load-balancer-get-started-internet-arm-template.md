@@ -1,26 +1,25 @@
 ---
-title: 创建公共负载均衡器 - Azure 模板 | Azure
+title: 创建公共负载均衡器 - Azure 模板
+titlesuffix: Azure Load Balancer
 description: 了解如何使用模板在资源管理器中创建公共负载均衡器
 services: load-balancer
 documentationcenter: na
-author: rockboyfor
-manager: digimobile
-tags: azure-resource-manager
-ms.assetid: b24f4729-4559-4458-8527-71009d242647
+author: WenJason
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 04/30/2018
-ms.author: v-yeche
-ms.openlocfilehash: 337035a14abd4a91b45ec64b0a1f2d37c82ce7fc
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 01/21/2019
+ms.author: v-jay
+ms.openlocfilehash: 19dd70b0076a64c93c16b24136b0af0356721a71
+ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660099"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54333925"
 ---
 # <a name="creating-a-public-load-balancer-using-a-template"></a>使用模板创建公共负载均衡器
 
@@ -35,10 +34,6 @@ ms.locfileid: "52660099"
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
-
-## <a name="deploy-the-template-by-using-click-to-deploy"></a>通过单击部署方式部署模板
-
-公共存储库中提供的示例模板采用包含用于生成上述方案的默认值的参数文件。 如果要通过单击部署的方式来部署此模板，请访问[此链接](http://go.microsoft.com/fwlink/?LinkId=544801)，单击“部署至 Azure”，如有必要，请替换默认参数值，并按照门户中的说明进行操作。
 
 ## <a name="deploy-the-template-by-using-powershell"></a>使用 PowerShell 部署模板
 
@@ -83,4 +78,4 @@ ms.locfileid: "52660099"
 
 [配置负载均衡器的空闲 TCP 超时设置](load-balancer-tcp-idle-timeout.md)
 
-<!-- Update_Description:  wording update -->
+有关模板中负载均衡器的 JSON 语法和属性，请参阅 [Microsoft.Network/loadBalancers](https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers)。

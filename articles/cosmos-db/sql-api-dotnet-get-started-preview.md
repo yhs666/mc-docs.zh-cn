@@ -1,21 +1,20 @@
 ---
 title: 生成一个用于在 Azure Cosmos DB SQL API 帐户中管理数据的 .NET 控制台应用（SDK 版本 3 预览）
-description: 使用 SQL API 创建联机数据库和 C# 控制台应用程序的教程。
-keywords: nosql 教程, 联机数据库, c# 控制台应用程序
+description: 有关使用 SQL API 创建联机数据库和 C# 控制台应用程序的教程。
 author: rockboyfor
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 12/01/2018
-ms.date: 12/31/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: a30e6aa89166b821f3c9f5c22bfa118039ba352b
-ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
+ms.openlocfilehash: bb117271c99d49fdbc561a8b87be7ba3d452569b
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814814"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309247"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>生成一个用于在 Azure Cosmos DB SQL API 帐户中管理数据的 .NET 控制台应用（SDK 版本 3 预览）
 
@@ -747,3 +746,5 @@ End of demo, press any key to exit.
 * 若要了解有关 Azure Cosmos DB 的详细信息，请参阅[欢迎使用 Azure Cosmos DB](/cosmos-db/introduction)。
 
 [cosmos-db-create-account]: create-sql-api-dotnet-preview.md#create-account
+
+<!--Update_Description: update meta properties, wording update-->

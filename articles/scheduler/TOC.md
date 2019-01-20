@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 241fe674dffb42b034d1c125447b92a2f7e00bc1
+ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54333868"
+---
 # [计划程序文档](index.md)
 
 # 概述
@@ -26,6 +34,7 @@
 # 参考
 ## [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.scheduler)
 ## [REST API](https://docs.microsoft.com/rest/api/scheduler)
+## [Resource Manager 模板](https://docs.microsoft.com/azure/templates/microsoft.scheduler/allversions)
 
 # 资源
 ## [价格](https://www.azure.cn/pricing/details/scheduler/)

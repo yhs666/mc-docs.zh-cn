@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 origin.date: 12/07/2018
-ms.date: 12/19/2018
+ms.date: 01/15/2019
 ms.author: v-junlch
-ms.openlocfilehash: 2c991bca67ed6a8fd77b8411d89d0301916ad958
-ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+ms.openlocfilehash: 209d4dad8fd179b4c37f35bdd9e1d7baeeccab27
+ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53656651"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54333893"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>使用 Azure 门户创建支持 HTTP 到 HTTPS 重定向的应用程序网关
 
@@ -66,7 +66,7 @@ Export-PfxCertificate `
 
 若要在创建的资源之间实现通信，需要设置虚拟网络。 在本示例中创建了两个子网：一个用于应用程序网关，另一个用于后端服务器。 可以在创建应用程序网关的同时创建虚拟网络。
 
-1. 在 [http://portal.azure.cn](http://portal.azure.cn) 中登录 Azure 门户。
+1. 在 [https://portal.azure.cn](https://portal.azure.cn) 中登录 Azure 门户。
 2. 单击 Azure 门户左上角的“创建资源”。
 3. 选择“网络”，然后在“特色”列表中选择“应用程序网关”。
 4. 输入应用程序网关的以下值：
@@ -226,3 +226,4 @@ Update-AzureRmVmss `
 
 了解如何[创建支持内部重定向的应用程序网关](redirect-internal-site-powershell.md)。
 
+<!-- Update_Description: link update -->

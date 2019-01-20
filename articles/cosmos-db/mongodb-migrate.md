@@ -1,24 +1,20 @@
 ---
 title: 使用 mongoimport 和 mongorestore 将 MongoDB 数据迁移到 Azure Cosmos DB
 description: 了解如何使用 mongoimport 和 mongorestore 将数据导入到 Cosmos DB。
-keywords: mongoimport，mongorestore
-services: cosmos-db
-author: rockboyfor
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
-ms.devlang: na
+ms.subservice: cosmosdb-mongo
 ms.topic: tutorial
 origin.date: 12/26/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
+author: rockboyfor
 ms.author: v-yeche
-ms.custom: mvc
 Customer intent: As a developer, I want to migrate the data from my existing MongoDB to Cosmos DB.
-ms.openlocfilehash: bc900b266e23c0d972c02f463add1187ed6f248b
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: e70ef8bd38abb949d555beaba82737195fa2745b
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026695"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309293"
 ---
 # <a name="migrate-your-mongodb-data-to-azure-cosmos-db"></a>将 MongoDB 数据迁移到 Azure Cosmos DB
 
@@ -41,7 +37,7 @@ ms.locfileid: "54026695"
 
 本部分介绍如何规划数据迁移。 我们将估算 RU 费用、确定从计算机到云服务的延迟，并计算批大小和插入工作线程数。
 
-#### <a name="pre-create-and-scale-your-collections"></a>预先创建和缩放集合
+#### <a name="pre-create-and-scale-your-collections"></a>预创建和缩放集合
 
 使用 mongoimport 或 mongorestore 迁移之前，请通过 [Azure 门户](https://portal.azure.cn)或 MongoDB 驱动程序和工具预先创建所有集合。 
 
@@ -65,7 +61,7 @@ db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )
 }
 ```
 
-#### <a name="calculate-the-approximate-ru-charge-for-a-single-document-write"></a>计算单次文档写入的近似 RU  费用
+#### <a name="calculate-the-approximate-ru-charge-for-a-single-document-write"></a>计算单文档写入的近似 RU 费用
 
 从 MongoDB Shell 连接到配置为使用 Cosmos DB 的用于 MongoDB 的 API 的 Cosmos 帐户。 有关说明，请参阅[将 MongoDB 应用程序连接到 Cosmos DB](connect-mongodb-account.md)。
 
@@ -195,4 +191,4 @@ mongorestore.exe --host cosmosdb-mongodb-account.documents.azure.cn:10255 -u cos
 > [!div class="nextstepaction"]
 > [如何查询 MongoDB 数据](../cosmos-db/tutorial-query-mongodb.md)
 
-<!--Update_Description: update meta properties, wording update， update link -->
+<!--Update_Description: update meta properties, wording update -->

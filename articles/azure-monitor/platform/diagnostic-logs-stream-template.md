@@ -1,19 +1,19 @@
 ---
 title: 使用资源管理器模板自动启用诊断设置
 description: 了解如何使用 Resource Manager 模板创建诊断设置，以便将诊断日志流式传输到事件中心，或者将其存储在存储帐户中。
-author: johnkemnetz
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 3/26/2018
-ms.author: johnkem
+ms.date: 01/21/19
+ms.author: v-lingwu
 ms.component: ''
-ms.openlocfilehash: 929098cd4488f2150007cfb73ac041f4a4ab3839
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.openlocfilehash: 4c8329bab4397e42d1f7f87d22a6382824b6ca7d
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141729"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363467"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>在创建资源时使用 Resource Manager 模板自动启用诊断设置
 本文介绍如何使用 [Azure 资源管理器模板](../../azure-resource-manager/resource-group-authoring-templates.md)在创建资源时配置资源的诊断设置。 这样可以让用户在创建资源时自动将诊断日志和指标流式传输到事件中心、将其存档在存储帐户中，或者发送到 Log Analytics。
@@ -134,7 +134,7 @@ ms.locfileid: "54141729"
     },
     "testUri": {
       "type": "string",
-      "defaultValue": "http://azure.microsoft.com/status/feed/"
+      "defaultValue": "https://www.azure.cn/status/feed/"
     },
     "settingName": {
       "type": "string",
@@ -263,7 +263,7 @@ ms.locfileid: "54141729"
 > 
 > 
 
-整个过程（包括示例）详见 [此文档](../../virtual-machines/extensions/diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+整个过程（包括示例）详见 [此文档](../../virtual-machines/extensions/diagnostics-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 ## <a name="next-steps"></a>后续步骤
 * [详细了解 Azure 诊断日志](../../azure-monitor/platform/diagnostic-logs-overview.md)

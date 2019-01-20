@@ -14,24 +14,25 @@ ms.author: v-jay
 ms.reviewer: vanto
 manager: digimobile
 origin.date: 09/20/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: 4f92ad18ef3bf7a1b6d68a0145aebad44f8b4c0f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 01/21/2019
+ms.openlocfilehash: bfe91773e7e49f092d90a254951b7f4e99ab32da
+ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652655"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363760"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>开始使用 Azure SQL 数据库托管实例审核
 
 [Azure SQL 数据库托管实例](sql-database-managed-instance.md)审核功能可跟踪数据库事件，并将事件写入到 Azure 存储帐户中的审核日志。 审核还可：
+
 - 帮助保持合规性、了解数据库活动，以及深入了解可以指明业务考量因素或疑似安全违规的偏差和异常。
 - 实现并促进遵从合规标准，但不能保证合规性。 有关支持标准法规的 Azure 计划的详细信息，请参阅 [Azure 信任中心](https://www.azure.cn/support/trust-center/compliance/)。
 
-
-## <a name="set-up-auditing-for-your-server"></a>为服务器设置审核
+## <a name="set-up-auditing-for-your-server-to-azure-storage"></a>将服务器的审核设置为 Azure 存储 
 
 以下部分介绍了托管实例上的审核配置。
+
 1. 转到 [Azure 门户](https://portal.azure.cn)。
 2. 以下步骤创建一个在其中存储审核日志的 Azure 存储**容器**。
 
@@ -125,10 +126,15 @@ ms.locfileid: "52652655"
     GO
     ```
 
-## <a name="analyze-audit-logs"></a>分析审核日志
+## <a name="consume-audit-logs"></a>使用审核日志
+
+### <a name="consume-logs-stored-in-azure-storage"></a>使用存储在 Azure 存储中的日志
+
 可使用多种方法查看 blob 审核日志。
 
 - 使用系统函数 `sys.fn_get_audit_file` (T-SQL) 以表格格式返回审核日志数据。 有关使用此函数的详细信息，请参阅 [sys.fn_get_audit_file 文档](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql)。
+
+- 可使用 Azure 存储资源管理器等工具浏览审核日志。 在 Azure 存储中，审核日志以 Blob 文件集合的形式保存在名为 sqldbauditlogs 的容器中。 有关存储文件夹层次、命名约定和日志格式的详细信息，请参阅 Blob 审核日志格式参考。
 
 - 有关审核日志使用方法的完整列表，请参阅 [SQL 数据库审核入门](/sql-database/sql-database-auditing)。
 
@@ -146,22 +152,16 @@ ms.locfileid: "52652655"
 托管实例中的 XEvent 审核支持 Azure Blob 存储目标。 **不支持**文件和 Windows 日志。
 
 Azure Blob 存储审核的主要 `CREATE AUDIT` 语法差异为：
+
 - 提供了新语法 `TO URL`，该语法允许指定用于放置 `.xel` 文件的 Azure Blob 存储容器的 URL。
 - **不支持**语法 `TO FILE`，因为托管实例无法访问 Windows 文件共享。
 - **不支持**关闭选项。
 - **不支持** `queue_delay` 为 0。
 
-
 ## <a name="next-steps"></a>后续步骤
 
 - 有关审核日志使用方法的完整列表，请参阅 [SQL 数据库审核入门](https://docs.azure.cn/sql-database/sql-database-auditing)。
 - 有关支持标准法规的 Azure 计划的详细信息，请参阅 [Azure 信任中心](https://www.azure.cn/support/trust-center/compliance/)。
-
-
-<!--Anchors-->
-[Set up auditing for your server]: #subheading-1
-[Analyze audit logs]: #subheading-2
-[Auditing differences between Managed Instance, Azure SQL DB and SQL Server]: #subheading-3
 
 <!--Image references-->
 [1]: ./media/sql-managed-instance-auditing/1_blobs_widget.png

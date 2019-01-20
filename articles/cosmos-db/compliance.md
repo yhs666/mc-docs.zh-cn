@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/15/2018
-ms.date: 12/03/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 3ce583501c8a70fc4bc617648cc9aef64e34dc4c
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: ecec13011b5c717b51626e2bbcff3251e537b78b
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676740"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309101"
 ---
 # <a name="azure-cosmos-db-compliance"></a>Azure Cosmos DB 合规性
 
@@ -57,5 +57,4 @@ Azure Cosmos DB 将不断扩展认证覆盖范围。 目前，Azure Cosmos DB �
 
 * 有关我们的认证的详细信息，请参阅 [Azure 信任中心](https://www.trustcenter.cn/zh-cn/cloudservices/azure.html)。
 
-<!-- Update_Description: new articles on cosmos db complicance -->
-<!--ms.date: 12/03/2018-->
+<!-- Update_Description: update meta properties -->

@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 origin.date: 12/19/2018
 ms.author: v-yiso
-ms.date: 01/21/2019
-ms.openlocfilehash: ad9dd4575f6a9825aa71034df6ca0439e93323f8
-ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
+ms.date: 01/28/2019
+ms.openlocfilehash: d2956b910579b00daaeba86f2858443e4f349b8d
+ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216281"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396805"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>将 IoT DevKit AZ3166 连接到 Azure IoT 中心
 
@@ -216,7 +216,7 @@ DevKit 上运行的默认应用会检查固件的最新版本，并显示某些�
 DevKit 将重新启动并开始运行代码。
 
 > [!NOTE]
-> 如果出现了错误或中断，始终可以再次运行该命令予以恢复。
+> 如果出现了任何错误或中断，始终可以再次运行该命令予以恢复。
 
 ## <a name="test-the-project"></a>测试项目
 
@@ -233,9 +233,7 @@ DevKit 将重新启动并开始运行代码。
 
 ### <a name="view-the-telemetry-received-by-azure-iot-hub"></a>查看 Azure IoT 中心收到的遥测数据
 
-可以使用 [Azure IoT 中心工具包](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)（以前称为 Azure IoT 工具包）监视 IoT 中心内的设备到云 (D2C) 消息。
-
-1. 在 Visual Studio Code 中，在扩展市场中找到 **Azure IoT 中心工具包**并安装它。
+可以使用 [Azure IoT 工具](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)监视 IoT 中心内的设备到云 (D2C) 消息。
 
 1. 登录 [Azure 门户](https://portal.azure.com/)，并找到创建的 IoT 中心。
     ![Azure 门户](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-iot-hub-portal.png)

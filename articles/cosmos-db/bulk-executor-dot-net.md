@@ -1,20 +1,21 @@
 ---
 title: 使用批量执行程序 .NET 库在 Azure Cosmos DB 中执行批量导入和更新操作
 description: 使用批量执行程序 .NET 库，批量导入和更新 Azure Cosmos DB 文档。
-services: cosmos-db
 author: rockboyfor
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
 origin.date: 10/16/2018
-ms.date: 12/31/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7c5f23147ed6aff1e4a99c95c21dead880210c3d
-ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
+ms.reviewer: sngun
+ms.openlocfilehash: 420f166a8dd21c7e9f3cb83e86731de4ec17ec45
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814747"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309233"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>使用 Bulk Executor .NET 库在 Azure Cosmos DB 中执行批量操作
 
@@ -202,4 +203,4 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
 ## <a name="next-steps"></a>后续步骤
 * 若要了解 Nuget 包的详细信息以及 Bulk Executor .Net 库的发行说明，请参阅 [Bulk Executor SDK 详细信息](sql-api-sdk-bulk-executor-dot-net.md)。
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

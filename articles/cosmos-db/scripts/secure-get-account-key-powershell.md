@@ -1,21 +1,21 @@
 ---
 title: Azure PowerShell 脚本 - 获取 Azure Cosmos DB 的帐户密钥
 description: Azure PowerShell 脚本示例 - 获取 Azure Cosmos DB 的帐户密钥
-services: cosmos-db
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 author: rockboyfor
 ms.author: v-yeche
-ms.custom: mvc
 ms.devlang: PowerShell
 ms.topic: sample
 origin.date: 05/10/2017
-ms.date: 12/31/2018
-ms.openlocfilehash: c425c93f50971ae4844f06564562b6414c1b6f3b
-ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
+ms.date: 01/21/2019
+ms.reviewer: sngun
+ms.openlocfilehash: d53b989931eace490b2c13acad83854c8bfef07a
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814773"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309220"
 ---
 # <a name="get-account-keys-for-azure-cosmos-db-using-powershell"></a>使用 PowerShell 获取 Azure Cosmos DB 的帐户密钥
 
@@ -94,4 +94,5 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/)。
 
 可以在 [Azure Cosmos DB PowerShell 脚本](../powershell-samples.md)中找到其他 Azure Cosmos DB PowerShell 脚本示例。
-<!-- Update_Description: wording update, update link -->
+
+<!-- Update_Description: update meta properties -->

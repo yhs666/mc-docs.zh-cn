@@ -13,12 +13,12 @@ ms.reviewer: ''
 manager: digimobile
 origin.date: 12/04/2018
 ms.date: 01/07/2019
-ms.openlocfilehash: de8b96511a7fcbe4c708e7f459c11f4d607312b6
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 565a7dc3cab851f3bc71b2bcde91665a19c43537
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996269"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397028"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>部署拆分/合并服务以在分片数据库之间移动数据
 
@@ -204,7 +204,7 @@ ms.locfileid: "53996269"
    </table>
    
 ## <a name="use-powershell-to-verify-your-deployment"></a>使用 PowerShell 验证部署
-1. 打开新的 PowerShell 窗口并导航到用户下载拆分/合并包的目录，并导航到“powershell”目录中。
+1. 打开新的 PowerShell 窗口并导航到下载拆分/合并包的目录，然后导航到“powershell”目录中。
 2. 创建将在其中创建分片映射管理器和分片的 Azure SQL 数据库服务器（或选择现有服务器）。
    
    > [!NOTE]
@@ -303,7 +303,7 @@ ms.locfileid: "53996269"
 为了执行拆分/合并操作，必须声明要移动的分片表和引用表。 使用 **SchemaInfo** API 完成此操作。 此 API 位于 **Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.Schema** 命名空间中。
 
 1. 对于每个分片表，请创建一个 **ShardedTableInfo** 对象，该对象在包含分片密钥的表中描述了此表的父架构名称（可选，默认为“dbo”）、表名称以及列名称。
-2. 对于每个引用表，请创建一个 **ShardedTableInfo** 对象，该对象描述了此表的父架构名称（可选，默认为“dbo”）和表名称。
+2. 对于每个引用表，请创建一个 **ReferenceTableInfo** 对象，该对象描述了此表的父架构名称（可选，默认为“dbo”）和表名称。
 3. 将上面的 TableInfo 对象添加到新的 **SchemaInfo** 对象。
 4. 获取对 **ShardMapManager** 对象的引用，然后调用 **GetSchemaInfoCollection**。
 5. 将 **SchemaInfo** 添加到 **SchemaInfoCollection**，从而提供分片映射名称。

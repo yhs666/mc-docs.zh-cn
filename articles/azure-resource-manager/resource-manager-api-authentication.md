@@ -15,12 +15,12 @@ ms.workload: identity
 origin.date: 07/12/2018
 ms.date: 12/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: bcce1364bc87664097a406ba9838113faf34d2cf
-ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
+ms.openlocfilehash: 9ccaae1c8268617024078b820cc19cf602cc5150
+ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785196"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54333861"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>使用 Resource Manager 身份验证 API 访问订阅
 ## <a name="introduction"></a>简介
@@ -158,7 +158,9 @@ Azure AD 对用户进行身份验证，并根据需要请求用户向应用授�
 使用证书凭据时，请使用应用程序证书凭据的私钥来创建 JSON Web 令牌 (JWT) 并签名 (RSA SHA256)。 生成此令牌以[客户端凭据流](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#second-case-access-token-request-with-a-certificate)形式显示。
 
 <!-- Anchor missing  should be XXXX-with-a-certificate-->
-<!-- Not Available on [Active Directory Auth Library (.NET) code](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) --> 有关客户端身份验证的详细信息，请参阅 [Open ID Connect spec](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication)（Open ID Connect 规范）。
+<!-- Not Available on [Active Directory Auth Library (.NET) code](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) -->
+
+有关客户端身份验证的详细信息，请参阅 [Open ID Connect spec](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication)（Open ID Connect 规范）。
 
 以下示例演示如何使用证书凭据来请求代码授予令牌：
 

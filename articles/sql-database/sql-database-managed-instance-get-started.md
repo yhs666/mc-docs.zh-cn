@@ -13,12 +13,12 @@ ms.reviewer: Carlrab
 manager: digimobile
 origin.date: 11/28/2018
 ms.date: 12/31/2018
-ms.openlocfilehash: a5c5ba3d3778050867a3521cbe90bc177996cddc
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.openlocfilehash: 7656f74c358607b707e145a2671f7f3023dc9dd1
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806205"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397034"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>快速入门：创建 Azure SQL 数据库托管实例
 
@@ -42,7 +42,7 @@ ms.locfileid: "53806205"
 
 4. 根据下表中的说明，在“托管实例”窗体中填充请求的信息：
 
-   | 设置| 建议的值 | Description |
+   | 设置| 建议的值 | Description |
    | ------ | --------------- | ----------- |
    | **订阅** | 订阅 | 你有权在其中创建新资源的订阅 |
    |**托管实例名称**|任何有效的名称|请参阅[命名规则和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)，了解什么是有效的名称。|

@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/10/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 78e6a3f024a5fc91ef3057819e0b7f7752ae1845
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: b6d570556469f2e5a068b01f15d551c3d25dda92
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026753"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309326"
 ---
 # <a name="indexing-in-azure-cosmos-db"></a>Azure Cosmos DB 中的索引
 

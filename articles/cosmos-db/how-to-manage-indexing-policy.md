@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 11/10/2018
-ms.date: 12/03/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: ebd16af9b3756bad3b862a9adf5cc2c833898144
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: eb1151cd450bd71f5e339dbcd10c0ff04c5e0e09
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676780"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309105"
 ---
 # <a name="manage-indexing-in-azure-cosmos-db"></a>管理 Azure Cosmos DB 中的索引编制
 
@@ -62,5 +62,4 @@ client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("myDatabaseNam
 * [索引类型](index-types.md)
 * [索引路径](index-paths.md)
 
-<!-- Update_Description: new articles on cosmos db how to manage indexing policy -->
-<!--ms.date: 12/03/2018-->
+<!-- Update_Description: update meta properties -->

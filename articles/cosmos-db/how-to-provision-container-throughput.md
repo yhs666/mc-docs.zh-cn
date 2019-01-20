@@ -1,19 +1,18 @@
 ---
 title: 在 Azure Cosmos DB 中预配容器吞吐量
 description: 了解如何在 Azure Cosmos DB 中预配容器级别的吞吐量
-services: cosmos-db
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 11/06/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4bd8c7fbbffba1947ad21448d1f75810c82534a3
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: ec7fc06682636789741f6c48b02ff53ac03e531d
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026662"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309026"
 ---
 # <a name="provision-throughput-for-an-azure-cosmos-db-container"></a>为 Azure Cosmos DB 容器预配吞吐量
 
@@ -84,5 +83,4 @@ await client.CreateDocumentCollectionAsync(
 * [如何为数据库预配吞吐量](how-to-provision-database-throughput.md)
 * [Azure Cosmos DB 中的请求单位和吞吐量](request-units.md)
 
-<!-- Update_Description: new articles on cosmos db how to provision container throughtput -->
-<!--ms.date: 12/03/2018-->
+<!-- Update_Description: update meta properties, wording update -->

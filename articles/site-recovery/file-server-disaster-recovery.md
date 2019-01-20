@@ -4,17 +4,17 @@ description: 本文介绍如何使用 Azure Site Recovery 保护文件服务器
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-ms.topic: tutorial
-origin.date: 07/06/2018
-ms.date: 12/10/2018
+ms.topic: conceptual
+origin.date: 11/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: aff78f1694c9af3aa2041b79ee50ff0be6199ecc
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 79ff804dba9b41683d7fbffc73d57ed0c7c6ebdf
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028650"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363576"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 保护文件服务器 
 
@@ -46,7 +46,7 @@ DFSR 使用称为远程差分压缩 (RDC) 的压缩算法，该算法可用于�
 
     * 如果 VM 包含不受 Site Recovery 支持的配置，可以使用此方法。 经常在文件服务器环境中使用的共享群集磁盘就是这样一个例子。 DFSR 也很适合在变动率中等的低带宽环境中工作。 还需要考虑到一直保持运行某个 Azure VM 所产生的附加成本。 
 
-<!-- Not Available on * **Use Azure File Sync to replicate your files** -->
+    <!-- Not Available on * **Use Azure File Sync to replicate your files** -->
 
 下图可帮助你决定要对文件服务器环境使用哪种策略。
 
@@ -83,6 +83,7 @@ DFSR 使用称为远程差分压缩 (RDC) 的压缩算法，该算法可用于�
 若要配置和管理托管在 Azure IaaS VM 上的文件服务器的灾难恢复，可以根据是否要转移到 [Azure 文件](/storage/files/storage-files-introduction)，在两个选项之间做出选择。
 
 <!-- Not Available on * [Use File Sync](#use-file-sync-to-replicate-files-hosted-on-an-iaas-virtual-machine) -->
+
 * [使用 Site Recovery](#replicate-an-iaas-file-server-virtual-machine-by-using-site-recovery)
 
 

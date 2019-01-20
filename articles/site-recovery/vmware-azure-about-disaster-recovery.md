@@ -3,16 +3,17 @@ title: 关于使用 Azure Site Recovery 进行 VMware VM 到 Azure 的灾难恢�
 description: 本文概述了使用 Azure Site Recovery 服务执行从 VMware VM 到 Azure 的灾难恢复。
 author: rockboyfor
 ms.service: site-recovery
+services: site-recovery
 ms.topic: conceptual
-origin.date: 10/29/2018
-ms.date: 12/10/2018
+origin.date: 12/31/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3991357df5d900bf2827b2c41a62ccebaa3cc6c2
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 236aec9e7158b59cea0083b4b8c81b20e05bd257
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028931"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363301"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>关于 VMware VM 到 Azure 的灾难恢复
 

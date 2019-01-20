@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/10/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9409b7c3203b4e3a8644169049b855c0e64e0753
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: b4c9744750c4bfc3ce7a1d687e48801cff396a9e
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026816"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309162"
 ---
 # <a name="indexing-policy-in-azure-cosmos-db"></a>Azure Cosmos DB 中的索引策略
 

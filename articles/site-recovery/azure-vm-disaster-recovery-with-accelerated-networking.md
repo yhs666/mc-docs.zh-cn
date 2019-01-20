@@ -7,15 +7,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 10/16/2018
-ms.date: 12/10/2018
+origin.date: 11/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: d7901af2d374286954433042b0facafe022e259c
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 6803020cc0222665a7787978a0c5394da2da48ec
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028649"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363571"
 ---
 # <a name="accelerated-networking-with-azure-virtual-machine-disaster-recovery"></a>将加速网络与 Azure 虚拟机灾难恢复配合使用
 
@@ -62,6 +62,7 @@ ms.locfileid: "53028649"
 
 <!-- Not Available on * **RHEL 7.4**-->
 <!-- Not Available on * **Oracle Linux 7.4**-->
+
 ### <a name="supported-vm-instances"></a>支持的 VM 实例
 大多数常规用途实例以及具有 2 个或更多 vCPU 的计算优化实例都支持加速网络。  这些受支持的系列包括：D/DSv2 和 F/Fs
 
@@ -91,4 +92,4 @@ ms.locfileid: "53028649"
 - 详细了解针对 [Windows 虚拟机](../virtual-network/create-vm-accelerated-networking-powershell.md#limitations-and-constraints)和 [Linux 虚拟机](../virtual-network/create-vm-accelerated-networking-cli.md#limitations-and-constraints)的加速网络限制和约束。
 - 详细了解如何使用[恢复计划](site-recovery-create-recovery-plans.md)自动执行应用程序故障转移。
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure 门户创建 SQL 数据库警报 | Microsoft 文档
-description: 使用 Azure 门户创建 SQL 数据库警报，可在满足指定条件时触发通知或自动化。
+title: 使用 Azure 门户设置警报和通知 | Microsoft Docs
+description: 使用 Azure 门户创建 SQL 数据库警报，该警报可在满足指定的条件时触发通知或自动化操作。
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
@@ -12,18 +12,18 @@ ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
 origin.date: 11/02/2018
-ms.date: 01/07/2019
-ms.openlocfilehash: 62bb93ad291020901662ada5039b8772611fcf75
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.date: 01/21/2019
+ms.openlocfilehash: 52647efb55d6870502aba6c9819cd1fa8b88a26c
+ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996340"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363775"
 ---
-# <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>使用 Azure 门户为 Azure SQL 数据库和数据仓库创建警报
+# <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>使用 Azure 门户为 Azure SQL 数据库和数据仓库创建警报
 
 ## <a name="overview"></a>概述
-本文介绍如何使用 Azure 门户设置 Azure SQL 数据库和数据仓库警报。 本文还提供了设置警报期限的最佳做法。    
+本文介绍如何使用 Azure 门户设置 Azure SQL 数据库和数据仓库警报。 当某些指标（例如数据库大小或 CPU 使用率）达到阈值时，警报可以向你发送电子邮件或调用 Webhook。 本文还提供了设置警报期限的最佳做法。    
 
 可以根据监控指标或事件接收 Azure 服务的警报。
 
@@ -39,8 +39,8 @@ ms.locfileid: "53996340"
 可以使用以下工具配置和获取关于警报的信息：
 
 * [Azure 门户](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
-* [命令行接口 (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
+* [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
+* [命令行接口 (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
 * [Azure 监视器 REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>使用 Azure 门户创建指标的警报规则
@@ -117,6 +117,6 @@ ms.locfileid: "53996340"
 
 ## <a name="next-steps"></a>后续步骤
 * [获取 Azure 监视概述](../monitoring-and-diagnostics/monitoring-overview.md)，包括可收集和监视的信息的类型。
-* 了解[在警报中配置 Webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md)的详细信息。
-* [大致了解诊断日志](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)并收集服务的详细高频指标。
+* 了解[在警报中配置 Webhook](../azure-monitor/platform/alerts-webhooks.md)的详细信息。
+* [大致了解诊断日志](../azure-monitor/platform/diagnostic-logs-overview.md)并收集服务的详细高频指标。
 * [大致了解指标收集](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)以确保服务可用且响应迅速。

@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
 origin.date: 11/06/2018
-ms.date: 12/31/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 28bbe97aeb8835f1c238fbaf11af631711eb8700
-ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
+ms.reviewer: sngun
+ms.openlocfilehash: 500eca9cb59f438dddd2b0b91525e85666c08f17
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814774"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309197"
 ---
 # <a name="using-the-azure-cosmos-db-change-feed-processor-library"></a>使用 Azure Cosmos DB 更改源处理器库
 

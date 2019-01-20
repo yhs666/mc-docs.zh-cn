@@ -11,12 +11,12 @@ ms.date: 09/10/2018
 ms.topic: conceptual
 manager: digimobile
 keywords: powershell, runbook, json, azure 自动化
-ms.openlocfilehash: 1c28019bf158cac4217de76968fd6c5ba45acb5d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: edc7d20b12eab920ad043fadb8afd22be442c505
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658492"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396988"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>在 Azure 自动化 PowerShell Runbook 中部署 Azure 资源管理器模板
 
@@ -31,7 +31,7 @@ ms.locfileid: "52658492"
 要完成本教程，需要以下各项：
 
 * Azure 订阅。 如果没有订阅，可[注册试用版](https://www.azure.cn/pricing/1rmb-trial/)。
-* [自动化帐户](automation-create-runas-account.md) ，用来保存 Runbook 以及向 Azure 资源进行身份验证。  此帐户必须有权启动和停止虚拟机。
+* [自动化帐户](automation-sec-configure-azure-runas-account.md) ，用来保存 Runbook 以及向 Azure 资源进行身份验证。  此帐户必须有权启动和停止虚拟机。
 * 要在其中存储资源管理器模板的 [Azure 存储帐户](../storage/common/storage-create-storage-account.md)
 * 在本地计算机上安装的 Azure Powershell。 若要详细了解如何获得 Azure PowerShell，请参阅 [Install and configure Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0)（安装和配置 Azure PowerShell）。
 

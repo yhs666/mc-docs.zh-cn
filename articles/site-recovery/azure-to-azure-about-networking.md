@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 07/06/2018
-ms.date: 12/10/2018
+origin.date: 11/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: c4c4ef46825469ba55b6ce42f0b2f929d655e505
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 746479cf873c44ddd9533e4a539a598b9ebc2aa9
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028855"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363407"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>关于 Azure 到 Azure 复制的网络
 
@@ -60,11 +60,13 @@ login.chinacloudapi.cn | 对于 Site Recovery 服务 URL 的授权和身份验�
     - 允许这些地址，才能从 VM 将数据写入到缓存存储帐户。
 - 创建一个基于 [Azure Active Directory (AAD) 服务标记](../virtual-network/security-overview.md#service-tags)的 NSG 规则以允许访问与 AAD 对应的所有 IP 地址
     - 如果将来要向 Azure Active Directory (AAD) 添加新地址，则需要创建新的 NSG 规则。
-
-<!-- Notice: Pending the Manager's respond [XML file](https://aka.ms/site-recovery-public-ips)-->
+    
+    <!-- Notice: Pending the Manager's respond [XML file](https://aka.ms/site-recovery-public-ips)-->
+    
 - 在生产 NSG 中创建所需的 NSG 规则之前，建议先在测试 NSG 中创建这些规则，并确保没有任何问题。
 
 
+<!--Not Available on Storage.region useage on Mooncake-->
 <!-- Notice: Source Location: US East, China East To target location:　US Central, China North -->
 <!-- Not Available 
 
@@ -133,4 +135,5 @@ These rules are required so that replication can be enabled from the target regi
 - 详细了解为 Azure 虚拟机故障转移[保留 IP 地址](site-recovery-retain-ip-azure-vm-failover.md)。
 - 详细了解[使用 ExpressRoute 的 Azure 虚拟机](azure-vm-disaster-recovery-with-expressroute.md)的灾难恢复。
 
-<!--Update_Description: wording update, update link  -->
+<!--Update_Description: update meta properties, wording update  -->
+

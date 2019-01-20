@@ -1,25 +1,25 @@
 ---
 title: 使用 Azure 虚拟机进行高级自动缩放
 description: 使用包含多个规则和配置文件的 Resource Manager 与 VM 规模集，通过缩放操作发送电子邮件和调用 Webhook URL。
-author: anirudhcavale
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 02/22/2016
-ms.author: ancav
+ms.date: 01/21/19
+ms.author: v-lingwu
 ms.component: autoscale
-ms.openlocfilehash: 77728f0f1f90c45dc3a831df67462d3a175f23fa
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.openlocfilehash: 7105c881b9365c71a00cbe6fbbfe2092fd7ac428
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141743"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363557"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>使用 VM 规模集的 Resource Manager 模板的高级自动缩放配置
 可以根据性能指标阈值，按循环计划或按特定日期扩展和缩减虚拟机规模集。 还可以为缩放操作配置电子邮件和 webhook 通知。 本文演示了在 VM 规模集上使用 Resource Manager 模板配置以上所有对象的示例。
 
 > [!NOTE]
-> 虽然本演练说明了 VM 规模集的步骤，但相同的信息适用于自动缩放[云服务](https://azure.microsoft.com/services/cloud-services/)、[应用服务 - Web应用](https://azure.microsoft.com/services/app-service/web/)和 [API 管理服务](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)。有关基于简单性能指标（如 CPU）的 VM 规模集上的简单缩小/扩大设置，请参阅 [Linux](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md) 和 [Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) 文档
+> 虽然本演练说明了 VM 规模集的步骤，但相同的信息适用于自动缩放[云服务](https://www.azure.cn/services/cloud-services/)、[应用服务 - Web应用](https://www.azure.cn/services/app-service/web/)和 [API 管理服务](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)。有关基于简单性能指标（如 CPU）的 VM 规模集上的简单缩小/扩大设置，请参阅 [Linux](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md) 和 [Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) 文档
 >
 >
 

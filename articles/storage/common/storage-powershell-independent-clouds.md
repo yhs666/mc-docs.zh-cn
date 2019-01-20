@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 10/24/2017
-ms.date: 01/14/2019
+ms.date: 01/21/2019
 ms.author: v-jay
 ms.component: common
-ms.openlocfilehash: 83ed50510642b66d66c7a1ff2556cf0b5f141566
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: 3466e394d078d03dd8486302311fbd6c11cf0f29
+ms.sourcegitcommit: 317ea7e3b2d307569d3bf7777bd3077013ae4df6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192823"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334485"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>使用 PowerShell 管理 Azure 独立云中的存储
 
@@ -38,7 +38,7 @@ ms.locfileid: "54192823"
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
-运行 [Get-AzEnvironment](https://docs.microsoft.com/powershell/module/az.profile/get-Azenvironment) cmdlet 以查看可用的 Azure 环境：
+运行 [Get-AzEnvironment](https://docs.microsoft.com/powershell/module/az.accounts/get-azenvironment) cmdlet 以查看可用的 Azure 环境：
    
 ```powershell
 Get-AzEnvironment
@@ -73,7 +73,7 @@ Get-AzLocation | select Location, DisplayName
 
 ### <a name="get-endpoint-using-get-azenvironment"></a>使用 Get-AzEnvironment 获取终结点 
 
-使用 [Get-AzEnvironment](https://docs.microsoft.com/powershell/module/az.profile/get-azenvironment) 检索终结点后缀。 终结点是环境的 *StorageEndpointSuffix* 属性。 以下代码片段演示了如何执行此操作。 所有这些命令返回类似于“core.chinacloudapi.cn”的内容。 将此内容追加到存储服务即可访问该服务。 例如，追加“queue.core.chinacloudapi.cn”可访问中国云中的队列服务。
+使用 [Get-AzEnvironment](https://docs.microsoft.com/powershell/module/az.accounts/get-azenvironment) 检索终结点后缀。 终结点是环境的 *StorageEndpointSuffix* 属性。 以下代码片段演示了如何执行此操作。 所有这些命令返回类似于“core.chinacloudapi.cn”的内容。 将此内容追加到存储服务即可访问该服务。 例如，追加“queue.core.chinacloudapi.cn”可访问中国云中的队列服务。
 
 此代码片段检索所有环境，以及每个环境的终结点后缀。
 
@@ -115,7 +115,7 @@ Get-AzEnvironment -Name AzureChinaCloud
 若只要检索存储终结点后缀属性，请检索特定的云，并仅请求该属性。
 
 ```powershell
-$environment = Get-AzureRmEnvironment -Name AzureChinaCloud
+$environment = Get-AzEnvironment -Name AzureChinaCloud
 Write-Host "Storage EndPoint Suffix = " $environment.StorageEndpointSuffix 
 ```
 

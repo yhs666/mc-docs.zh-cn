@@ -11,21 +11,21 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 10/19/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 3ffa6b72566b2b1119725d40ef699ce5470050d1
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+origin.date: 01/03/2019
+ms.date: 01/21/2019
+ms.openlocfilehash: 565b018689c61d04209add50d8d784cb60b45bd8
+ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672811"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363792"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-firewall-rules"></a>Azure SQL 数据库和 SQL 数据仓库防火墙规则
 
 Azure [SQL 数据库](sql-database-technical-overview.md)和 [SQL 数据仓库](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)为 Azure 和其他基于 Internet 的应用程序提供关系型数据库服务。 为了保护你的数据，在你指定哪些计算机具有访问权限之前，防火墙将禁止所有对数据库服务器的访问。 防火墙基于每个请求的起始 IP 地址授予数据库访问权限。
 
 > [!NOTE]
-> 本文适用于 Azure SQL 服务器，同时也适用于在 Azure SQL 服务器中创建的 SQL 数据库和 SQL 数据仓库数据库。 为简单起见，在提到 SQL 数据库和 SQL 数据仓库时，本文统称 SQL 数据库。 
+> 本文适用于 Azure SQL 服务器，同时也适用于在 Azure SQL 服务器中创建的 SQL 数据库和 SQL 数据仓库数据库。 为简单起见，在提到 SQL 数据库和 SQL 数据仓库时，本文统称 SQL 数据库。
 
 ## <a name="virtual-network-rules-as-alternatives-to-ip-rules"></a>将虚拟网络规则作为 IP 规则的替代
 
@@ -56,9 +56,9 @@ Azure [SQL 数据库](sql-database-technical-overview.md)和 [SQL 数据仓库](
 
 建议尽量使用数据库级防火墙规则，以增强安全性并提高数据库的可移植性。 如果多个数据库具有相同的访问要求，并且你不想花时间分别配置每个数据库，则使用管理员的服务器级防火墙规则。
 
-> [!Important]
+> [!IMPORTANT]
 > Azure SQL 数据库支持最多 128 个防火墙规则。
-> [!Note]
+> [!NOTE]
 > 有关业务连续性上下文中的可移植数据库的信息，请参阅[灾难恢复的身份验证要求](sql-database-geo-replication-security-config.md)。
 
 ### <a name="connecting-from-the-internet"></a>从 Internet 连接
@@ -100,7 +100,7 @@ Azure [SQL 数据库](sql-database-technical-overview.md)和 [SQL 数据仓库](
 
 ### <a name="from-database-overview-page"></a>从数据库概述页
 
-1. 若要从数据库概览页设置服务器级防火墙规则，请单击工具栏上的“设置服务器防火墙”，如下图所示：SQL 数据库服务器的“防火墙设置”页随即打开。
+1. 若要从数据库概述页设置服务器级防火墙规则，请单击工具栏上的“设置服务器防火墙”，如下图所示：此时会打开 SQL 数据库服务器的“防火墙设置”页。
 
       ![服务器防火墙规则](./media/sql-database-get-started-portal/server-firewall-rule.png)
 
@@ -221,7 +221,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 - **本地防火墙配置：**
 
-  在计算机可以访问 Azure SQL 数据库之前，可能需要在计算机上创建针对 TCP 端口 1433 的防火墙例外。 如果要在 Azure 云边界内部建立连接，可能需要打开其他端口。 有关详细信息，请参阅[用于 ADO.NET 4.5 和 SQL 数据库的非 1433 端口](sql-database-develop-direct-route-ports-adonet-v12.md)中的 **SQL 数据库：外部与内部**部分。
+  在计算机可以访问 Azure SQL 数据库之前，可能需要在计算机上创建针对 TCP 端口 1433 的防火墙例外。 如果要在 Azure 云边界内部建立连接，可能需要打开其他端口。 有关详细信息，请参阅 **SQL 数据库：外部与内部**部分（在[用于 ADO.NET 4.5 和 SQL 数据库的非 1433 端口](sql-database-develop-direct-route-ports-adonet-v12.md)中）。
 
 - **网络地址转换 (NAT)：**
 
@@ -246,7 +246,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 - 有关创建数据库级和服务器级防火墙规则的快速入门，请参阅[创建 Azure SQL 数据库](sql-database-get-started-portal.md)。
 - 有关从开放源或第三方应用程序连接到 Azure SQL 数据库的帮助，请参阅 [SQL 数据库的客户端快速入门代码示例](https://msdn.microsoft.com/library/azure/ee336282.aspx)。
-- 有关可能需要打开的其他端口的信息，请参阅[用于 ADO.NET 4.5 和 SQL 数据库的非 1433 端口](sql-database-develop-direct-route-ports-adonet-v12.md)中的 **SQL 数据库：外部与内部**部分
+- 有关可能需要打开的其他端口的信息，请参阅 **SQL 数据库：外部与内部**部分（在[用于 ADO.NET 4.5 和 SQL 数据库的非 1433 端口](sql-database-develop-direct-route-ports-adonet-v12.md)中）
 - 有关 Azure SQL 数据库安全概述，请参阅[保护数据库](sql-database-security-overview.md)
 
 <!--Image references-->

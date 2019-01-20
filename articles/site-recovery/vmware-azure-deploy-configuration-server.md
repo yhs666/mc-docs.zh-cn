@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 11/18/2018
-ms.date: 12/10/2018
+origin.date: 12/11/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: ff82eaaa980c923779485185d6e98d83848691e0
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: b07fe5a8ef7ef8c772aa3a37fe277f86807e8fc6
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028602"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363411"
 ---
 # <a name="deploy-a-configuration-server"></a>部署配置服务器
 
@@ -99,7 +99,7 @@ ms.locfileid: "53028602"
 
 ### <a name="configure-settings"></a>配置设置
 
-1. 在配置服务器管理向导中选择“设置连接”，然后选择进程服务器用于接收来自 VM 的复制流量的 NIC。 再选择“保存”。 配置后无法更改此设置。
+1. 在配置服务器管理向导中选择“设置连接”，然后选择进程服务器用于接收来自 VM 的复制流量的 NIC。 再选择“保存”。 配置后无法更改此设置。 强烈建议不要更改配置服务器的 IP 地址。 请确保分配给配置服务器的 IP 是静态 IP，而不是 DHCP IP。
 2. 在“选择恢复服务保管库”中，登录到 Azure，选择自己的 Azure 订阅以及相关的资源组和保管库。
 
     > [!NOTE]
@@ -150,6 +150,13 @@ ms.locfileid: "53028602"
 7. 在哪里可以下载保管库注册密钥？
 
     在“恢复服务保管库”中，“管理” > “Site Recovery 基础结构” > “配置服务器”。 在“服务器”中，选择“下载注册密钥”以下载保管库凭据文件。
+8. 是否可以克隆现有配置服务器并将其用于复制业务流程？
+
+    **不能**，不支持使用克隆的配置服务器组件。
+
+9. 能否更改配置服务器的 IP？
+
+    **否**，强烈建议不要更改配置服务器的 IP 地址。 请确保分配给配置服务器的所有 IP 是静态 IP，而不是 DHCP IP。
 
 ## <a name="troubleshoot-deployment-issues"></a>排查部署问题
 

@@ -10,14 +10,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
 origin.date: 11/07/2018
-ms.date: 12/25/2018
+ms.date: 01/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: 2f073e410ea61d2567acab2d65f3b50a2323a34d
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 2faf9794823b87bd12210f2388fd6eff8e773a84
+ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806661"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334192"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>使用 JavaScript 创建你的第一个持久函数
 
@@ -211,5 +211,6 @@ ms.locfileid: "53806661"
 你已使用 Visual Studio Code 创建并发布了一个 JavaScript 持久函数应用。
 
 > [!div class="nextstepaction"]
-> [了解常见的持久函数模式](durable-functions-overview.md)
+> [了解常见的持久函数模式](durable-functions-concepts.md)
 
+<!-- Update_Description: link update -->

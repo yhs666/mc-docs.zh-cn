@@ -12,14 +12,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 12/06/2018
-ms.date: 01/07/2019
-ms.openlocfilehash: 640f6eb4df8147766d7ec1f954a337e0e44c9e38
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+origin.date: 01/11/2019
+ms.date: 01/21/2019
+ms.openlocfilehash: a9a49a2dc14a556c3a6f58c3eaf5f9cbf1a3fa7b
+ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996243"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363768"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>快速入门：使用 Visual Studio Code 连接和查询 Azure SQL 数据库
 
@@ -33,7 +33,7 @@ ms.locfileid: "53996243"
 
 #### <a name="install-visual-studio-code"></a>安装 Visual Studio Code
 
-请确保已安装最新版 [Visual Studio Code](https://code.visualstudio.com/Download) 并加载了 [mssql 扩展](https://aka.ms/mssql-marketplace)。 有关 mssql 扩展的安装指南，请参阅[安装 VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code) 和 [mssql for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql)（适用于 Visual Studio Code 的 mssql）。 
+请确保已安装最新版 [Visual Studio Code](https://code.visualstudio.com/Download) 并加载了 [mssql 扩展](https://aka.ms/mssql-marketplace)。 有关 mssql 扩展的安装指南，请参阅[安装 VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-and-start-visual-studio-code) 和 [mssql for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql)（适用于 Visual Studio Code 的 mssql）。
 
 ## <a name="configure-visual-studio-code"></a>配置 Visual Studio Code 
 
@@ -89,7 +89,7 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 
 4. 按照提示指定新配置文件的连接属性。 指定每个值后，选择 **Enter** 以继续。 
 
-   | 属性       | 建议的值 | 说明 |
+   | 属性  | 建议的值 | 说明|
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **服务器名称** | 完全限定的服务器名称 | 类似于：**mynewserver20170313.database.chinacloudapi.cn**。 |
    | **数据库名称** | mySampleDatabase | 要连接到的数据库。 |

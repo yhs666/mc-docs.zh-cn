@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 03/21/2018
 ms.date: 09/10/2018
 ms.author: v-jay
-ms.openlocfilehash: 405c7bc4731e000bbf9417b0204c44b9939bad76
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 46ca2a3d6935ff7c8058ef59c26f3e857784342b
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651733"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397046"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>使用 RA-GRS 设计高度可用的应用程序
 
@@ -145,7 +145,7 @@ ms.locfileid: "52651733"
 
 可使用三个主要选项监视主要区域中的重试频率，以便确定何时切换到次要区域并将应用程序更改为在只读模式下运行。
 
-*   为传递到存储请求的 [**OperationContext**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) 对象上的[**重试**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx)事件添加处理程序 - 这是本文演示的方法，且在随附的示例中使用了该方法。 每当客户端重试请求时都将触发这些事件，以便跟踪客户端在主终结点上遇到可重试错误的频率。
+*   为传递到存储请求的 [**OperationContext**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) 对象上的[**重试**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx)事件添加处理程序 - 这是本文演示的方法，且在随附的示例中使用了该方法。 每当客户端重试请求时都会触发这些事件，以便跟踪客户端在主终结点上遇到可重试错误的频率。
 
     ```csharp 
     operationContext.Retrying += (sender, arguments) =>
@@ -234,4 +234,4 @@ static function OnBeforeResponse(oSession: Session) {
 
 * 有关读取访问异地冗余的详细信息及如何设置 LastSyncTime 的另一示例，请参阅 [Windows Azure Storage Redundancy Options and Read Access Geo-Redundant Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/)（Windows Azure 存储冗余选项和读取访问异地冗余存储）。
 
-* 有关如何在主终结点和辅助终结点之间来回切换的完整示例，请参阅 [Azure Samples – Using the Circuit Breaker Pattern with RA-GRS storage](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs)（Azure 示例 - 将断路器模式与 RA-GRS 存储配合使用）。
+* 有关如何在主终结点和辅助终结点之间来回切换的完整示例，请参阅 [Azure Samples - Using the Circuit Breaker Pattern with RA-GRS storage](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs)（Azure 示例 - 将断路器模式与 RA-GRS 存储配合使用）。

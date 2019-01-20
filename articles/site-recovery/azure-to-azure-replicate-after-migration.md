@@ -5,15 +5,15 @@ services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: article
-origin.date: 07/06/2018
-ms.date: 12/10/2018
+origin.date: 11/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: c3a01f78d6ecbf13bacc6aa74ecfb3ca999218db
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: a9cc8e46bb1d4afa2c93d5720e004dabfc9191aa
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028657"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363561"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>设置 Azure VM 迁移到 Azure 后的灾难恢复 
 
@@ -56,4 +56,5 @@ Azure [VM 代理](../virtual-machines/extensions/agent-windows.md)必须安装�
 
 将 Azure VM [快速复制](azure-to-azure-quickstart.md)到次要区域。
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->
+

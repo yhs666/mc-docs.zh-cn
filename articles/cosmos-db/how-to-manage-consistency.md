@@ -1,19 +1,18 @@
 ---
 title: 了解如何在 Azure Cosmos DB 中管理一致性
 description: 了解如何在 Azure Cosmos DB 中管理一致性
-services: cosmos-db
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 10/17/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 72b12e3902fe0e71addc0a523b55c56e79aa2da5
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: 7ab2b56be5062d9a74d844367c713453c40c5132
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026793"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309110"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中管理一致性级别
 
@@ -232,5 +231,4 @@ item = client.ReadItem(doc_link, options)
 * [管理区域之间的冲突](how-to-manage-conflicts.md)
 * [分区和数据分布](partition-data.md)
 
-<!-- Update_Description: new articles on cosmos db how to manage consistency -->
-<!--ms.date: 12/03/2018-->
+<!-- Update_Description: update meta properties -->

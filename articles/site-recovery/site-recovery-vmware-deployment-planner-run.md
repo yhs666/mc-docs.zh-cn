@@ -5,15 +5,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 10/11/2018
-ms.date: 12/10/2018
+origin.date: 12/28/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: e612d09214515363fa2f59301df53b01fabcb9a0
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 1dea26ff73fbda8f625846eab6c9ccd381ca03d8
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028830"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363400"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>运行用于从 VMware 灾难恢复到 Azure 的 Azure Site Recovery 部署规划器
 本文为适用于 VMware 到 Azure 生产部署的 Azure Site Recovery Deployment Planner 用户指南。
@@ -28,7 +28,7 @@ ms.locfileid: "53028830"
 首先，请以分析模式运行该工具，收集 VM 数据变动量和 IOPS。 接下来，运行该工具以生成报表，确定网络带宽、存储要求和 DR 成本。
 
 ## <a name="profile-vmware-vms"></a>分析 VMware VM
-在分析模式下，Deployment Planner 工具将连接到 vCenter 服务器/vSphere ESXi 主机，以便收集有关 VM 的性能数据。
+在分析模式下，Deployment Planner 工具连接到 vCenter 服务器/vSphere ESXi 主机，以便收集有关 VM 的性能数据。
 
 * 分析不会影响生产 VM 的性能，因为不会与其进行直接连接。 所有性能数据是从 vCenter 服务器/vSphere ESXi 主机收集的。
 * 为了确保分析对服务器造成的影响可忽略不计，该工具每隔 15 分钟对 vCenter 服务器/vSphere ESXi 主机查询一次。 该查询时间间隔不会降低分析的准确性，因为该工具会存储每一分钟的性能计数器数据。
@@ -53,7 +53,7 @@ ms.locfileid: "53028830"
 
             Get-VM |  Select Name | Sort-Object -Property Name >  <outputfile.txt>
 
-6. 在记事本中打开输出文件，并将要分析的所有 VM 的名称复制到另一文件（例如 ProfileVMList.txt）中，每行一个 VM 名称。 此文件将用作命令行工具的 *-VMListFile* 参数的输入。
+6. 在记事本中打开输出文件，然后将要分析的所有 VM 的名称复制到另一文件（例如 ProfileVMList.txt）中，每行一个 VM 名称。 此文件用作命令行工具的 *-VMListFile* 参数的输入。
 
     ![Deployment Planner 中的 VM 名称列表
 ](media/site-recovery-vmware-deployment-planner-run/profile-vm-list-v2a.png)
@@ -83,11 +83,11 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 | -StorageAccountKey | （可选）用于访问存储帐户的存储帐户密钥。 转到 Azure 门户 >“存储帐户”> <*存储帐户名称*> >“设置”>“访问密钥”> 密钥 1。 |
 | -Environment | （可选）这是目标 Azure 存储帐户环境。 这可以是以下三个值之一：AzureChinaCloud、AzureUSGovernment、AzureChinaCloud。 默认值为 AzureChinaCloud。 当目标 Azure 区域为 Azure 美国政府版或 Azure 中国云时，请使用此参数。 |
 
-建议在分析 VM 时，分析 7 天以上。 如果变动量模式在某个月发生变化，建议在看到最大变动量的一周内进行分析。 最好的方式是分析 31 天，以便获取更好的建议。 在分析过程中，ASRDeploymentPlanner.exe 将保持运行。 该工具将取以天为单位的分析时间输入。 若要快速测试此工具或获取概念证明，可以分析数小时或数分钟。 允许的最短分析时间为 30 分钟。
+建议在分析 VM 时，分析 7 天以上。 如果变动量模式在某个月发生变化，建议在看到最大变动量的一周内进行分析。 最好的方式是分析 31 天，以便获取更好的建议。 在分析过程中，ASRDeploymentPlanner.exe 会保持运行。 该工具将取以天为单位的分析时间输入。 若要快速测试此工具或获取概念证明，可以分析数小时或数分钟。 允许的最短分析时间为 30 分钟。
 
 在分析期间，可以选择性地传递存储帐户名称和密钥，确定在从配置服务器或进程服务器复制到 Azure 时，Site Recovery 可实现的吞吐量。 如果在分析期间不传递存储帐户名称和密钥，该工具不会计算可实现的吞吐量。
 
-可以针对各个 VM 集运行该工具的多个实例。 确保不要在任何分析集中重复使用 VM 名称。 例如，如果已分析 10 个 VM（VM1 到 VM10），过几天后又想要分析另外 5 个 VM（VM11 到 VM15），则可通过另一个命令行控制台针对第二组 VM（VM11 到 VM15）运行该工具。 请确保第二组 VM 不包含第一个分析实例中的任何 VM 名称，或请确保为第二次运行使用不同的输出目录。 如果使用该工具的两个实例分析相同的 VM 并使用相同的输出目录，生成的报告将不准确。
+可以针对各个 VM 集运行该工具的多个实例。 确保不要在任何分析集中重复使用 VM 名称。 例如，如果已分析 10 个 VM（VM1 到 VM10），过几天后又想要分析另外 5 个 VM（VM11 到 VM15），则可通过另一个命令行控制台针对第二组 VM（VM11 到 VM15）运行该工具。 请确保第二组 VM 不包含第一个分析实例中的任何 VM 名称，或请确保为第二次运行使用不同的输出目录。 如果使用该工具的两个实例分析相同的 VM 并使用相同的输出目录，生成的报告不准确。
 
 默认情况下，此工具配置为在分析后为最多 1000 个 VM 生成报告。 若要更改限制，可以更改 *ASRDeploymentPlanner.exe.config* 文件中的 MaxVMsSupported 项值。
 ```
@@ -100,7 +100,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 
 如果有多个 vCenter 服务器，需为每个 vCenter 服务器运行一个 ASRDeploymentPlanner 实例，以便进行分析。
 
-VM 配置会在分析操作开始时捕获一次，存储在名为 VMDetailList.xml 的文件中。 生成报告时使用此信息。 从分析开始到结束都不捕获 VM 配置中发生的任何更改（例如，核心、磁盘或 NIC 数增加）。 如果分析的 VM 配置在分析过程中发生了更改，则可在公共预览版中通过下述解决方法在生成报告时获取最新的 VM 详细信息：
+VM 配置会在分析操作开始时捕获一次，存储在名为 VMDetailList.xml 的文件中。 生成报告时会使用此信息。 从分析开始到结束都不捕获 VM 配置中发生的任何更改（例如，核心、磁盘或 NIC 数增加）。 如果分析的 VM 配置在分析过程中发生了更改，则可在公共预览版中通过下述解决方法在生成报告时获取最新的 VM 详细信息：
 
 * 备份 VMdetailList.xml 文件，并将其从当前位置删除。
 * 生成报告时传递 -User 和 -Password 参数。
@@ -131,12 +131,15 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 >[!NOTE]
 >
 >* 如果运行该工具的服务器重启或崩溃，或者使用 Ctrl + C 关闭该工具，系统会保存分析数据。 但是，过去 15 分钟的分析数据可能会丢失。 在这种情况下，请在服务器重新启动后以分析模式重新运行该工具。
->* 如果传递了存储帐户名称和密钥，该工具会在执行最后一个分析步骤时测量吞吐量。 如果在分析完成之前关闭该工具，则不会计算吞吐量。 若要在生成报告之前确定吞吐量，可通过命令行控制台运行 GetThroughput 操作。 否则，生成的报告将不包含吞吐量信息。
+>* 如果传递了存储帐户名称和密钥，该工具会在执行最后一个分析步骤时测量吞吐量。 如果在分析完成之前关闭该工具，则不会计算吞吐量。 若要在生成报告之前确定吞吐量，可通过命令行控制台运行 GetThroughput 操作。 否则，生成的报告不包含吞吐量信息。
 
 ## <a name="generate-report"></a>生成报告
 该工具生成一个启用了宏的 Microsoft Excel 文件（XLSM 文件）作为报告输出，对所有部署建议进行了汇总。 该报告名为 DeploymentPlannerReport_<unique numeric identifier>.xlsm，置于指定目录中。
 
-完成分析后，可在报告生成模式下运行该工具。 下表包含一系列必需的和可选的工具参数，适用于在报告生成模式下 运行。
+>[!NOTE]
+>该报告需要将小数点符号配置为“.”，以便在运行部署计划器的服务器上生成成本估算。 如果已在 Windows 计算机上设置了“,”作为小数点符号，请转到“控制面板”中的“更改日期、时间或数字格式”，然后转到“其他设置”将小数点符号更改为“.”。
+
+完成分析后，可在报告生成模式下运行该工具。 下表包含一系列必需的和可选的工具参数，适用于在报告生成模式下运行。
 
 `ASRDeploymentPlanner.exe -Operation GenerateReport /?`
 
@@ -148,7 +151,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 |-Virtualization|指定虚拟化类型（VMware 或 Hyper-V）。|
 | -Directory | （可选）UNC 或本地目录路径，其中存储了分析数据（在分析期间生成的文件）。 需要使用此数据来生成报告。 如果未指定名称，则使用“ProfiledData”目录。 |
 | -GoalToCompleteIR | （可选）小时数，需在此时间段内完成已分析 VM 的初始复制。 生成的报告将提供可在指定时间内完成初始复制的 VM 数。 默认值为 72 小时。 |
-| -User | （可选）用于连接到 vCenter/vSphere 服务器的用户名。 此名称用于获取要在报告中使用的最新 VM 配置信息，例如磁盘数、核心数、NIC 数。 如果未提供此名称，将使用开始分析时收集的配置信息。 |
+| -User | （可选）用于连接到 vCenter/vSphere 服务器的用户名。 此名称用于获取要在报告中使用的最新 VM 配置信息，例如磁盘数、核心数、NIC 数。 如果未提供此名称，则使用开始分析时收集的配置信息。 |
 | -Password | （可选）用于连接到 vCenter 服务器/vSphere ESXi 主机的密码。 如果密码未作为参数指定，则稍后在执行命令时，系统会提示指定。 |
 |-Port|（可选）用于连接到 vCenter/ESXi 主机的端口号。 默认端口为 443。|
 |-Protocol|（可选）用于连接到 vCenter 的指定协议，即“http”或“https”。 默认协议为 https。|
@@ -158,7 +161,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 | -EndDate | （可选）采用 MM-DD-YYYY:HH:MM 格式（24 小时制）的结束日期和时间。 “EndDate”必须与“StartDate”一起指定。 如果指定 EndDate，会根据从 StartDate 到 EndDate 收集的分析数据生成报告。 |
 | -GrowthFactor | （可选）增长系数，以百分比表示。 默认值为 30%。 |
 | -UseManagedDisks | （可选）UseManagedDisks - 是/否。 默认值为“是”。 计算可放置到单个存储帐户中的虚拟机数量时要考虑到：对虚拟机进行的故障转移/测试性故障转移是在托管磁盘而不是非托管磁盘上完成的。 |
-|-SubscriptionId |（可选）订阅 GUID。 可以根据订阅、与订阅相关联的套餐、特定的目标 Azure 区域和指定的货币，按照最新的价格使用此参数生成成本估算报表。|
+|-SubscriptionId |（可选）订阅 GUID。 请注意，当你需要根据订阅、与订阅相关联的套餐使用“指定的货币”中的特定目标 Azure 区域的最新价格生成成本估算报告时，此参数是必需的。|
 |-TargetRegion|（可选）充当复制目标的 Azure 区域。 由于 Azure 的成本因区域而异，因此可使用此参数来生成特定目标 Azure 区域的报表。<br>默认值为 ChinaNorth 或上次使用的目标区域。|
 |-OfferId|（可选）与给定订阅关联的套餐。 默认为 MS-MC-ARZ-33P（标准预付款）。|
 |-Currency|（可选）在生成的报表中显示的成本所采用的货币。|
@@ -207,7 +210,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Serve
 <!-- Not Avaiable on #### Example 7: Generate a report for South India Azure region with Indian Rupee and specific offer ID -->
 
 ## <a name="percentile-value-used-for-the-calculation"></a>用于计算的百分位值
-**在生成报告时，该工具将使用分析期间收集的性能指标的哪个默认百分位值？**
+**在生成报告时，该工具使用分析期间收集的性能指标的哪个默认百分位值？**
 
 该工具默认使用分析所有 VM 期间收集的读/写 IOPS、写入 IOPS 和数据变动量的第 95 百分位值。 此指标可确保系统不使用第 100 百分位峰值（在发生临时事件时，可能会出现在 VM 中）来确定目标存储帐户和源带宽需求。 例如，临时事件可能是一天运行一次的备份作业、定期发生的数据库索引编制或分析报告生成活动，或者其他类似的短期时间点事件。
 
@@ -260,7 +263,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Serve
 | -VMListFile | 一个文件，其中包含一系列可以通过分析来计算所消耗带宽的 VM。 文件路径可以是绝对或相对路径。 此文件应该每行包含一个 VM 名称/IP 地址。 此文件中指定的 VM 名称应与 vCenter 服务器/vSphere ESXi 主机上的 VM 名称相同。<br>例如，VMList.txt 文件包含以下 VM：<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
 | -Environment | （可选）这是目标 Azure 存储帐户环境。 这可以是以下三个值之一：AzureChinaCloud、AzureUSGovernment、AzureChinaCloud。 默认值为 AzureChinaCloud。 当目标 Azure 区域为 Azure 美国政府版或 Azure 中国云时，请使用此参数。 |
 
-该工具将在指定的目录中创建多个 64 MB 的 asrvhdfile<#>.vhd 文件（其中“#”是文件编号）。 该工具会将这些文件上传到存储帐户来确定吞吐量。 测出吞吐量后，该工具会从存储帐户和本地服务器中删除所有这些文件。 如果该工具在计算吞吐量时因故被终止，它不会从存储或本地服务器中删除这些文件。 需要手动删除这些文件。
+该工具会在指定的目录中创建多个 64 MB 的 asrvhdfile<#>.vhd 文件（其中“#”是文件编号）。 该工具会将这些文件上传到存储帐户来确定吞吐量。 测出吞吐量后，该工具会从存储帐户和本地服务器中删除所有这些文件。 如果该工具在计算吞吐量时因故被终止，它不会从存储或本地服务器中删除这些文件。 需要手动删除这些文件。
 
 吞吐量是根据指定时间点测量的，也是在其他所有系数保持相同的前提下，Site Recovery 可实现的最大吞吐量。 例如，如果任何应用程序在相同的网络中开始消耗更多的带宽，则在复制期间实际吞吐量会有所变化。 如果从配置服务器运行 GetThroughput 命令，该工具无法识别任何受保护的 VM 和正在进行的复制。 如果是在受保护 VM 的数据变动量高时运行 GetThroughput 操作，则所测吞吐量的结果会有所不同。 建议在分析期间的不同时间点运行该工具，了解在不同时间能够达到的吞吐量水平。 在报告中，该工具会显示最后一个测得的吞吐量。
 
@@ -271,7 +274,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_Profil
 
 >[!NOTE]
 >
-> 在与配置服务器具有相同存储和 CPU 特征的服务器上运行该工具。
+> 注意在与配置服务器具有相同存储和 CPU 特征的服务器上运行该工具。
 >
 > 对于复制，请设置建议的带宽以满足 100% 时间的 RPO。 在设置适当的带宽后，如果工具所报告的已实现吞吐量没有增长，请执行以下操作：
 >

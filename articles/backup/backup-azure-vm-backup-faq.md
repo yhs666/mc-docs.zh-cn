@@ -6,14 +6,14 @@ author: lingliw
 manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/3/2019
+ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 30892a612d6f50d9716feb9d560b9bf5dc6b4c96
-ms.sourcegitcommit: f46e1f7a5d582bb9663bfaee8087b233eb822e17
+ms.openlocfilehash: 83f0611180bfd9e3ea5e6f96953fba27161ea5ca
+ms.sourcegitcommit: c01292a935bd307a3326e86cb454d8fa2b561399
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996496"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363638"
 ---
 # <a name="frequently-asked-questions-azure-backup"></a>常见问题解答 - Azure 备份
 
@@ -56,11 +56,9 @@ ms.locfileid: "53996496"
 ### <a name="does-the-backup-policy-consider-daylight-saving-time-dst"></a>备份策略是否考虑夏令时 (DST)？
 否。 本地计算机上的日期和时间是应用了当前夏令时的当地时间。 由于 DST，为计划的备份设置的时间可能不同于当地时间。
 
-### <a name="how-many-data-disks-can-i-attach-to-a-vm-backed-up-by-azure-backup"></a>可将多少个数据磁盘附加到 Azure 备份要备份的 VM？
-Azure 备份可以备份最多包含 16 个磁盘的 VM。 Azure 备份堆栈的[最新版本](backup-upgrade-to-vm-backup-stack-v2.md)支持 16 个磁盘。
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Azure 备份是否支持标准 SSD 托管磁盘？
-Azure 备份支持[标准 SSD 托管磁盘](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)，该磁盘是 Azure 虚拟机的一种新型持久存储器。 [Azure VM 备份堆栈 V2](backup-upgrade-to-vm-backup-stack-v2.md) 上的托管磁盘支持它。
+Azure 备份支持[标准 SSD 托管磁盘](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)，该磁盘是 Azure 虚拟机的一种新型持久存储器。
 
 ## <a name="restore"></a>还原
 
@@ -93,8 +91,6 @@ Azure 备份支持[标准 SSD 托管磁盘](https://azure.microsoft.com/blog/ann
 ### <a name="how-to-restore-a-vm-to-the-same-availability-sets"></a>如何将 VM 还原到相同的可用性集？
 对于托管磁盘 Azure VM，可以在还原托管磁盘时通过在模板中提供一个选项，来实现还原到可用性集。 此模板包含名为“可用性集”的输入参数。
 
-### <a name="how-do-we-get-faster-restore-performances"></a>我们提高还原速度？
-若要提高还原的速度，我们建议改用 VM 备份堆栈 V2 并使用[即时 RP 功能](backup-upgrade-to-vm-backup-stack-v2.md)。
 
 ## <a name="manage-vm-backups"></a>管理 VM 备份
 

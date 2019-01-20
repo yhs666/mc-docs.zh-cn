@@ -142,8 +142,6 @@ items:
       href: firewall-support.md
     - name: 从虚拟网络访问
       href: vnet-service-endpoint.md
-    - name: Key Vault 支持
-      href: access-secrets-from-keyvault.md
   - name: 企业就绪情况
     items:
     - name: 联机备份和还原
@@ -429,9 +427,9 @@ items:
       href: use-cases.md
     - name: 社交媒体应用
       href: social-media-apps.md
-ms.openlocfilehash: a5ef020936fe8c700433f420694c97b71729902d
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: e2906f7c8ffcf6195c0de41848f9f020a62663c7
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026819"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309167"

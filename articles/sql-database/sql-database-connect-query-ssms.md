@@ -14,12 +14,12 @@ ms.reviewer: ''
 manager: craigg
 origin.date: 12/04/2018
 ms.date: 01/07/2019
-ms.openlocfilehash: 476125e580b6e7349539b2f2c1d1d76a19c32294
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 5f9526af91e583d09d9b4c63f80b058ed9837622
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996300"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396927"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>快速入门：使用 SQL Server Management Studio 连接和查询 Azure SQL 数据库
 
@@ -53,7 +53,7 @@ ms.locfileid: "53996300"
 
 2. 输入以下信息：
 
-   | 设置      | 建议的值    | 说明 | 
+   | 设置      | 建议的值    | 说明 | 
    | ------------ | ------------------ | ----------- | 
    | **服务器类型** | 数据库引擎 | 所需的值。 |
    | **服务器名称** | 完全限定的服务器名称 | 类似于：**mynewserver20170313.database.chinacloudapi.cn**。 |

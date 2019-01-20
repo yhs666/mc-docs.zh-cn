@@ -5,15 +5,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 07/06/2018
-ms.date: 12/10/2018
+origin.date: 11/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: bb0649f662c6e2b7aa8e77bf010203b6dc161a20
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 0ec1880b878111ff2f33458f0ba5f016ce8f8647
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028457"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363554"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>准备目标（VMware 到 Azure）
 
@@ -43,4 +43,4 @@ ms.locfileid: "53028457"
 ## <a name="next-steps"></a>后续步骤
 [配置复制设置](vmware-azure-set-up-replication.md)。
 
-<!--Update_Description: update meta properties, wording udpate  -->
+<!--Update_Description: update meta properties -->

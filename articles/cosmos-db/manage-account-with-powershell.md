@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 12/06/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 57f003f507840bd443dba2c502cc1fa4a3d2a3fd
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: 0e849318a4e7c3469d378a15fb89581d84e91cb1
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026641"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309212"
 ---
 # <a name="create-and-manage-azure-cosmos-db-resources-by-using-powershell"></a>使用 PowerShell 创建和管理 Azure Cosmos DB 资源
 
@@ -209,4 +209,4 @@ ms.locfileid: "54026641"
 [azure-resource-tags]: /azure-resource-manager/resource-group-using-tags
 [rp-rest-api]: https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/
 
-<!-- Update_Description: update meta properties, update link, wording update  -->
+<!-- Update_Description: update meta properties, wording update  -->

@@ -6,16 +6,16 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-origin.date: 09/22/2018
-ms.date: 12/10/2018
+origin.date: 11/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 21fbf08a5860ccf836dbc4d9e26d2ceadf1d5496
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 3670c46605e039103423e457bafad504868e7756
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028592"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363468"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>将运行 Windows Server 2008 的服务器迁移到 Azure
 
@@ -84,7 +84,10 @@ ms.locfileid: "53028592"
 ## <a name="create-a-recovery-services-vault"></a>创建恢复服务保管库
 
 1. 登录到 [Azure 门户](https://portal.azure.cn) > **恢复服务**。
-2. 单击“创建资源” > “监视和管理” > “备份和站点恢复”。
+2. 单击“创建资源” > “监视 + 管理” > “备份和站点恢复”。
+
+    <!--Submenu is Correct on **Monitoring + Management**-->
+
 3. 在“名称”中，指定友好名称 **W2K8-migration**。 如果有多个订阅，请选择合适的一个。
 4. 创建资源组 **w2k8migrate**。
 5. 指定 Azure 区域。 若要查看受支持的区域，请参阅 [Azure Site Recovery 定价详细信息](https://www.azure.cn/pricing/details/site-recovery/)中的“地域可用性”。

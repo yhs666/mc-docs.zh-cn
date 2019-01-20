@@ -1,19 +1,18 @@
 ---
 title: 了解如何管理 Azure Cosmos DB 中区域之间的冲突
 description: 了解如何管理 Azure Cosmos DB 中的冲突
-services: cosmos-db
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 10/17/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: a9595b287e3e36e455aafdd877867edcfe1b4979
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: 4be8ef63ec1bcf76663046c9723db5286e83e888
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026714"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309096"
 ---
 # <a name="manage-conflicts-between-regions"></a>管理区域之间的冲突
 
@@ -303,5 +302,4 @@ while conflict:
 * [分区和数据分布](partition-data.md)
 * [Azure Cosmos DB 中的索引](indexing-policies.md)
 
-<!-- Update_Description: new articles on cosmos db how to manage conflicts -->
-<!--ms.date: 12/03/2018-->
+<!-- Update_Description: update meta properties -->

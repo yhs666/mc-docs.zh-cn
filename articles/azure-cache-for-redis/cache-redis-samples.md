@@ -13,14 +13,14 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: multiple
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 01/09/2019
+ms.date: 01/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: aac7ba1eebfc0a55fc73273be6048e860dda8538
-ms.sourcegitcommit: 0384e865d001a5640233ebcc84d99f31f4833fca
+ms.openlocfilehash: cb78016df383dfce560947a7cf4fea87a1f7eb9c
+ms.sourcegitcommit: e79651227d4378e6d24f9ab155b9f4fee044b2c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193208"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334267"
 ---
 # <a name="azure-cache-for-redis-samples"></a>“用于 Redis 的 Azure 缓存”示例
 本主题提供 Azure Redis 缓存示例列表，包括连接到缓存、从缓存读取数据和将数据写入缓存，以及使用 ASP.NET Azure Redis 缓存提供程序等方案。 有些示例是可下载的项目，有些示例提供了分步指南并包含代码片段但没有链接到可下载的项目。
@@ -48,7 +48,7 @@ ms.locfileid: "54193208"
 [在缓存中处理 .NET 对象](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache)演示了如何对 .NET 对象进行序列化，以便可以将它写入到 Azure Redis 缓存实例以及从中读取它。 
 
 ## <a name="use-azure-cache-for-redis-as-a-scale-out-backplane-for-aspnet-signalr"></a>将 Azure Redis 缓存用作 ASP.NET SignalR 的横向扩展基架
-[将 Azure Redis 缓存用作 ASP.NET SignalR 的横向扩展基架](https://github.com/rustd/RedisSamples/tree/master/RedisAsSignalRBackplane)示例演示如何将 Azure Redis 缓存用作 SignalR 基架。 有关基架的更多信息，请参阅 [采用 Redis 的 SignalR 扩展](http://www.asp.net/signalr/overview/performance/scaleout-with-redis)。
+[将 Azure Redis 缓存用作 ASP.NET SignalR 的横向扩展基架](https://github.com/rustd/RedisSamples/tree/master/RedisAsSignalRBackplane)示例演示如何将 Azure Redis 缓存用作 SignalR 基架。 有关基架的更多信息，请参阅 [采用 Redis 的 SignalR 扩展](https://www.asp.net/signalr/overview/performance/scaleout-with-redis)。
 
 ## <a name="azure-cache-for-redis-customer-query-sample"></a>Azure Redis 缓存客户查询示例
 此示例对从缓存访问数据与从持久存储访问数据时的性能进行了比较。 此示例有两个项目。
@@ -71,4 +71,5 @@ ms.locfileid: "54193208"
 ## <a name="bandwidth-monitor"></a>带宽监视器
 [带宽监视器](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) 示例允许监视客户端上使用的带宽。 要测量带宽、请在缓存客户端计算机上运行该示例，对缓存执行调用，并观察带宽监视器示例报告的带宽。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->
+

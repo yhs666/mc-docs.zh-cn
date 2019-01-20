@@ -1,21 +1,20 @@
 ---
-title: 通过 .NET 开始使用 Azure 表存储 | Azure
+title: 通过 .NET 开始使用 Azure 表存储
 description: 使用 Azure 表存储将结构化数据存储在云中。
-services: cosmos-db
 author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 origin.date: 08/17/2018
-ms.date: 01/07/2019
-ms.author: v-yeche
-ms.openlocfilehash: e9fea23052f74ec0e8af216eecde3860fce4a596
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.date: 01/21/2019
+ms.openlocfilehash: 239d814670c1e87d0424b56fa27a1c1d3b84ca3d
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026711"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309189"
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>通过 .NET 开始使用 Azure 表存储
 

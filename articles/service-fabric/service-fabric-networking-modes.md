@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/23/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 29fa2f9c3e6fba7bdfed767770e3d9742838d64b
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: cd77a32e65dc1ffbec87ec144973ae9165795af7
+ms.sourcegitcommit: 35a09a86cbb3d896fa9784471ece41df7728bd71
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083789"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396699"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric 容器网络模式
 
@@ -36,7 +36,7 @@ ms.locfileid: "54083789"
 
 ## <a name="set-up-open-networking-mode"></a>设置开放网络模式
 
-1. 设置 Azure 资源管理器模板。 在 fabricSettings 部分，启用 DNS 服务和 IP 提供程序： 
+1. 设置 Azure 资源管理器模板。 在群集资源的 fabricSettings 部分中，启用 DNS 服务和 IP 提供程序： 
 
     ```json
     "fabricSettings": [
@@ -79,7 +79,9 @@ ms.locfileid: "54083789"
             ],
     ```
 
-2. 设置网络配置文件部分，以允许在群集的每个节点上配置多个 IP 地址。 下例为 Windows/Linux Service Fabric 群集的每个节点设置了五个 IP 地址。 在每个节点的端口上都可以有五个服务实例侦听。 若要可从 Azure 负载均衡器访问这五个 IP，请按如下所示在 Azure 负载均衡器后端地址池中注册这五个 IP。
+2. 设置虚拟机规模集资源的网络配置文件部分。 这允许在群集的每个节点上配置多个 IP 地址。 下例为 Windows/Linux Service Fabric 群集的每个节点设置了五个 IP 地址。 在每个节点的端口上都可以有五个服务实例侦听。 若要可从 Azure 负载均衡器访问这五个 IP，请按如下所示在 Azure 负载均衡器后端地址池中注册这五个 IP。  还需要在变量部分中将变量添加到模板的顶部。
+
+    将此部分添加到变量：
 
     ```json
     "variables": {
@@ -98,6 +100,11 @@ ms.locfileid: "54083789"
         "lbHttpProbeID0": "[concat(variables('lbID0'),'/probes/FabricHttpGatewayProbe')]",
         "lbNatPoolID0": "[concat(variables('lbID0'),'/inboundNatPools/LoadBalancerBEAddressNatPool')]"
     }
+    ```
+
+    将此部分添加到虚拟机规模集资源：
+
+    ```json   
     "networkProfile": {
                 "networkInterfaceConfigurations": [
                   {

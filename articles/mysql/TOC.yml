@@ -40,6 +40,8 @@ items:
       href: tutorial-design-database-using-portal.md
     - name: Azure CLI
       href: tutorial-design-database-using-cli.md
+    - name: Azure Resource Manager 模板
+      href: tutorial-provision-mysql-server-using-Azure-Resource-Manager-templates.md
   - name: 2 - 创建 Web 应用
     items:
     - name: Wordpress - 门户
@@ -47,7 +49,7 @@ items:
     - name: 将 PHP 与 MySQL 配合使用
       href: ../app-service/app-service-web-tutorial-php-mysql.md?toc=%2fmysql%2ftoc.json
     - name: 将 Java 与 MySQL 配合使用
-      href: ../app-service/app-service-web-tutorial-java-mysql.md?toc=%2fmysql%2ftoc.json
+      href: /app-service/app-service-web-tutorial-java-mysql?toc=%2fmysql%2ftoc.json
 - name: 示例
   items:
   - name: Azure CLI
@@ -180,6 +182,8 @@ items:
     href: /cli/mysql
   - name: REST API
     href: https://docs.microsoft.com/rest/api/mysql
+  - name: Resource Manager 模板
+    href: https://docs.microsoft.com/azure/templates/microsoft.dbformysql/allversions
   - name: 复制中数据存储过程
     href: reference-data-in-stored-procedures.md
 - name: 资源
@@ -194,9 +198,9 @@ items:
       href: videos.md
   - name: 支持选项
     href: https://www.azure.cn/zh-cn/support/contact/
-ms.openlocfilehash: f636f128823f38f70aa70952cf287d5a32bebd0e
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 8fd930895a702d1da5ef464bc0e64ded02a38700
+ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672730"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54333880"

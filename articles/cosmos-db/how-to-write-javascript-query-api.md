@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 12/11/2018
-ms.date: 12/31/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 45ea0dac650c54972f8cf1251101ae9211fcd4fb
-ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
+ms.openlocfilehash: 985bdf79510dd4ed598d8ea60084c182f8711dca
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814799"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309234"
 ---
 # <a name="how-to-write-stored-procedures-and-triggers-in-azure-cosmos-db-by-using-the-javascript-query-api"></a>如何使用 JavaScript 查询 API 在 Azure Cosmos DB 中编写存储过程和触发器
 
@@ -94,5 +94,4 @@ function insertDocumentAndUpdateMetadata(item) {
 
 * [Azure Cosmos DB 中的综合分区键](synthetic-partition-keys.md)
 
-<!-- Update_Description: new articles on how to write javascript query api -->
-<!--ms.date: 12/31/2018-->
+<!-- Update_Description: update meta properties, wording update -->

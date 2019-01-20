@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 3fa2339bef71429e310c207eb114d6edcffc50cc
+ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54333863"
+---
 # [媒体服务文档](index.md)
 
 # [概述](media-services-overview.md)
@@ -128,7 +136,7 @@
 ### [存储加密](media-services-rest-storage-encryption.md)
 ### [AES-128 加密](media-services-protect-with-aes128.md)
 ### [适用于流式处理的 FairPlay](media-services-protect-hls-with-fairplay.md)
-### [适用于 Windows 10 的脱机 PlayReady](https://blogs.msdn.microsoft.com/playready4/2016/10/26/does-azure-media-services-support-offline-mode/)
+### [适用于 Windows 10 的脱机 PlayReady](offline-playready-streaming-windows-10.md)
 ### [适用于 iOS 的脱机 FairPlay](media-services-protect-hls-with-offline-fairplay.md)
 ### [在 Azure 门户中配置](media-services-portal-protect-content.md)
 ### [传送 DRM 许可证](media-services-deliver-keys-and-licenses.md)
@@ -145,6 +153,8 @@
 #### [.NET](media-services-dotnet-configure-content-key-auth-policy.md)
 #### [REST](media-services-rest-configure-content-key-auth-policy.md)
 ### [将身份验证令牌传递到 AMS](media-services-pass-authentication-tokens.md)
+### 引用设计
+#### [混合 DRM 系统设计](hybrid-design-drm-sybsystem.md)
 
 ## [分析](media-services-analytics-overview.md)
 ### [使用 Azure 门户分析媒体](media-services-portal-analyze.md)

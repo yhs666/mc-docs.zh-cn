@@ -1,20 +1,21 @@
 ---
-title: 部署 Azure IoT Edge 模块 (VS Code) | Microsoft Docs
+title: 通过 Visual Studio Code 部署模块 - Azure IoT Edge | Microsoft Docs
 description: 使用 Visual Studio Code 将模块部署至 IoT Edge 设备
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/26/2018
+ms.date: 01/09/2019
 ms.topic: conceptual
 ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d127fc9dff400344251064f9f5a41bdd0c1e743e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.custom: seodec18
+ms.openlocfilehash: efbdd63f6a48e641f5ff28f01ad38b67f96eeeaa
+ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650436"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396762"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>通过 Visual Studio Code 部署 Azure IoT Edge 模块
 
@@ -27,7 +28,7 @@ ms.locfileid: "52650436"
 * Azure 订阅中的 [IoT 中心](../iot-hub/iot-hub-create-through-portal.md)。 
 * 已安装 IoT Edge 运行时的 [IoT Edge 设备](how-to-register-device-portal.md)。 
 * [Visual Studio Code](https://code.visualstudio.com/)。
-* 适用于 Visual Studio Code 的 [Azure IoT Edge 扩展](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)。 
+* 适用于 Visual Studio Code 的 [Azure IoT 工具](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview)。
 
 ## <a name="configure-a-deployment-manifest"></a>配置部署清单
 
@@ -109,7 +110,7 @@ ms.locfileid: "52650436"
 
 2. 在资源管理器底部，展开“Azure IoT 中心设备”部分。 
 
-   ![展开 Azure IoT 中心设备](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
+   ![展开“Azure IoT 中心设备”部分](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
 
 3. 单击“Azure IoT 中心设备”部分标题中的“...”。 如果没有看到省略号，请将鼠标悬停在标题处。 
 
@@ -128,9 +129,12 @@ ms.locfileid: "52650436"
 
 1. 在 Visual Studio Code 资源管理器视图中，展开“Azure IoT 中心设备”部分。 
 
-2. 右键单击想使用部署清单配置的设备。 
+1. 右键单击要使用部署清单配置的 IoT Edge 设备。
 
-3. 选择“为单个设备创建部署”。 
+    > [!TIP]
+    > 若要确认已选择的设备为 IoT Edge 设备，请选择它以展开模块列表并验证是否存在“$ edgeHub”和“$ edgeAgent”。 每个 IoT Edge 设备都包含这两个模块。
+
+1. 选择“为单个设备创建部署”。
 
 4. 导航至要使用的部署清单 JSON 文件，然后单击“选择 Edge 部署清单”。 
 

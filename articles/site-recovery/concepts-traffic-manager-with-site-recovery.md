@@ -6,17 +6,18 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 10/16/2018
-ms.date: 12/10/2018
+origin.date: 11/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: cc609cee1c2b2367a799b21d3ae3b3d5337c8b7f
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: c656420f5993483f1a037d343ef96259bd6caf79
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028647"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363433"
 ---
 <!-- Notice: Source location Azure East, China East TO Target location Azure Sourth East, China North-->
+
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>将 Azure 流量管理器与 Azure Site Recovery 配合使用
 
 使用 Azure 流量管理器可以控制流量在应用程序终结点之间的分布。 终结点可以是托管在 Azure 内部或外部的任何面向 Internet 的服务。
@@ -69,7 +70,9 @@ Azure 流量管理器的[加权](../traffic-manager/traffic-manager-configure-we
 设置如下：
 - **公司 C** 创建[流量管理器配置文件](../traffic-manager/traffic-manager-create-profile.md)。
 - **公司 C** 利用**优先级**路由方法创建两个终结点 – 针对源区域（Azure 中国东部）的**主要**终结点，以及针对恢复区域（Azure 中国北部）的**故障转移**终结点。 为**主要**终结点分配优先级 1，为**故障转移**终结点分配优先级 2。
-    <!-- Notice: Source location Azure East, China East TO Target location Azure Sourth East, China North-->
+    
+<!-- Notice: Source location Azure East, China East TO Target location Azure Sourth East, China North-->
+    
 - 由于**主要**终结点托管于 Azure 中，因此它可以用作 [Azure](../traffic-manager/traffic-manager-endpoint-types.md#azure-endpoints) 终结点。
 - 使用 Azure Site Recovery 时，Azure 恢复站点在故障转移之前不会运行任何虚拟机或应用程序。 因此，**故障转移**终结点可创建为[外部](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints)终结点。
 - 用户流量默认定向到源区域（中国东部）应用程序，因为该终结点的关联优先级最高。 如果**主要**终结点处于正常状态，则不会将任何流量路由到恢复区域。
@@ -79,6 +82,7 @@ Azure 流量管理器的[加权](../traffic-manager/traffic-manager-configure-we
 在发生灾难时，**公司 C** 可以触发[故障转移](azure-to-azure-tutorial-failover-failback.md)，并在恢复 Azure 区域中恢复其应用程序。 当 Azure 流量管理器检测到主要终结点不再正常时，会自动在 DNS 响应中使用**故障转移**终结点，用户将连接到恢复 Azure 区域（中国北部）中已恢复的应用程序。
 
 <!--Notice: the recovery Azure region (China North)-->
+
 ![Azure 到 Azure 故障转移之后](./media/concepts-traffic-manager-with-site-recovery/azure-failover-after.png)
 
 根据业务要求，**公司 C** 可以选择以更高或更低的[探测频率](../traffic-manager/traffic-manager-monitoring.md)在源区域与恢复区域之间切换，并确保将用户停机时间减到最小。
@@ -94,6 +98,7 @@ Azure 流量管理器的[加权](../traffic-manager/traffic-manager-configure-we
 此设置的问题在于，如果**终结点 1** 出于任何原因停止工作，则不会将任何流量重定向到**终结点 2**。 来自中国的流量持续定向到**终结点 1**，而不管该终结点的运行状况如何，因此，中国用户无法访问**公司 D** 的应用程序。 同样，如果**终结点 2** 脱机，则不会将任何流量重定向到**终结点 1**。
 
 <!--Notice: Change Germain to China -->
+
 ![设置前的多区域应用程序](./media/concepts-traffic-manager-with-site-recovery/geographic-application-before.png)
 
 为了避免发生此问题并确保应用程序的复原能力，**公司 D** 通过 Azure Site Recovery 使用了[嵌套式流量管理器配置文件](../traffic-manager/traffic-manager-nested-profiles.md)。 在嵌套式配置文件设置中，流量不会定向到单个终结点，而是定向到其他流量管理器配置文件。 下面是此设置的工作原理：
@@ -127,6 +132,6 @@ Azure 流量管理器的[加权](../traffic-manager/traffic-manager-configure-we
 - 详细了解[嵌套式流量管理器配置文件](../traffic-manager/traffic-manager-nested-profiles.md)。
 - 详细了解[终结点监视](../traffic-manager/traffic-manager-monitoring.md)。
 - 详细了解如何使用[恢复计划](site-recovery-create-recovery-plans.md)自动执行应用程序故障转移。
-<!-- Update_Description: update meta properties -->
 
+<!-- Update_Description: update meta properties -->
 <!-- Notice: Source location Azure East, China East TO Target location Azure Sourth East, China North-->

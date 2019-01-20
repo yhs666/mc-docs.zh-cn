@@ -4,16 +4,17 @@ description: 总结了对使用 Azure Site Recovery 将 VMware VM 或物理服�
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
+services: site-recovery
 ms.topic: article
-origin.date: 10/29/2018
-ms.date: 12/10/2018
+origin.date: 12/31/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2b73de2cfcd908da9ae57f962bd37dbb9d6abfc5
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 2399634264db9652243cd17498260a1be084756b
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028522"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363412"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>将 VMware VM 和物理服务器灾难恢复到辅助站点时的支持矩阵
 
@@ -123,4 +124,4 @@ Scout 更新 | [了解和下载](vmware-physical-secondary-disaster-recovery.md#
 - [将 VMM 云中的 Hyper-V VM 复制到辅助站点](tutorial-vmm-to-vmm.md)
 - [将 VMware VM 和物理服务器复制到辅助站点](tutorial-vmware-to-vmware.md)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

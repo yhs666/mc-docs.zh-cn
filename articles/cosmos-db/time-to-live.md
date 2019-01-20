@@ -1,18 +1,19 @@
 ---
-title: 利用生存时间使 Azure Cosmos DB 中的数据过期 | Azure
+title: 利用生存时间使 Azure Cosmos DB 中的数据过期
 description: 通过 TTL 功能，Azure Cosmos DB 能够在一段时间后将文档自动从系统中清除。
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/14/2018
-ms.date: 12/03/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 39ab398bd660c07e4deae48a124837f6a678d985
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.reviewer: sngun
+ms.openlocfilehash: e267df9d142c5470016968bb292df668eb09c759
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675583"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309139"
 ---
 # <a name="time-to-live-for-azure-cosmos-db-data"></a>Azure Cosmos DB 数据的生存时间
 

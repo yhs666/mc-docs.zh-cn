@@ -9,14 +9,14 @@ ms.service: expressroute,vpn-gateway,virtual-network
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 10/18/2018
-ms.date: 01/07/2019
+ms.date: 01/28/2019
 ms.author: v-biyu
-ms.openlocfilehash: a615ca543f1a1d108f504298d56c87df38066fbf
-ms.sourcegitcommit: a46f12240aea05f253fb4445b5e88564a2a2a120
+ms.openlocfilehash: 858cb19176b96378f842967eab0a715ba2049c73
+ms.sourcegitcommit: ced39ce80d38d36bdead66fc978d99e93653cb5f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785316"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54307617"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-setup"></a>Azure 后端连接功能中的互操作性：测试设置
 
@@ -65,9 +65,13 @@ ExpressRoute 充当冗余的线路对，可确保高可用性。 可在不同的
 
 ## <a name="next-steps"></a>后续步骤
 
+了解测试拓扑的[配置详细信息][Configuration]。
 
+了解测试设置的[控制平面分析][Control-Analysis]，以及拓扑中不同 VNet 或 VLAN 的视图。
 
-请参阅 [ExpressRoute 常见问题解答][ExR-FAQ]：
+了解测试设置的[数据平面分析][Data-Analysis]，以及 Azure 网络监视功能视图。
+
+参阅 [ExpressRoute 常见问题解答][ExR-FAQ]，了解：
 -   了解可将多少条 ExpressRoute 线路连接到一个 ExpressRoute 网关。
 -   了解可将多少个 ExpressRoute 网关连接到一条 ExpressRoute 线路。
 -   ExpressRoute 的其他缩放限制。
@@ -80,7 +84,9 @@ ExpressRoute 充当冗余的线路对，可确保高可用性。 可在不同的
 [ExpressRoute]: https://docs.azure.cn/zh-cn/expressroute/expressroute-introduction
 [VPN]: https://docs.azure.cn/zh-cn/vpn-gateway/vpn-gateway-about-vpngateways
 [VNet]: https://docs.azure.cn/zh-cn/virtual-network/tutorial-connect-virtual-networks-portal
-
+[Configuration]: connectivty-interoperability-configuration.md
+[Control-Analysis]: connectivty-interoperability-control-plane.md
+[Data-Analysis]: connectivty-interoperability-data-plane.md
 [ExR-FAQ]: https://docs.azure.cn/zh-cn/expressroute/expressroute-faqs
 
 [ExR-S2S-CoEx]: https://docs.azure.cn/zh-cn/expressroute/expressroute-howto-coexist-resource-manager

@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 61d8acec4a15d501b908165e31fa7d139020844b
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.openlocfilehash: f79b362a59e80a4b04de19d15fa51dceb8d135b0
+ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806385"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363756"
 documentType: LandingData
-title: Azure SQL 数据库 - 监视和优化
+title: Azure SQL 数据库：监视和优化
 metadata:
   document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
   title: Azure SQL 数据库 - 监视和优化
-  meta.description: Learn how to monitor and tune your Azure SQL Database.
+  meta.description: Learn how to monitor and tune your Azure SQL database.
   services: sql-database
   author: WenJason
   manager: digimobile
@@ -19,7 +19,7 @@ metadata:
   ms.devlang: 
   ms.topic: overview
   origin.date: 12/12/2018
-  ms.date: 12/31/2018
+  ms.date: 01/21/2019
   ms.author: v-jay
 sections:
 - items:
@@ -38,17 +38,17 @@ sections:
       html: <p>自动优化可以自动提供建议并修复查询计划问题，创建和删除索引以提高性能。</p>
     - title: 性能建议
       href: /sql-database/sql-database-advisor
-      html: <p>Azure SQL 数据库会在 Azure 门户中提供可以帮助你优化数据库的一组建议。</p>
+      html: <p>Azure SQL 数据库提供了可帮助优化 Azure 门户中的数据库的建议。</p>
 - title: 更多资源
   items:
   - type: paragraph
-    text: 了解可帮助你优化数据库性能的其他功能。
+    text: 了解有助于优化数据库性能的其他功能。
   - type: list
     style: unordered
     items:
     - html: 详细了解 Azure SQL 数据库中的<a href="sql-database-monitor-tune-overview.md">监视和优化</a>。
     - html: 了解<a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/sql-database/toc.json">智能查询处理</a>可以如何改进数据库性能。
     - html: 设置和操作<a href="sql-database-operate-query-store.md">查询存储</a> - 核心 SQL Server 技术，可以用来实时洞察查询性能。
-    - html: 了解如何使用<a href="sql-database-operate-query-store.md">动态管理视图</a>分析工作负荷的性能。
+    - html: 详细了解如何使用<a href="sql-database-operate-query-store.md">动态管理视图</a>分析工作负载的性能。
     - html: 了解如何使用 <a href="sql-database-xevent-db-diff-from-svr.md">XEvents</a> 监视数据库活动。
     - html: 了解如何<a href="sql-database-performance-guidance.md">手动优化数据库</a>。

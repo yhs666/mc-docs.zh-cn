@@ -1,20 +1,19 @@
 ---
-title: Azure Cosmos DB 中各种一致性级别的可用性和性能权衡 | Azure
+title: Azure Cosmos DB 中各种一致性级别的可用性和性能权衡
 description: Azure Cosmos DB 中各种一致性级别的可用性和性能利弊。
-keywords: 一致性, 性能, azure cosmos db, azure, Azure 世纪互联
-services: cosmos-db
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 10/20/2018
-ms.date: 12/31/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3c0a68046d4200095ed7c651b9556a1c54bfcf05
-ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
+ms.reviewer: sngun
+ms.openlocfilehash: 23a886171b61ad96dad8dbc4fe6e10b3d8c29abb
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814736"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309331"
 ---
 # <a name="availability-and-performance-tradeoffs-for-various-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB 中各种一致性级别的可用性和性能权衡
 
@@ -54,4 +53,4 @@ Azure Cosmos DB 通过某种选择范围来实现数据一致性。 此方法包
 * [高可用性](high-availability.md)
 * [Azure Cosmos DB SLA](https://www.azure.cn/support/sla/cosmos-db/)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update meta properties -->

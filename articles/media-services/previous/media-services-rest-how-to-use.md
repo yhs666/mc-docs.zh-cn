@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 10/29/2018
-ms.date: 12/03/2018
+ms.date: 01/21/2019
 ms.author: v-jay
-ms.openlocfilehash: 618805d042824f99a7b9f79e7e33acd654ad09c3
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: b1649c5c980be9273fcda6a689e55cc2f8acd12d
+ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673093"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54333917"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>媒体服务操作 REST API 概述
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "52673093"
 
 媒体服务提供一个可接受 JSON 或 atom+pub XML 格式的 REST API。 媒体服务 REST API 需要特定的 HTTP 标头（每个客户端在连接到媒体服务时必须发送这些标头）以及一组可选标头。 以下部分介绍创建请求和接收来自媒体服务的响应时可以使用的标头和 HTTP 谓词。
 
-媒体服务 REST API 中的身份验证是通过 Azure Active Directory 身份验证实现的，[通过 Azure AD 身份验证使用 REST 访问 Azure 媒体服务 API](media-services-rest-connect-with-aad.md) 一文中提供了相关概述
+对媒体服务 REST API 的身份验证通过 Azure Active Directory 身份验证完成，如[通过 Azure AD 身份验证使用 REST 访问 Azure 媒体服务 API](media-services-rest-connect-with-aad.md)一文所述
 
 ## <a name="considerations"></a>注意事项
 

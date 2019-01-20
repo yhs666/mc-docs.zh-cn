@@ -7,14 +7,14 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: conceptual
 origin.date: 11/30/2018
-ms.date: 12/24/2018
+ms.date: 01/21/2019
 ms.author: v-jay
-ms.openlocfilehash: bc31145b8cd261f963979c64e3ad4f6397ec78be
-ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+ms.openlocfilehash: 68cc68b8613ee8e1052c1c51cfbe90f0b0628f76
+ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53656603"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54333916"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>使用 PowerShell 将 Azure VPN 网关连接到多个基于策略的本地 VPN 设备
 
@@ -72,7 +72,9 @@ ms.locfileid: "53656603"
 
 ## <a name="before-you-begin"></a>准备阶段
 
-确保拥有 Azure 订阅。 如果还没有 Azure 订阅，可以注册一个 [1 元试用账户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+- 确保拥有 Azure 订阅。 如果还没有 Azure 订阅，可以注册一个 [1 元试用账户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+
+- 安装最新版本的 Azure Resource Manager PowerShell cmdlet。 有关安装 PowerShell cmdlet 的详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
 
 ## <a name="enablepolicybased"></a>对连接启用基于策略的流量选择器
 
@@ -82,7 +84,7 @@ ms.locfileid: "53656603"
 
 #### <a name="1-connect-to-your-subscription-and-declare-your-variables"></a>1.连接到订阅并声明变量
 
-[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps login.md)]
+[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
 声明变量。 在本练习中，我们使用以下变量：
 

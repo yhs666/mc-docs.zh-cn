@@ -7,14 +7,14 @@ ms.author: v-lingwu
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 1/3/2019
+ms.date: 01/21/19
 ms.custom: seodec18
-ms.openlocfilehash: 5fb7c285338499cfabb8c4030a7324ba8c85e06e
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.openlocfilehash: 7b97f35650d9fb693d409434478aa4054a0bc9fa
+ms.sourcegitcommit: c01292a935bd307a3326e86cb454d8fa2b561399
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141684"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363643"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure IoT Edge 流分析
  
@@ -45,12 +45,12 @@ ASA 使用 IoT 中心将 Edge 作业部署到设备。 [可在此处查看有关
 
 ### <a name="installation-instructions"></a>安装说明
 下表描述了高级步骤： 下面的部分将进行详细说明。
-|      |步骤   | 位置     | 注释   |
-| ---   | ---   | ---       |  ---      |
-| 1   | 创建存储容器   | Azure 门户       | 存储容器用于保存作业定义，IoT 设备可在其中进行访问它们。 <br>  你可以重用任何现有的存储容器。     |
-| 2   | 创建 ASA 边缘作业   | Azure 门户      |  创建新的作业，选择“Edge”作为“宿主环境”。 <br> 这些作业从云创建/管理，并在你自己的 IoT Edge 设备上运行。     |
-| 3   | **在设备上设置 IoT Edge 环境**   | 设备      | Windows 或 Linux 说明。          |
-| 4   | 在 IoT Edge 设备上部署 ASA   | Azure 门户      |  ASA 作业定义被导出到之前创建的存储容器。       |
+|      |步骤   | 注释   |
+| ---   | ---   |  ---      |
+| 1   | 创建存储容器   | 存储容器用于保存作业定义，IoT 设备可在其中进行访问它们。 <br>  你可以重用任何现有的存储容器。     |
+| 2   | 创建 ASA 边缘作业   |  创建新的作业，选择“Edge”作为“宿主环境”。 <br> 这些作业从云创建/管理，并在你自己的 IoT Edge 设备上运行。     |
+| 3   | **在设备上设置 IoT Edge 环境**   | [Windows](/iot-edge/quickstart) 或 [Linux](/iot-edge/quickstart-linux) 说明。          |
+| 4   | 在 IoT Edge 设备上部署 ASA   |  ASA 作业定义被导出到之前创建的存储容器。       |
 
 <!-- Not Available on [Windows](/iot-edge/quickstart)-->
 <!-- Not Available on [Linux](/iot-edge/quickstart-linux)-->
@@ -106,7 +106,7 @@ ASA 使用 IoT 中心将 Edge 作业部署到设备。 [可在此处查看有关
 - 在 Azure 门户中，打开 IoT 中心，导航到 **IoT Edge**，并单击要用于此部署的设备。
 - 选择“设置模块”，然后依次选择“+ 添加”、“Azure 流分析模块”。
 - 选择订阅和你创建的 ASA Edge 作业。 单击“保存”。
-![在部署中添加 ASA 模块](media/stream-analytics-edge/set_module.png)
+![在部署中添加 ASA 模块](media/stream-analytics-edge/add-stream-analytics-module.png)
 
 > [!Note]
 > 在此步骤中，ASA 会在存储容器中创建一个名为“EdgeJobs”的文件夹（如果该文件夹尚不存在）。 对于每项部署，“EdgeJobs”文件夹中都将创建一个新的子文件夹。
@@ -178,11 +178,11 @@ ASA Edge 作业可以从在 IoT Edge 设备上运行的其他模块获取输入�
 
 对于在 ASA 作业中创建的每个输入和输出流，都将在部署的模块上创建相应的终结点。 这些终结点可以用于部署的路由。
 
-目前，唯一支持的流输入和流输出类型是“Edge 中心”。 参考输入支持参考文件类型。 可以使用下游的云作业访问其他输出。 例如，在 Edge 中托管的流分析作业会将输出发送到 Edge 中心，然后后者可以将输出发送到 IoT 中心。 可以使用第二个云托管的 Azure 流分析作业，该作业的输入来自 IoT 中心。
-<!--Not Available on and output to Power BI or another output type-->
+目前，唯一支持的流输入和流输出类型是“Edge 中心”。 参考输入支持参考文件类型。 可以使用下游的云作业访问其他输出。 例如，在 Edge 中托管的流分析作业会将输出发送到 Edge 中心，然后后者可以将输出发送到 IoT 中心。 可以使用第二个云托管的 Azure 流分析作业，该作业的输入来自 IoT 中心，并输出到 Power BI 或其他输出类型。
+
 
 ##### <a name="reference-data"></a>引用数据
-参考数据（也称为查找表）是一个静态的或本质上缓慢变化的有限数据集。 可用于执行查找或与数据流相关联。 为了在 Azure 流分析作业中利用参考数据，通常会在查询中使用[参考数据联接](https://msdn.microsoft.com/library/azure/dn949258.aspx)。 有关详细信息，请参阅[关于参考数据的 ASA 文档](/stream-analytics/stream-analytics-use-reference-data)。
+参考数据（也称为查找表）是一个静态的或本质上缓慢变化的有限数据集。 可用于执行查找或与数据流相关联。 为了在 Azure 流分析作业中利用参考数据，通常会在查询中使用[参考数据联接](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics)。 有关详细信息，请参阅[在流分析中使用参考数据进行查找](stream-analytics-use-reference-data.md)。
 
 仅支持本地参考数据。 将作业部署到 IoT Edge 设备时，它将从用户定义的文件路径中加载参考数据。
 
@@ -205,8 +205,8 @@ IoT Edge 上的参考数据更新将由部署触发。 在触发后，ASA 模块
 * 更新 IoT Edge 部署。
 
 ## <a name="license-and-third-party-notices"></a>许可证和第三方通知
-* [IoT Edge 预览版许可证上的 Azure 流分析](https://go.microsoft.com/fwlink/?linkid=862827)。 
-* [IoT Edge 预览版上 Azure 流分析的第三方通知](https://go.microsoft.com/fwlink/?linkid=862828)。
+* [IoT Edge 上的 Azure 流分析许可证](https://go.microsoft.com/fwlink/?linkid=862827)。 
+* [IoT Edge 上的 Azure 流分析的第三方通知](https://go.microsoft.com/fwlink/?linkid=862828)。
 
 ## <a name="get-help"></a>获取帮助
 如需进一步的帮助，请尝试参考 [Azure 流分析论坛](https://www.azure.cn/support/contact/)。

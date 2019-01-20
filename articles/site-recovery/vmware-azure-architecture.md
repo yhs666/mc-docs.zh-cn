@@ -3,16 +3,17 @@ title: 使用 Azure Site Recovery 执行 VMware 到 Azure 灾难恢复的体系�
 description: 本文概述了使用 Azure Site Recovery 设置本地 VMware VM 到 Azure 的灾难恢复时使用的组件和体系结构
 author: rockboyfor
 ms.service: site-recovery
+services: site-recovery
 ms.topic: conceptual
-origin.date: 09/12/2018
-ms.date: 12/24/2018
+origin.date: 12/31/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1b92b98caca3ec9be8a8975b05b64c3acf2213a9
-ms.sourcegitcommit: b29475e13c1f54d420cdca71f90ca6a5c5116cbb
+ms.openlocfilehash: efe12366d17663c64c7381b1f8639490d09454a6
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/24/2018
-ms.locfileid: "53784551"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363512"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>VMware 到 Azure 的灾难恢复体系结构
 
@@ -83,4 +84,4 @@ ms.locfileid: "53784551"
 
 根据[此教程](vmware-azure-tutorial.md)启用 VMware 到 Azure 复制。
 
-<!-- Update_Description: update meta properties， update link, wording update -->
+<!-- Update_Description: update meta properties -->

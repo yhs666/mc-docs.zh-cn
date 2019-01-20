@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 11/14/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 879ac9bb8b1c419493d0202a4c00accca763b048
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: 33fd2ae70eee74a3685427f915f1e6e42a82889f
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026767"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309328"
 ---
 # <a name="how-to-configure-time-to-live-in-azure-cosmos-db"></a>如何在 Azure Cosmos DB 中配置生存时间
 
@@ -171,5 +171,4 @@ await client.ReplaceDocumentCollectionAsync(collection);
 
 * [生存时间](time-to-live.md)
 
-<!-- Update_Description: new articles on how to time to live -->
-<!--ms.date: 12/03/2018-->
+<!-- Update_Description: update meta properties -->

@@ -1,20 +1,18 @@
 ---
 title: 使用 BI 分析工具连接到 Azure Cosmos DB
 description: 了解如何使用 Azure Cosmos DB ODBC 驱动程序创建表和视图，以便可以在 BI 和数据分析软件中查看规范化数据。
-keywords: odbc, odbc 驱动程序
-services: cosmos-db
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 03/22/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: cf25e08b4ed37399257f6c2fb663830aa990bb76
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: a8f936b0a67912b4db8308c5491b2fc74a49a40c
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026835"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309183"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>使用 BI 分析工具和 ODBC 驱动程序连接到 Azure Cosmos DB
 

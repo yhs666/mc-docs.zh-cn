@@ -5,16 +5,16 @@ services: storage
 author: WenJason
 ms.service: storage
 ms.topic: overview
-origin.date: 10/17/2018
-ms.date: 01/14/2019
+origin.date: 01/03/2019
+ms.date: 01/21/2019
 ms.author: v-jay
 ms.component: blobs
-ms.openlocfilehash: 4e4adbb6a588b6855ccde73ed5ee6469d2ef5cc4
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: e76dd18cc736d71d8e7de2f24eae26573b00f6b3
+ms.sourcegitcommit: 317ea7e3b2d307569d3bf7777bd3077013ae4df6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192915"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334483"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Azure Blob 存储简介
 
@@ -34,7 +34,7 @@ Blob 存储提供了三种类型的资源：
 
 ### <a name="storage-accounts"></a>存储帐户
 
-存储帐户在 Azure 中为数据提供唯一的命名空间。 存储在 Azure 存储中的每个对象都有一个地址，其中包含唯一的帐户名称。 将帐户名称与 Azure 存储服务终结点组合在一起，即可构成适用于存储帐户的终结点。
+存储帐户在 Azure 中为数据提供唯一的命名空间。 存储在 Azure 存储中的每个对象都有一个地址，其中包含唯一的帐户名称。 帐户名称与 Azure 存储 blob 终结点的组合构成了存储帐户中对象的基址。
 
 例如，如果存储帐户名为 mystorageaccount，则 Blob 存储的默认终结点为：
 
@@ -57,7 +57,7 @@ Azure 存储支持三种类型的 Blob：
 
 * 块 Blob 存储文本和二进制数据，最多约为 4.7 TB。 块 Blob 由可以分别管理的数据块构成。
 * 与块 Blob 一样，追加 Blob 也由块构成，但针对追加操作进行了优化。 追加 Blob 非常适用于诸如记录来自虚拟机的数据之类的场景。
-* 页 Blob 用于存储最大 8 TB 的随机访问文件。 页 Blob 存储虚拟硬盘 (VHD) 文件作为 Azure 虚拟机的磁盘。 有关页 Blob 的详细信息，请参阅 (.../ articles/storage/blobs/storage-blob-pageblob-overview.md)
+* 页 Blob 用于存储最大 8 TB 的随机访问文件。 页 Blob 存储虚拟硬盘 (VHD) 文件作为 Azure 虚拟机的磁盘。 有关页 blob 的更多信息，请参阅 [Azure 页 blob 概述](storage-blob-pageblob-overview.md)
 
 有关不同类型 Blob 的详细信息，请参阅 [Understanding Block Blobs, Append Blobs, and Page Blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)（了解块 Blob、追加 Blob 和页 Blob）。
 

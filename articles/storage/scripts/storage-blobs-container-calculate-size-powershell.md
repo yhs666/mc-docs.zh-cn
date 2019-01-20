@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: powershell
 ms.topic: sample
 origin.date: 11/07/2017
-ms.date: 01/14/2019
+ms.date: 01/21/2019
 ms.author: v-jay
-ms.openlocfilehash: 11b70a97754884b6d221523196f98465bed101c0
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: 0990109a1f4908888e3d0add21cc35b31e810af3
+ms.sourcegitcommit: 317ea7e3b2d307569d3bf7777bd3077013ae4df6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192797"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334475"
 ---
 # <a name="calculate-the-size-of-a-blob-storage-container"></a>计算 Blob 存储容器的大小
 
@@ -89,7 +89,7 @@ Remove-AzResourceGroup -Name bloblisttestrg
 | 命令 | 注释 |
 |---|---|
 | [Get-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccount) | 获取资源组或订阅中的指定存储帐户或所有存储帐户。 |
-| [Get-AzStorageBlob](https://docs.microsoft.com/powershell/module/azure.storage/get-AzStorageblob) | 列出容器中的 Blob。 ||
+| [Get-AzStorageBlob](https://docs.microsoft.com/powershell/module/az.storage/Get-AzStorageBlob) | 列出容器中的 Blob。 ||
 
 ## <a name="next-steps"></a>后续步骤
 

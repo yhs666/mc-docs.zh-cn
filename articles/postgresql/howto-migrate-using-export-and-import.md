@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.topic: article
 origin.date: 06/01/2018
 ms.date: 08/13/2018
-ms.openlocfilehash: 8cba2870e5dc16ec8479f1be182261c9257f7fb7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 0e4275d958f1260affbbcce8647f3c2e54a7d9a5
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656600"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396916"
 ---
 # <a name="migrate-your-postgresql-database-using-export-and-import"></a>使用导入和导出功能迁移 PostgreSQL 数据库
 可以使用 [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) 将 PostgreSQL 数据库解压到脚本文件，并使用 [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) 将数据从该文件导入目标数据库。
@@ -31,7 +31,7 @@ ms.locfileid: "52656600"
 ## <a name="create-a-script-file-using-pgdump-that-contains-the-data-to-be-loaded"></a>使用 pg_dump 创建包含要加载的数据的脚本文件
 若要将本地或 VM 中现有的 PostgreSQL 数据库导出到 sql 脚本文件中，请在现有环境中运行以下命令：
 ```bash
-pg_dump –-host=<host> --username=<name> --dbname=<database name> --file=<database>.sql
+pg_dump --host=<host> --username=<name> --dbname=<database name> --file=<database>.sql
 ```
 例如，如果有一个本地服务器，并且该服务器中包含一个名为 testdb 的数据库：
 ```bash

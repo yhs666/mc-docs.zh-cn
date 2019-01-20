@@ -4,16 +4,17 @@ description: 本文概述使用 Azure Site Recovery 将本地 VMware VM 或物�
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
+services: site-recovery
 ms.topic: conceptual
-origin.date: 10/29/2018
-ms.date: 12/10/2018
+origin.date: 12/31/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4fecd98fedf0e8c88ee448ca19de1984e56b82be
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: f20df8086d541f67c32664bbe8821273a0362066
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028391"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363545"
 ---
 # <a name="architecture-for-vmwarephysical-server-replication-to-a-secondary-on-premises-site"></a>将 VMware/物理服务器复制到辅助本地站点的体系结构
 

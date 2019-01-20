@@ -10,12 +10,12 @@ origin.date: 10/30/2018
 ms.date: 01/14/2019
 ms.author: v-jay
 ms.component: files
-ms.openlocfilehash: 3cdba1b3769a624eca942ca2492967a31abc7431
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: f3b353b0f346d1e5498f11b8b4ddc83d5d2eaddd
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192883"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397027"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>在 Windows 中排查 Azure 文件问题
 
@@ -197,7 +197,7 @@ net use 命令将正斜杠 (/) 解释为命令行选项。 如果用户帐户名
 
   可以在批处理文件中通过以下方式运行该命令：
 
-  `Echo new-smbMapping ... | powershell -command –`
+  `Echo new-smbMapping ... | powershell -command -`
 
 - 将密钥用双引号括起以解决此问题（除非第一个字符是正斜杠）。 如果是，可使用交互模式并单独输入密码，或者重新生成密钥来获取不以正斜杠开头的密钥。
 

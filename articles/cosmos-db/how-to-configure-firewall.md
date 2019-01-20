@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/06/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: ba6aea6f9a9071a73aabb9fd6495648c94c48533
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: 985999eedaf01ebaeb771d919f38e7bc1468ade1
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026755"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309134"
 ---
 # <a name="configure-an-ip-firewall-for-your-azure-cosmos-db-account"></a>为 Azure Cosmos DB 帐户配置 IP 防火墙
 
@@ -167,5 +167,4 @@ az cosmosdb update \
 * [适用于 Azure Cosmos DB 帐户的虚拟网络和子网访问控制](vnet-service-endpoint.md)
 * [为 Azure Cosmos DB 帐户配置基于虚拟网络和子网的访问](how-to-configure-vnet-service-endpoint.md)
 
-<!-- Update_Description: new articles on cosmos db how to configure firewall -->
-<!--ms.date: 12/03/2018-->
+<!-- Update_Description: update meta properties -->

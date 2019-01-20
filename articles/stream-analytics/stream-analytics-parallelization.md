@@ -8,14 +8,13 @@ manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 05/07/2018
-ms.date: 11/26/2018
-ms.openlocfilehash: 2ab7c8c1eb26971e203fb42327f53afc7e45d736
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 01/21/19
+ms.openlocfilehash: 1d5d121df0d52900ca2f9f6c2cbd5fea8a6899b4
+ms.sourcegitcommit: c01292a935bd307a3326e86cb454d8fa2b561399
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674864"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363644"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>利用 Azure 流分析中的查询并行化
 本文说明了如何利用 Azure 流分析中的并行化。 了解如何通过配置输入分区和调整分析查询定义来缩放流分析作业。
@@ -38,15 +37,17 @@ ms.locfileid: "52674864"
 ### <a name="outputs"></a>Outputs
 
 处理流分析时，可利用输出中的分区：
--   Azure Functions 
+-   Azure Data Lake 存储
+-   Azure Functions
 -   Azure 表
 -   Blob 存储（可显式设置分区键）
--   CosmosDB（需显式设置分区键）
--   EventHub（需显式设置分区键）
+-   Cosmos DB（需显式设置分区键）
+-   事件中心（需显式设置分区键）
+-   IoT 中心（需显式设置分区键）
 -   服务总线 <!--Not Available - Azure Data Lake Storage-->
 <!--Not Available - IoT Hub  (need to set the partition key explicitly)-->
 
-PowerBI、SQL 和 SQL 数据仓库的输出不支持分区。 但仍可对输入进行分区，如[本节](#multi-step-query-with-different-partition-by-values)中所述 
+Power BI 不支持分区。 但仍可对输入进行分区，如[本节](#multi-step-query-with-different-partition-by-values)中所述 
 
 若要深入了解分区，请参阅以下文章：
 
@@ -80,9 +81,11 @@ PowerBI、SQL 和 SQL 数据仓库的输出不支持分区。 但仍可对输入
 
 查询：
 
+```SQL
     SELECT TollBoothId
     FROM Input1 Partition By PartitionId
     WHERE TollBoothId > 100
+```
 
 此查询是一个简单的筛选器。 因此，无需担心对发送到事件中心的输入进行分区。 请注意，该查询包含 PARTITION BY PartitionId，因此其满足上述要求 #2。 对于输出，需要在作业中配置事件中心输出，将分区键设置为“PartitionId”。 最后一项检查是确保输入分区数等于输出分区数。
 
@@ -93,9 +96,11 @@ PowerBI、SQL 和 SQL 数据仓库的输出不支持分区。 但仍可对输入
 
 查询：
 
+```SQL
     SELECT COUNT(*) AS Count, TollBoothId
     FROM Input1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
+```
 
 此查询具有分组键。 因此，组合在一起的事件必须被发送到相同事件中心分区。 由于在此示例中我们按 TollBoothID 进行分组，因此应确保在将事件发送到事件中心时，将 TollBoothID 用作分区键。 然后在 ASA 中，可以使用 PARTITION BY PartitionId 继承此分区方案并启用完全并行化。 由于输出是 Blob 存储，因此如要求 #4 所述，无需担心如何配置分区键值。
 
@@ -121,6 +126,7 @@ PowerBI 输出当前不支持分区。 因此，此方案不易并行。
 
 查询：
 
+```SQL
     WITH Step1 AS (
     SELECT COUNT(*) AS Count, TollBoothId, PartitionId
     FROM Input1 Partition By PartitionId
@@ -130,6 +136,7 @@ PowerBI 输出当前不支持分区。 因此，此方案不易并行。
     SELECT SUM(Count) AS Count, TollBoothId
     FROM Step1 Partition By TollBoothId
     GROUP BY TumblingWindow(minute, 3), TollBoothId
+```
 
 正如所见，第二步使用 **TollBoothId** 作为分区键。 此步骤与第一步不同，因此需要执行随机选择。 
 
@@ -143,6 +150,7 @@ PowerBI 输出当前不支持分区。 因此，此方案不易并行。
 
 查询：
 
+```SQL
     WITH Step1 AS (
         SELECT COUNT(*) AS Count, TollBoothId
         FROM Input1 Partition By PartitionId
@@ -151,6 +159,7 @@ PowerBI 输出当前不支持分区。 因此，此方案不易并行。
     SELECT SUM(Count) AS Count, TollBoothId
     FROM Step1
     GROUP BY TumblingWindow(minute,3), TollBoothId
+```
 
 此查询有两步。
 
@@ -182,20 +191,25 @@ PowerBI 输出当前不支持分区。 因此，此方案不易并行。
 
 以下查询计算 3 分钟时段内通过收费站（共 3 个收费亭）的车辆数。 此查询可增加到 6 个 SU。
 
+```SQL
     SELECT COUNT(*) AS Count, TollBoothId
     FROM Input1
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
+```
 
 若要对查询使用更多 SU，必须对输入数据流和查询进行分区。 由于数据流分区设置为 3，因此可将以下经修改的查询增加到 18 个 SU：
 
+```SQL
     SELECT COUNT(*) AS Count, TollBoothId
     FROM Input1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
+```
 
 对查询进行分区后，会在独立的分区组中处理和聚合输入事件。 此外，还会为每个组生成输出事件。 在输入数据流中，当 **GROUP BY** 字段不是分区键时，执行分区可能会导致某些意外的结果。 例如，在前面的查询中，**TollBoothId** 字段不是 **Input1** 的分区键。 因此，可以将 TollBooth #1 中的数据分布到多个分区。
 
 流分析会分开处理每个 **Input1** 分区。 因此，将在相同的翻转窗口为同一收费亭创建多个关于车辆数的记录。 如果不能更改输入分区键，则可通过添加不分区步骤以跨分区聚合值来解决此问题，如下例所示：
 
+```SQL
     WITH Step1 AS (
         SELECT COUNT(*) AS Count, TollBoothId
         FROM Input1 Partition By PartitionId
@@ -205,6 +219,7 @@ PowerBI 输出当前不支持分区。 因此，此方案不易并行。
     SELECT SUM(Count) AS Count, TollBoothId
     FROM Step1
     GROUP BY TumblingWindow(minute, 3), TollBoothId
+```
 
 此查询可增加到 24 个 SU。
 

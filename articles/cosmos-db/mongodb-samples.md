@@ -1,22 +1,20 @@
 ---
 title: 使用 Azure Cosmos DB 的用于 MongoDB 的 API 构建 Node.js 应用
 description: 本教程介绍了如何通过 Azure Cosmos DB 的用于 MongoDB 的 API 创建联机数据库。
-keywords: mongodb 示例
-services: cosmos-db
-author: rockboyfor
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: sample
 origin.date: 12/26/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
+author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: 134538640768aa780d31f63a1aa613d44d9cb94a
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: 037602017d12c311f879147fe9ece3349f6f63b5
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026703"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309078"
 ---
 # <a name="build-an-app-using-nodejs-and-azure-cosmos-dbs-api-for-mongodb"></a>使用 Node.js 和 Azure Cosmos DB 的用于 MongoDB 的 API 构建应用 
 > [!div class="op_single_selector"]
@@ -178,4 +176,4 @@ ms.locfileid: "54026703"
 - 了解如何将 [Robo 3T](mongodb-robomongo.md) 与 Azure Cosmos DB 的用于 MongoDB 的 API 配合使用。
 - 通过 Azure Cosmos DB 的用于 MongoDB 的 API 来浏览 MongoDB [示例](mongodb-samples.md)。
 
-<!-- Update_Description: update meta properties, update link -->
+<!-- Update_Description: update meta properties, wording update -->

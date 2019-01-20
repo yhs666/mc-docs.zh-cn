@@ -13,12 +13,12 @@ ms.reviewer: vanto, carlrab
 manager: digimobile
 origin.date: 12/03/2018
 ms.date: 12/31/2018
-ms.openlocfilehash: a93e289d7d053e7857a45c8ad3615f3d28aca1bd
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.openlocfilehash: c5663387639e78019aef9da19859342263690005
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806164"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397043"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>使用 Azure Active Directory 身份验证进行 SQL 身份验证
 

@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 12/11/2018
-ms.date: 12/25/2018
+ms.date: 01/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: 299c7d24df272a5786425e81458771560fc366a8
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 1c899e698478d4fe698d03f710a88ade504e4e59
+ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806708"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334201"
 ---
 # <a name="durable-functions-unit-testing"></a>Durable Functions 单元测试
 
@@ -425,7 +425,8 @@ namespace VSSample.Tests
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [详细了解 xUnit](http://xunit.github.io/docs/getting-started-dotnet-core)
+> [详细了解 xUnit](https://xunit.github.io/docs/getting-started-dotnet-core)
 
 > [详细了解 moq](https://github.com/Moq/moq4/wiki/Quickstart)
 
+<!-- Update_Description: link update -->

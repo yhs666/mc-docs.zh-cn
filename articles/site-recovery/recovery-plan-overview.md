@@ -3,17 +3,18 @@ title: 在灾难恢复中将恢复计划与 Azure Site Recovery 配合使用 | A
 description: 了解如何通过 Azure Site Recovery 服务使用恢复计划进行灾难恢复。
 author: rockboyfor
 manager: digimobile
+services: site-recovery
 ms.service: site-recovery
 ms.topic: article
-origin.date: 10/28/2018
-ms.date: 12/10/2018
+origin.date: 12/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 073a7d14a697078a539c74884f7e74ea3dbe2619
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 4728d31e57219817dab5e53c73dd6c2005ec90e1
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029089"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363303"
 ---
 # <a name="about-recovery-plans"></a>关于恢复计划
 
@@ -34,15 +35,15 @@ ms.locfileid: "53029089"
 
 可以规划并创建一个恢复组来捕获特定于应用的属性。 例如，让我们考虑一个典型的三层应用程序，该应用程序具有 SQL Server 后端、中间件和 Web 前端。 通常，你将自定义恢复计划，以便使每层中的计算机在故障转移后按正确顺序启动。
 
-- SQL 后端应首先启动，接下来是中间件，最后是 Web 前端。
-- 此启动顺序可以确保应用在最后的计算机启动之前一直保持工作。
-- 此顺序可以确保当中间件启动并尝试连接到 SQL Server 层时，SQL Server 层已在运行。 
-- 此顺序还可帮助确保前端服务器最后启动，从而确保在所有组件已启动并运行并且应用已准备好接受请求之前，最终用户不会连接到应用 URL。
+    - SQL 后端应首先启动，接下来是中间件，最后是 Web 前端。
+    - 此启动顺序可以确保应用在最后的计算机启动之前一直保持工作。
+    - 此顺序可以确保当中间件启动并尝试连接到 SQL Server 层时，SQL Server 层已在运行。 
+    - 此顺序还可帮助确保前端服务器最后启动，从而确保在所有组件已启动并运行并且应用已准备好接受请求之前，最终用户不会连接到应用 URL。
 
 若要创建此顺序，请向恢复组中添加组，然后向组中添加计算机。 
-- 如果指定了顺序，则会使用序列。 操作会根据情况并行运行，从而改进应用程序恢复 RTO。
-- 单个组中的计算机将并行进行故障转移。
-- 不同组中的计算机将按组顺序进行故障转移，因此，只有当组 1 中的计算机已进行故障转移并启动后，组 2 中的计算机才会启动。
+    - 如果指定了顺序，则会使用序列。 操作会根据情况并行运行，从而改进应用程序恢复 RTO。
+    - 单个组中的计算机将并行进行故障转移。
+    - 不同组中的计算机将按组顺序进行故障转移，因此，只有当组 1 中的计算机已进行故障转移并启动后，组 2 中的计算机才会启动。
 
     ![示例恢复计划](./media/recovery-plan-overview/rp.png)
 

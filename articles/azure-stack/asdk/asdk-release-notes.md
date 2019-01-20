@@ -15,12 +15,12 @@ origin.date: 12/21/2018
 ms.date: 01/14/2019
 ms.author: v-jay
 ms.reviewer: misainat
-ms.openlocfilehash: 3d43203e551f0901534d81a1eba3274e0e269f0c
-ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
+ms.openlocfilehash: 8b06adede04a31e45fa4983a45d7bda9e01e9079
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54059031"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397067"
 ---
 # <a name="asdk-release-notes"></a>ASDK 发行说明 
  
@@ -346,8 +346,6 @@ ms.locfileid: "54059031"
 - <!-- IS, ASDK --> **虚拟机规模集缩放**。  可以通过门户[缩放虚拟机规模集](../azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set) (VMSS)。   
 
 - <!-- 2489570 | IS ASDK--> **支持自定义 IPSec/IKE 策略配置**，这适用于 [Azure Stack 中的 VPN 网关](/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways)。
-
-- <!-- | IS ASDK--> **Kubernetes 市场项**。 现在可以使用 [Kubernetes 市场项](/azure-stack/azure-stack-solution-template-kubernetes-cluster-add)来部署 Kubernetes 群集。 用户可以选择 Kubernetes 项并填充一些参数，以便将 Kubernetes 群集部署到 Azure Stack。 模板的用途是方便用户在几个步骤中设置开发/测试型 Kubernetes 部署。
 
 <!-- ####### | IS, ASDK -->  
 - **Azure 资源管理器包括区域名称。** 使用此版本时，通过 Azure 资源管理器检索的对象现在将包括区域名称属性。 如果现有 PowerShell 脚本直接将对象传递给另一个 cmdlet，则脚本可能会产生错误并失败。 这是 Azure 资源管理器符合行为，并且要求调用方客户端去除区域属性。 有关 Azure 资源管理器的详细信息，请参阅 [Azure 资源管理器文档](/azure-resource-manager/)。

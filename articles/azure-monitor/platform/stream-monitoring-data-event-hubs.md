@@ -1,19 +1,19 @@
 ---
 title: 将 Azure 监视数据流式传输到事件中心
 description: 了解如何将所有 Azure 监视数据流式传输到事件中心，以将数据获取到合作伙伴 SIEM 或分析工具。
-author: johnkemnetz
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 11/01/2018
-ms.author: johnkem
+ms.date: 01/21/19
+ms.author: v-lingwu
 ms.component: ''
-ms.openlocfilehash: ad0c896b731b5fa2e01ccda8794bb66a135e291a
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.openlocfilehash: ff5ddb4791786517831b9b8a5adbc7745937a1a8
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141773"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363390"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>将 Azure 监视数据流式传输到事件中心以便外部工具使用
 
@@ -26,8 +26,7 @@ Azure Monitor 提供了获取 Azure 环境中所有监视数据访问权限的�
 在 Azure 环境中，有多“层”监视数据，访问每层数据的方法略有不同。 通常情况下，这些层可描述为：
 
 - **应用程序监视数据：** 有关已编写并在 Azure 上运行的代码的性能和功能的数据。 应用程序监视数据的示例包括性能跟踪、应用程序日志及用户遥测。 通常以下列的一种方式收集应用程序监视数据：
-  - 用 [Application Insights SDK](../../application-insights/app-insights-overview.md) 等 SDK 检测代码。
-  - 运行侦听应用程序运行于的计算机上的新应用程序日志的监视代理，如 [Windows Azure 诊断代理](./../../azure-monitor/platform/diagnostics-extension-overview.md)或 [Linux Azure 诊断代理](../../virtual-machines/extensions/diagnostics-linux.md)。
+   - 运行侦听应用程序运行于的计算机上的新应用程序日志的监视代理，如 [Windows Azure 诊断代理](./../../azure-monitor/platform/diagnostics-extension-overview.md)或 [Linux Azure 诊断代理](../../virtual-machines/extensions/diagnostics-linux.md)。
 - **来宾 OS 监视数据：** 有关运行应用程序的操作系统的数据。 来宾 OS 监视数据的示例有 Linux syslog 或 Windows 系统日志。 若要收集此类型的数据，需安装代理，如[ Windows Azure 诊断代理](./../../azure-monitor/platform/diagnostics-extension-overview.md)或 [Linux Azure 诊断代理](../../virtual-machines/extensions/diagnostics-linux.md)。
 - **Azure 资源监视数据：** 有关 Azure 资源操作的数据。 对于某些 Azure 资源类型（如虚拟机），该 Azure 服务中会监视来宾 OS 和应用程序。 对于其他 Azure 资源（如网络安全组），资源监视数据是可用数据的最高层（因为没有 来宾 OS 或应用程序在这些资源中运行）。 可以使用[资源诊断设置](./../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)收集这些数据。
 - **Azure 订阅监视数据：** 有关 Azure 订阅操作和管理的数据，以及有关 Azure 本身运行状况和操作的数据。 [活动日志](./../../azure-monitor/platform/activity-logs-overview.md)包含大多数订阅监视数据，例如服务运行状况事件和 Azure 资源管理器审核。 可以使用日志配置文件收集此数据。
@@ -54,7 +53,7 @@ Azure 租户监视数据目前仅适用于 Azure Active Directory。 可以使�
 
 ### <a name="azure-active-directory-data"></a>Azure Active Directory 数据
 
-若要将 Azure Active Directory 日志中的数据发送到事件中心命名空间，请在 AAD 租户上设置租户诊断设置。 请[按照此指南](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)设置租户诊断设置。
+若要将 Azure Active Directory 日志中的数据发送到事件中心命名空间，请在 AAD 租户上设置租户诊断设置。
 
 ## <a name="azure-subscription-monitoring-data"></a>Azure 订阅监视数据
 
@@ -71,7 +70,6 @@ Azure 订阅监视数据可以在 [Azure 活动日志](./../../azure-monitor/pla
 
 Azure 资源将发出两种类型的监视数据：
 1. [资源诊断日志](./../../azure-monitor/platform/diagnostic-logs-overview.md)
-2. [度量值](../../azure-monitor/platform/data-collection.md)
 
 使用资源诊断设置将两种类型的数据发送到事件中心。 [按照本指南](./../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)在特定资源上设置资源诊断设置。 在要从其收集日志的每个资源上设置资源诊断设置。
 
@@ -96,19 +94,12 @@ Azure 资源将发出两种类型的监视数据：
 > [!NOTE]
 > 不能在门户中将来宾 OS 监视数据设置为流式传输到事件中心。 相反，必须手动编辑配置文件。
 
-## <a name="application-monitoring-data"></a>应用程序监视数据
-
-应用程序监视数据要求代码经过 SDK 检测，因此没有将应用程序监视数据路由到 Azure 中事件中心的通用解决方案。 但是，[Azure Application Insights](../../application-insights/app-insights-overview.md) 是一项可用于收集 Azure 应用程序级数据的服务。 如果使用 Application Insights，可通过执行以下操作，将监视数据流式传输到事件中心：
-
-1. 将 Application Insights 数据[设置为连续导出](../../azure-monitor/app/export-telemetry.md)到存储帐户。
-
-2. 设置计时器触发逻辑应用，[从 blob 存储拉取数据](../../connectors/connectors-create-api-azureblobstorage.md#add-action)并[将其作为消息推送到事件中心](../../connectors/connectors-create-api-azure-event-hubs.md#add-action)。
 
 ## <a name="what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub"></a>可对发送到事件中心的监视数据执行什么操作？
 
 通过 Azure Monitor 将监视数据路由到事件中心，可与合作伙伴 SIEM 和监视工具轻松集成。 大多数工具需要事件中心连接字符串和对 Azure 订阅的某些权限，才能从事件中心读取数据。 下面是与 Azure Monitor 集成的工具的不完整列表：
 
-* **IBM QRadar** -Microsoft Azure DSM 和 Microsoft Azure 事件中心协议均可从 [IBM 支持网站](http://www.ibm.com/support)下载。 可以[在此处了解 Azure 集成](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0)。
+* **IBM QRadar** - 世纪互联 Azure DSM 和世纪互联 Azure 事件中心协议均可从 [IBM 支持网站](https://www.ibm.com/support)下载。 可以[在此处了解 Azure 集成](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0)。
 * **Splunk** - 有两种方法，具体取决于 Splunk 设置：
     1. [适用于 Splunk 的 Azure Monitor 加载项](https://splunkbase.splunk.com/app/3534/)可在 Splunkbase 中找到，它是一个开源项目。 [文档见此处](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk)。
     2. 如果无法在 Splunk 实例中安装加载项（例如， 如果使用代理或在 Splunk Cloud 上运行），可以使用[此函数（由事件中心中的新消息触发）](https://github.com/Microsoft/AzureFunctionforSplunkVS)将这些事件转发到 Splunk HTTP 事件收集器。
@@ -119,5 +110,5 @@ Azure 资源将发出两种类型的监视数据：
 ## <a name="next-steps"></a>后续步骤
 * [将活动日志存档到存储帐户](../../azure-monitor/platform/archive-activity-log.md)
 * [阅读 Azure 活动日志概述](../../azure-monitor/platform/activity-logs-overview.md)
-* [根据活动日志事件设置警报](../../azure-monitor/platform/alerts-log-webhook.md)
+
 

@@ -5,14 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/06/2018
-ms.date: 12/03/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 904d9421f50e5c595b6f0ca33fb0dd8efec6c001
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.reviewer: sngun
+ms.openlocfilehash: 63bd48b48c9ee686794e07e07083c2eea6ea70e8
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676642"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309300"
 ---
 # <a name="access-azure-cosmos-db-resources-from-virtual-networks"></a>从虚拟网络访问 Azure Cosmos DB 资源
 
@@ -61,5 +62,4 @@ NSG 规则用于限制与虚拟网络中子网之间的连接。 将 Azure Cosmo
 * [如何为 Azure Cosmos 帐户配置 IP 防火墙](how-to-configure-firewall.md)
 
 
-<!-- Update_Description: new articles on cosmos db vnet service endpoint  -->
-<!--ms.date: 12/03/2018-->
+<!-- Update_Description: update meta properties -->

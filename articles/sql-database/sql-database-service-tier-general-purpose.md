@@ -13,12 +13,12 @@ ms.reviewer: carlrab
 manager: digimobile
 origin.date: 12/04/2018
 ms.date: 12/31/2018
-ms.openlocfilehash: bf5e899e42285ffb15d0af98883c1b6d70b536b6
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.openlocfilehash: 73c0f27e12c2f6c163440a65b537ea212558c632
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806387"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397011"
 ---
 # <a name="general-purpose-tier---azure-sql-database"></a>常规用途层 - Azure SQL 数据库
 

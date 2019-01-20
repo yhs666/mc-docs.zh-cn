@@ -1,21 +1,18 @@
 ---
 title: 适用于 Azure Cosmos DB 的 Azure PowerShell 示例
 description: Azure PowerShell 示例 - 这些脚本可帮助你创建和管理 Azure Cosmos DB 帐户。
-services: cosmos-db
 author: rockboyfor
-tags: azure-service-management
 ms.service: cosmos-db
-ms.custom: mvc
 ms.topic: sample
 origin.date: 10/16/2017
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 52f22e6eaa22d18aa6523e61990b76a708332a39
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: f8ad6117a18fb8bd54a8ef56019f78d56246b569
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026690"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309086"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db"></a>适用于 Azure Cosmos DB 的 Azure PowerShell 示例
 
@@ -36,7 +33,7 @@ ms.locfileid: "54026690"
 |**高可用性、灾难恢复、备份和还原**||
 |[配置故障转移策略](scripts/ha-failover-policy-powershell.md)|为在其中复制帐户的每个区域设置故障转移优先级。|
 |||
-<!-- Notice: 全球范围 to 多个数据中心范围 [将 Azure Cosmos DB 帐户复制到多个区域中并配置故障转移优先级] -->
 
+<!-- Notice: 全球范围 to 多个数据中心范围 [将 Azure Cosmos DB 帐户复制到多个区域中并配置故障转移优先级] -->
 <!--Not Available for external TOC file ?toc=%2fpowershell%2fmodule%2ftoc.json -->
 <!--Update_Description: update meta properties, wording update -->

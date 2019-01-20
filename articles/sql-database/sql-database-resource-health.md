@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 12/06/2018
-ms.date: 01/07/2019
-ms.openlocfilehash: 083f8a31e49167cd3ab838beb9427ab2bf47edd0
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+origin.date: 01/03/2019
+ms.date: 01/21/2019
+ms.openlocfilehash: a0aacd697d228959b1272de1930f825e60b6734c
+ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996348"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363753"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>使用资源运行状况排查 Azure SQL 数据库的连接问题
 
@@ -78,5 +78,5 @@ Azure 基础结构定期执行计划内维护 - 升级数据中心内的硬件�
 
 - 详细了解[针对暂时性错误的重试逻辑](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)
 - [排查、诊断和预防 SQL 连接错误](./sql-database-connectivity-issues.md)
-- 获取[资源运行状况](/service-health/resource-health-overview)的概述
-- [资源运行状况常见问题解答](/service-health/resource-health-faq)
+- 获取[资源运行状况](../service-health/resource-health-overview.md)的概述
+- [资源运行状况常见问题解答](../service-health/resource-health-faq.md)

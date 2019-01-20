@@ -1,21 +1,20 @@
 ---
 title: Azure Cosmos DB 的用于 MongoDB 的 API 中的索引编制
 description: 概述了 Azure Cosmos DB 的用于 MongoDB 的 API 中的索引编制功能。
-services: cosmos-db
-author: rockboyfor
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
 origin.date: 12/26/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
+author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: c2a67657dd55d4ec52168a92a19afef6d084419c
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: d9c3204004f07ee4bd57b969bebf59e646aaa64c
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026710"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309311"
 ---
 # <a name="indexing-using-azure-cosmos-dbs-api-for-mongodb"></a>使用 Azure Cosmos DB 的用于 MongoDB 的 API 进行索引编制
 
@@ -101,4 +100,4 @@ globaldb:PRIMARY> db.coll.createIndex({"_ts":1}, {expireAfterSeconds: 10})
 * [Azure Cosmos DB 中的索引](../cosmos-db/index-policy.md)
 * [利用生存时间使 Azure Cosmos DB 中的数据自动过期](../cosmos-db/time-to-live.md)
 
-<!-- Update_Description: update meta properties, wording update  -->
+<!-- Update_Description: update meta properties  -->

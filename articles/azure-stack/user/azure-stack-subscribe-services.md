@@ -17,12 +17,12 @@ origin.date: 11/13/2018
 ms.date: 12/17/2018
 ms.author: v-jay
 ms.reviewer: ''
-ms.openlocfilehash: 5d293d320742b0f6edad724622ae4c5bc8397eb6
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.openlocfilehash: 464f2c9192b45a8ed85ef581afa14066d2a08f63
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396148"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396989"
 ---
 # <a name="tutorial-create-and-test-a-subscription"></a>教程：创建和测试订阅
 
@@ -85,14 +85,3 @@ ms.locfileid: "53396148"
 > 虚拟机部署需要几分钟时间才能完成。
 
 
-## <a name="next-steps"></a>后续步骤
-
-本教程已介绍如何执行以下操作：
-
-> [!div class="checklist"]
-> * 订阅产品 
-> * 测试产品/服务
-
-
-> [!div class="nextstepaction"]
-> [从社区模板创建 VM](azure-stack-create-vm-template.md)

@@ -1,21 +1,21 @@
 ---
-title: Azure PowerShell 脚本 - 为 Azure Cosmos DB 创建防火墙 | Azure
+title: Azure PowerShell 脚本 - 为 Azure Cosmos DB 创建防火墙
 description: Azure PowerShell 脚本示例 - 为 Azure Cosmos DB 创建防火墙
-services: cosmos-db
 ms.service: cosmos-db
 author: rockboyfor
 ms.author: v-yeche
-ms.custom: mvc
+ms.subservice: cosmosdb-sql
 ms.devlang: PowerShell
 ms.topic: sample
 origin.date: 05/10/2017
-ms.date: 12/31/2018
-ms.openlocfilehash: 28a154bb881051b0115ba76274c7d29a848f53fa
-ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
+ms.date: 01/21/2019
+ms.reviewer: sngun
+ms.openlocfilehash: 1379f32836db9dc455aa8be76a9a97c68d0a9a01
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814759"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309127"
 ---
 # <a name="azure-cosmos-db-create-a-firewall-using-powershell"></a>Azure Cosmos DB：使用 PowerShell 创建防火墙
 

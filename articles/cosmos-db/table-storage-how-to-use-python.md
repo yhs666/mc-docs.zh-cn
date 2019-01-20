@@ -1,21 +1,21 @@
 ---
-title: 通过 Python 开始使用 Azure 表存储 | Azure
+title: 通过 Python 开始使用 Azure 表存储
 description: 使用 Azure 表存储将结构化数据存储在云中。
-services: cosmos-db
-author: rockboyfor
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: python
 ms.topic: sample
 origin.date: 04/05/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
+author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: 3bf428359081cb9ac2b5c6c5aaf99e82ad580757
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.reviewer: sngun
+ms.openlocfilehash: 115b70e91f08c2d093625378632ee61738eab27f
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026724"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309265"
 ---
 # <a name="get-started-with-azure-table-storage-using-python"></a>通过 Python 开始使用 Azure 表存储
 

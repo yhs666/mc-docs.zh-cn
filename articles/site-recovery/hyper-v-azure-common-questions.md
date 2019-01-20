@@ -5,16 +5,16 @@ services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-origin.date: 10/28/2018
-ms.date: 12/10/2018
+origin.date: 12/27/2018
+ms.date: 01/21/2019
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: 6d4c82a8ef3421099d2d2e810dabc1ece3200a24
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: df9ae2735f3bbc2296cc71c469a594f59f3dc9cc
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028501"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363559"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>常见问题 - Hyper-V 到 Azure 的灾难恢复
 
@@ -97,7 +97,7 @@ Site Recovery 已通过 ISO 27001:2013、27018、HIPAA、DPA 认证，目前正�
 数据将复制到 Azure 存储。 运行故障转移时，Site Recovery 会自动从存储帐户创建 Azure VM。
 
 ### <a name="what-apps-can-i-replicate"></a>可以复制哪些应用？
-可以复制任何运行符合[复制要求](hyper-v-azure-support-matrix.md#replicated-vms)的 Hyper-V VM 的应用或工作负荷均。 Site Recovery 支持应用程序感知型复制，因此，应用可以故障转移或故障回复到智能状态。 Site Recovery 与 Azure 应用程序（如 SharePoint、Exchange、Dynamics、SQL Server 和 Active Directory 等）集成，并与领先的供应商（包括 Oracle、SAP、IBM 和 Red Hat）密切合作。 [详细了解](site-recovery-workload.md)工作负荷保护。
+可以复制任何运行符合[复制要求](hyper-v-azure-support-matrix.md#replicated-vms)的 Hyper-V VM 的应用或工作负荷均。 Site Recovery 支持应用程序感知型复制，因此，应用可以故障转移或故障回复到智能状态。 Site Recovery 除了与 Microsoft 应用程序（例如 SharePoint、Exchange、Dynamics、SQL Server 及 Active Directory）集成之外，还能与行业领先的供应商（包括 Oracle、SAP、IBM 及 Red Hat）紧密配合。 [详细了解](site-recovery-workload.md)工作负荷保护。
 
 ### <a name="whats-the-replication-process"></a>复制过程是什么？
 

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: na
 ms.topic: article
 origin.date: 07/05/2017
-ms.date: 12/21/2018
+ms.date: 01/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: 7ad31f260ef7418f2a4becda03e09882ccc8fcd1
-ms.sourcegitcommit: d2893ae6bdbb3784d243d5d3c49c25c9cfd99d9b
+ms.openlocfilehash: 47cfe19a71f62fb13ef177dff56a311982738cea
+ms.sourcegitcommit: e79651227d4378e6d24f9ab155b9f4fee044b2c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2018
-ms.locfileid: "53784939"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334279"
 ---
 # <a name="introduction-to-the-azure-cache-for-redis-premium-tier"></a>Azure Redis 缓存高级层简介
 Azure Redis 缓存是一种分布式托管缓存，可提供对数据的超快访问，有助于生成高度可缩放且响应速度快的应用程序。 
@@ -35,7 +35,7 @@ Azure Redis 缓存是一种分布式托管缓存，可提供对数据的超快�
 有关高级缓存大小、吞吐量和带宽的详细信息，请参阅 [Azure Redis 缓存常见问题解答](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
 
 ## <a name="redis-data-persistence"></a>Redis 数据持久性
-高级层允许你将缓存数据暂留在 Azure 存储帐户中。 在基本/标准缓存中，所有数据只存储在内存中。 如果底层基础结构出现问题，可能会导致数据丢失。 我们建议使用高级层中的 Redis 数据暂留功能来增加灵活性，防止数据丢失。 Azure Redis 缓存提供可在 [Redis 暂留](http://redis.io/topics/persistence)中使用的 RDB 和 AOF（即将推出）选项。 
+高级层允许你将缓存数据暂留在 Azure 存储帐户中。 在基本/标准缓存中，所有数据只存储在内存中。 如果底层基础结构出现问题，可能会导致数据丢失。 我们建议使用高级层中的 Redis 数据暂留功能来增加灵活性，防止数据丢失。 Azure Redis 缓存提供可在 [Redis 暂留](https://redis.io/topics/persistence)中使用的 RDB 和 AOF（即将推出）选项。 
 
 有关配置暂留的说明，请参阅[如何为高级 Azure Redis 缓存配置暂留](cache-how-to-premium-persistence.md)。
 
@@ -104,4 +104,5 @@ Redis 群集可提供最大的缩放能力和吞吐量。 增加群集中分片�
 - [如何在 Azure Redis 缓存中导入和导出数据](cache-how-to-import-export-data.md)
 - [如何管理 Azure Redis 缓存](cache-administration.md)
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: link update -->
+

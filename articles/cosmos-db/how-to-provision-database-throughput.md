@@ -1,19 +1,18 @@
 ---
 title: 在 Azure Cosmos DB 中预配数据库吞吐量
 description: 了解如何在 Azure Cosmos DB 中预配数据库级别的吞吐量
-services: cosmos-db
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 11/06/2018
-ms.date: 12/03/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: a8e36ec40189e8bfe8a3540370f11eb5fbb2619f
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 91c42b1350df32ddacc41ff7d581b8331b013702
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676564"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309141"
 ---
 # <a name="provision-throughput-for-a-database-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中为数据库预配吞吐量
 
@@ -73,5 +72,4 @@ session.Execute(CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provision
 * [如何为容器预配吞吐量](how-to-provision-container-throughput.md)
 * [Azure Cosmos DB 中的请求单位和吞吐量](request-units.md)
 
-<!-- Update_Description: new articles on cosmos db how to provision database throughput -->
-<!--ms.date: 12/03/2018-->
+<!-- Update_Description: update meta properties -->

@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 10/10/2018
-ms.date: 12/10/2018
+origin.date: 11/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0382cee407db172490b0f4c74cf4ffd270d9e130
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 7d15a0f21bc0acfe629db8f0afa2b8366a8da743
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028496"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363539"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>排查 Hyper-V 到 Azure 的复制和故障转移的问题
 
@@ -165,4 +165,4 @@ ms.locfileid: "53028496"
 -   对于 VMM，请使用[支持诊断平台 (SDP) 工具](https://social.technet.microsoft.com/wiki/contents/articles/28198.asr-data-collection-and-analysis-using-the-vmm-support-diagnostics-platform-sdp-tool.aspx)执行 Site Recovery 日志收集。
 -   对于不带 VMM 的 Hyper-V，请[下载此工具](https://dcupload.microsoft.com/tools/win7files/DIAG_ASRHyperV_global.DiagCab)，并在 Hyper-V 主机上运行该工具来收集日志。
 
-<!-- Update_Description: update meta properties, wording update  -->
+<!-- Update_Description: update meta properties -->

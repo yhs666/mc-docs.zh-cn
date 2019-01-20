@@ -5,15 +5,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 07/06/2018
-ms.date: 12/10/2018
+origin.date: 11/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 50574b0fbf4154c5b0e73470cbd1248999436ff7
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 9050ae1910e1d5bd78df56ccaa28ce862ad23572
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028306"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363336"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>运行将 Hyper-V VM 灾难恢复到辅助站点的演练
 
@@ -97,9 +97,9 @@ ms.locfileid: "53028306"
 * **静态地址**：如果虚拟机使用静态 IP 地址，则应在测试故障转移网络中更新测试 DNS 服务器的 IP 地址。 可能需要使用测试虚拟机的 IP 地址更新 DNS。 可以使用以下示例脚本实现此目的：
 
         Param(
-            [string]$Zone,
-            [string]$name,
-            [string]$IP
+        [string]$Zone,
+        [string]$name,
+        [string]$IP
         )
         $Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name
         $newrecord = $record.clone()

@@ -1,21 +1,21 @@
 ---
-title: 部署 Azure IoT Edge 模块 (CLI) | Microsoft Docs
+title: 从命令行部署模块 - Azure IoT Edge | Microsoft Docs
 description: 通过适用于 Azure CLI 的 IoT 扩展将模块部署到 IoT Edge 设备
 author: kgremban
 manager: philmea
 ms.author: v-yiso
-origin.date: 07/27/2018
-ms.date: 12/10/2018
+origin.date: 01/09/2019
+ms.date: 01/28/2019
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e5d20e32c7896bcd330c83c5cf5a6f74896c49bc
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 5b2a1458eee8da25b78fcfa6b37b95850817436f
+ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674985"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396802"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>使用 Azure CLI 部署 Azure IoT Edge 模块
 
@@ -108,7 +108,7 @@ ms.locfileid: "52674985"
 
 应用使用模块信息配置的部署清单即可将模块部署至设备。 
 
-将目录更改到保存有部署清单的文件夹。 如果使用了 VS Code IoT Edge 模板之一，请使用解决方案目录的 **config** 文件夹中的 `deployment.json` 文件。 不要使用 `deployment.template.json` 文件。 
+将目录更改到保存有部署清单的文件夹。 如果使用了 VS Code IoT Edge 模板之一，请使用解决方案目录的 **config** 文件夹中的 `deployment.json` 文件，而不是使用 `deployment.template.json` 文件。
 
 使用以下命令将配置应用于 IoT Edge 设备：
 
@@ -118,7 +118,7 @@ ms.locfileid: "52674985"
 
 device id 参数区分大小写。 content 参数指向你保存的部署清单文件。 
 
-   ![设置模块](./media/how-to-deploy-cli/set-modules.png)
+   ![az iot edge set-modules output](./media/how-to-deploy-cli/set-modules.png)
 
 ## <a name="view-modules-on-your-device"></a>查看设备上的模块
 
@@ -132,7 +132,7 @@ device id 参数区分大小写。 content 参数指向你保存的部署清单�
 
 device id 参数区分大小写。
 
-   ![列出模块](./media/how-to-deploy-cli/list-modules.png)
+   ![az iot hub module-identity list output](./media/how-to-deploy-cli/list-modules.png)
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: mathoma
 manager: digimobile
-origin.date: 09/25/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: 9038e14bdb8c151c67f9bf95ffc9b1291263b65b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 01/11/2019
+ms.date: 01/21/2019
+ms.openlocfilehash: e03d0403b45a2a5c071f2df08c338a91eadd3d5c
+ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645553"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363780"
 ---
 # <a name="replication-with-sql-database-managed-instance"></a>使用 SQL 数据库托管实例进行复制
 
@@ -65,6 +65,8 @@ Azure SQL 数据库上的发布服务器和分发服务器需要：
 
 - 适用于复制工作目录的 Azure 存储帐户共享。
 
+- 需要在托管实例子网的安全规则中打开端口 445（TCP 出站）才能访问 Azure 文件共享
+
 ## <a name="features"></a>功能
 
 支持：
@@ -86,7 +88,7 @@ Azure SQL 数据库上的发布服务器和分发服务器需要：
 
    在下面的示例脚本中，请将 `<Publishing_DB>` 替换为此数据库的名称。
 
-4. 使用适用于发布服务器的 SQL 身份验证创建数据库用户。 请参阅[创建数据库用户](/sql-database/sql-database-security-tutorial#creating-database-users)。 使用安全密码。
+4. 使用适用于发布服务器的 SQL 身份验证创建数据库用户。 使用安全密码。
 
    在下面的示例脚本中，将 `<SQL_USER>` 和 `<PASSWORD>` 与此 SQL Server 帐户数据库用户和密码配合使用。
 

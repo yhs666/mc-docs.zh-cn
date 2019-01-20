@@ -1,26 +1,23 @@
 ---
 title: 快速入门 - 使用 Azure CLI 创建 Azure Database for PostgreSQL
 description: 有关使用 Azure CLI（命令行界面）创建和管理 Azure Database for PostgreSQL 服务器的快速入门指南。
-services: postgresql
 author: WenJason
 ms.author: v-jay
-manager: digimobile
-editor: jasonwhowell
 ms.service: postgresql
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: quickstart
-origin.date: 04/01/2018
-ms.date: 12/03/2018
+origin.date: 01/09/2019
+ms.date: 01/21/2019
 ms.custom: mvc
-ms.openlocfilehash: 3505d734d2f3308afae96c53bd9465c5ffd11d26
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: bd1c6358755aa959218e67a0a3e0c7dd766d2e09
+ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674839"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54333921"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建 Azure Database for PostgreSQL
-用于 PostgreSQL 的 Azure 数据库是一种托管服务，可用于在云中运行、管理和缩放具有高可用性的 PostgreSQL 数据库。 Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 本快速入门指南介绍了如何使用 Azure CLI 在 [Azure 资源组](https://docs.azure.cn/azure-resource-manager/resource-group-overview)中创建 Azure Database for PostgreSQL 服务器。
+Azure Database for PostgreSQL 是一种托管服务，可用于在云中运行、管理和缩放具有高可用性的 PostgreSQL 数据库。 Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 本快速入门指南介绍了如何使用 Azure CLI 在 [Azure 资源组](https://docs.azure.cn/azure-resource-manager/resource-group-overview)中创建 Azure Database for PostgreSQL 服务器。
 
 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
@@ -54,17 +51,17 @@ name | mydemoserver | 选择用于标识 Azure Database for PostgreSQL 服务器
 resource-group | myresourcegroup | 提供 Azure 资源组的名称。
 sku-name | GP_Gen4_2 | SKU 的名称。 遵循约定“{定价层}_{计算代系}_{vCores}”的简写形式。 参阅下表详细了解 sku-name 参数。
 backup-retention | 7 | 备份保留时间。 单位为天。 范围为 7-35。 
-geo-redundant-backup | 已禁用 | 是否应为此服务器启用异地冗余备份。 允许的值：Enabled、Disabled。
+geo-redundant-backup | 已禁用 | 是否应为此服务器启用异地冗余备份。 允许的值：“Enabled”、“Disabled”。
 location | chinaeast | 服务器的 Azure 位置。
-ssl-enforcement | Enabled | 是否应为此服务器启用 SSL。 允许的值：Enabled、Disabled。
+ssl-enforcement | Enabled | 是否应为此服务器启用 SSL。 允许的值：“Enabled”、“Disabled”。
 storage-size | 51200 | 服务器的存储容量（以 MB 为单位）。 有效的 storage-size 最小为 5120MB，以 1024MB 为增量递增。 有关存储大小限制的详细信息，请参阅[定价层](./concepts-pricing-tiers.md)文档。 
 版本 | 9.6 | PostgreSQL 主版本。
 admin-user | myadmin | 管理员的登录用户名。 不能是 **azure_superuser**、**admin**、**administrator**、**root**、**guest** 或 **public**。
-admin-password | *安全密码* | 管理员用户的密码。 该密码必须包含 8 到 128 个字符。 密码必须含以下字符类别中的三类：英文大写字母、英文小写字母、数字和非字母数字字符。
+admin-password | *安全密码* | 管理员用户的密码。 该密码必须包含 8 到 128 个字符。 密码必须包含以下三个类别的字符：英文大写字母、英文小写字母、数字和非字母数字字符。
 
 
 sku-name 参数值遵循 {定价层}\_{计算层代}\_{vCore 数} 约定，如以下示例中所示：
-+ `--sku-name B_Gen4_4` 映射到基本、第 4 代和 4 个 vCore。
++ `--sku-name B_Gen4_1` 映射到基本、第 4 代和 1 个 vCore。
 + `--sku-name GP_Gen5_32` 映射到常规用途、第 5 层和 32 个 vCore。
 + `--sku-name MO_Gen5_2` 映射到内存优化、第 5 层和 2 个 vCore。
 
@@ -75,10 +72,9 @@ sku-name 参数值遵循 {定价层}\_{计算层代}\_{vCore 数} 约定，如�
 az postgres server create --resource-group myresourcegroup --name mydemoserver  --location chinaeast --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
 ```
 
-
-> [!IMPORTANT]
-> 此处指定的服务器管理员登录名和密码是以后在本快速入门中登录到服务器所必需的。 请牢记或记录此信息，以后会使用到它。
-
+> [!NOTE]
+> 如果轻量级计算和 I/O 足以满足工作负荷要求，请考虑使用“基本”定价层。 请注意，在“基本”定价层中创建的服务器以后不能扩展到“常规用途”或“内存优化”定价层。 有关详细信息，请参阅[定价页](https://azure.cn/pricing/details/postgresql/)。
+> 
 
 ## <a name="configure-a-server-level-firewall-rule"></a>配置服务器级防火墙规则
 

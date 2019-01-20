@@ -1,21 +1,20 @@
 ---
 title: 在 Azure Cosmos DB 的用于 MongoDB 的 API 中使用 MongoDB 读取首选项
 description: 了解如何在 Azure Cosmos DB 的用于 MongoDB 的 API 中使用 MongoDB 读取首选项
-services: cosmos-db
 author: rockboyfor
 ms.author: v-yeche
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
 origin.date: 02/26/2018
-ms.date: 01/07/2019
-ms.openlocfilehash: 87611ae6975dbe8d9c80c325c1496015694881cc
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.date: 01/21/2019
+ms.openlocfilehash: 8f5f85d9dbda3dfccba98d0fc70665455df10f74
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026790"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309222"
 ---
 # <a name="how-to-multiple-region-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>如何使用 Azure Cosmos DB 的用于 MongoDB 的 API 在多个区域分配读取操作
 
@@ -175,4 +174,4 @@ MongoClient.connect(url, function(err, client) {
 * [使用 Azure Cosmos DB 的用于 MongoDB 的 API 设置多区域分布式数据库](tutorial-global-distribution-mongodb.md)
 * [使用 Azure Cosmos DB 模拟器在本地进行开发](local-emulator.md)
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

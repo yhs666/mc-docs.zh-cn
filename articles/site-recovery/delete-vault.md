@@ -4,17 +4,16 @@ description: 了解如何删除为 Azure Site Recovery 配置的恢复服务保�
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-origin.date: 07/06/2018
-ms.date: 12/10/2018
+origin.date: 11/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: c09f18fc0e61f3793192b34c1ba4bcf1ad88357b
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: be34257b9f8db83e8413e4ccdd62c10260ede24c
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028627"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363572"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>删除 Site Recovery 服务保管库
 
@@ -42,7 +41,8 @@ ms.locfileid: "53028627"
 
 3. 按照[取消注册已连接的 VMM 服务器](site-recovery-manage-registration-and-protection.md#unregister-a-vmm-server)中的步骤操作，删除对 VMM 服务器的引用。
 
-<!--Not Available on ## -->
+    <!--Not Available on ## -->
+
 4. 删除保管库。
 
 ### <a name="hyper-v-vms-without-virtual-machine-manager-to-azure"></a>Hyper-V VM（不带 Virtual Machine Manager）到 Azure
@@ -52,7 +52,8 @@ ms.locfileid: "53028627"
 
 3. 按照[取消注册 Hyper-V 主机](site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site)中的步骤操作，删除对 Hyper-V 服务器的引用。
 
-<!-- URL is correct with . [Unregister a Hyper-V host](site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site)-->
+    <!-- URL is correct with . [Unregister a Hyper-V host](site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site)-->
+
 4. 删除 Hyper-V 站点。
 
 5. 删除保管库。

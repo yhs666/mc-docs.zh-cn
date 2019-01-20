@@ -6,14 +6,14 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: conceptual
 origin.date: 11/30/2018
-ms.date: 12/24/2018
+ms.date: 01/21/2019
 ms.author: v-jay
-ms.openlocfilehash: c289b43c2f80d04b126496898a234ef88e592748
-ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+ms.openlocfilehash: 6fe6293e66a7e151dfe444dc94df3ecc561468ff
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53656596"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397047"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>使用本机 Azure 证书身份验证配置与 VNet 的点到站点连接：PowerShell
 
@@ -32,7 +32,9 @@ ms.locfileid: "53656596"
 
 ## <a name="before-you-begin"></a>准备阶段
 
-确保拥有 Azure 订阅。 如果还没有 Azure 订阅，可以注册一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- 确保拥有 Azure 订阅。 如果还没有 Azure 订阅，可以注册一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+
+- 安装最新版本的 Azure Resource Manager PowerShell cmdlet。 有关安装 PowerShell cmdlet 的详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
 
 ### <a name="example"></a>示例值
 
@@ -61,7 +63,7 @@ ms.locfileid: "53656596"
 
 ### <a name="sign-in"></a>登录
 
-[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps login.md)]
+[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
 ### <a name="declare-variables"></a>声明变量
 
@@ -349,7 +351,7 @@ VPN 客户端配置文件包含的设置用来对设备进行配置以通过 P2S
 
   ```powershell
   $RevokedClientCert1 = "NameofCertificate"
-  $RevokedThumbprint1 = "‎51ab1edd8da4cfed77e20061c5eb6d2ef2f778c7"
+  $RevokedThumbprint1 = "51ab1edd8da4cfed77e20061c5eb6d2ef2f778c7"
   $GWName = "Name_of_virtual_network_gateway"
   $RG = "Name_of_resource_group"
   ```
@@ -375,7 +377,7 @@ VPN 客户端配置文件包含的设置用来对设备进行配置以通过 P2S
 
   ```powershell
   $RevokedClientCert1 = "NameofCertificate"
-  $RevokedThumbprint1 = "‎51ab1edd8da4cfed77e20061c5eb6d2ef2f778c7"
+  $RevokedThumbprint1 = "51ab1edd8da4cfed77e20061c5eb6d2ef2f778c7"
   $GWName = "Name_of_virtual_network_gateway"
   $RG = "Name_of_resource_group"
   ```

@@ -13,19 +13,19 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: na
 ms.topic: article
 origin.date: 07/13/2017
-ms.date: 12/21/2018
+ms.date: 01/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: 6bd810ea5843a3fa1b341ef7ac613bfcf35bda77
-ms.sourcegitcommit: d2893ae6bdbb3784d243d5d3c49c25c9cfd99d9b
+ms.openlocfilehash: 502c2135d0b33c06bc985c892701b9082730fcca
+ms.sourcegitcommit: e79651227d4378e6d24f9ab155b9f4fee044b2c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2018
-ms.locfileid: "53785012"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334285"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>如何监视用于 Redis 的 Azure 缓存
 用于 Redis 的 Azure 缓存使用 [Azure Monitor](/monitoring-and-diagnostics/) 提供用于监视缓存实例的几个选项。 可以查看度量值、将度量值图表固定到启动板、自定义监视图表的日期和时间范围、在图表中添加和删除度量值，以及设置符合特定条件时发出的警报。 借助这些工具，可以监视 Azure Redis 缓存实例的运行状况，以及管理缓存应用程序。
 
-每分钟使用 Redis [INFO](http://redis.io/commands/info) 命令收集约两次用于 Redis 的 Azure 缓存实例的指标，然后将其自动存储 30 天（请参阅[导出缓存指标](#export-cache-metrics)以配置不同保留期策略），以便这些指标可以显示在指标图表中并由预警规则进行评估。 有关用于每个缓存度量值的不同 INFO 值的详细信息，请参阅 [可用度量值和报告间隔](#available-metrics-and-reporting-intervals)。
+每分钟使用 Redis [INFO](https://redis.io/commands/info) 命令收集约两次用于 Redis 的 Azure 缓存实例的指标，然后将其自动存储 30 天（请参阅[导出缓存指标](#export-cache-metrics)以配置不同保留期策略），以便这些指标可以显示在指标图表中并由预警规则进行评估。 有关用于每个缓存度量值的不同 INFO 值的详细信息，请参阅 [可用度量值和报告间隔](#available-metrics-and-reporting-intervals)。
 
 <a name="view-cache-metrics"></a>
 
@@ -99,7 +99,7 @@ ms.locfileid: "53785012"
 
 | 指标 | 说明 |
 | --- | --- |
-| 缓存命中数 |在指定的报告间隔期间，成功的键查找次数。 此值映射到 Redis [INFO](http://redis.io/commands/info) 命令输出中的 `keyspace_hits`。 |
+| 缓存命中数 |在指定的报告间隔期间，成功的键查找次数。 此值映射到 Redis [INFO](https://redis.io/commands/info) 命令输出中的 `keyspace_hits`。 |
 | 缓存延迟（预览） | 基于缓存的节点间延迟计算缓存的延迟。 此指标以微秒为单位，具有三个维度：“Avg”、“Min”和“Max”，分别表示指定的报告间隔期间缓存的平均延迟、最小延迟和最大延迟。 |
 | 缓存未命中数 |在指定的报告间隔期间，失败的键查找次数。 此值映射到 Redis INFO 命令输出中的 `keyspace_misses` 。 缓存未命中并不一定意味着缓存出现了问题。 例如，在使用缓存端编程模式时，应用程序会首先查找缓存中的项。 如果该项不存在（缓存未命中），则将从数据库中检索该项并将其添加到下一次缓存中。 对于缓存端编程模式，缓存未命中是正常行为。 如果缓存未命中数大于预期值，请检查从缓存中填充并读取的应用程序逻辑。 如果由于内存压力而导致项目从缓存中逐出，则可能存在一些缓存未命中的情况，但指标 `Used Memory` 或 `Evicted Keys` 可以更好的监视内存压力。 |
 | 缓存读取量 |指定报告间隔期间，从缓存中读取的数据量，以每秒兆字节数（MB/秒）为单位。 此值来源于支持虚拟机的网络接口卡，该虚拟机托管缓存，但并不特定于 Redis。 **此值对应于该缓存使用的网络带宽。如果要针对服务器端网络带宽限制设置警报，则可使用此 `Cache Read` 计数器来创建警报。请参阅[此表](cache-faq.md#cache-performance)，了解各种缓存定价层和大小所遵循的带宽限制。** |
@@ -145,15 +145,5 @@ ms.locfileid: "53785012"
 
 有关活动日志的详细信息，请参阅 [Azure 活动日志概述](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)。
 
-<!--Update_Description: wording update-->
-
-
-
-
-
-
-
-
-
-
+<!-- Update_Description: link update -->
 

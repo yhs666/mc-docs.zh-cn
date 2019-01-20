@@ -1,21 +1,19 @@
 ---
 title: SQL API 的 Azure Cosmos DB 多区域分发教程
 description: 了解如何使用 SQL API 设置 Azure Cosmos DB 多区域分发。
-services: cosmos-db
-keywords: 多区域分布
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: tutorial
 origin.date: 05/10/2017
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.custom: mvc
-ms.openlocfilehash: d1d21355c26021bba18d2ab0787a79b85cbdd2da
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.reviewer: sngun
+ms.openlocfilehash: 802bfe00c65e4536ba12915827af7bffb0c3ee1b
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026763"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309100"
 ---
 # <a name="set-up-azure-cosmos-db-multiple-region-distribution-using-the-sql-api"></a>使用 SQL API 设置 Azure Cosmos DB 多区域分发
 
@@ -94,7 +92,7 @@ await docClient.OpenAsync().ConfigureAwait(false);
 
 下面是 NodeJS/Javascript 的代码示例。 Python 和 Java 将遵循相同的模式。
 
-```java
+```JavaScript
 // Creating a ConnectionPolicy object
 var connectionPolicy = new DocumentBase.ConnectionPolicy();
 
@@ -170,4 +168,5 @@ var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPoli
 > [通过模拟器在本地开发](local-emulator.md)
 
 [regions]: https://www.azure.cn/support/service-dashboard/
+
 <!-- Update_Description: update meta propreties, wording update -->

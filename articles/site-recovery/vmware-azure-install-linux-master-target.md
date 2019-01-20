@@ -4,15 +4,15 @@ description: 了解如何设置 Linux 主目标服务器，以便在使用 Azure
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 10/11/2018
-ms.date: 12/10/2018
+origin.date: 11/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: ec5e0aff9da3d31f1c149e09689bee480c77581d
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: a3e4a5f5b551c1d1960dbca5a130c0d9e3ffe8b7
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029109"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363395"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>安装用于故障回复的 Linux 主目标服务器
 将虚拟机故障转移到 Azure 后，可将虚拟机故障回复到本地站点。 若要故障回复，需要在本地站点中重新保护 Azure 中的虚拟机。 对于此过程，需要安装一个本地主目标服务器用于接收流量。 
@@ -21,6 +21,7 @@ ms.locfileid: "53029109"
 
 > [!IMPORTANT]
 > 从主目标服务器版本 9.10.0 开始，只能在 Ubuntu 16.04 服务器上安装最新的主目标服务器。 CentOS6.6 服务器不支持新安装。 但是，可继续使用 9.10.0 版本升级旧版主目标服务器。
+> 不支持 LVM 上的主目标服务器。
 
 ## <a name="overview"></a>概述
 本文提供 Linux 主目标的相关安装说明。
@@ -58,7 +59,7 @@ ms.locfileid: "53029109"
 
 按下列步骤安装 Ubuntu 16.04.2 64 位操作系统。
 
-1.   转至[下载链接](https://www.ubuntu.com/download/server/thank-you?version=16.04.2&architecture=amd64)，并选择最接近的镜像，从中下载 Ubuntu 16.04.2 最简版 64 位 ISO。
+1.   转至[下载链接](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso)，并选择最接近的镜像，从中下载 Ubuntu 16.04.2 最简版 64 位 ISO。
 将 Ubuntu 16.04.2 最简版 64 位 ISO 保存在 DVD 驱动器中，并启动系统。
 
 1.  选择“英语”作为首选语言，再按 Enter。
@@ -344,4 +345,4 @@ Azure Site Recovery 主目标服务器需要特定版本的 Ubuntu，请确保�
 
 现在，可以继续执行[重新保护](vmware-azure-reprotect.md)过程，并执行故障回复。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties, wording update, update link -->

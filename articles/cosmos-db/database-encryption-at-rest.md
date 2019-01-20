@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 12/06/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 86e4ae627569f4c56e43ac0184b0f1d6c7954c31
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: abb0bb66b719093179f840f862b219a1666f6f23
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026772"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309067"
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Azure Cosmos DB 数据库静态加密
 
@@ -64,6 +64,6 @@ ms.locfileid: "54026772"
 
 有关 Cosmos DB 安全性和最新改进的概述，请参阅 [Azure Cosmos DB 数据库安全性](database-security.md)。
 有关我们的认证的详细信息，请参阅 [Azure 信任中心](https://www.trustcenter.cn/zh-cn/cloudservices/azure.html)。
-<!-- Notice:  Should be OUR certifications -->
 
+<!-- Notice:  Should be OUR certifications -->
 <!-- Update_Description: update meta properties, wording update, update link -->

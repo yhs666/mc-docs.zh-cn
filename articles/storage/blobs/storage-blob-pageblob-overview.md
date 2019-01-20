@@ -1,24 +1,24 @@
 ---
-title: Azure 页 Blob 的独特功能 | Azure
+title: Azure 页 Blob 概述 | Microsoft Docs
 description: 概述了 Azure 页 Blob 及其优势，包括用例和示例脚本。
 services: storage
-author: forester123
-manager: josefree
+author: WenJason
 ms.service: storage
 ms.topic: article
-origin.date: 04/30/2018
-ms.date: 06/11/2018
-ms.author: v-nany
-ms.openlocfilehash: ee4830f69e4b94171cda63edcc9ad858c3b3ff17
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 01/03/2019
+ms.date: 02/21/2019
+ms.author: v-jay
+ms.component: blobs
+ms.openlocfilehash: 97ed926028a8efafcad36692a9d45a3a72a3d3b9
+ms.sourcegitcommit: 317ea7e3b2d307569d3bf7777bd3077013ae4df6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666480"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334491"
 ---
-# <a name="unique-features-of-azure-page-blobs"></a>Azure 页 Blob 的独特功能
+# <a name="overview-of-azure-page-blobs"></a>Azure 页 Blob 概述
 
-Azure 存储提供三种类型的 Blob 存储：块 Blob、追加 Blob 和页 Blob。 块 Blob 由块组成，非常适合用于存储文本或二进制文件，以及高效上传大型文件。 追加 Blob 也由块组成，但它们已针对追加操作进行优化，因此非常适合用于日志记录方案。 页 Blob 由总大小可达 8 TB 的 512 字节页面组成，专为频繁的随机读/写操作而设计。 页 Blob 是 Azure IaaS 磁盘的基础。 本文重点介绍页 Blob 的功能和优势。
+Azure 存储提供了三种类型的 Blob 存储：块 Blob、追加 Blob 和页 Blob。 块 Blob 由块组成，非常适合用于存储文本或二进制文件，以及高效上传大型文件。 追加 Blob 也由块组成，但它们已针对追加操作进行优化，因此非常适合用于日志记录方案。 页 Blob 由总大小可达 8 TB 的 512 字节页面组成，专为频繁的随机读/写操作而设计。 页 Blob 是 Azure IaaS 磁盘的基础。 本文重点介绍页 Blob 的功能和优势。
 
 页 Blob 是 512 字节页面的集合，提供读/写任意字节范围的功能。 因此，页 Blob 非常适用于存储基于索引的稀疏数据结构，如虚拟机和数据库的 OS 磁盘与数据磁盘。 例如，Azure SQL 数据库使用页 Blob 作为数据库的基础持久性存储。 此外，页 Blob 往往还用于支持基于范围的更新的文件。  
 
@@ -72,7 +72,7 @@ pageBlob.Resize(32 * OneGigabyteAsBytes);
 ```
 
 #### <a name="writing-pages-to-a-page-blob"></a>将页面写入页 Blob
-若要写入页面，请使用 [CloudPageBlob.WritePages](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.writepages) 方法。  这样，便可以写入一组有序页面（最大 4MB）。 写入的偏移量必须在某个 512 字节边界处 (startingOffset % 512 == 0) 开始，在某个 512 边界 - 1 处结束。  下面的代码示例展示了如何对 blob 调用 **WritePages**：
+若要写入页面，请使用 [CloudPageBlob.WritePages](https://docs.azure.cn/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.beginwritepages?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_BeginWritePages_System_IO_Stream_System_Int64_System_String_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_System_AsyncCallback_System_Object_) 方法。  这样，便可以写入一组有序页面（最大 4MB）。 写入的偏移量必须在某个 512 字节边界处 (startingOffset % 512 == 0) 开始，在某个 512 边界 - 1 处结束。  下面的代码示例展示了如何对 blob 调用 **WritePages**：
 
 ```csharp
 pageBlob.WritePages(dataStream, startingOffset); 

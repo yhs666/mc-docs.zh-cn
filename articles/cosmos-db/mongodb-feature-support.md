@@ -1,20 +1,19 @@
 ---
 title: 使用 Azure Cosmos DB 的用于 MongoDB 的 API 功能支持
 description: 了解 Azure Cosmos DB 的用于 MongoDB 的 API 为 MongoDB 3.4 提供的功能支持。
-services: cosmos-db
-author: rockboyfor
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.topic: overview
 origin.date: 12/26/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
+author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: d4af4b507119f2538ac6ff2dae867e5790a97955
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: 6b0effc66a5eb4918dd1c47acb0003db9bdd9042
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026771"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309286"
 ---
 # <a name="use-azure-cosmos-dbs-api-for-mongodb-support-for-mongodb-features-and-syntax"></a>使用 Azure Cosmos DB 的用于 MongoDB 的 API 支持（针对 MongoDB 功能和语法）
 
@@ -335,10 +334,10 @@ Cosmos DB 支持服务器端自动分片。 Cosmos DB 不支持手动分片命�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 了解如何配合 Azure Cosmos DB 的用于 MongoDB 的 API 来[使用 Studio 3T](mongodb-mongochef.md)。
-- 了解如何配合 Azure Cosmos DB 的用于 MongoDB 的 API 来[使用 Robo 3T](mongodb-robomongo.md)。
+- 了解如何将 [Studio 3T](mongodb-mongochef.md) 与 Azure Cosmos DB 的用于 MongoDB 的 API 配合使用。
+- 了解如何将 [Robo 3T](mongodb-robomongo.md) 与 Azure Cosmos DB 的用于 MongoDB 的 API 配合使用。
 - 通过 Azure Cosmos DB 的用于 MongoDB 的 API 来浏览 MongoDB [示例](mongodb-samples.md)。
 
 <sup>注意：本文介绍了可与 MongoDB 数据库实现线路协议兼容的 Azure Cosmos DB 功能。Azure 不会运行 MongoDB 数据库来提供此服务。Azure Cosmos DB 并不隶属于 MongoDB, inc.</sup>
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

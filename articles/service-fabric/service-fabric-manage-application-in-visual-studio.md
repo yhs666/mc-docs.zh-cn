@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.custom: vs-azure
 ms.workload: azure-vs
 origin.date: 03/26/2018
-ms.date: 10/15/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: c5e8c055d7af2941d91d77761c572c1e6cdfae8e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 09c3b718de1342e7a223ec2ef8bc73460d4dc3cd
+ms.sourcegitcommit: 35a09a86cbb3d896fa9784471ece41df7728bd71
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52667247"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396702"
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>使用 Visual Studio 简化 Service Fabric 应用程序的编写和管理
 可以通过 Visual Studio 管理 Azure Service Fabric 应用程序和服务。 [设置开发环境](service-fabric-get-started.md)后，可以使用 Visual Studio 创建 Service Fabric 应用程序、添加服务，或在本地开发群集中打包、注册和部署应用程序。
@@ -49,8 +49,6 @@ Visual Studio 提供一个名为“应用程序调试模式”的属性，它控
 #### <a name="application-debug-modes"></a>应用程序调试模式
 
 1. **刷新应用程序**此模式能快速更改和调试代码并支持调试时编辑静态 Web 文件。 此模式只能在本地开发群集处于 [1 节点模式](./service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode)下时有效。 这是默认的应用程序调试模式。
-
-<!-- URL should be Add . [1-Node mode](./service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode) -->
 2. **删除应用程序** 会在调试会话结束时删除应用程序。
 3. **自动升级**调试会话结束时，应用程序继续运行。 下一个调试会话将部署视为升级。 此升级过程会保留你在上一个调试会话中输入的任何数据。
 4. **保留应用程序**调试会话结束时，应用程序在群集中继续运行。 在下一个调试会话开始时将删除应用程序。
@@ -99,4 +97,4 @@ Visual Studio 提供一个名为“应用程序调试模式”的属性，它控
 [debugmodeproperty]:./media/service-fabric-manage-application-in-visual-studio/debugmodeproperty.png
 [removeapplication]:./media/service-fabric-manage-application-in-visual-studio/removeapplication.png
 
-<!-- Update_Description: update meta properties  -->
+<!-- Update_Description: update meta properties, wording update -->

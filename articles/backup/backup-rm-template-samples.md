@@ -6,16 +6,15 @@ author: lingliw
 manager: digimobile
 ms.service: backup
 ms.topic: sample
-origin.date: 04/18/2018
-ms.date: 11/26/2018
+ms.date: 01/21/19
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: eca5fc8cf02b14810428262fe0dcbcaab75ea7a3
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 1b96f677f68b820c555ebbef825ff0d3a51ff5fe
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674522"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363481"
 ---
 # <a name="azure-resource-manager-templates-for-azure-backup"></a>用于 Azure 备份的 Azure 资源管理器模板
 

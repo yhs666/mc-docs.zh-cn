@@ -5,15 +5,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 10/29/2018
-ms.date: 12/10/2018
+origin.date: 11/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: f053521e4ed125a6cfa0f721a6beb3591c54dcc0
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 615864146186700de9152a0abb2bf46a593fe84e
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028920"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363306"
 ---
 # <a name="manage-process-servers"></a>管理进程服务器
 
@@ -126,4 +126,4 @@ ms.locfileid: "53028920"
 - C:\ProgramData\Azure Site Recovery
 - 进程服务器安装目录，示例：C:\Program Files (x86)\Azure Site Recovery
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

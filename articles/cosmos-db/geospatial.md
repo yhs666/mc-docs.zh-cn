@@ -1,19 +1,18 @@
 ---
 title: 在 Azure Cosmos DB SQL API 帐户中使用地理空间数据
 description: 了解如何使用 Azure Cosmos DB 和 SQL API 创建、索引和查询空间对象。
-services: cosmos-db
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/01/2017
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: afb15c0b6b6fce59c8dd5094cb9f514c9329f779
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: 6f759a7a7653a0e5a64ca0cb0bcc641d02801eb3
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026751"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309114"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>在 Azure Cosmos DB SQL API 帐户中使用地理空间和 GeoJSON 位置数据
 
@@ -193,7 +192,7 @@ Azure Cosmos DB 支持以下用于查询地理空间的开放地理空间信息�
       "id": "WakefieldFamily"
     }]
 
-如果索引策略中包含空间索引，则通过索引有效地进行“距离查询”。 有关空间索引的详细信息，请参阅以下部分。 如果没有指定路径的空间索引，仍然可以通过指定 `x-ms-documentdb-query-enable-scan` 请求标头（其值设置为“true”）执行空间查询。 在 .NET 中，可以通过将可选的 **FeedOptions** 参数传递到 [EnableScanInQuery](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.feedoptions.enablescaninquery?view=azure-dotnet#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) 设置为 true 的查询来完成此操作。 
+如果索引策略中包含空间索引，则通过索引有效地进行“距离查询”。 有关空间索引的详细信息，请参阅以下部分。 如果没有指定路径的空间索引，仍然可以通过指定 `x-ms-documentdb-query-enable-scan` 请求标头（其值设置为“true”）执行空间查询。 在 .NET 中，可以通过将可选的 **FeedOptions** 参数传递到 [EnableScanInQuery](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.feedoptions.enablescaninquery#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) 设置为 true 的查询来完成此操作。 
 
 ST_WITHIN 可用于检查点是否在多边形内。 多边形通常用于表示边界，例如邮政编码、省/自治区边界或自然构成物。 再次说明，如果在索引策略中包含空间索引，则将通过索引有效地进行“within”查询。 
 

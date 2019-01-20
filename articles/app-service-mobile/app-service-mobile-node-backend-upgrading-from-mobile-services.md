@@ -13,40 +13,34 @@ ms.tgt_pltfrm: mobile
 ms.devlang: node
 ms.topic: article
 origin.date: 10/01/2016
-ms.date: 01/29/2018
-ms.author: v-yiso
-ms.openlocfilehash: 40e704bff63819f96acafaf4a1c1b27bd6f29577
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.date: 01/28/2019
+ms.author: v-biyu
+ms.openlocfilehash: 15169499bdf062a5f8bba4817b935e3a816c090d
+ms.sourcegitcommit: ced39ce80d38d36bdead66fc978d99e93653cb5f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028966"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54307626"
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>将现有 Node.js Azure 移动服务升级到应用服务
-
 应用服务移动应用是使用 Azure 生成移动应用程序的新方式。 若要了解详细信息，请参阅[什么是移动应用？]。
 
-本文介绍如何将现有 Node.js 后端应用程序从 Azure 移动服务升级到新的应用服务移动应用。 执行此升级时，现有移动服务应用程序可以继续正常运行。  如果需要升级 Node.js 后端应用程序，请参阅[升级 .NET 移动服务](./app-service-mobile-net-upgrading-from-mobile-services.md)。
+本文介绍如何将现有 Node.js 后端应用程序从 Azure 移动服务升级到新的应用服务移动应用。 执行此升级时，现有移动服务应用程序可以继续正常运行。  如果需要升级 Node.js 后端应用程序，请参阅[升级 .NET 移动服务](app-service-mobile-net-upgrading-from-mobile-services.md)。
 
 将某个移动后端升级到 Azure 应用服务后，该后端即可访问所有应用服务功能，同时会根据[应用服务定价]而不是移动服务定价进行计费。
 
 ## <a name="migrate-vs-upgrade"></a>迁移与升级
-
 [!INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
 ### <a name="improvements-in-mobile-apps-nodejs-server-sdk"></a>移动应用 Node.js 服务器 SDK 改进
 升级到新版[移动应用 SDK](https://www.npmjs.com/package/azure-mobile-apps) 可获得许多改进，包括：
 
-- 新的轻量型 Node SDK 基于 [Express 框架](http://expressjs.com/en/index.html)，与新推出的 Node 版本功能保持一致。可以使用 Express 中间件自定义应用程序行为。
-
-- 移动服务 SDK 相比，性能有明显改进。
-
-- 现在，可以将网站与移动后端托管在一起；同样，可以很轻松地将 Azure 移动 SDK 添加到任何现有 express.v4 应用程序。
-
-- 移动应用 SDK 为跨平台和本地开发而构建，可以在 Windows、Linux 和 OSX 平台上本地开发与运行。 现在，可以方便地使用常见的 Node 开发技术，例如，在部署之前运行 [Mocha](https://mochajs.org/) 测试。
+* 新的轻量型 Node SDK 基于 [Express 框架](https://expressjs.com/en/index.html)，与新推出的 Node 版本功能保持一致。可以使用 Express 中间件自定义应用程序行为。
+* 移动服务 SDK 相比，性能有明显改进。
+* 现在，可以将网站与移动后端托管在一起；同样，可以很轻松地将 Azure 移动 SDK 添加到任何现有 express.v4 应用程序。
+* 移动应用 SDK 为跨平台和本地开发而构建，可以在 Windows、Linux 和 OSX 平台上本地开发与运行。 现在，可以方便地使用常见的 Node 开发技术，例如，在部署之前运行 [Mocha](https://mochajs.org/) 测试。
 
 ## <a name="overview"></a>基本升级概述
-
 为了帮助升级 Node.js 后端，Azure 应用服务提供了兼容包。  升级后，会获得可部署到新应用服务站点的全新站点。
 
 移动服务客户端 SDK 与新的移动应用服务器 SDK **不** 兼容。 为了提供应用程序的服务连续性，不应该将更改发布到当前正在为发布的客户端提供服务的站点。 而应该创建新的移动应用作为副本。 可以在同一个应用服务计划中放置此应用程序，以免产生额外的财务成本。
@@ -65,24 +59,21 @@ ms.locfileid: "53028966"
 当已迁移的原始移动服务没有任何流量时即可删除。
 
 ## <a name="install-npm-package"></a> 安装必备组件
-
 应在本地计算机上安装 [Node]。  还应安装兼容包。  安装 Node 后，可以从新的 cmd 或 PowerShell 命令提示符运行以下命令：
 
 ```npm i -g azure-mobile-apps-compatibility```
 
 ## <a name="obtain-ams-scripts"></a> 获取 Azure 移动服务脚本
-
-- 登录到 [Azure 门户]。
-- 使用“所有资源”或“应用服务”找到移动服务站点。
-- 在站点内单击“工具” -> “Kudu” -> “转到”，打开 Kudu 站点。
-- 单击“调试控制台” -> “PowerShell”打开调试控制台。
-- 依次单击每个目录导航到 `site/wwwroot/App_Data/config`
-- 单击 `scripts` 目录旁边的下载图标。
+* 登录到 [Azure 门户]。
+* 使用“所有资源”或“应用服务”找到移动服务站点。
+* 在站点内单击“工具” -> “Kudu” -> “转到”，打开 Kudu 站点。
+* 单击“调试控制台” -> “PowerShell”打开调试控制台。
+* 依次单击每个目录导航到 `site/wwwroot/App_Data/config`
+* 单击 `scripts` 目录旁边的下载图标。
 
 随后会下载 ZIP 格式的脚本。  在本地计算机上创建新目录，并在该目录中解压缩 `scripts.ZIP` 文件。  此时会创建 `scripts` 目录。
 
 ## <a name="scaffold-app"></a> 创建新 Azure 移动应用后端的基架
-
 从包含脚本目录的目录运行以下命令：
 
 ```scaffold-mobile-app scripts out```
@@ -90,7 +81,6 @@ ms.locfileid: "53028966"
 此时会在 `out` 目录中创建带有基架的 Azure 移动应用后端。  最好将 `out` 目录签入所选的源代码存储库（但不一定要这样做）。
 
 ## <a name="deploy-ama-app"></a> 部署 Azure 移动应用后端
-
 在部署期间，需要执行以下操作：
 
 1. 在 [Azure 门户]中创建新的移动应用。
@@ -100,21 +90,16 @@ ms.locfileid: "53028966"
 5. 将生成的代码部署到新站点。
 
 ### <a name="create-a-new-mobile-app"></a>创建新的移动应用
-
 1. 在 [Azure 门户]登录。
-
 2. 单击“+新建” > “Web + 移动” > “移动应用”，然后提供移动应用后端的名称。
+3. 对于“资源组”，请选择现有资源组，或创建新组（使用与应用相同的名称。）
 
-3. 对于“资源组”，请选择现有资源组，或创建新组（使用与应用相同的名称。） 
-
-    可以选择其他应用服务计划或创建新的计划。 若要深入了解应用服务计划以及如何在不同定价层和所需位置中创建新计划，请参阅 [Azure App Service 计划深入概述](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。
-
+    可以选择其他应用服务计划或创建新的计划。 若要深入了解应用服务计划以及如何在不同定价层和所需位置中创建新计划，请参阅 [Azure App Service 计划深入概述](../app-service/overview-hosting-plans.md)。
 4. 对于“应用服务计划”，请选择默认计划（位于[标准层](https://www.azure.cn/pricing/details/app-service/)）。 还可以选择其他计划，或[创建一个新计划](../app-service/app-service-plan-manage.md#create-an-app-service-plan)。 应用服务计划的设置将确定与应用关联的[位置、功能、成本和计算资源](https://www.azure.cn/pricing/details/app-service/)。 
 
-    做出有关计划的决定后，单击“创建” 。 这会创建移动应用后端。 
+    做出有关计划的决定后，单击“创建” 。 这会创建移动应用后端。
 
 ### <a name="run-createviewssql"></a>运行 CreateViews.SQL
-
 带有基架的应用包含名为 `createViews.sql`的文件。  必须对目标数据库执行此脚本。  可以在“设置”页的“连接字符串”下从已迁移的移动服务获取目标数据库的连接字符串。  `MS_TableConnectionString`。
 
 可以从 SQL Server Management Studio 或 Visual Studio 内部运行此脚本。

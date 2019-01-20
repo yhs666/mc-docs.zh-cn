@@ -13,14 +13,14 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: na
 ms.topic: article
 origin.date: 07/13/2017
-ms.date: 12/21/2018
+ms.date: 01/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: 923ad3aae8c91d1f2128876e7a39967690369af5
-ms.sourcegitcommit: d2893ae6bdbb3784d243d5d3c49c25c9cfd99d9b
+ms.openlocfilehash: b036f6eba7c18fbe08e503588584c2b18e2de91c
+ms.sourcegitcommit: e79651227d4378e6d24f9ab155b9f4fee044b2c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2018
-ms.locfileid: "53784916"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334289"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>使用 Azure PowerShell 管理 Azure Redis 缓存
 > [!div class="op_single_selector"]
@@ -105,11 +105,11 @@ ms.locfileid: "53784916"
 | maxmemory-reserved |为非缓存进程配置[预留的内存](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) |标准版和高级版 |
 | maxmemory-policy |为缓存配置[逐出策略](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) |所有定价层 |
 | notify-keyspace-events |配置 [keyspace 通知](cache-configure.md#keyspace-notifications-advanced-settings) |标准版和高级版 |
-| hash-max-ziplist-entries |为较小的聚合数据类型配置 [内存优化](http://redis.io/topics/memory-optimization) |标准版和高级版 |
-| hash-max-ziplist-value |为较小的聚合数据类型配置 [内存优化](http://redis.io/topics/memory-optimization) |标准版和高级版 |
-| set-max-intset-entries |为较小的聚合数据类型配置 [内存优化](http://redis.io/topics/memory-optimization) |标准版和高级版 |
-| zset-max-ziplist-entries |为较小的聚合数据类型配置 [内存优化](http://redis.io/topics/memory-optimization) |标准版和高级版 |
-| zset-max-ziplist-value |为较小的聚合数据类型配置 [内存优化](http://redis.io/topics/memory-optimization) |标准版和高级版 |
+| hash-max-ziplist-entries |为较小的聚合数据类型配置 [内存优化](https://redis.io/topics/memory-optimization) |标准版和高级版 |
+| hash-max-ziplist-value |为较小的聚合数据类型配置 [内存优化](https://redis.io/topics/memory-optimization) |标准版和高级版 |
+| set-max-intset-entries |为较小的聚合数据类型配置 [内存优化](https://redis.io/topics/memory-optimization) |标准版和高级版 |
+| zset-max-ziplist-entries |为较小的聚合数据类型配置 [内存优化](https://redis.io/topics/memory-optimization) |标准版和高级版 |
+| zset-max-ziplist-value |为较小的聚合数据类型配置 [内存优化](https://redis.io/topics/memory-optimization) |标准版和高级版 |
 | 数据库 |配置数据库的数目。 该属性只能在创建缓存时配置。 |标准版和高级版 |
 
 ## <a name="to-create-an-azure-cache-for-redis"></a>创建 Azure Redis 缓存
@@ -194,7 +194,7 @@ ms.locfileid: "53784916"
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 若要使用默认参数创建缓存，请运行以下命令。
 
@@ -274,7 +274,7 @@ ms.locfileid: "53784916"
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 `Set-AzureRmRedisCache` cmdlet 可用于更新属性，例如 `Size`、`Sku`、`EnableNonSslPort` 和 `RedisConfiguration` 值。 
 
@@ -378,7 +378,7 @@ ms.locfileid: "53784916"
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 若要返回当前订阅中所有缓存的相关信息，请运行不带任何参数的 `Get-AzureRmRedisCache`。
 
@@ -445,7 +445,7 @@ ms.locfileid: "53784916"
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 若要检索缓存的密钥，请调用 `Get-AzureRmRedisCacheKey` cmdlet，并传递缓存的名称以及包含该缓存的资源组的名称。
 
@@ -490,7 +490,7 @@ ms.locfileid: "53784916"
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 若要重新生成缓存的主要或辅助密钥，请调用 `New-AzureRmRedisCacheKey` cmdlet，传入名称和资源组，并为 `KeyType` 参数指定 `Primary` 或 `Secondary`。 以下示例重新生成缓存的辅助访问密钥。
 
@@ -541,7 +541,7 @@ ms.locfileid: "53784916"
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 以下示例删除名为 `myCache` 的缓存。
 
@@ -605,7 +605,7 @@ ms.locfileid: "53784916"
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 
 以下命令将数据从 SAS URI 所指定的 Blob 导入 Azure Redis 缓存中。
@@ -664,7 +664,7 @@ ms.locfileid: "53784916"
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 
 以下命令将数据从 Azure Redis 缓存实例导出到 SAS URI 所指定的容器中。
@@ -725,7 +725,7 @@ ms.locfileid: "53784916"
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 
 以下命令重新启动指定缓存的两个节点。
@@ -742,7 +742,7 @@ ms.locfileid: "53784916"
 - [使用资源组管理 Azure 资源](../azure-resource-manager/resource-group-template-deploy-portal.md)：了解如何在 Azure 门户中创建和管理资源组。
 - [Azure 博客](https://azure.microsoft.com/blog/)：了解 Azure 中的新功能。
 - [Windows PowerShell 博客](https://blogs.msdn.com/powershell)：了解 Windows PowerShell 中的新功能。
-- [“你好，脚本编写专家！”博客](http://blogs.technet.com/b/heyscriptingguy/)：从 Windows PowerShell 社区获取实用提示和技巧。
+- [“你好，脚本编写专家！”博客](https://blogs.technet.com/b/heyscriptingguy/)：从 Windows PowerShell 社区获取实用提示和技巧。
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

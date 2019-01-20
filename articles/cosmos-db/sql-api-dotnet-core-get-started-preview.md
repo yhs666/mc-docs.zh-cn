@@ -3,18 +3,18 @@ title: 生成一个用于在 Azure Cosmos DB SQL API 帐户中管理数据的 .N
 description: 使用 Azure Cosmos DB SQL API .NET Core SDK 创建联机数据库和 C# 控制台应用程序的教程。
 author: rockboyfor
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 12/01/2018
-ms.date: 12/31/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 38e325382ed651966429b9790852fdcda3faa61a
-ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
+ms.openlocfilehash: 67611a684f9f0b0d13bfbe52783a2ecd1eb43834
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814816"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309315"
 ---
 # <a name="build-a-net-core-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>生成一个用于在 Azure Cosmos DB SQL API 帐户中管理数据的 .NET Core 控制台应用（SDK 版本 3 预览）
 
@@ -191,7 +191,7 @@ ms.locfileid: "53814816"
 
 ## <a name="step-4-create-a-database"></a>步骤 4：创建数据库
 
-可以使用 `Databases` 类的 [**CreateDatabaseIfNotExistsAsync**](https://aka.ms/CosmosDotnetAPIDocs) 或 [**CreateDatabaseAsync**](https://aka.ms/CosmosDotnetAPIDocs) 函数创建一个数据库。 数据库是跨容器分区的项的逻辑容器。
+可以使用“CosmosDatabases”类的 [CreateDatabaseIfNotExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos) 或 [CreateDatabaseAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos) 函数创建一个数据库。 数据库是跨容器分区的项的逻辑容器。
 
 1. 将 **CreateDatabase** 方法复制并粘贴到 **GetStartedDemoAsync** 方法下面。 **createDatabase** 会使用通过 `databaseId` 字段指定的 ID `FamilyDatabase` 来创建新数据库（如果不存在）。
 
@@ -308,7 +308,7 @@ ms.locfileid: "53814816"
 > [!WARNING]
 > 调用方法 **CreateContainerIfNotExistsAsync** 会创建新的容器，牵涉到定价。 有关详细信息，请访问 [定价页](https://www.azure.cn/pricing/details/cosmos-db/)。
 
-可以使用 **Containers** 类中的 [**CreateContainerIfNotExistsAsync**](https://aka.ms/CosmosDotnetAPIDocs) 或 [**CreateContainerAsync**](https://aka.ms/CosmosDotnetAPIDocs) 函数创建容器。 容器包含项（在使用 SQL API 的情况下为 JSON 文档）和关联的 JavaScript 服务器端应用程序逻辑，例如存储过程、用户定义的函数以及触发器。
+可以使用 **CosmosContainers** 类中的 [**CreateContainerIfNotExistsAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos) 或 [**CreateContainerAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos) 函数创建容器。 容器包含项（在使用 SQL API 的情况下为 JSON 文档）和关联的 JavaScript 服务器端应用程序逻辑，例如存储过程、用户定义的函数以及触发器。
 
 1. 将 **CreateContainer** 方法复制并粘贴到 **CreateDatabase** 方法下面。 **CreateContainer** 会使用通过 `containerId` 字段指定的 ID `FamilyContainer` 来创建新容器（如果不存在）。
 
@@ -346,7 +346,7 @@ ms.locfileid: "53814816"
 <a name="CreateDoc"></a>
 ## <a name="step-6-add-items-to-the-container"></a>步骤 6：向容器添加项
 
-可以使用 **Items** 类的 [**CreateItemAsync**](https://aka.ms/CosmosDotnetAPIDocs) 函数创建项。 使用 SQL API 时，项会投射为文档，后者是用户定义的（任意）JSON 内容。 现在，可以将项插入到 Azure Cosmos DB 容器中。
+可以使用“CosmosItems”类的 [CreateItemAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos) 函数创建项。 使用 SQL API 时，项会投射为文档，后者是用户定义的（任意）JSON 内容。 现在，可以将项插入到 Azure Cosmos DB 容器中。
 
 在本例中，首先需要创建 Family 类来表示存储在 Azure Cosmos DB 中的对象。 此外还将创建 **Family** 中使用的 **Parent**、**Child**、**Pet** 和 **Address** 子类。 请注意，文档必须将 **ID** 属性序列化为 JSON 格式的 **ID**。
 
@@ -779,3 +779,5 @@ End of demo, press any key to exit.
 > [将数据导入 Azure Cosmos DB](import-data.md)
 
 [cosmos-db-create-account]: create-sql-api-dotnet-preview.md#create-account
+
+<!--Update_Description: update meta properties, wording update-->

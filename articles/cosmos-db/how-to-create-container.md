@@ -1,19 +1,18 @@
 ---
 title: 在 Azure Cosmos DB 中创建容器
 description: 了解如何在 Azure Cosmos DB 中创建容器
-services: cosmos-db
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 11/06/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 82feb97e990c04d1e08f08c61b7285b179f58d58
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: fd379946728d529424a373181650dee9737b0ba7
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026838"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309085"
 ---
 # <a name="create-a-container-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中创建容器
 
@@ -142,5 +141,4 @@ db.runCommand( { shardCollection: "myDatabase.myCollection", key: { myShardKey: 
 
 - [Azure Cosmos DB 中的分区](partitioning-overview.md)
 
-<!-- Update_Description: new articles on cosmos db how to create container  -->
-<!--ms.date: 12/03/2018-->
+<!-- Update_Description: update meta properties, wording update  -->

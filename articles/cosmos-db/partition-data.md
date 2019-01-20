@@ -1,19 +1,18 @@
 ---
-title: Azure Cosmos DB 中的分区和水平缩放 | Azure
+title: Azure Cosmos DB 中的分区和水平缩放
 description: 了解分区在 Azure Cosmos DB 中的工作原理，分区和分区键的配置方式以及应用程序分区键的选取方法。
+ms.author: v-yeche
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 10/30/2018
-ms.date: 12/03/2018
-ms.author: v-yeche
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4edb1b207f91742d81f597edabd63b1dc0d45c3e
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 01/21/2019
+ms.openlocfilehash: 6a7cb3920fa61a813679c8c47151a3c5d7788357
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675339"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309116"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Azure Cosmos DB 中的分区和水平缩放
 
@@ -25,13 +24,11 @@ ms.locfileid: "52675339"
 
 在 Azure Cosmos DB 中，容器是基本的缩放单元。 添加到容器的数据以及针对容器预配的吞吐量将自动在一组逻辑分区之间（水平）分区。 它们是根据为 Cosmos 容器指定的分区键分区的。 有关详细信息，请参阅[如何为 Cosmos 容器指定分区键](how-to-create-container.md)一文。
 
-逻辑分区定义数据库事务的范围。 可以使用支持快照隔离的事务来更新逻辑分区中的项。
-
-将新项添加到容器或者提高针对容器预配的吞吐量时，系统将以透明方式创建新的逻辑分区。
+逻辑分区定义数据库事务的范围。 可以使用支持快照隔离的事务来更新逻辑分区中的项。 当向容器中添加新项时，系统将透明地创建新的逻辑分区。
 
 ## <a name="physical-partitions"></a>物理分区
 
-通过跨大量逻辑分区分配数据和吞吐量来缩放 Cosmos 容器。 在内部，一个或多个逻辑分区将映射到由一组副本（也称为副本集）构成的**资源分区**。 每个副本集托管 Cosmos 数据库引擎的一个实例。 副本集使资源分区中存储的数据具有持久性、高可用性和一致性。 资源分区支持最大数量固定的存储和 RU。 构成资源分区的每个副本继承存储配额。 资源分区的所有副本共同支持分配给资源分区的吞吐量。 下图显示了逻辑分区如何映射到多区域分布的物理分区：
+通过将数据和吞吐量分配到大量逻辑分区上来缩放 Azure Cosmos 容器。 在内部，一个或多个逻辑分区将映射到由一组副本（也称为副本集）构成的**物理分区**。 每个副本集托管 Azure Cosmos 数据库引擎的一个实例。 副本集使物理分区中存储的数据具有持久性、高可用性和一致性。 物理分区支持固定的最大数量存储和 RU。 构成物理分区的每个副本均继承存储配额。 并且物理分区的所有副本共同支持分配给物理分区的吞吐量。 下图显示了逻辑分区如何映射到多区域分布的物理分区：
 
 <!--Notice on Line 31 : Change globally to multiple-regionally-->
 ![Azure Cosmos DB 分区](./media/partition-data/logical-partitions.png)
@@ -50,4 +47,4 @@ ms.locfileid: "52675339"
 * 了解[如何对 Cosmos 容器预配吞吐量](how-to-provision-container-throughput.md)
 * 了解[如何对 Cosmos 数据库预配吞吐量](how-to-provision-database-throughput.md)
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update-->

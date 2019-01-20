@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.author: v-junlch
 ms.custom: seodec18
 origin.date: 09/21/2017
-ms.date: 01/04/2019
-ms.openlocfilehash: e6f773bf66209773a235c0bdc2b61667ae688d8a
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.date: 01/16/2019
+ms.openlocfilehash: b166d7400899a4e3abbe6c77b7eed0c670e88d6b
+ms.sourcegitcommit: a09ee94bc8a6b4270f655a1d80cdb65eca320559
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083621"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396453"
 ---
 # <a name="tutorial-computer-vision-api-java"></a>教程：计算机视觉 API Java
 
@@ -779,7 +779,7 @@ HandwritingImage 方法包装两个进行图像分析所需的 REST API 调用�
             
             // Check for success.
             if (textResponse.getStatusLine().getStatusCode() != 202) {
-                // An error occured. Return the JSON error message.
+                // An error occurred. Return the JSON error message.
                 HttpEntity entity = textResponse.getEntity();
                 String jsonString = EntityUtils.toString(entity);
                 return new JSONObject(jsonString);
@@ -851,4 +851,4 @@ HandwritingImage 方法包装两个进行图像分析所需的 REST API 调用�
 
 - [计算机视觉 API Python 教程](PythonTutorial.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

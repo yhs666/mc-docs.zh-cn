@@ -4,20 +4,21 @@ titleSuffix: Azure Cosmos DB
 description: 本教程介绍如何使用 Angular 和 Express 管理 Cosmos DB 中存储的数据，以生成 Node.js 应用程序。 在本部分，你将使用 Mongoose 连接到 Azure Cosmos DB。
 author: rockboyfor
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 12/26/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
 ms.custom: seodec18
+ms.reviewer: sngun
 Customer intent: As a developer, I want to build a Node.js application, so that I can manage the data stored in Cosmos DB.
-ms.openlocfilehash: 0563447e1286f9d82b31f315ed78d8f58de598ef
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: 379a6f60f00848aa62e7a5a0cb041623a010c3ea
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026760"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309210"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>使用 Azure Cosmos DB 的用于 MongoDB 的 API 创建 Angular 应用 - 使用 Mongoose 连接到 Cosmos DB
 
@@ -254,4 +255,4 @@ Next, you need to define the schema of the data to store in Azure Cosmos DB by d
 > [!div class="nextstepaction"]
 > [第 6 部分：向应用添加 Post、Put 和 Delete 函数](tutorial-develop-mongodb-nodejs-part6.md)
 
-<!-- Update_Description: update meta properties, wording update, uppdat link -->
+<!-- Update_Description: update meta properties -->

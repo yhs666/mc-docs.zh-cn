@@ -1,21 +1,20 @@
 ---
-title: 如何通过 PHP 使用 Azure 存储表服务 | Azure
+title: 如何通过 PHP 使用 Azure 存储表服务
 description: 使用 Azure 表存储将结构化数据存储在云中。
-services: cosmos-db
 author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: php
 ms.topic: sample
 origin.date: 04/05/2018
-ms.date: 01/07/2019
-ms.author: v-yeche
-ms.openlocfilehash: 8f12a52bd3c8a718940494e13eabf3170c58c7da
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.date: 01/21/2019
+ms.openlocfilehash: 065a692e0dd4ccef9e9615e153564b9a0094c9cb
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026660"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309166"
 ---
 # <a name="how-to-use-azure-storage-table-service-from-php"></a>如何通过 PHP 使用 Azure 存储表服务
 <!-- Not Available on  Cosmos DB Table API -->
@@ -35,7 +34,7 @@ ms.locfileid: "54026660"
 
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-<!-- Not Available on  ### Create an Azure Cosmos DB account -->
+<!-- Not Available on  ### Create an Azure Cosmos DB Table API account -->
 
 ## <a name="create-a-php-application"></a>创建 PHP 应用程序
 

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/08/2017
 ms.author: v-yiso
-ms.date: 12/18/2017
-ms.openlocfilehash: 1032cf55c4126efcdfd362617ccaff408ac3b9e4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 01/28/2019
+ms.openlocfilehash: 1c97e1736636707d68a87b029a2d1cd469b5cc3d
+ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666566"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396776"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>使用 Azure 资源管理器模板创建 IoT 中心 (.NET)
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "52666566"
 可以使用 Azure 资源管理器以编程方式创建和管理 Azure IoT 中心。 本教程介绍如何使用 Azure Resource Manager 模板通过 C# 程序创建 IoT 中心。
 
 > [!NOTE]
-> Azure 提供了用于创建和使用资源的两个不同部署模型：[Azure Resource Manager 模型和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。  本文介绍了如何使用 Azure Resource Manager 部署模型。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[Azure 资源管理器部署模型和经典部署模型](../azure-resource-manager/resource-manager-deployment-model.md)。  本文介绍了如何使用 Azure Resource Manager 部署模型。
 > 
 > 
 
@@ -199,7 +199,8 @@ ms.locfileid: "52666566"
 现在，已经使用包含 C# 程序的 Azure 资源管理器模板部署了 IoT 中心，你可能想要进一步探究：
 
 * 阅读了解 [IoT 中心资源提供程序 REST API][lnk-rest-api] 的相关功能。
-* 有关 Azure 资源管理器功能的详细信息，请参阅 [Azure 资源管理器概述][lnk-azure-rm-overview]。
+* 有关 Azure Resource Manager 功能的详细信息，请参阅 [Azure Resource Manager 概述][lnk-azure-rm-overview] 。
+* 有关要在模板中使用的 JSON 语法和属性，请参阅 [Microsoft.Devices 资源类型](https://docs.microsoft.com/en-us/azure/templates/microsoft.devices/iothub-allversions)。
 
 若要详细了解如何开发 IoT 中心，请参阅以下文章：
 
@@ -221,4 +222,4 @@ ms.locfileid: "52666566"
 [lnk-c-sdk]: ./iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: ./iot-hub-devguide-sdks.md
 
-[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/quickstart-linux.md

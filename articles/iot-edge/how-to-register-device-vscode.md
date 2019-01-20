@@ -1,20 +1,20 @@
 ---
-title: 注册新 Azure IoT Edge 设备 (VS Code) | Microsoft Docs
-description: 使用 Visual Studio Code 在 Azure IoT 中心中创建新的 IoT Edge 设备
+title: 通过 Visual Studio Code 注册新设备 - Azure IoT Edge | Microsoft Docs
+description: 使用 Visual Studio Code 在 Azure IoT 中心中创建新的 IoT Edge 设备并检索连接字符串
 author: kgremban
 manager: philmea
 ms.author: v-yiso
-origin.date: 06/14/2018
-ms.date: 12/10/2018
+origin.date: 01/03/2019
+ms.date: 01/28/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d4a452f3c4a3a1b66c59ee1cde3a8427b3f78fc1
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 8f38b7a069d58d430d25efb9429960536705aa2e
+ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676418"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396763"
 ---
 # <a name="register-a-new-azure-iot-edge-device-from-visual-studio-code"></a>通过 Visual Studio Code 注册新 Azure IoT Edge 设备
 
@@ -25,8 +25,8 @@ ms.locfileid: "52676418"
 ## <a name="prerequisites"></a>先决条件
 
 * Azure 订阅中的 [IoT 中心](../iot-hub/iot-hub-create-through-portal.md)
-* [Visual Studio Code](https://code.visualstudio.com/) 
-* 适用于 Visual Studio Code 的 [Azure IoT Edge 扩展](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)
+* [Visual Studio Code](https://code.visualstudio.com/)
+* 适用于 Visual Studio Code 的 [Azure IoT 工具](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>登录以访问 IoT 中心
 
@@ -36,7 +36,7 @@ ms.locfileid: "52676418"
 
 2. 在资源管理器底部，展开“Azure IoT 中心设备”部分。 
 
-   ![展开 Azure IoT 中心设备](./media/how-to-register-device-vscode/azure-iot-hub-devices.png)
+   ![展开“Azure IoT 中心设备”部分](./media/how-to-register-device-vscode/azure-iot-hub-devices.png)
 
 3. 单击“Azure IoT 中心设备”部分标题中的“...”。 如果没有看到省略号，请单击标题或将鼠标指针悬停在标题上。 
 
@@ -64,7 +64,7 @@ ms.locfileid: "52676418"
 
 Visual Studio Code 资源管理器的“Azure IoT 中心设备”部分列出了连接到 IoT 中心的所有设备。 可通过不同的图标区分 IoT Edge 设备和非 Edge 设备，并且可展开设备以显示部署至各设备的模块。 
 
-   ![在 VS Code 中查看设备](./media/how-to-register-device-vscode/view-devices.png)
+   ![查看 IoT 中心中所有的 IoT Edge 设备](./media/how-to-register-device-vscode/view-devices.png)
 
 ## <a name="retrieve-the-connection-string"></a>检索连接字符串
 

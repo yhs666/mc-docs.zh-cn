@@ -4,15 +4,15 @@ description: 了解如何安装移动服务代理以使用 Azure Site Recovery �
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 10/29/2018
-ms.date: 12/24/2018
+origin.date: 11/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0086f42935e89fab22a43af14f36bb27ac45ba14
-ms.sourcegitcommit: b29475e13c1f54d420cdca71f90ca6a5c5116cbb
+ms.openlocfilehash: 02c9b7ca3d74daa8781e21daa625d7d0c1a323b4
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/24/2018
-ms.locfileid: "53784547"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363275"
 ---
 # <a name="install-the-mobility-service-for-disaster-recovery-of-vmware-vms-and-physical-servers"></a>安装移动服务以对 VMware VM 和物理服务器进行灾难恢复
 

@@ -5,15 +5,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 11/11/2018
-ms.date: 12/10/2018
+origin.date: 11/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 776fd835cfa9c5941969064d19c057a25bfa836e
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 482b02a8b60557bfe2e246bb9a9c8a85156fc8d0
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028833"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363393"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>为 VMware VM 灾难恢复管理配置服务器
 
@@ -136,7 +136,7 @@ ms.locfileid: "53028833"
 - 如果运行的是 9.7、9.8、9.9 或 9.10 版，可以直接升级到 9.11 版。
 - 如果运行的是 9.6 版或更早版本并且想要升级到 9.11 版，则必须先升级到 9.7 版， 然后再升级到 9.11 版。
 
-[wiki 更新页](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)中提供了用于升级到配置服务器的所有版本的更新汇总的链接。
+[Azure 更新页](https://www.azure.cn/what-is-new/)中提供了用于升级到配置服务器的所有版本的更新汇总的链接。
 
 > [!IMPORTANT]
 > 对于每一新版“N”的已发布 Azure Site Recovery 组件，“N-4”以下的所有版本都被视为不受支持。 始终建议升级到可用的最新版本。
@@ -173,9 +173,9 @@ ms.locfileid: "53028833"
 还可以选择使用 PowerShell 删除配置服务器。
 
 1. [安装](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell 模块。
-2. 使用以下命令登录到你的 Azure 帐户：
+2. 使用以下命令登录到 Azure 帐户：
 
-    `Connect-AzureRmAccount`
+    `Connect-AzureRmAccount -Environment AzureChinaCloud`
 3. 选择保管库订阅。
 
      `Get-AzureRmSubscription -SubscriptionName <your subscription name> | Select-AzureRmSubscription`

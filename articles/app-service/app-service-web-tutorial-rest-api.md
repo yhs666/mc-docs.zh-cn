@@ -16,12 +16,12 @@ origin.date: 02/28/2018
 ms.date: 01/21/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: bba854debfd45c981b65fac6e86e0428f4fa334e
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 48f7ad7d8cf13e85090c34734970180f4bab141c
+ms.sourcegitcommit: ced39ce80d38d36bdead66fc978d99e93653cb5f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083727"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54307619"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>教程：在 Azure 应用服务中托管启用了 CORS 的 RESTful API
 
@@ -206,4 +206,4 @@ az resource update --name web --resource-group myResourceGroup --namespace Micro
 转到下一教程，了解如何对用户进行身份验证和授权。
 
 > [!div class="nextstepaction"]
-> [教程：对用户进行端到端身份验证和授权](app-service-web-tutorial-auth-aad.md)
+

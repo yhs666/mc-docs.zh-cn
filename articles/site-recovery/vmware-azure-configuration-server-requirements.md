@@ -4,16 +4,17 @@ description: 本文介绍了为了使用 Azure Site Recovery 执行 VMware 到 A
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
+services: site-recovery
 ms.topic: article
-origin.date: 11/11/2018
-ms.date: 12/10/2018
+origin.date: 12/31/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: af3df5ad29ff8c0f12b56750b9ed4e59a3a6fd22
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: cd93471114ca59c22e121e637f877d5232b30437
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029161"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363564"
 ---
 # <a name="configuration-server-requirements-for-vmware-disaster-recovery-to-azure"></a>VMware 到 Azure 的灾难恢复的配置服务器要求
 
@@ -34,7 +35,7 @@ ms.locfileid: "53029161"
 
 ## <a name="hardware-requirements"></a>硬件要求
 
-组件 | 要求 
+**组件** | **要求** 
 --- | ---
 CPU 核心数 | 8 
 RAM | 16 GB
@@ -44,7 +45,7 @@ RAM | 16 GB
 
 ## <a name="software-requirements"></a>软件要求
 
-组件 | 要求 
+**组件** | **要求** 
 --- | ---
 操作系统 | Windows Server 2012 R2 <br> Windows Server 2016
 操作系统区域设置 | 美国英语
@@ -54,16 +55,16 @@ IIS | - 无预先存在的默认网站 <br> - 端口 443 上没有预先存在�
 
 ## <a name="network-requirements"></a>网络要求
 
-组件 | 要求 
+**组件** | **要求** 
 --- | --- 
 IP 地址类型 | 静态 
-Internet 访问权限 | 服务器需要访问这些 URL（直接或通过代理）： <br> - \*.accesscontrol.chinacloudapi.cn<br> - \*.backup.windowsazure.cn <br>- \*.store.core.chinacloudapi.cn<br> - \*.blob.core.chinacloudapi.cn<br> - \*.hypervrecoverymanager.windowsazure.cn  <br> - https:\//management.chinacloudapi.cn <br> - *.services.visualstudio.com <br> - time.nist.gov <br> - time.windows.com <br> OVF 还需要访问以下 URL： <br> - https:\//login.chinacloudapi.cn <br> - https:\//secure.aadcdn.microsoftonline-p.com <br> - https:\//login.live.com  <br> - https:\//auth.gfx.ms <br> - https:\//graph.chinacloudapi.cn <br> - https:\//login.chinacloudapi.cn <br> - https:\//www.live.com <br> - https:\//www.microsoft.com <br> - https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi 
+Internet 访问 | 服务器需要访问这些 URL（直接或通过代理）： <br> - \*.accesscontrol.chinacloudapi.cn<br> - \*.backup.windowsazure.cn <br>- \*.store.core.chinacloudapi.cn<br> - \*.blob.core.chinacloudapi.cn<br> - \*.hypervrecoverymanager.windowsazure.cn  <br> - https:\//management.chinacloudapi.cn <br> - *.services.visualstudio.com <br> - time.nist.gov <br> - time.windows.com <br> OVF 还需要访问以下 URL： <br> - https:\//login.chinacloudapi.cn <br> - https:\//secure.aadcdn.microsoftonline-p.com <br> - https:\//login.live.com  <br> - https:\//auth.gfx.ms <br> - https:\//graph.chinacloudapi.cn <br> - https:\//login.chinacloudapi.cn <br> - https:\//www.live.com <br> - https:\//www.microsoft.com <br> - https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi 
 端口 | 443（控制通道协调）<br>9443（数据传输） 
 NIC 类型 | VMXNET3（如果配置服务器是 VMware VM）
 
 ## <a name="required-software"></a>所需软件
 
-组件 | 要求 
+**组件** | **要求** 
 --- | ---
 VMware vSphere PowerCLI | 如果配置服务器在 VMware VM 上运行，则应安装 [PowerCLI 版本 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1)。
 MYSQL | 应安装 MySQL。 可以手动安装，或者让 Site Recovery 进行安装。
@@ -72,9 +73,9 @@ MYSQL | 应安装 MySQL。 可以手动安装，或者让 Site Recovery 进行�
 
 下表汇总了配置服务器的容器要求。 如果要复制多个 VMware VM，则应查看[容量规划注意事项](site-recovery-plan-capacity-vmware.md)然后运行用于 VMWare 复制的 [Azure Site Recovery 部署规划器](site-recovery-deployment-planner.md)工具。 
 
-组件 | 要求 
+**组件** | **要求** 
 --- | ---
-CPU | 内存 | 缓存磁盘 | 数据更改率 | 复制的计算机
+**CPU** | 内存 | 缓存磁盘 | 数据更改率 | 复制的计算机
 --- | --- | --- | --- | ---
 8 个 vCPU<br/><br/> 2 个插槽 * 4 个核心 \@ 2.5 GHz | 16 GB | 300 GB | 500 GB 或更少 | 少于 100 台计算机
 12 个 vCPU<br/><br/> 2 个插槽 * 6 个核心 \@ 2.5 GHz | 18 GB | 600 GB | 500 GB-1 TB | 100 到 150 台计算机
@@ -82,3 +83,5 @@ CPU | 内存 | 缓存磁盘 | 数据更改率 | 复制的计算机
 
 ## <a name="next-steps"></a>后续步骤
 设置 [VMware VM](vmware-azure-tutorial.md) 到 Azure 的灾难恢复。
+
+<!--Update_Description: update meta properties-->

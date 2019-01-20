@@ -6,19 +6,19 @@ keywords: ''
 author: yzhong94
 ms.author: v-yiso
 origin.date: 07/07/2018
-ms.date: 12/31/2018
+ms.date: 01/28/2019
 ms.topic: article
 ms.service: iot-hub
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: b23a5349f137df8a09c89b74f14aa43ef56d7092
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.openlocfilehash: 1625d79aecc22d1673378f4a8c4cbc11e64fe829
+ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736675"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396801"
 ---
 # <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>使用 Azure IoT 中心设备 SDK 管理连接和可靠的消息传送
 
@@ -64,7 +64,7 @@ Azure IoT 中心设备 SDK 旨在简化从云到设备和从设备到云的连�
 1. SDK 检测网络、协议或应用程序中的错误和相关错误。
 1. SDK 使用错误筛选器来确定错误类型并决定是否需要重试。
 1. 如果 SDK 确定了**无法恢复的错误**，则会停止连接、发送和接收等操作。 SDK 会通知用户。 无法恢复的错误的示例包括身份验证错误和错误终结点错误。
-1. 如果 SDK 确定了**可恢复的错误**，则会根据指定的重试策略进行重试，直到经过定义的超时时间。
+1. 如果 SDK 确定了**可恢复的错误**，则会根据指定的重试策略进行重试，直到经过定义的超时时间。  请注意，SDK 默认情况下使用**带抖动的指数回退**重试策略。
 1. 当定义的超时到期时，SDK 会停止尝试连接或发送。 它会通知用户。
 1. SDK 允许用户附加回调以接收连接状态更改。
 

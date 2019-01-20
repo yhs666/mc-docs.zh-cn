@@ -144,7 +144,7 @@ items:
     - name: IoT Edge
       href: /azure/iot-edge
     - name: IoT 设备 SDK
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+      href: /azure/iot-hub/iot-hub-devguide-sdks
 - name: 资源
   items:
   - name: 适用于 C# 的 Azure IoT 示例 (.NET)
@@ -185,9 +185,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: 视频
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: 0c296f2db2009ac3b0cd9a2ead9d0bcb7d1d533d
-ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
+ms.openlocfilehash: 97a04e3b6d5afdd16ce122e6caef4509925485df
+ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216246"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396765"

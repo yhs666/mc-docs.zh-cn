@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 01/23/2017
-ms.date: 12/21/2018
+ms.date: 01/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: 932ca17871fe6063da20d9158b05d54600f9f663
-ms.sourcegitcommit: d2893ae6bdbb3784d243d5d3c49c25c9cfd99d9b
+ms.openlocfilehash: c7d2c8c896e71e5248e871fd7048b957034f3fbf
+ms.sourcegitcommit: e79651227d4378e6d24f9ab155b9f4fee044b2c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2018
-ms.locfileid: "53785001"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334260"
 ---
 # <a name="azure-cache-for-redis-documentation"></a>“用于 Redis 的 Azure 缓存”文档
 
@@ -159,9 +159,9 @@ ms.locfileid: "53785001"
                     <div class="cardText">
                         <h3>语言</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.redis">.NET</a></p>
-                        <p><a href="https://docs.azure.cn/zh-cn/java/api/com.microsoft.azure.management.redis?view=azure-java-stable">Java</a></p>
-                        <p><a href="http://redis.io/clients">Redis 客户端</a></p>
-                        <p><a href="http://redis.io/commands#">Redis 命令</a></p>
+                        <p><a href="https://docs.azure.cn/zh-cn/java/api/com.microsoft.azure.management.redis.rediscache">Java</a></p>
+                        <p><a href="https://redis.io/clients">Redis 客户端</a></p>
+                        <p><a href="https://redis.io/commands#">Redis 命令</a></p>
                    </div>
                 </div>
             </div>

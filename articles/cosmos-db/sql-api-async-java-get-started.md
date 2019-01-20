@@ -1,23 +1,21 @@
 ---
 title: 教程：使用异步 Java SDK 生成 Java 应用，以便在 Azure Cosmos DB 中管理 SQL API 帐户
 description: 本教程介绍如何通过异步 Java 应用程序在 Azure Cosmos DB 中使用 SQL API 帐户来存储和访问数据。
-keywords: nosql 教程, 联机数据库, java 控制台应用程序
-services: cosmos-db
 author: rockboyfor
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 origin.date: 06/29/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
 Customer intent: As a developer, I want to build a Java application with the Async Java SDK to access and manage Azure Cosmos DB resources so that customers can utilize the multiple-region distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: 84d1a758063c04edd3c22e5e394c9511104cf8d3
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: 4feec58317b4c80a80fd21fc50903b2f96475bb4
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026676"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309305"
 ---
 <!--Verify sucessfully-->
 # <a name="tutorial-build-a-java-app-with-the-async-java-sdk-to-manage-data-stored-in-a-sql-api-account"></a>教程：使用异步 Java SDK 生成 Java 应用，以便管理存储在 SQL API 帐户中的数据
@@ -235,7 +233,6 @@ public static Family getJohnsonFamilyDocument() {
 
 Azure Cosmos DB 支持对存储在每个集合中的 JSON 文档进行各种查询。 以下示例代码展示了如何将 SQL 语法与 `queryDocuments` 方法一起使用来查询 Azure Cosmos DB 中的文档。
 
-<!-- URL is correct on [queryDocuments](https://docs.microsoft.com/zh-cn/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client.querydocuments?view=azure-java-stable)-->
 ```java
 private void executeSimpleQueryAsyncAndRegisterListenerForResult(CountDownLatch completionLatch) 
 {

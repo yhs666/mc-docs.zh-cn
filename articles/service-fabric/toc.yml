@@ -199,6 +199,10 @@ items:
       items:
       - name: 了解定期备份配置
         href: service-fabric-backuprestoreservice-configure-periodic-backup.md
+      - name: 触发分区还原
+        href: service-fabric-backup-restore-service-trigger-restore.md
+      - name: 按需备份分区
+        href: service-fabric-backup-restore-service-ondemand-backup.md
   - name: 群集
     items:
     - name: 群集概述
@@ -217,6 +221,12 @@ items:
         href: service-fabric-cluster-scaling.md
       - name: 群集网络模式
         href: service-fabric-patterns-networking.md
+    - name: 独立群集
+      items:
+      - name: 升级独立群集
+        href: service-fabric-cluster-upgrade-standalone.md
+      - name: 扩展
+        href: service-fabric-cluster-scaling-standalone.md
     - name: 群集资源管理器
       items:
       - name: 群集资源管理器概述
@@ -263,18 +273,18 @@ items:
         href: service-fabric-diagnostics-eventstore.md
       - name: Reliable Services 事件
         href: service-fabric-reliable-services-diagnostics.md
-      - name: Reliable Actors 事件
-        href: service-fabric-reliable-actors-diagnostics.md
       - name: 监视服务远程处理
         href: service-fabric-reliable-serviceremoting-diagnostics.md
-    - name: 应用程序日志记录
-      href: service-fabric-diagnostics-event-generation-app.md
-    - name: 性能指标
+      - name: Reliable Actors 事件
+        href: service-fabric-reliable-actors-diagnostics.md
+    - name: 基础结构监视
       href: service-fabric-diagnostics-event-generation-perf.md
     - name: 运行状况模型概述
       href: service-fabric-health-introduction.md
     - name: 报告运行状况事件
       href: service-fabric-report-health.md
+    - name: 监视合作伙伴
+      href: service-fabric-diagnostics-partners.md
   - name: 与 API 管理集成
     href: service-fabric-api-management-overview.md
 - name: 操作指南
@@ -401,6 +411,11 @@ items:
         href: service-fabric-tutorial-deploy-api-management.md
       - name: 管理应用程序机密
         href: service-fabric-application-secret-management.md
+        items:
+        - name: 在 Windows 上设置加密证书并加密机密
+          href: service-fabric-application-secret-management-windows.md
+        - name: 在 Linux 上设置加密证书并加密机密
+          href: service-fabric-application-secret-management-linux.md
       - name: 配置反向代理以进行安全通信
         href: service-fabric-reverseproxy-configure-secure-communication.md
       - name: 以本地用户或系统帐户身份运行服务启动脚本
@@ -479,6 +494,8 @@ items:
       items:
       - name: 在本地群集上部署应用程序
         href: service-fabric-get-started-with-a-local-cluster.md
+      - name: 删除节点类型
+        href: service-fabric-how-to-remove-node-type.md
       - name: Azure Resource Manager
         href: service-fabric-application-arm-resource.md
       - name: Azure PowerShell
@@ -497,6 +514,8 @@ items:
         href: service-fabric-application-upgrade-troubleshooting.md
     - name: 测试应用程序和服务
       items:
+      - name: 单元测试有状态服务
+        href: service-fabric-how-to-unit-test-stateful-services.md
       - name: 测试服务到服务通信
         href: service-fabric-testability-scenarios-service-communication.md
       - name: 模拟失败
@@ -603,13 +622,13 @@ items:
       items:
       - name: 将日志记录添加到应用程序
         href: service-fabric-how-to-diagnostics-log.md
-      - name: 使用 EventFlow 聚合事件
+      - name: 使用 EventFlow 聚合日志
         href: service-fabric-diagnostics-event-aggregation-eventflow.md
     - name: 监视群集
       items:
       - name: 查询 EventStore API
         href: service-fabric-diagnostics-eventstore-query.md
-      - name: Windows Azure 诊断
+      - name: Windows 群集诊断
         href: service-fabric-diagnostics-event-aggregation-wad.md
       - name: Linux Azure 诊断
         href: service-fabric-diagnostics-event-aggregation-lad.md
@@ -625,6 +644,10 @@ items:
       href: service-fabric-reverse-proxy-diagnostics.md
     - name: 对本地群集进行故障排除
       href: service-fabric-troubleshoot-local-cluster-setup.md
+  - name: 最佳实践
+    items:
+    - name: 生产就绪情况核对清单
+      href: service-fabric-production-readiness-checklist.md
 - name: 参考
   items:
   - name: Azure PowerShell
@@ -665,6 +688,11 @@ items:
       href: service-fabric-sfctl-sa-cluster.md
     - name: sfctl service
       href: service-fabric-sfctl-service.md
+    - name: sfctl settings
+      href: service-fabric-sfctl-settings.md
+      items:
+      - name: sfctl settings telemetry
+        href: service-fabric-sfctl-settings-telemetry.md
     - name: sfctl store
       href: service-fabric-sfctl-store.md
   - name: Java API
@@ -714,9 +742,9 @@ items:
     href: https://www.azure.cn/what-is-new/
   - name: 视频
     href: https://www.azure.cn/video-center/
-ms.openlocfilehash: e882d9de738ffce5929a334e034cc328c6c728b3
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: af7aa5f8627c8d006ab51a1b6963e4ece37a7afe
+ms.sourcegitcommit: 35a09a86cbb3d896fa9784471ece41df7728bd71
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083812"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396674"

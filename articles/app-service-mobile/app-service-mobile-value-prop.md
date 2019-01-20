@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 10/01/2016
-ms.author: v-yiso
-ms.date: 03/12/2018
-ms.openlocfilehash: f10f832411726cf0a49c6e60854eac82a74b8991
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.author: v-biyu
+ms.date: 01/28/2019
+ms.openlocfilehash: cd7460a8265f3ed76581f4176b4416d728f2336d
+ms.sourcegitcommit: ced39ce80d38d36bdead66fc978d99e93653cb5f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028540"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54307620"
 ---
 # <a name="getting-started"> </a>关于 Azure 应用服务中的移动应用
 Azure 应用服务是完全托管的平台即服务 (PaaS) 产品，适用于专业开发人员。 该服务为 Web、移动和集成方案提供丰富的功能集。 
@@ -69,7 +69,7 @@ Azure 应用服务中的移动应用功能为企业开发人员和系统集成�
 
 * **持续部署**：应用服务可与常用_源代码管理_ (SCM) 系统集成，方便你轻松部署新版后端。
 
-  深入了解 [部署选项](../app-service/app-service-deploy-local-git.md)。
+  深入了解 [部署选项](../app-service/deploy-local-git.md)。
 
 * **虚拟网络**：应用服务可以使用虚拟网络、Azure ExpressRoute 或混合连接与本地资源建立连接。
 
@@ -98,7 +98,7 @@ Azure 应用服务中的移动应用功能为企业开发人员和系统集成�
 [Xamarin.Forms]: ./app-service-mobile-xamarin-forms-get-started.md
 [Apache Cordova]: ./app-service-mobile-cordova-how-to-use-client-library.md
 [autoscaling]: ../app-service/web-sites-scale.md
-[过渡环境]: ../app-service/web-sites-staged-publishing.md
+[过渡环境]: ../app-service/deploy-staging-slots.md
 [虚拟网络]: ../app-service/web-sites-integrate-with-vnet.md
 
 [学习路线图]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/

@@ -1,20 +1,19 @@
 ---
 title: 通过 Azure Cosmos DB 模拟器生成任务设置 CI/CD 管道
 description: 教程：如何使用 Cosmos DB 模拟器生成任务在 Azure DevOps 中设置生成和发布工作流
-services: cosmos-db
-keywords: Azure Cosmos DB 模拟器
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: tutorial
 origin.date: 11/02/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8210e5c9b880c8a7cac739b57ec9e18b25861b1a
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.reviewer: sngun
+ms.openlocfilehash: ef59cc74ae14f6fec4b58dedf76950914b6ce4ca
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026701"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309292"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>在 Azure DevOps 中通过 Azure Cosmos DB 模拟器生成任务设置 CI/CD 管道
 
@@ -68,7 +67,7 @@ ms.locfileid: "54026701"
 
 现在需配置测试，以便使用模拟器。 模拟器生成任务导出环境变量“CosmosDbEmulator.Endpoint”，生成管道中的任何其他任务都可以针对其发出请求。 
 
-在本教程中，我们将使用 [Visual Studio 测试任务](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md)运行通过 **.runsettings** 文件配置的单元测试。 若要详细了解单元测试设置，请访问此[文档](https://docs.microsoft.com/zh-cn/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017)。
+在本教程中，我们将使用 [Visual Studio 测试任务](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md)运行通过 **.runsettings** 文件配置的单元测试。 若要详细了解单元测试设置，请访问此[文档](https://docs.microsoft.com/zh-cn/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017)。 本文档中使用的完整 Todo 应用程序代码示例可在 [Github](https://github.com/Azure-Samples/documentdb-dotnet-todo-app) 上找到
 
 下面是一个 **.runsettings** 文件的示例，该文件定义需传递到应用程序的单元测试中的参数。 请注意，所使用的 `authKey` 变量是模拟器的[已知密钥](/cosmos-db/local-emulator#authenticating-requests)。 此 `authKey` 是模拟器生成任务预期使用的密钥，应该在 **.runsettings** 文件中定义。
 

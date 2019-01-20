@@ -1,21 +1,21 @@
 ---
-title: Azure PowerShell 脚本 - 创建 Azure Cosmos DB SQL API 帐户 | Azure
+title: Azure PowerShell 脚本 - 创建 Azure Cosmos DB SQL API 帐户
 description: Azure PowerShell 脚本示例 - 创建 Azure Cosmos DB SQL API 帐户
-services: cosmos-db
 ms.service: cosmos-db
 author: rockboyfor
 ms.author: v-yeche
-ms.custom: mvc
+ms.subservice: cosmosdb-sql
 ms.devlang: PowerShell
 ms.topic: sample
 origin.date: 05/10/2017
-ms.date: 12/31/2018
-ms.openlocfilehash: 989db386fbda3c6e92b83692d2a5ace13b6792a7
-ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
+ms.date: 01/21/2019
+ms.reviewer: sngun
+ms.openlocfilehash: 10ad5b4cb8786722ae99e901c7e71030e536d4d2
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814772"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309260"
 ---
 # <a name="azure-cosmos-db-create-a-sql-api-account-using-powershell"></a>Azure Cosmos DB：使用 PowerShell 创建 SQL API 帐户
 

@@ -6,14 +6,15 @@ ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/06/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
+ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: ab1ee813f3555101544e6b68019a2220a1e1b34d
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: 8a8bbc9d8e1218d6972869faa76d965ebde2b05d
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026698"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309150"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Azure Cosmos DB 中的更改源
 
@@ -131,4 +132,4 @@ _etag 属于内部格式，请不要依赖它，因为它随时可能更改。 _
 * [将更改源与 Azure Functions 配合使用](change-feed-functions.md)
 * [使用更改源处理器库](change-feed-processor.md)
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties -->

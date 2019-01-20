@@ -11,14 +11,14 @@ ms.workload: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/05/2018
-ms.date: 10/19/2018
+ms.date: 01/15/2019
 ms.author: v-junlch
-ms.openlocfilehash: ef9ac7ebd99e99f02a0ddc37abde08aa518ad322
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: fd4b94f19fe8a8e008f3186853c290cadeb3afcd
+ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662326"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334206"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>如何排查“Azure Functions 运行时无法访问”的问题
 
@@ -38,6 +38,7 @@ ms.locfileid: "52662326"
 1. 存储帐户应用程序设置已删除
 1. 存储帐户凭据无效
 1. 无法访问存储帐户
+1. 每日执行配额已满
 
 ## <a name="storage-account-deleted"></a>存储帐户已删除
 
@@ -77,6 +78,13 @@ Function App 必须能够访问存储帐户。 阻止 Functions 访问存储帐�
 - Function App 在部署到应用服务环境时，没有正确的网络规则来允许在存储帐户中传入和传出流量
 - 存储帐户防火墙已启用，但未配置为允许在 Functions 中传入和传出流量。 [在此处阅读有关存储帐户防火墙配置的详细信息](/storage/common/storage-network-security?toc=%2fstorage%2ffiles%2ftoc.json)
 
+## <a name="daily-execution-quota-full"></a>每日执行配额已满
+
+如果你配置了每日执行配额，则会暂时禁用 Function App，并且许多门户控件将不可用。 
+
+- 若要进行验证，请在门户中检查“平台功能”>“Function App 设置”。 如果超过配额，则将看到以下消息
+    - `The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame.`
+- 删除配额并重启应用可解决此问题。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -93,3 +101,4 @@ Function App 必须能够访问存储帐户。 阻止 Functions 访问存储帐�
 - [详细了解 Azure 应用服务](../app-service/app-service-web-overview.md)  
   Azure Functions 利用 Azure 应用服务执行核心功能，例如部署、环境变量和诊断。 
 
+<!-- Update_Description: wording update -->

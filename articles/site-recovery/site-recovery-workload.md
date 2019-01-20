@@ -3,16 +3,17 @@ title: 可以通过 Azure Site Recovery 保护哪些工作负荷？ | Azure
 description: 介绍可以通过将灾难恢复与 Azure Site Recovery 服务配合使用来保护的工作负荷。
 author: rockboyfor
 ms.service: site-recovery
+services: site-recovery
 ms.topic: conceptual
-origin.date: 10/29/2018
-ms.date: 12/10/2018
+origin.date: 12/31/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: cffb9d8212839a942f87d242d76b57797050d5ef
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 4e5cc3817234c87fcfdacc6b23a89b9698944f21
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028676"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363515"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>可以通过 Azure Site Recovery 保护哪些工作负荷？
 
@@ -48,7 +49,7 @@ Site Recovery 可复制受支持计算机上运行的任何应用。 此外，�
 | Active Directory、DNS |Y |Y |Y |Y |Y|
 | Web 应用（IIS、SQL） |Y |Y |Y |Y |Y|
 | System Center Operations Manager |Y |Y |Y |Y |Y|
-| Sharepoint |Y |Y |Y |Y |Y|
+| SharePoint |Y |Y |Y |Y |Y|
 | SAP<br/><br/>将非群集 SAP 站点复制到 Azure |Y（Microsoft 已测试） |Y（Microsoft 已测试） |Y（Microsoft 已测试） |Y（Microsoft 已测试） |Y（Microsoft 已测试）|
 | Exchange（非 DAG） |Y |Y |Y |Y |Y|
 | 远程桌面/VDI |Y |Y |Y |Y |Y|
@@ -142,6 +143,7 @@ Azure Site Recovery 可以将环境中的关键组件复制到冷远程站点或
 -   能够在适用于 DR 演练的隔离环境中测试恢复计划。
 
 [详细了解](site-recovery-iis.md)如何保护 IIS Web 场。
+
 <!-- https://aka.ms/asr-iis Redirect to ../site-recovery/site-recovery-iis.md -->
 
 ## <a name="protect-citrix-xenapp-and-xendesktop"></a>保护 Citrix XenApp 和 XenDesktop
@@ -151,11 +153,12 @@ Azure Site Recovery 可以将环境中的关键组件复制到冷远程站点或
 * 使用 Site Recovery 将 Citrix XenApp 和 XenDesktop 部署迁移到 Azure，从而简化云迁移。
 * 按需创建一个与生产类似的副本来进行测试和调试，从而简化 Citrix XenApp/XenDesktop 测试。
 * 此解决方案仅适用于 Windows Server 操作系统虚拟桌面，而不适用于客户端虚拟桌面，因为 Azure 中的授权尚不支持客户端虚拟桌面。
-<!-- Not Available [Learn More](https://www.azure.cn/pricing/licensing-faq/) -->
 
+<!-- Not Available [Learn More](https://www.azure.cn/pricing/licensing-faq/) -->
 <!-- Not Available [Learn more](site-recovery-citrix-xenapp-and-xendesktop.md) -->
+
 ## <a name="next-steps"></a>后续步骤
 
 Azure VM 复制[入门](azure-to-azure-quickstart.md)。
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update-->

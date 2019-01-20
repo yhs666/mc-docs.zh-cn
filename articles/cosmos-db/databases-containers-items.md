@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/08/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 96e5277f81f78831f193ff22c10188a4d808f4f0
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: 1bde947ab58bfb45468b7f45de271f860a062921
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026762"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309313"
 ---
 # <a name="working-with-azure-cosmos-databases-containers-and-items"></a>使用 Azure Cosmos 数据库、容器和项
 
@@ -33,7 +33,7 @@ ms.locfileid: "54026762"
 
 <!-- Not Available on **Cassandra API**  | **Gremlin API** | **Table API** |-->
 
-<!-- Not Available on With Gremlin and Table APIs accounts-->
+<!-- Not Available on With Table APIs accounts-->
 ### <a name="operations-on-an-azure-cosmos-database"></a>对 Azure Cosmos 数据库执行的操作
 
 可以使用以下 Azure Cosmos API 与 Azure Cosmos 数据库进行交互：
@@ -50,7 +50,7 @@ ms.locfileid: "54026762"
 <!-- Not Available on **Cassandra API**  | **Gremlin API** | **Table API** |-->
 ## <a name="azure-cosmos-containers"></a>Azure Cosmos 容器
 
-Azure Cosmos 容器是预配的吞吐量和项目存储的缩放单元。 容器会进行水平分区，然后在多个区域间复制。 添加到容器的项以及针对容器预配的吞吐量将基于分区键自动分配给一组逻辑分区之间（水平）。 若要详细了解分区和分区键，请参阅[逻辑分区](partition-data.md)一文。 
+Azure Cosmos 容器是预配的吞吐量和项目存储的缩放单元。 容器会进行水平分区，然后在多个区域间复制。 添加到容器的项以及针对容器预配的吞吐量将基于分区键自动分配给一组逻辑分区。 若要详细了解分区和分区键，请参阅[逻辑分区](partition-data.md)一文。 
 
 在创建 Azure Cosmos 容器时，会在以下某个模式中配置吞吐量：
 
@@ -132,10 +132,10 @@ Azure Cosmos 容器支持使用任何 Azure Cosmos API 执行的以下操作。
 
 |**系统定义的属性** | **是系统生成的还是可由用户设置的？**| **用途** | **SQL API**  | **Azure Cosmos DB 的 API for MongoDB**|
 | --- | --- | --- | --- | --- |
-|__id | 系统生成的 | 项的唯一标识符 | 是 | 否 |
-|__etag | 系统生成的 | 用于乐观并发控制的实体标记 | 是 | 否 |
-|__ts | 系统生成的 | 项上次更新的时间戳 | 是 | 否 |
-|__self | 系统生成的 | 项的可寻址 URI | 是 | 否 |
+|_id | 系统生成的 | 项的唯一标识符 | 是 | 否 |
+|_etag | 系统生成的 | 用于乐观并发控制的实体标记 | 是 | 否 |
+|_ts | 系统生成的 | 项上次更新的时间戳 | 是 | 否 |
+|_self | 系统生成的 | 项的可寻址 URI | 是 | 否 |
 |id | 任一个 | 逻辑分区内用户定义的唯一名称。 如果用户没有指定该 ID，则系统会自动生成一个。 | 是 | 是 |
 |任意用户定义的属性 | 用户定义 | 用户定义的属性以 API 本机表示形式表示（JSON、BSON、CQL 等等） | 是 | 是 |
 
@@ -162,4 +162,4 @@ Azure Cosmos 项支持可使用任何 Azure Cosmos API 执行的以下操作。
 * [如何使用更改源生成响应式应用程序](change-feed.md)
 * [如何对 Azure Cosmos 容器配置唯一键约束](unique-keys.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: wording update, update meta properties -->

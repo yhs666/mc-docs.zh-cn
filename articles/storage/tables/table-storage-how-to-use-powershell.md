@@ -9,12 +9,12 @@ origin.date: 03/14/2018
 ms.date: 01/14/2019
 ms.author: v-jay
 ms.component: cosmosdb-table
-ms.openlocfilehash: 79e49e15f12c106592ef3d311bd3a4c67193974a
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: e167340e24cdd0ba25f5ad611e9e2ad57d03482c
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192890"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397038"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>使用 Azure PowerShell 执行 Azure 表存储操作 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
@@ -92,7 +92,7 @@ $ctx = $storageAccount.Context
 
 ```powershell
 $tableName = "pshtesttable"
-New-AzureStorageTable –Name $tableName –Context $ctx
+New-AzureStorageTable -Name $tableName -Context $ctx
 ```
 
 ## <a name="retrieve-a-list-of-tables-in-the-storage-account"></a>在存储帐户中检索表列表
@@ -100,7 +100,7 @@ New-AzureStorageTable –Name $tableName –Context $ctx
 使用 [Get-AzureStorageTable](https://docs.microsoft.com/powershell/module/azure.storage/Get-AzureStorageTable) 在存储帐户中检索表列表。
 
 ```powershell
-Get-AzureStorageTable –Context $ctx | select Name
+Get-AzureStorageTable -Context $ctx | select Name
 ```
 
 ## <a name="retrieve-a-reference-to-a-specific-table"></a>检索对特定表的引用
@@ -108,7 +108,7 @@ Get-AzureStorageTable –Context $ctx | select Name
 若要对表执行操作，需要引用特定表。 使用 [Get-AzureStorageTable](https://docs.microsoft.com/powershell/module/azure.storage/Get-AzureStorageTable) 获得引用。 
 
 ```powershell
-$storageTable = Get-AzureStorageTable –Name $tableName –Context $ctx
+$storageTable = Get-AzureStorageTable -Name $tableName -Context $ctx
 ```
 
 [!INCLUDE [storage-table-entities-powershell-include](../../../includes/storage-table-entities-powershell-include.md)]
@@ -118,10 +118,10 @@ $storageTable = Get-AzureStorageTable –Name $tableName –Context $ctx
 若要删除表，请使用 [Remove-AzureStorageTable](https://docs.microsoft.com/powershell/module/azure.storage/Remove-AzureStorageTable)。 此 cmdlet 将删除表，包括表中的所有数据。
 
 ```powershell
-Remove-AzureStorageTable –Name $tableName –Context $ctx
+Remove-AzureStorageTable -Name $tableName -Context $ctx
 
 # Retrieve the list of tables to verify the table has been removed.
-Get-AzureStorageTable –Context $Ctx | select Name
+Get-AzureStorageTable -Context $Ctx | select Name
 ```
 
 ## <a name="clean-up-resources"></a>清理资源

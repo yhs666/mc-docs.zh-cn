@@ -1,20 +1,21 @@
 ---
 title: 使用 Bulk Executor Java 库在 Azure Cosmos DB 中执行批量导入和更新操作
 description: 使用 Bulk Executor Java 库批量导入和更新 Azure Cosmos DB 文档。
-services: cosmos-db
 author: rockboyfor
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: conceptual
 origin.date: 10/16/2018
-ms.date: 12/31/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 05b2a4c8ca4fd3a91104b52783ead87ba84defe4
-ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
+ms.reviewer: sngun
+ms.openlocfilehash: c5713f41b424f4d4964d679b6e01c76f9efd902a
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814776"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309131"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>使用 Bulk Executor Java 库针对 Azure Cosmos DB 数据执行批量操作
 
@@ -216,4 +217,4 @@ ms.locfileid: "53814776"
 ## <a name="next-steps"></a>后续步骤
 * 若要了解 maven 包的详细信息以及 Bulk Executor Java 库的发行说明，请参阅 [Bulk Executor SDK 详细信息](sql-api-sdk-bulk-executor-java.md)。
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

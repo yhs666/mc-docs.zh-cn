@@ -2,20 +2,21 @@
 title: 使用 Azure Site Recovery 在 Azure VM 故障转移期间保留 IP 地址 | Azure
 description: 介绍如何在使用 Azure Site Recovery 将用于灾难恢复的 Azure VM 故障转移到次要区域时保留 IP 地址
 ms.service: site-recovery
-origin.date: 10/16/2018
-ms.date: 12/10/2018
+origin.date: 11/27/2018
+ms.date: 01/21/2019
 author: rockboyfor
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: 3c0b74e34ce22e8739aaefb756fd7e989e2cdc6d
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 30e8310f65370b15871610779011d8cd2bcb9c25
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028936"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363451"
 ---
-<!-- IMPORTANT: THIS ARTICLE DESCRIBE THE CONNECTION BETWEEN Source(East Asia | China East) to Target(South East Asia|China North)-->
 # <a name="retain-ip-addresses-during-failover"></a>在故障转移期间保留 IP 地址
+
+<!-- IMPORTANT: THIS ARTICLE DESCRIBE THE CONNECTION BETWEEN Source(East Asia | China East) to Target(South East Asia|China North)-->
 
 [Azure Site Recovery](site-recovery-overview.md) 支持针对 Azure VM 进行灾难恢复，方法是：将 VM 复制到其他 Azure 区域，在发生故障时进行故障转移，并在一切恢复正常后故障恢复到主要区域。
 
@@ -45,8 +46,10 @@ ms.locfileid: "53028936"
         - 中国东部的工作负荷拆分在 VNet 中的三个子网中：
             - **子网 1**：10.1.1.0/24
             - **子网 2**：10.1.2.0/24，
-            - **子网 3**：10.1.3.0/24 <!--Up for Primary region China East-->
-            <!--Downdown for Secondary region China North-->
+            - **子网 3**：10.1.3.0/24
+            
+            <!--Up for Primary region China East--> <!--Downdown for Secondary region China North-->
+            
     - 次要（目标）区域是“Azure 中国北部”
         - 中国北部具有与**源 VNet** 相同的恢复 VNet（**恢复 VNet**）。
         - 中国北部具有地址空间为 10.2.0.0/16 的额外 VNet (**Azure VNet**)。
@@ -89,8 +92,9 @@ ms.locfileid: "53028936"
     - **App2** VM 位于 VNet **源 VNet 2** 中：10.2.0.0/16。
     - 源 VNet 1 包含两个子网。
     - 源 VNet 2 包含两个子网。
-    <!--Up for Primary region China East-->
-    <!--Downdown for Secondary region China North-->
+    
+    <!--Up for Primary region China East--> <!--Downdown for Secondary region China North-->
+    
 - 次要（目标）区域为“Azure 中国北部”- 中国北部具有与**源 VNet 1** 和**源 VNet 2** 相同的恢复 VNet（**恢复 VNet 1** 和**恢复 VNet 2**）。
         - **恢复 VNet 1** 和**恢复 VNet 2** 各自具有 2 个与**源 VNet 1** 和**源 VNet 2** 中的子网匹配的子网 - 中国北部具有地址空间为 10.3.0.0/16 的额外 VNet (**Azure VNet**)。
         - Azure VNet 包含地址空间为 10.3.4.0/24 的子网（子网 4）。
@@ -134,11 +138,16 @@ ms.locfileid: "53028936"
         - 中国东部的工作负荷拆分在**源 VNet** 的三个子网之间：
             - **子网 1**：10.1.1.0/24
             - **子网 2**：10.1.2.0/24
-            - **子网 3**：10.1.3.0/24（使用地址空间为 10.1.0.0/16 的 Azure 虚拟网络）。 此虚拟网络名为“源 VNet”<!--Up for China East and down for China North-->
+            - **子网 3**：10.1.3.0/24（使用地址空间为 10.1.0.0/16 的 Azure 虚拟网络）。 此虚拟网络名为“源 VNet”
+            
+            <!--Up for China East and down for China North-->
+            
     - 次要（目标）区域是“Azure 中国北部”：
         - 中国北部具有与**源 VNet** 相同的恢复 VNet（**恢复 VNet**）。
 - 中国东部的 VM 通过 Azure ExpressRoute 或站点到站点 VPN 连接到本地数据中心。
+    
     <!--Up for China East and down for China North-->
+    
 - 为了降低 RTO，公司 B 在故障转移之前，在 Azure 中国东北部的恢复 VNet 中预配了网关。
 - 公司 B 分配/验证已复制 VM 的目标 IP 地址。 每个 VM 的目标 IP 地址均与源 IP 地址相同。
 
@@ -150,7 +159,9 @@ ms.locfileid: "53028936"
 
 - 如果目标 IP 地址在故障转移前已就位，公司 B 可安排故障转移以及故障转移后自动在**恢复 VNet** 和 **Azure VNet** 之间建立连接。
 - 根据应用的要求，可以在故障转移之前、期间（作为中间步骤）或之后，在目标区域中的两个 VNet（恢复 VNet 和 Azure VNet）之间建立连接。 该公司可以使用[恢复计划](site-recovery-create-recovery-plans.md)来指定何时建立连接。
+    
     <!--Down front for China East and backend for China North-->
+    
 - 在 Azure 中国北部与本地数据中心之间建立连接之前，应断开 Azure 中国东部与本地数据中心之间的原始连接。
 - 本地路由将重新配置为在故障转移之后指向目标区域和网关。
 

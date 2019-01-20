@@ -6,24 +6,24 @@ keywords: ''
 author: ggailey777
 ms.author: v-junlch
 origin.date: 08/29/2018
-ms.date: 12/26/2018
+ms.date: 01/15/2019
 ms.topic: quickstart
 ms.service: functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: aeedba6833fb558a1ed7d7e78b4bb473441baba0
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: d1b8b7766521dd2df69ade10700616e07912d58a
+ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806671"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334199"
 ---
 # <a name="create-your-first-python-function-in-azure-preview"></a>在 Azure 中创建你的第一个 Python 函数（预览版）
 
 [!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
-本快速入门文章指导你使用 Azure CLI 创建你的第一个在 Linux 上运行的[无服务器](https://azure.microsoft.com/overview/serverless-computing/) Python 函数应用。 函数代码在本地创建，然后使用 [Azure Functions Core Tools](functions-run-local.md) 部署到 Azure。 若要了解有关在 Linux 上运行函数应用的预览版注意事项的更多信息，请参阅[此 Linux 上的 Functions 文章](https://aka.ms/funclinux)。
+本快速入门文章指导你使用 Azure CLI 创建你的第一个在 Linux 上运行的[无服务器](https://azure.com/serverless) Python 函数应用。 函数代码在本地创建，然后使用 [Azure Functions Core Tools](functions-run-local.md) 部署到 Azure。 若要了解有关在 Linux 上运行函数应用的预览版注意事项的更多信息，请参阅[此 Linux 上的 Functions 文章](https://aka.ms/funclinux)。
 
 支持在 Mac、Windows 或 Linux 计算机上执行以下步骤。
 
@@ -232,3 +232,4 @@ Syncing triggers...
 > [Azure Functions Python 开发人员指南](functions-reference-python.md)
 > [Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
+<!-- Update_Description: link update -->

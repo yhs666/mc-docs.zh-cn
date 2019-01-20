@@ -1,20 +1,21 @@
 ---
-title: 注册新 Azure IoT Edge 设备 (CLI) | Microsoft Docs
-description: 使用适用于 Azure CLI 的 IoT 扩展注册新 IoT Edge 设备
+title: 从命令行注册新设备 - Azure IoT Edge | Microsoft Docs
+description: 使用适用于 Azure CLI 的 IoT 扩展注册新的 IoT Edge 设备并检索连接字符串
 author: kgremban
-manager: timlt
-ms.author: kgremban
-ms.date: 07/27/2018
+manager: philmea
+ms.author: v-yiso
+origin.date: 01/03/2019
+ms.date: 01/28/2019
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ee5e68d45c7d966619238312dabedc1628a4bf61
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 4f256c77dd8d3ee3f73eee527b25291a30f36370
+ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643958"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396804"
 ---
 # <a name="register-a-new-azure-iot-edge-device-with-azure-cli"></a>使用 Azure CLI 注册新 Azure IoT Edge 设备
 
@@ -43,7 +44,7 @@ ms.locfileid: "52643958"
 * **hub-name**：提供 IoT 中心的名称。
 * **edge-enabled**：此参数声明该设备用于 IoT Edge。
 
-   ![创建 IoT Edge 设备](./media/how-to-register-device-cli/Create-edge-device.png)
+   ![az iot hub device-identity create output](./media/how-to-register-device-cli/Create-edge-device.png)
 
 ## <a name="view-all-devices"></a>查看所有设备
 
@@ -63,7 +64,7 @@ ms.locfileid: "52643958"
    az iot hub device-identity show-connection-string --device-id [device id] --hub-name [hub name] 
    ```
 
-device id 参数区分大小写。 不要复制连接字符串两端的引号。 
+`device-id` 参数的值区分大小写。 不要复制连接字符串两端的引号。
 
 ## <a name="next-steps"></a>后续步骤
 

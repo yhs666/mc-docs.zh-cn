@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 06/30/2017
-ms.date: 08/20/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: ebf37095bead35681f941c1528f9f2852450e1ff
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 29f3e99b9017e1648e1211b5dea23b2348caba31
+ms.sourcegitcommit: 35a09a86cbb3d896fa9784471ece41df7728bd71
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650189"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396701"
 ---
 # <a name="service-remoting-in-java-with-reliable-services"></a>通过 Reliable Services 在 Java 中进行服务远程处理
 > [!div class="op_single_selector"]
@@ -92,8 +92,8 @@ CompletableFuture<String> message = helloWorldClient.helloWorldAsync();
 由于 ServiceProxy 创建是轻量型操作，因此可根据需求随意创建，数目不限。 如有需要，可重复使用服务代理实例。 如果远程过程调用引发了异常，仍可以重复使用相同的代理实例。 每个 ServiceProxy 都包含用于通过线路发送消息的通信客户端。 进行远程调用时，会在内部执行检查，以确认通信客户端是否有效。 根据这些检查的结果，将创建通信客户端（如有必要）。 因此，如果发生异常，无需重新创建 `ServiceProxy`。
 
 ### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory 生存期
-[FabricServiceProxyFactory](https://docs.azure.cn/java/api/microsoft.servicefabric.services.remoting.client._fabric_service_proxy_factory) 是为不同远程接口创建代理的工厂。 如果使用 API `ServiceProxyBase.create` 创建代理，则框架创建 `FabricServiceProxyFactory`。
-在需要替代 [ServiceRemotingClientFactory](https://docs.azure.cn/java/api/microsoft.servicefabric.services.remoting.client._service_remoting_client_factory) 属性时，手动创建一个 FabricServiceProxyFactory 是有用的。
+[FabricServiceProxyFactory](https://docs.azure.cn/java/api/microsoft.servicefabric.services.remoting.client.fabricserviceproxyfactory) 是为不同远程接口创建代理的工厂。 如果使用 API `ServiceProxyBase.create` 创建代理，则框架创建 `FabricServiceProxyFactory`。
+在需要替代 [ServiceRemotingClientFactory](https://docs.azure.cn/java/api/microsoft.servicefabric.services.remoting.client.serviceremotingclientfactory) 属性时，手动创建一个 FabricServiceProxyFactory 是有用的。
 Factory 是一项高成本操作。 `FabricServiceProxyFactory` 维护通信客户端的缓存。
 最佳做法是尽可能久地缓存 `FabricServiceProxyFactory`。
 
@@ -103,9 +103,10 @@ Factory 是一项高成本操作。 `FabricServiceProxyFactory` 维护通信客�
 ServiceProxy 对为其创建的服务分区，处理所有故障转移异常。 如果存在故障转移异常（非暂时异常），它将重新解析终结点，并通过正确的终结点重试调用。 故障转移异常可无限次重试。
 在 TransientExceptions 情况下，它仅重试调用。
 
-默认重试参数由 [OperationRetrySettings] 提供。 (https://docs.azure.cn/java/api/microsoft.servicefabric.services.communication.client._operation_retry_settings) 可以通过将 OperationRetrySettings 对象传递给 ServiceProxyFactory 构造函数来配置这些值。
+默认重试参数由 [OperationRetrySettings](https://docs.azure.cn/java/api/microsoft.servicefabric.services.communication.client.operationretrysettings) 提供。
+可以通过将 OperationRetrySettings 对象传递给 ServiceProxyFactory 构造函数来配置这些值。
 
 ## <a name="next-steps"></a>后续步骤
 * [确保 Reliable Services 的通信安全](service-fabric-reliable-services-secure-communication-java.md)
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties, update link -->

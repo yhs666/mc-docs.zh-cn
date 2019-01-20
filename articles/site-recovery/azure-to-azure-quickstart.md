@@ -6,16 +6,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: quickstart
-origin.date: 10/28/2018
-ms.date: 12/10/2018
+origin.date: 12/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 3f29b4f7d582e9142f42a8e822b6cb6bb2238922
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: fb052877f4900b64073a9e248161ac960a7bfccb
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028533"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363300"
 ---
 # <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>为 Azure VM 设置到 Azure 次要区域的灾难恢复 
 
@@ -55,10 +55,10 @@ ms.locfileid: "53028533"
 
 对主要区域中的 VM 禁用复制时，该 VM 会停止复制：
 
-- 将自动清除源复制设置。
+- 将自动清除源复制设置。 请注意，作为复制的一部分安装的 Site Recovery 扩展未删除，需要手动删除。 
 - 对 VM 的 Site Recovery 计费也会停止。
 
-请按如下所述停止复制：
+按如下所述停止复制
 
 1. 选择 VM。
 2. 在“灾难恢复”中，单击“禁用复制”。
@@ -73,3 +73,4 @@ ms.locfileid: "53028533"
 > [为 Azure VM 配置灾难恢复](azure-to-azure-tutorial-enable-replication.md)
 
 <!-- Update_Description: update meta properties, wording update -->
+

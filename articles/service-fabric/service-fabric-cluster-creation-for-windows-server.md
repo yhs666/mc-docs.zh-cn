@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/10/2017
-ms.date: 12/10/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3a8a97f671d027815e3e20930ea928b39be47aef
-ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
+ms.openlocfilehash: e7085d8ac44dcaa85aeb65f54fa7c46a341aa8e0
+ms.sourcegitcommit: 35a09a86cbb3d896fa9784471ece41df7728bd71
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52901153"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396676"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>创建在 Windows Server 上运行的独立群集
 可以使用 Azure Service Fabric 在运行 Windows Server 的任何虚拟机或计算机上创建 Service Fabric 群集。 这意味着，可以在包含一组相互连接的 Windows Server 计算机的任何环境（无论是本地环境还是任何云提供商所提供的环境）中部署和运行 Service Fabric 应用程序。 Service Fabric 提供了一个安装程序包，用于创建名为“Windows Server 独立包”的 Service Fabric 群集。
@@ -36,7 +36,7 @@ ms.locfileid: "52901153"
 
 ## <a name="get-support-for-the-service-fabric-for-windows-server-package"></a>获取用于 Windows Server 的 Service Fabric 包的支持
 * 在 [Azure Service Fabric 论坛](https://www.azure.cn/support/contact/)中询问社区关于 Windows Server 的 Service Fabric 独立包的信息。
-* 开具 [Service Fabric 专业支持](https://support.azure.cn/zh-cn/support/support-azure/)票证。  
+* 开具 [Service Fabric 专业支持](https://support.azure.cn/zh-cn/support/support-azure/)票证。
 * 有关详细信息，请参阅 [Azure Service Fabric 支持选项](/service-fabric/service-fabric-support)。
 * 若要出于支持目的收集日志，请运行 [Service Fabric 独立日志收集器](service-fabric-cluster-standalone-package-contents.md)。
 
@@ -88,7 +88,7 @@ ms.locfileid: "52901153"
     .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.json
     ```
 
-    应该会看到与下面类似的输出。 如果底部字段“Passed”的返回值为“True”，那么已通过完整性检查，并且根据输入配置群集看似可以部署。
+    输出与以下类似。 如果底部字段“Passed”的返回值为“True”，那么已通过完整性检查，并且根据输入配置群集看似可以部署。
 
     ```powershell
     Trace folder already exists. Traces will be written to existing trace folder: C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer\DeploymentTraces
