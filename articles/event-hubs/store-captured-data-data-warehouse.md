@@ -1,21 +1,23 @@
 ---
-title: 将 Azure 事件中心数据迁移到 SQL 数据仓库 | Azure
+title: 将事件数据迁移到 SQL 数据仓库 - Azure 事件中心 | Azure Docs
 description: 本教程介绍如何使用事件网格触发的 Azure 函数将事件中心的数据捕获到 SQL 数据仓库中。
 services: event-hubs
-author: rockboyfor
-manager: digimobile
+author: ShubhaVijayasarathy
+manager: ''
 origin.date: 08/27/2018
-ms.date: 09/30/2018
+ms.custom: seodec18
+ms.date: 01/28/2019
 ms.topic: tutorial
 ms.service: event-hubs
-ms.openlocfilehash: c02c18c9e5ffaf7a03a3d99c029cd604e0ff933c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.author: v-biyu
+ms.openlocfilehash: 9010a44b8b85db0732962eb4901ab0ef171e8fd6
+ms.sourcegitcommit: ced39ce80d38d36bdead66fc978d99e93653cb5f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658554"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54307621"
 ---
-# <a name="process-and-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>使用事件网格和 Azure Functions 处理捕获的事件中心数据并将其迁移到 SQL 数据仓库
+# <a name="migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>使用事件网格和 Azure Functions 将捕获的事件中心数据迁移到 SQL 数据仓库
 
 若要将事件中心的流式处理数据自动传递到 Azure Blob 存储或 Azure Data Lake Store，最容易的方式是使用事件中心[捕获](/event-hubs/event-hubs-capture-overview)。 可以随后处理数据并将其传递到所选的任何其他存储目标，例如 SQL 数据仓库或 Cosmos DB。 本教程介绍如何使用[事件网格](/event-grid/overview)触发的 Azure 函数将事件中心的数据捕获到 SQL 数据仓库中。
 
@@ -86,6 +88,7 @@ New-AzureRmResourceGroup -Name rgDataMigration -Location chinaeast
 New-AzureRmResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json -eventHubNamespaceName <event-hub-namespace> -eventHubName hubdatamigration -sqlServerName <sql-server-name> -sqlServerUserName <user-name> -sqlServerDatabaseName <database-name> -storageName <unique-storage-name> -functionAppName <app-name>
 ```
 
+
 ### <a name="create-a-table-in-sql-data-warehouse"></a>在 SQL 数据仓库中创建表 
 在门户中使用 [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md)、[SQL Server Management Studio](../sql-data-warehouse/sql-data-warehouse-query-ssms.md) 或查询编辑器，通过运行 [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql) 脚本在 SQL 数据仓库中创建表。 
 
@@ -121,6 +124,7 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
    ![选择“发布”](./media/store-captured-data-data-warehouse/select-publish.png)
 
 发布函数后，即可订阅事件中心的捕获事件！
+
 
 ## <a name="create-an-event-grid-subscription-from-the-functions-app"></a>通过 Functions 应用创建事件网格订阅
 

@@ -4,22 +4,21 @@ description: 使用收费站方案了解流分析 IoT 解决方案的入门教�
 services: stream-analytics
 author: lingliw
 ms.author: v-lingwu
-manager: digimobile
-ms.reviewer: jasonh, sngun
+ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 03/21/2018
-ms.date: 11/26/2018
-ms.openlocfilehash: 854f4b1a89f6221f797746b5b69cef88bb9f968b
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 01/21/19
+ms.custom: seodec18
+ms.openlocfilehash: cd122ceeeb81bc50e56a75255c6fc9e6b2632f99
+ms.sourcegitcommit: c01292a935bd307a3326e86cb454d8fa2b561399
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674435"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363648"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>使用流分析生成 IoT 解决方案
 ## <a name="introduction"></a>简介
-本解决方案演示如何使用 Azure 流分析从数据获得实时见解。 开发人员可以轻松地将数据流（例如点击流、日志和设备生成的事件）与历史记录或参考数据结合，从中获得业务见解。 由 Azure 托管的 Azure 流分析是可完全托管的实时流计算服务，它具有内置的复原性、低延迟及伸缩性，可让你在几分钟内上手。
+本解决方案演示如何使用 Azure 流分析从数据获得实时见解。 开发人员可以轻松地将数据流（例如点击流、日志和设备生成的事件）与历史记录或参考数据结合，从中获得业务见解。 由世纪互联 Azure 托管的 Azure 流分析是可完全托管的实时流计算服务，它具有内置的复原性、低延迟及伸缩性，可让你在几分钟内上手。
 
 完成后此解决方案，你将可以：
 
@@ -33,16 +32,16 @@ ms.locfileid: "52674435"
 若要完成本解决方案，需要满足以下先决条件：
 * [Azure 订阅](https://www.azure.cn/pricing/1rmb-trial/)
 
-## <a name="scenario-introduction-hello-toll"></a>场景介绍：“你好，收费站！”
+## <a name="scenario-introduction-hello-toll"></a>方案简介：“你好，收费站！”
 收费站是常见设施。 在世界各地的许多高速公路、桥梁和隧道中都可以看到它们的身影。 每个收费站有多个收费亭。 在人工收费亭中，需要停车来向服务员付费。 在自动收费亭中，位于每个收费亭顶部的传感器会在车辆通过收费亭时扫描挡风玻璃上贴附的 RFID 卡。 我们可以轻松地将车辆通过这些收费站的情况想象成能够执行许多有趣操作的事件流。
 
-![位于收费亭的汽车的图片](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image1.jpg)
+![收费亭前汽车的图片](media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth .jpg)
 
 ## <a name="incoming-data"></a>传入的数据
 本解决方案使用两个数据流。 安装在收费站入口和出口处的传感器会生成第一个流。 第二个流是具有车辆登记数据的静态查找数据集。
 
 ### <a name="entry-data-stream"></a>入口数据流
-入口数据流包含车辆进入收费站的相关信息。
+入口数据流包含车辆进入收费站的相关信息。 出口数据事件从示例应用中包含的 Web 应用实时流式传输到事件中心队列。
 
 | TollID | EntryTime | 牌照 | 状态 | 制造商 | 型号 | VehicleType | VehicleWeight | 收费站 | 标记 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -106,7 +105,7 @@ ms.locfileid: "52674435"
 | --- | --- |
 | 牌照 |汽车的牌照号码 |
 | RegistrationId |车辆的登记 ID |
-| Expired |车辆的登记状态：0 代表车辆登记仍有效，1 代表车辆登记已过期 |
+| Expired |车辆的注册状态：0 代表车辆注册仍有效，1 代表车辆注册已过期 |
 
 ## <a name="set-up-the-environment-for-azure-stream-analytics"></a>设置 Azure 流分析的环境
 若要完成本解决方案，需要一个 Azure 订阅。 如果没有 Azure 帐户，可以[请求试用版](https://www.azure.cn/pricing/1rmb-trial/)。
@@ -309,7 +308,7 @@ GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId
 ## <a name="monitor-the-job"></a>监视作业
 “监视器”区域包含正在运行的作业的相关统计信息。 需要完成首次配置，才能使用同一区域中的存储帐户（按本文档其余部分命名收费站）。   
 
-![监视器屏幕截图](media/stream-analytics-build-an-iot-solution-using-stream-analytics/monitoring.png)
+![Azure 流分析作业监视](media/stream-analytics-build-an-iot-solution-using-stream-analytics/stream-analytics-job-monitoring.png)
 
 还可通过作业仪表板的“设置”区域访问“活动日志”。
 
@@ -324,4 +323,5 @@ GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId
 本解决方案介绍了 Azure 流分析服务。 其中演示如何为流分析作业配置输入和输出。 本解决方案还使用收费站数据场景来解释在数据空间不断变化时所引发的常见问题类型，以及如何在 Azure 流分析中使用类似于 SQL 的简单查询来解决这些问题。 本解决方案介绍了用于处理时态数据的 SQL 扩展构造。 其中说明如何联接不同的数据流、如何使用静态参考数据来扩充数据流，以及如何扩大查询来获得更高的吞吐量。
 
 尽管本解决方案提供了详细介绍，但它不可能面面俱到。 可通过在[常用流分析使用模式的查询示例](stream-analytics-stream-analytics-query-patterns.md)中使用 SAQL 语言，发现更多查询模式。
+
 <!-- Update_Description: Update some content -->

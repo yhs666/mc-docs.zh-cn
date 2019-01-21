@@ -15,12 +15,12 @@ ms.workload: NA
 origin.date: 05/18/2018
 ms.date: 10/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 640ae7be1fc09b82fd81c37a1cc3e775cf1c1910
-ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
+ms.openlocfilehash: a8f7f5b816b3f5239c57180bda5e6e0050bbf5b5
+ms.sourcegitcommit: 35a09a86cbb3d896fa9784471ece41df7728bd71
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785197"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396653"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>在 Windows 上创建第一个 Service Fabric 容器应用程序
 > [!div class="op_single_selector"]
@@ -332,6 +332,61 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
     </Policies>
     ...
 </ServiceManifestImport>
+```
+
+### <a name="configure-cluster-wide-credentials"></a>配置群集级凭据
+
+从 6.3 版运行时起，Service Fabric 允许你配置群集级凭据，可以将这些凭据用作应用程序的默认存储库凭据。
+
+可以通过在 ApplicationManifest.xml 中向 `ContainerHostPolicies` 添加值为 `true` 或 `false` 的 `UseDefaultRepositoryCredentials` 属性来启用或禁用此功能。
+
+```xml
+<ServiceManifestImport>
+    ...
+    <Policies>
+        <ContainerHostPolicies CodePackageRef="Code" UseDefaultRepositoryCredentials="true">
+            <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
+        </ContainerHostPolicies>
+    </Policies>
+    ...
+</ServiceManifestImport>
+```
+
+然后，Service Fabric 使用你可以在 ClusterManifest 中的 `Hosting` 部分下指定的默认存储库凭据。  如果 `UseDefaultRepositoryCredentials` 为 `true`，则 Service Fabric 将从 ClusterManifest 中读取以下值：
+
+* DefaultContainerRepositoryAccountName (string)
+* DefaultContainerRepositoryPassword (string)
+* IsDefaultContainerRepositoryPasswordEncrypted (bool)
+* DefaultContainerRepositoryPasswordType (string) --- 从 6.4 版运行时起受支持
+
+下面是可以在 ClusterManifestTemplate.json 文件中的 `Hosting` 部分内添加的内容的示例。 有关详细信息，请参阅[更改 Azure Service Fabric 群集设置](service-fabric-cluster-fabric-settings.md)和[管理 Azure Service Fabric 应用程序机密](service-fabric-application-secret-management.md)
+
+```json
+      {
+        "name": "Hosting",
+        "parameters": [
+          {
+            "name": "EndpointProviderEnabled",
+            "value": "true"
+          },
+          {
+            "name": "DefaultContainerRepositoryAccountName",
+            "value": "someusername"
+          },
+          {
+            "name": "DefaultContainerRepositoryPassword",
+            "value": "somepassword"
+          },
+          {
+            "name": "IsDefaultContainerRepositoryPasswordEncrypted",
+            "value": "false"
+          },
+          {
+            "name": "DefaultContainerRepositoryPasswordType",
+            "value": "PlainText"
+          }
+        ]
+      },
 ```
 
 ## <a name="configure-isolation-mode"></a>配置隔离模式

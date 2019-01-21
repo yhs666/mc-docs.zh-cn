@@ -6,16 +6,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 11/18/2018
-ms.date: 12/10/2018
+origin.date: 12/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: f05eb6caab6f6aaa8fd61687e5f78999a442cabe
-ms.sourcegitcommit: f6a287a11480cbee99a2facda2590f3a744f7e45
+ms.openlocfilehash: 4cd8dc45e22c5172812886aba2782f6636e3e545
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53786732"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363551"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>为 Azure VM 设置到 Azure 次要区域的灾难恢复
 
@@ -44,7 +44,10 @@ ms.locfileid: "53786732"
 在除了源区域之外的任意区域中创建保管库。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn) > **恢复服务**。
-2. 单击“创建资源” > “监视和管理” > “备份和站点恢复”。
+2. 单击“创建资源” > “监视 + 管理” > “备份和站点恢复”。
+
+    <!--Correct on **Monitoring + Management**-->
+    
 3. 在“名称” 中，指定一个友好名称以标识该保管库。 如果有多个订阅，请选择合适的一个。
 4. 创建一个资源组或选择一个现有的资源组。 指定 Azure 区域。 若要查看受支持的区域，请参阅 [Azure Site Recovery 定价详细信息](https://www.azure.cn/pricing/details/site-recovery/)中的“地域可用性”。
 5. 若要从仪表板快速访问保管库，请单击“固定到仪表板”，然后单击“创建”。
@@ -81,8 +84,10 @@ ms.locfileid: "53786732"
 如果想要使用 IP 地址而不是 URL 来控制出站连接，请允许将这些地址用于基于 IP 的防火墙、代理或 NSG 规则。
 
   <!--Not Available on - [Azure Datacenter IP Ranges](https://www.microsoft.com/en-us/download/confirmation.aspx?id=57062)--> <!--Not Available on - [Windows Azure Datacenter IP Ranges in Germany](http://www.microsoft.com/download/details.aspx?id=54770)-->
+  
   - [中国的 Windows Azure 数据中心 IP 范围](https://www.microsoft.com/en-us/download/confirmation.aspx?id=57062)
-  - [Office 365 URL 和 IP 地址范围](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
+  - [Office 365 URL 和 IP 地址范围](https://docs.microsoft.com/en-us/office365/enterprise/urls-and-ip-address-ranges-21vianet)
+  
   <!--Not Available on - [Site Recovery service endpoint IP addresses](https://aka.ms/site-recovery-public-ips)-->
 
 可以使用此[脚本](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702)创建所需的 NSG 规则。
@@ -129,7 +134,7 @@ Site Recovery 检索与订阅和资源组/云服务关联的 VM 列表。
 Site Recovery 会针对目标区域创建默认设置和复制策略。 可以根据需要更改设置。
 
 1. 单击“设置”查看目标设置和复制设置。
-2. 若要重写默认目标设置，请单击“资源组、网络、存储和可用性集”旁边的“自定义”。
+2. 若要重写默认目标设置，请单击“资源组、网络、存储和可用性”旁边的“自定义”。
 
   ![配置设置](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
@@ -141,10 +146,23 @@ Site Recovery 会针对目标区域创建默认设置和复制策略。 可以�
     - **目标虚拟网络**：故障转移后，目标区域中 VM 所位于的网络。
       默认情况下，Site Recovery 会在目标位置中创建一个带有“asr”后缀的新虚拟网络（以及子网）。
     - **缓存存储帐户**：Site Recovery 使用源区域中的一个存储帐户。 复制到目标位置之前，对源 VM 的更改将发送到此帐户。
-    - **目标存储帐户（如果源 VM 不使用托管磁盘）**：默认情况下，Site Recovery 会在目标区域中创建新存储帐户，从而形成源 VM 存储帐户的镜像。
-    - **副本托管磁盘（如果源 VM 使用托管磁盘）**：默认情况下，Site Recovery 在目标区域创建托管磁盘副本，以生成和源 VM 的托管磁盘存储类型一致（标准或高级）的镜像磁盘。
-    - **目标可用性集**：默认情况下，Site Recovery 会在目标区域中创建一个带有“asr”后缀的新可用性集。 如果 VM 是源区域中一个集的一部分，则仅可添加可用性集。
+      >[!NOTE]
+      >如果使用支持防火墙的缓存存储帐户，请确保“允许受信任的 Azure 服务”。 [了解详细信息。](/storage/common/storage-network-security#exceptions)
+      >
 
+    - **目标存储帐户（如果源 VM 不使用托管磁盘）**：默认情况下，Site Recovery 会在目标区域中创建新存储帐户，从而形成源 VM 存储帐户的镜像。
+      >[!NOTE]
+      >如果使用启用了防火墙的源或目标存储帐户，请确保“允许受信任的 Azure 服务”。 [了解详细信息。](/storage/common/storage-network-security#exceptions)
+      >
+
+    - **副本托管磁盘（如果源 VM 使用托管磁盘）**：默认情况下，Site Recovery 在目标区域创建托管磁盘副本，以生成和源 VM 的托管磁盘存储类型一致（标准或高级）的镜像磁盘。
+    - **目标可用性集**：默认情况下，Azure Site Recovery 会在目标区域中创建一个名称带有“asr”后缀（针对源区域中可用性集的 VM 部分）的新可用性集。 如果 Azure Site recovery 创建的可用性集已存在，则重复使用它。
+    >[!NOTE]
+    >在启用复制以后，不能更改可用性类型 - 单一实例、可用性集。 若要更改可用性类型，需要先禁用复制，然后再启用复制。
+    >
+    
+    <!--Not Available on availability zone-->
+    
 4. 若要自定义复制策略设置，请单击“复制策略”旁边的“自定义”，然后根据需要修改以下设置。
 
     - **复制策略名称**：策略名称。
@@ -154,10 +172,12 @@ Site Recovery 会针对目标区域创建默认设置和复制策略。 可以�
 
 5. 若要将 VM 添加到新的或现有的复制组，请在“自定义”中选择“是”以确保多 VM 一致性。 使 VM 成为复制组的一部分。 。
 
-    - 故障转移时，复制组中的所有计算机将具有共享的崩溃一致性恢复点和应用程序一致性恢复点。 启用多 VM 一致性可能会影响工作负荷性能，因此，仅当计算机运行相同的工作负荷并且需要跨多个计算机的一致性时，才应使用该设置。
+    - 故障转移时，复制组中的所有计算机将具有共享的崩溃一致性恢复点和应用程序一致性恢复点。 启用多 VM 一致性可能会影响工作负荷性能（因为它是 CPU 密集型），因此，仅当计算机运行相同的工作负荷并且需要跨多个计算机的一致性时，才应使用该设置。
+    - 可以选择在复制组中最多包含 16 个虚拟机。
     - 如果启用了多 VM 一致性，则复制组中的计算机将通过端口 20004 相互通信。 确保防火墙设备没有阻止 VM 之间通过端口 20004 进行的内部通信。 如果想要 Linux VM 成为复制组的一部分，请确保按照特定 Linux 版本的指南手动打开端口 20004 上的出站流量。
 
-<!--Pending for Verify later-->
+    <!--Pending for Verify later-->
+
 ### <a name="configure-encryption-settings"></a>配置加密设置
 
 如果源虚拟机启用了 Azure 磁盘加密 (ADE)，则加密设置会如下所示：

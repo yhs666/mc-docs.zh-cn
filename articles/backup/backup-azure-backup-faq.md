@@ -6,15 +6,14 @@ author: lingliw
 manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-origin.date: 10/23/2018
-ms.date: 11/26/2018
+ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 124f85b039c707c66bf76368ff1b77e6326eeece
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: d1e505dd73997539edfd154ba4c8db1cd3d9cd03
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674588"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363575"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure 备份 - 常见问题
 本文回答有关 Azure 备份服务的常见问题。
@@ -22,10 +21,11 @@ ms.locfileid: "52674588"
 ## <a name="recovery-services-vault"></a>恢复服务保管库
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription"></a>在每个 Azure 订阅中可以创建的保管库数量是否有任何限制？
-是的。 在 Azure 备份支持的每个区域中，可以为每个订阅创建多达 500 个恢复服务保管库。 如果需要更多保管库，请创建另一订阅。
+是的。 在 Azure 备份支持的区域中，可以为每个订阅最多创建 500 个恢复服务保管库。 如果需要更多保管库，请创建另一订阅。
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault"></a>可针对每个保管库注册的服务器/计算机数量是否有限制？
-每个保管库最多可以注册 1000 个 Azure 虚拟机。 如果使用 MAB 代理，每个保管库最多可以注册 50 个 MAB 代理。 可以将 50 个 MAB 服务器/DPM 服务器注册到一个保管库。
+每个保管库最多可以注册 1000 个 Azure 虚拟机。 如果使用世纪互联 Azure 备份代理，每个保管库最多可以注册 50 个 MAB 代理。 可以将 50 个 MAB 服务器/DPM 服务器注册到一个保管库。
+
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-data-from-different-servers-in-the-vault-when-restoring-data"></a>如果本组织有一个保管库，如何在还原数据时将数据与保管库中的其他服务器隔离？
 
@@ -117,7 +117,7 @@ Windows Storage Server 2012 64 位 | Standard、Workgroup | 使用最新服务�
 Windows Server 2008 R2 SP1 64 位 | Standard、Enterprise、Datacenter、Foundation | 使用最新更新。
 Windows Server 2008 64 位 | Standard、Enterprise、Datacenter | 使用最新更新。
 
-对于 Azure VM Linux 备份，Azure 备份支持 [Azure 认可的分发版列表](../virtual-machines/linux/endorsed-distros.md)，但 Core OS Linux 除外。  只要 VM 上装有 VM 代理且支持 Python，其他自带 Linux 发行版应该也能正常运行。
+对于 Azure VM Linux 备份，Azure 备份支持 [Azure 认可的分发版列表](../virtual-machines/linux/endorsed-distros.md)，但 Core OS Linux 和 32 位操作系统除外。 只要 VM 上装有 VM 代理且支持 Python，其他自带 Linux 发行版应该也能正常运行。
 
 ## <a name="are-there-size-limits-for-data-backup"></a>是否存在数据备份的大小限制？
 

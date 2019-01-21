@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/16/2018
-ms.date: 12/10/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 333b7fbfecc2d1f5bf9676265648e68c58618ebc
-ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
+ms.openlocfilehash: 882f1b11beb37ea2b64517337a34c70b5f1e2f0e
+ms.sourcegitcommit: 35a09a86cbb3d896fa9784471ece41df7728bd71
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52901061"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396698"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>使用 Azure 资源管理器创建 Service Fabric 群集 
 > [!div class="op_single_selector"]
@@ -33,11 +33,12 @@ ms.locfileid: "52901061"
 
 群集安全性是在首次设置群集时配置的，以后无法更改。 在设置群集之前，请先阅读 [Service Fabric 群集安全性方案][service-fabric-cluster-security]。 在 Azure 中，Service Fabric 使用 x509 证书来保护群集及其终结点，对客户端进行身份验证以及对数据进行加密。 另外，还建议使用 Azure Active Directory 来保护对管理终结点的访问。 在创建群集之前，必须先创建 Azure AD 租户和用户。  有关详细信息，请阅读[设置 Azure AD 来对客户端进行身份验证](service-fabric-cluster-creation-setup-aad.md)。
 
-<!-- Not Available on If you are creating a production cluster to run production workloads, we recommend you first read through the [production readiness checklist](service-fabric-production-readiness-checklist.md)-->
+若要创建生产群集以运行生产工作负载，我们建议你首先阅读[生产就绪情况核对清单](service-fabric-production-readiness-checklist.md)。
+
 ## <a name="prerequisites"></a>先决条件 
 在本文中，使用 Service Fabric RM powershell 或 Azure CLI 模块部署群集：
 
-* [Azure PowerShell 4.1 或更高版本][azure-powershell]
+* [Azure PowerShell 4.1 及更高版本][azure-powershell]
 * [Azure CLI 版本 2.0 及更高版本][azure-CLI]
 
 以下为关于 Service Fabric 模块的参考文档：
@@ -116,7 +117,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 ### <a name="use-your-own-custom-template"></a>使用自己的自定义模板
 
-如果需要根据需要编写自定义模板，我们强烈建议从 [Azure Service Fabric 模板示例](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master)中提供的模板之一着手。 了解如何[自定义群集模板][customize-your-cluster-template]。
+如果需要根据需要编写自定义模板，我们强烈建议从 [Azure Service Fabric 模板示例](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master)中提供的模板之一着手。 了解如何 [自定义群集模板][customize-your-cluster-template]。
 
 如果已有一个自定义模板，请仔细检查模板中的所有三个证书相关参数以及参数文件已按如下所示命名且如下所示的值为 null：
 
@@ -209,7 +210,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 ```
 
 ### <a name="use-your-own-custom-cluster-template"></a>使用自己的自定义群集模板
-如果需要根据需要编写自定义模板，我们强烈建议从 [Azure Service Fabric 模板示例](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master)中提供的模板之一着手。 了解如何[自定义群集模板][customize-your-cluster-template]。
+如果需要根据需要编写自定义模板，我们强烈建议从 [Azure Service Fabric 模板示例](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master)中提供的模板之一着手。 了解如何 [自定义群集模板][customize-your-cluster-template]。
 
 如果已有一个自定义模板，请确保模板中的所有三个证书相关参数以及参数文件已按如下所示命名并使用 null 值。
 
@@ -290,10 +291,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 ## <a name="next-steps"></a>后续步骤
 此时 Azure 中已正在运行一个安全的群集。 接下来，请[连接到该群集](service-fabric-connect-to-secure-cluster.md)，了解如何[管理应用程序机密](service-fabric-application-secret-management.md)。
 
-<!-- Links -->
-[azure-powershell]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
-[azure-CLI]:https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-latest
-[service-fabric-cluster-security]: service-fabric-cluster-security.md
-[customize-your-cluster-template]: service-fabric-cluster-creation-via-arm.md#create-a-service-fabric-cluster-resource-manager-template
+<!--Not Available on [Microsoft.ServiceFabric/clusters template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.servicefabric/clusters)-->
+<!-- Links --> [azure-powershell]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps [azure-CLI]:https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-latest [service-fabric-cluster-security]: service-fabric-cluster-security.md [customize-your-cluster-template]: service-fabric-cluster-creation-via-arm.md#create-a-service-fabric-cluster-resource-manager-template
 
 <!--Update_Description: update meta properties, wording update, update link -->

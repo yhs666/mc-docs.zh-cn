@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/15/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 4c6ba0fd5ab3f77f7b7f834e0c346bee5a788340
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: b786486bac72a4989c3a552bb5e2e799343c4d0f
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026722"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309287"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Azure Cosmos DB 中的联机备份和按需数据还原
 
@@ -27,7 +27,7 @@ Azure Cosmos DB 会定期自动备份数据。 自动备份不会影响数据库
 
 Azure Cosmos DB 将自动备份存储在 Azure Blob 存储中，而实际数据以本地形式驻留在 Azure Cosmos DB 中。 为了保证低延迟，备份的快照存储在 Azure Blob 存储中，且所在区域与 Cosmos DB 数据库帐户的当前写入区域（如果有多主数据库配置，则为其中一个写入区域）相同。 对于针对区域性灾难的恢复，Azure Blob 存储中备份数据的屏幕快照将通过异地冗余存储 (GRS) 再次复制到另一区域。 根据源区域以及与源区域关联的区域对确定备份复制的目标区域。  不能直接访问此数据库。 Azure Cosmos DB 仅在启动备份还原时使用此备份。
 <!--Not Available on To learn more, see the [list of geo-redundant pairs of Azure regions](../best-practices-availability-paired-regions.md)-->
-下图显示了如何在中国北部的远程 Azure Blob 存储帐户中备份 Azure Cosmos 容器（其三个主要资源分区全部位于中国北部），然后将其复制到中国东部：
+下图显示了如何在中国北部的远程 Azure Blob 存储帐户中备份 Azure Cosmos 容器（其三个主要物理分区全部位于中国北部），然后将其复制到中国东部：
 
 ![GRS Azure 存储中所有 Cosmos DB 实体的定期完整备份](./media/online-backup-and-restore/automatic-backup.png)
 

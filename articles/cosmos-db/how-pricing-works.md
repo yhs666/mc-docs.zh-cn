@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/28/2018
-ms.date: 12/31/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8c8632fab0fe7ee86e00067fe13d8317ce29ac59
-ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
+ms.openlocfilehash: 8c9814f15d83e3df6313b5cc966dc222f133de21
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814800"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309044"
 ---
 # <a name="pricing-model-of-azure-cosmos-db"></a>Azure Cosmos DB 的定价模型 
 
@@ -31,12 +31,17 @@ Azure Cosmos DB 的定价模型可简化成本管理和计划。 使用 Azure Co
 
 <!--Not Available on [Understanding your Azure Cosmos DB bill](understand-your-bill.md)-->
 
+Azure Cosmos DB 中的定价模型在所有 API 中都是一致的。 有关详细信息，请参阅 [Azure Cosmos DB 定价模型如何对客户而言更具经济效益](total-cost-ownership.md)。 数据库或容器需要最小吞吐量来确保 SLA，可以按每 100 RU/秒 61 元的价格增加或减少预配的吞吐量。
+
+<!--Notice: $6 compare to CNY61 on Azure China-->
+
 <!-- Not Available on Pricing model in Azure Cosmos DB-->
 ## <a name="try-azure-cosmos-db-for-free"></a>免费试用 Azure Cosmos DB 
 
 Azure Cosmos DB 免费为开发人员提供多个选项。 这些选项包括：
 
 * **Azure 试用帐户**：Azure 提供了一个[免费层](https://www.azure.cn/pricing/1rmb-trial/)，它在前 30 天为你提供了价值人民币 1500 元的 Azure 额度。
+
 <!--Not Available on For more information [Azure trial account](../billing/billing-avoid-charges-free-account.md)-->
 <!--Not Available on * **Try Azure Cosmos DB for free**-->
 
@@ -56,3 +61,5 @@ Azure Cosmos DB 免费为开发人员提供多个选项。 这些选项包括：
 * 详细了解如何[优化多区域 Cosmos 帐户的成本](optimize-cost-regions.md)
 <!--Not Available on * Learn about [Azure Cosmos DB reserved capacity](cosmos-db-reserved-capacity.md)-->
 * 了解 [Azure Cosmos DB 模拟器](local-emulator.md)
+
+<!--Update_Description: update meta properties, wording update -->

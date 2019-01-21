@@ -1,22 +1,20 @@
 ---
 title: Azure Cosmos DB：使用 Python 和 SQL API 生成应用
 description: 演示了一个可以用来连接到 Azure Cosmos DB SQL API 并进行查询的 Python 代码示例
-services: cosmos-db
 author: rockboyfor
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
-ms.custom: quick start connect, mvc, devcenter
+ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: quickstart
 origin.date: 09/24/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3920b36e5f632cc69f5747e659ca0c893b70cb57
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: 0e249256c8785cd4ddfca7352b09f78685211f8f
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026810"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309130"
 ---
 # <a name="azure-cosmos-db-build-a-sql-api-app-with-python-and-the-azure-portal"></a>Azure Cosmos DB：使用 Python 和 Azure 门户生成 SQL API 应用
 
@@ -27,7 +25,7 @@ ms.locfileid: "54026810"
 > * [Python](create-sql-api-python.md)
 >  
 
-<!--Pending on translate * [Xamarin](create-sql-api-xamarin-dotnet.md)--> Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 可以快速创建和查询文档数据库，这些数据库受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。 
+<!--Pending on translate * [Xamarin](create-sql-api-xamarin-dotnet.md)--> Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 可以快速创建和查询文档数据库，这些数据库受益于 Cosmos DB 核心的多区域分布和水平缩放功能。 
 <!-- NOTICE: 全球分布 TO 多区域分布 -->
 <!-- NOTICE: globally TO multiple-region  -->
 <!-- Not Available on Key/Value and Graph databases-->
@@ -223,4 +221,4 @@ ms.locfileid: "54026810"
 > [!div class="nextstepaction"]
 > [将 SQL API 的数据导入 Azure Cosmos DB](import-data.md)
 
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties, wording update -->

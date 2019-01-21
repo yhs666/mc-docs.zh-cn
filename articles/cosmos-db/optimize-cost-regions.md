@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 12/31/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: b3e880b14f174264e5a6309ff711e8e44e66bd54
-ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
+ms.openlocfilehash: c9f253672b98b75e4aa22cfe6db5f178cef5ef64
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814803"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309221"
 ---
 # <a name="optimize-the-cost-for-multi-region-deployments-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中优化多区域部署的成本
 
@@ -22,9 +22,11 @@ ms.locfileid: "53814803"
 
 1. `T x (N+1) RU/s`，如果使用能够处理写入的所有区域配置 Azure Cosmos 帐户。 
 
-<!-- Not Available on Provisioned throughput with single write region costs $0.008/hour per 100 RU/s and provisioned throughput with multiple writable regions costs $0.016/per hour per 100 RU/s.-->
+<!--Notice: $0.008 against CNY0.082 on 100 RU/s for Azure China-->
 
-若要了解详细信息，请参阅 Azure Cosmos DB [定价页](https://www.azure.cn/pricing/details/cosmos-db/)。
+具有单个写入区域的预配吞吐量每 100 RU/秒的成本为 0.082 元/小时，具有多个可写区域的预配吞吐量每 100 RU/秒的成本为 0.164 元/小时。 若要了解详细信息，请参阅 Azure Cosmos DB [定价页](https://www.azure.cn/pricing/details/cosmos-db/)。
+
+<!--Notice: $0.008 against CNY0.082 on 100 RU/s for Azure China-->
 
 ## <a name="costs-for-multiple-write-regions"></a>多个写入区域的成本
 
@@ -46,9 +48,11 @@ ms.locfileid: "53814803"
 
 接下来，可通过以下文章详细了解 Azure Cosmos DB 中的成本优化：
 
-* 详细了解[开发和测试优化](optimize-dev-test.md)
+* 详细了解[针对开发和测试进行优化](optimize-dev-test.md)
 <!--Not Available on * Learn more about [Understanding your Azure Cosmos DB bill](understand-your-bill.md)-->
 * 详细了解如何[优化吞吐量成本](optimize-cost-throughput.md)
 * 详细了解如何[优化存储成本](optimize-cost-storage.md)
 * 详细了解如何[优化读取和写入成本](optimize-cost-reads-writes.md)
 * 详细了解如何[优化查询成本](optimize-cost-queries.md)
+
+<!--Update_Description: wording update -->

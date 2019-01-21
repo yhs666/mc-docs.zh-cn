@@ -1,23 +1,20 @@
 ---
 title: 使用 SQL API 生成包含 Azure Cosmos DB 的 .NET Web 应用
 description: 本快速入门介绍如何使用 Azure Cosmos DB SQL API 和 Azure 门户创建 .NET Web 应用
-services: cosmos-db
 author: rockboyfor
 ms.author: v-yeche
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
-ms.custom: quick start connect, mvc, devcenter
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-clicktale: true
 origin.date: 04/10/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: fa430ebf5b9ff10b1cba2c040f7f9d2cba75e4de
-ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
+ms.date: 01/21/2019
+ms.openlocfilehash: 3c21f444213e362bb2623fe4f60eadd46b07934f
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814778"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309180"
 ---
 # <a name="quickstart-build-a-net-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>快速入门：使用 SQL API 和 Azure 门户生成包含 Azure Cosmos DB 的 .NET Web 应用
 
@@ -29,7 +26,7 @@ ms.locfileid: "53814778"
 >  
 > 
 
-<!--Pending on translate * [Xamarin](create-sql-api-xamarin-dotnet.md)--> Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 可快速创建和查询文档数据库，这些数据库受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。 
+<!--Pending on translate * [Xamarin](create-sql-api-xamarin-dotnet.md)--> Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 可快速创建和查询文档数据库，这些数据库受益于 Cosmos DB 核心的多区域分布和水平缩放功能。 
 
 <!-- NOTICE: 全球分布 TO 多区域分布 -->
 <!-- NOTICE: globally TO multiple-region  -->
