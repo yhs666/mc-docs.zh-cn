@@ -2494,6 +2494,31 @@
       "redirect_document_id": false
     },
     {
+        "source_path": "articles/key-vault/tutorial-web-application-keyvault.md",
+        "redirect_url": "/key-vault/tutorial-net-create-vault-azure-web-app",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/key-vault/vs-key-vault-aspnet-core-get-started.md",
+        "redirect_url": "/key-vault/vs-key-vault-add-connected-service",
+        "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/key-vault/vs-key-vault-aspnet-core-what-happened.md",
+      "redirect_url": "/key-vault/vs-key-vault-add-connected-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/vs-key-vault-aspnet-get-started.md",
+      "redirect_url": "/key-vault/vs-key-vault-add-connected-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/vs-key-vault-aspnet-what-happened.md",
+      "redirect_url": "/key-vault/vs-key-vault-add-connected-service",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/virtual-machines-linux-key-vault-setup.md",
       "redirect_url": "/virtual-machines/linux/key-vault-setup",
       "redirect_document_id": false
