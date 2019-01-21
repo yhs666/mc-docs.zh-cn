@@ -9,16 +9,16 @@ ms.devlang: c
 ms.topic: quickstart
 ms.custom: mvc
 origin.date: 08/27/2018
-ms.date: 12/03/2018
+ms.date: 01/28/2019
 ms.author: v-yiso
-ms.openlocfilehash: 2de228f6bc2af97ad4a0552eafb166f8a8890b6d
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 1aad554954731386f842d68834f6ac4fdd83706e
+ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675344"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396794"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-c"></a>快速入门：将遥测数据从设备发送到 IoT 中心并使用后端应用程序从中心读取遥测数据 (C)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>快速入门：将遥测数据从设备发送到 IoT 中心并使用后端应用程序读取该数据 (C)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
@@ -44,11 +44,11 @@ IoT 中心是一项 Azure 服务，用于将大量遥测数据从 IoT 设备引�
 
 * **Linux**：apt-get 包适用于使用以下 CPU 体系结构的 Ubuntu 16.04 和 18.04：amd64、arm64、armhf 和 i386。 有关详细信息，请参阅[在 Ubuntu 上使用 apt-get 创建 C 设备客户端项目](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/ubuntu_apt-get_sample_setup.md)。
 
-* **mbed**：针对在 mbed 平台上创建设备应用程序的开发人员，我们已发布所需的库和示例，使他们在短时间内就能开始使用 Azure IoT 中心。 有关详细信息，请参阅[使用 mbed 库](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#mbed)。
+* **mbed**：对于在 mbed 平台上创建设备应用程序的开发人员，我们发布了可帮助在几分钟内学会使用 Azure IoT 中心的库和示例。 有关详细信息，请参阅[使用 mbed 库](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#mbed)。
 
-* **Arduino**：如果在 Arduino 上进行开发，可以利用 Arduino IDE 库管理器中提供的 Azure IoT 库。 有关详细信息，请参阅[适用于 Arduino 的 Azure IoT 中心库](https://github.com/azure/azure-iot-arduino)。
+* **Arduino**：如果在 Arduino 上进行开发，则可以利用 Arduino IDE 库管理器提供的 Azure IoT 库。 有关详细信息，请参阅[适用于 Arduino 的 Azure IoT 中心库](https://github.com/azure/azure-iot-arduino)。
 
-* **iOS**：IoT 中心设备 SDK 可用作 Mac 和 iOS 设备开发的 CocoaPods。 有关详细信息，请参阅[适用于 Microsoft Azure IoT 的 iOS 示例](https://cocoapods.org/pods/AzureIoTHubClient)。
+* **iOS**：IoT 中心设备 SDK 能够以 CocoaPods 的形式提供，用于 Mac 和 iOS 设备开发。 有关详细信息，请参阅[适用于 Microsoft Azure IoT 的 iOS 示例](https://cocoapods.org/pods/AzureIoTHubClient)。
 
 但是，在本快速入门中，我们将准备一个用于从 GitHub 克隆和生成 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) 的开发环境。 GitHub 上的 SDK 包含本快速入门中使用的示例代码。 
 

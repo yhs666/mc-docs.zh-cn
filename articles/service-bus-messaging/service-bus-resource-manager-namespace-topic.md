@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Resource Manager 模板创建 Azure 服务总线命名空间主题订阅 | Azure
+title: 使用 Azure Resource Manager 模板创建 Azure 服务总线命名空间主题订阅 | Azure Docs
 description: 使用 Azure Resource Manager 模板创建包含主题和订阅的服务总线命名空间
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,15 +12,14 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-origin.date: 09/11/2018
-ms.date: 10/31/2018
+ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 08ac7b5a73d2953e394263bbe3b00d481f9d7ee0
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 851634ca50156ff7cf111a95a453882751ff5975
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652546"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363361"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板创建包含主题和订阅的服务总线命名空间
 
@@ -56,7 +55,7 @@ ms.locfileid: "52652546"
 
 使用 Azure 资源管理器，可以定义在部署模板时想要指定的值的参数。 该模板具有一个名为 `Parameters` 的部分，其中包含所有参数值。 为随着要部署的项目或要部署到的环境而变化的值定义参数。 不要为永远保持不变的值定义参数。 每个参数值可在模板中用来定义所部署的资源。
 
-模板定义以下参数。
+模板定义以下参数：
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
 

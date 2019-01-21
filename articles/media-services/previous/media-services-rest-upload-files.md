@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 05/10/2018
 ms.date: 09/17/2018
 ms.author: v-jay
-ms.openlocfilehash: b4e8a4b2b2fe55f6fe69bf87bf00fa77a79838da
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 36eccbcf1f02d6a307f325914f6e23399a59dd37
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659874"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396923"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>使用 REST 将文件上传到媒体服务帐户
 > [!div class="op_single_selector"]
@@ -157,7 +157,7 @@ SAS URL 采用以下格式：
 请注意以下事项：
 
 * 一项给定的资产一次最多只能与五个唯一的定位符相关联。 有关详细信息，请参阅定位符。
-* 如果需要立即上传文件，应将 StartTime 值设置为当前时间前五分钟。 这是因为客户端计算机与媒体服务之间可能存在时钟偏差。 此外，StartTime 值必须采用以下 DateTime 格式：YYYY-MM-DDTHH:mm:ssZ（例如，“2014-05-23T17:53:50Z”）。    
+* 如果需要立即上传文件，应将 StartTime 值设置为当前时间前五分钟。 这是因为客户端计算机与媒体服务之间可能存在时钟偏差。 此外，StartTime 值必须采用以下 DateTime 格式：YYYY-MM-DDTHH:mm:ssZ（例如“2014-05-23T17:53:50Z”）。    
 * 定位符从创建到可用可能会有 30-40 秒的延迟。
 
 ### <a name="create-a-sas-locator"></a>创建 SAS 定位符
@@ -189,7 +189,7 @@ SAS URL 采用以下格式：
 1. 按 **+** 创建新的请求选项卡。
 2. 选择“PUT”操作并在 URL 中粘贴 **{{UploadURL}}**。
 2. 将“授权”选项卡保留原样（不要将其设置为“持有者令牌”）。
-3. 在“标头”选项卡中，为“密钥”指定“x-ms-blob-type”，为“值”指定“BlockBlob”。
+3. 在“标头”选项卡中，指定：**键**：“x-ms-blob-type”和**值**：“BlockBlob”。
 2. 在“正文”选项卡中，单击“二进制”。
 4. 选择具有 **MediaFileName** 环境变量中指定的名称的文件。
 5. 按“发送”。

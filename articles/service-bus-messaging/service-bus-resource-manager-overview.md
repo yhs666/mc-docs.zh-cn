@@ -1,5 +1,5 @@
 ---
-title: 使用资源管理器模板创建 Azure 服务总线资源 | Azure
+title: 使用资源管理器模板创建 Azure 服务总线资源 | Azure Docs
 description: 使用 Azure Resource Manager 模板自动创建服务总线资源
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,15 +12,14 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-origin.date: 09/11/2018
-ms.date: 10/31/2018
+ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: ac4bfea7417f7e4ea174996f690b00a8aa23a605
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 74804fd0e58bbb97f5431e8e32c7d38632e63e76
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662833"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363322"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 模板创建服务总线资源
 
@@ -142,7 +141,7 @@ Azure Resource Manager 模板可帮助你定义要为解决方案部署的资源
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "serviceBusNamespaceName": {

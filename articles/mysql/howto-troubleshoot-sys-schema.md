@@ -10,12 +10,12 @@ ms.service: mysql
 ms.topic: article
 origin.date: 08/01/2018
 ms.date: 08/27/2018
-ms.openlocfilehash: 185e6db920fc5a2a73a4b66a16926ad8f9c800d3
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1ee3a535c2f7fcb8b3fe691c34d080761af66741
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643817"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396914"
 ---
 # <a name="how-to-use-sysschema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>如何在 Azure Database for MySQL 中使用 sys_schema 进行性能优化和数据库维护
 
@@ -28,15 +28,15 @@ MySQL performance_schema 首先在 MySQL 5.5 中推出，针对许多关键服�
 
 sys_schema 中有 52 个视图，每个视图具有以下前缀之一：
 
-- Host_summary 或 IO：I/O 相关的延迟。
+- Host_summary 或 IO：与 I/O 相关的延迟。
 - InnoDB：InnoDB 缓冲区状态和锁。
-- Memory：按主机和用户列出的内存用量。
-- Schema：架构相关的信息，例如增量、索引，等等。
-- Statement：有关 SQL 语句（导致扫描整个表或长时间查询的语句）的信息。
-- User：按用户分组的消耗资源。 示例包括文件 I/O、连接和内存。
-- Wait：等待按主机或用户分组的事件。
+- 内存:按主机和用户列出的内存用量。
+- 架构：与架构相关的信息，如增量、索引等。
+- 语句：有关 SQL 语句（导致全表扫描或长时间查询的语句）的信息。
+- 用户：按用户分组和消耗的资源。 示例包括文件 I/O、连接和内存。
+- 等待：等待按主机或用户分组的事件。
 
-现在，让我们了解 sys_schema 的一些常见使用模式。 首先，我们将使用模式分组为两个类别：**性能优化**和**数据库维护**。
+现在，让我们来了解 sys_schema 的一些常见使用模式。 首先，我们将使用模式分为两类：“性能调优”和“数据库维护”。
 
 ## <a name="performance-tuning"></a>性能调优
 
@@ -44,11 +44,11 @@ sys_schema 中有 52 个视图，每个视图具有以下前缀之一：
 
 IO 是数据库中开销最高的操作。 我们可以通过查询 *sys.user_summary_by_file_io* 视图找出平均 IO 延迟。 使用 125 GB 默认预配存储时，IO 延迟大约为 15 秒。
 
-![125 GB 时的 IO 延迟](./media/howto-troubleshoot-sys-schema/io-latency-125GB.png)
+![io 延迟：125 GB](./media/howto-troubleshoot-sys-schema/io-latency-125GB.png)
 
 由于 Azure Database for MySQL 可根据存储缩放 IO，将预配存储增大到 1 TB 后，IO 延迟减小为 571 毫秒。
 
-![1 TB 时的 IO 延迟](./media/howto-troubleshoot-sys-schema/io-latency-1TB.png)
+![io 延迟：1TB](./media/howto-troubleshoot-sys-schema/io-latency-1TB.png)
 
 ### <a name="sysschematableswithfulltablescans"></a>*sys.schema_tables_with_full_table_scans*
 

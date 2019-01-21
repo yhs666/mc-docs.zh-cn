@@ -12,21 +12,21 @@ ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
 origin.date: 10/05/2018
-ms.date: 01/07/2019
-ms.openlocfilehash: 42aeff2da043317893d5d32eefe019088fb6bc57
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.date: 01/21/2019
+ms.openlocfilehash: 5148cd2b2ef69f43995e0341c57b53650483a5d4
+ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996307"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363805"
 ---
-# <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>云中的新 DBA  – 管理 Azure SQL 数据库中的数据库
+# <a name="new-dba-in-the-cloud---managing-your-database-in-azure-sql-database"></a>云中的新 DBA - 管理 Azure SQL 数据库中的数据库
 
 从传统的自我管理、自我控制环境过渡到 PaaS 环境后，一开始我们可能有点不适应。 应用开发人员或 DBA（数据库管理员）希望了解该平台中可让应用程序始终保持可用性、高效性、安全性和弹性的核心功能。 本文正好介绍了这些内容。 本文以简洁的方式组织资源，提供有关如何以最佳方式利用 SQL 数据库的重要功能来有效管理应用程序并使其保持运行，以及在云中实现最佳效果的指导。 本文主要面向：
 
-- 正在评估是否要将应用程序迁移到 Azure SQL 数据库 – 将应用程序现代化。
-- 正在迁移应用程序 – 现行迁移方案。
-- 最近已完成到 Azure SQL 数据库的迁移 – 云中的新 DBA。
+- 正在评估是否要将应用程序迁移到 Azure SQL 数据库 - 将应用程序现代化。
+- 正在迁移应用程序 - 现行迁移方案。
+- 最近已完成到 Azure SQL 数据库的迁移 - 云中的新 DBA。
 
 本文介绍 Azure SQL 数据库（用作平台）的、随时可供利用的某些核心特征。 这些特征包括：
 
@@ -106,7 +106,7 @@ SQL 数据库中提供[两种身份验证方法](sql-database-control-access.md#
 
 防火墙阻止外部实体访问你的服务器，只允许特定的实体访问你的逻辑服务器。 默认情况下，禁止在逻辑服务器中创建任何连接和数据库，但来自其他 Azure 服务的连接除外。 使用防火墙规则，可以只对批准的实体（例如开发人员计算机）开放服务器的访问，并允许该计算机的 IP 地址通过防火墙。 此外，还可以指定允许其访问逻辑服务器的 IP 范围。 例如，可以在防火墙设置页中指定范围，一次性添加组织中的多个开发人员计算机 IP 地址。
 
-可以在服务器级别或数据库级别创建防火墙规则。 可以通过 Azure 门户或 SSMS 创建服务器级防火墙规则。 有关如何设置服务器和数据库级防火墙规则的详细信息，请参阅：[在 SQL 数据库中创建防火墙规则](sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal)。
+可以在服务器级别或数据库级别创建防火墙规则。 可以通过 Azure 门户或 SSMS 创建服务器级防火墙规则。 有关如何设置服务器和数据库级防火墙规则的详细信息，请参阅：[在 SQL 数据库中创建防火墙规则](sql-database-security-tutorial.md#create-firewall-rules)。
 
 #### <a name="service-endpoints"></a>服务终结点
 
@@ -128,11 +128,11 @@ SQL 数据库中提供[两种身份验证方法](sql-database-control-access.md#
 
 #### <a name="sql-database-auditing"></a>SQL 数据库审核
 
-使用 SQL 数据库时，可以启用“审核”以跟踪数据库事件。 [SQL 数据库审核](sql-database-auditing.md)记录数据库事件，并将事件写入 Azure 存储帐户中的审核日志文件。 若要洞察潜在的安全和策略违规、保持合规性或实现其他类似目的，审核功能特别有用。使用审核可以定义和配置你认为需要审核的事件类别，而基于这些类别，可以获取预配置的报告和仪表板来大致了解数据库中发生的事件。 可以在数据库级别或服务器级别应用这些审核策略。 有关如何启用服务器/数据库审核的指南，请参阅：[启用 SQL 数据库审核](sql-database-security-tutorial.md#enable-sql-database-auditing-if-necessary)。
+使用 SQL 数据库时，可以启用“审核”以跟踪数据库事件。 [SQL 数据库审核](sql-database-auditing.md)记录数据库事件，并将事件写入 Azure 存储帐户中的审核日志文件。 若要洞察潜在的安全和策略违规、保持合规性或实现其他类似目的，审核功能特别有用。使用审核可以定义和配置你认为需要审核的事件类别，而基于这些类别，可以获取预配置的报告和仪表板来大致了解数据库中发生的事件。 可以在数据库级别或服务器级别应用这些审核策略。 有关如何启用服务器/数据库审核的指南，请参阅：[启用 SQL 数据库审核](sql-database-security-tutorial.md#enable-security-features)。
 
 #### <a name="threat-detection"></a>威胁检测
 
-使用[威胁检测](sql-database-threat-detection.md)可以轻松地对“审核”功能发现的安全或策略违规采取措施。 无需安全方面的专业知识即可解决系统中的潜在威胁或违规。 威胁检测还提供一些内置功能，例如 SQL 注入检测。 SQL 注入是指尝试改动或破坏数据，这是攻击数据库应用程序的一种常见手段。 SQL 数据库威胁检测运行多组算法，这些算法可以检测潜在漏洞和 SQL 注入攻击，以及异常的数据库访问模式（如来自异常位置或不熟悉主体的访问）。 如果在数据库中检测到威胁，安全管理人员或其他指定管理员将收到电子邮件通知。 每个通知都会提供可疑活动的详细信息，以及如何进一步调查和缓解威胁的建议。 若要了解如何启用威胁检测，请参阅：[启用 SQL 数据库威胁检测](sql-database-security-tutorial.md#enable-sql-database-threat-detection)。
+使用[威胁检测](sql-database-threat-detection.md)可以轻松地对“审核”功能发现的安全或策略违规采取措施。 无需安全方面的专业知识即可解决系统中的潜在威胁或违规。 威胁检测还提供一些内置功能，例如 SQL 注入检测。 SQL 注入是指尝试改动或破坏数据，这是攻击数据库应用程序的一种常见手段。 SQL 数据库威胁检测运行多组算法，这些算法可以检测潜在漏洞和 SQL 注入攻击，以及异常的数据库访问模式（如来自异常位置或不熟悉主体的访问）。 如果在数据库中检测到威胁，安全管理人员或其他指定管理员将收到电子邮件通知。 每个通知都会提供可疑活动的详细信息，以及如何进一步调查和缓解威胁的建议。 若要了解如何启用威胁检测，请参阅：[启用 SQL 数据库威胁检测](sql-database-security-tutorial.md#enable-security-features)。
 
 ### <a name="how-do-i-protect-my-data-in-general-on-sql-database"></a>如何在 SQL 数据库中对数据采取常规保护
 

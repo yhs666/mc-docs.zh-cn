@@ -3,7 +3,7 @@ title: 管理 Azure SQL 数据库长期备份保留 | Microsoft Docs
 description: 了解如何在 SQL Azure 存储中存储自动备份，以及如何还原它们
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
 origin.date: 10/24/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 0793ce1db68980ca1c4231a04a7a69e8349dc29a
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.date: 01/21/2019
+ms.openlocfilehash: e1c95b67033fd6cd0c01dd4a5529b8740ff8cd3f
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672761"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397023"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>管理 Azure SQL 数据库长期备份保留
 
@@ -31,7 +31,7 @@ ms.locfileid: "52672761"
 
 可以对 SQL 数据库进行配置，使其[保留自动备份](sql-database-long-term-retention.md)的时间长于你的服务层的保留期。 
 
-1. 在 Azure 门户中，选择你的 SQL Server，然后单击“管理备份”。 在“配置策略”选项卡上，选中要为其设置或修改长期备份保留策略的数据库所对应的复选框。
+1. 在 Azure 门户中，选择你的 SQL Server，然后单击“管理备份”。 在“配置策略”选项卡上，选中要为其设置或修改长期备份保留策略的数据库所对应的复选框。 如果未选中数据库旁边的复选框，则策略的更改将不会应用于该数据库。  
 
    ![管理备份链接](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
 
@@ -101,10 +101,10 @@ Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/long
 
 ```powershell
 # Get the SQL server 
-# $subId = “{subscription-id}”
-# $serverName = “{server-name}”
-# $resourceGroup = “{resource-group-name}” 
-# $dbName = ”{database-name}”
+# $subId = "{subscription-id}"
+# $serverName = "{server-name}"
+# $resourceGroup = "{resource-group-name}" 
+# $dbName = "{database-name}"
 
 Connect-AzureRmAccount -Environment AzureChinaCloud
 Select-AzureRmSubscription -SubscriptionId $subId
@@ -170,6 +170,9 @@ $ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Lo
 $ltrBackup = $ltrBackups[0]
 Remove-AzureRmSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 ```
+> [!IMPORTANT]
+> 删除 LTR 备份操作是不可逆的。 可以通过筛选“删除长期保留备份”操作来在 Azure Monitor 中设置有关每次删除的通知。 活动日志包含有关发出请求的人员和时间的信息。 有关详细说明，请参阅[创建活动日志警报](../azure-monitor/platform/alerts-activity-log.md)。
+>
 
 ### <a name="restore-from-ltr-backups"></a>从 LTR 备份进行还原
 此示例展示了如何从 LTR 备份进行还原。 请注意，此接口没有更改，但是资源 ID 参数现在要求提供 LTR 备份资源 ID。 

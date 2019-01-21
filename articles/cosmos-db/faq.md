@@ -1,21 +1,19 @@
 ---
 title: 有关 Azure Cosmos DB 中不同 API 的常见问题
 description: 获取有关 Azure Cosmos DB（多区域分布式多模型数据库服务）的常见问题的解答。 了解容量、性能级别和缩放。
-keywords: 数据库问题, 常见问题, documentdb, azure, Azure 世纪互联
-services: cosmos-db
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 12/06/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: aebc470f7634f8c24d2ddd6de614ff5fe957255e
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: 0a27d21c66260797001c58294f7b6ca38e2f44e3
+ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026764"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54333915"
 ---
 <!-- meta.description: GLOBALLY to multiple-region -->
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>有关 Azure Cosmos DB 中不同 API 的常见问题
@@ -51,7 +49,7 @@ Azure Cosmos DB 有一个不受架构影响的索引编制引擎，能够自动�
 
 ### <a name="is-azure-cosmos-db-hipaa-compliant"></a>Azure Cosmos DB 是否符合 HIPAA？
 
-是的，Azure Cosmos DB 符合 HIPAA。 HIPAA 针对可识别个人身份的健康信息的使用、泄露与保护制定了要求。 有关详细信息，请参阅 [Microsoft 信任中心](https://www.trustcenter.cn/zh-cn/Compliance)。
+是的，Azure Cosmos DB 符合 HIPAA。 HIPAA 针对可识别个人身份的健康信息的使用、泄露与保护制定了要求。 有关详细信息，请转到 [Azure 信任中心](https://www.trustcenter.cn/zh-cn/Compliance)。
 
 ### <a name="what-are-the-storage-limits-of-azure-cosmos-db"></a>Azure Cosmos DB 的存储限制是什么？
 
@@ -72,7 +70,9 @@ Azure Cosmos DB 有一个不受架构影响的索引编制引擎，能够自动�
 
 ### <a name="is-a-trial-account-available"></a>有试用帐户吗？
 
-<!-- Not Available [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/) --> 如果不熟悉 Azure，可以注册 [Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)，这样可以得到 30 天试用期和信用额度，以便试用所有 Azure 服务。 如果你有 Visual Studio 订阅，则还有资格[免费获取 Azure 信用额度](https://www.azure.cn/support/legal/offer-rate-plans/)，可用于任何 Azure 服务。
+<!-- Not Available [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/) -->
+
+如果不熟悉 Azure，可以注册 [Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)，这样可以得到 30 天试用期和信用额度，以便试用所有 Azure 服务。 如果你有 Visual Studio 订阅，则还有资格[免费获取 Azure 信用额度](https://www.azure.cn/support/legal/offer-rate-plans/)，可用于任何 Azure 服务。
 
 也可以使用 [Azure Cosmos DB 模拟器](local-emulator.md)在本地免费开发和测试应用程序，无需创建 Azure 订阅。 如果对应用程序在 Azure Cosmos DB 模拟器中的工作情况感到满意，则可以切换到在云中使用 Azure Cosmos DB 帐户。
 
@@ -90,12 +90,15 @@ Azure Cosmos DB 有一个不受架构影响的索引编制引擎，能够自动�
 其他问题可以通过 [Azure 支持](https://www.azure.cn/support/contact/)提交给支持团队；不过，该论坛不是技术支持论坛。
 
 <a name="try-cosmos-db"></a>
+
 <!-- Not Avaialble ## Try Azure Cosmos DB subscriptions-->
+
 ## <a name="set-up-azure-cosmos-db"></a>设置 Azure Cosmos DB
 
 ### <a name="how-do-i-sign-up-for-azure-cosmos-db"></a>如何注册 Azure Cosmos DB？
 
 可以在 Azure 门户中注册 Azure Cosmos DB。 首先，注册 Azure 订阅。 注册后，可将 Azure Cosmos DB 帐户添加到 Azure 订阅。
+
 <!-- Not Available Table API , Graph API (Preview) and Cassandra API -->
 
 ### <a name="what-is-a-master-key"></a>什么是主密钥？
@@ -110,7 +113,10 @@ Azure Cosmos DB 有一个不受架构影响的索引编制引擎，能够自动�
 
 Azure Cosmos DB 存在于所有 Azure 中国区域，详见 [Azure 区域](https://www.azure.cn/support/service-dashboard/)页。 由于它属于核心服务，因此每个新的数据中心都有 Azure Cosmos DB。
 
-<!--Notice: accross all Azure China regions--> 设置区域时，请记住，Azure Cosmos DB 遵从主权和政府云的要求。 也就是说，如果帐户是在某个主权区域中创建的，则不能在该主权区域外进行复制。 同样，也无法通过外部帐户启用到其他主权位置的复制。 
+<!--Notice: accross all Azure China regions-->
+
+设置区域时，请记住，Azure Cosmos DB 遵从主权和政府云的要求。 也就是说，如果帐户是在某个主权区域中创建的，则不能在该主权区域外进行复制。 同样，也无法通过外部帐户启用到其他主权位置的复制。 
+
 <!-- Not Available on [sovereign region](https://www.azure.cn/global-infrastructure/)-->
 
 ### <a name="is-it-possible-to-switch-from-container-level-throughput-provisioning-to-database-level-throughput-provisioning-or-vice-versa"></a>是否可以从容器级吞吐量预配切换到数据库级吞吐量预配？ 或者反之亦然？
@@ -118,6 +124,7 @@ Azure Cosmos DB 存在于所有 Azure 中国区域，详见 [Azure 区域](https
 容器级和数据库级吞吐量预配是不同的产品，在这两者之间切换需要将数据从源迁移到目标。 这意味着你需要创建新数据库或新集合，然后使用[批量执行程序库](bulk-executor-overview.md)迁移数据。
 
 <!--Not Available on  [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)-->
+
 ### <a name="does-azure-cosmosdb-support-time-series-analysis"></a>Azure CosmosDB 是否支持时序分析？
 
 是的，Azure CosmosDB 支持时序分析，下面是[时序模式](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/samples/Patterns)的示例。 此示例显示如何使用更改源来构建时序数据的聚合视图。 可以使用 Spark 流式处理或其他流数据处理器来扩展此方法。
@@ -147,8 +154,10 @@ GitHub 上提供了 SQL API [.NET](sql-api-dotnet-samples.md)、[Java](https://g
 容器是文档及其关联的 JavaScript 应用程序逻辑的组。 容器是一个计费实体，其[成本](performance-levels.md)由吞吐量和已用存储确定。 容器可以跨一个或多个分区或服务器，并且能缩放以处理几乎无限制增长的存储或吞吐量。
 
 * 对于 SQL API 帐户以及 Cosmos DB 的用于 MongoDB 的 API 帐户，容器映射到集合。
+
 <!-- Not Available on * For Cassandra and Table API accounts, a container maps to a Table. -->
 <!-- Not Available on * For Gremlin API accounts, a container maps to a Graph. -->
+
 容器也是 Azure Cosmos DB 的计费实体。 每个容器根据预配的吞吐量和已用的存储空间按小时计费。 有关详细信息，请参阅 [Azure Cosmos DB 定价](https://www.azure.cn/pricing/details/cosmos-db/)。
 
 ### <a name="how-do-i-create-a-database"></a>我如何创建数据库？
@@ -171,11 +180,11 @@ SQL API 支持通过聚合函数 `COUNT`、`MIN`、`MAX`、`AVG` 和 `SUM` 通�
 
 SQL API 通过 HTTP 实体标记或 ETag 支持乐观并发控制 (OCC)。 每个 SQL API 资源都有一个 ETag。每次更新文档时，都会在服务器上设置此 ETag。 ETag 标头和当前值包含在所有响应消息中。 ETag 可与 If-Match 标头配合使用，让服务器决定是否应更新资源。 If-Match 值是用作检查依据的 ETag 值。 如果 ETag 值与服务器的 ETag 值匹配，就会更新资源。 如果 ETag 不再是最新状态，则服务器会拒绝该操作，并提供“HTTP 412 不满足前提条件”响应代码。 客户端接着必须重新提取资源，以获取该资源当前的 ETag 值。 此外，ETag 可以与 If-None-Match 标头配合使用，以确定是否需要重新提取资源。
 
-若要在 .NET 中使用乐观并发，可以使用 [AccessCondition](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.accesscondition?view=azure-dotnet) 类。 如需 .NET 示例，请参阅 GitHub 上 DocumentManagement 示例中的 [Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs)。
+若要在 .NET 中使用乐观并发，可以使用 [AccessCondition](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.accesscondition) 类。 如需 .NET 示例，请参阅 GitHub 上 DocumentManagement 示例中的 [Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs)。
 
 ### <a name="how-do-i-perform-transactions-in-the-sql-api"></a>如何在 SQL API 中执行事务？
 
-SQL API 通过 JavaScript 存储过程和触发器支持语言集成式事务。 脚本中的所有数据库操作都是在进行快照隔离的情况下执行的。 如果是单分区集合，则在集合范围内执行。 如果集合已分区，则执行范围为该集合中具有相同分区键值的文档。 文档版本 (ETag) 的快照是在事务开始时获取的，且只有当脚本成功运行时才会提交。 如果 JavaScript 引发错误，则会回滚事务。 有关详细信息，请参阅 [Azure Cosmos DB 的服务器端 JavaScript 编程](programming.md)。
+SQL API 通过 JavaScript 存储过程和触发器支持语言集成式事务。 脚本中的所有数据库操作都是在进行快照隔离的情况下执行的。 如果是单分区集合，则在集合范围内执行。 如果集合已分区，则执行范围为该集合中具有相同分区键值的文档。 文档版本 (ETag) 的快照是在事务开始时获取的，且只有当脚本成功运行时才会提交。 如果 JavaScript 引发错误，则会回滚事务。 有关详细信息，请参阅 [Azure Cosmos DB 的服务器端 JavaScript 编程](stored-procedures-triggers-udfs.md)。
 
 ### <a name="how-can-i-bulk-insert-documents-into-cosmos-db"></a>如何将文档批量插入到 Document DB 中？
 
@@ -196,6 +205,7 @@ SQL API 通过 JavaScript 存储过程和触发器支持语言集成式事务。
 ### <a name="is-a-local-instance-of-sql-api-available"></a>SQL API 的本地实例是否可用？
 
 是的。 [Azure Cosmos DB 模拟器](local-emulator.md)提供对 Cosmos DB 服务的高保真模拟。 它支持和 Azure Cosmos DB 相同的功能，包括支持创建和查询 JSON 文档、预配集合和调整集合的规模，以及执行存储过程和触发器。 可以使用 Azure Cosmos DB 模拟器开发和测试应用程序，并通过对 Azure Cosmos DB 的连接终结点进行单一配置更改将其部署到多区域范围的 Azure。
+
 <!-- Notice: 全球范围 to 多个区域范围 -->
 
 ### <a name="why-are-long-floating-point-values-in-a-document-rounded-when-viewed-from-data-explorer-in-the-portal"></a>当从门户中的数据资源管理器查看时，为何会对文档中的长浮点值进行舍入？
@@ -231,7 +241,9 @@ Azure Cosmos DB 实施严格的安全要求和标准。 Azure Cosmos DB 帐户�
 
 ### <a name="is-the-simba-driver-for-mongodb-supported-for-use-with-azure-cosmos-dbs-api-for-mongodb"></a>是否支持将 MongoDB 的 Simba 驱动程序与 Azure CosmosDB 的用于 MongoDB 的 API 一起使用？
 
-是的，可以将 Simba 的 Mongo ODBC 驱动程序与 Azure CosmosDB 的用于 MongoDB 的 API 一起使用 <!-- Not Available ## Table API -->
+是的，可以将 Simba 的 Mongo ODBC 驱动程序与 Azure Cosmos DB 的用于 MongoDB 的 API 一起使用
+
+<!-- Not Available ## Table API -->
 
 <!-- Not Available ## Gremlin API -->
 

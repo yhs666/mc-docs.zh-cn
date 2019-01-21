@@ -9,12 +9,12 @@ ms.topic: quickstart
 origin.date: 12/14/2018
 ms.date: 01/14/2019
 ms.author: v-jay
-ms.openlocfilehash: 9b766b96c891d0ca90f0434ab9c1442a4bc86dc8
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: 4934a1f3a0af467daa5cb1f5f3fab8bbd49035c0
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192878"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397065"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-python"></a>快速入门：使用 Python 上传、下载和列出 Blob
 

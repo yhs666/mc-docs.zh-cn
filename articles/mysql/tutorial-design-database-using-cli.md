@@ -12,12 +12,12 @@ ms.topic: tutorial
 origin.date: 04/01/2018
 ms.date: 11/09/2018
 ms.custom: mvc
-ms.openlocfilehash: 464ceb40c50e137a6e452eaf9fc38adffc435dc7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 735912afaac17358116068d7747e17fa178bb8dc
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644693"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396996"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>教程：使用 Azure CLI 设计 Azure Database for MySQL
 
@@ -177,7 +177,7 @@ SELECT * FROM inventory;
 
 - 还原点：选择更改服务器前的时间点。 必须大于或等于源数据库的最早备份值。
 - 目标服务器：提供一个要还原到的新服务器名称
-- 源服务器：提供想从其还原的服务器的名称
+- 源服务器:提供想从中进行还原的服务器的名称
 - 位置：不能选择区域，此区域默认与源服务器相同
 
 ```cli

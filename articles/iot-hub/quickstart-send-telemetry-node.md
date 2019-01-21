@@ -11,16 +11,16 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: ns
 origin.date: 06/19/2018
-ms.date: 12/03/2018
+ms.date: 01/28/2019
 ms.author: v-yiso
-ms.openlocfilehash: f9d624f06084efffc4f7eb7866256fbbc18c12ca
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 2a38fbaa2ed4033c3e817a0f597958f3959fd546
+ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674842"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396792"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-nodejs"></a>快速入门：将遥测数据从设备发送到 IoT 中心并使用后端应用程序从中心读取遥测数据 (Node.js)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-nodejs"></a>快速入门：将遥测数据从设备发送到 IoT 中心并使用后端应用程序读取该数据 (Node.js)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 

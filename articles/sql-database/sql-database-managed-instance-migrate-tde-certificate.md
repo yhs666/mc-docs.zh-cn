@@ -13,12 +13,12 @@ ms.reviewer: carlrab, jovanpop
 manager: digimobile
 origin.date: 08/09/2018
 ms.date: 10/29/2018
-ms.openlocfilehash: 25ff509e0e7795a815787ed49f159d714558511a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c300af9094dc1ae2053fd0874c997467bf5ef4ce
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647906"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397070"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>将 TDE 保护的数据库的证书迁移到 Azure SQL 数据库托管实例
 

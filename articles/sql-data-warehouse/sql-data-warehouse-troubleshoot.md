@@ -11,12 +11,12 @@ origin.date: 12/04/2018
 ms.date: 01/14/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 71022d8c206cd2da5bfd8d7b6a85822287776e01
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: f945c743c20201f70e01fabc84c17acdebd40b1e
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192892"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397024"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>排查 Azure SQL 数据仓库问题
 本文列出了常见的故障排除问题。

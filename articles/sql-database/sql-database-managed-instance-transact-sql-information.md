@@ -13,12 +13,12 @@ ms.reviewer: carlrab, bonova
 manager: digimobile
 origin.date: 12/03/2018
 ms.date: 12/31/2018
-ms.openlocfilehash: 08a5cb37b7aa21fe53a38c63cbb0075cc84bf0e7
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.openlocfilehash: af00c0f0602925f479187c4afff79f1e5a6861d3
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806245"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397016"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL 数据库托管实例与 SQL Server 之间的 T-SQL 差异
 
@@ -466,7 +466,7 @@ WITH PRIVATE KEY (<private_key_options>)
 
 托管实例在错误日志中放置了详细信息，并且其中的许多是不相关的。 将来，错误日志中的信息量将减少。
 
-**解决方法**：使用自定义过程来读取错误日志，以便过滤掉某些不相关的条目。 有关详细信息，请参阅 [Azure SQL DB 托管实例 – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/)。
+**解决方法**：使用自定义过程来读取错误日志，以便过滤掉某些不相关的条目。 有关详细信息，请参阅 [Azure SQL DB 托管实例 - sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/)。
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-is-not-supported"></a>跨同一实例中的两个数据库的事务范围不受支持
 

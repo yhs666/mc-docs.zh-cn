@@ -2,26 +2,19 @@
 title: 下载用于 S2S VPN 连接的 VPN 设备配置脚本：Azure 资源管理器 | Microsoft Docs
 description: 本文逐步讲解如何使用 Azure 资源管理器下载采用 Azure VPN 网关的 S2S VPN 连接的 VPN 设备配置脚本。
 services: vpn-gateway
-documentationcenter: na
-author: yushwang
-manager: rossort
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
+author: WenJason
+manager: digimobile
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 03/29/2018
-ms.date: 05/08/2018
-ms.author: v-junlch
-ms.openlocfilehash: a72c1f70f428be4dff9fdd6708f8ca482f6526a9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 01/09/2019
+ms.date: 01/21/2019
+ms.author: v-jay
+ms.openlocfilehash: 4962c8a2078fe5221891a3e41ad78dcfd1afaab6
+ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661832"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54333901"
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>下载用于 S2S VPN 连接的 VPN 设备配置脚本
 
@@ -57,7 +50,7 @@ ms.locfileid: "52661832"
 
 创建 Azure VPN 网关、本地网络网关，以及连接两者的连接资源。 以下页面将引导你完成每个步骤：
 
-- [在 Azure 门户中创建站点到站点连接](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [在 Azure 门户中创建站点到站点连接](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 
 创建连接资源后，遵照以下说明下载 VPN 设备配置脚本：
 

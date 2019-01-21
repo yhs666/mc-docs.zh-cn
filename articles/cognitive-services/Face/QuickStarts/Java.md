@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 origin.date: 11/09/2018
-ms.date: 11/23/2018
+ms.date: 01/17/2019
 ms.author: v-junlch
-ms.openlocfilehash: d344f67c3612a3a7a329a4e84e17ea16b8aa73cc
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 03c9a377ff05df536c24d229427506f2ffa7c727
+ms.sourcegitcommit: a09ee94bc8a6b4270f655a1d80cdb65eca320559
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672749"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396448"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>快速入门：使用 REST API 和 Java 检测图像中的人脸
 
@@ -32,8 +32,10 @@ ms.locfileid: "52672749"
 ## <a name="create-the-java-project"></a>创建 Java 项目
 
 在 IDE 中创建新的命令行 Java 应用，并使用 **main** 方法添加 **Main** 类。 然后，将以下全局库从 Maven 存储库下载到项目的 `lib` 目录：
-- `org.apache.httpcomponents:httpclient:4.2.4`
+- `org.apache.httpcomponents:httpclient:4.5.6`
+- `org.apache.httpcomponents:httpcore:4.4.10`
 - `org.json:json:20170516`
+- `commons-logging:commons-logging:1.1.2`
 
 ## <a name="add-face-detection-code"></a>添加人脸检测代码
 
@@ -55,7 +57,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -85,7 +87,7 @@ private static final String faceAttributes =
 将以下方法添加到 **main** 方法。 它构造一个针对人脸 API 的 REST 调用，以便检测远程图像（`faceAttributes` 字符串指定要检索的人脸属性）中的人脸信息。 然后，它将输出数据写入到 JSON 字符串。
 
 ```Java
-HttpClient httpclient = new DefaultHttpClient();
+HttpClient httpclient = HttpClientBuilder.create().build();
 
 try
 {

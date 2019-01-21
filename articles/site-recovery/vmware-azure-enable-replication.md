@@ -3,16 +3,16 @@ title: 使用 Azure Site Recovery 为 VMware 灾难恢复到 Azure 启用 VMware
 description: 本文介绍如何使用 Azure Site Recovery 启用 VMware VM 复制以便灾难恢复到 Azure。
 author: rockboyfor
 ms.service: site-recovery
-origin.date: 07/06/2018
-ms.date: 12/10/2018
+origin.date: 11/27/2018
+ms.date: 01/21/2019
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: b303b07d5f002d3549b55eb4b902d62f302370f3
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: efe9bb608d7148111f5d80fa8f27910dab4e261d
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028770"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363489"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>为 VMware VM 启用到 Azure 的复制
 
@@ -28,7 +28,7 @@ ms.locfileid: "53028770"
 ## <a name="before-you-start"></a>开始之前
 复制 VMware 虚拟机时：
 
-* Azure 用户帐户需要具有某些[权限](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines)，才能将新的虚拟机复制到 Azure。
+* Azure 用户帐户需要具有某些[权限](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines)，才能启用新的虚拟机到 Azure 的复制。
 * 系统会每隔 15 分钟发现 VMware VM 一次。 发现之后，可能需要 15 分钟或更长时间，虚拟机才会出现在 Azure 门户中。 同样，添加新的 vCenter 服务器或 vSphere 主机后，需要 15 分钟或更长时间才能发现。
 * 虚拟机上的环境更改（例如 VMware 工具安装）可能需要 15 分钟或更长时间才能在门户中更新。
 * 可以在“配置服务器”页上 vCenter 服务器/vSphere 主机的“上次联系时间”字段中检查上次发现 VMware VM 的时间。
@@ -41,7 +41,7 @@ ms.locfileid: "53028770"
 2. 在“源”页 >“源”中，选择配置服务器。
 3. 在“计算机类型”中，选择“虚拟机”或“物理机”。
 4. 在“vCenter/vSphere 虚拟机监控程序”中，选择管理 vSphere 主机的 vCenter 服务器，或选择该主机。 如果要复制物理机，则此设置无关紧要。
-5. 选择进程服务器，如果未创建任何额外的进程服务器，则其名称是配置服务器的名称。 然后单击“确定”。
+5. 选择进程服务器，如果未创建任何额外的进程服务器，则其名称是配置服务器的名称。 。
 
     ![启用复制源](./media/vmware-azure-enable-replication/enable-replication2.png)
 
@@ -54,15 +54,16 @@ ms.locfileid: "53028770"
     >   * 可以选择高级或标准存储帐户。 如果选择高级帐户，则需要为正在进行的复制日志指定其他标准存储帐户。 这些帐户必须位于与恢复服务保管库相同的区域中。
     >   * 如果要使用不同的存储帐户，可以[创建一个](../storage/common/storage-create-storage-account.md)。 若要使用资源管理器创建存储帐户，请单击“新建”。 
 
-8. 选择 Azure VM 在故障转移后启动时所要连接的 Azure 网络和子网。 该网络必须位于与恢复服务保管库相同的区域中。 选择“立即为选定的计算机配置”，将网络设置应用到选择保护的所有计算机。 选择“稍后配置”以选择每个计算机的 Azure 网络。 如果没有网络，需创建一个。 若要使用资源管理器创建网络，请单击“新建”。 选择适用的子网，然后单击“确定”。
-<!-- Anchor not Exist on [创建一个](#set-up-an-azure-network) -->
+8. 选择 Azure VM 在故障转移后启动时所要连接的 Azure 网络和子网。 该网络必须位于与恢复服务保管库相同的区域中。 选择“立即为选定的计算机配置”，将网络设置应用到选择保护的所有计算机。  选择“稍后配置”以选择每个计算机的 Azure 网络。 如果没有网络，需创建一个。 若要使用资源管理器创建网络，请单击“新建”。 选择适用的子网，然后单击“确定”。
+
+    <!-- Anchor not Exist on [创建一个](#set-up-an-azure-network) -->
 
     ![启用复制目标设置](./media/vmware-azure-enable-replication/enable-rep3.png)
-9. 在“虚拟机” > “选择虚拟机”中，选择要复制的每个虚拟机。 只能选择可以启用复制的计算机。 然后单击“确定”。
+9. 在“虚拟机” > “选择虚拟机”中，选择要复制的每个虚拟机。 只能选择可以启用复制的计算机。 。
 
     ![启用复制 选择虚拟机](./media/vmware-azure-enable-replication/enable-replication5.png)
 10. 在“属性” > “配置属性”中，选择进程服务器用于在虚拟机上自动安装移动服务的帐户。  
-11. 默认情况下会复制所有磁盘。 若要从复制中排除磁盘，请单击“所有磁盘”，然后清除不想复制的所有磁盘。  然后单击“确定”。 可以稍后再设置其他属性。 [详细了解](vmware-azure-exclude-disk.md)如何排除磁盘。
+11. 默认情况下会复制所有磁盘。 若要从复制中排除磁盘，请单击“所有磁盘”，并清除不想复制的所有磁盘。  。 可以稍后再设置其他属性。 [详细了解](vmware-azure-exclude-disk.md)如何排除磁盘。
 
     ![启用复制配置属性](./media/vmware-azure-enable-replication/enable-replication6.png)
 
@@ -98,7 +99,7 @@ ms.locfileid: "53028770"
 ### <a name="configure-networks-and-ip-addresses"></a>配置网络和 IP 地址
 
 - 可以设置目标 IP 地址。 如果未提供地址，故障转移的计算机将使用 DHCP。 如果设置的地址在故障转移时不可用，则故障转移不会正常工作。 如果地址可用于测试故障转移网络，则同一目标 IP 地址可用于测试故障转移。
-- 网络适配器数目根据你为目标虚拟机指定的大小来确定，如下所述：
+- 网络适配器数目根据为目标虚拟机指定的大小来确定，如下所述：
     - 如果源虚拟机上的网络适配器数小于或等于目标虚拟机大小允许的适配器数，则目标虚拟机拥有与源虚拟机相同的适配器数。
     - 如果源虚拟机的适配器数大于目标大小允许的数目，则使用目标大小允许的最大数目。
     例如，如果源计算机有两个网络适配器，而目标计算机大小支持四个，则目标计算机有两个适配器。 如果源虚拟机有两个适配器，但支持的目标大小只支持一个，则目标虚拟机只有一个适配器。
@@ -106,14 +107,13 @@ ms.locfileid: "53028770"
 
 ### <a name="azure-hybrid-benefit"></a>Azure 混合权益
 
-Microsoft 软件保障客户可以使用 Azure 混合权益来节省迁移到 Azure 的 Windows Server 计算机的许可成本，或将 Azure 用于灾难恢复。 如果有资格使用 Azure 混合权益，则可以指定如果发生故障转移，分配到此权益的虚拟机是 Azure Site Recovery 创建的虚拟机。 为此，请按以下步骤操作：
+Azure 软件保障客户可以使用 Azure 混合权益来节省迁移到 Azure 的 Windows Server 计算机的许可成本，或将 Azure 用于灾难恢复。 如果有资格使用 Azure 混合权益，则可以指定如果发生故障转移，分配到此权益的虚拟机是 Azure Site Recovery 创建的虚拟机。 为此，请按以下步骤操作：
 - 转到复制的虚拟机的“计算”和“网络”属性部分。
 - 回答此问题：你是否具有可使你有资格使用 Azure 混合权益的 Windows Server 许可证。
 - 选中复选框，确认你具有含软件保障的符合条件的 Windows Server 许可证，可用于对在故障转移时创建的虚拟机应用 Azure 混合权益。
 - 保存复制的计算机的设置。
 
-<!-- Not Available on [Azure Hybrid Use Benefit](https://aka.ms/azure-hybrid-use-benefit-pricing). -->
-<!-- Redirect https://aka.ms/azure-hybrid-use-benefit-pricing TO https://azure.microsoft.com/en-us/pricing/hybrid-benefit/ -->
+深入了解 [Azure 混合权益](https://www.azure.cn/zh-cn/pricing/hybrid-benefit/)。
 
 ## <a name="common-issues"></a>常见问题
 

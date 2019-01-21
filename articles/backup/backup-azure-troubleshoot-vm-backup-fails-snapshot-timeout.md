@@ -7,14 +7,14 @@ manager: digimobile
 keywords: Azure 备份; VM 代理; 网络连接;
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 1/3/2019
+ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 53ded4ab8a454e68f87e889ef2903442d3f7130b
-ms.sourcegitcommit: f46e1f7a5d582bb9663bfaee8087b233eb822e17
+ms.openlocfilehash: f310963b6f583be09c0175a4de37d2d2b3d46f72
+ms.sourcegitcommit: c01292a935bd307a3326e86cb454d8fa2b561399
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996511"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363646"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>对 Azure 备份失败进行故障排除：代理或扩展的问题
 
@@ -108,14 +108,15 @@ ms.locfileid: "53996511"
 **错误代码**：UserErrorUnsupportedDiskSize <br>
 **错误消息**：当前 Azure 备份不支持大于 1023GB 的磁盘大小 <br>
 
-对磁盘大小大于 1023GB 的 VM 进行备份时，备份操作可能会失败，因为你的保管库未升级到 Azure VM 备份堆栈 V2。 升级到 Azure VM 备份堆栈 V2 后，最多可支持 4TB。 首先查看这些[优势](backup-upgrade-to-vm-backup-stack-v2.md)、[注意事项](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade)，然后根据这些[说明](backup-upgrade-to-vm-backup-stack-v2.md#upgrade)继续进行升级。  
+对磁盘大小大于 1023GB 的 VM 进行备份时，备份操作可能会失败，因为你的保管库未升级到即时还原。 升级到即时还原将提供高达 4TB 的支持，请参阅[此文](backup-instant-restore-capability.md)。  
 
 ## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported - 当前，Azure 备份不支持标准 SSD 磁盘
 
 **错误代码**：UserErrorStandardSSDNotSupported <br>
 **错误消息**：当前，Azure 备份不支持标准 SSD 磁盘 <br>
 
-当前，只有对于已升级到 Azure VM 备份堆栈 V2 的保管库，Azure 备份才支持标准 SSD 磁盘。 首先查看这些[优势](backup-upgrade-to-vm-backup-stack-v2.md)、[注意事项](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade)，然后根据这些[说明](backup-upgrade-to-vm-backup-stack-v2.md#upgrade)继续进行升级。
+目前，Azure 备份仅支持升级到[即时还原](backup-instant-restore-capability.md)的保管库的标准 SSD 磁盘。
+
 
 ## <a name="causes-and-solutions"></a>原因和解决方法
 

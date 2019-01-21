@@ -1,26 +1,26 @@
 ---
 title: Azure 中的警报和通知监视概述
 description: Azure 中的警报概述。 警报、经典警报、警报界面。
-author: rboucher
+author: lingliw
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 10/30/2018
-ms.author: robb
+ms.date: 01/21/19
+ms.author: v-lingwu
 ms.component: alerts
-ms.openlocfilehash: 22ea43f7c63ecbaa1cb29adeb9e59e353e929594
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.openlocfilehash: a5996d0badcff1605585d15707d59b9de6b0b61c
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141796"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363508"
 ---
-# <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft Azure 中的警报概述 
+# <a name="overview-of-alerts-in-21vianet-azure"></a>世纪互联 Azure 中的警报概述 
 
 本文介绍什么是警报及其优点，以及如何开始使用警报。  
 
 
-## <a name="what-are-alerts-in-microsoft-azure"></a>什么是 Microsoft Azure 中的警报？
+## <a name="what-are-alerts-in-21vianet-azure"></a>什么是世纪互联 Azure 中的警报？
 在监视数据中发现重要情况时，警报会以主动的方式通知你。 有了警报，你就可以在系统的用户注意到问题之前确定和解决这些问题。 
 
 本文讨论 Azure Monitor 中的统一警报体验，其现在包括 Log Analytics 和 Application Insights。 [以前的警报体验](alerts-overview.md)和警报类型称为“经典警报”。 单击警报页顶部的“查看经典警报”即可查看这个旧的体验和旧的警报类型。 
@@ -124,14 +124,12 @@ ms.locfileid: "54141796"
 
 可以在[使用 Azure Monitor 创建、查看和管理警报](../../azure-monitor/platform/alerts-metric.md)中详细了解如何创建警报规则。
 
-警报可在多个 Azure 监视服务中使用。 有关如何以及何时使用其中每种服务的信息，请参阅[监视 Azure 应用程序和资源](../../azure-monitor/overview.md)。 下表提供了 Azure 中提供的警报规则类型的列表。 其中还列出了哪个警报体验目前支持哪些类型。
 
 以前，Azure Monitor、Application Insights、Log Analytics 和服务运行状况都有单独的警报功能。 随着时间推移，Azure 改进并组合了用户界面和不同的警报方法。 此整合仍在进行中。 因此，仍有一些警报功能未出现在新的警报系统中。  
 
 | **监视器源** | **信号类型**  | **说明** | 
 |-------------|----------------|-------------|
 | 服务运行状况 | 活动日志  | 不支持。 请参阅[创建有关服务通知的活动日志警报](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)。  |
-| Application Insights | Web 可用性测试 | 不支持。 请参阅 [Web 测试警报](../../application-insights/app-insights-monitor-web-app-availability.md)。 适用于任何经检测可将数据发送到 Application Insights 的网站。 网站的可用性或响应度低于预期时，就会收到通知。 |
 
 
 ## <a name="all-alerts-page"></a>“所有警报”页 

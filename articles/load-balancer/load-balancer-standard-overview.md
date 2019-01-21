@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 09/24/2018
-ms.date: 12/31/2018
+origin.date: 01/11/2019
+ms.date: 01/21/2019
 ms.author: v-jay
-ms.openlocfilehash: 371a4d9535f7b6b81bcd97fdb7f1854edec78a82
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.openlocfilehash: 39ab985dad56c5d66f61bb4263ba98ee3b9ea180
+ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806288"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54333924"
 ---
-# <a name="azure-load-balancer-standard-overview"></a>Azure 负载均衡器标准版概述
+# <a name="azure-standard-balancer-overview"></a>Azure 标准负载均衡器概述
 
 使用 Azure 负载均衡器可以缩放应用程序，并为服务提供高可用性。 负载均衡器可用于入站和出站方案、提供低延迟和高吞吐量，以及为所有 TCP 和 UDP 应用程序纵向扩展到数以百万计的流。 
 
@@ -162,7 +162,7 @@ SKU 不可变。 按照本部分中的步骤从一个资源 SKU 移动到另一�
 
 ## <a name="region-availability"></a>上市区域
 
-负载均衡器标准版目前已在所有公有云区域推出。
+标准负载均衡器目前已在所有公有云区域推出。
 
 ## <a name="sla"></a>SLA
 
@@ -170,7 +170,12 @@ SKU 不可变。 按照本部分中的步骤从一个资源 SKU 移动到另一�
 
 ## <a name="pricing"></a>定价
 
-标准负载均衡器根据以下内容计费：配置的负载均衡规则数量以及处理的所有入站和出站数据量。 有关标准负载均衡器的定价信息，请访问[负载均衡器定价](https://www.azure.cn/zh-cn/pricing/details/load-balancer/)页。
+使用标准负载均衡器是收费的。
+
+- 已配置的负载均衡规则和出站规则的数量（入站 NAT 规则不计入规则总数）
+- 处理的入站和出站数据的数量，与规则无关。 
+
+有关标准负载均衡器的定价信息，请访问[负载均衡器定价](https://azure.cn/pricing/details/load-balancer/)页。
 
 ## <a name="limitations"></a>限制
 
@@ -186,7 +191,7 @@ SKU 不可变。 按照本部分中的步骤从一个资源 SKU 移动到另一�
 ## <a name="next-steps"></a>后续步骤
 
 - 了解[运行状况探测](load-balancer-custom-probe-overview.md)。
-- 在 [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) 中了解用于诊断的[支持的多维度指标](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers)。
+- 在 [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) 中了解用于诊断的[支持的多维度指标](../azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers)。
 - 了解如何[对出站连接使用负载均衡器](load-balancer-outbound-connections.md)。
 - 了解[出站规则](load-balancer-outbound-rules-overview.md)。
 - 了解如何使用[具有多个前端的负载均衡器](load-balancer-multivip-overview.md)。

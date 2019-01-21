@@ -11,16 +11,16 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: ns
 origin.date: 06/22/2018
-ms.date: 08/06/2018
+ms.date: 01/28/2019
 ms.author: v-yiso
-ms.openlocfilehash: 46554f8cddda45ac880e0deceb7e412e4edc0642
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: a3aee5ca59286edebde0b84ea0c4828f24e29314
+ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674117"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396775"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-java"></a>快速入门：将遥测数据从设备发送到 IoT 中心并使用后端应用程序从中心读取遥测数据 ( Java)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-java"></a>快速入门：将遥测数据从设备发送到 IoT 中心并使用后端应用程序读取该数据 (Java)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
@@ -71,7 +71,7 @@ mvn --version
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyJavaDevice
     ```
 
-2. 运行以下命令，以获取刚注册设备的_设备连接字符串_：**YourIoTHubName**：将下面的此占位符替换为为 IoT 中心选择的名称。
+2. 运行以下命令，获取刚注册设备的_设备连接字符串_：**YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
 
     ```azurecli
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyJavaDevice --output table

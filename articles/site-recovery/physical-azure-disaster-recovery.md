@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 10/28/2018
-ms.date: 12/10/2018
+origin.date: 12/31/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 246f5c822b3326d10baf45a38bfd253fe124361c
-ms.sourcegitcommit: f6a287a11480cbee99a2facda2590f3a744f7e45
+ms.openlocfilehash: 509b7b639e434ee0768bf323edfee0681e14408e
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53786726"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363373"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>针对本地物理服务器设置到 Azure 的灾难恢复
 
@@ -28,8 +28,6 @@ ms.locfileid: "53786726"
 > * 设置源和目标复制环境
 > * 创建复制策略
 > * 为服务器启用复制
-
-[查看体系结构](concepts-hyper-v-to-azure-architecture.md)，这适用于此灾难恢复方案。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -127,10 +125,10 @@ ms.locfileid: "53786726"
 
 基于 IP 地址的防火墙规则应允许通过 HTTPS (443) 端口与上面列出的所有 Azure URL 进行通信。 为了简化和限制 IP 范围，建议进行 URL 筛选。
 
-- **商用 IP**：允许 [Azure 数据中心 IP 范围](https://www.microsoft.com/en-us/download/confirmation.aspx?id=57062)和 HTTPS (443) 端口。 允许订阅的 Azure 区域的 IP 地址范围以支持 AAD、备份、复制和存储 URL。  
-- **政府 IP** - 允许 [Azure 中国云数据中心 IP 范围](https://www.microsoft.com/download/details.aspx?id=57062)以及所有中国区域的 HTTPS (443) 端口支持 AAD、备份、复制和存储 URL。  
+- **中国区 Azure IP** - 允许 [Azure 数据中心 IP 范围](https://www.microsoft.com/en-us/download/confirmation.aspx?id=57062)和 HTTPS (443) 端口。 允许订阅的 Azure 区域的 IP 地址范围以支持 AAD、备份、复制和存储 URL。  
 
 <!-- Update Government IP for [Azure Datacenter IP Ranges – China Cloud](https://www.microsoft.com/download/details.aspx?id=57062)-->
+
 #### <a name="run-setup"></a>运行安装程序
 以本地管理员身份运行统一安装程序，安装配置服务器。 进程服务器和主目标服务器也默认安装在配置服务器上。
 
@@ -186,4 +184,4 @@ ms.locfileid: "53786726"
 
 [运行灾难恢复演练](tutorial-dr-drill-azure.md)。
 
-<!-- Update_Description: update link, wording update, update meta properties -->
+<!-- Update_Description: update link, wording update -->

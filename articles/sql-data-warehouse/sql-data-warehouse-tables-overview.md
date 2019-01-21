@@ -8,15 +8,15 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 origin.date: 04/17/2018
-ms.date: 10/15/2018
+ms.date: 01/21/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: b006060f0dc98e22ff9aa9b362db54b3c1ee3ce4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 381b9e4d6cb3426cb255a66a66051ad28c056fa2
+ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666948"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54333865"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>在 Azure SQL 数据仓库中设计表
 
@@ -135,7 +135,7 @@ SQL 数据仓库支持其他数据库所提供的许多（但不是全部）表�
 - [索引视图](https://docs.microsoft.com/sql/relational-databases/views/create-indexed-views)
 - [序列](https://docs.microsoft.com/sql/t-sql/statements/create-sequence-transact-sql)
 - [稀疏列](https://docs.microsoft.com/sql/relational-databases/tables/use-sparse-columns)
-- [代理键]()。 使用[标识](sql-data-warehouse-tables-identity.md)实现。
+- 代理键。 使用[标识](sql-data-warehouse-tables-identity.md)实现。
 - [同义词](https://docs.microsoft.com/sql/t-sql/statements/create-synonym-transact-sql)
 - [触发器](https://docs.microsoft.com/sql/t-sql/statements/create-trigger-transact-sql)
 - [唯一索引](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql)

@@ -1,27 +1,27 @@
 ---
-title: Azure Batch 计算节点环境变量 | Microsoft Docs
+title: 计算节点环境变量 - Azure Batch | Azure Docs
 description: Azure Batch 分析的计算节点环境变量参考。
 services: batch
-author: dlepow
-manager: jeconnoc
+author: lingliw
+manager: digimobile
 ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-origin.date: 05/05/2017
-ms.date: 05/14/2018
-ms.author: v-junlch
-ms.openlocfilehash: 616974848395c0254cf4992c03b716f9ea85cfb1
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 01/21/19
+ms.author: v-lingwu
+ms.openlocfilehash: fcf996843b468ff7d72c53834427a217d6958ba8
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663936"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363349"
 ---
 # <a name="azure-batch-compute-node-environment-variables"></a>Azure Batch 计算节点环境变量
-[Azure Batch 服务](https://azure.microsoft.com/services/batch/)在计算节点上设置以下环境变量。 可以在任务命令行中引用这些环境变量，也可在命令行运行的程序和脚本中引用它们。
+
+[Azure Batch 服务](https://www.azure.cn/services/batch/)在计算节点上设置以下环境变量。 可以在任务命令行中引用这些环境变量，也可在命令行运行的程序和脚本中引用它们。
 
 有关将环境变量用于批处理的其他信息，请参阅[任务的环境设置](/batch/batch-api-basics#environment-settings-for-tasks)。
 
@@ -42,6 +42,7 @@ ms.locfileid: "52663936"
 | 变量名称                     | 说明                                                              | 可用性 | 示例 |
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
 | AZ_BATCH_ACCOUNT_NAME           | 任务所属的 Batch 帐户名。                  | 所有任务。   | mybatchaccount |
+| AZ_BATCH_AUTHENTICATION_TOKEN   | 一种身份验证令牌，用于授予对一组有限的 Batch 服务操作的访问权限。 仅当[添加任务](https://docs.microsoft.com/rest/api/batchservice/task/add#request-body)时设置 [authenticationTokenSettings](https://docs.microsoft.com/rest/api/batchservice/task/add#authenticationtokensettings) 时，才会显示此环境变量。 令牌值在 Batch API 中用作凭据以创建 Batch 客户端，例如在 [BatchClient.Open() .NET API](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.batchclient.open?view=azure-dotnet#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_) 中。 | 所有任务。 | OAuth2 访问令牌 |
 | AZ_BATCH_CERTIFICATES_DIR       | [任务工作目录][files_dirs]内的目录，会在其中为 Linux 计算节点存储证书。 请注意，此环境变量不适用于 Windows 计算节点。                                                  | 所有任务。   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
 | AZ_BATCH_JOB_ID                 | 任务所属的作业的 ID。 | 除启动任务以外的所有任务。 | batchjob001 |
 | AZ_BATCH_JOB_PREP_DIR           | 节点上的作业准备[任务目录][files_dirs]的完整路径。 | 除启动任务和作业准备任务之外的所有任务。 仅当使用作业准备任务来配置作业时才适用。 | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation |

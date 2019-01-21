@@ -2,23 +2,18 @@
 title: 通过 Azure 应用程序网关配置端到端 SSL
 description: 本文介绍如何使用 PowerShell 通过 Azure 应用程序网关配置端到端 SSL
 services: application-gateway
-documentationcenter: na
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 10/23/2018
-ms.date: 11/21/2018
+origin.date: 01/10/2019
+ms.date: 01/15/2019
 ms.author: v-junlch
-ms.openlocfilehash: 0eb492663c0b8e5cbc8a57028615c9d93a574fc5
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: caea03f4f5dfed71d9d6f221da51edb3eb59af67
+ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672861"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54333886"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>使用 PowerShell 通过应用程序网关配置端到端 SSL
 
@@ -26,7 +21,7 @@ ms.locfileid: "52672861"
 
 Azure 应用程序网关支持对流量进行端到端加密。 应用程序网关终止应用程序网关上的 SSL 连接。 网关随后将路由规则应用于流量、重新加密数据包，并根据定义的路由规则将数据包转发到适当的后端服务器。 来自 Web 服务器的任何响应都会经历相同的过程返回最终用户。
 
-应用程序网关支持定义自定义 SSL 选项。 除支持定义要使用的密码套件和优先级顺序外，它还支持禁用以下协议版本：TLSv1.0、TLSv1.1 和 TLSv1.2。 若要详细了解可配置的 SSL 选项，请参阅 [SSL 策略概述](application-gateway-SSL-policy-overview.md)。
+应用程序网关支持定义自定义 SSL 选项。 除了支持定义要使用的密码套件和优先级顺序外，它还支持禁用以下协议版本：**TLSv1.0**、**TLSv1.1** 和 **TLSv1.2**。 若要详细了解可配置的 SSL 选项，请参阅 [SSL 策略概述](application-gateway-SSL-policy-overview.md)。
 
 > [!NOTE]
 > SSL 2.0 和 SSL 3.0 默认处于禁用状态且无法启用。 这些版本被视为不安全的版本，不能用于应用程序网关。
@@ -46,9 +41,9 @@ Azure 应用程序网关支持对流量进行端到端加密。 应用程序网�
 
 ## <a name="before-you-begin"></a>准备阶段
 
-若要对应用程序网关配置端到端 SSL，需要网关证书和后端服务器证书。 网关证书用于加密和解密通过 SSL 发送给网关的流量。 网关证书需要采用个人信息交换 (PFX) 格式。 此文件格式适用于导出私钥，后者是应用程序网关对流量进行加解密所必需的。
+若要对应用程序网关配置端到端 SSL，需要网关证书和后端服务器证书。 网关证书用来根据 SSL 协议规范派生对称密钥。 然后，对称密钥用来加密和解密发送到网关的流量。 网关证书需要采用个人信息交换 (PFX) 格式。 此文件格式适用于导出私钥，后者是应用程序网关对流量进行加解密所必需的。
 
-若要加密端到端 SSL，后端必须已加入应用程序网关的允许列表。 需将后端服务器的公用证书上传到应用程序网关。 添加证书后，可确保应用程序网关仅与已知后端实例通信。 从而进一步保护端到端通信。
+若要加密端到端 SSL，后端必须已加入应用程序网关的允许列表。 将后端服务器的公用证书上传到应用程序网关。 添加证书后，可确保应用程序网关仅与已知后端实例通信。 从而进一步保护端到端通信。
 
 配置过程在以下部分中介绍。
 
@@ -60,7 +55,7 @@ Azure 应用程序网关支持对流量进行端到端加密。 应用程序网�
 1. 登录到 Azure 帐户。
 
    ```powershell
-   Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+   Connect-AzureRmAccount -Environment AzureChinaCloud
    ```
 
 
@@ -246,7 +241,7 @@ $appgw = New-AzureRmApplicationGateway -Name appgateway -SSLCertificates $cert -
 
    ```
 
-3. 最后，更新网关。 请注意，最后一步耗时较长。 完成后，应用程序网关上即已配置端到端 SSL。
+   3. 最后，更新网关。 最后一步是耗时较长的任务。 完成后，应用程序网关上即已配置端到端 SSL。
 
    ```powershell
    $gw | Set-AzureRmApplicationGateway

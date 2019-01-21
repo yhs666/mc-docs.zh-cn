@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: conceptual
 origin.date: 12/12/2018
 ms.date: 12/31/2018
-ms.openlocfilehash: 20fdc09f86cfe6e463f731f2000dad5b474ae68f
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.openlocfilehash: 005da640f68777156368c0a9925776573efe796e
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806262"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397061"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Azure Database for PostgreSQL 中的限制
 下列各部分介绍数据库服务中的容量和功能限制。

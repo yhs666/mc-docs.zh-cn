@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 12/06/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 5c39e1278d8e2edca0e70032c7a71e1dd2cc4734
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: 45f211e6c802ba4339cf4a61ed1ed2fff2074489
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026799"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309330"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store---cost-overview"></a>用作键值存储的 Azure Cosmos DB - 费用概述
 
@@ -34,7 +34,20 @@ Azure Cosmos DB 的性能基于分区的预配[请求单位](request-units.md) (
 |1 KB|1 RU|5 RU|
 |100 KB|10 RU|50 RU|
 
-<!-- Not Available ## Cost of reads and writes -->
+## <a name="cost-of-reads-and-writes"></a>读取和写入成本
+
+如果预配 1,000 RU/秒，则相当于 360 万 RU/小时，因此，每小时成本为 0.82 元（Azure 中国）。 对于 1-KB 大小的文档，这意味着可以使用预配的吞吐量消费 360 万次读取或 72 万次写入（360 万 RU / 5）。 规范化为百万次读取和写入后，成本将是 0.228 元/百万次读取（0.82 元 / 3.6）和 1.14 元/百万次写入（0.82 元 / 0.72）。 如下表中所示，百万次读写费用极低。
+
+<!--Notice: $0.08 against CNY0.82 for Azure China-->
+
+|项大小|百万次读取|百万次写入|
+|-------------|-------|--------|
+|1 KB|0.228 元|1.14 元|
+|100 KB|2.28 元|11.4 元|
+
+<!--Notice: $0.08 against CNY0.82 for Azure China-->
+
+大多数基本 Blob 或对象存储服务针对百万次读取事务收取 $0.40，针对百万次写入事务收取 $5。 如果以最佳的方式使用，Cosmos DB 可能比其他解决方案要便宜 98%（适用于 1-KB 事务）。
 
 ## <a name="next-steps"></a>后续步骤
 

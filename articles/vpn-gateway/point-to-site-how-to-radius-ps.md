@@ -6,14 +6,14 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: conceptual
 origin.date: 11/30/2018
-ms.date: 12/24/2018
+ms.date: 01/21/2019
 ms.author: v-jay
-ms.openlocfilehash: 2d1e474ce12bfa91114d0bd5cc38078c944e799d
-ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+ms.openlocfilehash: c251e52d9a7c9e66f0e339b40be038211d12c42e
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53656553"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397062"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>使用 RADIUS 身份验证配置 VNet 的点到站点连接：PowerShell
 
@@ -65,7 +65,7 @@ RADIUS 服务器可以驻留在本地或 Azure VNet 中。 在身份验证期间
 
 ### <a name="sign-in"></a>登录
 
-[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps login.md)]
+[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
 ### <a name="example"></a>示例值
 
@@ -136,8 +136,8 @@ RADIUS 服务器可以驻留在本地或 Azure VNet 中。 在身份验证期间
 
 为 VNet 配置和创建 VPN 网关。
 
-* -GatewayType 必须是“Vpn”，-VpnType 必须是“RouteBased”。
-* VPN 网关可能需要长达 45 分钟的时间才能完成，具体取决于所选的 [网关 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku) 。
+* -GatewayType 必须是“Vpn”，且 -VpnType 必须是“RouteBased”。
+* VPN 网关可能需要长达 45 分钟的时间才能完成，具体取决于所选[网关 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)。
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
@@ -199,7 +199,7 @@ VPN 客户端配置可让设备通过 P2S 连接来与 VNet 建立连接。 若
 
 ### <a name="to-connect-from-a-windows-vpn-client"></a>从 Windows VPN 客户端进行连接
 
-1. 若要连接到 VNet，请在客户端计算机上导航到 VPN 连接，找到创建的 VPN 连接。 其名称与虚拟网络的名称相同。 输入域凭据，单击“连接”。 此时会显示一条弹出消息，请求以提升的权限操作。 请接受请求并输入凭据。
+1. 若要连接到 VNet，请在客户端计算机上导航到 VPN 连接，找到创建的 VPN 连接。 其名称与虚拟网络的名称相同。 输入域凭据，然后单击“连接”。 此时会显示一条弹出消息，请求以提升的权限操作。 请接受请求并输入凭据。
 
   ![VPN 客户端连接到 Azure](./media/point-to-site-how-to-radius-ps/client.png)
 2. 连接已建立。

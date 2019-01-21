@@ -1,25 +1,24 @@
 ---
-title: 如何通过 Java 使用 Azure 服务总线队列 | Azure
+title: 如何通过 Java 使用 Azure 服务总线队列 | Azure Docs
 description: 了解如何在 Azure 中使用服务总线队列。 用 Java 编写的代码示例。
-services: service-bus
-documentationCenter: java
-author: spelluru
-manager: timlt
+services: service-bus-messaging
+documentationcenter: java
+author: lingliw
+manager: digimobile
 ms.assetid: f701439c-553e-402c-94a7-64400f997d59
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-origin.date: 09/13/2018
-ms.author: v-yiso
-ms.date: 10/15/2018
-ms.openlocfilehash: cfc4cbc352f1fa540fea5de96272921005f4c9b9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 01/21/19
+ms.author: v-lingwu
+ms.openlocfilehash: f259283b6d82ce4e6f6a92f85d2b3c9c4893a753
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654188"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363326"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>如何通过 Java 使用服务总线队列
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -36,11 +35,10 @@ ms.locfileid: "52654188"
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="create-a-service-bus-queue"></a>创建服务总线队列
-
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
 ## <a name="configure-your-application-to-use-service-bus"></a>配置应用程序以使用服务总线
-在生成本示例之前，请确保已安装 [用于 Java 的 Azure SDK][用于 Java 的 Azure SDK]。 如果使用的是 Eclipse，则可以安装包含用于 Java 的 Azure SDK 的[用于 Eclipse 的 Azure 工具包][用于 Eclipse 的 Azure 工具包]。 然后，用户可以将 **Microsoft Azure Libraries for Java** 添加到项目：
+在生成本示例之前，请确保已安装 [用于 Java 的 Azure SDK][用于 Java 的 Azure SDK]。 如果使用的是 Eclipse，则可以安装包含用于 Java 的 Azure SDK 的[用于 Eclipse 的 Azure 工具包][用于 Eclipse 的 Azure 工具包]。 然后，用户可以将**21Vianet Azure Libraries for Java** 添加到项目：
 
 ![](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
@@ -119,9 +117,9 @@ public void run() throws Exception {
 
 ## <a name="receive-messages-from-a-queue"></a>从队列接收消息
 
-从队列接收消息的主要方法是使用 **ServiceBusContract** 对象。 收到的消息可在两种不同模式下工作：ReceiveAndDelete 和 PeekLock。
+从队列接收消息的主要方法是使用 **ServiceBusContract** 对象。 收到的消息可在两种不同模式下工作：**ReceiveAndDelete** 和 **PeekLock**。
 
-当使用 ReceiveAndDelete 模式时，接收是一项单次操作，即，当服务总线接收到队列中某条消息的读取请求时，它会将该消息标记为“已使用”并将其返回给应用程序。 **ReceiveAndDelete** 模式（默认模式）是最简单的模式，最适合应用程序可容忍出现故障时不处理消息的情景。 为了理解这一点，可以考虑这样一种情形：使用方发出接收请求，但在处理该请求前发生了崩溃。
+当使用 **ReceiveAndDelete** 模式时，接收是一项单次操作，即，服务总线接收到队列中某条消息的读取请求时，会将该消息标记为“已使用”并将其返回给应用程序。 **ReceiveAndDelete** 模式（默认模式）是最简单的模式，最适合应用程序可容忍出现故障时不处理消息的情景。 为了理解这一点，可以考虑这样一种情形：使用方发出接收请求，但在处理该请求前发生了崩溃。
 由于服务总线已将消息标记为“已使用”，因此当应用程序重启并重新开始使用消息时，它就漏掉了在发生故障前使用的消息。
 
 在 PeekLock 模式下，接收变成了一个两阶段操作，从而有可能支持无法允许遗漏消息的应用程序。 当 Service Bus 收到请求时，它会查找下一条要使用的消息，锁定该消息以防其他使用者接收，然后将该消息返回到应用程序。 应用程序完成消息处理（或可靠地存储消息以供将来处理）后，将通过对收到的消息调用 Delete 完成接收过程的第二个阶段。 发现“Delete”调用时，服务总线会将消息标记为“已使用”，并将消息从队列中删除。

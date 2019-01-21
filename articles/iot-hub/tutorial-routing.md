@@ -7,15 +7,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
 origin.date: 09/11/2018
-ms.date: 12/31/2018
+ms.date: 01/28/2019
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 887a5f24b8dd293026e54430cf99faf89b9263db
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.openlocfilehash: 514f9e879a89dd69f7dfa1d0cae403e59abd0e1f
+ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736708"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396813"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>教程：使用 IoT 中心配置消息路由
 
@@ -629,6 +629,6 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 转到下一教程，了解如何管理 IoT 设备的状态。 
 
 > [!div class="nextstepaction"]
-[从后端服务配置设备](tutorial-device-twins.md)
+[通过 IoT 中心设置和使用指标和诊断](tutorial-use-metrics-and-diags.md)
 
  <!--  [Manage the state of a device](./tutorial-manage-state.md) -->

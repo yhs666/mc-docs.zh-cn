@@ -5,16 +5,16 @@ services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 10/29/2018
-ms.date: 12/10/2018
+origin.date: 01/08/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: defdd65f4aab0820953914422349b3b3cd7ec8d5
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 2ab51a7557a065da16454611726d21c028b1981b
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028974"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363574"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>准备 Azure 资源，以便对本地计算机进行灾难恢复
 
@@ -59,7 +59,9 @@ ms.locfileid: "53028974"
 4. 在“帐户类型”中，选择“存储(常规用途 v1)”。 请不要选择 blob 存储。
 5. 在“复制”中，选择默认的“读取访问异地冗余存储”作为存储冗余。 我们将“需要安全传输”保留为“已禁用”。
 6. 在“性能”中，选择“标准”。
+
     <!-- Not Available on and in **Access tier** choose the default option of **Hot**-->
+    
 7. 在“订阅”中，选择要在其中创建新存储帐户的订阅。
 8. 在“资源组”中，输入新的资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 对于这些教程，我们使用 **ContosoRG**。
 9. 在“位置”中，选择存储帐户的地理位置。 
@@ -70,11 +72,14 @@ ms.locfileid: "53028974"
 
 ## <a name="create-a-recovery-services-vault"></a>创建恢复服务保管库
 
-1. 在 Azure 门户中，选择“创建资源” > “存储” > “备份和站点恢复(OMS)”。
-2. 在“名称” 中，输入一个友好名称以标识此保管库。 对于这组教程，我们使用 **ContosoVMVault**。
-3. 在“资源组”中，我们将使用 **contosoRG**。
-4. 在“位置”中， 我们将使用“中国北部”。
-5. 若要从仪表板快速访问保管库，请选择“固定到仪表板” > “创建”。
+1. 在 Azure 门户中，选择“创建资源” > “监视 + 管理” > “备份和站点恢复 (OMS)”。
+    
+    <!--Submenu is correct on **Monitoring + Management**-->
+    
+1. 在“恢复服务保管库” > “名称”中，输入一个友好名称以标识此保管库。 对于这组教程，我们使用 **ContosoVMVault**。
+2. 在**资源组**中，选择现有资源组或创建新资源组。 在本教程中，我们使用 **contosoRG**。
+3. 在**位置**中，选择保管库应位于的区域。 我们将使用“中国北部”。
+4. 若要从仪表板快速访问保管库，请选择“固定到仪表板” > “创建”。
 
    ![创建新的保管库](./media/tutorial-prepare-azure/new-vault-settings.png)
 
@@ -91,7 +96,9 @@ ms.locfileid: "53028974"
 5. 在“地址范围”中，输入网络范围 **10.0.0.0/24**。 在此网络中，我们不使用子网。
 6. 在“订阅”中，选择要在其中创建网络的订阅。
 7. 在“位置”中，选择“中国北部”。 该网络必须位于与恢复服务保管库相同的区域中。
+    
     <!-- Not Available on basic DDoS protection -->
+    
 8. 单击**创建**。
 
    ![创建虚拟网络](media/tutorial-prepare-azure/create-network.png)
@@ -109,4 +116,4 @@ ms.locfileid: "53028974"
 > [!div class="nextstepaction"]
 > [准备本地 VMware基础结构以对 Azure 进行灾难恢复](tutorial-prepare-on-premises-vmware.md)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

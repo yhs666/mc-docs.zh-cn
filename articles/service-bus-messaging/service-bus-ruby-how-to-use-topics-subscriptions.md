@@ -1,5 +1,5 @@
 ---
-title: 如何使用服务总线主题 (Ruby) | Azure
+title: 如何使用服务总线主题 (Ruby) | Azure Docs
 description: 了解如何在 Azure 中使用服务总线主题和订阅。 相关代码示例是针对 Ruby 应用程序编写的。
 services: service-bus-messaging
 documentationcenter: ruby
@@ -12,15 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-origin.date: 08/10/2018
-ms.date: 10/31/2018
+ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 1d9a4a64d96872b78cb966ff2ffb48891f81ea98
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b353fc63cc97744c312a626a2851e8a53addab4c
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644858"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363486"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>如何通过 Ruby 使用服务总线主题和订阅
  
@@ -40,7 +39,7 @@ ms.locfileid: "52644858"
 ```ruby
 azure_service_bus_service = Azure::ServiceBus::ServiceBusService.new(sb_host, { signer: signer})
 begin
-  topic = azure_service_bus_service.create_queue("test-topic")
+  topic = azure_service_bus_service.create_topic("test-topic")
 rescue
   puts $!
 end

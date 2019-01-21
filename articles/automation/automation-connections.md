@@ -10,12 +10,12 @@ origin.date: 03/15/2018
 ms.date: 12/24/2018
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: ad6c5051eb35de908f52ae30b7506790e12befad
-ms.sourcegitcommit: 895e9accaae8f8c2a29ed91d8e84911fda6111cf
+ms.openlocfilehash: afce2249b734d1d3f8aca0b68df86f0578b768ae
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53615174"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396924"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure 自动化中的连接资产
 
@@ -46,7 +46,7 @@ ms.locfileid: "53615174"
 |[Get-AutomationConnection](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|获取要使用的连接。 返回包括该连接属性的哈希表。|
 
 >[!NOTE] 
->应避免在 **Get- AutomationConnection** 的 -Name 参数中使用变量，因为这可能会使设计时发现 Runbook 或 DSC 配置与连接资产之间的依赖关系变得复杂化。
+>应避免在 **Get-AutomationConnection** 的 -Name 参数中使用变量，因为这可能会使设计时发现 Runbook 或 DSC 配置与连接资产之间的依赖关系变得复杂化。
 
  
 ## <a name="python2-functions"></a>Python2 函数 

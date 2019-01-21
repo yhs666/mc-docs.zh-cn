@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Resource Manager 模板创建 Azure 服务总线命名空间和队列 | Azure
+title: 使用 Azure Resource Manager 模板创建 Azure 服务总线命名空间和队列 | Azure Docs
 description: 使用 Azure Resource Manager 模板创建服务总线命名空间和队列
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,15 +12,14 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-origin.date: 09/11/2018
-ms.date: 10/31/2018
+ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 8c84d1c3462ef7bb52aa44eae5e9b13508c9de0a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 05058c346077e862c783d86284c5770a43d23f23
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650905"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363548"
 ---
 # <a name="create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板创建服务总线命名空间和队列
 

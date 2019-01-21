@@ -1,5 +1,5 @@
 ---
-title: 快速入门 - 使用 Azure 门户通过 Azure 服务总线发送和接收消息 | Azure
+title: 快速入门 - 使用 Azure 门户通过 Azure 服务总线发送和接收消息 | Azure Docs
 description: 本快速入门介绍如何使用 Azure 门户发送和接收服务总线消息
 services: service-bus-messaging
 author: lingliw
@@ -8,19 +8,18 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-origin.date: 09/22/2018
-ms.date: 11/26/2018
+ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 890b921c46d7cabec91c0accba27dee2a2c9e66b
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: f3421c69ca1c2e4be468e96606912a784cd49c37
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674528"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363562"
 ---
 # <a name="quickstart-send-and-receive-messages-using-the-azure-portal-and-net"></a>快速入门：使用 Azure 门户和 .NET 发送和接收消息
 
-Azure 服务总线是一种提供安全消息传送和绝对可靠性的企业集成消息中转站。 典型的服务总线方案通常涉及将两个或更多应用程序、服务或进程彼此解耦以及传输状态或数据更改。 此类方案可能涉及在其他应用程序或服务中计划多个批处理作业，或触发订单履行。 例如，零售公司可能会将其销售点数据发送到后端办公系统或区域配送中心，以便进行补货和库存更新。 在这种情况下，客户端应用会将消息发送到服务总线队列并从中接收消息。  
+世纪互联 Azure 服务总线是一种提供安全消息传送和绝对可靠性的企业集成消息中转站。 典型的服务总线方案通常涉及将两个或更多应用程序、服务或进程彼此解耦以及传输状态或数据更改。 此类方案可能涉及在其他应用程序或服务中计划多个批处理作业，或触发订单履行。 例如，零售公司可能会将其销售点数据发送到后端办公系统或区域配送中心，以便进行补货和库存更新。 在这种情况下，客户端应用会将消息发送到服务总线队列并从中接收消息。  
 
 ![队列](./media/service-bus-quickstart-portal/quick-start-queue.png)
 

@@ -18,12 +18,12 @@ origin.date: 07/06/2016
 ms.date: 01/21/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: f25375f437058c7e880f1ef2920f3478088d5d9a
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: e6bb745315b8e7c499882f7aee8f7b52264df1f5
+ms.sourcegitcommit: a09ee94bc8a6b4270f655a1d80cdb65eca320559
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083784"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396447"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>排查 Azure 应用服务中出现的 HTTP 错误“502 错误的网关”和“503 服务不可用”
 [Azure 应用服务](overview.md)中托管的应用经常出现“502 错误的网关”和“503 服务不可用”错误。 本文帮助你排查这些错误。

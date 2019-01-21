@@ -1,23 +1,25 @@
 ---
-title: Azure 中的出站连接 | Microsoft Docs
+title: Azure 中的出站连接
+titlesuffix: Azure Load Balancer
 description: 本文介绍 Azure 如何使 VM 与公共 Internet 服务通信。
 services: load-balancer
 documentationcenter: na
 author: WenJason
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/01/2018
-ms.date: 11/26/2018
+ms.date: 01/21/2019
 ms.author: v-jay
-ms.openlocfilehash: 8ee290538d1ae802af8562ebc4527aa7b91b5ee4
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 5152037860eae71385637c3e5e73261bd8ad29a3
+ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672840"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54333899"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure 中的出站连接
 
@@ -47,7 +49,7 @@ Azure 负载均衡器和相关资源是使用 [Azure 资源管理器](/azure-res
 
 如果不希望 VM 与 Azure 外部的公共 IP 地址空间中的终结点通信，则可以根据需要使用网络安全组 (NSG) 来阻止访问。 [阻止出站连接](#preventoutbound)部分详细介绍了 NSG。 本文不会介绍有关在无任何出站访问权限的情况下，如何设计和管理虚拟网络的设计和实施指导。
 
-### <a name="ilpip"></a>方案 1：具有实例级公共 IP 地址的 VM
+### <a name="ilpip"></a>场景 1：具有实例级公共 IP 地址的 VM
 
 在此场景中，向 VM 分配了实例级公共 IP (ILPIP)。 就出站连接而言，VM 是否经过负载均衡并不重要。 此方案优先于其他方案。 使用 ILPIP 时，VM 将 ILPIP 用于所有出站流。  
 
@@ -55,7 +57,7 @@ Azure 负载均衡器和相关资源是使用 [Azure 资源管理器](/azure-res
 
 如果应用程序启动很多出站流，并且遇到 SNAT 端口耗尽的情况，可以考虑分配 [ILPIP 以缓解 SNAT 约束](#assignilpip)。 请查看[管理 SNAT 耗尽](#snatexhaust)。
 
-### <a name="lb"></a>方案 2：无实例级公共 IP 地址的负载均衡 VM
+### <a name="lb"></a>场景 2：无实例级公共 IP 地址的负载均衡 VM
 
 在此方案中，VM 是公共负载均衡器池的一部分。 没有分配给 VM 的公共 IP 地址。 必须为负载均衡器资源配置一个负载均衡器规则，以在公共 IP 前端与后端池之间创建链接。
 
@@ -71,7 +73,7 @@ SNAT 端口是按照[了解 SNAT 和 PAT](#snat) 部分中所述预先分配的�
 
 <!-- Not Available on [Log Analytics for Load Balancer](load-balancer-monitor-log.md)-->
 <!-- Not Available on [alert event logs](load-balancer-monitor-log.md#alert-event-log)-->
-### <a name="defaultsnat"></a>方案 3：无实例级公共 IP 地址的独立 VM
+### <a name="defaultsnat"></a>场景 3：无实例级公共 IP 地址的独立 VM
 
 在此场景中，VM 不是公共负载均衡器池的一部分（也不是内部标准负载均衡器池的一部分），并且没有分配给它的 ILPIP 地址。 当 VM 创建出站流时，Azure 将此出站流的专用源 IP 地址转换为公共源 IP 地址。 用于此出站流的公共 IP 地址是不可配置的，并且不会影响订阅的公共 IP 资源限制。 此公共 IP 地址不属于你，不能保留。 如果重新部署 VM、可用性集或虚拟机规模集，则将释放此公共 IP 地址并请求新的公共 IP 地址。 请不要使用此方案将 IP 地址加入允许列表。 而是使用其他两个方案之一，其中你显式声明出站方案和要用于出站连接的公共 IP 地址。
 
@@ -90,9 +92,9 @@ SNAT 端口是根据[了解 SNAT 和 PAT](#snat) 部分中所述预先分配的�
 
 ### <a name="multife"></a>对出站流使用多个前端
 
-#### <a name="load-balancer-standard"></a>负载均衡器标准版
+#### <a name="standard-load-balancer"></a>标准负载均衡器
 
-存在[多个（公共）IP 前端](load-balancer-multivip-overview.md)时，负载均衡器标准版同时使用出站流的所有候选项。 如果对出站连接启用了负载均衡规则，则每个前端的可用预分配 SNAT 端口数将会倍增。
+存在[多个（公共）IP 前端](load-balancer-multivip-overview.md)时，标准负载均衡器同时使用出站流的所有候选项。 如果对出站连接启用了负载均衡规则，则每个前端的可用预分配 SNAT 端口数将会倍增。
 
 可以使用一个新的负载均衡规则选项，来禁止对出站连接使用某个前端 IP 地址：
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 12/06/2018
 ms.date: 01/14/2019
 ms.author: v-jay
-ms.openlocfilehash: 10724472e9c4071acd95a8a8b4aced944be35da9
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: 6c208554f4e2ac5d798188bb5eb65b0549e35854
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192954"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397004"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Hive on HDInsight 和 Azure Data Lake Storage Gen2 性能优化指南
 
@@ -50,7 +50,7 @@ ms.locfileid: "54192954"
 
 ## <a name="guidance"></a>指南
 
-**设置 hive.exec.reducer.bytes.per.reducer** - 默认值适用于数据未压缩时。  对于已压缩的数据，应减小化简器。  
+**设置 hive.exec.reducer.bytes.per.reducer** - 当数据未压缩时，默认值非常适用。  对于已压缩的数据，应减小化简器。  
 
 **设置 hive.tez.container.size** - 在每个节点中，内存由 yarn.nodemanager.resource.memory-mb 指定，并且默认情况下应在 HDI 群集上正确设置。  有关在 YARN 中设置相应内存的其他信息，请参阅此[文章](/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom)。
 

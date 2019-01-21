@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/30/2018
-ms.date: 12/03/2018
+ms.date: 01/21/2019
 ms.author: v-jay
-ms.openlocfilehash: 1f4aeb36b659f6f74f5c414fac84d76a71bf8230
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 2e6ccffc2b1ea96a5d92862b1ab4f99047348009
+ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672996"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54333850"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>使用工作流设计器创建高级编码工作流
 ## <a name="overview"></a>概述

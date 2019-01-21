@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/27/2018
-ms.date: 10/15/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: c7d9d9924ba2fc34a4ba27c427b02d7ab0f72f35
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 639888253a69181a65ce919aa80d362a81ca5690
+ms.sourcegitcommit: 35a09a86cbb3d896fa9784471ece41df7728bd71
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649733"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396696"
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>了解 ImageStoreConnectionString 设置
 

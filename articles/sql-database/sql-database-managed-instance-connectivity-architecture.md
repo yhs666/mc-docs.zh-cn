@@ -13,12 +13,12 @@ ms.reviewer: bonova, carlrab
 manager: digimobile
 origin.date: 08/16/2018
 ms.date: 01/07/2019
-ms.openlocfilehash: 5a64a596793123cf7d639d40a6a617fd89e0fcb5
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 167dce0e63aff214c2ac144900cf3734a7bf96b5
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996246"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397032"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Azure SQL 数据库托管实例连接体系结构
 
@@ -87,7 +87,7 @@ Azure SQL 数据库托管实例虚拟群集包含一个管理终结点，可供 
 ## <a name="network-requirements"></a>网络要求
 
 可以在符合以下要求的虚拟网络的专用子网（托管实例子网）中部署托管实例：
-- **专用子网**：托管实例子网不能包含与它关联的任何其他云服务，并且不能是网关子网。 无法在包含除托管实例以外的资源的子网中创建托管实例，并且以后无法在子网中添加其他资源。
+- **专用子网**：托管实例子网不能包含与它关联的任何其他云服务，并且不能是网关子网。 无法在包含托管实例以外资源的子网中创建托管实例，并且以后无法在子网中添加其他资源。
 - **兼容的网络安全组 (NSG)**：与托管实例子网关联的 NSG 必须将下表中显示的规则（强制性入站安全规则和强制性出站安全规则）置于任何其他规则之前。 可以使用某个 NSG 通过筛选端口 1433 上的流量来完全控制对托管实例数据终结点的访问。 
 - **兼容的用户定义路由表 (UDR)**：托管实例子网必须有一个用户路由表，此表中 **0.0.0.0/0 Next Hop Internet** 已作为强制 UDR 分配给该子网。 此外，还可以添加 UDR，用以通过虚拟网络网关或虚拟网络设备 (NVA) 来路由以本地专用 IP 范围为目的地的流量。 
 - **可选的自定义 DNS**：如果在虚拟网络中指定了自定义 DNS，则必须将 Azure 的递归解析程序 IP 地址（例如 168.63.129.16）添加到列表。 有关详细信息，请参阅[配置自定义 DNS](sql-database-managed-instance-custom-dns.md)。 自定义 DNS 服务器必须能够解析下列域及其子域中的主机名：*microsoft.com*、*windows.net*、*windows.com*、*msocsp.com*、*digicert.com*、*live.com*、*microsoftonline.com* 和 *microsoftonline-p.com*。 
@@ -120,7 +120,7 @@ Azure SQL 数据库托管实例虚拟群集包含一个管理终结点，可供 
   
 ## <a name="next-steps"></a>后续步骤
 
-- 相关概述，请参阅 [什么是托管实例](sql-database-managed-instance.md)
+- 有关概述，请参阅[什么是托管实例](sql-database-managed-instance.md)
 - 了解如何[配置新的 VNet](sql-database-managed-instance-create-vnet-subnet.md) 或[配置现有的 VNet](sql-database-managed-instance-configure-vnet-subnet.md)，以便在其中部署托管实例。
 - [计算子网的大小](sql-database-managed-instance-determine-size-vnet-subnet.md)，以便在其中部署托管实例。 
 - 查看快速入门，了解如何使用以下项创建托管实例：

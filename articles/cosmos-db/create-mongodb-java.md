@@ -1,24 +1,22 @@
 ---
-title: 使用 Java 和适用于 MongoDB 的 Azure Cosmos DB API 构建控制台应用
-description: 提供了一个 Java 代码示例，可以参考它来连接并查询适用于 MongoDB 的 Azure Cosmos DB API
-services: cosmos-db
+title: 使用 Azure Cosmos DB 的用于 MongoDB 的 API 和 Java SDK 生成控制台应用
+description: 演示一个 Java 代码示例，可以参考该示例使用 Azure Cosmos DB 的用于 MongoDB 的 API 进行连接和查询。
 author: rockboyfor
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
-ms.custom: quick start connect, mvc
+ms.subservice: cosmosdb-mongo
 ms.devlang: java
 ms.topic: quickstart
-origin.date: 05/10/2017
-ms.date: 12/31/2018
+origin.date: 12/26/2017
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 567aef10b5ea76719c05ec9cbc9585ebc2cfc397
-ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
+ms.openlocfilehash: 8cc70394b96a7650fcc304f4791df7edba7c5512
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814771"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309314"
 ---
-# <a name="build-a-console-app-with-java-and-the-azure-cosmos-db-api-for-mongodb"></a>使用 Java 和适用于 MongoDB 的 Azure Cosmos DB API 构建控制台应用
+# <a name="build-a-web-app-using-azure-cosmos-dbs-api-for-mongodb-and-java-sdk"></a>使用 Azure Cosmos DB 的用于 MongoDB 的 API 和 Java SDK 生成 Web 应用
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -29,11 +27,11 @@ ms.locfileid: "53814771"
 > * [Golang](create-mongodb-golang.md)
 >  
 
-Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可快速创建和查询文档数据库，这些数据库受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。 
+Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可快速创建和查询文档数据库，这些数据库受益于 Cosmos DB 核心的多区域分布和水平缩放功能。 
 <!-- Not Available on Key/Value and Graph -->
 <!-- Notice: Convert globally to multple-region -->
 
-本快速入门演示了如何使用 Azure 门户创建[适用于 MongoDB 的 Azure Cosmos DB API](mongodb-introduction.md) 帐户、文档数据库和集合。 然后生成并部署基于 [MongoDB Java 驱动程序](https://docs.mongodb.com/ecosystem/drivers/java/)构建的控制台应用。 
+本快速入门演示如何使用 [Azure Cosmos DB 的用于 MongoDB 的 API](mongodb-introduction.md) 创建 Cosmos 帐户。 然后生成并部署使用 [MongoDB Java 驱动程序](https://docs.mongodb.com/ecosystem/drivers/java/)构建的控制台应用。 
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -56,7 +54,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
 ## <a name="clone-the-sample-application"></a>克隆示例应用程序
 
-现在，请从 GitHub 克隆适用于 MongoDB 的 Azure Cosmos DB API 应用、设置连接字符串并运行该应用。 会看到以编程方式处理数据是多么容易。 
+现在让我们从 GitHub 克隆应用，设置连接字符串，然后运行该应用。 会看到以编程方式处理数据是多么容易。 
 
 1. 打开命令提示符，新建一个名为“git-samples”的文件夹，然后关闭命令提示符。
 
@@ -140,7 +138,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门教程中，已了解如何创建 Azure Cosmos DB 帐户、使用数据资源管理器创建集合和运行控制台应用。 现在可以将其他数据导入 Cosmos DB 帐户。 
+在本快速入门中，你已了解如何创建 Cosmos 帐户、创建集合和运行控制台应用。 现在可以向你的 Cosmos 数据库导入更多数据。
 
 > [!div class="nextstepaction"]
 > [将 MongoDB 数据导入 Azure Cosmos DB](mongodb-migrate.md)

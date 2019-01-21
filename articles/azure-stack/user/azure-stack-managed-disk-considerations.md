@@ -16,12 +16,12 @@ origin.date: 09/05/2018
 ms.date: 01/14/2019
 ms.author: v-jay
 ms.reviewer: jiahan
-ms.openlocfilehash: 17a92c53bbae1de5899af6c6a27fb41710a63fa3
-ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
+ms.openlocfilehash: c0a4b4a43ee1d61fe5570cd75226563fab40ed60
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54058995"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396991"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack 托管磁盘：差异和注意事项
 本文总结了 Azure Stack 托管磁盘和 Azure 托管磁盘之间的已知差异。 有关 Azure Stack 与 Azure 之间的大致差异的详细信息，请参阅[重要注意事项](azure-stack-considerations.md)一文。

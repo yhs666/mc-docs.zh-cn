@@ -1,30 +1,25 @@
 ---
 title: 在 Azure Monitor 中监视使用情况和预估成本
 description: Azure Monitor 中的使用情况和预估成本页的使用过程概述
-author: dalekoetke
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 08/11/2018
-ms.author: mbullwin
+ms.date: 01/21/19
+ms.author: v-lingwu
 ms.reviewer: Dale.Koetke
 ms.component: ''
-ms.openlocfilehash: 9a8c7ce103ed73256c0c8de4e12c350de0a25679
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.openlocfilehash: a486c4c7a5de6744e4a553640ce08738a96a8b59
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141767"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363544"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>监视使用情况和预估成本
 
-> [!NOTE]
-> 本文介绍如何针对不同的定价模型查看多个 Azure 监视功能的使用情况和估算成本。  相关信息请参阅以下文章。
-> - [通过在 Log Analytics 中控制数据量和保留期管理成本](../../azure-monitor/platform/manage-cost-storage.md)介绍如何通过更改数据保留期来控制成本。
-> - [在 Log Analytics 中分析数据使用情况](../../azure-monitor/platform/data-usage.md)介绍了如何根据数据使用情况进行分析和警告。
-> - [在 Application Insights 中管理定价和数据量](../../application-insights/app-insights-pricing.md)介绍如何在 Application Insights 中分析数据使用情况。
 
-在 Azure 门户的 Monitor 中心，“使用情况和预估成本”页说明[警报、指标和通知](https://azure.microsoft.com/pricing/details/monitor/)、[Azure Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) 及 [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/) 等核心监视功能的使用情况。 对于使用 2018 年 4 月之前提供的定价计划的客户，这还包括通过见解和分析产品/服务购买的 Log Analytics 使用情况功能。
+在 Azure 门户的 Monitor 中心，“使用情况和预估成本”页说明[警报、指标和通知](https://www.azure.cn/pricing/details/monitor/)、[Azure Log Analytics](https://www.azure.cn/pricing/details/log-analytics/) 及 [Azure Application Insights](https://www.azure.cn/pricing/details/application-insights/) 等核心监视功能的使用情况。 对于使用 2018 年 4 月之前提供的定价计划的客户，这还包括通过见解和分析产品/服务购买的 Log Analytics 使用情况功能。
 
 在此页上，用户可以查看过去 31 天的资源使用情况（按订阅聚合）。 “钻取”显示的是 31 天的使用趋势。 需要聚合大量的数据才能进行此估算，因此请耐心等待页面加载。
 
@@ -66,14 +61,14 @@ ms.locfileid: "54141767"
 
 新定价模型不提供基于节点的“包含数据”分配。 因此，这些数据引入计量合并为称作“共享服务\数据引入”的新通用数据引入计量。 
 
-在成本较高的区域，引入到 Log Analytics 或 Application Insights 的数据还有一个变化。 这些高成本区域的数据在显示时会使用新的区域计量。 一个例子是**数据引入（美国中西部）**。
+在成本较高的区域，引入到 Log Analytics 或 Application Insights 的数据还有一个变化。 这些高成本区域的数据在显示时会使用新的区域计量。 一个例子是**数据引入（中国中东部）**。
 
 > [!NOTE]
 > 每订阅估计成本未纳入到 Operations Management Suite (OMS) 订阅的帐户级每节点权利中。 请咨询客户代表，以更深入地探讨这种情况下的新定价模型。
 
 ## <a name="new-pricing-model-and-operations-management-suite-subscription-entitlements"></a>新定价模型和 Operations Management Suite 订阅权利
 
-购买了 Microsoft Operations Management Suite E1 和 E2 的客户有资格享受 [Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) 和 [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing#the-price-plans) 的每节点数据引入权利。 若要在给定的订阅中享受 Log Analytics 工作区或 Application Insights 资源的这些权利： 
+购买了 Azure Operations Management Suite E1 和 E2 的客户有资格享受 [Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) 和 [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing#the-price-plans) 的每节点数据引入权利。 若要在给定的订阅中享受 Log Analytics 工作区或 Application Insights 资源的这些权利： 
 
 - 该订阅的定价模型必须保持为 2018 年 4 月之前的定价模型。
 - Log Analytics 工作区应使用“按节点 (OMS)”定价层。
@@ -82,7 +77,7 @@ ms.locfileid: "54141767"
 根据组织所购买套件的节点数，将某些订阅转移到新定价模型可能是有利的，但这需要仔细考虑。 通常情况下，建议保持为上面所述的 2018 年 4 月之前的定价模型即可。
 
 > [!WARNING]
-> 如果组织已购买 Microsoft Operations Management Suite E1 和 E2，通常最好将订阅保持为 2018 年 4 月之前的定价模型。 
+> 如果组织已购买 Azure Operations Management Suite E1 和 E2，通常最好将订阅保持为 2018 年 4 月之前的定价模型。 
 >
 
 ## <a name="changes-when-youre-moving-to-the-new-pricing-model"></a>转移到新定价模型时的变化
@@ -114,7 +109,7 @@ ms.locfileid: "54141767"
 
 下面的脚本需要使用 Azure PowerShell 模块。 若要检查是否拥有最新版本，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.1.0)。
 
-在拥有最新版本的 Azure PowerShell 后，你需要运行 ``Connect-AzureRmAccount``。
+在拥有最新版本的 Azure PowerShell 后，你需要运行 ``Connect-AzureRmAccount -Environment AzureChinaCloud``。
 
 ``` PowerShell
 # To check if your subscription is eligible to adjust pricing models.

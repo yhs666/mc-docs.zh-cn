@@ -13,12 +13,12 @@ ms.reviewer: carlrab, sashan
 manager: digimobile
 origin.date: 10/15/2018
 ms.date: 01/07/2019
-ms.openlocfilehash: 7ed1339171b0bc45e024520b0a3198a853d8d334
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 8dea9ae20194d1db36cd63c785d522040543b5a5
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996231"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397001"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>高可用性和 Azure SQL 数据库
 

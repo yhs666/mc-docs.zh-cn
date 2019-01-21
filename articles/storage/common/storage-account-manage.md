@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 09/11/2018
 ms.date: 09/24/2018
 ms.author: v-jay
-ms.openlocfilehash: 8a1e87943fec94bf83485a1a08eeb04454b31535
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 86c656e131c1d2e1791cbaa8f911475136d010d4
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648760"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397073"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>在 Azure 门户中管理存储帐户设置
 
@@ -61,7 +61,7 @@ ms.locfileid: "52648760"
 若要删除不再使用的存储帐户，请在 [Azure 门户](https://portal.azure.cn)中导航到该存储帐户，然后单击“删除”。 删除存储帐户将删除整个帐户，包括该帐户中的所有数据。
 
 > [!WARNING]
-> 无法恢复已删除的存储帐户，也无法检索删除之前该存储帐户包含的任何内容。 删除帐户前请务必备份要保存的任何内容。 对于帐户中的任务资源也是如此 — 一旦你删除了一个 Blob、表、队列或文件 ，则它会被永久删除。
+> 无法恢复已删除的存储帐户，也无法检索删除之前该存储帐户包含的任何内容。 删除帐户前请务必备份要保存的任何内容。 对于帐户中的任务资源也是如此，一旦你删除了一个 Blob、表、队列或文件，则它会被永久删除。
 > 
 
 如果尝试删除与 Azure 虚拟机关联的存储帐户，则会显示一条错误消息，指出存储帐户仍在使用。 有关如何排查此错误的帮助，请参阅[排查删除存储帐户时的错误](../blobs/storage-troubleshoot-vhds.md)。

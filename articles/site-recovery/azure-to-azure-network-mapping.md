@@ -5,18 +5,19 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 10/16/2018
-ms.date: 12/10/2018
+origin.date: 11/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6ea34c9e1483d4519a28b33f02d97e8301de1fdf
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 320d8c37bbbc602ae93e4fd93d0ec0cf87e4f880
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028889"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363286"
 ---
-<!-- Notice: Change Source Location East Azure map China East,  Sourth East Asia map China North --> 
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>设置 VNet 的网络映射和 IP 寻址
+
+<!-- Notice: Change Source Location East Azure map China East,  Sourth East Asia map China North --> 
 
 本文介绍如何映射不同 Azure 区域中的两个 Azure 虚拟网络 (VNet) 实例，以及如何设置网络之间的 IP 寻址。 网络映射可确保在目标 Azure 区域中创建的复制 VM 是在映射到源 VM VNet 的 VNet 中创建的。
 
@@ -34,11 +35,15 @@ ms.locfileid: "53028889"
 
 3. 在“添加网络映射”中，选择源和目标位置。 在本示例中，源 VM 在“中国东部”区域运行，将复制到“中国北部”区域。
     
-    <!-- Notice: Change as replicated to China North region --> ![选择源和目标 ](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
+    <!-- Notice: Change as replicated to China North region -->
+    
+    ![选择源和目标 ](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
 
 3. 现在，在对方目录中创建网络映射。 在本示例中，源现在是“中国北部”，目标是“中国东部”。
     
-    <!-- Notice: Change as from China North region TO China East region--> ![添加网络映射窗格 - 选择目标网络的源和目标位置](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
+    <!-- Notice: Change as from China North region TO China East region-->
+    
+    ![添加网络映射窗格 - 选择目标网络的源和目标位置](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
 
 ## <a name="map-networks-when-you-enable-replication"></a>启用复制时映射网络
 
@@ -90,4 +95,7 @@ ms.locfileid: "53028889"
 - 查看 Azure VM 灾难恢复的[网络指导](site-recovery-azure-to-azure-networking-guidance.md)。
 - [详细了解](site-recovery-retain-ip-azure-vm-failover.md)如何在故障转移后保留 IP 地址。
 
+选择的目标网络是故障转移 VNet，但第 2 点指出“如果所选目标网络不同于故障转移 VNet，但子网范围与故障转移 VNet 相同”
+
 <!--Update_Description: update meta properties, wording update -->
+

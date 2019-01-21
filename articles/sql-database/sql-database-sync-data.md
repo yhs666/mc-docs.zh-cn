@@ -12,19 +12,42 @@ ms.author: v-jay
 ms.reviewer: douglasl
 manager: digimobile
 origin.date: 08/09/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: ac16037f72dff76ea73166b46ec96035c81bbb8b
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.date: 01/21/2019
+ms.openlocfilehash: a6fc5ec8c5eda06d9771ee1d3bcc26a72e54ac79
+ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806306"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363786"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>使用 SQL 数据同步跨多个云和本地数据库同步数据
 
 使用 SQL 数据同步这项基于 Azure SQL 数据库的服务，可以跨多个 SQL 数据库和 SQL Server 实例双向同步选定数据。
 
-## <a name="architecture-of-sql-data-sync"></a>SQL 数据同步的体系结构
+> [!IMPORTANT]
+> 目前，Azure SQL 数据同步不支持 Azure SQL 数据库托管实例。
+
+## <a name="when-to-use-data-sync"></a>何时使用 SQL 数据同步
+
+如果需要跨多个 Azure SQL 数据库或 SQL Server 数据库使数据保持最新，则数据同步非常有用。 下面是 SQL 数据同步的主要用例：
+
+-   **混合数据同步：** 借助数据同步，可以在本地数据库和 Azure SQL 数据库之间保持数据同步，以便启用混合应用程序。 此功能可能会吸引在考虑迁移到云中，并希望启用 Azure 应用程序的客户。
+
+-   **分布式应用程序：** 在许多情况下，跨各个数据库分散不同的工作负载会大有裨益。 例如，如果有大型生产数据库，但还需要对此数据运行报表或分析工作负载，那么使用第二个数据库来处理此额外工作负载将会有所帮助。 这种方法可最大限度地减轻对生产工作负载造成的性能影响。 可以使用 SQL 数据同步来同步这两个数据库。
+
+-   **全球分布的应用程序：** 许多企业的业务分布在多个区域，甚至是多个国家/地区。 为了最大限度地缩短网络延迟时间，最好将数据存储在靠近的区域中。 借助 SQL 数据同步，可轻松同步世界各地区域中的数据库。
+
+数据同步不是以下场景的首选解决方案：
+
+-   灾难恢复
+
+-   读取缩放
+
+-   ETL（OLTP 到 OLAP）
+
+-   从本地 SQL Server 迁移到 Azure SQL 数据库
+
+## <a name="overview-of-sql-data-sync"></a>SQL 数据同步概述
 
 SQL 数据同步以同步组的概念为依据。 同步组是一组要同步的数据库。
 
@@ -47,26 +70,6 @@ SQL 数据同步使用中心辐射型拓扑来同步数据。 将同步组中的
 -   “同步间隔”描述多久执行一次同步。
 
 -   “冲突解决策略”是组级别策略，可以是“中心胜出”，也可以是“成员胜出”。
-
-## <a name="when-to-use-data-sync"></a>何时使用 SQL 数据同步
-
-如果需要跨多个 Azure SQL 数据库或 SQL Server 数据库使数据保持最新，则数据同步非常有用。 下面是 SQL 数据同步的主要用例：
-
--   **混合数据同步：** 借助数据同步，可以在本地数据库和 Azure SQL 数据库之间保持数据同步，以便启用混合应用程序。 此功能可能会吸引在考虑迁移到云中，并希望启用 Azure 应用程序的客户。
-
--   **分布式应用程序：** 在许多情况下，跨各个数据库分散不同的工作负载会大有裨益。 例如，如果有大型生产数据库，但还需要对此数据运行报表或分析工作负载，那么使用第二个数据库来处理此额外工作负载将会有所帮助。 这种方法可最大限度地减轻对生产工作负载造成的性能影响。 可以使用 SQL 数据同步来同步这两个数据库。
-
--   **全球分布的应用程序：** 许多企业的业务分布在多个区域，甚至是多个国家/地区。 为了最大限度地缩短网络延迟时间，最好将数据存储在靠近的区域中。 借助 SQL 数据同步，可轻松同步世界各地区域中的数据库。
-
-数据同步不是以下场景的首选解决方案：
-
--   灾难恢复
-
--   读取缩放
-
--   ETL（OLTP 到 OLAP）
-
--   从本地 SQL Server 迁移到 Azure SQL 数据库
 
 ## <a name="how-does-data-sync-work"></a>SQL 数据同步的工作原理 
 

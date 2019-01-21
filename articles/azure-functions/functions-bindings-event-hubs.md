@@ -11,14 +11,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 11/08/2017
-ms.date: 12/26/2018
+ms.date: 01/15/2019
 ms.author: v-junlch
-ms.openlocfilehash: a5326ad1387571ab4f7755546dc1094eed93e77a
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: caa3cc2d98e17e9b3d4051191d4774cbf2bc31f6
+ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806618"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334221"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Functions 的 Azure 事件中心绑定
 

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: na
 ms.topic: article
 origin.date: 07/27/2017
-ms.date: 12/21/2018
+ms.date: 01/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: a05cb830be9b8feac1e817f3450beeffdb993c18
-ms.sourcegitcommit: d2893ae6bdbb3784d243d5d3c49c25c9cfd99d9b
+ms.openlocfilehash: 163aeeb666118de9c6901b5ea7b026effe5fb45f
+ms.sourcegitcommit: e79651227d4378e6d24f9ab155b9f4fee044b2c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2018
-ms.locfileid: "53784929"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334286"
 ---
 # <a name="azure-cache-for-redis-faq"></a>用于 Redis 的 Azure 缓存常见问题解答
 了解 Azure Redis 缓存的常见问题、模式和最佳做法。
@@ -83,14 +83,14 @@ ms.locfileid: "53784929"
 - [哪种 Azure 缓存产品适合我？](#which-azure-cache-offering-is-right-for-me)
 
 ### <a name="what-is-azure-cache-for-redis"></a>什么是 Azure Redis 缓存？
-Azure Redis 缓存基于热门的开源 [Azure Redis 缓存](http://redis.io)。 这使用户可以访问安全、专用的 Azure Redis 缓存，该缓存由 Microsoft 托管并可从 Azure 内的任何应用程序进行访问。 有关更详细的概述，请参阅 Azure.com 上的 [Azure Redis 缓存](https://www.azure.cn/home/features/redis-cache/)产品页。
+Azure Redis 缓存基于热门开源软件 [Redis](https://redis.io/)。 这使用户可以访问安全、专用的 Azure Redis 缓存，该缓存由 Microsoft 托管并可从 Azure 内的任何应用程序进行访问。 有关更详细的概述，请参阅 Azure.com 上的 [Azure Redis 缓存](https://www.azure.cn/home/features/redis-cache/)产品页。
 
 ### <a name="how-can-i-get-started-with-azure-cache-for-redis"></a>如何开始使用 Azure Redis 缓存？
 有几种开始使用 Azure Redis 缓存的方法。
 
 - 用户可以查看适用于 [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)、[ASP.NET](cache-web-app-howto.md)、[Java](cache-java-get-started.md)、[Node.js](cache-nodejs-get-started.md) 和 [Python](cache-python-get-started.md) 的教程之一。
 - 用户可以观看[如何使用 Azure Redis 缓存生成高性能应用](https://azure.microsoft.com/documentation/videos/how-to-build-high-performance-apps-using-microsoft-azure-cache/)。
-- 可以查看与你项目的开发语言对应的面向客户的客户端文档，了解如何使用 Redis。 许多 Redis 客户端都可用于 Azure Redis 缓存。 有关 Redis 客户端列表，请参阅 [http://redis.io/clients](http://redis.io/clients)。
+- 可以查看与你项目的开发语言对应的面向客户的客户端文档，了解如何使用 Redis。 许多 Redis 客户端都可用于 Azure Redis 缓存。 有关 Redis 客户端列表，请参阅 [https://redis.io/clients](https://redis.io/clients)。
 
 如果还没有 Azure 帐户，可以：
 
@@ -119,7 +119,7 @@ Azure Redis 缓存基于热门的开源 [Azure Redis 缓存](http://redis.io)。
 <a name="cache-performance"></a>
 
 ### <a name="azure-cache-for-redis-performance"></a>Azure Redis 缓存性能
-下表显示了在 Iaas VM 中使用 `redis-benchmark.exe` 针对 Azure Redis 缓存终结点测试各种大小的标准缓存和高级缓存时，所观测到的最大带宽值。 对于 SSL 吞吐量，将 redis 基准用于 stunnel 以连接到 Azure Redis 缓存终结点。
+下表显示了在 IaaS VM 中使用 `redis-benchmark.exe` 针对 Azure Redis 缓存终结点测试各种大小的标准缓存和高级缓存时，所观测到的最大带宽值。 对于 SSL 吞吐量，将 redis 基准用于 stunnel 以连接到 Azure Redis 缓存终结点。
 
 >[!NOTE] 
 >这些值是没有保证的，并且我们不针对这些数字提供 SLA，但它们反映了典型的情况。 应该对自己的应用程序进行负载测试，以确定适合应用程序的缓存大小。
@@ -191,7 +191,7 @@ StackExchange.Redis 有很多选项。 本部分介绍一些常用设置。 有�
    - 该指导原则可以更好地改进每个 `ConnectionMultiplexer`的延迟。
 
 ### <a name="what-azure-cache-for-redis-clients-can-i-use"></a>可以使用哪些 Azure Redis 缓存客户端？
-Redis 的一大优势是有许多客户端，支持许多不同的开发语言。 如需最新的客户端列表，请参阅 [Redis 客户端](http://redis.io/clients)。 若需涵盖多种不同语言和客户端的教程，请参阅[如何使用 Azure Redis 缓存](cache-dotnet-how-to-use-azure-redis-cache.md)，并单击文章顶部语言切换器中的所需语言。
+Redis 的一大优势是有许多客户端，支持许多不同的开发语言。 如需最新的客户端列表，请参阅 [Redis 客户端](https://redis.io/clients)。 若需涵盖多种不同语言和客户端的教程，请参阅[如何使用 Azure Redis 缓存](cache-dotnet-how-to-use-azure-redis-cache.md)，并单击文章顶部语言切换器中的所需语言。
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
@@ -217,12 +217,12 @@ Azure Redis 缓存没有本地模拟器，但可以在本地计算机上从 [Red
         }
 
 
-如果需要，可以选择配置 [redis.conf](http://redis.io/topics/config) 文件，以更好地匹配联机 Azure Redis 缓存的[默认缓存设置](cache-configure.md#default-redis-server-configuration)。
+如果需要，可以选择配置 [redis.conf](https://redis.io/topics/config) 文件，以更好地匹配联机 Azure Redis 缓存的[默认缓存设置](cache-configure.md#default-redis-server-configuration)。
 
 <a name="cache-commands"></a>
 
 ### <a name="how-can-i-run-redis-commands"></a>如何运行 Redis 命令？
-可以使用 [Redis 命令](http://redis.io/commands#)中列出的任何命令，但 [Azure Redis 缓存中不支持的 Redis 命令](cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis)所列的命令除外。 可以使用多个选项来运行 Redis 命令。
+可以使用 [Redis 命令](https://redis.io/commands#)中列出的任何命令，但 [Azure Redis 缓存中不支持的 Redis 命令](cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis)所列的命令除外。 可以使用多个选项来运行 Redis 命令。
 
 - 如果有标准或高级缓存，可以使用 [Redis 控制台](cache-configure.md#redis-console)运行 Redis 命令。 Redis 控制台提供了一种在 Azure 门户中安全地运行 Redis 命令的方式。
 - 还可以使用 Redis 命令行工具。 若要使用这些工具，请执行以下步骤：
@@ -238,7 +238,7 @@ Azure Redis 缓存没有本地模拟器，但可以在本地计算机上从 [Red
 <a name="cache-reference"></a>
 
 ### <a name="why-doesnt-azure-cache-for-redis-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services"></a>Azure Redis 缓存为何不像某些其他 Azure 服务一样提供 MSDN 类库参考？
-Azure Redis 缓存基于热门的开源 Azure Redis 缓存，可以通过适用于许多编程语言的各种 [Redis 客户端](http://redis.io/clients)进行访问。 每个客户端有自身的 API，用于通过 [Redis 命令](http://redis.io/commands)调用 Azure Redis 缓存实例。
+Azure Redis 缓存基于热门的开源 Azure Redis 缓存，可以通过适用于许多编程语言的各种 [Redis 客户端](https://redis.io/clients)进行访问。 每个客户端有自身的 API，用于通过 [Redis 命令](https://redis.io/commands)调用 Azure Redis 缓存实例。
 
 由于客户端各不相同，因此 MSDN 上未提供统一的类引用，每个客户端都有自己的参考文档。 除了参考文档以外，还可以参阅多个教程，这些教程介绍了如何通过不同的语言和缓存客户端来开始使用 Azure Redis 缓存。 要访问这些教程，请参阅[如何使用 Azure Redis 缓存](cache-dotnet-how-to-use-azure-redis-cache.md)，并单击文章顶部语言切换器中的所需语言。
 
@@ -291,7 +291,7 @@ Redis 服务器本身不支持 SSL，但 Azure Redis 缓存可提供此支持。
 - 具有较小值的 Redis 工作性能最佳，因此请考虑将较大数据分成多个密钥。 
 - 配置 [ThreadPool 设置](#important-details-about-threadpool-growth) ，以免超时。
 - 将默认 connectTimeout 至少设置为 5 秒。 出现网络故障时，此时间间隔会给 StackExchange.Redis 足够的时间来重新建立连接。
-- 请注意与正在运行的不同操作相关的性能成本。 例如，`KEYS` 命令是 O(n) 操作，应当避免。 [redis.io](http://redis.io/commands/) 站点具有关于其支持的每个操作的时间复杂性的详细信息。 单击每个命令以查看每个操作的复杂程度。
+- 请注意与正在运行的不同操作相关的性能成本。 例如，`KEYS` 命令是 O(n) 操作，应当避免。 [redis.io](https://redis.io/commands/) 站点具有关于其支持的每个操作的时间复杂性的详细信息。 单击每个命令以查看每个操作的复杂程度。
 
 #### <a name="configuration-and-concepts"></a>配置和概念
 - 为生产系统使用标准层或高级层。 基本层是没有数据复制和 SLA 的单节点系统。 此外，使用至少一个 C1 缓存。 C0 缓存通常用于简单的开发/测试方案。
@@ -310,7 +310,7 @@ Redis 服务器本身不支持 SSL，但 Azure Redis 缓存可提供此支持。
 
 ### <a name="what-are-some-of-the-considerations-when-using-common-redis-commands"></a>使用常见 Redis 命令时要注意哪些问题？
 - 对于某些需要较长时间才能完成的 Redis 命令，在未了解这些命令造成的影响的情况下，不应运行这些命令。
-  - 例如，不要在生产环境中运行 [KEYS](http://redis.io/commands/keys) 命令，因为它可能需要很长时间才能返回，具体时间取决于键数。 Redis 是单线程服务器，每次只能处理一个命令。 如果在 KEYS 后面发出了其他命令，则这些命令只会在处理完 KEYS 命令后才会得到处理。 [redis.io 站点](http://redis.io/commands/) 具有关于其支持的每个操作的时间复杂性的详细信息。 单击每个命令以查看每个操作的复杂程度。
+  - 例如，不要在生产环境中运行 [KEYS](https://redis.io/commands/keys) 命令，因为它可能需要很长时间才能返回，具体时间取决于键数。 Redis 是单线程服务器，每次只能处理一个命令。 如果在 KEYS 后面发出了其他命令，则这些命令只会在处理完 KEYS 命令后才会得到处理。 [redis.io 站点](https://redis.io/commands/) 具有关于其支持的每个操作的时间复杂性的详细信息。 单击每个命令以查看每个操作的复杂程度。
 - 键大小 - 应使用小键/值还是大键/值？ 通常这取决于方案。 如果方案需要较大的键，则可调整 ConnectionTimeout 和重试值，并调整重试逻辑。 从 Redis 服务器的角度来看，值越小，性能就越好。
 - 这些考量并不意味着不能在 Redis 中存储较大值，只是要注意以下事项。 延迟会提高。 如果采用一个较大的数据集和一个较小的数据集，则可以使用多个 ConnectionMultiplexer 实例，并根据 [StackExchange.Redis 配置选项有什么作用](#cache-configuration)部分中所述，为每个实例配置一组不同的超时和重试值。
 
@@ -459,4 +459,4 @@ Redis 取得成功的另一个重要方面是围绕它构建了健康而充满�
 
 ["minIoThreads" configuration setting]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

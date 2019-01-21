@@ -11,12 +11,12 @@ origin.date: 10/15/2018
 ms.date: 11/26/2018
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: be5e8f48874099859d40fbf95ddabc1cd052bd60
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 9389549b5493b7ee304a5c2c422fb27330fc5195
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672871"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397068"
 ---
 # <a name="change-a-maintenance-schedule"></a>更改维护计划 
 
@@ -41,7 +41,7 @@ ms.locfileid: "52672871"
    ![维护设置边栏选项卡](media/sql-data-warehouse-maintenance-scheduling/maintenance-settings-page.png)
 
 5. 使用下拉列表框选择首选的主要和辅助维护时段：
-   - **日期**：在所选时段内执行维护的首选日期。
+   - **日**：在所选时段内执行维护的首选日期。
    - **开始时间**：维护时段的首选开始时间。
    - **时间范围**：时间范围的首选持续时间。
 

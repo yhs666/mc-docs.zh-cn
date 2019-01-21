@@ -1,21 +1,20 @@
 ---
-title: 如何通过 C++ 使用 Azure 表存储 | Azure
+title: 如何将 Azure 表存储与 C++ 配合使用
 description: 使用 Azure 表存储或 Azure Cosmos DB 表 API 将结构化数据存储在云中。
-services: cosmos-db
-author: rockboyfor
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: cpp
 ms.topic: sample
 origin.date: 04/05/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
+author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: 1fac04e58f9b2734d0353972296bad67a7e4c150
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: 12f33c78ad4677328b3b1c15dcca93da9e3275f7
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026732"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309176"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>如何通过 C++ 使用 Azure 表存储或 Azure Cosmos DB 表 API
 <!-- Not Available on Azure Cosmos DB Table API -->
@@ -66,6 +65,7 @@ Azure 存储客户端或 Cosmos DB 客户端使用连接字符串来存储用于
 // Define the Storage connection string with your values.
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key;EndpointSuffix=core.chinacloudapi.cn"));
 ```
+
 <!-- ConnectionString is Correct with EndpointSuffix=core.chinacloudapi.cn-->
 <!-- Not Available on ## Set up an Azure Cosmos DB connection string --> 以下示例假设已使用此方法获取存储连接字符串。  
 

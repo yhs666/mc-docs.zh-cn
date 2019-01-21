@@ -1,24 +1,19 @@
 ---
-title: 监视应用程序网关的访问日志、性能日志、后端运行状况及指标
-description: 了解如何启用和管理应用程序网关的访问日志和性能日志
+title: 监视 Azure 应用程序网关的访问日志、性能日志、后端运行状况及指标
+description: 了解如何启用和管理 Azure 应用程序网关的访问日志和性能日志
 services: application-gateway
-author: amitsriva
-manager: rossort
-tags: azure-resource-manager
+author: vhorne
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 06/20/2018
-ms.date: 11/21/2018
+origin.date: 01/11/2019
+ms.date: 01/15/2019
 ms.author: v-junlch
-ms.openlocfilehash: ab05b1670676f4cf76063ff1d121085eb3f585e8
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: c7237d6eb1e871425b38dd27ad1fac74876eef37
+ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672802"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54333875"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>应用程序网关的后端运行状况、诊断日志和指标
 
@@ -98,17 +93,17 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 可在 Azure 中使用不同类型的日志来对应用程序网关进行管理和故障排除。 可通过门户访问其中某些日志。 所有日志都可从 Azure Blob 存储提取并在 Excel 和 PowerBI 等各种工具中查看。 可从以下列表了解有关不同类型日志的详细信息：
 
-- 访问日志：可以使用此日志来查看应用程序网关访问模式并分析重要信息，包括调用方的 IP、请求的 URL、响应延迟、返回代码、输入和输出字节数。每隔 300 秒会收集一次访问日志。 此日志包含每个应用程序网关实例的一条记录。 应用程序网关实例可由 instanceId 属性标识。
-- 性能日志：可使用此日志查看应用程序网关实例的执行情况。 此日志会捕获每个实例的性能信息，包括服务的总请求数、吞吐量（以字节为单位）、失败请求计数、正常和不正常的后端实例计数。 每隔 60 秒会收集一次性能日志。
-- 防火墙日志：可使用此日志查看通过应用程序网关（配置有 Web 应用程序防火墙）的检测模式或阻止模式记录的请求。
+- **访问日志**：可以使用此日志查看应用程序网关访问模式并分析重要信息。 此日志包括调用方的 IP、请求的 URL、响应延迟、返回代码，以及传入和传出的字节数。每隔 300 秒会收集一次访问日志。 此日志包含每个应用程序网关实例的一条记录。 应用程序网关实例由 instanceId 属性标识。
+- **性能日志**：可使用此日志查看应用程序网关实例的执行情况。 此日志会捕获每个实例的性能信息，包括服务的总请求数、吞吐量（以字节为单位）、失败请求计数、正常和不正常的后端实例计数。 每隔 60 秒会收集一次性能日志。
+- **防火墙日志**：可使用此日志查看通过应用程序网关（配置有 Web 应用程序防火墙）的检测模式或阻止模式记录的请求。
 
 > [!NOTE]
 > 日志仅适用于在 Azure Resource Manager 部署模型中部署的资源。 不能将日志用于经典部署模型中的资源。 若要更好地了解两种模型，请参阅[了解 Resource Manager 部署和经典部署](../azure-resource-manager/resource-manager-deployment-model.md)一文。
 
 可以通过 2 个选项来存储日志：
 
-- 存储帐户：如果日志存储时间较长并且需要根据情况进行查看，最好使用存储帐户。
-- 事件中心：若要集成其他安全信息和事件管理 (SEIM) 工具以获取资源警报，最好使用事件中心。
+- **存储帐户**：如果日志存储时间较长并且希望能根据需要随时查看，则最好使用存储帐户。
+- **事件中心**：若要集成其他安全信息和事件管理 (SEIM) 工具，获取资源警报，则事件中心是很好的选择。
 
 ### <a name="enable-logging-through-powershell"></a>通过 PowerShell 启用日志记录
 
@@ -165,7 +160,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 |clientPort     | 请求的起始端口。       |
 |httpMethod     | 请求所用的 HTTP 方法。       |
 |requestUri     | 所收到请求的 URI。        |
-|RequestQuery     | 服务器路由的项：发送请求的后端池实例。</br>X-AzureApplicationGateway-LOG-ID：用于请求的相关性 ID， 可用于排查后端服务器上的流量问题。 </br>SERVER-STATUS：应用程序网关从后端接收的 HTTP 响应代码。       |
+|RequestQuery     | **Server-Routed**：请求已发送至后端池实例。</br>**X-AzureApplicationGateway-LOG-ID**：用于请求的相关 ID。 可用于排查后端服务器上的流量问题。 </br>**SERVER-STATUS**：应用程序网关接收从后端的 HTTP 响应代码。       |
 |UserAgent     | HTTP 请求标头中的用户代理。        |
 |httpStatus     | 从应用程序网关返回到客户端的 HTTP 状态代码。       |
 |httpVersion     | 请求的 HTTP 版本。        |
@@ -208,7 +203,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 |healthyHostCount     | 后端池中运行正常的主机数。        |
 |unHealthyHostCount     | 后端池中运行不正常的主机数。        |
 |requestCount     | 服务的请求数。        |
-|latency | 从实例到请求服务后端的请求的延迟（以毫秒为单位）。 |
+|latency | 从实例到请求服务后端的请求的平均延迟（以毫秒为单位）。 |
 |failedRequestCount| 失败的请求数。|
 |throughput| 自最后一个日志后的平均吞吐量，以每秒字节数为单位。|
 
@@ -343,4 +338,4 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 [9]: ./media/application-gateway-diagnostics/figure9.png
 [10]: ./media/application-gateway-diagnostics/figure10.png
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

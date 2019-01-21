@@ -2,21 +2,21 @@
 title: 在 Azure 存储中存储和查看诊断数据
 description: 将 Azure 诊断数据传输到 Azure 存储并查看
 services: azure-monitor
-author: jpconnock
+author: lingliw
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 08/01/2016
-ms.author: jeconnoc
+ms.date: 01/21/19
+ms.author: v-lingwu
 ms.component: diagnostic-extension
-ms.openlocfilehash: 06eecb07df4ebf53291e20adac398921b9635937
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.openlocfilehash: d5b93f05ab66037b5bf2057bf6c3a72ac11795ae
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141727"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363346"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>在 Azure 存储中存储和查看诊断数据
-诊断数据不会永久存储，除非将其传输到 Microsoft Azure 存储模拟器或 Azure 存储中。 一旦位于存储空间中，诊断数据就可以使用提供的工具之一进行查看。
+诊断数据不会永久存储，除非将其传输到世纪互联 Azure 存储模拟器或 Azure 存储。 如果诊断数据位于存储中，可以使用提供的工具之一进行查看。
 
 ## <a name="specify-a-storage-account"></a>指定存储帐户
 指定要在 ServiceConfiguration.cscfg 文件中使用的存储帐户。 帐户信息被定义为配置设置中的连接字符串。 以下示例显示的是在 Visual Studio 中针对新的云服务项目创建的默认连接字符串：
@@ -74,8 +74,8 @@ ms.locfileid: "54141727"
 将数据传输到存储后，可以使用多个工具进行查看。 例如：
 
 * Visual Studio 中的服务器资源管理器 - 如果已安装 Azure Tools for Microsoft Visual Studio，则可以在服务器资源管理器中使用“Azure 存储”节点从 Azure 存储帐户查看只读 Blob 和表数据。 既可以从本地存储模拟器帐户显示数据，也可以从为 Azure 创建的存储帐户显示数据。 有关详细信息，请参阅[使用服务器资源管理器浏览和管理存储资源](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage)。
-* [Microsoft Azure 存储资源管理器](../../vs-azure-tools-storage-manage-with-storage-explorer.md) 是一款独立应用，可用于在 Windows、OSX 和 Linux 上轻松处理 Azure 存储数据。
-* [Azure Management Studio](http://www.cerebrata.com/products/azure-management-studio/introduction) 随附 Azure 诊断管理器，可用于查看、下载和管理 Azure 中运行的应用程序收集的诊断数据。
+* [世纪互联 Azure 存储资源管理器](../../vs-azure-tools-storage-manage-with-storage-explorer.md) 是一款独立应用，可用于在 Windows、OSX 和 Linux 上轻松处理 Azure 存储数据。
+* [Azure Management Studio](https://www.cerebrata.com/products/azure-management-studio/introduction) 随附 Azure 诊断管理器，可用于查看、下载和管理 Azure 中运行的应用程序收集的诊断数据。
 
 ## <a name="next-steps"></a>后续步骤
 [使用 Azure 诊断跟踪云服务应用程序中的流](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)

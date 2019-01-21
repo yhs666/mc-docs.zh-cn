@@ -13,12 +13,12 @@ ms.reviewer: carlrab
 manager: digimobile
 origin.date: 09/14/2018
 ms.date: 12/03/2018
-ms.openlocfilehash: e9b3ea2ad3d0e86d806bc98ed5c2d33ece402f35
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 187ba9612550ef6fe6a683ce25bbb3fb660bff99
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673038"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396990"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>管理 Azure SQL 数据库中的文件空间
 本文介绍 Azure SQL 数据库中不同类型的存储空间，以及当需要显式管理分配给数据库和弹性池的文件空间时可以执行的步骤。

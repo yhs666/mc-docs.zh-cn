@@ -1,20 +1,19 @@
 ---
 title: 一致性级别和 Azure Cosmos DB API
 description: 了解 Azure Cosmos DB 中 API 的一致性级别。
-keywords: 一致性, azure cosmos db, azure, 模型, mongodb, cassandra, 图, 表, 21Vianet Azure
-services: cosmos-db
 author: rockboyfor
 ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 10/23/2018
-ms.date: 01/07/2019
-ms.openlocfilehash: 125cf650f1ede4a793e21db3ad382ec67975022d
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.date: 01/21/2019
+ms.reviewer: sngun
+ms.openlocfilehash: b8b419157061da5973baf759be0c25cfa9f75503
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026834"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309257"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>一致性级别和 Azure Cosmos DB API
 
@@ -23,7 +22,9 @@ Azure Cosmos DB SQL API 本机支持 Azure Cosmos DB 提供的五个一致性模
 Azure Cosmos DB 还为常用数据库提供对与线路协议兼容的 API 的本机支持。 数据库包括 MongoDB。 数据库既没有提供准确定义的一致性模型，也没有为一致性级别提供由 SLA 支持的保证。 它们通常仅提供 Azure Cosmos DB 提供的五个一致性模型的一个子集。 对于 SQL API，将使用 Azure Cosmos DB 帐户上配置的默认一致性级别。 
 
 <!-- Not Available on Apache Cassandra, Gremlin, and Azure Tables-->
-<!-- Not Available on Gremlin API and Table API--> 以下各部分介绍了由 MongoDB 3.4 的 OSS 客户端驱动程序请求的数据一致性之间的映射。 本文档还介绍了 MongoDB 对应的 Azure Cosmos DB 一致性级别。
+<!-- Not Available on Gremlin API and Table API-->
+
+以下各部分介绍了由 MongoDB 3.4 的 OSS 客户端驱动程序请求的数据一致性之间的映射。 本文档还介绍了 MongoDB 对应的 Azure Cosmos DB 一致性级别。
 
 <!-- Not Available on Apache Cassandra 4.x which use Cassandra API-->
 <a name="cassandra-mapping"></a>
@@ -47,4 +48,5 @@ Azure Cosmos DB 还为常用数据库提供对与线路协议兼容的 API 的�
 * [Azure Cosmos DB 的用于 MongoDB 的 API 支持的 MongoDB 功能](mongodb-feature-support.md)
 
 <!-- Not Available on * [Apache Cassandra features supported by the Azure Cosmos DB Cassandra API](cassandra-support.md)-->
-<!-- Update_Description: wording update -->
+
+<!-- Update_Description: update meta properties -->

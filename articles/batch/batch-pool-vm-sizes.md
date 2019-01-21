@@ -1,5 +1,5 @@
 ---
-title: 选择 Azure Batch 池的 VM 大小 | Azure
+title: 选择池的 VM 大小 - Azure Batch | Azure Docs
 description: 如何选择 Azure Batch 池中计算节点的可用 VM 大小
 services: batch
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/07/2018
-ms.date: 11/26/2018
+ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 82c9e431577218f511b778ea8ba5585f1cbaccff
-ms.sourcegitcommit: 0544706ab2ff239fb09fbeedc5910644301ad029
+ms.custom: seodec18
+ms.openlocfilehash: 40d591a5ffe9b86854bfbf3eec9dea70b65bb63e
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2018
-ms.locfileid: "52745212"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363278"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>选择 Azure Batch 池中计算节点的 VM 大小
 
@@ -41,6 +41,16 @@ ms.locfileid: "52745212"
 | 基本 A 系列 | Basic_A0 (A0) |
 | A 系列 | Standard_A0 |
 | B 系列 | 全部 |
+| DC 系列 | 全部 | 
+| 最佳内存优化 | 全部 |
+| Hb 系列 <sup>1</sup> | 全部 | 
+| Hc 系列 <sup>1</sup> | 全部 |
+| Lsv2 系列 | 全部 |
+| NDv2 系列 <sup>1</sup> | 全部 |
+| NVv2 系列 <sup>1</sup> | 全部 |
+| SAP HANA | 全部 |
+
+<sup>1</sup> 目前不受支持，但将来会受到支持。
 
 仅低优先级节点支持以下 VM 大小：
 

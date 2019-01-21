@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 79f892eabaef4b63c33cc932bf36324be0130b88
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: 313f5645077108ff432a16e42200f2f10c90a49b
+ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026812"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54333889"
 ---
 # <a name="optimizing-throughput-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中优化吞吐量成本
 
@@ -181,12 +181,10 @@ connectionPolicy.RetryOptions.MaxRetryWaitTimeInSeconds = 60;
 
 接下来，可通过以下文章详细了解 Azure Cosmos DB 中的成本优化：
 
-* 详细了解[针对开发和测试进行优化](optimize-dev-test.md)
-<!--Not Available on [Understanding your Azure Cosmos DB bill](understand-your-bill.md)-->
+* 详细了解[开发和测试优化](optimize-dev-test.md)
 * 详细了解如何[优化存储成本](optimize-cost-storage.md)
 * 详细了解如何[优化读取和写入成本](optimize-cost-reads-writes.md)
 * 详细了解如何[优化查询成本](optimize-cost-queries.md)
 * 详细了解[优化多区域 Azure Cosmos 帐户的成本](optimize-cost-regions.md)
 
-<!-- Update_Description: new articles on optimized cost throughtput -->
-<!--ms.date: 12/31/2018-->
+<!-- Update_Description: update meta properties -->

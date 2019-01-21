@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: article
 origin.date: 02/28/2018
 ms.date: 12/31/2018
-ms.openlocfilehash: c16ea1333193f22780bd52245494cfad3bef3f57
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.openlocfilehash: a8330c6d6bb8f03582f90fe760b6e9c34cb802cb
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806175"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397000"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>有关使用 Azure Database for PostgreSQL 确保业务连续性的概述
 
@@ -51,5 +51,5 @@ Azure 数据中心会罕见地发生中断。 发生中断时，可能仅导致�
 
 ## <a name="next-steps"></a>后续步骤
 - 若要详细了解自动备份，请参阅 [Azure Database for PostgreSQL 中的备份](concepts-backup.md)。 
-- 若要使用 Azure 门户还原到某个时间点，请参阅 [使用 Azure 门户将数据库还原到某个时间点](howto-restore-server-portal.md)。
-- 若要使用 Azure CLI 还原到某个时间点，请参阅 [使用 CLI 将数据库还原到某个时间点](howto-restore-server-cli.md)。
+- 要使用 Azure 门户还原到某个时间点，请参阅[使用 Azure 门户将数据库还原到某个时间点](howto-restore-server-portal.md)。
+- 若要使用 Azure CLI 还原到某个时间点，请参阅[使用 CLI 将数据库还原到某个时间点](howto-restore-server-cli.md)。

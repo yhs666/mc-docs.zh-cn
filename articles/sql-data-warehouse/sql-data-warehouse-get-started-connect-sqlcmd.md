@@ -1,6 +1,6 @@
 ---
 title: 连接到 Azure SQL 数据仓库 sqlcmd |Microsoft 文档
-description: 使用 [sqlcmd][sqlcmd] 命令行实用工具连接和查询 Azure SQL 数据仓库。
+description: 使用 sqlcmd 命令行实用程序连接并查询 Azure SQL 数据仓库。
 services: sql-data-warehouse
 author: WenJason
 manager: digimobile
@@ -8,15 +8,15 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 origin.date: 04/17/2018
-ms.date: 10/15/2018
+ms.date: 01/21/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 1c17adb5d5d8fe2f51f1894c02d0f3b6782860cf
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c2f7e3ec8ad88c6180e9188a306ba9abbda15527
+ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656679"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54333869"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>使用 sqlcmd 连接到 SQL 数据仓库
 > [!div class="op_single_selector"]
@@ -31,14 +31,14 @@ ms.locfileid: "52656679"
 ## <a name="1-connect"></a>1.连接
 若要开始使用 [sqlcmd][sqlcmd]，请打开命令提示符并输入 **sqlcmd** ，后跟 SQL 数据仓库数据库的连接字符串。 连接字符串需要以下参数：
 
-* 服务器 (-S)：采用 `<`服务器名称`>`.database.chinacloudapi.cn 格式的服务器
-* 数据库 (-d)：数据库名称。
-* 启用带引号的标识符 (-I)：必须启用带引号的标识符才能连接到 SQL 数据仓库实例。
+* **服务器 (-S)：** 采用 `<`服务器名称`>`.database.chinacloudapi.cn 格式的服务器
+* **数据库 (-d)：** 数据库名称。
+* **启用带引号的标识符 (-I)：** 必须启用带引号的标识符才能连接到 SQL 数据仓库实例。
 
 若要使用 SQL Server 身份验证，需添加用户名/密码参数：
 
-* 用户 (-U)：采用 `<`用户`>` 格式的服务器用户
-* 密码 (-P)：与用户关联的密码。
+* **用户 (-U)：** 采用 `<`User`>` 格式的服务器用户
+* **密码 (-P)：** 与用户关联的密码。
 
 例如，连接字符串可能如下所示：
 

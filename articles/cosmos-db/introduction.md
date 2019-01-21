@@ -1,20 +1,18 @@
 ---
 title: Azure Cosmos DB 简介
 description: 了解 Azure Cosmos DB。 此多区域分布式多模型数据库是为了实现低延迟、弹性可伸缩性和高可用性而构建的，提供对 NoSQL 数据的本机支持。
-services: cosmos-db
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: overview
 origin.date: 12/18/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.custom: mvc
-ms.openlocfilehash: aef2dc4c99b4132938473294c8598e6816ffb407
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: f8509796b93887c94b555cc4523349edeeba4a63
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026719"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309318"
 ---
 <!-- Notice in meta : 全球 to 多个区域 -->
 # <a name="welcome-to-azure-cosmos-db"></a>欢迎使用 Azure Cosmos DB
@@ -66,8 +64,9 @@ Cosmos DB 是 Azure 上的一项基本服务。 近十年以来，世纪互联�
 
 ### <a name="ubiquitous-regional-presence"></a>遍及各个区域
 
-Cosmos DB 已在中国的所有 Azure 区域推出，包括 Azure 中国世纪互联的 4 个区域。 请参阅 [Cosmos DB 的区域覆盖范围](regional-presence.md)。
+Cosmos DB 面向中国的所有 Azure 区域提供。 请参阅 [Cosmos DB 的区域覆盖范围](regional-presence.md)。
 
+<!--Not Available on including 54+ regions in public cloud, Azure China 21Vianet-->
 ### <a name="secure-by-default-and-enterprise-ready"></a>默认安全且企业就绪
 
 Cosmos DB 通过了[广泛的合规标准](compliance.md)认证。 此外，Cosmos DB 中的所有数据经过静态和动态加密。 Cosmos DB 提供行级授权，并遵守严格的安全标准。
@@ -113,4 +112,4 @@ Cosmos DB 还直接在服务中实现 [MongoDB](mongodb-introduction.md) 网络�
 <!--Not Available on * [Get started with Azure Cosmos DB Cassandra API](create-cassandra-dotnet.md)-->
 <!--Not Available on * [Get started with Azure Cosmos DB Gremlin API](create-graph-dotnet.md)-->
 <!--Not Available on * [Get started with Azure Cosmos DB Table API](create-table-dotnet.md)-->
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update -->

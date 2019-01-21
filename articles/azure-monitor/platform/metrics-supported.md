@@ -1,19 +1,19 @@
 ---
 title: Azure Monitor 按资源类型支持的指标
 description: 可在 Azure 监视器中为每种资源类型使用的指标的列表。
-author: anirudhcavale
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 09/14/2018
-ms.author: ancav
+ms.date: 01/21/19
+ms.author: v-lingwu
 ms.component: metrics
-ms.openlocfilehash: 9359dde942be6eaa970f3510b8750d9fba8912ed
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.openlocfilehash: 58cc5d62a5d2bc506b27e55c803aa52882f5eeaf
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141859"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363584"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure 监视器支持的指标
 Azure 监视器提供多种方式来与指标交互，包括在门户中制作指标图表、通过 REST API 访问指标，或者使用 PowerShell 或 CLI 查询指标。 下面是目前可在 Azure 监视器的指标管道中使用的完整指标列表。 其他指标可在门户或旧版 API 中使用。 下面的此列表仅包含可以通过合并的 Azure Monitor 指标管道使用的指标。 若要查询和访问这些指标，请使用 [2018-01-01 API 版本](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -65,7 +65,7 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 |ProcessingPoolIdleIOJobThreads|线程:处理池空闲 I/O 作业线程数|计数|平均值|处理线程池中可用于 I/O 作业的空闲线程数。|ServerResourceType|
 |ProcessingPoolIdleNonIOThreads|线程:处理池空闲非 I/O 线程数|计数|平均值|处理线程池中专用于非 I/O 作业的空闲线程数。|ServerResourceType|
 |QueryPoolIdleThreads|线程:查询池空闲线程数|计数|平均值|处理线程池中可用于 I/O 作业的空闲线程数。|ServerResourceType|
-|QueryPoolJobQueueLength|线程：查询池作业队列长度|计数|平均值|查询线程池队列中的作业数。|ServerResourceType|
+|QueryPoolJobQueueLength|线程:查询池作业队列长度|计数|平均值|查询线程池队列中的作业数。|ServerResourceType|
 |ShortParsingBusyThreads|线程:短分析繁忙线程数|计数|平均值|短分析线程池中的繁忙线程数。|ServerResourceType|
 |ShortParsingIdleThreads|线程:短分析空闲线程数|计数|平均值|短分析线程池中的空闲线程数。|ServerResourceType|
 |ShortParsingJobQueueLength|线程:短分析作业队列长度|计数|平均值|短分析线程池队列中的作业数。|ServerResourceType|
@@ -816,7 +816,7 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 |ClusterDataCapacityFactor|缓存使用率|百分比|平均值|群集范围内的使用率级别|无维度|
 |QueryDuration|查询持续时间|毫秒|平均值|队列持续时间（秒）|QueryStatus|
 |IngestionsLoadFactor|引入使用率|百分比|平均值|群集中已使用引入槽的比率|无维度|
-|IsEngineAnsweringQuery|保持活动状态|计数|平均值|完整性检查表示群集响应查询|无维度|
+|IsEngineAnsweringQuery|保持活动状态|计数|平均值|完整性检查表明群集对查询做出了响应|无维度|
 |IngestCommandOriginalSizeInMb|引入量 (MB)|计数|总计|已引入群集的数据总量 (MB)|无维度|
 |EventAgeSeconds|引入延迟（秒）|秒|平均值|从源（例如消息位于事件中心）到群集的引入时间（秒）|无维度|
 |EventReceivedFromEventHub|处理的事件数（针对事件中心）|计数|总计|从事件中心引入时，由群集处理的事件数|无维度|
@@ -1570,6 +1570,5 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 |MemoryPercentage|内存百分比|百分比|平均值|内存百分比|实例|
 
 ## <a name="next-steps"></a>后续步骤
-* [了解 Azure Monitor 中的指标](../../azure-monitor/platform/data-collection.md)
 * [针对指标创建警报](../../azure-monitor/platform/alerts-overview.md)
 * [将指标导出到存储、事件中心或 Log Analytics](../../azure-monitor/platform/diagnostic-logs-overview.md)

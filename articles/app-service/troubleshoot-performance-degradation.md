@@ -18,12 +18,12 @@ origin.date: 08/03/2017
 ms.date: 01/21/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: e949149d83e549c929fe9ea5c492e0f79480722a
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 62929e6a5b0af11db780633a85205865b8504264
+ms.sourcegitcommit: a09ee94bc8a6b4270f655a1d80cdb65eca320559
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083540"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396446"
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>排查 Azure 应用服务中 Web 应用性能缓慢的问题
 本文帮助排查 [Azure 应用服务](./overview.md)中应用性能缓慢的问题。

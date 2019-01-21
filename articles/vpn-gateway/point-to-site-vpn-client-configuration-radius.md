@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 06/07/2018
 ms.date: 01/14/2019
 ms.author: v-jay
-ms.openlocfilehash: 47592d96bedf51b96684aeb958883ab1850bc88c
-ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
+ms.openlocfilehash: 65b0d550580131117fae54a99db5e589140c4630
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54059025"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397064"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>创建并安装适用于 P2S RADIUS 身份验证的 VPN 客户端配置文件
 

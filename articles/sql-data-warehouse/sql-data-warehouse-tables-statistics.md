@@ -11,12 +11,12 @@ origin.date: 05/09/2018
 ms.date: 09/17/2018
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 67bd995677c4fea11201345e4ae31845406dc9e2
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5f703b263b80f1d2c4534332d0cf5ce8ce99fa6f
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645353"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397010"
 ---
 # <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>创建、更新 Azure SQL 数据仓库中表的统计信息
 用于创建和更新 Azure SQL 数据仓库中表的查询优化统计信息的建议和示例。
@@ -51,7 +51,7 @@ SET AUTO_CREATE_STATISTICS ON
 > 统计信息的创建还会记录在其他用户上下文中的 [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016) 中。
 > 
 
-在创建自动统计信息时，它们将采用以下格式：_WA_Sys_<以十六进制表示的 8 位列 ID>_<以十六进制表示的 8 位表 ID>。 可以通过运行 [DBCC SHOW_STATISTICS](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-2017) 命令查看已创建的统计信息：
+创建自动统计信息时，它们将采用以下格式：_WA_Sys_<十六进制的 8 位列 ID>_<十六进制的 8 位表 ID>。 可以通过运行 [DBCC SHOW_STATISTICS](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-2017) 命令查看已创建的统计信息：
 
 ```sql
 DBCC SHOW_STATISTICS (<tablename>, <targetname>)
@@ -126,7 +126,7 @@ WHERE
 
 有关详细信息，请参阅[基数估计](https://docs.microsoft.com/sql/relational-databases/performance/cardinality-estimation-sql-server)。
 
-## <a name="examples-create-statistics"></a>示例：创建统计信息
+## <a name="examples-create-statistics"></a>示例:创建统计信息
 以下示例演示如何使用各种选项来创建统计信息。 用于每个列的选项取决于数据特征以及在查询中使用列的方式。
 
 ### <a name="create-single-column-statistics-with-default-options"></a>使用默认选项创建单列统计信息
@@ -338,7 +338,7 @@ EXEC [dbo].[prc_sqldw_create_stats] 3, 20;
 
 基于所有列创建示例统计信息 
 
-## <a name="examples-update-statistics"></a>示例：更新统计信息
+## <a name="examples-update-statistics"></a>示例:更新统计信息
 要更新统计信息，可以：
 
 - 更新一个统计信息对象。 指定要更新的统计信息对象名称。

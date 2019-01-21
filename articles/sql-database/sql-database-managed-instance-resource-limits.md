@@ -13,12 +13,12 @@ ms.reviewer: carlrab, jovanpop, sachinp
 manager: digimobile
 origin.date: 12/12/2018
 ms.date: 01/07/2019
-ms.openlocfilehash: e0d751d2152a2fce6476666965c6ca149674ebf6
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 95b7926767c8d9b28b8a904fcc27b146dd8d0f8e
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996320"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397021"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL 数据库托管实例资源限制概述
 
@@ -57,7 +57,7 @@ Azure SQL 数据库托管实例可部署在两个硬件代次（Gen4 和 Gen5）
 | 数据/日志 IOPS（近似值） | 每个文件 500-7500<br/>\*[取决于文件大小](/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 11K - 110K（每个 vCore 为 1375） |
 | 实例日志吞吐量 | 每个实例 22MB/秒 | 每个 vCore 3MB/秒<br/>最大值为 48 MB/秒 |
 | 数据吞吐量（近似值） | 每个文件 100-250 MB/秒<br/>\*[取决于文件大小](/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 每个 vCore 24-48 MB/秒 |
-| IO 延迟（近似值） | 5-10 毫秒 | 1-2 毫秒 |
+| IO 延迟（近似） | 5-10 毫秒 | 1-2 毫秒 |
 | 最大 tempDB 大小 | 192-1920 GB（每个 vCore 为 24 GB） | 无约束 - 受最大实例存储大小限制 |
 
 **注释**：

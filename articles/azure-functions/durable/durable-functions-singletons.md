@@ -1,6 +1,6 @@
 ---
 title: Durable Functions 的单一实例 - Azure
-description: 如何使用 Azure Functions 的 Durable Functons 扩展中的单一实例。
+description: 如何使用 Azure Functions 的 Durable Functions 扩展中的单一实例。
 services: functions
 author: cgillum
 manager: jeconnoc
@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 12/25/2018
+ms.date: 01/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: 7ebb33fd2e3cd09174c78281ea191179ffe4540e
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 2331402fe5e8d1dd21da7bae9aa34639ee0bc0c7
+ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806706"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334217"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Durable Functions 中的单一实例业务流程协调程序 (Azure Functions)
 
@@ -92,7 +92,7 @@ modules.exports = async function(context, req) {
 > 在 JavaScript 中进行本地开发时，需将环境变量 `WEBSITE_HOSTNAME` 设置为 `localhost:<port>`（例如， 设置为 `localhost:7071`），以便使用 `DurableOrchestrationClient` 上的方法。 有关此要求的详细信息，请参阅 [GitHub 问题](https://github.com/Azure/azure-functions-durable-js/issues/28)。
 
 > [!NOTE]
-> 在此示例中有潜在的争用条件。 如果 **HttpStartSingle** 的两个实例同时执行，结果可能是创建了单一实例的两个不同实例，一个实例覆盖另一个实例。 根据你的要求，这可能会产生不良副作用。 因此，必须确保没有两个请求可以同时执行此触发器函数。
+> 在此示例中有潜在的争用条件。 如果 **HttpStartSingle** 的两个实例同时执行，则两个函数调用都将报告成功，但实际上只会启动一个业务流程实例。 根据你的要求，这可能会产生不良副作用。 因此，必须确保没有两个请求可以同时执行此触发器函数。
 
 业务流程协调程序函数的实现细节实际上无关紧要。 它可以是一个启动并完成的常规业务流程协调程序函数，也可以是一个永远运行的业务流程协调程序函数（即[永久业务流程](durable-functions-eternal-orchestrations.md)）。 重点是一次只有一个实例在运行。
 
@@ -101,3 +101,4 @@ modules.exports = async function(context, req) {
 > [!div class="nextstepaction"]
 > [了解如何调用子业务流程](durable-functions-sub-orchestrations.md)
 
+<!-- Update_Description: wording update -->

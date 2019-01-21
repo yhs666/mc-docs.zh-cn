@@ -8,12 +8,12 @@ ms.service: postgresql
 ms.topic: conceptual
 origin.date: 10/22/2018
 ms.date: 12/03/2018
-ms.openlocfilehash: 29bf646b41c764671a4330c8ba4f1cacd0145b00
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: 324454da28ed81d95d47b56116e89ecc8d311183
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192847"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396992"
 ---
 # <a name="optimizing-autovacuum-on-azure-database-for-postgresql-server"></a>在 Azure Database for PostgreSQL 服务器中优化 autovacuum 
 本文介绍如何在 Azure Database for PostgreSQL 上有效地优化 autovacuum。

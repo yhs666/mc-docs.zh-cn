@@ -13,13 +13,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 12/24/2018
-ms.date: 01/07/2019
-ms.openlocfilehash: 12d61927413dec87e28bcd8c1f1577cb56f3d9c2
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.date: 01/21/2019
+ms.openlocfilehash: 90f22a5e4ac3fefc9e94cdfc554e79488d79c3ad
+ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996274"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363798"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure---paas-or-iaas"></a>在 Azure 中选择适当的 SQL Server 选项 - PaaS 或 IaaS
 
@@ -79,8 +79,7 @@ ms.locfileid: "53996274"
 | **兼容性** | 支持大多数本地数据库级功能。 | 支持所有本地功能。 |
 | **资源：** |不想要利用 IT 资源来配置和管理基础结构，而想要专注于应用程序层。 |可将某些 IT 资源用于配置和管理。 提供的某些自动化功能大大简化了这些任务。 |
 | **总拥有成本：** |消除硬件成本并减少管理成本。 |消除硬件成本。 |
-| **业务连续性：** |除了[内置的容错基础结构功能](sql-database-high-availability.md)以外，Azure SQL 数据库还提供诸如[自动备份](sql-database-automated-backups.md)、[时间点还原](sql-database-recovery-using-backups.md#point-in-time-restore)、[异地还原](sql-database-recovery-using-backups.md#geo-restore)、[活动异地复制](sql-database-active-geo-replication.md)和[自动故障转移组](sql-database-auto-failover-group.md)
- 之类的功能来提高业务连续性。 有关详细信息，请参阅 [SQL 数据库业务连续性概述](sql-database-business-continuity.md)。 | Azure VM 上的 SQL Server 允许设置高可用性和灾难恢复解决方案，以满足数据库的具体需求。 因此，可以构建针对应用程序高度优化的系统。 可以按需求自行测试并运行故障转移。 有关详细信息，请参阅 [《High Availability and Disaster Recovery for SQL Server on Azure Virtual Machines》](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md)（Azure 虚拟机中 SQL Server 的高可用性和灾难恢复）。 |
+| **业务连续性：** |除[内置容错基础结构功能](sql-database-high-availability.md)以外，Azure SQL 数据库还提供[自动备份](sql-database-automated-backups.md)、[时间点还原](sql-database-recovery-using-backups.md#point-in-time-restore)、[异地还原](sql-database-recovery-using-backups.md#geo-restore)、[活动异地复制](sql-database-active-geo-replication.md)和[自动故障转移组](sql-database-auto-failover-group.md)等功能来提高业务连续性。 有关详细信息，请参阅 [SQL 数据库业务连续性概述](sql-database-business-continuity.md)。 | Azure VM 上的 SQL Server 允许设置高可用性和灾难恢复解决方案，以满足数据库的具体需求。 因此，可以构建针对应用程序高度优化的系统。 可以按需求自行测试并运行故障转移。 有关详细信息，请参阅 [《High Availability and Disaster Recovery for SQL Server on Azure Virtual Machines》](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md)（Azure 虚拟机中 SQL Server 的高可用性和灾难恢复）。 |
 | **混合云：** |本地应用程序可以访问 Azure SQL 数据库中的数据。 |借助 Azure VN 上的 SQL Server，应用程序可以一部分在云中运行，一部分在本地运行。 例如，可以通过 [Azure 虚拟网络](../virtual-network/virtual-networks-overview.md)，将本地网络和 Active Directory 域扩展到云中。 此外，可以使用 [Azure 中的 SQL Server 数据文件功能](https://msdn.microsoft.com/library/dn385720.aspx)，将本地数据文件存储在 Azure 存储中。 有关详细信息，请参阅 [SQL Server 2014 混合云简介](https://msdn.microsoft.com/library/dn606154.aspx)。 |
 |  | 作为订阅服务器支持使用 [SQL Server 事务复制](https://msdn.microsoft.com/library/mt589530.aspx)来复制数据。 |完全支持使用 [SQL Server 事务复制](https://msdn.microsoft.com/library/mt589530.aspx)、[AlwaysOn 可用性组](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md)、集成服务和日志传送来复制数据。 此外，完全支持传统的 SQL Server 备份 | |
 |  | | |
@@ -88,10 +87,11 @@ ms.locfileid: "53996274"
 ## <a name="business-motivations-for-choosing-azure-sql-database-or-sql-server-on-azure-vms"></a>选择 Azure SQL 数据库或 Azure VM 上的 SQL Server 时的业务动机
 
 有多个因素可能会影响你决定选择 PaaS 或 IaaS 来托管 SQL 数据库：
+
 - [成本](#cost) - PaaS 和 IaaS 选项都包括基本价格，其中涵盖了底层基础结构和许可证的费用。 但是，使用 IaaS 选项时，需要投入额外的时间和资源来管理数据库，而 PaaS 的价格已包括这些管理功能的费用。 选择 IaaS 选项可以在不使用资源时将其关闭，以降低成本；对于 PaaS 版本，除非你删除资源，然后在需要时重新创建资源，否则它会一直运行。
 - [管理](#administration) - PaaS 选项可以减少管理数据库所要投入的时间量。 但是，它也会阻止你执行某些可以提高工作负荷性能的自定义管理任务。
 - [服务级别协议](#service-level-agreement-sla) - IaaS 和 PaaS 都提供较高的行业标准 SLA。 在基础结构方面，PaaS 选项保证 99.99% 的 SLA，而 IaaS 保证 99.95% 的 SLA，这意味着，需要实施附加的机制才能确保数据库的可用性。 在极端情况下，若要实施与 PaaS 相当的高可用性解决方案，可能需要在 VM 中创建附加的 SQL Server 并配置 AlwaysOn 可用性组，而这可能会数据库成本翻倍。
-- [迁移到云所需的时间](#time-to-move-to-cloud) - Azure VM 中 SQL Server 与环境完全匹配，因此，从本地迁移到 Azure SQL VM，与在不同的本地服务器之间迁移数据库没有什么不同。
+- [迁移到 Azure 所需的时间](#market) - Azure VM 中 SQL Server 与你的环境完全匹配，因此，从本地迁移到 Azure SQL VM，与在不同的本地服务器之间迁移数据库没有什么不同。
 
 以下部分将更详细地讨论这些因素。
 
@@ -103,12 +103,12 @@ ms.locfileid: "53996274"
 
 目前，**SQL 数据库**以服务的形式出售，在多个服务层中可用，根据资源采用不同的价格，所有资源根据所选的服务层和计算大小，以固定费率向你收取每小时费用。
 使用 SQL 单一数据库时，可根据需求选择各种价格的服务层，基本层的价格为 32.33 元/月。
-有关自带许可的详细信息，请参阅 [Azure 上通过软件保障实现的许可移动性](https://azure.cn/pricing/license-mobility/)，或使用 [Azure 混合权益计算器](https://azure.cn/en-us/pricing/hybrid-benefit/#sql-database)来了解如何将成本**最高节省 40%**。
+有关自带许可的详细信息，请参阅 [Azure 上通过软件保障实现的许可移动性](https://azure.cn/pricing/license-mobility/)，或使用 [Azure 混合权益计算器](https://azure.cn/pricing/hybrid-benefit/#sql-database)来了解如何将成本**最高节省 40%**。
 可以动态调整服务层和计算大小，以满足应用程序的不同吞吐量需求。 有关当前支持的服务层的最新信息，请参阅[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)和[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)。 还可以创建[弹性池](sql-database-elastic-pool.md)，在数据库实例之间共享资源，以降低成本和应对使用高峰期。
 
 使用 **Azure SQL 数据库**，Microsoft 自动配置、修补和升级数据库软件，从而降低管理成本。 此外，它的[内置备份](sql-database-automated-backups.md)功能可帮助你大幅降低成本，尤其是当你拥有大量的数据库时。
 
-在 **Azure VM 上的 SQL Server** 中，可以使用平台提供的 SQL Server 映像（附带许可证），也可以引入自己的 SQL Server 许可证。 所有受支持的 SQL Server 版本（2008R2、2012、2014、2016）和特别版（开发人员版、Express 版、Web 版、Standard 版、Enterprise 版）都可用。 此外，映像的自带许可版本 (BYOL) 也可用。 使用 Azure 提供的映像时，营运成本取决于所选的 VM 大小以及 SQL Server 版本。 无论 VM 大小或 SQL Server 版本为何，都需要支付 SQL Server 和 Windows 或 Linux 服务器的每分钟许可成本，以及 VM 磁盘的 Azure 存储成本。 每分钟计费选项可让你随时使用 SQL Server，而无需另外购买 SQL Server 许可证。 如果在 Azure 中使用自己的 SQL Server 许可证，则只需支付服务器和存储成本。 有关自带许可证的详细信息，请参阅 [Azure 上通过软件保障实现的许可移动性](https://azure.cn/pricing/license-mobility/)。 另外，你需要对数据传输速率固定的 Internet 传出流量付费。
+在 **Azure VM 上的 SQL Server** 中，可以使用平台提供的 SQL Server 映像（附带许可证），也可以引入自己的 SQL Server 许可证。 所有受支持的 SQL Server 版本（2008R2、2012、2014、2016）和特别版（开发人员版、Express 版、Web 版、Standard 版、Enterprise 版）都可用。 此外，映像的自带许可版本 (BYOL) 也可用。 使用 Azure 提供的映像时，营运成本取决于所选的 VM 大小以及 SQL Server 版本。 无论 VM 大小或 SQL Server 版本为何，都需要支付 SQL Server 和 Windows 或 Linux 服务器的每分钟许可成本，以及 VM 磁盘的 Azure 存储成本。 每分钟计费选项可让你随时使用 SQL Server，而无需另外购买 SQL Server 许可证。 如果在 Azure 中使用自己的 SQL Server 许可证，则只需支付服务器和存储成本。 有关自带许可证的详细信息，请参阅 [Azure 上通过软件保障实现的许可移动性](https://azure.cn/pricing/license-mobility/)。 此外，需要对固定的 [数据传输速率](https://azure.cn/pricing/details/data-transfer/)的 Internet 传出流量付费。
 
 #### <a name="calculating-the-total-application-cost"></a>计算应用程序总成本
 

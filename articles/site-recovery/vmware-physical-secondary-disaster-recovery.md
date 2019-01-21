@@ -4,16 +4,17 @@ description: 了解如何使用 Azure Site Recovery 将 VMware VM 或 Windows �
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
+services: site-recovery
 ms.topic: conceptual
-origin.date: 10/29/2018
-ms.date: 12/10/2018
+origin.date: 12/31/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 76df1287dee0384546bd081622912c1aca4349fd
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: c7abf95d554392098d481f00a99694730f7b6ac1
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028565"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363507"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>将本地 VMware 虚拟机或物理服务器的灾难恢复设置到辅助站点
 
@@ -23,15 +24,17 @@ ms.locfileid: "53028565"
 
 Azure Site Recovery 方案（在本地 VMware 或物理数据中心之间进行复制）即将结束支持。
 
--   从 2018 年 8 月起，无法在恢复服务保管库中配置该方案，且无法从保管库下载 InMage Scout 软件。 现有部署仍受支持。 
--   从 2020 年 12 月 31 日起，该方案将不受支持。
+- 从 2018 年 8 月起，无法在恢复服务保管库中配置该方案，且无法从保管库下载 InMage Scout 软件。 现有部署仍受支持。 
+- 从 2020 年 12 月 31 日起，该方案将不受支持。
 - 现有合作伙伴可以将新客户加入到该方案中，直到支持结束。
 
 在 2018 年和 2019 年期间，将发布两个更新： 
 
 -   更新 7：修复了网络配置与合规性问题，并提供 TLS 1.2 支持。
--   更新 8：添加了对 Linux 操作系统 RHEL/CentOS 7.3/7.4/7.5 和 SUSE 12 的支持
+-   更新 8：添加了对 Linux 操作系统 CentOS 7.3/7.4/7.5 和 SUSE 12 的支持
 
+    <!--Not Available on RHEL-->
+    
 更新 8 之后，不会再发布进一步更新。 针对更新 8 中添加的操作系统，修补程序支持有限，会尽最大努力修复错误。
 
 Azure Site Recovery 为 VMware 和 Hyper-V 客户提供一流的无缝 DRaaS 解决方案，将 Azure 作为灾难恢复站点，不断创新。 Azure 建议现有 InMage/ASR Scout 客户考虑使用 Azure Site Recovery 的 VMware to Azure 方案来满足其业务连续性需求。 Azure Site Recovery 的 VMware to Azure 方案是适用于 VMware 应用程序的企业级 DR 解决方案，可提供几分钟的 RPO 和 RTO、支持多 VM 应用程序复制和恢复、可无缝入门、全面监控，且拥有显著的 TCO 优势。
@@ -62,18 +65,6 @@ Azure Site Recovery 为 VMware 和 Hyper-V 客户提供一流的无缝 DRaaS 解
 - [查看](vmware-physical-secondary-support-matrix.md)所有组件的支持要求。
 - 确保要复制的计算机符合[复制计算机支持](vmware-physical-secondary-support-matrix.md#replicated-vm-support)。
 
-## <a name="create-a-vault"></a>创建保管库
-
-[!INCLUDE [site-recovery-create-vault](../../includes/site-recovery-create-vault.md)]
-
-## <a name="choose-a-protection-goal"></a>选择保护目标
-
-选择要复制的内容以及要将内容复制到的位置。
-
-1. 单击“Site Recovery” > “准备基础结构” > “保护目标”。
-2. 选择“到恢复站点” > “是，使用 VMware vSphere 虚拟机监控程序”。 。
-3. 在“Scout 安装程序”中，下载 InMage Scout 8.0.1 GA 软件和注册密钥。 所有组件的安装程序文件都包含在下载的 .zip 文件中。
-
 ## <a name="download-and-install-component-updates"></a>下载并安装组件更新
 
  查看并安装最新的[更新](#updates)。 应按以下顺序在服务器上安装更新：
@@ -90,13 +81,115 @@ Azure Site Recovery 为 VMware 和 Hyper-V 客户提供一流的无缝 DRaaS 解
 > [!NOTE]
 >所有 Scout 组件的文件更新版本可能与更新 .zip 文件中的版本不同。 较旧的版本表示此更新自上一次更新以来组件中没有任何更改。
 
+下载[更新](https://aka.ms/asr-scout-update7) .zip 文件与 [MySQL 和 PHP 升级](https://aka.ms/asr-scout-u7-mysql-php-manualupgrade)配置文件。 更新 .zip 文件包含以下组件的所有基础二进制文件和累积的升级二进制文件： 
+  - InMage_ScoutCloud_RX_8.0.1.0_RHEL6-64_GA_02Mar2015.tar.gz
+  - RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.gz
+  - InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe
+  - InMage_CX_TP_8.0.1.0_Windows_GA_26Feb2015_release.exe
+  - CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe
+  - InMage_PI_8.0.1.0_Windows_GA_26Feb2015_release.exe
+  - InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe
+  - InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe
+  - InMage_UA_8.0.7.0_RHEL5-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_RHEL5-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_RHEL6-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_RHEL7-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP1-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP1-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP2-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP2-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP3-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP3-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP4-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP4-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-64_GA_04Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-SP1-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-SP1-64_GA_04Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-SP2-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-SP2-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-SP3-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-SP3-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-SP4-64_GA_03Dec2018_release.tar.gz
+1. 解压缩 .zip 文件。
+2. **RX 服务器**：将 **RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.gz** 复制到 RX 服务器，并将其解压缩。 在解压缩的文件夹中运行 **/Install**。
+3. **配置服务器和进程服务器**：将 **CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe** 复制到配置服务器和进程服务器。 双击以运行该文件。<br>
+4. **Windows 主目标服务器**：若要更新统一代理，请将 **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** 复制到服务器。 双击以运行该文件。 同一文件还可用于全新安装。 相同的统一代理更新也适用于源服务器。
+  由于 **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe** 是拥有所有最新更改的新 GA 安装程序，因此，在通过该安装程序执行了准备工作的主目标服务器上不需要应用更新。
+5. **vContinuum 服务器**：将 **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe** 复制到服务器。  确保已关闭 vContinuum 向导。 双击以运行该文件。
+6. **Linux 主目标服务器**：若要更新统一代理，请将 **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** 复制到 Linux 主目标服务器并将其解压缩。 在解压缩的文件夹中运行 **/Install**。
+7. **Windows 源服务器**：若要更新统一代理，请将 **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** 复制到源服务器。 双击以运行该文件。 
+8. **Linux 源服务器**：若要更新统一代理，请将相应版本的统一代理文件复制到 Linux 服务器并将其解压缩。 在解压缩的文件夹中运行 **/Install**。  示例：对于 RHEL 6.7 64 位服务器，将 **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** 复制到服务器并将其解压缩。 在解压缩的文件夹中运行 **/Install**。
+9. 在使用上述安装程序升级配置服务器、进程服务器和 RX 服务器后，需要通过[快速安装指南](https://aka.ms/asr-scout-quick-install-guide)的第 7.4 部分中提到的步骤手动升级 PHP 和 MySQL 二进制文件。
+
+## <a name="enable-replication"></a>启用复制
+
+1. 设置源与目标 VMware 站点之间的复制。
+2. 请参阅以下文档，了解有关安装、保护和恢复的详细信息：
+
+   * [发行说明](https://aka.ms/asr-scout-release-notes)
+   * [兼容性对照表](https://aka.ms/asr-scout-cm)
+   * [用户指南](https://aka.ms/asr-scout-user-guide)
+   * [RX 用户指南](https://aka.ms/asr-scout-rx-user-guide)
+   * [快速安装指南](https://aka.ms/asr-scout-quick-install-guide)
+   * [升级 MYSQL 和 PHP 二进制文件](https://aka.ms/asr-scout-u7-mysql-php-manualupgrade)
+
+## <a name="updates"></a>更新
+
+### <a name="site-recovery-scout-801-update-7"></a>Site Recovery Scout 8.0.1 Update 7 
+更新时间：2018 年 12 月 31 日，下载 [Scout update 7](https://aka.ms/asr-scout-update7)。
+Scout Update 7 是一个完整的安装程序，可用于全新安装以及升级采用早期更新（从 Update 1 到 Update 6）的现有代理/MT。 它包含从 Update 1 到 Update 6 的所有修补程序，以及下面所述的新修补程序和增强功能。
+
+#### <a name="new-features"></a>新增功能
+* PCI 符合性
+* TLS v1.2 支持
+
+#### <a name="bug-and-security-fixes"></a>Bug 和安全修补程序
+* 已修复：Windows 群集/独立计算机在进行恢复/灾难恢复演练时具有不正确的 IP 配置。
+* 已修复：对于 V2V 群集，添加磁盘操作有时候会失败。
+* 已修复：如果主目标服务器是 Windows Server 2016，vContinuum 向导在恢复阶段中会停滞。
+* 已修复：通过将 MySQL 升级到版本 5.7.23 缓解了 MySQL 安全问题。
+
+#### <a name="manual-upgrade-for-php-and-mysql-on-csps-and-rx"></a>在 CS、PS 和 RX 上针对 PHP 和 MySQL 进行手动升级
+在配置服务器、进程服务器和 RX 服务器上，PHP 脚本平台应当升级到版本 7.2.10。
+在配置服务器、进程服务器和 RX 服务器上，MySQL 数据库管理系统应当升级到版本 5.7.23。
+请按照[快速安装指南](https://aka.ms/asr-scout-quick-install-guide)中提供的手动步骤来升级 PHP 和 MySQL 版本。
+
+### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 Update 6 
+更新时间：2017 年 10 月 12 日
+
+下载 [Scout Update 6](https://aka.ms/asr-scout-update6)。
+
+Scout Update 6 是累积更新。 其中包含从 Update 1 到 Update 5 的所有修补程序，以及下面所述的新修补程序和增强功能。 
+
+#### <a name="new-platform-support"></a>新的平台支持
+* 已添加对 Source Windows Server 2016 的支持
+* 已添加对以下 Linux 操作系统的支持：
+    - CentOS 6.9
+    
+    <!--Not Available on - Red Hat Enterprise Linux (RHEL) 6.9--> <!--Not Available on - Oracle Linux 5.11-->
+    <!--Not Available on - Oracle Linux 6.8-->
+    
+* 已添加对 VMware Center 6.5 的支持
+
+按以下步骤安装更新：
+
+> [!NOTE]
+>所有 Scout 组件的文件更新版本可能与更新 .zip 文件中的版本不同。 较旧的版本表示此更新自上一次更新以来组件中没有任何更改。
+
 下载[更新](https://aka.ms/asr-scout-update6) .zip 文件。 文件包含以下组件： 
   - RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
   - CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe
   - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
   - UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
   - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
-  - RHEL5、OL5、OL6、SUSE 10、SUSE 11 的 UA update4 软件：UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+  - RHEL5、SUSE 10、SUSE 11 的 UA update4 软件：UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+  
+  <!--Not Available on , OL5, OL6,-->
+  
 1. 解压缩 .zip 文件。
 2. **RX 服务器**：将 **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** 复制到 RX 服务器并将其解压缩。 在解压缩的文件夹中运行 **/Install**。
 3. **配置服务器和进程服务器**：将 **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** 复制到配置服务器和进程服务器。 双击以运行该文件。<br>
@@ -109,40 +202,11 @@ Azure Site Recovery 为 VMware 和 Hyper-V 客户提供一流的无缝 DRaaS 解
     如果源服务器已更新到 Update 4 或源代理已安装有最新的基本安装程序 InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe，则不需要在源服务器上安装 Update 5 代理。
 8. **Linux 源服务器**：若要更新统一代理，请将相应版本的统一代理文件复制到 Linux 服务器并将其解压缩。 在解压缩的文件夹中运行 **/Install**。  
     <!-- Not Available on Example: For RHEL 6.7 64 bit server, copy **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** to the server, and extract it. In the extracted folder, run **/Install**.-->
-    
-## <a name="enable-replication"></a>启用复制
-
-1. 设置源与目标 VMware 站点之间的复制。
-2. 请参阅以下文档，了解有关安装、保护和恢复的详细信息：
-
-   * [发行说明](https://aka.ms/asr-scout-release-notes)
-   * [兼容性对照表](https://aka.ms/asr-scout-cm)
-   * [用户指南](https://aka.ms/asr-scout-user-guide)
-   * [RX 用户指南](https://aka.ms/asr-scout-rx-user-guide)
-   * [快速安装指南](https://aka.ms/asr-scout-quick-install-guide)
-
-## <a name="updates"></a>更新
-
-### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 Update 6 
-更新时间：2017 年 10 月 12 日
-
-下载 [Scout Update 6](https://aka.ms/asr-scout-update6)。
-
-Scout Update 6 是累积更新。 其中包含从 Update 1 到 Update 5 的所有修补程序，以及下面所述的新修补程序和增强功能。 
-
-#### <a name="new-platform-support"></a>新的平台支持
-* 已添加对 Source Windows Server 2016 的支持
-* 已添加对以下 Linux 操作系统的支持：
-    - Red Hat Enterprise Linux (RHEL) 6.9
-    - CentOS 6.9
-    - Oracle Linux 5.11
-    - Oracle Linux 6.8
-* 已添加对 VMware Center 6.5 的支持
 
 > [!NOTE]
 > * 已刷新面向 Windows 的基本统一代理 (UA) 安装程序，以支持 Windows Server 2016。 新的安装程序 InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe 与基本 Scout GA 程序包一起打包 (InMage_Scout_Standard_8.0.1 GA-Oct17.zip)。 相同的安装程序将用于所有受支持的 Windows 版本。 
 > * 已刷新基本 Windows vContinuum 和主目标安装程序来支持 Windows Server 2016。 新的安装程序 InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe 与基本 Scout GA 程序包一起打包 (InMage_Scout_Standard_8.0.1 GA-Oct17.zip)。 相同的安装程序将用于部署 Windows 2016 主目标和 Windows 2012R2 主目标。
-> * 从门户中下载 GA 包，如[创建保管库](#create-a-vault)中所述。
+> * ASR Scout 不支持物理服务器上的 Windows Server 2016。 它仅支持 Windows Server 2016 VMware VM。 
 >
 
 #### <a name="bug-fixes-and-enhancements"></a>Bug 修复和增强功能
@@ -181,13 +245,17 @@ Scout Update 4 是累积更新。 其中包含从 Update 1 到 Update 3 的所�
 
 * 添加了对 vCenter/vSphere 6.0、6.1 和 6.2 的支持
 * 已添加对以下 Linux 操作系统的支持：
-  * Red Hat Enterprise Linux (RHEL) 7.0、7.1 和 7.2
+  
   * CentOS 7.0、7.1 和 7.2
-  * Red Hat Enterprise Linux (RHEL) 6.8
   * CentOS 6.8
-
+  
+  <!--Not Available on * Red Hat Enterprise Linux (RHEL) 7.0, 7.1 and 7.2-->
+  <!--Not Available on * Red Hat Enterprise Linux (RHEL) 6.8-->
+  
 > [!NOTE]
-> RHEL/CentOS 7 64 位 InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz 与基础 Scout GA 包 InMage_Scout_Standard_8.0.1 GA.zip 一起打包。 从门户中下载 Scout GA 包，如[创建保管库](#create-a-vault)中所述。
+> CentOS 7 64 位 **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** 与基础 Scout GA 包 **InMage_Scout_Standard_8.0.1 GA.zip** 一起打包。 从门户中下载 Scout GA 包，如[创建保管库](#create-a-vault)中所述。
+
+<!--Not Available on RHEL/CentOS-->
 
 #### <a name="bug-fixes-and-enhancements"></a>Bug 修复和增强功能
 

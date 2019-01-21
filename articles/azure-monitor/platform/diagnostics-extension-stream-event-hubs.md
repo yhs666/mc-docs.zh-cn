@@ -2,22 +2,22 @@
 title: 将 Azure 诊断数据流式传输到事件中心
 description: 使用事件中心从头到尾配置 Azure 诊断，包括对常见方案的指导。
 services: azure-monitor
-author: rboucher
+author: lingliw
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 07/13/2017
-ms.author: robb
+ms.date: 01/21/19
+ms.author: v-lingwu
 ms.component: diagnostic-extension
-ms.openlocfilehash: e5fa3743814942e7f52f981636a97398d946583d
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.openlocfilehash: 324d97571363b6db367792e45bcc37d9b6e34964
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141760"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363503"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>使用事件中心流式处理热路径中的 Azure 诊断数据
-Azure 诊断提供了灵活的方法用于收集来自云服务虚拟机 (VM) 的指标和日志，并将结果传输到 Azure 存储。 从 2016 年 3 月 (SDK 2.9) 这一时间范围开始，可以将诊断发送到自定义数据源，并使用 [Azure 事件中心](https://azure.microsoft.com/services/event-hubs/)在数秒内传输热路径数据。
+Azure 诊断提供了灵活的方法用于收集来自云服务虚拟机 (VM) 的指标和日志，并将结果传输到 Azure 存储。 从 2016 年 3 月 (SDK 2.9) 这一时间范围开始，可以将诊断发送到自定义数据源，并使用 [Azure 事件中心](https://www.azure.cn/services/event-hubs/)在数秒内传输热路径数据。
 
 支持的数据类型包括：
 
@@ -37,7 +37,7 @@ Azure 诊断提供了灵活的方法用于收集来自云服务虚拟机 (VM) �
 ## <a name="prerequisites"></a>先决条件
 从 Azure SDK 2.9 和相应的 Azure Tools for Visual Studio 开始，云服务、VM、虚拟机规模集和 Service Fabric 将支持事件中心接收来自 Azure 诊断的数据。
 
-* Azure 诊断扩展 1.6（[Azure SDK for .NET 2.9 或更高版本](https://azure.microsoft.com/downloads/)默认以此为目标）
+* Azure 诊断扩展 1.6（[Azure SDK for .NET 2.9 或更高版本](https://www.azure.cn/downloads/)默认以此为目标）
 * [Visual Studio 2013 或更高版本](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 * 应用程序中使用 *.wadcfgx* 文件和以下任一方法的 Azure 诊断现有配置：
   * Visual Studio：[为 Azure 云服务和虚拟机配置诊断](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
@@ -316,10 +316,10 @@ namespace EventHubListener
     首先，确保事件中心和配置信息如先前所述的那样准确无误。 有时，系统会在部署更新时重置 **PrivateConfig**。 建议的解决方法是在项目中对 *.wadcfgx* 进行所有更改，并推送完整的应用程序更新。 如果不可行，请确保诊断更新推送完整的 **PrivateConfig**，包括 SAS 密钥。  
 * 我试过了上述建议，但事件中心仍无法正常运行。
 
-    请尝试查看 Azure 存储表，其中包含日志和 Azure 诊断本身的错误：**WADDiagnosticInfrastructureLogsTable**。 可使用 [Azure 存储资源管理器](http://www.storageexplorer.com) 等工具连接到此存储帐户，查看此表，并添加过去 24 小时的时间戳查询。 可以使用此工具导出 .csv 文件，并在 Microsoft Excel 之类的应用程序中打开它。 Excel 可轻松搜索电话卡字符串（如 **EventHubs**），查看系统报告了哪些错误。  
+    请尝试查看 Azure 存储表，其中包含日志和 Azure 诊断本身的错误：**WADDiagnosticInfrastructureLogsTable**。 可使用 [Azure 存储资源管理器](https://www.storageexplorer.com) 等工具连接到此存储帐户，查看此表，并添加过去 24 小时的时间戳查询。 可以使用此工具导出 .csv 文件，并在 Microsoft Excel 之类的应用程序中打开它。 Excel 可轻松搜索电话卡字符串（如 **EventHubs**），查看系统报告了哪些错误。  
 
 ## <a name="next-steps"></a>后续步骤
-•    [了解有关事件中心的详细信息](https://azure.microsoft.com/services/event-hubs/)
+•    [了解有关事件中心的详细信息](https://www.azure.cn/services/event-hubs/)
 
 ## <a name="appendix-complete-azure-diagnostics-configuration-file-wadcfgx-example"></a>附录：完整的 Azure 诊断配置文件 (.wadcfgx) 示例
 ```xml

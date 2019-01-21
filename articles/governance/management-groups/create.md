@@ -1,22 +1,21 @@
 ---
 title: 创建管理组来组织 Azure 资源 | Azure
 description: 了解如何创建 Azure 管理组来管理多个资源。
-author: rockboyfor
-manager: digimobile
+author: rthorn17
+manager: rithorn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/10/2018
-ms.date: 10/29/2018
-ms.author: v-yeche
-ms.openlocfilehash: 0e8eb4f54cbef1eddffc1ec63731eaf67efe0fa9
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.date: 01/28/2019
+ms.author: v-biyu
+ms.openlocfilehash: e0914d78e7b7c5977ff3c1c653e839260b7174c4
+ms.sourcegitcommit: ced39ce80d38d36bdead66fc978d99e93653cb5f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028482"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54307618"
 ---
 <!--Verify successfully-->
 # <a name="create-management-groups-for-resource-organization-and-management"></a>创建用来组织和管理资源的管理组
@@ -50,7 +49,7 @@ ms.locfileid: "53028482"
 
 ### <a name="create-in-powershell"></a>在 PowerShell 中创建
 
-在 PowerShell 中，使用 New-AzureRmManagementGroups cmdlet：
+在 PowerShell 中，使用 New-AzureRmManagementGroup cmdlet：
 
 ```PowerShell
 New-AzureRmManagementGroup -GroupName 'Contoso'
@@ -76,12 +75,11 @@ az account management-group create --name 'Contoso'
 
 ## <a name="next-steps"></a>后续步骤
 
-若要详细了解管理组，请参阅：
+若要了解有关管理组的详细信息，请参阅：
 
-- [使用 Azure 管理组来组织资源](index.md)
+- [创建管理组来组织 Azure 资源](create.md)
 - [如何更改、删除或管理管理组](manage.md)
-- [安装 Azure Powershell 模块](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
-- [查看 REST API 规范](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
-- [安装 Azure CLI 扩展](https://docs.azure.cn/zh-cn/cli/extension?view=azure-cli-latest#az-extension-list-available)
-
+- [在 Azure PowerShell 资源模块中查看管理组](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0#resources)
+- [在 REST API 中查看管理组](https://docs.microsoft.com/en-us/rest/api/resources/managementgroups)
+- [在 Azure CLI 中查看管理组](https://docs.azure.cn/zh-cn/cli/account/management-group?view=azure-cli-latest)
 <!-- Update_Description: update meta properties, wording update, update link -->

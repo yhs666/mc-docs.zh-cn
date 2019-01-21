@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/21/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: eebccac7d8461d471cc60fa28f27cc95b9362d12
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 97931938667039065b808101cbf32b1d1f9c9a54
+ms.sourcegitcommit: a09ee94bc8a6b4270f655a1d80cdb65eca320559
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083639"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396452"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>在 Azure 中管理应用服务计划
 
@@ -59,7 +59,7 @@ ms.locfileid: "54083639"
 
 
 > 
-> 无法在创建计划时指定所需的 Web 空间，但可以确保在现有计划所在的 Web 空间中创建计划。 简而言之，使用同一资源组和区域组合创建的所有计划都部署到同一 Web 空间中。 例如，如果你在资源组 A 和区域 B 中创建了一个计划，那么你随后在资源组 A 和区域 B 中创建的任何计划都将部署到同一 Web 空间中。 请注意，计划在创建后无法移动 Web 空间，因此无法通过将计划移到另一个资源组来将其移到另一个计划所在的 Web 空间。
+> 无法在创建计划时指定所需的 Web 空间，但这可确保计划创建于与现有计划相同的 Web 空间中。 简而言之，使用同一资源组和区域组合创建的所有计划都部署到同一 Web 空间中。 例如，如果你在资源组 A 和区域 B 中创建了一个计划，那么你随后在资源组 A 和区域 B 中创建的任何计划都将部署到同一 Web 空间中。 请注意，计划创建之后便不能移动 Web 空间，所以无法通过将计划移至另一个资源组来将其移到与另一个计划“相同的 Web 空间”中。
 > 
 
 1. 在 [Azure 门户](https://portal.azure.cn)中，浏览到要移动的应用。

@@ -11,12 +11,12 @@ origin.date: 04/17/2018
 ms.date: 09/17/2018
 ms.author: v-yeche
 ms.reviewer: igorstan
-ms.openlocfilehash: a8984879c907088c7b54d1293c4100413e898fc1
-ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
+ms.openlocfilehash: 10d39fe04942d17e36c2ad0ac95133abed39dcfc
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676909"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397042"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>快速入门：使用 T-SQL 在 Azure SQL 数据仓库中缩放计算资源
 
@@ -40,7 +40,7 @@ ms.locfileid: "52676909"
 
 2. 在“连接到服务器”对话框中，输入以下信息：
 
-   | 设置       | 建议的值 | 说明 | 
+   | 设置       | 建议的值 | 说明 | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | 服务器类型 | 数据库引擎 | 此值是必需的 |
    | 服务器名称 | 完全限定的服务器名称 | 这是一个示例：**mynewserver-20181129.database.chinacloudapi.cn**。 |

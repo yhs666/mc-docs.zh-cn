@@ -17,14 +17,14 @@ origin.date: 12/11/2017
 ms.date: 01/21/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 6e1ea35cf6654912ad8a08e20e43526c3c5a020b
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 76ad01c6e8b4281b121e224ae15a36bcc951b496
+ms.sourcegitcommit: a09ee94bc8a6b4270f655a1d80cdb65eca320559
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083847"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396444"
 ---
-# <a name="monitor-an-app-service-appwith-web-server-logs-using-azure-cli"></a>使用 Azure CLI 通过 Web 服务器日志监视应用服务应用
+# <a name="monitor-an-app-service-app-with-web-server-logs-using-azure-cli"></a>使用 Azure CLI 通过 Web 服务器日志监视应用服务应用
 
 此示例脚本将创建资源组、应用服务计划和应用，并配置应用以启用 Web 服务器日志。 然后，它下载日志文件以供查看。
 

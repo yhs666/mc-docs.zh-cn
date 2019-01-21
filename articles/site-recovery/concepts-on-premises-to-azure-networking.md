@@ -1,20 +1,20 @@
 ---
-title: 设置使用 Azure Site Recovery 故障转移到 Azure 后要连接的 IP 地址 | Azure
+title: 设置使用 Azure Site Recovery 灾难恢复并故障转移到 Azure 后要连接的 IP 地址 | Azure
 description: 说明如何设置使用 Azure Site Recovery 从本地灾难恢复并故障转移后用于连接到 Azure VM 的 IP 地址
 services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 10/16/2018
-ms.date: 12/10/2018
+origin.date: 11/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1cca6eb9cb6c706dfb5becd6eabb2a865dde3876
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 2929fd2783a905d7b2ea4c3d35eab025587c9eff
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028301"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363514"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>设置在故障转移后用于连接到 Azure VM 的 IP 地址
 
@@ -80,4 +80,4 @@ Site Recovery 支持在通过子网故障转移到 Azure 时保留固定的 IP �
 ## <a name="next-steps"></a>后续步骤
 [运行故障转移](site-recovery-failover.md)
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

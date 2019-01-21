@@ -11,12 +11,12 @@ origin.date: 09/12/2018
 ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 629a4ac114d3ec8e26ffdb57905446b3f7fc81a6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 37944b4ce6c23ff9caffd316393fda205339271c
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52667129"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397036"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>教程：将纽约出租车数据加载到 Azure SQL 数据仓库
 
@@ -57,7 +57,7 @@ ms.locfileid: "52667129"
 
 3. 使用以下信息填写“SQL 数据仓库”表单：   
 
-   | 设置 | 建议的值 | 说明 | 
+   | 设置 | 建议的值 | 说明 | 
    | ------- | --------------- | ----------- | 
    | **数据库名称** | mySampleDataWarehouse | 如需有效的数据库名称，请参阅 [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)（数据库标识符）。 | 
    | **订阅** | 你的订阅  | 有关订阅的详细信息，请参阅[订阅](https://account.windowsazure.cn/Subscriptions)。 |
@@ -68,7 +68,7 @@ ms.locfileid: "52667129"
 
 4. 单击“服务器”，为新数据库创建并配置新服务器。 使用以下信息填写“新建服务器”窗体： 
 
-    | 设置 | 建议的值 | 说明 | 
+    | 设置 | 建议的值 | 说明 | 
     | ------- | --------------- | ----------- |
     | **服务器名称** | 任何全局唯一名称 | 如需有效的服务器名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。 | 
     | 服务器管理员登录名 | 任何有效的名称 | 如需有效的登录名，请参阅 [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)（数据库标识符）。|
@@ -147,7 +147,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
 2. 在“连接到服务器”对话框中，输入以下信息：
 
-    | 设置      | 建议的值 | 说明 | 
+    | 设置      | 建议的值 | 说明 | 
     | ------------ | --------------- | ----------- | 
     | 服务器类型 | 数据库引擎 | 此值是必需的 |
     | 服务器名称 | 完全限定的服务器名称 | 该名称应类似于：**mynewserver-20180430.database.chinacloudapi.cn**。 |

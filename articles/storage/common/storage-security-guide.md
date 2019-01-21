@@ -9,12 +9,12 @@ origin.date: 05/31/2018
 ms.date: 09/24/2018
 ms.author: v-jay
 ms.component: common
-ms.openlocfilehash: 67bf76d2a14359eb8658d35cea78a9286d300ac5
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 3d94ca37494d23cf4a99d208e02cdc4b8a5144dc
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663277"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397030"
 ---
 # <a name="azure-storage-security-guide"></a>Azure 存储安全指南
 
@@ -73,12 +73,12 @@ Azure 存储提供一整套安全性功能，这些功能相辅相成，帮助�
 * 每个角色都有“操作”和“非操作”列表。 例如，“虚拟机参与者”角色具有“listKeys”操作，允许读取存储帐户密钥。 “参与者”具有“非操作”，例如在 Active Directory 中更新用户的访问权限。
 * 存储的角色包括（但不限于）以下角色：
 
-  * 所有者 – 他们可以管理一切，包括访问权限。
-  * 参与者 – 他们可以执行所有者可执行的所有操作，但分配访问权限除外。 拥有此角色的用户可以查看和重新生成存储帐户密钥。 他们可以使用存储帐户密钥来访问数据对象。
-  * 读者 – 他们可以查看有关存储帐户的信息（机密除外）。 例如，如果将存储帐户中拥有读取者权限的角色分配给某个用户，该用户就可以查看存储帐户的属性，但无法对属性进行任何更改或查看存储帐户密钥。
+  * 所有者 - 他们可以管理一切，包括访问权限。
+  * 参与者 - 他们可以执行所有者可执行的所有操作，但分配访问权限除外。 拥有此角色的用户可以查看和重新生成存储帐户密钥。 他们可以使用存储帐户密钥来访问数据对象。
+  * 读者 - 他们可以查看有关存储帐户的信息（机密除外）。 例如，如果将存储帐户中拥有读取者权限的角色分配给某个用户，该用户就可以查看存储帐户的属性，但无法对属性进行任何更改或查看存储帐户密钥。
   * 存储帐户参与者 - 他们可以管理存储帐户 - 他们可以读取订阅的资源组和资源，以及创建和管理订阅资源组部署。 他们也可以访问存储帐户密钥，这又意味着他们可以访问数据平面。
-  * 用户访问管理员 – 他们可以管理对存储帐户的用户访问。 例如，他们可将“读者”权限授予特定用户。
-  * 虚拟机参与者 – 他们可以管理虚拟机，但无法管理已连接的存储帐户。 此角色可以列出存储帐户密钥，意味着分配此角色的用户可以更新数据平面。
+  * 用户访问管理员 - 他们可以管理对存储帐户的用户访问。 例如，他们可将“读者”权限授予特定用户。
+  * 虚拟机参与者 - 他们可以管理虚拟机，但无法管理已连接的存储帐户。 此角色可以列出存储帐户密钥，意味着分配此角色的用户可以更新数据平面。
 
     为了让用户能够创建虚拟机，他们必须能够在存储帐户中创建相应的 VHD 文件。 为此，他们需要能够检索存储帐户密钥，并将它传递给创建 VM 的 API。 因此，他们必须拥有此权限才能列出存储帐户密钥。
 * 利用定义自定义角色的功能，可以从可对 Azure 资源执行的操作的列表中整理出一组操作。
@@ -117,7 +117,7 @@ Azure 存储提供一整套安全性功能，这些功能相辅相成，帮助�
 
 * 可出于安全原因而定期重新生成密钥。
 * 如果有人设法侵入应用程序并检索硬编码或存储在配置文件中的密钥，为其提供存储帐户的完整访问权限，则必须重新生成存储帐户密钥。
-* 如果团队使用存储资源管理器应用程序来保留存储帐户密钥，则有团队成员离职时也需要重新生成密钥。 在某人离职后，应用程序仍将继续运行，使其他成员可以访问存储帐户。 这实际上是他们创建帐户级别共享访问签名的主要原因 – 可以改用帐户级别的 SAS，而不是将访问密钥存储在配置文件中。
+* 如果团队使用存储资源管理器应用程序来保留存储帐户密钥，则有团队成员离职时也需要重新生成密钥。 在某人离职后，应用程序仍将继续运行，使其他成员可以访问存储帐户。 这实际上是他们创建帐户级别共享访问签名的主要原因 - 可以改用帐户级别的 SAS，而不是将访问密钥存储在配置文件中。
 
 #### <a name="key-regeneration-plan"></a>密钥重新生成计划
 你不希望在不进行某些规划的情况下单纯重新生成你使用的密钥。 如果这样做，可能会切断对该存储帐户的所有访问权限，而这会造成严重中断。 因此有两个密钥。 一次只应重新生成一个密钥。
@@ -239,7 +239,7 @@ http://mystorage.blob.core.chinacloudapi.cn/mycontainer/myblob.txt (URL to the b
 * 这些教程介绍了如何使用 .NET 客户端库创建共享访问签名和存储访问策略。
 
   * [使用共享访问签名 (SAS)](storage-dotnet-shared-access-signature-part-1.md)
-  * [共享访问签名 - 第 2 部分：创建 SAS 并将 SAS 用于 Blob 服务](../blobs/storage-dotnet-shared-access-signature-part-2.md)
+  * [共享访问签名，第 2 部分：创建 SAS 并将其用于 Blob 服务](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 
     本文包含 SAS 模型的说明、共享访问签名的示例，以及 SAS 用法最佳实践的建议。 此外还介绍了如何吊销授予的权限。
 
@@ -251,7 +251,7 @@ http://mystorage.blob.core.chinacloudapi.cn/mycontainer/myblob.txt (URL to the b
   * [SAS 入门教程](https://github.com/Azure-Samples/storage-dotnet-sas-getting-started)
 
 ## <a name="encryption-in-transit"></a>传输中加密
-### <a name="transport-level-encryption--using-https"></a>传输级加密 – 使用 HTTPS
+### <a name="transport-level-encryption---using-https"></a>传输级加密 – 使用 HTTPS
 为确保 Azure 存储数据安全，应采取另一个措施，即在客户端与 Azure 存储之间加密数据。 第一条建议是始终使用 [HTTPS](https://en.wikipedia.org/wiki/HTTPS) 协议，这可确保通过公共 Internet 进行安全通信。
 
 若要获得安全的通信渠道，在调用 REST API 或访问存储中的对象时，应该始终使用 HTTPS。 此外， **共享访问签名**（可用于委派对 Azure 存储对象的访问权限）包含一个选项，用于指定在使用共享访问签名时只能使用 HTTPS 协议，以确保任何使用 SAS 令牌发出链接的人都使用正确的协议。
@@ -327,7 +327,7 @@ Azure 磁盘加密是一项新功能。 此功能允许加密 IaaS 虚拟机使�
 
 
 > [!NOTE]
-> 以下 Linux 发行版（RHEL 7.2、CentOS 7.2n 和 Ubuntu 16.04）当前支持 Linux OS 磁盘加密。
+> Linux OS 磁盘加密当前在下列 Linux 发行版上受支持：RHEL 7.2、CentOS 7.2n 和 Ubuntu 16.04。
 >
 >
 
@@ -478,7 +478,7 @@ Azure 存储允许启用 CORS – 跨域资源共享。 对于每个存储帐户
 * [Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services on MSDN](https://msdn.microsoft.com/library/azure/dn535601.aspx)（MSDN 上对 Azure 存储服务的跨域资源共享 (CORS) 支持）
 
   这是有关对 Azure 存储服务的 CORS 支持的参考文档。 其中提供了适用于每个存储服务的文章链接，并提供示例演示，解释 CORS 文件中的每个元素。
-* [Azure Storage: Introducing CORS](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)（Azure 存储：CORS 简介）
+* [Azure 存储：CORS 简介](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
 
   这是宣布推出 CORS 并演示其用法的第一篇博客文章的链接。
 

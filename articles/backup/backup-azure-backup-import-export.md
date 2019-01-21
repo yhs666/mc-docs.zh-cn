@@ -6,15 +6,14 @@ author: lingliw
 manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-origin.date: 05/17/2018
-ms.date: 11/26/2018
+ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 7fcf17855d0de35cb2bd7c272d6270d38918c938
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 1f90ca9a8cb829ecb6cb28efc78d97ace7167bfc
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674419"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363394"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Azure 备份中的脱机备份工作流
 Azure 备份有多个可提升效率的内置功能，能在数据初始完整备份到 Azure 期间节省网络和存储成本。 初始完整备份通常会传输大量数据，且需要较多网络带宽，相比之下，后续备份只传输差异/增量部分。 通过脱机种子设定，Azure 备份可以使用磁盘将脱机备份数据上传到 Azure。
@@ -35,9 +34,9 @@ Azure 备份脱机种子设定过程与 [Azure 导入/导出服务](../storage/c
 以下 Azure 备份功能或工作负荷支持使用脱机备份。
 
 > [!div class="checklist"]
-> * 使用 Azure 恢复服务 (MARS) 代理（也称 Azure 备份代理）备份文件和文件夹。 
+> * 使用世纪互联 Azure 恢复服务 (MARS) 代理（也称 Azure 备份代理）备份文件和文件夹。 
 > * 使用 System Center Data Protection Manager (SC DPM) 备份所有工作负荷和文件 
-> * 使用 Azure 备份服务器备份所有工作负荷和文件 <br/>
+> * 使用世纪互联 Azure 备份服务器备份所有工作负荷和文件 <br/>
 
    > [!NOTE]
    > 使用 Azure 备份代理完成的系统状态备份不支持脱机备份。 
@@ -61,12 +60,10 @@ Azure 备份脱机种子设定过程与 [Azure 导入/导出服务](../storage/c
     2. 如果有多个订阅，请选择用于脱机备份的订阅。 如果只使用一个订阅，则屏幕上会显示该订阅。
     3. 在订阅菜单中，单击“资源提供程序”查看提供程序列表。
     4. 在提供程序列表中，向下滚动到“Microsoft.ImportExport”。 如果“Status”为“NotRegistered”，请单击“注册”。
-
-        ![注册资源提供程序](./media/backup-azure-backup-import-export/registerimportexport.png)
-
-- 创建了一个暂存位置，它可以是计算机上的网络共享或任何其他内部或外部驱动器，并且有足够的磁盘空间来保存初始副本。 例如，如果尝试备份 500 GB 文件服务器，请确保暂存区域至少有 500 GB 空间。 （由于压缩，实际使用量更少）。
-- 将磁盘寄送到 Azure 时，请仅使用 2.5 英寸 SSD，或者 2.5 英寸或 3.5 英寸 SATA II/III 内部硬盘驱动器。 可以使用容量最高为 10 TB 的硬盘驱动器。 查看 [Azure 导入/导出服务文档](../storage/common/storage-import-export-service.md#hard-disk-drives)，了解服务支持的最新驱动器集。
-- SATA 驱动器必须连接到一台计算机（称为“副本计算机”），在这台计算机中完成将备份数据从暂存位置复制到 SATA 驱动器。 请确保已在副本计算机上启用 BitLocker。
+    ![注册资源提供程序](./media/backup-azure-backup-import-export/registerimportexport.png)
+* 创建了一个暂存位置，它可以是计算机上的网络共享或任何其他内部或外部驱动器，并且有足够的磁盘空间来保存初始副本。 例如，如果尝试备份 500 GB 文件服务器，请确保暂存区域至少有 500 GB 空间。 （由于压缩，实际使用量更少）。
+* 将磁盘寄送到 Azure 时，请仅使用 2.5 英寸 SSD，或者 2.5 英寸或 3.5 英寸 SATA II/III 内部硬盘驱动器。 可以使用容量最高为 10 TB 的硬盘驱动器。 查看 [Azure 导入/导出服务文档](../storage/common/storage-import-export-requirements.md#supported-hardware)，了解服务支持的最新驱动器集。
+* SATA 驱动器必须连接到一台计算机（称为“副本计算机”），在这台计算机中完成将备份数据从暂存位置复制到 SATA 驱动器。 请确保已在副本计算机上启用 BitLocker。
 
 ## <a name="workflow"></a>工作流
 本部分介绍如何完成脱机备份工作流，以便将数据传送到 Azure 数据中心，并上传到 Azure 存储。 如有关于导入服务或流程的任何方面的问题，请参阅[导入服务概述文档](../storage/common/storage-import-export-service.md)。
@@ -78,9 +75,9 @@ Azure 备份脱机种子设定过程与 [Azure 导入/导出服务](../storage/c
 
     输入的说明如下：
 
-    * **暂存位置**- 初始备份副本写入到的临时存储位置。 暂存位置可以是在网络共享或本地计算机。 如果副本计算机与源计算机不同，建议指定暂存位置的完整网络路径。
+    * **暂存位置**：初始备份副本写入到的临时存储位置。 暂存位置可以是在网络共享或本地计算机。 如果副本计算机与源计算机不同，建议指定暂存位置的完整网络路径。
     * **Azure 资源管理器存储帐户**：任一 Azure 订阅中的资源管理器类型存储帐户的名称。
-    * **Azure 存储容器**：在将备份数据复制到恢复服务保管库之前，Azure 存储帐户中导入备份数据的目标存储 Blob 的名称。
+    * **Azure 存储容器**：Azure 存储帐户中目标存储 Blob 的名称，在备份数据复制到恢复服务保管库之前将其导入该账户。
     * **Azure 订阅 ID**：在其中创建了 Azure 存储帐户的 Azure 订阅的 ID。
     * **Azure 导入作业名称**：Azure 导入服务和 Azure 备份在跟踪磁盘上发送到 Azure 的数据的传输活动时使用的唯一名称。 
 
@@ -105,7 +102,7 @@ Azure 备份脱机种子设定过程与 [Azure 导入/导出服务](../storage/c
 ## <a name="prepare-sata-drives-and-ship-to-azure"></a>准备 SATA 驱动器并寄送到 Azure
 *AzureOfflineBackupDiskPrep* 实用工具会准备送到最近 Azure 数据中心的 SATA 驱动器。 Azure 备份代理安装目录中提供了此实用工具（路径如下）：
 
-   *\Azure 恢复服务代理\实用程序\\*
+   *\21Vianet Azure Recovery Services Agent\Utils\\*
 
 1. 请转到该目录，将 **AzureOfflineBackupDiskPrep** 目录复制到连接了 SATA 驱动器的另一台计算机上。 在连接了 SATA 驱动器的计算机上，请确保：
 
@@ -201,7 +198,7 @@ Azure 备份脱机种子设定过程与 [Azure 导入/导出服务](../storage/c
 完成初始备份后，可以安全删除已导入到 Azure 存储容器的数据，以及暂存位置中的备份数据。
 
 ## <a name="next-steps"></a>后续步骤
-* 如有任何关于 Azure 导入/导出工作流的问题，请参阅 [Use the Azure Import/Export service to transfer data to Blob storage](../storage/common/storage-import-export-service.md)（使用 Azure 导入/导出服务可将数据传输到 Blob 存储中）。
+* 如有任何关于 Azure 导入/导出工作流的问题，请参阅 [Use the 21Vianet Azure Import/Export service to transfer data to Blob storage](../storage/common/storage-import-export-service.md)（使用世纪互联 Azure 导入/导出服务可将数据传输到 Blob 存储中）。
 * 如有工作流方面的任何问题，请参阅 Azure 备份 [FAQ](backup-azure-backup-faq.md) （常见问题）的“脱机备份”部分。
 
 

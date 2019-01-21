@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 01/22/2018
-ms.date: 12/27/2018
+ms.date: 01/15/2019
 ms.author: v-junlch
-ms.openlocfilehash: b3d8c4150c9b3d4e6fc1e5da7077bab9bc047791
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: ec70e6ed396d96298e83070cdec9f4ce94fdab80
+ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806568"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334214"
 ---
 # <a name="work-with-azure-functions-proxies"></a>使用 Azure Functions 代理
 
@@ -152,7 +152,7 @@ Proxies.json 是由一个代理对象定义的，包括已命名的代理及其�
 
 ### <a name="disableProxies"></a> 禁用单个代理
 
-可以通过将 `"disabled": true` 添加到 `proxies.json` 文件中的代理来禁用单个代理。 这将导致满足 matchCondidtion 的任何请求返回 404。
+可以通过将 `"disabled": true` 添加到 `proxies.json` 文件中的代理来禁用单个代理。 这将导致满足 matchCondition 的任何请求返回 404。
 ```json
 {
     "$schema": "http://json.schemastore.org/proxies",
@@ -177,12 +177,13 @@ Proxies.json 是由一个代理对象定义的，包括已命名的代理及其�
 
 ### <a name="reservedChars"></a> 保留字符（字符串格式设置）
 
-代理读取所有字符串而不进行解释，大括号和斜杠除外
+代理使用“\”作为转义符从 JSON 文件中读取所有字符串。 代理还会解释大括号。 请参阅下面的完整示例集。
 
 |Character|转义字符|示例|
 |-|-|-|
 |{ 或 }|{{ 或 }}|`{{ example }}` --> `{ example }`
-|/|///| `example.com///text.html` --> `example.com/text.html`
+| \ | \\\\ | `example.com\\text.html` --> `example.com\text.html`
+|"|\\\"| `\"example\"` --> `"example"`
 
 ### <a name="requestOverrides"></a>定义 requestOverrides 对象
 

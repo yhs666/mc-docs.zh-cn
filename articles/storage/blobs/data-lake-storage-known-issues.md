@@ -7,14 +7,14 @@ ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 origin.date: 12/05/2018
-ms.date: 01/14/2019
+ms.date: 01/21/2019
 ms.author: v-jay
-ms.openlocfilehash: 26e6be1944844162c9312723020d040ddbe20d8e
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: c4ab7461e3818b3893f8d3a08d38fb9608783269
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192957"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396997"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 的已知问题
 
@@ -67,10 +67,6 @@ Azure 门户中的 Blob 查看工具仅为 Azure Data Lake Storage Gen2 提供�
 AzCopy 版本 8 不支持 Azure Data Lake Storage Gen2。
 
 请改用 AzCopy 的最新预览版 ([AzCopy v10](/storage/common/storage-use-azcopy-v10?toc=%2fstorage%2ftables%2ftoc.json))，因为它支持 Azure Data Lake Storage Gen2 终结点。
-
-## <a name="oauth-authentication"></a>OAuth 身份验证
-
-HDInsight 和 Azure 数据工厂等服务尚不能与 Azure Active Directory (Azure AD) OAuth 持有者令牌身份验证相集成。
 
 ## <a name="soft-delete-and-snapshots"></a>软删除和快照
 

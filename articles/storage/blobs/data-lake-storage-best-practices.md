@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 12/06/2018
 ms.date: 01/14/2019
 ms.author: v-jay
-ms.openlocfilehash: 82b5726c67184b5aa53ee7da20bbf8abefc7f8ef
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: 801af404b368c683e34b28b46cd11259773b5eae
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192985"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397017"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>使用 Azure Data Lake Storage Gen2 的最佳做法
 

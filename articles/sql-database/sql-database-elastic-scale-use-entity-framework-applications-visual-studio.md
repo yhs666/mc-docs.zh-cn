@@ -1,25 +1,27 @@
 ---
-title: 将弹性数据库客户端库与实体框架配合使用 | Azure
+title: 将弹性数据库客户端库与实体框架配合使用 | Microsoft 文档
 description: 将弹性数据库客户端库和实体框架用于数据库编码
 services: sql-database
-manager: digimobile
-author: Hayley244
-editor: ''
 ms.service: sql-database
-ms.custom: scale out apps
-ms.topic: article
+ms.subservice: scale-out
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: WenJason
+ms.author: v-jay
+ms.reviewer: ''
+manager: digimobile
 origin.date: 04/01/2018
-ms.date: 04/17/2018
-ms.author: v-johch
-ms.openlocfilehash: bbdae4eefcf69eeeea99b262ad8c236ad4025f10
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 01/21/2019
+ms.openlocfilehash: 26e3e3de78d905083b708645ec7728a56dfcfafa
+ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651065"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363799"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>弹性数据库客户端库与实体框架
-此文档介绍与[弹性数据库工具](sql-database-elastic-scale-introduction.md)集成所需的实体框架应用程序中的更改。 重点是使用 Entity Framework **Code First** 方法撰写[分片映射管理](sql-database-elastic-scale-shard-map-management.md)和[数据相关路由](sql-database-elastic-scale-data-dependent-routing.md)。 EF 的 [Code First – 新数据库](http://msdn.microsoft.com/data/jj193542.aspx)教程在本文档中充当运行示例。 本文档附带的示例代码是 Visual Studio 代码示例中弹性数据库工具示例的一部分。
+此文档介绍与[弹性数据库工具](sql-database-elastic-scale-introduction.md)集成所需的实体框架应用程序中的更改。 重点是使用 Entity Framework **Code First** 方法撰写[分片映射管理](sql-database-elastic-scale-shard-map-management.md)和[数据相关路由](sql-database-elastic-scale-data-dependent-routing.md)。 EF 的 [Code First – 新数据库](https://msdn.microsoft.com/data/jj193542.aspx)教程在本文档中充当运行示例。 本文档附带的示例代码是 Visual Studio 代码示例中弹性数据库工具示例的一部分。
 
 ## <a name="downloading-and-running-the-sample-code"></a>下载和运行示例代码
 若要下载本文的代码：
@@ -41,10 +43,10 @@ ms.locfileid: "52651065"
 ## <a name="entity-framework-workflows"></a>实体框架工作流
 实体框架开发人员依靠以下四个工作流之一构建应用程序并确保应用程序对象的持久性： 
 
-* **Code First（新数据库）**：EF 开发人员在应用程序代码中创建模型，EF 从其生成数据库。 
+* **Code First（新数据库）**：EF 开发人员在应用程序代码中创建模型，然后 EF 从中生成数据库。 
 * **Code First（现有数据库）**：开发人员让 EF 从现有数据库生成模型的应用程序代码。
 * **Model First**：开发人员在 EF 设计器中创建模型，EF 从该模型创建数据库。
-* **数据库优先**：开发人员使用 EF 工具从现有数据库推断模型。 
+* **Database First**：开发人员使用 EF 工具从现有数据库推断模型。 
 
 所有这些方法依靠 DbContext 类为应用程序透明管理数据库连接和数据库架构。 DbContext 基类上的不同构造函数允许对连接创建、数据库引导和架构创建进行不同级别的控制。 挑战主要产生于这一事实：由 EF 提供的数据库连接管理与弹性数据库客户端库提供的数据依赖型路由接口的连接管理功能交叉。 
 
@@ -58,8 +60,8 @@ ms.locfileid: "52651065"
 ## <a name="requirements"></a>要求
 在使用弹性数据库客户端库和 Entity Framework API 时，会希望保留以下属性： 
 
-* **扩大**：我们需要根据应用程序的容量需求，在分片应用程序的数据层中添加或删除数据库。 这意味着可以控制数据库的创建和删除，以及使用弹性数据库分片映射管理器 API 管理数据库和 shardlet 的映射。 
-* 一致性：应用程序利用分片，并且使用客户端库的数据依赖型路由功能。 若要避免损坏或错误的查询结果，连接通过分片映射管理器进行代理。 此操作还会保留验证和一致性。
+* **向外缩放**：需要根据应用程序的容量需求，在分片应用程序的数据层中添加或删除数据库。 这意味着可以控制数据库的创建和删除，以及使用弹性数据库分片映射管理器 API 管理数据库和 shardlet 的映射。 
+* **一致性**：应用程序利用分片，并且使用客户端库的数据依赖型路由功能。 若要避免损坏或错误的查询结果，连接通过分片映射管理器进行代理。 此操作还会保留验证和一致性。
 * **Code First**：保留 EF 的 Code First 范例的便利性。 在“代码优先”中，应用程序中的类透明映射到基础数据库结构。 应用程序代码与 DbSet 交互以为基础数据库处理中涉及的大部分方面提供掩码。
 * **架构**：实体框架通过迁移处理初始数据库架构创建和后续架构演变。 通过保留这些功能，随着数据的演变调整应用很容易。 
 
@@ -83,7 +85,7 @@ ms.locfileid: "52651065"
     public class ElasticScaleContext<T> : DbContext
     {
     public DbSet<Blog> Blogs { get; set; }
-    …
+    ...
 
         // C'tor for data-dependent routing. This call opens a validated connection 
         // routed to the proper shard by the shard map manager. 
@@ -144,7 +146,7 @@ ms.locfileid: "52651065"
         var query = from b in db.Blogs 
                     orderby b.Name 
                     select b; 
-     … 
+     ...
     }
 
 新的构造函数将打开到该分片的连接，该分片保存由 **tenantid1** 的值标识的 shardlet 的数据。 **using** 块中的代码保持不变以访问 **DbSet**，进而获取有关对 **tenantid1** 的分片使用 EF 的博客。 这改变了 using 块中的代码的语义，因此所有数据库操作的范围现在设置为保留 **tenantid1** 的单个分片。 例如，博客 **DbSet** 上的 LINQ 查询将仅返回当前分片上存储的博客，不返回存储在其他分片上的博客。  
@@ -164,13 +166,13 @@ Microsoft 模式和实践团队已发布[暂时性故障处理应用程序块](h
                     var blog = new Blog { Name = name }; 
                     db.Blogs.Add(blog); 
                     db.SaveChanges(); 
-            … 
+            ... 
             } 
         }); 
 
-上述代码中的 **SqlDatabaseUtils.SqlRetryPolicy** 定义为 **SqlDatabaseTransientErrorDetectionStrategy**，重试计数为 10，每两次重试的等待时间为 5 秒。 此方法类似于 EF 和用户启动事务的指南（请参阅[重试执行策略的限制（从 EF6 开始）](http://msdn.microsoft.com/data/dn307226)。 这两种情况都要求应用程序控制返回暂时性异常的范围：重新打开事务，或者（如下所示）从使用弹性数据库客户端库的适当构造函数重新创建上下文。
+上述代码中的 **SqlDatabaseUtils.SqlRetryPolicy** 定义为 **SqlDatabaseTransientErrorDetectionStrategy**，重试计数为 10，每两次重试的等待时间为 5 秒。 此方法类似于 EF 和用户启动事务的指南（请参阅[重试执行策略的限制（从 EF6 开始）](https://msdn.microsoft.com/data/dn307226)。 这两种情况都要求应用程序控制返回暂时性异常的范围：重新打开事务，或者（如下所示）从使用弹性数据库客户端库的适当构造函数重新创建上下文。
 
-需要控制其中暂时性异常返回范围还使该列不能使用 EF 随附的内置 **SqlAzureExecutionStrategy**。 **SqlAzureExecutionStrategy** 会重新打开连接，但不会使用 **OpenConnectionForKey**，从而绕过了调用 **OpenConnectionForKey** 期间执行的所有验证。 该代码示例使用的是 EF 也已随附的内置 **DefaultExecutionStrategy**。 与 **SqlAzureExecutionStrategy**相反，它能与暂时性故障处理中的重试策略正常配合工作。 执行策略在 **ElasticScaleDbConfiguration** 类中设置。 请注意，我们决定不使用 DefaultSqlExecutionStrategy，因为在发生暂时性异常时，最好使用 SqlAzureExecutionStrategy - 这会导致所述的错误行为。 有关不同重试策略和 EF 的详细信息，请参阅 [EF 中的连接弹性](http://msdn.microsoft.com/data/dn456835.aspx)。     
+需要控制其中暂时性异常返回范围还使该列不能使用 EF 随附的内置 **SqlAzureExecutionStrategy**。 **SqlAzureExecutionStrategy** 会重新打开连接，但不会使用 **OpenConnectionForKey**，从而绕过了调用 **OpenConnectionForKey** 期间执行的所有验证。 该代码示例使用的是 EF 也已随附的内置 **DefaultExecutionStrategy**。 与 **SqlAzureExecutionStrategy**相反，它能与暂时性故障处理中的重试策略正常配合工作。 执行策略在 **ElasticScaleDbConfiguration** 类中设置。 请注意，我们决定不使用 DefaultSqlExecutionStrategy，因为在发生暂时性异常时，最好使用 SqlAzureExecutionStrategy - 这会导致所述的错误行为。 有关不同重试策略和 EF 的详细信息，请参阅 [EF 中的连接弹性](https://msdn.microsoft.com/data/dn456835.aspx)。     
 
 #### <a name="constructor-rewrites"></a>构造函数重写
 上方的代码示例演示应用程序所需的默认构造函数重写，以将数据依赖型路由与 Entity Framework 一起使用。 下表将此方法一般化到其他构造函数。 
@@ -188,7 +190,7 @@ Microsoft 模式和实践团队已发布[暂时性故障处理应用程序块](h
 ## <a name="shard-schema-deployment-through-ef-migrations"></a>通过 EF 迁移分片架构部署
 自动架构管理是实体框架提供的一项便利。 在使用弹性数据库工具的应用程序的上下文中，会希望保留此功能以在数据库添加到分片应用程序时，将架构自动设置为新创建的分片。 主要用例是增加使用 EF 的分片应用程序的数据层的容量。 依靠 EF 的架构管理功能可减少在 EF 上构建的分片应用程序的数据库管理工作。 
 
-通过 EF 迁移的架构部署对于 **未打开的连接**效果最佳。 这与依靠由弹性数据库客户端 API 提供的打开连接的数据依赖型路由方案相反。 另一个区别是一致性要求：尽管确保所有依赖于数据的路由连接的一致性以防止并发分片映射操作是可取的，但是对于到尚未在分片映射中注册以及尚未分配为保存 shardlet 的新数据库的初始架构部署，这不是问题。 因此，针对此方案，可以依靠常规数据库连接，与数据依赖型路由相反。  
+通过 EF 迁移的架构部署对于 **未打开的连接**效果最佳。 这与依靠由弹性数据库客户端 API 提供的打开连接的数据依赖型路由方案相反。 另一个区别是一致性要求：尽管确保所有数据相关的路由连接的一致性以防止并发分片映射操作是可取的，但是对于到尚未在分片映射中注册以及尚未分配为保存 shardlet 的新数据库的初始架构部署，这不是问题。 因此，针对此方案，可以依靠常规数据库连接，与数据依赖型路由相反。  
 
 这会导致一种方法，在此方法中通过 EF 迁移进行的架构部署将与新数据库的注册紧密耦合，充当应用程序的分片映射中的一个分片。 这依靠以下先决条件： 
 
@@ -235,13 +237,13 @@ Microsoft 模式和实践团队已发布[暂时性故障处理应用程序块](h
         } 
 
         // Only static methods are allowed in calls into base class c'tors 
-        private static string SetInitializerForConnection(string connnectionString) 
+        private static string SetInitializerForConnection(string connectionString) 
         { 
             // You want existence checks so that the schema can get deployed 
             Database.SetInitializer<ElasticScaleContext<T>>( 
         new CreateDatabaseIfNotExists<ElasticScaleContext<T>>()); 
 
-            return connnectionString; 
+            return connectionString; 
         } 
 
 有人可能使用了从基类继承的构造函数版本。 但是该代码需要确保在连接时使用 EF 的默认初始化程序。 因此在调用带有连接字符串的基类构造函数前，需短暂绕行到静态方法。 请注意，分片的注册应该在不同的应用域或进程中运行，以确保 EF 的初始化程序设置不冲突。 

@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中的多个 IP 配置上进行负载均衡
+title: 在多个 IP 配置上进行负载均衡 - Azure CLI
 titlesuffix: Azure Load Balancer
 description: 在主要和辅助 IP 配置之间进行负载均衡。
 services: load-balancer
@@ -12,14 +12,14 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 12/31/2018
+ms.date: 01/21/2019
 ms.author: v-jay
-ms.openlocfilehash: 55800a84d3851d63e6a0f19603cf45c06ab55545
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.openlocfilehash: 943fe794c7b7820903baa66f120b425e861b3d10
+ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806236"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54333851"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>使用 PowerShell 在多个 IP 配置上进行负载均衡
 

@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: overview
 origin.date: 08/22/2018
-ms.date: 01/08/2019
+ms.date: 01/17/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 3e84caf25265a66cb144cd1adbe867ffe43f9029
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: b6ff71de967591a666db1b5dfa7fb9f2820f3953
+ms.sourcegitcommit: a09ee94bc8a6b4270f655a1d80cdb65eca320559
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083583"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396445"
 ---
 # <a name="what-is-computer-vision"></a>什么是计算机视觉？
 
@@ -67,5 +67,9 @@ ms.locfileid: "54083583"
 - 图像的尺寸必须大于 50 x 50 像素  
   对于 OCR，图像的尺寸必须介于 50 x 50 和 4200 x 4200 像素之间
 
+## <a name="data-privacy-and-security"></a>数据隐私和安全性
+
+与所有认知服务一样，使用计算机视觉服务的开发人员应该了解 Microsoft 针对客户数据的政策。 请参阅 Microsoft 信任中心上的[“认知服务”页面](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices)来了解详细信息。
 
 <!-- Update_Description: wording update -->
+

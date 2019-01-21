@@ -13,12 +13,12 @@ ms.reviewer: carlrab
 manager: digimobile
 origin.date: 12/10/2018
 ms.date: 12/31/2018
-ms.openlocfilehash: e697ae24170f6f028e0beae021a8d8b2573516dc
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.openlocfilehash: 69d0cc3495edeb71140b2cf756d866c697db0aad
+ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806398"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363800"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>使用自动故障转移组可以实现多个数据库的透明、协调式故障转移
 

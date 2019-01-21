@@ -17,12 +17,12 @@ origin.date: 09/24/2018
 ms.date: 12/24/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7ef3a572322172d4740973f901ff9cd54255f2ab
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.openlocfilehash: b5bcfef376269458435e11e9934970af15ca63aa
+ms.sourcegitcommit: 001a4e108a104644b4776f0f25eb18c1bd6a0fde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736207"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54253043"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>在运行 Linux 的 N 系列 VM 上安装 NVIDIA GPU 驱动程序
 
@@ -191,8 +191,9 @@ sudo reboot
 
   sudo apt-get install build-essential ubuntu-desktop -y
   ```
-3. 禁用 Nouveau 内核驱动程序，该驱动程序与 NVIDIA 驱动程序不兼容。 （只能在 NV 或 NVv2 VM 上使用 NVIDIA 驱动程序。）若要执行此操作，请在 `/etc/modprobe.d ` 中创建包含以下内容的名为 `nouveau.conf` 的文件：
-
+3. 禁用 Nouveau 内核驱动程序，该驱动程序与 NVIDIA 驱动程序不兼容。 （只能在 NV VM 上使用 NVIDIA 驱动程序。）若要执行此操作，请在 `/etc/modprobe.d ` 中创建包含以下内容的名为 `nouveau.conf` 的文件：
+    
+    <!--Not Available on NVv2 VM-->
   ```
   blacklist nouveau
 
@@ -304,7 +305,7 @@ sudo reboot
 ![NVIDIA 设备状态](./media/n-series-driver-setup/smi-nv.png)
 
 ### <a name="x11-server"></a>X11 服务器
-如果需要使用 X11 服务器远程连接到 NV 或 NVv2 VM，建议使用 [x11vnc](http://www.karlrunge.com/x11vnc/)，因为它允许硬件图形加速。 必须手动将 M60 设备的 BusID 添加到 X11 配置文件（通常为 `etc/X11/xorg.conf`）中。 添加 `"Device"` 节，如下所示：
+如果需要使用 X11 服务器远程连接到 NV VM，建议使用 [x11vnc](http://www.karlrunge.com/x11vnc/)，因为它允许硬件图形加速。 必须手动将 M60 设备的 BusID 添加到 X11 配置文件（通常为 `etc/X11/xorg.conf`）中。 添加 `"Device"` 节，类似于以下内容：<!--Not Available on NVv2 VM-->
 
 ```
 Section "Device"

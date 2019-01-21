@@ -11,21 +11,21 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: sashan, moslake
 manager: digimobile
-origin.date: 11/27/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: 3096a52bf742a249aff19aadfaf34fc5f70b4825
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+origin.date: 01/08/2019
+ms.date: 01/21/2019
+ms.openlocfilehash: 782b342b0bb3e33744cc1d7d835fa28bfa223a09
+ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806210"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363779"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>vCore 服务层、Azure 混合权益和迁移
 
 使用基于 vCore 的购买模型，可以单独缩放计算和存储资源，匹配本地性能，以及优化价格。 它还允许你选择硬件世代：
 
 - 第 4 代 - 最多 24 个基于 Intel E5-2673 v3 (Haswell) 2.4 GHz 处理器的逻辑 CPU，vCore = 1 PP（物理核心），每核心 7 GB，附加了 SSD
-- 第 5 代 - 最多 80 个基于 Intel E5-2673 v4 (Broadwell) 2.3 GHz 处理器的逻辑 CPU，vCore=1 LP（超线程）， 每核心 5.5 GB，快速 eNVM SSD
+- 第 5 代 - 最多 80 个基于 Intel E5-2673 v4 (Broadwell) 2.3 GHz 处理器的逻辑 CPU，vCore=1 LP（超线程），每个核心 5.1 GB，快速 eNVM SSD
 
 vCore 模式还允许使用[适用于 SQL Server 的 Azure 混合权益](https://azure.cn/pricing/hybrid-benefit/)来节省成本。
 
@@ -34,7 +34,7 @@ vCore 模式还允许使用[适用于 SQL Server 的 Azure 混合权益](https:/
 
 ## <a name="service-tier-characteristics"></a>服务层特征
 
-vCore 模型提供了两个服务层：常规用途和业务关键。 服务层根据一系列计算大小、高可用性设计、故障隔离、存储类型和 IO 范围进行区分。 客户必须单独配置所需的存储和备份保留期。 必须单独配置所需的存储和备份保持期。 在 Azure 门户中，转到“服务器”（而不是数据库）>“托管备份”>“配置策略”>“时间点还原配置”>“7 - 35 天”。
+vCore 模型提供了两个服务层：常规用途和业务关键。 服务层根据一系列计算大小、高可用性设计、故障隔离、存储类型和大小以及 IO 范围进行区分。 必须单独配置所需的存储和备份保持期。 在 Azure 门户中，转到“服务器”（而不是数据库）>“托管备份”>“配置策略”>“时间点还原配置”>“7 - 35 天”。
 
 下表可帮助你了解这两个层之间的差别：
 
@@ -43,7 +43,7 @@ vCore 模型提供了两个服务层：常规用途和业务关键。 服务层�
 |最适用于|大多数业务工作负荷。 提供预算导向的、均衡且可缩放的计算和存储选项。|IO 要求高的业务应用程序。 使用多个独立副本，提供最高级别的故障恢复能力。|
 |计算|Gen4：1 到 24 个 vCore<br/>Gen5：1 到 80 个 vCore|Gen4：1 到 24 个 vCore<br/>Gen5：1 到 80 个 vCore|
 |内存|Gen4：每个核心 7 GB<br>Gen5：每个核心 5.1 GB | Gen4：每个核心 7 GB<br>Gen5：每个核心 5.1 GB |
-|存储|使用[高级远程存储](../virtual-machines/windows/premium-storage.md)：<br/>单一数据库：5 GB – 4 TB|使用本地 SSD 存储：<br/>单一数据库：5 GB - 1 TB |
+|存储|使用[高级远程存储](../virtual-machines/windows/premium-storage.md)：<br/>单一数据库：5 GB - 4 TB |使用本地 SSD 存储：<br/>单一数据库：5 GB - 4 TB |
 |IO 吞吐量（近似）|单一数据库：每个 vCore 提供 500 IOPS，最大 7000 IOPS|每个 vCore 提供 5000 IOPS，最大 200,000 IOPS|
 |可用性|1 个副本，无读取缩放组|3 个副本，1 个[读取缩放副本](sql-database-read-scale-out.md)，<br/>区域冗余 HA|
 |备份|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md)，7-35 天（默认为 7 天）|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md)，7-35 天（默认为 7 天）|
@@ -64,6 +64,22 @@ vCore 模型提供了两个服务层：常规用途和业务关键。 服务层�
 
 ![定价](./media/sql-database-service-tiers/pricing.png)
 
+使用 Azure 混合权益，你可以选择仅为底层 Azure 基础结构付费且将现有的 SQL Server 许可证用于 SQL 数据库引擎自身 (**BasePrice**)，也可以选择同时为底层基础结构和 SQL Server 许可证付费 (**LicenseIncluded**)。 可以使用 Azure 门户或下列 API 之一来选择或更改许可模型。
+
+- 使用 PowerShell 设置或更新许可证类型：
+
+  - [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase)：
+  - [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql)
+
+- 使用 Azure CLI 设置或更新许可证类型：
+
+  - [az sql db create](/cli/sql/db#az-sql-db-create)
+  - [az sql db update](/cli/sql/db#az-sql-db-update)
+
+- 使用 REST API 设置或更新许可证类型：
+
+  - [数据库 - 创建或更新](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)
+  - [数据库 - 更新](https://docs.microsoft.com/rest/api/sql/databases/update)
 ## <a name="migration-from-dtu-model-to-vcore-model"></a>从 DTU 模型迁移到 vCore 模型
 
 ### <a name="migration-of-a-database"></a>迁移数据库

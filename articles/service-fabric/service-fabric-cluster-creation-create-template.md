@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/16/2018
-ms.date: 09/10/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: ea93fb1f80b0be907b319812457b98d552ea5916
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 855b6f2b303be9878ec05d12bd3b2d9b75a3d22d
+ms.sourcegitcommit: 35a09a86cbb3d896fa9784471ece41df7728bd71
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674222"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396709"
 ---
 # <a name="create-a-service-fabric-cluster-resource-manager-template"></a>创建 Service Fabric 群集 Resource Manager 模板
 
@@ -36,7 +36,7 @@ ms.locfileid: "52674222"
 本文使用了[五节点安全群集][service-fabric-secure-cluster-5-node-1-nodetype]示例模板和模板参数。 将 *azuredeploy.json* 和 *azuredeploy.parameters.json* 下载到计算机并在你喜欢使用的文本编辑器中打开这两个文件。
 
 > [!NOTE]
-> 对于 Azure 中国云，还应将以下 `fabricSettings` 添加到模板：`AADLoginEndpoint`、`AADTokenEndpointFormat` 和 `AADCertEndpointFormat`。
+> 对于 Azure 中国云，还应将下面的 `fabricSettings` 添加到模板：`AADLoginEndpoint`、`AADTokenEndpointFormat` 和 `AADCertEndpointFormat`。
 
 ## <a name="add-certificates"></a>添加证书
 通过引用包含证书密钥的 Key Vault 将证书添加到群集资源管理器模板。 在资源管理器模板参数文件 (*azuredeploy.parameters.json*) 中添加这些密钥保管库参数和值。
@@ -257,9 +257,10 @@ Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -Templa
 ![Resource Manager 依赖关系图][cluster-security-arm-dependency-map]
 
 ## <a name="next-steps"></a>后续步骤
-现在，你已有了用于群集的模板，请学习如何[将群集部署到 Azure](service-fabric-cluster-creation-via-arm.md)。
+现在，你已有了用于群集的模板，请学习如何[将群集部署到 Azure](service-fabric-cluster-creation-via-arm.md)。  在部署生产群集之前，如果尚未阅读[生产就绪情况核对清单](service-fabric-production-readiness-checklist.md)，请阅读该内容。
 
-<!-- Not Available on   If you haven't already, read the [Production readiness checklist](service-fabric-production-readiness-checklist.md)-->
+<!--Not Available the template of global site-->
+
 
 <!-- Links -->
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
@@ -269,5 +270,4 @@ Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -Templa
 <!-- Images -->
 [cluster-security-arm-dependency-map]: ./media/service-fabric-cluster-creation-create-template/cluster-security-arm-dependency-map.png
 
-<!-- Update_Description: new articles on service fabric creation template -->
-<!--ms.date: 09/10/2018-->
+<!-- Update_Description: update meta properties, wording update -->

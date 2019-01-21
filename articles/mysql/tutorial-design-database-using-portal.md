@@ -11,12 +11,12 @@ ms.topic: tutorial
 origin.date: 03/20/2018
 ms.date: 11/09/2018
 ms.custom: mvc
-ms.openlocfilehash: 820c591da39d189666bcad03ce309b071a320ef2
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 3a18c74a935e47375054902663327c24128a3b53
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649398"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396925"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>教程：使用 Azure 门户设计 Azure Database for MySQL 数据库
 
@@ -57,7 +57,7 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
     资源组 | myresourcegroup | 提供新的或现有的资源组名称。    资源组|myresourcegroup| 新的资源组名称，或订阅中的现有资源组。
     选择源 | *空白* | 选择“空白”可从头开始创建新服务器。 （如果要从现有 Azure Database for MySQL 服务器的异地备份创建服务器，请选择“备份”）。
     服务器管理员登录名 | myadmin | 连接到服务器时需使用的登录帐户。 管理员登录名不能是“azure_superuser”、“admin”、“administrator”、“root”、“guest”或“public”。
-    密码 | *由用户决定* | 为服务器管理员帐户提供新密码。 必须包含 8 到 128 个字符。 密码必须包含以下字符类别中的三类：英文大写字母、英文小写字母、数字 (0-9) 以及非字母数字字符（!、$、#、% 等）。
+    密码 | *由用户决定* | 为服务器管理员帐户提供新密码。 必须包含 8 到 128 个字符。 密码必须包含以下三个类别的字符：英文大写字母、英文小写字母、数字 (0-9)和非字母数字字符（!, $, #, % 等）。
     确认密码 | *由用户决定*| 确认管理员帐户密码。
     位置 | *离用户最近的区域*| 选择最靠近用户或其他 Azure 应用程序的位置。
     版本 | 最新版本| 最新版本，有特定要求（即需要其他版本）的除外。
@@ -158,8 +158,8 @@ SELECT * FROM inventory;
    
    - **还原点**：在列出的时间范围内选择要还原到的时间点。 请确保将本地时区转换为 UTC。
    - **还原到新服务器**：提供一个要还原到的新服务器名称。
-   - **位置**：该区域与源服务器相同，但不能更改。
-   - **定价层**：定价层与源服务器相同，但不能更改。
+   - **位置**：该区域与源服务器相同，不能更改。
+   - **定价层**：定价层与源服务器相同，不能更改。
    
 3. 单击“确定”，将服务器[还原到删除该表之前的时间点](./howto-restore-server-portal.md)。 还原服务器时将创建服务器的新副本（从指定的时间点开始）。 
 

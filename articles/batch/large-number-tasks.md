@@ -1,10 +1,10 @@
 ---
-title: 提交大量的任务 - Azure Batch | Microsoft Docs
+title: 提交大量的任务 - Azure Batch | Azure Docs
 description: 如何有效地将巨量的任务提交到单个 Azure Batch 作业中
 services: batch
 documentationcenter: ''
-author: dlepow
-manager: jeconnoc
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -12,16 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-origin.date: 08/24/2018
-ms.date: 09/26/2018
-ms.author: v-junlch
+ms.date: 01/21/19
+ms.author: v-lingwu
 ms.custom: ''
-ms.openlocfilehash: 8226386345f7b35ad93f50ec31d5072d1a0c3e46
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c8458a8aa71dabfcaa148a5b60a60b7377bc797b
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657764"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363375"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>将大量的任务提交到 Batch 作业
 
@@ -35,11 +34,11 @@ Batch API 提供所需的方法用于高效地将任务作为集合添加到作�
 
 可在单个调用中添加的任务集合的最大大小取决于所用的 Batch API：
 
-- 以下 Batch API 将集合限制为 **100 个任务**。 根据任务的大小，此限制可能更小 - 例如，如果任务包含大量的资源文件或环境变量。
+* 以下 Batch API 将集合限制为 **100 个任务**。 根据任务的大小，此限制可能更小 - 例如，如果任务包含大量的资源文件或环境变量。
 
-    - [REST API](https://docs.microsoft.com/rest/api/batchservice/task/addcollection)
-    - [Python API](https://docs.microsoft.com/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python#azure_batch_operations_TaskOperations_add_collection)
-    - [Node.js API](https://docs.microsoft.com/javascript/api/azure-batch/task?view=azure-node-latest#addcollection)
+    * [REST API](https://docs.microsoft.com/rest/api/batchservice/task/addcollection)
+    * [Python API](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python#azure_batch_operations_TaskOperations_add_collection)
+    * [Node.js API](/javascript/api/azure-batch/task?view=azure-node-latest#addcollection)
 
   使用这些 API 时，需要提供逻辑来分割任务数目以符合集合限制，以及在添加任务失败时处理错误并重试。 如果任务集合太大，以致无法添加，则请求会生成错误，并在减少任务后重试。
 
@@ -213,6 +212,6 @@ except Exception as e:
 
 ## <a name="next-steps"></a>后续步骤
 
-- 详细了解如何使用包含 [Batch CLI 模板](batch-cli-templates.md)的 Azure Batch CLI 扩展。
-- 详细了解 [Batch Python SDK 扩展](https://pypi.org/project/azure-batch-extensions/)。
+* 详细了解如何使用包含 [Batch CLI 模板](batch-cli-templates.md)的 Azure Batch CLI 扩展。
+* 详细了解 [Batch Python SDK 扩展](https://pypi.org/project/azure-batch-extensions/)。
 

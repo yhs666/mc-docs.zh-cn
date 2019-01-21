@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 12/25/2018
+ms.date: 01/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: 8c2b06bb1b64a3a509397258cb9d835402d83e45
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: d2f54ac743fc28647316c35d4e2736a9b7d4aa26
+ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806676"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334224"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>Durable Functions 中的 HTTP API (Azure Functions)
 
@@ -127,11 +127,11 @@ Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d84
 |------------|-----------------|-------------|
 | instanceId | URL             | 业务流程实例的 ID。 |
 | taskHub    | 查询字符串    | [任务中心](durable-functions-task-hubs.md)的名称。 如果未指定，则使用当前函数应用的任务中心名称。 |
-| 连接 | 查询字符串    | 用于存储帐户的连接字符串的名称。 如果未指定，则使用函数应用的默认连接字符串。 |
+| connection | 查询字符串    | 用于存储帐户的连接字符串的名称。 如果未指定，则使用函数应用的默认连接字符串。 |
 | systemKey  | 查询字符串    | 需要授权密钥才可调用 API。 |
-| showInput  | 查询字符串    | 可选参数。 如果设置为 `false`，则执行输入不会包括在响应有效负载中。|
-| showHistory| 查询字符串    | 可选参数。 如果设置为 `true`，业务流程执行历史记录将包含在响应有效负载中。|
-| showHistoryOutput| 查询字符串    | 可选参数。 如果设置为 `true`，活动输出将包含在业务流程执行历史记录中。|
+| showInput  | 查询字符串    | 可选参数；仅适用于单实例请求。 如果设置为 `false`，则执行输入不会包括在响应有效负载中。|
+| showHistory| 查询字符串    | 可选参数；仅适用于单实例请求。 如果设置为 `true`，业务流程执行历史记录将包含在响应有效负载中。|
+| showHistoryOutput| 查询字符串    | 可选参数；仅适用于单实例请求。 如果设置为 `true`，活动输出将包含在业务流程执行历史记录中。|
 | createdTimeFrom  | 查询字符串    | 可选参数。 指定后，筛选在给定 ISO8601 时间戳当时或之后创建的返回实例列表。|
 | createdTimeTo    | 查询字符串    | 可选参数。 指定后，筛选在给定 ISO8601 时间戳当时或之前创建的返回实例列表。|
 | runtimeStatus    | 查询字符串    | 可选参数。 指定后，根据其运行时状态筛选返回实例列表。 若要查看可能的运行时状态值列表，请参阅[查询实例](durable-functions-instance-management.md)主题。 |
@@ -179,7 +179,7 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}?taskHub={taskHub}&conne
 | output          | JSON      | 实例的 JSON 输出。 如果实例不是已完成状态，则该字段为 `null`。 |
 | createdTime     | 字符串    | 创建实例的时间。 使用 ISO 8601 扩展表示法。 |
 | lastUpdatedTime | 字符串    | 实例持续的时间。 使用 ISO 8601 扩展表示法。 |
-| historyEvents   | JSON      | 包含业务流程执行历史记录的 JSON 数组。 除非 `showHistory` 查询字符串参数设置为 `true`，否则此字段为 `null`。  |
+| historyEvents   | JSON      | 包含业务流程执行历史记录的 JSON 数组。 除非 `showHistory` 查询字符串参数设置为 `true`，否则此字段为 `null`。 |
 
 下面是包括业务流程执行历史记录和活动输出的示例响应有效负载（为提高可读性已设置格式）：
 
@@ -483,3 +483,4 @@ POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7
 > [!div class="nextstepaction"]
 > [了解如何处理错误](durable-functions-error-handling.md)
 
+<!-- Update_Description: wording update -->

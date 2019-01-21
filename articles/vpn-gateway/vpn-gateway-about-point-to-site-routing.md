@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 04/16/2018
 ms.date: 12/10/2018
 ms.author: v-jay
-ms.openlocfilehash: 330b3e74ee773a43367a069b1fb857f8142798b2
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 97e359283297651ebecb585163cd1fd566c70ccb
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028994"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397069"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>关于点到站点 VPN 路由
 

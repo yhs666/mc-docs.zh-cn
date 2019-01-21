@@ -1,6 +1,6 @@
 ---
 title: Azure Functions Python 开发人员参考
-description: 了解如何使用 Pythong 开发函数
+description: 了解如何使用 Python 开发函数
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 04/16/2018
-ms.date: 12/26/2018
+ms.date: 01/15/2019
 ms.author: v-junlch
-ms.openlocfilehash: 99c80f1acb2e7211a7307f144f784d30b0b255f0
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 17358885fa70c9382d19facf8a364cfc4a4ad547
+ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806672"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334215"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 开发人员指南
 
@@ -307,6 +307,36 @@ func azure functionapp <app name> --build-native-deps
 > ```
 > 如果继续遇到问题，请通过[建立问题](https://github.com/Azure/azure-functions-core-tools/issues/new)并包含问题描述来告知我们。 
 
+
+若要使用持续集成 (CI) 和持续交付 (CD) 系统生成依赖项并进行发布，可以使用 [Travis CI 自定义脚本](https://docs.travis-ci.com/user/deployment/script/)。 
+
+下面是生成和发布过程的示例 `.travis.yaml` 脚本。
+
+```yml
+sudo: required
+
+language: node_js
+
+node_js:
+  - "8"
+
+services:
+  - docker
+
+before_install:
+  - echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ wheezy main" | sudo tee /etc/apt/sources.list.d/azure-cli.list
+  - curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+  - sudo apt-get install -y apt-transport-https
+  - sudo apt-get update && sudo apt-get install -y azure-cli
+  - npm i -g azure-functions-core-tools --unsafe-perm true
+
+
+script:
+  - az login --service-principal --username "$APP_ID" --password "$PASSWORD" --tenant "$TENANT_ID"
+  - az account get-access-token --query "accessToken" | func azure functionapp publish $APP_NAME --build-native-deps
+
+```
+
 ## <a name="known-issues-and-faq"></a>已知问题和常见问题解答
 
 所有已知问题和功能请求都使用 [GitHub 问题](https://github.com/Azure/azure-functions-python-worker/issues)列表进行跟踪。 如果遇到 GitHub 中未列出的问题，请打开“新问题”并提供问题的详细说明。
@@ -322,3 +352,4 @@ func azure functionapp <app name> --build-native-deps
 - [存储绑定](functions-bindings-storage-queue.md)
 - [计时器触发器](functions-bindings-timer.md)
 
+<!-- Update_Description: wording update -->

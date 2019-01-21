@@ -5,15 +5,15 @@ services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: conceptual
-origin.date: 07/27/2018
-ms.date: 12/10/2018
+origin.date: 01/02/2019
+ms.date: 01/21/2019
 ms.author: v-jay
-ms.openlocfilehash: 45cf1d1b4c753f007cd98eccb48f0a5f6447417d
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: aee567ff33d890e27ddb487ceba2b81e1c1f971d
+ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029105"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54333896"
 ---
 # <a name="vpn-gateway-faq"></a>VPN 网关常见问题
 
@@ -31,6 +31,10 @@ ms.locfileid: "53029105"
 
 可以使用 Windows PowerShell 和 Azure REST API 连接到多个站点。 请参阅 [多站点与 VNet 到 VNet 连接](#V2VMulti) 的“常见问题”部分。
 
+### <a name="is-there-an-additional-cost-for-setting-up-a-vpn-gateway-as-active-active"></a>将 VPN 网关设置为“主动-主动”是否需要额外费用？
+
+否。 
+
 ### <a name="what-are-my-cross-premises-connection-options"></a>我的跨界连接选项有哪些？
 
 支持以下跨界连接：
@@ -39,7 +43,7 @@ ms.locfileid: "53029105"
 * 点到站点 - 基于 SSTP（安全套接字隧道协议）或 IKE v2 的 VPN 连接。 此连接不需要 VPN 设备。 有关详细信息，请参阅[点到站点](vpn-gateway-howto-point-to-site-resource-manager-portal.md)。
 * VNet 到 VNet - 这种连接类型与站点到站点配置相同。 VNet 到 VNet 是一种基于 IPsec（IKE v1 和 IKE v2）的 VPN 连接。 它不需要 VPN 设备。 有关详细信息，请参阅 [VNet 到 VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)。
 * 多站点 - 这是站点到站点配置的变体，可将多个本地站点连接到虚拟网络。 有关详细信息，请参阅[多站点](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)。
-* ExpressRoute - ExpressRoute 是从 WAN 到 Azure 的直接连接，不是经公共 Internet 的 VPN 连接。 有关详细信息，请参阅 [ExpressRoute 技术概述](../expressroute/expressroute-introduction.md)和 [ExpressRoute 常见问题](../expressroute/expressroute-faqs.md)。
+* ExpressRoute - ExpressRoute 是从 WAN 到 Azure 的专用连接，不是通过公共 Internet 的 VPN 连接。 有关详细信息，请参阅 [ExpressRoute 技术概述](../expressroute/expressroute-introduction.md)和 [ExpressRoute 常见问题](../expressroute/expressroute-faqs.md)。
 
 有关 VPN 网关连接的详细信息，请参阅[关于 VPN 网关](vpn-gateway-about-vpngateways.md)。
 

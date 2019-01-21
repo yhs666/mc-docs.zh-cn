@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/02/2017
-ms.date: 10/15/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: d7e2304d4a32ec1c7ab3d3d0dad61b979e0fafa8
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b088ba2d5b2e08ddcd8b054ba311819f22097477
+ms.sourcegitcommit: 35a09a86cbb3d896fa9784471ece41df7728bd71
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659630"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396677"
 ---
 # <a name="get-started-with-reliable-services"></a>Reliable Services 入门
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ ms.locfileid: "52659630"
 ## <a name="basic-concepts"></a>基本概念
 了解几个基本概念，即可开始使用 Reliable Services：
 
-* **服务类型**：这是服务实现。 它由编写的可扩展 `StatelessService` 的类、其中使用的任何其他代码或依赖项以及名称和版本号定义。
+* **服务类型**：这是你的服务实现。 它由编写的可扩展 `StatelessService` 的类、其中使用的任何其他代码或依赖项以及名称和版本号定义。
 * **命名服务实例**：若要运行服务，需要创建服务类型的命名实例，就像创建类类型的对象实例一样。 事实上，服务实例是编写的服务类的对象实例化。
 * **服务宿主**：创建的命名服务实例需在宿主中运行。 服务宿主是可以运行服务实例的进程。
 * **服务注册**：通过注册可将所有对象融合在一起。 只有在服务宿主中将服务类型注册 Service Fabric 运行时，Service Fabric 才能创建该类型的可运行实例。  

@@ -1,26 +1,26 @@
 ---
 title: 在 Azure 中使用资源管理器模板创建经典指标警报
 description: 了解如何使用资源管理器模板创建经典指标警报，以便通过电子邮件或 Webhook 接收通知。
-author: johnkemnetz
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 4/27/2018
-ms.author: johnkem
+ms.date: 01/21/19
+ms.author: v-lingwu
 ms.component: metrics
-ms.openlocfilehash: b8d204424270e4c25f7f369605494ab747b953af
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.openlocfilehash: 54e347bbc0c003928c9f2b6a99197d0f4ac20dd7
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141723"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363531"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>使用资源管理器模板创建经典指标警报
 本文说明如何使用 [Azure Resource Manager 模板](../../azure-resource-manager/resource-group-authoring-templates.md) 配置 Azure 指标警报。 这样，便可以在创建资源时自动对资源设置警报，确保正确监视所有资源。
 
 > [!NOTE]
 > 
-> 本文介绍如何使用资源管理器模板创建经典指标警报。 如果你正在寻找使用模板创建[较新指标警报](../../azure-monitor/platform/alerts-metric-near-real-time.md)的方法，那么[本文](alerts-metric-create-templates.md)可提供详细信息。
+> 本文介绍如何使用资源管理器模板创建经典指标警报。 如果你希望使用模板创建[较新的指标警报](../../azure-monitor/platform/alerts-metric-near-real-time.md)，请参阅本文中的详细信息。
 >
 
 
@@ -186,7 +186,7 @@ ms.locfileid: "54141723"
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "newStorageAccountName": {
@@ -344,7 +344,7 @@ ms.locfileid: "54141723"
                     "osDisk": {
                         "name": "osdisk",
                         "vhd": {
-                            "uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('OSDiskName'),'.vhd')]"
+                            "uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.chinacloudapi.cn/',variables('vmStorageAccountContainerName'),'/',variables('OSDiskName'),'.vhd')]"
                         },
                         "caching": "ReadWrite",
                         "createOption": "FromImage"

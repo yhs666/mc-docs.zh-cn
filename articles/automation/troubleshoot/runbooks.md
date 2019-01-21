@@ -4,17 +4,17 @@ description: 了解如何解决 Azure 自动化 Runbook 的问题
 services: automation
 author: WenJason
 ms.author: v-jay
-origin.date: 12/04/2018
-ms.date: 12/24/2018
+origin.date: 01/04/2019
+ms.date: 01/21/2019
 ms.topic: conceptual
 ms.service: automation
 manager: digimobile
-ms.openlocfilehash: b5690cf9a80e692856da0dc96321fef364795a0e
-ms.sourcegitcommit: 895e9accaae8f8c2a29ed91d8e84911fda6111cf
+ms.openlocfilehash: f1ca6cdc4f42869f55b65644ae5d6cd8444cb2b0
+ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53615189"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54333895"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook 错误故障排除
 
@@ -39,15 +39,15 @@ Unknown_user_type: Unknown User Type
 
 要确定具体错误，请执行以下步骤：  
 
-1. 确保在用于连接到 Azure 的自动化凭据资产名称中没有任何特殊字符，包括 @ 字符。  
+1. 确保在用于连接到 Azure 的自动化凭据资产名称中没有任何特殊字符，包括 **@** 字符。  
 2. 查看你是否能够在本地 PowerShell ISE 编辑器中使用存储在 Azure 自动化凭据中的用户名和密码。 可以通过在 PowerShell ISE 中运行以下 cmdlet 来检查用户名和密码是否正确：  
 
    ```powershell
    $Cred = Get-Credential  
    #Using Azure Service Management
-   Add-AzureAccount -Environment AzureChinaCloud –Credential $Cred  
+   Add-AzureAccount -Environment AzureChinaCloud -Credential $Cred  
    #Using Azure Resource Manager  
-   Connect-AzureRmAccount -EnvironmentName AzureChinaCloud –Credential $Cred
+   Connect-AzureRmAccount -EnvironmentName AzureChinaCloud -Credential $Cred
    ```
 
 3. 如果无法在本地进行身份验证，则意味着你尚未设置好 Azure Active Directory 凭据。 请参阅 [使用 Azure Active Directory 向 Azure 进行身份验证](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) 博客文章，了解如何正确设置 Azure Active Directory 帐户。  
@@ -96,14 +96,15 @@ The subscription named <subscription name> cannot be found.
 要确定是否已正确向 Azure 进行身份验证并有权访问尝试选择的订阅，请执行以下步骤：  
 
 1. 在 Azure 自动化之外测试脚本，以确保它独立运行。
-2. 确保先运行 **Add-AzureAccount -EnvironmentName AzureChinaCloud** cmdlet，然后再运行 **Select-AzureSubscription** cmdlet。  
-3. 如果仍显示此错误消息，可通过在 **Add-AzureAccount** cmdlet 后添加 **-AzureRmContext** 参数来修改代码，并执行代码。
+2. 请确保在运行 `Select-AzureSubscription` cmdlet 之前运行 `Add-AzureAccount -EnvironmentName AzureChinaCloud` cmdlet。 
+3. 将 `Disable-AzureRmContextAutosave -Scope Process` 添加到 runbook 的开头。 这可以确保任何凭据都仅适用于当前 runbook 的执行。
+4. 如果仍然看到此错误消息，可通过在 `Add-AzureAccount` cmdlet 后添加 **AzureRmContext** 参数来修改代码，然后执行代码。
 
    ```powershell
+   Disable-AzureRmContextAutosave -Scope Process
+
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
-   -EnvironmentName AzureChinaCloud `
--ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+   Connect-AzureRmAccount -EnvironmentName AzureChinaCloud -ServicePrincipal -Tenant $Conn.TenantID -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
    $context = Get-AzureRmContext
 
@@ -126,7 +127,7 @@ Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is re
 
 #### <a name="resolution"></a>解决方法
 
-要将证书用于 Azure 经典部署模型 cmdlet，请参阅[创建并添加管理 Azure 服务所需的证书](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx)。 若要将服务主体用于 Azure Resource Manager cmdlet，请参阅[使用 Azure 门户创建服务主体](../../azure-resource-manager/resource-group-create-service-principal-portal.md)和[通过 Azure Resource Manager 对服务主体进行身份验证](../../azure-resource-manager/resource-group-authenticate-service-principal.md)。
+要将证书用于 Azure 经典部署模型 cmdlet，请参阅[创建并添加管理 Azure 服务所需的证书](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx)。 若要将服务主体用于 Azure Resource Manager cmdlet，请参阅[使用 Azure 门户创建服务主体](../../active-directory/develop/howto-create-service-principal-portal.md)和[通过 Azure Resource Manager 对服务主体进行身份验证](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)。
 
 ## <a name="common-errors-when-working-with-runbooks"></a>使用 Runbook 时的常见错误
 
@@ -150,21 +151,24 @@ Exception: A task was canceled.
 
 在自动化帐户中，单击“模块”，然后单击“更新 Azure 模块”。 更新需要花费大约 15 分钟，完成后，重新运行失败的 runbook。 若要了解有关更新模块的详细信息，请参阅[在 Azure 自动化中更新 Azure 模块](../automation-update-azure-modules.md)。
 
-### <a name="child-runbook-auth-failure"></a>场景：处理多个订阅时，子 Runbook 失败
+### <a name="runbook-auth-failure"></a>场景：处理多个订阅时，Runbook 失败
 
 #### <a name="issue"></a>问题
 
-使用 `Start-AzureRmRunbook` 执行子 Runbook 时，子 Runbook 无法管理 Azure 资源。
+使用 `Start-AzureRmAutomationRunbook` 执行 Runbook 时，Runbook 无法管理 Azure 资源。
 
 #### <a name="cause"></a>原因
 
-子 Runbook 在运行时没有使用正确的上下文。
+Runbook 在运行时没有使用正确的上下文。
 
 #### <a name="resolution"></a>解决方法
 
-如果使用多个订阅，则在调用子 Runbook 时可能会丢失订阅上下文。 若要确保将订阅上下文传递给子 Runbook，请将 `AzureRmContext` 参数添加到 cmdlet 并将上下文传递给它。
+如果使用多个订阅，则调用 Runbook 时可能会丢失订阅上下文。 若要确保将订阅上下文传递给 Runbook，请将 `AzureRmContext` 参数添加到 cmdlet 并将上下文传递给它。 还建议将 `Disable-AzureRmContextAutosave` cmdlet 与 **Process** 范围配合使用来确保你使用的凭据仅用于当前 runbook。
 
-```powershell
+```azurepowershell
+# Ensures that any credentials apply only to the execution of this runbook
+Disable-AzureRmContextAutosave -Scope Process
+
 # Connect to Azure with RunAs account
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
 
@@ -180,11 +184,11 @@ $AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConn
 $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
 
 Start-AzureRmAutomationRunbook `
-    –AutomationAccountName 'MyAutomationAccount' `
-    –Name 'Test-ChildRunbook' `
+    -AutomationAccountName 'MyAutomationAccount' `
+    -Name 'Test-ChildRunbook' `
     -ResourceGroupName 'LabRG' `
     -AzureRmContext $AzureContext `
-    –Parameters $params –wait
+    -Parameters $params -wait
 ```
 
 ### <a name="not-recognized-as-cmdlet"></a>场景：由于缺少 cmdlet，Runbook 失败
@@ -226,11 +230,11 @@ The job was tried three times but it failed
 
 此错误可能由以下原因引起：
 
-1. 内存限制。 [自动化服务限制](../../azure-subscription-service-limits.md#automation-limits)中规定了对可以分配给沙盒的内存量的限制，因此，如果使用超过 400 MB 的内存，作业可能会失败。
+1. 内存限制。 可以在[自动化服务限制](../../azure-subscription-service-limits.md#automation-limits)中找到有关分配给沙盒的内存量的限制。 如果作业使用的内存超过 400 MB，则它可能会失败。
 
-1. 网络套接字。 如[自动化服务限制](../../azure-subscription-service-limits.md#automation-limits)中所述，Azure 沙盒限制为 1000 个并发网络套接字。
+2. 网络套接字。 如[自动化服务限制](../../azure-subscription-service-limits.md#automation-limits)中所述，Azure 沙盒限制为 1000 个并发网络套接字。
 
-1. 模块不兼容。 如果模块依赖关系不正确，则可能会发生此错误，并且如果它们不正确，则 runbook 通常会返回“找不到命令”或“无法绑定参数”消息。
+3. 模块不兼容。 如果模块依赖关系不正确，则可能会发生此错误，并且如果它们不正确，则 runbook 通常会返回“找不到命令”或“无法绑定参数”消息。
 
 #### <a name="resolution"></a>解决方法
 
@@ -371,7 +375,7 @@ Runbook 超出了 Azure 沙盒中公平份额允许的 3 小时限制。
 可通过两种方法来解决此错误：
 
 * 编辑 Runbook，并减少它发出的作业流数量。
-* 减少运行 cmdlet 时要检索的流数量。 若要执行此操作，可以向 `Get-AzureRmAutomationJobOutput` cmdlet 指定 `-Stream Output` 参数以仅检索输出流。 
+* 减少运行 cmdlet 时要检索的流数量。 若要遵循此行为，可以为 `Get-AzureRmAutomationJobOutput` cmdlet 指定 `-Stream Output` 参数以仅检索输出流。
 
 ## <a name="common-errors-when-importing-modules"></a>导入模块时的常见错误
 

@@ -8,12 +8,12 @@ ms.service: postgresql
 ms.topic: conceptual
 origin.date: 11/09/2018
 ms.date: 12/31/2018
-ms.openlocfilehash: d4fb9ec284969604f54ce2f877a9dc4c7a583af9
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.openlocfilehash: a73e646969fac42da83e88abae2d68a3ba23cce8
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806325"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396918"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql"></a>排查 Azure Databases for PostgreSQL 的连接问题
 

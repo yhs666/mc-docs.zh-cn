@@ -1,5 +1,5 @@
 ---
-title: 快速入门：创建和查询 Azure SQL 数据仓库 - Azure 门户 | Microsoft Docs
+title: 快速入门：在 Azure 门户创建和查询 Azure SQL 数据仓库 | Microsoft Docs
 description: 在 Azure 门户中使用 Azure SQL 数据仓库创建和查询数据仓库。
 services: sql-data-warehouse
 author: WenJason
@@ -11,12 +11,12 @@ origin.date: 08/01/2018
 ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 1df3b520d6e72696fef64e90bc19387725954de0
-ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
+ms.openlocfilehash: 20359a39cd557563546c6d7dcb1fc26c193dfcae
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676914"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397033"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建和查询 Azure SQL 数据仓库
 
@@ -51,7 +51,7 @@ ms.locfileid: "52676914"
 
 3. 使用以下信息填写“SQL 数据仓库”表单：   
 
-    | 设置 | 建议的值 | 说明 | 
+    | 设置 | 建议的值 | 说明 | 
     | ------- | --------------- | ----------- | 
     | **数据库名称** | mySampleDataWarehouse | 如需有效的数据库名称，请参阅 [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)（数据库标识符）。 请注意，数据仓库是一种数据库。| 
     | **订阅** | 你的订阅  | 有关订阅的详细信息，请参阅[订阅](https://account.windowsazure.cn/Subscriptions)。 |
@@ -64,7 +64,7 @@ ms.locfileid: "52676914"
 
 4. 单击“服务器”，为新数据库创建并配置新服务器。 使用以下信息填写“新建服务器”窗体： 
 
-    | 设置 | 建议的值 | 说明 | 
+    | 设置 | 建议的值 | 说明 | 
     | ------------ | ------------------ | ------------------------------------------------- | 
     | **服务器名称** | 任何全局唯一名称 | 如需有效的服务器名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。 | 
     | 服务器管理员登录名 | 任何有效的名称 | 如需有效的登录名，请参阅 [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)（数据库标识符）。|
@@ -143,7 +143,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
 2. 在“连接到服务器”对话框中，输入以下信息：
 
-   | 设置       | 建议的值 | 说明 | 
+   | 设置       | 建议的值 | 说明 | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | 服务器类型 | 数据库引擎 | 此值是必需的 |
    | 服务器名称 | 完全限定的服务器名称 | 这是一个示例：**mynewserver-20181129.database.chinacloudapi.cn**。 |

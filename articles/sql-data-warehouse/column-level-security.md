@@ -11,12 +11,12 @@ ms.date: 06/15/2018
 origin.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: igorstan, carlrab
-ms.openlocfilehash: 07b08a5681a59e2a17e4d9ca5032a771c54e10ed
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 13955cc740de872370e34d43a3c126df81e784b5
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647704"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397040"
 ---
 # <a name="column-level-security"></a>列级别安全性 
 借助列级别安全性 (CLS)，客户可以根据用户的执行上下文或其组成员身份，控制对数据库表列的访问。  

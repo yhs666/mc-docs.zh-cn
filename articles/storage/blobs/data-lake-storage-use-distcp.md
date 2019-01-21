@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 12/06/2018
 ms.date: 01/14/2019
 ms.author: v-jay
-ms.openlocfilehash: 98753d90a8afe900b924015a04b224af36ae1fcd
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: 9f6bffdef768bc191e1f036938542d7981d58e15
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192946"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397012"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2-preview"></a>使用 DistCp 在 Azure 存储 Blob 与 Azure Data Lake Storage Gen2 预览版之间复制数据
 
@@ -38,7 +38,7 @@ HDInsight 群集附带 DistCp 实用工具，该实用工具可用于从不同�
 
 2. 验证是否可以访问现有的常规用途 V2 帐户（未启用分层命名空间）。
 
-        hdfs dfs –ls wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.chinacloudapi.cn/
+        hdfs dfs -ls wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.chinacloudapi.cn/
 
     输出应提供容器中内容的列表。
 

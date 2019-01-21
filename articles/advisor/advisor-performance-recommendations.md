@@ -1,26 +1,24 @@
 ---
-title: Azure 顾问性能建议 | Microsoft Docs
+title: Azure 顾问性能建议 | Azure Docs
 description: 使用顾问优化 Azure 部署的性能。
 services: advisor
 documentationcenter: NA
-author: forester123
-manager: carmonm
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: advisor
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 11/16/2016
-ms.date: 03/26/2018
-ms.author: v-johch
-ms.openlocfilehash: a68755a07268d465ec3bc6ab3e27ce257a029168
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 01/21/19
+ms.author: v-lingwu
+ms.openlocfilehash: e1ad3eea35f7b9c4af1c70adc39537cd11b3c62c
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664116"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363307"
 ---
 # <a name="advisor-performance-recommendations"></a>顾问性能建议
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 12/06/2018
 ms.date: 01/14/2019
 ms.author: v-jay
-ms.openlocfilehash: c3b051ac49e5889c250f2d0cfce32b146d759c6a
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: 478e024a5ab09cd61b98191f54fa62fd33284316
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192952"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54397006"
 ---
 # <a name="tuning-azure-data-lake-storage-gen2-for-performance"></a>优化 Azure Data Lake Storage Gen2 性能
 

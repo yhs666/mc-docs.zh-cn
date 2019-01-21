@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 资源管理器模板创建服务总线授权规则 | Azure
+title: 使用 Azure 资源管理器模板创建服务总线授权规则 | Azure Docs
 description: 使用 Azure Resource Manager 模板为命名空间和队列创建服务总线授权规则
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,15 +12,14 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-origin.date: 09/11/2018
-ms.date: 10/31/2018
+ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 419c3e11d733c2711b909a4f2eb34a0dbe5d7c98
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 16c2c2956f542ffe6c7840da7640ee82b00aac32
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655438"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363556"
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板为命名空间和队列创建服务总线授权规则
 
@@ -32,11 +31,11 @@ ms.locfileid: "52655438"
 
 >[!NOTE]
 > 以下 Azure 资源管理器模板可供下载和部署。
->
-> -  [创建服务总线命名空间](./service-bus-resource-manager-namespace.md)
-> -  [创建包含队列的服务总线命名空间](./service-bus-resource-manager-namespace-queue.md)
-> -  [创建包含主题和订阅的服务总线命名空间](./service-bus-resource-manager-namespace-topic.md)
-> -  [创建包含主题、订阅和规则的服务总线命名空间](./service-bus-resource-manager-namespace-topic-with-rule.md)
+> 
+> * [创建服务总线命名空间](service-bus-resource-manager-namespace.md)
+> * [创建包含队列的服务总线命名空间](service-bus-resource-manager-namespace-queue.md)
+> * [创建包含主题和订阅的服务总线命名空间](service-bus-resource-manager-namespace-topic.md)
+> * [创建包含主题、订阅和规则的服务总线命名空间](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
 > 若要查找最新模板，请访问 [Azure 快速入门模板][Azure Quickstart Templates]库并搜索“服务总线”。
 > 

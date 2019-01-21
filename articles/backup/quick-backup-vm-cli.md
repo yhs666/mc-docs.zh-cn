@@ -2,22 +2,21 @@
 title: Azure 快速入门 - 使用 Azure CLI 备份 VM
 description: 了解如何使用 Azure CLI 备份虚拟机
 services: backup
-author: markgalioto
-manager: carmonm
+author: lingliw
+manager: digimobile
 tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
-origin.date: 08/03/2018
-ms.date: 10/19/2018
+ms.date: 01/21/19
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 3c5f177e6a2d8b793c178e170f87704dae31d678
-ms.sourcegitcommit: 9fd5944afd6274e096a6e790583a131642f1532d
+ms.openlocfilehash: a8e434f538a472859e0293c7998a663273615f85
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53737007"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363350"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>使用 CLI 在 Azure 中备份虚拟机
 Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 可以通过定期创建备份来保护数据。 Azure 备份可创建恢复点，这些恢复点可存储在异地冗余的恢复保管库中。 本文详细介绍如何使用 Azure CLI 在 Azure 中备份虚拟机 (VM)。 也可以使用 [Azure PowerShell](quick-backup-vm-powershell.md) 或 [Azure 门户](quick-backup-vm-portal.md)执行这些步骤。
@@ -49,8 +48,7 @@ az backup vault create --resource-group myResourceGroup \
 ## <a name="enable-backup-for-an-azure-vm"></a>为 Azure VM 启用备份
 创建一个保护策略，用于定义：备份作业的运行时间以及恢复点的存储期限。 默认保护策略每天运行一个备份作业，并将恢复点保留 30 天。 可以使用这些默认策略值来快速保护 VM。 若要为 VM 启用备份保护，请使用 [az backup protection enable-for-vm](/cli/backup/protection#az-backup-protection-enable-for-vm)。 指定要保护的资源组和 VM，再指定要使用的策略：
 
-```azurecli 
-az backup protection enable-for-vm \
+```Azure CLI az backup protection enable-for-vm \
     --resource-group myResourceGroup \
     --vault-name myRecoveryServicesVault \
     --vm myVM \
@@ -58,13 +56,13 @@ az backup protection enable-for-vm \
 ```
 
 > [!NOTE]
-如果 VM 与保管库不在同一个资源组中，则 myResourceGroup 引用创建保管库所在的资源组。 如下所示，请提供 VM ID 而不是 VM 名称。
+If the VM is not in the same resource group as that of vault, then myResourceGroup refers to the resource group where vault was created. Instead of VM name, provide the VM ID as indicated below.
 
-```azurecli 
+```Azure CLI 
 az backup protection enable-for-vm \
     --resource-group myResourceGroup \
     --vault-name myRecoveryServicesVault \
-    --vm $(az vm show -g VMResourceGroup -n MyVm --query id) \
+    --vm $(az vm show -g VMResourceGroup -n MyVm --query id | tr -d '"') \
     --policy-name DefaultPolicy
 ```
 
@@ -116,24 +114,22 @@ fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31
 
 若要尝试备份教程，了解如何还原 VM 的数据，请转到[后续步骤](#next-steps)。 
 
-```azurecli 
-az backup protection disable \
+```Azure CLI az backup protection disable \
     --resource-group myResourceGroup \
     --vault-name myRecoveryServicesVault \
     --container-name myVM \
     --item-name myVM \
-    --delete-backup-data true
-az backup vault delete \
+    --delete-backup-data true az backup vault delete \
     --resource-group myResourceGroup \
     --name myRecoveryServicesVault \
 az group delete --name myResourceGroup
 ```
 
 
-## <a name="next-steps"></a>后续步骤
-在本快速入门中，我们创建了恢复服务保管库，在 VM 上启用了保护，并创建了初始恢复点。 若要详细了解 Azure 备份和恢复服务，请继续学习其他教程。
+## Next steps
+In this quick start, you created a Recovery Services vault, enabled protection on a VM, and created the initial recovery point. To learn more about Azure Backup and Recovery Services, continue to the tutorials.
 
 > [!div class="nextstepaction"]
-> [备份多个 Azure VM](./tutorial-backup-vm-at-scale.md)
+> [Back up multiple Azure VMs](./tutorial-backup-vm-at-scale.md)
 
 <!-- Update_Description: link update -->

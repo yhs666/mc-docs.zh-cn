@@ -1,19 +1,19 @@
 ---
 title: 与 Azure Monitor 集成的合作伙伴
 description: 了解 Azure 监视器的合作伙伴，以及如何访问相关文档，以便与它们的产品集成。
-author: johnkemnetz
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 11/01/2018
-ms.author: johnkem
+ms.date: 01/21/19
+ms.author: v-lingwu
 ms.component: ''
-ms.openlocfilehash: ef7b0dedc1d0d3bbdfd13ea09ccd980a4933a697
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.openlocfilehash: 2260afd232f6d8114e5bc1af49c8240f553350ad
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141808"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363385"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure 监视器合作伙伴集成
 | 合作伙伴 |  |  |
@@ -34,7 +34,7 @@ Alert Logic Log Manager 收集 VM、应用程序和 Azure 平台日志进行安�
 [查看相关文档。][alertlogic-doc]
 
 ## <a name="appdynamics"></a>AppDynamics
-AppDynamics Application Performance Management (APM) 可让应用程序所有者快速针对性能瓶颈进行故障排除，优化 Azure 环境中运行的应用程序的性能。 它可以监视 Azure 云服务 (PaaS)、Web 角色和辅助角色、虚拟机 (IaaS)、远程服务检测（Microsoft Azure 服务总线）、Microsoft Azure 队列、Microsoft Azure 远程服务 (Azure Blob)、Azure 队列（Microsoft 服务总线）、数据存储和 Microsoft Azure Blob 存储。 AppDynamics APM 在 Azure 市场中提供。
+AppDynamics Application Performance Management (APM) 可让应用程序所有者快速针对性能瓶颈进行故障排除，优化 Azure 环境中运行的应用程序的性能。 它可以监视 Azure 云服务 (PaaS)、Web 角色和辅助角色、虚拟机 (IaaS)、远程服务检测（世纪互联 Azure 服务总线）、世纪互联 Azure 队列、世纪互联 Azure 远程服务 (Azure Blob)、Azure 队列（Microsoft 服务总线）、数据存储和世纪互联 Azure Blob 存储。 AppDynamics APM 在 Azure 市场中提供。
 
 [查看相关文档。][appdynamics-doc]
 
@@ -53,7 +53,7 @@ ArcSight 为 Azure Monitor 事件中心提供了一个智能连接器。
 [了解详细信息。][botmetric-doc]
 
 ## <a name="circonus"></a>Circonus
-Circonus 是一个微服务监视和分析平台，专为本地或 SaaS 部署而构建。 与其监视的系统相比，其以完全自动化的 API 为中心的平台更具伸缩性且更可靠。 Circonus 专为满足 DevOps 要求而开发，提供了基于百分比的警报、关系图、仪表板和实现业务优化的机器学习智能。 Circonus 实时监视 Microsoft Azure 云资源及其应用程序。 可以使用 Circonus 收集和跟踪要为资源和应用程序度量的变量的指标。 借助 Circonus，可在系统范围内获得 Azure 的资源利用率、应用程序性能和运行健康状况的可见性。
+Circonus 是一个微服务监视和分析平台，专为本地或 SaaS 部署而构建。 与其监视的系统相比，其以完全自动化的 API 为中心的平台更具伸缩性且更可靠。 Circonus 专为满足 DevOps 要求而开发，提供了基于百分比的警报、关系图、仪表板和实现业务优化的机器学习智能。 Circonus 实时监视世纪互联 Azure 云资源及其应用程序。 可以使用 Circonus 收集和跟踪要为资源和应用程序度量的变量的指标。 借助 Circonus，可在系统范围内获得 Azure 的资源利用率、应用程序性能和运行健康状况的可见性。
 
 [查看相关文档。][circonus-doc]
 
@@ -63,7 +63,7 @@ Circonus 是一个微服务监视和分析平台，专为本地或 SaaS 部署�
 [Learn More.][cloudhealth-doc]
 
 ## <a name="cloudmonix"></a>CloudMonix
-CloudMonix 为 Microsoft Azure 平台提供监视、自动化和自我修复服务。
+CloudMonix 为世纪互联 Azure Platform 提供监视、自动化和自我修复服务。
 
 [查看相关文档。][cloudmonix-doc]
 
@@ -101,7 +101,7 @@ LogicMonitor® 是适用于复杂 IT 基础结构的、基于 SaaS 的领先性�
 ## <a name="moogsoft"></a>Moogsoft
 Moogsoft AIOps 可加快敏捷业务转换。
 
-Microsoft Azure 自动化和控制工具可让用户实时观察 Azure 中部署的应用程序和微服务的状态， 并有助于协调诊断和 Runbook，以提高补救速度。 使用其他第三方工具可以观察本地应用程序和基础结构的状态。
+世纪互联 Azure 自动化和控制工具可让用户实时观察 Azure 中部署的应用程序和微服务的状态， 并有助于协调诊断和 Runbook，以提高补救速度。 使用其他第三方工具可以观察本地应用程序和基础结构的状态。
 
 Moogsoft AIOps 可将“事件引入到补救”工作流自动化，无需更改现有的流程和组织结构。 
 
@@ -126,10 +126,10 @@ PagerDuty 是行业领先的事件管理解决方案，为 Azure 指标警报提
 [查看相关文档。][pagerduty-doc]
 
 ## <a name="qradar"></a>QRadar
-Microsoft Azure DSM 和 Microsoft Azure 事件中心协议可从 [IBM 支持网站](http://www.ibm.com/support)下载。 可[在此处详细了解如何与 Azure 集成][qradar-doc]。
+世纪互联 Azure DSM 和世纪互联 Azure 事件中心协议均可从 [IBM 支持网站](https://www.ibm.com/support)下载。 可[在此处详细了解如何与 Azure 集成][qradar-doc]。
 
 ## <a name="sciencelogic"></a>ScienceLogic
-ScienceLogic 提供了下一代 IT 服务保证平台，以便在任何位置管理任何技术。 ScienceLogic 提供必要的规模、安全性、自动化和复原性，简化管理任务（管理 IT 资源、服务和应用程序）。 ScienceLogic 平台使用 Azure API 与 Microsoft Azure 交互。 可以通过 ScienceLogic 实时了解 Azure 服务和资源， 以便了解何时会出现问题并进行快速修正。 还可以将 Azure 与其他云、数据中心系统和服务一起进行管理。
+ScienceLogic 提供了下一代 IT 服务保证平台，以便在任何位置管理任何技术。 ScienceLogic 提供必要的规模、安全性、自动化和复原性，简化管理任务（管理 IT 资源、服务和应用程序）。 ScienceLogic 平台使用 Azure API 与世纪互联 Azure 进行交互。 可以通过 ScienceLogic 实时了解 Azure 服务和资源， 以便了解何时会出现问题并进行快速修正。 还可以将 Azure 与其他云、数据中心系统和服务一起进行管理。
 
 [了解详细信息。][sciencelogic-doc]
 
@@ -164,7 +164,6 @@ Turbonomic 为混合云提供工作负荷自动化解决方案，同时实时优
 
 
 ## <a name="next-steps"></a>后续步骤
-* [了解有关 Azure Monitor 的详细信息](../../azure-monitor/overview.md)
 * [使用 REST API 访问指标](rest-api-walkthrough.md)
 * [将活动日志流式传输给非 Microsoft 服务](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
 * [将诊断日志流式传输给非 Microsoft 服务](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
@@ -230,8 +229,8 @@ Turbonomic 为混合云提供工作负荷自动化解决方案，同时实时优
 [botmetric-doc]: https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/ "Botmetric 简介。"
 [circonus-doc]: https://support.circonus.com/support/solutions/articles/24000013515-azure-integration 
 [cloudhealth-doc]: https://www.cloudhealthtech.com/azure
-[cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "CloudMonix 简介。"
-[datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Datadog 文档。"
+[cloudmonix-doc]: https://cloudmonix.com/features/azure-management/ "CloudMonix 简介。"
+[datadog-doc]: https://docs.datadoghq.com/integrations/azure/ "Datadog 文档。"
 [dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Dynatrace 文档。"
 [elastic-doc]: https://www.elastic.co/guide/en/logstash/master/azure-module.html "Elastic 文档。"
 [grafana-doc]: ./grafana-plugin.md "Azure Monitor Grafana 集成。"
