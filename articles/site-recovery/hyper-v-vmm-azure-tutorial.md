@@ -5,16 +5,16 @@ services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 10/28/2018
-ms.date: 12/10/2018
+origin.date: 12/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: f1045844797f8bd1bc555e9ddf503bd0ba4fc3ac
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 598736c82ac99c71d868fa4116709bd1778c01a9
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029122"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363505"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>设置 VMM 云中的本地 Hyper-V VM 到 Azure 的灾难恢复
 
@@ -77,7 +77,7 @@ ms.locfileid: "53029122"
 在包含要复制的 VM 的每个 Hyper-V 主机上安装代理。
 
 1. 在“Azure 恢复服务代理安装向导”>“必备组件检查”中，单击“下一步”。 可自动安装任何缺少的必备组件。
-2. 在“安装设置”中，接受安装位置和缓存位置。 缓存驱动器需要至少 5 GB 的存储空间。 我们建议使用 600 GB 或更多可用空间的驱动器。  然后单击“安装” 。
+2. 在“安装设置”中，接受安装位置和缓存位置。 缓存驱动器需要至少 5 GB 的存储空间。 我们建议使用 600 GB 或更多可用空间的驱动器。 然后单击“安装” 。
 3. 在“安装”中，当安装完成后，单击“关闭”以完成向导。
 
     ![安装代理](./media/hyper-v-vmm-azure-tutorial/mars-install.png)
@@ -125,4 +125,4 @@ Site Recovery 检查是否有一个或多个兼容的 Azure 存储帐户和网�
 ## <a name="next-steps"></a>后续步骤
 [运行灾难恢复演练](tutorial-dr-drill-azure.md)
 
-<!--Update_Description: update meta properties, wording update  -->
+<!--Update_Description: update meta properties  -->

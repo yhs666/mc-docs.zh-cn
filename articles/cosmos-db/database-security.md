@@ -1,20 +1,18 @@
 ---
 title: 数据库安全性 - Azure Cosmos DB
 description: 了解 Azure Cosmos DB 如何为数据提供数据库保护和数据安全性。
-keywords: nosql 数据库安全性, 信息安全性, 数据安全性, 数据库加密, 数据库保护, 安全策略, 安全测试
-services: cosmos-db
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/15/2017
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 01ca73f55f5e4a62cbf3206313be2040ed73f622
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: 6e18a7c04e9e4c0a849145f0e00dc5b34548de59
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026823"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309295"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB 数据库安全性
 
@@ -86,7 +84,9 @@ ms.locfileid: "54026823"
 <!-- Line: 72 Notice  任何一个全球数据中心 to 多个数据中心之中任何一个 -->
 <!-- Line: 72 Notice  全球各地的数据 to 各个区域的数据 -->
 <!-- Line: 76 Not Available on [audit logging and activity logs](logging.md) -->
-<!-- Line: 83 Not Available on 在 [Microsoft 全球数据中心](https://www.microsoft.com/cloud-platform/global-datacenters) --> 以下屏幕截图显示在 Azure 门户中使用访问控制 (IAM) 的 Active directory 集成 (RBAC)：![Azure 门户中的访问控制 (IAM) - 演示数据库安全性](./media/database-security/nosql-database-security-identity-access-management-iam-rbac.png)
+<!-- Line: 83 Not Available on 在 [Microsoft 全球数据中心](https://www.microsoft.com/cloud-platform/global-datacenters) -->
+
+以下屏幕截图显示在 Azure 门户中使用访问控制 (IAM) 的 Active directory 集成 (RBAC)：![Azure 门户中的访问控制 (IAM) - 演示数据库安全性](./media/database-security/nosql-database-security-identity-access-management-iam-rbac.png)
 
 以下屏幕截图显示如何使用审核日志和活动日志监视帐户：![Azure Cosmos DB 的活动日志](./media/database-security/nosql-database-security-application-logging.png)
 

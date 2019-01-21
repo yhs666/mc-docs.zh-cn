@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 10/11/2018
-ms.date: 12/10/2018
+origin.date: 11/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0ef59e0b9c6ce9cabfe405faa03836341919fa9f
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 5c13b9f582c7fe697d6d5da5bff9f7a19ac46d7c
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029115"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363583"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>分析 Azure Site Recovery 部署规划器报告
 本文介绍 Azure Site Recovery 部署规划器针对 Hyper-V 到 Azure 方案生成的 Excel 报表中包含的工作表。

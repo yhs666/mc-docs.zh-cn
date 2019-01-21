@@ -1,21 +1,18 @@
 ---
 title: Azure Cosmos DB 中的一致性级别
 description: Azure Cosmos DB 提供五种一致性级别来帮助在最终一致性、可用性和延迟之间做出取舍。
-keywords: 最终一致性, azure cosmos db, azure, Azure 世纪互联
-services: cosmos-db
 author: rockboyfor
 ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 03/27/2018
-ms.date: 12/31/2018
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: df0c671defeb50e1070433ceed77307b761b7230
-ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
+ms.date: 01/21/2019
+ms.openlocfilehash: 9069b7c9a039e69401cb5ac28097d920de0cca50
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814766"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309336"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB 中的一致性级别
 
@@ -98,4 +95,4 @@ Azure Cosmos DB 容器保存客队和主队的本垒打总次数。 当比赛正
 * [配置默认一致性级别](how-to-manage-consistency.md#configure-the-default-consistency-level)
 * [替代默认一致性级别](how-to-manage-consistency.md#override-the-default-consistency-level)
 
-<!--Update_Description: update meta properties, update link -->
+<!--Update_Description: update meta properties -->

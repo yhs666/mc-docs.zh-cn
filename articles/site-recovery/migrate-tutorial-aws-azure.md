@@ -6,16 +6,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 10/28/2018
-ms.date: 12/10/2018
+origin.date: 12/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 4e69aec2e223fa8d559cdbc9059d195d4d985682
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 53744354d95b3a698791e174411b5be8d6776cde
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028344"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363415"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>将 Amazon Web Services (AWS) VM 迁移到 Azure
 
@@ -34,12 +34,13 @@ ms.locfileid: "53028344"
 
 ## <a name="prerequisites"></a>先决条件
 - 确保要迁移的 VM 运行的是支持的 OS 版本。 支持的版本包括： 
-  - Windows Server 2016 
-  - Windows Server 2012 R2
-  - Windows Server 2012 
-  - 64 位版本的 Windows Server 2008 R2 SP1 或更高版本
-  
-     <!-- Not Available on - Red Hat Enterprise Linux 6.7 (HVM virtualized instances only) and  must have only Citrix PV or AWS PV drivers. Instances running RedHat PV drivers **aren't** supported.-->
+    - Windows Server 2016 
+    - Windows Server 2012 R2
+    - Windows Server 2012 
+    - 64 位版本的 Windows Server 2008 R2 SP1 或更高版本
+    - CentOS 6.4 到 6.10、7.1 到 7.6（仅限 HVM 虚拟化实例）
+    
+    <!-- Not Available on - Red Hat Enterprise Linux 6.7 (HVM virtualized instances only) and  must have only Citrix PV or AWS PV drivers. Instances running RedHat PV drivers **aren't** supported.-->
 - 必须在要复制的每个 VM 上安装移动服务。 
 
     > [!IMPORTANT]
@@ -169,7 +170,7 @@ ms.locfileid: "53028344"
 
 1. 转到 [Azure 门户](https://portal.azure.cn)。
 1. 在保管库相应页面的“入门”下，选择“Site Recovery”。
-2. 在“适用于本地计算机和 Azure VM”下，选择“步骤 1:复制应用程序”。 使用以下信息完成向导页面。 完成后，在每个页面上选择“确定”：
+2. 在“适用于本地计算机和 Azure VM”下，选择“步骤 1:复制应用程序”**。 使用以下信息完成向导页面。 完成后，在每个页面上选择“确定”：
     - 1:配置源
 
     |  |  |

@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 12/31/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 286085ac64a140dda5f8db7d63eeb45bfb6f825b
-ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
+ms.openlocfilehash: 0e731b53639bd8668b4769fb6c61899e125a9ddf
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814810"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309123"
 ---
 # <a name="optimize-the-cost-required-to-run-queries-in-azure-cosmos-db"></a>优化在 Azure Cosmos DB 中运行查询所需的成本
 
@@ -113,5 +113,4 @@ Total Query Execution Time               :   �
 * 详细了解[优化多区域 Azure Cosmos 帐户的成本](optimize-cost-regions.md)
 <!-- Not Available on * Learn more about [Azure Cosmos DB reserved capacity](cosmos-db-reserved-capacity.md)-->
 
-<!-- Update_Description: new articles on optimize cost queries  -->
-<!--ms.date: 12/31/2018-->
+<!-- Update_Description: update meta properties  -->

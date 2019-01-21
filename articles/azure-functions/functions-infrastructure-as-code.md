@@ -11,14 +11,14 @@ ms.server: functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 05/25/2017
-ms.date: 12/27/2018
+ms.date: 01/15/2019
 ms.author: v-junlch
-ms.openlocfilehash: 8241778727268cf0e05dfb38338133317913ef71
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 449d37c025f6263d9ad54c0b4260ddddc3b77c7d
+ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806604"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334211"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>为 Azure Functions 中的函数应用自动执行资源部署
 
@@ -36,6 +36,12 @@ ms.locfileid: "53806604"
 - [Azure 存储](../storage/index.yml)帐户
 - 托管计划（应用服务计划）
 - 函数应用 
+
+有关这些资源的 JSON 语法和属性，请参阅：
+
+- [Microsoft.Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts)
+- [Microsoft.Web/serverfarms](https://docs.microsoft.com/azure/templates/microsoft.web/serverfarms)
+- [Microsoft.Web/sites](https://docs.microsoft.com/azure/templates/microsoft.web/sites)
 
 ### <a name="storage-account"></a>存储帐户
 
@@ -220,4 +226,4 @@ Azure Functions 运行时使用 `AzureWebJobsStorage` 连接字符串创建内�
 
 [基于 Azure 应用服务计划的函数应用]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

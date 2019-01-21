@@ -1,22 +1,20 @@
 ---
 title: Azure Cosmos DB：使用 JavaScript SDK 生成 Node.js 应用，以管理 Azure Cosmos DB SQL API 数据
 description: 演示了一个可以用来连接到 Azure Cosmos DB SQL API 并进行查询的 Node.js 代码示例
-services: cosmos-db
 author: rockboyfor
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
-ms.custom: quick start connect, mvc
+ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: quickstart
 origin.date: 09/24/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 030551b0f51dfad22a74f4ddc0ec0e33b6c351bc
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: d0e68996cede6169b235dfffc3dbc614b83cc4a6
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026670"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309329"
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-app-using-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Azure Cosmos DB：使用 JavaScript SDK 生成 Node.js 应用，以管理 Azure Cosmos DB SQL API 数据
 
@@ -176,4 +174,4 @@ ms.locfileid: "54026670"
 > [!div class="nextstepaction"]
 > [将数据导入 Azure Cosmos DB](import-data.md)
 
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties, wording update -->

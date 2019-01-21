@@ -5,14 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/06/2018
-ms.date: 12/03/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: aa96bcddd2203f4b84f08a5389a5e307626c2330
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.reviewer: sngun
+ms.openlocfilehash: bad126593da56bc9ef284b125015021ef8f02f1f
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676584"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309299"
 ---
 # <a name="how-to-use-azure-cosmos-db-change-feed-with-azure-functions"></a>如何将 Azure Cosmos DB 更改源与 Azure Functions 配合使用
 
@@ -72,5 +73,4 @@ Azure Cosmos DB 触发器在内部利用更改源处理器库。 因此，它需
 * [如何使用更改源处理器库](change-feed-processor.md)
 <!--Not Available on * [Serverless database computing using Azure Cosmos DB and Azure Functions](serverless-computing-database.md)-->
 
-<!-- Update_Description: new articles on cosmos db change feed functions -->
-<!--ms.date: 12/03/2018-->
+<!-- Update_Description: update meta properties -->

@@ -1,20 +1,18 @@
 ---
 title: 已停用的 Azure Cosmos DB 性能级别
 description: 了解 Azure Cosmos DB 中以前提供的 S1、S2 和 S3 性能级别。
-services: cosmos-db
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 06/04/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d773393caf10cde4c54517d05bf781d674e8d691
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: 542356c06e6711c068962b8d7abcfcb12b9a3708
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026743"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309316"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>停用 S1、S2 和 S3 性能级别
 

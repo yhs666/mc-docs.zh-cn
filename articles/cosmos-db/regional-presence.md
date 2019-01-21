@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 1ac6cca3dfea89f0e6851657ad09e60e93551a40
-ms.sourcegitcommit: ce4b37e31d0965e78b82335c9a0537f26e7d54cb
+ms.openlocfilehash: 7dd26cbe814f97d9ca90a86c2aa97614f0c0b9d7
+ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026822"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54309239"
 ---
 # <a name="regional-presence-of-azure-cosmos-db"></a>Azure Cosmos DB 的区域覆盖范围
 

@@ -5,15 +5,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 10/11/2018
-ms.date: 12/10/2018
+origin.date: 11/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 901d9594c0abd2da7bccdb1069697cb40f20bfef
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 0b5f4045ed9e1888de3d43af39daa3f579c760dd
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029041"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363577"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>分析 Azure Site Recovery 部署规划器报告，以便从 VMware 灾难恢复到 Azure
 

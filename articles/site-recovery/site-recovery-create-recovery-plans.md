@@ -1,18 +1,20 @@
 ---
 title: 使用 Azure Site Recovery 创建和自定义灾难恢复的恢复计划 | Azure
 description: 了解如何使用 Azure Site Recovery 服务创建和自定义灾难恢复的恢复计划。
+author: rockboyfor
 manager: digimobile
+services: site-recovery
 ms.service: site-recovery
 ms.topic: article
-origin.date: 10/28/2018
-ms.date: 12/10/2018
+origin.date: 12/27/2018
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: e356cc631af2563aa6a9b6ae84dcf6427530c495
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 381e78103d6e0bfc659a4d6bdd71eff898142dbc
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029034"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363463"
 ---
 # <a name="create-and-customize-recovery-plans"></a>创建和自定义恢复计划
 
@@ -43,7 +45,7 @@ ms.locfileid: "53029034"
 
 ## <a name="add-a-group-to-a-plan"></a>向计划中添加组
 
-你可以创建更多组，向各个组中添加计算机，以便可以逐个组指定不同的行为。 例如，你可以为每个组指定组中的计算机在故障转移后应该在何时启动，或者为每个组指定自定义操作。
+可创建更多组，向各个组中添加计算机，以便可以逐个组指定不同的行为。 例如，你可以为每个组指定组中的计算机在故障转移后应该在何时启动，或者为每个组指定自定义操作。
 
 1. 在“恢复计划”中，右键单击该计划 >“自定义”。 默认情况下，在创建计划后，添加到计划中的所有计算机都位于默认的组 1 中。
 2. 单击“+组”。 默认情况下，新组按其添加顺序进行编号。 最多可以添加七个组。
@@ -54,7 +56,9 @@ ms.locfileid: "53029034"
 可以通过添加脚本或手动操作来自定义恢复计划。 请注意：
 
 - 如果要复制到 Azure，可以将 Azure 自动化 Runbook 集成到恢复计划中。 
+
     <!-- Not Available on [Learn more](site-recovery-runbook-automation.md)-->
+    
 - 如果要复制由 System Center VMM 托管的 Hyper-V VM，可以在本地 VMM 服务器上创建一个脚本，并将该脚本包括在恢复计划中。
 - 添加脚本时，为该组添加一组新的操作。 例如，使用以下名称创建了组 1 的一组预先步骤：“组 1：预先步骤”。 该集中将列出所有预先步骤。 仅当已部署 VMM 服务器时，才能在主站点上添加脚本。
 - 如果添加了手动操作，当恢复计划运行时，它会在你插入了手动操作的点停止。 此时会显示一个对话框，提示指定该手动操作已完成。
@@ -83,4 +87,4 @@ ms.locfileid: "53029034"
 
 详细了解如何[运行故障转移](site-recovery-failover.md)。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

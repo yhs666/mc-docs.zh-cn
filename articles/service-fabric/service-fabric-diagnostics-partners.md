@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 10/16/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9017912118f066cedf7aae1bb44b8aa8b7b6c1f3
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 94cab120b57c98b8e3a5811848c8a3a5400b2842
+ms.sourcegitcommit: 35a09a86cbb3d896fa9784471ece41df7728bd71
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083708"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396703"
 ---
 # <a name="azure-service-fabric-monitoring-partners"></a>Azure Service Fabric 监视合作伙伴
 
@@ -28,7 +28,7 @@ ms.locfileid: "54083708"
 
 ## <a name="dynatrace"></a>Dynatrace
 
-与 Dynatrace 的集成可提供许多现成的功能用于监视 Service Fabric 群集。 在 VMSS 实例上安装 Dynatrace OneAgent 可以提供性能计数器，并实现应用级别的 Service Fabric 部署拓扑。 此外，Dynatrace 非常适合用于本地监视。 请查看[通告](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/)和[说明](https://www.dynatrace.com/support/help/cloud-platforms/azure/how-do-i-monitor-azure-service-fabric-applications/)中所列的，用于在群集上启用 Dynatrace 的其他功能。 
+与 Dynatrace 的集成可提供许多现成的功能用于监视 Service Fabric 群集。 在 VMSS 实例上安装 Dynatrace OneAgent 可以提供性能计数器，并实现应用级别的 Service Fabric 部署拓扑。 此外，Dynatrace 非常适合用于本地监视。 请查看[通告](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/)和[说明](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/)中所列的，用于在群集上启用 Dynatrace 的其他功能。 
 
 ## <a name="datadog"></a>Datadog
 
@@ -50,5 +50,4 @@ New Relic 是与 Service Fabric 应用程序完美集成的另一个应用程序
 * 在 Service Fabric <!--Not Available on [diagnose common scenarios](service-fabric-diagnostics-common-scenarios.md)--> 中获取[监视和诊断的概述](service-fabric-diagnostics-overview.md)
 
 
-<!-- Update_Description: new articles on service fabric diagnostics partners -->
-<!--ms.date: 12/10/2018-->
+<!-- Update_Description: wording update -->

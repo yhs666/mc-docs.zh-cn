@@ -13,17 +13,17 @@ ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 12/11/2018
-ms.date: 01/07/2019
+ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: eacf974de9b072e5247b1546b5ac6b4ec98ac321
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 6c3da4a56febd4326832b2da362df29bdacf9c59
+ms.sourcegitcommit: 35a09a86cbb3d896fa9784471ece41df7728bd71
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083818"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396681"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>自定义 Service Fabric 群集设置
-本文介绍可以自定义的 Service Fabric 群集的各种结构设置。 对于 Azure 中托管的群集，可以通过 [Azure 门户](https://portal.azure.cn)或使用 Azure 资源管理器模板自定义设置。  对于独立群集，可通过更新 ClusterConfig.json 文件并对群集执行配置升级来自定义设置。 有关详细信息，请参阅[升级独立群集的配置](service-fabric-cluster-config-upgrade-windows-server.md)。
+本文介绍可以自定义的 Service Fabric 群集的各种结构设置。 对于 Azure 中托管的群集，可以通过 [Azure 门户](https://portal.azure.cn)或使用 Azure 资源管理器模板自定义设置。 对于独立群集，可通过更新 ClusterConfig.json 文件并对群集执行配置升级来自定义设置。 有关详细信息，请参阅[升级独立群集的配置](service-fabric-cluster-config-upgrade-windows-server.md)。
 
 <!--Not Available on [Upgrade the configuration of an Azure cluster](service-fabric-cluster-config-upgrade-azure.md)-->有三种不同的升级策略：
 
@@ -307,6 +307,7 @@ ms.locfileid: "54083818"
 |ApplicationUpgradeTimeout| TimeSpan，默认值为 Common::TimeSpan::FromSeconds(360)|动态| 指定以秒为单位的时间跨度。 应用程序升级的超时时间。 如果超时时间小于 "ActivationTimeout"，则部署器失败。 |
 |ContainerServiceArguments|string，默认为“-H localhost:2375 -H npipe://”|静态|Service Fabric (SF) 管理 docker 守护程序（在 Win10 等 windows 客户端计算机上除外）。 此配置允许用户指定启动时应传递到 Docker 守护程序的自定义参数。 指定自定义参数时，Service Fabric 不会将“--pidfile”参数以外的任何其他参数传递给 Docker 引擎。 因此，用户不应指定“--pidfile”参数作为其自定义参数的一部分。 此外，自定义参数应确保 Docker 守护程序侦听 Windows 上的默认名称管道（或 Linux 上的 Unix 域套接字），以便 Service Fabric 可以与其通信。|
 |ContainerServiceLogFileMaxSizeInKb|int，默认值为 32768|静态|docker 容器生成的日志文件的最大文件大小。  仅限 Windows。|
+|ContainerImageDownloadTimeout|int，秒数，默认为 1200（20 分钟）|动态|下载映像操作超时需要经历的秒数。|
 |ContainerImagesToSkip|字符串，以竖线字符分隔的映像名称，默认值为 ""|静态|不应删除的一个或多个容器映像的名称。  与 PruneContainerImages 参数一起使用。|
 |ContainerServiceLogFileNamePrefix|string，默认值是“sfcontainerlogs”|静态|docker 容器生成的日志文件的文件名前缀。  仅限 Windows。|
 |ContainerServiceLogFileRetentionCount|int，默认值为 10|静态|在覆盖日志文件之前由 docker 容器生成的日志文件数。  仅限 Windows。|
