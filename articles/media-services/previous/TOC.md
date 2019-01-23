@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: 3fa2339bef71429e310c207eb114d6edcffc50cc
-ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54333863"
----
 # [媒体服务文档](index.md)
 
 # [概述](media-services-overview.md)

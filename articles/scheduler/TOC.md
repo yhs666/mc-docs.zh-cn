@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: 241fe674dffb42b034d1c125447b92a2f7e00bc1
-ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54333868"
----
 # [计划程序文档](index.md)
 
 # 概述
