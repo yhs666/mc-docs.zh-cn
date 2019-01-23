@@ -6,15 +6,15 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-origin.date: 10/06/2018
-ms.date: 01/09/2019
+origin.date: 01/11/2019
+ms.date: 01/15/2019
 ms.author: v-junlch
-ms.openlocfilehash: 9e65b1bba3228f343cf012c0121001c3ffa57c12
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.openlocfilehash: 12e30dc4915e92d7ae042d2584148c9fd8b94147
+ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141685"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54333862"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>应用程序网关常见问题
 
@@ -54,7 +54,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 ### <a name="what-regions-is-the-service-available-in"></a>该服务已在哪些区域推出？
 
-应用程序网关已在国际版 Azure 的所有区域推出。 在 [Azure 中国区](https://www.azure.cn/)中也已推出。
+应用程序网关已在国际版 Azure 的所有区域推出。 在 [Azure 中国世纪互联](https://www.azure.cn/)中也已推出。
 
 ### <a name="is-this-a-dedicated-deployment-for-my-subscription-or-is-it-shared-across-customers"></a>应用程序网关是订阅专门的部署，还是在所有客户之间共享？
 
@@ -89,7 +89,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 如果配置了专用前端 IP 配置，则应用程序网关使用每个实例的一个专用 IP 地址，以及另一个专用 IP 地址。 另外，Azure 会在每个子网中保留前四个 IP 地址和最后一个 IP 地址供内部使用。
 例如，如果应用程序网关设置为三个实例并且没有专用前端 IP，则需要 /29 子网大小或更大。 在这种情况下，应用程序网关使用三个 IP 地址。 如果将三个实例和一个 IP 地址用于专用前端 IP 配置，则需要 /28 子网大小或更大，因为需要四个 IP 地址。
 
-### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>问： 是否可将多个应用程序网关资源部署到单个子网？**
+### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>问： 是否可将多个应用程序网关资源部署到单个子网？
 
 是，除了提供给定应用程序网关部署的多个实例以外，还可以在包含不同应用程序网关资源的现有子网中预配另一个唯一的应用程序网关资源。
 
@@ -199,11 +199,11 @@ Host 字段指定要将探测发送到的名称。 仅在应用程序网关上�
 
 ### <a name="does-manual-scale-updown-cause-downtime"></a>手动扩展/缩减是否导致停机？
 
-不会出现停机，实例将分布在升级域和容错域上。
+没有停机。 实例将分布在升级域和容错域上。
 
 ### <a name="does-application-gateway-support-connection-draining"></a>应用程序网关是否支持连接排出？
 
-是的。 可配置连接排出以更改后端池内的成员，而无需中断操作。 这将允许继续将现有连接发送到其以前的目标，直到该连接被关闭或可配置超时到期。 连接排出仅等待当前未完成的连接完成。 应用程序网关不了解应用程序会话状态。
+是的。 可配置连接排出以更改后端池内的成员，而无需中断操作。 这样就可以继续将现有连接发送到其以前的目标，直到该连接被关闭或可配置超时到期。 连接排出仅等待当前未完成的连接完成。 应用程序网关不了解应用程序会话状态。
 
 ### <a name="what-are-application-gateway-sizes"></a>有哪些应用程序网关大小？
 
@@ -285,7 +285,7 @@ Host 字段指定要将探测发送到的名称。 仅在应用程序网关上�
 
 ### <a name="how-many-ssl-certificates-are-supported"></a>支持多少个 SSL 证书？
 
-最多支持 20 个 SSL 证书。
+最多支持 100 个 SSL 证书。
 
 ### <a name="how-many-authentication-certificates-for-backend-re-encryption-are-supported"></a>支持使用多少个身份验证证书进行后端重新加密？
 
@@ -313,9 +313,9 @@ Host 字段指定要将探测发送到的名称。 仅在应用程序网关上�
 
 不会。检测模式仅记录触发了 WAF 规则的流量。
 
-### <a name="how-do-i-customize-waf-rules"></a>如何自定义 WAF 规则？
+### <a name="can-i-customize-waf-rules"></a>我可以自定义 WAF 规则吗？
 
-是的，WAF 规则可自定义，有关如何自定义这些规则的详细信息，请参阅[自定义 WAF 规则组和规则](application-gateway-customize-waf-rules-portal.md)
+可以，WAF 规则可自定义。 有关详细信息，请参阅[自定义 WAF 规则组和规则](application-gateway-customize-waf-rules-portal.md)
 
 ### <a name="what-rules-are-currently-available"></a>目前支持哪些规则？
 
@@ -367,7 +367,7 @@ WAF 目前支持 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp22
 
 ### <a name="how-do-i-analyze-traffic-statistics-for-application-gateway"></a>如何分析应用程序网关的流量统计信息？
 
-可以通过一系列机制（例如 Azure Log Analytics、Excel、Power BI 等）查看和分析访问日志。
+可以通过多个机制（例如 Azure Log Analytics、Excel、Power BI 等）查看和分析访问日志。
 
 我们还发布了一个资源管理器模板，用于安装和运行应用程序网关访问日志的常用 [GoAccess](https://goaccess.io/) 日志分析器。 GoAccess 提供了宝贵的 HTTP 流量统计信息，例如唯一访问者、请求的文件、主机、操作系统、浏览器和 HTTP 状态代码等。 有关更多详细信息，请参阅 [GitHub 的资源管理器模板文件夹中的自述文件](https://aka.ms/appgwgoaccessreadme)。
 

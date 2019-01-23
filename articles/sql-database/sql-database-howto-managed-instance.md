@@ -13,12 +13,12 @@ ms.reviewer: carlr
 manager: digimobile
 origin.date: 12/14/2018
 ms.date: 12/31/2018
-ms.openlocfilehash: 06cde49df1c0a065b493e7ab5af23c1c4bb4f788
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.openlocfilehash: 641f7927d76281017ea36852a2f694a27e03c6b6
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806386"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396999"
 ---
 # <a name="how-to-use-managed-instance"></a>如何使用托管实例
 

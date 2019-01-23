@@ -5,16 +5,16 @@ services: storage
 author: WenJason
 ms.service: storage
 ms.topic: article
-origin.date: 10/18/2018
-ms.date: 01/14/2019
+origin.date: 01/09/2018
+ms.date: 01/21/2019
 ms.author: v-jay
 ms.component: blobs
-ms.openlocfilehash: 8c0831fc240dd6c7bde3c75baa39fa51f9697312
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: 8d0d5c0f5cd59c1b0e651d758ae014bd5c63ac3a
+ms.sourcegitcommit: 317ea7e3b2d307569d3bf7777bd3077013ae4df6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192924"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334495"
 ---
 # <a name="azure-blob-storage-hot-and-cool-storage-tiers"></a>Azure Blob 存储：热存储层和冷存储层
 
@@ -78,6 +78,8 @@ Blob 存储和 GPv2 帐户在帐户级别公开“访问层”属性，方便你
 
 除了按 GB 和按月收费，移到冷层（仅限 GPv2 帐户）中的 Blob 会有一个 30 天的冷层早期删除期限。
 
+如果没有访问层更改，则可以使用 blob 属性“creation-time”来计算早期删除费用。 否则，可以通过查看 Blob 属性（即“access-tier-change-time”）来使用最后一次将访问层修改为“冷”的时间。 有关 Blob 属性的详细信息，请参阅[获取 Blob 属性](https://docs.microsoft.com/rest/api/storageservices/get-blob-properties)。
+
 ## <a name="comparison-of-the-storage-tiers"></a>存储层的比较
 
 下表显示了对热、冷存储层的比较。
@@ -93,7 +95,7 @@ Blob 存储和 GPv2 帐户在帐户级别公开“访问层”属性，方便你
 | **可伸缩性和性能目标** | 与通用存储帐户相同 | 与通用存储帐户相同 |
 
 > [!NOTE]
-> Blob 存储帐户支持与通用存储帐户相同的性能和可伸缩性目标。 有关详细信息，请参阅 [Azure 存储的可伸缩性和性能目标](../common/storage-scalability-targets.md?toc=%2fstorage%2fblobs%2ftoc.json)。
+> Blob 存储帐户支持与通用存储帐户相同的性能和可伸缩性目标。 有关详细信息，请参阅 [Azure 存储可伸缩性和性能目标](../common/storage-scalability-targets.md?toc=%2fstorage%2fblobs%2ftoc.json)。 
 
 ## <a name="quickstart-scenarios"></a>快速入门方案
 
@@ -170,7 +172,11 @@ GPv1 和 GPv2 帐户的定价结构不同，客户在决定使用 GPv2 帐户之
 
 **设置 Blob 的层以后，何时开始按相应费率收费？**
 
-每个 Blob 始终按“访问层”Blob 属性指示的层收费。 在 Blob 上设置新层时，“访问层”属性将立即反映所有转换的新层。 
+每个 blob 始终按其“访问层”属性指示的层收费。 为 blob 设置新层后，“访问层”属性会立即为所有转换显示该新层。
+
+**如何确定在删除或移出冷层的 Blob 时是否会产生早期删除费用？**
+
+在删除或移出冷层（仅限 GPv2 帐户）的任何 Blob 时，如果相应的存储时间不足 30 天和 180 天，则会产生按比例计费的早期删除费用。 若要确定 Blob 已在冷层中存储了多长时间，可以查看“访问层更改时间”Blob 属性，该属性提供上次进行层更改的戳记。 有关详细信息，请参阅[冷层和存档层的早期删除](#cool-and-archive-early-deletion)。
 
 **哪些 Azure 工具和 SDK 支持 Blob 级别分层？**
 

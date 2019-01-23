@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 10/29/2018
 ms.date: 12/03/2018
 ms.author: v-jay
-ms.openlocfilehash: 3ff6a6e628f7799c91d40539fa59a7f8c0587478
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: d4958092820efdf80f42850a7085116fded6fb23
+ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672740"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396993"
 ---
 # <a name="media-encoder-standard-schema"></a>Media Encoder Standard 架构
 本文介绍 [Media Encoder Standard 预设](media-services-mes-presets-overview.md)基于的 XML 架构的一些元素和类型。 本文将解释元素及其有效值。  
@@ -32,7 +32,7 @@ ms.locfileid: "52672740"
 | --- | --- | --- |
 | **编码** |[编码](media-services-mes-schema.md#Encoding) |根元素，指示要编码的输入源。 |
 | **Outputs** |[输出](media-services-mes-schema.md#Output) |所需输出文件的集合。 |
-| **StretchMode**<br/>minOccurs="0"<br/>default="AutoSize|xs:string|控制输出视频帧大小、填充、像素或显示纵横比。 **StretchMode** 可以是以下值之一：**None**、**AutoSize**（默认值）或 **AutoFit**。<br/><br/>**None**：严格遵循输出分辨率（例如，预设中的**宽度**和**高度**），而不考虑输入视频的像素纵横比或显示纵横比。 建议在[裁剪](media-services-crop-video.md)等方案中使用，其中输出视频的纵横比与输入不同。 <br/><br/>**AutoSize**：输出分辨率将适应预设指定的窗口（宽度 * 高度）。 但是，编码器会生成具有正方形 (1:1) 像素纵横比的输出视频。 因此，可以覆盖输出宽度或输出高度，以便与不包含填充的输入的显示纵横比相匹配。 例如，如果输入为 1920x1080，而编码预设要求提供 1280x1280，则会覆盖预设中的高度值，并且输出将是 1280x720，这样可以保持 16:9 的输入纵横比。 <br/><br/>**AutoFit**：必要时，请填充输出视频（使用上下黑边或左右黑边）以遵循所需的输出分辨率，同时确保输出中活动视频区域的纵横比与输入相同。 例如，假设输入为 1920x1080，并且编码预设要求提供 1280x1280。 那么，输出视频将是 1280x1280，但它包含纵横比为 16:9 的“活动视频”的内部 1280x720 矩形，并在顶部和底部包含高度为 280 像素的上下黑边区域。 另举一例，如果输入为 1440x1080，并且编码预设要求提供 1280x720，则输出将是 1280x720，其中包含纵横比为 4:3 的 960x720 内部矩形，并在左侧和右侧包含宽度为 160 像素的左右黑边区域。 
+| **StretchMode**<br/>minOccurs="0"<br/>default="AutoSize|xs:string|控制输出视频帧大小、填充、像素或显示纵横比。 **StretchMode** 可以是下述值之一：**None**、**AutoSize**（默认值）或 **AutoFit**。<br/><br/>**无**：严格遵循输出分辨率（例如，预设中的**宽度**和**高度**），而不考虑输入视频的像素纵横比或显示纵横比。 建议在[裁剪](media-services-crop-video.md)等方案中使用，其中输出视频的纵横比与输入不同。 <br/><br/>**AutoSize**：输出分辨率将适应预设指定的窗口（宽度 * 高度）。 但是，编码器会生成具有正方形 (1:1) 像素纵横比的输出视频。 因此，可以覆盖输出宽度或输出高度，以便与不包含填充的输入的显示纵横比相匹配。 例如，如果输入为 1920x1080，而编码预设要求提供 1280x1280，则会覆盖预设中的高度值，并且输出将是 1280x720，这样可以保持 16:9 的输入纵横比。 <br/><br/>**AutoFit**：必要时，请根据所需的输出分辨率填充输出视频（使用上下黑边或左右黑边），同时确保输出中活动视频区域的纵横比与输入相同。 例如，假设输入为 1920x1080，并且编码预设要求提供 1280x1280。 那么，输出视频将是 1280x1280，但它包含纵横比为 16:9 的“活动视频”的内部 1280x720 矩形，并在顶部和底部包含高度为 280 像素的上下黑边区域。 另举一例，如果输入为 1440x1080，并且编码预设要求提供 1280x720，则输出将是 1280x720，其中包含纵横比为 4:3 的 960x720 内部矩形，并在左侧和右侧包含宽度为 160 像素的左右黑边区域。 
 
 ### <a name="attributes"></a>属性
 | Name | 类型 | 说明 |
@@ -58,7 +58,7 @@ ms.locfileid: "52672740"
 | TwoPass<br/><br/> minOccurs="0" |**xs: boolean** |目前，仅支持单步编码。 |
 | KeyFrameInterval<br/><br/> minOccurs="0"<br/><br/> **default="00:00:02"** |**xs:time** |确定 IDR 帧的固定间距（以秒为单位）。 亦称为“GOP 持续时间”。 请参阅 **SceneChangeDetection**，此元素用于控制编码器能否偏离此值。 |
 | SceneChangeDetection<br/><br/> minOccurs="0"<br/><br/> default="false" |**xs:boolean** |如果设置为 true，编码器尝试检测视频中的场景更改并插入 IDR 帧。 |
-| 复杂性<br/><br/> minOccurs="0"<br/><br/> default="Balanced" |**xs:string** |控制编码速度和视频质量之间的平衡。 可能是以下值之一：速度、均衡或质量<br/><br/> 默认值：均衡 |
+| 复杂性<br/><br/> minOccurs="0"<br/><br/> default="Balanced" |**xs:string** |控制编码速度和视频质量的平衡。 可能是以下值之一：速度、均衡或质量<br/><br/> 默认值：**均衡** |
 | SyncMode<br/><br/> minOccurs="0" | |将在未来版本中公开功能。 |
 | **H264Layers**<br/><br/> minOccurs="0" |[H264Layers](media-services-mes-schema.md#H264Layers) |输出视频层的集合。 |
 
@@ -94,7 +94,7 @@ ms.locfileid: "52672740"
 | Height<br/><br/> minOccurs="0" |**xs:int** |输出视频帧的高度，以像素为单位。<br/><br/> 目前必须指定“Width”和“Height”。 Width 和 Height 需为偶数。|
 | BFrames<br/><br/> minOccurs="0" |**xs: int** |参考帧之间的 B 帧数。 |
 | ReferenceFrames<br/><br/> minOccurs="0"<br/><br/> default="3" |**xs:int** |GOP 中的参考帧数。 |
-| EntropyMode<br/><br/> minOccurs="0"<br/><br/> default="Cabac" |**xs:string** |可能是以下值之一：Cabac 和 Cavlc。 |
+| EntropyMode<br/><br/> minOccurs="0"<br/><br/> default="Cabac" |**xs:string** |可能是以下值之一：**Cabac** 和 **Cavlc**。 |
 | FrameRate<br/><br/> minOccurs=“0” |有理数 |确定输出视频的帧速率。 使用默认值 "0/1"，允许编码器使用与输入视频相同的帧速率。 允许的值应为通用视频帧速率。 但是，允许使用任何有效有理数。 例如 1/1 表示 1 fps 且有效。<br/><br/> - 12/1 (12 fps)<br/><br/> - 15/1 (15 fps)<br/><br/> - 24/1 (24 fps)<br/><br/> - 24000/1001 (23.976 fps)<br/><br/> - 25/1 (25 fps)<br/><br/>  - 30/1 (30 fps)<br/><br/> - 30000/1001 (29.97 fps) <br/> <br/>**注意** 如果要创建多比特率编码的自定义预设，则预设的所有层**必须**都使用相同的帧速率值。|
 | **AdaptiveBFrame**<br/><br/> minOccurs="0" |**xs: boolean** |从 Azure 媒体编码器复制 |
 | Slices<br/><br/> minOccurs="0"<br/><br/> default="0" |**xs:int** |确定一帧分为多少切片。 建议使用默认值。 |
@@ -125,16 +125,16 @@ ms.locfileid: "52672740"
 ### <a name="elements"></a>元素
 | Name | 类型 | 说明 |
 | --- | --- | --- |
-| 通道<br/><br/> minOccurs="0" |**xs: int** |音频通道数。 以下是有效选项：1、2、5、6、8。<br/><br/> 默认值：2。 |
-| **SamplingRate**<br/><br/> minOccurs="0" |**xs: int** |音频采样率，以 Hz 为单位指定。 |
+| 通道<br/><br/> minOccurs="0" |**xs: int** |音频通道数。 以下是有效选项：1、2、5、6、8。<br/><br/> 默认值：2. |
+| SamplingRate<br/><br/> minOccurs="0" |**xs: int** |音频采样率，以 Hz 为单位指定。 |
 | **Bitrate**<br/><br/> minOccurs="0" |**xs: int** |对音频进行编码时使用的比特率，以 kbps 为单位指定。 |
 
 ### <a name="audio-codec-details"></a>音频编解码器详细信息
 音频编解码器|详细信息  
 -----------------|---  
-**AACLC**|1:<br/><br/> - 11025: 8 &lt;= 比特率 &lt; 16<br/><br/> - 12000: 8 &lt;= 比特率 &lt; 16<br/><br/> - 16000: 8 &lt;= 比特率 &lt;32<br/><br/>- 22050: 24 &lt;= 比特率 &lt; 32<br/><br/> - 24000: 24 &lt;= 比特率 &lt; 32<br/><br/> - 32000: 32 &lt;= 比特率 &lt;= 192<br/><br/> - 44100: 56 &lt;= 比特率 &lt;= 288<br/><br/> - 48000: 56 &lt;= 比特率 &lt;= 288<br/><br/> - 88200 : 128 &lt;= 比特率 &lt;= 288<br/><br/> - 96000 : 128 &lt;= 比特率 &lt;= 288<br/><br/> 2:<br/><br/> - 11025: 16 &lt;= 比特率 &lt; 24<br/><br/> - 12000: 16 &lt;= 比特率 &lt; 24<br/><br/> - 16000: 16 &lt;= 比特率 &lt; 40<br/><br/> - 22050: 32 &lt;= 比特率 &lt; 40<br/><br/> - 24000 : 32 &lt;= 比特率 &lt; 40<br/><br/> - 32000:  40 &lt;= 比特率 &lt;= 384<br/><br/> - 44100: 96 &lt;= 比特率 &lt;= 576<br/><br/> - 48000 : 96 &lt;= 比特率 &lt;= 576<br/><br/> - 88200: 256 &lt;= 比特率 &lt;= 576<br/><br/> - 96000: 256 &lt;= 比特率 &lt;= 576<br/><br/> 5/6:<br/><br/> - 32000: 160 &lt;= 比特率 &lt;= 896<br/><br/> - 44100: 240 &lt;= 比特率 &lt;= 1024<br/><br/> - 48000: 240 &lt;= 比特率 &lt;= 1024<br/><br/> - 88200: 640 &lt;= 比特率 &lt;= 1024<br/><br/> - 96000: 640 &lt;= 比特率 &lt;= 1024<br/><br/> 8:<br/><br/> - 32000 : 224 &lt;= 比特率 &lt;= 1024<br/><br/> - 44100 : 384 &lt;= 比特率 &lt;= 1024<br/><br/> - 48000: 384 &lt;= 比特率 &lt;= 1024<br/><br/> - 88200: 896 &lt;= 比特率 &lt;= 1024<br/><br/> - 96000: 896 &lt;= 比特率 &lt;= 1024  
-**HEAACV1**|1:<br/><br/> - 22050: 比特率 = 8<br/><br/> - 24000: 8 &lt;= 比特率 &lt;= 10<br/><br/> - 32000: 12 &lt;= 比特率 &lt;= 64<br/><br/> - 44100: 20 &lt;= 比特率 &lt;= 64<br/><br/> - 48000: 20 &lt;= 比特率 &lt;= 64<br/><br/> - 88200: 比特率 = 64<br/><br/> 2:<br/><br/> - 32000: 16 &lt;= 比特率 &lt;= 128<br/><br/> - 44100: 16 &lt;= 比特率 &lt;= 128<br/><br/> - 48000: 16 &lt;= 比特率 &lt;= 128<br/><br/> - 88200 : 96 &lt;= 比特率 &lt;= 128<br/><br/> - 96000: 96 &lt;= 比特率 &lt;= 128<br/><br/> 5/6:<br/><br/> - 32000 : 64 &lt;= 比特率 &lt;= 320<br/><br/> - 44100: 64 &lt;= 比特率 &lt;= 320<br/><br/> - 48000: 64 &lt;= 比特率 &lt;= 320<br/><br/> - 88200 : 256 &lt;= 比特率 &lt;= 320<br/><br/> - 96000: 256 &lt;= 比特率 &lt;= 320<br/><br/> 8:<br/><br/> - 32000: 96 &lt;= 比特率 &lt;= 448<br/><br/> - 44100: 96 &lt;= 比特率 &lt;= 448<br/><br/> - 48000: 96 &lt;= 比特率 &lt;= 448<br/><br/> - 88200: 384 &lt;= 比特率 &lt;= 448<br/><br/> - 96000: 384 &lt;= 比特率 &lt;= 448  
-**HEAACV2**|2:<br/><br/> - 22050: 8 &lt;= 比特率 &lt;= 10<br/><br/> - 24000: 8 &lt;= 比特率 &lt;= 10<br/><br/> - 32000: 12 &lt;= 比特率 &lt;= 64<br/><br/> - 44100: 20 &lt;= 比特率 &lt;= 64<br/><br/> - 48000: 20 &lt;= 比特率 &lt;= 64<br/><br/> - 88200: 64 &lt;= 比特率 &lt;= 64  
+**AACLC**|1:<br/><br/> - 11025:8 &lt;= 比特率 &lt; 16<br/><br/> - 12000:8 &lt;= 比特率 &lt; 16<br/><br/> - 16000:8 &lt;= 比特率 &lt;32<br/><br/>- 22050:24 &lt;= 比特率 &lt; 32<br/><br/> - 24000:24 &lt;= 比特率 &lt; 32<br/><br/> - 32000:32 &lt;= 比特率 &lt;= 192<br/><br/> - 44100:56 &lt;= 比特率 &lt;= 288<br/><br/> - 48000:56 &lt;= 比特率 &lt;= 288<br/><br/> - 88200 :128 &lt;= 比特率 &lt;= 288<br/><br/> - 96000 :128 &lt;= 比特率 &lt;= 288<br/><br/> 2:<br/><br/> - 11025:16 &lt;= 比特率 &lt; 24<br/><br/> - 12000:16 &lt;= 比特率 &lt; 24<br/><br/> - 16000:16 &lt;= 比特率 &lt; 40<br/><br/> - 22050:32 &lt;= 比特率 &lt; 40<br/><br/> - 24000 :32 &lt;= 比特率 &lt; 40<br/><br/> - 32000:40 &lt;= 比特率 &lt;= 384<br/><br/> - 44100:96 &lt;= 比特率 &lt;= 576<br/><br/> - 48000 :96 &lt;= 比特率 &lt;= 576<br/><br/> - 88200:256 &lt;= 比特率 &lt;= 576<br/><br/> - 96000:256 &lt;= 比特率 &lt;= 576<br/><br/> 5/6:<br/><br/> - 32000:160 &lt;= 比特率 &lt;= 896<br/><br/> - 44100:240 &lt;= 比特率 &lt;= 1024<br/><br/> - 48000:240 &lt;= 比特率 &lt;= 1024<br/><br/> - 88200:640 &lt;= 比特率 &lt;= 1024<br/><br/> - 96000:640 &lt;= 比特率 &lt;= 1024<br/><br/> 8:<br/><br/> - 32000 :224 &lt;= 比特率 &lt;= 1024<br/><br/> - 44100 :384 &lt;= 比特率 &lt;= 1024<br/><br/> - 48000:384 &lt;= 比特率 &lt;= 1024<br/><br/> - 88200:896 &lt;= 比特率 &lt;= 1024<br/><br/> - 96000:896 &lt;= 比特率 &lt;= 1024  
+**HEAACV1**|1:<br/><br/> - 22050: 比特率 = 8<br/><br/> - 24000:8 &lt;= 比特率 &lt;= 10<br/><br/> - 32000:12 &lt;= 比特率 &lt;= 64<br/><br/> - 44100:20 &lt;= 比特率 &lt;= 64<br/><br/> - 48000:20 &lt;= 比特率 &lt;= 64<br/><br/> - 88200: 比特率 = 64<br/><br/> 2:<br/><br/> - 32000:16 &lt;= 比特率 &lt;= 128<br/><br/> - 44100:16 &lt;= 比特率 &lt;= 128<br/><br/> - 48000:16 &lt;= 比特率 &lt;= 128<br/><br/> - 88200 :96 &lt;= 比特率 &lt;= 128<br/><br/> - 96000:96 &lt;= 比特率 &lt;= 128<br/><br/> 5/6:<br/><br/> - 32000 :64 &lt;= 比特率 &lt;= 320<br/><br/> - 44100:64 &lt;= 比特率 &lt;= 320<br/><br/> - 48000:64 &lt;= 比特率 &lt;= 320<br/><br/> - 88200 :256 &lt;= 比特率 &lt;= 320<br/><br/> - 96000:256 &lt;= 比特率 &lt;= 320<br/><br/> 8:<br/><br/> - 32000:96 &lt;= 比特率 &lt;= 448<br/><br/> - 44100:96 &lt;= 比特率 &lt;= 448<br/><br/> - 48000:96 &lt;= 比特率 &lt;= 448<br/><br/> - 88200:384 &lt;= 比特率 &lt;= 448<br/><br/> - 96000:384 &lt;= 比特率 &lt;= 448  
+**HEAACV2**|2:<br/><br/> - 22050:8 &lt;= 比特率 &lt;= 10<br/><br/> - 24000:8 &lt;= 比特率 &lt;= 10<br/><br/> - 32000:12 &lt;= 比特率 &lt;= 64<br/><br/> - 44100:20 &lt;= 比特率 &lt;= 64<br/><br/> - 48000:20 &lt;= 比特率 &lt;= 64<br/><br/> - 88200:64 &lt;= 比特率 &lt;= 64  
   
 ## <a name="Clip"></a> 剪辑
 ### <a name="attributes"></a>属性
@@ -147,7 +147,7 @@ ms.locfileid: "52672740"
 ### <a name="attributes"></a>属性
 | Name | 类型 | 说明 |
 | --- | --- | --- |
-| **FileName** |**xs:string** |输出文件的名称。<br/><br/> 可以使用下表中描述的宏来生成输出文件名。 例如：<br/><br/> **"Outputs": [      {       "FileName": "{Basename}*{Resolution}*{Bitrate}.mp4",       "Format": {         "Type": "MP4Format"       }     }   ]** |
+| **FileName** |**xs:string** |输出文件的名称。<br/><br/> 可以使用下表中描述的宏来生成输出文件名。 例如：<br/><br/> **"Outputs": [      {       "FileName": "{Basename}*{Resolution}*{Bitrate}.mp4",       "Format": {         "Type":"MP4Format"       }     }   ]** |
 
 ### <a name="macros"></a>宏
 | 宏 | 说明 |
@@ -223,7 +223,7 @@ ms.locfileid: "52672740"
 | --- | --- | --- |
 | **宽度**<br/><br/> minOccurs="0" |**xs:int** | |
 | Height<br/><br/> minOccurs="0" |**xs:int** | |
-| 质量<br/><br/> minOccurs="0" |**xs:int** |有效值：1（最差）- 100（最好） |
+| 质量<br/><br/> minOccurs="0" |**xs:int** |有效值：1（最差）-100（最好） |
 
 ### <a name="attributes"></a>属性
 | Name | 类型 | 说明 |

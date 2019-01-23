@@ -1,25 +1,24 @@
 ---
-title: 教程 - 通过 Azure CLI 使用发布/订阅渠道和主题筛选器更新零售库存分类 | Azure
+title: 教程 - 通过 Azure CLI 使用发布/订阅渠道和主题筛选器更新零售库存分类 | Azure Docs
 description: 在本教程中，你将了解如何从主题和订阅发送和接收消息，以及如何使用 Azure CLI 添加和使用筛选器规则
 services: service-bus-messaging
 author: lingliw
 manager: digimobile
 ms.author: v-lingwu
-origin.date: 09/22/2018
-ms.date: 11/26/2018
+ms.date: 01/21/19
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 4cce4572e613e8b3e04013a54cdf39128e55b5da
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 0c8e0a3abf660045c15bd796dc58ae2d04016f0a
+ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674240"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363517"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>教程：使用 CLI 和主题/订阅更新库存
 
-Azure 服务总线是一种多租户云消息传送服务，可以在应用程序和服务之间发送信息。 异步操作可实现灵活的中转消息传送、结构化的先进先出 (FIFO) 消息传送以及发布/订阅功能。 本教程展示了如何使用 Azure CLI 和 Java 在零售库存方案中将服务总线主题和订阅与发布/订阅频道配合使用。
+世纪互联 Azure 服务总线是一种多租户云消息传送服务，可以在应用程序和服务之间发送信息。 异步操作可实现灵活的中转消息传送、结构化的先进先出 (FIFO) 消息传送以及发布/订阅功能。 本教程展示了如何使用 Azure CLI 和 Java 在零售库存方案中将服务总线主题和订阅与发布/订阅频道配合使用。
 
 本教程介绍如何执行下列操作：
 > [!div class="checklist"]
@@ -57,13 +56,12 @@ Azure 服务总线是一种多租户云消息传送服务，可以在应用程�
 
 1. 如果在本地使用 Azure CLI，请运行以下命令来登录到 Azure。 如果在 Cloud Shell 中运行这些命令，则此登录步骤不是必需的：
 
-   ```azurecli
-   az login
+   ```Azure CLI az login
    ```
 
-2. 将当前的订阅上下文设置为要使用的 Azure 订阅：
+2. Set the current subscription context to the Azure subscription you want to use:
 
-   ```azurecli
+   ```Azure CLI
    az account set --subscription Azure_subscription_name
    ```
 
@@ -71,51 +69,47 @@ Azure 服务总线是一种多租户云消息传送服务，可以在应用程�
 
 发出以下命令来预配服务总线资源。 请务必将所有占位符替换为适当的值：
 
-```azurecli
-# Create a resource group
+```Azure CLI
+# <a name="create-a-resource-group"></a>创建资源组
 az group create --name myResourcegroup --location chinaeast
 
-# Create a Service Bus messaging namespace with a unique name
-namespaceName=myNameSpace$RANDOM
-az servicebus namespace create \
+# <a name="create-a-service-bus-messaging-namespace-with-a-unique-name"></a>创建具有唯一名称的服务总线消息传递命名空间
+namespaceName=myNameSpace$RANDOM az servicebus namespace create \
    --resource-group myResourceGroup \
    --name $namespaceName \
    --location chinaeast
 
-# Create a Service Bus topic
+# <a name="create-a-service-bus-topic"></a>创建服务总线主题
 az servicebus topic create --resource-group myResourceGroup \
    --namespace-name $namespaceName \
    --name myTopic
 
-# Create subscription 1 to the topic
+# <a name="create-subscription-1-to-the-topic"></a>创建主题的订阅 1
 az servicebus subscription create --resource-group myResourceGroup --namespace-name $namespaceName --topic-name myTopic --name S1
 
-# Create filter 1 - use custom properties
+# <a name="create-filter-1---use-custom-properties"></a>创建筛选器 1 - 使用自定义属性
 az servicebus rule create --resource-group myResourceGroup --namespace-name $namespaceName --topic-name myTopic --subscription-name S1 --name MyFilter --filter-sql-expression "StoreId IN ('Store1','Store2','Store3')"
 
-# Create filter 2 - use custom properties
+# <a name="create-filter-2---use-custom-properties"></a>创建筛选器 2 - 使用自定义属性
 az servicebus rule create --resource-group myResourceGroup --namespace-name $namespaceName --topic-name myTopic --subscription-name S1 --name MySecondFilter --filter-sql-expression "StoreId = 'Store4'"
 
-# Create subscription 2
+# <a name="create-subscription-2"></a>创建订阅 2
 az servicebus subscription create --resource-group myResourceGroup --namespace-name $namespaceName --topic-name myTopic --name S2
 
-# Create filter 3 - use message header properties via IN list and 
-# combine with custom properties.
+# <a name="create-filter-3---use-message-header-properties-via-in-list-and"></a>创建筛选器 3 - 通过 IN 列表使用消息标头属性并 
+# <a name="combine-with-custom-properties"></a>将其与自定义属性结合使用。
 az servicebus rule create --resource-group myResourceGroup --namespace-name $namespaceName --topic-name myTopic --subscription-name S2 --name MyFilter --filter-sql-expression "sys.To IN ('Store5','Store6','Store7') OR StoreId = 'Store8'"
 
-# Create subscription 3
+# <a name="create-subscription-3"></a>创建订阅 3
 az servicebus subscription create --resource-group myResourceGroup --namespace-name $namespaceName --topic-name myTopic --name S3
 
-# Create filter 4 - Get everything except messages for subscription 1 and 2. 
-# Also modify and add an action; in this case set the label to a specified value. 
-# Assume those stores might not be part of your main store, so you only add 
-# specific items to them. For that, you flag them specifically.
-az servicebus rule create --resource-group DemoGroup --namespace-name DemoNamespaceSB --topic-name tutorialtest1
- --subscription-name S3 --name MyFilter --filter-sql-expression "sys.To NOT IN ('Store1','Store2','Store3','Store4','Sto
-re5','Store6','Store7','Store8') OR StoreId NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Stor
-e8')" --action-sql-expression "SET sys.Label = 'SalesEvent'"
+# <a name="create-filter-4---get-everything-except-messages-for-subscription-1-and-2"></a>创建筛选器 4 - 获取订阅 1 和 2 的除消息外的所有内容。 
+# <a name="also-modify-and-add-an-action-in-this-case-set-the-label-to-a-specified-value"></a>另请修改和添加操作；在此示例中，请将标签设置为指定的值。 
+# <a name="assume-those-stores-might-not-be-part-of-your-main-store-so-you-only-add"></a>假定这些存储可能不是主存储的一部分，因此只向其添加 
+# <a name="specific-items-to-them-for-that-you-flag-them-specifically"></a>特定项目。 为此，请对其进行专门的标记。
+az servicebus rule create --resource-group DemoGroup --namespace-name DemoNamespaceSB --topic-name tutorialtest1 --subscription-name S3 --name MyFilter --filter-sql-expression "sys.To NOT IN ('Store1','Store2','Store3','Store4','Sto re5','Store6','Store7','Store8') OR StoreId NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Stor e8')" --action-sql-expression "SET sys.Label = 'SalesEvent'"
 
-# Get the connection string
+# <a name="get-the-connection-string"></a>获取连接字符串
 connectionString=$(az servicebus namespace authorization-rule keys list \
    --resource-group myResourceGroup \
    --namespace-name  $namespaceName \
@@ -123,17 +117,17 @@ connectionString=$(az servicebus namespace authorization-rule keys list \
    --query primaryConnectionString --output tsv)
 ```
 
-运行最后一个命令后，将所选的连接字符串和队列名称复制并粘贴到一个临时位置，例如记事本。 在下一步中将要使用它。
+After the last command runs, copy and paste the connection string, and the queue name you selected, to a temporary location such as Notepad. You will need it in the next step.
 
-## <a name="create-filter-rules-on-subscriptions"></a>在订阅上创建筛选规则
+## Create filter rules on subscriptions
 
-预配命名空间和主题/订阅并且拥有所需的凭据后，便可以在订阅上创建筛选规则，然后发送和接收消息。 可以在[此 GitHub 示例文件夹](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/quickstarts-and-tutorials/tutorial-topics-subscriptions-filters-java/src/main/java/com/microsoft/azure/)中检查代码。
+After the namespace and topic/subscriptions are provisioned, and you have the necessary credentials, you are ready to create filter rules on the subscriptions, then send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
 
-## <a name="send-and-receive-messages"></a>发送和接收消息
+## Send and receive messages
 
-1. 请确保 Cloud Shell 已打开并显示了 Bash 提示符。
+1. Make sure that Cloud Shell is open and displaying the Bash prompt.
 
-2. 通过发出以下命令克隆[服务总线 GitHub 存储库](https://github.com/Azure/azure-service-bus/)：
+2. Clone the [Service Bus GitHub repository](https://github.com/Azure/azure-service-bus/) by issuing the following command:
 
    ```shell
    git clone https://github.com/Azure/azure-service-bus.git
@@ -160,17 +154,16 @@ connectionString=$(az servicebus namespace authorization-rule keys list \
 
 运行以下命令来删除资源组、命名空间和所有相关资源：
 
-```azurecli
-az group delete --resource-group my-resourcegroup
+```Azure CLI az group delete --resource-group my-resourcegroup
 ```
 
-## <a name="understand-the-sample-code"></a>了解示例代码
+## Understand the sample code
 
-此部分包含有关示例代码功能的更多详细信息。
+This section contains more details about what the sample code does.
 
-### <a name="get-connection-string-and-queue"></a>获取连接字符串和队列
+### Get connection string and queue
 
-首先，此代码声明一组变量，这些变量推动程序的剩余执行：
+First, the code declares a set of variables, which drive the remaining execution of the program:
 
 ```java
     public String ConnectionString = null;
