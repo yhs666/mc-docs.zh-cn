@@ -7,12 +7,12 @@ ms.topic: sample
 origin.date: 11/06/2018
 ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: fd379946728d529424a373181650dee9737b0ba7
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: c3126816300cb4e0225af05a1af719011f8d9373
+ms.sourcegitcommit: bbd2a77feeb7e5b7b4c6161687d60cc2b7315b5b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309085"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857403"
 ---
 # <a name="create-a-container-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中创建容器
 
@@ -68,8 +68,8 @@ ms.locfileid: "54309085"
 <a name="cli-sql"></a>
 ### <a name="sql-api"></a>SQL API
 
-```Azure CLI
-# <a name="create-a-container-with-a-partition-key-and-provision-1000-rus-throughput"></a>创建具有分区键的容器并预配 1000 RU/秒的吞吐量。
+```azurecli
+# Create a container with a partition key and provision 1000 RU/s throughput.
 
 az cosmosdb collection create \
     --resource-group $resourceGroupName \
@@ -81,9 +81,9 @@ az cosmosdb collection create \
 ```
 
 <a name="cli-mongodb"></a>
-### Azure Cosmos DB's API for MongoDB
+### <a name="azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB 的用于 MongoDB 的 API
 
-```Azure CLI
+```azurecli
 # Create a collection with a shard key and provision 1000 RU/s throughput.
 az cosmosdb collection create \
     --resource-group $resourceGroupName \

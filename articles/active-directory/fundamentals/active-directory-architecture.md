@@ -9,16 +9,16 @@ ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 08/23/2018
-ms.date: 01/02/2019
+ms.date: 01/21/2019
 ms.author: v-junlch
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 566d7dabff66070ada6c9d417d792eb9ad228004
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 8cd4d9adf4f735409d69b9f07630e34d417b83d7
+ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996366"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54440372"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>什么是 Azure Active Directory 体系结构？
 使用 Azure Active Directory (Azure AD) 可以安全地管理用户对 Azure 服务和资源的访问。 Azure AD 随附了整套标识管理功能。 有关 Azure AD 功能的信息，请参阅[什么是 Azure Active Directory？](active-directory-whatis.md)
@@ -35,7 +35,7 @@ Azure AD 的地理分布式体系结构整合了全面监视、自动重新路�
  *  数据中心
 
 ### <a name="service-architecture-design"></a>服务体系结构设计
-构建可访问、可用且数据丰富的系统的最常见方法是使用 Azure AD 数据层的独立构建基块或缩放单元。缩放单元称为分区。 
+构建可访问、可用且数据丰富的系统的最常见方法是通过独立的构建块或缩放单元。 对于 Azure AD 数据层，缩放单元称为“分区”。 
 
 数据层包含多个可提供读写功能的前端服务。 下图显示了单目录分区的组件在整个地理分布式数据中心内的分布方式。 
 
@@ -121,4 +121,4 @@ Azure AD 实施所有数据的每日备份，因此，在发生任何逻辑删�
 [Azure Active Directory 开发人员指南](/active-directory/develop/active-directory-developers-guide)
 
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

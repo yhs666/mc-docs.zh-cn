@@ -6,15 +6,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 origin.date: 10/19/2018
-ms.date: 01/03/2019
+ms.date: 01/21/2019
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 599aaac170e9f37ce58bdf3f0fe850cd80577e63
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 07aec102f72db32e4807637c640a7d8a75881fbc
+ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996248"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54440369"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect：ADSyncTools PowerShell 参考
 以下文档提供了 Azure AD Connect 随附的 ADSyncTools.psm1 PowerShell 模块的参考信息。
@@ -471,7 +471,7 @@ Accept wildcard characters: False
 ## <a name="get-adsynctoolsrunhistory"></a>Get-ADSyncToolsRunHistory
 
 ### <a name="synopsis"></a>摘要
-获取 AAD 连接运行历史记录
+获取 AAD Connect 运行历史记录
 
 ### <a name="syntax"></a>语法
 
@@ -480,7 +480,7 @@ Get-ADSyncToolsRunHistory [[-Days] <Int32>] [<CommonParameters>]
 ```
 
 ### <a name="description"></a>说明
-以 XML 格式返回 AAD 连接运行历史记录的函数
+以 XML 格式返回 AAD Connect 运行历史记录的函数
 
 ### <a name="examples"></a>示例
 
@@ -527,7 +527,7 @@ Get-ADSyncToolsSourceAnchorChanged [-sourcePath] <Object> [-outputPath] <Object>
 ```
 
 ### <a name="description"></a>说明
-函数将查询 AAD 连接运行历史记录，并导出报告了“SourceAnchor 属性已更改”错误的所有用户。
+函数将查询 AAD Connect 运行历史记录，并导出报告以下错误的所有用户：“SourceAnchor 属性已更改”。
 
 ### <a name="examples"></a>示例
 
@@ -1339,4 +1339,4 @@ Accept wildcard characters: False
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
 有关详细信息，请参阅 about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216)。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

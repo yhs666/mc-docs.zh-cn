@@ -39,7 +39,6 @@
 ### 故障排除
 #### [在 Azure AD 活动日志中缺少数据](reports-monitoring/troubleshoot-missing-audit-data.md)
 #### [先决条件](reports-monitoring/howto-configure-prerequisites-for-reporting-api.md)
-#### [使用证书](reports-monitoring/tutorial-access-api-with-certificates.md)
 
 ## [管理密码](authentication/concept-sspr-howitworks.md)
 

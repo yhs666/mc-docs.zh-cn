@@ -13,12 +13,12 @@ ms.author: v-yeche
 ms.custom: seodec18
 ms.reviewer: sngun
 Customer intent: As a developer, I want to build a Node.js application, so that I can manage the data stored in Cosmos DB.
-ms.openlocfilehash: 379a6f60f00848aa62e7a5a0cb041623a010c3ea
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: a544068b54d1c8fae0508065c001526ae1c9d374
+ms.sourcegitcommit: bbd2a77feeb7e5b7b4c6161687d60cc2b7315b5b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309210"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857407"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>使用 Azure Cosmos DB 的用于 MongoDB 的 API 创建 Angular 应用 - 使用 Mongoose 连接到 Cosmos DB
 
@@ -117,28 +117,29 @@ Mongoose 是适用于 MongoDB 和 Node.js 的对象数据建模 (ODM) 库。 可
 
 1. 在 Terminal 窗口中使用以下 CLI 命令，检索 Azure Cosmos DB 帐户的主密钥： 
 
-    ```Azure CLI  az cosmosdb list-keys --name <cosmosdb-name> -g myResourceGroup
+    ```azurecli
+    az cosmosdb list-keys --name <cosmosdb-name> -g myResourceGroup
     ```    
 
-    \<cosmosdb-name> is the name of the Azure Cosmos DB account that you created in [Part 4](tutorial-develop-mongodb-nodejs-part4.md) of the tutorial.
+    你在本教程[第 4 部分](tutorial-develop-mongodb-nodejs-part4.md)中创建的 Azure Cosmos DB 帐户名为 \<cosmosdb-name>。
 
-1. Copy the primary key into the **environment.js** file as the `key` value.
+1. 将主密钥作为 `key` 值复制到“environment.js”文件中。
 
-Now your application has all the necessary information to connect to Azure Cosmos DB. 
+现在，应用程序拥有了连接到 Azure Cosmos DB 所需的所有必要信息。 
 
-## Create a Hero model
+## <a name="create-a-hero-model"></a>创建 Hero 模型
 
-Next, you need to define the schema of the data to store in Azure Cosmos DB by defining a model file. Use the following steps to create a _Hero model_ that defines the schema of the data:
+接下来，你需要通过定义模型文件来定义要存储在 Azure Cosmos DB 中的数据的架构。 使用以下步骤创建一个定义数据架构的 Hero 模型：
 
-1. In the Explorer pane, under the **server** folder, create a file named **hero.model.js**.
+1. 在“资源管理器”窗格的“服务器”文件夹下，创建一个名为“hero.model.js”的文件。
 
-1. Copy the following code into the **hero.model.js** file. The code provides the following functionality:
+1. 将以下代码复制到“hero.model.js”文件中。 此代码提供以下功能：
 
-   * Requires Mongoose.
-   * Creates a new schema with an ID, name, and saying.
-   * Creates a model by using the schema.
-   * Exports the model. 
-   * Names the collection **Heroes** (instead of **Heros**, which is the default name of the collection based on Mongoose plural naming rules).
+   * 需要 Mongoose。
+   * 使用 ID、name 和 saying 创建新架构。
+   * 通过使用该架构创建模型。
+   * 导出模型。 
+   * 将集合命名为“Heroes”而不是“Heros”（根据 Mongoose 复数形式命名规则，后者为集合的默认名称）。
 
    ```javascript
    const mongoose = require('mongoose');

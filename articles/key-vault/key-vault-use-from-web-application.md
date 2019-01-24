@@ -12,12 +12,12 @@ ms.topic: tutorial
 origin.date: 07/20/2018
 ms.date: 01/14/2019
 ms.author: v-biyu
-ms.openlocfilehash: aa017a31a12a71055c9f54c6f94db9c42a41671c
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 0af6e4d2e585a69e4d55736703647b1c87de28a7
+ms.sourcegitcommit: ae1b73a4248509f7afa6ffa466f53e59449f47d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996225"
+ms.lasthandoff: 01/21/2019
+ms.locfileid: "54417349"
 ---
 # <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>教程：从 Web 应用程序使用 Azure 密钥保管库
 
@@ -189,7 +189,7 @@ $x509.Thumbprint
 
 现在，我们将在 Web 应用中添加代码以访问证书并使用它进行身份验证。 
 
-首先，添加用于访问证书的代码。请注意，StoreLocation 是 CurrentUser，而不是 LocalMachine。 在 Find 方法中提供“false”，因为使用的是测试证书。
+首先，添加用于访问证书的代码。存储位置是 CurrentUser，而不是 LocalMachine。 在 Find 方法中提供“false”，因为使用的是测试证书。
 
 ```cs
 //Add this using statement

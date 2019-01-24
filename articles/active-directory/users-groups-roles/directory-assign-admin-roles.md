@@ -11,16 +11,16 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
 origin.date: 10/26/2018
-ms.date: 01/04/2019
+ms.date: 01/22/2019
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: d24e47897776d3a31dcef1673ba8ff1af8d6cc59
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: cee0f67512a09a281f9de4fa40751da48f1161be
+ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029257"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54440373"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的管理员角色权限
 
@@ -194,7 +194,7 @@ ms.locfileid: "54029257"
 可以执行与常见计费相关的任务，例如更新付款信息。
 
   > [!NOTE]
-  > 此角色拥有 Azure Active Directory 之外的其他权限。 有关详细信息，请参阅上面的角色说明。
+  > 此角色拥有 Azure Active Directory 外部的其他权限。 有关详细信息，请参阅上面的角色说明。
   >
   >
 
@@ -251,7 +251,7 @@ ms.locfileid: "54029257"
 可以管理 Azure AD 和使用 Azure AD 标识的 Microsoft 服务的所有方面。
 
   > [!NOTE]
-  > 此角色拥有 Azure Active Directory 之外的其他权限。 有关详细信息，请参阅上面的角色说明。
+  > 此角色拥有 Azure Active Directory 外部的其他权限。 有关详细信息，请参阅上面的角色说明。
   >
   >
 
@@ -311,7 +311,7 @@ ms.locfileid: "54029257"
 可以读取和管理 Azure AD 和 Office 365 中的符合性配置和报表。
 
   > [!NOTE]
-  > 此角色拥有 Azure Active Directory 之外的其他权限。 有关详细信息，请参阅上面的角色说明。
+  > 此角色拥有 Azure Active Directory 外部的其他权限。 有关详细信息，请参阅上面的角色说明。
   >
   >
 
@@ -331,7 +331,7 @@ ms.locfileid: "54029257"
 可以管理 Dynamics 365 产品的所有方面。
 
   > [!NOTE]
-  > 此角色拥有 Azure Active Directory 之外的其他权限。 有关详细信息，请参阅上面的角色说明。
+  > 此角色拥有 Azure Active Directory 外部的其他权限。 有关详细信息，请参阅上面的角色说明。
   >
   >
 
@@ -348,7 +348,7 @@ ms.locfileid: "54029257"
 可以批准 Microsoft 支持人员访问客户组织数据的请求。
 
   > [!NOTE]
-  > 此角色拥有 Azure Active Directory 之外的其他权限。 有关详细信息，请参阅上面的角色说明。
+  > 此角色拥有 Azure Active Directory 外部的其他权限。 有关详细信息，请参阅上面的角色说明。
   >
   >
 
@@ -361,7 +361,7 @@ ms.locfileid: "54029257"
 可以管理 Exchange 产品的所有方面。
 
   > [!NOTE]
-  > 此角色拥有 Azure Active Directory 之外的其他权限。 有关详细信息，请参阅上面的角色说明。
+  > 此角色拥有 Azure Active Directory 外部的其他权限。 有关详细信息，请参阅上面的角色说明。
   >
   >
 
@@ -415,7 +415,7 @@ ms.locfileid: "54029257"
 可以管理 Intune 产品的所有方面。
 
   > [!NOTE]
-  > 此角色拥有 Azure Active Directory 之外的其他权限。 有关详细信息，请参阅上面的角色说明。
+  > 此角色拥有 Azure Active Directory 外部的其他权限。 有关详细信息，请参阅上面的角色说明。
   >
   >
 
@@ -461,7 +461,7 @@ ms.locfileid: "54029257"
 可以管理 Skype for Business 产品的所有方面。
 
   > [!NOTE]
-  > 此角色拥有 Azure Active Directory 之外的其他权限。 有关详细信息，请参阅上面的角色说明。
+  > 此角色拥有 Azure Active Directory 外部的其他权限。 有关详细信息，请参阅上面的角色说明。
   >
   >
 
@@ -478,7 +478,7 @@ ms.locfileid: "54029257"
 可以管理 Power BI 产品的所有方面。
 
   > [!NOTE]
-  > 此角色拥有 Azure Active Directory 之外的其他权限。 有关详细信息，请参阅上面的角色说明。
+  > 此角色拥有 Azure Active Directory 外部的其他权限。 有关详细信息，请参阅上面的角色说明。
   >
   >
 
@@ -495,7 +495,7 @@ ms.locfileid: "54029257"
 可以管理 Azure AD 中的角色分配和 Privileged Identity Management 的所有方面。
 
   > [!NOTE]
-  > 此角色拥有 Azure Active Directory 之外的其他权限。 有关详细信息，请参阅上面的角色说明。
+  > 此角色拥有 Azure Active Directory 外部的其他权限。 有关详细信息，请参阅上面的角色说明。
   >
   >
 
@@ -508,7 +508,7 @@ ms.locfileid: "54029257"
 可以读取登录和审核报告。
 
   > [!NOTE]
-  > 此角色拥有 Azure Active Directory 之外的其他权限。 有关详细信息，请参阅上面的角色说明。
+  > 此角色拥有 Azure Active Directory 外部的其他权限。 有关详细信息，请参阅上面的角色说明。
   >
   >
 
@@ -524,7 +524,7 @@ ms.locfileid: "54029257"
 可以读取安全信息和报表，以及管理 Azure AD 和 Office 365 中的配置。
 
   > [!NOTE]
-  > 此角色拥有 Azure Active Directory 之外的其他权限。 有关详细信息，请参阅上面的角色说明。
+  > 此角色拥有 Azure Active Directory 外部的其他权限。 有关详细信息，请参阅上面的角色说明。
   >
   >
 
@@ -551,7 +551,7 @@ ms.locfileid: "54029257"
 可以读取 Azure AD 和 Office 365 中的安全信息和报表。
 
   > [!NOTE]
-  > 此角色拥有 Azure Active Directory 之外的其他权限。 有关详细信息，请参阅上面的角色说明。
+  > 此角色拥有 Azure Active Directory 外部的其他权限。 有关详细信息，请参阅上面的角色说明。
   >
   >
 
@@ -570,7 +570,7 @@ ms.locfileid: "54029257"
 可以读取服务运行状况信息和管理支持票证。
 
   > [!NOTE]
-  > 此角色拥有 Azure Active Directory 之外的其他权限。 有关详细信息，请参阅上面的角色说明。
+  > 此角色拥有 Azure Active Directory 外部的其他权限。 有关详细信息，请参阅上面的角色说明。
   >
   >
 
@@ -586,7 +586,7 @@ ms.locfileid: "54029257"
 可以管理 SharePoint 服务的所有方面。
 
   > [!NOTE]
-  > 此角色拥有 Azure Active Directory 之外的其他权限。 有关详细信息，请参阅上面的角色说明。
+  > 此角色拥有 Azure Active Directory 外部的其他权限。 有关详细信息，请参阅上面的角色说明。
   >
   >
 
@@ -609,7 +609,7 @@ ms.locfileid: "54029257"
 可以管理 Microsoft Teams 服务中的通话和会议功能。
 
   > [!NOTE]
-  > 此角色拥有 Azure Active Directory 之外的其他权限。 有关详细信息，请参阅上面的角色说明。
+  > 此角色拥有 Azure Active Directory 外部的其他权限。 有关详细信息，请参阅上面的角色说明。
   >
   >
 
@@ -627,7 +627,7 @@ ms.locfileid: "54029257"
 可以使用高级工具排查 Teams 中的通信问题。
 
   > [!NOTE]
-  > 此角色拥有 Azure Active Directory 之外的其他权限。 有关详细信息，请参阅上面的角色说明。
+  > 此角色拥有 Azure Active Directory 外部的其他权限。 有关详细信息，请参阅上面的角色说明。
   >
   >
 
@@ -642,7 +642,7 @@ ms.locfileid: "54029257"
 可以使用基本工具排查 Teams 中的通信问题。
 
   > [!NOTE]
-  > 此角色拥有 Azure Active Directory 之外的其他权限。 有关详细信息，请参阅上面的角色说明。
+  > 此角色拥有 Azure Active Directory 外部的其他权限。 有关详细信息，请参阅上面的角色说明。
   >
   >
 
@@ -657,7 +657,7 @@ ms.locfileid: "54029257"
 可以管理 Microsoft Teams 服务。
 
   > [!NOTE]
-  > 此角色拥有 Azure Active Directory 之外的其他权限。 有关详细信息，请参阅上面的角色说明。
+  > 此角色拥有 Azure Active Directory 外部的其他权限。 有关详细信息，请参阅上面的角色说明。
   >
   >
 
@@ -730,5 +730,7 @@ ms.locfileid: "54029257"
 ## <a name="next-steps"></a>后续步骤
 
 - 若要详细了解如何将用户分配为 Azure 订阅的管理员，请参阅[使用 RBAC 和 Azure 门户管理访问权限](../../role-based-access-control/role-assignments-portal.md)
-- 若要详细了解如何在 Azure 中控制资源访问权限，请参阅[了解 Azure 中的资源访问权限](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+- 若要了解有关如何在 Azure 中控制资源访问的详细信息，请参阅[了解 Azure 中的资源访问权限](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+
 <!-- Update_Description: wording update -->
+

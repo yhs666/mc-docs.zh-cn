@@ -11,16 +11,16 @@ ms.workload: identity
 ms.component: fundamentals
 ms.topic: quickstart
 origin.date: 08/28/2017
-ms.date: 10/11/2018
+ms.date: 01/22/2019
 ms.author: v-junlch
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 200b8405172753af5dd825bec3004321fe7386ec
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: cee6f63f1fe1ae11b2d843de8fcfc4d25a978266
+ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650516"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54440350"
 ---
 # <a name="restore-a-deleted-office-365-group-in-azure-active-directory"></a>在 Azure Active Directory 中还原已删除的 Office 365 组
 
@@ -74,7 +74,7 @@ User | 可以还原他们拥有的任何已删除 Office 365 组
 
 - 该组显示在 Exchange 的左侧导航栏中
 - 该组的计划会显示在 Planner 中
-- 将显示所有 Sharepoint 站点及其所有内容
+- 任何 SharePoint 站点及其所有内容都将可用
 - 可从任何 Exchange 终结点以及支持 Office 365 组的其他 Office 365 工作负荷访问该组
 
 ## <a name="next-steps"></a>后续步骤
@@ -85,3 +85,4 @@ User | 可以还原他们拥有的任何已删除 Office 365 组
 - [管理组的成员](../fundamentals/active-directory-groups-members-azure-portal.md)
 - [管理组的成员身份](../fundamentals/active-directory-groups-membership-azure-portal.md)
 
+<!-- Update_Description: wording update -->

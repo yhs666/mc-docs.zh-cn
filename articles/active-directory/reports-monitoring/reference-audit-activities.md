@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
 origin.date: 11/13/2018
-ms.date: 12/06/2018
+ms.date: 01/21/2019
 ms.author: v-junlch
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 43e5334992a4dd7c29d93f46ab2611ff3be73278
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 034397f125a1bede9f6baaf88a120e801a2f2e60
+ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028401"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54440366"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Azure AD 审核活动参考
 
@@ -228,17 +228,17 @@ Azure AD 中的报告体系结构由以下部分组成：
 |目录管理|获取租户信息|
 |目录管理|获取租户允许的功能|
 |目录管理|获取 tenantDomains|
-|密钥|获取租户的类型|
-|密钥|验证是否已启用 B2C 功能|
-|密钥|验证是否已启用功能|
-|密钥|将合作伙伴添加到公司|
-|密钥|添加未验证的域|
-|密钥|添加已验证的域|
-|密钥|创建公司|
-|密钥|创建公司设置|
-|密钥|删除公司设置|
-|密钥|降级合作伙伴|
-|密钥|目录已删除|
+|键|获取租户的类型|
+|键|验证是否已启用 B2C 功能|
+|键|验证是否已启用功能|
+|键|将合作伙伴添加到公司|
+|键|添加未验证的域|
+|键|添加已验证的域|
+|键|创建公司|
+|键|创建公司设置|
+|键|删除公司设置|
+|键|降级合作伙伴|
+|键|目录已删除|
 |其他|目录已永久删除|
 |其他|目录已计划删除|
 |资源|将公司提升为合作伙伴|
@@ -471,7 +471,7 @@ Azure AD 中的报告体系结构由以下部分组成：
 |组管理|更新访问评审|
 |组管理|更新访问评审邮件通知设置|
 |组管理|更新访问评审再评计数设置|
-|组管理|更新访问评审再评持续时间（天）设置|
+|组管理|更新以天为单位的访问评审再评持续时间设置|
 |用户管理|更新访问评审再评结束类型设置|
 |用户管理|更新访问评审再评类型设置|
 

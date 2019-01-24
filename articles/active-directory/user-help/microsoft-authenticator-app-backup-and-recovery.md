@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 03/28/2018
-ms.date: 11/13/2018
+ms.date: 01/21/2019
 ms.author: v-junlch
 ms.reviewer: olhaun
-ms.openlocfilehash: 6e5d1e86773e68ad6ab88739b8e584e49b91acf8
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 0f248e403b8e7db22aaced47e46f39cb7c03f682
+ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645659"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54440335"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>使用 Microsoft Authenticator 应用备份和恢复帐户凭据
 
@@ -77,7 +77,7 @@ Microsoft Authenticator 应用可将帐户凭据和相关的应用设置（例�
 ### <a name="to-provide-additional-verification-for-work-or-school-accounts"></a>为工作或学校帐户提供附加验证
 1. 在 Microsoft Authenticator 应用的“帐户”屏幕中，选择想要恢复的帐户旁边的下拉箭头。
 
-    ![Microsoft Authenticator 应用，其中显示了可用帐户及其关联的下拉箭头](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-additonal-accts.png)
+    ![Microsoft Authenticator 应用，其中显示了可用帐户及其关联的下拉箭头](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-additional-accts.png)
 
 2. 选择“扫描 QR 码以恢复”，然后扫描 QR 码。
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 origin.date: 11/06/2018
 ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 985999eedaf01ebaeb771d919f38e7bc1468ade1
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: f2b78c41dbfb7f5cc2d31a0354c50500c8c3587f
+ms.sourcegitcommit: bbd2a77feeb7e5b7b4c6161687d60cc2b7315b5b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309134"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857411"
 ---
 # <a name="configure-an-ip-firewall-for-your-azure-cosmos-db-account"></a>为 Azure Cosmos DB 帐户配置 IP 防火墙
 
@@ -119,9 +119,10 @@ ms.locfileid: "54309134"
 
 以下命令演示如何创建具有 IP 访问控制的 Azure Cosmos DB 帐户： 
 
-```Azure CLI
+```azurecli
 
-name="<Azure Cosmos DB account name>" resourceGroupName="<Resource group name>"
+name="<Azure Cosmos DB account name>"
+resourceGroupName="<Resource group name>"
 
 az cosmosdb create \
   --name $name \
@@ -132,9 +133,9 @@ az cosmosdb create \
   --ip-range-filter "183.240.196.255, 104.42.195.92,40.76.54.131, 52.176.6.30,52.169.50.45,52.187.184.26"
 ```
 
-To update the firewall settings for an existing account, run the following command:
+若要更新现有帐户的防火墙设置，请运行以下命令：
 
-```Azure CLI
+```azurecli
 az cosmosdb update \
       --name $name \
       --resource-group $resourceGroupName \

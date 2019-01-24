@@ -17,12 +17,12 @@ origin.date: 11/13/2018
 ms.date: 12/06/2018
 ms.author: v-junlch
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 516210823e68baa3bfce0597413e269d3ffc79ba
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 6b6113143cb7d76ec86503397e22dca448fa97f3
+ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028479"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54440349"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>访问 Azure Active Directory 报告 API 的先决条件
 
@@ -218,7 +218,6 @@ ms.locfileid: "53028479"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [使用具有证书的 Azure Active Directory 报告 API 获取数据](tutorial-access-api-with-certificates.md)
 - [审核 API 参考](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
 
 

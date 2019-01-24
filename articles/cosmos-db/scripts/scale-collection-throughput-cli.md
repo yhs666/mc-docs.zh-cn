@@ -9,12 +9,12 @@ origin.date: 10/26/2018
 ms.date: 01/21/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: c802cc49c568ca72ad06726fa7d135f446a62fde
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 8948f73ecb81b6a9523ee63bbaf336cd4be8ed0a
+ms.sourcegitcommit: bbd2a77feeb7e5b7b4c6161687d60cc2b7315b5b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309062"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857399"
 ---
 # <a name="scale-azure-cosmos-db-container-throughput-using-the-azure-cli"></a>使用 Azure CLI 缩放 Azure Cosmos DB 容器吞吐量
 
@@ -32,7 +32,7 @@ ms.locfileid: "54309062"
 # Set variables for the new account, database, and collection
 resourceGroupName='myResourceGroup'
 location='chinaeast'
-accountName='myCosmosDbAccount'
+accountName='mycosmosdbaccount'  #needs to be lower case characters
 databaseName='myDatabase'
 containerName='myContainer'
 originalThroughput=1000 

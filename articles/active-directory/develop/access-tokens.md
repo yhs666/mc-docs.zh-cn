@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 10/23/2018
-ms.date: 11/30/2018
+ms.date: 01/21/2019
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 2e312d4a6fd0de7eb56f85964ef3a3cbb3f6c344
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 23aa019de3b576d01c4ecc37cba73d1dbd2d5531
+ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028624"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54440360"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Azure Active Directory 访问令牌
 
@@ -70,7 +70,7 @@ JWT 拆分成三个部分：
 | `nonce` | String | 用于防范令牌重放攻击的唯一标识符。 资源可以记录此值以防范重放攻击。 |
 | `alg` | String | 指示用于对令牌进行签名的算法，例如“RS256” |
 | `kid` | String | 指定用于对此令牌进行签名的公钥的指纹。 在 v1.0 访问令牌中已发出。 |
-| `x5t` | String | 功能与 `kid` 相同（在用法和值方面）。 这是在 v1.0 访问令牌中仅出于兼容目的而发出的旧式声明。 |
+| `x5t` | String | 功能与 `kid` 相同（在用法和值方面）。 `x5t` 是在 v1.0 访问令牌中仅出于兼容目的而发出的旧式声明。 |
 
 ### <a name="payload-claims"></a>有效负载声明
 
@@ -109,7 +109,7 @@ JWT 拆分成三个部分：
 | 声明 | 格式 | 说明 |
 |-----|--------|-------------|
 | `ipaddr`| String | 进行身份验证的用户的来源 IP 地址。 |
-| `onprem_sid`| 字符串，采用 [SID 格式](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | 如果用户使用了本地身份验证，则此声明会提供其 SID。 可在旧版应用程序中将此值用于授权。 |
+| `onprem_sid`| 字符串，采用 [SID 格式](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | 如果用户使用了本地身份验证，则此声明会提供其 SID。 可在旧版应用程序中将 `onprem_sid` 用于授权。 |
 | `pwd_exp`| int，UNIX 时间戳 | 指示用户的密码何时过期。 |
 | `pwd_url`| String | 可向用户发送的，以重置其密码的 URL。 |
 | `in_corp`|布尔值 | 表示客户端是否从企业网络登录。 如果不是，则不包含此声明。 |

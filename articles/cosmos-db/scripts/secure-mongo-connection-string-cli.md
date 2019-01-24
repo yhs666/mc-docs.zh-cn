@@ -9,12 +9,12 @@ ms.topic: sample
 origin.date: 10/26/2018
 ms.date: 01/21/2019
 ms.reviewer: sngun
-ms.openlocfilehash: a636044ed443777eff5d63b4fbf832d45b21a67f
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 000d6cd657cb8169cc9585df15b7150c5deb0784
+ms.sourcegitcommit: bbd2a77feeb7e5b7b4c6161687d60cc2b7315b5b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309099"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857398"
 ---
 # <a name="get-an-azure-cosmos-db-connection-string-for-mongodb-using-the-azure-cli"></a>使用 Azure CLI 获取 MongoDB 的 Azure Cosmos DB 连接字符串
 
@@ -32,7 +32,7 @@ ms.locfileid: "54309099"
 # Set variables for the new MongoDB API account, database, and collection
 resourceGroupName='myResourceGroup'
 location='chinaeast'
-accountName='myCosmosDbAccount'
+accountName='mycosmosdbaccount'  #needs to be lower case
 
 # Create a resource group
 az group create \

@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
 origin.date: 11/13/2018
-ms.date: 12/06/2018
+ms.date: 01/21/2019
 ms.author: v-junlch
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 59682da6ba745974b100e2c4e285ed87231b0fbb
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: d33d4294ade24478ac59086710673d21c4246157
+ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028773"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54440363"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory 报告延迟
 
@@ -38,9 +38,9 @@ ms.locfileid: "53028773"
 > **延迟 (95%)** 是指报告 95% 的日志所用的时间，**延迟 (99%)** 是指报告 99% 的日志所用的时间。 
 >
 
-| 报表 | 延迟 (95%) |延迟 (99%)|
-| :-- | --- | --- | 
-| 审核日志 | 2 分钟  | 5 分钟  |
+| 报表 | 延迟 (95%) |延迟 (99%)|报告日志的时间范围|
+| :-- | --- | --- | --- |
+| 审核日志 | 2 分钟  | 5 分钟  | 2-60 分钟 |
  
 ## <a name="next-steps"></a>后续步骤
 

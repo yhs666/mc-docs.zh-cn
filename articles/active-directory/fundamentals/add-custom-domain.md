@@ -9,16 +9,16 @@ ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
 origin.date: 09/18/2018
-ms.date: 01/02/2019
+ms.date: 01/21/2019
 ms.author: v-junlch
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: bbcac258487d307d6ea09052d7ce727473c3f702
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 2ea67756217d66b7e74e3d5a93da0abbc6a18c50
+ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996213"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54440333"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>使用 Azure Active Directory 门户添加自定义域名
 每个新的 Azure AD 租户都附带了一个初始域名 *domainname*.partner.onmschina.cn。 无法更改或删除初始域名，但可以将组织的名称添加到列表中。 添加自定义域名有助于创建用户所熟悉的用户名，例如 *alain@contoso.com*。
@@ -64,7 +64,7 @@ ms.locfileid: "53996213"
 ## <a name="add-your-dns-information-to-the-domain-registrar"></a>将 DNS 信息添加到域注册机构
 将自定义域名添加到 Azure AD 之后，必须返回到域注册机构，并添加已复制的 TXT 文件中的 Azure AD DNS 信息。 为域创建此 TXT 记录可以“验证”域名的所有权。
 
--  返回到域注册机构，根据复制的 DNS 信息为域创建新的 TXT 记录，将“TTL”（生存时间）设置为 60 分钟，然后保存信息。
+-  返回到域注册机构，根据复制的 DNS 信息为域创建新的 TXT 记录，将“TTL”（生存时间）设置为 3600 秒（60 分钟），然后保存信息。
 
     >[!Important]
     >可以注册任意数目的域名。 但是，每个域将从 Azure AD 获取其自身的 TXT 记录。 在域注册机构处输入 TXT 文件信息时请小心。 如果输入了错误或重复的信息，则必须等到 TTL 超时（60 分钟），然后才能重试。
@@ -99,11 +99,11 @@ ms.locfileid: "53996213"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 将另一个全局管理员添加到目录。 有关详细信息，请参阅[如何分配角色和管理员](active-directory-users-assign-role-azure-portal.md)
+- 将另一个全局管理员添加到目录。 有关详细信息，请参阅[如何分配角色和管理员](active-directory-users-assign-role-azure-portal.md)。
 
-- 将用户添加到域，具体请参阅[如何添加或删除用户](add-users-azure-active-directory.md)
+- 将用户添加到域，具体请参阅[如何添加或删除用户](add-users-azure-active-directory.md)。
 
-- 在 Azure AD 中管理域名信息。 有关详细信息，请参阅[管理自定义域名](../users-groups-roles/domains-manage.md)
+- 在 Azure AD 中管理域名信息。 有关详细信息，请参阅[管理自定义域名](../users-groups-roles/domains-manage.md)。
 
 - 若要结合 Azure Active Directory 使用 Windows Server 的本地版本，请参阅[将本地目录与 Azure Active Directory 集成](../connect/active-directory-aadconnect.md)。
 

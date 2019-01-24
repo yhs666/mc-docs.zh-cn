@@ -1,5 +1,5 @@
 ---
-title: 关于 Azure Key Vault 密钥、机密和证书
+title: 关于 Azure 密钥保管库密钥、机密和证书 - Azure 密钥保管库
 description: Azure Key Vault REST 接口概述以及密钥、机密和证书的开发人员详细信息。
 services: key-vault
 documentationcenter: ''
@@ -10,17 +10,16 @@ ms.assetid: abd1b743-1d58-413f-afc1-d08ebf93828a
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/09/2018
-ms.date: 11/05/2018
+ms.date: 02/04/2019
 ms.author: v-biyu
-ms.openlocfilehash: 5cc80aa72393963693534d6b4671295faeb05fef
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a2700ed1e81fac1e1897f968b549fbdbdd0b29ac
+ms.sourcegitcommit: ae1b73a4248509f7afa6ffa466f53e59449f47d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643792"
+ms.lasthandoff: 01/21/2019
+ms.locfileid: "54417357"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>关于密钥、机密和证书
 
@@ -37,7 +36,7 @@ ms.locfileid: "52643792"
 
 以下部分提供在实现 Key Vault 服务中可以用到的常规信息。
 
-###  <a name="supporting-standards"></a>支持标准
+### <a name="supporting-standards"></a>支持标准
 
 JavaScript 对象表示法 (JSON) 与 JavaScript 对象的签名和加密 (JOSE) 规范是重要的背景信息。  
 
@@ -105,23 +104,23 @@ Key Vault 中的对象通过 URL 唯一标识。 不管地理位置如何，系�
 
 Key Vault 支持对密钥对象执行以下操作：  
 
--   创建：允许客户端在 Key Vault 中创建密钥。 密钥的值由 Key Vault 生成，存储但不发布到客户端。 可在 Key Vault 中创建非对称密钥。  
--   导入：允许客户端将现有密钥导入到 Key Vault。 非对称密钥可以使用 JWK 构造中的多种不同的打包方法导入到 Key Vault。 
--   更新：允许具有足够权限的客户端修改与以前存储在 Key Vault 中的密钥相关联的元数据（密钥属性）。  
--   删除：允许具有足够权限的客户端删除 Key Vault 中的密钥。  
--   列出：允许客户端列出给定 Key Vault 中的所有项。  
--   列出版本：允许客户端列出给定 Key Vault 中的给定密钥的所有版本。  
--   获取：允许客户端检索 Key Vault 中的给定密钥的公共部分。  
--   备份：导出受保护窗体中的密钥。  
--   还原：导入以前备份的密钥。  
+-   **创建**：允许客户端在 Key Vault 中创建密钥。 密钥的值由 Key Vault 生成，存储但不发布到客户端。 可在 Key Vault 中创建非对称密钥。  
+-   **导入**：允许客户端将现有密钥导入到 Key Vault。 非对称密钥可以使用 JWK 构造中的多种不同的打包方法导入到 Key Vault。 
+-   **更新**：允许具有足够权限的客户端修改与以前存储在 Key Vault 中的密钥相关联的元数据（密钥属性）。  
+-   **删除**：允许具有足够权限的客户端删除 Key Vault 中的密钥。  
+-   **列出**：允许客户端列出给定 Key Vault 中的所有项。  
+-   **列出版本**：允许客户端列出给定 Key Vault 中的给定密钥的所有版本。  
+-   **获取**：允许客户端检索 Key Vault 中的给定密钥的公共部分。  
+-   **备份**：导出受保护窗体中的密钥。  
+-   **还原**：导入以前备份的密钥。  
 
 有关详细信息，请参阅 [Key Vault REST API 中的密钥操作参考](https://docs.microsoft.com/rest/api/keyvault/key-operations)  
 
 在 Key Vault 中创建密钥后，即可使用密钥执行以下加密操作：  
 
--   签名并验证：严格来讲，此操作应该为“签名哈希”或“验证哈希”，因为 Key Vault 不支持创建签名过程中的内容哈希。 应用程序应哈希要在本地签名的数据，然后请求 Key Vault 对哈希签名。 支持签名哈希的验证，作为可能无法访问 [公共] 密钥材料的应用程序的一种便捷操作。 为获得最佳应用程序性能，请验证操作在本地执行。  
--   密钥加密/包装：Key Vault 中存储的一个密钥可以用来保护另一个密钥，通常是对称内容加密密钥 (CEK)。 如果 Key Vault 中的密钥是非对称密钥，将使用密钥加密。 例如，RSA-OAEP 和 WRAPKEY/UNWRAPKEY 操作等同于 ENCRYPT/DECRYPT。 如果 Key Vault 中的密钥是对称密钥，则使用密钥包装。 例如，AES-KW。 支持 WRAPKEY 操作，作为可能无法访问 [公共] 密钥材料的应用程序的一种便捷操作。 为获得最佳应用程序性能，WRAPKEY 操作应在本地执行。  
--   加密和解密：存储在 Key Vault 中的密钥可用于加密或解密单个数据块。 块大小取决于密钥类型和所选加密算法。 支持加密操作，作为可能无法访问 [公共] 密钥材料的应用程序的一种便捷操作。 为获得最佳应用程序性能，加密操作应在本地执行。  
+-   **签名并验证**：严格来讲，此操作应该为“签名哈希”或“验证哈希”，因为 Key Vault 不支持创建签名过程中的内容哈希。 应用程序应哈希要在本地签名的数据，然后请求 Key Vault 对哈希签名。 支持签名哈希的验证，作为可能无法访问 [公共] 密钥材料的应用程序的一种便捷操作。 为获得最佳应用程序性能，请验证操作在本地执行。  
+-   **密钥加密/包装**：Key Vault 中存储的一个密钥可以用来保护另一个密钥，通常是对称内容加密密钥 (CEK)。 如果 Key Vault 中的密钥是非对称密钥，将使用密钥加密。 例如，RSA-OAEP 和 WRAPKEY/UNWRAPKEY 操作等同于 ENCRYPT/DECRYPT。 如果 Key Vault 中的密钥是对称密钥，则使用密钥包装。 例如，AES-KW。 支持 WRAPKEY 操作，作为可能无法访问 [公共] 密钥材料的应用程序的一种便捷操作。 为获得最佳应用程序性能，WRAPKEY 操作应在本地执行。  
+-   **加密和解密**：存储在 Key Vault 中的密钥可用于加密或解密单个数据块。 块大小取决于密钥类型和所选加密算法。 支持加密操作，作为可能无法访问 [公共] 密钥材料的应用程序的一种便捷操作。 为获得最佳应用程序性能，加密操作应在本地执行。  
 
 虽然使用非对称密钥的 WRAPKEY/UNWRAPKEY 可能看似多余（因为操作等同于 ENCRYPT/DECRYPT），但使用不同的操作却非常重要。 此不同提供了这些操作的语义和授权分离，并在服务支持其他密钥类型时提供一致性。  
 
@@ -136,13 +135,13 @@ Key Vault 不支持“导出”操作。 在系统中设置密钥后，便无法
 除密钥材料外，还可以指定以下属性。 在 JSON 请求中，即使未指定任何属性，也需要属性关键字和大括号“{”“}”。  
 
 - enabled：布尔型，可选，默认值为 true。 指定密钥是否已启用并可用于加密操作。 enabled 属性结合 nbf 和 exp 使用。如果在 nbf 和 exp 之间出现操作，只有在 enabled 设置为 true 时，才允许该操作。 nbf / exp 时段外的操作会自动禁止，[特定条件](#date-time-controlled-operations)下的某些操作类型除外。
-- nbf：IntDate，可选，默认值为“现在”。 nbf（非过去）属性识别密钥不得用于加密操作以前的时间，[特定条件](#date-time-controlled-operations)下的某些操作类型除外。 处理 nbf 属性要求当前日期/时间必须晚于或等于 nbf 属性中列出的非过去日期/时间。 Key Vault 可能会稍微留有一些余地（通常不超过几分钟），以适应时钟偏差。 其值必须是包含 IntDate 值的数字。  
-- exp：IntDate，可选，默认值为“永远”。 exp（过期时间）属性识别密钥不得用于加密操作当时或之后的过期时间，[特定条件](#date-time-controlled-operations)下的某些操作类型除外。 处理 exp 属性要求当前日期/时间必须早于 exp 属性中列出的过期日期/时间。 Key Vault 可能会稍微留有一些余地（通常不超过几分钟），以适应时钟偏差。 其值必须是包含 IntDate 值的数字。  
+- *nbf*：IntDate，可选，默认值为“now”。 nbf（非过去）属性识别密钥不得用于加密操作以前的时间，[特定条件](#date-time-controlled-operations)下的某些操作类型除外。 处理 nbf 属性要求当前日期/时间必须晚于或等于 nbf 属性中列出的非过去日期/时间。 Key Vault 可能会稍微留有一些余地（通常不超过几分钟），以适应时钟偏差。 其值必须是包含 IntDate 值的数字。  
+- *exp*：IntDate，可选，默认值为“forever”。 exp（过期时间）属性识别密钥不得用于加密操作当时或之后的过期时间，[特定条件](#date-time-controlled-operations)下的某些操作类型除外。 处理 exp 属性要求当前日期/时间必须早于 exp 属性中列出的过期日期/时间。 Key Vault 可能会稍微留有一些余地（通常不超过几分钟），以适应时钟偏差。 其值必须是包含 IntDate 值的数字。  
 
 在包含密钥属性的任何响应中还包括以下其他只读属性：  
 
-- created：IntDate，可选。 created 属性指示创建此版本的密钥的时间。 如果密钥在添加此属性之前创建，此值为 NULL。 其值必须是包含 IntDate 值的数字。  
-- updated：IntDate，可选 updated 属性指示更新此版本的密钥的时间。 如果密钥上次更新的时间早于添加此属性的时间，此值为 NULL。 其值必须是包含 IntDate 值的数字。  
+- *created*：IntDate，可选。 created 属性指示创建此版本的密钥的时间。 如果密钥在添加此属性之前创建，此值为 NULL。 其值必须是包含 IntDate 值的数字。  
+- *updated*：IntDate，可选。 updated 属性指示更新此版本的密钥的时间。 如果密钥上次更新的时间早于添加此属性的时间，此值为 NULL。 其值必须是包含 IntDate 值的数字。  
 
 有关 IntDate 和其他数据类型的详细信息，请参阅[数据类型](#data-types)  
 
@@ -168,26 +167,26 @@ Key Vault 托管的密钥的访问控制是在充当密钥容器的 Key Vault �
 在保管库上的密钥访问控制条目中可以按用户/服务主体授予以下权限。 这些权限对密钥对象上允许的操作采取严密的镜像操作：  
 
 - 针对密钥管理操作的权限
-  - 获取：读取密钥的公共部分及其属性
-  - 列出：列出密钥保管库中存储的密钥或密钥版本
-  - 更新：更新的键属性
-  - 创建：创建新密钥
-  - 导入：将密钥导入到密钥保管库
-  - 删除：删除密钥对象
-  - 恢复：恢复已删除的密钥
-  - 备份：备份密钥保管库中的密钥
-  - 还原：将备份密钥还原到密钥保管库
+  - *get*：读取密钥的公共部分及其属性
+  - *list*：列出密钥保管库中存储的密钥或密钥版本
+  - *update*：更新键的属性
+  - *create*：新建密钥
+  - *import*：将密钥导入到密钥保管库
+  - *delete*：删除密钥对象
+  - *recover*：恢复已删除的密钥
+  - *backup*：备份密钥保管库中的密钥
+  - *restore*：将备份密钥还原到密钥保管库
 
 - 针对加密操作的权限
-  - 解密：使用密钥取消保护字节序列
-  - 加密：使用密钥保护任意字节序列
-  - 解包密钥：使用密钥取消保护包装的对称密钥
-  - 包装密钥：使用密钥保护对称密钥
-  - 验证：使用密钥验证摘要  
-  - 签名：使用密钥签名摘要
+  - *decrypt*：使用密钥取消保护字节序列
+  - *encrypt*：使用密钥保护任意字节序列
+  - *unwrapKey*：使用密钥取消保护包装的对称密钥
+  - *wrapKey*：使用密钥保护对称密钥
+  - *verify*：使用密钥验证摘要  
+  - *sign*：使用密钥签名摘要
     
 - 针对特权操作的权限
-  - 清除：清除（永久删除）已删除的密钥
+  - *purge*：清除（永久删除）已删除的密钥
 
 有关使用密钥的详细信息，请参阅 [Key Vault REST API 中的密钥操作参考](https://docs.microsoft.com/en-us/rest/api/keyvault/)。 有关建立权限的信息，请参阅[保管库 - 创建或更新](https://docs.microsoft.com/en-us/rest/api/keyvault/vaults/createorupdate)和[保管库 - 更新访问策略](https://docs.microsoft.com/en-us/rest/api/keyvault/vaults/updateaccesspolicy)。 
 
@@ -205,14 +204,14 @@ Key Vault 还支持机密的 contentType 字段。 客户端可以指定机密�
 
 除机密数据外，还可以指定以下属性：  
 
-- exp：IntDate，可选，默认值为“永远”。 exp（过期时间）属性标识在不应检索机密数据当时或之后的过期时间，[特定情况](#date-time-controlled-operations)除外。 此字段仅供参考，因为它通知密钥保管库服务用户可能无法使用特定机密。 其值必须是包含 IntDate 值的数字。   
-- nbf：IntDate，可选，默认值为“现在”。 nbf（非过去）属性标识在不应检索机密数据之前的时间，[特定情况](#date-time-controlled-operations)除外。 此字段仅供参考。 其值必须是包含 IntDate 值的数字。 
-- enabled：布尔型，可选，默认值为 true。 此属性指定是否可以检索机密数据。 enabled 属性与 exp 结合使用，如果在 nbf 和 exp 之间出现操作，只有在 enabled 设置为 true 时，才允许该操作。 nbf 和 exp 时段外的操作会自动禁止，[特定情况](#date-time-controlled-operations)除外。  
+- *exp*：IntDate，可选，默认值为 **forever**。 exp（过期时间）属性标识在不应检索机密数据当时或之后的过期时间，[特定情况](#date-time-controlled-operations)除外。 此字段仅供参考，因为它通知密钥保管库服务用户可能无法使用特定机密。 其值必须是包含 IntDate 值的数字。   
+- *nbf*：IntDate，可选，默认值为 **now**。 nbf（非过去）属性标识在不应检索机密数据之前的时间，[特定情况](#date-time-controlled-operations)除外。 此字段仅供参考。 其值必须是包含 IntDate 值的数字。 
+- enabled：布尔型，可选，默认值为 true。 此属性指定是否可以检索机密数据。 enabled 属性与 nbf 和 exp 结合使用，如果在 nbf 和 exp 之间出现操作，只有在 enabled 设置为 true 时，才允许该操作。 nbf 和 exp 时段外的操作会自动禁止，[特定情况](#date-time-controlled-operations)除外。  
 
 在包含机密属性的任何响应中还包括以下其他只读属性：  
 
-- created：IntDate，可选。 created 属性指示创建此版本的机密的时间。 如果机密在添加此属性之前创建，此值为 NULL。 其值必须是包含 IntDate 值的数字。  
-- updated：IntDate，可选 updated 属性指示更新此版本的机密的时间。 如果机密上次更新的时间早于添加此属性的时间，此值为 NULL。 其值必须是包含 IntDate 值的数字。
+- *created*：IntDate，可选。 created 属性指示创建此版本的机密的时间。 如果机密在添加此属性之前创建，此值为 NULL。 其值必须是包含 IntDate 值的数字。  
+- *updated*：IntDate，可选。 updated 属性指示更新此版本的机密的时间。 如果机密上次更新的时间早于添加此属性的时间，此值为 NULL。 其值必须是包含 IntDate 值的数字。
 
 #### <a name="date-time-controlled-operations"></a>日期时间控制的操作
 
@@ -227,16 +226,16 @@ Key Vault 中托管的机密的访问控制是在包含这些机密的 Key Vault
 在保管库上的机密访问控制条目中可以按主体使用以下权限，这些权限对机密对象上允许的操作采取严密的镜像操作：  
 
 - 针对机密管理操作的权限
-  - 获取：读取机密  
-  - 列出：列出 Key Vault 中存储的机密或机密版本  
-  - 设置：创建机密  
-  - 删除：删除机密  
-  - 恢复：恢复已删除的机密
-  - 备份：备份密钥保管库中的机密
-  - 还原：将备份机密还原到密钥保管库
+  - *get*：读取机密  
+  - *list*：列出 Key Vault 中存储的机密或机密版本  
+  - *set*：创建机密  
+  - *delete*：删除机密  
+  - *recover*：恢复已删除的机密
+  - *backup*：备份密钥保管库中的机密
+  - *restore*：将备份机密还原到密钥保管库
 
 - 针对特权操作的权限
-  - 清除：清除（永久删除）已删除的机密
+  - *purge*：清除（永久删除）已删除的机密
 
 有关使用机密的详细信息，请参阅 [Key Vault REST API 中的机密操作参考](https://docs.microsoft.com/en-us/rest/api/keyvault/)。 有关建立权限的信息，请参阅[保管库 - 创建或更新](https://docs.microsoft.com/en-us/rest/api/keyvault/vaults/createorupdate)和[保管库 - 更新访问策略](https://docs.microsoft.com/en-us/rest/api/keyvault/vaults/updateaccesspolicy)。 
 
@@ -265,7 +264,7 @@ Key Vault 中托管的机密的访问控制是在包含这些机密的 Key Vault
 
 标识符和证书版本与密钥和机密的类似。 使用 Key Vault 证书版本创建的特定版本的可寻址密钥和机密可用于 Key Vault 证书响应。
  
-![证书是复杂的对象](./media/azure-key-vault.png)
+![证书是复杂的对象](media/azure-key-vault.png)
 
 ### <a name="exportable-or-non-exportable-key"></a>可导出或不可导出密钥
 
@@ -288,10 +287,10 @@ Key Vault 证书具有以下属性：
 
 在响应中还包括以下其他只读属性：
 
--   created：IntDate：指示创建此版本的证书的时间  
--   updated：IntDate：指示更新此版本的证书的时间  
--   exp：IntDate：包含 x509 证书的过期日期的值。  
--   nbf：IntDate：包含 x509 证书的日期的值。  
+-   *created*：IntDate：指示创建此版本的证书的时间。  
+-   *updated*：IntDate：指示更新此版本的证书的时间。  
+-   *exp*：IntDate：包含 x509 证书的过期日期的值。  
+-   *nbf*：IntDate：包含 x509 证书的日期的值。  
 
 > [!Note] 
 > 如果 Key Vault 证书过期，则它是可寻址密钥，机密会无法操作。  
@@ -359,7 +358,7 @@ Key Vault 证书对象包含与所选证书颁发者提供者进行通信的配�
 
     -   提供用于在密钥保管库中创建提供程序的颁发者对象的配置  
 
-有关从证书门户创建颁发者对象的详细信息，请参阅 [Key Vault 证书博客](http://aka.ms/kvcertsblog)  
+有关从证书门户创建颁发者对象的详细信息，请参阅 [Key Vault 证书博客](https://aka.ms/kvcertsblog)  
 
 Key Vault 允许使用其他颁发者提供者的配置创建多个颁发者对象。 在创建颁发者对象以后，即可在一个或多个证书的策略中引用其名称。 在创建和续订证书的过程中从 CA 提供者请求 x509 证书时，引用颁发者对象可以指示 Key Vault 按颁发者对象中的规定使用配置。  
 
@@ -383,24 +382,24 @@ Key Vault 允许使用其他颁发者提供者的配置创建多个颁发者对�
  在密钥保管库上的机密访问控制条目中可以按主体使用以下权限，这些权限对机密对象上允许的操作采取严密的镜像操作：  
 
 - 针对证书管理操作的权限
-  - 获取：获取最新版本的证书或任何版本的证书 
-  - 列出：列出最新版本的证书或任何版本的证书  
-  - 更新：更新证书
-  - 创建：创建 Key Vault 证书
-  - 导入：将证书材料导入到 Key Vault 证书
-  - 删除：删除证书、其策略及其所有版本  
-  - 恢复：恢复已删除的证书
-  - 备份：备份密钥保管库中的证书
-  - 还原：将备份证书还原到密钥保管库
-  - 管理联系人：管理 Key Vault 证书联系人  
-  - 管理证书颁发者：管理 Key Vault 证书颁发机构/颁发者
-  - 获取证书颁发者：获取证书的颁发机构/颁发者
-  - 列出证书颁发者：列出证书的颁发机构/颁发者  
-  - 设置颁发者：创建或更新 Key Vault 证书的颁发机构/颁发者  
-  - 删除颁发者：删除 Key Vault 证书的颁发机构/颁发者  
+  - *get*：获取最新版本的证书或任何版本的证书 
+  - *list*：列出最新版本的证书或任何版本的证书  
+  - *update*：更新证书
+  - *create*：创建 Key Vault 证书
+  - *import*：将证书材料导入到 Key Vault 证书
+  - *delete*：删除证书、策略及其所有版本  
+  - *recover*：恢复已删除的证书
+  - *backup*：备份密钥保管库中的证书
+  - *restore*：将备份证书还原到密钥保管库
+  - *managecontacts*：管理 Key Vault 证书联系人  
+  - *manageissuers*：管理 Key Vault 证书颁发机构/颁发者
+  - *getissuers*：获取证书的颁发机构/颁发者
+  - *listissuers*：列出证书的颁发机构/颁发者  
+  - *setissuers*：创建或更新 Key Vault 证书的颁发机构/颁发者  
+  - *deleteissuers*：删除 Key Vault 证书的颁发机构/颁发者  
  
 - 针对特权操作的权限
-  - 清除：清除（永久删除）已删除的证书
+  - *purge*：清除（永久删除）已删除的证书
 
 有关详细信息，请参阅 [Key Vault REST API 中的证书操作参考](https://docs.microsoft.com/en-us/rest/api/keyvault/)。 有关建立权限的信息，请参阅[保管库 - 创建或更新](https://docs.microsoft.com/en-us/rest/api/keyvault/vaults/createorupdate)和[保管库 - 更新访问策略](https://docs.microsoft.com/en-us/rest/api/keyvault/vaults/updateaccesspolicy)。
 
@@ -420,22 +419,22 @@ Key Vault 可以管理 Azure 存储帐户密钥：
 授权用户或应用程序主体对托管的存储帐户执行操作时，可以使用以下权限：  
 
 - 针对托管存储帐户和 SaS 定义操作的权限
-  - 获取：获取有关存储帐户的信息 
-  - 列表：列出 Key Vault 托管的存储帐户
-  - 更新：更新存储帐户
-  - 删除：删除存储帐户  
-  - 恢复：恢复已删除的存储帐户
-  - 备份：备份存储帐户
-  - 还原：将备份存储帐户还原到 Key Vault
-  - 设置：创建或更新存储帐户
-  - 重写密钥：为存储帐户重写指定的密钥值
-  - 获取 SAS：获取有关存储帐户的 SAS 定义的信息
-  - 列出 SAS：列出存储帐户的存储 SAS 定义
-  - 删除 SAS：从存储帐户中删除 SAS 定义
-  - 设置 SAS：创建或更新存储帐户的新 SAS 定义/属性
+  - *get*：获取有关存储帐户的信息 
+  - *list*：列出 Key Vault 托管的存储帐户
+  - *update*：更新存储帐户
+  - *delete*：删除存储帐户  
+  - *recover*：恢复删除的存储帐户
+  - *backup*：备份存储帐户
+  - *restore*：将备份存储帐户还原到 Key Vault
+  - *set*：创建或更新存储帐户
+  - *regeneratekey*：为存储帐户重写指定的密钥值
+  - *getsas*：获取有关存储帐户的 SAS 定义的信息
+  - *listsas*：列出存储帐户的存储 SAS 定义
+  - *deletesas*：从存储帐户中删除 SAS 定义
+  - *setsas*：创建或更新存储帐户的新 SAS 定义/属性
 
 - 针对特权操作的权限
-  - 清除：清除（永久删除）托管存储帐户
+  - *purge*：清除（永久删除）托管存储帐户
 
 有关详细信息，请参阅 [Key Vault REST API 中的存储帐户操作参考](https://docs.microsoft.com/en-us/rest/api/keyvault)。 有关建立权限的信息，请参阅[保管库 - 创建或更新](https://docs.microsoft.com/en-us/rest/api/keyvault/vaults/createorupdate)和[保管库 - 更新访问策略](https://docs.microsoft.com/en-us/rest/api/keyvault/vaults/updateaccesspolicy)。
 

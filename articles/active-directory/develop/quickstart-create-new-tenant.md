@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 09/24/2018
-ms.date: 11/07/2018
+ms.date: 01/21/2019
 ms.author: v-junlch
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 9d5ddd4e7b331442710df624bc390c695d75a867
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 7479fb00fef62f248e42ea257ca1f4fa6888df65
+ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660170"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54440329"
 ---
 # <a name="quickstart-set-up-a-dev-environment"></a>快速入门：设置开发环境
 
@@ -63,3 +63,4 @@ ms.locfileid: "52660170"
 - 有关更多深入的代码示例，请参阅文档的“教程”部分。
 
 
+<!-- Update_Description: wording update -->

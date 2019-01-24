@@ -9,16 +9,16 @@ ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
 origin.date: 08/27/2018
-ms.date: 01/02/2019
+ms.date: 01/21/2019
 ms.author: v-junlch
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 86f4207707220e2c76c633c26304d839ae2bd3e1
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: b4787072fd51cf1fbc4751d3343b921f63740652
+ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996295"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54440362"
 ---
 # <a name="edit-your-group-information-using-azure-active-directory"></a>使用 Azure Active Directory 编辑组信息
 
@@ -51,7 +51,7 @@ ms.locfileid: "53996295"
 
     - **组类型。** 创建组后无法更改组类型。 若要更改**组类型**，必须删除组并新建一个。
     
-    - **成员身份类型。** 更改成员身份类型。 有关各种可用成员身份类型的详细信息，请参阅[如何：使用 Azure Active Directory 门户创建基本组并添加成员](active-directory-groups-create-azure-portal.md)
+    - **成员身份类型。** 更改成员身份类型。 有关各种可用成员身份类型的详细信息，请参阅[如何：使用 Azure Active Directory 门户创建基本组并添加成员](active-directory-groups-create-azure-portal.md)。
     
     - **对象 ID。** 无法更改对象 ID，但可以复制它以在用于组的 PowerShell 命令中使用。 有关 PowerShell cmdlet 的详细信息，请参阅[用于配置组设置的 Azure Active Directory cmdlet](../users-groups-roles/groups-settings-v2-cmdlets.md)。
 

@@ -9,12 +9,12 @@ ms.topic: sample
 origin.date: 10/26/2018
 ms.date: 01/21/2019
 ms.reviewer: sngun
-ms.openlocfilehash: f60538287d96d7c90941cc7024a255346e1f3660
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 76be340e2afa03fd19249ff06125dcf5ba7f5c0e
+ms.sourcegitcommit: d0d76d2fefe064d9cd710f5f41c5015d44c753aa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309285"
+ms.lasthandoff: 01/21/2019
+ms.locfileid: "54417341"
 ---
 # <a name="regenerate-an-azure-cosmos-db-account-key-using-the-azure-cli"></a>使用 Azure CLI 重新生成 Azure Cosmos DB 帐户密钥
 
@@ -32,7 +32,7 @@ ms.locfileid: "54309285"
 # Set variables for the new account
 resourceGroupName='myResourceGroup'
 location='chinaeast'
-accountName='myCosmosDbAccount'
+accountName='mycosmosdbaccount' #needs to be lower case characters
 
 # Create a resource group
 az group create \

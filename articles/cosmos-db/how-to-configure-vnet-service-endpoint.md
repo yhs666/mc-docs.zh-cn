@@ -7,12 +7,12 @@ ms.topic: conceptual
 origin.date: 11/06/2018
 ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5aafab01996266e80199118373ba6411f25af32c
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 43c82b43963bdbda5d30d491573c09364b1ab1ed
+ms.sourcegitcommit: bbd2a77feeb7e5b7b4c6161687d60cc2b7315b5b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309323"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857406"
 ---
 # <a name="access-azure-cosmos-db-resources-from-virtual-networks"></a>从虚拟网络访问 Azure Cosmos DB 资源
 
@@ -189,9 +189,10 @@ ms.locfileid: "54309323"
 
 1. 使用子网访问控制列表 (ACL) 更新现有的 Azure Cosmos DB 帐户。
 
-   ```Azure CLI
+   ```azurecli
 
-   name="<Azure Cosmos DB account name>" resourceGroupName="<Resource group name>"
+   name="<Azure Cosmos DB account name>"
+   resourceGroupName="<Resource group name>"
 
    az cosmosdb update \
     --name $name \
@@ -200,9 +201,9 @@ ms.locfileid: "54309323"
     --virtual-network-rules "/subscriptions/testsub/resourceGroups/testRG/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/frontend"
    ```
 
-1. Create a new Azure Cosmos DB account with subnet ACLs.
+1. 使用子网 ACL 创建新的 Azure Cosmos DB 帐户
 
-   ```Azure CLI
+   ```azurecli
    az cosmosdb create \
     --name $name \
     --kind GlobalDocumentDB \

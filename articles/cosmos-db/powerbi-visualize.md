@@ -7,12 +7,12 @@ ms.topic: conceptual
 origin.date: 10/03/2018
 ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1440d93599c7d4434c7f42eb55cffcc8c2e7fa12
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 9261ec0ea943aeaea8db0f7058410a80f4adf196
+ms.sourcegitcommit: bbd2a77feeb7e5b7b4c6161687d60cc2b7315b5b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309144"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857416"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>使用 Power BI 连接器可视化 Azure Cosmos DB 数据
 
@@ -52,7 +52,24 @@ ms.locfileid: "54309144"
 ## <a name="lets-get-started"></a>让我们开始吧
 本教程假设读者是一位研究世界各地的火山的地理学家。  火山数据存储在一个 Azure Cosmos DB 帐户中，JSON 文档格式如下所示：
 
-<!--Notice: around the world in correct--> { "Volcano Name":"Rainier", "Country":"United States", "Region":"US-Washington", "Location": { "type":"Point", "coordinates": [ -121.758, 46.87 ] }, "Elevation":4392, "Type":"Stratovolcano", "Status":"Dendrochronology", "Last Known Eruption":"Last known eruption from 1800-1899, inclusive" }
+<!--Notice: around the world in correct-->
+
+    {
+        "Volcano Name": "Rainier",
+           "Country": "United States",
+          "Region": "US-Washington",
+          "Location": {
+            "type": "Point",
+            "coordinates": [
+              -121.758,
+              46.87
+            ]
+          },
+          "Elevation": 4392,
+          "Type": "Stratovolcano",
+          "Status": "Dendrochronology",
+          "Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
+    }
 
 你将从该 Azure Cosmos DB 帐户中检索火山数据并在交互式 Power BI 报表中将数据可视化。
 

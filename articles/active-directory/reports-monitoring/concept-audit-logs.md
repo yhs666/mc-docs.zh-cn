@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
 origin.date: 11/13/2018
-ms.date: 12/06/2018
+ms.date: 01/21/2019
 ms.author: v-junlch
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a53648627cdd2ee02a064c1055af5ff4be02660b
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 48f84a80ed3534a4fa38924070ea639e46fe4c40
+ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028608"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54440368"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 门户中的“审核活动”报告 
 
@@ -42,7 +42,7 @@ ms.locfileid: "53028608"
 
 ## <a name="audit-logs"></a>审核日志
 
-Azure AD 审核日志提供系统活动的记录以实现符合性。 若要访问审核数据，请在 **Azure Active Directory** 的“活动”部分中选择“审核日志”。 
+Azure AD 审核日志提供系统活动的记录以实现符合性。 若要访问审核数据，请在 **Azure Active Directory** 的“活动”部分中选择“审核日志”。 请注意，审核日志的延迟可能长达一个小时，因此在完成任务后，审核活动数据可能需要很长时间才能显示在门户中。
 
 ![审核日志](./media/concept-audit-logs/61.png "审核日志")
 
@@ -178,3 +178,4 @@ Azure AD 审核日志提供系统活动的记录以实现符合性。 若要访�
 - [Azure AD 审核活动参考](reference-audit-activities.md)
 - [Azure AD 日志延迟参考](reference-reports-latencies.md)
 
+<!-- Update_Description: wording update -->

@@ -9,16 +9,16 @@ ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 01/29/2018
-ms.date: 01/02/2019
+ms.date: 01/21/2019
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 8a0115fd6e210638f7f32a8b7c225229b9158ea3
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: af086db8d3eaf197608a9e0461c77f975b40cc67
+ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996192"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54440339"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Azure Active Directory 中的默认用户权限是什么？
 在 Azure Active Directory (Azure AD) 中，所有用户都被授予一组默认权限。 用户的访问权限由用户的类型、其[角色成员身份](/active-directory/active-directory-users-assign-role-azure-portal)及其对单个对象的所有权构成。 本文将会介绍这些默认权限，并将成员和来宾用户的默认权限进行比较。
@@ -69,4 +69,4 @@ When a user adds a new enterprise application, they are automatically added as a
 - 若要详细了解如何在 Azure 中控制资源访问权限，请参阅[了解 Azure 中的资源访问权限](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 - [管理用户](add-users-azure-active-directory.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

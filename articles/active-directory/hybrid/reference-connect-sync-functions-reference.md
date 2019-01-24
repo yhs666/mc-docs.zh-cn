@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2017
-ms.date: 01/03/2019
+ms.date: 01/21/2019
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 519982b5890150198047e58c8f1e41f3d74f453f
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 24d6e660d567297b4895a4e3b25484251bea58e5
+ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996377"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54440371"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect 同步：函数引用
 在 Azure AD Connect 中，函数用于在同步期间操作属性值。  
@@ -601,7 +601,7 @@ FormatDateTime 函数用于为具有指定格式的字符串设置 DateTime 格�
 - format：表示要转换为的格式的字符串。
 
 **备注：**  
-格式的可能值可以在此处找到：[用户定义的日期/时间格式（Format 函数）](https://msdn2.microsoft.com/library/73ctwf33\(VS.90\).aspx)
+可以从以下位置找到格式的可能值：[FORMAT 函数的自定义日期和时间格式](https://docs.microsoft.com/dax/custom-date-and-time-formats-for-the-format-function)。
 
 **示例：**  
 
@@ -1339,4 +1339,4 @@ UCase 函数将字符串中的所有字符都转换为大写形式。
 - [Azure AD Connect 同步：自定义同步选项](how-to-connect-sync-whatis.md)
 - [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

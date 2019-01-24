@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-origin.date: 12/10/2018
-ms.date: 12/28/2018
+origin.date: 01/08/2019
+ms.date: 01/21/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 2db4994d33c744989597fd0cb6e1da0cbcd26a3e
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: dd28d3d3a616f89f688433a8cfb1058c5454e50b
+ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996272"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54440345"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Azure Active Directory 中的密码策略和限制
 
-本文介绍与 Azure Active Directory (Azure AD) 租户中存储的用户帐户关联的密码策略和复杂性要求。
+本文介绍与 Azure Active Directory (Azure AD) 租户中的用户帐户关联的密码策略和复杂性要求。
 
 ## <a name="administrator-reset-policy-differences"></a>管理员重置策略差异
 
@@ -76,7 +76,7 @@ ms.locfileid: "53996272"
 | 属性 | 要求 |
 | --- | --- |
 | 允许的字符 |<ul><li>A - Z</li><li>a - z</li><li>0 - 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ " ( ) ;</li></ul> |
-| 不允许的字符 |<ul><li>Unicode 字符。</li><li>空格。</li><li> 仅限强密码</li></ul> |
+| 不允许的字符 |<ul><li>Unicode 字符。</li><li>空格。</li><li> 仅限强密码：不能包含圆点字符 "."紧接在“\@\"符号”之前。</li></ul> |
 | 密码限制 |<ul><li>至少 8 个字符，最多包含 16 个字符。</li><li>仅限强密码：需满足以下 4 项中的 3 项：<ul><li>小写字符。</li><li>大写字符。</li><li>数字 (0-9)。</li><li>符号（请参阅前面的密码限制）。</li></ul></li></ul> |
 | 密码过期期限 |<ul><li>默认值：“90”天。</li><li>可通过 Windows PowerShell 的 Azure Active Directory 模块中的 `Set-MsolPasswordPolicy` cmdlet 来配置该值。</li></ul> |
 | 密码过期通知 |<ul><li>默认值：“14”天（密码到期前）。</li><li>可使用 `Set-MsolPasswordPolicy` cmdlet 配置该值。</li></ul> |

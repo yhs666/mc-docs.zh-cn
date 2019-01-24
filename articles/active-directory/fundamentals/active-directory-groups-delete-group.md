@@ -9,25 +9,25 @@ ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
 origin.date: 08/29/2018
-ms.date: 01/02/2019
+ms.date: 01/21/2019
 ms.author: v-junlch
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: e05cb1c450cff5a19b1db29064b4973428ca041b
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 2630262d0bee0d4fffe64431b319c388e57c5a40
+ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996151"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54440328"
 ---
 # <a name="delete-a-group-using-azure-active-directory"></a>使用 Azure Active Directory 删除组
 可以因为各种原因删除 Azure Active Directory (Azure AD) 组，但通常是因为：
 
-- 将“组类型”错误地设置为了错误选项
+- 错误地将“组类型”设为了错误的选项。
 
-- 错误地创建了错误或重复的组 
+- 错误地创建错误或重复组。 
 
-- 不再需要该组
+- 不再需要组。
 
 ## <a name="to-delete-a-group"></a>删除组
 1. 使用目录的全局管理员帐户登录到 [Azure 门户](https://portal.azure.cn)。
