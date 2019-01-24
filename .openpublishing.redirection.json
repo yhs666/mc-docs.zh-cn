@@ -13668,7 +13668,13 @@
         "source_path": "articles/monitoring-and-diagnostics/resource-group-insights.md",
         "redirect_url": "/azure-monitor/insights/resource-group-insights",
         "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/text-analytics-supported-languages.md",
+      "redirect_url": "/cognitive-services/text-analytics/language-support",
+      "redirect_document_id": true
     }
+
       
 
 
