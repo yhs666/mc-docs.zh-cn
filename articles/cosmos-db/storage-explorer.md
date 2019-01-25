@@ -8,16 +8,18 @@ origin.date: 12/07/2018
 ms.date: 01/21/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 1ea8b09df24681ddc0cd8cdd19620ad7979b688d
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 66ebe9059942f67ca7446484ef0205eee19f6447
+ms.sourcegitcommit: bbd2a77feeb7e5b7b4c6161687d60cc2b7315b5b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309325"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857413"
 ---
 # <a name="manage-azure-cosmos-db-resources-using-azure-storage-explorer"></a>使用 Azure 存储资源管理器管理 Azure Cosmos DB 资源
 
-通过在 Azure 存储资源管理器中使用 Azure Cosmos DB，用户可以管理 Azure Cosmos DB 实体、操作数据、更新存储过程和触发器以及其他 Azure 实体（如存储 blob 和队列）。 现在可以使用相同工具在一个位置管理不同 Azure 实体。 目前，Azure 存储资源管理器支持为 SQL、MongoDB、图形和表 API 配置的 Cosmos 帐户。
+通过在 Azure 存储资源管理器中使用 Azure Cosmos DB，用户可以管理 Azure Cosmos DB 实体、操作数据、更新存储过程和触发器以及其他 Azure 实体（如存储 blob 和队列）。 现在可以使用相同工具在一个位置管理不同 Azure 实体。 目前，Azure 存储资源管理器支持为 SQL 和 MongoDB 配置的 Cosmos 帐户。
+
+<!--Not Available on  Graph, and Table APIs-->
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -261,11 +263,12 @@ ms.locfileid: "54309325"
 
 ## <a name="contact-us"></a>联系我们
 
-如果以上解决方案均不起作用，请向 Azure Cosmos DB 开发人员工具团队发送电子邮件 ([cosmosdbtooling@microsoft.com](mailto:cosmosdbtooling@microsoft.com))，对问题进行详细说明，以便解决问题。
+如果以上解决方案均不起作用，请向 Azure Cosmos DB 开发人员工具团队（[MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/contact/)）发送电子邮件，对问题进行详细说明，以便解决问题。
 
 ## <a name="next-steps"></a>后续步骤
 
-* 观看以下视频，了解如何在 Azure 存储资源管理器中使用 Azure Cosmos DB：[在 Azure 存储资源管理器中使用 Azure Cosmos DB](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be)。
+<!--Not Available on [Use Azure Cosmos DB in Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be)-->
+
 * 在[存储资源管理器入门](/vs-azure-tools-storage-manage-with-storage-explorer)中了解有关存储资源管理器和连接更多服务的详细信息。
 
 <!-- Update_Description: update meta properties, wording update -->

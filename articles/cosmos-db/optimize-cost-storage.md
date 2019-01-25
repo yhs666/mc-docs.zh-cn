@@ -7,12 +7,12 @@ ms.topic: conceptual
 origin.date: 12/07/2018
 ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: e95bb0f8e9f394bd11b6f6159d2c6771f3c7fd66
-ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
+ms.openlocfilehash: 99cf45e2e97e1affe5aae03ac3cc7d321dfd4944
+ms.sourcegitcommit: bbd2a77feeb7e5b7b4c6161687d60cc2b7315b5b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54333928"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857405"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>优化 Azure Cosmos DB 中的存储成本
 
@@ -20,7 +20,9 @@ Azure Cosmos DB 提供无限的存储和吞吐量。 与必须在 Azure Cosmos �
 
 ## <a name="storage-cost"></a>存储成本
 
-存储的计费单位为 GB。 数据和索引使用本地 SSD 支持的存储。 使用的总存储量等于使用 Azure Cosmos DB 的所有区域中使用的数据和索引所需的存储。 如果跨三个区域对 Azure Cosmos 帐户进行多区域复制，则将为这三个区域中的每个区域支付总存储成本。 要估算存储要求，请参阅[容量规划器](https://www.documentdb.com/capacityplanner)工具。 Azure Cosmos DB 中的存储成本为 $0.25/GB/月，有关最新更新，请参阅[定价页面](https://www.azure.cn/pricing/details/cosmos-db/)。 可以设置警报以确定 Azure Cosmos 容器使用的存储，要监视存储，请参阅[监视 Azure Cosmos DB ](monitor-accounts.md)一文。
+存储的计费单位为 GB。 数据和索引使用本地 SSD 支持的存储。 使用的总存储量等于使用 Azure Cosmos DB 的所有区域中使用的数据和索引所需的存储。 如果跨三个区域对 Azure Cosmos 帐户进行多区域复制，则将为这三个区域中的每个区域支付总存储成本。 要估算存储要求，请参阅[容量规划器](https://www.documentdb.com/capacityplanner)工具。 Azure Cosmos DB 中的存储成本为 2.576 元/GB/月。有关最新更新，请参阅[定价页面](https://www.azure.cn/pricing/details/cosmos-db/)。 可以设置警报以确定 Azure Cosmos 容器使用的存储，要监视存储，请参阅[监视 Azure Cosmos DB ](monitor-accounts.md)一文。
+
+<!-- Notice $0.25 to CNY 2.576 -->
 
 ## <a name="optimize-cost-with-item-size"></a>通过项目大小优化成本
 

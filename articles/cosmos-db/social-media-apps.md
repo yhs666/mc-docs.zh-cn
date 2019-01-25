@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 11/14/2018
 ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: d138ee93b5f0347f98e379fcbb21d3ef847d2d8f
-ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
+ms.openlocfilehash: c9134c8d1bead4594bd80586ad26d9e4450eac16
+ms.sourcegitcommit: bbd2a77feeb7e5b7b4c6161687d60cc2b7315b5b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54333908"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857408"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 进行社交
 
@@ -213,11 +213,13 @@ Azure Cosmos DB 的自动索引功能可确保为所有属性都编制索引。 
 
 由于想要深入了解，你可能会认为自己需要更多数学科学方面的知识才能从简单数据库和文件中提取出这些模式和信息，其实不然。
 
-[Azure 机器学习](https://www.azure.cn/home/features/machine-learning/)（[Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx) 的一部分）是一项全面托管的云服务，让用户可以在简单的拖放界面中使用算法创建工作流、为 [R](https://en.wikipedia.org/wiki/R_\(programming_language\)) 中自己的算法编码，或使用一些已生成或现成的 API，如：[文本分析](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2)、[内容审查器或[建议](https://gallery.azure.ai/Solution/Recommendations-Solution)。
+<!--Not Available on [Azure Machine Learning](https://www.azure.cn/home/features/machine-learning/)-->
+<!--Not Available on [Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx)-->
+<!--Not Available on [R](https://en.wikipedia.org/wiki/R_\(programming_language\))-->
+<!--Not Available on [Azure Data Lake](https://www.azure.cn/home/features/data-lake-store/)-->
+<!--Not Available on [U-SQL](https://www.azure.cn/documentation/videos/data-lake-u-sql-query-execution/)-->
 
-若要完成上述任何一种机器学习方案，可使用 [Azure Data Lake](https://www.azure.cn/home/features/data-lake-store/) 从不同源获取信息。 还可使用 [U-SQL](https://www.azure.cn/documentation/videos/data-lake-u-sql-query-execution/) 来处理信息并生成可由 Azure 机器学习处理的输出。
-
-另一个可用的选项是使用 [Azure 认知服务](https://www.microsoft.com/cognitive-services) 分析用户内容：不仅可以更好地理解它们（通过使用 [文本分析 API](https://www.microsoft.com/cognitive-services/text-analytics-api) 分析编写的内容），而且还可以使用[计算机视觉 API](https://www.microsoft.com/cognitive-services/computer-vision-api) 检测不需要的内容或成人内容，并采取相应的措施。 认知服务包括大量不需要使用任何一种机器学习知识的现成的可用解决方案。
+一个可用的选项是使用 [Azure 认知服务](https://www.microsoft.com/cognitive-services)分析用户内容：不仅可以更好地理解它们（通过使用 [文本分析 API](https://www.microsoft.com/cognitive-services/text-analytics-api) 分析编写的内容），而且还可以使用[计算机视觉 API](https://www.microsoft.com/cognitive-services/computer-vision-api) 检测不需要的内容或成人内容，并采取相应的措施。 认知服务包括大量不需要使用任何一种机器学习知识的现成的可用解决方案。
 
 ## <a name="a-multiple-region-scalesocial-experience"></a>多区域缩放社交体验
 

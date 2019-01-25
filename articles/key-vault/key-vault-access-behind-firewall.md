@@ -1,5 +1,5 @@
 ---
-title: 访问防火墙后面的 Key Vault
+title: 访问防火墙后的 Key Vault - Azure Key Vault | Azure Docs
 description: 了解如何从防火墙后面的应用程序访问 Azure Key Vault
 services: key-vault
 documentationcenter: ''
@@ -10,20 +10,21 @@ ms.assetid: 50d21774-2ee1-4212-8995-570c9de603c5
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 origin.date: 01/07/2017
-ms.date: 10/22/2018
+ms.date: 02/04/2019
 ms.author: v-biyu
-ms.openlocfilehash: 9957928f7a8190b55b08453b7f3d0a4d9d64f0d4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c1d19354989536c5d304fe0bb49f99de1b766e88
+ms.sourcegitcommit: ae1b73a4248509f7afa6ffa466f53e59449f47d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648398"
+ms.lasthandoff: 01/21/2019
+ms.locfileid: "54417356"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>访问防火墙后面的 Azure Key Vault
-### <a name="q-my-key-vault-client-application-needs-to-be-behind-a-firewall-what-ports-hosts-or-ip-addresses-should-i-open-to-enable-access-to-a-key-vault"></a>问：我的密钥保管库客户端应用程序需位于防火墙之后。 我应该打开什么样的端口、主机或 IP 地址来启用密钥保管库访问权限？
+
+## <a name="what-ports-hosts-or-ip-addresses-should-i-open-to-enable-my-key-vault-client-application-behind-a-firewall-to-access-key-vault"></a>我应该打开哪些端口、主机或 IP 地址，才能允许防火墙后面的密钥保管库客户端应用程序访问密钥保管库？
+
 若要访问密钥保管库，密钥保管库客户端应用程序必须访问多个终结点才能使用各种功能：
 
 * 通过 Azure Active Directory (Azure AD) 进行身份验证。

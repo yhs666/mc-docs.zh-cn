@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 08/07/2018
-ms.date: 08/23/2018
+ms.date: 01/18/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: e2de262650230fd14d69d6ed781f648e36bb5c32
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 3f2943f5f604bac928474cc8b8e45bbd81cb557f
+ms.sourcegitcommit: ea0cd1bb32d5dc42a0f4358bbfcc0adea936b2fc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645264"
+ms.lasthandoff: 01/21/2019
+ms.locfileid: "54417334"
 ---
 # <a name="understand-role-definitions"></a>了解角色定义
 
@@ -166,13 +166,17 @@ Bob 的权限限制为[存储 Blob 数据参与者（预览版）](built-in-role
 
 | 工具  | 版本  |
 |---------|---------|
-| [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) | 5.6.0 或更高版本 |
+| [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-1.1.0) | 5.6.0 或更高版本 |
 | [Azure CLI](/cli/install-azure-cli) | 2.0.30 或更高版本 |
 | [Azure for .NET](/dotnet/) | 2.8.0-preview 或更高版本 |
 | [Azure SDK for Go](https://docs.microsoft.com/go/azure/azure-sdk-go-install) | 15.0.0 或更高版本 |
 | [Azure for Java](/java/) | 1.9.0 或更高版本 |
 | [Azure for Python](https://docs.microsoft.com/python/azure) | 0.40.0 或更高版本 |
 | [用于 Ruby 的 Azure SDK](https://rubygems.org/gems/azure_sdk) | 0.17.1 或更高版本 |
+
+Azure 门户还允许用户通过 Azure AD 预览体验浏览和管理队列和 Blob 容器的内容。 若要查看和管理队列或 Blob 容器的内容，请单击存储帐户“概览”页上的“使用 Azure AD 预览版浏览数据”链接。
+
+![使用 Azure AD 预览版探索队列和 Blob 容器](./media/role-definitions/rbac-dataactions-browsing.png)
 
 ## <a name="actions"></a>操作
 

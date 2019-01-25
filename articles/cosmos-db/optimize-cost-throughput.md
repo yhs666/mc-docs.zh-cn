@@ -7,12 +7,12 @@ ms.topic: conceptual
 origin.date: 12/07/2018
 ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 313f5645077108ff432a16e42200f2f10c90a49b
-ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
+ms.openlocfilehash: b46d415b23c24d9f44dea323d653f3418eb17e64
+ms.sourcegitcommit: bbd2a77feeb7e5b7b4c6161687d60cc2b7315b5b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54333889"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857410"
 ---
 # <a name="optimizing-throughput-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中优化吞吐量成本
 
@@ -24,8 +24,10 @@ ms.locfileid: "54333889"
 
 ## <a name="optimize-by-provisioning-throughput-at-different-levels"></a>在不同的级别通过预配吞吐量进行优化
 
-* 如果针对某个数据库预配吞吐量，该数据库中的所有容器（例如集合/表/图形）可以基于负载共享该吞吐量。 在数据库级别预留的吞吐量将会根据特定容器集上的工作负荷以不均匀的方式进行共享。
+* 如果针对某个数据库预配吞吐量，该数据库中的所有容器（例如集合）可以基于负载共享该吞吐量。 在数据库级别预留的吞吐量将会根据特定容器集上的工作负荷以不均匀的方式进行共享。
 
+    <!--Not Available on tables/graphs -->
+    
 * 如果针对某个容器预配吞吐量，则可以保证该容器的吞吐量，并提供 SLA 保障。 所选的逻辑分区键对于在容器的所有逻辑分区之间均匀分配负载至关重要。 有关更多详细信息，请参阅[分区](partitioning-overview.md)和[水平缩放](partition-data.md)文章。
 
 下面是确定预配吞吐量策略时可以参考的一些指导原则：
@@ -35,7 +37,7 @@ ms.locfileid: "54333889"
 1. 有几十个 Azure Cosmos 容器，并想要在部分或所有容器之间共享吞吐量。 
 
 2. 从专用于在 IaaS 托管的 VM 上运行或本地运行的单租户数据库（例如，NoSQL 数据库或关系数据库）迁移到 Azure Cosmos DB。 你有许多集合，并且不想要对数据模型进行任何更改。 请注意，如果在从本地数据库迁移时不更新数据模型，可能需要牺牲 Azure Cosmos DB 提供的一些优势。 建议始终重新访问数据模型，以获得最大性能并优化成本。 
-    <!--Not Available on tables/graphs-->
+
 3. 想要在数据库级别利用入池吞吐量，来缓解容易出现意外高峰的工作负荷中的计划外高峰。 
 
 4. 不针对单个容器设置特定的吞吐量，而是考虑如何在数据库中的一组容器之间获得聚合吞吐量。
@@ -110,7 +112,7 @@ connectionPolicy.RetryOptions.MaxRetryWaitTimeInSeconds = 60;
 ## <a name="data-access-patterns"></a>数据访问模式 
 
 根据访问数据的频率以逻辑方式将数据划分成逻辑类别始终是良好的做法。 将数据分类成热数据、中性数据或冷数据，可以微调消耗的存储和所需的吞吐量。 根据访问频率，可将数据放入单独的容器（例如集合），并微调其预配的吞吐量，以适应数据分段的需要。 
-    <!--Not Available on tables, graphs-->
+ <!--Not Available on tables, graphs-->
 此外，如果你正在使用 Azure Cosmos DB，并知道你不会按特定的数据值进行搜索或者很少访问这些值，则应存储这些属性的压缩值。 使用此方法可以节省存储空间、索引空间和预配的吞吐量，从而较低成本。
 
 ## <a name="optimize-by-changing-indexing-policy"></a>通过更改索引策略进行优化 
@@ -171,7 +173,9 @@ connectionPolicy.RetryOptions.MaxRetryWaitTimeInSeconds = 60;
 
 7. 如果有多个容器并且这些容器不需要 SLA，则对于每个容器吞吐量 SLA 不适用的情况，可以使用基于数据库的产品/服务。 应确定要将哪些 Azure Cosmos 容器迁移到数据库级吞吐量产品/服务，然后使用基于更改源的解决方案将其迁移。 
 
-8. 考虑对开发/测试方案使用“Cosmos DB 免费层”（一年免费）、试用版 Cosmos DB（最多可在三个区域中使用）或可下载的 Cosmos DB 模拟器。 将这些选项用于开发/测试可以明显降低成本。  
+8. 考虑对开发/测试方案使用可下载的 Cosmos DB 模拟器。 将这些选项用于开发/测试可以明显降低成本。  
+
+  <!--Not Available on "Cosmos DB Free Tier" (free for one year), Try Cosmos DB (up to three regions) or -->
 
 9. 可以进一步执行工作负荷特定的成本优化 - 例如，增加批大小、对跨多个区域的读取操作进行负载均衡，以及删除重复数据（如果适用）。
 

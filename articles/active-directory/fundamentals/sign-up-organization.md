@@ -9,19 +9,19 @@ ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
 origin.date: 09/14/2018
-ms.date: 01/02/2019
+ms.date: 01/21/2019
 ms.author: v-junlch
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 2fd6899a1eb2a50563d82c40cf515fccfe33f5c6
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 95aa6bd1a4334fa80f7b430bb8c77284210722f2
+ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996339"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54440331"
 ---
 # <a name="sign-up-your-organization-to-use-azure-active-directory"></a>注册你的组织以使用 Azure Active Directory
-使用以下任一项注册 Azure Active Directory (Azure AD) 新的 Azure 订阅：
+使用以下任一项注册 Azure Active Directory (Azure AD) 或新的 Azure 订阅：
 
 - **Microsoft 帐户**。 使用个人 Microsoft 帐户可以访问 Azure 以及所有面向使用者的 Microsoft 产品和云服务，例如 Outlook (Hotmail)、Messenger、OneDrive、MSN、Xbox LIVE 或 Office 365。 注册 Outlook.com 邮箱自动创建 Microsoft 帐户。
 
