@@ -102,8 +102,6 @@ items:
       href: how-to-connect-azureadaccount.md
     - name: 更改 AD DS 连接器帐户密码
       href: how-to-connect-sync-change-addsacct-pass.md
-    - name: ADConnectivityTools PowerShell 模块是什么？
-      href: how-to-connect-adconnectivitytools.md
   - name: 管理联合身份验证服务
     items:
     - name: 使用 Azure AD Connect 管理联合身份验证
@@ -148,6 +146,8 @@ items:
         href: how-to-connect-sync-service-manager-ui-mvsearch.md
   - name: 故障排除
     items:
+    - name: ADConnectivityTools PowerShell 模块是什么？
+      href: how-to-connect-adconnectivitytools.md
     - name: 连接
       href: tshoot-connect-connectivity.md
     - name: 同步过程中出错
@@ -194,9 +194,9 @@ items:
     href: reference-connect-adsynctools.md
   - name: ADConnectivityTools 参考
     href: reference-connect-adconnectivitytools.md
-ms.openlocfilehash: ae16bda8a6e316350fe569f6d4f07c45030ebf46
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 4b8261b669c481ce303237701c516a3100b08ed8
+ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996181"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54440352"
