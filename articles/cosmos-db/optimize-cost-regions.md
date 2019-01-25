@@ -7,12 +7,12 @@ ms.topic: conceptual
 origin.date: 12/07/2018
 ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: c9f253672b98b75e4aa22cfe6db5f178cef5ef64
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 7583e2eb2d0e50c8cf24670550ea9613f7bdafb9
+ms.sourcegitcommit: bbd2a77feeb7e5b7b4c6161687d60cc2b7315b5b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309221"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857400"
 ---
 # <a name="optimize-the-cost-for-multi-region-deployments-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中优化多区域部署的成本
 
@@ -32,7 +32,21 @@ ms.locfileid: "54309221"
 
 在多主数据库系统中，可用于写入操作的净 RU 会增加 `N` 倍，其中 `N` 是写入区域数。 与单区域写入不同，每个区域都可写，应支持冲突解决。 编写器的工作负载量会增加。 从成本规划角度来看，若要在中国范围内执行 ` M` RU/秒的写入，需要在容器或数据库级别预配 M `RUs`。 随后可以添加任意多个区域并将它们用于写入以在中国范围内执行 `M` RU 写入。 
 
-<!-- Not Available on ### Example-->
+### <a name="example"></a>示例
+
+假设你在中国东部有一个容器，该容器预配的吞吐量为 10K RU/秒，这个月存储的数据为 1 TB。 假设你添加了三个区域 - 中国东部 2、中国北部和中国北部 2，每个区域的存储和吞吐量相同，而你希望能够通过自己的多区域分布式应用将内容写入所有四个区域中的容器。 一个月的总月度帐单（假定为 31 天）如下所示：
+
+<!--Notice: Master region is China East, and the other 3 regions are China East 2 , China North, and China North 2-->
+
+|**项目**|**使用情况（每月）**|**费率**|**每月成本**|
+|----|----|----|----|
+|中国东部（多个写入区域）容器的吞吐量帐单 |10K RU/秒 * 24 * 31 |每小时每 100 RU/秒 0.164 元 |12201 元 |
+|3 个其他区域 - 中国东部 2、中国北部和中国北部 2（多个写入区域）的吞吐量帐单 |(3 + 1) * 10K RU/秒 * 24 * 31 |每小时每 100 RU/秒 0.164 元 |48804 元 |
+|中国东部容器的存储帐单 |100 GB |2.576 元/GB | 257.6 元 |
+|3 个其他区域 - 中国东部 2、中国北部和中国北部 2 的存储帐单 |3 * 1 TB |2.576 元/GB  |772.8 元 |
+|**总计**|||**62035.4 元** |
+
+<!--Notice: Master region is China East, and the other 3 regions are China East 2 , China North, and China North 2-->
 
 ## <a name="improve-throughput-utilization-on-a-per-region-basis"></a>按每个区域提高吞吐量利用率
 
