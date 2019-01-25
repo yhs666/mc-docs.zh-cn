@@ -1,43 +1,50 @@
+items:
 - name: 报表和监视文档
   href: index.yml
 - name: 概述
   items:
-    - name: 什么是 Azure AD 报表？
-      href: overview-reports.md
+  - name: 什么是 Azure AD 报表？
+    href: overview-reports.md
 - name: 快速入门
-  expanded: true
   items:
-    - name: 报告
-      items:
-        - name: 下载审核报表
-          href: quickstart-download-audit-report.md
+  - name: 报告
+    items:
+    - name: 下载审核报表
+      href: quickstart-download-audit-report.md
+  expanded: true
 - name: 概念
   items:
-    - name: 报告
-      items:
-        - name: 审核日志
-          href: concept-audit-logs.md
+  - name: 报告
+    items:
+    - name: 审核日志
+      href: concept-audit-logs.md
 - name: 操作指南
-  expanded: true
   items:
-    - name: 报告
-      items:
-        - name: 配置报告 API 的先决条件
-          href: howto-configure-prerequisites-for-reporting-api.md
-    - name: 故障排除
-      items:
-        - name: 缺少审核数据
-          href: troubleshoot-missing-audit-data.md
+  - name: 报告
+    items:
+    - name: 配置报告 API 的先决条件
+      href: howto-configure-prerequisites-for-reporting-api.md
+  - name: 故障排除
+    items:
+    - name: 缺少审核数据
+      href: troubleshoot-missing-audit-data.md
+  expanded: true
 - name: 参考
-  expanded: true
   items:
-    - name: 报告
-      items:
-        - name: 审核活动
-          href: reference-audit-activities.md
-        - name: 报告延迟
-          href: reference-reports-latencies.md
-    - name: 监视
-      items:
-        - name: 审核日志架构
-          href: reference-azure-monitor-audit-log-schema.md
+  - name: 报告
+    items:
+    - name: 审核活动
+      href: reference-audit-activities.md
+    - name: 报告延迟
+      href: reference-reports-latencies.md
+  - name: 监视
+    items:
+    - name: 审核日志架构
+      href: reference-azure-monitor-audit-log-schema.md
+  expanded: true
+ms.openlocfilehash: 90b0c48af818b5fe3b8a5232c8cd65d4b7bd77e2
+ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54440338"

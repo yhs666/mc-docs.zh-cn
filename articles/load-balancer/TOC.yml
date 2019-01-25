@@ -35,7 +35,7 @@ items:
     href: powershell-samples.md
 - name: 概念
   items:
-  - name: 什么是标准负载均衡器？
+  - name: 什么是负载均衡器标准版？
     href: load-balancer-standard-overview.md
   - name: 运行状况探测
     href: load-balancer-custom-probe-overview.md
@@ -145,9 +145,9 @@ items:
     href: https://www.azure.cn/pricing/calculator/
   - name: 服务更新
     href: https://www.azure.cn/what-is-new/
-ms.openlocfilehash: 430ffd086eac6d3190c4a47c98798170f36e9c1b
-ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
+ms.openlocfilehash: 4f0ce28c2493d9a2d23c5183e1c49d4e9ef6a276
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54333874"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996204"
