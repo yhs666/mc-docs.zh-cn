@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 10/30/2016
 ms.date: 01/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: 897f22d694162906b27505bb668eb6ed4ac79e8d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: fd8d9d67de00465e70761151978a9b9e34b1e72b
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652593"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906167"
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>为 Cordova 移动应用启用脱机同步
 
@@ -153,7 +153,7 @@ ms.locfileid: "52652593"
 
 如果对一个表执行拉取操作，并且该表具有由上下文跟踪的未完成的本地更新，那么该拉取操作自动触发推送操作。 在此示例中刷新、添加和完成项时，可省略显式 **push** 调用，因为它可能是冗余的。
 
-在所提供的代码中，会查询远程 todoItem 表中的所有记录，也可以筛选记录，只需将查询 ID 和查询传递给 **push** 即可。 有关详细信息，请参阅 *Azure 移动应用中的脱机数据同步* 中的 [Azure 移动应用中的脱机数据同步]部分。
+在所提供的代码中，会查询远程 todoItem 表中的所有记录，也可以筛选记录，只需将查询 ID 和查询传递给 **push** 即可。 有关详细信息，请参阅 [Azure 移动应用中的脱机数据同步] 中的 *增量同步*部分。
 
 ## <a name="optional-disable-authentication"></a>（可选）禁用身份验证
 
@@ -181,13 +181,13 @@ ms.locfileid: "52652593"
 1. 在解决方案资源管理器中，打开 index.js 项目文件，并更改应用程序 URL，使其指向无效的 URL，如以下代码所示：
 
     ```
-    client = new WindowsAzure.MobileServiceClient('http://yourmobileapp.azurewebsites.net-fail');
+    client = new WindowsAzure.MobileServiceClient('http://yourmobileapp.chinacloudsites.cn-fail');
     ```
 
 2. 在 index.html 中，使用同一无效的 URL 更新 CSP `<meta>` 元素。
 
     ```
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: http://yourmobileapp.azurewebsites.net-fail; style-src 'self'; media-src *">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: http://yourmobileapp.chinacloudsites.cn-fail; style-src 'self'; media-src *">
     ```
 
 3. 生成并运行客户端应用，请注意，如果应用在登录后尝试与后端同步，则会在控制台中记录异常。 添加的任何新项在推送到移动后端之前，只存在于本地存储中。 客户端应用的行为就像它已连接到后端一样。
@@ -225,7 +225,7 @@ ms.locfileid: "52652593"
 [Apache Cordova 快速入门]: ./app-service-mobile-cordova-get-started.md
 [脱机同步示例]: https://github.com/Azure-Samples/app-service-mobile-cordova-client-conflict-handling
 [Azure 移动应用中的脱机数据同步]: ./app-service-mobile-offline-data-sync.md
-[Offline Data Sync in Azure Mobile Apps]: ./app-service-mobile-offline-data-sync.md
+[Azure 移动应用中的脱机数据同步]: ./app-service-mobile-offline-data-sync.md
 [Adding Authentication]: ./app-service-mobile-cordova-get-started-users.md
 [authentication]: ./app-service-mobile-cordova-get-started-users.md
 [Work with the .NET backend server SDK for Azure Mobile Apps]: ./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md

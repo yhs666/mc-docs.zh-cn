@@ -13,20 +13,20 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/26/2018
-ms.date: 12/17/2018
+ms.date: 01/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 027d30b5c2f2da18cf629cf7c6a291c8a7a2acf5
-ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
+ms.openlocfilehash: c5752bc589dc1ed0581a07ab6952a88ce58c0fa8
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53286760"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085680"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 概述
 应用程序的基础结构通常由许多组件构成 - 可能包括虚拟机、存储帐户和虚拟网络，也可能包括 Web 应用、数据库、数据库服务器和第三方服务。 这些组件可能不会以独立的实体出现，而是以单个实体的相关部件和依赖部件出现。 如果希望以组的方式部署、管理和监视这些这些组件， 那么，可以使用 Azure 资源管理器以组的方式处理解决方案中的资源。 可以通过一个协调的操作为解决方案部署、更新或删除所有资源。 可以使用一个模板来完成部署，该模板适用于不同的环境，例如测试、过渡和生产。 Resource Manager 提供安全、审核和标记功能，以帮助你在部署后管理资源。 
 
 ## <a name="consistent-management-layer"></a>一致的管理层
-资源管理器针对通过 Azure PowerShell、Azure CLI、Azure 门户、REST API 和客户端 SDK 来执行任务提供了一致的管理层。 在 Azure 门户中提供的所有功能也可以通过 Azure PowerShell、Azure CLI、Azure REST API 和客户端 SDK 来提供。 最初通过 API 发布的功能将在初次发布后的 180 天内在门户中提供。
+资源管理器提供了一致的管理层，可通过 Azure 门户执行任务，Azure 门户中提供的所有功能也可通过 Azure PowerShell、Azure CLI、Azure REST API 和客户端 SDK 获得。 最初通过 API 发布的功能将在初次发布后的 180 天内在门户中提供。
 
 选择最适合你的工具和 API - 它们具有相同的功能并提供一致的结果。
 
