@@ -1,19 +1,19 @@
 ---
 title: 使用 Windows 虚拟机规模集的 Azure 资源管理器模板将来宾 OS 指标发送到 Azure Monitor 指标存储
 description: 使用 Windows 虚拟机规模集的资源管理器模板将来宾 OS 指标发送到 Azure Monitor 指标存储
-author: anirudhcavale
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: howto
-ms.date: 09/24/2018
-ms.author: ancav
-ms.component: metrics
-ms.openlocfilehash: 6d654c5079a6092efd04d23c2648456f55a703c8
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.date: 01/21/19
+ms.author: v-lingwu
+ms.subservice: metrics
+ms.openlocfilehash: e9146c8069e38e071356a3000e1c1c05098e3460
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141759"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906137"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>使用 Windows 虚拟机规模集的 Azure 资源管理器模板将来宾 OS 指标发送到 Azure Monitor 指标存储
 
@@ -89,7 +89,7 @@ MSI 扩展中的以下代码还会将诊断扩展和配置作为扩展资源添�
           "extensionProfile": { 
             "extensions": [ 
             // BEGINNING of added code  
-            // Managed identites for Azure resources   
+            // Managed identities for Azure resources   
                 { 
                  "name": "VMSS-WAD-extension", 
                  "properties": { 
@@ -236,7 +236,7 @@ MSI 扩展中的以下代码还会将诊断扩展和配置作为扩展资源添�
 若要部署资源管理器模板，请使用 Azure PowerShell：  
 
 1. 启动 PowerShell。 
-1. 使用 `Login-AzureRmAccount` 登录到 Azure 门户。
+1. 使用 `Login-AzureRmAccount -Environment AzureChinaCloud` 登录到 Azure 门户。
 1. 使用 `Get-AzureRmSubscription` 获取订阅列表。
 1. 设置要在其中创建或更新虚拟机的订阅： 
 

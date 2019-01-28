@@ -1,6 +1,6 @@
 ---
-title: 创建并自动执行第一个工作流 - Azure 逻辑应用 | Microsoft Docs
-description: 本快速入门介绍如何使用 Azure 逻辑应用创建第一个自动执行任务、流程和工作流的逻辑应用。 为系统和云服务创建用于系统集成和企业应用程序集成 (EAI) 解决方案的逻辑应用
+title: 快速入门 - 创建并自动执行第一个工作流 - Azure 逻辑应用 | Microsoft Docs
+description: 使用 Azure 逻辑应用创建第一个自动执行任务、流程和工作流的逻辑应用。 为系统和云服务创建用于系统集成和企业应用程序集成 (EAI) 解决方案的逻辑应用
 services: logic-apps
 ms.service: logic-apps
 ms.workload: na
@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.custom: mvc
 origin.date: 07/20/2018
 ms.author: v-yiso
-ms.date: 09/03/2018
-ms.openlocfilehash: b2eafeebffd7486169c984beb13710eb97409ef5
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 02/04/2018
+ms.openlocfilehash: 48e400dd5865460b24a84d01f6105241823a8205
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661215"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906018"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>快速入门：使用 Azure 逻辑应用创建第一个自动化工作流 - Azure 门户
 
@@ -38,7 +38,7 @@ ms.locfileid: "52661215"
 
    ![创建逻辑应用](./media/quickstart-create-first-logic-app-workflow/create-logic-app.png)
 
-3. 在“创建逻辑应用”下，提供有关逻辑应用的详细信息，如下所示。 完成后，请选择“固定到仪表板” > “创建”。
+3. 在“创建逻辑应用”下，提供有关逻辑应用的详细信息，如下所示。 完成后，选择“创建”。
 
    ![提供逻辑应用的详细信息](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
@@ -61,9 +61,9 @@ ms.locfileid: "52661215"
 
 ## <a name="check-rss-feed-with-a-trigger"></a>使用触发器检查 RSS 源
 
-1. 在设计器的搜索框中输入“rss”。 选择触发器“RSS - 发布源项时”
+1. 在设计器的搜索框中输入“rss”。 选择此触发器：**RSS - 发布源项时**
 
-   ![选择触发器“RSS - 发布源项时”](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss.png)
+   ![选择触发器：“RSS - 发布源项时”](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss.png)
 
 2. 为触发器提供如下所示的信息： 
 
@@ -91,13 +91,13 @@ ms.locfileid: "52661215"
 
 现在请添加一项[操作](../logic-apps/logic-apps-overview.md#logic-app-concepts)，在 RSS 源中出现新项时发送电子邮件。 
 
-1. 在“发布源项时”触发器下，选择“+ 新建步骤” > “添加操作”。
+1. 在“发布源项时”触发器下，选择“新建步骤”。
 
    ![添加操作](./media/quickstart-create-first-logic-app-workflow/add-new-action.png)
 
-2. 在“选择操作”下，输入“发送电子邮件”作为筛选器。 从操作列表中，为所需的 电子邮件提供商选择“发送电子邮件”操作。 
+2. 在“选择操作”下的搜索框中输入“发送电子邮件”。 在搜索框下，选择“所有”。 从操作列表中，为所需的 电子邮件提供商选择“发送电子邮件”操作。 
 
-   ![选择操作“Office 365 Outlook - 发送电子邮件”](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
+   ![选择此操作：“Office 365 Outlook - 发送电子邮件”](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
 
    若要通过对操作列表进行筛选来查找特定的应用或服务，可以先选择应用或服务：
 
@@ -178,7 +178,7 @@ ms.locfileid: "52661215"
 ## <a name="get-support"></a>获取支持
 
 * 有关问题，请访问 [Azure 逻辑应用论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要提交功能建议或对功能建议进行投票，请访问[逻辑应用用户反馈网站](http://aka.ms/logicapps-wish)。
+* 若要提交功能建议或对功能建议进行投票，请访问[逻辑应用用户反馈网站](https://aka.ms/logicapps-wish)。
 
 ## <a name="next-steps"></a>后续步骤
 

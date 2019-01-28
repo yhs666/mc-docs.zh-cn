@@ -5,16 +5,16 @@ services: service-bus-messaging
 author: lingliw
 manager: digimobile
 ms.author: v-lingwu
-ms.date: 01/21/19
+ms.date: 01/28/19
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 361aad34c829b304dc02f1e16b3e29ce12c38866
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 59e17d3d6abe5149bbed113eeeb61101abb4e9b1
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363580"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906121"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>教程：使用 Azure 门户和主题/订阅更新清单
 

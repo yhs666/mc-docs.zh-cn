@@ -5,22 +5,25 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 10/18/2018
-ms.date: 12/17/2018
+origin.date: 01/09/2019
+ms.date: 01/28/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: c6ac6628c1b8c8db485716ba697480afc86335ae
-ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
+ms.openlocfilehash: 6c02df00dc58c88f1d8775891721b60ac2b42729
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53157419"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085659"
 ---
 # <a name="compatibility-level-for-analysis-services-tabular-models"></a>Analysis Services 表格模型的兼容性级别
 
 “兼容性级别”是指 Analysis Services 引擎中特定于发布的行为。 兼容性级别的更改通常与 SQL Server 主要版本一致。 还会在 Azure Analysis Services 中实现这些更改，以保持平台间的奇偶校验。 兼容性级别更改还会影响表格模型中的可用功能。 例如，DirectQuery 和表格对象元数据的实现因兼容性级别而异。 在 Visual Studio (SSDT) 的表格模型项目中指定兼容性级别。 从 Power BI Desktop 中创建和导入的表格模型的兼容级别仅为 1400。
 
 Azure Analysis Services 支持 1200 和 1400 兼容性级别的表格模型。 
+
+<!--Not Available on Level 1465-->
+<!--Not Available on [Import a Power BI Desktop file](analysis-services-import-pbix.md)-->
 
 最新兼容性级别是 1400。 此级别与 SQL Server 2017 Analysis Services 一致。 1400 兼容性级别中的主要功能包括：
 
@@ -31,7 +34,8 @@ Azure Analysis Services 支持 1200 和 1400 兼容性级别的表格模型。
 *  不规则层次结构的增强支持。
 *  性能和监视改进。
 
-## <a name="set-compatibility-level"></a>设置兼容性级别 
+## <a name="set-compatibility-level"></a>设置兼容性级别
+
  在 SSDT 中创建新的表格模型项目时，可以在“表格模型设计器”对话框中指定兼容性级别。 
 
  ![ssas_tabularproject_compat1200](./media/analysis-services-compat-level/aas-tabularproject-compat.png)  
@@ -41,16 +45,19 @@ Azure Analysis Services 支持 1200 和 1400 兼容性级别的表格模型。
  若要升级 SSDT 中现有的表格模型项目，请在“属性”窗口中设置“兼容性级别”属性。 请记住，升级兼容性级别的操作不可逆。
 
 ## <a name="check-compatibility-level-for-a-tabular-model-database-in-sql-server-management-studio"></a>在 SQL Server Management Studio 中检查表格模型数据库的兼容性级别 
+
  在 SSMS 中，右键单击数据库名称 >“属性” > “兼容性级别”。  
 
 ## <a name="check-supported-compatibility-level-for-a-server-in-ssms"></a>检查 SSMS 中服务器支持的兼容性级别  
+
  在 SSMS 中，右键单击服务器名称 >“属性” > “支持的兼容性级别”。  
 
  此属性指定在服务器上运行的数据库的最高兼容性级别（包括预览版）。 不可更改支持的兼容性级别。  
 
 ## <a name="next-steps"></a>后续步骤
 
-  <!-- Not Available on [Create a model in Azure portal](analysis-services-create-model-portal.md)--> 
+<!-- Not Available on [Create a model in Azure portal](analysis-services-create-model-portal.md)-->
+
 [管理 Analysis Services](analysis-services-manage.md)
 
 <!--Update_Description: update meta properties, wording update -->

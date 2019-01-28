@@ -1,19 +1,19 @@
 ---
 title: 将来宾 OS 指标发送到 Azure Monitor 指标存储经典云服务
 description: 将来宾 OS 指标发送到 Azure Monitor 指标存储云服务
-author: anirudhcavale
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: howto
-ms.date: 09/24/2018
-ms.author: ancav
-ms.component: metrics
-ms.openlocfilehash: 8b8d06bdbb8ac71f7fd30136a761bec8bf91ea96
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.date: 01/21/19
+ms.author: v-lingwu
+ms.subservice: metrics
+ms.openlocfilehash: 7d3a40ab221adc5c26308891124f1af45dff6f57
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141741"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906044"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>将来宾 OS 指标发送到 Azure Monitor 指标存储经典云服务 
 
@@ -26,8 +26,6 @@ ms.locfileid: "54141741"
 本文中所述的过程仅适用于 Azure 云服务上的性能计数器。 它不适用于其他自定义指标。 
 
 ## <a name="prerequisites"></a>先决条件
-
-- 你必须是 Azure 订阅的[服务管理员或共同管理员](~/articles/billing/billing-add-change-azure-subscription-administrator.md)。 
 
 - 你的订阅必须已注册到 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal)。 
 
@@ -141,7 +139,7 @@ ms.locfileid: "54141741"
 启动 PowerShell 并登录到 Azure。 
 
 ```PowerShell
-Login-AzureRmAccount 
+Login-AzureRmAccount -Environment AzureChinaCloud 
 ```
 
 使用以下命令存储前面创建的存储帐户的详细信息。 

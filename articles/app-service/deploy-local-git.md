@@ -15,12 +15,12 @@ origin.date: 06/05/2018
 ms.date: 01/21/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 7e20231b67326c56495642f69088887d5e174c21
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 54e9de484207dec3b70e50f9ecd0a263a4581e6f
+ms.sourcegitcommit: b8aa5d05ef46f1db2df4f2653cdd8d150e847113
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083594"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906267"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>从本地 Git 部署到 Azure 应用服务
 
@@ -42,8 +42,6 @@ git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="deploy-from-local-git-with-kudu-builds"></a>通过 Kudu 生成从本地 Git 部署
 

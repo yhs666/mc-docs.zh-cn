@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 origin.date: 11/27/2017
 ms.author: v-yiso
-ms.date: 07/16/2018
-ms.openlocfilehash: 996073f28e28e72459a0b394ae65a15d62abd90e
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 02/04/2019
+ms.openlocfilehash: 0b1d32cb0686ee470186c5735804f8d287e23744
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675576"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906174"
 ---
 # <a name="api-management-transformation-policies"></a>API 管理转换策略
-本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](http://go.microsoft.com/fwlink/?LinkID=398186)。  
+本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](https://go.microsoft.com/fwlink/?LinkID=398186)。
   
 ##  <a name="TransformationPolicies"></a> 转换策略  
   
@@ -709,7 +709,7 @@ OriginalUrl.
 |----------|-----------------|--------------|  
 |xsl-transform|根元素。|是|  
 |参数|用于定义在转换中使用的变量|否|  
-|xsl:stylesheet|根样式表元素。 在其中定义的所有元素和属性都遵循标准的 [XSLT 规范](http://www.w3.org/TR/xslt)|是|  
+|xsl:stylesheet|根样式表元素。 在其中定义的所有元素和属性都遵循标准的 [XSLT 规范](https://www.w3.org/TR/xslt)|是|
   
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  

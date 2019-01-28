@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/12/2018
-ms.date: 12/17/2018
+ms.date: 01/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9ccaae1c8268617024078b820cc19cf602cc5150
-ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
+ms.openlocfilehash: f45108ec8a9135b3695619ed186997fe6cc598fa
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54333861"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085691"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>使用 Resource Manager 身份验证 API 访问订阅
 ## <a name="introduction"></a>简介
@@ -160,7 +160,7 @@ Azure AD 对用户进行身份验证，并根据需要请求用户向应用授�
 <!-- Anchor missing  should be XXXX-with-a-certificate-->
 <!-- Not Available on [Active Directory Auth Library (.NET) code](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) -->
 
-有关客户端身份验证的详细信息，请参阅 [Open ID Connect spec](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication)（Open ID Connect 规范）。
+有关客户端身份验证的详细信息，请参阅 [Open ID Connect spec](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication)（Open ID Connect 规范）。
 
 以下示例演示如何使用证书凭据来请求代码授予令牌：
 

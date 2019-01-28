@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 10/18/2018
-ms.date: 12/17/2018
+origin.date: 01/09/2019
+ms.date: 01/28/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3ce9f72591d9504fdb4289e6d0bfdc5eed47fb4e
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.openlocfilehash: 315e324ada37444c81d7daf198fbc5922a1b5526
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806194"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085644"
 ---
 # <a name="create-calculated-columns"></a>创建计算列
 

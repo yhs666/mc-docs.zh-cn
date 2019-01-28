@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 11/08/2018
-ms.date: 01/21/2019
+ms.date: 01/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1e53573cff67479b678b798e0bf994f314ecdfd0
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: ebbfca7ffb36887eafe0d4f6066702672d9a947d
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193127"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085679"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>锁定资源，以防止意外更改 
 
@@ -222,5 +222,4 @@ az lock delete --ids $lockid
 * 可以使用自定义策略对订阅应用限制和约定。 有关详细信息，请参阅[什么是 Azure Policy？](../azure-policy/azure-policy-introduction.md)。
 
 <!-- Not Available on [Azure enterprise scaffold - prescriptive subscription governance](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/subscription-governance)-->
-
 <!--Update_Description: update meta properties -->

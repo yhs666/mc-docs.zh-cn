@@ -9,17 +9,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 11/02/2017
-ms.date: 12/24/2018
+origin.date: 12/06/2018
+ms.date: 02/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: 7fdcc4ff95304330266d8d398edcc27fc33afad5
-ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
+ms.openlocfilehash: 9b17b012c2871a8d68168a15c81d5e1b95191645
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53569329"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906084"
 ---
-# <a name="troubleshoot-hdfs-by-using-azure-hdinsight"></a>使用 Azure HDInsight 排除 HDFS 故障
+# <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>使用 Azure HDInsight 对 Apache Hadoop HDFS 进行故障排除
 
 了解在 Apache Ambari 中使用 Hadoop 分布式文件系统 (HDFS) 有效负载时遇到的常见问题及其解决方法。
 

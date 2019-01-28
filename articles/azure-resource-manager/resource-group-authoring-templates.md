@@ -11,19 +11,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/18/2018
-ms.date: 01/21/2019
+ms.date: 01/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: a1cdd1f82f5061e006b6d8b48238cedaabcaface
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: 93533d01fdcf9bd97c2ed87208ce2b74d36fb4f7
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193043"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085661"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>了解 Azure 资源管理器模板的结构和语法
 本文介绍 Azure 资源管理器模板的结构。 演示了模板的不同部分，以及可在相应部分使用的属性。 模板中包含可用于为部署构造值的 JSON 和表达式。 有关创建模板的分步教程，请参阅[创建第一个 Azure Resource Manager 模板](resource-manager-create-first-template.md)。
 
 ## <a name="template-format"></a>模板格式
+
 使用最简单的结构时，模板有以下元素：
 
 ```json

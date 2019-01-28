@@ -15,13 +15,13 @@ ms.topic: article
 ms.custom: mvc
 origin.date: 03/15/2018
 ms.author: v-yiso
-ms.date: 07/02/2018
-ms.openlocfilehash: db49c7f6f63db681ef9844752e20583cc52a410e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 02/04/2019
+ms.openlocfilehash: f01da9e7ee0fd6d7a1c7451fd009025b16d37d87
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658510"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906007"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>使用 Visual Studio 管理逻辑应用
 
@@ -67,7 +67,7 @@ ms.locfileid: "52658510"
 
 2. 根据搜索依据是“资源组”还是“资源类型”执行以下步骤：
 
-   * **资源组**：Cloud Explorer 会在你的 Azure 订阅下显示与该订阅关联的所有资源组。 
+   * **资源组**：Cloud Explorer 会在 Azure 订阅下显示与该订阅关联的所有资源组。 
    展开包含你的逻辑应用的资源组，然后选择该逻辑应用。
 
    * **资源类型**：在 Azure 订阅下展开“逻辑应用”。 在 Cloud Explorer 显示与订阅关联的所有已部署逻辑应用后，请选择自己的逻辑应用。
@@ -177,6 +177,13 @@ ms.locfileid: "52658510"
 
 > [!NOTE]
 > 删除逻辑应用后，任何新运行都不会实例化。 所有正在进行和挂起的运行都将取消。 如果有成千上万个运行，取消操作可能需要很长时间才能完成。 
+
+## <a name="troubleshooting"></a>故障排除
+
+在逻辑应用设计器中打开逻辑应用项目时，可能无法获取用于选择 Azure 订阅的选项。 而在逻辑应用打开时，Azure 订阅并非所要使用的订阅。 之所以发生此行为，原因在于当你打开逻辑应用的 .json 文件后，Visual Studio 将缓存首次选择的订阅，以供将来使用。 若要解决该问题，请尝试执行以下步骤之一：
+
+* 重命名逻辑应用的 .json 文件。 订阅缓存依赖于该文件名。 
+* 若要删除解决方案中以前针对所有逻辑应用选择的订阅，请删除该解决方案目录中隐藏的 .vs 文件夹。 此位置用于存储订阅信息。 
 
 ## <a name="next-steps"></a>后续步骤
 

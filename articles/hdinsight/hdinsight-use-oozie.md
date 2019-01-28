@@ -1,6 +1,6 @@
 ---
 title: 在 HDInsight 中使用 Hadoop Oozie | Azure
-description: 在 HDInsight 中使用大数据服务 Hadoop Oozie。 了解如何定义 Oozie 工作流和提交 Oozie 作业。
+description: 在 HDInsight 中使用大数据服务 Hadoop Oozie。 了解如何定义 Oozie 工作流，并提交 Oozie 作业。
 services: hdinsight
 documentationcenter: ''
 tags: azure-portal
@@ -13,22 +13,22 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/25/2017
-ms.date: 12/27/2018
+ms.date: 02/04/2019
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1f7443a141a41f927f2cea087914e2ef8f1edef8
-ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
+ms.openlocfilehash: b4db9fe60ec4c18c47dbb8e893f35df5d9d703c7
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53569245"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906077"
 ---
-# <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>在 HDInsight 中将 Oozie 与 Hadoop 配合使用以定义和运行工作流
+# <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>在 HDInsight 中将 Apache Oozie 与 Apache Hadoop 配合使用以定义和运行工作流
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
 
 
-了解如何使用 Apache Oozie 定义工作流以及如何在 HDInsight 上运行工作流。 要了解 Oozie 协调器，请参阅[将基于时间的 Hadoop Oozie 协调器与 HDInsight 配合使用][hdinsight-oozie-coordinator-time]。
+了解如何使用 Apache Oozie 定义工作流以及如何在 HDInsight 上运行工作流。 要了解 Oozie 协调器，请参阅[将基于时间的 Apache Oozie 协调器与 HDInsight 配合使用][hdinsight-oozie-coordinator-time]。
 
 Apache Oozie 是一个管理 Hadoop 作业的工作流/协调系统。 它与 Hadoop 堆栈集成，支持 Apache MapReduce、Apache Pig、Apache Hive 和 Apache Sqoop 的 Hadoop 作业。 它也能用于安排特定于某系统的作业，例如 Java 程序或 shell 脚本。
 
@@ -36,8 +36,8 @@ Apache Oozie 是一个管理 Hadoop 作业的工作流/协调系统。 它与 Ha
 
 ![工作流关系图][img-workflow-diagram]
 
-1. Hive 操作运行 HiveQL 脚本以统计 log4j 文件中每个日志级类型的次数。 每个 log4j 文件都包含一行字段，其中包含用于显示类型和严重性的 [LOG LEVEL] 字段，例如：
-
+1. Hive 操作运行 HiveQL 脚本以统计 Apache Log4j 文件中每个日志级类型出现的次数。 每个 log4j 文件都包含一行字段，其中包含用于显示类型和严重性的 [LOG LEVEL] 字段，例如：
+   
         2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
         2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
         2012-02-03 18:35:34 SampleClass3 [DEBUG] detail for id 1304807656
@@ -51,12 +51,12 @@ Apache Oozie 是一个管理 Hadoop 作业的工作流/协调系统。 它与 Ha
         [INFO]  96
         [TRACE] 816
         [WARN]  4
+   
+    有关 Hive 的详细信息，请参阅[将 Apache Hive 与 HDInsight 配合使用][hdinsight-use-hive]。
+2. Sqoop 操作将 HiveQL 输出导出到 Azure SQL 数据库中的表。 有关 Sqoop 的详细信息，请参阅[将 Apache Sqoop 与 HDInsight 配合使用][hdinsight-use-sqoop]。
 
-    有关 Hive 的详细信息，请参阅[将 Hive 与 HDInsight 配合使用][hdinsight-use-hive]。
-2. Sqoop 操作将 HiveQL 输出导出到 Azure SQL 数据库中的表。 有关 Sqoop 的详细信息，请参阅 [将 Hadoop Sqoop 与 HDInsight 配合使用][hdinsight-use-sqoop]。
-
-> [!NOTE]
-> 有关在 HDInsight 群集上支持的 Oozie 版本，请参阅 [HDInsight 提供的 Hadoop 群集版本有哪些新增功能？][hdinsight-versions]。
+> [!NOTE]  
+> 有关 HDInsight 群集上支持的 Oozie 版本，请参阅 [HDInsight 提供的 Apache Hadoop 群集版本有哪些新增功能？][hdinsight-versions]。
 > 
 > 
 
@@ -231,7 +231,7 @@ Azure PowerShell 目前不提供任何用于定义 Oozie 作业的 cmdlet。 可
     $sqlDatabaseMaxSizeGB = 10
 
     # Used for retrieving external IP address and creating firewall rules
-    $ipAddressRestService = "http://bot.whatismyipaddress.com"
+    $ipAddressRestService = "https://bot.whatismyipaddress.com"
     $fireWallRuleName = "UseSqoop"
 
     # HDInsight variables
@@ -623,19 +623,19 @@ Azure PowerShell 目前不提供任何用于定义 Oozie 作业的 cmdlet。 可
 ```
 
 ## <a name="next-steps"></a>后续步骤
-本教程已经介绍了如何定义 Oozie 工作流以及如何使用 PowerShell 运行 Oozie 作业。 要了解更多信息，请参阅下列文章：
+本教程已介绍了如何定义 Apache Oozie 工作流，以及如何使用 PowerShell 运行 Oozie 作业。 要了解更多信息，请参阅下列文章：
 
-* [将基于时间的 Oozie 协调器与 HDInsight 配合使用][hdinsight-oozie-coordinator-time]
-* [将 Hadoop 与 HDInsight 中的 Hive 配合使用以分析手机使用情况][hdinsight-get-started]
+* [将基于时间的 Apache Oozie 协调器与 HDInsight 配合使用][hdinsight-oozie-coordinator-time]
+* [开始将 Apache Hadoop 与 HDInsight 中的 Apache Hive 配合使用以分析手机使用情况][hdinsight-get-started]
 * [将 Azure Blob 存储与 HDInsight 配合使用][hdinsight-storage]
 * [使用 PowerShell 管理 HDInsight][hdinsight-admin-powershell]
-* [在 HDInsight 中上传 Hadoop 作业的数据][hdinsight-upload-data]
-* [将 Sqoop 与 HDInsight 中的 Hadoop 配合使用][hdinsight-use-sqoop]
-* [将 Hive 与 HDInsight 上的 Hadoop 配合使用][hdinsight-use-hive]
-* [将 Pig 与 HDInsight 上的 Hadoop 配合使用][hdinsight-use-pig]
+* [在 HDInsight 中上传 Apache Hadoop 作业的数据][hdinsight-upload-data]
+* [在 HDInsight 中将 Apache Sqoop 与 Apache Hadoop 配合使用][hdinsight-use-sqoop]
+* [将 Apache Hive 与 Apache Hadoop on HDInsight 配合使用][hdinsight-use-hive]
+* [将 Apache Pig 与 Apache Hadoop on HDInsight 配合使用][hdinsight-use-pig]
 * [为 HDInsight 开发 Java MapReduce 程序][hdinsight-develop-mapreduce]
 
-[hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
+[hdinsight-cmdlets-download]: https://go.microsoft.com/fwlink/?LinkID=325563
 
 [hdinsight-oozie-coordinator-time]: hdinsight-use-oozie-coordinator-time.md
 [hdinsight-versions]:  hdinsight-component-versioning.md
@@ -661,21 +661,21 @@ Azure PowerShell 目前不提供任何用于定义 Oozie 作业的 cmdlet。 可
 [azure-management-portal]: https://portal.azure.cn/
 [azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
 
-[apache-hadoop]: http://hadoop.apache.org/
-[apache-oozie-400]: http://oozie.apache.org/docs/4.0.0/
-[apache-oozie-332]: http://oozie.apache.org/docs/3.3.2/
+[apache-hadoop]: https://hadoop.apache.org/
+[apache-oozie-400]: https://oozie.apache.org/docs/4.0.0/
+[apache-oozie-332]: https://oozie.apache.org/docs/3.3.2/
 
 [powershell-download]: /downloads/
-[powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
+[powershell-about-profiles]: https://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
-[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-script]: https://technet.microsoft.com/en-us/library/ee176961.aspx
+[powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
+[powershell-script]: https://technet.microsoft.com/library/ee176961.aspx
 
-[cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
+[cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
 [img-workflow-diagram]: ./media/hdinsight-use-oozie/HDI.UseOozie.Workflow.Diagram.png
 [img-preparation-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.Preparation.Output1.png  
 [img-runworkflow-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.RunWF.Output.png
 
-[technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
+[technetwiki-hive-error]: https://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 <!--Update_Description: update storage link and change 'wasbs' into 'wasb'-->

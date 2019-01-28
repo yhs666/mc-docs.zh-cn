@@ -15,18 +15,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 10/27/2017
-ms.date: 12/25/2017
+ms.date: 02/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: 922271e06abe2ed01f65764ebca6aeb329f5d040
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f514cdd7226412567a4e833c5acdb3b8b08dfa63
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653817"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906024"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>为 Visual Studio Code 设置 PySpark 交互式环境
 
-以下步骤显示如何通过运行“HDInsight: PySpark Interactive”安装 Python 包。
+以下步骤演示如何通过运行以下命令安装 Python 包：“HDInsight: PySpark Interactive”。
 
 
 ## <a name="set-up-the-pyspark-interactive-environment-on-macos-and-linux"></a>在 macOS 和 Linux 上设置 PySpark 交互式环境
@@ -94,7 +94,7 @@ ms.locfileid: "52653817"
     - **python2** 和 **pysparkkernel** 对应于 **python 2.x**。 
     - **python3** 和 **pyspark3kernel** 对应于 **python 3.x**。 
 
-8. 重新启动 VS Code 并回到运行“HDInsight: PySpark Interactive”的脚本编辑器。
+8. 重启 VS Code 并回到运行以下命令的脚本编辑器：“HDInsight: PySpark Interactive”。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -103,14 +103,14 @@ ms.locfileid: "52653817"
 
 ### <a name="tools-and-extensions"></a>工具和扩展
 * [使用用于 Visual Studio Code 的 Azure HDInsight 工具](hdinsight-for-vscode.md)
-* [使用用于 IntelliJ 的 Azure 工具包创建和提交 Spark Scala 应用程序](spark/apache-spark-intellij-tool-plugin.md)
-* [通过 SSH 使用用于 IntelliJ 的 Azure 工具包远程调试 Spark 应用程序](spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md)
-* [通过 VPN 使用用于 IntelliJ 的 Azure 工具包远程调试 Spark 应用程序](spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [使用用于 Eclipse 的 Azure 工具包中的 HDInsight 工具创建 Spark 应用程序](spark/apache-spark-eclipse-tool-plugin.md)
+* [使用 Azure Toolkit for IntelliJ 创建和提交 Apache Spark Scala 应用程序](spark/apache-spark-intellij-tool-plugin.md)
+* [使用 Azure Toolkit for IntelliJ 通过 SSH 远程调试 Apache Spark 应用程序](spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md)
+* [使用 Azure Toolkit for IntelliJ 通过 VPN 远程调试 Apache Spark 应用程序](spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [使用 Azure Toolkit for Eclipse 中的 HDInsight 工具创建 Apache Spark 应用程序](spark/apache-spark-eclipse-tool-plugin.md)
 * [将用于 IntelliJ 的 HDInsight 工具与 Hortonworks 沙盒配合使用](hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
-* [在 HDInsight 上的 Spark 群集中使用 Zeppelin 笔记本](spark/apache-spark-zeppelin-notebook.md)
-* [在 HDInsight 的 Spark 群集中可用于 Jupyter 笔记本的内核](spark/apache-spark-jupyter-notebook-kernels.md)
+* [在 HDInsight 上的 Apache Spark 群集中使用 Apache Zeppelin 笔记本](spark/apache-spark-zeppelin-notebook.md)
+* [在 HDInsight 的 Apache Spark 群集中可用于 Jupyter Notebook 的内核](spark/apache-spark-jupyter-notebook-kernels.md)
 * [Use external packages with Jupyter notebooks（将外部包与 Jupyter 笔记本配合使用）](spark/apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster（在计算机上安装 Jupyter 并连接到 HDInsight Spark 群集）](spark/apache-spark-jupyter-notebook-install-locally.md)
-* [在 Azure HDInsight 中使用 Microsoft Power BI 可视化 Hive 数据](hadoop/apache-hadoop-connect-hive-power-bi.md)
-* [在 Azure HDInsight 中使用 Zeppelin 运行 Hive 查询](hdinsight-connect-hive-zeppelin.md)
+* [在 Azure HDInsight 中使用 Microsoft Power BI 直观显示 Apache Hive 数据](hadoop/apache-hadoop-connect-hive-power-bi.md)
+* [在 Azure HDInsight 中使用 Apache Zeppelin 运行 Apache Hive 查询](hdinsight-connect-hive-zeppelin.md)

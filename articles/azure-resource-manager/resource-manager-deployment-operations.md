@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 origin.date: 09/28/2018
-ms.date: 11/19/2018
+ms.date: 01/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9c4bd3ae5b5b9b0a1c80bffb0b38cf31a072bb39
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6238b9fb1bda3da5daa536a9d7efd1d6b5065098
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659346"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085649"
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>使用 Azure 资源管理器查看部署操作
 
@@ -175,7 +175,7 @@ ms.locfileid: "52659346"
         "correlationId":"d5062e45-6e9f-4fd3-a0a0-6b2c56b15757",
         ...
         "error":{
-          "code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see http://aka.ms/arm-debug for usage details.",
+          "code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.",
           "details":[{"code":"Conflict","message":"{\r\n  \"error\": {\r\n    \"message\": \"Conflict\",\r\n    \"code\": \"Conflict\"\r\n  }\r\n}"}]
         }  
       }

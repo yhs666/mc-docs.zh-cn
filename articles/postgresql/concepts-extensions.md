@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.topic: article
 origin.date: 11/12/2018
 ms.date: 12/03/2018
-ms.openlocfilehash: f5b1510b6214f477871d4deb72a61de74b345339
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 110b8703985b47ac3e2b7c4997965798b26fb1d3
+ms.sourcegitcommit: 92503f045267f436cf3ca7fa9e6f1c13be17fb44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674784"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54858193"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>Azure Database for PostgreSQL 中的 PostgreSQL 扩展
 PostgreSQL 支持使用扩展来扩展数据的功能。 扩展允许在单个包中将多个相关 SQL 对象捆绑在一起，可以使用单个命令在数据库中加载或删除该包。 在数据库中加载之后，扩展可以如同内置功能一样运行。 有关 PostgreSQL 扩展的详细信息，请参阅  [Packaging Related Objects into an Extension](https://www.postgresql.org/docs/9.6/static/extend-extensions.html)（将相关对象打包到扩展中）。
@@ -110,5 +110,3 @@ Azure Database for PostgreSQL 目前支持部分关键扩展（已在下面列�
 查询执行信息 pg_stat_statements 提供的权限与记录每个 SQL 语句时对服务器性能的影响之间存在权衡。 如果不经常使用 pg_stat_statements 扩展，则建议将 `pg_stat_statements.track` 设置为 `none`。 请注意，某些第三方监视服务可能依赖 pg_stat_statements 来提供查询性能见解，因此，请确认这是否适合你。
 
 
-## <a name="next-steps"></a>后续步骤
-如果未看到要使用的扩展，请告诉我们。 若要支持现有请求或提出新反馈和请求，请访问我们的[客户反馈论坛](https://feedback.azure.com/forums/597976-azure-database-for-postgresql)。

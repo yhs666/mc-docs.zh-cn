@@ -1,26 +1,26 @@
 ---
 title: 审核和接收关于 Azure 订阅中重要操作的通知
 description: 在活动日志中了解资源管理、服务运行状况和其他订阅活动的历史记录，然后在订阅中执行高特权操作时，使用活动日志警报接收电子邮件通知。
-author: johnkemnetz
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: quickstart
-ms.date: 09/25/2017
-ms.author: johnkem
+ms.date: 01/21/19
+ms.author: v-lingwu
 ms.custom: mvc
-ms.component: alerts
-ms.openlocfilehash: ff1a048fbc484a4c9f08a2b5a4e740682d4671ff
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.subservice: alerts
+ms.openlocfilehash: 8c945ab3d30b64d4053dda8d111a93b96f858cc0
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141718"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906030"
 ---
 # <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>审核和接收关于 Azure 订阅中重要操作的通知
 
 Azure 活动日志提供 Azure 中订阅级别事件的历史记录。 它提供有关由谁创建、更新或删除什么资源，以及何时进行操作的信息。 可创建活动日志警报，以便在发生与警报条件匹配的活动时接收电子邮件、短信或 webhook 通知。 此快速入门逐步介绍如何创建简单的网络安全组、浏览活动日志了解发生的事件，然后创建活动日志警报，以便在将来创建任何网络安全组时收到通知。
 
-如果没有 Azure 订阅，请在开始之前创建一个[免费](https://azure.microsoft.com/free/)帐户。
+如果没有 Azure 订阅，请在开始之前创建一个[免费](https://www.azure.cn/free/)帐户。
 
 ## <a name="log-in-to-the-azure-portal"></a>登录到 Azure 门户
 

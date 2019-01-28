@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 09/25/2018
 ms.date: 12/24/2018
 ms.author: v-jay
-ms.openlocfilehash: 9804111e6e35386599518bd2d62d6cbe0403f179
-ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+ms.openlocfilehash: 2bad55bbb7c4756d4155bb78b8a23bd406f0e366
+ms.sourcegitcommit: 92503f045267f436cf3ca7fa9e6f1c13be17fb44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53656552"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54858191"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>如何使用 CLI 在 Azure VPN 网关上配置 BGP
 
@@ -138,7 +138,7 @@ az network vnet-gateway list -g TestBGPRG1 
 请确保已完成此练习的[为 VPN 网关启用 BGP](#enablebgp) 部分，并且仍与订阅 1 连接，然后再继续操作。 请注意，在此示例中会创建新的资源组。 另请注意，本地网关的两个附加参数：`Asn` 和 `BgpPeerAddress`。
 
 ```azurecli
-az group create -n TestBGPRG5 -l chinanorth2 
+az group create -n TestBGPRG5 -l chinanorth
  
 az network local-gateway create --gateway-ip-address 23.99.221.164 -n Site5 -g TestBGPRG5 --local-address-prefixes 10.51.255.254/32 --asn 65050 --bgp-peering-address 10.51.255.254
 ```
@@ -229,7 +229,7 @@ eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your 
 #### <a name="1-create-a-new-resource-group"></a>1.创建新的资源组
 
 ```azurecli
-az group create -n TestBGPRG2 -l westus
+az group create -n TestBGPRG2 -l chinanorth
 ```
 
 #### <a name="2-create-testvnet2-in-the-new-resource-group"></a>2.在新资源组中创建 TestVNet2
@@ -237,7 +237,7 @@ az group create -n TestBGPRG2 -l westus
 第一个命令创建前端地址空间和 FrontEnd 子网。 第二个命令为后端子网创建额外的地址空间。 第三个和第四个命令创建 BackEnd 子网和 GatewaySubnet。
 
 ```azurecli
-az network vnet create -n TestVNet2 -g TestBGPRG2 --address-prefix 10.21.0.0/16 -l westus --subnet-name FrontEnd --subnet-prefix 10.21.0.0/24 
+az network vnet create -n TestVNet2 -g TestBGPRG2 --address-prefix 10.21.0.0/16 -l chinanorth --subnet-name FrontEnd --subnet-prefix 10.21.0.0/24 
  
 az network vnet update -n TestVNet2 --address-prefixes 10.21.0.0/16 10.22.0.0/16 -g TestBGPRG2 
  
@@ -259,7 +259,7 @@ az network public-ip create -n GWPubIP2 -g TestBGPRG2 --allocation-method Dynami
 为 TestVNet2 创建虚拟网络网关。 必须覆盖 Azure VPN 网关上的默认 ASN。 连接的虚拟网络的 ASN 必须不同，才能启用 BGP 和传输路由。
  
 ```azurecli
-az network vnet-gateway create -n VNet2GW -l westus --public-ip-address GWPubIP2 -g TestBGPRG2 --vnet TestVNet2 --gateway-type Vpn --sku Standard --vpn-type RouteBased --asn 65020 --no-wait
+az network vnet-gateway create -n VNet2GW -l chinanorth --public-ip-address GWPubIP2 -g TestBGPRG2 --vnet TestVNet2 --gateway-type Vpn --sku Standard --vpn-type RouteBased --asn 65020 --no-wait
 ```
 
 ### <a name="step-2-connect-the-testvnet1-and-testvnet2-gateways"></a>步骤 2：连接 TestVNet1 和 TestVNet2 网关
@@ -293,7 +293,7 @@ az network vpn-connection create -n VNet1ToVNet2 -g TestBGPRG1 --vnet-gateway1 /
 ```
 
 ```azurecli
-az network vpn-connection create -n VNet2ToVNet1 -g TestBGPRG2 --vnet-gateway1 /subscriptions/<subscription ID>/resourceGroups/TestBGPRG2/providers/Microsoft.Network/virtualNetworkGateways/VNet2GW --enable-bgp -l westus --shared-key "efg456" --vnet-gateway2 /subscriptions/<subscription ID>/resourceGroups/TestBGPRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW
+az network vpn-connection create -n VNet2ToVNet1 -g TestBGPRG2 --vnet-gateway1 /subscriptions/<subscription ID>/resourceGroups/TestBGPRG2/providers/Microsoft.Network/virtualNetworkGateways/VNet2GW --enable-bgp -l chinanorth --shared-key "efg456" --vnet-gateway2 /subscriptions/<subscription ID>/resourceGroups/TestBGPRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW
 ```
 
 > [!IMPORTANT]

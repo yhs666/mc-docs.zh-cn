@@ -5,16 +5,16 @@ manager: digimobile
 description: 了解如何使用 Power BI Desktop 连接到 Azure Analysis Services。
 ms.service: azure-analysis-services
 ms.topic: tutorial
-origin.date: 12/06/2018
-ms.date: 01/21/2019
+origin.date: 01/09/2019
+ms.date: 01/28/2019
 ms.author: v-yeche
 ms.reviewer: owend
-ms.openlocfilehash: e6896b4ba841372b61008b42aa0affb6cc3d4c24
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: 311bf4cd0d44bb8faa658f6e4b6087ff1f7cdea7
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193087"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085636"
 ---
 <!--Notice: Verify sucessfully-->
 # <a name="tutorial-connect-with-power-bi-desktop"></a>教程：使用 Power BI Desktop 进行连接
@@ -75,4 +75,4 @@ ms.locfileid: "54193087"
 ## <a name="next-steps"></a>后续步骤
 在本教程中，你已了解了如何使用 Power BI Desktop 连接到服务器上的数据模型并创建基本报表。 如果不熟悉如何创建数据模型，请参阅 [Adventure Works Internet Sales 表格数据建模教程](aas-adventure-works-tutorial.md)。
 
-<!-- Update_Description: update meta properties， wording update -->
+<!-- Update_Description: update meta properties -->

@@ -1,19 +1,19 @@
 ---
 title: 将来宾 OS 指标发送到适用于 Windows 虚拟机（经典）的 Azure Monitor 数据存储
 description: 将来宾 OS 指标发送到适用于 Windows 虚拟机（经典）的 Azure Monitor 数据存储
-author: anirudhcavale
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.author: ancav
-ms.component: ''
-ms.openlocfilehash: 01bebf05134ea2851ce0f3fb97aab7f625a7c86c
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.date: 01/21/19
+ms.author: v-lingwu
+ms.subservice: ''
+ms.openlocfilehash: 76bf9955bc12e1224cc4086119cadcdf9e2ad231
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141754"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906056"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>将来宾 OS 指标发送到适用于 Windows 虚拟机（经典）的 Azure Monitor 数据存储
 
@@ -26,8 +26,6 @@ Azure Monitor [诊断扩展](https://docs.microsoft.com/azure/monitoring-and-dia
 本文概述的过程仅适用于运行 Windows 操作系统的经典虚拟机。
 
 ## <a name="prerequisites"></a>先决条件
-
-- 你必须是 Azure 订阅的[服务管理员或共同管理员](../../billing/billing-add-change-azure-subscription-administrator.md)。 
 
 - 你的订阅必须已注册到 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal)。 
 
@@ -145,7 +143,7 @@ Azure Monitor [诊断扩展](https://docs.microsoft.com/azure/monitoring-and-dia
 1. 启动 PowerShell 并登录。
 
     ```powershell
-    Login-AzureRmAccount
+    Login-AzureRmAccount -Environment AzureChinaCloud
     ```
 
 1. 一开始将上下文设置为经典 VM。
@@ -157,7 +155,7 @@ Azure Monitor [诊断扩展](https://docs.microsoft.com/azure/monitoring-and-dia
 1. 设置通过 VM 创建的经典存储帐户的上下文。
 
     ```powershell
-    $StorageContext = New-AzureStorageContext -StorageAccountName <name of your storage account from earlier steps> -storageaccountkey "<storage account key from earlier steps>"
+    $StorageContext = New-AzureStorageContext -Environment AzureChinaCloud -StorageAccountName <name of your storage account from earlier steps> -storageaccountkey "<storage account key from earlier steps>"
     ```
 
 1.  使用以下命令将诊断文件路径设置为一个变量：

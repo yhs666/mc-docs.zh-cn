@@ -13,12 +13,12 @@ ms.reviewer: bonova, carlrab
 manager: digimobile
 origin.date: 12/03/2018
 ms.date: 12/31/2018
-ms.openlocfilehash: 271c0eacc1b41b1bd0b7f51d2b5b91a6ccf98c7d
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.openlocfilehash: 7559cc2f05f775e7775b21f5076ae36b21ffcf02
+ms.sourcegitcommit: 92503f045267f436cf3ca7fa9e6f1c13be17fb44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806215"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54858192"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>功能比较：Azure SQL 数据库与 SQL Server
 
@@ -41,7 +41,7 @@ Azure SQL 数据库与 SQL Server 共享一个通用代码库。 Azure SQL 数�
 | [AlwaysOn 可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | 每个数据库均包含[高可用性](sql-database-high-availability.md)。 [简要介绍如何使用 Azure SQL 数据库确保业务连续性](sql-database-business-continuity.md)中对灾难恢复进行了讨论 |
 | [附加数据库](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | 否 |
 | [应用程序角色](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) | 是 |
-|[审核](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [是](sql-database-auditing.md)|
+| [审核](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [是](sql-database-auditing.md)|
 | [自动备份](sql-database-automated-backups.md) | 是 |
 | [自动优化（强制执行计划）](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [是](sql-database-automatic-tuning.md)|
 | [自动优化（索引）](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [是](sql-database-automatic-tuning.md)|
@@ -78,13 +78,13 @@ Azure SQL 数据库与 SQL Server 共享一个通用代码库。 Azure SQL 数�
 | [DML 语句](https://docs.microsoft.com/sql/t-sql/queries/queries) | 是 |
 | [DML 触发器](https://docs.microsoft.com/sql/relational-databases/triggers/create-dml-triggers) | 大多数 - 请参阅单个语句 |
 | [DMV](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | 大多数 - 请参阅单个 DMV |
-|[动态数据屏蔽](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)|[是](sql-database-dynamic-data-masking-get-started.md)|
+| [动态数据屏蔽](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)|[是](sql-database-dynamic-data-masking-get-started.md)|
 | [弹性池](sql-database-elastic-pool.md) | 是 |
 | [事件通知](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | 否 - 请参阅[警报](sql-database-insights-alerts-portal.md) |
 | [表达式](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |是 |
 | [扩展的事件](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | 部分 - 请参阅 [SQL 数据库中的扩展事件](sql-database-xevent-db-diff-from-svr.md) |
 | [扩展的存储过程](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | 否 |
-[文件和文件组](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | 仅限主文件组 |
+| [文件和文件组](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | 仅限主文件组 |
 | [文件流](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | 否 |
 | [全文搜索](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |  不支持第三方断字符 |
 | [函数](https://docs.microsoft.com/sql/t-sql/functions/functions) | 大多数 - 请参阅单个函数 |
@@ -128,7 +128,6 @@ Azure SQL 数据库与 SQL Server 共享一个通用代码库。 Azure SQL 数�
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | 否 - 请参阅 [Azure Analysis Services](https://www.azure.cn/home/features/analysis-services/) |
 | [SQL Server 审核](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | 否 - 请参阅 [SQL 数据库审核](sql-database-auditing.md) |
 | [SQL Server Data Tools (SSDT)] (https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) | 是 |
-| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | 是，使用 Azure 数据工厂 (ADF) 环境中的托管 SSIS ，其中程序包存储在由 Azure SQL 数据库承载的 SSISDB 中并在 Azure SSIS Integration Runtime 上执行。 |
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | 是 |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | 是 |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | 否 - 请参阅[扩展事件](sql-database-xevent-db-diff-from-svr.md) |
@@ -145,7 +144,7 @@ Azure SQL 数据库与 SQL Server 共享一个通用代码库。 Azure SQL 数�
 | [跟踪标志](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | 否 |
 | [变量](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | 是 |
 | [透明数据加密 (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | 是 - 仅限“常规用途”和“业务关键”服务层|
-[VNet](../virtual-network/virtual-networks-overview.md) | 部分 - 请参阅 [VNet 终结点](sql-database-vnet-service-endpoint-rule-overview.md) |
+| [VNet](../virtual-network/virtual-networks-overview.md) | 部分 - 请参阅 [VNet 终结点](sql-database-vnet-service-endpoint-rule-overview.md) |
 | [Windows Server 故障转移群集](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | 每个数据库均包含[高可用性](sql-database-high-availability.md)。 [简要介绍如何使用 Azure SQL 数据库确保业务连续性](sql-database-business-continuity.md)中对灾难恢复进行了讨论 |
 | [XML 索引](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql) | 是 |
 

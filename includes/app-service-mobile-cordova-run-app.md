@@ -16,4 +16,4 @@
 [quickstart]: ./media/app-service-mobile-configure-new-backend/quickstart.png
 
 <!-- URLs -->
-[Azure 门户]: https://portal.azure.com/
+[Azure 门户]: https://portal.azure.cn/

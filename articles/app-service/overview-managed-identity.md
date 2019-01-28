@@ -12,12 +12,12 @@ ms.topic: article
 origin.date: 11/20/2018
 ms.date: 01/21/2019
 ms.author: v-biyu
-ms.openlocfilehash: f2476ee7e5667d1b291d2300782009635ed5e286
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 9b4b58c9c9b0799b182bdf019bafce0587778fd9
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083838"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906230"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>如何使用应用服务和 Azure Functions 的托管标识
 
@@ -56,12 +56,12 @@ ms.locfileid: "54083838"
 
 1. 如果在本地控制台中使用 Azure CLI，首先请使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure。 使用与要在其下部署应用程序的 Azure 订阅关联的帐户：
 
-    ```azurecli-interactive
+    ```azurecli
     az login
     ```
 2. 使用 CLI 创建 Web 应用程序。 有关如何将 CLI 用于应用服务的更多示例，请参阅[应用服务 CLI 示例](../app-service/samples-cli.md)：
 
-    ```azurecli-interactive
+    ```azurecli
     az group create --name myResourceGroup --location chinanorth
     az appservice plan create --name myPlan --resource-group myResourceGroup --sku S1
     az webapp create --name myApp --resource-group myResourceGroup --plan myPlan
@@ -69,7 +69,7 @@ ms.locfileid: "54083838"
 
 3. 运行 `identity assign` 命令为此应用程序创建标识：
 
-    ```azurecli-interactive
+    ```azurecli
     az webapp identity assign --name myApp --resource-group myResourceGroup
     ```
 
@@ -81,7 +81,7 @@ ms.locfileid: "54083838"
 
 2. 使用 Azure PowerShell 创建 Web 应用程序。 有关如何将 Azure PowerShell 用于应用服务的更多示例，请参阅[应用服务 PowerShell 示例](../app-service/samples-powershell.md)：
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     # Create a resource group.
     New-AzureRmResourceGroup -Name myResourceGroup -Location $location
     
@@ -94,7 +94,7 @@ ms.locfileid: "54083838"
 
 3. 运行 `Set-AzureRmWebApp -AssignIdentity` 命令为此应用程序创建标识：
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     Set-AzureRmWebApp -AssignIdentity $true -Name $webappname -ResourceGroupName myResourceGroup 
     ```
 
@@ -166,7 +166,7 @@ using Microsoft.Azure.Services.AppAuthentication;
 using Microsoft.Azure.KeyVault;
 // ...
 var azureServiceTokenProvider = new AzureServiceTokenProvider();
-string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://vault.azure.net");
+string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://vault.azure.cn");
 // OR
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
 ```

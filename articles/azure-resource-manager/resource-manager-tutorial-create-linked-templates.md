@@ -11,15 +11,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 origin.date: 12/07/2018
-ms.date: 01/21/2019
+ms.date: 01/28/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: df40007c9950154b473fb9b1246be1ba92ac0527
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: 417acb326c6325aff1d2bd916a4132001ede6526
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193042"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085631"
 ---
 <!--Verify successfully-->
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>教程：创建 Azure 资源管理器链接模板
@@ -73,7 +73,9 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
     * `Microsoft.Network/networkInterfaces`。
     * `Microsoft.Compute/virtualMachines`。
     
-    <!-- Not Available on templates reference--> 在自定义模板之前，不妨对其进行一些基本的了解。
+    <!-- Not Available on templates reference-->
+    
+    在自定义模板之前，不妨对其进行一些基本的了解。
 5. 选择“文件”>“另存为”，将该文件的副本保存到名为 **azuredeploy.json** 的本地计算机。
 6. 选择“文件”>“另存为”，创建名为 **linkedTemplate.json** 的另一文件副本。
 
@@ -160,7 +162,11 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 
 ## <a name="upload-the-linked-template"></a>上传链接模板
 
-主模板和链接的模板必须能够从运行部署时所在的位置进行访问。 在本教程中使用的 Cloud Shell 部署方法就是在[教程：使用依赖的资源创建 Azure 资源管理器模板](./resource-manager-tutorial-create-templates-with-dependent-resources.md)中使用的。 主模板 (azuredeploy.json) 上传到 Shell。 链接的模板 (linkedTemplate.json) 必须在某个位置安全地共享。 以下 PowerShell 脚本创建一个 Azure 存储帐户，将模板上传到该存储帐户，然后生成一个 SAS 令牌，以便授予对模板文件的受限访问权限。 为了简化本教程，该脚本会从共享位置下载一个完成的链接模板。 若要使用已创建的链接模板，可以使用 [Cloud shell](https://shell.azure.com) 上传链接模板，然后修改脚本，这样就可以使用自己的链接模板。
+<!--NOTICE: CLOUD SHELL IS INVALID ON MOONCAKE-->
+
+主模板和链接的模板必须能够从运行部署时所在的位置进行访问。 链接的模板 (linkedTemplate.json) 必须在某个位置安全地共享。 以下 PowerShell 脚本创建一个 Azure 存储帐户，将模板上传到该存储帐户，然后生成一个 SAS 令牌，以便授予对模板文件的受限访问权限。 为了简化本教程，该脚本会从共享位置下载一个完成的链接模板。
+
+<!--NOTICE: CLOUD SHELL IS INVALID ON MOONCAKE-->
 
 > [!NOTE]
 > 脚本将 SAS 令牌限制为在八小时内使用。 如果需要更多时间来完成本教程，请将到期时间推后。
@@ -215,7 +221,10 @@ echo "Resource Group Name: $resourceGroupName"
 echo "Linked template URI with SAS token: $templateURI"
 ```
 
-<!--Not Available on Azure cloud shell--> 在实践中，请在部署主模板时生成一个 SAS 令牌，让该 SAS 令牌在更短的时间范围内到期，以增强安全性。 有关详细信息，请参阅[在部署期间提供 SAS 令牌](./resource-manager-powershell-sas-token.md#provide-sas-token-during-deployment)。
+<!--Not Available on Azure cloud shell-->
+
+在实践中，请在部署主模板时生成一个 SAS 令牌，让该 SAS 令牌在更短的时间范围内到期，以增强安全性。 有关详细信息，请参阅[在部署期间提供 SAS 令牌](./resource-manager-powershell-sas-token.md#provide-sas-token-during-deployment)。
+
 ## <a name="call-the-linked-template"></a>调用链接模板
 
 主模板称为 azuredeploy.json。

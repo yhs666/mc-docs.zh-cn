@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: a395fa519e4cc614b067b1e7364ade294a78f85a
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: a9b3d32a23e1e00587c85f9fea4cb2c32c858176
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996364"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906069"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 定义结构
 
@@ -314,7 +314,7 @@ AuditIfNotExists 和 DeployIfNotExists 评估相关的资源是否存在，并�
 - PowerShell
 
   ```powershell
-  # Login first with Connect-AzureRmAccount if not using Cloud Shell
+  # Login first with Connect-AzureRmAccount if not using CLI
 
   # Use Get-AzureRmPolicyAlias to list available providers
   Get-AzureRmPolicyAlias -ListAvailable

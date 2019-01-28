@@ -9,14 +9,14 @@ ms.custom: hdinsightactive,mvc
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 05/07/2018
-ms.date: 01/14/2019
+ms.date: 02/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: 9657dbe5bc7613366eae7f4349cc6c0d6f368f1d
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: c22484c2a861b64676d15a1a7703dd25a591ffd8
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806626"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906213"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>教程：使用 Power BI 在 HDInsight 中分析 Apache Spark 数据 
 
@@ -105,7 +105,7 @@ ms.locfileid: "53806626"
 
         关系图如下所示：
 
-        ![使用 Apache Spark BI 创建 Spark 数据可视化效果](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "使用 Apache Spark BI 创建 Spark 数据可视化效果")
+        ![使用 Apache Spark BI 创建 Spark 数据可视化效果](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "使用 Apache Spark BI 创建 Spark 数据可视化效果")
 
         默认情况下，可视化效果效果会显示 **ActualTemp** 和 **TargetTemp** 的总和。 单击“可视化效果”窗格中 ActualTemp 和 TragetTemp 旁边的向下键，可看到已选中“总和”。
 
@@ -115,7 +115,7 @@ ms.locfileid: "53806626"
 
         数据可视化效果应与屏幕截图中类似。 在视觉效果上移动光标可获取相关数据的工具提示。
 
-        ![使用 Apache Spark BI 创建 Spark 数据可视化效果](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "使用 Apache Spark BI 创建 Spark 数据可视化效果")
+        ![使用 Apache Spark BI 创建 Spark 数据可视化效果](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "使用 Apache Spark BI 创建 Spark 数据可视化效果")
 
 7. 依次单击“文件”和“保存”，再输入文件名 `BuildingTemperature.pbix` 。 
 
@@ -176,7 +176,7 @@ Power BI 服务允许在整个组织中共享报表和仪表板。 在本部分�
 >
 >
 
-1. Install [Tableau Desktop](http://www.tableau.com/products/desktop) on the computer where you are running this Apache Spark BI tutorial.
+1. Install [Tableau Desktop](https://www.tableau.com/products/desktop) on the computer where you are running this Apache Spark BI tutorial.
 
 2. Make sure that computer also has Microsoft Spark ODBC driver installed. You can install the driver from [here](https://go.microsoft.com/fwlink/?LinkId=616229).
 

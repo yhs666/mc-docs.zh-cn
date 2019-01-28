@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 10/18/2018
-ms.date: 12/17/2018
+origin.date: 01/09/2019
+ms.date: 01/28/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: ecfe43440d66ae36b59aac525ea4bc611787facc
-ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
+ms.openlocfilehash: 07a05cc2fdcf27630004ece76e972544fda180a5
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53157413"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085662"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>将服务主体添加到服务器管理员角色 
 
@@ -23,8 +23,8 @@ ms.locfileid: "53157413"
 ## <a name="before-you-begin"></a>准备阶段
 在完成此项任务之前，必须有一个在 Azure Active Directory 中注册的服务主体。
 
-[创建服务主体 - Azure 门户](../azure-resource-manager/resource-group-create-service-principal-portal.md)   
-[创建服务主体 - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+[创建服务主体 - Azure 门户](../active-directory/develop/howto-create-service-principal-portal.md)   
+[创建服务主体 - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="required-permissions"></a>所需的权限
 若要完成此项任务，在 Azure AS 服务器上必须具备[服务器管理员](analysis-services-server-admins.md)权限。 

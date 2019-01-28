@@ -10,12 +10,12 @@ ms.date: 01/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: bb257e102220d2d59acab4b7ac1a8462dcc38a02
-ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
+ms.openlocfilehash: 1dc258e4c4af323dc14f41a3c667dd6bee34068e
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396782"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906107"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>教程：开发 C IoT Edge 模块并将其部署到模拟设备
 
@@ -54,7 +54,6 @@ Azure IoT Edge 设备：
 >[!Note]
 >用于 Azure IoT edge 的 C 模块不支持 Windows 容器。 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 ## <a name="create-a-container-registry"></a>创建容器注册表

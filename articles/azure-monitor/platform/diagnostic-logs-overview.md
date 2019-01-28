@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.component: logs
-ms.openlocfilehash: 2cfb4391849dde65ff82c9be93a72204d32e06d1
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 914e5ae7136629214af5336934e26c2366457360
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363351"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906221"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>从 Azure 资源收集和使用日志数据
 
@@ -146,7 +146,7 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resour
 
 ### <a name="enable-collection-of-resource-diagnostic-logs-via-the-azure-cli"></a>通过 Azure CLI 启用资源诊断日志收集
 
-若要通过 Azure CLI 启用资源诊断日志收集，请使用 [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) 命令。
+若要通过 Azure CLI 启用资源诊断日志收集，请使用 [az monitor diagnostic-settings create](https://docs.azure.cn/zh-cn/cli/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) 命令。
 
 要允许在存储帐户中存储诊断日志，请使用以下命令：
 

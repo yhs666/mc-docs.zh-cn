@@ -1,20 +1,20 @@
 ---
 title: 使用服务主体自动完成 Azure Analysis Services 任务 | Azure
-description: 了解如何创建自动化 Azure Analysis Services 任务的服务主体。
+description: 了解如何创建服务主体以自动完成 Azure Analysis Services 任务。
 author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 12/06/2018
-ms.date: 01/21/2019
+ms.date: 01/28/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 83fcfbd4eb3330c7cd3fd024401ba87f814ce7cc
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: 7cfbb371c823b9f0ed19864c51f102dc767662a0
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193026"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085688"
 ---
 # <a name="automation-with-service-principals"></a>使用服务主体进行自动化
 

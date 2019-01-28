@@ -12,18 +12,18 @@ ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
 origin.date: 12/06/2018
-ms.date: 01/14/2019
+ms.date: 02/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: a3d1c3dd027ed599f796e8a5989c6609cd081f5d
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 11712e51b4318157590a8a1f3745bfe8cda925bd
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806620"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906103"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>使用 Azure HDInsight 对 Apache Storm 进行故障排除
 
-了解处理 Apache Ambari 中的 Apache Storm 有效负载时的最常见问题及其解决方法。
+了解处理 [Apache Ambari](https://ambari.apache.org/) 中的 [Apache Storm](https://storm.apache.org/) 有效负载时的最常见问题及其解决方法。
 
 ## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>如何在群集上访问 Storm UI？
 可以使用两个选项从浏览器访问 Storm UI：
@@ -44,7 +44,7 @@ https://\<群集 DNS 名称\>/stormui
 
 ## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>如何将 Storm 事件中心 Spout 检查点信息从一个拓扑传输到另一个拓扑？
 
-开发可使用 HDInsight Storm 事件中心 Spout .jar 文件从 Azure 事件中心读取数据的拓扑时，必须在新群集上部署同名的拓扑。 但是，必须在旧群集上保留已提交到 Apache ZooKeeper 的检查点数据。
+开发可使用 HDInsight Storm 事件中心 Spout .jar 文件从 Azure 事件中心读取数据的拓扑时，必须在新群集上部署同名的拓扑。 但是，必须在旧群集上保留已提交到 [Apache ZooKeeper](https://zookeeper.apache.org/) 的检查点数据。
 
 ### <a name="where-checkpoint-data-is-stored"></a>检查点数据的存储位置
 事件中心 Spout 将偏移检查点数据存储在 ZooKeeper 中的两个根路径下：
@@ -91,7 +91,7 @@ lib 文件夹中有一些 .Jar 文件，其中包含导出/导入操作的实现
  
 /usr/hdp 中可能包含特定 HDP 版本的多个二进制文件（例如 /usr/hdp/2.5.0.1233/storm）。 /usr/hdp/current/storm-client 文件与群集上运行的最新版本建立了符号链接。
 
-有关详细信息，请参阅[使用 SSH 连接到 HDInsight 群集](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)和 [Storm](http://storm.apache.org/)。
+有关详细信息，请参阅[使用 SSH 连接到 HDInsight 群集](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)和 [Apache Storm](https://storm.apache.org/)。
  
 ## <a name="how-do-i-determine-the-deployment-topology-of-a-storm-cluster"></a>如何确定 Storm 群集的部署拓扑？
 首先，请识别连同 HDInsight Storm 一起安装的所有组件。 Storm 群集由四个节点类别组成：

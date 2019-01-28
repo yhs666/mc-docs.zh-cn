@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 origin.date: 07/23/2018
 ms.author: v-yiso
-ms.date: 09/17/2018
-ms.openlocfilehash: 751889db3037bd9f48363e80cd310ec83c0e3330
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 02/04/2019
+ms.openlocfilehash: 7d43e96f45a31a6a0db1f837b9b190e5cc0d5c5c
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652837"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906091"
 ---
-# <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 云服务的配置和管理问题：常见问题解答 (FAQ)
+# <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 云服务配置和管理问题：常见问题 (FAQ)
 
 本文包含有关 [Azure 云服务](/cloud-services/)的配置和管理的常见问题。 还可以参阅[云服务 VM 大小页面](./cloud-services-sizes-specs.md)，了解大小信息。
 
@@ -138,7 +138,7 @@ Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $pass
 * 提高本地资源的配额限制。
 
 有关详细信息，请参阅以下文档：
-* [在 Azure 存储中存储和查看诊断数据](cloud-services-dotnet-diagnostics-storage.md)
+* [在 Azure 存储中存储和查看诊断数据](../monitoring-and-diagnostics/azure-diagnostics-storage.md)
 * [IIS 日志停止写入云服务](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
 
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>如何为云服务启用 WAD 日志记录？
@@ -171,7 +171,7 @@ Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $pass
     </Endpoints>
   </WorkerRole>
 ```
-有关详细信息，请参阅[新功能：Azure 负载均衡器的可配置空闲超时](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/)。
+请参阅[新增功能：Azure 负载均衡器可配置空闲超时](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/)，了解详细信息。
 
 ### <a name="how-do-i-associate-a-static-ip-address-to-my-cloud-service"></a>如何将静态 IP 地址关联到云服务？
 若要设置静态 IP 地址，需要创建保留 IP。 该保留 IP 可以关联到新的云服务或现有部署。 请参阅以下文档了解详细信息：
@@ -203,7 +203,7 @@ Windows 10 和 Windows Server 2016 随附了对客户端和服务器端上的 HT
 完成此过程后，可使用以下方法之一验证是否已启用 HTTP/2：
 
 - 在 IIS 日志中启用协议版本，并查看 IIS 日志。 日志中会显示 HTTP/2。 
-- 在 Internet Explorer/Edge 中启用 F12 开发人员工具，并切换到“网络”选项卡来验证协议。 
+- 在 Internet Explorer/Microsoft Edge 中启用 F12 开发人员工具，并切换到“网络”选项卡来验证协议。 
 
 有关详细信息，请参阅 [IIS 上的 HTTP/2](https://blogs.iis.net/davidso/http2)。
 
@@ -219,7 +219,7 @@ Windows 10 和 Windows Server 2016 随附了对客户端和服务器端上的 HT
 ### <a name="can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission"></a>没有权限的 Microsoft 内部工程师能否通过远程桌面连接到云服务实例？
 Microsoft 遵循严格的流程，未经所有者或其被委派者书面许可（电子邮件或其他书面通信），不允许内部工程师通过远程桌面连接到云服务。
 
-### <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>无法使用 RDP 文件通过远程桌面连接到云服务 VM。 收到以下错误：发生身份验证错误 (代码: 0x80004005)
+### <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>无法使用 RDP 文件通过远程桌面连接到云服务 VM。 收到以下错误：发生身份验证错误（代码：0x80004005）
 
 如果在已加入 Azure Active Directory 的计算机上使用 RDP 文件，则可能会发生此错误。 若要解决此问题，请执行以下步骤：
 

@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 origin.date: 12/06/2018
 ms.date: 01/21/2019
-ms.openlocfilehash: 2e062b664070d4b9681d351c2afbe74c29c9fe48
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: fabdd0b2fdfc0fa816f1de94fce2acedfbad8a89
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309268"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085692"
 ---
 # <a name="migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>将现有的 MongoDB Node.js Web 应用迁移到 Azure Cosmos DB 
 
@@ -85,7 +85,9 @@ npm start
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
-如果使用已安装的 Azure CLI，请使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 命令登录到 Azure 订阅，按屏幕说明操作。 如果使用 Azure Cloud Shell，可以跳过此步骤。
+如果使用已安装的 Azure CLI，请使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 命令登录到 Azure 订阅，按屏幕说明操作。
+
+<!--Not Available on Azure Cloud Shell-->
 
 ```azurecli
 az cloud set -n AzureChinaCloud

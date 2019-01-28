@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.component: alerts
-ms.openlocfilehash: 7f6cc7743c74cfaee34a74b0155cb9982e2d4d6b
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.subservice: alerts
+ms.openlocfilehash: 18f3293e13c942cb3d622ae2dbe83798d330a275
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363352"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906063"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Azure Monitor 中的统一警报和监视替换经典警报和监视
 

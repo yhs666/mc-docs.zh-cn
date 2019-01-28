@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 71eabb9b319519d2644c600ac13d115135e942a8
-ms.sourcegitcommit: 6e07735318eb5f6ea319b618863259088eab3722
+ms.openlocfilehash: 51045ac6a8416aa9b010f3dec6531aa7657583f6
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52981690"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906041"
 ---
 # <a name="getting-compliance-data"></a>获取符合性数据
 
@@ -279,7 +279,7 @@ https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/providers/Mic
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-适用于策略的 Azure PowerShell 模块在 PowerShell 库中以 [AzureRM.PolicyInsights](https://www.powershellgallery.com/packages/AzureRM.PolicyInsights) 的形式提供。 使用 PowerShellGet，可以使用 `Install-Module -Name AzureRM.PolicyInsights` 安装模块（请确保已安装了最新版 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)）：
+适用于策略的 Azure PowerShell 模块在 PowerShell 库中以 [AzureRM.PolicyInsights](https://www.powershellgallery.com/packages/AzureRM.PolicyInsights) 的形式提供。 使用 PowerShellGet，可以使用 `Install-Module -Name AzureRM.PolicyInsights` 安装模块（请确保已安装了最新版 [Azure PowerShell](https://docs.azure.cn/zh-cn/powershell-install-configure)）：
 
 ```powershell
 # Install from PowerShell Gallery via PowerShellGet
@@ -288,7 +288,7 @@ Install-Module -Name AzureRM.PolicyInsights
 # Import the downloaded module
 Import-Module AzureRM.PolicyInsights
 
-# Login with Connect-AzureRmAccount if not using Cloud Shell
+# Login with Connect-AzureRmAccount if not using CLI
 Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
 ```
 

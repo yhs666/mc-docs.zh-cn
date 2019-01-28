@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 10/18/2018
-ms.date: 12/17/2018
+origin.date: 01/09/2019
+ms.date: 01/28/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: e5196e214cb136b91f3c63b9dcf99e8045714538
-ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
+ms.openlocfilehash: e3346eef1129157ff75365cb3f560ef9305085d1
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53157393"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085665"
 ---
 # <a name="supplemental-lesson---detail-rows"></a>补充课程 - 详细信息行
 
@@ -35,7 +35,9 @@ ms.locfileid: "53157393"
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-pivottable.png)
 
 3. 在数据透视表中，双击针对某个年份和区域名称的聚合值。 双击针对澳大利亚和 2014 年的值。 此时将打开一个新的工作表，其中含有数据，但并无用处。
-
+    
+    <!--Notice: Australia is correct for IMAGE-->
+    
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-sheet.png)
 
 此处的目标是一个包含对 InternetTotalSales 度量值的聚合结果作出了贡献的数据列和数据行的表。 为实现此目标，可以将一个详细信息行表达式添加为该度量值的属性。

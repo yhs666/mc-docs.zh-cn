@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 10/18/2018
-ms.date: 12/17/2018
+origin.date: 01/09/2019
+ms.date: 01/28/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 26319e02a9af878166c95701d175cb64284eefa1
-ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
+ms.openlocfilehash: 2d5628e5ec626c7b478cbb66e00581ce06e79559
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53157428"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085633"
 ---
 # <a name="deploy"></a>部署
 
@@ -75,4 +75,4 @@ ms.locfileid: "53157428"
 [补充课程 - 详细信息行](../tutorials/aas-supplemental-lesson-detail-rows.md)   
 [补充课程 - 不规则层次结构](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
 
-<!--Update_Description: update meta properties, update link -->
+<!--Update_Description: update meta properties -->

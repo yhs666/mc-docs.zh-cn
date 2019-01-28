@@ -10,12 +10,12 @@ ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
 ms.topic: article
 origin.date: 08/15/2016
 ms.date: 11/12/2018
-ms.openlocfilehash: 7a48548b280f486e20e4fc25bc9e0b7f80a23dbc
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 80aca76439aafbe02557a148f0aa708b49131441
+ms.sourcegitcommit: 92503f045267f436cf3ca7fa9e6f1c13be17fb44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647428"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54858199"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Azure 计划程序的出站身份验证
 
@@ -118,7 +118,7 @@ X-AspNet-Version: 4.0.30319
 X-Powered-By: ASP.NET
 x-ms-ratelimit-remaining-subscription-resource-requests: 599
 x-ms-correlation-request-id: 1075219e-e879-4030-bc81-094e54fbabce
-x-ms-routing-request-id: WESTUS:20160316T190424Z:1075219e-e879-4030-bc81-094e54fbabce
+x-ms-routing-request-id: CHINAEAST:20160316T190424Z:1075219e-e879-4030-bc81-094e54fbabce
 Strict-Transport-Security: max-age=31536000; includeSubDomains
 Date: Wed, 16 Mar 2016 19:04:23 GMT
 
@@ -238,7 +238,7 @@ X-AspNet-Version: 4.0.30319
 X-Powered-By: ASP.NET
 x-ms-ratelimit-remaining-subscription-resource-requests: 599
 x-ms-correlation-request-id: 7816f222-6ea7-468d-b919-e6ddebbd7e95
-x-ms-routing-request-id: WESTUS:20160316T190506Z:7816f222-6ea7-468d-b919-e6ddebbd7e95
+x-ms-routing-request-id: CHINAEAST:20160316T190506Z:7816f222-6ea7-468d-b919-e6ddebbd7e95
 Strict-Transport-Security: max-age=31536000; includeSubDomains
 Date: Wed, 16 Mar 2016 19:05:06 GMT
 
@@ -362,7 +362,7 @@ X-AspNet-Version: 4.0.30319
 X-Powered-By: ASP.NET
 x-ms-ratelimit-remaining-subscription-resource-requests: 599
 x-ms-correlation-request-id: 5183bbf4-9fa1-44bb-98c6-6872e3f2e7ce
-x-ms-routing-request-id: WESTUS:20160316T191003Z:5183bbf4-9fa1-44bb-98c6-6872e3f2e7ce
+x-ms-routing-request-id: CHINAEAST:20160316T191003Z:5183bbf4-9fa1-44bb-98c6-6872e3f2e7ce
 Strict-Transport-Security: max-age=31536000; includeSubDomains
 Date: Wed, 16 Mar 2016 19:10:02 GMT
 

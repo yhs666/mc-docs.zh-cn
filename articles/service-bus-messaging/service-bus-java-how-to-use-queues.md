@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 01/21/19
+ms.date: 01/28/19
 ms.author: v-lingwu
-ms.openlocfilehash: f259283b6d82ce4e6f6a92f85d2b3c9c4893a753
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: dd8bcfe3a39edefcd122151618a95d40b099429b
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363326"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906214"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>如何通过 Java 使用服务总线队列
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -31,7 +31,6 @@ ms.locfileid: "54363326"
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 ## <a name="create-a-service-bus-namespace"></a>创建服务总线命名空间
-
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="create-a-service-bus-queue"></a>创建服务总线队列

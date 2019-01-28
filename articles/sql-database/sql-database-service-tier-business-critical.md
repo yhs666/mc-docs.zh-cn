@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
 origin.date: 12/04/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: b9b6b82bc356d18aa7633672fe243b1f13166f9b
-ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
+ms.date: 01/28/2019
+ms.openlocfilehash: 9fb2a7e70027cf297083131cb2c01b4e8b42bd12
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54397020"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906225"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>业务关键层 - Azure SQL 数据库
 
@@ -28,6 +28,7 @@ ms.locfileid: "54397020"
 Azure SQL 数据库基于 SQL Server 数据库引擎体系结构，该体系结构已根据云环境做出调整，以确保即使在发生基础结构故障时，也仍能提供 99.99% 的可用性。 Azure SQL 数据库中使用了两种体系结构模型：
 - 常规用途/标准 
 - 业务关键/高级
+- 超大规模
 
 高级/业务关键服务层模型基于数据库引擎进程群集。 此体系结构模型依赖于以下事实：即使在执行维护活动期间，也始终存在可用数据库引擎节点的仲裁，并且能尽量减少对工作负荷性能的影响。
 
@@ -49,6 +50,6 @@ SQL 数据库引擎进程和底层 mdf/ldf 文件都放置在同一个节点上�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 了解[常规用途](sql-database-service-tier-general-purpose.md)层。
+- 了解[常规用途](sql-database-service-tier-general-purpose.md)和[超大规模](sql-database-service-tier-hyperscale.md)层。
 - 了解 [Service Fabric](../service-fabric/service-fabric-overview.md)。
 - 有关高可用性和灾难恢复的更多选项，请参阅[业务连续性](sql-database-business-continuity.md)。

@@ -13,14 +13,14 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/14/2018
-ms.date: 01/21/2019
+ms.date: 01/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: ffba336197a6d29f98f7cd81cd8b56bc82bad39a
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: 950c9b1c08a0da89e9946b1466bccf69687d25c0
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193041"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085686"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的资源函数
 
@@ -781,4 +781,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 * 若要在创建资源类型时迭代指定的次数，请参阅[在 Azure Resource Manager 中创建多个资源实例](resource-group-create-multiple.md)。
 * 要查看如何部署已创建的模板，请参阅[使用 Azure 资源管理器模板部署应用程序](resource-group-template-deploy.md)。
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update-->

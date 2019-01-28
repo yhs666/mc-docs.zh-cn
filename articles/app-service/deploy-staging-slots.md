@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 12/16/2016
 ms.date: 01/28/2019
 ms.author: v-biyu
-ms.openlocfilehash: 09bb90d8c5165e137b0c97a618f2dd8eec7a2a48
-ms.sourcegitcommit: ced39ce80d38d36bdead66fc978d99e93653cb5f
+ms.openlocfilehash: 3310bf3cd57f47bcd843d7622b2240066d9dd157
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54307624"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906155"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>设置 Azure 应用服务中的过渡环境
 <a name="Overview"></a>
@@ -149,7 +149,7 @@ ms.locfileid: "54307624"
 
 2. 准备好启动交换后，单击“开始交换”。
 
-    第 1 阶段完成后，将在对话框中收到通知。 通过导航到 `https://<app_name>-<source-slot-name>.azurewebsites.net` 来预览源槽中的交换。 
+    第 1 阶段完成后，将在对话框中收到通知。 通过导航到 `https://<app_name>-<source-slot-name>.chinacloudsites.cn` 来预览源槽中的交换。 
 
 3. 准备完成挂起的交换后，在“交换操作”中选择“完成交换”，然后单击“完成交换”。
 

@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 10/25/2018
-ms.date: 01/14/2019
+ms.date: 02/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: 39e22a588ebe18d3de09cc53256cc672196911df
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: 00054e9f88766a473bc4e48a2e7f5eed54eed427
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029252"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906053"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>将本地 Apache Hadoop 群集迁移到 Azure HDInsight - 基础结构最佳做法
 
@@ -176,7 +176,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
 
 退出安全模式后，可以手动删除临时文件，或等待 Hive 最终自动清除这些文件。
 
-有关详细信息，请参阅[缩放 HDInsight 群集](../hdinsight-scaling-best-practices.md)一文
+有关详细信息，请参阅[缩放 HDInsight 群集](../hdinsight-scaling-best-practices.md)一文。
 
 ## <a name="use-hdinsight-with-azure-virtual-network"></a>通过 Azure 虚拟网络使用 HDInsight
 
@@ -205,7 +205,7 @@ HDInsight 支持[虚拟网络服务终结点](../../virtual-network/virtual-netw
 有关详细信息，请参阅以下文章：
 
 - [虚拟网络服务终结点](../../virtual-network/virtual-network-service-endpoints-overview.md)
-- [使用服务终结点增强 HDInsight 安全性](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/.md)
+- [使用服务终结点增强 HDInsight 安全性](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)
 
 ## <a name="connect-hdinsight-to-the-on-premises-network"></a>将 HDInsight 连接到本地网络
 

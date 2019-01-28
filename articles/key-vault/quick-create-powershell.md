@@ -15,12 +15,12 @@ ms.custom: mvc
 origin.date: 05/10/2018
 ms.date: 10/22/2018
 ms.author: v-biyu
-ms.openlocfilehash: 24eaff819f39183523e36055949eb4f656a505fe
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d3427c06e1fd080d495faf4f85e8b770a15f909c
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652325"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906227"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>快速入门：使用 PowerShell 在 Azure Key Vault 中设置和检索机密
 
@@ -28,7 +28,7 @@ Azure Key Vault 是一项云服务，用作安全的机密存储。 可以安全
 
 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
-如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.1.1 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount` 以创建与 Azure 的连接。
+如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.1.1 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.azure.cn/zh-cn/powershell-install-configure)。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount` 来创建与 Azure 的连接。
 
 ```azurepowershell
 Login-AzureRmAccount -EnvironmentName AzureChinaCloud
@@ -56,7 +56,7 @@ New-AzureRmResourceGroup -Name ContosoResourceGroup -Location ChinaNorth
 New-AzureRmKeyVault -VaultName 'Contoso-Vault2' -ResourceGroupName 'ContosoResourceGroup' -Location 'China North'
 ```
 
-此 cmdlet 的输出显示新创建的密钥保管库的属性。 记下下面列出的两项属性：
+此 cmdlet 的输出显示新创建的密钥保管库的属性。 请记下下面列出的两个属性：
 
 * **保管库名称**：在本示例中为 **Contoso-Vault2**。 将在其他密钥保管库 cmdlet 中使用此名称。
 - **保管库 URI**：在本示例中为 https://contosokeyvault.vault.azure.cn/。 通过其 REST API 使用保管库的应用程序必须使用此 URI。

@@ -32,7 +32,7 @@
 ## 服务器
 ### [备份和还原](analysis-services-backup.md)
 ### [配置服务器名称别名](analysis-services-server-alias.md)
-<!-- Not Available on ### [Configure scale-out](analysis-services-scale-out.md)-->
+### [配置横向扩展](analysis-services-scale-out.md)
 ### [安装并配置本地数据网关](analysis-services-gateway-install.md)
 ### [对 Azure 虚拟网络上的数据源使用网关](analysis-services-vnet-gateway.md)
 ### [管理服务器](analysis-services-manage.md)

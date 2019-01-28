@@ -1,19 +1,19 @@
 ---
 title: 使用 InfluxData Telegraf 代理收集 Linux VM 的自定义指标
 description: 使用 InfluxData Telegraf 代理收集 Linux VM 的自定义指标
-author: anirudhcavale
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: howto
-ms.date: 09/24/2018
-ms.author: ancav
-ms.component: metrics
-ms.openlocfilehash: 2bdffc142dfc0fd9be9b9d8003d2f8b257325374
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.date: 01/21/19
+ms.author: v-lingwu
+ms.subservice: metrics
+ms.openlocfilehash: b1a4b53be8cfa29e62b43cf7caa19ab4f6064fdd
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141749"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906212"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>使用 InfluxData Telegraf 代理收集 Linux VM 的自定义指标
 

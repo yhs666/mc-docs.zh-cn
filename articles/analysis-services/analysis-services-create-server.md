@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-origin.date: 10/18/2018
-ms.date: 01/21/2019
+origin.date: 01/09/2019
+ms.date: 01/28/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: ea203666dc878c3628d0f8ae9f51e4a9a0aa89c8
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: f6fbfc2974f2780801c39870c8983b606f0e964a
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193019"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085668"
 ---
 # <a name="quickstart-create-a-server---portal"></a>快速入门：创建服务器 - 门户
 
@@ -33,6 +33,8 @@ ms.locfileid: "54193019"
 
 1. 依次单击“+ 创建资源” > “数据 + 分析” > “Analysis Services”。
 
+    <!--Mooncake is **Data + Analytics** format-->
+    
     ![门户](./media/analysis-services-create-server/aas-create-server-portal.png)
 
 2. 在“Analysis Services”中，填写必填字段，然后按“创建”。
@@ -42,9 +44,9 @@ ms.locfileid: "54193019"
     * **资源组**：创建一个新资源组或选择一个现有资源组。 资源组旨在帮助管理 Azure 资源的集合。 若要了解详细信息，请参阅[资源组](../azure-resource-manager/resource-group-overview.md)。
     * **位置**：此 Azure 数据中心位置承载着该服务器。 选择最接近最大用户群的位置。
     * **定价层**：选择定价层。 如果要进行测试且想要安装示例模型数据库，请选择免费的 D1 层。 若要了解详细信息，请参阅 [Azure Analysis Services 定价](https://www.azure.cn/pricing/details/analysis-services/)。 
-        * **管理员**：默认情况下，这是用于登录的帐户。 可从 Azure Active Directory 选择其他帐户。
-        * **备份存储设置**：可选。 如果已有[存储帐户](../storage/common/storage-introduction.md)，则可将其指定为默认模型数据库备份帐户。 稍后还可指定[备份和还原](analysis-services-backup.md)设置。
-        * **存储密钥有效期**：可选。 指定存储密钥的有效期。
+    * **管理员**：默认情况下，这是用于登录的帐户。 可从 Azure Active Directory 选择其他帐户。
+    * **备份存储设置**：可选。 如果已有[存储帐户](../storage/common/storage-introduction.md)，则可将其指定为默认模型数据库备份帐户。 稍后还可指定[备份和还原](analysis-services-backup.md)设置。
+    * **存储密钥有效期**：可选。 指定存储密钥的有效期。
 
 创建服务器通常不超过一分钟的时间。 如果选择“添加到门户”，请导航到门户查看新服务器。 或者，导航到“所有服务” > “Analysis Services”，查看服务器是否就绪。
 
@@ -62,4 +64,4 @@ ms.locfileid: "54193019"
 > [!div class="nextstepaction"]
 > [教程：将示例模型添加到服务器](analysis-services-create-sample-model.md)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

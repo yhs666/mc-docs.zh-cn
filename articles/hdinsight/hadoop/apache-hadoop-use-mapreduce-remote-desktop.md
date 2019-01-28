@@ -1,6 +1,6 @@
 ---
-title: 将 MapReduce 和远程桌面与 HDInsight 中的 Hadoop 配合使用 - Azure | Azure
-description: 了解如何使用远程桌面连接到 HDInsight 上的 Hadoop 并运行 MapReduce 作业。
+title: 将 MapReduce 和远程桌面与 HDInsight 中的 Apache Hadoop 配合使用 - Azure
+description: 了解如何使用远程桌面连接到 HDInsight 上的 Apache Hadoop 并运行 MapReduce 作业。
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 01/12/2017
-ms.date: 01/14/2019
+ms.date: 02/04/2019
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: f900cb9686f7fbccc9ebdb4443c6508772cc4aca
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: 1ed39ae0a892d0d63c8a2c244b21fc63a5cad19e
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029146"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906089"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight-with-remote-desktop"></a>通过远程桌面在 HDInsight 上的 Apache Hadoop 中使用 MapReduce
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
@@ -82,7 +82,7 @@ ms.locfileid: "54029146"
 
         hadoop fs -cat wasb:///example/data/WordCountOutput/part-r-00000
 
-    这会显示 **wasbs://example/data/gutenberg/davinci.txt** 文件中包含的单词列表，以及每个单词的出现次数。 下面是要包含在文件中的数据示例：
+    这会显示 **wasbs://example/data/gutenberg/davinci.txt** 文件中包含的单词列表，以及每个单词出现的次数。 下面是要包含在文件中的数据示例：
 
         wreathed        3
         wreathing       1

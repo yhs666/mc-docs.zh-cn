@@ -8,14 +8,14 @@ author: ecfan
 ms.author: v-yiso
 ms.reviewer: yshoukry, LADocs
 ms.topic: article
-origin.date: 07/20/2018
-ms.date: 11/12/2018
-ms.openlocfilehash: a1b09441dd555825770457743bafef9ac5bf742b
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+origin.date: 10/01/2018
+ms.date: 02/04/2019
+ms.openlocfilehash: ad5fe1be6c6679ea15d10e192eb9cbfbd65fe00e
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675256"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906197"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>为 Azure 逻辑应用安装本地数据网关
 
@@ -52,7 +52,7 @@ ms.locfileid: "52675256"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 具有 [Azure 订阅](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer)的工作或学校帐户 
+* 具有[Azure 订阅](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer)的[工作或学校帐户](../active-directory/fundamentals/sign-up-organization.md) 
 
   在安装网关期间，需登录到此帐户，以便将网关安装与 Azure 订阅相关联。 
   稍后在 Azure 门户中为网关安装创建 Azure 资源时，也要使用此帐户。 
@@ -80,7 +80,7 @@ ms.locfileid: "52675256"
   * 在连接到 Internet 的计算机上安装网关，始终打开，并且不进入休眠状态。 否则，网关不能运行。 
   此外，在通过无线网络工作时，性能可能会下降。
 
-  * 安装期间，只能使用由 Azure Active Directory (Azure AD) 托管的工作或学校帐户，例如 @contoso.onmicrosoft.com，而不能使用 Azure B2B（来宾）帐户或个人 Microsoft 帐户，例如 @hotmail.com 或 @outlook.com。 
+  * 安装期间，只能使用由 Azure Active Directory (Azure AD) 托管的[工作或学校帐户](../active-directory/fundamentals/sign-up-organization.md)，例如 @contoso.onmicrosoft.com，而不能使用 Azure B2B（来宾）帐户或个人 Microsoft 帐户，例如 @hotmail.com 或 @outlook.com。 
   在通过创建网关资源在 Azure 门户中注册网关安装时，必须使用同一登录帐户。 
   然后，在创建从逻辑应用到本地数据源的连接时，可以选择此网关资源。 
   [为何必须使用 Azure AD 工作或学校帐户？](#why-azure-work-school-account)
@@ -116,7 +116,7 @@ ms.locfileid: "52675256"
 
 ## <a name="install-data-gateway"></a>安装数据网关
 
-1. [在本地计算机上下载、保存并运行网关安装程序](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409)。
+1. [在本地计算机上下载、保存并运行网关安装程序](https://aka.ms/on-premises-data-gateway-installer)。
 
 2. 接受默认安装路径，或者在计算机上指定网关的安装位置。
 
@@ -262,7 +262,7 @@ TcpTestSucceeded       : True
 
    若要查找客户端位置，请在同一台计算机上打开服务控制台，找到“本地数据网关服务”，并查看“可执行文件的路径”属性。
 
-2. 打开此配置文件：**Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
+2. 打开以下配置文件：**Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
 
 3. 将 **ServiceBusSystemConnectivityModeString** 值从 **AutoDetect** 更改为 **Https**：
 
@@ -276,10 +276,9 @@ TcpTestSucceeded       : True
 
 ## <a name="windows-service-account"></a>Windows 服务帐户
 
-本地数据网关以名为“本地数据网关服务”的 Windows 服务形式运行，但对其“登录身份”帐户凭据使用“NT SERVICE\PBIEgwService”。 默认情况下，本地数据网关对安装该网关的计算机拥有“作为服务登录”权限。 若要创建和维护 Azure 门户中的网关，Windows 服务帐户必须至少具有“参与者”权限。 
+在安装了本地数据网关的计算机上，网关作为名为“本地数据网关服务”的 Windows 服务帐户运行。 但是，网关使用“NT SERVICE\PBIEgwService”名称作为其“登录方式”帐户凭据。 默认情况下，网关在安装了网关的计算机上拥有“作为服务登录”权限。 网关的 Windows 服务帐户通常不同于用来连接到本地数据源的帐户，也不同于用于登录到云服务的工作或学校帐户。
 
-> [!NOTE]
-> Windows 服务帐户与用于连接到本地数据源的帐户或用于登录到云服务的工作或学校帐户不同。
+若要在 Azure 门户中创建和维护网关，此 Windows 服务帐户必须至少具有“参与者”权限。 若要检查这些权限，请参阅[使用 RBAC 和 Azure 门户管理访问权限](../role-based-access-control/role-assignments-portal.md)。 
 
 <a name="restart-gateway"></a>
 
@@ -329,7 +328,7 @@ TcpTestSucceeded       : True
 
 ### <a name="general"></a>常规
 
-问：对于云中的数据源（如 Azure SQL 数据库），是否需要网关？ <br/>
+**问**：对于云中的数据源（如 Azure SQL 数据库），是否需要网关？ <br/>
 **答**：不需要，网关只连接到本地数据源。
 
 **问**：网关是否必须安装在与数据源相同的计算机上？ <br/>
@@ -376,10 +375,10 @@ TcpTestSucceeded       : True
 
 本部分帮助你解决在设置和使用本地数据网关时可能遇到的一些常见问题。
 
-**问：** 网关安装为何失败？ <br/>
+**问**：网关安装为何失败？ <br/>
 **答**：如果目标计算机上的防病毒软件已过时，则可能会发生此问题。 可以更新防病毒软件，或者在安装网关期间禁用防病毒软件，安装后再重新启用该软件。
 
-**问：** 在 Azure 中创建网关资源时为何看不到我的网关安装？ <br/>
+**问**：在 Azure 中创建网关资源时为何看不到我的网关安装？ <br/>
 **答**：此问题的可能原因如下：
 
 * 网关安装已由 Azure 中的另一个网关资源注册并声明。 为网关安装创建网关资源后，实例列表中不会显示这些网关安装。
@@ -401,7 +400,7 @@ TcpTestSucceeded       : True
 
 如果网关版本过时，可能会出现很多问题。 良好的常规做法是确保使用最新版本。 如果有一个月或更长时间未更新网关，可能要考虑安装最新版本的网关，并确定是否可以重现问题。
 
-### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>错误: 无法将用户添加到组。 (-2147463168 PBIEgwService Performance Log Users)
+### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>错误：无法将用户添加到组。 (-2147463168 PBIEgwService Performance Log Users)
 
 如果尝试在不受支持的域控制器上安装网关，可能会收到此错误。 请确保将网关部署在不是域控制器的计算机上。
 
@@ -444,7 +443,7 @@ TcpTestSucceeded       : True
 
    若要查找客户端位置，请在同一台计算机上打开服务控制台，找到“本地数据网关服务”，并查看“可执行文件的路径”属性。
 
-2. 打开此配置文件：**Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
+2. 打开以下配置文件：**Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
 
 3. 将 **SendTelemetry** 值更改为 **true**：
 

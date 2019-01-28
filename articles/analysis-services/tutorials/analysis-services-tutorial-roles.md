@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-origin.date: 12/06/2018
-ms.date: 01/21/2019
+origin.date: 01/09/2019
+ms.date: 01/28/2019
 ms.author: v-yeche
 ms.reviewer: owend
-ms.openlocfilehash: 47e6de4def21438fd2da153b60711cdf275f3d31
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: fe5f8c29d0919e09549d94578e445d17a84a1383
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193083"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085666"
 ---
 <!--Notice: Verify successfully-->
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>教程：配置服务器管理员和用户角色
@@ -146,4 +146,4 @@ ms.locfileid: "54193083"
 > [!div class="nextstepaction"]
 > [教程：使用 Power BI Desktop 进行连接](analysis-services-tutorial-pbid.md)
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: tutorial
 origin.date: 11/22/2017
 ms.author: v-yiso
-ms.date: 12/24/2018
-ms.openlocfilehash: a384ef85bdd5bcc5c7eeb46e2d3475d8c49c76fb
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.date: 02/04/2019
+ms.openlocfilehash: da6c761b9dca426f60941dbde802343321094737
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029436"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906038"
 ---
 # <a name="import-a-logic-app-as-an-api"></a>将逻辑应用导入为 API
 
@@ -34,8 +34,8 @@ ms.locfileid: "53029436"
 
 ## <a name="prerequisites"></a>先决条件
 
-+ 完成以下快速入门：[创建一个 Azure API 管理实例](get-started-create-service-instance.md)
-+ 确保订阅中已有一个逻辑应用。 有关详细信息，[创建第一个逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* 完成以下快速入门：[创建一个 Azure API 管理实例](get-started-create-service-instance.md)
+* 确保订阅中已有一个公开 HTTP 终结点的逻辑应用。 有关详细信息，请参阅[使用 HTTP 终结点触发工作流](../logic-apps/logic-apps-http-endpoint.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -45,7 +45,7 @@ ms.locfileid: "53029436"
 2. 从“添加新的 API”列表中选择“逻辑应用”。
 
     ![逻辑应用](./media/import-logic-app-as-api/logic-app-api.png)
-3. 按“浏览”查看订阅中的逻辑应用列表。
+3. 按“浏览”查看订阅中可调用的逻辑应用的列表。
 4. 选择应用。 APIM 找到与所选应用关联的 swagger 后，将其提取并导入。 
 5. 添加 API URL 后缀。 后缀是用于在该 APIM 实例中标识此特定 API 的名称。 它在此 APIM 实例中必须唯一。
 6. 通过关联 API 与产品来发布 API。 本例中使用了“无限制”产品。  如果想要发布 API 并使其对开发人员可用，请将其添加到产品中。 可在 API 创建期间执行此操作，或稍后进行设置。

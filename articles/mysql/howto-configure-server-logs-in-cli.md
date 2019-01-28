@@ -11,12 +11,12 @@ ms.devlang: azure-cli
 ms.topic: article
 origin.date: 02/28/2018
 ms.date: 08/27/2018
-ms.openlocfilehash: 1b680412cc9bbf1fe5490a5d374c3f2dff773f78
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5b38cd7dfd2550a9a6e6ec39c5fe9ff0d0d289af
+ms.sourcegitcommit: 92503f045267f436cf3ca7fa9e6f1c13be17fb44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662063"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54858200"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>使用 Azure CLI 配置和访问服务器日志
 可以使用 Azure CLI（Azure 的命令行实用工具）下载 Azure Database for MySQL 服务器日志。
@@ -34,7 +34,7 @@ ms.locfileid: "52662063"
 若要了解如何通过 Azure CLI 设置这些参数的值，请参阅[如何配置服务器参数](howto-configure-server-parameters-using-cli.md)。 
 
 例如，以下 CLI 命令将启用慢查询日志、将长查询时间设置为 10 秒并禁用慢管理语句的日志记录。 最后，它将列出配置选项供复查。
-```azurecli-interactive
+```azurecli
 az mysql server configuration set --name slow_query_log --resource-group myresourcegroup --server mydemoserver --value ON
 az mysql server configuration set --name long_query_time --resource-group myresourcegroup --server mydemoserver --value 10
 az mysql server configuration set --name log_slow_admin_statements --resource-group myresourcegroup --server mydemoserver --value OFF
@@ -45,14 +45,14 @@ az mysql server configuration list --resource-group myresourcegroup --server myd
 若要列出服务器的可用日志文件，请运行 [az mysql server-logs list](/cli/mysql/server-logs#az-mysql-server-logs-list) 命令。
 
 可以列出资源组“myresourcegroup”下的服务器 **mydemoserver.mysql.database.chinacloudapi.cn** 的日志文件。 然后在日志文件列表中找到名为“log\_files\_list.txt”的文本文件。
-```azurecli-interactive
+```azurecli
 az mysql server-logs list --resource-group myresourcegroup --server mydemoserver > log_files_list.txt
 ```
 ## <a name="download-logs-from-the-server"></a>从服务器下载日志
 使用 [az mysql server-logs download](/cli/mysql/server-logs#az-mysql-server-logs-download) 命令可下载服务器的单独日志文件。 
 
 使用以下示例，可以将资源组“myresourcegroup”下服务器 **mydemoserver.mysql.database.chinacloudapi.cn** 的特定日志文件下载到本地环境。
-```azurecli-interactive
+```azurecli
 az mysql server-logs download --name 20170414-mydemoserver-mysql.log --resource-group myresourcegroup --server mydemoserver
 ```
 

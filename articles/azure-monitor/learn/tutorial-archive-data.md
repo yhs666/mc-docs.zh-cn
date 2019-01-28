@@ -1,20 +1,20 @@
 ---
 title: 使用 Azure 存储将 Azure 指标和日志数据存档
 description: 将 Azure 内生成的日志和指标数据存档到存储帐户。
-author: johnkemnetz
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: tutorial
-ms.date: 09/25/2017
-ms.author: johnkem
+ms.date: 01/21/19
+ms.author: v-lingwu
 ms.custom: mvc
-ms.component: metrics
-ms.openlocfilehash: 48d27d679cc698a3110f3b9c375c8cecc8ca8122
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.subservice: metrics
+ms.openlocfilehash: a03830cefb0d65b1d7e01002a21b6400e718e3c9
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141789"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906139"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>使用 Azure 存储将 Azure 指标和日志数据存档
 
@@ -34,7 +34,7 @@ Azure 环境的很多层都会生成可存档到 Azure 存储帐户的日志和�
 > * 查看其中的监控数据
 > * 清理资源
 
-如果没有 Azure 订阅，请在开始之前创建一个[免费](https://azure.microsoft.com/free/)帐户。
+如果没有 Azure 订阅，请在开始之前创建一个[免费](https://www.azure.cn/free/)帐户。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 
@@ -195,7 +195,3 @@ Azure 环境的很多层都会生成可存档到 Azure 存储帐户的日志和�
 > * 查看其中的监控数据
 > * 清理资源
 
-若要充分使用数据并得出额外见解，还要将数据发送到 Log Analytics。
-
-> [!div class="nextstepaction"]
-> [Log Analytics 入门](../../azure-monitor/log-query/log-query-overview.md)

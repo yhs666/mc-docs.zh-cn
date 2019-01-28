@@ -1,6 +1,6 @@
 ---
-title: 访问 Azure 逻辑应用的本地数据源 | Microsoft Docs
-description: 创建并设置本地数据网关，以便从逻辑应用访问本地数据源
+title: 从 Azure 逻辑应用中访问本地数据源 | Microsoft Docs
+description: 通过创建本地数据网关，从逻辑应用连接到本地数据源
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,17 +9,17 @@ ms.author: v-yiso
 ms.reviewer: arthii, LADocs
 ms.topic: article
 origin.date: 10/01/2018
-ms.date: 12/11/2018
-ms.openlocfilehash: 5d98b95fd30a473eee5cc243262269c562472fca
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 02/04/2019
+ms.openlocfilehash: bd2980b7719283c36629dd789177541867b76546
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675472"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906111"
 ---
-# <a name="connect-to-data-sources-on-premises-from-azure-logic-apps-with-on-premises-data-gateway"></a>通过本地数据网关从 Azure 逻辑应用连接到本地数据源
+# <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>从 Azure 逻辑应用连接到本地数据源
 
-若要从逻辑应用访问本地数据源，可在 Azure 中创建一个数据网关资源，使逻辑应用能够使用[本地连接器](../logic-apps/logic-apps-gateway-install.md#supported-connections)。 本文介绍[在本地计算机上下载并安装网关](../logic-apps/logic-apps-gateway-install.md)之后，如何创建 Azure 网关资源。 
+若要从逻辑应用中访问本地数据源，请在 Azure 门户中创建本地数据网关资源。 然后，逻辑应用可以使用[本地连接器](../logic-apps/logic-apps-gateway-install.md#supported-connections)。 本文介绍[在本地计算机上下载并安装网关](../logic-apps/logic-apps-gateway-install.md)之后，如何创建 Azure 网关资源。 
 
 有关如何将网关用于其他服务的信息，请参阅以下文章：
 

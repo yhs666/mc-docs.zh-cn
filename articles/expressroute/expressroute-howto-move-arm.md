@@ -1,29 +1,24 @@
 ---
-title: 将 ExpressRoute 线路从经典部署模型移动到 Resource Manager 部署模型：PowerShell | Azure
+title: 将线路从经典移至资源管理器 - ExpressRoute：PowerShell：Azure
 description: 本页面介绍如何使用 PowerShell 将经典线路移动到 Resource Manager 部署模型。
-documentationCenter: na
 services: expressroute
 author: ganesr
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 08152836-23e7-42d1-9a56-8306b341cd91
 ms.service: expressroute
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 06/28/2018
-ms.date: 08/13/2018
+origin.date: 01/07/2019
+ms.date: 02/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: dee32b90736b2a532d92e810bba689a03cbc627f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a95ae4e11300c5624f46e085e112874d74590b9b
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649536"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906051"
 ---
-# <a name="move-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model-using-powershell"></a>使用 PowerShell 将 ExpressRoute 线路从经典部署模型移动到 Resource Manager 部署模型
+# <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>使用 PowerShell 将 ExpressRoute 线路从经典部署模型转移到资源管理器部署模型
 
 要将 ExpressRoute 线路同时用于经典部署模型和 Resource Manager 部署模型，必须将该线路移动到 Resource Manager 部署模型中。 以下部分可帮助使用 PowerShell 转移线路。
 
@@ -46,7 +41,7 @@ ms.locfileid: "52649536"
   Add-AzureAccount
   ```
 
-2. 选择相应的 Azure 订阅。
+2. 选择适当的 Azure 订阅。
 
   ```powershell
   Select-AzureSubscription "<Enter Subscription Name here>"
@@ -55,8 +50,8 @@ ms.locfileid: "52649536"
 3. 为 Azure 和 ExpressRoute 导入 PowerShell 模块。
 
   ```powershell
-  Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
-  Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
+  Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+  Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
   ```
 
 4. 使用下面的 cmdlet 获取所有 ExpressRoute 线路的服务密钥。 检索密钥后，请复制要移动到 Resource Manager 部署模型的线路的 **服务密钥** 。

@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 02/23/2018
-ms.date: 06/25/2018
+origin.date: 12/28/2018
+ms.date: 02/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: 4151c8439557fe227f0bcf79da59f4fb34562413
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f146512b9ce3d1c5225764faa591098cc26424d8
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643743"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906182"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>将 HDInsight 连接到本地网络
 
@@ -68,47 +68,59 @@ ms.locfileid: "52643743"
 > [!IMPORTANT]
 > 必须先创建并配置 DNS 服务器，此后再将 HDInsight 安装到虚拟网络中。
 
-若要创建使用 [Bind](https://www.isc.org/downloads/bind/) DNS 软件的 Linux VM，请执行以下步骤：
+这些步骤通过 [Azure 门户](https://portal.azure.cn)创建 Azure 虚拟机。 关于其他创建虚拟机的方法，请参阅[创建 VM - Azure CLI](../virtual-machines/linux/quick-create-cli.md) 和[创建 VM - Azure PowerShell](../virtual-machines/linux/quick-create-portal.md)。  若要创建使用 [Bind](https://www.isc.org/downloads/bind/) DNS 软件的 Linux VM，请执行以下步骤：
 
-> [!NOTE]
-> 以下步骤使用 [Azure 门户](https://portal.azure.cn)来创建 Azure 虚拟机。 有关创建虚拟机的其他方法，请参阅以下文档：
->
-> * [创建 VM - Azure CLI](../virtual-machines/linux/quick-create-cli.md)
-> * [创建 VM - Azure PowerShell](../virtual-machines/linux/quick-create-portal.md)
+  
+1. 登录到 [Azure 门户](https://portal.azure.com)。
+  
+1. 在左侧菜单中，选择“+ 创建资源”。
+ 
+1. 选择“虚拟机”。
 
-1. 在 [Azure 门户](https://portal.azure.cn)中，依次选择“+”、“计算”和“Ubuntu Server 16.04 LTS”。
+1. 选择“Ubuntu Server 18.04 LTS”。<br />  
 
     ![创建 Ubuntu 虚拟机](./media/connect-on-premises-network/create-ubuntu-vm.png)
 
-2. 在“基本信息”部分输入以下信息：
-
-    * 名称：用于标识此虚拟机的友好名称。 例如，DNSProxy。
-    * 用户名：SSH 帐户的名称。
-    * SSH 公钥或密码：SSH 帐户的身份验证方法。 建议使用公钥，因为更安全。 有关详细信息，请参阅[为 Linux VM 创建和使用 SSH 密钥](../virtual-machines/linux/mac-create-ssh-keys.md)文档。
-    * 资源组：选择“使用现有资源组”，然后选择包含此前创建的虚拟网络的资源组。
-    * 位置：选择虚拟网络所在的位置。
+1. 在“基本信息”选项卡中输入以下信息：  
+  
+    | 字段 | 值 |
+    | --- | --- |
+    |订阅 |选择相应的订阅。|
+    |资源组 |选择包含此前创建的虚拟网络的资源组。|
+    |虚拟机名称 | 输入用于标识该虚拟机的友好名称。 本示例使用 **DNSProxy**。|
+    |区域 | 选择与此前创建的虚拟网络相同的区域。  并非所有 VM 大小都可在所有区域中使用。  |
+    |可用性选项 |  选择所需的可用性级别。  Azure 提供一系列的选项，用于管理应用程序的可用性和复原能力。  将解决方案构建为使用可用性区域或可用性集中的已复制 VM，使应用和数据免受事件中心中断和维护事件的影响。 此示例使用“不需要基础结构冗余”。 |
+    |映像 | 为 VM 选择基础操作系统或应用程序。  对于此示例，请选择最小和最低成本选项。 |
+    |身份验证类型 | __密码__或 __SSH 公钥__：SSH 帐户的身份验证方法。 建议使用公钥，因为更安全。 此示例使用公钥。  有关详细信息，请参阅[为 Linux VM 创建和使用 SSH 密钥](../virtual-machines/linux/mac-create-ssh-keys.md)文档。|
+    |用户名 |输入 VM 的管理员用户名。  本示例使用 **sshuser**。|
+    |密码或 SSH 公钥 | 可用字段取决于针对“身份验证类型”所做的选择。  输入相应的值。|
+    |||
 
     ![虚拟机基本配置](./media/connect-on-premises-network/vm-basics.png)
 
-    将其他项保留默认值，然后选择“确定”。
+    将其他项保留为默认值，然后选择“网络”选项卡。
 
-3. 在“选择大小”部分，选择 VM 大小。 就本教程来说，请选择规模最小且成本最低的选项。 若要继续，请使用“选择”按钮。
+1. 在“网络”选项卡中，输入以下信息： 
 
-4. 在“设置”部分输入以下信息：
-
-    * 虚拟网络：选择此前创建的虚拟网络。
-
-    * 子网：选择虚拟网络的默认子网。 请勿选择 VPN 网关使用的子网。
-
-    * 诊断存储帐户：选择现有的存储帐户，或新建一个。
+    | 字段 | 值 |
+    | --- | --- |
+    |虚拟网络 | 选择此前创建的虚拟网络。|
+    |子网 | 选择前面创建的虚拟网络的默认子网。 请勿选择 VPN 网关使用的子网。|
+    |公共 IP | 使用自动填充的值。  |
 
     ![虚拟网络设置](./media/connect-on-premises-network/virtual-network-settings.png)
 
-    将其他项保留默认值，然后选择“确定”继续。
+    将其他项保留为默认值，然后选择“查看 + 创建”。
 
-5. 在“购买”部分，选择“购买”按钮可创建虚拟机。
+1. 在“查看 + 创建”选项卡中，选择“创建”以创建虚拟机。
+ 
 
-6. 创建虚拟机后，即会显示其“概述”部分。 从左侧列表中选择“属性”。 保存“公共 IP 地址”和“专用 IP 地址”值。 下一部分会用到它。
+### <a name="review-ip-addresses"></a>查看 IP 地址
+创建虚拟机后，会收到“部署成功”的通知，该通知附带一个“转到资源”按钮。  选择“转到资源”，转到新的虚拟机。  在新虚拟机的默认视图中，按照以下步骤确定关联的 IP 地址：
+
+1. 在“设置”中，选择“属性”。 
+
+1. 记下“公共 IP 地址/DNS 名称标签”和“专用 IP 地址”的值供以后使用。
 
     ![公共和专用 IP 地址](./media/connect-on-premises-network/vm-ip-addresses.png)
 
@@ -235,11 +247,19 @@ ms.locfileid: "52643743"
 
 ### <a name="configure-the-virtual-network-to-use-the-custom-dns-server"></a>将虚拟网络配置为使用自定义 DNS 服务器
 
-若要将虚拟网络配置为使用自定义 DNS 服务器而非 Azure 递归解析程序，请执行以下步骤：
+若要配置虚拟网络以使用自定义 DNS 服务器，而不是 Azure 递归解析程序，请在 [Azure 门户](https://portal.azure.cn)中使用以下步骤：
 
-1. 在 [Azure 门户](https://portal.azure.cn)中选择虚拟网络，然后选择“DNS 服务器”。
+1. 在左侧菜单中，选择“所有服务”。  
 
-2. 选择“自定义”，并输入自定义 DNS 服务器的内部 IP 地址。 最后，选择“保存”。
+1. 在“网络”下，选择“虚拟网络”。  
+
+1. 从列表中选择虚拟网络，此时会打开虚拟网络的默认视图。  
+
+1. 在默认视图中的“设置”下，选择“DNS 服务器”。  
+
+1. 选择“自定义”，然后输入自定义 DNS 服务器的专用 IP 地址。   
+
+1. 选择“其他安全性验证” 。  <br />  
 
     ![设置网络的自定义 DNS 服务器](./media/connect-on-premises-network/configure-custom-dns.png)
 
@@ -279,8 +299,8 @@ nslookup dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.chinacloudapp.cn 196.16
 
 2. 对于步骤 1 中确定的 IP 地址，允许该 IP 地址的入站流量。
 
-   * 如果使用 NSG：在端口 443上允许该 IP地址的入站流量。
-   * 如果使用 UDR：为该 IP 地址将路由的下一个跃点类型设置为“Internet”。
+   * 如果使用 __NSG__：在端口 443上允许该 IP地址的入站流量。
+   * 如果使用 __UDR__：为该 IP 地址将路由的下一个跃点类型设置为“Internet”。
 
 如需使用 Azure PowerShell 或 Azure CLI 来创建 NSG 的示例，请参阅[使用 Azure 虚拟网络扩展 HDInsight](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-nsg) 文档。
 
@@ -325,12 +345,12 @@ HDInsight 上的大多数文档假定你可以通过 Internet 访问群集。 �
     az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
     ```
 
-2. 若要确定服务的可用端口，请参阅 [HDInsight 的 Hadoop 服务所用的端口](./hdinsight-hadoop-port-settings-for-services.md)文档。
+2. 若要确定服务的可用端口，请参阅 [HDInsight 的 Apache Hadoop 服务所用的端口](./hdinsight-hadoop-port-settings-for-services.md)文档。
 
     > [!IMPORTANT]
-    > 托管在头节点上的某些服务一次只能在一个节点上处于活动状态。 如果在一个头节点上尝试访问服务并失败，请切换到其他头节点。
+    > 托管在头节点上的某些服务一次只能在一个节点上处于活动状态。 如果尝试在一个头节点上访问某个服务时失败，请切换到其他头节点。
     >
-    > 例如，Ambari 一次仅在一个头节点上处于活动状态。 如果在一个头节点上尝试访问 Ambari 并返回 404 错误，则它正在其他头节点上运行。
+    > 例如，Apache Ambari 一次仅在一个头节点上处于活动状态。 如果在一个头节点上尝试访问 Ambari 并返回 404 错误，则它正在其他头节点上运行。
 
 ## <a name="next-steps"></a>后续步骤
 

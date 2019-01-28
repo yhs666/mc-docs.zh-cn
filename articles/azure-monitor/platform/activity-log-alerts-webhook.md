@@ -1,19 +1,19 @@
 ---
 title: 了解活动日志警报中使用的 Webhook 架构
 description: 了解有关活动日志警报激活时发布到 webhook URL 的 JSON 架构。
-author: johnkemnetz
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 03/31/2017
-ms.author: johnkem
-ms.component: alerts
-ms.openlocfilehash: e6c8e17e783b4611251b5d526129f67d1e9f3385
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.date: 01/21/19
+ms.author: v-lingwu
+ms.subservice: alerts
+ms.openlocfilehash: bce4ea265ec2365a9739d85b1235f03a9003c498
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141717"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906102"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure 活动日志警报的 Webhook
 作为操作组定义的一部分，可以配置 webhook 终结点以接收活动日志警报通知。 通过 webhook 可以将这些通知路由到其他系统，以便进行后续处理或自定义操作。 本文介绍针对 webhook 发出的 HTTP POST 的有效负载的大致形式。
@@ -92,7 +92,7 @@ Webhook 可以选择使用基于令牌的授权进行身份验证。 保存的 w
         "activityLog": {
         "channels": "Admin",
         "correlationId": "bbac944f-ddc0-4b4c-aa85-cc7dc5d5c1a6",
-        "description": "Active: Virtual Machines - Australia East",
+        "description": "Active: Virtual Machines - China East",
         "eventSource": "ServiceHealth",
         "eventTimestamp": "2017-10-18T23:49:25.3736084+00:00",
         "eventDataId": "6fa98c0f-334a-b066-1934-1a4b3d929856",
@@ -100,16 +100,16 @@ Webhook 可以选择使用基于令牌的授权进行身份验证。 保存的 w
         "operationName": "Microsoft.ServiceHealth/incident/action",
         "operationId": "bbac944f-ddc0-4b4c-aa85-cc7dc5d5c1a6",
         "properties": {
-            "title": "Virtual Machines - Australia East",
+            "title": "Virtual Machines - China East",
             "service": "Virtual Machines",
-            "region": "Australia East",
-            "communication": "Starting at 02:48 UTC on 18 Oct 2017 you have been identified as a customer using Virtual Machines in Australia East who may receive errors starting Dv2 Promo and DSv2 Promo Virtual Machines which are in a stopped &quot;deallocated&quot; or suspended state. Customers can still provision Dv1 and Dv2 series Virtual Machines or try deploying Virtual Machines in other regions, as a possible workaround. Engineers have identified a possible fix for the underlying cause, and are exploring implementation options. The next update will be provided as events warrant.",
+            "region": "China East",
+            "communication": "Starting at 02:48 UTC on 18 Oct 2017 you have been identified as a customer using Virtual Machines in China East who may receive errors starting Dv2 Promo and DSv2 Promo Virtual Machines which are in a stopped &quot;deallocated&quot; or suspended state. Customers can still provision Dv1 and Dv2 series Virtual Machines or try deploying Virtual Machines in other regions, as a possible workaround. Engineers have identified a possible fix for the underlying cause, and are exploring implementation options. The next update will be provided as events warrant.",
             "incidentType": "Incident",
             "trackingId": "0NIH-U2O",
             "impactStartTime": "2017-10-18T02:48:00.0000000Z",
-            "impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"Australia East\"}],\"ServiceName\":\"Virtual Machines\"}]",
-            "defaultLanguageTitle": "Virtual Machines - Australia East",
-            "defaultLanguageContent": "Starting at 02:48 UTC on 18 Oct 2017 you have been identified as a customer using Virtual Machines in Australia East who may receive errors starting Dv2 Promo and DSv2 Promo Virtual Machines which are in a stopped &quot;deallocated&quot; or suspended state. Customers can still provision Dv1 and Dv2 series Virtual Machines or try deploying Virtual Machines in other regions, as a possible workaround. Engineers have identified a possible fix for the underlying cause, and are exploring implementation options. The next update will be provided as events warrant.",
+            "impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"China East\"}],\"ServiceName\":\"Virtual Machines\"}]",
+            "defaultLanguageTitle": "Virtual Machines - China East",
+            "defaultLanguageContent": "Starting at 02:48 UTC on 18 Oct 2017 you have been identified as a customer using Virtual Machines in China East who may receive errors starting Dv2 Promo and DSv2 Promo Virtual Machines which are in a stopped &quot;deallocated&quot; or suspended state. Customers can still provision Dv1 and Dv2 series Virtual Machines or try deploying Virtual Machines in other regions, as a possible workaround. Engineers have identified a possible fix for the underlying cause, and are exploring implementation options. The next update will be provided as events warrant.",
             "stage": "Active",
             "communicationId": "636439673646212912",
             "version": "0.1.1"

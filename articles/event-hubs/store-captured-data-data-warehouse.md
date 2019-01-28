@@ -10,12 +10,12 @@ ms.date: 01/28/2019
 ms.topic: tutorial
 ms.service: event-hubs
 ms.author: v-biyu
-ms.openlocfilehash: 9010a44b8b85db0732962eb4901ab0ef171e8fd6
-ms.sourcegitcommit: ced39ce80d38d36bdead66fc978d99e93653cb5f
+ms.openlocfilehash: ee53226a9e532b12f6cce5a4712af484f1df818d
+ms.sourcegitcommit: 7e3f2692997502cc8ba548b94f4d1937314e3e77
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54307621"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54905062"
 ---
 # <a name="migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>使用事件网格和 Azure Functions 将捕获的事件中心数据迁移到 SQL 数据仓库
 

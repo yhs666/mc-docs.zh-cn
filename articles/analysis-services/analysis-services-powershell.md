@@ -5,29 +5,31 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: reference
-origin.date: 06/25/2018
-ms.date: 09/24/2018
+origin.date: 12/19/2018
+ms.date: 01/28/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 17e2be66e7b75026e77f4b7c6cffb67eeffb89bb
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6fa8a73930e9d018f0fc5888b02e7b8d808144a0
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656687"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085694"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>使用 PowerShell 管理 Azure Analysis Services
 
 本文介绍用于执行 Azure Analysis Services 服务器和数据管理任务的 PowerShell cmdlet。 
 
-服务器管理任务，如创建或删除服务器、挂起或恢复服务器操作，或更改服务级别（层），都要使用 Azure 资源管理器（资源）cmdlet 和 Analysis Services（服务器）cmdlet。 用于管理数据库的其他任务（如添加或删除角色成员、处理或分区）使用 SQL Server Analysis Services 所在的同一 SqlServer 模块中包含的 cmdlet。
+服务器管理任务，如创建或删除服务器、挂起或恢复服务器操作，或更改服务级别（层），都要使用 Azure 资源管理器（资源）cmdlet 和 Analysis Services（服务器）cmdlet。 用于管理数据库的其他任务（如添加或删除角色成员、处理或分区）使用与 SQL Server Analysis Services 相同的 SqlServer 模块中包含的 cmdlet。
 
 ## <a name="permissions"></a>权限
-大多数 PowerShell 任务要求用户在所管理的 Analysis Services 服务器上具有管理员权限。 已计划的 PowerShell 任务是无人参与操作。 运行计划程序的帐户或服务主体必须具有对 Analysis Services 服务器的管理特权。 
+
+大多数 PowerShell 任务要求用户在所管理的 Analysis Services 服务器上具有管理员权限。 已计划的 PowerShell 任务是无人参与操作。 运行计划程序的帐户或服务主体必须具有对 Analysis Services 服务器的管理权限。 
 
 对于使用 AzureRm cmdlet 的服务器操作，你的帐户或运行计划程序的帐户还必须属于 [Azure 基于角色的访问控制 (RBAC)](../role-based-access-control/overview.md) 中资源的所有者角色。 
 
 ## <a name="resource-management-operations"></a>资源管理操作 
+
 模块 - [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices)
 
 |Cmdlet|说明| 
@@ -78,4 +80,4 @@ SqlServer 模块提供任务特定的数据库管理 cmdlet，以及接受表格
 * [PowerShell 库中的 SqlServer 模块](https://www.powershellgallery.com/packages/SqlServer)    
 * [Tabular Model Programming for Compatibility Level 1200 and higher](https://msdn.microsoft.com/library/mt712541.aspx)（适用于兼容级别 1200 及更高级别的表格模型编程）
 
-<!--Update_Description:Update meta propreties, update link -->
+<!--Update_Description:Update meta propreties, update link, wording update -->

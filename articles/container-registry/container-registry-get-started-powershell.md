@@ -9,12 +9,12 @@ origin.date: 05/08/2018
 ms.date: 12/24/2018
 ms.author: v-yeche
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 83a96944b1969b4fbffc5058fcced16bf9688c78
-ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
+ms.openlocfilehash: 7da72ba4246e8562268e40a768b1176b8f9b45f9
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53569206"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085671"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建专用容器注册表
 
@@ -27,7 +27,7 @@ Azure 容器注册表是托管的专用 Docker 容器注册表服务，用于生
 
 还必须在本地安装 Docker。 Docker 提供的包适用于 [macOS][docker-mac]、[Windows][docker-windows] 和 [Linux][docker-linux] 系统。
 
-由于 Azure Cloud Shell 并不包括所有必需的 Docker 组件（`dockerd` 守护程序），因此不能将 Cloud Shell 用于本快速入门。
+<!--Not Available on Azure Cloud Shell-->
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 

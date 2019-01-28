@@ -1,19 +1,19 @@
 ---
 title: Azure Monitor PowerShell 快速启动示例
 description: 使用 PowerShell 访问 Azure Monitor 功能，例如自动缩放、警报、webhook 和搜索活动日志。
-author: rboucher
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 2/14/2018
-ms.author: robb
-ms.component: ''
-ms.openlocfilehash: 783ca2bdc975b0f1c35b6a91b637962fa8606d1b
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.date: 01/21/19
+ms.author: v-lingwu
+ms.subservice: ''
+ms.openlocfilehash: 6a6ca762f4007a7764dd66c9102d6f1163c8883d
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141774"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906116"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure Monitor PowerShell 快速启动示例
 本文说明可帮助访问 Azure Monitor 功能的示例 PowerShell 命令。
@@ -33,7 +33,7 @@ ms.locfileid: "54141774"
 首先，登录到 Azure 订阅。
 
 ```PowerShell
-Connect-AzureRmAccount
+Connect-AzureRmAccount -Environment AzureChinaCloud
 ```
 
 会出现登录界面。 登录帐户后，会出现 TenantID 和默认订阅 ID。 所有 Azure cmdlet 都可用于默认订阅的上下文。 若要查看有权访问的订阅的列表，请使用以下命令：

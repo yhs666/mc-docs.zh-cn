@@ -11,15 +11,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 origin.date: 11/13/2018
-ms.date: 12/17/2018
+ms.date: 01/28/2019
 ms.topic: quickstart
 ms.author: v-yeche
-ms.openlocfilehash: ad9caa236f7b35f06cf2c53f1b3e02787f086fc4
-ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
+ms.openlocfilehash: 99ef2372a0476fd0affb83070910df8215540705
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53286759"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085655"
 ---
 <!-- Verify successfully-->
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建和部署 Azure 资源管理器模板

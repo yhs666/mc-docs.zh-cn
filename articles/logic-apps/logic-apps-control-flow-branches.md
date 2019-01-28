@@ -8,13 +8,13 @@ author: ecfan
 ms.author: v-yiso
 origin.date: 10/10/2018
 ms.reviewer: klam, LADocs
-ms.date: 11/12/2018
-ms.openlocfilehash: 5c0ab69e51fdadb8da81271a6fb4a557e76730ab
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 02/04/2019
+ms.openlocfilehash: 15ef94e7844cb7f9627652e423ac6b19d9e79e6b
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658062"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906054"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>创建或联接 Azure 逻辑应用中的工作流的并行分支
 
@@ -38,7 +38,7 @@ ms.locfileid: "52658062"
 ![并行运行步骤](media/logic-apps-control-flow-branches/parallel.png)
 
 逻辑应用等待所有分支都完成后才继续执行工作流。
-仅当并行分支的 `runAfter` 属性值匹配已完成父步骤的状态时，才运行并行分支。 例如，`branchAction1` 和 `branchAction2` 都设置为仅在 `parentAction` 以 `Succeded` 状态完成时才运行。
+仅当并行分支的 `runAfter` 属性值匹配已完成父步骤的状态时，才运行并行分支。 例如，`branchAction1` 和 `branchAction2` 都设置为仅在 `parentAction` 以 `Succeeded` 状态完成时才运行。
 
 > [!NOTE]
 > 在开始之前，逻辑应用必须已有可添加平行分支的步骤。
@@ -188,7 +188,7 @@ ms.locfileid: "52658062"
 ## <a name="get-support"></a>获取支持
 
 * 有关问题，请访问 [Azure 逻辑应用论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要提交功能和建议或者为其投票，请访问 [Azure 逻辑应用用户反馈站点](http://aka.ms/logicapps-wish)。
+* 若要提交功能和建议或者为其投票，请访问 [Azure 逻辑应用用户反馈站点](https://aka.ms/logicapps-wish)。
 
 ## <a name="next-steps"></a>后续步骤
 

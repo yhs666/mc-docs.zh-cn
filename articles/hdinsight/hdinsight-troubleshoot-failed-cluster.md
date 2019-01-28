@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 6c9e980e4f448f705743b2e6dce268c671ffe9b6
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 91447385b58f8d59f16e87a428c833b4873d2e54
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028445"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906068"
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>排查 HDInsight 群集速度慢或故障问题
 
@@ -65,7 +65,7 @@ Azure 门户可以提供此信息：
 ```
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-另一个选项是使用 PowerShell。 有关详细信息，请参阅[使用 Azure PowerShell 在 HDInsight 中管理 Hadoop 群集](hdinsight-administer-use-powershell.md)。
+另一个选项是使用 PowerShell。 有关详细信息，请参阅[使用 Azure PowerShell 在 HDInsight 中管理 Apache Hadoop 群集](hdinsight-administer-use-powershell.md)。
 
 ## <a name="step-2-validate-the-hdinsight-cluster-environment"></a>步骤 2：验证 HDInsight 群集环境
 
@@ -88,7 +88,7 @@ Azure 门户可以提供此信息：
 
 #### <a name="check-for-azure-service-outages"></a>检查 Azure 服务中断
 
-HDInsight 依赖于多个 Azure 服务。 它在 Azure HDInsight 中运行虚拟服务器，在 Azure Blob 存储或 Azure DataLake Store 中存储数据和脚本，在 Azure 表存储中为日志文件编制索引。 这些服务发生中断（不过这种情况很少见）可能会导致 HDInsight 出现问题。 如果群集发生意外的速度变慢或故障，请检查 [Azure 状态仪表板](https://azure.microsoft.com/status/)。 每个服务的状态按区域列出。 请检查群集的区域，以及所有相关服务的区域。
+HDInsight 依赖于多个 Azure 服务。 它在 Azure HDInsight 中运行虚拟服务器，在 Azure Blob 存储或 Azure DataLake Storage 中存储数据和脚本，在 Azure 表存储中为日志文件编制索引。 这些服务发生中断（不过这种情况很少见）可能会导致 HDInsight 出现问题。 如果群集发生意外的速度变慢或故障，请检查 [Azure 状态仪表板](https://azure.microsoft.com/status/)。 每个服务的状态按区域列出。 请检查群集的区域，以及所有相关服务的区域。
 
 #### <a name="check-azure-service-usage-limits"></a>检查 Azure 服务使用限制
 
@@ -107,7 +107,7 @@ HDInsight 依赖于多个 Azure 服务。 它在 Azure HDInsight 中运行虚拟
 
 HDInsight 群集由虚拟机实例上运行的不同类型的节点组成。 可以监视每个节点上存在的资源严重不足、网络连接问题，以及可能降低群集速度的其他问题。 每个群集包含两个头节点，大多数群集类型包含工作节点和边缘节点的组合。 
 
-有关每个群集类型使用的各个节点的说明，请参阅[使用 Hadoop、Spark、Kafka 等在 HDInsight 中设置群集](hdinsight-hadoop-provision-linux-clusters.md)。
+有关每个群集类型使用的各个节点的说明，请参阅[使用 Apache Hadoop、Apache Spark、Apache Kafka 等在 HDInsight 中设置群集](hdinsight-hadoop-provision-linux-clusters.md)。
 
 下列部分介绍如何检查每个节点和整个群集的运行状况。
 
@@ -117,7 +117,7 @@ HDInsight 群集由虚拟机实例上运行的不同类型的节点组成。 可
 
 ### <a name="check-your-webhcat-service"></a>检查 WebHCat 服务
 
-Hive、Pig 或 Sqoop 作业失败的常见场合之一是 [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)（或 *Templeton*）服务发生故障。 WebHCat 是 Hive、Pig、Scoop 和 MapReduce 等远程作业执行使用的 REST 接口。 WebHCat 将作业提交请求转换为 YARN 应用程序，并返回派生自 YARN 应用程序状态的状态。  以下部分介绍常见的 WebHCat HTTP 状态代码。
+Apache Hive、Apache Pig 或 Apache Sqoop 作业失败的常见场合之一是 [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)（或 *Templeton*）服务发生故障。 WebHCat 是 Hive、Pig、Scoop 和 MapReduce 等远程作业执行使用的 REST 接口。 WebHCat 将作业提交请求转换为 Apache Hadoop YARN 应用程序，并返回派生自 YARN 应用程序状态的状态。  以下部分介绍常见的 WebHCat HTTP 状态代码。
 
 #### <a name="badgateway-502-status-code"></a>BadGateway（502 状态代码）
 
@@ -244,13 +244,13 @@ HDInsight 群集会生成日志，这些日志将写入 Azure 表和 Azure Blob 
 
 ### <a name="review-heap-dumps"></a>查看堆转储
 
-堆转储包含应用程序内存的快照，其中包括当时的变量值，这对于诊断运行时发生的问题很有用。 有关详细信息，请参阅[在基于 Linux 的 HDInsight 上为 Hadoop 服务启用堆转储](hdinsight-hadoop-collect-debug-heap-dump-linux.md)。
+堆转储包含应用程序内存的快照，其中包括当时的变量值，这对于诊断运行时发生的问题很有用。 有关详细信息，请参阅[为基于 Linux 的 HDInsight 上的 Apache Hadoop 服务启用堆转储](hdinsight-hadoop-collect-debug-heap-dump-linux.md)。
 
 ## <a name="step-6-check-configuration-settings"></a>步骤 6：检查配置设置
 
 HDInsight 群集中预配置了相关服务（例如 Hadoop、Hive、HBase 等）的默认设置。 根据群集的类型、硬件配置、节点数目、运行的作业类型和正在处理的数据（以及数据处理方式），可能需要优化配置。
 
-有关优化大多数方案的性能配置的详细说明，请参阅[优化使用 Ambari 的群集配置](hdinsight-changing-configs-via-ambari.md)。 在使用 Spark，请参阅[性能的优化 Spark 作业](spark/apache-spark-perf.md)。 
+有关优化大多数方案的性能配置的详细说明，请参阅[使用 Apache Ambari 优化群集配置](hdinsight-changing-configs-via-ambari.md)。 在使用 Spark，请参阅[优化 Apache Spark 作业的性能](spark/apache-spark-perf.md)。 
 
 ## <a name="step-7-reproduce-the-failure-on-a-different-cluster"></a>步骤 7：在不同的群集上再现故障
 
@@ -265,8 +265,8 @@ HDInsight 群集中预配置了相关服务（例如 Hadoop、Hive、HBase 等�
 
 ## <a name="next-steps"></a>后续步骤
 
-* [使用 Ambari Web UI 管理 HDInsight 群集](hdinsight-hadoop-manage-ambari.md)
+* [使用 Apache Ambari Web UI 管理 HDInsight 群集](hdinsight-hadoop-manage-ambari.md)
 * [分析 HDInsight 日志](hdinsight-debug-jobs.md)
-* [在基于 Linux 的 HDInsight 上访问 YARN 应用程序日志](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [在基于 Linux 的 HDInsight 上为 Hadoop 服务启用堆转储](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [在基于 Linux 的 HDInsight 上访问 Apache Hadoop YARN 应用程序日志](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [在基于 Linux 的 HDInsight 上为 Apache Hadoop 服务启用堆转储](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [HDInsight 上的 Apache Spark 群集的已知问题](hdinsight-apache-spark-known-issues.md)

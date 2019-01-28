@@ -11,19 +11,19 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-origin.date: 01/11/2018
+origin.date: 11/05/2018
 ms.author: v-yiso
-ms.date: 06/25/2018
-ms.openlocfilehash: 0bce0ceb4c45df1bff2dba1e3b85ed0e67cb0519
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 02/04/2019
+ms.openlocfilehash: 010c77b23935f29ccc84cf9099451c2bec4504c5
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664001"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906071"
 ---
-# <a name="use-spark-to-read-and-write-hbase-data"></a>使用 Spark 读取和写入 HBase 数据
+# <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>使用 Apache Spark 读取和写入 Apache HBase 数据
 
-通常使用 Apache HBase 的低级别 API（扫描、获取和放置）或者通过 Phoenix 使用 SQL 语法来查询 Apache HBase。 Apache 还提供 Spark HBase 连接器，这是一个查询并修改 HBase 存储的数据的方便且有效的替代方案。
+通常使用 Apache HBase 的低级别 API（扫描、获取和放置）或者通过 Apache Phoenix 使用 SQL 语法来查询 Apache HBase。 Apache 还提供 Apache Spark HBase 连接器，这是一个查询并修改 HBase 存储的数据的方便且高效的替代方案。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -43,9 +43,9 @@ ms.locfileid: "52664001"
 5. 定义将架构从 Spark 映射到 HBase 的目录。
 6. 使用 RDD 或 DataFrame API 与 HBase 数据进行交互。
 
-## <a name="prepare-sample-data-in-hbase"></a>在 HBase 中准备示例数据
+## <a name="prepare-sample-data-in-apache-hbase"></a>在 Apache HBase 中准备示例数据
 
-此步骤中，在 HBase 中创建并填充一个简单的表，然后可使用 Spark 来查询。
+此步骤中，在 Apache HBase 中创建并填充一个简单的表，然后可使用 Spark 来查询。
 
 1. 使用 SSH 连接到 HBase 集群的头节点。 有关详细信息，请参阅[使用 SSH 连接到 HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)。
 2. 运行 HBase shell：
@@ -131,13 +131,13 @@ ms.locfileid: "52664001"
 1. 使用 SSH 连接到 Spark 集群的头节点。
 2. 启动 spark shell，指定 Spark HBase 连接器包：
 
-        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11 --repositories http://repo.hortonworks.com/content/groups/public/
+        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/
 
 3. 保持此 Spark Shell 实例处于打开状态，并继续执行下一步操作。
 
 ## <a name="define-a-catalog-and-query"></a>定义目录和查询
 
-在此步骤中，定义一个将架构从 Spark 映射到 HBase 的目录对象。 
+在此步骤中，定义一个将架构从 Apache Spark 映射到 Apache HBase 的目录对象。 
 
 1. 在打开的 Spark Shell 中，运行以下 `import` 语句：
 
@@ -249,4 +249,4 @@ ms.locfileid: "52664001"
 
 ## <a name="next-steps"></a>后续步骤
 
-* [Spark HBase 连接器](https://github.com/hortonworks-spark/shc)
+* [Apache Spark HBase 连接器](https://github.com/hortonworks-spark/shc)

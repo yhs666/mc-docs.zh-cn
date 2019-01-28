@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 10/18/2018
-ms.date: 12/17/2018
+origin.date: 01/09/2019
+ms.date: 01/28/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 71c9c02b36587ac859562f4b5bcaecb2bf448236
-ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
+ms.openlocfilehash: d9c81fb72f98be67db652bb944dff8d8ab181e83
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53157422"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085676"
 ---
 # <a name="manage-database-roles-and-users"></a>管理数据库角色和用户
 
@@ -63,6 +63,7 @@ ms.locfileid: "53157422"
 9. 部署到 Azure Analysis Services 服务器。
 
 ## <a name="to-add-or-manage-roles-and-users-in-ssms"></a>在 SSMS 中添加或管理角色和用户
+
 若要向部署模型数据库添加角色和用户，必须以服务器管理员身份连接到服务器，或已经是具有管理员权限的数据库角色的成员。
 
 1. 在对象资源管理器中，右击“角色” > “新建角色”。
@@ -83,6 +84,7 @@ ms.locfileid: "53157422"
 5. 如果正在创建的角色具有“读取”权限，可以使用 DAX 公式添加行筛选器。 单击“行筛选器”，选择表，并在“DAX 筛选器”字段中键入 DAX 公式。 
 
 ## <a name="to-add-roles-and-users-by-using-a-tmsl-script"></a>使用 TMSL 脚本添加角色和用户
+
 可在 SSMS 中的 XMLA 窗口中运行 TMSL 脚本或使用 PowerShell。 使用 [CreateOrReplace](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/createorreplace-command-tmsl) 命令和 [Roles](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-objects/roles-object-tmsl) 对象。
 
 **示例 TMSL 脚本**
@@ -116,6 +118,7 @@ ms.locfileid: "53157422"
 ```
 
 ## <a name="to-add-roles-and-users-by-using-powershell"></a>使用 PowerShell 添加角色和用户
+
 [SqlServer](https://msdn.microsoft.com/library/hh758425.aspx) 模块提供任务特定的数据库管理 cmdlet，以及接受表格模型脚本语言 (TMSL) 查询或脚本的通用 Invoke-ASCmd cmdlet。 以下 cmdlet 用于管理数据库角色和用户。
 
 |Cmdlet|说明|
@@ -125,13 +128,16 @@ ms.locfileid: "53157422"
 |[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|执行 TMSL 脚本。|
 
 ## <a name="row-filters"></a>行筛选器  
+
 行筛选器定义特定角色的成员可以查询表中的哪些行。 可使用 DAX 公式为模型中的每个表定义行筛选器。  
 
 可仅为具有“读取”和“读取和处理”权限的角色定义行筛选器。 默认情况下，如果没有为特定表定义行筛选器，除非交叉筛选其他表中的适用项，否则成员可以查询表中的所有行。
 
- 行筛选器需要 DAX 公式，该公式的求值结果必须为 TRUE/FALSE，以定义该特定角色的成员可以查询的行。 无法查询未包含在 DAX 公式中的行。 例如，具有以下行筛选器表达式的 Customers 表：*=Customers [Country] = "CHINA"*，Sales 角色的成员只能查看中国境内的客户。  
+行筛选器需要 DAX 公式，该公式的求值结果必须为 TRUE/FALSE，以定义该特定角色的成员可以查询的行。 无法查询未包含在 DAX 公式中的行。 例如，具有以下行筛选器表达式的 Customers 表：*=Customers [Country] = "CHINA"*，Sales 角色的成员只能查看中国境内的客户。  
 
-<!-- Notice: Should Be China--> 行筛选器适用于指定的行和相关行。 如果表具有多个关系，筛选器将对处于活动状态的关系应用安全性。 行筛选器与为相关表定义的其他行筛选器相交，示例如下：  
+<!-- Notice: Should Be China-->
+
+行筛选器适用于指定的行和相关行。 如果表具有多个关系，筛选器将对处于活动状态的关系应用安全性。 行筛选器与为相关表定义的其他行筛选器相交，示例如下：  
 
 |表|DAX 表达式|  
 |-----------|--------------------|  
@@ -141,9 +147,12 @@ ms.locfileid: "53157422"
 
  净效果是成员可以查询若干行数据，其中客户位于中国，产品类别为自行车，年份是 2016 年。 用户无法查询中国之外的事务、不是自行车的事务或非 2016 年的事务，除非他们属于授予这些权限的另一角色。
 
-<!-- Notice: Should Be China--> 可以使用筛选器 =FALSE() 拒绝访问整个表的所有行。
+<!-- Notice: Should Be China-->
+
+ 可以使用筛选器 =FALSE() 拒绝访问整个表的所有行。
 
 ## <a name="next-steps"></a>后续步骤
+
   [管理服务器管理员](analysis-services-server-admins.md)   
   [使用 PowerShell 管理 Azure Analysis Services](analysis-services-powershell.md)  
   [表格模型脚本语言 (TMSL) 参考](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)

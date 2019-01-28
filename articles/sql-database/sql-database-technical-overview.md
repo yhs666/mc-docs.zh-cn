@@ -13,13 +13,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 10/15/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: d15b0fd9ab75f6cd39d6ca0cb9dd7987d5633c29
-ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
+ms.date: 01/28/2019
+ms.openlocfilehash: 0707dabe2a3a4feeb28b9bb276a0a71f0958631b
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54397025"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906062"
 ---
 # <a name="the-azure-sql-database-service"></a>Azure SQL 数据库服务
 
@@ -41,6 +41,8 @@ SQL 数据库通过多个资源类型、服务层和计算大小提供可预测�
 
 使用 SQL 数据库，每个数据库都彼此独立且可移植，各自在[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)或[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)中有其自己的服务层，并具备有保证的计算大小。 SQL 数据库针对不同需求提供不同的计算大小，并使数据库可存入池中，以最大化利用资源和节省资金。
 
+借助使用 vCore 购买模型的[超大规模服务层](sql-database-service-tier-hyperscale.md)（预览版），你可以通过快速备份和还原功能扩展到 100 TB。
+
 ### <a name="adjust-performance-and-scale-without-downtime"></a>无需停机即可调整性能和规模
 
 SQL 数据库提供[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)或[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)。
@@ -49,6 +51,9 @@ SQL 数据库提供[基于 DTU 的购买模型](sql-database-service-tiers-dtu.m
 - 基于 vCore 的购买模型允许选择 vCore 数、内存容量，以及存储的容量和速度。
 
 可以在小型单一数据库中构建你的第一个应用，每个月只需在“常规用途”服务层中花费少量资金。然后可以根据解决方案的需要，随时手动或以编程方式将服务层更改为“业务关键”服务层。 可在不给应用或客户造成停机的情况下调整性能。 动态可伸缩性可让数据库以透明方式响应快速变化的资源要求，使用户只需为用到的资源付费。
+
+> [!IMPORTANT]
+> [超大规模服务层](sql-database-service-tier-hyperscale.md)目前以公共预览版提供。 我们尚不建议在超大规模数据库中运行任何生产工作负荷。 无法将超大规模数据库更新为其他服务层。 出于测试目的，我们建议创建当前数据库的副本，并将副本更新为超大规模服务层。
 
 动态可伸缩性不同于自动缩放。 自动缩放是指服务根据条件自动缩放，而动态可伸缩性允许在无停机时间的情况下进行手动缩放。 单个 Azure SQL 数据库支持手动动态可伸缩性，但不支持自动缩放。 若要获得更多*自动*体验，请考虑使用弹性池，它允许数据库根据各个数据库需求共享池中的资源。 但是，有一些脚本可帮助自动执行单个 Azure SQL 数据库的可伸缩性。 有关示例，请参阅[使用 PowerShell 监视和缩放单个 SQL 数据库](scripts/sql-database-monitor-and-scale-database-powershell.md)。
 

@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/21/19
+ms.date: 01/28/19
 ms.author: v-lingwu
-ms.openlocfilehash: 851634ca50156ff7cf111a95a453882751ff5975
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 5f70599e9ae1c60cbdf69d1e0044c4499bc16305
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363361"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906022"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板创建包含主题和订阅的服务总线命名空间
 
@@ -58,7 +58,6 @@ ms.locfileid: "54363361"
 模板定义以下参数：
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
-
 要创建的服务总线命名空间的名称。
 
 ```json
@@ -68,7 +67,6 @@ ms.locfileid: "54363361"
 ```
 
 ### <a name="servicebustopicname"></a>serviceBusTopicName
-
 在服务总线命名空间中创建的主题的名称。
 
 ```json
@@ -78,7 +76,6 @@ ms.locfileid: "54363361"
 ```
 
 ### <a name="servicebussubscriptionname"></a>serviceBusSubscriptionName
-
 在服务总线命名空间中创建的订阅的名称。
 
 ```json
@@ -88,7 +85,6 @@ ms.locfileid: "54363361"
 ```
 
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
-
 模板的服务总线 API 版本。
 
 ```json
@@ -100,7 +96,6 @@ ms.locfileid: "54363361"
        }
 ```
 ## <a name="resources-to-deploy"></a>要部署的资源
-
 创建类型为 **Messaging**的包含主题和订阅的标准服务总线命名空间。
 
 ```json

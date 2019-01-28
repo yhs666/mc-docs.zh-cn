@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 11/16/2017
 ms.author: v-biyu
 ms.date: 01/07/2019
-ms.openlocfilehash: 2004a9ee937de63cee3dd0b49b89ca28026fc900
-ms.sourcegitcommit: a46f12240aea05f253fb4445b5e88564a2a2a120
+ms.openlocfilehash: 654775e285ceb4e018150942cd2ccb85e419bc19
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785244"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906127"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>如何使用用于 Android 的 Azure 移动应用 SDK
 
@@ -1155,7 +1155,7 @@ The Client connection is normally a basic HTTP connection using the underlying H
 Call the `.setAndroidHttpClientFactory()` method immediately after creating your client reference.  For example, to set the connection timeout to 60 seconds (instead of the default 10 seconds):
 
 ```java
-mClient = new MobileServiceClient("https://myappname.azurewebsites.net");
+mClient = new MobileServiceClient("https://myappname.chinacloudsites.cn");
 mClient.setAndroidHttpClientFactory(new OkHttpClientFactory() {
     @Override
     public OkHttpClient createOkHttpClient() {

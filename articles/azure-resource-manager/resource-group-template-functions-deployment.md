@@ -4,23 +4,21 @@ description: 介绍可在 Azure Resource Manager 模板中使用的用于检索�
 services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
-manager: digimobile
-editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/13/2018
-ms.date: 01/21/2019
+origin.date: 01/03/2019
+ms.date: 01/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: ab06c26c6e17f457d4dcbc2513ef52fd77fbe110
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: d4bf0709a9e3bac48da05e470cf2ea8724051c52
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193116"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085677"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的部署函数 
 
@@ -98,6 +96,8 @@ Resource Manager 提供以下函数，用于从与部署相关的模板和值部
     "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
 }
 ```  
+
+如果从门户中的部署历史记录重新部署模板，则该模板将部署为本地文件。 部署函数不返回 `templateLink` 属性。 如果模板依赖于 `templateLink` 来构建指向另一个模板的链接，请不要使用门户进行重新部署， 而是使用最初部署模板时使用的命令。
 
 ### <a name="example"></a>示例
 

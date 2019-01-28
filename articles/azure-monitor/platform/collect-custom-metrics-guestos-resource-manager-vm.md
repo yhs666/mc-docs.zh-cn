@@ -1,19 +1,19 @@
 ---
 title: 使用 Windows 虚拟机的资源管理器模板将来宾 OS 指标发送到 Azure Monitor 指标存储
 description: 使用 Windows 虚拟机的资源管理器模板将来宾 OS 指标发送到 Azure Monitor 指标存储
-author: anirudhcavale
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: howto
-ms.date: 09/24/2018
-ms.author: ancav
-ms.component: metrics
-ms.openlocfilehash: cd2460140f35e69a1e8389f93f1648ad548be80b
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.date: 01/21/19
+ms.author: v-lingwu
+ms.subservice: metrics
+ms.openlocfilehash: 74f1910856b0f6ccb322e8f4c78c45d3e3500148
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141726"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906224"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>使用 Windows 虚拟机的资源管理器模板将来宾 OS 指标发送到 Azure Monitor 指标存储
 
@@ -237,7 +237,7 @@ Azure 诊断扩展使用名为“数据接收器”的功能将指标和日志�
 我们将利用 Azure PowerShell 部署资源管理器模板。
 
 1. 启动 PowerShell。
-1. 使用 `Login-AzureRmAccount` 登录到 Azure 门户。
+1. 使用 `Login-AzureRmAccount -Environment AzureChinaCloud` 登录到 Azure 门户。
 1. 使用 `Get-AzureRmSubscription` 获取订阅列表。
 1. 设置要在其中创建/更新虚拟机的订阅：
 

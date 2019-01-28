@@ -1,19 +1,19 @@
 ---
 title: 将 Azure 活动日志流式传输到事件中心
 description: 了解如何将 Azure 活动日志流式传输到事件中心。
-author: johnkemnetz
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 07/25/2018
-ms.author: johnkem
-ms.component: logs
-ms.openlocfilehash: a00e9ebb813e90af300474a3c41650cbd2498caf
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.date: 01/21/19
+ms.author: v-lingwu
+ms.subservice: logs
+ms.openlocfilehash: 99fc198208766bf25244107b8b57c5a83fae51e6
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141748"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906049"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>将 Azure 活动日志流式传输到事件中心
 可以选择下列两种方式之一将 [Azure 活动日志](../../azure-monitor/platform/activity-logs-overview.md)准实时流式传输到任何应用程序：
@@ -91,7 +91,7 @@ ms.locfileid: "54141748"
 2. 使用 `az monitor log-profiles delete --name "<log profile name>` 通过 *name* 属性的值删除日志配置文件。
 3. 使用 `az monitor log-profiles create` 创建新的日志配置文件：
 
-   ```azurecli-interactive
+   ```azurecli
    az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --service-bus-rule-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUB NAME SPACE>/authorizationrules/RootManageSharedAccessKey"
    ```
 
@@ -101,5 +101,4 @@ ms.locfileid: "54141748"
 ## <a name="next-steps"></a>后续步骤
 * [将活动日志存档到存储帐户](../../azure-monitor/platform/archive-activity-log.md)
 * [阅读 Azure 活动日志概述](../../azure-monitor/platform/activity-logs-overview.md)
-* [根据活动日志事件设置警报](../../azure-monitor/platform/alerts-log-webhook.md)
 

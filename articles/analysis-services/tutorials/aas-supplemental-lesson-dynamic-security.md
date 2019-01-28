@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 10/18/2018
-ms.date: 12/17/2018
+origin.date: 01/09/2019
+ms.date: 01/28/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: ce65b5c14a559bb3ac8acaa0a719785f146f31b2
-ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
+ms.openlocfilehash: c090375d26f6b47c7f71477d305a4323c665dda9
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53157439"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085669"
 ---
 # <a name="supplemental-lesson---dynamic-security"></a>补充课程 - 动态安全性
 
@@ -183,4 +183,4 @@ AdventureWorksDW 示例数据库中的 DimEmployee 表包含 AdventureWorks 域�
 [LOOKUPVALUE 函数 (DAX)](https://msdn.microsoft.com/library/gg492170.aspx)  
 [CUSTOMDATA 函数 (DAX)](https://msdn.microsoft.com/library/hh213140.aspx)
 
-<!--Update_Description: update meta properties, update link  -->
+<!--Update_Description: update meta properties -->

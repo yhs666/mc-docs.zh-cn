@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 01/09/2017
 ms.author: v-yiso
-ms.date: 12/31/2018
-ms.openlocfilehash: f98757f450b940ff767e0bbc01ef97b062d4d75e
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.date: 02/04/2019
+ms.openlocfilehash: 109157b3247acf1ae5cc4a130bfb9bb7788c9e69
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736715"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906148"
 ---
 # <a name="azure-api-management-template-resources"></a>Azure API 管理模板资源
 Azure API 管理提供以下类型的资源，适用于开发人员门户模板。  
@@ -109,7 +109,7 @@ Azure API 管理提供以下类型的资源，适用于开发人员门户模板�
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|是否确实要删除应用程序?|  
 |WebDevelopersAppNotPublished|未发布|  
-|WebDevelopersAppNotSubminted|未提交|  
+|WebDevelopersAppNotSubmitted|未提交|  
 |WebDevelopersAppTableCategoryHeader|类别|  
 |WebDevelopersAppTableNameHeader|Name|  
 |WebDevelopersAppTableStateHeader|状态|  
@@ -288,7 +288,7 @@ Azure API 管理提供以下类型的资源，适用于开发人员门户模板�
 |OAuth2SendingMethod_QueryParam|查询参数|  
 |OAuth2AuthorizationServerGeneralException|通过 {0} 授予访问权限时出错|  
 |OAuth2AuthorizationServerCommunicationException|无法建立到授权服务器的 HTTP 连接，或者已意外关闭该连接。|  
-|WebDocumentationOAuth2GeneralErrorMessage|发生意外错误。|  
+|WebDocumentationOAuth2GeneralErrorMessage|出现了意外错误。|  
 |AuthorizationServerCommunicationException|出现授权服务器通信异常。 请与管理员联系。|  
 |TextblockSubscriptionKeyHeaderDescription|订阅密钥，用于访问此 API。 在<a href='/developer'\>配置文件</a\>中查找。|  
 |TextblockOAuthHeaderDescription|从 <i\>{0}</i\> 获得的 OAuth 2.0 访问令牌。 支持的授权类型：<i\>{1}</i\>。|  
@@ -518,7 +518,7 @@ Azure API 管理提供以下类型的资源，适用于开发人员门户模板�
 |WebDevelopersSecondaryKey|辅助密钥|  
 |ButtonLabelShowKey|显示|  
 |ButtonLabelRenewSubscription|续订|  
-|WebDevelopersSubscriptionReqested|请求日期: {0}|  
+|WebDevelopersSubscriptionRequested|请求日期: {0}|  
 |WebDevelopersSubscriptionRequestedState|已请求|  
 |WebDevelopersSubscriptionTableNameHeader|Name|  
 |WebDevelopersSubscriptionTableStateHeader|状态|  

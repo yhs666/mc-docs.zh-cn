@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 10/18/2018
-ms.date: 12/17/2018
+origin.date: 01/09/2019
+ms.date: 01/28/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: f9cdd7d76482fd0725b0dcb72428cf4fe4289477
-ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
+ms.openlocfilehash: 71b3031ef819896c20efedf30c4acc59dba42360
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53157437"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085634"
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services - Adventure Works 教程
 
@@ -94,4 +94,4 @@ ms.locfileid: "53157437"
 ## <a name="next-steps"></a>后续步骤  
 若要入门，请参阅[第 1 课：创建新的表格模型项目](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)。
 
-<!--Update_Description: update meta properties， wording update, update link -->
+<!--Update_Description: update meta properties -->

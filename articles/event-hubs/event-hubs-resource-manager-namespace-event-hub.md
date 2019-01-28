@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 08/16/2018
 ms.date: 12/10/2018
 ms.author: v-biyu
-ms.openlocfilehash: d77bc35d80896c4393023a0e255891b356cdbd19
-ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
+ms.openlocfilehash: 7e897058bf64183fdb579f5b62f7e97bea22817a
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676913"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906171"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-resource-manager-template"></a>快速入门：使用 Azure 资源管理器模板创建事件中心
 Azure 事件中心是一个大数据流式处理平台和事件引入服务，每秒能够接收和处理数百万个事件。 事件中心可以处理和存储分布式软件和设备生成的事件、数据或遥测。 可以使用任何实时分析提供程序或批处理/存储适配器转换和存储发送到数据中心的数据。 有关事件中心的详细概述，请参阅[事件中心概述](event-hubs-about.md)和[事件中心功能](event-hubs-features.md)。
@@ -34,12 +34,12 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
 ## <a name="prerequisites"></a>先决条件
 若要完成本快速入门，需要一个 Azure 订阅。 如果没有订阅，请在开始之前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-若要使用 **Azure PowerShell** 部署资源管理器模板，请[安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0)。
+若要使用 **Azure PowerShell** 部署资源管理器模板，请[安装 Azure PowerShell](https://docs.azure.cn/zh-cn/powershell-install-configure)。
 
 若要使用 **Azure CLI** 部署资源管理器模板，请[安装 Azure CLI]( /cli/install-azure-cli)。
 
 ## <a name="create-the-resource-manager-template-json"></a>创建资源管理器模板 JSON
-创建包含以下内容且名为 MyEventHub.json 的一个 JSON 文件，并将其保存到某个文件夹（例如：C:\EventHubsQuickstarts\ResourceManagerTemplate）。
+创建包含以下内容且名为 MyEventHub.json 的 JSON 文件，并将其保存到某个文件夹（例如：C:\EventHubsQuickstarts\ResourceManagerTemplate）。
 
 ```json
 {

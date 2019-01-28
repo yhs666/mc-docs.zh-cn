@@ -1,19 +1,19 @@
 ---
 title: 将管理事件的 Azure 警报迁移到活动日志警报
-description: 有关管理事件的警报将于 10 月 1 日删除。 请准备通过迁移现有警报。
-author: johnkemnetz
+description: 有关管理事件的警报将于 10 月 1 日删除。 通过迁移现有警报进行准备。
+author: lingliw
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 08/14/2017
-ms.author: johnkem
-ms.component: alerts
-ms.openlocfilehash: 5437a126363a6785635995e9b872efffc02165d2
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.date: 01/21/19
+ms.author: v-lingwu
+ms.subservice: alerts
+ms.openlocfilehash: 5cd7d27884ee3b1d75956b588b77effd35adea39
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141721"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906216"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>将管理事件的 Azure 警报迁移到活动日志警报
 
@@ -33,7 +33,7 @@ Azure Monitor（以前称为 Azure Insights）提供了创建警报的功能，�
 以下 PowerShell 脚本将返回订阅中所具有的有关管理事件的所有警报列表，以及每个警报所设置的条件。
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzureRmAccount -Environment AzureChinaCloud
 $alerts = $null
 foreach ($rg in Get-AzureRmResourceGroup ) {
   $alerts += Get-AzureRmAlertRule -ResourceGroup $rg.ResourceGroupName

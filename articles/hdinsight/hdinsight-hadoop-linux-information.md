@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 08/09/2018
-ms.date: 12/24/2018
+ms.date: 02/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: 94dd43311083c4f94cf109d48fd23f7b1d688a82
-ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
+ms.openlocfilehash: 94868e26e7821508ff8eb56765d4e3dce9bb53c2
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53569240"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906204"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>有关在 Linux 上使用 HDInsight 的信息
 
-Azure HDInsight 群集在熟悉的 Linux 环境中提供可在 Azure 云中运行的 Hadoop。 在大多数情况下，它的工作方式应该与其他任何 Hadoop-on-Linux 安装完全相同。 本文档指出了应注意的具体差异。
+Azure HDInsight 群集提供了基于熟悉的 Linux 环境并在 Azure 云中运行的 Apache Hadoop。 在大多数情况下，它的工作方式应该与其他任何 Hadoop-on-Linux 安装完全相同。 本文档指出了应注意的具体差异。
 
 > [!IMPORTANT]
 > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
@@ -62,7 +62,7 @@ Azure HDInsight 群集在熟悉的 Linux 环境中提供可在 Azure 云中运�
     > [!IMPORTANT]
     > 某些 Web UI 可使用内部域名通过 Ambari 访问节点。 内部域名不可通过 Internet 公开访问。 在尝试通过 Internet 访问某些功能时，可能会收到“找不到服务器”错误。
     >
-    > 要使用 Ambari web UI 的全部功能，请使用 SSH 隧道通过代理将 Web 流量传送到群集头节点。 请参阅[使用 SSH 隧道访问 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 和其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)
+    > 要使用 Ambari web UI 的全部功能，请使用 SSH 隧道通过代理将 Web 流量传送到群集头节点。 请参阅[使用 SSH 隧道访问 Apache Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 和其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)
 
 * **Ambari (REST)** - https://&lt;群集名称>.azurehdinsight.cn/ambari
 
@@ -78,12 +78,12 @@ Azure HDInsight 群集在熟悉的 Linux 环境中提供可在 Azure 云中运�
     >
     > 身份验证是纯文本身份验证 - 始终使用 HTTPS 来帮助确保连接是安全的。
 
-* **SSH** - &lt;群集名称>-ssh.azurehdinsight.cn，使用端口 22 或 23。 端口 22 用于连接主要头节点，而端口 23 用于连接辅助头节点。 有关头节点的详细信息，请参阅 [HDInsight 中的 Hadoop 群集的可用性和可靠性](hdinsight-high-availability-linux.md)。
+* 端口 22 或 23 上的 **SSH** - &lt;clustername>-ssh.azurehdinsight.net。 端口 22 用于连接主要头节点，而端口 23 用于连接辅助头节点。 有关头节点的详细信息，请参阅 [HDInsight 中的 Apache Hadoop 群集的可用性和可靠性](hdinsight-high-availability-linux.md)。
 
     > [!NOTE]
     > 只能通过 SSH 从客户端计算机访问群集头节点。 在连接后，可以通过使用 SSH 从头节点访问从节点。
 
-有关详细信息，请参阅 [Hadoop on HDInsight 服务所使用的端口](hdinsight-hadoop-port-settings-for-services.md)文档。
+有关详细信息，请参阅 [HDInsight 上的 Apache Hadoop 服务使用的端口](hdinsight-hadoop-port-settings-for-services.md)文档。
 
 ## <a name="file-locations"></a>文件位置
 
@@ -92,7 +92,7 @@ Hadoop 相关文件可在群集节点上的 `/usr/hdp`中找到。 此目录包�
 * **2.2.4.9-1**：目录名称是 HDInsight 使用的 Hortonworks 数据平台的版本。 群集上的数字可能与这里列出的有所不同。
 * **current**：此目录包含 **2.2.4.9-1** 目录下的子目录的链接。 由于该目录存在，因此无需记住版本号。
 
-示例数据和 JAR 文件可以在 Hadoop 分布式文件系统上的 `/example` 和 `/HdiSamples` 处找到。
+可以在 Hadoop 分布式文件系统上的 `/example` 和 `/HdiSamples` 处找到示例数据和 JAR 文件。
 
 ## <a name="hdfs-and-azure-storage"></a>HDFS 和 Azure 存储
 
@@ -100,9 +100,9 @@ Hadoop 相关文件可在群集节点上的 `/usr/hdp`中找到。 此目录包�
 
 使用 HDInsight 时，数据文件使用 Azure Blob 存储以可缩放和复原的方式存储在云中。 这些服务提供以下优势：
 
-* 成本低廉的长期存储
-* 可从外部服务访问，例如网站、文件上传/下载实用程序、各种语言 SDK 和 Web 浏览器
-* 大型文件容量和大型可缩放存储
+* 成本低廉的长期存储。
+* 可从外部服务访问，例如网站、文件上传/下载实用程序、各种语言 SDK 和 Web 浏览器。
+* 大型文件容量和大型可缩放存储。
 
 有关详细信息，请参阅[了解 Blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)。
 
@@ -152,7 +152,7 @@ Hadoop 相关文件可在群集节点上的 `/usr/hdp`中找到。 此目录包�
 如果使用的是 __Azure 存储__，请参阅以下链接了解可用于访问数据的方式：
 
 * [Azure CLI](/cli/install-az-cli2)：适用于 Azure 的命令行接口命令。 在安装后，使用 `az storage` 命令获取有关使用存储的帮助，或者使用 `az storage blob` 获取特定于 Blob 的命令。
-* [blobxfer.py](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage)：用于处理 Azure 存储中的 blob 的 python 脚本。
+* [blobxfer.py](https://github.com/Azure/blobxfer)：用于处理 Azure 存储中的 blob 的 python 脚本。
 * 多种 SDK：
 
     * [Java](https://github.com/Azure/azure-sdk-for-java)
@@ -195,12 +195,12 @@ Hadoop 相关文件可在群集节点上的 `/usr/hdp`中找到。 此目录包�
         1. 在 Web 浏览器中打开 **https://CLUSTERNAME.azurehdinsight.cn/stormui**，其中 CLUSTERNAME 是 Storm 群集的名称。 如果出现提示，请输入在创建 HDInsight 群集时指定的群集管理员用户名和密码。
         2. 选择要重新平衡的拓扑，并选择“重新平衡”按钮。 输入执行重新平衡操作前的延迟。
 
-* **Kafka**：执行缩放操作后，应重新均衡分区副本。 有关详细信息，请参阅[通过 Kafka on HDInsight 实现数据的高可用性](./kafka/apache-kafka-high-availability.md)文档。
+* **Kafka**：执行缩放操作后，应重新均衡分区副本。 有关详细信息，请参阅[通过 Apache Kafka on HDInsight 实现数据的高可用性](./kafka/apache-kafka-high-availability.md)文档。
 
 有关缩放 HDInsight 群集的特定信息，请参阅：
 
-* [使用 Azure 门户管理 HDInsight 中的 Hadoop 群集](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [使用 Azure PowerShell 管理 HDInsight 中的 Hadoop 群集](hdinsight-administer-use-command-line.md#scale-clusters)
+* [使用 Azure 门户管理 HDInsight 中的 Apache Hadoop 群集](hdinsight-administer-use-portal-linux.md#scale-clusters)
+* [使用 Azure PowerShell 管理 HDInsight 中的 Apache Hadoop 群集](hdinsight-administer-use-command-line.md#scale-clusters)
 
 ## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>如何安装 Hue（或其他 Hadoop 组件）？
 
@@ -211,8 +211,8 @@ HDInsight 是一个托管服务。 如果 Azure 检测到群集存在问题，�
 
 脚本操作是 Bash 脚本。 该脚本在群集创建期间运行，用于安装并配置其他组件。 提供了用于安装以下组件的示例脚本：
 
-* [Giraph](hdinsight-hadoop-giraph-install-linux.md)
-* [Solr](hdinsight-hadoop-solr-install-linux.md)
+* [Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)
+* [Apache Solr](hdinsight-hadoop-solr-install-linux.md)
 
 有关开发自己的脚本操作的信息，请参阅[使用 HDInsight 进行脚本操作开发](hdinsight-hadoop-script-actions-linux.md)。
 
@@ -220,7 +220,7 @@ HDInsight 是一个托管服务。 如果 Azure 检测到群集存在问题，�
 
 某些 Hadoop 技术以自包含 jar 文件形式提供，这些文件包含某些函数，这些函数用作 MapReduce 作业的一部分，或来自 Pig 或 Hive 内部。 它们通常不需要进行任何设置，并可以在创建后上传到群集和直接使用。 如需确保组件在群集重置映像后仍存在，可将 jar 文件存储在群集的默认存储（WASB 或 ADL）中。
 
-例如，如果要使用 [DataFu](http://datafu.incubator.apache.org/) 的最新版本，可以下载包含项目的 jar，并将其上传到 HDInsight 群集。 然后按照 DataFu 文档（关于如何从 Pig 或 Hive 中使用它）操作。
+例如，如果要使用 [Apache DataFu](https://datafu.incubator.apache.org/) 的最新版本，可以下载包含项目的 jar，并将其上传到 HDInsight 群集。 然后按照 DataFu 文档的说明通过 Pig 或 Hive 使用它。
 
 > [!IMPORTANT]
 > 某些属于独立 jar 文件的组件通过 HDInsight 提供，但不在路径中。 若要查找特定组件，可使用以下命令在群集上搜索：
@@ -234,11 +234,11 @@ HDInsight 是一个托管服务。 如果 Azure 检测到群集存在问题，�
 > [!WARNING]
 > 完全支持通过 HDInsight 群集提供的组件，Azure 支持部门帮助找出并解决与这些组件相关的问题。
 >
-> 自定义组件可获得合理范围的支持，有助于进一步解决问题。 这可能会促进解决问题，或要求使用可用的开源技术渠道，在渠道中可找到该技术的深厚的专业知识。 有许多可以使用的社区站点，例如：[面向 HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)、[Azure CSDN](http://azure.csdn.net)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如：[Hadoop](http://hadoop.apache.org/)、[Spark](http://spark.apache.org/)。
+> 自定义组件可获得合理范围的支持，有助于进一步解决问题。 这可能会促进解决问题，或要求使用可用的开源技术渠道，在渠道中可找到该技术的深厚的专业知识。 有许多可以使用的社区站点，例如：[面向 HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)、[Azure CSDN](http://azure.csdn.net)。 此外，Apache 项目在 [https://apache.org](https://apache.org) 上提供了项目站点，例如：[Hadoop](https://hadoop.apache.org/)、[Spark](https://spark.apache.org/)。
 
 ## <a name="next-steps"></a>后续步骤
 
 * [从基于 Windows 的 HDInsight 迁移到基于 Linux 的 HDInsight](hdinsight-migrate-from-windows-to-linux.md)
-* [将 Hive 与 HDInsight 配合使用](hadoop/hdinsight-use-hive.md)
-* [将 Pig 与 HDInsight 配合使用](hadoop/hdinsight-use-pig.md)
+* [将 Apache Hive 和 HDInsight 配合使用](hadoop/hdinsight-use-hive.md)
+* [将 Apache Pig 和 HDInsight 配合使用](hadoop/hdinsight-use-pig.md)
 * [将 MapReduce 作业与 HDInsight 配合使用](hadoop/hdinsight-use-mapreduce.md)

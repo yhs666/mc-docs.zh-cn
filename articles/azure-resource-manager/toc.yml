@@ -74,6 +74,8 @@ items:
   items:
   - name: 创建模板
     items:
+    - name: 创建模板
+      href: how-to-create-template.md
     - name: 在订阅级别创建资源组和资源
       href: deploy-to-subscription.md
     - name: 定义资源依赖关系
@@ -111,7 +113,7 @@ items:
     - name: 部署到多个资源组或订阅
       href: resource-manager-cross-resource-group-deployment.md
       maintainContext: true
-  - name: 管理模板
+  - name: 管理资源
     items:
     - name: 使用 Azure 门户进行管理
       href: resource-group-portal.md
@@ -130,9 +132,9 @@ items:
       href: resource-group-lock-resources.md
     - name: 用于访问订阅的身份验证 API
       href: resource-manager-api-authentication.md
-    - name: 锁定资源
-      href: resource-group-lock-resources.md
-  - name: 审核
+    - name: 跨租户进行身份验证
+      href: authenticate-multi-tenant.md
+  - name: 审核部署
     items:
     - name: 查看活动日志
       href: resource-group-audit.md
@@ -213,9 +215,9 @@ items:
     href: resource-manager-personal-data.md
   - name: 视频
     href: https://www.azure.cn/video-center/
-ms.openlocfilehash: b08c32ca5449d397902107b79356348781e0e5a3
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: 13ca7be24b9bd5853a7807e677d569669f5db277
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193034"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085687"

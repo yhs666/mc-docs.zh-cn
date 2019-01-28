@@ -5,25 +5,26 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 10/18/2018
-ms.date: 12/17/2018
+origin.date: 01/09/2019
+ms.date: 01/28/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 56c26744091efbf1d411667defec1d550a784ee6
-ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
+ms.openlocfilehash: 43a1326d4445c49572d0a76cbcb6b7bdb408ce03
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53157388"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085627"
 ---
 # <a name="connecting-to-servers"></a>连接到服务器
 
 本文介绍如何通过使用数据建模和管理应用程序（如 SQL Server Management Studio (SSMS) 或 SQL Server Data Tools (SSDT)）连接到服务器。 或者通过使用客户端报表应用程序，如 Microsoft Excel、Power BI Desktop 或自定义应用程序。 使用 HTTPS 连接到 Azure Analysis Services。
 
 ## <a name="client-libraries"></a>客户端库
+
 [获取最新的客户端库](analysis-services-data-providers.md)
 
-与服务器的所有连接（无论连接类型）都需要更新后的 AMO、ADOMD.NET 和 OLEDB 客户端库才能连接到 Analysis Services 服务器。 对于 SSMS、SSDT、Excel 2016 和Power BI，最新的客户端库会每月发布安装或更新。 但是在某些情况下，应用程序可能不是最新版本。 例如，当策略延迟更新或 Office 365 更新在延期频道上时。
+与服务器的所有连接（无论连接类型）都需要更新后的 AMO、ADOMD.NET 和 OLEDB 客户端库才能连接到 Analysis Services 服务器。 对于 SSMS、SSDT、Excel 2016 及更高版本和 Power BI，最新的客户端库会每月发布安装或更新。 但是在某些情况下，应用程序可能不是最新版本。 例如，当策略延迟更新或 Office 365 更新在延期频道上时。
 
 ## <a name="server-name"></a>服务器名称
 
@@ -35,6 +36,7 @@ ms.locfileid: "53157388"
  其中，协议是字符串 **asazure**，区域是在其中创建服务器的 URI（例如 chinanorth.asazure.chinacloudapi.cn），服务器名称是该区域中的唯一服务器名称。
 
 ### <a name="get-the-server-name"></a>获取服务器名称
+
 在 **Azure 门户**中，单击“服务器”>“概述” > “服务器名称”，并复制整个服务器名称。 如果组织中的其他用户也要连接此服务器，则可以将此服务器名称与他们共享。 指定服务器名称时，必须使用完整路径。
 
 ![在 Azure 中获取服务器名称](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
@@ -44,6 +46,7 @@ ms.locfileid: "53157388"
 使用表格对象模型连接到 Azure Analysis Services 时，使用以下连接字符串格式：
 
 ###### <a name="integrated-azure-active-directory-authentication"></a>集成的 Azure Active Directory 身份验证
+
 集成的身份验证将选取 Azure Active Directory 凭据缓存（如果可用）。 如果不可用，则会显示 Azure 登录窗口。
 
 ```
@@ -57,6 +60,7 @@ ms.locfileid: "53157388"
 ```
 
 ###### <a name="windows-authentication-integrated-security"></a>Windows 身份验证（集成安全性）
+
 使用运行当前进程的 Windows 帐户。
 
 ```
@@ -64,9 +68,11 @@ ms.locfileid: "53157388"
 ```
 
 ## <a name="connect-using-an-odc-file"></a>使用 .odc 文件进行连接
+
 在较旧版本的 Excel 中，用户可以使用 Office 数据连接 (.odc) 文件连接到 Azure Analysis Services 服务器。 若要了解详细信息，请参阅[创建 Office 数据连接 (.odc) 文件](analysis-services-odc.md)。
 
 ## <a name="next-steps"></a>后续步骤
+
 [使用 Excel 进行连接](analysis-services-connect-excel.md)    
 [使用 Power BI 进行连接](analysis-services-connect-pbi.md)   
 [管理服务器](analysis-services-manage.md)

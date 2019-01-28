@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 12/10/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: 9f18ee14bfd6b874d9d2f73e217f7fc44ab71130
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.date: 01/28/2019
+ms.openlocfilehash: ece7af0a3cb0564c4f148b340c44062f187738fa
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806264"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906057"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL 数据库购买模型
 
@@ -28,6 +28,9 @@ ms.locfileid: "53806264"
 
 Azure SQL 数据库部署模型中提供了不同的购买模型：
 - [Azure SQL 数据库](sql-database-technical-overview.md)中的[逻辑服务器](sql-database-logical-servers.md)同时提供[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)和[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)。 在此购买模型中，可以选择[单一数据库](sql-database-single-databases-manage.md)或[弹性池](sql-database-elastic-pool.md)。
+
+> [!IMPORTANT]
+> [超大规模数据库（预览版）](sql-database-service-tier-hyperscale.md)提供公开预览版，仅针对使用 vCore 购买模型的单个数据库。
 
 以下表格和图表对这两种购买模型做了对比。
 
@@ -41,7 +44,7 @@ Azure SQL 数据库部署模型中提供了不同的购买模型：
 
 ## <a name="vcore-based-purchasing-model"></a>基于 vCore 的购买模型
 
-虚拟核心表示通过一个选项提供的逻辑 CPU，该选项允许在硬件的层代和硬件的物理特性（例如，核心数、内存、存储大小）之间进行选择。 基于 vCore 的购买模型提供单项资源消耗的灵活性、控制度和透明度，并提供简单明了的方法将本地工作负荷要求转换到云。 此模型允许根据工作负荷需求来选择计算、内存和存储。 在基于 vCore 的购买模型中，你可为[单一数据库](sql-database-single-database-scale.md)和[弹性池](sql-database-elastic-pool.md)选择[常规用途](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability)或[业务关键](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability)服务层。 
+虚拟核心表示通过一个选项提供的逻辑 CPU，该选项允许在硬件的层代和硬件的物理特性（例如，核心数、内存、存储大小）之间进行选择。 基于 vCore 的购买模型提供单项资源消耗的灵活性、控制度和透明度，并提供简单明了的方法将本地工作负荷要求转换到云。 此模型允许根据工作负荷需求来选择计算、内存和存储。 在基于 vCore 的购买模型中，你可为[单一数据库](sql-database-single-database-scale.md)和[弹性池](sql-database-elastic-pool.md)选择[常规用途](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability)或[业务关键](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability)服务层。 对于单一数据库，还可以选择[超大规模(预览版)](sql-database-service-tier-hyperscale.md)服务层。
 
 使用基于 vCore 的购买模型，可以单独选择计算和存储资源，匹配本地性能，以及优化价格。 在基于 vCore 的购买模型中，客户的费用包括：
 

@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 06/05/2018
 ms.date: 07/02/2018
 ms.author: v-yiso
-ms.openlocfilehash: 8130c74a932cfbc27a8abf32976ec3d2be5d0b86
-ms.sourcegitcommit: 80c59ae1174d71509b4aa64a28a98670307a5b38
+ms.openlocfilehash: a7008589122b92b8fe3176306e4dc06207e2846b
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53735213"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906100"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>持续部署到 Azure 应用服务
 本文展示了如何为 [Azure 应用服务](app-service-web-overview.md)配置持续部署。 应用服务可以使用 BitBucket、GitHub 和 [Azure DevOps Services](https://www.visualstudio.com/team-services/) 实现持续部署，方法是从上述服务之一中的现有存储库拉取最新的更新。
@@ -75,7 +75,7 @@ ms.locfileid: "53735213"
 
 ## <a name="deploy-continuously-from-bitbucket"></a>从 BitBucket 持续部署
 
-若要使用 BitBucket 实现持续部署，请在 [Azure 门户](https://portal.azure.com)中导航至你的应用服务应用页。
+若要使用 BitBucket 实现持续部署，请在 [Azure 门户](https://portal.azure.cn)中导航至你的应用服务应用页。
 
 在左侧菜单中，单击“部署中心” > “BitBucket” > “授权”。 按照授权提示进行操作。 
 
@@ -93,7 +93,7 @@ ms.locfileid: "53735213"
 
 ## <a name="deploy-continuously-from-azure-devops-services"></a>从 Azure DevOps Services 持续部署
 
-若要使用 Azure DevOps Services 实现持续部署，请在 [Azure 门户](https://portal.azure.com)中导航到自己的“应用服务”应用页。
+若要使用 Azure DevOps Services 实现持续部署，请在 [Azure 门户](https://portal.azure.cn)中导航到自己的“应用服务”应用页。
 
 在左侧菜单中，单击“部署中心” > “Azure DevOps Services” > “继续”。 
 

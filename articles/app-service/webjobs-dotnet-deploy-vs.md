@@ -16,18 +16,18 @@ ms.workload: azure-vs
 origin.date: 09/12/2017
 ms.date: 01/21/2019
 ms.author: v-biyu
-ms.openlocfilehash: 76e1ba9d0ef759cd7957cbfc7ded158b798d3887
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 22856b7445bc32222cb9661ffa820550534302ce
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083944"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906201"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>使用 Visual Studio 开发和部署 WebJobs - Azure 应用服务
 
 ## <a name="overview"></a>概述
 
-本主题介绍如何使用 Visual Studio 将控制台应用程序项目作为 [Azure Web 作业](https://go.microsoft.com/fwlink/?LinkId=390226)部署到[应用服务](overview.md)中的 Web 应用。 有关如何使用 [Azure 门户](https://portal.azure.com)部署 WebJobs 的信息，请参阅[使用 WebJobs 运行后台任务](webjobs-create.md)。
+本主题介绍如何使用 Visual Studio 将控制台应用程序项目作为 [Azure Web 作业](https://go.microsoft.com/fwlink/?LinkId=390226)部署到[应用服务](overview.md)中的 Web 应用。 有关如何使用 [Azure 门户](https://portal.azure.cn)部署 WebJobs 的信息，请参阅[使用 WebJobs 运行后台任务](webjobs-create.md)。
 
 当 Visual Studio 部署启用 Web 作业的控制台应用程序项目时，它会执行两个任务：
 

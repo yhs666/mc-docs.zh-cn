@@ -16,12 +16,12 @@ origin.date: 11/09/2017
 ms.date: 01/21/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 888606b66398102f266630b015845b9f519f8cc9
-ms.sourcegitcommit: 902c63072b2d4d889e47f3e4ecb53aeb33534e0c
+ms.openlocfilehash: 5f15499b68a7b2286e5f3c7ba508b0267bce5d4d
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54186252"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906117"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Azure 应用服务 Windows 版上节点应用程序的最佳做法和故障排除指南
 
@@ -64,7 +64,7 @@ ms.locfileid: "54186252"
 
 ### <a name="debuggerextensiondll"></a>debuggerExtensionDll
 
-此设置控制 iisnode 在调试 node 应用程序时使用的节点检查器版本。 iisnode-inspector-0.7.3.dll 和 iisnode-inspector.dll 目前是此设置仅有的两个有效值。 默认值为 iisnode-inspector-0.7.3.dll。 iisnode-inspector-0.7.3.dll 版本使用 node-inspector-0.7.3 并使用 Web 套接字。 在 Azure Web 应用中启用 Web 套接字以使用此版本。 有关如何将 iisnode 配置为使用新 node-inspector 的更多详细信息，请参阅 <https://ranjithblogs.azurewebsites.net/?p=98>。
+此设置控制 iisnode 在调试 node 应用程序时使用的节点检查器版本。 iisnode-inspector-0.7.3.dll 和 iisnode-inspector.dll 目前是此设置仅有的两个有效值。 默认值为 iisnode-inspector-0.7.3.dll。 iisnode-inspector-0.7.3.dll 版本使用 node-inspector-0.7.3 并使用 Web 套接字。 在 Azure Web 应用中启用 Web 套接字以使用此版本。 有关如何将 iisnode 配置为使用新 node-inspector 的更多详细信息，请参阅 <https://ranjithblogs.chinacloudsites.cn/?p=98>。
 
 ### <a name="flushresponse"></a>flushResponse
 

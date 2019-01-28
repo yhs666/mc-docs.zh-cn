@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-origin.date: 12/06/2018
-ms.date: 01/21/2019
+origin.date: 01/09/2019
+ms.date: 01/28/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 94962b1d18932908ab0a531a8a921b808b4df034
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: 8bc31efa81b16e1c8f5239da6a944490ee74c249
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193119"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085675"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>教程：从门户添加示例模型
 
@@ -58,7 +58,7 @@ ms.locfileid: "54193119"
 
 下面的步骤介绍了如何使用 SSMS 从服务器中删除模型。 
 
-<!-- Not Available on You can also delete a model by using the preview Web designer feature.-->
+  <!-- Not Available on You can also delete a model by using the preview Web designer feature.-->
 1. 在 SSMS >“对象资源管理器”中，单击“连接” > “Analysis Services”。
 
 2. 在“连接到服务器”中，粘贴服务器名称，然后在“身份验证”中选择“Active Directory - 支持 MFA 的通用身份验证”，输入你的用户名，然后单击“连接”。

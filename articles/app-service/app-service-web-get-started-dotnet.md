@@ -16,12 +16,12 @@ origin.date: 09/05/2018
 ms.date: 01/21/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 28d907ff3fa340853a089b5ed353f0ca37fbd99d
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 2bb53e569a0b905638ea89fae78a0c6300118bdf
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083585"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906017"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>在 Azure 中创建 ASP.NET Core Web 应用
 
@@ -108,7 +108,7 @@ ms.locfileid: "54083585"
 
 ## <a name="create-and-publish-the-web-app"></a>创建并发布 Web 应用
 
-在“应用名称”中，键入唯一的应用名称（有效字符为 `a-z`、`0-9` 和 `-`），或接受自动生成的唯一名称。 Web 应用的 URL 为 `http://<app_name>.azurewebsites.net`，其中 `<app_name>` 是应用名称。
+在“应用名称”中，键入唯一的应用名称（有效字符为 `a-z`、`0-9` 和 `-`），或接受自动生成的唯一名称。 Web 应用的 URL 为 `http://<app_name>.chinacloudsites.cn`，其中 `<app_name>` 是应用名称。
 
 选择“创建”开始创建 Azure 资源。
 

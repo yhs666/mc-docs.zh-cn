@@ -9,12 +9,12 @@ origin.date: 10/20/2018
 ms.date: 12/10/2018
 ms.author: v-jay
 ms.component: common
-ms.openlocfilehash: 2ef058b915d23ed57af5efbcbaee1e32443a5d58
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 7a1dd811852c9d12169faa8f7d0bb58a541ebb18
+ms.sourcegitcommit: 92503f045267f436cf3ca7fa9e6f1c13be17fb44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028949"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54858197"
 ---
 # <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>异地冗余存储 (GRS)：Azure 存储的跨区域复制
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-grs.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "53028949"
 
 * 应用程序必须管理在使用 RA-GRS 时要与哪些终结点进行交互。
 * 由于异步复制涉及延迟，因此如果无法将数据从主要区域中恢复，则尚未复制到次要区域的更改可能会丢失。
-* 可以检查存储帐户的上次同步时间。 上次同步时间是 GMT 日期/时间值。 在上次同步时间之前主要位置的写入内容已成功写入次要位置，这意味着可以从次要位置读取这些内容。 在上次同步时间之后发生的主位置写入可能可供读取，也可能尚不可供读取。 可以使用 [Azure 门户](https://portal.azure.com/)、[Azure PowerShell](storage-powershell-guide-full.md) 或通过 Azure 存储客户端库之一查询此值。
+* 可以检查存储帐户的上次同步时间。 上次同步时间是 GMT 日期/时间值。 在上次同步时间之前主要位置的写入内容已成功写入次要位置，这意味着可以从次要位置读取这些内容。 在上次同步时间之后发生的主位置写入可能可供读取，也可能尚不可供读取。 可以使用 [Azure 门户](https://portal.azure.cn/)、[Azure PowerShell](storage-powershell-guide-full.md) 或通过 Azure 存储客户端库之一查询此值。
 * 如果 Azure 启动了到次要区域的故障转移，则在故障转移完成以后，用户将对该数据具有读取和写入访问权限。 有关详细信息，请参阅[灾难恢复指南](storage-disaster-recovery-guidance.md)。
 * 有关如何切换到次要区域的信息，请参阅[在 Azure 存储中断时该怎么办](storage-disaster-recovery-guidance.md)。
 * 要实现高可用性时使用 RA-GRS。 有关可伸缩性的指南，请查看[性能清单](storage-performance-checklist.md)。

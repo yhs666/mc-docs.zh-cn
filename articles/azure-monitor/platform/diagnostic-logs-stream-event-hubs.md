@@ -1,19 +1,19 @@
 ---
 title: 将 Azure 诊断日志流式传输到事件中心
 description: 了解如何将 Azure 诊断日志流式传输到事件中心。
-author: johnkemnetz
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 07/25/2018
-ms.author: johnkem
-ms.component: ''
-ms.openlocfilehash: 18dea82ad192f3087da1224ead119025bb3bb309
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.date: 01/21/19
+ms.author: v-lingwu
+ms.subservice: ''
+ms.openlocfilehash: ae1485e022774ddef871c7e95d3f42a01c796ba9
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141757"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906147"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>将 Azure 诊断日志流式传输到事件中心
 可将 **[Azure 诊断日志](diagnostic-logs-overview.md)** 以近实时方式流式传输到任何应用程序，方法是使用门户中的内置“导出到事件中心”选项，或者通过 Azure PowerShell Cmdlet 或 Azure CLI 在诊断设置中启用事件中心授权规则 ID。
@@ -22,7 +22,7 @@ ms.locfileid: "54141757"
 可以通过下述几种方式将流式传输功能用于诊断日志：
 
 * **将日志流式传输到第三方日志记录和遥测系统** - 可以将所有诊断日志流式传输到单个事件中心，以便将日志数据通过管道传送到第三方 SIEM 或日志分析工具。
-* **通过将“热路径”数据流式传输到 Power BI 查看服务运行状况** – 可以通过事件中心、流分析和 Power BI 在 Azure 服务中轻松将诊断数据转化成准实时分析结果。 [本文档很好地概述了如何设置事件中心、如何使用流分析处理数据，以及如何将 Power BI 用作输出](../../stream-analytics/stream-analytics-power-bi-dashboard.md)。 下面是有关如何设置诊断日志的一些提示：
+* **通过将“热路径”数据流式传输到 Power BI 查看服务运行状况** – 可以通过事件中心、流分析和 Power BI 在 Azure 服务中轻松将诊断数据转化成准实时分析结果。 下面是有关如何设置诊断日志的一些提示：
 
   * 在门户中选中相关选项或通过 PowerShell 启用相关选项以后，即可自动创建针对某类诊断日志的事件中心，因此需在命名空间中选择名称以 **insights-** 开头的事件中心。
   * 以下 SQL 代码是一个流分析查询示例，可用于将所有日志数据解析成 Power BI 表：
@@ -37,7 +37,7 @@ ms.locfileid: "54141757"
     CROSS APPLY GetArrayElements(e.records) AS records
     ```
 
-* **生成自定义遥测和日志记录平台** – 如果已经有一个自定义生成的遥测平台，或者正想生成一个，则可利用事件中心高度可缩放的发布-订阅功能，灵活地引入诊断日志。 [请参阅此处提供的 Dan Rosanova 的指南，了解如何在全局规模的遥测平台中使用事件中心。](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)
+* **生成自定义遥测和日志记录平台** – 如果已经有一个自定义生成的遥测平台，或者正想生成一个，则可利用事件中心高度可缩放的发布-订阅功能，灵活地引入诊断日志。 [请参阅此处提供的 Dan Rosanova 的指南，了解如何在全局规模的遥测平台中使用事件中心。](https://www.azure.cn/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)
 
 ## <a name="enable-streaming-of-diagnostic-logs"></a>启用诊断日志的流式传输
 
@@ -93,7 +93,7 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizati
 
 ### <a name="via-azure-cli"></a>通过 Azure CLI
 
-若要通过 [Azure CLI](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest) 启用流式传输，可以使用 [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) 命令。
+若要通过 [Azure CLI](https://docs.azure.cn/zh-cn/cli/monitor?view=azure-cli-latest) 启用流式传输，可以使用 [az monitor diagnostic-settings create](https://docs.azure.cn/zh-cn/cli/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) 命令。
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \
@@ -195,6 +195,5 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 
 ## <a name="next-steps"></a>后续步骤
 
-* [使用 Azure Monitor 流式传输 Azure Active Directory 日志](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)
 * [详细了解 Azure 诊断日志](diagnostic-logs-overview.md)
 * [事件中心入门](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)

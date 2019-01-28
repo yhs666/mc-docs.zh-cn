@@ -5,21 +5,23 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 10/18/2018
-ms.date: 12/17/2018
+origin.date: 01/08/2019
+ms.date: 01/28/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7fd40dcc0733a00210d49ef08be86cc59581649a
-ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
+ms.openlocfilehash: 30d24bf71e0b1bfa24d2f8fd8e0691720a8cd6a6
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53157429"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085638"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>安装并配置本地数据网关
+
 当同一区域中的一个或多个 Azure Analysis Services 服务器连接到本地数据源时，需要本地数据网关。 若要了解有关网关的详细信息，请参阅[本地数据网关](analysis-services-gateway.md)。
 
 ## <a name="prerequisites"></a>先决条件
+
 **最低要求：**
 
 * .NET 4.5 Framework
@@ -43,8 +45,10 @@ ms.locfileid: "53157429"
 * 如果数据源位于 Azure 虚拟网络 (VNet) 上，则必须配置 [AlwaysUseGateway](analysis-services-vnet-gateway.md) 服务器属性。
 
 <!-- * The (unified) gateway described here is not supported in Azure China Cloud, Azure Germany, and Azure China sovereign regions. Use **Dedicated On-premises gateway for Azure Analysis Services**, installed from your server's **Quick Start** in the portal. -->
+
 <a name="download"></a>
 ## <a name="download"></a>下载
+
  [下载网关](https://aka.ms/azureasgateway)
 
 <a name="install"></a>
@@ -65,6 +69,7 @@ ms.locfileid: "53157429"
 
 <a name="register"></a>
 ## <a name="register"></a>注册
+
 若要在 Azure 中创建网关资源，必须将安装的本地实例注册到网关云服务。 
 
 1.  选择“在此计算机上注册新网关”。
@@ -80,6 +85,7 @@ ms.locfileid: "53157429"
 
 <a name="create-resource"></a>
 ## <a name="create-an-azure-gateway-resource"></a>创建 Azure 网关资源
+
 安装并注册网关后，需在 Azure 订阅中创建网关资源。 使用注册网关时所用的同一帐户登录到 Azure。
 
 1. 在 Azure 门户中，单击“创建资源” > “集成” > “本地数据网关”。
@@ -119,8 +125,9 @@ ms.locfileid: "53157429"
 就这么简单。 如需打开端口或执行任何故障排除，请务必查看[本地数据网关](analysis-services-gateway.md)。
 
 ## <a name="next-steps"></a>后续步骤
+
 * [管理 Analysis Services](analysis-services-manage.md)   
 * [从 Azure Analysis Services 获取数据](analysis-services-connect.md)   
 * [对 Azure 虚拟网络上的数据源使用网关](analysis-services-vnet-gateway.md)
 
-<!-- Update_Description: update meta properties  -->
+<!-- Update_Description: update meta properties, wording update-->

@@ -4,16 +4,17 @@ description: 了解如何将 HDInsight 群集升级到较新版本。
 services: hdinsight
 ms.service: hdinsight
 author: omidm1
-ms.author: omidm
+ms.author: v-yiso
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/04/2017
-ms.openlocfilehash: cab2c7aabf23ba8636f46a92c8d864b1c9b74120
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+origin.date: 04/04/2017
+ms.date: 02/04/2019
+ms.openlocfilehash: 07b6bec0cae5653e37830a7cc65940b0280c23c5
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028571"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906130"
 ---
 # <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>将 HDInsight 群集升级到更新版本
 要利用最新的 HDInsight 功能，我们建议将 HDInsight 群集升级到最新版本。 按照以下准则升级 HDInsight 群集版本。
@@ -45,5 +46,5 @@ ms.locfileid: "53028571"
 ## <a name="next-steps"></a>后续步骤
 * [了解如何创建基于 Linux 的 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)
 * [使用 SSH 连接到 HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
-* [使用 Ambari 管理基于 Linux 的群集](hdinsight-hadoop-manage-ambari.md)
+* [使用 Apache Ambari 管理基于 Linux 的群集](hdinsight-hadoop-manage-ambari.md)
 

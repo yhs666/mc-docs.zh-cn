@@ -10,13 +10,13 @@ ms.topic: tutorial
 ms.custom: mvc
 origin.date: 07/20/2018
 ms.author: v-yiso
-ms.date: 01/14/2019
-ms.openlocfilehash: 4a0775d5411e621acb6a977715c647e75b2a131d
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.date: 02/04/2019
+ms.openlocfilehash: 7839d1af1150b284d6596e11feb21540b82f9362
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806617"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906237"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>教程：使用 Azure 逻辑应用自动处理电子邮件和附件
 
@@ -38,7 +38,7 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
 
 ![完成的逻辑应用概览](./media/tutorial-process-email-attachments-workflow/overview.png)
 
-如果还没有 Azure 订阅，可以在开始前<a href="https://www.azure.cn/pricing/1rmb-trial" target="_blank">注册一个免费 Azure 帐户</a>。 
+如果没有 Azure 订阅，可以在开始前<a href="https://www.azure.cn/pricing/1rmb-trial" target="_blank">注册一个 Azure 试用帐户</a>。 
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -73,7 +73,7 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
    | **配置虚拟网络** | 已禁用 | 对于本教程，请保留“禁用”设置。 | 
    |||| 
 
-   
+
 2. 在 Azure 部署存储帐户以后，请获取存储帐户的访问密钥：
 
    1. 在存储帐户菜单中的“设置”下，选择“访问密钥”。 

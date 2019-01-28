@@ -11,14 +11,14 @@ ms.workload: integration
 ms.topic: quickstart
 ms.custom: mvc
 origin.date: 11/28/2017
-ms.date: 12/03/2018
+ms.date: 02/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: a81adfddebd939c8c90a8a8979e0c80f7062a296
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 3cf828a73325fd253060113a75af67742073139e
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674490"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906160"
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>创建新的 Azure API 管理服务实例
 

@@ -8,18 +8,17 @@ ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.component: alerts
-ms.openlocfilehash: b2adefcaa6a4d7c5c111ec0d0fd3498f7cd344f8
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 1870ce48e3c81937c82b6c4dbe758a58fdedd705
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363437"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906141"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>在 Azure Monitor 中创建日志的指标警报  
 
 ## <a name="overview"></a>概述
 Azure Monitor 支持比[经典警报](../../azure-monitor/platform/alerts-classic-portal.md)更具优势的[指标警报类型](../../azure-monitor/platform/alerts-metric-near-real-time.md)。 指标可用于 [Azure 服务的大型列表](../../azure-monitor/platform/metrics-supported.md)。 本文解释某个资源子集的用法 - `Microsoft.OperationalInsights/workspaces`。 
-
 
 > [!NOTE]
 > 只有在选定期间内存在其数据时，特定的指标和/或维度才会显示。 这些指标适用于使用 Azure Log Analytics 工作区的客户。
@@ -32,6 +31,7 @@ Azure Monitor 支持比[经典警报](../../azure-monitor/platform/alerts-classi
 
 ## <a name="creating-metric-alert-for-log-analytics"></a>为 Log Analytics 创建指标警报
 在 Log Analytics 中处理常用日志中的指标数据之前，会先通过管道将其传送到“Azure Monitor - 指标”。 这样，用户便可以利用指标平台的功能以及指标警报 - 包括创建频率低至 1 分钟的警报。 下面列出了为日志创建指标警报的方式。
+
 
 
 ## <a name="configuring-metric-alert-for-logs"></a>配置日志的指标警报
@@ -52,7 +52,9 @@ Azure Monitor 支持比[经典警报](../../azure-monitor/platform/alerts-classi
 1. 使用 scheduledQueryRule API 创建用于从支持的日志中提取指标的规则
 2. 针对从日志中提取的（步骤 1）和从用作目标资源的 Log Analytics 工作区中提取的指标创建指标警报
 
-为实现相同的效果，可以使用下面的示例 Azure 资源管理器模板 - 只有在成功创建了用于通过 scheduledQueryRule 从日志中提取指标的规则之后，才能创建指标警报。
+### <a name="metric-alerts-for-logs-with-static-threshold"></a>针对具有静态阈值的日志的指标警报
+
+为实现相同的效果，可以使用下面的示例 Azure 资源管理器模板 - 只有在成功创建了用于通过 scheduledQueryRule 从日志中提取指标的规则之后，才能创建静态阈值指标警报。
 
 ```json
 {
@@ -267,9 +269,9 @@ Azure Monitor 支持比[经典警报](../../azure-monitor/platform/alerts-classi
         }
     ]
 }
-
 ```
-假设上述 JSON 保存为 metricfromLogsAlert.json，可将其与某个参数 JSON 文件相结合，在资源模板中创建警报。 下面列出了示例参数 JSON 文件：
+
+假设上述 JSON 保存为 metricfromLogsAlertStatic.json，可将其与某个参数 JSON 文件相结合，在资源模板中创建警报。 下面列出了示例参数 JSON 文件：
 
 ```json
 {
@@ -324,16 +326,333 @@ Azure Monitor 支持比[经典警报](../../azure-monitor/platform/alerts-classi
     }    
 }
 ```
-假设上述参数文件保存为 metricfromLogsAlert.parameters.json，则可以使用 [Azure 门户中用于创建警报的资源模板](../../azure-resource-manager/resource-group-template-deploy-portal.md)来创建日志的指标警报。 
+
+假设上述参数文件保存为 metricfromLogsAlertStatic.parameters.json，则可以使用 [Azure 门户中用于创建警报的资源模板](../../azure-resource-manager/resource-group-template-deploy-portal.md)来创建日志的指标警报。
 
 也可以使用以下 Azure Powershell 命令：
 ```PowerShell
-New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfromLogsAlert.json TemplateParameterFile metricfromLogsAlert.parameters.json
+New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfromLogsAlertStatic.json TemplateParameterFile metricfromLogsAlertStatic.parameters.json
 ```
 
 或使用 Azure CLI 部署资源模板：
 ```CLI
-az group deployment create --resource-group myRG --template-file metricfromLogsAlert.json --parameters @metricfromLogsAlert.parameters.json
+az group deployment create --resource-group myRG --template-file metricfromLogsAlertStatic.json --parameters @metricfromLogsAlertStatic.parameters.json
+```
+
+### <a name="metric-alerts-for-logs-with-dynamic-thresholds"></a>针对具有动态阈值的日志的指标警报
+
+为实现相同的效果，可以使用下面的示例 Azure 资源管理器模板 - 只有在成功创建了用于通过 scheduledQueryRule 从日志中提取指标的规则之后，才能创建动态阈值指标警报。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "convertRuleName": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "Name of the rule to convert log to metric"
+            }
+        },
+        "convertRuleDescription": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "Description for log converted to metric"
+            }
+        },
+        "convertRuleRegion": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "Name of the region used by workspace"
+            }
+        },
+        "convertRuleStatus": {
+            "type": "string",
+            "defaultValue": "true",
+            "metadata": {
+                "description": "Specifies whether the log conversion rule is enabled"
+            }
+        },
+        "convertRuleMetric": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "Name of the metric once extraction done from logs."
+            }
+        },
+        "alertName": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "Name of the alert"
+            }
+        },
+        "alertDescription": {
+            "type": "string",
+            "defaultValue": "This is a metric alert",
+            "metadata": {
+                "description": "Description of alert"
+            }
+        },
+        "alertSeverity": {
+            "type": "int",
+            "defaultValue": 3,
+            "allowedValues": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ],
+            "metadata": {
+                "description": "Severity of alert {0,1,2,3,4}"
+            }
+        },
+        "isEnabled": {
+            "type": "bool",
+            "defaultValue": true,
+            "metadata": {
+                "description": "Specifies whether the alert is enabled"
+            }
+        },
+        "resourceId": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "Full Resource ID of the resource emitting the metric that will be used for the comparison. For example /subscriptions/00000000-0000-0000-0000-0000-00000000/resourceGroups/ResourceGroupName/providers/Microsoft.compute/virtualMachines/VM_xyz"
+            }
+        },
+        "metricName": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "Name of the metric used in the comparison to activate the alert."
+            }
+        },
+        "operator": {
+            "type": "string",
+            "defaultValue": "GreaterOrLessThan",
+            "allowedValues": [
+                "GreaterThan",
+                "LessThan",
+                "GreaterOrLessThan"
+            ],
+            "metadata": {
+                "description": "Operator comparing the current value with the threshold value."
+            }
+        },
+        "alertSensitivity": {
+            "type": "string",
+            "defaultValue": "Medium",
+            "allowedValues": [
+                "High",
+                "Medium",
+                "Low"
+            ],
+            "metadata": {
+                "description": "Tunes how 'noisy' the Dynamic Thresholds alerts will be: 'High' will result in more alerts while 'Low' will result in fewer alerts."
+            }
+        },
+        "numberOfEvaluationPeriods": {
+            "type": "string",
+            "defaultValue": "4",
+            "metadata": {
+                "description": "The number of periods to check in the alert evaluation."
+            }
+        },
+        "minFailingPeriodsToAlert": {
+            "type": "string",
+            "defaultValue": "3",
+            "metadata": {
+                "description": "The number of unhealthy periods to alert on (must be lower or equal to numberOfEvaluationPeriods)."
+            }
+        },
+        "timeAggregation": {
+            "type": "string",
+            "defaultValue": "Average",
+            "allowedValues": [
+                "Average",
+                "Minimum",
+                "Maximum",
+                "Total"
+            ],
+            "metadata": {
+                "description": "How the data that is collected should be combined over time."
+            }
+        },
+        "windowSize": {
+            "type": "string",
+            "defaultValue": "PT5M",
+            "metadata": {
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one day. ISO 8601 duration format."
+            }
+        },
+        "evaluationFrequency": {
+            "type": "string",
+            "defaultValue": "PT1M",
+            "metadata": {
+                "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"
+            }
+        },
+        "actionGroupId": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "The ID of the action group that is triggered when the alert is activated or deactivated"
+            }
+        }
+    },
+    "variables": {
+        "convertRuleTag": "hidden-link:/subscriptions/1234-56789-1234-567a/resourceGroups/resourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName",
+        "convertRuleSourceWorkspace": {
+            "SourceId": "/subscriptions/1234-56789-1234-567a/resourceGroups/resourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName"
+        }
+    },
+    "resources": [
+        {
+            "name": "[parameters('convertRuleName')]",
+            "type": "Microsoft.Insights/scheduledQueryRules",
+            "apiVersion": "2018-04-16",
+            "location": "[parameters('convertRuleRegion')]",
+            "tags": {
+                "[variables('convertRuleTag')]": "Resource"
+            },
+            "properties": {
+                "description": "[parameters('convertRuleDescription')]",
+                "enabled": "[parameters('convertRuleStatus')]",
+                "source": {
+                    "dataSourceId": "[variables('convertRuleSourceWorkspace').SourceId]"
+                },
+                "action": {
+                    "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction",
+                    "criteria": [{
+                            "metricName": "[parameters('convertRuleMetric')]",
+                            "dimensions": []
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "[parameters('alertName')]",
+            "type": "Microsoft.Insights/metricAlerts",
+            "location": "global",
+            "apiVersion": "2018-03-01",
+            "tags": {},
+            "dependsOn":["[resourceId('Microsoft.Insights/scheduledQueryRules',parameters('convertRuleName'))]"],
+            "properties": {
+                "description": "[parameters('alertDescription')]",
+                "severity": "[parameters('alertSeverity')]",
+                "enabled": "[parameters('isEnabled')]",
+                "scopes": ["[parameters('resourceId')]"],
+                "evaluationFrequency":"[parameters('evaluationFrequency')]",
+                "windowSize": "[parameters('windowSize')]",
+                "criteria": {
+                    "odata.type": "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
+                    "allOf": [
+                        {
+                            "criterionType": "DynamicThresholdCriterion",
+                            "name" : "1st criterion",
+                            "metricName": "[parameters('metricName')]",
+                            "dimensions":[],
+                            "operator": "[parameters('operator')]",
+                            "alertSensitivity": "[parameters('alertSensitivity')]",
+                            "failingPeriods": {
+                                "numberOfEvaluationPeriods": "[parameters('numberOfEvaluationPeriods')]",
+                                "minFailingPeriodsToAlert": "[parameters('minFailingPeriodsToAlert')]"
+                            },
+                            "timeAggregation": "[parameters('timeAggregation')]"
+                        }
+                    ]
+                },
+                "actions": [
+                    {
+                        "actionGroupId": "[parameters('actionGroupId')]"
+                    }
+                ]
+            }
+        }
+    ]
+}
+```
+
+假设上述 JSON 保存为 metricfromLogsAlertDynamic.json，可将其与某个参数 JSON 文件相结合，在资源模板中创建警报。 下面列出了示例参数 JSON 文件：
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "convertRuleName": {
+            "value": "TestLogtoMetricRule"
+        },
+        "convertRuleDescription": {
+            "value": "Test rule to extract metrics from logs via template"
+        },
+        "convertRuleRegion": {
+            "value": "West Central US"
+        },
+        "convertRuleStatus": {
+            "value": "true"
+        },
+        "convertRuleMetric": {
+            "value": "Average_% Idle Time"
+        },
+        "alertName": {
+            "value": "TestMetricAlertonLog"
+        },
+        "alertDescription": {
+            "value": "New multi-dimensional metric alert created via template"
+        },
+        "alertSeverity": {
+            "value":3
+        },
+        "isEnabled": {
+            "value": true
+        },
+        "resourceId": {
+            "value": "/subscriptions/1234-56789-1234-567a/resourceGroups/myRG/providers/Microsoft.OperationalInsights/workspaces/workspaceName"
+        },
+        "metricName":{
+            "value": "Average_% Idle Time"
+        },
+        "operator": {
+            "value": "GreaterOrLessThan"
+          },
+          "alertSensitivity": {
+              "value": "Medium"
+          },
+          "numberOfEvaluationPeriods": {
+              "value": "4"
+          },
+          "minFailingPeriodsToAlert": {
+              "value": "3"
+          },
+        "timeAggregation":{
+            "value": "Average"
+        },
+        "actionGroupId": {
+            "value": "/subscriptions/1234-56789-1234-567a/resourceGroups/myRG/providers/microsoft.insights/actionGroups/actionGroupName"
+        }
+    }
+}
+```
+
+假设上述参数文件保存为 metricfromLogsAlertDynamic.parameters.json，则可以使用 [Azure 门户中用于创建警报的资源模板](../../azure-resource-manager/resource-group-template-deploy-portal.md)来创建日志的指标警报。
+
+也可以使用以下 Azure Powershell 命令：
+
+```PowerShell
+New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfromLogsAlertDynamic.json TemplateParameterFile metricfromLogsAlertDynamic.parameters.json
+```
+
+或使用 Azure CLI 部署资源模板：
+
+```CLI
+az group deployment create --resource-group myRG --template-file metricfromLogsAlertDynamic.json --parameters @metricfromLogsAlertDynamic.parameters.json
 ```
 
 ## <a name="next-steps"></a>后续步骤

@@ -14,12 +14,12 @@ ms.workload: na
 origin.date: 09/01/2017
 ms.author: adamab
 ms.date: 08/13/2018
-ms.openlocfilehash: 0caccf5c9358707268a620aa03445f793950ce05
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 2d96d54b16a22ec66c52f1c0b5fb926006e945ec
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658134"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906164"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>以编程方式创建 Azure 仪表板
 
@@ -63,7 +63,7 @@ Azure 中的共享仪表板与虚拟机和存储帐户一样，是一种[资源]
 
 ## <a name="fetch-the-json-representation-of-the-dashboard"></a>提取仪表板的 JSON 表示形式
 
-仅需要几秒钟即可完成发布。  完成后，下一步是转到[资源浏览器](https://portal.azure.com/#blade/HubsExtension/ArmExplorerBlade)提取 JSON。
+仅需要几秒钟即可完成发布。  完成后，下一步是转到[资源浏览器](https://portal.azure.cn/#blade/HubsExtension/ArmExplorerBlade)提取 JSON。
 
 ![浏览资源浏览器](./media/azure-portal-dashboards-create-programmatically/browse-resource-explorer.png)
 
@@ -121,7 +121,7 @@ Azure 提供协调多资源部署的功能。 创建用于表达要部署的资�
 
 __可在本文档末尾查看完整的工作模板。__
 
-设置模板后，便可使用 [REST API](https://docs.microsoft.com/en-us/rest/api/resources/deployments)、[PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy)、[Azure CLI](https://docs.microsoft.com/en-us/cli/azure/group/deployment#az_group_deployment_create) 或[门户的模板部署页](https://portal.azure.com/#create/Microsoft.Template)部署该模板。
+设置模板后，便可使用 [REST API](https://docs.microsoft.com/en-us/rest/api/resources/deployments)、[PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy)、[Azure CLI](https://docs.microsoft.com/en-us/cli/azure/group/deployment#az_group_deployment_create) 或[门户的模板部署页](https://portal.azure.cn/#create/Microsoft.Template)部署该模板。
 
 以下是示例仪表板 JSON 的两个版本。 第一个版本是从门户导出的、已绑定到资源的模板。 第二个是可以编程方式绑定到任何 VM 并使用 Azure 资源管理器进行部署的模板版本。
 
@@ -381,7 +381,7 @@ __可在本文档末尾查看完整的工作模板。__
 
 ### <a name="template-representation-of-our-example-dashboard"></a>示例仪表板的模板表示形式
 
-仪表板的模板版本定义了三个参数，分别为virtualMachineName、virtualMachineResourceGroup 和 dashboardName。  使用这些参数可在每次部署时将此仪表板指向不同的 Azure 虚拟机。 突出显示了参数化的 id，用于指示此仪表板可以编程方式配置并部署为指向任何 Azure 虚拟机。 测试此功能的最简单方法是复制以下模板并将其粘贴到 [Azure 门户的模板部署页](https://portal.azure.com/#create/Microsoft.Template)。 
+仪表板的模板版本定义了三个参数，分别为virtualMachineName、virtualMachineResourceGroup 和 dashboardName。  使用这些参数可在每次部署时将此仪表板指向不同的 Azure 虚拟机。 突出显示了参数化的 id，用于指示此仪表板可以编程方式配置并部署为指向任何 Azure 虚拟机。 测试此功能的最简单方法是复制以下模板并将其粘贴到 [Azure 门户的模板部署页](https://portal.azure.cn/#create/Microsoft.Template)。 
 
 此示例自行部署了一个仪表板，但使用模板语言可部署多个资源并将其与一个或多个仪表板绑定。 
 
@@ -642,7 +642,7 @@ __可在本文档末尾查看完整的工作模板。__
             "apiVersion": "2015-08-01-preview",
             "type": "Microsoft.Portal/dashboards",
             "name": "[parameters('dashboardName')]",
-            "location": "westus",
+            "location": "chinaeast",
             "tags": {
                 "hidden-title": "[parameters('dashboardName')]"
             }
