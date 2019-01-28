@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: v-yiso
-ms.openlocfilehash: e36d44137aa7772d1abe8ce401d09494ba357fbd
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 3ebe9d32bc8b02862905e23cd157ec9d20bbfaa3
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661174"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906223"
 ---
 # <a name="enable-offline-sync-for-your-xamarinios-mobile-app"></a>为 Xamarin.iOS 移动应用启用脱机同步
 
@@ -31,7 +31,7 @@ ms.locfileid: "52661174"
 
 本教程更新 [创建 Xamarin iOS 应用] 中的 Xamarin.iOS 应用项目，以支持 Azure 移动应用的脱机功能。 如果不使用下载的快速入门服务器项目，必须将数据访问扩展包添加到项目。 有关服务器扩展包的详细信息，请参阅[使用适用于 Azure 移动应用的 .NET 后端服务器 SDK](./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
 
-若要了解有关脱机同步功能的详细信息，请参阅 [Offline Data Sync in Azure Mobile Apps]（Azure 移动应用中的脱机数据同步）主题。
+若要了解有关脱机同步功能的详细信息，请参阅 [Azure 移动应用中的脱机数据同步] 主题。
 
 ## <a name="update-the-client-app-to-support-offline-features"></a>更新客户端应用以支持脱机功能
 
@@ -63,7 +63,7 @@ ms.locfileid: "52661174"
 
 5. （可选）如果电脑上装有 Visual Studio，打开“服务器资源管理器”。 导航到“Azure”-> “SQL 数据库”中的数据库。 右键单击数据库并选择“在 SQL Server 对象资源管理器中打开” 。 现在便可以浏览 SQL 数据库表及其内容。 验证确认后端数据库中的数据未更改。
 
-6. （可选）通过 Fiddler 或 Postman 之类的 REST 工具使用 `https://<your-mobile-app-backend-name>.azurewebsites.net/tables/TodoItem` 格式的 GET 查询，查询移动后端。
+6. （可选）通过 Fiddler 或 Postman 之类的 REST 工具使用 `https://<your-mobile-app-backend-name>.chinacloudsites.cn/tables/TodoItem` 格式的 GET 查询，查询移动后端。
 
 ## <a name="update-online-app"></a>更新应用以重新连接移动应用后端
 
@@ -79,11 +79,11 @@ ms.locfileid: "52661174"
 4. 在应用程序中，单击要在本地存储区中完成的几个项旁边的复选框。
 
   `CompleteItemAsync` 调用 `SyncAsync`，将每个已完成项与移动应用后端同步。 `SyncAsync` 同时调用推送和拉取操作。
-  每当对客户端已更改的表执行拉取操作时，始终先对客户端同步上下文自动执行推送操作。 隐式推送可确保本地存储中的所有表以及关系都保持一致。 有关此行为的详细信息，请参阅 [Offline Data Sync in Azure Mobile Apps]。
+  每当对客户端已更改的表执行拉取操作时，始终先对客户端同步上下文自动执行推送操作。 隐式推送可确保本地存储中的所有表以及关系都保持一致。 有关此行为的详细信息，请参阅 [Azure 移动应用中的脱机数据同步]。
 
 ## <a name="review-the-client-sync-code"></a>查看客户端同步代码
 
-完成教程 [创建 Xamarin iOS 应用] 时下载的 Xamarin 客户端项目已包含使用本地 SQLite 数据库支持脱机同步的代码。 下面简要概述了在教程代码中已包含的内容。 有关功能的概念性概述，请参阅 [Offline Data Sync in Azure Mobile Apps]。
+完成教程 [创建 Xamarin iOS 应用] 时下载的 Xamarin 客户端项目已包含使用本地 SQLite 数据库支持脱机同步的代码。 下面简要概述了在教程代码中已包含的内容。 有关功能的概念性概述，请参阅 [Azure 移动应用中的脱机数据同步]。
 
 * 表操作之前，必须初始化本地存储区。 `QSTodoListViewController.ViewDidLoad()` 执行 `QSTodoService.InitializeStoreAsync()` 时，对本地存储数据库进行初始化。 此方法将使用 Azure 移动应用客户端 SDK 提供的 `MobileServiceSQLiteStore` 类创建一个新的本地 SQLite 数据库。
 
@@ -108,7 +108,7 @@ ms.locfileid: "52661174"
 
     每当刷新 todoitem 列表或者添加或完成 todoitem 时，所提供的代码便会调用 `QSTodoService.SyncAsync()` 进行同步。 该应用在每次本地更改后同步。 如果对具有由上下文跟踪的未完成本地更新的表执行拉取操作，该拉取操作自动先触发上下文推送操作。
 
-    在所提供的代码中，将查询远程 `TodoItem` 表中的所有记录，但它还可以筛选记录，只需将查询 ID 和查询传递给 `PushAsync` 即可。 有关详细信息，请参阅 *Azure 移动应用中的脱机数据同步* 中的 [Offline Data Sync in Azure Mobile Apps]部分。
+    在所提供的代码中，将查询远程 `TodoItem` 表中的所有记录，但它还可以筛选记录，只需将查询 ID 和查询传递给 `PushAsync` 即可。 有关详细信息，请参阅 [Azure 移动应用中的脱机数据同步] 中的 *增量同步*部分。
 
     ```
     // QSTodoService.cs
@@ -130,13 +130,13 @@ ms.locfileid: "52661174"
 
 ## <a name="additional-resources"></a>其他资源
 
-* [Offline Data Sync in Azure Mobile Apps]
+* [Azure 移动应用中的脱机数据同步]
 * [Azure 移动应用 .NET SDK 操作方法][8]
 
 <!-- Images -->
 
 <!-- URLs. -->
 [创建 Xamarin iOS 应用]: ./app-service-mobile-xamarin-ios-get-started.md
-[Offline Data Sync in Azure Mobile Apps]: ./app-service-mobile-offline-data-sync.md
+[Azure 移动应用中的脱机数据同步]: ./app-service-mobile-offline-data-sync.md
 [SyncContext]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.synccontext(v=azure.10).aspx
 [8]: ./app-service-mobile-dotnet-how-to-use-client-library.md
