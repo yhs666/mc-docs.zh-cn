@@ -17,17 +17,17 @@ origin.date: 10/31/2018
 ms.date: 12/17/2018
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: a7e8368bd58ea191e81d85cc49b79f30ad37ecb2
-ms.sourcegitcommit: 1b6a310ba636b6dd32d7810821bcb79250393499
+ms.openlocfilehash: 2135a2a663e046f2b8fffe628702c9f1d4c162b5
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389411"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085667"
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>创建包含多个子网的虚拟网络（经典）
 
 > [!IMPORTANT]
-> Azure 具有用于创建和处理资源的两个[不同的部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fvirtual-network%2ftoc.json)：资源管理器部署模型和经典部署模型。 本文介绍使用经典部署模型。 Azure 建议通过[资源管理器](quick-create-portal.md)部署模型新建大多数虚拟网络。
+> Azure 具有用于创建和处理资源的两个[不同的部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fvirtual-network%2ftoc.json)：资源管理器部署模型和经典部署模型。 本文介绍使用经典部署模型的情况。 Azure 建议通过[资源管理器](quick-create-portal.md)部署模型新建大多数虚拟网络。
 
 本教程介绍如何创建包含独立公共子网和专用子网的基本 Azure 虚拟网络（经典）。 可以在子网中创建虚拟机和云服务等 Azure 资源。 在虚拟网络（经典）中创建的资源可以彼此通信，并可以与连接到虚拟网络的其他网络中的资源通信。
 
@@ -55,11 +55,11 @@ ms.locfileid: "53389411"
     |资源组|保留选中“新建”，输入 **myResourceGroup**。|
     |订阅和位置|选择订阅和位置。
 
-    如果不熟悉 Azure，请详细了解[资源组](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group)、[订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)和[位置](https://www.azure.cn/support/service-dashboard/)（也称为“区域”）。
-4. 在创建虚拟网络时，只能在门户中创建一个子网。 在本教程中，将在创建虚拟网络之后创建第二个子网。 随后可在“公共”子网中创建可通过 Internet 访问的资源。 还可以在“专用”子网中创建无法通过 Internet 访问的资源。 若要创建第二个子网，请在页面顶部的“搜索资源”框中输入 **myVnet**。 单击显示在搜索结果中的“myVnet”。
+    如果你不熟悉 Azure，请详细了解[资源组](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group)、[订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)和[位置](https://www.azure.cn/support/service-dashboard/)（也称为“区域”）。
+4. 在门户中创建虚拟网络时，只能创建一个子网。 在本教程中，将在创建虚拟网络之后创建第二个子网。 随后可在“公共”子网中创建可通过 Internet 访问的资源。 还可以在“专用”子网中创建无法通过 Internet 访问的资源。 若要创建第二个子网，请在页面顶部的“搜索资源”框中输入 **myVnet**。 单击显示在搜索结果中的“myVnet”。
 5. 在显示的“创建虚拟网络(经典)”窗格中单击“子网”（在“设置”部分中）。
 6. 在显示的“myVnet - 子网”窗格中单击“+添加”。
-7. 在“添加子网”窗格中，为“名称”输入“专用”。 为“地址范围”输入 **10.0.1.0/24**。  单击“确定”。
+7. 在“添加子网”窗格中，为“名称”输入“专用”。 为“地址范围”输入 **10.0.1.0/24**。  单击 **“确定”**。
 8. 在“myVnet - 子网”窗格中，可以看到已创建的“公共”和“专用”子网。
 9. **可选**：完成本教程后，可能想要删除创建的资源，以免产生使用费：
     - 在“myVnet”窗格中单击“概述”。
@@ -68,9 +68,12 @@ ms.locfileid: "53389411"
 
 ## <a name="azure-cli"></a>Azure CLI
 
-1. 可以[安装并配置 Azure CLI](../cli-install-nodejs.md?toc=%2fvirtual-network%2ftoc.json)，或者在 Azure Cloud Shell 中使用 CLI。 Azure Cloud Shell 是可直接在 Azure 门户中运行的免费 Bash shell。 它预安装有 Azure CLI 并将其配置为与帐户一起使用。 若要获取 CLI 命令的帮助，请键入 `azure <command> --help`。 
-2. 在 CLI 会话中，使用以下命令登录到 Azure。 如果在下框中单击“试用”，则会打开 Cloud Shell。 无法输入以下命令即可登录到 Azure 订阅：
-
+1. 还可以[安装和配置 Azure CLI](../cli-install-nodejs.md?toc=%2fvirtual-network%2ftoc.json)。 若要获取 CLI 命令的帮助，请键入 `azure <command> --help`。 
+    
+    <!--Not Available on Cloud Shell-->
+    
+2. 在 CLI 会话中，使用以下命令登录到 Azure。
+  
     ```azurecli
     azure login -e AzureChinaCloud
     ```
@@ -112,7 +115,7 @@ ms.locfileid: "53389411"
 
 1. 安装最新版本的 PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) 模块。 如果不熟悉 Azure PowerShell，请参阅 [Azure PowerShell 概述](https://docs.microsoft.com/zh-cn/powershell/azure/overview?toc=%2fvirtual-network%2ftoc.json)。
 2. 启动 PowerShell 会话。
-3. 在 PowerShell 中，输入 `Add-AzureAccount -Environment AzureChinaCloud` 命令登录到 Azure。
+3. 在 PowerShell 中，输入 `Add-AzureAccount -Environment AzureChinaCloud` 命令登录 Azure。
 4. 相应地更改以下路径和文件名，并导出现有的网络配置文件：
 
     ```powershell
@@ -163,7 +166,7 @@ ms.locfileid: "53389411"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要了解有关所有虚拟网络和子网设置的信息，请参阅[管理虚拟网络](manage-virtual-network.md)和[管理虚拟网络子网](virtual-network-manage-subnet.md)。 在生产环境中有使用虚拟网络和子网的多种选项，以满足不同的要求。
+- 若要了解有关所有虚拟网络和子网设置的信息，请参阅[管理虚拟网络](manage-virtual-network.md)和[管理虚拟网络子网](virtual-network-manage-subnet.md)。 可以根据不同的要求，通过多种选项在生产环境中使用虚拟网络和子网。
 - 创建 [Windows](../virtual-machines/windows/classic/createportal-classic.md?toc=%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/classic/createportal-classic.md?toc=%2fvirtual-network%2ftoc.json) 虚拟机，并将其连接到现有的虚拟网络。
 - 若要在同一 Azure 位置连接两个虚拟网络，请在虚拟网络之间创建[虚拟网络对等互连](create-peering-different-deployment-models.md)。 可将虚拟网络（资源管理器）对等互连到虚拟网络（经典），但不能在两个虚拟网络（经典）之间创建对等互连。
 - 使用 [VPN 网关](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json)或 [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fvirtual-network%2ftoc.json) 线路将虚拟网络连接到本地网络。

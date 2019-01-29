@@ -9,12 +9,12 @@ ms.topic: sample
 origin.date: 12/12/2018
 ms.date: 01/14/2019
 ms.author: v-biyu
-ms.openlocfilehash: c5505929815010bbeb5207b2c62fb0d75a99ebb9
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 6ee8b4b20bf5dadb86964eb9ff4a0f87db4a7a11
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996401"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906060"
 ---
 # <a name="allowed-locations"></a>允许的位置
 
@@ -136,7 +136,7 @@ ms.locfileid: "53996401"
 通过 PowerShell 或 Azure CLI 创建分配时，可以使用 `-PolicyParameter` (PowerShell) 或 `--params` (Azure CLI) 通过字符串或文件将参数值传递为 JSON。
 PowerShell 还支持 `-PolicyParameterObject`，这要求向该 cmdlet 传递一个 Name/Value 哈希表，其中，**Name** 是参数名称，**Value** 是在赋值期间传递的单个值或值数组。
 
-在此示例参数中，仅允许 _eastus2_ 或 _westus_ 位置。
+在此示例参数中，仅允许 _chinaeast2_ 或 _chinaeast_ 位置。
 
 ```json
 {
@@ -160,7 +160,7 @@ PowerShell 还支持 `-PolicyParameterObject`，这要求向该 cmdlet 传递一
 
 ### <a name="deploy-with-azure-powershell"></a>使用 Azure PowerShell 部署
 
-```azurepowershell-interactive
+```azurepowershell
 # Create the Policy Definition (Subscription scope)
 $definition = New-AzureRmPolicyDefinition -Name "allowed-locations" -DisplayName "Allowed locations" -description "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements. Excludes resource groups, Microsoft.AzureActiveDirectory/b2cDirectories, and resources that use the 'global' region." -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/allowed-locations/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/allowed-locations/azurepolicy.parameters.json' -Mode Indexed
 
@@ -178,7 +178,7 @@ $assignment = New-AzureRmPolicyAssignment -Name 'allowed-locations-assignment' -
 
 运行以下命令来删除以前的分配和定义：
 
-```azurepowershell-interactive
+```azurepowershell
 # Remove the Policy Assignment
 Remove-AzureRmPolicyAssignment -Id $assignment.ResourceId
 
@@ -204,7 +204,7 @@ Remove-AzureRmPolicyDefinition -Id $definition.ResourceId
 
 ### <a name="deploy-with-azure-cli"></a>使用 Azure CLI 进行部署
 
-```azurecli-interactive
+```
 # Create the Policy Definition (Subscription scope)
 definition=$(az policy definition create --name 'allowed-locations' --display-name 'Allowed locations' --description 'This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements. Excludes resource groups, Microsoft.AzureActiveDirectory/b2cDirectories, and resources that use the 'global' region.' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/allowed-locations/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/allowed-locations/azurepolicy.parameters.json' --mode Indexed)
 
@@ -222,7 +222,7 @@ assignment=$(az policy assignment create --name 'allowed-locations-assignment' -
 
 运行以下命令来删除以前的分配和定义：
 
-```azurecli-interactive
+```azurecli
 # Remove the Policy Assignment
 az policy assignment delete --name `echo $assignment | jq '.name' -r`
 
@@ -267,8 +267,8 @@ az policy definition delete --name `echo $definition | jq '.name' -r`
           "parameters": {
               "listOfAllowedLocations": {
                   "value": [
-                      "eastus2",
-                      "westus"
+                      "chinaeast2",
+                      "chinaeast"
                   ]
               }
           }

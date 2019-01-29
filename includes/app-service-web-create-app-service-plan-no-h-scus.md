@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 09/18/2018
 ms.author: msangapu
 ms.custom: include file
-ms.openlocfilehash: b035397c7f2535b9e6881a11f76c71cf5152449e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a5a1ff86a9e31d84189597607938f6518b88c794
+ms.sourcegitcommit: b8aa5d05ef46f1db2df4f2653cdd8d150e847113
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676074"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906294"
 ---
-在 Cloud Shell 中，使用 [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) 命令创建一个应用服务计划。
+在 CLI 中，使用 [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) 命令创建一个应用服务计划。
 
 以下示例在免费定价层中创建名为 `myAppServicePlan` 的应用服务计划：
 
-```azurecli-interactive
+```azurecli
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
 ```
 

@@ -9,16 +9,16 @@ ms.topic: quickstart
 origin.date: 11/14/2018
 ms.date: 12/10/2018
 ms.author: v-jay
-ms.openlocfilehash: 1325bf658536adbb117c0eefb024e52b57423e8c
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: d031e5e503aa19e24e8c77971ef3eaa15e4da114
+ms.sourcegitcommit: 92503f045267f436cf3ca7fa9e6f1c13be17fb44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028441"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54858180"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>快速入门：使用 Azure CLI 上传、下载和列出 Blob
 
-Azure CLI 是 Azure 的命令行体验，用于管理 Azure 资源。 可以在浏览器中将它与 Azure Cloud Shell 配合使用。 也可将它安装在 macOS、Linux 或 Windows 上，然后从命令行运行它。 本快速入门介绍了如何使用 Azure CLI 通过 Azure Blob 存储来上传和下载数据。
+Azure CLI 是 Azure 的命令行体验，用于管理 Azure 资源。 可以将其安装在 macOS、Linux 和 Windows 上，然后从命令行运行它。 本快速入门介绍了如何使用 Azure CLI 通过 Azure Blob 存储来上传和下载数据。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -43,7 +43,7 @@ az storage container create --name mystoragecontainer
 Blob 存储支持块 blob、追加 blob 和页 blob。 存储在 Blob 存储中的大多数文件都存储为块 blob。 必须将数据添加到现有的 blob 中且不能修改该 blob 的现有内容时（例如进行日志记录时），使用追加 blob。 页 blob 支持 IaaS 虚拟机的 VHD 文件。
 
 首先，创建要上传到 Blob 的文件。
-如果使用 Azure Cloud Shell，请使用以下方法来创建 `vi helloworld` 文件：当文件打开时，按“插入”，键入“Hello world”，然后按 **Esc** 并输入 `:x`，再按 **Enter**。
+可以使用以下方法来创建文件：`vi helloworld` 当文件打开时，按“插入”，键入“Hello world”，按 **Esc** 并输入 `:x`，然后按 **Enter**。
 
 此示例使用 [az storage blob upload](https://docs.azure.cn/cli/storage/blob#az_storage_blob_upload) 命令将 Blob 上传到在上一个步骤中创建的容器中。
 
@@ -54,7 +54,7 @@ az storage blob upload \
     --file ~/path/to/local/file
 ```
 
-如果使用了前述方法在 Azure Cloud Shell 中创建文件，则可改用此 CLI 命令（请注意，不需指定路径，因为此文件是在基目录创建的，而通常是需要指定路径的）：
+如果使用了上述方法创建文件，则可改用此 CLI 命令（请注意，不需指定路径，因为此文件是在基目录创建的，而通常是需要指定路径的）：
 
 ```azurecli
 az storage blob upload \

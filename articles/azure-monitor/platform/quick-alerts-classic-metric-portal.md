@@ -1,28 +1,27 @@
 ---
 title: 当指标值满足条件时接收通知
 description: 帮助用户创建逻辑应用的指标的快速入门指南
-author: anirudhcavale
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: quickstart
-ms.date: 02/08/2018
-ms.author: ancav
+ms.date: 01/21/19
+ms.author: v-lingwu
 ms.custom: mvc
-ms.component: alerts
-ms.openlocfilehash: e9e4cc665a686158c058ef6c994647b5349bba8f
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.subservice: alerts
+ms.openlocfilehash: 8af670b7b616f5f1148b313fcba6bbd780b8a6a2
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141712"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906206"
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>当指标值满足条件时接收通知
 
 Azure Monitor 使指标可用于许多 Azure 资源。 这些指标传达相关资源的性能和运行状况。 在许多情况下，指标值可以指出某个资源发生错误。 可以创建指标警报以监视异常行为，并在异常行为发生时收到通知。 本快速入门分步介绍了如何创建逻辑应用、创建作业，并使逻辑应用的指标可视化。 然后，它将完成创建警报，并接收逻辑应用资源的指标的通知。
 
-有关指标和指标警报的详细信息，请参阅 [Azure Monitor 指标概述](../../azure-monitor/platform/data-collection.md)和 [Azure Monitor 警报概述](./alerts-overview.md)。 
 
-如果没有 Azure 订阅，请在开始之前创建一个[免费](https://azure.microsoft.com/free/)帐户。
+如果没有 Azure 订阅，请在开始之前创建一个[免费](https://www.azure.cn/free/)帐户。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 
@@ -90,11 +89,11 @@ Azure Monitor 使指标可用于许多 Azure 资源。 这些指标传达相关�
     ![在门户面板中配置逻辑应用警报](./media/quick-alerts-classic-metric-portal/logic-app-metrics-alert-portal.png)
 
 ## <a name="receive-metric-alert-notifications-for-your-logic-app"></a>接收逻辑应用的指标警报通知
-1. 不久之后，就会收到来自“Microsoft Azure 警报”的电子邮件，通知你警报“已激活”。
+1. 不久之后，就会收到来自“世纪互联 Azure 警报”的电子邮件，通知你警报“已激活”。
 
 2. 返回逻辑应用，将重复触发器修改为间隔为 1 且频率为小时。
 
-3. 不久之后，就会收到来自“Microsoft Azure 警报”的电子邮件，通知你警报“已解决”。
+3. 不久之后，就会收到来自“世纪互联 Azure 警报”的电子邮件，通知你警报“已解决”。
 
 ## <a name="clean-up-resources"></a>清理资源
 

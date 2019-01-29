@@ -9,12 +9,12 @@ origin.date: 12/08/2016
 ms.date: 12/10/2018
 ms.author: v-jay
 ms.component: common
-ms.openlocfilehash: 7d44213a8e5e627304cc8b6ba2e2533ddbef4d91
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: a853fe605982dae4197c6cd4f67202ef88d644ac
+ms.sourcegitcommit: 92503f045267f436cf3ca7fa9e6f1c13be17fb44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028392"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54858198"
 ---
 # <a name="azure-storage-performance-and-scalability-checklist"></a>Azure 存储性能和可伸缩性清单
 ## <a name="overview"></a>概述
@@ -131,7 +131,7 @@ Azure 存储使用基于范围的分区方案来对系统进行缩放和负载�
 有关虚拟机大小和分配带宽的详细信息，请参阅 [Windows VM 大小](../../virtual-machines/windows/sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)或 [Linux VM 大小](../../virtual-machines/windows/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。  
 
 #### <a name="subheading4"></a>位置
-在任何分布式环境中，将客户端放置在服务器附近可提供最佳性能。 要以最低的延迟访问 Azure 存储，则最好是将客户端放置在同一 Azure 区域内。 例如，如果 Azure 网站使用 Azure 存储，则应将二者都放置在同一个区域（例如美国西部或亚洲东南部）。 这会降低延迟和成本 — 在本文撰写之际，同一个区域的带宽使用是免费的。  
+在任何分布式环境中，将客户端放置在服务器附近可提供最佳性能。 要以最低的延迟访问 Azure 存储，则最好是将客户端放置在同一 Azure 区域内。 例如，如果 Azure 网站使用 Azure 存储，则应将二者都放置在同一个区域（例如中国东部或中国北部）。 这会降低延迟和成本 — 在本文撰写之际，同一个区域的带宽使用是免费的。  
 
 如果客户端应用程序不是托管在 Azure 中（例如使用的是移动设备应用或本地企业服务），则同样将存储帐户放置在靠近需要访问该帐户的设备的区域通常会降低延迟。 如果客户端分布广泛（例如，某些客户端在北京，某些客户端在上海），则应考虑使用多个存储帐户：一个位于中国北部区域，一个位于中国东部区域。 这有助于降低这两个区域的用户的延迟。 如果应用程序存储的数据是特定于各个用户的，不需要在存储帐户之间复制数据，则此方法通常更容易实施。  如果内容分发范围很广泛，则建议使用 CDN – 详见下一部分。  
 

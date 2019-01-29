@@ -5,22 +5,22 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 08/15/2018
-ms.date: 08/27/2018
+origin.date: 01/09/2019
+ms.date: 01/28/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8dbf02b4cf8c261c757237b4e26feae3c528794d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d2139c66b9440b1f189e3caddf976f4c7e546e5d
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648230"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085637"
 ---
 # <a name="create-a-tabular-model-project"></a>创建表格模型项目
 
 本课程介绍如何将 Visual Studio 与 Analysis Services 项目或 SQL Server Data Tools (SSDT) 配合使用，以便创建 1400 兼容级别的新表格模型项目。 创建新项目后，可以开始添加数据和创作模型。 本课程还提供 Visual Studio 中表格模型创作环境的简介。  
 
-本课预计完成时间：**10 分钟**  
+本课程预计完成时间：**10 分钟**  
 
 ## <a name="prerequisites"></a>先决条件  
 本主题是表格模型创作教程的第一课。 若要完成本课程，需要满足一些先决条件。 有关详细信息，请参阅 [Azure Analysis Services - Adventure Works 教程](../tutorials/aas-adventure-works-tutorial.md)。  
@@ -75,4 +75,4 @@ ms.locfileid: "52648230"
 ## <a name="whats-next"></a>后续步骤
 [第 2 课：获取数据](../tutorials/aas-lesson-2-get-data.md)。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

@@ -11,12 +11,12 @@ origin.date: 12/04/2018
 ms.date: 01/14/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: f945c743c20201f70e01fabc84c17acdebd40b1e
-ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
+ms.openlocfilehash: e48fdada68f9b7e42e4cbf0212dee0f2b485e331
+ms.sourcegitcommit: 92503f045267f436cf3ca7fa9e6f1c13be17fb44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54397024"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54858196"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>排查 Azure SQL 数据仓库问题
 本文列出了常见的故障排除问题。
@@ -58,7 +58,7 @@ ms.locfileid: "54397024"
 ## <a name="polybase"></a>Polybase
 | 问题                                           | 解决方法                                                   |
 | :---------------------------------------------- | :----------------------------------------------------------- |
-| 由于行大加载失败                | 目前 Polybase 不提供大型行支持。  这意味着，如果你的表包含 VARCHAR(MAX)、NVARCHAR(MAX) 或 VARBINARY(MAX)，则无法使用外部表加载数据。  目前仅支持通过 Azure 数据工厂（带 BCP）、Azure 流分析、SSIS、BCP 或 .NET SQLBulkCopy 类加载大型行。 未来版本会添加对大型行的 PolyBase 支持。 |
+| 由于行大加载失败                | 目前 Polybase 不提供大型行支持。  这意味着，如果你的表包含 VARCHAR(MAX)、NVARCHAR(MAX) 或 VARBINARY(MAX)，则无法使用外部表加载数据。  目前仅支持通过 Azure 流分析、SSIS、BCP 或 .NET SQLBulkCopy 类加载大型行。 未来版本会添加对大型行的 PolyBase 支持。 |
 | 使用 bcp 加载包含 MAX 数据类型的表失败 | 有一个已知问题，它要求在某些情况下将 VARCHAR(MAX)、NVARCHAR(MAX) 或 VARBINARY(MAX) 放置在表的末尾。  请尝试将 MAX 列移到表的末尾。 |
 
 ## <a name="differences-from-sql-database"></a>与 SQL 数据库的差异

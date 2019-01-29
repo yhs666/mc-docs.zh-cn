@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 11/29/2017
 ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 15caa1a9241888dd22d944c95d13169df3b3f737
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c4480d99c9d0a78c2c8ec81b1256002f300a9fa1
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655330"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085658"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>cloud-init 对 Azure 中虚拟机的支持
 本文介绍了在 Azure 中使用 [cloud-init](https://cloudinit.readthedocs.io) 在预配时间配置虚拟机 (VM) 或虚拟机缩放集 (VMSS) 的现有支持。 Azure 预配资源后，这些 cloud-init 脚本即会在第一次启动时运行。  
@@ -40,7 +40,7 @@ Cloud-init 还支持不同的发行版。 例如，不需使用 apt-get install 
 |Canonical |UbuntuServer |16.04-LTS |最新 |是 | 
 |Canonical |UbuntuServer |14.04.5-LTS |最新 |是 |
 |CoreOS |CoreOS |Stable |最新 |是 |
-|OpenLogic |CentOS |7-CI |最新 |预览 |
+|OpenLogic |CentOS |7-CI |最新 |预览版 |
 <!-- Not Available on Red Hat --> 目前，Azure Stack 不支持使用 cloud-init 预配 CentOS 7.4。
 
 ## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>cloud-init 和 Linux 代理 (WALA) 之间的区别是什么？
@@ -62,7 +62,9 @@ VM 的 WALA 配置的时限为最大 VM 预配时间。  cloud-init 配置应用
 ```azurecli 
 az group create --name myResourceGroup --location chinaeast
 ```
-下一步是在当前 shell 中创建名为 cloud-init.txt 的文件并粘贴以下配置。 对于此示例，请在不处于本地计算机上的 Cloud Shell 中创建文件。 可使用任何想要使用的编辑器。 输入 `sensible-editor cloud-init.txt` 以创建文件并查看可用编辑器的列表。 选择 #1 以使用 nano 编辑器。 请确保已正确复制整个 cloud-init 文件，尤其是第一行：
+下一步是在当前 shell 中创建名为 cloud-init.txt 的文件并粘贴以下配置。 对于此示例，请在不处于本地计算机上的 Shell 中创建文件。 可使用任何想要使用的编辑器。 输入 `sensible-editor cloud-init.txt` 以创建文件并查看可用编辑器的列表。 选择 #1 以使用 nano 编辑器。 请确保已正确复制整个 cloud-init 文件，尤其是第一行：
+
+<!--Notice: Change Cloud Shell to Shell-->
 
 ```yaml
 #cloud-config

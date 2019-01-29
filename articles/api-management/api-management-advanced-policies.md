@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2017
 ms.author: v-yiso
-ms.date: 12/31/2018
-ms.openlocfilehash: 2d8b5c3d193e6c13befba44697fa9eff7b9919b5
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.date: 02/04/2019
+ms.openlocfilehash: 2c4952e70fce1170235828e568a84fedcaa63060
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736714"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906239"
 ---
 # <a name="api-management-advanced-policies"></a>API 管理高级策略
-本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](http://go.microsoft.com/fwlink/?LinkID=398186)。  
+本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](https://go.microsoft.com/fwlink/?LinkID=398186)。
   
 ##  <a name="AdvancedPolicies"></a> 高级策略  
   
@@ -156,7 +156,7 @@ ms.locfileid: "53736714"
 -   **策略范围：** 所有范围  
   
 ##  <a name="ForwardRequest"></a> 转发请求  
- `forward-request` 策略将传入请求转发到请求[上下文](api-management-policy-expressions.md#ContextVariables)中指定的后端服务。 后端服务 URL 在 API [设置](/api-management/import-and-publish#configure-api-settings 中指定
+ `forward-request` 策略将传入请求转发到请求[上下文](api-management-policy-expressions.md#ContextVariables)中指定的后端服务。 后端服务 URL 是在 API [设置](/api-management/import-and-publish#configure-api-settings 中指定的，并且可以使用[设置后端服务](api-management-transformation-policies.md)策略进行更改。
   
 > [!NOTE]
 >  删除此策略之后，请求就不会转发到后端服务。一旦成功完成入站节中的策略，就会立即对出站节中的策略求值。  
@@ -463,7 +463,7 @@ status code and media type. If no example or schema found, the content is empty.
 > [!NOTE]
 >  仅指定 `interval` 时，则会执行**固定**时间间隔的重试。  
 >  仅指定 `interval` 和 `delta` 时，将使用**线性**时间间隔重试算法，其中，两次重试之间的等待时间按以下公式计算：`interval + (count - 1)*delta`。  
->  指定 `interval`、`max-interval`、`delta` 时，将应用**指数**时间间隔重试算法，其中，两次重试之间的等待时间的值按以下公式以指数方式从 `interval` 增长到 `max-interval`：`min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`。  
+>  指定 `interval`、`max-interval`、`delta` 时，将应用指数时间间隔重试算法，其中，两次重试之间的等待时间根据以下公式从 `interval` 值呈指数增长到 `max-interval` 值：`min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`。
   
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。 请注意，此策略会继承子策略使用限制。  
@@ -921,7 +921,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ```xml  
   
-<trace source="arbitrary string literal"/>  
+<trace source="arbitrary string literal">
     <!-- string expression or literal -->  
 </trace>  
   

@@ -12,12 +12,12 @@ origin.date: 08/08/2018
 ms.date: 10/22/2018
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: 74f5340a3276c64b0cd8a52cbe0116a11c5886b2
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8f253e2766810125bcc7d2264ce1a02b876843d4
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654330"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906112"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-node-web-app"></a>快速入门：使用 Node Web 应用在 Azure Key Vault 中设置和检索机密 
 
@@ -57,7 +57,7 @@ az login
 使用 [az group create](/cli/group#az-group-create) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 
 请选择一个资源组名称，然后将其填充在占位符中。
-以下示例在 *eastus* 位置创建名为 *<YourResourceGroupName>* 的资源组。
+以下示例在 *chinaeast* 位置创建名为 *<YourResourceGroupName>* 的资源组。
 
 ```azurecli
 # To list locations: az account list-locations --output table
@@ -138,19 +138,19 @@ git clone https://github.com/Azure-Samples/key-vault-node-quickstart.git
       "cloningInfo": null,
       "containerSize": 0,
       "dailyMemoryTimeQuota": 0,
-      "defaultHostName": "<app_name>.azurewebsites.net",
+      "defaultHostName": "<app_name>.chinacloudsites.cn",
       "enabled": true,
-      "deploymentLocalGitUrl": "https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git"
+      "deploymentLocalGitUrl": "https://<username>@<app_name>.scm.chinacloudsites.cn/<app_name>.git"
       < JSON data removed for brevity. >
     }
     ```
     浏览到新建的 Web 应用，此时会看到正在运行的 Web 应用。 将 <app_name> 替换为唯一的应用名称。
 
     ```
-    http://<app name>.azurewebsites.net
+    http://<app name>.chinacloudsites.cn
     ```
     以上命令也创建一个支持 Git 的应用，该应用可以用来将内容从本地 Git 部署到 Azure。 
-    本地 Git 配置了 URL“https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git”
+    为本地 Git 配置了 URL“https://<username>@<app_name>.scm.chinacloudsites.cn/<app_name>.git”
 
 - 创建部署用户：在完成上一命令以后，可以向本地 Git 存储库添加 Azure 远程功能。 使用从“启用应用的 Git”中获取的 Git 远程 URL 替换 <url>。
 
@@ -194,7 +194,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 git push azure master
 ```
 
-然后，在浏览 https://<app_name>.azurewebsites.net 时，即可看到机密值。
+然后，在浏览 https://<app_name>.chinacloudsites.cn 时，即可看到机密值。
 确保已将名称 <YourKeyVaultName> 替换为保管库名称
 
 ## <a name="next-steps"></a>后续步骤

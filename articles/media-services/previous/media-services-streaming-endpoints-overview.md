@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 10/24/2018
 ms.date: 12/03/2018
 ms.author: v-jay
-ms.openlocfilehash: a44a96c53ba38b7f771385f5948033d5272e4414
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: bc21b5b6d62f48321bb8846e243a10a2d94f970a
+ms.sourcegitcommit: 92503f045267f436cf3ca7fa9e6f1c13be17fb44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672922"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54858201"
 ---
 # <a name="streaming-endpoints-overview"></a>流式处理终结点概述 
 
@@ -29,7 +29,7 @@ ms.locfileid: "52672922"
 
 在 Azure 媒体服务 (AMS)中，**流式处理终结点**代表一个流服务，它可以直接将内容分发给客户端播放器应用程序，也可以传递给内容分发网络 (CDN) 以进一步分发。 媒体服务还提供无缝 Azure CDN 集成。 StreamingEndpoint 服务的出站流可以是实时流、视频点播，也可以是媒体服务帐户中进行的渐进式资产下载。 每个 Azure 媒体服务帐户包括一个默认的 StreamingEndpoint。 可以在该帐户下创建其他 StreamingEndpoint。 StreamingEndpoint 有两个版本：1.0 和 2.0。 从 2017 年 1 月 10 日开始，任何新创建的 AMS 帐户都会包括 2.0 版的 **默认** StreamingEndpoint。 添加到该帐户的其他流式处理终结点也会是 2.0 版。 此更改不会影响现有帐户；现有的 StreamingEndpoint 会是 1.0 版，但可以升级到 2.0 版。 此更改将导致行为、计费和功能更改（有关详细信息，请参阅下面所述的**流式处理类型和版本**部分）。
 
-此外，从 2.15 版本（已于 2017 年 1 月发布）开始，Azure 媒体服务对于流式处理终结点实体添加了以下属性：**CdnProvider**、**CdnProfile**、**FreeTrialEndTime**、**StreamingEndpointVersion**。 有关这些属性的详细概述，请参阅[此文](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint)。 
+此外，从 2.15 版开始（2017 年 1 月发布的），向流式处理终结点实体的以下属性添加了媒体服务：**CdnProvider**、**CdnProfile**、**FreeTrialEndTime**、**StreamingEndpointVersion**。 有关这些属性的详细概述，请参阅 [此文](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint)。 
 
 用户创建 Azure 媒体服务帐户时，将为用户创建一个处于“已停止”状态的默认标准流式处理终结点。 无法删除默认流式处理终结点。  
 
@@ -42,7 +42,7 @@ ms.locfileid: "52672922"
 
 ### <a name="standardpremium-types-version-20"></a>标准/高级类型（版本 2.0）
 
-从 2017 年 1 月发布的媒体服务开始，可使用两种流式处理类型：**标准**和**高级**。 这些类型属于流式处理终结点版本“2.0”。
+从 2017 年 1 月发布的媒体服务开始，可使用两种流式处理类型：标准和高级。 这些类型属于流式处理终结点版本“2.0”。
 
 类型|说明
 ---|---
@@ -58,7 +58,7 @@ ms.locfileid: "52672922"
 如果 **“1.0”版**的流式处理终结点的高级流单元 (SU) 数 > = 1，则它将是高级流式处理终结点，并且无需任何其他配置步骤就会提供所有 AMS 功能（就像**标准/高级**类型一样）。
 
 >[!NOTE]
->**经典**流式处理终结点（版本“1.0”且 0 个 SU）提供有限的功能，并且不包括 SLA。 建议迁移到“标准”类型，以便改进体验，并使用动态打包或加密等功能，以及“标准”类型附带的其他功能。 若要迁移到**标准**类型，请转到 [Azure 门户](https://portal.azure.com/)，选择“选择加入标准类型”。 有关迁移的详细信息，请参阅[迁移](#migration-between-types)部分。
+>**经典**流式处理终结点（版本“1.0”且 0 个 SU）提供有限的功能，并且不包括 SLA。 建议迁移到“标准”类型，以便改进体验，并使用动态打包或加密等功能，以及“标准”类型附带的其他功能。 若要迁移到**标准**类型，请转到 [Azure 门户](https://portal.azure.cn/)，选择“选择加入标准类型”。 有关迁移的详细信息，请参阅[迁移](#migration-between-types)部分。
 >
 >请注意，此操作无法回退，并且会对定价有影响。
 >

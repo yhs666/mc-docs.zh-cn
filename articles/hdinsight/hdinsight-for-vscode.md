@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 10/27/2017
-ms.date: 01/21/2019
+ms.date: 02/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: 4c3af8e11aa341e0a194ec96cb9e3f74d65767e7
-ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
+ms.openlocfilehash: ebdbe44568b35d3819fbc5b49824e0fd5aa86a15
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216270"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906074"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>使用用于 Visual Studio Code 的 Azure HDInsight 工具
 
@@ -104,7 +104,7 @@ ms.locfileid: "54216270"
     - 设置配置
 
 ### <a name="linkcluster"></a> 链接群集
-可以使用 [Apache Ambari](https://ambari.apache.org/) 管理的用户名链接标准群集，还可以使用域用户名（例如：user1@contoso.com）链接安全 hadoop 群集。
+可以使用 [Apache Ambari](https://ambari.apache.org/) 管理的用户名链接标准群集。
 1. 按 CTRL+SHIFT+P 打开命令面板，然后输入“HDInsight: 链接群集”。
 
    ![链接群集命令](./media/hdinsight-for-vscode/link-cluster-command.png)
@@ -127,7 +127,7 @@ ms.locfileid: "54216270"
 
 1. 按 CTRL+SHIFT+P 打开命令面板，然后输入“HDInsight:链接群集”。
 2. 选择“范型 livy 终结点”。
-3. 输入范型 livy 终结点，例如： http://10.172.41.42:18080。
+3. 输入通用 Livy 终结点，例如 http\://10.172.41.42:18080。
 4. 当范型 livy 终结点需要授权时请选择“基本”，否则请选择“无”。
 5. 当在步骤 4 中选择了“基本”时请输入用户名。
 6. 当在步骤 4 中选择了“基本”时请输入密码。

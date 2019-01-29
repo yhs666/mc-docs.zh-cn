@@ -16,12 +16,12 @@ origin.date: 08/24/2018
 ms.date: 01/21/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 1e195b5a988b00bb51bd783cd7b6300856cd451f
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: c4c33e29567e8f6c6a216d018780182951966a9c
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083710"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906036"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>在 Azure 中创建静态 HTML Web 应用
 
@@ -40,7 +40,7 @@ ms.locfileid: "54083710"
 az extension add --name webapp
 ```
 
-安装该扩展后，Cloud Shell 会显示类似于以下示例的信息：
+安装该扩展后，CLI 会显示类似于以下示例的信息：
 
 ```bash
 The installed extension 'webapp' is in preview.

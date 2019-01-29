@@ -1,5 +1,5 @@
 ---
-title: '如何为 ExpressRoute 线路配置路由（对等互连）：Resource Manager：Azure '
+title: '如何配置 ExpressRoute 线路的路由（对等互连）：资源管理器：Azure '
 description: 本文指导完成创建和预配 ExpressRoute 线路的专用、公共和 Microsoft 对等互连的步骤。 本文还介绍如何检查状态，以及如何更新或删除线路的对等互连。
 documentationCenter: na
 services: expressroute
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 03/12/2018
 ms.author: v-yiso
 ms.date: 11/12/2018
-ms.openlocfilehash: 6c081e15da0926d7718c3c164076a87e0dfce6b6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: be7bf41239cdf714964c9a2c8485d9982f4cf392
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646556"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906231"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>创建和修改 ExpressRoute 线路的对等互连
 
@@ -34,6 +34,8 @@ ms.locfileid: "52646556"
 > * [PowerShell（经典）](expressroute-howto-routing-classic.md)
 > 
 
+可以为 ExpressRoute 线路配置一到三个对等互连（Azure 专用和 Azure 公共）。 可以按照所选的任意顺序配置对等互连。 但是，必须确保一次只完成一个对等互连的配置。 有关路由域和对等互连的详细信息，请参阅[关于线路和对等互连](expressroute-circuit-peerings.md)。
+
 ## <a name="configuration-prerequisites"></a>配置先决条件
 
 - 在开始配置之前，请务必查看[先决条件](./expressroute-prerequisites.md)页、[路由要求](./expressroute-routing.md)页和[工作流](./expressroute-workflows.md)页。
@@ -43,11 +45,9 @@ ms.locfileid: "52646556"
 这些说明只适用于由提供第 2 层连接服务的服务提供商创建的线路。 如果服务提供商提供第 3 层托管服务（通常是 IPVPN，如 MPLS），则连接服务提供商会配置和管理路由。 
 
 > [!IMPORTANT]
-> 我们目前无法通过服务管理门户播发服务提供商配置的对等互连。 我们正在努力不久就实现这一功能。 请在配置 BGP 对等互连之前与服务提供商核对。
+> 我们目前无法通过服务管理门户播发服务提供商配置的对等互连。 我们正在努力不久就实现这一功能。 请在配置 BGP 对等互连之前与服务提供商协商。
 > 
 > 
-
-可以为 ExpressRoute 线路配置一到三个对等互连（Azure 专用、Azure 公共和 Microsoft）。 可以按照所选的任意顺序配置对等互连。 但是，必须确保一次只完成一个对等互连的配置。 有关路由域和对等互连的详细信息，请参阅 [ExpressRoute 路由域](expressroute-circuit-peerings.md)。
 
 ## <a name="msft"></a>Microsoft 对等互连
 
@@ -70,9 +70,9 @@ ms.locfileid: "52646556"
   * 用于建立此对等互连的有效 VLAN ID。 请确保线路中没有其他对等互连使用同一个 VLAN ID。 主要链接和次要链接必须使用相同的 VLAN ID。
   * 对等互连的 AS 编号。 可以使用 2 字节和 4 字节 AS 编号。
   * 播发的前缀：必须提供要通过 BGP 会话播发的所有前缀列表。 只接受公共 IP 地址前缀。 如果打算发送一组前缀，可以发送逗号分隔列表。 这些前缀必须已在 RIR/IRR 中注册。
-  * **可选** - 客户 ASN：如果要播发的前缀未注册到对等互连 AS 编号，可以指定它们要注册到的 AS 编号。
+  * “可选”- 客户 ASN：如果要播发的前缀未注册到对等互连 AS 编号，可以指定它们要注册到的 AS 编号。
   * 路由注册表名称：可以指定 AS 编号和前缀要注册到的 RIR/IRR。
-  * **可选 -** MD5 哈希（如果选择使用）。
+  * **可选** - MD5 哈希（如果选择使用）。
 3. 可以选择想要配置的对等互连，如以下示例中所示。 选择 Microsoft 对等互连行。
 
   ![选择 Microsoft 对等互连行](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft1.png)

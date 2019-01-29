@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 10/12/2018
-ms.date: 01/14/2019
+ms.date: 02/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: 79cd161e951a05523b665e7236e994f06f5956e5
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: 10713cfc65e21cf4bd919d4b83fe3e7bfcfb658a
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029246"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906233"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>快速入门：创建 Apache Kafka on HDInsight 群集
 
@@ -51,7 +51,13 @@ Apache Kafka 是开源分布式流式处理平台。 通常用作消息代理，
 
 若要创建 Apache Kafka on HDInsight 群集，请使用以下步骤：
 
-1. 从 [Azure 门户](https://portal.azure.cn)依次选择“+ 创建资源”、“数据 + 分析”、“HDInsight”。
+1. 登录到 [Azure 门户](https://portal.azure.cn)。
+
+1. 在左侧菜单中，选择“+ 创建资源”。
+
+1. 在“Azure 市场”下，选择“数据 + 分析”。
+
+1. 在“特别推荐”下选择“HDInsight”。
    
     ![创建 HDInsight 群集](./media/apache-kafka-get-started/create-hdinsight.png)
 

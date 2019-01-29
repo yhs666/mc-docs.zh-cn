@@ -16,12 +16,12 @@ ms.workload: traffic-manager
 origin.date: 06/26/2018
 ms.date: 01/07/2019
 ms.author: v-biyu
-ms.openlocfilehash: 70c9daddab5e3591e9d57230c4b388a3c5d561dc
-ms.sourcegitcommit: a46f12240aea05f253fb4445b5e88564a2a2a120
+ms.openlocfilehash: bf7cff10f1a552ea953a979d8e7cc11240d494d5
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785298"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906105"
 ---
 # <a name="route-traffic-for-high-availability-of-applications"></a>为实现应用程序的高可用性路由流量
 
@@ -67,7 +67,7 @@ az appservice plan create \
   --branch master \
   --manual-integration
 
-# <a name="create-a-hosting-plan-and-website-and-deploy-it-in-westus-requires-standard-1-minimum-sku"></a>创建托管计划和网站，并将其部署到 westus（需要标准 1 最小 SKU）。
+# <a name="create-a-hosting-plan-and-website-and-deploy-it-in-chinaeast-requires-standard-1-minimum-sku"></a>创建托管计划和网站，并将其部署到 chinaeast（需要标准 1 最小 SKU）。
 az appservice plan create \
   --name $WebAppL2 \
   --resource-group $RgName2 \

@@ -16,12 +16,12 @@ origin.date: 08/24/2018
 ms.date: 01/21/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: d194c3461380cccd9bcf78ef87d17efa9e39ab6d
-ms.sourcegitcommit: ced39ce80d38d36bdead66fc978d99e93653cb5f
+ms.openlocfilehash: e91dc18349c6db296146ebc8399a219e6a131429
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54307615"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906046"
 ---
 # <a name="security-in-azure-app-service"></a>Azure 应用服务中的安全性
 
@@ -42,7 +42,7 @@ ms.locfileid: "54307615"
 
 ## <a name="https-and-certificates"></a>HTTPS 和证书
 
-应用服务允许通过 [HTTPS](https://wikipedia.org/wiki/HTTPS) 保护应用。 创建应用后，便可使用 HTTPS 访问其默认域名 (\<app_name>.azurewebsites.net)。 如果[为应用配置自定义域](app-service-web-tutorial-custom-domain.md)，则还应该[使用自定义证书对其进行保护](app-service-web-tutorial-custom-ssl.md)，以便客户端浏览器与自定义域建立安全的 HTTPS 连接。 可通过两种方式来执行此操作：
+应用服务允许通过 [HTTPS](https://wikipedia.org/wiki/HTTPS) 保护应用。 创建应用后，便可使用 HTTPS 访问其默认域名 (\<app_name>.chinacloudsites.cn)。 如果[为应用配置自定义域](app-service-web-tutorial-custom-domain.md)，则还应该[使用自定义证书对其进行保护](app-service-web-tutorial-custom-ssl.md)，以便客户端浏览器与自定义域建立安全的 HTTPS 连接。 可通过两种方式来执行此操作：
 
 - **应用服务证书**：直接在 Azure 中创建证书。 该证书在 [Azure Key Vault](/azure/key-vault/) 中受到保护，并且可以导入到应用服务应用中。 
 - **第三方证书**：上传从可信证书颁发机构购买的自定义 SSL 证书，并将其绑定到应用服务应用。 应用服务既支持单域证书，也支持通配型证书。 它还支持用于测试目的的自签名证书。 有关详细信息，请参阅[将现有的自定义 SSL 证书绑定到 Azure 应用服务](app-service-web-tutorial-custom-ssl.md)。

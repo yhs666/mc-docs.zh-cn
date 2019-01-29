@@ -5,12 +5,12 @@ ms.topic: include
 origin.date: 11/03/2016
 ms.date: 12/31/2018
 ms.author: v-biyu
-ms.openlocfilehash: 9b5484594acf03bace6cfe8afcc964813661a97f
-ms.sourcegitcommit: 80c59ae1174d71509b4aa64a28a98670307a5b38
+ms.openlocfilehash: 7146fe591da421dc6d03695c5fd51088fbe2b11d
+ms.sourcegitcommit: b8aa5d05ef46f1db2df4f2653cdd8d150e847113
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53735201"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906290"
 ---
 ## <a name="rest"></a>使用 REST API 部署 ZIP 文件 
  
@@ -26,7 +26,7 @@ ms.locfileid: "53735201"
 curl -X POST -u <deployment_user> --data-binary @"<zip_file_path>" https://<app_name>.scm.chinacloudsites.cn/api/zipdeploy
 ```
 
-此请求从已上传的 .zip 文件触发推送部署。 可以使用 https://<app_name>.scm.azurewebsites.net/api/deployments 终结点查看当前和之前的部署，如以下 cURL 示例所示。 同样，使用应用的名称替换 `<app_name>`；使用部署凭据的用户名替换 `<deployment_user>`。
+此请求从已上传的 .zip 文件触发推送部署。 可以使用 https://<app_name>.scm.chinacloudsites.cn/api/deployments 终结点查看当前和之前的部署，如以下 cURL 示例所示。 同样，使用应用的名称替换 `<app_name>`；使用部署凭据的用户名替换 `<deployment_user>`。
 
 ```bash
 curl -u <deployment_user> https://<app_name>.scm.chinacloudsites.cn/api/deployments

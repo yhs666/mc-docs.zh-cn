@@ -16,12 +16,12 @@ origin.date: 04/18/2018
 ms.date: 01/21/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 4e8291790b42b0fc9ace5a12a23c6f60a6ea5258
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 8a308476d8fb1f064a2aa6578a44b2b089414f64
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083814"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906153"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>排查 Azure 应用服务中的域和 SSL 证书问题
 
@@ -196,8 +196,8 @@ Azure 应用服务每隔 8 小时会运行一个后台作业，如果有任何�
     |记录类型|主机|指向|
     |------|------|-----|
     |A|@|应用的 IP 地址|
-    |TXT|@|<应用名称>.azurewebsites.net|
-    |CNAME|www|<应用名称>.azurewebsites.net|
+    |TXT|@|<app-name>.chinacloudsites.cn|
+    |CNAME|www|<app-name>.chinacloudsites.cn|
 
 ### <a name="dns-cant-be-resolved"></a>无法解析 DNS
 

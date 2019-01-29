@@ -15,12 +15,12 @@ origin.date: 04/11/2018
 ms.date: 01/21/2019
 ms.author: v-yiso
 ms.custom: seodec18
-ms.openlocfilehash: 06f1908c88c33296ecdcd35cb7c516952cd0fdda
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 9cb8492a49334d54a0cbd7e8517e4fdd4b63d32e
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083619"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906113"
 ---
 # <a name="tutorial-build-a-net-core-and-sql-database-app-in-azure-app-service"></a>教程：在 Azure 应用服务中生成 .NET Core 和 SQL 数据库应用
 
@@ -171,7 +171,7 @@ Server=tcp:<server_name>.database.chinacloudapi.cn,1433;Database=coreDB;User ID=
 
 ### <a name="configure-an-environment-variable"></a>配置环境变量
 
-若要为 Azure 应用设置连接字符串，请使用 Cloud Shell 中的 [`az webapp config appsettings set`](/cli/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) 命令。 在下列命令中，将 \<app name> 和 \<connection_string> 参数替换为先前创建的连接字符串。
+若要为 Azure 应用设置连接字符串，请在 CLI 中使用 [`az webapp config appsettings set`](/cli/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) 命令。 在下列命令中，将 \<app name> 和 \<connection_string> 参数替换为先前创建的连接字符串。
 
 ```azurecli
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer

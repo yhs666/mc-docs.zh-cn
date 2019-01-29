@@ -1,19 +1,19 @@
 ---
-title: 如何配置 Azure ExpressRoute Direct | Microsoft Docs
+title: 配置 ExpressRoute Direct - Azure
 description: 本页面帮助你配置 ExpressRoute Direct（预览版）
 services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
 origin.date: 11/02/2018
-ms.date: 12/10/2018
+ms.date: 02/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: bf394534656649715650eb282759e45a92c9ac45
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 4b93a1e99a2669af4e25545a0addb41e5d24e733
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676596"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906218"
 ---
 # <a name="how-to-configure-expressroute-direct-preview"></a>如何配置 ExpressRoute Direct（预览版）
 
@@ -69,7 +69,7 @@ ms.locfileid: "52676596"
 3. 确定上面列出的某个位置是否有可用的带宽
 
   ```powershell
-  Get-AzureRMExpressRoutePortsLocations -Name "Equinix-San-Jose-SV1"
+  Get-AzureRmExpressRoutePortsLocation -LocationName "Equinix-San-Jose-SV1"
   ```
 
   **示例输出**
@@ -229,7 +229,7 @@ ms.locfileid: "52676596"
 
 默认情况下，可以在 ExpressRoute Direct 资源所在的订阅中创建 10 条线路。 可以联系支持人员来提高此限额。 你负责跟踪预配的和已利用的带宽。 预配的带宽是 ExpressRoute Direct 资源上所有线路的带宽总和，已利用的带宽是基础物理接口的物理利用率。
 
-有额外的线路带宽可以在 ExpressRoute Direct 上使用，仅用于支持上面概述的场景。 它们是：40Gbps 和 100Gbps。
+有额外的线路带宽可以在 ExpressRoute Direct 上使用，仅用于支持上面概述的场景。 其中包括：40Gbps 和 100Gbps。
 
 可以创建标准或高级线路。 标准线路包括在成本中，而高级线路具有基于所选带宽的成本。 线路只能创建为计量式的，因为 ExpressRoute Direct 上不支持“无限制”。
 

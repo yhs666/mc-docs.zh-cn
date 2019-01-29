@@ -11,12 +11,12 @@ origin.date: 04/11/2018
 ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 416b8a5986c3865b11ffeac9ab4c00742338ec7d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6914b8bfe07511ad2c51d164e5916e39974628f6
+ms.sourcegitcommit: 92503f045267f436cf3ca7fa9e6f1c13be17fb44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52667119"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54858189"
 ---
 # <a name="best-practices-for-using-elastic-query-in-azure-sql-database-to-access-data-in-azure-sql-data-warehouse"></a>使用 Azure SQL 数据库中的弹性查询访问 Azure SQL 数据仓库中的数据的最佳做法
 了解使用弹性查询从 Azure SQL 数据库访问 Azure SQL 数据仓库中的数据的最佳做法。 
@@ -144,7 +144,7 @@ ms.locfileid: "52667119"
 
 问：能否从 SQL 数据库实例写入数据仓库实例？
 
-答：暂不支持此功能。 如果希望今后可以使用此功能，请访问我们的[反馈页][Feedback page]，创建/投票支持此功能。 
+答：暂不支持此功能。 如果希望今后可以使用此功能，请访问我们的[反馈页][反馈页]，创建/投票支持此功能。 
 
 问：能否使用几何/地理等空间类型？
 
@@ -156,7 +156,6 @@ ms.locfileid: "52667119"
 
 [SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
 [Configure Elastic Query with SQL Data Warehouse]: tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md
-[Feedback Page]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Azure SQL Database elastic query overview]: ../sql-database/sql-database-elastic-query-overview.md
 
 <!--MSDN references-->

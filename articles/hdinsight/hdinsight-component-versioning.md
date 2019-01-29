@@ -11,14 +11,14 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: article
 origin.date: 09/19/2018
-ms.date: 01/21/2019
+ms.date: 02/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: 507b1c3d5e2a8ac2e08c5519a6a6fec1e5383372
-ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
+ms.openlocfilehash: a6b87b52fdf744f5b36dd331ec5fc9143d35beb4
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216268"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906235"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>HDInsight 提供了哪些 Apache Hadoop 组件和版本？
 
@@ -63,9 +63,7 @@ Azure HDInsight 支持多个可随时部署的 Hadoop 群集版本。 每个版�
 
 ## <a name="check-for-current-hadoop-component-version-information"></a>检查当前的 Hadoop 组件版本信息
 
-与 HDInsight 群集版本关联的组件版本可能会随 HDInsight 的更新而更改。 若要检查 Hadoop 组件并验证正在为群集使用哪些版本，请使用 Ambari REST API。 **GetComponentInformation** 命令检索有关服务组件的信息。 有关详细信息，请参阅 [Ambari 文档][ambari-docs]。
-
-对于 Windows 群集，检查组件版本的另一种方法是使用远程桌面登录到群集并检查 C:\apps\dist\ 目录的内容。
+与 HDInsight 群集版本关联的组件版本可能会随 HDInsight 的更新而更改。 若要检查 Hadoop 组件并验证正在为群集使用哪些版本，请使用 Ambari REST API。 **GetComponentInformation** 命令检索有关服务组件的信息。 有关详细信息，请参阅 [Apache Ambari 文档][ambari-docs]。
 
 > [!IMPORTANT]
 > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 上的 Windows 停用](#hdinsight-windows-retirement)。
@@ -215,12 +213,12 @@ _停用日期_是指在此后不能在 HDInsight 上创建此群集版本的日�
 >
   | 群集类型 | Hadoop | HBase | 交互式查询 | Storm | Spark |
   | --- | --- | --- | --- | --- | --- | --- |
-  | 头：默认 VM 大小 |D3 v2 |D3 v2 | D13、D14 |A4 v2 |D12 v2 |
-  | 头：建议的 VM 大小 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2  | D13、D14 |A4 v2、A8 v2、A2m v2 |D12 v2、D13 v2、D14 v2 |
-  | 辅助角色：默认 VM 大小 |D3 v2 |D3 v2  | D13、D14 |D3 v2 |Windows:D12 v2；Linux：D4 v2 |
-  | 辅助角色：建议的 VM 大小 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2  | D13、D14 |D3 v2、D4 v2、D12 v2 |Windows:D12 v2、D13 v2、D14 v2；Linux：D4 v2、D12 v2、D13 v2、D14 v2 |
-  | Zookeeper：默认 VM 大小 | |A4 v2 | |A2 v2 | |
-  | Zookeeper：建议的 VM 大小 | |A4 v2、A8 v2、A2m v2 | | A2 v2、A4 v2、A8 v2 | |
+  | 头：默认 VM 大小 |D12 v2 |D12 v2 | D13 v2 |A3 |D12 v2 |
+  | 头：建议的 VM 大小 |D3 v2,<br/> D4 v2,<br/> D12 v2 |D3 v2,<br/> D4 v2,<br/> D12 v2  | D13,<br/> D14 |A4 v2,<br/> A8 v2,<br/> A2m v2 |D12 v2,<br/> D13 v2,<br/> D14 v2 |
+  | 辅助角色：默认 VM 大小 |D4 v2 |D4 v2| D14 v2|D3 v2 |D13 v2 | D4 v2 |
+  | 辅助角色：建议的 VM 大小 |D3 v2,<br/> D4 v2,<br/> D12 v2 |D3 v2,<br/> D4 v2,<br/> D12 v2  | D13,<br/> D14 |D3 v2,<br/> D4 v2,<br/> D12 v2 |D4 v2,<br/> D12 v2,<br/> D13 v2,<br/> D14 v2 D4 v2，<br/> D12 v2,<br/> D13 v2,<br/> D14 v2 |
+  | Zookeeper：默认 VM 大小 | |A4 v2 |A4 v2 |A4 v2 | | 
+  | Zookeeper：建议的 VM 大小 | |A4 v2,<br/> A8 v2,<br/> A2m v2 | | A2 v2,<br/> A4 v2,<br/> A8 v2 | |
   | 边缘：默认 VM 大小 | | | | | |
   | 边缘：建议的 VM 大小 | | | | | |
 

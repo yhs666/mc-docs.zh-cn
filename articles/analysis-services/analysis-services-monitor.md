@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 10/18/2018
-ms.date: 12/17/2018
+origin.date: 01/09/2019
+ms.date: 01/28/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 79bc290a3184cb4b23b8306450b19988f77abfd2
-ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
+ms.openlocfilehash: d90caaa8434a547185ed4d690e5df50ffcd3a3d2
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53157440"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085684"
 ---
 # <a name="monitor-server-metrics"></a>监视服务器指标
 
@@ -32,7 +32,6 @@ Analysis Services 提供相关指标，可帮助监视服务器的性能和运�
 
     ![“监视”图表](./media/analysis-services-monitor/aas-monitor-chart.png)
 
-<a name="server-metrics"></a>
 ## <a name="server-metrics"></a>服务器指标
 使用此表来确定哪些指标最适合监视方案。 在同一图表上只能显示同一单位的指标。
 

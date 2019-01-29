@@ -15,12 +15,12 @@ origin.date: 12/05/2018
 ms.date: 01/21/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: a845244b3dc66ee44c7bc005d12c8394332f3c42
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: 61de45e4d2ed9426aa84b0c28d961e79b0a95e17
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193139"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085697"
 ---
 ## <a name="quickstarts-and-tutorials"></a>快速入门和教程
 
@@ -31,9 +31,11 @@ ms.locfileid: "54193139"
     |标题|说明|
     |------|-----|
     |[使用 Azure 门户](../articles/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)|使用门户生成模板，并了解模板的编辑和部署过程。|
-    |[使用 Visual Studio Code](../articles/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code.md)|使用 Visual Studio Code 创建和编辑模板，以及如何使用 Azure Cloud Shell 部署模板。|
+    |[使用 Visual Studio Code](../articles/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code.md)|使用 Visual Studio Code 创建和编辑模板，以及如何使用 Azure Shell 部署模板。|
     |[使用 Visual Studio](../articles/azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)|使用 Visual Studio 创建、编辑和部署模板。|
 
+    <!--Not Available on Azure Cloud Shell-->
+    
 - 教程
 
     |标题|说明|

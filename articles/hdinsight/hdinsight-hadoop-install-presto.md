@@ -12,15 +12,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/06/2018
-ms.date: 12/24/2018
+origin.date: 01/01/2019
+ms.date: 02/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: 6271d7cd843694fdf1bd9f790406851485daff5a
-ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
+ms.openlocfilehash: 43302e013cbd8ff54569011fa621a0236757d636
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53569335"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906095"
 ---
 # <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 群集上安装并使用 Presto
 
@@ -37,7 +37,7 @@ HDInsight 还为 Apache Hadoop 群集提供了 Starburst Presto 应用程序。
 > [!WARNING]
 > 完全支持通过 HDInsight 群集提供的组件，Azure 支持部门帮助找出并解决与这些组件相关的问题。
 > 
-> 自定义组件（如 Presto）可获得合理范围的支持，以帮助进一步排查问题。 这可能会促进解决问题，或要求使用可用的开源技术渠道，在渠道中可找到该技术的深厚的专业知识。 有许多可以使用的社区站点，例如：[面向 HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)、[Azure CSDN](http://azure.csdn.net/)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如：[Hadoop](http://hadoop.apache.org/)。
+> 自定义组件（如 Presto）可获得合理范围的支持，以帮助进一步排查问题。 这可能会促进解决问题，或要求使用可用的开源技术渠道，在渠道中可找到该技术的深厚的专业知识。 有许多可以使用的社区站点，例如：[面向 HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)、[Azure CSDN](http://azure.csdn.net/)。 此外，Apache 项目在 [https://apache.org](https://apache.org) 上提供了项目站点，例如：[Hadoop](https://hadoop.apache.org/)。
 > 
 > 
 
@@ -49,7 +49,7 @@ HDInsight 还为 Apache Hadoop 群集提供了 Starburst Presto 应用程序。
 
     * 它必须是装有 HDInsight 3.6 版的 Hadoop 群集。
 
-    * 它必须使用 Azure 存储作为数据存储。 在使用 Azure Data Lake Store 作为存储选项的群集上使用 Presto 还不是一个选项。
+    * 它必须使用 Azure 存储作为数据存储。 目前不支持在使用 Azure Data Lake Storage 作为存储选项的群集上使用 Presto。
 
     ![使用自定义选项创建 HDInsight 群集](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
 
@@ -90,7 +90,7 @@ HDInsight 还为 Apache Hadoop 群集提供了 Starburst Presto 应用程序。
 
         select count (*) from hivesampletable;
 
-    默认情况下，已配置适用于 Presto 的 [Hive](https://prestodb.io/docs/current/connector/hive.html) 和 [TPCH](https://prestodb.io/docs/current/connector/tpch.html) 连接器。 Hive 连接器配置为使用默认安装的 Hive 安装，因此 Hive 中的所有表将自动在 Presto 中显示。
+    默认情况下，已配置适用于 Presto 的 [Apache Hive](https://prestodb.io/docs/current/connector/hive.html) 和 [TPCH](https://prestodb.io/docs/current/connector/tpch.html) 连接器。 Hive 连接器配置为使用默认安装的 Hive 安装，因此 Hive 中的所有表将自动在 Presto 中显示。
 
     有关详细信息，请参阅 [Presto 文档](https://prestodb.io/docs/current/index.html)。
 
@@ -129,11 +129,17 @@ HDInsight 还为 Apache Hadoop 群集提供了 Starburst Presto 应用程序。
 
 6. 将更改应用到群集配置后，可以使用以下步骤访问 Airpal Web 接口。
 
-    1. 在群集对话框中，单击“应用程序”。
+    1. 在左侧菜单中，选择“所有服务”。
+
+    1. 在“数据 + 分析”下，选择“HDInsight 群集”。
+
+    1. 从列表中选择群集，随即将打开默认视图。
+
+    1. 在默认视图中的“设置”下，选择“应用程序”。
 
     ![HDInsight 在 Presto 群集上启动 Airpal](./media/hdinsight-hadoop-install-presto/hdinsight-presto-launch-airpal.png)
 
-    2. 在“已安装的应用”区域中，单击 Airpal 对应的“门户”。
+    1. 在“已安装应用”页中，找到“airpal”的表条目，然后选择“门户”。
 
     ![HDInsight 在 Presto 群集上启动 Airpal](./media/hdinsight-hadoop-install-presto/hdinsight-presto-launch-airpal-1.png)
 
@@ -169,11 +175,11 @@ HDInsight 还为 Apache Hadoop 群集提供了 Starburst Presto 应用程序。
 TPC-DS 是有关测量多个决策支持系统（包括大数据系统）的性能的行业标准。 可以使用 Presto 生成数据，并将它与自己的 HDInsight 基准数据进行比较并评估结果。 有关详细信息，请参阅[此文](https://github.com/hdinsight/tpcds-datagen-as-hive-query/blob/master/README.md)。
 
 ## <a name="see-also"></a>另请参阅
-* [在 HDInsight 群集上安装并使用 Hue](hdinsight-hadoop-hue-linux.md)。 Hue 是一个 Web UI，可以使用它轻松创建、运行及保存 Pig 和 Hive 作业。
+* [在 HDInsight 群集上安装并使用 Hue](hdinsight-hadoop-hue-linux.md)。 Hue 是一个 Web UI，可以使用它轻松创建、运行及保存 Apache Pig 和 Hive 作业。
 
-* [在 HDInsight 群集上安装 Giraph](hdinsight-hadoop-giraph-install-linux.md)。 使用群集自定义在 HDInsight Hadoop 群集上安装 Giraph。 Giraph 可让你通过使用 Hadoop 执行图形处理，并可以在 Azure HDInsight 上使用。
+* [在 HDInsight 群集上安装 Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)。 使用群集自定义在 HDInsight Hadoop 群集上安装 Giraph。 Giraph 可让你通过使用 Hadoop 执行图形处理，并可以在 Azure HDInsight 上使用。
 
-* [在 HDInsight 群集上安装 Solr](hdinsight-hadoop-solr-install-linux.md)。 使用群集自定义在 HDInsight Hadoop 群集上安装 Solr。 Solr 允许对存储的数据执行功能强大的搜索操作。
+* [在 HDInsight 群集上安装 Apache Solr](hdinsight-hadoop-solr-install-linux.md)。 使用群集自定义在 HDInsight Hadoop 群集上安装 Solr。 Solr 允许对存储的数据执行功能强大的搜索操作。
 
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md

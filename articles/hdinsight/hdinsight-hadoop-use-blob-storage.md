@@ -8,41 +8,42 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.topic: get-started-article
 ms.devlang: na
-origin.date: 05/14/2018
-ms.date: 11/19/2018
+origin.date: 01/04/2019
+ms.date: 02/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: a0c9737f01abf7c8a2722a16087e1687fc1564db
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 0d175b4f40b9ba8a1254b4c649bbd165cd78807e
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028475"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906165"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>将 Azure 存储与 Azure HDInsight 群集配合使用
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
+要分析 HDInsight 群集中的数据，可以将数据存储在 Azure 存储中。 
 
-要分析 HDInsight 群集中的数据，可以将数据存储在 Azure 存储中。 使用这两个存储选项都可以安全地删除用于计算的 HDInsight 群集，而不会丢失用户数据。
+Apache Hadoop 支持默认文件系统的概念。 默认文件系统意指默认方案和授权。 它还可用于解析相对路径。 在 HDInsight 群集创建过程中，可以指定 Azure 存储中的 Blob 容器作为默认文件系统；或者在 HDInsight 3.6 中，可以选择 Azure 存储作为默认文件系统。
 
-Hadoop 支持默认文件系统的概念。 默认文件系统意指默认方案和授权。 它还可用于解析相对路径。 在 HDInsight 群集创建过程中，可以指定 Azure 存储中的 Blob 容器作为默认文件系统；或者在 HDInsight 3.5 中，可以选择 Azure 存储作为默认文件系统。
-
-本文介绍 Azure 存储如何与 HDInsight 群集配合使用。 若要深入了解如何创建 HDInsight 群集，请参阅[在 HDInsight 中创建 Hadoop 群集](hdinsight-hadoop-provision-linux-clusters.md)。
+本文介绍 Azure 存储如何与 HDInsight 群集配合使用。 若要深入了解如何创建 HDInsight 群集，请参阅[在 HDInsight 中创建 Apache Hadoop 群集](hdinsight-hadoop-provision-linux-clusters.md)。
 
 Azure 存储是一种稳健、通用的存储解决方案，它与 HDInsight 无缝集成。 HDInsight 可将 Azure 存储中的 Blob 容器用作群集的默认文件系统。 通过 Hadoop 分布式的文件系统 (HDFS) 界面，可以针对作为 Blob 存储的结构化或非结构化数据直接运行 HDInsight 中的整套组件。
 
 > [!WARNING]
 > 创建 Azure 存储帐户时，有几个选项可用。 下表介绍了 HDInsight 支持的选项：
-> 
-> | 存储帐户类型 | 存储层 | 受 HDInsight 支持 |
-> | ------- | ------- | ------- |
-> | 通用存储帐户 | 标准 | __是__ |
-> | &nbsp; | 高级 | 否 |
-> | Blob 存储帐户 | 热 | 否 |
-> | &nbsp; | 冷 | 否 |
+
+| 存储帐户类型 | 支持的服务 | 支持的性能层 | 支持的访问层 |
+|----------------------|--------------------|-----------------------------|------------------------|
+| 常规用途 V2   | Blob               | 标准                    | 热、冷、存档*    |
+| 常规用途 V1   | Blob               | 标准                    | 不适用                    |
+| Blob 存储         | Blob               | 标准                    | 热、冷、存档*    |
 
 建议不要使用默认 Blob 容器来存储业务数据。 最佳做法是每次使用之后删除默认 Blob 容器以降低存储成本。 请注意，默认容器包含应用程序日志和系统日志。 请确保在删除该容器之前检索日志。
 
 不支持将单个 blob 容器共享为多个群集的默认文件系统。
+ 
+ > [!NOTE]  
+ > 存档访问层是一个离线层，具有几小时的检索延迟，不建议与 HDInsight 一起使用。 有关详细信息，请参阅<a href="https://docs.azure.cn/zh-cn/storage/blobs/storage-blob-storage-tiers#archive-access-tier">存档访问层</a>。
 
 ## <a name="hdinsight-storage-architecture"></a>HDInsight 存储体系结构
 下图提供了使用 Azure 存储的 HDInsight 存储体系结构的抽象视图：
@@ -69,9 +70,9 @@ HDInsight 提供对在本地附加到计算节点的分布式文件系统的访�
   > 
 * **没有连接到群集的存储帐户中的专用容器：** 不能访问这些容器中的 Blob，除非在提交 WebHCat 作业时定义存储帐户。 本文后面对此做了解释。
 
-创建过程中定义的存储帐户及其密钥存储在群集节点上的 %HADOOP/_HOME%/conf/core-site.xml 中。 HDInsight 的默认行为是使用 core-site.xml 文件中定义的存储帐户。 
+创建过程中定义的存储帐户及其密钥存储在群集节点上的 %HADOOP/_HOME%/conf/core-site.xml 中。 HDInsight 的默认行为是使用 core-site.xml 文件中定义的存储帐户。 可以使用 [Apache Ambari](./hdinsight-hadoop-manage-ambari.md) 修改此设置。
 
-多个 WebHCat 作业，包括 Hive、MapReduce、Hadoop 流和 Pig，都可以带有存储帐户和元数据的说明。 （它目前对带有存储帐户的 Pig 有效，但对元数据无效。）有关详细信息，请参阅[将 HDInsight 群集与备用存储帐户和元存储配合使用](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx)。
+多个 WebHCat 作业，包括 Apache Hive、MapReduce、Apache Hadoop 流和 Apache Pig，都可以带有存储帐户和元数据的说明。 （它目前对带有存储帐户的 Pig 有效，但对元数据无效。）有关详细信息，请参阅[将 HDInsight 群集与备用存储帐户和元存储配合使用](https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx)。
 
 Blob 可用于结构化和非结构化数据。 Blob 容器将数据存储为键值对，没有目录层次结构。 不过，可在键名称中使用斜杠字符 (/)，使其看起来像存储在目录结构中的文件。 例如，Blob 的键可以是 *input/log1.txt*。 不存在实际的 *input* 目录，但由于键名称中包含斜线字符，因此使其看起来像文件路径。
 
@@ -94,7 +95,7 @@ Blob 可用于结构化和非结构化数据。 Blob 容器将数据存储为键
 > 
 
 ## <a name="create-blob-containers"></a>创建 Blob 容器
-若要使用 Blob，必须先创建 [Azure 存储帐户][azure-storage-create]。 在此过程中，可指定在其中创建存储帐户的 Azure 区域。 群集和存储帐户必须位于同一区域。 Hive 元存储 SQL Server 数据库和 Oozie 元存储 SQL Server 数据库也必须位于同一区域。
+若要使用 Blob，必须先创建 [Azure 存储帐户][azure-storage-create]。 在此过程中，可指定在其中创建存储帐户的 Azure 区域。 群集和存储帐户必须位于同一区域。 Hive 元存储 SQL Server 数据库和 Apache Oozie 元存储 SQL Server 数据库也必须位于同一区域。
 
 无论所创建的每个 Blob 位于何处，它都属于 Azure 存储帐户中的某个容器。 此容器可以是在 HDInsight 外部创建的现有的 Blob，也可以是为 HDInsight 群集创建的容器。
 
@@ -142,7 +143,9 @@ Blob 可用于结构化和非结构化数据。 Blob 容器将数据存储为键
 
 如果[已安装并配置了 Azure 经典 CLI](../cli-install-nodejs.md)，可将以下命令用于存储帐户和容器。
 
-    azure storage account create <storageaccountname> --type LRS
+```cli
+azure storage account create <storageaccountname> --type LRS
+```
 
 > [!NOTE]
 > `--type` 参数指示如何复制存储帐户。 有关详细信息，请参阅 [Azure 存储复制](../storage/storage-redundancy.md)。 不要使用 ZRS，因为 ZRS 不支持页 blob、文件、表或队列。
@@ -153,16 +156,22 @@ Blob 可用于结构化和非结构化数据。 Blob 容器将数据存储为键
 
 创建存储帐户后，使用以下命令检索存储帐户密钥：
 
-    azure storage account keys list <storageaccountname>
+```cli
+azure storage account keys list <storageaccountname>
+```
 
 若要创建容器，请使用以下命令：
 
-    azure storage container create <containername> --account-name <storageaccountname> --account-key <storageaccountkey>
+```cli
+azure storage container create <containername> --account-name <storageaccountname> --account-key <storageaccountkey>
+```
 
 ## <a name="address-files-in-azure-storage"></a>确定 Azure 存储中文件的地址
 用于从 HDInsight 访问 Azure 存储中的文件的 URI 方案为：
 
+```config
     wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.chinacloudapi.cn/<path>
+```
 
 URI 方案提供了使用 *wasb:* 前缀的未加密访问和使用 *wasbs* 的 SSL 加密访问。 建议尽量使用 *wasbs* ，即使在访问位于同一 Azure 区域内的数据时也是如此。
 
@@ -171,9 +180,11 @@ URI 方案提供了使用 *wasb:* 前缀的未加密访问和使用 *wasbs* 的 
 
 如果既没有指定 &lt;BlobStorageContainerName&gt; 也没有指定 &lt;StorageAccountName&gt;，则使用默认文件系统。 对于默认文件系统中的文件，可以使用相对路径或绝对路径。 例如，可以使用以下任一方式引用随 HDInsight 群集提供的 *hadoop-mapreduce-examples.jar* 文件：
 
+```config
     wasb://mycontainer@myaccount.blob.core.chinacloudapi.cn/example/jars/hadoop-mapreduce-examples.jar
     wasb:///example/jars/hadoop-mapreduce-examples.jar
     /example/jars/hadoop-mapreduce-examples.jar
+```
 
 > [!NOTE]
 > 在 HDInsight 版本 2.1 和 1.6 群集中，文件名是 <i>hadoop-examples.jar</i>。
@@ -182,7 +193,9 @@ URI 方案提供了使用 *wasb:* 前缀的未加密访问和使用 *wasbs* 的 
 
 &lt;path&gt; 是文件或目录 HDFS 路径名。 由于 Azure 存储容器只是键值存储，因此没有真正的分层文件系统。 Blob 键中的斜杠字符 (/) 解释为目录分隔符。 例如， *hadoop-mapreduce-examples.jar* 的 Blob 名称是：
 
-    example/jars/hadoop-mapreduce-examples.jar
+```bash
+example/jars/hadoop-mapreduce-examples.jar
+```
 
 > [!NOTE]
 > 在 HDInsight 外部使用 Blob 时，大多数实用程序无法识别 WASB 格式，应改用基本路径格式，如 `example/jars/hadoop-mapreduce-examples.jar`。
@@ -199,7 +212,9 @@ URI 方案提供了使用 *wasb:* 前缀的未加密访问和使用 *wasbs* 的 
 
 使用以下命令列出与 Blob 有关的 cmdlet：
 
-    Get-Command *blob*
+```powershell 
+Get-Command *blob*
+```
 
 ![Blob 相关 PowerShell cmdlet 的列表。][img-hdi-powershell-blobcommands]
 
@@ -209,6 +224,7 @@ URI 方案提供了使用 *wasb:* 前缀的未加密访问和使用 *wasbs* 的 
 #### <a name="download-files"></a>下载文件
 以下脚本将一个块 Blob 下载到当前文件夹。 运行该脚本之前，请将目录更改成具有写权限的文件夹。
 
+```powershell
     $resourceGroupName = "<AzureResourceGroupName>"
     $storageAccountName = "<AzureStorageAccountName>"   # The storage account used for the default file system specified at creation.
     $containerName = "<BlobStorageContainerName>"  # The default file system container has the same name as the cluster.
@@ -227,9 +243,11 @@ URI 方案提供了使用 *wasb:* 前缀的未加密访问和使用 *wasbs* 的 
 
     Write-Host "List the downloaded file ..." -ForegroundColor Green
     cat "./$blob"
+```
 
 如果提供资源组名称和群集名称，可以使用以下代码：
 
+```powershell
     $resourceGroupName = "<AzureResourceGroupName>"
     $clusterName = "<HDInsightClusterName>"
     $blob = "example/data/sample.log" # The name of the blob to be downloaded.
@@ -242,16 +260,24 @@ URI 方案提供了使用 *wasb:* 前缀的未加密访问和使用 *wasbs* 的 
 
     Write-Host "Download the blob ..." -ForegroundColor Green
     Get-AzureStorageBlobContent -Container $defaultStorageContainer -Blob $blob -Context $storageContext -Force
+```
 
 #### <a name="delete-files"></a>删除文件
-    Remove-AzureStorageBlob -Container $containerName -Context $storageContext -blob $blob
+
+```powershell
+Remove-AzureStorageBlob -Container $containerName -Context $storageContext -blob $blob
+```
 
 #### <a name="list-files"></a>列出文件
-    Get-AzureStorageBlob -Container $containerName -Context $storageContext -prefix "example/data/"
+
+```powershell
+Get-AzureStorageBlob -Container $containerName -Context $storageContext -prefix "example/data/"
+```
 
 #### <a name="run-hive-queries-using-an-undefined-storage-account"></a>使用未定义的存储帐户运行 Hive 查询
 此示例显示如何列出在创建过程中未定义的存储帐户的文件夹。
 
+```powershell
     $clusterName = "<HDInsightClusterName>"
 
     $undefinedStorageAccount = "<UnboundedStorageAccountUnderTheSameSubscription>"
@@ -265,27 +291,38 @@ URI 方案提供了使用 *wasb:* 前缀的未加密访问和使用 *wasbs* 的 
     $defines.Add("fs.azure.account.key.$undefinedStorageAccount.blob.core.chinacloudapi.cn", $undefinedStorageKey)
 
     Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.chinacloudapi.cn/;"
+```
 
 ### <a name="use-azure-classic-cli"></a>使用 Azure 经典 CLI
 使用以下命令列出与 Blob 有关的命令：
 
-    azure storage blob
+```cli
+azure storage blob
+```
 
 **使用 Azure 经典 CLI 上传文件的示例**
 
-    azure storage blob upload <sourcefilename> <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
+```cli
+azure storage blob upload <sourcefilename> <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
+```
 
 **使用 Azure 经典 CLI 下载文件的示例**
 
-    azure storage blob download <containername> <blobname> <destinationfilename> --account-name <storageaccountname> --account-key <storageaccountkey>
+```cli
+azure storage blob download <containername> <blobname> <destinationfilename> --account-name <storageaccountname> --account-key <storageaccountkey>
+```
 
 **使用 Azure 经典 CLI 删除文件的示例**
 
-    azure storage blob delete <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
+```cli
+azure storage blob delete <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
+```
 
 **使用 Azure 经典 CLI 列出文件的示例**
 
-    azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
+```cli
+azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
+```
 
 ## <a name="use-additional-storage-accounts"></a>使用其他存储帐户
 
@@ -301,8 +338,8 @@ URI 方案提供了使用 *wasb:* 前缀的未加密访问和使用 *wasbs* 的 
 
 * [Azure HDInsight 入门][hdinsight-get-started]
 * [将数据上传到 HDInsight][hdinsight-upload-data]
-* [将 Hive 与 HDInsight 配合使用][hdinsight-use-hive]
-* [将 Pig 与 HDInsight 配合使用][hdinsight-use-pig]
+* [将 Apache Hive 和 HDInsight 配合使用][hdinsight-use-hive]
+* [将 Apache Pig 和 HDInsight 配合使用][hdinsight-use-pig]
 * [使用 Azure 存储共享访问签名来限制使用 HDInsight 访问数据][hdinsight-use-sas]
 
 [hdinsight-use-sas]: hdinsight-storage-sharedaccesssignature-permissions.md
@@ -313,7 +350,7 @@ URI 方案提供了使用 *wasb:* 前缀的未加密访问和使用 *wasbs* 的 
 [hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
 [hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
 
-[blob-storage-restAPI]: http://msdn.microsoft.com/library/windowsazure/dd135733.aspx
+[blob-storage-restAPI]: https://msdn.microsoft.com/library/windowsazure/dd135733.aspx
 [azure-storage-create]:../storage/common/storage-create-storage-account.md
 
 [img-hdi-powershell-blobcommands]: ./media/hdinsight-hadoop-use-blob-storage/HDI.PowerShell.BlobCommands.png

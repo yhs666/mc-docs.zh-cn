@@ -1,20 +1,20 @@
 ---
 title: 基于性能数据或计划自动缩放 Azure 资源
 description: 使用指标数据和调度为应用服务计划创建自动缩放设置
-author: anirudhcavale
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: tutorial
-ms.date: 12/11/2017
-ms.author: ancav
+ms.date: 01/21/19
+ms.author: v-lingwu
 ms.custom: mvc
-ms.component: autoscale
-ms.openlocfilehash: 104aafbc84d06c2291c85399bb4606d47232d4e0
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.subservice: autoscale
+ms.openlocfilehash: f87ad42bfc2d6727adca20eba789694637e52895
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141747"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906061"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>基于性能数据或调度为 Azure 资源创建自动缩放设置 | Microsoft 文档
 
@@ -28,7 +28,7 @@ ms.locfileid: "54141747"
 > * 触发缩小操作并监视实例数的减少情况
 > * 清理资源
 
-如果没有 Azure 订阅，请在开始之前创建一个[免费](https://azure.microsoft.com/free/)帐户。
+如果没有 Azure 订阅，请在开始之前创建一个[免费](https://www.azure.cn/free/)帐户。
 
 ## <a name="log-in-to-the-azure-portal"></a>登录到 Azure 门户
 
@@ -37,7 +37,7 @@ ms.locfileid: "54141747"
 ## <a name="create-a-web-app-and-app-service-plan"></a>创建 Web 应用和应用服务计划
 1. 在左侧导航窗格中单击“创建资源”选项。
 2. 搜索并选择“Web 应用”项，然后单击“创建”。
-3. 选择一个应用名称，例如 MyTestScaleWebApp。 新建资源组 *myResourceGroup，并将其放置在你选择的资源组中。
+3. 选择一个应用名称，例如 MyTestScaleWebApp。 新建资源组 *myResourceGroup'，或将其放置在所选资源组中。
 
 几分钟内，应会预配你的资源。 在本教程的后面部分，使用 Web 应用及相对应的应用服务计划。
 
@@ -63,7 +63,7 @@ ms.locfileid: "54141747"
   ![导航到自动缩放设置](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
-## <a name="create-recurrance-profile"></a>创建重复配置文件
+## <a name="create-recurrence-profile"></a>创建重复配置文件
 
 1. 在默认配置文件下，单击“添加缩放条件”链接。
 

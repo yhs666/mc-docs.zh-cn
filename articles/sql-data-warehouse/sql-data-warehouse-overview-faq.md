@@ -16,12 +16,12 @@ ms.custom: overview
 origin.date: 04/17/2018
 ms.date: 08/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: b33c2436a0da9298d977faef61a5a6d6106620cb
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 088a648bc9b7294beae67bba6dd79985fffd215a
+ms.sourcegitcommit: 92503f045267f436cf3ca7fa9e6f1c13be17fb44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658451"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54858195"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>SQL 数据仓库常见问题解答
 
@@ -99,7 +99,6 @@ A. 可在[连接字符串]页找到 DW 驱动程序支持
 
 
 <!-- Article references -->
-[UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [连接字符串]: ./sql-data-warehouse-connection-strings.md
 [Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [安全性]: ./sql-data-warehouse-overview-manage-security.md
@@ -107,4 +106,4 @@ A. 可在[连接字符串]页找到 DW 驱动程序支持
 [容量限制]: ./sql-data-warehouse-service-capacity-limits.md
 [数据类型]: ./sql-data-warehouse-tables-data-types.md
 [不支持的表功能]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
-<!-- Not Available on [Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md --> [Azure 存储 Blob]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md [数据库项目功能请求]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu [MSDN]: https://msdn.microsoft.com/library/azure/mt163685.aspx [概述]: ./sql-data-warehouse-overview-faq.mdd
+<!-- Not Available on [Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md --> [Azure 存储 Blob]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md [MSDN]: https://msdn.microsoft.com/library/azure/mt163685.aspx [概述]: ./sql-data-warehouse-overview-faq.mdd

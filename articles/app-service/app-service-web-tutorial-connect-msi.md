@@ -15,12 +15,12 @@ origin.date: 10/24/2018
 ms.date: 01/21/2019
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: dec9dfc9ed6f37c8455a25f34d9208d10a0e7beb
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: a5fff8942256f83783e9f58a4079d79cb036bbbb
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083810"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906047"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>教程：使用托管标识确保从应用服务进行的 Azure SQL 数据库连接的安全
 
@@ -50,9 +50,9 @@ ms.locfileid: "54083810"
 
 ## <a name="enable-managed-identities"></a>启用托管标识
 
-若要为 Azure 应用启用托管标识，请在 Cloud Shell 中使用 [az webapp identity assign](/cli/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) 命令。 在以下命令中，替换 *\<app name>*。
+若要为 Azure 应用启用托管标识，请在 CLI 中使用 [az webapp identity assign](/cli/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) 命令。 在以下命令中，替换 *\<app name>*。
 
-```azurecli-interactive
+```azurecli
 az webapp identity assign --resource-group myResourceGroup --name <app name>
 ```
 
@@ -69,15 +69,15 @@ az webapp identity assign --resource-group myResourceGroup --name <app name>
 
 下一步将用到 `principalId` 的值。 若要在 Azure Active Directory 中查看新标识的详细信息，请使用 `principalId` 的值运行以下可选命令：
 
-```azurecli-interactive
+```azurecli
 az ad sp show --id <principalid>
 ```
 
-## <a name="grant-database-access-to-identity"></a>授予数据库访问标识的权限
+## <a name="grant-database-access-to-identity"></a>向标识授予数据库访问权限
 
-接下来，请在 Cloud Shell 中使用 [`az sql server ad-admin create`](https://docs.azure.cn/zh-cn/cli/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin-create) 命令授予数据库访问应用的托管标识的权限。 在以下命令中，替换 *\<server_name>* 和 <principalid_from_last_step>。 键入 *\<admin_user>* 的管理员名称。
+接下来，请在 CLI 中使用 [`az sql server ad-admin create`](https://docs.azure.cn/zh-cn/cli/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin-create) 命令向应用的托管标识授予数据库访问权限。 在以下命令中，替换 *\<server_name>* 和 <principalid_from_last_step>。 键入 *\<admin_user>* 的管理员名称。
 
-```azurecli-interactive
+```azurecli
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server_name> --display-name <admin_user> --object-id <principalid_from_last_step>
 ```
 
@@ -85,9 +85,9 @@ az sql server ad-admin create --resource-group myResourceGroup --server-name <se
 
 ## <a name="modify-connection-string"></a>修改连接字符串
 
-在 Cloud Shell 中使用 [`az webapp config appsettings set`](/cli/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 命令修改以前为应用设置的连接。 在以下命令中，将 *\<app name>* 替换为应用的名称，将 *\<server_name>* 和 *\<db_name>* 替换为 SQL 数据库的相应名称。
+在 CLI 中使用 [`az webapp config appsettings set`](/cli/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 命令修改以前为应用设置的连接。 在以下命令中，将 *\<app name>* 替换为应用的名称，将 *\<server_name>* 和 *\<db_name>* 替换为 SQL 数据库的相应名称。
 
-```azurecli-interactive
+```azurecli
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='Server=tcp:<server_name>.database.chinacloudapi.cn,1433;Database=<db_name>;' --connection-string-type SQLAzure
 ```
 
@@ -157,9 +157,9 @@ private MyDatabaseContext db = new MyDatabaseContext(new System.Data.SqlClient.S
 
 ### <a name="add-managed-identity-to-an-azure-active-directory-group"></a>向 Azure Active Directory 组添加托管标识
 
-在 Cloud Shell 中，将应用的托管标识添加到名为 _myAzureSQLDBAccessGroup_ 的新 Azure Active Directory 组，如以下脚本所示：
+在 CLI 中，将应用的托管标识添加到名为 _myAzureSQLDBAccessGroup_ 的新 Azure Active Directory 组，如以下脚本所示：
 
-```azurecli-interactive
+```azurecli
 groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
 msiobjectid=$(az webapp identity show --resource-group <group_name> --name <app_name> --query principalId --output tsv)
 az ad group member add --group $groupid --member-id $msiobjectid
@@ -178,9 +178,9 @@ az ad group member list -g $groupid
 
 ### <a name="grant-permissions-to-azure-active-directory-group"></a>向 Azure Active Directory 组授予权限
 
-在 Cloud Shell 中，使用 SQLCMD 命令登录到 SQL 数据库。 将 _\<server\_name>_ 替换为 SQL 数据库服务器名称，将 _\<db\_name>_ 替换为应用使用的数据库名称，将 _\<AADuser\_name>_ 和 _\<AADpassword>_ 替换为 Azure AD 用户的凭据。
+在 CLI 中，使用 SQLCMD 命令登录到 SQL 数据库。 将 _\<server\_name>_ 替换为 SQL 数据库服务器名称，将 _\<db\_name>_ 替换为应用使用的数据库名称，将 _\<AADuser\_name>_ 和 _\<AADpassword>_ 替换为 Azure AD 用户的凭据。
 
-```azurecli-interactive
+```azurecli
 sqlcmd -S <server_name>.database.windows.net -d <db_name> -U <AADuser_name> -P "<AADpassword>" -G -l 30
 ```
 
@@ -194,7 +194,7 @@ ALTER ROLE db_ddladmin ADD MEMBER [myAzureSQLDBAccessGroup];
 GO
 ```
 
-键入 `EXIT`，返回到 Cloud Shell 提示符窗口。 
+键入 `EXIT`，返回到 CLI 提示符窗口。 
 
 ## <a name="next-steps"></a>后续步骤
 

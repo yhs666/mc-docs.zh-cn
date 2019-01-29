@@ -16,12 +16,12 @@ ms.topic: troubleshooting
 origin.date: 03/23/2018
 ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: feb5160034bd48bc93657e54ce9ee1be9b4e757f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 0f71e1a21b52266b2166136a94ca60a6e124f49a
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658369"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085690"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>排查 Azure 虚拟机的远程桌面连接问题
 与基于 Windows 的 Azure 虚拟机 (VM) 的远程桌面协议 (RDP) 连接可能会因各种原因而失败，使用户无法访问 VM。 问题可能出在 VM 上的远程桌面服务、网络连接或主计算机上的远程桌面客户端。 本文介绍解决 RDP 连接问题的一些最常见方法。 
@@ -118,8 +118,11 @@ ms.locfileid: "52658369"
 
     ```powershell
     Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" `
-        -VMName "myVM" -Location Westus -Name "myVMAccessExtension"
+        -VMName "myVM" -Location "chinanorth" -Name "myVMAccessExtension"
     ```
+    
+    <!--Notice: RG is chinanorth-->
+    
 2. **验证网络安全组规则**。 此故障排除步骤验证网络安全组中是否存在允许 RDP 流量的规则。 RDP 的默认端口为 TCP 端口 3389。 允许 RDP 通信的规则可能无法在创建 VM 时自动创建。
 
     首先，将网络安全组的所有配置数据分配到 `$rules` 变量。 以下示例将在名为 `myResourceGroup` 的资源组中获取关于名为 `myNetworkSecurityGroup` 的网络安全组的信息：
@@ -237,8 +240,8 @@ ms.locfileid: "52658369"
 * [由于没有可用于提供许可证的远程桌面授权服务器，远程会话已断开连接](troubleshoot-specific-rdp-errors.md#rdplicense)。
 * [远程桌面找不到计算机“名称”。](troubleshoot-specific-rdp-errors.md#rdpname)
 * [身份验证出错。无法联系本地安全机构](troubleshoot-specific-rdp-errors.md#rdpauth)。
-* [Windows 安全性错误：凭据无效](troubleshoot-specific-rdp-errors.md#wincred)。
-* [此计算机无法连接到远程计算机](troubleshoot-specific-rdp-errors.md#rdpconnect)。
+* [Windows 安全性错误：你的凭据不起作用](troubleshoot-specific-rdp-errors.md#wincred)。
+* [此计算机无法连接到远程计算机。](troubleshoot-specific-rdp-errors.md#rdpconnect)
 
 ## <a name="additional-resources"></a>其他资源
 如果未发生上述任何错误但仍无法通过远程桌面连接到 VM，请阅读详细的[远程桌面故障排除指南](detailed-troubleshoot-rdp.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
