@@ -10,19 +10,19 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 12/21/2018
-ms.date: 01/21/2019
+origin.date: 01/02/2019
+ms.date: 01/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: bfa9851482ead2393ca06c0371d0bb26e60ef89d
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: 6ebf3e3caf3ff33190e07e71237618af3b0fcfba
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193080"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085689"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>将资源移到新资源组或订阅中
 
-本文说明了如何将 Azure 资源移动到另一 Azure 订阅，或移动到同一订阅下的另一资源组。 可以使用 Azure 门户、Azure PowerShell、Azure CLI 或 REST API 移动资源。 
+本文说明了如何将 Azure 资源移动到另一 Azure 订阅，或移动到同一订阅下的另一资源组。 可以使用 Azure 门户、Azure PowerShell、Azure CLI 或 REST API 移动资源。
 
 在移动操作过程中，源组和目标组都会锁定。 在完成移动之前，将阻止对资源组执行写入和删除操作。 此锁意味着将无法添加、更新或删除资源组中的资源，但并不意味着资源已被冻结。 例如，如果将 SQL Server 及其数据库移到新的资源组中，使用数据库的应用程序体验不到停机， 仍可读取和写入到数据库。
 
@@ -56,7 +56,6 @@ ms.locfileid: "54193080"
 * API 管理
 * 应用服务应用（Web 应用）- 请参阅[应用服务限制](#app-service-limitations)
 * 应用服务证书 - 请参阅[应用服务证书限制](#app-service-certificate-limitations)
-<!-- Not Available * Application Insights-->
 * 自动化 <!-- Not Available * Azure Active Directory B2C-->
 * Azure Cosmos DB <!--Verify successfully-->
 * Azure Database for MySQL
@@ -82,8 +81,8 @@ ms.locfileid: "54193080"
 * HDInsight 群集 - 请参阅 [HDInsight 限制](#hdinsight-limitations)
 <!-- Not Available * Iot Central-->
 * IoT 中心
-* 密钥保管库
-* 负载均衡器 - 请参阅[负载均衡器限制](#lb-limitations)
+* Key Vault - 用于磁盘加密的 Key Vault 不能移动到同一订阅中的资源组，也不能跨订阅移动。
+* 负载均衡器 - 可以移动基本 SKU 负载均衡器。 不能移动标准 SKU 负载均衡器。
 <!-- Not Available * Log Analytics-->
 * 逻辑应用 <!-- Not Available * Machine Learning - Machine Learning Studio web services can be moved to a resource group in the same subscription, but not a different subscription. Other Machine Learning resources can be moved across subscriptions.-->
 <!-- Not Available * Managed Disks - see [Virtual Machines limitations for constraints](#virtual-machines-limitations)-->
@@ -94,7 +93,7 @@ ms.locfileid: "54193080"
 <!-- Not Available * Operations Management-->
 * 门户仪表板
 * Power BI - Power BI Embedded 和 Power BI 工作区集合
-* 公共 IP - 请参阅[公共 IP 限制](#pip-limitations)
+* 公共 IP - 可以移动基本 SKU 公共 IP。 不能移动标准 SKU 公共 IP。
 * 恢复服务保管库 - 必须注册专用预览版。 请参阅[恢复服务限制](#recovery-services-limitations)。
 * Azure Redis 缓存 - 如果 Azure Redis 缓存实例配置了虚拟网络，则实例无法被移动到其他订阅。 请参阅[虚拟网络限制](#virtual-networks-limitations)。
 * 计划程序 <!-- Not Available * Search-->
@@ -113,7 +112,7 @@ ms.locfileid: "54193080"
 * 虚拟网络 - 请参阅[虚拟网络限制](#virtual-networks-limitations)
 * VPN 网关
 
-## <a name="services-that-cannot-be-moved"></a>无法移动的服务
+### <a name="services-that-cannot-be-moved"></a>无法移动的服务
 
 以下列表提供了不能移动到新资源组和订阅的 Azure 服务的一般摘要。 有关更多详细信息，请参阅[资源的移动操作支持](move-support-resources.md)。
 
@@ -131,11 +130,9 @@ ms.locfileid: "54193080"
 <!-- Not Available * Dynamics LCS-->
 * Express Route <!-- Not Available * Kubernetes Service-->
 <!-- Not Available * Lab Services-->
-* 负载均衡器 - 请参阅[负载均衡器限制](#lb-limitations)
 <!-- Not Available * Managed Applications-->
 <!-- Not Available * Azure Genomics-->
 <!-- Not Available * NetApp-->
-* 公共 IP - 请参阅[公共 IP 限制](#pip-limitations)
 <!-- Not Available * SAP HANA on Azure-->
 * 安全性
 * Site Recovery <!-- Not Available * StorSimple Device Manager-->
@@ -143,33 +140,37 @@ ms.locfileid: "54193080"
 
 ## <a name="limitations"></a>限制
 
-<!--Verify successfully-->
-## <a name="virtual-machines-limitations"></a>虚拟机限制
+此部分说明如何处理移动资源时的复杂方案。 限制如下：
 
-从 2018 年 9 月 24 日起，支持移动托管磁盘。 
+* [虚拟机限制](#virtual-machines-limitations)
+* [虚拟网络限制](#virtual-networks-limitations)
+* [应用服务限制](#app-service-limitations)
+* [应用服务证书限制](#app-service-certificate-limitations)
+* [经典部署限制](#classic-deployment-limitations)
+* [恢复服务限制](#recovery-services-limitations)
+* [HDInsight 限制](#hdinsight-limitations)
 
-此支持意味着你还可以移动：
+### <a name="virtual-machines-limitations"></a>虚拟机限制
 
-* 包含托管磁盘的虚拟机
-* 托管映像
-* 托管快照
-* 包含托管磁盘的虚拟机的可用性集
+从 2018 年 9 月 24 日起，可以移动托管磁盘。 此支持意味着，可以移动包含托管磁盘、托管映像和托管快照的虚拟机，以及移动所含虚拟机使用托管磁盘的可用性集。
 
-以下是尚不支持的约束：
+以下方案尚不受支持：
 
 * 证书存储在 Key Vault 中的虚拟机可以移动到同一订阅中的新资源组，但无法跨订阅进行移动。
-* 使用 Azure 备份配置的虚拟机。 使用以下解决方法移动这些虚拟机
-  * 找到虚拟机的位置。
-  * 找到含有以下命名模式的资源组：`AzureBackupRG_<location of your VM>_1` 例如，AzureBackupRG_chinanorth2_1
-  * 如果在 Azure 门户中，则查看“显示隐藏的类型”
-  * 如果在 PowerShell 中，则使用 `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet
-  * 如果在 CLI 中，则使用 `az resource list -g AzureBackupRG_<location of your VM>_1`
-  * 使用类型 `Microsoft.Compute/restorePointCollections` 找到具有命名模式 `AzureBackup_<name of your VM that you're trying to move>_###########` 的资源
-  * 删除此资源
-  * 删除完成后，即可移动虚拟机
-  * 若要了解如何移动恢复服务保管库以完成备份，请参阅[恢复服务限制](#recovery-services-limitations)。
 * 无法移动具有标准 SKU 负载均衡器或标准 SKU 公共 IP 的虚拟机规模集
 * 无法跨资源组或订阅移动基于附加了计划的市场资源创建的虚拟机。 在当前订阅中取消预配虚拟机，并在新的订阅中重新部署虚拟机。
+
+若要移动使用 Azure 备份配置的虚拟机，请使用以下解决方法：
+
+* 找到虚拟机的位置。
+* 找到含有以下命名模式的资源组：`AzureBackupRG_<location of your VM>_1` 例如，AzureBackupRG_chinanorth2_1
+* 如果在 Azure 门户中，则查看“显示隐藏的类型”
+* 如果在 PowerShell 中，则使用 `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet
+* 如果在 CLI 中，则使用 `az resource list -g AzureBackupRG_<location of your VM>_1`
+* 使用类型 `Microsoft.Compute/restorePointCollections` 找到具有命名模式 `AzureBackup_<name of your VM that you're trying to move>_###########` 的资源
+* 删除此资源。 此操作仅删除即时恢复点，不删除保管库中的备份数据。
+* 删除完成后，即可移动虚拟机。 可以将保管库和虚拟机移到目标订阅。 移动后即可继续备份，不会丢失数据。
+* 若要了解如何移动恢复服务保管库以完成备份，请参阅[恢复服务限制](#recovery-services-limitations)。
 
 ### <a name="virtual-networks-limitations"></a>虚拟网络限制
 
@@ -293,7 +294,15 @@ _在订阅之间_移动 Web 应用时存在以下限制：
 
 此操作可能需要运行几分钟。
 
-### <a name="recovery-services-limitations"></a>恢复服务限制
+### <a name="#recovery-services-limitations"></a>恢复服务限制
+
+若要移动恢复服务保管库，你必须注册[受限公共预览版](/backup/backup-azure-recovery-services-vault-overview)。
+
+<!--URL direct to backup-azure-recovery-services-vault-overview-->
+
+目前，每个区域一次可以移动一个恢复服务保管库。 不能移动在 IaaS 虚拟机中备份 Azure 文件、Azure 文件同步或 SQL 的保管库。
+
+如果虚拟机不随保管库移动，则当前虚拟机恢复点会保留在保管库中，直至过期。 不管虚拟机是否随保管库移动，均可根据保管库的备份历史记录还原虚拟机。
 
 恢复服务保管库不支持跨订阅备份。 如果跨订阅移动保管库和虚拟机备份数据，则必须将虚拟机移到同一订阅，并使用同一目标资源组来继续备份。
 
@@ -302,7 +311,7 @@ _在订阅之间_移动 Web 应用时存在以下限制：
 若要将虚拟机移到新的订阅而不移动恢复服务保管库，请执行以下操作：
 
  1. 暂时停止备份
- 1. [删除还原点](#virtual-machines-limitations)
+ 1. [删除还原点](#virtual-machines-limitations)。 此操作仅删除即时恢复点，不删除保管库中的备份数据。
  1. 将虚拟机移到新的订阅
  1. 在该订阅的新保管库中对其重新进行保护
 
@@ -313,19 +322,6 @@ _在订阅之间_移动 Web 应用时存在以下限制：
 可以将 HDInsight 群集移到新订阅或资源组。 但是，无法在订阅之间移动链接到 HDInsight 群集的网络资源（例如虚拟网络、NIC 或负载均衡器）。 此外，无法将连接到群集的虚拟机的 NIC 移到新的资源组。
 
 将 HDInsight 群集移至新订阅时，请先移动其他资源（例如存储帐户）。 然后移动 HDInsight 群集本身。
-
-<!--Not Available ## Search limitations-->
-<a name="lb-limitations"></a>
-###  <a name="load-balancer-limitations"></a>负载均衡器限制
-
-可以移动基本 SKU 负载均衡器。
-不能移动标准 SKU 负载均衡器。
-
-<a name="pip-limitations"></a>
-###  <a name="public-ip-limitations"></a>公共 IP 限制
-
-可以移动基本 SKU 公共 IP。
-不能移动标准 SKU 公共 IP。
 
 ## <a name="checklist-before-moving-resources"></a>移动资源前需查看的清单
 
@@ -348,7 +344,6 @@ _在订阅之间_移动 Web 应用时存在以下限制：
   ```
 
   <!--Not Available on If the tenant IDs for the source and destination subscriptions aren't the same, use the following methods to reconcile the tenant IDs:-->
-
   <!--Not Available on [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md)-->
   <!--Not Available on [How to associate or add an Azure subscription to Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)-->
 

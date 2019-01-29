@@ -15,12 +15,12 @@ ms.date: 01/21/2019
 ms.topic: tutorial
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 89c28c0771a630b4c5cff99b5918f5e8858f862d
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: f0e8d130146268dd66dddfc6909ce0ed79fdb3c1
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193130"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085630"
 ---
 <!-- Verify successfully-->
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>教程：在资源管理器模板部署中集成 Azure Key Vault
@@ -198,7 +198,9 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 
 ## <a name="deploy-the-template"></a>部署模板
 
-遵照[部署模板](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template)中的说明部署模板。 需将 **azuredeploy.json** 和 **azuredeploy.parameters.json** 上传到 Cloud Shell，然后使用以下 PowerShell 脚本部署模板：
+按照[部署模板](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template)中的说明部署模板，然后使用以下 PowerShell 脚本来部署模板：
+
+<!--Not Available on You need to upload both **azuredeploy.json** and **azuredeploy.parameters.json** to the Cloud shell-->
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name of the Key Vault"
