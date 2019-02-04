@@ -15,12 +15,12 @@ ms.devlang: azurecli
 origin.date: 11/22/2018
 ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5b1fab3c339454a9f0b8cf42271da573fa4196cf
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.openlocfilehash: 1ab2b2278515d88001dfadb7e2b21ddd39fa9a2d
+ms.sourcegitcommit: 3a76c6e128d667b7863daf2ff622e88ed59399ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736243"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55480165"
 ---
 <!-- Verify part successfully-->
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>在 Azure VM 中禁用来宾 OS 防火墙
@@ -57,25 +57,9 @@ ms.locfileid: "53736243"
 >   ```
 >   但是，只要再次应用该策略，就会被踢出远程会话。 此问题的永久性解决方法是修改此计算机上应用的策略。
 
-#### <a name="mitigation-2-remote-powershell"></a>缓解措施 2：远程 PowerShell
+<!--Not Available on #### Mitigation 2: Remote PowerShell-->
 
-1.  连接到与使用 RDP 连接无法访问的 VM 位于同一虚拟网络上的一个 VM。
-
-2.  打开 PowerShell 控制台窗口。
-
-3.  运行以下命令：
-
-    ```powershell
-    Enter-PSSession (New-PSSession -ComputerName "<HOSTNAME>" -Credential (Get-Credential) -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNCheck)) 
-    netsh advfirewall set allprofiles state off
-    Restart-Service -Name mpssvc 
-    exit
-    ```
-
-> [!Note]
-> 如果通过组策略对象设置防火墙，则此方法可能不起作用，因为此命令仅更改本地注册表项。 如果应用策略，它将覆盖此更改。 
-
-#### <a name="mitigation-3-pstools-commands"></a>缓解措施 3：PSTools 命令
+#### <a name="mitigation-2-pstools-commands"></a>缓解措施 2：PSTools 命令
 
 1.  在故障排除 VM 上，下载 [PSTools](/sysinternals/downloads/pstools)。
 
@@ -89,7 +73,7 @@ ms.locfileid: "53736243"
     psservice restart mpssvc
     ```
 
-#### <a name="mitigation-4-remote-registry"></a>缓解措施 4：远程注册表 
+#### <a name="mitigation-3-remote-registry"></a>缓解措施 3：远程注册表 
 
 按以下步骤来使用[远程注册表](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry)。
 

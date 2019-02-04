@@ -9,12 +9,12 @@ origin.date: 09/05/2017
 ms.date: 01/21/2019
 ms.author: v-jay
 ms.component: common
-ms.openlocfilehash: ca8a61a2c73ee3570305e651ecbe1ba37c6d9eed
-ms.sourcegitcommit: 317ea7e3b2d307569d3bf7777bd3077013ae4df6
+ms.openlocfilehash: 2a012b599a9e084a638c0fd1f93f77df1e749084
+ms.sourcegitcommit: 3727a3bb5790523af56b5eb36d2ce78fc27a603a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334500"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55290186"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure Monitor 中的 Azure 存储指标
 
@@ -151,7 +151,7 @@ Azure Monitor 提供 [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.M
         // Resource ID for storage account
         var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}";
         var subscriptionId = "{SubscriptionID}";
-        // How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+        // How to identify Tenant ID, Application ID and Access Key: https://docs.azure.cn/active-directory/develop/howto-create-service-principal-portal/
         var tenantId = "{TenantID}";
         var applicationId = "{ApplicationID}";
         var accessKey = "{AccessKey}";
@@ -188,7 +188,7 @@ Azure Monitor 提供 [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.M
         // Resource ID for storage account
         var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}";
         var subscriptionId = "{SubscriptionID}";
-        // How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+        // How to identify Tenant ID, Application ID and Access Key: https://docs.azure.cn/active-directory/develop/howto-create-service-principal-portal/
         var tenantId = "{TenantID}";
         var applicationId = "{ApplicationID}";
         var accessKey = "{AccessKey}";
@@ -240,7 +240,7 @@ Azure Monitor 提供 [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.M
         // Resource ID for blob storage
         var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/blobServices/default";
         var subscriptionId = "{SubscriptionID}";
-        // How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+        // How to identify Tenant ID, Application ID and Access Key: https://docs.azure.cn/active-directory/develop/howto-create-service-principal-portal/
         var tenantId = "{TenantID}";
         var applicationId = "{ApplicationID}";
         var accessKey = "{AccessKey}";

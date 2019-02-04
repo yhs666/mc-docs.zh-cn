@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 01/02/2019
 ms.date: 01/28/2019
 ms.author: v-jay
-ms.openlocfilehash: e7c5448bbd30f085bf3722b2a51943f84dadacd2
-ms.sourcegitcommit: f248afb1039011d34579baed2980f0632061f5b5
+ms.openlocfilehash: e1ada5b5c96b4153be0fe6e14b74a843698cca7c
+ms.sourcegitcommit: c1ef8d674de75dd4532a2cc66a296d8020bb7e80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858079"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55668441"
 ---
 # <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>快速入门：使用 C# 调用文本分析认知服务
 <a name="HOLTop"></a>
@@ -88,7 +88,7 @@ namespace ConsoleApp1
             ITextAnalyticsClient client = new TextAnalyticsClient(new ApiKeyServiceClientCredentials())
             {
                 Endpoint = "https://chinaeast2.api.cognitive.azure.cn"
-            }; //Replace 'westus' with the correct region for your Text Analytics subscription
+            };
 
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 

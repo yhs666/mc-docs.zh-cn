@@ -9,12 +9,12 @@ origin.date: 10/22/2018
 ms.date: 11/22/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 58820d82fff07df3c6721a2442bc25eb28fefb4b
-ms.sourcegitcommit: f6a287a11480cbee99a2facda2590f3a744f7e45
+ms.openlocfilehash: 5551cc1241415789049a3ec4ecf9b7c7c9529d8c
+ms.sourcegitcommit: 3a76c6e128d667b7863daf2ff622e88ed59399ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53786734"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55480164"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>使用 Azure 本地数据网关连接到本地数据源
 本地数据网关的作用好似一架桥，提供本地数据源与云中的 Azure Analysis Services 服务器之间的安全数据传输。 除了适用于同一区域中的多个 Azure Analysis Services 服务器以外，最新版本的网关还适用于 Azure 逻辑应用、Power BI、Power Apps 和 Azure Flow。 可将同一订阅和同一区域中的多个服务与单个网关相关联。 
@@ -111,7 +111,8 @@ ms.locfileid: "53786734"
 
 **问**：对于网络带宽是否有要求？ <br/>
 **答**：建议为网络连接配置较高的吞吐量。 每个环境是不同的，所发送的数据量会影响效果。 使用 ExpressRoute 可以帮助保证本地与 Azure 数据中心之间的吞吐量级别。
-可以借助第三方工具 Azure Speed Test 应用来测量吞吐量。
+
+<!--Not Available on You can use the third-party tool Azure Speed Test app to help gauge your throughput.-->
 
 **问**：从网关运行对数据源的查询时的延迟是多少？ 最佳体系结构是什么？ <br/>
 **答**：若要降低网络延迟，请将网关安装在尽可能靠近数据源的位置。 如果可以在实际数据源上安装网关，这种距离可最大程度降低造成的延迟。 还需考虑数据中心。 例如，如果服务使用中国北部的数据中心，而你在 Azure VM 中托管 SQL Server，则 Azure VM 也应该位于中国北部。 这种距离可最大程度降低延迟并避免 Azure VM 产生传出费用。

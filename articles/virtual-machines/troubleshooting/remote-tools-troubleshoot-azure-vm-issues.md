@@ -15,12 +15,12 @@ ms.devlang: azurecli
 origin.date: 01/11/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3132b6e25d68815ee8dd301e6eb49278502bc34a
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.openlocfilehash: 3acfa4ea4926900406b69f4026c1f251601ecd88
+ms.sourcegitcommit: 3a76c6e128d667b7863daf2ff622e88ed59399ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736115"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55480158"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>使用远程工具排查 Azure VM 问题
 
@@ -119,111 +119,7 @@ Set-AzureStorageBlobContent -File $localScript -Container $container -Blob $blob
 Set-AzureRmVMCustomScriptExtension -Name "CustomScriptExtension" -ResourceGroupName $vmResourceGroup -VMName $vmName -Location $vmLocation -StorageAccountName $storageAccount -StorageAccountKey $storagekey -ContainerName $container -FileName $blobName -Run $blobName
 ```
 
-## <a name="remote-powershell"></a>远程 PowerShell
-
->[!Note]
->必须打开 TCP 端口 5986 (HTTPS)，以便能够使用此选项。
->
->对于 ARM VM，必须在网络安全组 (NSG) 中打开端口 5986。 有关详细信息，请参阅“安全组”。 
->
->对于 RDFE VM，必须有一个配备专用端口 (5986) 和公共端口的终结点。 然后，还必须在 NSG 中打开该公共端口。
-
-### <a name="set-up-the-client-computer"></a>设置客户端计算机
-
-若要使用 PowerShell 远程连接到 VM，首先需要设置客户端计算机，以允许建立连接。 为此，请相应地运行以下命令，将 VM 添加到 PowerShell 信任的主机列表。
-
-将一个 VM 添加到信任的主机列表：
-
-```powershell
-Set-Item wsman:\localhost\Client\TrustedHosts -value <ComputerName>
-```
-
-将多个 VM 添加到信任的主机列表：
-
-```powershell
-Set-Item wsman:\localhost\Client\TrustedHosts -value <ComputerName1>,<ComputerName2>
-```
-
-将所有计算机添加到信任的主机列表：
-
-```powershell
-Set-Item wsman:\localhost\Client\TrustedHosts -value *
-```
-
-### <a name="enable-remoteps-on-the-vm"></a>在 VM 上启用 RemotePS
-
-对于经典 VM，请使用自定义脚本扩展运行以下脚本：
-
-```powershell
-Enable-PSRemoting -Force
-New-NetFirewallRule -Name "Allow WinRM HTTPS" -DisplayName "WinRM HTTPS" -Enabled True -Profile Any -Action Allow -Direction Inbound -LocalPort 5986 -Protocol TCP
-$thumbprint = (New-SelfSignedCertificate -DnsName $env:COMPUTERNAME -CertStoreLocation Cert:\LocalMachine\My).Thumbprint
-$command = "winrm create winrm/config/Listener?Address=*+Transport=HTTPS @{Hostname=""$env:computername""; CertificateThumbprint=""$thumbprint""}"
-cmd.exe /C $command
-```
-
-对于 ARM VM，请在门户中使用“运行命令”来运行 EnableRemotePS 脚本：
-
-![运行命令](./media/remote-tools-troubleshoot-azure-vm-issues/run-command.png)
-
-### <a name="connect-to-the-vm"></a>连接到 VM
-
-根据客户端计算机的位置运行以下命令：
-
-* 在 VNET 或部署的外部
-
-    * 对于经典 VM，请运行以下命令：
-
-    ```powershell
-    $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck
-    Enter-PSSession -ComputerName  "<<CLOUDSERVICENAME.chinacloudapp.cn>>" -port "<<PUBLIC PORT NUMBER>>" -Credential (Get-Credential) -useSSL -SessionOption $Skip
-    ```
-
-    * 对于 ARM VM，请先将一个 DNS 名称添加到公共 IP 地址。 有关详细步骤，请参阅[在 Azure 门户中创建 Windows VM 的完全限定域名](../windows/portal-create-fqdn.md)。 然后，运行以下命令：
-
-    ```powershell
-    $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck
-    Enter-PSSession -ComputerName "<<DNSname.DataCenter.cloudapp.chinacloudapi.cn>>" -port "5986" -Credential (Get-Credential) -useSSL -SessionOption $Skip
-    ```
-
-* 在 VNET 或部署中运行以下命令：
-
-  ```powershell
-  $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck
-  Enter-PSSession -ComputerName  "<<HOSTNAME>>" -port 5986 -Credential (Get-Credential) -useSSL -SessionOption $Skip
-  ```
-
->[!Note] 
->如果设置 SkipCaCheck 标志，则启动会话时无需将证书导入 VM。
-
-还可以使用 Invoke-Command cmdlet 在 VM 上远程运行脚本：
-
-```powershell
-Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
-```
-
-## <a name="remote-registry"></a>远程注册表
-
->[!Note]
->必须打开 TCP 端口 135 或 445 才能使用此选项。
->
->对于 ARM VM，必须在 NSG 中打开端口 5986。 有关详细信息，请参阅“安全组”。 
->
->对于 RDFE VM，必须有一个配备专用端口 5986 和公共端口的终结点。 还必须在 NSG 中打开该公共端口。
-
-1. 在同一 VNET 中的另一个 VM 上，打开注册表编辑器 (regedit.exe)。
-
-2. 选择“文件” >“连接网络注册表”。
-
-   ![远程选项](./media/remote-tools-troubleshoot-azure-vm-issues/remote-registry.png) 
-
-3. 在“输入要选择的对象名称”框中输入目标 VM 的**主机名**或**动态 IP**（首选），以找到该 VM。
-
-   ![远程选项](./media/remote-tools-troubleshoot-azure-vm-issues/input-computer-name.png) 
-
-4. 输入目标 VM 的凭据。
-
-5. 进行任何必要的注册表更改。
+<!--Not Available on ## Remote PowerShell-->
 
 ## <a name="remote-services-console"></a>远程服务控制台
 

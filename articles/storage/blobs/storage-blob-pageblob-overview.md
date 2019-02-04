@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 01/03/2019
-ms.date: 02/21/2019
+ms.date: 01/21/2019
 ms.author: v-jay
 ms.component: blobs
-ms.openlocfilehash: 97ed926028a8efafcad36692a9d45a3a72a3d3b9
-ms.sourcegitcommit: 317ea7e3b2d307569d3bf7777bd3077013ae4df6
+ms.openlocfilehash: 90cae7e4b7ec1856901ebd75e328e26bbb651323
+ms.sourcegitcommit: 3727a3bb5790523af56b5eb36d2ce78fc27a603a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334491"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55290193"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Azure 页 Blob 概述
 

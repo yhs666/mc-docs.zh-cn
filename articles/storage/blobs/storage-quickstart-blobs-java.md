@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 11/14/2018
 ms.date: 01/21/2019
 ms.author: v-jay
-ms.openlocfilehash: 050a2c9021f4705d74741e31f215ee915ac9485c
-ms.sourcegitcommit: 317ea7e3b2d307569d3bf7777bd3077013ae4df6
+ms.openlocfilehash: 93c55442cb4e2105aa9631b8ff9648f52be3f097
+ms.sourcegitcommit: 3727a3bb5790523af56b5eb36d2ce78fc27a603a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334492"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55290191"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-java-sdk-v7"></a>如何使用 Java SDK v7 上传、下载和列出 Blob
 
@@ -98,17 +98,17 @@ Deleting the source, and downloaded files
 
 首先创建对用于访问和管理 Blob 存储的对象的引用。 这些对象相互关联 - 每个对象被列表中的下一个对象使用。
 
-* 创建指向存储帐户的 [CloudStorageAccount](https://docs.azure.cn/java/api/com.microsoft.azure.management.storage._storage_account) 对象的实例。
+* 创建指向存储帐户的 [CloudStorageAccount](https://docs.microsoft.com/java/api/com.microsoft.azure.management.storage._storage_account) 对象的实例。
 
     “CloudStorageAccount”对象是存储帐户的表示形式，允许用户以编程方式设置和访问存储帐户属性。 使用“CloudStorageAccount”对象，可创建访问 blob 服务所需的“CloudBlobClient”实例。
 
-* 创建 CloudBlobClient 对象的实例，该对象指向存储帐户中的 [Blob 服务](https://docs.azure.cn/java/api/com.microsoft.azure.storage.blob._cloud_blob_client)。
+* 创建 CloudBlobClient 对象的实例，该对象指向存储帐户中的 [Blob 服务](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_client)。
 
     “CloudBlobClient”提供对 Blob 服务的访问点，允许用户以编程方式设置和访问 Blob 存储属性。 使用“CloudBlobClient”，可创建“CloudBlobContainer”对象的实例，创建容器需要该实例。
 
-* 创建 [CloudBlobContainer](https://docs.azure.cn/java/api/com.microsoft.azure.storage.blob._cloud_blob_container) 对象的实例，该对象代表所访问的容器。 使用容器来组织 Blob，就像使用计算机上的文件夹组织文件一样。    
+* 创建 [CloudBlobContainer](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container) 对象的实例，该对象代表所访问的容器。 使用容器来组织 Blob，就像使用计算机上的文件夹组织文件一样。    
 
-    有了 **CloudBlobContainer** 后，就可以创建 [CloudBlockBlob](https://docs.azure.cn/java/api/com.microsoft.azure.storage.blob._cloud_block_blob) 对象（该对象指向你感兴趣的特定 Blob）的实例，然后执行上传、下载、复制等操作。
+    有了 **CloudBlobContainer** 后，就可以创建 [CloudBlockBlob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob) 对象（该对象指向你感兴趣的特定 Blob）的实例，然后执行上传、下载、复制等操作。
 
 > [!IMPORTANT]
 > 容器名称必须为小写。 有关容器的详细信息，请参阅[命名和引用容器、Blob 和元数据](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)。
@@ -117,7 +117,7 @@ Deleting the source, and downloaded files
 
 在本部分中，将创建对象的实例、创建新容器，并对容器设置权限，使 blob 公开，只需 URL 即可对其进行访问。 容器名为 quickstartcontainer。 
 
-此示例使用 [CreateIfNotExists](https://docs.azure.cn/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.createifnotexists)，因为我们想要每次运行示例时都创建新容器。 在整个应用程序中使用同一容器的生产环境中，建议仅调用一次 **CreateIfNotExists**。 或者可以提前创建容器，这样就无需在代码中创建它。
+此示例使用 [CreateIfNotExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.createifnotexists)，因为我们想要每次运行示例时都创建新容器。 在整个应用程序中使用同一容器的生产环境中，建议仅调用一次 **CreateIfNotExists**。 或者可以提前创建容器，这样就无需在代码中创建它。
 
 ```java
 // Parse the connection string and create a blob client to interact with Blob storage
@@ -132,7 +132,7 @@ container.createIfNotExists(BlobContainerPublicAccessType.CONTAINER, new BlobReq
 
 ### <a name="upload-blobs-to-the-container"></a>将 blob 上传到容器
 
-若要将文件上传到块 Blob，请获取对目标容器中的 Blob 的引用。 有了 blob 引用后，可以通过使用 [CloudBlockBlob.Upload](https://docs.azure.cn/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload#com_microsoft_azure_storage_blob__cloud_block_blob_upload_final_InputStream_final_long) 将数据上传到其中。 此操作会创建 Blob（如果尚未存在），或者覆盖 Blob（若已存在）。
+若要将文件上传到块 Blob，请获取对目标容器中的 Blob 的引用。 有了 blob 引用后，可以通过使用 [CloudBlockBlob.Upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload#com_microsoft_azure_storage_blob__cloud_block_blob_upload_final_InputStream_final_long) 将数据上传到其中。 此操作会创建 Blob（如果尚未存在），或者覆盖 Blob（若已存在）。
 
 示例代码创建一个用于上传和下载的本地文件，存储作为“源”上传的文件和 blob 中的 blob 名称。 以下示例将文件上传到名为“quickstartcontainer”的容器。
 
@@ -152,13 +152,13 @@ System.out.println("Uploading the sample file ");
 blob.uploadFromFile(sourceFile.getAbsolutePath());
 ```
 
-有多个可以与 Blob 存储配合使用的 `upload` 方法，其中包括 [upload](https://docs.azure.cn/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload)、[uploadBlock](https://docs.azure.cn/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadblock)、[uploadFullBlob](https://docs.azure.cn/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadfullblob)、[uploadStandardBlobTier](https://docs.azure.cn/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadstandardblobtier)、[uploadText](https://docs.azure.cn/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadtext)。 例如，如果有字符串，可以使用 `UploadText` 方法，而不是 `Upload` 方法。 
+有多个可以与 Blob 存储配合使用的 `upload` 方法，其中包括 [upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload)、[uploadBlock](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadblock)、[uploadFullBlob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadfullblob)、[uploadStandardBlobTier](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadstandardblobtier)、[uploadText](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadtext)。 例如，如果有字符串，可以使用 `UploadText` 方法，而不是 `Upload` 方法。 
 
 块 blob 可以是任何类型的文本或二进制文件。 页 Blob 主要用于支持 IaaS VM 的 VHD 文件。 将追加 Blob 用于日志记录，例如有时需要写入到文件，再继续添加更多信息。 存储在 Blob 存储中的大多数对象都是块 blob。
 
 ### <a name="list-the-blobs-in-a-container"></a>列出容器中的 Blob
 
-可以使用 [CloudBlobContainer.ListBlobs](https://docs.azure.cn/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.listblobs#com_microsoft_azure_storage_blob__cloud_blob_container_listBlobs) 获取容器中的文件列表。 下面的代码检索 blob 列表，然后循环访问它们，显示找到的 blob 的 URI。 可以从命令窗口中复制 URI，然后将其粘贴到浏览器以查看文件。
+可以使用 [CloudBlobContainer.ListBlobs](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.listblobs#com_microsoft_azure_storage_blob__cloud_blob_container_listBlobs) 获取容器中的文件列表。 下面的代码检索 blob 列表，然后循环访问它们，显示找到的 blob 的 URI。 可以从命令窗口中复制 URI，然后将其粘贴到浏览器以查看文件。
 
 ```java
 //Listing contents of container
@@ -169,7 +169,7 @@ for (ListBlobItem blobItem : container.listBlobs()) {
 
 ### <a name="download-blobs"></a>下载 Blob
 
-使用 [CloudBlob.DownloadToFile](https://docs.azure.cn/java/api/com.microsoft.azure.storage.blob._cloud_blob.downloadtofile#com_microsoft_azure_storage_blob__cloud_blob_downloadToFile_final_String) 将 blob 下载到本地磁盘。
+使用 [CloudBlob.DownloadToFile](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob.downloadtofile#com_microsoft_azure_storage_blob__cloud_blob_downloadToFile_final_String) 将 blob 下载到本地磁盘。
 
 以下代码下载上一部分上传的 blob，对 blob 名称添加“_DOWNLOADED”后缀，以便可以在本地磁盘上看到两个文件。 
 
@@ -184,7 +184,7 @@ blob.downloadToFile(downloadedFile.getAbsolutePath());
 
 ### <a name="clean-up-resources"></a>清理资源
 
-如果不再需要上传的 Blob，可使用 [CloudBlobContainer.DeleteIfExists](https://docs.azure.cn/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.deleteifexists#com_microsoft_azure_storage_blob__cloud_blob_container_deleteIfExists) 删除整个容器。 此方法也会删除容器中的文件。
+如果不再需要上传的 Blob，可使用 [CloudBlobContainer.DeleteIfExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.deleteifexists#com_microsoft_azure_storage_blob__cloud_blob_container_deleteIfExists) 删除整个容器。 此方法也会删除容器中的文件。
 
 ```java
 try {

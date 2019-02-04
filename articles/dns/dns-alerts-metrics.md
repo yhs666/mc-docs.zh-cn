@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 04/17/2018
 ms.date: 09/17/2018
 ms.author: v-jay
-ms.openlocfilehash: 8e637ebbf16ceec26caec9165e8ff8d0612c3f89
-ms.sourcegitcommit: 6e07735318eb5f6ea319b618863259088eab3722
+ms.openlocfilehash: e0985e05c097c96e928272b78faeb42794f3d910
+ms.sourcegitcommit: c1ef8d674de75dd4532a2cc66a296d8020bb7e80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52981697"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55668446"
 ---
 # <a name="azure-dns-metrics"></a>Azure DNS 指标
 Azure DNS 是 DNS 域的托管服务，它使用 Azure 基础结构提供名称解析。 本文介绍 Azure DNS 服务的指标。
@@ -31,7 +31,7 @@ Azure DNS 为客户提供指标，帮助他们监视服务中托管的 DNS 区�
 -   RecordSetCount
 -   RecordSetCapacityUtilization
 
-还可以在 Azure Monitor 文档页看到[这些指标的定义](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkdnszones)。
+还可以在 Azure Monitor 文档页看到[这些指标的定义](../azure-monitor/platform/metrics-supported.md#microsoftnetworkdnszones)。
 
 这些指标的维度的粒度级是 DNS 区域。
 

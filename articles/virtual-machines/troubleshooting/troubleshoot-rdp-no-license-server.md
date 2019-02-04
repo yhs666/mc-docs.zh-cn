@@ -14,12 +14,12 @@ ms.workload: infrastructure
 origin.date: 10/23/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 07ad0a8dde44e10df4dee84119af62ad6d5bf526
-ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
+ms.openlocfilehash: 06af5665632a2cc60e5678196a5f002662b8a16b
+ms.sourcegitcommit: 3a76c6e128d667b7863daf2ff622e88ed59399ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785159"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55480157"
 ---
 # <a name="remote-desktop-license-server-isnt-available-when-you-connect-to-an-azure-vm"></a>连接到 Azure VM 时，远程桌面许可证服务器不可用
 
@@ -58,16 +58,16 @@ mstsc /v:<Server>[:<Port>] /admin
 
 1. 使用管理会话连接到 VM：
 
-   ```
-   mstsc /v:<Server>[:<Port>] /admin
-   ```
+    ```
+    mstsc /v:<Server>[:<Port>] /admin
+    ```
 
    <!-- Not Availabl one [Virtual Machine Serial Console on Azure](serial-console-windows.md)-->
 2. 检查 VM 上是否已启用远程桌面会话主机角色。 如果启用了该角色，请确保它正常运行。 打开权限提升的 CMD 实例并执行以下步骤：
 
     1. 使用以下命令检查远程桌面会话主机角色的状态：
 
-       ```
+        ```
         reg query "HKLM\SOFTWARE\Microsoft\ServerManager\ServicingStorage\ServerComponentCache\RDS-RD-Server" /v InstallState
         ```
 
@@ -76,7 +76,8 @@ mstsc /v:<Server>[:<Port>] /admin
     2. 使用以下命令检查策略，并根据需要重新进行配置：
 
        ```
-        reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\RCM\Licensing Core" /v LicensingMode reg query "HKLM\SYSTEM\CurrentControlSet\Services\TermService\Parameters" /v SpecifiedLicenseServers
+        reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\RCM\Licensing Core" /v LicensingMode 
+        reg query "HKLM\SYSTEM\CurrentControlSet\Services\TermService\Parameters" /v SpecifiedLicenseServers
        ```
 
         如果 **LicensingMode** 值设置为除 4 以外的其他任何值（按用户），请将它设置为 4：
@@ -111,7 +112,7 @@ mstsc /v:<Server>[:<Port>] /admin
        telnet <FQDN / IP License Server> 135
        ```
 
-3. 如果环境中没有远程桌面许可证服务器，而你想要一个此类服务器，可以[安装远程桌面许可角色服务](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731765(v=ws.11))。 然后[配置 RDS 许可](https://blogs.technet.microsoft.com/askperf/2013/09/20/rd-licensing-configuration-on-windows-server-2012/)。
+3. 如果环境中没有远程桌面许可证服务器，而你想要一个此类服务器，可以[安装远程桌面许可角色服务](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731765(v=ws.11))。 然后[配置 RDS 许可](https://blogs.technet.microsoft.com/askperf/2013/09/20/rd-licensing-configuration-on-windows-server-2012/)。
 
 4. 如果远程桌面许可证服务器已配置且正常运行，请确保使用 CAL 激活远程桌面许可证服务器。
 
