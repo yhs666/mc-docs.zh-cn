@@ -15,18 +15,18 @@ ms.topic: conceptual
 origin.date: 06/19/2017
 ms.date: 02/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: 9c18a421fc3c58be4f2cf35230f603b4406799db
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: 6249192cf0f221745dbe75609d89ddde435dd110
+ms.sourcegitcommit: a7b2328ae3e944470b1eeea98bcced2410dcddb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906158"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085869"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>在 HDInsight 中将 ScaleR 和 SparkR 配合使用
 
 本文档演示如何使用 **ScaleR** 逻辑回归模型来预测航班抵达延误时间。 此示例使用通过 **SparkR** 联接的航班延误数据和天气数据。
 
-尽管这两个包在 Apache Hadoop 的 Spark 执行引擎上运行，但它们需要自身的 Spark 会话，因此无法共享内存中的数据。 在即将发布的 ML Server 版本中解决此问题之前，解决方法是维护不重叠的 Spark 会话，并通过中间文件交换数据。 此处的说明表明这些要求很容易实现。
+尽管这两个包在 Apache Hadoop 的 Spark 执行引擎上运行，但由于它们分别需要各自的 Spark 会话，因此无法共享内存中的数据。 在即将发布的 ML Server 版本中解决此问题之前，解决方法是维护不重叠的 Spark 会话，并通过中间文件交换数据。 此处的说明表明这些要求很容易实现。
 
 此示例最初由 Mario Inchiosa 和 Roni Burd 在 Strata 2016 研讨会中分享。 也可在 [Building a Scalable Data Science Platform with R](https://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio)（使用 R 构建可缩放的数据科学平台）中找到此研讨会。
 

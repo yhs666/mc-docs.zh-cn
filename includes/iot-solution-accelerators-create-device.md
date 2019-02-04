@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 713ba2e978da539069daefb243194d6d64af9e2d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d4b798047d28f3e08e2613ed6dcdf5078c78bd4c
+ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664095"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55085876"
 ---
 在第一个方案中，我们将新的遥测类型添加到 Contoso 的现有“冷却器”设备类型。
 
@@ -65,7 +65,6 @@ ms.locfileid: "52664095"
 
 如果还没有 Azure 订阅，可以在开始前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-[!INCLUDE [cloud-shell-try-it.md](cloud-shell-try-it.md)]
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -102,7 +101,7 @@ ms.locfileid: "52664095"
 
 要在本地运行微服务，请单击“调试”>“启动调试”。
 
-Visual Studio Code 中的“终端”窗口显示正在运行的微服务的输出，包括 Web 服务运行状况检查的 URL：[http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status)。 导航到此地址时，状态应显示为“正常: 活动且正常”。
+Visual Studio Code 中的“终端”窗口显示正在运行的微服务的输出，包括 Web 服务运行状况检查的 URL：[http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status)。 导航到此地址时，状态应显示为“正常:活动且正常”。
 
 在完成后续步骤时，让存储适配器微服务继续在 Visual Studio Code 的此实例中运行。
 

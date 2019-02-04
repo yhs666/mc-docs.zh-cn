@@ -11,18 +11,18 @@ ms.topic: conceptual
 origin.date: 09/12/2018
 ms.date: 01/28/2019
 ms.author: v-jay
-ms.openlocfilehash: f4fd725739ca429a6307132321b732b186d5d972
-ms.sourcegitcommit: f248afb1039011d34579baed2980f0632061f5b5
+ms.openlocfilehash: e52a184487b43d95fd959287f40fe8979c7aafbe
+ms.sourcegitcommit: c1ef8d674de75dd4532a2cc66a296d8020bb7e80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858070"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55668442"
 ---
 # <a name="how-to-sign-up-for-the-text-analytics-api"></a>如何注册文本分析 API
 
 文本分析资源在云中全天候提供。 在上传需分析的内容之前，必须通过注册获取访问密钥。 每次调用 API 都需要提供请求的访问密钥。
 
-+ 从 Azure 订阅着手。 可以创建 [1 元试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)进行试验，无需支付任何费用。
++ 从 Azure 订阅着手。 可以创建 [1 元试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)进行试验。
 
 + 创建[认知服务 API 帐户](/cognitive-services/cognitive-services-apis-create-account)，选择“文本分析 API”。 密钥在注册时生成。
 

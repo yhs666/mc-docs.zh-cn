@@ -11,16 +11,16 @@ ms.topic: conceptual
 origin.date: 09/12/2018
 ms.date: 01/28/2019
 ms.author: v-jay
-ms.openlocfilehash: eb76e6f10d2b4074168be57cc601b4808f8172ea
-ms.sourcegitcommit: f248afb1039011d34579baed2980f0632061f5b5
+ms.openlocfilehash: 023d4c3436657c2518290224b351510b32939540
+ms.sourcegitcommit: c1ef8d674de75dd4532a2cc66a296d8020bb7e80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858049"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55668447"
 ---
 # <a name="frequently-asked-questions-faq-about-the-text-analytics-cognitive-service"></a>有关文本分析认知服务的常见问题解答 (FAQ)
 
- 在 Azure 上找到与 Microsoft 认知服务文本分析 API 有关的概念、代码和方案相关的常见问题解答。
+ 查找与 Azure 上认知服务文本分析 API 有关的概念、代码和方案相关的常见问题解答。
 
 ## <a name="can-text-analytics-identify-sarcasm"></a>文本分析能否识别嘲讽？
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 origin.date: 11/19/2018
 ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 95442d512c29f02be7fa192b3c5aaec343d63cd5
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.openlocfilehash: 8051b6675901e5603fd3946c91304975a91e4330
+ms.sourcegitcommit: 3a76c6e128d667b7863daf2ff622e88ed59399ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736242"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55480162"
 ---
 # <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>由于 netvsc.sys，无法在 Azure 中远程连接到 Windows 10 或 Windows Server 2016 VM
 
@@ -39,8 +39,9 @@ ms.locfileid: "53736242"
 
 ## <a name="solution"></a>解决方案
 
-在执行这些步骤之前，请[创建受影响 VM 的系统磁盘快照](../windows/snapshot-copy-managed-disk.md)作为备份。 若要排查此问题，请使用串行控制台，或通过将 VM 的系统磁盘附加到恢复 VM 来[脱机修复 VM](#repair-the-vm-offline)。
+在执行这些步骤之前，请[创建受影响 VM 的系统磁盘快照](../windows/snapshot-copy-managed-disk.md)作为备份。 若要排查此问题，可通过将 VM 的系统磁盘附加到恢复 VM 来[修复 VM 脱机](#repair-the-vm-offline)。
 
+<!--Not Available on Serial Console-->
 <!-- Not Available on ### Use the Serial Console-->
 ### <a name="repair-the-vm-offline"></a>修复 VM 脱机
 

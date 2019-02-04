@@ -1,7 +1,7 @@
 ---
 title: 快速入门：使用 Python 调用文本分析 API
 titleSuffix: Azure Cognitive Services
-description: 获取信息和代码示例，帮助快速开始使用 Azure 上 Microsoft 认知服务中的文本分析 API。
+description: 获取信息和代码示例，以便帮助你快速开始使用 Azure 上认知服务中的文本分析 API。
 services: cognitive-services
 author: WenJason
 manager: digimobile
@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 10/01/2018
 ms.date: 01/28/2019
 ms.author: v-jay
-ms.openlocfilehash: b9aa0ddd62546f3acfe739556776009d1a162d3a
-ms.sourcegitcommit: f248afb1039011d34579baed2980f0632061f5b5
+ms.openlocfilehash: 367ed915ab40a184bc165755f4c18e5500136daf
+ms.sourcegitcommit: c1ef8d674de75dd4532a2cc66a296d8020bb7e80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858104"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55668440"
 ---
 # <a name="quickstart-using-python-to-call-the-text-analytics-cognitive-service"></a>快速入门：使用 Python 调用文本分析认知服务 
 <a name="HOLTop"></a>

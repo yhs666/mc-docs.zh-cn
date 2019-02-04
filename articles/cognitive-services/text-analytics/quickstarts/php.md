@@ -1,7 +1,7 @@
 ---
 title: 快速入门：使用 PHP 调用文本分析 API
 titleSuffix: Azure Cognitive Services
-description: 获取信息和代码示例，帮助快速开始使用 Azure 上 Microsoft 认知服务中的文本分析 API。
+description: 获取信息和代码示例，以便帮助你快速开始使用 Azure 上认知服务中的文本分析 API。
 services: cognitive-services
 author: WenJason
 manager: digimobile
@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 10/01/2018
 ms.date: 01/28/2019
 ms.author: v-jay
-ms.openlocfilehash: 930b3a7d7ebaa35c53a6d260ada3e2c3af5a78f2
-ms.sourcegitcommit: f248afb1039011d34579baed2980f0632061f5b5
+ms.openlocfilehash: bef969d2ba6b90b4700dda0aea2b2922bcda8014
+ms.sourcegitcommit: c1ef8d674de75dd4532a2cc66a296d8020bb7e80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858090"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55668438"
 ---
 # <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>快速入门：使用 PHP 调用文本分析认知服务
 <a name="HOLTop"></a>

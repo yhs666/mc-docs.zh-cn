@@ -14,12 +14,12 @@ ms.workload: infrastructure
 origin.date: 10/23/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 21f3caa1e55983cb9276a9b0fd2233e33bca7abe
-ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
+ms.openlocfilehash: 2dd08601871fff3072491522de7ddcaff10f3099
+ms.sourcegitcommit: 3a76c6e128d667b7863daf2ff622e88ed59399ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785161"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55480163"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>远程桌面服务在 Azure VM 上不启动
 
@@ -49,9 +49,7 @@ ms.locfileid: "53785161"
     **计算机**: vm.contoso.com</br>
     **说明**：远程桌面服务在启动时挂起。 
 
-    也可以使用串行访问控制台功能运行以下查询来查找这些错误： 
-
-        wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Service Control Manager'] and EventID=7022 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more 
+     <!--Not Available on Serial Access Console--> <!--Not Available on wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Service Control Manager'] and EventID=7022 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more -->
 
 ## <a name="cause"></a>原因
 
@@ -63,8 +61,9 @@ ms.locfileid: "53785161"
 
 ## <a name="solution"></a>解决方案
 
-若要排查此问题，请使用串行控制台。 或者通过将 VM 的 OS 磁盘附加到恢复 VM 来[修复 VM 脱机](#repair-the-vm-offline)。
+若要排查此问题，可通过将 VM 的 OS 磁盘附加到恢复 VM 来[修复 VM 脱机](#repair-the-vm-offline)。
 
+<!--Not Available on Serial Console-->
 <!-- Not Available on ### Use Serial Console-->
 
 ### <a name="repair-the-vm-offline"></a>修复 VM 脱机

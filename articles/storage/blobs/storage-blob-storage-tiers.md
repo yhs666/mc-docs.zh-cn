@@ -9,12 +9,12 @@ origin.date: 01/09/2018
 ms.date: 01/21/2019
 ms.author: v-jay
 ms.component: blobs
-ms.openlocfilehash: 8d0d5c0f5cd59c1b0e651d758ae014bd5c63ac3a
-ms.sourcegitcommit: 317ea7e3b2d307569d3bf7777bd3077013ae4df6
+ms.openlocfilehash: c7590b80fa9730d80bbd7581e2d53d5e46238ff0
+ms.sourcegitcommit: 3727a3bb5790523af56b5eb36d2ce78fc27a603a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334495"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55290187"
 ---
 # <a name="azure-blob-storage-hot-and-cool-storage-tiers"></a>Azure Blob 存储：热存储层和冷存储层
 
@@ -176,7 +176,7 @@ GPv1 和 GPv2 帐户的定价结构不同，客户在决定使用 GPv2 帐户之
 
 **如何确定在删除或移出冷层的 Blob 时是否会产生早期删除费用？**
 
-在删除或移出冷层（仅限 GPv2 帐户）的任何 Blob 时，如果相应的存储时间不足 30 天和 180 天，则会产生按比例计费的早期删除费用。 若要确定 Blob 已在冷层中存储了多长时间，可以查看“访问层更改时间”Blob 属性，该属性提供上次进行层更改的戳记。 有关详细信息，请参阅[冷层和存档层的早期删除](#cool-and-archive-early-deletion)。
+在删除或移出冷层（仅限 GPv2 帐户）的任何 Blob 时，如果相应的存储时间不足 30 天和 180 天，则会产生按比例计费的早期删除费用。 若要确定 Blob 已在冷层中存储了多长时间，可以查看“访问层更改时间”Blob 属性，该属性提供上次进行层更改的戳记。 有关详细信息，请参阅[冷层早期删除](#cool-and-archive-early-deletion)。
 
 **哪些 Azure 工具和 SDK 支持 Blob 级别分层？**
 

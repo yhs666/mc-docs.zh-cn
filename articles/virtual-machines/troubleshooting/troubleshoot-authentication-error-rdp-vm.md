@@ -15,12 +15,12 @@ ms.devlang: azurecli
 origin.date: 11/01/2018
 ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6b2979bcf18a058f7c7bd2ff524c5f9fd09edd5a
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.openlocfilehash: 9e5b2f4dfadb212373e75f5995a13b4ae8fdc626
+ms.sourcegitcommit: 3a76c6e128d667b7863daf2ff622e88ed59399ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736092"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55480159"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>使用 RDP 连接到 Azure VM 时排查身份验证错误
 
@@ -134,9 +134,9 @@ REG add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-T
 >[!Note] 
 >要测试 DC 运行状况，可以在共享同一登录服务器的同一 VNET 和子网上使用另一个 VM。
 
-按照“远程连接到 VM”部分中的步骤，使用串行控制台、远程 CMD 或远程 PowerShell 连接到出现问题的 VM。
+按照“远程连接到 VM”部分中的步骤，使用远程 CMD 连接到出现问题的 VM。
 
-要确定 VM 连接到的 DC，请在控制台中运行以下命令： 
+<!--Not Available on  Serial console, or remote PowerShell-->若要确定 VM 连接到的 DC，请在控制台中运行以下命令： 
 
 ```cmd
 set | find /i "LOGONSERVER"

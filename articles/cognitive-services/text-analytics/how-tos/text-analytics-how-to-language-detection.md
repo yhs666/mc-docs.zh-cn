@@ -1,6 +1,6 @@
 ---
 title: 如何在文本分析 REST API（Azure 上的 Microsoft 认知服务）中进行语言检测 | Microsoft Docs
-description: 在本演练教程中，了解如何使用 Azure 上 Microsoft 认知服务中的文本分析 REST API 检测语言。
+description: 本演练教程介绍如何使用 Azure 上认知服务中的文本分析 REST API 检测语言。
 services: cognitive-services
 author: WenJason
 manager: digimobile
@@ -10,12 +10,12 @@ ms.topic: sample
 origin.date: 09/12/2018
 ms.date: 01/28/2019
 ms.author: v-jay
-ms.openlocfilehash: ed0688637bbf0188d9adf57f66b8bf41e0abc474
-ms.sourcegitcommit: f248afb1039011d34579baed2980f0632061f5b5
+ms.openlocfilehash: 304a780fb8a0a6ecb3b54c2112f297de1c526162
+ms.sourcegitcommit: c1ef8d674de75dd4532a2cc66a296d8020bb7e80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858097"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55668444"
 ---
 # <a name="example-how-to-detect-language-in-text-analytics"></a>示例：如何在文本分析中检测语言
 
