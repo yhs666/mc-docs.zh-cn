@@ -12,12 +12,12 @@ ms.workload: big-data
 origin.date: 08/16/2018
 ms.date: 01/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: 89176d5ab734df7d9a59bd2be4a0a801cd9a601e
-ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
+ms.openlocfilehash: 68211d34b6c9ce4ecd5a4c66910f8f746df8d2b6
+ms.sourcegitcommit: f40e5b30f50205beda427eb4e3f481385b47ca06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216209"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55985616"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>使用 .NET SDK 在 HDInsight 中创建基于 Linux 的群集
 
@@ -196,7 +196,7 @@ ms.locfileid: "54216209"
 
 使用 bootstrap，可以在群集创建过程中配置添加设置。  有关详细信息，请参阅 [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)（使用 Bootstrap 自定义 HDInsight 群集）。
 
-修改[创建群集](#create-clusters)中的示例以配置 Hive 设置：
+修改[创建群集]()中的示例以配置 Hive 设置：
 
 ```csharp
 static void Main(string[] args)
@@ -325,7 +325,7 @@ static void Main(string[] args)
 
 使用脚本操作，可以在群集创建过程中配置其他设置。  有关详细信息，请参阅[使用脚本操作自定义基于 Linux 的 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。
 
-修改 [创建群集](#create-clusters) 中的示例，以便调用脚本操作来安装 R：
+修改 [创建群集]() 中的示例，以便调用脚本操作来安装 R：
 
 ```csharp
 static void Main(string[] args)

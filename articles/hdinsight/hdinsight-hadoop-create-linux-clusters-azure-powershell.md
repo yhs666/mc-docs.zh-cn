@@ -17,12 +17,12 @@ ms.workload: big-data
 origin.date: 02/21/2018
 ms.date: 11/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: 9f4b3267f5832219b847399b5c57d1a261b850dc
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8b5bc427a1a44a90cfac0aaeccfed0a10d0f7f92
+ms.sourcegitcommit: f40e5b30f50205beda427eb4e3f481385b47ca06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664211"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55985628"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>使用 Azure PowerShell 在 HDInsight 中创建基于 Linux 的群集
 
@@ -190,7 +190,7 @@ New-AzureRmHDInsightCluster `
 
 ## <a name="troubleshoot"></a>故障排除
 
-如果在创建 HDInsight 群集时遇到问题，请参阅[访问控制要求](hdinsight-administer-use-portal-linux.md#create-clusters)。
+如果在创建 HDInsight 群集时遇到问题，请参阅[访问控制要求](hdinsight-administer-use-portal-linux.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

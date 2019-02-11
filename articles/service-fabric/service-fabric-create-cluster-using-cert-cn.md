@@ -15,12 +15,12 @@ ms.workload: NA
 origin.date: 04/24/2018
 ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5e7de94db04484370c915b04d4293ccaa1237cb3
-ms.sourcegitcommit: 35a09a86cbb3d896fa9784471ece41df7728bd71
+ms.openlocfilehash: ad86c0c0a889e57123449aef4d1d65135fb574f9
+ms.sourcegitcommit: f40e5b30f50205beda427eb4e3f481385b47ca06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396675"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55985624"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>部署使用证书公用名称而非指纹的 Service Fabric 群集
 两个证书不能具有相同的指纹，具有相同的指纹会使群集证书滚动更新或管理变得困难。 但是，多个证书可以具有相同的公用名称或使用者。  使用证书公用名称会使群集的证书管理更加简单。 本文介绍了如何部署 Service Fabric 群集来使用证书公用名称而非证书指纹。
@@ -81,7 +81,7 @@ Write-Host "Common Name              :"  $CommName
 
 <!--Notice: Change storageAccountEndPoint as https://core.chinacloudapi.cn/-->
 > [!NOTE]
-> 成功下载模板文件 `5-node secure cluster example` 后，将 `"storageAccountEndPoint": "https://core.windows.net/"` 替换为 `"storageAccountEndPoint": "https://core.chinacloudapi.cn/"` 以匹配 Azure 中国云环境。
+> 成功下载模板文件 `azuredeploy.json` 后，将 `"storageAccountEndPoint": "https://core.windows.net/"` 替换为 `"storageAccountEndPoint": "https://core.chinacloudapi.cn/"` 以匹配 Azure 中国云环境。
 
 ### <a name="update-parameters-file"></a>更新参数文件
 首先，在文本编辑器中打开 *azuredeploy.parameters.json* 文件并添加以下参数值：

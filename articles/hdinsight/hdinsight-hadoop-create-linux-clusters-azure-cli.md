@@ -12,12 +12,12 @@ ms.workload: big-data
 origin.date: 02/27/2018
 ms.date: 11/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: 566ee917ab71653ae50dbb1a21fb85219cfc260b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d3820604afc5dd46e7148559d7ec577f2fcd8649
+ms.sourcegitcommit: f40e5b30f50205beda427eb4e3f481385b47ca06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662953"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55985621"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-classic-cli"></a>使用 Azure 经典 CLI 创建 HDInsight 群集
 
@@ -117,7 +117,7 @@ ms.locfileid: "52662953"
 
 ## <a name="troubleshoot"></a>故障排除
 
-如果在创建 HDInsight 群集时遇到问题，请参阅[访问控制要求](hdinsight-administer-use-portal-linux.md#create-clusters)。
+如果在创建 HDInsight 群集时遇到问题，请参阅[访问控制要求](hdinsight-administer-use-portal-linux.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

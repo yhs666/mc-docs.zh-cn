@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 12/04/2018
 ms.date: 01/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: 6d26405eaa09d269c634692b18cca95552f8a2b6
-ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
+ms.openlocfilehash: f8a62e5161720575f4ee862051849b5057dc803e
+ms.sourcegitcommit: f40e5b30f50205beda427eb4e3f481385b47ca06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216225"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55985623"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 群集的容量规划
 
@@ -93,7 +93,7 @@ VM 大小和类型由 CPU 处理能力、RAM 大小和网络延迟决定：
 
 ### <a name="cluster-lifecycle"></a>群集生命周期
 
-在群集的生存期内会产生费用。 如果只是需要在特定的时间启动并运行群集，可以使用 [Azure 数据工厂创建按需群集](hdinsight-hadoop-create-linux-clusters-adf.md)。 还可以创建 PowerShell 脚本用于预配和删除群集，然后使用 [Azure 自动化](https://azure.microsoft.com/services/automation/)计划这些脚本。
+在群集的生存期内会产生费用。 可以创建用于预配和删除群集的 PowerShell 脚本，然后使用 [Azure 自动化](/automation/)安排这些脚本的执行时间。
 
 > [!NOTE]
 > 删除某个群集时，也会一并删除其默认 Hive 元存储。 若要保留元存储供下一次重新创建群集时使用，可以使用 Azure 数据库或 Oozie 等外部元数据存储。

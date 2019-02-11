@@ -16,12 +16,12 @@ ms.custom: H1Hack27Feb2017
 origin.date: 07/21/2017
 ms.author: v-yiso
 ms.date: 12/10/2018
-ms.openlocfilehash: add481df5613f935f1f144c7d74fff1c6fbdc2e3
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: afb19d647ba31153d5f54fab5d44f5ce7a430257
+ms.sourcegitcommit: f40e5b30f50205beda427eb4e3f481385b47ca06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028554"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55985629"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>针对 Azure 逻辑应用监视状态、设置诊断日志记录，并启用警报
 
@@ -209,7 +209,7 @@ ms.locfileid: "53028554"
 
 ## <a name="azure-diagnostics-event-settings-and-details"></a>Azure 诊断事件设置和详细信息
 
-每个诊断事件都有关于逻辑应用和该事件的详细信息，例如状态、开始时间、结束时间等。 若要以编程方式设置监视、跟踪和日志记录，可以将这些详细信息用于 [Azure 逻辑应用适用的 REST API](https://docs.microsoft.com/rest/api/logic) 和 [Azure 诊断适用的 REST API](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftlogicworkflows)。
+每个诊断事件都有关于逻辑应用和该事件的详细信息，例如状态、开始时间、结束时间等。 若要以编程方式设置监视、跟踪和日志记录，可以将这些详细信息用于 [Azure 逻辑应用适用的 REST API](https://docs.microsoft.com/rest/api/logic) 和 [Azure 诊断适用的 REST API](../monitoring-and-diagnostics/monitoring-supported-metrics.md)。
 
 例如，`ActionCompleted` 事件具有可用于跟踪和监视的 `clientTrackingId` 和 `trackedProperties` 属性：
 

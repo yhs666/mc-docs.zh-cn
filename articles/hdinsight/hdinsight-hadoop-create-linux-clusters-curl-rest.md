@@ -17,12 +17,12 @@ ms.workload: big-data
 origin.date: 05/02/2018
 ms.date: 11/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: 35551c4213c30172f1f380b31a3285f8a6fc1ca3
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 33f4a4071e867a411f9b8d70498d877608556520
+ms.sourcegitcommit: f40e5b30f50205beda427eb4e3f481385b47ca06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646689"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55985620"
 ---
 # <a name="create-hadoop-clusters-using-the-azure-rest-api"></a>使用 Azure REST API 创建 Hadoop 群集
 
@@ -357,7 +357,7 @@ curl -X "GET" "https://management.chinacloudapi.cn/subscriptions/$SUBSCRIPTIONID
 
 ## <a name="troubleshoot"></a>故障排除
 
-如果在创建 HDInsight 群集时遇到问题，请参阅[访问控制要求](hdinsight-administer-use-portal-linux.md#create-clusters)。
+如果在创建 HDInsight 群集时遇到问题，请参阅[访问控制要求](hdinsight-administer-use-portal-linux.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

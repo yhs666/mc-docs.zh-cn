@@ -10,12 +10,12 @@ origin.date: 09/14/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
 ms.date: 01/28/2019
-ms.openlocfilehash: c961f350b8a7f935c93737ada2bb14e137645a9f
-ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
+ms.openlocfilehash: a2400b83b07df5bc820c9809679f8bac805d5101
+ms.sourcegitcommit: f40e5b30f50205beda427eb4e3f481385b47ca06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396778"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55985619"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>了解和使用 Azure IoT 中心 SDK
 
@@ -35,7 +35,7 @@ ms.locfileid: "54396778"
 
 可以在 [Azure IoT SDK 平台支持](iot-hub-device-sdk-platform-support.md)中找到支持的 SDK 平台。
 
-## <a name="azure-iot-hub-device-sdks"></a>Azure IoT 中心设备 SDK
+## <a name="azure-iot-device-sdks"></a>Azure IoT 中心设备 SDK
 
 Microsoft Azure IoT 设备 SDK 包含的代码可帮助构建连接到 Azure IoT 中心服务并由这些服务管理的应用程序。
 

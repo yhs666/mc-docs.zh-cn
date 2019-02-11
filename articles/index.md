@@ -6,12 +6,12 @@ description: 了解如何使用 Azure 云服务构建和管理功能强大的应
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 5c7e775c56cce67768c086a98ddd7ed77f24e9dd
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a32bd1e7136765267a8438b693b7ce3e7a80668c
+ms.sourcegitcommit: f40e5b30f50205beda427eb4e3f481385b47ca06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650798"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55985630"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -378,7 +378,7 @@ Azure PowerShell </a>
                                         <li>
                                             <a href="/batch/">
                                                 <img src="media/index/Batch.svg" alt="" />
-                                                <p>批处理</p>
+                                                <p>Batch</p>
                                             </a>
                                         </li>
                                         <li>
@@ -719,7 +719,7 @@ Azure PowerShell </a>
                                         <li>
                                             <a href="/logic-apps/">
                                                 <img src="media/index/LogicApp.svg" alt="" />
-                                                <p>Logic Apps</p>
+                                                <p>逻辑应用</p>
                                             </a>
                                         </li>
                                         <li>
@@ -861,7 +861,7 @@ Azure PowerShell </a>
                                         <li>
                                             <a href="/backup/">
                                                 <img src="media/index/Backup.svg" alt="" />
-                                                <p>Backup</p>
+                                                <p>备份</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1043,7 +1043,7 @@ Azure PowerShell </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>批处理</h3>
+                                                    <h3>Batch</h3>
                                                     <p>云规模的作业计划和计算管理</p>
                                                 </div>
                                             </div>
@@ -1496,7 +1496,7 @@ Azure PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>应用服务 - Web 应用</h3>
-                                                    <p>快速创建并大规模部署任务关键型 Web 应用</p>
+                                                    <p>快速创建并部署可缩放的关键任务 Web 应用</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1571,7 +1571,7 @@ Azure PowerShell </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>API Apps</h3>
+                                                    <h3>API 应用</h3>
                                                     <p>轻松生成和使用云 API</p>
                                                 </div>
                                             </div>
@@ -1596,7 +1596,7 @@ Azure PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>应用服务 - 移动应用</h3>
-                                                    <p>生成和托管任何移动应用的后端</p>
+                                                    <p>构建和承载任何移动应用的后端</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1633,7 +1633,7 @@ Azure PowerShell </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>API Apps</h3>
+                                                    <h3>API 应用</h3>
                                                     <p>轻松生成和使用云 API</p>
                                                 </div>
                                             </div>
@@ -1676,7 +1676,7 @@ Azure PowerShell </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>批处理</h3>
+                                                    <h3>Batch</h3>
                                                     <p>云规模的作业计划和计算管理</p>
                                                 </div>
                                             </div>
@@ -1991,7 +1991,7 @@ Azure PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Power BI Embedded</h3>
-                                                    <p>在应用程序中嵌入完全交互式的、令人惊叹的数据可视化效果</p>
+                                                    <p>在应用程序中嵌入完整交互式的、令人惊叹的数据可视化</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2220,7 +2220,7 @@ Azure PowerShell </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Logic Apps</h3>
+                                                    <h3>逻辑应用</h3>
                                                     <p>无需编写代码，自动化访问和使用跨云数据</p>
                                                 </div>
                                             </div>
@@ -2329,7 +2329,7 @@ Azure PowerShell </a>
                                 </a>
                             </li>
                             <li>
-                                <a href=" /logic-apps/">
+                                <a href="/logic-apps/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2339,7 +2339,7 @@ Azure PowerShell </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Logic Apps</h3>
+                                                    <h3>逻辑应用</h3>
                                                     <p>无需编写代码，自动化访问和使用跨云数据</p>
                                                 </div>
                                             </div>
@@ -2402,7 +2402,7 @@ Azure PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>安全信息</h3>
-                                                    <p>了解 Azure 如何提供用于生成云解决方案的安全基础结构</p>
+                                                    <p>了解 Azure 如何提供安全基础结构用于构建云解决方案</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2587,7 +2587,7 @@ Azure PowerShell </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Backup</h3>
+                                                    <h3>备份</h3>
                                                     <p>以简单可靠的方式将服务器数据备份到云中</p>
                                                 </div>
                                             </div>
@@ -2702,7 +2702,7 @@ Azure PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Monitor</h3>
-                                                    <p>对任何 Azure 资源进行高精度的实时数据监视</p>
+                                                    <p>针对任何 Azure 资源的高精度和实时监视数据</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2796,7 +2796,7 @@ Azure PowerShell </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Resource Manager</h3>
+                                                    <h3>Azure 资源管理器</h3>
                                                     <p>简化应用资源的管理方式</p>
                                                 </div>
                                             </div>
@@ -2977,7 +2977,7 @@ Azure PowerShell </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>站点恢复</h3>
+                                                    <h3>Site Recovery</h3>
                                                     <p>协调私有云的保护和恢复</p>
                                                 </div>
                                             </div>

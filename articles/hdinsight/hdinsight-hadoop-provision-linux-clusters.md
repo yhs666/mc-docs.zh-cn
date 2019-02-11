@@ -16,12 +16,12 @@ ms.topic: conceptual
 origin.date: 08/27/2018
 ms.date: 12/24/2018
 ms.author: v-yiso
-ms.openlocfilehash: e5d62ff7838bb69562f24d96b372941245b0947e
-ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
+ms.openlocfilehash: 95176308dc84103da292d074401fdbe2d791bd5c
+ms.sourcegitcommit: f40e5b30f50205beda427eb4e3f481385b47ca06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53569343"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55985631"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>使用 Hadoop、Spark、Kafka 等等在 HDInsight 中设置群集
 
@@ -240,7 +240,7 @@ HDInsight 群集的成本取决于节点数和节点的虚拟机大小。
 
 ## <a name="troubleshoot-access-control-issues"></a>排查访问控制问题
 
-如果在创建 HDInsight 群集时遇到问题，请参阅[访问控制要求](hdinsight-administer-use-portal-linux.md#create-clusters)。
+如果在创建 HDInsight 群集时遇到问题，请参阅[访问控制要求](hdinsight-administer-use-portal-linux.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

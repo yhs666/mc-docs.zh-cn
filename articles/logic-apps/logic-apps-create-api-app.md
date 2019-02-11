@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 05/26/2017
 ms.date: 01/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: 5b2593f1e4ab0eecceb733359c844367e99f2b34
-ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
+ms.openlocfilehash: 5ded38201a6d759be66235f19db0c76c9f202cb6
+ms.sourcegitcommit: f40e5b30f50205beda427eb4e3f481385b47ca06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216241"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55985618"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>创建可从 Azure 逻辑应用调用的自定义 API
 
@@ -62,8 +62,6 @@ ms.locfileid: "54216241"
 有关自定义连接器的详细信息，请参阅 
 
 * [自定义连接器概述](../logic-apps/custom-connector-overview.md)
-* [从 Web API 创建自定义连接器](../logic-apps/custom-connector-build-web-api-app-tutorial.md)
-* [在 Azure 逻辑应用中注册自定义连接器](../logic-apps/logic-apps-custom-connector-register.md)
 
 ## <a name="helpful-tools"></a>有用的工具
 

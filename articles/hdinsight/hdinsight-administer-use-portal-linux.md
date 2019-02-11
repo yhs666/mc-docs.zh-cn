@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 12/26/2018
 ms.date: 01/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: 529a5c8379cc0ade65902fbd6bdb75ba9c98c017
-ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
+ms.openlocfilehash: d493b700237ef3b1fae44333b3bcad6c88bb1bb4
+ms.sourcegitcommit: f40e5b30f50205beda427eb4e3f481385b47ca06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216272"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55985605"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 门户管理 HDInsight 中的 Apache Hadoop 群集
 
@@ -31,7 +31,7 @@ ms.locfileid: "54216272"
 登录到 [https://portal.azure.com](https://portal.azure.cn)。
 
 
-## <a name="showClusters"></a> 列出并显示集群
+## <a name="list-and-show-clusters"></a> 列出并显示集群
 从“HDInsight 群集”页会列出现有的群集。  在门户中：
 1. 在左侧菜单中，选择“所有服务”。
 2. 在“ANALYTICS”下，选择“HDInsight 群集”。
@@ -186,12 +186,11 @@ ms.locfileid: "54216272"
 
 可以通过许多方式对此过程进行程序性处理：
 
-* 用户 Azure 数据工厂。 有关创建按需 HDInsight 链接服务的信息，请参阅[在 HDInsight 中使用 Azure 数据工厂创建基于 Linux 的按需 Apache Hadoop 群集](hdinsight-hadoop-create-linux-clusters-adf.md)。
 * 使用 Azure PowerShell。  请参阅[分析航班延误数据](hdinsight-analyze-flight-delay-data.md)。
 * 使用 Azure 经典 CLI。 请参阅[使用 Azure 经典 CLI 管理 HDInsight 群集](hdinsight-administer-use-command-line.md)。
 * 使用 HDInsight .NET SDK。 请参阅[提交 Apache Hadoop 作业](hadoop/submit-apache-hadoop-jobs-programmatically.md)。
 
-有关定价信息，请参阅 [HDInsight 定价](https://azure.microsoft.com/pricing/details/hdinsight/)。 要从门户中删除群集，请参阅 [删除群集](#delete-clusters)
+有关定价信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。 要从门户中删除群集，请参阅 [删除群集](#delete-clusters)
 
 
 
