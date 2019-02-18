@@ -9,20 +9,22 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 09/28/2018
-ms.date: 01/21/2019
+origin.date: 01/22/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: f481fa56a2e955d0beee6ff2346a6307cb979ba0
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: f5b7ad2f5b85e8acdacb1badef64a2f0915005e6
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193118"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306174"
 ---
 <!--pending for verify -->
 # <a name="move-operation-support-for-resources"></a>支持移动操作的资源
 
 本文列出某个 Azure 资源类型是否支持移动操作。 尽管某个资源类型支持移动操作，但某些条件可能会阻止该资源的移动。 有关影响移动操作的条件的详细信息，请参阅[将资源移到新的资源组或订阅](resource-group-move-resources.md)。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="find-resource-provider-and-resource-type"></a>查找资源提供程序和资源类型
 
@@ -30,8 +32,8 @@ ms.locfileid: "54193118"
 
 对于 PowerShell，请使用：
 
-```PowerShell
-Get-AzureRmResource -ResourceGroupName demogroup | Select Name, ResourceType | Format-table
+```azurepowershell
+Get-AzResource -ResourceGroupName demogroup | Select Name, ResourceType | Format-table
 ```
 
 对于 Azure CLI，请使用：
@@ -41,15 +43,12 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 ```
 
 资源类型以 `<resource-provider>/<resource-type-name>` 格式返回。 因此，值 `Microsoft.Portal/dashboards` 的资源提供程序为 **Microsoft.Portal**，资源类型名称为 **dashboards**。
+
 <!--Change Microsoft.OperationalInsights/workspaces to Microsoft.Portal/dashboards-->
 
 找到资源提供程序和资源类型后，使用本文中的表格来确定该资源类型是否支持移动操作。
 
-## <a name="microsoftaad"></a>Microsoft.AAD
-
-| 资源类型 | 资源组 | 订阅 |
-| ------------- | --------------- | ----------- |
-| domainservices | 否 | 否 |
+<!--Not Available on ## Microsoft.AAD-->
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 | 资源类型 | 资源组 | 订阅 |
@@ -73,10 +72,7 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 | automationaccounts/configurations | 是 | 是 |
 | automationaccounts/runbooks | 是 | 是 |
 
-## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
-| 资源类型 | 资源组 | 订阅 |
-| ------------- | -------------- | ------------ |
-| b2cdirectories | 是 | 是 |
+<!--Not Available on ## Microsoft.AzureActiveDirectory-->
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 | 资源类型 | 资源组 | 订阅 |
@@ -93,12 +89,9 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 | ------------- | -------------- | ------------ |
 | batchaccounts | 是 | 是 |
 
-<!-- Not Available on ## Microsoft.BatchAI-->
-
 <!-- Not Available on ## Microsoft.BingMaps-->
 <!-- Not Available on ## Microsoft.BizTalkServices-->
 <!-- Not Available on ## Microsoft.Blueprint-->
-
 <!-- Not Available on ## Microsoft.BotService-->
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
@@ -106,8 +99,14 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 | ------------- | -------------- | ------------ |
 | redis | 是 | 是 |
 
-<!-- Not Available on ## Microsoft.Cdn-->
+## <a name="microsoftcdn"></a>Microsoft.Cdn
+| 资源类型 | 资源组 | 订阅 |
+| ------------- | -------------- | ------------ |
+| 配置文件 | 是 | 是 |
+| profiles/endpoints | 是 | 是 |
+
 <!-- Not Available on ## Microsoft.CertificateRegistration-->
+
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 | 资源类型 | 资源组 | 订阅 |
 | ------------- | -------------- | ------------ |
@@ -150,6 +149,7 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 
 <!-- Not Available on ## Microsoft.Container-->
 <!-- Not Available on ## Microsoft.ContainerInstance-->
+
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 | 资源类型 | 资源组 | 订阅 |
 | ------------- | -------------- | ------------ |
@@ -159,7 +159,13 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 | registries/tasks | 是 | 是 |
 | registries/webhooks | 是 | 是 |
 
-<!-- Not Available on ## Microsoft.ContainerService-->
+## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
+| 资源类型 | 资源组 | 订阅 |
+| ------------- | -------------- | ------------ |
+| containerservices | 否 | 否 |
+| managedclusters | 否 | 否 |
+| openshiftmanagedclusters | 否 | 否 |
+
 <!-- Not Available on ## Microsoft.ContentModerator-->
 <!-- Not Available on ## Microsoft.CostManagement-->
 <!-- Not Available on ## Microsoft.CustomerInsights-->
@@ -173,6 +179,7 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 <!-- Not Available on ## Microsoft.DataLakeStore-->
 <!-- Not Available on ## Microsoft.DataMigration-->
 <!-- Not Available on ## Microsoft.DBforMariaDB-->
+
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 | 资源类型 | 资源组 | 订阅 |
 | ------------- | -------------- | ------------ |
@@ -184,6 +191,8 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 | servergroups | 否 | 否 |
 | servers | 是 | 是 |
 
+<!--Not Available on ## Microsoft.DeploymentManager-->
+
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 | 资源类型 | 资源组 | 订阅 |
 | ------------- | -------------- | ------------ |
@@ -191,18 +200,7 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 | provisioningservices | 是 | 是 |
 
 <!-- Not Available on ## Microsoft.DevTestLab-->
-## <a name="microsoftdns"></a>microsoft.dns
-| 资源类型 | 资源组 | 订阅 |
-| ------------- | -------------- | ------------ |
-| dnszones | 否 | 否 |
-| dnszones/a | 否 | 否 |
-| dnszones/aaaa | 否 | 否 |
-| dnszones/cname | 否 | 否 |
-| dnszones/mx | 否 | 否 |
-| dnszones/ptr | 否 | 否 |
-| dnszones/srv | 否 | 否 |
-| dnszones/txt | 否 | 否 |
-| trafficmanagerprofiles | 否 | 否 |
+<!-- Not Available on ## microsoft.dns-->
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 | 资源类型 | 资源组 | 订阅 |
@@ -211,6 +209,7 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 
 <!-- Not Available on ## Microsoft.DomainRegistration-->
 <!-- Not Available on ## Microsoft.EventGrid-->
+
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 | 资源类型 | 资源组 | 订阅 |
 | ------------- | -------------- | ------------ |
@@ -219,23 +218,42 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 
 <!-- Not Available on ## Microsoft.HanaOnAzure-->
 <!-- Not Available on ## Microsoft.HardwareSecurityModules-->
+
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 | 资源类型 | 资源组 | 订阅 |
 | ------------- | -------------- | ------------ |
 | clusters | 是 | 是 |
 
-<!-- Not Available on ## Microsoft.ImportExport-->
-<!-- Not Available on ## microsoft.insights-->
+## <a name="microsoftimportexport"></a>Microsoft.ImportExport
+| 资源类型 | 资源组 | 订阅 |
+| ------------- | -------------- | ------------ |
+| jobs | 是 | 是 |
+
+## <a name="microsoftinsights"></a>microsoft.insights
+| 资源类型 | 资源组 | 订阅 |
+| ------------- | -------------- | ------------ |
+| actiongroups | 是 | 是 |
+| activitylogalerts | 否 | 否 |
+| alertrules | 是 | 是 |
+| autoscalesettings | 是 | 是 |
+| components | 是 | 是 |
+| metricalerts | 否 | 否 |
+| scheduledqueryrules | 是 | 是 |
+| webtests | 是 | 是 |
+| workbooks | 是 | 是 |
 
 <!-- Not Available on ## Microsoft.IoTCentral-->
+
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 | 资源类型 | 资源组 | 订阅 |
 | ------------- | -------------- | ------------ |
 | vaults | 是 | 是 |
 
+<!-- Not Available on## Microsoft.Kusto-->
 <!-- Not Available on ## Microsoft.LabServices-->
 <!-- Not Available on ## Microsoft.LocationBasedServices-->
 <!-- Not Available on ## Microsoft.LocationServices-->
+
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 | 资源类型 | 资源组 | 订阅 |
 | ------------- | -------------- | ------------ |
@@ -246,9 +264,15 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 <!-- Not Available on ## Microsoft.MachineLearningCompute-->
 <!-- Not Available on ## Microsoft.MachineLearningExperimentation-->
 <!-- Not Available on ## Microsoft.MachineLearningModelManagement-->
-<!-- Not Available on ## Microsoft.ManagedIdentity-->
+
+## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
+| 资源类型 | 资源组 | 订阅 |
+| ------------- | -------------- | ------------ |
+| userassignedidentities | 是 | 是 |
+
 <!-- Not Available on ## Microsoft.Maps-->
 <!-- Not Available on ## Microsoft.MarketplaceApps-->
+
 ## <a name="microsoftmedia"></a>Microsoft.Media
 | 资源类型 | 资源组 | 订阅 |
 | ------------- | -------------- | ------------ |
@@ -257,6 +281,7 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 | mediaservices/streamingendpoints | 是 | 是 |
 
 <!-- Not Available on ## Microsoft.Migrate-->
+
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 | 资源类型 | 资源组 | 订阅 |
 | ------------- | -------------- | ------------ |
@@ -304,8 +329,18 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 | namespaces | 是 | 是 |
 | namespaces/notificationhubs | 是 | 是 |
 
-<!-- Not Available on ## Microsoft.OperationalInsights-->
-<!-- Not Available on ## Microsoft.OperationsManagement-->
+## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
+| 资源类型 | 资源组 | 订阅 |
+| ------------- | -------------- | ------------ |
+| workspaces | 是 | 是 |
+
+## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
+| 资源类型 | 资源组 | 订阅 |
+| ------------- | -------------- | ------------ |
+| managementconfigurations | 是 | 是 |
+| solutions | 是 | 是 |
+| 视图 | 是 | 是 |
+
 ## <a name="microsoftportal"></a>Microsoft.Portal
 | 资源类型 | 资源组 | 订阅 |
 | ------------- | -------------- | ------------ |
@@ -331,10 +366,7 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 | ------------- | -------------- | ------------ |
 | namespaces | 是 | 是 |
 
-## <a name="microsoftsaas"></a>Microsoft.SaaS
-| 资源类型 | 资源组 | 订阅 |
-| ------------- | -------------- | ------------ |
-| applications | 是 | 否 |
+<!--Not Available on ## Microsoft.SaaS-->
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 | 资源类型 | 资源组 | 订阅 |
@@ -343,6 +375,7 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 | jobcollections | 是 | 是 |
 
 <!-- Not Available on ## Microsoft.Search-->
+
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 | 资源类型 | 资源组 | 订阅 |
 | ------------- | -------------- | ------------ |
@@ -355,18 +388,13 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 
 <!-- Not Available on ## Microsoft.ServiceFabricMesh-->
 <!-- Not Available on ## Microsoft.SignalRService-->
+
 ## <a name="microsoftsiterecovery"></a>Microsoft.SiteRecovery
 | 资源类型 | 资源组 | 订阅 |
 | ------------- | -------------- | ------------ |
 | siterecoveryvault | 否 | 否 |
 
-## <a name="microsoftsolutions"></a>Microsoft.Solutions
-| 资源类型 | 资源组 | 订阅 |
-| ------------- | -------------- | ------------ |
-| appliancedefinitions | 否 | 否 |
-| appliances | 否 | 否 |
-| applicationdefinitions | 否 | 否 |
-| applications | 否 | 否 |
+<!--Not Available on ## Microsoft.Solutions-->
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 | 资源类型 | 资源组 | 订阅 |
@@ -383,11 +411,7 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 | ------------- | -------------- | ------------ |
 | storageaccounts | 是 | 是 |
 
-## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
-| 资源类型 | 资源组 | 订阅 |
-| ------------- | -------------- | ------------ |
-| storagesyncservices | 是 | 是 |
-
+<!-- Not Available on ## Microsoft.StorageSync-->
 <!-- Not Available on ## Microsoft.StorSimple-->
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 | 资源类型 | 资源组 | 订阅 |
@@ -410,45 +434,8 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 | sites/premieraddons | 是 | 是 |
 | sites/slots | 是 | 是 |
 
-## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
-| 资源类型 | 资源组 | 订阅 |
-| ------------- | -------------- | ------------ |
-| deviceservices | 是 | 是 |
-
-## <a name="third-party-services"></a>第三方服务
-
-第三方服务目前不支持移动操作。 这些资源提供程序包括：
-
-<!--Pending verify-->
-* 84codes.CloudAMQP
-* AppDynamics.APM
-* Aspera.Transfers
-* Auth0.Cloud
-* Citrix.Cloud
-* Citrix.Services
-* CloudSimple.PrivateCloudIaaS
-* Cloudyn.Analytics
-* Conexlink.MyCloudIT
-* Crypteron.DataSecurity
-* Dynatrace.DynatraceSaaS
-* Dynatrace.Ruxit
-* LiveArena.Broadcast
-* Lombiq.DotNest
-* Mailjet.Email
-* Myget.PackageManagement
-* NewRelic.APM
-* nuubit.nextgencdn
-* Paraleap.CloudMonix
-* Pokitdok.Platform
-* RavenHq.Db
-* Raygun.CrashReporting
-* RevAPM.MobileCDN
-* Sendgrid.Email
-* Sparkpost.Basic
-* stackify.retrace
-* SuccessBricks.ClearDB
-* TrendMicro.DeepSecurity
-* U2uconsult.TheIdentityHub <!--Pending verify-->
+<!-- Not Available on ## Microsoft.WindowsIoT-->
+<!-- Not Available on ## Third-party services-->
 
 ## <a name="next-steps"></a>后续步骤
 

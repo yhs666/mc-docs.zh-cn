@@ -4,24 +4,24 @@ description: 本文列出 Azure AD Connect 和 Azure AD Sync 的所有版本
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 09/06/2018
-ms.date: 12/05/2018
-ms.component: hybrid
+origin.date: 12/18/2018
+ms.date: 02/13/2019
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 0e0f749869c55a66ee0ecf427bf0cc32902795da
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: b508c2102d430f28ebbd027f103ebcd7ad110141
+ms.sourcegitcommit: 3f266322470d2a3f8fdd4682e854f833466701af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029017"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56222707"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect：版本发行历史记录
 Azure Active Directory (Azure AD) 团队会定期更新 Azure AD Sync 的新特性和功能。 并非所有的新增内容都适用于所有受众。
@@ -37,6 +37,9 @@ Azure Active Directory (Azure AD) 团队会定期更新 Azure AD Sync 的新特�
 所需的权限 | 有关应用更新时所需的权限，请参阅[帐户和权限](reference-connect-accounts-permissions.md#upgrade)。
 
 下载 | [下载 Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)。
+
+>[!NOTE]
+>并非所有版本的 Azure AD Connect 都可用于自动升级。 版本状态将指示版本是否可用于自动升级或仅供下载。 如果在 Azure AD Connect 服务器上启用了自动升级，那么该服务器将自动升级到针对自动升级发布的最新版 Azure AD Connect。 请注意，并非所有 Azure AD Connect 配置都有资格进行自动升级。 请点击此链接阅读有关[自动升级](/active-directory/hybrid/how-to-connect-install-automatic-upgrade)的详细信息
 
 ## <a name="12650"></a>1.2.65.0 
 

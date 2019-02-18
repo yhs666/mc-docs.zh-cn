@@ -9,14 +9,14 @@ ms.service: power-bi-embedded
 ms.topic: article
 ms.workload: powerbi
 origin.date: 09/20/2017
-ms.date: 09/26/2018
+ms.date: 02/15/2019
 ms.author: v-junlch
-ms.openlocfilehash: a164d7fb8c15853b0eefa2f73ab0f163b23478e2
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b51fc3ec8710e5a1b16d2353c34bdb2f78639e11
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649453"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306162"
 ---
 # <a name="connect-to-a-data-source"></a>连接到数据源
 
@@ -76,4 +76,4 @@ ms.locfileid: "52649453"
 有更多问题？ [试用 Power BI 社区](http://community.powerbi.com/)
 
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

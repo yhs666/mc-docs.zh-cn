@@ -1,27 +1,24 @@
 ---
-title: Azure 中的 IP 地址类型 | Azure
+title: Azure 中的 IP 地址类型
+titlesuffix: Azure Virtual Network
 description: 了解 Azure 中的公共 IP 地址和专用 IP 地址。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
-manager: digimobile
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 610b911c-f358-4cfe-ad82-8b61b87c3b7e
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 09/24/2018
-ms.date: 12/17/2018
+origin.date: 01/30/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: ecdfcbfadd6244f2561602d9f77df3499f619bd2
-ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
+ms.openlocfilehash: a882153229b3bd7fd323048bb3741c8e17821494
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785194"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306113"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure 中的 IP 地址类型和分配方法
 
@@ -31,6 +28,7 @@ ms.locfileid: "53785194"
 * **专用 IP 地址**：使用 VPN 网关或 ExpressRoute 线路将网络扩展到 Azure 时，用于在 Azure 虚拟网络 (VNet) 和本地网络中通信。
 
 <!-- Not Available on [Learn about a public IP prefix.](public-ip-address-prefix.md)-->
+
 > [!NOTE]
 > Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器部署模型和经典部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fvirtual-network%2ftoc.json)。  本文介绍如何使用 Resource Manager 部署模型。Azure 建议对大多数新的部署使用该模型，而不是使用[经典部署模型](virtual-network-ip-addresses-overview-classic.md)。
 > 
@@ -66,25 +64,27 @@ ms.locfileid: "53785194"
 推出 SKU 之前创建的所有公共 IP 地址为基本 SKU 公共 IP 地址。 随着 SKU 的推出，可以选择指定公共 IP 地址要采用的 SKU。 基本 SKU 地址为：
 
 - 使用静态或动态分配方法分配。
+- 具有可调整的入站发起流空闲超时，范围为 4-30 分钟，默认值为 4 分钟，出站发起流的空闲超时固定为 4 分钟。
 - 默认情况下处于打开状态。  建议使用网络安全组来对入站或出站流量进行限制，但这是可选的。
 - 分配到可以采用公共 IP 地址的任何 Azure 资源，例如网络接口、VPN 网关、应用程序网关和面向 Internet 的负载均衡器。
-- 可以分配到特定的区域。
-- 非区域冗余。 
+- 不支持可用性区域方案。
 
 <!-- Not Available on [Availability zones overview](../availability-zones/az-overview.md?toc=%2fvirtual-network%2ftoc.json)-->
 #### <a name="standard"></a>标准
 
 标准 SKU 公共 IP 地址为：
 
-- 只能使用静态分配方法分配。
+- 始终使用静态分配方法。
+- 具有可调整的入站发起流和出站发起流空闲超时，范围为 4-66 分钟，默认值为 4 分钟。
 - 默认情况下为安全的，并且对入站流量关闭。 必须使用[网络安全组](security-overview.md#network-security-groups)将允许的入站流量显式列入允许列表中。
-- 分配到网络接口、公用的标准负载均衡器、应用程序网关或 VPN 网关。 有关 Azure 标准负载均衡器的详细信息，请参阅 [Azure 标准负载均衡器](../load-balancer/load-balancer-standard-overview.md?toc=%2fvirtual-network%2ftoc.json)。
-- 默认为区域冗余。 可以按区域创建，并在特定的可用性区域中有保障。 
+- 分配到网络接口、标准公共负载均衡器、应用程序网关或 VPN 网关。 有关标准负载均衡器的详细信息，请参阅 [Azure 标准负载均衡器](../load-balancer/load-balancer-standard-overview.md?toc=%2fvirtual-network%2ftoc.json)。
+- 默认情况下是区域冗余的，也可以选择为区域性的（可以创建为区域性的，并且在特定的可用性区域中保证可靠性）。 
+
 <!-- Not Available on [Availability zones overview](../availability-zones/az-overview.md?toc=%2fvirtual-network%2ftoc.json)-->
 <!-- Not Available on [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fvirtual-network%2ftoc.json)-->
 
 > [!NOTE]
-> 在创建并关联[网络安全组](security-overview.md#network-security-groups)且显式允许所需入站流量之前，与标准 SKU 资源进行通信将会失败。
+> 在创建并关联[网络安全组](security-overview.md#network-security-groups)且显式允许所需入站流量之前，到标准 SKU 资源的入站通信将会失败。
 
 ### <a name="allocation-method"></a>分配方法
 
@@ -104,7 +104,7 @@ ms.locfileid: "53785194"
 * 使用链接到 IP 地址的 SSL 证书。
 
 > [!NOTE]
-> Azure 会从每个 Azure 云中每个区域的唯一地址范围中分配公共 IP 地址。 可以下载 Azure [公共](https://www.microsoft.com/download/details.aspx?id=56519)和[中国](https://www.microsoft.com/download/details.aspx?id=57062)云的范围（前缀）列表。
+> Azure 会从每个 Azure 云中每个区域的唯一地址范围中分配公共 IP 地址。 可以下载 Azure [中国](https://www.microsoft.com/download/confirmation.aspx?id=57062)云的范围（前缀）列表。
 >
 
 ### <a name="dns-hostname-resolution"></a>DNS 主机名解析
@@ -154,6 +154,7 @@ ms.locfileid: "53785194"
 ### <a name="ip-address-version"></a>IP 地址版本
 
 专用 IP 地址是使用 IPv4 地址创建的。 
+
 <!-- Not Available on IPV6 -->
 
 ### <a name="allocation-method"></a>分配方法

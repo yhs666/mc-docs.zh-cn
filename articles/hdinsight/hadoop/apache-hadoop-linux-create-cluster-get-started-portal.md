@@ -15,12 +15,12 @@ ms.topic: quickstart
 origin.date: 11/06/2018
 ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: b3d9346489c12e38ed74d6d6281ff5242ccae05a
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: 64b2010d8dd46a889cf4044419ceb79e2dd9524c
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029198"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56303064"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-the-azure-portal"></a>快速入门：通过 Azure 门户在 Azure HDInsight 中开始使用 Apache Hadoop 和 Apache Hive
 
@@ -188,7 +188,7 @@ ms.locfileid: "54029198"
 
 若要详细了解如何创建或管理 HDInsight 群集，请参阅以下文章：
 
-
+* 要了解如何管理基于 Linux 的 HDInsight 群集，请参阅[使用 Apache Ambari 管理 HDInsight 群集](../hdinsight-hadoop-manage-ambari.md)。
 * 若要详细了解在创建 HDInsight 群集时可以选择哪些选项，请参阅[使用自定义选项在 Linux 上创建 HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)。
 
 

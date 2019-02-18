@@ -11,17 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/18/2018
-ms.date: 01/21/2019
+origin.date: 02/04/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 06e0e408dbaf4b75ef8592e3a16a62cd2d343435
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: e4e6035c4c5c7252d892caca07c1fd4638280a2f
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193022"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306051"
 ---
 # <a name="outputs-section-in-azure-resource-manager-templates"></a>Azure 资源管理器模板中的 Outputs 节
+
 在 Outputs 节中，可以指定从部署返回的值。 例如，可能会返回用于访问已部署资源的 URI。
 
 ## <a name="define-and-use-output-values"></a>定义和使用输出值
@@ -40,7 +41,7 @@ ms.locfileid: "54193022"
 部署以后，可以使用脚本来检索该值。 对于 PowerShell，请使用：
 
 ```powershell
-(Get-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -Name <deployment-name>).Outputs.resourceID.value
+(Get-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -Name <deployment-name>).Outputs.resourceID.value
 ```
 
 对于 Azure CLI，请使用：
@@ -82,6 +83,8 @@ az group deployment show -g <resource-group-name> -n <deployment-name> --query p
 | type |是 |输出值的类型。 输出值支持的类型与模板输入参数相同。 |
 | value |是 |要求值并作为输出值返回的模板语言表达式。 |
 
+有关添加注释的信息，请参阅[模板中的注释](resource-group-authoring-templates.md#comments)。
+
 ## <a name="example-templates"></a>示例模板
 
 |模板  |说明  |
@@ -93,6 +96,6 @@ az group deployment show -g <resource-group-name> -n <deployment-name> --query p
 ## <a name="next-steps"></a>后续步骤
 * 若要查看许多不同类型的解决方案的完整模型，请参阅 [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/)（Azure 快速入门模板）。
 * 有关用户可以使用的来自模板中的函数的详细信息，请参阅 [Azure Resource Manager Template Functions](resource-group-template-functions.md)（Azure Resource Manager 模板函数）。
-<!--Not Available on * For recommendations about creating templates, see [Azure Resource Manager template best practices](template-best-practices.md)-->
+* 有关创建模板的建议，请参阅 [Azure 资源管理器模板最佳做法](template-best-practices.md)。
 
 <!-- Update_Description: update meta properties, wording update -->

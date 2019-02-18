@@ -7,20 +7,20 @@ author: CelesteDG
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 09/11/2018
-ms.date: 12/04/2018
+ms.date: 02/14/2019
 ms.author: v-junlch
-ms.openlocfilehash: 1daf6401b6911299c21245c401a2659b49be9c7f
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 3048c0fb5cbf9f8160ea1f0154ce750b887807b6
+ms.sourcegitcommit: f34f65c439665607b43bb2c81df58c138d0b7417
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028807"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56262178"
 ---
 # <a name="how-to-configure-endpoints"></a>如何配置终结点
 
@@ -37,6 +37,6 @@ ms.locfileid: "53028807"
 -   将特定于要使用的身份验证协议的终结点与应用程序 ID 结合使用，生成特定于应用程序的身份验证请求。
 
 ## <a name="next-steps"></a>后续步骤
-[Azure Active Directory 开发人员指南](/active-directory/develop/active-directory-developers-guide#authentication-and-authorization-protocols)
+[Azure Active Directory 开发人员指南](/active-directory/develop/active-directory-developers-guide)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

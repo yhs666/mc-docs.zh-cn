@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/14/2017
-ms.date: 01/14/2019
+ms.date: 02/25/2019
 ms.author: ashish
-ms.openlocfilehash: 42114cec846ccd3bae7edf4541cfa08963392477
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: 48776400b6f7a6cfb6c7813d74c578853b16b279
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029244"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56303062"
 ---
 # <a name="analyze-apache-hadoop-logs"></a>分析 Apache Hadoop 日志
 
@@ -110,7 +110,7 @@ Azure HDInsight 中的每个 Apache Hadoop 群集都有一个用作默认文件�
     有关构造筛选器的详细信息，请参阅[构造表设计器的筛选器字符串](../../vs-azure-tools-table-designer-construct-filter-strings.md)。
 
 ## <a name="logs-written-to-azure-blob-storage"></a>写入 Azure Blob 存储的日志
-[写入 Azure 表的日志](#log-written-to-azure-tables) ，可在一定程度上了解 HDInsight 群集中发生的事件。 但是，这些表不提供任务级日志，这些日志在问题发生时可以用于进一步分析问题。 为了更进一步地详细了解所发生的问题，可以对 HDInsight 群集进行配置，将通过 Templeton 提交的作业的任务日志写入 Blob 存储帐户。 实际上，这是指通过 Microsoft Azure PowerShell cmdlet 或 .NET 作业提交 API 提交的作业，而不是指通过 RDP 提交的或通过命令行访问群集时提交的作业。 
+通过写入 Azure 表的日志，可在一定程度上了解 HDInsight 群集中发生的事件。 但是，这些表不提供任务级日志，这些日志在问题发生时可以用于进一步分析问题。 为了更进一步地详细了解所发生的问题，可以对 HDInsight 群集进行配置，将通过 Templeton 提交的作业的任务日志写入 Blob 存储帐户。 实际上，这是指通过 Microsoft Azure PowerShell cmdlet 或 .NET 作业提交 API 提交的作业，而不是指通过 RDP 提交的或通过命令行访问群集时提交的作业。 
 
 若要查看日志，请参阅[在基于 Linux 的 HDInsight 上访问 Apache Hadoop YARN 应用程序日志](../hdinsight-hadoop-access-yarn-app-logs-linux.md)。
 
@@ -329,5 +329,4 @@ Azure HDInsight 中的每个 Apache Hadoop 群集都有一个用作默认文件�
 
 * [使用 Apache Ambari 视图来调试 HDInsight 上的 Apache Tez 作业](../hdinsight-debug-ambari-tez-view.md)
 * [在基于 Linux 的 HDInsight 上为 Apache Hadoop 服务启用堆转储](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-
-
+* [使用 Apache Ambari Web UI 管理 HDInsight 群集](../hdinsight-hadoop-manage-ambari.md)

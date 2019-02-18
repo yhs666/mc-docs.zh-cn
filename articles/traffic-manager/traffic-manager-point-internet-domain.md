@@ -1,23 +1,22 @@
 ---
-title: 将公司 Internet 域指向流量管理器域名 | Azure
+title: 将公司 Internet 域指向 Azure 流量管理器域名
 description: 本文帮助你将公司域名指向流量管理器域名。
 services: traffic-manager
-documentationcenter: ''
 author: rockboyfor
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/11/2016
-ms.date: 12/17/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 073da2f921ea77e4975048b777f2a81a99b6ced0
-ms.sourcegitcommit: 1b6a310ba636b6dd32d7810821bcb79250393499
+ms.openlocfilehash: 1435ffda8ee4cc0418ea300fd855df25897315f2
+ms.sourcegitcommit: e32c8da268002b94c500131bb361fd6afc85ce9f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389365"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306715"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>将公司 Internet 域指向 Azure 流量管理器域
 
@@ -38,4 +37,4 @@ ms.locfileid: "53389365"
 * [流量管理器 - 禁用、启用或删除配置文件](disable-enable-or-delete-a-profile.md)
 * [流量管理器 - 禁用或启用终结点](disable-or-enable-an-endpoint.md)
 
-<!--Update_Description: wording update, update meta properties-->
+<!--Update_Description: update meta properties-->

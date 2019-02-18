@@ -1,19 +1,19 @@
 ---
-title: Azure ExpressRoute 路由要求
+title: 路由要求 - ExpressRoute：Azure
 description: 本页提供有关为 ExpressRoute 线路配置和管理路由的详细要求。
 services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: conceptual
-origin.date: 11/05/2018
+origin.date: 01/11/2019
 ms.author: v-yiso
-ms.date: 12/10/2018
-ms.openlocfilehash: f36ab8130d928243e48cd776eb9c2f78aea4113b
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.date: 02/25/2019
+ms.openlocfilehash: 99764d278d6dcc0d18e26da27f8880ba8dc66d8a
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028578"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302981"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 路由要求
 若要使用 ExpressRoute 连接到 Microsoft 云服务，需要设置并管理路由。 某些连接服务提供商以托管服务形式提供路由的设置和管理。 请咨询连接服务提供商，以确定他们是否提供此类服务。 如果不提供，则必须遵守以下要求：
@@ -115,7 +115,7 @@ Azure 公共对等互连路径使用户能够通过其公共 IP 地址连接到 
 ## <a name="autonomous-system-numbers"></a>自治系统编号
 Microsoft 使用 AS 12076 进行 Azure 公共、Azure 专用和 Microsoft 对等互连。 我们保留了 ASN 65515-65520 供内部使用。 支持 16 和 32 位 AS 编号。
 
-数据传输对称没有相关要求。 转发与返回路径可以遍历不同的路由器对。 相同的路由必须从所属的多个线路对的任何一端播发。 路由指标不需要完全相同。
+数据传输对称没有相关要求。 转发与返回路径可以遍历不同的路由器对。 相同的路由必须从属于你的多个线路对的任何一端播发。 路由指标不需要完全相同。
 
 ## <a name="route-aggregation-and-prefix-limits"></a>路由聚合与前缀限制
 支持通过 Azure 专用对等互连播发最多 4000 个前缀。 如果已启用 ExpressRoute 高级版附加组件，则可增加到 10,000 个前缀。 接受为每个 BGP 会话最多使用 200 个前缀建立 Azure 公共和 Microsoft 对等互连。 

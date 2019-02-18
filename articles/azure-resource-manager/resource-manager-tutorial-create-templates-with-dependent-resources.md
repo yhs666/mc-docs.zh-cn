@@ -11,21 +11,23 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 origin.date: 11/13/2018
-ms.date: 12/17/2018
+ms.date: 02/18/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: d02b604870047186782e2bbeed6b4a6a81f8991d
-ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
+ms.openlocfilehash: 44d62cd44a222c2eafbc19ca9f3ed88499e9b8e9
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53286735"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306088"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>教程：使用依赖的资源创建 Azure 资源管理器模板
 
 了解如何创建 Azure 资源管理器模板，以便部署多个资源。  创建模板以后，你将通过本地电脑使用 Azure CLI 和 PowerShell 部署该模板。
 
-<!--Not Available on Cloud Shell--> 本教程介绍如何创建存储帐户、虚拟机、虚拟网络以及一些其他的依赖资源。 某些资源的部署依赖于另一资源的存在。 例如，创建虚拟机的前提是其存储帐户和网络接口存在。 可通过将一个资源标记为依赖于其他资源来定义此关系。 Resource Manager 将评估资源之间的依赖关系，并根据其依赖顺序进行部署。 如果资源互不依赖，资源管理器将以并行方式部署资源。 有关详细信息，请参阅[定义 Azure 资源管理器模板中部署资源的顺序](./resource-group-define-dependencies.md)。
+<!--Not Available on Cloud Shell-->
+
+本教程介绍如何创建存储帐户、虚拟机、虚拟网络以及一些其他的依赖资源。 某些资源的部署依赖于另一资源的存在。 例如，创建虚拟机的前提是其存储帐户和网络接口存在。 可通过将一个资源标记为依赖于其他资源来定义此关系。 Resource Manager 将评估资源之间的依赖关系，并根据其依赖顺序进行部署。 如果资源互不依赖，资源管理器将以并行方式部署资源。 有关详细信息，请参阅[定义 Azure 资源管理器模板中部署资源的顺序](./resource-group-define-dependencies.md)。
 
 本教程涵盖以下任务：
 
@@ -35,6 +37,8 @@ ms.locfileid: "53286735"
 > * 部署模板
 
 如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -86,11 +90,15 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 
 2. 展开第一个资源。 它是一个存储帐户。 
     
-    <!-- Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/Microsoft.Storage/storageAccounts)--> ![Visual Studio Code Azure 资源管理器模板存储帐户定义](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
+    <!-- Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/Microsoft.Storage/storageAccounts)-->
+
+    ![Visual Studio Code Azure 资源管理器模板存储帐户定义](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
 
 3. 展开第二个资源。 资源类型为 `Microsoft.Network/publicIPAddresses`。
     
-    <!-- Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/publicipaddresses)--> ![Visual Studio Code Azure 资源管理器模板公共 IP 地址定义](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
+    <!-- Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/publicipaddresses)-->
+
+    ![Visual Studio Code Azure 资源管理器模板公共 IP 地址定义](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
 4. 展开第四个资源。 资源类型为 `Microsoft.Network/networkInterfaces`：  
 
     ![Visual Studio Code Azure 资源管理器模板 dependsOn](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
@@ -123,7 +131,7 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
     ```
 2. 在本地 Shell 中运行以下 PowerShell 命令。 若要提高安全性，请使用为虚拟机管理员帐户生成的密码。 请参阅[先决条件](#prerequisites)。
 
-    ```powershell
+    ```azurepowershell
     $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     $location = Read-Host -Prompt "Enter the location (i.e. chinaeast)"
@@ -131,8 +139,8 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
     $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
     $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS label prefix"
 
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-    New-AzureRmResourceGroupDeployment -Name $deploymentName `
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroupDeployment -Name $deploymentName `
         -ResourceGroupName $resourceGroupName `
         -adminUsername $adminUsername `
         -adminPassword $adminPassword `
@@ -141,9 +149,9 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
     ```
 3. 运行以下 PowerShell 命令，列出新建的虚拟机：
 
-    ```powershell
+    ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-    Get-AzureRmVM -Name SimpleWinVM -ResourceGroupName $resourceGroupName
+    Get-AzVM -Name SimpleWinVM -ResourceGroupName $resourceGroupName
     ```
 
     虚拟机名称在模板中硬编码为 **SimpleWinVM**。
@@ -166,4 +174,4 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 > [!div class="nextstepaction"]
 > [使用条件](./resource-manager-tutorial-use-conditions.md)
 
-<!-- Update_Description: update link, wording update -->
+<!-- Update_Description: update link, wording update, update cmdlet -->

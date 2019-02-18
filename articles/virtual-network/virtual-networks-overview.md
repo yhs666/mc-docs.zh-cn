@@ -4,31 +4,26 @@ description: 了解 Azure 虚拟网络概念和功能。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
-manager: digimobile
-editor: ''
 tags: azure-resource-manager
 Customer intent: As someone with a basic network background that is new to Azure, I want to understand the capabilities of Azure Virtual Network, so that my Azure resources such as VMs, can securely communicate with each other, the internet, and my on-premises resources.
-ms.assetid: 9633de4b-a867-4ddf-be3c-a332edf02e24
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 12/12/2018
-ms.date: 01/21/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.custom: mvc
-ms.openlocfilehash: a89ea403300d058519a2cc86b0bc16a4d6dea389
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: b1719549f7454d7f48e7390f448f6334d5e4b891
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193089"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306245"
 ---
 # <a name="what-is-azure-virtual-network"></a>什么是 Azure 虚拟网络？
 
-Azure 虚拟网络允许许多类型的 Azure 资源（例如 Azure 虚拟机 (VM)）以安全方式彼此通信、与 Internet 通信，以及与本地网络通信。 虚拟网络局限于单个区域。
-<!--Not Available on global Peering.-->
+Azure 虚拟网络允许许多类型的 Azure 资源（例如 Azure 虚拟机 (VM)）以安全方式彼此通信、与 Internet 通信，以及与本地网络通信。 一个虚拟网络局限于一个区域；但是，可以使用虚拟网络对等互连将不同区域的多个虚拟网络连接起来。
 
 Azure 虚拟网络提供以下重要功能：
 
@@ -57,7 +52,9 @@ Azure 虚拟网络提供以下重要功能：
 Azure 资源采用下述某种方式安全地相互通信：
 
 - **通过虚拟网络**：可以部署 VM，并将多个其他类型的 Azure 资源（例如 Azure 应用服务环境和 Azure 虚拟机规模集）部署到虚拟网络。 若要查看可部署到虚拟网络的 Azure 资源的完整列表，请参阅[虚拟网络服务集成](virtual-network-for-azure-services.md)。 
+
 <!-- Not Avialable on the Azure Kubernetes Service (AKS)-->
+
 - **通过虚拟网络服务终结点**：通过直接连接将虚拟网络专用地址空间和虚拟网络的标识扩展到 Azure 服务资源，例如 Azure 存储帐户和 Azure SQL 数据库。 使用服务终结点可以保护关键的 Azure 服务资源，只允许在客户自己的虚拟网络中对其进行访问。 有关详细信息，请参阅[虚拟网络服务终结点概述](virtual-network-service-endpoints-overview.md)。
 
 <a name="connect-on-premises"></a>
@@ -89,4 +86,5 @@ Azure 资源采用下述某种方式安全地相互通信：
 ## <a name="next-steps"></a>后续步骤
 
 现在你已概要了解 Azure 虚拟网络。 若要使用虚拟网络来入门，请先创建一个虚拟网络，向其部署一些 VM，然后在 VM 之间通信。 有关详细信息，请参阅[创建虚拟网络](quick-create-portal.md)快速入门。
+
 <!--Update_Description: update meta properties, wording update -->

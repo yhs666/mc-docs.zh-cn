@@ -8,14 +8,14 @@ ms.service: power-bi-embedded
 ms.topic: article
 ms.workload: powerbi
 origin.date: 09/20/2017
-ms.date: 09/26/2018
+ms.date: 02/15/2019
 ms.author: v-junlch
-ms.openlocfilehash: caf81416287e0d1d32987762ae5719613a5b4ca8
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 7decdee7c6123b95fea5702eea78365181084c81
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666809"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306046"
 ---
 # <a name="toggle-between-view-and-edit-mode-for-reports-in-power-bi-workspace-collections"></a>在 Power BI 工作区集合中在报表的查看和编辑模式之间切换
 
@@ -116,11 +116,11 @@ report.switchMode("edit");
 [示例入门](get-started-sample.md)  
 [嵌入报表](embed-report.md)  
 [在 Power BI 工作区集合中进行身份验证和授权](app-token-flow.md)  
-[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
+[CreateReportEmbedToken](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN)  
 [JavaScript 嵌入示例](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 [PowerBI-CSharp Git 存储库](https://github.com/Microsoft/PowerBI-CSharp)  
 [PowerBI-Node Git 存储库](https://github.com/Microsoft/PowerBI-Node)  
 
 有更多问题？ [试用 Power BI 社区](http://community.powerbi.com/)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: link update -->

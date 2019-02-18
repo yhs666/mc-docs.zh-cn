@@ -1,5 +1,5 @@
 ---
-title: 获取 ARP 表：Resource Manager：Azure ExpressRoute 故障排除 | Azure
+title: 获取 ARP 表 - 故障排除 - ExpressRoute：Azure
 description: 此页说明了如何为 ExpressRoute 线路获取 ARP 表
 documentationCenter: na
 services: expressroute
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/30/2017
 ms.author: v-yiso
-ms.date: 03/26/2018
-ms.openlocfilehash: 2f778862b6fddd4d97ec58f33d40235b236e17b6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 02/25/2019
+ms.openlocfilehash: ed104ed7e13be73aad68379f6906ca3346a4664b
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650869"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56303014"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>在 Resource Manager 部署模型中获取 ARP 表
 
@@ -80,7 +80,7 @@ ARP 表示例：
     # ARP table for Azure private peering - Primary path
     Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePrivatePeering -DevicePath Primary
 
-    # ARP table for Azure private peering - Secodary path
+    # ARP table for Azure private peering - Secondary path
     Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePrivatePeering -DevicePath Secondary 
 ```
 
@@ -104,7 +104,7 @@ ARP 表示例：
     # ARP table for Azure public peering - Primary path
     Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePublicPeering -DevicePath Primary
 
-    # ARP table for Azure public peering - Secodary path
+    # ARP table for Azure public peering - Secondary path
     Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePublicPeering -DevicePath Secondary 
 ```
 
@@ -127,7 +127,7 @@ ARP 表示例：
         # ARP table for Microsoft peering - Primary path
         Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType MicrosoftPeering -DevicePath Primary
 
-        # ARP table for Microsoft peering - Secodary path
+        # ARP table for Microsoft peering - Secondary path
         Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType MicrosoftPeering -DevicePath Secondary 
 
 

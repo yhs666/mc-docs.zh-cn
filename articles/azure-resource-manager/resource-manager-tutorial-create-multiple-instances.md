@@ -11,19 +11,21 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 origin.date: 11/13/2018
-ms.date: 12/17/2018
+ms.date: 02/18/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 4e96832fd6265565625c54b44f9e9a303a8c5e8d
-ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
+ms.openlocfilehash: 3c78c95352e1b2cff3d46f196cebacbb8c9e55aa
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53286768"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306048"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>教程：使用资源管理器模板创建多个资源实例
 
 了解如何在 Azure 资源管理器模板中进行迭代操作，以创建 Azure 资源的多个实例。 在本教程中，你将修改一个模板，以便创建三个存储帐户实例。
+
+本教程涵盖以下任务：
 
 > [!div class="checklist"]
 > * 打开快速入门模板
@@ -31,6 +33,8 @@ ms.locfileid: "53286768"
 > * 部署模板
 
 如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -50,7 +54,9 @@ ms.locfileid: "53286768"
     ```
 3. 选择“打开”以打开该文件。
 4. 在模板中定义了一个“Microsoft.Storage/storageAccounts”资源。
-    <!-- Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/Microsoft.Storage/storageAccounts)-->
+    
+   <!-- Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/Microsoft.Storage/storageAccounts)-->
+
 5. 选择“文件”>“另存为”，将该文件作为 **azuredeploy.json** 保存到本地计算机。
 
 ## <a name="edit-the-template"></a>编辑模板
@@ -122,18 +128,18 @@ ms.locfileid: "53286768"
 
 若要列出所有三个存储帐户，请省略 --name 参数：
 
-# <a name="clitabcli"></a>[CLI](#tab/CLI)
-```cli
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+```azurecli
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
 az storage account list --resource-group $resourceGroupName
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-```powershell
+```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
-Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName
+Get-AzStorageAccount -ResourceGroupName $resourceGroupName
 ```
 
 ---
@@ -151,9 +157,9 @@ Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，我们已了解如何创建多个存储帐户实例。 到目前为止，我们已创建一个存储帐户或多个存储帐户实例。 在下一篇教程中，我们将开发包含多个资源和多个资源类型的模板。 某些资源具有依赖的资源。
+在本教程中，我们已了解如何创建多个存储帐户实例。 下一教程介绍如何在资源组之间移动资源。
 
 > [!div class="nextstepaction"]
-> [创建依赖资源](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
+> [移动资源](./resource-manager-tutorial-move-resources.md)
 
-<!-- Update_Description: wording update, update meta properties -->
+<!-- Update_Description: wording update, update meta properties, update link -->

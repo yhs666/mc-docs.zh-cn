@@ -1,23 +1,21 @@
 ---
 title: 在 Azure Database for PostgreSQL 中进行监视
 description: 本文介绍 Azure Database for PostgreSQL 中的监视功能。
-services: postgresql
 author: WenJason
 ms.author: v-jay
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 origin.date: 11/05/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: ca5860a87bbf2139b044d6d9b36b8d43fd906d7a
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 02/18/2019
+ms.openlocfilehash: f228f5b7510b7993ec1a415747aebbfb5fe3307b
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674967"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302959"
 ---
 # <a name="monitor"></a>监视
-监视服务器的相关数据有助于排查工作负荷故障及优化工作负荷。 Azure Database for PostgreSQL 提供各种监视选项，可以深入了解服务器的行为。
+监视服务器的相关数据有助于排查工作负荷故障及优化工作负荷。 Azure Database for PostgreSQL 提供各种监视选项，帮助用户深入了解服务器的行为。
 
 ## <a name="metrics"></a>指标
 Azure Database for PostgreSQL 提供了各种指标来帮助用户深入了解为 PostgreSQL 服务器提供支持的资源的行为。 每项指标以一分钟为频率发出，历史记录长达 30 天。 可以设置自动操作、执行高级分析和存档历史记录。 有关详细信息，请参阅 [Azure 指标概述](../monitoring-and-diagnostics/monitoring-overview-metrics.md)。

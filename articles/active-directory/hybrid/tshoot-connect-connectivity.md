@@ -1,10 +1,10 @@
 ---
-title: Azure AD Connect：排查连接问题 | Microsoft Docs
+title: Azure AD Connect：排查连接问题 | Microsoft 文档
 description: 介绍如何使用 Azure AD Connect 排查连接问题。
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/18/2017
-ms.date: 11/12/2018
-ms.component: hybrid
+ms.date: 02/13/2019
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: d76d57c8232aaef4c60ccdc744ce9007f6681648
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 2483faa748faeadf92e2126dd1615d6848adeccf
+ms.sourcegitcommit: 3f266322470d2a3f8fdd4682e854f833466701af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655858"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56222699"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>使用 Azure AD Connect 排查连接问题
 本文说明 Azure AD Connect 与 Azure AD 之间的连接的工作方式，以及如何排查连接问题。 这些问题很有可能出现在包含代理服务器的环境中。
@@ -47,7 +47,7 @@ Azure AD Connect 使用现代身份验证（使用 ADAL 库）来进行身份验
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |用于下载 CRL 列表。 |
 | \*.verisign.com |HTTP/80 |用于下载 CRL 列表。 |
-| \*.entrust.com |HTTP/80 |用于为 MFA 下载 CRL 列表。 |
+| \*.entrust.net |HTTP/80 |用于为 MFA 下载 CRL 列表。 |
 | \*.chinacloudapi.cn |HTTPS/443 |用于登录 Azure AD。 |
 | secure.aadcdn.parter.microsoftonline-p.cn |HTTPS/443 |用于 MFA。 |
 | \*.partner.microsoftonline.cn |HTTPS/443 |用于配置 Azure AD 目录并导入/导出数据。 |
@@ -168,14 +168,42 @@ Azure AD Connect 向 Azure AD 发送导出请求时，在生成响应之前，Az
 ### <a name="authentication-cancelled"></a>身份验证已取消
 多重身份验证 (MFA) 质询已取消。
 
+<div id="connect-msolservice-failed">
+<!--
+  Empty div just to act as an alias for the "Connect To MS Online Failed" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
+
 ### <a name="connect-to-ms-online-failed"></a>未能连接到 MS Online
 身份验证成功，但 Azure AD PowerShell 出现身份验证问题。
+
+<div id="get-msoluserrole-failed">
+<!--
+  Empty div just to act as an alias for the "Azure AD Global Admin Role Needed" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
 
 ### <a name="azure-ad-global-admin-role-needed"></a>需要 Azure AD 全局管理员角色
 用户已成功完成身份验证。 但用户未分配有全局管理员角色。 此处介绍[如何将全局管理员角色分配给](../users-groups-roles/directory-assign-admin-roles.md)用户。 
 
+<div id="privileged-identity-management">
+<!--
+  Empty div just to act as an alias for the "Privileged Identity Management Enabled" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
+
 ### <a name="company-information-unavailable"></a>公司信息不可用
 身份验证成功。 无法从 Azure AD 检索公司信息。
+
+<div id="get-msoldomain-failed">
+<!--
+  Empty div just to act as an alias for the "Domain Information Unavailable" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
 
 ### <a name="domain-information-unavailable"></a>域信息不可用
 身份验证成功。 无法从 Azure AD 检索域信息。
@@ -200,3 +228,4 @@ Azure AD Connect 向 Azure AD 发送导出请求时，在生成响应之前，Az
 ## <a name="next-steps"></a>后续步骤
 了解有关 [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)的详细信息。
 
+<!-- Update_Description: wording update -->

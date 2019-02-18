@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/08/2018
-ms.date: 12/17/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: dac933bbd52e9f0f05ebaf1c7e10e6494da0e660
-ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
+ms.openlocfilehash: 33d12d1a658412e2cd98535805b0eb40fd481e70
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53286773"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306269"
 ---
-# <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的数组和对象函数 
+# <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的数组和对象函数
 
 Resource Manager 提供以下用于处理数组和对象的函数。
 
@@ -47,6 +47,8 @@ Resource Manager 提供以下用于处理数组和对象的函数。
 若要获取由某个值分隔的字符串值数组，请参阅 [split](resource-group-template-functions-string.md#split)。
 
 <a name="array" />
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="array"></a>数组
 `array(convertToArray)`
@@ -120,8 +122,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 要使用 PowerShell 部署此示例模板，请使用：
 
-```PowerShell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/array.json
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/array.json
 ```
 
 <a name="coalesce" />
@@ -208,8 +210,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 要使用 PowerShell 部署此示例模板，请使用：
 
-```PowerShell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/coalesce.json
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/coalesce.json
 ```
 
 <a name="concat" />
@@ -282,8 +284,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 要使用 PowerShell 部署此示例模板，请使用：
 
-```PowerShell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
 ```
 
 以下[示例模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json)演示如何组合两个字符串值并返回串联的字符串。
@@ -322,8 +324,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 要使用 PowerShell 部署此示例模板，请使用：
 
-```PowerShell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
 ```
 
 <a name="contains" />
@@ -416,8 +418,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 要使用 PowerShell 部署此示例模板，请使用：
 
-```PowerShell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
 ```
 
 <a name="createarray" />
@@ -496,8 +498,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 要使用 PowerShell 部署此示例模板，请使用：
 
-```PowerShell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/createarray.json
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/createarray.json
 ```
 
 <a name="empty" />
@@ -575,8 +577,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 要使用 PowerShell 部署此示例模板，请使用：
 
-```PowerShell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
 ```
 
 <a name="first" />
@@ -640,8 +642,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 要使用 PowerShell 部署此示例模板，请使用：
 
-```PowerShell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
 ```
 
 <a name="intersection" />
@@ -719,8 +721,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 要使用 PowerShell 部署此示例模板，请使用：
 
-```PowerShell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
 ```
 
 ## <a name="json"></a>json
@@ -791,8 +793,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 要使用 PowerShell 部署此示例模板，请使用：
 
-```PowerShell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/json.json
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/json.json
 ```
 
 <a name="last" />
@@ -856,8 +858,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 要使用 PowerShell 部署此示例模板，请使用：
 
-```PowerShell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
 ```
 
 <a name="length" />
@@ -928,8 +930,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 要使用 PowerShell 部署此示例模板，请使用：
 
-```PowerShell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
 ```
 
 创建资源时，可在数组中使用此函数指定迭代数。 在以下示例中，参数 **siteNames** 引用创建网站时要使用的名称数组。
@@ -1003,8 +1005,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 要使用 PowerShell 部署此示例模板，请使用：
 
-```PowerShell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
 ```
 
 <a name="min" />
@@ -1067,8 +1069,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 要使用 PowerShell 部署此示例模板，请使用：
 
-```PowerShell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
 ```
 
 <a name="range" />
@@ -1131,8 +1133,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 要使用 PowerShell 部署此示例模板，请使用：
 
-```PowerShell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/range.json
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/range.json
 ```
 
 <a name="skip" />
@@ -1212,8 +1214,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 要使用 PowerShell 部署此示例模板，请使用：
 
-```PowerShell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
 ```
 
 <a name="take" />
@@ -1293,8 +1295,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 要使用 PowerShell 部署此示例模板，请使用：
 
-```PowerShell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
 ```
 
 <a name="union" />
@@ -1372,8 +1374,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 要使用 PowerShell 部署此示例模板，请使用：
 
-```PowerShell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/union.json
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/union.json
 ```
 
 ## <a name="next-steps"></a>后续步骤
@@ -1382,4 +1384,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 * 若要在创建资源类型时迭代指定的次数，请参阅[在 Azure Resource Manager 中创建多个资源实例](resource-group-create-multiple.md)。
 * 若要查看如何部署已创建的模板，请参阅[使用 Azure Resource Manager 模板部署应用程序](resource-group-template-deploy.md)。
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update cmdlet-->

@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/16/2018
-ms.date: 12/17/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 08617a818caabce0c17bfca8459e0b567d0f9e8b
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.openlocfilehash: 6a3b5ba7c5ed23be18400b24720dd2ec4cb94876
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806149"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306127"
 ---
 # <a name="plan-virtual-networks"></a>计划虚拟网络
 
@@ -29,11 +29,12 @@ ms.locfileid: "53806149"
 ## <a name="naming"></a>命名
 
 所有 Azure 资源都有名称。 该名称在一个范围内必须是唯一的，但每种资源类型可能会有所不同。 例如，虚拟网络的名称在[资源组](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group)内必须是唯一的，但可在[订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)或 Azure [区域](https://www.azure.cn/support/service-dashboard/#services)内重复。 当一段时间内管理多个网络资源时，定义命名资源时可一致使用的命名约定很有用。
+
 <!--Not Available on  For suggestions, see [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions?toc=%2fvirtual-network%2ftoc.json#networking)-->
 
 ## <a name="regions"></a>区域
 
-在 Azure 区域和订阅中创建所有 Azure 资源。 只能在与资源位于相同区域和订阅的虚拟网络中创建资源。 但是，可连接存在于不同订阅中的虚拟网络。 有关详细信息，请参阅[连接性](#connectivity)。 在决定要在哪个区域部署资源时，请考虑资源的使用者位于何处：<!--Not Available on 和不同区域 and regions -->
+在 Azure 区域和订阅中创建所有 Azure 资源。 只能在与资源位于相同区域和订阅的虚拟网络中创建资源。 但是，可连接存在于不同订阅和区域中的虚拟网络。 有关详细信息，请参阅[连接性](#connectivity)。 在决定要在哪个区域部署资源时，请考虑资源的使用者位于何处：
 
 - 资源的使用者通常希望其资源的网络延迟最低。 若要确定指定位置与 Azure 区域之间的相对延迟，请参阅[查看相对延迟](../network-watcher/view-relative-latencies.md?toc=%2fvirtual-network%2ftoc.json)。
 - 是否有数据驻留、主权、符合性或复原能力需求？ 如果有，选择符合需求的区域至关重要。 
@@ -44,6 +45,7 @@ ms.locfileid: "53806149"
 ## <a name="subscriptions"></a>订阅
 
 可根据需要在每个订阅中部署尽可能多的虚拟网络，直至达到[上限](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#networking-limits)。 例如，一些组织的不同部门有不同的订阅。 
+
 <!-- Not Available on For more information and considerations around subscriptions, see [Subscription governance](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/subscription-governance#define-your-hierarchy)-->
 
 ## <a name="segmentation"></a>分段
@@ -58,7 +60,7 @@ ms.locfileid: "53806149"
 - 是否存在将虚拟网络隔离到单独的[订阅](#subscriptions)或[区域](#regions)的组织需求？
 - [网络接口](virtual-network-network-interface.md)使 VM 能够与其他资源进行通信。 可为每个网络接口分配一个或多个专用 IP 地址。 虚拟网络中需要多少个网络接口和[专用 IP 地址](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses)？ 在虚拟网络中可以拥有的网络接口和专用 IP 地址数有[上限](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#networking-limits)。
 - 是否要将虚拟网络连接到其他虚拟网络或本地网络？ 可选择将某些虚拟网络互相连接或连接到本地网络，而不是其他网络。 有关详细信息，请参阅[连接性](#connectivity)。 连接到另一个虚拟网络或本地网络的每个虚拟网络必须具有唯一的地址空间。 每个虚拟网络都向其地址空间分配了一个或多个公共和专用地址范围。 地址范围以无类别的 Internet 域路由 (CIDR) 格式指定，例如 10.0.0.0/16。 详细了解虚拟网络的[地址范围](manage-virtual-network.md#add-or-remove-an-address-range)。
-- 是否对不同虚拟网络中的资源有任何组织管理需求？ 如果有，可将资源分隔到单独的虚拟网络中，以简化组织中个人的[权限分配](#permissions)，或将不同的[策略](#policies)分配给不同的虚拟网络。
+- 是否对不同虚拟网络中的资源有任何组织管理需求？ 如果有，可将资源分隔到单独的虚拟网络中，以简化组织中个体的[权限分配](#permissions)，或将不同的策略分配给不同的虚拟网络。
 - 将某些 Azure 服务资源部署到虚拟网络时，他们将创建自己的虚拟网络。 若要确定 Azure 服务是否创建自己的虚拟网络，请参阅每个[可部署到虚拟网络中的 Azure 服务](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network)的信息。
 
 ### <a name="subnets"></a>子网
@@ -83,6 +85,7 @@ ms.locfileid: "53806149"
 - Azure 在每个网络安全组中创建了多个默认安全规则。 其中一个默认规则允许所有流量在虚拟网络中的所有资源之间流动。 若要替代此行为，可使用网络安全组和/或自定义路由将流量路由到 NVA。 建议熟悉 Azure 的所有[默认安全规则](security-overview.md#default-security-rules)，并了解网络安全组规则如何应用于资源。
 
 可查看使用[网络安全组](virtual-networks-dmz-nsg.md)在 Azure 和 Internet 之间实施外围网络的示例设计。
+
 <!--Not Available on an [NVA](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json)-->
 
 ### <a name="traffic-routing"></a>流量路由
@@ -99,9 +102,8 @@ Azure 为子网中的出站流量创建多个默认路由。 可通过创建路�
 
 ### <a name="peering"></a>对等互连
 
-使用[虚拟网络对等互连](virtual-network-peering-overview.md)时，虚拟网络可位于相同的受支持 Azure 区域中。 虚拟网络可位于相同或不同的 Azure 订阅中（即使订阅属于不同的 Azure Active Directory 租户）。 建立对等之前，建议熟悉所有对等[需求和约束](virtual-network-manage-peering.md#requirements-and-constraints)。 同一区域的对等互连虚拟网络中的资源之间的带宽与资源在同一虚拟网络中的带宽相同。
+使用[虚拟网络对等](virtual-network-peering-overview.md)时，虚拟网络可位于相同的或不同的受支持 Azure 区域中。 虚拟网络可位于相同或不同的 Azure 订阅中（即使订阅属于不同的 Azure Active Directory 租户）。 建立对等之前，建议熟悉所有对等[需求和约束](virtual-network-manage-peering.md#requirements-and-constraints)。 同一区域的对等互连虚拟网络中的资源之间的带宽与资源在同一虚拟网络中的带宽相同。
 
-<!-- Not Available gloabl peering in different region-->
 ### <a name="vpn-gateway"></a>VPN 网关
 
 可通过[站点到站点 VPN ](../vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md?toc=%2fvirtual-network%2ftoc.json)或与 Azure [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fvirtual-network%2ftoc.json) 的专用连接，使用 Azure [VPN 网关](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fvirtual-network%2ftoc.json)将虚拟网络连接到本地网络。
@@ -110,6 +112,7 @@ Azure 为子网中的出站流量创建多个默认路由。 可通过创建路�
 ### <a name="name-resolution"></a>名称解析
 
 一个虚拟网络中的资源无法使用 Azure 的[内置 DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md) 来解析对等互连虚拟网络中的资源名称。 若要在对等互连虚拟网络中解析名称，请[部署自己的 DNS 服务器](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)或使用 Azure DNS 专用域。 在虚拟网络和本地网络的资源之间解析名称也需要部署自己的 DNS 服务器。
+
 <!--Not Available on [private domains](../dns/private-dns-overview.md?toc=%2fvirtual-network%2ftoc.json)-->
 
 ## <a name="permissions"></a>权限

@@ -3,7 +3,7 @@ title: 快速入门 - 使用 Azure 模板创建 Linux 虚拟机规模集 | Micro
 description: 了解如何使用 Azure 资源管理器模板来部署示例应用和配置自动缩放规则，以便快速创建 Linux 虚拟机规模集
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
 origin.date: 03/27/18
-ms.date: 01/16/2019
+ms.date: 02/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: f2f1f03ecc97554b8ec87d17035d3aa04403cb01
-ms.sourcegitcommit: e79651227d4378e6d24f9ab155b9f4fee044b2c0
+ms.openlocfilehash: 2341d615c090bcc3bebfd545e545acdb3143095b
+ms.sourcegitcommit: 24dd5964eafbe8aa4badbca837c2a1a7836f2df7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334283"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56101589"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>快速入门：使用 Azure 模板创建 Linux 虚拟机规模集
 利用虚拟机规模集，可以部署和管理一组相同的、自动缩放的虚拟机。 可以手动缩放规模集中的 VM 数，也可以定义规则，以便根据资源使用情况（如 CPU 使用率、内存需求或网络流量）进行自动缩放。 然后，Azure 负载均衡器会将流量分配到规模集中的 VM 实例。 在本快速入门中，我们将使用 Azure 资源管理器模板创建虚拟机规模集并部署一个示例应用程序。
@@ -136,7 +136,7 @@ Azure 资源管理器模板允许部署成组的相关资源。 模板以 JavaSc
 
 [![将模板部署到 Azure](./media/virtual-machine-scale-sets-create-template/deploy-button.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-bottle-autoscale%2Fazuredeploy.json)
 
-也可使用 Azure CLI 通过 [az group deployment create](/cli/group/deployment#az_group_deployment_create) 命令安装基于 Linux 的 Python HTTP 服务器，如下所示：
+也可使用 Azure CLI 通过 [az group deployment create](/cli/group/deployment) 命令安装基于 Linux 的 Python HTTP 服务器，如下所示：
 
 ```azurecli
 # Create a resource group
@@ -152,7 +152,7 @@ az group deployment create \
 
 
 ## <a name="test-your-scale-set"></a>测试规模集
-若要规模集的运行方式，请在 Web 浏览器中访问示例 Web 应用程序。 使用 [az network public-ip list](/cli/network/public-ip#show) 命令获取负载均衡器的公共 IP 地址，如下所示：
+若要规模集的运行方式，请在 Web 浏览器中访问示例 Web 应用程序。 使用 [az network public-ip list](/cli/network/public-ip) 命令获取负载均衡器的公共 IP 地址，如下所示：
 
 ```azurecli
 az network public-ip list \
@@ -166,7 +166,7 @@ az network public-ip list \
 
 
 ## <a name="clean-up-resources"></a>清理资源
-如果不再需要资源组、规模集和所有相关的资源，可以使用 [az group delete](/cli/group#az_group_delete) 命令将其删除，如下所示。 `--no-wait` 参数会使光标返回提示符处，不会等待操作完成。 `--yes` 参数将确认是否希望删除资源，不会显示询问是否删除的额外提示。
+如果不再需要资源组、规模集和所有相关的资源，可以使用 [az group delete](/cli/group) 命令将其删除，如下所示。 `--no-wait` 参数会使光标返回提示符处，不会等待操作完成。 `--yes` 参数将确认是否希望删除资源，不会显示询问是否删除的额外提示。
 
 ```azurecli
 az group delete --name myResourceGroup --yes --no-wait
@@ -179,4 +179,4 @@ az group delete --name myResourceGroup --yes --no-wait
 > [!div class="nextstepaction"]
 > [创建和管理 Azure 虚拟机规模集](tutorial-create-and-manage-cli.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

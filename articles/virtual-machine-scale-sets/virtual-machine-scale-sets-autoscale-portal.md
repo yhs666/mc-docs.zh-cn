@@ -3,7 +3,7 @@ title: 在 Azure 门户中自动缩放虚拟机规模集 | Microsoft Docs
 description: 如何在 Azure 门户中为虚拟机规模集创建自动缩放规则
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/29/2018
-ms.date: 11/29/2018
+ms.date: 02/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: 26c3afca9b84bce68b670f2ed112816b86b2e58f
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 72a514afe07585e00e0ec77026969ec0f338d8e8
+ms.sourcegitcommit: 24dd5964eafbe8aa4badbca837c2a1a7836f2df7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672873"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56101603"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>在 Azure 门户中自动缩放虚拟机规模集
 创建规模集时，可定义想运行的 VM 实例数。 若应用程序需要更改，可自动增加或减少 VM 实例数。 通过自动缩放功能，可随客户需求的改变而进行调整，或在应用的整个生命周期内响应应用程序性能更改。

@@ -13,14 +13,14 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 origin.date: 11/14/2017
-ms.date: 01/14/2019
+ms.date: 02/25/2019
 ms.author: v-yiso
-ms.openlocfilehash: d23415af602db41660fdc2e0d333216a2a3e83ff
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: 65d801b91553f91a761a082da4c8d46cf765c024
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029171"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56303013"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>大规模提取、转换和加载 (ETL)
 

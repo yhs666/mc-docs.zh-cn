@@ -1,5 +1,5 @@
 ---
-title: Azure 流量管理器 - 常见问题 | Azure
+title: Azure 流量管理器 - 常见问题解答
 description: 本文提供有关流量管理器的常见问题解答
 services: traffic-manager
 documentationcenter: ''
@@ -10,14 +10,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/18/2018
-ms.date: 01/21/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: d0ea71897b20e4a8d6b7698f66126a03bdb24b53
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: b1bc5c399ac21c0ca79f2fd72557232f294d388a
+ms.sourcegitcommit: e32c8da268002b94c500131bb361fd6afc85ce9f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193138"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306734"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>流量管理器常见问题解答 (FAQ)
 
@@ -86,7 +86,7 @@ ms.locfileid: "54193138"
 <!-- Not Available on Traffice Manager metric-->
 <!-- Not Available 
 ### How can I understand the volume of queries coming to my profile? 
-One of the metrics provided by Traffic Manager is the number of query responded by a profile. You can get this information at a profile level aggregation or you can split it up further to see the volume of queries where specific endpoints were returned. In addition, you can setup alerts to notify you if the query response volume crosses the conditions you have set. For more details, [Traffic Manager metrics and alerts](traffic-manager-metrics-alerts.md).
+One of the metrics provided by Traffic Manager is the number of queries responded by a profile. You can get this information at a profile level aggregation or you can split it up further to see the volume of queries where specific endpoints were returned. In addition, you can set up alerts to notify you if the query response volume crosses the conditions you have set. For more details, [Traffic Manager metrics and alerts](traffic-manager-metrics-alerts.md).
 -->
 
 ## <a name="traffic-manager-geographic-traffic-routing-method"></a>流量管理器的“地理”流量路由方法
@@ -99,9 +99,11 @@ One of the metrics provided by Traffic Manager is the number of query responded 
 >[!NOTE]
 >在某些场景中，你可能同时需要性能和地理路由功能，对于这些场景，嵌套式配置文件可能是不错的选择。 
 
-### <a name="what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing"></a>进行地理路由时，流量管理器支持哪些区域？ 
-更改会在此页进行更新，不过，也可以通过 [Azure 流量管理器 REST API](https://docs.microsoft.com/rest/api/trafficmanager/) 以编程方式检索相同的信息。 
-<!--Not Available on [here](traffic-manager-geographic-regions.md)-->
+<!-- Not Available on Traffice Manager geographic-->
+<!-- Not Available 
+### What are the regions that are supported by Traffic Manager for geographic routing? 
+The country/region hierarchy that is used by Traffic Manager can be found [here](traffic-manager-geographic-regions.md). While this page is kept up-to-date with any changes, you can also programmatically retrieve the same information by using the [Azure Traffic Manager REST API](https://docs.microsoft.com/rest/api/trafficmanager/). 
+-->
 
 ### <a name="how-does-traffic-manager-determine-where-a-user-is-querying-from"></a>流量管理器如何确定用户从何处进行查询？ 
 流量管理器会查看查询的源 IP（很可能是本地 DNS 解析程序在代表用户执行查询），并使用内部 IP 通过区域映射的方式确定位置。 该映射会随时更新，以反映 Internet 中的变化。 
@@ -115,6 +117,7 @@ One of the metrics provided by Traffic Manager is the number of query responded 
 
 ###  <a name="does-an-endpoint-need-to-be-physically-located-in-the-same-region-as-the-one-it-is-configured-with-for-geographic-routing"></a>是否需将终结点与进行地理路由时用来进行配置的终结点置于同一区域？ 
 否。终结点的位置不会限制可以向其映射哪些区域。 
+
 <!--Not Available on For example, an endpoint in US-Central Azure region can have all users from India directed to it.-->
 
 ### <a name="can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-is-not-configured-to-do-geographic-routing"></a>是否可以将地理区域分配给某个配置文件中的终结点，而该配置文件尚未进行地理路由所需的配置？ 
@@ -310,6 +313,7 @@ Azure Resource Manager 要求所有资源组指定一个位置，这决定了部
 ### How can I get notified if one of my endpoints goes down? 
 One of the metrics provided by Traffic Manager is the health status of endpoints in a profile. You can see this as an aggregate of all endpoints inside a profile (for example, 75% of your endpoints are healthy), or, at a per endpoint level. Traffic Manager metrics are exposed through Azure Monitor and you can use its [alerting capabilities](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) to get notifications when there is a change in the health status of your endpoint. For more details, see [Traffic Manager metrics and alerts](traffic-manager-metrics-alerts.md).  
 -->
+
 ## <a name="traffic-manager-nested-profiles"></a>流量管理器嵌套式配置文件
 
 ### <a name="how-do-i-configure-nested-profiles"></a>如何配置嵌套式配置文件？

@@ -10,13 +10,13 @@ ms.reviewer: klam
 ms.assetid: 52aa6ae1-4c3d-43fb-81b0-6792c84bcfae
 ms.topic: hero-article
 origin.date: 09/17/2018
-ms.date: 11/12/2018
-ms.openlocfilehash: fd262612542b04db3c823c7cc637df4dbd839cd0
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 02/18/2019
+ms.openlocfilehash: 5c77d9f0ef6512262a5f0537d9b4b0233bc43309
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647386"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302938"
 ---
 # <a name="what-is-azure-scheduler"></a>什么是 Azure 计划程序？
 
@@ -27,11 +27,11 @@ ms.locfileid: "52647386"
 
 虽然可以使用计划程序来创建、维护和运行安排的工作负载，但计划程序不会托管工作负载或运行代码。 该服务仅*调用*在其他位置托管的服务或代码，例如，在 Azure 中或本地托管，或与其他提供程序一起托管。 计划程序可以通过 HTTP、HTTPS、存储队列、服务总线队列或服务总线主题进行调用。 若要创建、管理和安排作业，可以使用 [Azure 门户](../scheduler/scheduler-get-started-portal.md)、代码、[计划程序 REST API](https://docs.microsoft.com/rest/api/scheduler/) 或 [Azure 计划程序 PowerShell cmdlet 参考](scheduler-powershell-reference.md)。 例如，可以使用脚本以及在 Azure 门户中以编程方式创建、查看、更新、管理或删除作业和[作业集合](../scheduler/scheduler-concepts-terms.md)。
 
-其他 Azure 计划功能也在后台使用计划程序，例如，[Azure WebJobs](../app-service/web-sites-create-web-jobs.md)，这是 Azure 应用服务中的一个 [Web 应用](/app-service/app-service-web-overview)功能。 可以使用[计划程序 REST API](https://docs.microsoft.com/rest/api/scheduler/) 管理这些操作的通信。 帮助管理这些操作的通信。
+其他 Azure 计划功能也在后台使用计划程序，例如，[Azure WebJobs](../app-service/webjobs-create.md)，这是 Azure 应用服务中的一个 [Web 应用](/app-service/app-service-web-overview)功能。 可以使用[计划程序 REST API](https://docs.microsoft.com/rest/api/scheduler/) 管理这些操作的通信。 帮助管理这些操作的通信。
 
 计划程序可在以下方案中提供帮助：
 
-* **运行重复应用操作**：例如，定期将数据从 Twitter 收集到源中。
+* **运行重复执行的应用操作**：例如，定期将数据从 Twitter 收集到源中。
 
 * **执行日常维护**：例如每天删改日志、执行备份和其他维护任务。 
 

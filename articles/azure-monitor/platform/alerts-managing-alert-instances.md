@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: bcfade8b61927759f22e409169cf63f05e6429e4
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.openlocfilehash: 7d096c7d477cbaa843c38c033f8bf6b36dcc27f9
+ms.sourcegitcommit: e38a4405fea7606b01e5fa143e2069d93043da97
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141728"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56334181"
 ---
 # <a name="manage-alert-instances"></a>管理警报实例
 使用 Azure Monitor 中的[统一警报体验](https://aka.ms/azure-alerts-overview)，现在可以看到你在 Azure 中的所有不同类型的警报，这些警报来自多个订阅，显示在单个窗格中。 本文分步介绍了如何查看警报实例，以及如何深入门户来查找特定的警报实例以进行故障排除。
 
 1. 有三种方式可登陆到“警报”页面
 
-   + 在[门户](https://portal.azure.com/)中选择“监视器”，然后在“监视器”部分下选择“警报”。  
+   + 在[门户](https://portal.azure.cn/)中选择“监视器”，然后在“监视器”部分下选择“警报”。  
     ![监视](media/alerts-managing-alert-instances/monitoring-alerts-managing-alert-instances-toc.jpg)
   
    + 可以从特定**资源**的上下文中导航到“警报”。 打开某个资源后，在其目录中导航到“监视”部分，选择“警报”，登陆页面将针对该特定资源的警报进行预先筛选。

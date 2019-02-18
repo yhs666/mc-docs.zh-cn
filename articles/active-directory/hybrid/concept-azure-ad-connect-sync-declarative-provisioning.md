@@ -1,27 +1,27 @@
 ---
-title: Azure AD Connect：了解声明性预配 | Microsoft Docs
+title: Azure AD Connect：了解声明性预配 | Microsoft 文档
 description: 介绍 Azure AD Connect 中的声明性预配配置模型。
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 07/13/2017
-ms.date: 11/08/2018
-ms.component: hybrid
+ms.date: 02/13/2019
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 30f9bb0b7d07337e87a1c5f72f0ff9cf20783d62
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 7be1e3fd912fcfdf311431a82ed67be93a883f2e
+ms.sourcegitcommit: 3f266322470d2a3f8fdd4682e854f833466701af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661892"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56222703"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect 同步：了解声明性预配
 本主题介绍 Azure AD Connect 中的配置模型。 该模型称为声明性预配，让用户能够轻松地更改配置。 本主题介绍的许多内容都是高级内容，在大部分客户方案中并非必要。
@@ -38,7 +38,7 @@ ms.locfileid: "52661892"
 - 源：源对象
 - [范围](#scope)：查找范围内的所有同步规则
 - [联接](#join)：确定连接器空间与 metaverse 之间的关系
-- [转换](#transform)：计算属性应如何转换和流动
+- 转换：计算属性应如何转换和流动
 - [优先级](#precedence)：解决冲突的属性提供问题
 - 目标：目标对象
 
@@ -92,7 +92,7 @@ ms.locfileid: "52661892"
 删除 metaverse 对象后，所有与标记为“预配”  的出站同步规则关联的对象都会标记为要删除。
 
 ## <a name="transformations"></a>转换
-转换用于定义属性应该如何从源流动到目标。 流可以是以下 **流类型**之一：直接、常数或表达式。 直接流会按原样流动属性值，而不进行其他转换。 常数值会设置指定的值。 表达式会使用声明性预配表达式语言来表达应该如何转换。 有关表达式语言的详细信息，请参阅[了解声明性预配表达式语言](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)主题。
+转换用于定义属性应该如何从源流动到目标。 流可以是以下“流类型”之一：直接、常数或表达式。 直接流会按原样流动属性值，而不进行其他转换。 常数值会设置指定的值。 表达式会使用声明性预配表达式语言来表达应该如何转换。 有关表达式语言的详细信息，请参阅[了解声明性预配表达式语言](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)主题。
 
 ![预配或联接](./media/concept-azure-ad-connect-sync-declarative-provisioning/transformations1.png)  
 
@@ -166,3 +166,4 @@ ms.locfileid: "52661892"
 
 - [Azure AD Connect 同步：函数引用](reference-connect-sync-functions-reference.md)
 
+<!-- Update_Description: link update -->

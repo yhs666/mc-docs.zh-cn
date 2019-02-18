@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 origin.date: 05/15/2017
-ms.date: 01/21/2019
+ms.date: 02/25/2019
 ms.author: v-yiso
-ms.openlocfilehash: c4ef8ece3ec8f42a33b98e0b79cadc26b1943e73
-ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
+ms.openlocfilehash: 1edcc59263d1b7bb6ca8cf7754fe967b6862e60d
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216274"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56303076"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure 云服务和 ASP.NET 入门
 
@@ -440,7 +440,7 @@ Web 角色项目和辅助角色项目的 azure 存储帐户连接字符串存储
 
     ![角色属性](./media/cloud-services-dotnet-get-started/roleproperties.png)
 
-4. 在“ContosAdsWeb 角色”属性窗口中，单击“设置”选项卡，并单击“添加设置”。
+4. 在“ContosoAdsWeb [角色]”属性窗口中，单击“设置”选项卡，并单击“添加设置”。
 
     将“服务配置”保留设置为“所有配置”。
 5. 添加名为 *StorageConnectionString* 的设置。 将“类型”设置为 *ConnectionString*，并将“值”设置为 *UseDevelopmentStorage=true*。

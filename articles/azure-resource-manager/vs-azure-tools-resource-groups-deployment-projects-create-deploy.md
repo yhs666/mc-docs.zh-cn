@@ -12,21 +12,25 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/02/2018
-ms.date: 09/24/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 423161feb42d13b7a5b8263c30b5b6d7f7f19521
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f68dad2f11f0bdae2da3b9f77c7ab7a2bd345119
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662349"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306254"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>通过 Visual Studio 创建和部署 Azure 资源组
+
 使用 Visual Studio 可以创建一个项目，用于将基础结构和代码部署到 Azure。 例如，可以为应用定义 Web 主机、网站和数据库，并将该基础结构与代码一起部署。 Visual Studio 许多不同的入门模板用于部署常见方案。 本文部署 Web 应用和 SQL 数据库。  
 
 本文介绍如何使用[装有 Azure 开发和 ASP.NET 工作负荷的 Visual Studio 2017](https://docs.azure.cn/zh-cn/dotnet/dotnet-tools?view=azure-dotnet)。 如果使用 Visual Studio 2015 Update 2 以及用于 .NET 2.9 的 Azure SDK，或者将 Visual Studio 2013 与 Azure SDK 2.9 配合使用，则体验大致相同。
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="create-azure-resource-group-project"></a>创建 Azure 资源组项目
+
 在本部分，我们将使用“Web 应用 + SQL”模板创建 Azure 资源组项目。
 
 1. 在 Visual Studio 中，依次选择“文件”、“新建项目”，选择 **C#** 或 **Visual Basic**（选择哪种语言对以后的阶段没有任何影响，因为这些项目仅包含 JSON 和 PowerShell 的内容）。 然后选择“云”和“Azure 资源组”项目。
@@ -133,7 +137,7 @@ Visual Studio 还提供 intellisense，帮助你了解在编辑模板时哪些�
     ![编辑参数按钮](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/edit-parameters.png)
 4. 提供空值参数的值，并选择“保存”按钮。 空值参数为 **hostingPlanName**、**administratorLogin**、**administratorLoginPassword** 和 **databaseName**。
 
-    **hostingPlanName** 指定要创建的 [应用服务计划](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) 的名称。 
+    **hostingPlanName** 指定要创建的 [应用服务计划](../app-service/overview-hosting-plans.md) 的名称。 
 
     **administratorLogin** 指定 SQL Server 管理员的用户名。 请勿使用常用的管理员名称，如 **sa** 或 **admin**。 
 
@@ -145,7 +149,7 @@ Visual Studio 还提供 intellisense，帮助你了解在编辑模板时哪些�
 5. 选择“部署”按钮将项目部署到 Azure。 PowerShell 控制台会在 Visual Studio 实例外部打开。 出现密码输入提示时，在 PowerShell 控制台中输入 SQL Server 管理员密码。 **PowerShell 控制台可能隐藏在其他项目后面或最小化到任务栏。** 查找此控制台，选择它以提供密码。
 
     > [!NOTE]
-    > Visual Studio 可能会要求安装 Azure PowerShell cmdlet。 需要安装 Azure PowerShell cmdlet 才能成功部署资源组。 如果出现提示，请安装 Azure PowerShell cmdlet。 有关详细信息，请参阅[安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
+    > Visual Studio 可能会要求安装 Azure PowerShell cmdlet。 需要安装 Azure PowerShell cmdlet 才能成功部署资源组。 如果出现提示，请安装 Azure PowerShell cmdlet。 有关详细信息，请参阅[安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)。
     > 
     > 
 6. 该部署可能需要几分钟时间。 在“输出”  窗口中，可以看到部署的状态。 完成部署后，最后一条消息指示部署成功，其内容与下面的消息类似：
@@ -304,7 +308,9 @@ Visual Studio 还提供 intellisense，帮助你了解在编辑模板时哪些�
     ![自定义仪表板](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/Ops-DemoSiteGroup-dashboard.png)
 
     可以使用 RBAC 组管理对仪表板的访问权限。 部署后，还可以自定义仪表板的外观。 但是，如果重新部署资源组，则模板中的仪表板将重置为其默认状态。
+    
     <!--Not Available on [Programmatically create Azure Dashboards](../azure-portal/azure-portal-dashboards-create-programmatically.md)-->
+
 ## <a name="next-steps"></a>后续步骤
 
 在本快速入门中，你学习了如何使用 Visual Studio 创建和部署模板。 下一教程介绍如何从模板参考中查找信息，以便创建加密的 Azure 存储帐户。

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: na
 ms.topic: article
 origin.date: 08/24/2017
-ms.date: 01/16/2019
+ms.date: 02/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: 65bfe2a30a33f99fdcd6436e1f1f710c54616dc8
-ms.sourcegitcommit: e79651227d4378e6d24f9ab155b9f4fee044b2c0
+ms.openlocfilehash: 6e0e7972a5eaeba49d19a16f7388079e17944929
+ms.sourcegitcommit: c353902162a12f21aecbcbcde89f92c7ff9de441
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334278"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56096550"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>如何为高级 Azure Redis 缓存配置数据暂留
 Azure Redis 缓存具有不同的缓存产品/服务，从而在缓存大小和功能（包括群集、暂留和虚拟网络支持等高级层功能）的选择上具有灵活性。 本文介绍如何配置高级 Azure Redis 缓存实例中的暂留功能。
@@ -134,7 +134,7 @@ AOF 暂留将每个写入保存到日志，与 RDB 暂留相比，这对吞吐�
 - 如果缩放到更小的大小，并且更小的大小空间不足，无法容纳上次备份的所有数据，则在还原过程中，通常会使用 [allkeys-lru](https://redis.io/topics/lru-cache) 逐出策略逐出密钥。
 
 ### <a name="can-i-change-the-rdb-backup-frequency-after-i-create-the-cache"></a>创建缓存后是否可更改 RDB 备份频率？
-可以，可在“Redis 数据暂留”边栏选项卡上更改 RDB 暂留的备份频率。 有关说明，请参阅[配置 Redis 暂留](#configure-redis-persistence)。
+可以，可在“Redis 数据暂留”边栏选项卡上更改 RDB 暂留的备份频率。 有关说明，请参阅“配置 Redis 暂留”。
 
 ### <a name="why-if-i-have-an-rdb-backup-frequency-of-60-minutes-there-is-more-than-60-minutes-between-backups"></a>为何我的 RDB 备份频率为 60 分钟，而两次备份的间隔却超过 60 分钟？
 RDB 暂留备份频率间隔在先前备份过程已成功完成后才会开始。 如果备份频率为 60 分钟，而备份过程需要 15 分钟才能成功完成，则在上一次备份开始以后，要再过 75 分钟才会开始下一次备份。

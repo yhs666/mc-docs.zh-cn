@@ -8,15 +8,15 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
 origin.date: 07/14/2018
-ms.date: 01/15/2019
+ms.date: 02/11/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: bb17f0b6d6eb53e8a6daa7658d28cfa05ed186ef
-ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
+ms.openlocfilehash: 531c210a9d56afcb7870d6bcea26a06ac4e5710d
+ms.sourcegitcommit: 713cf33290efd4ccc7a3eab2668e3ceb0b51686f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54333857"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56079661"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>教程：通过 Azure CLI 使用基于 URL 路径的重定向创建应用程序网关
 
@@ -42,7 +42,7 @@ ms.locfileid: "54333857"
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-资源组是在其中部署和管理 Azure 资源的逻辑容器。 使用 [az group create](/cli/group#create) 创建资源组。
+资源组是在其中部署和管理 Azure 资源的逻辑容器。 使用 [az group create](/cli/group) 创建资源组。
 
 以下示例在“chinanorth”位置创建名为“myResourceGroupAG”的资源组。
 
@@ -52,7 +52,7 @@ az group create --name myResourceGroupAG --location chinanorth
 
 ## <a name="create-network-resources"></a>创建网络资源 
 
-使用 [az network vnet create](/cli/network/vnet#az-net) 创建名为 *myVNet* 的虚拟网络和名为 *myAGSubnet* 的子网。 然后，可以使用 [az network vnet subnet create](/cli/network/vnet/subnet#az-network_vnet_subnet_create) 添加后端服务器所需的名为 *myBackendSubnet* 的子网。 使用 [az network public-ip create](/cli/network/public-ip#az-network_public_ip_create) 创建名为 *myAGPublicIPAddress* 的公共 IP 地址。
+使用 [az network vnet create](/cli/network/vnet) 创建名为 *myVNet* 的虚拟网络和名为 *myAGSubnet* 的子网。 然后，可以使用 [az network vnet subnet create](/cli/network/vnet/subnet) 添加后端服务器所需的名为 *myBackendSubnet* 的子网。 使用 [az network public-ip create](/cli/network/public-ip) 创建名为 *myAGPublicIPAddress* 的公共 IP 地址。
 
 ```azurecli
 az network vnet create \
@@ -76,7 +76,7 @@ az network public-ip create \
 
 ## <a name="create-an-application-gateway"></a>创建应用程序网关
 
-使用 [az network application-gateway create](/cli/network/application-gateway#create) 创建名为 myAppGateway 的应用程序网关。 使用 Azure CLI 创建应用程序网关时，请指定配置信息，例如容量、sku 和 HTTP 设置。 将应用程序网关分配给之前创建的 *myAGSubnet* 和 *myPublicIPAddress*。
+使用 [az network application-gateway create](/cli/network/application-gateway) 创建名为 myAppGateway 的应用程序网关。 使用 Azure CLI 创建应用程序网关时，请指定配置信息，例如容量、sku 和 HTTP 设置。 将应用程序网关分配给之前创建的 *myAGSubnet* 和 *myPublicIPAddress*。
 
 ```azurecli
 az network application-gateway create \
@@ -105,7 +105,7 @@ az network application-gateway create \
 
 ### <a name="add-backend-pools-and-ports"></a>添加后端池和端口
 
-可以使用 [az network application-gateway address-pool create](/cli/network/application-gateway#az-network_application_gateway_address-pool_create) 将名为 *imagesBackendPool* 和 *videoBackendPool* 的后端地址池添加到应用程序网关。 使用 [az network application-gateway frontend-port create](/cli/network/application-gateway#az-network_application_gateway_frontend_port_create) 为池添加前端端口。 
+可以使用 [az network application-gateway address-pool create](/cli/network/application-gateway/address-pool) 将名为 *imagesBackendPool* 和 *videoBackendPool* 的后端地址池添加到应用程序网关。 使用 [az network application-gateway frontend-port create](/cli/network/application-gateway/frontend-port) 为池添加前端端口。 
 
 ```azurecli
 az network application-gateway address-pool create \
@@ -135,7 +135,7 @@ az network application-gateway frontend-port create \
 
 ### <a name="add-listeners"></a>添加侦听器
 
-使用 [az network application-gateway http-listener create](/cli/network/application-gateway#az-network_application_gateway_http_listener_create) 添加路由流量所需的名为 *backendListener* 和 *redirectedListener* 的后端侦听器。
+使用 [az network application-gateway http-listener create](/cli/network/application-gateway/http-listener) 添加路由流量所需的名为 *backendListener* 和 *redirectedListener* 的后端侦听器。
 
 
 ```azurecli
@@ -156,7 +156,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-default-url-path-map"></a>添加默认 URL 路径映射
 
-URL 路径映射可确保将特定的 URL 路由到特定的后端池。 可以分别使用 [az network application-gateway url-path-map create](/cli/network/application-gateway#az-network_application_gateway_url_path_map_create) 和 [az network application-gateway url-path-map rule create](/cli/network/application-gateway#az-network_application_gateway_url_path_map_rule_create) 创建名为 *imagePathRule* 和 *videoPathRule* 的 URL 路径映射
+URL 路径映射可确保将特定的 URL 路由到特定的后端池。 可以分别使用 [az network application-gateway url-path-map create](/cli/network/application-gateway/url-path-map) 和 [az network application-gateway url-path-map rule create](/cli/network/application-gateway/url-path-map/rule) 创建名为 *imagePathRule* 和 *videoPathRule* 的 URL 路径映射
 
 ```azurecli
 az network application-gateway url-path-map create \
@@ -181,7 +181,7 @@ az network application-gateway url-path-map rule create \
 
 ### <a name="add-redirection-configuration"></a>添加重定向配置
 
-可以使用 [az network application-gateway redirect-config create](/cli/network/application-gateway#az-network_application_gateway_redirect_config_create) 为侦听器配置重定向。
+可以使用 [az network application-gateway redirect-config create](/cli/network/application-gateway/redirect-config) 为侦听器配置重定向。
 
 ```azurecli
 az network application-gateway redirect-config create \
@@ -208,7 +208,7 @@ az network application-gateway url-path-map create \
 
 ### <a name="add-routing-rules"></a>添加路由规则
 
-路由规则可将 URL 路径映射与所创建的侦听器相关联。 可以使用 [az network application-gateway rule create](/cli/network/application-gateway#az-network_application_gateway_rule_create) 添加名为 *defaultRule* 和 *redirectedRule* 的规则。
+路由规则可将 URL 路径映射与所创建的侦听器相关联。 可以使用 [az network application-gateway rule create](/cli/network/application-gateway/rule) 添加名为 *defaultRule* 和 *redirectedRule* 的规则。
 
 ```azurecli
 az network application-gateway rule create \
@@ -282,7 +282,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>测试应用程序网关
 
-若要获取应用程序网关的公共 IP 地址，请使用 [az network public-ip show](/cli/network/public-ip#az-network_public_ip_show)。 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。 例如， *http://40.121.222.19*、 *http://40.121.222.19:8080/images/test.htm*、 *http://40.121.222.19:8080/video/test.htm* 或 *http://40.121.222.19:8081/images/test.htm*。
+若要获取应用程序网关的公共 IP 地址，请使用 [az network public-ip show](/cli/network/public-ip#az-network-public-ip-show)。 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。 例如， *http://40.121.222.19*、 *http://40.121.222.19:8080/images/test.htm*、 *http://40.121.222.19:8080/video/test.htm* 或 *http://40.121.222.19:8081/images/test.htm*。
 
 ```azurepowershell
 az network public-ip show \
@@ -316,4 +316,4 @@ az group delete --name myResourceGroupAG --location chinanorth
 > [!div class="nextstepaction"]
 > [详细了解应用程序网关的作用](application-gateway-introduction.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

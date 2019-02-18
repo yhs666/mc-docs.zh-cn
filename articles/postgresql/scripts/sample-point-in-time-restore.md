@@ -8,13 +8,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 origin.date: 02/28/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: c045c35ae369ae58006f28c7efa682192c21abf5
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.date: 02/18/2019
+ms.openlocfilehash: b509ef19e240e37ce324f1c9a5bcc82eff59707d
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806263"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302909"
 ---
 # <a name="restore-an-azure-database-for-postgresql-server-using-azure-cli"></a>使用 Azure CLI 还原 Azure Database for PostgreSQL 服务器
 此示例 CLI 脚本可将单个 Azure Database for PostgreSQL 服务器还原到前一个时间点。
@@ -64,10 +64,10 @@ az group delete --name myresourcegroup
 
 | **命令** | **说明** |
 |---|---|
-| [az group create](/cli/group#az_group_create) | 创建用于存储所有资源的资源组。 |
+| [az group create](/cli/group) | 创建用于存储所有资源的资源组。 |
 | [az postgresql server create](/cli/postgres/server#az-postgres-server-create) | 创建托管数据库的 PostgreSQL 服务器。 |
 | [az postgresql server restore](/cli/postgres/server#az-postgres-server-restore) | 从备份还原服务器。 |
-| [az group delete](/cli/group#az_group_delete) | 删除资源组，包括所有嵌套的资源。 |
+| [az group delete](/cli/group) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 - 阅读有关 Azure CLI 的更多信息：[Azure CLI 文档](/cli)。

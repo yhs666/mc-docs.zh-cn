@@ -7,22 +7,22 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/20/2018
-ms.date: 12/29/2018
+ms.date: 02/14/2019
 ms.author: v-junlch
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 9fbc761a2f157221b3194985876e62740a28981c
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 29861d1fe3ed8f44993e41cbf4aa18dec0c29fb5
+ms.sourcegitcommit: f34f65c439665607b43bb2c81df58c138d0b7417
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996353"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56262192"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Azure Active Directory 中的签名密钥滚动更新
 本文介绍了需要了解的有关 Azure Active Directory (Azure AD) 中用来为安全令牌签名的公钥的信息。 请务必注意，这些密钥会定期滚动更新，紧急情况下可立即滚动更新。 所有使用 Azure AD 的应用程序应该都能以编程方式处理密钥滚动更新过程，或建立定期手动滚动更新过程。 继续阅读，了解密钥工作方式、如何评估应用程序的滚动更新的影响以及如何更新应用程序，或者在必要时建立定期手动滚动更新过程来处理密钥滚动更新。
@@ -45,7 +45,7 @@ OpenID Connect 发现文档和联合元数据文档中始终有多个有效密�
 - [使用 Node.js passport-azure-ad 模块保护资源的 Web 应用程序/API](#passport)
 - [保护资源的和使用 Visual Studio 2015 或 Visual Studio 2017 创建的 Web 应用程序/API](#vs2015)
 - [保护资源的和使用 Visual Studio 2013 创建的 Web 应用程序](#vs2013)
-- [保护资源的和使用 Visual Studio 2013 创建的 Web API](#vs2013_webapi)
+- 保护资源的和使用 Visual Studio 2013 创建的 Web API
 - [保护资源的和使用 Visual Studio 2012 创建的 Web 应用程序](#vs2012)
 - [保护资源的和使用 Visual Studio 2010、2008 或 Windows Identity Foundation 创建的 Web 应用程序](#vs2010)
 - [使用任何其他库保护资源或手动实现任何受支持协议的 Web 应用程序/API](#other)
@@ -309,4 +309,4 @@ namespace JWTValidation
 ## <a name="how-to-perform-a-manual-rollover-if-your-application-does-not-support-automatic-rollover"></a>如果应用程序不支持自动滚动更新，如何执行手动滚动更新
 如果应用程序**不**支持自动滚动更新，则需要建立一个定期监视 Azure AD 签名密钥的过程，并手动执行相应滚动更新。 [此 GitHub 存储库](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey)包含脚本和如何执行此操作的说明。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

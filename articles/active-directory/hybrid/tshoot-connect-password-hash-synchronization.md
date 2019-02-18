@@ -4,7 +4,7 @@ description: 本文提供有关如何排查密码哈希同步问题的信息。
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/13/2017
-ms.date: 11/12/2018
-ms.component: hybrid
+ms.date: 02/13/2019
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 4e7b505b5b324abc2a80578f5119e47574e4dd64
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a3761ef9b8c05634f856d2528d737d3c9b7b25bf
+ms.sourcegitcommit: 3f266322470d2a3f8fdd4682e854f833466701af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651909"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56222693"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>使用 Azure AD Connect 同步解决密码哈希同步问题
 本主题提供解决密码哈希同步问题的步骤。 如果密码未按预期同步，请区分该密码是一部分用户的密码还是所有用户的密码。
@@ -238,7 +238,7 @@ ms.locfileid: "52651909"
 
 5. 如果没有看到检测信号，或者其他方面均为异常，则运行[触发所有密码的完全同步](#trigger-a-full-sync-of-all-passwords)。 仅运行该脚本一次。
 
-6. 请参阅[排查一个对象未同步密码的问题](#one-object-is-not-synchronizing-passwords)部分。
+6. 请参阅“排查一个对象未同步密码的问题”部分。
 
 ### <a name="connectivity-problems"></a>连接问题
 
@@ -304,7 +304,7 @@ ms.locfileid: "52651909"
 
     ![对象日志详细信息](./media/tshoot-connect-password-hash-synchronization/csobjectlog.png)  
 
-    如果对象日志为空，则 Azure AD Connect 无法从 Active Directory 读取密码哈希。 继续进行针对[连接错误](#connectivity-errors)的故障排除。 如果看到除“成功”外的任何其他值，请参阅[密码同步日志](#password-sync-log)中的表。
+    如果对象日志为空，则 Azure AD Connect 无法从 Active Directory 读取密码哈希。 继续进行针对连接错误的故障排除。 如果看到除“成功”外的任何其他值，请参阅[密码同步日志](#password-sync-log)中的表。
 
     h.如果该值不存在，请单击“添加行”。 选择“沿袭”选项卡，确保至少有一个同步规则的“密码同步”列设置为“True”。 在默认配置中，同步规则的名称为“In from AD - User AccountEnabled”。  
 
@@ -421,3 +421,4 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 - [Azure AD Connect 同步：自定义同步选项](how-to-connect-sync-whatis.md)
 - [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)
 
+<!-- Update_Description: link update -->

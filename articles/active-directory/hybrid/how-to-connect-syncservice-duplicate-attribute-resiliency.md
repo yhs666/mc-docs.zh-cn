@@ -4,24 +4,24 @@ description: 介绍如何借助一种新的行为，在目录同步期间使用 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 537a92b7-7a84-4c89-88b0-9bce0eacd931
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 01/15/2018
-ms.date: 12/05/2018
-ms.component: hybrid
+ms.date: 02/13/2019
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: b68ac95c79788f135a0e428600f20111577c4305
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 95bd9ee7b8e953309ea8d2cad42da43b9f19e882
+ms.sourcegitcommit: 3f266322470d2a3f8fdd4682e854f833466701af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028370"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56222695"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>标识同步和重复属性复原
 重复属性复原是 Azure Active Directory 的一项功能，可在运行 Microsoft 的同步工具之一时消除 **UserPrincipalName** 和 **ProxyAddress** 冲突所造成的不便。
@@ -82,7 +82,7 @@ Azure Active Directory 并不是完全无法预配或更新具有重复属性的
 2. [按属性类型](#by-property-type)
 3. [按冲突值](#by-conflicting-value)
 4. [使用字符串搜索](#using-a-string-search)
-5. [已排序](#sorted)
+5. 排序
 6. [以有限的数量或全部](#in-a-limited-quantity-or-all)
 
 #### <a name="see-all"></a>查看全部

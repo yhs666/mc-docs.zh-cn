@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 origin.date: 08/30/2017
-ms.date: 12/21/2018
+ms.date: 02/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: a9a109fe6ce9dc26466c3c08ca7cb8cb2594ee54
-ms.sourcegitcommit: d2893ae6bdbb3784d243d5d3c49c25c9cfd99d9b
+ms.openlocfilehash: 78d8c9e660b07c6af80ffb759ff58508730a3643
+ms.sourcegitcommit: c353902162a12f21aecbcbcde89f92c7ff9de441
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2018
-ms.locfileid: "53785000"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56096543"
 ---
 # <a name="create-a-premium-azure-cache-for-redis-with-clustering"></a>通过群集创建高级 Azure Redis 缓存
 
@@ -50,8 +50,8 @@ az redis create --name contosoCache --resource-group contosoGroup --location chi
 
 | 命令 | 注释 |
 |---|---|
-| [az group create](/cli/group#az_group_create) | 创建用于存储所有资源的资源组。 |
-| [az redis create](/cli/redis#az_redis_create) | 创建 Azure Redis 缓存实例。 |
+| [az group create](/cli/group) | 创建用于存储所有资源的资源组。 |
+| [az redis create](/cli/redis) | 创建 Azure Redis 缓存实例。 |
 
 
 ## <a name="next-steps"></a>后续步骤
@@ -60,4 +60,4 @@ az redis create --name contosoCache --resource-group contosoGroup --location chi
 
 可以在 [Azure Redis 缓存文档](../cli-samples.md)中找到其他 Azure Redis 缓存 CLI 脚本示例。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

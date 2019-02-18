@@ -8,22 +8,22 @@ manager: mtillman
 editor: ''
 ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-origin.date: 09/24/2018
-ms.date: 01/21/2019
+origin.date: 02/05/2019
+ms.date: 02/14/2019
 ms.author: v-junlch
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 7479fb00fef62f248e42ea257ca1f4fa6888df65
-ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
+ms.openlocfilehash: 07f20d3b6e03e089ae693eeeaa3e88cc8be96ac9
+ms.sourcegitcommit: f34f65c439665607b43bb2c81df58c138d0b7417
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440329"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56262190"
 ---
 # <a name="quickstart-set-up-a-dev-environment"></a>快速入门：设置开发环境
 
@@ -54,8 +54,11 @@ ms.locfileid: "54440329"
 如果还没有 Azure AD 租户或想要为开发创建新租户，请遵循[目录创建体验](https://portal.azure.cn/#create/Microsoft.AzureActiveDirectory)。 必须提供以下信息才能创建新租户：
 
 - 组织名称
-- **初始域** - 这将是 *.partner.onmschina.cn 的一部分。 稍后你可以更详细地自定义域。 
+- **初始域** - 这将是 *.partner.onmschina.cn 的一部分。 稍后你可以更详细地自定义域。
 - 国家或地区
+
+> [!NOTE]
+> 对租户进行命名时，请使用字母数字字符。 不允许使用特殊字符。 名称不得超过 256 个字符。
 
 ## <a name="next-steps"></a>后续步骤
 

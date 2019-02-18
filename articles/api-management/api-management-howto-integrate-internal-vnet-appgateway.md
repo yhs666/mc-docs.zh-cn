@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 06/26/2018
 ms.author: sasolank
-ms.date: 12/31/2018
-ms.openlocfilehash: 6832dc0f826596d5483c0db672aaf0007ba3b1f3
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.date: 02/25/2019
+ms.openlocfilehash: 6035a586879ed49ae452d195f55363fd2a059aac
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736696"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56303052"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>在包含应用程序网关的内部 VNET 中集成 API 管理 
 
@@ -83,7 +83,7 @@ ms.locfileid: "53736696"
 在本指南中，我们还将通过应用程序网关向外部用户公开开发人员门户。 创建开发人员门户的侦听器、探测、设置和规则需要其他步骤。 相应步骤中提供了所有详细信息。
 
 > [!WARNING]
-> 在通过应用程序网关访问的开发人员门户中的所述设置中，可能会遇到与 AAD 和第三方身份验证相关的问题。
+> 如果使用 Azure AD 或第三方身份验证，请在应用程序网关中启用[基于 cookie 的会话相关性](/application-gateway/overview#session-affinity)功能。
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>创建 Resource Manager 的资源组
 

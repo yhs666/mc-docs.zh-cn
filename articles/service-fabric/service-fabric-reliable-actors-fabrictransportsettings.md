@@ -15,12 +15,12 @@ ms.workload: NA
 origin.date: 04/20/2017
 ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 140030e42d381e58f2d65ac1bda59170ce763856
-ms.sourcegitcommit: 35a09a86cbb3d896fa9784471ece41df7728bd71
+ms.openlocfilehash: 23bb54be3a213b1553251fe0a6700049b810a67f
+ms.sourcegitcommit: 77eb2d597cca205b5f9d2286309aaf2ae61d37ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396708"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55985636"
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>配置 Reliable Actors 的 FabricTransport 设置
 
@@ -36,17 +36,17 @@ ms.locfileid: "54396708"
 
 以下示例演示如何更改 FabricTransport OperationTimeout 设置的默认值：
 
-    ```csharp
-    using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
-    [assembly:FabricTransportActorRemotingProvider(OperationTimeoutInSeconds = 600)]
-    ```
+```csharp
+using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
+[assembly:FabricTransportActorRemotingProvider(OperationTimeoutInSeconds = 600)]
+```
 
-   第二个示例更改 FabricTransport MaxMessageSize 和 OperationTimeoutInSeconds 的默认值。
+第二个示例更改 FabricTransport MaxMessageSize 和 OperationTimeoutInSeconds 的默认值。
 
-    ```csharp
-    using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
-    [assembly:FabricTransportActorRemotingProvider(OperationTimeoutInSeconds = 600,MaxMessageSize = 134217728)]
-    ```
+```csharp
+using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
+[assembly:FabricTransportActorRemotingProvider(OperationTimeoutInSeconds = 600,MaxMessageSize = 134217728)]
+```
 
 ## <a name="config-package"></a>配置包
 

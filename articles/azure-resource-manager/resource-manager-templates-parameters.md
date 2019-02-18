@@ -4,22 +4,20 @@ description: 使用声明性 JSON 语法描述 Azure 资源管理器模板的 pa
 services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
-manager: digimobile
-editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/30/2018
-ms.date: 12/17/2018
+origin.date: 02/03/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2656d900b72b3b4202547a173dd60ad3253cfa89
-ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
+ms.openlocfilehash: 7ad02250f523604e8004e7de47efc6d6a65e11df
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53286769"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306183"
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Azure 资源管理器模板的 Parameters 节
 在模板的 parameters 节中，可以指定在部署资源时能够输入的值。 提供针对特定环境（例如开发、测试和生产环境）定制的参数值可以自定义部署。 无需在模板中提供参数，但如果没有参数，模板始终部署具有相同名称、位置和属性的相同资源。
@@ -92,9 +90,9 @@ ms.locfileid: "53286769"
 | allowedValues |否 |用来确保提供正确值的参数的允许值数组。 |
 | minValue |否 |int 类型参数的最小值，此值是包容性的。 |
 | maxValue |否 |int 类型参数的最大值，此值是包容性的。 |
-| minLength |否 |string、securestring 和 array 类型参数的最小长度，此值是包容性的。 |
-| maxLength |否 |string、securestring 和 array 类型参数的最大长度，此值是包容性的。 |
-| 说明 |否 |通过门户向用户显示的参数的说明。 |
+| minLength |否 |string、secure string 和 array 类型参数的最小长度，此值是包容性的。 |
+| maxLength |否 |string、secure string 和 array 类型参数的最大长度，此值是包容性的。 |
+| 说明 |否 |通过门户向用户显示的参数的说明。 有关详细信息，请参阅[模板中的注释](resource-group-authoring-templates.md#comments)。 |
 
 ## <a name="template-functions-with-parameters"></a>包含参数的模板函数
 
@@ -189,74 +187,6 @@ ms.locfileid: "53286769"
 ]
 ```
 
-## <a name="recommendations"></a>建议
-使用参数时，以下信息可以提供帮助：
-
-* 尽量不要使用参数。 尽可能地使用变量或文本值。 只针对以下场合使用参数：
-
-   * 想要根据环境使用不同变体的设置（SKU、大小、容量）。
-   * 想要方便识别而指定的资源名称。
-   * 经常用来完成其他任务的值（例如管理员用户名）。
-   * 机密（例如密码）。
-   * 创建资源类型的多个实例时要使用的值的数目或数组。
-* 对参数名称使用混合大小写。
-* 对元数据中提供每个参数的说明。
-
-   ```json
-   "parameters": {
-       "storageAccountType": {
-           "type": "string",
-           "metadata": {
-               "description": "The type of the new storage account created to store the VM disks."
-           }
-       }
-   }
-   ```
-
-* 定义参数（密码和 SSH 密钥除外）的默认值。 通过指定默认值，参数在部署过程中会成为可选项。 默认值可以是空字符串。 
-
-   ```json
-   "parameters": {
-        "storageAccountType": {
-            "type": "string",
-            "defaultValue": "Standard_GRS",
-            "metadata": {
-                "description": "The type of the new storage account created to store the VM disks."
-            }
-        }
-   }
-   ```
-
-* 为所有密码和机密使用 **securestring** 。 要将敏感数据传入 JSON 对象，请使用 **secureObject** 类型。 部署资源后，无法读取 securestring 或 secureObject 类型的模板参数。 
-
-   ```json
-   "parameters": {
-       "secretValue": {
-           "type": "securestring",
-           "metadata": {
-               "description": "The value of the secret to store in the vault."
-           }
-       }
-   }
-   ```
-
-* 使用参数来指定位置，并尽可能多地与可能需要位于同一位置的资源共享该参数值。 此方法可以最大程度地减少用户必须提供位置信息的次数。 如果只有有限数量的位置支持某种资源类型，可能需要在模板中直接指定有效的位置，或者添加其他位置参数。 当组织对其用户限制允许的区域时，**resourceGroup().location** 表达式可能会使用户无法部署模板。 例如，一个用户在某个区域中创建了一个资源组。 第二个用户必须部署到该资源组，但却无法访问该区域。 
-
-   ```json
-   "resources": [
-     {
-         "name": "[variables('storageAccountName')]",
-         "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2016-01-01",
-         "location": "[parameters('location')]",
-         ...
-     }
-   ]
-   ```
-
-* 避免对资源类型的 API 版本使用参数或变量。 资源的属性和值可能会因版本号的不同而异。 如果将 API 版本设置为参数或变量，代码编辑器中的 IntelliSense 无法确定正确架构。 并且会在模板中将 API 版本硬编码。
-* 避免在模板中指定与部署命令中某个参数匹配的参数名称。 资源管理器解决此命名冲突的方式是将后缀 **FromTemplate** 添加到模板参数。 例如，如果在模板中包括名为 **ResourceGroupName** 的参数，则该参数会与 [New-AzureRmResourceGroupDeployment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet 中的 **ResourceGroupName** 参数冲突。 在部署期间，系统会提示用户提供 **ResourceGroupNameFromTemplate** 的值。
-
 ## <a name="example-templates"></a>示例模板
 
 以下示例模板演示了一些参数使用方案。 请部署这些模板，测试不同方案中参数的处理方式。
@@ -270,7 +200,7 @@ ms.locfileid: "53286769"
 
 * 若要查看许多不同类型的解决方案的完整模型，请参阅 [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/)（Azure 快速入门模板）。
 * 若要了解如何在部署过程中输入参数值，请参阅 [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md)（使用 Azure Resource Manager 模板部署应用程序）。 
-* 有关用户可以使用的来自模板中的函数的详细信息，请参阅 [Azure Resource Manager Template Functions](resource-group-template-functions.md)（Azure Resource Manager 模板函数）。
+* 有关创建模板的建议，请参阅 [Azure 资源管理器模板的最佳做法](template-best-practices.md)。
 * 有关使用参数对象的信息，请参阅[将对象用作 Azure 资源管理器模板中的参数](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/objects-as-parameters)。
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

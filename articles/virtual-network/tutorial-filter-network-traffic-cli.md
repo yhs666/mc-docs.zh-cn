@@ -15,15 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 03/30/2018
-ms.date: 11/12/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 54a41f2f6355c66900a525ce0354548384b2e52e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: efee334471b69b357335a0da1240273e79bd8cac
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650055"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306251"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>在 Azure CLI 中使用网络安全组筛选网络流量
 

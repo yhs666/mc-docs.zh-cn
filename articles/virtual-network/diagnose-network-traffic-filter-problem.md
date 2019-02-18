@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/29/2018
-ms.date: 11/12/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 203aaf9887cc9f138e0a635c168f2afc73966348
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 9fb044181d7adc3ceb9985dab4ec28273d9309f4
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675240"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306217"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>诊断虚拟机网络流量筛选器问题
 
@@ -43,8 +43,10 @@ ms.locfileid: "52675240"
 
     ![查看安全规则](./media/diagnose-network-traffic-filter-problem/view-security-rules.png)
 
-    上图中列出的规则适用于名为 **myVMVMNic** 的网络接口。 可以看到两个不同网络安全组中网络接口的“入站端口规则”：- **mySubnetNSG**：已关联到网络接口所在的子网。
-        - **myVMNSG**：已关联到 VM 中名为的 **myVMVMNic** 的网络接口。
+    上图中列出的规则适用于名为 **myVMVMNic** 的网络接口。 可以看到两个不同网络安全组中网络接口的“入站端口规则”：
+
+    - **mySubnetNSG**：已关联到网络接口所在的子网。
+    - **myVMNSG**：已关联到 VM 中名为 **myVMVMNic** 的网络接口。
 
     如[场景](#scenario)中所述，名为 **DenyAllInBound** 的规则阻止端口 80 从 Internet 与 VM 进行入站通信。 规则中为“源”列出了 *0.0.0.0/0*，其中包括 Internet。 其他更高优先级（较小的数字）的规则都不允许端口 80 入站通信。 若要允许通过端口 80 从 Internet 与 VM 进行入站通信，请参阅[解决问题](#resolve-a-problem)。 若要详细了解安全规则以及 Azure 如何应用这些规则，请参阅[网络安全组](security-overview.md)。
 
@@ -71,17 +73,18 @@ ms.locfileid: "52675240"
     与 **myVMVMNic** 网络接口不同，**myVMVMNic2** 网络接口没有关联的网络安全组。 每个网络接口和子网可以有零个或一个关联的 NSG。 关联到每个网络接口或子网的 NSG 可以相同或不同。 可将同一网络安全组关联到选定的任意数量的网络接口和子网。
 
 尽管前面是通过 VM 查看有效安全规则，但也可以通过以下各项查看有效安全规则：
-- **单个网络接口**：了解如何[查看网络接口](virtual-network-network-interface.md#view-network-interface-settings)。
-- **单个 NSG**：了解如何[查看 NSG](manage-network-security-group.md#view-details-of-a-network-security-group)。
+- **网络接口**：了解如何[查看网络接口](virtual-network-network-interface.md#view-network-interface-settings)。
+- **NSG**：了解如何[查看 NSG](manage-network-security-group.md#view-details-of-a-network-security-group)。
 
 ## <a name="diagnose-using-powershell"></a>使用 PowerShell 诊断
 
-可以通过从计算机运行 PowerShell 来运行命令。 如果在计算机上运行 PowerShell，需要 *AzureRM* PowerShell 模块 6.0.1 或更高版本。 在计算机上运行 `Get-Module -ListAvailable AzureRM`，找到已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需要运行 `Login-AzureRmAccount`，以使用拥有[所需权限](virtual-network-network-interface.md#permissions)的帐户登录到 Azure。
+可以通过从计算机运行 PowerShell 来运行命令。 如果在计算机上运行 PowerShell，需要 *AzureRM* PowerShell 模块 6.0.1 或更高版本。 在计算机上运行 `Get-Module -ListAvailable AzureRM`，找到已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需要运行 `Login-AzureRmAccount -Environment AzureChinaCloud`，以使用拥有[所需权限](virtual-network-network-interface.md#permissions)的帐户登录到 Azure。
+
 <!-- Not Available on [Azure Cloud Shell](https://shell.azure.com/powershell)-->
 
 使用 [Get-AzureRmEffectiveNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermeffectivenetworksecuritygroup) 获取网络接口的有效安全规则。 以下示例获取资源组 *myResourceGroup* 中名为 *myVMVMNic* 的网络接口的有效安全规则：
 
-```PowerShell
+```azurepowershell
 Get-AzureRmEffectiveNetworkSecurityGroup `
   -NetworkInterfaceName myVMVMNic interface `
   -ResourceGroupName myResourceGroup
@@ -94,7 +97,7 @@ Get-AzureRmEffectiveNetworkSecurityGroup `
 
 如果不知道网络接口的名称，但知道网络接口所附加到的 VM 的名称，则运行以下命令会返回附加到 VM 的所有网络接口的 ID：
 
-```PowerShell
+```azurepowershell
 $VM = Get-AzureRmVM -Name myVM -ResourceGroupName myResourceGroup
 $VM.NetworkProfile
 ```
@@ -158,7 +161,7 @@ az vm show \
 
 - **NetworkSecurityGroup**：网络安全组的 ID。
 - **Association**：网络安全组是关联到 *NetworkInterface* 还是 *Subnet*。 如果 NSG 关联到两者，则返回的输出将包含每个 NSG 的 **NetworkSecurityGroup**、**Association** 和 **EffectiveSecurityRules**。 如果在关联或取消关联 NSG 之后紧接着运行此命令来查看有效安全规则，则可能需要等待几秒钟时间，更改才会反映在命令输出中。
-- **EffectiveSecurityRules**：[创建安全规则](manage-network-security-group.md#create-a-security-rule)中详细解释了每个属性。 带有 *defaultSecurityRules/* 前缀的规则名称是每个 NSG 中存在的默认安全规则。 带有 *securityRules/* 前缀的规则名称是创建的规则。 为 **destinationAddressPrefix** 或 **sourceAddressPrefix** 属性指定[服务标记](security-overview.md#service-tags)（例如 **Internet**、**VirtualNetwork** 和 **AzureLoadBalancer**）的规则也包含 **expandedDestinationAddressPrefix** 属性的值。 **expandedDestinationAddressPrefix** 属性列出服务标记表示的所有地址前缀。
+- **EffectiveSecurityRules**：[创建安全规则](manage-network-security-group.md#create-a-security-rule)中详细说明了每个属性。 带有 *defaultSecurityRules/* 前缀的规则名称是每个 NSG 中存在的默认安全规则。 带有 *securityRules/* 前缀的规则名称是创建的规则。 为 **destinationAddressPrefix** 或 **sourceAddressPrefix** 属性指定[服务标记](security-overview.md#service-tags)（例如 **Internet**、**VirtualNetwork** 和 **AzureLoadBalancer**）的规则也包含 **expandedDestinationAddressPrefix** 属性的值。 **expandedDestinationAddressPrefix** 属性列出服务标记表示的所有地址前缀。
 
 如果输出中列出了重复规则，原因是 NSG 同时关联到了网络接口和子网。 两个 NSG 具有相同的默认规则，如果在两个 NSG 创建相同的规则，则它们可能包含其他重复规则。
 
@@ -183,7 +186,7 @@ az vm show \
 
 当 Azure 处理入站流量时，会先处理关联到子网的 NSG 中的规则（如果有关联的 NSG），然后处理关联到网络接口的 NSG 中的规则。 如果有某个 NSG 关联到网络接口和子网，则必须在两个 NSG 中打开端口，使流量能够抵达 VM。 为便于解决管理和通信问题，我们建议将 NSG 关联到子网，而不要关联到单个网络接口。 如果子网中的 VM 需要不同的安全规则，可使网络接口成为应用程序安全组 (ASG) 的成员，并将某个 ASG 指定为安全规则的源和目标。 详细了解[应用程序安全组](security-overview.md#application-security-groups)。
 
-如果仍然遇到通信问题，请参阅[注意事项](#considerations)和[其他诊断](#additional-dignosis)。
+如果仍然遇到通信问题，请参阅“[注意事项](#considerations)”和“其他诊断”。
 
 ## <a name="considerations"></a>注意事项
 

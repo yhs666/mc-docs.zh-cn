@@ -11,17 +11,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/09/2018
-ms.date: 01/21/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: ab5ded4792e152bbfb56240731e7dc3a51f6c303
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: 181db1c0b0a567bb96f447a6c0cc275409afee51
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193092"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306108"
 ---
 # <a name="throttling-resource-manager-requests"></a>限制 Resource Manager 请求数
+
 对于每个 Azure 订阅和租户，资源管理器最多允许每小时 12,000 个读取请求和每小时 1,200 个写入请求。 这些限制作用于发出请求的主体 ID，以及订阅 ID 或租户 ID。 如果请求来自多个主体 ID，则在整个订阅或租户中实施的限制大于每小时 12,000 个和 1,200 个。
 
 请求将应用到订阅或租户。 订阅请求是需要传递订阅 ID 的请求，例如在订阅中检索资源组。 租户请求不包括订阅 ID，例如，检索有效的 Azure 位置。
@@ -31,6 +32,8 @@ ms.locfileid: "54193092"
 如果应用程序或脚本达到了这些限制，则需对请求数进行限制。 本文说明如何在达到限制之前确定剩余的请求数，以及达到限制时如何做出响应。
 
 达到限制时，会收到 HTTP 状态代码“429 请求过多”。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="remaining-requests"></a>剩余请求数
 可以通过检查响应标头确定剩余请求数。 每个请求都包含剩余读取和写入请求数的值。 下表说明了各种响应标头，用户可以检查其中是否存在这些值：
@@ -67,7 +70,7 @@ $r.Headers["x-ms-ratelimit-remaining-subscription-reads"]
 若要查看剩余请求数以进行调试，可在 **PowerShell** cmdlet 中提供 **-Debug** 参数。
 
 ```powershell
-Get-AzureRmResourceGroup -Debug
+Get-AzResourceGroup -Debug
 ```
 
 这会返回许多值，包括以下响应值：
@@ -86,7 +89,7 @@ x-ms-ratelimit-remaining-subscription-reads: 14999
 若要获取写入限制，请使用写入操作： 
 
 ```powershell
-New-AzureRmResourceGroup -Name myresourcegroup -Location chinanorth -Debug
+New-AzResourceGroup -Name myresourcegroup -Location chinanorth -Debug
 ```
 
 这会返回许多值，包括以下值：
@@ -150,4 +153,4 @@ msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-writes': '1199'
 * 有关限制和配额的详细信息，请参阅 [Azure 订阅和服务限制、配额和约束](../azure-subscription-service-limits.md)。
 * 若要了解如何处理异步 REST 请求，请参阅[跟踪异步 Azure 操作](resource-manager-async-operations.md)。
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, update cmdlet -->

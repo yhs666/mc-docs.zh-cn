@@ -13,8 +13,6 @@ items:
     href: cloud-services-dotnet-get-started.md
   - name: Visual Studio 云服务的 Python 示例
     href: cloud-services-python-ptvs.md
-  - name: 使用 Microsoft HPC Pack 设置混合 HPC 群集
-    href: cloud-services-setup-hybrid-hpcpack-cluster.md
 - name: 如何
   items:
   - name: 计划
@@ -168,9 +166,9 @@ items:
     href: https://www.azure.cn/pricing/details/cloud-services/
   - name: 定价计算器
     href: https://www.azure.cn/pricing/calculator/
-ms.openlocfilehash: f45cc5893a05fa515005ad37000866be8a293439
-ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
+ms.openlocfilehash: d57fa67ec23525b42859458aecbdd27498cfcc40
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53569382"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56303070"

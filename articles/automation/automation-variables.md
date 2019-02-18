@@ -2,21 +2,20 @@
 title: Azure 自动化中的变量资产
 description: 变量资产是可供 Azure 自动化中的所有 Runbook 和 DSC 配置使用的值。  本文介绍了变量的详细信息，以及如何在文本和图形创作中使用变量。
 services: automation
-author: yunan2016
-manager: digimobile
-editor: tysonn
 ms.service: automation
-ms.devlang: na
-ms.topic: article
-origin.date: 03/16/2018
-ms.date: 05/14/2018
-ms.author: v-nany
-ms.openlocfilehash: bb5320d3face3ba43862b09a5a62d2c5c42e132b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.subservice: shared-capabilities
+author: WenJason
+ms.author: v-jay
+origin.date: 01/15/2019
+ms.date: 02/18/2019
+ms.topic: conceptual
+manager: digimobile
+ms.openlocfilehash: cb391c834178140b2641f7e611a7ff9157676126
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649493"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56303036"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Azure 自动化中的变量资产
 
@@ -33,7 +32,7 @@ ms.locfileid: "52649493"
 创建变量时，可以指定将其加密存储。 当变量加密后，它将安全地存储在 Azure 自动化中并且不能从 Azure PowerShell 模块随附的 [Get-AzureRmAutomationVariable](https://docs.microsoft.com/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable) cmdlet 检索变量值。 可以检索加密值的唯一方法是从 Runbook 或 DSC 配置中的 **Get-AutomationVariable** 活动进行检索。
 
 >[!NOTE]
->Azure 自动化中的安全资产包括凭据、证书、连接和加密的变量。 这些资产已使用针对每个自动化帐户生成的唯一密钥加密并存储在 Azure 自动化中。 此密钥存储在密钥保管库中。 在存储安全资产之前，从密钥保管库加载密钥，然后使用该密钥加密资产。
+>Azure 自动化中的安全资产包括凭据、证书、连接和加密的变量。 这些资产已使用针对每个自动化帐户生成的唯一密钥加密并存储在 Azure 自动化中。 此密钥存储在系统托管的密钥保管库中。 在存储安全资产之前，从密钥保管库加载密钥，然后使用该密钥加密资产。 此过程由 Azure 自动化管理。
 
 ## <a name="variable-types"></a>变量类型
 
@@ -203,3 +202,4 @@ ms.locfileid: "52649493"
 
 * 要了解有关在图形创作中将活动连接在一起的详细信息，请参阅[图形创作中的链接](automation-graphical-authoring-intro.md#links-and-workflow)
 * 若要开始使用图形 Runbook，请参阅 [我的第一个图形 Runbook](automation-first-runbook-graphical.md) 
+

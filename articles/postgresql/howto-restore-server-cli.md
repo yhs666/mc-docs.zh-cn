@@ -1,22 +1,19 @@
 ---
-title: 如何在 Azure Database for PostgreSQL 中备份和还原服务器 | Microsoft Docs
+title: 如何在 Azure Database for PostgreSQL 中备份和还原服务器
 description: 了解如何使用 Azure CLI 在 Azure Database for PostgreSQL 中备份和还原服务器。
-services: postgresql
 author: WenJason
 ms.author: v-jay
-manager: digimobile
-editor: jasonwhowell
 ms.service: postgresql
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 origin.date: 04/01/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 2eeef6e13d363a793767eb6ba6b35eec0348b6fa
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 02/18/2019
+ms.openlocfilehash: 94e40a2888ef15415bd342eed64a6a9d6fe054af
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674841"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56303044"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>如何使用 Azure CLI 在 Azure Database for PostgreSQL 中备份和还原服务器
 
@@ -57,7 +54,7 @@ az postgres server update --name mydemoserver --resource-group myresourcegroup -
 ## <a name="server-point-in-time-restore"></a>服务器时间点还原
 可以将服务器还原到以前的某个时间点。 将还原的数据复制到新服务器，并且现有服务器将保持不变。 例如，如果某个表在今天中午意外删除，可以还原到就在中午之前的时间。 然后可以从服务器的已还原副本中检索缺少的表和数据。 
 
-若要还原服务器，请使用 Azure CLI [az postgres server restore](/cli/postgres/server#az_postgres_server_restore) 命令。
+若要还原服务器，请使用 Azure CLI [az postgres server restore](/cli/postgres/server) 命令。
 
 ### <a name="run-the-restore-command"></a>运行还原命令
 

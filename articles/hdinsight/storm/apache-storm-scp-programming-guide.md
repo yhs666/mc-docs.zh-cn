@@ -1,6 +1,6 @@
 ---
-title: SCP.NET 编程指南 | Azure
-description: 了解如何通过 SCP.NET 创建可在 Storm on HDInsight 中使用的基于 .NET 的 Storm 拓扑。
+title: 适用于 Azure HDInsight 中 Storm 的 SCP.NET 编程指南
+description: 了解如何通过 SCP.NET 创建可在 Azure HDInsight 中运行的 Storm 中使用的基于 .NET 的 Storm 拓扑。
 services: hdinsight
 documentationcenter: ''
 author: raviperi
@@ -14,17 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/16/2016
-ms.date: 01/14/2019
+ms.date: 02/25/2019
 ms.author: v-yiso
-ms.openlocfilehash: 14e377a4756e9c20f1848af2f4f867ad461cc463
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: f97f71b7bfd324e0e7d336bfa2a65ccb59a2be31
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806629"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56303067"
 ---
 # <a name="scp-programming-guide"></a>SCP 编程指南
-SCP 是一个用于构建实时、可靠、一致和高性能的数据处理应用程序的平台。 它在 [Apache Storm](http://storm.incubator.apache.org/) 的基础上构建而成 -- Storm 是开源软件 (OSS) 社区设计的一个流处理系统。 Storm 由 Nathan Marz 设计，在 Twitter 上进行开源。 其利用 [Apache ZooKeeper](http://zookeeper.apache.org/)（另一个 Apache 项目）来实现高可靠性的分布式协调和状态管理。 
+SCP 是一个用于构建实时、可靠、一致和高性能的数据处理应用程序的平台。 它在 [Apache Storm](https://storm.incubator.apache.org/) 的基础上构建而成 -- Storm 是开源软件 (OSS) 社区设计的一个流处理系统。 Storm 由 Nathan Marz 设计，在 Twitter 上进行开源。 其利用 [Apache ZooKeeper](https://zookeeper.apache.org/)（另一个 Apache 项目）来实现高可靠性的分布式协调和状态管理。 
 
 SCP 项目不仅已移植到 Windows 的 Storm 中，还为 Windows 生态系统增加了扩展和自定义。 扩展包括 .NET 开发人员经验和库，自定义包括基于 Windows 的部署。 
 
@@ -235,7 +235,7 @@ SCP 应用程序可使用 `State` 对象在 [Apache ZooKeeper](https://zookeeper
     /// <summary>
     /// Retrieve all states that were previously uncommitted, excluding all aborted states 
     /// </summary>
-    /// <returns>Uncommited States</returns>
+    /// <returns>Uncommitted States</returns>
     public IEnumerable<State> GetUnCommitted();
 
     /// <summary>
@@ -256,7 +256,7 @@ SCP 应用程序可使用 `State` 对象在 [Apache ZooKeeper](https://zookeeper
     /// List all the committed states
     /// </summary>
     /// <returns>Registries contain the Committed State </returns> 
-    public IEnumerable<Registry> Commited();
+    public IEnumerable<Registry> Committed();
 
     /// <summary>
     /// List all the Aborted State in the StateStore

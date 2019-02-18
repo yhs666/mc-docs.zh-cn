@@ -1,21 +1,18 @@
 ---
 title: 使用 Azure Database for PostgreSQL 中的 PostgreSQL 扩展
 description: 介绍有关使用 Azure Database for PostgreSQL 中的扩展来扩展数据库功能的功能。
-services: postgresql
 author: WenJason
 ms.author: v-jay
-manager: digimobile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
-origin.date: 11/12/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 110b8703985b47ac3e2b7c4997965798b26fb1d3
-ms.sourcegitcommit: 92503f045267f436cf3ca7fa9e6f1c13be17fb44
+ms.topic: conceptual
+origin.date: 12/03/2018
+ms.date: 02/18/2019
+ms.openlocfilehash: a4f821109b551b9e633e0003cb45998b8f04fdd6
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858193"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302960"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>Azure Database for PostgreSQL 中的 PostgreSQL 扩展
 PostgreSQL 支持使用扩展来扩展数据的功能。 扩展允许在单个包中将多个相关 SQL 对象捆绑在一起，可以使用单个命令在数据库中加载或删除该包。 在数据库中加载之后，扩展可以如同内置功能一样运行。 有关 PostgreSQL 扩展的详细信息，请参阅  [Packaging Related Objects into an Extension](https://www.postgresql.org/docs/9.6/static/extend-extensions.html)（将相关对象打包到扩展中）。
@@ -88,9 +85,9 @@ Azure Database for PostgreSQL 目前支持部分关键扩展（已在下面列�
 | [pg\_stat\_statements](https://www.postgresql.org/docs/9.6/static/pgstatstatements.html) | 提供一种方法用于跟踪服务器执行的所有 SQL 语句的执行统计信息。 （请参阅下文了解此扩展的说明）。 |
 | [pgrowlocks](https://www.postgresql.org/docs/9.6/static/pgrowlocks.html) | 提供一种显示行级锁定信息的方法。 |
 | [pgstattuple](https://www.postgresql.org/docs/9.6/static/pgstattuple.html) | 提供一种显示元组级别统计信息的方法。 |
-| [postgres\_fdw](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | 外部数据包装器，用于访问外部 PostgreSQL 服务器中存储的数据。 |
+| [postgres\_fdw](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | 外部数据包装器，用于访问外部 PostgreSQL 服务器中存储的数据。 （请参阅下文了解此扩展的说明）。|
 | [hypopg](https://hypopg.readthedocs.io/en/latest/) | 提供了一种创建不耗费 CPU 或磁盘的假设索引的方法。 |
-| [dblink](https://www.postgresql.org/docs/current/dblink.html) | 一个模块，支持从数据库会话中连接到其他 PostgreSQL 数据库。 |
+| [dblink](https://www.postgresql.org/docs/current/dblink.html) | 一个模块，支持从数据库会话中连接到其他 PostgreSQL 数据库。 （请参阅下文了解此扩展的说明）。 |
 
 
 ### <a name="postgis-extensions"></a>PostGIS 扩展
@@ -109,4 +106,6 @@ Azure Database for PostgreSQL 目前支持部分关键扩展（已在下面列�
 
 查询执行信息 pg_stat_statements 提供的权限与记录每个 SQL 语句时对服务器性能的影响之间存在权衡。 如果不经常使用 pg_stat_statements 扩展，则建议将 `pg_stat_statements.track` 设置为 `none`。 请注意，某些第三方监视服务可能依赖 pg_stat_statements 来提供查询性能见解，因此，请确认这是否适合你。
 
+### <a name="using-dblink-and-postgresfdw"></a>使用 dblink 和 postgres_fdw
+dblink 和 postgres_fdw 允许从一台 PostgreSQL 服务器连接到另一台服务器，或者连接到同一服务器中的另一个数据库。 接收服务器需要允许来自发送服务器的连接通过其防火墙。 当使用这些扩展在 Azure Database for PostgreSQL 服务器之间进行连接时，可以通过将“允许访问 Azure 服务”设置为“开启”来实现此目的。 如果希望使用扩展来环回到同一服务器，也需要进行此设置。 可以在 Postgres 服务器的 Azure 门户页面中的“连接安全性”下找到“允许访问 Azure 服务”设置。 开启“允许访问 Azure 服务”会将所有 Azure IP 加入允许列表。
 

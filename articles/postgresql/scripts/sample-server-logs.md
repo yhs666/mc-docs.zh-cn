@@ -8,13 +8,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 origin.date: 02/28/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: b994d61e6143996cbf917a6b3b9d8a4ab2c10523
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.date: 02/18/2019
+ms.openlocfilehash: 3ffdffbfe8cf4dd98248e59e4c9dd5914548c2b0
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806219"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56303046"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-postgresql-server-using-azure-cli"></a>使用 Azure CLI 启用和下载适用于 PostgreSQL 服务器的 Azure 数据库的服务器慢查询日志
 此示例 CLI 脚本可启用和下载单个适用于 PostgreSQL 服务器的 Azure 数据库的慢查询日志。
@@ -90,13 +90,13 @@ az group delete --name myresourcegroup
 
 | **命令** | **说明** |
 |---|---|
-| [az group create](/cli/group#az_group_create) | 创建用于存储所有资源的资源组。 |
-| [az postgres server create](/cli/postgres/server#az_msql_server_create) | 创建托管数据库的 PostgreSQL 服务器。 |
-| [az postgres server configuration list](/cli/postgres/server/configuration#az_postgres_server_configuration_list) | 列出服务器的配置值。 |
-| [az postgres server configuration set](/cli/postgres/server/configuration#az_postgres_server_configuration_set) | 更新服务器的配置。 |
-| [az postgres server-logs list](/cli/postgres/server-logs#az_postgres_server_logs_list) | 列出服务器的日志文件。 |
-| [az postgres server-logs download](/cli/postgres/server-logs#az_postgres_server_logs_download) | 下载日志文件。 |
-| [az group delete](/cli/group#az_group_delete) | 删除资源组，包括所有嵌套的资源。 |
+| [az group create](/cli/group) | 创建用于存储所有资源的资源组。 |
+| [az postgres server create](/cli/postgres/server) | 创建托管数据库的 PostgreSQL 服务器。 |
+| [az postgres server configuration list](/cli/postgres/server/configuration) | 列出服务器的配置值。 |
+| [az postgres server configuration set](/cli/postgres/server/configuration) | 更新服务器的配置。 |
+| [az postgres server-logs list](/cli/postgres/server-logs) | 列出服务器的日志文件。 |
+| [az postgres server-logs download](/cli/postgres/server-logs) | 下载日志文件。 |
+| [az group delete](/cli/group) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 - 阅读有关 Azure CLI 的更多信息：[Azure CLI 文档](/cli)。

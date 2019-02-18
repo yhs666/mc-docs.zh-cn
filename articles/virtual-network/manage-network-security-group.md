@@ -1,27 +1,24 @@
 ---
-title: 创建、更改或删除 Azure 网络安全组 | Azure
+title: 创建、更改或删除 Azure 网络安全组
+titlesuffix: Azure Virtual Network
 description: 了解如何创建、更改或删除网络安全组。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
-manager: digimobile
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/05/2018
-ms.date: 01/21/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9614c06bdc7224736c6edafded399c1aab29c73a
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: 498ec263f7576be13a25d39da06d3590a1939042
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193131"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306178"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>创建、更改或删除网络安全组
 
@@ -33,9 +30,9 @@ ms.locfileid: "54193131"
 
 - 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 - 如果使用门户，请打开 https://portal.azure.cn，并使用 Azure 帐户登录。
-- 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 5.4.1 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。
+- 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 5.4.1 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。
     <!-- Not Available on [Azure Cloud Shell](https://shell.azure.com/powershell)-->
-- 如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.28 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
+- 如果使用 Azure 命令行接口 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.28 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
     <!-- Not Available on [Azure Cloud Shell](https://shell.azure.com/bash)-->
 
 必须将登录或连接到 Azure 所用的帐户分配给[网络参与者](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)角色或分配有“[权限](#permissions)”中所列适当操作的[自定义角色](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json)。
@@ -72,8 +69,10 @@ ms.locfileid: "54193131"
 2. 在列表中选择要查看其详细信息的网络安全组。 在“设置”下，可查看“入站安全规则”和“出站安全规则”以及与网络安全组相关联的“网络接口”和“子网”。 也可启用或禁用“诊断日志”和查看“有效的安全规则”。 若要了解详细信息，请参阅[查看有效的安全规则](diagnose-network-traffic-filter-problem.md)。
     
     <!-- Not Available on [Diagnostic logs](virtual-network-nsg-manage-log.md)-->
-3. 若要了解有关列出的常见 Azure 设置的详细信息，请参阅以下文章：<!-- Not Available on * [Activity log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)-->
-    *   [访问控制 (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-network%2ftoc.json#access-control)
+    
+3. 要了解有关列出的常见 Azure 设置的详细信息，请参阅以下文章：
+    *   [活动日志](../azure-monitor/platform/activity-logs-overview.md)
+    *   [访问控制 (IAM)](../role-based-access-control/overview.md)
     *   [标记](../azure-resource-manager/resource-group-using-tags.md?toc=%2fvirtual-network%2ftoc.json)
     *   [锁](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fvirtual-network%2ftoc.json)
     *   [自动化脚本](../azure-resource-manager/resource-manager-export-template.md?toc=%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
@@ -99,7 +98,7 @@ ms.locfileid: "54193131"
 
 ### <a name="delete-a-network-security-group"></a>删除网络安全组
 
-如果网络安全组与任何子网或网络接口相关联，则无法删除。 从所有子网和网络接口[取消关联](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource)网络安全组，然后再尝试将其删除。
+如果网络安全组与任何子网或网络接口相关联，则无法删除。 从所有子网和网络接口取消关联网络安全组，然后再尝试将其删除。
 
 1. 在门户顶部的搜索框中，输入“网络安全组”。 “网络安全组”出现在搜索结果中时，将其选中。
 2. 从列表中选择要删除的网络安全组。

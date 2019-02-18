@@ -1,19 +1,18 @@
 ---
 title: Azure Database for PostgreSQL 中的查询存储
 description: 本文介绍 Azure Database for PostgreSQL 中的查询存储功能。
-services: postgresql
 author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 09/26/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: eb4d32fd21e654f91327379655c2d2c9bd06fb89
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+origin.date: 01/01/2019
+ms.date: 02/18/2019
+ms.openlocfilehash: 593d2f9a606d6051647c8e226310a7a50ff5d30f
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675644"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56303058"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>使用查询存储监视性能
 
@@ -46,8 +45,8 @@ az postgres server configuration set --name pg_qs.query_capture_mode --resource-
 
 ## <a name="information-in-query-store"></a>查询存储中的信息
 查询存储有两个存储：
-- 用于保存查询执行统计信息的运行时统计信息存储。
-- 用于保存等待统计信息的等待统计信息存储。
+- 运行时统计信息存储，用于保存查询执行统计信息。
+- 等待统计信息存储，用于保存等待统计信息。
 
 使用查询存储的常见方案包括：
 - 确定在给定时间范围内执行查询的次数
@@ -85,7 +84,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 以下选项可用于配置查询存储参数。
 | **参数** | **说明** | **默认** | **范围**|
 |---|---|---|---|
-| pg_qs.query_capture_mode | 设置跟踪哪些语句。 | top | none, top, all |
+| pg_qs.query_capture_mode | 设置跟踪哪些语句。 | 无 | none, top, all |
 | pg_qs.max_query_text_length | 设置可保存的最大查询长度。 将截断较长的查询。 | 6000 | 100 - 10K |
 | pg_qs.retention_period_in_days | 设置保持期。 | 7 | 1 - 30 |
 | pg_qs.track_utility | 设置是否跟踪实用程序命令 | on | on, off |
@@ -164,7 +163,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 ### <a name="functions"></a>函数
 Query_store.qs_reset() 返回无效值
 
-`qs_reset` 丢弃查询存储迄今收集的所有统计信息。 只能由服务器管理员角色执行此函数。
+`qs_reset` 丢弃查询存储到目前为止收集的所有统计信息。 只能由服务器管理员角色执行此函数。
 
 Query_store.staging_data_reset() 返回无效值
 

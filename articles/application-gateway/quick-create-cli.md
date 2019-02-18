@@ -6,15 +6,15 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
 origin.date: 01/08/2019
-ms.date: 01/15/2019
+ms.date: 02/11/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 2280bd479e948a03eb0555a1a82a7f3d3af419f7
-ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
+ms.openlocfilehash: b8950806366b178ac59a86d4d3525728cf80c2ff
+ms.sourcegitcommit: 713cf33290efd4ccc7a3eab2668e3ceb0b51686f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54333884"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56079675"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>快速入门：使用 Azure 应用程序网关定向 Web 流量 - Azure CLI
 
@@ -38,7 +38,7 @@ az group create --name myResourceGroupAG --location chinanorth
 
 创建虚拟网络后，应用程序网关即可与其他资源通信。 可以在创建应用程序网关的同时创建虚拟网络。 在本示例中创建两个子网：一个用于应用程序网关，另一个用于虚拟机。 应用程序网关子网只能包含应用程序网关。 不允许其他资源。
 
-若要创建虚拟网络和子网，请使用 [az network vnet create](/cli/network/vnet#az-network-vnet-create)。 运行 [az network public-ip create](/cli/network/public-ip#az-public-ip-create) 即可创建公共 IP 地址。
+若要创建虚拟网络和子网，请使用 [az network vnet create](/cli/network/vnet#az-network-vnet-create)。 运行 [az network public-ip create](/cli/network/public-ip) 即可创建公共 IP 地址。
 
 ```azurecli
 az network vnet create `
@@ -132,7 +132,7 @@ done
 
 ## <a name="create-the-application-gateway"></a>创建应用程序网关
 
-使用 [az network application-gateway create](/cli/network/application-gateway#az-application-gateway-create) 创建应用程序网关。 使用 Azure CLI 创建应用程序网关时，请指定配置信息，例如容量、SKU 和 HTTP 设置。 然后，Azure 将添加网络接口的专用 IP 地址作为应用程序网关后端池中的服务器。
+使用 [az network application-gateway create](/cli/network/application-gateway) 创建应用程序网关。 使用 Azure CLI 创建应用程序网关时，请指定配置信息，例如容量、SKU 和 HTTP 设置。 然后，Azure 将添加网络接口的专用 IP 地址作为应用程序网关后端池中的服务器。
 
 ```azurecli
 address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')
@@ -190,4 +190,4 @@ az group delete --name myResourceGroupAG
 > [通过 Azure CLI 使用应用程序网关管理 Web 流量](./tutorial-manage-web-traffic-cli.md)
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/09/2017
-ms.date: 06/07/2018
+ms.date: 02/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 83c794dfb0de421147961c90794a8be84dc7ab7f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1a30bc32a7b2d637ed4b7c6b4d202abbf7ab8619
+ms.sourcegitcommit: 713cf33290efd4ccc7a3eab2668e3ceb0b51686f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658658"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56079674"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>排查应用程序网关中的网关无效错误
 
@@ -29,11 +29,11 @@ ms.locfileid: "52658658"
 
 ## <a name="overview"></a>概述
 
-配置应用程序网关之后，用户可能遇到的一个错误是“服务器错误: 502 - Web 服务器在作为网关或代理服务器时收到了无效响应”。 此错误可能是以下主要原因造成的：
+配置应用程序网关后，用户可能遇到的其中一个错误是“服务器错误：502 - Web 服务器在作为网关或代理服务器时收到了无效响应”。 此错误可能是以下主要原因造成的：
 
 - NSG、UDR 或自定义 DNS 阻止了对后端池成员的访问。
-- 虚拟机规模集的后端 VM 或实例[未响应默认的运行状况探测](#problems-with-default-health-probe.md)。
-- [自定义运行状况探测的配置](#problems-with-custom-health-probe.md)无效或不正确。
+- 虚拟机规模集的后端 VM 或实例未响应默认的运行状况探测。
+- 自定义运行状况探测的配置无效或不正确。
 - Azure 应用程序网关的[后端池未配置或为空](#empty-backendaddresspool)。
 - [虚拟机规模集](#unhealthy-instances-in-backendaddresspool)中没有正常运行的 VM 或实例。
 - 用户请求出现[请求超时或连接问题](#request-time-out)。
@@ -193,4 +193,4 @@ BackendAddressPoolsText：
 如果上述步骤无法解决问题，请开具[支持票证](https://www.azure.cn/support/contact/)。
 
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

@@ -1,36 +1,34 @@
 ---
-title: 创建虚拟网络 - 快速入门 - Azure PowerShell | Azure
+title: 创建虚拟网络 - 快速入门 - Azure PowerShell
+titlesuffix: Azure Virtual Network
 description: 本快速入门介绍如何使用 Azure 门户创建虚拟网络。 虚拟网络能让 Azure 资源（例如虚拟机）彼此之间私下通信以及与 Internet 进行通信。
 services: virtual-network
 documentationcenter: virtual-network
 author: rockboyfor
-manager: digimobile
-editor: ''
 tags: azure-resource-manager
 Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
 ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 12/04/2018
-ms.date: 01/21/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.custom: mvc
-ms.openlocfilehash: 36a7abc9b5c54805eac37d56d74bd9faca598604
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: 1250ec58f0ed3baaefafd483ec727e418462237a
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193040"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306230"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>快速入门：使用 PowerShell 创建虚拟网络
 
 虚拟网络能让 Azure 资源（例如虚拟机 (VM)）彼此之间以及与 Internet 进行私下通信。 本快速入门介绍如何创建虚拟网络。 创建虚拟网络后，将两个 VM 部署到该虚拟网络中。 然后可以从 Internet 连接到 VM，并通过虚拟网络进行私下通信。
 
 如果还没有 Azure 订阅，请现在就创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
-如果决定改为在本地安装并使用 PowerShell，则本快速入门需要使用 AzureRM PowerShell 模块 5.4.1 或更高版本。 要查找已安装的版本，请运行 `Get-Module -ListAvailable AzureRM`。 请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)，获取安装和升级信息。
+
+如果决定在本地安装并使用 PowerShell，则本快速入门需要使用 AzureRM PowerShell 模块 5.4.1 版本或更高版本。 要查找已安装的版本，请运行 `Get-Module -ListAvailable AzureRM`。 请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)，获取安装和升级信息。
 
 最后，如果在本地运行 PowerShell，则还将需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud`。 该命令创建与 Azure 的连接。
 
@@ -42,7 +40,7 @@ ms.locfileid: "54193040"
 
 在创建虚拟网络之前，必须创建一个资源组用于托管该虚拟网络。 使用 [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup) 创建资源组。 此示例在 chinaeast 位置创建一个名为 myResourceGroup 的资源组：
 
-```PowerShell
+```azurepowershell
 New-AzureRmResourceGroup -Name myResourceGroup -Location ChinaEast
 ```
 
@@ -50,10 +48,10 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location ChinaEast
 
 使用 [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork) 创建虚拟网络。 以下示例在“ChinaEast”位置创建名为“myVirtualNetwork”的默认虚拟网络：
 
-```PowerShell
+```azurepowershell
 $virtualNetwork = New-AzureRmVirtualNetwork `
   -ResourceGroupName myResourceGroup `
-  -Location chinaeast `
+  -Location ChinaEast `
   -Name myVirtualNetwork `
   -AddressPrefix 10.0.0.0/16
 ```
@@ -62,7 +60,7 @@ $virtualNetwork = New-AzureRmVirtualNetwork `
 
 Azure 将资源部署到虚拟网络中的子网，因此需要创建子网。 使用 [Add-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig) 创建名为“default”的子网配置：
 
-```PowerShell
+```azurepowershell
 $subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
   -Name default `
   -AddressPrefix 10.0.0.0/24 `
@@ -73,7 +71,7 @@ $subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
 
 可以使用 [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork) 将子网配置写入虚拟网络。 此命令创建子网：
 
-```PowerShell
+```azurepowershell
 $virtualNetwork | Set-AzureRmVirtualNetwork
 ```
 
@@ -85,7 +83,7 @@ $virtualNetwork | Set-AzureRmVirtualNetwork
 
 使用 [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) 创建第一个 VM。 运行下一个命令时，系统会提示输入凭据。 为 VM 输入用户名和密码：
 
-```PowerShell
+```azurepowershell
 New-AzureRmVm `
     -ResourceGroupName "myResourceGroup" `
     -Location "China East" `
@@ -109,7 +107,7 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 
 使用此命令创建第二个 VM：
 
-```PowerShell
+```azurepowershell
 New-AzureRmVm `
   -ResourceGroupName "myResourceGroup" `
   -VirtualNetworkName "myVirtualNetwork" `
@@ -126,7 +124,7 @@ New-AzureRmVm `
 
 使用 [Get-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress) 返回 VM 的公共 IP 地址。 此示例返回 myVm1 VM 的公共 IP 地址：
 
-```PowerShell
+```azurepowershell
 Get-AzureRmPublicIpAddress `
   -Name myVm1 `
   -ResourceGroupName myResourceGroup `
@@ -217,7 +215,7 @@ mstsc /v:<publicIpAddress>
 
 使用虚拟网络和 VM 后，请使用 [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) 删除资源组和组内所有资源：
 
-```PowerShell
+```azurepowershell
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
 

@@ -1,27 +1,27 @@
 ---
 title: Azure AD Connect 同步的属性 | Microsoft 文档
-description: 列出同步到 Azure Active Directory 的属性。
+description: 列出与 Azure Active Directory 同步的属性。
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: c2bb36e0-5205-454c-b9b6-f4990bcedf51
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 03/05/2018
-ms.date: 11/12/2018
-ms.component: hybrid
+ms.topic: reference
+origin.date: 01/24/2019
+ms.date: 02/13/2019
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 5848a98fefe2e13ba880444cd51d9e5db759e211
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d1ec37d450002363d3e9558ee197657d2f1e821a
+ms.sourcegitcommit: 3f266322470d2a3f8fdd4682e854f833466701af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643670"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56222705"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect 同步：与 Azure Active Directory 同步的属性
 本主题列出通过 Azure AD Connect 同步进行同步的属性。  
@@ -46,6 +46,7 @@ ms.locfileid: "52643670"
 | displayName |X | |
 | objectSID |X |机械属性。 用于维护 Azure AD 和 AD 之间的同步的 AD 用户标识符。 |
 | pwdLastSet |X |机械属性。 用于了解使已颁发令牌失效的时间。 由密码哈希同步和联合使用。 |
+|samAccountName|X| |
 | sourceAnchor |X |机械属性。 用于保持 ADDS 与 Azure AD 之间的关系的不可变标识符。 |
 | usageLocation |X |机械属性。 用户所在的国家/地区。 用于进行许可证分配。 |
 | userPrincipalName |X |UPN 是用户的登录 ID。 大多数情况下与 [mail] 值相同。 |
@@ -428,11 +429,11 @@ ms.locfileid: "52643670"
 | --- |:---:|:---:|:---:| --- |---|
 | msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |派生自 Azure AD 中的 cloudAnchor。 此属性是 Exchange 2016 和 Windows Server 2016 AD 中的新增属性。 |
 | msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |联机存档：使客户能够存档邮件。 |
-| msExchBlockedSendersHash| ms-Exch-BlockedSendersHash |X | | |筛选：从客户端写回本地筛选及在线安全和已阻止的发件人数据。 |
-| msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |筛选：从客户端写回本地筛选及在线安全和已阻止的发件人数据。 |
-| msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |筛选：从客户端写回本地筛选及在线安全和已阻止的发件人数据。 |
-| msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |启用统一消息传送 (UM) - 在线语音邮件：供 Microsoft Lync Server 集成用于向 Lync Server 本地指示用户在在线服务中有语音邮件。 |
-| msExchUserHoldPolicies| ms-Exc-hUserHoldPolicies |X | | |诉讼数据保留：启用云服务来标识哪些用户正处于诉讼数据保留状态。 |
+| msExchBlockedSendersHash| ms-Exch-BlockedSendersHash |X | | |筛选：从客户端回写本地筛选及在线安全和已阻止的发件人数据。 |
+| msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |筛选：从客户端回写本地筛选及在线安全和已阻止的发件人数据。 |
+| msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |筛选：从客户端回写本地筛选及在线安全和已阻止的发件人数据。 |
+| msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |启用统一消息 (UM) - 在线语音邮件：供 Microsoft Lync Server 集成用于向 Lync Server 本地指示用户在联机服务中有语音邮件。 |
+| msExchUserHoldPolicies| ms-Exc-hUserHoldPolicies |X | | |诉讼数据保留：启用云服务来确定哪些用户正处于诉讼数据保留状态。 |
 | ProxyAddresses| ProxyAddresses |X |X |X |只插入 Exchange Online 中的 x500 地址。 |
 | publicDelegates| ms-Exch-Public-Delegates  |X | | |允许向拥有本地 Exchange 邮箱的用户授予 Exchange Online 邮箱的 SendOnBehalfTo 权限。 需要 Azure AD Connect 内部版本 1.1.552.0 或更高版本。 |
 
@@ -457,3 +458,4 @@ ms.locfileid: "52643670"
 
 了解有关[将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)的详细信息。
 
+<!-- Update_Description: wording update -->

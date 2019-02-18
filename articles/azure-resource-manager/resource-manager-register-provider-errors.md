@@ -12,18 +12,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 12/10/2018
-ms.date: 01/21/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 02ad197187a3ee574bb7ca0b269aeccc491ceb98
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: c6dcfdffcc8f1c5ee7750f8e8d7e52770c7fe537
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193121"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306078"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>解决资源提供程序注册错误
 
 本文介绍使用之前未在订阅中使用过的资源提供程序时可能遇到的错误。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="symptom"></a>症状
 
@@ -54,28 +56,28 @@ Message: The subscription is not registered to use namespace {resource-provider-
 
 ## <a name="solution-1---powershell"></a>解决方案 1 - PowerShell
 
-对于 PowerShell，请使用 **Get-AzureRmResourceProvider** 查看注册状态。
+对于 PowerShell，请使用 Get-AzResourceProvider 查看注册状态。
 
 ```powershell
-Get-AzureRmResourceProvider -ListAvailable
+Get-AzResourceProvider -ListAvailable
 ```
 
-若要注册提供程序，请使用 **Register-AzureRmResourceProvider** ，并提供想要注册的资源提供程序的名称。
+若要注册提供程序，请使用 **Register-AzResourceProvider**，并提供想要注册的资源提供程序的名称。
 
 ```powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cdn
+Register-AzResourceProvider -ProviderNamespace Microsoft.Cdn
 ```
 
 若要获取特定类型的资源支持的位置，请使用：
 
 ```powershell
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+((Get-AzResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
 ```
 
 若要获取特定类型的资源支持的 API 版本，请使用：
 
 ```powershell
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+((Get-AzResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
 ```
 
 ## <a name="solution-2---azure-cli"></a>解决方案 2 - Azure CLI
@@ -122,4 +124,4 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 
    ![列出资源提供程序](./media/resource-manager-register-provider-errors/list-resource-providers.png)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update cmdlet-->

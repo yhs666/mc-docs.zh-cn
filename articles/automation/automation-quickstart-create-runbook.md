@@ -2,19 +2,20 @@
 title: Azure 快速入门 - 创建 Azure 自动化 Runbook | Microsoft Docs
 description: 了解如何创建 Azure 自动化 Runbook
 services: automation
-author: yunan2016
-ms.author: v-nany
-origin.date: 12/14/2017
-ms.date: 01/22/2018
+author: WenJason
+ms.author: v-jay
+origin.date: 02/05/2019
+ms.date: 02/18/2019
 ms.topic: quickstart
 ms.service: automation
+ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 8bcfe40c07ad37a3cd0750c61bb5442d9d186c18
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e910f686b3e838a50fe52c7ef25e18a337f538b7
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660432"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302986"
 ---
 # <a name="create-an-azure-automation-runbook"></a>创建 Azure 自动化 Runbook
 
@@ -22,9 +23,9 @@ Azure 自动化 Runbook 可以通过 Azure 创建。 此方法提供一个基于
 
 如果还没有 Azure 订阅，可以在开始前创建一个 [Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
-## <a name="log-in-to-azure"></a>登录 Azure
+## <a name="sign-in-to-azure"></a>登录 Azure
 
-在 https://portal.azure.cn 中登录 Azure
+登录 Azure (https://portal.azure.cn)
 
 ## <a name="create-runbook"></a>创建 Runbook
 
@@ -102,3 +103,4 @@ Runbook 发布以后，会显示概览页。
 
 > [!div class="nextstepaction"]
 > [自动化指南 - Runbook 类型](./automation-runbook-types.md)
+

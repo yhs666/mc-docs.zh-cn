@@ -3,7 +3,7 @@ title: Azure CLI 示例 - 启用基于主机的自动缩放 | Microsoft Docs
 description: Azure CLI 示例
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/27/2018
-ms.date: 11/27/2018
+ms.date: 02/12/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: a8f1d5c0da98a1de2d5163488fa790649a0f85a6
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: b29e0222e3f7adbd8e2c43ef25293d83ffa962ac
+ms.sourcegitcommit: 24dd5964eafbe8aa4badbca837c2a1a7836f2df7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672882"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56101574"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>使用 Azure CLI 自动缩放虚拟机规模集
 此脚本创建运行 Ubuntu 的虚拟机规模集，当 CPU 负载发生变化时，它会使用基于主机的指标自动缩放。
@@ -135,14 +135,14 @@ az group delete --name myResourceGroup
 
 | 命令 | 注释 |
 |---|---|
-| [az group create](/cli/ad/group#az_ad_group_create) | 创建用于存储所有资源的资源组。 |
-| [az vmss create](/cli/vmss#az_vmss_create) | 创建虚拟机规模集并将其连接到虚拟网络、子网和网络安全组。 负载均衡器也会被创建，以将流量分配到多个 VM 实例。 此命令还指定要使用的 VM 映像和管理凭据。  |
-| [az monitor autoscale-settings create](/cli/monitor/autoscale-settings#az_monitor_autoscale_settings_create) | 创建自动缩放规则并将其应用到虚拟机规模集。 |
-| [az group delete](/cli/ad/group#delete) | 删除资源组，包括所有嵌套的资源。 |
+| [az group create](/cli/ad/group) | 创建用于存储所有资源的资源组。 |
+| [az vmss create](/cli/vmss) | 创建虚拟机规模集并将其连接到虚拟网络、子网和网络安全组。 负载均衡器也会被创建，以将流量分配到多个 VM 实例。 此命令还指定要使用的 VM 映像和管理凭据。  |
+| [az monitor autoscale-settings create](/cli/monitor/autoscale-settings) | 创建自动缩放规则并将其应用到虚拟机规模集。 |
+| [az group delete](/cli/ad/group) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](/cli/overview)。
 
 可以在 [Azure 虚拟机规模集文档](../cli-samples.md)中找到其他虚拟机规模集 Azure CLI 脚本示例。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: link update -->

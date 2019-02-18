@@ -9,14 +9,14 @@ ms.service: power-bi-embedded
 ms.topic: article
 ms.workload: powerbi
 origin.date: 09/25/2017
-ms.date: 11/30/2018
+ms.date: 02/15/2019
 ms.author: v-junlch
-ms.openlocfilehash: 72f43e02f64f721d3762d34c88517e217028a951
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 8660a8b0d3e03ba72635f49b7271f7f0e9c65d5b
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029117"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306081"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Power BI 工作区集合入门示例
 
@@ -140,7 +140,7 @@ Data Source=tcp:MyServer.database.chinacloudapi.cn,1433;Initial Catalog=MyDataba
 
 使用一般的服务器和数据库属性会失败。 例如：Server=tcp:MyServer.database.chinacloudapi.cn,1433;Database=MyDatabase,
 
-### <a name="view"></a>视图
+### <a name="view"></a>查看
 
 **视图**用于管理多个 Power BI **报表**或一个 Power BI **报表**的显示情况。
 
@@ -243,7 +243,7 @@ Task<ActionResult> Report(string reportId)
 ```
 init: function() {
     var embedUrl = this.getEmbedUrl();
-    var iframeHtml = '<igrame style="width:100%;height:100%;" src="' + embedUrl + 
+    var iframeHtml = '<iframe style="width:100%;height:100%;" src="' + embedUrl + 
         '" scrolling="no" allowfullscreen="true"></iframe>';
     this.element.innerHTML = iframeHtml;
     this.iframe = this.element.childNodes[0];
@@ -275,4 +275,4 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 
 有更多问题？ [试用 Power BI 社区](http://community.powerbi.com/)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: code update -->

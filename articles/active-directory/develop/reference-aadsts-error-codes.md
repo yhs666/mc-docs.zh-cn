@@ -7,22 +7,22 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-origin.date: 11/30/2018
-ms.date: 01/02/2019
+origin.date: 01/23/2019
+ms.date: 02/14/2019
 ms.author: v-junlch
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
-ms.openlocfilehash: f0c16e684c76ed4843829402b2381ea44ed699c7
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: e8606fb48b1a4ede32433f2d7c14333f6452f905
+ms.sourcegitcommit: f34f65c439665607b43bb2c81df58c138d0b7417
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996333"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56262187"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>身份验证和授权错误代码
 
@@ -80,7 +80,7 @@ ms.locfileid: "53996333"
 | AADSTS50058 | UserInformationNotProvided - 表示用户未登录。 这是一个常见的错误，如果用户未经过身份验证并且尚未登录，则预期会出现此错误。</br>如果在用户登录的 SSO 上下文中遇到此错误，则表示 SSO 会话未找到或无效。</br>如果指定了 prompt=none，则可能会在应用程序中返回此错误。 |
 | AADSTS50059 | MissingTenantRealmAndNoUserInformationProvided - 在请求中未找到租户标识信息，或者任何提供的凭据未隐式指定此信息。 用户可以联系租户管理员来帮助解决此问题。 |
 | AADSTS50061 | SignoutInvalidRequest - 注销请求无效。 |
-| AADSTS50064 | CredentialAuthenticationError - 凭据验证失败。 |
+| AADSTS50064 | CredentialAuthenticationError - 用户名或密码凭据验证失败。 |
 | AADSTS50068 | SignoutInitiatorNotParticipant - 注销失败。 发起注销的应用不是当前会话中的参与者。 |
 | AADSTS50070 | SignoutUnknownSessionIdentifier - 注销失败。 注销请求指定了与现有会话不匹配的名称标识符。 |
 | AADSTS50071 | SignoutMessageExpired - 注销请求已过期。 |
@@ -255,6 +255,7 @@ ms.locfileid: "53996333"
 | AADSTS221000 | DeviceOnlyTokensNotSupportedByResource - 资源未配置为接受仅限设备的令牌。 |
 | AADSTS240001 | BulkAADJTokenUnauthorized - 未授权用户在 Azure AD 中注册设备。 |
 | AADSTS240002 | RequiredClaimIsMissing - 无法将 id_token 用作 `urn:ietf:params:oauth:grant-type:jwt-bearer` 授予。|
+| AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest - 应用程序中找不到目录/租户。 如果应用程序尚未由租户管理员安装，或者尚未获得租户中的任何用户同意，则可能会发生这种情况。 可能错误配置了应用程序的标识符值，或者将身份验证请求发送到了错误的租户。 |
 | AADSTS700020 | InteractionRequired - 访问权限授予需要交互。 |
 | AADSTS700022 | InvalidMultipleResourcesScope - 为输入参数范围提供的值无效，因为它包含多个资源。 |
 | AADSTS700023 | InvalidResourcelessScope - 请求访问令牌时，为输入参数范围提供的值无效。 |

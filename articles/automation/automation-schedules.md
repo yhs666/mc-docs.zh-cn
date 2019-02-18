@@ -10,12 +10,12 @@ origin.date: 09/18/2018
 ms.date: 11/05/2018
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 0f36e7b7fa73711633db800c9d36542193cdbb5e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d414bbc174421e3143602c83cbfac5a8ebc5f204
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651348"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302997"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>在 Azure 自动化中计划 Runbook
 
@@ -44,7 +44,6 @@ ms.locfileid: "52651348"
 
 > [!NOTE]
 > 当运行新的计划作业时，Azure 自动化将在自动化帐户中使用最新模块。  若要避免影响 Runbook 以及其自动执行进程，应首先使用测试专用自动化帐户测试已链接计划的任何 Runbook。  这将验证计划的 runbook 是否继续正常运行，如果没有，则可以进一步排除故障并在将更新的 runbook 版本迁移到生产之前应用所需的任何更改。
-> 自动化帐户不会自动获取模块的任何新版本，除非你通过从[模块](automation-update-azure-modules.md) 中选择“更新 Azure 模块”选项来手动更新它们。
 
 ### <a name="to-create-a-new-schedule-in-the-azure-portal"></a>在 Azure 门户中创建新计划
 

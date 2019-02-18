@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 origin.date: 01/08/2019
-ms.date: 01/15/2019
+ms.date: 02/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: bf0cc05f6a0f9952a65e7b8555550bb9cc41def2
-ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
+ms.openlocfilehash: a5be469a60dbd8aa3473fce1b0f95cb9f29e6c04
+ms.sourcegitcommit: 713cf33290efd4ccc7a3eab2668e3ceb0b51686f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54333897"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56079635"
 ---
 # <a name="url-path-based-routing-overview"></a>基于 URL 路径的路由概述
 
@@ -24,7 +24,7 @@ ms.locfileid: "54333897"
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-对 http://contoso.com/video/* 的请求会路由到 VideoServerPool，而对 http://contoso.com/images/* 的请求则会路由到 ImageServerPool。 如果没有任何路径模式匹配，则选择 DefaultServerPool。
+对 http\://contoso.com/video/* 的请求会路由到 VideoServerPool，对 http\://contoso.com/images/* 的请求会路由到 ImageServerPool。 如果没有任何路径模式匹配，则选择 DefaultServerPool。
 
 > [!IMPORTANT]
 > 规则将按照门户中的列出顺序进行处理。 我们强烈建议先配置多站点侦听器，然后再配置基本侦听器。  这确保将流量路由到适当的后端。 如果基本侦听器先列出并且与传入的请求匹配，则该侦听器将处理该请求。
@@ -109,4 +109,4 @@ PathBasedRouting 规则的代码片段：
 
 了解基于 URL 的内容路由之后，请转到[使用基于 URL 的路由创建应用程序网关](application-gateway-create-url-route-portal.md)，使用 URL 路由规则创建应用程序网关。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

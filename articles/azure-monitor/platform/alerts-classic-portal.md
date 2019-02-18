@@ -6,12 +6,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 8da28c3def017b389bcd8c359a96c65c3b574e20
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: f9161ffc2ad280fc96f209e499920dda33aacb57
+ms.sourcegitcommit: e38a4405fea7606b01e5fa143e2069d93043da97
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906211"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56334182"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>使用 Azure Monitor 创建、查看和管理经典指标警报
 
@@ -19,7 +19,7 @@ Azure Monitor 中的经典指标警报提供了一种在指标超出阈值时获
 
 ## <a name="with-azure-portal"></a>使用 Azure 门户
 
-1. 在[门户](https://portal.azure.com/)中，找到要监视的资源，然后选择它。
+1. 在[门户](https://portal.azure.cn/)中，找到要监视的资源，然后选择它。
 
 2. 在“监视”部分中，选择“警报(经典)”。 对于不同的资源，文本和图标可能会略有不同。 如果在此处未找到“警报(经典)”，则它可能位于“警报”或“警报规则”中。
 
@@ -87,7 +87,7 @@ az monitor alert delete --name <alert name> --resource-group <group name>
 
 本部分展示了如何使用 PowerShell 命令创建、查看和管理经典指标警报。本文中的示例展示了如何将 Azure Monitor cmdlet 用于经典指标警报。
 
-1. 如果尚未安装，请在计算机上安装要运行的 PowerShell。 有关详细信息，请参阅[如何安装和配置 PowerShell](/powershell/azure/overview)。 还可以在 [Azure Monitor (Insights) Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.insights) 上查看 Azure Monitor PowerShell cmdlet 的完整列表。
+1. 如果尚未安装，请在计算机上安装要运行的 PowerShell。 有关详细信息，请参阅[如何安装和配置 PowerShell](/powershell/azure/overview)。 还可以在 [Azure Monitor (Insights) Cmdlet](https://docs.azure.cn/powershell/module/azurerm.insights) 上查看 Azure Monitor PowerShell cmdlet 的完整列表。
 
 2. 首先，登录到 Azure 订阅。
 

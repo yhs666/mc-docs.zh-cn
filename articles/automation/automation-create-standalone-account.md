@@ -3,19 +3,19 @@ title: 创建独立的 Azure 自动化帐户
 description: 本文逐步讲解如何在 Azure 自动化中创建、测试和使用示例安全主体身份验证。
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: WenJason
 ms.author: v-jay
-origin.date: 03/15/2018
-ms.date: 11/26/2018
+origin.date: 01/15/2019
+ms.date: 02/18/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 2f7fddc8d92c2f9f02cb5fd8f1e510f293617eb2
-ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
+ms.openlocfilehash: 8a6860b8952fede9a392f1d4f6a5614827db826a
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396919"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56303051"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>创建独立的 Azure 自动化帐户
 
@@ -70,7 +70,7 @@ ms.locfileid: "54396919"
   >
   > ![添加自动化帐户警报](media/automation-create-standalone-account/create-account-without-perms.png)
 
-1. 在“添加自动化帐户”窗格的“名称”框中，输入新自动化帐户的名称。 此名称选定后即不可更改。 每个区域和资源组的自动化帐户名称都是唯一的。
+1. 在“添加自动化帐户”窗格的“名称”框中，输入新自动化帐户的名称。 此名称选定后即不可更改。 每个区域和资源组的自动化帐户名称都是唯一的。已删除的自动化帐户的名称可能无法立即可用。
 1. 如果有多个订阅，请在“订阅”框中为新帐户指定一个订阅。
 1. 对于“资源组”，请输入或选择新的或现有的资源组。
 1. 对于“位置”，请选择一个 Azure 数据中心位置。
@@ -113,3 +113,4 @@ ms.locfileid: "54396919"
 * 若要开始使用 PowerShell Runbook，请参阅[我的第一个 PowerShell Runbook](automation-first-runbook-textual-powershell.md)。
 * 若要开始使用 PowerShell 工作流 Runbook，请参阅 [My first PowerShell workflow runbook](automation-first-runbook-textual.md)（我的第一个 PowerShell 工作流 Runbook）。
 * 若要开始使用 Python2 runbook，请参阅[第一个 Python2 runbook](automation-first-runbook-textual-python2.md)。
+

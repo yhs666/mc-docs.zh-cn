@@ -113,8 +113,6 @@ items:
       href: automation-schedules.md
     - name: 变量
       href: automation-variables.md
-    - name: 更新 Azure PowerShell 模块
-      href: automation-update-azure-modules.md
   - name: 方案
     items:
     - name: 从 Azure 警报启动 Runbook
@@ -144,9 +142,9 @@ items:
     href: https://www.azure.cn/zh-cn/pricing/details/automation/
   - name: 定价计算器
     href: https://www.azure.cn/zh-cn/pricing/calculator/automation/
-ms.openlocfilehash: aab819b55908714b4886aeccc6ff09fbf4cf2cb8
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 5ec4d5e8dfdf99e9e828728318d14af953d1fb12
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674610"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302989"

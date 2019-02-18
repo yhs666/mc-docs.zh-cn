@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 02/02/18
-ms.date: 03/19/2018
+origin.date: 02/02/2018
+ms.date: 02/25/2019
 ms.author: v-yiso
-ms.openlocfilehash: 88c998d1034d0311f4702995d144d81eca51ce0b
-ms.sourcegitcommit: f40e5b30f50205beda427eb4e3f481385b47ca06
+ms.openlocfilehash: 0fdb6e8abc756aeaf9f5d0885622d3fe9824469d
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55985622"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56303019"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>收集 Azure 云服务的性能计数器
 
@@ -171,7 +171,7 @@ namespace WorkerRoleWithSBQueue1
         {
             // ... Other startup code here ...
 
-            // Define the cateogry and counter names.
+            // Define the category and counter names.
             string perfCounterCatName = "MyService";
             string perfCounterName = "Times Used";
 

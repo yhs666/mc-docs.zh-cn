@@ -1,26 +1,24 @@
 ---
-title: Azure 虚拟网络中资源的名称解析 | Azure
+title: Azure 虚拟网络中资源的名称解析
+titlesuffix: Azure Virtual Network
 description: Azure IaaS 名称解析方案、混合解决方案、不同的云服务之间、Active Directory 和使用自己的 DNS 服务器。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
-manager: digimobile
-editor: ''
-ms.assetid: 5d73edde-979a-470a-b28c-e103fcf07e3e
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/14/2018
-ms.date: 01/21/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6350c4e400fe329e9a0b7e440d742740b37f1a96
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: 508f5a947dd47be5d199eab479692fe069afd299
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193068"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306120"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure 虚拟网络中资源的名称解析
 
@@ -50,8 +48,8 @@ ms.locfileid: "54193068"
 | 解析本地计算机中的 Azure 主机名。 |将查询转发到相应虚拟网络中客户托管的 DNS 代理服务器，该代理服务器将查询转发到 Azure 进行解析。 请参阅[使用自己的 DNS 服务器进行名称解析](#name-resolution-that-uses-your-own-dns-server)。 |仅 FQDN |
 | 针对内部 IP 的反向 DNS。 |[使用自己的 DNS 服务器的名称解析](#name-resolution-that-uses-your-own-dns-server)。 |不适用 |
 | 位于不同云服务（而非虚拟网络）中的 VM 或角色实例之间的名称解析。 |不适用。 不同云服务中的 VM 和角色实例之间的连接在虚拟网络外部不受支持。 |不适用|
-<!-- Not Available on [Azure DNS Private Zones](../dns/private-dns-overview.md)-->
 
+<!-- Not Available on [Azure DNS Private Zones](../dns/private-dns-overview.md)-->
 
 <a name="azure-provided-name-resolution"></a>
 ## <a name="azure-provided-name-resolution"></a>Azure 提供的名称解析
@@ -167,7 +165,7 @@ DNS 转发还可用于在虚拟网络之间进行 DNS 解析，可以通过本�
 
 如果需要，可以使用 PowerShell 或 API 确定内部 DNS 后缀：
 
-* 对于 Azure 资源管理器部署模型中的虚拟网络，可以通过[网络接口卡 REST API](https://docs.microsoft.com/rest/api/virtualnetwork/networkinterfaces/get)、[Get-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkinterface) PowerShell cmdlet 和 [az network nic show](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az-network-nic-show) Azure CLI 命令获取该后缀。
+* 对于 Azure 资源管理器部署模型中的虚拟网络，可以通过[网络接口卡 REST API](https://docs.microsoft.com/rest/api/virtualnetwork/networkinterfaces)、[Get-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkinterface) PowerShell cmdlet 和 [az network nic show](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az-network-nic-show) Azure CLI 命令获取该后缀。
 * 在经典部署模型中，可以通过 [Get Deployment API](https://msdn.microsoft.com/library/azure/ee460804.aspx) 调用或 [Get-AzureVM -Debug](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azurevm) cmdlet 获取该后缀。
 
 如果不想将查询转发到 Azure，应提供自己的 DNS 解析。 DNS 解决方案需要：
@@ -206,6 +204,11 @@ DNS 转发还可用于在虚拟网络之间进行 DNS 解析，可以通过本�
 
 使用 Azure 资源管理器部署模型时，可为虚拟网络和网络接口指定 DNS 服务器。 有关详细信息，请参阅[管理虚拟网络](manage-virtual-network.md)和[管理网络接口](virtual-network-network-interface.md)。
 
+> [!NOTE]
+> 如果为虚拟网络选择自定义 DNS 服务器，则必须至少指定一个 DNS 服务器 IP 地址；否则，虚拟网络将忽略配置，而改用由 Azure 提供的 DNS。
+> 
+> 
+
 使用经典部署模型时，可以在 Azure 门户或[网络配置文件](https://msdn.microsoft.com/library/azure/jj157100)中指定虚拟网络的 DNS 服务器。 对于云服务器，可以通过[服务配置文件](https://msdn.microsoft.com/library/azure/ee758710)或者在 PowerShell 中使用 [New-AzureVM](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azurevm) 指定 DNS 服务器。
 
 > [!NOTE]
@@ -225,4 +228,5 @@ Azure 资源管理器部署模型
 * [Azure 服务配置架构](https://msdn.microsoft.com/library/azure/ee758710)
 * [虚拟网络配置架构](https://msdn.microsoft.com/library/azure/jj157100)
 * [使用网络配置文件配置虚拟网络](virtual-networks-using-network-configuration-file.md)
-<!-- Update_Description: update meta properties, wording update -->
+
+<!-- Update_Description: update meta properties, wording update, update link -->

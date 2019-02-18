@@ -2,19 +2,20 @@
 title: Azure AD Connect：ADSyncConfig PowerShell 参考 | Microsoft Docs
 description: 本文档提供 ADSyncConfig.psm1 PowerShell 模块的参考信息。
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
-origin.date: 10/19/2018
-ms.date: 01/03/2019
-ms.component: hybrid
+origin.date: 01/24/2019
+ms.date: 02/13/2019
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 29d1562ebdee38762895b5e91c4f106671e2d23d
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.topic: reference
+ms.openlocfilehash: db72f0e1fdc24d7457375a0cb4107980c4c0621c
+ms.sourcegitcommit: 3f266322470d2a3f8fdd4682e854f833466701af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996360"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56222696"
 ---
 # <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect：ADSyncConfig PowerShell 参考
 以下文档提供了 Azure AD Connect 附带的 ADSyncConfig.psm1 PowerShell 模块的参考信息。
@@ -1193,169 +1194,6 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>CommonParameters
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
 有关详细信息，请参阅 about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216)。
-
-## <a name="set-adsyncunifiedgroupwritebackpermissions"></a>Set-ADSyncUnifiedGroupWritebackPermissions
-
-### <a name="synopsis"></a>摘要
-初始化 Active Directory 林和域以从 Azure AD 进行组回写。
-
-### <a name="syntax"></a>语法
-
-#### <a name="userdomain"></a>UserDomain
-```
-Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String>
- [-ADobjectDN <String>] [-SkipAdminSdHolders] [-WhatIf] [-Confirm] [<CommonParameters>]
-```
-
-#### <a name="distinguishedname"></a>DistinguishedName
-```
-Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>]
- [-SkipAdminSdHolders] [-WhatIf] [-Confirm] [<CommonParameters>]
-```
-
-### <a name="description"></a>说明
-Set-ADSyncUnifiedGroupWritebackPermissions 函数将为 AD 同步帐户提供所需的权限，其中包括以下内容：
-1.
-针对所有对象类型和子对象的一般读取/写入、删除、删除树和创建\删除子元素
-
-这些权限适用于林中的所有域。
-（可选）可在 ADobjectDN 参数中提供 DistinguishedName，以仅在该 AD 对象上设置这些权限（包括对子对象的继承）。
-在这种情况下，ADobjectDN 将是与 GroupWriteback 功能链接的所需容器的专有名称。
-
-### <a name="examples"></a>示例
-
-#### <a name="example-1"></a>示例 1
-```
-Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName 'ADConnector' -ADConnectorAccountDomain 'Contoso.com'
-```
-
-#### <a name="example-2"></a>示例 2
-```
-Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN 'CN=ADConnector,OU=AzureAD,DC=Contoso,DC=com'
-```
-
-#### <a name="example-3"></a>示例 3
-```
-Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN 'CN=ADConnector,OU=AzureAD,DC=Contoso,DC=com' -SkipAdminSdHolders
-```
-
-#### <a name="example-4"></a>示例 4
-```
-Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName 'ADConnector' -ADConnectorAccountDomain 'Contoso.com' -ADobjectDN 'OU=AzureAD,DC=Contoso,DC=com'
-```
-
-### <a name="parameters"></a>参数
-
-#### <a name="-adconnectoraccountname"></a>-ADConnectorAccountName
-Azure AD Connect 同步现在或将来用其管理目录对象的 Active Directory 帐户的名称。
-
-```yaml
-Type: String
-Parameter Sets: UserDomain
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-#### <a name="-adconnectoraccountdomain"></a>-ADConnectorAccountDomain
-Azure AD Connect 同步现在或将来用其管理目录对象的 Active Directory 帐户的域。
-
-```yaml
-Type: String
-Parameter Sets: UserDomain
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-#### <a name="-adconnectoraccountdn"></a>-ADConnectorAccountDN
-Azure AD Connect 同步现在或将来用其管理目录对象的 Active Directory 帐户的 DistinguishedName。
-
-```yaml
-Type: String
-Parameter Sets: DistinguishedName
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-#### <a name="-adobjectdn"></a>-ADobjectDN
-用于设置权限的目标 AD 对象的 DistinguishedName（可选）
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-#### <a name="-skipadminsdholders"></a>-SkipAdminSdHolders
-可选参数，指示是否不应使用这些权限更新 AdminSDHolder 容器
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-#### <a name="-whatif"></a>-WhatIf
-显示运行该 cmdlet 时会发生什么情况。
-cmdlet 未运行。
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: wi
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-#### <a name="-confirm"></a>-Confirm
-提示你在运行 cmdlet 之前进行确认。
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-#### <a name="commonparameters"></a>CommonParameters
-此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
-有关详细信息，请参阅 about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216)。
-
 ## <a name="show-adsyncadobjectpermissions"></a>Show-ADSyncADObjectPermissions
 
 ### <a name="synopsis"></a>摘要
@@ -1399,4 +1237,4 @@ Accept wildcard characters: False
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
 有关详细信息，请参阅 about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216)。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

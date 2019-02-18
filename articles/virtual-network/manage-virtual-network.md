@@ -1,27 +1,24 @@
 ---
-title: 创建、更改或删除 Azure 虚拟网络 | Azure
+title: 创建、更改或删除 Azure 虚拟网络
+titlesuffix: Azure Virtual Network
 description: 了解如何在 Azure 中创建、更改或删除虚拟网络。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
-manager: digimobile
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 02/09/2018
-ms.date: 01/21/2019
+origin.date: 01/10/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2aacbbea8b6973dd93a421493f75c9f1e37b6c48
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: 88756933b85e8088ded3665e88eed5afe659ce1f
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193135"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306259"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>创建、更改或删除虚拟网络
 
@@ -34,10 +31,8 @@ ms.locfileid: "54193135"
 
 - 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 - 如果使用门户，请打开 https://portal.azure.cn，并使用 Azure 帐户登录。
-- 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。
-    <!-- Not Avaiable on [Azure Cloud Shell](https://shell.azure.com/powershell) -->
-- 如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.31 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
-    <!-- Not Avaiable on [Azure Cloud Shell](https://shell.azure.com/bash) -->
+- 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。 本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。
+- 如果使用 Azure 命令行接口 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.31 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
 - 登录或连接到 Azure 所用的帐户必须分配有[网络参与者](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)角色或者分配有可执行[权限](#permissions)中列出的适当操作的[自定义角色](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json)。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
@@ -48,13 +43,15 @@ ms.locfileid: "54193135"
 1. 选择“+ 创建资源” > “网络” > “虚拟网络”。
 2. 为以下设置输入或选择值，然后选择“创建”：
     - **名称**：该名称在选择创建虚拟网络的[资源组](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group)中必须是唯一的。 虚拟网络创建后，无法更改名称。 可随着时间推移创建多个虚拟网络。 遵循命名约定可以更轻松地管理多个虚拟网络。
-        <!-- Not Available on [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions) -->
+        
+        <!-- Not Available on [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions)-->
+        
     - **地址空间**：虚拟网络的地址空间由以 CIDR 表示法指定的一个或多个非重叠地址范围组成。 定义的地址范围可以是公共或专用 (RFC 1918) 地址。 无论是将地址范围定义为公用还是专用，地址范围都只能从虚拟网络内、从互联的虚拟网络以及从任何已连接到虚拟网络的本地网络进行访问。 无法添加以下的地址范围：
         - 224.0.0.0/4（多播）
         - 255.255.255.255/32（广播）
         - 127.0.0.0/8（环回）
         - 169.254.0.0/16（本地链路）
-        - 168.63.129.16/32（内部 DNS）
+        - 168.63.129.16/32（内部 DNS、DHCP 和 Azure 负载均衡器[运行状况探测](../load-balancer/load-balancer-custom-probe-overview.md#probesource)）
 
       尽管在创建虚拟网络时只能定义一个地址范围，但可以在虚拟网络创建之后向地址空间添加更多地址范围。 若要了解如何将地址范围添加到现有的虚拟网络，请参阅[添加或删除地址范围](#add-or-remove-an-address-range)。
 
@@ -76,7 +73,7 @@ ms.locfileid: "54193135"
 
 命令
 
-- Azure CLI: [az network vnet create](https://docs.azure.cn/zh-cn/cli/network/vnet?view=azure-cli-latest)
+- Azure CLI: [az network vnet create](https://docs.azure.cn/zh-cn/cli/network/vnet?view=azure-cli-latest#az-network-vnet-create)
 - PowerShell：[New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork)
 
 <a name = "view-vnet"></a>
@@ -97,8 +94,9 @@ ms.locfileid: "54193135"
     - **对等互连**：如果订阅中存在现有的对等互连，它们将在此处列出。 可以查看现有对等互连的设置，或者创建、更改或删除对等互连。 若要了解对等互连的详细信息，请参阅[虚拟网络对等互连](virtual-network-peering-overview.md)。
     - **属性**：显示有关虚拟网络的设置，包括虚拟网络的资源 ID 及其所在的 Azure 订阅。
     - **示意图**：该图提供已连接到虚拟网络的所有设备的可视表示形式。 图示提供一些有关设备的关键信息。 若要在此视图中管理设备，请选择设备。
-    - **常用 Azure 设置**：若要详细了解常见的 Azure 设置，请参阅以下信息：<!-- Not Available on * [Activity log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)-->
-        *   [访问控制 (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-network%2ftoc.json#access-control)
+    - **常用 Azure 设置**：若要详细了解常见的 Azure 设置，请参阅以下信息：
+        *   [活动日志](../azure-monitor/platform/activity-logs-overview.md)
+        *   [访问控制 (IAM)](../role-based-access-control/overview.md)
         *   [标记](../azure-resource-manager/resource-group-using-tags.md?toc=%2fvirtual-network%2ftoc.json)
         *   [锁](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fvirtual-network%2ftoc.json)
         *   [自动化脚本](../azure-resource-manager/resource-manager-export-template.md?toc=%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
@@ -111,13 +109,17 @@ ms.locfileid: "54193135"
 <a name="add-address-spaces"></a>
 ## <a name="add-or-remove-an-address-range"></a>添加或删除地址范围
 
-可以为虚拟网络添加和删除地址范围。 地址范围必须以 CIDR 表示法指定，并且不能和同一虚拟网络中的其他地址范围重叠。 定义的地址范围可以是公共或专用 (RFC 1918) 地址。 无论是将地址范围定义为公用还是专用，地址范围都只能从虚拟网络内、从互联的虚拟网络以及从任何已连接到虚拟网络的本地网络进行访问。 无法添加以下的地址范围：
+可以为虚拟网络添加和删除地址范围。 地址范围必须以 CIDR 表示法指定，并且不能和同一虚拟网络中的其他地址范围重叠。 定义的地址范围可以是公共或专用 (RFC 1918) 地址。 无论是将地址范围定义为公用还是专用，地址范围都只能从虚拟网络内、从互联的虚拟网络以及从任何已连接到虚拟网络的本地网络进行访问。 
+
+如果没有与虚拟网络关联的子网，可以减小其地址范围。 否则，只能扩展地址范围，例如，将 /16 更改为 /8。 你可以从一个较小的地址范围开始，以后对其进行扩展或添加其他范围。
+
+无法添加以下的地址范围：
 
 - 224.0.0.0/4（多播）
 - 255.255.255.255/32（广播）
 - 127.0.0.0/8（环回）
 - 169.254.0.0/16（本地链路）
-- 168.63.129.16/32（内部 DNS）
+- 168.63.129.16/32（内部 DNS、DHCP 和 Azure 负载均衡器[运行状况探测](../load-balancer/load-balancer-custom-probe-overview.md#probesource)）
 
 添加或删除地址范围：
 

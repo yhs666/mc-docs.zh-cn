@@ -8,18 +8,18 @@ manager: digimobile
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 02/23/2018
-ms.date: 03/26/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 38ed7db7a4dbfabe5ce185f7409d9084826895a6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6485de82d80a8e1cf26ddcab5091261189e78a7b
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666963"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306079"
 ---
 # <a name="export-azure-resource-manager-templates-with-powershell"></a>使用 PowerShell 导出 Azure Resource Manager 模板
 
@@ -32,23 +32,25 @@ ms.locfileid: "52666963"
 
 本文介绍了这两种方法。
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="deploy-a-solution"></a>部署解决方案
 
 为了说明用于导出模板的这两种方法，让我们首先将解决方案部署到订阅。 如果订阅中已有要导出的资源组，则无需部署此解决方案。 但是，本文的剩余部分指的是此解决方案的模板。 该示例脚本可部署存储帐户。
 
 ```powershell
-New-AzureRmResourceGroup -Name ExampleGroup -Location "China East"
-New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup `
+New-AzResourceGroup -Name ExampleGroup -Location "China East"
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup `
   -DeploymentName NewStorage
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```  
 
 ## <a name="save-template-from-deployment-history"></a>从部署历史记录保存模板
 
-可以使用 [Save-AzureRmResourceGroupDeploymentTemplate](https://docs.microsoft.com/powershell/module/azurerm.resources/save-azurermresourcegroupdeploymenttemplate) 命令从部署历史记录中检索模板。 以下示例保存以前部署的模板：
+可以使用 [Save-AzureRmResourceGroupDeploymentTemplate](https://docs.microsoft.com/powershell/module/az.resources/save-azresourcegroupdeploymenttemplate) 命令从部署历史记录中检索模板。 以下示例保存以前部署的模板：
 
 ```powershell
-Save-AzureRmResourceGroupDeploymentTemplate -ResourceGroupName ExampleGroup -DeploymentName NewStorage
+Save-AzResourceGroupDeploymentTemplate -ResourceGroupName ExampleGroup -DeploymentName NewStorage
 ```
 
 它将返回模板的位置。
@@ -63,10 +65,10 @@ C:\Users\exampleuser\NewStorage.json
 
 ## <a name="export-resource-group-as-template"></a>将资源组导出为模板
 
-可以使用 [Export-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/export-azurermresourcegroup) 命令检索表示资源组当前状态的模板，而不是从部署历史记录中检索模板。 如果对资源组进行了许多更改，并且现有模板未表示所有更改，则可以使用此命令。 它用作资源组的快照，可用来重新部署到同一资源组。 若要将导出的模板用于其他解决方案，必须大幅修改它。
+可以使用 [Export-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup) 命令检索表示资源组当前状态的模板，而不是从部署历史记录中检索模板。 如果对资源组进行了许多更改，并且现有模板未表示所有更改，则可以使用此命令。 它用作资源组的快照，可用来重新部署到同一资源组。 若要将导出的模板用于其他解决方案，必须大幅修改它。
 
 ```powershell
-Export-AzureRmResourceGroup -ResourceGroupName ExampleGroup
+Export-AzResourceGroup -ResourceGroupName ExampleGroup
 ```
 
 它将返回模板的位置。
@@ -112,7 +114,7 @@ C:\Users\exampleuser\ExampleGroup.json
 可以重新部署此模板，但需要猜测存储帐户的唯一名称。 参数名称可以略有不同。
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup `
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup `
   -TemplateFile C:\Users\exampleuser\ExampleGroup.json `
   -storageAccounts_nf3mvst4nqb36standardsa_name tfnewstorage0501
 ```
@@ -223,4 +225,5 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup `
 * 有关使用门户导出模板的信息，请参阅[从现有资源导出 Azure Resource Manager 模板](resource-manager-export-template.md)。
 * 若要在模板中定义参数，请参阅[创作模板](resource-group-authoring-templates.md#parameters)。
 * 有关解决常见部署错误的提示，请参阅[排查使用 Azure Resource Manager 时的常见 Azure 部署错误](resource-manager-common-deployment-errors.md)。
-<!-- Update_Description: update meta properties, wording update -->
+
+<!-- Update_Description: update meta properties, wording update, update powershell az cmdlet -->

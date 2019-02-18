@@ -4,25 +4,25 @@ description: 了解 Azure AD Connect 的 Synchronization Service Manager 中的�
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 60f1d979-8e6d-4460-aaab-747fffedfc1e
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 07/13/2017
-ms.date: 11/12/2018
-ms.component: hybrid
+ms.date: 02/13/2019
+ms.subservice: hybrid
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 95b53e0523b8767badba7fb7a6f9ff2a5957f51e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 7ce366ccdc047d0735ba203e28a10165c2ac18b5
+ms.sourcegitcommit: 3f266322470d2a3f8fdd4682e854f833466701af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653858"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56222692"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>将连接器与 Azure AD Connect Sync Service Manager 配合使用
 
@@ -43,7 +43,7 @@ ms.locfileid: "52653858"
 | 导入连接器 |请勿使用。 |
 | 更新连接器 |请勿使用。 |
 | 刷新架构 |刷新缓存架构。 最好改为在安装向导中使用此选项，因为它也会更新同步规则。 |
-| [搜索连接器空间](#search-connector-space) |用于查找对象，以及 [在整个系统中跟踪对象及其数据](#follow-an-object-and-its-data-through-the-system)。 |
+| [搜索连接器空间](#search-connector-space) |用于查找对象，以及在整个系统中跟踪对象及其数据。 |
 
 ### 删除 <a name="delete"></a>
 删除操作适用于两种不同的用途。  
@@ -98,3 +98,4 @@ ms.locfileid: "52653858"
 
 了解有关[将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)的详细信息。
 
+<!-- Update_Description: link update -->

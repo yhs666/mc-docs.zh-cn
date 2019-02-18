@@ -5,19 +5,20 @@ services: traffic-manager
 documentationcenter: ''
 author: rockboyfor
 ms.service: traffic-manager
+manager: digimobile
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/10/2017
-ms.date: 12/17/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2c897d49dffd6820bb9632d86dab86d77a0fb3c5
-ms.sourcegitcommit: 1b6a310ba636b6dd32d7810821bcb79250393499
+ms.openlocfilehash: 32f2c6975fb2e3f31637b4fa8ad45e7502e9e26c
+ms.sourcegitcommit: e32c8da268002b94c500131bb361fd6afc85ce9f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389403"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306722"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>管理 Azure 流量管理器配置文件
 
@@ -37,7 +38,7 @@ ms.locfileid: "53389403"
     3. 在**订阅**中，选择要创建此配置文件的订阅
     4. 在**资源组**中，创建新的资源组，以在其下放置此配置文件。
     5. 在**资源组位置**中，选择资源组的位置。 此设置指的是资源组的位置，对将全局部署的流量管理器配置文件没有影响。
-    6. 单击“创建”。
+    6. 单击**创建**。
     7. 流量管理器配置文件的全局部署完成后，它会在相应的资源组中作为资源之一列出。
 
 ## <a name="disable-enable-or-delete-a-profile"></a>禁用、启用或删除配置文件
@@ -72,8 +73,8 @@ ms.locfileid: "53389403"
 
 * [添加终结点](traffic-manager-endpoints.md)
 * [配置优先级路由方法](traffic-manager-configure-priority-routing-method.md)
-* [配置地域路由方法](traffic-manager-configure-geographic-routing-method.md) 
+* [配置地理路由方法](traffic-manager-configure-geographic-routing-method.md) 
 * [配置加权路由方法](traffic-manager-configure-weighted-routing-method.md)
 * [配置性能路由方法](traffic-manager-configure-performance-routing-method.md)
 
-<!-- Update_Description: wording update, update link -->
+<!-- Update_Description: wording meta properties -->

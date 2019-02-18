@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 流量管理器中配置多值流量路由方法 | Azure
+title: 在 Azure 流量管理器中配置多值流量路由方法
 description: 本文介绍如何配置流量管理器以将流量路由到 A/AAAA 终结点。
 services: traffic-manager
 documentationcenter: ''
@@ -10,14 +10,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/10/2018
-ms.date: 01/21/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5d5b3ab2ea215f2a7da6bffe309566422a95e105
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: dc18120d421562acf6049d04a29731efe869390d
+ms.sourcegitcommit: e32c8da268002b94c500131bb361fd6afc85ce9f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193055"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306714"
 ---
 <!-- Verify sucessfully-->
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>在流量管理器中配置多值路由方法
@@ -49,6 +49,7 @@ ms.locfileid: "54193055"
     | 订阅            | 选择订阅。                          |
     | 资源组          | 选择“myResourceGroupTM1”。 |
     | 位置                | 此设置指的是资源组的位置，对将全局部署的流量管理器配置文件没有影响。                              |
+    |        |           | 
 
     ![创建流量管理器配置文件](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
 
@@ -77,7 +78,6 @@ ms.locfileid: "54193055"
 - 了解[加权流量路由方法](traffic-manager-configure-weighted-routing-method.md)。
 - 了解[优先级路由方法](traffic-manager-configure-priority-routing-method.md)。
 - 详细了解[性能路由方法](traffic-manager-configure-performance-routing-method.md)
+
 <!-- Not Available on [geographic routing method](traffic-manager-configure-geographic-routing-method.md)-->
-
-
 <!-- Update_Description: update meta properties -->

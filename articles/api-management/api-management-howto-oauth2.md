@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 08/10/2018
 ms.author: v-yiso
-ms.date: 12/31/2018
-ms.openlocfilehash: f4a31f8a569f5221d78a0da1b365a97da7868c16
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.date: 02/25/2019
+ms.openlocfilehash: cabaf9322c5774a9361c2ecdc750d9ce94a6466f
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736653"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56303016"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>如何在 Azure API 管理中使用 OAuth 2.0 为开发人员帐户授权
 
@@ -55,9 +55,9 @@ ms.locfileid: "53736653"
 
     ![OAuth 2.0 新服务器](./media/api-management-howto-oauth2/oauth-02.png)
 
-4. 此窗体的下一部分包含“授权代码授予类型”、“授权终结点 URL”和“授权请求方法”设置。
+4. 此窗体的下一部分包含“授权的授权类型”、“授权终结点 URL”和“授权请求方法”设置。
 
-    可以通过选中所需类型来指定“授权代码授予类型”。 “授权代码”是默认指定的。
+    选中所需类型即可指定“授权的授权类型”。 “授权代码”是默认指定的。
 
     输入“授权终结点 URL”。 对于 Azure Active Directory，此 URL 将类似于以下 URL，其中 `<client_id>` 将替换为客户端 ID，用于向 OAuth 2.0 服务器标识应用程序。
 
@@ -71,7 +71,7 @@ ms.locfileid: "53736653"
 
     对于 Azure Active Directory OAuth 2.0 服务器，“令牌终结点 URL”将具有如下格式，其中 `<TenantID>` 的格式为 `yourapp.onmicrosoft.com`。
 
-    `https://login.chinacloudapi.cn/<APPID>/oauth2/token`
+    `https://login.chinacloudapi.cn/<TenantID>/oauth2/token`
 
     “客户端身份验证方法”的默认设置为“基本”，“访问令牌发送方法”为“授权标头”。 这些值以及“默认范围”在窗体的此部分配置。
 
@@ -79,7 +79,7 @@ ms.locfileid: "53736653"
 
     ![OAuth 2.0 new server](./media/api-management-howto-oauth2/oauth-04.png)
 
-    If **Authorization code grant types** is set to **Resource owner password**, the **Resource owner password credentials** section is used to specify those credentials; otherwise you can leave it blank.
+    If **Authorization grant types** is set to **Resource owner password**, the **Resource owner password credentials** section is used to specify those credentials; otherwise you can leave it blank.
 
     Once the form is complete, click **Create** to save the API Management OAuth 2.0 authorization server configuration. Once the server configuration is saved, you can configure APIs to use this configuration, as shown in the next section.
 
@@ -146,7 +146,7 @@ ms.locfileid: "53736653"
 [api-management-oauth2-server-5]: ./media/api-management-howto-oauth2/api-management-oauth2-server-5.png
 [api-management-apis-echo-api]: ./media/api-management-howto-oauth2/api-management-apis-echo-api.png
 
-[How to add operations to an API]: ./mock-api-responses.md
+[How to add operations to an API]: api-management-howto-add-operations.md
 [How to add and publish a product]: ./api-management-howto-add-products.md
 [Monitoring and analytics]: ./api-management-monitoring.md
 [Add APIs to a product]: ./api-management-howto-add-products.md#add-apis
@@ -156,7 +156,7 @@ ms.locfileid: "53736653"
 [Caching policies]: ./api-management-policies.md#caching-policies
 [Create an API Management service instance]: get-started-create-service-instance.md
 
-[http://oauth.net/2/]: http://oauth.net/2/
+[https://oauth.net/2/]: https://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
 
 [Prerequisites]: #prerequisites

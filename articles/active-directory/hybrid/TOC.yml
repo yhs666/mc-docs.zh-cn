@@ -135,6 +135,8 @@ items:
     - name: 管理计划程序
       href: how-to-connect-sync-feature-scheduler.md
     - name: Azure AD Connect 同步服务管理器
+    - name: 创建和自定义同步规则
+      href: how-to-connect-create-custom-sync-rule.md
       items:
       - name: 管理“服务管理器操作”选项卡
         href: how-to-connect-sync-service-manager-ui-operations.md
@@ -164,7 +166,11 @@ items:
       href: tshoot-connect-recover-from-localdb-10gb-limit.md
     - name: SQL 连接
       href: tshoot-connect-tshoot-sql-connectivity.md
-- name: 引用
+    - name: 属性同步
+      href: tshoot-connect-attribute-not-syncing.md
+    - name: 安装问题
+      href: tshoot-connect-install-issues.md
+- name: 参考
   items:
   - name: 混合标识所需的端口和协议
     href: reference-connect-ports.md
@@ -194,9 +200,9 @@ items:
     href: reference-connect-adsynctools.md
   - name: ADConnectivityTools 参考
     href: reference-connect-adconnectivitytools.md
-ms.openlocfilehash: 4b8261b669c481ce303237701c516a3100b08ed8
-ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
+ms.openlocfilehash: 86523544383fec03e093ae082f30ce8346945991
+ms.sourcegitcommit: 3f266322470d2a3f8fdd4682e854f833466701af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440352"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56222690"

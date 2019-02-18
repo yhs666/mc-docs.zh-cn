@@ -13,14 +13,14 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: na
 ms.topic: article
 origin.date: 05/15/2017
-ms.date: 12/21/2018
+ms.date: 02/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: f3ab46da072cf17f0ad20ca13de28cca0af2e053
-ms.sourcegitcommit: d2893ae6bdbb3784d243d5d3c49c25c9cfd99d9b
+ms.openlocfilehash: 95b3c267ff39b8f862785f50d2647592a292713b
+ms.sourcegitcommit: c353902162a12f21aecbcbcde89f92c7ff9de441
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2018
-ms.locfileid: "53784936"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56096552"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>如何为高级 Azure Redis 缓存配置虚拟网络支持
 Azure Redis 缓存有不同的缓存套餐，因此在缓存大小和功能（包括群集、暂留和虚拟网络支持等高级层功能）的选择上很灵活。 VNet 是云中的专用网络。 为 Azure Redis 缓存实例配置了 VNet 后，该实例不可公开寻址，而只能从 VNet 中的虚拟机和应用程序进行访问。 本文说明如何为高级 Azure Redis 缓存实例配置虚拟网络支持。
@@ -84,11 +84,11 @@ Azure Redis 缓存有不同的缓存套餐，因此在缓存大小和功能（�
 ## <a name="azure-cache-for-redis-vnet-faq"></a>Azure Redis 缓存 VNet 常见问题解答
 以下列表包含有关 Azure Redis 缓存缩放的常见问题的解答。
 
-- [Azure Redis 缓存和 VNet 有哪些常见的错误配置问题？](#what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets)
+- Azure Redis 缓存和 VNet 有哪些常见的错误配置问题？
 - [如何验证缓存是否在 VNET 中正常工作？](#how-can-i-verify-that-my-cache-is-working-in-a-vnet)
 - [尝试连接到 VNET 中的 Azure Redis 缓存时，为何会收到一项指出远程证书无效的错误？](#when-trying-to-connect-to-my-redis-cache-in-a-vnet-why-am-i-getting-an-error-stating-the-remote-certificate-is-invalid)
 - [是否可以对标准或基本缓存使用 VNet？](#can-i-use-vnets-with-a-standard-or-basic-cache)
-- [为什么在某些子网中创建 Azure Redis 缓存会失败，而在其他子网中不会失败？](#why-does-creating-a-redis-cache-fail-in-some-subnets-but-not-others)
+- 为什么在某些子网中创建 Azure Redis 缓存会失败，而在其他子网中不会失败？
 - [子网地址空间的要求是什么？](#what-are-the-subnet-address-space-requirements)
 - [在 VNET 中托管缓存时，是否可以使用所有缓存功能？](#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
 
@@ -248,4 +248,4 @@ Azure 会保留每个子网中的某些 IP 地址，但是这些地址不能使�
 [redis-cache-vnet-info]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-info.png
 
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: link update -->

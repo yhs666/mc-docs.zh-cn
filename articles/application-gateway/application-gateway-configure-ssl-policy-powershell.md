@@ -7,18 +7,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 12/03/2018
-ms.date: 01/15/2019
+ms.date: 02/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 6f6908620923a14d49a221532b1f0f8c3cf59a48
-ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
+ms.openlocfilehash: f06a2babd53d0614fde66014eeedc8d3ce5595fc
+ms.sourcegitcommit: 713cf33290efd4ccc7a3eab2668e3ceb0b51686f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54333879"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56079634"
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>在应用程序网关上配置 SSL 策略版本和密码套件
 
-了解如何在应用程序网关上配置 SSL 策略版本和密码套件。 [预定义策略列表](#predefined-ssl-policies)中包含各种 SSL 策略版本配置和启用的密码套件，你可从中进行选择。 此外，还可基于自身需求定义[自定义 SSL 策略](#configure-a-custom-ssl-policy)。
+了解如何在应用程序网关上配置 SSL 策略版本和密码套件。 预定义策略列表中包含各种 SSL 策略版本配置和启用的密码套件，你可从中进行选择。 此外，还可基于自身需求定义[自定义 SSL 策略](#configure-a-custom-ssl-policy)。
 
 ## <a name="get-available-ssl-options"></a>获取可用的 SSL 选项
 

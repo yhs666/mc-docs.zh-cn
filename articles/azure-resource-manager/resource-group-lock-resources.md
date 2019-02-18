@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 11/08/2018
-ms.date: 01/28/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: ebbfca7ffb36887eafe0d4f6066702672d9a947d
-ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
+ms.openlocfilehash: 9d4605dc9cf832eb6f16ede9f2f3d3e9271dcda4
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55085679"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306052"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>锁定资源，以防止意外更改 
 
@@ -28,6 +28,8 @@ ms.locfileid: "55085679"
 
 * **CanNotDelete** 味着经授权的用户仍可读取和修改资源，但不能删除资源。 
 * **ReadOnly** 意味着经授权的用户可以读取资源，但不能删除或更新资源。 应用此锁类似于将所有经授权的用户限制于“读者”角色授予的权限。 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="how-locks-are-applied"></a>锁的应用方式
 
@@ -105,9 +107,9 @@ Resource Manager 锁仅适用于管理平面内发生的操作，包括发送到
 
 要使用 PowerShell 部署此示例模板，请使用：
 
-```PowerShell
-New-AzureRmResourceGroup -Name sitegroup -Location chinaeast
-New-AzureRmResourceGroupDeployment -ResourceGroupName sitegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/lock.json -hostingPlanName plan0103
+```azurepowershell
+New-AzResourceGroup -Name sitegroup -Location chinaeast
+New-AzResourceGroupDeployment -ResourceGroupName sitegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/lock.json -hostingPlanName plan0103
 ```
 
 要使用 Azure CLI 部署此示例模板，请使用：
@@ -118,43 +120,43 @@ az group deployment create --resource-group sitegroup --template-uri https://raw
 ```
 
 ## <a name="powershell"></a>PowerShell
-可以通过 Azure PowerShell 使用 [New-AzureRmResourceLock](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcelock) 命令锁定已部署的资源。
+可以通过 Azure PowerShell 使用 [New-AzResourceLock](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcelock) 命令锁定已部署的资源。
 
 若要锁定某个资源，请提供该资源的名称、其资源类型及其资源组名称。
 
-```PowerShell
-New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
+```azurepowershell
+New-AzResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
 ```
 
 若要锁定某个资源组，请提供该资源组的名称。
 
-```PowerShell
-New-AzureRmResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName exampleresourcegroup
+```azurepowershell
+New-AzResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName exampleresourcegroup
 ```
 
-若要获取有关某个锁的信息，请使用 [Get-AzureRmResourceLock](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermresourcelock)。 若要获取订阅中的所有锁，请使用：
+若要获取有关某个锁的信息，请使用 [Get-AzureRmResourceLock](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcelock)。 若要获取订阅中的所有锁，请使用：
 
-```PowerShell
-Get-AzureRmResourceLock
+```azurepowershell
+Get-AzResourceLock
 ```
 
 若要获取某个资源的所有锁，请使用：
 
-```PowerShell
-Get-AzureRmResourceLock -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
+```azurepowershell
+Get-AzResourceLock -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
 ```
 
 若要获取某个资源组的所有锁，请使用：
 
-```PowerShell
-Get-AzureRmResourceLock -ResourceGroupName exampleresourcegroup
+```azurepowershell
+Get-AzResourceLock -ResourceGroupName exampleresourcegroup
 ```
 
 若要删除锁，请使用：
 
-```PowerShell
-$lockId = (Get-AzureRmResourceLock -ResourceGroupName exampleresourcegroup -ResourceName examplesite -ResourceType Microsoft.Web/sites).LockId
-Remove-AzureRmResourceLock -LockId $lockId
+```azurepowershell
+$lockId = (Get-AzResourceLock -ResourceGroupName exampleresourcegroup -ResourceName examplesite -ResourceType Microsoft.Web/sites).LockId
+Remove-AzResourceLock -LockId $lockId
 ```
 
 ## <a name="azure-cli"></a>Azure CLI
@@ -222,4 +224,4 @@ az lock delete --ids $lockid
 * 可以使用自定义策略对订阅应用限制和约定。 有关详细信息，请参阅[什么是 Azure Policy？](../azure-policy/azure-policy-introduction.md)。
 
 <!-- Not Available on [Azure enterprise scaffold - prescriptive subscription governance](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/subscription-governance)-->
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, update az cmdlet -->

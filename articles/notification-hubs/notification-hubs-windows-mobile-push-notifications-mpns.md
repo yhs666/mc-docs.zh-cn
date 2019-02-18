@@ -4,8 +4,8 @@ description: 在本教程中，将了解如何使用 Azure 通知中心将通知
 services: notification-hubs
 documentationcenter: windows
 keywords: 推送通知,push notification,windows phone 推送
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: d872d8dc-4658-4d65-9e71-fa8e34fae96e
 ms.service: notification-hubs
@@ -15,16 +15,17 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 origin.date: 04/14/2018
-ms.date: 07/09/2018
-ms.author: v-junlch
-ms.openlocfilehash: b01589d2770c83fd588c2af60480d5e3366174f9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 02/25/2019
+ms.author: v-biyu
+ms.openlocfilehash: e7700e34c050cdb929099d9ad225541ee70ae00f
+ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647361"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56222591"
 ---
 # <a name="tutorial-push-notifications-to-windows-phone-apps-by-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向 Windows Phone 应用推送通知
+
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 本教程演示如何使用 Azure 通知中心将推送通知发送到 Windows Phone 8 或 Windows Phone 8.1 Silverlight 应用程序。 如果要以 Windows Phone 8.1（非 Silverlight）为目标，请参阅本教程的 [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 版本。
@@ -39,20 +40,20 @@ ms.locfileid: "52647361"
 > [!div class="checklist"]
 > * 创建通知中心
 > * 创建 Windows Phone 应用程序
-> * 测试性发送通知 
+> * 测试性发送通知
 
 ## <a name="prerequisites"></a>先决条件
 
-- **Azure 订阅**。 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
-- [包含移动开发组件的 Visual Studio 2015 Express](https://www.visualstudio.com/vs/older-downloads/)
+- **Azure 订阅**。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* [包含移动开发组件的 Visual Studio 2015 Express](https://www.visualstudio.com/vs/older-downloads/)
 
 完成本教程是学习有关 Windows Phone 8 应用的所有其他通知中心教程的先决条件。
 
 ## <a name="create-your-notification-hub"></a>创建通知中心
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-
 ### <a name="configure-windows-phone-mpns-settings"></a>配置 Windows Phone (MPNS) 设置
+
 1. 在“通知设置”下选择“Windows Phone (MPNS)”。
 2. 选择“启用身份验证推送”。
 3. 在工具栏上选择“保存”。
@@ -62,10 +63,11 @@ ms.locfileid: "52647361"
     中心现已创建，并已配置为向 Windows Phone 发送未经身份验证的通知。
 
     > [!NOTE]
-    > 本教程使用未经身份验证模式下的 MPNS。 MPNS 未经身份验证的模式对可以发送到每个通道的通知有一些限制。 通知中心支持 [MPNS 身份验证模式](http://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx)，它允许上传证书。
+    > 本教程使用未经身份验证模式下的 MPNS。 MPNS 未经身份验证的模式对可以发送到每个通道的通知有一些限制。 通知中心支持 [MPNS 身份验证模式](https://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx)，它允许上传证书。
 
 ## <a name="create-a-windows-phone-application"></a>创建 Windows Phone 应用程序
-在此部分，请创建一个可以自行注册到通知中心的 Windows Phone 应用程序。 
+
+在此部分，请创建一个可以自行注册到通知中心的 Windows Phone 应用程序。
 
 1. 在 Visual Studio 中创建一个新的 Windows Phone 8 应用程序。 
    
@@ -82,51 +84,48 @@ ms.locfileid: "52647361"
    
         using Microsoft.Phone.Notification;
         using Microsoft.WindowsAzure.Messaging;
-5. 在 App.xaml.cs 中 Application_Launching 方法的顶部添加以下代码：
-   
-        private void Application_Launching(object sender, LaunchingEventArgs e)
-        {
+5. 在 `App.xaml.cs` 中的 `Application_Launching` 方法顶部添加以下代码：
 
-            var channel = HttpNotificationChannel.Find("MyPushChannel");
-            if (channel == null)
-            {
-                channel = new HttpNotificationChannel("MyPushChannel");
-                channel.Open();
-                channel.BindToShellToast();
-            }
-       
-            channel.ChannelUriUpdated += new EventHandler<NotificationChannelUriEventArgs>(async (o, args) =>
-            {
-                var hub = new NotificationHub("<hub name>", "<connection string>");
-                var result = await hub.RegisterNativeAsync(args.ChannelUri.ToString());
-       
-                System.Windows.Deployment.Current.Dispatcher.BeginInvoke(() =>
-                {
-                    MessageBox.Show("Registration :" + result.RegistrationId, "Registered", MessageBoxButton.OK);
-                });
-            });
+    ```csharp
+    private void Application_Launching(object sender, LaunchingEventArgs e)
+    {
+
+        var channel = HttpNotificationChannel.Find("MyPushChannel");
+        if (channel == null)
+        {
+            channel = new HttpNotificationChannel("MyPushChannel");
+            channel.Open();
+            channel.BindToShellToast();
         }
-   
+
+        channel.ChannelUriUpdated += new EventHandler<NotificationChannelUriEventArgs>(async (o, args) =>
+        {
+            var hub = new NotificationHub("<hub name>", "<connection string>");
+            var result = await hub.RegisterNativeAsync(args.ChannelUri.ToString());
+
+            System.Windows.Deployment.Current.Dispatcher.BeginInvoke(() =>
+            {
+                MessageBox.Show("Registration :" + result.RegistrationId, "Registered", MessageBoxButton.OK);
+            });
+        });
+    }
+    ```
+
    > [!NOTE]
-   > 值 **MyPushChannel** 是用于查找 [HttpNotificationChannel](https://msdn.microsoft.com/library/windows/apps/microsoft.phone.notification.httpnotificationchannel.aspx) 集合中现有通道的索引。 如果不存在，则使用该名称创建新条目。
-   > 
-   > 
-   
-    插入中心名称以及在前一部分记下的名为 **DefaultListenSharedAccessSignature** 的连接字符串。
+   > 值 `MyPushChannel` 是用于查找 [HttpNotificationChannel](https://msdn.microsoft.com/library/windows/apps/microsoft.phone.notification.httpnotificationchannel.aspx) 集合中现有通道的索引。 如果不存在，则使用该名称创建新条目。
+
+    插入中心名称以及在前一部分记下的名为 `DefaultListenSharedAccessSignature` 的连接字符串。
     此代码从 MPNS 检索应用的通道 URI，并将该通道 URI 注册到用户的通知中心。 它还保证每次启动应用程序时都在通知中心注册通道 URI。
    
    > [!NOTE]
-   > 本教程将一个 toast 通知发送到设备。 而发送磁贴通知时，必须在通道上调用 **BindToShellTile** 方法。 若要同时支持 toast 通知和磁贴通知，请同时调用 BindToShellTile 和  BindToShellToast。
-   > 
-   > 
-6. 在解决方案资源管理器中，展开“属性”，打开 `WMAppManifest.xml` 文件，单击“功能”选项卡并确保选中 **ID_CAP_PUSH_NOTIFICATION** 功能。 应用现在可以接收推送通知了。 
-   
-    ![Visual Studio - Windows Phone 应用功能][14]    
-7. 按 `F5` 键以运行应用。
-   
-    随后应用中会显示注册消息。
-8. 关闭应用或切换到主页。 
-   
+   > 本教程将一个 toast 通知发送到设备。 发送磁贴通知时，必须在通道上调用 `BindToShellTile` 方法。 若要同时支持 toast 通知和磁贴通知，请同时调用 `BindToShellTile` 和 `BindToShellToast`。
+
+6. 在解决方案资源管理器中，展开“属性”，打开 `WMAppManifest.xml` 文件，单击“功能”选项卡并确保选中 **ID_CAP_PUSH_NOTIFICATION** 功能。 应用现在可以接收推送通知了。
+
+    ![Visual Studio - Windows Phone 应用功能][14]
+7. 按 `F5` 键以运行应用。 随后应用中会显示注册消息。
+8. 关闭应用或切换到主页。
+
    > [!NOTE]
    > 若要接收 toast 推送通知，则应用程序不得在前台运行。
 
@@ -154,7 +153,6 @@ ms.locfileid: "52647361"
 > [!div class="nextstepaction"]
 >[向特定设备推送通知](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)
 
-
 <!-- Images. -->
 [6]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-console-app.png
 [7]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-from-portal.png
@@ -163,16 +161,11 @@ ms.locfileid: "52647361"
 [10]: ./media/notification-hubs-windows-phone-get-started/notification-hub-select-from-portal2.png
 [11]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-wp-silverlight-app.png
 [12]: ./media/notification-hubs-windows-phone-get-started/notification-hub-connection-strings.png
-
 [13]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-wp-app.png
 [14]: ./media/notification-hubs-windows-phone-get-started/mobile-app-enable-push-wp8.png
 [15]: ./media/notification-hubs-windows-phone-get-started/notification-hub-pushauth.png
 [20]: ./media/notification-hubs-windows-phone-get-started/notification-hub-windows-universal-app-install-package.png
 [213]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-console-app.png
-
-
-
-
 
 <!-- URLs. -->
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
@@ -182,6 +175,3 @@ ms.locfileid: "52647361"
 [toast catalog]: http://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx
 [tile catalog]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [通知中心 - Windows Phone Silverlight 教程]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
-
-
-<!-- Update_Description: wording update -->

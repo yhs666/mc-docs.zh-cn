@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 01/07/2019
-ms.date: 01/28/2019
+origin.date: 01/29/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: a79c8cf2eccaa6626551ba06f5e147f35a7c6f05
-ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
+ms.openlocfilehash: 4861ab22b21e5dd88d7b7e16f21db684ed3736af
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55085657"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306047"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>用于连接到 Azure Analysis Services 的客户端库
 

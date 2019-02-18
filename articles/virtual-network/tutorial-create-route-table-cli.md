@@ -15,15 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 03/13/2018
-ms.date: 11/12/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 72b8cfde396aaf3f182a1a5d03e71a7dba35c278
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a6a3a2b8f405dc0c8df81d91426ca98c282866ac
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651750"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306083"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>使用 Azure CLI 通过路由表路由网络流量
 
@@ -47,7 +47,7 @@ ms.locfileid: "52651750"
 
 在创建路由表之前，请使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 针对本文中创建的所有资源创建一个资源组。 
 
-```azurecli
+```cli
 # Create a resource group.
 az group create \
   --name myResourceGroup \
@@ -56,7 +56,7 @@ az group create \
 
 使用 [az network route-table create](https://docs.azure.cn/zh-cn/cli/network/route-table?view=azure-cli-latest#az-network-route-table-create) 创建路由表。 以下示例创建名为 *myRouteTablePublic* 的路由表。 
 
-```azurecli 
+```cli
 # Create a route table
 az network route-table create \
   --resource-group myResourceGroup \
@@ -67,7 +67,7 @@ az network route-table create \
 
 使用 [az network route-table route create](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az-network-route-table-route-create) 在路由表中创建路由。 
 
-```azurecli
+```cli
 az network route-table route create \
   --name ToPrivateSubnet \
   --resource-group myResourceGroup \
@@ -81,7 +81,7 @@ az network route-table route create \
 
 将路由表关联到子网之前，必须先创建虚拟网络和子网。 使用 [az network vnet create](https://docs.azure.cn/zh-cn/cli/network/vnet?view=azure-cli-latest#az-network-vnet-create) 创建包含一个子网的虚拟网络。
 
-```azurecli
+```cli
 az network vnet create \
   --name myVirtualNetwork \
   --resource-group myResourceGroup \
@@ -92,7 +92,7 @@ az network vnet create \
 
 使用 [az network vnet subnet create](https://docs.azure.cn/zh-cn/cli/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-create) 创建两个附加的子网。
 
-```azurecli
+```cli
 # Create a private subnet.
 az network vnet subnet create \
   --vnet-name myVirtualNetwork \
@@ -110,7 +110,7 @@ az network vnet subnet create \
 
 使用 [az network vnet subnet update](https://docs.azure.cn/zh-cn/cli/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update) 将 *myRouteTablePublic* 路由表关联到公共子网。
 
-```azurecli
+```cli
 az network vnet subnet update \
   --vnet-name myVirtualNetwork \
   --name Public \
@@ -124,7 +124,7 @@ NVA 是执行网络功能（如路由、防火墙或 WAN 优化）的 VM。
 
 使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 在 *DMZ* 子网中创建 NVA。 创建 VM 时，Azure 默认会创建一个公共 IP 地址并将其分配到该 VM。 `--public-ip-address ""` 参数指示 Azure 不要创建公共 IP 地址并将其分配到该 VM，因为不需要从 Internet 连接到该 VM。 如果默认密钥位置中尚不存在 SSH 密钥，该命令会创建它们。 若要使用特定的一组密钥，请使用 `--ssh-key-value` 选项。
 
-```CLI
+```cli
 az vm create \
   --resource-group myResourceGroup \
   --name myVmNva \
@@ -139,7 +139,7 @@ az vm create \
 
 要使网络接口能够转发发送给它的、而不是发往其自身 IP 地址的网络流量，必须为该网络接口启用 IP 转发。 使用 [az network nic update](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az-network-nic-update) 为网络接口启用 IP 转发。
 
-```azurecli
+```cli
 az network nic update \
   --name myVmNvaVMNic \
   --resource-group myResourceGroup \
@@ -148,7 +148,7 @@ az network nic update \
 
 在 VM 中，VM 中运行的操作系统或应用程序也必须能够转发网络流量。 使用 [az vm extension set](https://docs.azure.cn/zh-cn/cli/vm/extension?view=azure-cli-latest#az-vm-extension-set) 在 VM 的操作系统中启用 IP 转发：
 
-```azurecli
+```cli
 az vm extension set \
   --resource-group myResourceGroup \
   --vm-name myVmNva \
@@ -164,7 +164,7 @@ az vm extension set \
 
 使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 在公共子网中创建一个 VM。 `--no-wait` 参数支持 Azure 在后台中执行命令，因此可以继续执行下一个命令。 为了简化本文的内容，此处使用了密码。 在生产部署中通常使用密钥。 如果使用密钥，还必须配置 SSH 代理转发。 有关详细信息，请参阅 SSH 客户端的文档。 将以下命令中的 `<replace-with-your-password>` 替换为所选的密码。
 
-```azurecli
+```cli
 adminPassword="<replace-with-your-password>"
 
 az vm create \
@@ -180,7 +180,7 @@ az vm create \
 
 在专用子网中创建一个 VM。
 
-```azurecli
+```cli
 az vm create \
   --resource-group myResourceGroup \
   --name myVmPrivate \
@@ -193,7 +193,7 @@ az vm create \
 
 创建 VM 需要几分钟时间。 创建 VM 之后，Azure CLI 将显示类似于以下示例的信息： 
 
-```azurecli 
+```cli
 {
   "fqdns": "",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVmPrivate",
@@ -271,7 +271,7 @@ traceroute to myVmPrivate (10.0.1.4), 30 hops max, 60 byte packets
 
 如果不再需要资源组及其包含的所有资源，可以使用 [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-delete) 将其删除。
 
-```azurecli 
+```cli
 az group delete --name myResourceGroup --yes
 ```
 

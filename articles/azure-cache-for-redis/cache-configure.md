@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 origin.date: 08/22/2017
-ms.date: 01/16/2019
+ms.date: 02/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: 800c2663157c939fdde1a2c3705254bee23985b4
-ms.sourcegitcommit: e79651227d4378e6d24f9ab155b9f4fee044b2c0
+ms.openlocfilehash: af5a358c427dadaf2ed75d54d2e922ff8df9fd65
+ms.sourcegitcommit: c353902162a12f21aecbcbcde89f92c7ff9de441
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334290"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56096556"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>如何配置 Azure Redis 缓存
 本主题介绍可用于 Azure Redis 缓存实例的配置。 本主题还介绍了适用于 Azure Redis 缓存实例的默认 Redis 服务器配置。
@@ -58,7 +58,7 @@ ms.locfileid: "54334290"
  - [属性](#properties)
  - [锁定](#locks)
  - [自动化脚本](#automation-script)
-- [管理](#administration)
+- 管理
  - [导入数据](#importexport)
  - [导出数据](#importexport)
  - [重新启动](#reboot)
@@ -66,7 +66,7 @@ ms.locfileid: "54334290"
  - [Redis 指标](#redis-metrics)
  - [警报规则](#alert-rules)
  - [诊断](#diagnostics)
-- [支持和故障排除设置](#support-amp-troubleshooting-settings)
+- 支持和故障排除设置
  - [资源运行状况](#resource-health)
  - [新建支持请求](#new-support-request)
 

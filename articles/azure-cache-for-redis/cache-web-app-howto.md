@@ -13,15 +13,15 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 03/26/2018
-ms.date: 12/21/2018
+ms.date: 02/12/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: d1a3adca49d3bd94357d20c65f71b8dcf58bf115
-ms.sourcegitcommit: d2893ae6bdbb3784d243d5d3c49c25c9cfd99d9b
+ms.openlocfilehash: b5fe6c48e35ff5d3bcad8e875ff6a20a99239067
+ms.sourcegitcommit: c353902162a12f21aecbcbcde89f92c7ff9de441
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2018
-ms.locfileid: "53784924"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56096551"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>快速入门：创建 ASP.NET Web 应用 
 
@@ -99,9 +99,9 @@ ms.locfileid: "53784924"
 在本部分，请对应用程序进行更新，使之支持一个新视图，该视图显示针对 Azure Redis 缓存执行的一项简单测试。
 
 - [使用缓存的应用设置更新 web.config 文件](#Update-the-webconfig-file-with-an-app-setting-for-the-cache)
-- [将应用程序配置为使用 StackExchange.Redis 客户端](#configure-the-application-to-use-stackexchangeredis)
-- [更新 HomeController 和布局](#update-the-homecontroller-and-layout)
-- [添加新的 RedisCache 视图](#add-a-new-rediscache-view)
+- 将应用程序配置为使用 StackExchange.Redis 客户端
+- 更新 HomeController 和布局
+- 添加新的 RedisCache 视图
 
 ### <a name="update-the-webconfig-file-with-an-app-setting-for-the-cache"></a>使用缓存的应用设置更新 web.config 文件
 
@@ -340,4 +340,4 @@ ASP.NET 运行时合并了外部文件的内容以及 `<appSettings>` 元素中�
 > [!div class="nextstepaction"]
 > [在 ASP.NET 中创建缓存端排行榜](cache-web-app-cache-aside-leaderboard.md)
 
-<!--Update_Description: wording update-->
+<!-- Update_Description: link update -->

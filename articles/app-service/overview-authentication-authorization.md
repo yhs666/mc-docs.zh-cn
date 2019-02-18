@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 08/24/2016
-ms.date: 12/31/2018
+ms.date: 02/25/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: ef67a575c6fa39b308d02c1887edeb78cdf9e61b
-ms.sourcegitcommit: ced39ce80d38d36bdead66fc978d99e93653cb5f
+ms.openlocfilehash: 18f23430fc5f2d278c40257edbd7ae22c8333d7e
+ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54307622"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56222593"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Azure 应用服务中的身份验证和授权
 
@@ -65,7 +65,7 @@ Azure 应用服务提供内置的身份验证和授权支持。只需在 Web 应
 - 发布到经过身份验证的用户的 Facebook 时间线
 - 从 Azure Active Directory 图形 API 甚至 Microsoft Graph 中读取用户的企业数据
 
-通常，必须编写代码才能在应用程序中收集、存储和刷新这些令牌。 使用令牌存储，只需在需要令牌时才[检索令牌](app-service-authentication-how-to.md#retrieve-tokens-in-app-code)；当令牌失效时，可以[告知应用服务刷新令牌](app-service-authentication-how-to.md#refresh-access-tokens)。 
+通常，必须编写代码才能在应用程序中收集、存储和刷新这些令牌。 使用令牌存储，只需在需要令牌时才[检索令牌](app-service-authentication-how-to.md#retrieve-tokens-in-app-code)；当令牌失效时，可以[告知应用服务刷新令牌](app-service-authentication-how-to.md#refresh-identity-provider-tokens)。 
 
 为经过身份验证的会话缓存的 ID 令牌、访问令牌和刷新令牌，只能由关联的用户访问。  
 

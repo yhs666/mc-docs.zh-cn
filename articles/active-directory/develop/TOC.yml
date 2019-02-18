@@ -130,13 +130,6 @@ items:
     items:
     - name: 身份验证
       items:
-      - name: 配置单一登录
-        displayName: SSO
-        items:
-        - name: 在 Android 上启用 SSO
-          href: howto-v1-enable-sso-android.md
-        - name: 在 iOS 上启用 SSO
-          href: howto-v1-enable-sso-ios.md
       - name: ADAL 错误处理最佳做法
         href: active-directory-devhowto-adal-error-handling.md
     - name: 应用程序配置
@@ -157,6 +150,10 @@ items:
         href: howto-add-branding-in-azure-ad-apps.md
       - name: 服务条款和隐私声明
         href: howto-add-terms-of-service-privacy-statement.md
+      - name: Java
+        items:
+        - name: 保护 Java Web 应用
+          href: /java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory
     - name: 使用 Visual Studio
       items:
       - name: 使用 Active Directory 连接服务
@@ -201,9 +198,9 @@ items:
     href: https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory
   - name: 获取帮助
     href: developer-support-help-options.md
-ms.openlocfilehash: 8fcba82d22abaeeb4b0c483880fb77be4b73da43
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 549cf5fabc7060660491d3097118c847a5e71fa2
+ms.sourcegitcommit: f34f65c439665607b43bb2c81df58c138d0b7417
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996332"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56262195"

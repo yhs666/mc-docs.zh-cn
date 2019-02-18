@@ -11,15 +11,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 origin.date: 12/07/2018
-ms.date: 01/21/2019
+ms.date: 02/18/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 35a647ff15d45f5a944069775a687e08f0df6078
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: a9cb2d35d8bc7dc2f02858efbd779e850e4d25ec
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193199"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306247"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>教程：保护 Azure 资源管理器模板部署中的项目
 
@@ -37,6 +37,8 @@ ms.locfileid: "54193199"
 > * 验证部署
 
 如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -206,8 +208,8 @@ $artifactsLocation = Read-Host -Prompt "Enter the artifacts location"
 $artifactsLocationSasToken = Read-Host -Prompt "Enter the artifacts location SAS token" -AsSecureString
 $bacpacFileName = Read-Host -Prompt "Enter the BACPAC file name"
 
-New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-New-AzureRmResourceGroupDeployment -Name $deploymentName `
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+New-AzResourceGroupDeployment -Name $deploymentName `
     -ResourceGroupName $resourceGroupName `
     -adminUser $adminUsername `
     -adminPassword $adminPassword `
@@ -242,5 +244,4 @@ New-AzureRmResourceGroupDeployment -Name $deploymentName `
 > [!div class="nextstepaction"]
 > [使用 Azure 部署管理器](./resource-manager-tutorial-deploy-vm-extensions.md)
 
-<!-- Update_Description: new articles on azure resource manager tutorial secure artifacts -->
-<!--ms.date: 01/14/2019-->
+<!-- Update_Description: wording update, update meta properties -->

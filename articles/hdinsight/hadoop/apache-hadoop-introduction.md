@@ -11,21 +11,20 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 12/07/2018
-ms.date: 01/14/2019
+origin.date: 01/28/2019
+ms.date: 02/25/2019
 ms.author: v-yiso
-ms.openlocfilehash: 1f705815a5efa9d7a09fa705730b9c3e3a893bb3
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: 7531d81fd6562d541fa3a01be1820af66a385cab
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029208"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302958"
 ---
 # <a name="what-is-azure-hdinsight-and-the-apache-hadoop-technology-stack"></a>什么是 Azure HDInsight 和 Apache Hadoop 技术堆栈
 
 本文介绍 Azure HDInsight 上的 Apache Hadoop。 Azure HDInsight 是适用于企业的分析服务，具有完全托管、全面且开源的特点。 可以使用开源框架，例如 Hadoop、Apache Spark、Apache Hive、LLAP、Apache Kafka、Apache Storm、R 等等。 
 
-[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 ## <a name="what-is-hdinsight-and-the-hadoop-technology-stack"></a>什么是 HDInsight 和 Hadoop 技术堆栈？
 
@@ -109,7 +108,7 @@ HDInsight 群集包括 Spark、HBase、Kafka、Hadoop 和其他群集，支持�
 
 |编程语言  |信息  |
 |---------|---------|
-|默认编程语言支持     | 默认情况下，HDInsight 群集支持：<ul><li>Java</li><li>Python</li></ul> 可以使用[脚本操作](../hdinsight-hadoop-script-actions-linux.md)来安装其他语言。       |
+|默认编程语言支持     | 默认情况下，HDInsight 群集支持：<ul><li>Java</li><li>Python</li><li>.NET</li><li>Go</li></ul>  |
 |Java 虚拟机 (JVM) 语言     | 除 Java 之外的许多语言都可以在 Java 虚拟机 (JVM) 上运行。 但是，运行这其中的部分语言时，可能必须在群集上安装其他组件。 HDInsight 群集支持以下基于 JVM 的语言： <ul><li>Clojure</li><li>Jython (Python for Java)</li><li>Scala</li></ul>     |
 |Hadoop 特定的语言     | HDInsight 群集支持以下特定于 Hadoop 技术堆栈的语言： <ul><li>用于 Pig 作业的 Pig Latin</li><li>用于 Hive 作业的 HiveQL 和 SparkSQL</li></ul>        |
  

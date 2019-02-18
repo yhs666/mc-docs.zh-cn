@@ -7,29 +7,29 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 09/24/2018
-ms.date: 11/07/2018
+ms.date: 02/14/2019
 ms.author: v-junlch
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 6f1b1b8f89c5f8d9ac8a081542d33f898b39484c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 89aa75558090a7086c79db8eb4f4aff7ea4eefd8
+ms.sourcegitcommit: f34f65c439665607b43bb2c81df58c138d0b7417
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657320"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56262185"
 ---
 # <a name="web-api"></a>Web API
 
 Web API 应用是需要通过 Web API 获取资源的 Web 应用。 在此方案中，Web 应用可以使用两种标识类型进行身份验证并调用 Web API：
 
 - **应用程序标识** - 此方案使用 OAuth 2.0 客户端凭据授予作为应用程序进行身份验证并访问 Web API。 使用应用程序标识时，Web API 只能检测到 Web 应用程序在调用它，因为 Web API 不会收到关于用户的任何信息。 如果应用程序收到关于用户的信息，该信息会通过应用程序协议发送，并且 Azure AD 不会对其签名。 Web API 相信 Web 应用程序已对用户进行了身份验证。 因此，此模式称为受信任的子系统。
-- **委托用户标识** - 此方案可以通过两种方式完成：OpenID Connect 和带有机密客户端的 OAuth 2.0 授权代码授予。 Web 应用程序获取用户的访问令牌，该令牌将向 Web API 证明用户已成功通过了 Web 应用程序的身份验证并且 Web 应用程序能够获取委托用户标识来调用 Web API。 然后会在请求中将此访问令牌发送到 Web API，后者对用户进行授权并返回所需的资源。
+- **委托用户标识** - 此方案可以通过两种方式完成：OpenID Connect 和 OAuth 2.0 授权代码使用机密客户端进行授权。 Web 应用程序获取用户的访问令牌，该令牌将向 Web API 证明用户已成功通过了 Web 应用程序的身份验证并且 Web 应用程序能够获取委托用户标识来调用 Web API。 然后会在请求中将此访问令牌发送到 Web API，后者对用户进行授权并返回所需的资源。
 
 下面的流对应用程序标识类型和委托用户标识类型都进行了讨论。 它们之间的主要区别是，委托用户标识必须先获取一个授权代码，用户才能登录并访问 Web API。
 
@@ -48,7 +48,7 @@ Web API 应用是需要通过 Web API 获取资源的 Web 应用。 在此方案
 
 ### <a name="delegated-user-identity-with-openid-connect"></a>采用 OpenID Connect 的委托用户标识
 
-1. 用户使用 Azure AD 登录到 Web 应用程序（请参阅前面的 [Web 浏览器到 Web 应用程序](#web-browser-to-web-application)部分）。 如果 Web 应用程序的用户尚未许可允许 Web 应用程序代表自己调用 Web API，则需要用户表示许可。 应用程序将显示它要求的权限，如果这些权限中有任何一个是管理员级权限，目录中的普通用户无法许可。 此许可过程仅适用于多租户应用程序，不适用于单租户应用程序，因为单租户应用程序那时已经具有了必需的权限。 用户登录后，Web 应用程序将收到一个 ID 令牌，其中包含关于用户的信息以及授权代码。
+1. 用户使用 Azure AD 登录到 Web 应用程序（请参阅前面的“Web 浏览器到 Web 应用程序”部分）。 如果 Web 应用程序的用户尚未许可允许 Web 应用程序代表自己调用 Web API，则需要用户许可。 应用程序将显示它要求的权限，如果这些权限中有任何一个是管理员级权限，目录中的普通用户无法许可。 此许可过程仅适用于多租户应用程序，不适用于单租户应用程序，因为单租户应用程序那时已经具有了必需的权限。 用户登录后，Web 应用程序将收到一个 ID 令牌，其中包含关于用户的信息以及授权代码。
 1. 使用由 Azure AD 颁发的授权代码，Web 应用程序向 Azure AD 的令牌终结点发送请求，请求中包括授权代码、关于客户端应用程序的详细信息（应用程序 ID 和重定向 URI）以及所需的资源（Web API 的应用程序 ID URI）。
 1. Azure AD 对授权代码和关于 Web 应用程序和 Web API 的信息进行验证。 验证成功时，Azure AD 返回两个令牌：一个 JWT 访问令牌和一个 JWT 刷新令牌。
 1. 通过 HTTPS，Web 应用程序使用返回的 JWT 访问令牌在发往 Web API 的请求的 Authorization 标头中添加一个具有“Bearer”限定符的 JWT 字符串。 然后，Web API 对 JWT 令牌进行验证，如果验证成功，则返回所需的资源。
@@ -83,3 +83,4 @@ Web 应用程序使用其授权代码来获取 JWT 访问令牌时，它还会�
 - 详细了解其他[应用程序类型和方案](app-types.md)
 - 了解 Azure AD [身份验证基础知识](authentication-scenarios.md)
 
+<!-- Update_Description: link update -->

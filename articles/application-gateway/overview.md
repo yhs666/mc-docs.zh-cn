@@ -6,15 +6,15 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-origin.date: 01/11/2019
-ms.date: 01/15/2019
+origin.date: 01/22/2019
+ms.date: 02/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 9fe6989b82d3bde3d9eed12341fb0414751a9b08
-ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
+ms.openlocfilehash: 0b29597bcf0832bd027b0a3050ace2a75e38d00a
+ms.sourcegitcommit: 713cf33290efd4ccc7a3eab2668e3ceb0b51686f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54333913"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56079644"
 ---
 # <a name="what-is-azure-application-gateway"></a>什么是 Azure 应用程序网关？
 
@@ -79,9 +79,25 @@ Web 应用程序已逐渐成为利用常见已知漏洞的恶意攻击的目标�
 
 ## <a name="websocket-and-http2-traffic"></a>Websocket 和 HTTP/2 流量
 
-应用程序网关为 WebSocket 和 HTTP/2 协议提供本机支持。 用户无法通过配置设置来选择性地启用或禁用 WebSocket 支持。 可以通过 Azure PowerShell 启用 HTTP/2 支持。
+应用程序网关为 WebSocket 和 HTTP/2 协议提供本机支持。 用户无法通过配置设置来选择性地启用或禁用 WebSocket 支持。
 
 WebSocket 和 HTTP/2 协议通过长时间运行的 TCP 连接，在服务器和客户端之间实现全双工通信。 此功能让 Web 服务器和客户端之间能够进行交互性更强的通信。这种通信可以是双向的，而且不像基于 HTTP 的实现那样需要轮询。 不同于 HTTP，这些协议的开销很低，并且可以对多个请求/响应重复使用同一 TCP 连接，从而提高资源利用率。 这些协议设计为通过传统 HTTP 端口 80 和 443 运行。
+
+## <a name="sizing"></a>大小调整
+
+应用程序网关目前有三种大小：**小型**、**中型**和**大型**。 小型实例大小适用于开发和测试方案。
+
+有关应用程序网关限制的完整列表，请参阅[应用程序网关服务限制](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)。
+
+下表显示了已启用 SSL 卸载的每个应用程序网关实例的平均性能吞吐量：
+
+| 平均后端页面响应大小 | 小型 | 中型 | 大型 |
+| --- | --- | --- | --- |
+| 6 KB |7.5 Mbps |13 Mbps |50 Mbps |
+| 100 KB |35 Mbps |100 Mbps |200 Mbps |
+
+> [!NOTE]
+> 这些值是应用程序网关吞吐量的大约值。 实际吞吐量取决于平均页面大小、后端实例的位置、提供页面所需的处理时间等各种环境详细信息。 如需确切的性能数字，则应运行自己的测试。 提供的这些值仅适用于容量规划指南。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -91,4 +107,4 @@ WebSocket 和 HTTP/2 协议通过长时间运行的 TCP 连接，在服务器和
 - [快速入门：使用 Azure 应用程序网关定向 Web 流量 - Azure PowerShell](quick-create-powershell.md)
 - [快速入门：使用 Azure 应用程序网关定向 Web 流量 - Azure CLI](quick-create-cli.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: add content about "sizing" -->

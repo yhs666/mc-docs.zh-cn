@@ -3,7 +3,7 @@ title: 教程 - 使用 Azure PowerShell 自动缩放规模集 | Microsoft Docs
 description: 了解如何使用 Azure PowerShell 随 CPU 需求的增减自动缩放虚拟机规模集
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,17 +14,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 03/27/2018
-ms.date: 11/29/2018
+ms.date: 02/12/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 3e19838ec683224152f12546386b8260c1b9ef23
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 2ef8083ae9383f6d2573bae37964df1a4072bd8b
+ms.sourcegitcommit: 24dd5964eafbe8aa4badbca837c2a1a7836f2df7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672624"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56101594"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>教程：使用 Azure PowerShell 自动缩放虚拟机规模集
+
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
+
 创建规模集时，可定义想运行的 VM 实例数。 若应用程序需要更改，可自动增加或减少 VM 实例数。 通过自动缩放功能，可随客户需求的改变而进行调整，或在应用的整个生命周期内响应应用程序性能更改。 本教程介绍如何执行下列操作：
 
 > [!div class="checklist"]
@@ -35,7 +38,7 @@ ms.locfileid: "52672624"
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
-存在影响 Azure PowerShell 模块版本 6.8.1 或更高版本的已知问题。 本教程只能使用 Azure PowerShell 模块版本 6.0.0 到 6.8.0 运行。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount` 以创建与 Azure 的连接。
+存在影响 Azure PowerShell 模块版本 6.8.1 或更高版本的已知问题。 本教程只能使用 Azure PowerShell 模块版本 6.0.0 到 6.8.0 运行。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount` 来创建与 Azure 的连接。
 
 
 ## <a name="create-a-scale-set"></a>创建规模集
@@ -235,7 +238,7 @@ MYRESOURCEGROUP   myScaleSet_5   chinanorth Standard_DS2                   5    
 MYRESOURCEGROUP   myScaleSet_6   chinanorth Standard_DS2                   6          Creating
 ```
 
-在连接到每个 VM 实例的远程桌面连接会话中，关闭 **CPU Stress** 工具。 此时整个规模集的平均 CPU 负载回到正常。 另一个 5 分钟后，自动缩放规则会缩减 VM 实例数。 横向缩减操作会首先删除 ID 值最高的 VM 实例。 如果规模集使用可用性集或可用性区域，则缩减操作将均匀分布到这些 VM 实例上。 以下示例输出显示，在规模集进行自动横向缩减时删除了一个 VM 实例：
+在连接到每个 VM 实例的远程桌面连接会话中，关闭 **CPU Stress** 工具。 此时整个规模集的平均 CPU 负载回到正常。 另一个 5 分钟后，自动缩放规则会缩减 VM 实例数。 横向缩减操作会首先删除 ID 值最高的 VM 实例。 如果规模集使用可用性集，则缩减操作将均匀分布到这些 VM 实例上。 以下示例输出显示，在规模集进行自动横向缩减时删除了一个 VM 实例：
 
 ```powershell
 MYRESOURCEGROUP   myScaleSet_6   chinanorth Standard_DS2                   6          Deleting

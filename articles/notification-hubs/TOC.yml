@@ -44,7 +44,7 @@ items:
   - name: 5 - 推送基于位置的通知
     items:
     - name: Windows
-      href: notification-hubs-push-bing-spartial-data-geofencing-notification.md
+      href: notification-hubs-push-bing-spatial-data-geofencing-notification.md
 - name: 示例
   items:
   - name: PowerShell
@@ -62,6 +62,8 @@ items:
       href: notification-hubs-templates-cross-platform-push-messages.md
 - name: 操作指南
   items:
+  - name: 更改定价层
+    href: change-pricing-tier.md
   - name: 发送跨平台通知
     href: notification-hubs-aspnet-cross-platform-notification.md
   - name: 向设备推送丰富的内容
@@ -108,9 +110,9 @@ items:
     href: https://feedback.azure.com/forums/218849-notification-hubs
   - name: 支持选项
     href: https://www.azure.cnhttps://www.azure.cn/support/contact/
-ms.openlocfilehash: efb50be3b9896948d85b09c815f8aba1cc2139c6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 037f0c897e9d8ce198ac46294b9dd531f1f8740e
+ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649502"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56222582"

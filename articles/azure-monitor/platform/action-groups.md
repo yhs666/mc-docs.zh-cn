@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 55eb1bbb0c04854699a2e2c61db3b4b14a4f3672
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.openlocfilehash: 57169df7e2d5fed0aeb0f470f34cf765aad66e13
+ms.sourcegitcommit: e38a4405fea7606b01e5fa143e2069d93043da97
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141745"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56334186"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>在 Azure 门户中创建和管理器操作组
 ## <a name="overview"></a>概述 ##
@@ -32,7 +32,7 @@ ms.locfileid: "54141745"
 有关如何使用 Azure 资源管理器模板以配置操作组的信息，请参阅[操作组资源管理器模板](../../azure-monitor/platform/action-groups-create-resource-manager-template.md)。
 
 ## <a name="create-an-action-group-by-using-the-azure-portal"></a>使用 Azure 门户创建操作组 ##
-1. 在[门户](https://portal.azure.com)中，选择“监视器”。 “监视器”边栏选项卡将所有监视设置和数据合并到一个视图中。
+1. 在[门户](https://portal.azure.cn)中，选择“监视器”。 “监视器”边栏选项卡将所有监视设置和数据合并到一个视图中。
 
     ![“监视”服务](./media/action-groups/home-monitor.png)
 1. 依次选择“警报”、“管理操作组”。
@@ -75,7 +75,7 @@ ms.locfileid: "54141745"
 
 一个操作组中最多可以有 1000 个电子邮件操作。 请参阅[速率限制信息](./../../azure-monitor/platform/alerts-rate-limiting.md)一文
 
-**ITSM** - 在需要 ITSM 连接的操作组 ITSM 操作中最多可以有 10 个 ITSM 连接。 了解如何创建 [ITSM 连接](../../azure-monitor/platform/itsmc-overview.md)。
+**ITSM** - 在需要 ITSM 连接的操作组 ITSM 操作中最多可以有 10 个 ITSM 连接。 
 
 **逻辑应用** - 一个操作组中最多可以有 10 个逻辑应用操作。
 
@@ -104,7 +104,6 @@ ms.locfileid: "54141745"
 ## <a name="next-steps"></a>后续步骤 ##
 * 详细了解[短信警报行为](../../azure-monitor/platform/alerts-sms-behavior.md)。  
 * 获取[对活动日志警报 webhook 架构的了解](../../azure-monitor/platform/activity-log-alerts-webhook.md)。  
-* 了解有关 [ITSM 连接器](../../azure-monitor/platform/itsmc-overview.md)的详细信息
 * 详细了解有关警报的[速率限制](../../azure-monitor/platform/alerts-rate-limiting.md)。
 * 获取[活动日志警报概述](../../azure-monitor/platform/alerts-overview.md)，了解如何接收警报。  
 * 了解如何[配置每次发布服务运行状况通知时的警报](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)。

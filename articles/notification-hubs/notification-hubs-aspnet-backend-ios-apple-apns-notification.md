@@ -2,8 +2,8 @@
 title: 使用 Azure 通知中心向特定用户推送通知 | Microsoft Docs
 description: 了解如何使用 Azure 通知中心向特定用户推送通知。
 documentationcenter: ios
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 services: notification-hubs
 ms.assetid: 1f7d1410-ef93-4c4b-813b-f075eed20082
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 origin.date: 04/13/2018
-ms.date: 09/26/2018
-ms.author: v-junlch
-ms.openlocfilehash: 0c116258721482eff20f2d8aaf6c4f3a1a2deeb2
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 02/25/2019
+ms.author: v-biyu
+ms.openlocfilehash: a364566462dc45547efede5efbd3be5b16823666
+ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644026"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56222594"
 ---
 # <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向特定用户推送通知
 
@@ -40,8 +40,9 @@ ms.locfileid: "52644026"
 > * 测试应用程序
 
 ## <a name="prerequisites"></a>先决条件
-本教程假设已根据[通知中心入门 (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) 中所述创建并配置了通知中心。 此外，只有在学习本教程后，才可以学习[安全推送 (iOS)](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md) 教程。
 
+本教程假设已根据[通知中心入门 (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) 中所述创建并配置了通知中心。 此外，只有在学习本教程后，才可以学习[安全推送 (iOS)](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md) 教程。
+如果要使用移动应用作为后端服务，请参阅[移动应用中的推送通知入门](../app-service-mobile/app-service-mobile-ios-get-started-push.md)。
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
@@ -52,20 +53,20 @@ ms.locfileid: "52644026"
    > [!NOTE]
    > 本节假定项目配置了空的组织名称。 如果未配置，需要在所有类名前面追加组织名称。
 
-2. 在 **Main.storyboard** 中添加对象库中的组件，如屏幕截图中所示。
+2. 在 `Main.storyboard` 文件中，添加屏幕截图中显示的对象库中的组件。
 
     ![在 Xcode 接口生成器中编辑情节提要][1]
 
-   - 用户名：包含占位符文本“输入用户名”的 UITextField，直接位于发送结果标签的下面并受左右边距的限制。
-   - 密码：包含占位符文本“输入密码”的 UITextField，直接位于用户名文本字段的下面并受左右边距限制。 选中属性检查器中“返回密钥”下的“安全文本输入”选项。
-   - 登录：直接位于密码文本字段下方的标签式 UIButton，并取消选中属性检查器中“控件内容”下的“已启用”选项
-   - **WNS**：标签和开关，用于已在中心设置 Windows 通知服务时，启用将通知发送到 Windows 通知服务。 请参阅 [Windows 入门](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)教程。
-   - **APNS**：标签和开关，用于启用将通知发送到 Apple 平台通知服务。
-   - **收件人用户名**：包含占位符文本“收件人用户名标记”的 UITextField，直接位于 GCM 标签下，受左右边距限制。
+   * **用户名**：包含占位符文本“*输入用户名*”的 UITextField，直接位于发送结果标签的下面并受左右边距的限制。
+   * **密码**：包含占位符文本“*输入密码*”的 UITextField，直接位于用户名文本字段的下面并受左右边距的限制。 选中属性检查器中“返回密钥”下的“安全文本输入”选项。
+   * **登录**：直接位于密码文本字段下方的标签式 UIButton，并取消选中属性检查器中“控件内容”下的“已启用”选项
+   * **WNS**：标签和开关，用于已在中心设置 Windows 通知服务时，启用将通知发送到 Windows 通知服务。 请参阅 [Windows 入门](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)教程。
+   * **APNS**：标签和开关，用于启用将通知发送到 Apple 平台通知服务。
+   * **收件人用户名**：包含占位符文本“收件人用户名标记”的 UITextField，直接位于 GCM 标签下，受左右边距限制。
 
     某些组件已在[通知中心入门 (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) 教程中添加。
 
-3. 按 **Ctrl** 的同时从视图中的组件拖至 **ViewController.h** 并添加这些新插座。
+3. 按 **Ctrl** 的同时从视图中的组件拖至 `ViewController.h` 并添加这些新插座。
 
     ```objc
     @property (weak, nonatomic) IBOutlet UITextField *UsernameField;
@@ -91,7 +92,7 @@ ms.locfileid: "52644026"
     #define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"
     ```
 
-5. 在项目中，创建一个名为 RegisterClient 的新 Cocoa Touch 类，以便与创建的 ASP.NET 后端交互。 创建继承自 `NSObject`的类。 然后在 RegisterClient.h 中添加以下代码。
+5. 在项目中，创建一个名为 `RegisterClient` 的新 Cocoa Touch 类，以便与你创建的 ASP.NET 后端交互。 创建继承自 `NSObject`的类。 然后在 `RegisterClient.h` 中添加以下代码。
 
     ```objc
     @interface RegisterClient : NSObject
@@ -287,9 +288,9 @@ ms.locfileid: "52644026"
 
     此代码使用 NSURLSession 对应用后端执行 REST 调用并使用 NSUserDefaults 在本地存储通知中心返回的 registrationId，实现了指南文章[从应用后端注册](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend)中所述的逻辑。
 
-    该类需要设置其属性 authorizationHeader，才能正常工作。 登录后，由 ViewController 类设置此属性。
+    该类需要设置其属性 `authorizationHeader`，才能正常工作。 登录后，由 `ViewController` 类设置此属性。
 
-8. 在 ViewController.h 中，为 RegisterClient.h 添加 `#import` 语句。 然后，在 `@interface` 中添加设备令牌的声明和对 `RegisterClient` 实例的引用：
+8. 在 `ViewController.h` 中，为 `RegisterClient.h` 添加一个 `#import` 语句。 然后，在 `@interface` 中添加设备令牌的声明和对 `RegisterClient` 实例的引用：
 
     ```objc
     #import "RegisterClient.h"
@@ -311,7 +312,7 @@ ms.locfileid: "52644026"
     ```
 
     > [!NOTE]
-    > 下面的代码段不是安全的身份验证方案，你应将 **createAndSetAuthenticationHeaderWithUsername:AndPassword:** 的实现替换为你的特定身份验证机制，该机制会生成要供注册客户端类（例如，OAuth、Active Directory）使用的身份验证令牌。
+    > 下面的代码片段不是安全的身份验证方案，应将 `createAndSetAuthenticationHeaderWithUsername:AndPassword:` 的实现替换为特定身份验证机制，该机制将生成要供注册客户端类（例如，OAuth、Active Directory）使用的身份验证令牌。
 
 10. 然后在 `ViewController.m` 的 `@implementation` 部分中添加以下代码，这段代码会添加用于设置设备令牌和身份验证标头的实现。
 
@@ -443,7 +444,7 @@ ms.locfileid: "52644026"
     }
     ```
 
-13. 在函数 **ViewDidLoad**中，添加以下内容来实例化 RegisterClient 实例并设置文本字段的委托。
+13. 在 `ViewDidLoad` 函数中，添加以下内容来实例化 `RegisterClient` 实例并设置文本字段的委托。
 
     ```objc
     self.UsernameField.delegate = self;
@@ -466,7 +467,7 @@ ms.locfileid: "52644026"
     }
     ```
 
-15. 最后，在 **AppDelegate.m**中，确保使用了以下方法：
+15. 最后，在 `AppDelegate.m` 中，确保使用了以下方法：
 
     ```objc
     - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
@@ -496,12 +497,9 @@ ms.locfileid: "52644026"
 本教程介绍了如何向其标记与注册相关联的特定用户推送通知。 若要了解如何推送基于位置的通知，请转到以下教程： 
 
 > [!div class="nextstepaction"]
->[推送基于位置的通知](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
-
+>[推送基于位置的通知](notification-hubs-push-bing-spatial-data-geofencing-notification.md)
 
 [1]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-interface.png
 [2]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-user-pwd.png
 [3]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-registered.png
 [4]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-msg.png
-
-<!-- Update_Description: wording update -->

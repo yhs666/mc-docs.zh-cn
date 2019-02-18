@@ -6,16 +6,17 @@ author: WenJason
 manager: digimobile
 ms.service: azure-stack
 ms.topic: article
-origin.date: 09/26/2018
-ms.date: 11/12/2018
+origin.date: 01/14/2019
+ms.date: 02/18/2019
 ms.author: v-jay
 ms.reviewer: fiseraci
-ms.openlocfilehash: 6ea28589b47e6fe7fbb5f62c07aafcd47510d2a9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.lastreviewed: 01/14/2019
+ms.openlocfilehash: e8aebafbec3ff3317c9da0a94954450ebfbd6d04
+ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651047"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56218281"
 ---
 # <a name="update-windows-defender-antivirus-on-azure-stack"></a>在 Azure Stack上更新 Windows Defender 防病毒
 

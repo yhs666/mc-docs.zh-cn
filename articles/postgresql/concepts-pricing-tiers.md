@@ -5,14 +5,14 @@ author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 10/10/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: 6c937a2397c15ab347fe9e4e66e6a245955a5224
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+origin.date: 02/01/2019
+ms.date: 02/18/2019
+ms.openlocfilehash: 1367f7fac3278a866a557ba99df6a062357b6ce2
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806183"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56303022"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Database for PostgreSQL 定价层
 
@@ -91,5 +91,5 @@ ms.locfileid: "53806183"
 ## <a name="next-steps"></a>后续步骤
 
 - 了解如何[在门户中创建 PostgreSQL 服务器](tutorial-design-database-using-azure-portal.md)。
-- 了解如何[使用 Azure CLI 监视和缩放 Azure Database for PostgreSQL 服务器](scripts/sample-scale-server-up-or-down.md)。
 - 了解[服务限制](concepts-limits.md)。 
+- 了解如何[使用只读副本进行横向扩展](howto-read-replicas-portal.md)。

@@ -7,22 +7,22 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 10/23/2018
-ms.date: 01/21/2019
+ms.date: 02/14/2019
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 23aa019de3b576d01c4ecc37cba73d1dbd2d5531
-ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
+ms.openlocfilehash: ed5af623dcf7a4c1ec231c3faec54e08e27f7026
+ms.sourcegitcommit: f34f65c439665607b43bb2c81df58c138d0b7417
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440360"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56262186"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Azure Active Directory 访问令牌
 
@@ -227,6 +227,8 @@ https://login.partner.microsoftonline.cn/common/.well-known/openid-configuration
 > “不基于密码”登录是指用户在未键入密码的情况下登录。 例如，在 Windows Hello 中进行人脸登录、使用 FIDO 密钥或 PIN 登录。 
 >
 > Windows 主刷新令牌存在已知问题。 如果 PRT 是通过密码获取，然后用户通过 Hello 登录，这不会更改 PRT 的来源，并且它会在用户更改密码时遭撤销。
+>
+> 在用于提取新访问令牌和刷新令牌时，刷新令牌不会失效或撤销。  
 
 ## <a name="next-steps"></a>后续步骤
 

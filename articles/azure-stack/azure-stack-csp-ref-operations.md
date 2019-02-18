@@ -11,16 +11,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/15/2018
-ms.date: 11/12/2018
+origin.date: 01/08/2019
+ms.date: 02/18/2019
 ms.author: v-jay
-ms.reviewer: alfredo
-ms.openlocfilehash: cd75b1296644d6b262b77f68af12cc6656db3911
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.reviewer: alfredop
+ms.lastreviewed: 01/08/2019
+ms.openlocfilehash: d5b9c922adf33d71f8dc0a8af1ccea81f6e9fefb
+ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659585"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56218291"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>在 Azure Stack 中管理租户注册
 
@@ -60,7 +61,7 @@ ms.locfileid: "52659585"
 
 ### <a name="powershell"></a>PowerShell
 
-使用 New-AzureRmResource cmdlet 更新注册资源。 使用用于初始注册的帐户登录到 Azure (`Add-AzureRmAccount -EnvironmentName AzureChinaCloud`)。 下面是演示如何添加租户的示例：
+使用 New-AzureRmResource cmdlet 更新注册资源。 下面是演示如何添加租户的示例：
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -68,10 +69,10 @@ ms.locfileid: "52659585"
 
 ### <a name="api-call"></a>API 调用
 
-**操作**：PUT  
+**Operation**：PUT  
 **RequestURI**：`subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
 {customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
-**响应**：201 已创建  
+**响应**：201 Created  
 **响应正文**：空  
 
 ## <a name="list-all-registered-tenants"></a>列出所有已注册租户
@@ -101,7 +102,7 @@ ms.locfileid: "52659585"
 
 可以使用 GET 操作获取所有租户映射的列表
 
-**操作**：GET  
+**Operation**：GET  
 **RequestURI**：`subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
 /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions?  
 api-version=2017-06-01 HTTP/1.1`  
@@ -150,7 +151,7 @@ api-version=2017-06-01 HTTP/1.1`
 
 可以使用 DELETE 操作删除租户映射。
 
-**操作**：DELETE  
+**Operation**：删除  
 **RequestURI**：`subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
 /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
 {customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  

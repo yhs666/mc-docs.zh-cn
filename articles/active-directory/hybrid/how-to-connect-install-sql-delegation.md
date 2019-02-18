@@ -3,7 +3,7 @@ title: 使用 SQL 委派的管理员权限安装 Azure AD Connect | Microsoft Do
 description: 本主题介绍如何通过 Azure AD Connect 更新使用只有 SQL dbo 权限的帐户进行安装。
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.reviewer: jparsons
 ms.assetid: ''
@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 06/07/2018
-ms.date: 11/09/2018
-ms.component: hybrid
+ms.date: 02/13/2019
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: b5c6d1154da36a8a77274d53edafa42fc167aaa6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: dec85cc73aee43cf91dfd331b3832e5e26f51fe4
+ms.sourcegitcommit: 3f266322470d2a3f8fdd4682e854f833466701af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654560"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56222688"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>使用 SQL 委派的管理员权限安装 Azure AD Connect
 在最新的 Azure AD Connect 版本之前，不支持在部署需要 SQL 的配置时使用管理委派。  若要安装 Azure AD Connect，用户需具有 SQL Server 的服务器管理员 (SA) 权限。
@@ -56,13 +56,11 @@ Azure AD Connect 管理员|安装 Azure AD Connect 并在自定义安装过程�
 ## <a name="additional-information"></a>其他信息
 预配数据库以后，Azure AD Connect 管理员可以在方便的情况下安装并配置本地同步。  
 
-使用预先创建的数据库时，需要 /UseExistingDatabase 标志。  它不仅在与恢复相关的情况中使用。
-
-除了支持 Azure AD Connect 的全新安装，此功能还允许针对任何与 **/UseExistingDatabase** 标记相关的方案进行委派。  若要详细了解如何通过现有数据库来安装 Azure AD Connect，请参阅[使用现有 ADSync 数据库安装 Azure AD Connect](how-to-connect-install-existing-database.md)
-
+若要详细了解如何通过现有数据库来安装 Azure AD Connect，请参阅[使用现有 ADSync 数据库安装 Azure AD Connect](how-to-connect-install-existing-database.md)
 
 ## <a name="next-steps"></a>后续步骤
 - [通过快速设置开始使用 Azure AD Connect](how-to-connect-install-express.md)
 - [Azure AD Connect 的自定义安装](how-to-connect-install-custom.md)
 - [使用现有 ADSync 数据库安装 Azure AD Connect](how-to-connect-install-existing-database.md)  
 
+<!-- Update_Description: wording update -->

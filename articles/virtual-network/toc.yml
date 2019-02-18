@@ -50,6 +50,16 @@ items:
     href: virtual-network-disaster-recovery-guidance.md
   - name: IP 寻址
     href: virtual-network-ip-addresses-overview-arm.md
+  - name: 后端连接互操作性
+    items:
+    - name: 前言和测试设置
+      href: ../networking/connectivty-interoperability-preface.md?toc=%2fvirtual-network%2ftoc.json
+    - name: 测试设置配置
+      href: ../networking/connectivty-interoperability-configuration.md?toc=%2fvirtual-network%2ftoc.json
+    - name: 控制平面分析
+      href: ../networking/connectivty-interoperability-control-plane.md?toc=%2fvirtual-network%2ftoc.json
+    - name: 数据平面分析
+      href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fvirtual-network%2ftoc.json
   - name: 经典
     items:
     - name: IP 寻址
@@ -305,9 +315,9 @@ items:
     href: https://www.azure.cn/pricing/calculator/
   - name: 常见问题
     href: virtual-networks-faq.md
-ms.openlocfilehash: b90c78a87ca4d8963371ce3f642218ef4247e907
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: 1034db11b5cb2abb552b72f14ede8b1146f1899a
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193079"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306248"

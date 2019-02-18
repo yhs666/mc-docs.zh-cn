@@ -3,19 +3,19 @@ title: 使用 Azure 自动化将服务器配置为所需状态并管理偏移
 description: 教程 - 使用 Azure 自动化状态配置管理服务器配置
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: WenJason
 ms.author: v-jay
 manager: digimobile
 ms.topic: conceptual
 origin.date: 08/08/2018
-ms.date: 12/24/2018
-ms.openlocfilehash: a8865f2d017a825eb62f2577800f904ae02b025f
-ms.sourcegitcommit: 895e9accaae8f8c2a29ed91d8e84911fda6111cf
+ms.date: 02/18/2019
+ms.openlocfilehash: f48cf6d99e4d07fdd9faec24ecc00ca904990725
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53615175"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302956"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>将服务器配置到所需状态并管理偏移
 
@@ -34,7 +34,7 @@ ms.locfileid: "53615175"
 
 - 一个 Azure 自动化帐户。 有关如何创建 Azure 自动化运行方式帐户的说明，请参阅 [Azure 运行方式帐户](automation-sec-configure-azure-runas-account.md)。
 - 一个运行 Windows Server 2008 R2 或更高版本的 Azure 资源管理器 VM（非经典）。 如需创建 VM 的说明，请参阅[在 Azure 门户中创建第一个 Windows 虚拟机](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
-- Azure PowerShell 模块 3.6 版或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。
+- Azure PowerShell 模块 3.6 版或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)（安装 Azure PowerShell 模块）。
 - 熟悉所需状态配置 (DSC)。 有关 DSC 文档的信息，请参阅 [Windows PowerShell Desired State Configuration 概述](https://docs.microsoft.com/powershell/dsc/overview)
 
 ## <a name="log-in-to-azure"></a>登录 Azure

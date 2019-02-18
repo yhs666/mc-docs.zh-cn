@@ -7,22 +7,22 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 09/24/2018
-ms.date: 11/07/2018
+ms.date: 02/14/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: bc9cc955410cd9db6736fef96ee7c685309c678d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b4dbcb65b39e1982ad2f26c6ed22dce5fa7dd135
+ms.sourcegitcommit: f34f65c439665607b43bb2c81df58c138d0b7417
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643660"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56262194"
 ---
 # <a name="quickstart-update-an-application-in-azure-active-directory"></a>快速入门：在 Azure Active Directory 中更新应用程序
 
@@ -112,7 +112,7 @@ ms.locfileid: "52643660"
     ```
 
     > [!NOTE]
-    > 必须以编程方式或者使用 GUID 生成工具（例如 [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx)）来生成 `id` 值。 `id` 表示 Web API 公开的范围的唯一标识符。 为客户端配置访问 Web API 的适当权限后，Azure AD 将为它颁发 OAuth2.0 访问令牌。 当客户端调用 Web API 时，会出示该访问令牌，其中的范围 (scp) 声明设置为客户端应用程序注册中请求的权限。
+    > 必须通过编程方式或 GUID 生成工具（例如 [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx)）来生成 `id` 值。 `id` 表示 Web API 公开的范围的唯一标识符。 为客户端配置访问 Web API 的适当权限后，Azure AD 将为它颁发 OAuth2.0 访问令牌。 当客户端调用 Web API 时，会出示该访问令牌，其中的范围 (scp) 声明设置为客户端应用程序注册中请求的权限。
     >
     > 以后可以根据需要公开其他范围。 请考虑 Web API 可能要公开与各种不同功能关联的多个范围。 在运行时，资源可以通过评估所收到的 OAuth 2.0 访问令牌中的范围 (`scp`) 声明，来控制对 Web API 的访问。
 
@@ -157,7 +157,7 @@ ms.locfileid: "52643660"
 请务必注意单租户应用程序与多租户之间的差别：  
 
 - 单租户应用程序预定在一家组织中使用。 它通常是企业开发人员编写的业务线 (LoB) 应用程序。 只有在与应用程序注册相同的租户中具有帐户的用户才能访问单租户应用程序。 因此，只需在一个目录中预配此类应用程序。
-- 多租户应用程序预定在多家组织中使用。 它称为软件即服务 (SaaS) Web 应用程序，通常由独立软件供应商 (ISV) 编写。 必须在用户需要访问权限的每个租户中预配多租户应用程序。 对于除注册了应用程序以外的其他租户，需要经过用户或管理员的许可才能注册此类应用程序。 请注意，默认情况下，本机客户端应用程序都是多租户的，因为它们安装在资源所有者的设备上。 有关许可框架的详细信息，请参阅前面的[许可框架概述](#overview-of-the-consent-framework)部分。
+- 多租户应用程序预定在多家组织中使用。 它称为软件即服务 (SaaS) Web 应用程序，通常由独立软件供应商 (ISV) 编写。 必须在用户需要访问权限的每个租户中预配多租户应用程序。 对于除注册了应用程序以外的其他租户，需要经过用户或管理员的许可才能注册此类应用程序。 请注意，默认情况下，本机客户端应用程序都是多租户的，因为它们安装在资源所有者的设备上。 有关许可框架的详细信息，请参阅前面的“许可框架概述”部分。
 
 使应用程序成为多租户应用程序需要对应用程序注册进行更改，同时还需要对 Web 应用程序本身进行更改。 以下部分介绍了这两项操作。
 
@@ -185,7 +185,7 @@ ms.locfileid: "52643660"
 Web 应用程序还可以：
 
 - 让管理员“注册我的公司”。 这种体验称为“管理员许可”，使管理员能够代表其组织中的所有用户授予许可。 只有使用属于全局管理员角色的帐户进行身份验证的用户才能提供管理员许可；其他人会收到错误。
-- 用户的注册体验。 预期会为用户提供一个“注册”按钮，单击该按钮可将浏览器重定向到 Azure AD OAuth2.0 `/authorize` 终结点或 OpenID Connect `/userinfo` 终结点。 这些终结点使应用程序可以检查 id_token，从而获取有关新用户的信息。 完成注册阶段后，用户会看到许可提示，与[许可框架概述](#overview-of-the-consent-framework)部分中所示的提示类似。
+- 用户的注册体验。 预期会为用户提供一个“注册”按钮，单击该按钮可将浏览器重定向到 Azure AD OAuth2.0 `/authorize` 终结点或 OpenID Connect `/userinfo` 终结点。 这些终结点使应用程序可以检查 id_token，从而获取有关新用户的信息。 完成注册阶段后，用户会看到许可提示，与“许可框架概述”部分中所示的提示类似。
 
 有关需要进行哪些应用程序更改才能支持多租户访问和登录/注册体验的详细信息，请参阅：
 
@@ -226,3 +226,4 @@ Web 应用程序还可以：
 
 深入了解使用 Azure Active Directory 开发应用程序时应使用的品牌准则，请参阅[应用程序的品牌准则](howto-add-branding-in-azure-ad-apps.md)。
 
+<!-- Update_Description: link update -->

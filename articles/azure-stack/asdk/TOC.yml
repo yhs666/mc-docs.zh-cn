@@ -60,21 +60,15 @@ items:
     href: /azure-stack/user/
 - name: 资源
   items:
-  - name: Azure Stack 路线图
-    href: https://azure.microsoft.com/roadmap/?tag=azure-stack
   - name: Azure Stack MSDN 论坛
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack
-  - name: Azure Stack 文档反馈
-    href: https://feedback.azure.com/forums/344565-azure-stack?category_id=160275
+    href: https://social.msdn.microsoft.com/Forums/zh-CN/home?forum=AzureStack
   - name: 定价信息
     href: https://azure.microsoft.com/overview/azure-stack/how-to-buy/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-stack
   - name: 培训和认证
     href: /azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 017677223937c210508ef4398a36edbfa6ca6bf0
-ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
+ms.openlocfilehash: d62d56697e8dd5d188a1abb2aab716394b2fa0ec
+ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54397013"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56218296"

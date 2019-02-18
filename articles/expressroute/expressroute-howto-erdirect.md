@@ -6,14 +6,14 @@ author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
 origin.date: 11/02/2018
-ms.date: 02/04/2019
+ms.date: 02/25/2019
 ms.author: v-yiso
-ms.openlocfilehash: 4b93a1e99a2669af4e25545a0addb41e5d24e733
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: 1a844893e4a26db08232ff9a3841759e9ee23eaf
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906218"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302932"
 ---
 # <a name="how-to-configure-expressroute-direct-preview"></a>如何配置 ExpressRoute Direct（预览版）
 
@@ -99,7 +99,7 @@ ms.locfileid: "54906218"
   > 
  
   ```powershell 
-  $ERDirect = New-AzureRMExpressRoutePort -Name $Name -ResourceGroupName -$RGName -PeeringLocation $PeeringLocationName -BandwidthInGbps 100.0 -Encapsulation QinQ | Dot1Q -Location $AzureRegion
+  $ERDirect = New-AzureRMExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName -PeeringLocation $PeeringLocationName -BandwidthInGbps 100.0 -Encapsulation QinQ | Dot1Q -Location $AzureRegion
   ```
 
   > [!NOTE]

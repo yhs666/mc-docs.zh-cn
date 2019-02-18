@@ -6,15 +6,15 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
 origin.date: 01/11/2019
-ms.date: 01/15/2019
+ms.date: 02/11/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 4a5e05a3449d863a7e948b6be79f262258845318
-ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
+ms.openlocfilehash: 9e91918f4bcbf84ef7db06b99cbb8cd716fcdb94
+ms.sourcegitcommit: 713cf33290efd4ccc7a3eab2668e3ceb0b51686f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54333872"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56079640"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-powershell"></a>快速入门：使用 Azure 应用程序网关定向 Web 流量 - Azure PowerShell
 
@@ -26,7 +26,7 @@ ms.locfileid: "54333872"
 
 如果选择在本地安装并使用 Azure PowerShell，则本教程需要安装 Azure PowerShell 模块 3.6 或更高版本。
 
-1. 若要查找版本，请运行 `Get-Module -ListAvailable AzureRM`。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 
+1. 若要查找版本，请运行 `Get-Module -ListAvailable AzureRM`。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)（安装 Azure PowerShell 模块）。 
 2. 若要创建与 Azure 的连接，请运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud`。
 
 ## <a name="create-a-resource-group"></a>创建资源组
@@ -239,4 +239,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroupAG
 > [通过 Azure PowerShell 使用应用程序网关管理 Web 流量](./tutorial-manage-web-traffic-powershell.md)
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

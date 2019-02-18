@@ -13,14 +13,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/26/2018
-ms.date: 01/21/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8d3421fdf886e7816038f40cfb7f85d510645d5e
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: 767adf08db9e82a6a945ed9e2f502e1d1a4b197f
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193032"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306186"
 ---
 #  <a name="network-virtual-appliance-issues-in-azure"></a>Azure 中的网络虚拟设备问题
 
@@ -79,7 +79,7 @@ NVA 供应商提供了对第三方 NVA 及其与 Azure 平台集成的技术支�
           EnableIPForwarding   : True
           NetworkSecurityGroup : null
 
-**使用标准 SKU 公共 IP 时检查 NSG** 使用标准 SKU 和公共 IP 时，必须创建一个 NSG，并有明确的规则允许将流量路由到 NVA。
+**使用标准 SKU 公共 IP 时检查 NSG**：使用标准 SKU 和公共 IP 时，必须创建一个 NSG，并有明确的规则允许将流量路由到 NVA。
 
 **检查流量是否可路由到 NVA**
 

@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: multiple
-origin.date: 12/05/2018
-ms.date: 01/21/2019
+origin.date: 01/15/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 61de45e4d2ed9426aa84b0c28d961e79b0a95e17
-ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
+ms.openlocfilehash: d9399df883acfe7f59c8278c6b4c748fd84f60be
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55085697"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306274"
 ---
 ## <a name="quickstarts-and-tutorials"></a>快速入门和教程
 
@@ -34,7 +34,7 @@ ms.locfileid: "55085697"
     |[使用 Visual Studio Code](../articles/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code.md)|使用 Visual Studio Code 创建和编辑模板，以及如何使用 Azure Shell 部署模板。|
     |[使用 Visual Studio](../articles/azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)|使用 Visual Studio 创建、编辑和部署模板。|
 
-    <!--Not Available on Azure Cloud Shell-->
+  <!--Not Available on Azure Cloud Shell-->
     
 - 教程
 
@@ -42,6 +42,7 @@ ms.locfileid: "55085697"
     |------|-----|
     |[利用模板参考](../articles/azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts.md)|利用模板参考文档来开发模板。 在本教程中，找到存储帐户架构，并使用相关信息来创建加密的存储帐户。|
     |[创建多个实例](../articles/azure-resource-manager/resource-manager-tutorial-create-multiple-instances.md)|创建多个 Azure 资源的实例。 在本教程中，将创建多个存储帐户实例。|
+    |[移动资源](../articles/azure-resource-manager/resource-manager-tutorial-move-resources.md)|将资源在资源组之间移动。 在本教程中，运行现有模板以创建两个资源组和一个存储帐户，然后运行 Azure PowerShell cmdlet 以将存储帐户移动到另一个资源组。|
     |[设置资源部署顺序](../articles/azure-resource-manager/resource-manager-tutorial-create-templates-with-dependent-resources.md)|定义资源依赖关系。 在本教程中，将创建虚拟网络、虚拟机和相关 Azure 资源。 了解如何定义依赖关系。|
     |[使用条件](../articles/azure-resource-manager/resource-manager-tutorial-use-conditions.md)|基于某些参数值来部署资源。 在本教程中，基于参数的值定义一个模板以创建新的存储帐户或使用现有存储帐户。|
     |[集成 Key Vault](../articles/azure-resource-manager/resource-manager-tutorial-use-key-vault.md)|从 Azure Key Vault 检索机密/密码。 在本教程中，将创建虚拟机。  从 Key Vault 检索虚拟机管理员密码。|
@@ -49,9 +50,9 @@ ms.locfileid: "55085697"
     |[部署虚拟机扩展](../articles/azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)|使用扩展执行部署后任务。 在本教程中，你将部署客户脚本扩展以在虚拟机上安装 Web 服务器。 |
     |[部署 SQL 扩展](../articles/azure-resource-manager/resource-manager-tutorial-deploy-sql-extensions-bacpac.md)|使用扩展执行部署后任务。 在本教程中，你将部署客户脚本扩展以在虚拟机上安装 Web 服务器。 |
     |[保护项目](../articles/azure-resource-manager/resource-manager-tutorial-secure-artifacts.md)|保护完成部署所需的项目。 本教程介绍如何保护“部署 SQL 扩展”教程中使用的项目。 |
+    |[教程：对资源管理器模板部署进行故障排除](../articles/azure-resource-manager/resource-manager-tutorial-troubleshoot.md)|排查模板部署问题。|
 
-<!--Not Available on  |[Move resources](../articles/azure-resource-manager/resource-manager-tutorial-move-resources.md)|Move resources from one resource group to another resource group. In the tutorial, you run an existing template to create two resource groups and one storage account, and then run an Azure PowerShell cmdlet to move the storage account to the other resource group.-->
-<!-- Not Available on |[Use safe deployment practices](../articles/azure-resource-manager/deployment-manager-tutorial.md)-->
+  <!-- Not Available on |[Use safe deployment practices](../articles/azure-resource-manager/deployment-manager-tutorial.md)-->
 
 这些教程可以单独使用，也可以作为一系列用于学习主要的资源管理器模板开发概念。
 

@@ -125,6 +125,8 @@ items:
       href: app-service-ip-restrictions.md
     - name: 使用托管标识
       href: overview-managed-identity.md
+    - name: 从 Key Vault 引用机密
+      href: app-service-key-vault-references.md
     - name: 在应用程序代码中使用 SSL 证书
       href: app-service-web-ssl-cert-load.md
     - name: 配置 TLS 相互身份验证
@@ -213,9 +215,9 @@ items:
       href: ip-address-change-outbound.md
     - name: SSL 地址
       href: ip-address-change-ssl.md
-ms.openlocfilehash: 2c727d8a9c8937612193c80235e2488942519cd9
-ms.sourcegitcommit: ced39ce80d38d36bdead66fc978d99e93653cb5f
+ms.openlocfilehash: b08ea01d9e85dae75b95424f6a9fcb70961e5f39
+ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54307614"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56222592"

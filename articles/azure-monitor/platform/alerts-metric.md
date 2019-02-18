@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: cbfdb28a54307febb0fa1c4a86074d5b2337b203
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: 5ebf73e162e55f2c4be9cab5f32841a829f2a2d6
+ms.sourcegitcommit: e38a4405fea7606b01e5fa143e2069d93043da97
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906093"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56334184"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>使用 Azure Monitor 创建、查看和管理指标警报
 
@@ -22,7 +22,7 @@ Azure Monitor 中的指标警报提供了一种在指标超出阈值时获得通
 
 以下过程说明如何在 Azure 门户中创建指标警报规则：
 
-1. 在 [Azure 门户](https://portal.azure.com)中单击“监视”。 “监视”边栏选项卡将所有监视设置和数据合并到一个视图中。
+1. 在 [Azure 门户](https://portal.azure.cn)中单击“监视”。 “监视”边栏选项卡将所有监视设置和数据合并到一个视图中。
 
 2. 依次单击“警报”、“+ 新建警报规则”。
 

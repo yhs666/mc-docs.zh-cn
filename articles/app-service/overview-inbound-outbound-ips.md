@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/20/2018
-ms.date: 01/21/2019
+ms.date: 02/25/2019
 ms.author: v-biyu
-ms.openlocfilehash: 23df797e0dccf7f71e52c7d029d9ca02476bd39f
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: e986576c5e207783a27ec3a91fa176f48bf9f622
+ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083918"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56222578"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Azure 应用服务中的入站和出站 IP 地址
 
@@ -56,10 +56,18 @@ ms.locfileid: "54083918"
 az webapp show --resource-group <group_name> --name <app_name> --query outboundIpAddresses --output tsv
 ```
 
+```azurepowershell
+(Get-AzWebApp -ResourceGroup <group_name> -name <app_name>).OutboundIpAddresses
+```
+
 若要查找应用可能使用的所有出站 IP 地址（不管定价层是什么），请运行以下命令。
 
 ```azurecli
 az webapp show --resource-group <group_name> --name <app_name> --query possibleOutboundIpAddresses --output tsv
+```
+
+```azurepowershell
+(Get-AzWebApp -ResourceGroup <group_name> -name <app_name>).PossibleOutboundIpAddresses
 ```
 
 ## <a name="next-steps"></a>后续步骤

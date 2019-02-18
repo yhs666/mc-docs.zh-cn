@@ -3,19 +3,19 @@ title: Azure 自动化中的凭据资产
 description: Azure 自动化中的凭据资产包含可用于向 Runbook 或 DSC 配置访问的资源进行身份验证的安全凭据。 本文介绍如何创建凭据资产并在 Runbook 或 DSC 配置中使用它们。
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: WenJason
 ms.author: v-jay
 origin.date: 05/08/2018
-ms.date: 11/26/2018
+ms.date: 02/18/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: f570dec55b4f77d37f9f35e9d08c77b0b6c5c3f7
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 3d530af8c4ec8d56126ee69cbbd2f69177cffebf
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672925"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56303041"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Azure 自动化中的凭据资产
 
@@ -72,10 +72,9 @@ ms.locfileid: "52672925"
 
 ### <a name="to-create-a-new-credential-asset-with-the-azure-portal"></a>使用 Azure 门户新建凭据资产
 
-1. 在自动化帐户中，单击“资产”部分以打开“资产”边栏选项卡。
-2. 单击“凭据”部分以打开“凭据”边栏选项卡。
-3. 单击边栏选项卡顶部的“添加凭据”。
-4. 完成表单，并单击“创建”以保存新凭据  。
+1. 从自动化帐户中，选择“共享资源”下的“凭据”。
+1. 单击“+ 添加凭据”。
+1. 完成表单，并单击“创建”以保存新凭据  。
 
 > [!NOTE]
 > 不支持将使用多重身份验证的用户帐户用于 Azure 自动化。
@@ -141,4 +140,5 @@ print cred["password"]
 * 若要开始使用图形 Runbook，请参阅 [My first graphical runbook](automation-first-runbook-graphical.md)
 * 若要开始使用 PowerShell 工作流 Runbook，请参阅[我的第一个 PowerShell 工作流 Runbook](automation-first-runbook-textual.md) 
 * 若要开始使用 Python2 Runbook，请参阅[第一个 Python2 Runbook](automation-first-runbook-textual-python2.md) 
+
 

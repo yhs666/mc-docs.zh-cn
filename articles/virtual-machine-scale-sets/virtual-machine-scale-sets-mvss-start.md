@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/01/2017
-ms.date: 01/16/2019
+origin.date: 01/16/2019
+ms.date: 02/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: d3bc01d79792d15e5b2e2224bec8ca023c6a04cf
-ms.sourcegitcommit: e79651227d4378e6d24f9ab155b9f4fee044b2c0
+ms.openlocfilehash: 118d5723bc2a0bda51b89a7d84fb4d02fd1afd31
+ms.sourcegitcommit: 24dd5964eafbe8aa4badbca837c2a1a7836f2df7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334277"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56101575"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>了解虚拟机规模集模板
 [Azure Resource Manager 模板](/azure-resource-manager/resource-group-overview#template-deployment)是部署成组的相关资源的好办法。 本系列教程演示如何创建最小的可行规模集模板，以及如何修改此模板以满足各种场景。 所有示例都来自此 [GitHub 存储库](https://github.com/gatneil/mvss)。 
@@ -71,7 +71,7 @@ Resource Manager 模板还可用于定义稍后要在模板中使用的变量。
    "resources": [
 ```
 
-所有资源都需要 `type`、`name`、`apiVersion` 和 `location` 属性。 此示例的第一个资源具有类型 [Microsft.Network/virtualNetwork](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)、名称 `myVnet` 和 apiVersion `2016-03-30`。 （若要查找资源类型的最新 API 版本，请参阅 [Azure 资源管理器模板参考](https://docs.microsoft.com/azure/templates/)。）
+所有资源都需要 `type`、`name`、`apiVersion` 和 `location` 属性。 此示例的第一个资源具有类型 [Microsoft.Network/virtualNetwork](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)、名称 `myVnet` 和 apiVersion `2016-03-30`。 （若要查找资源类型的最新 API 版本，请参阅 [Azure 资源管理器模板参考](https://docs.microsoft.com/azure/templates/)。）
 
 ```json
      {
@@ -214,4 +214,4 @@ Resource Manager 模板还可用于定义稍后要在模板中使用的变量。
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

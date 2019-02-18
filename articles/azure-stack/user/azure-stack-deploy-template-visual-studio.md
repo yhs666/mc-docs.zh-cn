@@ -13,16 +13,17 @@ ms.workload: azure-vs
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/18/2018
-ms.date: 11/12/2018
+origin.date: 01/05/2019
+ms.date: 02/18/2019
 ms.author: v-jay
-ms.reviewer: ''
-ms.openlocfilehash: c345a25beb437efef927dabbf1a562757ede4c98
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.reviewer: unknown
+ms.lastreviewed: 01/05/2019
+ms.openlocfilehash: 7519b2a612174e061804a9a22eab2b29af83bd7c
+ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653573"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56218301"
 ---
 # <a name="deploy-templates-in-azure-stack-using-visual-studio"></a>使用 Visual Studio 在 Azure Stack 中部署模板
 

@@ -7,20 +7,20 @@ author: CelesteDG
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 09/11/2018
-ms.date: 10/08/2018
+ms.date: 02/14/2019
 ms.author: v-junlch
-ms.openlocfilehash: 22065c8c8ed775dec60e6727ee65e2f7869ebf91
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 91b76f4e9ff940c70336d1b77e06d0ae158a6a9c
+ms.sourcegitcommit: f34f65c439665607b43bb2c81df58c138d0b7417
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656978"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56262184"
 ---
 # <a name="how-to-find-a-specific-api-needed-for-a-custom-developed-application"></a>如何为自定义开发的应用程序查找所需的特定 API
 
@@ -28,11 +28,11 @@ ms.locfileid: "52656978"
 
 ## <a name="configuring-a-resource-application-to-expose-web-apis"></a>将资源应用程序配置为公开 Web API
 
-当 Web API 公开后，将权限添加到应用注册时，API 会显示在“选择 API”列表中。 要添加访问作用域，请按照[将访问作用域添加到资源应用程序](/active-directory/develop/active-directory-integrating-applications#adding-access-scopes-to-your-resource-application)中概述的步骤操作。
+当 Web API 公开后，将权限添加到应用注册时，API 会显示在“选择 API”列表中。 要添加访问作用域，请按照[将访问作用域添加到资源应用程序](/active-directory/develop/active-directory-integrating-applications)中概述的步骤操作。
 
 ## <a name="configuring-a-client-application-to-access-web-apis"></a>将客户端应用程序配置为访问 Web API
 
-在将权限添加到应用注册时，可**添加 API 访问**到已公开的 Web API。 若要访问 Web API，请按照[添加凭据或权限以访问 Web API](/active-directory/develop/active-directory-integrating-applications#to-add-credentials-or-permissions-to-access-web-apis)中概述的步骤操作。
+在将权限添加到应用注册时，可**添加 API 访问**到已公开的 Web API。 若要访问 Web API，请按照[添加凭据或权限以访问 Web API](/active-directory/develop/active-directory-integrating-applications)中概述的步骤操作。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -42,3 +42,4 @@ ms.locfileid: "52656978"
 
 
 
+<!-- Update_Description: link update -->

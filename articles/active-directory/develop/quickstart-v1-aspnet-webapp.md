@@ -8,20 +8,20 @@ manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 09/24/2018
-ms.date: 01/02/2019
+ms.date: 02/14/2019
 ms.author: v-junlch
-ms.openlocfilehash: 0f115c8e2a4b77f7211ac6f9e8cd27754fe5d146
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: f625ceeee3ec4ff09ca2b6dbe3e12bf5da7e20f2
+ms.sourcegitcommit: f34f65c439665607b43bb2c81df58c138d0b7417
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996271"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56262193"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>快速入门：向 ASP.NET Web 应用添加 Microsoft 登录
 
@@ -62,7 +62,7 @@ ms.locfileid: "53996271"
 
 要下载此示例的 Visual Studio 项目，请按照下列步骤操作：
 1. [下载 GitHub 上的示例项目](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/GuidedSetup.zip)。
-1. 跳至[配置步骤](#configure-your-webconfig-and-register-an-application)以在执行操作前配置代码示例。
+1. 跳至“配置”步骤以在执行操作前配置代码示例。
 
 ## <a name="step-2-create-your-aspnet-project"></a>步骤 2：创建 ASP.NET 项目
 
@@ -514,4 +514,4 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 
 <!--end-test-->
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

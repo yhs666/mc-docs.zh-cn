@@ -9,14 +9,14 @@ ms.service: power-bi-embedded
 ms.topic: article
 ms.workload: powerbi
 origin.date: 09/20/2017
-ms.date: 09/26/2018
+ms.date: 02/15/2019
 ms.author: v-junlch
-ms.openlocfilehash: 596822ab3a6ef9826175e70cbcbbf38be340cc6b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: bda8a9e42e7c868eeb322631385a0e739bc82728
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654123"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306129"
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>在 Power BI 工作区集合中基于数据集创建新报表
 
@@ -33,7 +33,7 @@ ms.locfileid: "52654123"
 
 Power BI 工作区集合使用一个嵌入令牌，这是一个 HMAC 已签名 JSON Web 令牌。 已使用 Power BI 工作区集合中的访问密钥对令牌进行了签名。 默认情况下，嵌入令牌用于提供对要嵌入到应用程序的报表的只读访问权限。 嵌入令牌是针对特定报表颁发的，应该与嵌入 URL 相关联。
 
-应在服务器上创建访问令牌，因为要使用访问密钥对令牌进行签名/加密。 有关如何创建访问令牌的信息，请参阅[通过 Power BI 工作区集合进行身份验证和授权](app-token-flow.md)。 此外，还可以查看 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) 方法。 以下示例演示了如何使用用于 Power BI 的 .NET SDK。
+应在服务器上创建访问令牌，因为要使用访问密钥对令牌进行签名/加密。 有关如何创建访问令牌的信息，请参阅[通过 Power BI 工作区集合进行身份验证和授权](app-token-flow.md)。 此外，还可以查看 [CreateReportEmbedToken](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN) 方法。 以下示例演示了如何使用用于 Power BI 的 .NET SDK。
 
 在此示例中，我们已有要基于其创建新报表的数据集 ID。 还需要添加 *Dataset.Read 和 Workspace.Report.Create* 的作用域。
 
@@ -208,4 +208,4 @@ var embedCreateConfiguration = {
 
 有更多问题？ [试用 Power BI 社区](http://community.powerbi.com/)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: link update -->

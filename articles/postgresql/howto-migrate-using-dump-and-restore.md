@@ -1,21 +1,18 @@
 ---
 title: 如何在 Azure Database for PostgreSQL 中转储和还原
 description: 介绍如何在 Azure Database for PostgreSQL 中将 PostgreSQL 数据库解压缩为转储文件，以及如何从 pg_dump 创建的文件进行还原。
-services: postgresql
 author: WenJason
 ms.author: v-jay
-manager: digimobile
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 origin.date: 09/22/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 7933083c6ee7fc99bd6a16e3f08c75a86598e53d
-ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
+ms.date: 02/18/2019
+ms.openlocfilehash: 5a471fe7f64695712ca408235c364ee3f7b2d3ff
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396909"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302980"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>使用转储和还原迁移 PostgreSQL 数据库
 可以使用 [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) 将 PostgreSQL 数据库提取到转储文件，并使用 [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) 从 pg_dump 创建的存档文件中还原 PostgreSQL 数据库。
@@ -72,8 +69,10 @@ pg_restore -v --no-owner --host=mydemoserver.postgres.database.chinacloudapi.cn 
     ```
 
 ### <a name="for-the-restore"></a>对于还原
-- 我们建议将备份文件移动到你要迁移到的 Azure Database for PostgreSQL 服务器所在区域中的 Azure VM，并从该 VM 执行 pg_restore 以减少网络延迟。 此外，我们还建议通过启用[加速网络](..\virtual-network\create-vm-accelerated-networking-powershell.md)来创建 VM。
+- 我们建议将备份文件移动到你要迁移到的 Azure Database for PostgreSQL 服务器所在区域中的 Azure VM，并从该 VM 执行 pg_restore 以减少网络延迟。 此外，我们还建议通过启用[加速网络](../virtual-network/create-vm-accelerated-networking-powershell.md)来创建 VM。
+
 - 默认情况下应该已经完成，但需打开转储文件来验证 create index 语句是否在插入数据之后。 如果不是这种情况，请将 create index 语句移动到插入的数据之后。
+
 - 使用 -Fc 和 -j *#* 交换机进行并行还原。 *#* 是目标服务器上的内核数。 你还可以尝试将 *#* 设置为目标服务器内核数的两倍，以查看产生的影响。 例如：
 
     ```
@@ -81,6 +80,11 @@ pg_restore -v --no-owner --host=mydemoserver.postgres.database.chinacloudapi.cn 
     ```
 
 - 此外，还可以通过在开头添加 *set synchronous_commit = off;* 命令并在末尾添加 *set synchronous_commit = on;* 命令来编辑转储文件。 如果在应用更改数据之前未在末尾打开该功能，可能会导致随后的数据丢失。
+
+- 在目标 Azure Database for PostgreSQL 服务器上，请考虑在还原之前执行以下操作：
+    - 使用高计算和高内存 sku（如 32 vCore 内存优化）来加速迁移。 完成还原操作后，可以轻松缩回到所需的 sku。 sku 越高，通过增加 pg_restore 命令中相应的 `-j` 参数就可以实现越多的并行性。 
+
+    - 通过增加目标服务器上的 IOPS 可以提高还原性能。 你可以通过增加服务器的存储大小来预配更多 IOPS。 此设置不可逆，但要考虑的一点是，更高的 IOPS 是否在将来有益于你的实际工作负荷。
 
 请记住先在测试环境中测试和验证这些命令，然后再将其用于生产。
 

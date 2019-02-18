@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2017
 ms.author: v-yiso
-ms.date: 11/05/2018
-ms.openlocfilehash: 1975a0ac0e6d22419712098277fe2f513e846cf0
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 02/25/2019
+ms.openlocfilehash: 43f7c3e566cdbc22c00c000aff252d1e7f8f04f7
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675535"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56303057"
 ---
 # <a name="api-management-access-restriction-policies"></a>API 管理访问限制策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -357,6 +357,7 @@ ms.locfileid: "52675535"
 > [!IMPORTANT]
 >  `validate-jwt` 策略要求 `exp` 注册声明包括在 JWT 令牌中，除非 `require-expiration-time` 属性已指定并设置为 `false`。  
 > `validate-jwt` 策略支持 HS256 和 RS256 签名算法。 对于 HS256，必须采用内联方式在策略中以 base64 编码形式提供密钥。 对于 RS256，必须通过 Open ID 配置终结点提供密钥。  
+> `validate-jwt` 策略通过加密算法 A128CBC-HS256、A192CBC-HS384、A256CBC-HS512 支持使用对称密钥加密的令牌。
   
 ### <a name="policy-statement"></a>策略语句  
   
@@ -372,7 +373,11 @@ ms.locfileid: "52675535"
   <issuer-signing-keys>  
     <key>base64 encoded signing key</key>  
     <!-- if there are multiple keys, then add additional key elements -->  
-  </issuer-signing-keys>  
+  </issuer-signing-keys>
+  <decryption-keys>
+    <key>base64 encoded signing key</key>  
+    <!-- if there are multiple keys, then add additional key elements -->  
+  </decryption-keys>
   <audiences>  
     <audience>audience string</audience>  
     <!-- if there are multiple possible audiences, then add additional audience elements -->  
@@ -493,6 +498,7 @@ ms.locfileid: "52675535"
 |validate-jwt|根元素。|是|  
 |audiences|包含一系列可接受且可存在于令牌上的受众声明。 如果存在多个受众值，则会对每个值进行尝试，直到所有值都试完（这种情况表明验证失败），或者直到有一个值成功。 必须指定至少一个受众。|否|  
 |issuer-signing-keys|一系列 Base64 编码的安全密钥，用于验证签名的令牌。 如果存在多个安全密钥，则会对每个密钥进行尝试，直到所有密钥都试完（这种情况表明验证失败），或者直到有一个密钥成功（对令牌滚动更新十分有用）。 密钥元素有一个可选的 `id` 属性，用于与 `kid` 声明进行比较。|否|  
+|decryption-keys|用于解密令牌的 Base64 编码密钥列表。 如果存在多个安全密钥，则会对每个密钥进行尝试，直到所有密钥都试完（在这种情况下验证失败）或直到有一个密钥成功为止。 密钥元素有一个可选的 `id` 属性，用于与 `kid` 声明进行比较。|否|  
 |issuers|一系列可接受的、已颁发了令牌的主体。 如果存在多个颁发者值，则会对每个值进行尝试，直到有一个值成功（如果所有值都试完却没有一个成功，则表明验证失败）。|否|  
 |openid-config|一个元素，用于指定兼容的 Open ID 配置终结点，以便从该终结点获取签名密钥和颁发者。|否|  
 |required-claims|包含一系列应存在于令牌上的声明，否则令牌会被视为无效。 将 `match` 属性设置为 `all` 时，策略中的每个声明值都必须存在于令牌中才会使验证成功。 将 `match` 属性设置为 `any` 时，至少一个声明必须存在于令牌中才会使验证成功。|否|  
@@ -508,7 +514,7 @@ ms.locfileid: "52675535"
 |header-name|包含令牌的 HTTP 标头的名称。|必须指定 `header-name` 或 `query-parameter-name`，但不能将二者都指定。|不适用|  
 |id|使用 `key` 元素的 `id` 属性可以指定一个字符串，该字符串将与令牌中的 `kid` 声明（如果存在）进行比较，以便找出进行签名验证时需要使用的适当密钥。|否|不适用|  
 |match|`claim` 元素的 `match` 属性用于指定：是否策略中的每个声明值都必须存在于令牌中验证才会成功。 可能的值包括：<br /><br /> -                          `all` - 策略中的每个声明值都必须存在于令牌中才会使验证成功。<br /><br /> -                          `any` - 至少一个声明值必须存在于令牌中才会使验证成功。|否|all|  
-|query-paremeter-name|包含令牌的查询参数的名称。|必须指定 `header-name` 或 `query-paremeter-name`，但不能将二者都指定。|不适用|  
+|query-parameter-name|包含令牌的查询参数的名称。|必须指定 `header-name` 或 `query-parameter-name`，但不能将二者都指定。|不适用|  
 |require-expiration-time|布尔值。 指定令牌中是否需要到期声明。|否|是|
 |require-scheme|令牌方案的名称，例如“Bearer”。 设置了此属性时，策略将确保 Authorization 标头值中存在指定的方案。|否|不适用|
 |require-signed-tokens|布尔值。 指定令牌是否需要签名。|否|是|  

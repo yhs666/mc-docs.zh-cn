@@ -4,24 +4,24 @@ description: 本主题详细说明 Azure AD Connect 的受支持和不受支持�
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
 ms.service: active-directory
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 origin.date: 11/27/2018
-ms.date: 01/03/2019
-ms.component: hybrid
+ms.date: 02/13/2019
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 5efb68b4184d76cb022f5468786c705952302dcb
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 36b33b49bd4c8e7bca2c30f05a0bb7c069360ebe
+ms.sourcegitcommit: 3f266322470d2a3f8fdd4682e854f833466701af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996304"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56222694"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect 的拓扑
 本文介绍了使用 Azure AD Connect 同步作为关键集成解决方案的各种本地拓扑和 Azure Active Directory (Azure AD) 拓扑。 此外，介绍支持和不支持的配置。
@@ -64,7 +64,7 @@ ms.locfileid: "53996304"
 
 Azure AD Connect 安装向导提供多个选项用于合并多个林中显示的用户。 目标是一个用户只在 Azure AD 中显示一次。 可以在安装向导的自定义安装路径中配置某些常见拓扑。 在“唯一标识你的用户”页上选择表示拓扑的相应选项。 只对用户配置合并。 复制的组不会与默认配置合并。
 
-有关[独立的拓扑](#multiple-forests-separate-topologies)、[完整网格](#multiple-forests-full-mesh-with-optional-galsync)和[帐户资源拓扑](#multiple-forests-account-resource-forest)的部分讨论了常见拓扑。
+有关独立的拓扑、[完整网格](#multiple-forests-full-mesh-with-optional-galsync)和[帐户资源拓扑](#multiple-forests-account-resource-forest)的部分讨论了常见拓扑。
 
 Azure AD Connect 同步中的默认配置假设：
 

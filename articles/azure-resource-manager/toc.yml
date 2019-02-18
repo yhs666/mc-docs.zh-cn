@@ -20,6 +20,8 @@ items:
     href: resource-manager-tutorial-create-encrypted-storage-accounts.md
   - name: 创建多个实例
     href: resource-manager-tutorial-create-multiple-instances.md
+  - name: 移动资源
+    href: resource-manager-tutorial-move-resources.md
   - name: 设置资源部署顺序
     href: resource-manager-tutorial-create-templates-with-dependent-resources.md
   - name: 使用条件
@@ -34,6 +36,8 @@ items:
     href: resource-manager-tutorial-deploy-sql-extensions-bacpac.md
   - name: 保护项目
     href: resource-manager-tutorial-secure-artifacts.md
+  - name: 排查模板部署问题
+    href: resource-manager-tutorial-troubleshoot.md
 - name: 示例
   items:
   - name: Resource Manager 模板
@@ -58,6 +62,8 @@ items:
       href: resource-manager-templates-outputs.md
   - name: 指南
     items:
+    - name: 模板最佳实践
+      href: template-best-practices.md
     - name: 用于提供云一致性的模板
       href: templates-cloud-consistency.md
   - name: 资源提供程序和类型
@@ -160,6 +166,8 @@ items:
       href: ../virtual-machines/linux/troubleshoot-deployment-new-vm.md
     - name: Windows 预配和分配问题
       href: ../virtual-machines/windows/troubleshoot-deployment-new-vm.md
+    - name: RequestDisallowedByPolicy
+      href: resource-manager-policy-requestdisallowedbypolicy-error.md
     - name: ReservedResourceName
       href: resource-manager-reserved-resource-name.md
     - name: ResourceQuotaExceeded
@@ -215,9 +223,9 @@ items:
     href: resource-manager-personal-data.md
   - name: 视频
     href: https://www.azure.cn/video-center/
-ms.openlocfilehash: 13ca7be24b9bd5853a7807e677d569669f5db277
-ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
+ms.openlocfilehash: c3dcfe7666934a8ca0255a71c236953340736fa2
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55085687"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306239"

@@ -9,14 +9,14 @@ ms.reviewer: klam
 ms.suite: infrastructure-services
 ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
-origin.date: 11/14/2016
-ms.date: 11/26/2018
-ms.openlocfilehash: 911ef4942ba900a9b6d73b0d7a4f0a42f957b7c9
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+origin.date: 11/14/2018
+ms.date: 02/19/2019
+ms.openlocfilehash: e82c652446571cf1444b40534cf2cc7709819598
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672520"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56303066"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>在 Azure 计划程序中为作业生成高级计划和重复周期
 
@@ -54,9 +54,9 @@ ms.locfileid: "52672520"
 
 若要使用 [Azure 计划程序 REST API](https://docs.microsoft.com/rest/api/scheduler) 创建基本计划，请执行以下步骤：
 
-1. 使用[注册操作 - 资源管理器 REST API](https://docs.microsoft.com/rest/api/resources/providers#Providers_Register) 向资源提供程序注册 Azure 订阅。 Azure 计划程序服务的提供程序名称为 **Microsoft.Scheduler**。 
+1. 使用[注册操作 - 资源管理器 REST API](https://docs.microsoft.com/rest/api/resources/providers) 向资源提供程序注册 Azure 订阅。 Azure 计划程序服务的提供程序名称为 **Microsoft.Scheduler**。 
 
-1. 使用计划程序 REST API 中的[为作业集合创建或更新操作](https://docs.microsoft.com/rest/api/scheduler/jobcollections#JobCollections_CreateOrUpdate)创建作业集合。 
+1. 使用计划程序 REST API 中的[为作业集合创建或更新操作](https://docs.microsoft.com/rest/api/scheduler/jobcollections)创建作业集合。 
 
 1. 使用[为作业创建或更新操作](https://docs.microsoft.com/rest/api/scheduler/jobs/createorupdate)创建作业。 
 
@@ -168,7 +168,7 @@ ms.locfileid: "52672520"
 | **monthlyOccurrences** |确定运行作业的月份日期。 只能配合每月频率指定。 |**monthlyOccurrences** 对象的数组：<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **day** 是运行作业的星期日期。 例如，*{Sunday}* 表示月份中的每个星期日。 必需。<br /><br />**occurrence** 是月份中重复的日期。 例如，*{Sunday, -1}* 表示月份中的最后一个星期日。 可选。 |
 | **monthDays** |运行作业的月份日期。 只能配合每月频率指定。 |以下值的数组：<br /><= -1 且 >= -31 的任意值<br />>= 1 且 <= 31 的任意值|
 
-## <a name="examples-recurrence-schedules"></a>示例：循环计划
+## <a name="examples-recurrence-schedules"></a>示例:循环计划
 
 以下示例演示各种循环计划。 这些示例着重于计划对象及其子元素。
 

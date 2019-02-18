@@ -11,16 +11,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/07/2018
-ms.date: 12/31/2018
+origin.date: 01/24/2019
+ms.date: 02/18/2019
 ms.author: v-jay
-ms.reviewer: Balsu.G
-ms.openlocfilehash: 6c8d95dd83f3c4a5729bbf41c22c464ca2881413
-ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
+ms.reviewer: bganapa
+ms.lastreviewed: 01/24/2019
+ms.openlocfilehash: d723e7568e31af998a17e070449fc2f843fcf44d
+ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814641"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56218235"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-a-user"></a>以用户身份使用 PowerShell 连接到 Azure Stack
 
@@ -51,6 +52,7 @@ ms.locfileid: "53814641"
 ## <a name="connect-with-azure-ad"></a>与 Azure AD 连接
 
 ```PowerShell  
+    Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
     # Set your tenant name
     $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackUser").ActiveDirectoryAuthority.TrimEnd('/')
     $AADTenantName = "<myDirectoryTenantName>.partner.onmschina.cn"
@@ -67,16 +69,12 @@ ms.locfileid: "53814641"
   # Register an Azure Resource Manager environment that targets your Azure Stack instance
   Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
 
-  $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackUser").ActiveDirectoryAuthority.TrimEnd('/')
-  $tenantId = (invoke-restmethod "$($AuthEndpoint)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
-
   # Sign in to your environment
 
   $cred = get-credential
 
   Login-AzureRmAccount `
     -EnvironmentName "AzureStackUser" `
-    -TenantId $tenantId `
     -Credential $cred
   ```
 

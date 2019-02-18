@@ -14,20 +14,20 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 origin.date: 03/20/2018
-ms.date: 05/07/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: d4592bbcabc043f2c7489a27468a9b86fbd62dba
-ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
+ms.openlocfilehash: 0444b1f9c10779a18e4094a4d7bc3e871c308cc9
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55085660"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306215"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance-script-sample"></a>通过网络虚拟设备脚本示例路由流量
 
 该脚本示例创建了包含前端和后端子网的虚拟网络。 它还会创建一个 VM，并启用 IP 转发，在两个子网之间路由流量。 运行脚本后，可将网络软件（例如防火墙应用程序）部署到 VM。
 
-可以通过本地 PowerShell 安装来执行脚本。 当在本地使用 PowerShell 时，此脚本需要 AzureRM PowerShell 模块 5.4.1 或更高版本。 要查找已安装的版本，请运行 `Get-Module -ListAvailable AzureRM`。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 当在本地运行 PowerShell 时，还需要运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 来创建与 Azure 的连接。
+可以通过本地 PowerShell 安装来执行脚本。 如果在本地使用 PowerShell，则此脚本需要 AzureRM PowerShell 模块 5.4.1 或更高版本。 要查找已安装的版本，请运行 `Get-Module -ListAvailable AzureRM`。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。
 
 <!--Not Available on the Azure [Cloud Shell](https://shell.azure.com/powershell)-->
 
@@ -35,7 +35,7 @@ ms.locfileid: "55085660"
 
 ## <a name="sample-script"></a>示例脚本
 
-```powershell
+```azurepowershell
 # Variables for common values
 $rgName='MyResourceGroup'
 $location='chinaeast'
@@ -153,5 +153,5 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可在[虚拟网络 PowerShell 示例](../powershell-samples.md)中查找其他虚拟网络 PowerShell 脚本示例。
-<!-- Update_Description: new articles on virtual network powershell sample route traffic through nva script -->
-<!--ms.date: 05/07/2018-->
+
+<!-- Update_Description: wording update-->

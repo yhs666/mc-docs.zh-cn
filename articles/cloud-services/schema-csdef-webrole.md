@@ -2,7 +2,7 @@
 title: Azure 云服务定义WebRole 架构 | Microsoft Docs
 ms.custom: ''
 origin.date: 04/14/2015
-ms.date: 06/11/2018
+ms.date: 02/25/2019
 ms.prod: azure
 ms.reviewer: ''
 ms.service: cloud-services
@@ -11,15 +11,15 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 85368e4e-a0db-4c02-8dbc-8e2928fa6091
 caps.latest.revision: 60
-author: thraka
+author: jpconnock
 ms.author: v-yiso
 manager: timlt
-ms.openlocfilehash: eb7bcbbaef151ff604230796bfb696d81b257f5b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d8a4f512508b70a389ea429609b77ac3ca465018
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658997"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56303074"
 ---
 # <a name="azure-cloud-services-definition-webrole-schema"></a>Azure 云服务定义 WebRole 架构
 Azure Web 角色是针对 IIS 7 所支持的 Web 应用程序编程（例如 ASP.NET、PHP、Windows Communication Foundation 和 FastCGI）自定义的角色。
@@ -45,11 +45,11 @@ Azure Web 角色是针对 IIS 7 所支持的 Web 应用程序编程（例如 ASP
       <InputEndpoint certificate="<certificate-name>" ignoreRoleInstanceStatus="[true|false]" name="<input-endpoint-name>" protocol="[http|https|tcp|udp]" localPort="<port-number>" port="<port-number>" loadBalancerProbe="<load-balancer-probe-name>" />  
       <InternalEndpoint name="<internal-endpoint-name>" protocol="[http|tcp|udp|any]" port="<port-number>">  
          <FixedPort port="<port-number>"/>  
-         <FixedPortRange min="<minium-port-number>" max="<maximum-port-number>"/>  
+         <FixedPortRange min="<minimum-port-number>" max="<maximum-port-number>"/>  
       </InternalEndpoint>  
      <InstanceInputEndpoint name="<instance-input-endpoint-name>" localPort="<port-number>" protocol="[udp|tcp]">  
          <AllocatePublicPortFrom>  
-            <FixedPortRange min="<minium-port-number>" max="<maximum-port-number>"/>  
+            <FixedPortRange min="<minimum-port-number>" max="<maximum-port-number>"/>  
          </AllocatePublicPortFrom>  
       </InstanceInputEndpoint>  
     </Endpoints>  

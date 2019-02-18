@@ -2,7 +2,6 @@
 title: Azure 流量管理器终结点监视 | Azure
 description: 本文有助于你了解，流量管理器如何通过终结点监视和终结点自动故障转移来帮助 Azure 客户部署高可用性应用程序。
 services: traffic-manager
-documentationcenter: ''
 author: rockboyfor
 ms.service: traffic-manager
 ms.devlang: na
@@ -10,14 +9,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 12/04/2018
-ms.date: 01/21/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: de758db00d17aa6b62843729eacd3caeb247b813
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: 503cd2caa813281db8bf95ae5d1c1fdcf2643df0
+ms.sourcegitcommit: e32c8da268002b94c500131bb361fd6afc85ce9f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193123"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306723"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>流量管理器终结点监视
 
@@ -136,7 +135,6 @@ Azure 流量管理器包括内置的终结点监视和终结点自动故障转�
 * **优先级**。 终结点构成一个采用优先级的列表。 将始终返回列表中第一个可用的终结点。 如果终结点状态为“已降级”，则返回下一个可用的终结点。
 * **加权**。 根据分配的权重以及其他可用终结点的权重随机选择任何可用的终结点。
 * **性能**。 返回最靠近最终用户的终结点。 如果终结点不可用，流量管理器会将流量转移给下一个最靠近 Azure 区域的终结点。 可以使用[嵌套式流量管理器配置文件](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region)针对性能流量路由来配置替代故障转移计划。
-
 <!-- Not Available on * **Geographic**. The endpoint mapped to serve the geographic location based on the query request IP's is returned. If that endpoint is unavailable, another endpoint will not be selected to failover to, since a geographic location can be mapped only to one endpoint in a profile (more details are in the [FAQ](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method)). As a best practice, when using geographic routing, we recommend customers to use nested Traffic Manager profiles with more than one endpoint as the endpoints of the profile.-->
 * **MultiValue**：返回多个映射到 IPv4/IPv6 地址的终结点。 收到此配置文件的查询时，系统会根据指定的“响应中的最大记录数”值返回正常终结点。 响应的默认数量为两个终结点。
 * **子网**：返回映射到一组 IP 地址范围的终结点。 从该 IP 地址收到请求时，返回的终结点是针对该 IP 地址映射的终结点。 
@@ -165,4 +163,4 @@ Azure 流量管理器包括内置的终结点监视和终结点自动故障转�
 
 在流量管理器终结点上[排查降级状态](traffic-manager-troubleshooting-degraded.md)
 
-<!--Update_Description: wording update, update link -->
+<!--Update_Description: update meta properties -->

@@ -1,0 +1,251 @@
+items:
+- name: Azure Monitor 文档
+  href: index.yml
+- name: 概述
+  items:
+  - name: 说明是 Azure Monitor？
+    href: overview.md
+- name: 教程
+  items:
+  - name: 存档平台指标和日志数据
+    href: learn/tutorial-archive-data.md
+  - name: 根据性能和计划自动缩放
+    href: learn/tutorial-autoscale-performance-schedule.md
+- name: 概念
+  items:
+  - name: 监视数据
+    items:
+    - name: 指标和日志
+      href: platform/data-collection.md
+    - name: Azure 数据源
+      href: platform/data-sources-reference.md
+    - name: 活动日志
+      href: platform/activity-logs-overview.md
+    - name: 诊断日志
+      href: platform/diagnostic-logs-overview.md
+    - name: 自定义指标到指标存储
+      href: platform/metrics-custom-overview.md
+  - name: 响应事件
+    items:
+    - name: 警报
+      href: platform/alerts-overview.md
+    - name: 经典警报
+      href: platform/alerts-classic.overview.md
+    - name: 自动缩放
+      href: platform/autoscale-overview.md
+    - name: 活动日志警报
+      href: platform/activity-log-alerts.md
+    - name: 合作伙伴集成
+      href: platform/partners.md
+- name: 操作指南
+  items:
+  - name: 规划和准备
+    items:
+    - name: 管理访问权限
+      items:
+      - name: 角色权限和安全
+        href: platform/roles-permissions-security.md
+  - name: 收集数据
+    items:
+    - name: Log Analytics 代理
+    - name: Azure 诊断扩展
+      items:
+      - name: 概述
+        href: platform/diagnostics-extension-overview.md
+      - name: 发送到 Azure 存储
+        href: platform/diagnostics-extension-to-storage.md
+      - name: 发送到事件中心
+        href: platform/diagnostics-extension-stream-event-hubs.md
+      - name: 故障排除
+        href: platform/diagnostics-extension-troubleshooting.md
+      - name: 使用资源管理器模板启用诊断设置
+        href: platform/diagnostic-logs-stream-template.md
+      - name: 准备 JSON Lines 诊断日志格式
+        href: platform/diagnostic-logs-append-blobs.md
+      - name: VM 来宾到指标存储
+        href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
+      - name: VM 规模集来宾到指标存储
+        href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
+      - name: VM 经典来宾到指标存储
+        href: platform/collect-custom-metrics-guestos-vm-classic.md
+      - name: 云服务来宾到指标存储
+        href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
+      - name: 指标存储 REST API
+        href: platform/metrics-store-custom-rest-api.md
+      - name: GuestOS 到指标存储 Linux VM (Telegraf)
+        href: platform/collect-custom-metrics-linux-telegraf.md
+  - name: 路由数据
+    items:
+    - name: 存档活动日志
+      href: platform/archive-activity-log.md
+    - name: 存档诊断日志
+      href: platform/archive-diagnostic-logs.md
+    - name: 将活动日志流式传输到事件中心
+      href: platform/activity-logs-stream-event-hubs.md
+    - name: 将日志和指标流式传输到事件中心
+      href: platform/stream-monitoring-data-event-hubs.md
+    - name: 将诊断日志流式传输到事件中心
+      href: platform/diagnostic-logs-stream-event-hubs.md
+  - name: 可视化数据
+  - name: 分析数据
+    items:
+    - name: 在指标资源管理器中创建指标图表
+      href: platform/metrics-charts.md
+    - name: 在活动日志中查看事件
+      href: ../azure-resource-manager/resource-group-audit.md?toc=/azure/azure-monitor/toc.json
+    - name: 查看服务通知
+      href: platform/service-notifications.md
+  - name: 响应事件
+    items:
+    - name: 警报
+      items:
+      - name: 使用指标警报
+        items:
+        - name: 在 Azure Monitor 中创建、查看和管理指标警报
+          href: platform/alerts-metric.md
+        - name: 在 Azure Monitor 中创建、查看和管理经典指标警报
+          href: platform/alerts-classic-portal.md
+        - name: 配置基于日志的指标警报
+          href: platform/alerts-metric-logs.md
+        - name: 使用资源管理器模板创建经典指标警报
+          href: platform/alerts-enable-template.md
+        - name: 让经典指标警报调用 Webhook
+          href: platform/alerts-webhooks.md
+      - name: 使用日志警报
+        items:
+        - name: 用于日志警报的 Webhook 操作
+          href: platform/alerts-log-webhook.md
+      - name: 使用活动日志警报
+        items:
+        - name: 迁移到活动日志警报
+          href: platform/migrate-management-alerts.md
+        - name: 针对服务通知配置警报
+          href: platform/alerts-activity-log-service-notifications.md
+      - name: 将操作组与警报配合使用
+        items:
+        - name: 了解 webhook 架构
+          href: platform/activity-log-alerts-webhook.md
+        - name: 短信警报行为
+          href: platform/alerts-sms-behavior.md
+        - name: 警报速率限制
+          href: platform/alerts-rate-limiting.md
+        - name: 使用资源管理器创建操作组
+          href: platform/action-groups-create-resource-manager-template.md
+      - name: 管理警报
+        items:
+        - name: 管理警报实例
+          href: platform/alerts-managing-alert-instances.md
+    - name: 自动缩放
+      items:
+      - name: 自动缩放演练
+        href: platform/autoscale-get-started.md
+      - name: 了解自动缩放设置
+        href: platform/autoscale-understanding-settings.md
+      - name: 最佳做法
+        href: platform/autoscale-best-practices.md
+      - name: 常见指标
+        href: platform/autoscale-common-metrics.md
+      - name: 常见模式
+        href: platform/autoscale-common-scale-patterns.md
+      - name: 针对自动缩放配置 webhook 和电子邮件通知
+        href: platform/autoscale-webhook-email.md
+    - name: 服务通知
+      items:
+      - name: 查看服务通知
+        href: platform/service-notifications.md
+      - name: 针对服务通知配置警报
+        href: platform/alerts-activity-log-service-notifications.md
+  - name: 管理使用情况和成本
+    items:
+    - name: 使用情况和预估成本
+      href: platform/usage-estimated-costs.md
+  - name: 自动化
+    items:
+    - name: PowerShell
+      items:
+      - name: Azure PowerShell 示例
+        href: platform/powershell-quickstart-samples.md
+      - name: 应用程序
+    - name: Azure CLI 示例
+      href: platform/cli-samples.md
+    - name: API
+      items:
+      - name: REST API 用法演练
+        href: platform/rest-api-walkthrough.md
+  - name: Azure CLI
+    href: /cli/azure/monitor?view=azure-cli-latest
+  - name: Azure PowerShell
+    items:
+    - name: 监视
+      href: /powershell/module/azurerm.insights
+    - name: 日志
+      href: /powershell/module/azurerm.operationalinsights
+  - name: REST API
+    items:
+    - name: 监视
+      href: /rest/api/monitor/
+    - name: 日志
+      href: /rest/api/loganalytics
+  - name: Resource Manager 模板
+    items:
+    - name: 监视
+      href: /azure/templates/microsoft.insights/allversions
+    - name: 日志
+      href: /azure/templates/microsoft.operationalinsights/allversions
+  - name: 度量值
+    items:
+    - name: 支持的指标
+      href: platform/metrics-supported.md
+    - name: 较新的警报支持的指标
+      href: platform/alerts-metric-near-real-time.md
+  - name: 架构
+    items:
+    - name: 诊断日志服务、类别和架构
+      href: platform/tutorial-dashboards.md
+    - name: 活动日志事件架构
+      href: platform/activity-log-schema.md
+    - name: Azure 诊断扩展架构
+      href: platform/diagnostics-extension-schema.md
+      items:
+      - name: 1.3 和更高版本
+        href: platform/diagnostics-extension-schema-1dot3.md
+      - name: "1.2"
+        href: platform/diagnostics-extension-schema-1dot2.md
+      - name: "1"
+        href: platform/diagnostics-extension-schema-1dot0.md
+  - name: 功能和 API 停用
+    items:
+    - name: 经典的警报和监视
+      href: platform/monitoring-classic-retirement.md
+- name: 资源
+  items:
+  - name: Azure 路线图
+    href: https://azure.microsoft.com/roadmap/
+  - name: 定价
+    href: https://azure.microsoft.com/pricing/details/log-analytics/
+  - name: 定价计算器
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: 新闻
+    items:
+    - name: Application Insights 服务更新
+      href: https://azure.microsoft.com/updates/?product=application-insights
+    - name: Log Analytics 服务更新
+      href: https://azure.microsoft.com/updates/?product=log-analytics
+  - name: Windows 分析
+    href: https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics
+  - name: 区域可用性
+    href: https://azure.microsoft.com/regions/services/
+  - name: 视频
+    href: https://azure.microsoft.com/resources/videos/index/?services=monitor
+  - name: 快速入门模板
+    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights
+  - name: 堆栈溢出
+    href: https://stackoverflow.com/search?q=monitoring
+  - name: 代码示例
+    href: https://azure.microsoft.com/resources/samples/?service=monitor
+ms.openlocfilehash: f0da032bdfc4242dc34d25a7a51aca2acc4ca716
+ms.sourcegitcommit: d432d263a559f414395c3fdf159e49718ace0f91
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55985650"

@@ -7,20 +7,20 @@ author: CelesteDG
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 09/11/2018
-ms.date: 12/29/2018
+ms.date: 02/14/2019
 ms.author: v-junlch
-ms.openlocfilehash: 8807d16097de24119051e6f4f80c87baf9567118
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 65f332d776f2c40862499e211087709054cd138a
+ms.sourcegitcommit: f34f65c439665607b43bb2c81df58c138d0b7417
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996349"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56262181"
 ---
 # <a name="how-application-consent-works"></a>应用程序许可工作原理
 
@@ -29,8 +29,8 @@ ms.locfileid: "53996349"
 ## <a name="recommended-documents"></a>建议的文档
 
 - 概括性了解：[允许资源所有者如何通过同意操作管理应用程序对资源的访问权限](/active-directory/develop/active-directory-dev-glossary#consent)。
-- 获取有关 [Azure AD 同意框架如何实现同意](/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework)的分步概述。
-- 有关详细信息，请参阅[多租户应用程序如何使用同意框架](/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)实现“用户”和“管理员”同意（支持更多高级多层应用程序模式）。
+- 获取有关 [Azure AD 同意框架如何实现同意](/active-directory/develop/active-directory-integrating-applications)的分步概述。
+- 有关详细信息，请参阅[多租户应用程序如何使用同意框架](/active-directory/develop/active-directory-devhowto-multi-tenant-overview)实现“用户”和“管理员”同意（支持更多高级多层应用程序模式）。
 - 如需更深入的了解，请参阅[如何在授权代码授予流程中在 OAuth 2.0 协议层提供许可支持](/active-directory/develop/active-directory-protocols-oauth-code#request-an-authorization-code)。
 
 ## <a name="next-steps"></a>后续步骤

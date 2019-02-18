@@ -8,15 +8,15 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 origin.date: 05/16/2018
-ms.date: 12/17/2018
+ms.date: 02/25/2019
 ms.author: v-yiso
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: e84baaccfff303fb57ff228779baf1a652cc4b26
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: fef468b7c540860d6d90de1986de484c34f4ee6d
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029251"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56303061"
 ---
 # <a name="serialize-data-in-apache-hadoop-with-the-microsoft-avro-library"></a>使用 Microsoft Avro Library 序列化 Apache Hadoop 中的数据
 
@@ -28,7 +28,7 @@ ms.locfileid: "54029251"
 [!INCLUDE [windows-only](../../../includes/hdinsight-windows-only.md)]
 
 ## <a name="apache-avro"></a>Apache Avro
-<a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> 针对 Microsoft.NET 环境实现了 Apache Avro 数据序列化系统。 Apache Avro 为序列化提供了一种紧凑的二进制数据交换格式。 它使用 <a href="http://www.json.org" target="_blank">JSON</a> 定义与语言无关的架构，以支持语言互操作性。 以一种语言序列化的数据可以用另一种语言读取。 目前支持 C、C++、C#、Java、PHP、Python 和 Ruby。 可在 <a href="http://avro.apache.org/docs/current/spec.html" target="_blank">Apache Avro 规范</a>中找到有关格式的详细信息。 
+<a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> 针对 Microsoft.NET 环境实现了 Apache Avro 数据序列化系统。 Apache Avro 为序列化提供了一种紧凑的二进制数据交换格式。 它使用 <a href="http://www.json.org" target="_blank">JSON</a> 定义与语言无关的架构，以支持语言互操作性。 以一种语言序列化的数据可以用另一种语言读取。 目前支持 C、C++、C#、Java、PHP、Python 和 Ruby。 可在 <a href="https://avro.apache.org/docs/current/spec.html" target="_blank">Apache Avro 规范</a>中找到有关格式的详细信息。 
 
 >[!NOTE]
 >Microsoft Avro Library 不支持此规范的远程过程调用 (RPC) 部分。
@@ -1343,7 +1343,7 @@ Microsoft Avro Library 可以使用反射从要序列化的 C# 对象的数据�
 该示例将执行以下任务：
 
 * 连接到现有的 HDInsight 服务群集。
-* 序列化多个 CSV 文件并将结果上传到 Azure Blob 存储。 （CSV 文件随着示例一起分发，而且代表 [Infochimps](http://www.infochimps.com/) 在 1970 年到 2010 年期间提取自 AMEX 股票的历史记录数据。 该示例将读取 CSV 文件数据、将记录转换为 **Stock** 类的实例，并使用反射序列化这些实例。 Stock 类型定义是使用 Microsoft Avro Library 代码生成实用工具从 JSON 架构创建的。
+* 序列化多个 CSV 文件并将结果上传到 Azure Blob 存储。 （CSV 文件随着示例一起分发，而且代表 [Infochimps](https://www.infochimps.org/) 在 1970 年到 2010 年期间提取自 AMEX 股票的历史记录数据。 该示例将读取 CSV 文件数据、将记录转换为 **Stock** 类的实例，并使用反射序列化这些实例。 Stock 类型定义是使用 Microsoft Avro Library 代码生成实用工具从 JSON 架构创建的。
 * 在 Hive 中创建名为 **Stocks** 的新外部表，并将它链接到前一个步骤中上传的数据。
 * 使用 Hive 对 **Stocks** 表执行查询。
 
@@ -1370,6 +1370,5 @@ Microsoft Avro Library 可以使用反射从要序列化的 C# 对象的数据�
 
     AvroHDISample clean
 
-[deflate-100]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
-[deflate-110]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx
-<!--Update_Description: wording update-->
+[deflate-100]: https://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
+[deflate-110]: https://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx

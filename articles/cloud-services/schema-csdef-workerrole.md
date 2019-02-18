@@ -2,7 +2,7 @@
 title: Azure 云服务定义WorkerRole 架构 |Microsoft Docs
 ms.custom: ''
 origin.date: 04/14/2015
-ms.date: 06/11/2018
+ms.date: 02/25/2019
 ms.prod: azure
 ms.reviewer: ''
 ms.service: cloud-services
@@ -11,15 +11,15 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 41cd46bc-c479-43fa-96e5-d6c83e4e6d89
 caps.latest.revision: 55
-author: thraka
+author: jpconnock
 ms.author: v-yiso
 manager: timlt
-ms.openlocfilehash: 42389fa18250039f7f166b54198c80bb1a9c12b9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f0df06d8c815bf055aa9af393a3fc1e0020196d9
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664410"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56303065"
 ---
 # <a name="azure-cloud-services-definition-workerrole-schema"></a>Azure 云服务定义 WorkerRole 架构
 Azure 辅助角色对普通开发非常有用，可为 web 角色执行后台处理。
@@ -42,11 +42,11 @@ Azure 辅助角色对普通开发非常有用，可为 web 角色执行后台处
       <InputEndpoint name="<input-endpoint-name>" protocol="[http|https|tcp|udp]" localPort="<local-port-number>" port="<port-number>" certificate="<certificate-name>" loadBalancerProbe="<load-balancer-probe-name>" />
       <InternalEndpoint name="<internal-endpoint-name" protocol="[http|tcp|udp|any]" port="<port-number>">
          <FixedPort port="<port-number>"/>
-         <FixedPortRange min="<minium-port-number>" max="<maximum-port-number>"/>
+         <FixedPortRange min="<minimum-port-number>" max="<maximum-port-number>"/>
       </InternalEndpoint>
      <InstanceInputEndpoint name="<instance-input-endpoint-name>" localPort="<port-number>" protocol="[udp|tcp]">
          <AllocatePublicPortFrom>
-            <FixedPortRange min="<minium-port-number>" max="<maximum-port-number>"/>
+            <FixedPortRange min="<minimum-port-number>" max="<maximum-port-number>"/>
          </AllocatePublicPortFrom>
       </InstanceInputEndpoint>
     </Endpoints>

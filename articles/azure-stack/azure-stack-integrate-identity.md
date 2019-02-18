@@ -6,17 +6,17 @@ author: WenJason
 manager: digimobile
 ms.service: azure-stack
 ms.topic: article
-origin.date: 12/10/2018
-ms.date: 12/31/2018
+origin.date: 01/23/2019
+ms.date: 02/18/2019
 ms.author: v-jay
-ms.reviewer: wfayed
-keywords: ''
-ms.openlocfilehash: e93066c770157be51ac323d0774e6a0b248375d4
-ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
+ms.reviewer: thoroet
+ms.lastreviewed: 01/23/19
+ms.openlocfilehash: c229480bf282765b7dec5c9c7fae8c0d381cd47a
+ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814653"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56218299"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 数据中心集成 - 标识
 可以使用 Azure Active Directory (Azure AD) 或 Active Directory 联合身份验证服务 (AD FS) 作为标识提供者来部署 Azure Stack。 必须在部署 Azure Stack 之前做出选择。 使用 AD FS 的部署也称为在断开连接模式下部署 Azure Stack。
@@ -28,7 +28,7 @@ ms.locfileid: "53814653"
 |计费|必须是“容量”<br> 仅限企业协议 (EA)|“容量”或“即用即付”<br>“EA”或“云解决方案提供商”(CSP)|
 |标识|必须是“AD FS”|“Azure AD”或“AD FS”|
 |市场 |支持<br>BYOL 许可|支持<br>BYOL 许可|
-|注册|建议选项，需要使用可移动媒体<br> 和独立的连接设备。|自动|
+|注册|必需选项，需要使用可移动媒体<br> 和独立的连接设备。|自动|
 |修补和更新|必需选项，需要使用可移动媒体<br> 和独立的连接设备。|可以直接从 Internet<br> 将更新包下载到 Azure Stack。|
 
 > [!IMPORTANT]
@@ -95,14 +95,14 @@ Graph 仅支持与单个 Active Directory 林集成。 如果存在多个林，�
 
 对于此过程，请使用能够与 Azure Stack 中的特权终结点通信的数据中心网络中的计算机。
 
-2. 打开提升了权限的 Windows PowerShell 会话（以管理员身份运行），连接到特权终结点的 IP 地址。 使用 **CloudAdmin** 的凭据进行身份验证。
+1. 打开提升了权限的 Windows PowerShell 会话（以管理员身份运行），连接到特权终结点的 IP 地址。 使用 **CloudAdmin** 的凭据进行身份验证。
 
    ```PowerShell  
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
-3. 连接到特权终结点后，运行以下命令： 
+2. 连接到特权终结点后，运行以下命令： 
 
    ```PowerShell  
    Register-DirectoryService -CustomADGlobalCatalog contoso.com
@@ -194,16 +194,21 @@ Azure Stack 中的 Graph 服务使用以下协议和端口来与目标 Active Di
 
 对于此过程，请使用可以与 Azure Stack 中的特权终结点进行通信的计算机，并且该计算机可以访问在上一步中创建的元数据文件。
 
-1. 打开提升的 Windows PowerShell 会话。
+1. 打开权限提升的 Windows PowerShell 会话并连接到特权终结点。
 
    ```PowerShell  
    $federationMetadataFileContent = get-content c:\metadata.xml
    $creds=Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
-   Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataFileContent $using:federationMetadataFileContent
    ```
 
-2. 使用适用于环境的参数运行以下命令，更新默认提供商订阅的所有者：
+2. 连接到特权终结点之后，使用适用于环境的参数运行以下命令：
+
+    ```PowerShell
+    Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataFileContent $using:federationMetadataFileContent
+    ```
+
+3. 使用适用于环境的参数运行以下命令，更新默认提供商订阅的所有者：
 
    ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
@@ -301,7 +306,7 @@ Microsoft 提供了用于配置信赖方信任（包括声明转换规则）的�
 > [!Important]  
 > AD FS 仅支持交互式登录会话。 如果需要对自动化场景进行非交互式登录，则必须使用 SPN。
 
-有关创建 SPN 的详细信息，请参阅[为 AD FS 创建服务主体](/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs)。
+有关创建 SPN 的详细信息，请参阅[为 AD FS 创建服务主体](/azure-stack/azure-stack-create-service-principals)。
 
 
 ## <a name="troubleshooting"></a>故障排除
@@ -320,7 +325,7 @@ Microsoft 提供了用于配置信赖方信任（包括声明转换规则）的�
 2. 然后运行以下 cmdlet：
 
    ```PowerShell  
-   Reset-DatacenterIntegationConfiguration
+   Reset-DatacenterIntegrationConfiguration
    ```
 
    运行回滚操作后，所有配置更改都会回滚。 只能使用内置的 **CloudAdmin** 用户身份进行身份验证。

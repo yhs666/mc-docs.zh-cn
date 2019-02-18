@@ -3,7 +3,7 @@ title: 教程 - 使用 Azure CLI 自动缩放规模集 | Microsoft Docs
 description: 了解如何使用 Azure CLI 随 CPU 需求的增减自动缩放虚拟机规模集
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 05/18/2018
-ms.date: 11/29/2018
+ms.date: 02/12/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: a23417737adf2d73e27991b19610e42fa7f663ed
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: edc8e661f8d4c61cd884fdb496e2f8feadeeb391
+ms.sourcegitcommit: 24dd5964eafbe8aa4badbca837c2a1a7836f2df7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672521"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56101600"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>教程：使用 Azure CLI 自动缩放虚拟机规模集
 
@@ -40,13 +40,13 @@ ms.locfileid: "52672521"
 
 ## <a name="create-a-scale-set"></a>创建规模集
 
-使用 [az group create](/cli/group#create) 创建资源组，如下所示：
+使用 [az group create](/cli/group) 创建资源组，如下所示：
 
 ```azurecli
 az group create --name myResourceGroup --location chinanorth
 ```
 
-现在，使用 [az vmss create](/cli/vmss#create) 创建虚拟机规模集。 以下示例创建实例计数为 *2* 的规模集，并生成 SSH 密钥（如果不存在）：
+现在，使用 [az vmss create](/cli/vmss) 创建虚拟机规模集。 以下示例创建实例计数为 *2* 的规模集，并生成 SSH 密钥（如果不存在）：
 
 ```azurecli
 az vmss create `
@@ -106,7 +106,7 @@ az monitor autoscale rule create `
 
 若要测试自动缩放规则，请在规模集的 VM 实例上生成一些 CPU 负载。 这种模拟的 CPU 负载会导致自动缩放以横向扩展的方式增加 VM 实例数。 随着模拟的 CPU 负载下降，自动缩放规则会进行横向缩减，减少 VM 实例数。
 
-首先，请使用 [az vmss list-instance-connection-info](/cli/vmss#az_vmss_list_instance_connection_info) 列出用于连接到规模集中的 VM 实例的地址和端口：
+首先，请使用 [az vmss list-instance-connection-info](/cli/vmss) 列出用于连接到规模集中的 VM 实例的地址和端口：
 
 ```azurecli
 az vmss list-instance-connection-info `
@@ -136,11 +136,11 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-当 **stress** 显示类似于 *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* 的输出时，按 *Enter* 键返回到提示符。
+当 **stress** 显示类似于 *stress: info: [2688] dispatching hogs:10 cpu, 0 io, 0 vm, 0 hdd* 的输出时，按 *Enter* 键返回到提示符。
 
 若要确认 **stress** 是否生成了 CPU 负载，请使用 **top** 实用工具检查活动的系统负载：
 
-```azuecli-interactive
+```azurecli
 top
 ```
 
@@ -151,7 +151,7 @@ Ctrl-c
 exit
 ```
 
-连接到第二个 VM 实例，所使用的端口号是前面的 [az vmss list-instance-connection-info](/cli/vmss#az_vmss_list_instance_connection_info) 列出的：
+连接到第二个 VM 实例，所使用的端口号是前面的 [az vmss list-instance-connection-info](/cli/vmss) 列出的：
 
 ```azurecli
 ssh azureuser@13.92.224.66 -p 50003
@@ -164,7 +164,7 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-当 **stress** 再次显示类似于 *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* 的输出时，按 *Enter* 键返回到提示符。
+当 **stress** 再次显示类似于 *stress: info: [2713] dispatching hogs:10 cpu, 0 io, 0 vm, 0 hdd* 的输出时，按 *Enter* 键返回到提示符。
 
 关闭与第二个 VM 实例的连接。 **stress** 继续在 VM 实例上运行。
 
@@ -207,7 +207,7 @@ Every 2.0s: az vmss list-instances --resource-group myResourceGroup --name mySca
 
 ## <a name="clean-up-resources"></a>清理资源
 
-若要删除规模集和其他资源，请使用 [az group delete](/cli/group#az_group_delete) 删除资源组及其所有资源。 `--no-wait` 参数会使光标返回提示符处，不会等待操作完成。 `--yes` 参数将确认是否希望删除资源，不会显示询问是否删除的额外提示。
+若要删除规模集和其他资源，请使用 [az group delete](/cli/group) 删除资源组及其所有资源。 `--no-wait` 参数会使光标返回提示符处，不会等待操作完成。 `--yes` 参数将确认是否希望删除资源，不会显示询问是否删除的额外提示。
 
 ```azurecli
 az group delete --name myResourceGroup --yes --no-wait
@@ -228,4 +228,4 @@ az group delete --name myResourceGroup --yes --no-wait
 > [!div class="nextstepaction"]
 > [适用于 Azure CLI 的规模集脚本示例](cli-samples.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: link update -->

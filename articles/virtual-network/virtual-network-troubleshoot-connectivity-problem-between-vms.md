@@ -13,14 +13,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/30/2018
-ms.date: 12/17/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 253a333e71b791cd9b20755b0cb2e580fad11a0a
-ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
+ms.openlocfilehash: ad376e4cb26542ef49204c79f4e40399f969bb27
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785168"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306097"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>排查 Azure VM 间的连接问题
 
@@ -113,4 +113,4 @@ Azure 虚拟机 (VM) 间可能出现连接问题。 本文提供解决此问题�
 ### <a name="need-help-contact-support"></a>需要帮助？ 请联系支持人员。
 如果仍需要帮助，可 [联系支持人员](https://support.azure.cn/zh-cn/support/support-azure/) 来快速解决问题。
 
-<!--Update_Description: wording update -->
+<!--Update_Description: wording update, update meta properties -->

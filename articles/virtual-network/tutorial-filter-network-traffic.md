@@ -1,29 +1,26 @@
 ---
-title: 筛选网络流量 - 教程 - Azure 门户 | Azure
+title: 筛选网络流量 - 教程 - Azure 门户
+titlesuffix: Azure Virtual Network
 description: 本教程介绍如何在 Azure 门户中使用网络安全组筛选发往子网的网络流量。
 services: virtual-network
 documentationcenter: virtual-network
 author: rockboyfor
-manager: digimobile
-editor: ''
 tags: azure-resource-manager
 Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 12/13/2018
-ms.date: 01/21/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.custom: ''
-ms.openlocfilehash: 98f2097925b0c393a01e2947d88faf8bd68749ba
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: 414695b7ee781b00d3ff2335389fba25e5b25ec8
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193073"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306156"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>教程：使用 Azure 门户通过网络安全组筛选网络流量
 
@@ -144,6 +141,9 @@ ms.locfileid: "54193073"
 
 1. 选择 Azure 门户左上角的“+ 创建资源”。
 2. 选择“虚拟机”，然后选择“Windows Server 2016 Datacenter”。
+
+    <!--MOONCAKE: Correct on Virtual Machines-->
+    
 3. 输入或选择以下信息，保留剩下的默认设置，然后选择“确定”：
 
     |设置|值|

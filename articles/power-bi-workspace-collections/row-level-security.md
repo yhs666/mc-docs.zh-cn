@@ -8,14 +8,14 @@ ms.service: power-bi-embedded
 ms.topic: article
 ms.workload: powerbi
 origin.date: 09/20/2017
-ms.date: 11/30/2018
+ms.date: 02/15/2019
 ms.author: v-junlch
-ms.openlocfilehash: 17e607e34da71c712c0ea57bde5dd64ea713a9b4
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 18efc8ed1db763a36a263541e254bf21013da14e
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028282"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306207"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>将行级别安全性用于 Power BI 工作区集合
 
@@ -95,7 +95,7 @@ RLS 是在 Power BI Desktop 中编写的。 打开数据集和报表时，可以
 - **username**（可选）- 与 RLS 一起使用，这是一个字符串，可以在应用 RLS 规则时帮助标识用户。 请参阅“Using Row Level Security with Power BI Embedded”（在 Power BI Embedded 中使用行级别安全性）
 - **roles** - 一个字符串，包含应用行级别安全性规则时可选择的角色。 如果传递多个角色，则应当以字符串数组形式传递它们。
 
-使用 [CreateReportEmbedToken](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#Microsoft_PowerBI_Security_PowerBIToken_CreateReportEmbedToken_System_String_System_String_System_String_System_DateTime_System_String_System_Collections_Generic_IEnumerable_System_String__) 方法创建令牌。 如果提供 username 属性，则也必须在角色中至少传递一个值。
+使用 [CreateReportEmbedToken](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN) 方法创建令牌。 如果提供 username 属性，则也必须在角色中至少传递一个值。
 
 例如，可更改 EmbedSample。 DashboardController 第 55 行无法执行以下更新：从
 

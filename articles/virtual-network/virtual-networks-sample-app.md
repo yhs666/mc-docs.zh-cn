@@ -1,26 +1,25 @@
 ---
-title: 适用于外围网络的 Azure 示例应用程序 | Azure
+title: 用于外围网络的 Azure 示例应用程序
+titlesuffix: Azure Virtual Network
 description: 在创建外围网络后部署这一简单 Web 应用程序，以测试流量传送方案
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: ''
-ms.assetid: 60340ab7-b82b-40e0-bd87-83e41fe4519c
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/03/2017
-ms.date: 01/21/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 63ac67abefd2044abcf2131a66ccee5c837044c7
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: 718f1819600b15b11020743b37f43a5cb13c4e3a
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193058"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306096"
 ---
 # <a name="sample-application-for-use-with-dmzs"></a>适用于外围网络的示例应用程序
 <!--Not Available on [Return to the Security Boundary Best Practices Page][HOME]-->
@@ -96,9 +95,9 @@ New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
           <br />
           The following sections show:
           <ul style="margin-top: 0px;">
-            <li> Local Server Time - Shows if this page is or isnt cached anywhere</li>
+            <li> Local Server Time - Shows if this page is or isn''t cached anywhere</li>
             <li> File Output - Shows that the web server is reaching AppVM01 on the backend subnet and successfully returning content</li>
-            <li> Image from the Internet - Doesnt really show anything, but it made me happy to see this when the app worked</li>
+            <li> Image from the Internet - Doesn''t really show anything, but it made me happy to see this when the app worked</li>
           </ul>
           <div style="border: 2px solid #8AC007; border-radius: 25px; padding: 20px; margin: 10px; width: 650px;">
             <b>Local Web Server Time</b>: <asp:Label runat="server" ID="lblTime" /></div>
@@ -203,5 +202,6 @@ New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
 * 浏览到 IIS01 上的公共 IP 来验证生成
 
 <!--Link References-->
+
 <!--Not Available on [HOME]: ../best-practices-network-security.md-->
 <!-- Update_Description: update meta properties -->

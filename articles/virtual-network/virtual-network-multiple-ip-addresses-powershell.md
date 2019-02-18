@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/24/2017
-ms.date: 06/11/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0ac50a7642dcd86de5af9f83944d93c47cf0ed43
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 22ed8afed745da8c502bb1570a9f8fb3d4e87ca6
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661648"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306138"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>使用 PowerShell 将多个 IP 地址分配到虚拟机
 
@@ -36,7 +36,7 @@ ms.locfileid: "52661648"
 下面的步骤说明如何根据方案中所述，创建具有多个 IP 地址的示例 VM。 根据实现的需要，更改变量值。
 
 1. 打开 PowerShell 命令提示符，在单个 PowerShell 会话中完成本部分余下的步骤。 如果尚未安装并配置 PowerShell，请先完成[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 一文中所述的步骤。
-2. 使用 `Connect-AzureRmAccount -Environment AzureChinaCloud ` 命令登录帐户。
+2. 使用 `Connect-AzureRmAccount -Environment AzureChinaCloud` 命令登录帐户。
 3. 将 myResourceGroup 和 chinanorth 替换为所选名称和位置。 创建资源组。 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 
     ```powershell
@@ -107,7 +107,7 @@ ms.locfileid: "52661648"
     -DomainNameLabel <replace-with-your-unique-name> `
     -AllocationMethod Static
 
-    #Create an IP configuration with a static private IP address and assign the public IP ddress to it
+    #Create an IP configuration with a static private IP address and assign the public IP address to it
     $IpConfigName1 = "IPConfig-1"
     $IpConfig1     = New-AzureRmNetworkInterfaceIpConfig `
     -Name $IpConfigName1 `
@@ -133,7 +133,7 @@ ms.locfileid: "52661648"
     -Location $Location `
     -AllocationMethod Static
 
-    #Create an IP configuration with a static private IP address and assign the public IP ddress to it
+    #Create an IP configuration with a static private IP address and assign the public IP address to it
     $IpConfigName2 = "IPConfig-2"
     $IpConfig2     = New-AzureRmNetworkInterfaceIpConfig `
     -Name $IpConfigName2 `
@@ -167,7 +167,7 @@ ms.locfileid: "52661648"
 
     ```powershell
 
-    # Define a credential object. When you run these commands, you're prompted to enter a sername and password for the VM you're reating.
+    # Define a credential object. When you run these commands, you're prompted to enter a username and password for the VM you're creating.
     $cred = Get-Credential
 
     # Create a virtual machine configuration
@@ -197,7 +197,7 @@ ms.locfileid: "52661648"
 <a name="add"></a>
 ## <a name="add-ip-addresses-to-a-vm"></a>将 IP 地址添加到 VM
 
-完成以下步骤可将专用和公共 IP 地址添加到 Azure 网络接口。 以下部分的示例假定用户的 VM 已完成本文 [方案](#Scenario) 中描述的三项 IP 配置，但这不是必需的。
+完成以下步骤可将专用和公共 IP 地址添加到 Azure 网络接口。 以下部分的示例假定用户的 VM 已完成本文 [方案](#scenario) 中描述的三项 IP 配置，但这不是必需的。
 
 1. 打开 PowerShell 命令提示符，在单个 PowerShell 会话中完成本部分余下的步骤。 如果尚未安装并配置 PowerShell，请先完成[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 一文中所述的步骤。
 2. 将以下 $Variable 的“值”分别更改为要向其添加 IP 地址的 NIC 名称，以及 NIC 所在的资源组和位置：
@@ -221,7 +221,7 @@ ms.locfileid: "52661648"
 4. 在以下命令中，请将 MyVNet 和 MySubnet 更改为 NIC 连接到的 VNet 和子网的名称。 输入以下命令，检索 NIC 连接到的 VNet 和子网对象：
 
     ```powershell
-    $MyVNet = Get-AzureRMVirtualnetwork -Name MyVNet -ResourceGroupName $RgName
+    $MyVNet = Get-AzureRMVirtualNetwork -Name MyVNet -ResourceGroupName $RgName
     $Subnet = $MyVnet.Subnets | Where-Object { $_.Name -eq "MySubnet" }
     ```
     如果不知道 NIC 所连接到的 VNet 或子网名称，请输入以下命令：

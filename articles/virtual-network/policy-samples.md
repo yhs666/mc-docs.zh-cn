@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: ''
 origin.date: 05/02/2018
-ms.date: 06/11/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: cea4ae960897e51aac6e5c7776fbca2f1e2e8f23
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ecb29bbc71e306c77eb06a0289ebe2aa16563408
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657840"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306082"
 ---
 # <a name="azure-policy-sample-templates-for-virtual-network"></a>适用于虚拟网络的 Azure Policy 示例模板
 
@@ -44,7 +44,7 @@ ms.locfileid: "52657840"
 | [需要匹配模式](../azure-policy/scripts/enforce-match-pattern.md?toc=%2fvirtual-network%2ftoc.json) | 确保资源名称与指定的命名模式匹配。 |
 | [需要标记匹配模式](../azure-policy/scripts/enforce-tag-match-pattern.md?toc=%2fvirtual-network%2ftoc.json) | 确保标记值与文本模式匹配。 |
 |**标记**||
-| [计费标记策略计划](../azure-policy/scripts/billing-tags-policy-init.md?toc=%2fvirtual-network%2ftoc.json) | 要求成本中心和产品名称有指定的标记值。 使用内置策略来应用并强制执行所需标记。 指定所需的标记值。  |
+| [计费标记策略计划](../governance/policy/samples/billing-tags-policy-initiative.md?toc=%2fvirtual-network%2ftoc.json) | 要求成本中心和产品名称有指定的标记值。 使用内置策略来应用并强制执行所需标记。 指定所需的标记值。  |
 | [在资源组强制执行标记及其值](../azure-policy/scripts/enforce-tag-rg.md?toc=%2fvirtual-network%2ftoc.json) | 要求资源组有标记和值。 由你指定标记名称和值。  |
 | [强制实施标记和值](../azure-policy/scripts/enforce-tag-val.md?toc=%2fvirtual-network%2ftoc.json) | 需要指定的标记名称和值。 指定要强制实施的标记名称和值。  |
 | [应用标记及其默认值](../azure-policy/scripts/apply-tag-def-val.md?toc=%2fvirtual-network%2ftoc.json) | 如果未提供标记，追加指定的标记名称和值。 由你指定要应用的标记名称和值。  |
@@ -53,5 +53,4 @@ ms.locfileid: "52657840"
 | [允许的资源类型](../azure-policy/scripts/allowed-res-types.md?toc=%2fvirtual-network%2ftoc.json) | 确保仅部署已批准的资源类型。 指定一个允许的资源类型的数组。  |
 | [不允许的资源类型](../azure-policy/scripts/not-allowed-res-type.md?toc=%2fvirtual-network%2ftoc.json) | 禁止部署指定的资源类型。 指定一个阻止使用的资源类型的数组。  |
 
-<!-- Update_Description: new articles on azure policy samples -->
-<!--ms.date: 06/11/2018-->
+<!-- Update_Description: update link -->

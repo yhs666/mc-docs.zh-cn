@@ -13,22 +13,24 @@ ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 11/08/2018
-ms.date: 01/21/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: f664432518a488636ba07e107f479c8c78564d21
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: 098761cbb941a5fc948b11a51991e35d074ee1df
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193088"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306243"
 ---
 # <a name="manage-resources-with-azure-powershell"></a>使用 Azure PowerShell 管理资源
 
 [!INCLUDE [Resource Manager governance introduction](../../includes/resource-manager-governance-intro.md)]
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 <!--[!INCLUDE [cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]-->
 
-如果选择在本地安装并使用 PowerShell，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。
+如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。
 
 ## <a name="understand-scope"></a>了解范围
 
@@ -38,9 +40,9 @@ ms.locfileid: "54193088"
 
 让我们创建该资源组。
 
-```PowerShell
-Set-AzureRmContext -Subscription <subscription-name>
-New-AzureRmResourceGroup -Name myResourceGroup -Location ChinaEast
+```azurepowershell
+Set-AzContext -Subscription <subscription-name>
+New-AzResourceGroup -Name myResourceGroup -Location ChinaEast
 ```
 
 目前，资源组为空。
@@ -62,12 +64,13 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location ChinaEast
 以下示例创建一个组，然后为其分配了资源组的“虚拟机参与者”角色。 若要运行 `New-AzureAdGroup` 命令，必须[下载 Azure AD PowerShell 模块](https://www.powershellgallery.com/packages/AzureAD/)。
 
 <!-- Not Available on [Azure Cloud Shell](/cloud-shell/overview)-->
-```PowerShell
+
+```azurepowershell
 $adgroup = New-AzureADGroup -DisplayName VMDemoContributors `
   -MailNickName vmDemoGroup `
   -MailEnabled $false `
   -SecurityEnabled $true
-New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
+New-AzRoleAssignment -ObjectId $adgroup.ObjectId `
   -ResourceGroupName myResourceGroup `
   -RoleDefinitionName "Virtual Machine Contributor"
 ```
@@ -78,8 +81,8 @@ New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
 
 [Azure Policy](../azure-policy/azure-policy-introduction.md) 可帮助确保订阅中的所有资源符合企业标准。 订阅已经有多个策略定义。 若要查看可用的策略定义，请使用：
 
-```PowerShell
-(Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType
+```azurepowershell
+(Get-AzPolicyDefinition).Properties | Format-Table displayName, policyType
 ```
 
 可以看到现有的策略定义。 策略类型为“内置”或“自定义”。 在这些定义中查找所述条件正是你要分配的条件的定义。 在本文中，分配的策略要符合以下条件：
@@ -88,25 +91,25 @@ New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
 * 限制虚拟机的 SKU
 * 审核不使用托管磁盘的虚拟机
 
-```PowerShell
+```azurepowershell
 $locations ="chinaeast", "chinaeast2"
 $skus = "Standard_DS1_v2", "Standard_E2s_v2"
 
-$rg = Get-AzureRmResourceGroup -Name myResourceGroup
+$rg = Get-AzResourceGroup -Name myResourceGroup
 
-$locationDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed locations"}
-$skuDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed virtual machine SKUs"}
-$auditDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Audit VMs that do not use managed disks"}
+$locationDefinition = Get-AzPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed locations"}
+$skuDefinition = Get-AzPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed virtual machine SKUs"}
+$auditDefinition = Get-AzPolicyDefinition | where-object {$_.properties.displayname -eq "Audit VMs that do not use managed disks"}
 
-New-AzureRMPolicyAssignment -Name "Set permitted locations" `
+New-AzPolicyAssignment -Name "Set permitted locations" `
   -Scope $rg.ResourceId `
   -PolicyDefinition $locationDefinition `
   -listOfAllowedLocations $locations
-New-AzureRMPolicyAssignment -Name "Set permitted VM SKUs" `
+New-AzPolicyAssignment -Name "Set permitted VM SKUs" `
   -Scope $rg.ResourceId `
   -PolicyDefinition $skuDefinition `
   -listOfAllowedSKUs $skus
-New-AzureRMPolicyAssignment -Name "Audit unmanaged disks" `
+New-AzPolicyAssignment -Name "Audit unmanaged disks" `
   -Scope $rg.ResourceId `
   -PolicyDefinition $auditDefinition
 ```
@@ -115,8 +118,8 @@ New-AzureRMPolicyAssignment -Name "Audit unmanaged disks" `
 
 分配角色和策略以后，即可部署解决方案。 默认大小为 Standard_DS1_v2，这是允许的 SKU 之一。 运行此步骤时，会提示输入凭据。 输入的值将配置为用于虚拟机的用户名和密码。
 
-```PowerShell
-New-AzureRmVm -ResourceGroupName "myResourceGroup" `
+```azurepowershell
+New-AzVm -ResourceGroupName "myResourceGroup" `
      -Name "myVM" `
      -Location "China East" `
      -VirtualNetworkName "myVnet" `
@@ -136,13 +139,13 @@ New-AzureRmVm -ResourceGroupName "myResourceGroup" `
 
 若要锁定虚拟机和网络安全组，请使用：
 
-```PowerShell
-New-AzureRmResourceLock -LockLevel CanNotDelete `
+```azurepowershell
+New-AzResourceLock -LockLevel CanNotDelete `
   -LockName LockVM `
   -ResourceName myVM `
   -ResourceType Microsoft.Compute/virtualMachines `
   -ResourceGroupName myResourceGroup
-New-AzureRmResourceLock -LockLevel CanNotDelete `
+New-AzResourceLock -LockLevel CanNotDelete `
   -LockName LockNSG `
   -ResourceName myNetworkSecurityGroup `
   -ResourceType Microsoft.Network/networkSecurityGroups `
@@ -161,48 +164,48 @@ New-AzureRmResourceLock -LockLevel CanNotDelete `
 
 若要将标记应用到虚拟机，请使用：
 
-```PowerShell
-$r = Get-AzureRmResource -ResourceName myVM `
+```azurepowershell
+$r = Get-AzResource -ResourceName myVM `
   -ResourceGroupName myResourceGroup `
   -ResourceType Microsoft.Compute/virtualMachines
-Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentation" } -ResourceId $r.ResourceId -Force
+Set-AzResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentation" } -ResourceId $r.ResourceId -Force
 ```
 
 ### <a name="find-resources-by-tag"></a>按标记查找资源
 
 若要使用标记名称和值来查找资源，请使用：
 
-```PowerShell
-(Find-AzureRmResource -TagName Environment -TagValue Test).Name
+```azurepowershell
+(Find-AzResource -TagName Environment -TagValue Test).Name
 ```
 
 可以将返回的值用于管理任务，例如停止带有某个标记值的所有虚拟机。
 
-```PowerShell
-Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | Stop-AzureRmVM
+```azurepowershell
+Find-AzResource -TagName Environment -TagValue Test | Where-Object {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | Stop-AzVM
 ```
 
-<!-- Not Available on ### View costs by tag values -->
+<!--Not Available on ### View costs by tag values-->
 
 ## <a name="clean-up-resources"></a>清理资源
 
 在解除锁定之前，不能删除锁定的网络安全组。 若要解除锁定，请使用：
 
-```PowerShell
-Remove-AzureRmResourceLock -LockName LockVM `
+```azurepowershell
+Remove-AzResourceLock -LockName LockVM `
   -ResourceName myVM `
   -ResourceType Microsoft.Compute/virtualMachines `
   -ResourceGroupName myResourceGroup
-Remove-AzureRmResourceLock -LockName LockNSG `
+Remove-AzResourceLock -LockName LockNSG `
   -ResourceName myNetworkSecurityGroup `
   -ResourceType Microsoft.Network/networkSecurityGroups `
   -ResourceGroupName myResourceGroup
 ```
 
-如果不再需要资源组、VM 和所有相关的资源，可以使用 [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) 命令将其删除。
+如果不再需要资源组、VM 和所有相关的资源，可以使用 [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) 命令将其删除。
 
-```PowerShell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+```azurepowershell
+Remove-AzResourceGroup -Name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>后续步骤
@@ -212,6 +215,5 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 * 可以将现有资源移动到新的资源组。 有关示例，请参阅[将资源移动到新的资源组或订阅中](resource-group-move-resources.md)。
 
 <!-- Not Available on [Azure enterprise scaffold - prescriptive subscription governance](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/subscription-governance)-->
-
 <!--Update_Description: update meta properties, wording update -->
 

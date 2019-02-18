@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 origin.date: 04/19/2017
 ms.author: v-yiso
-ms.date: 12/17/2018
-ms.openlocfilehash: 6f1dd45d62dcaa17fbed91ffe77ca43a047dc3fb
-ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
+ms.date: 02/25/2019
+ms.openlocfilehash: b413ed06d53bebf37adde6409b5bdb7629c800ad
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53569198"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302935"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Azure 云服务证书概述
-证书在 Azure 中用于云服务（[服务证书](#what-are-service-certificates)）以及用于通过管理 API 进行身份验证（[管理证书](#what-are-management-certificates)）。 本主题提供了这两种证书类型的一般概述，并说明了如何[创建](#create)并将其[部署](#deploy)到 Azure。
+证书在 Azure 中用于云服务（[服务证书](#what-are-service-certificates)）以及用于通过管理 API 进行身份验证（[管理证书](#what-are-management-certificates)）。 本主题同时提供了有关这两种证书类型的一般概述，并说明了如何[创建](#create)并将其部署到 Azure。
 
 Azure 中使用的证书是 x.509 v3 证书，可自签名或由另一个受信任的证书签名。 自签名证书由其创建者签名，因此，默认情况下不受信任。 大多数浏览器可以忽略此问题。 自签名证书应仅在开发和测试云服务时使用。 
 

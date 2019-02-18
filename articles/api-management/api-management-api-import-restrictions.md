@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 09/29/2017
 ms.author: v-yiso
-ms.date: 02/04/2019
-ms.openlocfilehash: 01211629662adc01502185eee4745560cdad8bf8
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.date: 02/25/2019
+ms.openlocfilehash: 754efcad51084cbdbbfa88faea90f4442a13b580
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906190"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302941"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API 导入限制和已知问题
 ## <a name="about-this-list"></a>关于此列表
@@ -36,7 +36,7 @@ ms.locfileid: "54906190"
 * **$ref** 指针不能引用外部文件。
 * 仅支持 **x-ms-paths** 和 **x-servers** 扩展。
 * 自定义扩展在导入时将被忽略，并且不会为导出保存或保留。
-* **递归** - API 管理目前不支持以递归方式定义的定义（例如，引用其自身）。
+* **递归** - API 管理目前不支持以递归方式定义的定义（例如，引用自身的架构）。
 * 源文件 URL（如果可用）应用于相对服务器 URL。
 
 ### <a name="open-api-v2"> </a>OpenAPI 版本 2

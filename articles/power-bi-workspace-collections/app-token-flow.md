@@ -9,14 +9,14 @@ ms.service: power-bi-embedded
 ms.topic: article
 ms.workload: powerbi
 origin.date: 09/20/2017
-ms.date: 11/30/2018
+ms.date: 02/15/2019
 ms.author: v-junlch
-ms.openlocfilehash: bee8067d25e5870a00e969384d8026f65b477f0b
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 2577df03b902498bbf2b1516368d4247c58df0a3
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029131"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306122"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>通过 Power BI 工作区集合进行身份验证和授权
 
@@ -85,7 +85,7 @@ Body
 
 ```
 
-SDK 中提供了可以更轻松地创建应用令牌的方法。 例如，对于 .NET，可以查看 [Microsoft.PowerBI.Security.PowerBIToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken) 类和 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) 方法。
+SDK 中提供了可以更轻松地创建应用令牌的方法。 例如，对于 .NET，可以查看 [Microsoft.PowerBI.Security.PowerBIToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken) 类和 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN) 方法。
 
 对于 .NET SDK，可以参考 [Scopes](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.scopes)。
 
@@ -177,7 +177,7 @@ Body
 
 ## <a name="see-also"></a>另请参阅
 
-[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
+[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN)  
 [Power BI 工作区集合入门示例](get-started-sample.md)  
 [常见 Power BI 工作区集合方案](scenarios.md)  
 [Power BI 工作区集合入门](get-started.md)  

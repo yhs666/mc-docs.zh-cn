@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/12/2018
-ms.date: 01/28/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: f45108ec8a9135b3695619ed186997fe6cc598fa
-ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
+ms.openlocfilehash: 73f872a2023fc23dc7701cad0c437ededd159c85
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55085691"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306160"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>使用 Resource Manager 身份验证 API 访问订阅
-## <a name="introduction"></a>简介
+
 本文面向需要创建应用来管理客户 Azure 资源的软件开发人员，介绍如何使用 Azure 资源管理器 API 进行身份验证，并获取其他订阅中资源的访问权限。
 
 应用可通过多种方式访问 Resource Manager API：
@@ -33,7 +33,10 @@ ms.locfileid: "55085691"
 
 本文提供创建应用来利用这两种授权方法的逐步说明。 其中说明如何使用 REST API 或 C# 执行每个步骤。 完整的 ASP.NET MVC 应用程序位于 [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense)。
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="what-the-web-app-does"></a>Web 应用的功能
+
 Web 应用：
 
 1. 将 Azure 用户登录。
@@ -74,13 +77,13 @@ Web 应用：
 
 以下示例演示如何使用 Azure PowerShell 注册应用。 必须拥有最新版本（2016 年 8 月）Azure PowerShell 才能正常运行此命令。
 
-```PowerShell
-$app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
+```azurepowershell
+$app = New-AzADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
 ```
 
 若要以 AD 应用程序登录，需要使用应用程序的 ID 和密码。 若要查看前一命令返回的应用程序 ID，请使用：
 
-```PowerShell
+```azurepowershell
 $app.ApplicationId
 ```
 

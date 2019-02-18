@@ -8,13 +8,13 @@ ms.devlang: azurecli
 ms.custom: mvc
 ms.topic: sample
 origin.date: 04/05/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: 1c21a1beb2a9cced250edc0a2abdd18765aeb715
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.date: 02/18/2019
+ms.openlocfilehash: ba953bb40a19298261336440bb64d1d8a7e40f96
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806178"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56303063"
 ---
 # <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>使用 Azure CLI 监视和缩放单个 PostgreSQL 服务器
 此示例 CLI 脚本在查询指标后用于 PostgreSQL 服务器的单个 Azure 数据库缩放为不同的性能级别。 
@@ -81,10 +81,10 @@ az group delete --name myresourcegroup
 
 | **命令** | **说明** |
 |---|---|
-| [az group create](/cli/group#az_group_create) | 创建用于存储所有资源的资源组。 |
-| [az postgres server create](/cli/postgres/server#az_postgres_server_create) | 创建托管数据库的 PostgreSQL 服务器。 |
-| [az monitor metrics list](/cli/monitor/metrics#az_monitor_metrics_list) | 列出资源的指标值。 |
-| [az group delete](/cli/group#az_group_delete) | 删除资源组，包括所有嵌套的资源。 |
+| [az group create](/cli/group) | 创建用于存储所有资源的资源组。 |
+| [az postgres server create](/cli/postgres/server) | 创建托管数据库的 PostgreSQL 服务器。 |
+| [az monitor metrics list](/cli/monitor/metrics) | 列出资源的指标值。 |
+| [az group delete](/cli/group) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 - 阅读有关 Azure CLI 的更多信息：[Azure CLI 文档](/cli)

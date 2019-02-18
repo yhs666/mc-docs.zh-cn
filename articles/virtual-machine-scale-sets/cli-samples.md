@@ -3,7 +3,7 @@ title: Azure CLI 示例 | Microsoft 文档
 description: Azure CLI 示例
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/27/2018
-ms.date: 11/29/2018
+ms.date: 02/12/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 0267c9519b80d7b1c76f5cd1929e5ac51c13e10c
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: bb41480eda7a08b95812264151b33426aa9ef163
+ms.sourcegitcommit: 24dd5964eafbe8aa4badbca837c2a1a7836f2df7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672591"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56101567"
 ---
 # <a name="azure-cli-samples-for-virtual-machine-scale-sets"></a>用于虚拟机规模集的 Azure CLI 示例
 

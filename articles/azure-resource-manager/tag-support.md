@@ -4,15 +4,15 @@ description: 显示支持标记的 Azure资源类型。 提供所有 Azure 服�
 author: rockboyfor
 ms.service: azure-resource-manager
 ms.topic: reference
-origin.date: 01/02/2019
-ms.date: 01/28/2019
+origin.date: 01/24/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5f0f361206f31e947e17e5bcd481c05168ee72c0
-ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
+ms.openlocfilehash: c4ccfa3fa13f5ad51a6182b73bab8d7a18814b00
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55085696"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306271"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure 资源的标记支持
 本文介绍某一资源类型是否支持[标记](resource-group-using-tags.md)。

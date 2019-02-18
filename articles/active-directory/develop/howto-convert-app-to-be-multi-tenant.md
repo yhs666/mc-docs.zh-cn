@@ -8,22 +8,22 @@ manager: mtillman
 editor: ''
 ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 09/24/2018
-ms.date: 12/29/2018
+ms.date: 02/14/2019
 ms.author: v-junlch
 ms.reviewer: justhu, elisol
 ms.custom: aaddev
-ms.openlocfilehash: 2bbad0bc97272f270414cf3bcd0acd9b6a35b4ca
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 2b720a00dd264b8ae3a0a0399e02ea0f180d455b
+ms.sourcegitcommit: f34f65c439665607b43bb2c81df58c138d0b7417
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996262"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56262189"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>如何：使用多租户应用程序模式让任何 Azure Active Directory 用户登录
 
@@ -39,7 +39,7 @@ ms.locfileid: "53996262"
 1. [将应用程序注册更新为多租户](#update-registration-to-be-multi-tenant)
 2. [将代码更新为向 /common 终结点发送请求](#update-your-code-to-send-requests-to-common)
 3. [将代码更新为处理多个颁发者值](#update-your-code-to-handle-multiple-issuer-values)
-4. [了解用户和管理员的同意意向并进行适当的代码更改](#understanding-user-and-admin-consent)
+4. 了解用户和管理员的同意意向并进行适当的代码更改
 
 让我们详细了解每个步骤。 也可以直接跳转到 [此多租户示例列表][AAD-Samples-MT]。
 

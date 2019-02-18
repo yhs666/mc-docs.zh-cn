@@ -1,30 +1,22 @@
 ---
-title: 在 Azure 应用程序网关上托管多个站点 | Microsoft Docs
-description: 此页概述了应用程序网关的多站点支持。
-documentationcenter: na
+title: 在 Azure 应用程序网关上托管多个站点
+description: 本文概述了 Azure 应用程序网关的多站点支持。
 services: application-gateway
-author: amsriva
-manager: rossort
-editor: ''
-ms.assetid: 49993fd2-87e5-4a66-b386-8d22056a616d
+author: vhorne
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 05/09/2017
-ms.date: 06/04/2018
+origin.date: 01/17/2019
+ms.date: 02/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: da6a38fdffc7415efd26152763388b6bc82d02b7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 051129efcb76c042df4919b31510daa24b55729c
+ms.sourcegitcommit: 713cf33290efd4ccc7a3eab2668e3ceb0b51686f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646925"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56079639"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>应用程序网关的多站点托管功能
 
-托管多个站点可以让你在同一应用程序网关实例上配置多个 Web 应用程序。 此功能可以将多达 20 个网站添加到一个应用程序网关中，为部署配置更有效的拓扑。 每个网站都可以定向到自己的后端池。 在以下示例中，应用程序网关通过两个名为 ContosoServerPool 和 FabrikamServerPool 的后端服务器池来为 contoso.com 和 fabrikam.com 提供流量。
+托管多个站点可以让你在同一应用程序网关实例上配置多个 Web 应用程序。 此功能可以将多达 100 个网站添加到一个应用程序网关中，从而为部署配置更有效的拓扑。 每个网站都可以定向到自己的后端池。 在以下示例中，应用程序网关通过两个名为 ContosoServerPool 和 FabrikamServerPool 的后端服务器池来为 contoso.com 和 fabrikam.com 提供流量。
 
 ![imageURLroute](./media/multiple-site-overview/multisite.png)
 
@@ -133,3 +125,4 @@ ms.locfileid: "52646925"
 了解多站点托管以后，请转到[创建使用多站点托管的应用程序网关](tutorial-multiple-sites-powershell.md)，以便创建能够支持多个 Web 应用程序的应用程序网关。
 
 
+<!-- Update_Description: wording update -->

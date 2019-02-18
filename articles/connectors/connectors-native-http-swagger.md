@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/18/2016
 ms.author: v-yiso
-ms.date: 10/15/2018
-ms.openlocfilehash: 79cdb09ed748bc70d801d21a421b7d67ec771f7c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 02/25/2019
+ms.openlocfilehash: 2069836a9f23164faa55eed90b098f1e391ccfd4
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645115"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56303007"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>在 Azure 逻辑应用中使用 HTTP + Swagger 连接器调用 REST 终结点
 
@@ -45,7 +45,7 @@ HTTP + Swagger 触发器和操作与 [HTTP 操作](connectors-native-http.md)功
 4. 键入 Swagger 文档的 URL：
    
    * 若要从逻辑应用设计器工作，URL 必须是 HTTPS 终结点并已启用 CORS。
-   * 如果 Swagger 文档不满足此要求，可以使用[启用 CORS 的 Azure 存储](#hosting-swagger-from-storage)存储该文档。
+   * 如果 Swagger 文档不满足此要求，可以使用启用 CORS 的 Azure 存储来存储该文档。
 5. 单击“下一步”从 Swagger 文档读取并呈现。
 6. 添加 HTTP 调用所需的任何参数。
    

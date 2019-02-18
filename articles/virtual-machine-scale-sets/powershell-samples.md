@@ -3,7 +3,7 @@ title: Azure PowerShell 示例 | Microsoft Docs
 description: Azure PowerShell 示例
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,17 +14,17 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/27/2018
-ms.date: 11/29/2018
+ms.date: 02/12/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 8b751c328142a549eece896c660b4bcd8bc21b73
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: d8a56f90487153e6312bb8596bf08c093e156b4c
+ms.sourcegitcommit: 24dd5964eafbe8aa4badbca837c2a1a7836f2df7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673132"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56101570"
 ---
-# <a name="azure-powershell-samples-for-virtual-machine-scale-sets"></a>虚拟机规模集的 Azure PowerShell 示例
+# <a name="azure-powershell-samples-for-virtual-machine-scale-sets"></a>虚拟机规模集的 Azure PowerShell 示例。
 
 下表包含使用 Azure PowerShell 生成的 bash 脚本的链接。
 
@@ -41,4 +41,7 @@ ms.locfileid: "52673132"
 | [启用基于主机的自动缩放](scripts/powershell-sample-enable-autoscale.md) | 创建配置为基于 CPU 使用情况自动缩放的虚拟机规模集。 |
 | | |
 
-<!-- Update_Description: update metedata properties -->
+
+[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]    
+
+<!-- Update_Description: wording update -->

@@ -1,21 +1,18 @@
 ---
 title: 在 Azure Database for PostgreSQL 中进行备份和还原
 description: 了解如何自动备份和还原 Azure Database for PostgreSQL 服务器。
-services: postgresql
 author: WenJason
 ms.author: v-jay
-manager: digimobile
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 origin.date: 02/28/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: 19f262b7f9f322e7f55dee4fa013b30e51df6ff4
-ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
+ms.date: 02/18/2019
+ms.openlocfilehash: 93e843ae76a3fed1b0c4c1c8fe6d88d703b24760
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54397019"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302937"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql"></a>在 Azure Database for PostgreSQL 中进行备份和还原
 
@@ -81,6 +78,6 @@ Azure Database for PostgreSQL 最高可以提供 100% 的已预配服务器存�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要详细了解业务连续性，请参阅[业务连续性概述](concepts-business-continuity.md)。
-- 要使用 Azure 门户还原到某个时间点，请参阅[使用 Azure 门户将数据库还原到某个时间点](howto-restore-server-portal.md)。
-- 若要使用 Azure CLI 还原到某个时间点，请参阅[使用 CLI 将数据库还原到某个时间点](howto-restore-server-cli.md)。
+- 若要详细了解业务连续性，请参阅 [业务连续性概述](concepts-business-continuity.md)。
+- 若要使用 Azure 门户还原到某个时间点，请参阅 [使用 Azure 门户将数据库还原到某个时间点](howto-restore-server-portal.md)。
+- 若要使用 Azure CLI 还原到某个时间点，请参阅 [使用 CLI 将数据库还原到某个时间点](howto-restore-server-cli.md)。

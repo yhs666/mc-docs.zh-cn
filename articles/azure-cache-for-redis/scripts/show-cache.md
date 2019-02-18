@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 origin.date: 08/30/2017
-ms.date: 12/21/2018
+ms.date: 02/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: d51ae06911ae4efe931e87dbb124f075f4b459c6
-ms.sourcegitcommit: d2893ae6bdbb3784d243d5d3c49c25c9cfd99d9b
+ms.openlocfilehash: 47f47b4f5c0d667ac04a31220c776bad9098dcd0
+ms.sourcegitcommit: c353902162a12f21aecbcbcde89f92c7ff9de441
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2018
-ms.locfileid: "53784892"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56096544"
 ---
 # <a name="get-details-of-an-azure-cache-for-redis"></a>获取 Azure Redis 缓存的详细信息
 
@@ -45,7 +45,7 @@ az redis show --name contosoCache --resource-group contosoGroup
 
 | 命令 | 注释 |
 |---|---|
-| [az redis show](/cli/redis#az_redis_show) | 检索 Azure Redis 缓存实例的详细信息。 |
+| [az redis show](/cli/redis) | 检索 Azure Redis 缓存实例的详细信息。 |
 
 
 ## <a name="next-steps"></a>后续步骤
@@ -54,4 +54,4 @@ az redis show --name contosoCache --resource-group contosoGroup
 
 可以在 [Azure Redis 缓存文档](../cli-samples.md)中找到其他 Azure Redis 缓存 CLI 脚本示例。
 
-<!--Update_Description: wording update-->
+<!-- Update_Description: link update -->

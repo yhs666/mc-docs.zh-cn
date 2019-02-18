@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/19/2018
-ms.date: 01/28/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 86e5d50e5b936b9beac0292f8f17d80359f0b5a7
-ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
+ms.openlocfilehash: c630bdfb1d6319ba4e0e18dbbf2e0fb8cc84731b
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55085714"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306095"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Azure 资源管理器模板最佳做法
 
@@ -26,6 +26,8 @@ ms.locfileid: "55085714"
 <!--Not Available on  [Azure enterprise scaffold: Prescriptive subscription governance](https://docs.microsoft.com/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)-->
 
 有关如何生成在所有 Azure 云环境中工作的模板的建议，请参阅[开发用于实现云一致性的 Azure 资源管理器模板](templates-cloud-consistency.md)。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="parameters"></a>参数
 使用[参数](resource-manager-templates-parameters.md)时，本部分中的信息可以提供帮助。
@@ -83,7 +85,7 @@ ms.locfileid: "55085714"
 
 * 请尽量少使用 `allowedValues`。 仅当必须确保允许的选项中不含特定值时使用它。 如果过于广泛地使用 `allowedValues`，可能会因未将列表保持最新而阻碍有效部署。
 
-* 当模板中的参数名称与 PowerShell 部署命令中的参数相同时，资源管理器会将 postfix FromTemplate 添加到模板参数中，以解决此命名冲突。 例如，如果在模板中包括名为 **ResourceGroupName** 的参数，则该参数会与 [New-AzureRmResourceGroupDeployment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet 中的 **ResourceGroupName** 参数冲突。 在部署期间，系统会提示用户提供 ResourceGroupNameFromTemplate 的值。
+* 当模板中的参数名称与 PowerShell 部署命令中的参数相同时，资源管理器会将 postfix FromTemplate 添加到模板参数中，以解决此命名冲突。 例如，如果在模板中包括一个名为“ResourceGroupName”的参数，则该参数会与 [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet 中的“ResourceGroupName”参数冲突。 在部署期间，系统会提示用户提供 ResourceGroupNameFromTemplate 的值。
 
 ### <a name="security-recommendations-for-parameters"></a>有关参数的安全性建议
 
@@ -225,7 +227,7 @@ ms.locfileid: "55085714"
 
 * 仅当应用程序有需要时，才将公共 IP 地址分配到虚拟机。 若要连接到虚拟机 (VM) 进行调试或管理，请使用出站 NAT 规则、虚拟网络网关或 jumpbox。
 
-     有关连接到虚拟机的详细信息，请参阅：
+   有关连接到虚拟机的详细信息，请参阅：
 
    <!--Not Available on * [Run VMs for an N-tier architecture in Azure](../guidance/guidance-compute-n-tier-vm.md)-->
    * [在 Azure Resource Manager 中设置对 VM 的 WinRM 访问](../virtual-machines/windows/winrm.md)
@@ -296,5 +298,4 @@ ms.locfileid: "55085714"
 * 有关资源管理器模板文件结构的详细信息，请参阅[了解 Azure 资源管理器模板的结构和语法](resource-group-authoring-templates.md)。
 * 有关如何生成在所有 Azure 云环境中工作的模板的建议，请参阅[开发用于实现云一致性的 Azure 资源管理器模板](templates-cloud-consistency.md)。
 
-<!-- Update_Description: new articles on template best practices -->
-<!--ms.date: 01/27/2019-->
+<!-- Update_Description: wording update -->

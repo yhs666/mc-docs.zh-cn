@@ -1,23 +1,24 @@
 ---
-title: Azure 安全组概述 | Azure
+title: Azure 安全组概述
+titlesuffix: Azure Virtual Network
 description: 了解网络和应用程序安全组。 安全组可以帮助你筛选 Azure 资源之间的网络流量。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/26/2018
-ms.date: 01/21/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 82ca6101e26922f4d4c9c4e85f69aa2338413a90
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: ce58f16ad77d7ed9251454c5e5155da9535ac954
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193120"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306196"
 ---
 # <a name="security-groups"></a>安全组
 <a name="network-security-groups"></a>
@@ -27,6 +28,7 @@ ms.locfileid: "54193120"
 本文介绍网络安全组概念，目的是让你提高其使用效率。 如果从未创建过网络安全组，可以先完成一个快速[教程](tutorial-filter-network-traffic.md)，获取一些创建经验。 如果已熟悉网络安全组，需要对其进行管理，请参阅[管理网络安全组](manage-network-security-group.md)。 如果有通信问题，需要对网络安全组进行故障排除，请参阅[诊断虚拟机网络流量筛选器问题](diagnose-network-traffic-filter-problem.md)。 可以通过[网络安全组流日志](../network-watcher/network-watcher-nsg-flow-logging-portal.md?toc=%2fvirtual-network%2ftoc.json)来分析网络流量，这些流量流入和流出的资源组都有关联的网络安全组。
 
 <!-- Not Available on [analyze network traffic](../network-watcher/traffic-analytics.md?toc=%2fvirtual-network%2ftoc.json)-->
+
 ## <a name="security-rules"></a>安全规则
 
 一个网络安全组包含零个或者不超过 Azure 订阅[限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)的任意数量的规则。 每个规则指定以下属性：
@@ -48,13 +50,13 @@ ms.locfileid: "54193120"
 
 ## <a name="augmented-security-rules"></a>扩充式安全规则
 
-扩充式安全规则简化了虚拟网络的安全定义，可让我们以更少的规则定义更大、更复杂的网络安全策略。 可将多个端口和多个显式 IP 地址和范围合并成一个易于理解的安全规则。 可在规则的源、目标和端口字段中使用扩充式规则。 若要简化安全规则定义的维护，可将扩充式安全规则与[服务标记](#service-tags)或[应用程序安全组](#application-security-groups)合并。 在规则中指定的地址、范围和端口存在数量限制。 有关详细信息，请参阅 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
+扩充式安全规则简化了虚拟网络的安全定义，可让我们以更少的规则定义更大、更复杂的网络安全策略。 可将多个端口和多个显式 IP 地址和范围合并成一个易于理解的安全规则。 可在规则的源、目标和端口字段中使用扩充式规则。 若要简化安全规则定义的维护，可将扩充式安全规则与[服务标记](#service-tags)或[应用程序安全组](#application-security-groups)合并。 可在规则中指定的地址、范围和端口的数量存在限制。 有关详细信息，请参阅 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
 
 ## <a name="service-tags"></a>服务标记
 
  服务标记表示一组 IP 地址前缀，帮助最大程度地降低安全规则创建过程的复杂性。 无法创建自己的服务标记，也无法指定要将哪些 IP 地址包含在标记中。 Azure 会管理服务标记包含的地址前缀，并会在地址发生更改时自动更新服务标记。 创建安全规则时，可以使用服务标记代替特定的 IP 地址。 
 
- 可下载服务标记列表并将其与本地防火墙集成，其中包含针对 Azure [中国云](https://www.microsoft.com/download/details.aspx?id=57062)的以下每周发布的前缀详细信息。
+ 可下载服务标记列表并将其与本地防火墙集成，其中包含针对 Azure [中国云](https://www.microsoft.com/download/confirmation.aspx?id=57062)的以下每周发布的前缀详细信息。
 
  可在安全规则定义中使用以下服务标记。 服务标记的名称根据 [Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fvirtual-network%2ftoc.json)的不同而略有不同。
 
@@ -62,15 +64,14 @@ ms.locfileid: "54193120"
 <!-- Not Available on * **AzureCloud** (Resource Manager only): -->
 * **Storage**（仅限资源管理器）：此标记表示 Azure 存储服务的 IP 地址空间。 如果指定 *Storage* 作为值，则会允许或拒绝发往存储的流量。 标记表示服务而不是服务的特定实例。 例如，标记可表示 Azure 存储服务，但不能表示特定的 Azure 存储帐户。 由此标记表示的所有地址前缀也由 **Internet** 标记表示。 
 * **Sql**（仅限资源管理器）：此标记表示 Azure SQL 数据库和 Azure SQL 数据仓库服务的地址前缀。 如果指定 *Sql* 作为值，则会允许或拒绝发往 Sql 的流量。 标记表示服务而不是服务的特定实例。 例如，标记可表示 Azure SQL 数据库服务，但不能表示特定的 SQL 数据库或服务器。 由此标记表示的所有地址前缀也由 **Internet** 标记表示。 
-* **AzureCosmosDB**（仅限资源管理器）：此标记表示 Azure Cosmos 数据库服务的地址前缀。 如果指定 *AzureCosmosDB* 作为值，则会允许或拒绝发往 AzureCosmosDB 的流量。
-* **EventHub**（仅限资源管理器）：此标记表示 Azure 事件中心服务的地址前缀。 如果指定 EventHub 作为值，则会允许或拒绝发往 EventHub 的流量。
-* **ServiceBus**（仅限资源管理器）：此标记表示 Azure 服务总线服务的地址前缀。 如果指定 ServiceBus 作为值，则会允许或拒绝发往 ServiceBus 的流量。
-
-<!-- Not Available on * **AzureDataLake** (Resource Manager only): -->
+<!-- Not Available on * **AzureCosmosDB** (Resource Manager only):-->
+<!-- Not Available on * **EventHub** (Resource Manager only):-->
+<!-- Not Available on * **ServiceBus** (Resource Manager only):-->
+<!-- Not Available on * **AzureDataLake** (Resource Manager only):-->
 <!-- Not Available on * **CorpNetSAW** (Resource Manager only):-->
 
 > [!NOTE]
-> Azure 服务的服务标记表示来自所使用的特定云的地址前缀。
+> Azure 服务的服务标记表示来自所使用的特定云的地址前缀。 
 
 <!-- Notice: Not Available on Regional service tags are not supported on national clouds, only in global format, e.g. Storage, Sql.-->
 
