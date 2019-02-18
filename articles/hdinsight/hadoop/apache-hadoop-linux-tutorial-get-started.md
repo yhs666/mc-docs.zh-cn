@@ -17,12 +17,12 @@ ms.workload: big-data
 origin.date: 12/27/2018
 ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 6fb5f55c496248ac99ed2d2bf8dae7d423128404
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: 4c900522cebc9851ac8d43b889cd5de7f1e3e5f5
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029247"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56303054"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-resource-manager-template"></a>快速入门：使用资源管理器模板在 Azure HDInsight 中开始使用 Apache Hadoop 和 Apache Hive
 
@@ -67,13 +67,7 @@ ms.locfileid: "54029247"
 
 3. 选择“我同意上述条款和条件”，并选择“购买”。 你将收到一条通知，指出你的部署正在进行。  创建群集大约需要 20 分钟时间。
 
-    ![模板部署进度](./media/apache-hadoop-linux-tutorial-get-started/deployment-progress-tile.png "Azure 模板部署进度")
-
-4. 创建群集后，该磁贴的标题将更改为指定的资源组名称。 该磁贴还列出了在资源组中创建的 HDInsight 群集。 
-   
-    ![HDInsight Linux 入门资源组](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-resource-group.png "Azure HDInsight 群集资源组")
-    
-4. 创建群集后，你将收到“部署成功”通知，其中包含“转到资源组”链接。  **资源组**页面将列出新的 HDInsight 群集以及与此群集关联的默认存储。 每个群集都有一个 [Azure 存储帐户](../hdinsight-hadoop-use-blob-storage.md)依赖项。 该帐户称为默认存储帐户。 HDInsight 群集与默认存储帐户必须位于同一 Azure 区域。 删除群集不会删除存储帐户。
+4. 创建群集后，将收到“部署成功”的通知，通知中附有“转到资源组”链接。  **资源组**页面将列出新的 HDInsight 群集以及与此群集关联的默认存储。 每个群集都有一个 [Azure 存储帐户](../hdinsight-hadoop-use-blob-storage.md)依赖项。 该帐户称为默认存储帐户。 HDInsight 群集与默认存储帐户必须位于同一 Azure 区域。 删除群集不会删除存储帐户。
     
 
 > [!NOTE]
@@ -98,7 +92,7 @@ ms.locfileid: "54029247"
     ```hiveql
     SELECT * FROM hivesampletable;
     ```
-4. 右键单击脚本编辑器，然后选择“HDInsight:Hive Interactive”以提交查询。 工具还允许使用上下文菜单提交代码块而非整个脚本文件。 很快，查询结果将显示在新选项卡中。
+4. 右键单击脚本编辑器，然后选择 **“HDInsight:Hive Interactive”以提交查询。 工具还允许使用上下文菜单提交代码块而非整个脚本文件。 很快，查询结果将显示在新选项卡中。
 
    ![交互式 Hive 结果](./media/apache-hadoop-linux-tutorial-get-started/interactive-hive-result.png)
 
@@ -119,7 +113,7 @@ ms.locfileid: "54029247"
     ```hiveql
     SELECT * FROM hivesampletable;
     ```
-4. 右键单击脚本编辑器，然后选择“HDInsight:Hive 批处理”以提交 Hive 作业。 
+4. 右键单击脚本编辑器，然后选择 **“HDInsight:Hive 批处理”以提交 Hive 作业。 
 
 5. 选择想要提交的群集。  
 
@@ -270,7 +264,7 @@ ms.locfileid: "54029247"
 
 若要详细了解如何创建或管理 HDInsight 群集，请参阅以下文章：
 
-
+* 要了解如何管理基于 Linux 的 HDInsight 群集，请参阅[使用 Apache Ambari 管理 HDInsight 群集](../hdinsight-hadoop-manage-ambari.md)。
 * 若要详细了解在创建 HDInsight 群集时可以选择哪些选项，请参阅[使用自定义选项在 Linux 上创建 HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)。
 
 

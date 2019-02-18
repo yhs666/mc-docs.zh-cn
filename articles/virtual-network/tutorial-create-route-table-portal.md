@@ -1,5 +1,6 @@
 ---
-title: 路由网络流量 - 教程 - Azure 门户 | Azure
+title: 路由网络流量 - 教程 - Azure 门户
+titlesuffix: Azure Virtual Network
 description: 本教程介绍如何使用 Azure 门户通过路由表路由网络流量。
 services: virtual-network
 documentationcenter: virtual-network
@@ -15,15 +16,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 12/12/2018
-ms.date: 01/21/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: e257453915e7dd8e99f60cdd0686985be860fd41
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: a15ebc61b507c1ff0e407e07fe7286349063edfd
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193136"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306265"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>教程：使用 Azure 门户通过路由表路由网络流量
 
@@ -151,30 +152,46 @@ NVA 是帮助实现网络功能（例如路由和防火墙优化）的 VM。 如
 <!--CUSTOMIZE TO SUIT WITH MOONCAKE-->
 1. 在屏幕的左上方，选择“创建资源” > “虚拟机” > “Windows Server 2016 Datacenter”。
     
-    <!--Customize to suit with Mooncake-->
 1. 在“创建虚拟机 - 基本信息”中，输入或选择以下信息：
 
-    |设置|值|
-    |---|---|
-    | 名称| myVmNva |
-    | VM 磁盘类型 | 选择符合需求的设置。 |
+    | 设置 | 值 |
+    | ------- | ----- |
+    | **项目详细信息** | |
+    | 订阅 | 选择订阅。 |
+    | 资源组 | 选择“myResourceGroup”。 |
+    | **实例详细信息** |  |
+    | 虚拟机名称 | 输入 *myVmNva*。 |
+    | 区域 | 选择“中国东部”。 |
+    | 可用性选项 | 保留默认值“不需要基础结构冗余”。 |
+    | 映像 | 保留默认值“Microsoft Windows Server 2016 Datacenter”。 |
+    | 大小 | 保留默认值“标准 DS1 v2”。 |
+    | **管理员帐户** |  |
     | 用户名 | 输入所选用户名。 |
     | 密码 | 输入所选密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](../virtual-machines/windows/faq.md?toc=%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
     | 确认密码 | 重新输入密码。 |
-    | 订阅 | 选择订阅。 |
-    |资源组| 选择“使用现有”，然后选择“myResourceGroup”。|
-    |位置|选择“中国东部”。|
-1. 在“选择大小”下选择 VM 大小。
-1. 对于“设置”，选择或输入以下信息：
+    | **入站端口规则** |  |
+    | 公共入站端口 | 保留默认值“无”。
+    | **节省资金** |  |
+    | 已有 Windows 许可证？ | 保留默认值“否”。 |
 
-    |设置|值|
-    |---|---|
+1. 选择“下一步:** 磁盘”。
+
+1. 在“创建虚拟机 - 磁盘”中，选择符合需求的设置。
+
+1. 选择“下一步:网络”。
+
+1. 在“创建虚拟机 - 网络”中选择以下信息：
+
+    | 设置 | 值 |
+    | ------- | ----- |
     | 虚拟网络 | 保留默认值“myVirtualNetwork”。 |
     | 子网 | 选择“外围网络(10.0.2.0/24)”。 |
     | 公共 IP | 选择“无”。 不需要公共 IP 地址。 VM 不会通过 Internet 进行连接。|
-    | 选择公共入站端口 | 选择“无公共入站端口”。|
-1. 对于“诊断存储帐户”，选择“新建”：
-    
+
+1. 将剩余的字段保留默认值，然后选择“下一步:管理”。
+
+1. 在“创建虚拟机 - 管理”中，为“诊断存储帐户”选择“新建”。
+
 1. 在“创建存储帐户”中，输入或选择以下信息：
 
     | 设置 | 值 |
@@ -185,13 +202,15 @@ NVA 是帮助实现网络功能（例如路由和防火墙优化）的 VM。 如
     | 复制 | 保留默认值“本地冗余存储(LRS)”。
 
 1. 选择“确定”
-1. 看到“验证通过”时，请选择“确定”，启动“摘要”底部的部署 VM。
 
-    创建 VM 需要几分钟时间。 请等到 Azure 创建完 VM 为止。 “通知”页会显示部署详细信息。
+1. 选择“查看 + 创建”。 随后你会转到“查看 + 创建”页，Azure 将验证配置。
+
+1. 显示“验证通过”时，请选择“创建”。
+
+    创建 VM 需要几分钟时间。 请等到 Azure 创建完 VM 为止。 “部署正在进行”页会显示部署详细信息。
 
 1. VM 准备就绪后，选择“转到资源”。
 
-<!--CUSTOMIZE TO SUIT WITH MOONCAKE-->
 ## <a name="turn-on-ip-forwarding"></a>启用 IP 转发
 
 为 *myVmNva* 启用 IP 转发。 当 Azure 向 *myVmNva* 发送网络流量时，如果流量发往不同的 IP 地址，则 IP 转发会将流量发送到正确的位置。
@@ -212,27 +231,32 @@ NVA 是帮助实现网络功能（例如路由和防火墙优化）的 VM。 如
 
 在虚拟网络中创建公共 VM 和专用 VM。 稍后，我们将使用这些 VM 来查看 Azure 如何通过 NVA 将“公共”子网流量路由到“专用”子网。
 
-完成[创建 NVA](#create-an-nva) 的步骤。 为大多数字段使用相同的设置。 但以下值必须不同：
+完成[创建 NVA](#create-an-nva) 的步骤 1-12。 为大多数字段使用相同的设置。 但以下值必须不同：
 
-<!--CUSTOMIZE TO SUIT WITH MOONCAKE-->
 | 设置 | 值 |
 | ------- | ----- |
 | **公共 VM** | |
-| Name | 输入 *myVmPublic*。 |
+| 基础 |  |
+| 虚拟机名称 | 输入 *myVmPublic*。 |
+| 网络 | |
 | 子网 | 选择“公共(10.0.0.0/24)”。 |
 | 公共 IP 地址 | 接受默认值。 |
 | 公共入站端口 | 选择“允许所选端口”。 |
-| 选择公共入站端口 | 选择“HTTP”和“RDP”。 |
+| 选择入站端口 | 选择“HTTP”和“RDP”。 |
+| 管理 | |
 | 诊断存储帐户 | 保留默认值“mynvastorageaccount”。 |
 | **专用 VM** | |
-| Name| 输入 *myVmPrivate*。 |
+| 基础 |  |
+| 虚拟机名称 | 输入 *myVmPrivate*。 |
+| 网络 | |
 | 子网 | 选择“专用(10.0.1.0/24)”。 |
 | 公共 IP 地址 | 接受默认值。 |
 | 公共入站端口 | 选择“允许所选端口”。 |
-| 选择公共入站端口| 选择“HTTP”和“RDP”。 |
+| 选择入站端口 | 选择“HTTP”和“RDP”。 |
+| 管理 | |
 | 诊断存储帐户 | 保留默认值“mynvastorageaccount”。 |
 
-<!--CUSTOMIZE TO SUIT WITH MOONCAKE--> 在 Azure 创建 *myVmPublic* VM 时，你可以创建 *myVmPrivate* VM。 在 Azure 创建完两个 VM 之前，请不要继续执行剩余的步骤。
+在 Azure 创建 *myVmPublic* VM 时，你可以创建 *myVmPrivate* VM。 在 Azure 创建完两个 VM 之前，请不要继续执行剩余的步骤。
 
 ## <a name="route-traffic-through-an-nva"></a>通过 NVA 路由流量
 
@@ -260,7 +284,7 @@ NVA 是帮助实现网络功能（例如路由和防火墙优化）的 VM。 如
 
 1. 请选择“是”以连接到 VM。
 
-### <a name="enable-icpm-through-the-windows-firewall"></a>启用通过 Windows 防火墙的 ICPM
+### <a name="enable-icmp-through-the-windows-firewall"></a>允许 ICMP 通过 Windows 防火墙
 
 在稍后的步骤中，我们将使用跟踪路由工具来测试路由。 跟踪路由使用 Internet 控制消息协议 (ICMP)，而 Windows 防火墙默认拒绝该协议。 启用通过 Windows 防火墙的 ICMP。
 

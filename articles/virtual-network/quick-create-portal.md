@@ -1,29 +1,26 @@
 ---
-title: 创建虚拟网络 - 快速入门 - Azure 门户 | Azure
+title: 创建虚拟网络 - 快速入门 - Azure 门户
+titlesuffix: Azure Virtual Network
 description: 本快速入门介绍如何使用 Azure 门户创建虚拟网络。 虚拟网络能让 Azure 资源（例如虚拟机）彼此之间私下通信以及与 Internet 进行通信。
 services: virtual-network
 documentationcenter: virtual-network
 author: rockboyfor
-manager: digimobile
-editor: ''
 tags: azure-resource-manager
 Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 11/30/2018
-ms.date: 01/21/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.custom: mvc
-ms.openlocfilehash: 1b4e96e9b15061d877664cc8240e84ea2f61425c
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: 225b8039bbe642dbce2679d13d3b19d09e00193f
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193076"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306157"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建虚拟网络
 
@@ -59,34 +56,77 @@ ms.locfileid: "54193076"
 
 ### <a name="create-the-first-vm"></a>创建第一个 VM
 
-1. 在屏幕左上方选择“创建资源”，在搜索栏中填写“Windows Server 2016 Datacenter”，然后单击 Enter 键。
+<!--MOONCAKE: Customize Virtual Machines to suit with Mooncake-->
 
-2. 在结果面板中选择 **Windows Server 2016 Datacenter** 行，然后选择“创建”。
+1. 在屏幕的左上方，选择“创建资源” > “虚拟机” > “Windows Server 2016 Datacenter”。
 
-    <!--Notice: Customize to suit with Mooncake-->
-3. 在“创建虚拟机 - 基本信息”中，输入或选择以下信息：
+1. 在“创建虚拟机 - 基本信息”中，输入或选择以下信息：
 
-    |设置|值|
-    |---|---|
-    |Name|myVM1|
-    |用户名| 输入所选用户名。|
-    |密码| 输入所选密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](../virtual-machines/windows/faq.md?toc=%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
-    |订阅| 选择订阅。|
-    |资源组| 选择“使用现有资源组”，再选择“myResourceGroup”。|
-    |位置| 选择“中国东部”|
+    | 设置 | 值 |
+    | ------- | ----- |
+    | **项目详细信息** | |
+    | 订阅 | 选择订阅。 |
+    | 资源组 | 选择 MyResourceGroup。 已在上一部分创建。 |
+    | **实例详细信息** |  |
+    | 虚拟机名称 | 输入 myVm1。 |
+    | 区域 | 选择“中国东部”。 |
+    | 可用性选项 | 保留默认值“不需要基础结构冗余”。 |
+    | 映像 | 保留默认值“Microsoft Windows Server 2016 Datacenter”。 |
+    | 大小 | 保留默认值“标准 DS1 v2”。 |
+    | **管理员帐户** |  |
+    | 用户名 | 输入所选用户名。 |
+    | 密码 | 输入所选密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](../virtual-machines/windows/faq.md?toc=%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
+    | 确认密码 | 重新输入密码。 |
+    | **入站端口规则** |  |
+    | 公共入站端口 | 保留默认值“无”。 |
+    | **节省资金** |  |
+    | 已有 Windows 许可证？ | 保留默认值“否”。 |
 
-    ![虚拟机基本信息](./media/quick-create-portal/virtual-machine-basics.png)
+1. 选择“下一步:磁盘”**。
 
-4. 选择 VM 的大小，然后选择“选择”。
-5. 在“设置”下，保留所有默认值，然后选择“确定”。
+1. 在“创建虚拟机 - 磁盘”中，保留默认设置，然后选择“下一步:网络”**。
 
-    ![虚拟机设置](./media/quick-create-portal/virtual-machine-settings.png)
+1. 在“创建虚拟机 - 基本信息”中，选择以下信息：
 
-6. 在“摘要”中的“创建”下，选择“创建”以启动 VM 部署。 部署 VM 需要几分钟时间。 
-    <!--Notice: Customize to suit with Mooncake-->
+    | 设置 | 值 |
+    | ------- | ----- |
+    | 虚拟网络 | 保留默认值“myVirtualNetwork”。 |
+    | 子网 | 保留默认值“myVirtualSubnet (10.1.0.0/24)”。 |
+    | 公共 IP | 保留默认值“(new) myVm-ip”。 |
+    | 网络安全端口 | 选择“允许所选端口”。 |
+    | 选择入站端口 | 选择 HTTP 和 RDP。
+
+1. 选择“下一步:管理”**。
+
+1. 在“创建虚拟机 - 管理”中，为“诊断存储帐户”选择“新建”。
+
+1. 在“创建存储帐户”中，输入或选择以下信息：
+
+    | 设置 | 值 |
+    | ------- | ----- |
+    | Name | 输入 myvmstorageaccount。 |
+    | 帐户类型 | 保留默认值“存储(常规用途 v1)”。 |
+    | 性能 | 保留默认值“标准”。 |
+    | 复制 | 保留默认值“本地冗余存储(LRS)”。 |
+
+1. 选择“确定”
+
+1. 选择“查看 + 创建”。 随后你会转到“查看 + 创建”页，Azure 将验证配置。
+
+1. 看到“验证通过”时，选择“创建”。
+
 ### <a name="create-the-second-vm"></a>创建第二个 VM
 
-再次完成步骤 1-6，但在步骤 3 中，将 VM 命名为“myVm2”。
+1. 完成前面的步骤 1 和 9。
+
+    > [!NOTE]
+    > 在步骤 2 中，对于“虚拟机名称”，请输入 myVm2。
+    >
+    > 在步骤 7 中，对于“诊断存储帐户”，请确保选择 myvmstorageaccount。
+
+1. 选择“查看 + 创建”。 随后你会转到“查看 + 创建”页，Azure 将验证配置。
+
+1. 看到“验证通过”时，选择“创建”。
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>从 Internet 连接到 VM
 
