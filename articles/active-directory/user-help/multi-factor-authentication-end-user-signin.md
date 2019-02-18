@@ -4,22 +4,22 @@ description: 本页提供有关在何处查看 Azure MFA 支持的各种登录�
 keywords: 用户身份验证, 登录体验, 使用手机登录, 使用办公电话登录
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.assetid: b310b762-471b-4b26-887a-a321c9e81d46
 ms.workload: identity
 ms.service: active-directory
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: conceptual
 origin.date: 04/02/2017
-ms.date: 08/27/2018
+ms.date: 02/15/2019
 ms.author: v-junlch
 ms.reviewer: librown
-ms.openlocfilehash: 65cf00fc925c23ce7b209bb87781e59c9f445019
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8e0fad685d21abfab27144d9672c32a9ecde9bd3
+ms.sourcegitcommit: 0138c7eeedbb2990879dae1b8dc8a26642de29c2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666644"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56334250"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Azure 多重身份验证的登录体验
 > [!NOTE]
@@ -32,8 +32,8 @@ ms.locfileid: "52666644"
 | --- |
 | [通过拨打我的手机或办公电话](#signing-in-with-a-phone-call) |
 | [通过向我的手机发送短信](#signing-in-with-a-text-message)
-| [使用来自 Microsoft 验证器应用的通知](#signing-in-with-the-microsoft-authenticator-app-using-notification) |
-| [使用来自 Microsoft 验证器应用的验证代码](#signing-in-with-the-microsoft-authenticator-app-using-verification-code) |
+| 使用来自 Microsoft Authenticator 应用的通知 |
+| 使用来自 Microsoft Authenticator 应用的验证码 |
 | [使用备用方法，因为我暂时无法使用首选方法](#signing-in-with-an-alternate-method) |
 
 ## 电话登录 <a name="signing-in-with-a-phone-call"></a>
@@ -90,4 +90,4 @@ ms.locfileid: "52666644"
 
 了解如何[开始使用 Microsoft 验证器应用](microsoft-authenticator-app-how-to.md)，以便使用通知（而不是短信和电话呼叫）登录。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: link update -->
