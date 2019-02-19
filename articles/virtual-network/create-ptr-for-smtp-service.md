@@ -1,27 +1,24 @@
 ---
-title: 在 Azure 中为 SMTP 横幅检查配置反向查找区域 | Azure
+title: 在 Azure 中为 SMTP 横幅检查配置反向查找区域
+titlesuffix: Azure Virtual Network
 description: 介绍如何在 Azure 中为 SMTP 横幅检查配置反向查找区域
 services: virtual-network
 documentationcenter: virtual-network
 author: rockboyfor
-manager: digimobile
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 10/31/2018
-ms.date: 12/17/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.custom: ''
-ms.openlocfilehash: d938c8d7d9301b57cd9afe44e59544a214493b40
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.openlocfilehash: de88a888c4760b486e8e95cca367063368378e34
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806285"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306089"
 ---
 #  <a name="configure-reverse-lookup-zones-for-an-smtp-banner-check"></a>为 SMTP 横幅检查配置反向查找区域
 
@@ -43,9 +40,9 @@ ms.locfileid: "53806285"
 
     Set-AzureRmPublicIpAddress : ReverseFqdn mail.contoso.com that PublicIPAddress ip01 is trying to use does not belong to subscription <Subscription ID>. One of the following conditions need to be met to establish ownership: 
 
-1) ReverseFqdn 与订阅下的任意公共 IP 资源的 FQDN 相匹配； 
-2) ReverseFqdn 解析为订阅下任意公共 IP 资源的 FQDN（通过 CName 记录链）； 
-3) 解析为订阅下任意静态公共 IP 资源的 IP 地址（通过 CName 和 A 记录链）。 
+    1) ReverseFqdn 与订阅下的任意公共 IP 资源的 FQDN 相匹配； 
+    2) ReverseFqdn 解析为订阅下任意公共 IP 资源的 FQDN（通过 CName 记录链）； 
+    3) 解析为订阅下任意静态公共 IP 资源的 IP 地址（通过 CName 和 A 记录链）。 
 
 如果将 SMTP 横幅手动更改为与默认反向 FQDN 相匹配，远程邮件服务器仍可能失败，因为它可能期望 SMTP 横幅主机与域的 MX 记录相匹配。
 

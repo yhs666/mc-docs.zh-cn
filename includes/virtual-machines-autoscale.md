@@ -5,12 +5,12 @@ ms.topic: include
 origin.date: 10/26/2018
 ms.date: 12/24/2019
 ms.author: v-yeche
-ms.openlocfilehash: c6319bd43c14aa2e294fba30e42b32364db5e0c5
-ms.sourcegitcommit: 3a76c6e128d667b7863daf2ff622e88ed59399ec
+ms.openlocfilehash: cc04559a8f43861b9a095dda3e50975ceaeee283
+ms.sourcegitcommit: f40e5b30f50205beda427eb4e3f481385b47ca06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55480364"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55985656"
 ---
 <!--Verify sucessfully--> 使用[虚拟机规模集](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)时，可以轻松自动缩放[虚拟机 (VM)](../articles/virtual-machines/windows/overview.md)。 VM 需要成为规模集的成员才能自动缩放。 本文提供了用于更好地了解如何使用自动和手动方法以纵向方式和横向方式缩放 VM 的信息。
 
@@ -32,8 +32,9 @@ Azure Monitor 的自动缩放功能仅以横向方式调整资源的规模，即
 
 自动缩放提供适当数量的 VM 来处理应用程序上的负载。 使用它，可以添加 VM 来处理增加的负载，并可以删除处于空闲状态的 VM 来节省资金。 需要基于一组规则来指定要运行的最小 VM 数目和最大 VM 数目。 设置最小数目可确保应用程序在没有负载的情况下也会运行。 设置最大值是为了限制每小时可能会产生的总成本。
 
-可以在使用 [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-powershell-samples.md#create-and-manage-autoscale-settings) 或[Azure CLI](https://docs.azure.cn/zh-cn/cli/monitor/autoscale-settings?view=azure-cli-latest) 创建规模集时启用自动缩放。 也可以在创建规模集后启用自动缩放。 可以使用 [Azure 资源管理器模板](../articles/virtual-machine-scale-sets/tutorial-autoscale-powershell.md)创建规模集、安装扩展以及配置自动缩放。 在 Azure 门户中，可以从 Azure Monitor 启用自动缩放，也可以从规模集设置启用自动缩放。
+可以在使用 [Azure PowerShell](../articles/azure-monitor/platform/powershell-quickstart-samples.md) 或[Azure CLI](https://docs.azure.cn/zh-cn/cli/monitor/autoscale-settings?view=azure-cli-latest) 创建规模集时启用自动缩放。 也可以在创建规模集后启用自动缩放。 可以使用 [Azure 资源管理器模板](../articles/virtual-machine-scale-sets/tutorial-autoscale-powershell.md)创建规模集、安装扩展以及配置自动缩放。 在 Azure 门户中，可以从 Azure Monitor 启用自动缩放，也可以从规模集设置启用自动缩放。
 
+<!--Notice: Anchor create-and-manage-autoscale-settings is missing on en-us repository-->
 <!--URL direct to Correct on tutorial-autoscale-powershell-->
 
 ![启用自动缩放](./media/virtual-machines-autoscale/virtual-machines-autoscale-enable.png)

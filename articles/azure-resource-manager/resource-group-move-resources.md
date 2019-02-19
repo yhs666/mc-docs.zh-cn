@@ -10,19 +10,19 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 01/02/2019
-ms.date: 01/28/2019
+origin.date: 01/29/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6ebf3e3caf3ff33190e07e71237618af3b0fcfba
-ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
+ms.openlocfilehash: a01b3cae41ea12c40b063e0def88d990d4882441
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55085689"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306260"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>将资源移到新资源组或订阅中
 
-本文说明了如何将 Azure 资源移动到另一 Azure 订阅，或移动到同一订阅下的另一资源组。 可以使用 Azure 门户、Azure PowerShell、Azure CLI 或 REST API 移动资源。
+本文说明了如何将 Azure 资源移动到另一 Azure 订阅，或移动到同一订阅下的另一资源组。 可以使用 Azure 门户、Azure PowerShell、Azure CLI 或 REST API 移动资源。 若要完成教程，请参阅[教程：将 Azure 资源移到另一个资源组或订阅](./resource-manager-tutorial-move-resources.md)。
 
 在移动操作过程中，源组和目标组都会锁定。 在完成移动之前，将阻止对资源组执行写入和删除操作。 此锁意味着将无法添加、更新或删除资源组中的资源，但并不意味着资源已被冻结。 例如，如果将 SQL Server 及其数据库移到新的资源组中，使用数据库的应用程序体验不到停机， 仍可读取和写入到数据库。
 
@@ -35,6 +35,8 @@ ms.locfileid: "55085689"
 
 <!-- Not Available on [Upgrade your Trial or Azure Imagine Azure subscription to Pay-As-You-Go](..//billing/billing-upgrade-azure-subscription.md)-->
 <!-- Not Available on [Switch your Azure subscription to another offer](../billing/billing-how-to-switch-azure-offer.md) -->
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="when-to-call-azure-support"></a>何时致电 Azure 支持人员
 
@@ -60,8 +62,9 @@ ms.locfileid: "55085689"
 * Azure Cosmos DB <!--Verify successfully-->
 * Azure Database for MySQL
 * Azure Database for PostgreSQL <!--Verify successfully-->
-<!-- Not Available * Azure Maps -->
-<!-- Not Available * Azure Relay -->
+<!-- Not Available * Azure DevOps-->
+<!-- Not Available * Azure Maps-->
+<!-- Not Available * Azure Relay-->
 * Azure Stack - 注册
 * Batch <!-- Not Available * BizTalk Services-->
 <!-- Not Available * Bot Service-->
@@ -72,7 +75,7 @@ ms.locfileid: "55085689"
 * 内容审查器 <!-- Not Available * Cost Management-->
 <!-- Not Available * Customer Insights-->
 <!-- Not Available * Data Catalog-->
-<!-- Not Available * Data Factory -->
+<!-- Not Available * Data Factory-->
 <!-- Not Available * Data Lake Analytics-->
 <!-- Not Available * Data Lake Store-->
 <!-- Not Available * DNS-->
@@ -157,6 +160,9 @@ ms.locfileid: "55085689"
 以下方案尚不受支持：
 
 * 证书存储在 Key Vault 中的虚拟机可以移动到同一订阅中的新资源组，但无法跨订阅进行移动。
+
+<!--Not Availabl on Availability Zones-->
+
 * 无法移动具有标准 SKU 负载均衡器或标准 SKU 公共 IP 的虚拟机规模集
 * 无法跨资源组或订阅移动基于附加了计划的市场资源创建的虚拟机。 在当前订阅中取消预配虚拟机，并在新的订阅中重新部署虚拟机。
 
@@ -165,7 +171,7 @@ ms.locfileid: "55085689"
 * 找到虚拟机的位置。
 * 找到含有以下命名模式的资源组：`AzureBackupRG_<location of your VM>_1` 例如，AzureBackupRG_chinanorth2_1
 * 如果在 Azure 门户中，则查看“显示隐藏的类型”
-* 如果在 PowerShell 中，则使用 `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet
+* 如果在 PowerShell 中，则使用 `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet
 * 如果在 CLI 中，则使用 `az resource list -g AzureBackupRG_<location of your VM>_1`
 * 使用类型 `Microsoft.Compute/restorePointCollections` 找到具有命名模式 `AzureBackup_<name of your VM that you're trying to move>_###########` 的资源
 * 删除此资源。 此操作仅删除即时恢复点，不删除保管库中的备份数据。
@@ -225,7 +231,7 @@ _在订阅之间_移动 Web 应用时存在以下限制：
 * 一次只能移动一个存储帐户（经典）。
 * 存储帐户（经典）与虚拟机或云服务不能在同一操作中移动。
 
-若要将经典资源移到同一订阅内的新资源组，请通过[门户](#use-portal)、[Azure PowerShell](#use-powershell)、[Azure CLI](#use-azure-cli) 或 [REST API](#use-rest-api) 使用标准移动操作。 使用的操作应与移动 Resource Manager 资源时所用的操作相同。
+要将经典资源移到同一订阅内的新资源组，请通过[门户](#use-portal)、Azure PowerShell、Azure CLI 或 REST API 使用标准移动操作。 使用的操作应与移动 Resource Manager 资源时所用的操作相同。
 
 #### <a name="new-subscription"></a>新订阅
 
@@ -327,13 +333,15 @@ _在订阅之间_移动 Web 应用时存在以下限制：
 
 移动资源之前需执行的一些重要步骤。 验证这些条件可以避免错误。
 
+1. 源订阅和目标订阅必须处于活动状态。 如果在启用已禁用的帐户时遇到问题，请[创建 Azure 支持请求](https://support.azure.cn/zh-cn/support/support-azure/?l=zh-cn)。 选择“订阅管理”作为问题类型。
+
 1. 源订阅与目标订阅必须在同一个 [Azure Active Directory 租户](../active-directory/develop/quickstart-create-new-tenant.md)中。 若要检查这两个订阅是否具有相同的租户 ID，请使用 Azure PowerShell 或 Azure CLI。
 
   对于 Azure PowerShell，请使用：
 
-  ```PowerShell
-  (Get-AzureRmSubscription -SubscriptionName <your-source-subscription>).TenantId
-  (Get-AzureRmSubscription -SubscriptionName <your-destination-subscription>).TenantId
+  ```azurepowershell
+  (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
+  (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
   ```
 
   对于 Azure CLI，请使用：
@@ -351,15 +359,15 @@ _在订阅之间_移动 Web 应用时存在以下限制：
 
   对于 PowerShell，请使用以下命令来获取注册状态：
 
-  ```PowerShell
-  Set-AzureRmContext -Subscription <destination-subscription-name-or-id>
-  Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+  ```azurepowershell
+  Set-AzContext -Subscription <destination-subscription-name-or-id>
+  Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
   ```
 
   若要注册资源提供程序，请使用：
 
-  ```PowerShell
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
+  ```azurepowershell
+  Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
   ```
 
   对于 Azure CLI，请使用以下命令来获取注册状态：
@@ -464,12 +472,12 @@ Authorization: Bearer <access-token>
 <a name="use-powershell"></a>
 ### <a name="by-using-azure-powershell"></a>使用 Azure PowerShell
 
-要将现有资源移到另一个资源组或订阅，请使用 [Move-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/move-azurermresource) 命令。 下面的示例演示了如何将多个资源移动到新的资源组。
+要将现有资源移到另一个资源组或订阅，请使用 [Move-AzResource](https://docs.microsoft.com/powershell/module/az.resources/move-azresource) 命令。 下面的示例演示了如何将多个资源移动到新的资源组。
 
-```PowerShell
-$webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
-$plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
-Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
+```azurepowershell
+$webapp = Get-AzResource -ResourceGroupName OldRG -ResourceName ExampleSite
+$plan = Get-AzResource -ResourceGroupName OldRG -ResourceName ExamplePlan
+Move-AzResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
 ```
 
 若要移到新订阅，请包含 `DestinationSubscriptionId` 参数的值。
