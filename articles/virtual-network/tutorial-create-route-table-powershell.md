@@ -15,15 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 03/13/2018
-ms.date: 06/11/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 7c3484afaf3bfe29b983155d2a1f94e3b1544da8
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5fa5db4ef09f61ab9d122959938d7c1a33119e46
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644194"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306158"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>使用 PowerShell 通过路由表路由网络流量
 
@@ -41,7 +41,7 @@ ms.locfileid: "52644194"
 
 <!--[!INCLUDE [cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)-->
 
-如果选择在本地安装并使用 PowerShell，则本文需要 Azure PowerShell 模块 5.4.1 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud ` 以创建与 Azure 的连接。 
+如果选择在本地安装并使用 PowerShell，则本文需要 Azure PowerShell 模块 5.4.1 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。 
 
 ## <a name="create-a-route-table"></a>创建路由表
 
@@ -252,7 +252,7 @@ New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
 
 虽然本文中使用跟踪路由来测试路由，但在生产部署中，不建议允许 ICMP 通过 Windows 防火墙。
 
-在[启用 IP 转发](#enable-ip-forwarding)中已经在 Azure 中为 VM 的网络接口启用了 IP 转发。 在 VM 中，VM 中运行的操作系统或应用程序也必须能够转发网络流量。 在 *myVmNva* 的操作系统中启用 IP 转发。
+在“启用 IP 转发”中，已经在 Azure 中为 VM 的网络接口启用了 IP 转发。 在 VM 中，VM 中运行的操作系统或应用程序也必须能够转发网络流量。 在 *myVmNva* 的操作系统中启用 IP 转发。
 
 在 *myVmPrivate* VM 中的命令提示符下，通过远程桌面连接到 *myVmNva*：
 
@@ -336,4 +336,5 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 在本文中，我们创建了一个路由表并将其关联到了某个子网。 我们还创建了一个简单网络虚拟设备，用于将流量从公共子网路由到专用子网。 从 [Azure 市场](https://market.azure.cn/zh-cn/marketplace/apps/category/networking)部署各种执行网络功能（例如防火墙和 WAN 优化）的预配置网络虚拟设备。 若要了解有关路由的详细信息，请参阅[路由概述](virtual-networks-udr-overview.md)和[管理路由表](manage-route-table.md)。
 
 尽管可以在一个虚拟网络中部署多个 Azure 资源，但无法将某些 Azure PaaS 服务的资源部署到虚拟网络。 不过，仍可以限制为只允许来自某个虚拟网络子网的流量访问某些 Azure PaaS 服务的资源。 若要了解如何操作，请参阅[限制对 PaaS 资源的网络访问](tutorial-restrict-network-access-to-resources-powershell.md)。
+
 <!-- Update_Description: update link, wording update  -->

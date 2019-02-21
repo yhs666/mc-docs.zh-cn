@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/10/2018
-ms.date: 12/31/2018
+origin.date: 01/09/2019
+ms.date: 02/18/2019
 ms.author: v-jay
-ms.reviewer: georgel
-ms.openlocfilehash: 5f8693676ae8b3374b0d3a01fda5aff3c79ad4f9
-ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
+ms.reviewer: jiahan
+ms.lastreviewed: 1/09/2019
+ms.openlocfilehash: 5991cdddebb6d9f3197dcf3e7eba2f5d14d60e60
+ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814598"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56218251"
 ---
 # <a name="sql-resource-provider-11300-release-notes"></a>SQL 资源提供程序 1.1.30.0 发行说明
 
@@ -82,7 +83,10 @@ ms.locfileid: "53814598"
     ```powershell
     [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
     ```
+- **SQL 资源提供程序无法添加 SQL Server Always On 侦听器**。 使用 SQL Server Always On 侦听器的 IP 地址时，SQL 资源提供程序 VM 无法解析侦听器的主机名。
 
+    **解决方法**：确保 DNS 正常运行，以便将侦听器 IP 解析为侦听器主机名。
+    
 ### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>云管理员操作 Azure Stack 时的已知问题
 请参阅 [Azure Stack 发行说明](azure-stack-servicing-policy.md)中的文档。
 

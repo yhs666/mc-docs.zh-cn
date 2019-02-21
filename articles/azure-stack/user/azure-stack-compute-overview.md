@@ -6,41 +6,42 @@ author: WenJason
 manager: digimobile
 ms.service: azure-stack
 ms.topic: get-started-article
-origin.date: 09/05/2018
-ms.date: 11/12/2018
+origin.date: 01/05/2019
+ms.date: 02/18/2019
 ms.author: v-jay
 ms.reviewer: kivenkat
-ms.openlocfilehash: 04f0afb7aecf802b6618ddc252fafc568745418b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.lastreviewed: 01/05/2019
+ms.openlocfilehash: 2d0cda0482d8d7bd8d7fdfa2cfea3f06e4ac1eeb
+ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660624"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56218272"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Azure Stack 虚拟机简介
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-Azure Stack 以按需可缩放的计算资源的形式提供虚拟机 (VM)。 如果需要以更大的力度（相对于其他控制选项）控制计算环境，可以选择 VM。 本文提供创建 VM 之前所需的详细信息。
+Azure Stack 以按需可缩放的计算资源的形式提供虚拟机 (VM)。 如果需要以更大的力度控制计算环境，可以选择 VM。 本文提供创建第一个 VM 之前所需的详细信息。
 
 Azure Stack VM 可提供虚拟化的灵活性，而无需管理群集或单个计算机。 不过，仍然需要通过执行任务（例如，配置、修补和安装在 VM 上运行的软件）来维护 VM。
 
 可通过多种方式使用 Azure Stack 虚拟机。 例如：
 
 - **开发和测试**  
-    Azure Stack VM 提供快速又简单的方法来创建计算机，让计算机具备编写和测试应用程序所需的特定配置。
+    Azure Stack VM 可让你使用编写和测试应用程序所需的特定配置创建计算机。
 
 - **云中的应用程序**  
-    由于应用程序的需求会不断变化，在 Azure Stack 中的 VM 上运行应用程序可能会较具经济效益。 使用 VM 时，需要支付额外的费用；不需要 VM 时，则需要关闭它们。
+    由于应用程序的需求会不断变化，在 Azure Stack 中的 VM 上运行应用程序可能会较具经济效益。 使用 VM 时，需要支付额外的费用；关闭 VM 时，则无需付费。
 
 - **扩展的数据中心**  
-    Azure Stack 虚拟网络中的虚拟机可以轻松连接到组织的网络或 Azure。
+    Azure Stack 虚拟网络中的虚拟机可以连接到组织的网络或 Azure。
 
 可以根据需要，将应用程序使用的 VM 纵向或横向扩展为任意数目。
 
-## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>在创建 VM 之前需要考虑哪些因素？
+## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>在创建 VM 之前需要考虑的因素
 
-在 Azure Stack 中构建应用程序基础结构时，始终要考虑多种设计注意事项。 在开始创建基础结构之前，必须考虑到 VM 的以下重要方面：
+在 Azure Stack 中构建应用程序基础结构时，始终要考虑设计注意事项。 在开始创建基础结构之前，必须考虑到 VM 的以下重要方面：
 
 - 应用程序资源的名称。
 - VM 的大小。
@@ -61,14 +62,13 @@ Azure Stack VM 可提供虚拟化的灵活性，而无需管理群集或单个�
 
 ### <a name="vm-limits"></a>VM 限制
 
-订阅设有默认的配额限制，可能会影响如何部署项目的许多 VM。 每个订阅的当前限制是每区域 20 个 VM。
+订阅设有默认的配额限制，可能会影响如何部署项目的 VM。 每个订阅的当前限制是每区域 20 个 VM。
 
 ### <a name="operating-system-disks-and-images"></a>操作系统磁盘和映像
 
-虚拟机使用虚拟硬盘 (VHD) 来存储其操作系统 (OS) 和数据。 VHD 还可用于存储映像，可以选择某个映像来安装 OS。
-Azure Stack 提供一个市场，适用于各种版本和类型的操作系统。 市场映像由映像发布者、产品/服务、SKU 和版本（通常指定为最新版本）标识。
+虚拟机使用虚拟硬盘 (VHD) 来存储其操作系统 (OS) 和数据。 VHD 还可用于存储映像，可以选择某个映像来安装 OS。 Azure Stack 提供一个市场，适用于各种版本和类型的操作系统。 市场映像由映像发布者、套餐、SKU 和版本（通常指定为**最新**版本）标识。
 
-下表显示了查找映像信息的一些方法：
+下表显示了如何查找映像的信息：
 
 |方法|说明|
 |---------|---------|
@@ -76,7 +76,7 @@ Azure Stack 提供一个市场，适用于各种版本和类型的操作系统�
 |Azure Stack PowerShell|`Get-AzureRMVMImagePublisher -Location "location"`<br>`Get-AzureRMVMImageOffer -Location "location" -Publisher "publisherName"`<br>`Get-AzureRMVMImageSku -Location "location" -Publisher "publisherName" -Offer "offerName"`|
 |REST API     |[列出映像发布者](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<br>[列出映像产品](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<br>[列出映像 SKU](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus)|
 
-可以选择上传并使用自己的映像。 如果这样做，则不会使用发布者名称、产品/服务和 SKU。
+可以选择上传并使用自己的映像。 如果这样做，则不会使用发布者名称、套餐和 SKU。
 
 ### <a name="extensions"></a>扩展
 
@@ -94,8 +94,7 @@ VM 扩展通过部署后配置和自动化任务来增加 VM 的功能。
 
 ### <a name="related-resources"></a>相关资源
 
-下表中的资源由 VM 使用，在创建 VM 时必须存在或已创建。
-
+下表中的资源由 VM 使用，在创建 VM 时必须存在或已创建：
 
 |资源|必须|说明|
 |---------|---------|---------|
@@ -108,9 +107,7 @@ VM 扩展通过部署后配置和自动化任务来增加 VM 的功能。
 
 ## <a name="create-your-first-vm"></a>创建第一个 VM
 
-创建 VM 有多种选择。 你的选择取决于环境。
-下表提供信息来帮助你开始创建 VM。
-
+创建 VM 有多种选择。 你的选择取决于环境。 下表提供信息来帮助你开始创建 VM：
 
 |方法|文章|
 |---------|---------|
@@ -132,12 +129,11 @@ VM 扩展通过部署后配置和自动化任务来增加 VM 的功能。
 
 下表显示了获取有关 VM 的信息的一些方法。
 
-
 |方法|说明|
 |---------|---------|
 |Azure Stack 门户|在中心菜单中，单击“虚拟机”，然后从列表中选择 VM。 在 VM 的页面上，可以访问概述信息、设置值以及监视指标。|
-|Azure PowerShell|在 Azure 和 Azure Stack 中，管理 VM 的方法很相似。 有关使用 PowerShell 的详细信息，请参阅以下 Azure 主题：<br>[使用 Azure PowerShell 模块创建和管理 Windows VM](/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
-|客户端 SDK|在 Azure 和 Azure Stack 中，使用 C# 管理 VM 的方法很相似。 有关详细信息，请参阅以下 Azure 主题：<br>[在 Azure 中使用 C# 创建和管理 Windows VM](/virtual-machines/windows/csharp)|
+|Azure PowerShell|在 Azure 和 Azure Stack 中，管理 VM 的方法很相似。 有关使用 PowerShell 的详细信息，请参阅以下 Azure 主题：<br>[使用 Azure PowerShell 模块创建和管理 Windows VM](../../virtual-machines/windows/tutorial-manage-vm.md#understand-vm-sizes)|
+|客户端 SDK|在 Azure 和 Azure Stack 中，使用 C# 管理 VM 的方法很相似。 有关详细信息，请参阅以下 Azure 主题：<br>[在 Azure 中使用 C# 创建和管理 Windows VM](../../virtual-machines/windows/csharp.md)|
 
 ### <a name="connect-to-your-vm"></a>连接到 VM
 
@@ -146,5 +142,3 @@ VM 扩展通过部署后配置和自动化任务来增加 VM 的功能。
 ## <a name="next-steps"></a>后续步骤
 
 - [Azure Stack 中虚拟机的注意事项](azure-stack-vm-considerations.md)
-
-<!-- Update_Description: wording update -->

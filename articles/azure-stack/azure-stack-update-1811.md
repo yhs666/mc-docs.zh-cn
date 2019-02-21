@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/22/2018
-ms.date: 01/14/2019
+origin.date: 01/30/2019
+ms.date: 02/18/2019
 ms.author: v-jay
 ms.reviewer: adepue
-ms.openlocfilehash: c37578c4708723f8e41428a5b61bf9972220884a
-ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
+ms.lastreviewed: 01/25/2019
+ms.openlocfilehash: beafba58c24808d241e106c63e284a6e8f2f9bc4
+ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54059035"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56218298"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 更新
 
@@ -41,9 +42,9 @@ Azure Stack 1811 更新内部版本号为 **1.1811.0.101**。
 Azure Stack 定期发布修补程序。 将 Azure Stack 更新到 1811 之前，请务必先安装 1809 的[最新 Azure Stack 修补程序](#azure-stack-hotfixes)。
 
 > [!TIP]  
-> 订阅下述 *RRS* 或 *Atom* 源，了解 Azure Stack 修补程序的最新信息：
-> - RRS： https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … 
-> - Atom： https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom …
+> 订阅下述 *RSS* 或 *Atom* 源，了解 Azure Stack 修补程序的最新信息：
+> - [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)
+> - [Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)
 
 ### <a name="azure-stack-hotfixes"></a>Azure Stack 修补程序
 
@@ -83,7 +84,7 @@ Azure Stack 定期发布修补程序。 将 Azure Stack 更新到 1811 之前，
     then resume the update.
     Exception: The Certificate path does not exist: [certificate path here]` 
  
-    正确导入必需的扩展主机证书后，可以从管理员门户恢复 1811 更新。 我们建议 Azure Stack 操作员在更新过程中让缩放单元置于维护模式，但因缺少扩展主机证书而造成的失败不应影响现有的工作负荷或服务。  
+    正确导入必需的扩展主机证书后，可以从管理员门户恢复 1811 更新。 我们建议 Azure Stack 操作员在更新过程中安排维护时段，但因缺少扩展主机证书而造成的失败不应影响现有的工作负荷或服务。  
 
     在安装此更新的过程中，配置扩展主机时 Azure Stack 用户门户将不可用。 扩展主机的配置最长可能需要花费 5 小时。 在此期间，你可以检查更新状态，或者使用 [Azure Stack 管理员 PowerShell 或特权终结点](azure-stack-monitor-update.md)继续执行某个失败的更新安装。
 
@@ -154,6 +155,9 @@ Azure Stack 定期发布修补程序。 将 Azure Stack 更新到 1811 之前，
 <!-- 3190553 - IS ASDK -->
 - 修复了以下问题：生成的干扰性警报指示某个基础结构角色实例不可用或缩放单元节点已脱机。
 
+<!-- 2724961 - IS ASDK -->
+- 修复了 VM 概述页无法正常显示 VM 指标图表的问题。 
+
 ## <a name="changes"></a>更改
 
 - 1811 中导入了新的方式来查看和编辑计划中的配额。 有关详细信息，请参阅[查看现有配额](azure-stack-quota-types.md#view-an-existing-quota)。
@@ -187,10 +191,11 @@ Azure Stack 定期发布修补程序。 将 Azure Stack 更新到 1811 之前，
 - [CVE-2018-8566](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8566)
 - [CVE-2018-8584](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8584)
 
-
-有关这些漏洞的详细信息，请单击上述链接，或者查看 Microsoft 知识库文章 [4467684](https://support.microsoft.com/help/4467684)。
+有关这些漏洞的详细信息，请单击上述链接，或者查看 Microsoft 知识库文章 [4478877](https://support.microsoft.com/help/4478877)。
 
 ## <a name="known-issues-with-the-update-process"></a>更新过程的已知问题
+
+- 在同一特权终结点 (PEP) 会话中运行 **Test-AzureStack** 之后，运行 **Get-AzureStackLog** PowerShell cmdlet 时，**Get-AzureStackLog** 失败。 若要解决此问题，请关闭用于执行 **Test-AzureStack** 的 PEP 会话，然后打开一个新的会话来运行 **Get-AzureStackLog**。
 
 - 在安装 1811 更新期间，请确保所有管理员门户实例都已关闭。 用户门户可以保持打开，但管理员门户必须关闭。
 
@@ -256,6 +261,22 @@ Azure Stack 定期发布修补程序。 将 Azure Stack 更新到 1811 之前，
 
 - 创建新的 Windows 虚拟机 (VM) 时，“设置”边栏选项卡要求选择公共入站端口以继续操作。 在 1811 中，这是必需的设置，但不起作用。 这是因为，该功能依赖于 Azure 防火墙，但 Azure Stack 中并未实施该防火墙。 可以选择“无公共入站端口”或任何其他选项来继续创建 VM。 该设置不起作用。
 
+- 创建新的 Windows 虚拟机 (VM) 时，可能会显示以下错误：
+
+   `'Failed to start virtual machine 'vm-name'. Error: Failed to update serial output settings for VM 'vm-name'`
+
+   如果在 VM 上启用了启动诊断，但删除了启动诊断存储帐户，则会发生该错误。 若要解决此问题，请使用以前所用的同一名称重新创建存储帐户。
+
+- 创建 [Dv2 系列 VM](./user/azure-stack-vm-considerations.md#virtual-machine-sizes) 时，可以通过 D11-14v2 VM 分别创建 4 个、8 个、16 个和 32 个数据磁盘。 不过，“创建 VM”窗格会显示 8 个、16 个、32 个和 64 个数据磁盘。
+
+- Azure Stack 上的使用情况记录可能包含意外的大小写，例如：
+
+   `{"Microsoft.Resources":{"resourceUri":"/subscriptions/<subid>/resourceGroups/ANDREWRG/providers/Microsoft.Compute/
+   virtualMachines/andrewVM0002","location":"twm","tags":"null","additionalInfo":
+   "{\"ServiceType\":\"Standard_DS3_v2\",\"ImageType\":\"Windows_Server\"}"}}`
+
+   在此示例中，资源组的名称应该是 **AndrewRG**。 可以放心忽略这种不一致情况。
+
 <!-- 3235634 – IS, ASDK -->
 - 若要部署大小包含 **v2** 后缀的 VM（例如 **Standard_A2_v2**），请将后缀指定为 **Standard_A2_v2**（小写 v）。 请勿使用 **Standard_A2_V2**（大写 V）。 这适用于全球 Azure，在 Azure Stack 上有不一致的问题。
 
@@ -281,11 +302,6 @@ Azure Stack 定期发布修补程序。 将 Azure Stack 更新到 1811 之前，
 <!-- 1662991 IS ASDK --> 
 - Azure Stack 不支持 Linux VM 诊断。 在部署启用 VM 诊断的 Linux VM 时，部署会失败。 如果通过诊断设置启用 Linux VM 的基本指标，部署也会失败。  
 
-<!-- 2724961- IS ASDK --> 
-- 在订阅设置中注册 **Microsoft.Insight** 资源提供程序并创建支持来宾 OS 诊断的 Windows VM 时，VM 概述页中的“CPU 百分比”图表不显示指标数据。
-
-   若要查找指标数据（例如 VM 的“CPU 百分比”图表），请转到“指标”窗口并查看所有受支持的 Windows VM 来宾指标。
-
 <!-- 3507629 - IS, ASDK --> 
 - 托管磁盘创建了两个新的[计算配额类型](azure-stack-quota-types.md#compute-quota-types)来限制可以预配的托管磁盘的最大容量。 默认情况下将为每个托管磁盘配额类型分配 2048 GiB。 不过，你可能会遇到以下问题：
 
@@ -297,7 +313,7 @@ Azure Stack 定期发布修补程序。 将 Azure Stack 更新到 1811 之前，
 
    - 如果订阅是在 1808 更新之前创建的，则部署具有托管磁盘的 VM 可能会失败并出现内部错误消息。 若要解决此错误，请针对每个订阅执行以下步骤：
       1. 在租户门户中转到“订阅”，找到相应订阅。 依次选择“资源提供程序”、“Microsoft.Compute”、“重新注册”。
-      2. 在同一订阅下，转到“访问控制(标识和访问管理)”，验证“Azure Stack - 托管磁盘”是否已列出。
+      2. 在同一订阅下，转到“访问控制(IAM)”，检查“AzureStack-DiskRP-Client”角色是否已列出。
    - 如果已配置多租户环境，在与来宾目录相关联的订阅中部署 VM 可能会失败并出现内部错误消息。 若要解决错误，请执行[此文章](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)中的步骤来重新配置每个来宾目录。
 
 - 如果使用创建时已启用 SSH 授权的 Ubuntu 18.04 VM，则无法使用 SSH 密钥登录。 若要解决此问题，请在预配后使用针对 Linux 扩展的 VM 访问权限来实现 SSH 密钥，或者使用基于密码的身份验证。
@@ -336,6 +352,8 @@ Azure Stack 定期发布修补程序。 将 Azure Stack 更新到 1811 之前，
     在 Azure Stack 中，不支持将其他选项用作源标记。 同样，如果添加出站安全规则并选择“服务标记”作为目标，则显示与“源标记”相同的选项列表。 仅有的有效选项与“源标记”的有效选项相同，如以上列表中所述。
 
 - **New-AzureRmIpSecPolicy** PowerShell cmdlet 不支持为 `DHGroup` 参数设置 **DHGroup24**。
+
+- 网络安全组 (NSG) 无法像在 Azure 中一样在 Azure Stack 中运行。 在 Azure 中，可以在一个 NSG 规则中设置多个端口（使用门户、PowerShell 和资源管理器模板）。 在 Azure Stack 中，无法通过门户在一个 NSG 规则中设置多个端口。 若要解决此问题，请使用资源管理器模板设置这些附加的规则。
 
 ### <a name="infrastructure-backup"></a>基础结构备份
 

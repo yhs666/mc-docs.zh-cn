@@ -12,16 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/28/2018
-ms.date: 01/14/2019
+origin.date: 01/16/2019
+ms.date: 02/18/2019
 ms.author: v-jay
 ms.reviewer: brbartle
-ms.openlocfilehash: d7722b6aa07dfa3723915cb7e52fb1ade43c62a9
-ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
+ms.lastreviewed: 01/16/2019
+ms.openlocfilehash: 2cc9bf1a54b0d467f3af664c7b569ec57dcf298a
+ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54059024"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56218282"
 ---
 # <a name="register-azure-stack-with-azure"></a>将 Azure Stack 注册到 Azure
 
@@ -34,7 +35,7 @@ ms.locfileid: "54059024"
 
 ## <a name="prerequisites"></a>先决条件
 
-在注册之前，需将以下项准备就绪：
+在注册之前，需要准备好以下各项：
 
  - 验证凭据
  - 设置 PowerShell 语言模式
@@ -50,9 +51,9 @@ ms.locfileid: "54059024"
 
 - 订阅所有者的帐户用户名和密码。
 
-- 用户帐户必须有权访问 Azure 订阅并且有权在与该订阅关联的目录中创建标识应用程序和服务主体。
+- 用户帐户必须有权访问 Azure 订阅并且有权在与该订阅关联的目录中创建标识应用程序和服务主体。 我们建议通过[创建用于注册的服务帐户](azure-stack-registration-role.md)以使用最低特权管理将 Azure Stack 注册到 Azure，而不要使用全局管理员凭据。
 
-- 已注册 Azure Stack 资源提供程序（请参阅下面的“注册 Azure Stack 资源提供程序”部分以了解详细信息）。
+- 已注册 Azure Stack 资源提供程序（请参阅下面的“注册 Azure Stack 资源提供程序”部分了解详细信息）。
 
 注册后，不需要 Azure Active Directory 全局管理员权限。 但是，某些操作可能需要全局管理员凭据。 例如，资源提供程序安装程序脚本或需要授予权限的新功能。 可以临时复原帐户的全局管理员权限，也可以使用单独的全局管理员帐户（该帐户应是*默认提供程序订阅*的所有者）。
 
@@ -70,7 +71,7 @@ $ExecutionContext.SessionState.LanguageMode
 
 ### <a name="install-powershell-for-azure-stack"></a>安装适用于 Azure Stack 的 PowerShell
 
-需要使用适用于 Azure Stack 的最新 PowerShell 来注册到 Azure。
+使用适用于 Azure Stack 的最新 PowerShell 来注册到 Azure。
 
 如果最新版本尚未安装，请参阅[安装适用于 Azure Stack 的 PowerShell](/azure-stack/azure-stack-powershell-install)。
 
@@ -139,13 +140,13 @@ Run: get-azurestackstampinformation
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
-5. 以管理员身份启动 PowerShell ISE，并导航到[下载 Azure Stack 工具](#bkmk_tools)时所创建的 **AzureStack-Tools-master** 目录中的 **Registration** 文件夹。 使用 PowerShell 导入 **RegisterWithAzure.psm1** 模块：
+5. 以管理员身份启动 PowerShell ISE，并导航到下载 Azure Stack 工具时所创建的 **AzureStack-Tools-master** 目录中的 **Registration** 文件夹。 使用 PowerShell 导入 **RegisterWithAzure.psm1** 模块：
 
    ```PowerShell  
    Import-Module .\RegisterWithAzure.psm1
    ```
 
-6. 接下来，在同一个 PowerShell 会话中，确保已登录到正确的 Azure PowerShell 上下文。 这是用于注册上述 Azure Stack 资源提供程序的 Azure 帐户。 要运行的 Powershell：
+6. 接下来，在同一个 PowerShell 会话中，确保已登录到正确的 Azure PowerShell 上下文。 这是前面在注册 Azure Stack 资源提供程序时所用的 Azure 帐户。 要运行的 Powershell：
 
    ```PowerShell  
       Add-AzureRmAccount -EnvironmentName "<environment name>"
@@ -203,7 +204,7 @@ Run: get-azurestackstampinformation
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
-5. 以管理员身份启动 PowerShell ISE，并导航到[下载 Azure Stack 工具](#bkmk_tools)时所创建的 **AzureStack-Tools-master** 目录中的 **Registration** 文件夹。 使用 PowerShell 导入 **RegisterWithAzure.psm1** 模块：
+5. 以管理员身份启动 PowerShell ISE，并导航到下载 Azure Stack 工具时所创建的 **AzureStack-Tools-master** 目录中的 **Registration** 文件夹。 使用 PowerShell 导入 **RegisterWithAzure.psm1** 模块：
 
   ```PowerShell  
   $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -222,11 +223,11 @@ Run: get-azurestackstampinformation
 
 ## <a name="register-disconnected-with-capacity-billing"></a>使用容量计费模型注册断开连接的 Azure Stack
 
-若要在离线环境（未建立 Internet 连接）中注册 Azure Stack，需要从 Azure Stack 环境获取注册令牌，然后在可连接到 Azure 并已[安装适用于 Azure Stack 的 PowerShell](#bkmk_powershell) 的计算机上使用该令牌。  
+若要在离线环境（未建立 Internet 连接）中注册 Azure Stack，需要从 Azure Stack 环境获取注册令牌，然后在可连接到 Azure 并已安装适用于 Azure Stack 的 PowerShell 的计算机上使用该令牌。  
 
 ### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>从 Azure Stack 环境获取注册令牌
 
-1. 以管理员身份启动 PowerShell ISE，并导航到[下载 Azure Stack 工具](#bkmk_tools)时所创建的 **AzureStack-Tools-master** 目录中的 **Registration** 文件夹。 导入 **RegisterWithAzure.psm1** 模块：  
+1. 以管理员身份启动 PowerShell ISE，并导航到下载 Azure Stack 工具时所创建的 **AzureStack-Tools-master** 目录中的 **Registration** 文件夹。 导入 **RegisterWithAzure.psm1** 模块：  
 
    ```PowerShell  
    Import-Module .\RegisterWithAzure.psm1
@@ -304,9 +305,26 @@ Run: get-azurestackstampinformation
 
 2. 在“仪表板”中，选择“区域管理”。
 
+3. 选择“属性”。 此边栏选项卡显示环境的状态和详细信息。 状态可能是“已注册”，也可能是“未注册”。
+
     [ ![“区域管理”磁贴](media/azure-stack-registration/admin1sm.png "“区域管理”磁贴") ](media/azure-stack-registration/admin1.png#lightbox)
 
-3. 选择“属性”。 此边栏选项卡显示环境的状态和详细信息。 状态可能是“已注册”，也可能是“未注册”。 如果是已注册，则还会显示用于注册 Azure Stack 的 Azure 订阅 ID，以及注册资源组和名称。
+    如果已注册，则属性包括：
+    
+    - **注册订阅 ID**：已注册并与 Azure Stack 关联的 Azure 订阅 ID
+    - **注册资源组**：包含 Azure Stack 资源的关联订阅中的 Azure 资源组。
+
+4. 使用 Azure 门户查看 Azure Stack 应用注册。 使用已关联到用于注册 Azure Stack 的订阅的帐户登录到 Azure 门户。 切换到与 Azure Stack 关联的租户。
+5. 导航到“Azure Active Directory”>“应用注册”>“查看所有应用程序”。
+
+    ![应用注册](media/azure-stack-registration/app-registrations.png)
+
+    Azure Stack 应用注册带有 **Azure Stack** 前缀。
+
+或者，可以使用“市场管理”功能来验证注册是否成功。 如果在“市场管理”边栏选项卡中看到市场项列表，即表示注册成功。 但是，在离线环境中，无法在“市场管理”中看到市场项。 不过，可以使用脱机工具来验证注册。
+
+> [!NOTE]
+> 完成注册后，将不再显示提示未注册的活动警告。 在离线场景中，即使注册成功，“市场管理”中也仍会显示一条消息，要求你注册并激活 Azure Stack。
 
 ## <a name="renew-or-change-registration"></a>续订或更改注册
 
@@ -436,11 +454,11 @@ Run: get-azurestackstampinformation
 | MarketplaceSyndicationEnabled | True/False | 确定市场管理功能在门户中是否可用。 如果通过 Internet 连接进行注册，请设置为 true。 如果在断开连接的环境中进行注册，请设置为 false。 对于断开连接的注册，可以使用[脱机联合工具](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario)下载市场项。 |
 | UsageReportingEnabled | True/False | 默认情况下，Azure Stack 报告使用情况指标。 使用容量或支持断开连接的环境的操作员需关闭使用情况报告功能。 此参数允许的值为：True、False。 |
 | AgreementNumber | String |  |
-| RegistrationName | String | 如果在多个使用同一 Azure 订阅 ID 的 Azure Stack 实例上运行注册脚本，请为注册设置唯一名称。 参数的默认值为 **AzureStackRegistration**。 但是，如果在多个 Azure Stack 实例上使用同一名称，脚本会失败。 |
+| RegistrationName | String | 如果在多个使用同一 Azure 订阅 ID 的 Azure Stack 实例上运行注册脚本，请为注册设置唯一名称。 参数的默认值为 **AzureStackRegistration**。 但是，如果在多个 Azure Stack 实例上使用同一名称，该脚本将会失败。 |
 
 ### <a name="get-azsregistrationtoken"></a>Get-AzsRegistrationToken
 
-Get-AzsRegistrationToken 会根据输入参数生成注册令牌。
+Get-AzsRegistrationToken 根据输入参数生成注册令牌。
 
 ```PowerShell  
     Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedEndpoint] <String>

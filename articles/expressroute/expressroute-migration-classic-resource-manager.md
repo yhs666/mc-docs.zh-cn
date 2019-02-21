@@ -1,5 +1,5 @@
 ---
-title: 将 ExpressRoute 关联的虚拟网络从经典部署模型迁移到 Resource Manager 部署模型：Azure：PowerShell | Azure
+title: 将 ExpressRoute 关联的虚拟网络从经典部署模型迁移到资源管理器部署模型：Azure：PowerShell | Azure
 description: 本页介绍如何在移动线路后将关联的虚拟网络迁移到 Resource Manager 部署模型。
 documentationcenter: na
 services: expressroute
@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 origin.date: 07/06/2017
 ms.author: v-yiso
 ms.date: ''
-ms.openlocfilehash: 8007a9136c95de0d38e2866b4b551618556abb14
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6ae57db7a43a3d19ddd28e37daf5ebbe4ce899be
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646117"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56303068"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>将 ExpressRoute 关联的虚拟网络从经典部署模型迁移到 Resource Manager 部署模型
 
-本文介绍如何在移动 ExpressRoute 线路后，将 Azure ExpressRoute 关联的虚拟网络从经典部署模型迁移到 Azure Resource Manager 部署模型。 
+本文介绍如何在移动 ExpressRoute 线路后将 ExpressRoute 关联的虚拟网络从经典部署模型迁移到 Azure 资源管理器部署模型。 
 
 
 ## <a name="before-you-begin"></a>准备阶段
@@ -38,7 +38,7 @@ ms.locfileid: "52646117"
 
     * [平台支持的从经典部署模型到 Azure Resource Manager 的 IaaS 资源迁移](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
     * [有关平台支持的从经典部署模型到 Azure Resource Manager 部署模型的迁移的技术深入探讨](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
-    * [常见问题解答：平台支持的从经典部署模型到 Azure Resource Manager 部署模型的 IaaS 资源迁移](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
+    * [常见问题解答：平台支持的从经典部署模型到 Azure 资源管理器的 IaaS 资源迁移](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
     * [查看最常见的迁移错误和缓解措施](../virtual-machines/windows/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="supported-and-unsupported-scenarios"></a>支持的和不支持的方案
@@ -90,7 +90,7 @@ ms.locfileid: "52646117"
 ## <a name="next-steps"></a>后续步骤
 * [平台支持的从经典部署模型到 Azure 资源管理器的 IaaS 资源迁移](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
 * [有关平台支持的从经典部署模型到 Azure Resource Manager 部署模型的迁移的技术深入探讨](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
-* [常见问题解答：平台支持的从经典部署模型到 Azure Resource Manager 部署模型的 IaaS 资源迁移](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
+* [常见问题解答：平台支持的从经典部署模型到 Azure 资源管理器的 IaaS 资源迁移](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
 * [查看最常见的迁移错误和缓解措施](../virtual-machines/windows/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 

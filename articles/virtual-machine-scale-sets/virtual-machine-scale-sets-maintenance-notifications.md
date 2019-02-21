@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/09/2018
-ms.date: 09/07/2018
+ms.date: 02/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: c348d37e8df351d447a9607f51d6005a97a520f2
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b515717eb04551ef050d15bb10eccd52e6e6851b
+ms.sourcegitcommit: 24dd5964eafbe8aa4badbca837c2a1a7836f2df7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652349"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56101606"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>虚拟机规模集的计划内维护通知
+
 
 Azure 定期执行更新，以提高虚拟机 (VM) 的主机基础结构的可靠性、性能及安全性。 更新可能包括修补托管环境或升级以及解除硬件授权。 大多数更新不影响托管的 VM。 但是在以下情况下，更新会影响 VM：
 
@@ -39,10 +40,8 @@ Azure 定期执行更新，以提高虚拟机 (VM) 的主机基础结构的可�
 
 设置这两个时段的目的是，在了解 Azure 何时将自动启动维护时，提供足够的时间来启动维护和重新启动 VM。
 
-
 可以使用 Azure 门户、PowerShell、REST API 和 Azure CLI 查询虚拟机规模集 VM 的维护时段并启动自助维护。
 
-  
 ## <a name="should-you-start-maintenance-during-the-self-service-window"></a>是否应在自助时段启动维护？  
 
 以下指南可帮助你决定是否在所选时间启动维护。
@@ -102,9 +101,9 @@ Azure 通过向订阅所有者和共有者组发送电子邮件来传达计划�
 2. 在左侧菜单中，选择“监视”。 
 3. 在“监视 - 警报(经典)”窗格中，选择“+添加活动日志警报”。
 4. 在“添加活动日志警报”页面中，选择或输入要求的信息。 在“条件”中，确保设置以下值：
-   - 事件类别：选择“服务运行状况”。
-   - 服务：选择“虚拟机规模集和虚拟机”。
-   - 类型：选择“计划内维护”。 
+   - **事件类别**：选择“服务运行状况”。
+   - **服务**：选择“虚拟机规模集和虚拟机”。
+   - **类型**：选择“计划内维护”。 
     
 要详细了解如何配置活动日志警报，请参阅[创建活动日志警报](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md)
     
@@ -119,12 +118,12 @@ Azure 通过向订阅所有者和共有者组发送电子邮件来传达计划�
  
 ## <a name="check-maintenance-status-by-using-powershell"></a>使用 PowerShell 查看维护状态
 
-可以使用 Azure PowerShell 查看虚拟机规模集中的 VM 计划何时维护。 使用 `-InstanceView` 参数时可通过 [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss) cmdlet 获得计划内维护信息。
+可以使用 Azure PowerShell 查看虚拟机规模集中的 VM 计划何时维护。 使用 `-InstanceView` 参数时可通过使用 [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) cmdlet 获得计划内维护信息。
  
 仅当有计划内维护时，才会返回维护信息。 如果未计划影响 VM 实例的维护，则 cmdlet 不会返回任何维护信息。 
 
 ```powershell
-Get-AzureRmVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -InstanceView
+Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -InstanceView
 ```
 
 在 MaintenanceRedeployStatus 下返回以下属性： 
@@ -141,10 +140,10 @@ Get-AzureRmVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId i
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-powershell"></a>使用 PowerShell 在 VM 实例上启动维护
 
-如果 IsCustomerInitiatedMaintenanceAllowed 设置为 true，则可以在 VM 上启动维护。 请使用含 `-PerformMaintenance` 参数的 [Set-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmss) cmdlet。
+如果 IsCustomerInitiatedMaintenanceAllowed 设置为 true，则可以在 VM 上启动维护。 使用含 `-PerformMaintenance` 参数的 [Set-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/set-azvmss) cmdlet。
 
 ```powershell
-Set-AzureRmVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -PerformMaintenance 
+Set-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -PerformMaintenance 
 ```
 
 ## <a name="check-maintenance-status-by-using-the-cli"></a>使用 CLI 查看维护状态
@@ -223,4 +222,4 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 
 了解如何使用[计划事件](../virtual-machines/windows/scheduled-events.md)从 VM 内注册维护事件。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

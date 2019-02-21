@@ -2,7 +2,6 @@
 title: 快速入门 - 使用 Azure 门户创建流量管理器配置文件以确保应用程序的高度可用性
 description: 本快速入门文章介绍如何创建流量管理器配置文件，以便生成高度可用的 Web 应用程序。
 services: traffic-manager
-documentationcenter: ''
 author: rockboyfor
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
@@ -11,14 +10,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/28/2018
-ms.date: 01/21/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 09486461e39dcd758afc45037109d26d5fccfdea
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: 6c0d8ca561c16dd0427e38a3f3b19cc479d5f922
+ms.sourcegitcommit: e32c8da268002b94c500131bb361fd6afc85ce9f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193046"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306720"
 ---
 <!--Verify successfully-->
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application"></a>快速入门：为高度可用的 Web 应用程序创建流量管理器配置文件
@@ -37,7 +36,8 @@ ms.locfileid: "54193046"
 
 本快速入门需要两个部署在两个不同的 Azure 区域（中国东部和中国北部）的 Web 应用程序实例。 每个都可以充当流量管理器的主终结点和故障转移终结点。
 
-1. 在屏幕的左上方，选择“创建资源” > “Web” > “Web 应用”。
+1. 在屏幕的左上方，选择“创建资源” > “Web + 移动” > “Web 应用”。
+    <!--MOONCAKE: Customize-->
 2. 在“Web 应用”中，输入或选择以下设置：
 
     | 设置 | 值 |
@@ -47,6 +47,7 @@ ms.locfileid: "54193046"
     | 资源组 | 选择“新建”，然后输入 *myResourceGroupTM1*。 |
 
     <!--Not Available on OS--> <!--Not Available on Publish-->
+    
 3. 选择“应用服务计划/位置”。
 4. 在“应用服务计划”中，选择“新建”。
 5. 在“应用服务计划”中，输入或选择以下设置：
@@ -67,11 +68,12 @@ ms.locfileid: "54193046"
     | 名称 | 输入 Web 应用的唯一名称。 |
     | 订阅 | 选择要将 Web 应用应用到其中的订阅。 |
     | 资源组 | 选择“新建”，然后输入 *myResourceGroupTM2*。 |
-    | 应用服务计划/位置 | 输入 *myAppServicePlanWestEurope*。 |
+    | 应用服务计划/位置 | 输入 *myAppServicePlanChinaNorth*。 |
     | 位置 | 中国北部 |
     | 定价层 | S1 标准 |
     
     <!--Not Available on OS--> <!--Not Available on Publish-->
+    
 ## <a name="create-a-traffic-manager-profile"></a>创建流量管理器配置文件
 
 创建根据终结点优先级定向用户流量的流量管理器配置文件。

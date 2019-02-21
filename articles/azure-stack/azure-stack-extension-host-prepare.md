@@ -5,22 +5,23 @@ services: azure-stack
 keywords: ''
 author: WenJason
 ms.author: v-jay
-origin.date: 11/27/2018
-ms.date: 12/31/2018
+origin.date: 02/07/2019
+ms.date: 02/18/2019
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: digimobile
-ms.openlocfilehash: aefc44300250c72b45adebe9a48d8b9a8f7d67e8
-ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
+ms.lastreviewed: 01/25/2019
+ms.openlocfilehash: b91b2041daea68e9d776896bed4a3aeb71f56306
+ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814619"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56218268"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>为 Azure Stack 准备扩展主机
 
-扩展主机通过减少所需的 TCP/IP 端口数来保护 Azure Stack。 本文讨论了为 Azure Stack 准备扩展主机，扩展主机是通过 1808 更新之后的一个 Azure Stack 更新程序包自动启用的。
+扩展主机通过减少所需的 TCP/IP 端口数来保护 Azure Stack。 本文讨论了为 Azure Stack 准备扩展主机，扩展主机是通过 1808 更新之后的一个 Azure Stack 更新程序包自动启用的。 本文适用于 Azure Stack 更新 1808、1809 和 1811。
 
 ## <a name="certificate-requirements"></a>证书要求
 
@@ -141,14 +142,53 @@ Azure Stack 就绪性检查器工具能够为两个新的必需 SSL 证书创建
 
 ### <a name="publish-new-endpoints"></a>发布新的终结点
 
-需要通过防火墙发布两个新的终结点。 可以使用 cmdlet **Get-AzureStackStampInformation** 从公共 VIP 池检索已分配的 IP。
+需要通过防火墙发布两个新的终结点。 可以使用以下代码从公共 VIP 池检索已分配的 IP，该代码必须通过 Azure Stack [环境的特权终结点](/azure-stack/azure-stack-privileged-endpoint)运行。
+
+```PowerShell
+# Create a PEP Session
+winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
+$PEPCreds = Get-Credential
+$PEPSession = New-PSSession -ComputerName <IpOfERCSMachine> -Credential $PEPCreds -ConfigurationName "PrivilegedEndpoint"
+
+# Obtain DNS Servers and Extension Host information from Azure Stack Stamp Information and find the IPs for the Host Extension Endpoints
+$StampInformation = Invoke-Command $PEPSession {Get-AzureStackStampInformation} | Select-Object -Property ExternalDNSIPAddress01, ExternalDNSIPAddress02, @{n="TenantHosting";e={($_.TenantExternalEndpoints.TenantHosting) -replace "https://*.","testdnsentry"-replace "/"}},  @{n="AdminHosting";e={($_.AdminExternalEndpoints.AdminHosting)-replace "https://*.","testdnsentry"-replace "/"}},@{n="TenantHostingDNS";e={($_.TenantExternalEndpoints.TenantHosting) -replace "https://",""-replace "/"}},  @{n="AdminHostingDNS";e={($_.AdminExternalEndpoints.AdminHosting)-replace "https://",""-replace "/"}}
+If (Resolve-DnsName -Server $StampInformation.ExternalDNSIPAddress01 -Name $StampInformation.TenantHosting -ErrorAction SilentlyContinue) {
+    Write-Host "Can access AZS DNS" -ForegroundColor Green
+    $AdminIP = (Resolve-DnsName -Server $StampInformation.ExternalDNSIPAddress02 -Name $StampInformation.AdminHosting).IPAddress
+    Write-Host "The IP for the Admin Extension Host is: $($StampInformation.AdminHostingDNS) - is: $($AdminIP)" -ForegroundColor Yellow
+    Write-Host "The Record to be added in the DNS zone: Type A, Name: $($StampInformation.AdminHostingDNS), Value: $($AdminIP)" -ForegroundColor Green
+    $TenantIP = (Resolve-DnsName -Server $StampInformation.ExternalDNSIPAddress01 -Name $StampInformation.TenantHosting).IPAddress
+    Write-Host "The IP address for the Tenant Extension Host is $($StampInformation.TenantHostingDNS) - is: $($TenantIP)" -ForegroundColor Yellow
+    Write-Host "The Record to be added in the DNS zone: Type A, Name: $($StampInformation.TenantHostingDNS), Value: $($TenantIP)" -ForegroundColor Green
+}
+Else {
+    Write-Host "Cannot access AZS DNS" -ForegroundColor Yellow
+    $AdminIP = (Resolve-DnsName -Name $StampInformation.AdminHosting).IPAddress
+    Write-Host "The IP for the Admin Extension Host is: $($StampInformation.AdminHostingDNS) - is: $($AdminIP)" -ForegroundColor Yellow
+    Write-Host "The Record to be added in the DNS zone: Type A, Name: $($StampInformation.AdminHostingDNS), Value: $($AdminIP)" -ForegroundColor Green
+    $TenantIP = (Resolve-DnsName -Name $StampInformation.TenantHosting).IPAddress
+    Write-Host "The IP address for the Tenant Extension Host is $($StampInformation.TenantHostingDNS) - is: $($TenantIP)" -ForegroundColor Yellow
+    Write-Host "The Record to be added in the DNS zone: Type A, Name: $($StampInformation.TenantHostingDNS), Value: $($TenantIP)" -ForegroundColor Green
+}
+Remove-PSSession -Session $PEPSession
+```
+
+#### <a name="sample-output"></a>示例输出
+
+```PowerShell
+Can access AZS DNS
+The IP for the Admin Extension Host is: *.adminhosting.\<region>.\<fqdn> - is: xxx.xxx.xxx.xxx
+The Record to be added in the DNS zone: Type A, Name: *.adminhosting.\<region>.\<fqdn>, Value: xxx.xxx.xxx.xxx
+The IP address for the Tenant Extension Host is *.hosting.\<region>.\<fqdn> - is: xxx.xxx.xxx.xxx
+The Record to be added in the DNS zone: Type A, Name: *.hosting.\<region>.\<fqdn>, Value: xxx.xxx.xxx.xxx
+```
 
 > [!Note]  
 > 请在启用扩展主机前进行此更改。 这使得 Azure Stack 门户持续可访问。
 
 | 终结点 (VIP) | 协议 | 端口 |
 |----------------|----------|-------|
-| AdminHosting | HTTPS | 443 |
+| 管理员托管 | HTTPS | 443 |
 | Hosting | HTTPS | 443 |
 
 ### <a name="update-existing-publishing-rules-post-enablement-of-extension-host"></a>更新现有的发布规则（在启用扩展主机后）
@@ -163,8 +203,8 @@ Azure Stack 就绪性检查器工具能够为两个新的必需 SSL 证书创建
 
 | 终结点 (VIP) | 协议 | 端口 |
 |----------------------------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------|
-| 门户（管理员） | HTTPS | 12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13020<br>13021<br>13026<br>30015 |
-| 门户（用户） | HTTPS | 12495<br>12649<br>13001<br>13010<br>13011<br>13020<br>13021<br>30015<br>13003 |
+| 门户（管理员） | HTTPS | 12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13012<br>13020<br>13021<br>13026<br>30015 |
+| 门户（用户） | HTTPS | 12495<br>12649<br>13001<br>13010<br>13011<br>13012<br>13020<br>13021<br>30015<br>13003 |
 | Azure 资源管理器（管理员） | HTTPS | 30024 |
 | Azure 资源管理器（用户） | HTTPS | 30024 |
 

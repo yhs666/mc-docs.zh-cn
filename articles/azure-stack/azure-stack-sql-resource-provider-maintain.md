@@ -11,16 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/16/2018
-ms.date: 12/17/2018
+origin.date: 01/11/2019
+ms.date: 02/18/2019
 ms.author: v-jay
-ms.reviewer: quying
-ms.openlocfilehash: b984fd89fb9a8cba33981e889c3432a0ade5bdfa
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.reviewer: jiahan
+ms.lastreviewed: 01/11/2019
+ms.openlocfilehash: db412b2672943fae90b65e87b1f67fb796bd4ae8
+ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396167"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56218300"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL 资源提供程序维护操作
 
@@ -33,16 +34,6 @@ SQL 资源提供程序在锁定的虚拟机上运行。 若要启用维护操作
 ### <a name="provider-virtual-machine"></a>提供程序虚拟机
 
 由于资源提供程序在用户虚拟机上运行，因此需要应用已发布的修补升级。 可以使用修补升级周期提供的 Windows 更新包将更新应用到 VM。
-
-## <a name="backuprestoredisaster-recovery"></a>备份/还原/灾难恢复
-
- 由于 SQL 资源提供程序是一个加载项组件，在 Azure Stack 业务连续性灾难恢复 (BCDR) 过程中不会备份它。 Microsoft 将提供以下操作的脚本：
-
-- 备份状态信息（存储在 Azure Stack 存储帐户中）。
-- 还原资源提供程序（如果需要完整堆栈恢复）。
-
->[!NOTE]
->如果需要执行恢复，则必须在还原资源提供程序之前恢复数据库服务器。
 
 ## <a name="updating-sql-credentials"></a>更新 SQL 凭据
 

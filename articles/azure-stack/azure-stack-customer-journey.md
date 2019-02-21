@@ -13,21 +13,22 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/10/2018
-ms.date: 12/31/2018
+ms.date: 02/18/2019
 ms.author: v-jay
 ms.reviewer: asganesh
-ms.openlocfilehash: 65dc72114a1057cc0557e9109622140be98e8f6f
-ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
+ms.lastreviewed: 12/10/2018
+ms.openlocfilehash: c371376177d509c443d7846688bb73985a79408b
+ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814678"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56218257"
 ---
-# <a name="azure-stack-customer-journey"></a>Azure Stack 客户旅程
+# <a name="azure-stack-datacenter-integration"></a>Azure Stack 数据中心集成
 
-本文介绍从客户采购集成式解决方案，到解决方案提供商成功完成现场部署的端到端 Azure Stack 客户体验。 使用此信息可以简化旅程，并帮助 Azure Stack 客户制定在将 Azure Stack 集成到数据中心后预期产生的效果。
+本文介绍从采购集成的系统到解决方案提供商成功完成现场部署在内的端到端 Azure Stack 客户体验。 使用此信息可以简化旅程，并帮助 Azure Stack 客户设置预期。
 
-Azure Stack 客户应该对以下数据中心集成阶段做好准备：
+Azure Stack 客户应该为以下阶段做好准备：
 
 |     |规划阶段|订单处理|部署前|工厂处理|硬件交付|现场部署|
 |-----|-----|-----|-----|-----|-----|-----|
@@ -63,7 +64,7 @@ Azure Stack 客户应该对以下数据中心集成阶段做好准备：
 [一般数据中心集成注意事项](azure-stack-datacenter-integration.md)一文提供的信息可帮助你完成该模板（名为“部署工作表”）。 
 
 > [!IMPORTANT]
-> 在此阶段，必须先调查并确定所有必要信息，然后再订购解决方案。 请注意，此步骤相当耗时，需要与组织中的多个专业单位协调，并从中收集数据。 
+> 在此阶段，必须先调查并确定所有必要信息，然后再订购解决方案。 请注意，此步骤相当耗时，需要与组织中的多个专业单位协调，并从中收集数据。 信息不正确或不完整可能导致部署时间延长。 
 
 在部署前的阶段，需要确定以下事宜：
 
@@ -90,7 +91,7 @@ Azure Stack 客户应该对以下数据中心集成阶段做好准备：
 
 -   必须购买并准备好所有证书。
 
--   必须确定域名。
+-   必须确定区域名。
 
 -   所有网络集成参数都已确认，且符合你向解决方案提供商提出的要求。
 
@@ -102,16 +103,16 @@ Azure Stack 客户应该对以下数据中心集成阶段做好准备：
 
 下面是在部署体验期间，现场工程师应执行的操作：
 
-- 检查所有布线和边界连接，确保解决方案正确定位在一起，且符合要求
-- 配置解决方案的 HLH（硬件生命周期主机）
+- 检查所有布线和边界连接，确保解决方案正确定位在一起，且符合要求。
+- 配置解决方案的 HLH（硬件生命周期主机，如果存在的话）。
 - 检查并确保所有 BMC、BIOS 和网络设置正确。
-- 确保所有组件的固件使用解决方案批准的最新版本
-- 开始部署
+- 确保所有组件的固件使用解决方案批准的最新版本。
+- 开始部署。
 
 > [!NOTE]
 > 现场工程师可能需要一个工作周的时间来完成部署过程。
 
-## <a name="post-integration-phase"></a>集成后的阶段
+## <a name="post-deployment-phase"></a>部署后阶段
 在集成后的阶段，合作伙伴必须先执行几个步骤，然后才能将解决方案移交给客户。 在此阶段，验证非常重要，它可以确保系统部署正确且运行正常。 
 
 OEM 合作伙伴应执行的操作包括：
@@ -122,7 +123,7 @@ OEM 合作伙伴应执行的操作包括：
 
 -   [市场联合](azure-stack-download-azure-marketplace-item.md#use-the-marketplace-syndication-tool-to-download-marketplace-items)
 
--   备份交换机配置文件
+-   备份交换机配置文件和 HLH 配置文件
 
 -   去除 DVM
 

@@ -4,24 +4,24 @@ description: 介绍如何在 Azure AD Connect 同步中配置筛选。
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 880facf6-1192-40e9-8181-544c0759d506
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 07/12/2017
-ms.date: 11/09/2018
-ms.component: hybrid
+ms.date: 02/13/2019
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 53bd4c7ca4a51e2f3fd8e66f017d44b5236f09b6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 33ceaa4d5c3a912a2e36fc162b15782f5890d684
+ms.sourcegitcommit: 3f266322470d2a3f8fdd4682e854f833466701af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656559"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56222706"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect 同步：配置筛选
 使用筛选功能可以控制本地目录中的哪些对象应该出现在 Azure Active Directory (Azure AD) 中。 默认配置采用配置的林中所有域内的所有对象。 我们一般建议使用这种配置。 使用 Exchange Online 和 Skype for Business 等 Office 365 工作负荷的用户将受益于完整的全局地址列表，因为这样可以发送电子邮件和呼叫每个联系人。 使用默认配置时，用户获得的体验与使用 Exchange 或 Lync 的本地实现获得的相同。
@@ -78,10 +78,10 @@ Azure AD Connect 只删除其曾经认为在范围中的对象。 如果 Azure A
 ## <a name="filtering-options"></a>筛选选项
 可将以下筛选配置类型应用到目录同步工具：
 
-- [基于组](#group-based-filtering)：初始安装时只能使用安装向导配置基于单个组的筛选。
-- [基于域](#domain-based-filtering)：使用此选项可以选择要将哪些域同步到 Azure AD。 在安装 Azure AD Connect 同步之后对本地基础结构进行更改时，还可以在同步引擎配置中添加和删除域。
-- [基于组织单位 (OU)](#organizational-unitbased-filtering)：使用此选项可以选择要将哪些 OU 同步到 Azure AD。 此选项适用于所选 OU 中的所有对象类型。
-- [基于属性](#attribute-based-filtering)：使用此选项即可根据对象属性值筛选对象。 也可以对不同的对象类型使用不同的筛选器。
+- [**基于组**](#group-based-filtering)：只能在初始安装时使用安装向导配置基于单个组的筛选。
+- [**基于域**](#domain-based-filtering)：使用此选项，可以选择要同步到 Azure AD 的域。 在安装 Azure AD Connect 同步之后对本地基础结构进行更改时，还可以在同步引擎配置中添加和删除域。
+- [**基于组织单位 (OU)**](#organizational-unitbased-filtering)：使用此选项，可以选择要同步到 Azure AD 的 OU。 此选项适用于所选 OU 中的所有对象类型。
+- [**基于属性**](#attribute-based-filtering)：使用此选项，可以根据对象属性值筛选对象。 也可以对不同的对象类型使用不同的筛选器。
 
 可以同时使用多个筛选选项。 例如，可以使用基于 OU 的筛选以便只包含某个 OU 中的对象。 同时，可以使用基于属性的筛选进一步筛选这些对象。 使用多个筛选方法时，筛选器之间使用逻辑“AND”。
 
@@ -94,8 +94,8 @@ Azure AD Connect 只删除其曾经认为在范围中的对象。 如果 Azure A
 
 基于域的筛选配置包括以下步骤：
 
-1. [选择想要包含在同步操作中的域](#select-domains-to-be-synchronized) 。
-2. 针对添加和删除的每个域，请调整 [运行配置文件](#update-run-profiles)。
+1. 选择想要包含在同步操作中的域。
+2. 针对添加和删除的每个域，请调整运行配置文件。
 3. [应用并验证更改](#apply-and-verify-changes)。
 
 ### 选择要同步的域 <a name="select-domains-to-be-synchronized"></a>
@@ -111,7 +111,7 @@ Azure AD Connect 只删除其曾经认为在范围中的对象。 如果 Azure A
    如果更改了本地 Active Directory 基础结构并在林中添加或删除了域，请单击“刷新”按钮以获取更新的列表。 刷新时，系统将要求提供凭据。 请提供具有 Windows Server Active Directory 读取权限的任何凭据。 不一定要使用对话框中预先填充的用户。  
    ![需要刷新](./media/how-to-connect-sync-configure-filtering/refreshneeded.png)  
 6. 完成后，请单击“确定”关闭“属性”对话框。 如果在林中删除了域，屏幕上会弹出消息，指出已删除域且将清除配置。
-7. 继续调整 [运行配置文件](#update-run-profiles)。
+7. 继续调整运行配置文件。
 
 ### 更新运行配置文件 <a name="update-run-profiles"></a>
 如果已修改域筛选器，则还需要更新运行配置文件。
@@ -157,7 +157,6 @@ Azure AD Connect 只删除其曾经认为在范围中的对象。 如果 Azure A
    ![“选择容器”对话框中的 OU](./media/how-to-connect-sync-configure-filtering/ou.png)  
    - 应选择“计算机”容器，这样 Windows 10 计算机才能成功同步到 Azure AD。 如果已加入域的计算机位于其他 OU，请确保已选择这些计算机。
    - 如果有多个信任的林，则应选择 **ForeignSecurityPrincipals** 容器。 使用此容器可以解析跨林安全组成员身份。
-   - 如果已启用设备写回功能，则应选择 **RegisteredDevices** OU。 如果使用另一种写回功能，例如组写回，请确保已选择这些位置。
    - 选择用户、iNetOrgPersons、组、联系人和计算机所在位置的其他 OU。 在上图中，这些 OU 全都位于 ManagedObjects OU 中。
    - 如果使用基于组的筛选，必须包含该组所在的 OU。
    - 请注意，可以配置在完成筛选配置后添加的新 OU 是否应该同步。 有关详细信息，请参阅下一节。
@@ -186,6 +185,9 @@ Azure AD Connect 安装向导始终创建此配置。
 
 ## <a name="attribute-based-filtering"></a>基于属性的筛选
 为了正常执行这些步骤，请确保使用 2015 年 11 月 ([1.0.9125](reference-connect-version-history.md#1091250)) 或更高版本。
+
+> [!IMPORTANT]
+>Microsoft 建议不要修改由 **Azure AD Connect** 创建的默认规则。 如果想要修改规则，请克隆它，然后禁用原始规则。 对克隆的规则进行任何更改。 请注意，这样做（禁用原始规则）会丢失通过该规则启用的任何 bug 修复或功能。
 
 基于属性的筛选是最灵活的对象筛选方式。 将对象同步到 Azure AD 时，可以使用[声明性预配](concept-azure-ad-connect-sync-declarative-provisioning.md)功能来控制几乎每个方面的问题。
 
@@ -312,3 +314,4 @@ Azure AD Connect 安装向导始终创建此配置。
 - 了解有关 [Azure AD Connect 同步](how-to-connect-sync-whatis.md)配置的详细信息。
 - 了解有关[将本地标识与 Azure AD 集成](whatis-hybrid-identity.md)的详细信息。
 
+<!-- Update_Description: wording update -->

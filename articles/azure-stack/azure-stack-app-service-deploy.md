@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/29/2018
-ms.date: 12/31/2018
+origin.date: 01/11/2019
+ms.date: 02/18/2019
 ms.author: v-jay
-ms.openlocfilehash: bac9c01cb93d1a3db5e6cb9b95760fe65a0adf81
-ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
+ms.lastreviewed: 01/11/2019
+ms.openlocfilehash: 1e26feda7a3dab1eb73a87e9f8ae8808ea3f4384
+ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814650"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56218292"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>将应用服务资源提供程序添加到 Azure Stack
 
@@ -47,6 +48,9 @@ ms.locfileid: "53814650"
  - 为应用服务中创建 DNS 区域和条目。
  - 注册应用服务资源提供程序。
  - 注册应用服务库项。
+
+ > [!IMPORTANT]
+ > 在部署资源提供程序之前，请查看发行说明，了解新功能、修补程序以及任何可能影响部署的已知问题。
 
 若要部署应用服务资源提供程序，请执行以下步骤：
 
@@ -262,7 +266,7 @@ ms.locfileid: "53814650"
 
 <!--Links-->
 [Azure_Stack_App_Service_preview_installer]: /sql-database/sql-vulnerability-assessment
-[App_Service_Deployment]: http://go.microsoft.com/fwlink/?LinkId=723982
+[App_Service_Deployment]: https://go.microsoft.com/fwlink/?LinkId=723982
 [AppServiceHelperScripts]: /sql-database/sql-vulnerability-assessment
 
 <!--Image references-->

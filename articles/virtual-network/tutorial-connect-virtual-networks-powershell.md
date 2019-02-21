@@ -15,15 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 03/13/2018
-ms.date: 06/11/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: d2b1041b76aa3538df0cefd56da4dcb6740db8fb
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 9ca4e70173f10533de3d3433cc9971474709d187
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675624"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306086"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>通过 PowerShell 使用虚拟网络对等互连连接虚拟网络
 
@@ -36,9 +36,9 @@ ms.locfileid: "52675624"
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-<!--[!INCLUDE [cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)-->
+<!--[!INCLUDE [cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]-->
 
-如果选择在本地安装并使用 PowerShell，则本文需要 Azure PowerShell 模块 5.4.1 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud ` 以创建与 Azure 的连接。 
+如果选择在本地安装并使用 PowerShell，则本文需要 Azure PowerShell 模块 5.4.1 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。 
 
 ## <a name="create-virtual-networks"></a>创建虚拟网络
 
@@ -207,18 +207,12 @@ ping 10.0.0.4
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
 
-<!--Pending on feature of AllowGlobalVnetPeering -->
-<!--Not Avaiable on  Register-AzureRmProviderFeature -FeatureName AllowGlobalVnetPeering -ProviderNamespace Microsoft.Network -->
-<!-- Global site remove the register contents -->
-<!--Pending on feature of AllowGlobalVnetPeering -->
-<!--Not Avaiable on  Register-AzureRmProviderFeature -FeatureName AllowGlobalVnetPeering -ProviderNamespace Microsoft.Network -->
-
 ## <a name="next-steps"></a>后续步骤
 
-在本文中，你已学习了如何使用虚拟网络对等互连来连接同一 Azure 区域中的两个网络。 还可以将[不同的 Azure 订阅](create-peering-different-subscriptions.md#powershell)中的虚拟网络对等互连。 若要详细了解虚拟网络对等互连，请参阅[虚拟网络对等互连概述](virtual-network-peering-overview.md)和[管理虚拟网络对等互连](virtual-network-manage-peering.md)。
+在本文中，你已学习了如何使用虚拟网络对等互连来连接同一 Azure 区域中的两个网络。 还可以将不同的[受支持区域](virtual-network-manage-peering.md#cross-region)和[不同的 Azure 订阅](create-peering-different-subscriptions.md#powershell)中的虚拟网络对等互连。 若要详细了解虚拟网络对等互连，请参阅[虚拟网络对等互连概述](virtual-network-peering-overview.md)和[管理虚拟网络对等互连](virtual-network-manage-peering.md)。
 
-<!-- Not Available on in different [supported regions](virtual-network-manage-peering.md#cross-region)-->
 <!-- Not Available on [hub and spoke network designs](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json#vnet-peering)-->
 
 可以通过 VPN [将自己的计算机连接到虚拟网络](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md?toc=%2fvirtual-network%2ftoc.json)，并可与虚拟网络或对等虚拟网络中的资源进行交互。 有关用来完成虚拟网络文章中涉及的许多任务的可重用脚本，请参阅[脚本示例](powershell-samples.md)。
-<!-- Update_Description: wording update, update meta properties,update cmdlet -->
+
+<!-- Update_Description: wording update, update meta properties, update cmdlet -->

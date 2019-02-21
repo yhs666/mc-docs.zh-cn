@@ -2,7 +2,7 @@
 title: Azure 云服务定义NetworkTrafficRules 架构 | Microsoft Docs
 ms.custom: ''
 origin.date: 04/14/2015
-ms.date: 11/06/2017
+ms.date: 02/25/2019
 ms.prod: azure
 ms.reviewer: ''
 ms.service: cloud-services
@@ -11,15 +11,15 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 351b369f-365e-46c1-82ce-03fc3655cc88
 caps.latest.revision: 17
-author: thraka
+author: jpconnock
 ms.author: v-yiso
 manager: timlt
-ms.openlocfilehash: ab549970342cd7b74623765351aeabf6dd73c351
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 3cc7ddd2aae63491f16e3dcb84c185474a602dd6
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645472"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302922"
 ---
 # <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Azure 云服务定义 NetworkTrafficRules 架构
 `NetworkTrafficRules` 节点是服务定义文件中的一个可选元素，用于指定角色如何彼此进行通信。 它限制哪些角色可以访问特定角色的内部终结点。 `NetworkTrafficRules` 不是一个独立的元素；它在服务定义文件中与两个或更多角色结合使用。
@@ -82,7 +82,7 @@ ms.locfileid: "52645472"
 | `endpointName` | `string` | 必需。 允许将流量发送到的终结点的名称。|
 | `roleName`     | `string` | 必需。 允许与之进行通信的 web 角色的名称。|
 
-## <a name="allowalltraffic-element"></a>AllowAllTraffic 元素
+##  <a name="AllowAllTraffic"></a> AllowAllTraffic 元素
 `AllowAllTraffic` 元素是一个规则，它允许所有角色与 `Destinations` 节点中定义的终结点进行通信。
 
 ##  <a name="WhenSource"></a> WhenSource 元素

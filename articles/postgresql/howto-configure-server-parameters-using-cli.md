@@ -1,22 +1,19 @@
 ---
 title: 在 Azure Database for PostgreSQL 中配置服务参数
 description: 本文介绍如何使用 Azure CLI 命令行在 Azure Database for PostgreSQL 中配置服务参数。
-services: postgresql
 author: WenJason
 ms.author: v-jay
-manager: digimobile
-editor: jasonwhowell
 ms.service: postgresql
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 origin.date: 02/28/2018
-ms.date: 08/13/2018
-ms.openlocfilehash: a0a9d68376f7e8923bfc4e4823c515122bc42502
-ms.sourcegitcommit: 92503f045267f436cf3ca7fa9e6f1c13be17fb44
+ms.date: 02/18/2019
+ms.openlocfilehash: 834a6d9d3cd7c9e4d6e5f51231d79d5a9ba3a051
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858190"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302977"
 ---
 # <a name="customize-server-configuration-parameters-using-azure-cli"></a>使用 Azure CLI 自定义服务器配置参数
 可以使用命令行接口 (Azure CLI) 列出、显示和更新 Azure PostgreSQL 服务器的配置参数。 会在服务器级别公开引擎配置的一个子集，并且可以进行修改。 
@@ -24,24 +21,24 @@ ms.locfileid: "54858190"
 ## <a name="prerequisites"></a>先决条件
 若要逐步执行本操作方法指南，需要：
 - 按照[创建 Azure Database for PostgreSQL](quickstart-create-server-database-azure-cli.md) 创建 Azure Database for PostgreSQL 服务器和数据库
-- 在计算机上安装 [Azure CLI 2.0](/cli/install-azure-cli) 命令行界面。
+- 在计算机上安装 [Azure CLI](/cli/install-azure-cli) 命令行界面。
 
 ## <a name="list-server-configuration-parameters-for-azure-database-for-postgresql-server"></a>列出 Azure Database for PostgreSQL 服务器的服务器配置参数
-若要列出服务器中的所有可修改参数及其值，请运行 [az postgres server configuration list](/cli/postgres/server/configuration#az_postgres_server_configuration_list) 命令。
+若要列出服务器中的所有可修改参数及其值，请运行 [az postgres server configuration list](/cli/postgres/server/configuration) 命令。
 
 可以列出资源组“myresourcegroup”下服务器 **mydemoserver.postgres.database.chinacloudapi.cn** 的服务器配置参数。
 ```azurecli
 az postgres server configuration list --resource-group myresourcegroup --server mydemoserver
 ```
 ## <a name="show-server-configuration-parameter-details"></a>显示服务器配置参数详细信息
-若要显示服务器的某个特定配置参数的详细信息，请运行 [az postgres server configuration show](/cli/postgres/server/configuration#az_postgres_server_configuration_show) 命令。
+若要显示服务器的某个特定配置参数的详细信息，请运行 [az postgres server configuration show](/cli/postgres/server/configuration) 命令。
 
 本示例显示了资源组“myresourcegroup”下服务器 **mydemoserver.postgres.database.chinacloudapi.cn** 的服务器配置参数 **log\_min\_messages** 的详细信息。
 ```azurecli
 az postgres server configuration show --name log_min_messages --resource-group myresourcegroup --server mydemoserver
 ```
 ## <a name="modify-server-configuration-parameter-value"></a>修改服务器配置参数值
-还可以修改某个服务器配置参数的值，这会更新 PostgreSQL 服务器引擎的基础配置值。 若要更新配置，请使用 [az postgres server configuration set](/cli/postgres/server/configuration#az_postgres_server_configuration_set) 命令。 
+还可以修改某个服务器配置参数的值，这会更新 PostgreSQL 服务器引擎的基础配置值。 若要更新配置，请使用 [az postgres server configuration set](/cli/postgres/server/configuration) 命令。 
 
 更新资源组“myresourcegroup”下服务器 **mydemoserver.postgres.database.chinacloudapi.cn** 的服务器配置参数 **log\_min\_messages**。
 ```azurecli

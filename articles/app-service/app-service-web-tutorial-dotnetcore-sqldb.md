@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 04/11/2018
-ms.date: 01/21/2019
-ms.author: v-yiso
+ms.date: 02/25/2019
+ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 9cb8492a49334d54a0cbd7e8517e4fdd4b63d32e
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: 3ae3120a39893dc12e9eba24b8d8637a4f09999e
+ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906113"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56222588"
 ---
 # <a name="tutorial-build-a-net-core-and-sql-database-app-in-azure-app-service"></a>教程：在 Azure 应用服务中生成 .NET Core 和 SQL 数据库应用
 
@@ -94,7 +94,7 @@ dotnet run
 
 ### <a name="create-a-sql-database-logical-server"></a>创建 SQL 数据库逻辑服务器
 
-使用 [`az sql server create`](/cli/sql/server?view=azure-cli-latest#az_sql_server_create) 命令创建 SQL 数据库逻辑服务器。
+在 CLI 中，使用 [`az sql server create`](/cli/sql/server?view=azure-cli-latest#az_sql_server_create) 命令创建 SQL 数据库逻辑服务器。
 
 将 \<server_name> 占位符替换为唯一的 SQL 数据库名称。 此名称用作 SQL 数据库终结点 `<server_name>.database.chinacloudapi.cn` 的一部分，因此必须在 Azure 的所有逻辑服务器中具有唯一性。 它只能包含小写字母、数字及连字符(-)，长度必须为 3 到 50 个字符。 此外，将 \<db_username> 和 \<db_password> 分别替换为所选用户名和密码。 
 
@@ -179,7 +179,7 @@ az webapp config connection-string set --resource-group myResourceGroup --name <
 
 接下来，将 `ASPNETCORE_ENVIRONMENT` 应用设置设置为_生产_。 由于对本地开发环境使用 SQLite，并对 Azure 环境使用 SQL 数据库，因此通过此设置，你可以了解应用是否正在 Azure 中运行。
 
-下面的示例在 Azure Web 应用中配置 `ASPNETCORE_ENVIRONMENT` 应用设置。 替换 \<app_name> 占位符。
+下面的示例在 Azure 应用中配置 `ASPNETCORE_ENVIRONMENT` 应用设置。 替换 \<app_name> 占位符。
 
 ```azurecli
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"
@@ -360,9 +360,40 @@ git push azure master
 
 所有现有待办事项仍将显示。 重新发布 .NET Core 应用时，SQL 数据库中的现有数据不会丢失。 此外，实体框架核心迁移仅更改数据架构，而使现有数据保持不变。
 
+## <a name="stream-diagnostic-logs"></a>流式传输诊断日志
+
+当 ASP.NET Core 应用在 Azure 应用服务中运行时，可以将控制台日志传输到 CLI。 这样可以获得相同的诊断消息，以帮助调试应用程序错误。
+
+示例项目已遵循了 [Azure 中的 ASP.NET Core 日志记录](https://docs.microsoft.com/aspnet/core/fundamentals/logging#logging-in-azure)中的指南，并且进行了两个配置更改：
+
+- 在 *DotNetCoreSqlDb.csproj* 中包括了对 `Microsoft.Extensions.Logging.AzureAppServices` 的引用。
+- 在 *Startup.cs* 中调用了 `loggerFactory.AddAzureWebAppDiagnostics()`。
+
+若要将应用服务中的 ASP.NET Core [日志级别](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-level)从默认级别 `Warning` 设置为 `Information`，请在 Cloud Shell 中使用 [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) 命令。
+
+```azurecli
+az webapp log config --name <app_name> --resource-group myResourceGroup --application-logging true --level information
+```
+
+> [!NOTE]
+> 项目的日志级别在 *appsettings.json* 中已设置为 `Information`。
+> 
+
+若要启动日志流式处理，请在 CLI 中使用 [`az webapp log tail`](/cli/webapp/log?view=azure-cli-latest#az-webapp-log-tail) 命令。
+
+```azurecli
+az webapp log tail --name <app_name> --resource-group myResourceGroup
+```
+
+启动日志流式处理后，请在浏览器中刷新 Azure 应用，以获取一些 Web 流量。 现在可以看到传送到终端的控制台日志。 如果没有立即看到控制台日志，请在 30 秒后重新查看。
+
+若要随时停止日志流式处理，请键入 `Ctrl`+`C`。
+
+有关自定义 ASP.NET Core 日志的详细信息，请参阅 [ASP.NET Core 中的日志记录](https://docs.microsoft.com/aspnet/core/fundamentals/logging)。
+
 ## <a name="manage-your-azure-app"></a>管理 Azure 应用
 
-转到 [Azure 门户](https://portal.azure.cn)查看已创建的 Web 应用。
+转到 [Azure 门户](https://portal.azure.cn)查看创建的应用。
 
 在左侧菜单中单击“应用服务”，然后单击 Azure 应用的名称。
 

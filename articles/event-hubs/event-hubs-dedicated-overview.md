@@ -1,10 +1,10 @@
 ---
-title: Azure 专用事件中心容量概述 | Azure
-description: Azure 专用事件中心容量的概述。
+title: 专用事件中心概述 - Azure 事件中心 | Azure Docs
+description: 本文概述专用 Azure 事件中心，它提供事件中心的单租户部署。
 services: event-hubs
 documentationcenter: na
-author: rockboyfor
-manager: digimobile
+author: ShubhaVijayasarathy
+manager: timlt
 editor: ''
 ms.assetid: ''
 ms.service: event-hubs
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/16/2018
-ms.date: 09/17/2018
-ms.author: v-yeche
-ms.openlocfilehash: 4d27d547edbcca303412469fd95602d681038d8b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 02/28/2019
+ms.author: v-biyu
+ms.openlocfilehash: e570f0986799e89363c36143c5e874d1249030e8
+ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658866"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56222595"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>专用事件中心概述
 
@@ -32,7 +32,7 @@ ms.locfileid: "52658866"
 | --- |:---:|:---:|:---:|
 | 入口事件 | 按每百万个事件支付 | 已含 |
 | 吞吐量单位（传入为 1 MB/秒，传出为 2 MB/秒） | 按每小时支付 | 附送 |
-| 消息大小 | 256 KB | 1 MB |
+| 消息大小 | 1 MB | 1 MB |
 | 发布者策略 | 是 | 是 |   
 | 使用者组 | 20 个 | 20 个 |
 | 消息重播 | 是 | 是 |
@@ -47,7 +47,6 @@ ms.locfileid: "52658866"
 使用专用事件中心具有以下优点：
 
 * 单个租户托管，免除来自其他租户的干扰。
-* 与标准事件中心的 256 KB 相比，消息大小增至 1 MB。
 * 每次可重复性能。
 * 有保障的容量，满足迸发需求。
 * 包括事件中心的[捕获](event-hubs-capture-overview.md)功能，提供与微批处理和长期保留的集成。

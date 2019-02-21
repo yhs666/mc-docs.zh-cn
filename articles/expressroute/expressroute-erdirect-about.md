@@ -1,23 +1,23 @@
 ---
-title: 关于 Azure ExpressRoute Direct | Microsoft Docs
+title: 关于 ExpressRoute Direct - Azure
 description: 本页概述了 ExpressRoute Direct（预览版）
 services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
-origin.date: 11/01/2018
-ms.date: 12/10/2018
+origin.date: 01/25/2019
+ms.date: 02/25/2019
 ms.author: v-yiso
-ms.openlocfilehash: 535f329c93683a7e3248b0c5a2567e55daf0e8a4
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: a5c47492766912f7cb59561550b816806c5355c3
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676754"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56303015"
 ---
 # <a name="about-expressroute-direct-preview"></a>关于 ExpressRoute Direct（预览版）
 
-借助 ExpressRoute Direct，用户可直接连接到巧妙分布在全球对等互连位置的 Microsoft 的全球网络。 ExpressRoute Direct 提供双 100 Gbps 连接，支持大规模的主动/主动连接。
+使用 ExpressRoute Direct，可以直接连接到 Microsoft 战略性分布在全球的对等互连位置的的全球网络。 ExpressRoute Direct 提供双 100 Gbps 连接，支持大规模的主动/主动连接。
 
 ExpressRoute Direct 提供的主要功能包括但不限于：
 
@@ -70,7 +70,7 @@ ExpressRoute Direct 同时支持 QinQ 和 Dot1Q VLAN 标记。
 
 ## <a name="workflow"></a>工作流
 
-![工作流](./media/expressroute-erdirect-about/workflow1.png)
+[ ![工作流](./media/expressroute-erdirect-about/workflow1.png)](./media/expressroute-erdirect-about/workflow1.png#lightbox)
 
 ## <a name="sla"></a>SLA
 

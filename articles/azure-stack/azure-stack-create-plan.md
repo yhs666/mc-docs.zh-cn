@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 09/12/2018
-ms.date: 10/15/2018
+origin.date: 01/09/2019
+ms.date: 02/18/2019
 ms.author: v-jay
-ms.reviewer: ''
-ms.openlocfilehash: 35c46435dfeb0e9da208a0c19e48449bbb1a0318
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.reviewer: efemmano
+ms.lastreviewed: 01/09/2019
+ms.openlocfilehash: e33b70a156889a7e317c05fc58854b0b943f9e72
+ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643487"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56218274"
 ---
 # <a name="create-a-plan-in-azure-stack"></a>在 Azure Stack 中创建计划
 
@@ -29,13 +30,13 @@ ms.locfileid: "52643487"
 
 [计划](azure-stack-key-features.md)是对一个或多个服务的分组。 作为提供商，可以创建提供给用户的计划。 反过来，用户可以订阅套餐，以便使用其所包括的计划和服务。 此示例演示如何创建一个包括计算、网络和存储资源提供程序的计划。 订阅方使用此计划可以预配虚拟机。
 
-1. 登录 Azure Stack 管理员门户 (https://adminportal.local.azurestack.external)。
+1. 登录到 [Azure Stack 管理员门户](https://adminportal.local.azurestack.external)。
 
-2. 若要创建用户可以订阅的计划和套餐，请选择“创建资源” > “套餐 + 计划” > “计划”。
+2. 若要创建用户可以订阅的计划和套餐，请依次选择“创建资源”、“套餐 + 计划”、“计划”。
   
    ![选择计划](media/azure-stack-create-plan/select-plan.png)
 
-3. 在“新建计划”下，输入**显示名称**和**资源名称**。 显示名称是用户可以看到的计划友好名称。 只有管理员可以看到资源名称，管理员使用此名称将计划作为 Azure 资源管理器资源进行处理。
+3. 在“新建计划”下，输入**显示名称**和**资源名称**。 显示名称是计划的易记名称，用户可以看到它。 只有管理员可以看到资源名称，管理员使用此名称将计划作为 Azure 资源管理器资源进行处理。
 
    ![指定详细信息](media/azure-stack-create-plan/plan-name.png)
 
@@ -73,6 +74,6 @@ ms.locfileid: "52643487"
 
 ## <a name="next-steps"></a>后续步骤
 
-[创建产品/服务](azure-stack-create-offer.md)
+* [创建产品/服务](azure-stack-create-offer.md)
 
 <!-- Update_Description: wording update -->

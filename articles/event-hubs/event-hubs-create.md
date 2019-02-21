@@ -1,6 +1,6 @@
 ---
-title: 创建 Azure 事件中心 | Azure
-description: 使用 Azure 门户创建 Azure 事件中心命名空间和事件中心
+title: Azure 快速入门 - 使用 Azure 门户创建事件中心 | Azure Docs
+description: 本快速入门介绍如何使用 Azure 门户创建 Azure 事件中心，然后使用 .NET Standard SDK 发送和接收事件。
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -8,14 +8,14 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: article
 origin.date: 08/16/2018
-ms.date: 12/10/2018
+ms.date: 02/25/2019
 ms.author: v-biyu
-ms.openlocfilehash: 252768ea23bbf60c1145ce923f1336a1aa11d52b
-ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
+ms.openlocfilehash: 7b232e83ae87187d8b57a00409771f5f795f424b
+ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676903"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56222587"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>快速入门：使用 Azure 门户创建事件中心
 Azure 事件中心是一个大数据流式处理平台和事件引入服务，每秒能够接收和处理数百万个事件。 事件中心可以处理和存储分布式软件和设备生成的事件、数据或遥测。 可以使用任何实时分析提供程序或批处理/存储适配器转换和存储发送到数据中心的数据。 有关事件中心的详细概述，请参阅[事件中心概述](event-hubs-about.md)和[事件中心功能](event-hubs-features.md)。
@@ -32,22 +32,20 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-资源组是 Azure 资源的逻辑集合。 所有资源在资源组中进行部署和管理。 执行以下操作创建资源组：
+资源组是 Azure 资源的逻辑集合。 所有资源在资源组中进行部署和管理。 创建资源组：
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 在左侧导航栏中，单击“资源组”。 。
 
    ![资源组 -“添加”按钮](./media/event-hubs-quickstart-portal/resource-groups1.png)
 
-2. 键入资源组的唯一名称。 系统会立即检查该名称是否在当前选定的 Azure 订阅中可用。
-
-3. 在“订阅”中，单击要在其中创建资源组的 Azure 订阅的名称。
-
-4. 选择资源组的地理位置。
-
-5. 单击**创建**。
+2. 对于“订阅”，请选择要在其中创建资源组的 Azure 订阅的名称。
+3. 键入**资源组的唯一名称**。 系统会立即检查该名称是否在当前选定的 Azure 订阅中可用。
+4. 选择资源组所在的**区域**。
+5. 选择“查看 + 创建”。
 
    ![资源组 - 创建](./media/event-hubs-quickstart-portal/resource-groups2.png)
+6. 在“查看 + 创建”页上，选择“创建”。 
 
 ## <a name="create-an-event-hubs-namespace"></a>创建事件中心命名空间
 
@@ -96,8 +94,8 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
 
 在本文中，你已创建一个资源组、一个事件中心命名空间和一个事件中心。 有关如何将事件发送到事件中心（或）从事件中心接收事件的分步说明，请参阅以下教程：  
 
-- 将事件发送到事件中心：[.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)、[.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)、[Java](event-hubs-java-get-started-send.md)、[Python](event-hubs-python-get-started-send.md)、[Node.js](event-hubs-node-get-started-send.md)、[Go](event-hubs-go-get-started-send.md)、[C](event-hubs-c-getstarted-send.md)
-- 从事件中心接收事件：[.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)、[.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)、[Java](event-hubs-java-get-started-receive-eph.md)、[Python](event-hubs-python-get-started-receive.md)、[Node.js](event-hubs-node-get-started-receive.md)、[Go](event-hubs-go-get-started-receive-eph.md)、[Apache Storm](event-hubs-storm-getstarted-receive.md)
+- **将事件发送到事件中心**：[.NET Core](event-hubs-dotnet-standard-getstarted-send.md)、[.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)、[Java](event-hubs-java-get-started-send.md)、[Python](event-hubs-python-get-started-send.md)、[Node.js](event-hubs-node-get-started-send.md)、[Go](event-hubs-go-get-started-send.md)、[C](event-hubs-c-getstarted-send.md)
+- **从事件中心接收事件**：[.NET Core](event-hubs-dotnet-standard-getstarted-receive-eph.md)、[.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)、[Java](event-hubs-java-get-started-receive-eph.md)、[Python](event-hubs-python-get-started-receive.md)、[Node.js](event-hubs-node-get-started-receive.md)、[Go](event-hubs-go-get-started-receive-eph.md)、[Apache Storm](event-hubs-storm-getstarted-receive.md)
 
 
 [Azure portal]: https://portal.azure.cn/

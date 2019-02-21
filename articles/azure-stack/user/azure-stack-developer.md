@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/19/2018
-ms.date: 11/12/2018
+origin.date: 01/05/2019
+ms.date: 02/18/2019
 ms.author: v-jay
-ms.reviewer: ''
-ms.openlocfilehash: 730eeab50864a2cfa93d2f6af908974a5b729a81
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.reviewer: unknown
+ms.lastreviewed: 01/05/2019
+ms.openlocfilehash: bcf5c4ccc864339341763963ece48044b6d640e7
+ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658291"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56218254"
 ---
 # <a name="develop-for-azure-stack"></a>为 Azure Stack 进行开发
 
@@ -41,5 +42,5 @@ ms.locfileid: "52658291"
 
 有关 Azure Stack 开发的详细信息，请参阅以下文章：
 
-- [Azure 资源管理器模板最佳做法](azure-stack-develop-templates.md)
-- [Azure Stack 快速入门模板](https://github.com/Azure/AzureStack-QuickStart-Templates)
+* [Azure 资源管理器模板最佳做法](azure-stack-develop-templates.md)
+* [GitHub 上的 Azure Stack 快速入门模板](https://github.com/Azure/AzureStack-QuickStart-Templates)

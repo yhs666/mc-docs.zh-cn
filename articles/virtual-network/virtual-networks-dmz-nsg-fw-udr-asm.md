@@ -3,8 +3,8 @@ title: 外围网络示例 – 构建外围网络以通过防火墙、UDR 和 NSG
 description: 构建包含防火墙、用户定义的路由 (UDR) 和网络安全组 (NSG) 的外围网络
 services: virtual-network
 documentationcenter: na
-author: tracsman
-manager: rossort
+author: rockboyfor
+manager: digimobile
 editor: ''
 ms.assetid: dc01ccfb-27b0-4887-8f0b-2792f770ffff
 ms.service: virtual-network
@@ -13,16 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/01/2016
-ms.date: 12/16/2016
-ms.author: v-dazen
-ms.openlocfilehash: 399614ab430791dfe396cfc26ef0594581596938
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 02/18/2019
+ms.author: v-yeche
+ms.openlocfilehash: 600a49719e1c45c0f4fc8abd71147f51aeb97b7c
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647783"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306246"
 ---
 # <a name="example-3---build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>示例 3 – 构建外围网络以通过防火墙、UDR 和 NSG 保护网络
+
+<!--Not Available on [Return to the Security Boundary Best Practices Page][HOME]-->
 
 本示例创建一个外围网络，其中包含防火墙、四个 Windows 服务器、用户定义的路由、IP 转发和网络安全组。 本示例还将演练每个相关命令，让你更加深入地了解每个步骤。 另外还提供了“流量方案”部分，让你逐步深入了解流量如何流经外围网络的各个防御层。 最后的“参考”部分提供了完整的代码，并说明如何构建此环境来测试和试验各种方案。 
 
@@ -32,7 +34,7 @@ ms.locfileid: "52647783"
 此示例中，有一个订阅包含以下项：
 
 * 三个云服务：“SecSvc001”、“FrontEnd001”和“BackEnd001”
-* 一个虚拟网络“CorpNetwork”，其中包含三个子网：“SecNet”、“FrontEnd”和“BackEnd”
+* 虚拟网络“CorpNetwork”，包含下面三个子网：“SecNet”、“FrontEnd”和“BackEnd”
 * 一个与 SecNet 子网连接的网络虚拟设备（在本示例中为防火墙）
 * 一个代表应用程序 Web 服务器的 Windows Server（“IIS01”）
 * 两个代表应用程序后端服务器的 Windows Server（“AppVM01”、“AppVM02”）
@@ -50,10 +52,10 @@ ms.locfileid: "52647783"
 
 成功运行脚本后，可执行以下脚本后续步骤：
 
-1. 设置防火墙规则，下面的“防火墙规则描述”部分中做了介绍。
+1. 设置防火墙规则，这将在下面标题为“防火墙规则描述”的部分中进行介绍。
 2. （可选）“参考”部分中提供了两个脚本，用于设置 Web 服务器和应用服务器；还提供了一个简单的 Web 应用程序，用于测试此外围网络配置。
 
-脚本成功运行后，需要完成防火墙规则，“防火墙规则”部分中对此做了介绍。
+在成功运行脚本后，将需要完成防火墙规则，这在标题为“防火墙规则”的部分中进行介绍。
 
 ## <a name="user-defined-routing-udr"></a>用户定义的路由 (UDR)
 默认情况下，以下系统路由定义为：
@@ -109,34 +111,45 @@ VNETLocal 始终是该特定网络的 VNet 的已定义地址前缀（也就是�
 
 1. 首先必须创建基础路由表。 此代码段演示如何创建后端子网的路由表。 该脚本还为前端子网创建了对应的路由表。
 
-        New-AzureRouteTable -Name $BERouteTableName `
+    ```powershell
+    New-AzureRouteTable -Name $BERouteTableName `
+       -Location $DeploymentLocation `
+       -Label "Route table for $BESubnet subnet"
+    ```
 
-            -Location $DeploymentLocation `
-            -Label "Route table for $BESubnet subnet"
 2. 创建路由表后，可以添加特定的用户定义路由。 在此代码段中，将通过虚拟设备路由所有流量 (0.0.0.0/0)（前面在脚本中创建虚拟设备时，已使用变量 $VMIP[0] 传入了分配的 IP 地址）。 该脚本还在前端路由表中创建了对应的规则。
 
-        Get-AzureRouteTable $BERouteTableName | `
+    ```powershell
+    Get-AzureRouteTable $BERouteTableName | `
+       Set-AzureRoute -RouteName "All traffic to FW" -AddressPrefix 0.0.0.0/0 `
+       -NextHopType VirtualAppliance `
+       -NextHopIpAddress $VMIP[0]
+    ```
 
-            Set-AzureRoute -RouteName "All traffic to FW" -AddressPrefix 0.0.0.0/0 `
-            -NextHopType VirtualAppliance `
-            -NextHopIpAddress $VMIP[0]
 3. 上述路由条目会覆盖默认的“0.0.0.0/0”路由，但默认的 10.0.0.0/16 规则仍然存在，以允许 VNet 中的流量直接路由到目标，而不是路由到网络虚拟设备。 若要纠正此行为，必须添加以下规则。
 
-        Get-AzureRouteTable $BERouteTableName | `
-            Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
-            -NextHopType VirtualAppliance `
-            -NextHopIpAddress $VMIP[0]
+    ```powershell
+    Get-AzureRouteTable $BERouteTableName | `
+       Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
+       -NextHopType VirtualAppliance `
+       -NextHopIpAddress $VMIP[0]
+    ```
+
 4. 此时要做出选择。 在上述两个路由中，所有流量都会路由到防火墙进行评估，甚至单个子网中的流量也是如此。 这可能是所需结果，但若要允许子网中的流量直接在本地路由而不要防火墙的介入，可以添加第三个具体规则。 此路由指明，目标为本地子网的地址可以直接路由到该位置 (NextHopType = VNETLocal)。
 
-        Get-AzureRouteTable $BERouteTableName | `
-            Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $BEPrefix `
-            -NextHopType VNETLocal
+    ```powershell
+    Get-AzureRouteTable $BERouteTableName | `
+       Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $BEPrefix `
+           -NextHopType VNETLocal
+    ```
+
 5. 最后，在创建路由表并填入用户定义的路由后，必须立即将路由表绑定到子网。 在脚本中，前端路由表也绑定到了前端子网。 下面是后端子网的绑定脚本。
 
-        Set-AzureSubnetRouteTable -VirtualNetworkName $VNetName `
-
-           -SubnetName $BESubnet `
-           -RouteTableName $BERouteTableName
+    ```powershell
+    Set-AzureSubnetRouteTable -VirtualNetworkName $VNetName `
+       -SubnetName $BESubnet `
+       -RouteTableName $BERouteTableName
+    ```
 
 ## <a name="ip-forwarding"></a>IP 转发
 UDR 随附 IP 转发功能。 这是虚拟设备上的一项设置，使虚拟设备能够接收不是要专门传送到该设备的流量，再将流量转发到其最终目标。
@@ -148,13 +161,14 @@ UDR 随附 IP 转发功能。 这是虚拟设备上的一项设置，使虚拟�
 > 
 > 
 
-设置 IP 转发是单个命令，可在创建 VM 时完成。 在本示例的流程中，这个代码段靠近脚本末尾处，与 UDR 命令放在一起：
+设置 IP 转发是单个命令，可在创建 VM 时完成。 在本示例的流程中，这个代码片段靠近脚本末尾处，与 UDR 命令放在一起：
 
 1. 调用代表虚拟设备的 VM 实例（在本例中为防火墙），并启用 IP 转发（注意：以货币符号开头的任何红色项（例如 $VMName[0]）均为本文“参考”部分的脚本中的用户定义变量。 方括号中的零 [0] 代表 VM 阵列中的第一个 VM，为使示例脚本无须修改即可运行，第一个 VM (VM 0) 必须是防火墙）：
 
-        Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] | `
-
-           Set-AzureIPForwarding -Enable
+    ```powershell
+    Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] | `
+        Set-AzureIPForwarding -Enable
+    ```
 
 ## <a name="network-security-groups-nsg"></a>网络安全组 (NSG)
 在此示例中，构建了 NSG 组，并在其中加载了单个规则。 然后将此组仅绑定到前端和后端子网（不绑定到 SecNet）。 以声明性的方式构建以下规则：
@@ -165,22 +179,26 @@ UDR 随附 IP 转发功能。 这是虚拟设备上的一项设置，使虚拟�
 
 本示例中的网络安全组有一个有趣的特点，那就是它只包含一个规则（如下所示），它会拒绝流向整个虚拟网络（包含安全子网）的 Internet 流量。 
 
-    Get-AzureNetworkSecurityGroup -Name $NSGName | `
-        Set-AzureNetworkSecurityRule -Name "Isolate the $VNetName VNet `
-        from the Internet" `
-        -Type Inbound -Priority 100 -Action Deny `
-        -SourceAddressPrefix INTERNET -SourcePortRange '*' `
-        -DestinationAddressPrefix VIRTUAL_NETWORK `
-        -DestinationPortRange '*' `
-        -Protocol *
+```powershell
+Get-AzureNetworkSecurityGroup -Name $NSGName | `
+    Set-AzureNetworkSecurityRule -Name "Isolate the $VNetName VNet `
+    from the Internet" `
+    -Type Inbound -Priority 100 -Action Deny `
+    -SourceAddressPrefix INTERNET -SourcePortRange '*' `
+    -DestinationAddressPrefix VIRTUAL_NETWORK `
+    -DestinationPortRange '*' `
+    -Protocol *
+```
 
 不过，由于 NSG 只绑定到前端和后端子网，因此不对流往安全子网的入站流量处理此规则。 即使 NSG 规则（由于未将 NSG 绑定到安全子网而）不允许 Internet 流量前往 VNet 上的任何地址，流量也将流向安全子网。
 
-    Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
-        -SubnetName $FESubnet -VirtualNetworkName $VNetName
+```powershell
+Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
+    -SubnetName $FESubnet -VirtualNetworkName $VNetName
 
-    Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
-        -SubnetName $BESubnet -VirtualNetworkName $VNetName
+Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
+    -SubnetName $BESubnet -VirtualNetworkName $VNetName
+```
 
 ## <a name="firewall-rules"></a>防火墙规则
 需要在防火墙上创建转发规则。 由于防火墙会阻止或转发所有入站、出站和 VNet 内部流量，因此需要配置许多防火墙规则。 此外，所有入站流量都将（在不同端口上）抵达安全服务公共 IP 地址，并由防火墙进行处理。 最佳实践是先绘制逻辑流向图，再设置子网和防火墙规则，以免事后修改。 下图是此示例中防火墙规则的逻辑视图：
@@ -198,17 +216,17 @@ UDR 随附 IP 转发功能。 这是虚拟设备上的一项设置，使虚拟�
 在此示例中，我们需要 7 种类型的规则，下面描述了这些规则类型：
 
 * 外部规则（针对入站流量）：
-  1. 防火墙管理规则：此应用重定向规则允许流量传递到网络虚拟设备的管理端口。
-  2. RDP 规则（针对每个 Windows 服务器）：这四个规则（每台服务器一个）允许通过 RDP 管理单个服务器。 根据所用的网络虚拟设备功能，也可将其捆绑为一个规则。
-  3. 应用程序流量规则：应用程序流量规则有两个，第一个针对前端 Web 流量，第二个针对后端流量（例如 Web 服务器流往数据层）。 这些规则的配置取决于网络体系结构（服务器的放置位置）和流量流动行为（流量的流动方向，以及使用的端口）。
+  1. 防火墙管理规则：此“应用重定向”规则允许流量传递到网络虚拟设备的管理端口。
+  2. RDP 规则（针对每个 Windows 服务器）：这四个规则（每个服务器对应一个规则）将允许通过 RDP 管理单个服务器。 根据所用的网络虚拟设备功能，也可将其捆绑为一个规则。
+  3. 应用程序流量规则：应用程序流量规则有两个，第一个规则对应于前端 Web 流量，而第二个规则对应于后端流量（例如从 Web 服务器流向数据层）。 这些规则的配置取决于网络体系结构（服务器的放置位置）和流量流动行为（流量的流动方向，以及使用的端口）。
      * 第一个规则允许实际的应用程序流量抵达应用程序服务器。 其他规则用于安全、管理等，而应用程序规则允许外部用户或服务访问应用程序。 就本示例而言，端口 80 上有单个 Web 服务器，因此单个防火墙应用程序规则将流向外部 IP 的入站流量重定向到 Web 服务器内部 IP 地址。 重定向的流量会话经过 NAT 后流往内部服务器。
      * 第二个应用程序流量规则是后端规则，用于允许 Web 服务器通过任何端口与 AppVM01 服务器（而非 AppVM02）对话。
 * 内部规则（针对 VNet 内部流量）
-  1. 出站到 Internet 规则：此规则允许来自任何网络的流量传递到选定的网络。 此规则通常是防火墙上已有的但处于禁用状态的默认规则。 对于本示例，应启用此规则。
-  2. DNS 规则：此规则只允许 DNS（端口 53）流量传递到 DNS 服务器。 在此环境中，阻止了由前端流往后端的大部分流量，而此规则专门允许来自任何本地子网的 DNS。
-  3. 子网到子网规则：此规则允许后端子网上的任何服务器连接到前端子网上的任何服务器（但不允许反向连接）。
+  1. “出站到 Internet”规则：此规则将允许来自任何网络的流量传递到选定的网络。 此规则通常是防火墙上已有的但处于禁用状态的默认规则。 对于本示例，应启用此规则。
+  2. DNS 规则：此规则仅允许 DNS（端口 53）流量传递到 DNS 服务器。 在此环境中，阻止了由前端流往后端的大部分流量，而此规则专门允许来自任何本地子网的 DNS。
+  3. “子网到子网”规则：此规则将允许后端子网上的任何服务器连接到前端子网上的任何服务器（但是反之不然）。
 * 防故障规则（针对不符合上述任一规则的流量）：
-  1. 拒绝所有流量规则：请始终将此规则用作最终规则（在优先级方面），这样，如果流量的流动行为无法符合上述任何规则，此规则就会将其丢弃。 这是默认规则且通常已激活，一般而言并不需要修改。
+  1. “拒绝所有流量”规则：此规则始终应为最终规则（就优先级而言），这样，如果流量的流动未能符合上述任何规则，则该流量将被此规则丢弃。 这是默认规则且通常已激活，一般而言并不需要修改。
 
 > [!TIP]
 > 由于本示例很简单，因此第二个应用程序流量规则允许使用任何端口；但在真实情况下，应使用最具体的端口和地址范围，以减小此规则的攻击面。
@@ -232,15 +250,17 @@ UDR 随附 IP 转发功能。 这是虚拟设备上的一项设置，使虚拟�
 
 可以在创建 VM 或后续构建时开放终结点，示例脚本和以下代码段中演示了具体的操作（注意：以货币符号开头的任何项（例如 $VMName[$i]）均为本文“参考”部分的脚本中的用户定义变量。 [$i]（以方括号括住的“$i”）代表 VM 阵列中特定 VM 的阵列编号）：
 
-    Add-AzureEndpoint -Name "HTTP" -Protocol tcp -PublicPort 80 -LocalPort 80 `
-        -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | `
-        Update-AzureVM
+```powershell
+Add-AzureEndpoint -Name "HTTP" -Protocol tcp -PublicPort 80 -LocalPort 80 `
+    -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | `
+    Update-AzureVM
+```
 
 尽管此处因为使用了变量而未明确显示，但实际上 **只会** 打开安全云服务上的终结点。 这是为了确保所有入站流量都将由防火墙处理（路由、进行 NAT 处理、丢弃）。
 
 电脑上必须安装管理客户端才能管理防火墙和创建所需的配置。 有关如何管理设备的信息，请参阅防火墙（或其他 NVA）供应商提供的文档。 本部分的余下内容和下一部分“创建防火墙规则”将介绍如何通过供应商的管理客户端（即不使用 Azure 门户或 PowerShell）来配置防火墙本身。
 
-有关下载客户端和连接到本示例所用 Barracuda 的说明，可在以下位置找到：[Barracuda NG Admin](https://techlib.barracuda.com/NG61/NGAdmin)
+有关下载客户端和连接到本示例所用的 Barracuda 的说明，可在以下位置找到：[Barracuda NG Admin](https://techlib.barracuda.com/NG61/NGAdmin)
 
 在登录防火墙之后、创建防火墙规则之前，你可以借助以下两个必备的对象类来方便创建规则：网络对象和服务对象。
 
@@ -274,11 +294,11 @@ UDR 随附 IP 转发功能。 这是虚拟设备上的一项设置，使虚拟�
 ### <a name="firewall-rules-creation"></a>创建防火墙规则
 本示例使用三种类型的防火墙规则，它们各有不同的图标：
 
-应用程序重定向规则： ![应用程序重定向图标][7]
+应用程序重定向规则：![“应用程序重定向”图标][7]
 
-目标 NAT 规则： ![目标 NAT 图标][8]
+目标 NAT 规则：![“目标 NAT”图标][8]
 
-传递规则： ![传递图标][9]
+传递规则：![“传递”图标][9]
 
 可以在 Barracuda 网站中找到有关这些规则的详细信息。
 
@@ -288,7 +308,7 @@ UDR 随附 IP 转发功能。 这是虚拟设备上的一项设置，使虚拟�
 
 完成本示例所需的每个规则的具体说明如下：
 
-* **防火墙管理规则**：此应用重定向规则允许流量传递到网络虚拟设备的管理端口，在本示例中为 Barracuda NextGen 防火墙。 管理端口是 801 和 807，以及 22（可选）。 外部和内部端口相同（即没有端口转换）。 此规则 (SETUP-MGMT-ACCESS) 是默认规则，已按默认启用（在 Barracuda NextGen 防火墙版本 6.1 中）。
+* **防火墙管理规则**：此“应用重定向”规则允许流量传递到网络虚拟设备的管理端口，在本示例中为 Barracuda NextGen 防火墙。 管理端口是 801 和 807，以及 22（可选）。 外部和内部端口相同（即没有端口转换）。 此规则 (SETUP-MGMT-ACCESS) 是默认规则，已按默认启用（在 Barracuda NextGen 防火墙版本 6.1 中）。
 
     ![防火墙管理规则][10]
 
@@ -297,7 +317,7 @@ UDR 随附 IP 转发功能。 这是虚拟设备上的一项设置，使虚拟�
 > 
 > 
 
-* **RDP 规则**：这些目标 NAT 规则将允许通过 RDP 管理单个服务器。
+* **RDP 规则**：这些“目标 NAT”规则将允许通过 RDP 管理单个服务器。
   创建此规则需要四个关键字段：
 
   1. 源 – 允许来自任意位置的 RDP，“源”字段中使用“任意”引用值。
@@ -321,7 +341,7 @@ UDR 随附 IP 转发功能。 这是虚拟设备上的一项设置，使虚拟�
 > 
 > 
 
-* **应用程序流量规则**：应用程序流量规则有两个，第一个针对前端 Web 流量，第二个针对后端流量（例如 Web 服务器流往数据层）。 这些规则取决于网络体系结构（服务器的放置位置）和流量流动行为（流量的流动方向，以及使用的端口）。
+* **应用程序流量规则**：应用程序流量规则有两个，第一个规则对应于前端 Web 流量，而第二个规则对应于后端流量（例如从 Web 服务器流向数据层）。 这些规则取决于网络体系结构（服务器的放置位置）和流量流动行为（流量的流动方向，以及使用的端口）。
 
     首先讨论 Web 流量的前端规则：
 
@@ -337,11 +357,11 @@ UDR 随附 IP 转发功能。 这是虚拟设备上的一项设置，使虚拟�
 
     此传递规则允许前端子网上的任何 IIS 服务器在任何端口上连接到 AppVM01（IP 地址 10.0.2.5），使用任何协议来访问 Web 应用程序所需的数据。
 
-    在此屏幕截图中，“目标”字段使用“\<explicit-dest\>”来表示目标为 10.0.2.5。 这可能是如图所示的明确地址或命名网络对象（如 DNS 服务器先决条件中所述）。 至于使用哪种表示法，由防火墙管理员来决定。 若要将 10.0.2.5 添加为明确目标，请双击 \<explicit-dest\> 下面的第一个空白行，然后在弹出窗口中输入地址。
+    在此屏幕截图中，“目标”字段使用“\<explicit-dest\>”来表示目标为 10.0.2.5。 这可能是如图所示的明确地址或命名网络对象（如 DNS 服务器先决条件中所述）。 至于使用哪种表示法，由防火墙管理员来决定。 若要将 10.0.2.5 添加为明确目标，请双击 \<explicit-dest\> 下面的第一个空白行，并在弹出窗口中输入地址。
 
     使用此传递规则时不需要 NAT，因为这是内部流量，“连接方法”可设置为“不使用 SNAT”。
 
-    **注意**：此规则的“源”网络是前端子网上的任何资源，如果只有一个或已知特定数目的 Web 服务器，则可以将网络对象资源创建为更与这些确切 IP 地址相关，而不是针对整个前端子网。
+    **注意**：此规则中的“源”网络是前端子网上的任何资源，如果只有一个或已知特定数目的 Web 服务器，则可将“网络对象”资源创建为更特定于这些确切的 IP 地址，而不是整个前端子网。
 
 > [!TIP]
 > 此规则使用“任意”服务让你更轻松地设置和使用示例应用程序，此外，还允许在单个规则中使用 ICMPv4 (ping)。 但建议不这样做。 端口和协议（“服务”）应尽可能缩小到允许应用程序操作的程度，以降低跨越此边界的攻击面。
@@ -355,20 +375,20 @@ UDR 随附 IP 转发功能。 这是虚拟设备上的一项设置，使虚拟�
 > 
 > 
 
-* **出站到 Internet 规则**：此传递规则允许来自任何源网络的流量传递到选定的目标网络。 此规则通常是 Barracuda NextGen 防火墙上已有的但处于禁用状态的默认规则。 右键单击此规则可以访问“激活规则”命令。 此处所示的规则已经过修改，添加了本文先决条件部分中为了参考而创建的，连接到此规则的“源”属性的两个本地子网。
+* **“出站到 Internet”规则**：此“传递”规则将允许来自任何“源”网络的流量传递到选定的“目标”网络。 此规则通常是 Barracuda NextGen 防火墙上已有的但处于禁用状态的默认规则。 右键单击此规则可以访问“激活规则”命令。 此处所示的规则已经过修改，添加了本文先决条件部分中为了参考而创建的，连接到此规则的“源”属性的两个本地子网。
 
     ![防火墙出站规则][14]
-* **DNS 规则**：此传递规则只允许 DNS（端口 53）流量传递到 DNS 服务器。 在此环境中，阻止了大部分由前端流往后端的流量，而此规则专门允许 DNS。
+* **DNS 规则**：此“传递”规则仅允许 DNS（端口 53）流量传递到 DNS 服务器。 在此环境中，阻止了大部分由前端流往后端的流量，而此规则专门允许 DNS。
 
     ![防火墙 DNS 规则][15]
 
     **注意**：此屏幕截图中包含了“连接方法”。 此规则用于内部 IP 到内部 IP 的地址流量，不需要 NAT，因此传递规则的“连接方法”设置为“不使用 SNAT”。
-* **子网到子网规则**：此传递规则是经过激活和修改的默认规则，允许后端子网上的任何服务器连接到前端子网上的任何服务器。 此规则完全针对内部流量，因此可将“连接方法”设置为“不使用 SNAT”。
+* **“子网到子网”规则**：此“传递”规则是经过激活并修改的默认规则，允许后端子网上的任何服务器连接到前端子网上的任何服务器。 此规则完全针对内部流量，因此可将“连接方法”设置为“不使用 SNAT”。
 
     ![防火墙 VNet 内部规则][16]
 
-    **注意**：未选中“双向”复选框（也未签入大部分规则），这一点对于此规则很重要，因为这可以让此规则只能“单向”进行，即，可以从后端子网连接到前端网络，但不能反向连接。 如果选中该复选框，则此规则启用双向流量，从逻辑图来看并不需要这么做。
-* **拒绝所有流量规则**：请始终将此规则用作最终规则（在优先级方面），这样，如果流量的流动行为无法符合上述任何规则，此规则就会将其丢弃。 这是默认规则且通常已激活，一般而言并不需要修改。 
+    **注意**：“双向”复选框未选中（也在大部分规则中未选中），这一点对于此规则很重要，因为这使得此规则具有“单向”性，即，可以启动从后端子网到前端网络的连接，但是反之不然。 如果选中该复选框，则此规则启用双向流量，从逻辑图来看并不需要这么做。
+* **“拒绝所有流量”规则**：此规则始终应为最终规则（就优先级而言），这样，如果流量的流动未能符合上述任何规则，则该流量将被此规则丢弃。 这是默认规则且通常已激活，一般而言并不需要修改。 
 
     ![防火墙拒绝规则][17]
 
@@ -388,7 +408,7 @@ UDR 随附 IP 转发功能。 这是虚拟设备上的一项设置，使虚拟�
 
 ## <a name="traffic-scenarios"></a>流量方案
 > [!IMPORTANT]
-> 本部分的重点是要记住 **所有** 流量都会通过防火墙传送。 通过远程桌面访问 IIS01 服务器也是如此，即使在前端云服务中和前端子网上，如果要访问此服务器，仍需在端口 8014 上通过 RDP 连接到防火墙，并允许防火墙将 RDP 请求内部路由到 IIS01 RDP 端口。 由于（就门户可见）没有直接通往 IIS01 的 RDP 路径，所以 Azure 门户的“连接”按钮将无效。 这意味着，所有来自 Internet 的连接将连往安全服务和端口，例如 secscv001.chinacloudapp.cn:xxxx。
+> 本部分的重点是要记住所有流量都会通过防火墙传送。 通过远程桌面访问 IIS01 服务器也是如此，即使在前端云服务中和前端子网上，如果要访问此服务器，仍需在端口 8014 上通过 RDP 连接到防火墙，并允许防火墙将 RDP 请求内部路由到 IIS01 RDP 端口。 由于（就门户可见）没有直接通往 IIS01 的 RDP 路径，所以 Azure 门户的“连接”按钮将无效。 这意味着，所有来自 Internet 的连接将连往安全服务和端口，例如 secscv001.chinacloudapp.cn:xxxx。
 > 
 > 
 
@@ -429,7 +449,7 @@ UDR 随附 IP 转发功能。 这是虚拟设备上的一项设置，使虚拟�
 11. 防火墙开始处理规则：
     1. 转发规则 1 (FW Mgmt) 不适用，将转到下一规则
     2. 转发规则 2-5（RDP 规则）不适用，将转到下一规则
-    3. 转发规则 6（应用：Web）不适用，将转到下一规则
+    3. 转发规则 6（应用：Web）不适用，移至下一个规则
     4. 转发规则 7（应用：后端）适用，允许流量，防火墙将流量转发到 10.0.2.5 (AppVM01)
 12. 后端子网开始处理入站规则：
     1. NSG 规则 1（阻止 Internet）不适用，将转到下一规则
@@ -591,6 +611,7 @@ UDR 随附 IP 转发功能。 这是虚拟设备上的一项设置，使虚拟�
 > 
 > 
 
+```powershell
     <# 
      .SYNOPSIS
       Example of DMZ and User Defined Routing in an isolated network (Azure only, no hybrid connections)
@@ -603,7 +624,7 @@ UDR 随附 IP 转发功能。 这是虚拟设备上的一项设置，使虚拟�
        - A Network Virtual Appliance (NVA), in this case a Barracuda NextGen Firewall
        - One server on the FrontEnd Subnet
        - Three Servers on the BackEnd Subnet
-       - IP Forwading from the FireWall out to the internet
+       - IP Forwarding from the FireWall out to the internet
        - User Defined Routing FrontEnd and BackEnd Subnets to the NVA
 
       Before running script, ensure the network configuration file is created in
@@ -701,7 +722,7 @@ UDR 随附 IP 转发功能。 这是虚拟设备上的一项设置，使虚拟�
           $SubnetName += $FESubnet
           $VMIP += "10.0.1.4"
 
-        # VM 2 - The First Appliaction Server
+        # VM 2 - The First Application Server
           $VMName += "AppVM01"
           $ServiceName += $BackEndService
           $VMFamily += "Windows"
@@ -710,7 +731,7 @@ UDR 随附 IP 转发功能。 这是虚拟设备上的一项设置，使虚拟�
           $SubnetName += $BESubnet
           $VMIP += "10.0.2.5"
 
-        # VM 3 - The Second Appliaction Server
+        # VM 3 - The Second Application Server
           $VMName += "AppVM02"
           $ServiceName += $BackEndService
           $VMFamily += "Windows"
@@ -729,7 +750,7 @@ UDR 随附 IP 转发功能。 这是虚拟设备上的一项设置，使虚拟�
           $VMIP += "10.0.2.4"
 
     # ----------------------------- #
-    # No User Defined Varibles or   #
+    # No User Defined Variables or  #
     # Configuration past this point #
     # ----------------------------- #
 
@@ -740,7 +761,7 @@ UDR 随附 IP 转发功能。 这是虚拟设备上的一项设置，使虚拟�
 
       # Create Storage Account
         If (Test-AzureName -Storage -Name $StorageAccountName) { 
-            Write-Host "Fatal Error: This storage account name is already in use, please pick a diffrent name." -ForegroundColor Red
+            Write-Host "Fatal Error: This storage account name is already in use, please pick a different name." -ForegroundColor Red
             Return}
         Else {Write-Host "Creating Storage Account" -ForegroundColor Cyan 
               New-AzureStorageAccount -Location $DeploymentLocation -StorageAccountName $StorageAccountName}
@@ -776,12 +797,12 @@ UDR 随附 IP 转发功能。 这是虚拟设备上的一项设置，使虚拟�
         $FatalError = $true}
     Else { Write-Host "The network config file was found" -ForegroundColor Green
             If (-Not (Select-String -Pattern $DeploymentLocation -Path $NetworkConfigFile)) {
-                Write-Host 'The deployment location was not found in the network config file, please check the network config file to ensure the $DeploymentLocation varible is correct and the netowrk config file matches.' -ForegroundColor Yellow
+                Write-Host 'The deployment location was not found in the network config file, please check the network config file to ensure the $DeploymentLocation variable is correct and the network config file matches.' -ForegroundColor Yellow
                 $FatalError = $true}
             Else { Write-Host "The deployment location was found in the network config file." -ForegroundColor Green}}
 
     If ($FatalError) {
-        Write-Host "A fatal error has occured, please see the above messages for more information." -ForegroundColor Red
+        Write-Host "A fatal error has occurred, please see the above messages for more information." -ForegroundColor Red
         Return}
     Else { Write-Host "Validation passed, now building the environment." -ForegroundColor Green}
 
@@ -871,7 +892,7 @@ UDR 随附 IP 转发功能。 这是虚拟设备上的一项设置，使虚拟�
             |Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $FEPrefix `
             -NextHopType VNETLocal
 
-      # Assoicate the Route Tables with the Subnets
+      # Associate the Route Tables with the Subnets
         Write-Host "Binding Route Tables to the Subnets" -ForegroundColor Cyan 
         Set-AzureSubnetRouteTable -VirtualNetworkName $VNetName `
             -SubnetName $BESubnet `
@@ -919,10 +940,12 @@ UDR 随附 IP 转发功能。 这是虚拟设备上的一项设置，使虚拟�
       Write-Host " - Install Test Web App (Run Post-Build Script on the IIS Server)" -ForegroundColor Gray
       Write-Host " - Install Backend resource (Run Post-Build Script on the AppVM01)" -ForegroundColor Gray
       Write-Host
+```
 
 #### <a name="network-config-file"></a>网络配置文件
 使用更新的位置保存此 xml 文件，并将此文件的链接添加到上述脚本中的 $NetworkConfigFile 变量。
 
+```xml
     <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
@@ -955,9 +978,10 @@ UDR 随附 IP 转发功能。 这是虚拟设备上的一项设置，使虚拟�
         </VirtualNetworkSites>
       </VirtualNetworkConfiguration>
     </NetworkConfiguration>
+```
 
 #### <a name="sample-application-scripts"></a>示例应用程序脚本
-如果需要为其安装示例应用程序和其他外围网络示例，以下链接提供了所需示例： [应用程序脚本示例][SampleApp]
+如果需要为其安装示例应用程序和其他外围网络示例，则可参阅以下链接提供的一个示例：[应用程序脚本示例][SampleApp]
 
 <!--Image References-->
 [1]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/example3design.png "使用 NVA、NSG 和 UDR 的双向外围网络"
@@ -980,4 +1004,6 @@ UDR 随附 IP 转发功能。 这是虚拟设备上的一项设置，使虚拟�
 [18]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/firewallruleactivate.png "防火墙规则激活"
 
 <!--Link References-->
-[SampleApp]: ./virtual-networks-sample-app.md
+<!--Not Available on [HOME]: ../best-practices-network-security.md--> [SampleApp]: ./virtual-networks-sample-app.md
+
+<!-- Update_Description: wording update, update link -->

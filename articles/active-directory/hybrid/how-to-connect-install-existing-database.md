@@ -4,7 +4,7 @@ description: 本主题介绍如何使用现有 ADSync 数据库。
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.reviewer: cychua
 ms.assetid: ''
@@ -12,17 +12,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 08/30/2017
-ms.date: 12/05/2018
-ms.component: hybrid
+ms.date: 02/13/2019
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 4b009c5523914434d17a862da42472e3b1d2b855
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 5761b5a9b307ca3e32d5b9d7c7bbe9960a507dbf
+ms.sourcegitcommit: 3f266322470d2a3f8fdd4682e854f833466701af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029012"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56222704"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>使用现有 ADSync 数据库安装 Azure AD Connect
 Azure AD Connect 要求使用 SQL Server 数据库来存储数据。 可以使用随 Azure AD Connect 一起安装的默认 SQL Server 2012 Express LocalDB，也可以使用自己的完整版本 SQL。 以前，当安装 Azure AD Connect 时，始终会创建一个名为 ADSync 的新数据库。 使用 Azure AD Connect 版本 1.1.613.0（或更高版本），可以选择通过将 Azure AD Connect 指向现有的 ADSync 数据库来安装 Azure AD Connect。
@@ -60,6 +60,10 @@ Azure AD Connect 要求使用 SQL Server 数据库来存储数据。 可以使�
 2.  MSI 安装完成后，将启动 Azure AD Connect 向导，进入快速模式安装。 单击“退出”图标关闭屏幕。
 ![欢迎使用](./media/how-to-connect-install-existing-database/db1.png)
 3.  启动新的命令提示符或 PowerShell 会话。 导航到 <drive>\program files\Azure AD Connect 文件夹。 运行命令 .\AzureADConnect.exe /useexistingdatabase，在“使用现有数据库”安装模式下启动 Azure AD Connect 向导。
+
+> [!NOTE]
+> 只有当数据库已包含来自早期 Azure AD Connect 安装的数据时，才应使用 **/UseExistingDatabase** 开关。 例如，当从本地数据库移动到完整 SQL Server 数据库时，或者当重建 Azure AD Connect 服务器并且从早期 Azure AD Connect 安装还原了 ADSync 数据库的 SQL 备份时。 如果你创建了一个空数据库并将其用于安装，请跳过此步骤。
+
 ![PowerShell](./media/how-to-connect-install-existing-database/db2.png)
 4.  出现“欢迎使用 Azure AD Connect”屏幕。 同意许可条款和隐私声明后，单击“继续”。
 ![欢迎使用](./media/how-to-connect-install-existing-database/db3.png)

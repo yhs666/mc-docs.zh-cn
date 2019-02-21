@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/30/2018
-ms.date: 11/12/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: d7ad6f2a0ba71014246936da5a99b2dab3c42b04
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: d2d99c62690e17e4b43e3fff1d5b70ca7a2ab31b
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675591"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306148"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>诊断虚拟机路由问题
 
@@ -55,13 +55,13 @@ ms.locfileid: "52675591"
 
 ## <a name="diagnose-using-powershell"></a>使用 PowerShell 诊断
 
-可以通过从计算机运行 PowerShell 来运行命令。 如果在计算机上运行 PowerShell，需要 *AzureRM* PowerShell 模块 6.0.1 或更高版本。 在计算机上运行 `Get-Module -ListAvailable AzureRM`，找到已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需要运行 `Login-AzureRmAccount`，以使用拥有[所需权限](virtual-network-network-interface.md#permissions)的帐户登录到 Azure。
+可以通过从计算机运行 PowerShell 来运行命令。 如果在计算机上运行 PowerShell，需要 *AzureRM* PowerShell 模块 6.0.1 或更高版本。 在计算机上运行 `Get-Module -ListAvailable AzureRM`，找到已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需要运行 `Login-AzureRmAccount -Environment AzureChinaCloud`，以使用拥有[所需权限](virtual-network-network-interface.md#permissions)的帐户登录到 Azure。
 
 <!-- Not Available on [Azure Cloud Shell](https://shell.azure.com/powershell)-->
 
 使用 [Get-AzureRmEffectiveRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermeffectiveroutetable) 获取网络接口的有效路由。 以下示例获取资源组 *myResourceGroup* 中名为 *myVMVMNic* 的网络接口的有效路由：
 
-```PowerShell
+```azurepowershell
 Get-AzureRmEffectiveRouteTable `
   -NetworkInterfaceName myVMVMNic `
   -ResourceGroupName myResourceGroup `
@@ -72,7 +72,7 @@ Get-AzureRmEffectiveRouteTable `
 
 如果不知道网络接口的名称，但知道网络接口所附加到的 VM 的名称，则运行以下命令会返回附加到 VM 的所有网络接口的 ID：
 
-```PowerShell
+```azurepowershell
 $VM = Get-AzureRmVM -Name myVM `
   -ResourceGroupName myResourceGroup
 $VM.NetworkProfile
@@ -90,7 +90,7 @@ NetworkInterfaces
 
 ## <a name="diagnose-using-azure-cli"></a>使用 Azure CLI 诊断
 
-可以通过从计算机运行 CLI 来运行命令。 本文需要 Azure CLI 2.0.32 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需要运行 `az login`，并使用拥有[所需权限](virtual-network-network-interface.md#permissions)的帐户登录到 Azure。
+可以通过从计算机运行 CLI 来运行命令。 本文需要 Azure CLI 2.0.32 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需要运行 `az login`，并使用拥有[所需权限](virtual-network-network-interface.md#permissions)的帐户登录到 Azure。
 
 <!-- Not Available on [Azure Cloud Shell](https://shell.azure.com/bash)-->
 
@@ -121,7 +121,7 @@ az vm show \
 - 确保包含定义的任何自定义路由的路由表已关联到网络接口所在的子网。 了解如何[将路由表关联到子网](manage-route-table.md#associate-a-route-table-to-a-subnet)。
 - 确保部署的设备（例如 Azure VPN 网关或网络虚拟设备）正常运行。 使用网络观察程序的 [VPN 诊断](../network-watcher/diagnose-communication-problem-between-networks.md?toc=%2fvirtual-network%2ftoc.json)功能来确定 Azure VPN 网关的任何问题。
 
-如果仍然遇到通信问题，请参阅[注意事项](#considerations)和[其他诊断](#additional-dignosis)。
+如果仍然遇到通信问题，请参阅[注意事项](#considerations)和其他诊断。
 
 ## <a name="considerations"></a>注意事项
 

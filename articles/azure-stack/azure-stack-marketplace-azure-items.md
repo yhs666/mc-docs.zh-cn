@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/03/2018
-ms.date: 12/31/2018
+origin.date: 01/29/2019
+ms.date: 02/18/2019
 ms.author: v-jay
-ms.reviewer: ''
-ms.openlocfilehash: 3279dcafe0a3cf0a2c2a1e934cfb5482747cc9f1
-ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
+ms.reviewer: unknown
+ms.lastreviewed: 01/29/2019
+ms.openlocfilehash: b910e580a74e83bc1269c007ee778ee04f0c7340
+ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814645"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56218275"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>适用于 Azure Stack 的 Azure 市场项
 
@@ -85,6 +86,6 @@ Azure Stack 支持下述 Azure 市场虚拟机和解决方案模板。 请根据
 | ![SLES 12 SP3 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP3 (BYOS)](https://market.azure.cn/zh-cn/marketplace/apps/SUSE.SUSELinuxEnterpriseServer?tab=Overview) | SUSE Linux Enterprise Server 12 SP3。 | SUSE |
 | ![SLES 15 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 15 SP3 (BYOS)](https://market.azure.cn/zh-cn/marketplace/apps/SUSE.SUSELinuxEnterpriseServer?tab=Overview) | SUSE Linux Enterprise Server 15。 | SUSE |
 
-## <a name="third-party-byol-free-and-trial-images-and-solution-templates"></a>第三方 BYOL 版、免费版和试用版映像以及解决方案模板
+## <a name="third-party-byol-free-trial-images-and-solution-templates"></a>第三方 BYOL 版、免费版和试用版映像以及解决方案模板
 
 | ![SUSE Manager 3.1 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.1 Proxy (BYOS)](https://market.azure.cn/zh-cn/marketplace/apps/suse.suse-manager-proxy-byos?tab=Overview) | 一流的开源基础结构管理。 | SUSE |

@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 10/25/2018
-ms.date: 01/14/2019
+ms.date: 02/25/2019
 ms.author: v-yiso
-ms.openlocfilehash: e25d8a4926438f17540f58ebfda4fcb1b6bb2210
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: cb07b0421c664d08396b82df460fc5def8534b6e
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029214"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302955"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>将本地 Apache Hadoop 群集迁移到 Azure HDInsight - 存储最佳做法
 
@@ -85,7 +85,7 @@ keytool -list -v -keystore /path/to/jre/lib/security/cacerts
 
 
 
-## <a name="protect-azure-storage-key-visibility-within-the-on-premises-hadoop-cluster-configuration"></a>在本地 Hadoop 群集配置中保护 Azure 存储密钥可见性
+## <a name="secure-azure-storage-keys-within-on-premises-hadoop-cluster-configuration"></a>在本地 Hadoop 群集配置中保护 Azure 存储密钥
 
 添加到 Hadoop 配置文件的 Azure 存储密钥在本地 HDFS 和 Azure Blob 存储之间建立连接。 可以使用 Hadoop 凭据提供程序框架对这些密钥进行加密来保护这些密钥。 加密后，可以安全地存储和访问它们。
 
@@ -156,7 +156,7 @@ hadoop distcp -D hadoop.security.credential.provider.path=jceks://hdfs@headnode
 
 3. 遗憾的是，hadoop 凭证提供程序和解密密钥提供程序 (ShellDecryptionKeyProvider) 当前不能与 SAS 令牌配合使用，因此目前无法对其可见性提供保护。
 
-有关详细信息，请参阅[使用 Azure 存储共享访问签名来限制访问 HDInsight 中的数据](../hdinsight-storage-sharedaccesssignature-permissions.md)
+有关详细信息，请参阅[使用 Azure 存储共享访问签名来限制访问 HDInsight 中的数据](../hdinsight-storage-sharedaccesssignature-permissions.md)。
 
 ## <a name="use-data-encryption-and-replication"></a>使用数据加密和复制
 

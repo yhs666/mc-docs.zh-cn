@@ -1,27 +1,24 @@
 ---
-title: 创建 Azure 虚拟网络对等互连 - 资源管理器 - 不同的订阅 | Azure
+title: 创建 Azure 虚拟网络对等互连 - 资源管理器 - 不同订阅
+titlesuffix: Azure Virtual Network
 description: 了解如何在通过不同 Azure 订阅中的资源管理器创建的虚拟网络间创建虚拟网络对等互连。
 services: virtual-network
 documentationcenter: ''
 author: rockboyfor
-manager: digimobile
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/24/2018
-ms.date: 01/21/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 50db83c7d514b18a4bb623d005c2b7e3ba1f34d2
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: 5c6900c880fa5db8a9c129e625fa451e53a0a261
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193045"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306172"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>创建虚拟网络对等互连 - 资源管理器，不同的订阅
 
@@ -37,9 +34,7 @@ ms.locfileid: "54193045"
 
 不能在通过经典部署模型部署的两个虚拟网络之间创建对等互连。 如需连接两个通过经典部署模型创建的虚拟网络，可使用 Azure [VPN 网关](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json)来连接它们。
 
-本教程将在同一区域中的虚拟网络之间建立对等互连。 建议在对等互连虚拟网络之前让自己熟悉[对等互连的要求和约束](virtual-network-manage-peering.md#requirements-and-constraints)。
-
-<!-- Not Available on in different [supported regions](virtual-network-manage-peering.md#cross-region)-->
+本教程将在同一区域中的虚拟网络之间建立对等互连。 还可以将不同[受支持的区域](virtual-network-manage-peering.md#cross-region)中的虚拟网络对等互连。 建议在对等互连虚拟网络之前让自己熟悉[对等互连的要求和约束](virtual-network-manage-peering.md#requirements-and-constraints)。
 
 可以使用 [Azure 门户](#portal)、Azure [命令行接口](#cli) (CLI)、Azure [PowerShell](#powershell)、或 [Azure 资源管理器模板](#template)创建虚拟网络对等互连。 选择前面的任何工具链接可以直接转到使用所选工具创建虚拟网络对等互连的步骤。
 
@@ -79,7 +74,7 @@ ms.locfileid: "54193045"
     - **位置**：*中国东部*
 
 13. 在门户顶部的“搜索资源”框中键入 *myVnetB*。 选择出现在搜索结果中的“myVnetB”。
-14. 在“myVnetB”下，选择左侧垂直选项列表中的“属性”。 复制“资源 ID”，在稍后的步骤中使用。 资源 ID 类似于以下示例：/subscriptions/<Susbscription ID>/resourceGroups/myResoureGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB。
+14. 在“myVnetB”下，选择左侧垂直选项列表中的“属性”。 复制“资源 ID”，在稍后的步骤中使用。 资源 ID 类似于以下示例：/subscriptions/\<Subscription ID\>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB。
 15. 在“myVnetB”下选择“访问控制(IAM)”，然后为 myVnetB 完成步骤 5-10，在步骤 8 中输入 **UserA**。
 16. 以 UserB 的身份注销门户，然后以 UserA 的身份登录。
 17. 在门户顶部的“搜索资源”框中键入 *myVnetA*。 选择出现在搜索结果中的“myVnetA”。
@@ -189,6 +184,7 @@ ms.locfileid: "54193045"
 ## <a name="create-peering---powershell"></a>创建对等互连 - PowerShell
 
 本教程为每个订阅使用不同的帐户。 如果使用的帐户可访问这两个订阅，则可使用相同帐户完成所有步骤，可跳过注销 Azure 的步骤，并删除创建用户角色分配的脚本行。 将以下所有脚本中的 UserA@azure.com 和 UserB@azure.com 替换为 UserA 和 UserB 使用的用户名。 
+
 <!-- Not Available on Active Directory b2b-->
 
 1. 确认你具有版本 6.5.0 或更高版本。 为此，可运行 `Get-Module -Name AzureRm`我们推荐安装最新版本的 PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) 模块。 如果不熟悉 Azure PowerShell，请参阅 [Azure PowerShell 概述](https://docs.microsoft.com/powershell/azure/overview?toc=%2fvirtual-network%2ftoc.json)。 
@@ -255,6 +251,7 @@ ms.locfileid: "54193045"
 
 <a name="template"></a>
 ## <a name="create-peering---resource-manager-template"></a>创建对等互连 - 资源管理器模板
+
 <!-- Not Available on Active Directory b2b-->
 
 1. 若要创建虚拟网络并分配合适的[权限](virtual-network-manage-peering.md#permissions)，请完成本文中[门户](#portal)、[Azure CLI](#cli) 或 [PowerShell](#powershell) 部分中所述的步骤。
@@ -345,6 +342,6 @@ ms.locfileid: "54193045"
 
 - 在针对生产用途创建虚拟网络对等互连之前，请充分熟悉重要的[虚拟网络对等互连约束和行为](virtual-network-manage-peering.md#requirements-and-constraints)。
 - 了解所有的[虚拟网络对等互连设置](virtual-network-manage-peering.md#create-a-peering)。
-<!-- Not Availble on [create a hub and spoke network topology](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json#vnet-peering)-->
 
+<!-- Not Availble on [create a hub and spoke network topology](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json#vnet-peering)-->
 <!--Update_Description: wording update, update link -->

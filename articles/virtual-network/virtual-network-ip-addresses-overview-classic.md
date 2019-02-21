@@ -1,27 +1,24 @@
 ---
-title: Azure 中的 IP 地址类型（经典）| Azure
+title: Azure 中的 IP 地址类型（经典）
+titlesuffix: Azure Virtual Network
 description: 了解 Azure 中的公共 IP 地址和专用 IP 地址（经典）。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
-manager: digimobile
-editor: tysonn
-tags: azure-service-management
-ms.assetid: 2f8664ab-2daf-43fa-bbeb-be9773efc978
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/11/2016
-ms.date: 01/21/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: a3344a7b4f267a1a07a6a9c0c6c0346764f89968
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: 9f2d42dd8820218cbde9631609e31036eaf387a9
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193044"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306146"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Azure 中的 IP 地址类型和分配方法（经典）
 可以将 IP 地址分配到与其他 Azure 资源通信的 Azure 资源，也可以将其分配到本地网络和 Internet。 可以在 Azure 中使用两种类型的 IP 地址：公共地址和专用地址。
@@ -45,7 +42,7 @@ ms.locfileid: "54193044"
 * 应用程序网关
 
 ### <a name="allocation-method"></a>分配方法
-如果需要向 Azure 资源分配公共 IP 地址，将 动态地从资源的创建位置中的可用公共 IP 地址池分配该 IP 地址。 停止该资源时，将释放此 IP 地址。 对于云服务而言，所有角色实例均已停止时会发生这种情况，可以使用*静态*（保留）IP 地址避免发生这种情况（请参阅[云服务](#Cloud-services)）。
+如果需要向 Azure 资源分配公共 IP 地址，将 动态地从资源的创建位置中的可用公共 IP 地址池分配该 IP 地址。 停止该资源时，将释放此 IP 地址。 对于云服务，所有角色实例均已停止时会发生这种情况，可以使用*静态*（保留）IP 地址避免发生这种情况（请参阅[云服务](#Cloud-services)）。
 
 > [!NOTE]
 > 将公共 IP 地址分配到 Azure 资源时所依据的 IP 范围列表已在 [Azure 数据中心 IP 范围](https://www.microsoft.com/en-us/download/confirmation.aspx?id=57062)中发布。
@@ -131,7 +128,7 @@ Azure [应用程序网关](../application-gateway/application-gateway-introducti
 #### <a name="internal-dns-hostname-resolution"></a>内部 DNS 主机名解析
 所有 Azure VM 和 PaaS 角色实例都默认配置了 [Azure 托管的 DNS 服务器](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution)（除非显式配置了自定义 DNS 服务器）。 这些 DNS 服务器为驻留在同一个 VNet 或云服务内的 VM 和角色实例提供内部名称解析。
 
-创建 VM 时，主机名到其专用 IP 地址的映射会添加到 Azure 托管的 DNS 服务器。 使用多 NIC VM 时，主机名映射到主 NIC 的专用 IP 地址。 但是，此映射信息将限制为同一云服务或 VNet 中的资源。
+创建 VM 时，主机名到其专用 IP 地址的映射会添加到 Azure 托管的 DNS 服务器。 使用多 NIC VM 时，主机名将映射到主 NIC 的专用 IP 地址。 但是，此映射信息将限制为同一云服务或 VNet 中的资源。
 
 如果是  独立云服务，则只能解析同一云服务内的所有 VM/角色实例的主机名。 如果是 VNet 中的云服务，则可以解析该 VNet 中的所有 VM/角色实例的主机名。
 

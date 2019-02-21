@@ -11,16 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/15/2018
-ms.date: 12/17/2018
+origin.date: 01/11/2019
+ms.date: 02/18/2019
 ms.author: v-jay
-ms.reviewer: quying
-ms.openlocfilehash: 65b0547b5938285e0aaa77757d42db1830480509
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.reviewer: jiahan
+ms.lastreviewed: 01/11/2019
+ms.openlocfilehash: e4596a4e67e91433042e0278eeef6d3675808848
+ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396236"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56218229"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>在 Azure Stack 上部署 MySQL 资源提供程序
 
@@ -46,6 +47,7 @@ ms.locfileid: "53396236"
 
   |最低 Azure Stack 版本|MySQL RP 版本|
   |-----|-----|
+  |版本 1808 (1.1808.0.97)|[MySQL RP 版本 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|  
   |版本 1808 (1.1808.0.97)|[MySQL RP 版本 1.1.30.0](https://aka.ms/azurestackmysqlrp11300)|
   |版本 1804 (1.0.180513.1)|[MySQL RP 版本 1.1.24.0](https://aka.ms/azurestackmysqlrp11240)
   |     |     |
@@ -65,7 +67,10 @@ _仅适用于集成系统安装_。 必须提供 [Azure Stack 部署 PKI 要求]
 
 ## <a name="deploy-the-resource-provider"></a>部署资源提供程序
 
-安装所有必备组件后，请运行 **DeployMySqlProvider.ps1** 脚本以部署 MYSQL 资源提供程序。 DeployMySqlProvider.ps1 脚本是从针对 Azure Stack 版本下载的 MySQL 资源提供程序二进制文件中提取的。
+安装所有必备组件后，即可运行 **DeployMySqlProvider.ps1** 脚本来部署 MySQL 资源提供程序。 DeployMySqlProvider.ps1 脚本是从针对 Azure Stack 版本下载的 MySQL 资源提供程序安装文件中提取的。
+
+ > [!IMPORTANT]
+ > 在部署资源提供程序之前，请查看发行说明，了解新功能、修补程序以及任何可能影响部署的已知问题。
 
 若要部署 MySQL 资源提供程序，请打开一个权限提升的 PowerShell（不是 PowerShell ISE）新窗口，并切换到解压缩后的 MySQL 资源提供程序二进制文件所在的目录。 我们建议使用新的 PowerShell 窗口，以避免已加载的 PowerShell 模块造成问题。
 
@@ -98,7 +103,7 @@ _仅适用于集成系统安装_。 必须提供 [Azure Stack 部署 PKI 要求]
 | **RetryDuration** | 每两次重试的超时间隔（秒）。 | 120 |
 | **卸载** | 删除资源提供程序和所有关联的资源（请参阅下面的注释）。 | 否 |
 | **DebugMode** | 防止在失败时自动清除。 | 否 |
-| **AcceptLicense** | 跳过接受 GPL 许可条款的提示。  <http://www.gnu.org/licenses/old-licenses/gpl-2.0.html> | |
+| **AcceptLicense** | 跳过接受 GPL 许可条款的提示。  <https://www.gnu.org/licenses/old-licenses/gpl-2.0.html> | |
 
 ## <a name="deploy-the-mysql-resource-provider-using-a-custom-script"></a>使用自定义脚本部署 MySQL 资源提供程序
 
@@ -134,6 +139,10 @@ $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysq
 # And the cloudadmin credential required for privileged endpoint access.
 $CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
+
+# Clear the existing login information from the Azure PowerShell context.
+Clear-AzureRMContext -Scope CurrentUser -Force
+Clear-AzureRMContext -Scope Process -Force
 
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force

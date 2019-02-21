@@ -1,5 +1,5 @@
 ---
-title: 为 Web 应用启用诊断日志记录 - Azure 应用服务
+title: 为应用启用诊断日志记录 - Azure 应用服务
 description: 了解如何启用诊断日志记录并将检测添加到应用程序，以及如何访问由 Azure 记录的信息。
 services: app-service
 documentationcenter: .net
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/06/2016
-ms.date: 01/21/2019
+ms.date: 02/25/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 5092a7ea8d2af80b534e58664e7d5da9479fbaa8
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: f2756ca70a8bb6890429ddcb5ff134d1a887a0ad
+ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083920"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56222608"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>为 Azure 应用服务中的应用启用诊断日志记录
 ## <a name="overview"></a>概述
@@ -36,7 +36,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务应用](app-service
 可以启用或禁用以下种类的日志：
 
 * **详细错误日志记录** - 指示故障的 HTTP 状态代码（状态代码 400 或更大数字）的详细错误消息。 其中可能包含有助于确定服务器返回错误代码的原因的信息。
-* **失败请求跟踪** - 有关失败请求的详细信息，包括对用于处理请求的 IIS 组件和每个组件所用的时间的跟踪。 在尝试提高站点性能或隔离导致要返回特定 HTTP 错误的内容时，此信息很有用。
+* **失败请求跟踪** - 有关失败请求的详细信息，包括对用于处理请求的 IIS 组件和每个组件所用的时间的跟踪。 如果要提高站点性能或隔离特定的 HTTP 错误，这将非常有用。
 * **Web 服务器日志记录** - 使用 [W3C 扩展日志文件格式](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx)的 HTTP 事务信息。 这在确定整体站点指标（如处理的请求数量或来自特定 IP 地址的请求数）时非常有用。
 
 ### <a name="application-diagnostics"></a>应用程序诊断
@@ -54,12 +54,16 @@ Azure 提供内置诊断功能，可帮助调试[应用服务应用](app-service
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![日志部分](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-启用“应用程序诊断”时，还需选择“级别”。 此设置将捕获的信息筛选为“信息性”信息、“警告”信息或“错误”信息。 若将此选项设置为“详细”，将记录应用程序生成的所有信息。
+启用“应用程序诊断”时，还需选择“级别”。 下表显示了每个级别包含的日志类别：
 
-> [!NOTE]
-> 与更改 Web.config 文件不同，启用应用程序诊断或更改诊断日志级别不会回收运行应用程序的应用域。
->
->
+| 级别| 包含的日志类别 |
+|-|-|
+|**已禁用** | 无 |
+|**错误** | “错误”、“严重” |
+|**警告** | “警告”、“错误”、“严重”|
+|**信息** | “信息”、“警告”、“错误”、“严重”|
+|**详细** | “跟踪”、“调试”、“信息”、“警告”、“错误”、“严重”（所有类别） |
+|-|-|
 
 对于“应用程序日志记录”，可以临时打开文件系统选项以便调试。 此选项将在 12 小时后自动关闭。 还可打开 blob 存储选项，选择某个 blob 容器来写入日志。
 

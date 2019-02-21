@@ -3,19 +3,19 @@ title: Azure 自动化中的连接资产
 description: Azure 自动化中的连接资产包含从 Runbook 或 DSC 配置连接到外部服务或应用程序所需的信息。 本文介绍了有关连接的详细信息，以及如何在文本和图形创作中使用连接。
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: WenJason
 ms.author: v-jay
-origin.date: 03/15/2018
+origin.date: 01/16/2019
 ms.date: 12/24/2018
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: afce2249b734d1d3f8aca0b68df86f0578b768ae
-ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
+ms.openlocfilehash: 0eb8de4c72d3a731f743990b6e91f740280c2ef5
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396924"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56303075"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure 自动化中的连接资产
 
@@ -24,7 +24,17 @@ ms.locfileid: "54396924"
 创建连接时，必须指定“连接类型”。 连接类型是定义了一组属性的模板。 连接为其连接类型中定义的每个属性定义值。 连接类型通过集成模块添加到 Azure 自动化，或使用 [Azure 自动化 API](https://msdn.microsoft.com/library/azure/mt163818.aspx) 进行创建，前提是集成模块包含连接类型，并且已导入到自动化帐户中。 否则，需创建指定自动化连接类型的元数据文件。  此方面的详细信息，请参阅[集成模块](automation-integration-modules.md)。  
 
 >[!NOTE]
->Azure 自动化中的安全资产包括凭据、证书、连接和加密的变量。 这些资产已使用针对每个自动化帐户生成的唯一密钥加密并存储在 Azure 自动化中。 此密钥存储在密钥保管库中。 在存储安全资产之前，从密钥保管库加载密钥，然后使用该密钥加密资产。
+>Azure 自动化中的安全资产包括凭据、证书、连接和加密的变量。 这些资产已使用针对每个自动化帐户生成的唯一密钥加密并存储在 Azure 自动化中。 此密钥存储在系统托管的密钥保管库中。 在存储安全资产之前，从密钥保管库加载密钥，然后使用该密钥加密资产。 此过程由 Azure 自动化管理。
+
+## <a name="connection-types"></a>连接类型
+
+Azure 自动化中有三种类型的内置连接：
+
+* **Azure** - 此连接可以用于管理经典资源。
+* **AzureClassicCertificate** - AzureClassicRunAs 帐户使用此连接。
+* **AzureServicePrincipal** - AzureRunAs 帐户使用此连接。
+
+在大多数情况下不需要创建连接资源，因为在创建 [RunAs 帐户](manage-runas-account.md)时已经创建了该连接。
 
 ## <a name="windows-powershell-cmdlets"></a>Windows PowerShell Cmdlet
 
@@ -71,7 +81,7 @@ ms.locfileid: "54396924"
 
 ### <a name="to-create-a-new-connection-with-windows-powershell"></a>使用 Windows PowerShell 创建新连接
 
-使用 Windows PowerShell 通过 [New-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationconnection) cmdlet 创建新连接。 此 cmdlet 有一个名为 ConnectionFieldValues 的参数，预期为一个[哈希表](http://technet.microsoft.com/library/hh847780.aspx)，用于为连接类型定义的每个属性定义值。
+使用 Windows PowerShell 通过 [New-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationconnection) cmdlet 创建新连接。 此 cmdlet 有一个名为 ConnectionFieldValues 的参数，预期为一个[哈希表](https://technet.microsoft.com/library/hh847780.aspx)，用于为连接类型定义的每个属性定义值。
 
 如果熟悉自动化的[运行方式帐户](automation-sec-configure-azure-runas-account.md)（可使用服务主体对 Runbook 进行身份验证），可以使用 PowerShell 脚本（在从门户创建运行方式帐户时作为替代方法提供）通过以下示例命令创建新的连接资产。  
 
@@ -155,3 +165,4 @@ azure_credential = get_automation_runas_credential(runas_connection)
 - 查看[图形创作中的链接](automation-graphical-authoring-intro.md#links-and-workflow)，了解如何引导和控制 Runbook 中的逻辑流。  
 
 - 要详细了解 Azure 自动化如何使用 PowerShell 模块，以及如何根据最佳实践创建自己的 PowerShell 模块（充当 Azure 自动化中的集成模块），请参阅[集成模块](automation-integration-modules.md)。  
+

@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/13/2018
-ms.date: 12/17/2018
+origin.date: 01/11/2019
+ms.date: 02/18/2019
 ms.author: v-jay
-ms.openlocfilehash: 5e924418c4b69677b4a60032359ec78cfa1a4045
-ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
+ms.lastreviewed: 01/11/2019
+ms.openlocfilehash: 15160aa5e96c2ddc04484d0267e0996f56c64bdb
+ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54059028"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56218273"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>将应用服务资源提供程序添加到受 AD FS 保护且已断开连接的 Azure Stack 环境
 
@@ -28,14 +29,15 @@ ms.locfileid: "54059028"
 
 > [!IMPORTANT]
 > 请将 1809 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包，然后部署 Azure 应用服务 1.4。
->
->
 
 按照本文中的说明操作即可将[应用服务资源提供程序](azure-stack-app-service-overview.md)安装到符合以下条件的 Azure Stack 环境：
 
 - 未连接到 Internet
 - 受 Active Directory 联合身份验证服务 (AD FS) 保护。
 
+ > [!IMPORTANT]
+ > 在部署资源提供程序之前，请查看发行说明，了解新功能、修补程序以及任何可能影响部署的已知问题。
+ 
 若要将应用服务资源提供程序添加到脱机的 Azure Stack 部署，必须完成以下顶级任务：
 
 1. 完成[先决条件步骤](azure-stack-app-service-before-you-get-started.md)（例如购买证书，可能需要数天才能接收到）。
@@ -201,7 +203,7 @@ ms.locfileid: "54059028"
 2. 在“概述”中，在“状态”下，检查“状态”是否显示了“所有角色已就绪”。
 
     ![应用服务管理](media/azure-stack-app-service-deploy/image12.png)
-    
+
 > [!NOTE]
 > 如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加出站安全规则，以便在工作子网和文件服务器之间启用 SMB 流量。  为此，请转到管理门户中的 WorkersNsg 并添加具有以下属性的出站安全规则：
 > * 源：任意
@@ -258,7 +260,7 @@ ms.locfileid: "54059028"
 - [MySQL 资源提供程序](azure-stack-mysql-resource-provider-deploy.md)
 
 <!--Links-->
-[App_Service_Deployment]: http://go.microsoft.com/fwlink/?LinkId=723982
+[App_Service_Deployment]: https://go.microsoft.com/fwlink/?LinkId=723982
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-deploy-offline/app-service-exe-advanced-create-package.png

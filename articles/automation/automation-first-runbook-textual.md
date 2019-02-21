@@ -11,12 +11,12 @@ origin.date: 09/24/2018
 ms.date: 12/24/2018
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: c21234364b7ca4664279a35c6a0c0bb668fb4b93
-ms.sourcegitcommit: 895e9accaae8f8c2a29ed91d8e84911fda6111cf
+ms.openlocfilehash: 40ac4e6d59ad17394d4654987aca771f96fd5222
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53615173"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302990"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>我的第一个 PowerShell 工作流 Runbook
 
@@ -140,10 +140,7 @@ ms.locfileid: "53615173"
    ```
 
    > [!IMPORTANT]
-   > **Add-AzureRmAccount** 和 **Login-AzureRmAccount** 现在是 **Connect-AzureRMAccount** 的别名。 如果 **Connect-AzureRMAccount** cmdlet 不存在，则可以使用 **Add-AzureRmAccount** 或 **Login-AzureRmAccount**，也可以将自动化帐户中的[模块更新](automation-update-azure-modules.md)为最新版本。
-
-> [!NOTE]
-> 即使刚刚创建了一个新的自动化帐户，也可能需要[更新模块](automation-update-azure-modules.md)。
+   > **Add-AzureRmAccount** 和 **Login-AzureRmAccount** 现在是 **Connect-AzureRMAccount** 的别名。 如果 **Connect-AzureRMAccount** cmdlet 不存在，则可以使用 **Add-AzureRmAccount** 或 **Login-AzureRmAccount**。
 
 5. 单击“测试”窗格，以便测试 Runbook。
 6. 单击“启动”以启动测试  。 完成后，你会收到类似于以下内容的输出，显示帐户中的基本信息。 这是对凭据有效的确认。

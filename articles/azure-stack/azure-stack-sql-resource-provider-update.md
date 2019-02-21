@@ -11,31 +11,32 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/04/2018
-ms.date: 12/31/2018
+origin.date: 01/11/2019
+ms.date: 02/18/2019
 ms.author: v-jay
-ms.reviewer: quying
-ms.openlocfilehash: 4d1355d3824201fb6ef1df3e0446312861cd9be7
-ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
+ms.reviewer: jiahan
+ms.lastreviewed: 01/11/2019
+ms.openlocfilehash: e5e0ccea52ac4334227cb64fefe07ff1eb4948bf
+ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814618"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56218280"
 ---
 # <a name="update-the-sql-resource-provider"></a>更新 SQL 资源提供程序
 
 *适用于：Azure Stack 集成系统。*
 
-你在将 Azure Stack 更新到新的 内部版本时，可能碰上我们发布新的 SQL 资源提供程序。 虽然现有的适配器可以继续使用，但仍建议尽快更新到最新的内部版本。
+你在将 Azure Stack 更新到新的 内部版本时，可能碰上我们发布新的 SQL 资源提供程序。 虽然现有的资源提供程序可以继续使用，但仍建议尽快更新到最新的内部版本。 
 
-> [!IMPORTANT]
-> 必须按更新的发布顺序安装更新。 不能跳过版本。 请参阅[部署资源提供程序的先决条件](./azure-stack-sql-resource-provider-deploy.md#prerequisites)中的版本列表。
-
-## <a name="overview"></a>概述
+从 SQL 资源提供程序发布版 1.1.33.0 开始，更新是累积性的，不需按发布顺序进行安装，前提是你从 1.1.24.0 或更高版本开始。 例如，如果运行 1.1.24.0 版 SQL 资源提供程序，则可升级到 1.1.33.0 或更高版本，不需先安装版本 1.1.30.0。 若要查看可用的资源提供程序版本，以及支持它们的 Azure Stack 版本，请参阅[部署资源提供程序的先决条件](./azure-stack-sql-resource-provider-deploy.md#prerequisites)中的版本列表。
 
 若要更新资源提供程序，请使用 *UpdateSQLProvider.ps1* 脚本。 新 SQL 资源提供程序的下载包中提供此脚本。 更新过程类似于[部署资源提供程序](./azure-stack-sql-resource-provider-deploy.md)时使用的过程。 更新脚本与 DeploySqlProvider.ps1 脚本使用相同的参数，你需要提供证书信息。
 
-### <a name="update-script-processes"></a>更新脚本过程
+ > [!IMPORTANT]
+ > 在升级资源提供程序之前，请查看发行说明，了解新功能、修补程序以及任何可能影响部署的已知问题。
+
+## <a name="update-script-processes"></a>更新脚本过程
 
 *UpdateSQLProvider.ps1* 脚本可使用最新的资源提供程序代码创建新的虚拟机 (VM)。
 
@@ -48,11 +49,26 @@ ms.locfileid: "53814618"
 * 宿主服务器信息
 * 必要的 DNS 记录
 
-### <a name="update-script-powershell-example"></a>更新脚本 PowerShell 示例
+## <a name="update-script-parameters"></a>更新脚本参数
 
-可以在权限提升的 PowerShell ISE 中编辑并运行以下脚本。 
+运行 **UpdateSQLProvider.ps1** PowerShell 脚本时，可在命令行中指定以下参数。 如果未指定参数或任何参数验证失败，系统会提示提供所需的参数。
 
-记住按环境需要更改帐户信息和密码。
+| 参数名称 | 说明 | 注释或默认值 |
+| --- | --- | --- |
+| **CloudAdminCredential** | 访问特权终结点时所需的云管理员凭据。 | _必需_ |
+| **AzCredential** | Azure Stack 服务管理员帐户的凭据。 使用部署 Azure Stack 时所用的相同凭据。 | _必需_ |
+| **VMLocalCredential** | SQL 资源提供程序 VM 的本地管理员帐户的凭据。 | _必需_ |
+| **PrivilegedEndpoint** | 特权终结点的 IP 地址或 DNS 名称。 |  _必需_ |
+| **AzureEnvironment** | 用于部署 Azure Stack 的服务管理员帐户的 Azure 环境。 仅对于 Azure AD 部署是必需的。 受支持的环境名称是 **AzureChinaCloud**。 | AzureChinaCloud |
+| **DependencyFilesLocalPath** | 同样必须将证书 .pfx 文件放在此目录中。 | 对单节点为可选，但对多节点为必选 |
+| **DefaultSSLCertificatePassword** | .pfx 证书的密码。 | _必需_ |
+| **MaxRetryCount** | 操作失败时，想要重试每个操作的次数。| 2 |
+| **RetryDuration** |每两次重试的超时间隔（秒）。 | 120 |
+| **卸载** | 删除资源提供程序和所有关联的资源。 | 否 |
+| **DebugMode** | 防止在失败时自动清除。 | 否 |
+
+## <a name="update-script-powershell-example"></a>更新脚本 PowerShell 示例
+下面是 *UpdateSQLProvider.ps1* 脚本的使用示例，该脚本可以通过提升的 PowerShell 控制台来运行。 请务必根据需要更改变量信息和密码：  
 
 > [!NOTE]
 > 此更新过程仅适用于 Azure Stack 集成系统。
@@ -102,24 +118,6 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
   -DependencyFilesLocalPath $tempDir\cert `
 
  ```
-
-## <a name="updatesqlproviderps1-parameters"></a>UpdateSQLProvider.ps1 参数
-
-运行脚本时，可在命令行中指定以下参数。 如果未指定参数或任何参数验证失败，系统会提示提供所需的参数。
-
-| 参数名称 | 说明 | 注释或默认值 |
-| --- | --- | --- |
-| **CloudAdminCredential** | 访问特权终结点时所需的云管理员凭据。 | _必需_ |
-| **AzCredential** | Azure Stack 服务管理员帐户的凭据。 使用部署 Azure Stack 时所用的相同凭据。 | _必需_ |
-| **VMLocalCredential** | SQL 资源提供程序 VM 的本地管理员帐户的凭据。 | _必需_ |
-| **PrivilegedEndpoint** | 特权终结点的 IP 地址或 DNS 名称。 |  _必需_ |
-| **AzureEnvironment** | 用于部署 Azure Stack 的服务管理员帐户的 Azure 环境。 仅对于 Azure AD 部署是必需的。 受支持的环境名称是 **AzureChinaCloud**。 | AzureChinaCloud |
-| **DependencyFilesLocalPath** | 同样必须将证书 .pfx 文件放在此目录中。 | 对单节点为可选，但对多节点为必选 |
-| **DefaultSSLCertificatePassword** | .pfx 证书的密码。 | _必需_ |
-| **MaxRetryCount** | 操作失败时，想要重试每个操作的次数。| 2 |
-| **RetryDuration** |每两次重试的超时间隔（秒）。 | 120 |
-| **卸载** | 删除资源提供程序和所有关联的资源。 | 否 |
-| **DebugMode** | 防止在失败时自动清除。 | 否 |
 
 ## <a name="next-steps"></a>后续步骤
 

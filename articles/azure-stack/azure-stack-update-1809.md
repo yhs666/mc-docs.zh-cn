@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/22/2018
-ms.date: 01/14/2019
+origin.date: 01/24/2019
+ms.date: 02/18/2019
 ms.author: v-jay
 ms.reviewer: justini
-ms.openlocfilehash: ff9a2ff6bc39602d23693518c5d3d238d73937eb
-ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
+ms.lastreviewed: 01/24/2019
+ms.openlocfilehash: 1696ab4a85995615b518f45a7c14496137ac0b2c
+ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54059030"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56218279"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 更新
 
@@ -49,6 +50,8 @@ Azure Stack 1809 更新内部版本号为 **1.1809.0.90**。
    有关详细信息，请参阅 [Azure Stack Syslog 转发](azure-stack-integrate-security.md)。
 
 - 现在可以在 Azure 上的资源组之间[移动注册资源](azure-stack-registration.md#move-a-registration-resource)，而无需重新注册。 只要新旧订阅都映射到相同的 CSP 合作伙伴 ID，云解决方案商 (CSP) 也可以在订阅之间移动注册资源。 这不影响现有的客户租户映射。 
+
+- 增加了为每个网络接口分配多个 IP 地址的支持。  如需更多详细信息，请参阅[使用 PowerShell 将多个 IP 地址分配到虚拟机](/virtual-network/virtual-network-multiple-ip-addresses-powershell)。
 
 ### <a name="fixed-issues"></a>修复的问题
 
@@ -133,7 +136,7 @@ Azure Stack 1809 更新内部版本号为 **1.1809.0.90**。
 
 ### <a name="prerequisites"></a>先决条件
 
-- 在应用 1809 之前，请安装 1808 的最新 Azure Stack 修补程序。 有关详细信息，请参阅[知识库文章 4481066 – Azure Stack 修补程序 1.1808.9.117](https://support.microsoft.com/help/4481066/)。
+- 在应用 1809 之前，请安装 1808 的最新 Azure Stack 修补程序。 有关详细信息，请参阅[知识库文章 4481066 – Azure Stack 修补程序 1.1808.9.117](https://support.microsoft.com/help/4481066/)。 虽然我们建议使用最新发布的修补程序，但安装 1809 所需的最低版本为 1.1808.5.110。
 
   > [!TIP]  
   > 订阅下述 *RRS* 或 *Atom* 源，了解 Azure Stack 修补程序的最新更新：
@@ -251,6 +254,8 @@ Azure Stack 1809 更新内部版本号为 **1.1809.0.90**。
 
 ### <a name="compute"></a>计算
 
+- 创建 [Dv2 系列 VM](./user/azure-stack-vm-considerations.md#virtual-machine-sizes) 时，可以通过 D11-14v2 VM 分别创建 4 个、8 个、16 个和 32 个数据磁盘。 不过，“创建 VM”窗格会显示 8 个、16 个、32 个和 64 个数据磁盘。
+
 <!-- 3235634 – IS, ASDK -->
 - 若要部署大小包含 **v2** 后缀的 VM（例如 **Standard_A2_v2**），请将后缀指定为 **Standard_A2_v2**（小写 v）。 请勿使用 **Standard_A2_V2**（大写 V）。 这适用于 Azure，在 Azure Stack 上有不一致的问题。
 
@@ -293,7 +298,7 @@ Azure Stack 1809 更新内部版本号为 **1.1809.0.90**。
 
    - 如果订阅是在 1808 更新之前创建的，则部署具有托管磁盘的 VM 可能会失败并出现内部错误消息。 若要解决此错误，请针对每个订阅执行以下步骤：
       1. 在租户门户中转到“订阅”，找到相应订阅。 依次单击“资源提供程序”、“Microsoft.Compute”、“重新注册”。
-      2. 在同一订阅下，转到“访问控制(标识和访问管理)”，验证“Azure Stack - 托管磁盘”是否已列出。
+      2. 在同一订阅下，转到“访问控制(标识和访问管理)”，验证“AzureStack-DiskRP-Client”角色是否已列出。
    2. 如果已配置多租户环境，在与来宾目录相关联的订阅中部署 VM 可能会失败并出现内部错误消息。 若要解决错误，请执行[此文章](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)中的步骤来重新配置每个来宾目录。
 
 - 如果使用创建时已启用 SSH 授权的 Ubuntu 18.04 VM，则无法使用 SSH 密钥登录。 若要解决此问题，请在预配后使用针对 Linux 扩展的 VM 访问权限来实现 SSH 密钥，或者使用基于密码的身份验证。

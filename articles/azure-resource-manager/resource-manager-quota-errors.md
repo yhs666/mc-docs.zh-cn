@@ -1,7 +1,7 @@
 ---
 title: Azure 配额错误 | Azure
-description: 说明如何解决资源配额错误。
-services: azure-resource-manager,azure-portal
+description: 介绍如何解决资源配额错误。
+services: azure-resource-manager
 documentationcenter: ''
 author: rockboyfor
 manager: digimobile
@@ -10,20 +10,22 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: support-article
+ms.topic: troubleshooting
 origin.date: 03/09/2018
-ms.date: 03/26/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 64877c52eab7d5fbceea817ac3a8a16ed37d05dc
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b0899cf43c908320cf76b695239820e67eabd935
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649809"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306036"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>解决资源配额错误
 
 本文介绍部署资源时可能遇到的配额错误。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="symptom"></a>症状
 
@@ -77,10 +79,10 @@ az vm list-usage --location "China East"
 
 ### <a name="powershell"></a>PowerShell
 
-对于 PowerShell，使用 **Get-AzureRmVMUsage** 命令查找虚拟机配额。
+对于 PowerShell，可使用 Get-AzVMUsage 命令查找虚拟机配额。
 
 ```powershell
-Get-AzureRmVMUsage -Location "China East"
+Get-AzVMUsage -Location "China East"
 ```
 
 返回：
@@ -118,7 +120,9 @@ Virtual Machines                             0 10000 Count
 
    ![请求增加](./media/resource-manager-quota-errors/request-increase.png)
 
-5. 填写你需要增加的配额类型的表单。
-<!-- Not Available on  ![Fill in form](./media/resource-manager-quota-errors/forms.png) -->
+  <!--MOONCAKE CUSTOMIZE-->
+5. 在完成“常规信息”和“问题”部分后，请填写你需要增加的配额类型的表单。
 
+   ![填写表单](./media/resource-manager-quota-errors/forms.png)
+   
 <!-- Update_Description: update meta properties, wording update -->

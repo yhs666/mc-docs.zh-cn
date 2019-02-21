@@ -92,6 +92,16 @@ items:
         href: azure-stack-network-overview.md
       - name: 网络注意事项
         href: azure-stack-network-differences.md
+      - name: VPN 网关
+        items:
+        - name: 使用 VPN 进行连接
+          href: azure-stack-connect-vpn.md
+        - name: 关于 VPN 网关
+          href: azure-stack-vpn-gateway-about-vpn-gateways.md
+        - name: 配置 IPsec/IKE 连接策略
+          href: azure-stack-vpn-s2s.md
+        - name: VPN 网关设置
+          href: azure-stack-vpn-gateway-settings.md
       - name: 用于 Azure Stack 的 iDNS
         href: azure-stack-understanding-dns.md
       - name: Azure Stack 中的 DNS
@@ -99,17 +109,19 @@ items:
     - name: 密钥保管库
       items:
       - name: 概述
-        href: azure-stack-kv-intro.md
+        href: azure-stack-key-vault-intro.md
       - name: 使用门户进行管理
-        href: azure-stack-kv-manage-portal.md
+        href: azure-stack-key-vault-manage-portal.md
       - name: 使用 PowerShell 进行管理
-        href: azure-stack-kv-manage-powershell.md
+        href: azure-stack-key-vault-manage-powershell.md
       - name: 使用机密创建 VM
-        href: azure-stack-kv-deploy-vm-with-secret.md
+        href: azure-stack-key-vault-deploy-vm-with-secret.md
       - name: 使用证书创建 VM
-        href: azure-stack-kv-push-secret-into-vm.md
+        href: azure-stack-key-vault-push-secret-into-vm.md
+      - name: 在 Key Vault 中存储凭据
+        href: azure-stack-key-vault-store-credentials.md
       - name: KeyVault 示例应用
-        href: azure-stack-kv-sample-app.md
+        href: azure-stack-key-vault-sample-app.md
     - name: Azure Monitor
       href: azure-stack-metrics-azure-data.md
       items:
@@ -150,7 +162,7 @@ items:
           href: azure-stack-version-profiles-powershell.md
         - name: Azure CLI
           href: azure-stack-version-profiles-azurecli2.md
-        - name: 前往
+        - name: Go
           href: azure-stack-version-profiles-go.md
         - name: Ruby
           href: azure-stack-version-profiles-ruby.md
@@ -204,9 +216,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: 培训和认证
     href: /azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: be660d2a424413b51b7c7b244fd722d919a429e9
-ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
+ms.openlocfilehash: 66580573bcd1d00e58a1bada4ff6cd7dc99ad206
+ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396920"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56218261"

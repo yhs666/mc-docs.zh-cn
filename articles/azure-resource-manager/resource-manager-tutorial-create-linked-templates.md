@@ -10,16 +10,16 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-origin.date: 12/07/2018
-ms.date: 01/28/2019
+origin.date: 01/16/2019
+ms.date: 02/18/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 417acb326c6325aff1d2bd916a4132001ede6526
-ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
+ms.openlocfilehash: 6440752f32aa74fa47da113cc17d20eddc1f321c
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55085631"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306231"
 ---
 <!--Verify successfully-->
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>教程：创建 Azure 资源管理器链接模板
@@ -38,6 +38,8 @@ ms.locfileid: "55085631"
 > * 其他做法
 
 如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -164,14 +166,14 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 
 <!--NOTICE: CLOUD SHELL IS INVALID ON MOONCAKE-->
 
-主模板和链接的模板必须能够从运行部署时所在的位置进行访问。 链接的模板 (linkedTemplate.json) 必须在某个位置安全地共享。 以下 PowerShell 脚本创建一个 Azure 存储帐户，将模板上传到该存储帐户，然后生成一个 SAS 令牌，以便授予对模板文件的受限访问权限。 为了简化本教程，该脚本会从共享位置下载一个完成的链接模板。
+主模板和链接的模板必须能够从运行部署时所在的位置进行访问。 在本教程中使用的本地 Shell 部署方法就是在[教程：使用依赖的资源创建 Azure 资源管理器模板](./resource-manager-tutorial-create-templates-with-dependent-resources.md)中使用的。 主模板 (azuredeploy.json) 保存到本地电脑。 链接的模板 (linkedTemplate.json) 必须在某个位置安全地共享。 以下 PowerShell 脚本创建一个 Azure 存储帐户，然后生成一个 SAS 令牌，以便授予对模板文件的受限访问权限。 为了简化本教程，该脚本会从共享位置下载一个完成的链接模板。 
 
 <!--NOTICE: CLOUD SHELL IS INVALID ON MOONCAKE-->
 
 > [!NOTE]
 > 脚本将 SAS 令牌限制为在八小时内使用。 如果需要更多时间来完成本教程，请将到期时间推后。
 
-```PowerShell
+```azurepowershell
 $projectNamePrefix = Read-Host -Prompt "Enter a project name:"   # This name is used to generate names for Azure resources, such as storage account name.
 $location = Read-Host -Prompt "Enter a location (i.e. chinaeast)"
 
@@ -186,10 +188,10 @@ $fileName = "linkedStorageAccount.json" # A file name used for downloading and u
 Invoke-WebRequest -Uri $linkedTemplateURL -OutFile "$home/$fileName"
 
 # Create a resource group
-New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+New-AzResourceGroup -Name $resourceGroupName -Location $location
 
 # Create a storage account
-$storageAccount = New-AzureRmStorageAccount `
+$storageAccount = New-AzStorageAccount `
     -ResourceGroupName $resourceGroupName `
     -Name $storageAccountName `
     -Location $location `

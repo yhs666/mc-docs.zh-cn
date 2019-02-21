@@ -1,20 +1,21 @@
 ---
-title: 将应用迁移到最新架构 - Azure 逻辑应用 | Microsoft Docs
+title: 将应用迁移到最新架构 - Azure 逻辑应用
 description: 如何将逻辑应用迁移到最新架构版本
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
-ms.author: estfan
+ms.author: v-yiso
 ms.assetid: 3e177e49-fd69-43e9-9b9b-218abb250c31
 ms.topic: article
-ms.date: 08/25/2018
-ms.openlocfilehash: 8a6925d79b225a34d980472d4fb3241ab9eb1017
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 08/25/2018
+ms.date: 02/25/2019
+ms.openlocfilehash: 9e2a530d111e6f33c77e0f0e87cb9c6f92c3c436
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647211"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302931"
 ---
 # <a name="migrate-logic-apps-to-latest-schema-version"></a>将逻辑应用迁移到最新架构版本
 

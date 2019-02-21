@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/25/2018
-ms.date: 09/17/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0e4221e4186bb97963c30e33adaa80ebe3407535
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 219ca796d5c3a8516f3caed3e9633790792d63fa
+ms.sourcegitcommit: e32c8da268002b94c500131bb361fd6afc85ce9f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650163"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306724"
 ---
 # <a name="how-traffic-manager-works"></a>流量管理器的工作原理
 
@@ -37,7 +37,7 @@ ms.locfileid: "52650163"
 
 ## <a name="traffic-manager-example"></a>流量管理器示例
 
-Contoso Corp 开发了一个新的合作伙伴门户。 此门户的 URL 为 https://partners.contoso.com/login.aspx。 该应用程序托管在三个 Azure 区域中。 为了改善可用性并最大程度地提高多区域性能，他们使用流量管理器将客户端流量分配到最近的可用终结点。
+Contoso Corp 开发了一个新的合作伙伴门户。 此门户的 URL 为 https://partners.contoso.com/login.aspx。 该应用程序托管在三个 Azure 区域中。 为了改善可用性并在全球最大程度地提高性能，他们使用流量管理器将客户端流量分布到最靠近的可用终结点。
 
 若要实现此配置，需要完成以下步骤：
 
@@ -49,7 +49,9 @@ Contoso Corp 开发了一个新的合作伙伴门户。 此门户的 URL 为 htt
 ![流量管理器 DNS 配置][1]
 
 > [!NOTE]
-> 通过 Azure 流量管理器来使用虚构域时，必须使用 CNAME 将虚构域名指向流量管理器域名。 DNS 标准不允许在域的“顶点”（或根）位置创建 CNAME。 因此，无法为“contoso.com”（有时称为“裸”域）创建 CNAME。 只能为“contoso.com”下的域（例如“www.contoso.com”）创建 CNAME。 为了克服此限制，我们建议通过简单的 HTTP 重定向将针对“contoso.com”的请求定向到某个备用名称（例如“www.contoso.com”）。
+> 通过 Azure 流量管理器来使用虚构域时，必须使用 CNAME 将虚构域名指向流量管理器域名。 DNS 标准不允许在域的“顶点”（或根）位置创建 CNAME。 因此，无法为“contoso.com”（有时称为“裸”域）创建 CNAME。 只能为“contoso.com”下的域（例如“www.contoso.com”）创建 CNAME。 为了克服此限制，建议在 [Azure DNS](../dns/dns-overview.md) 上托管 DNS 域。 或者可以使用简单的 HTTP 重定向将针对“contoso.com”的请求定向到某个备用名称（例如“www.contoso.com”）。
+
+<!--and using [Alias records](../dns/tutorial-alias-tm.md) to point to your traffic manager profile-->
 
 ### <a name="how-clients-connect-using-traffic-manager"></a>客户端如何使用流量管理器进行连接
 
@@ -83,5 +85,4 @@ Contoso Corp 开发了一个新的合作伙伴门户。 此门户的 URL 为 htt
 [1]: ./media/traffic-manager-how-traffic-manager-works/dns-configuration.png
 [2]: ./media/traffic-manager-how-traffic-manager-works/flow.png
 
-<!-- Update_Description: new articles on traffic manager how it works -->
-<!--ms.date: 09/17/2018-->
+<!-- Update_Description: wording updte, update meta properties -->

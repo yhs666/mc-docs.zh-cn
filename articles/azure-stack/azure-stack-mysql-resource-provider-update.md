@@ -11,31 +11,32 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/15/2018
-ms.date: 12/17/2018
+origin.date: 01/11/2019
+ms.date: 02/18/2019
 ms.author: v-jay
-ms.reviewer: quying
-ms.openlocfilehash: 44634cb2a9abf6811f9be74a5bc04261c350dfc4
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.reviewer: jiahan
+ms.lastreviewed: 01/11/2019
+ms.openlocfilehash: 0ab9469e0b0b05b479a4eb7541da404b32ea6872
+ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396121"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56218288"
 ---
 # <a name="update-the-mysql-resource-provider"></a>更新 MySQL 资源提供程序 
 
 *适用于：Azure Stack 集成系统。*
 
-更新 Azure Stack 内部版本时，可能会发布新的 SQL 资源提供程序适配器。 虽然现有的适配器可以继续使用，但仍建议尽快更新到最新的内部版本。 
+更新 Azure Stack 内部版本时，可能会发布新的 MySQL 资源提供程序适配器。 虽然现有的适配器可以继续使用，但仍建议尽快更新到最新的内部版本。 
 
-> [!IMPORTANT]
-> 必须按更新的发布顺序安装更新。 不能跳过版本。 请参阅[部署资源提供程序的先决条件](.\azure-stack-mysql-resource-provider-deploy.md#prerequisites)中的版本列表。
+从 MySQL 资源提供程序发行版 1.1.33.0 开始，更新是累积性的，不需按发布顺序进行安装，前提是你从 1.1.24.0 或更高版本开始。 例如，如果运行 1.1.24.0 版 MySQL 资源提供程序，则可升级到 1.1.33.0 或更高版本，不需先安装版本 1.1.30.0。 若要查看可用的资源提供程序版本，以及支持它们的 Azure Stack 版本，请参阅[部署资源提供程序的先决条件](./azure-stack-mysql-resource-provider-deploy.md#prerequisites)中的版本列表。
 
-## <a name="update-the-mysql-resource-provider-adapter-integrated-systems-only"></a>更新 MySQL 资源提供程序适配器（仅限已集成的系统）
+若要更新资源提供程序，请使用 **UpdateMySQLProvider.ps1** 脚本。 此过程类似于安装资源提供程序时所使用的过程，如本文的“部署资源提供程序”部分所述。 资源提供程序的下载包中提供此脚本。 
 
-更新 Azure Stack 内部版本时，可能会发布新的 SQL 资源提供程序适配器。 虽然现有的适配器可以继续使用，但仍建议尽快更新到最新的内部版本。  
- 
-若要更新资源提供程序，请使用 **UpdateMySQLProvider.ps1** 脚本。 此过程类似于安装资源提供程序时所使用的过程，如本文[部署资源提供程序](#deploy-the-resource-provider)部分所述。 资源提供程序的下载包中提供此脚本。 
+ > [!IMPORTANT]
+ > 在升级资源提供程序之前，请查看发行说明，了解新功能、修补程序以及任何可能影响部署的已知问题。
+
+## <a name="update-script-processes"></a>更新脚本过程
 
 **UpdateMySQLProvider.ps1** 脚本可使用最新的资源提供程序代码创建新的 VM，并可将设置从旧 VM 迁移到新 VM。 迁移的设置包括数据库和宿主服务器信息，以及必需的 DNS 记录。 
 
@@ -44,7 +45,27 @@ ms.locfileid: "53396121"
 
 此脚本需要使用的参数正是针对 DeployMySqlProvider.ps1 脚本进行描述的参数。 请同样在此处提供证书。  
 
-下面是可从 PowerShell 提示符运行的 *UpdateMySQLProvider.ps1* 脚本的示例。 请务必根据需要更改帐户信息和密码：  
+
+## <a name="update-script-parameters"></a>更新脚本参数 
+运行 **UpdateMySQLProvider.ps1** PowerShell 脚本时，可在命令行中指定以下参数。 如果未指定参数或任何参数验证失败，系统会提示提供所需的参数。 
+
+| 参数名称 | 说明 | 注释或默认值 | 
+| --- | --- | --- | 
+| **CloudAdminCredential** | 访问特权终结点时所需的云管理员凭据。 | _必需_ | 
+| **AzCredential** | Azure Stack 服务管理员帐户的凭据。 使用部署 Azure Stack 时所用的相同凭据。 | _必需_ | 
+| **VMLocalCredential** |SQL 资源提供程序 VM 的本地管理员帐户的凭据。 | _必需_ | 
+| **PrivilegedEndpoint** | 特权终结点的 IP 地址或 DNS 名称。 |  _必需_ | 
+| **AzureEnvironment** | 用于部署 Azure Stack 的服务管理员帐户的 Azure 环境。 仅对于 Azure AD 部署是必需的。 受支持的环境名称是 **AzureChinaCloud**。 | AzureChinaCloud |
+| **DependencyFilesLocalPath** | 同样必须将证书 .pfx 文件放在此目录中。 | _可选_（对于多节点部署是_必需_的） | 
+| **DefaultSSLCertificatePassword** | .pfx 证书的密码。 | _必需_ | 
+| **MaxRetryCount** | 操作失败时，想要重试每个操作的次数。| 2 | 
+| **RetryDuration** | 每两次重试的超时间隔（秒）。 | 120 | 
+| **卸载** | 删除资源提供程序和所有关联的资源（请参阅下面的注释）。 | 否 | 
+| **DebugMode** | 防止在失败时自动清除。 | 否 | 
+| **AcceptLicense** | 跳过接受 GPL 许可条款的提示。  (https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
+
+## <a name="update-script-example"></a>更新脚本示例
+下面是可以通过权限提升的 PowerShell 控制台运行的 *UpdateMySQLProvider.ps1* 脚本的用法示例。 请务必根据需要更改变量信息和密码：  
 
 > [!NOTE] 
 > 此更新过程仅适用于集成系统。 
@@ -93,26 +114,7 @@ $tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds `
 -DefaultSSLCertificatePassword $PfxPass ` 
 -DependencyFilesLocalPath $tempDir\cert ` 
 -AcceptLicense 
-``` 
- 
-### <a name="updatemysqlproviderps1-parameters"></a>UpdateMySQLProvider.ps1 参数 
-可以在命令行中指定这些参数。 如果未指定参数或任何参数验证失败，系统会提示提供所需的参数。 
-
-| 参数名称 | 说明 | 注释或默认值 | 
-| --- | --- | --- | 
-| **CloudAdminCredential** | 访问特权终结点时所需的云管理员凭据。 | _必需_ | 
-| **AzCredential** | Azure Stack 服务管理员帐户的凭据。 使用部署 Azure Stack 时所用的相同凭据。 | _必需_ | 
-| **VMLocalCredential** |SQL 资源提供程序 VM 的本地管理员帐户的凭据。 | _必需_ | 
-| **PrivilegedEndpoint** | 特权终结点的 IP 地址或 DNS 名称。 |  _必需_ | 
-| **AzureEnvironment** | 用于部署 Azure Stack 的服务管理员帐户的 Azure 环境。 仅对于 Azure AD 部署是必需的。 受支持的环境名称是 **AzureChinaCloud**。 | AzureChinaCloud |
-| **DependencyFilesLocalPath** | 同样必须将证书 .pfx 文件放在此目录中。 | _可选_（对于多节点部署是_必需_的） | 
-| **DefaultSSLCertificatePassword** | .pfx 证书的密码。 | _必需_ | 
-| **MaxRetryCount** | 操作失败时，想要重试每个操作的次数。| 2 | 
-| **RetryDuration** | 每两次重试的超时间隔（秒）。 | 120 | 
-| **卸载** | 删除资源提供程序和所有关联的资源（请参阅下面的注释）。 | 否 | 
-| **DebugMode** | 防止在失败时自动清除。 | 否 | 
-| **AcceptLicense** | 跳过接受 GPL 许可条款的提示。  (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
- 
+```  
 
 ## <a name="next-steps"></a>后续步骤
 [维护 MySQL 资源提供程序](azure-stack-mysql-resource-provider-maintain.md)

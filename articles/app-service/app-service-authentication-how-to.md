@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 03/14/2018
-ms.date: 01/21/2019
+ms.date: 02/25/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: aa92cc7775387a95ad34b201e2a10cc7776b4fbe
-ms.sourcegitcommit: ced39ce80d38d36bdead66fc978d99e93653cb5f
+ms.openlocfilehash: a8aa40710c242a1d283e909bc75cf8bcf951bd58
+ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54307616"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56222602"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Azure 应用服务中的身份验证和授权的高级用法
 
@@ -163,11 +163,11 @@ az webapp config appsettings set --name <app_name> --resource-group <group_name>
 在客户端代码（例如移动应用或浏览器中 JavaScript）中，将 HTTP `GET` 请求发送到 `/.auth/me`。 返回的 JSON 包含提供程序特定的令牌。
 
 > [!NOTE]
-> 访问令牌用于访问提供程序资源，因此，仅当使用客户端机密配置了提供程序时，才提供这些令牌。 若要了解如何获取刷新令牌，请参阅[刷新访问令牌](#refresh-access-tokens)。
+> 访问令牌用于访问提供程序资源，因此，仅当使用客户端机密配置了提供程序时，才提供这些令牌。 若要了解如何获取刷新令牌，请参阅“刷新访问令牌”。
 
-## <a name="refresh-access-tokens"></a>刷新访问令牌
+## <a name="refresh-identity-provider-tokens"></a>刷新标识提供程序令牌
 
-当提供程序的访问令牌过期时，需要重新对用户进行身份验证。 向应用程序的 `/.auth/refresh` 终结点发出 `GET` 调用可以避免令牌过期。 调用应用服务时，应用服务会自动刷新已身份验证用户的令牌存储中的访问令牌。 应用代码发出的后续令牌请求将获取刷新的令牌。 但是，若要正常刷新令牌，令牌存储必须包含提供程序的[刷新令牌](https://auth0.com/learn/refresh-tokens/)。 每个提供程序会阐述获取刷新令牌的方式。以下列表提供了简短摘要：
+当提供程序的访问令牌（而不是[会话令牌](#extend-session-token-expiration-grace-period)）到期时，需要在再次使用该令牌之前重新验证用户。 向应用程序的 `/.auth/refresh` 终结点发出 `GET` 调用可以避免令牌过期。 调用应用服务时，应用服务会自动刷新已身份验证用户的令牌存储中的访问令牌。 应用代码发出的后续令牌请求将获取刷新的令牌。 但是，若要正常刷新令牌，令牌存储必须包含提供程序的[刷新令牌](https://auth0.com/learn/refresh-tokens/)。 每个提供程序会阐述获取刷新令牌的方式。以下列表提供了简短摘要：
 
 - **Microsoft 帐户**：[配置 Microsoft 帐户身份验证设置](configure-authentication-provider-microsoft.md)时，请选择 `wl.offline_access` 范围。
 - **Azure Active Directory**：在 [https://resources.azure.com](https://resources.azure.com) 中，执行以下步骤：
@@ -199,9 +199,9 @@ function refreshTokens() {
 
 如果用户撤销了授予应用的权限，对 `/.auth/me` 的调用可能会失败并返回 `403 Forbidden` 响应。 若要诊断错误，请检查应用程序日志了解详细信息。
 
-## <a name="extend-session-expiration-grace-period"></a>延长会话过期宽限期
+## <a name="extend-session-token-expiration-grace-period"></a>延长会话令牌过期宽限期
 
-经过身份验证的会话过期后，默认会提供 72 小时的宽限期。 在此宽限期内，可以使用应用服务刷新会话 Cookie 或会话令牌，而无需重新对用户进行身份验证。 会话 Cookie 或会话令牌失效后，只需调用 `/.auth/refresh`，且不需要自行跟踪令牌过期时间。 72 小时的宽限期过后，用户必须再次登录才能获取有效的会话 Cookie 或会话令牌。
+经过身份验证的会话会在 8 小时后过期。 经过身份验证的会话过期后，默认会提供 72 小时的宽限期。 在此宽限期内，可以使用应用服务刷新会话令牌，而无需重新对用户进行身份验证。 会话令牌失效后，只需调用 `/.auth/refresh`，而不需要自行跟踪令牌过期时间。 72 小时的宽限期过后，用户必须重新登录才能获取有效的会话令牌。
 
 如果 72 小时的时间不够，可以延长此过期期限。 大大延长过期时间可能会造成严重的安全风险（例如身份验证令牌泄密或被盗）。 因此，应将宽限期保留为默认 72 小时，或者将延期设为最小值。
 

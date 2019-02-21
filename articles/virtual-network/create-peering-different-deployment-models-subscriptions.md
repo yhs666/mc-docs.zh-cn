@@ -1,27 +1,24 @@
 ---
-title: 创建 Azure 虚拟网络对等互连 - 不同的部署模型 - 不同的订阅 | Azure
+title: 创建 Azure 虚拟网络对等互连 - 不同部署模型 - 不同订阅
+titlesuffix: Azure Virtual Network
 description: 了解如何在通过不同 Azure 订阅中的不同 Azure 部署模型创建的虚拟网络间创建虚拟网络对等互连。
 services: virtual-network
 documentationcenter: ''
 author: rockboyfor
-manager: digimobile
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/15/2017
-ms.date: 01/21/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2ad97c6cb134881994184094a2e3af821513818e
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: b3cbc397d730b21713b1e6c5755b7364fe3a6a93
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193126"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306121"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>创建虚拟网络对等互连 - 不同的部署模型和不同的订阅
 
@@ -35,9 +32,7 @@ ms.locfileid: "54193126"
 |[均为 Resource Manager 模型](create-peering-different-subscriptions.md) |不同|
 |[一个为资源管理器模型，一个为经典模型](create-peering-different-deployment-models.md) |相同|
 
-不能在通过经典部署模型部署的两个虚拟网络之间创建对等互连。 本教程使用同一区域中的虚拟网络。 本教程将在同一区域中的虚拟网络之间建立对等互连。 建议在对等互连虚拟网络之前让自己熟悉[对等互连的要求和约束](virtual-network-manage-peering.md#requirements-and-constraints)。
-<!-- Not Available on Cross-Region in different [supported regions](virtual-network-manage-peering.md#cross-region)-->
-<!-- Author has remove the register content -->
+不能在通过经典部署模型部署的两个虚拟网络之间创建对等互连。 本教程使用同一区域中的虚拟网络。 本教程将在同一区域中的虚拟网络之间建立对等互连。 还可以将不同[受支持的区域](virtual-network-manage-peering.md#cross-region)中的虚拟网络对等互连。 建议在对等互连虚拟网络之前让自己熟悉[对等互连的要求和约束](virtual-network-manage-peering.md#requirements-and-constraints)。
 
 在位于不同订阅的虚拟网络间创建虚拟网络对等互连时，两个订阅均必须与同一 Azure Active Directory 租户相关联。 如果还没有 Azure Active Directory 租户，可快速[创建一个](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant)。 可以使用 Azure [VPN 网关](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json)连接不同订阅和不同 Azure Active Directory 租户中的虚拟网络。
 
@@ -78,7 +73,7 @@ ms.locfileid: "54193126"
     - **位置**：*中国东部*
 
 14. 在门户顶部的“搜索资源”框中键入 *myVnetB*。 单击出现在搜索结果中的“myVnetB”。 随即显示“myVnetB”虚拟网络的边栏选项卡。
-15. 在显示的“myVnetB”边栏选项卡中，单击左侧垂直选项列表中的“属性”。 复制“资源 ID”，在稍后的步骤中使用。 资源 ID 类似于以下示例：/subscriptions/<Susbscription ID>/resourceGroups/myResoureGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB
+15. 在显示的“myVnetB”边栏选项卡中，单击左侧垂直选项列表中的“属性”。 复制“资源 ID”，在稍后的步骤中使用。 资源 ID 类似于以下示例：/subscriptions/\<Subscription ID\>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB
 16. 完成 myVnetB 的步骤 5-9，输入步骤 8 中的 **UserA**。
 17. 以 UserB 的身份注销门户，然后以 UserA 的身份登录。
 18. 在门户顶部的“搜索资源”框中键入 *myVnetA*。 单击出现在搜索结果中的“myVnetA”。 随即显示“myVnet”虚拟网络的边栏选项卡。
@@ -115,6 +110,7 @@ ms.locfileid: "54193126"
 5. 将以下脚本复制到电脑上的文本编辑器。 将 `<SubscriptionB-Id>` 替换为订阅 ID。 如果不知道订阅 ID，请输入 `az account show` 命令。 输出中的 **id** 值就是订阅 ID。复制修改后的脚本，将其粘贴到 CLI 会话中，然后按 `Enter`。
     
     <!--Notice: Previous contain azure login -->
+    
     ```azurecli
     az role assignment create \
       --assignee UserA@azure.com \

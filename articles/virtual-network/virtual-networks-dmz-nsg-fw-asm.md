@@ -3,8 +3,8 @@ title: 外围网络示例 – 构建外围网络以通过防火墙和 NSG 保护
 description: 使用防火墙和网络安全组 (NSG) 构建外围网络
 services: virtual-network
 documentationcenter: na
-author: tracsman
-manager: rossort
+author: rockboyfor
+manager: digimobile
 editor: ''
 ms.assetid: c78491c7-54ac-4469-851c-b35bfed0f528
 ms.service: virtual-network
@@ -13,16 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/01/2016
-ms.date: 12/12/2016
-ms.author: v-dazen
-ms.openlocfilehash: 1df0e19a2c2074648484a754d5afaece9c77e60f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 02/18/2019
+ms.author: v-yeche
+ms.openlocfilehash: 2a5046275fd038ca127a4d5bbd21dbeb31c17e9d
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655084"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306257"
 ---
 # <a name="example-2---build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>示例 2 – 构建外围网络以通过防火墙和 NSG 保护应用程序
+
+<!--Not Available on [Return to the Security Boundary Best Practices Page][HOME]-->
 
 本示例创建一个带防火墙的外围网络、四个 Windows 服务器，以及网络安全组。 本示例还将演练每个相关命令，让你更加深入地了解每个步骤。 另外还提供了“流量方案”部分，让你逐步深入了解流量如何流经外围网络的各个防御层。 最后的“参考”部分提供了完整的代码，并说明如何构建此环境来测试和试验各种方案。 
 
@@ -32,7 +34,7 @@ ms.locfileid: "52655084"
 此示例中，有一个订阅包含以下项：
 
 * 两个云服务：“FrontEnd001”和“BackEnd001”
-* 一个虚拟网络“CorpNetwork”，其中包含两个子网：“FrontEnd”和“BackEnd”
+* 虚拟网络“CorpNetwork”，包含下面两个子网：“FrontEnd”和“BackEnd”
 * 应用到这两个子网的单个网络安全组
 * 一个与前端子网连接的网络虚拟设备（在本示例中为 Barracuda NextGen Firewall）
 * 一个代表应用程序 Web 服务器的 Windows Server（“IIS01”）
@@ -56,8 +58,8 @@ ms.locfileid: "52655084"
 
 成功运行脚本后，可执行以下脚本后续步骤：
 
-1. 设置防火墙规则，下面的“防火墙规则”部分中对此进行了介绍。
-2. （可选）“参考”部分中提供了两个脚本，用于设置 Web 服务器和包含简单 Web 应用程序的应用服务器，以便能使用此外围网络配置进行测试。
+1. 设置防火墙规则，这将在下面标题为“防火墙规则”的部分中进行介绍。
+2. （可选）“参考”部分中提供了两个脚本，用于设置 Web 服务器和应用服务器；还提供了一个简单的 Web 应用程序，用于测试此外围网络配置。
 
 下一部分介绍与网络安全组相关的大部分脚本语句。
 
@@ -82,12 +84,14 @@ ms.locfileid: "52655084"
 
 有一个默认出站规则可允许流量外流到 Internet。 在此示例中，我们允许出站流量，且未修改任何出站规则。
 
+<!--Not Available on [main security boundary document][HOME]-->
+
 上述 NSG 规则与 [示例 1 非常相似 - 使用 NSG 构建简单的外围网络][Example1]中的 NSG 规则。 请查看该文档中的 NSG 说明，详细了解每个 NSG 规则及其属性。
 
 ## <a name="firewall-rules"></a>防火墙规则
 电脑上必须安装管理客户端才能管理防火墙和创建所需的配置。 有关如何管理设备的信息，请参阅防火墙（或其他 NVA）供应商提供的文档。 本部分的其余内容将介绍如何通过供应商的管理客户端（即，不使用 Azure 门户或 PowerShell）来配置防火墙本身。
 
-有关下载客户端和连接到本示例所用 Barracuda 的说明，可在以下位置找到： [Barracuda NG Admin](https://techlib.barracuda.com/NG61/NGAdmin)
+有关下载客户端和连接到本示例所用的 Barracuda 的说明，可在以下位置找到：[Barracuda NG Admin](https://techlib.barracuda.com/NG61/NGAdmin)
 
 需要在防火墙上创建转发规则。 本示例只将 Internet 流量入站路由到防火墙，再传送到 Web 服务器，因此只需要一条转发 NAT 规则。 在本示例使用的 Barracuda NextGen Firewall 上，此规则就是目标 NAT 规则（“Dst NAT”），由它传递此流量。
 
@@ -95,7 +99,7 @@ ms.locfileid: "52655084"
 
 创建一条新规则并为其命名，例如“WebTraffic”。 
 
-目标 NAT 规则图标类似于： ![目标 NAT 图标][2]
+目标 NAT 规则图标类似于：![“目标 NAT”图标][2]
 
 规则的外观类似于：
 
@@ -243,6 +247,7 @@ Web 服务器、IIS01 和防火墙都在相同的云服务中，因此共享相�
 > 
 > 
 
+```powershell
     <# 
      .SYNOPSIS
       Example of DMZ and Network Security Groups in an isolated network (Azure only, no hybrid connections)
@@ -350,7 +355,7 @@ Web 服务器、IIS01 和防火墙都在相同的云服务中，因此共享相�
           $SubnetName += $FESubnet
           $VMIP += "10.0.1.5"
 
-        # VM 2 - The First Appliaction Server
+        # VM 2 - The First Application Server
           $VMName += "AppVM01"
           $ServiceName += $BackEndService
           $VMFamily += "Windows"
@@ -359,7 +364,7 @@ Web 服务器、IIS01 和防火墙都在相同的云服务中，因此共享相�
           $SubnetName += $BESubnet
           $VMIP += "10.0.2.5"
 
-        # VM 3 - The Second Appliaction Server
+        # VM 3 - The Second Application Server
           $VMName += "AppVM02"
           $ServiceName += $BackEndService
           $VMFamily += "Windows"
@@ -378,7 +383,7 @@ Web 服务器、IIS01 和防火墙都在相同的云服务中，因此共享相�
           $VMIP += "10.0.2.4"
 
     # ----------------------------- #
-    # No User Defined Varibles or   #
+    # No User Defined Variables or   #
     # Configuration past this point #
     # ----------------------------- #
 
@@ -420,12 +425,12 @@ Web 服务器、IIS01 和防火墙都在相同的云服务中，因此共享相�
         $FatalError = $true}
     Else { Write-Host "The network config file was found" -ForegroundColor Green
             If (-Not (Select-String -Pattern $DeploymentLocation -Path $NetworkConfigFile)) {
-                Write-Host 'The deployment location was not found in the network config file, please check the network config file to ensure the $DeploymentLocation varible is correct and the netowrk config file matches.' -ForegroundColor Yellow
+                Write-Host 'The deployment location was not found in the network config file, please check the network config file to ensure the $DeploymentLocation variable is correct and the network config file matches.' -ForegroundColor Yellow
                 $FatalError = $true}
             Else { Write-Host "The deployment location was found in the network config file." -ForegroundColor Green}}
 
     If ($FatalError) {
-        Write-Host "A fatal error has occured, please see the above messages for more information." -ForegroundColor Red
+        Write-Host "A fatal error has occurred, please see the above messages for more information." -ForegroundColor Red
         Return}
     Else { Write-Host "Validation passed, now building the environment." -ForegroundColor Green}
 
@@ -530,10 +535,12 @@ Web 服务器、IIS01 和防火墙都在相同的云服务中，因此共享相�
       Write-Host " - Install Test Web App (Run Post-Build Script on the IIS Server)" -ForegroundColor Gray
       Write-Host " - Install Backend resource (Run Post-Build Script on the AppVM01)" -ForegroundColor Gray
       Write-Host
+```
 
 #### <a name="network-config-file"></a>网络配置文件
 使用更新的位置保存此 xml 文件，并将此文件的链接添加到上述脚本中的 $NetworkConfigFile 变量。
 
+```xml
     <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
@@ -563,9 +570,10 @@ Web 服务器、IIS01 和防火墙都在相同的云服务中，因此共享相�
         </VirtualNetworkSites>
       </VirtualNetworkConfiguration>
     </NetworkConfiguration>
+```
 
 #### <a name="sample-application-scripts"></a>示例应用程序脚本
-如果想要为本示例和其他外围网络示例安装示例应用程序，以下链接便已提供了一个：[示例应用程序脚本][SampleApp]
+如果希望为此外围网络示例以及其他外围网络示例安装一个示例应用程序，可以使用以下链接上提供的应用程序：[示例应用程序脚本][SampleApp]
 
 <!--Image References-->
 [1]: ./media/virtual-networks-dmz-nsg-fw-asm/example2design.png "使用 NSG 的入站外围网络"
@@ -574,5 +582,10 @@ Web 服务器、IIS01 和防火墙都在相同的云服务中，因此共享相�
 [4]: ./media/virtual-networks-dmz-nsg-fw-asm/firewallruleactivate.png "防火墙规则激活"
 
 <!--Link References-->
+
+<!--Not Available on [HOME]: ../best-practices-network-security.md-->
+
 [SampleApp]: ./virtual-networks-sample-app.md
 [Example1]: ./virtual-networks-dmz-nsg-asm.md
+
+<!-- Update_Description: wording update, update link -->

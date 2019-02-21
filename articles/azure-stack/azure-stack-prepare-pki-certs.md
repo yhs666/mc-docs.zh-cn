@@ -11,22 +11,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/10/2018
-ms.date: 01/14/2019
+origin.date: 01/30/2019
+ms.date: 02/18/2019
 ms.author: v-jay
 ms.reviewer: ppacent
-ms.openlocfilehash: ed56ffb61c85776c93eed5b96ca18497196e6fd4
-ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
+ms.lastreviewed: 01/30/2019
+ms.openlocfilehash: 5980d4ff24de1a327b639385490583fabf1fd3fe
+ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54058982"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56218234"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>准备在部署或轮换时使用的 Azure Stack PKI 证书
+
 必须使用与 Azure Stack的证书要求匹配的属性导入和导出[从所选 CA 获取](azure-stack-get-pki-certs.md)的证书文件。
 
-
 ## <a name="prepare-certificates-for-deployment"></a>为部署准备证书
+
 使用以下步骤来准备和验证 Azure Stack PKI 证书，此类证书将用于部署新的 Azure Stack 环境，或者用于在现有的 Azure Stack 环境中轮换机密： 
 
 ### <a name="import-the-certificate"></a>导入证书
@@ -74,15 +76,25 @@ ms.locfileid: "54058982"
 
 1. 选择“是，导出私钥”，并单击“下一步”。
 
-1. 在“导出文件格式”部分中，选择“导出所有扩展属性”，然后单击“下一步”。
+1. 在“导出文件格式”部分执行以下操作：
+    
+    - 选择“包括证书路径中的所有证书(如果可能)”。  
+    - 选择“导出所有扩展属性”。  
+    - 选择“启用证书隐私”。  
+    - 单击“下一步”。  
+    
+    ![包含选定选项的证书导出向导](./media/prepare-pki-certs\azure-stack-save-cert.png)
 
-1. 选择“密码”并为证书提供密码。 请记住此密码，因为它将用作部署参数。 选择“**下一步**”。
+1. 选择“密码”并为证书提供密码。 创建满足以下密码复杂性要求的密码。 最小长度为 8 个字符。 密码必须至少包含以下项中的三项：大写字母、小写字母、0-9 中的数字、特殊字符、不是大写也不是小写的字母字符。 记下此密码。 需将它用作部署参数。
+
+1. 选择“**下一步**”。
 
 1. 选择要导出的 pfx 文件的文件名和位置。 选择“**下一步**”。
 
 1. 选择“完成”。
 
 ## <a name="next-steps"></a>后续步骤
+
 [验证 PKI 证书](azure-stack-validate-pki-certs.md)
 
 <!-- Update_Description: wording update -->

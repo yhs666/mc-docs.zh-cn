@@ -13,38 +13,25 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 08/24/2018
-ms.date: 01/21/2019
+ms.date: 02/25/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: c4c33e29567e8f6c6a216d018780182951966a9c
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: f9bd5ac9597dd12d9eca07dfd0d0ea5c383e8993
+ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906036"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56222586"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>在 Azure 中创建静态 HTML Web 应用
 
-[Azure Web 应用](overview.md)提供高度可缩放、自修补的 Web 托管服务。  本快速入门教程演示如何将基本 HTML+CSS 站点部署到 Azure Web 应用。 还可以使用 [Azure CLI](/cli/install-azure-cli) 在本地运行这些命令
+[Azure 应用服务](overview.md)提供高度可缩放、自修补的 Web 托管服务。  本快速入门演示如何将基本 HTML+CSS 站点部署到 Azure 应用服务。 可以使用 [Azure CLI](/cli/install-azure-cli) 在本地运行这些命令
 
 ![示例应用主页](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="install-web-app-extension"></a>安装 Web 应用扩展
-若要完成本快速入门，需要添加 [az Web 应用扩展](/cli/extension?view=azure-cli-latest#az-extension-add)。 如果该扩展已安装，则应将其更新为最新版本。 若要更新该 Web 应用扩展，请键入 `az extension update -n webapp`。
 
-若要安装该 Web 应用扩展，请运行以下命令：
-
-```bash
-az extension add --name webapp
-```
-
-安装该扩展后，CLI 会显示类似于以下示例的信息：
-
-```bash
-The installed extension 'webapp' is in preview.
-```
 ## <a name="download-the-sample"></a>下载示例
 
 创建一个 quickstart 目录，然后切换到该目录。
@@ -52,7 +39,7 @@ The installed extension 'webapp' is in preview.
 ```bash
 mkdir quickstart
 
-cd quickstart
+cd $HOME/quickstart
 ```
 
 接下来请运行以下命令，将示例应用存储库克隆到快速入门目录。
@@ -81,7 +68,7 @@ az webapp up --location chinaeast --name <app_name>
 
 - 创建一个采用指定名称的应用。
 
-- [使用 Zip](/app-service/app-service-deploy-zip) 将文件从当前工作目录部署到 Web 应用。
+- [使用 Zip](/app-service/deploy-zip) 将文件从当前工作目录部署到 Web 应用。
 
 此命令可能需要花费几分钟时间运行。 运行时，该命令会显示类似于以下示例的信息：
 
@@ -103,7 +90,7 @@ az webapp up --location chinaeast --name <app_name>
 
 ## <a name="browse-to-the-app"></a>浏览到应用
 
-在浏览器中转到 Azure Web 应用 URL：`http://<app_name>.chinacloudsites.cn`。
+在浏览器中转到应用 URL：`http://<app_name>.chinacloudsites.cn`。
 
 该页作为 Azure 应用服务 Web 应用运行。
 
@@ -120,6 +107,7 @@ az webapp up --location chinaeast --name <app_name>
 保存更改并退出 nano。 使用命令 `^O` 来保存，使用 `^X` 来退出。
 
 现在，需使用同一 `az webapp up` 命令重新部署应用。
+
 ```bash
 az webapp up --location chinaeast --name <app_name>
 ```
@@ -128,23 +116,23 @@ az webapp up --location chinaeast --name <app_name>
 
 ![已更新的示例应用主页](media/app-service-web-get-started-html/hello-azure-in-browser-az.png)
 
-## <a name="manage-your-new-azure-web-app"></a>管理新 Azure Web 应用
+## <a name="manage-your-new-azure-app"></a>管理新的 Azure 应用
 
 转到 <a href="https://portal.azure.cn" target="_blank">Azure 门户</a>管理创建的 Web 应用。
 
-在左侧菜单中单击“应用服务”，然后单击 Azure Web 应用的名称。
+在左侧菜单中单击“应用程序服务”，然后单击 Azure 应用的名称。
 
-![在门户中导航到 Azure Web 应用](./media/app-service-web-get-started-html/portal1.png)
+![在门户中导航到 Azure 应用](./media/app-service-web-get-started-html/portal1.png)
 
-随后会显示 Web 应用的概述页。 在此处可以执行基本的管理任务，例如浏览、停止、启动、重启和删除。 
+随后会显示 Web 应用的概述页。 在此处可以执行基本的管理任务，例如浏览、停止、启动、重启和删除。
 
 ![Azure 门户中的“应用服务”边栏选项卡](./media/app-service-web-get-started-html/portal2.png)
 
-左侧菜单提供用于配置应用的不同页面。 
+左侧菜单提供用于配置应用的不同页面。
 
 ## <a name="clean-up-resources"></a>清理资源
 
-在前面的步骤中，在资源组中创建了 Azure 资源。 如果认为将来不需要这些资源，请通过运行以下命令删除资源组。 请记住，资源组名称已在[创建 Web 应用](#create-a-web-app)步骤中自动为你生成。
+在前面的步骤中，在资源组中创建了 Azure 资源。 如果认为将来不需要这些资源，请在 CLI 中运行以下命令以删除资源组。 请记住，资源组名称已在[创建 Web 应用](#create-a-web-app)步骤中自动为你生成。
 
 ```bash
 az group delete --name appsvc_rg_Windows_chinaeast
@@ -156,5 +144,3 @@ az group delete --name appsvc_rg_Windows_chinaeast
 
 > [!div class="nextstepaction"]
 > [映射自定义域](app-service-web-tutorial-custom-domain.md)
-
-<!--Update_Description: add a note about Azure CLI 2.0 version-->

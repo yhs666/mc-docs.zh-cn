@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/28/2017
-ms.date: 02/05/2018
+ms.date: 02/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 045ed4a26a50a6fefe01d678bf9f2a7b0307d90d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a393e2e766f6939fb9677593d3297d30faa78cec
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664353"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302933"
 ---
 # <a name="reset-a-failed-expressroute-circuit"></a>重置有故障的 ExpressRoute 线路
 
@@ -34,7 +34,7 @@ ms.locfileid: "52664353"
 2. 使用提升的权限打开 PowerShell 控制台，并连接到帐户。 使用下面的示例来帮助连接：
 
   ```powershell
-  Login-AzureRmAccount -EnvironmentName $(Get-AzureRmEnvironment -Name AzureChinaCloud)
+  Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
   ```
 3. 如果有多个 Azure 订阅，请查看该帐户的订阅。
 

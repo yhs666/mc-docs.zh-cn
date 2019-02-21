@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/22/2018
-ms.date: 01/14/2019
+origin.date: 01/24/2019
+ms.date: 02/18/2019
 ms.author: v-jay
 ms.reviewer: justini
-ms.openlocfilehash: e6ade89d3a7e4751706dda3b209606e15249dbc4
-ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
+ms.lastreviewed: 01/24/2019
+ms.openlocfilehash: 0bb39edee9ce9afe7839bac6bc5d1c22d1c84d1d
+ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396931"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56218283"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 更新
 
@@ -127,9 +128,9 @@ Azure Stack 1808 更新内部版本号为 **1.1808.0.97**。
 
 ### <a name="prerequisites"></a>先决条件
 
-- 在应用 Azure Stack 1808 更新之前安装 Azure Stack [1807 更新](azure-stack-update-1807.md)。 
+- 在应用 Azure Stack 1808 更新之前安装 Azure Stack 1807 更新。 
 
-- 安装最近发布的 [1807 版更新或修补程序](azure-stack-update-1807.md#post-update-steps)。  
+- 安装最近发布的 1807 版更新或修补程序。  
   > [!TIP]  
   > 订阅下述 *RRS* 或 *Atom* 源，了解 Azure Stack 修补程序的最新更新：
   > - RRS： https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … 
@@ -253,6 +254,8 @@ Azure Stack 1808 更新内部版本号为 **1.1808.0.97**。
 
 ### <a name="compute"></a>计算
 
+- 创建 [Dv2 系列 VM](./user/azure-stack-vm-considerations.md#virtual-machine-sizes) 时，可以通过 D11-14v2 VM 分别创建 4 个、8 个、16 个和 32 个数据磁盘。 不过，“创建 VM”窗格会显示 8 个、16 个、32 个和 64 个数据磁盘。
+
 <!-- 3164607 – IS, ASDK -->
 - 将分离的磁盘重新附加到具有相同名称和 LUN 的同一虚拟机 (VM) 失败，并发生类似于“无法将数据磁盘 'datadisk' 附加到 VM 'vm1'”的错误。 之所以发生该错误，是原因该磁盘目前已分离，或上次分离操作失败。 请等到磁盘完全分离后重试，或再次显式删除/分离磁盘。 解决方法是使用其他名称，或者在其他 LUN 上重新附加磁盘。 
 
@@ -264,7 +267,7 @@ Azure Stack 1808 更新内部版本号为 **1.1808.0.97**。
 
    1. 如果订阅是在 1808 更新之前创建的，通过托管磁盘部署 VM 可能会失败并出现内部错误消息。 若要解决此错误，请针对每个订阅执行以下步骤：
       1. 在租户门户中转到“订阅”，找到相应订阅。 依次单击“资源提供程序”、“Microsoft.Compute”、“重新注册”。
-      2. 在同一订阅下，转到“访问控制(标识和访问管理)”，验证“Azure Stack - 托管磁盘”是否已列出。
+      2. 在同一订阅下，转到“访问控制(标识和访问管理)”，验证“AzureStack-DiskRP-Client”角色是否已列出。
    2. 如果已配置多租户环境，在与来宾目录相关联的订阅中部署 VM 可能会失败并出现内部错误消息。 若要解决该错误，请执行以下步骤：
       1. 应用 [1808 Azure Stack 修补程序](https://support.microsoft.com/help/4481066/)。
       2. 执行[此文](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)中的步骤，重新配置每个来宾目录。

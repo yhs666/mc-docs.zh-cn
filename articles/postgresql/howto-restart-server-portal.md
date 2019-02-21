@@ -5,14 +5,14 @@ author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 11/16/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: 01850f8090242be70a97e180c32c2680709b1037
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+origin.date: 02/07/2019
+ms.date: 02/18/2019
+ms.openlocfilehash: 708c3bf0477899f58156afa2fc424436380094cb
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806130"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302964"
 ---
 # <a name="restart-azure-database-for-postgresql-server-using-azure-portal"></a>使用 Azure 门户重启 Azure Database for PostgreSQL 服务器
 本主题介绍如何重启 Azure Database for PostgreSQL 服务器。 出于维护原因，可能需要重启服务器，这会在服务器执行操作时导致短暂中断。

@@ -9,55 +9,72 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/14/2018
-ms.date: 01/21/2019
+origin.date: 01/30/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: d24debc2805f948e85dd08c9ec3261d116177d92
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: 5c345ea25e5b96e0be83215e3b33f4d4bfeddeab
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193129"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306139"
 ---
-# <a name="create-resource-groups-and-resources-for-an-azure-subscription"></a>为 Azure 订阅创建资源组和资源
+# <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>在订阅级别创建资源组和资源
 
-通常将资源部署到 Azure 订阅中的资源组。 但是，你可以使用订阅级部署来创建应用于整个订阅的资源组和资源。
+通常情况下，你可将 Azure 资源部署到 Azure 订阅中的资源组。 但是，你还可以创建 Azure 资源组，并在订阅级别创建 Azure 资源。 若要在订阅级别部署模板，请使用 Azure CLI 和 Azure PowerShell。 Azure 门户不支持在订阅级别部署。
 
-若要在 Azure 资源管理器模板中创建资源组，请为该资源组定义包含名称和位置的 Microsoft.Resources/resourceGroups 资源。 你可以创建一个资源组并在同一模板中将资源部署到该资源组。
+若要在 Azure 资源管理器模板中创建资源组，请为该资源组定义包含名称和位置的 Microsoft.Resources/resourceGroups 资源。 你可以创建一个资源组并在同一模板中将资源部署到该资源组。 可在订阅级别部署的资源包括：[策略](../azure-policy/azure-policy-introduction.md)和[基于角色的访问控制](../role-based-access-control/overview.md)。
 
-[策略](../azure-policy/azure-policy-introduction.md)和[基于角色的访问控制](../role-based-access-control/overview.md)是可能需要在订阅级别而不是资源组级别应用的服务。
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-<!--Not Available on [Azure Security Center](../security-center/security-center-intro.md)-->
+## <a name="deployment-considerations"></a>部署注意事项
 
-本文展示了如何创建资源组，以及如何创建应用于整个订阅的资源。 本文使用 Azure CLI 和 PowerShell 来部署模板。 不能使用门户来部署模板，因为门户界面将其部署到资源组，而不是部署到 Azure 订阅。
+订阅级别部署与资源组部署的不同之处有以下几个方面：
 
-## <a name="schema-and-commands"></a>架构和命令
+### <a name="schema-and-commands"></a>架构和命令
 
 用于订阅级部署的架构和命令不同于资源组部署。 
 
 对于架构，请使用 `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`。
 
-对于 Azure CLI 部署命令，请使用 [az deployment create](https://docs.azure.cn/zh-cn/cli/deployment?view=azure-cli-latest#az-deployment-create)。
+对于 Azure CLI 部署命令，请使用 [az deployment create](https://docs.azure.cn/zh-cn/cli/deployment?view=azure-cli-latest#az-deployment-create)。 例如，以下 CLI 命令部署模板以创建资源组：
 
-对于 PowerShell 部署命令，请使用 [New-AzureRmDeployment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermdeployment)。
+```azurecli
+az deployment create \
+  --name demoDeployment \
+  --location chinaeast \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json \
+  --parameters rgName=demoResourceGroup rgLocation=chinaeast
+```
 
-## <a name="name-and-location"></a>名称和位置
+对于 PowerShell 部署命令，请使用 [New-AzDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azdeployment)。 例如，以下 PowerShell 命令部署模板以创建资源组：
+
+```azurepowershell
+New-AzDeployment `
+  -Name demoDeployment `
+  -Location chinaeast `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json `
+  -rgName demoResourceGroup `
+  -rgLocation chinaeast
+```
+
+### <a name="deployment-name-and-location"></a>部署名称和位置
 
 部署到订阅时，必须为部署提供位置。 还可以为部署提供名称。 如果没有为部署指定名称，则会将模板的名称用作部署名称。 例如，部署一个名为 **azuredeploy.json** 的模板将创建默认部署名称 **azuredeploy**。
 
 订阅级部署的位置不可改变。 当某个位置中已有某个部署时，无法在另一位置创建同名的部署。 如果出现错误代码 `InvalidDeploymentLocation`，请使用其他名称或使用与该名称的以前部署相同的位置。
 
-## <a name="using-template-functions"></a>使用模板函数
+### <a name="use-template-functions"></a>使用模板函数
 
-对于订阅级部署，在使用模板函数时有一些重要的注意事项：
+对于订阅级别部署，在使用模板函数时有一些重要注意事项：
 
 * 不支持 [resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) 函数。
 * 支持 [resourceId()](resource-group-template-functions-resource.md#resourceid) 函数。 可以使用它获取在订阅级部署中使用的资源的资源 ID。 例如，使用 `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))` 获取策略定义的资源 ID
 * 支持 [reference()](resource-group-template-functions-resource.md#reference) 和 [list()](resource-group-template-functions-resource.md#list) 函数。
 
-## <a name="create-resource-group"></a>创建资源组
+## <a name="create-resource-groups"></a>创建资源组
 
-以下示例创建空的资源组。
+以下模板创建空资源组。
 
 ```json
 {
@@ -85,28 +102,11 @@ ms.locfileid: "54193129"
 }
 ```
 
-若要使用 Azure CLI 部署此模板，请使用：
+模板架构可在 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments) 中找到。
 
-```azurecli
-az deployment create \
-  -n demoEmptyRG \
-  -l chinaeast \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json \
-  --parameters rgName=demoRG rgLocation=chinaeast
-```
+<!--Not Available on The template schema can be found at [here](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.resources/allversions)-->
 
-若要使用 PowerShell 部署此模板，请使用：
-
-```PowerShell
-New-AzureRmDeployment `
-  -Name demoEmptyRG `
-  -Location chinaeast `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json `
-  -rgName demogroup `
-  -rgLocation chinaeast
-```
-
-## <a name="create-several-resource-groups"></a>创建多个资源组
+## <a name="create-multiple-resource-groups"></a>创建多个资源组
 
 结合使用 [copy 元素](resource-group-create-multiple.md)与资源组来创建多个资源组。 
 
@@ -143,29 +143,9 @@ New-AzureRmDeployment `
 }
 ```
 
-若要使用 Azure CLI 部署此模板并创建三个资源组，请使用：
+有关资源迭代的信息，请参阅[在 Azure 资源管理器模板中部署资源或属性的多个实例](./resource-group-create-multiple.md)，以及[教程：使用资源管理器模板创建多个资源实例](./resource-manager-tutorial-create-multiple-instances.md)。
 
-```azurecli
-az deployment create \
-  -n demoCopyRG \
-  -l chinaeast \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/copyRG.json \
-  --parameters rgNamePrefix=demoRG rgLocation=chinaeast instanceCount=3
-```
-
-若要使用 PowerShell 部署此模板，请使用：
-
-```PowerShell
-New-AzureRmDeployment `
-  -Name demoCopyRG `
-  -Location chinaeast `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/copyRG.json `
-  -rgNamePrefix demogroup `
-  -rgLocation chinaeast `
-  -instanceCount 3
-```
-
-## <a name="create-resource-group-and-deploy-resource"></a>创建资源组并部署资源
+## <a name="create-resource-group-and-deploy-resources"></a>创建资源组并部署资源
 
 若要创建资源组并向其部署资源，请使用嵌套模板。 嵌套模板定义要部署到资源组的资源。 将嵌套模板设置为依赖于资源组，确保资源组存在，然后再部署资源。
 
@@ -234,29 +214,9 @@ New-AzureRmDeployment `
 }
 ```
 
-若要使用 Azure CLI 部署此模板，请使用：
+## <a name="create-policies"></a>创建策略
 
-```azurecli
-az deployment create \
-  -n demoRGStorage \
-  -l chinaeast \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/newRGWithStorage.json \
-  --parameters rgName=rgStorage rgLocation=chinaeast storagePrefix=storage
-```
-
-若要使用 PowerShell 部署此模板，请使用：
-
-```PowerShell
-New-AzureRmDeployment `
-  -Name demoRGStorage `
-  -Location chinaeast `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/newRGWithStorage.json `
-  -rgName rgStorage `
-  -rgLocation chinaeast `
-  -storagePrefix storage
-```
-
-## <a name="assign-policy"></a>分配策略
+### <a name="assign-policy"></a>分配策略
 
 以下示例将现有的策略定义分配到订阅。 如果策略使用参数，请将参数作为对象提供。 如果策略不使用参数，请使用默认的空对象。
 
@@ -292,25 +252,25 @@ New-AzureRmDeployment `
 }
 ```
 
-若要向 Azure 订阅应用内置的策略，请使用以下 Azure CLI 命令。 在此示例中，策略没有参数
+若要向 Azure 订阅应用内置策略，请使用以下 Azure CLI 命令：
 
 ```azurecli
 # Built-in policy that does not accept parameters
 definition=$(az policy definition list --query "[?displayName=='Audit resource location matches resource group location'].id" --output tsv)
 
 az deployment create \
-  -n policyassign \
-  -l chinaeast \
+  --name demoDeployment \
+  --location chinaeast \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json \
   --parameters policyDefinitionID=$definition policyName=auditRGLocation
 ```
 
 若要使用 PowerShell 部署此模板，请使用：
 
-```PowerShell
-$definition = Get-AzureRmPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Audit resource location matches resource group location' }
+```azurepowershell
+$definition = Get-AzPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Audit resource location matches resource group location' }
 
-New-AzureRmDeployment `
+New-AzDeployment `
   -Name policyassign `
   -Location chinaeast `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json `
@@ -318,28 +278,28 @@ New-AzureRmDeployment `
   -policyName auditRGLocation
 ```
 
-若要向 Azure 订阅应用内置的策略，请使用以下 Azure CLI 命令。 在此示例中，策略有参数。
+若要向 Azure 订阅应用内置策略，请使用以下 Azure CLI 命令：
 
 ```azurecli
 # Built-in policy that accepts parameters
 definition=$(az policy definition list --query "[?displayName=='Allowed locations'].id" --output tsv)
 
 az deployment create \
-  -n policyassign \
-  -l chinaeast \
+  --name demoDeployment \
+  --location chinaeast \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json \
   --parameters policyDefinitionID=$definition policyName=setLocation policyParameters="{'listOfAllowedLocations': {'value': ['chinanorth']} }"
 ```
 
 若要使用 PowerShell 部署此模板，请使用：
 
-```PowerShell
-$definition = Get-AzureRmPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Allowed locations' }
+```azurepowershell
+$definition = Get-AzPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Allowed locations' }
 
 $locations = @("chinanorth", "chinanorth2")
 $policyParams =@{listOfAllowedLocations = @{ value = $locations}}
 
-New-AzureRmDeployment `
+New-AzDeployment `
   -Name policyassign `
   -Location chinaeast `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json `
@@ -348,11 +308,12 @@ New-AzureRmDeployment `
   -policyParameters $policyParams
 ```
 
-## <a name="define-and-assign-policy"></a>定义和分配策略
+### <a name="define-and-assign-policy"></a>定义和分配策略
 
 可以在同一模板中[定义](../governance/policy/concepts/definition-structure.md)和分配策略。
 
 <!-- URL direct From ../azure-policy/policy-definition.md to ../governance/policy/concepts/definition-structure.md-->
+
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
@@ -394,27 +355,29 @@ New-AzureRmDeployment `
 }
 ```
 
-若要在订阅中创建策略定义，然后将其应用到订阅，请使用以下 CLI 命令。
+若要在订阅中创建策略定义，然后将其应用到订阅，请使用以下 CLI 命令：
 
 ```azurecli
 az deployment create \
-  -n definePolicy \
-  -l chinaeast \
+  --name demoDeployment \
+  --location chinaeast \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json
 ```
 
 若要使用 PowerShell 部署此模板，请使用：
 
-```PowerShell
-New-AzureRmDeployment `
+```azurepowershell
+New-AzDeployment `
   -Name definePolicy `
   -Location chinaeast `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json
 ```
 
-## <a name="assign-role"></a>分配角色
+## <a name="create-roles"></a>创建角色
 
-以下示例向用户或组分配了一个角色。
+### <a name="assign-role-at-subscription"></a>在订阅时分配角色
+
+以下示例将角色分配给订阅的用户或组。 在此示例中，没有为分配指定范围，因为范围自动设置为预订。
 
 ```json
 {
@@ -443,7 +406,7 @@ New-AzureRmDeployment `
 }
 ```
 
-若要向订阅的角色分配 Active Directory 组，请使用以下 Azure CLI 命令。
+若要向订阅的角色分配 Active Directory 组，请使用以下 Azure CLI 命令：
 
 ```azurecli
 # Get ID of the role you want to assign
@@ -453,20 +416,20 @@ role=$(az role definition list --name Contributor --query [].name --output tsv)
 principalid=$(az ad group show --group demogroup --query objectId --output tsv)
 
 az deployment create \
-  -n demoRole \
-  -l chinaeast \
+  --name demoDeployment \
+  --location chinaeast \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/roleassign.json \
   --parameters principalId=$principalid roleDefinitionId=$role
 ```
 
 若要使用 PowerShell 部署此模板，请使用：
 
-```PowerShell
-$role = Get-AzureRmRoleDefinition -Name Contributor
+```azurepowershell
+$role = Get-AzRoleDefinition -Name Contributor
 
-$adgroup = Get-AzureRmADGroup -DisplayName demogroup
+$adgroup = Get-AzADGroup -DisplayName demogroup
 
-New-AzureRmDeployment `
+New-AzDeployment `
   -Name demoRole `
   -Location chinaeast `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/roleassign.json `
@@ -474,7 +437,96 @@ New-AzureRmDeployment `
   -principalId $adgroup.Id
 ```
 
+### <a name="assign-role-at-scope"></a>在作用域分配角色
+
+以下订阅级别模板将角色分配给订阅中作用域为资源组的用户或组。 作用域必须等于或低于部署级别。 你可以部署到订阅并指定作用域为该订阅中资源组的角色分配。 但是，无法部署到资源组并为该订阅指定角色分配作用域。
+
+若要在作用域分配角色，请使用嵌套部署。 请注意，资源组名称均在部署资源的属性和角色分配作用域属性中指定。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.1",
+    "parameters": {
+        "principalId": {
+            "type": "string"
+        },
+        "roleDefinitionId": {
+            "type": "string"
+        },
+        "rgName": {
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-05-01",
+            "name": "assignRole",
+            "resourceGroup": "[parameters('rgName')]",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.Authorization/roleAssignments",
+                            "name": "[guid(parameters('principalId'), deployment().name)]",
+                            "apiVersion": "2017-09-01",
+                            "properties": {
+                                "roleDefinitionId": "[resourceId('Microsoft.Authorization/roleDefinitions', parameters('roleDefinitionId'))]",
+                                "principalId": "[parameters('principalId')]",
+                                "scope": "[concat(subscription().id, '/resourceGroups/', parameters('rgName'))]"
+                            }
+                        }
+                    ],
+                    "outputs": {}
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
+若要向订阅的角色分配 Active Directory 组，请使用以下 Azure CLI 命令：
+
+```azurecli
+# Get ID of the role you want to assign
+role=$(az role definition list --name Contributor --query [].name --output tsv)
+
+# Get ID of the AD group to assign the role to
+principalid=$(az ad group show --group demogroup --query objectId --output tsv)
+
+az deployment create \
+  --name demoDeployment \
+  --location chinaeast \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/scopedRoleAssign.json \
+  --parameters principalId=$principalid roleDefinitionId=$role rgName demoRg
+```
+
+若要使用 PowerShell 部署此模板，请使用：
+
+```azurepowershell
+$role = Get-AzRoleDefinition -Name Contributor
+
+$adgroup = Get-AzADGroup -DisplayName demogroup
+
+New-AzDeployment `
+  -Name demoRole `
+  -Location chinaeast `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/scopedRoleAssign.json `
+  -roleDefinitionId $role.Id `
+  -principalId $adgroup.Id `
+  -rgName demoRg
+```
+
 ## <a name="next-steps"></a>后续步骤
+
 * 若要通过示例来了解如何为 Azure 安全中心部署工作区设置，请参阅 [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json)。
 * 若要了解有关创建 Azure Resource Manager模板的信息，请参阅[创作模板](resource-group-authoring-templates.md)。 
 * 有关模板中的可用函数列表，请参阅[模板函数](resource-group-template-functions.md)。

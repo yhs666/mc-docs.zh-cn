@@ -10,15 +10,15 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/14/2018
-ms.date: 01/21/2019
+origin.date: 01/30/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 938cb4212d34c93388d20264a6bb4ec053dc15ad
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: 67a7a54fc4180027e63a548899b41922cf1a005e
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193039"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306190"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>使用 Resource Manager 模板和 Azure CLI 部署资源
 
@@ -29,6 +29,7 @@ ms.locfileid: "54193039"
 [!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
 <!-- Not Available on Cloud Shell -->
+
 ## <a name="deploy-local-template"></a>部署本地模板
 
 将资源部署到 Azure 时，执行以下操作：
@@ -75,7 +76,9 @@ az group deployment create \
 
 前面的示例要求模板的 URI 可公开访问，它适用于大多数情况，因为模板应该不会包含敏感数据。 如果需要指定敏感数据（如管理员密码），请以安全参数的形式传递该值。 但是，如果不希望模板可公开访问，可以通过将其存储在专用存储容器中来保护它。 若要了解如何部署需要共享访问签名 (SAS) 令牌的模板，请参阅[部署具有 SAS 令牌的专用模板](resource-manager-cli-sas-token.md)。
 
-<!-- Not Available on Cloud Shell --> 在 Azure Shell 中使用以下命令：
+<!-- Not Available on Cloud Shell -->
+
+在 Azure Shell 中使用以下命令：
 
 ```azurecli
 az group create --name examplegroup --location "China East"
@@ -254,5 +257,4 @@ az group deployment validate \
 * 有关部署需要 SAS 令牌的模板的信息，请参阅[使用 SAS 令牌部署专用模板](resource-manager-cli-sas-token.md)。
 
 <!-- Not Available on [Azure Deployment Manager](deployment-manager-overview.md)-->
-
-<!--Update_Description: update meta properties, wording update, update link-->
+<!--Update_Description: update meta properties, wording update-->

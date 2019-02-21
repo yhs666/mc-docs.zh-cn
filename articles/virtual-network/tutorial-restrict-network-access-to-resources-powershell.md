@@ -15,15 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/14/2018
-ms.date: 06/11/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 3cbc32d2b759ae56d47ebf5f3d674bc23f511e63
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b3169a908f7db0d29decb5e7f1eb46a9f801c3e2
+ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645761"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306262"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-powershell"></a>使用 PowerShell 通过虚拟网络服务终结点限制对 PaaS 资源的网络访问
 
@@ -40,7 +40,7 @@ ms.locfileid: "52645761"
 
 <!--[!INCLUDE [cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]-->
 
-如果选择在本地安装并使用 PowerShell，则本文需要 Azure PowerShell 模块 5.4.1 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud ` 以创建与 Azure 的连接。
+如果选择在本地安装并使用 PowerShell，则本文需要 Azure PowerShell 模块 5.4.1 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。
 
 ## <a name="create-a-virtual-network"></a>创建虚拟网络
 
@@ -362,7 +362,7 @@ Get-AzureStorageFile `
   -Context $storageContext
 ```
 
-访问被拒绝，并且会收到 *Get-AzureStorageFile : The remote server returned an error: (403) Forbidden.HTTP Status Code: 403 - HTTP Error Message: This request is not authorized to perform this operation* error, because your computer is not in the *Private* subnet of the *MyVirtualNetwork* virtual network.
+访问被拒绝，并且会收到 *Get-AzureStorageFile：远程服务器返回了错误：(403) 禁止访问。HTTP 状态代码：403 - HTTP 错误消息：此请求无权执行此操作* 错误，因为你的计算机不在 *MyVirtualNetwork* 虚拟网络的 *Private* 子网中。
 
 ## <a name="clean-up-resources"></a>清理资源
 
@@ -377,4 +377,5 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 在本文中，已为虚拟网络子网启用了服务终结点。 我们已了解，可为通过多个 Azure 服务部署的资源启用服务终结点。 我们创建了一个 Azure 存储帐户并将该存储帐户限制为仅可供某个虚拟网络子网中的资源进行网络访问。 若要详细了解服务终结点，请参阅[服务终结点概述](virtual-network-service-endpoints-overview.md)和[管理子网](virtual-network-manage-subnet.md)。
 
 如果帐户中有多个虚拟网络，可将两个虚拟网络连接到一起，使每个虚拟网络中的资源可以相互通信。 若要了解如何操作，请参阅[连接虚拟网络](tutorial-connect-virtual-networks-powershell.md)。
+
 <!-- Update_Description: wording update, update link -->

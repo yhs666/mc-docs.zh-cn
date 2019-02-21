@@ -10,13 +10,13 @@ ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: get-started-article
 origin.date: 08/18/2016
-ms.date: 11/12/2018
-ms.openlocfilehash: 23a0969cf9c10cf7a9e663368ecfae92f898b6c2
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 02/18/2019
+ms.openlocfilehash: 116979d65eec3617e502f595bfd7732b902e2caa
+ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644703"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56303030"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Azure 计划程序的概念、术语和实体
 
@@ -240,7 +240,7 @@ Azure 计划程序支持多个作业类型：
 },
 ```
 
-| 属性 | 必须 | 值 | 说明 | 
+| 属性 | 必须 | Value | 说明 | 
 |----------|----------|-------|-------------| 
 | **frequency** | 是，使用 recurrence 时 | Minute、Hour、Day、Week、Month、Year | 两次作业之间的时间单位 | 
 | **interval** | 否 | 1 - 1000（包含） | 一个正整数，根据频率确定两次作业之间的时间单位数 | 
@@ -270,7 +270,7 @@ Azure 计划程序支持多个作业类型：
 },
 ```
 
-| 属性 | 必须 | 值 | 说明 | 
+| 属性 | 必须 | Value | 说明 | 
 |----------|----------|-------|-------------| 
 | **retryType** | 是 | **Fixed** **None** | 确定是否指定重试策略（固定）或（无）。 | 
 | **retryInterval** | 否 | PT30S | 指定每次重试尝试之间的间隔和频率（[ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)）。 最小值为 15 秒，最大值为 18 个月。 | 
@@ -320,5 +320,5 @@ Azure 计划程序支持多个作业类型：
 * [概念、术语和实体层次结构](scheduler-concepts-terms.md)
 * [构建复杂的计划和高级重复周期](scheduler-advanced-complexity.md)
 * [限制、配额、默认值和错误代码](scheduler-limits-defaults-errors.md)
-* [Azure 计划程序 REST API 参考](https://docs.microsoft.com/rest/api/schedule)
+* [Azure 计划程序 REST API 参考](https://docs.microsoft.com/rest/api/scheduler)
 * [Azure 计划程序 PowerShell cmdlet 参考](scheduler-powershell-reference.md)

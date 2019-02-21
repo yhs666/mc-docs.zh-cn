@@ -11,16 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-origin.date: 09/24/2018
-ms.date: 12/31/2018
+origin.date: 01/14/2019
+ms.date: 02/18/2019
 ms.author: v-jay
-ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: fe73eb779ba574ee1a21efebabd7946facef1c08
-ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
+ms.reviewer: anajod
+ms.lastreviewed: 01/14/2019
+ms.openlocfilehash: 734f6daceb647d740722fe9d81dd3d59ad548e46
+ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814673"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56218287"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>教程：使用 Azure 和 Azure Stack 创建异地分布式应用解决方案
 
@@ -94,7 +95,7 @@ ms.locfileid: "53814673"
 
 ### <a name="obtain-a-custom-domain-and-configure-dns"></a>获取自定义域并配置 DNS
 
-更新 DNS 区域文件，以创建 Web 应用并发布域。 然后，Azure AD 可以验证自定义域名的所有权。 将 [Azure DNS](/dns/dns-getstarted-portal) 用于 Azure 中的 Azure/Office 365/外部 DNS 记录，或在[其他 DNS 注册机构](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/)中添加 DNS 条目。
+更新域的 DNS 区域文件。 然后，Azure AD 可以验证自定义域名的所有权。 将 [Azure DNS](/dns/dns-getstarted-portal) 用于 Azure 中的 Azure/Office 365/外部 DNS 记录，或在[其他 DNS 注册机构](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/)中添加 DNS 条目。
 
 1. 向公共注册机构注册自定义域。
 
@@ -107,7 +108,7 @@ ms.locfileid: "53814673"
 设置混合 CI/CD，以将 Web 应用部署到 Azure 和 Azure Stack，并自动将更改推送到这两个云中。
 
 > [!Note]  
-> 需要在 Azure Stack 上创建适当的合成映像用于运行 Windows Server 和 SQL，并需要部署应用服务。 查看应用服务文档中面向 Azure Stack 操作员的[开始使用 Azure Stack 上的应用服务之前](/azure-stack/azure-stack-app-service-before-you-get-started)部分。
+> 需要在 Azure Stack 上创建适当的合成映像用于运行 Windows Server 和 SQL，并需要部署应用服务。 查看应用服务文档中面向 Azure Stack 操作员的[开始使用 Azure Stack 上的应用服务之前](../azure-stack-app-service-before-you-get-started.md)部分。
 
 #### <a name="add-code-to-azure-repos"></a>向 Azure Repos 中添加代码
 
@@ -115,17 +116,17 @@ ms.locfileid: "53814673"
 
     混合持续集成/持续交付 (CI/CD) 可同时应用到应用程序代码和基础结构代码。 使用 [Azure 资源管理器模板](https://azure.microsoft.com/resources/templates/)进行专用与托管的云开发。
 
-    ![替代文本](media/azure-stack-solution-geo-distributed/image1.JPG)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image1.JPG)
 
 2. 创建并打开默认 Web 应用以**克隆存储库**。
 
-    ![替代文本](media/azure-stack-solution-geo-distributed/image2.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image2.png)
 
 ### <a name="create-web-app-deployment-in-both-clouds"></a>在这两个云中创建 Web 应用部署
 
 1.  编辑 **WebApplication.csproj** 文件：选择“Runtimeidentifier”并添加 **win10-x64**。 （请参阅[独立部署](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)文档。）
 
-    ![替代文本](media/azure-stack-solution-geo-distributed/image3.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image3.png)
 
 1.  使用团队资源管理器**将代码签入到 Azure Repos**。
 
@@ -137,7 +138,7 @@ ms.locfileid: "53814673"
 
 2. 添加 **-r win10-x64** 代码。 在 .Net Core 中触发独立部署时需要此代码。
 
-    ![替代文本](media/azure-stack-solution-geo-distributed/image4.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image4.png)
 
 3. **运行生成**。 [独立部署生成](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)过程将发布可在 Azure 和 Azure Stack 上运行的项目。
 
@@ -152,87 +153,87 @@ Azure DevOps 和 Azure DevOps Server 提供高度可配置、可管理的管道�
 #### <a name="create-release-definition"></a>创建发布定义
 
 
-![替代文本](media/azure-stack-solution-geo-distributed/image5.png)
+![Alt text](media/azure-stack-solution-geo-distributed/image5.png)
 
 1.  在 Visual Studio Online (VSO) 的“生成和发布”页的“发布”选项卡下，选择**加号**按钮以添加新的发布。
 
-    ![替代文本](media/azure-stack-solution-geo-distributed/image6.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image6.png)
 
 2. 应用“Azure 应用服务部署”模板。
 
-    ![替代文本](media/azure-stack-solution-geo-distributed/image7.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image7.png)
 
 3. 在“添加项目”下拉菜单中，为 Azure 云生成应用**添加项目**。
 
-    ![替代文本](media/azure-stack-solution-geo-distributed/image8.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image8.png)
 
 4. 在“管道”选项卡下选择环境的“阶段和任务”链接，并设置 Azure 云环境值。
 
-    ![替代文本](media/azure-stack-solution-geo-distributed/image9.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image9.png)
 
 5. 设置**环境名称**，并选择 Azure 云终结点的 Azure **订阅**。
 
-    ![替代文本](media/azure-stack-solution-geo-distributed/image10.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image10.png)
 
 6. 在“环境名称”下，设置所需的 **Azure 应用服务名称**。
 
-    ![替代文本](media/azure-stack-solution-geo-distributed/image11.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image11.png)
 
 7. 在 Azure 云托管环境的“代理队列”下输入 **Hosted VS2017**。
 
-    ![替代文本](media/azure-stack-solution-geo-distributed/image12.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image12.png)
 
 8. 在“部署 Azure 应用服务”菜单中，为环境选择有效的**包或文件夹**。 选择**文件夹位置**旁边的“确定”。
 
-    ![替代文本](media/azure-stack-solution-geo-distributed/image13.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image13.png)
 
-    ![替代文本](media/azure-stack-solution-geo-distributed/image14.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image14.png)
 
 9. 保存所有更改并返回**发布管道**。
 
-    ![替代文本](media/azure-stack-solution-geo-distributed/image15.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image15.png)
 
 10. 选择 Azure Stack 应用的生成以添加**新项目**。
 
-    ![替代文本](media/azure-stack-solution-geo-distributed/image16.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image16.png)
 
 11. 额外添加一个应用 **Azure 应用服务部署**的环境。
 
-    ![替代文本](media/azure-stack-solution-geo-distributed/image17.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image17.png)
 
 12. 将新环境命名为 **Azure Stack**。
 
-    ![替代文本](media/azure-stack-solution-geo-distributed/image18.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image18.png)
 
 13. 在“任务”选项卡下找到 Azure Stack 环境。
 
-    ![替代文本](media/azure-stack-solution-geo-distributed/image19.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image19.png)
 
 14. 选择 Azure Stack 终结点的**订阅**。
 
-  ![替代文本](media/azure-stack-solution-geo-distributed/image20.png)
+  ![Alt text](media/azure-stack-solution-geo-distributed/image20.png)
 
 15. 将 Azure Stack Web 应用名称设置为**应用服务名称**。
 
-    ![替代文本](media/azure-stack-solution-geo-distributed/image21.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image21.png)
 
 16. 选择“Azure Stack 代理”。
 
-    ![替代文本](media/azure-stack-solution-geo-distributed/image22.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image22.png)
 
 17. 在“部署 Azure 应用服务”部分下，为环境选择有效的**包或文件夹**。 选择**文件夹位置**旁边的“确定”。
 
-    ![替代文本](media/azure-stack-solution-geo-distributed/image23.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image23.png)
 
-    ![替代文本](media/azure-stack-solution-geo-distributed/image24.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image24.png)
 
 18. 在“变量”选项卡下添加名为 `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS` 的变量，将其值设置为 `true`，将范围设置为 `Azure Stack`。
 
-    ![替代文本](media/azure-stack-solution-geo-distributed/image25.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image25.png)
 
 19. 选择两个项目中的“持续”部署触发器图标，并启用“持续”部署触发器。
 
-    ![替代文本](media/azure-stack-solution-geo-distributed/image26.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image26.png)
 
 20. 选择 Azure Stack 环境中的“部署前”条件图标，并将触发器设置为“发布后”。
 
@@ -243,9 +244,9 @@ Azure DevOps 和 Azure DevOps Server 提供高度可配置、可管理的管道�
 
 ## <a name="part-2-update-web-app-options"></a>第 2 部分：更新 Web 应用选项
 
-[Azure Web 应用](/app-service/app-service-web-overview)提供高度可缩放、自修补的 Web 托管服务。 
+[Azure 应用服务](/app-service/overview)提供高度可缩放、自修补的 Web 托管服务。 
 
-![替代文本](media/azure-stack-solution-geo-distributed/image27.png)
+![Alt text](media/azure-stack-solution-geo-distributed/image27.png)
 
 > [!div class="checklist"]
 > - 将现有的自定义 DNS 名称映射到 Azure Web 应用
@@ -256,7 +257,7 @@ Azure DevOps 和 Azure DevOps Server 提供高度可配置、可管理的管道�
 > [!Note]  
 >  对除根域（例如 northwind.com）以外的所有自定义 DNS 名称使用 CNAME。
 
-若要将实时站点及其 DNS 域名迁移到应用服务，请参阅[将活动 DNS 名称迁移到 Azure 应用服务](/app-service/app-service-custom-domain-name-migrate)。
+若要将实时站点及其 DNS 域名迁移到应用服务，请参阅[将活动 DNS 名称迁移到 Azure 应用服务](/app-service/manage-custom-dns-migrate-domain)。
 
 ### <a name="prerequisites"></a>先决条件
 
@@ -348,7 +349,7 @@ Azure DevOps 和 Azure DevOps Server 提供高度可配置、可管理的管道�
 
   新主机名可能需要经过一段时间后才会反映在应用的“自定义域”页中。 请尝试刷新浏览器来更新数据。
   
-  ![替代文本](media/azure-stack-solution-geo-distributed/image31.png) 
+  ![Alt text](media/azure-stack-solution-geo-distributed/image31.png) 
   
   如果发生错误，页面底部会显示验证错误通知。 ![验证错误](media/azure-stack-solution-geo-distributed/image32.png)
 
@@ -492,7 +493,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 应用服务上传完证书后，该证书会显示在“SSL 设置”页面中。
 
-![替代文本](media/azure-stack-solution-geo-distributed/image39.png)
+![Alt text](media/azure-stack-solution-geo-distributed/image39.png)
 
 #### <a name="bind-your-ssl-certificate"></a>绑定 SSL 证书
 
@@ -511,11 +512,11 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
     1.  选择“添加绑定”。
 
-    ![替代文本](media/azure-stack-solution-geo-distributed/image40.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image40.png)
 
 应用服务上传完证书后，该证书将显示在“SSL 绑定”部分。
 
-![替代文本](media/azure-stack-solution-geo-distributed/image41.png)
+![Alt text](media/azure-stack-solution-geo-distributed/image41.png)
 
 #### <a name="remap-the-a-record-for-ip-ssl"></a>重新映射 IP SSL 的 A 记录
 
@@ -531,7 +532,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 在不同的浏览器中浏览到 https://<your.custom.domain>，以确保可以访问 Web 应用。
 
-![替代文本](media/azure-stack-solution-geo-distributed/image42.png)
+![Alt text](media/azure-stack-solution-geo-distributed/image42.png)
 
 > [!Note]  
 > 如果发生证书验证错误，原因可能是自签名证书所致，或者在导出到 PFX 文件时遗漏了中间证书。
@@ -580,7 +581,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
     7.  流量管理器配置文件的全局部署完成后，它会在相应的资源组中作为资源之一列出。
 
-    ![替代文本](media/azure-stack-solution-geo-distributed/image45.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image45.png)
 
 ### <a name="add-traffic-manager-endpoints"></a>添加流量管理器终结点
 
@@ -623,7 +624,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 1.  添加完这两个终结点后，这两个终结点会显示在“流量管理器配置文件”中，并且其监视状态为“联机”。
 
-  ![替代文本](media/azure-stack-solution-geo-distributed/image46.png)
+  ![Alt text](media/azure-stack-solution-geo-distributed/image46.png)
 
 **全球企业依赖于 Azure 异地分布功能**
 

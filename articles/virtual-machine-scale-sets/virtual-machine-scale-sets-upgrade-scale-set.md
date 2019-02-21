@@ -14,16 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/14/2018
-ms.date: 11/30/2018
+ms.date: 02/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: 199fa9d90c326a17a3b84618a5186b53f038332d
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 908f8f6c2d593062885e33ae7560d12595d679e3
+ms.sourcegitcommit: 24dd5964eafbe8aa4badbca837c2a1a7836f2df7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672772"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56101599"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>修改虚拟机规模集
+
 在应用程序的整个生命周期内，你可能需要修改或更新你的虚拟机规模集。 这些更新可能包括更新规模集的配置，或更改应用程序配置。 本文介绍了如何使用 REST API、Azure PowerShell 或 Azure CLI 修改现有规模集。
 
 ## <a name="fundamental-concepts"></a>基本概念
@@ -37,13 +38,13 @@ ms.locfileid: "52672772"
     GET https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version={apiVersion}
     ```
 
-- 通过 Azure PowerShell 使用 [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss)：
+- 通过 Azure PowerShell 使用 [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss)：
 
     ```powershell
-    Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
+    Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
     ```
 
-- 通过 Azure CLI 使用 [az vmss show](/cli/vmss#az_vmss_show)：
+- 通过 Azure CLI 使用 [az vmss show](/cli/vmss)：
 
     ```azurecli
     az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -81,13 +82,13 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
     GET https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/instanceView?api-version={apiVersion}
     ```
 
-- 通过 Azure PowerShell 使用 [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss)：
+- 通过 Azure PowerShell 使用 [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss)：
 
     ```powershell
-    Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceView
+    Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceView
     ```
 
-- 通过 Azure CLI 使用 [az vmss get-instance-view](/cli/vmss#az_vmss_get_instance_view)：
+- 通过 Azure CLI 使用 [az vmss get-instance-view](/cli/vmss)：
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
@@ -135,13 +136,13 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
     GET https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/virtualmachines/instanceId?api-version={apiVersion}
     ```
 
-- 通过 Azure PowerShell 使用 [Get-AzureRmVmssVm](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmssvm)：
+- 通过 Azure PowerShell 使用 [Get-AzVmssVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvmssvm)：
 
     ```powershell
-    Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
+    Get-AzVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
     ```
 
-- 通过 Azure CLI 使用 [az vmss show](/cli/vmss#az_vmss_show)：
+- 通过 Azure CLI 使用 [az vmss show](/cli/vmss)：
 
     ```azurecli
     az vmss show --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -175,13 +176,13 @@ $ az vmss show --resource-group myResourceGroup --name myScaleSet
     GET https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/virtualmachines/instanceId/instanceView?api-version={apiVersion}
     ```
 
-- 通过 Azure PowerShell 使用 [Get-AzureRmVmssVm](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmssvm)：
+- 通过 Azure PowerShell 使用 [Get-AzVmssVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvmssvm)：
 
     ```powershell
-    Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -InstanceView
+    Get-AzVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -InstanceView
     ```
 
-- 通过 Azure CLI 使用 [az vmss get-instance-view](/cli/vmss#az_vmss_get_instance_view)
+- 通过 Azure CLI 使用 [az vmss get-instance-view](/cli/vmss)
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -254,13 +255,13 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 
 - 可以使用 REST API 中的属性部署资源管理器模板，以便更新全局规模集属性。
 
-- 通过 Azure PowerShell 使用 [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss)：
+- 通过 Azure PowerShell 使用 [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss)：
 
     ```powershell
-    Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -VirtualMachineScaleSet {scaleSetConfigPowershellObject}
+    Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -VirtualMachineScaleSet {scaleSetConfigPowershellObject}
     ```
 
-- 通过 Azure CLI 使用 [az vmss update](/cli/vmss#az_vmss_update)：
+- 通过 Azure CLI 使用 [az vmss update](/cli/vmss)：
     - 修改属性：
 
         ```azurecli
@@ -301,13 +302,13 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
     POST https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/manualupgrade?api-version={apiVersion}
     ```
 
-- 通过 Azure PowerShell 使用 [Update-AzureRmVmssInstance](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmssinstance)：
+- 通过 Azure PowerShell 使用 [Update-AzVmssInstance](https://docs.microsoft.com/powershell/module/az.compute/update-azvmssinstance)：
     
     ```powershell
-    Update-AzureRmVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
+    Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
     ```
 
-- 通过 Azure CLI 使用 [az vmss update-instances](/cli/vmss#az_vmss_update_instances)
+- 通过 Azure CLI 使用 [az vmss update-instances](/cli/vmss)
 
     ```azurecli
     az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids {instanceIds}
@@ -326,13 +327,13 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
     POST https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/reimage?api-version={apiVersion}
     ```
 
-- 通过 Azure PowerShell 使用 [Set-AzureRmVmssVm](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmssvm)：
+- 通过 Azure PowerShell 使用 [Set-AzVmssVm](https://docs.microsoft.com/powershell/module/az.compute/set-azvmssvm)：
 
     ```powershell
-    Set-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
+    Set-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
     ```
 
-- 通过 Azure CLI 使用 [az vmss reimage](/cli/vmss#az_vmss_reimage)：
+- 通过 Azure CLI 使用 [az vmss reimage](/cli/vmss)：
 
     ```azurecli
     az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -386,13 +387,13 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 ### <a name="update-the-os-image-for-your-scale-set"></a>更新规模集的 OS 映像
 你可能具有运行旧版 Ubuntu LTS 16.04 的规模集。 你希望将其更新到新版 Ubuntu LTS 16.04，例如版本 *16.04.201801090*。 映像引用版本属性不是列表的一部分，因此可以使用下列命令之一直接修改这些属性：
 
-- 如下所示通过 Azure PowerShell 使用 [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss)：
+- 如下所示，通过 Azure PowerShell 使用 [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss)：
 
     ```powershell
-    Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -ImageReferenceVersion 16.04.201801090
+    Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -ImageReferenceVersion 16.04.201801090
     ```
 
-- 通过 Azure CLI 使用 [az vmss update](/cli/vmss#az_vmss_update_instances)：
+- 通过 Azure CLI 使用 [az vmss update](/cli/vmss)：
 
     ```azurecli
     az vmss update --resource-group myResourceGroup --name myScaleSet --set virtualMachineProfile.storageProfile.imageReference.version=16.04.201801090
@@ -400,16 +401,16 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 
 或者，你可能想要更改规模集使用的映像。 例如，你可能想要更新或更改规模集使用的自定义映像。 可以通过更新“映像引用 ID”属性来更改规模集使用的映像。 “映像引用 ID”属性不是列表的一部分，因此可以使用下列命令之一直接修改该属性：
 
-- 如下所示通过 Azure PowerShell 使用 [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss)：
+- 如下所示，通过 Azure PowerShell 使用 [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss)：
 
     ```powershell
-    Update-AzureRmVmss `
+    Update-AzVmss `
         -ResourceGroupName "myResourceGroup" `
         -VMScaleSetName "myScaleSet" `
         -ImageReferenceId /subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myNewImage
     ```
 
-- 通过 Azure CLI 使用 [az vmss update](/cli/vmss#az_vmss_update_instances)：
+- 通过 Azure CLI 使用 [az vmss update](/cli/vmss)：
 
     ```azurecli
     az vmss update `
@@ -426,16 +427,16 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 
     ```powershell
     # Get the current model of the scale set and store it in a local PowerShell object named $vmss
-    $vmss=Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
+    $vmss=Get-AzVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
     
-    # Create a local PowerShell object for the new desired IP configuration, which includes the referencerence to the application gateway
-    $ipconf = New-AzureRmVmssIPConfig "myNic" -ApplicationGatewayBackendAddressPoolsId /subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendAddressPoolName} -SubnetId $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Subnet.Id -Name $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Name
+    # Create a local PowerShell object for the new desired IP configuration, which includes the reference to the application gateway
+    $ipconf = New-AzVmssIPConfig "myNic" -ApplicationGatewayBackendAddressPoolsId /subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendAddressPoolName} -SubnetId $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Subnet.Id -Name $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Name
     
     # Replace the existing IP configuration in the local PowerShell object (which contains the references to the current Azure Load Balancer) with the new IP configuration
     $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0] = $ipconf
     
     # Update the model of the scale set with the new configuration in the local PowerShell object
-    Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -virtualMachineScaleSet $vmss
+    Update-AzVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -virtualMachineScaleSet $vmss
     ```
 
 - Azure CLI：
@@ -458,4 +459,4 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 ## <a name="next-steps"></a>后续步骤
 还可以使用 [Azure CLI](virtual-machine-scale-sets-manage-cli.md) 或 [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md) 对规模集执行常见的管理任务。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code and link update -->
