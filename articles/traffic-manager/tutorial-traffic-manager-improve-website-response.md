@@ -1,29 +1,25 @@
 ---
-title: 教程 - 使用 Azure 流量管理器路由流量以改善网站响应 | Azure
+title: 教程 - 使用 Azure 流量管理器路由流量以改善网站响应
 description: 本教程文章介绍如何创建流量管理器配置文件，以生成具有高响应能力的网站。
 services: traffic-manager
-documentationcenter: ''
 author: rockboyfor
-manager: digimobile
-editor: ''
 Customer intent: As an IT Admin, I want to route traffic so I can improve website response by choosing the endpoint with lowest latency.
-ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/23/2018
-ms.date: 11/12/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: c976c8bf9128b1b6e4d822fb27512a8be13139a1
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 55ba40ac23cd57cdbd3bcff92dcdd73c40ec865b
+ms.sourcegitcommit: e32c8da268002b94c500131bb361fd6afc85ce9f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650814"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306732"
 ---
-# <a name="tutorial-improve-website-response-using-traffic-manager"></a>教程：使用流量管理器改善网站响应 
+# <a name="tutorial-improve-website-response-using-traffic-manager"></a>教程：使用流量管理器改善网站响应
 
 本教程介绍如何使用流量管理器创建具有高响应能力的网站，并以较低的延迟将用户流量定向到该网站。 通常，地理距离最短的数据中心的延迟最低。
 
@@ -43,9 +39,10 @@ ms.locfileid: "52650814"
 为了查看流量管理器的运作方式，本教程要求部署以下各项：
 - 在不同 Azure 区域（“中国东部”和“中国北部”）运行的基本网站的两个实例。
 - 用于测试流量管理器的两个测试 VM - 一个 VM 位于“中国东部”，另一个 VM 位于“中国北部”。 测试 VM 用于演示流量管理器如何将用户流量路由到同一区域中运行的网站，并提供最低的延迟。
+
 <!--Notice: US East map China East, Europe West map China North-->
 
-### <a name="sign-in-to-azure"></a>登录 Azure 
+### <a name="sign-in-to-azure"></a>登录 Azure
 
 通过 https://portal.azure.cn 登录到 Azure 门户。
 
@@ -98,21 +95,21 @@ ms.locfileid: "52650814"
 本部分介绍如何在 *myIISVMChinaEast* 和 *myIISVMChinaNorth* 这两个 VM 上安装 IIS 服务器，然后如何更新默认网站页面。 自定义网站页面显示从 Web 浏览器访问网站时要连接到的 VM 的名称。
 
 1. 在左侧菜单中选择“所有资源”，然后在资源列表中，单击位于 *myResourceGroupTM1* 资源组中的“myIISVMChinaEast”。
-2. 在“概述”页上单击“连接”，然后在“连接到虚拟机”中选择“下载 RDP 文件”。 
-3. 打开下载的 rdp 文件。 出现提示时，选择“连接”。 输入在创建 VM 时指定的用户名和密码。 可能需要选择“更多选择”，然后选择“使用其他帐户”，以指定在创建 VM 时输入的凭据。 
+2. 在“概述”页上单击“连接”，然后在“连接到虚拟机”中选择“下载 RDP 文件”。
+3. 打开下载的 rdp 文件。 出现提示时，选择“连接”。 输入在创建 VM 时指定的用户名和密码。 可能需要选择“更多选择”，然后选择“使用其他帐户”，以指定在创建 VM 时输入的凭据。
 4. 选择“确定” 。
 5. 你可能会在登录过程中收到证书警告。 如果收到警告，请选择“是”或“继续”以继续连接。
 6. 在服务器桌面上导航到“Windows 管理工具”>“服务器管理器”。
 7. 在 VM1 上启动 Windows PowerShell 并使用以下命令安装 IIS 服务器并更新默认的 htm 文件。
-    ```PowerShell
+    ```powershell
     # Install IIS
-      Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
     # Remove default htm file
-     remove-item  C:\inetpub\wwwroot\iisstart.htm
+    remove-item C:\inetpub\wwwroot\iisstart.htm
 
     #Add custom htm file
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
+    Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
     ```
 
      ![安装 IIS 并自定义网页](./media/tutorial-traffic-manager-improve-website-response/deployiis.png)
@@ -129,6 +126,7 @@ ms.locfileid: "52650814"
 4. 针对位于 *myResourceGroupTM2* 资源组中名为 *myIISVMChinaNorth* 的 VM 重复步骤 1-3。
 
 <!--Notice: myIISVMChinaNorth map to myResourceGroupTM2-->
+
 ### <a name="create-test-vms"></a>创建测试 VM
 
 本部分介绍如何在每个 Azure 区域（“中国东部”和“中国北部”）创建一个 VM（*myIISVMChinaEast* 和 *myIISVMChinaNorth*）。 稍后将使用这些 VM 来测试当你浏览到该网站时，流量管理器如何将流量路由到最近的 IIS 服务器。
@@ -177,7 +175,7 @@ ms.locfileid: "52650814"
     | 路由方法          | 选择“性能”路由方法。                                       |
     | 订阅            | 选择订阅。                          |
     | 资源组          | 选择“新建”，然后输入 *myResourceGroupTM1*。 |
-    | 位置                | 选择“中国东部”。  此设置指的是资源组的位置，对将全局部署的流量管理器配置文件没有影响。                              |
+    | 位置                | 选择“中国东部”。 此设置指的是资源组的位置，对将全局部署的流量管理器配置文件没有影响。                              |
     |
 
     ![创建流量管理器配置文件](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-profile.png)
@@ -199,7 +197,7 @@ ms.locfileid: "52650814"
     |        |           |
 
 4. 重复步骤 2 和 3，为名为 *myIISVMChinaNorth* 的 IIS 服务器 VM 所关联的公共 IP 地址 *myIISVMChinaNorth-ip* 添加名为 *myChinaNorthEndpoint* 的另一个终结点。
-5.  添加完这两个终结点后，这两个终结点会显示在“流量管理器配置文件”中，并且其监视状态为“联机”。
+5. 添加完这两个终结点后，这两个终结点会显示在“流量管理器配置文件”中，并且其监视状态为“联机”。
 
     ![添加流量管理器终结点](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-endpoint.png)
 
@@ -211,31 +209,34 @@ ms.locfileid: "52650814"
     - 在位于“中国北部”区域的测试 VM (*myVMChinaNorth*) 上，通过 Web 浏览器浏览到流量管理器配置文件的 DNS 名称。
 
 ### <a name="determine-dns-name-of-traffic-manager-profile"></a>确定流量管理器配置文件的 DNS 名称
-在本教程中，为简单起见，我们将使用流量管理器配置文件的 DNS 名称来访问网站。 
+在本教程中，为简单起见，我们将使用流量管理器配置文件的 DNS 名称来访问网站。
 
 可按如下所述确定流量管理器配置文件的 DNS 名称：
 
-1.  在门户的搜索栏中，搜索在前面部分中创建的**流量管理器配置文件**名称。 在显示的结果中，单击流量管理器配置文件。
+1. 在门户的搜索栏中，搜索在前面部分中创建的**流量管理器配置文件**名称。 在显示的结果中，单击流量管理器配置文件。
 1. 单击“概览”。
 2. “流量管理器配置文件”会显示新建的流量管理器配置文件的 DNS 名称。 在生产部署中，可以使用 DNS CNAME 记录配置一个指向流量管理器域名的虚构域名。
 
    ![流量管理器 DNS 名称](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-dns-name.png)
 
 ### <a name="view-traffic-manager-in-action"></a>查看正在运行的流量管理器
-在本部分，我们可以查看流量管理器的运作方式。 
+在本部分，我们可以查看流量管理器的运作方式。
 
 1. 在左侧菜单中选择“所有资源”，然后在资源列表中，单击位于 *myResourceGroupTM1* 资源组中的“myVMChinaEast”。
-2. 在“概述”页上单击“连接”，然后在“连接到虚拟机”中选择“下载 RDP 文件”。 
-3. 打开下载的 rdp 文件。 出现提示时，选择“连接”。 输入在创建 VM 时指定的用户名和密码。 可能需要选择“更多选择”，然后选择“使用其他帐户”，以指定在创建 VM 时输入的凭据。 
+2. 在“概述”页上单击“连接”，然后在“连接到虚拟机”中选择“下载 RDP 文件”。
+3. 打开下载的 rdp 文件。 出现提示时，选择“连接”。 输入在创建 VM 时指定的用户名和密码。 可能需要选择“更多选择”，然后选择“使用其他帐户”，以指定在创建 VM 时输入的凭据。
 4. 选择“确定” 。
-5. 你可能会在登录过程中收到证书警告。 如果收到警告，请选择“是”或“继续”以继续连接。 
+5. 你可能会在登录过程中收到证书警告。 如果收到警告，请选择“是”或“继续”以继续连接。
 1. 在 VM *myVMChinaEast* 上的 Web 浏览器中，键入流量管理器配置文件的 DNS 名称，以查看网站。 由于 VM 位于“中国东部”，因此你将路由到位于“中国东部”的最近 IIS 服务器 *myIISVMChinaEast* 上托管的最近网站。
 
-   ![测试流量管理器配置文件](./media/tutorial-traffic-manager-improve-website-response/eastus-traffic-manager-test.png)<!--Notice: should be eastus-traffic-manager-test.png-->
+   ![测试流量管理器配置文件](./media/tutorial-traffic-manager-improve-website-response/eastus-traffic-manager-test.png)
     
-2. 接下来，使用步骤 1-5 连接到位于“中国北部”的 VM *myVMChinaNorth*，然后从此 VM 浏览到流量管理器配置文件域名。  由于 VM 位于“中国北部”，因此，现在你会路由到位于“中国北部”的最近 IIS 服务器 *myIISVMChinaNorth* 上托管的网站。 
+    <!--Notice: should be eastus-traffic-manager-test.png-->
+    
+2. 接下来，使用步骤 1-5 连接到位于“中国北部”的 VM *myVMChinaNorth*，然后从此 VM 浏览到流量管理器配置文件域名。 由于 VM 位于“中国北部”，因此，现在你会路由到位于“中国北部”的最近 IIS 服务器 *myIISVMChinaNorth* 上托管的网站。
 
    ![测试流量管理器配置文件](./media/tutorial-traffic-manager-improve-website-response/westeurope-traffic-manager-test.png)
+   
    <!--Notice: should be westeurope-traffic-manager-test.png-->
 
 ## <a name="delete-the-traffic-manager-profile"></a>删除流量管理器配置文件
@@ -246,4 +247,4 @@ ms.locfileid: "52650814"
 > [!div class="nextstepaction"]
 > [将流量分配到一组终结点](traffic-manager-configure-weighted-routing-method.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: wording update, wording update -->
