@@ -13733,7 +13733,43 @@
       "source_path": "articles/azure-stack/azure-stack-vpn-gateway-settings.md",
       "redirect_url": "/azure-stack/user/azure-stack-vpn-gateway-settings",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-advanced-threat-protection.md",
+      "redirect_url": "/sql-database/sql-database-advanced-data-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-faq.md",
+      "redirect_url": "/sql-database/sql-database-technical-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-get-started-portal.md",
+      "redirect_url": "/sql-database/sql-database-single-database-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-get-started-portal-firewall.md",
+      "redirect_url": "/sql-database/sql-database-server-level-firewall-rule",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-libraries.md",
+      "redirect_url": "/sql-database/sql-database-connect-query#libraries",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-logical-servers.md",
+      "redirect_url": "/sql-database/sql-database-servers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-resource-limits-logical-server.md",
+      "redirect_url": "/sql-database/sql-database-resource-limits-database-server",
+      "redirect_document_id": false
     }
+
     
 
 
