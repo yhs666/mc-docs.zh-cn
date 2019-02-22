@@ -13768,7 +13768,42 @@
       "source_path": "articles/sql-database/sql-database-resource-limits-logical-server.md",
       "redirect_url": "/sql-database/sql-database-resource-limits-database-server",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/data-lake-storage-quickstart-create-connect-hdi-cluster.md",
+      "redirect_url": "/hdinsight/hdinsight-hadoop-provision-linux-clusters",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-manage-with-automation.md",
+      "redirect_url": "/storage/blobs/storage-blobs-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/blobs/storage-data-lake-storage-access-control.md",
+      "redirect_url": "/storage/blobs/data-lake-storage-access-control",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md",
+      "redirect_url": "/storage/blobs/storage-troubleshoot-vhds",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/storage-how-to-use-blobs-powershell.md",
+      "redirect_url": "/storage/blobs/storage-quickstart-blobs-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-moving-data.md",
+      "redirect_url": "/storage/common/storage-choose-data-transfer-solution",
+      "redirect_document_id": true
     }
+
+
+
+
+
 
     
 
